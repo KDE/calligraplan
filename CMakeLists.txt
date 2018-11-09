@@ -281,17 +281,6 @@ set_package_properties(KF5CalendarCore PROPERTIES
 )
 
 ##
-## Test for KF5Contacts
-##
-find_package(KF5Contacts CONFIG QUIET)
-set_package_properties(KF5Contacts PROPERTIES
-    DESCRIPTION "KDE Address book Library"
-    URL "https://www.kde.org/"
-    PURPOSE "Required for address book support"
-    TYPE OPTIONAL
-)
-
-##
 ## Test for KF5AkonadiContact
 ##
 find_package(KF5AkonadiContact CONFIG QUIET)
@@ -301,18 +290,6 @@ set_package_properties(KF5AkonadiContact PROPERTIES
     PURPOSE "Required for address book support"
     TYPE OPTIONAL
 )
-
-##
-## Test for KF5AkonadiCore
-##
-# find_package(KF5Akonadi CONFIG QUIET)
-# set_package_properties(KF5Akonadi PROPERTIES
-#     DESCRIPTION "Library for general Access to Akonadi"
-#     URL "https://www.kde.org/"
-#     PURPOSE "Optionally used by Plan"
-#     TYPE OPTIONAL
-# )
-
 
 if(WIN32)
     set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}
