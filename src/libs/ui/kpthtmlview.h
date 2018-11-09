@@ -20,7 +20,7 @@
 #ifndef KPTHTMLVIEW_H
 #define KPTHTMLVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 
@@ -36,7 +36,7 @@ namespace KPlato
 {
 
 
-class KPLATOUI_EXPORT HtmlView : public ViewBase
+class PLANUI_EXPORT HtmlView : public ViewBase
 {
     Q_OBJECT
 public:

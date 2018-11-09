@@ -20,7 +20,7 @@
 #ifndef KPTRESOURCEEDITOR_H
 #define KPTRESOURCEEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <kptviewbase.h>
 #include <kptresourcemodel.h>
@@ -39,7 +39,7 @@ class Resource;
 class ResourceGroup;
 
 
-class KPLATOUI_EXPORT ResourceTreeView : public DoubleTreeViewBase
+class PLANUI_EXPORT ResourceTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -59,7 +59,7 @@ protected Q_SLOTS:
     void slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
 };
 
-class KPLATOUI_EXPORT ResourceEditor : public ViewBase
+class PLANUI_EXPORT ResourceEditor : public ViewBase
 {
     Q_OBJECT
 public:

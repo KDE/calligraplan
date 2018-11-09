@@ -16,7 +16,7 @@ endif ()
 
 ########### KPlato data models library ###############
 
-set(kplatomodels_LIB_SRCS
+set(planmodels_LIB_SRCS
     reportgenerator/ReportGenerator.cpp
     reportgenerator/ReportGeneratorOdt.cpp
 
@@ -48,12 +48,12 @@ set(kplatomodels_LIB_SRCS
     kpttaskcompletedelegate.cpp
 )
 
-add_library(kplatomodels SHARED ${kplatomodels_LIB_SRCS})
-generate_export_header(kplatomodels)
+add_library(planmodels SHARED ${planmodels_LIB_SRCS})
+generate_export_header(planmodels)
 
-target_link_libraries(kplatomodels
+target_link_libraries(planmodels
     PUBLIC
-        kplatokernel
+        plankernel
         planodf
         KChart
         KGantt
@@ -63,10 +63,10 @@ target_link_libraries(kplatomodels
         KF5::TextWidgets
 )
 if(KF5Contacts_FOUND)
-    target_link_libraries(kplatomodels  PRIVATE KF5::Contacts)
+    target_link_libraries(planmodels  PRIVATE KF5::Contacts)
 endif()
 
-set_target_properties(kplatomodels PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
+set_target_properties(planmodels PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS kplatomodels ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS planmodels ${INSTALL_TARGETS_DEFAULT_ARGS})
 

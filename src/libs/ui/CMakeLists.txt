@@ -31,7 +31,7 @@ if (PLAN_USE_KREPORT)
 
 endif()
 
-set(kplatoui_LIB_SRCS
+set(planui_LIB_SRCS
     ${planreports_LIB_SRC}
 
     Help.cpp
@@ -102,7 +102,7 @@ set(kplatoui_LIB_SRCS
     ResourceAllocationView.cpp
 )
 
-ki18n_wrap_ui(kplatoui_LIB_SRCS
+ki18n_wrap_ui(planui_LIB_SRCS
     ${planreports_ui_LIB_SRCS}
 
     welcome/WelcomeView.ui
@@ -146,13 +146,13 @@ ki18n_wrap_ui(kplatoui_LIB_SRCS
     locale/localemon.ui
 )
 
-add_library(kplatoui SHARED ${kplatoui_LIB_SRCS})
-generate_export_header(kplatoui)
+add_library(planui SHARED ${planui_LIB_SRCS})
+generate_export_header(planui)
 
-target_link_libraries(kplatoui
+target_link_libraries(planui
     PUBLIC
         planmain
-        kplatomodels
+        planmodels
         KF5::KHtml
     PRIVATE
         KChart
@@ -163,16 +163,16 @@ target_link_libraries(kplatoui
 #         Qt5::Sql
 )
 if (PLAN_USE_KREPORT)
-    target_link_libraries(kplatoui PUBLIC KReport PRIVATE KPropertyWidgets)
+    target_link_libraries(planui PUBLIC KReport PRIVATE KPropertyWidgets)
 endif()
 
 if(KF5AkonadiContact_FOUND)
-    target_link_libraries(kplatoui  PRIVATE KF5::AkonadiContact)
+    target_link_libraries(planui  PRIVATE KF5::AkonadiContact)
 endif()
 
-set_target_properties(kplatoui PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
+set_target_properties(planui PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS kplatoui ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS planui ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 # reports files
 install(FILES

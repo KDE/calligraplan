@@ -21,7 +21,7 @@
 #ifndef KPTRELATIONDIALOG_H
 #define KPTRELATIONDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_relationpanel.h"
 #include <KoDialog.h>
@@ -45,7 +45,7 @@ public:
     explicit RelationPanel(QWidget *parent = 0);
 };
 
-class KPLATOUI_EXPORT AddRelationDialog : public KoDialog
+class PLANUI_EXPORT AddRelationDialog : public KoDialog
 {
     Q_OBJECT
 public:
@@ -72,7 +72,7 @@ protected:
 };
 
 
-class KPLATOUI_EXPORT ModifyRelationDialog : public AddRelationDialog
+class PLANUI_EXPORT ModifyRelationDialog : public AddRelationDialog
 {
     Q_OBJECT
 public:

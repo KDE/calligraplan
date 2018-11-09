@@ -20,7 +20,7 @@
 #ifndef KPTWBSDEFINITIONPANEL_H
 #define KPTWBSDEFINITIONPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptwbsdefinitionpanelbase.h"
 

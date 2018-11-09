@@ -21,7 +21,7 @@
 #ifndef KPTACCOUNTSMODEL_H
 #define KPTACCOUNTSMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <kptitemmodelbase.h>
 #include "kpteffortcostmap.h"
@@ -34,7 +34,7 @@ class Account;
 class ScheduleManager;
 class AccountItemModel;
 
-class KPLATOMODELS_EXPORT AccountModel : public QObject
+class PLANMODELS_EXPORT AccountModel : public QObject
 {
     Q_OBJECT
     Q_ENUMS( Properties )
@@ -61,7 +61,7 @@ private:
     Project *m_project;
 };
 
-class KPLATOMODELS_EXPORT AccountItemModel : public ItemModelBase
+class PLANMODELS_EXPORT AccountItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
@@ -108,7 +108,7 @@ private:
 };
 
 //---------------
-class KPLATOMODELS_EXPORT CostBreakdownItemModel : public ItemModelBase
+class PLANMODELS_EXPORT CostBreakdownItemModel : public ItemModelBase
 {
     Q_OBJECT
     Q_ENUMS( Properties )

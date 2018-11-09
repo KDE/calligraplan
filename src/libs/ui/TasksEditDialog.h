@@ -20,7 +20,7 @@
 #ifndef TASKSEDITDIALOGWIDGET_H
 #define TASKSEDITDIALOGWIDGET_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <kpagedialog.h>
 
@@ -42,7 +42,7 @@ class MacroCommand;
 /**
  * The dialog that shows and allows you to alter any task.
  */
-class KPLATOUI_EXPORT TasksEditDialog : public KPageDialog {
+class PLANUI_EXPORT TasksEditDialog : public KPageDialog {
     Q_OBJECT
 public:
     /**

@@ -20,7 +20,7 @@
 #ifndef KPTWORKPACKAGESENDDIALOG_H
 #define KPTWORKPACKAGESENDDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <KoDialog.h>
 
@@ -32,7 +32,7 @@ class WorkPackageSendPanel;
 class Node;
 class ScheduleManager;
 
-class KPLATOUI_EXPORT WorkPackageSendDialog : public KoDialog
+class PLANUI_EXPORT WorkPackageSendDialog : public KoDialog
 {
     Q_OBJECT
 public:

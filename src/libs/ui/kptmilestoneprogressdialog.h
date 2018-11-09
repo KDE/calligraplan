@@ -20,7 +20,7 @@
 #ifndef KPTMILESTONEPROGRESSDIALOG_H
 #define KPTMILESTONEPROGRESSDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <KoDialog.h>
 
@@ -33,7 +33,7 @@ class Task;
 class Node;
 class MacroCommand;
 
-class KPLATOUI_EXPORT MilestoneProgressDialog : public KoDialog {
+class PLANUI_EXPORT MilestoneProgressDialog : public KoDialog {
     Q_OBJECT
 public:
     explicit MilestoneProgressDialog(Task &task, QWidget *parent=0);

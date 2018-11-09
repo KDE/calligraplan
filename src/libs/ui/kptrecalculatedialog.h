@@ -20,7 +20,7 @@
 #ifndef KPTRECALCULATEDIALOG_H
 #define KPTRECALCULATEDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptrecalculatedialog.h"
 
@@ -37,7 +37,7 @@ public:
 
 };
 
-class KPLATOUI_EXPORT RecalculateDialog : public KoDialog
+class PLANUI_EXPORT RecalculateDialog : public KoDialog
 {
     Q_OBJECT
 public:

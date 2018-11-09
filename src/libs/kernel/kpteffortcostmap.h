@@ -32,7 +32,7 @@
 namespace KPlato
 {
 
-class KPLATOKERNEL_EXPORT EffortCost
+class PLANKERNEL_EXPORT EffortCost
 {
 public:
     EffortCost()
@@ -79,7 +79,7 @@ private:
 };
 
 typedef QMap<QDate, EffortCost> EffortCostDayMap;
-class KPLATOKERNEL_EXPORT EffortCostMap
+class PLANKERNEL_EXPORT EffortCostMap
 {
 public:
     EffortCostMap()
@@ -299,9 +299,9 @@ Q_DECLARE_METATYPE( KPlato::EffortCost )
 Q_DECLARE_METATYPE( KPlato::EffortCostMap )
 
 #ifndef QT_NO_DEBUG_STREAM
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::EffortCost &ec );
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::EffortCost *ec );
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::EffortCostMap &i );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::EffortCost &ec );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::EffortCost *ec );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::EffortCostMap &i );
 #endif
 
 #endif

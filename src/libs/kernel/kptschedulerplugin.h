@@ -20,7 +20,7 @@
 #ifndef KPTSCHEDULERPLUGIN_H
 #define KPTSCHEDULERPLUGIN_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include "kptschedule.h"
 
@@ -60,7 +60,7 @@ class XMLLoaderObject;
  When the thread has finished scheduling, data can be fetched from its temporary project
  into the real project by calling the updateProject() method.
 */
-class KPLATOKERNEL_EXPORT SchedulerPlugin : public QObject
+class PLANKERNEL_EXPORT SchedulerPlugin : public QObject
 {
     Q_OBJECT
 public:
@@ -150,7 +150,7 @@ protected:
  The progressChanged() signal may also be used but note that async signal handling are very slow
  so it may affect the ui threads performance too much.
 */
-class KPLATOKERNEL_EXPORT SchedulerThread : public QThread
+class PLANKERNEL_EXPORT SchedulerThread : public QThread
 {
     Q_OBJECT
 public:

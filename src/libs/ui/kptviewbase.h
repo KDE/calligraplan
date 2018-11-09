@@ -20,7 +20,7 @@
 #ifndef KPTVIEWBASE_H
 #define KPTVIEWBASE_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 #include "kptitemmodelbase.h"
 
 #include "ui_kptprintingheaderfooter.h"
@@ -64,7 +64,7 @@ class DoubleTreeViewBase;
 
 //------------------
 
-class KPLATOUI_EXPORT DockWidget : public QDockWidget
+class PLANUI_EXPORT DockWidget : public QDockWidget
 {
     Q_OBJECT
 public:
@@ -91,7 +91,7 @@ private:
 };
 
 //------------------
-class KPLATOUI_EXPORT PrintingOptions
+class PLANUI_EXPORT PrintingOptions
 {
 public:
     PrintingOptions() {
@@ -124,7 +124,7 @@ public:
 };
 
 //------------------
-class KPLATOUI_EXPORT PrintingHeaderFooter : public QWidget, public Ui::PrintingHeaderFooter
+class PLANUI_EXPORT PrintingHeaderFooter : public QWidget, public Ui::PrintingHeaderFooter
 {
     Q_OBJECT
 public:
@@ -145,7 +145,7 @@ private:
 };
 
 //------------------
-class KPLATOUI_EXPORT PrintingDialog : public KoPrintingDialog
+class PLANUI_EXPORT PrintingDialog : public KoPrintingDialog
 {
     Q_OBJECT
 public:
@@ -185,7 +185,7 @@ protected:
     int m_textheight;
 };
 
-class KPLATOUI_EXPORT ViewActionLists
+class PLANUI_EXPORT ViewActionLists
 {
 public:
     ViewActionLists() : actionOptions( 0 ) {}
@@ -222,7 +222,7 @@ protected:
  ViewBase is the baseclass of all sub-views to View.
 
 */
-class KPLATOUI_EXPORT ViewBase : public KoView, public ViewActionLists
+class PLANUI_EXPORT ViewBase : public KoView, public ViewActionLists
 {
     Q_OBJECT
 public:
@@ -347,7 +347,7 @@ protected:
 };
 
 //------------------
-class KPLATOUI_EXPORT TreeViewPrintingDialog : public PrintingDialog
+class PLANUI_EXPORT TreeViewPrintingDialog : public PrintingDialog
 {
     Q_OBJECT
 public:
@@ -371,7 +371,7 @@ private:
 };
 
 //-----------------
-class KPLATOUI_EXPORT TreeViewBase : public QTreeView
+class PLANUI_EXPORT TreeViewBase : public QTreeView
 {
     Q_OBJECT
 public:
@@ -516,7 +516,7 @@ protected:
 };
 
 //------------------
-class KPLATOUI_EXPORT DoubleTreeViewPrintingDialog : public PrintingDialog
+class PLANUI_EXPORT DoubleTreeViewPrintingDialog : public PrintingDialog
 {
     Q_OBJECT
 public:
@@ -539,7 +539,7 @@ private:
     int m_firstRow;
 };
 
-class KPLATOUI_EXPORT DoubleTreeViewBase : public QSplitter
+class PLANUI_EXPORT DoubleTreeViewBase : public QSplitter
 {
     Q_OBJECT
 public:

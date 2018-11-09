@@ -43,7 +43,7 @@ class ScheduleManager;
 class ItemModelBase;
 
 
-class KPLATOMODELS_EXPORT ReportGenerator
+class PLANMODELS_EXPORT ReportGenerator
 {
 public:
     explicit ReportGenerator();

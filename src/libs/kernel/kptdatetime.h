@@ -20,7 +20,7 @@
 #ifndef KPTDATETIME_H
 #define KPTDATETIME_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 #include "kptduration.h"
 
 #include <QDateTime>
@@ -40,7 +40,7 @@ class Duration;
  * Exception to this is the calendar related dates and times which has
  * their own time zone specification.
  */
-class KPLATOKERNEL_EXPORT DateTime : public QDateTime {
+class PLANKERNEL_EXPORT DateTime : public QDateTime {
 
 public:
     /// Create a DateTime.
@@ -98,6 +98,6 @@ private:
 
 }  //KPlato namespace
 
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::DateTime &dt );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::DateTime &dt );
 
 #endif

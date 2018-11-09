@@ -21,7 +21,7 @@
 #define KPLATOREPORTVIEW_P_H
 
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_reportgroupsectionswidget.h"
 

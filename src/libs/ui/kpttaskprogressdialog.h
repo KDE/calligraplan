@@ -20,7 +20,7 @@
 #ifndef KPTTASKPROGRESSDIALOG_H
 #define KPTTASKPROGRESSDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <KoDialog.h>
 
@@ -35,7 +35,7 @@ class StandardWorktime;
 class ScheduleManager;
 class MacroCommand;
 
-class KPLATOUI_EXPORT TaskProgressDialog : public KoDialog {
+class PLANUI_EXPORT TaskProgressDialog : public KoDialog {
     Q_OBJECT
 public:
     TaskProgressDialog(Task &task, ScheduleManager *sm, StandardWorktime *workTime, QWidget *parent=0);

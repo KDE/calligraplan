@@ -20,7 +20,7 @@
 #ifndef KPTDOCUMENTSEDITOR_H
 #define KPTDOCUMENTSEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <kptviewbase.h>
 #include <kptitemmodelbase.h>
@@ -33,7 +33,7 @@ class KoDocument;
 namespace KPlato
 {
 
-class KPLATOUI_EXPORT DocumentTreeView : public TreeViewBase
+class PLANUI_EXPORT DocumentTreeView : public TreeViewBase
 {
     Q_OBJECT
 public:
@@ -57,7 +57,7 @@ protected Q_SLOTS:
     void slotSelectionChanged( const QItemSelection &selected );
 };
 
-class KPLATOUI_EXPORT DocumentsEditor : public ViewBase
+class PLANUI_EXPORT DocumentsEditor : public ViewBase
 {
     Q_OBJECT
 public:

@@ -20,7 +20,7 @@
 #ifndef KPTLOCALECONFIGMONEYDIALOG_H
 #define KPTLOCALECONFIGMONEYDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <KoDialog.h>
 
@@ -33,7 +33,7 @@ class Locale;
 class LocaleConfigMoney;
 class Project;
 
-class KPLATOUI_EXPORT LocaleConfigMoneyDialog : public KoDialog {
+class PLANUI_EXPORT LocaleConfigMoneyDialog : public KoDialog {
     Q_OBJECT
 public:
     explicit LocaleConfigMoneyDialog( Locale *locale, QWidget *parent=0);

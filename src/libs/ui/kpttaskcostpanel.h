@@ -21,7 +21,7 @@
 #ifndef KPTTASKCOSTPANEL_H
 #define KPTTASKCOSTPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kpttaskcostpanelbase.h"
 

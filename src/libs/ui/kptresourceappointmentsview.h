@@ -20,7 +20,7 @@
 #ifndef KPTRESOURCEAPPOINTMENTSVIEW_H
 #define KPTRESOURCEAPPOINTMENTSVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptresourceappointmentsdisplayoptions.h"
 
@@ -82,7 +82,7 @@ private:
 };
 
 //------------------------
-class KPLATOUI_EXPORT ResourceAppointmentsTreeView : public DoubleTreeViewBase
+class PLANUI_EXPORT ResourceAppointmentsTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -110,7 +110,7 @@ private:
     ViewBase *m_view;
 };
 
-class KPLATOUI_EXPORT ResourceAppointmentsView : public ViewBase
+class PLANUI_EXPORT ResourceAppointmentsView : public ViewBase
 {
     Q_OBJECT
 public:

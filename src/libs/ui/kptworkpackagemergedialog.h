@@ -20,7 +20,7 @@
 #ifndef WORKPACKAGEMERGEDIALOG_H
 #define WORKPACKAGEMERGEDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptworkpackagemergepanel.h"
 
@@ -61,7 +61,7 @@ public:
     explicit WorkPackageMergePanel(QWidget *parent = 0);
 };
 
-class KPLATOUI_EXPORT WorkPackageMergeDialog : public KoDialog
+class PLANUI_EXPORT WorkPackageMergeDialog : public KoDialog
 {
     Q_OBJECT
 public:

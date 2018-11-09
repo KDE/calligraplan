@@ -21,7 +21,7 @@
 #ifndef KPTTASKDIALOG_H
 #define KPTTASKDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <kpagedialog.h>
 
@@ -43,7 +43,7 @@ class MacroCommand;
 /**
  * The dialog that shows and allows you to alter any task.
  */
-class KPLATOUI_EXPORT TaskDialog : public KPageDialog {
+class PLANUI_EXPORT TaskDialog : public KPageDialog {
     Q_OBJECT
 public:
     /**
@@ -74,7 +74,7 @@ protected:
     TaskDescriptionPanel *m_descriptionTab;
 };
 
-class KPLATOUI_EXPORT TaskAddDialog : public TaskDialog {
+class PLANUI_EXPORT TaskAddDialog : public TaskDialog {
     Q_OBJECT
 public:
     TaskAddDialog(Project &project, Task &task, Node *currentNode, Accounts &accounts, QWidget *parent=0);
@@ -89,7 +89,7 @@ private:
     Node *m_currentnode;
 };
 
-class KPLATOUI_EXPORT SubTaskAddDialog : public TaskDialog {
+class PLANUI_EXPORT SubTaskAddDialog : public TaskDialog {
     Q_OBJECT
 public:
     SubTaskAddDialog(Project &project, Task &task, Node *currentNode, Accounts &accounts, QWidget *parent=0);

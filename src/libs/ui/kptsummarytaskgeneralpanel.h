@@ -20,7 +20,7 @@
 #ifndef KPTSUMMARYTASKGENERALPANEL_H
 #define KPTSUMMARYTASKGENERALPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptsummarytaskgeneralpanelbase.h"
 

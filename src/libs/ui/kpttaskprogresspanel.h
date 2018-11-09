@@ -20,7 +20,7 @@
 #ifndef KPTTASKPROGRESSPANEL_H
 #define KPTTASKPROGRESSPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kpttaskprogresspanelbase.h"
 #include "kpttask.h"
@@ -83,7 +83,7 @@ protected:
 
 };
 
-class KPLATOUI_EXPORT TaskProgressPanel : public TaskProgressPanelImpl {
+class PLANUI_EXPORT TaskProgressPanel : public TaskProgressPanelImpl {
     Q_OBJECT
 public:
     explicit TaskProgressPanel( Task &task, ScheduleManager *sm, StandardWorktime *workTime=0, QWidget *parent=0 );

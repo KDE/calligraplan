@@ -43,7 +43,7 @@ extern int planDbg();
 namespace KPlato
 {
 
-KPLATOUI_EXPORT QList<ReportData*> Report::createBaseReportDataModels( QObject *parent )
+PLANUI_EXPORT QList<ReportData*> Report::createBaseReportDataModels( QObject *parent )
 {
     QList<ReportData*> lst;
 
@@ -83,7 +83,7 @@ KPLATOUI_EXPORT QList<ReportData*> Report::createBaseReportDataModels( QObject *
     return lst;
 }
 
-KPLATOUI_EXPORT ReportData *Report::findReportData( const QList<ReportData*> &lst, const QString &type )
+PLANUI_EXPORT ReportData *Report::findReportData( const QList<ReportData*> &lst, const QString &type )
 {
     foreach( ReportData *r, lst ) {
         if ( r->objectName() == type ) {

@@ -20,7 +20,7 @@
 #ifndef KPTDOCUMENTSPANEL_H
 #define KPTDOCUMENTSPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptdocumentspanel.h"
 
@@ -40,7 +40,7 @@ class DocumentItemModel;
 class MacroCommand;
 class DocumentTreeView;
 
-class KPLATOUI_EXPORT DocumentsPanel : public QWidget
+class PLANUI_EXPORT DocumentsPanel : public QWidget
 {
     Q_OBJECT
 public:

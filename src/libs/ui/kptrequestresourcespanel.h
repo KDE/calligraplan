@@ -20,7 +20,7 @@
 #ifndef KPTREQUESTRESOURCESPANEL_H
 #define KPTREQUESTRESOURCESPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <QWidget>
 

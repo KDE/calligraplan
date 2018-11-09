@@ -20,7 +20,7 @@
 #ifndef KPTRESOURCEMODEL_H
 #define KPTRESOURCEMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <kptitemmodelbase.h>
 
@@ -44,7 +44,7 @@ class Calendar;
 class Task;
 class Node;
 
-class KPLATOMODELS_EXPORT ResourceModel : public QObject
+class PLANMODELS_EXPORT ResourceModel : public QObject
 {
     Q_OBJECT
     Q_ENUMS( Properties )
@@ -95,7 +95,7 @@ private:
     Project *m_project;
 };
 
-class KPLATOMODELS_EXPORT ResourceItemModel : public ItemModelBase
+class PLANMODELS_EXPORT ResourceItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
@@ -195,7 +195,7 @@ private:
     QMap<KJob*, DropData> m_dropDataMap;
 };
 
-class KPLATOMODELS_EXPORT ResourceItemSFModel : public QSortFilterProxyModel
+class PLANMODELS_EXPORT ResourceItemSFModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
@@ -215,7 +215,7 @@ protected:
     QList<const Resource*> m_filteredResources;
 };
 
-class KPLATOMODELS_EXPORT AllocatedResourceItemModel : public QSortFilterProxyModel
+class PLANMODELS_EXPORT AllocatedResourceItemModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:

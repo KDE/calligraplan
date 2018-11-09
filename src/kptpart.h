@@ -22,7 +22,7 @@
 
 #include <KoPart.h>
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include <QPointer>
 
@@ -35,7 +35,7 @@ namespace KPlato
 class MainDocument;
 class HtmlView;
 
-class KPLATO_EXPORT Part : public KoPart
+class PLAN_EXPORT Part : public KoPart
 {
     Q_OBJECT
 

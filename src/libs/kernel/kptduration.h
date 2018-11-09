@@ -21,7 +21,7 @@
 #ifndef KPTDURATION_H
 #define KPTDURATION_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include <QtGlobal>
 
@@ -36,7 +36,7 @@ namespace KPlato
  * The Duration class can be used to store a timespan in a convenient format.
  * The timespan can be in length in many many hours down to milliseconds.
  */
-class KPLATOKERNEL_EXPORT Duration
+class PLANKERNEL_EXPORT Duration
 {
 public:
     /**

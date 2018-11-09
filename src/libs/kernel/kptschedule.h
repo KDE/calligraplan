@@ -20,7 +20,7 @@
 #ifndef KPTSCHEDULE_H
 #define KPTSCHEDULE_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include "kptglobal.h"
 #include "kptcalendar.h"
@@ -69,7 +69,7 @@ public:
  * NodeSchedule     Used by all other nodes (tasks).
  * ResourceSchedule Used by resources.
  */
-class KPLATOKERNEL_EXPORT Schedule
+class PLANKERNEL_EXPORT Schedule
 {
 public:
     //NOTE: Must match Effort::Use atm.
@@ -233,7 +233,7 @@ public:
 
     virtual ScheduleManager *manager() const { return 0; }
     
-    class KPLATOKERNEL_EXPORT Log {
+    class PLANKERNEL_EXPORT Log {
         public:
             enum Type { Type_Debug = 0, Type_Info, Type_Warning, Type_Error };
             Log() 
@@ -367,7 +367,7 @@ protected:
  * NodeSchedule holds scheduling information for a node (task).
  * 
  */
-class KPLATOKERNEL_EXPORT NodeSchedule : public Schedule
+class PLANKERNEL_EXPORT NodeSchedule : public Schedule
 {
 public:
     NodeSchedule();
@@ -410,7 +410,7 @@ private:
  * ResourceSchedule holds scheduling information for a resource.
  * 
  */
-class KPLATOKERNEL_EXPORT ResourceSchedule : public Schedule
+class PLANKERNEL_EXPORT ResourceSchedule : public Schedule
 {
 public:
     ResourceSchedule();
@@ -450,7 +450,7 @@ private:
  * MainSchedule holds scheduling information for the main project node.
  * 
  */
-class KPLATOKERNEL_EXPORT MainSchedule : public NodeSchedule
+class PLANKERNEL_EXPORT MainSchedule : public NodeSchedule
 {
 public:
     MainSchedule();
@@ -556,7 +556,7 @@ private:
  * The ScheduleManager is the bases for the user interface to scheduling.
  * A ScheduleManager can have child manager(s).
  */
-class KPLATOKERNEL_EXPORT ScheduleManager : public QObject
+class PLANKERNEL_EXPORT ScheduleManager : public QObject
 {
     Q_OBJECT
 public:
@@ -727,9 +727,9 @@ protected:
 
 Q_DECLARE_TYPEINFO(KPlato::Schedule::Log, Q_MOVABLE_TYPE);
 
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Schedule *s );
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Schedule &s );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Schedule *s );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Schedule &s );
 
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Schedule::Log &log );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Schedule::Log &log );
 
 #endif

@@ -20,7 +20,7 @@
 #ifndef KPTWBSDEFINITION_H
 #define KPTWBSDEFINITION_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include <KoXmlReaderForward.h>
 
@@ -38,7 +38,7 @@ namespace KPlato
 
 class XMLLoaderObject;
     
-class KPLATOKERNEL_EXPORT WBSDefinition {
+class PLANKERNEL_EXPORT WBSDefinition {
 
 public:
     /// Construct a default definition
@@ -48,7 +48,7 @@ public:
     /// Destructor
     ~WBSDefinition();
 
-    class KPLATOKERNEL_EXPORT CodeDef {
+    class PLANKERNEL_EXPORT CodeDef {
         public:
             CodeDef() {}
             CodeDef(const QString &c, const QString &s) { code = c; separator = s; }

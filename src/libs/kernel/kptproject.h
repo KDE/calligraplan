@@ -23,7 +23,7 @@
 #ifndef KPTPROJECT_H
 #define KPTPROJECT_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include "kptnode.h"
 
@@ -73,7 +73,7 @@ class KPlatoXmlLoaderBase;
  * Note that a projects datetimes are always displayed/modified in the timezone
  * it was originally created, not necessarily in your current local timezone.
  */
-class KPLATOKERNEL_EXPORT Project : public Node
+class PLANKERNEL_EXPORT Project : public Node
 {
     Q_OBJECT
 public:

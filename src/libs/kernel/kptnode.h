@@ -21,7 +21,7 @@
 #ifndef KPTNODE_H
 #define KPTNODE_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include "kptglobal.h"
 #include "kptrelation.h"
@@ -61,7 +61,7 @@ class KPlatoXmlLoaderBase;
  * a subproject or any task.
  * This class is basically an abstract interface to make the design more OO.
  */
-class KPLATOKERNEL_EXPORT Node : public QObject
+class PLANKERNEL_EXPORT Node : public QObject
 {
     Q_OBJECT
 public:
@@ -687,7 +687,7 @@ private:
   * With statistical calculations using the PERT distribution, one can arrive at a more 
   * realistic estimate than when using the expected value alone.
   */
-class KPLATOKERNEL_EXPORT Estimate {
+class PLANKERNEL_EXPORT Estimate {
 public:
     /// Constructor
     explicit Estimate( Node *parent = 0 );

@@ -20,7 +20,7 @@
 #ifndef KPTCOMMONSTRINGS_H
 #define KPTCOMMONSTRINGS_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 class KUndo2MagicString;
 class QString;
@@ -28,7 +28,7 @@ class QString;
 namespace KPlato
 {
 
-struct KPLATOMODELS_EXPORT ToolTip
+struct PLANMODELS_EXPORT ToolTip
 {
     static QString nodeName();
     static QString nodeType();
@@ -147,7 +147,7 @@ struct KPLATOMODELS_EXPORT ToolTip
 
 }; //namespace ToolTip
 
-struct KPLATOMODELS_EXPORT WhatsThis
+struct PLANMODELS_EXPORT WhatsThis
 {
     static QString  nodeNegativeFloat();
     static QString  nodeFreeFloat();
@@ -161,7 +161,7 @@ struct KPLATOMODELS_EXPORT WhatsThis
 
 }; //namespace WhatsThis
 
-struct KPLATOMODELS_EXPORT UndoText
+struct PLANMODELS_EXPORT UndoText
 {
     static KUndo2MagicString removeDocument();
 }; //namespace Undo

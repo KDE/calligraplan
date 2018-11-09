@@ -20,7 +20,7 @@
 #ifndef TASKSTATUSMODEL_H
 #define TASKSTATUSMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include "kptitemmodelbase.h"
 #include "kptnodeitemmodel.h"
@@ -34,7 +34,7 @@ class Task;
 
 typedef QMap<QString, Node*> NodeMap;
 
-class KPLATOMODELS_EXPORT TaskStatusItemModel : public ItemModelBase
+class PLANMODELS_EXPORT TaskStatusItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:

@@ -23,7 +23,7 @@
 #ifndef KPTTASK_H
 #define KPTTASK_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include "kptnode.h"
 #include "kptglobal.h"
@@ -44,14 +44,14 @@ class Completion;
 /**
  * The Completion class holds information about the tasks progress.
  */
-class KPLATOKERNEL_EXPORT Completion
+class PLANKERNEL_EXPORT Completion
 {
     
 public:
-    class KPLATOKERNEL_EXPORT UsedEffort
+    class PLANKERNEL_EXPORT UsedEffort
     {
         public:
-            class KPLATOKERNEL_EXPORT ActualEffort : public std::pair<Duration, Duration>
+            class PLANKERNEL_EXPORT ActualEffort : public std::pair<Duration, Duration>
             {
                 public:
                     explicit ActualEffort( KPlato::Duration ne = Duration::zeroDuration, KPlato::Duration oe = Duration::zeroDuration )
@@ -96,7 +96,7 @@ public:
     };
     typedef QMap<QDate, UsedEffort::ActualEffort> DateUsedEffortMap;
     
-    class KPLATOKERNEL_EXPORT Entry
+    class PLANKERNEL_EXPORT Entry
     {
         public:
             Entry()
@@ -251,7 +251,7 @@ public:
 /**
  * The WorkPackage class controls work flow for a task
  */
-class KPLATOKERNEL_EXPORT WorkPackage
+class PLANKERNEL_EXPORT WorkPackage
 {
 public:
 
@@ -335,7 +335,7 @@ private:
     QMap<DateTime, QString> m_log;
 };
 
-class KPLATOKERNEL_EXPORT WorkPackageSettings
+class PLANKERNEL_EXPORT WorkPackageSettings
 {
 public:
     WorkPackageSettings();
@@ -353,7 +353,7 @@ public:
   * can be anything from 'build house' to 'drill hole' It will always mean
   * an activity.
   */
-class KPLATOKERNEL_EXPORT Task : public Node {
+class PLANKERNEL_EXPORT Task : public Node {
     Q_OBJECT
 public:
     explicit Task(Node *parent = 0);
@@ -755,7 +755,7 @@ private:
 Q_DECLARE_METATYPE( KPlato::Completion::UsedEffort::ActualEffort )
 
 #ifndef QT_NO_DEBUG_STREAM
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Completion::UsedEffort::ActualEffort &ae );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Completion::UsedEffort::ActualEffort &ae );
 #endif
 
 #endif

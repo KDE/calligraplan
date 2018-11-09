@@ -20,7 +20,7 @@
 #ifndef KPTNODECHARTMODEL_H
 #define KPTNODECHARTMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include "kptitemmodelbase.h"
 
@@ -40,7 +40,7 @@ class Project;
 class ScheduleManager;
 class Node;
 
-class KPLATOMODELS_EXPORT ChartProxyModel : public QSortFilterProxyModel
+class PLANMODELS_EXPORT ChartProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
@@ -82,7 +82,7 @@ private:
     QList<int> m_zerocolumns;
 };
 
-class KPLATOMODELS_EXPORT ChartItemModel : public ItemModelBase
+class PLANMODELS_EXPORT ChartItemModel : public ItemModelBase
 {
     Q_OBJECT
     Q_ENUMS( Properties )
@@ -157,7 +157,7 @@ protected:
     bool m_localizeValues;
 };
 
-class KPLATOMODELS_EXPORT PerformanceDataCurrentDateModel : public ChartItemModel
+class PLANMODELS_EXPORT PerformanceDataCurrentDateModel : public ChartItemModel
 {
     Q_OBJECT
 public:

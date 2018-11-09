@@ -20,7 +20,7 @@
 #ifndef KPTRESOURCEALLOCATIONMODEL_H
 #define KPTRESOURCEALLOCATIONMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <kptitemmodelbase.h>
 
@@ -43,7 +43,7 @@ class ResourceGroupRequest;
  The ResourceAllocationModel gives access to resource requests
 */
 
-class KPLATOMODELS_EXPORT ResourceAllocationModel : public QObject
+class PLANMODELS_EXPORT ResourceAllocationModel : public QObject
 {
     Q_OBJECT
     Q_ENUMS( Properties )
@@ -89,7 +89,7 @@ private:
  resource allocations for a task.
 */
 
-class KPLATOMODELS_EXPORT ResourceAllocationItemModel : public ItemModelBase
+class PLANMODELS_EXPORT ResourceAllocationItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:

@@ -48,7 +48,7 @@ set(PLANUI_INCLUDES
     ${CMAKE_CURRENT_BINARY_DIR}/libs/ui
 )    
 
-set(KPLATO_INCLUDES
+set(PLAN_INCLUDES
     ${CMAKE_CURRENT_BINARY_DIR}
 
     ${PLANKERNEL_INCLUDES}
@@ -95,7 +95,7 @@ endif()
 
 add_subdirectory( workpackage )
 
-include_directories(${KPLATO_INCLUDES})
+include_directories(${PLAN_INCLUDES})
 
 add_definitions(-DTRANSLATION_DOMAIN=\"calligraplan\")
 
@@ -152,13 +152,13 @@ ki18n_wrap_ui(planprivate_LIB_SRCS
 kconfig_add_kcfg_files(plansettings_SRCS calligraplansettings.kcfgc)
 
 add_library(planprivate SHARED ${planprivate_LIB_SRCS} ${plansettings_SRCS} )
-generate_export_header(planprivate BASE_NAME kplato)
+generate_export_header(planprivate BASE_NAME plan)
 
 target_link_libraries(planprivate
     PUBLIC
-        kplatokernel
-        kplatomodels
-        kplatoui
+        plankernel
+        planmodels
+        planui
         planmain
     PRIVATE
         planplugin

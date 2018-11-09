@@ -7,10 +7,10 @@ add_subdirectory( pics )
 #add_subdirectory( toolbar )
 #add_subdirectory( tests )
 
-include_directories(${KPLATO_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURRENT_BINARY_DIR}/)
+include_directories(${PLAN_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURRENT_BINARY_DIR}/)
 
 
-########### KPlatoWork private library ###############
+########### PlanWork private library ###############
 
 set(planworkfactory_LIB_SRCS
     factory.cpp
@@ -38,13 +38,13 @@ ki18n_wrap_ui(planworkfactory_LIB_SRCS
 kconfig_add_kcfg_files(planworksettings_SRCS calligraplanworksettings.kcfgc)
 
 add_library(planworkfactory SHARED ${planworkfactory_LIB_SRCS} ${planworksettings_SRCS})
-generate_export_header(planworkfactory BASE_NAME kplatowork)
+generate_export_header(planworkfactory BASE_NAME planwork)
 
 target_link_libraries(planworkfactory
     PUBLIC
-        kplatokernel
-        kplatomodels
-        kplatoui
+        plankernel
+        planmodels
+        planui
         planprivate
         planmain
         KGantt
@@ -59,7 +59,7 @@ install(TARGETS planworkfactory ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES calligraplanworksettings.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 
 
-########### KPlatoWork part ###############
+########### PlanWork part ###############
 
 set(planworkpart_PART_SRCS factoryinit.cpp )
 
@@ -99,7 +99,7 @@ target_link_libraries(
     kdeinit_calligraplanwork
 
     planworkfactory
-    kplatokernel
+    plankernel
     planmain
     KF5::Parts
     KF5::IconThemes

@@ -20,7 +20,7 @@
 #ifndef KPTTASKEDITOR_H
 #define KPTTASKEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptglobal.h"
 #include "kptnodeitemmodel.h"
@@ -38,7 +38,7 @@ class Node;
 class NodeItemModel;
 class MacroCommand;
 
-class KPLATOUI_EXPORT TaskEditorItemModel : public NodeItemModel
+class PLANUI_EXPORT TaskEditorItemModel : public NodeItemModel
 {
     Q_OBJECT
 public:
@@ -55,7 +55,7 @@ protected:
 
 };
 
-class KPLATOUI_EXPORT TaskEditorTreeView : public DoubleTreeViewBase
+class PLANUI_EXPORT TaskEditorTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -76,7 +76,7 @@ protected Q_SLOTS:
     void slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
 };
 
-class KPLATOUI_EXPORT NodeTreeView : public DoubleTreeViewBase
+class PLANUI_EXPORT NodeTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -97,7 +97,7 @@ protected Q_SLOTS:
     void slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
 };
 
-class KPLATOUI_EXPORT TaskEditor : public ViewBase
+class PLANUI_EXPORT TaskEditor : public ViewBase
 {
     Q_OBJECT
 public:
@@ -203,7 +203,7 @@ private:
     QDomDocument m_domdoc;
 };
 
-class KPLATOUI_EXPORT TaskView : public ViewBase
+class PLANUI_EXPORT TaskView : public ViewBase
 {
     Q_OBJECT
 public:
@@ -287,7 +287,7 @@ protected:
     WorkPackageProxyModel *m;
 };
 
-class KPLATOUI_EXPORT TaskWorkPackageView : public ViewBase
+class PLANUI_EXPORT TaskWorkPackageView : public ViewBase
 {
     Q_OBJECT
 public:

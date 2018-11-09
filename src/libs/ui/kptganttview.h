@@ -21,7 +21,7 @@
 #ifndef KPTGANTTVIEW_H
 #define KPTGANTTVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 #include "kptitemviewsettup.h"
@@ -111,7 +111,7 @@ public:
     bool singlePage;
 };
 
-class KPLATOUI_EXPORT GanttPrintingOptionsWidget : public QWidget, public Ui::GanttPrintingOptionsWidget
+class PLANUI_EXPORT GanttPrintingOptionsWidget : public QWidget, public Ui::GanttPrintingOptionsWidget
 {
     Q_OBJECT
 public:
@@ -155,7 +155,7 @@ protected:
     QImage m_image;
 };
 
-class KPLATOUI_EXPORT GanttTreeView : public TreeViewBase
+class PLANUI_EXPORT GanttTreeView : public TreeViewBase
 {
     Q_OBJECT
 public:
@@ -183,7 +183,7 @@ private:
     KGantt::DateTimeGrid *m_grid;
 };
 
-class KPLATOUI_EXPORT GanttViewBase : public KGantt::View
+class PLANUI_EXPORT GanttViewBase : public KGantt::View
 {
     Q_OBJECT
 public:
@@ -234,7 +234,7 @@ protected:
     KGantt::TreeViewRowController *m_rowController;
 };
 
-class KPLATOUI_EXPORT MyKGanttView : public NodeGanttViewBase
+class PLANUI_EXPORT MyKGanttView : public NodeGanttViewBase
 {
     Q_OBJECT
 public:
@@ -257,7 +257,7 @@ protected:
     ScheduleManager *m_manager;
 };
 
-class KPLATOUI_EXPORT GanttView : public ViewBase
+class PLANUI_EXPORT GanttView : public ViewBase
 {
     Q_OBJECT
 public:
@@ -338,7 +338,7 @@ private:
 };
 
 
-class KPLATOUI_EXPORT MilestoneKGanttView : public NodeGanttViewBase
+class PLANUI_EXPORT MilestoneKGanttView : public NodeGanttViewBase
 {
     Q_OBJECT
 public:
@@ -355,7 +355,7 @@ protected:
     ScheduleManager *m_manager;
 };
 
-class KPLATOUI_EXPORT MilestoneGanttView : public ViewBase
+class PLANUI_EXPORT MilestoneGanttView : public ViewBase
 {
     Q_OBJECT
 public:
@@ -429,7 +429,7 @@ private:
 
 };
 
-class KPLATOUI_EXPORT ResourceAppointmentsGanttView : public ViewBase
+class PLANUI_EXPORT ResourceAppointmentsGanttView : public ViewBase
 {
     Q_OBJECT
 public:

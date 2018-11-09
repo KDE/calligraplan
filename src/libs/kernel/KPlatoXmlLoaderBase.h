@@ -58,7 +58,7 @@ namespace KPlato
     class AppointmentIntervalList;
     class AppointmentInterval;
 
-class KPLATOKERNEL_EXPORT KPlatoXmlLoaderBase : public QObject
+class PLANKERNEL_EXPORT KPlatoXmlLoaderBase : public QObject
 {
     Q_OBJECT
 public:

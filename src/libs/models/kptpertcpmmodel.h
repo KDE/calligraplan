@@ -20,7 +20,7 @@
 #ifndef KPTPERTCPMMODEL_H
 #define KPTPERTCPMMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <kptitemmodelbase.h>
 #include <kptnodeitemmodel.h>
@@ -38,7 +38,7 @@ class Task;
 
 typedef QList<Node*> NodeList;
 
-class KPLATOMODELS_EXPORT CriticalPathItemModel : public ItemModelBase
+class PLANMODELS_EXPORT CriticalPathItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
@@ -93,7 +93,7 @@ private:
 /**
  This model displays results from project scheduling.
 */
-class KPLATOMODELS_EXPORT PertResultItemModel : public ItemModelBase
+class PLANMODELS_EXPORT PertResultItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:

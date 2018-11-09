@@ -20,7 +20,7 @@
 #ifndef KPTRELATIONEDITOR_H
 #define KPTRELATIONEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptglobal.h"
 #include "kptviewbase.h"
@@ -36,7 +36,7 @@ class Node;
 class RelationItemModel;
 class Relation;
 
-class KPLATOUI_EXPORT RelationTreeView : public DoubleTreeViewBase
+class PLANUI_EXPORT RelationTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -56,7 +56,7 @@ protected Q_SLOTS:
     void slotCurrentChanged(const QModelIndex &curr, const QModelIndex& );
 };
 
-class KPLATOUI_EXPORT RelationEditor : public ViewBase
+class PLANUI_EXPORT RelationEditor : public ViewBase
 {
     Q_OBJECT
 public:

@@ -55,7 +55,7 @@
 namespace KPlato
 {
 
-void kplato_paintFocusSelectedItem( QPainter *painter, const QStyleOptionGraphicsItem *option )
+void plan_paintFocusSelectedItem( QPainter *painter, const QStyleOptionGraphicsItem *option )
 {
     if ( option->state & ( QStyle::State_Selected | QStyle::State_HasFocus ) ) {
         painter->save();
@@ -593,7 +593,7 @@ void DependencyConnectorItem::paint(QPainter *painter, const QStyleOptionGraphic
     if ( itemScene()->focusItem() == this ) {
         opt.state |= QStyle::State_HasFocus;
     }
-    kplato_paintFocusSelectedItem( painter, &opt );
+    plan_paintFocusSelectedItem( painter, &opt );
 
     QRectF r = rect();
     if ( ctype() == DependencyNodeItem::Start ) {
@@ -864,7 +864,7 @@ void DependencyNodeItem::paint( QPainter *painter, const QStyleOptionGraphicsIte
     if ( this == itemScene()->focusItem() ) {
         opt.state |= QStyle::State_HasFocus;
     }
-    kplato_paintFocusSelectedItem( painter, &opt );
+    plan_paintFocusSelectedItem( painter, &opt );
 
     // paint the symbol
     m_symbol->paint( itemScene()->project(), painter, &opt );

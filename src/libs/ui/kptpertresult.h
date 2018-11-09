@@ -22,7 +22,7 @@
 #ifndef KPTPERTRESULT_H
 #define KPTPERTRESULT_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 #include "kptpertcpmmodel.h"
@@ -46,7 +46,7 @@ class ScheduleManager;
 class Task;
 class View;
 
-class KPLATOUI_EXPORT PertResult : public ViewBase
+class PLANUI_EXPORT PertResult : public ViewBase
 {
     Q_OBJECT
 public:
@@ -94,7 +94,7 @@ private Q_SLOTS:
 };
 
 //--------------------
-class KPLATOUI_EXPORT PertCpmView : public ViewBase
+class PLANUI_EXPORT PertCpmView : public ViewBase
 {
     Q_OBJECT
 public:

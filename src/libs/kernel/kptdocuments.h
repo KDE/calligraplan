@@ -20,7 +20,7 @@
 #ifndef KPTDOCUMENTS_H
 #define KPTDOCUMENTS_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include <KoXmlReaderForward.h>
 
@@ -38,7 +38,7 @@ class XMLLoaderObject;
 class Node;
 class Documents;
 
-class KPLATOKERNEL_EXPORT Document
+class PLANKERNEL_EXPORT Document
 {
 public:
     enum Type { Type_None, Type_Product, Type_Reference };
@@ -85,7 +85,7 @@ private:
     Documents *parent;
 };
 
-class KPLATOKERNEL_EXPORT Documents
+class PLANKERNEL_EXPORT Documents
 {
 public:
     Documents();

@@ -27,7 +27,7 @@ namespace KPlato
 {
 class Locale;
 
-class KPLATOKERNEL_EXPORT ConfigBase : public QObject
+class PLANKERNEL_EXPORT ConfigBase : public QObject
 {
     Q_OBJECT
 public:

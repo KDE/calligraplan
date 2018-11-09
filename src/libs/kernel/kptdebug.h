@@ -21,31 +21,31 @@
 #ifndef KPTDEBUG_H
 #define KPTDEBUG_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include <QDebug>
 #include <QLoggingCategory>
 #include <QString>
 
-extern const KPLATOKERNEL_EXPORT QLoggingCategory &PLAN_LOG();
+extern const PLANKERNEL_EXPORT QLoggingCategory &PLAN_LOG();
 
 #define debugPlan qCDebug(PLAN_LOG)<<Q_FUNC_INFO
 #define warnPlan qCWarning(PLAN_LOG)
 #define errorPlan qCCritical(PLAN_LOG)
 
-extern const KPLATOKERNEL_EXPORT QLoggingCategory &PLANDEPEDITOR_LOG();
+extern const PLANKERNEL_EXPORT QLoggingCategory &PLANDEPEDITOR_LOG();
 
 #define debugPlanDepEditor qCDebug(PLANDEPEDITOR_LOG)
 #define warnPlanDepEditor qCWarning(PLANDEPEDITOR_LOG)
 #define errorPlanDepEditor qCCritical(PLANDEPEDITOR_LOG)
 
-extern const KPLATOKERNEL_EXPORT QLoggingCategory &PLANXML_LOG();
+extern const PLANKERNEL_EXPORT QLoggingCategory &PLANXML_LOG();
 
 #define debugPlanXml qCDebug(PLANXML_LOG)
 #define warnPlanXml qCWarning(PLANXML_LOG)
 #define errorPlanXml qCCritical(PLANXML_LOG)
 
-extern const KPLATOKERNEL_EXPORT QLoggingCategory &PLANSHARED_LOG();
+extern const PLANKERNEL_EXPORT QLoggingCategory &PLANSHARED_LOG();
 
 #define debugPlanShared qCDebug(PLANSHARED_LOG)
 #define warnPlanShared qCWarning(PLANSHARED_LOG)

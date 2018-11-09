@@ -42,7 +42,7 @@ class Project;
 class Node;
 class Estimate;
 
-class KPLATOMODELS_EXPORT NodeModel : public QObject
+class PLANMODELS_EXPORT NodeModel : public QObject
 {
     Q_OBJECT
     Q_ENUMS( Properties )
@@ -280,7 +280,7 @@ private:
     int m_prec;
 };
 
-class KPLATOMODELS_EXPORT NodeItemModel : public ItemModelBase
+class PLANMODELS_EXPORT NodeItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
@@ -372,7 +372,7 @@ protected:
 };
 
 //--------------------------------------
-class KPLATOMODELS_EXPORT GanttItemModel : public NodeItemModel
+class PLANMODELS_EXPORT GanttItemModel : public NodeItemModel
 {
     Q_OBJECT
 public:
@@ -396,7 +396,7 @@ private:
 };
 
 // TODO: Rename, this is now a flat node item model
-class KPLATOMODELS_EXPORT MilestoneItemModel : public ItemModelBase
+class PLANMODELS_EXPORT MilestoneItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
@@ -470,7 +470,7 @@ private:
     QMap<QString, Node*> m_nodemap;
 };
 
-class KPLATOMODELS_EXPORT NodeSortFilterProxyModel : public QSortFilterProxyModel
+class PLANMODELS_EXPORT NodeSortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
@@ -490,7 +490,7 @@ private:
     bool m_filterUnscheduled;
 };
 
-class KPLATOMODELS_EXPORT TaskModuleModel : public QAbstractItemModel
+class PLANMODELS_EXPORT TaskModuleModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:

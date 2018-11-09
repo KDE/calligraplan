@@ -21,7 +21,7 @@
 #ifndef KPTLOCALE_H
 #define KPTLOCALE_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include <QString>
 
@@ -33,7 +33,7 @@ namespace KPlato
 /**
  * Temporary wrapper for KLocale's currency methods.
  */
-class KPLATOKERNEL_EXPORT Locale
+class PLANKERNEL_EXPORT Locale
 {
 public:
     Locale();

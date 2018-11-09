@@ -53,9 +53,9 @@ generate_export_header(plantjscheduler BASE_NAME kplatotj)
 add_definitions(-Dplantjscheduler_EXPORTS)
 target_link_libraries(
     plantjscheduler
-    kplatokernel
+    plankernel
 )
 
-set_target_properties( plantjscheduler PROPERTIES DEFINE_SYMBOL MAKE_KPLATOTJ_LIB )
+set_target_properties( plantjscheduler PROPERTIES DEFINE_SYMBOL MAKE_PLANTJ_LIB )
 
 install( TARGETS plantjscheduler DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/schedulers )

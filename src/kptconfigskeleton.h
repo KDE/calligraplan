@@ -20,13 +20,13 @@
 #ifndef KPTCONFIGSKELETON_H
 #define KPTCONFIGSKELETON_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include <kconfigskeleton.h>
 #include "kptfactory.h"
 
 
-class KPLATO_EXPORT KPlatoConfigSkeleton : public KConfigSkeleton
+class PLAN_EXPORT KPlatoConfigSkeleton : public KConfigSkeleton
 {
     Q_OBJECT
 public:    

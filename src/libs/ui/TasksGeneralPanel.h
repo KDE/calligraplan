@@ -20,7 +20,7 @@
 #ifndef TASKSGENERALPANEL_H
 #define TASKSGENERALPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_TaskGeneralPanel.h"
 #include "kptduration.h"

@@ -23,7 +23,7 @@
 #ifndef KPTMAINDOCUMENT_H
 #define KPTMAINDOCUMENT_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include "kpttask.h"
 #include "kptconfig.h"
@@ -52,7 +52,7 @@ class View;
 
 class Package;
 
-class KPLATO_EXPORT MainDocument : public KoDocument
+class PLAN_EXPORT MainDocument : public KoDocument
 {
     Q_OBJECT
 

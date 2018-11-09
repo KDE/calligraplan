@@ -11,12 +11,12 @@ endmacro()
 
 ########### next target ###############
 
-planmodels_add_unit_test(ResourceModelTester ResourceModelTester.cpp  LINK_LIBRARIES kplatomodels Qt5::Test)
+planmodels_add_unit_test(ResourceModelTester ResourceModelTester.cpp  LINK_LIBRARIES planmodels Qt5::Test)
 
 ########## next target ###############
 
-planmodels_add_unit_test(FlatProxyModelTester FlatProxyModelTester.cpp  LINK_LIBRARIES kplatomodels Qt5::Test)
+planmodels_add_unit_test(FlatProxyModelTester FlatProxyModelTester.cpp  LINK_LIBRARIES planmodels Qt5::Test)
 
 ########## next target ###############
 
-planmodels_add_unit_test(WorkPackageProxyModelTester WorkPackageProxyModelTester.cpp  LINK_LIBRARIES kplatomodels Qt5::Test)
+planmodels_add_unit_test(WorkPackageProxyModelTester WorkPackageProxyModelTester.cpp  LINK_LIBRARIES planmodels Qt5::Test)

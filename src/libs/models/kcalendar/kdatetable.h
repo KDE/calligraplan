@@ -22,7 +22,7 @@
 #ifndef KP_KDATETABLE_H
 #define KP_KDATETABLE_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <QWidget>
 #include <QDate>
@@ -55,7 +55,7 @@ class StyleOptionViewItem;
  * @internal
  * @author Tim Gilman, Mirko Boehm
  */
-class KPLATOMODELS_EXPORT KDateTable : public QWidget
+class PLANMODELS_EXPORT KDateTable : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY( QDate date READ date WRITE setDate )
@@ -239,7 +239,7 @@ private:
 };
 
 //----->
-class KPLATOMODELS_EXPORT KDateTableDataModel : public QObject
+class PLANMODELS_EXPORT KDateTableDataModel : public QObject
 {
     Q_OBJECT
 public:
@@ -258,7 +258,7 @@ Q_SIGNALS:
 };
 
 //-------
-class KPLATOMODELS_EXPORT KDateTableDateDelegate : public QObject
+class PLANMODELS_EXPORT KDateTableDateDelegate : public QObject
 {
     Q_OBJECT
 public:
@@ -270,7 +270,7 @@ public:
     virtual QVariant data(  const QDate &date, int role, KDateTableDataModel *model );
 };
 
-class KPLATOMODELS_EXPORT KDateTableCustomDateDelegate : public KDateTableDateDelegate
+class PLANMODELS_EXPORT KDateTableCustomDateDelegate : public KDateTableDateDelegate
 {
     Q_OBJECT
 public:
@@ -287,7 +287,7 @@ private:
     
 };
 
-class KPLATOMODELS_EXPORT KDateTableWeekDayDelegate : public QObject
+class PLANMODELS_EXPORT KDateTableWeekDayDelegate : public QObject
 {
     Q_OBJECT
 public:
@@ -299,7 +299,7 @@ public:
     virtual QVariant data(  int day, int role, KDateTableDataModel *model );
 };
 
-class KPLATOMODELS_EXPORT KDateTableWeekNumberDelegate : public QObject
+class PLANMODELS_EXPORT KDateTableWeekNumberDelegate : public QObject
 {
     Q_OBJECT
 public:

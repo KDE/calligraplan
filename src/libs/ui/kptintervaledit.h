@@ -20,7 +20,7 @@
 #ifndef KPTINTERVALEDIT_H
 #define KPTINTERVALEDIT_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptintervaleditbase.h"
 #include "kptcalendar.h"
@@ -67,7 +67,7 @@ public:
 
 };
 
-class KPLATOUI_EXPORT IntervalEditDialog : public KoDialog
+class PLANUI_EXPORT IntervalEditDialog : public KoDialog
 {
     Q_OBJECT
 public:

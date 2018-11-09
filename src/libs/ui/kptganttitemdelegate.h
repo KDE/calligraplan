@@ -20,7 +20,7 @@
 #ifndef KPTGANTTITEMDELEGATE_H
 #define KPTGANTTITEMDELEGATE_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <KGanttGlobal>
 
@@ -41,7 +41,7 @@ class QModelIndex;
 namespace KPlato
 {
 
-class KPLATOUI_EXPORT GanttItemDelegate : public KGantt::ItemDelegate
+class PLANUI_EXPORT GanttItemDelegate : public KGantt::ItemDelegate
 {
     Q_OBJECT
 public:
@@ -89,7 +89,7 @@ private:
 
 };
 
-class KPLATOUI_EXPORT ResourceGanttItemDelegate : public KGantt::ItemDelegate
+class PLANUI_EXPORT ResourceGanttItemDelegate : public KGantt::ItemDelegate
 {
     Q_OBJECT
 public:

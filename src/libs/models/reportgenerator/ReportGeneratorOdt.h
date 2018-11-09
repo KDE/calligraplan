@@ -46,7 +46,7 @@ class ScheduleManager;
 class ItemModelBase;
 
 
-class KPLATOMODELS_EXPORT ReportGeneratorOdt : public ReportGenerator
+class PLANMODELS_EXPORT ReportGeneratorOdt : public ReportGenerator
 {
 public:
     explicit ReportGeneratorOdt();

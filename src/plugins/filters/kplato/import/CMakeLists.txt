@@ -20,6 +20,6 @@ else()
     )
 endif()
 
-target_link_libraries(plankplatoimport planprivate kplatokernel planmain)
+target_link_libraries(plankplatoimport planprivate plankernel planmain)
 
 install(TARGETS plankplatoimport  DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/formatfilters)

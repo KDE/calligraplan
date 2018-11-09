@@ -20,7 +20,7 @@
 #ifndef WORKPACKAGEMODEL_H
 #define WORKPACKAGEMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <QSortFilterProxyModel>
 
@@ -38,7 +38,7 @@ class Project;
 class ScheduleManager;
 class NodeItemModel;
 
-class KPLATOMODELS_EXPORT WorkPackageModel : public QObject
+class PLANMODELS_EXPORT WorkPackageModel : public QObject
 {
     Q_OBJECT
     Q_ENUMS( Properties )
@@ -81,7 +81,7 @@ protected:
   and the WPSortFilterProxyModel to accept only scheduled tasks.
   It depends on the fact that the WPSortFilterProxyModel holds a flat list.
 */
-class KPLATOMODELS_EXPORT WorkPackageProxyModel : public QAbstractProxyModel
+class PLANMODELS_EXPORT WorkPackageProxyModel : public QAbstractProxyModel
 {
     Q_OBJECT
 public:

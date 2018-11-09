@@ -21,7 +21,7 @@
 #ifndef KPTVIEW_H
 #define KPTVIEW_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include <KoView.h>
 
@@ -137,7 +137,7 @@ private:
 };
 
 //-------------
-class KPLATO_EXPORT View : public KoView
+class PLAN_EXPORT View : public KoView
 {
     Q_OBJECT
 

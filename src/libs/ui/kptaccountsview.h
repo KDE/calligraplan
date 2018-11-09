@@ -20,7 +20,7 @@
 #ifndef KPTACCOUNTSVIEW_H
 #define KPTACCOUNTSVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 
@@ -40,7 +40,7 @@ class Project;
 class ScheduleManager;
 class CostBreakdownItemModel;
 
-class KPLATOUI_EXPORT AccountsTreeView : public DoubleTreeViewBase
+class PLANUI_EXPORT AccountsTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -70,7 +70,7 @@ private:
     QList<int> m_leftHidden;
 };
 
-class KPLATOUI_EXPORT AccountsView : public ViewBase
+class PLANUI_EXPORT AccountsView : public ViewBase
 {
     Q_OBJECT
 public:

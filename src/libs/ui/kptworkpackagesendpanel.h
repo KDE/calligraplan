@@ -20,7 +20,7 @@
 #ifndef KPTWORKPACKAGESENDPANEL_H
 #define KPTWORKPACKAGESENDPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptworkpackagesendpanel.h"
 
@@ -36,7 +36,7 @@ class Resource;
 class Node;
 class ScheduleManager;
 
-class KPLATOUI_EXPORT WorkPackageSendPanel : public QWidget, public Ui_WorkPackageSendPanel
+class PLANUI_EXPORT WorkPackageSendPanel : public QWidget, public Ui_WorkPackageSendPanel
 {
     Q_OBJECT
 public:

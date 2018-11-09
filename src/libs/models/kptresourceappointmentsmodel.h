@@ -20,7 +20,7 @@
 #ifndef KPTRESOURCEAPPOINTMENTSMODEL_H
 #define KPTRESOURCEAPPOINTMENTSMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <kptitemmodelbase.h>
 #include "kpteffortcostmap.h"
@@ -44,7 +44,7 @@ class Calendar;
     as hours booked per day (or week, month).
     It handles both internal and external appointments.
 */
-class KPLATOMODELS_EXPORT ResourceAppointmentsItemModel : public ItemModelBase
+class PLANMODELS_EXPORT ResourceAppointmentsItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
@@ -153,7 +153,7 @@ private:
 /**
     The ResourceAppointmentsRowModel returns each appointment interval as a new row.
 */
-class KPLATOMODELS_EXPORT ResourceAppointmentsRowModel : public ItemModelBase
+class PLANMODELS_EXPORT ResourceAppointmentsRowModel : public ItemModelBase
 {
     Q_OBJECT
     Q_ENUMS( Properties )
@@ -242,7 +242,7 @@ protected:
 /**
     The ResourceAppointmentsGanttModel specialized for use by KGantt
 */
-class KPLATOMODELS_EXPORT ResourceAppointmentsGanttModel : public ResourceAppointmentsRowModel
+class PLANMODELS_EXPORT ResourceAppointmentsGanttModel : public ResourceAppointmentsRowModel
 {
     Q_OBJECT
 public:

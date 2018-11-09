@@ -20,7 +20,7 @@
 #ifndef KPTTASKDEFAULTPANEL_H
 #define KPTTASKDEFAULTPANEL_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include "ui_kptconfigtaskpanelbase.h"
 
@@ -49,7 +49,7 @@ public Q_SLOTS:
     void currentUnitChanged( int );
 };
 
-class KPLATO_EXPORT TaskDefaultPanel : public ConfigTaskPanelImpl
+class PLAN_EXPORT TaskDefaultPanel : public ConfigTaskPanelImpl
 {
     Q_OBJECT
 public:

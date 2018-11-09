@@ -22,7 +22,7 @@
 #ifndef KPTCOMMAND_H
 #define KPTCOMMAND_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include <kundo2command.h>
 
@@ -59,7 +59,7 @@ class Resource;
 class Schedule;
 class StandardWorktime;
 
-class KPLATOKERNEL_EXPORT NamedCommand : public KUndo2Command
+class PLANKERNEL_EXPORT NamedCommand : public KUndo2Command
 {
 public:
     explicit NamedCommand( const KUndo2MagicString& name )
@@ -83,7 +83,7 @@ protected:
 
 };
 
-class KPLATOKERNEL_EXPORT MacroCommand : public KUndo2Command
+class PLANKERNEL_EXPORT MacroCommand : public KUndo2Command
 {
 public:
     explicit MacroCommand( const KUndo2MagicString& name = KUndo2MagicString() )
@@ -106,7 +106,7 @@ protected:
 };
 
 
-class KPLATOKERNEL_EXPORT CalendarAddCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarAddCmd : public NamedCommand
 {
 public:
     CalendarAddCmd( Project *project, Calendar *cal, int pos, Calendar *parent, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -122,7 +122,7 @@ private:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT CalendarRemoveCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarRemoveCmd : public NamedCommand
 {
 public:
     CalendarRemoveCmd( Project *project, Calendar *cal, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -139,7 +139,7 @@ private:
     MacroCommand *m_cmd;
 };
 
-class KPLATOKERNEL_EXPORT CalendarMoveCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarMoveCmd : public NamedCommand
 {
 public:
     CalendarMoveCmd( Project *project, Calendar *cal, int position, Calendar *parent, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -155,7 +155,7 @@ private:
     Calendar *m_oldparent;
 };
 
-class KPLATOKERNEL_EXPORT CalendarModifyNameCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarModifyNameCmd : public NamedCommand
 {
 public:
     CalendarModifyNameCmd( Calendar *cal, const QString& newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -168,7 +168,7 @@ private:
     QString m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT CalendarModifyParentCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarModifyParentCmd : public NamedCommand
 {
 public:
     CalendarModifyParentCmd( Project *project, Calendar *cal, Calendar *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -187,7 +187,7 @@ private:
     int m_newindex;
 };
 
-class KPLATOKERNEL_EXPORT CalendarModifyTimeZoneCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarModifyTimeZoneCmd : public NamedCommand
 {
 public:
     CalendarModifyTimeZoneCmd( Calendar *cal, const QTimeZone &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -203,7 +203,7 @@ private:
 };
 
 #ifdef HAVE_KHOLIDAYS
-class KPLATOKERNEL_EXPORT CalendarModifyHolidayRegionCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarModifyHolidayRegionCmd : public NamedCommand
 {
 public:
     CalendarModifyHolidayRegionCmd( Calendar *cal, const QString &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -218,7 +218,7 @@ private:
 };
 #endif
 
-class KPLATOKERNEL_EXPORT CalendarAddDayCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarAddDayCmd : public NamedCommand
 {
 public:
     CalendarAddDayCmd( Calendar *cal, CalendarDay *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -232,7 +232,7 @@ protected:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT CalendarRemoveDayCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarRemoveDayCmd : public NamedCommand
 {
 public:
     CalendarRemoveDayCmd( Calendar *cal, CalendarDay *day, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -249,7 +249,7 @@ private:
     void init();
 };
 
-class KPLATOKERNEL_EXPORT CalendarModifyDayCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarModifyDayCmd : public NamedCommand
 {
 public:
     CalendarModifyDayCmd( Calendar *cal, CalendarDay *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -264,7 +264,7 @@ private:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT CalendarModifyStateCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarModifyStateCmd : public NamedCommand
 {
 public:
     CalendarModifyStateCmd( Calendar *calendar, CalendarDay *day, CalendarDay::State value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -280,7 +280,7 @@ private:
     MacroCommand *m_cmd;
 };
 
-class KPLATOKERNEL_EXPORT CalendarModifyTimeIntervalCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarModifyTimeIntervalCmd : public NamedCommand
 {
 public:
     CalendarModifyTimeIntervalCmd( Calendar *calendar, TimeInterval &newvalue, TimeInterval *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -294,7 +294,7 @@ private:
     TimeInterval m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT CalendarAddTimeIntervalCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarAddTimeIntervalCmd : public NamedCommand
 {
 public:
     CalendarAddTimeIntervalCmd( Calendar *calendar, CalendarDay *day, TimeInterval *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -309,7 +309,7 @@ protected:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT CalendarRemoveTimeIntervalCmd : public CalendarAddTimeIntervalCmd
+class PLANKERNEL_EXPORT CalendarRemoveTimeIntervalCmd : public CalendarAddTimeIntervalCmd
 {
 public:
     CalendarRemoveTimeIntervalCmd( Calendar *calendar, CalendarDay *day, TimeInterval *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -318,7 +318,7 @@ public:
     void unexecute();
 };
 
-class KPLATOKERNEL_EXPORT CalendarModifyWeekdayCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarModifyWeekdayCmd : public NamedCommand
 {
 public:
     CalendarModifyWeekdayCmd( Calendar *cal, int weekday, CalendarDay *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -333,7 +333,7 @@ private:
     CalendarDay m_orig;
 };
 
-class KPLATOKERNEL_EXPORT CalendarModifyDateCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalendarModifyDateCmd : public NamedCommand
 {
 public:
     CalendarModifyDateCmd( Calendar *cal, CalendarDay *day, const QDate &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -346,7 +346,7 @@ private:
     QDate m_newvalue, m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT ProjectModifyDefaultCalendarCmd : public NamedCommand
+class PLANKERNEL_EXPORT ProjectModifyDefaultCalendarCmd : public NamedCommand
 {
 public:
     ProjectModifyDefaultCalendarCmd( Project *project, Calendar *cal, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -359,7 +359,7 @@ private:
 };
 
 
-class KPLATOKERNEL_EXPORT NodeDeleteCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeDeleteCmd : public NamedCommand
 {
 public:
     explicit NodeDeleteCmd( Node *node, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -378,7 +378,7 @@ private:
     MacroCommand *m_relCmd;
 };
 
-class KPLATOKERNEL_EXPORT TaskAddCmd : public NamedCommand
+class PLANKERNEL_EXPORT TaskAddCmd : public NamedCommand
 {
 public:
     TaskAddCmd( Project *project, Node *node, Node *after, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -393,7 +393,7 @@ private:
     bool m_added;
 };
 
-class KPLATOKERNEL_EXPORT SubtaskAddCmd : public NamedCommand
+class PLANKERNEL_EXPORT SubtaskAddCmd : public NamedCommand
 {
 public:
     SubtaskAddCmd( Project *project, Node *node, Node *parent, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -410,7 +410,7 @@ private:
 };
 
 
-class KPLATOKERNEL_EXPORT NodeModifyNameCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyNameCmd : public NamedCommand
 {
 public:
     NodeModifyNameCmd( Node &node, const QString& nodename, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -423,7 +423,7 @@ private:
     QString oldName;
 };
 
-class KPLATOKERNEL_EXPORT NodeModifyLeaderCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyLeaderCmd : public NamedCommand
 {
 public:
     NodeModifyLeaderCmd( Node &node, const QString& leader, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -436,7 +436,7 @@ private:
     QString oldLeader;
 };
 
-class KPLATOKERNEL_EXPORT NodeModifyDescriptionCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyDescriptionCmd : public NamedCommand
 {
 public:
     NodeModifyDescriptionCmd( Node &node, const QString& description, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -449,7 +449,7 @@ private:
     QString oldDescription;
 };
 
-class KPLATOKERNEL_EXPORT NodeModifyConstraintCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyConstraintCmd : public NamedCommand
 {
 public:
     NodeModifyConstraintCmd( Node &node, Node::ConstraintType c, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -463,7 +463,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT NodeModifyConstraintStartTimeCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyConstraintStartTimeCmd : public NamedCommand
 {
 public:
     NodeModifyConstraintStartTimeCmd( Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -476,7 +476,7 @@ private:
     DateTime oldTime;
     QTimeZone m_timeZone;
 };
-class KPLATOKERNEL_EXPORT NodeModifyConstraintEndTimeCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyConstraintEndTimeCmd : public NamedCommand
 {
 public:
     NodeModifyConstraintEndTimeCmd( Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -489,7 +489,7 @@ private:
     DateTime oldTime;
     QTimeZone m_timeZone;
 };
-class KPLATOKERNEL_EXPORT NodeModifyStartTimeCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyStartTimeCmd : public NamedCommand
 {
 public:
     NodeModifyStartTimeCmd( Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -502,7 +502,7 @@ private:
     DateTime oldTime;
     QTimeZone m_timeZone;
 };
-class KPLATOKERNEL_EXPORT NodeModifyEndTimeCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyEndTimeCmd : public NamedCommand
 {
 public:
     NodeModifyEndTimeCmd( Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -515,7 +515,7 @@ private:
     DateTime oldTime;
     QTimeZone m_timeZone;
 };
-class KPLATOKERNEL_EXPORT NodeModifyIdCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyIdCmd : public NamedCommand
 {
 public:
     NodeModifyIdCmd( Node &node, const QString& id, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -528,7 +528,7 @@ private:
     QString oldId;
 };
 
-class KPLATOKERNEL_EXPORT NodeIndentCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeIndentCmd : public NamedCommand
 {
 public:
     explicit NodeIndentCmd( Node &node, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -543,7 +543,7 @@ private:
     MacroCommand *m_cmd;
 };
 
-class KPLATOKERNEL_EXPORT NodeUnindentCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeUnindentCmd : public NamedCommand
 {
 public:
     explicit NodeUnindentCmd( Node &node, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -556,7 +556,7 @@ private:
     int m_oldindex, m_newindex;
 };
 
-class KPLATOKERNEL_EXPORT NodeMoveUpCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeMoveUpCmd : public NamedCommand
 {
 public:
     explicit NodeMoveUpCmd( Node &node, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -569,7 +569,7 @@ private:
     bool m_moved;
 };
 
-class KPLATOKERNEL_EXPORT NodeMoveDownCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeMoveDownCmd : public NamedCommand
 {
 public:
     explicit NodeMoveDownCmd( Node &node, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -582,7 +582,7 @@ private:
     bool m_moved;
 };
 
-class KPLATOKERNEL_EXPORT NodeMoveCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeMoveCmd : public NamedCommand
 {
 public:
     NodeMoveCmd( Project *project, Node *node, Node *newParent, int newPos, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -600,7 +600,7 @@ private:
     MacroCommand m_cmd;
 };
 
-class KPLATOKERNEL_EXPORT AddRelationCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddRelationCmd : public NamedCommand
 {
 public:
     AddRelationCmd( Project &project, Relation *rel, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -615,7 +615,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT DeleteRelationCmd : public NamedCommand
+class PLANKERNEL_EXPORT DeleteRelationCmd : public NamedCommand
 {
 public:
     DeleteRelationCmd( Project &project, Relation *rel, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -630,7 +630,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyRelationTypeCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyRelationTypeCmd : public NamedCommand
 {
 public:
     ModifyRelationTypeCmd( Relation *rel, Relation::Type type, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -645,7 +645,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyRelationLagCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyRelationLagCmd : public NamedCommand
 {
 public:
     ModifyRelationLagCmd( Relation *rel, Duration lag, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -660,7 +660,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT AddResourceRequestCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddResourceRequestCmd : public NamedCommand
 {
 public:
     AddResourceRequestCmd( ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -675,7 +675,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT RemoveResourceRequestCmd : public NamedCommand
+class PLANKERNEL_EXPORT RemoveResourceRequestCmd : public NamedCommand
 {
 public:
     RemoveResourceRequestCmd( ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -690,7 +690,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyResourceRequestUnitsCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceRequestUnitsCmd : public NamedCommand
 {
 public:
     ModifyResourceRequestUnitsCmd( ResourceRequest *request, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -703,7 +703,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyResourceRequestRequiredCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceRequestRequiredCmd : public NamedCommand
 {
 public:
     ModifyResourceRequestRequiredCmd( ResourceRequest *request, const QList<Resource*> &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -716,7 +716,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyResourceGroupRequestUnitsCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceGroupRequestUnitsCmd : public NamedCommand
 {
 public:
     ModifyResourceGroupRequestUnitsCmd( ResourceGroupRequest *request, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -729,7 +729,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyEstimateCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyEstimateCmd : public NamedCommand
 {
 public:
     ModifyEstimateCmd( Node &node, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -745,7 +745,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT EstimateModifyOptimisticRatioCmd : public NamedCommand
+class PLANKERNEL_EXPORT EstimateModifyOptimisticRatioCmd : public NamedCommand
 {
 public:
     EstimateModifyOptimisticRatioCmd( Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -758,7 +758,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT EstimateModifyPessimisticRatioCmd : public NamedCommand
+class PLANKERNEL_EXPORT EstimateModifyPessimisticRatioCmd : public NamedCommand
 {
 public:
     EstimateModifyPessimisticRatioCmd( Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -771,7 +771,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyEstimateTypeCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyEstimateTypeCmd : public NamedCommand
 {
 public:
     ModifyEstimateTypeCmd( Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -784,7 +784,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyEstimateUnitCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyEstimateUnitCmd : public NamedCommand
 {
 public:
     ModifyEstimateUnitCmd( Node &node, Duration::Unit oldvalue, Duration::Unit newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -796,7 +796,7 @@ private:
     Duration::Unit m_oldvalue, m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT EstimateModifyRiskCmd : public NamedCommand
+class PLANKERNEL_EXPORT EstimateModifyRiskCmd : public NamedCommand
 {
 public:
     EstimateModifyRiskCmd( Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -809,7 +809,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyEstimateCalendarCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyEstimateCalendarCmd : public NamedCommand
 {
 public:
     ModifyEstimateCalendarCmd( Node &node, Calendar *oldvalue, Calendar *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -823,7 +823,7 @@ private:
 };
 
 
-class KPLATOKERNEL_EXPORT AddResourceGroupRequestCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddResourceGroupRequestCmd : public NamedCommand
 {
 public:
     AddResourceGroupRequestCmd( Task &task, ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -836,7 +836,7 @@ private:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT RemoveResourceGroupRequestCmd : public NamedCommand
+class PLANKERNEL_EXPORT RemoveResourceGroupRequestCmd : public NamedCommand
 {
 public:
     explicit RemoveResourceGroupRequestCmd( ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -850,7 +850,7 @@ private:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT AddResourceCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddResourceCmd : public NamedCommand
 {
 public:
     AddResourceCmd( ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -866,7 +866,7 @@ protected:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT RemoveResourceCmd : public AddResourceCmd
+class PLANKERNEL_EXPORT RemoveResourceCmd : public AddResourceCmd
 {
 public:
     RemoveResourceCmd( ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -880,7 +880,7 @@ private:
     MacroCommand m_cmd;
 };
 
-class KPLATOKERNEL_EXPORT MoveResourceCmd : public NamedCommand
+class PLANKERNEL_EXPORT MoveResourceCmd : public NamedCommand
 {
 public:
     MoveResourceCmd( ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -894,7 +894,7 @@ private:
     MacroCommand cmd;
 };
 
-class KPLATOKERNEL_EXPORT ModifyResourceNameCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceNameCmd : public NamedCommand
 {
 public:
     ModifyResourceNameCmd( Resource *resource, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -907,7 +907,7 @@ private:
     QString m_newvalue;
     QString m_oldvalue;
 };
-class KPLATOKERNEL_EXPORT ModifyResourceInitialsCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceInitialsCmd : public NamedCommand
 {
 public:
     ModifyResourceInitialsCmd( Resource *resource, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -919,7 +919,7 @@ private:
     QString m_newvalue;
     QString m_oldvalue;
 };
-class KPLATOKERNEL_EXPORT ModifyResourceEmailCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceEmailCmd : public NamedCommand
 {
 public:
     ModifyResourceEmailCmd( Resource *resource, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -931,7 +931,7 @@ private:
     QString m_newvalue;
     QString m_oldvalue;
 };
-class KPLATOKERNEL_EXPORT ModifyResourceAutoAllocateCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceAutoAllocateCmd : public NamedCommand
 {
 public:
     ModifyResourceAutoAllocateCmd( Resource *resource, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -943,7 +943,7 @@ private:
     bool m_newvalue;
     bool m_oldvalue;
 };
-class KPLATOKERNEL_EXPORT ModifyResourceTypeCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceTypeCmd : public NamedCommand
 {
 public:
     ModifyResourceTypeCmd( Resource *resource, int value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -956,7 +956,7 @@ private:
     int m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyResourceUnitsCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceUnitsCmd : public NamedCommand
 {
 public:
     ModifyResourceUnitsCmd( Resource *resource, int value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -969,7 +969,7 @@ private:
     int m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyResourceAvailableFromCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceAvailableFromCmd : public NamedCommand
 {
 public:
     ModifyResourceAvailableFromCmd( Resource *resource, const QDateTime& value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -982,7 +982,7 @@ private:
     DateTime m_oldvalue;
     QTimeZone m_timeZone;
 };
-class KPLATOKERNEL_EXPORT ModifyResourceAvailableUntilCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceAvailableUntilCmd : public NamedCommand
 {
 public:
     ModifyResourceAvailableUntilCmd( Resource *resource, const QDateTime& value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -996,7 +996,7 @@ private:
     QTimeZone m_timeZone;
 };
 
-class KPLATOKERNEL_EXPORT ModifyResourceNormalRateCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceNormalRateCmd : public NamedCommand
 {
 public:
     ModifyResourceNormalRateCmd( Resource *resource, double value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1008,7 +1008,7 @@ private:
     double m_newvalue;
     double m_oldvalue;
 };
-class KPLATOKERNEL_EXPORT ModifyResourceOvertimeRateCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceOvertimeRateCmd : public NamedCommand
 {
 public:
     ModifyResourceOvertimeRateCmd( Resource *resource, double value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1020,7 +1020,7 @@ private:
     double m_newvalue;
     double m_oldvalue;
 };
-class KPLATOKERNEL_EXPORT ModifyResourceCalendarCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceCalendarCmd : public NamedCommand
 {
 public:
     ModifyResourceCalendarCmd( Resource *resource, Calendar *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1032,7 +1032,7 @@ private:
     Calendar *m_newvalue;
     Calendar *m_oldvalue;
 };
-class KPLATOKERNEL_EXPORT ModifyRequiredResourcesCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyRequiredResourcesCmd : public NamedCommand
 {
 public:
     ModifyRequiredResourcesCmd( Resource *resource, const QStringList &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1044,7 +1044,7 @@ private:
     QStringList m_newvalue;
     QStringList m_oldvalue;
 };
-class KPLATOKERNEL_EXPORT ModifyResourceAccountCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceAccountCmd : public NamedCommand
 {
 public:
     ModifyResourceAccountCmd( Resource *resource, Account *account, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1056,7 +1056,7 @@ private:
     Account *m_newvalue;
     Account *m_oldvalue;
 };
-class KPLATOKERNEL_EXPORT AddResourceTeamCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddResourceTeamCmd : public NamedCommand
 {
 public:
     AddResourceTeamCmd( Resource *team, const QString &member, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1067,7 +1067,7 @@ private:
     Resource *m_team;
     QString m_member;
 };
-class KPLATOKERNEL_EXPORT RemoveResourceTeamCmd : public NamedCommand
+class PLANKERNEL_EXPORT RemoveResourceTeamCmd : public NamedCommand
 {
 public:
     RemoveResourceTeamCmd( Resource *team, const QString &member, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1079,7 +1079,7 @@ private:
     QString m_member;
 };
 
-class KPLATOKERNEL_EXPORT RemoveResourceGroupCmd : public NamedCommand
+class PLANKERNEL_EXPORT RemoveResourceGroupCmd : public NamedCommand
 {
 public:
     RemoveResourceGroupCmd( Project *project, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1096,7 +1096,7 @@ protected:
     MacroCommand *m_cmd;
 };
 
-class KPLATOKERNEL_EXPORT AddResourceGroupCmd : public RemoveResourceGroupCmd
+class PLANKERNEL_EXPORT AddResourceGroupCmd : public RemoveResourceGroupCmd
 {
 public:
     AddResourceGroupCmd( Project *project, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1104,7 +1104,7 @@ public:
     void unexecute();
 };
 
-class KPLATOKERNEL_EXPORT ModifyResourceGroupNameCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceGroupNameCmd : public NamedCommand
 {
 public:
     ModifyResourceGroupNameCmd( ResourceGroup *group, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1117,7 +1117,7 @@ private:
     QString m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyResourceGroupTypeCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyResourceGroupTypeCmd : public NamedCommand
 {
     public:
         ModifyResourceGroupTypeCmd( ResourceGroup *group, int value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1130,7 +1130,7 @@ class KPLATOKERNEL_EXPORT ModifyResourceGroupTypeCmd : public NamedCommand
         int m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCompletionEntrymodeCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCompletionEntrymodeCmd : public NamedCommand
 {
 public:
     ModifyCompletionEntrymodeCmd( Completion &completion, Completion::Entrymode value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1143,7 +1143,7 @@ private:
     Completion::Entrymode newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCompletionStartedCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCompletionStartedCmd : public NamedCommand
 {
 public:
     ModifyCompletionStartedCmd( Completion &completion, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1156,7 +1156,7 @@ private:
     bool newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCompletionFinishedCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCompletionFinishedCmd : public NamedCommand
 {
 public:
     ModifyCompletionFinishedCmd( Completion &completion, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1169,7 +1169,7 @@ private:
     bool newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCompletionStartTimeCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCompletionStartTimeCmd : public NamedCommand
 {
 public:
     ModifyCompletionStartTimeCmd( Completion &completion, const QDateTime &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1183,7 +1183,7 @@ private:
     QTimeZone m_timeZone;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCompletionFinishTimeCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCompletionFinishTimeCmd : public NamedCommand
 {
 public:
     ModifyCompletionFinishTimeCmd( Completion &completion, const QDateTime &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1197,7 +1197,7 @@ private:
     QTimeZone m_timeZone;
 };
 
-class KPLATOKERNEL_EXPORT AddCompletionEntryCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddCompletionEntryCmd : public NamedCommand
 {
 public:
     AddCompletionEntryCmd( Completion &completion, const QDate &date, Completion::Entry *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1212,7 +1212,7 @@ private:
     bool m_newmine;
 };
 
-class KPLATOKERNEL_EXPORT RemoveCompletionEntryCmd : public NamedCommand
+class PLANKERNEL_EXPORT RemoveCompletionEntryCmd : public NamedCommand
 {
 public:
     RemoveCompletionEntryCmd( Completion &completion, const QDate& date, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1227,7 +1227,7 @@ private:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCompletionEntryCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCompletionEntryCmd : public NamedCommand
 {
 public:
     ModifyCompletionEntryCmd( Completion &completion, const QDate &date, Completion::Entry *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1239,7 +1239,7 @@ private:
     MacroCommand *cmd;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCompletionPercentFinishedCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCompletionPercentFinishedCmd : public NamedCommand
 {
 public:
     ModifyCompletionPercentFinishedCmd( Completion &completion, const QDate &date, int value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1254,7 +1254,7 @@ private:
     MacroCommand cmd;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCompletionRemainingEffortCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCompletionRemainingEffortCmd : public NamedCommand
 {
 public:
     ModifyCompletionRemainingEffortCmd( Completion &completion, const QDate &date, const Duration &value, const KUndo2MagicString &name = KUndo2MagicString() );
@@ -1269,7 +1269,7 @@ private:
     MacroCommand cmd;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCompletionActualEffortCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCompletionActualEffortCmd : public NamedCommand
 {
 public:
     ModifyCompletionActualEffortCmd( Completion &completion, const QDate &date, const Duration &value, const KUndo2MagicString &name = KUndo2MagicString() );
@@ -1289,7 +1289,7 @@ private:
  * Note that the used effort definition in @p value must contain entries for *all* dates.
  * If used effort is already defined it will be replaced.
  */
-class KPLATOKERNEL_EXPORT AddCompletionUsedEffortCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddCompletionUsedEffortCmd : public NamedCommand
 {
 public:
     AddCompletionUsedEffortCmd( Completion &completion, const Resource *resource, Completion::UsedEffort *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1305,7 +1305,7 @@ private:
     bool m_newmine, m_oldmine;
 };
 
-class KPLATOKERNEL_EXPORT AddCompletionActualEffortCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddCompletionActualEffortCmd : public NamedCommand
 {
 public:
     AddCompletionActualEffortCmd( Completion::UsedEffort &ue, const QDate &date, const Completion::UsedEffort::ActualEffort &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1321,7 +1321,7 @@ private:
 };
 
 
-class KPLATOKERNEL_EXPORT AddAccountCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddAccountCmd : public NamedCommand
 {
 public:
     AddAccountCmd( Project &project, Account *account, Account *parent = 0, int index = -1, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1341,7 +1341,7 @@ private:
     QString m_parentName;
 };
 
-class KPLATOKERNEL_EXPORT RemoveAccountCmd : public NamedCommand
+class PLANKERNEL_EXPORT RemoveAccountCmd : public NamedCommand
 {
 public:
     RemoveAccountCmd( Project &project, Account *account, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1359,7 +1359,7 @@ private:
     MacroCommand m_cmd;
 };
 
-class KPLATOKERNEL_EXPORT RenameAccountCmd : public NamedCommand
+class PLANKERNEL_EXPORT RenameAccountCmd : public NamedCommand
 {
 public:
     RenameAccountCmd( Account *account, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1372,7 +1372,7 @@ private:
     QString m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyAccountDescriptionCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyAccountDescriptionCmd : public NamedCommand
 {
 public:
     ModifyAccountDescriptionCmd( Account *account, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1385,7 +1385,7 @@ private:
     QString m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT NodeModifyStartupCostCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyStartupCostCmd : public NamedCommand
 {
 public:
     NodeModifyStartupCostCmd( Node &node, double value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1398,7 +1398,7 @@ private:
     double m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT NodeModifyShutdownCostCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyShutdownCostCmd : public NamedCommand
 {
 public:
     NodeModifyShutdownCostCmd( Node &node, double value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1411,7 +1411,7 @@ private:
     double m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT NodeModifyRunningAccountCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyRunningAccountCmd : public NamedCommand
 {
 public:
     NodeModifyRunningAccountCmd( Node &node, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1424,7 +1424,7 @@ private:
     Account *m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT NodeModifyStartupAccountCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyStartupAccountCmd : public NamedCommand
 {
 public:
     NodeModifyStartupAccountCmd( Node &node, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1437,7 +1437,7 @@ private:
     Account *m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT NodeModifyShutdownAccountCmd : public NamedCommand
+class PLANKERNEL_EXPORT NodeModifyShutdownAccountCmd : public NamedCommand
 {
 public:
     NodeModifyShutdownAccountCmd( Node &node, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1450,7 +1450,7 @@ private:
     Account *m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyDefaultAccountCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyDefaultAccountCmd : public NamedCommand
 {
 public:
     ModifyDefaultAccountCmd( Accounts &acc, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1463,7 +1463,7 @@ private:
     Account *m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ResourceModifyAccountCmd : public NamedCommand
+class PLANKERNEL_EXPORT ResourceModifyAccountCmd : public NamedCommand
 {
 public:
     ResourceModifyAccountCmd( Resource &resource, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1476,7 +1476,7 @@ private:
     Account *m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ProjectModifyConstraintCmd : public NamedCommand
+class PLANKERNEL_EXPORT ProjectModifyConstraintCmd : public NamedCommand
 {
 public:
     ProjectModifyConstraintCmd( Project &node, Node::ConstraintType c, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1490,7 +1490,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ProjectModifyStartTimeCmd : public NamedCommand
+class PLANKERNEL_EXPORT ProjectModifyStartTimeCmd : public NamedCommand
 {
 public:
     ProjectModifyStartTimeCmd( Project &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1504,7 +1504,7 @@ private:
     QTimeZone m_timeZone;
 };
 
-class KPLATOKERNEL_EXPORT ProjectModifyEndTimeCmd : public NamedCommand
+class PLANKERNEL_EXPORT ProjectModifyEndTimeCmd : public NamedCommand
 {
 public:
     ProjectModifyEndTimeCmd( Project &project, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1519,7 +1519,7 @@ private:
 };
 
 
-class KPLATOKERNEL_EXPORT AddScheduleManagerCmd : public NamedCommand
+class PLANKERNEL_EXPORT AddScheduleManagerCmd : public NamedCommand
 {
 public:
     AddScheduleManagerCmd( Project &project, ScheduleManager *sm, int index = -1, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1537,7 +1537,7 @@ protected:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT DeleteScheduleManagerCmd : public AddScheduleManagerCmd
+class PLANKERNEL_EXPORT DeleteScheduleManagerCmd : public AddScheduleManagerCmd
 {
 public:
     DeleteScheduleManagerCmd( Project &project, ScheduleManager *sm, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1548,7 +1548,7 @@ private:
     MacroCommand cmd;
 };
 
-class KPLATOKERNEL_EXPORT MoveScheduleManagerCmd : public NamedCommand
+class PLANKERNEL_EXPORT MoveScheduleManagerCmd : public NamedCommand
 {
 public:
     MoveScheduleManagerCmd( ScheduleManager *sm, ScheduleManager *newparent, int newindex, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1564,7 +1564,7 @@ private:
     MacroCommand m_cmd;
 };
 
-class KPLATOKERNEL_EXPORT ModifyScheduleManagerNameCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyScheduleManagerNameCmd : public NamedCommand
 {
 public:
     ModifyScheduleManagerNameCmd( ScheduleManager &sm, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1576,7 +1576,7 @@ private:
     QString oldvalue, newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyScheduleManagerAllowOverbookingCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyScheduleManagerAllowOverbookingCmd : public NamedCommand
 {
 public:
     ModifyScheduleManagerAllowOverbookingCmd( ScheduleManager &sm, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1588,7 +1588,7 @@ private:
     bool oldvalue, newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyScheduleManagerDistributionCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyScheduleManagerDistributionCmd : public NamedCommand
 {
 public:
     ModifyScheduleManagerDistributionCmd( ScheduleManager &sm, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1600,7 +1600,7 @@ private:
     bool oldvalue, newvalue;
 };
 
-class KPLATOKERNEL_EXPORT CalculateScheduleCmd : public NamedCommand
+class PLANKERNEL_EXPORT CalculateScheduleCmd : public NamedCommand
 {
 public:
     CalculateScheduleCmd( Project &project, ScheduleManager *sm, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1615,7 +1615,7 @@ private:
     MainSchedule *m_newexpected;
 };
 
-class KPLATOKERNEL_EXPORT BaselineScheduleCmd : public NamedCommand
+class PLANKERNEL_EXPORT BaselineScheduleCmd : public NamedCommand
 {
 public:
     explicit BaselineScheduleCmd( ScheduleManager &sm, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1626,7 +1626,7 @@ private:
     ScheduleManager &m_sm;
 };
 
-class KPLATOKERNEL_EXPORT ResetBaselineScheduleCmd : public NamedCommand
+class PLANKERNEL_EXPORT ResetBaselineScheduleCmd : public NamedCommand
 {
 public:
     explicit ResetBaselineScheduleCmd( ScheduleManager &sm, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1637,7 +1637,7 @@ private:
     ScheduleManager &m_sm;
 };
 
-class KPLATOKERNEL_EXPORT ModifyScheduleManagerSchedulingDirectionCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyScheduleManagerSchedulingDirectionCmd : public NamedCommand
 {
 public:
     ModifyScheduleManagerSchedulingDirectionCmd( ScheduleManager &sm, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1649,7 +1649,7 @@ private:
     bool oldvalue, newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyScheduleManagerSchedulerCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyScheduleManagerSchedulerCmd : public NamedCommand
 {
 public:
     ModifyScheduleManagerSchedulerCmd( ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1661,7 +1661,7 @@ private:
     int oldvalue, newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyScheduleManagerSchedulingGranularityCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyScheduleManagerSchedulingGranularityCmd : public NamedCommand
 {
 public:
     ModifyScheduleManagerSchedulingGranularityCmd( ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1673,7 +1673,7 @@ private:
     int oldvalue, newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyStandardWorktimeYearCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyStandardWorktimeYearCmd : public NamedCommand
 {
 public:
     ModifyStandardWorktimeYearCmd( StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1685,7 +1685,7 @@ private:
     double m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyStandardWorktimeMonthCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyStandardWorktimeMonthCmd : public NamedCommand
 {
 public:
     ModifyStandardWorktimeMonthCmd( StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1697,7 +1697,7 @@ private:
     double m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyStandardWorktimeWeekCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyStandardWorktimeWeekCmd : public NamedCommand
 {
 public:
     ModifyStandardWorktimeWeekCmd( StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1709,7 +1709,7 @@ private:
     double m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT ModifyStandardWorktimeDayCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyStandardWorktimeDayCmd : public NamedCommand
 {
 public:
     ModifyStandardWorktimeDayCmd( StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1721,7 +1721,7 @@ private:
     double m_newvalue;
 };
 
-class KPLATOKERNEL_EXPORT DocumentAddCmd : public NamedCommand
+class PLANKERNEL_EXPORT DocumentAddCmd : public NamedCommand
 {
 public:
     DocumentAddCmd( Documents& docs, Document *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1734,7 +1734,7 @@ private:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT DocumentRemoveCmd : public NamedCommand
+class PLANKERNEL_EXPORT DocumentRemoveCmd : public NamedCommand
 {
 public:
     DocumentRemoveCmd( Documents& docs, Document *value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1747,7 +1747,7 @@ private:
     bool m_mine;
 };
 
-class KPLATOKERNEL_EXPORT DocumentModifyUrlCmd : public NamedCommand
+class PLANKERNEL_EXPORT DocumentModifyUrlCmd : public NamedCommand
 {
 public:
     DocumentModifyUrlCmd( Document *doc, const QUrl &url, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1759,7 +1759,7 @@ private:
     QUrl m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT DocumentModifyNameCmd : public NamedCommand
+class PLANKERNEL_EXPORT DocumentModifyNameCmd : public NamedCommand
 {
 public:
     DocumentModifyNameCmd( Document *doc, const QString &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1771,7 +1771,7 @@ private:
     QString m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT DocumentModifyTypeCmd : public NamedCommand
+class PLANKERNEL_EXPORT DocumentModifyTypeCmd : public NamedCommand
 {
 public:
     DocumentModifyTypeCmd( Document *doc, Document::Type value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1783,7 +1783,7 @@ private:
     Document::Type m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT DocumentModifyStatusCmd : public NamedCommand
+class PLANKERNEL_EXPORT DocumentModifyStatusCmd : public NamedCommand
 {
 public:
     DocumentModifyStatusCmd( Document *doc, const QString &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1795,7 +1795,7 @@ private:
     QString  m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT DocumentModifySendAsCmd : public NamedCommand
+class PLANKERNEL_EXPORT DocumentModifySendAsCmd : public NamedCommand
 {
     public:
         DocumentModifySendAsCmd( Document *doc, const Document::SendAs value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1807,7 +1807,7 @@ class KPLATOKERNEL_EXPORT DocumentModifySendAsCmd : public NamedCommand
         Document::SendAs m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT WBSDefinitionModifyCmd : public NamedCommand
+class PLANKERNEL_EXPORT WBSDefinitionModifyCmd : public NamedCommand
 {
 public:
     WBSDefinitionModifyCmd( Project &project, const WBSDefinition value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1818,7 +1818,7 @@ private:
     WBSDefinition m_newvalue, m_oldvalue;
 };
 
-class KPLATOKERNEL_EXPORT InsertProjectCmd : public MacroCommand
+class PLANKERNEL_EXPORT InsertProjectCmd : public MacroCommand
 {
 public:
     InsertProjectCmd( Project &project, Node *parent, Node *after, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1838,7 +1838,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT WorkPackageAddCmd : public NamedCommand
+class PLANKERNEL_EXPORT WorkPackageAddCmd : public NamedCommand
 {
 public:
     WorkPackageAddCmd( Project *project, Node *node, WorkPackage *wp, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1853,7 +1853,7 @@ private:
 
 };
 
-class KPLATOKERNEL_EXPORT ModifyProjectLocaleCmd : public MacroCommand
+class PLANKERNEL_EXPORT ModifyProjectLocaleCmd : public MacroCommand
 {
 public:
     ModifyProjectLocaleCmd( Project &project, const KUndo2MagicString &name );
@@ -1863,7 +1863,7 @@ private:
     Project &m_project;
 };
 
-class KPLATOKERNEL_EXPORT ModifyCurrencySymolCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyCurrencySymolCmd : public NamedCommand
 {
 public:
     ModifyCurrencySymolCmd( Locale *locale, const QString &value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1876,7 +1876,7 @@ private:
     QString m_oldvalue;
 };
 
-class  KPLATOKERNEL_EXPORT ModifyCurrencyFractionalDigitsCmd : public NamedCommand
+class  PLANKERNEL_EXPORT ModifyCurrencyFractionalDigitsCmd : public NamedCommand
 {
 public:
     ModifyCurrencyFractionalDigitsCmd( Locale *locale, int value, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1889,7 +1889,7 @@ private:
     int m_oldvalue;
 };
 
-class  KPLATOKERNEL_EXPORT AddExternalAppointmentCmd : public NamedCommand
+class  PLANKERNEL_EXPORT AddExternalAppointmentCmd : public NamedCommand
 {
 public:
     AddExternalAppointmentCmd( Resource *resource, const QString &pid, const QString &pname, const QDateTime &start, const QDateTime &end, double load, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1905,7 +1905,7 @@ private:
     double m_load;
 };
 
-class  KPLATOKERNEL_EXPORT ClearExternalAppointmentCmd : public NamedCommand
+class  PLANKERNEL_EXPORT ClearExternalAppointmentCmd : public NamedCommand
 {
 public:
     ClearExternalAppointmentCmd( Resource *resource, const QString &pid, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1919,7 +1919,7 @@ private:
     Appointment *m_appointments;
 };
 
-class  KPLATOKERNEL_EXPORT ClearAllExternalAppointmentsCmd : public NamedCommand
+class  PLANKERNEL_EXPORT ClearAllExternalAppointmentsCmd : public NamedCommand
 {
 public:
     explicit ClearAllExternalAppointmentsCmd( Project *project, const KUndo2MagicString& name = KUndo2MagicString() );
@@ -1931,7 +1931,7 @@ private:
     MacroCommand m_cmd;
 };
 
-class  KPLATOKERNEL_EXPORT SharedResourcesFileCmd : public NamedCommand
+class  PLANKERNEL_EXPORT SharedResourcesFileCmd : public NamedCommand
 {
 public:
     explicit SharedResourcesFileCmd(Project *project, const QString &newValue, const KUndo2MagicString& name = KUndo2MagicString());
@@ -1944,7 +1944,7 @@ private:
     QString m_newValue;
 };
 
-class  KPLATOKERNEL_EXPORT UseSharedResourcesCmd : public NamedCommand
+class  PLANKERNEL_EXPORT UseSharedResourcesCmd : public NamedCommand
 {
 public:
     explicit UseSharedResourcesCmd(Project *project, bool newValue, const KUndo2MagicString& name = KUndo2MagicString());
@@ -1957,7 +1957,7 @@ private:
     bool m_newValue;
 };
 
-class  KPLATOKERNEL_EXPORT SharedProjectsUrlCmd : public NamedCommand
+class  PLANKERNEL_EXPORT SharedProjectsUrlCmd : public NamedCommand
 {
 public:
     explicit SharedProjectsUrlCmd(Project *project, const QUrl &newValue, const KUndo2MagicString& name = KUndo2MagicString());
@@ -1970,7 +1970,7 @@ private:
     QUrl m_newValue;
 };
 
-class  KPLATOKERNEL_EXPORT LoadProjectsAtStartupCmd : public NamedCommand
+class  PLANKERNEL_EXPORT LoadProjectsAtStartupCmd : public NamedCommand
 {
 public:
     explicit LoadProjectsAtStartupCmd(Project *project, bool newValue, const KUndo2MagicString& name = KUndo2MagicString());

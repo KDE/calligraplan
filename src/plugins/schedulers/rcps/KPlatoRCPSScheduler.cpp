@@ -149,7 +149,7 @@ int KPlatoRCPSScheduler::progress( int generations, struct rcps_fitness fitness 
 
 int KPlatoRCPSScheduler::duration_callback( int direction, int time, int nominal_duration, void *arg )
 {
-    //debugPlan<<"kplato_duration:"<<direction<<time<<nominal_duration<<arg;
+    //debugPlan<<"plan_duration:"<<direction<<time<<nominal_duration<<arg;
     if ( arg == 0 ) {
         return nominal_duration;
     }
@@ -203,7 +203,7 @@ int KPlatoRCPSScheduler::duration( int direction, int time, int nominal_duration
 
 int KPlatoRCPSScheduler::weight_callback( int time, int duration, struct rcps_fitness *nominal_weight, void* weight_arg, void* fitness_arg )
 {
-    //debugPlan<<"kplato_weight:"<<time<<nominal_weight<<arg;
+    //debugPlan<<"plan_weight:"<<time<<nominal_weight<<arg;
     if ( weight_arg == 0 ) {
         nominal_weight->weight *= time;
         return 0;

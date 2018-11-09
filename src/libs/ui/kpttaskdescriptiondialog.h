@@ -20,7 +20,7 @@
 #ifndef KPTTASKDESCRIPTIONDIALOG_H
 #define KPTTASKDESCRIPTIONDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kpttaskdescriptionpanelbase.h"
 
@@ -66,7 +66,7 @@ protected:
     void initDescription( bool readOnly );
 };
 
-class KPLATOUI_EXPORT TaskDescriptionDialog : public KoDialog
+class PLANUI_EXPORT TaskDescriptionDialog : public KoDialog
 {
     Q_OBJECT
 public:

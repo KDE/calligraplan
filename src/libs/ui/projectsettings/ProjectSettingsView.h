@@ -20,7 +20,7 @@
 #ifndef PROJECTSETTINGSVIEW_H
 #define PROJECTSETTINGSVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 #include "ui_ProjectSettingsView.h"
 #include "kptviewbase.h"
 
@@ -35,7 +35,7 @@ namespace KPlato
 {
 
 
-class KPLATOUI_EXPORT ProjectSettingsView : public ViewBase
+class PLANUI_EXPORT ProjectSettingsView : public ViewBase
 {
     Q_OBJECT
 public:

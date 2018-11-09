@@ -20,7 +20,7 @@
 #ifndef KPTRESOURCEASSIGNMENTVIEW_H
 #define KPTRESOURCEASSIGNMENTVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 
@@ -49,7 +49,7 @@ namespace KPlato
 class ResourcesList;
 
 
-class KPLATOUI_EXPORT ResourcesList : public QTreeWidget
+class PLANUI_EXPORT ResourcesList : public QTreeWidget
 {
     Q_OBJECT
 
@@ -58,7 +58,7 @@ public:
 
 };
 
-class KPLATOUI_EXPORT ResourceAssignmentView : public ViewBase
+class PLANUI_EXPORT ResourceAssignmentView : public ViewBase
 {
     Q_OBJECT
 

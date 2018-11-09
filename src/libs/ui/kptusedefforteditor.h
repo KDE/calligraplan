@@ -20,7 +20,7 @@
 #ifndef KPTUSEDEFFORTEDITOR_H
 #define KPTUSEDEFFORTEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <QTableView>
 #include <QAbstractItemModel>
@@ -35,7 +35,7 @@ class Completion;
 class Resource;
 class Project;
 
-class KPLATOUI_EXPORT UsedEffortItemModel : public QAbstractItemModel
+class PLANUI_EXPORT UsedEffortItemModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
@@ -81,7 +81,7 @@ private:
     bool m_readonly;
 };
 
-class KPLATOUI_EXPORT UsedEffortEditor : public QTableView
+class PLANUI_EXPORT UsedEffortEditor : public QTableView
 {
     Q_OBJECT
 public:
@@ -104,7 +104,7 @@ private:
 };
 
 //--------------------------------------------
-class KPLATOUI_EXPORT CompletionEntryItemModel : public QAbstractItemModel
+class PLANUI_EXPORT CompletionEntryItemModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
@@ -177,7 +177,7 @@ protected:
     QList<Qt::ItemFlags> m_flags;
 };
 
-class KPLATOUI_EXPORT CompletionEntryEditor : public QTableView
+class PLANUI_EXPORT CompletionEntryEditor : public QTableView
 {
     Q_OBJECT
 public:

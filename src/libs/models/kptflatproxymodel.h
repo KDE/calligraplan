@@ -20,7 +20,7 @@
 #ifndef KPTFLATPROXYMODEL_H
 #define KPTFLATPROXYMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <QAbstractProxyModel>
 
@@ -42,7 +42,7 @@ namespace KPlato
     The flat model adds a Parent column at the end of the source model columns,
     to make it possible to access the parent index's data at column 0.
 */
-class KPLATOMODELS_EXPORT FlatProxyModel : public QAbstractProxyModel
+class PLANMODELS_EXPORT FlatProxyModel : public QAbstractProxyModel
 {
     Q_OBJECT
 public:

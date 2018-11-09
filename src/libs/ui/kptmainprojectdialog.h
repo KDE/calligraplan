@@ -20,7 +20,7 @@
 #ifndef KPTMAINPROJECTDIALOG_H
 #define KPTMAINPROJECTDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <KoDialog.h>
 
@@ -33,7 +33,7 @@ class MainProjectPanel;
 class MacroCommand;
 
 
-class KPLATOUI_EXPORT MainProjectDialog : public KoDialog {
+class PLANUI_EXPORT MainProjectDialog : public KoDialog {
     Q_OBJECT
 public:
     explicit MainProjectDialog(Project &project, QWidget *parent=0, bool edit=true);

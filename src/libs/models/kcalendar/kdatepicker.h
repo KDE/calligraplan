@@ -22,7 +22,7 @@
 #ifndef KP_KDATEPICKER_H
 #define KP_KDATEPICKER_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <QDate>
 #include <QFrame>
@@ -51,7 +51,7 @@ class KDateTable;
  *     @author Tim Gilman, Mirko Boehm
  *
  **/
-class KPLATOMODELS_EXPORT KDatePicker: public QFrame
+class PLANMODELS_EXPORT KDatePicker: public QFrame
 {
     Q_OBJECT
     Q_PROPERTY(QDate date READ date WRITE setDate NOTIFY dateChanged USER true)

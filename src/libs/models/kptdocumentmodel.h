@@ -28,7 +28,7 @@ namespace KPlato
 class Document;
 class Documents;
 
-class KPLATOMODELS_EXPORT DocumentModel : public QObject
+class PLANMODELS_EXPORT DocumentModel : public QObject
 {
     Q_OBJECT
 public:
@@ -62,7 +62,7 @@ public:
     bool setSendAs( Document *doc, const QVariant &value, int role );
 };
 
-class KPLATOMODELS_EXPORT DocumentItemModel : public ItemModelBase
+class PLANMODELS_EXPORT DocumentItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:

@@ -20,7 +20,7 @@
 #ifndef KPTRESOURCEALLOCATIONEDITOR_H
 #define KPTRESOURCEALLOCATIONEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 #include "kptresourceallocationmodel.h"
@@ -39,7 +39,7 @@ class Resource;
 class ResourceGroup;
 
 
-class KPLATOUI_EXPORT ResourceAllocationTreeView : public DoubleTreeViewBase
+class PLANUI_EXPORT ResourceAllocationTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -63,7 +63,7 @@ Q_SIGNALS:
 
 };
 
-class KPLATOUI_EXPORT ResourceAllocationEditor : public ViewBase
+class PLANUI_EXPORT ResourceAllocationEditor : public ViewBase
 {
     Q_OBJECT
 public:

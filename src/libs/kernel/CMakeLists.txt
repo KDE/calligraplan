@@ -9,7 +9,7 @@ include_directories(${PLANODF_INCLUDES}
 
 ########### KPlato kernel library ###############
 
-set(kplatokernel_LIB_SRCS
+set(plankernel_LIB_SRCS
     kptglobal.cpp
     kptlocale.cpp
     kpteffortcostmap.cpp
@@ -37,10 +37,10 @@ set(kplatokernel_LIB_SRCS
     KPlatoXmlLoaderBase.cpp
 )
 
-add_library(kplatokernel SHARED ${kplatokernel_LIB_SRCS})
-generate_export_header(kplatokernel)
+add_library(plankernel SHARED ${plankernel_LIB_SRCS})
+generate_export_header(plankernel)
 
-target_link_libraries(kplatokernel
+target_link_libraries(plankernel
     PUBLIC
         plankundo2
         planstore
@@ -49,12 +49,12 @@ target_link_libraries(kplatokernel
 #         KF5::CoreAddons
 )
 if(KF5Holidays_FOUND)
-    target_link_libraries(kplatokernel PUBLIC KF5::Holidays)
+    target_link_libraries(plankernel PUBLIC KF5::Holidays)
 endif()
 
-set_target_properties(kplatokernel PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
+set_target_properties(plankernel PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS kplatokernel ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS plankernel ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 # TODO: with the new embedded JSON data for plugins there is no schema ATM to define extended properties
 # plan_schedulerplugin.desktop

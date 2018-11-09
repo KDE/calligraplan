@@ -1,5 +1,5 @@
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
-include_directories( .. ${KPLATO_INCLUDES} ${KOSTORE_INCLUDES})
+include_directories( .. ${PLAN_INCLUDES} ${KOSTORE_INCLUDES})
 
 
 ########### next target ###############
@@ -11,5 +11,5 @@ add_definitions(-DPLAN_NOPLUGIN)
 ecm_add_test( ${ProjectTester_SRCS}
     TEST_NAME "RCPSTester"
     NAME_PREFIX "plan-schedulers-rcps-"
-    LINK_LIBRARIES rcps_plan planprivate kplatokernel Qt5::Test
+    LINK_LIBRARIES rcps_plan planprivate plankernel Qt5::Test
 )

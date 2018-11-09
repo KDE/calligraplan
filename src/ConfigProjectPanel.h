@@ -20,7 +20,7 @@
 #ifndef CONFIGPROJECTPANEL_H
 #define CONFIGPROJECTPANEL_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include "ui_ConfigProjectPanel.h"
 
@@ -43,7 +43,7 @@ public Q_SLOTS:
     void projectsPlaceBrowseBtnClicked();
 };
 
-class KPLATO_EXPORT ConfigProjectPanel : public ConfigProjectPanelImpl
+class PLAN_EXPORT ConfigProjectPanel : public ConfigProjectPanelImpl
 {
     Q_OBJECT
 public:

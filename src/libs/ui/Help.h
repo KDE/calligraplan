@@ -20,7 +20,7 @@
 #ifndef WHATSTHIS_H
 #define WHATSTHIS_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <QObject>
 
@@ -30,7 +30,7 @@ class QEvent;
 namespace KPlato
 {
 
-class KPLATOUI_EXPORT Help
+class PLANUI_EXPORT Help
 {
 public:
     Help(const QString &docpath);
@@ -46,7 +46,7 @@ private:
 };
 
 
-class KPLATOUI_EXPORT WhatsThisClickedEventHandler : public QObject
+class PLANUI_EXPORT WhatsThisClickedEventHandler : public QObject
 {
     Q_OBJECT
 public:

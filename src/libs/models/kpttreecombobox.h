@@ -20,7 +20,7 @@
 #ifndef KPTTREECOMBOBOX_H
 #define KPTTREECOMBOBOX_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <kcombobox.h>
 
@@ -35,7 +35,7 @@ class QAbstractItemModel;
 namespace KPlato
 {
 
-class KPLATOMODELS_EXPORT TreeComboBox : public KComboBox
+class PLANMODELS_EXPORT TreeComboBox : public KComboBox
 {
     Q_OBJECT
 public:

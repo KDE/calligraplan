@@ -20,7 +20,7 @@
 #ifndef KPTRESOURCEDIALOG_H
 #define KPTRESOURCEDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_resourcedialogbase.h"
 #include "kptresource.h"
@@ -67,7 +67,7 @@ private:
     QList<QPersistentModelIndex> m_currentIndexes;
 };
 
-class KPLATOUI_EXPORT ResourceDialog : public KoDialog {
+class PLANUI_EXPORT ResourceDialog : public KoDialog {
     Q_OBJECT
 public:
     ResourceDialog(Project &project, Resource *resource, QWidget *parent=0, const char *name=0);

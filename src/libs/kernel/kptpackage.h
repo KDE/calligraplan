@@ -20,7 +20,7 @@
 #ifndef KPLATO_KPTPACKAGE_H
 #define KPLATO_KPTPACKAGE_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include "kpttask.h"
 
@@ -32,7 +32,7 @@ namespace KPlato {
 class Project;
 
 // temporary convenience class
-class KPLATOKERNEL_EXPORT Package
+class PLANKERNEL_EXPORT Package
 {
 public:
     Package();

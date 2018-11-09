@@ -20,7 +20,7 @@
 #ifndef WELCOMEVIEW_H
 #define WELCOMEVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 #include "kptviewbase.h"
 #include "ui_WelcomeView.h"
 #include "kptmainprojectdialog.h"
@@ -38,7 +38,7 @@ namespace KPlato
 
 class RecentFilesModel;
 
-class KPLATOUI_EXPORT WelcomeView : public ViewBase
+class PLANUI_EXPORT WelcomeView : public ViewBase
 {
     Q_OBJECT
 public:

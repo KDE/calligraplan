@@ -20,7 +20,7 @@
 #ifndef KPTACCOUNTSEDITOR_H
 #define KPTACCOUNTSEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <kptviewbase.h>
 #include "kptaccountsmodel.h"
@@ -55,7 +55,7 @@ private:
     PrintingHeaderFooter *m_headerfooter;
 };
 
-class KPLATOUI_EXPORT AccountTreeView : public TreeViewBase
+class PLANUI_EXPORT AccountTreeView : public TreeViewBase
 {
     Q_OBJECT
 public:
@@ -87,7 +87,7 @@ protected:
     
 };
 
-class KPLATOUI_EXPORT AccountsEditor : public ViewBase
+class PLANUI_EXPORT AccountsEditor : public ViewBase
 {
     Q_OBJECT
 public:

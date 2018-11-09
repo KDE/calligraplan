@@ -20,7 +20,7 @@
 #ifndef CONFIGWORKVACATIONPANEL_H
 #define CONFIGWORKVACATIONPANEL_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include "ui_ConfigWorkVacationPanel.h"
 
@@ -43,7 +43,7 @@ private Q_SLOTS:
 #endif
 };
 
-class KPLATO_EXPORT ConfigWorkVacationPanel : public ConfigWorkVacationPanelImpl
+class PLAN_EXPORT ConfigWorkVacationPanel : public ConfigWorkVacationPanelImpl
 {
     Q_OBJECT
 public:

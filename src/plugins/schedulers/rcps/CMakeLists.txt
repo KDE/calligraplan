@@ -13,21 +13,21 @@ set ( RCPSScheduler_SRCS
     KPlatoRCPSScheduler.cpp
 )
 
-add_library(kplatorcpsscheduler MODULE ${RCPSScheduler_SRCS} )
-#calligraplan_scheduler_desktop_to_json(kplatorcpsscheduler planrcpsscheduler.desktop)
+add_library(plancpsscheduler MODULE ${RCPSScheduler_SRCS} )
+#calligraplan_scheduler_desktop_to_json(plancpsscheduler planrcpsscheduler.desktop)
 if(${KF5_VERSION} VERSION_LESS "5.16.0")
-    kcoreaddons_desktop_to_json(kplatorcpsscheduler planrcpsscheduler.desktop)
+    kcoreaddons_desktop_to_json(plancpsscheduler planrcpsscheduler.desktop)
 else()
-    kcoreaddons_desktop_to_json(kplatorcpsscheduler planrcpsscheduler.desktop
+    kcoreaddons_desktop_to_json(plancpsscheduler planrcpsscheduler.desktop
         SERVICE_TYPES ${PLAN_SOURCE_DIR}/libs/kernel/plan_schedulerplugin.desktop
     )
 endif()
 
 target_link_libraries(
-    kplatorcpsscheduler
-    kplatokernel
+    plancpsscheduler
+    plankernel
     rcps_plan
 #    ${LIBRCPS_LIBRARIES}
 )
 
-install( TARGETS kplatorcpsscheduler DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/schedulers )
+install( TARGETS plancpsscheduler DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/schedulers )

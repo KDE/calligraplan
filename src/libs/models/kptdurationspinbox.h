@@ -21,7 +21,7 @@
 #define KPTDURATIONSPINBOX_H
 
 #include "kptduration.h"
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include <QDoubleSpinBox>
 
@@ -40,7 +40,7 @@ namespace KPlato
  * Defaults are: maximum unit Day, minimum unit Hour.
  * 
  */
-class KPLATOMODELS_EXPORT DurationSpinBox : public QDoubleSpinBox
+class PLANMODELS_EXPORT DurationSpinBox : public QDoubleSpinBox
 {
     Q_OBJECT
 public:

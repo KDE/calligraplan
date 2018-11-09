@@ -22,7 +22,7 @@
 #ifndef KPTRESOURCE_H
 #define KPTRESOURCE_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include "kptglobal.h"
 #include "kptduration.h"
@@ -70,7 +70,7 @@ class DateTimeInterval;
  *  (Thomas Zander mrt-2003 by suggestion of Shaheed)
  */
 
-class KPLATOKERNEL_EXPORT ResourceGroup : public QObject
+class PLANKERNEL_EXPORT ResourceGroup : public QObject
 {
     Q_OBJECT
 public:
@@ -221,7 +221,7 @@ private:
   * See also @ref ResourceGroup
   */
 
-class KPLATOKERNEL_EXPORT Resource : public QObject
+class PLANKERNEL_EXPORT Resource : public QObject
 {
     Q_OBJECT
 public:
@@ -592,7 +592,7 @@ public:
 #endif
 };
 
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Resource::WorkInfoCache &c );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Resource::WorkInfoCache &c );
 
 /**
  * Risk is associated with a resource/task pairing to indicate the planner's confidence in the
@@ -623,7 +623,7 @@ private:
     RiskType m_riskType;
 };
 
-class KPLATOKERNEL_EXPORT ResourceRequest
+class PLANKERNEL_EXPORT ResourceRequest
 {
 public:
     explicit ResourceRequest( Resource *resource = 0, int units = 1 );
@@ -717,7 +717,7 @@ public:
 QDebug &operator<<( QDebug &dbg, const KPlato::ResourceRequest *r );
 QDebug &operator<<( QDebug &dbg, const KPlato::ResourceRequest &r );
 
-class KPLATOKERNEL_EXPORT ResourceGroupRequest
+class PLANKERNEL_EXPORT ResourceGroupRequest
 {
 public:
     explicit ResourceGroupRequest( ResourceGroup *group = 0, int units = 0 );
@@ -803,7 +803,7 @@ public:
 #endif
 };
 
-class KPLATOKERNEL_EXPORT ResourceRequestCollection
+class PLANKERNEL_EXPORT ResourceRequestCollection
 {
 public:
     explicit ResourceRequestCollection( Task *task = 0 );

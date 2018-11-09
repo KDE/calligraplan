@@ -20,7 +20,7 @@
 #ifndef KPTFACTORY_H
 #define KPTFACTORY_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include <kpluginfactory.h>
 
@@ -30,7 +30,7 @@ class KoComponentData;
 namespace KPlato
 {
 
-class KPLATO_EXPORT Factory : public KPluginFactory
+class PLAN_EXPORT Factory : public KPluginFactory
 {
     Q_OBJECT
 public:

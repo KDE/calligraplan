@@ -21,7 +21,7 @@
 #ifndef KPTSCHEDULEMODEL_H
 #define KPTSCHEDULEMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include "kptitemmodelbase.h"
 #include "kptschedule.h"
@@ -37,7 +37,7 @@ class ScheduleManager;
 class MainSchedule;
 class Schedule;
 
-class KPLATOMODELS_EXPORT ScheduleModel : public QObject
+class PLANMODELS_EXPORT ScheduleModel : public QObject
 {
     Q_OBJECT
     Q_ENUMS( Properties )
@@ -62,7 +62,7 @@ public:
     int propertyCount() const;
 };
 
-class KPLATOMODELS_EXPORT ScheduleItemModel : public ItemModelBase
+class PLANMODELS_EXPORT ScheduleItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
@@ -158,7 +158,7 @@ private:
 };
 
 //----------------------------------------
-class KPLATOMODELS_EXPORT ScheduleSortFilterModel : public QSortFilterProxyModel
+class PLANMODELS_EXPORT ScheduleSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
@@ -170,7 +170,7 @@ public:
 };
 
 //----------------------------------------
-class KPLATOMODELS_EXPORT ScheduleLogItemModel : public QStandardItemModel
+class PLANMODELS_EXPORT ScheduleLogItemModel : public QStandardItemModel
 {
     Q_OBJECT
 public:

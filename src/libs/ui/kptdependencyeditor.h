@@ -20,7 +20,7 @@
 #ifndef KPTDEPENDENCYEDITOR_H
 #define KPTDEPENDENCYEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptglobal.h"
 #include "kptitemmodelbase.h"
@@ -56,7 +56,7 @@ class DependencyNodeItem;
 class DependencyScene;
 class DependencyView;
 
-class KPLATOUI_EXPORT DependecyViewPrintingDialog : public PrintingDialog
+class PLANUI_EXPORT DependecyViewPrintingDialog : public PrintingDialog
 {
     Q_OBJECT
 public:
@@ -70,7 +70,7 @@ private:
     DependencyView *m_depview;
 };
 
-class KPLATOUI_EXPORT DependencyLinkItemBase : public QGraphicsPathItem
+class PLANUI_EXPORT DependencyLinkItemBase : public QGraphicsPathItem
 {
 public:
     explicit DependencyLinkItemBase ( QGraphicsItem * parent = 0 );
@@ -97,7 +97,7 @@ public:
     QGraphicsPathItem *m_arrow;
 };
 
-class KPLATOUI_EXPORT DependencyLinkItem : public DependencyLinkItemBase
+class PLANUI_EXPORT DependencyLinkItem : public DependencyLinkItemBase
 {
 public:
     explicit DependencyLinkItem ( DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem * parent = 0 );
@@ -127,7 +127,7 @@ private:
     QPen m_pen;
 };
 
-class KPLATOUI_EXPORT DependencyCreatorItem : public DependencyLinkItemBase
+class PLANUI_EXPORT DependencyCreatorItem : public DependencyLinkItemBase
 {
 public:
     explicit DependencyCreatorItem ( QGraphicsItem * parent = 0 );
@@ -160,7 +160,7 @@ public:
 };
 
 //-----------------------
-class KPLATOUI_EXPORT DependencyNodeItem : public QGraphicsRectItem
+class PLANUI_EXPORT DependencyNodeItem : public QGraphicsRectItem
 {
 public:
     explicit DependencyNodeItem( Node *node, DependencyNodeItem *parent = 0 );
@@ -253,7 +253,7 @@ private:
 };
 
 //-----------------------
-class KPLATOUI_EXPORT DependencyNodeSymbolItem : public QGraphicsPathItem
+class PLANUI_EXPORT DependencyNodeSymbolItem : public QGraphicsPathItem
 {
 public:
     explicit DependencyNodeSymbolItem( DependencyNodeItem *parent = 0 )
@@ -279,7 +279,7 @@ private:
 };
 
 //-----------------------
-class KPLATOUI_EXPORT DependencyConnectorItem : public QGraphicsRectItem
+class PLANUI_EXPORT DependencyConnectorItem : public QGraphicsRectItem
 {
 public:
     DependencyConnectorItem( DependencyNodeItem::ConnectorType type, DependencyNodeItem *parent );
@@ -318,7 +318,7 @@ private:
 };
 
 //-----------------------
-class KPLATOUI_EXPORT DependencyScene : public QGraphicsScene
+class PLANUI_EXPORT DependencyScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
@@ -417,7 +417,7 @@ private:
 
 
 //-----------------------
-class KPLATOUI_EXPORT DependencyView : public QGraphicsView
+class PLANUI_EXPORT DependencyView : public QGraphicsView
 {
     Q_OBJECT
 public:
@@ -498,7 +498,7 @@ private:
 };
 
 //------------------------------
-class KPLATOUI_EXPORT DependencyEditor : public ViewBase
+class PLANUI_EXPORT DependencyEditor : public ViewBase
 {
     Q_OBJECT
 public:

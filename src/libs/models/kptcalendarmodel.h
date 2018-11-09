@@ -21,7 +21,7 @@
 #ifndef KPTCALENDARMODEL_H
 #define KPTCALENDARMODEL_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include "kptitemmodelbase.h"
 #include "kptcalendar.h"
@@ -39,7 +39,7 @@ class Project;
 class Calendar;
 class CalendarDay;
 
-class KPLATOMODELS_EXPORT CalendarDayItemModelBase : public ItemModelBase
+class PLANMODELS_EXPORT CalendarDayItemModelBase : public ItemModelBase
 {
     Q_OBJECT
 public:
@@ -67,7 +67,7 @@ protected:
 };
 
 
-class KPLATOMODELS_EXPORT CalendarItemModel : public ItemModelBase
+class PLANMODELS_EXPORT CalendarItemModel : public ItemModelBase
 {
     Q_OBJECT
     Q_ENUMS( Properties )
@@ -138,7 +138,7 @@ private:
     Calendar *m_calendar; // test for sane operation
 };
 
-class KPLATOMODELS_EXPORT CalendarDayItemModel : public CalendarDayItemModelBase
+class PLANMODELS_EXPORT CalendarDayItemModel : public CalendarDayItemModelBase
 {
     Q_OBJECT
 public:
@@ -209,7 +209,7 @@ protected:
 };
 
 //----->
-class KPLATOMODELS_EXPORT DateTableDataModel : public KDateTableDataModel
+class PLANMODELS_EXPORT DateTableDataModel : public KDateTableDataModel
 {
     Q_OBJECT
 public:
@@ -235,7 +235,7 @@ private:
 };
 
 //-------
-class KPLATOMODELS_EXPORT DateTableDateDelegate : public KDateTableDateDelegate
+class PLANMODELS_EXPORT DateTableDateDelegate : public KDateTableDateDelegate
 {
     Q_OBJECT
 public:
@@ -245,7 +245,7 @@ public:
     virtual QRectF paint( QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model );
 };
 
-class KPLATOMODELS_EXPORT CalendarExtendedItemModel : public CalendarItemModel
+class PLANMODELS_EXPORT CalendarExtendedItemModel : public CalendarItemModel
 {
     Q_OBJECT
 public:

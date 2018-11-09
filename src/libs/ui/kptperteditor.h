@@ -22,7 +22,7 @@
 #ifndef KPTPERTEDITOR_H
 #define KPTPERTEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 #include "kptitemmodelbase.h"
@@ -49,7 +49,7 @@ class View;
 class Project;
 class RelationTreeView;
 
-class KPLATOUI_EXPORT PertEditor : public ViewBase
+class PLANUI_EXPORT PertEditor : public ViewBase
 {
     Q_OBJECT
 public:

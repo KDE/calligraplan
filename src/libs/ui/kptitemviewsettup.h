@@ -20,7 +20,7 @@
 #ifndef KPTITEMVIEWSETTUP_H
 #define KPTITEMVIEWSETTUP_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptitemviewsettings.h"
 
@@ -38,7 +38,7 @@ class TreeViewBase;
 class ViewBase;
 class PrintingHeaderFooter;
 
-class KPLATOUI_EXPORT ItemViewSettup : public QWidget, public Ui::ItemViewSettings
+class PLANUI_EXPORT ItemViewSettup : public QWidget, public Ui::ItemViewSettings
 {
     Q_OBJECT
 public:
@@ -67,7 +67,7 @@ private:
     bool m_includeColumn0;
 };
 
-class KPLATOUI_EXPORT ItemViewSettupDialog : public KPageDialog
+class PLANUI_EXPORT ItemViewSettupDialog : public KPageDialog
 {
     Q_OBJECT
 public:
@@ -88,7 +88,7 @@ protected:
     ItemViewSettup *m_panel;
 };
 
-class KPLATOUI_EXPORT SplitItemViewSettupDialog : public KPageDialog
+class PLANUI_EXPORT SplitItemViewSettupDialog : public KPageDialog
 {
     Q_OBJECT
 public:

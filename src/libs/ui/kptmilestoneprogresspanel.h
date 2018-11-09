@@ -20,7 +20,7 @@
 #ifndef KPTMILESTONEPROGRESSPANEL_H
 #define KPTMILESTONEPROGRESSPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptmilestoneprogresspanelbase.h"
 #include "kpttask.h"

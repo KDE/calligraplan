@@ -20,7 +20,7 @@
 #ifndef KPTMYCOMBOBOX_P_H
 #define KPTMYCOMBOBOX_P_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include <kcombobox.h>
 

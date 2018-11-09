@@ -20,7 +20,7 @@
 #ifndef KPTSCHEDULEEDITOR_H
 #define KPTSCHEDULEEDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <kptviewbase.h>
 #include "kptsplitterview.h"
@@ -43,7 +43,7 @@ class Project;
 class ScheduleManager;
 class SchedulingRange;
 
-class KPLATOUI_EXPORT ScheduleTreeView : public TreeViewBase
+class PLANUI_EXPORT ScheduleTreeView : public TreeViewBase
 {
     Q_OBJECT
 public:
@@ -71,7 +71,7 @@ protected Q_SLOTS:
     
 };
 
-class KPLATOUI_EXPORT ScheduleEditor : public ViewBase
+class PLANUI_EXPORT ScheduleEditor : public ViewBase
 {
     Q_OBJECT
 public:
@@ -144,7 +144,7 @@ private:
 
 
 //-----------------------------
-class KPLATOUI_EXPORT ScheduleLogTreeView : public QTreeView
+class PLANUI_EXPORT ScheduleLogTreeView : public QTreeView
 {
     Q_OBJECT
 public:
@@ -185,7 +185,7 @@ private:
 };
 
 //----------------------------------------------
-class KPLATOUI_EXPORT ScheduleLogView : public ViewBase
+class PLANUI_EXPORT ScheduleLogView : public ViewBase
 {
     Q_OBJECT
 public:
@@ -234,7 +234,7 @@ private:
 
 
 //-----------------------------
-class KPLATOUI_EXPORT ScheduleHandlerView : public SplitterView
+class PLANUI_EXPORT ScheduleHandlerView : public SplitterView
 {
     Q_OBJECT
 public:

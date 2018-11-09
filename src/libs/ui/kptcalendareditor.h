@@ -20,7 +20,7 @@
 #ifndef KPTCALENDAREDITOR_H
 #define KPTCALENDAREDITOR_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 #include "kptitemmodelbase.h"
@@ -44,7 +44,7 @@ class CalendarDay;
 class DateTableDataModel;
 class KDatePicker;
 
-class KPLATOUI_EXPORT CalendarTreeView : public TreeViewBase
+class PLANUI_EXPORT CalendarTreeView : public TreeViewBase
 {
     Q_OBJECT
 public:
@@ -80,7 +80,7 @@ protected:
     void dragMoveEvent(QDragMoveEvent *event);
 };
 
-class KPLATOUI_EXPORT CalendarDayView : public QTableView
+class PLANUI_EXPORT CalendarDayView : public QTableView
 {
     Q_OBJECT
 public:
@@ -138,7 +138,7 @@ private:
     bool m_readwrite;
 };
 
-class KPLATOUI_EXPORT CalendarEditor : public ViewBase
+class PLANUI_EXPORT CalendarEditor : public ViewBase
 {
     Q_OBJECT
 public:

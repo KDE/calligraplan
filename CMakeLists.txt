@@ -333,10 +333,7 @@ endif()
 
 #add_custom_target(apidox doc/api/gendocs.pl WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
-if (PLAN_IS_MAIN_PROJECT)
+### Summarize findings ####
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-    ### Summarize findings ####
-    feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
-
-endif (PLAN_IS_MAIN_PROJECT)
 

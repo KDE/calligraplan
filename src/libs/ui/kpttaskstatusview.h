@@ -20,7 +20,7 @@
 #ifndef TASKSTATUSVIEW_H
 #define TASKSTATUSVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptitemmodelbase.h"
 
@@ -61,7 +61,7 @@ class PerformanceStatusBase;
 
 typedef QList<Node*> NodeList;
 
-class KPLATOUI_EXPORT TaskStatusTreeView : public DoubleTreeViewBase
+class PLANUI_EXPORT TaskStatusTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -91,7 +91,7 @@ protected:
 };
 
 
-class KPLATOUI_EXPORT TaskStatusView : public ViewBase
+class PLANUI_EXPORT TaskStatusView : public ViewBase
 {
     Q_OBJECT
 public:
@@ -240,7 +240,7 @@ struct PerformanceChartInfo
 };
 
 //----------------------------------
-class KPLATOUI_EXPORT PerformanceStatusPrintingDialog : public PrintingDialog
+class PLANUI_EXPORT PerformanceStatusPrintingDialog : public PrintingDialog
 {
     Q_OBJECT
 public:
@@ -340,7 +340,7 @@ private:
 };
 
 //----------------------------------
-class KPLATOUI_EXPORT ProjectStatusView : public ViewBase
+class PLANUI_EXPORT ProjectStatusView : public ViewBase
 {
     Q_OBJECT
 public:
@@ -409,7 +409,7 @@ private:
 
 
 //----------------------------------
-class KPLATOUI_EXPORT PerformanceStatusView : public ViewBase
+class PLANUI_EXPORT PerformanceStatusView : public ViewBase
 {
     Q_OBJECT
 public:

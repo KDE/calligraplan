@@ -1,5 +1,5 @@
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
-include_directories( .. ${KPLATO_INCLUDES})
+include_directories( .. ${PALN_INCLUDES})
 
 # call: plan_add_unit_test(<test-name> <sources> LINK_LIBRARIES <library> [<library> [...]] [GUI])
 macro(PLAN_ADD_UNIT_TEST _TEST_NAME)
@@ -24,12 +24,12 @@ endforeach(it)
 # NOTE: .kplato files is no longer native, so need some magic to run this test 
 # plan_add_unit_test(InsertFileTester
 #     InsertFileTester.cpp
-#     LINK_LIBRARIES planprivate kplatokernel komain Qt5::Test
+#     LINK_LIBRARIES planprivate plankernel komain Qt5::Test
 # )
 
 ########## next target ###############
 
 plan_add_unit_test(InsertProjectTester
     InsertProjectTester.cpp
-    LINK_LIBRARIES planprivate kplatokernel planmain Qt5::Test
+    LINK_LIBRARIES planprivate plankernel planmain Qt5::Test
 )

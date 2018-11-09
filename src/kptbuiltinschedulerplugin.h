@@ -20,7 +20,7 @@
 #ifndef KPTBUILTINSCHEDULERPLUGIN_H
 #define KPTBUILTINSCHEDULERPLUGIN_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 #include "kptschedulerplugin.h"
 
 #include "kptschedule.h"
@@ -33,7 +33,7 @@ class KPlatoScheduler;
 class Project;
 class ScheduleManager;
 
-class KPLATO_EXPORT BuiltinSchedulerPlugin : public SchedulerPlugin
+class PLAN_EXPORT BuiltinSchedulerPlugin : public SchedulerPlugin
 {
     Q_OBJECT
 public:

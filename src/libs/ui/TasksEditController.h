@@ -21,7 +21,7 @@
 #ifndef TASKSEDITCONTROLLER_H
 #define TASKSEDITCONTROLLER_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <QObject>
 
@@ -46,7 +46,7 @@ class TasksEditDialog;
 /**
  * The dialog that allows you to alter multiple tasks.
  */
-class KPLATOUI_EXPORT TasksEditController : public QObject
+class PLANUI_EXPORT TasksEditController : public QObject
 {
     Q_OBJECT
 public:

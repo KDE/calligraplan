@@ -20,7 +20,7 @@
 #ifndef KPTITEMMODELBASE_H
 #define KPTITEMMODELBASE_H
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 
 #include "kptglobal.h"
 #include "kpttreecombobox.h"
@@ -61,7 +61,7 @@ namespace Delegate
 }
 
 /// ItemDelegate implements improved control over closeEditor
-class KPLATOMODELS_EXPORT ItemDelegate : public QStyledItemDelegate
+class PLANMODELS_EXPORT ItemDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
@@ -86,7 +86,7 @@ private:
     Delegate::EndEditHint m_lastHint;
 };
 
-class KPLATOMODELS_EXPORT CheckStateItemDelegate : public ItemDelegate
+class PLANMODELS_EXPORT CheckStateItemDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
@@ -96,7 +96,7 @@ protected:
     bool editorEvent( QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index );
 };
 
-class KPLATOMODELS_EXPORT DateTimeCalendarDelegate : public ItemDelegate
+class PLANMODELS_EXPORT DateTimeCalendarDelegate : public ItemDelegate
 {
   Q_OBJECT
 public:
@@ -109,7 +109,7 @@ public:
 
 };
 
-class KPLATOMODELS_EXPORT ProgressBarDelegate : public ItemDelegate
+class PLANMODELS_EXPORT ProgressBarDelegate : public ItemDelegate
 {
   Q_OBJECT
 public:
@@ -138,7 +138,7 @@ private Q_SLOTS:
     void updateTip( int value );
 };
 
-class KPLATOMODELS_EXPORT SelectorDelegate : public ItemDelegate
+class PLANMODELS_EXPORT SelectorDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
@@ -152,7 +152,7 @@ public:
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
-class KPLATOMODELS_EXPORT EnumDelegate : public ItemDelegate
+class PLANMODELS_EXPORT EnumDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
@@ -167,7 +167,7 @@ public:
 };
 
 //------------------------------------
-class KPLATOMODELS_EXPORT RequieredResourceDelegate : public ItemDelegate
+class PLANMODELS_EXPORT RequieredResourceDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
@@ -182,7 +182,7 @@ public:
 };
 
 
-class KPLATOMODELS_EXPORT DurationSpinBoxDelegate : public ItemDelegate
+class PLANMODELS_EXPORT DurationSpinBoxDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
@@ -196,7 +196,7 @@ public:
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
-class KPLATOMODELS_EXPORT SpinBoxDelegate : public ItemDelegate
+class PLANMODELS_EXPORT SpinBoxDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
@@ -210,7 +210,7 @@ public:
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
-class KPLATOMODELS_EXPORT DoubleSpinBoxDelegate : public ItemDelegate
+class PLANMODELS_EXPORT DoubleSpinBoxDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
@@ -224,7 +224,7 @@ public:
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
-class KPLATOMODELS_EXPORT MoneyDelegate : public ItemDelegate
+class PLANMODELS_EXPORT MoneyDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
@@ -238,7 +238,7 @@ public:
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
-class KPLATOMODELS_EXPORT TimeDelegate : public ItemDelegate
+class PLANMODELS_EXPORT TimeDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
@@ -252,7 +252,7 @@ public:
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
-class KPLATOMODELS_EXPORT ItemModelBase : public QAbstractItemModel
+class PLANMODELS_EXPORT ItemModelBase : public QAbstractItemModel
 {
     Q_OBJECT
 public:

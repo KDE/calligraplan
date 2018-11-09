@@ -21,7 +21,7 @@
 #ifndef KPTACCOUNT_H
 #define KPTACCOUNT_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include <QMap>
 #include <QList>
@@ -48,7 +48,7 @@ class Account;
  *  An account can have any number of sub-accounts.
  *  Account names must be unique.
  */
-class KPLATOKERNEL_EXPORT Account
+class PLANKERNEL_EXPORT Account
 {
 public:
 
@@ -217,7 +217,7 @@ typedef QListIterator<Account*> AccountListIterator;
  *  Accounts administrates all accounts.
  */
 
-class KPLATOKERNEL_EXPORT Accounts : public QObject
+class PLANKERNEL_EXPORT Accounts : public QObject
 {
     Q_OBJECT
 public:

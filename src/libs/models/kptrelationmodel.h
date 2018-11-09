@@ -34,7 +34,7 @@ class Project;
 class Node;
 class Relation;
 
-class KPLATOMODELS_EXPORT RelationModel : public QObject
+class PLANMODELS_EXPORT RelationModel : public QObject
 {
     Q_OBJECT
 public:
@@ -56,7 +56,7 @@ public:
 
 };
 
-class KPLATOMODELS_EXPORT RelationItemModel : public ItemModelBase
+class PLANMODELS_EXPORT RelationItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:

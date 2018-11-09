@@ -17,7 +17,7 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include "kplatomodels_export.h"
+#include "planmodels_export.h"
 #include "ReportGenerator.h"
 
 #include "ReportGeneratorOdt.h"

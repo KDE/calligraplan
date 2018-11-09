@@ -20,7 +20,7 @@
 #ifndef KPTSTANDARDWORKTIMEDIALOG_H
 #define KPTSTANDARDWORKTIMEDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_standardworktimedialogbase.h"
 
@@ -67,7 +67,7 @@ private:
     double m_day;
 };
 
-class KPLATOUI_EXPORT StandardWorktimeDialog : public KoDialog {
+class PLANUI_EXPORT StandardWorktimeDialog : public KoDialog {
     Q_OBJECT
 public:
     explicit StandardWorktimeDialog(Project &project, QWidget *parent=0);

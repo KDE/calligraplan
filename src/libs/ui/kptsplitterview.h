@@ -20,7 +20,7 @@
 #ifndef KPTSPLITTERVIEW_H
 #define KPTSPLITTERVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 
@@ -54,7 +54,7 @@ class Context;
  * To have context info loaded, views added to this splitter must have a
  * unique objectName().
 */
-class KPLATOUI_EXPORT SplitterView : public ViewBase
+class PLANUI_EXPORT SplitterView : public ViewBase
 {
     Q_OBJECT
 public:

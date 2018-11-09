@@ -21,7 +21,7 @@
 #ifndef KPTSUMMARYTASKDIALOG_H
 #define KPTSUMMARYTASKDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <KoDialog.h>
 
@@ -36,7 +36,7 @@ class MacroCommand;
 /**
  * The dialog that shows and allows you to alter summary tasks.
  */
-class KPLATOUI_EXPORT SummaryTaskDialog : public KoDialog {
+class PLANUI_EXPORT SummaryTaskDialog : public KoDialog {
     Q_OBJECT
 public:
     /**

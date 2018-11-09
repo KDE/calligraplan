@@ -20,7 +20,7 @@
 #ifndef KPTVIEWLIST_H
 #define KPTVIEWLIST_H
 
-#include "kplato_export.h"
+#include "plan_export.h"
 
 #include "kptschedulemodel.h"
 
@@ -55,7 +55,7 @@ struct ViewInfo
 };
 
 //--------------
-class KPLATO_EXPORT ViewListItem : public QTreeWidgetItem
+class PLAN_EXPORT ViewListItem : public QTreeWidgetItem
 {
     public:
         enum ItemType { ItemType_Category = Type, ItemType_SubView = UserType };
@@ -83,7 +83,7 @@ class KPLATO_EXPORT ViewListItem : public QTreeWidgetItem
         ViewInfo m_viewinfo;
 };
 
-class KPLATO_EXPORT ViewListTreeWidget : public QTreeWidget
+class PLAN_EXPORT ViewListTreeWidget : public QTreeWidget
 {
     Q_OBJECT
 public:
@@ -112,7 +112,7 @@ private Q_SLOTS:
     void handleMousePress( QTreeWidgetItem *item );
 };
 
-class KPLATO_EXPORT ViewListWidget : public QWidget
+class PLAN_EXPORT ViewListWidget : public QWidget
 {
 Q_OBJECT
 public:

@@ -23,7 +23,7 @@
 #define KPLATOREPORTVIEW_H
 
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptviewbase.h"
 #include "kptsplitterview.h"
@@ -97,7 +97,7 @@ protected:
 };
 
 //-------------------
-class KPLATOUI_EXPORT ReportView : public ViewBase
+class PLANUI_EXPORT ReportView : public ViewBase
 {
     Q_OBJECT
 public:
@@ -137,7 +137,7 @@ private:
     QStackedWidget *m_stack;
 };
 //-------------------
-class KPLATOUI_EXPORT ReportWidget : public ViewBase
+class PLANUI_EXPORT ReportWidget : public ViewBase
 {
     Q_OBJECT
 public:
@@ -205,7 +205,7 @@ private:
 };
 
 //-----------------
-class KPLATOUI_EXPORT ReportNavigator : public QWidget, public Ui::ReportNavigator
+class PLANUI_EXPORT ReportNavigator : public QWidget, public Ui::ReportNavigator
 {
     Q_OBJECT
 public:
@@ -221,7 +221,7 @@ protected Q_SLOTS:
 };
 
 //-------------------
-class  KPLATOUI_EXPORT ModifyReportDefinitionCmd : public NamedCommand
+class  PLANUI_EXPORT ModifyReportDefinitionCmd : public NamedCommand
 {
 public:
     ModifyReportDefinitionCmd( ReportView *view, const QDomDocument &value, const KUndo2MagicString &name = KUndo2MagicString() );
@@ -235,7 +235,7 @@ private:
 };
 
 //-------------------------
-class  KPLATOUI_EXPORT ReportDesigner : public ViewBase
+class  PLANUI_EXPORT ReportDesigner : public ViewBase
 {
     Q_OBJECT
 public:

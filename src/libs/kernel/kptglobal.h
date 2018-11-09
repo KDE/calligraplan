@@ -20,7 +20,7 @@
 #ifndef KPTGLOBAL_H
 #define KPTGLOBAL_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include <Qt> // for things in Qt namespace
 
@@ -87,7 +87,7 @@ namespace Role
 } //namespace Role
 
 
-struct KPLATOKERNEL_EXPORT SchedulingState
+struct PLANKERNEL_EXPORT SchedulingState
 {
     static QString deleted( bool trans = true );
     static QString notScheduled( bool trans = true );

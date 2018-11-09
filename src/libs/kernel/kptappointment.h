@@ -20,7 +20,7 @@
 #ifndef KPTAPPOINTMENT_H
 #define KPTAPPOINTMENT_H
 
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include "kptglobal.h"
 
@@ -63,7 +63,7 @@ public:
     double load; //percent
 };
 
-class KPLATOKERNEL_EXPORT AppointmentInterval
+class PLANKERNEL_EXPORT AppointmentInterval
 {
 public:
     AppointmentInterval();
@@ -100,7 +100,7 @@ public:
 private:
     QSharedDataPointer<AppointmentIntervalData> d;
 };
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::AppointmentInterval& i );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::AppointmentInterval& i );
 
 
 /**
@@ -108,7 +108,7 @@ KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::AppointmentInte
  * The intervals do not overlap, an interval does not start before the
  * previous interval ends.
  */
-class KPLATOKERNEL_EXPORT AppointmentIntervalList
+class PLANKERNEL_EXPORT AppointmentIntervalList
 {
 public:
     AppointmentIntervalList();
@@ -147,7 +147,7 @@ protected:
 private:
     QMultiMap<QDate, AppointmentInterval> m_map;
 };
-KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::AppointmentIntervalList& i );
+PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::AppointmentIntervalList& i );
 
 /**
  * A Resource can be scheduled to be used at any time, 
@@ -160,7 +160,7 @@ KPLATOKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::AppointmentInte
  * previous interval ends.
  * An interval is a countinous time interval with the same load. It can span dates.
  */
-class KPLATOKERNEL_EXPORT Appointment {
+class PLANKERNEL_EXPORT Appointment {
 public:
     explicit Appointment();
     Appointment(Schedule *resource, Schedule *node, const DateTime &start, const DateTime &end, double load);

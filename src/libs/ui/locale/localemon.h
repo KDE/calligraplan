@@ -26,7 +26,7 @@
 #ifndef KPLATO_LOCALEMON_H
 #define KPLATO_LOCALEMON_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_localemon.h"
 
@@ -36,7 +36,7 @@ namespace KPlato
 class MacroCommand;
 class Locale;
 
-class KPLATOUI_EXPORT LocaleConfigMoney : public QWidget, Ui::LocaleConfigMoney
+class PLANUI_EXPORT LocaleConfigMoney : public QWidget, Ui::LocaleConfigMoney
 {
   Q_OBJECT
 

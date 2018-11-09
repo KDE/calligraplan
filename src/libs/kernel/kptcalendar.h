@@ -24,7 +24,7 @@
 #include "kptdatetime.h"
 #include "kptduration.h"
 #include "kptdebug.h"
-#include "kplatokernel_export.h"
+#include "plankernel_export.h"
 
 #include <utility>
 #include <QList>
@@ -58,7 +58,7 @@ class Schedule;
 class XMLLoaderObject;
 class AppointmentIntervalList;
 
-class KPLATOKERNEL_EXPORT DateTimeInterval : public std::pair<DateTime, DateTime>
+class PLANKERNEL_EXPORT DateTimeInterval : public std::pair<DateTime, DateTime>
 {
 public:
     DateTimeInterval()
@@ -104,7 +104,7 @@ public:
 
 /// TimeInterval is defined as a start time and a length.
 /// The end time (start + length) must not exceed midnight
-class KPLATOKERNEL_EXPORT TimeInterval : public std::pair<QTime, int>
+class PLANKERNEL_EXPORT TimeInterval : public std::pair<QTime, int>
 {
 public:
     TimeInterval()
@@ -169,7 +169,7 @@ protected:
 };
 
 
-class KPLATOKERNEL_EXPORT CalendarDay {
+class PLANKERNEL_EXPORT CalendarDay {
 
 public:
     enum State { Undefined = 0,
@@ -275,7 +275,7 @@ public:
 #endif
 };
 
-class KPLATOKERNEL_EXPORT CalendarWeekdays {
+class PLANKERNEL_EXPORT CalendarWeekdays {
 
 public:
     CalendarWeekdays();
@@ -368,7 +368,7 @@ public:
  * This enables planning with resources that does not recide in the same place.
  *
  */
-class KPLATOKERNEL_EXPORT Calendar : public QObject
+class PLANKERNEL_EXPORT Calendar : public QObject
 {
     Q_OBJECT
 public:
@@ -627,7 +627,7 @@ public:
 #endif
 };
 
-class KPLATOKERNEL_EXPORT StandardWorktime
+class PLANKERNEL_EXPORT StandardWorktime
 {
 public:
     explicit StandardWorktime( Project *project = 0 );

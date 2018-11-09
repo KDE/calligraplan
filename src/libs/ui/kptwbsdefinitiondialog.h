@@ -20,7 +20,7 @@
 #ifndef KPTWBSDEFINITIONDIALOG_H
 #define KPTWBSDEFINITIONDIALOG_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <KoDialog.h>
 
@@ -33,7 +33,7 @@ class WBSDefinitionPanel;
 class WBSDefinition;
 class Project;
 
-class KPLATOUI_EXPORT WBSDefinitionDialog : public KoDialog {
+class PLANUI_EXPORT WBSDefinitionDialog : public KoDialog {
     Q_OBJECT
 public:
     explicit WBSDefinitionDialog(Project &project, WBSDefinition &def, QWidget *parent=0);

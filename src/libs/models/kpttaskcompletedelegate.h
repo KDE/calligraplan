@@ -27,7 +27,7 @@ class QModelIndex;
 namespace KPlato
 {
 
-class KPLATOMODELS_EXPORT TaskCompleteDelegate : public ProgressBarDelegate
+class PLANMODELS_EXPORT TaskCompleteDelegate : public ProgressBarDelegate
 {
   Q_OBJECT
 public:

@@ -22,7 +22,7 @@
 #ifndef KPLATO_REPORTDATA_H
 #define KPLATO_REPORTDATA_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include <KReportData>
 
@@ -45,11 +45,11 @@ class ChartItemModel;
 
 namespace Report
 {
-    KPLATOUI_EXPORT QList<ReportData*> createBaseReportDataModels( QObject *parent = 0 );
-    KPLATOUI_EXPORT ReportData *findReportData( const QList<ReportData*> &lst, const QString &type );
+    PLANUI_EXPORT QList<ReportData*> createBaseReportDataModels( QObject *parent = 0 );
+    PLANUI_EXPORT ReportData *findReportData( const QList<ReportData*> &lst, const QString &type );
 }
 
-class KPLATOUI_EXPORT ReportData : public QObject, public KReportData
+class PLANUI_EXPORT ReportData : public QObject, public KReportData
 {
     Q_OBJECT
 public:
@@ -166,7 +166,7 @@ protected:
     mutable QMap<QString, ReportData*> m_datasources;
 };
 
-class KPLATOUI_EXPORT TaskReportData : public ReportData
+class PLANUI_EXPORT TaskReportData : public ReportData
 {
     Q_OBJECT
 public:
@@ -182,7 +182,7 @@ protected:
     void createModels();
 };
 
-class KPLATOUI_EXPORT TaskStatusReportData : public ReportData
+class PLANUI_EXPORT TaskStatusReportData : public ReportData
 {
     Q_OBJECT
 public:
@@ -198,7 +198,7 @@ protected:
     void createModels();
 };
 
-class KPLATOUI_EXPORT ResourceReportData : public ReportData
+class PLANUI_EXPORT ResourceReportData : public ReportData
 {
     Q_OBJECT
 public:
@@ -214,7 +214,7 @@ protected:
     void createModels();
 };
 
-class KPLATOUI_EXPORT ResourceAssignmentReportData : public ReportData
+class PLANUI_EXPORT ResourceAssignmentReportData : public ReportData
 {
     Q_OBJECT
 public:
@@ -230,7 +230,7 @@ protected:
     void createModels();
 };
 
-class KPLATOUI_EXPORT ChartReportData : public ReportData
+class PLANUI_EXPORT ChartReportData : public ReportData
 {
     Q_OBJECT
 public:
@@ -281,7 +281,7 @@ protected:
     bool m_fakedata;
 };
 
-class KPLATOUI_EXPORT CostPerformanceReportData : public ChartReportData
+class PLANUI_EXPORT CostPerformanceReportData : public ChartReportData
 {
     Q_OBJECT
 public:
@@ -299,7 +299,7 @@ private:
     ChartItemModel *m_chartmodel;
 };
 
-class KPLATOUI_EXPORT EffortPerformanceReportData : public ChartReportData
+class PLANUI_EXPORT EffortPerformanceReportData : public ChartReportData
 {
     Q_OBJECT
 public:
@@ -317,7 +317,7 @@ private:
     ChartItemModel *m_chartmodel;
 };
 
-class KPLATOUI_EXPORT CostBreakdownReportData : public ChartReportData
+class PLANUI_EXPORT CostBreakdownReportData : public ChartReportData
 {
     Q_OBJECT
 public:
@@ -332,7 +332,7 @@ protected:
     void createModels();
 };
 
-class KPLATOUI_EXPORT ProjectReportData : public ReportData
+class PLANUI_EXPORT ProjectReportData : public ReportData
 {
     Q_OBJECT
 public:

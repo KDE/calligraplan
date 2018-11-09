@@ -20,7 +20,7 @@
 #ifndef REPORTSGENERATORVIEW_H
 #define REPORTSGENERATORVIEW_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "kptglobal.h"
 #include "kptviewbase.h"
@@ -36,7 +36,7 @@ namespace KPlato
 {
 
 
-class KPLATOUI_EXPORT ReportsGeneratorView : public ViewBase
+class PLANUI_EXPORT ReportsGeneratorView : public ViewBase
 {
     Q_OBJECT
 public:

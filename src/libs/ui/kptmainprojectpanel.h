@@ -20,7 +20,7 @@
 #ifndef KPTMAINPROJECTPANEL_H
 #define KPTMAINPROJECTPANEL_H
 
-#include "kplatoui_export.h"
+#include "planui_export.h"
 
 #include "ui_kptmainprojectpanelbase.h"
 
