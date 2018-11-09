@@ -53,289 +53,282 @@ message(STATUS "Build Calligra Plan ${PLAN_VERSION_STRING} with cmake version: $
 message(STATUS "")
 
 
-string(COMPARE EQUAL "${CMAKE_PROJECT_NAME}" "${PROJECT_NAME}" PLAN_IS_MAIN_PROJECT)
-
-if (PLAN_IS_MAIN_PROJECT)
-
-    # ensure out-of-source build
-    string(COMPARE EQUAL "${CMAKE_SOURCE_DIR}" "${CMAKE_BINARY_DIR}" isBuildInSource)
-    if(isBuildInSource)
-        message(FATAL_ERROR "Compiling Plan inside the source folder is not possible.\nPlease refer to the build instruction: https://community.kde.org/Calligra/Building/3\nYou need to clean up the source folder from all build artifacts just created, otherwise further building attempts will fail again: With a git repo, you can use \"git clean -df\" in the toplevel source folder (attention! will remove also uncommited changes to the source code). With sources from a file bundle (like a zip file), delete the source folder and unbundle the sources again.")
-    endif()
+# ensure out-of-source build
+string(COMPARE EQUAL "${CMAKE_SOURCE_DIR}" "${CMAKE_BINARY_DIR}" isBuildInSource)
+if(isBuildInSource)
+    message(FATAL_ERROR "Compiling Plan inside the source folder is not possible.\nPlease refer to the build instruction: https://community.kde.org/Calligra/Building/3\nYou need to clean up the source folder from all build artifacts just created, otherwise further building attempts will fail again: With a git repo, you can use \"git clean -df\" in the toplevel source folder (attention! will remove also uncommited changes to the source code). With sources from a file bundle (like a zip file), delete the source folder and unbundle the sources again.")
+endif()
 
 
-    ############
-    #############
-    ## Options ##
-    #############
-    ############
+############
+#############
+## Options ##
+#############
+############
 
-    option(PACKAGERS_BUILD "Build support of multiple CPU architectures in one binary. Should be used by packagers only." ON)
+option(PACKAGERS_BUILD "Build support of multiple CPU architectures in one binary. Should be used by packagers only." ON)
 
-    ##########################
-    ###########################
-    ## Look for ECM, Qt, KF5 ##
-    ###########################
-    ##########################
+##########################
+###########################
+## Look for ECM, Qt, KF5 ##
+###########################
+##########################
 
-    find_package(ECM 5.19 REQUIRED NO_MODULE)
-    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+find_package(ECM 5.19 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
-    # ECM KDE macros (include first, to have their policies and settings effect all other macros)
-    include(KDEInstallDirs)
-    include(KDECMakeSettings NO_POLICY_SCOPE)
-    include(KDECompilerSettings NO_POLICY_SCOPE)
-    # CMake macros
-    include(CMakePackageConfigHelpers)
-    include(WriteBasicConfigVersionFile)
-    include(CheckFunctionExists)
-    include(CheckTypeSize)
-    include(CheckIncludeFile)
-    include(GenerateExportHeader)
-    include(FeatureSummary)
-    # ECM macros
-    include(ECMOptionalAddSubdirectory)
-    include(ECMInstallIcons)
-    include(ECMAddAppIcon)
-    include(ECMSetupVersion)
-    include(ECMAddTests)
-    include(ECMMarkAsTest)
-    include(ECMMarkNonGuiExecutable)
-    include(ECMGenerateHeaders)
-    # Own macros
-    # This macro is a copy from calligra so only needs to be included when plan is build stand alone
-    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
-    include(MacroOptionalFindPackage)
+# ECM KDE macros (include first, to have their policies and settings effect all other macros)
+include(KDEInstallDirs)
+include(KDECMakeSettings NO_POLICY_SCOPE)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+# CMake macros
+include(CMakePackageConfigHelpers)
+include(WriteBasicConfigVersionFile)
+include(CheckFunctionExists)
+include(CheckTypeSize)
+include(CheckIncludeFile)
+include(GenerateExportHeader)
+include(FeatureSummary)
+# ECM macros
+include(ECMOptionalAddSubdirectory)
+include(ECMInstallIcons)
+include(ECMAddAppIcon)
+include(ECMSetupVersion)
+include(ECMAddTests)
+include(ECMMarkAsTest)
+include(ECMMarkNonGuiExecutable)
+include(ECMGenerateHeaders)
+# Own macros
+# This macro is a copy from calligra so only needs to be included when plan is build stand alone
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
+include(MacroOptionalFindPackage)
 
-    set(REQUIRED_KF5_VERSION "5.7.0")
+set(REQUIRED_KF5_VERSION "5.7.0")
 
-    find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
-        COMPONENTS
-            Init
-            Archive
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
+    COMPONENTS
+        Init
+        Archive
 #             Codecs
 #             Completion
-            Config
-            ConfigWidgets
-            CoreAddons
-            DBusAddons
+        Config
+        ConfigWidgets
+        CoreAddons
+        DBusAddons
 #             DocTools
-            GuiAddons
-            I18n
-            IconThemes
-            ItemViews
-            JobWidgets
-            KCMUtils
-            KIO
-            Notifications
+        GuiAddons
+        I18n
+        IconThemes
+        ItemViews
+        JobWidgets
+        KCMUtils
+        KIO
+        Notifications
 #             NotifyConfig
-            Parts
+        Parts
 #             Sonnet
-            TextWidgets
-            Wallet
-            WidgetsAddons
-            WindowSystem
-            XmlGui
-    #         Kross
-    )
+        TextWidgets
+        Wallet
+        WidgetsAddons
+        WindowSystem
+        XmlGui
+#         Kross
+)
 
-    find_package(KF5Activities)
+find_package(KF5Activities)
 
-    set_package_properties(KF5Activities PROPERTIES
-        DESCRIPTION "Library for Activities"
-        PURPOSE "Required for activities support (optional)"
-        TYPE OPTIONAL
-    )
-    if(KF5Activities_FOUND)
-        set(HAVE_KACTIVITIES TRUE)
-    endif()
+set_package_properties(KF5Activities PROPERTIES
+    DESCRIPTION "Library for Activities"
+    PURPOSE "Required for activities support (optional)"
+    TYPE OPTIONAL
+)
+if(KF5Activities_FOUND)
+    set(HAVE_KACTIVITIES TRUE)
+endif()
 
-    find_package(KF5KHtml)
-    set_package_properties(KF5KHtml PROPERTIES
-        PURPOSE "Required for rich text support"
-        TYPE REQUIRED
-    )
+find_package(KF5KHtml)
+set_package_properties(KF5KHtml PROPERTIES
+    PURPOSE "Required for rich text support"
+    TYPE REQUIRED
+)
 
-    find_package(KF5Holidays 5.3.3)
-    set_package_properties(KF5Holidays PROPERTIES
-        DESCRIPTION "Library for generation of public holidays"
-        PURPOSE "Required for holidays support (optional)"
-        TYPE RECOMMENDED
-    )
+find_package(KF5Holidays 5.3.3)
+set_package_properties(KF5Holidays PROPERTIES
+    DESCRIPTION "Library for generation of public holidays"
+    PURPOSE "Required for holidays support (optional)"
+    TYPE RECOMMENDED
+)
 
-    if(${KF5_VERSION} VERSION_LESS "5.16.0")
-        set(CALLIGRA_OLD_PLUGIN_METADATA TRUE)
-    endif()
+if(${KF5_VERSION} VERSION_LESS "5.16.0")
+    set(CALLIGRA_OLD_PLUGIN_METADATA TRUE)
+endif()
 
 
-    set(REQUIRED_QT_VERSION "5.4.0")
+set(REQUIRED_QT_VERSION "5.4.0")
 
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
+    COMPONENTS
+        Core
+        Gui
+        Network
+        PrintSupport
+        Svg
+        Test
+        Widgets
+        Xml
+)
+find_package(Qt5 ${REQUIRED_QT_VERSION} QUIET
+    COMPONENTS
+        DBus
+        OpenGL
+#        Quick
+#        Sql
+#         WebKit
+#         WebKitWidgets
+)
+# Qt5Declarative was removed in Qt 5.6.0 so search for it in a separate call
+# Including it in a collected find_package(Qt5 ...) call can lead to a fatal not-found error:
+# * Qt5 (required version >= 5.3.0)
+# find_package(Qt5Declarative ${REQUIRED_QT_VERSION} QUIET)
+
+set_package_properties(Qt5DBus PROPERTIES
+    DESCRIPTION "Library for dbus access"
+    PURPOSE "Required for dbus support (optional)"
+    TYPE OPTIONAL
+)
+
+find_package(X11)
+if(X11_FOUND)
     find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
         COMPONENTS
-            Core
-            Gui
-            Network
-            PrintSupport
-            Svg
-            Test
-            Widgets
-            Xml
+            X11Extras
     )
-    find_package(Qt5 ${REQUIRED_QT_VERSION} QUIET
-        COMPONENTS
-            DBus
-            OpenGL
-    #        Quick
-    #        Sql
-    #         WebKit
-    #         WebKitWidgets
-    )
-    # Qt5Declarative was removed in Qt 5.6.0 so search for it in a separate call
-    # Including it in a collected find_package(Qt5 ...) call can lead to a fatal not-found error:
-    # * Qt5 (required version >= 5.3.0)
-    # find_package(Qt5Declarative ${REQUIRED_QT_VERSION} QUIET)
+    set(HAVE_X11 TRUE)
+    add_definitions(-DHAVE_X11)
+else()
+    set(HAVE_X11 FALSE)
+endif()
 
-    set_package_properties(Qt5DBus PROPERTIES
-        DESCRIPTION "Library for dbus access"
-        PURPOSE "Required for dbus support (optional)"
-        TYPE OPTIONAL
-    )
+# use sane compile flags
+add_definitions(
+-DQT_USE_QSTRINGBUILDER
+-DQT_STRICT_ITERATORS
+-DQT_NO_SIGNALS_SLOTS_KEYWORDS
+-DQT_NO_URL_CAST_FROM_STRING
+-DQT_NO_CAST_TO_ASCII
+)
 
-    find_package(X11)
-    if(X11_FOUND)
-        find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
-            COMPONENTS
-                X11Extras
-        )
-        set(HAVE_X11 TRUE)
-        add_definitions(-DHAVE_X11)
-    else()
-        set(HAVE_X11 FALSE)
-    endif()
+# only with this definition will all the FOO_TEST_EXPORT macro do something
+# TODO: check if this can be moved to only those places which make use of it,
+# to reduce global compiler definitions that would trigger a recompile of
+# everything on a change (like adding/removing tests to/from the build)
+if(BUILD_TESTING)
+    add_definitions(-DCOMPILING_TESTS)
+endif()
 
-    # use sane compile flags
-    add_definitions(
-    -DQT_USE_QSTRINGBUILDER
-    -DQT_STRICT_ITERATORS
-    -DQT_NO_SIGNALS_SLOTS_KEYWORDS
-    -DQT_NO_URL_CAST_FROM_STRING
-    -DQT_NO_CAST_TO_ASCII
-    )
+# overcome some platform incompatibilities
+if(WIN32)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/winquirks)
+    add_definitions(-D_USE_MATH_DEFINES)
+    add_definitions(-DNOMINMAX)
+    set(WIN32_PLATFORM_NET_LIBS ws2_32.lib netapi32.lib)
+endif()
 
-    # only with this definition will all the FOO_TEST_EXPORT macro do something
-    # TODO: check if this can be moved to only those places which make use of it,
-    # to reduce global compiler definitions that would trigger a recompile of
-    # everything on a change (like adding/removing tests to/from the build)
-    if(BUILD_TESTING)
-        add_definitions(-DCOMPILING_TESTS)
-    endif()
+###########################
+############################
+## Required dependencies  ##
+############################
+###########################
 
-    # overcome some platform incompatibilities
-    if(WIN32)
-        include_directories(${CMAKE_CURRENT_SOURCE_DIR}/winquirks)
-        add_definitions(-D_USE_MATH_DEFINES)
-        add_definitions(-DNOMINMAX)
-        set(WIN32_PLATFORM_NET_LIBS ws2_32.lib netapi32.lib)
-    endif()
+##
+## Test for KGantt
+##
+macro_optional_find_package(KGantt 2.6.0 QUIET)
+set_package_properties(KGantt PROPERTIES
+    DESCRIPTION "Library for creating Gantt diagrams (part of KDiagram)"
+    URL "https://www.kde.org/"
+    TYPE REQUIRED
+)
 
-    ###########################
-    ############################
-    ## Required dependencies  ##
-    ############################
-    ###########################
+##
+## Test for KChart
+##
+macro_optional_find_package(KChart 2.6.0 QUIET)
+set_package_properties(KChart PROPERTIES
+    DESCRIPTION "Library for creating business charts (part of KDiagram)"
+    URL "https://www.kde.org/"
+    TYPE REQUIRED
+)
 
-    ##
-    ## Test for KGantt
-    ##
-    macro_optional_find_package(KGantt 2.6.0 QUIET)
-    set_package_properties(KGantt PROPERTIES
-        DESCRIPTION "Library for creating Gantt diagrams (part of KDiagram)"
-        URL "https://www.kde.org/"
-        TYPE REQUIRED
-    )
+find_package(Perl REQUIRED)
+find_package(ZLIB REQUIRED)
 
-    ##
-    ## Test for KChart
-    ##
-    macro_optional_find_package(KChart 2.6.0 QUIET)
-    set_package_properties(KChart PROPERTIES
-        DESCRIPTION "Library for creating business charts (part of KDiagram)"
-        URL "https://www.kde.org/"
-        TYPE REQUIRED
-    )
+###########################
+############################
+## Optional dependencies  ##
+############################
+###########################
 
-    find_package(Perl REQUIRED)
-    find_package(ZLIB REQUIRED)
+##
+## Test for KF5CalendarCore
+##
+find_package(KF5CalendarCore CONFIG QUIET)
+set_package_properties(KF5CalendarCore PROPERTIES
+    DESCRIPTION "KDE Calendar Library"
+    URL "https://www.kde.org/"
+    PURPOSE "Required for Ical export"
+    TYPE OPTIONAL
+)
 
-    ###########################
-    ############################
-    ## Optional dependencies  ##
-    ############################
-    ###########################
+##
+## Test for KF5Contacts
+##
+find_package(KF5Contacts CONFIG QUIET)
+set_package_properties(KF5Contacts PROPERTIES
+    DESCRIPTION "KDE Address book Library"
+    URL "https://www.kde.org/"
+    PURPOSE "Required for address book support"
+    TYPE OPTIONAL
+)
 
-    ##
-    ## Test for KF5CalendarCore
-    ##
-    find_package(KF5CalendarCore CONFIG QUIET)
-    set_package_properties(KF5CalendarCore PROPERTIES
-        DESCRIPTION "KDE Calendar Library"
-        URL "https://www.kde.org/"
-        PURPOSE "Required for Ical export"
-        TYPE OPTIONAL
-    )
+##
+## Test for KF5AkonadiContact
+##
+find_package(KF5AkonadiContact CONFIG QUIET)
+set_package_properties(KF5AkonadiContact PROPERTIES
+    DESCRIPTION "Library for Accessing Contacts stored in Akonadi"
+    URL "https://www.kde.org/"
+    PURPOSE "Required for address book support"
+    TYPE OPTIONAL
+)
 
-    ##
-    ## Test for KF5Contacts
-    ##
-    find_package(KF5Contacts CONFIG QUIET)
-    set_package_properties(KF5Contacts PROPERTIES
-        DESCRIPTION "KDE Address book Library"
-        URL "https://www.kde.org/"
-        PURPOSE "Required for address book support"
-        TYPE OPTIONAL
-    )
-
-    ##
-    ## Test for KF5AkonadiContact
-    ##
-    find_package(KF5AkonadiContact CONFIG QUIET)
-    set_package_properties(KF5AkonadiContact PROPERTIES
-        DESCRIPTION "Library for Accessing Contacts stored in Akonadi"
-        URL "https://www.kde.org/"
-        PURPOSE "Required for address book support"
-        TYPE OPTIONAL
-    )
-
-    ##
-    ## Test for KF5AkonadiCore
-    ##
-    # find_package(KF5Akonadi CONFIG QUIET)
-    # set_package_properties(KF5Akonadi PROPERTIES
-    #     DESCRIPTION "Library for general Access to Akonadi"
-    #     URL "https://www.kde.org/"
-    #     PURPOSE "Optionally used by Plan"
-    #     TYPE OPTIONAL
-    # )
+##
+## Test for KF5AkonadiCore
+##
+# find_package(KF5Akonadi CONFIG QUIET)
+# set_package_properties(KF5Akonadi PROPERTIES
+#     DESCRIPTION "Library for general Access to Akonadi"
+#     URL "https://www.kde.org/"
+#     PURPOSE "Optionally used by Plan"
+#     TYPE OPTIONAL
+# )
 
 
-    if(WIN32)
-        set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}
-                            RUNTIME DESTINATION ${BIN_INSTALL_DIR}
-                            LIBRARY ${INSTALL_TARGETS_DEFAULT_ARGS}
-                            ARCHIVE ${INSTALL_TARGETS_DEFAULT_ARGS} )
-    endif()
+if(WIN32)
+    set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}
+                        RUNTIME DESTINATION ${BIN_INSTALL_DIR}
+                        LIBRARY ${INSTALL_TARGETS_DEFAULT_ARGS}
+                        ARCHIVE ${INSTALL_TARGETS_DEFAULT_ARGS} )
+endif()
 
-
-endif (PLAN_IS_MAIN_PROJECT)
-
-#### Disable kreport for now, reconsidder when it is stable ####
+#### Disable kreport for now, reconsider when it is stable ####
 if (TEST_FOR_KREPORT)
     #
     # Test for KReport
     #
     macro_optional_find_package(KReport 3.1 QUIET)
     set_package_properties(KReport PROPERTIES
-        PURPOSE "Required for KReports support in Plan"
+        PURPOSE "Required for KReport support in Plan"
         TYPE OPTIONAL
     )
 
