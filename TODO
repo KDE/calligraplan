@@ -7,13 +7,8 @@ find . -name "*.c*" -o -name "*.h" | xargs grep -A 3 -B 3 -E "(###|TODO|FIXME|to
 
 -----------------------------------------------------------------------------------------
 
-In no partivular order or priority:
+In no particular order or priority:
 
-* Complete transition kplato -> plan
-	Executable name
-	Save to fileext .plan
-	Namespace
-	etc
 
 * Improving printing of gantt chart:
 	Proper task list
@@ -23,10 +18,7 @@ In no partivular order or priority:
 * Adding printing to performance charts (and to the rest of the missing views)
 
 * Improving reports, it's very rudimentary
-	More flexible data access ('query' builder?)
 	Maybe drag-n-drop into Words?
-
-* Improve rcps scheduler
 
 * Import task data from spreadsheet (User request)
 
@@ -40,11 +32,9 @@ In no partivular order or priority:
 
 * Add possibility to automatically schedule after changes to the project.
 
-* Improve report designer ui, it is not very user friendly (common with kexi. ref Adam Pigg)
-
 * Add filter / sort to (some) views
 
-* Improve gantt chart (note this is KDAB. so...)
+* Improve gantt chart
 	Time now
 	Context menu on tasks in chart
 	When selected in list, show selection in chart and vs (?)
@@ -53,11 +43,9 @@ In no partivular order or priority:
 
 * Add time period config to cost breakdown view
 
-* Improvements to rcps scheduler
-    Task splitting
-    Non-mandatory resources
-    Different types of schedule optimization: Cost, Resource leveling, etc
 
 * Fix d-n-d of vcards from kontact into resources
 
-* Use holidays file from kontact
+* Sql Database storage
+
+* Improve planwork, possibly coupled to sql database storage
