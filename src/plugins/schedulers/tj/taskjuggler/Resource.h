@@ -14,7 +14,7 @@
 #ifndef _Resource_h_
 #define _Resource_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include "ResourceScenario.h"
 
@@ -37,7 +37,7 @@ class UsageLimits;
  * @short Stores all information about a resource.
  * @author Chris Schlaeger <cs@kde.org>
  */
-class KPLATOTJ_EXPORT Resource : public CoreAttributes
+class PLANTJ_EXPORT Resource : public CoreAttributes
 {
     friend int ResourceList::compareItemsLevel(CoreAttributes* c1,
                                                CoreAttributes* c2, int level);

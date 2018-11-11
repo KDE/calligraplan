@@ -21,7 +21,7 @@
 #ifndef PLANTJSCHEDULER_H
 #define PLANTJSCHEDULER_H
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include "kptschedulerplugin.h"
 

@@ -15,7 +15,7 @@
 #ifndef _Project_h_
 #define _Project_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include <QObject>
 #include <QMap>
@@ -54,7 +54,7 @@ class UsageLimits;
  * @short The root class of all project related information.
  * @author Chris Schlaeger <cs@kde.org>
  */
-class KPLATOTJ_EXPORT Project : public QObject
+class PLANTJ_EXPORT Project : public QObject
 {
     Q_OBJECT
 public:

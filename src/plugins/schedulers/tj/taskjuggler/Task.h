@@ -15,7 +15,7 @@
 #ifndef _Task_h_
 #define _Task_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 // #include <config.h>
 
@@ -55,7 +55,7 @@ class Interval;
  * @see CoreAttributes
  * @author Chris Schlaeger <cs@kde.org>
  */
-class KPLATOTJ_EXPORT Task : public CoreAttributes
+class PLANTJ_EXPORT Task : public CoreAttributes
 {
     friend int TaskList::compareItemsLevel(CoreAttributes*, CoreAttributes*,
                                            int);
@@ -588,8 +588,8 @@ private:
 
 } // namespace TJ
 
-KPLATOTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Task* t );
-KPLATOTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Task& t );
+PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Task* t );
+PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Task& t );
 
 #endif
 

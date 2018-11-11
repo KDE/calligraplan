@@ -1,7 +1,7 @@
 [Desktop Entry]
 X-KDE-ServiceTypes=Plan/SchedulerPlugin
 Type=Service
-X-KDE-Library=kplatorcpsscheduler
+X-KDE-Library=planrcpsscheduler
 
 Name=RCPS Scheduler
 Comment=Genetics based Resource Constrained Project Scheduler

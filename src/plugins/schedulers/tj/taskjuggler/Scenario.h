@@ -12,7 +12,7 @@
 #ifndef _Scenario_h_
 #define _Scenario_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include "ScenarioList.h"
 
@@ -23,7 +23,7 @@ namespace TJ
 
 class Project;
 
-class KPLATOTJ_EXPORT Scenario : public CoreAttributes
+class PLANTJ_EXPORT Scenario : public CoreAttributes
 {
     friend int ScenarioList::compareItemsLevel(CoreAttributes* c1,
                                                CoreAttributes* c2,

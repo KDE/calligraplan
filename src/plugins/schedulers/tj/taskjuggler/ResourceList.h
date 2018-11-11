@@ -14,7 +14,7 @@
 #ifndef _ResourceList_h_
 #define _ResourceList_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include "CoreAttributesList.h"
 
@@ -29,7 +29,7 @@ class Resource;
  * @short A list of resources.
  * @author Chris Schlaeger <cs@kde.org>
  */
-class KPLATOTJ_EXPORT ResourceList : public CoreAttributesList
+class PLANTJ_EXPORT ResourceList : public CoreAttributesList
 {
 public:
     ResourceList();

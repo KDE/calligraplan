@@ -14,7 +14,7 @@
 #ifndef _debug_h_
 #define _debug_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #define DEBUGMODE DebugCtrl.getDebugMode()
 #define DEBUGLEVEL DebugCtrl.getDebugLevel()
@@ -39,7 +39,7 @@
 #define DEBUGPA(l) ((DEBUGMODE & 128) && DEBUGLEVEL >= l) // Critical Path
                                                           // Analyzer
 
-class KPLATOTJ_EXPORT DebugController
+class PLANTJ_EXPORT DebugController
 {
 public:
     DebugController() :
@@ -66,7 +66,7 @@ protected:
     int debugMode;
 } ;
 
-extern KPLATOTJ_EXPORT DebugController DebugCtrl;
+extern PLANTJ_EXPORT DebugController DebugCtrl;
 
 #endif
 

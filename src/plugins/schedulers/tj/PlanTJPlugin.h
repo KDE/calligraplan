@@ -20,7 +20,7 @@
 #ifndef PLANTJPLUGIN_H
 #define PLANTJPLUGIN_H
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include "kptschedulerplugin.h"
 
@@ -36,7 +36,7 @@ namespace KPlato
 
 using namespace KPlato;
 
-class KPLATOTJ_EXPORT PlanTJPlugin : public SchedulerPlugin
+class PLANTJ_EXPORT PlanTJPlugin : public SchedulerPlugin
 {
     Q_OBJECT
 

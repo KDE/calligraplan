@@ -18,8 +18,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KPLATORCPSSCHEDULER_H
-#define KPLATORCPSSCHEDULER_H
+#ifndef PLANRCPSSCHEDULER_H
+#define PLANRCPSSCHEDULER_H
 
 #include "kptschedulerplugin.h"
 
@@ -166,4 +166,4 @@ private:
     struct fitness_info fitness_init_arg;
 };
 
-#endif // KPLATORCPSPSCHEDULER_H
+#endif // PLANRCPSPSCHEDULER_H

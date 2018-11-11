@@ -12,7 +12,7 @@
 #ifndef _TaskList_h_
 #define _TaskList_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include "CoreAttributesList.h"
 
@@ -28,7 +28,7 @@ class Task;
  * @see Task
  * @author Chris Schlaeger <cs@kde.org>
  */
-class KPLATOTJ_EXPORT TaskList : public virtual CoreAttributesList
+class PLANTJ_EXPORT TaskList : public virtual CoreAttributesList
 {
 public:
     TaskList() :
@@ -65,7 +65,7 @@ protected:
  * @see TaskList
  * @author Chris Schlaeger <cs@kde.org>
  */
-class KPLATOTJ_EXPORT TaskListIterator : public virtual CoreAttributesListIterator
+class PLANTJ_EXPORT TaskListIterator : public virtual CoreAttributesListIterator
 {
 public:
     explicit TaskListIterator(const CoreAttributesList& l) :

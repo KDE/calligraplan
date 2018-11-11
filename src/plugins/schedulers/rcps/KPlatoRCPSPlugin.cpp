@@ -35,7 +35,7 @@
 #include <QApplication>
 
 #ifndef PLAN_NOPLUGIN
-KPLATO_SCHEDULERPLUGIN_EXPORT(KPlatoRCPSPlugin, "planrcpsscheduler.json")
+PLAN_SCHEDULERPLUGIN_EXPORT(KPlatoRCPSPlugin, "planrcpsscheduler.json")
 #endif
 
 using namespace KPlato;

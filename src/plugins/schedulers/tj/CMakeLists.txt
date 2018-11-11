@@ -49,7 +49,7 @@ else()
 endif()
 
 # TODO: only export symbols for tests, not release
-generate_export_header(plantjscheduler BASE_NAME kplatotj)
+generate_export_header(plantjscheduler BASE_NAME plantj)
 add_definitions(-Dplantjscheduler_EXPORTS)
 target_link_libraries(
     plantjscheduler

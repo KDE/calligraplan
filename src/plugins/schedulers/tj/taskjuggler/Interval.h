@@ -14,7 +14,7 @@
 #ifndef _XInterval_h_
 #define _XInterval_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include <stdio.h>
 #include "Utility.h"
@@ -25,7 +25,7 @@
 namespace TJ
 {
 
-class KPLATOTJ_EXPORT Interval
+class PLANTJ_EXPORT Interval
 {
 public:
     Interval(time_t s, time_t e) : start(s), end(e) { }
@@ -157,7 +157,7 @@ protected:
 Q_DECLARE_TYPEINFO( TJ::Interval, Q_MOVABLE_TYPE );
 Q_DECLARE_METATYPE( TJ::Interval )
 
-KPLATOTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Interval *i );
-KPLATOTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Interval &i );
+PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Interval *i );
+PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Interval &i );
 
 #endif

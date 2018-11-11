@@ -14,7 +14,7 @@
 #ifndef _CoreAttributes_h_
 #define _CoreAttributes_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include <QString>
 #include <QMap>
@@ -35,7 +35,7 @@ class CustomAttributeDefinition;
  * @short This class is the base class for all attribute classes.
  * @author Chris Schlaeger <cs@kde.org>
  */
-class KPLATOTJ_EXPORT CoreAttributes
+class PLANTJ_EXPORT CoreAttributes
 {
 public:
     CoreAttributes(Project* p, const QString& i, const QString& n,
@@ -157,7 +157,7 @@ protected:
 
 } // namespace TJ
 
-KPLATOTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::CoreAttributes* t );
-KPLATOTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::CoreAttributes& t );
+PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::CoreAttributes* t );
+PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::CoreAttributes& t );
 
 #endif

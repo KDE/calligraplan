@@ -13,7 +13,7 @@
 #ifndef _CoreAttributesList_h_
 #define _CoreAttributesList_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include <QList>
 
@@ -29,7 +29,7 @@ namespace TJ
  * @see CoreAttributes
  * @author Chris Schlaeger <cs@kde.org>
  */
-class KPLATOTJ_EXPORT CoreAttributesList : public QList<CoreAttributes*>
+class PLANTJ_EXPORT CoreAttributesList : public QList<CoreAttributes*>
 {
 public:
     CoreAttributesList() : m_autodelete(false)
@@ -150,6 +150,6 @@ template<class TL, class T> int compareTreeItemsT(TL* list, T* c1, T* c2)
 
 } // namespace TJ
 
-KPLATOTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::CoreAttributesList& lst );
+PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::CoreAttributesList& lst );
 
 #endif

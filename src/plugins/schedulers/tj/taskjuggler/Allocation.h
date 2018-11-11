@@ -12,7 +12,7 @@
 #ifndef _Allocation_h_
 #define _Allocation_h_
 
-#include "kplatotj_export.h"
+#include "plantj_export.h"
 
 #include <QDomDocument>
 
@@ -24,7 +24,7 @@ namespace TJ
 class Resource;
 class UsageLimits;
 
-class KPLATOTJ_EXPORT Allocation
+class PLANTJ_EXPORT Allocation
 {
 public:
     Allocation();

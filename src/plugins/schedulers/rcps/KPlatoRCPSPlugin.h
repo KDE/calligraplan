@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KPLATORCPSPLUGIN_H
-#define KPLATORCPSPLUGIN_H
+#ifndef PLANRCPSPLUGIN_H
+#define PLANRCPSPLUGIN_H
 
 #include "kptschedulerplugin.h"
 
@@ -64,4 +64,4 @@ protected Q_SLOTS:
 };
 
 
-#endif // KPLATORCPSPLUGIN_H
+#endif // PLANRCPSPLUGIN_H
