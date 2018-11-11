@@ -264,7 +264,7 @@ public:
     double bcwpTotalCost() const {
         double cost = 0.0;
         if ( ! m_days.isEmpty() ) {
-            cost = m_days.values().last().bcwpCost();
+            cost = m_days.last().bcwpCost();
         }
         return cost;
     }
@@ -272,13 +272,13 @@ public:
     double bcwpTotalEffort() const {
         double eff = 0.0;
         if ( ! m_days.isEmpty() ) {
-            eff = m_days.values().last().bcwpEffort();
+            eff = m_days.last().bcwpEffort();
         }
         return eff;
     }
     
-    QDate startDate() const { return m_days.isEmpty() ? QDate() : m_days.keys().first(); }
-    QDate endDate() const { return m_days.isEmpty() ? QDate() : m_days.keys().last(); }
+    QDate startDate() const { return m_days.isEmpty() ? QDate() : m_days.firstKey(); }
+    QDate endDate() const { return m_days.isEmpty() ? QDate() : m_days.lastKey(); }
     
 #ifndef QT_NO_DEBUG_STREAM
     QDebug debug( QDebug dbg) const;
