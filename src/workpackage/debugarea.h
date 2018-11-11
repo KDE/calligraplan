@@ -20,12 +20,12 @@
 #ifndef PLANWORK_DEBUGAREA
 #define PLANWORK_DEBUGAREA
 
-#include "kplatowork_export.h"
+#include "planwork_export.h"
 
 #include <QDebug>
 #include <QLoggingCategory>
 
-extern const KPLATOWORK_EXPORT QLoggingCategory &PLANWORK_LOG();
+extern const PLANWORK_EXPORT QLoggingCategory &PLANWORK_LOG();
 
 #define debugPlanWork qCDebug(PLANWORK_LOG)<<QString("%1:").arg(__func__)
 #define warnPlanWork qCWarning(PLANWORK_LOG)

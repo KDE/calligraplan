@@ -24,7 +24,7 @@
 #ifndef KPLATOWORK_PART_H
 #define KPLATOWORK_PART_H
 
-#include "kplatowork_export.h"
+#include "planwork_export.h"
 
 #include "kptxmlloaderobject.h"
 
@@ -134,7 +134,7 @@ protected:
  along with scheduling information and assigned resources.
 */
 
-class KPLATOWORK_EXPORT Part : public KParts::ReadWritePart
+class PLANWORK_EXPORT Part : public KParts::ReadWritePart
 {
     Q_OBJECT
 

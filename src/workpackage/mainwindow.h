@@ -23,7 +23,7 @@
 #ifndef KPLATOWORK_MAINWINDOW_H
 #define KPLATOWORK_MAINWINDOW_H
 
-#include "kplatowork_export.h"
+#include "planwork_export.h"
 
 #include <QMap>
 #include <QToolButton>
@@ -43,7 +43,7 @@ namespace KPlato {
 
 /////// class KPlatoWork_MainWindow ////////
 
-class KPLATOWORK_EXPORT KPlatoWork_MainWindow : public KParts::MainWindow
+class PLANWORK_EXPORT KPlatoWork_MainWindow : public KParts::MainWindow
 {
   Q_OBJECT
 

@@ -20,7 +20,7 @@
 #ifndef TASKWORKPACKAGEVIEW_H
 #define TASKWORKPACKAGEVIEW_H
 
-#include "kplatowork_export.h"
+#include "planwork_export.h"
 
 #include "kptitemmodelbase.h"
 
@@ -51,7 +51,7 @@ class WorkPackage;
 
 class TaskWorkPackageModel;
 
-class KPLATOWORK_EXPORT TaskWorkPackageTreeView : public DoubleTreeViewBase
+class PLANWORK_EXPORT TaskWorkPackageTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -81,7 +81,7 @@ protected:
 };
 
 
-class KPLATOWORK_EXPORT AbstractView : public QWidget, public ViewActionLists
+class PLANWORK_EXPORT AbstractView : public QWidget, public ViewActionLists
 {
     Q_OBJECT
 public:
@@ -128,7 +128,7 @@ protected:
 
 };
 
-class KPLATOWORK_EXPORT TaskWorkPackageView : public AbstractView
+class PLANWORK_EXPORT TaskWorkPackageView : public AbstractView
 {
     Q_OBJECT
 public:
@@ -224,7 +224,7 @@ protected:
     KGantt::TreeViewRowController *m_rowController;
 };
 
-class KPLATOWORK_EXPORT TaskWPGanttView : public AbstractView
+class PLANWORK_EXPORT TaskWPGanttView : public AbstractView
 {
     Q_OBJECT
 public:

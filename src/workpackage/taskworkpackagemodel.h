@@ -20,7 +20,7 @@
 #ifndef TASKWORKPACKAGEMODEL_H
 #define TASKWORKPACKAGEMODEL_H
 
-#include "kplatowork_export.h"
+#include "planwork_export.h"
 
 #include "kptitemmodelbase.h"
 #include "kptnodeitemmodel.h"
@@ -57,7 +57,7 @@ class WorkPackage;
  *
  * The model stores a nodes parentNode() in the index's internalPointer().
  */
-class KPLATOWORK_EXPORT TaskWorkPackageModel : public ItemModelBase
+class PLANWORK_EXPORT TaskWorkPackageModel : public ItemModelBase
 {
     Q_OBJECT
     Q_ENUMS( Properties )

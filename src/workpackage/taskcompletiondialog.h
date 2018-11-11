@@ -20,7 +20,7 @@
 #ifndef KPLATOWORK_TASKCOMPLETIONDIALOG_H
 #define KPLATOWORK_TASKCOMPLETIONDIALOG_H
 
-#include "kplatowork_export.h"
+#include "planwork_export.h"
 #include "ui_taskcompletionpanel.h"
 
 #include "workpackage.h"
@@ -42,7 +42,7 @@ namespace KPlatoWork
 
 class TaskCompletionPanel;
 
-class KPLATOWORK_EXPORT TaskCompletionDialog : public KoDialog
+class PLANWORK_EXPORT TaskCompletionDialog : public KoDialog
 {
     Q_OBJECT
 public:
@@ -57,7 +57,7 @@ private:
     TaskCompletionPanel *m_panel;
 };
 
-class KPLATOWORK_EXPORT TaskCompletionPanel : public QWidget, public Ui::TaskCompletionPanel
+class PLANWORK_EXPORT TaskCompletionPanel : public QWidget, public Ui::TaskCompletionPanel
 {
     Q_OBJECT
 public:

@@ -21,7 +21,7 @@
 #ifndef KPLATOWORK_FACTORY_H
 #define KPLATOWORK_FACTORY_H
 
-#include "kplatowork_export.h"
+#include "planwork_export.h"
 
 #include <kpluginfactory.h>
 
@@ -31,7 +31,7 @@ class KoComponentData;
 namespace KPlatoWork
 {
 
-class KPLATOWORK_EXPORT Factory : public KPluginFactory
+class PLANWORK_EXPORT Factory : public KPluginFactory
 {
     Q_OBJECT
 public:

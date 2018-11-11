@@ -20,7 +20,7 @@
 #ifndef KPLATOWORK_PACKAGESETTINGS_H
 #define KPLATOWORK_PACKAGESETTINGS_H
 
-#include "kplatowork_export.h"
+#include "planwork_export.h"
 #include "ui_packagesettings.h"
 
 #include "workpackage.h"
@@ -34,7 +34,7 @@ namespace KPlatoWork
 
 class PackageSettingsPanel;
 
-class KPLATOWORK_EXPORT PackageSettingsDialog : public KoDialog
+class PLANWORK_EXPORT PackageSettingsDialog : public KoDialog
 {
     Q_OBJECT
 public:
