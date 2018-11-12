@@ -60,7 +60,6 @@ class WorkPackage;
 class PLANWORK_EXPORT TaskWorkPackageModel : public ItemModelBase
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     explicit TaskWorkPackageModel( Part *part, QObject *parent = 0 );
     ~TaskWorkPackageModel() {}
@@ -91,6 +90,7 @@ public:
         ProjectName,
         ProjectManager
     };
+    Q_ENUM(Properties)
     const QMetaEnum columnMap() const
     {
         return metaObject()->enumerator( metaObject()->indexOfEnumerator("Properties") );

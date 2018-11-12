@@ -40,7 +40,6 @@ class Schedule;
 class PLANMODELS_EXPORT ScheduleModel : public QObject
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     explicit ScheduleModel( QObject *parent = 0 );
     ~ScheduleModel();
@@ -57,6 +56,7 @@ public:
         ScheduleGranularity,
         ScheduleScheduled
     };
+    Q_ENUM(Properties)
     const QMetaEnum columnMap() const;
     
     int propertyCount() const;

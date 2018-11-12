@@ -45,7 +45,6 @@ class Estimate;
 class PLANMODELS_EXPORT NodeModel : public QObject
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     NodeModel();
     ~NodeModel() {}
@@ -142,6 +141,7 @@ public:
         WPTransmitionStatus,
         WPTransmitionTime
     };
+    Q_ENUM(Properties)
     const QMetaEnum columnMap() const;
     
     void setProject( Project *project );

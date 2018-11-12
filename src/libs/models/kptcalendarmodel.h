@@ -70,7 +70,6 @@ protected:
 class PLANMODELS_EXPORT CalendarItemModel : public ItemModelBase
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     explicit CalendarItemModel( QObject *parent = 0 );
     ~CalendarItemModel();
@@ -83,6 +82,7 @@ public:
         , HolidayRegion
 #endif
     };
+    Q_ENUM(Properties)
     const QMetaEnum columnMap() const;
 
     virtual void setProject( Project *project );

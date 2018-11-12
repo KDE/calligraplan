@@ -47,7 +47,6 @@ class Node;
 class PLANMODELS_EXPORT ResourceModel : public QObject
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     explicit ResourceModel( QObject *parent = 0 );
     ~ResourceModel();
@@ -66,6 +65,7 @@ public:
         ResourceOvertimeRate,
         ResourceAccount
     };
+    Q_ENUM(Properties)
     
     const QMetaEnum columnMap() const;
     void setProject( Project *project );

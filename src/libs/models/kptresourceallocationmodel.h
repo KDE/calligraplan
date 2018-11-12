@@ -46,7 +46,6 @@ class ResourceGroupRequest;
 class PLANMODELS_EXPORT ResourceAllocationModel : public QObject
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     explicit ResourceAllocationModel( QObject *parent = 0 );
     ~ResourceAllocationModel();
@@ -58,6 +57,7 @@ public:
         RequestMaximum,
         RequestRequired
     };
+    Q_ENUM(Properties)
     
     const QMetaEnum columnMap() const;
     void setProject( Project *project );

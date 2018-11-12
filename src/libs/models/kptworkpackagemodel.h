@@ -41,7 +41,6 @@ class NodeItemModel;
 class PLANMODELS_EXPORT WorkPackageModel : public QObject
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     explicit WorkPackageModel( QObject *parent = 0 )
         : QObject( parent )

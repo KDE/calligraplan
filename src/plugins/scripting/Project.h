@@ -59,7 +59,6 @@ namespace Scripting {
     class Project : public Node
     {
             Q_OBJECT
-            Q_ENUMS( Roles )
         public:
             enum Roles {
                 DisplayRole = Qt::DisplayRole,
@@ -79,7 +78,8 @@ namespace Scripting {
                 AccessibleTextRole = Qt::AccessibleTextRole,
                 AccessibleDescriptionRole = Qt::AccessibleDescriptionRole
             };
-
+            Q_ENUM( Roles )
+            
             Project( Module* module, KPlato::Project *project );
             virtual ~Project();
 

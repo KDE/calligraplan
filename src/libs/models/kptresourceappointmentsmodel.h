@@ -156,7 +156,6 @@ private:
 class PLANMODELS_EXPORT ResourceAppointmentsRowModel : public ItemModelBase
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     enum Properties {
         Name = 0,
@@ -165,6 +164,7 @@ public:
         EndTime,
         Load
     };
+    Q_ENUM(Properties)
     const QMetaEnum columnMap() const;
 
     explicit ResourceAppointmentsRowModel( QObject *parent = 0 );

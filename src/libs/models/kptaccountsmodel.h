@@ -37,7 +37,6 @@ class AccountItemModel;
 class PLANMODELS_EXPORT AccountModel : public QObject
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     AccountModel();
     ~AccountModel() {}
@@ -46,6 +45,7 @@ public:
         Name = 0,
         Description
     };
+    Q_ENUM(Properties)
     const QMetaEnum columnMap() const;
     int propertyCount() const;
 
@@ -111,7 +111,6 @@ private:
 class PLANMODELS_EXPORT CostBreakdownItemModel : public ItemModelBase
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     enum PeriodType { Period_Day = 0, Period_Week = 1, Period_Month = 2 };
     enum StartMode { StartMode_Project = 0, StartMode_Date = 1 };
@@ -128,6 +127,7 @@ public:
         Planned,
         Actual
     };
+    Q_ENUM(Properties)
     const QMetaEnum columnMap() const;
     int propertyCount() const;
 

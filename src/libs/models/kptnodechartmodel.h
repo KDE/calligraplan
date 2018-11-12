@@ -85,7 +85,6 @@ private:
 class PLANMODELS_EXPORT ChartItemModel : public ItemModelBase
 {
     Q_OBJECT
-    Q_ENUMS( Properties )
 public:
     enum Properties {
         BCWSCost,
@@ -99,6 +98,7 @@ public:
         SPIEffort,
         CPIEffort
     };
+    Q_ENUM(Properties)
     const QMetaEnum columnMap() const;
 
     explicit ChartItemModel(QObject *parent = 0);
