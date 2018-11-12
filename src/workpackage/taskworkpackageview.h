@@ -214,7 +214,7 @@ protected Q_SLOTS:
     void slotRowsInserted( const QModelIndex &parent, int start, int end );
     void slotRowsRemoved( const QModelIndex &parent, int start, int end );
 
-    void updateDateTimeGrid( WorkPackage *wp );
+    void updateDateTimeGrid(KPlatoWork::WorkPackage *wp);
 
 protected:
     Part *m_part;

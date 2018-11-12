@@ -94,11 +94,11 @@ public:
     Document *currentDocument() const;
 
 Q_SIGNALS:
-    void currentScheduleManagerChanged( ScheduleManager *sm );
+    void currentScheduleManagerChanged(KPlato::ScheduleManager *sm);
     void openInternalDocument( KoStore * );
     void sigUpdateReadWrite( bool );
 
-    void viewDocument( Document *doc );
+    void viewDocument(KPlato::Document *doc);
 
 public Q_SLOTS:
     void slotEditCut();
@@ -117,7 +117,7 @@ protected Q_SLOTS:
     void slotProgressChanged( int value );
 
     void slotEditDocument();
-    void slotEditDocument( Document *doc );
+    void slotEditDocument(KPlato::Document *doc);
     void slotViewDocument();
     void slotRemoveDocument();
     
