@@ -132,11 +132,11 @@ public:
     void setLocalizeValues( bool on );
 
 public Q_SLOTS:
-    void setScheduleManager( ScheduleManager *sm );
-    void slotNodeRemoved( Node *node );
-    void slotNodeChanged( Node *node );
-    void slotResourceChanged( Resource *resource );
-    void slotResourceChanged( const Resource *resource );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
+    void slotNodeRemoved(KPlato::Node *node);
+    void slotNodeChanged(KPlato::Node *node);
+    void slotResourceChanged(KPlato::Resource *resource);
+    void slotResourceChanged(const KPlato::Resource *resource);
 
 protected:
     double bcwsEffort( int day ) const;

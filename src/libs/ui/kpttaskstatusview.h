@@ -122,7 +122,7 @@ public Q_SLOTS:
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
 
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
     virtual void slotRefreshView();
 
@@ -134,7 +134,7 @@ protected:
 
 private Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
-    void slotContextMenuRequested( Node *node, const QPoint& pos );
+    void slotContextMenuRequested(KPlato::Node *node, const QPoint& pos);
     void slotSplitView();
     
 private:
@@ -361,7 +361,7 @@ public Q_SLOTS:
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
 
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected:
     void updateActionsEnabled( bool on );
@@ -432,7 +432,7 @@ public Q_SLOTS:
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
 
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
     virtual void slotOptions();
@@ -441,7 +441,7 @@ protected:
     void updateActionsEnabled( bool on );
 
 private Q_SLOTS:
-    void slotContextMenuRequested( Node *node, const QPoint& pos );
+    void slotContextMenuRequested(KPlato::Node *node, const QPoint& pos);
     void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
 
 private:

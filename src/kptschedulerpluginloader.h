@@ -41,7 +41,7 @@ public:
     void loadAllPlugins();
 
 Q_SIGNALS:
-    void pluginLoaded( const QString &key, SchedulerPlugin *plugin);
+    void pluginLoaded( const QString &key, KPlato::SchedulerPlugin *plugin);
 };
 
 } //namespace KPlato

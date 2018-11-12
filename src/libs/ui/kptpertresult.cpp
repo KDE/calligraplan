@@ -238,7 +238,7 @@ void PertResult::slotScheduleSelectionChanged( ScheduleManager *sm )
     draw();
 }
 
-void PertResult::slotProjectCalculated( ScheduleManager *sm )
+void PertResult::slotProjectCalculated(KPlato::ScheduleManager *sm)
 {
     if ( sm && sm == model()->manager() ) {
         //draw();
@@ -264,18 +264,18 @@ void PertResult::slotScheduleManagerChanged( ScheduleManager *sm )
 void PertResult::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotUpdate()) );
-        disconnect( m_project, SIGNAL(projectCalculated(ScheduleManager*)), this, SLOT(slotProjectCalculated(ScheduleManager*)) );
-        disconnect( m_project, SIGNAL(scheduleManagerToBeRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const ScheduleManager*)) );
-        disconnect( m_project, SIGNAL(scheduleManagerChanged(ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(ScheduleManager*)) );
+        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotUpdate()) );
+        disconnect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        disconnect( m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)) );
+        disconnect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(KPlato::ScheduleManager*)) );
     }
     m_project = project;
     model()->setProject( m_project );
     if ( m_project ) {
-        connect( m_project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotUpdate()) );
-        connect( m_project, SIGNAL(projectCalculated(ScheduleManager*)), this, SLOT(slotProjectCalculated(ScheduleManager*)) );
-        connect( m_project, SIGNAL(scheduleManagerToBeRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const ScheduleManager*)) );
-        connect( m_project, SIGNAL(scheduleManagerChanged(ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(ScheduleManager*)) );
+        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotUpdate()) );
+        connect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        connect( m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)) );
+        connect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(KPlato::ScheduleManager*)) );
     }
     draw();
 }
@@ -464,18 +464,18 @@ void PertCpmView::slotScheduleManagerToBeRemoved( const ScheduleManager *sm )
 void PertCpmView::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotUpdate()) );
-        disconnect( m_project, SIGNAL(projectCalculated(ScheduleManager*)), this, SLOT(slotProjectCalculated(ScheduleManager*)) );
-        disconnect( m_project, SIGNAL(scheduleManagerToBeRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const ScheduleManager*)) );
-        disconnect( m_project, SIGNAL(scheduleManagerChanged(ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(ScheduleManager*)) );
+        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotUpdate()) );
+        disconnect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        disconnect( m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)) );
+        disconnect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(KPlato::ScheduleManager*)) );
     }
     m_project = project;
     model()->setProject( m_project );
     if ( m_project ) {
-        connect( m_project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotUpdate()) );
-        connect( m_project, SIGNAL(projectCalculated(ScheduleManager*)), this, SLOT(slotProjectCalculated(ScheduleManager*)) );
-        connect( m_project, SIGNAL(scheduleManagerToBeRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const ScheduleManager*)) );
-        connect( m_project, SIGNAL(scheduleManagerChanged(ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(ScheduleManager*)) );
+        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotUpdate()) );
+        connect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        connect( m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)) );
+        connect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(KPlato::ScheduleManager*)) );
     }
     draw();
 }

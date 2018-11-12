@@ -70,12 +70,12 @@ public:
     Node *currentNode() const;
             
 public Q_SLOTS:
-    void slotScheduleSelectionChanged( ScheduleManager *sm );
+    void slotScheduleSelectionChanged(KPlato::ScheduleManager *sm);
     
 protected Q_SLOTS:
-    void slotProjectCalculated( ScheduleManager *sm );
-    void slotScheduleManagerToBeRemoved( const ScheduleManager *sm );
-    void slotScheduleManagerChanged( ScheduleManager *sm );
+    void slotProjectCalculated(KPlato::ScheduleManager *sm);
+    void slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager *sm);
+    void slotScheduleManagerChanged(KPlato::ScheduleManager *sm);
     void slotHeaderContextMenuRequested( const QPoint &pos );
     void slotContextMenuRequested( const QModelIndex& index, const QPoint& pos );
     
@@ -121,12 +121,12 @@ public:
     Node *currentNode() const;
     
 public Q_SLOTS:
-    void slotScheduleSelectionChanged( ScheduleManager *sm );
+    void slotScheduleSelectionChanged(KPlato::ScheduleManager *sm);
     
 protected Q_SLOTS:
-    void slotProjectCalculated( ScheduleManager *sm );
-    void slotScheduleManagerToBeRemoved( const ScheduleManager *sm );
-    void slotScheduleManagerChanged( ScheduleManager *sm );
+    void slotProjectCalculated(KPlato::ScheduleManager *sm);
+    void slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager *sm);
+    void slotScheduleManagerChanged(KPlato::ScheduleManager *sm);
     void slotHeaderContextMenuRequested( const QPoint &pos );
     void slotContextMenuRequested( const QModelIndex& index, const QPoint& pos );
     

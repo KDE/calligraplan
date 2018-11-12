@@ -51,10 +51,10 @@ public:
 protected Q_SLOTS:
     void slotOk();
 
-    void slotViewListItemRemoved( ViewListItem * );
+    void slotViewListItemRemoved(KPlato::ViewListItem *);
 
 Q_SIGNALS:
-    void viewCreated( ViewBase *view );
+    void viewCreated(KPlato::ViewBase *view);
 
 private:
     AddViewPanel *m_panel;
@@ -72,13 +72,13 @@ public:
 
 Q_SIGNALS:
     void enableButtonOk( bool );
-    void viewCreated( ViewBase *view );
+    void viewCreated(KPlato::ViewBase *view);
 
 protected Q_SLOTS:
     void changed();
     void viewtypeChanged( int idx );
     void categoryChanged();
-    void fillAfter( ViewListItem *cat );
+    void fillAfter(KPlato::ViewListItem *cat);
 
     void viewnameChanged( const QString &text );
     void viewtipChanged( const QString &text );
@@ -101,7 +101,7 @@ public:
 protected Q_SLOTS:
     void slotOk();
 
-    void slotViewListItemRemoved( ViewListItem * );
+    void slotViewListItemRemoved(KPlato::ViewListItem*);
 
 private:
     EditViewPanel *m_panel;
@@ -123,7 +123,7 @@ Q_SIGNALS:
 protected Q_SLOTS:
     void changed();
     void categoryChanged();
-    void fillAfter( ViewListItem *cat );
+    void fillAfter(KPlato::ViewListItem *cat );
 
 private:
     ViewListItem *m_item;
@@ -140,7 +140,7 @@ public:
 protected Q_SLOTS:
     void slotOk();
 
-    void slotViewListItemRemoved( ViewListItem * );
+    void slotViewListItemRemoved(KPlato::ViewListItem*);
 
 private:
     EditCategoryPanel *m_panel;
@@ -179,10 +179,10 @@ public:
 protected Q_SLOTS:
     void slotOk();
 
-    void slotViewListItemRemoved( ViewListItem * );
+    void slotViewListItemRemoved(KPlato::ViewListItem*);
 
 Q_SIGNALS:
-    void viewCreated( ViewBase *view );
+    void viewCreated(KPlato::ViewBase *view);
 
 private:
     AddReportsViewPanel *m_panel;
@@ -200,13 +200,13 @@ public:
 
 Q_SIGNALS:
     void enableButtonOk( bool );
-    void viewCreated( ViewBase *view );
+    void viewCreated(KPlato::ViewBase *view);
 
 protected Q_SLOTS:
     void changed();
     void viewtypeChanged( int idx );
     void categoryChanged();
-    void fillAfter( ViewListItem *cat );
+    void fillAfter(KPlato::ViewListItem *cat);
 
     void viewnameChanged( const QString &text );
     void viewtipChanged( const QString &text );

@@ -332,27 +332,27 @@ public:
     virtual int sortRole( int column ) const;
 
 Q_SIGNALS:
-    void nodeInserted( Node *node );
+    void nodeInserted(KPlato::Node *node);
     void projectShownChanged( bool );
 
 public Q_SLOTS:
-    virtual void setProject( Project *project );
-    virtual void setScheduleManager( ScheduleManager *sm );
+    virtual void setProject(KPlato::Project *project);
+    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
     void setShowProject( bool on );
 
 protected Q_SLOTS:
     virtual void slotWbsDefinitionChanged();
-    virtual void slotNodeChanged( Node* );
-    virtual void slotNodeToBeInserted( Node *node, int row );
-    virtual void slotNodeInserted( Node *node );
-    virtual void slotNodeToBeRemoved( Node *node );
-    virtual void slotNodeRemoved( Node *node );
+    virtual void slotNodeChanged(KPlato::Node* );
+    virtual void slotNodeToBeInserted(KPlato::Node *node, int row );
+    virtual void slotNodeInserted(KPlato::Node *node );
+    virtual void slotNodeToBeRemoved(KPlato::Node *node );
+    virtual void slotNodeRemoved(KPlato::Node *node );
 
-    virtual void slotNodeToBeMoved( Node *node, int pos, Node *newParent, int newPos );
-    virtual void slotNodeMoved( Node *node );
+    virtual void slotNodeToBeMoved(KPlato::Node *node, int pos, KPlato::Node *newParent, int newPos );
+    virtual void slotNodeMoved(KPlato::Node *node );
 
     virtual void slotLayoutChanged();
-    virtual void slotProjectCalculated( ScheduleManager *sm );
+    virtual void slotProjectCalculated(KPlato::ScheduleManager *sm);
 
 protected:
     virtual bool setType( Node *node, const QVariant &value, int role );
@@ -446,17 +446,17 @@ public:
     int sortRole(int column) const;
 
 public Q_SLOTS:
-    virtual void setProject( Project *project );
-    virtual void setScheduleManager( ScheduleManager *sm );
+    virtual void setProject(KPlato::Project *project);
+    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
-    void slotNodeChanged( Node* );
-    void slotNodeToBeInserted( Node *node, int row );
-    void slotNodeInserted( Node *node );
-    void slotNodeToBeRemoved( Node *node );
-    void slotNodeRemoved( Node *node );
-    void slotNodeToBeMoved( Node *node, int pos, Node *newParent, int newPos );
-    void slotNodeMoved( Node *node );
+    void slotNodeChanged(KPlato::Node*);
+    void slotNodeToBeInserted(KPlato::Node *node, int row);
+    void slotNodeInserted(KPlato::Node *node);
+    void slotNodeToBeRemoved(KPlato::Node *node);
+    void slotNodeRemoved(KPlato::Node *node);
+    void slotNodeToBeMoved(KPlato::Node *node, int pos,KPlato::Node *newParent, int newPos);
+    void slotNodeMoved(KPlato::Node *node);
 
     void slotLayoutChanged();
     void slotWbsDefinitionChanged();
@@ -516,7 +516,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void executeCommand( KUndo2Command *cmd );
-    void saveTaskModule( const QUrl &url, Project *project );
+    void saveTaskModule( const QUrl &url, KPlato::Project *project );
     void removeTaskModule( const QUrl &url );
 
 protected:

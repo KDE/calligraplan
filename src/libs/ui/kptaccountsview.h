@@ -90,7 +90,7 @@ public:
     KoPrintJob *createPrintJob();
     
 public Q_SLOTS:
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
     
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );

@@ -610,7 +610,7 @@ public:
     Duration getmDurationForward(){ return this->m_durationForward;}
 
 public Q_SLOTS:
-    void slotStandardWorktimeChanged( StandardWorktime* );
+    void slotStandardWorktimeChanged(KPlato::StandardWorktime*);
 
 protected:
     friend class KPlatoXmlLoaderBase;

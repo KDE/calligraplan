@@ -1371,7 +1371,7 @@ EffortCost Node::acwp( QDate date, long id ) const
     return ec;
 }
 
-void Node::slotStandardWorktimeChanged( StandardWorktime* )
+void Node::slotStandardWorktimeChanged(KPlato::StandardWorktime*)
 {
     //debugPlan<<m_estimate;
     if ( m_estimate ) {

@@ -113,11 +113,11 @@ public:
 public Q_SLOTS:
     /// Activate/deactivate the gui (also of subviews)
     virtual void setGuiActive( bool activate );
-    virtual void setScheduleManager( ScheduleManager *sm );
+    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
     virtual void slotEditCopy();
 
 protected Q_SLOTS:
-    virtual void slotGuiActivated( ViewBase *v, bool active );
+    virtual void slotGuiActivated(KPlato::ViewBase *v, bool active);
     virtual void currentTabChanged( int i );
     
 protected:

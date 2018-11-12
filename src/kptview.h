@@ -201,14 +201,14 @@ public:
     QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*);
 
 Q_SIGNALS:
-    void currentScheduleManagerChanged( ScheduleManager *sm );
+    void currentScheduleManagerChanged(KPlato::ScheduleManager *sm);
     void taskModulesChanged(const QStringList &modules);
 
 public Q_SLOTS:
     void slotUpdate();
     void slotCreateNewProject();
     void slotEditResource();
-    void slotEditResource( Resource *resource );
+    void slotEditResource(KPlato::Resource *resource);
     void slotEditCut();
     void slotEditCopy();
     void slotEditPaste();
@@ -228,47 +228,47 @@ public Q_SLOTS:
     void slotConfigure();
     void slotIntroduction();
 
-    void slotAddRelation( Node *par, Node *child );
-    void slotModifyRelation( Relation *rel );
-    void slotAddRelation( Node *par, Node *child, int linkType );
-    void slotModifyRelation( Relation *rel, int linkType );
+    void slotAddRelation(KPlato::Node *par, KPlato::Node *child);
+    void slotModifyRelation(KPlato::Relation *rel);
+    void slotAddRelation(KPlato::Node *par, KPlato::Node *child, int linkType);
+    void slotModifyRelation(KPlato::Relation *rel, int linkType);
     void slotModifyRelation();
     void slotDeleteRelation();
 
-    void slotRenameNode( Node *node, const QString& name );
+    void slotRenameNode(KPlato::Node *node, const QString& name);
 
     void slotPopupMenu( const QString& menuname, const QPoint &pos );
-    void slotPopupMenu( const QString& menuname, const QPoint &pos, ViewListItem *item );
+    void slotPopupMenu( const QString& menuname, const QPoint &pos, KPlato::ViewListItem *item );
 
-    void addViewListItem( const ViewListItem *item, const ViewListItem *parent, int index );
-    void removeViewListItem( const ViewListItem *item );
+    void addViewListItem(const KPlato::ViewListItem *item, const KPlato::ViewListItem *parent, int index);
+    void removeViewListItem(const KPlato::ViewListItem *item);
 
     void slotOpenReportFile();
 
 protected Q_SLOTS:
-    void slotGuiActivated( ViewBase *view, bool );
-    void slotViewActivated( ViewListItem*, ViewListItem* );
+    void slotGuiActivated(KPlato::ViewBase *view, bool);
+    void slotViewActivated(KPlato::ViewListItem*, KPlato::ViewListItem*);
     void slotPlugScheduleActions();
     void slotViewSchedule( QAction *act );
-    void slotScheduleChanged( MainSchedule* );
-    void slotScheduleAdded( const MainSchedule * );
-    void slotScheduleRemoved( const MainSchedule * );
-    void slotSelectionChanged( ScheduleManager *sm );
+    void slotScheduleChanged(KPlato::MainSchedule*);
+    void slotScheduleAdded(const KPlato::MainSchedule*);
+    void slotScheduleRemoved( const KPlato::MainSchedule*);
+    void slotSelectionChanged(KPlato::ScheduleManager *sm);
 
-    void slotAddScheduleManager( Project *project );
-    void slotDeleteScheduleManager( Project *project, ScheduleManager *sm );
-    void slotMoveScheduleManager( ScheduleManager *sm, ScheduleManager *parent, int index );
-    void slotCalculateSchedule( Project*, ScheduleManager* );
-    void slotBaselineSchedule( Project *project, ScheduleManager *sm );
+    void slotAddScheduleManager(KPlato::Project *project);
+    void slotDeleteScheduleManager(KPlato::Project *project, KPlato::ScheduleManager *sm);
+    void slotMoveScheduleManager(KPlato::ScheduleManager *sm, KPlato::ScheduleManager *parent, int index);
+    void slotCalculateSchedule(KPlato::Project*, KPlato::ScheduleManager*);
+    void slotBaselineSchedule(KPlato::Project *project, KPlato::ScheduleManager *sm);
 
     void slotProjectWorktime();
 
     void slotOpenNode();
-    void slotOpenNode( Node *node );
+    void slotOpenNode(KPlato::Node *node);
     void slotTaskProgress();
     void slotTaskDescription();
-    void slotDeleteTask( QList<Node*> lst );
-    void slotDeleteTask( Node *node );
+    void slotDeleteTask(QList<KPlato::Node*> lst);
+    void slotDeleteTask(KPlato::Node *node);
     void slotDeleteTask();
     void slotIndentTask();
     void slotUnindentTask();
@@ -277,8 +277,8 @@ protected Q_SLOTS:
 
     void slotConnectNode();
 
-    void slotDeleteResource( Resource *resource );
-    void slotDeleteResourceGroup( ResourceGroup *group );
+    void slotDeleteResource(KPlato::Resource *resource);
+    void slotDeleteResourceGroup(KPlato::ResourceGroup *group);
     void slotDeleteResourceObjects( QObjectList );
 
     void slotCurrentChanged( int );
@@ -288,18 +288,18 @@ protected Q_SLOTS:
     void slotInsertFile();
 
     void slotWorkPackageLoaded();
-    void slotMailWorkpackage( Node *node, Resource *resource = 0 );
-    void slotMailWorkpackages( const QList<Node*> &nodes, Resource *resource = 0 );
+    void slotMailWorkpackage(KPlato::Node *node, KPlato::Resource *resource = 0);
+    void slotMailWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource = 0 );
 
-    void slotOpenUrlRequest( HtmlView *v, const QUrl &url );
+    void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
 
-    void slotProjectCalculated( ScheduleManager *sm );
+    void slotProjectCalculated(KPlato::ScheduleManager *sm);
 
-    void slotUpdateViewInfo( ViewListItem *itm );
+    void slotUpdateViewInfo(KPlato::ViewListItem *itm);
 
     void createReportView(const QDomDocument &doc);
 
-    void saveTaskModule( const QUrl &url, Project *project );
+    void saveTaskModule(const QUrl &url, KPlato::Project *project);
     void removeTaskModule( const QUrl &url );
 
     void taskModuleFileChanged(const QString &path);
@@ -324,8 +324,8 @@ protected:
 
 private Q_SLOTS:
     void slotActionDestroyed( QObject *o );
-    void slotViewListItemRemoved( ViewListItem *item );
-    void slotViewListItemInserted( ViewListItem *item, ViewListItem *parent, int index );
+    void slotViewListItemRemoved(KPlato::ViewListItem *item);
+    void slotViewListItemInserted(KPlato::ViewListItem *item, KPlato::ViewListItem *parent, int index);
 
     void slotProjectEditFinished( int result );
     void slotTaskEditFinished( int result );
@@ -352,7 +352,7 @@ private Q_SLOTS:
 
     void hideToolDocker();
     void initiateViews();
-    void slotViewScheduleManager(ScheduleManager *sm);
+    void slotViewScheduleManager(KPlato::ScheduleManager *sm);
 
 private:
     void createViews();

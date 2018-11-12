@@ -151,7 +151,7 @@ public Q_SLOTS:
     bool submit();
     void revert();
     void slotDataChanged();
-    void setManager( ScheduleManager *sm );
+    void setManager(KPlato::ScheduleManager *sm);
 
 protected:
     QVariant date ( int row, int role = Qt::DisplayRole ) const;

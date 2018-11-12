@@ -387,12 +387,12 @@ public:
     void setReadWrite( bool on );
 
 Q_SIGNALS:
-    void connectorClicked( DependencyConnectorItem *item );
-    void connectItems( DependencyConnectorItem *pred, DependencyConnectorItem *succ );
+    void connectorClicked(KPlato::DependencyConnectorItem *item);
+    void connectItems(KPlato::DependencyConnectorItem *pred, KPlato::DependencyConnectorItem *succ);
     void itemDoubleClicked( QGraphicsItem * );
     void contextMenuRequested( QGraphicsItem*, const QPoint& );
     void contextMenuRequested( QGraphicsItem* );
-    void dependencyContextMenuRequested( DependencyLinkItem*, DependencyConnectorItem* );
+    void dependencyContextMenuRequested(KPlato::DependencyLinkItem*, KPlato::DependencyConnectorItem*);
     void focusItemChanged( QGraphicsItem* );
 
 protected:
@@ -444,14 +444,14 @@ Q_SIGNALS:
     void selectionChanged();
     void selectionChanged( QGraphicsItem * );
     void selectionChanged( const QList<QGraphicsItem*>& );
-    void makeConnection( DependencyConnectorItem *pred, DependencyConnectorItem *succ );
+    void makeConnection(KPlato::DependencyConnectorItem *pred, KPlato::DependencyConnectorItem *succ);
     void contextMenuRequested( QGraphicsItem*, const QPoint& );
 
 public Q_SLOTS:
-    void slotNodeAdded( Node *node );
-    void slotNodeRemoved( Node *node );
-    void slotNodeChanged( Node *node );
-    void slotNodeMoved( Node *node );
+    void slotNodeAdded(KPlato::Node *node);
+    void slotNodeRemoved(KPlato::Node *node);
+    void slotNodeChanged(KPlato::Node *node);
+    void slotNodeMoved(KPlato::Node *node);
     
 protected:
     void keyPressEvent(QKeyEvent *event);    
@@ -459,15 +459,15 @@ protected:
 
 protected Q_SLOTS:
     void slotSelectionChanged();
-    void slotRelationAdded( Relation* rel );
-    void slotRelationRemoved( Relation* rel );
-    void slotRelationModified( Relation* rel );
+    void slotRelationAdded(KPlato::Relation* rel);
+    void slotRelationRemoved(KPlato::Relation* rel);
+    void slotRelationModified(KPlato::Relation* rel);
     void slotWbsCodeChanged();
     
     void slotSelectedItems(); // HACK due to tt bug 160653
-    void slotConnectorClicked( DependencyConnectorItem *item );
+    void slotConnectorClicked(KPlato::DependencyConnectorItem *item);
     void slotContextMenuRequested( QGraphicsItem* );
-    void slotDependencyContextMenuRequested( DependencyLinkItem *item, DependencyConnectorItem *connector );
+    void slotDependencyContextMenuRequested(KPlato::DependencyLinkItem *item, KPlato::DependencyConnectorItem *connector);
     void slotFocusItemChanged( QGraphicsItem* );
 
 private Q_SLOTS:
@@ -524,22 +524,22 @@ public:
 Q_SIGNALS:
     void requestPopupMenu( const QString&, const QPoint & );
     void openNode();
-    void editNode( Node *node );
+    void editNode(KPlato::Node *node);
     void addTask();
     void addMilestone();
     void addSubtask();
     void addSubMilestone();
-    void deleteTaskList( const QList<Node*>& );
+    void deleteTaskList(const QList<KPlato::Node*>&);
 
-    void addRelation( Node*, Node*, int );
-    void modifyRelation( Relation*, int );
-    void modifyRelation( Relation* );
+    void addRelation(KPlato::Node*, KPlato::Node*, int);
+    void modifyRelation(KPlato::Relation*, int);
+    void modifyRelation(KPlato::Relation*);
     
 public Q_SLOTS:
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
-    void slotCreateRelation( DependencyConnectorItem *pred, DependencyConnectorItem *succ );
-    void setScheduleManager( ScheduleManager *sm );
+    void slotCreateRelation(KPlato::DependencyConnectorItem *pred, KPlato::DependencyConnectorItem *succ );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
     virtual void slotOptions();

@@ -94,19 +94,19 @@ public:
     KoPrintJob *createPrintJob();
     
 Q_SIGNALS:
-    void calculateSchedule( Project*, ScheduleManager* );
-    void baselineSchedule( Project*, ScheduleManager* );
-    void addScheduleManager( Project* );
-    void deleteScheduleManager( Project*, ScheduleManager* );
+    void calculateSchedule(KPlato::Project*, KPlato::ScheduleManager*);
+    void baselineSchedule(KPlato::Project*, KPlato::ScheduleManager*);
+    void addScheduleManager(KPlato::Project*);
+    void deleteScheduleManager(KPlato::Project*, KPlato::ScheduleManager*);
     void SelectionScheduleChanged();
 
     /**
      * Emitted when schedule selection changes.
      * @param sm is the new schedule manager. If @p is 0, no schedule is selected.
     */
-    void scheduleSelectionChanged( ScheduleManager *sm );
+    void scheduleSelectionChanged(KPlato::ScheduleManager *sm);
     
-    void moveScheduleManager( ScheduleManager *sm, ScheduleManager *newparent, int index );
+    void moveScheduleManager(KPlato::ScheduleManager *sm, KPlato::ScheduleManager *newparent, int index);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
@@ -207,8 +207,8 @@ public:
     virtual void saveContext( QDomElement &/*context*/ ) const;
 
 Q_SIGNALS:
-    void editNode( Node *node );
-    void editResource( Resource *resource );
+    void editNode(KPlato::Node *node);
+    void editResource(KPlato::Resource *resource);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
@@ -221,12 +221,12 @@ protected Q_SLOTS:
 
 private Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
-    void slotScheduleSelectionChanged( ScheduleManager *sm );
+    void slotScheduleSelectionChanged(KPlato::ScheduleManager *sm);
+    void slotEnableActions(const KPlato::ScheduleManager *sm);
 
     void slotSelectionChanged( const QModelIndexList& );
     void slotCurrentChanged( const QModelIndex& );
     void updateActionsEnabled( const QModelIndex &index );
-    void slotEnableActions( const ScheduleManager *sm );
 
 private:
     ScheduleLogTreeView *m_view;
@@ -251,9 +251,9 @@ public:
     virtual ViewBase *hitView( const QPoint &glpos );
 
 Q_SIGNALS:
-    void currentScheduleManagerChanged( ScheduleManager* );
-    void editNode( Node *node );
-    void editResource( Resource *resource );
+    void currentScheduleManagerChanged(KPlato::ScheduleManager*);
+    void editNode(KPlato::Node *node);
+    void editResource(KPlato::Resource *resource);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui (also of subviews)
@@ -261,7 +261,7 @@ public Q_SLOTS:
 
 protected Q_SLOTS:
     /// Noop, we handle subviews ourselves
-    virtual void slotGuiActivated( ViewBase *v, bool active );
+    virtual void slotGuiActivated(KPlato::ViewBase *v, bool active );
     virtual void currentTabChanged( int i );
 
 private:
@@ -275,8 +275,8 @@ public:
     SchedulingRange(KoDocument *doc, QWidget *parent = 0);
  
 public Q_SLOTS:
-    void setProject(Project *project);
-    void slotProjectChanged(Node*);
+    void setProject(KPlato::Project *project);
+    void slotProjectChanged(KPlato::Node*);
     void slotStartChanged();
     void slotEndChanged();
 

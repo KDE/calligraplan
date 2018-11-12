@@ -54,16 +54,16 @@ public:
     ulong currentGranularity() const;
 
 Q_SIGNALS:
-    void sigCalculationStarted(Project*, ScheduleManager*);
-    void sigCalculationFinished(Project*, ScheduleManager*);
+    void sigCalculationStarted(KPlato::Project*, KPlato::ScheduleManager*);
+    void sigCalculationFinished(KPlato::Project*, KPlato::ScheduleManager*);
 
 public Q_SLOTS:
     void stopAllCalculations();
-    void stopCalculation( SchedulerThread *sch );
+    void stopCalculation(KPlato::SchedulerThread *sch);
 
 protected Q_SLOTS:
-    void slotStarted( SchedulerThread *job );
-    void slotFinished( SchedulerThread *job );
+    void slotStarted(KPlato::SchedulerThread *job);
+    void slotFinished(KPlato::SchedulerThread *job);
 };
 
 

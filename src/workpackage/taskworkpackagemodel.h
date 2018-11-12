@@ -123,19 +123,19 @@ public:
     bool isDocument( const QModelIndex &idx ) const;
 
 public Q_SLOTS:
-    void addWorkPackage( WorkPackage *package, int row );
-    void removeWorkPackage( WorkPackage *package, int row );
+    void addWorkPackage(KPlatoWork::WorkPackage *package, int row);
+    void removeWorkPackage(KPlatoWork::WorkPackage *package, int row);
 
 protected Q_SLOTS:
-    void slotNodeChanged( Node* );
-    void slotNodeToBeInserted( Node *node, int row );
-    void slotNodeInserted( Node *node );
-    void slotNodeToBeRemoved( Node *node );
-    void slotNodeRemoved( Node *node );
+    void slotNodeChanged(KPlato::Node*);
+    void slotNodeToBeInserted(KPlato::Node *node, int row );
+    void slotNodeInserted(KPlato::Node *node );
+    void slotNodeToBeRemoved(KPlato::Node *node );
+    void slotNodeRemoved(KPlato::Node *node );
 
-    void slotDocumentAdded( Node *node, Document *doc, int index );
-    void slotDocumentRemoved( Node *node, Document *doc, int index );
-    void slotDocumentChanged( Node *node, Document *doc, int index );
+    void slotDocumentAdded(KPlato::Node *node, KPlato::Document *doc, int index );
+    void slotDocumentRemoved(KPlato::Node *node, KPlato::Document *doc, int index );
+    void slotDocumentChanged(KPlato::Node *node, KPlato::Document *doc, int index );
 
 protected:
     QVariant nodeData( Node *node, int column, int role ) const; 

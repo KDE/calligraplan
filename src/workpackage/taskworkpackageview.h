@@ -116,9 +116,9 @@ protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
 
     /// Should not need to be reimplemented
-    virtual void slotContextMenuRequested( Node *node, const QPoint& pos );
+    virtual void slotContextMenuRequested(KPlato::Node *node, const QPoint& pos);
     /// Should not need to be reimplemented
-    virtual void slotContextMenuRequested( Document *doc, const QPoint& pos );
+    virtual void slotContextMenuRequested(KPlato::Document *doc, const QPoint& pos);
 
     /// Calls  saveContext(), connect to this to have configuration saved
     virtual void sectionsMoved();

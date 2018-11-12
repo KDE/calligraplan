@@ -62,7 +62,7 @@ protected Q_SLOTS:
     void slotFinishStartToggled(bool);
     void slotFinishFinishToggled(bool);
     void slotStartStartToggled(bool);
-    void slotNodeRemoved( Node *node );
+    void slotNodeRemoved(KPlato::Node *node);
 
 protected:
     Project &m_project;
@@ -84,7 +84,7 @@ public:
 protected Q_SLOTS:
     void slotUser1();
 
-    void slotRelationRemoved( Relation *relation );
+    void slotRelationRemoved(KPlato::Relation *relation);
 
 private:
     bool m_deleted;

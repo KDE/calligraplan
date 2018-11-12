@@ -139,17 +139,17 @@ public:
     virtual int sortRole( int column ) const;
 
 protected Q_SLOTS:
-    void slotResourceChanged( Resource* );
-    void slotResourceGroupChanged( ResourceGroup * );
-    void slotResourceGroupToBeInserted( const ResourceGroup *group, int row );
-    void slotResourceGroupInserted( const ResourceGroup *group );
-    void slotResourceGroupToBeRemoved( const ResourceGroup *group );
-    void slotResourceGroupRemoved( const ResourceGroup *group );
-    void slotResourceToBeInserted( const ResourceGroup *group, int row );
-    void slotResourceInserted( const Resource *resource );
-    void slotResourceToBeRemoved( const Resource *resource );
-    void slotResourceRemoved( const Resource *resource );
-    void slotCalendarChanged( Calendar* cal );
+    void slotResourceChanged(KPlato::Resource*);
+    void slotResourceGroupChanged(KPlato::ResourceGroup *);
+    void slotResourceGroupToBeInserted(const KPlato::ResourceGroup *group, int row);
+    void slotResourceGroupInserted(const KPlato::ResourceGroup *group);
+    void slotResourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
+    void slotResourceGroupRemoved(const KPlato::ResourceGroup *group);
+    void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row);
+    void slotResourceInserted(const KPlato::Resource *resource);
+    void slotResourceToBeRemoved(const KPlato::Resource *resource);
+    void slotResourceRemoved(const KPlato::Resource *resource);
+    void slotCalendarChanged(KPlato::Calendar* cal);
     void slotLayoutChanged();
 
     void slotDataArrived( KIO::Job *job, const QByteArray &data  );
@@ -234,15 +234,15 @@ public:
     QVariant data( const QModelIndex &idx, int role ) const;
 
 public Q_SLOTS:
-    void setProject( Project *project );
-    void setTask( Task *task );
+    void setProject(KPlato::Project *project);
+    void setTask(KPlato::Task *task);
 
 Q_SIGNALS:
     void expandAll();
     void resizeColumnToContents( int );
 
 protected Q_SLOTS:
-    void slotNodeChanged( Node *n );
+    void slotNodeChanged(KPlato::Node *n);
 
 protected:
     bool filterAcceptsRow( int source_row, const QModelIndex & source_parent ) const;

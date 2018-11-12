@@ -129,19 +129,19 @@ public:
     QList<Resource*> required( const QModelIndex &idx ) const;
 
 public Q_SLOTS:
-    void setTask( Task *task );
+    void setTask(KPlato::Task *task);
 
 protected Q_SLOTS:
-    void slotResourceChanged( Resource* );
-    void slotResourceGroupChanged( ResourceGroup * );
-    void slotResourceGroupToBeInserted( const ResourceGroup *group, int row );
-    void slotResourceGroupInserted( const ResourceGroup *group );
-    void slotResourceGroupToBeRemoved( const ResourceGroup *group );
-    void slotResourceGroupRemoved( const ResourceGroup *group );
-    void slotResourceToBeInserted( const ResourceGroup *group, int row );
-    void slotResourceInserted( const Resource *resource );
-    void slotResourceToBeRemoved( const Resource *resource );
-    void slotResourceRemoved( const Resource *resource );
+    void slotResourceChanged(KPlato::Resource*);
+    void slotResourceGroupChanged(KPlato::ResourceGroup*);
+    void slotResourceGroupToBeInserted(const KPlato::ResourceGroup *group, int row);
+    void slotResourceGroupInserted(const KPlato::ResourceGroup *group);
+    void slotResourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
+    void slotResourceGroupRemoved(const KPlato::ResourceGroup *group);
+    void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row);
+    void slotResourceInserted(const KPlato::Resource *resource);
+    void slotResourceToBeRemoved(const KPlato::Resource *resource);
+    void slotResourceRemoved(const KPlato::Resource *resource);
     
 protected:
     void filldata( Task *task );

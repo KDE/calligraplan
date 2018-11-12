@@ -50,9 +50,9 @@ ViewListDialog::ViewListDialog( View *view, ViewListWidget &viewlist, QWidget *p
 
     connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
     connect( m_panel, SIGNAL(enableButtonOk(bool)), SLOT(enableButtonOk(bool)) );
-    connect( m_panel, SIGNAL(viewCreated(ViewBase*)), SIGNAL(viewCreated(ViewBase*)) );
+    connect( m_panel, SIGNAL(viewCreated(KPlato::ViewBase*)), SIGNAL(viewCreated(KPlato::ViewBase*)) );
 
-    connect(&viewlist, SIGNAL(viewListItemRemoved(ViewListItem*)), SLOT(slotViewListItemRemoved(ViewListItem*)));
+    connect(&viewlist, SIGNAL(viewListItemRemoved(KPlato::ViewListItem*)), SLOT(slotViewListItemRemoved(KPlato::ViewListItem*)));
 }
 
 void ViewListDialog::slotViewListItemRemoved( ViewListItem * )
@@ -436,7 +436,7 @@ ViewListEditCategoryDialog::ViewListEditCategoryDialog( ViewListWidget &viewlist
     connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
     connect( m_panel, SIGNAL(enableButtonOk(bool)), SLOT(enableButtonOk(bool)) );
 
-    connect(&viewlist, SIGNAL(viewListItemRemoved(ViewListItem*)), SLOT(slotViewListItemRemoved(ViewListItem*)));
+    connect(&viewlist, SIGNAL(viewListItemRemoved(KPlato::ViewListItem*)), SLOT(slotViewListItemRemoved(KPlato::ViewListItem*)));
 }
 
 void ViewListEditCategoryDialog::slotViewListItemRemoved( ViewListItem * )
@@ -526,9 +526,9 @@ ViewListReportsDialog::ViewListReportsDialog( View *view, ViewListWidget &viewli
 
     connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
     connect( m_panel, SIGNAL(enableButtonOk(bool)), SLOT(enableButtonOk(bool)) );
-    connect( m_panel, SIGNAL(viewCreated(ViewBase*)), SIGNAL(viewCreated(ViewBase*)) );
+    connect( m_panel, SIGNAL(viewCreated(KPlato::ViewBase*)), SIGNAL(viewCreated(KPlato::ViewBase*)));
 
-    connect(&viewlist, SIGNAL(viewListItemRemoved(ViewListItem*)), SLOT(slotViewListItemRemoved(ViewListItem*)));
+    connect(&viewlist, SIGNAL(viewListItemRemoved(KPlato::ViewListItem*)), SLOT(slotViewListItemRemoved(KPlato::ViewListItem*)));
 }
 
 void ViewListReportsDialog::slotViewListItemRemoved( ViewListItem * )

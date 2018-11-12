@@ -91,20 +91,20 @@ public:
     virtual int sortRole( int column ) const;
 
 public Q_SLOTS:
-    virtual void setScheduleManager( ScheduleManager *sm );
+    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
     virtual void refresh();
 
 protected Q_SLOTS:
     void slotAboutToBeReset();
     void slotReset();
 
-    void slotNodeChanged( Node* );
-    void slotNodeToBeInserted( Node *node, int row );
-    void slotNodeInserted( Node *node );
-    void slotNodeToBeRemoved( Node *node );
-    void slotNodeRemoved( Node *node );
-    void slotNodeToBeMoved( Node *node, int pos, Node *newParent, int newPos );
-    void slotNodeMoved( Node *node );
+    void slotNodeChanged(KPlato::Node* );
+    void slotNodeToBeInserted(KPlato::Node *node, int row );
+    void slotNodeInserted(KPlato::Node *node );
+    void slotNodeToBeRemoved(KPlato::Node *node );
+    void slotNodeRemoved(KPlato::Node *node );
+    void slotNodeToBeMoved(KPlato::Node *node, int pos, KPlato::Node *newParent, int newPos );
+    void slotNodeMoved(KPlato::Node *node );
 
     void slotWbsDefinitionChanged();
     void slotLayoutChanged();

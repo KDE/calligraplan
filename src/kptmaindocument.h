@@ -138,9 +138,9 @@ public Q_SLOTS:
     void setModified( bool mod );
 
     /// Inserts an item into all other views than @p view
-    void insertViewListItem( View *view, const ViewListItem *item, const ViewListItem *parent, int index );
+    void insertViewListItem(KPlato::View *view, const KPlato::ViewListItem *item, const KPlato::ViewListItem *parent, int index);
     /// Removes the view list item from all other views than @p view
-    void removeViewListItem( View *view, const ViewListItem *item );
+    void removeViewListItem(KPlato::View *view, const KPlato::ViewListItem *item);
     /// View selector has been modified
     void viewlistModified();
     /// Check for workpackages
@@ -168,8 +168,8 @@ Q_SIGNALS:
     void changed();
     void workPackageLoaded();
     void viewlistModified( bool );
-    void viewListItemAdded(const ViewListItem *item, const ViewListItem *parent, int index);
-    void viewListItemRemoved(const ViewListItem *item);
+    void viewListItemAdded(const KPlato::ViewListItem *item, const KPlato::ViewListItem *parent, int index);
+    void viewListItemRemoved(const KPlato::ViewListItem *item);
 
     void insertSharedProject();
 
@@ -191,7 +191,7 @@ protected:
 
 protected Q_SLOTS:
     void slotViewDestroyed();
-    void addSchedulerPlugin( const QString&, SchedulerPlugin *plugin );
+    void addSchedulerPlugin(const QString&, KPlato::SchedulerPlugin *plugin);
 
     void autoCheckForWorkPackages();
     void checkForWorkPackage();

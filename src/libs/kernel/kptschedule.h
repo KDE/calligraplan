@@ -693,11 +693,11 @@ Q_SIGNALS:
     void progressChanged( int );
 
     /// Emitted by logAdded() when new log entries are added
-    void logInserted( MainSchedule*, int firstrow, int lastrow );
+    void logInserted(KPlato::MainSchedule*, int firstrow, int lastrow);
 
     /// Emitted by logAdded()
     /// Used by scheduling thread
-    void sigLogAdded( const Schedule::Log &log );
+    void sigLogAdded(const KPlato::Schedule::Log &log);
 
 protected:
     Project &m_project;

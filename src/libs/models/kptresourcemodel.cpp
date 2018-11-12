@@ -665,51 +665,51 @@ void ResourceItemModel::setProject( Project *project )
     if ( m_project ) {
         disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
         disconnect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLayoutChanged()) );
-        disconnect( m_project, SIGNAL(resourceChanged(Resource*)), this, SLOT(slotResourceChanged(Resource*)) );
-        disconnect( m_project, SIGNAL(resourceGroupChanged(ResourceGroup*)), this, SLOT(slotResourceGroupChanged(ResourceGroup*)) );
+        disconnect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
+        disconnect( m_project, SIGNAL(resourceGroupChanged(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupChanged(KPlato::ResourceGroup*)) );
 
-        disconnect( m_project, SIGNAL(resourceGroupToBeAdded(const ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(const ResourceGroup*,int)) );
+        disconnect( m_project, SIGNAL(resourceGroupToBeAdded(const KPlato::ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(const KPlato::ResourceGroup*,int)) );
 
-        disconnect( m_project, SIGNAL(resourceGroupToBeRemoved(const ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(const ResourceGroup*)) );
+        disconnect( m_project, SIGNAL(resourceGroupToBeRemoved(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(const KPlato::ResourceGroup*)) );
 
-        disconnect( m_project, SIGNAL(resourceToBeAdded(const ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(const ResourceGroup*,int)) );
+        disconnect( m_project, SIGNAL(resourceToBeAdded(const KPlato::ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(const KPlato::ResourceGroup*,int)) );
 
-        disconnect( m_project, SIGNAL(resourceToBeRemoved(const Resource*)), this, SLOT(slotResourceToBeRemoved(const Resource*)) );
+        disconnect( m_project, SIGNAL(resourceToBeRemoved(const KPlato::Resource*)), this, SLOT(slotResourceToBeRemoved(const KPlato::Resource*)) );
 
-        disconnect( m_project, SIGNAL(resourceGroupAdded(const ResourceGroup*)), this, SLOT(slotResourceGroupInserted(const ResourceGroup*)) );
+        disconnect( m_project, SIGNAL(resourceGroupAdded(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupInserted(const KPlato::ResourceGroup*)) );
 
-        disconnect( m_project, SIGNAL(resourceGroupRemoved(const ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(const ResourceGroup*)) );
+        disconnect( m_project, SIGNAL(resourceGroupRemoved(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(const KPlato::ResourceGroup*)) );
 
-        disconnect( m_project, SIGNAL(resourceAdded(const Resource*)), this, SLOT(slotResourceInserted(const Resource*)) );
+        disconnect( m_project, SIGNAL(resourceAdded(const KPlato::Resource*)), this, SLOT(slotResourceInserted(const KPlato::Resource*)) );
 
-        disconnect( m_project, SIGNAL(resourceRemoved(const Resource*)), this, SLOT(slotResourceRemoved(const Resource*)) );
+        disconnect( m_project, SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotResourceRemoved(const KPlato::Resource*)) );
 
-        disconnect( m_project, SIGNAL(defaultCalendarChanged(Calendar*)), this, SLOT(slotCalendarChanged(Calendar*)) );
+        disconnect( m_project, SIGNAL(defaultCalendarChanged(KPlato::Calendar*)), this, SLOT(slotCalendarChanged(KPlato::Calendar*)) );
     }
     m_project = project;
     if ( m_project ) {
         connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
         connect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLayoutChanged()) );
-        connect( m_project, SIGNAL(resourceChanged(Resource*)), this, SLOT(slotResourceChanged(Resource*)) );
-        connect( m_project, SIGNAL(resourceGroupChanged(ResourceGroup*)), this, SLOT(slotResourceGroupChanged(ResourceGroup*)) );
+        connect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
+        connect( m_project, SIGNAL(resourceGroupChanged(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupChanged(KPlato::ResourceGroup*)) );
 
-        connect( m_project, SIGNAL(resourceGroupToBeAdded(const ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(const ResourceGroup*,int)) );
+        connect( m_project, SIGNAL(resourceGroupToBeAdded(const KPlato::ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(const KPlato::ResourceGroup*,int)) );
 
-        connect( m_project, SIGNAL(resourceGroupToBeRemoved(const ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(const ResourceGroup*)) );
+        connect( m_project, SIGNAL(resourceGroupToBeRemoved(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(const KPlato::ResourceGroup*)) );
 
-        connect( m_project, SIGNAL(resourceToBeAdded(const ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(const ResourceGroup*,int)) );
+        connect( m_project, SIGNAL(resourceToBeAdded(const KPlato::ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(const KPlato::ResourceGroup*,int)) );
 
-        connect( m_project, SIGNAL(resourceToBeRemoved(const Resource*)), this, SLOT(slotResourceToBeRemoved(const Resource*)) );
+        connect( m_project, SIGNAL(resourceToBeRemoved(const KPlato::Resource*)), this, SLOT(slotResourceToBeRemoved(const KPlato::Resource*)) );
 
-        connect( m_project, SIGNAL(resourceGroupAdded(const ResourceGroup*)), this, SLOT(slotResourceGroupInserted(const ResourceGroup*)) );
+        connect( m_project, SIGNAL(resourceGroupAdded(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupInserted(const KPlato::ResourceGroup*)) );
 
-        connect( m_project, SIGNAL(resourceGroupRemoved(const ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(const ResourceGroup*)) );
+        connect( m_project, SIGNAL(resourceGroupRemoved(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(const KPlato::ResourceGroup*)) );
 
-        connect( m_project, SIGNAL(resourceAdded(const Resource*)), this, SLOT(slotResourceInserted(const Resource*)) );
+        connect( m_project, SIGNAL(resourceAdded(const KPlato::Resource*)), this, SLOT(slotResourceInserted(const KPlato::Resource*)) );
 
-        connect( m_project, SIGNAL(resourceRemoved(const Resource*)), this, SLOT(slotResourceRemoved(const Resource*)) );
+        connect( m_project, SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotResourceRemoved(const KPlato::Resource*)) );
 
-        connect( m_project, SIGNAL(defaultCalendarChanged(Calendar*)), this, SLOT(slotCalendarChanged(Calendar*)) );
+        connect( m_project, SIGNAL(defaultCalendarChanged(KPlato::Calendar*)), this, SLOT(slotCalendarChanged(KPlato::Calendar*)) );
     }
     m_model.setProject( m_project );
     endResetModel();
@@ -1647,11 +1647,11 @@ void AllocatedResourceItemModel::setProject( Project *project )
     debugPlan<<this->project()<<"="<<project;
     Project *p =this->project();
     if ( p ) {
-        disconnect(p, SIGNAL(nodeChanged(Node*)), this, SLOT(slotNodeChanged(Node*)));
+        disconnect(p, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)));
     }
     static_cast<ResourceItemModel*>( sourceModel() )->setProject( project );
     if ( project ) {
-        connect(project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotNodeChanged(Node*)));
+        connect(project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)));
     }
     debugPlan<<rowCount()<<":"<<sourceModel()->rowCount();
 }

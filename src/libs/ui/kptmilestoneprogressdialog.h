@@ -42,7 +42,7 @@ public:
 
 protected Q_SLOTS:
     void slotChanged();
-    void slotNodeRemoved( Node *node );
+    void slotNodeRemoved(KPlato::Node *node);
 
 private:
     Node *m_node;

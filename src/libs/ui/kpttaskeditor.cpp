@@ -409,8 +409,8 @@ void TaskEditor::createDockers()
         x->setDragDropMode( QAbstractItemView::DragOnly );
         x->setDragEnabled ( true );
         ds->setWidget( x );
-        connect(this, SIGNAL(projectChanged(Project*)), m1, SLOT(setProject(Project*)));
-        connect(this, SIGNAL(taskSelected(Task*)), m1, SLOT(setTask(Task*)));
+        connect(this, SIGNAL(projectChanged(KPlato::Project*)), m1, SLOT(setProject(KPlato::Project*)));
+        connect(this, SIGNAL(taskSelected(KPlato::Task*)), m1, SLOT(setTask(KPlato::Task*)));
         connect(m1, SIGNAL(expandAll()), x, SLOT(expandAll()));
         connect(m1, SIGNAL(resizeColumnToContents(int)), x, SLOT(resizeColumnToContents(int)));
         addDocker( ds );
@@ -439,7 +439,7 @@ void TaskEditor::createDockers()
         e->setDragEnabled ( true );
         ds->setWidget( e );
         connect(m_view->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), e, SLOT(setSelectedTasks(const QItemSelection&, const QItemSelection&)));
-        connect(this, SIGNAL(projectChanged(Project*)), m, SLOT(setProject(Project*)));
+        connect(this, SIGNAL(projectChanged(KPlato::Project*)), m, SLOT(setProject(KPlato::Project*)));
         connect(this, SIGNAL(readWriteChanged(bool)), m, SLOT(setReadWrite(bool)));
         connect(m, SIGNAL(executeCommand(KUndo2Command*)), part(), SLOT(addCommand(KUndo2Command*)));
         addDocker( ds );

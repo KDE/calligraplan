@@ -82,16 +82,16 @@ protected:
     QTableWidgetItem *findRequiredItem( Node *node );
     
 private Q_SLOTS:
-    void slotNodeAdded( Node* );
-    void slotNodeRemoved( Node* );
-    void slotNodeMoved( Node* );
-    void slotNodeChanged( Node* );
-    void slotRelationAdded( Relation *rel );
-    void slotRelationRemoved( Relation *rel );
+    void slotNodeAdded(KPlato::Node* );
+    void slotNodeRemoved(KPlato::Node* );
+    void slotNodeMoved(KPlato::Node* );
+    void slotNodeChanged(KPlato::Node* );
+    void slotRelationAdded(KPlato::Relation *rel );
+    void slotRelationRemoved(KPlato::Relation *rel );
     
     void dispAvailableTasks();
-    void dispAvailableTasks( Node *parent, Node *selectedTask );
-    void dispAvailableTasks( Relation *rel );
+    void dispAvailableTasks(KPlato::Node *parent, KPlato::Node *selectedTask );
+    void dispAvailableTasks(KPlato::Relation *rel );
     void addTaskInRequiredList(QTreeWidgetItem * currentItem);
     void removeTaskFromRequiredList();
     void slotUpdate();

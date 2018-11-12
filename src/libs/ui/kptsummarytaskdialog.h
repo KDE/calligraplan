@@ -50,7 +50,7 @@ public:
 
 protected Q_SLOTS:
     void slotButtonClicked(int button);
-    void slotTaskRemoved( Node *node );
+    void slotTaskRemoved(KPlato::Node *node);
 
 private:
     Node *m_node;

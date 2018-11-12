@@ -45,11 +45,11 @@ public:
     ScheduleManager *selectedSchedule() const;
 
 Q_SIGNALS:
-    void selectionChanged( ScheduleManager *sm );
+    void selectionChanged(KPlato::ScheduleManager *sm);
 
 public Q_SLOTS:
-    void setProject( Project *project );
-    void setSelectedSchedule( ScheduleManager *sm );
+    void setProject(KPlato::Project *project);
+    void setSelectedSchedule(KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
     void slotSelectionChanged();

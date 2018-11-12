@@ -524,24 +524,24 @@ public:
 #endif
 
 Q_SIGNALS:
-    void changed( Calendar* );
-    void changed( CalendarDay* );
-    void changed( TimeInterval* );
+    void changed(KPlato::Calendar*);
+    void changed(KPlato::CalendarDay*);
+    void changed(KPlato::TimeInterval*);
     
-    void weekdayToBeAdded( CalendarDay *day, int index );
-    void weekdayAdded( CalendarDay *day );
-    void weekdayToBeRemoved( CalendarDay *day );
-    void weekdayRemoved( CalendarDay *day );
+    void weekdayToBeAdded(KPlato::CalendarDay *day, int index);
+    void weekdayAdded(KPlato::CalendarDay *day);
+    void weekdayToBeRemoved(KPlato::CalendarDay *day);
+    void weekdayRemoved(KPlato::CalendarDay *day);
     
-    void dayToBeAdded( CalendarDay *day, int index );
-    void dayAdded( CalendarDay *day );
-    void dayToBeRemoved( CalendarDay *day );
-    void dayRemoved( CalendarDay *day );
+    void dayToBeAdded(KPlato::CalendarDay *day, int index);
+    void dayAdded(KPlato::CalendarDay *day);
+    void dayToBeRemoved(KPlato::CalendarDay *day);
+    void dayRemoved(KPlato::CalendarDay *day);
     
-    void workIntervalToBeAdded( CalendarDay*, TimeInterval*, int index );
-    void workIntervalAdded( CalendarDay*, TimeInterval* );
-    void workIntervalToBeRemoved( CalendarDay*, TimeInterval* );
-    void workIntervalRemoved( CalendarDay*, TimeInterval* );
+    void workIntervalToBeAdded(KPlato::CalendarDay*, KPlato::TimeInterval*, int index);
+    void workIntervalAdded(KPlato::CalendarDay*, KPlato::TimeInterval*);
+    void workIntervalToBeRemoved(KPlato::CalendarDay*, KPlato::TimeInterval*);
+    void workIntervalRemoved(KPlato::CalendarDay*, KPlato::TimeInterval*);
 
 protected:
     void init();

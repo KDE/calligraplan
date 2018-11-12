@@ -83,9 +83,9 @@ public:
     
 Q_SIGNALS:
     void addDocument();
-    void deleteDocumentList( const QList<Document*>& );
-    void editDocument( Document *doc );
-    void viewDocument( Document *doc );
+    void deleteDocumentList(const QList<KPlato::Document*>&);
+    void editDocument(KPlato::Document *doc);
+    void viewDocument(KPlato::Document *doc);
     
 public Q_SLOTS:
     /// Activate/deactivate the gui

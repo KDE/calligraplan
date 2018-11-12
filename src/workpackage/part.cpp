@@ -355,7 +355,7 @@ Part::Part( QWidget *parentWidget, QObject *parent, const QVariantList & /*args*
 
     View *v = new View( this, parentWidget, actionCollection() );
     setWidget( v );
-    connect( v, SIGNAL(viewDocument(Document*)), SLOT(viewWorkpackageDocument(Document*)) );
+    connect( v, SIGNAL(viewDocument(KPlato::Document*)), SLOT(viewWorkpackageDocument(KPlato::Document*)) );
 
     loadWorkPackages();
 
@@ -401,7 +401,7 @@ bool Part::setWorkPackage( WorkPackage *wp, KoStore *store )
     connect( wp->project(), SIGNAL(projectChanged()), wp, SLOT(projectChanged()) );
     connect ( wp, SIGNAL(modified(bool)), this, SLOT(setModified(bool)) );
     emit workPackageAdded( wp, indexOf( wp ) );
-    connect(wp, SIGNAL(saveWorkPackage(WorkPackage*)), SLOT(saveWorkPackage(WorkPackage*)));
+    connect(wp, SIGNAL(saveWorkPackage(KPlatoWork::WorkPackage*)), SLOT(saveWorkPackage(KPlatoWork::WorkPackage*)));
     return true;
 }
 

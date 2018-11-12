@@ -110,7 +110,7 @@ Q_SIGNALS:
     void executeCommand( KUndo2Command *cmd );
     
 public Q_SLOTS:
-    void setCurrentCalendar( Calendar *calendar );
+    void setCurrentCalendar(KPlato::Calendar *calendar);
     
 protected Q_SLOTS:
     void headerContextMenuRequested( const QPoint &pos );
@@ -159,8 +159,8 @@ public:
     virtual void saveContext( QDomElement &/*context*/ ) const;
 
 Q_SIGNALS:
-    void addCalendar( Calendar *calendar );
-    void deleteCalendar( const QList<Calendar*>& );
+    void addCalendar(KPlato::Calendar *calendar);
+    void deleteCalendar(const QList<KPlato::Calendar*>&);
     
 public Q_SLOTS:
     /// Activate/deactivate the gui

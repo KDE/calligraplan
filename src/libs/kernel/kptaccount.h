@@ -273,11 +273,11 @@ public:
     QList<Node*> allNodes() const;
     
 Q_SIGNALS:
-    void accountAdded( const Account * );
-    void accountToBeAdded( const Account *, int );
-    void accountRemoved( const Account * );
-    void accountToBeRemoved( const Account * );
-    void changed( Account *);
+    void accountAdded(const KPlato::Account*);
+    void accountToBeAdded(const KPlato::Account*, int);
+    void accountRemoved(const KPlato::Account*);
+    void accountToBeRemoved(const KPlato::Account*);
+    void changed(KPlato::Account*);
     void defaultAccountChanged();
 
 private:

@@ -117,7 +117,7 @@ void MainDocument::loadSchedulerPlugins()
 
     // Add all real scheduler plugins
     SchedulerPluginLoader *loader = new SchedulerPluginLoader(this);
-    connect(loader, SIGNAL(pluginLoaded(QString,SchedulerPlugin*)), this, SLOT(addSchedulerPlugin(QString,SchedulerPlugin*)));
+    connect(loader, SIGNAL(pluginLoaded(QString,KPlato::SchedulerPlugin*)), this, SLOT(addSchedulerPlugin(QString,KPlato::SchedulerPlugin*)));
     loader->loadAllPlugins();
 }
 

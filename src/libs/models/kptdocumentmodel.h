@@ -103,11 +103,11 @@ public:
     virtual bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data );
 
 protected Q_SLOTS:
-    void slotDocumentChanged( Document* );
-    void slotDocumentToBeInserted( Documents*, int row );
-    void slotDocumentInserted( Document* );
-    void slotDocumentToBeRemoved( Document* );
-    void slotDocumentRemoved( Document* );
+    void slotDocumentChanged(KPlato::Document*);
+    void slotDocumentToBeInserted(KPlato::Documents*, int row);
+    void slotDocumentInserted(KPlato::Document*);
+    void slotDocumentToBeRemoved(KPlato::Document*);
+    void slotDocumentRemoved(KPlato::Document*);
 
 protected:
     bool setUrl( Document *doc, const QVariant &value, int role );

@@ -135,7 +135,7 @@ public:
     PrintingOptions options() const;
 
 Q_SIGNALS:
-    void changed(const PrintingOptions&);
+    void changed(const KPlato::PrintingOptions&);
 
 protected Q_SLOTS:
     void slotChanged();
@@ -165,11 +165,11 @@ public:
     QAbstractPrintDialog::PrintDialogOptions printDialogOptions() const;
 
 Q_SIGNALS:
-    void changed( const PrintingOptions &opt );
+    void changed(const KPlato::PrintingOptions &opt);
     void changed();
     
 public Q_SLOTS:
-    void setPrintingOptions( const PrintingOptions &opt);
+    void setPrintingOptions(const KPlato::PrintingOptions &opt);
     void setPrinterPageLayout( const KoPageLayout &pagelayout );
     virtual void startPrinting(RemovePolicy removePolicy = DoNotDelete);
 
@@ -298,10 +298,10 @@ public:
     DockWidget *findDocker( const QString &id ) const;
 
 public Q_SLOTS:
-    void setPrintingOptions( const PrintingOptions &opt ) { m_printingOptions = opt; }
+    void setPrintingOptions(const KPlato::PrintingOptions &opt) { m_printingOptions = opt; }
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
-    virtual void setScheduleManager( ScheduleManager *sm ) { m_schedulemanager = sm; }
+    virtual void setScheduleManager(KPlato::ScheduleManager *sm) { m_schedulemanager = sm; }
     void slotUpdateReadWrite( bool );
     virtual void slotHeaderContextMenuRequested( const QPoint &pos );
 
@@ -314,14 +314,14 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     /// Emitted when the gui has been activated or deactivated
-    void guiActivated( ViewBase*, bool );
+    void guiActivated(KPlato::ViewBase*, bool);
     /// Request for a context menu popup
     void requestPopupMenu( const QString&, const QPoint & );
     
     /// Emitted when options are modified
     void optionsModified();
 
-    void projectChanged( Project *project );
+    void projectChanged(KPlato::Project *project);
     void readWriteChanged( bool );
 
     void expandAll();

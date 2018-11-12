@@ -605,7 +605,7 @@ MyKGanttView::MyKGanttView( QWidget *parent )
     // see bug #349030
     // removed custom code here
 
-    connect( model(), SIGNAL(nodeInserted(Node*)), this, SLOT(slotNodeInserted(Node*)) );
+    connect( model(), SIGNAL(nodeInserted(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)) );
 }
 
 GanttItemModel *MyKGanttView::model() const

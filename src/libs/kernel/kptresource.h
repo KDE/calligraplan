@@ -534,11 +534,11 @@ public:
     const WorkInfoCache &workInfoCache() const { return m_workinfocache; }
 
 Q_SIGNALS:
-    void externalAppointmentToBeAdded( Resource *r, int row );
-    void externalAppointmentAdded( Resource*, Appointment* );
-    void externalAppointmentToBeRemoved( Resource *r, int row );
+    void externalAppointmentToBeAdded(KPlato::Resource *r, int row);
+    void externalAppointmentAdded(KPlato::Resource*, KPlato::Appointment*);
+    void externalAppointmentToBeRemoved(KPlato::Resource *r, int row);
     void externalAppointmentRemoved();
-    void externalAppointmentChanged( Resource *r, Appointment *a );
+    void externalAppointmentChanged(KPlato::Resource *r, KPlato::Appointment *a);
 
 protected:
     DateTimeInterval requiredAvailable(Schedule *node, const DateTime &start, const DateTime &end ) const;

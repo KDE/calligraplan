@@ -174,57 +174,57 @@ void ScheduleItemModel::setProject( Project *project )
     if ( m_project ) {
         disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
 
-        disconnect( m_project, SIGNAL(scheduleManagerChanged(ScheduleManager*)), this, SLOT(slotManagerChanged(ScheduleManager*)) );
+        disconnect(m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotManagerChanged(KPlato::ScheduleManager*)));
 
-        disconnect( m_project, SIGNAL(scheduleManagerToBeAdded(const ScheduleManager*,int)), this, SLOT(slotScheduleManagerToBeInserted(const ScheduleManager*,int)) );
+        disconnect(m_project, SIGNAL(scheduleManagerToBeAdded(const KPlato::ScheduleManager*,int)), this, SLOT(slotScheduleManagerToBeInserted(const KPlato::ScheduleManager*,int)));
 
-        disconnect( m_project, SIGNAL(scheduleManagerToBeRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const ScheduleManager*)) );
+        disconnect(m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)));
 
-        disconnect( m_project, SIGNAL(scheduleManagerAdded(const ScheduleManager*)), this, SLOT(slotScheduleManagerInserted(const ScheduleManager*)) );
+        disconnect(m_project, SIGNAL(scheduleManagerAdded(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerInserted(const KPlato::ScheduleManager*)));
 
-        disconnect( m_project, SIGNAL(scheduleManagerRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerRemoved(const ScheduleManager*)) );
+        disconnect(m_project, SIGNAL(scheduleManagerRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerRemoved(const KPlato::ScheduleManager*)));
 
-        disconnect( m_project, SIGNAL(scheduleManagerToBeMoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeMoved(const ScheduleManager*)) );
+        disconnect(m_project, SIGNAL(scheduleManagerToBeMoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeMoved(const KPlato::ScheduleManager*)));
 
-        disconnect( m_project, SIGNAL(scheduleManagerMoved(const ScheduleManager*,int)), this, SLOT(slotScheduleManagerMoved(const ScheduleManager*,int)) );
+        disconnect(m_project, SIGNAL(scheduleManagerMoved(const KPlato::ScheduleManager*,int)), this, SLOT(slotScheduleManagerMoved(const KPlato::ScheduleManager*,int)));
 
-        disconnect( m_project, SIGNAL(scheduleChanged(MainSchedule*)), this, SLOT(slotScheduleChanged(MainSchedule*)) );
+        disconnect(m_project, SIGNAL(scheduleChanged(KPlato::MainSchedule*)), this, SLOT(slotScheduleChanged(KPlato::MainSchedule*)));
 
-        disconnect( m_project, SIGNAL(scheduleToBeAdded(const ScheduleManager*,int)), this, SLOT(slotScheduleToBeInserted(const ScheduleManager*,int)) );
+        disconnect(m_project, SIGNAL(scheduleToBeAdded(const KPlato::ScheduleManager*,int)), this, SLOT(slotScheduleToBeInserted(const KPlato::ScheduleManager*,int)));
 
-        disconnect( m_project, SIGNAL(scheduleToBeRemoved(const MainSchedule*)), this, SLOT(slotScheduleToBeRemoved(const MainSchedule*)) );
+        disconnect(m_project, SIGNAL(scheduleToBeRemoved(const KPlato::MainSchedule*)), this, SLOT(slotScheduleToBeRemoved(const KPlato::MainSchedule*)));
 
-        disconnect( m_project, SIGNAL(scheduleAdded(const MainSchedule*)), this, SLOT(slotScheduleInserted(const MainSchedule*)) );
+        disconnect(m_project, SIGNAL(scheduleAdded(const KPlato::MainSchedule*)), this, SLOT(slotScheduleInserted(const KPlato::MainSchedule*)));
 
-        disconnect( m_project, SIGNAL(scheduleRemoved(const MainSchedule*)), this, SLOT(slotScheduleRemoved(const MainSchedule*)) );
+        disconnect(m_project, SIGNAL(scheduleRemoved(const KPlato::MainSchedule*)), this, SLOT(slotScheduleRemoved(const KPlato::MainSchedule*)));
     }
     m_project = project;
     if ( m_project ) {
         connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
 
-        connect( m_project, SIGNAL(scheduleManagerChanged(ScheduleManager*)), this, SLOT(slotManagerChanged(ScheduleManager*)) );
+        connect(m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotManagerChanged(KPlato::ScheduleManager*)));
 
-        connect( m_project, SIGNAL(scheduleManagerToBeAdded(const ScheduleManager*,int)), this, SLOT(slotScheduleManagerToBeInserted(const ScheduleManager*,int)) );
+        connect(m_project, SIGNAL(scheduleManagerToBeAdded(const KPlato::ScheduleManager*,int)), this, SLOT(slotScheduleManagerToBeInserted(const KPlato::ScheduleManager*,int)));
 
-        connect( m_project, SIGNAL(scheduleManagerToBeRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const ScheduleManager*)) );
+        connect(m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)));
 
-        connect( m_project, SIGNAL(scheduleManagerAdded(const ScheduleManager*)), this, SLOT(slotScheduleManagerInserted(const ScheduleManager*)) );
+        connect(m_project, SIGNAL(scheduleManagerAdded(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerInserted(const KPlato::ScheduleManager*)));
 
-        connect( m_project, SIGNAL(scheduleManagerRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerRemoved(const ScheduleManager*)) );
+        connect(m_project, SIGNAL(scheduleManagerRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerRemoved(const KPlato::ScheduleManager*)));
 
-        connect( m_project, SIGNAL(scheduleManagerToBeMoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeMoved(const ScheduleManager*)) );
+        connect(m_project, SIGNAL(scheduleManagerToBeMoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeMoved(const KPlato::ScheduleManager*)));
 
-        connect( m_project, SIGNAL(scheduleManagerMoved(const ScheduleManager*,int)), this, SLOT(slotScheduleManagerMoved(const ScheduleManager*,int)) );
+        connect(m_project, SIGNAL(scheduleManagerMoved(const KPlato::ScheduleManager*,int)), this, SLOT(slotScheduleManagerMoved(const KPlato::ScheduleManager*,int)));
 
-        connect( m_project, SIGNAL(scheduleChanged(MainSchedule*)), this, SLOT(slotScheduleChanged(MainSchedule*)) );
+        connect(m_project, SIGNAL(scheduleChanged(KPlato::MainSchedule*)), this, SLOT(slotScheduleChanged(KPlato::MainSchedule*)));
 
-        connect( m_project, SIGNAL(scheduleToBeAdded(const ScheduleManager*,int)), this, SLOT(slotScheduleToBeInserted(const ScheduleManager*,int)) );
+        connect(m_project, SIGNAL(scheduleToBeAdded(const KPlato::ScheduleManager*,int)), this, SLOT(slotScheduleToBeInserted(const KPlato::ScheduleManager*,int)));
 
-        connect( m_project, SIGNAL(scheduleToBeRemoved(const MainSchedule*)), this, SLOT(slotScheduleToBeRemoved(const MainSchedule*)) );
+        connect(m_project, SIGNAL(scheduleToBeRemoved(const KPlato::MainSchedule*)), this, SLOT(slotScheduleToBeRemoved(const KPlato::MainSchedule*)));
 
-        connect( m_project, SIGNAL(scheduleAdded(const MainSchedule*)), this, SLOT(slotScheduleInserted(const MainSchedule*)) );
+        connect(m_project, SIGNAL(scheduleAdded(const KPlato::MainSchedule*)), this, SLOT(slotScheduleInserted(const KPlato::MainSchedule*)));
 
-        connect( m_project, SIGNAL(scheduleRemoved(const MainSchedule*)), this, SLOT(slotScheduleRemoved(const MainSchedule*)) );
+        connect(m_project, SIGNAL(scheduleRemoved(const KPlato::MainSchedule*)), this, SLOT(slotScheduleRemoved(const KPlato::MainSchedule*)));
     }
     setFlat( m_flat ); // update m_managerlist
     endResetModel();
@@ -1106,41 +1106,41 @@ void ScheduleLogItemModel::setProject( Project *project )
     if ( m_project ) {
         disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
 
-        disconnect( m_project, SIGNAL(scheduleManagerChanged(ScheduleManager*)), this, SLOT(slotManagerChanged(ScheduleManager*)) );
+        disconnect(m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotManagerChanged(KPlato::ScheduleManager*)));
 
-        disconnect( m_project, SIGNAL(scheduleManagerToBeRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const ScheduleManager*)) );
+        disconnect(m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)));
 
-        disconnect( m_project, SIGNAL(scheduleManagerRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerRemoved(const ScheduleManager*)) );
+        disconnect(m_project, SIGNAL(scheduleManagerRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerRemoved(const KPlato::ScheduleManager*)));
 
-        disconnect( m_project, SIGNAL(scheduleChanged(MainSchedule*)), this, SLOT(slotScheduleChanged(MainSchedule*)) );
+        disconnect(m_project, SIGNAL(scheduleChanged(KPlato::MainSchedule*)), this, SLOT(slotScheduleChanged(KPlato::MainSchedule*)));
 
-        disconnect( m_project, SIGNAL(scheduleToBeAdded(const ScheduleManager*,int)), this, SLOT(slotScheduleToBeInserted(const ScheduleManager*,int)) );
+        disconnect(m_project, SIGNAL(scheduleToBeAdded(const KPlato::ScheduleManager*,int)), this, SLOT(slotScheduleToBeInserted(const KPlato::ScheduleManager*,int)));
 
-        disconnect( m_project, SIGNAL(scheduleToBeRemoved(const MainSchedule*)), this, SLOT(slotScheduleToBeRemoved(const MainSchedule*)) );
+        disconnect(m_project, SIGNAL(scheduleToBeRemoved(const KPlato::MainSchedule*)), this, SLOT(slotScheduleToBeRemoved(const KPlato::MainSchedule*)));
 
-        disconnect( m_project, SIGNAL(scheduleAdded(const MainSchedule*)), this, SLOT(slotScheduleInserted(const MainSchedule*)) );
+        disconnect(m_project, SIGNAL(scheduleAdded(const KPlato::MainSchedule*)), this, SLOT(slotScheduleInserted(const KPlato::MainSchedule*)));
 
-        disconnect( m_project, SIGNAL(scheduleRemoved(const MainSchedule*)), this, SLOT(slotScheduleRemoved(const MainSchedule*)) );
+        disconnect(m_project, SIGNAL(scheduleRemoved(const KPlato::MainSchedule*)), this, SLOT(slotScheduleRemoved(const KPlato::MainSchedule*)));
     }
     m_project = project;
     if ( m_project ) {
         connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
 
-        connect( m_project, SIGNAL(scheduleManagerChanged(ScheduleManager*)), this, SLOT(slotManagerChanged(ScheduleManager*)) );
+        connect(m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotManagerChanged(KPlato::ScheduleManager*)));
 
-        connect( m_project, SIGNAL(scheduleManagerToBeRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const ScheduleManager*)) );
+        connect(m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)));
 
-        connect( m_project, SIGNAL(scheduleManagerRemoved(const ScheduleManager*)), this, SLOT(slotScheduleManagerRemoved(const ScheduleManager*)) );
+        connect(m_project, SIGNAL(scheduleManagerRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerRemoved(const KPlato::ScheduleManager*)));
 
-        connect( m_project, SIGNAL(scheduleChanged(MainSchedule*)), this, SLOT(slotScheduleChanged(MainSchedule*)) );
+        connect(m_project, SIGNAL(scheduleChanged(KPlato::MainSchedule*)), this, SLOT(slotScheduleChanged(KPlato::MainSchedule*)));
 
-        connect( m_project, SIGNAL(scheduleToBeAdded(const ScheduleManager*,int)), this, SLOT(slotScheduleToBeInserted(const ScheduleManager*,int)) );
+        connect(m_project, SIGNAL(scheduleToBeAdded(const KPlato::ScheduleManager*,int)), this, SLOT(slotScheduleToBeInserted(const KPlato::ScheduleManager*,int)));
 
-        connect( m_project, SIGNAL(scheduleToBeRemoved(const MainSchedule*)), this, SLOT(slotScheduleToBeRemoved(const MainSchedule*)) );
+        connect(m_project, SIGNAL(scheduleToBeRemoved(const KPlato::MainSchedule*)), this, SLOT(slotScheduleToBeRemoved(const KPlato::MainSchedule*)));
 
-        connect( m_project, SIGNAL(scheduleAdded(const MainSchedule*)), this, SLOT(slotScheduleInserted(const MainSchedule*)) );
+        connect(m_project, SIGNAL(scheduleAdded(const KPlato::MainSchedule*)), this, SLOT(slotScheduleInserted(const KPlato::MainSchedule*)));
 
-        connect( m_project, SIGNAL(scheduleRemoved(const MainSchedule*)), this, SLOT(slotScheduleRemoved(const MainSchedule*)) );
+        connect(m_project, SIGNAL(scheduleRemoved(const KPlato::MainSchedule*)), this, SLOT(slotScheduleRemoved(const KPlato::MainSchedule*)));
     }
 }
 
@@ -1149,7 +1149,7 @@ void ScheduleLogItemModel::setManager( ScheduleManager *manager )
     debugPlan<<m_manager<<"->"<<manager;
     if ( manager != m_manager ) {
         if ( m_manager ) {
-            disconnect( m_manager, SIGNAL(logInserted(MainSchedule*,int,int)), this, SLOT(slotLogInserted(MainSchedule*,int,int)));
+            disconnect(m_manager, SIGNAL(logInserted(KPlato::MainSchedule*,int,int)), this, SLOT(slotLogInserted(KPlato::MainSchedule*,int,int)));
         }
         m_manager = manager;
         m_schedule = 0;
@@ -1157,7 +1157,7 @@ void ScheduleLogItemModel::setManager( ScheduleManager *manager )
         if ( m_manager ) {
             m_schedule = m_manager->expected();
             refresh();
-            connect( m_manager, SIGNAL(logInserted(MainSchedule*,int,int)), this, SLOT(slotLogInserted(MainSchedule*,int,int)));
+            connect(m_manager, SIGNAL(logInserted(KPlato::MainSchedule*,int,int)), this, SLOT(slotLogInserted(KPlato::MainSchedule*,int,int)));
         }
     }
 }

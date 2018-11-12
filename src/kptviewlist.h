@@ -105,7 +105,7 @@ protected:
 
 Q_SIGNALS:
     void activated( QTreeWidgetItem* );
-    void updateViewInfo( ViewListItem *itm );
+    void updateViewInfo(KPlato::ViewListItem *itm);
     void modified();
 
 private Q_SLOTS:
@@ -162,20 +162,20 @@ public:
     ScheduleManager *selectedSchedule() const;
 
 Q_SIGNALS:
-    void activated( ViewListItem*, ViewListItem* );
+    void activated(KPlato::ViewListItem*, KPlato::ViewListItem*);
     void createView();
-    void viewListItemRemoved( ViewListItem *item );
-    void viewListItemInserted( ViewListItem *item, ViewListItem *parent, int index );
+    void viewListItemRemoved(KPlato::ViewListItem *item);
+    void viewListItemInserted(KPlato::ViewListItem *item, KPlato::ViewListItem *parent, int index);
 
-    void selectionChanged( ScheduleManager* );
+    void selectionChanged(KPlato::ScheduleManager*);
 
-    void updateViewInfo( ViewListItem *itm );
+    void updateViewInfo(KPlato::ViewListItem *itm);
 
     void modified();
 
 public Q_SLOTS:
-    void setProject( Project *project );
-    void setSelectedSchedule( ScheduleManager *sm );
+    void setProject(KPlato::Project *project);
+    void setSelectedSchedule(KPlato::ScheduleManager *sm);
     void setModified();
 
 protected Q_SLOTS:
@@ -190,7 +190,7 @@ protected Q_SLOTS:
     void slotConfigureItem();
 
     void slotCurrentScheduleChanged( int );
-    void slotScheduleManagerAdded( ScheduleManager* );
+    void slotScheduleManagerAdded(KPlato::ScheduleManager*);
 
     void slotDialogFinished( int result );
 

@@ -59,7 +59,7 @@ public:
 //    CalendarDay *parentDay( const TimeInterval *ti ) const { return m_days.value( const_cast<TimeInterval*>( ti ) ); }
     
 protected Q_SLOTS:
-    void slotCalendarToBeRemoved( const Calendar *calendar );
+    void slotCalendarToBeRemoved(const KPlato::Calendar *calendar);
 
 protected:
     Calendar *m_calendar; // current calendar
@@ -115,11 +115,11 @@ public:
     void removeCalendar( Calendar *calendar );
     
 protected Q_SLOTS:
-    void slotCalendarChanged( Calendar* );
-    void slotCalendarToBeInserted( const Calendar *parent, int row );
-    void slotCalendarInserted( const Calendar *calendar );
-    void slotCalendarToBeRemoved( const Calendar *calendar );
-    void slotCalendarRemoved( const Calendar *calendar );
+    void slotCalendarChanged(KPlato::Calendar*);
+    void slotCalendarToBeInserted(const KPlato::Calendar *parent, int row);
+    void slotCalendarInserted(const KPlato::Calendar *calendar);
+    void slotCalendarToBeRemoved(const KPlato::Calendar *calendar);
+    void slotCalendarRemoved(const KPlato::Calendar *calendar);
 
 protected:
     QVariant name( const Calendar *calendar, int role ) const;
@@ -177,18 +177,18 @@ public:
     bool isWeekday( const CalendarDay *day ) const;
     
 protected Q_SLOTS:
-    void slotDayChanged( CalendarDay *day );
-    void slotTimeIntervalChanged( TimeInterval *ti );
+    void slotDayChanged(KPlato::CalendarDay *day);
+    void slotTimeIntervalChanged(KPlato::TimeInterval *ti);
+
+/*    void slotDayToBeAdded(KPlato::CalendarDay *day, int row);
+     void slotDayAdded(KPlato::*CalendarDay *day);
+     void slotDayToBeRemoved(KPlato::CalendarDay *day);
+     void slotDayRemoved(KPlato::CalendarDay *day);*/
     
-/*    void slotDayToBeAdded( CalendarDay *day, int row );
-    void slotDayAdded( CalendarDay *day );
-    void slotDayToBeRemoved( CalendarDay *day );
-    void slotDayRemoved( CalendarDay *day );*/
-    
-//    void slotWorkIntervalToBeAdded( CalendarDay *day, TimeInterval *ti, int row );
-    void slotWorkIntervalAdded( CalendarDay *day, TimeInterval *ti );
-//    void slotWorkIntervalToBeRemoved( CalendarDay *day, TimeInterval *ti );
-    void slotWorkIntervalRemoved( CalendarDay *day, TimeInterval *ti );
+//    void slotWorkIntervalToBeAdded(KPlato::CalendarDay *day, TimeInterval *ti, int row);
+    void slotWorkIntervalAdded(KPlato::CalendarDay *day, KPlato::TimeInterval *ti);
+//    void slotWorkIntervalToBeRemoved(KPlato::CalendarDay *day, TimeInterval *ti);
+    void slotWorkIntervalRemoved(KPlato::CalendarDay *day, KPlato::TimeInterval *ti);
 
 protected:
 /*    QVariant date( const CalendarDay *day, int role ) const;
@@ -221,7 +221,7 @@ public:
     virtual QVariant weekNumberData( int week, int role = Qt::DisplayRole ) const;
 
 public Q_SLOTS:
-    void setCalendar( Calendar *calendar );
+    void setCalendar(KPlato::Calendar *calendar);
 
 Q_SIGNALS:
     void reset();

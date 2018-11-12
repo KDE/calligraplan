@@ -105,8 +105,8 @@ public:
     QModelIndex indexFromTask( const Node *node ) const;
 
 public Q_SLOTS:
-    void setProject( Project *project );
-    void setScheduleManager( ScheduleManager *sm );
+    void setProject(KPlato::Project *project);
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
     void sourceDataChanged(const QModelIndex& start, const QModelIndex& end);
@@ -118,10 +118,10 @@ protected Q_SLOTS:
     void sourceRowsRemoved(const QModelIndex& parent, int start, int);
     void sourceRowsAboutToBeMoved( const QModelIndex&, int sourceStart, int sourceEnd, const QModelIndex&, int destStart );
     void sourceRowsMoved( const QModelIndex&, int , int , const QModelIndex&, int );
-    void workPackageToBeAdded(Node*, int);
-    void workPackageAdded(Node*);
-    void workPackageToBeRemoved(Node*, int);
-    void workPackageRemoved(Node*);
+    void workPackageToBeAdded(KPlato::Node*, int);
+    void workPackageAdded(KPlato::Node*);
+    void workPackageToBeRemoved(KPlato::Node*, int);
+    void workPackageRemoved(KPlato::Node*);
 
 protected:
     QModelIndex mapFromBaseModel( const QModelIndex &idx ) const;

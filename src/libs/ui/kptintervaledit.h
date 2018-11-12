@@ -80,7 +80,7 @@ public:
     
 protected Q_SLOTS:
     void slotChanged();
-    void slotCalendarRemoved( const Calendar *cal );
+    void slotCalendarRemoved(const KPlato::Calendar *cal);
 
 protected:
     MacroCommand *buildCommand( Calendar *calendar, CalendarDay *day );

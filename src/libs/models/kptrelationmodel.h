@@ -85,16 +85,16 @@ public:
 
 Q_SIGNALS:
     void executeCommand( KUndo2Command* );
-    
+
 protected Q_SLOTS:
-    void slotNodeChanged( Node* );
-    void slotNodeToBeRemoved( Node *node );
-    void slotNodeRemoved( Node *node );
-    void slotRelationToBeRemoved( Relation *r );
-    void slotRelationRemoved( Relation *r );
-    void slotRelationToBeAdded( Relation *r, int, int );
-    void slotRelationAdded( Relation *r );
-    void slotRelationModified( Relation *r );
+    void slotNodeChanged(KPlato::Node*);
+    void slotNodeToBeRemoved(KPlato::Node *node);
+    void slotNodeRemoved(KPlato::Node *node);
+    void slotRelationToBeRemoved(KPlato::Relation *r);
+    void slotRelationRemoved(KPlato::Relation *r);
+    void slotRelationToBeAdded(KPlato::Relation *r, int, int);
+    void slotRelationAdded(KPlato::Relation *r);
+    void slotRelationModified(KPlato::Relation *r);
 
     void slotLayoutChanged();
     

@@ -128,7 +128,7 @@ public:
 
 Q_SIGNALS:
     void modified( bool );
-    void saveWorkPackage( WorkPackage* );
+    void saveWorkPackage(KPlatoWork::WorkPackage* );
 
 public Q_SLOTS:
     void setModified( bool on ) { m_modified = on; }

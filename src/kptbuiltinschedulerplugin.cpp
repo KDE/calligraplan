@@ -58,11 +58,11 @@ void BuiltinSchedulerPlugin::calculate( Project &project, ScheduleManager *sm, b
 {
     KPlatoScheduler *job = new KPlatoScheduler( &project, sm );
     m_jobs << job;
-    connect(job, SIGNAL(jobStarted(SchedulerThread*)), SLOT(slotStarted(SchedulerThread*)));
-    connect(job, SIGNAL(jobFinished(SchedulerThread*)), SLOT(slotFinished(SchedulerThread*)));
+    connect(job, SIGNAL(jobStarted(KPlato::SchedulerThread*)), SLOT(slotStarted(KPlato::SchedulerThread*)));
+    connect(job, SIGNAL(jobFinished(KPlato::SchedulerThread*)), SLOT(slotFinished(KPlato::SchedulerThread*)));
 
-//     connect(this, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)));
-//     connect(this, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)));
+//     connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
+//     connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
 
     sm->setScheduling( true );
     if ( nothread ) {
@@ -104,8 +104,8 @@ void BuiltinSchedulerPlugin::slotFinished( SchedulerThread *job )
     }
     emit sigCalculationFinished( mp, sm );
 
-    disconnect(this, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)), mp, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)));
-    disconnect(this, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)), mp, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)));
+    disconnect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
+    disconnect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
 
     job->deleteLater();
     qDebug()<<"BuiltinSchedulerPlugin::slotFinished: <<<";
@@ -164,7 +164,7 @@ void KPlatoScheduler::run()
     connect(m_project, SIGNAL(maxProgress(int)), this, SLOT(setMaxProgress(int)));
     connect(m_project, SIGNAL(sigProgress(int)), this, SLOT(setProgress(int)));
 
-    bool x = connect(m_manager, SIGNAL(sigLogAdded(Schedule::Log)), this, SLOT(slotAddLog(Schedule::Log)));
+    bool x = connect(m_manager, SIGNAL(sigLogAdded(KPlato::Schedule::Log)), this, SLOT(slotAddLog(KPlato::Schedule::Log)));
     Q_ASSERT( x ); Q_UNUSED( x );
     m_project->calculate( *m_manager );
     if ( m_haltScheduling ) {

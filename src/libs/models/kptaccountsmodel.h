@@ -91,11 +91,11 @@ public:
     void removeAccounts( QList<Account*> lst );
     
 protected Q_SLOTS:
-    void slotAccountChanged( Account* );
-    void slotAccountToBeInserted( const Account *parent, int row );
-    void slotAccountInserted( const Account *account );
-    void slotAccountToBeRemoved( const Account *account );
-    void slotAccountRemoved( const Account *account );
+    void slotAccountChanged(KPlato::Account*);
+    void slotAccountToBeInserted(const KPlato::Account *parent, int row);
+    void slotAccountInserted(const KPlato::Account *account);
+    void slotAccountToBeRemoved(const KPlato::Account *account);
+    void slotAccountRemoved(const KPlato::Account *account);
 
 protected:
     bool setName( Account *account, const QVariant &value, int role );
@@ -175,11 +175,11 @@ protected:
     QVariant cost( const Account *a, int offset, int role ) const;
 
 protected Q_SLOTS:
-    void slotAccountChanged( Account* );
-    void slotAccountToBeInserted( const Account *parent, int row );
-    void slotAccountInserted( const Account *account );
-    void slotAccountToBeRemoved( const Account *account );
-    void slotAccountRemoved( const Account *account );
+    void slotAccountChanged(KPlato::Account*);
+    void slotAccountToBeInserted(const KPlato::Account *parent, int row);
+    void slotAccountInserted(const KPlato::Account *account);
+    void slotAccountToBeRemoved(const KPlato::Account *account);
+    void slotAccountRemoved(const KPlato::Account *account);
     
     void slotDataChanged();
 

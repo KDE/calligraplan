@@ -522,10 +522,10 @@ public:
 public Q_SLOTS:
     /// Sets m_progress to @p progress and emits signal sigProgress()
     /// If @p sm is not 0, progress is also set for the schedule manager
-    void setProgress( int progress, ScheduleManager *sm = 0 );
+    void setProgress(int progress, KPlato::ScheduleManager *sm = 0);
     /// Sets m_maxprogress to @p max and emits signal maxProgress()
     /// If @p sm is not 0, max progress is also set for the schedule manager
-    void setMaxProgress( int max, ScheduleManager *sm = 0 );
+    void setMaxProgress(int max, KPlato::ScheduleManager *sm = 0 );
 
 Q_SIGNALS:
     /// Emitted when the project is about to be deleted (The destroyed signal is disabled)
@@ -535,7 +535,7 @@ Q_SIGNALS:
     /// Emitted when the WBS code definition has changed. This may change all nodes.
     void wbsDefinitionChanged();
     /// Emitted when a schedule has been calculated
-    void projectCalculated( ScheduleManager *sm );
+    void projectCalculated(KPlato::ScheduleManager *sm);
     /// Emitted when the pointer to the current schedule has been changed
     void currentScheduleChanged();
     /// Use to show progress during calculation
@@ -543,87 +543,87 @@ Q_SIGNALS:
     /// Use to set the maximum progress (minimum always 0)
     void maxProgress( int );
     /// Emitted when calculation starts
-    void sigCalculationStarted( Project *project, ScheduleManager *sm );
+    void sigCalculationStarted(KPlato::Project *project, KPlato::ScheduleManager *sm);
     /// Emitted when calculation is finished
-    void sigCalculationFinished( Project *project, ScheduleManager *sm );
+    void sigCalculationFinished(KPlato::Project *project, KPlato::ScheduleManager *sm);
     /// This signal is emitted when one of the nodes members is changed.
-    void nodeChanged( Node* );
+    void nodeChanged(KPlato::Node*);
     /// This signal is emitted when the node is to be added to the project.
-    void nodeToBeAdded( Node*, int );
+    void nodeToBeAdded(KPlato::Node*, int);
     /// This signal is emitted when the node has been added to the project.
-    void nodeAdded( Node* );
+    void nodeAdded(KPlato::Node*);
     /// This signal is emitted when the node is to be removed from the project.
-    void nodeToBeRemoved( Node* );
+    void nodeToBeRemoved(KPlato::Node*);
     /// This signal is emitted when the node has been removed from the project.
-    void nodeRemoved( Node* );
+    void nodeRemoved(KPlato::Node*);
     /// This signal is emitted when the node is to be moved up, moved down, indented or unindented.
-    void nodeToBeMoved( Node* node, int pos, Node* newParent, int newPos );
+    void nodeToBeMoved(KPlato::Node* node, int pos, KPlato::Node* newParent, int newPos);
     /// This signal is emitted when the node has been moved up, moved down, indented or unindented.
-    void nodeMoved( Node* );
+    void nodeMoved(KPlato::Node*);
 
     /// This signal is emitted when a document is added
-    void documentAdded( Node*, Document*, int index );
+    void documentAdded(KPlato::Node*, KPlato::Document*, int index);
     /// This signal is emitted when a document is removed
-    void documentRemoved( Node*, Document*, int index );
+    void documentRemoved(KPlato::Node*, KPlato::Document*, int index);
     /// This signal is emitted when a document is changed
-    void documentChanged( Node*, Document*, int index );
+    void documentChanged(KPlato::Node*, KPlato::Document*, int index);
 
-    void resourceGroupChanged( ResourceGroup *group );
-    void resourceGroupAdded( const ResourceGroup *group );
-    void resourceGroupToBeAdded( const ResourceGroup *group, int row );
-    void resourceGroupRemoved( const ResourceGroup *group );
-    void resourceGroupToBeRemoved( const ResourceGroup *group );
+    void resourceGroupChanged(KPlato::ResourceGroup *group);
+    void resourceGroupAdded(const KPlato::ResourceGroup *group);
+    void resourceGroupToBeAdded(const KPlato::ResourceGroup *group, int row);
+    void resourceGroupRemoved(const KPlato::ResourceGroup *group);
+    void resourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
 
-    void resourceChanged( Resource *resource );
-    void resourceAdded( const Resource *resource );
-    void resourceToBeAdded( const ResourceGroup *group, int row );
-    void resourceRemoved( const Resource *resource );
-    void resourceToBeRemoved( const Resource *resource );
+    void resourceChanged(KPlato::Resource *resource);
+    void resourceAdded(const KPlato::Resource *resource);
+    void resourceToBeAdded(const KPlato::ResourceGroup *group, int row);
+    void resourceRemoved(const KPlato::Resource *resource);
+    void resourceToBeRemoved(const KPlato::Resource *resource);
 
-    void scheduleManagerChanged( ScheduleManager *sch );
-    void scheduleManagerAdded( const ScheduleManager *sch );
-    void scheduleManagerToBeAdded( const ScheduleManager *sch, int row );
-    void scheduleManagerRemoved( const ScheduleManager *sch );
-    void scheduleManagerToBeRemoved( const ScheduleManager *sch );
-    void scheduleManagerMoved( const ScheduleManager *sch, int row );
-    void scheduleManagerToBeMoved( const ScheduleManager *sch );
+    void scheduleManagerChanged(KPlato::ScheduleManager *sch);
+    void scheduleManagerAdded(const KPlato::ScheduleManager *sch);
+    void scheduleManagerToBeAdded(const KPlato::ScheduleManager *sch, int row);
+    void scheduleManagerRemoved(const KPlato::ScheduleManager *sch);
+    void scheduleManagerToBeRemoved(const KPlato::ScheduleManager *sch);
+    void scheduleManagerMoved(const KPlato::ScheduleManager *sch, int row);
+    void scheduleManagerToBeMoved(const KPlato::ScheduleManager *sch);
 
-    void scheduleChanged( MainSchedule *sch );
-    void scheduleToBeAdded( const ScheduleManager *manager, int row );
-    void scheduleAdded( const MainSchedule *sch );
-    void scheduleToBeRemoved( const MainSchedule *sch );
-    void scheduleRemoved( const MainSchedule *sch );
+    void scheduleChanged(KPlato::MainSchedule *sch);
+    void scheduleToBeAdded(const KPlato::ScheduleManager *manager, int row);
+    void scheduleAdded(const KPlato::MainSchedule *sch);
+    void scheduleToBeRemoved(const KPlato::MainSchedule *sch);
+    void scheduleRemoved(const KPlato::MainSchedule *sch);
 
 //    void currentViewScheduleIdChanged( long id );
 
-    void calendarChanged( Calendar *cal );
-    void calendarToBeAdded( const Calendar *cal, int row );
-    void calendarAdded( const Calendar *cal );
-    void calendarToBeRemoved( const Calendar *cal );
-    void calendarRemoved( const Calendar *cal );
+    void calendarChanged(KPlato::Calendar *cal);
+    void calendarToBeAdded(const KPlato::Calendar *cal, int row);
+    void calendarAdded(const KPlato::Calendar *cal);
+    void calendarToBeRemoved(const KPlato::Calendar *cal);
+    void calendarRemoved(const KPlato::Calendar *cal);
 
     /**
      * Emitted when the default calendar pointer has changed
      * @parem cal The new default calendar. May be 0.
      */
-    void defaultCalendarChanged( Calendar *cal );
+    void defaultCalendarChanged(KPlato::Calendar *cal);
     /**
      * Emitted when the standard worktime has been changed.
      */
-    void standardWorktimeChanged( StandardWorktime* );
+    void standardWorktimeChanged(KPlato::StandardWorktime*);
 
     /// Emitted when the relation @p rel is about to be added.
-    void relationToBeAdded( Relation *rel, int parentIndex, int childIndex );
+    void relationToBeAdded(KPlato::Relation *rel, int parentIndex, int childIndex);
     /// Emitted when the relation @p rel has been added.
-    void relationAdded( Relation *rel );
+    void relationAdded(KPlato::Relation *rel);
     /// Emitted when the relation @p rel is about to be removed.
-    void relationToBeRemoved( Relation *rel );
+    void relationToBeRemoved(KPlato::Relation *rel);
     /// Emitted when the relation @p rel has been removed.
-    void relationRemoved( Relation *rel );
+    void relationRemoved(KPlato::Relation *rel);
     /// Emitted when the relation @p rel shall be modified.
-    void relationToBeModified( Relation *rel );
+    void relationToBeModified(KPlato::Relation *rel);
     /// Emitted when the relation @p rel has been modified.
-    void relationModified( Relation *rel );
+    void relationModified(KPlato::Relation *rel);
 
     /// Emitted when locale data has changed
     void localeChanged();

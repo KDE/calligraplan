@@ -79,7 +79,7 @@ TaskDialog::TaskDialog( Project &project, Task &task, Accounts &accounts, QWidge
     connect(m_costTab, SIGNAL(changed()), m_generalTab, SLOT(checkAllFieldsFilled()));
     connect(m_descriptionTab, SIGNAL(textChanged(bool)), m_generalTab, SLOT(checkAllFieldsFilled()));
 
-    connect(&project, SIGNAL(nodeRemoved(Node*)), this, SLOT(slotTaskRemoved(Node*)));
+    connect(&project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotTaskRemoved(KPlato::Node*)));
 }
 
 void TaskDialog::setButtonOkEnabled(bool enabled) {
@@ -157,7 +157,7 @@ TaskAddDialog::TaskAddDialog(Project &project, Task &task, Node *currentNode, Ac
     // do not know wbs code yet
     m_generalTab->hideWbs();
     
-    connect(&project, SIGNAL(nodeRemoved(Node*)), SLOT(slotNodeRemoved(Node*)));
+    connect(&project, SIGNAL(nodeRemoved(KPlato::Node*)), SLOT(slotNodeRemoved(KPlato::Node*)));
 }
 
 TaskAddDialog::~TaskAddDialog()
@@ -192,7 +192,7 @@ SubTaskAddDialog::SubTaskAddDialog(Project &project, Task &task, Node *currentNo
     // do not know wbs code yet
     m_generalTab->hideWbs();
 
-    connect(&project, SIGNAL(nodeRemoved(Node*)), SLOT(slotNodeRemoved(Node*)));
+    connect(&project, SIGNAL(nodeRemoved(KPlato::Node*)), SLOT(slotNodeRemoved(KPlato::Node*)));
 }
 
 SubTaskAddDialog::~SubTaskAddDialog()

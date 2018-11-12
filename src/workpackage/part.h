@@ -217,15 +217,15 @@ public Q_SLOTS:
 
     virtual void setModified( bool mod );
     void saveModifiedWorkPackages();
-    void saveWorkPackage( WorkPackage *wp );
+    void saveWorkPackage(KPlatoWork::WorkPackage *wp );
     void addCommand( KUndo2Command *cmd );
 
-    void viewWorkpackageDocument( Document *doc );
+    void viewWorkpackageDocument(KPlato::Document *doc);
 
 Q_SIGNALS:
     void changed();
-    void workPackageAdded( WorkPackage *package, int index );
-    void workPackageRemoved( WorkPackage *wp, int index );
+    void workPackageAdded(KPlatoWork::WorkPackage *package, int index );
+    void workPackageRemoved(KPlatoWork::WorkPackage *wp, int index );
     void captionChanged( const QString&, bool );
 
 protected:

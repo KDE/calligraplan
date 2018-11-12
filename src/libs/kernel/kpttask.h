@@ -593,10 +593,10 @@ public:
     void copyAppointments( const DateTime &start, const DateTime &end = DateTime() );
 
 Q_SIGNALS:
-    void workPackageToBeAdded( Node *node, int row );
-    void workPackageAdded( Node *node );
-    void workPackageToBeRemoved( Node *node, int row );
-    void workPackageRemoved( Node *node );
+    void workPackageToBeAdded(KPlato::Node *node, int row);
+    void workPackageAdded(KPlato::Node *node);
+    void workPackageToBeRemoved(KPlato::Node *node, int row);
+    void workPackageRemoved(KPlato::Node *node);
 
 public:
     virtual void initiateCalculation(MainSchedule &sch);

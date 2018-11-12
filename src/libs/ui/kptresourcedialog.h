@@ -87,7 +87,7 @@ protected Q_SLOTS:
     void slotButtonClicked(int button);
     void slotAccountChanged( const QString &name );
 
-    void slotResourceRemoved( const Resource *resource );
+    void slotResourceRemoved(const KPlato::Resource *resource);
 
 private:
     Project &m_project;

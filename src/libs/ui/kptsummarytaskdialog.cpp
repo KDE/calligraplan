@@ -47,7 +47,7 @@ SummaryTaskDialog::SummaryTaskDialog(Task &task, QWidget *p)
 
     Project *proj = static_cast<Project*>( task.projectNode() );
     if ( proj ) {
-        connect(proj, SIGNAL(nodeRemoved(Node*)), this, SLOT(slotTaskRemoved(Node*)));
+        connect(proj, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotTaskRemoved(KPlato::Node*)));
     }
 }
 

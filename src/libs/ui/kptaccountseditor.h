@@ -110,8 +110,8 @@ public:
     void saveContext(QDomElement &context) const;
 
 Q_SIGNALS:
-    void addAccount( Account *account );
-    void deleteAccounts( const QList<Account*>& );
+    void addAccount(KPlato::Account *account);
+    void deleteAccounts(const QList<KPlato::Account*>&);
     
 public Q_SLOTS:
     /// Activate/deactivate the gui

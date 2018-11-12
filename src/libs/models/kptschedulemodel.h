@@ -99,22 +99,22 @@ public:
     void setFlat( bool flat );
 
 Q_SIGNALS:
-    void scheduleManagerAdded( ScheduleManager* );
+    void scheduleManagerAdded(KPlato::ScheduleManager* );
 
 protected Q_SLOTS:
-    void slotManagerChanged( ScheduleManager *sch );
-    void slotScheduleChanged( MainSchedule *sch );
+    void slotManagerChanged(KPlato::ScheduleManager *sch);
+    void slotScheduleChanged(KPlato::MainSchedule *sch);
 
-    void slotScheduleManagerToBeInserted( const ScheduleManager *manager, int row );
-    void slotScheduleManagerInserted( const ScheduleManager *manager );
-    void slotScheduleManagerToBeRemoved( const ScheduleManager *manager );
-    void slotScheduleManagerRemoved( const ScheduleManager *manager );
-    void slotScheduleManagerToBeMoved( const ScheduleManager *manager );
-    void slotScheduleManagerMoved( const ScheduleManager *manager, int index );
-    void slotScheduleToBeInserted( const ScheduleManager *manager, int row );
-    void slotScheduleInserted( const MainSchedule *schedule );
-    void slotScheduleToBeRemoved( const MainSchedule *schedule );
-    void slotScheduleRemoved( const MainSchedule *schedule );
+    void slotScheduleManagerToBeInserted(const KPlato::ScheduleManager *manager, int row);
+    void slotScheduleManagerInserted(const KPlato::ScheduleManager *manager);
+    void slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager *manager);
+    void slotScheduleManagerRemoved(const KPlato::ScheduleManager *manager);
+    void slotScheduleManagerToBeMoved(const KPlato::ScheduleManager *manager);
+    void slotScheduleManagerMoved(const KPlato::ScheduleManager *manager, int index);
+    void slotScheduleToBeInserted(const KPlato::ScheduleManager *manager, int row);
+    void slotScheduleInserted( const KPlato::MainSchedule *schedule);
+    void slotScheduleToBeRemoved( const KPlato::MainSchedule *schedule);
+    void slotScheduleRemoved( const KPlato::MainSchedule *schedule);
 
 protected:
     int row( const Schedule *sch ) const;
@@ -191,17 +191,17 @@ public:
     QString identity( const QModelIndex &idx ) const;
 
 protected Q_SLOTS:
-    void slotManagerChanged( ScheduleManager *sch );
-    void slotScheduleChanged( MainSchedule *sch );
+    void slotManagerChanged(KPlato::ScheduleManager *sch);
+    void slotScheduleChanged(KPlato::MainSchedule *sch);
 
-    void slotScheduleManagerToBeRemoved( const ScheduleManager *manager );
-    void slotScheduleManagerRemoved( const ScheduleManager *manager );
-    void slotScheduleToBeInserted( const ScheduleManager *manager, int row );
-    void slotScheduleInserted( const MainSchedule *schedule );
-    void slotScheduleToBeRemoved( const MainSchedule *schedule );
-    void slotScheduleRemoved( const MainSchedule *schedule );
+    void slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager *manager);
+    void slotScheduleManagerRemoved(const KPlato::ScheduleManager *manager);
+    void slotScheduleToBeInserted(const KPlato::ScheduleManager *manager, int row);
+    void slotScheduleInserted( const KPlato::MainSchedule *schedule);
+    void slotScheduleToBeRemoved( const KPlato::MainSchedule *schedule);
+    void slotScheduleRemoved( const KPlato::MainSchedule *schedule);
 
-    void slotLogInserted( MainSchedule*, int firstrow, int lastrow );
+    void slotLogInserted(KPlato::MainSchedule*, int firstrow, int lastrow );
 
     void projectDeleted();
 

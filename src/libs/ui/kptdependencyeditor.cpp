@@ -1713,14 +1713,14 @@ void DependencyView::setActive( bool activate )
 void DependencyView::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, SIGNAL(relationAdded(Relation*)), this, SLOT(slotRelationAdded(Relation*)) );
-        disconnect( m_project, SIGNAL(relationRemoved(Relation*)), this, SLOT(slotRelationRemoved(Relation*)) );
-        disconnect( m_project, SIGNAL(relationModified(Relation*)), this, SLOT(slotRelationModified(Relation*)) );
+        disconnect( m_project, SIGNAL(relationAdded(KPlato::Relation*)), this, SLOT(slotRelationAdded(KPlato::Relation*)) );
+        disconnect( m_project, SIGNAL(relationRemoved(KPlato::Relation*)), this, SLOT(slotRelationRemoved(KPlato::Relation*)) );
+        disconnect( m_project, SIGNAL(relationModified(KPlato::Relation*)), this, SLOT(slotRelationModified(KPlato::Relation*)) );
 
-        disconnect( m_project, SIGNAL(nodeAdded(Node*)), this, SLOT(slotNodeAdded(Node*)) );
-        disconnect( m_project, SIGNAL(nodeRemoved(Node*)), this, SLOT(slotNodeRemoved(Node*)) );
-        disconnect( m_project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotNodeChanged(Node*)) );
-        disconnect( m_project, SIGNAL(nodeMoved(Node*)), this, SLOT(slotNodeMoved(Node*)) );
+        disconnect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeAdded(KPlato::Node*)) );
+        disconnect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
+        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
+        disconnect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)) );
 
         if ( itemScene() ) {
             itemScene()->clearScene();
@@ -1728,14 +1728,14 @@ void DependencyView::setProject( Project *project )
     }
     m_project = project;
     if ( project ) {
-        connect( m_project, SIGNAL(relationAdded(Relation*)), this, SLOT(slotRelationAdded(Relation*)) );
-        connect( m_project, SIGNAL(relationRemoved(Relation*)), this, SLOT(slotRelationRemoved(Relation*)) );
-        connect( m_project, SIGNAL(relationModified(Relation*)), this, SLOT(slotRelationModified(Relation*)) );
+        connect( m_project, SIGNAL(relationAdded(KPlato::Relation*)), this, SLOT(slotRelationAdded(KPlato::Relation*)) );
+        connect( m_project, SIGNAL(relationRemoved(KPlato::Relation*)), this, SLOT(slotRelationRemoved(KPlato::Relation*)) );
+        connect( m_project, SIGNAL(relationModified(KPlato::Relation*)), this, SLOT(slotRelationModified(KPlato::Relation*)) );
 
-        connect( m_project, SIGNAL(nodeAdded(Node*)), this, SLOT(slotNodeAdded(Node*)) );
-        connect( m_project, SIGNAL(nodeRemoved(Node*)), this, SLOT(slotNodeRemoved(Node*)) );
-        connect( m_project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotNodeChanged(Node*)) );
-        connect( m_project, SIGNAL(nodeMoved(Node*)), this, SLOT(slotNodeMoved(Node*)) );
+        connect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeAdded(KPlato::Node*)) );
+        connect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
+        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
+        connect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)) );
 
         connect( m_project, SIGNAL(wbsDefinitionChanged()), this, SLOT(slotWbsCodeChanged()) );
 

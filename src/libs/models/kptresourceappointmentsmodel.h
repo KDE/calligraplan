@@ -97,30 +97,30 @@ public:
 
 Q_SIGNALS:
     void refreshed();
-    void appointmentInserted( Resource*, Appointment* );
+    void appointmentInserted(KPlato::Resource*, KPlato::Appointment*);
     
 public Q_SLOTS:
-    virtual void setScheduleManager( ScheduleManager *sm );
+    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
-    void slotResourceChanged( Resource* );
-    void slotResourceGroupChanged( ResourceGroup * );
-    void slotResourceGroupToBeInserted( const ResourceGroup *group, int row );
-    void slotResourceGroupInserted( const ResourceGroup *group );
-    void slotResourceGroupToBeRemoved( const ResourceGroup *group );
-    void slotResourceGroupRemoved( const ResourceGroup *group );
-    void slotResourceToBeInserted( const ResourceGroup *group, int row );
-    void slotResourceInserted( const Resource *resource );
-    void slotResourceToBeRemoved( const Resource *resource );
-    void slotResourceRemoved( const Resource *resource );
-    void slotCalendarChanged( Calendar* cal );
-    void slotProjectCalculated( ScheduleManager *sm );
+    void slotResourceChanged(KPlato::Resource*);
+    void slotResourceGroupChanged(KPlato::ResourceGroup *);
+    void slotResourceGroupToBeInserted(const KPlato::ResourceGroup *group, int row);
+    void slotResourceGroupInserted(const KPlato::ResourceGroup *group);
+    void slotResourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
+    void slotResourceGroupRemoved(const KPlato::ResourceGroup *group);
+    void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row);
+    void slotResourceInserted(const KPlato::Resource *resource);
+    void slotResourceToBeRemoved(const KPlato::Resource *resource);
+    void slotResourceRemoved(const KPlato::Resource *resource);
+    void slotCalendarChanged(KPlato::Calendar* cal);
+    void slotProjectCalculated(KPlato::ScheduleManager *sm);
     
-    void slotAppointmentToBeInserted( Resource *r, int row );
-    void slotAppointmentInserted( Resource*, Appointment* );
-    void slotAppointmentToBeRemoved( Resource *r, int row );
+    void slotAppointmentToBeInserted(KPlato::Resource *r, int row);
+    void slotAppointmentInserted(KPlato::Resource*, KPlato::Appointment*);
+    void slotAppointmentToBeRemoved(KPlato::Resource *r, int row);
     void slotAppointmentRemoved();
-    void slotAppointmentChanged( Resource *r, Appointment *a );
+    void slotAppointmentChanged(KPlato::Resource *r, KPlato::Appointment *a);
     
 protected:
     QVariant notUsed( const ResourceGroup *res, int role ) const;
@@ -210,23 +210,23 @@ public:
     class Private;
 
 public Q_SLOTS:
-    virtual void setScheduleManager( ScheduleManager *sm );
+    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
-    void slotResourceToBeInserted( const ResourceGroup *group, int row );
-    void slotResourceInserted( const Resource *r );
-    void slotResourceToBeRemoved( const Resource *r );
-    void slotResourceRemoved( const Resource *resource );
-    void slotResourceGroupToBeInserted( const ResourceGroup *group, int row );
-    void slotResourceGroupInserted( const ResourceGroup* );
-    void slotResourceGroupToBeRemoved( const ResourceGroup *group );
-    void slotResourceGroupRemoved( const ResourceGroup *group );
-    void slotAppointmentToBeInserted( Resource *r, int row );
-    void slotAppointmentInserted( Resource *r, Appointment *a );
-    void slotAppointmentToBeRemoved( Resource *r, int row );
+    void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row );
+    void slotResourceInserted(const KPlato::Resource *r );
+    void slotResourceToBeRemoved(const KPlato::Resource *r );
+    void slotResourceRemoved(const KPlato::Resource *resource );
+    void slotResourceGroupToBeInserted(const KPlato::ResourceGroup *group, int row );
+    void slotResourceGroupInserted(const KPlato::ResourceGroup* );
+    void slotResourceGroupToBeRemoved(const KPlato::ResourceGroup *group );
+    void slotResourceGroupRemoved(const KPlato::ResourceGroup *group );
+    void slotAppointmentToBeInserted(KPlato::Resource *r, int row );
+    void slotAppointmentInserted(KPlato::Resource *r, KPlato::Appointment *a );
+    void slotAppointmentToBeRemoved(KPlato::Resource *r, int row );
     void slotAppointmentRemoved();
-    void slotAppointmentChanged( Resource *r, Appointment *a );
-    void slotProjectCalculated( ScheduleManager *sm );
+    void slotAppointmentChanged(KPlato::Resource *r, KPlato::Appointment *a );
+    void slotProjectCalculated(KPlato::ScheduleManager *sm);
 
 protected:
     QModelIndex createGroupIndex( int row, int column, Project *project );

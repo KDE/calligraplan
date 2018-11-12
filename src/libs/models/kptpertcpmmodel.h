@@ -67,11 +67,11 @@ public:
     Duration::Unit presentationUnit( const Duration &duration ) const;
     
 protected Q_SLOTS:
-    void slotNodeChanged( Node* );
-    void slotNodeToBeInserted( Node *node, int row );
-    void slotNodeInserted( Node *node );
-    void slotNodeToBeRemoved( Node *node );
-    void slotNodeRemoved( Node *node );
+    void slotNodeChanged(KPlato::Node*);
+    void slotNodeToBeInserted(KPlato::Node *node, int row);
+    void slotNodeInserted(KPlato::Node *node);
+    void slotNodeToBeRemoved(KPlato::Node *node);
+    void slotNodeRemoved(KPlato::Node *node);
 
 public:
     QVariant alignment( int column ) const;
@@ -141,11 +141,11 @@ protected Q_SLOTS:
     void slotAboutToBeReset();
     void slotReset();
 
-    void slotNodeChanged( Node* );
-    void slotNodeToBeInserted( Node *node, int row );
-    void slotNodeInserted( Node *node );
-    void slotNodeToBeRemoved( Node *node );
-    void slotNodeRemoved( Node *node );
+    void slotNodeChanged(KPlato:: Node*);
+    void slotNodeToBeInserted(KPlato:: Node *node, int row);
+    void slotNodeInserted(KPlato:: Node *node);
+    void slotNodeToBeRemoved(KPlato:: Node *node);
+    void slotNodeRemoved(KPlato:: Node *node);
 
 protected:
     QVariant alignment( int column ) const;

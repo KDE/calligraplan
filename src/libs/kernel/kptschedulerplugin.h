@@ -193,14 +193,14 @@ public:
 
 Q_SIGNALS:
     /// Job has started
-    void jobStarted( SchedulerThread *job );
+    void jobStarted(KPlato::SchedulerThread *job);
     /// Job is finished
-    void jobFinished( SchedulerThread *job );
+    void jobFinished(KPlato::SchedulerThread *job);
 
     /// Maximum progress value has changed
-    void maxProgressChanged( int value, ScheduleManager *sm = 0 );
+    void maxProgressChanged(int value, KPlato::ScheduleManager *sm = 0);
     /// Progress has changed
-    void progressChanged( int value, ScheduleManager *sm = 0 );
+    void progressChanged(int value, KPlato::ScheduleManager *sm = 0);
 
 public Q_SLOTS:
     /// Stop scheduling. Result may still be used.

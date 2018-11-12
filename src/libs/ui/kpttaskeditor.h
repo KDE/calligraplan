@@ -126,27 +126,27 @@ public:
     virtual KoPrintJob *createPrintJob();
 
 Q_SIGNALS:
-    void taskSelected( Task *task );
+    void taskSelected(KPlato::Task *task);
     void openNode();
     void addTask();
     void addMilestone();
     void addSubtask();
     void addSubMilestone();
-    void deleteTaskList( const QList<Node*>& );
+    void deleteTaskList(const QList<KPlato::Node*>&);
     void moveTaskUp();
     void moveTaskDown();
     void indentTask();
     void unindentTask();
 
     void loadTaskModules( const QStringList &files );
-    void saveTaskModule( const QUrl &url, Project *project );
+    void saveTaskModule(const QUrl &url, KPlato::Project *project);
     void removeTaskModule( const QUrl &url );
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
 
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
     
     void setTaskModules( const QStringList &files );
 
@@ -237,7 +237,7 @@ public Q_SLOTS:
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
 
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected:
     void updateActionsEnabled( bool on );
@@ -314,15 +314,15 @@ public:
     KoPrintJob *createPrintJob();
     
 Q_SIGNALS:
-    void mailWorkpackage( Node *n, Resource *r = 0 );
-    void mailWorkpackages( const QList<Node*> &nodes, Resource *r );
+    void mailWorkpackage(KPlato::Node *n, KPlato::Resource *r = 0);
+    void mailWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *r);
     void checkForWorkPackages();
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
     void slotRefreshView();
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected:
     void updateActionsEnabled( bool on );
@@ -331,7 +331,7 @@ protected:
 protected Q_SLOTS:
     virtual void slotOptions();
     void slotMailWorkpackage();
-    void slotWorkPackageSent( const QList<Node*> &nodes, Resource *resource );
+    void slotWorkPackageSent(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource);
 
 private Q_SLOTS:
     void slotSelectionChanged( const QModelIndexList& );

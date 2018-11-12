@@ -78,7 +78,7 @@ AddRelationDialog::AddRelationDialog(Project &project, Relation *rel, QWidget *p
     connect(m_panel->bStartStart, SIGNAL(toggled(bool)), SLOT(slotStartStartToggled(bool)));
     connect(m_panel->lag, SIGNAL(valueChanged(double)), SLOT(lagChanged()));
     
-    connect(&project, SIGNAL(nodeRemoved(Node*)), SLOT(slotNodeRemoved(Node*)));
+    connect(&project, SIGNAL(nodeRemoved(KPlato::Node*)), SLOT(slotNodeRemoved(KPlato::Node*)));
 }
 
 AddRelationDialog::~AddRelationDialog()
@@ -152,7 +152,7 @@ ModifyRelationDialog::ModifyRelationDialog(Project &project, Relation *rel, QWid
     
     connect(this, SIGNAL(user1Clicked()), SLOT(slotUser1()));
     
-    connect(&project, SIGNAL(relationRemoved(Relation*)), SLOT(slotRelationRemoved(Relation*)));
+    connect(&project, SIGNAL(relationRemoved(KPlato::Relation*)), SLOT(slotRelationRemoved(KPlato::Relation*)));
 }
 
 void ModifyRelationDialog::slotRelationRemoved( Relation *relation )

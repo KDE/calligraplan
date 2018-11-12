@@ -57,7 +57,7 @@ public:
 protected Q_SLOTS:
     void finish();
     void slotShowIntroduction();
-    void slotOpenUrlRequest( HtmlView *v, const QUrl &url );
+    void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
     virtual void openTemplate( const QUrl& url );
     void openTaskModule(const QUrl& url);
 

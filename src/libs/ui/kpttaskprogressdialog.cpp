@@ -46,7 +46,7 @@ TaskProgressDialog::TaskProgressDialog(Task &task, ScheduleManager *sm, Standard
     connect(m_panel, SIGNAL(changed()), SLOT(slotChanged()));
     Project *proj = static_cast<Project*>( task.projectNode() );
     if ( proj ) {
-        connect(proj, SIGNAL(nodeRemoved(Node*)), SLOT(slotNodeRemoved(Node*)));
+        connect(proj, SIGNAL(nodeRemoved(KPlato::Node*)), SLOT(slotNodeRemoved(KPlato::Node*)));
     }
 }
 

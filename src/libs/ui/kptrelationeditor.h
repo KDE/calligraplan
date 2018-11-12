@@ -84,7 +84,7 @@ public:
 Q_SIGNALS:
     void openNode();
     void addRelation();
-    void deleteRelation( Relation * );
+    void deleteRelation(KPlato::Relation *);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
@@ -104,7 +104,7 @@ private Q_SLOTS:
     void slotEnableActions();
 
     void slotAddRelation();
-    void slotDeleteRelation( Relation *r );
+    void slotDeleteRelation(KPlato::Relation *r);
 
     void slotSplitView();
     

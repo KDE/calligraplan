@@ -54,7 +54,7 @@ public:
     const KHTMLPart &htmlPart() const { return *m_htmlPart; }
 
 Q_SIGNALS:
-    void openUrlRequest( HtmlView*, const QUrl& );
+    void openUrlRequest(KPlato::HtmlView*, const QUrl&);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui

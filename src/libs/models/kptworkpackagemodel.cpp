@@ -499,10 +499,10 @@ NodeItemModel *WorkPackageProxyModel::baseModel() const
 void WorkPackageProxyModel::detachTasks( Task *task )
 {
     if ( task ) {
-        disconnect(task, SIGNAL(workPackageToBeAdded(Node*,int)), this, SLOT(workPackageToBeAdded(Node*,int)));
-        disconnect(task, SIGNAL(workPackageAdded(Node*)), this, SLOT(workPackageAdded(Node*)));
-        disconnect(task, SIGNAL(workPackageToBeRemoved(Node*,int)), this, SLOT(workPackageToBeRemoved(Node*,int)));
-        disconnect(task, SIGNAL(workPackageRemoved(Node*)), this, SLOT(workPackageRemoved(Node*)));
+        disconnect(task, SIGNAL(workPackageToBeAdded(KPlato::Node*,int)), this, SLOT(workPackageToBeAdded(KPlato::Node*,int)));
+        disconnect(task, SIGNAL(workPackageAdded(KPlato::Node*)), this, SLOT(workPackageAdded(KPlato::Node*)));
+        disconnect(task, SIGNAL(workPackageToBeRemoved(KPlato::Node*,int)), this, SLOT(workPackageToBeRemoved(KPlato::Node*,int)));
+        disconnect(task, SIGNAL(workPackageRemoved(KPlato::Node*)), this, SLOT(workPackageRemoved(KPlato::Node*)));
 //        debugPlan<<task;
     } else {
         for ( int r = 0; r < rowCount(); ++r ) {
@@ -517,10 +517,10 @@ void WorkPackageProxyModel::detachTasks( Task *task )
 void WorkPackageProxyModel::attachTasks( Task *task )
 {
     if ( task ) {
-        connect(task, SIGNAL(workPackageToBeAdded(Node*,int)), this, SLOT(workPackageToBeAdded(Node*,int)));
-        connect(task, SIGNAL(workPackageAdded(Node*)), this, SLOT(workPackageAdded(Node*)));
-        connect(task, SIGNAL(workPackageToBeRemoved(Node*,int)), this, SLOT(workPackageToBeRemoved(Node*,int)));
-        connect(task, SIGNAL(workPackageRemoved(Node*)), this, SLOT(workPackageRemoved(Node*)));
+        connect(task, SIGNAL(workPackageToBeAdded(KPlato::Node*,int)), this, SLOT(workPackageToBeAdded(KPlato::Node*,int)));
+        connect(task, SIGNAL(workPackageAdded(KPlato::Node*)), this, SLOT(workPackageAdded(KPlato::Node*)));
+        connect(task, SIGNAL(workPackageToBeRemoved(KPlato::Node*,int)), this, SLOT(workPackageToBeRemoved(KPlato::Node*,int)));
+        connect(task, SIGNAL(workPackageRemoved(KPlato::Node*)), this, SLOT(workPackageRemoved(KPlato::Node*)));
 //        debugPlan<<task;
     } else {
         for ( int r = 0; r < rowCount(); ++r ) {

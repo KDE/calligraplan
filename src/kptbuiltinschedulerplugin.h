@@ -45,14 +45,14 @@ public:
     virtual void calculate( Project &project, ScheduleManager *sm, bool nothread = false );
 
 Q_SIGNALS:
-    void sigCalculationStarted( Project*, ScheduleManager* );
-    void sigCalculationFinished( Project*, ScheduleManager* );
-    void maxProgress( int, ScheduleManager* );
-    void sigProgress( int, ScheduleManager* );
+    void sigCalculationStarted(KPlato::Project*, KPlato::ScheduleManager*);
+    void sigCalculationFinished(KPlato::Project*, KPlato::ScheduleManager*);
+    void maxProgress(int, KPlato::ScheduleManager*);
+    void sigProgress(int, KPlato::ScheduleManager*);
 
 protected Q_SLOTS:
-    void slotStarted( SchedulerThread *job );
-    void slotFinished( SchedulerThread *job );
+    void slotStarted(KPlato::SchedulerThread *job);
+    void slotFinished(KPlato::SchedulerThread *job);
 };
 
 

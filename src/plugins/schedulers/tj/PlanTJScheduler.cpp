@@ -68,10 +68,10 @@ PlanTJScheduler::PlanTJScheduler( Project *project, ScheduleManager *sm, ulong g
     TJ::TJMH.reset();
     connect(&TJ::TJMH, SIGNAL(message(int,QString,TJ::CoreAttributes*)), this, SLOT(slotMessage(int,QString,TJ::CoreAttributes*)));
 
-    connect(this, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)), project, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)));
+    connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
     emit sigCalculationStarted( project, sm );
 
-    connect( this, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)), project, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)) );
+    connect( this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)) );
 }
 
 PlanTJScheduler::~PlanTJScheduler()

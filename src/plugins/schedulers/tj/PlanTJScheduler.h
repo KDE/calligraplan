@@ -78,8 +78,8 @@ public:
 
 
 Q_SIGNALS:
-    void sigCalculationStarted( Project*, ScheduleManager* );
-    void sigCalculationFinished( Project*, ScheduleManager* );
+    void sigCalculationStarted(KPlato::Project*, KPlato::ScheduleManager*);
+    void sigCalculationFinished(KPlato::Project*, KPlato::ScheduleManager*);
     const char* taskname();
 
 public Q_SLOTS:

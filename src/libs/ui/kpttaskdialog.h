@@ -60,7 +60,7 @@ protected Q_SLOTS:
     void accept();
     void setButtonOkEnabled(bool enabled);
 
-    void slotTaskRemoved( Node *node );
+    void slotTaskRemoved(KPlato::Node *node);
     void slotCurrentChanged( KPageWidgetItem*, KPageWidgetItem* );
 
 protected:
@@ -83,7 +83,7 @@ public:
     virtual MacroCommand *buildCommand();
 
 protected Q_SLOTS:
-    void slotNodeRemoved( Node* );
+    void slotNodeRemoved(KPlato::Node*);
 
 private:
     Node *m_currentnode;
@@ -98,7 +98,7 @@ public:
     virtual MacroCommand *buildCommand();
 
 protected Q_SLOTS:
-    void slotNodeRemoved( Node* );
+    void slotNodeRemoved(KPlato::Node*);
 
 private:
     Node *m_currentnode;

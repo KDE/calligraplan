@@ -126,7 +126,7 @@ public:
     bool singlePage() const { return ui_singlePage->isChecked(); }
 
 public Q_SLOTS:
-    void setOptions(const GanttPrintingOptions &opt);
+    void setOptions(const KPlato::GanttPrintingOptions &opt);
 };
 
 class GanttPrintingDialog : public PrintingDialog
@@ -197,7 +197,7 @@ public:
     virtual void saveContext( QDomElement &settings ) const;
 
 public Q_SLOTS:
-    void setPrintingOptions( const GanttPrintingOptions &opt ) { m_printOptions = opt; }
+    void setPrintingOptions(const KPlato::GanttPrintingOptions &opt) { m_printOptions = opt; }
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
@@ -247,11 +247,11 @@ public:
 public Q_SLOTS:
     void clearDependencies();
     void createDependencies();
-    void addDependency( Relation *rel );
-    void removeDependency( Relation *rel );
-    void slotProjectCalculated( ScheduleManager *sm );
+    void addDependency(KPlato::Relation *rel);
+    void removeDependency(KPlato::Relation *rel);
+    void slotProjectCalculated(KPlato::ScheduleManager *sm);
 
-    void slotNodeInserted( Node *node );
+    void slotNodeInserted(KPlato::Node *node);
 
 protected:
     ScheduleManager *m_manager;
@@ -289,14 +289,14 @@ public:
     bool showSpecialInfo() const { return m_gantt->model()->showSpecial(); }
 
 Q_SIGNALS:
-    void modifyRelation( Relation *rel ) ;
-    void addRelation( Node *par, Node *child );
-    void modifyRelation( Relation *rel, int linkType ) ;
-    void addRelation( Node *par, Node *child, int linkType );
+    void modifyRelation(KPlato::Relation *rel) ;
+    void addRelation(KPlato::Node *par, KPlato::Node *child);
+    void modifyRelation(KPlato::Relation *rel, int linkType) ;
+    void addRelation(KPlato::Node *par, KPlato::Node *child, int linkType);
     void itemDoubleClicked();
 
 public Q_SLOTS:
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
     void setShowResources( bool on );
     void setShowTaskName( bool on );
     void setShowTaskLinks( bool on );
@@ -349,7 +349,7 @@ public:
     void setScheduleManager( ScheduleManager *sm );
 
 public Q_SLOTS:
-    void slotProjectCalculated( ScheduleManager *sm );
+    void slotProjectCalculated(KPlato::ScheduleManager *sm);
 
 protected:
     ScheduleManager *m_manager;
@@ -388,7 +388,7 @@ Q_SIGNALS:
     void itemDoubleClicked();
 
 public Q_SLOTS:
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
     void setShowTaskName( bool on ) { m_showTaskName = on; }
     void setShowProgress( bool on ) { m_showProgress = on; }
@@ -457,7 +457,7 @@ Q_SIGNALS:
     void itemDoubleClicked();
 
 public Q_SLOTS:
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );

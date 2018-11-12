@@ -84,7 +84,7 @@ public:
     KoPrintJob *createPrintJob();
     
 Q_SIGNALS:
-    void addResource( ResourceGroup* );
+    void addResource(KPlato::ResourceGroup*);
     void deleteObjectList( const QObjectList& );
 
 public Q_SLOTS:

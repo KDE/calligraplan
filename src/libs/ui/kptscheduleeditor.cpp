@@ -735,19 +735,19 @@ ScheduleHandlerView::ScheduleHandlerView(KoPart *part, KoDocument *doc, QWidget 
     PertResult *p = new PertResult(part, doc, tab);
     p->setObjectName( "PertResult" );
     addView( p, tab, i18n( "Result" ) );
-    connect( m_scheduleEditor, SIGNAL(scheduleSelectionChanged(ScheduleManager*)), p, SLOT(slotScheduleSelectionChanged(ScheduleManager*)) );
+    connect( m_scheduleEditor, SIGNAL(scheduleSelectionChanged(KPlato::ScheduleManager*)), p, SLOT(slotScheduleSelectionChanged(KPlato::ScheduleManager*)) );
 
     PertCpmView *c = new PertCpmView(part, doc, tab);
     c->setObjectName( "PertCpmView" );
     addView( c, tab, i18n( "Critical Path" ) );
-    connect( m_scheduleEditor, SIGNAL(scheduleSelectionChanged(ScheduleManager*)), c, SLOT(slotScheduleSelectionChanged(ScheduleManager*)) );
+    connect( m_scheduleEditor, SIGNAL(scheduleSelectionChanged(KPlato::ScheduleManager*)), c, SLOT(slotScheduleSelectionChanged(KPlato::ScheduleManager*)) );
 
     ScheduleLogView *v = new ScheduleLogView(part, doc, tab);
     v->setObjectName( "ScheduleLogView" );
     addView( v, tab, i18n( "Scheduling Log" ) );
-    connect( m_scheduleEditor, SIGNAL(scheduleSelectionChanged(ScheduleManager*)), v, SLOT(slotScheduleSelectionChanged(ScheduleManager*)) );
-    connect(v, SIGNAL(editNode(Node*)), SIGNAL(editNode(Node*)));
-    connect(v, SIGNAL(editResource(Resource*)), SIGNAL(editResource(Resource*)));
+    connect( m_scheduleEditor, SIGNAL(scheduleSelectionChanged(KPlato::ScheduleManager*)), v, SLOT(slotScheduleSelectionChanged(KPlato::ScheduleManager*)) );
+    connect(v, SIGNAL(editNode(KPlato::Node*)), SIGNAL(editNode(KPlato::Node*)));
+    connect(v, SIGNAL(editResource(KPlato::Resource*)), SIGNAL(editResource(KPlato::Resource*)));
 }
 
 void ScheduleHandlerView::currentTabChanged( int )
@@ -807,11 +807,11 @@ SchedulingRange::SchedulingRange(KoDocument *doc, QWidget *parent)
 void SchedulingRange::setProject(Project *project)
 {
     if (m_project) {
-        disconnect(m_project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotProjectChanged(Node*)));
+        disconnect(m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotProjectChanged(KPlato::Node*)));
     }
     m_project = project;
     if (m_project) {
-        connect(m_project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotProjectChanged(Node*)));
+        connect(m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotProjectChanged(KPlato::Node*)));
         slotProjectChanged(m_project);
     }
 }

@@ -48,8 +48,8 @@ TaskWorkPackageModel::TaskWorkPackageModel( Part *part, QObject *parent )
     : ItemModelBase( parent ),
     m_part( part )
 {
-    connect( part, SIGNAL(workPackageAdded(WorkPackage*,int)), this, SLOT(addWorkPackage(WorkPackage*,int)) );
-    connect( part, SIGNAL(workPackageRemoved(WorkPackage*,int)), this, SLOT(removeWorkPackage(WorkPackage*,int)) );
+    connect( part, SIGNAL(workPackageAdded(KPlato::WorkPackage*,int)), this, SLOT(addWorkPackage(KPlato::WorkPackage*,int)) );
+    connect( part, SIGNAL(workPackageRemoved(KPlato::WorkPackage*,int)), this, SLOT(removeWorkPackage(KPlato::WorkPackage*,int)) );
 }
 
 Qt::ItemFlags TaskWorkPackageModel::flags( const QModelIndex &index ) const
@@ -156,16 +156,16 @@ void TaskWorkPackageModel::addWorkPackage( WorkPackage *package, int row )
     Project *project = package->project();
     endInsertRows();
     if ( project ) {
-        connect( project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotNodeChanged(Node*)) );
-        connect( project, SIGNAL(nodeToBeAdded(Node*,int)), this, SLOT(slotNodeToBeInserted(Node*,int)) );
-        connect( project, SIGNAL(nodeToBeRemoved(Node*)), this, SLOT(slotNodeToBeRemoved(Node*)) );
+        connect( project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
+        connect( project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)) );
+        connect( project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
 
-        connect( project, SIGNAL(nodeAdded(Node*)), this, SLOT(slotNodeInserted(Node*)) );
-        connect( project, SIGNAL(nodeRemoved(Node*)), this, SLOT(slotNodeRemoved(Node*)) );
+        connect( project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)) );
+        connect( project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
 
-        connect(project, SIGNAL(documentAdded(Node*,Document*,int)), this, SLOT(slotDocumentAdded(Node*,Document*,int)));
-        connect(project, SIGNAL(documentRemoved(Node*,Document*,int)), this, SLOT(slotDocumentRemoved(Node*,Document*,int)));
-        connect(project, SIGNAL(documentChanged(Node*,Document*,int)), this, SLOT(slotDocumentChanged(Node*,Document*,int)));
+        connect(project, SIGNAL(documentAdded(KPlato::Node*,KPlato::Document*,int)), this, SLOT(slotDocumentAdded(KPlato::Node*,KPlato::Document*,int)));
+        connect(project, SIGNAL(documentRemoved(KPlato::Node*,KPlato::Document*,int)), this, SLOT(slotDocumentRemoved(KPlato::Node*,KPlato::Document*,int)));
+        connect(project, SIGNAL(documentChanged(KPlato::Node*,KPlato::Document*,int)), this, SLOT(slotDocumentChanged(KPlato::Node*,KPlato::Document*,int)));
     }
 }
 
@@ -175,16 +175,16 @@ void TaskWorkPackageModel::removeWorkPackage( WorkPackage *package, int row )
     Project *project = package->project();
     debugPlanWork<<package->project();
     if ( project ) {
-        disconnect( project, SIGNAL(nodeChanged(Node*)), this, SLOT(slotNodeChanged(Node*)) );
-        disconnect( project, SIGNAL(nodeToBeAdded(Node*,int)), this, SLOT(slotNodeToBeInserted(Node*,int)) );
-        disconnect( project, SIGNAL(nodeToBeRemoved(Node*)), this, SLOT(slotNodeToBeRemoved(Node*)) );
+        disconnect( project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
+        disconnect( project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)) );
+        disconnect( project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
 
-        disconnect( project, SIGNAL(nodeAdded(Node*)), this, SLOT(slotNodeInserted(Node*)) );
-        disconnect( project, SIGNAL(nodeRemoved(Node*)), this, SLOT(slotNodeRemoved(Node*)) );
+        disconnect( project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)) );
+        disconnect( project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
 
-        disconnect(project, SIGNAL(documentAdded(Node*,Document*,int)), this, SLOT(slotDocumentAdded(Node*,Document*,int)));
-        disconnect(project, SIGNAL(documentRemoved(Node*,Document*,int)), this, SLOT(slotDocumentRemoved(Node*,Document*,int)));
-        disconnect(project, SIGNAL(documentChanged(Node*,Document*,int)), this, SLOT(slotDocumentChanged(Node*,Document*,int)));
+        disconnect(project, SIGNAL(documentAdded(KPlato::Node*,KPlato::Document*,int)), this, SLOT(slotDocumentAdded(KPlato::Node*,KPlato::Document*,int)));
+        disconnect(project, SIGNAL(documentRemoved(KPlato::Node*,KPlato::Document*,int)), this, SLOT(slotDocumentRemoved(KPlato::Node*,KPlato::Document*,int)));
+        disconnect(project, SIGNAL(documentChanged(KPlato::Node*,KPlato::Document*,int)), this, SLOT(slotDocumentChanged(KPlato::Node*,KPlato::Document*,int)));
     }
     endRemoveRows();
 }

@@ -139,14 +139,14 @@ public:
     
 Q_SIGNALS:
     void requestPopupMenu( const QString&, const QPoint& );
-    void addResource( ResourceGroup* );
+    void addResource(KPlato::ResourceGroup*);
     void deleteObjectList( const QObjectList& );
     
 public Q_SLOTS:
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
     
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
     virtual void slotOptions();

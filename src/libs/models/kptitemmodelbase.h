@@ -299,8 +299,8 @@ Q_SIGNALS:
     void executeCommand( KUndo2Command* );
     
 public Q_SLOTS:
-    virtual void setProject( Project *project );
-    virtual void setScheduleManager( ScheduleManager *sm );
+    virtual void setProject(KPlato::Project *project);
+    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
     virtual void setReadWrite( bool rw ) { m_readWrite = rw; }
     /// Reimplement if your model can be refreshed
     virtual void refresh() {}

@@ -91,8 +91,8 @@ void KPlatoRCPSPlugin::calculate( KPlato::Project &project, KPlato::ScheduleMana
 
     project.changed( sm );
 
-//     connect(this, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)));
-//     connect(this, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)));
+//     connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
+//     connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
 
     connect(job, SIGNAL(maxProgressChanged(int)), sm, SLOT(setMaxProgress(int)));
     connect(job, SIGNAL(progressChanged(int)), sm, SLOT(setProgress(int)));
@@ -156,8 +156,8 @@ void KPlatoRCPSPlugin::slotFinished( SchedulerThread *j )
     }
     emit sigCalculationFinished( mp, sm );
 
-    disconnect(this, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)), mp, SIGNAL(sigCalculationStarted(Project*,ScheduleManager*)));
-    disconnect(this, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)), mp, SIGNAL(sigCalculationFinished(Project*,ScheduleManager*)));
+    disconnect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
+    disconnect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
 
     job->deleteLater();
 }
