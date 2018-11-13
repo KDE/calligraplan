@@ -28,6 +28,7 @@
 
 #include <KoView.h>
 #include <KoPrintingDialog.h>
+#include <KoPrintJob.h>
 #include <KoPageLayout.h>
 //#include <KoDockFactoryBase.h>
 
@@ -171,7 +172,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt);
     void setPrinterPageLayout( const KoPageLayout &pagelayout );
-    virtual void startPrinting(RemovePolicy removePolicy = DoNotDelete);
+    void startPrinting(KoPrintJob::RemovePolicy removePolicy = DoNotDelete) override;
 
 protected:
     virtual void paint( QPainter &p, const PrintingOptions::Data &options, const QRect &rect,  int pageNumber, const Project &project );

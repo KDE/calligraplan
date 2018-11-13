@@ -93,7 +93,7 @@ public Q_SLOTS:
     /**
      * @see KoPrintJob::startPrinting
      */
-    virtual void startPrinting(RemovePolicy removePolicy = DoNotDelete);
+    virtual void startPrinting(KoPrintJob::RemovePolicy removePolicy = DoNotDelete);
 
 protected:
     /**
