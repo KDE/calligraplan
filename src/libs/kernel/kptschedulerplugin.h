@@ -216,7 +216,7 @@ protected Q_SLOTS:
     void setMaxProgress( int );
     void setProgress( int );
 
-    void slotAddLog( const Schedule::Log &log );
+    void slotAddLog(const KPlato::Schedule::Log &log);
 
 protected:
     /// Re-implement to do the job

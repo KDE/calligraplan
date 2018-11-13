@@ -122,7 +122,7 @@ void PlanTJScheduler::run()
         m_manager->setName( "Schedule: " + m_manager->name() ); //Debug
         m_schedule = m_manager->expected();
 
-        bool x = connect(m_manager, SIGNAL(sigLogAdded(Schedule::Log)), this, SLOT(slotAddLog(Schedule::Log)));
+        bool x = connect(m_manager, SIGNAL(sigLogAdded(KPlato::Schedule::Log)), this, SLOT(slotAddLog(KPlato::Schedule::Log)));
         Q_ASSERT( x );
         Q_UNUSED( x );
 
