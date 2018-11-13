@@ -734,7 +734,7 @@ void Node::propagateEarliestStart(DateTime &time) {
                 if ( m_constraintEndTime < time ) {
                     m_currentSchedule->logWarning("Task constraint outside project constraint");
 #ifndef PLAN_NLOGDEBUG
-                    m_currentSchedule->logDebug( QString( "%1: end constraint %2 < %3" ).arg( constraintToString( true ) ).arg( m_constraintEndTime.toString() ).arg( time.toString() ) );
+                    m_currentSchedule->logDebug(QString("%1: end constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
 #endif
                 }
                 break;
@@ -743,7 +743,7 @@ void Node::propagateEarliestStart(DateTime &time) {
                 if ( m_constraintStartTime < time ) {
                     m_currentSchedule->logWarning("Task constraint outside project constraint");
 #ifndef PLAN_NLOGDEBUG
-                    m_currentSchedule->logDebug( QString( "%1: start constraint %2 < %3" ).arg( constraintToString( true ) ).arg( m_constraintEndTime.toString() ).arg( time.toString() ) );
+                    m_currentSchedule->logDebug(QString("%1: start constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
 #endif
                 }
                 break;
@@ -773,7 +773,7 @@ void Node::propagateLatestFinish(DateTime &time) {
                 if ( m_constraintStartTime > time ) {
                     m_currentSchedule->logWarning("Task constraint outside project constraint");
 #ifndef PLAN_NLOGDEBUG
-                    m_currentSchedule->logDebug( QString( "%1: start constraint %2 < %3" ).arg( constraintToString( true ) ).arg( m_constraintEndTime.toString() ).arg( time.toString() ) );
+                    m_currentSchedule->logDebug(QString("%1: start constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
 #endif
                 }
                 break;
@@ -782,7 +782,7 @@ void Node::propagateLatestFinish(DateTime &time) {
                 if ( m_constraintEndTime > time ) {
                     m_currentSchedule->logWarning("Task constraint outside project constraint");
 #ifndef PLAN_NLOGDEBUG
-                    m_currentSchedule->logDebug( QString( "%1: end constraint %2 > %3" ).arg( constraintToString( true ) ).arg( m_constraintEndTime.toString() ).arg( time.toString() ) );
+                    m_currentSchedule->logDebug(QString("%1: end constraint %2 > %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
 #endif
                 }
                 break;

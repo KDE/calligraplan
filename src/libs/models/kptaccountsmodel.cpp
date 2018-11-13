@@ -751,7 +751,7 @@ QString CostBreakdownItemModel::formatMoney( double cost1, double cost2 ) const
         return m_project->locale()->formatMoney( cost2, "", 0 );
     }
     if ( m_showmode == ShowMode_Both ) {
-        return QString(m_format).arg( m_project->locale()->formatMoney( cost2, "", 0 ) ).arg( m_project->locale()->formatMoney( cost1, "", 0 ) );
+        return QString(m_format).arg(m_project->locale()->formatMoney( cost2, "", 0), m_project->locale()->formatMoney(cost1, "", 0));
     }
     if ( m_showmode == ShowMode_Deviation ) {
         return m_project->locale()->formatMoney( cost1 - cost2, "", 0 );

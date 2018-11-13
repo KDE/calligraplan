@@ -72,7 +72,7 @@ public:
     }
     void stopLoad() { 
         m_elapsed = m_timer.elapsed();
-        addMsg(QStringLiteral("Loading finished at %1, took %2").arg(QDateTime::currentDateTime().toString()).arg(formatElapsed()));
+        addMsg(QStringLiteral("Loading finished at %1, took %2").arg(QDateTime::currentDateTime().toString(), formatElapsed()));
     }
     QDateTime lastLoaded() const { return m_starttime; }
     int elapsed() const { return m_elapsed; }

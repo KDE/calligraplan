@@ -97,8 +97,7 @@ public:
     }
     QString toString() const {
         return QStringLiteral( "%1 to %2" )
-                    .arg( first.isValid()?first.toString():QStringLiteral("''") )
-                    .arg( second.isValid()?second.toString():QStringLiteral("''") );
+                    .arg(first.isValid()?first.toString():QStringLiteral("''"), second.isValid()?second.toString():QStringLiteral("''"));
     }
 };
 
