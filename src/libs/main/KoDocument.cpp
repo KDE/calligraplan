@@ -2232,7 +2232,10 @@ void KoDocument::removeAutoSaveFiles()
 
 void KoDocument::setBackupFile(bool _b)
 {
-    d->backupFile = _b;
+    if (d->backupFile != _b) {
+        d->backupFile = _b;
+        emit backupFileChanged(_b);
+    }
 }
 
 bool KoDocument::backupFile()const

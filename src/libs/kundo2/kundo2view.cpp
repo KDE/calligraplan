@@ -249,8 +249,11 @@ KUndo2Group *KUndo2View::group() const
 
 void KUndo2View::setEmptyLabel(const QString &label)
 {
-
+    bool changed = d->model->emptyLabel() != label;
     d->model->setEmptyLabel(label);
+    if (changed) {
+        emit emptyLabelChanged();
+    }
 }
 
 QString KUndo2View::emptyLabel() const
@@ -271,9 +274,8 @@ QString KUndo2View::emptyLabel() const
 
 void KUndo2View::setCleanIcon(const QIcon &icon)
 {
-
     d->model->setCleanIcon(icon);
-
+    emit cleanIconChanged();
 }
 
 QIcon KUndo2View::cleanIcon() const

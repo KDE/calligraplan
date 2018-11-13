@@ -1254,6 +1254,7 @@ void KUndo2QStack::setUndoLimit(int limit)
         return;
     m_undo_limit = limit;
     checkUndoLimit();
+    emit undoLimitChanged(m_undo_limit);
 }
 
 int KUndo2QStack::undoLimit() const
@@ -1283,11 +1284,15 @@ void KUndo2QStack::setActive(bool active)
 #ifdef QT_NO_UNDOGROUP
     Q_UNUSED(active);
 #else
+    bool prev = isActive();
     if (m_group != 0) {
         if (active)
             m_group->setActiveStack(this);
         else if (m_group->activeStack() == this)
             m_group->setActiveStack(0);
+    }
+    if (isActive() != prev) {
+        emit activeChanged(!prev);
     }
 #endif
 }

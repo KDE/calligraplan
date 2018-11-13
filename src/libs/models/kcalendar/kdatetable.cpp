@@ -839,8 +839,8 @@ bool KDateTable::setDate(const QDate& date_)
             QDate dt(date_.year(), date_.month(), 1);
             d->m_weekDayFirstOfMonth = dt.dayOfWeek();
         }
-        emit(dateChanged(oldDate, date_));
-        emit(dateChanged(date_));
+        emit dateChanged(oldDate, date_);
+        emit dateChanged(date_);
     }
 
     if ( d->m_selectionmode == KDateTable::SingleSelection )

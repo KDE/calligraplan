@@ -58,8 +58,8 @@ class StyleOptionViewItem;
 class PLANMODELS_EXPORT KDateTable : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY( QDate date READ date WRITE setDate )
-    Q_PROPERTY( bool popupMenu READ popupMenuEnabled WRITE setPopupMenuEnabled )
+    Q_PROPERTY( QDate date READ date WRITE setDate ) // clazy:exclude=qproperty-without-notify
+    Q_PROPERTY( bool popupMenu READ popupMenuEnabled WRITE setPopupMenuEnabled ) // clazy:exclude=qproperty-without-notify
 
 public:
     /**

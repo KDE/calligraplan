@@ -82,8 +82,8 @@ public:
 class KOMAIN_EXPORT KoDocument : public QObject, public KoDocumentBase
 {
     Q_OBJECT
-    Q_PROPERTY(bool backupFile READ backupFile WRITE setBackupFile)
-    Q_PROPERTY(int pageCount READ pageCount)
+    Q_PROPERTY(bool backupFile READ backupFile WRITE setBackupFile NOTIFY backupFileChanged)
+    Q_PROPERTY(int pageCount READ pageCount) // clazy:exclude=qproperty-without-notify
 
 public:
 
@@ -665,6 +665,8 @@ Q_SIGNALS:
     void modified(bool);
 
     void titleModified(const QString &caption, bool isModified);
+
+    void backupFileChanged(bool);
 
 protected:
 

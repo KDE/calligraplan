@@ -153,8 +153,8 @@ class KUNDO2_EXPORT KUndo2QStack : public QObject
 {
     Q_OBJECT
 //    Q_DECLARE_PRIVATE(KUndo2QStack)
-    Q_PROPERTY(bool active READ isActive WRITE setActive)
-    Q_PROPERTY(int undoLimit READ undoLimit WRITE setUndoLimit)
+    Q_PROPERTY(bool active READ isActive WRITE setActive NOTIFY activeChanged)
+    Q_PROPERTY(int undoLimit READ undoLimit WRITE setUndoLimit NOTIFY undoLimitChanged)
 
 public:
     explicit KUndo2QStack(QObject *parent = 0);
@@ -216,6 +216,8 @@ Q_SIGNALS:
     void canRedoChanged(bool canRedo);
     void undoTextChanged(const QString &undoActionText);
     void redoTextChanged(const QString &redoActionText);
+    void activeChanged(bool);
+    void undoLimitChanged(int);
 
 protected:
     virtual void notifySetIndexChangedOneCommand();

@@ -74,8 +74,8 @@ class QIcon;
 class KUNDO2_EXPORT KUndo2View : public QListView
 {
     Q_OBJECT
-    Q_PROPERTY(QString emptyLabel READ emptyLabel WRITE setEmptyLabel)
-    Q_PROPERTY(QIcon cleanIcon READ cleanIcon WRITE setCleanIcon)
+    Q_PROPERTY(QString emptyLabel READ emptyLabel WRITE setEmptyLabel NOTIFY emptyLabelChanged)
+    Q_PROPERTY(QIcon cleanIcon READ cleanIcon WRITE setCleanIcon NOTIFY cleanIconChanged)
 
 public:
     explicit KUndo2View(QWidget *parent = 0);
@@ -101,6 +101,10 @@ public Q_SLOTS:
 #ifndef QT_NO_UNDOGROUP
     void setGroup(KUndo2Group *group);
 #endif
+
+Q_SIGNALS:
+    void emptyLabelChanged();
+    void cleanIconChanged();
 
 private:
     KUndo2ViewPrivate* const d;
