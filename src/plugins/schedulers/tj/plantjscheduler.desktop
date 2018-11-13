@@ -4,4 +4,14 @@ Type=Service
 X-KDE-Library=plantjscheduler
 
 Name=TJ Scheduler
+Name[ca]=Planificador TJ
+Name[nl]=TJ-planner
+Name[pt]=Escalonamento TJ
+Name[uk]=Засіб планування TJ
+Name[x-test]=xxTJ Schedulerxx
 Comment=The TaskJuggler scheduler
+Comment[ca]=El planificador TaskJuggler
+Comment[nl]=De planner van TaskJuggler
+Comment[pt]=O escalonamento do TaskJuggler
+Comment[uk]=Засіб планування TaskJuggler
+Comment[x-test]=xxThe TaskJuggler schedulerxx

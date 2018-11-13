@@ -2,6 +2,11 @@
 Type=ServiceType
 X-KDE-ServiceType=Plan/Filter
 Comment=Calligra Filter
+Comment[ca]=Filtre del Calligra
+Comment[nl]=Calligra Filter
+Comment[pt]=Filtro do Calligra
+Comment[uk]=Фільтр Calligra
+Comment[x-test]=xxCalligra Filterxx
 
 [PropertyDef::X-KDE-Import]
 Type=QStringList

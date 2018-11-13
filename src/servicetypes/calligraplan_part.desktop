@@ -2,6 +2,11 @@
 Type=ServiceType
 X-KDE-ServiceType=Plan/Part
 Comment=Calligra Component
+Comment[ca]=Component del Calligra
+Comment[nl]=Calligra-component
+Comment[pt]=Componente do Calligra
+Comment[uk]=Компонент Calligra
+Comment[x-test]=xxCalligra Componentxx
 
 # Name of the native mimetype (mandatory)
 [PropertyDef::X-KDE-NativeMimeType]

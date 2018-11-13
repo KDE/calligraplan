@@ -1,5 +1,15 @@
 [Desktop Entry]
 Name=Plan Scheduler Plugin
+Name[ca]=Connector de planificador del Plan
+Name[nl]=Planner-plug-in voor Plan
+Name[pt]='Plugin' de Escalonamento do Plan
+Name[uk]=Додаток планування Plan
+Name[x-test]=xxPlan Scheduler Pluginxx
 Type=ServiceType
 X-KDE-ServiceType=Plan/SchedulerPlugin
 Comment=A plugin that calculates a project schedule
+Comment[ca]=Un connector que calcula un planificador de projectes
+Comment[nl]=Een plug-in, die een projectplanning berekent
+Comment[pt]=Um 'plugin' que calcula o escalonamento de um projecto
+Comment[uk]=Додаток для обчислення розкладу проекту
+Comment[x-test]=xxA plugin that calculates a project schedulexx

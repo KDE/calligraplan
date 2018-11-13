@@ -3,17 +3,32 @@
         "Authors": [
             {
                 "Email": "calligra_devel@kde.org",
-                "Name": "Calligra Team"
+                "Name": "Calligra Team",
+                "Name[ca]": "Equip del Calligra",
+                "Name[nl]": "Het team van Calligra",
+                "Name[pt]": "Equipa do Calligra",
+                "Name[uk]": "Команда розробників Calligra",
+                "Name[x-test]": "xxCalligra Teamxx"
             }
         ],
         "Category": "",
         "Dependencies": [],
         "Description": "Text element for Reports",
+        "Description[ca]": "Element de text per informes",
+        "Description[nl]": "Tekstelement voor rapporten",
+        "Description[pt]": "Elemento de texto para os Relatórios",
+        "Description[uk]": "Елемент тексту для звітів",
+        "Description[x-test]": "xxText element for Reportsxx",
         "EnabledByDefault": true,
         "Icon": "text-enriched",
         "Id": "org.kde.kreport.plan.text",
         "License": "LGPL",
         "Name": "Text",
+        "Name[ca]": "Text",
+        "Name[nl]": "Tekst",
+        "Name[pt]": "Texto",
+        "Name[uk]": "Текст",
+        "Name[x-test]": "xxTextxx",
         "ServiceTypes": [
             "KReport/Element"
         ],

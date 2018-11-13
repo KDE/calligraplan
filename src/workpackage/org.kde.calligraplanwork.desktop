@@ -1,7 +1,22 @@
 [Desktop Entry]
 Name=Plan WorkPackage Handler
+Name[ca]=Gestor de paquets de feina del Plan
+Name[nl]=Plan werkpakketbeheerder
+Name[pt]=Tratamento de Pacotes de Trabalho do Plan
+Name[uk]=Програма опрацювання робочих пакунків Plan
+Name[x-test]=xxPlan WorkPackage Handlerxx
 GenericName=Project Management
+GenericName[ca]=Gestió de projectes
+GenericName[nl]=Projectbeheer
+GenericName[pt]=Gestão de Projectos
+GenericName[uk]=Керування проектами
+GenericName[x-test]=xxProject Managementxx
 Comment=Work Package handler for the Plan project planning tool
+Comment[ca]=Gestor de paquets de feina per a l'eina de planificació de projectes Plan
+Comment[nl]=Werkpakketbeheerder voor het Plan-projectplanninghulpmiddel
+Comment[pt]=Tratamento de pacotes de trabalho para a ferramenta de planeamento de projectos do Plan
+Comment[uk]=Обробник робочих пакунків для засобу планування проектів Plan
+Comment[x-test]=xxWork Package handler for the Plan project planning toolxx
 Exec=calligraplanwork %u
 MimeType=application/x-vnd.kde.plan.work;application/x-vnd.kde.kplato.work;
 Type=Application

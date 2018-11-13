@@ -1,6 +1,16 @@
 [Desktop Entry]
 Name=Plan
+Name[ca]=Plan
+Name[nl]=Plan
+Name[pt]=Plan
+Name[uk]=Plan
+Name[x-test]=xxPlanxx
 GenericName=Project Management
+GenericName[ca]=Gestió de projectes
+GenericName[nl]=Projectbeheer
+GenericName[pt]=Gestão de Projectos
+GenericName[uk]=Керування проектами
+GenericName[x-test]=xxProject Managementxx
 Exec=calligraplan %U
 MimeType=application/x-vnd.kde.plan;
 Type=Application
