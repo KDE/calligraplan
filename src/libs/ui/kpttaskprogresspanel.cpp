@@ -232,7 +232,7 @@ TaskProgressPanelImpl::TaskProgressPanelImpl( Task &task, QWidget *parent )
     addEntryBtn->setIcon(koIcon("list-add"));
     removeEntryBtn->setIcon(koIcon("list-remove"));
 
-    connect(entryTable, SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(slotSelectionChanged(QItemSelection)) );
+    connect(entryTable, SIGNAL(selectedItemsChanged(QItemSelection,QItemSelection)), SLOT(slotSelectionChanged(QItemSelection)) );
     removeEntryBtn->setEnabled( false );
 
     editmode->setCurrentIndex( m_original.entrymode() - 1 );

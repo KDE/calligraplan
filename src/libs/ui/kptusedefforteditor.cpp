@@ -822,7 +822,7 @@ void CompletionEntryEditor::setCompletionModel( CompletionEntryItemModel *m )
         disconnect(model(), SIGNAL(rowRemoved(QDate)), this, SIGNAL(rowRemoved(QDate)));
         disconnect(model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SIGNAL(changed()));
         disconnect(model(), SIGNAL(changed()), this, SIGNAL(changed()));
-        disconnect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SIGNAL(selectionChanged(QItemSelection,QItemSelection)));
+        disconnect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SIGNAL(selectedItemsChanged(QItemSelection,QItemSelection)));
     }
     setModel( m );
     if ( model() ) {
@@ -830,7 +830,7 @@ void CompletionEntryEditor::setCompletionModel( CompletionEntryItemModel *m )
         connect(model(), SIGNAL(rowRemoved(QDate)), this, SIGNAL(rowRemoved(QDate)));
         connect(model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SIGNAL(changed()));
         connect(model(), SIGNAL(changed()), this, SIGNAL(changed()));
-        connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SIGNAL(selectionChanged(QItemSelection,QItemSelection)));
+        connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SIGNAL(selectedItemsChanged(QItemSelection,QItemSelection)));
     }
 }
 
@@ -846,7 +846,7 @@ void CompletionEntryEditor::addEntry()
     if ( i.isValid() ) {
         model()->setFlags( i.column(), Qt::ItemIsEditable );
         setCurrentIndex( i );
-        emit selectionChanged( QItemSelection(), QItemSelection() ); //hmmm, control removeEntryBtn
+        emit selectedItemsChanged(QItemSelection(), QItemSelection()); //hmmm, control removeEntryBtn
         scrollTo( i );
         edit( i );
         model()->setFlags( i.column(), Qt::NoItemFlags );

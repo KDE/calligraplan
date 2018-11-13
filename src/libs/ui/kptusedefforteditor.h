@@ -191,7 +191,7 @@ Q_SIGNALS:
     void changed();
     void rowInserted( const QDate& );
     void rowRemoved( const QDate& );
-    void selectionChanged( const QItemSelection&, const QItemSelection& );
+    void selectedItemsChanged(const QItemSelection&, const QItemSelection&);
 
 public Q_SLOTS:
     void addEntry();

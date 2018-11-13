@@ -139,7 +139,7 @@ TaskCompletionPanel::TaskCompletionPanel(WorkPackage &p, ScheduleManager *sm, QW
     connect(entryTable, SIGNAL(rowInserted(QDate)), SLOT(slotChanged()) );
     connect(entryTable, SIGNAL(rowInserted(QDate)), SLOT(slotEntryChanged()) );
     connect(entryTable, SIGNAL(rowRemoved(QDate)), SLOT(slotEntryChanged()) );
-    connect(entryTable, SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(slotSelectionChanged(QItemSelection)) );
+    connect(entryTable, SIGNAL(selectedItemsChanged(QItemSelection,QItemSelection)), SLOT(slotSelectionChanged(QItemSelection)) );
     
 
     connect(started, SIGNAL(toggled(bool)), SLOT(slotStartedChanged(bool)));
