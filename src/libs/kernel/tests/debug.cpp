@@ -294,9 +294,9 @@ void print( const Completion &c, const QString &name, const QString &s = QString
     
     if ( ! c.usedEffortMap().isEmpty() ) {
         qDebug()<<"     Used effort:";
-        foreach ( const Resource *r, c.usedEffortMap().keys() ) {
+        foreach ( const Resource *r, c.usedEffortMap().keys() ) {  // clazy:exclude=container-anti-pattern
             Completion::UsedEffort *ue = c.usedEffort( r );
-            foreach ( const QDate &d, ue->actualEffortMap().keys() ) {
+            foreach ( const QDate &d, ue->actualEffortMap().keys() ) { // clazy:exclude=container-anti-pattern
                 qDebug()<<"         "<<r->name()<<':';
                 qDebug()<<"             "<<d.toString( Qt::ISODate )<<':'<<c.actualEffort( d ).toString()<<c.actualCost( d );
             }
@@ -320,7 +320,7 @@ void print( const EffortCostMap &m, const QString &s = QString() ) {
             <<')';
 
     if ( ! m.days().isEmpty() ) {
-        foreach ( const QDate &d, m.days().keys() ) {
+        foreach ( const QDate &d, m.days().keys() ) { // clazy:exclude=container-anti-pattern
             qDebug()<<"   "<<d.toString(Qt::ISODate)<<':'<<m.hoursOnDate( d )<<'h'<<m.costOnDate( d )
                                                     <<'('<<m.bcwpEffortOnDate( d )<<'h'<<m.bcwpCostOnDate( d )<<')';
         }

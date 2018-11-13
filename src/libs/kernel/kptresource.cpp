@@ -1391,14 +1391,14 @@ void Resource::addExternalAppointment(const QString& id, Appointment* a)
 {
     int row = -1;
     if ( m_externalAppointments.contains( id ) ) {
-        int row = m_externalAppointments.keys().indexOf( id );
+        int row = m_externalAppointments.keys().indexOf( id ); // clazy:exclude=container-anti-pattern
         emit externalAppointmentToBeRemoved( this, row );
         delete m_externalAppointments.take( id );
         emit externalAppointmentRemoved();
     }
     if ( row == -1 ) {
         m_externalAppointments[ id ] = a;
-        row = m_externalAppointments.keys().indexOf( id );
+        row = m_externalAppointments.keys().indexOf( id ); // clazy:exclude=container-anti-pattern
         m_externalAppointments.remove( id );
     }
     emit externalAppointmentToBeAdded( this, row );
@@ -1415,7 +1415,7 @@ void Resource::addExternalAppointment( const QString &id, const QString &name, c
         a->addInterval( from, end, load );
         //debugPlan<<m_name<<name<<"new appointment:"<<a<<from<<end<<load;
         m_externalAppointments[ id ] = a;
-        int row = m_externalAppointments.keys().indexOf( id );
+        int row = m_externalAppointments.keys().indexOf( id ); // clazy:exclude=container-anti-pattern
         m_externalAppointments.remove( id );
         emit externalAppointmentToBeAdded( this, row );
         m_externalAppointments[ id ] = a;
@@ -1441,7 +1441,8 @@ void Resource::subtractExternalAppointment( const QString &id, const DateTime &s
 
 void Resource::clearExternalAppointments()
 {
-    foreach ( const QString &id, m_externalAppointments.keys() ) {
+    const QStringList keys = m_externalAppointments.keys();
+    foreach (const QString &id, keys) {
         clearExternalAppointments( id );
     }
 }
@@ -1449,7 +1450,7 @@ void Resource::clearExternalAppointments()
 void Resource::clearExternalAppointments( const QString &projectId )
 {
     while ( m_externalAppointments.contains( projectId ) ) {
-        int row = m_externalAppointments.keys().indexOf( projectId );
+        int row = m_externalAppointments.keys().indexOf( projectId ); // clazy:exclude=container-anti-pattern
         emit externalAppointmentToBeRemoved( this, row );
         Appointment *a  = m_externalAppointments.take( projectId );
         emit externalAppointmentRemoved();
@@ -1461,7 +1462,7 @@ Appointment *Resource::takeExternalAppointment( const QString &id )
 {
     Appointment *a = 0;
     if ( m_externalAppointments.contains( id ) ) {
-        int row = m_externalAppointments.keys().indexOf( id );
+        int row = m_externalAppointments.keys().indexOf( id ); // clazy:exclude=container-anti-pattern
         emit externalAppointmentToBeRemoved( this, row );
         a = m_externalAppointments.take( id );
         emit externalAppointmentRemoved();
@@ -2190,7 +2191,7 @@ void ResourceGroupRequest::allocateDynamicRequests( const DateTime &time, const 
         }
     }
     for ( --num; num >= 0 && ! map.isEmpty(); --num ) {
-        long key = map.keys().last();
+        long key = map.lastKey();
         ResourceRequest *r = map.take( key );
         r->setAllocatedDynaically( true );
         addResourceRequest( r );

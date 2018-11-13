@@ -705,7 +705,7 @@ Duration CalendarWeekdays::duration(int _weekday) const {
 
 int CalendarWeekdays::indexOf( const CalendarDay *day ) const
 {
-    return m_weekdays.values().indexOf( const_cast<CalendarDay*>(day) );
+    return m_weekdays.key(const_cast<CalendarDay*>(day));
 }
 
 /////   Calendar   ////
@@ -1099,7 +1099,7 @@ void Calendar::setWeekday( int dayno, const CalendarDay &day )
     }
     CalendarDay *wd = weekday( dayno );
     while ( ! wd->timeIntervals().isEmpty() ) {
-        TimeInterval *ti = wd->timeIntervals().last();
+        TimeInterval *ti = wd->timeIntervals().constLast();
         emit workIntervalToBeRemoved( wd, ti );
         wd->removeInterval( ti );
         emit workIntervalRemoved( wd, ti );

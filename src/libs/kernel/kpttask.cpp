@@ -3055,43 +3055,35 @@ void Completion::addEntry( QDate date, Entry *entry )
 
 QDate Completion::entryDate() const
 {
-    return m_entries.isEmpty() ? QDate() : m_entries.keys().last();
+    return m_entries.isEmpty() ? QDate() : m_entries.lastKey();
 }
 
 int Completion::percentFinished() const
 {
-    return m_entries.isEmpty() ? 0 : m_entries.values().last()->percentFinished;
+    return m_entries.isEmpty() ? 0 : m_entries.last()->percentFinished;
 }
 
 int Completion::percentFinished( QDate date ) const
 {
     int x = 0;
-    foreach ( QDate d, m_entries.keys() ) {
-        if ( d <= date ) {
-            x = m_entries[ d ]->percentFinished;
-        }
-        if ( d >= date ) {
-            break;
-        }
+    EntryList::const_iterator it;
+    for (it = m_entries.constBegin(); it != m_entries.constEnd() && it.key() <= date; ++it) {
+        x = it.value()->percentFinished;
     }
     return x;
 }
 
 Duration Completion::remainingEffort() const
 {
-    return m_entries.isEmpty() ? Duration::zeroDuration : m_entries.values().last()->remainingEffort;
+    return m_entries.isEmpty() ? Duration::zeroDuration : m_entries.last()->remainingEffort;
 }
 
 Duration Completion::remainingEffort( QDate date ) const
 {
     Duration x;
-    foreach ( const QDate &d, m_entries.keys() ) {
-        if ( d <= date ) {
-            x = m_entries[ d ]->remainingEffort;
-        }
-        if ( d >= date ) {
-            break;
-        }
+    EntryList::const_iterator it;
+    for (it = m_entries.constBegin(); it != m_entries.constEnd() && it.key() <= date; ++it) {
+        x = it.value()->remainingEffort;
     }
     return x;
 }
@@ -3101,12 +3093,14 @@ Duration Completion::actualEffort() const
     Duration eff;
     if ( m_entrymode == EnterEffortPerResource ) {
         foreach( const UsedEffort *ue, m_usedEffort ) {
-            foreach ( const QDate &d, ue->actualEffortMap().keys() ) {
-                eff += ue->actualEffortMap()[ d ].effort();
+            const QMap<QDate, UsedEffort::ActualEffort> map = ue->actualEffortMap();
+            QMap<QDate, UsedEffort::ActualEffort>::const_iterator it;
+            for (it = map.constBegin(); it != map.constEnd(); ++it) {
+                eff += it.value().effort();
             }
         }
     } else if ( ! m_entries.isEmpty() ) {
-        eff = m_entries.values().last()->totalPerformed;
+        eff = m_entries.last()->totalPerformed;
     }
     return eff;
 }
@@ -3284,13 +3278,13 @@ void Completion::addUsedEffort( const Resource *resource, Completion::UsedEffort
 
 QString Completion::note() const
 {
-    return m_entries.isEmpty() ? QString() : m_entries.values().last()->note;
+    return m_entries.isEmpty() ? QString() : m_entries.last()->note;
 }
 
 void Completion::setNote( const QString &str )
 {
     if ( ! m_entries.isEmpty() ) {
-        m_entries.values().last()->note = str;
+        m_entries.last()->note = str;
         changed();
     }
 }
@@ -3298,12 +3292,17 @@ void Completion::setNote( const QString &str )
 std::pair<QDate, QDate> Completion::actualStartEndDates() const
 {
     std::pair<QDate, QDate> p;
-    foreach ( const Resource *r, m_usedEffort.keys() ) {
-        if ( ! m_usedEffort[ r ]->actualEffortMap().isEmpty() ) {
-            QDate d = m_usedEffort[ r ]->actualEffortMap().keys().first();
-            if ( ! p.first.isValid() || d < p.first ) p.first = d;
-            d = m_usedEffort[ r ]->actualEffortMap().keys().last();
-            if ( ! p.second.isValid() || d > p.second ) p.second = d;
+    ResourceUsedEffortMap::const_iterator it;
+    for (it = m_usedEffort.constBegin(); it != m_usedEffort.constEnd(); ++it) {
+        if (!it.value()->actualEffortMap().isEmpty()) {
+            QDate d = it.value()->firstDate();
+            if (!p.first.isValid() || d < p.first) {
+                p.first = d;
+            }
+            d = it.value()->lastDate();
+            if (!p.second.isValid() || d > p.second ) {
+                p.second = d;
+            }
         }
     }
     return p;
@@ -3313,11 +3312,12 @@ double Completion::actualCost( QDate date ) const
 {
     //debugPlan<<date;
     double c = 0.0;
-    foreach ( const Resource *r, m_usedEffort.keys() ) {
-        double nc = r->normalRate();
-        double oc = r->overtimeRate();
-        if ( m_usedEffort[ r ]->actualEffortMap().contains( date ) ) {
-            UsedEffort::ActualEffort a = m_usedEffort[ r ]->effort( date );
+    ResourceUsedEffortMap::const_iterator it;
+    for (it = m_usedEffort.constBegin(); it != m_usedEffort.constEnd(); ++it) {
+        double nc = it.key()->normalRate();
+        double oc = it.key()->overtimeRate();
+        if (it.value()->actualEffortMap().contains(date)) {
+            UsedEffort::ActualEffort a = it.value()->effort(date);
             c += a.normalEffort().toDouble( Duration::Unit_h ) * nc;
             c += a.overtimeEffort().toDouble( Duration::Unit_h ) * oc;
         }
@@ -3344,8 +3344,9 @@ double Completion::actualCost( const Resource *resource ) const
 double Completion::actualCost() const
 {
     double c = 0.0;
-    foreach ( const Resource *r, m_usedEffort.keys() ) {
-        c += actualCost( r );
+    ResourceUsedEffortMap::const_iterator it;
+    for (it = m_usedEffort.constBegin(); it != m_usedEffort.constEnd(); ++it) {
+        c += actualCost(it.key());
     }
     return c;
 }
@@ -3372,9 +3373,11 @@ EffortCostMap Completion::actualEffortCost( long int id, KPlato::EffortCostCalcu
     QList< QMap<QDate, UsedEffort::ActualEffort> > lst;
     QList< double > rate;
     QDate start, end;
-    foreach ( const Resource *r, m_usedEffort.keys() ) {
+    ResourceUsedEffortMap::const_iterator it;
+    for (it = m_usedEffort.constBegin(); it != m_usedEffort.constEnd(); ++it) {
+        const Resource *r = it.key();
         //debugPlan<<m_node->name()<<r->name();
-        lst << usedEffort( r )->actualEffortMap();
+        lst << usedEffort(r)->actualEffortMap();
         if ( lst.last().isEmpty() ) {
             lst.takeLast();
             continue;
@@ -3391,11 +3394,11 @@ EffortCostMap Completion::actualEffortCost( long int id, KPlato::EffortCostCalcu
         } else {
             rate.append( r->normalRate() );
         }
-        if ( ! start.isValid() || start > lst.last().keys().first() ) {
-            start = lst.last().keys().first();
+        if ( ! start.isValid() || start > lst.last().firstKey() ) {
+            start = lst.last().firstKey();
         }
-        if ( ! end.isValid() || end < lst.last().keys().last() ) {
-            end = lst.last().keys().last();
+        if ( ! end.isValid() || end < lst.last().lastKey() ) {
+            end = lst.last().lastKey();
         }
     }
     if ( ! lst.isEmpty() && start.isValid() && end.isValid() ) {
@@ -3578,8 +3581,10 @@ Completion::UsedEffort::~UsedEffort()
 
 void Completion::UsedEffort::mergeEffort( const Completion::UsedEffort &value )
 {
-    foreach ( const QDate &d, value.actualEffortMap().keys() ) {
-        setEffort( d, value.actualEffortMap()[ d ] );
+    const QMap<QDate, ActualEffort> map = value.actualEffortMap();
+    QMap<QDate, ActualEffort>::const_iterator it;
+    for (it = map.constBegin(); it != map.constEnd(); ++it) {
+        setEffort(it.key(), it.value());
     }
 }
 
@@ -3591,11 +3596,9 @@ void Completion::UsedEffort::setEffort( QDate date, const ActualEffort &value )
 Duration Completion::UsedEffort::effortTo( QDate date ) const
 {
     Duration eff;
-    foreach ( const QDate &d, m_actual.keys() ) {
-        if ( d > date ) {
-            break;
-        }
-        eff += m_actual[ d ].effort();
+    QMap<QDate, ActualEffort>::const_iterator it;
+    for (it = m_actual.constBegin(); it != m_actual.constEnd() && it.key() <= date; ++it) {
+        eff += it.value().effort();
     }
     return eff;
 }

@@ -83,6 +83,8 @@ public:
             ActualEffort takeEffort( QDate date ) { return m_actual.take( date ); }
             /// Returns the total effort for all registered dates
             Duration effort() const;
+            QDate firstDate() const { return m_actual.firstKey(); }
+            QDate lastDate() const { return m_actual.lastKey(); }
             QMap<QDate, ActualEffort> actualEffortMap() const { return m_actual; }
             
             /// Load from document

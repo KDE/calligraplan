@@ -2012,10 +2012,11 @@ Resource *Project::resource( const QString& id )
 
 Resource *Project::resourceByName( const QString& name ) const
 {
-    foreach ( const QString &k, resourceIdDict.keys() ) {
-        Resource *r = resourceIdDict[ k ];
+    QHash<QString, Resource*>::const_iterator it;
+    for (it = resourceIdDict.constBegin(); it != resourceIdDict.constEnd(); ++it) {
+        Resource *r = it.value();
         if ( r->name() == name ) {
-            Q_ASSERT( k == r->id() );
+            Q_ASSERT( it.key() == r->id() );
             return r;
         }
     }

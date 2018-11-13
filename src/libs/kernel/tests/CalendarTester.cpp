@@ -288,7 +288,7 @@ void CalendarTester::workIntervalsFullDays()
     t.addDay(day);
 
     QCOMPARE( day->numIntervals(), 1 );
-    QVERIFY( day->timeIntervals().first()->endsMidnight() );
+    QVERIFY( day->timeIntervals().constFirst()->endsMidnight() );
 
     DateTime start = day->start();
     DateTime end = day->end();
@@ -337,7 +337,7 @@ void CalendarTester::dstSpring()
     AppointmentIntervalList lst = t.workIntervals( before, after, 100. );
     qDebug()<<lst;
     QCOMPARE( lst.map().count(), 1 );
-    QCOMPARE( lst.map().first().effort().toHours(), 23. );
+    QCOMPARE( lst.map().first().effort().toHours(), 23. ); // clazy:exclude=detaching-temporary
     
     wd1->clearIntervals();
     qDebug()<<"clear list";

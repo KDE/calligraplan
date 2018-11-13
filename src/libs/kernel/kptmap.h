@@ -61,12 +61,12 @@ public:
     }
     int state(QDate date) const { return state(date.toString(Qt::ISODate)); }
 
-    bool operator==(const DateMap &m) const {
-        return keys() == m.keys() && values() == m.values();
-    }
-    bool operator!=(const DateMap &m) const {
-        return keys() != m.keys() || values() != m.values();
-    }
+//     bool operator==(const DateMap &m) const {
+//         return keys() == m.keys() && values() == m.values();
+//     }
+//     bool operator!=(const DateMap &m) const {
+//         return keys() != m.keys() || values() != m.values();
+//     }
 
     // boolean use
     void toggle(const QString &date, int state=CalendarDay::NonWorking) {
@@ -107,12 +107,12 @@ public:
         else return it.value();
     }
 
-    bool operator==(const IntMap &m) const {
-        return keys() == m.keys() && values() == m.values();
-    }
-    bool operator!=(const IntMap &m) const {
-        return keys() != m.keys() || values() != m.values();
-    }
+//     bool operator==(const IntMap &m) const {
+//         return keys() == m.keys() && values() == m.values();
+//     }
+//     bool operator!=(const IntMap &m) const {
+//         return keys() != m.keys() || values() != m.values();
+//     }
 
     // boolean use
     void toggle(int key, int state=CalendarDay::NonWorking) {

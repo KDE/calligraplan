@@ -4288,7 +4288,7 @@ GanttItemModel::~GanttItemModel()
 int GanttItemModel::rowCount( const QModelIndex &parent ) const
 {
     if ( m_showSpecial ) {
-        if ( parentmap.values().contains( parent.internalPointer() ) ) {
+        if (parentmap.values().contains(parent.internalPointer())) { // clazy:exclude=container-anti-pattern
             return 0;
         }
         Node *n = node( parent );
@@ -4305,7 +4305,7 @@ QModelIndex GanttItemModel::index( int row, int column, const QModelIndex &paren
         Node *p = node( parent );
         if ( p->type() == Node::Type_Task ) {
             void *v = 0;
-            foreach ( void *i, parentmap.values( p ) ) {
+            foreach ( void *i, parentmap.values( p ) ) { // clazy:exclude=container-anti-pattern
                 if ( *( (int*)( i ) ) == row ) {
                     v = i;
                     break;
@@ -4654,7 +4654,7 @@ QModelIndex MilestoneItemModel::index( int row, int column, const QModelIndex &p
         //debugPlan<<"No index for"<<parent<<row<<","<<column;
         return QModelIndex();
     }
-    return createIndex( row, column, m_nodemap.values().at( row ) );
+    return createIndex( row, column, m_nodemap.values().at( row ) ); // clazy:exclude=container-anti-pattern
 }
 
 QModelIndex MilestoneItemModel::index( const Node *node ) const
@@ -4662,7 +4662,7 @@ QModelIndex MilestoneItemModel::index( const Node *node ) const
     if ( m_project == 0 || node == 0 ) {
         return QModelIndex();
     }
-    return createIndex( m_nodemap.values().indexOf( const_cast<Node*>( node ) ), 0, const_cast<Node*>(node) );
+    return createIndex( m_nodemap.values().indexOf( const_cast<Node*>( node ) ), 0, const_cast<Node*>(node) ); // clazy:exclude=container-anti-pattern
 }
 
 

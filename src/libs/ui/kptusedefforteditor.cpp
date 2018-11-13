@@ -131,7 +131,7 @@ QVariant UsedEffortItemModel::data ( const QModelIndex &index, int role ) const
         }
         case Role::EnumListValue: {
             if ( index.column() == 0 ) {
-                return m_editlist.values().indexOf( resource( index ) );
+                return m_editlist.values().indexOf( resource( index ) ); // clazy:exclude=container-anti-pattern
             }
             break;
         }
@@ -154,7 +154,7 @@ bool UsedEffortItemModel::setData ( const QModelIndex &idx, const QVariant &valu
 
                 Q_ASSERT ( m_editlist.count() > value.toInt() );
 
-                const Resource *v = m_editlist.values().value( value.toInt() );
+                const Resource *v = m_editlist.values().value( value.toInt() ); // clazy:exclude=container-anti-pattern
                 Q_ASSERT( v != 0 );
 
                 int x = m_resourcelist.indexOf( er );
@@ -260,8 +260,10 @@ void UsedEffortItemModel::setCompletion( Completion *completion )
     m_completion = completion;
     m_resourcelist.clear();
     QMap<QString, const Resource*> lst;
-    foreach ( const Resource *r, completion->usedEffortMap().keys() ) {
-        lst.insertMulti( r->name(), r );
+    const Completion::ResourceUsedEffortMap map = completion->usedEffortMap();
+    Completion::ResourceUsedEffortMap::const_iterator it;
+    for (it = map.constBegin(); it != map.constEnd(); ++it) {
+        lst.insertMulti(it.key()->name(), it.key());
     }
     m_resourcelist = lst.values();
     endResetModel();
@@ -308,9 +310,9 @@ QModelIndex UsedEffortItemModel::addRow()
     }
     int row = rowCount();
     beginInsertRows( QModelIndex(), row, row );
-    m_resourcelist.append( m_editlist.values().first() );
+    m_resourcelist.append(m_editlist.first());
     endInsertRows();
-    return createIndex( row, 0, const_cast<Resource*>( m_editlist.values().first() ) );
+    return createIndex(row, 0, const_cast<Resource*>(m_editlist.first()));
 }
 
 QMap<QString, const Resource*> UsedEffortItemModel::freeResources() const

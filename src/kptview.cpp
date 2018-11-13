@@ -1579,13 +1579,11 @@ void View::slotSelectionChanged( ScheduleManager *sm ) {
     if ( sm == 0 ) {
         return;
     }
-    int idx = m_scheduleActions.values().indexOf( sm->expected() );
-    if ( idx < 0 ) {
-        debugPlan<<sm<<"could not find schedule"<<sm->expected();
+    QAction *a = m_scheduleActions.key(sm->expected());
+    if (!a) {
+        debugPlan<<sm<<"could not find action for schedule:"<<sm->expected();
         return;
     }
-    QAction *a = m_scheduleActions.keys().at( idx );
-    Q_ASSERT( a );
     a->setChecked( true ); // this doesn't trigger QActionGroup
     slotViewSchedule( a );
 }
@@ -1593,8 +1591,10 @@ void View::slotSelectionChanged( ScheduleManager *sm ) {
 QList<QAction*> View::sortedActionList()
 {
     QMap<QString, QAction*> lst;
-    foreach ( QAction *a, m_scheduleActions.keys() ) {
-        lst.insert( a->objectName(), a );
+    const QMap<QAction*, Schedule*> map = m_scheduleActions;
+    QMap<QAction*, Schedule*>::const_iterator it;
+    for (it = map.constBegin(); it != map.constEnd(); ++it) {
+        lst.insert(it.key()->objectName(), it.key());
     }
     return lst.values();
 }
@@ -1619,7 +1619,7 @@ void View::slotScheduleRemoved( const MainSchedule *sch )
         if ( checked && checked != a ) {
             checked->setChecked( true );
         } else if ( ! m_scheduleActions.isEmpty() ) {
-            m_scheduleActions.keys().first()->setChecked( true );
+            m_scheduleActions.firstKey()->setChecked( true );
         }
     }
     slotViewSchedule( m_scheduleActionGroup->checkedAction() );
@@ -1642,7 +1642,7 @@ void View::slotScheduleAdded( const MainSchedule *sch )
         } else if ( act ) {
             act->setChecked( true );
         } else if ( ! m_scheduleActions.isEmpty() ) {
-            m_scheduleActions.keys().first()->setChecked( true );
+            m_scheduleActions.firstKey()->setChecked( true );
         }
     }
     slotViewSchedule( m_scheduleActionGroup->checkedAction() );
@@ -1655,7 +1655,7 @@ void View::slotScheduleChanged( MainSchedule *sch )
         slotScheduleRemoved( sch );
         return;
     }
-    if ( m_scheduleActions.values().contains( sch ) ) {
+    if (QAction *a = m_scheduleActions.key(sch)) {
         slotScheduleRemoved( sch ); // hmmm, how to avoid this?
     }
     slotScheduleAdded( sch );
@@ -1708,9 +1708,11 @@ void View::slotPlugScheduleActions()
     //debugPlan<<activeScheduleId();
     long id = activeScheduleId();
     unplugActionList( "view_schedule_list" );
-    foreach( QAction *act, m_scheduleActions.keys() ) {
-        m_scheduleActionGroup->removeAction( act );
-        delete act;
+    const QMap<QAction*, Schedule*> map = m_scheduleActions;
+    QMap<QAction*, Schedule*>::const_iterator it;
+    for (it = map.constBegin(); it != map.constEnd(); ++it) {
+        m_scheduleActionGroup->removeAction(it.key());
+        delete it.key();
     }
     m_scheduleActions.clear();
     QAction *ca = 0;
@@ -1726,7 +1728,7 @@ void View::slotPlugScheduleActions()
     }
     plugActionList( "view_schedule_list", sortedActionList() );
     if ( ca == 0 && m_scheduleActionGroup->actions().count() > 0 ) {
-        ca = m_scheduleActionGroup->actions().first();
+        ca = m_scheduleActionGroup->actions().constFirst();
     }
     if ( ca ) {
         ca->setChecked( true );

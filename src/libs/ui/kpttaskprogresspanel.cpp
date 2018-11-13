@@ -163,10 +163,11 @@ MacroCommand *TaskProgressPanel::buildCommand( const Project &project, Completio
         }
     }
     const Completion::ResourceUsedEffortMap &map = curr.usedEffortMap();
-    foreach ( const Resource *res, map.keys() ) {
-        Resource *r = project.findResource( res->id() );
+    Completion::ResourceUsedEffortMap::const_iterator it;
+    for (it = map.constBegin(); it != map.constEnd(); ++it) {
+        Resource *r = project.findResource(it.key()->id());
         if ( r == 0 ) {
-            warnPlan<<"Can't find resource:"<<res->id()<<res->name();
+            warnPlan<<"Can't find resource:"<<it.key()->id()<<it.key()->name();
             continue;
         }
         Completion::UsedEffort *ue = map[ r ];

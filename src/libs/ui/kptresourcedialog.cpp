@@ -261,7 +261,7 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
             m_groups.insert( g->name(), g );
         }
         dia->group->addItems( m_groups.keys() );
-        dia->group->setCurrentIndex( m_groups.values().indexOf( resource->parentGroup() ) );
+        dia->group->setCurrentIndex( m_groups.values().indexOf( resource->parentGroup() ) ); // clazy:exclude=container-anti-pattern
     }
     dia->nameEdit->setText(resource->name());
     dia->initialsEdit->setText(resource->initials());

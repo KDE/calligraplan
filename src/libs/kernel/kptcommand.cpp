@@ -3324,12 +3324,14 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
     // Requests: clean up requests to resources already in m_project
     int gi = 0;
     int ri = 0;
-    foreach ( ResourceGroupRequest *gr, greqs.keys() ) {
-        QPair<Node*, ResourceGroup*> pair = greqs[ gr ];
+    QMap<ResourceGroupRequest*, QPair<Node *, ResourceGroup*> >::const_iterator gregsIt;
+    for (gregsIt = greqs.constBegin(); gregsIt != greqs.constEnd(); ++gregsIt) {
+        ResourceGroupRequest *gr = gregsIt.key();
+        QPair<Node*, ResourceGroup*> pair = gregsIt.value();
         Node *n = pair.first;
         ResourceGroup *newGroup = pair.second;
-        if ( existingGroups.values().contains( newGroup ) ) {
-            newGroup = existingGroups.key( newGroup );
+        if (ResourceGroup *ng = existingGroups.key(newGroup)) {
+            newGroup = ng;
         }
         Q_ASSERT( allGroups.contains( newGroup ) );
         gr->setGroup( newGroup );
@@ -3339,8 +3341,8 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
         for ( ; i != rreqs.constEnd() && i.key() == gr; ++i ) {
             ResourceRequest *rr = i.value().first;
             Resource *newRes = i.value().second;
-            if ( existingResources.values().contains( newRes ) ) {
-                newRes = existingResources.key( newRes );
+            if (Resource *nr = existingResources.key(newRes)) {
+                newRes = nr;
             }
             debugPlanInsertProject<<"Add resource request:"<<n->name()<<":"<<newGroup->name()<<":"<<newRes->name();
             if ( ! rr->requiredResources().isEmpty() ) {
@@ -3664,8 +3666,10 @@ ClearAllExternalAppointmentsCmd::ClearAllExternalAppointmentsCmd( Project *proje
     m_project( project )
 {
     foreach ( Resource *r, project->resourceList() ) {
-        foreach ( const QString &id, r->externalProjects().keys() ) {
-            m_cmd.addCommand( new ClearExternalAppointmentCmd( r, id ) );
+        const QMap<QString, QString> map = r->externalProjects();
+        QMap<QString, QString>::const_iterator it;
+        for (it = map.constBegin(); it != map.constEnd(); ++it) {
+            m_cmd.addCommand(new ClearExternalAppointmentCmd(r, it.key()));
         }
     }
 }

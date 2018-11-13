@@ -521,8 +521,9 @@ void CostBreakdownItemModel::slotAccountRemoved( const Account *account )
 void CostBreakdownItemModel::slotDataChanged()
 {
     fetchData();
-    foreach ( Account *a, m_plannedCostMap.keys() ) {
-        QModelIndex idx1 = index( a );
+    QMap<Account*, EffortCostMap>::const_iterator it;
+    for (it = m_plannedCostMap.constBegin(); it != m_plannedCostMap.constEnd(); ++it) {
+        QModelIndex idx1 = index(it.key());
         QModelIndex idx2 = index( idx1.row(), columnCount() - 1, parent( idx1 ) );
         //debugPlan<<a->name()<<idx1<<idx2;
         emit dataChanged( idx1, idx2  );
@@ -1143,8 +1144,9 @@ void CostBreakdownItemModel::slotAccountChanged( Account *account )
 {
     Q_UNUSED(account);
     fetchData();
-    foreach ( Account *a, m_plannedCostMap.keys() ) {
-        QModelIndex idx1 = index( a );
+    QMap<Account*, EffortCostMap>::const_iterator it;
+    for (it = m_plannedCostMap.constBegin(); it != m_plannedCostMap.constEnd(); ++it) {
+        QModelIndex idx1 = index(it.key() );
         QModelIndex idx2 = index( idx1.row(), columnCount() - 1, parent( idx1 ) );
         //debugPlan<<a->name()<<idx1<<idx2;
         emit dataChanged( idx1, idx2  );
