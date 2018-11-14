@@ -1456,6 +1456,11 @@ ViewBase *View::createReportView( ViewListItem *cat, const QString &tag, const Q
     v->updateReadWrite( m_readWrite );
     return v;
 #else
+    Q_UNUSED(cat)
+    Q_UNUSED(tag)
+    Q_UNUSED(name)
+    Q_UNUSED(tip)
+    Q_UNUSED(index)
     return 0;
 #endif
 }
@@ -2760,6 +2765,8 @@ void View::createReportView(const QDomDocument &doc)
     QPointer<ViewListReportsDialog> vd = new ViewListReportsDialog( this, *m_viewlist, doc, this );
     vd->exec(); // FIXME  make non-crash
     delete vd;
+#else
+    Q_UNUSED(doc)
 #endif
 }
 
@@ -2793,6 +2800,8 @@ void View::slotOpenReportFileFinished( int result )
     QDomDocument doc;
     doc.setContent( &file );
     createReportView(doc);
+#else
+    Q_UNUSED(result)
 #endif
 }
 
