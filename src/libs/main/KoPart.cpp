@@ -178,12 +178,13 @@ int KoPart::viewCount() const
 
 QGraphicsItem *KoPart::createCanvasItem(KoDocument *document)
 {
+    Q_UNUSED(document)
+    return 0;
 /*    KoView *view = createView(document);
     QGraphicsProxyWidget *proxy = new QGraphicsProxyWidget();
     QWidget *canvasController = view->findChild<KoCanvasControllerWidget*>();
     proxy->setWidget(canvasController);
     return proxy;*/
-    return 0;
 }
 
 void KoPart::addMainWindow(KoMainWindow *mainWindow)

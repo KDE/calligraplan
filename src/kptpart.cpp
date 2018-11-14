@@ -157,8 +157,8 @@ QWidget *Part::createWelcomeView(KoMainWindow *mw)
     recent.loadEntries(configPtr->group("RecentFiles"));
     v->setRecentFiles(recent.items());
 
-    connect(v, SIGNAL(loadSharedResources(const QUrl&, const QUrl&)), doc, SLOT(insertResourcesFile(const QUrl&, const QUrl&)));
-    connect(v, SIGNAL(recentProject(const QUrl&)), mw, SLOT(slotFileOpenRecent(const QUrl&)));
+    connect(v, SIGNAL(loadSharedResources(QUrl,QUrl)), doc, SLOT(insertResourcesFile(QUrl,QUrl)));
+    connect(v, SIGNAL(recentProject(QUrl)), mw, SLOT(slotFileOpenRecent(QUrl)));
     connect(v, SIGNAL(showIntroduction()), this, SLOT(slotShowIntroduction()));
     connect(v, SIGNAL(projectCreated()), doc, SLOT(slotProjectCreated()));
     connect(v, SIGNAL(finished()), this, SLOT(finish()));

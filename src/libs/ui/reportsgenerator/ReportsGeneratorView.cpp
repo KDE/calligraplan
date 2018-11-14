@@ -224,7 +224,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     m_view->setRootIsDecorated(false);
     m_view->setAlternatingRowColors(true);
 
-    connect(m_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(slotContextMenuRequested(const QPoint&)));
+    connect(m_view, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenuRequested(QPoint)));
     l->addWidget(m_view);
 
     TemplateFileDelegate *del = new TemplateFileDelegate(m_view);

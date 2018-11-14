@@ -52,6 +52,7 @@ KoFilterManager::KoFilterManager(KoDocument* document,
         m_document(document), m_parentChain(0), m_graph(""),
         d(new Private())
 {
+    Q_UNUSED(progressUpdater)
     d->batch = false;
 }
 

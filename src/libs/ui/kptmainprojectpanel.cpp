@@ -118,8 +118,8 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     connect( namefield, SIGNAL(textChanged(QString)), this, SLOT(slotCheckAllFieldsFilled()) );
     connect( leaderfield, SIGNAL(textChanged(QString)), this, SLOT(slotCheckAllFieldsFilled()) );
     connect( useSharedResources, SIGNAL(toggled(bool)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( resourcesFile, SIGNAL(textChanged(const QString&)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( projectsPlace, SIGNAL(textChanged(const QString&)), this, SLOT(slotCheckAllFieldsFilled()) );
+    connect( resourcesFile, SIGNAL(textChanged(QString)), this, SLOT(slotCheckAllFieldsFilled()) );
+    connect( projectsPlace, SIGNAL(textChanged(QString)), this, SLOT(slotCheckAllFieldsFilled()) );
     connect(projectsLoadAtStartup, SIGNAL(toggled(bool)), this, SLOT(slotCheckAllFieldsFilled()));
     connect( chooseLeader, SIGNAL(clicked()), this, SLOT(slotChooseLeader()) );
 

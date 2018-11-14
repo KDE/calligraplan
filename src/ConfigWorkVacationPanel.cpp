@@ -58,7 +58,7 @@ ConfigWorkVacationPanelImpl::ConfigWorkVacationPanelImpl(QWidget *p )
         }
     }
     connect(region, SIGNAL(currentIndexChanged(int)), this, SLOT(slotRegionChanged(int)));
-    connect(kcfg_Region, SIGNAL(textChanged(const QString&)), this, SLOT(slotRegionCodeChanged(const QString&)));
+    connect(kcfg_Region, SIGNAL(textChanged(QString)), this, SLOT(slotRegionCodeChanged(QString)));
     region->setCurrentIndex(idx);
 #else
     holidaysWidget->hide();

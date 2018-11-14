@@ -2043,7 +2043,7 @@ void View::slotOpenNode( Node *node )
                 Project * project = static_cast<Project *>( node );
                 MainProjectDialog *dia = new MainProjectDialog( *project, this );
                 connect(dia, SIGNAL(dialogFinished(int)), SLOT(slotProjectEditFinished(int)));
-                connect(dia, SIGNAL(sigLoadSharedResources(const QString&, const QUrl&, bool)), this, SLOT(slotInsertResourcesFile(const QString&, const QUrl&)));
+                connect(dia, SIGNAL(sigLoadSharedResources(QString,QUrl,bool)), this, SLOT(slotInsertResourcesFile(QString,QUrl)));
                 connect(dia, &MainProjectDialog::loadResourceAssignments, getPart(), &MainDocument::loadResourceAssignments);
                 connect(dia, &MainProjectDialog::clearResourceAssignments, getPart(), &MainDocument::clearResourceAssignments);
                 dia->show();

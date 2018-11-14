@@ -438,7 +438,7 @@ void TaskEditor::createDockers()
         e->setDragDropMode( QAbstractItemView::DragOnly );
         e->setDragEnabled ( true );
         ds->setWidget( e );
-        connect(m_view->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), e, SLOT(setSelectedTasks(const QItemSelection&, const QItemSelection&)));
+        connect(m_view->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), e, SLOT(setSelectedTasks(QItemSelection,QItemSelection)));
         connect(this, SIGNAL(projectChanged(KPlato::Project*)), m, SLOT(setProject(KPlato::Project*)));
         connect(this, SIGNAL(readWriteChanged(bool)), m, SLOT(setReadWrite(bool)));
         connect(m, SIGNAL(executeCommand(KUndo2Command*)), part(), SLOT(addCommand(KUndo2Command*)));

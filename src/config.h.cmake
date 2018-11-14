@@ -1,3 +1,5 @@
+#include <QtGlobal>
+
 // Check windows
 #ifdef Q_OS_WIN
    #ifdef _WIN64

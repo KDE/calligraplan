@@ -60,8 +60,10 @@ void TasksEditDialog::setButtonOkEnabled(bool enabled)
     buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(enabled);
 }
 
-void TasksEditDialog::slotCurrentChanged(KPageWidgetItem *current, KPageWidgetItem */*prev*/)
+void TasksEditDialog::slotCurrentChanged(KPageWidgetItem *current, KPageWidgetItem *prev)
 {
+    Q_UNUSED(current)
+    Q_UNUSED(prev)
 }
 
 void TasksEditDialog::slotTaskRemoved(Node *node)
