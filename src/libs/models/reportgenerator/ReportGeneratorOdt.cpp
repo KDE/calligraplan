@@ -111,7 +111,7 @@ ChartItemModel *findChartItemModel(QSortFilterProxyModel &model)
 
 bool startsWith(const QStringList &keys, const QString &key)
 {
-    for (const QString k : keys) {
+    for (const QString &k : keys) {
         if (key.startsWith(k)) {
             return true;
         }
@@ -166,20 +166,20 @@ bool addDataToFile(QByteArray &buffer, const QString &destName, KoStore &to)
 
 QAbstractItemModel *translationModel()
 {
-    QStandardItemModel *model = new QStandardItemModel();
-    QMap<QString, QString> names;
-    names["Project"] = i18n("Project");
-    names["Manager"] = i18n("Manager");
-    names["Schedule"] = i18n("Schedule");
-    names["BCWS"] = xi18nc("@title:column Budgeted Cost of Work Scheduled", "BCWS");
-    names["BCWP"] = xi18nc("@title:column Budgeted Cost of Work Performed", "BCWP");
-    names["ACWP"] = xi18nc("@title:column Actual Cost of Work Performed", "ACWP");
-    names["SPI"] = xi18nc("@title:column Schedule Performance Index", "SPI");
-    names["CPI"] = xi18nc("@title:column Cost Performance Index", "CPI");
+    QList<QPair<QString, QString> > names;
+    names << QPair<QString, QString>("Project", i18n("Project"))
+    << QPair<QString, QString>("Manager", i18n("Manager"))
+    << QPair<QString, QString>("Schedule", i18n("Schedule"))
+    << QPair<QString, QString>("BCWS", xi18nc("@title:column Budgeted Cost of Work Scheduled", "BCWS"))
+    << QPair<QString, QString>("BCWP", xi18nc("@title:column Budgeted Cost of Work Performed", "BCWP"))
+    << QPair<QString, QString>("ACWP", xi18nc("@title:column Actual Cost of Work Performed", "ACWP"))
+    << QPair<QString, QString>("SPI", xi18nc("@title:column Schedule Performance Index", "SPI"))
+    << QPair<QString, QString>("CPI", xi18nc("@title:column Cost Performance Index", "CPI"));
 
+    QStandardItemModel *model = new QStandardItemModel();
     for (int column = 0; column < names.count(); ++column) {
-        model->setHeaderData(column, Qt::Horizontal, names.values().at(column));
-        model->setHeaderData(column, Qt::Horizontal, names.keys().at(column), HeaderRole);
+        model->setHeaderData(column, Qt::Horizontal, names.at(column).first, HeaderRole);
+        model->setHeaderData(column, Qt::Horizontal, names.at(column).second);
     }
     return model;
 }
@@ -300,7 +300,7 @@ ReportGeneratorOdt::ReportGeneratorOdt()
 
 ReportGeneratorOdt::~ReportGeneratorOdt()
 {
-    for (QAbstractItemModel *m : m_datamodels) {
+    for (QAbstractItemModel *m : m_datamodels) { // clazy:exclude=range-loop
         if (!m_basemodels.contains(qobject_cast<ItemModelBase*>(m))) {
             delete m;
         }
@@ -330,7 +330,7 @@ bool ReportGeneratorOdt::open()
         m_lastError = i18n("Failed to open template file: %1", m_templateFile);
         return false;
     }
-    for (ItemModelBase *m : m_basemodels) {
+    for (ItemModelBase *m : m_basemodels) { // clazy:exclude=range-loop
         m->setProject(m_project);
         m->setScheduleManager(m_manager);
         if (qobject_cast<ChartItemModel*>(m)) {
@@ -430,8 +430,8 @@ bool ReportGeneratorOdt::createReportOdt()
     dbgRG << endl << "---- treat the embedded files ----" << endl;
     treatEmbededObjects(reader, *outStore);
     dbgRG << endl << "---- copy rest of files ----" << endl;
-    for (const QString &f : m_manifestfiles) {
-        copyFile(*reader.store(), *outStore, f);
+    for (int i = 0; i < m_manifestfiles.count(); ++i) {
+        copyFile(*reader.store(), *outStore, m_manifestfiles.at(i));
     }
     if (!outStore->finalize()) {
         dbgRG<<"Failed to write store:"<<outStore->urlOfStore();
@@ -590,9 +590,10 @@ ReportGeneratorOdt::UserField *ReportGeneratorOdt::findUserField(const KoXmlElem
     field = m_userfields.value(name); // if Variable or Translation
     if (!field) {
         QStringList lst = name.split('.');
-        for (const QString k : m_userfields.keys()) {
-            if (lst.first().startsWith(k)) {
-                field = m_userfields[k];
+        QMap<QString, UserField*>::const_iterator it;
+        for (it = m_userfields.constBegin(); it != m_userfields.constEnd(); ++it) {
+            if (lst.first().startsWith(it.key())) {
+                field = it.value();
                 break;
             }
         }
@@ -692,7 +693,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
             field->setModel(dataModel(field->dataName), m_headerrole[field->dataName]);
             dbgRGVariable<<"    added variable"<<field->name<<field->columns<<field->properties;
         } else {
-            for (const QString k : m_keys) {
+            for (const QString &k : m_keys) { // clazy:exclude=range-loop
                 const QString vname = tags.first();
                 if (!vname.startsWith(k)) {
                     continue;
@@ -736,7 +737,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
 
 void ReportGeneratorOdt::writeElementAttributes(KoXmlWriter &writer, const KoXmlElement &element, const QStringList &exclude)
 {
-    for (const QPair<QString, QString> &a : element.attributeFullNames()) {
+    for (const QPair<QString, QString> &a : element.attributeFullNames()) { // clazy:exclude=range-loop
         QString prefix = KoXmlNS::nsURI2NS(a.first);
         if (prefix.isEmpty()) {
             dbgRG<<"  Skipping unknown namespace:"<<a.first<<a.second;
@@ -976,17 +977,17 @@ void ReportGeneratorOdt::treatChart(KoOdfReadStore &reader, KoStore &outStore, c
         }
         if (field->properties.isEmpty()) {
             // default: take all
-            for (const QString &c : field->headerNames) {
+            for (const QString &c : field->headerNames) { // clazy:exclude=range-loop
                 field->columns << c;
             }
         } else {
             QStringList values;
-            for (const QString &p : field->properties) {
+            for (const QString &p : field->properties) { // clazy:exclude=range-loop
                 if (p.startsWith("values")) {
                     QStringList vl = p.split("=");
                     Q_ASSERT(vl.count() > 1);
                     Q_ASSERT(vl.at(0) == "values");
-                    for (const QString &v : vl.at(1).split(',')) {
+                    for (const QString &v : vl.at(1).split(',')) {  // clazy:exclude=range-loop
                         values << v.toLower().trimmed();
                     }
                 }
@@ -1126,7 +1127,7 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
             writer.endElement();
             // write legends
             UserField *field = m_userfields[m_activefields.last()];
-            for (const QString &name : field->columns) {
+            for (const QString &name : field->columns) { // clazy:exclude=range-loop
                 QString value = field->headerData(name);
                 writer.startElement("table:table-cell");
                 writer.addAttribute("office:value-type", "string");
@@ -1157,7 +1158,7 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
                     writer.endElement();
                     writer.endElement();
                     // then the data
-                    for (const QString &name : field->columns) {
+                    for (const QString &name : field->columns) { // clazy:exclude=range-loop
                         QVariant value = field->model.index(r, field->column(name)).data();
                         writer.startElement("table:table-cell");
                         writer.addAttribute("office:value-type", "float");

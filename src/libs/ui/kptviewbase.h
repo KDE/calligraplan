@@ -101,7 +101,7 @@ public:
         headerOptions.date = Qt::Checked;
         headerOptions.manager = Qt::Checked;
         headerOptions.page = Qt::Checked;
-        
+
         footerOptions.group = false;
         footerOptions.project = Qt::Checked;
         footerOptions.date = Qt::Checked;
@@ -131,7 +131,7 @@ class PLANUI_EXPORT PrintingHeaderFooter : public QWidget, public Ui::PrintingHe
 public:
     explicit PrintingHeaderFooter( const PrintingOptions &opt, QWidget *parent = 0 );
     ~PrintingHeaderFooter();
-    
+
     void setOptions( const PrintingOptions &options );
     PrintingOptions options() const;
 
@@ -159,16 +159,16 @@ public:
     QRect headerRect() const;
     QRect footerRect() const;
     void paintHeaderFooter( QPainter &p, const PrintingOptions &options, int pageNumber, const Project &project );
-    
+
     PrintingOptions printingOptions() const;
-    
+
     QWidget *createPageLayoutWidget() const;
     QAbstractPrintDialog::PrintDialogOptions printDialogOptions() const;
 
 Q_SIGNALS:
     void changed(const KPlato::PrintingOptions &opt);
     void changed();
-    
+
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt);
     void setPrinterPageLayout( const KoPageLayout &pagelayout );
@@ -211,15 +211,15 @@ protected:
 
     /// List of actions that will be shown in the viewlist context menu
     QList<QAction*> m_viewlistActionList;
-    
+
     /// List of actions that will be shown in the views header context menu
     QList<QAction*> m_contextActionList;
-    
+
     // View options context menu
     QAction *actionOptions;
 };
 
-/** 
+/**
  ViewBase is the baseclass of all sub-views to View.
 
 */
@@ -249,10 +249,10 @@ public:
 
     /// Return the type of view this is (class name)
     QString viewType() const { return metaObject()->className(); }
-    
+
     /// Returns true if this view or any child widget has focus
     bool isActive() const;
-    
+
     /// Set the project this view shall handle.
     virtual void setProject( Project *project );
     /// Return the project
@@ -310,7 +310,7 @@ public Q_SLOTS:
     virtual void slotEditCut() {}
     virtual void slotEditPaste() {}
     virtual void slotRefreshView() {}
-    
+
     void setPageLayout( const KoPageLayout &layout );
 
 Q_SIGNALS:
@@ -318,7 +318,7 @@ Q_SIGNALS:
     void guiActivated(KPlato::ViewBase*, bool);
     /// Request for a context menu popup
     void requestPopupMenu( const QString&, const QPoint & );
-    
+
     /// Emitted when options are modified
     void optionsModified();
 
@@ -335,13 +335,13 @@ protected Q_SLOTS:
 
 protected:
     void createOptionActions(int actions);
-    
+
     bool m_readWrite;
     PrintingOptions m_printingOptions;
-    
+
     Project *m_proj;
     ScheduleManager *m_schedulemanager;
-    
+
     KoPageLayout m_pagelayout;
 
     QList<DockWidget*> m_dockers;
@@ -416,7 +416,7 @@ public:
 
     /**
       Reimplemented to fix qt bug 160083: Doesn't scroll horizontally.
-    
+
       Scroll the contents of the tree view until the given model item
       \a index is visible. The \a hint parameter specifies more
       precisely where the item should be located after the
@@ -462,6 +462,7 @@ Q_SIGNALS:
 protected:
     void keyPressEvent(QKeyEvent *event);
     void mousePressEvent( QMouseEvent *event );
+    virtual void focusInEvent(QFocusEvent *event);
     /**
       Reimplemented from QTreeView to make tab/backtab in editor work reasonably well.
       Move the cursor in the way described by \a cursorAction, *not* using the
@@ -472,7 +473,7 @@ protected:
     QModelIndex moveCursor(  const QModelIndex &index, CursorAction cursorAction, Qt::KeyboardModifiers = Qt::NoModifier );
     /// Move from @p index to next editable item, in direction @p cursorAction.
     QModelIndex moveToEditable( const QModelIndex &index, CursorAction cursorAction );
-    
+
     void contextMenuEvent ( QContextMenuEvent * event );
 
     void dragMoveEvent(QDragMoveEvent *event);
@@ -480,14 +481,6 @@ protected:
     void updateSelection( const QModelIndex &oldidx, const QModelIndex &newidx, QKeyEvent *event );
 
     void expandRecursive(const QModelIndex &parent, bool xpand);
-
-protected Q_SLOTS:
-    /// Close the @p editor, using sender()->endEditHint().
-    /// Use @p hint if sender is not of type ItemDelegate.
-    virtual void closeEditor(QWidget *editor, QAbstractItemDelegate::EndEditHint hint);
-    
-    virtual void slotCurrentChanged ( const QModelIndex & current, const QModelIndex & previous );
-    void slotHeaderContextMenuRequested( const QPoint& );
 
     //Copied from QAbstractItemView
     inline QItemSelectionModel::SelectionFlags selectionBehaviorFlags() const
@@ -499,12 +492,18 @@ protected Q_SLOTS:
         }
     }
 
+protected Q_SLOTS:
+    /// Close the @p editor, using sender()->endEditHint().
+    /// Use @p hint if sender is not of type ItemDelegate.
+    virtual void closeEditor(QWidget *editor, QAbstractItemDelegate::EndEditHint hint);
+
+    virtual void slotCurrentChanged ( const QModelIndex & current, const QModelIndex & previous );
+    void slotHeaderContextMenuRequested( const QPoint& );
+
     void doContextExpanded();
     void doExpanded();
 
 protected:
-    virtual void focusInEvent(QFocusEvent *event);
-    
     bool m_arrowKeyNavigation;
     bool m_acceptDropsOnView;
     QList<int> m_hideList;
@@ -531,9 +530,9 @@ public:
 
 protected:
     virtual void printPage( int pageNumber, QPainter &painter );
-    
+
     int firstRow( int page ) const;
-    
+
 private:
     DoubleTreeViewBase *m_tree;
     Project *m_project;
@@ -575,16 +574,16 @@ public:
     void setDefaultDropAction( Qt::DropAction action );
 
     void setStretchLastSection( bool );
-    
+
     /// Hide columns in the @p hideList, show all other columns.
     /// If the hideList.last() == -1, the rest of the columns are hidden.
     void hideColumns( TreeViewBase *view, const QList<int> &hideList );
     void hideColumns( const QList<int> &masterList, const QList<int> &slaveList = QList<int>() );
     void hideColumn( int col ) {
-        m_leftview->hideColumn( col ); 
+        m_leftview->hideColumn( col );
         if ( m_rightview ) m_rightview->hideColumn( col );
     }
-    void showColumn( int col ) { 
+    void showColumn( int col ) {
         if ( col == 0 || m_rightview == 0 ) m_leftview->showColumn( col );
         else m_rightview->showColumn( col );
     }
@@ -599,17 +598,17 @@ public:
     virtual bool loadContext( const QMetaEnum &map, const KoXmlElement &element );
     /// Save context info from this view. Reimplement.
     virtual void saveContext( const QMetaEnum &map, QDomElement &context ) const;
-    
+
     void setViewSplitMode( bool split );
     bool isViewSplit() const { return m_mode; }
     QAction *actionSplitView() const { return m_actionSplitView; }
-    
+
     void setRootIsDecorated ( bool show );
 
     KoPrintJob *createPrintJob( ViewBase *parent );
 
     void setStretchFactors();
-    
+
     QModelIndex indexAt( const QPoint &pos ) const;
 
     void setParentsExpanded( const QModelIndex &idx, bool expanded );
@@ -619,7 +618,7 @@ public:
         m_rightview->setSortingEnabled( on );
     }
     void sortByColumn( int col, Qt::SortOrder order = Qt::AscendingOrder ) {
-        if ( ! m_leftview->isColumnHidden( col ) || 
+        if ( ! m_leftview->isColumnHidden( col ) ||
              ! m_rightview->isVisible() ||
              m_rightview->isColumnHidden( col ) )
         {
@@ -675,7 +674,7 @@ protected:
     bool m_arrowKeyNavigation;
     bool m_readWrite;
     bool m_mode;
-    
+
     QAction *m_actionSplitView;
 };
 
