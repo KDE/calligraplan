@@ -1,8 +1,11 @@
 [Desktop Entry]
 Name=Calligra Project Management Component
 Name[ca]=Component de gestió de projectes del Calligra
+Name[ca@valencia]=Component de gestió de projectes del Calligra
 Name[nl]=Calligra Projectbeheercomponent
 Name[pt]=Componente de Gestão de Projectos do Calligra
+Name[sk]=Calligra modul pre správu projektov
+Name[sv]=Calligra projekthanteringskomponent
 Name[uk]=Компонент керування проектами Calligra
 Name[x-test]=xxCalligra Project Management Componentxx
 X-KDE-Library=planpart

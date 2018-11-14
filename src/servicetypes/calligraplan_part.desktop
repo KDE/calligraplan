@@ -3,8 +3,11 @@ Type=ServiceType
 X-KDE-ServiceType=Plan/Part
 Comment=Calligra Component
 Comment[ca]=Component del Calligra
+Comment[ca@valencia]=Component del Calligra
 Comment[nl]=Calligra-component
 Comment[pt]=Componente do Calligra
+Comment[sk]=Calligra komponent
+Comment[sv]=Calligra-komponent
 Comment[uk]=Компонент Calligra
 Comment[x-test]=xxCalligra Componentxx
 

@@ -3,8 +3,11 @@ Type=ServiceType
 X-KDE-ServiceType=Plan/Filter
 Comment=Calligra Filter
 Comment[ca]=Filtre del Calligra
+Comment[ca@valencia]=Filtre del Calligra
 Comment[nl]=Calligra Filter
 Comment[pt]=Filtro do Calligra
+Comment[sk]=Calligra Filter
+Comment[sv]=Calligra-filter
 Comment[uk]=Фільтр Calligra
 Comment[x-test]=xxCalligra Filterxx
 

@@ -2,8 +2,11 @@
 Type=Service
 Name=Plan KPlato Import Filter
 Name[ca]=Filtre d'importació KPlato per al Plan
+Name[ca@valencia]=Filtre d'importació KPlato per al Plan
 Name[nl]=Plan importfilter voor KPlato
 Name[pt]=Filtro de Importação do KPlato do Plan
+Name[sk]=Importný filter Plan KPlato
+Name[sv]=Plan KPlato importfilter
 Name[uk]=Фільтр імпортування даних KPlato для Plan
 Name[x-test]=xxPlan KPlato Import Filterxx
 X-KDE-Export=application/x-vnd.kde.plan

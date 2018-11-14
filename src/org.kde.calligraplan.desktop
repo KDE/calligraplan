@@ -1,14 +1,20 @@
 [Desktop Entry]
 Name=Plan
 Name[ca]=Plan
+Name[ca@valencia]=Plan
 Name[nl]=Plan
 Name[pt]=Plan
+Name[sk]=Plan
+Name[sv]=Plan
 Name[uk]=Plan
 Name[x-test]=xxPlanxx
 GenericName=Project Management
 GenericName[ca]=Gestió de projectes
+GenericName[ca@valencia]=Gestió de projectes
 GenericName[nl]=Projectbeheer
 GenericName[pt]=Gestão de Projectos
+GenericName[sk]=Správa projektov
+GenericName[sv]=Projekthantering
 GenericName[uk]=Керування проектами
 GenericName[x-test]=xxProject Managementxx
 Exec=calligraplan %U
