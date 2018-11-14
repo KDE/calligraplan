@@ -133,6 +133,8 @@ public:
     /// Keeps resource- and calendar ids
     void createNewProject();
 
+    bool isTaskModule() const;
+
     using KoDocument::setModified;
 public Q_SLOTS:
     void setModified( bool mod );
@@ -162,7 +164,6 @@ public Q_SLOTS:
     void loadResourceAssignments(QUrl url);
 
     void setIsTaskModule(bool value);
-    bool isTaskModule() const;
 
 Q_SIGNALS:
     void changed();
