@@ -62,7 +62,7 @@ public:
 Q_SIGNALS:
     void currentChanged( const QModelIndex& );
     void currentColumnChanged( const QModelIndex&, const QModelIndex& );
-    void selectionChanged( const QModelIndexList& );
+    void sigSelectionChanged( const QModelIndexList& );
 
     void contextMenuRequested( const QModelIndex&, const QPoint& );
     void focusChanged();
@@ -102,7 +102,7 @@ public:
 Q_SIGNALS:
     void currentChanged( const QModelIndex& );
     void currentColumnChanged( const QModelIndex&, const QModelIndex& );
-    void selectionChanged( const QModelIndexList& );
+    void sigSelectionChanged( const QModelIndexList& );
 
     void contextMenuRequested( const QModelIndex&, const QPoint& );
     void focusChanged();

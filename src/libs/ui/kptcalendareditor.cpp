@@ -104,7 +104,7 @@ void CalendarTreeView::selectionChanged( const QItemSelection &sel, const QItemS
     //debugPlan<<sel.indexes().count();
     //foreach( const QModelIndex &i, selectionModel()->selectedIndexes() ) { debugPlan<<i.row()<<","<<i.column(); }
     TreeViewBase::selectionChanged( sel, desel );
-    emit selectionChanged( selectionModel()->selectedIndexes() );
+    emit sigSelectionChanged( selectionModel()->selectedIndexes() );
 }
 
 void CalendarTreeView::currentChanged( const QModelIndex & current, const QModelIndex & previous )
@@ -364,7 +364,7 @@ void CalendarDayView::selectionChanged( const QItemSelection &sel, const QItemSe
     //debugPlan<<sel.indexes().count();
     //foreach( QModelIndex i, selectionModel()->selectedIndexes() ) { debugPlan<<i.row()<<","<<i.column(); }
     QTableView::selectionChanged( sel, desel );
-    emit selectionChanged( selectionModel()->selectedIndexes() );
+    emit sigSelectionChanged( selectionModel()->selectedIndexes() );
 }
 
 void CalendarDayView::currentChanged( const QModelIndex & current, const QModelIndex & previous )
@@ -465,11 +465,11 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent )
     connect( m_dayview, SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
 
     connect( m_calendarview, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentCalendarChanged(QModelIndex)) );
-    connect( m_calendarview, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotCalendarSelectionChanged(QModelIndexList)) );
+    connect( m_calendarview, SIGNAL(sigSelectionChanged(QModelIndexList)), this, SLOT(slotCalendarSelectionChanged(QModelIndexList)) );
     connect( m_calendarview, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuCalendar(QModelIndex,QPoint)) );
 
     connect( m_dayview, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentDayChanged(QModelIndex)) );
-    connect( m_dayview, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotDaySelectionChanged(QModelIndexList)) );
+    connect( m_dayview, SIGNAL(sigSelectionChanged(QModelIndexList)), this, SLOT(slotDaySelectionChanged(QModelIndexList)) );
     connect( m_dayview, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuDay(QModelIndex,QPoint)) );
 
     connect( m_dayview->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SLOT(slotEnableActions()) );
