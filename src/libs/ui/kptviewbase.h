@@ -153,7 +153,7 @@ public:
     explicit PrintingDialog(ViewBase *view);
     ~PrintingDialog();
 
-    virtual QList<QWidget*> createOptionWidgets() const;
+    QList<QWidget*> createOptionWidgets() const override;
 //    virtual QList<KoShape*> shapesOnPage(int);
 
     QRect headerRect() const;
@@ -163,7 +163,7 @@ public:
     PrintingOptions printingOptions() const;
 
     QWidget *createPageLayoutWidget() const;
-    QAbstractPrintDialog::PrintDialogOptions printDialogOptions() const;
+    QAbstractPrintDialog::PrintDialogOptions printDialogOptions() const override;
 
 Q_SIGNALS:
     void changed(const KPlato::PrintingOptions &opt);
