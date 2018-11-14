@@ -674,7 +674,7 @@ void CalendarEditor::setupGui()
 
 void CalendarEditor::slotOptions()
 {
-    ItemViewSettupDialog *dlg = new ItemViewSettupDialog( this, m_calendarview, this );
+    ItemViewSettupDialog *dlg = new ItemViewSettupDialog( this, m_calendarview, false, this );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->show();
     dlg->raise();
