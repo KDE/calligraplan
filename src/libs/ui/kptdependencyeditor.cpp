@@ -1330,12 +1330,12 @@ DependencyLinkItem *DependencyScene::findItem( const DependencyConnectorItem *c1
                     }
                     break;
                 case Relation::FinishStart:
-                    if ( c1->ctype() == DependencyNodeItem::Finish && c1->ctype() == DependencyNodeItem::Start ) {
+                    if ( c2->ctype() == DependencyNodeItem::Finish && c1->ctype() == DependencyNodeItem::Start ) {
                         return link;
                     }
                     break;
                 case Relation::FinishFinish:
-                    if ( c1->ctype() == DependencyNodeItem::Finish && c1->ctype() == DependencyNodeItem::Finish ) {
+                    if ( c2->ctype() == DependencyNodeItem::Finish && c1->ctype() == DependencyNodeItem::Finish ) {
                         return link;
                     }
                     break;
