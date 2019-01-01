@@ -121,7 +121,6 @@ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
         IconThemes
         ItemViews
         JobWidgets
-        KCMUtils
         KIO
         Notifications
 #             NotifyConfig
@@ -169,22 +168,13 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
     COMPONENTS
         Core
         Gui
-        Network
         PrintSupport
-        Svg
         Test
         Widgets
         Xml
 )
-find_package(Qt5 ${REQUIRED_QT_VERSION} QUIET
-    COMPONENTS
-        DBus
-        OpenGL
-#        Quick
-#        Sql
-#         WebKit
-#         WebKitWidgets
-)
+find_package(Qt5DBus ${REQUIRED_QT_VERSION} QUIET)
+
 # Qt5Declarative was removed in Qt 5.6.0 so search for it in a separate call
 # Including it in a collected find_package(Qt5 ...) call can lead to a fatal not-found error:
 # * Qt5 (required version >= 5.3.0)
