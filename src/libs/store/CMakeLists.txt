@@ -4,14 +4,8 @@ endif()
 
 ########### libkostore ###############
 
-if( Qca-qt5_FOUND )
-    add_definitions( -DQCA2 )
-endif()
-
 set(kostore_LIB_SRCS
     KoDirectoryStore.cpp
-    KoEncryptedStore.cpp
-    KoEncryptionChecker.cpp
     KoLZF.cpp
     KoStore.cpp
     KoStoreDevice.cpp
@@ -23,6 +17,12 @@ set(kostore_LIB_SRCS
     StoreDebug.cpp
     KoNetAccess.cpp # temporary while porting
 )
+if( Qca-qt5_FOUND )
+    set(kostore_LIB_SRCS ${kostore_LIB_SRCS}
+        KoEncryptedStore.cpp
+        KoEncryptionChecker.cpp
+    )
+endif()
 
 add_library(planstore SHARED ${kostore_LIB_SRCS})
 generate_export_header(planstore BASE_NAME kostore)
@@ -35,12 +35,11 @@ target_link_libraries(planstore
     PRIVATE
         Qt5::Gui
         KF5::Archive
-        KF5::Wallet
         KF5::KIOWidgets
         KF5::I18n
 )
 if( Qca-qt5_FOUND )
-    target_link_libraries(planstore PRIVATE qca-qt5)
+    target_link_libraries(planstore PRIVATE qca-qt5 KF5::Wallet)
 endif()
 
 set_target_properties(planstore PROPERTIES

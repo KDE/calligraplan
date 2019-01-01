@@ -128,7 +128,6 @@ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
         Parts
 #             Sonnet
         TextWidgets
-        Wallet
         WidgetsAddons
         WindowSystem
         XmlGui
@@ -259,6 +258,23 @@ set_package_properties(KChart PROPERTIES
     URL "https://www.kde.org/"
     TYPE REQUIRED
 )
+
+##
+## Test for QCA2
+##
+macro_optional_find_package(Qca-qt5 2.1.0 QUIET)
+set_package_properties(Qca-qt5 PROPERTIES
+    DESCRIPTION "Qt Cryptographic Architecture"
+    URL "https:/download.kde.org/stable/qca-qt5"
+    PURPOSE "Required for encrypted OpenDocument files and encrypted xls files support"
+    TYPE OPTIONAL
+)
+
+find_package(KF5Wallet ${REQUIRED_KF5_VERSION})
+
+if(Qca-qt5_FOUND AND KF5Wallet_FOUND)
+    add_definitions( -DQCA2 )
+endif()
 
 find_package(Perl REQUIRED)
 find_package(ZLIB REQUIRED)

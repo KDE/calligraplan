@@ -26,7 +26,9 @@
 #include "KoDocumentInfo.h"
 #include "KoDocumentBase.h"
 #include "KoGlobal.h"
+#ifdef QCA2
 #include <KoEncryptionChecker.h>
+#endif
 #include "KoPageWidgetItem.h"
 //#include <KoDocumentRdfBase.h>
 #include <KoIcon.h>
@@ -105,12 +107,16 @@ KoDocumentInfoDlg::KoDocumentInfoDlg(QWidget* parent, KoDocumentInfo* docInfo)
     d->aboutUi = new Ui::KoDocumentInfoAboutWidget();
     QWidget *infodlg = new QWidget();
     d->aboutUi->setupUi(infodlg);
+#ifdef QCA2
     if (!KoEncryptionChecker::isEncryptionSupported()) {
+#endif
         d->aboutUi->lblEncryptedDesc->setVisible(false);
         d->aboutUi->lblEncrypted->setVisible(false);
         d->aboutUi->pbEncrypt->setVisible(false);
         d->aboutUi->lblEncryptedPic->setVisible(false);
+#ifdef QCA2
     }
+#endif
     d->aboutUi->cbLanguage->addItems(KoGlobal::listOfLanguages());
     d->aboutUi->cbLanguage->setCurrentIndex(-1);
 
