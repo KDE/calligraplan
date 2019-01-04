@@ -460,8 +460,9 @@ public:
      */
     bool addTaskAttribute(const QString& id, CustomAttributeDefinition* cad);
     /**
-     * Returns a pointer to the custom attribute object identified by @param id.
+     * Returns a pointer to the custom attribute object identified by @p id.
      * If no attributes with the id exists, 0 is returned.
+     * @param id the identifier
      */
     const CustomAttributeDefinition* getTaskAttribute(const QString& id) const;
     /**
@@ -513,15 +514,18 @@ public:
     }
     /**
      * This function adds a new, user-defined attribute to the Resource
-     * attributes. The @param id must be unique within the Resource attributes
-     * namespace. @param cad is a pointer to the CustomAttributeDefinition
+     * attributes. The @p name must be unique within the Resource attributes
+     * namespace. @p cad is a pointer to the CustomAttributeDefinition
      * object.
+     * @param name the name of the attribute
+     * @param cad the pointer to the CustomAttributeDefinition object
      */
     bool addResourceAttribute(const QString& name,
                               CustomAttributeDefinition* cad);
     /**
-     * Returns a pointer to the custom attribute object identified by @param id.
+     * Returns a pointer to the custom attribute object identified by @p id.
      * If no attributes with the id exists, 0 is returned.
+     * @param id the identifier
      */
     const CustomAttributeDefinition* getResourceAttribute(const QString& id)
         const;

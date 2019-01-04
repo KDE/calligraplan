@@ -51,7 +51,7 @@ public:
     /**
      * @brief constructor
      * @param parent The parent of the file dialog
-     * @param dialogType usage of the file dialog
+     * @param type Usage type of the file dialog
      * @param dialogName the name for the file dialog. This will be used to open
      * the filedialog in the last open location, instead the specified directory.
      *
@@ -70,6 +70,7 @@ public:
      * @brief setDefaultDir set the default directory to defaultDir
      *
      * @param defaultDir a path to a file or directory
+     * @param override whether to override the current default
      */
     void setDefaultDir(const QString &defaultDir, bool override = false);
 

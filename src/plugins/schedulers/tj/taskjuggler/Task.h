@@ -356,7 +356,7 @@ public:
     /**
      * Checks for loops in task interdependencies starting with the current
      * task.
-     * @param ckedTaskList The list of already checked tasks. Will be appended
+     * @param chkedTaskList The list of already checked tasks. Will be appended
      * to.
      * @retval true if a loop was detected.
      * @retval false otherwise.

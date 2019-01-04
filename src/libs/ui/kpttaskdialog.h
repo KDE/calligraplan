@@ -48,6 +48,7 @@ class PLANUI_EXPORT TaskDialog : public KPageDialog {
 public:
     /**
      * The constructor for the task settings dialog.
+     * @param project the project to show
      * @param task the task to show
      * @param accounts all defined accounts
      * @param parent parent widget

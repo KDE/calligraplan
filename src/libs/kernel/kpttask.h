@@ -670,7 +670,6 @@ public:
      * Calculates endTime and duration.
      * Assumes ref calculateForward() and ref calculateBackward() has been run.
      *
-     * @param latest The task is not scheduled to end later than this
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      * @return The tasks starttime which can be used for scheduling the predeccessor.
      */

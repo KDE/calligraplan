@@ -424,7 +424,7 @@ public:
     bool isScheduled() const;
     QHash<long, Schedule*> schedules() const { return m_schedules; }
     /**
-     * Return schedule with @id
+     * Return schedule with @p id
      * If @p id == CURRENTSCHEDULE, return m_currentSchedule
      * Return 0 if schedule with @p id doesn't exist.
      */
@@ -434,8 +434,8 @@ public:
     /// By default returns true if any schedule is baselined
     bool isBaselined( long id = BASELINESCHEDULE ) const;
     /**
-     * Return schedule with @id
-     * Return 0 if schedule with @id doesn't exist.
+     * Return schedule with @p id
+     * Return 0 if schedule with @p id doesn't exist.
      */
     Schedule *findSchedule( long id ) const;
     /// Take, and delete.
@@ -767,8 +767,9 @@ public:
     DateTime workTimeBefore(const DateTime &dt, Schedule *ns = 0);
 
     /**
-     * Makes appointments for task @param task to the
+     * Makes appointments for schedule @p schedule to the
      * requested resources for the duration found in @ref duration().
+     * @param schedule the schedule
      */
     void makeAppointments( Schedule *schedule );
 
@@ -874,8 +875,9 @@ public:
     DateTime workFinishBefore(const DateTime &time, Schedule *ns);
 
     /**
-    * Makes appointments for the task @param task to the requested resources.
+    * Makes appointments for the schedule @p schedule to the requested resources.
     * Assumes that @ref duration() has been run.
+    * @param schedule the schedule
     */
     void makeAppointments( Schedule *schedule );
     /**

@@ -58,8 +58,8 @@ public:
      * This creates the text:changed-region tag containing all
      * changes.
      *
-     * @param xmlWriter
-     * @param stylesDotXml
+     * @param xmlWriter the writer
+     * @param trackChanges whether to track changes
      */
     void saveOdfChanges(KoXmlWriter *xmlWriter, bool trackChanges) const;
 

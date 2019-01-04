@@ -122,7 +122,7 @@ public:
     virtual void save( QDomElement &element ) const;
 
     using Node::saveWorkPackageXML;
-    /// Save a workpackage document containing @node with schedule identity @p id
+    /// Save a workpackage document containing @p node with schedule identity @p id
     void saveWorkPackageXML( QDomElement &element, const Node *node, long id ) const;
 
     /**
@@ -222,11 +222,14 @@ public:
      * Planned cost up to and including date
      * @param date The cost is calculated from the start of the project upto including date.
      * @param id Identity of the schedule to be used.
+     * @param typ the type of calculation.
+     * @sa EffortCostCalculationType
      */
     virtual double plannedCostTo( QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All  ) const;
 
     /**
      * Actual cost up to and including @p date
+     * @param id Identity of the schedule to be used.
      * @param date The cost is calculated from the start of the project upto including date.
      */
     virtual EffortCost actualCostTo(  long int id, QDate date ) const;
@@ -604,7 +607,7 @@ Q_SIGNALS:
 
     /**
      * Emitted when the default calendar pointer has changed
-     * @parem cal The new default calendar. May be 0.
+     * @param cal The new default calendar. May be 0.
      */
     void defaultCalendarChanged(KPlato::Calendar *cal);
     /**

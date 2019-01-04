@@ -55,12 +55,12 @@ namespace Scripting {
             QString type();
             /// Number of resources in this group
             int resourceCount() const;
-            /// Return resource at @index
+            /// Return resource at @p index
             QObject *resourceAt( int index ) const;
             
             /// Number of resources in this group
             int childCount() const;
-            /// Return resource at @index
+            /// Return resource at @p index
             QObject *childAt( int index ) const;
 
         private:

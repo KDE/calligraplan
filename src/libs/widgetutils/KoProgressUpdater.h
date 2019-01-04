@@ -76,6 +76,8 @@ public:
     /**
      * Constructor.
      * @param progressBar the progress bar to update.
+     * @param mode the mode, can be Threaded or Unthreaded.
+     * @param output text stream to output data.
      */
     explicit KoProgressUpdater(KoProgressProxy *progressBar, Mode mode = Threaded,
                                QTextStream *output = 0);
@@ -99,7 +101,7 @@ public:
 
     /**
      * After calling start() you can create any number of Updaters,
-     * one for each subtask. @param weight use a weight to specify the
+     * one for each subtask. @p weight use a weight to specify the
      * weight this subtask has compared to the rest of the subtasks.
      *
      * KoProgressUpdater will delete the KoUpdater instances when a

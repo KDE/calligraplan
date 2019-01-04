@@ -309,7 +309,7 @@ public:
     bool setContent(const QString& text,
                     QString *errorMsg = 0, int *errorLine = 0, int *errorColumn = 0);
      /**
-     * Change the way an XMLDocument will be read: <a> <b/> <a/>
+     * Change the way an XMLDocument will be read:
      * if stripSpaces = true then a will only have one child
      * if stripSpaces = false then a will have 3 children.
      */
@@ -329,6 +329,7 @@ private:
  * To find the child element with a given name, use KoXml::namedItemNS.
  *
  * To find all child elements with a given name, use
+ * \code
  * QDomElement e;
  * forEachElement( e, parent )
  * {
@@ -337,6 +338,7 @@ private:
  *         ...
  *     }
  * }
+ * \endcode
  * Note that this means you don't ever need to use QDomNode nor toElement anymore!
  * Also note that localName is the part without the prefix, this is the whole point
  * of namespace-aware methods.
@@ -445,17 +447,19 @@ KOSTORE_EXPORT bool setDocument(KoXmlDocument& doc, QIODevice* device,
 
 /**
  * \def forEachElement( elem, parent )
- * \brief Loop through all child elements of \parent.
+ * \brief Loop through all child elements of \p parent.
  * This convenience macro is used to implement the forEachElement loop.
- * The \elem parameter is a name of a QDomElement variable and the \parent
+ * The \p elem parameter is a name of a QDomElement variable and the \p parent
  * is the name of the parent element. For example:
  *
+ * \code
  * QDomElement e;
  * forEachElement( e, parent )
  * {
  *     kDebug() << e.localName() << " element found.";
  *     ...
  * }
+ * \endcode
  */
 #define forEachElement( elem, parent ) \
     for ( KoXmlNode _node = parent.firstChild(); !_node.isNull(); _node = _node.nextSibling() ) \

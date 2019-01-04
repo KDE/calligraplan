@@ -72,7 +72,7 @@ namespace Scripting {
 
             /// Number of child resources. Only team resources has children (team members)
             int childCount() const;
-            /// Return resource at @index.  Only team resources has children (team members)
+            /// Return resource at @p index.  Only team resources has children (team members)
             QObject *childAt( int index ) const;
             /// Set list of children. The list of existing children is cleared
             void setChildren( const QList<QObject*> &members );

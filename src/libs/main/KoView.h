@@ -56,6 +56,7 @@ public:
      *
      * The standard way to retrieve a KoView is to call @ref KoPart::createView.
      *
+     * @param part     KoPart
      * @param document is the document which should be displayed in this view. This pointer
      *                 must not be zero.
      * @param parent   parent widget for this view.
@@ -85,7 +86,7 @@ protected:
      * Adds the given list of QImages as imageshapes to the view's document.
      *
      * @param imageList: a list of QImages that can be inserted
-     * @param insertPosition: the position in screen pixels where the images
+     * @param insertAt: the position in screen pixels where the images
      * can be inserted.
      */
     virtual void addImages(const QVector<QImage> &imageList, const QPoint &insertAt);

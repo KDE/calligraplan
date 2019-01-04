@@ -51,7 +51,9 @@ class KoOdfNumberDefinition;
  * <li> Restart numbering on every page
  * </ul>
  * The following element may be included in the <text:linenumbering-separator> element:
+ * <ul>
  * <li> Separator
+ * </ul>
  */
 class KOODF_EXPORT KoOdfLineNumberingConfiguration : public QObject
 {

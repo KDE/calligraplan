@@ -41,7 +41,7 @@ public:
 
     /**
      * Get a unique file name with the given prefix, to be used as a name for an embedded file in the ODF store.
-     * @param the prefix of the filename to be created.
+     * @param prefix the prefix of the filename to be created.
      * return a unique file name for use in the odf store.
      */
     QString getFilename(const QString &prefix);

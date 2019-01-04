@@ -45,7 +45,7 @@ public:
      * this KoOdfLoadingContext instance. (This is the case during
      * loading, when using the KoOdfStylesReader given by KoDocument)
      *
-     * @param styles reference to the KoOdfStylesReader parsed by KoDocument
+     * @param stylesReader reference to the KoOdfStylesReader parsed by KoDocument
      * @param store pointer to store, if available, for e.g. loading images.
      * @param defaultStylesResourcePath resource path to "defaultstyles.xml", empty if none
      */
