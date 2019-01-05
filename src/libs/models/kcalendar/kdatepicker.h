@@ -46,8 +46,6 @@ class KDateTable;
  *     to select a date directly by entering numbers like 19990101
  *     or 990101.
  *
- * \image html kdatepicker.png "KDE Date Widget"
- *
  *     @author Tim Gilman, Mirko Boehm
  *
  **/

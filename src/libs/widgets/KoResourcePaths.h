@@ -190,11 +190,12 @@ namespace KoResourcePaths
      * This function is much like locate. However it returns a
      * filename suitable for writing to. No check is made if the
      * specified @p filename actually exists. Missing directories
-     * are created. If @p filename is only a directory, without a
+     * can be created. If @p filename is only a directory, without a
      * specific file, @p filename must have a trailing slash.
      *
      * @param type   The type of the wanted resource, see KStandardDirs
      * @param filename   A relative filename of the resource
+     * @param createDir  Whether to create missing directory
      *
      * @return A full path to the filename specified in the second
      *         argument, or QString() if not found

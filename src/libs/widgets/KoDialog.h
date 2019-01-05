@@ -111,8 +111,6 @@ class KoDialogPrivate;
  *   dialog->show();
  * \endcode
  *
- * \image html kdialog.png "KDE Dialog example"
- *
  * This class can be used in many ways. Note that most KDE ui widgets
  * and many of KDE core applications use the KoDialog so for more
  * inspiration you should study the code for these.
@@ -396,7 +394,7 @@ public:
     static int groupSpacingHint();
 
     /**
-     * @enum StandardCaptionFlag
+     * @enum CaptionFlag
      * Used to specify how to construct a window caption
      *
      * @value AppName Indicates that the method shall include
