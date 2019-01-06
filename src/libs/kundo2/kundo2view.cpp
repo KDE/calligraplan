@@ -83,8 +83,6 @@
     The stack can be set explicitly with setStack(). Alternatively, a QUndoGroup object can
     be set with setGroup(). The view will then update itself automatically whenever the
     active stack of the group changes.
-
-    \image KUndo2View.png
 */
 
 class KUndo2ViewPrivate
