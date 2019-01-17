@@ -103,7 +103,7 @@ include(ECMGenerateHeaders)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 include(MacroOptionalFindPackage)
 
-set(REQUIRED_KF5_VERSION "5.7.0")
+set(REQUIRED_KF5_VERSION "5.53.0")
 
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
     COMPONENTS
@@ -150,19 +150,15 @@ set_package_properties(KF5KHtml PROPERTIES
     TYPE REQUIRED
 )
 
-find_package(KF5Holidays 5.3.3)
+find_package(KF5Holidays)
 set_package_properties(KF5Holidays PROPERTIES
     DESCRIPTION "Library for generation of public holidays"
     PURPOSE "Required for holidays support (optional)"
     TYPE RECOMMENDED
 )
 
-if(${KF5_VERSION} VERSION_LESS "5.16.0")
-    set(CALLIGRA_OLD_PLUGIN_METADATA TRUE)
-endif()
 
-
-set(REQUIRED_QT_VERSION "5.4.0")
+set(REQUIRED_QT_VERSION "5.9.0")
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
     COMPONENTS
@@ -174,12 +170,6 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
         Xml
 )
 find_package(Qt5DBus ${REQUIRED_QT_VERSION} QUIET)
-
-# Qt5Declarative was removed in Qt 5.6.0 so search for it in a separate call
-# Including it in a collected find_package(Qt5 ...) call can lead to a fatal not-found error:
-# * Qt5 (required version >= 5.3.0)
-# find_package(Qt5Declarative ${REQUIRED_QT_VERSION} QUIET)
-
 set_package_properties(Qt5DBus PROPERTIES
     DESCRIPTION "Library for dbus access"
     PURPOSE "Required for dbus support (optional)"
