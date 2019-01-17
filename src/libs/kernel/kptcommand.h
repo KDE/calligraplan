@@ -27,6 +27,7 @@
 #include <kundo2command.h>
 
 #include <QPointer>
+#include <QHash>
 
 #include "kptappointment.h"
 #include "kptnode.h"
@@ -79,7 +80,7 @@ protected:
     /// Add a schedule to the m_schedules map along with its current scheduled state
     void addSchScheduled( Schedule *sch );
 
-    QMap<Schedule*, bool> m_schedules;
+    QHash<Schedule*, bool> m_schedules;
 
 };
 

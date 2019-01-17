@@ -439,9 +439,11 @@ void Part::removeWorkPackage( WorkPackage *wp )
 {
     //debugPlanWork;
     int row = indexOf( wp );
-    if ( row >= 0 ) {
-        m_packageMap.remove( m_packageMap.keys().at( row ) );
-        emit workPackageRemoved( wp, row );
+    if (row >= 0) {
+        const QList<QString> &lst = m_packageMap.keys();
+        const QString &key = lst.value(row);
+        m_packageMap.remove(key);
+        emit workPackageRemoved(wp, row);
     }
 }
 

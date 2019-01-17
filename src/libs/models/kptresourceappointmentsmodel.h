@@ -138,8 +138,8 @@ protected:
     
 private:
     int m_columnCount;
-    QMap<const Appointment*, EffortCostMap> m_effortMap;
-    QMap<const Appointment*, EffortCostMap> m_externalEffortMap;
+    QHash<const Appointment*, EffortCostMap> m_effortMap;
+    QHash<const Appointment*, EffortCostMap> m_externalEffortMap;
     QDate m_start;
     QDate m_end;
     

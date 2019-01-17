@@ -607,8 +607,9 @@ TJ::Resource *PlanTJScheduler::addResource( KPlato::Resource *r)
     }
     AppointmentIntervalList lst = cal->workIntervals( start, end, 1.0 );
 //    qDebug()<<r->name()<<lst;
-    QMultiMap<QDate, AppointmentInterval>::const_iterator mapend = lst.map().constEnd();
-    QMultiMap<QDate, AppointmentInterval>::const_iterator it = lst.map().constBegin();
+    const QMultiMap<QDate, AppointmentInterval> &map = lst.map();
+    QMultiMap<QDate, AppointmentInterval>::const_iterator mapend = map.constEnd();
+    QMultiMap<QDate, AppointmentInterval>::const_iterator it = map.constBegin();
     TJ::Shift *shift = new TJ::Shift( m_tjProject, r->id(), r->name(), 0, QString(), 0 );
     for ( ; it != mapend; ++it ) {
         shift->addWorkingInterval( toTJInterval( it.value().startTime(), it.value().endTime(), m_granularity/1000 ) );
@@ -648,9 +649,9 @@ void PlanTJScheduler::addWorkingTime( KPlato::Task *task, TJ::Task *job )
     DateTime end = m_project->constraintEndTime();
 
     AppointmentIntervalList lst = cal->workIntervals( start, end, 1.0 );
-    QMultiMap<QDate, AppointmentInterval>::const_iterator mapend = lst.map().constEnd();
-    QMultiMap<QDate, AppointmentInterval>::const_iterator it = lst.map().constBegin();
-
+    const QMultiMap<QDate, AppointmentInterval> &map = lst.map();
+    QMultiMap<QDate, AppointmentInterval>::const_iterator mapend = map.constEnd();
+    QMultiMap<QDate, AppointmentInterval>::const_iterator it = map.constBegin();
     TJ::Shift *shift = new TJ::Shift( m_tjProject, task->id() + QString( "-%1" ).arg( ++id ), task->name(), 0, QString(), 0 );
     for ( ; it != mapend; ++it ) {
         shift->addWorkingInterval(toTJInterval(it.value().startTime(), it.value().endTime(), m_granularity/1000));

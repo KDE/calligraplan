@@ -25,7 +25,7 @@
 #include <kptitemmodelbase.h>
 
 #include <QMetaEnum>
-#include <QMap>
+#include <QHash>
 
 
 
@@ -121,8 +121,8 @@ public:
     
     QObject *object( const QModelIndex &index ) const;
 
-    const QMap<const Resource*, ResourceRequest*> &resourceCache() const { return m_resourceCache; }
-    const QMap<const ResourceGroup*, ResourceGroupRequest*> &groupCache() const { return m_groupCache; }
+    const QHash<const Resource*, ResourceRequest*> &resourceCache() const { return m_resourceCache; }
+    const QHash<const ResourceGroup*, ResourceGroupRequest*> &groupCache() const { return m_groupCache; }
     
     Resource *resource( const QModelIndex &idx ) const;
     void setRequired( const QModelIndex &idx, const QList<Resource*> &lst );
@@ -165,9 +165,9 @@ private:
 private:
     ResourceAllocationModel m_model;
 
-    QMap<const Resource*, ResourceRequest*> m_resourceCache;
-    QMap<const Resource*, int> m_requiredChecked;
-    QMap<const ResourceGroup*, ResourceGroupRequest*> m_groupCache;
+    QHash<const Resource*, ResourceRequest*> m_resourceCache;
+    QHash<const Resource*, int> m_requiredChecked;
+    QHash<const ResourceGroup*, ResourceGroupRequest*> m_groupCache;
 };
 
 

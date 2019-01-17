@@ -50,7 +50,7 @@ namespace KPlato
 
 void NamedCommand::setSchScheduled()
 {
-    QMap<Schedule*, bool>::ConstIterator it;
+    QHash<Schedule*, bool>::ConstIterator it;
     for ( it = m_schedules.constBegin(); it != m_schedules.constEnd(); ++it ) {
         //debugPlan << it.key() ->name() <<":" << it.value();
         it.key() ->setScheduled( it.value() );
@@ -58,7 +58,7 @@ void NamedCommand::setSchScheduled()
 }
 void NamedCommand::setSchScheduled( bool state )
 {
-    QMap<Schedule*, bool>::ConstIterator it;
+    QHash<Schedule*, bool>::ConstIterator it;
     for ( it = m_schedules.constBegin(); it != m_schedules.constEnd(); ++it ) {
         //debugPlan << it.key() ->name() <<":" << state;
         it.key() ->setScheduled( state );
@@ -3180,10 +3180,10 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
         defaultAccount = project.accounts().defaultAccount()->name();
     }
 
-    QMap<Node*, QString> startupaccountmap;
-    QMap<Node*, QString> shutdownaccountmap;
-    QMap<Node*, QString> runningaccountmap;
-    QMap<Node*, QString> nodecalendarmap;
+    QHash<Node*, QString> startupaccountmap;
+    QHash<Node*, QString> shutdownaccountmap;
+    QHash<Node*, QString> runningaccountmap;
+    QHash<Node*, QString> nodecalendarmap;
 
     // remove unhandled info in tasks and get accounts and calendars
     foreach ( Node *n, project.allNodes() ) {
@@ -3214,8 +3214,8 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
         }
     }
     // get resources pointing to calendars and accounts
-    QMap<Resource*, QString> resaccountmap;
-    QMap<Resource*, QString> rescalendarmap;
+    QHash<Resource*, QString> resaccountmap;
+    QHash<Resource*, QString> rescalendarmap;
     foreach ( Resource *r, project.resourceList() ) {
         if ( r->account() ) {
             resaccountmap.insert( r, r->account()->name() );
@@ -3245,8 +3245,8 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
         addCalendars( c, 0, unusedCalendars, calendarsmap );
     }
     // get all requests before resources are merged
-    QMap<ResourceGroupRequest*, QPair<Node *, ResourceGroup*> > greqs;
-    QMap<ResourceGroupRequest*, QPair<ResourceRequest*, Resource*> > rreqs;
+    QHash<ResourceGroupRequest*, QPair<Node *, ResourceGroup*> > greqs;
+    QHash<ResourceGroupRequest*, QPair<ResourceRequest*, Resource*> > rreqs;
     foreach ( Node *n, project.allNodes() ) {
         QList<ResourceRequest*> resReq;
         if ( n->type() != (int)Node::Type_Task || n->requests().isEmpty() ) {
@@ -3273,8 +3273,8 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
     QList<ResourceGroup*> allGroups;
     QList<Resource*> allResources;
     QList<Resource*> newResources;
-    QMap<ResourceGroup*, ResourceGroup*> existingGroups;
-    QMap<Resource*, Resource*> existingResources;
+    QHash<ResourceGroup*, ResourceGroup*> existingGroups;
+    QHash<Resource*, Resource*> existingResources;
     foreach ( ResourceGroup *g, project.resourceGroups() ) {
         ResourceGroup *gr = m_project->findResourceGroup( g->id() );
         if ( gr == 0 ) {
@@ -3302,8 +3302,8 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
         }
     }
     // Update resource account
-    {QMap<Resource*, QString>::const_iterator it = resaccountmap.constBegin();
-    QMap<Resource*, QString>::const_iterator end = resaccountmap.constEnd();
+    {QHash<Resource*, QString>::const_iterator it = resaccountmap.constBegin();
+    QHash<Resource*, QString>::const_iterator end = resaccountmap.constEnd();
     for ( ; it != end; ++it ) {
         Resource *r = it.key();
         if ( newResources.contains( r ) ) {
@@ -3312,8 +3312,8 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
         }
     }}
     // Update resource calendar
-    {QMap<Resource*, QString>::const_iterator it = rescalendarmap.constBegin();
-    QMap<Resource*, QString>::const_iterator end = rescalendarmap.constEnd();
+    {QHash<Resource*, QString>::const_iterator it = rescalendarmap.constBegin();
+    QHash<Resource*, QString>::const_iterator end = rescalendarmap.constEnd();
     for ( ; it != end; ++it ) {
         Resource *r = it.key();
         if ( newResources.contains( r ) ) {
@@ -3324,7 +3324,7 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
     // Requests: clean up requests to resources already in m_project
     int gi = 0;
     int ri = 0;
-    QMap<ResourceGroupRequest*, QPair<Node *, ResourceGroup*> >::const_iterator gregsIt;
+    QHash<ResourceGroupRequest*, QPair<Node *, ResourceGroup*> >::const_iterator gregsIt;
     for (gregsIt = greqs.constBegin(); gregsIt != greqs.constEnd(); ++gregsIt) {
         ResourceGroupRequest *gr = gregsIt.key();
         QPair<Node*, ResourceGroup*> pair = gregsIt.value();
@@ -3337,7 +3337,7 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
         gr->setGroup( newGroup );
         addCommand( new AddResourceGroupRequestCmd( static_cast<Task&>( *n ), gr, kundo2_noi18n("Group %1", ++gi)  ) );
         debugPlanInsertProject<<"Add resource group request:"<<n->name()<<":"<<newGroup->name();
-        QMap<ResourceGroupRequest*, QPair<ResourceRequest*, Resource*> >::const_iterator i = rreqs.constFind( gr );
+        QHash<ResourceGroupRequest*, QPair<ResourceRequest*, Resource*> >::const_iterator i = rreqs.constFind( gr );
         for ( ; i != rreqs.constEnd() && i.key() == gr; ++i ) {
             ResourceRequest *rr = i.value().first;
             Resource *newRes = i.value().second;
@@ -3397,26 +3397,26 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
         }
     }
     // node calendar
-    {QMap<Node*, QString>::const_iterator it = nodecalendarmap.constBegin();
-    QMap<Node*, QString>::const_iterator end = nodecalendarmap.constEnd();
+    {QHash<Node*, QString>::const_iterator it = nodecalendarmap.constBegin();
+    QHash<Node*, QString>::const_iterator end = nodecalendarmap.constEnd();
     for ( ; it != end; ++it ) {
         addCommand( new ModifyEstimateCalendarCmd( *(it.key()), 0, calendarsmap.value( it.value() ) ) );
     }}
     // node startup account
-    {QMap<Node*, QString>::const_iterator it = startupaccountmap.constBegin();
-    QMap<Node*, QString>::const_iterator end = startupaccountmap.constEnd();
+    {QHash<Node*, QString>::const_iterator it = startupaccountmap.constBegin();
+    QHash<Node*, QString>::const_iterator end = startupaccountmap.constEnd();
     for ( ; it != end; ++it ) {
         addCommand( new NodeModifyStartupAccountCmd( *(it.key()), 0, accountsmap.value( it.value() ) ) );
     }}
     // node shutdown account
-    {QMap<Node*, QString>::const_iterator it = shutdownaccountmap.constBegin();
-    QMap<Node*, QString>::const_iterator end = shutdownaccountmap.constEnd();
+    {QHash<Node*, QString>::const_iterator it = shutdownaccountmap.constBegin();
+    QHash<Node*, QString>::const_iterator end = shutdownaccountmap.constEnd();
     for ( ; it != end; ++it ) {
         addCommand( new NodeModifyShutdownAccountCmd( *(it.key()), 0, accountsmap.value( it.value() ) ) );
     }}
     // node running account
-    {QMap<Node*, QString>::const_iterator it = runningaccountmap.constBegin();
-    QMap<Node*, QString>::const_iterator end = runningaccountmap.constEnd();
+    {QHash<Node*, QString>::const_iterator it = runningaccountmap.constBegin();
+    QHash<Node*, QString>::const_iterator end = runningaccountmap.constEnd();
     for ( ; it != end; ++it ) {
         addCommand( new NodeModifyRunningAccountCmd( *(it.key()), 0, accountsmap.value( it.value() ) ) );
     }}

@@ -39,6 +39,7 @@
 #include <QDate>
 #include <QList>
 #include <QLocale>
+#include <QHash>
 
 #include <KGanttGlobal>
 
@@ -474,8 +475,8 @@ void ResourceAppointmentsItemModel::refreshData()
     //debugPlan<<"Schedule id: "<<id<<endl;
     QDate start;
     QDate end;
-    QMap<const Appointment*, EffortCostMap> ec;
-    QMap<const Appointment*, EffortCostMap> extEff;
+    QHash<const Appointment*, EffortCostMap> ec;
+    QHash<const Appointment*, EffortCostMap> extEff;
     foreach ( Resource *r, m_project->resourceList() ) {
         foreach (Appointment* a, r->appointments( id )) {
             QDate s = a->startTime().date();

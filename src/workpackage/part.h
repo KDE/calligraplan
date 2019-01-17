@@ -177,12 +177,18 @@ public:
     /// Number of workpackages
     int workPackageCount() const { return m_packageMap.count(); }
     /// Work package at index
-    WorkPackage *workPackage( int index ) const { return m_packageMap.values().value( index ); }
+    WorkPackage *workPackage( int index ) const {
+        const QList<WorkPackage*> &lst = m_packageMap.values();
+        return lst.value(index);
+    }
     /// Work package containing node
     WorkPackage *workPackage( Node *node ) const { 
         return m_packageMap.value( node->projectNode()->id() + node->id() );
     }
-    int indexOf( WorkPackage *package ) const { return m_packageMap.values().indexOf( package ); }
+    int indexOf( WorkPackage *package ) const {
+        const QList<WorkPackage*> &lst = m_packageMap.values();
+        return lst.indexOf(package);
+    }
     void addWorkPackage( WorkPackage *wp );
     void removeWorkPackage( WorkPackage *wp );
     void removeWorkPackage( Node *node, MacroCommand *m = 0 );

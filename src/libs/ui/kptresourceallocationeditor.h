@@ -26,6 +26,8 @@
 #include "kptresourceallocationmodel.h"
 #include "kpttask.h"
 
+#include <QHash>
+
 class KoDocument;
 
 class QPoint;
@@ -55,8 +57,8 @@ public:
 
     QObject *currentObject() const;
 
-    const QMap<const Resource*, ResourceRequest*> &resourceCache() const { return model()->resourceCache(); }
-    const QMap<const ResourceGroup*, ResourceGroupRequest*> &groupCache() const { return model()->groupCache(); }
+    const QHash<const Resource*, ResourceRequest*> &resourceCache() const { return model()->resourceCache(); }
+    const QHash<const ResourceGroup*, ResourceGroupRequest*> &groupCache() const { return model()->groupCache(); }
 
 Q_SIGNALS:
     void dataChanged();

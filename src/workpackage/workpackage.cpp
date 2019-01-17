@@ -71,8 +71,9 @@ WorkPackage::WorkPackage( Project *project, bool fromProjectStore )
     m_project->setConfig( &m_config );
 
     if ( ! project->scheduleManagers().isEmpty() ) {
-        // should be only one manager
-        project->setCurrentSchedule( m_project->scheduleManagers().first()->scheduleId() );
+        // should be only one manager, so just get the first
+        const QList<ScheduleManager*> &lst = m_project->scheduleManagers();
+        project->setCurrentSchedule(lst.first()->scheduleId());
     }
     connect( project, SIGNAL(projectChanged()), this, SLOT(projectChanged()) );
 
@@ -214,7 +215,8 @@ bool WorkPackage::loadXML( const KoXmlElement &element, XMLLoaderObject &status 
     }
     if ( ! m_project->scheduleManagers().isEmpty() ) {
         // should be only one manager
-        m_project->setCurrentSchedule( m_project->scheduleManagers().first()->scheduleId() );
+        const QList<ScheduleManager*> &lst = m_project->scheduleManagers();
+        m_project->setCurrentSchedule(lst.first()->scheduleId());
     }
     return ok;
 }
@@ -273,7 +275,8 @@ bool WorkPackage::loadKPlatoXML( const KoXmlElement &element, XMLLoaderObject &s
     }
     if ( ! m_project->scheduleManagers().isEmpty() ) {
         // should be only one manager
-        m_project->setCurrentSchedule( m_project->scheduleManagers().first()->scheduleId() );
+        const QList<ScheduleManager*> &lst = m_project->scheduleManagers();
+        m_project->setCurrentSchedule(lst.first()->scheduleId());
     }
     return ok;
 }

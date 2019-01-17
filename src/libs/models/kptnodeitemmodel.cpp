@@ -44,6 +44,7 @@
 #include <QMimeDatabase>
 #include <QModelIndex>
 #include <QByteArray>
+#include <QHash>
 
 #include <krichtextwidget.h>
 
@@ -3554,7 +3555,7 @@ bool NodeItemModel::setAllocation( Node *node, const QVariant &value, int role )
                 }
             }
             // Handle new requests
-            QMap<ResourceGroup*, ResourceGroupRequest*> groupmap;
+            QHash<ResourceGroup*, ResourceGroupRequest*> groupmap;
             foreach ( const QString &s, alloc ) {
                 // if an allocation is not in req, it must be added
                 if ( req.indexOf( s ) == -1 ) {
@@ -4069,7 +4070,7 @@ bool NodeItemModel::importProjectFile( const QUrl &url, Qt::DropAction /*action*
 KUndo2Command *NodeItemModel::createAllocationCommand( Task &task, const QList<Resource*> &lst )
 {
     MacroCommand *cmd = new MacroCommand( kundo2_i18n( "Modify resource allocations" ) );
-    QMap<ResourceGroup*, ResourceGroupRequest*> groups;
+    QHash<ResourceGroup*, ResourceGroupRequest*> groups;
     foreach ( Resource *r, lst ) {
         if ( ! groups.contains( r->parentGroup() ) && task.resourceGroupRequest( r->parentGroup() ) == 0 ) {
             ResourceGroupRequest *gr = new ResourceGroupRequest( r->parentGroup() );
@@ -4206,7 +4207,7 @@ QModelIndex NodeItemModel::insertTask( Node *node, Node *after )
     MacroCommand *cmd = new MacroCommand( kundo2_i18n( "Add task" ) );
     cmd->addCommand( new TaskAddCmd( m_project, node, after ) );
     if ( m_project && node->type() == Node::Type_Task ) {
-        QMap<ResourceGroup*, ResourceGroupRequest*> groups;
+        QHash<ResourceGroup*, ResourceGroupRequest*> groups;
         foreach ( Resource *r, m_project->autoAllocateResources() ) {
             if ( ! groups.contains( r->parentGroup() ) ) {
                 ResourceGroupRequest *gr = new ResourceGroupRequest( r->parentGroup() );

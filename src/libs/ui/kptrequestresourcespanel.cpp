@@ -27,6 +27,7 @@
 #include <kptcommand.h>
 
 #include <QHeaderView>
+#include <QHash>
 
 
 namespace KPlato
@@ -62,10 +63,10 @@ MacroCommand *RequestResourcesPanel::buildCommand()
         return 0;
     }
     MacroCommand *cmd = new MacroCommand( kundo2_i18n( "Modify resource allocations" ) );
-    const QMap<const Resource*, ResourceRequest*> &rmap = m_view->resourceCache();
+    const QHash<const Resource*, ResourceRequest*> &rmap = m_view->resourceCache();
 
     // First remove all that should be removed
-    for( QMap<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit ) {
+    for( QHash<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit ) {
         if ( rit.value()->units() == 0 ) {
             ResourceRequest *rr = task->requests().find( rit.key() );
             if ( rr ) {
@@ -74,10 +75,10 @@ MacroCommand *RequestResourcesPanel::buildCommand()
         }
     }
 
-    QMap<const ResourceGroup*, ResourceGroupRequest*> groups;
+    QHash<const ResourceGroup*, ResourceGroupRequest*> groups;
     // Add/modify
-    const QMap<const ResourceGroup*, ResourceGroupRequest*> &gmap = m_view->groupCache();
-    for( QMap<const ResourceGroup*, ResourceGroupRequest*>::const_iterator git = gmap.constBegin(); git != gmap.constEnd(); ++git ) {
+    const QHash<const ResourceGroup*, ResourceGroupRequest*> &gmap = m_view->groupCache();
+    for( QHash<const ResourceGroup*, ResourceGroupRequest*>::const_iterator git = gmap.constBegin(); git != gmap.constEnd(); ++git ) {
         ResourceGroupRequest *gr = task->requests().find( git.key() );
         if ( gr == 0 ) {
             if ( git.value()->units() > 0 ) {
@@ -89,7 +90,7 @@ MacroCommand *RequestResourcesPanel::buildCommand()
             cmd->addCommand( new ModifyResourceGroupRequestUnitsCmd( gr, gr->units(), git.value()->units() ) );
         }
     }
-    for( QMap<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit ) {
+    for( QHash<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit ) {
         Resource *resource = const_cast<Resource*>( rit.key() );
         ResourceGroup *group = resource->parentGroup();
         if ( rit.value()->units() > 0 ) {
@@ -132,17 +133,17 @@ MacroCommand *RequestResourcesPanel::buildCommand(Task *task)
         return 0;
     }
     MacroCommand *cmd = new MacroCommand( kundo2_i18n( "Modify resource allocations" ) );
-    const QMap<const Resource*, ResourceRequest*> &rmap = m_view->resourceCache();
+    const QHash<const Resource*, ResourceRequest*> &rmap = m_view->resourceCache();
 
     // First remove all
     for (ResourceGroupRequest *g : task->requests().requests()) {
         cmd->addCommand(new RemoveResourceGroupRequestCmd(g));
     }
 
-    QMap<const ResourceGroup*, ResourceGroupRequest*> groups;
+    QHash<const ResourceGroup*, ResourceGroupRequest*> groups;
     // Add possible requests to groups
-    const QMap<const ResourceGroup*, ResourceGroupRequest*> &gmap = m_view->groupCache();
-    for( QMap<const ResourceGroup*, ResourceGroupRequest*>::const_iterator git = gmap.constBegin(); git != gmap.constEnd(); ++git ) {
+    const QHash<const ResourceGroup*, ResourceGroupRequest*> &gmap = m_view->groupCache();
+    for( QHash<const ResourceGroup*, ResourceGroupRequest*>::const_iterator git = gmap.constBegin(); git != gmap.constEnd(); ++git ) {
         if (git.value()->units() > 0) {
             ResourceGroupRequest *gr = new ResourceGroupRequest(const_cast<ResourceGroup*>(git.key() ), git.value()->units());
             cmd->addCommand(new AddResourceGroupRequestCmd(*task, gr));
@@ -150,7 +151,7 @@ MacroCommand *RequestResourcesPanel::buildCommand(Task *task)
         }
     }
     // Add possible requests to resources
-    for( QMap<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit ) {
+    for( QHash<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit ) {
         Resource *resource = const_cast<Resource*>(rit.key());
         ResourceGroup *group = resource->parentGroup();
         if ( rit.value()->units() > 0 ) {
