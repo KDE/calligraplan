@@ -72,10 +72,10 @@ CalendarTreeView::CalendarTreeView( QWidget *parent )
 #ifdef HAVE_KHOLIDAYS
     setItemDelegateForColumn( CalendarItemModel::HolidayRegion, new EnumDelegate( this ) );
 #endif
-    connect( header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(headerContextMenuRequested(QPoint)) );
+    connect( header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderContextMenuRequested(QPoint)) );
 }
 
-void CalendarTreeView::headerContextMenuRequested( const QPoint &pos )
+void CalendarTreeView::slotHeaderContextMenuRequested( const QPoint &pos )
 {
     emit contextMenuRequested(QModelIndex(), mapToGlobal(pos));
 }
@@ -322,11 +322,6 @@ void CalendarDayView::slotSetUndefined()
 void CalendarDayView::setCurrentCalendar( Calendar *calendar )
 {
     model()->setCalendar( calendar );
-}
-
-void CalendarDayView::headerContextMenuRequested( const QPoint &/*pos*/ )
-{
-//    debugPlan<<header()->logicalIndexAt(pos)<<" at"<<pos;
 }
 
 void CalendarDayView::contextMenuEvent ( QContextMenuEvent *event )

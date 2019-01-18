@@ -120,13 +120,13 @@ Project::~Project()
 {
     debugPlan<<"("<<this<<")";
     disconnect();
-    for(Node *n : nodeIdDict) {
+    for(Node *n : qAsConst(nodeIdDict)) {
         n->blockChanged();
     }
-    for (Resource *r : resourceIdDict) {
+    for (Resource *r : qAsConst(resourceIdDict)) {
         r->blockChanged();
     }
-    for (ResourceGroup *g : resourceGroupIdDict) {
+    for (ResourceGroup *g : qAsConst(resourceGroupIdDict)) {
         g->blockChanged();
     }
     delete m_standardWorktime;
@@ -403,7 +403,7 @@ void Project::finishCalculation( ScheduleManager &sm )
         // calculate project duration
         cs->startTime = m_constraintEndTime;
         cs->endTime = m_constraintStartTime;
-        for (const Node *n : nodeIdDict) {
+        for (const Node *n : qAsConst(nodeIdDict)) {
             cs->startTime = qMin(cs->startTime, n->startTime(cs->id()));
             cs->endTime = qMax(cs->endTime, n->endTime(cs->id()));
         }

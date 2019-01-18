@@ -52,7 +52,7 @@ QList<Resource*> ResourceAllocationView::selectedResources() const
     QList<Resource*> resources;
     ResourceItemModel *m = qobject_cast<ResourceItemModel*>(model());
     if (m) {
-        for (const QModelIndex &idx : selectionModel()->selectedRows()) {
+        foreach(const QModelIndex &idx, selectionModel()->selectedRows()) {
             Resource *r = m->resource(idx);
             if (r) {
                 resources << r;
@@ -132,12 +132,12 @@ void ResourceAllocationView::slotAllocate()
         }
         Task *t = static_cast<Task*>(n);
         // remove any requests before adding new ones
-        for (ResourceGroupRequest *r : t->requests().requests()) {
+        foreach(ResourceGroupRequest *r, t->requests().requests()) {
             RemoveResourceGroupRequestCmd *c = new RemoveResourceGroupRequestCmd(r);
             c->execute(); // need to remove everyting before we add anything
             cmd->addCommand(c);
         }
-        QMap<ResourceGroup*, ResourceGroupRequest*> groups;
+        QHash<ResourceGroup*, ResourceGroupRequest*> groups;
         for (Resource *r : resources) {
             if (!groups.contains(r->parentGroup())) {
                 groups[r->parentGroup()] = new ResourceGroupRequest(r->parentGroup());

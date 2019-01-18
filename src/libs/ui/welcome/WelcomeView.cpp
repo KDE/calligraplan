@@ -158,7 +158,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(widget.openProjectBtn, SIGNAL(clicked(bool)), this, SLOT(slotOpenProject()));
     connect(widget.introductionBtn, SIGNAL(clicked(bool)), this, SIGNAL(showIntroduction()));
 
-    connect(widget.recentProjects->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(slotRecentFileSelected(const QItemSelection&)));
+    connect(widget.recentProjects->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SLOT(slotRecentFileSelected(QItemSelection)));
 }
 
 WelcomeView::~WelcomeView()
@@ -236,7 +236,7 @@ void WelcomeView::slotNewProject()
         if (!m_projectdialog) {
             m_projectdialog =  new MainProjectDialog(*p, this, false /*edit*/);
             connect(m_projectdialog, SIGNAL(dialogFinished(int)), SLOT(slotProjectEditFinished(int)));
-            connect(m_projectdialog, SIGNAL(sigLoadSharedResources(const QString&, const QUrl&, bool)), this, SLOT(slotLoadSharedResources(const QString&, const QUrl&, bool)));
+            connect(m_projectdialog, SIGNAL(sigLoadSharedResources(QString,QUrl,bool)), this, SLOT(slotLoadSharedResources(QString,QUrl,bool)));
         }
         m_projectdialog->show();
         m_projectdialog->raise();

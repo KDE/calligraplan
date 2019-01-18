@@ -677,10 +677,11 @@ void MainDocument::workPackageMergeDialogFinished( int result )
     if ( result == KoDialog::Yes ) {
         // merge the oldest first
         foreach( int i, dlg->checkedList() ) {
-            mergeWorkPackage( m_workpackages.values().at( i ) );
+            const QList<Package*> &packages = m_workpackages.values();
+            mergeWorkPackage(packages.at(i));
         }
         // 'Yes' was hit so terminate all packages
-        foreach( const Package *p, m_workpackages.values() ) {
+        foreach(const Package *p, m_workpackages) {
             terminateWorkPackage( p );
         }
     }
@@ -692,7 +693,7 @@ void MainDocument::workPackageMergeDialogFinished( int result )
 
 void MainDocument::mergeWorkPackages()
 {
-    foreach ( Package *package, m_workpackages ) {
+    foreach (const Package *package, m_workpackages) {
         mergeWorkPackage( package );
     }
 }
@@ -776,14 +777,16 @@ void MainDocument::mergeWorkPackage( Task *to, const Task *from, const Package *
         }
         // TODO: review how/if to merge data from different resources
         // remove entries
-        foreach ( const QDate &d, org.entries().keys() ) {
+        const QList<QDate> &dates = org.entries().keys();
+        for (const QDate &d : dates) {
             if ( ! curr.entries().contains( d ) ) {
                 debugPlan<<"remove entry "<<d;
                 cmd->addCommand( new RemoveCompletionEntryCmd( org, d ) );
             }
         }
         // add new entries / modify existing
-        foreach ( const QDate &d, curr.entries().keys() ) {
+        const QList<QDate> &cdates = curr.entries().keys();
+        for (const QDate &d : cdates) {
             if ( org.entries().contains( d ) && curr.entry( d ) == org.entry( d ) ) {
                 continue;
             }
@@ -1043,7 +1046,7 @@ void MainDocument::insertFileCancelled( const QString &error )
 
 void MainDocument::clearResourceAssignments()
 {
-    for (Resource *r : m_project->resourceList()) {
+    foreach (Resource *r, m_project->resourceList()) {
         r->clearExternalAppointments();
     }
 }
@@ -1068,7 +1071,7 @@ void MainDocument::insertSharedProjects(const QUrl &url)
         // Get all plan files in this directory
         debugPlan<<"Get all projects in dir:"<<url;
         QDir dir = fi.dir();
-        for (const QString &f : dir.entryList(QStringList()<<"*.plan")) {
+        foreach(const QString &f, dir.entryList(QStringList()<<"*.plan")) {
             QString path = dir.canonicalPath();
             if (path.isEmpty()) {
                 continue;
@@ -1116,7 +1119,7 @@ void MainDocument::insertSharedProjectCompleted()
             // FIXME: improve!
             // find a suitable schedule
             ScheduleManager *sm = 0;
-            for (ScheduleManager *m : p.allScheduleManagers()) {
+            foreach(ScheduleManager *m, p.allScheduleManagers()) {
                 if (m->isBaselined()) {
                     sm = m;
                     break;
@@ -1126,12 +1129,12 @@ void MainDocument::insertSharedProjectCompleted()
                 }
             }
             if (sm) {
-                for (Resource *r : p.resourceList()) {
+                foreach(Resource *r, p.resourceList()) {
                     Resource *res = m_project->resource(r->id());
                     if (res && res->isShared()) {
                         Appointment *app = new Appointment();
                         app->setAuxcilliaryInfo(p.name());
-                        for (const Appointment *a : r->appointments(sm->scheduleId())) {
+                        foreach(const Appointment *a, r->appointments(sm->scheduleId())) {
                             *app += *a;
                         }
                         if (app->isEmpty()) {
@@ -1213,30 +1216,30 @@ bool MainDocument::mergeResources(Project &project)
 {
     debugPlanShared<<&project;
     // Just in case, remove stuff not related to resources
-    for (Node *n :  project.childNodeIterator()) {
+    foreach(Node *n,  project.childNodeIterator()) {
         debugPlanShared<<"Project not empty, delete node:"<<n<<n->name();
         NodeDeleteCmd cmd(n);
         cmd.execute();
     }
-    for (ScheduleManager *m :  project.scheduleManagers()) {
+    foreach(ScheduleManager *m,  project.scheduleManagers()) {
         debugPlanShared<<"Project not empty, delete schedule:"<<m<<m->name();
         DeleteScheduleManagerCmd cmd(project, m);
         cmd.execute();
     }
-    for (Account *a : project.accounts().accountList()) {
+    foreach(Account *a, project.accounts().accountList()) {
         debugPlanShared<<"Project not empty, delete account:"<<a<<a->name();
         RemoveAccountCmd cmd(project, a);
         cmd.execute();
     }
     // Mark all resources / groups as shared
-    for (ResourceGroup *g : project.resourceGroups()) {
+    foreach(ResourceGroup *g, project.resourceGroups()) {
         g->setShared(true);
     }
-    for (Resource *r : project.resourceList()) {
+    foreach(Resource *r, project.resourceList()) {
         r->setShared(true);
     }
     // Mark all calendars shared
-    for (Calendar *c : project.allCalendars()) {
+    foreach(Calendar *c, project.allCalendars()) {
         c->setShared(true);
     }
     // check if any shared stuff has been removed
@@ -1244,20 +1247,20 @@ bool MainDocument::mergeResources(Project &project)
     QList<Resource*> removedResources;
     QList<Calendar*> removedCalendars;
     QStringList removed;
-    for (ResourceGroup *g : m_project->resourceGroups()) {
+    foreach(ResourceGroup *g, m_project->resourceGroups()) {
         if (g->isShared() && !project.findResourceGroup(g->id())) {
             removedGroups << g;
             removed << i18n("Group: %1", g->name());
         }
     }
-    for (Resource *r : m_project->resourceList()) {
+    foreach(Resource *r, m_project->resourceList()) {
         if (r->isShared() && !project.findResource(r->id())) {
             removedResources << r;
             removed << i18n("Resource: %1", r->name());
         }
     }
     removedCalendars = sortedRemoveCalendars(project, m_project->calendars());
-    for (Calendar *c : removedCalendars) {
+    for (Calendar *c : qAsConst(removedCalendars)) {
         removed << i18n("Calendar: %1", c->name());
     }
     if (!removed.isEmpty()) {
@@ -1273,11 +1276,11 @@ bool MainDocument::mergeResources(Project &project)
                     );
         switch (result) {
         case KMessageBox::Yes: // Remove
-            for (Resource *r : removedResources) {
+            for (Resource *r : qAsConst(removedResources)) {
                 RemoveResourceCmd cmd(r->parentGroup(), r);
                 cmd.redo();
             }
-            for (ResourceGroup *g : removedGroups) {
+            for (ResourceGroup *g : qAsConst(removedGroups)) {
                 if (g->resources().isEmpty()) {
                     RemoveResourceGroupCmd cmd(m_project, g);
                     cmd.redo();
@@ -1290,25 +1293,25 @@ bool MainDocument::mergeResources(Project &project)
                     m_project->insertResourceGroupId(g->id(), g);
                 }
             }
-            for (Calendar *c : removedCalendars) {
+            for (Calendar *c : qAsConst(removedCalendars)) {
                 CalendarRemoveCmd cmd(m_project, c);
                 cmd.redo();
             }
             break;
         case KMessageBox::No: // Convert
-            for (Resource *r : removedResources) {
+            for (Resource *r : qAsConst(removedResources)) {
                 r->setShared(false);
                 m_project->removeResourceId(r->id());
                 r->setId(m_project->uniqueResourceId());
                 m_project->insertResourceId(r->id(), r);
             }
-            for (ResourceGroup *g : removedGroups) {
+            for (ResourceGroup *g : qAsConst(removedGroups)) {
                 g->setShared(false);
                 m_project->removeResourceGroupId(g->id());
                 g->setId(m_project->uniqueResourceGroupId());
                 m_project->insertResourceGroupId(g->id(), g);
             }
-            for (Calendar *c : removedCalendars) {
+            for (Calendar *c : qAsConst(removedCalendars)) {
                 c->setShared(false);
                 m_project->removeCalendarId(c->id());
                 c->setId(m_project->uniqueCalendarId());
@@ -1323,16 +1326,16 @@ bool MainDocument::mergeResources(Project &project)
     }
     // update values of already existing objects
     QStringList l1;
-    for (ResourceGroup *g : project.resourceGroups()) {
+    foreach(ResourceGroup *g, project.resourceGroups()) {
         l1 << g->id();
     }
     QStringList l2;
-    for (ResourceGroup *g : m_project->resourceGroups()) {
+    foreach(ResourceGroup *g, m_project->resourceGroups()) {
         l2 << g->id();
     }
     debugPlanShared<<endl<<"  This:"<<l2<<endl<<"Shared:"<<l1;
     QList<ResourceGroup*> removegroups;
-    for (ResourceGroup *g : project.resourceGroups()) {
+    foreach(ResourceGroup *g, project.resourceGroups()) {
         ResourceGroup *group = m_project->findResourceGroup(g->id());
         if (group) {
             if (!group->isShared()) {
@@ -1349,7 +1352,7 @@ bool MainDocument::mergeResources(Project &project)
         }
     }
     QList<Resource*> removeresources;
-    for (Resource *r : project.resourceList()) {
+    foreach(Resource *r, project.resourceList()) {
         Resource *resource = m_project->findResource(r->id());
         if (resource) {
             if (!resource->isShared()) {
@@ -1384,7 +1387,7 @@ bool MainDocument::mergeResources(Project &project)
         }
     }
     QList<Calendar*> removecalendars;
-    for (Calendar *c : project.allCalendars()) {
+    foreach(Calendar *c, project.allCalendars()) {
         Calendar *calendar = m_project->findCalendar(c->id());
         if (calendar) {
             if (!calendar->isShared()) {
@@ -1411,12 +1414,12 @@ bool MainDocument::mergeResources(Project &project)
             }
         }
     }
-    for (Resource *r : removeresources) {
+    for (Resource *r : qAsConst(removeresources)) {
         debugPlanShared<<"Delete resource:"<<r<<r->id();
         RemoveResourceCmd cmd(r->parentGroup(), r);
         cmd.execute();
     }
-    for (ResourceGroup *g : removegroups) {
+    for (ResourceGroup *g : qAsConst(removegroups)) {
         debugPlanShared<<"Delete group:"<<g<<g->id();
         RemoveResourceGroupCmd cmd(&project, g);
         cmd.execute();
@@ -1560,7 +1563,7 @@ void MainDocument::createNewProject()
         }
     }
     foreach ( Resource *r, m_project->resourceList() ) {
-        foreach ( Schedule *s, r->schedules().values() ) {
+        foreach ( Schedule *s, r->schedules() ) {
             r->takeSchedule( s );
             delete s;
         }

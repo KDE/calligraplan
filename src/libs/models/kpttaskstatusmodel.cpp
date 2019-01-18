@@ -19,6 +19,8 @@
 
 #include "kpttaskstatusmodel.h"
 
+#include "PlanMacros.h"
+
 #include "kptglobal.h"
 #include "kptcommonstrings.h"
 #include "kptitemmodelbase.h"
@@ -305,7 +307,7 @@ QModelIndex TaskStatusItemModel::parent( const QModelIndex &index ) const
     }
     NodeMap *lst = 0;
     foreach ( NodeMap *l, m_top ) {
-        if ( l->values().indexOf( n ) != -1 ) {
+        if (CONTAINS((*l), n)) {
             lst = l;
             break;
         }
@@ -336,7 +338,8 @@ QModelIndex TaskStatusItemModel::index( int row, int column, const QModelIndex &
         warnPlan<<"Row >= rowCount, Qt4.4 asks, so we need to handle it"<<parent<<row<<column;
         return QModelIndex();
     }
-    QModelIndex i = createIndex(row, column, l->values().value( row ) );
+    const QList<Node*> &nodes = l->values();
+    QModelIndex i = createIndex(row, column, nodes.value(row));
     Q_ASSERT( i.internalPointer() != 0 );
     return i;
 }
@@ -347,7 +350,8 @@ QModelIndex TaskStatusItemModel::index( const Node *node ) const
         return QModelIndex();
     }
     foreach( NodeMap *l, m_top ) {
-        int row = l->values().indexOf( const_cast<Node*>( node ) );
+        const QList<Node*> &nodes = l->values();
+        int row = nodes.indexOf( const_cast<Node*>( node ) );
         if ( row != -1 ) {
             return createIndex( row, 0, const_cast<Node*>( node ) );
         }
@@ -687,7 +691,8 @@ Node *TaskStatusItemModel::node( const QModelIndex &index ) const
 {
     if ( index.isValid() ) {
         foreach ( NodeMap *l, m_top ) {
-            int row = l->values().indexOf( static_cast<Node*>( index.internalPointer() ) );
+            const QList<Node*> &nodes = l->values();
+            int row = nodes.indexOf( static_cast<Node*>( index.internalPointer() ) );
             if ( row != -1 ) {
                 return static_cast<Node*>( index.internalPointer() );
             }
@@ -757,7 +762,8 @@ void TaskStatusItemModel::slotWbsDefinitionChanged()
     debugPlan;
     foreach ( NodeMap *l, m_top ) {
         for ( int row = 0; row < l->count(); ++row ) {
-            emit dataChanged( createIndex( row, NodeModel::NodeWBSCode, l->values().value( row ) ), createIndex( row, NodeModel::NodeWBSCode, l->values().value( row ) ) );
+            const QList<Node*> &nodes = l->values();
+            emit dataChanged( createIndex( row, NodeModel::NodeWBSCode, nodes.value( row ) ), createIndex( row, NodeModel::NodeWBSCode, nodes.value( row ) ) );
         }
     }
 }

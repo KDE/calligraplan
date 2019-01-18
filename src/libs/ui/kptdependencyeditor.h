@@ -522,7 +522,6 @@ public:
     DependencyView *view() const { return m_view; }
 
 Q_SIGNALS:
-    void requestPopupMenu( const QString&, const QPoint & );
     void openNode();
     void editNode(KPlato::Node *node);
     void addTask();

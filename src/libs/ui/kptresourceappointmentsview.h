@@ -138,7 +138,6 @@ public:
     KoPrintJob *createPrintJob();
     
 Q_SIGNALS:
-    void requestPopupMenu( const QString&, const QPoint& );
     void addResource(KPlato::ResourceGroup*);
     void deleteObjectList( const QObjectList& );
     

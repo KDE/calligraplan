@@ -233,7 +233,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     if (!path.isEmpty()) {
         QDir dir(path);
         qDebug()<<dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
-        for (const QString &file : dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot)) {
+        foreach(const QString &file, dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot)) {
             QUrl url;
             url.setUrl(path + '/' + file);
             qDebug()<<"templates:"<<url<<path<<file;
@@ -248,7 +248,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     m_view->header()->setSectionResizeMode(3, QHeaderView::Fixed);
     m_view->header()->resizeSection(3, 12);
 
-    connect(m_view->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(slotSelectionChanged()));
+    connect(m_view->selectionModel(), SIGNAL(selectionChanged(QItemSelection&,QItemSelection&)), this, SLOT(slotSelectionChanged()));
     setupGui();
 
     Help::add(this,
@@ -395,7 +395,7 @@ void ReportsGeneratorView::slotGenerateReport()
 {
     debugPlan;
     QAbstractItemModel *model = m_view->model();
-    for (const QModelIndex &idx : selectedRows()) {
+    foreach(const QModelIndex &idx, selectedRows()) {
         QString name = model->index(idx.row(), 0).data().toString();
         QString tmp = model->index(idx.row(), 1).data(FULLPATHROLE).toString();
         QString file = model->index(idx.row(), 2).data().toString();

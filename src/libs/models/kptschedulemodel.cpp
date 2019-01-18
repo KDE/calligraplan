@@ -569,7 +569,7 @@ bool ScheduleItemModel::setUsePert( const QModelIndex &index, const QVariant &va
     switch ( role ) {
         case Qt::EditRole:
             emit executeCommand( new ModifyScheduleManagerDistributionCmd( *sm, value.toBool(), kundo2_i18n( "Modify scheduling distribution" ) ) );
-            emit slotManagerChanged( static_cast<ScheduleManager*>( sm ) );
+            slotManagerChanged( static_cast<ScheduleManager*>( sm ) );
             return true;
     }
     return false;
@@ -715,7 +715,7 @@ bool ScheduleItemModel::setSchedulingDirection( const QModelIndex &index, const 
     switch ( role ) {
         case Qt::EditRole:
             emit executeCommand(new ModifyScheduleManagerSchedulingDirectionCmd( *sm, value.toBool(), kundo2_i18n( "Modify scheduling direction" ) ) );
-            emit slotManagerChanged( static_cast<ScheduleManager*>( sm ) );
+            slotManagerChanged( static_cast<ScheduleManager*>( sm ) );
             return true;
     }
     return false;

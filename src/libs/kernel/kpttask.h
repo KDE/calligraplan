@@ -135,7 +135,7 @@ public:
     };
     typedef QMap<QDate, Entry*> EntryList;
 
-    typedef QMap<const Resource*, UsedEffort*> ResourceUsedEffortMap;
+    typedef QHash<const Resource*, UsedEffort*> ResourceUsedEffortMap;
     
     explicit Completion( Node *node = 0 );  // review * or &, or at all?
     Completion( const Completion &copy );

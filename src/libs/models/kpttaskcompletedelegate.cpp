@@ -60,7 +60,7 @@ void TaskCompleteDelegate::paint( QPainter *painter, const QStyleOptionViewItem 
 
         //debugPlan<<"Draw something else, type="<<type<<index.model()->index( index.row(), NodeModel::NodeName, index.parent() ).data().toString();
 
-        ItemDelegate::paint( painter, option, index );
+        ProgressBarDelegate::paint( painter, option, index );
     }
 }
 

@@ -136,7 +136,7 @@ MacroCommand *RequestResourcesPanel::buildCommand(Task *task)
     const QHash<const Resource*, ResourceRequest*> &rmap = m_view->resourceCache();
 
     // First remove all
-    for (ResourceGroupRequest *g : task->requests().requests()) {
+    foreach(ResourceGroupRequest *g, task->requests().requests()) {
         cmd->addCommand(new RemoveResourceGroupRequestCmd(g));
     }
 

@@ -223,10 +223,6 @@ public:
 public Q_SLOTS:
     void setCalendar(KPlato::Calendar *calendar);
 
-Q_SIGNALS:
-    void reset();
-    void dataChanged( const QDate &start, const QDate &end );
-
 protected:
     QVariant data( const Calendar &cal, const QDate &date, int role ) const;
 

@@ -97,10 +97,10 @@ AccountTreeView::AccountTreeView( QWidget *parent )
     setAcceptDrops( false );
     setDropIndicatorShown( false );
     
-    connect( header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(headerContextMenuRequested(QPoint)) );
+    connect( header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderContextMenuRequested(QPoint)) );
 }
 
-void AccountTreeView::headerContextMenuRequested( const QPoint &pos )
+void AccountTreeView::slotHeaderContextMenuRequested( const QPoint &pos )
 {
     debugPlan<<header()->logicalIndexAt(pos)<<" at"<<pos;
 }

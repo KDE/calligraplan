@@ -774,7 +774,8 @@ void PerformanceStatusBase::createLineChart()
 void PerformanceStatusBase::setupChart()
 {
     while ( ! ui_chart->coordinatePlanes().isEmpty() ) {
-        ui_chart->takeCoordinatePlane( ui_chart->coordinatePlanes().last() );
+        const CoordinatePlaneList &planes = ui_chart->coordinatePlanes();
+        ui_chart->takeCoordinatePlane(planes.last());
     }
     if ( m_chartinfo.showBarChart ) {
         setupChart( m_barchart );

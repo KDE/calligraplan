@@ -78,7 +78,7 @@ Q_SIGNALS:
     void contextMenuRequested( const QModelIndex&, const QPoint& );
     
 protected Q_SLOTS:
-    void headerContextMenuRequested( const QPoint &pos );
+    void slotHeaderContextMenuRequested( const QPoint &pos );
     virtual void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     virtual void currentChanged ( const QModelIndex & current, const QModelIndex & previous );
 

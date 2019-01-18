@@ -163,7 +163,7 @@ void ConfigTaskPanelImpl::unitChanged( int unit )
     if ( kcfg_Unit->currentIndex() != unit ) {
         kcfg_Unit->setCurrentIndex( unit );
         // kcfg uses the activated() signal to track changes
-        emit kcfg_Unit->emitActivated( unit );
+        kcfg_Unit->emitActivated( unit );
     }
 }
 

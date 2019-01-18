@@ -446,7 +446,7 @@ QVariant CalendarItemModel::holidayRegion( const Calendar *a, int role ) const
         case Role::EnumList: {
             QStringList lst;
             lst << i18n("None") << i18n("Default");
-            for (const QString &code : a->holidayRegionCodes()) {
+            foreach(const QString &code, a->holidayRegionCodes()) {
                 lst << KHolidays::HolidayRegion::name(code);
             }
             return lst;
@@ -739,7 +739,7 @@ void CalendarDayItemModel::slotWorkIntervalAdded( CalendarDay *day, TimeInterval
     if ( c == -1 ) {
         return;
     }
-    dataChanged( createIndex( 0, c, day ), createIndex( 0, c, day ) );
+    emit dataChanged( createIndex( 0, c, day ), createIndex( 0, c, day ) );
 }
 
 void CalendarDayItemModel::slotWorkIntervalRemoved( CalendarDay *day, TimeInterval *ti )
@@ -749,7 +749,7 @@ void CalendarDayItemModel::slotWorkIntervalRemoved( CalendarDay *day, TimeInterv
     if ( c == -1 ) {
         return;
     }
-    dataChanged( createIndex( 0, c, day ), createIndex( 0, c, day ) );
+    emit dataChanged( createIndex( 0, c, day ), createIndex( 0, c, day ) );
 }
 
 void CalendarDayItemModel::slotDayChanged( CalendarDay *day )

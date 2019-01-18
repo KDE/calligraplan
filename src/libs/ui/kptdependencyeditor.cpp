@@ -19,6 +19,8 @@
 
 #include "kptdependencyeditor.h"
 
+#include "PlanMacros.h"
+
 #include "kptglobal.h"
 #include "kptcommonstrings.h"
 #include "kptitemmodelbase.h"
@@ -942,9 +944,12 @@ void DependencyNodeItem::paintTreeIndicator( bool on )
                 p.moveTo( x, (y1 + y2) / 2.0 );
                 p.lineTo( x, y2 );
             }
-        } else if ( par->children().last()->rect().y() > rect().y() ) {
-            p.lineTo( x, (y1 + y2) / 2.0 );
-            p.lineTo( x, y2 );
+        } else {
+            const QList<DependencyNodeItem*> &children = par->children();
+            if ( children.last()->rect().y() > rect().y() ) {
+                p.lineTo( x, (y1 + y2) / 2.0 );
+                p.lineTo( x, y2 );
+            }
         }
     }
     if ( ! m_children.isEmpty() ) {
@@ -1217,7 +1222,7 @@ void DependencyScene::setItemVisible( DependencyNodeItem *item, bool show )
         debugPlanDepEditor<<"Unknown item!!";
         return;
     }
-    if ( show && m_hiddenItems.values().contains( item ) ) {
+    if (show && CONTAINS(m_hiddenItems, item)) {
         moveItem( item, m_project->flatNodeList() ); // might have been moved
     }
     m_hiddenItems.clear();
@@ -1403,7 +1408,7 @@ void DependencyScene::keyPressEvent( QKeyEvent *keyEvent )
     }
     QGraphicsItem *fitem = focusItem();
     if ( fitem == 0 ) {
-        setFocusItem( m_visibleItems.values().first() );
+        setFocusItem( m_visibleItems.first() );
         if ( focusItem() ) {
             focusItem()->update();
         }

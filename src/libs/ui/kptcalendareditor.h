@@ -68,7 +68,7 @@ Q_SIGNALS:
     void focusChanged();
 
 protected Q_SLOTS:
-    void headerContextMenuRequested( const QPoint &pos );
+    void slotHeaderContextMenuRequested( const QPoint &pos );
     virtual void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     virtual void currentChanged ( const QModelIndex & current, const QModelIndex & previous );
 
@@ -113,7 +113,6 @@ public Q_SLOTS:
     void setCurrentCalendar(KPlato::Calendar *calendar);
     
 protected Q_SLOTS:
-    void headerContextMenuRequested( const QPoint &pos );
     virtual void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     virtual void currentChanged ( const QModelIndex & current, const QModelIndex & previous );
 

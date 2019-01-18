@@ -112,7 +112,7 @@ void KDatePickerPrivateYearSelector::yearEnteredSlot()
     // check if new year will lead to a valid date
     if (QDate(newYear, oldDate.month(), oldDate.day()).isValid()) {
         result = newYear;
-        emit(closeMe(1));
+        emit closeMe(1);
     } else {
         KNotification::beep();
     }
@@ -397,13 +397,13 @@ void KDatePicker::dateChangedSlot(const QDate &date_)
     d->selectWeek->setCurrentIndex((date_.dayOfYear() + firstDay.dayOfWeek() - 2) / 7);
     d->selectYear->setText(QString::number(date_.year()).rightJustified(4, QLatin1Char('0')));
 
-    emit(dateChanged(date_));
+    emit dateChanged(date_);
 }
 
 void KDatePicker::tableClickedSlot()
 {
-    emit(dateSelected(date()));
-    emit(tableClicked());
+    emit dateSelected(date());
+    emit tableClicked();
 }
 
 const QDate &KDatePicker::date() const
@@ -474,7 +474,7 @@ void KDatePicker::selectMonthClicked()
         popup.addAction(locale.standaloneMonthName(m))->setData(m);
     }
 
-    QAction *item = popup.actions()[ thisDate.month() - 1 ];
+    QAction *item = popup.actions().value(thisDate.month() - 1);
     // if this happens the above should already given an assertion
     if (item) {
         popup.setActiveAction(item);
@@ -560,7 +560,7 @@ void KDatePicker::lineEnterPressed()
     QDate newDate = parseDateString(d->line->text());
 
     if (newDate.isValid()) {
-        emit(dateEntered(newDate));
+        emit dateEntered(newDate);
         setDate(newDate);
         d->table->setFocus();
     } else {

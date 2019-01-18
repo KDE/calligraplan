@@ -194,7 +194,7 @@ void WBSDefinitionPanel::slotAddBtnClicked() {
     levelsTable->insertRow(i);
     levelsTable->setVerticalHeaderItem(i, new QTableWidgetItem(QString("%1").arg(level->value())));
     QTableWidgetItem *item = new QTableWidgetItem();
-    item->setData(Qt::DisplayRole, (m_def.codeList())[m_def.defaultCodeIndex()]);
+    item->setData(Qt::DisplayRole, (m_def.codeList().value(m_def.defaultCodeIndex())));
     levelsTable->setItem(i, 0, item);
     item = new QTableWidgetItem();
     item->setText(m_def.defaultSeparator());
