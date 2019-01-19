@@ -49,7 +49,7 @@ ConfigWorkVacationPanelImpl::ConfigWorkVacationPanelImpl(QWidget *p )
     const QString regionCode = kcfg_Region->text();
 
     region->addItem(i18n("Default"), "Default");
-    for (const QString &s : KHolidays::HolidayRegion::regionCodes()) {
+    foreach(const QString &s, KHolidays::HolidayRegion::regionCodes()) {
         region->addItem(KHolidays::HolidayRegion::name(s), s);
         int row = region->count() - 1;
         region->setItemData(row, KHolidays::HolidayRegion::description(s), Qt::ToolTipRole);

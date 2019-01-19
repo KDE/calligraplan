@@ -4374,6 +4374,7 @@ QVariant GanttItemModel::data( const QModelIndex &index, int role ) const
                     case NodeModel::NodeEndTime: return n->earlyStart( id() );
                     default: break;
                 }
+                return QVariant();
             }
             case 2: { // late finish
                 if ( role != Qt::DisplayRole && role != Qt::EditRole && role != KGantt::ItemTypeRole ) {
@@ -4386,6 +4387,7 @@ QVariant GanttItemModel::data( const QModelIndex &index, int role ) const
                     case NodeModel::NodeEndTime: return n->lateFinish( id() );
                     default: break;
                 }
+                return QVariant();
             }
             case 3: { // late start
                 if ( role != Qt::DisplayRole && role != Qt::EditRole && role != KGantt::ItemTypeRole ) {
@@ -4398,6 +4400,7 @@ QVariant GanttItemModel::data( const QModelIndex &index, int role ) const
                     case NodeModel::NodeEndTime: return n->lateStart( id() );
                     default: break;
                 }
+                return QVariant();
             }
             case 4: { // early finish
                 if ( role != Qt::DisplayRole && role != Qt::EditRole && role != KGantt::ItemTypeRole ) {
@@ -4410,6 +4413,7 @@ QVariant GanttItemModel::data( const QModelIndex &index, int role ) const
                     case NodeModel::NodeEndTime: return n->earlyFinish( id() );
                     default: break;
                 }
+                return QVariant();
             }
             default: return QVariant();
         }

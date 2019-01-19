@@ -332,6 +332,7 @@ QVariant TaskWorkPackageModel::nodeData( Node *n, int column, int role ) const
             case Node::Type_Task: return KGantt::TypeTask;
             default: break;
             }
+            break;
         case KGantt::StartTimeRole:
             debugPlanWork<<this<<n->name()<<"start:"<<n->startTime();
             return m_nodemodel.data( n, NodeModel::NodeStartTime, Qt::EditRole );

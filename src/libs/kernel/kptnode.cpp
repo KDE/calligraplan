@@ -1780,20 +1780,27 @@ double Estimate::scale( const Duration &value, Duration::Unit unit, const QList<
     switch ( lst.count() ) {
         case Duration::Unit_Y:
             lst << (qint64)(365 * 24) * 60 * 60 * 1000; // add milliseconds in a year
+            Q_FALLTHROUGH();
         case Duration::Unit_M:
             lst << (qint64)(30 * 24) * 60 * 60 * 1000; // add milliseconds in a month
+            Q_FALLTHROUGH();
         case Duration::Unit_w:
             lst << (qint64)(7 * 24) * 60 * 60 * 1000; // add milliseconds in a week
+            Q_FALLTHROUGH();
         case Duration::Unit_d:
             lst << 24 * 60 * 60 * 1000; // add milliseconds in day
+            Q_FALLTHROUGH();
         case Duration::Unit_h:
             lst << 60 * 60 * 1000; // add milliseconds in hour
         case Duration::Unit_m:
             lst << 60 * 1000; // add milliseconds in minute
+            Q_FALLTHROUGH();
         case Duration::Unit_s:
             lst << 1000; // add milliseconds in second
+            Q_FALLTHROUGH();
         case Duration::Unit_ms:
             lst << 1; // add milliseconds in a millisecond
+            Q_FALLTHROUGH();
         default:
             break;
     }
@@ -1810,20 +1817,28 @@ Duration Estimate::scale( double value, Duration::Unit unit, const QList<qint64>
     switch ( lst.count() ) {
         case Duration::Unit_Y:
             lst << (qint64)(365 * 24) * 60 * 60 * 1000; // add milliseconds in a year
+            Q_FALLTHROUGH();
         case Duration::Unit_M:
             lst << (qint64)(30 * 24) * 60 * 60 * 1000; // add milliseconds in a month
+            Q_FALLTHROUGH();
         case Duration::Unit_w:
             lst << (qint64)(7 * 24) * 60 * 60 * 1000; // add milliseconds in a week
+            Q_FALLTHROUGH();
         case Duration::Unit_d:
             lst << 24 * 60 * 60 * 1000; // add milliseconds in day
+            Q_FALLTHROUGH();
         case Duration::Unit_h:
             lst << 60 * 60 * 1000; // add milliseconds in hour
+            Q_FALLTHROUGH();
         case Duration::Unit_m:
             lst << 60 * 1000; // add milliseconds in minute
+            Q_FALLTHROUGH();
         case Duration::Unit_s:
             lst << 1000; // add milliseconds in second
+            Q_FALLTHROUGH();
         case Duration::Unit_ms:
             lst << 1; // add milliseconds in a millisecond
+            Q_FALLTHROUGH();
         default:
             break;
     }

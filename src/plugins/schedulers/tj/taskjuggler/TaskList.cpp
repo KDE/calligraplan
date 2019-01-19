@@ -130,6 +130,7 @@ TaskList::compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2, int level)
         }
         else
             return (t1->priority - t2->priority);
+        Q_FALLTHROUGH();
     case PrioDown:
         if (t1->priority == t2->priority)
         {
@@ -140,6 +141,7 @@ TaskList::compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2, int level)
         }
         else
             return (t2->priority - t1->priority);
+        Q_FALLTHROUGH();
     case ResponsibleUp:
     {
         QString fn1;

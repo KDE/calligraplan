@@ -128,7 +128,8 @@ AddViewPanel::AddViewPanel( View *view, ViewListWidget &viewlist, QWidget *paren
     widget.category->addItems( m_categories.keys() );
     ViewListItem *curr = m_viewlist.currentCategory();
     if ( curr ) {
-        widget.category->setCurrentIndex( m_categories.values().indexOf( curr ) );
+        const QList<ViewListItem*> &items = m_categories.values();
+        widget.category->setCurrentIndex(items.indexOf(curr));
     }
     fillAfter( m_categories.value( widget.category->currentText() ) );
 
@@ -344,7 +345,8 @@ EditViewPanel::EditViewPanel( ViewListWidget &viewlist, ViewListItem *item, QWid
     widget.category->addItems( m_categories.keys() );
     ViewListItem *curr = m_viewlist.currentCategory();
     if ( curr ) {
-        widget.category->setCurrentIndex( m_categories.values().indexOf( curr ) );
+        const QList<ViewListItem*> &items = m_categories.values();
+        widget.category->setCurrentIndex(items.indexOf(curr));
     }
     categoryChanged();
 
