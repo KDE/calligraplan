@@ -83,15 +83,15 @@ void PlanTJPlugin::calculate( KPlato::Project &project, KPlato::ScheduleManager 
 
     PlanTJScheduler *job = new PlanTJScheduler( &project, sm, currentGranularity() );
     m_jobs << job;
-    connect(job, SIGNAL(jobFinished(KPlato::SchedulerThread*)), SLOT(slotFinished(KPlato::SchedulerThread*)));
+    connect(job, &KPlato::SchedulerThread::jobFinished, this, &PlanTJPlugin::slotFinished);
 
     project.changed( sm );
 
 //     connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
 //     connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
 
-    connect(job, SIGNAL(maxProgressChanged(int)), sm, SLOT(setMaxProgress(int)));
-    connect(job, SIGNAL(progressChanged(int)), sm, SLOT(setProgress(int)));
+    connect(job, &KPlato::SchedulerThread::maxProgressChanged, sm, &KPlato::ScheduleManager::setMaxProgress);
+    connect(job, &KPlato::SchedulerThread::progressChanged, sm, &KPlato::ScheduleManager::setProgress);
 
     if ( nothread ) {
         job->doRun();
@@ -111,7 +111,7 @@ void PlanTJPlugin::stopCalculation( SchedulerThread *sch )
 {
     if ( sch ) {
          //FIXME: this should just call stopScheduling() and let the job finish "normally"
-        disconnect( sch, SIGNAL(jobFinished(PlanTJScheduler*)), this, SLOT(slotFinished(PlanTJScheduler*)) );
+        disconnect( sch, &KPlato::SchedulerThread::jobFinished, this, &PlanTJPlugin::slotFinished );
         sch->stopScheduling();
         // wait max 20 seconds.
         sch->mainManager()->setCalculationResult( ScheduleManager::CalculationStopped );
@@ -156,8 +156,8 @@ void PlanTJPlugin::slotFinished( SchedulerThread *j )
     }
     emit sigCalculationFinished( mp, sm );
 
-    disconnect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
-    disconnect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
+    disconnect(this, &PlanTJPlugin::sigCalculationStarted, mp, &KPlato::Project::sigCalculationStarted);
+    disconnect(this, &PlanTJPlugin::sigCalculationFinished, mp, &KPlato::Project::sigCalculationFinished);
 
     job->deleteLater();
 }

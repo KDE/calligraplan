@@ -75,7 +75,7 @@ WorkPackage::WorkPackage( Project *project, bool fromProjectStore )
         const QList<ScheduleManager*> &lst = m_project->scheduleManagers();
         project->setCurrentSchedule(lst.first()->scheduleId());
     }
-    connect( project, SIGNAL(projectChanged()), this, SLOT(projectChanged()) );
+    connect( project, &KPlato::Project::projectChanged, this, &WorkPackage::projectChanged );
 
 }
 
@@ -121,7 +121,7 @@ bool WorkPackage::addChild( Part */*part*/, const Document *doc )
     }
     if ( ! m_childdocs.contains( ch ) ) {
         m_childdocs.append( ch );
-        connect( ch, SIGNAL(fileModified(bool)), this, SLOT(slotChildModified(bool)) );
+        connect( ch, &DocumentChild::fileModified, this, &WorkPackage::slotChildModified );
     }
     return true;
 }
@@ -135,7 +135,7 @@ void WorkPackage::slotChildModified( bool mod )
 
 void WorkPackage::removeChild( DocumentChild *child )
 {
-    disconnect( child, SIGNAL(fileModified(bool)), this, SLOT(slotChildModified(bool)) );
+    disconnect( child, &DocumentChild::fileModified, this, &WorkPackage::slotChildModified );
 
     int i = m_childdocs.indexOf( child );
     if ( i != -1 ) {

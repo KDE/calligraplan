@@ -75,12 +75,12 @@ ItemViewSettup::ItemViewSettup( TreeViewBase *view, bool includeColumn0, QWidget
         selector->selectedListWidget()->addItem( i );
     }
 
-    connect( stretchLastSection, SIGNAL(stateChanged(int)), this, SLOT(slotChanged()) );
+    connect( stretchLastSection, &QCheckBox::stateChanged, this, &ItemViewSettup::slotChanged );
     
-    connect( selector, SIGNAL(added(QListWidgetItem*)), this, SLOT(slotChanged()) );
-    connect( selector, SIGNAL(removed(QListWidgetItem*)), this, SLOT(slotChanged()) );
-    connect( selector, SIGNAL(movedUp(QListWidgetItem*)), this, SLOT(slotChanged()) );
-    connect( selector, SIGNAL(movedDown(QListWidgetItem*)), this, SLOT(slotChanged()) );
+    connect( selector, &KActionSelector::added, this, &ItemViewSettup::slotChanged );
+    connect( selector, &KActionSelector::removed, this, &ItemViewSettup::slotChanged );
+    connect( selector, &KActionSelector::movedUp, this, &ItemViewSettup::slotChanged );
+    connect( selector, &KActionSelector::movedDown, this, &ItemViewSettup::slotChanged );
 
 }
 
@@ -149,9 +149,9 @@ ItemViewSettupDialog::ItemViewSettupDialog( ViewBase *view, TreeViewBase *treevi
     addPage( page );
     m_pageList.append( page );
 
-    connect(this, SIGNAL(accepted()), this, SLOT(slotOk()));
-    connect(this, SIGNAL(accepted()), m_panel, SLOT(slotOk()));
-    connect(button(QDialogButtonBox::RestoreDefaults), SIGNAL(clicked(bool)), m_panel, SLOT(setDefault()));
+    connect(this, &QDialog::accepted, this, &ItemViewSettupDialog::slotOk);
+    connect(this, &QDialog::accepted, m_panel, &ItemViewSettup::slotOk);
+    connect(button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, m_panel, &ItemViewSettup::setDefault);
 }
 
 void ItemViewSettupDialog::slotOk()
@@ -233,11 +233,11 @@ SplitItemViewSettupDialog::SplitItemViewSettupDialog( ViewBase *view, DoubleTree
     //connect( m_page1, SIGNAL(enableButtonOk(bool)), this, SLOT(enableButtonOk(bool)) );
     //connect( m_page2, SIGNAL(enableButtonOk(bool)), this, SLOT(enableButtonOk(bool)) );
 
-    connect( this, SIGNAL(accepted()), this, SLOT(slotOk()) );
-    connect( this, SIGNAL(accepted()), m_page1, SLOT(slotOk()) );
-    connect( this, SIGNAL(accepted()), m_page2, SLOT(slotOk()) );
-    connect( button(QDialogButtonBox::RestoreDefaults), SIGNAL(clicked(bool)), m_page1, SLOT(setDefault()) );
-    connect( button(QDialogButtonBox::RestoreDefaults), SIGNAL(clicked(bool)), m_page2, SLOT(setDefault()) );
+    connect( this, &QDialog::accepted, this, &SplitItemViewSettupDialog::slotOk );
+    connect( this, &QDialog::accepted, m_page1, &ItemViewSettup::slotOk );
+    connect( this, &QDialog::accepted, m_page2, &ItemViewSettup::slotOk );
+    connect( button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, m_page1, &ItemViewSettup::setDefault );
+    connect( button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, m_page2, &ItemViewSettup::setDefault );
 }
 
 void SplitItemViewSettupDialog::slotOk()

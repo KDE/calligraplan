@@ -94,21 +94,21 @@ View::View( Part *part,  QWidget *parent, KActionCollection *collection )
     // ------ Edit
     actionRemoveSelectedPackages  = new QAction(koIcon("edit-delete"), i18n("Remove Packages"), this);
     collection->addAction("package_remove_selected", actionRemoveSelectedPackages );
-    connect( actionRemoveSelectedPackages, SIGNAL(triggered(bool)), SLOT(slotRemoveSelectedPackages()) );
+    connect( actionRemoveSelectedPackages, &QAction::triggered, this, &View::slotRemoveSelectedPackages );
 
     actionRemoveCurrentPackage  = new QAction(koIcon("edit-delete"), i18n("Remove Package"), this);
     collection->addAction("package_remove_current", actionRemoveCurrentPackage );
-    connect( actionRemoveCurrentPackage, SIGNAL(triggered(bool)), SLOT(slotRemoveCurrentPackage()) );
+    connect( actionRemoveCurrentPackage, &QAction::triggered, this, &View::slotRemoveCurrentPackage );
 
     actionViewList  = new QAction(koIcon("view-list-tree"), i18n("List"), this);
     actionViewList->setToolTip( i18nc( "@info:tooltip", "Select task list" ) );
     collection->addAction("view_list", actionViewList );
-    connect( actionViewList, SIGNAL(triggered(bool)), SLOT(slotViewList()) );
+    connect( actionViewList, &QAction::triggered, this, &View::slotViewList );
 
     actionViewGantt  = new QAction(koIcon("view-time-schedule"), i18n("Gantt"), this);
     actionViewGantt->setToolTip( i18nc( "@info:tooltip", "Select timeline" ) );
     collection->addAction("view_gantt", actionViewGantt );
-    connect( actionViewGantt, SIGNAL(triggered(bool)), SLOT(slotViewGantt()) );
+    connect( actionViewGantt, &QAction::triggered, this, &View::slotViewGantt );
 
 //     actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
 //     collection->addAction("task_progress", actionTaskProgress );
@@ -117,7 +117,7 @@ View::View( Part *part,  QWidget *parent, KActionCollection *collection )
     //------ Settings
     actionConfigure  = new QAction(koIcon("configure"), i18n("Configure PlanWork..."), this);
     collection->addAction("configure", actionConfigure );
-    connect( actionConfigure, SIGNAL(triggered(bool)), SLOT(slotConfigure()) );
+    connect( actionConfigure, &QAction::triggered, this, &View::slotConfigure );
 
     //------ Popups
     actionEditDocument  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
@@ -126,28 +126,28 @@ View::View( Part *part,  QWidget *parent, KActionCollection *collection )
 
     actionViewDocument  = new QAction(koIcon("document-preview"), i18nc( "@verb", "View..."), this);
     collection->addAction("view_document", actionViewDocument );
-    connect( actionViewDocument, SIGNAL(triggered(bool)), SLOT(slotViewDocument()) );
+    connect( actionViewDocument, &QAction::triggered, this, &View::slotViewDocument );
 
     // FIXME remove UndoText::removeDocument() when string freeze is lifted
     actionRemoveDocument = new QAction(koIcon("list-remove"), UndoText::removeDocument().toString(), this);
     collection->addAction("remove_document", actionRemoveDocument );
-    connect( actionRemoveDocument, SIGNAL(triggered(bool)), SLOT(slotRemoveDocument()) );
+    connect( actionRemoveDocument, &QAction::triggered, this, &View::slotRemoveDocument );
 
     actionSendPackage  = new QAction(koIcon("mail-send"), i18n("Send Package..."), this);
     collection->addAction("edit_sendpackage", actionSendPackage );
-    connect( actionSendPackage, SIGNAL(triggered(bool)), SLOT(slotSendPackage()) );
+    connect( actionSendPackage, &QAction::triggered, this, &View::slotSendPackage );
 
     actionPackageSettings  = new QAction(koIcon("document-properties"), i18n("Package Settings..."), this);
     collection->addAction("edit_packagesettings", actionPackageSettings );
-    connect( actionPackageSettings, SIGNAL(triggered(bool)), SLOT(slotPackageSettings()) );
+    connect( actionPackageSettings, &QAction::triggered, this, &View::slotPackageSettings );
 
     actionTaskCompletion  = new QAction(koIcon("document-edit"), i18n("Edit Progress..."), this);
     collection->addAction("task_progress", actionTaskCompletion );
-    connect( actionTaskCompletion, SIGNAL(triggered(bool)), SLOT(slotTaskCompletion()) );
+    connect( actionTaskCompletion, &QAction::triggered, this, &View::slotTaskCompletion );
 
     actionViewDescription  = new QAction(/*koIcon("document_view"),*/ i18n("View Description..."), this);
     collection->addAction("task_description", actionViewDescription );
-    connect( actionViewDescription, SIGNAL(triggered(bool)), SLOT(slotTaskDescription()) );
+    connect( actionViewDescription, &QAction::triggered, this, &View::slotTaskDescription );
 
 
     updateReadWrite( m_readWrite );
@@ -155,7 +155,7 @@ View::View( Part *part,  QWidget *parent, KActionCollection *collection )
 
     loadContext();
     slotCurrentChanged( currentIndex() );
-    connect( this, SIGNAL(currentChanged(int)), SLOT(slotCurrentChanged(int)) );
+    connect( this, &QStackedWidget::currentChanged, this, &View::slotCurrentChanged );
 
     slotSelectionChanged();
 }
@@ -196,9 +196,9 @@ TaskWorkPackageView *View::createTaskWorkPackageView()
 {
     TaskWorkPackageView *v = new TaskWorkPackageView( part(), this );
 
-    connect( v, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
+    connect( v, &AbstractView::requestPopupMenu, this, &View::slotPopupMenu );
 
-    connect( v, SIGNAL(selectionChanged()), SLOT(slotSelectionChanged()) );
+    connect( v, &AbstractView::selectionChanged, this, &View::slotSelectionChanged );
     v->updateReadWrite( m_readWrite );
     v->loadContext();
     return v;
@@ -208,9 +208,9 @@ TaskWPGanttView *View::createGanttView()
 {
     TaskWPGanttView *v = new TaskWPGanttView( part(), this );
 
-    connect( v, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
+    connect( v, &AbstractView::requestPopupMenu, this, &View::slotPopupMenu );
 
-    connect( v, SIGNAL(selectionChanged()), SLOT(slotSelectionChanged()) );
+    connect( v, &AbstractView::selectionChanged, this, &View::slotSelectionChanged );
     v->updateReadWrite( m_readWrite );
     v->loadContext();
     return v;

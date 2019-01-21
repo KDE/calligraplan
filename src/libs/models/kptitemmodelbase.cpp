@@ -289,7 +289,7 @@ void ProgressBarDelegate::updateEditorGeometry( QWidget *editor, const QStyleOpt
 Slider::Slider( QWidget *parent )
   : QSlider( parent )
 {
-    connect( this, SIGNAL(valueChanged(int)), this, SLOT(updateTip(int)) );
+    connect( this, &QAbstractSlider::valueChanged, this, &Slider::updateTip );
 }
 
 void Slider::updateTip( int value )
@@ -684,6 +684,7 @@ void ItemModelBase::setScheduleManager( ScheduleManager *sm )
 void ItemModelBase::slotLayoutChanged()
 {
     debugPlan;
+    emit layoutAboutToBeChanged();
     emit layoutChanged();
 }
 

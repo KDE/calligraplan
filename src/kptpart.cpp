@@ -157,11 +157,11 @@ QWidget *Part::createWelcomeView(KoMainWindow *mw)
     recent.loadEntries(configPtr->group("RecentFiles"));
     v->setRecentFiles(recent.items());
 
-    connect(v, SIGNAL(loadSharedResources(QUrl,QUrl)), doc, SLOT(insertResourcesFile(QUrl,QUrl)));
-    connect(v, SIGNAL(recentProject(QUrl)), mw, SLOT(slotFileOpenRecent(QUrl)));
-    connect(v, SIGNAL(showIntroduction()), this, SLOT(slotShowIntroduction()));
-    connect(v, SIGNAL(projectCreated()), doc, SLOT(slotProjectCreated()));
-    connect(v, SIGNAL(finished()), this, SLOT(finish()));
+    connect(v, &WelcomeView::loadSharedResources, doc, &MainDocument::insertResourcesFile);
+    connect(v, &WelcomeView::recentProject, mw, &KoMainWindow::slotFileOpenRecent);
+    connect(v, &WelcomeView::showIntroduction, this, &Part::slotShowIntroduction);
+    connect(v, &WelcomeView::projectCreated, doc, &MainDocument::slotProjectCreated);
+    connect(v, &WelcomeView::finished, this, &Part::finish);
 
     connect(v, SIGNAL(openTemplate(QUrl)), this, SLOT(openTemplate(QUrl)));
 
@@ -207,7 +207,7 @@ QWidget *Part::createIntroductionView()
 
     slotOpenUrlRequest( v, QUrl( "about:plan/main" ) );
 
-    connect( v, SIGNAL(openUrlRequest(HtmlView*,QUrl)), SLOT(slotOpenUrlRequest(HtmlView*,QUrl)) );
+    connect( v, &HtmlView::openUrlRequest, this, &Part::slotOpenUrlRequest );
 
     return v;
 }

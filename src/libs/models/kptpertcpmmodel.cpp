@@ -87,28 +87,28 @@ void CriticalPathItemModel::setProject( Project *project )
 {
     beginResetModel();
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)) );
-        disconnect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)), this, SLOT(slotLayoutToBeChanged()) );
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &CriticalPathItemModel::projectDeleted);
+        disconnect( m_project, &Project::nodeChanged, this, &CriticalPathItemModel::slotNodeChanged );
+        disconnect( m_project, &Project::nodeToBeAdded, this, &CriticalPathItemModel::slotNodeToBeInserted );
+        disconnect( m_project, &Project::nodeToBeRemoved, this, &CriticalPathItemModel::slotNodeToBeRemoved );
+        disconnect( m_project, &Project::nodeToBeMoved, this, &CriticalPathItemModel::slotLayoutToBeChanged );
 
-        disconnect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotLayoutChanged()) );
+        disconnect( m_project, &Project::nodeAdded, this, &CriticalPathItemModel::slotNodeInserted );
+        disconnect( m_project, &Project::nodeRemoved, this, &CriticalPathItemModel::slotNodeRemoved );
+        disconnect( m_project, &Project::nodeMoved, this, &CriticalPathItemModel::slotLayoutChanged );
     }
     m_project = project;
     m_nodemodel.setProject( project );
     if ( project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)) );
-        connect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)), this, SLOT(slotLayoutToBeChanged()) );
+        connect(m_project, &Project::aboutToBeDeleted, this, &CriticalPathItemModel::projectDeleted);
+        connect( m_project, &Project::nodeChanged, this, &CriticalPathItemModel::slotNodeChanged );
+        connect( m_project, &Project::nodeToBeAdded, this, &CriticalPathItemModel::slotNodeToBeInserted );
+        connect( m_project, &Project::nodeToBeRemoved, this, &CriticalPathItemModel::slotNodeToBeRemoved );
+        connect( m_project, &Project::nodeToBeMoved, this, &CriticalPathItemModel::slotLayoutToBeChanged );
 
-        connect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotLayoutChanged()) );
+        connect( m_project, &Project::nodeAdded, this, &CriticalPathItemModel::slotNodeInserted );
+        connect( m_project, &Project::nodeRemoved, this, &CriticalPathItemModel::slotNodeRemoved );
+        connect( m_project, &Project::nodeMoved, this, &CriticalPathItemModel::slotLayoutChanged );
     }
     endResetModel();
 }
@@ -362,28 +362,28 @@ void PertResultItemModel::setProject( Project *project )
 {
     clear();
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)) );
-        disconnect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)), this, SLOT(slotLayoutToBeChanged()) );
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &PertResultItemModel::projectDeleted);
+        disconnect( m_project, &Project::nodeChanged, this, &PertResultItemModel::slotNodeChanged );
+        disconnect( m_project, &Project::nodeToBeAdded, this, &PertResultItemModel::slotNodeToBeInserted );
+        disconnect( m_project, &Project::nodeToBeRemoved, this, &PertResultItemModel::slotNodeToBeRemoved );
+        disconnect( m_project, &Project::nodeToBeMoved, this, &PertResultItemModel::slotLayoutToBeChanged );
 
-        disconnect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotLayoutChanged()) );
+        disconnect( m_project, &Project::nodeAdded, this, &PertResultItemModel::slotNodeInserted );
+        disconnect( m_project, &Project::nodeRemoved, this, &PertResultItemModel::slotNodeRemoved );
+        disconnect( m_project, &Project::nodeMoved, this, &PertResultItemModel::slotLayoutChanged );
     }
     m_project = project;
     m_nodemodel.setProject( project );
     if ( project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)) );
-        connect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)), this, SLOT(slotLayoutToBeChanged()) );
+        connect(m_project, &Project::aboutToBeDeleted, this, &PertResultItemModel::projectDeleted);
+        connect( m_project, &Project::nodeChanged, this, &PertResultItemModel::slotNodeChanged );
+        connect( m_project, &Project::nodeToBeAdded, this, &PertResultItemModel::slotNodeToBeInserted );
+        connect( m_project, &Project::nodeToBeRemoved, this, &PertResultItemModel::slotNodeToBeRemoved );
+        connect( m_project, &Project::nodeToBeMoved, this, &PertResultItemModel::slotLayoutToBeChanged );
 
-        connect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotLayoutChanged()) );
+        connect( m_project, &Project::nodeAdded, this, &PertResultItemModel::slotNodeInserted );
+        connect( m_project, &Project::nodeRemoved, this, &PertResultItemModel::slotNodeRemoved );
+        connect( m_project, &Project::nodeMoved, this, &PertResultItemModel::slotLayoutChanged );
     }
     refresh();
 }

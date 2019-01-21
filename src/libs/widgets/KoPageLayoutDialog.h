@@ -23,6 +23,7 @@
 #include "kowidgets_export.h"
 
 //#include <KoText.h>
+#include <KoUnit.h>
 
 #include <kpagedialog.h>
 
@@ -49,7 +50,7 @@ public:
 //    void setUnit(const KoUnit &unit);
 
 Q_SIGNALS:
-    //void unitChanged(const KoUnit &unit);
+    void unitChanged(const KoUnit &unit);
 
 public Q_SLOTS:
     void setPageLayout(const KoPageLayout &layout);

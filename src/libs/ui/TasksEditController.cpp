@@ -54,7 +54,7 @@ TasksEditController::~TasksEditController()
 void TasksEditController::activate()
 {
     m_dlg = new TasksEditDialog(m_project, m_tasks);
-    connect(m_dlg, SIGNAL(finished(int)), this, SLOT(finish(int)));
+    connect(m_dlg, &QDialog::finished, this, &TasksEditController::finish);
     m_dlg->show();
     m_dlg->raise();
     m_dlg->activateWindow();

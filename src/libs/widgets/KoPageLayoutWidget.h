@@ -57,15 +57,15 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setPageLayout(const KoPageLayout &layout);
     void setTextAreaAvailable(bool available);
+    void setApplyToDocument(bool apply);
 
 private Q_SLOTS:
     void sizeChanged(int row);
-    void unitChanged(int row);
+    void slotUnitChanged(int row);
     void facingPagesChanged();
     void optionsChanged();
     void marginsChanged();
     void orientationChanged();
-    void setApplyToDocument(bool apply);
 
 private:
     class Private;

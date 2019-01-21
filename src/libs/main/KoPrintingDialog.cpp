@@ -66,7 +66,7 @@ KoPrintingDialog::KoPrintingDialog(QWidget *parent)
 {
     d->dialog = new PrintDialog(d, parent);
 
-    connect(d->button, SIGNAL(released()), this, SLOT(stopPressed()));
+    connect(d->button, SIGNAL(released()), this, SLOT(stopPressed())); // clazy:exclude=old-style-connect
 }
 
 KoPrintingDialog::~KoPrintingDialog()

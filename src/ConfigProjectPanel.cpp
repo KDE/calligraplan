@@ -43,8 +43,8 @@ ConfigProjectPanelImpl::ConfigProjectPanelImpl(QWidget *p )
 
     initDescription();
 
-    connect(resourceFileBrowseBtn, SIGNAL(clicked()), this, SLOT(resourceFileBrowseBtnClicked()));
-    connect(projectsPlaceBrowseBtn, SIGNAL(clicked()), this, SLOT(projectsPlaceBrowseBtnClicked()));
+    connect(resourceFileBrowseBtn, &QAbstractButton::clicked, this, &ConfigProjectPanelImpl::resourceFileBrowseBtnClicked);
+    connect(projectsPlaceBrowseBtn, &QAbstractButton::clicked, this, &ConfigProjectPanelImpl::projectsPlaceBrowseBtnClicked);
 
 }
 

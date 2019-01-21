@@ -54,7 +54,7 @@ RelationTreeView::RelationTreeView( QWidget *parent )
     createItemDelegates( m );
 
     //HACK to simulate SingleSelection *and* get indication of current item
-    connect( selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), SLOT(slotCurrentChanged(QModelIndex,QModelIndex)) );
+    connect( selectionModel(), &QItemSelectionModel::currentChanged, this, &RelationTreeView::slotCurrentChanged );
 }
 
 void RelationTreeView::slotCurrentChanged(const QModelIndex &curr, const QModelIndex& )
@@ -75,15 +75,15 @@ RelationEditor::RelationEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     //debugPlan<<m_view->actionSplitView();
     setupGui();
 
-    connect( m_view, SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex,QModelIndex)) );
+    connect( m_view, &DoubleTreeViewBase::currentChanged, this, &RelationEditor::slotCurrentChanged );
 
-    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)) );
+    connect( m_view, &DoubleTreeViewBase::selectionChanged, this, &RelationEditor::slotSelectionChanged );
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &RelationEditor::slotContextMenuRequested );
 
     connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
 
-    connect(model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)));
+    connect(model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
 }
 
 void RelationEditor::updateReadWrite( bool rw )
@@ -154,7 +154,7 @@ void RelationEditor::updateActionsEnabled( bool /*on */)
 void RelationEditor::setupGui()
 {
     // Add the context menu actions for the view options
-    connect(m_view->actionSplitView(), SIGNAL(triggered(bool)), SLOT(slotSplitView()));
+    connect(m_view->actionSplitView(), &QAction::triggered, this, &RelationEditor::slotSplitView);
     addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);

@@ -232,15 +232,15 @@ TaskGeneralPanelImpl::TaskGeneralPanelImpl(QWidget *p, const char *n)
     // [Bug 311940] New: Plan crashes when typing a text in the filter textbox before the textbook is fully loaded when selecting a contact from the adressbook
     chooseLeader->hide();
 
-    connect(namefield, SIGNAL(textChanged(QString)), SLOT(checkAllFieldsFilled()));
-    connect(leaderfield, SIGNAL(textChanged(QString)), SLOT(checkAllFieldsFilled()));
-    connect(chooseLeader, SIGNAL(clicked()), SLOT(changeLeader()));
+    connect(namefield, &QLineEdit::textChanged, this, &TaskGeneralPanelImpl::checkAllFieldsFilled);
+    connect(leaderfield, &QLineEdit::textChanged, this, &TaskGeneralPanelImpl::checkAllFieldsFilled);
+    connect(chooseLeader, &QAbstractButton::clicked, this, &TaskGeneralPanelImpl::changeLeader);
     connect(estimateType, SIGNAL(activated(int)), SLOT(estimationTypeChanged(int)));
     connect(scheduleType, SIGNAL(activated(int)), SLOT(scheduleTypeChanged(int)));
-    connect(scheduleStartDate, SIGNAL(dateChanged(QDate)), SLOT(startDateChanged()));
-    connect(scheduleStartTime, SIGNAL(timeChanged(QTime)), SLOT(startTimeChanged(QTime)));
-    connect(scheduleEndDate, SIGNAL(dateChanged(QDate)), SLOT(endDateChanged()));
-    connect(scheduleEndTime, SIGNAL(timeChanged(QTime)), SLOT(endTimeChanged(QTime)));
+    connect(scheduleStartDate, &QDateTimeEdit::dateChanged, this, &TaskGeneralPanelImpl::startDateChanged);
+    connect(scheduleStartTime, &QDateTimeEdit::timeChanged, this, &TaskGeneralPanelImpl::startTimeChanged);
+    connect(scheduleEndDate, &QDateTimeEdit::dateChanged, this, &TaskGeneralPanelImpl::endDateChanged);
+    connect(scheduleEndTime, &QDateTimeEdit::timeChanged, this, &TaskGeneralPanelImpl::endTimeChanged);
     connect(estimate, SIGNAL(valueChanged(double)), SLOT(checkAllFieldsFilled()));
     connect(optimisticValue, SIGNAL(valueChanged(int)), SLOT(checkAllFieldsFilled()));
     connect(pessimisticValue, SIGNAL(valueChanged(int)), SLOT(checkAllFieldsFilled()));

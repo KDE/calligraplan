@@ -234,9 +234,9 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
         // Don't use docker if embedded
         m_viewlist = new ViewListWidget(doc, m_sp);
         m_viewlist->setProject( &( getProject() ) );
-        connect( m_viewlist, SIGNAL(selectionChanged(KPlato::ScheduleManager*)), SLOT(slotSelectionChanged(KPlato::ScheduleManager*)));
-        connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), m_viewlist, SLOT(setSelectedSchedule(KPlato::ScheduleManager*)));
-        connect( m_viewlist, SIGNAL(updateViewInfo(KPlato::ViewListItem*)), SLOT(slotUpdateViewInfo(KPlato::ViewListItem*)));
+        connect( m_viewlist, &ViewListWidget::selectionChanged, this, &View::slotSelectionChanged);
+        connect( this, &View::currentScheduleManagerChanged, m_viewlist, &ViewListWidget::setSelectedSchedule);
+        connect( m_viewlist, &ViewListWidget::updateViewInfo, this, &View::slotUpdateViewInfo);
     } else {
         ViewListDockerFactory vl(this);
         docker = static_cast<ViewListDocker *>(mainWindow()->createDockWidget(&vl));
@@ -270,7 +270,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 */
     actionCreateNewProject = new QAction( i18n( "&Create New Project..." ), this );
     actionCollection()->addAction("file_createnewproject", actionCreateNewProject );
-    connect( actionCreateNewProject, SIGNAL(triggered(bool)), SLOT(slotCreateNewProject()) );
+    connect( actionCreateNewProject, &QAction::triggered, this, &View::slotCreateNewProject );
 
     // ------ Edit
     actionCut = actionCollection()->addAction(KStandardAction::Cut,  "edit_cut", this, SLOT(slotEditCut()));
@@ -282,37 +282,37 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 
     actionViewSelector  = new KToggleAction(i18n("Show Selector"), this);
     actionCollection()->addAction("view_show_selector", actionViewSelector );
-    connect( actionViewSelector, SIGNAL(triggered(bool)), SLOT(slotViewSelector(bool)) );
+    connect( actionViewSelector, &QAction::triggered, this, &View::slotViewSelector );
 
     // ------ Insert
 
     // ------ Project
     actionEditMainProject  = new QAction(koIcon("view-time-schedule-edit"), i18n("Edit Main Project..."), this);
     actionCollection()->addAction("project_edit", actionEditMainProject );
-    connect( actionEditMainProject, SIGNAL(triggered(bool)), SLOT(slotProjectEdit()) );
+    connect( actionEditMainProject, &QAction::triggered, this, &View::slotProjectEdit );
 
     actionEditStandardWorktime  = new QAction(koIcon("configure"), i18n("Define Estimate Conversions..."), this);
     actionCollection()->addAction("project_worktime", actionEditStandardWorktime );
-    connect( actionEditStandardWorktime, SIGNAL(triggered(bool)), SLOT(slotProjectWorktime()) );
+    connect( actionEditStandardWorktime, &QAction::triggered, this, &View::slotProjectWorktime );
 
 
     // ------ Tools
     actionDefineWBS  = new QAction(koIcon("configure"), i18n("Define WBS Pattern..."), this);
     actionCollection()->addAction("tools_define_wbs", actionDefineWBS );
-    connect( actionDefineWBS, SIGNAL(triggered(bool)), SLOT(slotDefineWBS()) );
+    connect( actionDefineWBS, &QAction::triggered, this, &View::slotDefineWBS );
 
     actionInsertFile  = new QAction(koIcon("document-import"), i18n("Insert Project File..."), this);
     actionCollection()->addAction("insert_file", actionInsertFile );
-    connect( actionInsertFile, SIGNAL(triggered(bool)), SLOT(slotInsertFile()) );
+    connect( actionInsertFile, &QAction::triggered, this, &View::slotInsertFile );
 
     // ------ Settings
     actionConfigure  = new QAction(koIcon("configure"), i18n("Configure Plan..."), this);
     actionCollection()->addAction("configure", actionConfigure );
-    connect( actionConfigure, SIGNAL(triggered(bool)), SLOT(slotConfigure()) );
+    connect( actionConfigure, &QAction::triggered, this, &View::slotConfigure );
 
     actionCurrencyConfig  = new QAction(koIcon("configure"), i18n("Define Currency..."), this);
     actionCollection()->addAction( "config_currency", actionCurrencyConfig );
-    connect( actionCurrencyConfig, SIGNAL(triggered(bool)), SLOT(slotCurrencyConfig()) );
+    connect( actionCurrencyConfig, &QAction::triggered, this, &View::slotCurrencyConfig );
 
 #ifdef PLAN_USE_KREPORT
     actionOpenReportFile  = new QAction(koIcon("document-open"), i18n("Open Report Definition File..."), this);
@@ -323,7 +323,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     // ------ Help
     actionIntroduction  = new QAction(koIcon("dialog-information"), i18n("Introduction to Plan"), this);
     actionCollection()->addAction("plan_introduction", actionIntroduction );
-    connect( actionIntroduction, SIGNAL(triggered(bool)), SLOT(slotIntroduction()) );
+    connect( actionIntroduction, &QAction::triggered, this, &View::slotIntroduction );
 
     // ------ Popup
     actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
@@ -331,25 +331,25 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     connect( actionOpenNode, SIGNAL(triggered(bool)), SLOT(slotOpenNode()) );
     actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
     actionCollection()->addAction("task_progress", actionTaskProgress );
-    connect( actionTaskProgress, SIGNAL(triggered(bool)), SLOT(slotTaskProgress()) );
+    connect( actionTaskProgress, &QAction::triggered, this, &View::slotTaskProgress );
     actionDeleteTask  = new QAction(koIcon("edit-delete"), i18n("Delete Task"), this);
     actionCollection()->addAction("delete_task", actionDeleteTask );
     connect( actionDeleteTask, SIGNAL(triggered(bool)), SLOT(slotDeleteTask()) );
     actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
     actionCollection()->addAction("task_description", actionTaskDescription );
-    connect( actionTaskDescription, SIGNAL(triggered(bool)), SLOT(slotTaskDescription()) );
+    connect( actionTaskDescription, &QAction::triggered, this, &View::slotTaskDescription );
     actionIndentTask = new QAction(koIcon("format-indent-more"), i18n("Indent Task"), this);
     actionCollection()->addAction("indent_task", actionIndentTask );
-    connect( actionIndentTask, SIGNAL(triggered(bool)), SLOT(slotIndentTask()) );
+    connect( actionIndentTask, &QAction::triggered, this, &View::slotIndentTask );
     actionUnindentTask= new QAction(koIcon("format-indent-less"), i18n("Unindent Task"), this);
     actionCollection()->addAction("unindent_task", actionUnindentTask );
-    connect( actionUnindentTask, SIGNAL(triggered(bool)), SLOT(slotUnindentTask()) );
+    connect( actionUnindentTask, &QAction::triggered, this, &View::slotUnindentTask );
     actionMoveTaskUp = new QAction(koIcon("arrow-up"), i18n("Move Task Up"), this);
     actionCollection()->addAction("move_task_up", actionMoveTaskUp );
-    connect( actionMoveTaskUp, SIGNAL(triggered(bool)), SLOT(slotMoveTaskUp()) );
+    connect( actionMoveTaskUp, &QAction::triggered, this, &View::slotMoveTaskUp );
     actionMoveTaskDown = new QAction(koIcon("arrow-down"), i18n("Move Task Down"), this);
     actionCollection()->addAction("move_task_down", actionMoveTaskDown );
-    connect( actionMoveTaskDown, SIGNAL(triggered(bool)), SLOT(slotMoveTaskDown()) );
+    connect( actionMoveTaskDown, &QAction::triggered, this, &View::slotMoveTaskDown );
 
     actionEditResource  = new QAction(koIcon("document-edit"), i18n("Edit Resource..."), this);
     actionCollection()->addAction("edit_resource", actionEditResource );
@@ -360,33 +360,33 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     connect( actionEditRelation, SIGNAL(triggered(bool)), SLOT(slotModifyRelation()) );
     actionDeleteRelation  = new QAction(koIcon("edit-delete"), i18n("Delete Dependency"), this);
     actionCollection()->addAction("delete_dependency", actionDeleteRelation );
-    connect( actionDeleteRelation, SIGNAL(triggered(bool)), SLOT(slotDeleteRelation()) );
+    connect( actionDeleteRelation, &QAction::triggered, this, &View::slotDeleteRelation );
 
     // Viewlist popup
-    connect( m_viewlist, SIGNAL(createView()), SLOT(slotCreateView()) );
+    connect( m_viewlist, &ViewListWidget::createView, this, &View::slotCreateView );
 
     m_estlabel = new QLabel( "", 0 );
     if ( statusBar() ) {
         addStatusBarItem( m_estlabel, 0, true );
     }
 
-    connect( &getProject(), SIGNAL(scheduleChanged(KPlato::MainSchedule*)), SLOT(slotScheduleChanged(KPlato::MainSchedule*)) );
+    connect( &getProject(), &Project::scheduleChanged, this, &View::slotScheduleChanged );
 
-    connect( &getProject(), SIGNAL(scheduleAdded(const KPlato::MainSchedule*)), SLOT(slotScheduleAdded(const KPlato::MainSchedule*)) );
-    connect( &getProject(), SIGNAL(scheduleRemoved(const KPlato::MainSchedule*)), SLOT(slotScheduleRemoved(const KPlato::MainSchedule*)) );
+    connect( &getProject(), &Project::scheduleAdded, this, &View::slotScheduleAdded );
+    connect( &getProject(), &Project::scheduleRemoved, this, &View::slotScheduleRemoved );
     slotPlugScheduleActions();
 
-    connect( doc, SIGNAL(changed()), SLOT(slotUpdate()) );
+    connect( doc, &MainDocument::changed, this, &View::slotUpdate );
 
-    connect( m_scheduleActionGroup, SIGNAL(triggered(QAction*)), SLOT(slotViewSchedule(QAction*)) );
+    connect( m_scheduleActionGroup, &QActionGroup::triggered, this, &View::slotViewSchedule );
 
 
-    connect( getPart(), SIGNAL(workPackageLoaded()), SLOT(slotWorkPackageLoaded()) );
+    connect( getPart(), &MainDocument::workPackageLoaded, this, &View::slotWorkPackageLoaded );
 
     // hide unused dockers
-    QTimer::singleShot( 0, this, SLOT(hideToolDocker()) );
+    QTimer::singleShot( 0, this, &View::hideToolDocker );
     // create views after dockers hidden, views take time for large projects
-    QTimer::singleShot( 100, this, SLOT(initiateViews()) );
+    QTimer::singleShot( 100, this, &View::initiateViews );
 
     const QList<KPluginFactory *> pluginFactories =
         KoPluginLoader::instantiatePluginFactories(QStringLiteral("calligraplan/extensions"));
@@ -411,8 +411,8 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
             for (const QString &f : modules) {
                 m_dirwatch.addFile(f);
             }
-            connect(&m_dirwatch, SIGNAL(created(QString)), this, SLOT(taskModuleFileChanged(QString)));
-            connect(&m_dirwatch, SIGNAL(deleted(QString)), this, SLOT(taskModuleFileChanged(QString)));
+            connect(&m_dirwatch, &KDirWatch::created, this, &View::taskModuleFileChanged);
+            connect(&m_dirwatch, &KDirWatch::deleted, this, &View::taskModuleFileChanged);
         }
     }
     //debugPlan<<" end";
@@ -463,11 +463,11 @@ void View::initiateViews()
     QApplication::setOverrideCursor( Qt::WaitCursor );
     createViews();
 
-    connect( m_viewlist, SIGNAL(activated(ViewListItem*,ViewListItem*)), SLOT(slotViewActivated(ViewListItem*,ViewListItem*)) );
+    connect( m_viewlist, &ViewListWidget::activated, this, &View::slotViewActivated );
     // after createViews() !!
-    connect( m_viewlist, SIGNAL(viewListItemRemoved(ViewListItem*)), SLOT(slotViewListItemRemoved(ViewListItem*)) );
+    connect( m_viewlist, &ViewListWidget::viewListItemRemoved, this, &View::slotViewListItemRemoved );
     // after createViews() !!
-    connect( m_viewlist, SIGNAL(viewListItemInserted(ViewListItem*,ViewListItem*,int)), SLOT(slotViewListItemInserted(ViewListItem*,ViewListItem*,int)) );
+    connect( m_viewlist, &ViewListWidget::viewListItemInserted, this, &View::slotViewListItemInserted );
 
     QDockWidget *docker = qobject_cast<QDockWidget*>( m_viewlist->parent() );
     if ( docker ) {
@@ -476,7 +476,7 @@ void View::initiateViews()
         connect( m_viewlist, SIGNAL(modified()), getPart(), SLOT(viewlistModified()));
         connect(getPart(), SIGNAL(viewlistModified(bool)), docker, SLOT(updateWindowTitle(bool)));
     }
-    connect( m_tab, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentChanged(int)) );
+    connect( m_tab, &QStackedWidget::currentChanged, this, &View::slotCurrentChanged );
 
     slotSelectDefaultView();
 
@@ -805,7 +805,7 @@ ViewBase *View::createIntroductionView()
 
     slotOpenUrlRequest( v, QUrl( "about:plan/main" ) );
 
-    connect( v, SIGNAL(openUrlRequest(HtmlView*,QUrl)), SLOT(slotOpenUrlRequest(HtmlView*,QUrl)) );
+    connect( v, &HtmlView::openUrlRequest, this, &View::slotOpenUrlRequest );
 
     m_tab->addWidget( v );
     return v;
@@ -828,7 +828,7 @@ ViewBase *View::createResourceAppointmentsGanttView( ViewListItem *cat, const QS
     }
 
 
-    connect( v, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( v, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), v, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
@@ -857,7 +857,7 @@ ViewBase *View::createResourceAppointmentsView( ViewListItem *cat, const QString
         i->setToolTip( 0, tip );
     }
 
-    connect( v, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( v, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), v, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
@@ -886,9 +886,9 @@ ViewBase *View::createResourceEditor( ViewListItem *cat, const QString &tag, con
         i->setToolTip( 0, tip );
     }
 
-    connect( resourceeditor, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( resourceeditor, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
-    connect( resourceeditor, SIGNAL(deleteObjectList(QObjectList)), SLOT(slotDeleteResourceObjects(QObjectList)) );
+    connect( resourceeditor, &ResourceEditor::deleteObjectList, this, &View::slotDeleteResourceObjects );
 
     connect( resourceeditor, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
     resourceeditor->updateReadWrite( m_readWrite );
@@ -917,22 +917,22 @@ ViewBase *View::createTaskEditor( ViewListItem *cat, const QString &tag, const Q
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), taskeditor, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
-    connect( taskeditor, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( taskeditor, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
-    connect( taskeditor, SIGNAL(addTask()), SLOT(slotAddTask()) );
-    connect( taskeditor, SIGNAL(addMilestone()), SLOT(slotAddMilestone()) );
-    connect( taskeditor, SIGNAL(addSubtask()), SLOT(slotAddSubTask()) );
-    connect( taskeditor, SIGNAL(addSubMilestone()), SLOT(slotAddSubMilestone()) );
+    connect( taskeditor, &TaskEditor::addTask, this, &View::slotAddTask );
+    connect( taskeditor, &TaskEditor::addMilestone, this, &View::slotAddMilestone );
+    connect( taskeditor, &TaskEditor::addSubtask, this, &View::slotAddSubTask );
+    connect( taskeditor, &TaskEditor::addSubMilestone, this, &View::slotAddSubMilestone );
     connect( taskeditor, SIGNAL(deleteTaskList(QList<Node*>)), SLOT(slotDeleteTask(QList<Node*>)) );
-    connect( taskeditor, SIGNAL(moveTaskUp()), SLOT(slotMoveTaskUp()) );
-    connect( taskeditor, SIGNAL(moveTaskDown()), SLOT(slotMoveTaskDown()) );
-    connect( taskeditor, SIGNAL(indentTask()), SLOT(slotIndentTask()) );
-    connect( taskeditor, SIGNAL(unindentTask()), SLOT(slotUnindentTask()) );
+    connect( taskeditor, &TaskEditor::moveTaskUp, this, &View::slotMoveTaskUp );
+    connect( taskeditor, &TaskEditor::moveTaskDown, this, &View::slotMoveTaskDown );
+    connect( taskeditor, &TaskEditor::indentTask, this, &View::slotIndentTask );
+    connect( taskeditor, &TaskEditor::unindentTask, this, &View::slotUnindentTask );
 
-    connect(taskeditor, SIGNAL(saveTaskModule(QUrl,KPlato::Project*)), SLOT(saveTaskModule(QUrl,KPlato::Project*)));
-    connect(taskeditor, SIGNAL(removeTaskModule(QUrl)), SLOT(removeTaskModule(QUrl)));
+    connect(taskeditor, &TaskEditor::saveTaskModule, this, &View::saveTaskModule);
+    connect(taskeditor, &TaskEditor::removeTaskModule, this, &View::removeTaskModule);
     connect(taskeditor, SIGNAL(openDocument(QUrl)), static_cast<KPlato::Part*>(m_partpart), SLOT(openTaskModule(QUrl)));
-    connect(this, SIGNAL(taskModulesChanged(QStringList)), taskeditor, SLOT(setTaskModules(QStringList)));
+    connect(this, &View::taskModulesChanged, taskeditor, &TaskEditor::setTaskModules);
 
     connect( taskeditor, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
     taskeditor->updateReadWrite( m_readWrite );
@@ -962,7 +962,7 @@ ViewBase *View::createAccountsEditor( ViewListItem *cat, const QString &tag, con
 
     ae->draw( getProject() );
 
-    connect( ae, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( ae, &ViewBase::guiActivated, this, &View::slotGuiActivated );
     ae->updateReadWrite( m_readWrite );
     return ae;
 }
@@ -985,7 +985,7 @@ ViewBase *View::createCalendarEditor( ViewListItem *cat, const QString &tag, con
 
     calendareditor->draw( getProject() );
 
-    connect( calendareditor, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( calendareditor, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( calendareditor, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
     calendareditor->updateReadWrite( m_readWrite );
@@ -1008,18 +1008,18 @@ ViewBase *View::createScheduleHandler( ViewListItem *cat, const QString &tag, co
         i->setToolTip( 0, tip );
     }
 
-    connect( handler->scheduleEditor(), SIGNAL(addScheduleManager(KPlato::Project*)), SLOT(slotAddScheduleManager(KPlato::Project*)) );
-    connect( handler->scheduleEditor(), SIGNAL(deleteScheduleManager(KPlato::Project*,ScheduleManager*)), SLOT(slotDeleteScheduleManager(KPlato::Project*,ScheduleManager*)) );
-    connect( handler->scheduleEditor(), SIGNAL(moveScheduleManager(KPlato::ScheduleManager*,KPlato::ScheduleManager*,int)), SLOT(slotMoveScheduleManager(KPlato::ScheduleManager*,KPlato::ScheduleManager*,int)));
+    connect( handler->scheduleEditor(), &ScheduleEditor::addScheduleManager, this, &View::slotAddScheduleManager );
+    connect( handler->scheduleEditor(), &ScheduleEditor::deleteScheduleManager, this, &View::slotDeleteScheduleManager );
+    connect( handler->scheduleEditor(), &ScheduleEditor::moveScheduleManager, this, &View::slotMoveScheduleManager);
 
-    connect( handler->scheduleEditor(), SIGNAL(calculateSchedule(KPlato::Project*,KPlato::ScheduleManager*)), SLOT(slotCalculateSchedule(KPlato::Project*,KPlato::ScheduleManager*)) );
+    connect( handler->scheduleEditor(), &ScheduleEditor::calculateSchedule, this, &View::slotCalculateSchedule );
 
-    connect( handler->scheduleEditor(), SIGNAL(baselineSchedule(KPlato::Project*,KPlato::ScheduleManager*)), SLOT(slotBaselineSchedule(KPlato::Project*,KPlato::ScheduleManager*)) );
+    connect( handler->scheduleEditor(), &ScheduleEditor::baselineSchedule, this, &View::slotBaselineSchedule );
 
 
-    connect( handler, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( handler, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
-    connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), handler, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)) );
+    connect( this, &View::currentScheduleManagerChanged, handler, &ScheduleHandlerView::currentScheduleManagerChanged );
 
     connect( handler, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
 
@@ -1035,12 +1035,12 @@ ScheduleEditor *View::createScheduleEditor( QWidget *parent )
 {
     ScheduleEditor *scheduleeditor = new ScheduleEditor(getKoPart(), getPart(), parent );
 
-    connect( scheduleeditor, SIGNAL(addScheduleManager(KPlato::Project*)), SLOT(slotAddScheduleManager(KPlato::Project*)) );
-    connect( scheduleeditor, SIGNAL(deleteScheduleManager(KPlato::Project*,KPlato::ScheduleManager*)), SLOT(slotDeleteScheduleManager(KPlato::Project*,KPlato::ScheduleManager*)) );
+    connect( scheduleeditor, &ScheduleEditor::addScheduleManager, this, &View::slotAddScheduleManager );
+    connect( scheduleeditor, &ScheduleEditor::deleteScheduleManager, this, &View::slotDeleteScheduleManager );
 
-    connect( scheduleeditor, SIGNAL(calculateSchedule(KPlato::Project*,KPlato::ScheduleManager*)), SLOT(slotCalculateSchedule(KPlato::Project*,KPlato::ScheduleManager*)) );
+    connect( scheduleeditor, &ScheduleEditor::calculateSchedule, this, &View::slotCalculateSchedule );
 
-    connect( scheduleeditor, SIGNAL(baselineSchedule(KPlato::Project*,KPlato::ScheduleManager*)), SLOT(slotBaselineSchedule(KPlato::Project*,KPlato::ScheduleManager*)) );
+    connect( scheduleeditor, &ScheduleEditor::baselineSchedule, this, &View::slotBaselineSchedule );
 
     scheduleeditor->updateReadWrite( m_readWrite );
     return scheduleeditor;
@@ -1064,15 +1064,15 @@ ViewBase *View::createScheduleEditor( ViewListItem *cat, const QString &tag, con
 
     scheduleeditor->setProject( &( getProject() ) );
 
-    connect( scheduleeditor, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( scheduleeditor, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
-    connect( scheduleeditor, SIGNAL(addScheduleManager(KPlato::Project*)), SLOT(slotAddScheduleManager(KPlato::Project*)) );
+    connect( scheduleeditor, &ScheduleEditor::addScheduleManager, this, &View::slotAddScheduleManager );
 
-    connect( scheduleeditor, SIGNAL(deleteScheduleManager(KPlato::Project*,KPlato::ScheduleManager*)), SLOT(slotDeleteScheduleManager(KPlato::Project*,KPlato::ScheduleManager*)) );
+    connect( scheduleeditor, &ScheduleEditor::deleteScheduleManager, this, &View::slotDeleteScheduleManager );
 
-    connect( scheduleeditor, SIGNAL(calculateSchedule(KPlato::Project*,KPlato::ScheduleManager*)), SLOT(slotCalculateSchedule(KPlato::Project*,KPlato::ScheduleManager*)) );
+    connect( scheduleeditor, &ScheduleEditor::calculateSchedule, this, &View::slotCalculateSchedule );
 
-    connect( scheduleeditor, SIGNAL(baselineSchedule(KPlato::Project*,KPlato::ScheduleManager*)), SLOT(slotBaselineSchedule(KPlato::Project*,KPlato::ScheduleManager*)) );
+    connect( scheduleeditor, &ScheduleEditor::baselineSchedule, this, &View::slotBaselineSchedule );
 
     scheduleeditor->updateReadWrite( m_readWrite );
     return scheduleeditor;
@@ -1097,17 +1097,17 @@ ViewBase *View::createDependencyEditor( ViewListItem *cat, const QString &tag, c
 
     editor->draw( getProject() );
 
-    connect( editor, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( editor, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( editor, SIGNAL(addRelation(KPlato::Node*,KPlato::Node*,int)), SLOT(slotAddRelation(KPlato::Node*,KPlato::Node*,int)) );
     connect( editor, SIGNAL(modifyRelation(KPlato::Relation*,int)), SLOT(slotModifyRelation(KPlato::Relation*,int)) );
     connect( editor, SIGNAL(modifyRelation(KPlato::Relation*)), SLOT(slotModifyRelation(KPlato::Relation*)) );
 
     connect( editor, SIGNAL(editNode(KPlato::Node*)), SLOT(slotOpenNode(KPlato::Node*)) );
-    connect( editor, SIGNAL(addTask()), SLOT(slotAddTask()) );
-    connect( editor, SIGNAL(addMilestone()), SLOT(slotAddMilestone()) );
-    connect( editor, SIGNAL(addSubMilestone()), SLOT(slotAddSubMilestone()) );
-    connect( editor, SIGNAL(addSubtask()), SLOT(slotAddSubTask()) );
+    connect( editor, &DependencyEditor::addTask, this, &View::slotAddTask );
+    connect( editor, &DependencyEditor::addMilestone, this, &View::slotAddMilestone );
+    connect( editor, &DependencyEditor::addSubMilestone, this, &View::slotAddSubMilestone );
+    connect( editor, &DependencyEditor::addSubtask, this, &View::slotAddSubTask );
     connect( editor, SIGNAL(deleteTaskList(QList<Node*>)), SLOT(slotDeleteTask(QList<Node*>)) );
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), editor, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
@@ -1136,7 +1136,7 @@ ViewBase *View::createPertEditor( ViewListItem *cat, const QString &tag, const Q
 
     perteditor->draw( getProject() );
 
-    connect( perteditor, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( perteditor, &ViewBase::guiActivated, this, &View::slotGuiActivated );
     m_updatePertEditor = true;
     perteditor->updateReadWrite( m_readWrite );
     return perteditor;
@@ -1158,7 +1158,7 @@ ViewBase *View::createProjectStatusView( ViewListItem *cat, const QString &tag, 
         i->setToolTip( 0, tip );
     }
 
-    connect( v, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( v, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), v, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
@@ -1184,7 +1184,7 @@ ViewBase *View::createPerformanceStatusView( ViewListItem *cat, const QString &t
         i->setToolTip( 0, tip );
     }
 
-    connect( v, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( v, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), v, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
@@ -1213,7 +1213,7 @@ ViewBase *View::createTaskStatusView( ViewListItem *cat, const QString &tag, con
         i->setToolTip( 0, tip );
     }
 
-    connect( taskstatusview, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( taskstatusview, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), taskstatusview, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
@@ -1246,7 +1246,7 @@ ViewBase *View::createTaskView( ViewListItem *cat, const QString &tag, const QSt
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), v, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
-    connect( v, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( v, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( v, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
     v->updateReadWrite( m_readWrite );
@@ -1274,12 +1274,12 @@ ViewBase *View::createTaskWorkPackageView( ViewListItem *cat, const QString &tag
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), v, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
-    connect( v, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( v, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( v, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
 
-    connect( v, SIGNAL(mailWorkpackage(KPlato::Node*,KPlato::Resource*)), SLOT(slotMailWorkpackage(KPlato::Node*,KPlato::Resource*)) );
-    connect( v, SIGNAL(mailWorkpackages(QList<Node*>,KPlato::Resource*)), SLOT(slotMailWorkpackages(QList<Node*>,KPlato::Resource*)) );
+    connect( v, &TaskWorkPackageView::mailWorkpackage, this, &View::slotMailWorkpackage );
+    connect( v, &TaskWorkPackageView::mailWorkpackages, this, &View::slotMailWorkpackages );
 
     connect(v, SIGNAL(checkForWorkPackages()), getPart(), SLOT(checkForWorkPackages()));
     v->updateReadWrite( m_readWrite );
@@ -1305,7 +1305,7 @@ ViewBase *View::createGanttView( ViewListItem *cat, const QString &tag, const QS
     ganttview->setProject( &( getProject() ) );
     ganttview->setScheduleManager( currentScheduleManager() );
 
-    connect( ganttview, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( ganttview, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 /*  TODO: Review these
     connect( ganttview, SIGNAL(addRelation(KPlato::Node*,KPlato::Node*,int)), SLOT(slotAddRelation(KPlato::Node*,KPlato::Node*,int)) );
     connect( ganttview, SIGNAL(modifyRelation(KPlato::Relation*,int)), SLOT(slotModifyRelation(KPlato::Relation*,int)) );
@@ -1339,7 +1339,7 @@ ViewBase *View::createMilestoneGanttView( ViewListItem *cat, const QString &tag,
     ganttview->setProject( &( getProject() ) );
     ganttview->setScheduleManager( currentScheduleManager() );
 
-    connect( ganttview, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( ganttview, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), ganttview, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
@@ -1369,7 +1369,7 @@ ViewBase *View::createAccountsView( ViewListItem *cat, const QString &tag, const
 
     connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), accountsview, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
 
-    connect( accountsview, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( accountsview, &ViewBase::guiActivated, this, &View::slotGuiActivated );
     accountsview->updateReadWrite( m_readWrite );
     return accountsview;
 }
@@ -1393,7 +1393,7 @@ ViewBase *View::createResourceAssignmentView( ViewListItem *cat, const QString &
 
     resourceAssignmentView->draw( getProject() );
 
-    connect( resourceAssignmentView, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( resourceAssignmentView, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( resourceAssignmentView, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
     resourceAssignmentView->updateReadWrite( m_readWrite );
@@ -1418,11 +1418,11 @@ ViewBase *View::createReportsGeneratorView(ViewListItem *cat, const QString &tag
 
     v->setProject( &getProject() );
 
-    connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), v, SLOT(setScheduleManager(KPlato::ScheduleManager*)) );
-    connect( this, SIGNAL(currentScheduleManagerChanged(KPlato::ScheduleManager*)), v, SLOT(slotRefreshView()));
+    connect( this, &View::currentScheduleManagerChanged, v, &ViewBase::setScheduleManager );
+    connect( this, &View::currentScheduleManagerChanged, v, &ViewBase::slotRefreshView);
     v->setScheduleManager( currentScheduleManager() );
 
-    connect( v, SIGNAL(guiActivated(ViewBase*,bool)), SLOT(slotGuiActivated(ViewBase*,bool)) );
+    connect( v, &ViewBase::guiActivated, this, &View::slotGuiActivated );
     connect( v, SIGNAL(requestPopupMenu(QString,QPoint)), this, SLOT(slotPopupMenu(QString,QPoint)) );
 
     v->updateReadWrite( m_readWrite );
@@ -1676,7 +1676,7 @@ QAction *View::addScheduleAction( Schedule *sch )
         m_scheduleActions.insert( act, sch );
         m_scheduleActionGroup->addAction( act );
         //debugPlan<<"Add:"<<n;
-        connect( act, SIGNAL(destroyed(QObject*)), SLOT(slotActionDestroyed(QObject*)) );
+        connect( act, &QObject::destroyed, this, &View::slotActionDestroyed );
     }
     return act;
 }
@@ -1759,7 +1759,7 @@ void View::slotCalculateSchedule( Project *project, ScheduleManager *sm )
         return;
     }
     if ( sm == currentScheduleManager() ) {
-        connect( project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        connect( project, &Project::projectCalculated, this, &View::slotProjectCalculated );
     }
     CalculateScheduleCmd *cmd =  new CalculateScheduleCmd( *project, sm, kundo2_i18nc("@info:status 1=schedule name", "Calculate %1", sm->name() ) );
     getPart() ->addCommand( cmd );
@@ -1828,7 +1828,7 @@ void View::slotAddSubTask()
 {
     Task * node = getProject().createTask( getPart() ->config().taskDefaults() );
     SubTaskAddDialog *dia = new SubTaskAddDialog( getProject(), *node, currentNode(), getProject().accounts(), this );
-    connect(dia, SIGNAL(finished(int)), SLOT(slotAddSubTaskFinished(int)));
+    connect(dia, &QDialog::finished, this, &View::slotAddSubTaskFinished);
     dia->show();
     dia->raise();
     dia->activateWindow();
@@ -1851,7 +1851,7 @@ void View::slotAddTask()
 {
     Task * node = getProject().createTask( getPart() ->config().taskDefaults() );
     TaskAddDialog *dia = new TaskAddDialog( getProject(), *node, currentNode(), getProject().accounts(), this );
-    connect(dia, SIGNAL(finished(int)), SLOT(slotAddTaskFinished(int)));
+    connect(dia, &QDialog::finished, this, &View::slotAddTaskFinished);
     dia->show();
     dia->raise();
     dia->activateWindow();
@@ -1876,7 +1876,7 @@ void View::slotAddMilestone()
     node->estimate() ->clear();
 
     TaskAddDialog *dia = new TaskAddDialog( getProject(), *node, currentNode(), getProject().accounts(), this );
-    connect(dia, SIGNAL(finished(int)), SLOT(slotAddMilestoneFinished(int)));
+    connect(dia, &QDialog::finished, this, &View::slotAddMilestoneFinished);
     dia->show();
     dia->raise();
     dia->activateWindow();
@@ -1902,7 +1902,7 @@ void View::slotAddSubMilestone()
     node->estimate() ->clear();
 
     SubTaskAddDialog *dia = new SubTaskAddDialog( getProject(), *node, currentNode(), getProject().accounts(), this );
-    connect(dia, SIGNAL(finished(int)), SLOT(slotAddSubMilestoneFinished(int)));
+    connect(dia, &QDialog::finished, this, &View::slotAddSubMilestoneFinished);
     dia->show();
     dia->raise();
     dia->activateWindow();
@@ -2042,8 +2042,8 @@ void View::slotOpenNode( Node *node )
         case Node::Type_Project: {
                 Project * project = static_cast<Project *>( node );
                 MainProjectDialog *dia = new MainProjectDialog( *project, this );
-                connect(dia, SIGNAL(dialogFinished(int)), SLOT(slotProjectEditFinished(int)));
-                connect(dia, SIGNAL(sigLoadSharedResources(QString,QUrl,bool)), this, SLOT(slotInsertResourcesFile(QString,QUrl)));
+                connect(dia, &MainProjectDialog::dialogFinished, this, &View::slotProjectEditFinished);
+                connect(dia, &MainProjectDialog::sigLoadSharedResources, this, &View::slotInsertResourcesFile);
                 connect(dia, &MainProjectDialog::loadResourceAssignments, getPart(), &MainDocument::loadResourceAssignments);
                 connect(dia, &MainProjectDialog::clearResourceAssignments, getPart(), &MainDocument::clearResourceAssignments);
                 dia->show();
@@ -2057,7 +2057,7 @@ void View::slotOpenNode( Node *node )
         case Node::Type_Task: {
                 Task *task = static_cast<Task *>( node );
                 TaskDialog *dia = new TaskDialog( getProject(), *task, getProject().accounts(), this );
-                connect(dia, SIGNAL(finished(int)), SLOT(slotTaskEditFinished(int)));
+                connect(dia, &QDialog::finished, this, &View::slotTaskEditFinished);
                 dia->show();
                 dia->raise();
                 dia->activateWindow();
@@ -2070,7 +2070,7 @@ void View::slotOpenNode( Node *node )
                 // and hence, create a milestone
                 Task *task = static_cast<Task *>( node );
                 TaskDialog *dia = new TaskDialog( getProject(), *task, getProject().accounts(), this );
-                connect(dia, SIGNAL(finished(int)), SLOT(slotTaskEditFinished(int)));
+                connect(dia, &QDialog::finished, this, &View::slotTaskEditFinished);
                 dia->show();
                 dia->raise();
                 dia->activateWindow();

@@ -1641,7 +1641,7 @@ DependencyView::DependencyView( QWidget *parent )
     setItemScene( new DependencyScene( this ) );
     setAlignment( Qt::AlignLeft | Qt::AlignTop );
 
-    connect( scene(), SIGNAL(selectionChanged()), this, SLOT(slotSelectionChanged()) );
+    connect( scene(), &QGraphicsScene::selectionChanged, this, &DependencyView::slotSelectionChanged );
     connect( scene(), SIGNAL(connectItems(DependencyConnectorItem*,DependencyConnectorItem*)), this, SIGNAL(makeConnection(DependencyConnectorItem*,DependencyConnectorItem*)) );
 
     connect( scene(), SIGNAL(contextMenuRequested(QGraphicsItem*)), this, SLOT(slotContextMenuRequested(QGraphicsItem*)) );
@@ -1653,7 +1653,7 @@ DependencyView::DependencyView( QWidget *parent )
     connect( itemScene(), SIGNAL(focusItemChanged(QGraphicsItem*)), this, SLOT(slotFocusItemChanged(QGraphicsItem*)) );
 
     m_autoScrollTimer.start( 100 );
-    connect( &m_autoScrollTimer, SIGNAL(timeout()), SLOT(slotAutoScroll()) );
+    connect( &m_autoScrollTimer, &QTimer::timeout, this, &DependencyView::slotAutoScroll );
 }
 
 void DependencyView::slotContextMenuRequested( QGraphicsItem *item )
@@ -1685,7 +1685,7 @@ void DependencyView::slotConnectorClicked( DependencyConnectorItem *item )
 void DependencyView::slotSelectionChanged()
 {
     //HACK because of tt bug 160653
-    QTimer::singleShot(0, this, SLOT(slotSelectedItems()));
+    QTimer::singleShot(0, this, &DependencyView::slotSelectedItems);
 }
 
 void DependencyView::slotSelectedItems()
@@ -1718,14 +1718,14 @@ void DependencyView::setActive( bool activate )
 void DependencyView::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, SIGNAL(relationAdded(KPlato::Relation*)), this, SLOT(slotRelationAdded(KPlato::Relation*)) );
-        disconnect( m_project, SIGNAL(relationRemoved(KPlato::Relation*)), this, SLOT(slotRelationRemoved(KPlato::Relation*)) );
-        disconnect( m_project, SIGNAL(relationModified(KPlato::Relation*)), this, SLOT(slotRelationModified(KPlato::Relation*)) );
+        disconnect( m_project, &Project::relationAdded, this, &DependencyView::slotRelationAdded );
+        disconnect( m_project, &Project::relationRemoved, this, &DependencyView::slotRelationRemoved );
+        disconnect( m_project, &Project::relationModified, this, &DependencyView::slotRelationModified );
 
-        disconnect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeAdded(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)) );
+        disconnect( m_project, &Project::nodeAdded, this, &DependencyView::slotNodeAdded );
+        disconnect( m_project, &Project::nodeRemoved, this, &DependencyView::slotNodeRemoved );
+        disconnect( m_project, &Project::nodeChanged, this, &DependencyView::slotNodeChanged );
+        disconnect( m_project, &Project::nodeMoved, this, &DependencyView::slotNodeMoved );
 
         if ( itemScene() ) {
             itemScene()->clearScene();
@@ -1733,16 +1733,16 @@ void DependencyView::setProject( Project *project )
     }
     m_project = project;
     if ( project ) {
-        connect( m_project, SIGNAL(relationAdded(KPlato::Relation*)), this, SLOT(slotRelationAdded(KPlato::Relation*)) );
-        connect( m_project, SIGNAL(relationRemoved(KPlato::Relation*)), this, SLOT(slotRelationRemoved(KPlato::Relation*)) );
-        connect( m_project, SIGNAL(relationModified(KPlato::Relation*)), this, SLOT(slotRelationModified(KPlato::Relation*)) );
+        connect( m_project, &Project::relationAdded, this, &DependencyView::slotRelationAdded );
+        connect( m_project, &Project::relationRemoved, this, &DependencyView::slotRelationRemoved );
+        connect( m_project, &Project::relationModified, this, &DependencyView::slotRelationModified );
 
-        connect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeAdded(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)) );
+        connect( m_project, &Project::nodeAdded, this, &DependencyView::slotNodeAdded );
+        connect( m_project, &Project::nodeRemoved, this, &DependencyView::slotNodeRemoved );
+        connect( m_project, &Project::nodeChanged, this, &DependencyView::slotNodeChanged );
+        connect( m_project, &Project::nodeMoved, this, &DependencyView::slotNodeMoved );
 
-        connect( m_project, SIGNAL(wbsDefinitionChanged()), this, SLOT(slotWbsCodeChanged()) );
+        connect( m_project, &Project::wbsDefinitionChanged, this, &DependencyView::slotWbsCodeChanged );
 
         if ( itemScene() ) {
             itemScene()->setProject( project );
@@ -1981,7 +1981,7 @@ DependencyeditorConfigDialog::DependencyeditorConfigDialog( ViewBase *view, QWid
     if (selectPrint) {
         setCurrentPage(page);
     }
-    connect( this, SIGNAL(accepted()), this, SLOT(slotOk()));
+    connect( this, &QDialog::accepted, this, &DependencyeditorConfigDialog::slotOk);
 }
 
 void DependencyeditorConfigDialog::slotOk()
@@ -2004,12 +2004,12 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
     m_view = new DependencyView( this );
     l->addWidget( m_view );
 
-    connect( m_view, SIGNAL(makeConnection(DependencyConnectorItem*,DependencyConnectorItem*)), this, SLOT(slotCreateRelation(DependencyConnectorItem*,DependencyConnectorItem*)) );
+    connect( m_view, &DependencyView::makeConnection, this, &DependencyEditor::slotCreateRelation );
     connect( m_view, SIGNAL(selectionChanged(QList<QGraphicsItem*>)), this, SLOT(slotSelectionChanged(QList<QGraphicsItem*>)) );
 
-    connect( m_view->itemScene(), SIGNAL(itemDoubleClicked(QGraphicsItem*)), this, SLOT(slotItemDoubleClicked(QGraphicsItem*)) );
+    connect( m_view->itemScene(), &DependencyScene::itemDoubleClicked, this, &DependencyEditor::slotItemDoubleClicked );
 
-    connect( m_view, SIGNAL(contextMenuRequested(QGraphicsItem*,QPoint)), this, SLOT(slotContextMenuRequested(QGraphicsItem*,QPoint)) );
+    connect( m_view, &DependencyView::contextMenuRequested, this, &DependencyEditor::slotContextMenuRequested );
 
     Help::add(this,
               xi18nc("@info:whatsthis",
@@ -2314,39 +2314,39 @@ void DependencyEditor::setupGui()
 
     menuAddTask = new KActionMenu(koIcon("view-task-add"), i18n("Add Task"), this);
     coll->addAction("add_task", menuAddTask );
-    connect( menuAddTask, SIGNAL(triggered(bool)), SLOT(slotAddTask()) );
+    connect( menuAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask );
     addAction( name, menuAddTask );
 
     actionAddTask  = new QAction( i18n("Add Task..."), this);
     actionAddTask->setShortcut( Qt::CTRL + Qt::Key_I );
-    connect( actionAddTask, SIGNAL(triggered(bool)), SLOT(slotAddTask()) );
+    connect( actionAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask );
     menuAddTask->addAction( actionAddTask );
 
     actionAddMilestone  = new QAction( i18n("Add Milestone..."), this );
     actionAddMilestone->setShortcut( Qt::CTRL + Qt::ALT + Qt::Key_I );
-    connect( actionAddMilestone, SIGNAL(triggered(bool)), SLOT(slotAddMilestone()) );
+    connect( actionAddMilestone, &QAction::triggered, this, &DependencyEditor::slotAddMilestone );
     menuAddTask->addAction( actionAddMilestone );
 
 
     menuAddSubTask = new KActionMenu(koIcon("view-task-child-add"), i18n("Add Sub-Task"), this);
     coll->addAction("add_subtask", menuAddTask );
-    connect( menuAddSubTask, SIGNAL(triggered(bool)), SLOT(slotAddSubtask()) );
+    connect( menuAddSubTask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask );
     addAction( name, menuAddSubTask );
 
     actionAddSubtask  = new QAction( i18n("Add Sub-Task..."), this );
     actionAddSubtask->setShortcut( Qt::CTRL + Qt::SHIFT + Qt::Key_I );
-    connect( actionAddSubtask, SIGNAL(triggered(bool)), SLOT(slotAddSubtask()) );
+    connect( actionAddSubtask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask );
     menuAddSubTask->addAction( actionAddSubtask );
 
     actionAddSubMilestone = new QAction( i18n("Add Sub-Milestone..."), this );
     actionAddSubMilestone->setShortcut( Qt::CTRL + Qt::SHIFT + Qt::ALT + Qt::Key_I );
-    connect( actionAddSubMilestone, SIGNAL(triggered(bool)), SLOT(slotAddSubMilestone()) );
+    connect( actionAddSubMilestone, &QAction::triggered, this, &DependencyEditor::slotAddSubMilestone );
     menuAddSubTask->addAction( actionAddSubMilestone );
 
     actionDeleteTask  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
     coll->addAction("delete_task", actionDeleteTask );
     coll->setDefaultShortcut(actionDeleteTask, Qt::Key_Delete);
-    connect( actionDeleteTask, SIGNAL(triggered(bool)), SLOT(slotDeleteTask()) );
+    connect( actionDeleteTask, &QAction::triggered, this, &DependencyEditor::slotDeleteTask );
     addAction( name, actionDeleteTask );
 
     createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);

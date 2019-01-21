@@ -48,7 +48,7 @@ SchedulerPlugin::SchedulerPlugin(QObject *parent)
     qRegisterMetaType<Schedule::Log>("Schedule::Log");
 
     m_synctimer.setInterval( 500 );
-    connect(&m_synctimer, SIGNAL(timeout()), SLOT(slotSyncData()));
+    connect(&m_synctimer, &QTimer::timeout, this, &SchedulerPlugin::slotSyncData);
 }
 
 SchedulerPlugin::~SchedulerPlugin()
@@ -342,8 +342,8 @@ SchedulerThread::SchedulerThread( Project *project, ScheduleManager *manager, QO
     m_pdoc.setContent( document.toString() );
 
 
-    connect( this, SIGNAL(started()), this, SLOT(slotStarted()));
-    connect( this, SIGNAL(finished()), this, SLOT(slotFinished()));
+    connect( this, &QThread::started, this, &SchedulerThread::slotStarted);
+    connect( this, &QThread::finished, this, &SchedulerThread::slotFinished);
 }
 
 SchedulerThread::~SchedulerThread()

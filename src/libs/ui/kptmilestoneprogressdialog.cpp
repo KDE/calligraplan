@@ -45,10 +45,10 @@ MilestoneProgressDialog::MilestoneProgressDialog(Task &task, QWidget *p)
 
     enableButtonOk(false);
 
-    connect(m_panel, SIGNAL(changed()), SLOT(slotChanged()));
+    connect(m_panel, &MilestoneProgressPanelImpl::changed, this, &MilestoneProgressDialog::slotChanged);
     Project *proj = static_cast<Project*>( task.projectNode() );
     if ( proj ) {
-        connect(proj, SIGNAL(nodeRemoved(KPlato::Node*)), SLOT(slotNodeRemoved(KPlato::Node*)));
+        connect(proj, &Project::nodeRemoved, this, &MilestoneProgressDialog::slotNodeRemoved);
     }
 }
 

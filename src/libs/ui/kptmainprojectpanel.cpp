@@ -110,24 +110,24 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     projectsClearBtn->setToolTip(xi18nc("@info:tooltip", "Clear shared resource assignments"));
 
     // signals and slots connections
-    connect( m_description, SIGNAL(textChanged(bool)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( endDate, SIGNAL(dateChanged(QDate)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( endTime, SIGNAL(timeChanged(QTime)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( startDate, SIGNAL(dateChanged(QDate)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( startTime, SIGNAL(timeChanged(QTime)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( namefield, SIGNAL(textChanged(QString)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( leaderfield, SIGNAL(textChanged(QString)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( useSharedResources, SIGNAL(toggled(bool)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( resourcesFile, SIGNAL(textChanged(QString)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect( projectsPlace, SIGNAL(textChanged(QString)), this, SLOT(slotCheckAllFieldsFilled()) );
-    connect(projectsLoadAtStartup, SIGNAL(toggled(bool)), this, SLOT(slotCheckAllFieldsFilled()));
-    connect( chooseLeader, SIGNAL(clicked()), this, SLOT(slotChooseLeader()) );
+    connect( m_description, &TaskDescriptionPanelImpl::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect( endDate, &QDateTimeEdit::dateChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect( endTime, &QDateTimeEdit::timeChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect( startDate, &QDateTimeEdit::dateChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect( startTime, &QDateTimeEdit::timeChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect( namefield, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect( leaderfield, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect( useSharedResources, &QGroupBox::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect( resourcesFile, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect( projectsPlace, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect(projectsLoadAtStartup, &QAbstractButton::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect( chooseLeader, &QAbstractButton::clicked, this, &MainProjectPanel::slotChooseLeader );
 
-    connect(resourcesBrowseBtn, SIGNAL(clicked()), this, SLOT(openResourcesFile()));
-    connect(projectsBrowseBtn, SIGNAL(clicked()), this, SLOT(openProjectsPlace()));
+    connect(resourcesBrowseBtn, &QAbstractButton::clicked, this, &MainProjectPanel::openResourcesFile);
+    connect(projectsBrowseBtn, &QAbstractButton::clicked, this, &MainProjectPanel::openProjectsPlace);
 
-    connect(projectsLoadBtn, SIGNAL(clicked()), this, SLOT(loadProjects()));
-    connect(projectsClearBtn, SIGNAL(clicked()), this, SLOT(clearProjects()));
+    connect(projectsLoadBtn, &QAbstractButton::clicked, this, &MainProjectPanel::loadProjects);
+    connect(projectsClearBtn, &QAbstractButton::clicked, this, &MainProjectPanel::clearProjects);
 }
 
 

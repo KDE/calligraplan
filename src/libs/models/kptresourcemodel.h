@@ -150,7 +150,6 @@ protected Q_SLOTS:
     void slotResourceToBeRemoved(const KPlato::Resource *resource);
     void slotResourceRemoved(const KPlato::Resource *resource);
     void slotCalendarChanged(KPlato::Calendar* cal);
-    void slotLayoutChanged();
 
     void slotDataArrived( KIO::Job *job, const QByteArray &data  );
     void slotJobFinished( KJob *job );

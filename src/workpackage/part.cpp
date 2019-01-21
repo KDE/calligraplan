@@ -110,7 +110,7 @@ DocumentChild::DocumentChild( WorkPackage *parent)
 DocumentChild::~DocumentChild()
 {
     debugPlanWork;
-    disconnect(m_fileSystemWatcher, SIGNAL(fileChanged(QString)), this, SLOT(slotDirty(QString)));
+    disconnect(m_fileSystemWatcher, &QFileSystemWatcher::fileChanged, this, &DocumentChild::slotDirty);
     m_fileSystemWatcher->removePath( filePath() );
 
     if ( m_type == Type_Calligra || m_type == Type_KParts ) {
@@ -127,7 +127,7 @@ void DocumentChild::setFileInfo( const QUrl &url )
 {
     m_fileinfo.setFile( url.path() );
     //debugPlanWork<<url;
-    bool res = connect( m_fileSystemWatcher, SIGNAL(fileChanged(QString)), this, SLOT(slotDirty(QString)) );
+    bool res = connect( m_fileSystemWatcher, &QFileSystemWatcher::fileChanged, this, &DocumentChild::slotDirty );
     //debugPlanWork<<res<<filePath();
 #ifndef NDEBUG
     Q_ASSERT( res );
@@ -161,7 +161,7 @@ void DocumentChild::slotUpdateModified()
     if ( m_type == Type_KParts && m_editor && ( m_editor->isModified() != m_editormodified ) ) {
         setModified( m_editor->isModified() );
     }
-    QTimer::singleShot( 500, this, SLOT(slotUpdateModified()) );
+    QTimer::singleShot( 500, this, &DocumentChild::slotUpdateModified );
 }
 
 bool DocumentChild::setDoc( const Document *doc )
@@ -355,11 +355,11 @@ Part::Part( QWidget *parentWidget, QObject *parent, const QVariantList & /*args*
 
     View *v = new View( this, parentWidget, actionCollection() );
     setWidget( v );
-    connect( v, SIGNAL(viewDocument(KPlato::Document*)), SLOT(viewWorkpackageDocument(KPlato::Document*)) );
+    connect( v, &View::viewDocument, this, &Part::viewWorkpackageDocument );
 
     loadWorkPackages();
 
-    connect( m_undostack, SIGNAL(cleanChanged(bool)), SLOT(setDocumentClean(bool)) );
+    connect( m_undostack, &KUndo2QStack::cleanChanged, this, &Part::setDocumentClean );
 
 }
 
@@ -401,7 +401,7 @@ bool Part::setWorkPackage( WorkPackage *wp, KoStore *store )
     connect( wp->project(), SIGNAL(projectChanged()), wp, SLOT(projectChanged()) );
     connect ( wp, SIGNAL(modified(bool)), this, SLOT(setModified(bool)) );
     emit workPackageAdded( wp, indexOf( wp ) );
-    connect(wp, SIGNAL(saveWorkPackage(KPlatoWork::WorkPackage*)), SLOT(saveWorkPackage(KPlatoWork::WorkPackage*)));
+    connect(wp, &WorkPackage::saveWorkPackage, this, &Part::saveWorkPackage);
     return true;
 }
 

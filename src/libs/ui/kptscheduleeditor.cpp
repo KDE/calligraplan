@@ -128,8 +128,8 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     m_schedulingRange = new SchedulingRange(doc, this);
     l->addWidget( m_schedulingRange );
     m_view = new ScheduleTreeView( this );
-    connect(this, SIGNAL(expandAll()), m_view, SLOT(slotExpand()));
-    connect(this, SIGNAL(collapseAll()), m_view, SLOT(slotCollapse()));
+    connect(this, &ViewBase::expandAll, m_view, &TreeViewBase::slotExpand);
+    connect(this, &ViewBase::collapseAll, m_view, &TreeViewBase::slotCollapse);
 
     l->addWidget( m_view );
     m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
@@ -156,17 +156,17 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     m_view->setDefaultColumns( show );
 
 
-    connect( model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect( model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
 
     connect( m_view, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex)) );
 
     connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)) );
 
-    connect( model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SLOT(updateActionsEnabled(QModelIndex)) );
+    connect( model(), &QAbstractItemModel::dataChanged, this, &ScheduleEditor::updateActionsEnabled );
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), this, SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( m_view, &TreeViewBase::contextMenuRequested, this, &ScheduleEditor::slotContextMenuRequested );
 
-    connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect( m_view, &TreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
     Help::add(this,
         xi18nc("@info:whatsthis", 
@@ -296,36 +296,36 @@ void ScheduleEditor::setupGui()
     actionAddSchedule  = new QAction(koIcon("view-time-schedule-insert"), i18n("Add Schedule"), this);
     actionCollection()->setDefaultShortcut(actionAddSchedule, Qt::CTRL + Qt::Key_I);
     actionCollection()->addAction("add_schedule", actionAddSchedule );
-    connect( actionAddSchedule, SIGNAL(triggered(bool)), SLOT(slotAddSchedule()) );
+    connect( actionAddSchedule, &QAction::triggered, this, &ScheduleEditor::slotAddSchedule );
     addAction( name, actionAddSchedule );
 
     actionAddSubSchedule  = new QAction(koIcon("view-time-schedule-child-insert"), i18n("Add Sub-schedule"), this);
     actionCollection()->setDefaultShortcut(actionAddSubSchedule, Qt::CTRL + Qt::SHIFT + Qt::Key_I);
     actionCollection()->addAction("add_subschedule", actionAddSubSchedule );
-    connect( actionAddSubSchedule, SIGNAL(triggered(bool)), SLOT(slotAddSubSchedule()) );
+    connect( actionAddSubSchedule, &QAction::triggered, this, &ScheduleEditor::slotAddSubSchedule );
     addAction( name, actionAddSubSchedule );
 
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this );
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
     actionCollection()->addAction("schedule_delete_selection", actionDeleteSelection );
-    connect( actionDeleteSelection, SIGNAL(triggered(bool)), SLOT(slotDeleteSelection()) );
+    connect( actionDeleteSelection, &QAction::triggered, this, &ScheduleEditor::slotDeleteSelection );
     addAction( name, actionDeleteSelection );
 
     actionCalculateSchedule  = new QAction(koIcon("view-time-schedule-calculus"), i18n("Calculate"), this);
 //    actionCollection()->setDefaultShortcut(actionCalculateSchedule, Qt::CTRL + Qt::Key_C);
     actionCollection()->addAction("calculate_schedule", actionCalculateSchedule );
-    connect( actionCalculateSchedule, SIGNAL(triggered(bool)), SLOT(slotCalculateSchedule()) );
+    connect( actionCalculateSchedule, &QAction::triggered, this, &ScheduleEditor::slotCalculateSchedule );
     addAction( name, actionCalculateSchedule );
 
     actionBaselineSchedule  = new QAction(koIcon("view-time-schedule-baselined-add"), i18n("Baseline"), this);
 //    actionCollection()->setDefaultShortcut(actionBaselineSchedule, Qt::CTRL + Qt::Key_B);
     actionCollection()->addAction("schedule_baseline", actionBaselineSchedule );
-    connect( actionBaselineSchedule, SIGNAL(triggered(bool)), SLOT(slotBaselineSchedule()) );
+    connect( actionBaselineSchedule, &QAction::triggered, this, &ScheduleEditor::slotBaselineSchedule );
     addAction( name, actionBaselineSchedule );
 
     actionMoveLeft  = new QAction(koIcon("go-first"), xi18nc("@action", "Detach"), this);
     actionCollection()->addAction("schedule_move_left", actionMoveLeft );
-    connect( actionMoveLeft, SIGNAL(triggered(bool)), SLOT(slotMoveLeft()) );
+    connect( actionMoveLeft, &QAction::triggered, this, &ScheduleEditor::slotMoveLeft );
     addAction( name, actionMoveLeft );
 
 
@@ -497,10 +497,10 @@ ScheduleLogTreeView::ScheduleLogTreeView( QWidget *parent )
     setSelectionBehavior( QAbstractItemView::SelectRows );
     setAlternatingRowColors( true );
 
-    connect( header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(headerContextMenuRequested(QPoint)) );
+    connect( header(), &QWidget::customContextMenuRequested, this, &ScheduleLogTreeView::headerContextMenuRequested );
 
     actionShowDebug = new KToggleAction( xi18nc( "@action", "Show Debug Information" ), this );
-    connect( actionShowDebug, SIGNAL(toggled(bool)), SLOT(slotShowDebug(bool)));
+    connect( actionShowDebug, &QAction::toggled, this, &ScheduleLogTreeView::slotShowDebug);
 }
 
 void ScheduleLogTreeView::setFilterWildcard( const QString &filter )
@@ -596,9 +596,9 @@ ScheduleLogView::ScheduleLogView(KoPart *part, KoDocument *doc, QWidget *parent)
 
     connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)) );
 
-    connect( baseModel(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SLOT(updateActionsEnabled(QModelIndex)) );
+    connect( baseModel(), &QAbstractItemModel::dataChanged, this, &ScheduleLogView::updateActionsEnabled );
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( m_view, &ScheduleLogTreeView::contextMenuRequested, this, &ScheduleLogView::slotContextMenuRequested );
 
 }
 
@@ -654,7 +654,7 @@ void ScheduleLogView::slotContextMenuRequested( const QModelIndex &index, const 
     QAction *a = new QAction(koIcon("document-edit"), i18n( "Edit..." ), m);
     a->setProperty( "p_identity", id );
     m->addAction( a );
-    connect(a, SIGNAL(triggered(bool)), SLOT(slotEdit()));
+    connect(a, &QAction::triggered, this, &ScheduleLogView::slotEdit);
     m->addSeparator();
     m->exec( pos );
     delete m;
@@ -735,19 +735,19 @@ ScheduleHandlerView::ScheduleHandlerView(KoPart *part, KoDocument *doc, QWidget 
     PertResult *p = new PertResult(part, doc, tab);
     p->setObjectName( "PertResult" );
     addView( p, tab, i18n( "Result" ) );
-    connect( m_scheduleEditor, SIGNAL(scheduleSelectionChanged(KPlato::ScheduleManager*)), p, SLOT(slotScheduleSelectionChanged(KPlato::ScheduleManager*)) );
+    connect( m_scheduleEditor, &ScheduleEditor::scheduleSelectionChanged, p, &PertResult::slotScheduleSelectionChanged );
 
     PertCpmView *c = new PertCpmView(part, doc, tab);
     c->setObjectName( "PertCpmView" );
     addView( c, tab, i18n( "Critical Path" ) );
-    connect( m_scheduleEditor, SIGNAL(scheduleSelectionChanged(KPlato::ScheduleManager*)), c, SLOT(slotScheduleSelectionChanged(KPlato::ScheduleManager*)) );
+    connect( m_scheduleEditor, &ScheduleEditor::scheduleSelectionChanged, c, &PertCpmView::slotScheduleSelectionChanged );
 
     ScheduleLogView *v = new ScheduleLogView(part, doc, tab);
     v->setObjectName( "ScheduleLogView" );
     addView( v, tab, i18n( "Scheduling Log" ) );
     connect( m_scheduleEditor, SIGNAL(scheduleSelectionChanged(KPlato::ScheduleManager*)), v, SLOT(slotScheduleSelectionChanged(KPlato::ScheduleManager*)) );
-    connect(v, SIGNAL(editNode(KPlato::Node*)), SIGNAL(editNode(KPlato::Node*)));
-    connect(v, SIGNAL(editResource(KPlato::Resource*)), SIGNAL(editResource(KPlato::Resource*)));
+    connect(v, &ScheduleLogView::editNode, this, &ScheduleHandlerView::editNode);
+    connect(v, &ScheduleLogView::editResource, this, &ScheduleHandlerView::editResource);
 }
 
 void ScheduleHandlerView::currentTabChanged( int )
@@ -800,18 +800,18 @@ SchedulingRange::SchedulingRange(KoDocument *doc, QWidget *parent)
 {
     setupUi(this);
 
-    connect(targetStartTime, SIGNAL(editingFinished()), this, SLOT(slotStartChanged()));
-    connect(targetEndTime, SIGNAL(editingFinished()), this, SLOT(slotEndChanged()));
+    connect(targetStartTime, &QAbstractSpinBox::editingFinished, this, &SchedulingRange::slotStartChanged);
+    connect(targetEndTime, &QAbstractSpinBox::editingFinished, this, &SchedulingRange::slotEndChanged);
 }
 
 void SchedulingRange::setProject(Project *project)
 {
     if (m_project) {
-        disconnect(m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotProjectChanged(KPlato::Node*)));
+        disconnect(m_project, &Project::nodeChanged, this, &SchedulingRange::slotProjectChanged);
     }
     m_project = project;
     if (m_project) {
-        connect(m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotProjectChanged(KPlato::Node*)));
+        connect(m_project, &Project::nodeChanged, this, &SchedulingRange::slotProjectChanged);
         slotProjectChanged(m_project);
     }
 }

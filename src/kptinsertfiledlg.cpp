@@ -41,7 +41,7 @@ InsertFileDialog::InsertFileDialog( Project &project, Node *currentNode, QWidget
     
     enableButtonOk(false);
 
-    connect( m_panel, SIGNAL(enableButtonOk(bool)), SLOT(enableButtonOk(bool)) );
+    connect( m_panel, &InsertFilePanel::enableButtonOk, this, &KoDialog::enableButtonOk );
 }
 
 QUrl InsertFileDialog::url() const
@@ -78,9 +78,9 @@ InsertFilePanel::InsertFilePanel( Project &project, Node *currentNode, QWidget *
 
         ui.ui_name->setText( currentNode->name() );
     }
-    connect( ui.ui_url, SIGNAL(textChanged(QString)), SLOT(changed(QString)) );
+    connect( ui.ui_url, &KUrlRequester::textChanged, this, &InsertFilePanel::changed );
 
-    connect( ui.ui_url, SIGNAL(openFileDialog(KUrlRequester*)), SLOT(slotOpenFileDialog(KUrlRequester*)) );
+    connect( ui.ui_url, &KUrlRequester::openFileDialog, this, &InsertFilePanel::slotOpenFileDialog );
 }
 
 void InsertFilePanel::slotOpenFileDialog( KUrlRequester * )

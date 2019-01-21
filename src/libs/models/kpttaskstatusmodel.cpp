@@ -129,32 +129,32 @@ void TaskStatusItemModel::setProject( Project *project )
     beginResetModel();
     clear();
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        disconnect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLayoutChanged()) );
-        disconnect( m_project, SIGNAL(wbsDefinitionChanged()), this, SLOT(slotWbsDefinitionChanged()) );
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)) );
-        disconnect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
-        disconnect(m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)), this, SLOT(slotNodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)));
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &TaskStatusItemModel::projectDeleted);
+        disconnect(m_project, &Project::localeChanged, this, &TaskStatusItemModel::slotLayoutChanged);
+        disconnect( m_project, &Project::wbsDefinitionChanged, this, &TaskStatusItemModel::slotWbsDefinitionChanged );
+        disconnect( m_project, &Project::nodeChanged, this, &TaskStatusItemModel::slotNodeChanged );
+        disconnect( m_project, &Project::nodeToBeAdded, this, &TaskStatusItemModel::slotNodeToBeInserted );
+        disconnect( m_project, &Project::nodeToBeRemoved, this, &TaskStatusItemModel::slotNodeToBeRemoved );
+        disconnect(m_project, &Project::nodeToBeMoved, this, &TaskStatusItemModel::slotNodeToBeMoved);
     
-        disconnect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        disconnect(m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)));
+        disconnect( m_project, &Project::nodeAdded, this, &TaskStatusItemModel::slotNodeInserted );
+        disconnect( m_project, &Project::nodeRemoved, this, &TaskStatusItemModel::slotNodeRemoved );
+        disconnect(m_project, &Project::nodeMoved, this, &TaskStatusItemModel::slotNodeMoved);
     }
     m_project = project;
     m_nodemodel.setProject( project );
     if ( project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        connect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLayoutChanged()) );
-        connect( m_project, SIGNAL(wbsDefinitionChanged()), this, SLOT(slotWbsDefinitionChanged()) );
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)) );
-        connect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
-        connect(m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)), this, SLOT(slotNodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)));
+        connect(m_project, &Project::aboutToBeDeleted, this, &TaskStatusItemModel::projectDeleted);
+        connect(m_project, &Project::localeChanged, this, &TaskStatusItemModel::slotLayoutChanged);
+        connect( m_project, &Project::wbsDefinitionChanged, this, &TaskStatusItemModel::slotWbsDefinitionChanged );
+        connect( m_project, &Project::nodeChanged, this, &TaskStatusItemModel::slotNodeChanged );
+        connect( m_project, &Project::nodeToBeAdded, this, &TaskStatusItemModel::slotNodeToBeInserted );
+        connect( m_project, &Project::nodeToBeRemoved, this, &TaskStatusItemModel::slotNodeToBeRemoved );
+        connect(m_project, &Project::nodeToBeMoved, this, &TaskStatusItemModel::slotNodeToBeMoved);
 
-        connect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        connect(m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)));
+        connect( m_project, &Project::nodeAdded, this, &TaskStatusItemModel::slotNodeInserted );
+        connect( m_project, &Project::nodeRemoved, this, &TaskStatusItemModel::slotNodeRemoved );
+        connect(m_project, &Project::nodeMoved, this, &TaskStatusItemModel::slotNodeMoved);
 
     }
     endResetModel();
@@ -766,13 +766,6 @@ void TaskStatusItemModel::slotWbsDefinitionChanged()
             emit dataChanged( createIndex( row, NodeModel::NodeWBSCode, nodes.value( row ) ), createIndex( row, NodeModel::NodeWBSCode, nodes.value( row ) ) );
         }
     }
-}
-
-void TaskStatusItemModel::slotLayoutChanged()
-{
-    //debugPlan<<node->name();
-    emit layoutAboutToBeChanged();
-    emit layoutChanged();
 }
 
 int TaskStatusItemModel::sortRole( int column ) const

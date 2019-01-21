@@ -76,11 +76,11 @@ void ResourceAppointmentsItemModel::slotResourceInserted( const Resource *r )
     endInsertRows();
     m_group = 0;
     refresh();
-    connect( r, SIGNAL(externalAppointmentToBeAdded(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeInserted(KPlato::Resource*,int)) );
-    connect( r, SIGNAL(externalAppointmentAdded(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentInserted(KPlato::Resource*,KPlato::Appointment*)) );
-    connect( r, SIGNAL(externalAppointmentToBeRemoved(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeRemoved(KPlato::Resource*,int)) );
-    connect( r, SIGNAL(externalAppointmentRemoved()), this, SLOT(slotAppointmentRemoved()) );
-    connect( r, SIGNAL(externalAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)) );
+    connect( r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsItemModel::slotAppointmentToBeInserted );
+    connect( r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsItemModel::slotAppointmentInserted );
+    connect( r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsItemModel::slotAppointmentToBeRemoved );
+    connect( r, &Resource::externalAppointmentRemoved, this, &ResourceAppointmentsItemModel::slotAppointmentRemoved );
+    connect( r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsItemModel::slotAppointmentChanged );
 }
 
 void ResourceAppointmentsItemModel::slotResourceToBeRemoved( const Resource *r )
@@ -88,11 +88,11 @@ void ResourceAppointmentsItemModel::slotResourceToBeRemoved( const Resource *r )
     debugPlan<<r->name();
     int row = r->parentGroup()->indexOf( r );
     beginRemoveRows( index( r->parentGroup() ), row, row );
-    disconnect( r, SIGNAL(externalAppointmentToBeAdded(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeInserted(KPlato::Resource*,int)) );
-    disconnect( r, SIGNAL(externalAppointmentAdded(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentInserted(KPlato::Resource*,KPlato::Appointment*)) );
-    disconnect( r, SIGNAL(externalAppointmentToBeRemoved(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeRemoved(KPlato::Resource*,int)) );
-    disconnect( r, SIGNAL(externalAppointmentRemoved()), this, SLOT(slotAppointmentRemoved()) );
-    disconnect( r, SIGNAL(externalAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)) );
+    disconnect( r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsItemModel::slotAppointmentToBeInserted );
+    disconnect( r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsItemModel::slotAppointmentInserted );
+    disconnect( r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsItemModel::slotAppointmentToBeRemoved );
+    disconnect( r, &Resource::externalAppointmentRemoved, this, &ResourceAppointmentsItemModel::slotAppointmentRemoved );
+    disconnect( r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsItemModel::slotAppointmentChanged );
 
 }
 
@@ -226,76 +226,76 @@ void ResourceAppointmentsItemModel::setProject( Project *project )
     beginResetModel();
     debugPlan;
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &ResourceAppointmentsItemModel::projectDeleted);
 
-        disconnect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceChanged, this, &ResourceAppointmentsItemModel::slotResourceChanged );
 
-        disconnect( m_project, SIGNAL(resourceGroupChanged(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupChanged(KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupChanged, this, &ResourceAppointmentsItemModel::slotResourceGroupChanged );
 
-        disconnect( m_project, SIGNAL(resourceGroupToBeAdded(KPlato::ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(KPlato::ResourceGroup*,int)) );
+        disconnect( m_project, &Project::resourceGroupToBeAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeInserted );
 
-        disconnect( m_project, SIGNAL(resourceGroupToBeRemoved(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeRemoved );
 
-        disconnect( m_project, SIGNAL(resourceToBeAdded(KPlato::ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(KPlato::ResourceGroup*,int)) );
+        disconnect( m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsItemModel::slotResourceToBeInserted );
 
-        disconnect( m_project, SIGNAL(resourceToBeRemoved(KPlato::Resource*)), this, SLOT(slotResourceToBeRemoved(KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceToBeRemoved );
 
-        disconnect( m_project, SIGNAL(resourceGroupAdded(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupInserted(KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupInserted );
 
-        disconnect( m_project, SIGNAL(resourceGroupRemoved(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupRemoved );
 
-        disconnect( m_project, SIGNAL(resourceAdded(KPlato::Resource*)), this, SLOT(slotResourceInserted(KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceAdded, this, &ResourceAppointmentsItemModel::slotResourceInserted );
 
-        disconnect( m_project, SIGNAL(resourceRemoved(KPlato::Resource*)), this, SLOT(slotResourceRemoved(KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceRemoved, this, &ResourceAppointmentsItemModel::slotResourceRemoved );
 
-        disconnect( m_project, SIGNAL(defaultCalendarChanged(KPlato::Calendar*)), this, SLOT(slotCalendarChanged(KPlato::Calendar*)) );
+        disconnect( m_project, &Project::defaultCalendarChanged, this, &ResourceAppointmentsItemModel::slotCalendarChanged );
 
-        disconnect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        disconnect( m_project, &Project::projectCalculated, this, &ResourceAppointmentsItemModel::slotProjectCalculated );
 
-        disconnect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        disconnect( m_project, &Project::scheduleManagerChanged, this, &ResourceAppointmentsItemModel::slotProjectCalculated );
 
         foreach ( Resource *r, m_project->resourceList() ) {
-            disconnect( r, SIGNAL(externalAppointmentToBeAdded(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeInserted(KPlato::Resource*,int)) );
-            disconnect( r, SIGNAL(externalAppointmentAdded(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentInserted(KPlato::Resource*,KPlato::Appointment*)) );
-            disconnect( r, SIGNAL(externalAppointmentToBeRemoved(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeRemoved(KPlato::Resource*,int)) );
-            disconnect( r, SIGNAL(externalAppointmentRemoved()), this, SLOT(slotAppointmentRemoved()) );
-            disconnect( r, SIGNAL(externalAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)) );
+            disconnect( r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsItemModel::slotAppointmentToBeInserted );
+            disconnect( r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsItemModel::slotAppointmentInserted );
+            disconnect( r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsItemModel::slotAppointmentToBeRemoved );
+            disconnect( r, &Resource::externalAppointmentRemoved, this, &ResourceAppointmentsItemModel::slotAppointmentRemoved );
+            disconnect( r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsItemModel::slotAppointmentChanged );
         }
     }
     m_project = project;
     if ( m_project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        connect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
-        connect( m_project, SIGNAL(resourceGroupChanged(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupChanged(KPlato::ResourceGroup*)) );
+        connect(m_project, &Project::aboutToBeDeleted, this, &ResourceAppointmentsItemModel::projectDeleted);
+        connect( m_project, &Project::resourceChanged, this, &ResourceAppointmentsItemModel::slotResourceChanged );
+        connect( m_project, &Project::resourceGroupChanged, this, &ResourceAppointmentsItemModel::slotResourceGroupChanged );
 
-        connect( m_project, SIGNAL(resourceGroupToBeAdded(KPlato::ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(KPlato::ResourceGroup*,int)) );
+        connect( m_project, &Project::resourceGroupToBeAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeInserted );
 
-        connect( m_project, SIGNAL(resourceGroupToBeRemoved(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(KPlato::ResourceGroup*)) );
+        connect( m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeRemoved );
 
-        connect( m_project, SIGNAL(resourceToBeAdded(KPlato::ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(KPlato::ResourceGroup*,int)) );
+        connect( m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsItemModel::slotResourceToBeInserted );
 
-        connect( m_project, SIGNAL(resourceToBeRemoved(KPlato::Resource*)), this, SLOT(slotResourceToBeRemoved(KPlato::Resource*)) );
+        connect( m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceToBeRemoved );
 
-        connect( m_project, SIGNAL(resourceGroupAdded(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupInserted(KPlato::ResourceGroup*)) );
+        connect( m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupInserted );
 
-        connect( m_project, SIGNAL(resourceGroupRemoved(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(KPlato::ResourceGroup*)) );
+        connect( m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupRemoved );
 
-        connect( m_project, SIGNAL(resourceAdded(KPlato::Resource*)), this, SLOT(slotResourceInserted(KPlato::Resource*)) );
+        connect( m_project, &Project::resourceAdded, this, &ResourceAppointmentsItemModel::slotResourceInserted );
 
-        connect( m_project, SIGNAL(resourceRemoved(KPlato::Resource*)), this, SLOT(slotResourceRemoved(KPlato::Resource*)) );
+        connect( m_project, &Project::resourceRemoved, this, &ResourceAppointmentsItemModel::slotResourceRemoved );
 
-        connect( m_project, SIGNAL(defaultCalendarChanged(KPlato::Calendar*)), this, SLOT(slotCalendarChanged(KPlato::Calendar*)) );
+        connect( m_project, &Project::defaultCalendarChanged, this, &ResourceAppointmentsItemModel::slotCalendarChanged );
 
-        connect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        connect( m_project, &Project::projectCalculated, this, &ResourceAppointmentsItemModel::slotProjectCalculated );
 
-        connect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        connect( m_project, &Project::scheduleManagerChanged, this, &ResourceAppointmentsItemModel::slotProjectCalculated );
 
         foreach ( Resource *r, m_project->resourceList() ) {
-            connect( r, SIGNAL(externalAppointmentToBeAdded(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeInserted(KPlato::Resource*,int)) );
-            connect( r, SIGNAL(externalAppointmentAdded(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentInserted(KPlato::Resource*,KPlato::Appointment*)) );
-            connect( r, SIGNAL(externalAppointmentToBeRemoved(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeRemoved(KPlato::Resource*,int)) );
-            connect( r, SIGNAL(externalAppointmentRemoved()), this, SLOT(slotAppointmentRemoved()) );
-            connect( r, SIGNAL(externalAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)) );
+            connect( r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsItemModel::slotAppointmentToBeInserted );
+            connect( r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsItemModel::slotAppointmentInserted );
+            connect( r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsItemModel::slotAppointmentToBeRemoved );
+            connect( r, &Resource::externalAppointmentRemoved, this, &ResourceAppointmentsItemModel::slotAppointmentRemoved );
+            connect( r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsItemModel::slotAppointmentChanged );
         }
     }
     refreshData();
@@ -1368,62 +1368,62 @@ void ResourceAppointmentsRowModel::setProject( Project *project )
     beginResetModel();
     //debugPlan<<project;
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &ResourceAppointmentsRowModel::projectDeleted);
 
-        disconnect( m_project, SIGNAL(resourceGroupToBeAdded(KPlato::ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(KPlato::ResourceGroup*,int)) );
+        disconnect( m_project, &Project::resourceGroupToBeAdded, this, &ResourceAppointmentsRowModel::slotResourceGroupToBeInserted );
 
-        disconnect( m_project, SIGNAL(resourceGroupToBeRemoved(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceGroupToBeRemoved );
 
-        disconnect( m_project, SIGNAL(resourceToBeAdded(KPlato::ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(KPlato::ResourceGroup*,int)) );
+        disconnect( m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsRowModel::slotResourceToBeInserted );
 
-        disconnect( m_project, SIGNAL(resourceToBeRemoved(KPlato::Resource*)), this, SLOT(slotResourceToBeRemoved(KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceToBeRemoved );
 
-        disconnect( m_project, SIGNAL(resourceGroupAdded(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupInserted(KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsRowModel::slotResourceGroupInserted );
 
-        disconnect( m_project, SIGNAL(resourceGroupRemoved(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsRowModel::slotResourceGroupRemoved );
 
-        disconnect( m_project, SIGNAL(resourceAdded(KPlato::Resource*)), this, SLOT(slotResourceInserted(KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceAdded, this, &ResourceAppointmentsRowModel::slotResourceInserted );
 
-        disconnect( m_project, SIGNAL(resourceRemoved(KPlato::Resource*)), this, SLOT(slotResourceRemoved(KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceRemoved, this, &ResourceAppointmentsRowModel::slotResourceRemoved );
 
-        disconnect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        disconnect( m_project, &Project::projectCalculated, this, &ResourceAppointmentsRowModel::slotProjectCalculated );
 
         foreach ( Resource *r, m_project->resourceList() ) {
-            disconnect( r, SIGNAL(externalAppointmentToBeAdded(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeInserted(KPlato::Resource*,int)) );
-            disconnect( r, SIGNAL(externalAppointmentAdded(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentInserted(KPlato::Resource*,KPlato::Appointment*)) );
-            disconnect( r, SIGNAL(externalAppointmentToBeRemoved(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeRemoved(KPlato::Resource*,int)) );
-            disconnect( r, SIGNAL(externalAppointmentRemoved()), this, SLOT(slotAppointmentRemoved()) );
-            disconnect( r, SIGNAL(externalAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)) );
+            disconnect( r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsRowModel::slotAppointmentToBeInserted );
+            disconnect( r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsRowModel::slotAppointmentInserted );
+            disconnect( r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentToBeRemoved );
+            disconnect( r, &Resource::externalAppointmentRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentRemoved );
+            disconnect( r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsRowModel::slotAppointmentChanged );
         }
     }
     m_project = project;
     if ( m_project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
+        connect(m_project, &Project::aboutToBeDeleted, this, &ResourceAppointmentsRowModel::projectDeleted);
 
-        connect( m_project, SIGNAL(resourceGroupToBeAdded(KPlato::ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(KPlato::ResourceGroup*,int)) );
+        connect( m_project, &Project::resourceGroupToBeAdded, this, &ResourceAppointmentsRowModel::slotResourceGroupToBeInserted );
 
-        connect( m_project, SIGNAL(resourceGroupToBeRemoved(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(KPlato::ResourceGroup*)) );
+        connect( m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceGroupToBeRemoved );
 
-        connect( m_project, SIGNAL(resourceToBeAdded(KPlato::ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(KPlato::ResourceGroup*,int)) );
+        connect( m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsRowModel::slotResourceToBeInserted );
 
-        connect( m_project, SIGNAL(resourceToBeRemoved(KPlato::Resource*)), this, SLOT(slotResourceToBeRemoved(KPlato::Resource*)) );
+        connect( m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceToBeRemoved );
 
-        connect( m_project, SIGNAL(resourceGroupAdded(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupInserted(KPlato::ResourceGroup*)) );
+        connect( m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsRowModel::slotResourceGroupInserted );
 
-        connect( m_project, SIGNAL(resourceGroupRemoved(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(KPlato::ResourceGroup*)) );
+        connect( m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsRowModel::slotResourceGroupRemoved );
 
-        connect( m_project, SIGNAL(resourceAdded(KPlato::Resource*)), this, SLOT(slotResourceInserted(KPlato::Resource*)) );
+        connect( m_project, &Project::resourceAdded, this, &ResourceAppointmentsRowModel::slotResourceInserted );
 
-        connect( m_project, SIGNAL(resourceRemoved(KPlato::Resource*)), this, SLOT(slotResourceRemoved(KPlato::Resource*)) );
+        connect( m_project, &Project::resourceRemoved, this, &ResourceAppointmentsRowModel::slotResourceRemoved );
 
-        connect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
+        connect( m_project, &Project::projectCalculated, this, &ResourceAppointmentsRowModel::slotProjectCalculated );
 
         foreach ( Resource *r, m_project->resourceList() ) {
-            connect( r, SIGNAL(externalAppointmentToBeAdded(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeInserted(KPlato::Resource*,int)) );
-            connect( r, SIGNAL(externalAppointmentAdded(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentInserted(KPlato::Resource*,KPlato::Appointment*)) );
-            connect( r, SIGNAL(externalAppointmentToBeRemoved(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeRemoved(KPlato::Resource*,int)) );
-            connect( r, SIGNAL(externalAppointmentRemoved()), this, SLOT(slotAppointmentRemoved()) );
-            connect( r, SIGNAL(externalAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)) );
+            connect( r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsRowModel::slotAppointmentToBeInserted );
+            connect( r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsRowModel::slotAppointmentInserted );
+            connect( r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentToBeRemoved );
+            connect( r, &Resource::externalAppointmentRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentRemoved );
+            connect( r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsRowModel::slotAppointmentChanged );
         }
     }
     endResetModel();
@@ -1717,11 +1717,11 @@ void ResourceAppointmentsRowModel::slotResourceInserted( const Resource *r )
     debugPlan<<r->name();
     endInsertRows();
 
-    connect( r, SIGNAL(externalAppointmentToBeAdded(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeInserted(KPlato::Resource*,int)) );
-    connect( r, SIGNAL(externalAppointmentAdded(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentInserted(KPlato::Resource*,KPlato::Appointment*)) );
-    connect( r, SIGNAL(externalAppointmentToBeRemoved(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeRemoved(KPlato::Resource*,int)) );
-    connect( r, SIGNAL(externalAppointmentRemoved()), this, SLOT(slotAppointmentRemoved()) );
-    connect( r, SIGNAL(externalAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)) );
+    connect( r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsRowModel::slotAppointmentToBeInserted );
+    connect( r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsRowModel::slotAppointmentInserted );
+    connect( r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentToBeRemoved );
+    connect( r, &Resource::externalAppointmentRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentRemoved );
+    connect( r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsRowModel::slotAppointmentChanged );
 }
 
 void ResourceAppointmentsRowModel::slotResourceToBeRemoved( const Resource *r )
@@ -1730,11 +1730,11 @@ void ResourceAppointmentsRowModel::slotResourceToBeRemoved( const Resource *r )
     int row = r->parentGroup()->indexOf( r );
 
     beginRemoveRows( index( r->parentGroup() ), row, row );
-    disconnect( r, SIGNAL(externalAppointmentToBeAdded(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeInserted(KPlato::Resource*,int)) );
-    disconnect( r, SIGNAL(externalAppointmentAdded(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentInserted(KPlato::Resource*,KPlato::Appointment*)) );
-    disconnect( r, SIGNAL(externalAppointmentToBeRemoved(KPlato::Resource*,int)), this, SLOT(slotAppointmentToBeRemoved(KPlato::Resource*,int)) );
-    disconnect( r, SIGNAL(externalAppointmentRemoved()), this, SLOT(slotAppointmentRemoved()) );
-    disconnect( r, SIGNAL(externalAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)), this, SLOT(slotAppointmentChanged(KPlato::Resource*,KPlato::Appointment*)) );
+    disconnect( r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsRowModel::slotAppointmentToBeInserted );
+    disconnect( r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsRowModel::slotAppointmentInserted );
+    disconnect( r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentToBeRemoved );
+    disconnect( r, &Resource::externalAppointmentRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentRemoved );
+    disconnect( r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsRowModel::slotAppointmentChanged );
 
     Private *p = 0;
     foreach ( Appointment *a, r->appointments( id() ) ) {

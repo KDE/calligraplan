@@ -114,16 +114,16 @@ WBSDefinitionPanel::WBSDefinitionPanel( Project &project, WBSDefinition &def, QW
     //levelsTable->setColumnStretchable(0, true);
     slotLevelChanged(level->value());
     
-    connect(projectCode, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(projectSeparator, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
+    connect(projectCode, &QLineEdit::textChanged, this, &WBSDefinitionPanel::slotChanged);
+    connect(projectSeparator, &QLineEdit::textChanged, this, &WBSDefinitionPanel::slotChanged);
     connect(defaultCode, SIGNAL(activated(int)), SLOT(slotChanged()));
-    connect(defaultSeparator, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(levelsGroup, SIGNAL(toggled(bool)), SLOT(slotLevelsGroupToggled(bool)));
-    connect(levelsTable, SIGNAL(cellChanged(int,int)), SLOT(slotChanged()));
-    connect(levelsTable, SIGNAL(itemSelectionChanged()), SLOT(slotSelectionChanged()));
+    connect(defaultSeparator, &QLineEdit::textChanged, this, &WBSDefinitionPanel::slotChanged);
+    connect(levelsGroup, &QGroupBox::toggled, this, &WBSDefinitionPanel::slotLevelsGroupToggled);
+    connect(levelsTable, &QTableWidget::cellChanged, this, &WBSDefinitionPanel::slotChanged);
+    connect(levelsTable, &QTableWidget::itemSelectionChanged, this, &WBSDefinitionPanel::slotSelectionChanged);
     connect(level, SIGNAL(valueChanged(int)), SLOT(slotLevelChanged(int)));
-    connect(removeBtn, SIGNAL(clicked(bool)), SLOT(slotRemoveBtnClicked()));
-    connect(addBtn, SIGNAL(clicked(bool)), SLOT(slotAddBtnClicked()));
+    connect(removeBtn, &QAbstractButton::clicked, this, &WBSDefinitionPanel::slotRemoveBtnClicked);
+    connect(addBtn, &QAbstractButton::clicked, this, &WBSDefinitionPanel::slotAddBtnClicked);
 
     removeBtn->setEnabled(false);
 }

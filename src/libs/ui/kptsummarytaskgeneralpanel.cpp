@@ -60,11 +60,11 @@ SummaryTaskGeneralPanel::SummaryTaskGeneralPanel(Task &task, QWidget *p, const c
 
     setStartValues(task);
     
-    connect(namefield, SIGNAL(textChanged(QString)), SLOT(slotObligatedFieldsFilled()));
-    connect(leaderfield, SIGNAL(textChanged(QString)), SLOT(slotObligatedFieldsFilled()));
-    connect(m_description, SIGNAL(textChanged(bool)), SLOT(slotObligatedFieldsFilled()));
+    connect(namefield, &QLineEdit::textChanged, this, &SummaryTaskGeneralPanel::slotObligatedFieldsFilled);
+    connect(leaderfield, &QLineEdit::textChanged, this, &SummaryTaskGeneralPanel::slotObligatedFieldsFilled);
+    connect(m_description, &TaskDescriptionPanelImpl::textChanged, this, &SummaryTaskGeneralPanel::slotObligatedFieldsFilled);
     
-    connect(chooseLeader, SIGNAL(clicked()), SLOT(slotChooseResponsible()));
+    connect(chooseLeader, &QAbstractButton::clicked, this, &SummaryTaskGeneralPanel::slotChooseResponsible);
 
 }
 

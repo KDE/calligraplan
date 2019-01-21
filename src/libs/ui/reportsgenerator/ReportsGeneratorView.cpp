@@ -224,7 +224,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     m_view->setRootIsDecorated(false);
     m_view->setAlternatingRowColors(true);
 
-    connect(m_view, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenuRequested(QPoint)));
+    connect(m_view, &QWidget::customContextMenuRequested, this, &ReportsGeneratorView::slotContextMenuRequested);
     l->addWidget(m_view);
 
     TemplateFileDelegate *del = new TemplateFileDelegate(m_view);
@@ -248,7 +248,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     m_view->header()->setSectionResizeMode(3, QHeaderView::Fixed);
     m_view->header()->resizeSection(3, 12);
 
-    connect(m_view->selectionModel(), SIGNAL(selectionChanged(QItemSelection&,QItemSelection&)), this, SLOT(slotSelectionChanged()));
+    connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ReportsGeneratorView::slotSelectionChanged);
     setupGui();
 
     Help::add(this,
@@ -320,21 +320,21 @@ void ReportsGeneratorView::setupGui()
     actionAddReport = new QAction(koIcon("list-add"), i18n("Add Report"), this);
     coll->addAction("add_report", actionAddReport);
     coll->setDefaultShortcut(actionAddReport, Qt::CTRL + Qt::Key_I);
-    connect(actionAddReport, SIGNAL(triggered(bool)), SLOT(slotAddReport()));
+    connect(actionAddReport, &QAction::triggered, this, &ReportsGeneratorView::slotAddReport);
     addAction(name, actionAddReport);
     addContextAction(actionAddReport);
 
     actionRemoveReport = new QAction(koIcon("list-remove"), i18n("Remove Report"), this);
     coll->addAction("remove_report", actionRemoveReport);
     coll->setDefaultShortcut(actionRemoveReport, Qt::CTRL + Qt::Key_D);
-    connect(actionRemoveReport, SIGNAL(triggered(bool)), SLOT(slotRemoveReport()));
+    connect(actionRemoveReport, &QAction::triggered, this, &ReportsGeneratorView::slotRemoveReport);
     addAction(name, actionRemoveReport);
     addContextAction(actionRemoveReport);
 
     actionGenerateReport = new QAction(koIcon("document-export"), i18n("Generate Report"), this);
     coll->addAction("generate_report", actionGenerateReport);
     coll->setDefaultShortcut(actionGenerateReport, Qt::CTRL + Qt::Key_G);
-    connect(actionGenerateReport, SIGNAL(triggered(bool)), SLOT(slotGenerateReport()));
+    connect(actionGenerateReport, &QAction::triggered, this, &ReportsGeneratorView::slotGenerateReport);
     addAction(name, actionGenerateReport);
     addContextAction(actionGenerateReport);
 

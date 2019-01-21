@@ -33,7 +33,7 @@ RecalculateDialogImpl::RecalculateDialogImpl (QWidget *parent)
     dateTimeEdit->setDateTime( ct );
     btnCurrent->setChecked( true );
     dateTimeEdit->setEnabled( false );
-    connect( btnFrom, SIGNAL(toggled(bool)), dateTimeEdit, SLOT(setEnabled(bool)) );
+    connect( btnFrom, &QAbstractButton::toggled, dateTimeEdit, &QWidget::setEnabled );
 }
 
 

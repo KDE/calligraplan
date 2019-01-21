@@ -48,11 +48,11 @@ ViewListDialog::ViewListDialog( View *view, ViewListWidget &viewlist, QWidget *p
 
     enableButtonOk(false);
 
-    connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
-    connect( m_panel, SIGNAL(enableButtonOk(bool)), SLOT(enableButtonOk(bool)) );
-    connect( m_panel, SIGNAL(viewCreated(KPlato::ViewBase*)), SIGNAL(viewCreated(KPlato::ViewBase*)) );
+    connect(this,&KoDialog::okClicked,this,&ViewListDialog::slotOk);
+    connect( m_panel, &AddViewPanel::enableButtonOk, this, &KoDialog::enableButtonOk );
+    connect( m_panel, &AddViewPanel::viewCreated, this, &ViewListDialog::viewCreated );
 
-    connect(&viewlist, SIGNAL(viewListItemRemoved(KPlato::ViewListItem*)), SLOT(slotViewListItemRemoved(KPlato::ViewListItem*)));
+    connect(&viewlist, &ViewListWidget::viewListItemRemoved, this, &ViewListDialog::slotViewListItemRemoved);
 }
 
 void ViewListDialog::slotViewListItemRemoved( ViewListItem * )
@@ -135,13 +135,13 @@ AddViewPanel::AddViewPanel( View *view, ViewListWidget &viewlist, QWidget *paren
 
     viewtypeChanged( widget.viewtype->currentIndex() );
 
-    connect( widget.viewname, SIGNAL(textChanged(QString)), SLOT(changed()) );
-    connect( widget.tooltip, SIGNAL(textChanged(QString)), SLOT(changed()) );
-    connect( widget.viewname, SIGNAL(textChanged(QString)), SLOT(viewnameChanged(QString)) );
-    connect( widget.tooltip, SIGNAL(textChanged(QString)), SLOT(viewtipChanged(QString)) );
+    connect( widget.viewname, &QLineEdit::textChanged, this, &AddViewPanel::changed );
+    connect( widget.tooltip, &QLineEdit::textChanged, this, &AddViewPanel::changed );
+    connect( widget.viewname, &QLineEdit::textChanged, this, &AddViewPanel::viewnameChanged );
+    connect( widget.tooltip, &QLineEdit::textChanged, this, &AddViewPanel::viewtipChanged );
     connect( widget.insertAfter, SIGNAL(currentIndexChanged(int)), SLOT(changed()) );
     connect( widget.viewtype, SIGNAL(currentIndexChanged(int)), SLOT(viewtypeChanged(int)) );
-    connect( widget.category, SIGNAL(editTextChanged(QString)), SLOT(categoryChanged()) );
+    connect( widget.category, &QComboBox::editTextChanged, this, &AddViewPanel::categoryChanged );
 
     QString categoryWhatsThis = xi18nc("@info:whatsthis",
                                        "<title>The category of the view</title><nl/>"
@@ -310,10 +310,10 @@ ViewListEditViewDialog::ViewListEditViewDialog( ViewListWidget &viewlist, ViewLi
 
     enableButtonOk(false);
 
-    connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
-    connect( m_panel, SIGNAL(enableButtonOk(bool)), SLOT(enableButtonOk(bool)) );
+    connect(this,&KoDialog::okClicked,this,&ViewListEditViewDialog::slotOk);
+    connect( m_panel, &EditViewPanel::enableButtonOk, this, &KoDialog::enableButtonOk );
 
-    connect(&viewlist, SIGNAL(viewListItemRemoved(ViewListItem*)), SLOT(slotViewListItemRemoved(ViewListItem*)));
+    connect(&viewlist, &ViewListWidget::viewListItemRemoved, this, &ViewListEditViewDialog::slotViewListItemRemoved);
 }
 
 void ViewListEditViewDialog::slotViewListItemRemoved( ViewListItem * )
@@ -350,10 +350,10 @@ EditViewPanel::EditViewPanel( ViewListWidget &viewlist, ViewListItem *item, QWid
     }
     categoryChanged();
 
-    connect( widget.viewname, SIGNAL(textChanged(QString)), SLOT(changed()) );
-    connect( widget.tooltip, SIGNAL(textChanged(QString)), SLOT(changed()) );
+    connect( widget.viewname, &QLineEdit::textChanged, this, &EditViewPanel::changed );
+    connect( widget.tooltip, &QLineEdit::textChanged, this, &EditViewPanel::changed );
     connect( widget.insertAfter, SIGNAL(currentIndexChanged(int)), SLOT(changed()) );
-    connect( widget.category, SIGNAL(editTextChanged(QString)), SLOT(categoryChanged()) );
+    connect( widget.category, &QComboBox::editTextChanged, this, &EditViewPanel::categoryChanged );
 
     QString categoryWhatsThis = xi18nc("@info:whatsthis",
                                        "<title>The category of the view</title><nl/>"
@@ -435,10 +435,10 @@ ViewListEditCategoryDialog::ViewListEditCategoryDialog( ViewListWidget &viewlist
 
     enableButtonOk(false);
 
-    connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
-    connect( m_panel, SIGNAL(enableButtonOk(bool)), SLOT(enableButtonOk(bool)) );
+    connect(this,&KoDialog::okClicked,this,&ViewListEditCategoryDialog::slotOk);
+    connect( m_panel, &EditCategoryPanel::enableButtonOk, this, &KoDialog::enableButtonOk );
 
-    connect(&viewlist, SIGNAL(viewListItemRemoved(KPlato::ViewListItem*)), SLOT(slotViewListItemRemoved(KPlato::ViewListItem*)));
+    connect(&viewlist, &ViewListWidget::viewListItemRemoved, this, &ViewListEditCategoryDialog::slotViewListItemRemoved);
 }
 
 void ViewListEditCategoryDialog::slotViewListItemRemoved( ViewListItem * )
@@ -466,8 +466,8 @@ EditCategoryPanel::EditCategoryPanel( ViewListWidget &viewlist, ViewListItem *it
 
     fillAfter();
 
-    connect( widget.viewname, SIGNAL(textChanged(QString)), SLOT(changed()) );
-    connect( widget.tooltip, SIGNAL(textChanged(QString)), SLOT(changed()) );
+    connect( widget.viewname, &QLineEdit::textChanged, this, &EditCategoryPanel::changed );
+    connect( widget.tooltip, &QLineEdit::textChanged, this, &EditCategoryPanel::changed );
     connect( widget.insertAfter, SIGNAL(currentIndexChanged(int)), SLOT(changed()) );
 }
 

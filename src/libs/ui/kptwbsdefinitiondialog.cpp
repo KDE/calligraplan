@@ -39,8 +39,8 @@ WBSDefinitionDialog::WBSDefinitionDialog(Project &project, WBSDefinition &def, Q
     m_panel = new WBSDefinitionPanel(project, def, this);
     setMainWidget(m_panel);
     enableButtonOk(false);
-    connect(m_panel, SIGNAL(changed(bool)), SLOT(enableButtonOk(bool)));
-    connect(this, SIGNAL(okClicked()), SLOT(slotOk()));
+    connect(m_panel, &WBSDefinitionPanel::changed, this, &KoDialog::enableButtonOk);
+    connect(this, &KoDialog::okClicked, this, &WBSDefinitionDialog::slotOk);
 }
 
 

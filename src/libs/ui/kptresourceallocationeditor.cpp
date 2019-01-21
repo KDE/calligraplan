@@ -55,7 +55,7 @@ ResourceAllocationTreeView::ResourceAllocationTreeView( QWidget *parent )
 
     createItemDelegates( m );
 
-    connect( m, SIGNAL(dataChanged(QModelIndex,QModelIndex)), SIGNAL(dataChanged()) );
+    connect( m, &QAbstractItemModel::dataChanged, this, &ResourceAllocationTreeView::dataChanged );
 }
 
 QObject *ResourceAllocationTreeView::currentObject() const
@@ -86,15 +86,15 @@ ResourceAllocationEditor::ResourceAllocationEditor(KoPart *part, KoDocument *doc
     }
     m_view->slaveView()->setDefaultColumns( show );
 
-    connect( model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect( model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
 
-    connect( m_view, SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex)) );
+    connect( m_view, &DoubleTreeViewBase::currentChanged, this, &ResourceAllocationEditor::slotCurrentChanged );
 
-    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)) );
+    connect( m_view, &DoubleTreeViewBase::selectionChanged, this, &ResourceAllocationEditor::slotSelectionChanged );
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &ResourceAllocationEditor::slotContextMenuRequested );
 
-    connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
 }
 
@@ -170,7 +170,7 @@ void ResourceAllocationEditor::updateActionsEnabled(  bool /*on */)
 void ResourceAllocationEditor::setupGui()
 {
     // Add the context menu actions for the view options
-    connect(m_view->actionSplitView(), SIGNAL(triggered(bool)), SLOT(slotSplitView()));
+    connect(m_view->actionSplitView(), &QAction::triggered, this, &ResourceAllocationEditor::slotSplitView);
     addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionAll);

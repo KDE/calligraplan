@@ -306,19 +306,19 @@ void ChartItemModel::setProject( Project *project )
     m_bcws.clear();
     m_acwp.clear();
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &ChartItemModel::projectDeleted);
         disconnect( m_project, SIGNAL(projectCalculated(ScheduleManager*)), this, SLOT(setScheduleManager(ScheduleManager*)) );
-        disconnect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
+        disconnect( m_project, &Project::nodeRemoved, this, &ChartItemModel::slotNodeRemoved );
+        disconnect( m_project, &Project::nodeChanged, this, &ChartItemModel::slotNodeChanged );
         disconnect( m_project, SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotResourceChanged(const KPlato::Resource*)) );
         disconnect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
     }
     m_project = project;
     if ( m_project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
+        connect(m_project, &Project::aboutToBeDeleted, this, &ChartItemModel::projectDeleted);
         connect( m_project, SIGNAL(projectCalculated(ScheduleManager*)), this, SLOT(setScheduleManager(ScheduleManager*)) );
-        connect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
+        connect( m_project, &Project::nodeRemoved, this, &ChartItemModel::slotNodeRemoved );
+        connect( m_project, &Project::nodeChanged, this, &ChartItemModel::slotNodeChanged );
         connect( m_project, SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotResourceChanged(const KPlato::Resource*)) );
         connect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
     }

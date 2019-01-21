@@ -66,7 +66,7 @@ DocumentTreeView::DocumentTreeView( QWidget *parent )
     setAcceptDrops( true );
     setDropIndicatorShown( true );
     
-    connect( selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(slotSelectionChanged(QItemSelection)) );
+    connect( selectionModel(), &QItemSelectionModel::selectionChanged, this, &DocumentTreeView::slotSelectionChanged );
 
     setColumnHidden( DocumentModel::Property_Status, true ); // not used atm
 }
@@ -111,15 +111,15 @@ DocumentsEditor::DocumentsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     
     m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
 
-    connect( model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect( model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
 
-    connect( m_view, SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex)) );
+    connect( m_view, SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex)) ); // clazy:exclude=old-style-connect
 
-    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)) );
+    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)) ); // clazy:exclude=old-style-connect
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( m_view, &TreeViewBase::contextMenuRequested, this, &DocumentsEditor::slotContextMenuRequested );
     
-    connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) ); // clazy:exclude=old-style-connect
 
 }
 
@@ -215,13 +215,13 @@ void DocumentsEditor::setupGui()
     actionEditDocument  = new QAction(koIcon("document-properties"), i18n("Edit..."), this);
     actionCollection()->addAction("edit_documents", actionEditDocument );
 //    actionCollection()->setDefaultShortcut(actionEditDocument, Qt::CTRL + Qt::SHIFT + Qt::Key_I);
-    connect( actionEditDocument, SIGNAL(triggered(bool)), SLOT(slotEditDocument()) );
+    connect( actionEditDocument, &QAction::triggered, this, &DocumentsEditor::slotEditDocument );
     addAction( name, actionEditDocument );
 
     actionViewDocument  = new QAction(koIcon("document-preview"), xi18nc("@action View a document", "View..."), this);
     actionCollection()->addAction("view_documents", actionViewDocument );
 //    actionCollection()->setDefaultShortcut(actionViewDocument, Qt::CTRL + Qt::SHIFT + Qt::Key_I);
-    connect( actionViewDocument, SIGNAL(triggered(bool)), SLOT(slotViewDocument()) );
+    connect( actionViewDocument, &QAction::triggered, this, &DocumentsEditor::slotViewDocument );
     addAction( name, actionViewDocument );
 
     

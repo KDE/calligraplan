@@ -343,9 +343,9 @@ UsedEffortEditor::UsedEffortEditor( QWidget *parent )
     setItemDelegateForColumn ( 6, new DoubleSpinBoxDelegate( this ) );
     setItemDelegateForColumn ( 7, new DoubleSpinBoxDelegate( this ) );
 
-    connect ( model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), SIGNAL(changed()) );
+    connect ( model(), &QAbstractItemModel::dataChanged, this, &UsedEffortEditor::changed );
 
-    connect ( m, SIGNAL(rowInserted(QModelIndex)), SIGNAL(resourceAdded()) );
+    connect ( m, &UsedEffortItemModel::rowInserted, this, &UsedEffortEditor::resourceAdded );
 }
 
 bool UsedEffortEditor::hasFreeResources() const
@@ -820,19 +820,19 @@ CompletionEntryEditor::CompletionEntryEditor( QWidget *parent )
 void CompletionEntryEditor::setCompletionModel( CompletionEntryItemModel *m )
 {
     if ( model() ) {
-        disconnect(model(), SIGNAL(rowInserted(QDate)), this, SIGNAL(rowInserted(QDate)));
-        disconnect(model(), SIGNAL(rowRemoved(QDate)), this, SIGNAL(rowRemoved(QDate)));
-        disconnect(model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SIGNAL(changed()));
-        disconnect(model(), SIGNAL(changed()), this, SIGNAL(changed()));
-        disconnect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SIGNAL(selectedItemsChanged(QItemSelection,QItemSelection)));
+        disconnect(model(), &CompletionEntryItemModel::rowInserted, this, &CompletionEntryEditor::rowInserted);
+        disconnect(model(), &CompletionEntryItemModel::rowRemoved, this, &CompletionEntryEditor::rowRemoved);
+        disconnect(model(), &QAbstractItemModel::dataChanged, this, &CompletionEntryEditor::changed);
+        disconnect(model(), &CompletionEntryItemModel::changed, this, &CompletionEntryEditor::changed);
+        disconnect(selectionModel(), &QItemSelectionModel::selectionChanged, this, &CompletionEntryEditor::selectedItemsChanged);
     }
     setModel( m );
     if ( model() ) {
-        connect(model(), SIGNAL(rowInserted(QDate)), this, SIGNAL(rowInserted(QDate)));
-        connect(model(), SIGNAL(rowRemoved(QDate)), this, SIGNAL(rowRemoved(QDate)));
-        connect(model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SIGNAL(changed()));
-        connect(model(), SIGNAL(changed()), this, SIGNAL(changed()));
-        connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SIGNAL(selectedItemsChanged(QItemSelection,QItemSelection)));
+        connect(model(), &CompletionEntryItemModel::rowInserted, this, &CompletionEntryEditor::rowInserted);
+        connect(model(), &CompletionEntryItemModel::rowRemoved, this, &CompletionEntryEditor::rowRemoved);
+        connect(model(), &QAbstractItemModel::dataChanged, this, &CompletionEntryEditor::changed);
+        connect(model(), &CompletionEntryItemModel::changed, this, &CompletionEntryEditor::changed);
+        connect(selectionModel(), &QItemSelectionModel::selectionChanged, this, &CompletionEntryEditor::selectedItemsChanged);
     }
 }
 

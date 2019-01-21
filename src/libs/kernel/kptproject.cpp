@@ -1566,7 +1566,7 @@ bool Project::addSubTask( Node* task, int index, Node* parent, bool emitSignal )
     int i = index == -1 ? p->numChildren() : index;
     if ( emitSignal ) emit nodeToBeAdded( p, i );
     p->insertChildNode( i, task );
-    connect( this, SIGNAL(standardWorktimeChanged(KPlato::StandardWorktime*)), task, SLOT(slotStandardWorktimeChanged(KPlato::StandardWorktime*)) );
+    connect( this, &Project::standardWorktimeChanged, task, &Node::slotStandardWorktimeChanged );
     if ( emitSignal ) {
         emit nodeAdded( task );
         emit projectChanged();
@@ -1587,7 +1587,7 @@ void Project::takeTask( Node *node, bool emitSignal )
     }
     removeId( node->id() );
     if ( emitSignal ) emit nodeToBeRemoved( node );
-    disconnect( this, SIGNAL(standardWorktimeChanged(KPlato::StandardWorktime*)), node, SLOT(slotStandardWorktimeChanged(KPlato::StandardWorktime*)) );
+    disconnect( this, &Project::standardWorktimeChanged, node, &Node::slotStandardWorktimeChanged );
     parent->takeChildNode( node );
     if ( emitSignal ) {
         emit nodeRemoved( node );

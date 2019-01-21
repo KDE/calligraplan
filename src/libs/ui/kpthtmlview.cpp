@@ -48,7 +48,7 @@ HtmlView::HtmlView(KoPart *part, KoDocument *doc, QWidget *parent)
 
     KParts::BrowserExtension *ext = m_htmlPart->browserExtension();
     if ( ext ) {
-        connect( ext, SIGNAL(openUrlRequest(QUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)), SLOT(slotOpenUrlRequest(QUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)) );
+        connect( ext, &KParts::BrowserExtension::openUrlRequest, this, &HtmlView::slotOpenUrlRequest );
     }
 }
 

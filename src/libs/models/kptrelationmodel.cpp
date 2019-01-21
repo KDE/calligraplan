@@ -238,31 +238,31 @@ void RelationItemModel::setProject( Project *project )
 {
     beginResetModel();
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &RelationItemModel::projectDeleted);
+        disconnect( m_project, &Project::nodeChanged, this, &RelationItemModel::slotNodeChanged );
+        disconnect( m_project, &Project::nodeToBeRemoved, this, &RelationItemModel::slotNodeToBeRemoved );
 
-        disconnect( m_project, SIGNAL(relationToBeAdded(KPlato::Relation*,int,int)), this, SLOT(slotRelationToBeAdded(KPlato::Relation*,int,int)) );
-        disconnect( m_project, SIGNAL(relationAdded(KPlato::Relation*)), this, SLOT(slotRelationAdded(KPlato::Relation*)) );
+        disconnect( m_project, &Project::relationToBeAdded, this, &RelationItemModel::slotRelationToBeAdded );
+        disconnect( m_project, &Project::relationAdded, this, &RelationItemModel::slotRelationAdded );
 
-        disconnect( m_project, SIGNAL(relationToBeRemoved(KPlato::Relation*)), this, SLOT(slotRelationToBeRemoved(KPlato::Relation*)) );
-        disconnect( m_project, SIGNAL(relationRemoved(KPlato::Relation*)), this, SLOT(slotRelationRemoved(KPlato::Relation*)) );
+        disconnect( m_project, &Project::relationToBeRemoved, this, &RelationItemModel::slotRelationToBeRemoved );
+        disconnect( m_project, &Project::relationRemoved, this, &RelationItemModel::slotRelationRemoved );
 
-        disconnect( m_project, SIGNAL(relationModified(KPlato::Relation*)), this, SLOT(slotRelationModified(KPlato::Relation*)) );
+        disconnect( m_project, &Project::relationModified, this, &RelationItemModel::slotRelationModified );
     }
     m_project = project;
     if ( project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)) );
+        connect(m_project, &Project::aboutToBeDeleted, this, &RelationItemModel::projectDeleted);
+        connect( m_project, &Project::nodeChanged, this, &RelationItemModel::slotNodeChanged );
+        connect( m_project, &Project::nodeToBeRemoved, this, &RelationItemModel::slotNodeToBeRemoved );
 
-        connect( m_project, SIGNAL(relationToBeAdded(KPlato::Relation*,int,int)), this, SLOT(slotRelationToBeAdded(KPlato::Relation*,int,int)) );
-        connect( m_project, SIGNAL(relationAdded(KPlato::Relation*)), this, SLOT(slotRelationAdded(KPlato::Relation*)) );
+        connect( m_project, &Project::relationToBeAdded, this, &RelationItemModel::slotRelationToBeAdded );
+        connect( m_project, &Project::relationAdded, this, &RelationItemModel::slotRelationAdded );
 
-        connect( m_project, SIGNAL(relationToBeRemoved(KPlato::Relation*)), this, SLOT(slotRelationToBeRemoved(KPlato::Relation*)) );
-        connect( m_project, SIGNAL(relationRemoved(KPlato::Relation*)), this, SLOT(slotRelationRemoved(KPlato::Relation*)) );
+        connect( m_project, &Project::relationToBeRemoved, this, &RelationItemModel::slotRelationToBeRemoved );
+        connect( m_project, &Project::relationRemoved, this, &RelationItemModel::slotRelationRemoved );
 
-        connect( m_project, SIGNAL(relationModified(KPlato::Relation*)), this, SLOT(slotRelationModified(KPlato::Relation*)) );
+        connect( m_project, &Project::relationModified, this, &RelationItemModel::slotRelationModified );
     }
     endResetModel();
 }

@@ -51,17 +51,17 @@ PackageInfoWidget::PackageInfoWidget( Package *package, QWidget* parent)
     w->setText( i18n( "Used Effort" ) );
     w->setCheckState( package->settings.usedEffort ? Qt::Checked : Qt::Unchecked );
     l->addWidget( w );
-    connect(w, SIGNAL(stateChanged(int)), SLOT(slotUsedEffortChanged(int)));
+    connect(w, &QCheckBox::stateChanged, this, &PackageInfoWidget::slotUsedEffortChanged);
     w = new QCheckBox( this );
     w->setText( i18n( "Task Progress" ) );
     w->setCheckState( package->settings.progress ? Qt::Checked : Qt::Unchecked );
     l->addWidget( w );
-    connect(w, SIGNAL(stateChanged(int)), SLOT(slotProgressChanged(int)));
+    connect(w, &QCheckBox::stateChanged, this, &PackageInfoWidget::slotProgressChanged);
     w = new QCheckBox( this );
     w->setText( i18n("&Documents") );
     w->setCheckState( package->settings.documents ? Qt::Checked : Qt::Unchecked );
     l->addWidget( w );
-    connect(w, SIGNAL(stateChanged(int)), SLOT(slotDocumentsChanged(int)));
+    connect(w, &QCheckBox::stateChanged, this, &PackageInfoWidget::slotDocumentsChanged);
 }
 
 void PackageInfoWidget::slotUsedEffortChanged( int s )
@@ -145,8 +145,8 @@ WorkPackageMergeDialog::WorkPackageMergeDialog( const QString &text, const QMap<
 
     slotChanged();
 
-    connect(panel.ui_view->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), SLOT(slotChanged()));
-    connect(panel.ui_view, SIGNAL(activated(QModelIndex)), SLOT(slotActivated(QModelIndex)));
+    connect(panel.ui_view->model(), &QAbstractItemModel::dataChanged, this, &WorkPackageMergeDialog::slotChanged);
+    connect(panel.ui_view, &QAbstractItemView::activated, this, &WorkPackageMergeDialog::slotActivated);
 }
 
 WorkPackageMergeDialog::~WorkPackageMergeDialog()

@@ -3228,37 +3228,37 @@ void NodeItemModel::setProject( Project *project )
 {
     beginResetModel();
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &NodeItemModel::projectDeleted);
         disconnect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLayoutChanged()));
-        disconnect( m_project, SIGNAL(wbsDefinitionChanged()), this, SLOT(slotWbsDefinitionChanged()));
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)));
-        disconnect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)));
-        disconnect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)));
+        disconnect( m_project, &Project::wbsDefinitionChanged, this, &NodeItemModel::slotWbsDefinitionChanged);
+        disconnect( m_project, &Project::nodeChanged, this, &NodeItemModel::slotNodeChanged);
+        disconnect( m_project, &Project::nodeToBeAdded, this, &NodeItemModel::slotNodeToBeInserted);
+        disconnect( m_project, &Project::nodeToBeRemoved, this, &NodeItemModel::slotNodeToBeRemoved);
 
-        disconnect( m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)), this, SLOT(slotNodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)));
-        disconnect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)));
+        disconnect( m_project, &Project::nodeToBeMoved, this, &NodeItemModel::slotNodeToBeMoved);
+        disconnect( m_project, &Project::nodeMoved, this, &NodeItemModel::slotNodeMoved);
 
-        disconnect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)));
-        disconnect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)));
-        disconnect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)));
+        disconnect( m_project, &Project::nodeAdded, this, &NodeItemModel::slotNodeInserted);
+        disconnect( m_project, &Project::nodeRemoved, this, &NodeItemModel::slotNodeRemoved);
+        disconnect( m_project, &Project::projectCalculated, this, &NodeItemModel::slotProjectCalculated);
     }
     m_project = project;
     debugPlan<<this<<m_project<<"->"<<project;
     m_nodemodel.setProject( project );
     if ( project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
+        connect(m_project, &Project::aboutToBeDeleted, this, &NodeItemModel::projectDeleted);
         connect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLayoutChanged()));
-        connect( m_project, SIGNAL(wbsDefinitionChanged()), this, SLOT(slotWbsDefinitionChanged()));
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)));
-        connect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)));
-        connect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)));
+        connect( m_project, &Project::wbsDefinitionChanged, this, &NodeItemModel::slotWbsDefinitionChanged);
+        connect( m_project, &Project::nodeChanged, this, &NodeItemModel::slotNodeChanged);
+        connect( m_project, &Project::nodeToBeAdded, this, &NodeItemModel::slotNodeToBeInserted);
+        connect( m_project, &Project::nodeToBeRemoved, this, &NodeItemModel::slotNodeToBeRemoved);
 
-        connect( m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)), this, SLOT(slotNodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)));
-        connect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)));
+        connect( m_project, &Project::nodeToBeMoved, this, &NodeItemModel::slotNodeToBeMoved);
+        connect( m_project, &Project::nodeMoved, this, &NodeItemModel::slotNodeMoved);
 
-        connect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)));
-        connect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)));
-        connect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)));
+        connect( m_project, &Project::nodeAdded, this, &NodeItemModel::slotNodeInserted);
+        connect( m_project, &Project::nodeRemoved, this, &NodeItemModel::slotNodeRemoved);
+        connect( m_project, &Project::projectCalculated, this, &NodeItemModel::slotProjectCalculated);
     }
     endResetModel();
 }
@@ -4517,35 +4517,35 @@ void MilestoneItemModel::slotNodeMoved( Node *node )
 void MilestoneItemModel::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &MilestoneItemModel::projectDeleted);
         disconnect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLayoutChanged()));
-        disconnect( m_project, SIGNAL(wbsDefinitionChanged()), this, SLOT(slotWbsDefinitionChanged()));
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)));
-        disconnect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)));
-        disconnect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)));
+        disconnect( m_project, &Project::wbsDefinitionChanged, this, &MilestoneItemModel::slotWbsDefinitionChanged);
+        disconnect( m_project, &Project::nodeChanged, this, &MilestoneItemModel::slotNodeChanged);
+        disconnect( m_project, &Project::nodeToBeAdded, this, &MilestoneItemModel::slotNodeToBeInserted);
+        disconnect( m_project, &Project::nodeToBeRemoved, this, &MilestoneItemModel::slotNodeToBeRemoved);
 
-        disconnect(m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)), this, SLOT(slotNodeToBeMoved(KPlato::Node*,int,KPlato::Node*,int)));
-        disconnect(m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)));
+        disconnect(m_project, &Project::nodeToBeMoved, this, &MilestoneItemModel::slotNodeToBeMoved);
+        disconnect(m_project, &Project::nodeMoved, this, &MilestoneItemModel::slotNodeMoved);
 
-        disconnect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)));
-        disconnect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)));
+        disconnect( m_project, &Project::nodeAdded, this, &MilestoneItemModel::slotNodeInserted);
+        disconnect( m_project, &Project::nodeRemoved, this, &MilestoneItemModel::slotNodeRemoved);
     }
     m_project = project;
     //debugPlan<<m_project<<"->"<<project;
     m_nodemodel.setProject( project );
     if ( project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
+        connect(m_project, &Project::aboutToBeDeleted, this, &MilestoneItemModel::projectDeleted);
         connect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLayoutChanged()));
-        connect( m_project, SIGNAL(wbsDefinitionChanged()), this, SLOT(slotWbsDefinitionChanged()));
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)));
-        connect( m_project, SIGNAL(nodeToBeAdded(KPlato::Node*,int)), this, SLOT(slotNodeToBeInserted(KPlato::Node*,int)));
-        connect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeToBeRemoved(KPlato::Node*)));
+        connect( m_project, &Project::wbsDefinitionChanged, this, &MilestoneItemModel::slotWbsDefinitionChanged);
+        connect( m_project, &Project::nodeChanged, this, &MilestoneItemModel::slotNodeChanged);
+        connect( m_project, &Project::nodeToBeAdded, this, &MilestoneItemModel::slotNodeToBeInserted);
+        connect( m_project, &Project::nodeToBeRemoved, this, &MilestoneItemModel::slotNodeToBeRemoved);
 
-        connect(m_project, SIGNAL(nodeToBeMoved(KPlato::Node*,int,Node*,int)), this, SLOT(slotNodeToBeMoved(KPlato::Node*,int,Node*,int)));
-        connect(m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)));
+        connect(m_project, &Project::nodeToBeMoved, this, &MilestoneItemModel::slotNodeToBeMoved);
+        connect(m_project, &Project::nodeMoved, this, &MilestoneItemModel::slotNodeMoved);
 
-        connect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeInserted(KPlato::Node*)));
-        connect( m_project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)));
+        connect( m_project, &Project::nodeAdded, this, &MilestoneItemModel::slotNodeInserted);
+        connect( m_project, &Project::nodeRemoved, this, &MilestoneItemModel::slotNodeRemoved);
     }
     resetModel();
 }

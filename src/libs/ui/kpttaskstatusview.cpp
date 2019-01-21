@@ -201,17 +201,17 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent )
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_view = new TaskStatusTreeView( this );
-    connect(this, SIGNAL(expandAll()), m_view, SLOT(slotExpand()));
-    connect(this, SIGNAL(collapseAll()), m_view, SLOT(slotCollapse()));
+    connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
+    connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);
 
     l->addWidget( m_view );
     setupGui();
 
-    connect( model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect( model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
 
     connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
 
-    connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
     Help::add(this,
               xi18nc("@info:whatsthis", 
@@ -336,7 +336,7 @@ void TaskStatusView::slotContextMenuRequested( Node *node, const QPoint& pos )
 void TaskStatusView::setupGui()
 {
     // Add the context menu actions for the view options
-    connect(m_view->actionSplitView(), SIGNAL(triggered(bool)), SLOT(slotSplitView()));
+    connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskStatusView::slotSplitView);
     addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionAll);
@@ -414,8 +414,8 @@ TaskStatusViewSettingsPanel::TaskStatusViewSettingsPanel( TaskStatusTreeView *vi
     weekdays->setCurrentIndex( m_view->weekday() - 1 );
 
     connect( period, SIGNAL(valueChanged(int)), SIGNAL(changed()) );
-    connect( useWeekday, SIGNAL(toggled(bool)), SIGNAL(changed()) );
-    connect( useCurrentDate, SIGNAL(toggled(bool)), SIGNAL(changed()) );
+    connect( useWeekday, &QAbstractButton::toggled, this, &TaskStatusViewSettingsPanel::changed );
+    connect( useCurrentDate, &QAbstractButton::toggled, this, &TaskStatusViewSettingsPanel::changed );
     connect( weekdays, SIGNAL(currentIndexChanged(int)), SIGNAL(changed()) );
 }
 
@@ -453,8 +453,8 @@ TaskStatusViewSettingsDialog::TaskStatusViewSettingsDialog( ViewBase *view, Task
     setCurrentPage( page );
     //connect( panel, SIGNAL(changed(bool)), this, SLOT(enableButtonOk(bool)) );
 
-    connect( this, SIGNAL(accepted()), panel, SLOT(slotOk()) );
-    connect( button(QDialogButtonBox::RestoreDefaults), SIGNAL(clicked(bool)), panel, SLOT(setDefault()) );
+    connect( this, &QDialog::accepted, panel, &TaskStatusViewSettingsPanel::slotOk );
+    connect( button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, panel, &TaskStatusViewSettingsPanel::setDefault );
 }
 
 //-----------------------------------
@@ -470,7 +470,7 @@ ProjectStatusView::ProjectStatusView(KoPart *part, KoDocument *doc, QWidget *par
 
     setupGui();
 
-    connect( m_view, SIGNAL(customContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect( m_view, &QWidget::customContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
     Help::add(this,
               xi18nc("@info:whatsthis", 
@@ -628,7 +628,7 @@ PerformanceStatusBase::PerformanceStatusBase( QWidget *parent )
 #ifdef PLAN_CHART_DEBUG
     ui_tableView->setModel( &m_chartmodel );
 #endif
-    connect(&m_chartmodel, SIGNAL(modelReset()), SLOT(slotUpdate()));
+    connect(&m_chartmodel, &QAbstractItemModel::modelReset, this, &PerformanceStatusBase::slotUpdate);
     setContextMenuPolicy ( Qt::DefaultContextMenu );
 }
 
@@ -983,11 +983,11 @@ void PerformanceStatusBase::setScheduleManager( ScheduleManager *sm )
 void PerformanceStatusBase::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLocaleChanged()) );
+        disconnect( m_project, &Project::localeChanged, this, &PerformanceStatusBase::slotLocaleChanged );
     }
     m_project = project;
     if ( m_project ) {
-        connect( m_project, SIGNAL(localeChanged()), this, SLOT(slotLocaleChanged()) );
+        connect( m_project, &Project::localeChanged, this, &PerformanceStatusBase::slotLocaleChanged );
     }
     m_chartmodel.setProject( project );
     static_cast<PerformanceDataCurrentDateModel*>( ui_performancetable->model() )->setProject( project );
@@ -1097,9 +1097,9 @@ PerformanceStatusTreeView::PerformanceStatusTreeView( QWidget *parent )
     m_chart = new PerformanceStatusBase( this );
     addWidget( m_chart );
 
-    connect( m_tree->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(slotSelectionChanged(QItemSelection,QItemSelection)) );
+    connect( m_tree->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PerformanceStatusTreeView::slotSelectionChanged );
 
-    QTimer::singleShot( 0, this, SLOT(resizeSplitters()) );
+    QTimer::singleShot( 0, this, &PerformanceStatusTreeView::resizeSplitters );
 }
 
 void PerformanceStatusTreeView::slotSelectionChanged( const QItemSelection&, const QItemSelection& )
@@ -1193,7 +1193,7 @@ void PerformanceStatusTreeView::resizeSplitters()
     int x2 = sizes().value( 1 );
     if ( x1 == 0 && x2 == 0 ) {
         // not shown yet, try later
-        QTimer::singleShot( 100, this, SLOT(resizeSplitters()) );
+        QTimer::singleShot( 100, this, &PerformanceStatusTreeView::resizeSplitters );
         return;
     }
     if ( x1 == 0 || x2 == 0 ) {
@@ -1213,15 +1213,15 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_view = new PerformanceStatusTreeView( this );
-    connect(this, SIGNAL(expandAll()), m_view->treeView(), SLOT(slotExpand()));
-    connect(this, SIGNAL(collapseAll()), m_view->treeView(), SLOT(slotCollapse()));
+    connect(this, &ViewBase::expandAll, m_view->treeView(), &TreeViewBase::slotExpand);
+    connect(this, &ViewBase::collapseAll, m_view->treeView(), &TreeViewBase::slotCollapse);
 
     l->addWidget( m_view );
 
     setupGui();
 
-    connect( m_view->treeView(), SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
-    connect( m_view->chartView(), SIGNAL(customContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect( m_view->treeView(), &TreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
+    connect( m_view->chartView(), &QWidget::customContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
     connect( m_view->treeView(), SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
 
@@ -1372,8 +1372,8 @@ PerformanceStatusViewSettingsPanel::PerformanceStatusViewSettingsPanel( Performa
     ui_spieffort->setCheckState( info.showSpiEffort ? Qt::Checked : Qt::Unchecked );
     ui_cpieffort->setCheckState( info.showCpiEffort ? Qt::Checked : Qt::Unchecked );
 
-    connect(ui_showbasevalues, SIGNAL(toggled(bool)), SLOT(switchStackWidget()));
-    connect(ui_showindices, SIGNAL(toggled(bool)), SLOT(switchStackWidget()));
+    connect(ui_showbasevalues, &QAbstractButton::toggled, this, &PerformanceStatusViewSettingsPanel::switchStackWidget);
+    connect(ui_showindices, &QAbstractButton::toggled, this, &PerformanceStatusViewSettingsPanel::switchStackWidget);
 
     switchStackWidget();
 }
@@ -1449,8 +1449,8 @@ PerformanceStatusViewSettingsDialog::PerformanceStatusViewSettingsDialog( Perfor
     addPrintingOptions(selectPrint);
     //connect( panel, SIGNAL(changed(bool)), this, SLOT(enableButtonOk(bool)) );
 
-    connect( this, SIGNAL(accepted()), panel, SLOT(slotOk()) );
-    connect( button(QDialogButtonBox::RestoreDefaults), SIGNAL(clicked(bool)), panel, SLOT(setDefault()) );
+    connect( this, &QDialog::accepted, panel, &PerformanceStatusViewSettingsPanel::slotOk );
+    connect( button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, panel, &PerformanceStatusViewSettingsPanel::setDefault );
 }
 
 //-----------------
@@ -1479,10 +1479,10 @@ ProjectStatusViewSettingsDialog::ProjectStatusViewSettingsDialog( ViewBase *base
     if (selectPrint) {
         setCurrentPage(page);
     }
-    connect( this, SIGNAL(accepted()), panel, SLOT(slotOk()) );
+    connect( this, &QDialog::accepted, panel, &PerformanceStatusViewSettingsPanel::slotOk );
     //TODO: there was no default button configured, should there?
 //     connect( button(QDialogButtonBox::RestoreDefaults), SIGNAL(clicked(bool)), panel, SLOT(setDefault()) );
-    connect( this, SIGNAL(accepted()), this, SLOT(slotOk()));
+    connect( this, &QDialog::accepted, this, &ProjectStatusViewSettingsDialog::slotOk);
 }
 
 void ProjectStatusViewSettingsDialog::slotOk()

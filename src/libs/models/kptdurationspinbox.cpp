@@ -42,7 +42,7 @@ DurationSpinBox::DurationSpinBox(QWidget *parent)
     setUnit( Duration::Unit_h );
     setMaximum(140737488355328.0); //Hmmmm
 
-    connect( lineEdit(), SIGNAL(textChanged(QString)), SLOT(editorTextChanged(QString)) );
+    connect( lineEdit(), &QLineEdit::textChanged, this, &DurationSpinBox::editorTextChanged );
 
 }
 

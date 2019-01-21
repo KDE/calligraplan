@@ -256,7 +256,7 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
 
     setTabPosition(Qt::AllDockWidgetAreas, QTabWidget::North);
 
-    connect(this, SIGNAL(restoringDone()), this, SLOT(forceDockTabFonts()));
+    connect(this, &KoMainWindow::restoringDone, this, &KoMainWindow::forceDockTabFonts);
 
     // PartManager
     // End
@@ -269,7 +269,7 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     actionCollection()->addAction(KStandardAction::New, "file_new", this, SLOT(slotFileNew()));
     actionCollection()->addAction(KStandardAction::Open, "file_open", this, SLOT(slotFileOpen()));
     d->recent = KStandardAction::openRecent(this, SLOT(slotFileOpenRecent(QUrl)), actionCollection());
-    connect(d->recent, SIGNAL(recentListCleared()), this, SLOT(saveRecentFiles()));
+    connect(d->recent, &KRecentFilesAction::recentListCleared, this, &KoMainWindow::saveRecentFiles);
     d->saveAction = actionCollection()->addAction(KStandardAction::Save,  "file_save", this, SLOT(slotFileSave()));
     d->saveActionAs = actionCollection()->addAction(KStandardAction::SaveAs,  "file_save_as", this, SLOT(slotFileSaveAs()));
     d->printAction = actionCollection()->addAction(KStandardAction::Print,  "file_print", this, SLOT(slotFilePrint()));
@@ -278,7 +278,7 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     d->exportPdf  = new QAction(i18n("Print to PDF..."), this);
     d->exportPdf->setIcon(koIcon("application-pdf"));
     actionCollection()->addAction("file_export_pdf", d->exportPdf);
-    connect(d->exportPdf, SIGNAL(triggered()), this, SLOT(exportToPdf()));
+    connect(d->exportPdf, &QAction::triggered, this, static_cast<KoPrintJob* (KoMainWindow::*)(void)>(&KoMainWindow::exportToPdf));
 
     d->sendFileAction = actionCollection()->addAction(KStandardAction::Mail,  "file_send_file", this, SLOT(slotEmailFile()));
 
@@ -287,15 +287,15 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
 
     d->reloadFile  = new QAction(i18n("Reload"), this);
     actionCollection()->addAction("file_reload_file", d->reloadFile);
-    connect(d->reloadFile, SIGNAL(triggered(bool)), this, SLOT(slotReloadFile()));
+    connect(d->reloadFile, &QAction::triggered, this, &KoMainWindow::slotReloadFile);
 
     d->importFile  = new QAction(koIcon("document-import"), i18n("Import..."), this);
     actionCollection()->addAction("file_import_file", d->importFile);
-    connect(d->importFile, SIGNAL(triggered(bool)), this, SLOT(slotImportFile()));
+    connect(d->importFile, &QAction::triggered, this, &KoMainWindow::slotImportFile);
 
     d->exportFile  = new QAction(koIcon("document-export"), i18n("E&xport..."), this);
     actionCollection()->addAction("file_export_file", d->exportFile);
-    connect(d->exportFile, SIGNAL(triggered(bool)), this, SLOT(slotExportFile()));
+    connect(d->exportFile, &QAction::triggered, this, &KoMainWindow::slotExportFile);
 
 #if 0
     // encryption not supported
@@ -312,13 +312,13 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
 
     QAction *actionNewView  = new QAction(koIcon("window-new"), i18n("&New View"), this);
     actionCollection()->addAction("view_newview", actionNewView);
-    connect(actionNewView, SIGNAL(triggered(bool)), this, SLOT(newView()));
+    connect(actionNewView, &QAction::triggered, this, &KoMainWindow::newView);
 
     /* The following entry opens the document information dialog.  Since the action is named so it
         intends to show data this entry should not have a trailing ellipses (...).  */
     d->showDocumentInfo  = new QAction(koIcon("document-properties"), i18n("Document Information"), this);
     actionCollection()->addAction("file_documentinfo", d->showDocumentInfo);
-    connect(d->showDocumentInfo, SIGNAL(triggered(bool)), this, SLOT(slotDocumentInfo()));
+    connect(d->showDocumentInfo, &QAction::triggered, this, &KoMainWindow::slotDocumentInfo);
 
     KStandardAction::keyBindings(this, SLOT(slotConfigureKeys()), actionCollection());
     KStandardAction::configureToolbars(this, SLOT(slotConfigureToolbars()), actionCollection());
@@ -343,19 +343,19 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     KToggleAction *fullscreenAction  = new KToggleAction(koIcon("view-fullscreen"), i18n("Full Screen Mode"), this);
     actionCollection()->addAction("view_fullscreen", fullscreenAction);
     actionCollection()->setDefaultShortcut(fullscreenAction, QKeySequence::FullScreen);
-    connect(fullscreenAction, SIGNAL(toggled(bool)), this, SLOT(viewFullscreen(bool)));
+    connect(fullscreenAction, &QAction::toggled, this, &KoMainWindow::viewFullscreen);
 
     d->toggleDockers = new KToggleAction(i18n("Show Dockers"), this);
     d->toggleDockers->setChecked(true);
     actionCollection()->addAction("view_toggledockers", d->toggleDockers);
-    connect(d->toggleDockers, SIGNAL(toggled(bool)), SLOT(toggleDockersVisibility(bool)));
+    connect(d->toggleDockers, &QAction::toggled, this, &KoMainWindow::toggleDockersVisibility);
 
     d->toggleDockerTitleBars = new KToggleAction(i18nc("@action:inmenu", "Show Docker Titlebars"), this);
     KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group("Interface");
     d->toggleDockerTitleBars->setChecked(configGroupInterface.readEntry("ShowDockerTitleBars", true));
     d->toggleDockerTitleBars->setVisible(false);
     actionCollection()->addAction("view_toggledockertitlebars", d->toggleDockerTitleBars);
-    connect(d->toggleDockerTitleBars, SIGNAL(toggled(bool)), SLOT(showDockerTitleBars(bool)));
+    connect(d->toggleDockerTitleBars, &QAction::toggled, this, &KoMainWindow::showDockerTitleBars);
 
     d->dockWidgetMenu  = new KActionMenu(i18n("Dockers"), this);
     actionCollection()->addAction("settings_dockers_menu", d->dockWidgetMenu);
@@ -557,7 +557,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
 #ifdef Q_OS_MAC
         statusBar()->setMaximumHeight(28);
 #endif
-        connect(d->rootDocument, SIGNAL(titleModified(QString,bool)), SLOT(slotDocumentTitleModified(QString,bool)));
+        connect(d->rootDocument, &KoDocument::titleModified, this, &KoMainWindow::slotDocumentTitleModified);
     }
 }
 
@@ -736,9 +736,9 @@ bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocu
         newdoc = newpart->document();
 
     d->firstTime = true;
-    connect(newdoc, SIGNAL(sigProgress(int)), this, SLOT(slotProgress(int)));
-    connect(newdoc, SIGNAL(completed()), this, SLOT(slotLoadCompleted()));
-    connect(newdoc, SIGNAL(canceled(QString)), this, SLOT(slotLoadCanceled(QString)));
+    connect(newdoc, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
+    connect(newdoc, &KoDocument::completed, this, &KoMainWindow::slotLoadCompleted);
+    connect(newdoc, &KoDocument::canceled, this, &KoMainWindow::slotLoadCanceled);
     d->openingDocument = true;
     newpart->addMainWindow(this);   // used by openUrl
     bool openRet = (!isImporting()) ? newdoc->openUrl(url) : newdoc->importDocument(url);
@@ -781,9 +781,9 @@ void KoMainWindow::slotLoadCompleted()
         setRootDocument(newdoc);
     }
     slotProgress(-1);
-    disconnect(newdoc, SIGNAL(sigProgress(int)), this, SLOT(slotProgress(int)));
-    disconnect(newdoc, SIGNAL(completed()), this, SLOT(slotLoadCompleted()));
-    disconnect(newdoc, SIGNAL(canceled(QString)), this, SLOT(slotLoadCanceled(QString)));
+    disconnect(newdoc, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
+    disconnect(newdoc, &KoDocument::completed, this, &KoMainWindow::slotLoadCompleted);
+    disconnect(newdoc, &KoDocument::canceled, this, &KoMainWindow::slotLoadCanceled);
     d->openingDocument = false;
     emit loadCompleted();
 }
@@ -797,9 +797,9 @@ void KoMainWindow::slotLoadCanceled(const QString & errMsg)
 
     KoDocument* doc = qobject_cast<KoDocument*>(sender());
     Q_ASSERT(doc);
-    disconnect(doc, SIGNAL(sigProgress(int)), this, SLOT(slotProgress(int)));
-    disconnect(doc, SIGNAL(completed()), this, SLOT(slotLoadCompleted()));
-    disconnect(doc, SIGNAL(canceled(QString)), this, SLOT(slotLoadCanceled(QString)));
+    disconnect(doc, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
+    disconnect(doc, &KoDocument::completed, this, &KoMainWindow::slotLoadCompleted);
+    disconnect(doc, &KoDocument::canceled, this, &KoMainWindow::slotLoadCanceled);
     d->openingDocument = false;
     emit loadCanceled();
 }
@@ -817,9 +817,9 @@ void KoMainWindow::slotSaveCompleted()
     debugMain;
     KoDocument* doc = qobject_cast<KoDocument*>(sender());
     Q_ASSERT(doc);
-    disconnect(doc, SIGNAL(sigProgress(int)), this, SLOT(slotProgress(int)));
-    disconnect(doc, SIGNAL(completed()), this, SLOT(slotSaveCompleted()));
-    disconnect(doc, SIGNAL(canceled(QString)), this, SLOT(slotSaveCanceled(QString)));
+    disconnect(doc, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
+    disconnect(doc, &KoDocument::completed, this, &KoMainWindow::slotSaveCompleted);
+    disconnect(doc, &KoDocument::canceled, this, &KoMainWindow::slotSaveCanceled);
 
     if (d->deferredClosingEvent) {
         KXmlGuiWindow::closeEvent(d->deferredClosingEvent);
@@ -884,9 +884,9 @@ bool KoMainWindow::saveDocument(bool saveas, bool silent, int specialOutputFlag)
         reset_url = false;
     }
 
-    connect(d->rootDocument, SIGNAL(sigProgress(int)), this, SLOT(slotProgress(int)));
-    connect(d->rootDocument, SIGNAL(completed()), this, SLOT(slotSaveCompleted()));
-    connect(d->rootDocument, SIGNAL(canceled(QString)), this, SLOT(slotSaveCanceled(QString)));
+    connect(d->rootDocument, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
+    connect(d->rootDocument, &KoDocument::completed, this, &KoMainWindow::slotSaveCompleted);
+    connect(d->rootDocument, &KoDocument::canceled, this, &KoMainWindow::slotSaveCanceled);
 
     QUrl oldURL = d->rootDocument->url();
     QString oldFile = d->rootDocument->localFilePath();
@@ -1258,7 +1258,7 @@ void KoMainWindow::chooseNewDocument(InitDocFlags initDocFlags)
     if (!newdoc)
         return;
 
-    disconnect(newdoc, SIGNAL(sigProgress(int)), this, SLOT(slotProgress(int)));
+    disconnect(newdoc, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
 
     if ((!doc && initDocFlags == InitDocFileNew) || (doc && !doc->isEmpty())) {
         KoMainWindow *s = newpart->createMainWindow();
@@ -1419,9 +1419,14 @@ void KoMainWindow::slotFilePrintPreview()
     printJob->setProperty("blocking", true);
     QPrintPreviewDialog *preview = new QPrintPreviewDialog(&printJob->printer(), this);
     printJob->setParent(preview); // will take care of deleting the job
-    connect(preview, SIGNAL(paintRequested(QPrinter*)), printJob, SLOT(startPrinting()));
+    connect(preview, SIGNAL(paintRequested(QPrinter*)), printJob, SLOT(startPrinting())); // clazy:exclude=old-style-connect
     preview->exec();
     delete preview;
+}
+
+KoPrintJob* KoMainWindow::exportToPdf()
+{
+    return exportToPdf(QString());
 }
 
 KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
@@ -1541,7 +1546,7 @@ void KoMainWindow::slotConfigureToolbars()
     }
 
     KEditToolBar edit(factory(), this);
-    connect(&edit, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()));
+    connect(&edit, &KEditToolBar::newToolBarConfig, this, &KoMainWindow::slotNewToolbarConfig);
     (void) edit.exec();
 }
 
@@ -1872,7 +1877,7 @@ QDockWidget* KoMainWindow::createDockWidget(KoDockFactoryBase* factory)
 #endif
     dockWidget->setFont(KoDockRegistry::dockFont());
 
-    connect(dockWidget, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), this, SLOT(forceDockTabFonts()));
+    connect(dockWidget, &QDockWidget::dockLocationChanged, this, &KoMainWindow::forceDockTabFonts);
 
     return dockWidget;
 }
@@ -2034,7 +2039,7 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget )
         QWidget *savedActiveWidget = widget;
 
         if ( oldActiveWidget ) {
-            disconnect( oldActiveWidget, SIGNAL(destroyed()), this, SLOT(slotWidgetDestroyed()) );
+            disconnect( oldActiveWidget, &QObject::destroyed, this, &KoMainWindow::slotWidgetDestroyed );
         }
 
         d->m_activePart = savedActivePart;
@@ -2042,7 +2047,7 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget )
     }
 
     if (d->m_activePart && d->m_activeWidget ) {
-        connect( d->m_activeWidget, SIGNAL(destroyed()), this, SLOT(slotWidgetDestroyed()) );
+        connect( d->m_activeWidget, &QObject::destroyed, this, &KoMainWindow::slotWidgetDestroyed );
     }
     // Set the new active instance in KGlobal
 //     KGlobal::setActiveComponent(d->m_activePart ? d->m_activePart->componentData() : KGlobal::mainComponent());
@@ -2099,7 +2104,7 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget )
                 KToggleAction * act = new KToggleAction(i18n("Show %1 Toolbar", toolBar->windowTitle()), this);
                 actionCollection()->addAction(toolBar->objectName().toUtf8(), act);
                 act->setCheckedState(KGuiItem(i18n("Hide %1 Toolbar", toolBar->windowTitle())));
-                connect(act, SIGNAL(toggled(bool)), this, SLOT(slotToolbarToggled(bool)));
+                connect(act, &QAction::toggled, this, &KoMainWindow::slotToolbarToggled);
                 act->setChecked(!toolBar->isHidden());
                 d->toolbarList.append(act);
             } else

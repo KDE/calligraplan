@@ -57,14 +57,14 @@ DocumentsPanel::DocumentsPanel( Node &node, QWidget *parent )
         m_orgurl.insert( doc, doc->url() );
     }
 
-    connect( widget.pbAdd, SIGNAL(clicked()), SLOT(slotAddUrl()) );
-    connect( widget.pbChange, SIGNAL(clicked()), SLOT(slotChangeUrl()) );
-    connect( widget.pbRemove, SIGNAL(clicked()), SLOT(slotRemoveUrl()) );
-    connect( widget.pbView, SIGNAL(clicked()), SLOT(slotViewUrl()) );
+    connect( widget.pbAdd, &QAbstractButton::clicked, this, &DocumentsPanel::slotAddUrl );
+    connect( widget.pbChange, &QAbstractButton::clicked, this, &DocumentsPanel::slotChangeUrl );
+    connect( widget.pbRemove, &QAbstractButton::clicked, this, &DocumentsPanel::slotRemoveUrl );
+    connect( widget.pbView, &QAbstractButton::clicked, this, &DocumentsPanel::slotViewUrl );
     
-    connect( m_view->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), SLOT(dataChanged(QModelIndex)) );
+    connect( m_view->model(), &QAbstractItemModel::dataChanged, this, &DocumentsPanel::dataChanged );
     
-    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), SLOT(slotSelectionChanged(QModelIndexList)) );
+    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), SLOT(slotSelectionChanged(QModelIndexList)) ); // clazy:exclude=old-style-connect
 }
 
 DocumentItemModel *DocumentsPanel::model() const

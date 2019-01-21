@@ -76,14 +76,14 @@ TaskProgressPanel::TaskProgressPanel( Task &task, ScheduleManager *sm, StandardW
     started->setFocus();
     
     connect( weekNumber, SIGNAL(currentIndexChanged(int)), SLOT(slotWeekNumberChanged(int)) );
-    connect( addResource, SIGNAL(clicked()), SLOT(slotAddResource()) );
-    connect( addEntryBtn, SIGNAL(clicked()), entryTable, SLOT(addEntry()) );
-    connect( removeEntryBtn, SIGNAL(clicked()), entryTable, SLOT(removeEntry()) );
+    connect( addResource, &QAbstractButton::clicked, this, &TaskProgressPanel::slotAddResource );
+    connect( addEntryBtn, &QAbstractButton::clicked, entryTable, &CompletionEntryEditor::addEntry );
+    connect( removeEntryBtn, &QAbstractButton::clicked, entryTable, &CompletionEntryEditor::removeEntry );
 
     entryTable->model()->setManager( sm );
     entryTable->model()->setTask( &task );
     entryTable->setCompletion( &m_completion );
-    connect( entryTable, SIGNAL(rowInserted(QDate)), SLOT(slotEntryAdded(QDate)) );
+    connect( entryTable, &CompletionEntryEditor::rowInserted, this, &TaskProgressPanel::slotEntryAdded );
     
     resourceTable->setProject( static_cast<Project*>( task.projectNode() ) );
     resourceTable->setCompletion( &m_completion );
@@ -92,15 +92,15 @@ TaskProgressPanel::TaskProgressPanel( Task &task, ScheduleManager *sm, StandardW
 
     //resourceTable->resizeColumnsToContents();
 
-    connect(started, SIGNAL(toggled(bool)), SLOT(slotStartedChanged(bool)));
-    connect(started, SIGNAL(toggled(bool)), SLOT(slotChanged()));
-    connect(finished, SIGNAL(toggled(bool)), SLOT(slotFinishedChanged(bool)));
-    connect(finished, SIGNAL(toggled(bool)), SLOT(slotChanged()));
+    connect(started, &QAbstractButton::toggled, this, &TaskProgressPanelImpl::slotStartedChanged);
+    connect(started, &QAbstractButton::toggled, this, &TaskProgressPanelImpl::slotChanged);
+    connect(finished, &QAbstractButton::toggled, this, &TaskProgressPanelImpl::slotFinishedChanged);
+    connect(finished, &QAbstractButton::toggled, this, &TaskProgressPanelImpl::slotChanged);
 
-    connect(startTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotChanged()));
-    connect(startTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotStartTimeChanged(QDateTime)));
-    connect(finishTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotChanged()));
-    connect(finishTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotFinishTimeChanged(QDateTime)));
+    connect(startTime, &QDateTimeEdit::dateTimeChanged, this, &TaskProgressPanelImpl::slotChanged);
+    connect(startTime, &QDateTimeEdit::dateTimeChanged, this, &TaskProgressPanelImpl::slotStartTimeChanged);
+    connect(finishTime, &QDateTimeEdit::dateTimeChanged, this, &TaskProgressPanelImpl::slotChanged);
+    connect(finishTime, &QDateTimeEdit::dateTimeChanged, this, &TaskProgressPanelImpl::slotFinishTimeChanged);
 }
 
 MacroCommand *TaskProgressPanel::buildCommand()
@@ -233,25 +233,25 @@ TaskProgressPanelImpl::TaskProgressPanelImpl( Task &task, QWidget *parent )
     addEntryBtn->setIcon(koIcon("list-add"));
     removeEntryBtn->setIcon(koIcon("list-remove"));
 
-    connect(entryTable, SIGNAL(selectedItemsChanged(QItemSelection,QItemSelection)), SLOT(slotSelectionChanged(QItemSelection)) );
+    connect(entryTable, &CompletionEntryEditor::selectedItemsChanged, this, &TaskProgressPanelImpl::slotSelectionChanged );
     removeEntryBtn->setEnabled( false );
 
     editmode->setCurrentIndex( m_original.entrymode() - 1 );
     connect( editmode, SIGNAL(currentIndexChanged(int)), SLOT(slotEditmodeChanged(int)) );
     connect( editmode, SIGNAL(activated(int)), SLOT(slotChanged()) );
     
-    connect(resourceTable, SIGNAL(changed()), SLOT(slotChanged()) );
-    connect(resourceTable, SIGNAL(resourceAdded()), SLOT(slotChanged()) );
+    connect(resourceTable, &UsedEffortEditor::changed, this, &TaskProgressPanelImpl::slotChanged );
+    connect(resourceTable, &UsedEffortEditor::resourceAdded, this, &TaskProgressPanelImpl::slotChanged );
     
-    connect(entryTable, SIGNAL(changed()), SLOT(slotChanged()) );
-    connect(entryTable, SIGNAL(rowInserted(QDate)), SLOT(slotChanged()) );
+    connect(entryTable, &CompletionEntryEditor::changed, this, &TaskProgressPanelImpl::slotChanged );
+    connect(entryTable, &CompletionEntryEditor::rowInserted, this, &TaskProgressPanelImpl::slotChanged );
 
-    connect(entryTable, SIGNAL(changed()), SLOT(slotEntryChanged()) );
-    connect(entryTable, SIGNAL(rowInserted(QDate)), SLOT(slotEntryChanged()) );
-    connect(entryTable, SIGNAL(rowRemoved(QDate)), SLOT(slotEntryChanged()) );
+    connect(entryTable, &CompletionEntryEditor::changed, this, &TaskProgressPanelImpl::slotEntryChanged );
+    connect(entryTable, &CompletionEntryEditor::rowInserted, this, &TaskProgressPanelImpl::slotEntryChanged );
+    connect(entryTable, &CompletionEntryEditor::rowRemoved, this, &TaskProgressPanelImpl::slotEntryChanged );
 
-    connect( prevWeekBtn, SIGNAL(clicked(bool)), SLOT(slotPrevWeekBtnClicked()) );
-    connect( nextWeekBtn, SIGNAL(clicked(bool)), SLOT(slotNextWeekBtnClicked()) );
+    connect( prevWeekBtn, &QAbstractButton::clicked, this, &TaskProgressPanelImpl::slotPrevWeekBtnClicked );
+    connect( nextWeekBtn, &QAbstractButton::clicked, this, &TaskProgressPanelImpl::slotNextWeekBtnClicked );
     
     connect ( ui_year, SIGNAL(valueChanged(int)), SLOT(slotFillWeekNumbers(int)) );
 

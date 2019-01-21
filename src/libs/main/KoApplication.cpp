@@ -292,7 +292,7 @@ bool KoApplication::start()
 
         KoMainWindow *mainWindow = part->createMainWindow();
         mainWindow->show();
-        QObject::connect(doc, SIGNAL(sigProgress(int)), mainWindow, SLOT(slotProgress(int)));
+        QObject::connect(doc, &KoDocument::sigProgress, mainWindow, &KoMainWindow::slotProgress);
         // for initDoc to fill in the recent docs list
         // and for KoDocument::slotStarted
         part->addMainWindow(mainWindow);

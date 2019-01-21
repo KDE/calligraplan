@@ -192,26 +192,26 @@ void AccountItemModel::setProject( Project *project )
 {
     if ( m_project ) {
         Accounts *acc = &( m_project->accounts() );
-        disconnect( acc , SIGNAL(changed(KPlato::Account*)), this, SLOT(slotAccountChanged(KPlato::Account*)) );
+        disconnect( acc , &Accounts::changed, this, &AccountItemModel::slotAccountChanged );
 
-        disconnect( acc, SIGNAL(accountAdded(const KPlato::Account*)), this, SLOT(slotAccountInserted(const KPlato::Account*)) );
-        disconnect( acc, SIGNAL(accountToBeAdded(const KPlato::Account*,int)), this, SLOT(slotAccountToBeInserted(const KPlato::Account*,int)) );
+        disconnect( acc, &Accounts::accountAdded, this, &AccountItemModel::slotAccountInserted );
+        disconnect( acc, &Accounts::accountToBeAdded, this, &AccountItemModel::slotAccountToBeInserted );
 
-        disconnect( acc, SIGNAL(accountRemoved(const KPlato::Account*)), this, SLOT(slotAccountRemoved(const KPlato::Account*)) );
-        disconnect( acc, SIGNAL(accountToBeRemoved(const KPlato::Account*)), this, SLOT(slotAccountToBeRemoved(const KPlato::Account*)) );
+        disconnect( acc, &Accounts::accountRemoved, this, &AccountItemModel::slotAccountRemoved );
+        disconnect( acc, &Accounts::accountToBeRemoved, this, &AccountItemModel::slotAccountToBeRemoved );
     }
     m_project = project;
     m_model.m_project = project;
     if ( project ) {
         Accounts *acc = &( project->accounts() );
         debugPlan<<acc;
-        connect( acc, SIGNAL(changed(KPlato::Account*)), this, SLOT(slotAccountChanged(KPlato::Account*)) );
+        connect( acc, &Accounts::changed, this, &AccountItemModel::slotAccountChanged );
 
-        connect( acc, SIGNAL(accountAdded(const KPlato::Account*)), this, SLOT(slotAccountInserted(const KPlato::Account*)) );
-        connect( acc, SIGNAL(accountToBeAdded(const KPlato::Account*,int)), this, SLOT(slotAccountToBeInserted(const KPlato::Account*,int)) );
+        connect( acc, &Accounts::accountAdded, this, &AccountItemModel::slotAccountInserted );
+        connect( acc, &Accounts::accountToBeAdded, this, &AccountItemModel::slotAccountToBeInserted );
 
-        connect( acc, SIGNAL(accountRemoved(const KPlato::Account*)), this, SLOT(slotAccountRemoved(const KPlato::Account*)) );
-        connect( acc, SIGNAL(accountToBeRemoved(const KPlato::Account*)), this, SLOT(slotAccountToBeRemoved(const KPlato::Account*)) );
+        connect( acc, &Accounts::accountRemoved, this, &AccountItemModel::slotAccountRemoved );
+        connect( acc, &Accounts::accountToBeRemoved, this, &AccountItemModel::slotAccountToBeRemoved );
     }
 }
 
@@ -534,43 +534,43 @@ void CostBreakdownItemModel::setProject( Project *project )
 {
     if ( m_project ) {
         Accounts *acc = &( m_project->accounts() );
-        disconnect( acc , SIGNAL(changed(KPlato::Account*)), this, SLOT(slotAccountChanged(KPlato::Account*)) );
+        disconnect( acc , &Accounts::changed, this, &CostBreakdownItemModel::slotAccountChanged );
 
-        disconnect( acc, SIGNAL(accountAdded(const KPlato::Account*)), this, SLOT(slotAccountInserted(const KPlato::Account*)) );
-        disconnect( acc, SIGNAL(accountToBeAdded(const KPlato::Account*,int)), this, SLOT(slotAccountToBeInserted(const KPlato::Account*,int)) );
+        disconnect( acc, &Accounts::accountAdded, this, &CostBreakdownItemModel::slotAccountInserted );
+        disconnect( acc, &Accounts::accountToBeAdded, this, &CostBreakdownItemModel::slotAccountToBeInserted );
 
-        disconnect( acc, SIGNAL(accountRemoved(const KPlato::Account*)), this, SLOT(slotAccountRemoved(const KPlato::Account*)) );
-        disconnect( acc, SIGNAL(accountToBeRemoved(const KPlato::Account*)), this, SLOT(slotAccountToBeRemoved(const KPlato::Account*)) );
+        disconnect( acc, &Accounts::accountRemoved, this, &CostBreakdownItemModel::slotAccountRemoved );
+        disconnect( acc, &Accounts::accountToBeRemoved, this, &CostBreakdownItemModel::slotAccountToBeRemoved );
 
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        disconnect( m_project , SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotDataChanged()) );
-        disconnect( m_project , SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotDataChanged()) );
-        disconnect( m_project , SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotDataChanged()) );
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &CostBreakdownItemModel::projectDeleted);
+        disconnect( m_project, &Project::nodeChanged, this, &CostBreakdownItemModel::slotDataChanged );
+        disconnect( m_project, &Project::nodeAdded, this, &CostBreakdownItemModel::slotDataChanged );
+        disconnect( m_project, &Project::nodeRemoved, this, &CostBreakdownItemModel::slotDataChanged );
 
-        disconnect( m_project , SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotDataChanged()) );
-        disconnect( m_project , SIGNAL(resourceAdded(const KPlato::Resource*)), this, SLOT(slotDataChanged()) );
-        disconnect( m_project , SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotDataChanged()) );
+        disconnect( m_project, &Project::resourceChanged, this, &CostBreakdownItemModel::slotDataChanged );
+        disconnect( m_project, &Project::resourceAdded, this, &CostBreakdownItemModel::slotDataChanged );
+        disconnect( m_project, &Project::resourceRemoved, this, &CostBreakdownItemModel::slotDataChanged );
     }
     m_project = project;
     if ( project ) {
         Accounts *acc = &( project->accounts() );
         debugPlan<<acc;
-        connect( acc, SIGNAL(changed(KPlato::Account*)), this, SLOT(slotAccountChanged(KPlato::Account*)) );
+        connect(acc, &Accounts::changed, this, &CostBreakdownItemModel::slotAccountChanged );
 
-        connect( acc, SIGNAL(accountAdded(const KPlato::Account*)), this, SLOT(slotAccountInserted(const KPlato::Account*)) );
-        connect( acc, SIGNAL(accountToBeAdded(const KPlato::Account*,int)), this, SLOT(slotAccountToBeInserted(const KPlato::Account*,int)) );
+        connect(acc, &Accounts::accountAdded, this, &CostBreakdownItemModel::slotAccountInserted );
+        connect(acc, &Accounts::accountToBeAdded, this, &CostBreakdownItemModel::slotAccountToBeInserted );
 
-        connect( acc, SIGNAL(accountRemoved(const KPlato::Account*)), this, SLOT(slotAccountRemoved(const KPlato::Account*)) );
-        connect( acc, SIGNAL(accountToBeRemoved(const KPlato::Account*)), this, SLOT(slotAccountToBeRemoved(const KPlato::Account*)) );
+        connect(acc, &Accounts::accountRemoved, this, &CostBreakdownItemModel::slotAccountRemoved );
+        connect(acc, &Accounts::accountToBeRemoved, this, &CostBreakdownItemModel::slotAccountToBeRemoved );
 
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        connect( m_project , SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotDataChanged()) );
-        connect( m_project , SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotDataChanged()) );
-        connect( m_project , SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotDataChanged()) );
+        connect(m_project, &Project::aboutToBeDeleted, this, &CostBreakdownItemModel::projectDeleted);
+        connect(m_project, &Project::nodeChanged, this, &CostBreakdownItemModel::slotDataChanged );
+        connect(m_project, &Project::nodeAdded, this, &CostBreakdownItemModel::slotDataChanged );
+        connect(m_project, &Project::nodeRemoved, this, &CostBreakdownItemModel::slotDataChanged );
 
-        connect( m_project , SIGNAL(resourceChangedKPlato::(KPlato::Resource*)), this, SLOT(slotDataChanged()) );
-        connect( m_project , SIGNAL(resourceAdded(const KPlato::Resource*)), this, SLOT(slotDataChanged()) );
-        connect( m_project , SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotDataChanged()) );
+        connect(m_project, &Project::resourceChanged, this, &CostBreakdownItemModel::slotDataChanged);
+        connect(m_project, &Project::resourceAdded, this, &CostBreakdownItemModel::slotDataChanged );
+        connect(m_project, &Project::resourceRemoved, this, &CostBreakdownItemModel::slotDataChanged );
     }
 }
 

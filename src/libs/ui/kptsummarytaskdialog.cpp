@@ -43,11 +43,11 @@ SummaryTaskDialog::SummaryTaskDialog(Task &task, QWidget *p)
     setMainWidget(m_generalTab);
     enableButtonOk(false);
 
-    connect(m_generalTab, SIGNAL(obligatedFieldsFilled(bool)), SLOT(enableButtonOk(bool)));
+    connect(m_generalTab, &SummaryTaskGeneralPanel::obligatedFieldsFilled, this, &KoDialog::enableButtonOk);
 
     Project *proj = static_cast<Project*>( task.projectNode() );
     if ( proj ) {
-        connect(proj, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotTaskRemoved(KPlato::Node*)));
+        connect(proj, &Project::nodeRemoved, this, &SummaryTaskDialog::slotTaskRemoved);
     }
 }
 

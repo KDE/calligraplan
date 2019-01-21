@@ -52,7 +52,7 @@ TaskCompletionDialog::TaskCompletionDialog(WorkPackage &p, ScheduleManager *sm, 
 
     enableButtonOk(false);
 
-    connect(m_panel, SIGNAL(changed(bool)), SLOT(slotChanged(bool)));
+    connect(m_panel, &TaskCompletionPanel::changed, this, &TaskCompletionDialog::slotChanged);
 }
 
 void TaskCompletionDialog::slotChanged( bool )
@@ -130,27 +130,27 @@ TaskCompletionPanel::TaskCompletionPanel(WorkPackage &p, ScheduleManager *sm, QW
         entryTable->scrollTo( idx );
     }
 
-    connect( addEntryBtn, SIGNAL(clicked()), this, SLOT(slotAddEntry()) );
-    connect( removeEntryBtn, SIGNAL(clicked()), entryTable, SLOT(removeEntry()) );
+    connect( addEntryBtn, &QAbstractButton::clicked, this, &TaskCompletionPanel::slotAddEntry );
+    connect( removeEntryBtn, &QAbstractButton::clicked, entryTable, &KPlato::CompletionEntryEditor::removeEntry );
 
-    connect( entryTable, SIGNAL(rowInserted(QDate)), SLOT(slotEntryAdded(QDate)) );
-    connect(entryTable, SIGNAL(changed()), SLOT(slotChanged()) );
-    connect(entryTable, SIGNAL(changed()), SLOT(slotEntryChanged()) );
-    connect(entryTable, SIGNAL(rowInserted(QDate)), SLOT(slotChanged()) );
-    connect(entryTable, SIGNAL(rowInserted(QDate)), SLOT(slotEntryChanged()) );
-    connect(entryTable, SIGNAL(rowRemoved(QDate)), SLOT(slotEntryChanged()) );
-    connect(entryTable, SIGNAL(selectedItemsChanged(QItemSelection,QItemSelection)), SLOT(slotSelectionChanged(QItemSelection)) );
+    connect( entryTable, &KPlato::CompletionEntryEditor::rowInserted, this, &TaskCompletionPanel::slotEntryAdded );
+    connect(entryTable, &KPlato::CompletionEntryEditor::changed, this, &TaskCompletionPanel::slotChanged );
+    connect(entryTable, &KPlato::CompletionEntryEditor::changed, this, &TaskCompletionPanel::slotEntryChanged );
+    connect(entryTable, &KPlato::CompletionEntryEditor::rowInserted, this, &TaskCompletionPanel::slotChanged );
+    connect(entryTable, &KPlato::CompletionEntryEditor::rowInserted, this, &TaskCompletionPanel::slotEntryChanged );
+    connect(entryTable, &KPlato::CompletionEntryEditor::rowRemoved, this, &TaskCompletionPanel::slotEntryChanged );
+    connect(entryTable, &KPlato::CompletionEntryEditor::selectedItemsChanged, this, &TaskCompletionPanel::slotSelectionChanged );
     
 
-    connect(started, SIGNAL(toggled(bool)), SLOT(slotStartedChanged(bool)));
-    connect(started, SIGNAL(toggled(bool)), SLOT(slotChanged()));
-    connect(finished, SIGNAL(toggled(bool)), SLOT(slotFinishedChanged(bool)));
-    connect(finished, SIGNAL(toggled(bool)), SLOT(slotChanged()));
+    connect(started, &QAbstractButton::toggled, this, &TaskCompletionPanel::slotStartedChanged);
+    connect(started, &QAbstractButton::toggled, this, &TaskCompletionPanel::slotChanged);
+    connect(finished, &QAbstractButton::toggled, this, &TaskCompletionPanel::slotFinishedChanged);
+    connect(finished, &QAbstractButton::toggled, this, &TaskCompletionPanel::slotChanged);
 
-    connect(startTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotChanged()));
-    connect(startTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotStartTimeChanged(QDateTime)));
-    connect(finishTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotChanged()));
-    connect(finishTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotFinishTimeChanged(QDateTime)));
+    connect(startTime, &QDateTimeEdit::dateTimeChanged, this, &TaskCompletionPanel::slotChanged);
+    connect(startTime, &QDateTimeEdit::dateTimeChanged, this, &TaskCompletionPanel::slotStartTimeChanged);
+    connect(finishTime, &QDateTimeEdit::dateTimeChanged, this, &TaskCompletionPanel::slotChanged);
+    connect(finishTime, &QDateTimeEdit::dateTimeChanged, this, &TaskCompletionPanel::slotFinishTimeChanged);
 
     removeEntryBtn->setEnabled( false );
 }

@@ -66,12 +66,12 @@ PlanTJScheduler::PlanTJScheduler( Project *project, ScheduleManager *sm, ulong g
     m_granularity( granularity )
 {
     TJ::TJMH.reset();
-    connect(&TJ::TJMH, SIGNAL(message(int,QString,TJ::CoreAttributes*)), this, SLOT(slotMessage(int,QString,TJ::CoreAttributes*)));
+    connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
 
-    connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
+    connect(this, &PlanTJScheduler::sigCalculationStarted, project, &KPlato::Project::sigCalculationStarted);
     emit sigCalculationStarted( project, sm );
 
-    connect( this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)) );
+    connect( this, &PlanTJScheduler::sigCalculationFinished, project, &KPlato::Project::sigCalculationFinished );
 }
 
 PlanTJScheduler::~PlanTJScheduler()

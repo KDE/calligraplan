@@ -71,12 +71,12 @@ DockWidget::DockWidget( ViewBase *v, const QString &identity,  const QString &ti
     setWindowTitle( title );
     setObjectName( v->objectName() + '-' + identity );
     toggleViewAction()->setObjectName( objectName() );
-    connect(this, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), SLOT(setLocation(Qt::DockWidgetArea)));
+    connect(this, &QDockWidget::dockLocationChanged, this, &DockWidget::setLocation);
 }
 
 void DockWidget::activate( KoMainWindow *mainWindow )
 {
-    connect(this, SIGNAL(visibilityChanged(bool)), this, SLOT(setShown(bool)));
+    connect(this, &QDockWidget::visibilityChanged, this, &DockWidget::setShown);
     setVisible( m_shown );
     mainWindow->addDockWidget( location, this );
 
@@ -91,7 +91,7 @@ void DockWidget::activate( KoMainWindow *mainWindow )
 
 void DockWidget::deactivate( KoMainWindow *mainWindow )
 {
-    disconnect(this, SIGNAL(visibilityChanged(bool)), this, SLOT(setShown(bool)));
+    disconnect(this, &QDockWidget::visibilityChanged, this, &DockWidget::setShown);
     mainWindow->removeDockWidget( this );
      // activation re-parents to QMainWindow, so re-parent back to view
     setParent( const_cast<ViewBase*>( view ) );
@@ -190,17 +190,17 @@ PrintingHeaderFooter::PrintingHeaderFooter( const PrintingOptions &opt, QWidget 
     setWindowTitle( i18n("Header and Footer" ));
     setOptions( opt );
 
-    connect(ui_header, SIGNAL(toggled(bool)), SLOT(slotChanged()));
-    connect(ui_headerProject, SIGNAL(stateChanged(int)), SLOT(slotChanged()));
-    connect(ui_headerPage, SIGNAL(stateChanged(int)), SLOT(slotChanged()));
-    connect(ui_headerManager, SIGNAL(stateChanged(int)), SLOT(slotChanged()));
-    connect(ui_headerDate, SIGNAL(stateChanged(int)), SLOT(slotChanged()));
+    connect(ui_header, &QGroupBox::toggled, this, &PrintingHeaderFooter::slotChanged);
+    connect(ui_headerProject, &QCheckBox::stateChanged, this, &PrintingHeaderFooter::slotChanged);
+    connect(ui_headerPage, &QCheckBox::stateChanged, this, &PrintingHeaderFooter::slotChanged);
+    connect(ui_headerManager, &QCheckBox::stateChanged, this, &PrintingHeaderFooter::slotChanged);
+    connect(ui_headerDate, &QCheckBox::stateChanged, this, &PrintingHeaderFooter::slotChanged);
 
-    connect(ui_footer, SIGNAL(toggled(bool)), SLOT(slotChanged()));
-    connect(ui_footerProject, SIGNAL(stateChanged(int)), SLOT(slotChanged()));
-    connect(ui_footerPage, SIGNAL(stateChanged(int)), SLOT(slotChanged()));
-    connect(ui_footerManager, SIGNAL(stateChanged(int)), SLOT(slotChanged()));
-    connect(ui_footerDate, SIGNAL(stateChanged(int)), SLOT(slotChanged()));
+    connect(ui_footer, &QGroupBox::toggled, this, &PrintingHeaderFooter::slotChanged);
+    connect(ui_footerProject, &QCheckBox::stateChanged, this, &PrintingHeaderFooter::slotChanged);
+    connect(ui_footerPage, &QCheckBox::stateChanged, this, &PrintingHeaderFooter::slotChanged);
+    connect(ui_footerManager, &QCheckBox::stateChanged, this, &PrintingHeaderFooter::slotChanged);
+    connect(ui_footerDate, &QCheckBox::stateChanged, this, &PrintingHeaderFooter::slotChanged);
 }
 
 PrintingHeaderFooter::~PrintingHeaderFooter()
@@ -314,7 +314,7 @@ QWidget *PrintingDialog::createPageLayoutWidget() const
     QWidget *w = ViewBase::createPageLayoutWidget( m_view );
     KoPageLayoutWidget *pw = w->findChild<KoPageLayoutWidget*>();
     connect(pw, SIGNAL(layoutChanged(KoPageLayout)), m_view, SLOT(setPageLayout(KoPageLayout)));
-    connect(pw, SIGNAL(layoutChanged(KoPageLayout)), this, SLOT(setPrinterPageLayout(KoPageLayout)));
+    connect(pw, &KoPageLayoutWidget::layoutChanged, this, &PrintingDialog::setPrinterPageLayout);
     connect(pw, SIGNAL(layoutChanged(KoPageLayout)), this, SIGNAL(changed()));
     return w;
 }
@@ -323,7 +323,7 @@ QList<QWidget*> PrintingDialog::createOptionWidgets() const
 {
     //debugPlan;
     PrintingHeaderFooter *w = new PrintingHeaderFooter( printingOptions() );
-    connect(w, SIGNAL(changed(PrintingOptions)), this, SLOT(setPrintingOptions(PrintingOptions)));
+    connect(w, &PrintingHeaderFooter::changed, this, &PrintingDialog::setPrintingOptions);
     const_cast<PrintingDialog*>( this )->m_widget = w;
 
     return QList<QWidget*>() << w;
@@ -643,7 +643,7 @@ QWidget *ViewBase::createPageLayoutWidget( ViewBase *view )
     prev->setPageLayout( view->pageLayout() );
     lay->addWidget( prev, 1 );
 
-    connect (w, SIGNAL(layoutChanged(KoPageLayout)), prev, SLOT(setPageLayout(KoPageLayout)));
+    connect (w, &KoPageLayoutWidget::layoutChanged, prev, &KoPagePreviewWidget::setPageLayout);
 
     return widget;
 }
@@ -676,12 +676,12 @@ void ViewBase::createOptionActions(int actions)
 
     if (actions & OptionExpand) {
         action = new QAction(koIcon("arrow-down"), i18n("Expand All"), this);
-        connect(action, SIGNAL(triggered(bool)), this, SIGNAL(expandAll()));
+        connect(action, &QAction::triggered, this, &ViewBase::expandAll);
         addContextAction(action);
     }
     if (actions & OptionExpand) {
         action = new QAction(koIcon("arrow-up"), i18n("Collapse All"), this);
-        connect(action, SIGNAL(triggered(bool)), this, SIGNAL(collapseAll()));
+        connect(action, &QAction::triggered, this, &ViewBase::collapseAll);
         addContextAction(action);
     }
 
@@ -708,7 +708,7 @@ void ViewBase::createOptionActions(int actions)
     if (actions & OptionPrintConfig) {
         action = new QAction(koIcon("configure"), i18n("Print Options..."), this);
         action->setObjectName("print options");
-        connect(action, SIGNAL(triggered(bool)), SLOT(slotOptions()));
+        connect(action, &QAction::triggered, this, &ViewBase::slotOptions);
         addContextAction(action);
     }
 
@@ -719,7 +719,7 @@ void ViewBase::createOptionActions(int actions)
     if (actions & OptionViewConfig) {
         action = new QAction(koIcon("configure"), i18n("Configure View..."), this);
         action->setObjectName("configure view");
-        connect(action, SIGNAL(triggered(bool)), SLOT(slotOptions()));
+        connect(action, &QAction::triggered, this, &ViewBase::slotOptions);
         addContextAction(action);
     }
 }
@@ -1005,7 +1005,7 @@ TreeViewBase::TreeViewBase( QWidget *parent )
 
     header()->setContextMenuPolicy( Qt::CustomContextMenu );
 
-    connect( header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect( header(), &QWidget::customContextMenuRequested, this, &TreeViewBase::slotHeaderContextMenuRequested );
 }
 
 void TreeViewBase::dropEvent( QDropEvent *e )
@@ -1479,11 +1479,11 @@ void TreeViewBase::slotCurrentChanged( const QModelIndex &current, const QModelI
 void TreeViewBase::setModel( QAbstractItemModel *model )
 {
     if ( selectionModel() ) {
-        disconnect( selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex,QModelIndex)) );
+        disconnect( selectionModel(), &QItemSelectionModel::currentChanged, this, &TreeViewBase::slotCurrentChanged );
     }
     QTreeView::setModel( model );
     if ( selectionModel() ) {
-        connect( selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex,QModelIndex)) );
+        connect( selectionModel(), &QItemSelectionModel::currentChanged, this, &TreeViewBase::slotCurrentChanged );
     }
     setReadWrite( m_readWrite );
 }
@@ -1491,11 +1491,11 @@ void TreeViewBase::setModel( QAbstractItemModel *model )
 void TreeViewBase::setSelectionModel( QItemSelectionModel *model )
 {
     if ( selectionModel() ) {
-        disconnect( selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex,QModelIndex)) );
+        disconnect( selectionModel(), &QItemSelectionModel::currentChanged, this, &TreeViewBase::slotCurrentChanged );
     }
     QTreeView::setSelectionModel( model );
     if ( selectionModel() ) {
-        connect( selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex,QModelIndex)) );
+        connect( selectionModel(), &QItemSelectionModel::currentChanged, this, &TreeViewBase::slotCurrentChanged );
     }
 }
 
@@ -1743,7 +1743,7 @@ void TreeViewBase::loadExpanded(const KoXmlElement &element)
     // if data is dependent on schedule manger
     // we cannot do anything until schedulemanger is set,
     // so we wait a bit and hope everything is ok
-    QTimer::singleShot(500, this, SLOT(doContextExpanded()));
+    QTimer::singleShot(500, this, &TreeViewBase::doContextExpanded);
 }
 
 void TreeViewBase::expandRecursivly(QDomElement element, const QModelIndex &parent)
@@ -1771,7 +1771,7 @@ void TreeViewBase::doExpand(QDomDocument &doc)
 {
     // we get here on setScheduleManager()
     m_expandDoc = doc;
-    QTimer::singleShot(0, this, SLOT(doExpanded()));
+    QTimer::singleShot(0, this, &TreeViewBase::doExpanded);
 }
 
 void TreeViewBase::doContextExpanded()
@@ -2092,37 +2092,37 @@ void DoubleTreeViewBase::init()
 
     m_leftview->setTreePosition(-1); // always visual index 0
 
-    connect( m_leftview, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)) );
-    connect( m_leftview, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotLeftHeaderContextMenuRequested(QPoint)) );
+    connect( m_leftview, &TreeViewBase::contextMenuRequested, this, &DoubleTreeViewBase::contextMenuRequested );
+    connect( m_leftview, &TreeViewBase::headerContextMenuRequested, this, &DoubleTreeViewBase::slotLeftHeaderContextMenuRequested );
 
-    connect( m_rightview, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)) );
-    connect( m_rightview, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotRightHeaderContextMenuRequested(QPoint)) );
+    connect( m_rightview, &TreeViewBase::contextMenuRequested, this, &DoubleTreeViewBase::contextMenuRequested );
+    connect( m_rightview, &TreeViewBase::headerContextMenuRequested, this, &DoubleTreeViewBase::slotRightHeaderContextMenuRequested );
 
-    connect( m_leftview->verticalScrollBar(), SIGNAL(valueChanged(int)), m_rightview->verticalScrollBar(), SLOT(setValue(int)) );
+    connect( m_leftview->verticalScrollBar(), &QAbstractSlider::valueChanged, m_rightview->verticalScrollBar(), &QAbstractSlider::setValue );
 
-    connect( m_rightview->verticalScrollBar(), SIGNAL(valueChanged(int)), m_leftview->verticalScrollBar(), SLOT(setValue(int)) );
+    connect( m_rightview->verticalScrollBar(), &QAbstractSlider::valueChanged, m_leftview->verticalScrollBar(), &QAbstractSlider::setValue );
 
-    connect( m_leftview, SIGNAL(moveAfterLastColumn(QModelIndex)), this, SLOT(slotToRightView(QModelIndex)) );
-    connect( m_rightview, SIGNAL(moveBeforeFirstColumn(QModelIndex)), this, SLOT(slotToLeftView(QModelIndex)) );
+    connect( m_leftview, &TreeViewBase::moveAfterLastColumn, this, &DoubleTreeViewBase::slotToRightView );
+    connect( m_rightview, &TreeViewBase::moveBeforeFirstColumn, this, &DoubleTreeViewBase::slotToLeftView );
 
-    connect( m_leftview, SIGNAL(editAfterLastColumn(QModelIndex)), this, SLOT(slotEditToRightView(QModelIndex)) );
-    connect( m_rightview, SIGNAL(editBeforeFirstColumn(QModelIndex)), this, SLOT(slotEditToLeftView(QModelIndex)) );
+    connect( m_leftview, &TreeViewBase::editAfterLastColumn, this, &DoubleTreeViewBase::slotEditToRightView );
+    connect( m_rightview, &TreeViewBase::editBeforeFirstColumn, this, &DoubleTreeViewBase::slotEditToLeftView );
 
-    connect( m_leftview, SIGNAL(expanded(QModelIndex)), m_rightview, SLOT(expand(QModelIndex)) );
-    connect( m_leftview, SIGNAL(collapsed(QModelIndex)), m_rightview, SLOT(collapse(QModelIndex)) );
+    connect( m_leftview, &QTreeView::expanded, m_rightview, &QTreeView::expand );
+    connect( m_leftview, &QTreeView::collapsed, m_rightview, &QTreeView::collapse );
 
-    connect( m_rightview, SIGNAL(expanded(QModelIndex)), m_leftview, SLOT(expand(QModelIndex)) );
-    connect( m_rightview, SIGNAL(collapsed(QModelIndex)), m_leftview, SLOT(collapse(QModelIndex)) );
+    connect( m_rightview, &QTreeView::expanded, m_leftview, &QTreeView::expand );
+    connect( m_rightview, &QTreeView::collapsed, m_leftview, &QTreeView::collapse );
 
-    connect( m_leftview, SIGNAL(dropAllowed(QModelIndex,int,QDragMoveEvent*)), this, SIGNAL(dropAllowed(QModelIndex,int,QDragMoveEvent*)) );
-    connect( m_rightview, SIGNAL(dropAllowed(QModelIndex,int,QDragMoveEvent*)), this, SIGNAL(dropAllowed(QModelIndex,int,QDragMoveEvent*)) );
+    connect( m_leftview, &TreeViewBase::dropAllowed, this, &DoubleTreeViewBase::dropAllowed );
+    connect( m_rightview, &TreeViewBase::dropAllowed, this, &DoubleTreeViewBase::dropAllowed );
 
     m_actionSplitView = new QAction(koIcon("view-split-left-right"), QString(), this);
     setViewSplitMode( true );
 
-    connect( m_leftview->header(), SIGNAL(sortIndicatorChanged(int,Qt::SortOrder)), SLOT(slotLeftSortIndicatorChanged(int,Qt::SortOrder)) );
+    connect( m_leftview->header(), &QHeaderView::sortIndicatorChanged, this, &DoubleTreeViewBase::slotLeftSortIndicatorChanged );
 
-    connect( m_rightview->header(), SIGNAL(sortIndicatorChanged(int,Qt::SortOrder)), SLOT(slotRightSortIndicatorChanged(int,Qt::SortOrder)) );
+    connect( m_rightview->header(), &QHeaderView::sortIndicatorChanged, this, &DoubleTreeViewBase::slotRightSortIndicatorChanged );
 }
 
 void DoubleTreeViewBase::slotLeftSortIndicatorChanged( int logicalIndex, Qt::SortOrder /*order*/ )
@@ -2268,16 +2268,16 @@ void DoubleTreeViewBase::setModel( QAbstractItemModel *model )
     m_leftview->setModel( model );
     m_rightview->setModel( model );
     if ( m_selectionmodel ) {
-        disconnect( m_selectionmodel, SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)) );
+        disconnect( m_selectionmodel, &QItemSelectionModel::selectionChanged, this, &DoubleTreeViewBase::slotSelectionChanged );
 
-        disconnect( m_selectionmodel, SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SIGNAL(currentChanged(QModelIndex,QModelIndex)) );
+        disconnect( m_selectionmodel, &QItemSelectionModel::currentChanged, this, &DoubleTreeViewBase::currentChanged );
     }
     m_selectionmodel = m_leftview->selectionModel();
     m_rightview->setSelectionModel( m_selectionmodel );
 
-    connect( m_selectionmodel, SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)) );
+    connect( m_selectionmodel, &QItemSelectionModel::selectionChanged, this, &DoubleTreeViewBase::slotSelectionChanged );
 
-    connect( m_selectionmodel, SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SIGNAL(currentChanged(QModelIndex,QModelIndex)) );
+    connect( m_selectionmodel, &QItemSelectionModel::currentChanged, this, &DoubleTreeViewBase::currentChanged );
 
     setReadWrite( m_readWrite );
 }

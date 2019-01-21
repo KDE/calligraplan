@@ -199,12 +199,12 @@ void KDateTable::setModel( KDateTableDataModel *model )
 {
     if ( d->m_model )
     {
-      disconnect( d->m_model, SIGNAL( reset() ), this, SLOT( slotReset() ) );
+      disconnect( d->m_model, &KDateTableDataModel::reset, this, &KDateTable::slotReset );
     }
     d->m_model = model;
     if ( d->m_model )
     {
-      connect( d->m_model, SIGNAL( reset() ), this, SLOT( slotReset() ) );
+      connect( d->m_model, &KDateTableDataModel::reset, this, &KDateTable::slotReset );
     }
     update();
 }

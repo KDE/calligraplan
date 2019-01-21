@@ -73,12 +73,12 @@ AddRelationDialog::AddRelationDialog(Project &project, Relation *rel, QWidget *p
     m_panel->relationType->setFocus();
     enableButtonOk(true);
     //connect(m_panel->relationType, SIGNAL(clicked(int)), SLOT(typeClicked(int)));
-    connect(m_panel->bFinishStart, SIGNAL(toggled(bool)), SLOT(slotFinishStartToggled(bool)));
-    connect(m_panel->bFinishFinish, SIGNAL(toggled(bool)), SLOT(slotFinishFinishToggled(bool)));
-    connect(m_panel->bStartStart, SIGNAL(toggled(bool)), SLOT(slotStartStartToggled(bool)));
+    connect(m_panel->bFinishStart, &QAbstractButton::toggled, this, &AddRelationDialog::slotFinishStartToggled);
+    connect(m_panel->bFinishFinish, &QAbstractButton::toggled, this, &AddRelationDialog::slotFinishFinishToggled);
+    connect(m_panel->bStartStart, &QAbstractButton::toggled, this, &AddRelationDialog::slotStartStartToggled);
     connect(m_panel->lag, SIGNAL(valueChanged(double)), SLOT(lagChanged()));
     
-    connect(&project, SIGNAL(nodeRemoved(KPlato::Node*)), SLOT(slotNodeRemoved(KPlato::Node*)));
+    connect(&project, &Project::nodeRemoved, this, &AddRelationDialog::slotNodeRemoved);
 }
 
 AddRelationDialog::~AddRelationDialog()
@@ -150,9 +150,9 @@ ModifyRelationDialog::ModifyRelationDialog(Project &project, Relation *rel, QWid
     m_deleted = false;
     enableButtonOk(false);
     
-    connect(this, SIGNAL(user1Clicked()), SLOT(slotUser1()));
+    connect(this, &KoDialog::user1Clicked, this, &ModifyRelationDialog::slotUser1);
     
-    connect(&project, SIGNAL(relationRemoved(KPlato::Relation*)), SLOT(slotRelationRemoved(KPlato::Relation*)));
+    connect(&project, &Project::relationRemoved, this, &ModifyRelationDialog::slotRelationRemoved);
 }
 
 void ModifyRelationDialog::slotRelationRemoved( Relation *relation )

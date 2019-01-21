@@ -59,8 +59,8 @@ ResourceAppointmentsDisplayOptionsPanel::ResourceAppointmentsDisplayOptionsPanel
     setupUi( this );
     setValues( *model );
 
-    connect( ui_internalAppointments, SIGNAL(stateChanged(int)), SIGNAL(changed()) );
-    connect( ui_externalAppointments, SIGNAL(stateChanged(int)), SIGNAL(changed()) );
+    connect( ui_internalAppointments, &QCheckBox::stateChanged, this, &ResourceAppointmentsDisplayOptionsPanel::changed );
+    connect( ui_externalAppointments, &QCheckBox::stateChanged, this, &ResourceAppointmentsDisplayOptionsPanel::changed );
 }
 
 void ResourceAppointmentsDisplayOptionsPanel::slotOk()
@@ -106,8 +106,8 @@ ResourceAppointmentsSettingsDialog::ResourceAppointmentsSettingsDialog( ViewBase
     if (selectPrint) {
         setCurrentPage(page);
     }
-    connect( this, SIGNAL(accepted()), this, SLOT(slotOk()));
-    connect( this, SIGNAL(accepted()), panel, SLOT(slotOk()));
+    connect( this, &QDialog::accepted, this, &ResourceAppointmentsSettingsDialog::slotOk);
+    connect( this, &QDialog::accepted, panel, &ResourceAppointmentsDisplayOptionsPanel::slotOk);
     //TODO: there was no default button configured, should there?
 //     connect( button(QDialogButtonBox::RestoreDefaults), SIGNAL(clicked(bool)), panel, SLOT(setDefault()));
 }
@@ -133,7 +133,7 @@ ResourceAppointmentsTreeView::ResourceAppointmentsTreeView( QWidget *parent )
     hideColumns( lst1, lst2 );
 
     m_leftview->resizeColumnToContents ( 1 );
-    connect( m, SIGNAL(modelReset()), SLOT(slotRefreshed()) );
+    connect( m, &QAbstractItemModel::modelReset, this, &ResourceAppointmentsTreeView::slotRefreshed );
 
     m_rightview->setObjectName( "ResourceAppointments" );
 }
@@ -190,22 +190,22 @@ ResourceAppointmentsView::ResourceAppointmentsView(KoPart *part, KoDocument *doc
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_view = new ResourceAppointmentsTreeView( this );
-    connect(this, SIGNAL(expandAll()), m_view, SLOT(slotExpand()));
-    connect(this, SIGNAL(collapseAll()), m_view, SLOT(slotCollapse()));
+    connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
+    connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);
 
     l->addWidget( m_view );
 
     m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
 
-    connect( model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect( model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
 
-    connect( m_view, SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex)) );
+    connect( m_view, &DoubleTreeViewBase::currentChanged, this, &ResourceAppointmentsView::slotCurrentChanged );
 
-    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)) );
+    connect( m_view, &DoubleTreeViewBase::selectionChanged, this, &ResourceAppointmentsView::slotSelectionChanged );
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), this, SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &ResourceAppointmentsView::slotContextMenuRequested );
 
-    connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
     Help::add(this,
               xi18nc("@info:whatsthis",

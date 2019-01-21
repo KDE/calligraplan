@@ -44,7 +44,7 @@ ResourceAllocationView::ResourceAllocationView(KoDocument *doc, QWidget *parent)
     , m_doc(doc)
 {
     m_allocateAction = new QAction(i18n("Allocate"), this);
-    connect(m_allocateAction, SIGNAL(triggered(bool)), this, SLOT(slotAllocate()));
+    connect(m_allocateAction, &QAction::triggered, this, &ResourceAllocationView::slotAllocate);
 }
 
 QList<Resource*> ResourceAllocationView::selectedResources() const

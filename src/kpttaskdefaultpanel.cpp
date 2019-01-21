@@ -61,15 +61,15 @@ ConfigTaskPanelImpl::ConfigTaskPanelImpl(QWidget *p )
 
     initDescription();
 
-    connect(chooseLeader, SIGNAL(clicked()), SLOT(changeLeader()));
+    connect(chooseLeader, &QAbstractButton::clicked, this, &ConfigTaskPanelImpl::changeLeader);
     
-    connect( kcfg_ConstraintStartTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(startDateTimeChanged(QDateTime)) );
+    connect( kcfg_ConstraintStartTime, &QDateTimeEdit::dateTimeChanged, this, &ConfigTaskPanelImpl::startDateTimeChanged );
     
-    connect( kcfg_ConstraintEndTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(endDateTimeChanged(QDateTime)) );
+    connect( kcfg_ConstraintEndTime, &QDateTimeEdit::dateTimeChanged, this, &ConfigTaskPanelImpl::endDateTimeChanged );
 
     // Hack to have an interface to kcfg wo adding a custom class for this
     kcfg_Unit->addItems( Duration::unitList( true ) );
-    connect( kcfg_ExpectedEstimate, SIGNAL(unitChanged(int)), SLOT(unitChanged(int)) );
+    connect( kcfg_ExpectedEstimate, &DurationSpinBox::unitChanged, this, &ConfigTaskPanelImpl::unitChanged );
     kcfg_Unit->hide();
     connect( kcfg_Unit, SIGNAL(currentIndexChanged(int)), SLOT(currentUnitChanged(int)) );
 }

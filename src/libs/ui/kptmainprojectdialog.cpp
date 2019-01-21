@@ -45,12 +45,12 @@ MainProjectDialog::MainProjectDialog(Project &p, QWidget *parent, bool edit)
     enableButtonOk(false);
     resize( QSize(500, 410).expandedTo(minimumSizeHint()));
 
-    connect(this, SIGNAL(rejected()), SLOT(slotRejected()));
-    connect(this, SIGNAL(accepted()), SLOT(slotOk()));
-    connect(panel, SIGNAL(obligatedFieldsFilled(bool)), SLOT(enableButtonOk(bool)));
+    connect(this, &QDialog::rejected, this, &MainProjectDialog::slotRejected);
+    connect(this, &QDialog::accepted, this, &MainProjectDialog::slotOk);
+    connect(panel, &MainProjectPanel::obligatedFieldsFilled, this, &KoDialog::enableButtonOk);
 
-    connect(panel, SIGNAL(loadResourceAssignments(QUrl)), this, SIGNAL(loadResourceAssignments(QUrl)));
-    connect(panel, SIGNAL(clearResourceAssignments()), this, SIGNAL(clearResourceAssignments()));
+    connect(panel, &MainProjectPanel::loadResourceAssignments, this, &MainProjectDialog::loadResourceAssignments);
+    connect(panel, &MainProjectPanel::clearResourceAssignments, this, &MainProjectDialog::clearResourceAssignments);
 }
 
 void MainProjectDialog::slotRejected()

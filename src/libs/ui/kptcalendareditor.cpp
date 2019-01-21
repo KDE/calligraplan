@@ -198,11 +198,11 @@ CalendarDayView::CalendarDayView( QWidget *parent )
     verticalHeader()->hide();
 
     actionSetWork = new QAction( i18n( "Work..." ), this );
-    connect( actionSetWork, SIGNAL(triggered(bool)), SLOT(slotSetWork()) );
+    connect( actionSetWork, &QAction::triggered, this, &CalendarDayView::slotSetWork );
     actionSetVacation = new QAction( i18n( "Non-working" ), this );
-    connect( actionSetVacation, SIGNAL(triggered(bool)), SLOT(slotSetVacation()) );
+    connect( actionSetVacation, &QAction::triggered, this, &CalendarDayView::slotSetVacation );
     actionSetUndefined = new QAction( i18n( "Undefined" ), this );
-    connect( actionSetUndefined, SIGNAL(triggered(bool)), SLOT(slotSetUndefined()) );
+    connect( actionSetUndefined, &QAction::triggered, this, &CalendarDayView::slotSetUndefined );
 }
 
 QSize CalendarDayView::sizeHint() const
@@ -409,8 +409,8 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent )
     l->addWidget( sp );
 
     m_calendarview = new CalendarTreeView( sp );
-    connect(this, SIGNAL(expandAll()), m_calendarview, SLOT(slotExpand()));
-    connect(this, SIGNAL(collapseAll()), m_calendarview, SLOT(slotCollapse()));
+    connect(this, &ViewBase::expandAll, m_calendarview, &TreeViewBase::slotExpand);
+    connect(this, &ViewBase::collapseAll, m_calendarview, &TreeViewBase::slotCollapse);
 
     QFrame *f = new QFrame( sp );
     l = new QVBoxLayout( f );
@@ -455,22 +455,22 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent )
     m_calendarview->setDragEnabled ( true );
     m_calendarview->setAcceptDrops( true );
 
-    connect( m_calendarview->model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
-    connect( m_dayview->model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
-    connect( m_dayview, SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect( m_calendarview->model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
+    connect( m_dayview->model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
+    connect( m_dayview, &CalendarDayView::executeCommand, doc, &KoDocument::addCommand );
 
     connect( m_calendarview, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentCalendarChanged(QModelIndex)) );
-    connect( m_calendarview, SIGNAL(sigSelectionChanged(QModelIndexList)), this, SLOT(slotCalendarSelectionChanged(QModelIndexList)) );
+    connect( m_calendarview, &CalendarTreeView::sigSelectionChanged, this, &CalendarEditor::slotCalendarSelectionChanged );
     connect( m_calendarview, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuCalendar(QModelIndex,QPoint)) );
 
     connect( m_dayview, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentDayChanged(QModelIndex)) );
-    connect( m_dayview, SIGNAL(sigSelectionChanged(QModelIndexList)), this, SLOT(slotDaySelectionChanged(QModelIndexList)) );
-    connect( m_dayview, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuDay(QModelIndex,QPoint)) );
+    connect( m_dayview, &CalendarDayView::sigSelectionChanged, this, &CalendarEditor::slotDaySelectionChanged );
+    connect( m_dayview, &CalendarDayView::contextMenuRequested, this, &CalendarEditor::slotContextMenuDay );
 
-    connect( m_dayview->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SLOT(slotEnableActions()) );
+    connect( m_dayview->model(), &QAbstractItemModel::dataChanged, this, &CalendarEditor::slotEnableActions );
 
-    connect( m_calendarview, SIGNAL(focusChanged()), this, SLOT(slotEnableActions()) );
-    connect( m_dayview, SIGNAL(focusChanged()), this, SLOT(slotEnableActions()) );
+    connect( m_calendarview, &CalendarTreeView::focusChanged, this, &CalendarEditor::slotEnableActions );
+    connect( m_dayview, &CalendarDayView::focusChanged, this, &CalendarEditor::slotEnableActions );
 
 }
 
@@ -641,28 +641,28 @@ void CalendarEditor::setupGui()
     actionAddCalendar   = new QAction(koIcon("resource-calendar-insert"), i18n("Add Calendar"), this);
     coll->addAction("add_calendar", actionAddCalendar  );
     coll->setDefaultShortcut(actionAddCalendar, Qt::CTRL + Qt::Key_I);
-    connect( actionAddCalendar , SIGNAL(triggered(bool)), SLOT(slotAddCalendar()) );
+    connect( actionAddCalendar , &QAction::triggered, this, &CalendarEditor::slotAddCalendar );
 
     actionAddSubCalendar   = new QAction(koIcon("resource-calendar-child-insert"), i18n("Add Subcalendar"), this);
     coll->addAction("add_subcalendar", actionAddSubCalendar  );
     coll->setDefaultShortcut(actionAddSubCalendar, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
-    connect( actionAddSubCalendar , SIGNAL(triggered(bool)), SLOT(slotAddSubCalendar()) );
+    connect( actionAddSubCalendar , &QAction::triggered, this, &CalendarEditor::slotAddSubCalendar );
 
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
     coll->addAction("delete_calendar_selection", actionDeleteSelection );
     coll->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
-    connect( actionDeleteSelection, SIGNAL(triggered(bool)), SLOT(slotDeleteCalendar()) );
+    connect( actionDeleteSelection, &QAction::triggered, this, &CalendarEditor::slotDeleteCalendar );
 
     addAction( name, actionAddCalendar  );
     addAction( name, actionAddSubCalendar  );
     addAction( name, actionDeleteSelection );
 
     actionSetWork = new QAction( i18n( "Work..." ), this );
-    connect( actionSetWork, SIGNAL(triggered(bool)), SLOT(slotSetWork()) );
+    connect( actionSetWork, &QAction::triggered, this, &CalendarEditor::slotSetWork );
     actionSetVacation = new QAction( i18n( "Non-working" ), this );
-    connect( actionSetVacation, SIGNAL(triggered(bool)), SLOT(slotSetVacation()) );
+    connect( actionSetVacation, &QAction::triggered, this, &CalendarEditor::slotSetVacation );
     actionSetUndefined = new QAction( i18n( "Undefined" ), this );
-    connect( actionSetUndefined, SIGNAL(triggered(bool)), SLOT(slotSetUndefined()) );
+    connect( actionSetUndefined, &QAction::triggered, this, &CalendarEditor::slotSetUndefined );
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
 }

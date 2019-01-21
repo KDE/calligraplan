@@ -153,12 +153,12 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
     widget.recentProjects->setModel(m_model);
     setupGui();
 
-    connect(widget.newProjectBtn, SIGNAL(clicked(bool)), this, SLOT(slotNewProject()));
-    connect(widget.createResourceFileBtn, SIGNAL(clicked(bool)), this, SLOT(slotCreateResourceFile()));
-    connect(widget.openProjectBtn, SIGNAL(clicked(bool)), this, SLOT(slotOpenProject()));
-    connect(widget.introductionBtn, SIGNAL(clicked(bool)), this, SIGNAL(showIntroduction()));
+    connect(widget.newProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotNewProject);
+    connect(widget.createResourceFileBtn, &QAbstractButton::clicked, this, &WelcomeView::slotCreateResourceFile);
+    connect(widget.openProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotOpenProject);
+    connect(widget.introductionBtn, &QAbstractButton::clicked, this, &WelcomeView::showIntroduction);
 
-    connect(widget.recentProjects->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SLOT(slotRecentFileSelected(QItemSelection)));
+    connect(widget.recentProjects->selectionModel(), &QItemSelectionModel::selectionChanged, this, &WelcomeView::slotRecentFileSelected);
 }
 
 WelcomeView::~WelcomeView()
@@ -235,8 +235,8 @@ void WelcomeView::slotNewProject()
     if (p) {
         if (!m_projectdialog) {
             m_projectdialog =  new MainProjectDialog(*p, this, false /*edit*/);
-            connect(m_projectdialog, SIGNAL(dialogFinished(int)), SLOT(slotProjectEditFinished(int)));
-            connect(m_projectdialog, SIGNAL(sigLoadSharedResources(QString,QUrl,bool)), this, SLOT(slotLoadSharedResources(QString,QUrl,bool)));
+            connect(m_projectdialog.data(), &MainProjectDialog::dialogFinished, this, &WelcomeView::slotProjectEditFinished);
+            connect(m_projectdialog.data(), &MainProjectDialog::sigLoadSharedResources, this, &WelcomeView::slotLoadSharedResources);
         }
         m_projectdialog->show();
         m_projectdialog->raise();

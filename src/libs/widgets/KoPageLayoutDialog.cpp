@@ -60,12 +60,12 @@ KoPageLayoutDialog::KoPageLayoutDialog(QWidget *parent, const KoPageLayout &layo
     prev->setPageLayout(d->pageLayoutWidget->pageLayout());
     lay->addWidget(prev, 1);
 
-    connect (d->pageLayoutWidget, SIGNAL(layoutChanged(KoPageLayout)),
-            prev, SLOT(setPageLayout(KoPageLayout)));
-    connect (d->pageLayoutWidget, SIGNAL(layoutChanged(KoPageLayout)),
-            this, SLOT(setPageLayout(KoPageLayout)));
-    connect (d->pageLayoutWidget, SIGNAL(unitChanged(KoUnit)),
-            this, SIGNAL(unitChanged(KoUnit)));
+    connect (d->pageLayoutWidget, &KoPageLayoutWidget::layoutChanged,
+            prev, &KoPagePreviewWidget::setPageLayout);
+    connect (d->pageLayoutWidget, &KoPageLayoutWidget::layoutChanged,
+            this, &KoPageLayoutDialog::setPageLayout);
+    connect (d->pageLayoutWidget, &KoPageLayoutWidget::unitChanged,
+            this, &KoPageLayoutDialog::unitChanged);
 }
 
 KoPageLayoutDialog::~KoPageLayoutDialog()
@@ -113,8 +113,8 @@ void KoPageLayoutDialog::showApplyToDocument(bool on)
         }
 
         Q_ASSERT(d->pageLayoutWidget);
-        connect (d->documentCheckBox, SIGNAL(toggled(bool)),
-                d->pageLayoutWidget, SLOT(setApplyToDocument(bool)));
+        connect (d->documentCheckBox, &QAbstractButton::toggled,
+                d->pageLayoutWidget, &KoPageLayoutWidget::setApplyToDocument);
     } else if (d->documentCheckBox) {
         d->documentCheckBox->setVisible(on);
     }

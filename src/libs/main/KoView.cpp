@@ -177,10 +177,10 @@ KoView::KoView(KoPart *part, KoDocument *document, QWidget *parent)
 
     QStatusBar * sb = statusBar();
     if (sb) { // No statusbar in e.g. konqueror
-        connect(d->document, SIGNAL(statusBarMessage(QString)),
-                this, SLOT(slotActionStatusText(QString)));
-        connect(d->document, SIGNAL(clearStatusBarMessage()),
-                this, SLOT(slotClearStatusText()));
+        connect(d->document.data(), &KoDocument::statusBarMessage,
+                this, &KoView::slotActionStatusText);
+        connect(d->document.data(), &KoDocument::clearStatusBarMessage,
+                this, &KoView::slotClearStatusText);
     }
 #if 0
     // add all plugins.
@@ -347,7 +347,7 @@ void KoView::setupGlobalActions()
     actionCollection()->setDefaultShortcut(undo, QKeySequence::Undo);
     actionCollection()->setDefaultShortcut(redo, QKeySequence::Redo);
     d->actionAuthor  = new KSelectAction(koIcon("user-identity"), i18n("Active Author Profile"), this);
-    connect(d->actionAuthor, SIGNAL(triggered(QString)), this, SLOT(changeAuthorProfile(QString)));
+    connect(d->actionAuthor, static_cast<void (KSelectAction::*)(const QString&)> (&KSelectAction::triggered), this, &KoView::changeAuthorProfile);
     actionCollection()->addAction("settings_active_author", d->actionAuthor);
 
     slotUpdateAuthorProfileActions();

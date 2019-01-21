@@ -90,7 +90,7 @@ MainDocument::MainDocument(KoPart *part)
 
     connect(this, &MainDocument::insertSharedProject, this, &MainDocument::slotInsertSharedProject);
 
-    QTimer::singleShot ( 5000, this, SLOT(autoCheckForWorkPackages()) );
+    QTimer::singleShot ( 5000, this, &MainDocument::autoCheckForWorkPackages );
 }
 
 
@@ -117,7 +117,7 @@ void MainDocument::loadSchedulerPlugins()
 
     // Add all real scheduler plugins
     SchedulerPluginLoader *loader = new SchedulerPluginLoader(this);
-    connect(loader, SIGNAL(pluginLoaded(QString,KPlato::SchedulerPlugin*)), this, SLOT(addSchedulerPlugin(QString,KPlato::SchedulerPlugin*)));
+    connect(loader, &SchedulerPluginLoader::pluginLoaded, this, &MainDocument::addSchedulerPlugin);
     loader->loadAllPlugins();
 }
 
@@ -135,12 +135,12 @@ void MainDocument::configChanged()
 void MainDocument::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, SIGNAL(projectChanged()), this, SIGNAL(changed()) );
+        disconnect( m_project, &Project::projectChanged, this, &MainDocument::changed );
         delete m_project;
     }
     m_project = project;
     if ( m_project ) {
-        connect( m_project, SIGNAL(projectChanged()), this, SIGNAL(changed()) );
+        connect( m_project, &Project::projectChanged, this, &MainDocument::changed );
 //        m_project->setConfig( config() );
         m_project->setSchedulerPlugins( m_schedulerPlugins );
     }
@@ -618,7 +618,7 @@ void MainDocument::autoCheckForWorkPackages()
     if ( m_config.checkForWorkPackages() ) {
         checkForWorkPackages( true );
     }
-    QTimer::singleShot ( 10000, this, SLOT(autoCheckForWorkPackages()) );
+    QTimer::singleShot ( 10000, this, &MainDocument::autoCheckForWorkPackages );
 }
 
 void MainDocument::checkForWorkPackages( bool keep )
@@ -642,7 +642,7 @@ void MainDocument::checkForWorkPackage()
     if ( ! m_infoList.isEmpty() ) {
         loadWorkPackage( *m_project, QUrl::fromLocalFile( m_infoList.takeLast().absoluteFilePath() ) );
         if ( ! m_infoList.isEmpty() ) {
-            QTimer::singleShot ( 0, this, SLOT(checkForWorkPackage()) );
+            QTimer::singleShot ( 0, this, &MainDocument::checkForWorkPackage );
             return;
         }
         // all files read
@@ -979,8 +979,8 @@ void MainDocument::insertFile( const QUrl &url, Node *parent, Node *after )
     doc->m_insertFileInfo.url = url;
     doc->m_insertFileInfo.parent = parent;
     doc->m_insertFileInfo.after = after;
-    connect(doc, SIGNAL(completed()), SLOT(insertFileCompleted()));
-    connect(doc, SIGNAL(canceled(QString)), SLOT(insertFileCancelled(QString)));
+    connect(doc, &KoDocument::completed, this, &MainDocument::insertFileCompleted);
+    connect(doc, &KoDocument::canceled, this, &MainDocument::insertFileCancelled);
 
     doc->openUrl( url );
 }
@@ -1010,8 +1010,8 @@ void MainDocument::insertResourcesFile(const QUrl &url, const QUrl &projects)
     doc->disconnect(); // doc shall not handle feedback from openUrl()
     doc->setAutoSave( 0 ); //disable
     doc->setCheckAutoSaveFile(false);
-    connect(doc, SIGNAL(completed()), SLOT(insertResourcesFileCompleted()));
-    connect(doc, SIGNAL(canceled(QString)), SLOT(insertFileCancelled(QString)));
+    connect(doc, &KoDocument::completed, this, &MainDocument::insertResourcesFileCompleted);
+    connect(doc, &KoDocument::canceled, this, &MainDocument::insertFileCancelled);
 
     doc->openUrl( url );
 
@@ -1102,8 +1102,8 @@ void MainDocument::slotInsertSharedProject()
     doc->setAutoSave( 0 ); //disable
     doc->setCheckAutoSaveFile(false);
     doc->m_loadingSharedProject = true;
-    connect(doc, SIGNAL(completed()), SLOT(insertSharedProjectCompleted()));
-    connect(doc, SIGNAL(canceled(QString)), SLOT(insertSharedProjectCancelled(QString)));
+    connect(doc, &KoDocument::completed, this, &MainDocument::insertSharedProjectCompleted);
+    connect(doc, &KoDocument::canceled, this, &MainDocument::insertSharedProjectCancelled);
 
     doc->openUrl(m_sharedProjectsFiles.takeFirst());
 }

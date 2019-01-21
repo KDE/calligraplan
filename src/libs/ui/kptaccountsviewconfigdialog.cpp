@@ -90,9 +90,9 @@ AccountsviewConfigDialog::AccountsviewConfigDialog( ViewBase *view, AccountsTree
     if (selectPrint) {
         setCurrentPage(page);
     }
-    connect( this, SIGNAL(accepted()), this, SLOT(slotOk()));
+    connect( this, &QDialog::accepted, this, &AccountsviewConfigDialog::slotOk);
 
-    connect(m_panel, SIGNAL(changed(bool)), SLOT(enableOkButton(bool)));
+    connect(m_panel, &AccountsviewConfigPanel::changed, this, &AccountsviewConfigDialog::enableOkButton);
 }
 
 void AccountsviewConfigDialog::enableOkButton(bool enabled)
@@ -133,20 +133,20 @@ AccountsviewConfigPanel::AccountsviewConfigPanel(QWidget *parent)
     : AccountsviewConfigurePanelBase(parent)
 {
 
-    connect(ui_startdate, SIGNAL(dateChanged(QDate)), SLOT(slotChanged()));
-    connect(ui_enddate, SIGNAL(dateChanged(QDate)), SLOT(slotChanged()));
+    connect(ui_startdate, &QDateTimeEdit::dateChanged, this, &AccountsviewConfigPanel::slotChanged);
+    connect(ui_enddate, &QDateTimeEdit::dateChanged, this, &AccountsviewConfigPanel::slotChanged);
     connect(ui_periodBox, SIGNAL(activated(int)), SLOT(slotChanged()));
-    connect(ui_cumulative, SIGNAL(clicked()), SLOT(slotChanged()));
+    connect(ui_cumulative, &QAbstractButton::clicked, this, &AccountsviewConfigPanel::slotChanged);
 
-    connect(ui_projectstartBtn, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(ui_startdateBtn, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(ui_projectendBtn, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(ui_currentdateBtn, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(ui_enddateBtn, SIGNAL(clicked()), SLOT(slotChanged()));
+    connect(ui_projectstartBtn, &QAbstractButton::clicked, this, &AccountsviewConfigPanel::slotChanged);
+    connect(ui_startdateBtn, &QAbstractButton::clicked, this, &AccountsviewConfigPanel::slotChanged);
+    connect(ui_projectendBtn, &QAbstractButton::clicked, this, &AccountsviewConfigPanel::slotChanged);
+    connect(ui_currentdateBtn, &QAbstractButton::clicked, this, &AccountsviewConfigPanel::slotChanged);
+    connect(ui_enddateBtn, &QAbstractButton::clicked, this, &AccountsviewConfigPanel::slotChanged);
     connect(ui_showBox, SIGNAL(activated(int)), SLOT(slotChanged()));
     
-    connect(ui_startdateBtn, SIGNAL(toggled(bool)), ui_startdate, SLOT(setEnabled(bool)));
-    connect(ui_enddateBtn, SIGNAL(toggled(bool)), ui_enddate, SLOT(setEnabled(bool)));
+    connect(ui_startdateBtn, &QAbstractButton::toggled, ui_startdate, &QWidget::setEnabled);
+    connect(ui_enddateBtn, &QAbstractButton::toggled, ui_enddate, &QWidget::setEnabled);
 }
 
 void AccountsviewConfigPanel::slotChanged() {

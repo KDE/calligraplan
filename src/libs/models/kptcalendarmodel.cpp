@@ -76,13 +76,13 @@ void CalendarDayItemModelBase::setProject( Project *project )
     beginResetModel();
     setCalendar( 0 );
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        disconnect( m_project, SIGNAL(calendarToBeRemoved(const KPlato::Calendar*)), this, SLOT(slotCalendarToBeRemoved(const KPlato::Calendar*)));
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &CalendarDayItemModelBase::projectDeleted);
+        disconnect( m_project, &Project::calendarToBeRemoved, this, &CalendarDayItemModelBase::slotCalendarToBeRemoved);
     }
     m_project = project;
     if ( project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        connect( m_project, SIGNAL(calendarToBeRemoved(const KPlato::Calendar*)), this, SLOT(slotCalendarToBeRemoved(const KPlato::Calendar*)));
+        connect(m_project, &Project::aboutToBeDeleted, this, &CalendarDayItemModelBase::projectDeleted);
+        connect( m_project, &Project::calendarToBeRemoved, this, &CalendarDayItemModelBase::slotCalendarToBeRemoved);
     }
     endResetModel();
 }
@@ -141,25 +141,25 @@ void CalendarItemModel::setProject( Project *project )
 {
     beginResetModel();
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        disconnect( m_project , SIGNAL(calendarChanged(KPlato::Calendar*)), this, SLOT(slotCalendarChanged(KPlato::Calendar*)));
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &CalendarItemModel::projectDeleted);
+        disconnect( m_project , &Project::calendarChanged, this, &CalendarItemModel::slotCalendarChanged);
 
-        disconnect( m_project, SIGNAL(calendarAdded(const KPlato::Calendar*)), this, SLOT(slotCalendarInserted(const KPlato::Calendar*)));
-        disconnect( m_project, SIGNAL(calendarToBeAdded(const KPlato::Calendar*,int)), this, SLOT(slotCalendarToBeInserted(const KPlato::Calendar*,int)));
+        disconnect( m_project, &Project::calendarAdded, this, &CalendarItemModel::slotCalendarInserted);
+        disconnect( m_project, &Project::calendarToBeAdded, this, &CalendarItemModel::slotCalendarToBeInserted);
 
-        disconnect( m_project, SIGNAL(calendarRemoved(const KPlato::Calendar*)), this, SLOT(slotCalendarRemoved(const KPlato::Calendar*)));
-        disconnect( m_project, SIGNAL(calendarToBeRemoved(const KPlato::Calendar*)), this, SLOT(slotCalendarToBeRemoved(const KPlato::Calendar*)));
+        disconnect( m_project, &Project::calendarRemoved, this, &CalendarItemModel::slotCalendarRemoved);
+        disconnect( m_project, &Project::calendarToBeRemoved, this, &CalendarItemModel::slotCalendarToBeRemoved);
     }
     m_project = project;
     if ( project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        connect( m_project, SIGNAL(calendarChanged(KPlato::Calendar*)), this, SLOT(slotCalendarChanged(KPlato::Calendar*)));
+        connect(m_project, &Project::aboutToBeDeleted, this, &CalendarItemModel::projectDeleted);
+        connect( m_project, &Project::calendarChanged, this, &CalendarItemModel::slotCalendarChanged);
 
-        connect( m_project, SIGNAL(calendarAdded(const KPlato::Calendar*)), this, SLOT(slotCalendarInserted(const KPlato::Calendar*)));
-        connect( m_project, SIGNAL(calendarToBeAdded(const KPlato::Calendar*,int)), this, SLOT(slotCalendarToBeInserted(const KPlato::Calendar*,int)));
+        connect( m_project, &Project::calendarAdded, this, &CalendarItemModel::slotCalendarInserted);
+        connect( m_project, &Project::calendarToBeAdded, this, &CalendarItemModel::slotCalendarToBeInserted);
 
-        connect( m_project, SIGNAL(calendarRemoved(const KPlato::Calendar*)), this, SLOT(slotCalendarRemoved(const KPlato::Calendar*)));
-        connect( m_project, SIGNAL(calendarToBeRemoved(const KPlato::Calendar*)), this, SLOT(slotCalendarToBeRemoved(const KPlato::Calendar*)));
+        connect( m_project, &Project::calendarRemoved, this, &CalendarItemModel::slotCalendarRemoved);
+        connect( m_project, &Project::calendarToBeRemoved, this, &CalendarItemModel::slotCalendarToBeRemoved);
     }
     endResetModel();
 }
@@ -778,19 +778,19 @@ void CalendarDayItemModel::setCalendar( Calendar *calendar )
     beginResetModel();
     //debugPlan<<m_calendar<<" -->"<<calendar;
     if ( m_calendar ) {
-        disconnect( m_calendar, SIGNAL(changed(KPlato::CalendarDay*)), this, SLOT(slotDayChanged(KPlato::CalendarDay*)));
-        disconnect( m_calendar, SIGNAL(changed(KPlato::TimeInterval*)), this, SLOT(slotTimeIntervalChanged(KPlato::TimeInterval*)));
+        disconnect(m_calendar, static_cast<void (Calendar::*)(CalendarDay*)>(&Calendar::changed), this, &CalendarDayItemModel::slotDayChanged);
+        disconnect(m_calendar, static_cast<void (Calendar::*)(TimeInterval*)>(&Calendar::changed), this, &CalendarDayItemModel::slotTimeIntervalChanged);
 
-        disconnect( m_calendar, SIGNAL(workIntervalAdded(KPlato::CalendarDay*,TimeInterval*)), this, SLOT(slotWorkIntervalAdded(KPlato::CalendarDay*,TimeInterval*)));
-        disconnect( m_calendar, SIGNAL(workIntervalRemoved(KPlato::CalendarDay*,TimeInterval*)), this, SLOT(slotWorkIntervalRemoved(KPlato::CalendarDay*,TimeInterval*)));
+        disconnect(m_calendar, &Calendar::workIntervalAdded, this, &CalendarDayItemModel::slotWorkIntervalAdded);
+        disconnect(m_calendar, &Calendar::workIntervalRemoved, this, &CalendarDayItemModel::slotWorkIntervalRemoved);
     }
     m_calendar = calendar;
     if ( calendar ) {
-        connect( m_calendar, SIGNAL(changed(KPlato::CalendarDay*)), this, SLOT(slotDayChanged(KPlato::CalendarDay*)));
-        connect( m_calendar, SIGNAL(changed(KPlato::TimeInterval*)), this, SLOT(slotTimeIntervalChanged(KPlato::TimeInterval*)));
+        connect(m_calendar, static_cast<void (Calendar::*)(CalendarDay*)>(&Calendar::changed), this, &CalendarDayItemModel::slotDayChanged);
+        connect(m_calendar, static_cast<void (Calendar::*)(TimeInterval*)>(&Calendar::changed), this, &CalendarDayItemModel::slotTimeIntervalChanged);
 
-        connect( m_calendar, SIGNAL(workIntervalAdded(KPlato::CalendarDay*,TimeInterval*)), this, SLOT(slotWorkIntervalAdded(KPlato::CalendarDay*,TimeInterval*)));
-        connect( m_calendar, SIGNAL(workIntervalRemoved(KPlato::CalendarDay*,TimeInterval*)), this, SLOT(slotWorkIntervalRemoved(KPlato::CalendarDay*,TimeInterval*)));
+        connect(m_calendar, &Calendar::workIntervalAdded, this, &CalendarDayItemModel::slotWorkIntervalAdded);
+        connect(m_calendar, &Calendar::workIntervalRemoved, this, &CalendarDayItemModel::slotWorkIntervalRemoved);
     }
     endResetModel();
 }
@@ -1086,15 +1086,15 @@ DateTableDataModel::DateTableDataModel( QObject *parent )
 void DateTableDataModel::setCalendar( Calendar *calendar )
 {
     if ( m_calendar ) {
-        disconnect( m_calendar, SIGNAL(dayAdded(KPlato::CalendarDay*)), this, SIGNAL(reset()));
-        disconnect( m_calendar, SIGNAL(dayRemoved(KPlato::CalendarDay*)), this, SIGNAL(reset()));
-        disconnect( m_calendar, SIGNAL(changed(KPlato::CalendarDay*)), this, SIGNAL(reset()));
+        disconnect(m_calendar, &Calendar::dayAdded, this, &KDateTableDataModel::reset);
+        disconnect(m_calendar, &Calendar::dayRemoved, this, &KDateTableDataModel::reset);
+        disconnect(m_calendar, static_cast<void (Calendar::*)(KPlato::CalendarDay*)>(&Calendar::changed), this, &DateTableDataModel::reset);
     }
     m_calendar = calendar;
     if ( m_calendar ) {
-        connect( m_calendar, SIGNAL(dayAdded(KPlato::CalendarDay*)), this, SIGNAL(reset()));
-        connect( m_calendar, SIGNAL(dayRemoved(KPlato::CalendarDay*)), this, SIGNAL(reset()));
-        connect( m_calendar, SIGNAL(changed(KPlato::CalendarDay*)), this, SIGNAL(reset()));
+        connect( m_calendar, &Calendar::dayAdded, this, &KDateTableDataModel::reset);
+        connect( m_calendar, &Calendar::dayRemoved, this, &KDateTableDataModel::reset);
+        connect(m_calendar, static_cast<void (Calendar::*)(KPlato::CalendarDay*)>(&Calendar::changed), this, &DateTableDataModel::reset);
     }
     emit reset();
 }

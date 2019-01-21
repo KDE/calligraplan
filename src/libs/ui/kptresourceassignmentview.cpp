@@ -133,7 +133,7 @@ ResourceAssignmentView::ResourceAssignmentView(KoPart *part, KoDocument *doc, QW
     m_tasktreeroot = new QTreeWidgetItem ( m_taskList );
 
     connect( m_resList, SIGNAL(itemSelectionChanged()), SLOT(resSelectionChanged()) );
-    connect( m_taskList, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotRequestPopupMenu(QPoint)) );
+    connect( m_taskList, &QWidget::customContextMenuRequested, this, &ResourceAssignmentView::slotRequestPopupMenu );
 }
 
 /*Store the selected item*/

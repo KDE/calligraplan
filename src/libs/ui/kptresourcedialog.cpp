@@ -90,34 +90,34 @@ ResourceDialogImpl::ResourceDialogImpl( const Project &project, Resource &resour
     ui_teamView->resizeColumnToContents( 0 );
     ui_teamView->sortByColumn( 0, Qt::AscendingOrder );
     slotTypeChanged( resource.type() );
-    connect( m, SIGNAL(dataChanged(QModelIndex,QModelIndex)), SLOT(slotTeamChanged(QModelIndex)));
+    connect( m, &QAbstractItemModel::dataChanged, this, &ResourceDialogImpl::slotTeamChanged);
 
     connect(group, SIGNAL(activated(int)), SLOT(slotChanged()));
     connect(type, SIGNAL(activated(int)), SLOT(slotTypeChanged(int)));
     connect(units, SIGNAL(valueChanged(int)), SLOT(slotChanged()));
-    connect(nameEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(initialsEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(emailEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
+    connect(nameEdit, &QLineEdit::textChanged, this, &ResourceDialogImpl::slotChanged);
+    connect(initialsEdit, &QLineEdit::textChanged, this, &ResourceDialogImpl::slotChanged);
+    connect(emailEdit, &QLineEdit::textChanged, this, &ResourceDialogImpl::slotChanged);
 
     connect(calendarList, SIGNAL(activated(int)), SLOT(slotChanged()));
 
-    connect(rateEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(overtimeEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
+    connect(rateEdit, &QLineEdit::textChanged, this, &ResourceDialogImpl::slotChanged);
+    connect(overtimeEdit, &QLineEdit::textChanged, this, &ResourceDialogImpl::slotChanged);
 
-    connect(chooseBtn, SIGNAL(clicked()), SLOT(slotChooseResource()));
+    connect(chooseBtn, &QAbstractButton::clicked, this, &ResourceDialogImpl::slotChooseResource);
 
-    connect(availableFrom, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotChanged()));
-    connect(availableUntil, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotChanged()));
-    connect(availableFrom, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotAvailableFromChanged(QDateTime)));
-    connect(availableUntil, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotAvailableUntilChanged(QDateTime)));
+    connect(availableFrom, &QDateTimeEdit::dateTimeChanged, this, &ResourceDialogImpl::slotChanged);
+    connect(availableUntil, &QDateTimeEdit::dateTimeChanged, this, &ResourceDialogImpl::slotChanged);
+    connect(availableFrom, &QDateTimeEdit::dateTimeChanged, this, &ResourceDialogImpl::slotAvailableFromChanged);
+    connect(availableUntil, &QDateTimeEdit::dateTimeChanged, this, &ResourceDialogImpl::slotAvailableUntilChanged);
 
-    connect(ui_rbfrom, SIGNAL(toggled(bool)), SLOT(slotChanged()));
-    connect(ui_rbuntil, SIGNAL(toggled(bool)), SLOT(slotChanged()));
+    connect(ui_rbfrom, &QAbstractButton::toggled, this, &ResourceDialogImpl::slotChanged);
+    connect(ui_rbuntil, &QAbstractButton::toggled, this, &ResourceDialogImpl::slotChanged);
 
-    connect(ui_rbfrom, SIGNAL(toggled(bool)), availableFrom, SLOT(setEnabled(bool)));
-    connect(ui_rbuntil, SIGNAL(toggled(bool)), availableUntil, SLOT(setEnabled(bool)));
+    connect(ui_rbfrom, &QAbstractButton::toggled, availableFrom, &QWidget::setEnabled);
+    connect(ui_rbuntil, &QAbstractButton::toggled, availableUntil, &QWidget::setEnabled);
 
-    connect( useRequired, SIGNAL(stateChanged(int)), SLOT(slotUseRequiredChanged(int)) );
+    connect( useRequired, &QCheckBox::stateChanged, this, &ResourceDialogImpl::slotUseRequiredChanged );
 
     connect(account, SIGNAL(activated(int)), SLOT(slotChanged()));
 }
@@ -189,19 +189,19 @@ void ResourceDialogImpl::slotUseRequiredChanged( int state )
 
 void ResourceDialogImpl::slotAvailableFromChanged(const QDateTime&) {
     if (availableUntil->dateTime() < availableFrom->dateTime()) {
-        disconnect(availableUntil, SIGNAL(dateTimeChanged(QDateTime)), this,  SLOT(slotAvailableUntilChanged(QDateTime)));
+        disconnect(availableUntil, &QDateTimeEdit::dateTimeChanged, this,  &ResourceDialogImpl::slotAvailableUntilChanged);
         //debugPlan<<"From:"<<availableFrom->dateTime().toString()<<" until="<<availableUntil->dateTime().toString();
         availableUntil->setDateTime(availableFrom->dateTime());
-        connect(availableUntil, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotAvailableUntilChanged(QDateTime)));
+        connect(availableUntil, &QDateTimeEdit::dateTimeChanged, this, &ResourceDialogImpl::slotAvailableUntilChanged);
     }
 }
 
 void ResourceDialogImpl::slotAvailableUntilChanged(const QDateTime&) {
     if (availableFrom->dateTime() > availableUntil->dateTime()) {
-        disconnect(availableFrom, SIGNAL(dateTimeChanged(QDateTime)), this,  SLOT(slotAvailableFromChanged(QDateTime)));
+        disconnect(availableFrom, &QDateTimeEdit::dateTimeChanged, this,  &ResourceDialogImpl::slotAvailableFromChanged);
         //debugPlan<<"Until:"<<availableUntil->dateTime().toString()<<" from="<<availableFrom->dateTime().toString();
         availableFrom->setDateTime(availableUntil->dateTime());
-        connect(availableFrom, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotAvailableFromChanged(QDateTime)));
+        connect(availableFrom, &QDateTimeEdit::dateTimeChanged, this, &ResourceDialogImpl::slotAvailableFromChanged);
     }
 }
 
@@ -321,12 +321,12 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
         dia->account->setCurrentIndex( lst.indexOf( resource->account()->name() ) );
     }
     connect(dia, SIGNAL(changed()), SLOT(enableButtonOk()));
-    connect(dia, SIGNAL(calculate()), SLOT(slotCalculationNeeded()));
+    connect(dia, &ResourceDialogImpl::calculate, this, &ResourceDialog::slotCalculationNeeded);
     connect(dia->calendarList, SIGNAL(activated(int)), SLOT(slotCalendarChanged(int)));
     connect(dia->required, SIGNAL(changed()), SLOT(enableButtonOk()));
     connect(dia->account, SIGNAL(currentIndexChanged(QString)), SLOT(slotAccountChanged(QString)));
     
-    connect(&project, SIGNAL(resourceRemoved(const Resource*)), this, SLOT(slotResourceRemoved(const Resource*)));
+    connect(&project, &Project::resourceRemoved, this, &ResourceDialog::slotResourceRemoved);
 }
 
 void ResourceDialog::slotResourceRemoved( const Resource *resource )

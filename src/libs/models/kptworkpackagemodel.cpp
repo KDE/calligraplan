@@ -200,22 +200,22 @@ Qt::ItemFlags WorkPackageProxyModel::flags(const QModelIndex &index) const
 void WorkPackageProxyModel::setSourceModel( QAbstractItemModel *model )
 {
     if ( sourceModel() ) {
-        disconnect(sourceModel(), SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-                this, SLOT(sourceDataChanged(QModelIndex,QModelIndex)));
+        disconnect(sourceModel(), &QAbstractItemModel::dataChanged,
+                this, &WorkPackageProxyModel::sourceDataChanged);
 /*        disconnect(sourceModel(), SIGNAL(headerDataChanged(Qt::Orientation,int,int)),
                 this, SLOT(sourceHeaderDataChanged(Qt::Orientation,int,int)));*/
-        disconnect(sourceModel(), SIGNAL(layoutChanged()),
-                this, SIGNAL(layoutChanged()));
-        disconnect(sourceModel(), SIGNAL(layoutAboutToBeChanged()),
-                this, SIGNAL(layoutAboutToBeChanged()));
-        disconnect(sourceModel(), SIGNAL(rowsAboutToBeInserted(QModelIndex,int,int)),
-                this, SLOT(sourceRowsAboutToBeInserted(QModelIndex,int,int)));
-        disconnect(sourceModel(), SIGNAL(rowsInserted(QModelIndex,int,int)),
-                this, SLOT(sourceRowsInserted(QModelIndex,int,int)));
-        disconnect(sourceModel(), SIGNAL(rowsAboutToBeRemoved(QModelIndex,int,int)),
-                this, SLOT(sourceRowsAboutToBeRemoved(QModelIndex,int,int)));
-        disconnect(sourceModel(), SIGNAL(rowsRemoved(QModelIndex,int,int)),
-                this, SLOT(sourceRowsAboutToBeRemoved(QModelIndex,int,int)));
+        disconnect(sourceModel(), &QAbstractItemModel::layoutChanged,
+                this, &QAbstractItemModel::layoutChanged);
+        disconnect(sourceModel(), &QAbstractItemModel::layoutAboutToBeChanged,
+                this, &QAbstractItemModel::layoutAboutToBeChanged);
+        disconnect(sourceModel(), &QAbstractItemModel::rowsAboutToBeInserted,
+                this, &WorkPackageProxyModel::sourceRowsAboutToBeInserted);
+        disconnect(sourceModel(), &QAbstractItemModel::rowsInserted,
+                this, &WorkPackageProxyModel::sourceRowsInserted);
+        disconnect(sourceModel(), &QAbstractItemModel::rowsAboutToBeRemoved,
+                this, &WorkPackageProxyModel::sourceRowsAboutToBeRemoved);
+        disconnect(sourceModel(), &QAbstractItemModel::rowsRemoved,
+                this, &WorkPackageProxyModel::sourceRowsAboutToBeRemoved);
 /*
         disconnect(sourceModel(), SIGNAL(columnsAboutToBeInserted(QModelIndex,int,int)),
                 this, SLOT(sourceColumnsAboutToBeInserted(QModelIndex,int,int)));
@@ -227,13 +227,13 @@ void WorkPackageProxyModel::setSourceModel( QAbstractItemModel *model )
         disconnect(sourceModel(), SIGNAL(columnsRemoved(QModelIndex,int,int)),
                 this, SLOT(sourceColumnsRemoved(QModelIndex,int,int)));
         */
-        disconnect(sourceModel(), SIGNAL(modelAboutToBeReset()), this, SLOT(sourceModelAboutToBeReset()));
-        disconnect(sourceModel(), SIGNAL(modelReset()), this, SLOT(sourceModelReset()));
+        disconnect(sourceModel(), &QAbstractItemModel::modelAboutToBeReset, this, &WorkPackageProxyModel::sourceModelAboutToBeReset);
+        disconnect(sourceModel(), &QAbstractItemModel::modelReset, this, &WorkPackageProxyModel::sourceModelReset);
 
-        disconnect(sourceModel(), SIGNAL(rowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
-                this, SLOT(sourceRowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)));
-        disconnect(sourceModel(), SIGNAL(rowsMoved(QModelIndex,int,int,QModelIndex,int)),
-                this, SLOT(sourceRowsMoved(QModelIndex,int,int,QModelIndex,int)));
+        disconnect(sourceModel(), &QAbstractItemModel::rowsAboutToBeMoved,
+                this, &WorkPackageProxyModel::sourceRowsAboutToBeMoved);
+        disconnect(sourceModel(), &QAbstractItemModel::rowsMoved,
+                this, &WorkPackageProxyModel::sourceRowsMoved);
 /*
         disconnect(sourceModel(), SIGNAL(columnsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
                 this, SLOT(sourceColumnsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)));
@@ -242,22 +242,22 @@ void WorkPackageProxyModel::setSourceModel( QAbstractItemModel *model )
     }
     QAbstractProxyModel::setSourceModel( model );
     if ( model ) {
-        connect(model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-                this, SLOT(sourceDataChanged(QModelIndex,QModelIndex)));
+        connect(model, &QAbstractItemModel::dataChanged,
+                this, &WorkPackageProxyModel::sourceDataChanged);
 /*        connect(model, SIGNAL(headerDataChanged(Qt::Orientation,int,int)),
                 this, SLOT(sourceHeaderDataChanged(Qt::Orientation,int,int)));*/
-        connect(model, SIGNAL(layoutChanged()),
-                this, SIGNAL(layoutChanged()));
-        connect(model, SIGNAL(layoutAboutToBeChanged()),
-                this, SIGNAL(layoutAboutToBeChanged()));
-        connect(model, SIGNAL(rowsAboutToBeInserted(QModelIndex,int,int)),
-                this, SLOT(sourceRowsAboutToBeInserted(QModelIndex,int,int)));
-        connect(model, SIGNAL(rowsInserted(QModelIndex,int,int)),
-                this, SLOT(sourceRowsInserted(QModelIndex,int,int)));
-        connect(model, SIGNAL(rowsAboutToBeRemoved(QModelIndex,int,int)),
-                this, SLOT(sourceRowsAboutToBeRemoved(QModelIndex,int,int)));
-        connect(model, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-                this, SLOT(sourceRowsRemoved(QModelIndex,int,int)));
+        connect(model, &QAbstractItemModel::layoutChanged,
+                this, &QAbstractItemModel::layoutChanged);
+        connect(model, &QAbstractItemModel::layoutAboutToBeChanged,
+                this, &QAbstractItemModel::layoutAboutToBeChanged);
+        connect(model, &QAbstractItemModel::rowsAboutToBeInserted,
+                this, &WorkPackageProxyModel::sourceRowsAboutToBeInserted);
+        connect(model, &QAbstractItemModel::rowsInserted,
+                this, &WorkPackageProxyModel::sourceRowsInserted);
+        connect(model, &QAbstractItemModel::rowsAboutToBeRemoved,
+                this, &WorkPackageProxyModel::sourceRowsAboutToBeRemoved);
+        connect(model, &QAbstractItemModel::rowsRemoved,
+                this, &WorkPackageProxyModel::sourceRowsRemoved);
 /*
         connect(model, SIGNAL(columnsAboutToBeInserted(QModelIndex,int,int)),
                 this, SLOT(sourceColumnsAboutToBeInserted(QModelIndex,int,int)));
@@ -269,13 +269,13 @@ void WorkPackageProxyModel::setSourceModel( QAbstractItemModel *model )
         connect(model, SIGNAL(columnsRemoved(QModelIndex,int,int)),
                 this, SLOT(sourceColumnsRemoved(QModelIndex,int,int)));
         */
-        connect(model, SIGNAL(modelAboutToBeReset()), this, SLOT(sourceModelAboutToBeReset()));
-        connect(model, SIGNAL(modelReset()), this, SLOT(sourceModelReset()));
+        connect(model, &QAbstractItemModel::modelAboutToBeReset, this, &WorkPackageProxyModel::sourceModelAboutToBeReset);
+        connect(model, &QAbstractItemModel::modelReset, this, &WorkPackageProxyModel::sourceModelReset);
 
-        connect(model, SIGNAL(rowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
-                this, SLOT(sourceRowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)));
-        connect(model, SIGNAL(rowsMoved(QModelIndex,int,int,QModelIndex,int)),
-                this, SLOT(sourceRowsMoved(QModelIndex,int,int,QModelIndex,int)));
+        connect(model, &QAbstractItemModel::rowsAboutToBeMoved,
+                this, &WorkPackageProxyModel::sourceRowsAboutToBeMoved);
+        connect(model, &QAbstractItemModel::rowsMoved,
+                this, &WorkPackageProxyModel::sourceRowsMoved);
 /*
         connect(model, SIGNAL(columnsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
                 this, SLOT(sourceColumnsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)));
@@ -499,10 +499,10 @@ NodeItemModel *WorkPackageProxyModel::baseModel() const
 void WorkPackageProxyModel::detachTasks( Task *task )
 {
     if ( task ) {
-        disconnect(task, SIGNAL(workPackageToBeAdded(KPlato::Node*,int)), this, SLOT(workPackageToBeAdded(KPlato::Node*,int)));
-        disconnect(task, SIGNAL(workPackageAdded(KPlato::Node*)), this, SLOT(workPackageAdded(KPlato::Node*)));
-        disconnect(task, SIGNAL(workPackageToBeRemoved(KPlato::Node*,int)), this, SLOT(workPackageToBeRemoved(KPlato::Node*,int)));
-        disconnect(task, SIGNAL(workPackageRemoved(KPlato::Node*)), this, SLOT(workPackageRemoved(KPlato::Node*)));
+        disconnect(task, &Task::workPackageToBeAdded, this, &WorkPackageProxyModel::workPackageToBeAdded);
+        disconnect(task, &Task::workPackageAdded, this, &WorkPackageProxyModel::workPackageAdded);
+        disconnect(task, &Task::workPackageToBeRemoved, this, &WorkPackageProxyModel::workPackageToBeRemoved);
+        disconnect(task, &Task::workPackageRemoved, this, &WorkPackageProxyModel::workPackageRemoved);
 //        debugPlan<<task;
     } else {
         for ( int r = 0; r < rowCount(); ++r ) {
@@ -517,10 +517,10 @@ void WorkPackageProxyModel::detachTasks( Task *task )
 void WorkPackageProxyModel::attachTasks( Task *task )
 {
     if ( task ) {
-        connect(task, SIGNAL(workPackageToBeAdded(KPlato::Node*,int)), this, SLOT(workPackageToBeAdded(KPlato::Node*,int)));
-        connect(task, SIGNAL(workPackageAdded(KPlato::Node*)), this, SLOT(workPackageAdded(KPlato::Node*)));
-        connect(task, SIGNAL(workPackageToBeRemoved(KPlato::Node*,int)), this, SLOT(workPackageToBeRemoved(KPlato::Node*,int)));
-        connect(task, SIGNAL(workPackageRemoved(KPlato::Node*)), this, SLOT(workPackageRemoved(KPlato::Node*)));
+        connect(task, &Task::workPackageToBeAdded, this, &WorkPackageProxyModel::workPackageToBeAdded);
+        connect(task, &Task::workPackageAdded, this, &WorkPackageProxyModel::workPackageAdded);
+        connect(task, &Task::workPackageToBeRemoved, this, &WorkPackageProxyModel::workPackageToBeRemoved);
+        connect(task, &Task::workPackageRemoved, this, &WorkPackageProxyModel::workPackageRemoved);
 //        debugPlan<<task;
     } else {
         for ( int r = 0; r < rowCount(); ++r ) {

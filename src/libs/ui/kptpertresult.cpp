@@ -115,12 +115,12 @@ PertResult::PertResult(KoPart *part, KoDocument *doc, QWidget *parent)
     widget.treeWidgetTaskResult->masterView()->setDefaultColumns( QList<int>() << 0 );
     widget.treeWidgetTaskResult->slaveView()->setDefaultColumns( show );
     
-    connect( widget.treeWidgetTaskResult, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( widget.treeWidgetTaskResult, &DoubleTreeViewBase::contextMenuRequested, this, &PertResult::slotContextMenuRequested );
     
     connect( widget.treeWidgetTaskResult, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
 
-    connect(this, SIGNAL(expandAll()), widget.treeWidgetTaskResult, SLOT(slotExpand()));
-    connect(this, SIGNAL(collapseAll()), widget.treeWidgetTaskResult, SLOT(slotCollapse()));
+    connect(this, &ViewBase::expandAll, widget.treeWidgetTaskResult, &DoubleTreeViewBase::slotExpand);
+    connect(this, &ViewBase::collapseAll, widget.treeWidgetTaskResult, &DoubleTreeViewBase::slotCollapse);
 }
 
 void PertResult::draw( Project &project)
@@ -153,7 +153,7 @@ void PertResult::draw()
 void PertResult::setupGui()
 {
     // Add the context menu actions for the view options
-    connect(widget.treeWidgetTaskResult->actionSplitView(), SIGNAL(triggered(bool)), SLOT(slotSplitView()));
+    connect(widget.treeWidgetTaskResult->actionSplitView(), &QAction::triggered, this, &PertResult::slotSplitView);
     addContextAction( widget.treeWidgetTaskResult->actionSplitView() );
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
@@ -264,18 +264,18 @@ void PertResult::slotScheduleManagerChanged( ScheduleManager *sm )
 void PertResult::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotUpdate()) );
-        disconnect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
-        disconnect( m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)) );
-        disconnect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(KPlato::ScheduleManager*)) );
+        disconnect( m_project, &Project::nodeChanged, this, &PertResult::slotUpdate );
+        disconnect( m_project, &Project::projectCalculated, this, &PertResult::slotProjectCalculated );
+        disconnect( m_project, &Project::scheduleManagerToBeRemoved, this, &PertResult::slotScheduleManagerToBeRemoved );
+        disconnect( m_project, &Project::scheduleManagerChanged, this, &PertResult::slotScheduleManagerChanged );
     }
     m_project = project;
     model()->setProject( m_project );
     if ( m_project ) {
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotUpdate()) );
-        connect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
-        connect( m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)) );
-        connect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(KPlato::ScheduleManager*)) );
+        connect( m_project, &Project::nodeChanged, this, &PertResult::slotUpdate );
+        connect( m_project, &Project::projectCalculated, this, &PertResult::slotProjectCalculated );
+        connect( m_project, &Project::scheduleManagerToBeRemoved, this, &PertResult::slotScheduleManagerToBeRemoved );
+        connect( m_project, &Project::scheduleManagerChanged, this, &PertResult::slotScheduleManagerChanged );
     }
     draw();
 }
@@ -343,11 +343,11 @@ PertCpmView::PertCpmView(KoPart *part, KoDocument *doc, QWidget *parent)
     }
     widget.cpmTable->slaveView()->setDefaultColumns( show );
     
-    connect( widget.cpmTable, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( widget.cpmTable, &DoubleTreeViewBase::contextMenuRequested, this, &PertCpmView::slotContextMenuRequested );
 
     connect( widget.cpmTable, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
     
-    connect( widget.finishTime, SIGNAL(dateTimeChanged(QDateTime)), SLOT(slotFinishTimeChanged(QDateTime)) );
+    connect( widget.finishTime, &QDateTimeEdit::dateTimeChanged, this, &PertCpmView::slotFinishTimeChanged );
     
     connect( widget.probability, SIGNAL(valueChanged(int)), SLOT(slotProbabilityChanged(int)) );
 }
@@ -355,7 +355,7 @@ PertCpmView::PertCpmView(KoPart *part, KoDocument *doc, QWidget *parent)
 void PertCpmView::setupGui()
 {
     // Add the context menu actions for the view options
-    connect(widget.cpmTable->actionSplitView(), SIGNAL(triggered(bool)), SLOT(slotSplitView()));
+    connect(widget.cpmTable->actionSplitView(), &QAction::triggered, this, &PertCpmView::slotSplitView);
     addContextAction( widget.cpmTable->actionSplitView() );
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
@@ -464,18 +464,18 @@ void PertCpmView::slotScheduleManagerToBeRemoved( const ScheduleManager *sm )
 void PertCpmView::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotUpdate()) );
-        disconnect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
-        disconnect( m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)) );
-        disconnect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(KPlato::ScheduleManager*)) );
+        disconnect( m_project, &Project::nodeChanged, this, &PertCpmView::slotUpdate );
+        disconnect( m_project, &Project::projectCalculated, this, &PertCpmView::slotProjectCalculated );
+        disconnect( m_project, &Project::scheduleManagerToBeRemoved, this, &PertCpmView::slotScheduleManagerToBeRemoved );
+        disconnect( m_project, &Project::scheduleManagerChanged, this, &PertCpmView::slotScheduleManagerChanged );
     }
     m_project = project;
     model()->setProject( m_project );
     if ( m_project ) {
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotUpdate()) );
-        connect( m_project, SIGNAL(projectCalculated(KPlato::ScheduleManager*)), this, SLOT(slotProjectCalculated(KPlato::ScheduleManager*)) );
-        connect( m_project, SIGNAL(scheduleManagerToBeRemoved(const KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager*)) );
-        connect( m_project, SIGNAL(scheduleManagerChanged(KPlato::ScheduleManager*)), this, SLOT(slotScheduleManagerChanged(KPlato::ScheduleManager*)) );
+        connect( m_project, &Project::nodeChanged, this, &PertCpmView::slotUpdate );
+        connect( m_project, &Project::projectCalculated, this, &PertCpmView::slotProjectCalculated );
+        connect( m_project, &Project::scheduleManagerToBeRemoved, this, &PertCpmView::slotScheduleManagerToBeRemoved );
+        connect( m_project, &Project::scheduleManagerChanged, this, &PertCpmView::slotScheduleManagerChanged );
     }
     draw();
 }

@@ -103,13 +103,13 @@ TaskWorkPackageTreeView::TaskWorkPackageTreeView( Part *part, QWidget *parent )
     masterView()->header()->setSectionsClickable( true );
     slaveView()->header()->setSortIndicatorShown( true );
 
-    connect(masterView()->header(), SIGNAL(sortIndicatorChanged(int,Qt::SortOrder)), SLOT(setSortOrder(int,Qt::SortOrder)));
-    connect(slaveView()->header(), SIGNAL(sortIndicatorChanged(int,Qt::SortOrder)), SLOT(setSortOrder(int,Qt::SortOrder)));
+    connect(masterView()->header(), &QHeaderView::sortIndicatorChanged, this, &TaskWorkPackageTreeView::setSortOrder);
+    connect(slaveView()->header(), &QHeaderView::sortIndicatorChanged, this, &TaskWorkPackageTreeView::setSortOrder);
 
     masterView()->header()->setSortIndicator( TaskWorkPackageModel::NodeType, Qt::AscendingOrder );
 
-    connect(masterView()->header(), SIGNAL(sectionMoved(int,int,int)), SIGNAL(sectionsMoved()));
-    connect(slaveView()->header(), SIGNAL(sectionMoved(int,int,int)), SIGNAL(sectionsMoved()));
+    connect(masterView()->header(), &QHeaderView::sectionMoved, this, &TaskWorkPackageTreeView::sectionsMoved);
+    connect(slaveView()->header(), &QHeaderView::sectionMoved, this, &TaskWorkPackageTreeView::sectionsMoved);
 }
 
 void TaskWorkPackageTreeView::setSortOrder( int col, Qt::SortOrder order )
@@ -334,17 +334,17 @@ TaskWorkPackageView::TaskWorkPackageView( Part *part, QWidget *parent )
     l->addWidget( m_view );
     setupGui();
 
-    connect( itemModel(), SIGNAL(executeCommand(KUndo2Command*)), part, SLOT(addCommand(KUndo2Command*)) );
+    connect( itemModel(), &KPlato::ItemModelBase::executeCommand, part, &Part::addCommand );
 
     connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
 
-    connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect( m_view, &KPlato::DoubleTreeViewBase::headerContextMenuRequested, this, &TaskWorkPackageView::slotHeaderContextMenuRequested );
 
-    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), SLOT(slotSelectionChanged(QModelIndexList)) );
+    connect( m_view, &KPlato::DoubleTreeViewBase::selectionChanged, this, &TaskWorkPackageView::slotSelectionChanged );
 
     loadContext();
 
-    connect(m_view, SIGNAL(sectionsMoved()), SLOT(sectionsMoved()));
+    connect(m_view, &TaskWorkPackageTreeView::sectionsMoved, this, &TaskWorkPackageView::sectionsMoved);
 }
 
 void TaskWorkPackageView::updateReadWrite( bool rw )
@@ -404,11 +404,11 @@ void TaskWorkPackageView::slotContextMenuRequested( const QModelIndex &index, co
 void TaskWorkPackageView::setupGui()
 {
     // Add the context menu actions for the view options
-    connect(m_view->actionSplitView(), SIGNAL(triggered(bool)), SLOT(slotSplitView()));
+    connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskWorkPackageView::slotSplitView);
     addContextAction( m_view->actionSplitView() );
 
     actionOptions = new QAction(koIcon("configure"), i18n("Configure View..."), this);
-    connect(actionOptions, SIGNAL(triggered(bool)), SLOT(slotOptions()));
+    connect(actionOptions, &QAction::triggered, this, &TaskWorkPackageView::slotOptions);
     addContextAction( actionOptions );
 }
 
@@ -723,15 +723,15 @@ GanttView::GanttView( Part *part, QWidget *parent )
     for ( int i = 0; i < part->workPackageCount(); ++i ) {
         updateDateTimeGrid( part->workPackage( i ) );
     }
-    connect( m_itemmodel, SIGNAL(rowsInserted(QModelIndex,int,int)), SLOT(slotRowsInserted(QModelIndex,int,int)));
-    connect( m_itemmodel, SIGNAL(rowsRemoved(QModelIndex,int,int)), SLOT(slotRowsRemoved(QModelIndex,int,int)));
+    connect( m_itemmodel, &QAbstractItemModel::rowsInserted, this, &GanttView::slotRowsInserted);
+    connect( m_itemmodel, &QAbstractItemModel::rowsRemoved, this, &GanttView::slotRowsRemoved);
 
-    connect(tv, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SIGNAL(contextMenuRequested(QModelIndex,QPoint)));
-    connect(tv, SIGNAL(headerContextMenuRequested(QPoint)), this, SIGNAL(headerContextMenuRequested(QPoint)));
+    connect(tv, &KPlato::TreeViewBase::contextMenuRequested, this, &GanttView::contextMenuRequested);
+    connect(tv, &KPlato::TreeViewBase::headerContextMenuRequested, this, &GanttView::headerContextMenuRequested);
 
-    connect(tv->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)));
+    connect(tv->selectionModel(), &QItemSelectionModel::selectionChanged, this, &GanttView::slotSelectionChanged);
 
-    connect(tv->header(), SIGNAL(sectionMoved(int,int,int)), SIGNAL(sectionsMoved()));
+    connect(tv->header(), &QHeaderView::sectionMoved, this, &GanttView::sectionsMoved);
 }
 
 GanttView::~GanttView()
@@ -845,14 +845,14 @@ TaskWPGanttView::TaskWPGanttView( Part *part, QWidget *parent )
 
     setupGui();
 
-    connect(itemModel(), SIGNAL(executeCommand(KUndo2Command*)), part, SLOT(addCommand(KUndo2Command*)));
+    connect(itemModel(), &KPlato::ItemModelBase::executeCommand, part, &Part::addCommand);
 
     connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
-    connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)));
+    connect( m_view, &GanttView::headerContextMenuRequested, this, &TaskWPGanttView::slotHeaderContextMenuRequested);
 
-    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), SLOT(slotSelectionChanged(QModelIndexList)));
+    connect( m_view, &GanttView::selectionChanged, this, &TaskWPGanttView::slotSelectionChanged);
 
-    connect(m_view, SIGNAL(sectionsMoved()), SLOT(sectionsMoved()));
+    connect(m_view, &GanttView::sectionsMoved, this, &TaskWPGanttView::sectionsMoved);
 }
 
 void TaskWPGanttView::slotSelectionChanged( const QModelIndexList& /*lst*/ )
@@ -891,7 +891,7 @@ void TaskWPGanttView::slotContextMenuRequested( const QModelIndex &idx, const QP
 void TaskWPGanttView::setupGui()
 {
     actionOptions = new QAction(koIcon("configure"), i18n("Configure View..."), this);
-    connect(actionOptions, SIGNAL(triggered(bool)), SLOT(slotOptions()));
+    connect(actionOptions, &QAction::triggered, this, &TaskWPGanttView::slotOptions);
     addContextAction( actionOptions );
 }
 

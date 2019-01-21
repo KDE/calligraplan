@@ -426,48 +426,48 @@ void ResourceAllocationItemModel::slotResourceGroupRemoved( const ResourceGroup 
 void ResourceAllocationItemModel::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        disconnect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
-        disconnect( m_project, SIGNAL(resourceGroupChanged(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupChanged(KPlato::ResourceGroup*)) );
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &ResourceAllocationItemModel::projectDeleted);
+        disconnect( m_project, &Project::resourceChanged, this, &ResourceAllocationItemModel::slotResourceChanged );
+        disconnect( m_project, &Project::resourceGroupChanged, this, &ResourceAllocationItemModel::slotResourceGroupChanged );
 
-        disconnect( m_project, SIGNAL(resourceGroupToBeAdded(const KPlato::ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(const KPlato::ResourceGroup*,int)) );
+        disconnect( m_project, &Project::resourceGroupToBeAdded, this, &ResourceAllocationItemModel::slotResourceGroupToBeInserted );
 
-        disconnect( m_project, SIGNAL(resourceGroupToBeRemoved(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(const KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAllocationItemModel::slotResourceGroupToBeRemoved );
 
-        disconnect( m_project, SIGNAL(resourceToBeAdded(const KPlato::ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(const KPlato::ResourceGroup*,int)) );
+        disconnect( m_project, &Project::resourceToBeAdded, this, &ResourceAllocationItemModel::slotResourceToBeInserted );
 
-        disconnect( m_project, SIGNAL(resourceToBeRemoved(const KPlato::Resource*)), this, SLOT(slotResourceToBeRemoved(const KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceToBeRemoved, this, &ResourceAllocationItemModel::slotResourceToBeRemoved );
 
-        disconnect( m_project, SIGNAL(resourceGroupAdded(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupInserted(const KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupAdded, this, &ResourceAllocationItemModel::slotResourceGroupInserted );
 
-        disconnect( m_project, SIGNAL(resourceGroupRemoved(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(const KPlato::ResourceGroup*)) );
+        disconnect( m_project, &Project::resourceGroupRemoved, this, &ResourceAllocationItemModel::slotResourceGroupRemoved );
 
-        disconnect( m_project, SIGNAL(resourceAdded(const KPlato::Resource*)), this, SLOT(slotResourceInserted(const KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceAdded, this, &ResourceAllocationItemModel::slotResourceInserted );
 
-        disconnect( m_project, SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotResourceRemoved(const KPlato::Resource*)) );
+        disconnect( m_project, &Project::resourceRemoved, this, &ResourceAllocationItemModel::slotResourceRemoved );
 
     }
     m_project = project;
     if ( m_project ) {
-        connect(m_project, SIGNAL(aboutToBeDeleted()), this, SLOT(projectDeleted()));
-        connect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
-        connect( m_project, SIGNAL(resourceGroupChanged(KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupChanged(KPlato::ResourceGroup*)) );
+        connect(m_project, &Project::aboutToBeDeleted, this, &ResourceAllocationItemModel::projectDeleted);
+        connect( m_project, &Project::resourceChanged, this, &ResourceAllocationItemModel::slotResourceChanged );
+        connect( m_project, &Project::resourceGroupChanged, this, &ResourceAllocationItemModel::slotResourceGroupChanged );
 
-        connect( m_project, SIGNAL(resourceGroupToBeAdded(const KPlato::ResourceGroup*,int)), this, SLOT(slotResourceGroupToBeInserted(const KPlato::ResourceGroup*,int)) );
+        connect( m_project, &Project::resourceGroupToBeAdded, this, &ResourceAllocationItemModel::slotResourceGroupToBeInserted );
 
-        connect( m_project, SIGNAL(resourceGroupToBeRemoved(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupToBeRemoved(const KPlato::ResourceGroup*)) );
+        connect( m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAllocationItemModel::slotResourceGroupToBeRemoved );
 
-        connect( m_project, SIGNAL(resourceToBeAdded(const KPlato::ResourceGroup*,int)), this, SLOT(slotResourceToBeInserted(const KPlato::ResourceGroup*,int)) );
+        connect( m_project, &Project::resourceToBeAdded, this, &ResourceAllocationItemModel::slotResourceToBeInserted );
 
-        connect( m_project, SIGNAL(resourceToBeRemoved(const KPlato::Resource*)), this, SLOT(slotResourceToBeRemoved(const KPlato::Resource*)) );
+        connect( m_project, &Project::resourceToBeRemoved, this, &ResourceAllocationItemModel::slotResourceToBeRemoved );
 
-        connect( m_project, SIGNAL(resourceGroupAdded(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupInserted(const KPlato::ResourceGroup*)) );
+        connect( m_project, &Project::resourceGroupAdded, this, &ResourceAllocationItemModel::slotResourceGroupInserted );
 
-        connect( m_project, SIGNAL(resourceGroupRemoved(const KPlato::ResourceGroup*)), this, SLOT(slotResourceGroupRemoved(const KPlato::ResourceGroup*)) );
+        connect( m_project, &Project::resourceGroupRemoved, this, &ResourceAllocationItemModel::slotResourceGroupRemoved );
 
-        connect( m_project, SIGNAL(resourceAdded(const KPlato::Resource*)), this, SLOT(slotResourceInserted(const KPlato::Resource*)) );
+        connect( m_project, &Project::resourceAdded, this, &ResourceAllocationItemModel::slotResourceInserted );
 
-        connect( m_project, SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotResourceRemoved(const KPlato::Resource*)) );
+        connect( m_project, &Project::resourceRemoved, this, &ResourceAllocationItemModel::slotResourceRemoved );
 
     }
     m_model.setProject( m_project );

@@ -48,7 +48,7 @@ RequestResourcesPanel::RequestResourcesPanel(QWidget *parent, Project &project, 
     m_view->slotExpand();
     m_view->masterView()->header()->resizeSections( QHeaderView::ResizeToContents );
 
-    connect( m_view, SIGNAL(dataChanged()), SIGNAL(changed()) );
+    connect( m_view, &ResourceAllocationTreeView::dataChanged, this, &RequestResourcesPanel::changed );
 }
 
 bool RequestResourcesPanel::ok()

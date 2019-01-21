@@ -57,7 +57,7 @@ void ViewListDocker::setView(View *view)
     setWidget(m_viewlist);
     m_viewlist->setProject( &( view->getProject() ) );
     connect( m_viewlist, SIGNAL(selectionChanged(ScheduleManager*)), view, SLOT(slotSelectionChanged(ScheduleManager*)) );
-    connect( view, SIGNAL(currentScheduleManagerChanged(ScheduleManager*)), m_viewlist, SLOT(setSelectedSchedule(ScheduleManager*)) );
+    connect( view, &View::currentScheduleManagerChanged, m_viewlist, &ViewListWidget::setSelectedSchedule );
     connect( m_viewlist, SIGNAL(updateViewInfo(ViewListItem*)), view, SLOT(slotUpdateViewInfo(ViewListItem*)) );
 
 }

@@ -73,7 +73,7 @@ AccountseditorConfigDialog::AccountseditorConfigDialog( ViewBase *view, AccountT
     if (selectPrint) {
         setCurrentPage(page);
     }
-    connect( this, SIGNAL(accepted()), this, SLOT(slotOk()));
+    connect( this, &QDialog::accepted, this, &AccountseditorConfigDialog::slotOk);
 }
 
 void AccountseditorConfigDialog::slotOk()
@@ -166,13 +166,13 @@ AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_view = new AccountTreeView( this );
-    connect(this, SIGNAL(expandAll()), m_view, SLOT(slotExpand()));
-    connect(this, SIGNAL(collapseAll()), m_view, SLOT(slotCollapse()));
+    connect(this, &ViewBase::expandAll, m_view, &TreeViewBase::slotExpand);
+    connect(this, &ViewBase::collapseAll, m_view, &TreeViewBase::slotCollapse);
 
     l->addWidget( m_view );
     m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
 
-    connect( model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect( model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
     
     connect( m_view, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex)) );
 
@@ -281,19 +281,19 @@ void AccountsEditor::setupGui()
     actionAddAccount  = new QAction(koIcon("document-new"), i18n("Add Account"), this);
     actionCollection()->addAction("add_account", actionAddAccount );
     actionCollection()->setDefaultShortcut(actionAddAccount, Qt::CTRL + Qt::Key_I);
-    connect( actionAddAccount, SIGNAL(triggered(bool)), SLOT(slotAddAccount()) );
+    connect( actionAddAccount, &QAction::triggered, this, &AccountsEditor::slotAddAccount );
     addAction( name, actionAddAccount );
 
     actionAddSubAccount  = new QAction(koIcon("document-new"), i18n("Add Subaccount"), this);
     actionCollection()->addAction("add_subaccount", actionAddSubAccount );
     actionCollection()->setDefaultShortcut(actionAddSubAccount, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
-    connect( actionAddSubAccount, SIGNAL(triggered(bool)), SLOT(slotAddSubAccount()) );
+    connect( actionAddSubAccount, &QAction::triggered, this, &AccountsEditor::slotAddSubAccount );
     addAction( name, actionAddSubAccount );
 
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), i18nc("@action", "Delete"), this);
     actionCollection()->addAction("delete_selection", actionDeleteSelection );
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
-    connect( actionDeleteSelection, SIGNAL(triggered(bool)), SLOT(slotDeleteSelection()) );
+    connect( actionDeleteSelection, &QAction::triggered, this, &AccountsEditor::slotDeleteSelection );
     addAction( name, actionDeleteSelection );
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);

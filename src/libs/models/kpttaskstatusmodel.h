@@ -107,7 +107,6 @@ protected Q_SLOTS:
     void slotNodeMoved(KPlato::Node *node );
 
     void slotWbsDefinitionChanged();
-    void slotLayoutChanged();
 
 protected:
 

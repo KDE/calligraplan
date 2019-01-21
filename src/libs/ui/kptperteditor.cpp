@@ -51,7 +51,7 @@ PertEditor::PertEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     m_requiredList = widget.required;
     m_requiredList->hideColumn( 1 ); // child node name
     m_requiredList->setEditTriggers( QAbstractItemView::DoubleClicked | QAbstractItemView::EditKeyPressed );
-    connect( m_requiredList->model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect( m_requiredList->model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
     updateReadWrite( doc->isReadWrite() );
 
     widget.addBtn->setIcon(koIcon("arrow-right"));
@@ -59,14 +59,14 @@ PertEditor::PertEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     slotAvailableChanged( 0 );
     slotRequiredChanged( QModelIndex() );
 
-    connect( m_tasktree, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), SLOT(slotCurrentTaskChanged(QTreeWidgetItem*,QTreeWidgetItem*)) );
-    connect( m_availableList, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), SLOT(slotAvailableChanged(QTreeWidgetItem*)) );
-    connect( m_requiredList->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), SLOT(slotRequiredChanged(QModelIndex)) );
+    connect( m_tasktree, &QTreeWidget::currentItemChanged, this, &PertEditor::slotCurrentTaskChanged );
+    connect( m_availableList, &QTreeWidget::currentItemChanged, this, &PertEditor::slotAvailableChanged );
+    connect( m_requiredList->selectionModel(), &QItemSelectionModel::currentChanged, this, &PertEditor::slotRequiredChanged );
 
-    connect( widget.addBtn, SIGNAL(clicked()), this, SLOT(slotAddClicked()) );
-    connect( widget.removeBtn, SIGNAL(clicked()), this, SLOT(slotRemoveClicked()) );
+    connect( widget.addBtn, &QAbstractButton::clicked, this, &PertEditor::slotAddClicked );
+    connect( widget.removeBtn, &QAbstractButton::clicked, this, &PertEditor::slotRemoveClicked );
 
-    connect( this, SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect( this, &PertEditor::executeCommand, doc, &KoDocument::addCommand );
 
 // TODO: need to use TreeViewBase here
 //     connect(this, SIGNAL(expandAll()), m_tasktree, SLOT(slotExpand()));
@@ -167,21 +167,21 @@ void PertEditor::removeTaskFromRequiredList()
 void PertEditor::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeAdded(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        disconnect( m_project, SIGNAL(relationAdded(KPlato::Relation*)), this, SLOT(slotRelationAdded(KPlato::Relation*)) );
-        disconnect( m_project, SIGNAL(relationRemoved(KPlato::Relation*)), this, SLOT(slotRelationRemoved(KPlato::Relation*)) );
+        disconnect( m_project, &Project::nodeAdded, this, &PertEditor::slotNodeAdded );
+        disconnect( m_project, &Project::nodeToBeRemoved, this, &PertEditor::slotNodeRemoved );
+        disconnect( m_project, &Project::nodeMoved, this, &PertEditor::slotNodeMoved );
+        disconnect( m_project, &Project::nodeChanged, this, &PertEditor::slotNodeChanged );
+        disconnect( m_project, &Project::relationAdded, this, &PertEditor::slotRelationAdded );
+        disconnect( m_project, &Project::relationRemoved, this, &PertEditor::slotRelationRemoved );
     }
     m_project = project;
     if ( m_project ) {
-        connect( m_project, SIGNAL(nodeAdded(KPlato::Node*)), this, SLOT(slotNodeAdded(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeToBeRemoved(KPlato::Node*)), this, SLOT(slotNodeRemoved(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeMoved(KPlato::Node*)), this, SLOT(slotNodeMoved(KPlato::Node*)) );
-        connect( m_project, SIGNAL(nodeChanged(KPlato::Node*)), this, SLOT(slotNodeChanged(KPlato::Node*)) );
-        connect( m_project, SIGNAL(relationAdded(KPlato::Relation*)), this, SLOT(slotRelationAdded(KPlato::Relation*)) );
-        connect( m_project, SIGNAL(relationRemoved(KPlato::Relation*)), this, SLOT(slotRelationRemoved(KPlato::Relation*)) );
+        connect( m_project, &Project::nodeAdded, this, &PertEditor::slotNodeAdded );
+        connect( m_project, &Project::nodeToBeRemoved, this, &PertEditor::slotNodeRemoved );
+        connect( m_project, &Project::nodeMoved, this, &PertEditor::slotNodeMoved );
+        connect( m_project, &Project::nodeChanged, this, &PertEditor::slotNodeChanged );
+        connect( m_project, &Project::relationAdded, this, &PertEditor::slotRelationAdded );
+        connect( m_project, &Project::relationRemoved, this, &PertEditor::slotRelationRemoved );
     }
     m_requiredList->setProject( project );
     draw();

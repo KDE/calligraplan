@@ -60,21 +60,21 @@ KoDockWidgetTitleBar::KoDockWidgetTitleBar(QDockWidget* dockWidget)
 
     d->floatButton = new KoDockWidgetTitleBarButton(this);
     d->floatButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarNormalButton, 0, q));
-    connect(d->floatButton, SIGNAL(clicked()), SLOT(toggleFloating()));
+    connect(d->floatButton, SIGNAL(clicked()), SLOT(toggleFloating())); // clazy:exclude=old-style-connect
     d->floatButton->setVisible(true);
     d->floatButton->setToolTip(i18nc("@info:tooltip", "Float Docker"));
     d->floatButton->setStyleSheet("border: 0");
 
     d->closeButton = new KoDockWidgetTitleBarButton(this);
     d->closeButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarCloseButton, 0, q));
-    connect(d->closeButton, SIGNAL(clicked()), q, SLOT(close()));
+    connect(d->closeButton, &QAbstractButton::clicked, q, &QWidget::close);
     d->closeButton->setVisible(true);
     d->closeButton->setToolTip(i18nc("@info:tooltip", "Close Docker"));
     d->closeButton->setStyleSheet("border: 0"); // border makes the header busy looking (appears on some OSs)
 
     d->collapseButton = new KoDockWidgetTitleBarButton(this);
     d->collapseButton->setIcon(openIcon(q));
-    connect(d->collapseButton, SIGNAL(clicked()), SLOT(toggleCollapsed()));
+    connect(d->collapseButton, SIGNAL(clicked()), SLOT(toggleCollapsed())); // clazy:exclude=old-style-connect
     d->collapseButton->setVisible(true);
     d->collapsable = true;
     d->collapseButton->setToolTip(i18nc("@info:tooltip", "Collapse Docker"));
@@ -83,14 +83,14 @@ KoDockWidgetTitleBar::KoDockWidgetTitleBar(QDockWidget* dockWidget)
     d->lockButton = new KoDockWidgetTitleBarButton(this);
     d->lockButton->setCheckable(true);
     d->lockButton->setIcon(koIcon("object-unlocked"));
-    connect(d->lockButton, SIGNAL(toggled(bool)), SLOT(setLocked(bool)));
+    connect(d->lockButton, &QAbstractButton::toggled, this, &KoDockWidgetTitleBar::setLocked);
     d->lockButton->setVisible(true);
     d->lockable = true;
     d->lockButton->setToolTip(i18nc("@info:tooltip", "Lock Docker"));
     d->lockButton->setStyleSheet("border: 0");
 
-    connect(dockWidget, SIGNAL(featuresChanged(QDockWidget::DockWidgetFeatures)), SLOT(featuresChanged(QDockWidget::DockWidgetFeatures)));
-    connect(dockWidget, SIGNAL(topLevelChanged(bool)), SLOT(topLevelChanged(bool)));
+    connect(dockWidget, SIGNAL(featuresChanged(QDockWidget::DockWidgetFeatures)), SLOT(featuresChanged(QDockWidget::DockWidgetFeatures))); // clazy:exclude=old-style-connect
+    connect(dockWidget, SIGNAL(topLevelChanged(bool)), SLOT(topLevelChanged(bool))); // clazy:exclude=old-style-connect
 
     d->featuresChanged(0);
 }

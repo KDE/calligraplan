@@ -53,7 +53,7 @@ SchedulesDocker::SchedulesDocker()
 
     setWidget(m_view);
 
-    connect( m_view->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(slotSelectionChanged()) );
+    connect( m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SchedulesDocker::slotSelectionChanged );
 }
 
 SchedulesDocker::~SchedulesDocker()

@@ -71,15 +71,15 @@ TaskDialog::TaskDialog( Project &project, Task &task, Accounts &accounts, QWidge
 
     setButtonOkEnabled(false);
 
-    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)), SLOT(slotCurrentChanged(KPageWidgetItem*,KPageWidgetItem*)));
+    connect(this, &KPageDialog::currentPageChanged, this, &TaskDialog::slotCurrentChanged);
 
-    connect(m_generalTab, SIGNAL(obligatedFieldsFilled(bool)), this, SLOT(setButtonOkEnabled(bool)));
-    connect(m_resourcesTab, SIGNAL(changed()), m_generalTab, SLOT(checkAllFieldsFilled()));
-    connect(m_documentsTab, SIGNAL(changed()), m_generalTab, SLOT(checkAllFieldsFilled()));
-    connect(m_costTab, SIGNAL(changed()), m_generalTab, SLOT(checkAllFieldsFilled()));
-    connect(m_descriptionTab, SIGNAL(textChanged(bool)), m_generalTab, SLOT(checkAllFieldsFilled()));
+    connect(m_generalTab, &TaskGeneralPanelImpl::obligatedFieldsFilled, this, &TaskDialog::setButtonOkEnabled);
+    connect(m_resourcesTab, &RequestResourcesPanel::changed, m_generalTab, &TaskGeneralPanelImpl::checkAllFieldsFilled);
+    connect(m_documentsTab, &DocumentsPanel::changed, m_generalTab, &TaskGeneralPanelImpl::checkAllFieldsFilled);
+    connect(m_costTab, &TaskCostPanelImpl::changed, m_generalTab, &TaskGeneralPanelImpl::checkAllFieldsFilled);
+    connect(m_descriptionTab, &TaskDescriptionPanelImpl::textChanged, m_generalTab, &TaskGeneralPanelImpl::checkAllFieldsFilled);
 
-    connect(&project, SIGNAL(nodeRemoved(KPlato::Node*)), this, SLOT(slotTaskRemoved(KPlato::Node*)));
+    connect(&project, &Project::nodeRemoved, this, &TaskDialog::slotTaskRemoved);
 }
 
 void TaskDialog::setButtonOkEnabled(bool enabled) {
@@ -157,7 +157,7 @@ TaskAddDialog::TaskAddDialog(Project &project, Task &task, Node *currentNode, Ac
     // do not know wbs code yet
     m_generalTab->hideWbs();
     
-    connect(&project, SIGNAL(nodeRemoved(KPlato::Node*)), SLOT(slotNodeRemoved(KPlato::Node*)));
+    connect(&project, &Project::nodeRemoved, this, &TaskAddDialog::slotNodeRemoved);
 }
 
 TaskAddDialog::~TaskAddDialog()
@@ -192,7 +192,7 @@ SubTaskAddDialog::SubTaskAddDialog(Project &project, Task &task, Node *currentNo
     // do not know wbs code yet
     m_generalTab->hideWbs();
 
-    connect(&project, SIGNAL(nodeRemoved(KPlato::Node*)), SLOT(slotNodeRemoved(KPlato::Node*)));
+    connect(&project, &Project::nodeRemoved, this, &SubTaskAddDialog::slotNodeRemoved);
 }
 
 SubTaskAddDialog::~SubTaskAddDialog()

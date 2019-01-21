@@ -51,7 +51,7 @@ LocaleConfigMoney::LocaleConfigMoney(Locale *locale,
   m_labMonCurSym->setObjectName( I18N_NOOP("Currency symbol:") );
   m_labMonFraDig->setObjectName( I18N_NOOP("Fract digits:") );
 
-  connect(m_edMonCurSym,SIGNAL(textChanged(QString)),SLOT(slotMonCurSymChanged(QString)));
+  connect(m_edMonCurSym,&QLineEdit::textChanged,this, &LocaleConfigMoney::slotMonCurSymChanged);
 
   connect(m_inMonFraDig,SIGNAL(valueChanged(int)),SLOT(slotMonFraDigChanged(int)));
 

@@ -69,11 +69,11 @@ KPlatoWork_MainWindow::KPlatoWork_MainWindow()
 
     QAction *a = KStandardAction::undo(m_part->undoStack(), SLOT(undo()), actionCollection());
     a->setEnabled( false );
-    connect( m_part->undoStack(), SIGNAL(canUndoChanged(bool)), a, SLOT(setEnabled(bool)) );
+    connect( m_part->undoStack(), &KUndo2QStack::canUndoChanged, a, &QAction::setEnabled );
 
     a = KStandardAction::redo(m_part->undoStack(), SLOT(redo()), actionCollection());
     a->setEnabled( false );
-    connect( m_part->undoStack(), SIGNAL(canRedoChanged(bool)), a, SLOT(setEnabled(bool)) );
+    connect( m_part->undoStack(), &KUndo2QStack::canRedoChanged, a, &QAction::setEnabled );
     
     setCentralWidget( m_part->widget() );
     setupGUI( KXmlGuiWindow::ToolBar | KXmlGuiWindow::Keys | KXmlGuiWindow::StatusBar | KXmlGuiWindow::Save);

@@ -58,16 +58,16 @@ void BuiltinSchedulerPlugin::calculate( Project &project, ScheduleManager *sm, b
 {
     KPlatoScheduler *job = new KPlatoScheduler( &project, sm );
     m_jobs << job;
-    connect(job, SIGNAL(jobStarted(KPlato::SchedulerThread*)), SLOT(slotStarted(KPlato::SchedulerThread*)));
-    connect(job, SIGNAL(jobFinished(KPlato::SchedulerThread*)), SLOT(slotFinished(KPlato::SchedulerThread*)));
+    connect(job, &SchedulerThread::jobStarted, this, &BuiltinSchedulerPlugin::slotStarted);
+    connect(job, &SchedulerThread::jobFinished, this, &BuiltinSchedulerPlugin::slotFinished);
 
 //     connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
 //     connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
 
     sm->setScheduling( true );
     if ( nothread ) {
-        connect(job, SIGNAL(maxProgressChanged(int)), sm, SLOT(setMaxProgress(int)));
-        connect(job, SIGNAL(progressChanged(int)), sm, SLOT(setProgress(int)));
+        connect(job, &SchedulerThread::maxProgressChanged, sm, &ScheduleManager::setMaxProgress);
+        connect(job, &SchedulerThread::progressChanged, sm, &ScheduleManager::setProgress);
         job->doRun();
     } else {
         job->start();
@@ -104,8 +104,8 @@ void BuiltinSchedulerPlugin::slotFinished( SchedulerThread *job )
     }
     emit sigCalculationFinished( mp, sm );
 
-    disconnect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
-    disconnect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
+    disconnect(this, &BuiltinSchedulerPlugin::sigCalculationStarted, mp, &Project::sigCalculationStarted);
+    disconnect(this, &BuiltinSchedulerPlugin::sigCalculationFinished, mp, &Project::sigCalculationFinished);
 
     job->deleteLater();
     qDebug()<<"BuiltinSchedulerPlugin::slotFinished: <<<";

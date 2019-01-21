@@ -93,9 +93,9 @@ StandardWorktimeDialog::StandardWorktimeDialog(Project &p, QWidget *parent)
     setMainWidget(dia);
     enableButtonOk(false);
 
-    connect(dia, SIGNAL(obligatedFieldsFilled(bool)), SLOT(enableButtonOk(bool)));
-    connect(dia, SIGNAL(enableButtonOk(bool)), SLOT(enableButtonOk(bool)));
-    connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
+    connect(dia, &StandardWorktimeDialogImpl::obligatedFieldsFilled, this, &KoDialog::enableButtonOk);
+    connect(dia, &StandardWorktimeDialogImpl::enableButtonOk, this, &KoDialog::enableButtonOk);
+    connect(this,&KoDialog::okClicked,this,&StandardWorktimeDialog::slotOk);
 }
 
 MacroCommand *StandardWorktimeDialog::buildCommand() {

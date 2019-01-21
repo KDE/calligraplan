@@ -94,7 +94,7 @@ KDatePickerPrivateYearSelector::KDatePickerPrivateYearSelector(
     //               calendar->year( calendar->latestValidDate() ) );
     setValidator(val);
 
-    connect(this, SIGNAL(returnPressed()), SLOT(yearEnteredSlot()));
+    connect(this, &QLineEdit::returnPressed, this, &KDatePickerPrivateYearSelector::yearEnteredSlot);
 }
 
 void KDatePickerPrivateYearSelector::yearEnteredSlot()
@@ -328,16 +328,16 @@ void KDatePicker::initWidget(const QDate &date_)
     }
 
     connect(d->table, SIGNAL(dateChanged(QDate)), SLOT(dateChangedSlot(QDate)));
-    connect(d->table, SIGNAL(tableClicked()), SLOT(tableClickedSlot()));
-    connect(d->monthForward, SIGNAL(clicked()), SLOT(monthForwardClicked()));
-    connect(d->monthBackward, SIGNAL(clicked()), SLOT(monthBackwardClicked()));
-    connect(d->yearForward, SIGNAL(clicked()), SLOT(yearForwardClicked()));
-    connect(d->yearBackward, SIGNAL(clicked()), SLOT(yearBackwardClicked()));
+    connect(d->table, &KDateTable::tableClicked, this, &KDatePicker::tableClickedSlot);
+    connect(d->monthForward, &QAbstractButton::clicked, this, &KDatePicker::monthForwardClicked);
+    connect(d->monthBackward, &QAbstractButton::clicked, this, &KDatePicker::monthBackwardClicked);
+    connect(d->yearForward, &QAbstractButton::clicked, this, &KDatePicker::yearForwardClicked);
+    connect(d->yearBackward, &QAbstractButton::clicked, this, &KDatePicker::yearBackwardClicked);
     connect(d->selectWeek, SIGNAL(activated(int)), SLOT(weekSelected(int)));
-    connect(d->todayButton, SIGNAL(clicked()), SLOT(todayButtonClicked()));
-    connect(d->selectMonth, SIGNAL(clicked()), SLOT(selectMonthClicked()));
-    connect(d->selectYear, SIGNAL(toggled(bool)), SLOT(selectYearClicked()));
-    connect(d->line, SIGNAL(returnPressed()), SLOT(lineEnterPressed()));
+    connect(d->todayButton, &QAbstractButton::clicked, this, &KDatePicker::todayButtonClicked);
+    connect(d->selectMonth, &QAbstractButton::clicked, this, &KDatePicker::selectMonthClicked);
+    connect(d->selectYear, &QAbstractButton::toggled, this, &KDatePicker::selectYearClicked);
+    connect(d->line, &QLineEdit::returnPressed, this, &KDatePicker::lineEnterPressed);
 
     topLayout->addWidget(d->table);
 
@@ -655,8 +655,8 @@ void KDatePicker::setCloseButton(bool enable)
         d->navigationLayout->addWidget(d->closeButton);
         d->closeButton->setToolTip(i18n("Close"));
         d->closeButton->setIcon(koIcon("window-close"));
-        connect(d->closeButton, SIGNAL(clicked()),
-                topLevelWidget(), SLOT(close()));
+        connect(d->closeButton, &QAbstractButton::clicked,
+                topLevelWidget(), &QWidget::close);
     } else {
         delete d->closeButton;
         d->closeButton = 0L;

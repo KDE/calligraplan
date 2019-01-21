@@ -61,7 +61,7 @@ AccountsTreeView::AccountsTreeView( QWidget *parent )
     m_leftHidden = QList<int>() << CostBreakdownItemModel::Planned << CostBreakdownItemModel::Actual << -1;
     slotModelReset();
     
-    connect( m, SIGNAL(modelReset()), SLOT(slotModelReset()) );
+    connect( m, &QAbstractItemModel::modelReset, this, &AccountsTreeView::slotModelReset );
 
     Help::add(this,
               xi18nc("@info:whatsthis",
@@ -172,10 +172,10 @@ AccountsView::AccountsView(KoPart *part, Project *project, KoDocument *doc, QWid
 
     setupGui();
 
-    connect(this, SIGNAL(expandAll()), m_view, SLOT(slotExpand()));
-    connect(this, SIGNAL(collapseAll()), m_view, SLOT(slotCollapse()));
+    connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
+    connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &AccountsView::slotContextMenuRequested );
     
     connect( m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
 }
