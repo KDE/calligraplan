@@ -18,6 +18,7 @@
 */
 
 
+// clazy:excludeall=qstring-arg
 #include "commandlineparser.h"
 
 #include <KDBusService>

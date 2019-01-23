@@ -11,6 +11,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "CoreAttributesList.h"
 
 #include <QDebug>

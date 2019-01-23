@@ -12,6 +12,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "TjMessageHandler.h"
 #include "taskjuggler.h"
 #include "Utility.h"

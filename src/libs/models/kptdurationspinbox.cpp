@@ -18,6 +18,7 @@
 */
 
 
+// clazy:excludeall=qstring-arg
 #include <kptdurationspinbox.h>
 
 #include "kptnode.h"

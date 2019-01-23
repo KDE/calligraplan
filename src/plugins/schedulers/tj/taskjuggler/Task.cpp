@@ -12,6 +12,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "Task.h"
 
 #include <KLocalizedString>

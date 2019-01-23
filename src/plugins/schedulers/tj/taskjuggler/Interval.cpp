@@ -11,6 +11,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "Interval.h"
 
 QDebug operator<<( QDebug dbg, const TJ::Interval *i )

@@ -9,6 +9,7 @@
  *
  * $Id$
  */
+// clazy:excludeall=qstring-arg
 #include "TaskList.h"
 #include "Resource.h"
 

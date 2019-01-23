@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
+// clazy:excludeall=qstring-arg
 #include "TasksEditDialog.h"
 #include "kpttaskcostpanel.h"
 #include "kpttaskgeneralpanel.h"

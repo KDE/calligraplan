@@ -19,6 +19,7 @@
 
 // NOTE: This is copied from kmessagebox.cpp
 
+// clazy:excludeall=qstring-arg
 #include <QMessageBox>
 
 #include <KIconLoader>

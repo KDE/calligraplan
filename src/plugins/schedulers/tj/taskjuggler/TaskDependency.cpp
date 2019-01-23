@@ -11,6 +11,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "TaskDependency.h"
 
 #include <assert.h>

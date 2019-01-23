@@ -56,6 +56,7 @@
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
+// clazy:excludeall=qstring-arg
 #include "kundo2stack.h"
 #include "kundo2view.h"
 #include "kundo2model.h"

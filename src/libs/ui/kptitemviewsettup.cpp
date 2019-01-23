@@ -18,6 +18,7 @@
 */
 
 
+// clazy:excludeall=qstring-arg
 #include "kptitemviewsettup.h"
 #include "kptitemmodelbase.h"
 #include "kptviewbase.h"

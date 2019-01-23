@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
+// clazy:excludeall=qstring-arg
 #include "KPlatoRCPSPlugin.h"
 
 #include "kptschedulerplugin_macros.h"

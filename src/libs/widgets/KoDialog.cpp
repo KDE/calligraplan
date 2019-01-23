@@ -20,6 +20,7 @@
  *  Boston, MA 02110-1301, USA.
  */
 
+// clazy:excludeall=qstring-arg
 #include "KoDialog.h"
 #include "KoDialog_p.h"
 

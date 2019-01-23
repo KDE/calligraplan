@@ -21,6 +21,7 @@
 */
 
 
+// clazy:excludeall=qstring-arg
 #include "KoDocumentBase.h"
 
 #include <QtGlobal>

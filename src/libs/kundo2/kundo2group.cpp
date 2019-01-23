@@ -39,6 +39,7 @@
 **
 ****************************************************************************/
 
+// clazy:excludeall=qstring-arg
 #include "kundo2group.h"
 #include "kundo2stack.h"
 #include "kundo2stack_p.h"

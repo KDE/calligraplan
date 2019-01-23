@@ -19,6 +19,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
+// clazy:excludeall=qstring-arg
 #include "KoUpdater.h"
 
 #include "KoUpdaterPrivate_p.h"

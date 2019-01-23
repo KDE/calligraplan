@@ -9,6 +9,7 @@
  *
  * $Id$
  */
+// clazy:excludeall=qstring-arg
 #include "BookingList.h"
 
 int

@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+// clazy:excludeall=qstring-arg
 #include "kptviewlistdialog.h"
 #include "kptviewlist.h"
 #include "kptview.h"

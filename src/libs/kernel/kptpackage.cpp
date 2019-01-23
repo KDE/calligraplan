@@ -17,6 +17,7 @@
 */
 
 
+// clazy:excludeall=qstring-arg
 #include "kptpackage.h"
 
 using namespace KPlato;

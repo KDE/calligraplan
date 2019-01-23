@@ -10,6 +10,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "VacationList.h"
 
 namespace TJ

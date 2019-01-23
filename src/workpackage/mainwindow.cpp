@@ -21,6 +21,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
+// clazy:excludeall=qstring-arg
 #include "mainwindow.h"
 #include "part.h"
 #include "view.h"

@@ -10,6 +10,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "ShiftList.h"
 #include "Shift.h"
 #include "Project.h"

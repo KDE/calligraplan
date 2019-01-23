@@ -18,6 +18,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
+// clazy:excludeall=qstring-arg
 #include "factory.h"
 #include "part.h"
 #include "aboutdata.h"

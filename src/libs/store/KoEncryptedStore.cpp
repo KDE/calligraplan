@@ -19,6 +19,7 @@
 */
 #ifdef QCA2
 
+// clazy:excludeall=qstring-arg
 #include "KoEncryptedStore.h"
 #include "KoEncryptionChecker.h"
 #include "KoStore_p.h"

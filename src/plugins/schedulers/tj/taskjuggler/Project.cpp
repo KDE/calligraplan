@@ -14,6 +14,7 @@
 
 #define tjDebug qDebug
 
+// clazy:excludeall=qstring-arg
 #include "Project.h"
 
 #include <stdlib.h>

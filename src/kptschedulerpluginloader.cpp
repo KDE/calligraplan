@@ -19,6 +19,7 @@
 */
 
 
+// clazy:excludeall=qstring-arg
 #include "kptschedulerpluginloader.h"
  
 #include "kptschedulerplugin.h"

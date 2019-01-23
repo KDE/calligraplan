@@ -19,6 +19,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
+// clazy:excludeall=qstring-arg
 #include "KoStore.h"
 #include "KoStore_p.h"
 

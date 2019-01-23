@@ -11,6 +11,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "CoreAttributes.h"
 #include "CoreAttributesList.h"
 #include "CustomAttributeDefinition.h"

@@ -56,6 +56,7 @@
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
+// clazy:excludeall=qstring-arg
 #include "kundo2model.h"
 #include <klocalizedstring.h>
 KUndo2Model::KUndo2Model(QObject *parent)

@@ -19,6 +19,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
+// clazy:excludeall=qstring-arg
 #include "KoPluginLoader.h"
 
 #include <config.h> // CALLIGRA_OLD_PLUGIN_METADATA

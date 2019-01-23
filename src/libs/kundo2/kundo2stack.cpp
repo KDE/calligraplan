@@ -57,6 +57,7 @@
 **
 ****************************************************************************/
 
+// clazy:excludeall=qstring-arg
 #include <QDebug>
 #include <klocalizedstring.h>
 #include <kstandardaction.h>

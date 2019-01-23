@@ -10,6 +10,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "Scenario.h"
 #include "Project.h"
 

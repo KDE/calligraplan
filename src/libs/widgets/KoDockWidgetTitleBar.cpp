@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+// clazy:excludeall=qstring-arg
 #include "KoDockWidgetTitleBar.h"
 #include "KoDockWidgetTitleBar_p.h"
 #include "KoDockWidgetTitleBarButton.h"

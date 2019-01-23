@@ -10,6 +10,7 @@
  * $Id$
  */
 
+// clazy:excludeall=qstring-arg
 #include "TaskScenario.h"
 #include "Resource.h"
 #include "ResourceTreeIterator.h"

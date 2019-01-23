@@ -19,6 +19,7 @@
  */
 
 // Own
+// clazy:excludeall=qstring-arg
 #include "Ko3dScene.h"
 
 #include "OdfDebug.h"

@@ -17,6 +17,7 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 Boston, MA 02110-1301, USA.
 */
 
+// clazy:excludeall=qstring-arg
 #include "KoFilterChain.h"
 
 #include "KoFilterManager.h"  // KoFilterManager::filterAvailable, private API

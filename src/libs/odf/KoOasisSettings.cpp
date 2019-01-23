@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
+// clazy:excludeall=qstring-arg
 #include "KoOasisSettings.h"
 #include "KoXmlNS.h"
 #include <OdfDebug.h>

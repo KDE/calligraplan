@@ -19,6 +19,7 @@
 */
 
 // Own
+// clazy:excludeall=qstring-arg
 #include "KoOdfLoadingContext.h"
 
 #include "OdfDebug.h"

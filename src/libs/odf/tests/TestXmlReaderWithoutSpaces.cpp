@@ -1,3 +1,4 @@
+// clazy:excludeall=qstring-arg
 #include <QTest>
 
 #include <QBuffer>

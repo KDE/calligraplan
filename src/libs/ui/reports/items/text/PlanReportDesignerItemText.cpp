@@ -17,6 +17,7 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// clazy:excludeall=qstring-arg
 #include "PlanReportDesignerItemText.h"
 
 #include "KReportDesignerItemBase.h"
