@@ -661,7 +661,7 @@ void MainDocument::checkForWorkPackage()
         // Merge our workpackages
         if ( ! m_workpackages.isEmpty() ) {
             WorkPackageMergeDialog *dlg = new WorkPackageMergeDialog( i18n( "New work packages detected. Merge data with existing tasks?" ), m_workpackages );
-            connect(dlg, SIGNAL(finished(int)), SLOT(workPackageMergeDialogFinished(int)));
+            connect(dlg, &QDialog::finished, this, &MainDocument::workPackageMergeDialogFinished);
             dlg->show();
             dlg->raise();
             dlg->activateWindow();
@@ -1454,7 +1454,7 @@ void MainDocument::setModified( bool mod )
     KoDocument::setModified( mod || m_viewlistModified ); // Must always call to activate autosave
 }
 
-void MainDocument::viewlistModified()
+void MainDocument::slotViewlistModified()
 {
     if ( ! m_viewlistModified ) {
         m_viewlistModified = true;

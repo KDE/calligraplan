@@ -1523,7 +1523,7 @@ void TaskWorkPackageView::setGuiActive( bool activate )
 
 void TaskWorkPackageView::slotRefreshView()
 {
-    emit checkForWorkPackages();
+    emit checkForWorkPackages(false);
 }
 
 void TaskWorkPackageView::slotCurrentChanged(  const QModelIndex &curr, const QModelIndex & )

@@ -54,12 +54,15 @@ public:
 
     virtual void showStartUpWidget(KoMainWindow *parent);
 
+public Q_SLOTS:
+    void openTaskModule(const QUrl& url);
+
 protected Q_SLOTS:
     void finish();
     void slotShowIntroduction();
     void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
     virtual void openTemplate( const QUrl& url );
-    void openTaskModule(const QUrl& url);
+    void slotOpenTemplate(const QUrl& url);
 
     void slotHelpContents();
 

@@ -136,7 +136,9 @@ public Q_SLOTS:
     void slotNodeRemoved(KPlato::Node *node);
     void slotNodeChanged(KPlato::Node *node);
     void slotResourceChanged(KPlato::Resource *resource);
-    void slotResourceChanged(const KPlato::Resource *resource);
+    void slotResourceRemoved(const KPlato::Resource *resource);
+
+    void slotSetScheduleManager(KPlato::ScheduleManager *sm);
 
 protected:
     double bcwsEffort( int day ) const;

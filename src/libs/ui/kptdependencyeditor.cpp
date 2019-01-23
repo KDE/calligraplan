@@ -1642,16 +1642,16 @@ DependencyView::DependencyView( QWidget *parent )
     setItemScene( new DependencyScene( this ) );
     setAlignment( Qt::AlignLeft | Qt::AlignTop );
 
-    connect( scene(), &QGraphicsScene::selectionChanged, this, &DependencyView::slotSelectionChanged );
-    connect( scene(), SIGNAL(connectItems(DependencyConnectorItem*,DependencyConnectorItem*)), this, SIGNAL(makeConnection(DependencyConnectorItem*,DependencyConnectorItem*)) );
+    connect(scene(), &QGraphicsScene::selectionChanged, this, &DependencyView::slotSelectionChanged);
+    connect(itemScene(), &DependencyScene::connectItems, this, &DependencyView::makeConnection);
 
-    connect( scene(), SIGNAL(contextMenuRequested(QGraphicsItem*)), this, SLOT(slotContextMenuRequested(QGraphicsItem*)) );
+    connect(itemScene(), static_cast<void (DependencyScene::*)(QGraphicsItem*)>(&DependencyScene::contextMenuRequested), this, &DependencyView::slotContextMenuRequested);
 
-    connect( scene(), SIGNAL(dependencyContextMenuRequested(DependencyLinkItem*,DependencyConnectorItem*)), this, SLOT(slotDependencyContextMenuRequested(DependencyLinkItem*,DependencyConnectorItem*)) );
+    connect(itemScene(), &DependencyScene::dependencyContextMenuRequested, this, &DependencyView::slotDependencyContextMenuRequested );
 
-    connect( scene(), SIGNAL(contextMenuRequested(QGraphicsItem*,QPoint)), this, SIGNAL(contextMenuRequested(QGraphicsItem*,QPoint)) );
+    connect(itemScene(), SIGNAL(contextMenuRequested(QGraphicsItem*,QPoint)), this, SIGNAL(contextMenuRequested(QGraphicsItem*,QPoint))); // clazy:exclude=old-style-connect
 
-    connect( itemScene(), SIGNAL(focusItemChanged(QGraphicsItem*)), this, SLOT(slotFocusItemChanged(QGraphicsItem*)) );
+    connect(itemScene(), static_cast<void (DependencyScene::*)(QGraphicsItem*)>(&DependencyScene::focusItemChanged), this, &DependencyView::slotFocusItemChanged);
 
     m_autoScrollTimer.start( 100 );
     connect( &m_autoScrollTimer, &QTimer::timeout, this, &DependencyView::slotAutoScroll );
@@ -2005,12 +2005,12 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
     m_view = new DependencyView( this );
     l->addWidget( m_view );
 
-    connect( m_view, &DependencyView::makeConnection, this, &DependencyEditor::slotCreateRelation );
-    connect( m_view, SIGNAL(selectionChanged(QList<QGraphicsItem*>)), this, SLOT(slotSelectionChanged(QList<QGraphicsItem*>)) );
+    connect(m_view, &DependencyView::makeConnection, this, &DependencyEditor::slotCreateRelation );
+    connect(m_view, SIGNAL(selectionChanged(QList<QGraphicsItem*>)), this, SLOT(slotSelectionChanged(QList<QGraphicsItem*>))); // clazy::exclude=old-style-connect
 
-    connect( m_view->itemScene(), &DependencyScene::itemDoubleClicked, this, &DependencyEditor::slotItemDoubleClicked );
+    connect(m_view->itemScene(), &DependencyScene::itemDoubleClicked, this, &DependencyEditor::slotItemDoubleClicked );
 
-    connect( m_view, &DependencyView::contextMenuRequested, this, &DependencyEditor::slotContextMenuRequested );
+    connect(m_view, &DependencyView::contextMenuRequested, this, &DependencyEditor::slotContextMenuRequested );
 
     Help::add(this,
               xi18nc("@info:whatsthis",
@@ -2039,7 +2039,7 @@ void DependencyEditor::slotItemDoubleClicked( QGraphicsItem *item )
         return;
     }
     if ( item && item->type() == DependencyLinkItem::Type ) {
-        emit modifyRelation( static_cast<DependencyLinkItem*>( item )->relation );
+        emit editRelation( static_cast<DependencyLinkItem*>( item )->relation );
         return;
     }
     if ( item && item->type() == DependencyNodeItem::Type ) {
@@ -2214,7 +2214,7 @@ void DependencyEditor::slotContextMenuRequested( QGraphicsItem *item, const QPoi
             if ( ! actions.isEmpty() ) {
                 QAction *action = menu.exec( pos );
                 if ( action && actions.contains( action ) ) {
-                    emit modifyRelation( items[ actions.indexOf( action ) ]->relation );
+                    emit editRelation( items[ actions.indexOf( action ) ]->relation );
                     return;
                 }
             }
@@ -2357,7 +2357,7 @@ void DependencyEditor::slotOptions()
 {
     debugPlan;
     DependencyeditorConfigDialog *dlg = new DependencyeditorConfigDialog( this, this, sender()->objectName() == "print options" );
-    connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
+    connect(dlg, &QDialog::finished, this, &DependencyEditor::slotOptionsFinished);
     dlg->show();
     dlg->raise();
     dlg->activateWindow();

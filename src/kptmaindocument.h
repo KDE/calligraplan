@@ -144,10 +144,10 @@ public Q_SLOTS:
     /// Removes the view list item from all other views than @p view
     void removeViewListItem(KPlato::View *view, const KPlato::ViewListItem *item);
     /// View selector has been modified
-    void viewlistModified();
+    void slotViewlistModified();
     /// Check for workpackages
     /// If @p keep is true, packages that has been refused will not be checked for again
-    void checkForWorkPackages( bool keep = false );
+    void checkForWorkPackages(bool keep);
 
     void setLoadingTemplate( bool );
     void setLoadingSharedResourcesTemplate( bool );

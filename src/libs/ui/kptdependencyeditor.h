@@ -532,7 +532,7 @@ Q_SIGNALS:
 
     void addRelation(KPlato::Node*, KPlato::Node*, int);
     void modifyRelation(KPlato::Relation*, int);
-    void modifyRelation(KPlato::Relation*);
+    void editRelation(KPlato::Relation*);
     
 public Q_SLOTS:
     /// Activate/deactivate the gui

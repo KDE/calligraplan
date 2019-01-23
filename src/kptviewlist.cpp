@@ -391,7 +391,7 @@ ViewListWidget::ViewListWidget( MainDocument *part, QWidget *parent )//QString n
 
     setupContextMenus();
 
-    connect( m_currentSchedule, SIGNAL(activated(int)), SLOT(slotCurrentScheduleChanged(int)) );
+    connect(m_currentSchedule, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, &ViewListWidget::slotCurrentScheduleChanged);
 
     connect( &m_model, &ScheduleItemModel::scheduleManagerAdded, this, &ViewListWidget::slotScheduleManagerAdded );
 
@@ -658,7 +658,7 @@ void ViewListWidget::slotConfigureItem()
         dlg = new ViewListEditViewDialog( *this, m_contextitem, this );
     }
     if ( dlg ) {
-        connect(dlg, SIGNAL(finished(int)), SLOT(slotDialogFinished(int)));
+        connect(dlg, &QDialog::finished, this, &ViewListWidget::slotDialogFinished);
         dlg->show();
         dlg->raise();
         dlg->activateWindow();

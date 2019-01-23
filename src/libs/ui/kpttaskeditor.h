@@ -316,7 +316,7 @@ public:
 Q_SIGNALS:
     void mailWorkpackage(KPlato::Node *n, KPlato::Resource *r = 0);
     void mailWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *r);
-    void checkForWorkPackages();
+    void checkForWorkPackages(bool);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui

@@ -41,6 +41,8 @@
 #include <QStackedWidget>
 #include <QDesktopServices>
 
+using namespace KPlato;
+
 Part::Part(QObject *parent)
     : KoPart(Factory::global(), parent)
     , startUpWidget(0)
@@ -112,6 +114,11 @@ void Part::showStartUpWidget(KoMainWindow *parent)
 
 }
 
+void Part::slotOpenTemplate(const QUrl &url)
+{
+    openTemplate(url);
+}
+
 void Part::openTemplate(const QUrl &url)
 {
     debugPlan<<"Open shared resources template:"<<url;
@@ -164,7 +171,7 @@ QWidget *Part::createWelcomeView(KoMainWindow *mw)
     connect(v, &WelcomeView::projectCreated, doc, &MainDocument::slotProjectCreated);
     connect(v, &WelcomeView::finished, this, &Part::finish);
 
-    connect(v, SIGNAL(openTemplate(QUrl)), this, SLOT(openTemplate(QUrl)));
+    connect(v, &WelcomeView::openTemplate, this, &Part::slotOpenTemplate);
 
     return v;
 }
@@ -208,7 +215,7 @@ QWidget *Part::createIntroductionView()
 
     slotOpenUrlRequest( v, QUrl( "about:plan/main" ) );
 
-    connect( v, &HtmlView::openUrlRequest, this, &Part::slotOpenUrlRequest );
+    connect( v, &KPlato::HtmlView::openUrlRequest, this, &KPlato::Part::slotOpenUrlRequest );
 
     return v;
 }

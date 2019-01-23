@@ -308,22 +308,27 @@ void ChartItemModel::setProject( Project *project )
     m_acwp.clear();
     if ( m_project ) {
         disconnect(m_project, &Project::aboutToBeDeleted, this, &ChartItemModel::projectDeleted);
-        disconnect( m_project, SIGNAL(projectCalculated(ScheduleManager*)), this, SLOT(setScheduleManager(ScheduleManager*)) );
-        disconnect( m_project, &Project::nodeRemoved, this, &ChartItemModel::slotNodeRemoved );
-        disconnect( m_project, &Project::nodeChanged, this, &ChartItemModel::slotNodeChanged );
-        disconnect( m_project, SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotResourceChanged(const KPlato::Resource*)) );
-        disconnect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
+        disconnect(m_project, &Project::projectCalculated, this, &ChartItemModel::slotSetScheduleManager);
+        disconnect(m_project, &Project::nodeRemoved, this, &ChartItemModel::slotNodeRemoved);
+        disconnect(m_project, &Project::nodeChanged, this, &ChartItemModel::slotNodeChanged);
+        disconnect(m_project, &Project::resourceRemoved, this, &ChartItemModel::slotResourceRemoved);
+        disconnect(m_project, &Project::resourceChanged, this, &ChartItemModel::slotResourceChanged);
     }
     m_project = project;
     if ( m_project ) {
         connect(m_project, &Project::aboutToBeDeleted, this, &ChartItemModel::projectDeleted);
-        connect( m_project, SIGNAL(projectCalculated(ScheduleManager*)), this, SLOT(setScheduleManager(ScheduleManager*)) );
-        connect( m_project, &Project::nodeRemoved, this, &ChartItemModel::slotNodeRemoved );
-        connect( m_project, &Project::nodeChanged, this, &ChartItemModel::slotNodeChanged );
-        connect( m_project, SIGNAL(resourceRemoved(const KPlato::Resource*)), this, SLOT(slotResourceChanged(const KPlato::Resource*)) );
-        connect( m_project, SIGNAL(resourceChanged(KPlato::Resource*)), this, SLOT(slotResourceChanged(KPlato::Resource*)) );
+        connect(m_project, &Project::projectCalculated, this, &ChartItemModel::slotSetScheduleManager);
+        connect(m_project, &Project::nodeRemoved, this, &ChartItemModel::slotNodeRemoved);
+        connect(m_project, &Project::nodeChanged, this, &ChartItemModel::slotNodeChanged);
+        connect(m_project, &Project::resourceRemoved, this, &ChartItemModel::slotResourceRemoved);
+        connect(m_project, &Project::resourceChanged, this, &ChartItemModel::slotResourceChanged);
     }
     endResetModel();
+}
+
+void ChartItemModel::slotSetScheduleManager(ScheduleManager *sm)
+{
+    setScheduleManager(sm);
 }
 
 void ChartItemModel::setScheduleManager( ScheduleManager *sm )
@@ -395,7 +400,7 @@ void ChartItemModel::slotResourceChanged( Resource* )
     endResetModel();
 }
 
-void ChartItemModel::slotResourceChanged( const Resource* )
+void ChartItemModel::slotResourceRemoved(const Resource*)
 {
     beginResetModel();
     calculate();
