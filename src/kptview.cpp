@@ -420,7 +420,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 View::~View()
 {
     // Disconnect and delete so we do not get called by destroyd() signal
-    const QMap<QAction*, Schedule*> map = m_scheduleActions;
+    const QMap<QAction*, Schedule*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
     QMap<QAction*, Schedule*>::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {
         disconnect(it.key(), &QObject::destroyed, this, &View::slotActionDestroyed);
@@ -1574,7 +1574,7 @@ void View::slotSelectionChanged( ScheduleManager *sm ) {
 QList<QAction*> View::sortedActionList()
 {
     QMap<QString, QAction*> lst;
-    const QMap<QAction*, Schedule*> map = m_scheduleActions;
+    const QMap<QAction*, Schedule*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
     QMap<QAction*, Schedule*>::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {
         lst.insert(it.key()->objectName(), it.key());
@@ -1691,7 +1691,7 @@ void View::slotPlugScheduleActions()
     //debugPlan<<activeScheduleId();
     long id = activeScheduleId();
     unplugActionList( "view_schedule_list" );
-    const QMap<QAction*, Schedule*> map = m_scheduleActions;
+    const QMap<QAction*, Schedule*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
     QMap<QAction*, Schedule*>::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {
         m_scheduleActionGroup->removeAction(it.key());
