@@ -384,10 +384,8 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 
     connect( getPart(), &MainDocument::workPackageLoaded, this, &View::slotWorkPackageLoaded );
 
-    // hide unused dockers
-    QTimer::singleShot( 0, this, &View::hideToolDocker );
-    // create views after dockers hidden, views take time for large projects
-    QTimer::singleShot( 100, this, &View::initiateViews );
+    // views take time for large projects
+    QTimer::singleShot(0, this, &View::initiateViews);
 
     const QList<KPluginFactory *> pluginFactories =
         KoPluginLoader::instantiatePluginFactories(QStringLiteral("calligraplan/extensions"));
@@ -436,35 +434,6 @@ View::~View()
     }
     /*    removeStatusBarItem( m_estlabel );
     delete m_estlabel;*/
-}
-
-// hackish way to get rid of unused dockers, but as long as no official way exists...
-void View::hideToolDocker()
-{
-    if ( mainWindow() ) {
-        QStringList lst; lst << "KPlatoViewList" << "Scripting";
-        QStringList names;
-        foreach ( QDockWidget *w, mainWindow()->dockWidgets() ) {
-            if ( ! lst.contains( w->objectName() ) ) {
-                names << w->windowTitle();
-                w->setFeatures( QDockWidget::DockWidgetClosable );
-                w->hide();
-            }
-        }
-        foreach(const KActionCollection *c, KActionCollection::allCollections()) {
-            KActionMenu *a = qobject_cast<KActionMenu*>(c->action("settings_dockers_menu"));
-            if ( a ) {
-                QList<QAction*> actions = a->menu()->actions();
-                foreach ( QAction *act, actions ) {
-                    if ( names.contains( act->text() ) ) {
-                        a->removeAction( act );
-                    }
-                }
-                a->addSeparator();
-                break;
-            }
-        }
-    }
 }
 
 void View::initiateViews()

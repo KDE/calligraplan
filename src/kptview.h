@@ -350,7 +350,6 @@ private Q_SLOTS:
 
     void slotRemoveCommands();
 
-    void hideToolDocker();
     void initiateViews();
     void slotViewScheduleManager(KPlato::ScheduleManager *sm);
 
