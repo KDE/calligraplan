@@ -421,6 +421,14 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 
 View::~View()
 {
+    // Disconnect and delete so we do not get called by destroyd() signal
+    const QMap<QAction*, Schedule*> map = m_scheduleActions;
+    QMap<QAction*, Schedule*>::const_iterator it;
+    for (it = map.constBegin(); it != map.constEnd(); ++it) {
+        disconnect(it.key(), &QObject::destroyed, this, &View::slotActionDestroyed);
+        m_scheduleActionGroup->removeAction(it.key());
+        delete it.key();
+    }
     ViewBase *view = currentView();
     if (view) {
         // deactivate view to remove dockers etc
