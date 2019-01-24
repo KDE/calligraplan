@@ -27,6 +27,8 @@ if (POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
+list(APPEND CMAKE_AUTOMOC_MACRO_NAMES "PLAN_SCHEDULERPLUGIN_EXPORT")
+
 # define the version of Plan
 # update these version for every release:
 set(PLAN_YEAR 2018) # update every year
