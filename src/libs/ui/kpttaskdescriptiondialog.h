@@ -21,6 +21,7 @@
 #define KPTTASKDESCRIPTIONDIALOG_H
 
 #include "planui_export.h"
+#include "PlanMacros.h"
 
 #include "ui_kpttaskdescriptionpanelbase.h"
 
@@ -39,6 +40,7 @@ class TaskDescriptionPanelImpl : public QWidget, public Ui_TaskDescriptionPanelB
     Q_OBJECT
 public:
     TaskDescriptionPanelImpl( Node &node, QWidget *parent );
+    ~TaskDescriptionPanelImpl();
         
 public Q_SLOTS:
     virtual void slotChanged();
@@ -48,6 +50,9 @@ Q_SIGNALS:
 
 protected:
     Node &m_node;
+
+private:
+    OBJECTCONNECTIONS;
 };
 
 class TaskDescriptionPanel : public TaskDescriptionPanelImpl

@@ -122,7 +122,12 @@ TaskDescriptionPanelImpl::TaskDescriptionPanelImpl( Node &node, QWidget *p )
 
     setupUi(this);
 
-    connect( descriptionfield, &QTextEdit::textChanged, this, &TaskDescriptionPanelImpl::slotChanged );
+    CONNECT(descriptionfield, &QTextEdit::textChanged, this, &TaskDescriptionPanelImpl::slotChanged);
+}
+
+TaskDescriptionPanelImpl::~TaskDescriptionPanelImpl()
+{
+    DISCONNECT;
 }
 
 void TaskDescriptionPanelImpl::slotChanged()

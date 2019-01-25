@@ -23,4 +23,12 @@
 
 #define CONTAINS(list, value) std::find(list.cbegin(), list.cend(), value) != list.cend()
 
+#define OBJECTCONNECTIONS QList<QMetaObject::Connection> ObjectConnections;
+
+#define CONNECT_TYPE(sender, signal, context, functor, type) ObjectConnections << connect(sender, signal, context, functor, type)
+
+#define CONNECT(sender, signal, context, functor) ObjectConnections << connect(sender, signal, context, functor, Qt::AutoConnection)
+
+#define DISCONNECT for (const QMetaObject::Connection &c : qAsConst(ObjectConnections)) { disconnect(c); }
+
 #endif
