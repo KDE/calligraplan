@@ -2,6 +2,7 @@
 Name=Plan
 Name[ca]=Plan
 Name[ca@valencia]=Plan
+Name[cs]=Plan
 Name[de]=Plan
 Name[en_GB]=Plan
 Name[es]=Plan
@@ -20,6 +21,7 @@ Name[zh_CN]=Plan
 GenericName=Project Management
 GenericName[ca]=Gestió de projectes
 GenericName[ca@valencia]=Gestió de projectes
+GenericName[cs]=Správa projektů
 GenericName[de]=Projektmanagement
 GenericName[en_GB]=Project Management
 GenericName[es]=Gestión de proyectos
