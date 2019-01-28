@@ -110,6 +110,9 @@
 #include "kptflatproxymodel.h"
 #include "kpttaskstatusmodel.h"
 
+#include "performance/PerformanceStatusView.h"
+#include "performance/ProjectStatusView.h"
+
 #include "reportsgenerator/ReportsGeneratorView.h"
 
 #ifdef PLAN_USE_KREPORT

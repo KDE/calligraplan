@@ -101,6 +101,10 @@ set(planui_LIB_SRCS
     kptlocaleconfigmoneydialog.cpp
 
     ResourceAllocationView.cpp
+
+    performance/PerformanceStatusBase.cpp
+    performance/ProjectStatusView.cpp
+    performance/PerformanceStatusView.cpp
 )
 
 ki18n_wrap_ui(planui_LIB_SRCS
@@ -118,7 +122,8 @@ ki18n_wrap_ui(planui_LIB_SRCS
     
     kptdocumentspanel.ui
     
-    kptperformancestatus.ui
+    performance/kptperformancestatus.ui
+    performance/kptperformancestatusviewsettingspanel.ui
     
     kptcpmwidget.ui
     kptitemviewsettings.ui
@@ -139,7 +144,6 @@ ki18n_wrap_ui(planui_LIB_SRCS
     kptperteditor.ui
     kptresourceassignmentview.ui
     kpttaskstatusviewsettingspanel.ui
-    kptperformancestatusviewsettingspanel.ui
     kptworkpackagemergepanel.ui
     kptrecalculatedialog.ui
     kptscheduleeditor.ui
