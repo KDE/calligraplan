@@ -122,8 +122,8 @@ ki18n_wrap_ui(planui_LIB_SRCS
     
     kptdocumentspanel.ui
     
-    performance/kptperformancestatus.ui
-    performance/kptperformancestatusviewsettingspanel.ui
+    performance/PerformanceStatus.ui
+    performance/PerformanceStatusViewSettingsPanel.ui
     
     kptcpmwidget.ui
     kptitemviewsettings.ui

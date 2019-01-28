@@ -27,8 +27,8 @@
 
 #include "kptviewbase.h"
 #include "kptitemviewsettup.h"
-#include "ui_kptperformancestatus.h"
-#include "ui_kptperformancestatusviewsettingspanel.h"
+#include "ui_PerformanceStatus.h"
+#include "ui_PerformanceStatusViewSettingsPanel.h"
 #include "kptnodechartmodel.h"
 
 #include <QSplitter>
