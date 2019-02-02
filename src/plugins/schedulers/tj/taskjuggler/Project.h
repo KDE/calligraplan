@@ -585,7 +585,7 @@ public:
 /*    bool addAccountAttribute(const QString& name,
                               CustomAttributeDefinition* cad);*/
     /**
-     * Returns a pointer to the custom attribute object identified by @param id.
+     * Returns a pointer to the custom attribute object identified by @p id.
      * If no attributes with the id exists, 0 is returned.
      */
 /*    const CustomAttributeDefinition* getAccountAttribute(const QString& id)

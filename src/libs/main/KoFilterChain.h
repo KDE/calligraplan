@@ -44,7 +44,7 @@ namespace CalligraFilter
 }
 
 /**
- * @brief This class represents a chain of plain @ref KoFilter instances.
+ * @brief This class represents a chain of plain KoFilter instances.
  *
  * Instances of this class are shared, so please just hold
  * KoFilterChain::Ptr pointers to it.
@@ -110,14 +110,14 @@ public:
 
     /**
      * This method allows your filter to work directly on the
-     * @ref KoDocument of the application.
+     * KoDocument of the application.
      * This part of the API is for the filters in our chain.
      * @return The document containing the data. May return 0 on error.
      */
     KoDocument* inputDocument();
     /**
      * This method allows your filter to work directly on the
-     * @ref KoDocument of the application.
+     * KoDocument of the application.
      * This part of the API is for the filters in our chain.
      * @return The document you have to write to. May return 0 on error.
      */

@@ -295,7 +295,7 @@ public Q_SLOTS:
      * File --> Import
      *
      * This will call slotFileOpen().  To differentiate this from an ordinary
-     * call to slotFileOpen() call @ref isImporting().
+     * call to slotFileOpen() call isImporting().
      */
     void slotImportFile();
 
@@ -303,7 +303,7 @@ public Q_SLOTS:
      * File --> Export
      *
      * This will call slotFileSaveAs().  To differentiate this from an ordinary
-     * call to slotFileSaveAs() call @ref isExporting().
+     * call to slotFileSaveAs() call isExporting().
      */
     void slotExportFile();
 

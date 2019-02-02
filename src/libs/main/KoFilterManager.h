@@ -40,8 +40,6 @@ class KoProgressUpdater;
  *  you will not have to use it, since KoMainWindow takes care of loading
  *  and saving documents.
  *
- *  @ref KoFilter
- *
  *  @author Kalle Dalheimer <kalle@kde.org>
  *  @author Torben Weis <weis@kde.org>
  *  @author Werner Trobin <trobin@kde.org>
