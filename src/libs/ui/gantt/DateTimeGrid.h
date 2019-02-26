@@ -28,6 +28,7 @@ namespace KPlato {
     
 class DateTimeGrid : public KGantt::DateTimeGrid
 {
+    Q_OBJECT
 public:
     DateTimeGrid();
     
