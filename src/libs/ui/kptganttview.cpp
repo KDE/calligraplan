@@ -36,11 +36,13 @@
 #include "kptresourceappointmentsmodel.h"
 #include "Help.h"
 #include "kptdebug.h"
+#include "gantt/DateTimeTimeLine.h"
+#include "gantt/DateTimeGrid.h"
+#include "config.h"
 
 #include <KGanttProxyModel>
 #include <KGanttConstraintModel>
 #include <KGanttConstraint>
-#include <KGanttDateTimeGrid>
 #include <KGanttGraphicsView>
 #include <KGanttTreeViewRowController>
 
@@ -394,9 +396,13 @@ void GanttZoomWidget::sliderValueChanged( int value )
 GanttViewBase::GanttViewBase( QWidget *parent )
     : KGantt::View( parent )
 {
-    KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
+    setGrid(new DateTimeGrid());
+    DateTimeGrid *g = static_cast<DateTimeGrid*>( grid() );
     g->setUserDefinedUpperScale( new KGantt::DateTimeScaleFormatter(KGantt::DateTimeScaleFormatter::Month, QString::fromLatin1("yyyy-MMMM")));
     g->setUserDefinedLowerScale( new KGantt::DateTimeScaleFormatter(KGantt::DateTimeScaleFormatter::Day, QString::fromLatin1("ddd")));
+
+    g->timeNow()->setInterval(5000);
+
     QLocale locale;
 
     g->setWeekStart( locale.firstDayOfWeek() );

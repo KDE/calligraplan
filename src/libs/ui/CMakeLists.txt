@@ -78,6 +78,8 @@ set(planui_LIB_SRCS
     kptmainprojectdialog.cpp
     kptmainprojectpanel.cpp
     kptganttview.cpp
+    gantt/DateTimeTimeLine.cpp
+    gantt/DateTimeGrid.cpp
     kptrelationdialog.cpp
     kptrequestresourcespanel.cpp
     kptresourcedialog.cpp
