@@ -12,13 +12,13 @@ if (POLICY CMP0022)
     cmake_policy(SET CMP0022 NEW)
 endif ()
 if (POLICY CMP0026)
-    cmake_policy(SET CMP0026 OLD)
+    cmake_policy(SET CMP0026 NEW)
 endif()
 if (POLICY CMP0046)
     cmake_policy(SET CMP0046 NEW)
 endif ()
 if (POLICY CMP0059)
-    cmake_policy(SET CMP0059 OLD)
+    cmake_policy(SET CMP0059 NEW)
 endif()
 if (POLICY CMP0063)
     cmake_policy(SET CMP0063 NEW)
@@ -233,6 +233,11 @@ set_package_properties(KGantt PROPERTIES
     URL "https://www.kde.org/"
     TYPE REQUIRED
 )
+if(KGantt_FOUND)
+    set(KGANTT_VERSION_MAJOR "${KGantt_VERSION_MAJOR}")
+    set(KGANTT_VERSION_MINOR "${KGantt_VERSION_MINOR}")
+    set(KGANTT_VERSION_PATCH "${KGantt_VERSION_PATCH}")
+endif()
 
 ##
 ## Test for KChart
