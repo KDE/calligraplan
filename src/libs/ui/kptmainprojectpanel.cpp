@@ -64,10 +64,11 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     useSharedResources->setChecked(project.useSharedResources());
     resourcesFile->setText(project.sharedResourcesFile());
     projectsPlace->setText(project.sharedProjectsUrl().toDisplayString());
-    qInfo()<<Q_FUNC_INFO<<project.sharedProjectsUrl();
+
     m_description = new TaskDescriptionPanel( p, tabWidget->widget(1) );
     m_description->namefield->hide();
     m_description->namelabel->hide();
+    tabWidget->widget(1)->layout()->addWidget(m_description);
 
     wbs->setText(project.wbsCode());
     if ( wbs->text().isEmpty() ) {
