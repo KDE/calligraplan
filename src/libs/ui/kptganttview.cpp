@@ -77,9 +77,10 @@ namespace KPlato
 class GanttItemDelegate;
 
 //-------------------------------------------------
-GanttChartDisplayOptionsPanel::GanttChartDisplayOptionsPanel( GanttItemDelegate *delegate, QWidget *parent )
-    : QWidget( parent ),
-    m_delegate( delegate )
+GanttChartDisplayOptionsPanel::GanttChartDisplayOptionsPanel( GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent )
+    : QWidget( parent )
+    , m_delegate( delegate )
+    , m_gantt(gantt)
 {
     setupUi( this );
     setValues( *delegate );
@@ -108,6 +109,20 @@ void GanttChartDisplayOptionsPanel::slotOk()
     m_delegate->showProgress = ui_showCompletion->checkState() == Qt::Checked;
     m_delegate->showSchedulingError = ui_showSchedulingError->checkState() == Qt::Checked;
     m_delegate->showTimeConstraint = ui_showTimeConstraint->checkState() == Qt::Checked;
+
+    DateTimeTimeLine *timeline = m_gantt->timeLine();
+
+    timeline->setInterval(ui_timeLineInterval->value() * 60000);
+    QPen pen;
+    pen.setWidth(ui_timeLineStroke->value());
+    pen.setColor(ui_timeLineColor->color());
+    timeline->setPen(pen);
+
+    DateTimeTimeLine::Options opt = timeline->options();
+    opt.setFlag(DateTimeTimeLine::Foreground, ui_timeLineForeground->isChecked());
+    opt.setFlag(DateTimeTimeLine::Background, ui_timeLineBackground->isChecked());
+    opt.setFlag(DateTimeTimeLine::UseCustomPen, ui_timeLineUseCustom->isChecked());
+    timeline->setOptions(opt);
 }
 
 void GanttChartDisplayOptionsPanel::setValues( const GanttItemDelegate &del )
@@ -122,6 +137,20 @@ void GanttChartDisplayOptionsPanel::setValues( const GanttItemDelegate &del )
     ui_showCompletion->setCheckState( del.showProgress ? Qt::Checked : Qt::Unchecked );
     ui_showSchedulingError->setCheckState( del.showSchedulingError ? Qt::Checked : Qt::Unchecked );
     ui_showTimeConstraint->setCheckState( del.showTimeConstraint ? Qt::Checked : Qt::Unchecked );
+
+    DateTimeTimeLine *timeline = m_gantt->timeLine();
+
+    ui_timeLineInterval->setValue(timeline->interval() / 60000);
+
+    QPen pen = timeline->pen();
+    ui_timeLineStroke->setValue(pen.width());
+    ui_timeLineColor->setColor(pen.color());
+
+    ui_timeLineHide->setChecked(true);
+    DateTimeTimeLine::Options opt = timeline->options();
+    ui_timeLineBackground->setChecked(opt & DateTimeTimeLine::Background);
+    ui_timeLineForeground->setChecked(opt & DateTimeTimeLine::Foreground);
+    ui_timeLineUseCustom->setChecked(opt & DateTimeTimeLine::UseCustomPen);
 }
 
 void GanttChartDisplayOptionsPanel::setDefault()
@@ -135,7 +164,7 @@ GanttViewSettingsDialog::GanttViewSettingsDialog( GanttViewBase *gantt, GanttIte
     : ItemViewSettupDialog( view, gantt->treeView(), true, view ),
     m_gantt( gantt )
 {
-    GanttChartDisplayOptionsPanel *panel = new GanttChartDisplayOptionsPanel( delegate );
+    GanttChartDisplayOptionsPanel *panel = new GanttChartDisplayOptionsPanel( gantt, delegate );
     /*KPageWidgetItem *page = */insertWidget( 1, panel, i18n( "Chart" ), i18n( "Gantt Chart Settings" ) );
     QTabWidget *tab = new QTabWidget();
     QWidget *w = ViewBase::createPageLayoutWidget( view );
@@ -436,6 +465,12 @@ GanttViewBase::~GanttViewBase()
     leftView()->verticalScrollBar()->disconnect();
 }
 
+DateTimeTimeLine *GanttViewBase::timeLine() const
+{
+    DateTimeGrid *g = static_cast<DateTimeGrid*>( grid() );
+    return g->timeNow();
+}
+
 GanttTreeView *GanttViewBase::treeView() const
 {
     GanttTreeView *tv = qobject_cast<GanttTreeView*>(const_cast<QAbstractItemView*>(leftView()));
@@ -466,6 +501,20 @@ bool GanttViewBase::loadContext( const KoXmlElement &settings )
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
     g->setScale( static_cast<KGantt::DateTimeGrid::Scale>( settings.attribute( "chart-scale", "0" ).toInt() ) );
     g->setDayWidth( settings.attribute( "chart-daywidth", "30" ).toDouble() );
+
+    DateTimeTimeLine::Options opt;
+    opt.setFlag(DateTimeTimeLine::Foreground, settings.attribute("timeline-foreground").toInt());
+    opt.setFlag(DateTimeTimeLine::Background, settings.attribute("timeline-background").toInt());
+    opt.setFlag(DateTimeTimeLine::UseCustomPen, settings.attribute("timeline-custom").toInt());
+    timeLine()->setOptions(opt);
+
+    timeLine()->setInterval(settings.attribute("timeline-interval", 0).toInt() * 60000);
+
+    QPen pen;
+    pen.setWidth(settings.attribute("timeline-width").toInt());
+    pen.setColor(QColor(settings.attribute("timeline-color")));
+    timeLine()->setPen(pen);
+
     return true;
 }
 
@@ -474,6 +523,13 @@ void GanttViewBase::saveContext( QDomElement &settings ) const
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
     settings.setAttribute( "chart-scale", QString::number(g->scale()) );
     settings.setAttribute( "chart-daywidth", QString::number(g->dayWidth()) );
+
+    settings.setAttribute("timeline-foreground", timeLine()->options() & DateTimeTimeLine::Foreground);
+    settings.setAttribute("timeline-background", timeLine()->options() & DateTimeTimeLine::Background);
+    settings.setAttribute("timeline-interval", timeLine()->interval() / 60000);
+    settings.setAttribute("timeline-custom", timeLine()->options() & DateTimeTimeLine::UseCustomPen);
+    settings.setAttribute("timeline-width", timeLine()->pen().width());
+    settings.setAttribute("timeline-color", timeLine()->pen().color().name());
 }
 
 //-------------------------------------------

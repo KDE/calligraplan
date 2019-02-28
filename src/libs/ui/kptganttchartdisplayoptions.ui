@@ -6,18 +6,148 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>417</width>
-    <height>219</height>
+    <width>325</width>
+    <height>454</height>
    </rect>
   </property>
   <property name="toolTip">
    <string/>
   </property>
-  <layout class="QGridLayout" name="gridLayout_3">
-   <property name="margin">
-    <number>0</number>
-   </property>
-   <item row="0" column="0">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Timeline</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="ui_timeLineHide">
+          <property name="toolTip">
+           <string>Do not show the timeline</string>
+          </property>
+          <property name="text">
+           <string>Hide</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QRadioButton" name="ui_timeLineForeground">
+          <property name="toolTip">
+           <string>Show timeline in the foreground</string>
+          </property>
+          <property name="text">
+           <string>Foreground</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QRadioButton" name="ui_timeLineBackground">
+          <property name="toolTip">
+           <string>Show timeline in the background</string>
+          </property>
+          <property name="text">
+           <string>Background</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="toolTip">
+             <string>Update interval in minutes, 0 disables update</string>
+            </property>
+            <property name="text">
+             <string>Interval:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ui_timeLineInterval</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="ui_timeLineInterval">
+            <property name="toolTip">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="ui_timeLineUseCustom">
+          <property name="text">
+           <string>Use custom line</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="toolTip">
+             <string>Line width</string>
+            </property>
+            <property name="text">
+             <string>Stroke:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ui_timeLineStroke</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="ui_timeLineStroke">
+            <property name="toolTip">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="toolTip">
+             <string>Line color</string>
+            </property>
+            <property name="text">
+             <string>Color:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ui_timeLineColor</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="KColorCombo" name="ui_timeLineColor">
+            <property name="toolTip">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string>Additional text information</string>
@@ -40,7 +170,7 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
       <string>Additional graphics information</string>
@@ -83,13 +213,6 @@
         </property>
        </spacer>
       </item>
-      <item row="0" column="1">
-       <widget class="QCheckBox" name="ui_showSchedulingError">
-        <property name="text">
-         <string>Scheduling errors</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="1">
        <widget class="QCheckBox" name="ui_showPositiveFloat">
         <property name="text">
@@ -118,11 +241,25 @@
         </property>
        </widget>
       </item>
+      <item row="0" column="1">
+       <widget class="QCheckBox" name="ui_showSchedulingError">
+        <property name="text">
+         <string>Scheduling errors</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KColorCombo</class>
+   <extends>QComboBox</extends>
+   <header location="global">KColorCombo</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -42,11 +42,14 @@ public:
 
     DateTimeTimeLine();
 
+    void setEnabled(bool enable);
+    bool isEnabled() const;
     DateTimeTimeLine::Options options() const;
     void setOptions(DateTimeTimeLine::Options options);
     QDateTime dateTime() const;
     void setDateTime(const QDateTime &dt);
     void setInterval(int msec);
+    int interval() const;
     QPen pen() const;
     void setPen(const QPen &pen);
 

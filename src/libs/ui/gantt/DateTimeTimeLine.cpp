@@ -83,6 +83,21 @@ DateTimeTimeLine::DateTimeTimeLine()
     connect(&d->timer, SIGNAL(timeout()), this, SIGNAL(updated()));
 }
 
+void DateTimeTimeLine::setEnabled(bool enable)
+{
+    if (enable) {
+        d->timer.start();
+    } else {
+        d->timer.stop();
+    }
+    Q_EMIT updated();
+}
+
+bool DateTimeTimeLine::isEnabled() const
+{
+    return d->timer.isActive();
+}
+
 /**
  * @return options
  */
@@ -134,6 +149,11 @@ void DateTimeTimeLine::setInterval(int msecs)
     if (msecs > 0) {
         d->timer.start();
     }
+}
+
+int DateTimeTimeLine::interval() const
+{
+    return d->timer.interval();
 }
 
 /**

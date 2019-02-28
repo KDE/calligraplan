@@ -63,13 +63,14 @@ class GanttPrintingOptions;
 class GanttViewBase;
 class NodeGanttViewBase;
 class GanttPrintingOptionsWidget;
+class DateTimeTimeLine;
 
 //---------------------------------------
 class GanttChartDisplayOptionsPanel : public QWidget, public Ui::GanttChartDisplayOptions
 {
     Q_OBJECT
 public:
-    explicit GanttChartDisplayOptionsPanel( GanttItemDelegate *delegate, QWidget *parent = 0 );
+    explicit GanttChartDisplayOptionsPanel( GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent = 0 );
 
     void setValues( const GanttItemDelegate &del );
 
@@ -82,6 +83,7 @@ Q_SIGNALS:
 
 private:
     GanttItemDelegate *m_delegate;
+    GanttViewBase *m_gantt;
 };
 
 class GanttViewSettingsDialog : public ItemViewSettupDialog
@@ -195,6 +197,8 @@ public:
 
     virtual bool loadContext( const KoXmlElement &settings );
     virtual void saveContext( QDomElement &settings ) const;
+
+    DateTimeTimeLine *timeLine() const;
 
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::GanttPrintingOptions &opt) { m_printOptions = opt; }
