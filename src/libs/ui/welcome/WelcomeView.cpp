@@ -152,6 +152,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
 
     m_model = new RecentFilesModel(this);
     widget.recentProjects->setModel(m_model);
+    widget.recentProjects->setSelectionMode(QAbstractItemView::SingleSelection);
     setupGui();
 
     connect(widget.newProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotNewProject);
@@ -159,7 +160,8 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(widget.openProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotOpenProject);
     connect(widget.introductionBtn, &QAbstractButton::clicked, this, &WelcomeView::showIntroduction);
 
-    connect(widget.recentProjects->selectionModel(), &QItemSelectionModel::selectionChanged, this, &WelcomeView::slotRecentFileSelected);
+    connect(widget.recentProjects, &QAbstractItemView::activated, this, &WelcomeView::slotRecentFileSelected);
+    connect(widget.recentProjects, &QAbstractItemView::clicked, this, &WelcomeView::slotRecentFileSelected);
 }
 
 WelcomeView::~WelcomeView()
@@ -174,7 +176,6 @@ void WelcomeView::setRecentFiles(const QStringList &files)
         lst.prepend(s);
     }
     m_model->setStringList(lst);
-    widget.recentProjects->resizeColumnToContents(0);
 }
 
 void WelcomeView::updateReadWrite(bool /*readwrite */)
@@ -186,9 +187,8 @@ void WelcomeView::setGuiActive(bool activate)
     debugPlan<<activate;
 }
 
-void WelcomeView::slotRecentFileSelected(const QItemSelection &selected)
+void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
 {
-    QModelIndex idx = selected.indexes().value(0);
     if (idx.isValid()) {
         QString file = idx.data().toString();
         int start = file.indexOf('[');

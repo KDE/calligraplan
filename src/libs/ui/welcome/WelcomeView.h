@@ -77,7 +77,7 @@ protected:
 
 private Q_SLOTS:
     void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
-    void slotRecentFileSelected(const QItemSelection &selected);
+    void slotRecentFileSelected(const QModelIndex &idx);
     
     void slotEnableActions(bool on);
 
