@@ -161,7 +161,6 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(widget.introductionBtn, &QAbstractButton::clicked, this, &WelcomeView::showIntroduction);
 
     connect(widget.recentProjects, &QAbstractItemView::activated, this, &WelcomeView::slotRecentFileSelected);
-    connect(widget.recentProjects, &QAbstractItemView::clicked, this, &WelcomeView::slotRecentFileSelected);
 }
 
 WelcomeView::~WelcomeView()
