@@ -90,6 +90,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     /// Activate/deactivate the gui
     virtual void setGuiActive( bool activate );
+    void slotEditCopy();
 
 protected Q_SLOTS:
     virtual void slotOptions();

@@ -3290,6 +3290,7 @@ Qt::ItemFlags NodeItemModel::flags( const QModelIndex &index ) const
         }
         return flags;
     }
+    flags |= Qt::ItemIsDragEnabled;
     if ( isColumnReadOnly( index.column() ) ) {
         //debugPlan<<"Column is readonly:"<<index.column();
         return flags;
@@ -3297,7 +3298,7 @@ Qt::ItemFlags NodeItemModel::flags( const QModelIndex &index ) const
     Node *n = node( index );
     if ( m_readWrite && n != 0 ) {
         bool baselined = n->isBaselined();
-        flags |= Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
+        flags |= Qt::ItemIsDropEnabled;
         switch ( index.column() ) {
             case NodeModel::NodeName: // name
                 flags |= Qt::ItemIsEditable;
@@ -3780,15 +3781,16 @@ Qt::DropActions NodeItemModel::supportedDropActions() const
 
 QStringList NodeItemModel::mimeTypes() const
 {
-    return QStringList() << "application/x-vnd.kde.plan.nodeitemmodel.internal"
-                        << "application/x-vnd.kde.plan.resourceitemmodel.internal"
-                        << "application/x-vnd.kde.plan.project"
-                        << "text/uri-list";
+    return ItemModelBase::mimeTypes()
+            << "application/x-vnd.kde.plan.nodeitemmodel.internal"
+            << "application/x-vnd.kde.plan.resourceitemmodel.internal"
+            << "application/x-vnd.kde.plan.project"
+            << "text/uri-list";
 }
 
 QMimeData *NodeItemModel::mimeData( const QModelIndexList & indexes ) const
 {
-    QMimeData *m = new QMimeData();
+    QMimeData *m = ItemModelBase::mimeData(indexes);
     QByteArray encodedData;
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
     QList<int> rows;
@@ -3850,8 +3852,6 @@ bool NodeItemModel::dropAllowed( const QModelIndex &index, int dropIndicatorPosi
             default:
                 break;
         }
-    } else {
-        debugPlan<<"Unknown mimetype";
     }
     return false;
 }
@@ -4113,6 +4113,7 @@ KUndo2Command *NodeItemModel::createAllocationCommand( Task &task, const QList<R
 bool NodeItemModel::dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent )
 {
     debugPlan<<action;
+
     if (action == Qt::IgnoreAction) {
         return true;
     }
@@ -4591,8 +4592,9 @@ Qt::ItemFlags MilestoneItemModel::flags( const QModelIndex &index ) const
         }
         return flags;
     }
+    flags |= Qt::ItemIsDragEnabled;
     if ( m_readWrite ) {
-        flags |= Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
+        flags |= Qt::ItemIsDropEnabled;
         switch ( index.column() ) {
             case NodeModel::NodeName: // name
                 flags |= Qt::ItemIsEditable;

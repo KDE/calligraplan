@@ -39,6 +39,17 @@
 #include <QTreeView>
 #include <QStylePainter>
 #include <QMimeData>
+#include <QTextDocument>
+#include <QTextCursor>
+#include <QTextTableFormat>
+#include <QVector>
+#include <QTextLength>
+#include <QTextTable>
+
+#include <QBuffer>
+#include <KoStore.h>
+#include <KoXmlWriter.h>
+#include <KoOdfWriteStore.h>
 
 #include <kcombobox.h>
 #include <klineedit.h>
@@ -737,6 +748,88 @@ bool ItemModelBase::setData( const QModelIndex &index, const QVariant &value, in
 void ItemModelBase::projectDeleted()
 {
     setProject(0);
+}
+
+int numColumns( const QModelIndexList &indexes)
+{
+    int c = 0;
+    int r = indexes.first().row();
+    QModelIndex currentParent = indexes.first().parent();
+    for (const QModelIndex &idx : indexes) {
+        if (idx.row() == r && currentParent == idx.parent()) {
+            ++c;
+        } else {
+            break;
+        }
+    }
+    return c;
+}
+
+int numRows(const QModelIndexList &indexes)
+{
+    int rows = 1;
+    int currentrow = indexes.value(0).row();
+    QModelIndex currentParent = indexes.value(0).parent();
+    for (int i = 1; i < indexes.count(); ++i) {
+        if (currentParent != indexes.at(i).parent() || currentrow != indexes.at(i).row()) {
+            ++rows;
+            currentrow = indexes.at(i).row();
+            currentParent = indexes.at(i).parent();
+        }
+    }
+    return rows;
+}
+
+void ItemModelBase::writeText(QMimeData *m, const QModelIndexList &indexes) const
+{
+    if (!mimeTypes().contains("text/html") && !mimeTypes().contains("text/plain")) {
+        return;
+    }
+    int cols = numColumns(indexes);
+    int rows = numRows(indexes);
+    QTextDocument doc;
+    QTextCursor cursor(&doc);
+    cursor.insertTable(rows+1, cols);
+    QTextTableFormat tableFormat;
+    QVector<QTextLength> v;
+    for (int i = 0; i < cols; ++i) {
+        QTextLength l(QTextLength::PercentageLength, 100 / cols);
+        v << l;
+    }
+    tableFormat.setColumnWidthConstraints(v);
+    cursor.currentTable()->setFormat(tableFormat);
+    // headers
+    for (int i = 0; i < cols; ++i) {
+        cursor.insertText(headerData(indexes.at(i).column(), Qt::Horizontal).toString());
+        cursor.movePosition(QTextCursor::NextCell);
+    }
+    // data
+    for (int i = 0; i < indexes.count(); ++i) {
+        cursor.insertText(indexes.at(i).data().toString());
+        cursor.movePosition(QTextCursor::NextCell);
+    }
+    if (mimeTypes().contains("text/html")) {
+        m->setData("text/html", doc.toHtml("utf-8").toUtf8());
+    }
+    if (mimeTypes().contains("text/plain")) {
+        m->setData("text/plain", doc.toPlainText().toUtf8());
+    }
+}
+
+QStringList ItemModelBase::mimeTypes() const
+{
+    return QStringList() << "text/html" << "text/plain";
+}
+
+QMimeData *ItemModelBase::mimeData(const QModelIndexList &indexes) const
+{
+    QMimeData *m = new QMimeData();
+    if (indexes.isEmpty() || mimeTypes().isEmpty()) {
+        debugPlan<<"No indexes or no mimeTypes";
+        return m;
+    }
+    writeText(m, indexes);
+    return m;
 }
 
 } //namespace KPlato

@@ -251,7 +251,8 @@ void TaskStatusItemModel::refresh()
 Qt::ItemFlags TaskStatusItemModel::flags( const QModelIndex &index ) const
 {
     Qt::ItemFlags flags = QAbstractItemModel::flags( index );
-    flags &= ~( Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled );
+    flags &= ~( Qt::ItemIsEditable | Qt::ItemIsDropEnabled );
+    flags |= Qt::ItemIsDragEnabled;
     Node *n = node( index );
     if ( ! m_readWrite || n == 0 || m_id == -1 || ! n->isScheduled( m_id ) ) {
         return flags;
@@ -641,30 +642,14 @@ Qt::DropActions TaskStatusItemModel::supportedDropActions() const
     return Qt::CopyAction | Qt::MoveAction;
 }
 
-
 QStringList TaskStatusItemModel::mimeTypes() const
 {
-    return QStringList();
+    return ItemModelBase::mimeTypes();
 }
 
 QMimeData *TaskStatusItemModel::mimeData( const QModelIndexList & indexes ) const
 {
-    QMimeData *m = new QMimeData();
-    QByteArray encodedData;
-    QDataStream stream(&encodedData, QIODevice::WriteOnly);
-    QList<int> rows;
-    foreach (const QModelIndex &index, indexes) {
-        if ( index.isValid() && !rows.contains( index.row() ) ) {
-            //debugPlan<<index.row();
-            Node *n = node( index );
-            if ( n ) {
-                rows << index.row();
-                stream << n->id();
-            }
-        }
-    }
-    m->setData("application/x-vnd.kde.plan.nodeitemmodel.internal", encodedData);
-    return m;
+    return ItemModelBase::mimeData(indexes);
 }
 
 bool TaskStatusItemModel::dropAllowed( Node *, const QMimeData * )

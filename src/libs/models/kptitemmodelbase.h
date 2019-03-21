@@ -28,6 +28,7 @@
 #include <QAbstractItemModel>
 #include <QStyledItemDelegate>
 #include <QMetaEnum>
+#include <QMimeData>
 
 #include <KoXmlReaderForward.h>
 
@@ -294,6 +295,10 @@ public:
     /// Return the sortorder to be used for @p column
     virtual int sortRole( int /*column*/ ) const { return Qt::DisplayRole; }
 
+    QStringList mimeTypes() const;
+    virtual QMimeData *mimeData(const QModelIndexList &indexes) const;
+    void writeText(QMimeData *m, const QModelIndexList &indexes) const;
+
 Q_SIGNALS:
     /// Connect to this signal if your model modifies data using undo commands.
     void executeCommand( KUndo2Command* );
@@ -310,6 +315,7 @@ protected Q_SLOTS:
     virtual void slotLayoutChanged();
 
     void projectDeleted();
+
 protected:
     Project *m_project;
     ScheduleManager *m_manager;

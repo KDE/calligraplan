@@ -53,6 +53,7 @@ namespace KPlato
 ResourceTreeView::ResourceTreeView( QWidget *parent )
     : DoubleTreeViewBase( parent )
 {
+    setDragPixmap(koIcon("resource-group").pixmap(32));
 //    header()->setContextMenuPolicy( Qt::CustomContextMenu );
     setStretchLastSection( false );
     ResourceItemModel *m = new ResourceItemModel( this );
@@ -405,5 +406,9 @@ KoPrintJob *ResourceEditor::createPrintJob()
     return m_view->createPrintJob( this );
 }
 
+void ResourceEditor::slotEditCopy()
+{
+    m_view->editCopy();
+}
 
 } // namespace KPlato

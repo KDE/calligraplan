@@ -715,6 +715,9 @@ Qt::ItemFlags ResourceItemModel::flags( const QModelIndex &index ) const
     Qt::ItemFlags flags = ItemModelBase::flags( index );
     if ( !m_readWrite ) {
         //debugPlan<<"read only"<<flags;
+        if (index.isValid()) {
+            flags |= Qt::ItemIsDragEnabled;
+        }
         return flags &= ~Qt::ItemIsEditable;
     }
     if ( !index.isValid() ) {
@@ -765,6 +768,7 @@ Qt::ItemFlags ResourceItemModel::flags( const QModelIndex &index ) const
     } else {
         ResourceGroup *g = qobject_cast<ResourceGroup*>( object( index ) );
         if ( g ) {
+            flags |= Qt::ItemIsDragEnabled;
             if (g->isShared()) {
                 flags &= ~Qt::ItemIsEditable;
                 return flags;
@@ -1307,7 +1311,7 @@ bool ResourceItemModel::dropAllowed( const QModelIndex &index, int dropIndicator
 
 QStringList ResourceItemModel::mimeTypes() const
 {
-    return QStringList()
+    return ItemModelBase::mimeTypes()
 #ifdef PLAN_KDEPIMLIBS_FOUND
             << "text/x-vcard"
             << "text/directory"
@@ -1505,7 +1509,7 @@ QList<Resource*> ResourceItemModel::resourceList( QDataStream &stream )
 
 QMimeData *ResourceItemModel::mimeData( const QModelIndexList & indexes ) const
 {
-    QMimeData *m = new QMimeData();
+    QMimeData *m = ItemModelBase::mimeData(indexes);
     QByteArray encodedData;
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
     QList<int> rows;
@@ -1522,11 +1526,9 @@ QMimeData *ResourceItemModel::mimeData( const QModelIndexList & indexes ) const
             }
         }
     }
-    if ( rows.isEmpty() ) {
-        delete m;
-        return 0;
+    if (!rows.isEmpty()) {
+        m->setData("application/x-vnd.kde.plan.resourceitemmodel.internal", encodedData);
     }
-    m->setData("application/x-vnd.kde.plan.resourceitemmodel.internal", encodedData);
     return m;
 }
 

@@ -35,6 +35,7 @@
 #include <KoXmlReader.h>
 #include "KoDocument.h"
 #include "KoPageLayoutWidget.h"
+#include <KoIcon.h>
 
 #include <QDragMoveEvent>
 #include <QModelIndex>
@@ -65,11 +66,13 @@ using namespace KPlato;
 TaskStatusTreeView::TaskStatusTreeView( QWidget *parent )
     : DoubleTreeViewBase( parent )
 {
+    setDragPixmap(koIcon("view-task").pixmap(32));
     setContextMenuPolicy( Qt::CustomContextMenu );
     TaskStatusItemModel *m = new TaskStatusItemModel( this );
     setModel( m );
     //setSelectionBehavior( QAbstractItemView::SelectItems );
     setSelectionMode( QAbstractItemView::ExtendedSelection );
+    setSelectionBehavior( QAbstractItemView::SelectRows );
     setStretchLastSection( false );
 
     createItemDelegates( m );
@@ -151,47 +154,6 @@ void TaskStatusTreeView::setProject( Project *project )
     model()->setProject( project );
 }
 
-void TaskStatusTreeView::dragMoveEvent(QDragMoveEvent */*event*/)
-{
-/*    if (dragDropMode() == InternalMove
-        && (event->source() != this || !(event->possibleActions() & Qt::MoveAction)))
-        return;
-
-    TreeViewBase::dragMoveEvent( event );
-    if ( ! event->isAccepted() ) {
-        return;
-    }
-    //QTreeView thinks it's ok to drop
-    event->ignore();
-    QModelIndex index = indexAt( event->pos() );
-    if ( ! index.isValid() ) {
-        event->accept();
-        return; // always ok to drop on main project
-    }
-    Node *dn = model()->node( index );
-    if ( dn == 0 ) {
-        errorPlan<<"no node to drop on!"
-        return; // hmmm
-    }
-    switch ( dropIndicatorPosition() ) {
-        case AboveItem:
-        case BelowItem:
-            //dn == sibling
-            if ( model()->dropAllowed( dn->parentNode(), event->mimeData() ) ) {
-                event->accept();
-            }
-            break;
-        case OnItem:
-            //dn == new parent
-            if ( model()->dropAllowed( dn, event->mimeData() ) ) {
-                event->accept();
-            }
-            break;
-        default:
-            break;
-    }*/
-}
-
 
 //-----------------------------------
 TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent )
@@ -204,6 +166,12 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent )
     m_view = new TaskStatusTreeView( this );
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);
+
+    m_view->setDragDropMode(QAbstractItemView::DragOnly);
+    m_view->setDropIndicatorShown( false );
+    m_view->setDragEnabled ( true );
+    m_view->setAcceptDrops( false );
+    m_view->setAcceptDropsOnView( false );
 
     l->addWidget( m_view );
     setupGui();

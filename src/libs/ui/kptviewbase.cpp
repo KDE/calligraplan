@@ -55,7 +55,9 @@
 #include <QMouseEvent>
 #include <QContextMenuEvent>
 #include <QDragMoveEvent>
+#include <QDrag>
 #include <QTimer>
+#include <QClipboard>
 
 namespace KPlato
 {
@@ -997,9 +999,11 @@ TreeViewBase::TreeViewBase( QWidget *parent )
     : QTreeView( parent ),
     m_arrowKeyNavigation( true ),
     m_acceptDropsOnView( false ),
-    m_readWrite( false )
+    m_readWrite( false ),
+    m_handleDrag(true)
 
 {
+    m_dragPixmap = koIcon("application-x-vnd.kde.plan").pixmap(32);
     setDefaultDropAction( Qt::MoveAction );
     setItemDelegate( new ItemDelegate( this ) );
     setAlternatingRowColors ( true );
@@ -1798,6 +1802,84 @@ void TreeViewBase::saveExpanded(QDomElement &element, const QModelIndex &parent)
     }
 }
 
+void TreeViewBase::setHandleDrag(bool state)
+{
+    m_handleDrag = state;
+}
+
+void TreeViewBase::startDrag(Qt::DropActions supportedActions)
+{
+    Qt::DropAction defaultDropAction = Qt::IgnoreAction;
+    if (this->defaultDropAction() != Qt::IgnoreAction && (supportedActions & this->defaultDropAction())) {
+        defaultDropAction = this->defaultDropAction();
+    } else if (supportedActions & Qt::CopyAction && dragDropMode() != QAbstractItemView::InternalMove) {
+        defaultDropAction = Qt::CopyAction;
+    }
+    if (m_handleDrag) {
+        QModelIndexList indexes = selectionModel()->selectedRows();
+        if (!indexes.isEmpty()) {
+            QMimeData *data = model()->mimeData(indexes);
+            if (!data) {
+                debugPlan<<"No mimedata";
+                return;
+            }
+            QDrag *drag = new QDrag(this);
+            drag->setPixmap(m_dragPixmap);
+            drag->setMimeData(data);
+            drag->exec(supportedActions, defaultDropAction);
+        }
+    } else {
+        static_cast<DoubleTreeViewBase*>(parent())->handleDrag(supportedActions, defaultDropAction);
+    }
+}
+
+QList<int> TreeViewBase::visualColumns() const
+{
+    if (!isVisible()) {
+        return QList<int>();
+    }
+    QMap<int, int> columns;
+    for (int i = 0; i < model()->columnCount(); ++i) {
+        if (!isColumnHidden(i)) {
+            columns.insert(header()->visualIndex(i), i);
+        }
+    }
+    return columns.values();
+}
+
+void TreeViewBase::setDragPixmap(const QPixmap &pixmap)
+{
+    m_dragPixmap = pixmap;
+}
+
+QPixmap TreeViewBase::dragPixmap() const
+{
+    return m_dragPixmap;
+}
+
+QModelIndexList TreeViewBase::selectedIndexes() const
+{
+    QModelIndexList viewSelected;
+    QModelIndexList modelSelected;
+    if (selectionModel())
+        modelSelected = selectionModel()->selectedIndexes();
+    for (int i = 0; i < modelSelected.count(); ++i) {
+        // check that neither the parents nor the index is hidden before we add
+        QModelIndex index = modelSelected.at(i);
+        while (index.isValid() && !isIndexHidden(index)) {
+            int column = index.column();
+            index = index.parent();
+            if (index.isValid() && column != index.column()) {
+                index = index.sibling(index.row(), column);
+            }
+        }
+        if (index.isValid())
+            continue;
+        viewSelected.append(modelSelected.at(i));
+    }
+    return viewSelected;
+}
+
 //----------------------
 DoubleTreeViewPrintingDialog::DoubleTreeViewPrintingDialog( ViewBase *view, DoubleTreeViewBase *treeview, Project *project )
     : PrintingDialog( view ),
@@ -2084,10 +2166,12 @@ void DoubleTreeViewBase::init()
     setHandleWidth( 3 );
     m_leftview = new TreeViewBase(this);
     m_leftview->setObjectName("Left view");
+    m_leftview->setHandleDrag(false);
     addWidget( m_leftview );
     setStretchFactor( 0, 1 );
     m_rightview = new TreeViewBase(this);
     m_rightview->setObjectName("Right view");
+    m_rightview->setHandleDrag(false);
     addWidget( m_rightview );
     setStretchFactor( 1, 1 );
 
@@ -2520,6 +2604,79 @@ void DoubleTreeViewBase::setContextMenuIndex(const QModelIndex &idx)
 {
     m_leftview->setContextMenuIndex(idx);
     m_rightview->setContextMenuIndex(idx);
+}
+
+void sort(QTreeView *view, QModelIndexList &list)
+{
+    QModelIndexList i; i << list.takeFirst();
+    for (QModelIndex idx = view->indexAbove(i.first()); idx.isValid() && !list.isEmpty(); idx = view->indexAbove(idx)) {
+        if (list.contains(idx)) {
+            i.prepend(idx);
+            list.removeOne(idx);
+        }
+    }
+    for (QModelIndex idx = view->indexBelow(i.last()); idx.isValid() && !list.isEmpty(); idx = view->indexBelow(idx)) {
+        if (list.contains(idx)) {
+            i.append(idx);
+            list.removeOne(idx);
+        }
+    }
+    list = i;
+}
+
+QMimeData *DoubleTreeViewBase::mimeData() const
+{
+    QModelIndexList rows = selectionModel()->selectedRows();
+    sort(m_leftview, rows);
+    if (rows.isEmpty()) {
+        debugPlan<<"No rows selected";
+        return 0;
+    }
+    QList<int> columns;;
+    columns = m_leftview->visualColumns() + m_rightview->visualColumns();
+    QModelIndexList indexes;
+    for (int r = 0; r < rows.count(); ++r) {
+        int row = rows.at(r).row();
+        const QModelIndex &parent = rows.at(r).parent();
+        for (int i = 0; i < columns.count(); ++i) {
+            indexes << model()->index(row, columns.at(i), parent);
+        }
+    }
+    return model()->mimeData(indexes);
+}
+
+void DoubleTreeViewBase::handleDrag(Qt::DropActions supportedActions, Qt::DropAction defaultDropAction)
+{
+    QMimeData *data = mimeData();
+    if (!data) {
+        debugPlan<<"No mimedata";
+        return;
+    }
+    QDrag *drag = new QDrag(this);
+    drag->setPixmap(m_leftview->dragPixmap());
+    drag->setMimeData(data);
+    Qt::DropAction a = drag->exec(supportedActions, defaultDropAction);
+}
+
+void DoubleTreeViewBase::setDragPixmap(const QPixmap &pixmap)
+{
+    m_leftview->setDragPixmap(pixmap);
+}
+
+QPixmap DoubleTreeViewBase::dragPixmap() const
+{
+    return m_leftview->dragPixmap();
+}
+
+void DoubleTreeViewBase::editCopy()
+{
+    QMimeData *data = mimeData();
+    if (!data) {
+        debugPlan<<"No mimedata";
+        return;
+    }
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    clipboard->setMimeData(data);
 }
 
 } // namespace KPlato

@@ -149,6 +149,7 @@ public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm);
     
     void setTaskModules( const QStringList &files );
+    void slotEditCopy();
 
 protected:
     void updateActionsEnabled( bool on );
@@ -238,6 +239,7 @@ public Q_SLOTS:
     virtual void setGuiActive( bool activate );
 
     void setScheduleManager(KPlato::ScheduleManager *sm);
+    void slotEditCopy();
 
 protected:
     void updateActionsEnabled( bool on );
@@ -323,6 +325,7 @@ public Q_SLOTS:
     virtual void setGuiActive( bool activate );
     void slotRefreshView();
     void setScheduleManager(KPlato::ScheduleManager *sm);
+    void slotEditCopy();
 
 protected:
     void updateActionsEnabled( bool on );

@@ -84,9 +84,6 @@ public:
     int defaultPeriodType() const;
     int periodType() const;
     void setPeriodType( int type );
-
-protected:
-    void dragMoveEvent(QDragMoveEvent *event);
 };
 
 

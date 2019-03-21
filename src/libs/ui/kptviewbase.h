@@ -442,6 +442,12 @@ public:
     void expandRecursivly(QDomElement element, const QModelIndex &parent = QModelIndex());
     void doExpand(QDomDocument &doc);
 
+    void setHandleDrag(bool state);
+    QList<int> visualColumns() const;
+    void setDragPixmap(const QPixmap &pixmap);
+    QPixmap dragPixmap() const;
+
+    QModelIndexList selection() const { return selectedIndexes(); }
 public Q_SLOTS:
     void slotExpand();
     void slotCollapse();
@@ -460,9 +466,12 @@ Q_SIGNALS:
     void dropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
 
 protected:
+    /// Re-implemented to cater for hidden column 0
+    QModelIndexList selectedIndexes() const;
     void keyPressEvent(QKeyEvent *event);
     void mousePressEvent( QMouseEvent *event );
     virtual void focusInEvent(QFocusEvent *event);
+
     /**
       Reimplemented from QTreeView to make tab/backtab in editor work reasonably well.
       Move the cursor in the way described by \a cursorAction, *not* using the
@@ -492,6 +501,8 @@ protected:
         }
     }
 
+    void startDrag(Qt::DropActions supportedActions);
+
 protected Q_SLOTS:
     /// Close the @p editor, using sender()->endEditHint().
     /// Use @p hint if sender is not of type ItemDelegate.
@@ -513,6 +524,9 @@ protected:
     QPersistentModelIndex m_contextMenuIndex;
     QDomDocument m_loadContextDoc;
     QDomDocument m_expandDoc;
+
+    bool m_handleDrag;
+    QPixmap m_dragPixmap;
 };
 
 //------------------
@@ -629,6 +643,14 @@ public:
     }
 
     void setContextMenuIndex(const QModelIndex &idx);
+
+    void handleDrag(Qt::DropActions supportedActions, Qt::DropAction defaultDropAction);
+    void setDragPixmap(const QPixmap &pixmap);
+    QPixmap dragPixmap() const;
+
+    void editCopy();
+
+    QMimeData *mimeData() const;
 
 Q_SIGNALS:
     /// Context menu requested from the viewport, pointer over @p index at global position @p pos

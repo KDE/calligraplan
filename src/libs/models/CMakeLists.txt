@@ -59,6 +59,7 @@ target_link_libraries(planmodels
         KGantt
         KF5::KIOWidgets
     PRIVATE
+        Qt5::Gui
         KF5::Notifications
         KF5::TextWidgets
 )

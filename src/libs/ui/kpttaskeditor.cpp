@@ -203,6 +203,7 @@ bool TaskEditorItemModel::setType( Node *node, const QVariant &value, int role )
 TaskEditorTreeView::TaskEditorTreeView( QWidget *parent )
     : DoubleTreeViewBase( parent )
 {
+    setDragPixmap(koIcon("view-task").pixmap(32));
     TaskEditorItemModel *m = new TaskEditorItemModel( this );
     setModel( m );
     //setSelectionBehavior( QAbstractItemView::SelectItems );
@@ -241,6 +242,7 @@ void TaskEditorTreeView::slotDropAllowed( const QModelIndex &index, int dropIndi
 NodeTreeView::NodeTreeView( QWidget *parent )
     : DoubleTreeViewBase( parent )
 {
+    setDragPixmap(koIcon("view-task").pixmap(32));
     NodeItemModel *m = new NodeItemModel( this );
     setModel( m );
     //setSelectionBehavior( QAbstractItemView::SelectItems );
@@ -1084,6 +1086,10 @@ KoPrintJob *TaskEditor::createPrintJob()
     return m_view->createPrintJob( this );
 }
 
+void TaskEditor::slotEditCopy()
+{
+    m_view->editCopy();
+}
 
 //-----------------------------------
 TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
@@ -1101,7 +1107,7 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
 
     //m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
-    m_view->setDragDropMode( QAbstractItemView::InternalMove );
+    m_view->setDragDropMode(QAbstractItemView::DragOnly);
     m_view->setDropIndicatorShown( false );
     m_view->setDragEnabled ( true );
     m_view->setAcceptDrops( false );
@@ -1372,6 +1378,11 @@ void TaskView::saveContext( QDomElement &context ) const
 KoPrintJob *TaskView::createPrintJob()
 {
     return m_view->createPrintJob( this );
+}
+
+void TaskView::slotEditCopy()
+{
+    m_view->editCopy();
 }
 
 //---------------------------------
@@ -1707,6 +1718,11 @@ void TaskWorkPackageView::saveContext( QDomElement &context ) const
 KoPrintJob *TaskWorkPackageView::createPrintJob()
 {
     return m_view->createPrintJob( this );
+}
+
+void TaskWorkPackageView::slotEditCopy()
+{
+    m_view->editCopy();
 }
 
 } // namespace KPlato
