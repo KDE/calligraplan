@@ -29,6 +29,7 @@
 #include "kptdocuments.h"
 #include "kptcommand.h"
 #include "kptxmlloaderobject.h"
+#include "XmlSaveContext.h"
 #include "kptconfigbase.h"
 #include "kptcommonstrings.h"
 
@@ -494,7 +495,7 @@ QDomDocument WorkPackage::saveXML()
         wp.setAttribute( "owner-id", t->workPackage().ownerId() );
     }
     doc.appendChild( wp );
-    m_project->save( doc );
+    m_project->save( doc, XmlSaveContext() );
     return document;
 }
 
@@ -739,13 +740,13 @@ CopySchedulesCmd::CopySchedulesCmd( const Project &fromProject, Project &toProje
     QDomDocument olddoc;
     QDomElement e = olddoc.createElement( "old" );
     olddoc.appendChild( e );
-    toProject.save( e );
+    toProject.save( e, XmlSaveContext() );
     m_olddoc = olddoc.toString();
 
     QDomDocument newdoc;
     e = newdoc.createElement( "new" );
     newdoc.appendChild( e );
-    fromProject.save( e );
+    fromProject.save( e, XmlSaveContext() );
     m_newdoc = newdoc.toString();
 }
 void CopySchedulesCmd::execute()

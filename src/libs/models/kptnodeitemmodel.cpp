@@ -30,6 +30,7 @@
 #include "kptnode.h"
 #include "kpttaskcompletedelegate.h"
 #include "kptxmlloaderobject.h"
+#include "XmlSaveContext.h"
 #include "kptdebug.h"
 
 #include <KoXmlReader.h>
@@ -3806,6 +3807,29 @@ QMimeData *NodeItemModel::mimeData( const QModelIndexList & indexes ) const
     }
     m->setData("application/x-vnd.kde.plan.nodeitemmodel.internal", encodedData);
 
+    QList<const Node*> nodes;
+    foreach (const QModelIndex &index, indexes) {
+        if (index.isValid()) {
+            //debugPlan<<index.row();
+            Node *n = node( index );
+            if ( n && !nodes.contains(n) ) {
+                nodes << n;
+            }
+        }
+    }
+    if (!nodes.isEmpty()) {
+        Project project;
+        project.setId(this->project()->id());
+        // This text will be used as argument to an undo text:
+        // kundo2_i18nc("1=project or task name", "Insert %1", project.name() )
+        QString text = i18n("copy");
+        project.setName(text);
+        XmlSaveContext context(&project);
+        context.nodes = nodes;
+        context.options = XmlSaveContext::SaveNodes;
+        context.save();
+        m->setData("application/x-vnd.kde.plan.project", context.document.toByteArray());
+    }
     return m;
 }
 
@@ -4112,7 +4136,7 @@ KUndo2Command *NodeItemModel::createAllocationCommand( Task &task, const QList<R
 
 bool NodeItemModel::dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent )
 {
-    debugPlan<<action;
+    debugPlan<<action<<parent<<row<<column<<endl<<data->formats();
 
     if (action == Qt::IgnoreAction) {
         return true;
@@ -5180,15 +5204,9 @@ QMimeData* TaskModuleModel::mimeData( const QModelIndexList &lst ) const
         QModelIndex idx = lst.at( 0 );
         if ( idx.isValid() ) {
             Project *project = m_modules.value( idx.row() );
-            QDomDocument document( "plan" );
-            document.appendChild( document.createProcessingInstruction( "xml", "version=\"1.0\" encoding=\"UTF-8\"" ) );
-            QDomElement doc = document.createElement( "plan" );
-            doc.setAttribute( "editor", "Plan" );
-            doc.setAttribute( "mime", "application/x-vnd.kde.plan" );
-            doc.setAttribute( "version", PLAN_FILE_SYNTAX_VERSION );
-            document.appendChild( doc );
-            project->save( doc );
-            mime->setData( "application/x-vnd.kde.plan.project", document.toByteArray() );
+            XmlSaveContext context(project);
+            context.save();
+            mime->setData( "application/x-vnd.kde.plan.project", context.document.toByteArray() );
         }
     }
     return mime;

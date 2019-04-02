@@ -31,6 +31,7 @@
 #include "kptschedule.h"
 #include "kptwbsdefinition.h"
 #include "kptxmlloaderobject.h"
+#include "XmlSaveContext.h"
 #include "kptschedulerplugin.h"
 #include "kptdebug.h"
 
@@ -1291,7 +1292,7 @@ bool Project::load( KoXmlElement &element, XMLLoaderObject &status )
     return true;
 }
 
-void Project::save( QDomElement &element ) const
+void Project::save( QDomElement &element, const XmlSaveContext &context) const
 {
     QDomElement me = element.ownerDocument().createElement( "project" );
     element.appendChild( me );
@@ -1325,57 +1326,59 @@ void Project::save( QDomElement &element ) const
     share.setAttribute("projects-url", QString(m_sharedProjectsUrl.toEncoded()));
     share.setAttribute("projects-loadatstartup", m_loadProjectsAtStartup);
 
-    m_accounts.save( me );
+    if (context.saveAll(this)) {
+        m_accounts.save( me );
 
-    // save calendars
-    foreach ( Calendar *c, calendarIdDict ) {
-        c->save( me );
-    }
-    // save standard worktime
-    if ( m_standardWorktime )
-        m_standardWorktime->save( me );
+        // save calendars
+        foreach ( Calendar *c, calendarIdDict ) {
+            c->save( me );
+        }
+        // save standard worktime
+        if ( m_standardWorktime )
+            m_standardWorktime->save( me );
 
-    // save project resources, must be after calendars
-    QListIterator<ResourceGroup*> git( m_resourceGroups );
-    while ( git.hasNext() ) {
-        git.next() ->save( me );
-    }
+        // save project resources, must be after calendars
+        QListIterator<ResourceGroup*> git( m_resourceGroups );
+        while ( git.hasNext() ) {
+            git.next() ->save( me );
+        }
 
-    // Only save parent relations
-    QListIterator<Relation*> it( m_dependParentNodes );
-    while ( it.hasNext() ) {
-        it.next() ->save( me );
-    }
+        // Only save parent relations
+        QListIterator<Relation*> it( m_dependParentNodes );
+        while ( it.hasNext() ) {
+            it.next() ->save( me );
+        }
 
-    for ( int i = 0; i < numChildren(); i++ )
-        // Save all children
-        childNode( i ) ->save( me );
+        for ( int i = 0; i < numChildren(); i++ )
+            // Save all children
+            childNode(i)->save(me, context);
 
-    // Now we can save relations assuming no tasks have relations outside the project
-    QListIterator<Node*> nodes( m_nodes );
-    while ( nodes.hasNext() ) {
-        nodes.next() ->saveRelations( me );
-    }
+        // Now we can save relations assuming no tasks have relations outside the project
+        QListIterator<Node*> nodes( m_nodes );
+        while ( nodes.hasNext() ) {
+            nodes.next() ->saveRelations( me );
+        }
 
-    if ( !m_managers.isEmpty() ) {
-        QDomElement el = me.ownerDocument().createElement( "schedules" );
+        if ( !m_managers.isEmpty() ) {
+            QDomElement el = me.ownerDocument().createElement( "schedules" );
+            me.appendChild( el );
+            foreach ( ScheduleManager *sm, m_managers ) {
+                sm->saveXML( el );
+            }
+        }
+        // save resource teams
+        QDomElement el = me.ownerDocument().createElement( "resource-teams" );
         me.appendChild( el );
-        foreach ( ScheduleManager *sm, m_managers ) {
-            sm->saveXML( el );
-        }
-    }
-    // save resource teams
-    QDomElement el = me.ownerDocument().createElement( "resource-teams" );
-    me.appendChild( el );
-    foreach ( Resource *r, resourceIdDict ) {
-        if ( r->type() != Resource::Type_Team ) {
-            continue;
-        }
-        foreach ( const QString &id, r->teamMemberIds() ) {
-            QDomElement e = el.ownerDocument().createElement( "team" );
-            el.appendChild( e );
-            e.setAttribute( "team-id", r->id() );
-            e.setAttribute( "member-id", id );
+        foreach ( Resource *r, resourceIdDict ) {
+            if ( r->type() != Resource::Type_Team ) {
+                continue;
+            }
+            foreach ( const QString &id, r->teamMemberIds() ) {
+                QDomElement e = el.ownerDocument().createElement( "team" );
+                el.appendChild( e );
+                e.setAttribute( "team-id", r->id() );
+                e.setAttribute( "member-id", id );
+            }
         }
     }
 }

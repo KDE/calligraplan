@@ -32,6 +32,7 @@
 
 #include "kptglobal.h"
 #include "kptxmlloaderobject.h"
+#include "XmlSaveContext.h"
 
 #include <KoXmlReader.h>
 
@@ -260,7 +261,7 @@ void ResourceTester::team()
         QDomDocument qdoc;
         QDomElement e = qdoc.createElement( "plan" );
         qdoc.appendChild( e );
-        p1.save( e );
+        p1.save( e, XmlSaveContext() );
 
         KoXmlDocument xdoc;
         xdoc.setContent( qdoc.toString() );
@@ -370,7 +371,7 @@ void ResourceTester::team()
         QDomDocument qdoc;
         QDomElement e = qdoc.createElement( "plan" );
         qdoc.appendChild( e );
-        p1.save( e );
+        p1.save( e, XmlSaveContext() );
 
         KoXmlDocument xdoc;
         xdoc.setContent( qdoc.toString() );
@@ -492,7 +493,7 @@ void ResourceTester::required()
         QDomElement e = qdoc.createElement( "plan" );
         qdoc.appendChild( e );
         p2.setId( "p2" );
-        p2.save( e );
+        p2.save( e, XmlSaveContext() );
 
         KoXmlDocument xdoc;
         xdoc.setContent( qdoc.toString() );
@@ -566,7 +567,7 @@ void ResourceTester::required()
         QDomDocument qdoc;
         QDomElement e = qdoc.createElement( "plan" );
         qdoc.appendChild( e );
-        p4.save( e );
+        p4.save( e, XmlSaveContext() );
 
         KoXmlDocument xdoc;
         xdoc.setContent( qdoc.toString() );

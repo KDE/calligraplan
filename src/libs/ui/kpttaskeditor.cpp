@@ -48,6 +48,7 @@
 #include <QAction>
 #include <QHeaderView>
 #include <QMenu>
+#include <QClipboard>
 
 #include <kactionmenu.h>
 #include <KLocalizedString>
@@ -209,6 +210,7 @@ TaskEditorTreeView::TaskEditorTreeView( QWidget *parent )
     //setSelectionBehavior( QAbstractItemView::SelectItems );
     setSelectionMode( QAbstractItemView::ExtendedSelection );
     setSelectionBehavior( QAbstractItemView::SelectRows );
+    setDefaultDropAction(Qt::CopyAction);
 
     createItemDelegates( m );
     setItemDelegateForColumn( NodeModel::NodeType, new EnumDelegate( this ) );
@@ -236,6 +238,13 @@ void TaskEditorTreeView::slotDropAllowed( const QModelIndex &index, int dropIndi
     if ( baseModel()->dropAllowed( idx, dropIndicatorPosition, event->mimeData() ) ) {
         event->accept();
     }
+}
+
+void TaskEditorTreeView::editPaste()
+{
+    QModelIndex idx = m_leftview->currentIndex();
+    const QMimeData *data = QGuiApplication::clipboard()->mimeData();
+    model()->dropMimeData(data, Qt::CopyAction, idx.row()+1, 0, idx.parent());
 }
 
 //--------------------
@@ -1089,6 +1098,11 @@ KoPrintJob *TaskEditor::createPrintJob()
 void TaskEditor::slotEditCopy()
 {
     m_view->editCopy();
+}
+
+void TaskEditor::slotEditPaste()
+{
+    m_view->editPaste();
 }
 
 //-----------------------------------

@@ -68,7 +68,9 @@ public:
 
     Project *project() const { return baseModel()->project(); }
     void setProject( Project *project ) { baseModel()->setProject( project ); }
-    
+
+    void editPaste();
+
 Q_SIGNALS:
     void currentColumnChanged( const QModelIndex&, const QModelIndex& );
 
@@ -150,6 +152,7 @@ public Q_SLOTS:
     
     void setTaskModules( const QStringList &files );
     void slotEditCopy();
+    void slotEditPaste();
 
 protected:
     void updateActionsEnabled( bool on );

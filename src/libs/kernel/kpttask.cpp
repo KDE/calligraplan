@@ -31,6 +31,7 @@
 #include "kpteffortcostmap.h"
 #include "kptschedule.h"
 #include "kptxmlloaderobject.h"
+#include "XmlSaveContext.h"
 #include <kptdebug.h>
 
 #include <KoXmlReader.h>
@@ -390,7 +391,11 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status ) {
     return true;
 }
 
-void Task::save(QDomElement &element)  const {
+void Task::save(QDomElement &element, const XmlSaveContext &context)  const
+{
+    if (!context.saveNode(this)) {
+        return;
+    }
     QDomElement me = element.ownerDocument().createElement(QStringLiteral("task"));
     element.appendChild(me);
 
@@ -409,35 +414,39 @@ void Task::save(QDomElement &element)  const {
     me.setAttribute(QStringLiteral("wbs"), wbsCode()); //NOTE: included for information
 
     m_estimate->save(me);
-    m_workPackage.saveXML(me);
-    completion().saveXML( me );
 
-    if (!m_schedules.isEmpty()) {
-        QDomElement schs = me.ownerDocument().createElement(QStringLiteral("schedules"));
-        me.appendChild(schs);
-        foreach (const Schedule *s, m_schedules) {
-            if (!s->isDeleted()) {
-                s->saveXML(schs);
-            }
-        }
-    }
+    m_documents.save( me );
+
     if ( ! m_requests.isEmpty() ) {
         m_requests.save(me);
     }
 
-    m_documents.save( me );
+    if (context.saveAll(this)) {
+        if (!m_schedules.isEmpty()) {
+            QDomElement schs = me.ownerDocument().createElement(QStringLiteral("schedules"));
+            me.appendChild(schs);
+            foreach (const Schedule *s, m_schedules) {
+                if (!s->isDeleted()) {
+                    s->saveXML(schs);
+                }
+            }
+        }
+        completion().saveXML( me );
 
-    // The workpackage log
-    if (!m_packageLog.isEmpty()) {
-        QDomElement log = me.ownerDocument().createElement(QStringLiteral("workpackage-log"));
-        me.appendChild(log);
-        foreach (const WorkPackage *wp, m_packageLog) {
-            wp->saveLoggedXML( log );
+        m_workPackage.saveXML(me);
+        // The workpackage log
+        if (!m_packageLog.isEmpty()) {
+            QDomElement log = me.ownerDocument().createElement(QStringLiteral("workpackage-log"));
+            me.appendChild(log);
+            foreach (const WorkPackage *wp, m_packageLog) {
+                wp->saveLoggedXML( log );
+            }
         }
     }
-
-    for (int i=0; i<numChildren(); i++) {
-        childNode(i)->save(me);
+    if (context.saveChildren(this)) {
+        for (int i=0; i<numChildren(); i++) {
+            childNode(i)->save(me, context);
+        }
     }
 }
 

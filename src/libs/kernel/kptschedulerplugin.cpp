@@ -23,6 +23,7 @@
 #include "kptproject.h"
 #include "kptschedule.h"
 #include "kptxmlloaderobject.h"
+#include "XmlSaveContext.h"
 #include "kptdebug.h"
 
 #include "KoXmlReader.h"
@@ -503,7 +504,7 @@ void SchedulerThread::saveProject( Project *project, QDomDocument &document )
     doc.setAttribute( "mime", "application/x-vnd.kde.plan" );
     doc.setAttribute( "version", PLAN_FILE_SYNTAX_VERSION );
     document.appendChild( doc );
-    project->save( doc );
+    project->save( doc, XmlSaveContext() );
 }
 
 //static

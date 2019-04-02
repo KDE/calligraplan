@@ -40,6 +40,7 @@ namespace KPlato
 {
 
 class Completion;
+class XmlSaveContext;
 
 /**
  * The Completion class holds information about the tasks progress.
@@ -399,7 +400,7 @@ public:
     /// Load from document
     virtual bool load(KoXmlElement &element, XMLLoaderObject &status );
     /// Save to document
-    virtual void save(QDomElement &element) const;
+    virtual void save(QDomElement &element, const XmlSaveContext &context) const;
     /// Save appointments for schedule with id
     virtual void saveAppointments(QDomElement &element, long id) const;
     

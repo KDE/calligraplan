@@ -55,6 +55,7 @@ class XMLLoaderObject;
 class Task;
 class SchedulerPlugin;
 class KPlatoXmlLoaderBase;
+class XmlSaveContext;
 
 /**
  * Project is the main node in a project, it contains child nodes and
@@ -119,7 +120,7 @@ public:
     Duration *getRandomDuration();
 
     virtual bool load( KoXmlElement &element, XMLLoaderObject &status );
-    virtual void save( QDomElement &element ) const;
+    virtual void save(QDomElement &element, const XmlSaveContext &context) const;
 
     using Node::saveWorkPackageXML;
     /// Save a workpackage document containing @p node with schedule identity @p id

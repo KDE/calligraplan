@@ -76,7 +76,7 @@ void SchedulerTester::testProject( const QString &fname, const KoXmlDocument &do
     KoXmlElement pel = doc.documentElement().namedItem( "project" ).toElement();
     if ( pel.isNull() ) {
         QString s = QString( "%1: Cannot find 'project' element" ).arg( fname );
-        QVERIFY2( pel.isNull(), s.toLatin1() );        
+        QVERIFY2( !pel.isNull(), s.toLatin1() );
     }
     Project project;
     project.setTimeZone( QTimeZone( "UTC" ) );

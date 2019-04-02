@@ -55,6 +55,7 @@ class EffortCostMap;
 class EffortCost;
 class Calendar;
 class KPlatoXmlLoaderBase;
+class XmlSaveContext;
 
 /**
  * This class represents any node in the project, a node can be a project or
@@ -137,7 +138,7 @@ public:
     
     // The load and save methods
     virtual bool load(KoXmlElement &, XMLLoaderObject &) { return true; }
-    virtual void save(QDomElement &element) const  = 0;
+    virtual void save(QDomElement &element, const XmlSaveContext &context) const  = 0;
     /// Save me and my childrens relations.
     virtual void saveRelations(QDomElement &element) const;
 

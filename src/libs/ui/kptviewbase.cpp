@@ -1857,6 +1857,14 @@ QPixmap TreeViewBase::dragPixmap() const
     return m_dragPixmap;
 }
 
+void TreeViewBase::editCopy()
+{
+}
+
+void TreeViewBase::editPaste()
+{
+}
+
 QModelIndexList TreeViewBase::selectedIndexes() const
 {
     QModelIndexList viewSelected;
@@ -2677,6 +2685,10 @@ void DoubleTreeViewBase::editCopy()
     }
     QClipboard *clipboard = QGuiApplication::clipboard();
     clipboard->setMimeData(data);
+}
+
+void DoubleTreeViewBase::editPaste()
+{
 }
 
 } // namespace KPlato

@@ -36,6 +36,7 @@
 #include "calligraplansettings.h"
 #include "kpttask.h"
 #include "KPlatoXmlLoader.h"
+#include "XmlSaveContext.h"
 #include "kptpackage.h"
 #include "kptworkpackagemergedialog.h"
 #include "kptdebug.h"
@@ -289,22 +290,11 @@ This test does not work any longer. KoXml adds a couple of elements not present 
 QDomDocument MainDocument::saveXML()
 {
     debugPlan;
-    QDomDocument document( "plan" );
-
-    document.appendChild( document.createProcessingInstruction(
-                              "xml",
-                              "version=\"1.0\" encoding=\"UTF-8\"" ) );
-
-    QDomElement doc = document.createElement( "plan" );
-    doc.setAttribute( "editor", "Plan" );
-    doc.setAttribute( "mime", "application/x-vnd.kde.plan" );
-    doc.setAttribute( "version", PLAN_FILE_SYNTAX_VERSION );
-    document.appendChild( doc );
-
     // Save the project
-    m_project->save( doc );
+    XmlSaveContext context(m_project);
+    context.save();
 
-    return document;
+    return context.document;
 }
 
 QDomDocument MainDocument::saveWorkPackageXML( const Node *node, long id, Resource *resource )

@@ -447,6 +447,9 @@ public:
     void setDragPixmap(const QPixmap &pixmap);
     QPixmap dragPixmap() const;
 
+    virtual void editCopy();
+    virtual void editPaste();
+
     QModelIndexList selection() const { return selectedIndexes(); }
 public Q_SLOTS:
     void slotExpand();
@@ -648,7 +651,8 @@ public:
     void setDragPixmap(const QPixmap &pixmap);
     QPixmap dragPixmap() const;
 
-    void editCopy();
+    virtual void editCopy();
+    virtual void editPaste();
 
     QMimeData *mimeData() const;
 
