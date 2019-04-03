@@ -108,7 +108,7 @@ include(ECMGenerateHeaders)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 include(MacroOptionalFindPackage)
 
-set(REQUIRED_KF5_VERSION "5.53.0")
+set(REQUIRED_KF5_VERSION "5.45.0")
 
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
     COMPONENTS
