@@ -61,9 +61,9 @@ private:
     Private *d;
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(DateTimeTimeLine::Options)
-
 }
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(KPlato::DateTimeTimeLine::Options)
 
 #endif /* KPLATODATETIMETIMELINE_H */
 
