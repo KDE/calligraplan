@@ -89,7 +89,7 @@ TaskStatusTreeView::TaskStatusTreeView( QWidget *parent )
             << NodeModel::NodeStatus
             << NodeModel::NodeActualStart
             << NodeModel::NodeActualFinish
-            << NodeModel::NodeStatusNote;
+            << NodeModel::NodeDescription;
 
     QList<int> lst2;
     for ( int i = 0; i < m->columnCount(); ++i ) {
@@ -99,6 +99,9 @@ TaskStatusTreeView::TaskStatusTreeView( QWidget *parent )
     }
     hideColumns( lst1, lst2 );
     slaveView()->setDefaultColumns( show );
+    for (int i = 0; i < show.count(); ++i) {
+        slaveView()->mapToSection(show.at(i), i);
+    }
 }
 
 int TaskStatusTreeView::weekday() const
