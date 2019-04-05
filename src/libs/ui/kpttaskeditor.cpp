@@ -748,22 +748,6 @@ void TaskEditor::updateActionsEnabled( bool on )
         actionUnindentTask->setEnabled( false );
         return;
     }
-    if ( selCount == 1 && n != currentNode() ) {
-        // multi selection in progress
-        menuAddTask->setEnabled( false );
-        actionAddTask->setEnabled( false );
-        actionAddMilestone->setEnabled( false );
-        menuAddSubTask->setEnabled( false );
-        actionAddSubtask->setEnabled( false );
-        actionAddSubMilestone->setEnabled( false );
-        actionDeleteTask->setEnabled( false );
-        actionMoveTaskUp->setEnabled( false );
-        actionMoveTaskDown->setEnabled( false );
-        actionIndentTask->setEnabled( false );
-        actionUnindentTask->setEnabled( false );
-        return;
-    }
-
     bool baselined = false;
     Project *p = m_view->project();
     if ( p && p->isBaselined() ) {
