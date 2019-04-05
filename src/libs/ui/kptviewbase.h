@@ -298,6 +298,13 @@ public:
     QList<DockWidget*> dockers() const;
     DockWidget *findDocker( const QString &id ) const;
 
+    void setViewSplitMode(bool split);
+    /// Show the listed columns in @p left and @p right
+    /// @p right is only used if this view is a double treeview
+    /// If @p right is empty, the right view is hidden
+    /// Columns are sorted according to the lists
+    void showColumns(const QList<int> &left, const QList<int> &right = QList<int>());
+
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt) { m_printingOptions = opt; }
     /// Activate/deactivate the gui
@@ -345,6 +352,9 @@ protected:
     KoPageLayout m_pagelayout;
 
     QList<DockWidget*> m_dockers;
+
+    TreeViewBase *m_singleTreeView;
+    DoubleTreeViewBase *m_doubleTreeView;
 };
 
 //------------------
@@ -451,6 +461,7 @@ public:
     virtual void editPaste();
 
     QModelIndexList selection() const { return selectedIndexes(); }
+
 public Q_SLOTS:
     void slotExpand();
     void slotCollapse();
@@ -600,6 +611,7 @@ public:
         m_leftview->hideColumn( col );
         if ( m_rightview ) m_rightview->hideColumn( col );
     }
+
     void showColumn( int col ) {
         if ( col == 0 || m_rightview == 0 ) m_leftview->showColumn( col );
         else m_rightview->showColumn( col );

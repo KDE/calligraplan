@@ -560,7 +560,9 @@ ViewBase::ViewBase(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent),
     m_readWrite( false ),
     m_proj( 0 ),
-    m_schedulemanager( 0 )
+    m_schedulemanager( 0 ),
+    m_singleTreeView(nullptr),
+    m_doubleTreeView(nullptr)
 {
 }
 
@@ -808,6 +810,46 @@ DockWidget* ViewBase::findDocker( const QString &id ) const
         }
     }
     return 0;
+}
+
+void ViewBase::setViewSplitMode(bool split)
+{
+    if (m_doubleTreeView) {
+        m_doubleTreeView->setViewSplitMode(split);
+    }
+}
+
+void ViewBase::showColumns(const QList<int> &left, const QList<int> &right)
+{
+    TreeViewBase *view1 = m_singleTreeView;
+    TreeViewBase *view2 = nullptr;
+    if (m_doubleTreeView) {
+        view1 = m_doubleTreeView->masterView();
+        view2 = m_doubleTreeView->slaveView();
+        m_doubleTreeView->setViewSplitMode(!right.isEmpty());
+    }
+    qInfo()<<Q_FUNC_INFO<<this<<view1<<view2<<left;
+    if (view1) {
+        const QAbstractItemModel *model = view1->model();
+        if (model) {
+            int count = model->columnCount();
+            for (int i = 0; i < count; ++i) {
+                view1->setColumnHidden(i, !left.contains(i));
+                if (view2) {
+                    view2->setColumnHidden(i, !right.contains(i));
+                }
+            }
+            // sort columns
+            for (int i = 0; i < left.count(); ++i) {
+                view1->mapToSection(left.at(i), i);
+            }
+            if (view2) {
+                for (int i = 0; i < right.count(); ++i) {
+                    view2->mapToSection(right.at(i), i);
+                }
+            }
+        }
+    }
 }
 
 //----------------------

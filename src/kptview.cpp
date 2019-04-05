@@ -541,6 +541,7 @@ void View::createViews()
         }
     } else {
         debugPlan<<"Default";
+        ViewBase *v = 0;
         ViewListItem *cat;
         QString ct = "Editors";
         cat = m_viewlist->addCategory( ct, defaultCategoryInfo( ct ).name );
@@ -549,9 +550,42 @@ void View::createViews()
 
         createAccountsEditor( cat, "AccountsEditor", QString(), TIP_USE_DEFAULT_TEXT );
 
-        createResourceEditor( cat, "ResourceEditor", QString(), TIP_USE_DEFAULT_TEXT );
+        v = createResourceEditor( cat, "ResourceEditor", QString(), TIP_USE_DEFAULT_TEXT );
+        v->setViewSplitMode(false);
 
-        createTaskEditor( cat, "TaskEditor", QString(), TIP_USE_DEFAULT_TEXT );
+        v = createTaskEditor( cat, "TaskEditor", QString(), TIP_USE_DEFAULT_TEXT );
+        m_defaultView = m_tab->count() - 1;
+        v->showColumns(QList<int>() << NodeModel::NodeName
+                                    << NodeModel::NodeType
+                                    << NodeModel::NodeAllocation
+                                    << NodeModel::NodeEstimateCalendar
+                                    << NodeModel::NodeEstimate
+                                    << NodeModel::NodeOptimisticRatio
+                                    << NodeModel::NodePessimisticRatio
+                                    << NodeModel::NodeRisk
+                                    << NodeModel::NodeResponsible
+                                    << NodeModel::NodeDescription
+                    );
+
+        v = createTaskEditor( cat, "TaskConstraintEditor", i18n("Task Constraints"), i18n("Edit task scheduling contraints") );
+        v->showColumns(QList<int>() << NodeModel::NodeName
+                                    << NodeModel::NodeType
+                                    << NodeModel::NodeConstraint
+                                    << NodeModel::NodeConstraintStart
+                                    << NodeModel::NodeConstraintEnd
+                                    << NodeModel::NodeDescription
+                      );
+
+        v = createTaskEditor( cat, "TaskCostEditor", i18n("Task Cost"), i18n("Edit task cost") );
+        v->showColumns(QList<int>() << NodeModel::NodeName
+                                    << NodeModel::NodeType
+                                    << NodeModel::NodeRunningAccount
+                                    << NodeModel::NodeStartupAccount
+                                    << NodeModel::NodeStartupCost
+                                    << NodeModel::NodeShutdownAccount
+                                    << NodeModel::NodeShutdownCost
+                                    << NodeModel::NodeDescription
+                      );
 
         createDependencyEditor( cat, "DependencyEditor", QString(), TIP_USE_DEFAULT_TEXT );
 
@@ -580,11 +614,14 @@ void View::createViews()
 
         createPerformanceStatusView( cat, "PerformanceStatusView", QString(), TIP_USE_DEFAULT_TEXT );
 
-        createTaskStatusView( cat, "TaskStatusView", QString(), TIP_USE_DEFAULT_TEXT );
+        v = createTaskStatusView( cat, "TaskStatusView", QString(), TIP_USE_DEFAULT_TEXT );
+        v->setViewSplitMode(false);
 
-        createTaskView( cat, "TaskView", QString(), TIP_USE_DEFAULT_TEXT );
+        v = createTaskView( cat, "TaskView", QString(), TIP_USE_DEFAULT_TEXT );
+        v->setViewSplitMode(false);
 
-        createTaskWorkPackageView( cat, "TaskWorkPackageView", QString(), TIP_USE_DEFAULT_TEXT );
+        v = createTaskWorkPackageView( cat, "TaskWorkPackageView", QString(), TIP_USE_DEFAULT_TEXT );
+        v->setViewSplitMode(false);
 
         ct = "Reports";
         cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name);
@@ -880,7 +917,6 @@ ViewBase *View::createTaskEditor( ViewListItem *cat, const QString &tag, const Q
 {
     TaskEditor *taskeditor = new TaskEditor(getKoPart(), getPart(), m_tab );
     m_tab->addWidget( taskeditor );
-    m_defaultView = m_tab->count() - 1;
 
     ViewListItem *i = m_viewlist->addView( cat, tag, name, taskeditor, getPart(), "", index );
     ViewInfo vi = defaultViewInfo( "TaskEditor" );
