@@ -567,7 +567,7 @@ void View::createViews()
                                     << NodeModel::NodeDescription
                     );
 
-        v = createTaskEditor( cat, "TaskConstraintEditor", i18n("Task Constraints"), i18n("Edit task scheduling contraints") );
+        v = createTaskEditor( cat, "TaskConstraintEditor", i18n("Task Constraints"), i18n("Edit task scheduling constraints") );
         v->showColumns(QList<int>() << NodeModel::NodeName
                                     << NodeModel::NodeType
                                     << NodeModel::NodeConstraint
