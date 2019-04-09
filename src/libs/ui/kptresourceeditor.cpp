@@ -148,13 +148,15 @@ ResourceEditor::ResourceEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 
 
     QList<int> lst1; lst1 << 1 << -1;
-    QList<int> lst2; lst2 << 0;
+    QList<int> lst2; lst2 << 0 << ResourceModel::ResourceOvertimeRate;
     m_view->hideColumns( lst1, lst2 );
     
     m_view->masterView()->setDefaultColumns( QList<int>() << 0 );
     QList<int> show;
     for ( int c = 1; c < model()->columnCount(); ++c ) {
-        show << c;
+        if (c != ResourceModel::ResourceOvertimeRate) {
+            show << c;
+        }
     }
     m_view->slaveView()->setDefaultColumns( show );
 
