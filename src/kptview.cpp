@@ -551,7 +551,6 @@ void View::createViews()
         createAccountsEditor( cat, "AccountsEditor", QString(), TIP_USE_DEFAULT_TEXT );
 
         v = createResourceEditor( cat, "ResourceEditor", QString(), TIP_USE_DEFAULT_TEXT );
-        v->setViewSplitMode(false);
 
         v = createTaskEditor( cat, "TaskEditor", QString(), TIP_USE_DEFAULT_TEXT );
         m_defaultView = m_tab->count() - 1;
@@ -615,13 +614,10 @@ void View::createViews()
         createPerformanceStatusView( cat, "PerformanceStatusView", QString(), TIP_USE_DEFAULT_TEXT );
 
         v = createTaskStatusView( cat, "TaskStatusView", QString(), TIP_USE_DEFAULT_TEXT );
-        v->setViewSplitMode(false);
 
         v = createTaskView( cat, "TaskView", QString(), TIP_USE_DEFAULT_TEXT );
-        v->setViewSplitMode(false);
 
         v = createTaskWorkPackageView( cat, "TaskWorkPackageView", QString(), TIP_USE_DEFAULT_TEXT );
-        v->setViewSplitMode(false);
 
         ct = "Reports";
         cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name);
@@ -890,6 +886,7 @@ ViewBase *View::createResourceAppointmentsView( ViewListItem *cat, const QString
 ViewBase *View::createResourceEditor( ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index )
 {
     ResourceEditor *resourceeditor = new ResourceEditor(getKoPart(), getPart(), m_tab );
+    resourceeditor->setViewSplitMode(false);
     m_tab->addWidget( resourceeditor );
     resourceeditor->setProject( &(getProject()) );
 
@@ -916,6 +913,7 @@ ViewBase *View::createResourceEditor( ViewListItem *cat, const QString &tag, con
 ViewBase *View::createTaskEditor( ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index )
 {
     TaskEditor *taskeditor = new TaskEditor(getKoPart(), getPart(), m_tab );
+    taskeditor->setViewSplitMode(false);
     m_tab->addWidget( taskeditor );
 
     ViewListItem *i = m_viewlist->addView( cat, tag, name, taskeditor, getPart(), "", index );
@@ -1217,6 +1215,7 @@ ViewBase *View::createPerformanceStatusView( ViewListItem *cat, const QString &t
 ViewBase *View::createTaskStatusView( ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index )
 {
     TaskStatusView *taskstatusview = new TaskStatusView(getKoPart(), getPart(), m_tab );
+    taskstatusview->setViewSplitMode(false);
     m_tab->addWidget( taskstatusview );
 
     ViewListItem *i = m_viewlist->addView( cat, tag, name, taskstatusview, getPart(), "", index );
@@ -1245,6 +1244,7 @@ ViewBase *View::createTaskStatusView( ViewListItem *cat, const QString &tag, con
 ViewBase *View::createTaskView( ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index )
 {
     TaskView *v = new TaskView(getKoPart(), getPart(), m_tab );
+    v->setViewSplitMode(false);
     m_tab->addWidget( v );
 
     ViewListItem *i = m_viewlist->addView( cat, tag, name, v, getPart(), "", index );
@@ -1273,6 +1273,7 @@ ViewBase *View::createTaskView( ViewListItem *cat, const QString &tag, const QSt
 ViewBase *View::createTaskWorkPackageView( ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index )
 {
     TaskWorkPackageView *v = new TaskWorkPackageView(getKoPart(), getPart(), m_tab );
+    v->setViewSplitMode(false);
     m_tab->addWidget( v );
 
     ViewListItem *i = m_viewlist->addView( cat, tag, name, v, getPart(), "", index );
