@@ -2559,6 +2559,7 @@ bool DoubleTreeViewBase::loadContext( const QMetaEnum &map, const KoXmlElement &
         if (slave.attribute("hidden", "false") == "true") {
             setViewSplitMode(false);
         } else {
+            setViewSplitMode(true);
             setStretchFactors();
         }
         m_rightview->loadContext(map, slave, false);
