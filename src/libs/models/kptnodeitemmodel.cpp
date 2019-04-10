@@ -3901,7 +3901,7 @@ bool NodeItemModel::dropAllowed( Node *on, const QMimeData *data )
     if ( ! m_projectshown && on == m_project ) {
         return true;
     }
-    if ( on->isBaselined() && on->type() != Node::Type_Summarytask ) {
+    if (on->isBaselined() && on->type() != Node::Type_Summarytask && on->type() != Node::Type_Project) {
         return false;
     }
     if ( data->hasFormat( "application/x-vnd.kde.plan.nodeitemmodel.internal" ) ) {
