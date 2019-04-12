@@ -8,6 +8,7 @@ include_directories(
     ${PLANWIDGETS_INCLUDES}
     ${PLANODF_INCLUDES}
     ${PLANKUNDO2_INCLUDES}
+    ${CMAKE_CURRENT_SOURCE_DIR}/commands
 )
 
 if (KF5Contacts_FOUND)
@@ -22,6 +23,8 @@ set(planmodels_LIB_SRCS
 
     kptcommonstrings.cpp
     kpttreecombobox.cpp
+
+    commands/InsertProjectXmlCommand.cpp
 
     kcalendar/kdatetable.cpp
     kcalendar/kdatepicker.cpp

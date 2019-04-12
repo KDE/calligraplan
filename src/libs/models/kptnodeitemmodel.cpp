@@ -31,6 +31,7 @@
 #include "kpttaskcompletedelegate.h"
 #include "kptxmlloaderobject.h"
 #include "XmlSaveContext.h"
+#include "InsertProjectXmlCommand.h"
 #include "kptdebug.h"
 
 #include <KoXmlReader.h>
@@ -4017,19 +4018,7 @@ bool NodeItemModel::dropProjectMimeData( const QMimeData *data, Qt::DropAction a
     }
     debugPlan<<n<<action<<row<<parent;
 
-    KoXmlDocument doc;
-    doc.setContent( data->data( "application/x-vnd.kde.plan.project" ) );
-    KoXmlElement element = doc.documentElement().namedItem( "project" ).toElement();
-    Project project;
-    XMLLoaderObject status;
-    status.setVersion( doc.documentElement().attribute( "version", PLAN_FILE_SYNTAX_VERSION ) );
-    status.setProject( &project );
-    if ( ! project.load( element, status ) ) {
-        debugPlan<<"Failed to load project";
-        return false;
-    }
-    project.generateUniqueNodeIds();
-    KUndo2Command *cmd = new InsertProjectCmd( project, n, n->childNode( row - 1 ), kundo2_i18nc("1=project or task name", "Insert %1", project.name() ) );
+    KUndo2Command *cmd = new InsertProjectXmlCommand(project(), data->data( "application/x-vnd.kde.plan.project" ), n, n->childNode( row - 1 ), kundo2_i18n("Insert tasks"));
     emit executeCommand( cmd );
     return true;
 }
