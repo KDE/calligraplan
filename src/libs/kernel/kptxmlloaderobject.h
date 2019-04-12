@@ -44,7 +44,8 @@ public:
       m_warnings(0),
       m_logLevel(Diagnostics),
       m_log(),
-      m_baseCalendar( 0 )
+      m_baseCalendar( 0 ),
+      m_loadTaskChildren(true)
     {}
     ~XMLLoaderObject() {}
     
@@ -115,6 +116,9 @@ public:
     void setUpdater( KoUpdater *updater ) { m_updater = updater; }
     void setProgress( int value ) { if ( m_updater ) m_updater->setProgress( value ); }
 
+    void setLoadTaskChildren(bool state) { m_loadTaskChildren = state; }
+    bool loadTaskChildren() { return m_loadTaskChildren; }
+
 protected:
     Project *m_project;
     int m_errors;
@@ -132,6 +136,8 @@ protected:
     Calendar *m_baseCalendar; // help to handle version < 0.6
 
     QPointer<KoUpdater> m_updater;
+
+    bool m_loadTaskChildren;
 };
 
 } //namespace KPlato

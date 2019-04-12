@@ -310,15 +310,17 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status ) {
                 delete child;
             }*/
         } else if (e.tagName() == QLatin1String("task")) {
-            // Load the task
-            Task *child = new Task(this);
-            if (child->load(e, status)) {
-                if (!status.project().addSubTask(child, this)) {
-                    delete child;  // TODO: Complain about this
+            if (status.loadTaskChildren()) {
+                // Load the task
+                Task *child = new Task(this);
+                if (child->load(e, status)) {
+                    if (!status.project().addSubTask(child, this)) {
+                        delete child;  // TODO: Complain about this
+                    }
+                } else {
+                    // TODO: Complain about this
+                    delete child;
                 }
-            } else {
-                // TODO: Complain about this
-                delete child;
             }
         } else if (e.tagName() == QLatin1String("resource")) {
             // TODO: Load the resource (projects don't have resources yet)
