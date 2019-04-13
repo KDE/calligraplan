@@ -59,14 +59,12 @@ AddTaskCommand::AddTaskCommand(Project *project, Node *parent, Node *node, Node 
 
 AddTaskCommand::~AddTaskCommand()
 {
-    qInfo()<<Q_FUNC_INFO<<m_node<<m_added;
     if (!m_added)
         delete m_node;
 }
 
 void AddTaskCommand::execute()
 {
-    qInfo()<<Q_FUNC_INFO<<m_node->name()<<m_parent<<m_parent->indexOf(m_node);
     m_project->addSubTask(m_node, m_parent->indexOf(m_node), m_parent, true);
     m_added = true;
 }
@@ -159,13 +157,12 @@ void InsertProjectXmlCommand::createCmdTask(const KoXmlElement &parentElement, N
         }
         Task *task = m_project->createTask();
         QString id = task->id();
-        m_oldIds.insert(id, task);
         task->load(taskElement, m_context);
+        m_oldIds.insert(task->id(), task);
         task->setId(id);
         NamedCommand *cmd = new AddTaskCommand(m_project, parent, task, after);
         cmd->execute();
         addCommand(cmd);
-//         createCmdRequests(taskElement, task);
 
         createCmdTask(taskElement, task); // add children
     }
@@ -181,8 +178,8 @@ void InsertProjectXmlCommand::createCmdRelations(const KoXmlElement &projectElem
         if (relationElement.tagName() != "relation") {
             continue;
         }
-        Node *parent = m_oldIds.value(relationElement.attribute("parent"));
-        Node *child = m_oldIds.value(relationElement.attribute("child"));
+        Node *parent = m_oldIds.value(relationElement.attribute("parent-id"));
+        Node *child = m_oldIds.value(relationElement.attribute("child-id"));
         if (parent && child) {
             Relation *relation = new Relation(parent, child);
             relation->setType(relationElement.attribute("type"));

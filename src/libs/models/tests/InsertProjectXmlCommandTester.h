@@ -41,6 +41,7 @@ private Q_SLOTS:
 
     void copyBasics();
     void copyRequests();
+    void copyDependency();
 
 private:
     void printDebug(Project *project) const;

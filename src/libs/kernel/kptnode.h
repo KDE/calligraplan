@@ -140,7 +140,7 @@ public:
     virtual bool load(KoXmlElement &, XMLLoaderObject &) { return true; }
     virtual void save(QDomElement &element, const XmlSaveContext &context) const  = 0;
     /// Save me and my childrens relations.
-    virtual void saveRelations(QDomElement &element) const;
+    virtual void saveRelations(QDomElement &element, const XmlSaveContext &context) const;
 
     /// Save a workpackage document containing @p node with schedule identity @p id
     virtual void saveWorkPackageXML( QDomElement &element, long id ) const;

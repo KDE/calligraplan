@@ -78,7 +78,7 @@ Project *createProject()
     DateTime targetend = DateTime(targetstart.addDays(3));
     project->setConstraintStartTime(targetstart);
     project->setConstraintEndTime(targetend);
-    
+
     // standard worktime defines 8 hour day as default
     Calendar *calendar = new Calendar("Test");
     calendar->setDefault(true);
@@ -114,12 +114,19 @@ void addTask(Project *project, const QString &name, Task *parent = 0)
     task->estimate()->setExpectedEstimate(8.0);
     task->estimate()->setType(Estimate::Type_Effort);
 }
+
 void addRequests(Node *task, ResourceGroup *g, Resource *r)
 {
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     gr->addResourceRequest(new ResourceRequest(r, 100));
     task->requests().addRequest(gr);
 }
+
+void addDependency(Node *t1, Node *t2)
+{
+    t1->addDependChildNode(t2, Relation::FinishStart);
+}
+
 void InsertProjectXmlCommandTester::init()
 {
     m_project = createProject();
@@ -149,10 +156,10 @@ void InsertProjectXmlCommandTester::copyBasics()
 void InsertProjectXmlCommandTester::copyRequests()
 {
     addResources(m_project);
-    
+
     addTask(m_project, "T1");
     addTask(m_project, "T2");
-    
+
     addRequests(m_project->childNode(0), m_project->resourceGroupAt(0), m_project->resourceGroupAt(0)->resourceAt(0));
     addRequests(m_project->childNode(1), m_project->resourceGroupAt(0), m_project->resourceGroupAt(0)->resourceAt(0));
     printDebug(m_project);
@@ -184,5 +191,34 @@ void InsertProjectXmlCommandTester::copyRequests()
 
 }
 
+void InsertProjectXmlCommandTester::copyDependency()
+{
+    addResources(m_project);
+
+    addTask(m_project, "T1");
+    addTask(m_project, "T2");
+
+    addDependency(m_project->childNode(0), m_project->childNode(1));
+
+    printDebug(m_project);
+
+    XmlSaveContext context(m_project);
+    context.options = XmlSaveContext::SaveNodes;
+    context.nodes << m_project->childNode(0) << m_project->childNode(1);
+    context.save();
+    qInfo()<<context.document.toString();
+    InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, m_project->childNode(1));
+    cmd.redo();
+    printDebug(m_project);
+    QCOMPARE(m_project->allTasks().count(), 4);
+
+    Node *copy1 = m_project->childNode(2);
+    Node *copy2 = m_project->childNode(3);
+    QVERIFY(m_project->childNode(0)->id() != copy1->id());
+    QCOMPARE(m_project->childNode(0)->name(), copy1->name());
+
+    QCOMPARE(m_project->childNode(0)->numDependChildNodes(), copy1->numDependChildNodes());
+    QCOMPARE(m_project->childNode(1)->numDependParentNodes(), copy2->numDependParentNodes());
+}
 
 QTEST_GUILESS_MAIN(KPlato::InsertProjectXmlCommandTester)

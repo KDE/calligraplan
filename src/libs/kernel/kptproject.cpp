@@ -1342,23 +1342,26 @@ void Project::save( QDomElement &element, const XmlSaveContext &context) const
         while ( git.hasNext() ) {
             git.next() ->save( me );
         }
-
-        // Only save parent relations
-        QListIterator<Relation*> it( m_dependParentNodes );
-        while ( it.hasNext() ) {
-            it.next() ->save( me );
+    }
+    // Only save parent relations
+    QListIterator<Relation*> it( m_dependParentNodes );
+    while ( it.hasNext() ) {
+        Relation *r = it.next();
+        if (context.saveNode(r->parent()) && context.saveNode(r->child())) {
+            r->save(me);
         }
-
+    }
+    if (context.saveAll(this)) {
         for ( int i = 0; i < numChildren(); i++ )
-            // Save all children
-            childNode(i)->save(me, context);
-
-        // Now we can save relations assuming no tasks have relations outside the project
-        QListIterator<Node*> nodes( m_nodes );
-        while ( nodes.hasNext() ) {
-            nodes.next() ->saveRelations( me );
-        }
-
+        // Save all children
+        childNode(i)->save(me, context);
+    }
+    // Now we can save relations assuming no tasks have relations outside the project
+    QListIterator<Node*> nodes(m_nodes);
+    while (nodes.hasNext()) {
+        nodes.next()->saveRelations(me, context);
+    }
+    if (context.saveAll(this)) {
         if ( !m_managers.isEmpty() ) {
             QDomElement el = me.ownerDocument().createElement( "schedules" );
             me.appendChild( el );
