@@ -57,7 +57,7 @@ private:
 class PLANMODELS_EXPORT InsertProjectXmlCommand : public MacroCommand
 {
 public:
-    InsertProjectXmlCommand(Project *project, const QByteArray &data, Node *parent, Node *after,  const KUndo2MagicString& name = KUndo2MagicString());
+    InsertProjectXmlCommand(Project *project, const QByteArray &data, Node *parent, Node *position,  const KUndo2MagicString& name = KUndo2MagicString());
     ~InsertProjectXmlCommand();
     void execute();
     void unexecute();
@@ -67,14 +67,14 @@ private:
     void createCmdCalendars(const KoXmlElement &projectElement);
     void createCmdResources(const KoXmlElement &projectElement);
     void createCmdTasks(const KoXmlElement &projectElement);
-    void createCmdTask(const KoXmlElement &parentElement, Node *parent, Node *after = nullptr);
+    void createCmdTask(const KoXmlElement &parentElement, Node *parent, Node *position = nullptr);
     void createCmdRelations(const KoXmlElement &projectElement);
 
 private:
     Project *m_project;
     QByteArray m_data;
     Node *m_parent;
-    Node *m_after;
+    Node *m_position;
     bool m_first;
     XMLLoaderObject m_context;
     QHash<QString, Node*> m_oldIds; // QHash<taskid, task>

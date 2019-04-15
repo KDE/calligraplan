@@ -65,7 +65,7 @@ AddTaskCommand::~AddTaskCommand()
 
 void AddTaskCommand::execute()
 {
-    m_project->addSubTask(m_node, m_parent->indexOf(m_node), m_parent, true);
+    m_project->addSubTask(m_node, m_parent->indexOf(m_after), m_parent, true);
     m_added = true;
 }
 
@@ -75,12 +75,12 @@ void AddTaskCommand::unexecute()
     m_added = false;
 }
 
-InsertProjectXmlCommand::InsertProjectXmlCommand(Project *project, const QByteArray &data, Node *parent, Node *after, const KUndo2MagicString& name)
+InsertProjectXmlCommand::InsertProjectXmlCommand(Project *project, const QByteArray &data, Node *parent, Node *position, const KUndo2MagicString& name)
         : MacroCommand(name)
         , m_project(project)
         , m_data(data)
         , m_parent(parent)
-        , m_after(after)
+        , m_position(position)
         , m_first(true)
 {
     //debugPlan<<cal->name();
@@ -100,6 +100,7 @@ void InsertProjectXmlCommand::execute()
         // create and execute commands
         KoXmlDocument doc;
         doc.setContent(m_data);
+        m_context.setVersion(doc.documentElement().attribute("plan-version", PLAN_FILE_SYNTAX_VERSION));
         KoXmlElement projectElement = doc.documentElement().namedItem("project").toElement();
 
         createCmdAccounts(projectElement);
@@ -145,10 +146,10 @@ void InsertProjectXmlCommand::createCmdTasks(const KoXmlElement &projectElement)
     if (projectElement.isNull()) {
         return;
     }
-    createCmdTask(projectElement, m_project, m_after);
+    createCmdTask(projectElement, m_parent, m_position);
 }
 
-void InsertProjectXmlCommand::createCmdTask(const KoXmlElement &parentElement, Node *parent, Node *after)
+void InsertProjectXmlCommand::createCmdTask(const KoXmlElement &parentElement, Node *parent, Node *position)
 {
     KoXmlElement taskElement;
     forEachElement(taskElement, parentElement) {
@@ -160,7 +161,7 @@ void InsertProjectXmlCommand::createCmdTask(const KoXmlElement &parentElement, N
         task->load(taskElement, m_context);
         m_oldIds.insert(task->id(), task);
         task->setId(id);
-        NamedCommand *cmd = new AddTaskCommand(m_project, parent, task, after);
+        NamedCommand *cmd = new AddTaskCommand(m_project, parent, task, position);
         cmd->execute();
         addCommand(cmd);
 
