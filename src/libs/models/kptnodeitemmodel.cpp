@@ -3819,13 +3819,7 @@ QMimeData *NodeItemModel::mimeData( const QModelIndexList & indexes ) const
         }
     }
     if (!nodes.isEmpty()) {
-        Project project;
-        project.setId(this->project()->id());
-        // This text will be used as argument to an undo text:
-        // kundo2_i18nc("1=project or task name", "Insert %1", project.name() )
-        QString text = i18n("copy");
-        project.setName(text);
-        XmlSaveContext context(&project);
+        XmlSaveContext context(project());
         context.nodes = nodes;
         context.options = XmlSaveContext::SaveNodes;
         context.save();
@@ -3836,7 +3830,7 @@ QMimeData *NodeItemModel::mimeData( const QModelIndexList & indexes ) const
 
 bool NodeItemModel::dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data )
 {
-    debugPlan;
+    debugPlan<<index<<dropIndicatorPosition;
     if ( m_projectshown && ! index.isValid() ) {
         return false;
     }
@@ -4018,7 +4012,7 @@ bool NodeItemModel::dropProjectMimeData( const QMimeData *data, Qt::DropAction a
     }
     debugPlan<<n<<action<<row<<parent;
 
-    KUndo2Command *cmd = new InsertProjectXmlCommand(project(), data->data( "application/x-vnd.kde.plan.project" ), n, n->childNode( row - 1 ), kundo2_i18n("Insert tasks"));
+    KUndo2Command *cmd = new InsertProjectXmlCommand(project(), data->data("application/x-vnd.kde.plan.project"), n, n->childNode(row), kundo2_i18n("Insert tasks"));
     emit executeCommand( cmd );
     return true;
 }
