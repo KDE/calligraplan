@@ -2507,7 +2507,7 @@ QString Project::generateWBSCode( QList<int> &indexes, bool sortable ) const
             code += ".%1";
             code = code.arg(QString::number(index), fw, fc);
         }
-        debugPlan<<code<<"------------------";
+        //debugPlan<<code<<"------------------";
     } else {
         if ( ! code.isEmpty() && ! indexes.isEmpty() ) {
             code += m_wbsDefinition.projectSeparator();
