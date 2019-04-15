@@ -142,6 +142,8 @@ void InsertProjectXmlCommandTester::copyBasics()
 {
     addTask(m_project, "T1");
 
+    QList<Node*> old = m_project->childNodeIterator();
+
     XmlSaveContext context(m_project);
     context.options = XmlSaveContext::SaveNodes;
     context.nodes << m_project->childNode(0);
@@ -151,6 +153,8 @@ void InsertProjectXmlCommandTester::copyBasics()
     cmd.redo();
 
     QCOMPARE(m_project->allTasks().count(), 2);
+    QVERIFY(!old.contains(m_project->childNode(0)));
+    QCOMPARE(m_project->childNode(1), old.at(0));
 }
 
 void InsertProjectXmlCommandTester::copyRequests()
@@ -169,7 +173,7 @@ void InsertProjectXmlCommandTester::copyRequests()
     context.nodes << m_project->childNode(0) << m_project->childNode(1);
     context.save();
     qInfo()<<context.document.toString();
-    InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, m_project->childNode(1));
+    InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, nullptr /*last*/);
     cmd.redo();
     printDebug(m_project);
     QCOMPARE(m_project->allTasks().count(), 4);
@@ -206,8 +210,7 @@ void InsertProjectXmlCommandTester::copyDependency()
     context.options = XmlSaveContext::SaveNodes;
     context.nodes << m_project->childNode(0) << m_project->childNode(1);
     context.save();
-    qInfo()<<context.document.toString();
-    InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, m_project->childNode(1));
+    InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, nullptr /*last*/);
     cmd.redo();
     printDebug(m_project);
     QCOMPARE(m_project->allTasks().count(), 4);
@@ -219,6 +222,40 @@ void InsertProjectXmlCommandTester::copyDependency()
 
     QCOMPARE(m_project->childNode(0)->numDependChildNodes(), copy1->numDependChildNodes());
     QCOMPARE(m_project->childNode(1)->numDependParentNodes(), copy2->numDependParentNodes());
+}
+
+void InsertProjectXmlCommandTester::copyToPosition()
+{
+    addTask(m_project, "T1");
+    addTask(m_project, "T2");
+
+    QList<Node*> old = m_project->childNodeIterator();
+    XmlSaveContext context(m_project);
+    context.options = XmlSaveContext::SaveNodes;
+    context.nodes << m_project->childNode(0);
+    context.save();
+    {
+    InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, m_project->childNode(1));
+    cmd.redo();
+    }
+    QCOMPARE(m_project->allTasks().count(), 3);
+    QCOMPARE(m_project->childNode(0), old.at(0));
+    QCOMPARE(m_project->childNode(2), old.at(1));
+    QVERIFY(!old.contains(m_project->childNode(1)));
+
+    qInfo()<<m_project->childNodeIterator();
+    old = m_project->childNodeIterator();
+    context.options = XmlSaveContext::SaveNodes;
+    context.save();
+    {
+    InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project->childNode(1), nullptr);
+    cmd.redo();
+    }
+    qInfo()<<m_project->childNodeIterator();
+    QCOMPARE(m_project->numChildren(), 3);
+    QCOMPARE(m_project->allNodes().count(), 4);
+    QVERIFY(m_project->childNode(1)->type() == Node::Type_Summarytask);
+    QCOMPARE(m_project->childNode(1)->numChildren(), 1);
 }
 
 QTEST_GUILESS_MAIN(KPlato::InsertProjectXmlCommandTester)
