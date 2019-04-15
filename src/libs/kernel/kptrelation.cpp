@@ -22,6 +22,7 @@
 
 #include "kptnode.h"
 #include "kptproject.h"
+#include "XmlSaveContext.h"
 #include "kptdebug.h"
 
 #include <KoXmlReader.h>
@@ -144,7 +145,11 @@ bool Relation::load(KoXmlElement &element, Project &project) {
 }
 
 
-void Relation::save(QDomElement &element) const {
+void Relation::save(QDomElement &element, const XmlSaveContext &context) const
+{
+    if (!context.saveRelation(this)) {
+        return;
+    }
     QDomElement me = element.ownerDocument().createElement("relation");
     element.appendChild(me);
 

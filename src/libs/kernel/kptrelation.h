@@ -37,6 +37,7 @@ namespace KPlato
 
 class Node;
 class Project;
+class XmlSaveContext;
 
 /**
   * The relation class couples 2 nodes together which are dependent on each other.
@@ -93,7 +94,7 @@ public:
     void setChild( Node *node );
 
     bool load(KoXmlElement &element, Project &project);
-    void save(QDomElement &element) const;
+    void save(QDomElement &element, const XmlSaveContext &context) const;
 
 protected: // variables
     Node *m_parent;

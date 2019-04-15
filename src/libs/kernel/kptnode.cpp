@@ -668,14 +668,11 @@ void Node::saveWorkPackageXML( QDomElement &, long ) const
 
 void Node::saveRelations(QDomElement &element, const XmlSaveContext &context) const
 {
-    if (!context.saveNode(this)) {
-        return;
-    }
     QListIterator<Relation*> it(m_dependChildNodes);
     while (it.hasNext()) {
         Relation *r = it.next();
         if (context.saveNode(r->child())) {
-            r->save(element);
+            r->save(element, context);
         }
     }
     QListIterator<Node*> nodes(m_nodes);

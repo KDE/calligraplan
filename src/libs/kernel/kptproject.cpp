@@ -1348,7 +1348,7 @@ void Project::save( QDomElement &element, const XmlSaveContext &context) const
     while ( it.hasNext() ) {
         Relation *r = it.next();
         if (context.saveNode(r->parent()) && context.saveNode(r->child())) {
-            r->save(me);
+            r->save(me, context);
         }
     }
     if (context.saveAll(this)) {

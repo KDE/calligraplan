@@ -80,6 +80,13 @@ public:
         }
         return false; // TODO
     }
+    bool saveRelation(const Relation *relation) const {
+        if (options & SaveAll) {
+            return true;
+        }
+        qInfo()<<Q_FUNC_INFO<<relation;
+        return (options & SaveNodes) && nodes.contains(relation->parent()) && nodes.contains(relation->child());
+    }
     void save() const {
         document = createDocument();
         QDomElement doc = document.documentElement();
