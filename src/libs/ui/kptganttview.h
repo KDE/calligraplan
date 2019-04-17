@@ -231,6 +231,9 @@ public:
     bool loadContext( const KoXmlElement &settings );
     void saveContext( QDomElement &settings ) const;
 
+public Q_SLOTS:
+    void setShowUnscheduledTasks(bool show);
+
 protected:
     Project *m_project;
     GanttItemDelegate *m_ganttdelegate;
@@ -324,6 +327,7 @@ private:
     Project *m_project;
 
     QAction *actionShowProject;
+    QAction *actionShowUnscheduled;
     QDomDocument m_domdoc;
 };
 

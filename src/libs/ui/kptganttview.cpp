@@ -549,7 +549,7 @@ NodeGanttViewBase::NodeGanttViewBase( QWidget *parent )
     setRowController( m_rowController );
     tv->header()->setStretchLastSection( true );
 
-    NodeSortFilterProxyModel *m = new NodeSortFilterProxyModel( &m_defaultModel, this );
+    NodeSortFilterProxyModel *m = new NodeSortFilterProxyModel(&m_defaultModel, this, true);
     KGantt::View::setModel( m );
 }
 
@@ -624,6 +624,14 @@ void NodeGanttViewBase::saveContext( QDomElement &settings ) const
     GanttViewBase::saveContext( e );
 
     m_printOptions.saveContext( e );
+}
+
+void NodeGanttViewBase::setShowUnscheduledTasks(bool show)
+{
+    NodeSortFilterProxyModel *m = qobject_cast<NodeSortFilterProxyModel*>(KGantt::View::model());
+    if (m) {
+        m->setFilterUnscheduled(!show);
+    }
 }
 
 //-------------------------------------------
@@ -842,6 +850,10 @@ void GanttView::setupGui()
     connect(actionShowProject, &QAction::triggered, m_gantt, &MyKGanttView::createDependencies);
     addContextAction( actionShowProject );
 
+    actionShowUnscheduled = new KToggleAction( i18n( "Show Unscheduled Tasks" ), this );
+    connect(actionShowUnscheduled, &QAction::triggered, m_gantt, &MyKGanttView::setShowUnscheduledTasks);
+    addContextAction(actionShowUnscheduled);
+
     createOptionActions(ViewBase::OptionAll);
 }
 
@@ -1003,6 +1015,9 @@ bool GanttView::loadContext( const KoXmlElement &settings )
     bool show = (bool)(settings.attribute( "show-project", "0" ).toInt() );
     actionShowProject->setChecked( show );
     m_gantt->model()->setShowProject( show ); // why is this not called by the action?
+    show = (bool)(settings.attribute( "show-unscheduled", "1" ).toInt() );
+    actionShowUnscheduled->setChecked(show);
+    m_gantt->setShowUnscheduledTasks(show);
 
     return m_gantt->loadContext( settings );
 }
@@ -1012,6 +1027,7 @@ void GanttView::saveContext( QDomElement &settings ) const
     debugPlan;
     ViewBase::saveContext( settings );
     settings.setAttribute( "show-project", QString::number(actionShowProject->isChecked()) );
+    settings.setAttribute( "show-unscheduled", QString::number(actionShowUnscheduled->isChecked()) );
 
     m_gantt->saveContext( settings );
 
