@@ -88,8 +88,8 @@ void PlanTJPlugin::calculate( KPlato::Project &project, KPlato::ScheduleManager 
 
     project.changed( sm );
 
-//     connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
-//     connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
+    connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
+    connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
 
     connect(job, &KPlato::SchedulerThread::maxProgressChanged, sm, &KPlato::ScheduleManager::setMaxProgress);
     connect(job, &KPlato::SchedulerThread::progressChanged, sm, &KPlato::ScheduleManager::setProgress);
@@ -125,9 +125,10 @@ void PlanTJPlugin::stopCalculation( SchedulerThread *sch )
     }
 }
 
-void PlanTJPlugin::slotStarted( SchedulerThread */*job*/ )
+void PlanTJPlugin::slotStarted( SchedulerThread *job )
 {
 //    debugPlan<<"PlanTJPlugin::slotStarted:";
+    emit sigCalculationStarted(job->mainProject(), job->mainManager());
 }
 
 void PlanTJPlugin::slotFinished( SchedulerThread *j )

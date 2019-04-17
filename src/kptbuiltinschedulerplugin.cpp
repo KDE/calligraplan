@@ -62,8 +62,8 @@ void BuiltinSchedulerPlugin::calculate( Project &project, ScheduleManager *sm, b
     connect(job, &SchedulerThread::jobStarted, this, &BuiltinSchedulerPlugin::slotStarted);
     connect(job, &SchedulerThread::jobFinished, this, &BuiltinSchedulerPlugin::slotFinished);
 
-//     connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
-//     connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
+    connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
+    connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
 
     sm->setScheduling( true );
     if ( nothread ) {
