@@ -712,7 +712,7 @@ void MyKGanttView::setScheduleManager( ScheduleManager *sm )
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
     if ( sm && project() ) {
         QDateTime start = project()->startTime( sm->scheduleId() );
-        if ( g->startDateTime() !=  start ) {
+        if ( start.isValid() && g->startDateTime() !=  start ) {
             g->setStartDateTime( start );
         }
     }
