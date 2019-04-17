@@ -374,10 +374,9 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
         addStatusBarItem( m_estlabel, 0, true );
     }
 
-    connect( &getProject(), &Project::scheduleChanged, this, &View::slotScheduleChanged );
-
-    connect( &getProject(), &Project::scheduleAdded, this, &View::slotScheduleAdded );
-    connect( &getProject(), &Project::scheduleRemoved, this, &View::slotScheduleRemoved );
+    connect( &getProject(), &Project::scheduleManagerAdded, this, &View::slotScheduleAdded );
+    connect( &getProject(), &Project::scheduleManagerRemoved, this, &View::slotScheduleRemoved );
+    connect( &getProject(), &Project::sigCalculationFinished, this, &View::slotScheduleCalculated );
     slotPlugScheduleActions();
 
     connect( doc, &MainDocument::changed, this, &View::slotUpdate );
@@ -423,8 +422,8 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 View::~View()
 {
     // Disconnect and delete so we do not get called by destroyd() signal
-    const QMap<QAction*, Schedule*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
-    QMap<QAction*, Schedule*>::const_iterator it;
+    const QMap<QAction*, ScheduleManager*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
+    QMap<QAction*, ScheduleManager*>::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {
         disconnect(it.key(), &QObject::destroyed, this, &View::slotActionDestroyed);
         m_scheduleActionGroup->removeAction(it.key());
@@ -1602,9 +1601,9 @@ void View::slotSelectionChanged( ScheduleManager *sm ) {
     if ( sm == 0 ) {
         return;
     }
-    QAction *a = m_scheduleActions.key(sm->expected());
+    QAction *a = m_scheduleActions.key(sm);
     if (!a) {
-        debugPlan<<sm<<"could not find action for schedule:"<<sm->expected();
+        debugPlan<<sm<<"could not find action for schedule:"<<sm;
         return;
     }
     a->setChecked( true ); // this doesn't trigger QActionGroup
@@ -1614,20 +1613,20 @@ void View::slotSelectionChanged( ScheduleManager *sm ) {
 QList<QAction*> View::sortedActionList()
 {
     QMap<QString, QAction*> lst;
-    const QMap<QAction*, Schedule*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
-    QMap<QAction*, Schedule*>::const_iterator it;
+    const QMap<QAction*, ScheduleManager*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
+    QMap<QAction*, ScheduleManager*>::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {
         lst.insert(it.key()->objectName(), it.key());
     }
     return lst.values();
 }
 
-void View::slotScheduleRemoved( const MainSchedule *sch )
+void View::slotScheduleRemoved( const ScheduleManager *sch )
 {
     debugPlan<<sch<<sch->name();
     QAction *a = 0;
     QAction *checked = m_scheduleActionGroup->checkedAction();
-    QMapIterator<QAction*, Schedule*> i( m_scheduleActions );
+    QMapIterator<QAction*, ScheduleManager*> i( m_scheduleActions );
     while (i.hasNext()) {
         i.next();
         if ( i.value() == sch ) {
@@ -1648,54 +1647,41 @@ void View::slotScheduleRemoved( const MainSchedule *sch )
     slotViewSchedule( m_scheduleActionGroup->checkedAction() );
 }
 
-void View::slotScheduleAdded( const MainSchedule *sch )
+void View::slotScheduleAdded( const ScheduleManager *sch )
 {
-    if ( sch->type() != Schedule::Expected ) {
-        return; // Only view expected
-    }
-    MainSchedule *s = const_cast<MainSchedule*>( sch );
-//     debugPlan<<sch->name()<<" deleted="<<sch->isDeleted()<<"scheduled="<<sch->isScheduled();
+    ScheduleManager *s = const_cast<ScheduleManager*>( sch );
     QAction *checked = m_scheduleActionGroup->checkedAction();
-    if ( ! sch->isDeleted() && sch->isScheduled() ) {
-        unplugActionList( "view_schedule_list" );
-        QAction *act = addScheduleAction( s );
-        plugActionList( "view_schedule_list", sortedActionList() );
-        if ( checked ) {
-            checked->setChecked( true );
-        } else if ( act ) {
+    unplugActionList( "view_schedule_list" );
+    QAction *act = addScheduleAction( s );
+    plugActionList( "view_schedule_list", sortedActionList() );
+    if (!currentScheduleManager()) {
+        if ( act ) {
             act->setChecked( true );
         } else if ( ! m_scheduleActions.isEmpty() ) {
             m_scheduleActions.firstKey()->setChecked( true );
         }
+        slotViewSchedule( m_scheduleActionGroup->checkedAction() );
     }
-    slotViewSchedule( m_scheduleActionGroup->checkedAction() );
 }
 
-void View::slotScheduleChanged( MainSchedule *sch )
+void View::slotScheduleCalculated(Project *project, ScheduleManager *manager)
 {
-//     debugPlan<<sch->name()<<" deleted="<<sch->isDeleted()<<"scheduled="<<sch->isScheduled();
-    if ( sch->isDeleted() || ! sch->isScheduled() ) {
-        slotScheduleRemoved( sch );
-        return;
+    Q_UNUSED(project);
+    if (manager == currentScheduleManager()) {
+        slotViewScheduleManager(manager);
     }
-    if (QAction *a = m_scheduleActions.key(sch)) {
-        slotScheduleRemoved( sch ); // hmmm, how to avoid this?
-    }
-    slotScheduleAdded( sch );
 }
 
-QAction *View::addScheduleAction( Schedule *sch )
+QAction *View::addScheduleAction( ScheduleManager *sch )
 {
     QAction *act = 0;
-    if ( ! sch->isDeleted() && sch->isScheduled() ) {
-        QString n = sch->name();
-        act = new KToggleAction( n, this);
-        actionCollection()->addAction(n, act );
-        m_scheduleActions.insert( act, sch );
-        m_scheduleActionGroup->addAction( act );
-        //debugPlan<<"Add:"<<n;
-        connect( act, &QObject::destroyed, this, &View::slotActionDestroyed );
-    }
+    QString n = sch->name();
+    act = new KToggleAction( n, this);
+    actionCollection()->addAction(n, act );
+    m_scheduleActions.insert( act, sch );
+    m_scheduleActionGroup->addAction( act );
+    //debugPlan<<"Add:"<<n;
+    connect( act, &QObject::destroyed, this, &View::slotActionDestroyed );
     return act;
 }
 
@@ -1712,8 +1698,8 @@ void View::slotViewSchedule( QAction *act )
     //debugPlan<<act;
     ScheduleManager *sm = 0;
     if ( act != 0 ) {
-        Schedule *sch = m_scheduleActions.value( act, 0 );
-        sm = sch->manager();
+        ScheduleManager *sch = m_scheduleActions.value( act, 0 );
+        sm = m_scheduleActions.value( act, 0 );
     }
     setLabel( 0 );
     slotViewScheduleManager(sm);
@@ -1723,16 +1709,14 @@ void View::slotActionDestroyed( QObject *o )
 {
     //debugPlan<<o->name();
     m_scheduleActions.remove( static_cast<QAction*>( o ) );
-//    slotViewSchedule( m_scheduleActionGroup->checkedAction() );
 }
 
 void View::slotPlugScheduleActions()
 {
-    //debugPlan<<activeScheduleId();
-    long id = activeScheduleId();
+    ScheduleManager *current = currentScheduleManager();
     unplugActionList( "view_schedule_list" );
-    const QMap<QAction*, Schedule*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
-    QMap<QAction*, Schedule*>::const_iterator it;
+    const QMap<QAction*, ScheduleManager*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
+    QMap<QAction*, ScheduleManager*>::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {
         m_scheduleActionGroup->removeAction(it.key());
         delete it.key();
@@ -1740,12 +1724,8 @@ void View::slotPlugScheduleActions()
     m_scheduleActions.clear();
     QAction *ca = 0;
     foreach( ScheduleManager *sm, getProject().allScheduleManagers() ) {
-        Schedule *sch = sm->expected();
-        if ( sch == 0 ) {
-            continue;
-        }
-        QAction *act = addScheduleAction( sch );
-        if ( act && id == sch->id() ) {
+        QAction *act = addScheduleAction(sm);
+        if (sm == current) {
             ca = act;
         }
     }
@@ -1759,14 +1739,6 @@ void View::slotPlugScheduleActions()
     slotViewSchedule( ca );
 }
 
-void View::slotProjectCalculated( ScheduleManager *sm )
-{
-    // we only get here if current schedule was calculated
-    if ( sm->isScheduled() ) {
-        slotSelectionChanged( sm );
-    }
-}
-
 void View::slotCalculateSchedule( Project *project, ScheduleManager *sm )
 {
     if ( project == 0 || sm == 0 ) {
@@ -1775,9 +1747,6 @@ void View::slotCalculateSchedule( Project *project, ScheduleManager *sm )
     if ( sm->parentManager() && ! sm->parentManager()->isScheduled() ) {
         // the parent must be scheduled
         return;
-    }
-    if ( sm == currentScheduleManager() ) {
-        connect( project, &Project::projectCalculated, this, &View::slotProjectCalculated );
     }
     CalculateScheduleCmd *cmd =  new CalculateScheduleCmd( *project, sm, kundo2_i18nc("@info:status 1=schedule name", "Calculate %1", sm->name() ) );
     getPart() ->addCommand( cmd );
@@ -2156,22 +2125,22 @@ void View::slotSummaryTaskEditFinished( int result )
 
 ScheduleManager *View::currentScheduleManager() const
 {
-    Schedule *s = m_scheduleActions.value( m_scheduleActionGroup->checkedAction() );
-    return s == 0 ? 0 : s->manager();
+    return m_scheduleActions.value( m_scheduleActionGroup->checkedAction() );
 }
 
 long View::activeScheduleId() const
 {
-    Schedule *s = m_scheduleActions.value( m_scheduleActionGroup->checkedAction() );
-    return s == 0 ? -1 : s->id();
+    ScheduleManager *s = m_scheduleActions.value( m_scheduleActionGroup->checkedAction() );
+    return s == nullptr || s->expected() == nullptr ? -1 : s->expected()->id();
 }
 
 void View::setActiveSchedule( long id )
 {
     if ( id != -1 ) {
-        QMap<QAction*, Schedule*>::const_iterator it = m_scheduleActions.constBegin();
+        QMap<QAction*, ScheduleManager*>::const_iterator it = m_scheduleActions.constBegin();
         for (; it != m_scheduleActions.constEnd(); ++it ) {
-            if ( it.value()->id() == id ) {
+            int mid = it.value()->expected() == nullptr ? -1 : it.value()->expected()->id();
+            if (mid == id) {
                 it.key()->setChecked( true );
                 slotViewSchedule( it.key() ); // signal not emitted from group, so trigger it here
                 break;

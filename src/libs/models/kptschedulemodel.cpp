@@ -49,6 +49,9 @@ namespace KPlato
 
 //--------------------------------------
 
+// internal, for displaying schedule name + state
+#define SpecialScheduleDisplayRole 99999999
+
 ScheduleModel::ScheduleModel( QObject *parent )
     : QObject( parent )
 {
@@ -446,6 +449,16 @@ QVariant ScheduleItemModel::state( const QModelIndex &index, int role ) const
             return sm->maxProgress();
         case Role::Minimum:
             return 0;
+        case SpecialScheduleDisplayRole: {
+            QString st;
+            if (!sm->isScheduled()) {
+                st = sm->state().value(0);
+                if (sm->progress() > 0) {
+                    st = QString("%1 %2%").arg(st).arg(sm->progress());
+                }
+            }
+            return st;
+        }
     }
     return QVariant();
 }
@@ -1037,6 +1050,19 @@ ScheduleManager *ScheduleSortFilterModel::manager( const QModelIndex &index ) co
     QModelIndex i = mapToSource( index );
     const ScheduleItemModel *m = qobject_cast<const ScheduleItemModel*>( i.model() );
     return m == 0 ? 0 : m->manager( i );
+}
+
+QVariant ScheduleSortFilterModel::data( const QModelIndex &index, int role ) const
+{
+    QVariant v = QSortFilterProxyModel::data(index, role);
+    if (role == Qt::DisplayRole && index.column() == ScheduleModel::ScheduleName) {
+        QModelIndex state = index.sibling(index.row(), ScheduleModel::ScheduleState);
+        if (state.data(Qt::EditRole).toString() != "Scheduled") {
+            QString s = state.data(SpecialScheduleDisplayRole).toString();
+            return QString("%1 (%2)").arg(v.toString(), s);
+        }
+    }
+    return v;
 }
 
 //--------------------------------------

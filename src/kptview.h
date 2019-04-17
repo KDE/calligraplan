@@ -254,9 +254,9 @@ protected Q_SLOTS:
     void slotViewActivated(KPlato::ViewListItem*, KPlato::ViewListItem*);
     void slotPlugScheduleActions();
     void slotViewSchedule( QAction *act );
-    void slotScheduleChanged(KPlato::MainSchedule*);
-    void slotScheduleAdded(const KPlato::MainSchedule*);
-    void slotScheduleRemoved( const KPlato::MainSchedule*);
+    void slotScheduleAdded(const KPlato::ScheduleManager*);
+    void slotScheduleRemoved( const KPlato::ScheduleManager*);
+    void slotScheduleCalculated(KPlato::Project *project, KPlato::ScheduleManager *manager);
 
     void slotAddScheduleManager(KPlato::Project *project);
     void slotDeleteScheduleManager(KPlato::Project *project, KPlato::ScheduleManager *sm);
@@ -296,8 +296,6 @@ protected Q_SLOTS:
 
     void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
 
-    void slotProjectCalculated(KPlato::ScheduleManager *sm);
-
     void createReportView(const QDomDocument &doc);
 
     void saveTaskModule(const QUrl &url, KPlato::Project *project);
@@ -310,7 +308,7 @@ protected:
     virtual void updateReadWrite( bool readwrite );
 
     QList<QAction*> sortedActionList();
-    QAction *addScheduleAction( Schedule *sch );
+    QAction *addScheduleAction( ScheduleManager *sch );
     void setLabel( ScheduleManager *sm = 0 );
     Task *currentTask() const;
     Node *currentNode() const;
@@ -382,7 +380,7 @@ private:
     ViewAdaptor* m_dbus;
 
     QActionGroup *m_scheduleActionGroup;
-    QMap<QAction*, Schedule*> m_scheduleActions;
+    QMap<QAction*, ScheduleManager*> m_scheduleActions;
 
     QMultiMap<ScheduleManager*, CalculateScheduleCmd*> m_calculationcommands;
     QList<KUndo2Command*> m_undocommands;

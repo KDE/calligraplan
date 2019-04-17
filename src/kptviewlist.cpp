@@ -364,10 +364,6 @@ ViewListWidget::ViewListWidget( MainDocument *part, QWidget *parent )//QString n
     m_currentSchedule = new KComboBox( this );
     m_model.setFlat( true );
 
-    m_sfModel.setFilterKeyColumn ( ScheduleModel::ScheduleScheduled );
-    m_sfModel.setFilterRole( Qt::EditRole );
-    m_sfModel.setFilterFixedString( "true" );
-    m_sfModel.setDynamicSortFilter ( true );
     m_sfModel.setSourceModel( &m_model );
     m_currentSchedule->setModel( &m_sfModel );
     Help::add(m_currentSchedule,
