@@ -1048,6 +1048,13 @@ void MainDocument::loadResourceAssignments(QUrl url)
     slotInsertSharedProject();
 }
 
+void MainDocument::insertSharedProjects(const QList<QUrl> &urls)
+{
+    clearResourceAssignments();
+    m_sharedProjectsFiles = urls;
+    slotInsertSharedProject();
+}
+
 void MainDocument::insertSharedProjects(const QUrl &url)
 {
     m_sharedProjectsFiles.clear();

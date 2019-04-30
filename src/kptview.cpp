@@ -104,6 +104,7 @@
 #include "kptworkpackageconfigpanel.h"
 #include "kptcolorsconfigpanel.h"
 #include "kptinsertfiledlg.h"
+#include "kptloadsharedprojectsdialog.h"
 #include "kpthtmlview.h"
 #include "about/aboutpage.h"
 #include "kptlocaleconfigmoneydialog.h"
@@ -308,6 +309,10 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     actionInsertFile  = new QAction(koIcon("document-import"), i18n("Insert Project File..."), this);
     actionCollection()->addAction("insert_file", actionInsertFile );
     connect( actionInsertFile, &QAction::triggered, this, &View::slotInsertFile );
+
+    actionLoadSharedProjects  = new QAction(koIcon("document-import"), i18n("Load Shared Projects..."), this);
+    actionCollection()->addAction("load_shared_projects", actionLoadSharedProjects );
+    connect( actionLoadSharedProjects, &QAction::triggered, this, &View::slotLoadSharedProjects );
 
     // ------ Settings
     actionConfigure  = new QAction(koIcon("configure"), i18n("Configure Plan..."), this);
@@ -1562,6 +1567,27 @@ void View::slotInsertFileFinished( int result )
     }
     if ( result == QDialog::Accepted ) {
         getPart()->insertFile( dlg->url(), dlg->parentNode(), dlg->afterNode() );
+    }
+    dlg->deleteLater();
+}
+
+void View::slotLoadSharedProjects()
+{
+    LoadSharedProjectsDialog *dlg = new LoadSharedProjectsDialog( getProject(), getPart()->url(), this );
+    connect(dlg, &QDialog::finished, this, &View::slotLoadSharedProjectsFinished);
+    dlg->show();
+    dlg->raise();
+    dlg->activateWindow();
+}
+
+void View::slotLoadSharedProjectsFinished( int result )
+{
+    LoadSharedProjectsDialog *dlg = qobject_cast<LoadSharedProjectsDialog*>( sender() );
+    if ( dlg == 0 ) {
+        return;
+    }
+    if ( result == QDialog::Accepted ) {
+        getPart()->insertSharedProjects(dlg->urls());
     }
     dlg->deleteLater();
 }

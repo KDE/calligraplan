@@ -290,6 +290,8 @@ protected Q_SLOTS:
     void slotInsertResourcesFile(const QString&, const QUrl &projects);
     void slotInsertFile();
 
+    void slotLoadSharedProjects();
+
     void slotWorkPackageLoaded();
     void slotMailWorkpackage(KPlato::Node *node, KPlato::Resource *resource = 0);
     void slotMailWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource = 0 );
@@ -346,6 +348,7 @@ private Q_SLOTS:
     void slotReportDesignFinished( int result );
     void slotOpenReportFileFinished( int result );
     void slotCreateViewFinished( int result );
+    void slotLoadSharedProjectsFinished( int result );
 
     void slotRemoveCommands();
 
@@ -412,7 +415,7 @@ private:
     QAction *actionDefineWBS;
     QAction *actionInsertFile;
     QAction *actionCurrencyConfig;
-
+    QAction *actionLoadSharedProjects;
     QAction *actionOpenReportFile;
 
     // ------ Settings

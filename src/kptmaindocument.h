@@ -155,6 +155,9 @@ public Q_SLOTS:
     void insertResourcesFile(const QUrl &url, const QUrl &projects = QUrl());
     void slotProjectCreated();
 
+    /// Prepare for insertion of resource assignments of shared resources from the project(s) in @p urls
+    void insertSharedProjects(const QList<QUrl> &urls);
+
     /// Prepare for insertion of resource assignments of shared resources from the project(s) in @p url
     void insertSharedProjects(const QUrl &url);
 
