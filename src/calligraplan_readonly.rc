@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="KPlato" version="4" translationDomain="calligraplan">
+<gui name="Calligra Plan" version="5" translationDomain="calligraplan">
 <MenuBar>
     <Menu name="view"><text>&amp;View</text>
         <Separator/>
