@@ -3805,7 +3805,7 @@ void WorkPackage::clear()
 //--------------------------------
 WorkPackageSettings::WorkPackageSettings()
     : usedEffort( true ),
-    progress( false ),
+    progress( true ),
     documents( true )
 {
 }
