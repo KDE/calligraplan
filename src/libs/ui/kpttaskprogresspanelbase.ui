@@ -79,7 +79,7 @@
        <widget class="QComboBox" name="editmode">
         <item>
          <property name="text">
-          <string>Calculate effort</string>
+          <string>Per resource</string>
          </property>
         </item>
         <item>
@@ -89,7 +89,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Per resource</string>
+          <string>Calculate effort</string>
          </property>
         </item>
        </widget>
@@ -125,7 +125,16 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -190,7 +199,16 @@
        </property>
        <item>
         <layout class="QHBoxLayout">
-         <property name="margin">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
           <number>0</number>
          </property>
          <item>
