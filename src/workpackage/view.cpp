@@ -364,6 +364,27 @@ void View::slotPackageSettings()
     delete dia;
 }
 
+int View::openPackageSettings()
+{
+    int result = QDialog::Rejected;
+    WorkPackage *wp = part()->findWorkPackage( currentNode() );
+    if ( wp == 0 ) {
+        return result;
+    }
+    QPointer<PackageSettingsDialog> dia = new PackageSettingsDialog( *wp, this, true );
+    dia->enableButtonOk(true);
+    if ( dia->exec() == QDialog::Accepted && dia ) {
+        result = QDialog::Accepted;
+        KUndo2Command *cmd = dia->buildCommand();
+        if ( cmd ) {
+            debugPlanWork;
+            part()->addCommand( cmd );
+        }
+    }
+    delete dia;
+    return result;
+}
+
 void View::slotSendPackage()
 {
     Node *node = currentNode();
@@ -385,6 +406,10 @@ void View::slotSendPackage()
             default: break;
         }
     }*/
+
+    if (openPackageSettings() != QDialog::Accepted) {
+        return;
+    }
 
     QTemporaryFile temp(QDir::tempPath() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String( ".planwork" ));
     temp.setAutoRemove( false );

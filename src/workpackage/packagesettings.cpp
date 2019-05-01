@@ -29,7 +29,7 @@
 namespace KPlatoWork
 {
 
-PackageSettingsDialog::PackageSettingsDialog(WorkPackage &p, QWidget *parent)
+PackageSettingsDialog::PackageSettingsDialog(WorkPackage &p, QWidget *parent, bool enableok)
     : KoDialog(parent)
 {
     setCaption( i18n("Work Package Settings") );
@@ -43,7 +43,9 @@ PackageSettingsDialog::PackageSettingsDialog(WorkPackage &p, QWidget *parent)
     setMainWidget(dia);
     enableButtonOk(false);
 
-    connect(dia, &PackageSettingsPanel::changed, this, &KoDialog::enableButtonOk);
+    if (!enableok) {
+        connect(dia, &PackageSettingsPanel::changed, this, &KoDialog::enableButtonOk);
+    }
 }
 
 KUndo2Command *PackageSettingsDialog::buildCommand()
@@ -64,6 +66,9 @@ PackageSettingsPanel::PackageSettingsPanel(WorkPackage &p, QWidget *parent)
     connect( ui_usedEffort, &QCheckBox::stateChanged, this, &PackageSettingsPanel::slotChanged );
     connect( ui_progress, &QCheckBox::stateChanged, this, &PackageSettingsPanel::slotChanged );
     connect( ui_documents, &QCheckBox::stateChanged, this, &PackageSettingsPanel::slotChanged );
+
+    // FIXME: Use sematic markup
+    ui_explain->setText(i18n("Package: %1\nThese settings indicates to the receiver of the package which information is relevant.", p.name()));
 }
 
 KUndo2Command *PackageSettingsPanel::buildCommand()

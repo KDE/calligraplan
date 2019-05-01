@@ -62,6 +62,9 @@ public:
     WorkPackage( Project *project, bool fromProjectStore );
     ~WorkPackage();
 
+    /// @return Package name
+    QString name() const;
+
     DocumentChild *findChild( const Document *doc ) const;
     /// Called when loading a work package. Saves to Project store.
     /// Asks to save/overwrite if already there.

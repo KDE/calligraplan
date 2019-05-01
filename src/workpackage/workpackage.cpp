@@ -432,6 +432,13 @@ bool WorkPackage::isModified() const
     return false;
 }
 
+QString WorkPackage::name() const
+{
+    QString n;
+    Task *t = task();
+    return t ? t->name() : QString();
+}
+
 Node *WorkPackage::node() const
 {
     return m_project == 0 ? 0 : m_project->childNode( 0 );

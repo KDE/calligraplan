@@ -38,7 +38,7 @@ class PLANWORK_EXPORT PackageSettingsDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    explicit PackageSettingsDialog( WorkPackage &p, QWidget *parent=0 );
+    explicit PackageSettingsDialog( WorkPackage &p, QWidget *parent=0, bool enableok = false );
 
     KUndo2Command *buildCommand();
 

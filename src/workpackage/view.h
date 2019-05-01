@@ -93,6 +93,8 @@ public:
     Node *currentNode() const;
     Document *currentDocument() const;
 
+    int openPackageSettings();
+
 Q_SIGNALS:
     void currentScheduleManagerChanged(KPlato::ScheduleManager *sm);
     void openInternalDocument( KoStore * );
