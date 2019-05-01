@@ -41,6 +41,7 @@
 #include <KoStore.h>
 #include <KoDocumentInfo.h>
 #include <KoResourcePaths.h>
+#include <KoComponentData.h>
 
 #include <QPainter>
 #include <QFileInfo>
@@ -347,7 +348,7 @@ Part::Part( QWidget *parentWidget, QObject *parent, const QVariantList & /*args*
     m_undostack( new KUndo2QStack( this ) )
 {
     debugPlanWork;
-    setComponentData( *Factory::aboutData() );
+    setComponentName(Factory::global().componentName(), Factory::global().componentDisplayName());
     if ( isReadWrite() ) {
         setXMLFile( "calligraplanwork.rc" );
     } else {
@@ -461,7 +462,7 @@ bool Part::loadWorkPackages()
 {
     m_loadingFromProjectStore = true;
     const QStringList lst = KoResourcePaths::findAllResources( "projects", "*.planwork", KoResourcePaths::Recursive | KoResourcePaths::NoDuplicates );
-    //debugPlanWork<<lst;
+    debugPlanWork<<lst;
     foreach ( const QString &file, lst ) {
         if ( ! loadNativeFormatFromStore( file ) ) {
             KMessageBox::information( 0, i18n( "Failed to load file:<br>%1" , file ) );
