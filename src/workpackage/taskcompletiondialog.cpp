@@ -108,7 +108,7 @@ TaskCompletionPanel::TaskCompletionPanel(WorkPackage &p, ScheduleManager *sm, QW
     m->setManager( sm );
     m->setTask( task );
     Resource *r = p.project()->findResource( task->workPackage().ownerId() );
-    m->setSource( r, task );
+    m->setSource( r, task, &m_completion );
 
     entryTable->horizontalHeader()->swapSections( CompletionEntryItemModel::Property_PlannedEffort, CompletionEntryItemModel::Property_ActualAccumulated );
 
@@ -324,11 +324,11 @@ CompletionEntryItemModel::CompletionEntryItemModel( QObject *parent )
     m_headers << m.headerData( 2, Qt::Horizontal ).toString();
 }
 
-void CompletionEntryItemModel::setSource( Resource *resource, Task *task )
+void CompletionEntryItemModel::setSource( Resource *resource, Task *task, Completion *completion )
 {
     m_resource = resource;
     m_task = task;
-    setCompletion( &(task->completion()) );
+    setCompletion( completion ? completion : &(task->completion()) );
 }
 
 int CompletionEntryItemModel::columnCount( const QModelIndex& ) const

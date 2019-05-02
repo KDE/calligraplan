@@ -119,7 +119,7 @@ public:
     QVariant data( const QModelIndex &idx, int role ) const;
     bool setData( const QModelIndex &idx, const QVariant &value, int role );
 
-    void setSource( Resource *resource, Task *task );
+    void setSource( Resource *resource, Task *task, Completion *completion = 0 );
 
 protected:
     virtual QVariant actualEffort( int row, int role ) const;
