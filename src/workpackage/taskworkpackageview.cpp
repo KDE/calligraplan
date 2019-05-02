@@ -337,7 +337,7 @@ TaskWorkPackageView::TaskWorkPackageView( Part *part, QWidget *parent )
 
     connect( itemModel(), &KPlato::ItemModelBase::executeCommand, part, &Part::addCommand );
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
 
     connect( m_view, &KPlato::DoubleTreeViewBase::headerContextMenuRequested, this, &TaskWorkPackageView::slotHeaderContextMenuRequested );
 
