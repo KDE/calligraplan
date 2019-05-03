@@ -25,8 +25,6 @@
 #include "kptcommand.h"
 #include "kptitemmodelbase.h"
 
-#include "kptaccountsmodel.h" // FIXME hack to get at i18n'ed header text
-
 #include <KoIcon.h>
 
 #include <KLocalizedString>
@@ -319,9 +317,7 @@ CompletionEntryItemModel::CompletionEntryItemModel( QObject *parent )
     m_resource( 0 ),
     m_task( 0 )
 {
-    // FIXME after string freeze is lifted
-    CostBreakdownItemModel m;
-    m_headers << m.headerData( 2, Qt::Horizontal ).toString();
+    m_headers << i18nc("@title:column", "Total");
 }
 
 void CompletionEntryItemModel::setSource( Resource *resource, Task *task, Completion *completion )
