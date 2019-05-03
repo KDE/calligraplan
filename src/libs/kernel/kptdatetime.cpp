@@ -66,7 +66,6 @@ DateTime::DateTime( const QDateTime& other )
 
 static QDateTime fromTimeZone(const QDateTime &dt, const QTimeZone &timeZone)
 {
-    Q_ASSERT(dt.timeSpec() == Qt::LocalTime);
     QDateTime result(dt);
     if (timeZone.isValid()) {
         result.setTimeZone(timeZone);
