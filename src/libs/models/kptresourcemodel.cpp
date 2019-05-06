@@ -367,7 +367,7 @@ QVariant ResourceModel::availableUntil( const Resource *res, int role ) const
             if ( res->availableUntil().isValid() ) {
                 return xi18nc( "infor:tooltip", "Available until: %1", QLocale().toString( res->availableUntil(), QLocale::LongFormat ) );
             }
-            return xi18nc( "infor:tooltip", "Available from project target finish time: %1", QLocale().toString( m_project->constraintEndTime(), QLocale::LongFormat ) );
+            return xi18nc( "infor:tooltip", "Available until project target finish time: %1", QLocale().toString( m_project->constraintEndTime(), QLocale::LongFormat ) );
         }
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
