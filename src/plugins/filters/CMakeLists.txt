@@ -1,5 +1,6 @@
 
 add_subdirectory( icalendar )
+add_subdirectory( planner )
 
 if(WIN32)
     #disable for now
