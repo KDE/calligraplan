@@ -691,4 +691,10 @@ private:
 
 }  //KPlato namespace
 
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, KPlato::Calendar *c);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, KPlato::CalendarWeekdays *w);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, KPlato::CalendarDay *day);
+
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, KPlato::StandardWorktime *wt);
+
 #endif

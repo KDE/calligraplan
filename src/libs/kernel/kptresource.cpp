@@ -2654,3 +2654,12 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
 
 
 }  //KPlato namespace
+
+QDebug operator<<(QDebug dbg, KPlato::Resource *r)
+{
+    if (!r) { return dbg << "Resource[0x0]"; }
+    dbg << "Resource[" << r->type();
+    dbg << (r->name().isEmpty() ? r->id() : r->name());
+    dbg << ']';
+    return dbg;
+}

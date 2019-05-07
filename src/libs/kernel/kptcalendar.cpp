@@ -1707,3 +1707,57 @@ void StandardWorktime::save(QDomElement &element) const {
 
 
 }  //KPlato namespace
+
+QString stateToString(int state)
+{
+    const QStringList lst = QStringList() << "U" << "N" << "W";
+    return lst.value(state);
+}
+QDebug operator<<(QDebug dbg, KPlato::Calendar *c)
+{
+    if (!c) {
+        return dbg << "Calendar[0x0]";
+    }
+    dbg << "Calendar[" << c->name();
+    for (int i = 1; i <= 7; ++i) {
+        if (c->weekday(i)) {
+            dbg << endl << '\t' << i << ':' << c->weekday(i);
+        }
+    }
+    foreach(const KPlato::CalendarDay *day, c->days()) {
+        dbg << endl << '\t'<< day;
+    }
+    dbg << endl << ']';
+    return dbg;
+}
+
+QDebug operator<<(QDebug dbg, KPlato::CalendarWeekdays *w)
+{
+    if (!w) {
+        return dbg << "Weekdays[0x0]";
+    }
+    dbg << "Weekdays:" << w->weekdayMap();
+    return dbg;
+}
+
+QDebug operator<<(QDebug dbg, KPlato::CalendarDay *day)
+{
+    if (!day) {
+        return dbg << "Day[0x0]";
+    }
+    dbg << "Day[" << stateToString(day->state());
+    if (day->date().isValid()) {
+        dbg << day->date();
+    }
+    for(int i; i < day->numIntervals(); ++i) {
+        dbg << *(day->timeIntervals().at(i));
+    }
+    dbg <<  "]";
+    return dbg;
+}
+
+QDebug operator<<(QDebug dbg, KPlato::StandardWorktime *wt)
+{
+    dbg << "Standard";
+    return dbg;
+}
