@@ -541,7 +541,10 @@ public:
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
     virtual bool effortMetError( long id = CURRENTSCHEDULE ) const;
-    
+
+    /// @return true if this task has been started
+    bool isStarted() const;
+
     Completion &completion() { return m_workPackage.completion(); }
     const Completion &completion() const { return m_workPackage.completion(); }
     

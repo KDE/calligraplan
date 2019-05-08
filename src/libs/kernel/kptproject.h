@@ -166,6 +166,9 @@ public:
      */
     Task *createTask( const Task &def );
 
+    /// @return true if any of the tasks has been started
+    bool isStarted() const;
+
     int resourceGroupCount() const { return m_resourceGroups.count(); }
     QList<ResourceGroup*> &resourceGroups();
     /// Adds the resource group to the project.

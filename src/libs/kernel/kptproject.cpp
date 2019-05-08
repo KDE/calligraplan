@@ -1912,6 +1912,17 @@ QList<Task*> Project::allTasks( const Node *parent ) const
     return lst;
 }
 
+bool Project::isStarted() const
+{
+    const QList<Task*> tasks = allTasks();
+    for (const Task *t : tasks) {
+        if (t->isStarted()) {
+            return true;
+        }
+    }
+    return false;
+}
+
 bool Project::setResourceGroupId( ResourceGroup *group )
 {
     if ( group == 0 ) {

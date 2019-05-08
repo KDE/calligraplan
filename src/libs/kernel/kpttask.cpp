@@ -494,6 +494,11 @@ void Task::saveWorkPackageXML(QDomElement &element, long id )  const
     m_documents.save( me ); // TODO: copying documents
 }
 
+bool Task::isStarted() const
+{
+    return completion().isStarted();
+}
+
 EffortCostMap Task::plannedEffortCostPrDay(QDate start, QDate end, long id, EffortCostCalculationType typ ) const {
     //debugPlan<<m_name;
     if ( type() == Node::Type_Summarytask ) {
