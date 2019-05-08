@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Service
 Name=Plan Planner Import Filter
-Name[x-test]=xxPlan Planner Import Filterxx
 X-KDE-Export=application/x-vnd.kde.plan
 X-KDE-Import=application/x-planner
 X-KDE-Weight=1
