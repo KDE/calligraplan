@@ -1,6 +1,11 @@
 [Desktop Entry]
 Type=Service
 Name=Plan Planner Import Filter
+Name[ca]=Filtre d'importació Planner per al Plan
+Name[nl]=Plan importfilter voor Planner
+Name[pt]=Filtro de Importação do Planner do Plan
+Name[uk]=Фільтр імпортування даних Planner для Plan
+Name[x-test]=xxPlan Planner Import Filterxx
 X-KDE-Export=application/x-vnd.kde.plan
 X-KDE-Import=application/x-planner
 X-KDE-Weight=1
