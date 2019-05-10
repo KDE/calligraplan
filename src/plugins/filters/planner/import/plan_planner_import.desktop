@@ -2,6 +2,7 @@
 Type=Service
 Name=Plan Planner Import Filter
 Name[ca]=Filtre d'importació Planner per al Plan
+Name[es]=Filtro de importación Planner de Plan
 Name[nl]=Plan importfilter voor Planner
 Name[pt]=Filtro de Importação do Planner do Plan
 Name[uk]=Фільтр імпортування даних Planner для Plan
