@@ -219,7 +219,7 @@ public Q_SLOTS:
      *  If the current document is empty, the opened document replaces it.
      *  If not a new mainwindow will be opened for showing the opened file.
      */
-    void slotFileOpenRecent(const QUrl &);
+    void slotFileOpenRecent(const QUrl &, KoPart *part=nullptr);
 
     /**
      *  Saves the current document with the current name.

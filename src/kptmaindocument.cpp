@@ -91,8 +91,6 @@ MainDocument::MainDocument(KoPart *part)
     m_project->registerNodeId( m_project ); // register myself
 
     connect(this, &MainDocument::insertSharedProject, this, &MainDocument::slotInsertSharedProject);
-
-    QTimer::singleShot ( 5000, this, &MainDocument::autoCheckForWorkPackages );
 }
 
 
@@ -606,10 +604,15 @@ bool MainDocument::extractFile( KoStore *store, Package *package, const Document
 
 void MainDocument::autoCheckForWorkPackages()
 {
+    QTimer *timer = qobject_cast<QTimer*>(sender());
     if ( m_config.checkForWorkPackages() ) {
         checkForWorkPackages( true );
     }
-    QTimer::singleShot ( 10000, this, &MainDocument::autoCheckForWorkPackages );
+    if (timer && timer->interval() != 10000) {
+        timer->stop();
+        timer->setInterval(10000);
+        timer->start();
+    }
 }
 
 void MainDocument::checkForWorkPackages( bool keep )
@@ -617,7 +620,6 @@ void MainDocument::checkForWorkPackages( bool keep )
     if ( m_checkingForWorkPackages || m_config.retrieveUrl().isEmpty() || m_project == 0 || m_project->numChildren() == 0 ) {
         return;
     }
-    m_checkingForWorkPackages = true;
     if ( ! keep ) {
         qDeleteAll( m_mergedPackages );
         m_mergedPackages.clear();
@@ -631,6 +633,7 @@ void MainDocument::checkForWorkPackages( bool keep )
 void MainDocument::checkForWorkPackage()
 {
     if ( ! m_infoList.isEmpty() ) {
+        m_checkingForWorkPackages = true;
         loadWorkPackage( *m_project, QUrl::fromLocalFile( m_infoList.takeLast().absoluteFilePath() ) );
         if ( ! m_infoList.isEmpty() ) {
             QTimer::singleShot ( 0, this, &MainDocument::checkForWorkPackage );
@@ -655,6 +658,8 @@ void MainDocument::checkForWorkPackage()
             dlg->show();
             dlg->raise();
             dlg->activateWindow();
+        } else {
+            m_checkingForWorkPackages = false;
         }
     }
 }
@@ -662,6 +667,7 @@ void MainDocument::checkForWorkPackage()
 void MainDocument::workPackageMergeDialogFinished( int result )
 {
     WorkPackageMergeDialog *dlg = qobject_cast<WorkPackageMergeDialog*>( sender() );
+    Q_ASSERT(dlg);
     if ( dlg == 0 ) {
         return;
     }

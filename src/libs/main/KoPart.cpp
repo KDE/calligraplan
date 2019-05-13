@@ -74,7 +74,7 @@ public:
 
     QList<KoView*> views;
     QList<KoMainWindow*> mainWindows;
-    KoDocument *document;
+    QPointer<KoDocument> document;
     QList<KoDocument*> documents;
     QString templatesResourcePath;
 
@@ -103,6 +103,9 @@ KoPart::~KoPart()
     while (!d->mainWindows.isEmpty()) {
         delete d->mainWindows.takeFirst();
     }
+    // normally document is deleted in KoMainWindow (why?)
+    // but if not, we delete it here
+    delete d->document;
 
     delete d;
 }

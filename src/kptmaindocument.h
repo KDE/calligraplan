@@ -168,6 +168,8 @@ public Q_SLOTS:
 
     void setIsTaskModule(bool value);
 
+    void autoCheckForWorkPackages();
+
 Q_SIGNALS:
     void changed();
     void workPackageLoaded();
@@ -197,7 +199,6 @@ protected Q_SLOTS:
     void slotViewDestroyed();
     void addSchedulerPlugin(const QString&, KPlato::SchedulerPlugin *plugin);
 
-    void autoCheckForWorkPackages();
     void checkForWorkPackage();
 
     void insertFileCompleted();

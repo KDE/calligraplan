@@ -446,8 +446,8 @@ KoMainWindow::~KoMainWindow()
     // We have to check if this was a root document.
     // This has to be checked from queryClose, too :)
     if (d->rootPart && d->rootPart->viewCount() == 0) {
-        //debugMain <<"Destructor. No more views, deleting old doc" << d->rootDoc;
-        delete d->rootDocument;
+        //debugMain <<"Destructor. No more views, deleting old doc" << d->rootDocument;
+        delete d->rootDocument; // FIXME: Why delete here and not only in KoPart?
     }
 
     delete d;
@@ -708,6 +708,9 @@ bool KoMainWindow::openDocument(const QUrl &url)
 
 bool KoMainWindow::openDocument(KoPart *newPart, const QUrl &url)
 {
+    if (!newPart) {
+        return openDocument(url);
+    }
     // the part always has a document; the document doesn't know about the part.
     KoDocument *newdoc = newPart->document();
     if (!KIO::NetAccess::exists(url, KIO::NetAccess::SourceSide, 0)) {
@@ -725,7 +728,7 @@ bool KoMainWindow::openDocument(KoPart *newPart, const QUrl &url)
 
 bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocument *newdoc)
 {
-    debugMain << url.url();
+    debugMain << newpart << newdoc << url.url();
 
     if (!newpart)
         newpart = createPart();
@@ -1255,7 +1258,6 @@ void KoMainWindow::chooseNewDocument(InitDocFlags initDocFlags)
     KoPart *newpart = createPart();
     KoDocument *newdoc = newpart->document();
 
-    qInfo()<<Q_FUNC_INFO<<initDocFlags<<doc<<newpart<<newdoc;
     if (!newdoc)
         return;
 
@@ -1315,11 +1317,11 @@ void KoMainWindow::slotFileOpen()
     (void) openDocument(url);
 }
 
-void KoMainWindow::slotFileOpenRecent(const QUrl & url)
+void KoMainWindow::slotFileOpenRecent(const QUrl & url, KoPart *part)
 {
     // Create a copy, because the original QUrl in the map of recent files in
     // KRecentFilesAction may get deleted.
-    (void) openDocument(QUrl(url));
+    (void) openDocument(part, QUrl(url));
 }
 
 void KoMainWindow::slotFileSave()
@@ -1464,7 +1466,6 @@ KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
         pageLayout = layoutDlg->pageLayout();
         delete layoutDlg;
 
-        qInfo()<<Q_FUNC_INFO<<pDoc->url()<<pDoc->url().isValid()<<startUrl.toLocalFile();
         KoFileDialog dialog(this, KoFileDialog::SaveFile, "SaveDocument");
         dialog.setCaption(i18n("Export as PDF"));
         dialog.setDefaultDir(startUrl.toLocalFile());
@@ -1795,7 +1796,6 @@ KoComponentData KoMainWindow::componentData() const
 QDockWidget* KoMainWindow::createDockWidget(KoDockFactoryBase* factory)
 {
     QDockWidget* dockWidget = 0;
-    qInfo()<<Q_FUNC_INFO<<factory->id()<<d->dockWidgetsMap;
     if (!d->dockWidgetsMap.contains(factory->id())) {
         dockWidget = factory->createDockWidget();
 

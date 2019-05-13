@@ -29,6 +29,7 @@
 
 #include <kiconloader.h>
 
+#include <QTimer>
 
 namespace KPlato
 {
@@ -59,6 +60,11 @@ QObject* Factory::create( const char* /*iface*/, QWidget* /*parentWidget*/, QObj
     Part *part = new Part(parent);
     MainDocument *doc = new MainDocument(part);
     part->setDocument(doc);
+
+    // start checking for workpackages
+    QTimer *timer = new QTimer(doc);
+    connect(timer, &QTimer::timeout, doc, &MainDocument::autoCheckForWorkPackages);
+    timer->start(5000);
 
     return part;
 }

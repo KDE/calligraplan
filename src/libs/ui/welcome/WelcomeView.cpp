@@ -195,8 +195,9 @@ void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
         file = file.left(end).mid(start+1);
         QUrl url = QUrl::fromUserInput(file);
         debugWelcome<<file<<url;
+        KoPart *part = koDocument()->isEmpty() ? koDocument()->documentPart() : nullptr;
         if (url.isValid()) {
-            emit recentProject(url);
+            emit recentProject(url, part);
             emit finished();
         }
     }
@@ -285,8 +286,9 @@ void WelcomeView::slotOpenProject()
         filedialog.setDefaultDir(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
         filedialog.setMimeTypeFilters(koApp->mimeFilter(KoFilterManager::Import));
         filedialog.setHideNameFilterDetailsOption();
+        KoPart *part = koDocument()->isEmpty() ? koDocument()->documentPart() : nullptr;
         QUrl url = QUrl::fromUserInput(filedialog.filename());
-        if (!url.isEmpty() && mainWindow()->openDocument(url)) {
+        if (!url.isEmpty() && mainWindow()->openDocument(part, url)) {
             emit finished();
         }
     }
@@ -300,7 +302,8 @@ void WelcomeView::slotOpenFileFinished(int result)
     }
     if (result == QDialog::Accepted) {
         QUrl url = QUrl::fromUserInput(dia->filename());
-        if (!url.isEmpty() && mainWindow()->openDocument(url)) {
+        KoPart *part = koDocument()->isEmpty() ? nullptr : koDocument()->documentPart();
+        if (!url.isEmpty() && mainWindow()->openDocument(part, url)) {
             emit finished();
         }
     }
