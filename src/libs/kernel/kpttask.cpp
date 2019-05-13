@@ -2942,7 +2942,7 @@ Completion::Completion( Node *node )
     : m_node( node ),
       m_started( false ),
       m_finished( false ),
-      m_entrymode( EnterCompleted )
+      m_entrymode( EnterEffortPerResource )
 {}
 
 Completion::Completion( const Completion &c )

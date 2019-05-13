@@ -115,6 +115,7 @@ public:
 
     explicit CompletionEntryItemModel(QObject *parent = 0);
 
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
     int columnCount( const QModelIndex &idx = QModelIndex() ) const;
     QVariant data( const QModelIndex &idx, int role ) const;
     bool setData( const QModelIndex &idx, const QVariant &value, int role );

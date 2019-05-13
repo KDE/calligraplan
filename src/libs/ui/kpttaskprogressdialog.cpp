@@ -24,6 +24,7 @@
 #include "kptproject.h"
 #include "kpttask.h"
 #include "kptnode.h"
+#include "Help.h"
 
 #include <KLocalizedString>
 
@@ -49,6 +50,28 @@ TaskProgressDialog::TaskProgressDialog(Task &task, ScheduleManager *sm, Standard
     if ( proj ) {
         connect(proj, &Project::nodeRemoved, this, &TaskProgressDialog::slotNodeRemoved);
     }
+    Help::add(this,
+              xi18nc("@info:whatsthis",
+                     "<title>Edit Task Progress</title>"
+                     "<para>"
+                     "This dialog consists of the following parts:"
+                     "<list>"
+                     "<item>Edit mode control to define the behaviour of the dialog.</item>"
+                     "<item>Controls to mark the task as started and finished.</item>"
+                     "<item>Table to enter used effort for each resource.</item>"
+                     "<item>Table for entry of task completion and remaining effort.</item>"
+                     "</list></para><para>"
+                     "Edit modes:"
+                     "<list>"
+                     "<item><emphasis>Per resource</emphasis> requires you to enter used effort for each resource assigned to this task."
+                     " This enables the most detailed tracking of effort- and cost usage.</item>"
+                     "<item><emphasis>Per task</emphasis> enables you to enter the minimum of information. When completion is changed,"
+                     " used effort and remaining effort is automatically calculated, but can of coursey be manually modified if needed.</item>"
+                     "</list>"
+                     "<note>You should select the desired edit mode when starting the task.</note>"
+                     "<nl/><link url='%1'>More...</link>"
+                     "</para>", Help::page("Manual/Task_Progress_Dialog")));
+
 }
 
 void TaskProgressDialog::slotNodeRemoved( Node *node )

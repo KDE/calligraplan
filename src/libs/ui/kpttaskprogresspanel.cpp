@@ -38,29 +38,33 @@
 #include "kptdebug.h"
 
 
-namespace KPlato
-{
+using namespace KPlato;
 
+int toEditMode(Completion::Entrymode m)
+{
+    const QList<Completion::Entrymode> modes = QList<Completion::Entrymode>() << Completion::EnterEffortPerResource << Completion::EnterEffortPerTask << Completion::EnterCompleted;
+    return qBound(0, modes.indexOf(m), 1);
+}
+Completion::Entrymode fromEditMode(int m)
+{
+    const QList<Completion::Entrymode> modes = QList<Completion::Entrymode>() << Completion::EnterEffortPerResource << Completion::EnterEffortPerTask;
+    return modes.value(m);
+}
 
 //-----------------
 TaskProgressPanel::TaskProgressPanel( Task &task, ScheduleManager *sm, StandardWorktime *workTime, QWidget *parent )
     : TaskProgressPanelImpl( task, parent )
 {
+    Q_UNUSED(workTime);
     debugPlan;
     started->setChecked(m_completion.isStarted());
     finished->setChecked(m_completion.isFinished());
     startTime->setDateTime(m_completion.startTime());
     finishTime->setDateTime(m_completion.finishTime());
     finishTime->setMinimumDateTime( qMax( startTime->dateTime(), QDateTime(m_completion.entryDate(), QTime(), Qt::LocalTime) ) );
-    
-    if (workTime) {
-        debugPlan<<"daylength="<<workTime->durationDay().hours();
-        m_dayLength = workTime->durationDay().hours();
-        setEstimateScales(m_dayLength);
-    }
-    
+
     scheduledEffort = task.estimate()->expectedValue();
-    
+
     setYear( QDate::currentDate().year() );
     
     if ( m_completion.usedEffortMap().isEmpty() || m_task.requests().isEmpty() ) {
@@ -70,14 +74,11 @@ TaskProgressPanel::TaskProgressPanel( Task &task, ScheduleManager *sm, StandardW
             }
         }
     }
-    if ( m_completion.isStarted() ) {
-        tabWidget->setCurrentWidget( completionTab );
-    }
     enableWidgets();
     started->setFocus();
-    
+
     connect( weekNumber, SIGNAL(currentIndexChanged(int)), SLOT(slotWeekNumberChanged(int)) );
-    connect( addResource, &QAbstractButton::clicked, this, &TaskProgressPanel::slotAddResource );
+    connect(ui_resourceCombo, SIGNAL(activated(QString)), resourceTable->model(), SLOT(addResource(QString)));
     connect( addEntryBtn, &QAbstractButton::clicked, entryTable, &CompletionEntryEditor::addEntry );
     connect( removeEntryBtn, &QAbstractButton::clicked, entryTable, &CompletionEntryEditor::removeEntry );
 
@@ -85,11 +86,12 @@ TaskProgressPanel::TaskProgressPanel( Task &task, ScheduleManager *sm, StandardW
     entryTable->model()->setTask( &task );
     entryTable->setCompletion( &m_completion );
     connect( entryTable, &CompletionEntryEditor::rowInserted, this, &TaskProgressPanel::slotEntryAdded );
-    
+
     resourceTable->setProject( static_cast<Project*>( task.projectNode() ) );
     resourceTable->setCompletion( &m_completion );
     slotWeekNumberChanged( weekNumber->currentIndex() );
-    addResource->setEnabled( resourceTable->hasFreeResources() );
+    updateResourceCombo();
+    connect(resourceTable->model(), &UsedEffortItemModel::rowInserted, this, &TaskProgressPanelImpl::updateResourceCombo);
 
     //resourceTable->resizeColumnsToContents();
 
@@ -183,34 +185,12 @@ MacroCommand *TaskProgressPanel::buildCommand( const Project &project, Completio
     return cmd;
 }
 
-void TaskProgressPanel::setEstimateScales( int day )
-{
-    QVariantList lst;
-    lst << QVariant( day );
-//    remainingEffort->setScales( lst );
-//     remainingEffort->setFieldScale(0, day);
-//     remainingEffort->setFieldRightscale(0, day);
-//     remainingEffort->setFieldLeftscale(1, day);
-
-//    actualEffort->setScales( QVariant( lst ) );
-/*    actualEffort->setFieldScale(0, day);
-    actualEffort->setFieldRightscale(0, day);
-    actualEffort->setFieldLeftscale(1, day);*/
-}
-
 void TaskProgressPanel::slotWeekNumberChanged( int index )
 {
     debugPlan<<index<<","<<m_weekOffset;
     QDate date = QDate( m_year, 1, 1 ).addDays( Qt::Monday - QDate( m_year, 1, 1 ).dayOfWeek() );
     date = date.addDays( index * 7 );
     resourceTable->setCurrentMonday( date );
-}
-
-void TaskProgressPanel::slotAddResource()
-{
-    debugPlan;
-    resourceTable->addResource();
-    addResource->setEnabled( resourceTable->hasFreeResources() );
 }
 
 void TaskProgressPanel::slotEntryAdded( const QDate &date )
@@ -225,25 +205,22 @@ TaskProgressPanelImpl::TaskProgressPanelImpl( Task &task, QWidget *parent )
       m_task(task),
       m_original( task.completion() ),
       m_completion( m_original ),
-      m_dayLength(24),
       m_firstIsPrevYear( false ),
       m_lastIsNextYear( false )
 {
     setupUi(this);
 
-    addEntryBtn->setIcon(koIcon("list-add"));
-    removeEntryBtn->setIcon(koIcon("list-remove"));
-
     connect(entryTable, &CompletionEntryEditor::selectedItemsChanged, this, &TaskProgressPanelImpl::slotSelectionChanged );
     removeEntryBtn->setEnabled( false );
 
-    editmode->setCurrentIndex( m_original.entrymode() - 1 );
+    editmode->setCurrentIndex(toEditMode(m_original.entrymode()));
     connect( editmode, SIGNAL(currentIndexChanged(int)), SLOT(slotEditmodeChanged(int)) );
     connect( editmode, SIGNAL(activated(int)), SLOT(slotChanged()) );
     
     connect(resourceTable, &UsedEffortEditor::changed, this, &TaskProgressPanelImpl::slotChanged );
     connect(resourceTable, &UsedEffortEditor::resourceAdded, this, &TaskProgressPanelImpl::slotChanged );
-    
+    connect(resourceTable->model(), &UsedEffortItemModel::effortChanged, this, &TaskProgressPanelImpl::slotEffortChanged);
+
     connect(entryTable, &CompletionEntryEditor::changed, this, &TaskProgressPanelImpl::slotChanged );
     connect(entryTable, &CompletionEntryEditor::rowInserted, this, &TaskProgressPanelImpl::slotChanged );
 
@@ -263,13 +240,20 @@ TaskProgressPanelImpl::TaskProgressPanelImpl( Task &task, QWidget *parent )
 
 }
 
+void TaskProgressPanelImpl::slotEffortChanged(const QDate &date)
+{
+    if (date.isValid()) {
+        entryTable->insertEntry(date);
+    }
+}
+
 void TaskProgressPanelImpl::slotChanged() {
     emit changed();
 }
 
 void TaskProgressPanelImpl::slotEditmodeChanged( int idx )
 {
-    m_completion.setEntrymode( static_cast<Completion::Entrymode>( idx + 1 ) );
+    m_completion.setEntrymode(fromEditMode(idx));
     entryTable->model()->slotDataChanged();
     enableWidgets();
 }
@@ -329,6 +313,14 @@ void TaskProgressPanelImpl::slotEntryChanged()
     finishTime->setMinimumDateTime( qMax( startTime->dateTime(), QDateTime(m_completion.entryDate(), QTime(), Qt::LocalTime) ) );
 }
 
+void TaskProgressPanelImpl::updateResourceCombo()
+{
+    ui_resourceCombo->blockSignals(true);
+    ui_resourceCombo->clear();
+    ui_resourceCombo->addItems(resourceTable->model()->freeResources().keys());
+    ui_resourceCombo->blockSignals(false);
+}
+
 void TaskProgressPanelImpl::enableWidgets() {
     editmode->setEnabled( !finished->isChecked() );
 
@@ -340,13 +332,8 @@ void TaskProgressPanelImpl::enableWidgets() {
     addEntryBtn->setEnabled( started->isChecked() && !finished->isChecked() );
     removeEntryBtn->setEnabled( ! entryTable->selectionModel()->selectedIndexes().isEmpty() && started->isChecked() && ! finished->isChecked() );
 
-    if ( finished->isChecked() ) {
-        for ( int i = 0; i < entryTable->model()->columnCount(); ++i ) {
-            entryTable->model()->setFlags( i, Qt::NoItemFlags );
-        }
-    }
-
-    resourceTable->model()->setReadOnly( ( ! started->isChecked() ) || finished->isChecked() || m_completion.entrymode() != Completion::EnterEffortPerResource );
+    ui_resourceFrame->setVisible(m_completion.entrymode() == Completion::EnterEffortPerResource);
+    resourceTable->model()->setReadOnly( ( ! started->isChecked() ) || finished->isChecked() || editmode->currentIndex() != 0 );
 }
 
 
@@ -434,5 +421,3 @@ void TaskProgressPanelImpl::slotSelectionChanged( const QItemSelection &sel )
 {
     removeEntryBtn->setEnabled( ! sel.isEmpty() && started->isChecked() && ! finished->isChecked() );
 }
-
-}  //KPlato namespace

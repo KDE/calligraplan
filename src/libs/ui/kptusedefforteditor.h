@@ -27,6 +27,7 @@
 
 #include "kpttask.h"
 
+class QDate;
 
 namespace KPlato
 {
@@ -66,10 +67,12 @@ public:
 Q_SIGNALS:
     void rowInserted( const QModelIndex& );
     void changed();
+    void effortChanged(const QDate &date);
 
 public Q_SLOTS:
     bool submit();
     void revert();
+    void addResource(const QString &name);
 
 private:
     Project *m_project;
@@ -98,9 +101,6 @@ public:
 Q_SIGNALS:
     void changed();
     void resourceAdded();
-
-private:
-    
 };
 
 //--------------------------------------------
@@ -141,6 +141,8 @@ public:
     void setFlags( int col, Qt::ItemFlags flags ) { m_flags[ col ] = flags; }
 
     long id() const { return m_manager == 0 ? -1 : m_manager->scheduleId(); }
+
+    void addRow(const QDate &date);
 
 Q_SIGNALS:
     void rowInserted( const QDate& );
@@ -186,6 +188,8 @@ public:
 
     CompletionEntryItemModel *model() const { return static_cast<CompletionEntryItemModel*>( QTableView::model() ); }
     void setCompletionModel( CompletionEntryItemModel *m );
+
+    void insertEntry(const QDate &date);
 
 Q_SIGNALS:
     void changed();

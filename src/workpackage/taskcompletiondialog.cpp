@@ -41,7 +41,7 @@ namespace KPlatoWork
 TaskCompletionDialog::TaskCompletionDialog(WorkPackage &p, ScheduleManager *sm, QWidget *parent)
     : KoDialog(parent)
 {
-    setCaption( i18n("Task Progress") );
+    setCaption(i18n("Task Progress") );
     setButtons( Ok|Cancel );
     setDefaultButton( Ok );
     showButtonSeparator( true );
@@ -110,24 +110,12 @@ TaskCompletionPanel::TaskCompletionPanel(WorkPackage &p, ScheduleManager *sm, QW
 
     entryTable->horizontalHeader()->swapSections( CompletionEntryItemModel::Property_PlannedEffort, CompletionEntryItemModel::Property_ActualAccumulated );
 
-    //FIXME when string freeze is lifted
     Duration pr = task->plannedEffort( r );
     Duration tr = task->plannedEffort();
-    if ( pr == tr ) {
-        ui_plannedFrame->hide();
-    } else {
-        ui_plannedLabel->setText( m->headerData( CompletionEntryItemModel::Property_PlannedEffort, Qt::Horizontal ).toString() );
-        ui_labelResource->setText( r->name() );
-        ui_plannedResource->setText( pr.format() );
+    ui_plannedLabel->setText(i18n("Planned effort for %1: %2. Total planned effort for task: %3", r->name(), pr.format(), tr.format()));
 
-        ui_labelTask->setText( Node::typeToString( Node::Type_Task, true ) );
-        ui_plannedTask->setText( tr.format() );
-    }
-
-    if ( m->rowCount() > 0 ) {
-        QModelIndex idx = m->index( m->rowCount() -1, 0 );
-        entryTable->scrollTo( idx );
-    }
+    entryTable->scrollToBottom();
+    entryTable->resizeColumnsToContents();
 
     connect( addEntryBtn, &QAbstractButton::clicked, this, &TaskCompletionPanel::slotAddEntry );
     connect( removeEntryBtn, &QAbstractButton::clicked, entryTable, &KPlato::CompletionEntryEditor::removeEntry );
@@ -325,6 +313,24 @@ void CompletionEntryItemModel::setSource( Resource *resource, Task *task, Comple
     m_resource = resource;
     m_task = task;
     setCompletion( completion ? completion : &(task->completion()) );
+}
+
+QVariant CompletionEntryItemModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (orientation == Qt::Horizontal) {
+        switch (role) {
+            case Qt::ToolTipRole:
+                switch (section) {
+                    case Property_UsedEffort:
+                        return xi18nc("@info:tooltip", "Used effort since previous entry");
+                    case Property_ActualAccumulated:
+                        return xi18nc("@info:tooltip", "Accumulated used effort");
+                    default: break;
+                }
+            default: break;
+        }
+    }
+    return KPlato::CompletionEntryItemModel::headerData(section, orientation, role);
 }
 
 int CompletionEntryItemModel::columnCount( const QModelIndex& ) const

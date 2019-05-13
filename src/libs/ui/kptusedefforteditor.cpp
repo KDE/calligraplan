@@ -52,7 +52,6 @@ UsedEffortItemModel::UsedEffortItemModel ( QWidget *parent )
 
 Qt::ItemFlags UsedEffortItemModel::flags ( const QModelIndex &index ) const
 {
-
     Qt::ItemFlags flags = QAbstractItemModel::flags( index );
     if ( m_readonly || ! index.isValid() || index.column() == 8 ) {
         return flags;
@@ -174,6 +173,7 @@ bool UsedEffortItemModel::setData ( const QModelIndex &idx, const QVariant &valu
             Completion::UsedEffort::ActualEffort e = ue->effort( d );
             e.setNormalEffort( Duration( value.toDouble(), Duration::Unit_h ) );
             ue->setEffort( d, e );
+            emit effortChanged(d);
             emit dataChanged( idx, idx );
             return true;
         }
@@ -207,7 +207,7 @@ void UsedEffortItemModel::revert()
 QVariant UsedEffortItemModel::headerData ( int section, Qt::Orientation orientation, int role ) const
 {
     if ( orientation == Qt::Vertical ) {
-        return QVariant();
+        return data(index(section, 0), role);
     }
     if ( section < 0 || section >= m_headers.count() ) {
         return QVariant();
@@ -217,7 +217,7 @@ QVariant UsedEffortItemModel::headerData ( int section, Qt::Orientation orientat
             return m_headers.at( section );
         case Qt::ToolTipRole: {
             if ( section >= 1 && section <= 7 ) {
-                return QLocale().toString(m_dates.at( section - 1 ), QLocale::ShortFormat);
+                return QLocale().toString(m_dates.at( section - 1 ), QLocale::LongFormat);
             }
             if ( section == 8 ) {
                 return i18n( "Total effort this week" );
@@ -316,6 +316,21 @@ QModelIndex UsedEffortItemModel::addRow()
     return createIndex(row, 0, const_cast<Resource*>(m_editlist.first()));
 }
 
+void UsedEffortItemModel::addResource(const QString &name)
+{
+    const Resource *resource = freeResources().value(name);
+    if (!resource) {
+        return;
+    }
+    m_editlist.clear();
+    m_editlist.insert(name, resource);
+    int row = rowCount();
+    beginInsertRows(QModelIndex(), row, row);
+    m_resourcelist.append(resource);
+    endInsertRows();
+    setData(createIndex(row, 0, const_cast<Resource*>(resource)), 0, Qt::EditRole);
+}
+
 QMap<QString, const Resource*> UsedEffortItemModel::freeResources() const
 {
     QMap<QString, const Resource*> map;
@@ -334,8 +349,6 @@ UsedEffortEditor::UsedEffortEditor( QWidget *parent )
     UsedEffortItemModel *m = new UsedEffortItemModel(this );
     setModel( m );
 
-    setItemDelegateForColumn ( 0, new EnumDelegate( this ) );
-
     setItemDelegateForColumn ( 1, new DoubleSpinBoxDelegate( this ) );
     setItemDelegateForColumn ( 2, new DoubleSpinBoxDelegate( this ) );
     setItemDelegateForColumn ( 3, new DoubleSpinBoxDelegate( this ) );
@@ -347,21 +360,23 @@ UsedEffortEditor::UsedEffortEditor( QWidget *parent )
     connect ( model(), &QAbstractItemModel::dataChanged, this, &UsedEffortEditor::changed );
 
     connect ( m, &UsedEffortItemModel::rowInserted, this, &UsedEffortEditor::resourceAdded );
+    connect (m, &UsedEffortItemModel::rowInserted, this, &UsedEffortEditor::scrollToBottom);
 }
 
 bool UsedEffortEditor::hasFreeResources() const
 {
-    return ! static_cast<UsedEffortItemModel*>( model() )->freeResources().isEmpty();
+    return ! model()->freeResources().isEmpty();
 }
 
 void UsedEffortEditor::setProject( Project *p )
 {
-    static_cast<UsedEffortItemModel*>( model() )->setProject( p );
+    model()->setProject( p );
 }
 
 void UsedEffortEditor::setCompletion( Completion *completion )
 {
-    static_cast<UsedEffortItemModel*>( model() )->setCompletion( completion );
+    model()->setCompletion(completion);
+    setColumnHidden(0, true);
 }
 
 void UsedEffortEditor::setCurrentMonday( const QDate &date )
@@ -371,7 +386,7 @@ void UsedEffortEditor::setCurrentMonday( const QDate &date )
 
 void UsedEffortEditor::addResource()
 {
-    UsedEffortItemModel *m = static_cast<UsedEffortItemModel*>( model() );
+    UsedEffortItemModel *m = model();
     QModelIndex i = m->addRow();
     if ( i.isValid() ) {
         setCurrentIndex( i );
@@ -501,8 +516,7 @@ QVariant CompletionEntryItemModel::actualEffort ( int row, int role ) const
         return QVariant();
     }
     switch ( role ) {
-        case Qt::DisplayRole:
-        case Qt::ToolTipRole: {
+        case Qt::DisplayRole: {
             Duration v;
             if ( m_completion->entrymode() == Completion::EnterEffortPerResource ) {
                 v = m_completion->actualEffortTo( date( row ).toDate() );
@@ -533,6 +547,8 @@ QVariant CompletionEntryItemModel::actualEffort ( int row, int role ) const
             return m_project->config().minimumDurationUnit();
         case Role::Maximum:
             return m_project->config().maximumDurationUnit();
+        case Qt::ToolTipRole:
+            return xi18nc("@info:tooltip", "Accumulated effort %1", actualEffort(row, Qt::DisplayRole).toString());
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
@@ -630,7 +646,7 @@ bool CompletionEntryItemModel::setData ( const QModelIndex &idx, const QVariant 
                     return false;
                 }
                 e->percentFinished = value.toInt();
-                if ( m_completion->entrymode() == Completion::EnterCompleted && m_node ) {
+                if ( m_completion->entrymode() != Completion::EnterEffortPerResource && m_node ) {
                     // calculate used/remaining
                     Duration est = m_node->plannedEffort( id(), ECCT_EffortWork );
                     e->totalPerformed = est * e->percentFinished / 100;
@@ -698,6 +714,19 @@ QVariant CompletionEntryItemModel::headerData ( int section, Qt::Orientation ori
     switch ( role ) {
         case Qt::DisplayRole:
             return m_headers.at( section );
+        case Qt::ToolTipRole:
+            switch (section) {
+                case Property_UsedEffort:
+                    if ( m_completion->entrymode() == Completion::EnterEffortPerResource ) {
+                        return xi18nc("@info", "Accumulated used effort.<nl/><note>Used effort must be entered per resource</note>");
+                    }
+                    return xi18nc("@info:tooltip", "Accumulated used effort");
+                case Property_RemainingEffort:
+                    return xi18nc("@info:tooltip", "Remaining effort to complete the task");
+                case Property_PlannedEffort:
+                    return xi18nc("@info:tooltip", "Planned effort accumulated until date");
+            }
+            break;
         default: break;
     }
     return QVariant();
@@ -737,11 +766,11 @@ void CompletionEntryItemModel::refresh()
     m_flags[ Property_UsedEffort ] = Qt::NoItemFlags;
     if ( m_completion ) {
         m_datelist = m_completion->entries().keys();
-        if ( m_completion->entrymode() == Completion::EnterEffortPerTask ) {
+        if ( m_completion->entrymode() != Completion::EnterEffortPerResource ) {
             m_flags[ Property_UsedEffort ] = Qt::ItemIsEditable;
         }
     }
-    debugPlan<<m_datelist<<endl;
+    debugPlan<<m_datelist;
     endResetModel();
 }
 
@@ -804,6 +833,18 @@ void CompletionEntryItemModel::addEntry( const QDate& date )
     } else  errorPlan<<"Failed to find added entry: "<<date<<endl;
 }
 
+void CompletionEntryItemModel::addRow(const QDate &date)
+{
+    for (int i = 0; i < rowCount(); ++i) {
+        if (this->date(i).toDate() == date) {
+            const QModelIndex idx1 = index(i, Property_UsedEffort);
+            const QModelIndex idx2 = index(rowCount()-1, Property_UsedEffort);
+            emit dataChanged(idx1, idx2);
+            return;
+        }
+    }
+    addEntry(date);
+}
 
 //-----------
 CompletionEntryEditor::CompletionEntryEditor( QWidget *parent )
@@ -816,6 +857,10 @@ CompletionEntryEditor::CompletionEntryEditor( QWidget *parent )
     setItemDelegateForColumn ( 2, new DurationSpinBoxDelegate( this ) );
     setItemDelegateForColumn ( 3, new DurationSpinBoxDelegate( this ) );
     setCompletionModel( m );
+    resizeColumnToContents(1);
+    resizeColumnToContents(2);
+    resizeColumnToContents(3);
+    resizeColumnToContents(4);
 }
 
 void CompletionEntryEditor::setCompletionModel( CompletionEntryItemModel *m )
@@ -840,6 +885,11 @@ void CompletionEntryEditor::setCompletionModel( CompletionEntryItemModel *m )
 void CompletionEntryEditor::setCompletion( Completion *completion )
 {
     model()->setCompletion( completion );
+}
+
+void CompletionEntryEditor::insertEntry(const QDate &date)
+{
+    model()->addRow(date);
 }
 
 void CompletionEntryEditor::addEntry()

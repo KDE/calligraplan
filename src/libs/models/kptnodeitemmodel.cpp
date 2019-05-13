@@ -3632,7 +3632,7 @@ bool NodeItemModel::setCompletion( Node *node, const QVariant &value, int role )
             m->addCommand( new ModifyCompletionFinishedCmd( c, true ) );
         }
         emit executeCommand( m ); // also adds a new entry if necessary
-        if ( c.entrymode() == Completion::EnterCompleted ) {
+        if (c.entrymode() != Completion::EnterEffortPerResource) {
             Duration planned = static_cast<Task*>( node )->plannedEffort( m_nodemodel.id() );
             Duration actual = ( planned * value.toInt() ) / 100;
             debugPlan<<planned.toString()<<value.toInt()<<actual.toString();

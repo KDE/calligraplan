@@ -41,14 +41,14 @@ class TaskProgressPanelImpl : public QWidget, public Ui_TaskProgressPanelBase {
     Q_OBJECT
 public:
     explicit TaskProgressPanelImpl( Task &task, QWidget *parent=0 );
-    
+
     void enableWidgets();
-    
+
     void setYear( int year );
-    
+
 Q_SIGNALS:
     void changed();
-    
+
 public Q_SLOTS:
     void slotChanged();
     void slotEditmodeChanged( int idx );
@@ -62,11 +62,14 @@ public Q_SLOTS:
 
     void slotPrevWeekBtnClicked();
     void slotNextWeekBtnClicked();
-    
+
+    void updateResourceCombo();
+    void slotEffortChanged(const QDate &date);
+
 protected Q_SLOTS:
     void slotCalculateEffort();
     void slotFillWeekNumbers( int year );
-    
+
 protected:
     void setFinished();
 
@@ -74,13 +77,12 @@ protected:
     Completion &m_original;
     Completion m_completion;
     int m_dayLength;
-    
+
     Duration scheduledEffort;
     int m_weekOffset;
     int m_year;
     bool m_firstIsPrevYear;
     bool m_lastIsNextYear;
-
 };
 
 class PLANUI_EXPORT TaskProgressPanel : public TaskProgressPanelImpl {
@@ -89,17 +91,12 @@ public:
     explicit TaskProgressPanel( Task &task, ScheduleManager *sm, StandardWorktime *workTime=0, QWidget *parent=0 );
 
     MacroCommand *buildCommand();
-    
+
     static MacroCommand *buildCommand( const Project &project, Completion &org, Completion &curr );
 
 protected Q_SLOTS:
     void slotWeekNumberChanged( int );
-    void slotAddResource();
     void slotEntryAdded( const QDate &date);
-
-protected:
-    void setEstimateScales( int day );
-    
 };
 
 }  //KPlato namespace
