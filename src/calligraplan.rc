@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd" >
-<gui name="Calligra Plan" version="41" translationDomain="calligraplan">
+<gui name="Calligra Plan" version="43" translationDomain="calligraplan">
     <MenuBar>
         <Menu name="file"><text>&amp;File</text>
             <Separator/>
@@ -103,33 +103,39 @@
         <Action name="node_properties"/>
     </Menu>
     <Menu name="taskstatus_popup">
-        <Action name="task_description"/>
         <Action name="task_progress"/>
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
     </Menu>
     <Menu name="taskview_popup">
-        <Action name="task_description"/>
         <Action name="task_progress"/>
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
     </Menu>
     <Menu name="taskeditor_milestone_popup">
         <Action name="node_properties"/>
         <Action name="task_progress"/>
     </Menu>
     <Menu name="taskview_milestone_popup">
-        <Action name="task_description"/>
         <Action name="task_progress"/>
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
     </Menu>
     <Menu name="taskview_summary_popup">
         <Action name="task_description"/>
-   </Menu>
+        <Action name="task_documents"/>
+    </Menu>
      <Menu name="workpackage_popup">
     </Menu>
    <Menu name="resourceappointment_popup">
-        <Action name="task_description"/>
         <Action name="task_progress"/>
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
     </Menu>
     <Menu name="resourceassigment_popup">
-        <Action name="task_description"/>
         <Action name="task_progress"/>
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
     </Menu>
     <Menu name="resourceeditor_resource_popup">
         <Action name="edit_resource"/>

@@ -71,6 +71,7 @@
 #include "kptfactory.h"
 #include "kptmilestoneprogressdialog.h"
 #include "kpttaskdescriptiondialog.h"
+#include "kptdocumentsdialog.h"
 #include "kptnode.h"
 #include "kptmaindocument.h"
 #include "kptproject.h"
@@ -347,6 +348,9 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
     actionCollection()->addAction("task_description", actionTaskDescription );
     connect( actionTaskDescription, &QAction::triggered, this, &View::slotTaskDescription );
+    actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments );
+    connect( actionDocuments, &QAction::triggered, this, &View::slotDocuments );
     actionIndentTask = new QAction(koIcon("format-indent-more"), i18n("Indent Task"), this);
     actionCollection()->addAction("indent_task", actionIndentTask );
     connect( actionIndentTask, &QAction::triggered, this, &View::slotIndentTask );
@@ -2289,6 +2293,54 @@ void View::slotTaskDescriptionFinished( int result )
         KUndo2Command * m = dia->buildCommand();
         if ( m ) {
             getPart() ->addCommand( m );
+        }
+    }
+    dia->deleteLater();
+}
+
+void View::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if ( !node ) {
+        return ;
+    }
+    switch ( node->type() ) {
+        case Node::Type_Project: {
+            // TODO
+            break;
+        }
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Summarytask:
+            //TODO
+        case Node::Type_Task:
+        case Node::Type_Milestone: {
+            Task *task = dynamic_cast<Task *>( node );
+            Q_ASSERT( task );
+            DocumentsDialog *dia = new DocumentsDialog( *task, this );
+            connect(dia, &QDialog::finished, this, &View::slotDocumentsFinished);
+            dia->show();
+            dia->raise();
+            dia->activateWindow();
+            break;
+        }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void View::slotDocumentsFinished( int result )
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender() );
+    if ( dia == 0 ) {
+        return;
+    }
+    if ( result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if ( m ) {
+            getPart()->addCommand( m );
         }
     }
     dia->deleteLater();

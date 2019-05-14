@@ -37,6 +37,7 @@
 #include <QList>
 #include <QVBoxLayout>
 #include <QAction>
+#include <QHeaderView>
 
 #include <KLocalizedString>
 #include <kactioncollection.h>
@@ -70,6 +71,7 @@ DocumentTreeView::DocumentTreeView( QWidget *parent )
     connect( selectionModel(), &QItemSelectionModel::selectionChanged, this, &DocumentTreeView::slotSelectionChanged );
 
     setColumnHidden( DocumentModel::Property_Status, true ); // not used atm
+    header()->moveSection(DocumentModel::Property_Url, model()->columnCount()-1);
 }
 
 Document *DocumentTreeView::currentDocument() const

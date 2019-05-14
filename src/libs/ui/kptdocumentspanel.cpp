@@ -34,10 +34,9 @@
 #include <KLocalizedString>
 #include <kurlrequesterdialog.h>
 #include <kmessagebox.h>
+#include <KRun>
 
-
-namespace KPlato
-{
+using namespace KPlato;
 
 DocumentsPanel::DocumentsPanel( Node &node, QWidget *parent )
     : QWidget( parent ),
@@ -57,15 +56,20 @@ DocumentsPanel::DocumentsPanel( Node &node, QWidget *parent )
     foreach ( Document *doc, m_docs.documents() ) {
         m_orgurl.insert( doc, doc->url() );
     }
+    slotSelectionChanged(QModelIndexList());
 
     connect( widget.pbAdd, &QAbstractButton::clicked, this, &DocumentsPanel::slotAddUrl );
     connect( widget.pbChange, &QAbstractButton::clicked, this, &DocumentsPanel::slotChangeUrl );
     connect( widget.pbRemove, &QAbstractButton::clicked, this, &DocumentsPanel::slotRemoveUrl );
     connect( widget.pbView, &QAbstractButton::clicked, this, &DocumentsPanel::slotViewUrl );
-    
+
     connect( m_view->model(), &QAbstractItemModel::dataChanged, this, &DocumentsPanel::dataChanged );
-    
+
     connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), SLOT(slotSelectionChanged(QModelIndexList)) ); // clazy:exclude=old-style-connect
+
+    if (model()->rowCount() > 0) {
+        m_view->setCurrentIndex(model()->index(0, 0));
+    }
 }
 
 DocumentItemModel *DocumentsPanel::model() const
@@ -80,7 +84,7 @@ void DocumentsPanel::dataChanged( const QModelIndex &index )
         return;
     }
     m_state.insert( doc, (State)( m_state[ doc ] | Modified ) );
-    emit changed();
+    emit changed(true);
     debugPlan<<index<<doc<<m_state[ doc ];
 }
 
@@ -90,14 +94,14 @@ void DocumentsPanel::slotSelectionChanged( const QModelIndexList & )
     debugPlan<<list;
     widget.pbChange->setEnabled( list.count() == 1 );
     widget.pbRemove->setEnabled( ! list.isEmpty() );
-    widget.pbView->setEnabled( false ); //TODO
+    widget.pbView->setEnabled( list.count() == 1 );
 }
 
 void DocumentsPanel::currentChanged( const QModelIndex &index )
 {
-    widget.pbChange->setEnabled( index.isValid() );
-    widget.pbRemove->setEnabled( index.isValid() );
-    widget.pbView->setEnabled( false ); //TODO
+//     widget.pbChange->setEnabled( index.isValid() );
+//     widget.pbRemove->setEnabled( index.isValid() );
+//     widget.pbView->setEnabled( index.isValid() );
 }
 
 Document *DocumentsPanel::selectedDocument() const
@@ -113,7 +117,7 @@ void DocumentsPanel::slotAddUrl()
     if ( dlg->exec() == QDialog::Accepted && dlg ) {
         if ( m_docs.findDocument( dlg->selectedUrl() ) ) {
             warnPlan<<"Document (url) already exists: "<<dlg->selectedUrl();
-            KMessageBox::sorry( this, xi18nc( "@info", "Document is already attached:<br/><filename>%1</filename>", dlg->selectedUrl().toDisplayString() ), xi18nc( "@title:window", "Cannot Attach Document" ) );
+            KMessageBox::sorry( this, xi18nc( "@info", "Document is already attached:<nl/><filename>%1</filename>", dlg->selectedUrl().toDisplayString() ), xi18nc( "@title:window", "Cannot Attach Document" ) );
         } else {
             Document *doc = new Document( dlg->selectedUrl() );
             //DocumentAddCmd *cmd = new DocumentAddCmd( m_docs, doc, kundo2_i18n( "Add document" ) );
@@ -121,7 +125,7 @@ void DocumentsPanel::slotAddUrl()
             m_docs.addDocument( doc );
             m_state.insert( doc, Added );
             model()->setDocuments( &m_docs ); // refresh
-            emit changed();
+            emit changed(true);
         }
     }
     delete dlg;
@@ -129,7 +133,7 @@ void DocumentsPanel::slotAddUrl()
 
 void DocumentsPanel::slotChangeUrl()
 {
-    Document *doc = selectedDocument();
+    Document *doc = m_view->currentDocument();
     if ( doc == 0 ) {
         return slotAddUrl();
     }
@@ -145,7 +149,7 @@ void DocumentsPanel::slotChangeUrl()
                 doc->setUrl( dlg->selectedUrl() );
                 m_state.insert( doc, (State)( m_state[ doc ] | Modified ) );
                 model()->setDocuments( &m_docs );
-                emit changed();
+                emit changed(true);
                 debugPlan<<"State: "<<doc->url()<<" : "<<m_state[ doc ];
             }
         }
@@ -171,12 +175,21 @@ void DocumentsPanel::slotRemoveUrl()
     }
     if ( mod ) {
         model()->setDocuments( &m_docs ); // refresh
-        emit changed();
+        emit changed(true);
     }
 }
 
 void DocumentsPanel::slotViewUrl()
 {
+    Document *doc = selectedDocument();
+    debugPlan<<"document:"<<doc;
+    if (!doc || !doc->isValid()) {
+        //KMessageBox::error( 0, i18n( "Cannot open document. Invalid url: %1", filename.pathOrUrl() ) );
+        return;
+    }
+    KRun *run = new KRun(doc->url(), 0);
+    Q_UNUSED(run); // XXX: shouldn't run be deleted?
+    return;
 }
 
 MacroCommand *DocumentsPanel::buildCommand()
@@ -233,6 +246,3 @@ MacroCommand *DocumentsPanel::buildCommand()
     }
     return m;
 }
-
-
-} //namespace KPlato

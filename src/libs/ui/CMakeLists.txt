@@ -51,6 +51,7 @@ set(planui_LIB_SRCS
     
     kptdocumentseditor.cpp
     kptdocumentspanel.cpp
+    kptdocumentsdialog.cpp
     
     kptitemviewsettup.cpp
     kptsplitterview.cpp

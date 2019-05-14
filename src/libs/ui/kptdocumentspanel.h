@@ -55,7 +55,7 @@ public:
     Document *selectedDocument() const;
     
 Q_SIGNALS:
-    void changed();
+    void changed(bool value);
     
 protected Q_SLOTS:
     void slotAddUrl();

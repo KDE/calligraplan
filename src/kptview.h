@@ -270,6 +270,7 @@ protected Q_SLOTS:
     void slotOpenNode(KPlato::Node *node);
     void slotTaskProgress();
     void slotTaskDescription();
+    void slotDocuments();
     void slotDeleteTaskList(QList<KPlato::Node*> lst);
     void slotDeleteTask(KPlato::Node *node);
     void slotDeleteCurrentTask();
@@ -343,6 +344,7 @@ private Q_SLOTS:
     void slotTaskProgressFinished( int result );
     void slotMilestoneProgressFinished( int result );
     void slotTaskDescriptionFinished( int result );
+    void slotDocumentsFinished(int result);
     void slotAddRelationFinished( int result );
     void slotModifyRelationFinished( int result );
     void slotReportDesignFinished( int result );
@@ -428,6 +430,7 @@ private:
     QAction *actionOpenNode;
     QAction *actionTaskProgress;
     QAction *actionTaskDescription;
+    QAction *actionDocuments;
     QAction *actionDeleteTask;
     QAction *actionIndentTask;
     QAction *actionUnindentTask;
