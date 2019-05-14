@@ -34,6 +34,7 @@
 #include "kptcommand.h"
 #include "kptschedule.h"
 #include "kpttaskdescriptiondialog.h"
+#include "kptdocumentspanel.h"
 
 #include <QFileDialog>
 
@@ -65,10 +66,13 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     resourcesFile->setText(project.sharedResourcesFile());
     projectsPlace->setText(project.sharedProjectsUrl().toDisplayString());
 
-    m_description = new TaskDescriptionPanel( p, tabWidget->widget(1) );
+    m_documents = new DocumentsPanel(p, tabWidget->widget(1));
+    tabWidget->widget(1)->layout()->addWidget(m_documents);
+
+    m_description = new TaskDescriptionPanel(p, tabWidget->widget(2));
     m_description->namefield->hide();
     m_description->namelabel->hide();
-    tabWidget->widget(1)->layout()->addWidget(m_description);
+    tabWidget->widget(2)->layout()->addWidget(m_description);
 
     wbs->setText(project.wbsCode());
     if ( wbs->text().isEmpty() ) {
@@ -112,6 +116,7 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     projectsClearBtn->setToolTip(xi18nc("@info:tooltip", "Clear shared resource assignments"));
 
     // signals and slots connections
+    connect( m_documents, &DocumentsPanel::changed, this, &MainProjectPanel::slotCheckAllFieldsFilled );
     connect( m_description, &TaskDescriptionPanelImpl::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
     connect( endDate, &QDateTimeEdit::dateChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
     connect( endTime, &QDateTimeEdit::timeChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
@@ -181,6 +186,11 @@ MacroCommand *MainProjectPanel::buildCommand() {
         m->addCommand(new LoadProjectsAtStartupCmd( &project, projectsLoadAtStartup->isChecked()));
     }
     MacroCommand *cmd = m_description->buildCommand();
+    if ( cmd ) {
+        if (!m) m = new MacroCommand(c);
+        m->addCommand( cmd );
+    }
+    cmd = m_documents->buildCommand();
     if ( cmd ) {
         if (!m) m = new MacroCommand(c);
         m->addCommand( cmd );

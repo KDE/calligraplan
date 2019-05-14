@@ -81,7 +81,7 @@ public:
      * @param parent parent widget
      * @param readOnly determines whether the data are read-only
      */
-    explicit TaskDescriptionDialog( Task &task, QWidget *parent = 0, bool readOnly = false  );
+    explicit TaskDescriptionDialog( Node &node, QWidget *parent = 0, bool readOnly = false  );
 
     MacroCommand *buildCommand();
 

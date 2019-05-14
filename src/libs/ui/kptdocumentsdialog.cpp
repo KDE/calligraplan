@@ -20,7 +20,7 @@
 // clazy:excludeall=qstring-arg
 #include "kptdocumentsdialog.h"
 #include "kptdocumentspanel.h"
-#include "kpttask.h"
+#include "kptnode.h"
 #include "kptcommand.h"
 
 #include <KLocalizedString>
@@ -28,9 +28,9 @@
 
 using namespace KPlato;
 
-DocumentsDialog::DocumentsDialog(Task &task, QWidget *p, bool readOnly)
+DocumentsDialog::DocumentsDialog(Node &node, QWidget *p, bool readOnly)
     : KoDialog(p)
-    , m_panel(new DocumentsPanel(task, this))
+    , m_panel(new DocumentsPanel(node, this))
 {
     setCaption(i18n("Task Documents"));
     if (readOnly) {

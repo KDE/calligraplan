@@ -982,8 +982,12 @@ void GanttView::slotContextMenuRequested( const QModelIndex &idx, const QPoint &
     debugPlan;
     QString name;
     Node *node = m_gantt->model()->node( m_gantt->sfModel()->mapToSource( idx ) );
+    qInfo()<<Q_FUNC_INFO<<node;
     if ( node ) {
         switch ( node->type() ) {
+            case Node::Type_Project:
+                name = "taskview_project_popup";
+                break;
             case Node::Type_Task:
                 name = "taskview_popup";
                 break;

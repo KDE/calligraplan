@@ -1263,6 +1263,9 @@ void TaskView::slotContextMenuRequested( const QModelIndex& index, const QPoint&
     Node *node = m_view->baseModel()->node( proxyModel()->mapToSource( index ) );
     if ( node ) {
         switch ( node->type() ) {
+            case Node::Type_Project:
+                name = "taskview_project_popup";
+                break;
             case Node::Type_Task:
                 name = "taskview_popup";
                 break;

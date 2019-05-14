@@ -34,6 +34,7 @@ namespace KPlato
 class Project;
 class MacroCommand;
 class TaskDescriptionPanel;
+class DocumentsPanel;
 
 class MainProjectPanel : public QWidget, public Ui_MainProjectPanelBase {
     Q_OBJECT
@@ -69,6 +70,7 @@ Q_SIGNALS:
     void clearResourceAssignments();
 
 private:
+    DocumentsPanel *m_documents;
     TaskDescriptionPanel *m_description;
     Project &project;
 };

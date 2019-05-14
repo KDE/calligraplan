@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd" >
-<gui name="Calligra Plan" version="44" translationDomain="calligraplan">
+<gui name="Calligra Plan" version="45" translationDomain="calligraplan">
     <MenuBar>
         <Menu name="file"><text>&amp;File</text>
             <Separator/>
@@ -130,7 +130,11 @@
          <Action name="task_description"/>
          <Action name="task_documents"/>
      </Menu>
-   <Menu name="resourceappointment_popup">
+     <Menu name="taskview_project_popup">
+         <Action name="task_description"/>
+         <Action name="task_documents"/>
+     </Menu>
+     <Menu name="resourceappointment_popup">
         <Action name="task_progress"/>
         <Action name="task_description"/>
         <Action name="task_documents"/>

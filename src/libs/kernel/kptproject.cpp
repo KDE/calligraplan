@@ -1012,6 +1012,8 @@ bool Project::load( KoXmlElement &element, XMLLoaderObject &status )
             m_sharedResourcesFile = e.attribute("file");
             m_sharedProjectsUrl = QUrl(e.attribute("projects-url"));
             m_loadProjectsAtStartup = (bool)e.attribute("projects-loadatstartup", "0").toInt();
+        } else if (e.tagName() == QLatin1String("documents")) {
+            m_documents.load(e, status);
         }
     }
     QList<Calendar*> cals;
@@ -1325,6 +1327,8 @@ void Project::save( QDomElement &element, const XmlSaveContext &context) const
     share.setAttribute("file", m_sharedResourcesFile);
     share.setAttribute("projects-url", QString(m_sharedProjectsUrl.toEncoded()));
     share.setAttribute("projects-loadatstartup", m_loadProjectsAtStartup);
+
+    m_documents.save(me);
 
     if (context.saveAll(this)) {
         m_accounts.save( me );

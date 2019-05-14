@@ -136,10 +136,10 @@ void TaskDescriptionPanelImpl::slotChanged()
 }
 
 //-----------------------------
-TaskDescriptionDialog::TaskDescriptionDialog( Task &task, QWidget *p, bool readOnly )
+TaskDescriptionDialog::TaskDescriptionDialog( Node &node, QWidget *p, bool readOnly )
     : KoDialog(p)
 {
-    setCaption( i18n( "Task Description" ) );
+    setCaption(node.type() == Node::Type_Project ? i18n( "Project Description" )  : i18n( "Task Description" ) );
     if ( readOnly ) {
         setButtons( Close );
     } else {
@@ -148,7 +148,7 @@ TaskDescriptionDialog::TaskDescriptionDialog( Task &task, QWidget *p, bool readO
     }
     showButtonSeparator( true );
 
-    m_descriptionTab = new TaskDescriptionPanel( task, this, readOnly );
+    m_descriptionTab = new TaskDescriptionPanel( node, this, readOnly );
     setMainWidget(m_descriptionTab);
 
     enableButtonOk(false);

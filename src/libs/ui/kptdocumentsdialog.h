@@ -29,7 +29,6 @@ namespace KPlato
 {
 
 class DocumentsPanel;
-class Task;
 class Node;
 class MacroCommand;
         
@@ -39,11 +38,11 @@ class PLANUI_EXPORT DocumentsDialog : public KoDialog
 public:
     /**
      * The constructor for the documents dialog.
-     * @param task the task to show documents for
+     * @param node the task or project to show documents for
      * @param parent parent widget
      * @param readOnly determines whether the data are read-only
      */
-    explicit DocumentsDialog( Task &task, QWidget *parent = 0, bool readOnly = false  );
+    explicit DocumentsDialog( Node &node, QWidget *parent = 0, bool readOnly = false  );
 
     MacroCommand *buildCommand();
 

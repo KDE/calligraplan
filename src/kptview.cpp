@@ -2259,19 +2259,16 @@ void View::slotTaskDescription()
     if ( !node )
         return ;
 
+    qInfo()<<Q_FUNC_INFO<<node;
     switch ( node->type() ) {
-        case Node::Type_Project: {
-                break;
-            }
         case Node::Type_Subproject:
             //TODO
             break;
+        case Node::Type_Project:
         case Node::Type_Task:
         case Node::Type_Milestone:
         case Node::Type_Summarytask: {
-                Task *task = dynamic_cast<Task *>( node );
-                Q_ASSERT( task );
-                TaskDescriptionDialog *dia = new TaskDescriptionDialog( *task, this );
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog( *node, this );
                 connect(dia, &QDialog::finished, this, &View::slotTaskDescriptionFinished);
                 dia->show();
                 dia->raise();
@@ -2306,20 +2303,14 @@ void View::slotDocuments()
         return ;
     }
     switch ( node->type() ) {
-        case Node::Type_Project: {
-            // TODO
-            break;
-        }
         case Node::Type_Subproject:
             //TODO
             break;
+        case Node::Type_Project:
         case Node::Type_Summarytask:
-            //TODO
         case Node::Type_Task:
         case Node::Type_Milestone: {
-            Task *task = dynamic_cast<Task *>( node );
-            Q_ASSERT( task );
-            DocumentsDialog *dia = new DocumentsDialog( *task, this );
+            DocumentsDialog *dia = new DocumentsDialog(*node, this);
             connect(dia, &QDialog::finished, this, &View::slotDocumentsFinished);
             dia->show();
             dia->raise();
