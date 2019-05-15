@@ -797,6 +797,22 @@ void NodeModifyNameCmd::unexecute()
 
 }
 
+NodeModifyPriorityCmd::NodeModifyPriorityCmd(Node &node, int oldValue, int newValue, const KUndo2MagicString& name )
+    : NamedCommand( name )
+    , m_node( node )
+    , m_oldValue(oldValue)
+    , m_newValue(newValue)
+{
+}
+void NodeModifyPriorityCmd::execute()
+{
+    m_node.setPriority(m_newValue);
+}
+void NodeModifyPriorityCmd::unexecute()
+{
+    m_node.setPriority(m_oldValue);
+}
+
 NodeModifyLeaderCmd::NodeModifyLeaderCmd( Node &node, const QString& leader, const KUndo2MagicString& name )
         : NamedCommand( name ),
         m_node( node ),

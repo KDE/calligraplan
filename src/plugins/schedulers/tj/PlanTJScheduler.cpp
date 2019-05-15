@@ -216,6 +216,7 @@ bool PlanTJScheduler::solve()
 bool PlanTJScheduler::kplatoToTJ()
 {
     m_tjProject = new TJ::Project();
+    m_tjProject->setPriority(m_project->priority());
     m_tjProject->setScheduleGranularity( m_granularity / 1000 );
     m_tjProject->getScenario( 0 )->setMinSlackRate( 0.0 ); // Do not calculate critical path
 
@@ -634,6 +635,7 @@ TJ::Task *PlanTJScheduler::addTask( KPlato::Task *task, TJ::Task *parent )
     }*/
     TJ::Task *t = new TJ::Task(m_tjProject, task->id(), task->name(), parent, QString(), 0);
     m_taskmap[ t ] = task;
+    t->setPriority(task->priority());
 //     logDebug( m_project, 0, "Added task: " + task->name() );
     addWorkingTime( task, t );
     return t;

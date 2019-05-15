@@ -531,6 +531,9 @@ public:
     
     void blockChanged(bool on = true);
 
+    /// @return priority
+    int priority() const;
+
 public:
     // These shouldn't be available to other than those who inherits
     /// Calculate the critical path
@@ -612,6 +615,7 @@ public:
 
 public Q_SLOTS:
     void slotStandardWorktimeChanged(KPlato::StandardWorktime*);
+    void setPriority(int priority);
 
 protected:
     friend class KPlatoXmlLoaderBase;
@@ -674,6 +678,8 @@ protected:
     Documents m_documents;
     
     ResourceRequestCollection m_requests;
+
+    int m_priority;
 
 private:
     void init();

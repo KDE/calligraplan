@@ -56,6 +56,7 @@ public:
     enum Properties {
         NodeName = 0,
         NodeType,
+        NodePriority,
         NodeResponsible,
         NodeAllocation,
         NodeEstimateType,
@@ -174,6 +175,7 @@ public:
     QVariant optimisticRatio( const Node *node, int role ) const;
     QVariant pessimisticRatio( const Node *node, int role ) const;
     QVariant riskType( const Node *node, int role ) const;
+    QVariant priority( const Node *node, int role ) const;
     QVariant runningAccount( const Node *node, int role ) const;
     QVariant startupAccount( const Node *node, int role ) const;
     QVariant startupCost( const Node *node, int role ) const;
@@ -262,6 +264,7 @@ public:
     KUndo2Command *setOptimisticRatio( Node *node, const QVariant &value, int role );
     KUndo2Command *setPessimisticRatio( Node *node, const QVariant &value, int role );
     KUndo2Command *setRiskType( Node *node, const QVariant &value, int role );
+    KUndo2Command *setPriority( Node *node, const QVariant &value, int role );
     KUndo2Command *setRunningAccount( Node *node, const QVariant &value, int role );
     KUndo2Command *setStartupAccount( Node *node, const QVariant &value, int role );
     KUndo2Command *setStartupCost( Node *node, const QVariant &value, int role );

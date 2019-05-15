@@ -620,6 +620,21 @@ QVariant NodeModel::riskType( const Node *node, int role ) const
     return QVariant();
 }
 
+QVariant NodeModel::priority( const Node *node, int role ) const
+{
+    switch ( role ) {
+        case Qt::DisplayRole:
+        case Qt::EditRole:
+            return node->priority();
+        case Qt::ToolTipRole:
+            break;
+        case Qt::StatusTipRole:
+        case Qt::WhatsThisRole:
+            return QVariant();
+    }
+    return QVariant();
+}
+
 QVariant NodeModel::runningAccount( const Node *node, int role ) const
 {
     switch ( role ) {
@@ -2156,6 +2171,7 @@ QVariant NodeModel::data( const Node *n, int property, int role ) const
         case NodeOptimisticRatio: result = optimisticRatio( n, role ); break;
         case NodePessimisticRatio: result = pessimisticRatio( n, role ); break;
         case NodeRisk: result = riskType( n, role ); break;
+        case NodePriority: result = priority( n, role ); break;
         case NodeConstraint: result = constraint( n, role ); break;
         case NodeConstraintStart: result = constraintStartTime( n, role ); break;
         case NodeConstraintEnd: result = constraintEndTime( n, role ); break;
@@ -2256,6 +2272,7 @@ KUndo2Command *NodeModel::setData( Node *node, int property, const QVariant & va
         case NodeModel::NodeOptimisticRatio: return setOptimisticRatio( node, value, role );
         case NodeModel::NodePessimisticRatio: return setPessimisticRatio( node, value, role );
         case NodeModel::NodeRisk: return setRiskType( node, value, role );
+        case NodeModel::NodePriority: return setPriority( node, value, role );
         case NodeModel::NodeConstraint: return setConstraint( node, value, role );
         case NodeModel::NodeConstraintStart: return setConstraintStartTime( node, value, role );
         case NodeModel::NodeConstraintEnd: return setConstraintEndTime( node, value, role );
@@ -2291,6 +2308,7 @@ QVariant NodeModel::headerData( int section, int role )
             case NodeOptimisticRatio: return xi18nc( "@title:column", "Optimistic" ); // Ratio
             case NodePessimisticRatio: return xi18nc( "@title:column", "Pessimistic" ); // Ratio
             case NodeRisk: return xi18nc( "@title:column", "Risk" );
+            case NodePriority: return xi18nc( "@title:column", "Priority" );
             case NodeConstraint: return xi18nc( "@title:column", "Constraint" );
             case NodeConstraintStart: return xi18nc( "@title:column", "Constraint Start" );
             case NodeConstraintEnd: return xi18nc( "@title:column", "Constraint End" );
@@ -2383,6 +2401,7 @@ QVariant NodeModel::headerData( int section, int role )
             case NodeOptimisticRatio: return "Optimistic"; // Ratio
             case NodePessimisticRatio: return "Pessimistic"; // Ratio
             case NodeRisk: return "Risk";
+            case NodePriority: return "Priority";
             case NodeConstraint: return "Constraint";
             case NodeConstraintStart: return "Constraint Start";
             case NodeConstraintEnd: return "Constraint End";
@@ -2475,6 +2494,7 @@ QVariant NodeModel::headerData( int section, int role )
             case NodeOptimisticRatio: return ToolTip::optimisticRatio();
             case NodePessimisticRatio: return ToolTip::pessimisticRatio();
             case NodeRisk: return ToolTip::riskType();
+            case NodePriority: return ToolTip::nodePriority();
             case NodeConstraint: return ToolTip::nodeConstraint();
             case NodeConstraintStart: return ToolTip::nodeConstraintStart();
             case NodeConstraintEnd: return ToolTip::nodeConstraintEnd();
@@ -2564,6 +2584,7 @@ QVariant NodeModel::headerData( int section, int role )
             case NodeEstimate:
             case NodeOptimisticRatio:
             case NodePessimisticRatio:
+            case NodePriority:
                 return (int)(Qt::AlignRight|Qt::AlignVCenter); // number
             case NodeRisk:
             case NodeConstraint:
@@ -2931,6 +2952,21 @@ KUndo2Command *NodeModel::setRiskType( Node *node, const QVariant &value, int ro
             if ( val != node->estimate()->risktype() ) {
                 Estimate::Risktype v = Estimate::Risktype( val );
                 return new EstimateModifyRiskCmd( *node, node->estimate()->risktype(), v, kundo2_i18n( "Modify risk type" ) );
+            }
+            break;
+        }
+        default:
+            break;
+    }
+    return 0;
+}
+
+KUndo2Command *NodeModel::setPriority(Node *node, const QVariant &value, int role)
+{
+    switch (role) {
+        case Qt::EditRole: {
+            if (value.toInt() != node->priority()) {
+                return new NodeModifyPriorityCmd(*node, node->priority(), value.toInt(), kundo2_i18n("Modify priority"));
             }
             break;
         }
@@ -3351,6 +3387,13 @@ Qt::ItemFlags NodeItemModel::flags( const QModelIndex &index ) const
                 }
                 break;
             }
+            case NodeModel::NodePriority:
+            {
+                if (!baselined) {
+                    flags |= Qt::ItemIsEditable;
+                }
+                break;
+            }
             case NodeModel::NodeConstraint: // constraint type
                 if ( ! baselined && ( n->type() == Node::Type_Task || n->type() == Node::Type_Milestone ) ) {
                     flags |= Qt::ItemIsEditable;
@@ -3743,6 +3786,7 @@ QAbstractItemDelegate *NodeItemModel::createDelegate( int column, QWidget *paren
         case NodeModel::NodeOptimisticRatio: return new SpinBoxDelegate( parent );
         case NodeModel::NodePessimisticRatio: return new SpinBoxDelegate( parent );
         case NodeModel::NodeRisk: return new EnumDelegate( parent );
+        //case NodeModel::NodePriority: return new EnumDelegate( parent );
         case NodeModel::NodeConstraint: return new EnumDelegate( parent );
         case NodeModel::NodeConstraintStart: return new DateTimeCalendarDelegate( parent );
         case NodeModel::NodeConstraintEnd: return new DateTimeCalendarDelegate( parent );

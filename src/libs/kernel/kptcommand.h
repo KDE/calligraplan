@@ -424,6 +424,19 @@ private:
     QString oldName;
 };
 
+class PLANKERNEL_EXPORT NodeModifyPriorityCmd : public NamedCommand
+{
+public:
+    NodeModifyPriorityCmd(Node &node, int oldValue, int newValue, const KUndo2MagicString& name = KUndo2MagicString() );
+    void execute();
+    void unexecute();
+
+private:
+    Node &m_node;
+    int m_oldValue;
+    int m_newValue;
+};
+
 class PLANKERNEL_EXPORT NodeModifyLeaderCmd : public NamedCommand
 {
 public:

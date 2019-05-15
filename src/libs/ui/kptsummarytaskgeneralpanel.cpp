@@ -62,6 +62,7 @@ SummaryTaskGeneralPanel::SummaryTaskGeneralPanel(Task &task, QWidget *p, const c
     setStartValues(task);
     
     connect(namefield, &QLineEdit::textChanged, this, &SummaryTaskGeneralPanel::slotObligatedFieldsFilled);
+    connect(ui_priority, SIGNAL(valueChanged(int)), this, SLOT(slotObligatedFieldsFilled()));
     connect(leaderfield, &QLineEdit::textChanged, this, &SummaryTaskGeneralPanel::slotObligatedFieldsFilled);
     connect(m_description, &TaskDescriptionPanelImpl::textChanged, this, &SummaryTaskGeneralPanel::slotObligatedFieldsFilled);
     
@@ -72,6 +73,7 @@ SummaryTaskGeneralPanel::SummaryTaskGeneralPanel(Task &task, QWidget *p, const c
 void SummaryTaskGeneralPanel::setStartValues(Task &task) {
     namefield->setText(task.name());
     leaderfield->setText(task.leader());
+    ui_priority->setValue(task.priority());
 
     m_description->descriptionfield->setTextOrHtml(task.description());
     wbsfield->setText(task.wbsCode());
@@ -88,11 +90,15 @@ MacroCommand *SummaryTaskGeneralPanel::buildCommand() {
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Modify task"));
     bool modified = false;
 
-    if (!namefield->isHidden() && m_task.name() != namefield->text()) {
+    if ((!namefield->isHidden()) && m_task.name() != namefield->text()) {
         cmd->addCommand(new NodeModifyNameCmd(m_task, namefield->text()));
         modified = true;
     }
-    if (!leaderfield->isHidden() && m_task.leader() != leaderfield->text()) {
+    if (ui_priority->value() != m_task.priority()) {
+        cmd->addCommand(new NodeModifyPriorityCmd(m_task, m_task.priority(), ui_priority->value()));
+        modified = true;
+    }
+    if ((!leaderfield->isHidden()) && m_task.leader() != leaderfield->text()) {
         cmd->addCommand(new NodeModifyLeaderCmd(m_task, leaderfield->text()));
         modified = true;
     }

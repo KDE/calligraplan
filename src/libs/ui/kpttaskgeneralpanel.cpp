@@ -63,6 +63,7 @@ TaskGeneralPanel::TaskGeneralPanel(Project &project, Task &task, QWidget *p, con
 void TaskGeneralPanel::setStartValues( Task &task ) {
     m_estimate = m_duration = task.estimate()->expectedValue();
     namefield->setText(task.name());
+    ui_priority->setValue(task.priority());
     leaderfield->setText(task.leader());
     wbsfield->setText(task.wbsCode());
 
@@ -114,11 +115,15 @@ MacroCommand *TaskGeneralPanel::buildCommand() {
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Modify Task"));
     bool modified = false;
 
-    if (!namefield->isHidden() && m_task.name() != namefield->text()) {
+    if ((!namefield->isHidden()) && m_task.name() != namefield->text()) {
         cmd->addCommand(new NodeModifyNameCmd(m_task, namefield->text()));
         modified = true;
     }
-    if (!leaderfield->isHidden() && m_task.leader() != leaderfield->text()) {
+    if (ui_priority->value() != m_task.priority()) {
+        cmd->addCommand(new NodeModifyPriorityCmd(m_task, m_task.priority(), ui_priority->value()));
+        modified = true;
+    }
+    if ((!leaderfield->isHidden()) && m_task.leader() != leaderfield->text()) {
         cmd->addCommand(new NodeModifyLeaderCmd(m_task, leaderfield->text()));
         modified = true;
     }

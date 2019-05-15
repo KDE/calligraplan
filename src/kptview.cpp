@@ -564,6 +564,7 @@ void View::createViews()
         m_defaultView = m_tab->count() - 1;
         v->showColumns(QList<int>() << NodeModel::NodeName
                                     << NodeModel::NodeType
+                                    << NodeModel::NodePriority
                                     << NodeModel::NodeAllocation
                                     << NodeModel::NodeEstimateCalendar
                                     << NodeModel::NodeEstimate

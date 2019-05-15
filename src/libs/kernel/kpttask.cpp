@@ -269,6 +269,7 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status ) {
     QString s;
     bool ok = false;
     m_id = element.attribute(QStringLiteral("id"));
+    m_priority = element.attribute(QStringLiteral("priority"), "0").toInt();
 
     setName( element.attribute(QStringLiteral("name")) );
     m_leader = element.attribute(QStringLiteral("leader"));
@@ -402,6 +403,7 @@ void Task::save(QDomElement &element, const XmlSaveContext &context)  const
     element.appendChild(me);
 
     me.setAttribute(QStringLiteral("id"), m_id);
+    me.setAttribute("priority", QString::number(m_priority));
     me.setAttribute(QStringLiteral("name"), m_name);
     me.setAttribute(QStringLiteral("leader"), m_leader);
     me.setAttribute(QStringLiteral("description"), m_description);

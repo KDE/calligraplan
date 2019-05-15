@@ -1023,6 +1023,7 @@ bool Project::load( KoXmlElement &element, XMLLoaderObject &status )
     removeId( m_id );
     m_id = element.attribute( "id" );
     registerNodeId( this );
+    m_priority = element.attribute(QStringLiteral("priority"), "0").toInt();
     m_leader = element.attribute( "leader" );
     m_description = element.attribute( "description" );
     QTimeZone tz( element.attribute( "timezone" ).toLatin1() );
@@ -1302,6 +1303,7 @@ void Project::save( QDomElement &element, const XmlSaveContext &context) const
     me.setAttribute( "name", m_name );
     me.setAttribute( "leader", m_leader );
     me.setAttribute( "id", m_id );
+    me.setAttribute("priority", QString::number(m_priority));
     me.setAttribute( "description", m_description );
     me.setAttribute( "timezone", m_timeZone.isValid() ? QString::fromLatin1(m_timeZone.id()) : QString() );
 

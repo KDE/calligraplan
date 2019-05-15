@@ -109,6 +109,7 @@ Node::~Node() {
 }
 
 void Node::init() {
+    m_priority = 0;
     m_documents.node = this;
     m_currentSchedule = 0;
     m_name="";
@@ -122,6 +123,16 @@ void Node::init() {
     m_shutdownAccount = 0;
     m_startupCost = 0.0;
     m_shutdownCost = 0.0;
+}
+
+void Node::setPriority(int priority)
+{
+    m_priority = priority;
+}
+
+int Node::priority() const
+{
+    return m_priority;
 }
 
 QString Node::typeToString( bool trans ) const

@@ -41,6 +41,7 @@ struct PLANMODELS_EXPORT ToolTip
     static QString nodeWBS();
     static QString nodeLevel();
     static QString nodeRisk();
+    static QString nodePriority();
     static QString nodeRunningAccount();
     static QString nodeStartupAccount();
     static QString nodeStartupCost();

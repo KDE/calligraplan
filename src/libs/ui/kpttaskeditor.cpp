@@ -315,6 +315,7 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     show << NodeModel::NodeResponsible
             << NodeModel::NodeAllocation
             << NodeModel::NodeType
+            << NodeModel::NodePriority
             << NodeModel::NodeEstimateCalendar
             << NodeModel::NodeEstimate
             << NodeModel::NodeOptimisticRatio
