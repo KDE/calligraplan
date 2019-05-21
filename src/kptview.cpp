@@ -385,6 +385,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 
     connect( &getProject(), &Project::scheduleManagerAdded, this, &View::slotScheduleAdded );
     connect( &getProject(), &Project::scheduleManagerRemoved, this, &View::slotScheduleRemoved );
+    connect( &getProject(), &Project::scheduleManagersSwapped, this, &View::slotScheduleSwapped );
     connect( &getProject(), &Project::sigCalculationFinished, this, &View::slotScheduleCalculated );
     slotPlugScheduleActions();
 
@@ -1652,6 +1653,16 @@ QList<QAction*> View::sortedActionList()
     return lst.values();
 }
 
+void View::slotScheduleSwapped(ScheduleManager *from,  ScheduleManager *to)
+{
+    if (currentScheduleManager() == from) {
+        QAction *a = m_scheduleActions.key(to);
+        if (a) {
+            a->setChecked(true);
+        }
+    }
+}
+
 void View::slotScheduleRemoved( const ScheduleManager *sch )
 {
     debugPlan<<sch<<sch->name();
@@ -2260,7 +2271,6 @@ void View::slotTaskDescription()
     if ( !node )
         return ;
 
-    qInfo()<<Q_FUNC_INFO<<node;
     switch ( node->type() ) {
         case Node::Type_Subproject:
             //TODO

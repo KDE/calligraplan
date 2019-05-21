@@ -2667,6 +2667,11 @@ int Project::takeScheduleManager( ScheduleManager *sm )
     return index;
 }
 
+void Project::swapScheduleManagers(ScheduleManager *from, ScheduleManager *to)
+{
+    emit scheduleManagersSwapped(from, to);
+}
+
 void Project::moveScheduleManager( ScheduleManager *sm, ScheduleManager *newparent, int newindex )
 {
     //debugPlan<<sm->name()<<newparent<<newindex;

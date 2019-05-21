@@ -1532,6 +1532,19 @@ private:
     QTimeZone m_timeZone;
 };
 
+class PLANKERNEL_EXPORT SwapScheduleManagerCmd : public NamedCommand
+{
+public:
+    SwapScheduleManagerCmd( Project &project, ScheduleManager *from, ScheduleManager *to, const KUndo2MagicString& name = KUndo2MagicString() );
+    ~SwapScheduleManagerCmd();
+    void execute();
+    void unexecute();
+
+protected:
+    Project &m_node;
+    ScheduleManager *m_from;
+    ScheduleManager *m_to;
+};
 
 class PLANKERNEL_EXPORT AddScheduleManagerCmd : public NamedCommand
 {
@@ -1627,6 +1640,8 @@ private:
     bool m_first;
     MainSchedule *m_oldexpected;
     MainSchedule *m_newexpected;
+    MacroCommand preCmd;
+    MacroCommand postCmd;
 };
 
 class PLANKERNEL_EXPORT BaselineScheduleCmd : public NamedCommand

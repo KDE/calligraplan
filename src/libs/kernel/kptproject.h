@@ -534,7 +534,10 @@ public Q_SLOTS:
     /// If @p sm is not 0, max progress is also set for the schedule manager
     void setMaxProgress(int max, KPlato::ScheduleManager *sm = 0 );
 
+    void swapScheduleManagers(KPlato::ScheduleManager *from, KPlato::ScheduleManager *to);
+
 Q_SIGNALS:
+    void scheduleManagersSwapped(KPlato::ScheduleManager *from, KPlato::ScheduleManager *to);
     /// Emitted when the project is about to be deleted (The destroyed signal is disabled)
     void aboutToBeDeleted();
     /// Emitted when anything in the project is changed (use with care)

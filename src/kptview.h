@@ -256,6 +256,7 @@ protected Q_SLOTS:
     void slotViewSchedule( QAction *act );
     void slotScheduleAdded(const KPlato::ScheduleManager*);
     void slotScheduleRemoved( const KPlato::ScheduleManager*);
+    void slotScheduleSwapped(KPlato::ScheduleManager *from, KPlato::ScheduleManager *to);
     void slotScheduleCalculated(KPlato::Project *project, KPlato::ScheduleManager *manager);
 
     void slotAddScheduleManager(KPlato::Project *project);

@@ -2684,6 +2684,28 @@ void ProjectModifyEndTimeCmd::unexecute()
 }
 
 //----------------------------
+SwapScheduleManagerCmd::SwapScheduleManagerCmd(Project &project, ScheduleManager *from, ScheduleManager *to, const KUndo2MagicString& name )
+    : NamedCommand( name ),
+    m_node( project ),
+    m_from( from ),
+    m_to( to )
+{
+}
+
+SwapScheduleManagerCmd::~SwapScheduleManagerCmd()
+{
+}
+
+void SwapScheduleManagerCmd::execute()
+{
+    m_node.swapScheduleManagers(m_from, m_to);
+}
+
+void SwapScheduleManagerCmd::unexecute()
+{
+    m_node.swapScheduleManagers(m_to, m_from);
+}
+
 AddScheduleManagerCmd::AddScheduleManagerCmd( Project &node, ScheduleManager *sm, int index, const KUndo2MagicString& name )
     : NamedCommand( name ),
     m_node( node ),
@@ -2883,14 +2905,30 @@ CalculateScheduleCmd::CalculateScheduleCmd( Project &node, ScheduleManager *sm, 
     m_node( node ),
     m_sm( sm ),
     m_first( true ),
-    m_oldexpected( m_sm->expected() ),
     m_newexpected( 0 )
 {
+    if (sm->recalculate() && sm->isScheduled()) {
+        m_sm = new ScheduleManager(node);
+        m_sm->setRecalculate(true);
+        m_sm->setGranularity(sm->granularity());
+        m_sm->setUsePert(sm->usePert());
+        m_sm->setSchedulerPluginId(sm->schedulerPluginId());
+        m_sm->setAllowOverbooking(sm->allowOverbooking());
+        m_sm->setName(sm->name());
+
+        preCmd.addCommand(new AddScheduleManagerCmd(sm, m_sm));
+
+        postCmd.addCommand(new SwapScheduleManagerCmd(node, sm, m_sm));
+        postCmd.addCommand(new MoveScheduleManagerCmd(m_sm, sm->parentManager(), sm->parentManager() ? sm->parentManager()->indexOf(sm)+1 : node.indexOf(sm)+1));
+        postCmd.addCommand(new DeleteScheduleManagerCmd(node, sm));
+    }
+    m_oldexpected = m_sm->expected();
 }
 
 void CalculateScheduleCmd::execute()
 {
     Q_ASSERT( m_sm );
+    preCmd.redo();
     if ( m_first ) {
         m_sm->calculateSchedule();
         if ( m_sm->calculationResult() != ScheduleManager::CalculationCanceled ) {
@@ -2900,6 +2938,7 @@ void CalculateScheduleCmd::execute()
     } else {
         m_sm->setExpected( m_newexpected );
     }
+    postCmd.redo();
 }
 
 void CalculateScheduleCmd::unexecute()
@@ -2912,7 +2951,9 @@ void CalculateScheduleCmd::unexecute()
         QApplication::restoreOverrideCursor();
 
     }
+    postCmd.undo();
     m_sm->setExpected( m_oldexpected );
+    preCmd.undo();
 }
 
 //------------------------
