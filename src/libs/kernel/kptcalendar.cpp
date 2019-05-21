@@ -1007,6 +1007,9 @@ void Calendar::save(QDomElement &element) const {
 
 int Calendar::state(QDate date) const
 {
+    if (!date.isValid()) {
+        return CalendarDay::Undefined;
+    }
     CalendarDay *day = findDay( date );
     if ( day && day->state() != CalendarDay::Undefined ) {
         return day->state();

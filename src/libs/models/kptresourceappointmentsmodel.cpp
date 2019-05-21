@@ -669,7 +669,7 @@ QVariant ResourceAppointmentsItemModel::total( const Resource *res, const QDate 
         case Qt::TextAlignmentRole:
             return (int)(Qt::AlignRight|Qt::AlignVCenter);
         case Qt::BackgroundRole: {
-            if ( res->calendar() && res->calendar()->state( date ) != CalendarDay::Working ) {
+            if (date.isValid() && res->calendar() && res->calendar()->state( date ) != CalendarDay::Working ) {
                 QColor c( 0xf0f0f0 );
                 return QVariant::fromValue( c );
                 //return QVariant( Qt::cyan );
