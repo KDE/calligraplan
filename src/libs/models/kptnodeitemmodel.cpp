@@ -92,8 +92,9 @@ QVariant NodeModel::name( const Node *node, int role ) const
     switch ( role ) {
         case Qt::DisplayRole:
         case Qt::EditRole:
-        case Qt::ToolTipRole:
             return node->name();
+        case Qt::ToolTipRole:
+            return xi18nc("@info:tooltip", "%1: <emphasis>%2</emphasis><para>%3</para>", wbsCode(node, Qt::DisplayRole).toString(), node->name(), description(node, Qt::DisplayRole).toString());
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
