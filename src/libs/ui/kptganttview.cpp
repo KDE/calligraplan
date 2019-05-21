@@ -715,7 +715,7 @@ void MyKGanttView::slotProjectCalculated( ScheduleManager *sm )
 
 void MyKGanttView::setScheduleManager( ScheduleManager *sm )
 {
-    clearDependencies();
+    constraintModel()->clear();
     m_manager = sm;
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
     if ( sm && project() ) {
@@ -982,7 +982,6 @@ void GanttView::slotContextMenuRequested( const QModelIndex &idx, const QPoint &
     debugPlan;
     QString name;
     Node *node = m_gantt->model()->node( m_gantt->sfModel()->mapToSource( idx ) );
-    qInfo()<<Q_FUNC_INFO<<node;
     if ( node ) {
         switch ( node->type() ) {
             case Node::Type_Project:
@@ -1179,7 +1178,7 @@ void MilestoneKGanttView::setScheduleManager( ScheduleManager *sm )
         if ( ! start.isValid() ) {
             start = project()->startTime( sm->scheduleId() );
         }
-        if ( g->startDateTime() !=  start ) {
+        if (start.isValid() && g->startDateTime() !=  start ) {
             g->setStartDateTime( start );
         }
     }
