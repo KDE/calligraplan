@@ -1752,7 +1752,7 @@ QDebug operator<<(QDebug dbg, KPlato::CalendarDay *day)
     if (day->date().isValid()) {
         dbg << day->date();
     }
-    for(int i; i < day->numIntervals(); ++i) {
+    for(int i = 0; i < day->numIntervals(); ++i) {
         dbg << *(day->timeIntervals().at(i));
     }
     dbg <<  "]";
