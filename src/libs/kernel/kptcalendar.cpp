@@ -1180,7 +1180,7 @@ AppointmentIntervalList Calendar::workIntervals( const QDateTime &start, const Q
             }
             AppointmentInterval i( dt1.toTimeZone(projectTimeZone()), dt2.toTimeZone(projectTimeZone()), load );
             lst.add( i );
-            debugPlan<<dt1<<dt2<<lst;
+//             debugPlan<<dt1<<dt2<<lst;
             length -= startTime.msecsTo( res.endTime() );
             if ( length <= 0 || res.endsMidnight() ) {
                 break;
@@ -1433,7 +1433,7 @@ DateTime Calendar::firstAvailableAfter(const DateTime &time, const DateTime &lim
 }
 
 DateTime Calendar::firstAvailableBefore(const QDateTime &time, const QDateTime &limit, Schedule *sch) {
-    debugPlan<<m_name<<"check from"<<time<<"limit="<<limit;
+    //debugPlan<<m_name<<"check from"<<time<<"limit="<<limit;
     if ( !time.isValid() || !limit.isValid() ) {
         warnPlan<<"Calendar::firstAvailableBefore:"<<"Invalid datetimes";
         return DateTime();

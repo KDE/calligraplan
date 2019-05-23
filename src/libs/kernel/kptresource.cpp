@@ -1024,13 +1024,13 @@ void Resource::calendarIntervals( const DateTime &from, const DateTime &until ) 
 //             debugPlan<<"Add to start:"<<from<<m_workinfocache.start;
             m_workinfocache.intervals += cal->workIntervals( from, m_workinfocache.start, m_units );
             m_workinfocache.start = from;
-             debugPlan<<"calendarIntervals (start):"<<m_workinfocache.intervals;
+//             debugPlan<<"calendarIntervals (start):"<<m_workinfocache.intervals;
         }
         if ( until > m_workinfocache.end ) {
 //             debugPlan<<"Add to end:"<<m_workinfocache.end<<until;
             m_workinfocache.intervals += cal->workIntervals( m_workinfocache.end, until, m_units );
             m_workinfocache.end = until;
-             debugPlan<<"calendarIntervals: (end)"<<m_workinfocache.intervals;
+//             debugPlan<<"calendarIntervals: (end)"<<m_workinfocache.intervals;
         }
     }
 }
@@ -1235,7 +1235,7 @@ DateTime Resource::availableBefore(const DateTime &time, const DateTime &limit) 
 }
 
 DateTime Resource::availableAfter(const DateTime &time, const DateTime &limit, Schedule *sch) const {
-    debugPlan<<time<<limit;
+//     debugPlan<<time<<limit;
     DateTime t;
     if (m_units == 0) {
         debugPlan<<this<<"zero units";
