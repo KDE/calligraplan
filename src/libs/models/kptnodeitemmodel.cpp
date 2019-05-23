@@ -1401,30 +1401,7 @@ QVariant NodeModel::status( const Node *node, int role ) const
                 return xi18nc( "@info:tooltip", "Can start" );
             }
             if ( st & Node::State_NotReadyToStart ) {
-                QStringList names;
-                // TODO: proxy relations
-                foreach ( Relation *r, node->dependParentNodes() ) {
-                    switch ( r->type() ) {
-                        case Relation::FinishFinish:
-                        case Relation::FinishStart:
-                            if ( ! static_cast<Task*>( r->parent() )->completion().isFinished() ) {
-                                if ( ! names.contains( r->parent()->name() ) ) {
-                                    names << r->parent()->name();
-                                }
-                            }
-                            break;
-                        case Relation::StartStart:
-                            if ( ! static_cast<Task*>( r->parent() )->completion().isStarted() ) {
-                                if ( ! names.contains( r->parent()->name() ) ) {
-                                    names << r->parent()->name();
-                                }
-                            }
-                            break;
-                    }
-                }
-                return names.isEmpty()
-                    ? xi18nc( "@info:tooltip", "Cannot start" )
-                    : xi18nc( "@info:tooltip 1=list of task names", "Cannot start, waiting for:<nl/>%1", names.join( "<nl/>" ) );
+                return xi18nc( "@info:tooltip", "Cannot start" );
             }
             return xi18nc( "@info:tooltip", "Not started" );
             break;
