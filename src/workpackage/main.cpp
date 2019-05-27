@@ -24,6 +24,7 @@
 #include <KDBusService>
 
 #include <QApplication>
+#include <QLoggingCategory>
 #include <QDir>
 
 #include <Calligra2Migration.h>
@@ -39,6 +40,18 @@ extern "C" Q_DECL_EXPORT int kdemain( int argc, char **argv )
 #endif
     KDBusService service(KDBusService::Unique);
     // we come here only once...
+
+    /**
+     * Disable debug output by default, only log warnings.
+     * Debug logs can be controlled by the environment variable QT_LOGGING_RULES.
+     *
+     * For example, to get full debug output, run the following:
+     * QT_LOGGING_RULES="calligra.planwork=true" calligraplan
+     *
+     * See: http://doc.qt.io/qt-5/qloggingcategory.html
+     */
+    QLoggingCategory::setFilterRules("calligra.*.debug=false\n"
+                                     "calligra.*.warning=true");
 
     // Migrate data from kde4 to kf5 locations
     Calligra2Migration m("calligraplanwork", "planwork");
