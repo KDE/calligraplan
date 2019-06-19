@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
   Copyright (C) 2006 -20010 Dag Andersen <danders@get2net.dk>
-
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
@@ -317,11 +318,13 @@ public:
     virtual void saveContext( QDomElement &/*context*/ ) const;
 
     KoPrintJob *createPrintJob();
-    
+
 Q_SIGNALS:
     void mailWorkpackage(KPlato::Node *n, KPlato::Resource *r = 0);
-    void mailWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *r);
+    void publishWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *r, bool mailTo);
+    void openWorkpackages();
     void checkForWorkPackages(bool);
+    void loadWorkPackageUrl(KPlato::Project *project, QList<QUrl> &urls);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
@@ -329,6 +332,7 @@ public Q_SLOTS:
     void slotRefreshView();
     void setScheduleManager(KPlato::ScheduleManager *sm);
     void slotEditCopy();
+    void slotWorkpackagesAvailable(bool value);
 
 protected:
     void updateActionsEnabled( bool on );
@@ -338,6 +342,7 @@ protected Q_SLOTS:
     virtual void slotOptions();
     void slotMailWorkpackage();
     void slotWorkPackageSent(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource);
+    void slotLoadWorkPackage(QList<QString>);
 
 private Q_SLOTS:
     void slotSelectionChanged( const QModelIndexList& );
@@ -353,7 +358,7 @@ private:
     MacroCommand *m_cmd;
 
     QAction *actionMailWorkpackage;
-
+    QAction *actionOpenWorkpackages;
 };
 
 } //namespace KPlato

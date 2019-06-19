@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2007 Dag Andersen <danders@get2net.dk>
-
+   Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+   
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
    License as published by the Free Software Foundation; either
@@ -43,14 +44,15 @@ public:
     explicit WorkPackageSendPanel( const QList<Node*> &tasks,  ScheduleManager *sm, QWidget *parent=0 );
 
 Q_SIGNALS:
-    void sendWorkpackages(const QList<KPlato::Node*>&, KPlato::Resource*);
+    void sendWorkpackages(const QList<KPlato::Node*>&, KPlato::Resource*, bool);
 
 protected Q_SLOTS:
     void slotSendClicked();
+    void slotSelectionChanged();
 
 protected:
-    QMap<Resource*, QList<Node*> > m_resMap;
-    QMap<QPushButton*, Resource*> m_pbMap;
+    QMap<QString, Resource*> m_resMap;
+    QMap<Resource*, QList<Node*> > m_nodeMap;
 };
 
 } //KPlato namespace

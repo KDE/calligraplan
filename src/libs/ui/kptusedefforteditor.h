@@ -98,9 +98,15 @@ public:
 
     UsedEffortItemModel *model() const { return static_cast<UsedEffortItemModel*>( QTableView::model() ); }
 
+    QSize sizeHint() const { return m_size.isValid() ? m_size : QTableView::sizeHint(); }
+    void setSizeHint(const QSize &size) { m_size = size; }
+
 Q_SIGNALS:
     void changed();
     void resourceAdded();
+
+private:
+    QSize m_size;
 };
 
 //--------------------------------------------

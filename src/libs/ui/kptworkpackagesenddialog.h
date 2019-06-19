@@ -40,6 +40,8 @@ public:
 
     WorkPackageSendPanel *panel() const { return m_wp; }
 
+    QSize sizeHint() const;
+
 private:
     WorkPackageSendPanel *m_wp;
 };

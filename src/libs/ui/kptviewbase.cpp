@@ -828,7 +828,6 @@ void ViewBase::showColumns(const QList<int> &left, const QList<int> &right)
         view2 = m_doubleTreeView->slaveView();
         m_doubleTreeView->setViewSplitMode(!right.isEmpty());
     }
-    qInfo()<<Q_FUNC_INFO<<this<<view1<<view2<<left;
     if (view1) {
         const QAbstractItemModel *model = view1->model();
         if (model) {

@@ -43,3 +43,9 @@ const QLoggingCategory &PLAN_LOG()
     static const QLoggingCategory category("calligra.plan");
     return category;
 }
+
+const QLoggingCategory &PLANWP_LOG()
+{
+    static const QLoggingCategory category("calligra.plan.wp");
+    return category;
+}

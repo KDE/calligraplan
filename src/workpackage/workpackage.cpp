@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
  Copyright (C) 2009, 2012 Dag Andersen <danders@get2net.dk>
-
+ Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Library General Public
  License as published by the Free Software Foundation; either
@@ -195,6 +196,8 @@ bool WorkPackage::loadXML( const KoXmlElement &element, XMLLoaderObject &status 
                 Task *t = static_cast<Task*>( m_project->childNode( 0 ) );
                 t->workPackage().setOwnerName( e.attribute( "owner" ) );
                 t->workPackage().setOwnerId( e.attribute( "owner-id" ) );
+                m_sendUrl = QUrl(e.attribute("save-url"));
+                m_fetchUrl = QUrl(e.attribute("load-url"));
 
                 Resource *r = m_project->findResource( t->workPackage().ownerId() );
                 if ( r == 0 ) {

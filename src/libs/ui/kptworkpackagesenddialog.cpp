@@ -26,8 +26,7 @@
 #include <KLocalizedString>
 
 
-namespace KPlato
-{
+using namespace KPlato;
 
 WorkPackageSendDialog::WorkPackageSendDialog( const QList<Node*> &tasks,  ScheduleManager *sm, QWidget *p)
     : KoDialog(p)
@@ -41,5 +40,7 @@ WorkPackageSendDialog::WorkPackageSendDialog( const QList<Node*> &tasks,  Schedu
     setMainWidget( m_wp );
 }
 
-
-}  //KPlato namespace
+QSize WorkPackageSendDialog::sizeHint() const
+{
+    return QSize(350, 300);
+}

@@ -1,7 +1,8 @@
 /* This file is part of the KDE project
   Copyright (C) 1998, 1999, 2000 Torben Weis <weis@kde.org>
   Copyright (C) 2002 - 2009, 2011, 2012 Dag Andersen <danders@get2net.dk>
-
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
@@ -258,7 +259,8 @@ void View::slotConfigure()
 
 ScheduleManager *View::currentScheduleManager() const
 {
-    return 0; // atm we always work with default manager
+    WorkPackage *wp = m_part->findWorkPackage( currentNode() );
+    return wp ? wp->project()->scheduleManagers().value(0) : nullptr;
 }
 
 void View::updateReadWrite( bool readwrite )
@@ -407,31 +409,37 @@ void View::slotSendPackage()
         }
     }*/
 
-    if (openPackageSettings() != QDialog::Accepted) {
-        return;
-    }
-
-    QTemporaryFile temp(QDir::tempPath() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String( ".planwork" ));
-    temp.setAutoRemove( false );
-    if ( ! temp.open() ) {
-        KMessageBox::error( 0, i18n("Could not open temporary file. Sending is aborted." ) );
-        return;
-    }
     bool wasmodified = wp->isModified();
-    wp->saveNativeFormat( part(), temp.fileName() );
+    if (wp->sendUrl().isValid()) {
+        QTemporaryFile temp(wp->sendUrl().toLocalFile() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String( ".planwork" ));
+        temp.setAutoRemove( false );
+        if ( ! temp.open() ) {
+            KMessageBox::error( 0, i18n("Could not open file. Sending is aborted." ) );
+            return;
+        }
+        wp->saveNativeFormat( part(), temp.fileName() );
+    } else {
+        QTemporaryFile temp(QDir::tempPath() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String( ".planwork" ));
+        temp.setAutoRemove( false );
+        if ( ! temp.open() ) {
+            KMessageBox::error( 0, i18n("Could not open temporary file. Sending is aborted." ) );
+            return;
+        }
+        wp->saveNativeFormat( part(), temp.fileName() );
+
+        QStringList attachURLs;
+        attachURLs << temp.fileName();
+
+        QString to = node->projectNode()->leader();
+        QString cc;
+        QString bcc;
+        QString subject = i18n( "Work Package: %1", node->name() );
+        QString body = node->projectNode()->name();
+        QString messageFile;
+
+        KToolInvocation::invokeMailer( to, cc, bcc, subject, body, messageFile, attachURLs );
+    }
     wp->setModified( wasmodified );
-
-    QStringList attachURLs;
-    attachURLs << temp.fileName();
-
-    QString to = node->projectNode()->leader();
-    QString cc;
-    QString bcc;
-    QString subject = i18n( "Work Package: %1", node->name() );
-    QString body = node->projectNode()->name();
-    QString messageFile;
-
-    KToolInvocation::invokeMailer( to, cc, bcc, subject, body, messageFile, attachURLs );
 }
 
 void View::slotTaskDescription()

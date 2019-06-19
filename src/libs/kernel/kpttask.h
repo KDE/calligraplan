@@ -166,7 +166,7 @@ public:
     void setActualEffort( QDate date, Duration value );
     
     /// Return a list of the resource that has done any work on this task
-    QList<const Resource*> resources() { return m_usedEffort.keys(); }
+    QList<const Resource*> resources() const { return m_usedEffort.keys(); }
     
     const EntryList &entries() const { return m_entries; }
     void addEntry( QDate date, Entry *entry );
@@ -262,7 +262,8 @@ public:
     enum WPTransmitionStatus {
         TS_None,        /// Not sent nor received
         TS_Send,        /// Package was sent to resource
-        TS_Receive      /// Package was received from resource
+        TS_Receive,     /// Package was received from resource
+        TS_Rejected     /// Recieved package was rejected by project manager
     };
 
     explicit WorkPackage( Task *task = 0 );
@@ -349,6 +350,7 @@ public:
     bool usedEffort;
     bool progress;
     bool documents;
+    bool remainingEffort;
 };
 
 /**

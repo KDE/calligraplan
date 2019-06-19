@@ -224,6 +224,8 @@ QVariant UsedEffortItemModel::headerData ( int section, Qt::Orientation orientat
             }
             break;
         }
+        case Qt::TextAlignmentRole:
+            return Qt::AlignLeading;
         default: break;
     }
     return QVariant();

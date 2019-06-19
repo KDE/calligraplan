@@ -2,7 +2,8 @@
   Copyright (C) 1998, 1999, 2000 Torben Weis <weis@kde.org>
   Copyright (C) 2002 - 2011 Dag Andersen <danders@get2net.dk>
   Copyright (C) 2012 Dag Andersen <danders@get2net.dk>
-
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
@@ -46,6 +47,7 @@
 #include <QMenu>
 #include <QTemporaryFile>
 #include <QFileDialog>
+#include <QStatusBar>
 
 #include <kactioncollection.h>
 #include <kactionmenu.h>
@@ -111,6 +113,7 @@
 #include "kptlocaleconfigmoneydialog.h"
 #include "kptflatproxymodel.h"
 #include "kpttaskstatusmodel.h"
+#include "kptworkpackagemergedialog.h"
 
 #include "performance/PerformanceStatusView.h"
 #include "performance/ProjectStatusView.h"
@@ -378,6 +381,13 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     // Viewlist popup
     connect( m_viewlist, &ViewListWidget::createView, this, &View::slotCreateView );
 
+    m_workPackageButton = new QToolButton(this);
+    m_workPackageButton->hide();
+    m_workPackageButton->setIcon(koIcon("application-x-vnd.kde.plan.work"));
+    m_workPackageButton->setText(i18n("Work Packages..."));
+    m_workPackageButton->setToolTip(i18nc("@info:tooltip", "Work packages available"));
+    m_workPackageButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    connect(m_workPackageButton, &QToolButton::clicked, this, &View::openWorkPackageMergeDialog);
     m_estlabel = new QLabel( "", 0 );
     if ( statusBar() ) {
         addStatusBarItem( m_estlabel, 0, true );
@@ -1307,9 +1317,11 @@ ViewBase *View::createTaskWorkPackageView( ViewListItem *cat, const QString &tag
     connect( v, &TaskWorkPackageView::requestPopupMenu, this, &View::slotPopupMenuRequested);
 
     connect( v, &TaskWorkPackageView::mailWorkpackage, this, &View::slotMailWorkpackage );
-    connect( v, &TaskWorkPackageView::mailWorkpackages, this, &View::slotMailWorkpackages );
-
+    connect( v, &TaskWorkPackageView::publishWorkpackages, this, &View::slotPublishWorkpackages );
+    connect(v, &TaskWorkPackageView::openWorkpackages, this, &View::openWorkPackageMergeDialog);
+    connect(this, &View::workPackagesAvailable, v, &TaskWorkPackageView::slotWorkpackagesAvailable);
     connect(v, &TaskWorkPackageView::checkForWorkPackages, getPart(), &MainDocument::checkForWorkPackages);
+    connect(v, &TaskWorkPackageView::loadWorkPackageUrl, this, &View::loadWorkPackage);
     v->updateReadWrite( m_readWrite );
     return v;
 }
@@ -3064,9 +3076,15 @@ void View::saveContext( QDomElement &me ) const
     m_viewlist->save( me );
 }
 
-bool View::loadWorkPackage( Project &project, const QUrl &url )
+void View::loadWorkPackage(Project *project, const QList<QUrl> &urls)
 {
-    return getPart()->loadWorkPackage( project, url );
+    bool loaded = false;
+    for (const QUrl &url : urls) {
+        loaded |= getPart()->loadWorkPackage(*project, url);
+    }
+    if (loaded) {
+        emit slotWorkPackageLoaded();
+    }
 }
 
 void View::setLabel( ScheduleManager *sm )
@@ -3083,7 +3101,34 @@ void View::setLabel( ScheduleManager *sm )
 void View::slotWorkPackageLoaded()
 {
     debugPlan<<getPart()->workPackages();
+    addStatusBarItem(m_workPackageButton, 0, true);
+    emit workPackagesAvailable(true);
 }
+
+void View::openWorkPackageMergeDialog()
+{
+    WorkPackageMergeDialog *dlg = new WorkPackageMergeDialog(&getProject(), getPart()->workPackages(), this);
+    connect(dlg, &QDialog::finished, this, &View::workPackageMergeDialogFinished);
+    connect(dlg, SIGNAL(terminateWorkPackage(const KPlato::Package*)), getPart(), SLOT(terminateWorkPackage(const KPlato::Package*)));
+    connect(dlg, &WorkPackageMergeDialog::executeCommand, koDocument(), &KoDocument::addCommand);
+    dlg->open();
+    removeStatusBarItem(m_workPackageButton);
+    emit workPackagesAvailable(false);
+}
+
+void View::workPackageMergeDialogFinished( int result )
+{
+    debugPlanWp<<"result:"<<result<<"sender:"<<sender();
+    WorkPackageMergeDialog *dlg = qobject_cast<WorkPackageMergeDialog*>( sender() );
+    Q_ASSERT(dlg);
+    if (!getPart()->workPackages().isEmpty()) {
+        slotWorkPackageLoaded();
+    }
+    if (dlg) {
+        dlg->deleteLater();
+    }
+}
+
 
 void View::slotMailWorkpackage( Node *node, Resource *resource )
 {
@@ -3113,27 +3158,35 @@ void View::slotMailWorkpackage( Node *node, Resource *resource )
     KToolInvocation::invokeMailer( to, cc, bcc, subject, body, messageFile, attachURLs );
 }
 
-void View::slotMailWorkpackages( const QList<Node*> &nodes, Resource *resource )
+void View::slotPublishWorkpackages( const QList<Node*> &nodes, Resource *resource, bool mailTo )
 {
-    debugPlan;
+    debugPlanWp<<resource<<nodes;
     if ( resource == 0 ) {
         warnPlan<<"No resource, we don't handle node->leader() yet";
         return;
     }
-    QString to = resource->name() + " <" + resource->email() + '>';
-    QString subject = i18n( "Work Package for project: %1", getProject().name() );
+    bool mail = mailTo;
     QString body;
     QStringList attachURLs;
 
+    QString path;
+    if (getProject().workPackageInfo().publishUrl.isValid()) {
+        path = getProject().workPackageInfo().publishUrl.path();
+        debugPlanWp<<"publish:"<<path;
+    } else {
+        path = QDir::tempPath();
+        mail = true;
+    }
     foreach ( Node *n, nodes ) {
-        QTemporaryFile tmpfile(QDir::tempPath() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String( ".planwork" ));
+        QTemporaryFile tmpfile(path + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String( ".planwork" ));
         tmpfile.setAutoRemove( false );
         if ( ! tmpfile.open() ) {
-            debugPlan<<"Failed to open file";
-            KMessageBox::error(0, i18n("Failed to open temporary file" ) );
+            debugPlanWp<<"Failed to open file";
+            KMessageBox::error(0, i18n("Failed to open work package file" ) );
             return;
         }
         QUrl url = QUrl::fromLocalFile( tmpfile.fileName() );
+        debugPlanWp<<url;
         if ( ! getPart()->saveWorkPackageUrl( url, n, activeScheduleId(), resource ) ) {
             debugPlan<<"Failed to save to file";
             KMessageBox::error(0, xi18nc( "@info", "Failed to save to temporary file:<br/><filename>%1</filename>", url.url() ) );
@@ -3142,12 +3195,16 @@ void View::slotMailWorkpackages( const QList<Node*> &nodes, Resource *resource )
         attachURLs << url.url();
         body += n->name() + '\n';
     }
+    if (mail) {
+        debugPlanWp<<attachURLs;
+        QString to = resource->name() + " <" + resource->email() + '>';
+        QString subject = i18n( "Work Package for project: %1", getProject().name() );
+        QString cc;
+        QString bcc;
+        QString messageFile;
 
-    QString cc;
-    QString bcc;
-    QString messageFile;
-
-    KToolInvocation::invokeMailer( to, cc, bcc, subject, body, messageFile, attachURLs );
+        KToolInvocation::invokeMailer( to, cc, bcc, subject, body, messageFile, attachURLs );
+    }
 }
 
 void View::slotCurrencyConfig()

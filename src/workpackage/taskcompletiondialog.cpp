@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2009, 2011, 2012 Dag Andersen <danders@get2net.dk>
-
+   Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+   
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
    License as published by the Free Software Foundation; either
@@ -21,6 +22,7 @@
 #include "taskcompletiondialog.h"
 #include "workpackage.h"
 
+#include "kpttaskprogresspanel.h"
 #include "kptusedefforteditor.h"
 #include "kptcommand.h"
 #include "kptitemmodelbase.h"
@@ -30,22 +32,21 @@
 #include <KLocalizedString>
 
 #include <QComboBox>
+#include <QVBoxLayout>
 
 #include "debugarea.h"
 
-using namespace KPlato;
+using namespace KPlatoWork;
 
-namespace KPlatoWork
-{
 
-TaskCompletionDialog::TaskCompletionDialog(WorkPackage &p, ScheduleManager *sm, QWidget *parent)
+TaskCompletionDialog::TaskCompletionDialog(WorkPackage &package, ScheduleManager *sm, QWidget *parent)
     : KoDialog(parent)
 {
     setCaption(i18n("Task Progress") );
     setButtons( Ok|Cancel );
     setDefaultButton( Ok );
     showButtonSeparator( true );
-    m_panel = new TaskCompletionPanel( p, sm, this);
+    m_panel = new TaskCompletionPanel( package, sm, this);
 
     setMainWidget(m_panel);
 
@@ -54,9 +55,9 @@ TaskCompletionDialog::TaskCompletionDialog(WorkPackage &p, ScheduleManager *sm, 
     connect(m_panel, &TaskCompletionPanel::changed, this, &TaskCompletionDialog::slotChanged);
 }
 
-void TaskCompletionDialog::slotChanged( bool )
+void TaskCompletionDialog::slotChanged( bool state )
 {
-    enableButtonOk( true );
+    enableButtonOk( state );
 }
 
 KUndo2Command *TaskCompletionDialog::buildCommand()
@@ -65,132 +66,35 @@ KUndo2Command *TaskCompletionDialog::buildCommand()
     return m_panel->buildCommand();
 }
 
-
-TaskCompletionPanel::TaskCompletionPanel(WorkPackage &p, ScheduleManager *sm, QWidget *parent)
-    : QWidget(parent),
-      m_package( &p )
+TaskCompletionPanel::TaskCompletionPanel(WorkPackage &package, ScheduleManager *sm, QWidget *parent)
+    : QWidget(parent)
 {
-    //debugPlanWork;
-    setupUi(this);
-
-    addEntryBtn->setIcon(koIcon("list-add"));
-    removeEntryBtn->setIcon(koIcon("list-remove"));
-
-    CompletionEntryItemModel *m = new CompletionEntryItemModel( this );
-    entryTable->setItemDelegateForColumn ( 1, new ProgressBarDelegate( this ) );
-    entryTable->setItemDelegateForColumn ( 2, new DurationSpinBoxDelegate( this ) );
-    entryTable->setItemDelegateForColumn ( 3, new DurationSpinBoxDelegate( this ) );
-    entryTable->setCompletionModel( m );
-
-    Task *task = qobject_cast<Task*>( p.node() );
-    m_completion = task->completion();
-    started->setChecked(m_completion.isStarted());
-    finished->setChecked(m_completion.isFinished());
-    startTime->setDateTime(m_completion.startTime());
-    finishTime->setDateTime(m_completion.finishTime());
-    finishTime->setMinimumDateTime( qMax( startTime->dateTime(), QDateTime(m_completion.entryDate(), QTime(), Qt::LocalTime) ) );
-    
-    scheduledEffort = p.node()->estimate()->expectedValue();
-    
-    if ( m_completion.usedEffortMap().isEmpty() || task->requests().isEmpty() ) {
-        foreach ( ResourceGroupRequest *g, task->requests().requests() ) {
-            foreach ( ResourceRequest *r, g->resourceRequests() ) {
-                m_completion.addUsedEffort( r->resource() );
+    Q_ASSERT(sm);
+    if (package.task()->completion().entrymode() != KPlato::Completion::EnterEffortPerResource) {
+        package.task()->completion().setEntrymode(KPlato::Completion::EnterEffortPerResource);
+    }
+    if (package.task()->completion().resources().isEmpty()) {
+        foreach (Resource *r, package.task()->assignedResources(sm->scheduleId())) {
+            if (r->id() == package.task()->workPackage().ownerId()) {
+                package.task()->completion().addUsedEffort(r);
             }
         }
     }
-
-    enableWidgets();
-    started->setFocus();
-    
-    m->setManager( sm );
-    m->setTask( task );
-    Resource *r = p.project()->findResource( task->workPackage().ownerId() );
-    m->setSource( r, task, &m_completion );
-
-    entryTable->horizontalHeader()->swapSections( CompletionEntryItemModel::Property_PlannedEffort, CompletionEntryItemModel::Property_ActualAccumulated );
-
-    Duration pr = task->plannedEffort( r );
-    Duration tr = task->plannedEffort();
-    ui_plannedLabel->setText(i18n("Planned effort for %1: %2. Total planned effort for task: %3", r->name(), pr.format(), tr.format()));
-
-    entryTable->scrollToBottom();
-    entryTable->resizeColumnsToContents();
-
-    connect( addEntryBtn, &QAbstractButton::clicked, this, &TaskCompletionPanel::slotAddEntry );
-    connect( removeEntryBtn, &QAbstractButton::clicked, entryTable, &KPlato::CompletionEntryEditor::removeEntry );
-
-    connect( entryTable, &KPlato::CompletionEntryEditor::rowInserted, this, &TaskCompletionPanel::slotEntryAdded );
-    connect(entryTable, &KPlato::CompletionEntryEditor::changed, this, &TaskCompletionPanel::slotChanged );
-    connect(entryTable, &KPlato::CompletionEntryEditor::changed, this, &TaskCompletionPanel::slotEntryChanged );
-    connect(entryTable, &KPlato::CompletionEntryEditor::rowInserted, this, &TaskCompletionPanel::slotChanged );
-    connect(entryTable, &KPlato::CompletionEntryEditor::rowInserted, this, &TaskCompletionPanel::slotEntryChanged );
-    connect(entryTable, &KPlato::CompletionEntryEditor::rowRemoved, this, &TaskCompletionPanel::slotEntryChanged );
-    connect(entryTable, &KPlato::CompletionEntryEditor::selectedItemsChanged, this, &TaskCompletionPanel::slotSelectionChanged );
-    
-
-    connect(started, &QAbstractButton::toggled, this, &TaskCompletionPanel::slotStartedChanged);
-    connect(started, &QAbstractButton::toggled, this, &TaskCompletionPanel::slotChanged);
-    connect(finished, &QAbstractButton::toggled, this, &TaskCompletionPanel::slotFinishedChanged);
-    connect(finished, &QAbstractButton::toggled, this, &TaskCompletionPanel::slotChanged);
-
-    connect(startTime, &QDateTimeEdit::dateTimeChanged, this, &TaskCompletionPanel::slotChanged);
-    connect(startTime, &QDateTimeEdit::dateTimeChanged, this, &TaskCompletionPanel::slotStartTimeChanged);
-    connect(finishTime, &QDateTimeEdit::dateTimeChanged, this, &TaskCompletionPanel::slotChanged);
-    connect(finishTime, &QDateTimeEdit::dateTimeChanged, this, &TaskCompletionPanel::slotFinishTimeChanged);
-
-    removeEntryBtn->setEnabled( false );
-}
-
-QSize TaskCompletionPanel::sizeHint() const
-{
-    return QWidget::sizeHint().expandedTo( QSize( 610, 0 ) );
+    QVBoxLayout *l = new QVBoxLayout(this);
+    m_panel = new KPlato::TaskProgressPanel(*(package.task()), sm, nullptr, this);
+    m_panel->editModeWidget->setVisible(false);
+    m_panel->addResourceWidget->setVisible(false);
+    m_panel->resourceTable->verticalHeader()->hide();
+    QSize size = m_panel->resourceTable->sizeHint();
+    size.setHeight(120);
+    m_panel->resourceTable->setSizeHint(size);
+    l->addWidget(m_panel);
+    connect(m_panel, &KPlato::TaskProgressPanelImpl::changed, this, &TaskCompletionPanel::slotChanged);
 }
 
 KUndo2Command *TaskCompletionPanel::buildCommand()
 {
-    MacroCommand *cmd = new MacroCommand( kundo2_i18n("Modify task completion") );
-    Completion &org = m_package->task()->completion();
-    if ( org.entrymode() != m_completion.entrymode() ) {
-        cmd->addCommand( new ModifyCompletionEntrymodeCmd(org, m_completion.entrymode() ) );
-    }
-    if ( org.isStarted() != m_completion.isStarted() ) {
-        cmd->addCommand( new ModifyCompletionStartedCmd(org, m_completion.isStarted() ) );
-    }
-    if ( org.isFinished() != m_completion.isFinished() ) {
-        cmd->addCommand( new ModifyCompletionFinishedCmd(org, m_completion.isFinished() ) );
-    }
-    if ( org.startTime() != m_completion.startTime() ) {
-        cmd->addCommand( new ModifyCompletionStartTimeCmd(org, m_completion.startTime() ) );
-    }
-    if ( org.finishTime() != m_completion.finishTime() ) {
-        cmd->addCommand( new ModifyCompletionFinishTimeCmd(org, m_completion.finishTime() ) );
-    }
-    QList<QDate> orgdates = org.entries().keys();
-    QList<QDate> m_completiondates = m_completion.entries().keys();
-    foreach ( const QDate &d, orgdates ) {
-        if ( m_completiondates.contains( d ) ) {
-            if ( m_completion.entry( d ) == org.entry( d ) ) {
-                continue;
-            }
-            Completion::Entry *e = new Completion::Entry( *( m_completion.entry( d ) ) );
-            cmd->addCommand( new ModifyCompletionEntryCmd(org, d, e ) );
-        } else {
-            cmd->addCommand( new RemoveCompletionEntryCmd(org, d ) );
-        }
-    }
-    foreach ( const QDate &d, m_completiondates ) {
-        if ( ! orgdates.contains( d ) ) {
-            Completion::Entry *e = new Completion::Entry( * ( m_completion.entry( d ) ) );
-            cmd->addCommand( new AddCompletionEntryCmd(org, d, e ) );
-        }
-    }
-
-    if ( cmd->isEmpty() ) {
-        delete cmd;
-        return 0;
-    }
-    return cmd;
+    return m_panel->buildCommand();
 }
 
 void TaskCompletionPanel::slotChanged()
@@ -198,293 +102,3 @@ void TaskCompletionPanel::slotChanged()
     emit changed( true ); //FIXME
 }
 
-void TaskCompletionPanel::slotStartedChanged(bool state) {
-    m_completion.setStarted( state );
-    if (state) {
-        m_completion.setStartTime( QDateTime::currentDateTime() );
-        startTime->setDateTime( m_completion.startTime() );
-        slotCalculateEffort();
-    }
-    enableWidgets();
-}
-
-void TaskCompletionPanel::setFinished() {
-    finishTime->setDateTime( QDateTime::currentDateTime() );
-    slotFinishTimeChanged( finishTime->dateTime() );
-}
-
-void TaskCompletionPanel::slotFinishedChanged(bool state) {
-    debugPlanWork<<state;
-    m_completion.setFinished( state );
-    if (state) {
-        debugPlanWork<<state;
-        setFinished();
-        Completion::Entry *e = m_completion.entry( m_completion.finishTime().date() );
-        if ( e == 0 ) {
-            debugPlanWork<<"no entry on this date, just add one:"<<m_completion.finishTime().date();
-            e = new Completion::Entry( 100, Duration::zeroDuration, m_package->node()->plannedEffort() );
-            m_completion.addEntry( m_completion.finishTime().date(), e );
-            entryTable->setCompletion( &m_completion );
-            debugPlanWork<<"Entry added:"<<m_completion.finishTime().date()<<m_completion.entry( m_completion.finishTime().date() );
-        } else {
-            // row exists, use model to update to respect calculation mode
-            int row = entryTable->model()->rowCount() - 1;
-            QModelIndex idx = entryTable->model()->index( row, CompletionEntryItemModel::Property_Completion );
-            entryTable->model()->setData( idx, 100 );
-        }
-    }   
-    enableWidgets();
-}
-
-void TaskCompletionPanel::slotFinishTimeChanged( const QDateTime &dt )
-{
-    m_completion.setFinishTime( dt );
-}
-
-void TaskCompletionPanel::slotStartTimeChanged( const QDateTime &dt )
-{
-    m_completion.setStartTime( dt );
-    finishTime->setMinimumDateTime( qMax( startTime->dateTime(), QDateTime(m_completion.entryDate(), QTime(), Qt::LocalTime) ) );
-}
-
-void TaskCompletionPanel::slotAddEntry()
-{
-    CompletionEntryItemModel *m = static_cast<CompletionEntryItemModel*>( entryTable->model() );
-    int col = KPlato::CompletionEntryItemModel::Property_UsedEffort;
-
-    entryTable->addEntry();
-
-    m_completion.setEntrymode( Completion::EnterEffortPerTask );
-    m->setFlags( col, Qt::ItemIsEditable );
-}
-
-void TaskCompletionPanel::slotEntryChanged()
-{
-    finishTime->setMinimumDateTime( qMax( startTime->dateTime(), QDateTime(m_completion.entryDate(), QTime(), Qt::LocalTime) ) );
-    if ( ! finished->isChecked() && ! m_completion.isFinished() && m_completion.percentFinished() == 100 ) {
-        finished->setChecked( true );
-    }
-}
-
-void TaskCompletionPanel::enableWidgets() {
-    started->setEnabled(!finished->isChecked());
-    finished->setEnabled(started->isChecked());
-    finishTime->setEnabled(finished->isChecked());
-    startTime->setEnabled(started->isChecked() && !finished->isChecked());
-}
-
-
-void TaskCompletionPanel::slotPercentFinishedChanged( int ) {
-    slotCalculateEffort();
-}
-
-void TaskCompletionPanel::slotCalculateEffort()
-{
-}
-
-void TaskCompletionPanel::slotEntryAdded( const QDate& date )
-{
-    debugPlanWork<<date;
-}
-
-void TaskCompletionPanel::slotSelectionChanged( const QItemSelection &sel )
-{
-    removeEntryBtn->setEnabled( !sel.isEmpty() );
-}
-
-void TaskCompletionPanel::slotEditmodeChanged( int index )
-{
-    Q_UNUSED( index );
-
-}
-
-//-------------------
-CompletionEntryItemModel::CompletionEntryItemModel( QObject *parent )
-    : KPlato::CompletionEntryItemModel( parent ),
-    m_calculate( false ),
-    m_resource( 0 ),
-    m_task( 0 )
-{
-    m_headers << i18nc("@title:column", "Total");
-}
-
-void CompletionEntryItemModel::setSource( Resource *resource, Task *task, Completion *completion )
-{
-    m_resource = resource;
-    m_task = task;
-    setCompletion( completion ? completion : &(task->completion()) );
-}
-
-QVariant CompletionEntryItemModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    if (orientation == Qt::Horizontal) {
-        switch (role) {
-            case Qt::ToolTipRole:
-                switch (section) {
-                    case Property_UsedEffort:
-                        return xi18nc("@info:tooltip", "Used effort since previous entry");
-                    case Property_ActualAccumulated:
-                        return xi18nc("@info:tooltip", "Accumulated used effort");
-                    default: break;
-                }
-            default: break;
-        }
-    }
-    return KPlato::CompletionEntryItemModel::headerData(section, orientation, role);
-}
-
-int CompletionEntryItemModel::columnCount( const QModelIndex& ) const
-{
-    return 6;
-}
-
-QVariant CompletionEntryItemModel::actualEffort ( int row, int role ) const
-{
-    Completion::Entry *e = m_completion->entry( date( row ).toDate() );
-    if ( e == 0 ) {
-        return QVariant();
-    }
-    switch ( role ) {
-        case Qt::DisplayRole:
-        case Qt::ToolTipRole: {
-            Duration v = e->totalPerformed;
-            if ( row > 0 ) {
-                v -= m_completion->entry( date( row - 1 ).toDate() )->totalPerformed;
-            }
-            //debugPlanWork<<m_node->name()<<": "<<v<<" "<<unit<<" : "<<scales<<endl;
-            return v.format();
-        }
-        case Qt::EditRole: {
-            Duration v = e->totalPerformed;
-            if ( row > 0 ) {
-                v -= m_completion->entry( date( row - 1 ).toDate() )->totalPerformed;
-            }
-            //debugPlanWork<<m_node->name()<<": "<<v<<" "<<unit<<" : "<<scales<<endl;
-            return v.toDouble( Duration::Unit_h );
-        }
-        case Role::DurationScales: {
-            QVariantList lst;
-            lst << 24 << 60 << 60 << 1000;
-            return lst;
-        }
-        case Role::DurationUnit:
-            return static_cast<int>( Duration::Unit_h );
-        case Role::Minimum:
-            return static_cast<int>( Duration::Unit_h );
-        case Role::Maximum:
-            return static_cast<int>( Duration::Unit_h );
-        case Qt::StatusTipRole:
-        case Qt::WhatsThisRole:
-            return QVariant();
-        default:
-            break;
-    }
-    return QVariant();
-}
-
-QVariant CompletionEntryItemModel::data( const QModelIndex &idx, int role ) const
-{
-    if ( idx.column() == Property_PlannedEffort && m_resource ) {
-        switch ( role ) {
-            case Qt::DisplayRole: {
-                    Duration v = m_task->plannedEffortTo( m_resource, date( idx.row() ).toDate() );
-                    return v.format();
-                }
-            default:
-                return QVariant();
-        }
-    } else if ( idx.column() == Property_ActualAccumulated ) {
-        switch ( role ) {
-            case Qt::DisplayRole: {
-                    Duration v;
-                    Completion::Entry *e = m_completion->entry( date( idx.row() ).toDate() );
-                    if ( e ) {
-                        v = e->totalPerformed;
-                    }
-                    return v.format();
-                }
-            default:
-                return QVariant();
-        }
-    }
-    return KPlato::CompletionEntryItemModel::data( idx, role );
-}
-
-bool CompletionEntryItemModel::setData( const QModelIndex &idx, const QVariant &value, int role )
-{
-    //debugPlanWork;
-    switch ( role ) {
-        case Qt::EditRole: {
-            if ( idx.column() == Property_Date ) {
-                QDate od = date( idx.row() ).toDate();
-                removeEntry( od );
-                addEntry( value.toDate() );
-                // emit dataChanged( idx, idx );
-                m_calculate = true;
-                return true;
-            }
-            if ( idx.column() == Property_Completion ) {
-                Completion::Entry *e = m_completion->entry( date( idx.row() ).toDate() );
-                if ( e == 0 ) {
-                    return false;
-                }
-                e->percentFinished = value.toInt();
-                if ( m_calculate && m_node && idx.row() == rowCount() - 1 ) {
-                    // calculate used/remaining
-                    Duration est = m_node->plannedEffort( id(), ECCT_EffortWork );
-                    e->totalPerformed = est * e->percentFinished / 100;
-                    e->remainingEffort = est - e->totalPerformed;
-                } else if ( e->percentFinished == 100 && e->remainingEffort != 0 ) {
-                    e->remainingEffort = Duration::zeroDuration;
-                }
-                emit dataChanged( idx, createIndex( idx.row(), 3 ) );
-                return true;
-            }
-            if ( idx.column() == Property_ActualEffort ) {
-                Completion::Entry *e = m_completion->entry( date( idx.row() ).toDate() );
-                if ( e == 0 ) {
-                    return false;
-                }
-                m_calculate = false;
-                Duration prev;
-                if ( idx.row() > 0 ) {
-                    Completion::Entry *pe = m_completion->entry( date( idx.row() - 1 ).toDate() );
-                    if ( pe ) {
-                        prev = pe->totalPerformed;
-                    }
-                }
-                double v( value.toList()[0].toDouble() );
-                Duration::Unit unit = static_cast<Duration::Unit>( value.toList()[1].toInt() );
-                Duration d = Estimate::scale( v, unit, scales() );
-                if ( d + prev == e->totalPerformed ) {
-                    return false;
-                }
-                e->totalPerformed = d + prev;
-                emit dataChanged( idx, idx );
-                return true;
-            }
-            if ( idx.column() == Property_RemainigEffort ) {
-                Completion::Entry *e = m_completion->entry( date( idx.row() ).toDate() );
-                if ( e == 0 ) {
-                    return false;
-                }
-                m_calculate = false;
-                double v( value.toList()[0].toDouble() );
-                Duration::Unit unit = static_cast<Duration::Unit>( value.toList()[1].toInt() );
-                Duration d = Estimate::scale( v, unit, scales() );
-                if ( d == e->remainingEffort ) {
-                    return false;
-                }
-                e->remainingEffort = d;
-                debugPlanWork<<value<<d.format()<<e->remainingEffort.format();
-                emit dataChanged( idx, idx );
-                return true;
-            }
-            break;
-        }
-        default: break;
-    }
-    return false;
-}
-
-}  //KPlatoWork namespace

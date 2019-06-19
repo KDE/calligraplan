@@ -2,6 +2,7 @@
   Copyright (C) 2004 - 2007 Dag Andersen <danders@get2net.dk>
   Copyright (C) 2011 Dag Andersen <danders@get2net.dk>
   Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
   
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -2681,6 +2682,22 @@ void ProjectModifyEndTimeCmd::execute()
 void ProjectModifyEndTimeCmd::unexecute()
 {
     m_node.setConstraintEndTime( oldTime );
+}
+
+ProjectModifyWorkPackageInfoCmd::ProjectModifyWorkPackageInfoCmd(Project &project, const Project::WorkPackageInfo &wpi, const KUndo2MagicString& name)
+    : NamedCommand(name)
+    , m_node(project)
+    , m_newWpi(wpi)
+    , m_oldWpi(project.workPackageInfo())
+{
+}
+void ProjectModifyWorkPackageInfoCmd::execute()
+{
+    m_node.setWorkPackageInfo(m_newWpi);
+}
+void ProjectModifyWorkPackageInfoCmd::unexecute()
+{
+    m_node.setWorkPackageInfo(m_oldWpi);
 }
 
 //----------------------------

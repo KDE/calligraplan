@@ -3,7 +3,8 @@
   Copyright (C) 2004 - 2010 Dag Andersen <danders@get2net.dk>
   Copyright (C) 2007 Florian Piquemal <flotueur@yahoo.fr>
   Copyright (C) 2007 Alexis Ménard <darktears31@gmail.com>
-
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
@@ -718,6 +719,32 @@ private:
     QString m_sharedResourcesFile;
     QUrl m_sharedProjectsUrl;
     bool m_loadProjectsAtStartup;
+
+public:
+    class WorkPackageInfo {
+    public:
+        WorkPackageInfo() : checkForWorkPackages(false), deleteAfterRetrieval(true), archiveAfterRetrieval(false) {}
+        bool checkForWorkPackages;
+        QUrl retrieveUrl;
+        bool deleteAfterRetrieval;
+        bool archiveAfterRetrieval;
+        QUrl archiveUrl;
+        QUrl publishUrl;
+
+        bool operator!=(const WorkPackageInfo &o) { return !operator==(o); }
+        bool operator==(const WorkPackageInfo &o) {
+            return checkForWorkPackages == o.checkForWorkPackages
+                && deleteAfterRetrieval == o.deleteAfterRetrieval
+                && archiveAfterRetrieval == o.archiveAfterRetrieval
+                && retrieveUrl == o.retrieveUrl
+                && archiveUrl == o.archiveUrl
+                && publishUrl == o.publishUrl;
+        }
+    };
+    void setWorkPackageInfo(const WorkPackageInfo &wpInfo) { m_workPackageInfo = wpInfo; }
+    WorkPackageInfo workPackageInfo() const { return m_workPackageInfo; }
+private:
+    WorkPackageInfo m_workPackageInfo;
 };
 
 

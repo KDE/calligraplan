@@ -3,7 +3,8 @@
  Copyright (C) 2004 - 2010, 2012 Dag Andersen <danders@get2net.dk>
  Copyright (C) 2007 Florian Piquemal <flotueur@yahoo.fr>
  Copyright (C) 2007 Alexis Ménard <darktears31@gmail.com>
-
+ Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Library General Public
  License as published by the Free Software Foundation; either
@@ -1014,6 +1015,25 @@ bool Project::load( KoXmlElement &element, XMLLoaderObject &status )
             m_loadProjectsAtStartup = (bool)e.attribute("projects-loadatstartup", "0").toInt();
         } else if (e.tagName() == QLatin1String("documents")) {
             m_documents.load(e, status);
+        } else if (e.tagName() == QLatin1String("workpackageinfo")) {
+            if (e.hasAttribute("check-for-workpackages")) {
+                m_workPackageInfo.checkForWorkPackages = e.attribute("check-for-workpackages").toInt();
+            }
+            if (e.hasAttribute("retrieve-url")) {
+                m_workPackageInfo.retrieveUrl = QUrl(e.attribute("retrieve-url"));
+            }
+            if (e.hasAttribute("delete-after-retrieval")) {
+                m_workPackageInfo.deleteAfterRetrieval = e.attribute("delete-after-retrieval").toInt();
+            }
+            if (e.hasAttribute("archive-after-retrieval")) {
+                m_workPackageInfo.archiveAfterRetrieval = e.attribute("archive-after-retrieval").toInt();
+            }
+            if (e.hasAttribute("archive-url")) {
+                m_workPackageInfo.archiveUrl = QUrl(e.attribute("archive-url"));
+            }
+            if (e.hasAttribute("publish-url")) {
+                m_workPackageInfo.publishUrl = QUrl(e.attribute("publish-url"));
+            }
         }
     }
     QList<Calendar*> cals;
@@ -1284,6 +1304,10 @@ bool Project::load( KoXmlElement &element, XMLLoaderObject &status )
             // handled earlier
         } else if ( e.tagName() == "shared-resources" ) {
             // handled earlier
+        } else if ( e.tagName() == "documents" ) {
+            // handled earlier
+        } else if ( e.tagName() == "workpackageinfo" ) {
+            // handled earlier
         } else {
             warnPlan<<"Unhandled tag:"<<e.tagName();
         }
@@ -1330,6 +1354,15 @@ void Project::save( QDomElement &element, const XmlSaveContext &context) const
     share.setAttribute("projects-url", QString(m_sharedProjectsUrl.toEncoded()));
     share.setAttribute("projects-loadatstartup", m_loadProjectsAtStartup);
 
+    QDomElement wpi = me.ownerDocument().createElement( "workpackageinfo" );
+    me.appendChild(wpi);
+    wpi.setAttribute("check-for-workpackages", m_workPackageInfo.checkForWorkPackages);
+    wpi.setAttribute("retrieve-url", m_workPackageInfo.retrieveUrl.toString(QUrl::None));
+    wpi.setAttribute("delete-after-retrieval", m_workPackageInfo.deleteAfterRetrieval);
+    wpi.setAttribute("archive-after-retrieval", m_workPackageInfo.archiveAfterRetrieval);
+    wpi.setAttribute("archive-url", m_workPackageInfo.archiveUrl.toString(QUrl::None));
+    wpi.setAttribute("publish-url", m_workPackageInfo.publishUrl.toString(QUrl::None));
+    
     m_documents.save(me);
 
     if (context.saveAll(this)) {

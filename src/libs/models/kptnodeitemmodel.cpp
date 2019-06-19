@@ -1281,7 +1281,7 @@ QVariant NodeModel::assignedResources( const Node *node, int role ) const
         case Qt::ToolTipRole: {
             QStringList lst = node->assignedNameList( id() );
             if ( ! lst.isEmpty() ) {
-                return xi18nc( "@info:tooltip 1=list of resources", "Assigned resources:<nl/>%1", node->assignedNameList( id() ).join("<nl/>") );
+                return xi18nc( "@info:tooltip 1=list of resources", "Assigned resources:<nl/>%1", node->assignedNameList( id() ).join(", ") );
             }
             break;
         }

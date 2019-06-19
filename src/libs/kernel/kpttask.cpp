@@ -3780,6 +3780,9 @@ QString WorkPackage::transmitionStatusToString( WorkPackage::WPTransmitionStatus
         case TS_Receive:
             s = trans ? i18n( "Receive" ) : QStringLiteral("Receive");
             break;
+        case TS_Rejected:
+            s = trans ? i18n( "Rejected" ) : QStringLiteral("Rejected");
+            break;
         default:
             break;
     }
@@ -3813,7 +3816,8 @@ void WorkPackage::clear()
 WorkPackageSettings::WorkPackageSettings()
     : usedEffort( true ),
     progress( true ),
-    documents( true )
+    documents( true ),
+    remainingEffort(true)
 {
 }
 
@@ -3824,6 +3828,7 @@ void WorkPackageSettings::saveXML( QDomElement &element ) const
     el.setAttribute( QStringLiteral("used-effort"), QString::number(usedEffort) );
     el.setAttribute( QStringLiteral("progress"), QString::number(progress) );
     el.setAttribute( QStringLiteral("documents"), QString::number(documents) );
+    el.setAttribute( QStringLiteral("remaining-effort"), QString::number(remainingEffort) );
 }
 
 bool WorkPackageSettings::loadXML( const KoXmlElement &element )
@@ -3831,6 +3836,7 @@ bool WorkPackageSettings::loadXML( const KoXmlElement &element )
     usedEffort = (bool)element.attribute( QStringLiteral("used-effort") ).toInt();
     progress = (bool)element.attribute( QStringLiteral("progress") ).toInt();
     documents = (bool)element.attribute( QStringLiteral("documents") ).toInt();
+    remainingEffort = (bool)element.attribute( QStringLiteral("remaining-effort") ).toInt();
     return true;
 }
 
@@ -3838,7 +3844,8 @@ bool WorkPackageSettings::operator==( KPlato::WorkPackageSettings s ) const
 {
     return usedEffort == s.usedEffort &&
             progress == s.progress &&
-            documents == s.documents;
+            documents == s.documents &&
+            remainingEffort == s.remainingEffort;
 }
 
 bool WorkPackageSettings::operator!=( KPlato::WorkPackageSettings s ) const

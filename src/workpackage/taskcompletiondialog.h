@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2009, 2011 Dag Andersen <danders@get2net.dk>
-
+   Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+   
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
    License as published by the Free Software Foundation; either
@@ -35,6 +36,7 @@ class KUndo2Command;
 
 namespace KPlato {
     class ScheduleManager;
+    class TaskProgressPanel;
 }
 
 namespace KPlatoWork
@@ -46,7 +48,7 @@ class PLANWORK_EXPORT TaskCompletionDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    explicit TaskCompletionDialog( WorkPackage &p, ScheduleManager *sm, QWidget *parent=0 );
+    explicit TaskCompletionDialog( WorkPackage &package, ScheduleManager *sm, QWidget *parent=0 );
 
     KUndo2Command *buildCommand();
 
@@ -57,78 +59,24 @@ private:
     TaskCompletionPanel *m_panel;
 };
 
-class PLANWORK_EXPORT TaskCompletionPanel : public QWidget, public Ui::TaskCompletionPanel
+class PLANWORK_EXPORT TaskCompletionPanel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TaskCompletionPanel( WorkPackage &p, ScheduleManager *sm, QWidget *parent=0 );
+    explicit TaskCompletionPanel( WorkPackage &package, ScheduleManager *sm, QWidget *parent=0 );
 
     KUndo2Command *buildCommand();
 
     void enableWidgets();
-
-    QSize sizeHint() const;
 
 Q_SIGNALS:
     void changed( bool );
 
 public Q_SLOTS:
     void slotChanged();
-    void slotStartedChanged(bool state);
-    void slotFinishedChanged(bool state);
-    void slotPercentFinishedChanged(int value);
-    void slotStartTimeChanged( const QDateTime &dt );
-    void slotFinishTimeChanged( const QDateTime &dt );
-    void slotAddEntry();
-    void slotEntryChanged();
-    void slotSelectionChanged( const QItemSelection &sel );
-
-    void slotEntryAdded( const QDate& date );
-
-    void slotEditmodeChanged( int );
-
-protected Q_SLOTS:
-    void slotCalculateEffort();
-    
-protected:
-    void setFinished();
-
-    WorkPackage *m_package;
-    Completion m_completion;
-    int m_dayLength;
-    
-    Duration scheduledEffort;
-};
-
-class CompletionEntryItemModel : public KPlato::CompletionEntryItemModel
-{
-    Q_OBJECT
-public:
-    enum Properties {
-        Property_Date = KPlato::CompletionEntryItemModel::Property_Date,
-        Property_Completion = KPlato::CompletionEntryItemModel::Property_Completion,
-        Property_ActualEffort =  KPlato::CompletionEntryItemModel::Property_UsedEffort,
-        Property_RemainigEffort = KPlato::CompletionEntryItemModel::Property_RemainingEffort,
-        Property_PlannedEffort = KPlato::CompletionEntryItemModel::Property_PlannedEffort,
-        Property_ActualAccumulated
-    };
-
-    explicit CompletionEntryItemModel(QObject *parent = 0);
-
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
-    int columnCount( const QModelIndex &idx = QModelIndex() ) const;
-    QVariant data( const QModelIndex &idx, int role ) const;
-    bool setData( const QModelIndex &idx, const QVariant &value, int role );
-
-    void setSource( Resource *resource, Task *task, Completion *completion = 0 );
-
-protected:
-    virtual QVariant actualEffort( int row, int role ) const;
 
 private:
-    bool m_calculate; // opens for calculating used-/remaining effort
-    Resource *m_resource;
-    Task *m_task;
+    KPlato::TaskProgressPanel *m_panel;
 };
 
 }  //KPlatoWork namespace

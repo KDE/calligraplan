@@ -2,7 +2,8 @@
   Copyright (C) 2004-2007 Dag Andersen <danders@get2net.dk>
   Copyright (C) 2011 Dag Andersen <danders@get2net.dk>
   Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
-
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
@@ -31,6 +32,7 @@
 
 #include "kptappointment.h"
 #include "kptnode.h"
+#include "kptproject.h"
 #include "kptduration.h"
 #include "kpttask.h"
 #include "kptwbsdefinition.h"
@@ -48,8 +50,6 @@ namespace KPlato
 class Locale;
 class Account;
 class Accounts;
-class Project;
-class Task;
 class Calendar;
 class CalendarDay;
 class Relation;
@@ -1530,6 +1530,19 @@ private:
     QDateTime newTime;
     DateTime oldTime;
     QTimeZone m_timeZone;
+};
+
+class PLANKERNEL_EXPORT ProjectModifyWorkPackageInfoCmd : public NamedCommand
+{
+public:
+    ProjectModifyWorkPackageInfoCmd( Project &project, const Project::WorkPackageInfo &wpi, const KUndo2MagicString& name = KUndo2MagicString() );
+    void execute();
+    void unexecute();
+
+private:
+    Project &m_node;
+    Project::WorkPackageInfo m_newWpi;
+    Project::WorkPackageInfo m_oldWpi;
 };
 
 class PLANKERNEL_EXPORT SwapScheduleManagerCmd : public NamedCommand

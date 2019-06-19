@@ -34,6 +34,7 @@
 
 #include <QModelIndex>
 #include <QVariant>
+#include <QMimeData>
 
 namespace KPlato
 {
@@ -193,9 +194,56 @@ WorkPackageProxyModel::WorkPackageProxyModel( QObject *parent )
 Qt::ItemFlags WorkPackageProxyModel::flags(const QModelIndex &index) const
 {
     if ( isWorkPackageIndex( index ) ) {
-        return Qt::ItemIsEnabled;
+        return Qt::ItemIsEnabled | Qt::ItemIsDropEnabled;
     }
-    return QAbstractProxyModel::flags( index );
+    return QAbstractProxyModel::flags( index ) | Qt::ItemIsDropEnabled;
+}
+
+Qt::DropActions WorkPackageProxyModel::supportedDropActions() const
+{
+    return Qt::CopyAction;
+}
+
+bool WorkPackageProxyModel::canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const
+{
+    Q_UNUSED(action);
+    Q_UNUSED(row);
+    Q_UNUSED(parent);
+
+    if (data->hasFormat("text/uri-list")) {
+        for (const QString &f : QString(data->data("text/uri-list")).split("\r\n", QString::SkipEmptyParts)) {
+            if (f.endsWith(".planwork")) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool WorkPackageProxyModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
+{
+    if (!canDropMimeData(data, action, row, column, parent)) {
+        return false;
+    }
+    if (action == Qt::IgnoreAction) {
+        return true;
+    }
+    if (data->hasFormat("text/uri-list")) {
+        QList<QString> files;
+        for (const QString &f : QString(data->data("text/uri-list")).split("\r\n", QString::SkipEmptyParts)) {
+            if (f.endsWith(".planwork")) {
+                files << f;
+            }
+            emit loadWorkPackage(files);
+        }
+        return true;
+    }
+    return false;
+}
+
+QStringList WorkPackageProxyModel::mimeTypes () const
+{
+    return QStringList() << "application/x-vnd.kde.plan.work";
 }
 
 void WorkPackageProxyModel::setSourceModel( QAbstractItemModel *model )
@@ -301,9 +349,11 @@ void WorkPackageProxyModel::sourceModelReset()
 {
 //    debugPlan;
     attachTasks();
+#if 0
     for ( int r = 0; r < rowCount(); ++r ) {
         debugPlan<<index( r, 0 ).data();
     }
+#endif
     endResetModel();
 }
 

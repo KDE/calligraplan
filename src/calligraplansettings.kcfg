@@ -339,7 +339,10 @@
     <entry name="SaveUrl" type="Url">
 <!--       <label>Directory where Plan saves work packages when the package has been read</label> -->
     </entry>
-  </group>
+    <entry name="PublishUrl" type="Url">
+        <!--       <label>Directory where Plan publishes work packages</label> -->
+    </entry>
+</group>
 
   <group name="Miscellaneous">
     <entry name="MinimumDurationUnit" type="Int">

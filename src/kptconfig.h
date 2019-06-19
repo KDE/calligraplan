@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2004, 2007 Dag Andersen <danders@get2net.dk>
-
+   Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+   
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
    License as published by the Free Software Foundation; either
@@ -43,9 +44,6 @@ public:
     virtual void setDefaultValues( Project &project );
 
     virtual void setDefaultValues( Task &task );
-
-    virtual bool checkForWorkPackages() const;
-    virtual QUrl retrieveUrl() const;
 
     virtual int minimumDurationUnit() const;
     virtual int maximumDurationUnit() const;

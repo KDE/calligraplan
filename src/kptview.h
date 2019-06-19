@@ -1,7 +1,8 @@
 /* This file is part of the KDE project
   Copyright (C) 1998, 1999, 2000 Torben Weis <weis@kde.org>
   Copyright (C) 2002 - 2010 Dag Andersen <danders@get2net.dk>
-
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
@@ -40,6 +41,7 @@ class QPrintDialog;
 class QStackedWidget;
 class QSplitter;
 class QUrl;
+class QToolButton;
 class KUndo2Command;
 class QAction;
 
@@ -157,9 +159,6 @@ public:
     virtual bool loadContext();
     virtual void saveContext( QDomElement &context ) const;
 
-    /// Load the workpackage from @p url into @p project. Return true if successful, else false.
-    bool loadWorkPackage( Project &project, const QUrl &url );
-
     QWidget *canvas() const;
 
     KoPageLayout pageLayout() const;
@@ -204,6 +203,7 @@ public:
 Q_SIGNALS:
     void currentScheduleManagerChanged(KPlato::ScheduleManager *sm);
     void taskModulesChanged(const QStringList &modules);
+    void workPackagesAvailable(bool);
 
 public Q_SLOTS:
     void slotUpdate();
@@ -248,6 +248,9 @@ public Q_SLOTS:
 
     void slotSelectionChanged(KPlato::ScheduleManager *sm);
     void slotUpdateViewInfo(KPlato::ViewListItem *itm);
+
+    /// Load the workpackages from @p urls into @p project.
+    void loadWorkPackage(KPlato::Project *project, const QList<QUrl> &urls );
 
 protected Q_SLOTS:
     void slotGuiActivated(KPlato::ViewBase *view, bool);
@@ -296,7 +299,7 @@ protected Q_SLOTS:
 
     void slotWorkPackageLoaded();
     void slotMailWorkpackage(KPlato::Node *node, KPlato::Resource *resource = 0);
-    void slotMailWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource = 0 );
+    void slotPublishWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource, bool mailTo);
 
     void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
 
@@ -352,7 +355,8 @@ private Q_SLOTS:
     void slotOpenReportFileFinished( int result );
     void slotCreateViewFinished( int result );
     void slotLoadSharedProjectsFinished( int result );
-
+    void openWorkPackageMergeDialog();
+    void workPackageMergeDialogFinished( int result );
     void slotRemoveCommands();
 
     void initiateViews();
@@ -382,6 +386,7 @@ private:
     bool m_updatePertEditor;
 
     QLabel *m_estlabel;
+    QToolButton *m_workPackageButton;
 
     ViewAdaptor* m_dbus;
 

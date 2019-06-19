@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
   Copyright (C) 2009 Dag Andersen <danders@get2net.dk>
-
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
@@ -129,6 +130,9 @@ public:
     QMap<const Document*, QUrl> newDocuments() const { return m_newdocs; }
     void removeNewDocument( const Document *doc ) { m_newdocs.remove( doc ); }
 
+    QUrl sendUrl() const { return m_sendUrl; }
+    QUrl fetchUrl() const { return m_fetchUrl; }
+
 Q_SIGNALS:
     void modified( bool );
     void saveWorkPackage(KPlatoWork::WorkPackage* );
@@ -153,8 +157,9 @@ protected:
     QString m_filePath;
     bool m_fromProjectStore;
     QList<DocumentChild*> m_childdocs;
-    QMap<const Document*, QUrl> m_newdocs; // new documents that does not exists in the project store (yet)
-
+    QMap<const Document*, QUrl> m_newdocs; /// new documents that does not exists in the project store (yet)
+    QUrl m_sendUrl; /// Where to put the package. If not valid, transmit by mail
+    QUrl m_fetchUrl; /// Plan will store package here
     bool m_modified;
 
     WorkPackageSettings m_settings;

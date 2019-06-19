@@ -3,7 +3,8 @@
   Copyright (C) 2004 - 2010 Dag Andersen <danders@get2net.dk>
   Copyright (C) 2006 Raphael Langerhorst <raphael.langerhorst@kdemail.net>
   Copyright (C) 2007 Thorsten Zachmann <zachmann@kde.org>
-
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
@@ -25,6 +26,7 @@
 
 #include "plan_export.h"
 
+#include "kptpackage.h"
 #include "kpttask.h"
 #include "kptconfig.h"
 #include "kptwbsdefinition.h"
@@ -108,14 +110,16 @@ public:
     bool saveWorkPackageToStream( QIODevice * dev, const Node *node, long id, Resource *resource = 0 );
     bool saveWorkPackageFormat( const QString &file, const Node *node, long id, Resource *resource = 0 );
     bool saveWorkPackageUrl( const QUrl & _url, const Node *node, long id, Resource *resource = 0  );
-    void mergeWorkPackages();
-    void mergeWorkPackage( const Package *package );
-    void terminateWorkPackage( const Package *package );
 
     /// Load the workpackage from @p url into @p project. Return true if successful, else false.
     bool loadWorkPackage( Project &project, const QUrl &url );
     Package *loadWorkPackageXML( Project& project, QIODevice*, const KoXmlDocument& document, const QUrl& url );
     QMap<QDateTime, Package*> workPackages() const { return m_workpackages; }
+    void clearWorkPackages() {
+        qDeleteAll(m_workpackages);
+        m_workpackages.clear();
+        m_checkingForWorkPackages = false;
+    }
 
     void insertFile( const QUrl &url, Node *parent, Node *after = 0 );
     bool insertProject( Project &project, Node *parent, Node *after );
@@ -148,6 +152,8 @@ public Q_SLOTS:
     /// Check for workpackages
     /// If @p keep is true, packages that has been refused will not be checked for again
     void checkForWorkPackages(bool keep);
+    /// Remove @p package
+    void terminateWorkPackage( const KPlato::Package *package );
 
     void setLoadingTemplate( bool );
     void setLoadingSharedResourcesTemplate( bool );
@@ -185,8 +191,6 @@ protected:
     /// Save kplato specific files
     virtual bool completeSaving( KoStore* store );
 
-    void mergeWorkPackage( Task *to, const Task *from, const Package *package );
-
     // used by insert file
     struct InsertFileInfo {
         QUrl url;
@@ -209,8 +213,6 @@ protected Q_SLOTS:
     void insertSharedProjectCompleted();
     void insertSharedProjectCancelled( const QString& );
 
-    void workPackageMergeDialogFinished( int result );
-
 private:
     bool loadAndParse(KoStore* store, const QString& filename, KoXmlDocument& doc);
 
@@ -230,6 +232,7 @@ private:
     QMap<QString, SchedulerPlugin*> m_schedulerPlugins;
     QMap<QDateTime, Package*> m_workpackages;
     QFileInfoList m_infoList;
+    QList<QUrl> m_skipUrls;
     QMap<QDateTime, Project*> m_mergedPackages;
 
     KPlatoAboutPage m_aboutPage;

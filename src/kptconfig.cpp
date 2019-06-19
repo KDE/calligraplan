@@ -1,7 +1,8 @@
 /* This file is part of the KDE project
    Copyright (C) 2004, 2007 Dag Andersen <danders@get2net.dk>
    Copyright (C) 2011, 2012 Dag Andersen <danders@get2net.dk>
-
+   Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+   
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
    License as published by the Free Software Foundation; either
@@ -140,6 +141,15 @@ void Config::setDefaultValues( Project &project )
         v->setWeek(KPlatoSettings::hoursPrWeek());
         v->setDay(KPlatoSettings::hoursPrDay());
     }
+
+    Project::WorkPackageInfo wpi;
+    wpi.checkForWorkPackages = KPlatoSettings::checkForWorkPackages();
+    wpi.retrieveUrl = KPlatoSettings::retrieveUrl();
+    wpi.deleteAfterRetrieval = KPlatoSettings::deleteFile();
+    wpi.archiveAfterRetrieval = !KPlatoSettings::deleteFile();
+    wpi.archiveUrl = KPlatoSettings::saveUrl();
+    wpi.publishUrl = KPlatoSettings::publishUrl();
+    project.setWorkPackageInfo(wpi);
 }
 
 void Config::setDefaultValues( Task &task )
@@ -192,17 +202,6 @@ int Config::maximumDurationUnit() const
 {
     return KPlatoSettings::maximumDurationUnit();
 }
-
-bool Config::checkForWorkPackages() const
-{
-    return KPlatoSettings::checkForWorkPackages();
-}
-
-QUrl Config::retrieveUrl() const
-{
-    return KPlatoSettings::retrieveUrl();
-}
-
 
 QBrush Config::summaryTaskDefaultColor() const
 {

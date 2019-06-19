@@ -1,5 +1,6 @@
 /* This file is part of the KDE project
   Copyright (C) 2006 - 2010, 2012 Dag Andersen <danders@get2net.dk>
+  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -1445,11 +1446,12 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
     setupGui();
 
     //m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
-    m_view->setDragDropMode( QAbstractItemView::InternalMove );
-    m_view->setDropIndicatorShown( false );
+    m_view->setDragDropMode( QAbstractItemView::DragDrop );
+    m_view->setDropIndicatorShown( true );
     m_view->setDragEnabled ( true );
-    m_view->setAcceptDrops( false );
-    m_view->setAcceptDropsOnView( false );
+    m_view->setAcceptDrops( true );
+    m_view->setAcceptDropsOnView( true );
+    m_view->setDefaultDropAction(Qt::CopyAction);
 
     QList<int> readonly;
     readonly << NodeModel::NodeName
@@ -1504,6 +1506,8 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
     connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &TaskWorkPackageView::slotContextMenuRequested );
 
     connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
+
+    connect(m_view->proxyModel(), &WorkPackageProxyModel::loadWorkPackage, this, &TaskWorkPackageView::slotLoadWorkPackage);
 }
 
 Project *TaskWorkPackageView::project() const
@@ -1649,6 +1653,13 @@ void TaskWorkPackageView::setupGui()
     connect( actionMailWorkpackage, &QAction::triggered, this, &TaskWorkPackageView::slotMailWorkpackage );
     addAction( name, actionMailWorkpackage );
 
+    actionOpenWorkpackages = new QAction(koIcon("view-task"), i18n("Work Packages..."), this);
+    actionCollection()->setDefaultShortcut( actionOpenWorkpackages, Qt::CTRL + Qt::Key_O );
+    actionCollection()->addAction("open_workpackages", actionOpenWorkpackages );
+    actionOpenWorkpackages->setEnabled(false);
+    connect( actionOpenWorkpackages, &QAction::triggered, this, &TaskWorkPackageView::openWorkpackages );
+    addAction( name, actionOpenWorkpackages );
+
     // Add the context menu actions for the view options
     connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskWorkPackageView::slotSplitView);
     addContextAction( m_view->actionSplitView() );
@@ -1663,7 +1674,7 @@ void TaskWorkPackageView::slotMailWorkpackage()
         // TODO find a better way to log to avoid undo/redo
         m_cmd = new MacroCommand( kundo2_i18n( "Log Send Workpackage" ) );
         QPointer<WorkPackageSendDialog> dlg = new WorkPackageSendDialog( lst, scheduleManager(), this );
-        connect ( dlg->panel(), &WorkPackageSendPanel::sendWorkpackages, this, &TaskWorkPackageView::mailWorkpackages );
+        connect ( dlg->panel(), &WorkPackageSendPanel::sendWorkpackages, this, &TaskWorkPackageView::publishWorkpackages );
 
         connect ( dlg->panel(), &WorkPackageSendPanel::sendWorkpackages, this, &TaskWorkPackageView::slotWorkPackageSent );
         dlg->exec();
@@ -1728,6 +1739,23 @@ KoPrintJob *TaskWorkPackageView::createPrintJob()
 void TaskWorkPackageView::slotEditCopy()
 {
     m_view->editCopy();
+}
+
+void TaskWorkPackageView::slotWorkpackagesAvailable(bool value)
+{
+    actionOpenWorkpackages->setEnabled(value);
+}
+
+void TaskWorkPackageView::slotLoadWorkPackage(QList<QString> files)
+{
+    QList<QUrl> urls;
+    for (const QString &f : files) {
+        QUrl url = QUrl(f);
+        if (url.isValid()) {
+            urls << url;
+        }
+    }
+    emit loadWorkPackageUrl(m_view->project(), urls);
 }
 
 } // namespace KPlato

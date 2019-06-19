@@ -45,7 +45,7 @@ public:
     virtual QDateTime endDateTime();
 
     MacroCommand *buildCommand();
-    
+
     bool ok();
 
     bool loadSharedResources() const;
@@ -70,9 +70,9 @@ Q_SIGNALS:
     void clearResourceAssignments();
 
 private:
+    Project &project;
     DocumentsPanel *m_documents;
     TaskDescriptionPanel *m_description;
-    Project &project;
 };
 
 

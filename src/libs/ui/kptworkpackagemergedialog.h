@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2011 Dag Andersen <danders@get2net.dk>
-
+   Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+   
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
    License as published by the Free Software Foundation; either
@@ -28,31 +29,21 @@
 
 #include <QDateTime>
 #include <QMap>
-#include <QFrame>
 
 class KExtendableItemDelegate;
 
 class QStandardItemModel;
 
+class KUndo2Command;
+
 namespace KPlato
 {
 
 class Package;
-
-class PackageInfoWidget : public QFrame
-{
-    Q_OBJECT
-public:
-    explicit PackageInfoWidget( Package *package, QWidget *parent = 0 );
-
-protected Q_SLOTS:
-    void slotUsedEffortChanged( int state );
-    void slotProgressChanged( int state );
-    void slotDocumentsChanged( int state );
-
-protected:
-    Package *m_package;
-};
+class TaskProgressPanel;
+class Project;
+class Duration;
+class MacroCommand;
 
 class WorkPackageMergePanel : public QWidget, public Ui::WorkPackageMergePanel
 {
@@ -65,22 +56,55 @@ class PLANUI_EXPORT WorkPackageMergeDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    enum Columns { CheckColumn = 0, TaskNameColumn, OwnerNameColumn, DateTimeColumn };
+    enum Columns { DateColumn = 0, CompletionColumn, UsedEffortColumn, RemainingEffortColumn };
 
-    WorkPackageMergeDialog( const QString &text, const QMap<QDateTime, Package*> &list, QWidget *parent = 0 );
+    WorkPackageMergeDialog(Project *project, const QMap<QDateTime, Package*> &list, QWidget *parent = 0 );
     ~WorkPackageMergeDialog();
 
     QList<int> checkedList() const;
 
+Q_SIGNALS:
+    void executeCommand(KUndo2Command *cmd);
+    void terminateWorkPackage(const KPlato::Package *package);
+
 protected Q_SLOTS:
-    void slotActivated( const QModelIndex &idx );
-    void slotChanged();
+    void slotMerge();
+    void slotReject();
+    void slotApply();
+    void slotBack();
+
+protected:
+    void nextPackage();
+    void gotoProgress();
+    void gotoFinish();
+    void fillCompletionModel(Package *package);
+    void acceptPackage(const Package *package);
+    void applyPackage();
+
+    bool updateStarted() const;
+    bool updateFinished() const;
+    bool updateEntry(int row) const;
+    bool updateProgress(int row) const;
+    bool updateUsedEffort(int row) const;
+    bool updateRemainingEffort(int row) const;
+    bool updateDocuments() const;
+
+    QDate date(int row) const;
+    int completion(int row) const;
+    Duration usedEffort(int row) const;
+    Duration remainingEffort(int row) const;
+
+    void setPage(QWidget *page);
 
 private:
+    Project *m_project;
     WorkPackageMergePanel panel;
     KExtendableItemDelegate *m_delegate;
     QList<Package*> m_packages;
+    int m_currentPackage;
     QStandardItemModel *m_model;
+    MacroCommand *m_cmd;
+    TaskProgressPanel *m_progressPanel;
 };
 
 } // namespace KPlato

@@ -51,4 +51,10 @@ extern const PLANKERNEL_EXPORT QLoggingCategory &PLANSHARED_LOG();
 #define warnPlanShared qCWarning(PLANSHARED_LOG)
 #define errorPlanShared qCCritical(PLANSHARED_LOG)
 
+extern const PLANKERNEL_EXPORT QLoggingCategory &PLANWP_LOG();
+
+#define debugPlanWp qCDebug(PLANWP_LOG)<<Q_FUNC_INFO
+#define warnPlanWp qCWarning(PLANWP_LOG)
+#define errorPlanWp qCCritical(PLANWP_LOG)
+
 #endif

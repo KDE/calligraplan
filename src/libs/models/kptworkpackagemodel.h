@@ -26,6 +26,7 @@
 
 class QModelIndex;
 class QVariant;
+class QMimeData;
 
 /// The main namespace
 namespace KPlato
@@ -46,7 +47,7 @@ public:
         : QObject( parent )
      {}
     ~WorkPackageModel() {}
-    
+
     QVariant data( const WorkPackage *wp, int column, int role = Qt::DisplayRole ) const;
 
 protected:
@@ -87,6 +88,12 @@ public:
     explicit WorkPackageProxyModel(QObject *parent = 0);
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
+
+    Qt::DropActions supportedDropActions() const;
+    bool canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
+    virtual QStringList mimeTypes () const;
+
     void setSourceModel( QAbstractItemModel *sourceModel );
     bool hasChildren(const QModelIndex &parent) const;
     int rowCount( const QModelIndex &parent = QModelIndex() ) const;
@@ -102,6 +109,9 @@ public:
 
     Task *taskFromIndex( const QModelIndex &idx ) const;
     QModelIndex indexFromTask( const Node *node ) const;
+
+Q_SIGNALS:
+    void loadWorkPackage(QList<QString>);
 
 public Q_SLOTS:
     void setProject(KPlato::Project *project);

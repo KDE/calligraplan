@@ -66,13 +66,25 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     resourcesFile->setText(project.sharedResourcesFile());
     projectsPlace->setText(project.sharedProjectsUrl().toDisplayString());
 
-    m_documents = new DocumentsPanel(p, tabWidget->widget(1));
-    tabWidget->widget(1)->layout()->addWidget(m_documents);
+    const Project::WorkPackageInfo wpi = p.workPackageInfo();
+    ui_CheckForWorkPackages->setChecked(wpi.checkForWorkPackages);
+    ui_RetrieveUrl->setUrl(wpi.retrieveUrl);
+    ui_DeleteFile->setChecked(wpi.deleteAfterRetrieval);
+    ui_ArchiveFile->setChecked(wpi.archiveAfterRetrieval);
+    ui_ArchiveUrl->setUrl(wpi.archiveUrl);
+    ui_PublishUrl->setUrl(wpi.publishUrl);
 
-    m_description = new TaskDescriptionPanel(p, tabWidget->widget(2));
+    ui_RetrieveUrl->setMode(KFile::Directory);
+    ui_ArchiveUrl->setMode(KFile::Directory);
+    ui_PublishUrl->setMode(KFile::Directory);
+
+    m_documents = new DocumentsPanel(p, ui_documents);
+    ui_documents->layout()->addWidget(m_documents);
+
+    m_description = new TaskDescriptionPanel(p, ui_description);
     m_description->namefield->hide();
     m_description->namelabel->hide();
-    tabWidget->widget(2)->layout()->addWidget(m_description);
+    ui_description->layout()->addWidget(m_description);
 
     wbs->setText(project.wbsCode());
     if ( wbs->text().isEmpty() ) {
@@ -135,6 +147,16 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
 
     connect(projectsLoadBtn, &QAbstractButton::clicked, this, &MainProjectPanel::loadProjects);
     connect(projectsClearBtn, &QAbstractButton::clicked, this, &MainProjectPanel::clearProjects);
+
+    connect(ui_CheckForWorkPackages, &QCheckBox::stateChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(ui_RetrieveUrl, &KUrlRequester::textEdited, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(ui_RetrieveUrl, &KUrlRequester::urlSelected, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(ui_DeleteFile, &QRadioButton::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(ui_ArchiveFile, &QRadioButton::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(ui_ArchiveUrl, &KUrlRequester::textEdited, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(ui_ArchiveUrl, &KUrlRequester::urlSelected, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(ui_PublishUrl, &KUrlRequester::textEdited, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(ui_PublishUrl, &KUrlRequester::urlSelected, this, &MainProjectPanel::slotCheckAllFieldsFilled);
 }
 
 
@@ -195,6 +217,20 @@ MacroCommand *MainProjectPanel::buildCommand() {
         if (!m) m = new MacroCommand(c);
         m->addCommand( cmd );
     }
+
+    Project::WorkPackageInfo wpi;
+    wpi.checkForWorkPackages = ui_CheckForWorkPackages->isChecked();
+    wpi.retrieveUrl = ui_RetrieveUrl->url();
+    wpi.deleteAfterRetrieval = ui_DeleteFile->isChecked();
+    wpi.archiveAfterRetrieval = ui_ArchiveFile->isChecked();
+    wpi.archiveUrl = ui_ArchiveUrl->url();
+    wpi.publishUrl = ui_PublishUrl->url();
+    if (wpi != project.workPackageInfo()) {
+        ProjectModifyWorkPackageInfoCmd *cmd = new ProjectModifyWorkPackageInfoCmd(project, wpi);
+        if (!m) m = new MacroCommand(c);
+        m->addCommand( cmd );
+    }
+    
     return m;
 }
 
