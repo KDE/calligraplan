@@ -141,8 +141,13 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
         todo->setOrganizer(node->projectNode()->leader());
     }
     if ( node->type() != Node::Type_Project && ! node->leader().isEmpty()) {
+#if KCALCORE_HAVE_NO_PERSION_PTR
+        KCalCore::Person p = KCalCore::Person::fromFullName(node->leader());
+        KCalCore::Attendee::Ptr a(new KCalCore::Attendee(p.name(), p.email()));
+#else
         KCalCore::Person::Ptr p = KCalCore::Person::fromFullName(node->leader());
         KCalCore::Attendee::Ptr a(new KCalCore::Attendee(p->name(), p->email()));
+#endif
         a->setRole(KCalCore::Attendee::NonParticipant);
         todo->addAttendee(a);
     }
