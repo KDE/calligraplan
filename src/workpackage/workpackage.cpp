@@ -394,7 +394,7 @@ QString WorkPackage::fileName( const Part *part ) const
     QString projectName = m_project->name().remove( ' ' );
     // FIXME: workaround: KoResourcePaths::saveLocation( "projects", projectName + '/' );
     const QString path = KoResourcePaths::saveLocation( "appdata", "projects/" + projectName + '/' );
-    QString wpName = QString( n->name().remove( ' ' ) + '_' + n->id() + ".planwork" );
+    QString wpName = QString( n->name().remove( ' ' ).replace('/', '_') + '_' + n->id() + ".planwork" );
     return path + wpName;
 }
 
