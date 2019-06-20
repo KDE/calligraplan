@@ -1673,6 +1673,19 @@ bool TreeViewBase::loadContext( const QMetaEnum &map, const KoXmlElement &elemen
     if (expand) {
         loadExpanded(element);
     }
+    if (!e.isNull()) {
+        // FIXME: This only works for column 0
+        QHeaderView *h = header();
+        QString s("size-%1");
+        for (int i = 0; i < model()->columnCount(); ++i) {
+            if (!h->isSectionHidden(i) && e.hasAttribute(s.arg(i))) {
+                int size = e.attribute(s.arg(i)).toInt();
+                if (size > 0) {
+                    h->resizeSection(i, size);
+                }
+            }
+        }
+    }
     return true;
 }
 
@@ -1706,6 +1719,7 @@ void TreeViewBase::saveContext( const QMetaEnum &map, QDomElement &element, bool
                 QString n = map.key( h->logicalIndex( i ) );
                 if ( ! n.isEmpty() ) {
                     e.setAttribute( QString( "section-%1" ).arg( i ), n );
+                    e.setAttribute( QString("size-%1").arg(i), h->sectionSize(h->logicalIndex(i)));
                 }
             }
         }
