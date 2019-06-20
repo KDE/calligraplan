@@ -78,6 +78,10 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     ui_ArchiveUrl->setMode(KFile::Directory);
     ui_PublishUrl->setMode(KFile::Directory);
 
+    // Disable publish for now
+    // FIXME: Enable when fully implemented
+    ui_publishGroup->hide();
+
     m_documents = new DocumentsPanel(p, ui_documents);
     ui_documents->layout()->addWidget(m_documents);
 

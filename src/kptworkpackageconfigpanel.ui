@@ -79,7 +79,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QGroupBox" name="ui_publishGroup">
      <property name="title">
       <string>Publish</string>
      </property>

@@ -35,6 +35,10 @@ WorkPackageConfigPanel::WorkPackageConfigPanel(QWidget *p )
 
     kcfg_RetrieveUrl->setMode( KFile::Directory );
     kcfg_SaveUrl->setMode( KFile::Directory );
+
+    // Disable publish for now
+    // FIXME: Enable when fully implemented
+    ui_publishGroup->hide();
 }
 
 }  //KPlato namespace
