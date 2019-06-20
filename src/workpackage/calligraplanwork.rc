@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd" >
-<gui name="PlanWork" version="4" translationDomain="calligraplanwork">
+<gui name="PlanWork" version="5" translationDomain="calligraplanwork">
     <MenuBar>
         <Menu name="edit"><text>&amp;Edit</text>
            <Action name="package_remove_current"/>
@@ -13,7 +13,6 @@
         <Action name="task_progress"/>
         <Action name="task_description"/>
         <Action name="edit_sendpackage"/>
-        <Action name="edit_packagesettings"/>
         <Action name="package_remove_current"/>
     </Menu>
     <Menu name="editdocument_popup">

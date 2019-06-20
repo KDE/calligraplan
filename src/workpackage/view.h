@@ -90,11 +90,9 @@ public:
     TaskWPGanttView *createGanttView();
 
     KPlatoWork_MainWindow *kplatoWorkMainWindow() const;
-    
+
     Node *currentNode() const;
     Document *currentDocument() const;
-
-    int openPackageSettings();
 
 Q_SIGNALS:
     void currentScheduleManagerChanged(KPlato::ScheduleManager *sm);
@@ -123,9 +121,8 @@ protected Q_SLOTS:
     void slotEditDocument(KPlato::Document *doc);
     void slotViewDocument();
     void slotRemoveDocument();
-    
+
     void slotSendPackage();
-    void slotPackageSettings();
     void slotTaskDescription();
     void slotRemoveCurrentPackage();
     void slotRemoveSelectedPackages();

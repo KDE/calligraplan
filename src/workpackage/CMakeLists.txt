@@ -22,7 +22,6 @@ set(planworkfactory_LIB_SRCS
     taskworkpackagemodel.cpp
     taskworkpackageview.cpp
 
-    packagesettings.cpp
     taskcompletiondialog.cpp
 
     debugarea.cpp
@@ -31,7 +30,6 @@ set(planworkfactory_LIB_SRCS
 )
 
 ki18n_wrap_ui(planworkfactory_LIB_SRCS
-    packagesettings.ui
     taskcompletionpanel.ui
 )
 

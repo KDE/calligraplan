@@ -726,23 +726,6 @@ void PackageRemoveCmd::unexecute()
 }
 
 //---------------------
-ModifyPackageSettingsCmd::ModifyPackageSettingsCmd( WorkPackage *wp, WorkPackageSettings &value, const KUndo2MagicString& name )
-    : NamedCommand( name ),
-    m_wp( wp ),
-    m_value( value ),
-    m_oldvalue( wp->settings() )
-{
-}
-void ModifyPackageSettingsCmd::execute()
-{
-    m_wp->setSettings( m_value );
-}
-void ModifyPackageSettingsCmd::unexecute()
-{
-    m_wp->setSettings( m_oldvalue );
-}
-
-//---------------------
 CopySchedulesCmd::CopySchedulesCmd( const Project &fromProject, Project &toProject, const KUndo2MagicString &name )
     : NamedCommand( name ),
       m_project( toProject )

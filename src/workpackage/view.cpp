@@ -24,7 +24,6 @@
 #include "mainwindow.h"
 #include "taskworkpackageview.h"
 #include "workpackage.h"
-#include "packagesettings.h"
 #include "taskcompletiondialog.h"
 #include "calligraplanworksettings.h"
 #include "kpttaskeditor.h"
@@ -138,10 +137,6 @@ View::View( Part *part,  QWidget *parent, KActionCollection *collection )
     actionSendPackage  = new QAction(koIcon("mail-send"), i18n("Send Package..."), this);
     collection->addAction("edit_sendpackage", actionSendPackage );
     connect( actionSendPackage, &QAction::triggered, this, &View::slotSendPackage );
-
-    actionPackageSettings  = new QAction(koIcon("document-properties"), i18n("Package Settings..."), this);
-    collection->addAction("edit_packagesettings", actionPackageSettings );
-    connect( actionPackageSettings, &QAction::triggered, this, &View::slotPackageSettings );
 
     actionTaskCompletion  = new QAction(koIcon("document-edit"), i18n("Edit Progress..."), this);
     collection->addAction("task_progress", actionTaskCompletion );
@@ -347,44 +342,6 @@ void View::slotViewDocument()
 void View::slotRemoveDocument()
 {
     part()->removeDocument( currentDocument() );
-}
-
-void View::slotPackageSettings()
-{
-    WorkPackage *wp = part()->findWorkPackage( currentNode() );
-    if ( wp == 0 ) {
-        return;
-    }
-    QPointer<PackageSettingsDialog> dia = new PackageSettingsDialog( *wp, this );
-    if ( dia->exec() == QDialog::Accepted && dia ) {
-        KUndo2Command *cmd = dia->buildCommand();
-        if ( cmd ) {
-            debugPlanWork;
-            part()->addCommand( cmd );
-        }
-    }
-    delete dia;
-}
-
-int View::openPackageSettings()
-{
-    int result = QDialog::Rejected;
-    WorkPackage *wp = part()->findWorkPackage( currentNode() );
-    if ( wp == 0 ) {
-        return result;
-    }
-    QPointer<PackageSettingsDialog> dia = new PackageSettingsDialog( *wp, this, true );
-    dia->enableButtonOk(true);
-    if ( dia->exec() == QDialog::Accepted && dia ) {
-        result = QDialog::Accepted;
-        KUndo2Command *cmd = dia->buildCommand();
-        if ( cmd ) {
-            debugPlanWork;
-            part()->addCommand( cmd );
-        }
-    }
-    delete dia;
-    return result;
 }
 
 void View::slotSendPackage()

@@ -184,20 +184,6 @@ private:
 };
 
 //-----------------------------
-class ModifyPackageSettingsCmd : public NamedCommand
-{
-public:
-    ModifyPackageSettingsCmd( WorkPackage *wp, WorkPackageSettings &value, const KUndo2MagicString &name = KUndo2MagicString() );
-
-    void execute();
-    void unexecute();
-
-private:
-    WorkPackage *m_wp;
-    WorkPackageSettings m_value, m_oldvalue;
-};
-
-//-----------------------------
 class CopySchedulesCmd : public NamedCommand
 {
 public:
