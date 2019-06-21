@@ -443,6 +443,9 @@ bool MainDocument::loadWorkPackage( Project &project, const QUrl &url )
         if ( package ) {
             package->url = url;
             m_workpackages.insert( package->timeTag, package );
+            if (!m_mergedPackages.contains(package->timeTag)) {
+                m_mergedPackages[package->timeTag] = package->project; // register this for next time
+            }
         } else {
             ok = false;
         }
@@ -575,15 +578,13 @@ Package *MainDocument::loadWorkPackageXML( Project &project, QIODevice *, const 
         ok = false;
     }
     if (ok && m_mergedPackages.contains(package->timeTag)) {
+        debugPlanWp<<"Skip workpackage:"<<"already merged:"<<package->task->name()<<package->url;
         ok = false; // already merged
     }
     if (!ok) {
         delete proj;
         delete package;
         return nullptr;
-    }
-    if (package->timeTag.isValid() && !m_mergedPackages.contains( package->timeTag)) {
-        m_mergedPackages[package->timeTag] = proj; // register this for next time
     }
     return package;
 }
@@ -655,60 +656,51 @@ void MainDocument::checkForWorkPackage()
     if ( ! m_infoList.isEmpty() ) {
         m_checkingForWorkPackages = true;
         QUrl url = QUrl::fromLocalFile( m_infoList.takeLast().absoluteFilePath() );
-        if (m_skipUrls.contains(url)) {
-            return;
-        }
-        if (!loadWorkPackage( *m_project, url )) {
+        if (!m_skipUrls.contains(url) && !loadWorkPackage(*m_project, url)) {
             m_skipUrls << url;
+            debugPlanWp<<"skip url:"<<url;
         }
         if ( ! m_infoList.isEmpty() ) {
             QTimer::singleShot ( 0, this, &MainDocument::checkForWorkPackage );
             return;
         }
-        // all files read
-        // remove other projects
-        QMutableMapIterator<QDateTime, Package*> it( m_workpackages );
-        while ( it.hasNext() ) {
-            it.next();
-            Package *package = it.value();
-            if ( package->project->id() != m_project->id() ) {
-                delete package->project;
-                delete package;
-                it.remove();
-            }
-        }
         // Merge our workpackages
         if ( ! m_workpackages.isEmpty() ) {
             emit workPackageLoaded();
-        } else {
-            m_checkingForWorkPackages = false;
         }
+        m_checkingForWorkPackages = false;
     }
 }
 
 void MainDocument::terminateWorkPackage( const Package *package )
 {
+    debugPlanWp<<package->toTask<<package->url;
     if (m_workpackages.value(package->timeTag) == package) {
         m_workpackages.remove(package->timeTag);
     }
     QFile file( package->url.path() );
     if ( ! file.exists() ) {
+        warnPlanWp<<"File does not exist:"<<package->toTask<<package->url;
         return;
     }
     Project::WorkPackageInfo wpi = m_project->workPackageInfo();
+    debugPlanWp<<"retrieve:"<<wpi.retrieveUrl<<"archive:"<<wpi.archiveUrl;
+    bool rename = wpi.retrieveUrl == package->url.adjusted(QUrl::RemoveFilename);
     if (wpi.archiveAfterRetrieval && wpi.archiveUrl.isValid()) {
         QDir dir(wpi.archiveUrl.path());
         if ( ! dir.exists() ) {
             if ( ! dir.mkpath( dir.path() ) ) {
                 //TODO message
-                debugPlanWp<<"Could not create directory:"<<dir.path();
+                warnPlanWp<<"Failed to create archive directory:"<<dir.path();
                 return;
             }
         }
         QFileInfo from( file );
         QString name = dir.absolutePath() + '/' + from.fileName();
-        if (!file.rename(name)) {
+        debugPlanWp<<"rename:"<<rename;
+        if (rename ? !file.rename(name) : !file.copy(name)) {
             // try to create a unique name in case name already existed
+            debugPlanWp<<"Archive exists, create unique file name";
             name = dir.absolutePath() + '/';
             name += from.completeBaseName() + "-%1";
             if ( ! from.suffix().isEmpty() ) {
@@ -718,7 +710,7 @@ void MainDocument::terminateWorkPackage( const Package *package )
             bool ok = false;
             while ( ! ok && i < 1000 ) {
                 ++i;
-                ok = QFile::rename( file.fileName(), name.arg( i ) );
+                ok = rename ? QFile::rename(file.fileName(), name.arg(i)) : QFile::copy(file.fileName(), name.arg(i));
             }
             if ( ! ok ) {
                 //TODO message
@@ -726,7 +718,12 @@ void MainDocument::terminateWorkPackage( const Package *package )
             }
         }
     } else if (wpi.deleteAfterRetrieval) {
-        file.remove();
+        if (rename) {
+            debugPlanWp<<"removed package file:"<<file;
+            file.remove();
+        } else {
+            debugPlanWp<<"package file not in 'from' dir:"<<file;
+        }
     } else {
         warnPlanWp<<"Cannot terminate package, archive:"<<wpi.archiveUrl;
     }
