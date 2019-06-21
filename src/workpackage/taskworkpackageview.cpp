@@ -758,9 +758,16 @@ void GanttView::slotRowsInserted( const QModelIndex &parent, int start, int end 
 void GanttView::slotRowsRemoved( const QModelIndex &/*parent*/, int /*start*/, int /*end*/ )
 {
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
-    g->setStartDateTime( QDateTime() );
+    QDateTime newStart;
     for ( int i = 0; i < m_part->workPackageCount(); ++i ) {
-        updateDateTimeGrid( m_part->workPackage( i ) );
+        WorkPackage *wp = m_part->workPackage(i);
+        Task *task = static_cast<Task*>(wp->project()->childNode(0));
+        if (!newStart.isValid() || newStart > task->startTime()) {
+            newStart = task->startTime();
+        }
+    }
+    if (newStart.isValid()) {
+        g->setStartDateTime(newStart);
     }
 }
 

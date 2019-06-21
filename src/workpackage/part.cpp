@@ -409,7 +409,7 @@ bool Part::setWorkPackage( WorkPackage *wp, KoStore *store )
 
 void Part::removeWorkPackage( Node *node, MacroCommand *m )
 {
-    //debugPlanWork<<node->name();
+    debugPlanWork<<node->name();
     WorkPackage *wp = findWorkPackage( node );
     if ( wp == 0 ) {
         KMessageBox::error( 0, i18n("Remove failed. Cannot find work package") );
@@ -425,7 +425,7 @@ void Part::removeWorkPackage( Node *node, MacroCommand *m )
 
 void Part::removeWorkPackages( const QList<Node*> &nodes )
 {
-    //debugPlanWork<<node->name();
+    debugPlanWork<<nodes;
     MacroCommand *m = new MacroCommand( kundo2_i18np( "Remove work package", "Remove work packages", nodes.count() ) );
     foreach ( Node *n, nodes ) {
         removeWorkPackage( n, m );
