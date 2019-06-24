@@ -31,6 +31,8 @@
 #include "kptitemmodelbase.h"
 #include "kpttaskcompletedelegate.h"
 
+#include <KoIcon.h>
+
 #include <KGanttGlobal>
 
 #include <QModelIndex>
@@ -280,6 +282,12 @@ QVariant TaskWorkPackageModel::data( const QModelIndex &index, int role ) const
         if (role == Qt::ToolTipRole && index.column() == NodeName) {
             WorkPackage *wp = workPackage(index.row());
             return xi18nc("@info:tooltip", "%1: <emphasis>%2</emphasis><para>%3</para>", wp->wbsCode(), n->name(), nodeData(n, NodeDescription, Qt::DisplayRole).toString());
+        }
+        if (role == Qt::DecorationRole && index.column() == NodeName) {
+            WorkPackage *wp = workPackage(index.row());
+            if (wp->task()->completion().isFinished()) {
+                return koIcon("checkmark");
+            }
         }
         return nodeData( n, index.column(), role );
     }
