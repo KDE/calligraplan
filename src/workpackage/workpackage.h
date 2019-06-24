@@ -29,6 +29,7 @@
 
 #include <QFileInfo>
 #include <QProcess>
+#include <QDebug>
 
 class KoStore;
 
@@ -204,5 +205,8 @@ private:
 };
 
 }  //KPlatoWork namespace
+
+QDebug operator<<(QDebug dbg, const KPlatoWork::WorkPackage *wp);
+QDebug operator<<(QDebug dbg, const KPlatoWork::WorkPackage &wp);
 
 #endif

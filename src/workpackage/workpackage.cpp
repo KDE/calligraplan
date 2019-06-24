@@ -814,3 +814,20 @@ void CopySchedulesCmd::clearSchedules()
 
 
 }  //KPlatoWork namespace
+
+QDebug operator<<(QDebug dbg, const KPlatoWork::WorkPackage *wp)
+{
+    if (!wp) {
+        return dbg.noquote() << "WorkPackage[0x0]";
+    }
+    return dbg << *wp;
+}
+
+QDebug operator<<(QDebug dbg, const KPlatoWork::WorkPackage &wp)
+{
+    dbg.noquote() << "WorkPackage[";
+    dbg << wp.id();
+    dbg << wp.name();
+    dbg << ']';
+    return dbg;
+}
