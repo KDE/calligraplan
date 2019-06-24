@@ -134,6 +134,9 @@ public:
     QUrl sendUrl() const { return m_sendUrl; }
     QUrl fetchUrl() const { return m_fetchUrl; }
 
+    QString wbsCode() const { return m_wbsCode; }
+    void setWbsCode(const QString &wbsCode) { m_wbsCode = wbsCode; }
+
 Q_SIGNALS:
     void modified( bool );
     void saveWorkPackage(KPlatoWork::WorkPackage* );
@@ -162,6 +165,7 @@ protected:
     QUrl m_sendUrl; /// Where to put the package. If not valid, transmit by mail
     QUrl m_fetchUrl; /// Plan will store package here
     bool m_modified;
+    QString m_wbsCode;
 
     WorkPackageSettings m_settings;
 
@@ -202,6 +206,21 @@ private:
     Project &m_project;
     QString m_olddoc;
     QString m_newdoc;
+};
+
+//-----------------------------
+class ModifyWbsCodeCmd : public NamedCommand
+{
+public:
+    ModifyWbsCodeCmd(WorkPackage *wp, QString wbsCode,  const KUndo2MagicString &name = KUndo2MagicString());
+
+    void execute();
+    void unexecute();
+
+private:
+    WorkPackage *m_wp;
+    QString m_old;
+    QString m_new;
 };
 
 }  //KPlatoWork namespace

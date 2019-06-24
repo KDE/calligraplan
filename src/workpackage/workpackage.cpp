@@ -168,6 +168,7 @@ DocumentChild *WorkPackage::findChild( const Document *doc ) const
 bool WorkPackage::loadXML( const KoXmlElement &element, XMLLoaderObject &status )
 {
     bool ok = false;
+    QString wbsCode = "Unknown";
     KoXmlNode n = element.firstChild();
     for ( ; ! n.isNull(); n = n.nextSibling() ) {
         if ( ! n.isElement() ) {
@@ -181,6 +182,11 @@ bool WorkPackage::loadXML( const KoXmlElement &element, XMLLoaderObject &status 
             if ( ! ( ok = m_project->load( e, status ) ) ) {
                 status.addMsg( XMLLoaderObject::Errors, "Loading of work package failed" );
                 KMessageBox::error( 0, i18n( "Failed to load project: %1" , m_project->name() ) );
+            } else {
+                KoXmlElement te = e.namedItem("task").toElement();
+                if (!te.isNull()) {
+                    wbsCode = te.attribute("wbs", "empty");
+                }
             }
         }
     }
@@ -198,6 +204,7 @@ bool WorkPackage::loadXML( const KoXmlElement &element, XMLLoaderObject &status 
                 t->workPackage().setOwnerId( e.attribute( "owner-id" ) );
                 m_sendUrl = QUrl(e.attribute("save-url"));
                 m_fetchUrl = QUrl(e.attribute("load-url"));
+                m_wbsCode = wbsCode;
 
                 Resource *r = m_project->findResource( t->workPackage().ownerId() );
                 if ( r == 0 ) {
@@ -517,6 +524,9 @@ void WorkPackage::merge( Part *part, const WorkPackage *wp, KoStore *store )
     Node *to = node();
 
     MacroCommand *m = new MacroCommand( kundo2_i18n( "Merge data" ) );
+    if (m_wbsCode != wp->wbsCode()) {
+        m->addCommand(new ModifyWbsCodeCmd(this, wp->wbsCode()));
+    }
     if ( to->name() != from->name() ) {
         m->addCommand( new NodeModifyNameCmd( *to, from->name() ) );
     }
@@ -813,6 +823,24 @@ void CopySchedulesCmd::clearSchedules()
     }
 }
 
+//---------------------
+ModifyWbsCodeCmd::ModifyWbsCodeCmd(WorkPackage *wp, QString wbsCode,  const KUndo2MagicString &name)
+    : NamedCommand(name)
+    , m_wp(wp)
+    , m_old(wp->wbsCode())
+    , m_new(wbsCode)
+{
+}
+
+void ModifyWbsCodeCmd::execute()
+{
+    m_wp->setWbsCode(m_new);
+}
+
+void ModifyWbsCodeCmd::unexecute()
+{
+    m_wp->setWbsCode(m_old);
+}
 
 }  //KPlatoWork namespace
 

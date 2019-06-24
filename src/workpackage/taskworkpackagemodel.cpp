@@ -277,6 +277,10 @@ QVariant TaskWorkPackageModel::data( const QModelIndex &index, int role ) const
     }
     Node *n = nodeForIndex( index );
     if ( n ) {
+        if (role == Qt::ToolTipRole && index.column() == NodeName) {
+            WorkPackage *wp = workPackage(index.row());
+            return xi18nc("@info:tooltip", "%1: <emphasis>%2</emphasis><para>%3</para>", wp->wbsCode(), n->name(), nodeData(n, NodeDescription, Qt::DisplayRole).toString());
+        }
         return nodeData( n, index.column(), role );
     }
     Document *doc = documentForIndex( index );
