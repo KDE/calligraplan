@@ -698,6 +698,7 @@ GanttView::GanttView( Part *part, QWidget *parent )
     m_itemmodel->setObjectName( "Gantt model" );
     graphicsView()->setItemDelegate( m_ganttdelegate );
     GanttTreeView *tv = new GanttTreeView( this );
+    tv->setSortingEnabled(true);
     tv->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     tv->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     tv->setVerticalScrollMode( QAbstractItemView::ScrollPerPixel ); // needed since qt 4.2
@@ -706,7 +707,10 @@ GanttView::GanttView( Part *part, QWidget *parent )
     setRowController( m_rowController );
     tv->header()->setStretchLastSection( true );
 
-    KGantt::View::setModel( m_itemmodel );
+    QSortFilterProxyModel *sf = new QSortFilterProxyModel(tv);
+    sf->setSortRole(Qt::EditRole);
+    sf->setSourceModel(m_itemmodel);
+    KGantt::View::setModel(sf);
 
     QList<int> show;
     show << TaskWorkPackageModel::NodeName << TaskWorkPackageModel::NodeDescription;
@@ -747,6 +751,9 @@ GanttView::GanttView( Part *part, QWidget *parent )
     connect(tv->selectionModel(), &QItemSelectionModel::selectionChanged, this, &GanttView::slotSelectionChanged);
 
     connect(tv->header(), &QHeaderView::sectionMoved, this, &GanttView::sectionsMoved);
+
+    tv->header()->setSortIndicator( TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder );
+    sf->sort(TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder);
 }
 
 GanttView::~GanttView()

@@ -696,24 +696,46 @@ QAbstractItemDelegate *TaskWorkPackageModel::createDelegate( int column, QWidget
     return 0;
 }
 
-WorkPackage *TaskWorkPackageModel::ptrToWorkPackage( const QModelIndex &idx ) const
+QModelIndex mapToModel(const TaskWorkPackageModel *m, const QModelIndex &indx)
 {
+    if (indx.model() == m) {
+        return indx;
+    }
+    QModelIndex idx = indx;
+    const QAbstractProxyModel *proxy = qobject_cast<const QAbstractProxyModel*>(idx.model());
+    while (proxy) {
+        idx = proxy->mapToSource(idx);
+        proxy = qobject_cast<const QAbstractProxyModel*>(idx.model());
+    }
+    return idx;
+}
+
+WorkPackage *TaskWorkPackageModel::ptrToWorkPackage( const QModelIndex &indx ) const
+{
+    QModelIndex idx = mapToModel(this, indx);
+    Q_ASSERT(idx.model() == this);
     return qobject_cast<WorkPackage*>( static_cast<QObject*>( idx.internalPointer() ) );
 }
 
-Node *TaskWorkPackageModel::ptrToNode( const QModelIndex &idx ) const
+Node *TaskWorkPackageModel::ptrToNode( const QModelIndex &indx ) const
 {
+    QModelIndex idx = mapToModel(this, indx);
+    Q_ASSERT(idx.model() == this);
     return qobject_cast<Node*>( static_cast<QObject*>( idx.internalPointer() ) );
 }
 
-bool TaskWorkPackageModel::isNode( const QModelIndex &idx ) const
+bool TaskWorkPackageModel::isNode( const QModelIndex &indx ) const
 {
+    QModelIndex idx = mapToModel(this, indx);
+    Q_ASSERT(idx.model() == this);
     // a node index: ptr is WorkPackage*
     return qobject_cast<WorkPackage*>( static_cast<QObject*>( idx.internalPointer() ) ) != 0;
 }
 
-bool TaskWorkPackageModel::isDocument( const QModelIndex &idx ) const
+bool TaskWorkPackageModel::isDocument( const QModelIndex &indx ) const
 {
+    QModelIndex idx = mapToModel(this, indx);
+    Q_ASSERT(idx.model() == this);
     // a document index: ptr is Node*
     return qobject_cast<Node*>( static_cast<QObject*>( idx.internalPointer() ) ) != 0;
 }
