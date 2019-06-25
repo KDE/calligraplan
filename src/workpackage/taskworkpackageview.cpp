@@ -839,6 +839,11 @@ Node *GanttView::currentNode() const
     return itemModel()->nodeForIndex( treeView()->selectionModel()->currentIndex() );
 }
 
+Document *GanttView::currentDocument() const
+{
+    return itemModel()->documentForIndex( treeView()->selectionModel()->currentIndex() );
+}
+
 bool GanttView::loadContext( const KoXmlElement &context )
 {
     KoXmlElement e = context.namedItem( "itemview" ).toElement();
@@ -897,6 +902,11 @@ QList<Node*> TaskWPGanttView::selectedNodes() const
 Node *TaskWPGanttView::currentNode() const
 {
     return m_view->currentNode();
+}
+
+Document *TaskWPGanttView::currentDocument() const
+{
+    return m_view->currentDocument();
 }
 
 void TaskWPGanttView::slotContextMenuRequested( const QModelIndex &idx, const QPoint& pos )

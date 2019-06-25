@@ -197,6 +197,7 @@ public:
 
     QList<Node*> selectedNodes() const;
     Node *currentNode() const;
+    Document *currentDocument() const;
 
     /// Loads context info into this view. Reimplement.
     virtual bool loadContext( const KoXmlElement &context );
@@ -236,6 +237,7 @@ public:
 
     Node *currentNode() const;
     QList<Node*> selectedNodes() const;
+    Document *currentDocument() const;
 
     /// Loads context info into this view. Reimplement.
     virtual bool loadContext();

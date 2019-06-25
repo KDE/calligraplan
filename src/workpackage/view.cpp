@@ -275,6 +275,7 @@ Part *View::part() const
 
 void View::slotPopupMenu( const QString& name, const QPoint & pos )
 {
+    debugPlanWork<<name;
     Q_ASSERT( m_part->factory() );
     if ( m_part->factory() == 0 ) {
         return;
