@@ -76,8 +76,8 @@ TaskWorkPackageTreeView::TaskWorkPackageTreeView( Part *part, QWidget *parent )
 
     createItemDelegates( m );
 
-    QList<int> lst1; lst1 << 2 << -1; // display column 0 and 1 (NodeName and NodeType ) in left view
-    masterView()->setDefaultColumns( QList<int>() << 0 << 1 );
+    QList<int> lst1; lst1 << 1 << -1; // display column 0 (NodeName) in left view
+    masterView()->setDefaultColumns( QList<int>() << TaskWorkPackageModel::NodeName );
     QList<int> show;
     show << TaskWorkPackageModel::NodeCompleted
             << TaskWorkPackageModel::NodeActualEffort
@@ -98,23 +98,24 @@ TaskWorkPackageTreeView::TaskWorkPackageTreeView( Part *part, QWidget *parent )
     }
     hideColumns( lst1, lst2 );
     slaveView()->setDefaultColumns( show );
+    setViewSplitMode(false);
     masterView()->setFocus();
 
     debugPlanWork<<PlanWorkSettings::self()->taskWorkPackageView();
-    masterView()->header()->setSectionsClickable( true );
-    slaveView()->header()->setSortIndicatorShown( true );
 
     connect(masterView()->header(), &QHeaderView::sortIndicatorChanged, this, &TaskWorkPackageTreeView::setSortOrder);
     connect(slaveView()->header(), &QHeaderView::sortIndicatorChanged, this, &TaskWorkPackageTreeView::setSortOrder);
 
-    masterView()->header()->setSortIndicator( TaskWorkPackageModel::NodeType, Qt::AscendingOrder );
-
     connect(masterView()->header(), &QHeaderView::sectionMoved, this, &TaskWorkPackageTreeView::sectionsMoved);
     connect(slaveView()->header(), &QHeaderView::sectionMoved, this, &TaskWorkPackageTreeView::sectionsMoved);
+
+    masterView()->header()->setSortIndicator( TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder );
+    sf->sort(TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder);
 }
 
 void TaskWorkPackageTreeView::setSortOrder( int col, Qt::SortOrder order )
 {
+    static_cast<QSortFilterProxyModel*>(model())->setSortRole(Qt::EditRole);
     model()->sort( col, order );
 }
 
