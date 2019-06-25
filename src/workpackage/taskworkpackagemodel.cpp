@@ -401,7 +401,12 @@ QVariant TaskWorkPackageModel::documentData( Document *doc, int column, int role
         }
     } else if ( role == Qt::ToolTipRole ) {
         switch ( column ) {
-            case NodeName: return doc->typeToString( doc->type(), true );
+            case NodeName: {
+                QString s = xi18nc("@info:tooltip", "Type: %1<nl/>Url: %2",
+                    doc->typeToString(doc->type(), true),
+                    doc->url().toDisplayString());
+                return s;
+            }
             default:
                 break;
         }
