@@ -614,12 +614,25 @@ void GanttItemDelegate::paintGanttItem( QPainter* painter, const KGantt::StyleOp
     painter->restore();
 }
 
-QString GanttItemDelegate::toolTip( const QModelIndex &idx ) const
+QModelIndex mapToSource(const QModelIndex &index)
 {
-    if ( !idx.isValid() || ! idx.model() ) {
+    QModelIndex idx = index;
+    const QAbstractProxyModel *proxy = qobject_cast<const QAbstractProxyModel*>(idx.model());
+    while (proxy) {
+        idx = proxy->mapToSource(idx);
+        proxy = qobject_cast<const QAbstractProxyModel*>(idx.model());
+    }
+    return idx;
+}
+
+QString GanttItemDelegate::toolTip( const QModelIndex &index ) const
+{
+    if (!index.isValid()) {
         return QString();
     }
-    const QAbstractItemModel* model = idx.model();
+    // map to source manually, gantt models do some tricks so we only get column 0
+    QModelIndex idx = mapToSource(index);
+    Q_ASSERT(idx.isValid());
     if ( data( idx, TaskWorkPackageModel::NodeFinished, Qt::EditRole ).toBool() ) {
         // finished
         return xi18nc( "@info:tooltip",
@@ -628,7 +641,7 @@ QString GanttItemDelegate::toolTip( const QModelIndex &idx ) const
                       "Planned finish: %3<nl/>"
                       "Status: %4<nl/>"
                       "Project: %5",
-                      model->data( idx, Qt::DisplayRole ).toString(),
+                      idx.data().toString(),
                       data( idx, TaskWorkPackageModel::NodeActualFinish, Qt::DisplayRole ).toString(),
                       data( idx, TaskWorkPackageModel::NodeEndTime, Qt::DisplayRole ).toString(),
                       data( idx, TaskWorkPackageModel::NodeStatus, Qt::DisplayRole ).toString(),
@@ -644,7 +657,7 @@ QString GanttItemDelegate::toolTip( const QModelIndex &idx ) const
                       "Planned: %4 - %5<nl/>"
                       "Status: %6<nl/>"
                       "Project: %7",
-                      model->data( idx, Qt::DisplayRole ).toString(),
+                      idx.data().toString(),
                       data( idx, TaskWorkPackageModel::NodeCompleted, Qt::DisplayRole ).toString(),
                       data( idx, TaskWorkPackageModel::NodeActualStart, Qt::DisplayRole ).toString(),
                       data( idx, TaskWorkPackageModel::NodeStartTime, Qt::DisplayRole ).toString(),
@@ -663,7 +676,7 @@ QString GanttItemDelegate::toolTip( const QModelIndex &idx ) const
                           "Planned: %2 - %3<nl/>"
                           "Status: %4<nl/>"
                           "Project: %5",
-                          model->data( idx, Qt::DisplayRole ).toString(),
+                          idx.data().toString(),
                           data( idx, TaskWorkPackageModel::NodeStartTime, Qt::DisplayRole ).toString(),
                           data( idx, TaskWorkPackageModel::NodeEndTime, Qt::DisplayRole ).toString(),
                           data( idx, TaskWorkPackageModel::NodeStatus, Qt::DisplayRole ).toString(),
