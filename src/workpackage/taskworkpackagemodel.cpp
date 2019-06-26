@@ -35,6 +35,7 @@
 
 #include <KGanttGlobal>
 
+#include <QTextEdit>
 #include <QModelIndex>
 #include <QMetaEnum>
 #include <QObject>
@@ -281,7 +282,16 @@ QVariant TaskWorkPackageModel::data( const QModelIndex &index, int role ) const
     if ( n ) {
         if (role == Qt::ToolTipRole && index.column() == NodeName) {
             WorkPackage *wp = workPackage(index.row());
-            return xi18nc("@info:tooltip", "%1: <emphasis>%2</emphasis><para>%3</para>", wp->wbsCode(), n->name(), nodeData(n, NodeDescription, Qt::DisplayRole).toString());
+            QTextEdit w(n->description(), nullptr);
+            QString description = w.toPlainText();
+            if (description.length() > 200) {
+                description = description.left(200) + " ...";
+                description.replace('\n', "<br/>");
+            } else {
+                description = n->description();
+            }
+            w.setHtml(i18n("<p><strong>%1: %2</strong></p><p>%3</p>", wp->wbsCode(), n->name(), description));
+            return w.toHtml();
         }
         if (role == Qt::DecorationRole && index.column() == NodeName) {
             WorkPackage *wp = workPackage(index.row());

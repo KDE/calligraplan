@@ -93,8 +93,18 @@ QVariant NodeModel::name( const Node *node, int role ) const
         case Qt::DisplayRole:
         case Qt::EditRole:
             return node->name();
-        case Qt::ToolTipRole:
-            return xi18nc("@info:tooltip", "%1: <emphasis>%2</emphasis><para>%3</para>", wbsCode(node, Qt::DisplayRole).toString(), node->name(), description(node, Qt::DisplayRole).toString());
+        case Qt::ToolTipRole: {
+            QTextEdit w(node->description(), nullptr);
+            QString description = w.toPlainText();
+            if (description.length() > 200) {
+                description = description.left(200) + " ...";
+                description.replace('\n', "<br/>");
+            } else {
+                description = node->description();
+            }
+            w.setHtml(i18n("<p><strong>%1: %2</strong></p><p>%3</p>", node->wbsCode(), node->name(), description));
+            return w.toHtml();
+        }
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
