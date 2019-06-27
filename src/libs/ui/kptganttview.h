@@ -205,12 +205,15 @@ public Q_SLOTS:
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
 
     friend class GanttPrintingDialog;
     GanttPrintingOptions m_printOptions;
 
 private:
     GanttZoomWidget *m_zoomwidget;
+    QPoint m_dragStartPosition;
 };
 
 class NodeGanttViewBase : public GanttViewBase 

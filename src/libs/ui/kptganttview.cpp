@@ -63,6 +63,7 @@
 #include <QMenu>
 #include <QHoverEvent>
 #include <QScrollBar>
+#include <QDrag>
 
 #include <ktoggleaction.h>
 
@@ -530,6 +531,33 @@ void GanttViewBase::saveContext( QDomElement &settings ) const
     settings.setAttribute("timeline-custom", timeLine()->options() & DateTimeTimeLine::UseCustomPen);
     settings.setAttribute("timeline-width", timeLine()->pen().width());
     settings.setAttribute("timeline-color", timeLine()->pen().color().name());
+}
+
+void GanttViewBase::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        m_dragStartPosition = event->pos();
+    }
+    KGantt::View::mousePressEvent(event);
+}
+
+void GanttViewBase::mouseMoveEvent(QMouseEvent *event)
+{
+    if (!(event->buttons() & Qt::LeftButton)) {
+        KGantt::View::mouseMoveEvent(event);
+        return;
+    }
+    if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
+        KGantt::View::mouseMoveEvent(event);
+        return;
+    }
+    QDrag *drag = new QDrag(this);
+    QMimeData *mimeData = new QMimeData;
+    QPixmap pixmap(size());
+    render(&pixmap);
+    mimeData->setImageData(pixmap);
+    drag->setMimeData(mimeData);
+    drag->exec(Qt::CopyAction);
 }
 
 //-------------------------------------------
