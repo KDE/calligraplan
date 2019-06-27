@@ -285,7 +285,6 @@ void TaskProgressPanelImpl::slotFinishedChanged(bool state) {
         debugPlan<<state;
         setFinished();
         debugPlan<<finishTime->dateTime();
-        slotCalculateEffort();
     }   
     enableWidgets();
 }
@@ -299,6 +298,7 @@ void TaskProgressPanelImpl::slotFinishTimeChanged( const QDateTime &dt )
     if ( m_completion.percentFinished() < 100 ) {
         m_completion.setPercentFinished( dt.date(), 100 );
     }
+    m_completion.setRemainingEffort(dt.date(), Duration::zeroDuration);
     entryTable->setCompletion( &m_completion ); // for refresh
 }
 
