@@ -124,6 +124,8 @@ protected Q_SLOTS:
 
 protected:
     void updateActionsEnabled(bool on);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
 
 private Q_SLOTS:
     void slotContextMenuRequested(KPlato::Node *node, const QPoint& pos);
@@ -131,7 +133,7 @@ private Q_SLOTS:
 
 private:
     PerformanceStatusTreeView *m_view;
-
+    QPoint m_dragStartPosition;
 };
 
 

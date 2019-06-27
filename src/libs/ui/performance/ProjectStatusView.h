@@ -84,6 +84,8 @@ public Q_SLOTS:
 
 protected:
     void updateActionsEnabled(bool on);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
 
 protected Q_SLOTS:
     virtual void slotOptions();
@@ -91,6 +93,7 @@ protected Q_SLOTS:
 private:
     Project *m_project;
     PerformanceStatusBase *m_view;
+    QPoint m_dragStartPosition;
 };
 
 //--------------------------------------

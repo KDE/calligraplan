@@ -44,7 +44,10 @@
 #include <QDialogButtonBox>
 #include <QAbstractButton>
 #include <QTimer>
-
+#include <QDrag>
+#include <QMimeData>
+#include <QPixmap>
+#include <QMouseEvent>
 
 using namespace KChart;
 
@@ -309,6 +312,34 @@ void PerformanceStatusView::saveContext(QDomElement &context) const
 KoPrintJob *PerformanceStatusView::createPrintJob()
 {
     return m_view->createPrintJob(this);
+}
+
+void PerformanceStatusView::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        m_dragStartPosition = event->pos();
+    }
+    ViewBase::mousePressEvent(event);
+}
+
+void PerformanceStatusView::mouseMoveEvent(QMouseEvent *event)
+{
+    if (!(event->buttons() & Qt::LeftButton)) {
+        ViewBase::mouseMoveEvent(event);
+        return;
+    }
+    if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
+        ViewBase::mouseMoveEvent(event);
+        return;
+    }
+    event->accept();
+    QDrag *drag = new QDrag(this);
+    QMimeData *mimeData = new QMimeData;
+    QPixmap pixmap(m_view->size());
+    m_view->render(&pixmap);
+    mimeData->setImageData(pixmap);
+    drag->setMimeData(mimeData);
+    drag->exec(Qt::CopyAction);
 }
 
 //-----------------

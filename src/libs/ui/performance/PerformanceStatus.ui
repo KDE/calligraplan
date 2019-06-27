@@ -23,7 +23,16 @@
    <enum>Qt::CustomContextMenu</enum>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_4">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item>
@@ -33,30 +42,39 @@
      </property>
      <widget class="QWidget" name="page_7">
       <layout class="QVBoxLayout" name="verticalLayout_5">
-       <property name="margin">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
         <number>0</number>
        </property>
        <item>
-           <widget class="PerformanceTableView" name="ui_performancetable">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="verticalScrollBarPolicy">
-             <enum>Qt::ScrollBarAsNeeded</enum>
-            </property>
-            <property name="horizontalScrollBarPolicy">
-             <enum>Qt::ScrollBarAlwaysOff</enum>
-            </property>
-            <property name="selectionMode">
-             <enum>QAbstractItemView::NoSelection</enum>
-            </property>
-            <attribute name="verticalHeaderDefaultSectionSize">
-             <number>20</number>
-            </attribute>
-           </widget>
+        <widget class="PerformanceTableView" name="ui_performancetable">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAsNeeded</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::NoSelection</enum>
+         </property>
+         <attribute name="verticalHeaderDefaultSectionSize">
+          <number>30</number>
+         </attribute>
+        </widget>
        </item>
        <item>
         <widget class="QFrame" name="ui_chartframe">
@@ -67,11 +85,20 @@
           <enum>QFrame::Sunken</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
-           <widget class="KChart::Chart" name="ui_chart" native="true">
+           <widget class="KPlato::Chart" name="ui_chart" native="true">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -87,7 +114,16 @@
      </widget>
      <widget class="QWidget" name="page_8">
       <layout class="QVBoxLayout" name="verticalLayout_7">
-       <property name="margin">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
         <number>0</number>
        </property>
        <item>
@@ -101,15 +137,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KChart::Chart</class>
-   <extends>QWidget</extends>
-   <header>KChartChart</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>PerformanceTableView</class>
    <extends>QTableView</extends>
    <header>kptperformancetablewidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KPlato::Chart</class>
+   <extends>QWidget</extends>
+   <header>performance/KPlatoChart.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

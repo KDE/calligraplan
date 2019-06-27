@@ -469,7 +469,9 @@ void PerformanceStatusBase::setupChart(ChartContents &cc)
 void PerformanceStatusBase::contextMenuEvent(QContextMenuEvent *event)
 {
     debugPlan<<event->globalPos();
-    emit customContextMenuRequested(event->globalPos());
+    if (event->modifiers() == Qt::NoModifier) {
+        emit customContextMenuRequested(event->globalPos());
+    }
 }
 
 void PerformanceStatusBase::slotUpdate()
