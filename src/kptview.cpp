@@ -3091,7 +3091,7 @@ void View::loadWorkPackage(Project *project, const QList<QUrl> &urls)
         loaded |= getPart()->loadWorkPackage(*project, url);
     }
     if (loaded) {
-        emit slotWorkPackageLoaded();
+        slotWorkPackageLoaded();
     }
 }
 
