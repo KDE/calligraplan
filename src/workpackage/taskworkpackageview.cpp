@@ -308,7 +308,6 @@ void AbstractView::slotContextMenuRequested( Document *doc, const QPoint& pos )
 
 void AbstractView::sectionsMoved()
 {
-    saveContext();
 }
 
 bool AbstractView::loadContext()
@@ -347,6 +346,11 @@ TaskWorkPackageView::TaskWorkPackageView( Part *part, QWidget *parent )
     loadContext();
 
     connect(m_view, &TaskWorkPackageTreeView::sectionsMoved, this, &TaskWorkPackageView::sectionsMoved);
+}
+
+TaskWorkPackageView::~TaskWorkPackageView()
+{
+    saveContext();
 }
 
 void TaskWorkPackageView::updateReadWrite( bool rw )
@@ -418,7 +422,6 @@ void TaskWorkPackageView::slotSplitView()
 {
     debugPlanWork;
     m_view->setViewSplitMode( ! m_view->isViewSplit() );
-    saveContext();
 }
 
 
@@ -428,7 +431,6 @@ void TaskWorkPackageView::slotOptions()
     QPointer<SplitItemViewSettupDialog> dlg = new SplitItemViewSettupDialog( 0, m_view, this );
     dlg->exec();
     delete dlg;
-    saveContext();
 }
 
 bool TaskWorkPackageView::loadContext()
@@ -440,6 +442,7 @@ bool TaskWorkPackageView::loadContext()
         debugPlanWork<<"No settings";
         return false;
     }
+    debugPlanWork<<KoXml::asQDomDocument(doc).toString();
     return m_view->loadContext( itemModel()->columnMap(), context );
 }
 
@@ -450,8 +453,7 @@ void TaskWorkPackageView::saveContext()
     doc.appendChild( context );
     m_view->saveContext( itemModel()->columnMap(), context );
     PlanWorkSettings::self()->setTaskWorkPackageView( doc.toString() );
-    PlanWorkSettings::self()->save();
-    debugPlanWork<<endl<<doc.toString();
+    debugPlanWork<<"saved context:"<<endl<<doc.toString();
 }
 
 //-------------------------------------------
@@ -889,6 +891,11 @@ TaskWPGanttView::TaskWPGanttView( Part *part, QWidget *parent )
     connect(m_view, &GanttView::sectionsMoved, this, &TaskWPGanttView::sectionsMoved);
 }
 
+TaskWPGanttView::~TaskWPGanttView()
+{
+    saveContext();
+}
+
 void TaskWPGanttView::slotSelectionChanged( const QModelIndexList& /*lst*/ )
 {
     emit selectionChanged();
@@ -940,7 +947,6 @@ void TaskWPGanttView::slotOptions()
     QPointer<ItemViewSettupDialog> dlg = new ItemViewSettupDialog( 0, m_view->treeView(), true, this );
     dlg->exec();
     delete dlg;
-    saveContext();
 }
 
 bool TaskWPGanttView::loadContext()
@@ -962,7 +968,6 @@ void TaskWPGanttView::saveContext()
     doc.appendChild( context );
     m_view->saveContext( context );
     PlanWorkSettings::self()->setTaskWPGanttView( doc.toString() );
-    PlanWorkSettings::self()->save();
     debugPlanWork<<endl<<doc.toString();
 }
 

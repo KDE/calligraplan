@@ -86,7 +86,7 @@ class PLANWORK_EXPORT AbstractView : public QWidget, public ViewActionLists
     Q_OBJECT
 public:
     AbstractView( Part *part, QWidget *parent );
-    
+
     /// reimplement
     virtual void updateReadWrite( bool readwrite );
     /// reimplement
@@ -133,6 +133,7 @@ class PLANWORK_EXPORT TaskWorkPackageView : public AbstractView
     Q_OBJECT
 public:
     TaskWorkPackageView( Part *part, QWidget *parent );
+    ~TaskWorkPackageView();
 
     void setupGui();
 
@@ -230,6 +231,7 @@ class PLANWORK_EXPORT TaskWPGanttView : public AbstractView
     Q_OBJECT
 public:
     TaskWPGanttView( Part *part, QWidget *parent );
+    ~TaskWPGanttView();
 
     void setupGui();
 

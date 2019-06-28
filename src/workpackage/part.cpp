@@ -27,6 +27,7 @@
 #include "factory.h"
 #include "mainwindow.h"
 #include "workpackage.h"
+#include "calligraplanworksettings.h"
 
 #include "KPlatoXmlLoader.h" //NB!
 
@@ -355,9 +356,9 @@ Part::Part( QWidget *parentWidget, QObject *parent, const QVariantList & /*args*
         setXMLFile( "calligraplanwork_readonly.rc" );
     }
 
-    View *v = new View( this, parentWidget, actionCollection() );
-    setWidget( v );
-    connect( v, &View::viewDocument, this, &Part::viewWorkpackageDocument );
+    m_view = new View( this, parentWidget, actionCollection() );
+    setWidget(m_view);
+    connect( m_view, &View::viewDocument, this, &Part::viewWorkpackageDocument );
 
     loadWorkPackages();
 
@@ -369,7 +370,10 @@ Part::~Part()
 {
     debugPlanWork;
 //    m_config.save();
+    // views must be deleted before packages
+    delete m_view;
     qDeleteAll( m_packageMap );
+    PlanWorkSettings::self()->save();
 }
 
 void Part::addCommand( KUndo2Command *cmd )

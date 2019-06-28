@@ -59,6 +59,7 @@ namespace KPlatoWork
 
 class Part;
 class WorkPackage;
+class View;
 
 /**
  * DocumentChild stores info about documents opened for editing.
@@ -249,6 +250,7 @@ protected:
     bool viewDocument( const QUrl &filename );
 
 private:
+    View *m_view;
     XMLLoaderObject m_xmlLoader;
     //Config m_config;
     
