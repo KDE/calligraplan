@@ -336,6 +336,8 @@ Q_SIGNALS:
     void collapseAll();
 
     void openDocument(const QUrl &url);
+    void openTaskDescription(bool);
+
 protected Q_SLOTS:
     virtual void slotOptions() {}
     virtual void slotOptionsFinished( int result );

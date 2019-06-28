@@ -274,6 +274,7 @@ protected Q_SLOTS:
     void slotOpenNode(KPlato::Node *node);
     void slotTaskProgress();
     void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
     void slotDocuments();
     void slotDeleteTaskList(QList<KPlato::Node*> lst);
     void slotDeleteTask(KPlato::Node *node);

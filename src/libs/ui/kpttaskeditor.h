@@ -163,6 +163,7 @@ protected:
 
 protected Q_SLOTS:
     virtual void slotOptions();
+    void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 private Q_SLOTS:
     void slotSelectionChanged( const QModelIndexList& );
@@ -251,6 +252,7 @@ protected:
 
 protected Q_SLOTS:
     virtual void slotOptions();
+    void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 private Q_SLOTS:
     void slotSelectionChanged( const QModelIndexList& );

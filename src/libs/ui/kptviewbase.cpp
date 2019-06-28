@@ -1048,6 +1048,7 @@ TreeViewBase::TreeViewBase( QWidget *parent )
     setDefaultDropAction( Qt::MoveAction );
     setItemDelegate( new ItemDelegate( this ) );
     setAlternatingRowColors ( true );
+    setExpandsOnDoubleClick(false);
 
     header()->setContextMenuPolicy( Qt::CustomContextMenu );
 

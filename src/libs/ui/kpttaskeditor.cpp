@@ -37,6 +37,7 @@
 #include "kpttaskdialog.h"
 #include "TasksEditController.h"
 #include "Help.h"
+#include "kpttaskdescriptiondialog.h"
 
 #include <KoXmlReader.h>
 #include <KoDocument.h>
@@ -358,6 +359,8 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &TaskEditor::slotContextMenuRequested );
 
     connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
+    connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskEditor::itemDoubleClicked);
+    connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskEditor::itemDoubleClicked);
 
     connect(baseModel(), &NodeItemModel::projectShownChanged, this, &TaskEditor::slotProjectShown);
     connect(model(), &QAbstractItemModel::rowsMoved, this, &TaskEditor::slotEnableActions);
@@ -372,6 +375,13 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
                      "</para>", Help::page("Manual/Task_Editor")));
+}
+
+void TaskEditor::itemDoubleClicked(const QPersistentModelIndex &idx)
+{
+    if (idx.column() == NodeModel::NodeDescription) {
+        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+    }
 }
 
 void TaskEditor::slotProjectShown( bool on )
@@ -1173,6 +1183,9 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
 
     connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
+    connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskView::itemDoubleClicked);
+    connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskView::itemDoubleClicked);
+
     Help::add(this,
               xi18nc("@info:whatsthis", 
                      "<title>Task Execution View</title>"
@@ -1182,6 +1195,13 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
                      "</para>", Help::page("Manual/Task_Execution_View")));
+}
+
+void TaskView::itemDoubleClicked(const QPersistentModelIndex &idx)
+{
+    if (idx.column() == NodeModel::NodeDescription) {
+        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+    }
 }
 
 void TaskView::updateReadWrite( bool rw )

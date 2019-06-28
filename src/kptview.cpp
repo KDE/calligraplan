@@ -970,6 +970,7 @@ ViewBase *View::createTaskEditor( ViewListItem *cat, const QString &tag, const Q
     connect(this, &View::taskModulesChanged, taskeditor, &TaskEditor::setTaskModules);
 
     connect( taskeditor, &TaskEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
+    connect( taskeditor, &TaskEditor::openTaskDescription, this, &View::slotOpenTaskDescription);
     taskeditor->updateReadWrite( m_readWrite );
 
     // last:
@@ -1254,6 +1255,7 @@ ViewBase *View::createTaskStatusView( ViewListItem *cat, const QString &tag, con
     connect( this, &View::currentScheduleManagerChanged, taskstatusview, &TaskStatusView::setScheduleManager);
 
     connect( taskstatusview, &TaskStatusView::requestPopupMenu, this, &View::slotPopupMenuRequested);
+    connect( taskstatusview, &TaskStatusView::openTaskDescription, this, &View::slotOpenTaskDescription);
 
     taskstatusview->updateReadWrite( m_readWrite );
     taskstatusview->draw( getProject() );
@@ -1286,6 +1288,7 @@ ViewBase *View::createTaskView( ViewListItem *cat, const QString &tag, const QSt
     connect( v, &ViewBase::guiActivated, this, &View::slotGuiActivated );
 
     connect( v, &TaskView::requestPopupMenu, this, &View::slotPopupMenuRequested);
+    connect( v, &TaskView::openTaskDescription, this, &View::slotOpenTaskDescription);
     v->updateReadWrite( m_readWrite );
     return v;
 }
@@ -2278,6 +2281,11 @@ void View::slotMilestoneProgressFinished( int result )
 
 void View::slotTaskDescription()
 {
+    slotOpenTaskDescription(true);
+}
+
+void View::slotOpenTaskDescription(bool rw)
+{
     //debugPlan;
     Node * node = currentNode();
     if ( !node )
@@ -2291,7 +2299,7 @@ void View::slotTaskDescription()
         case Node::Type_Task:
         case Node::Type_Milestone:
         case Node::Type_Summarytask: {
-                TaskDescriptionDialog *dia = new TaskDescriptionDialog( *node, this );
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog( *node, this, rw );
                 connect(dia, &QDialog::finished, this, &View::slotTaskDescriptionFinished);
                 dia->show();
                 dia->raise();

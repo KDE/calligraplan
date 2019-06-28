@@ -30,6 +30,7 @@
 #include "kptschedule.h"
 #include "kpteffortcostmap.h"
 #include "Help.h"
+#include "kpttaskdescriptiondialog.h"
 #include "kptdebug.h"
 
 #include <KoXmlReader.h>
@@ -186,6 +187,11 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent )
 
     connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
+    m_view->masterView()->setExpandsOnDoubleClick(true);
+    m_view->masterView()->setExpandsOnDoubleClick(false);
+    connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskStatusView::itemDoubleClicked);
+    connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskStatusView::itemDoubleClicked);
+
     Help::add(this,
               xi18nc("@info:whatsthis", 
                      "<title>Task Status View</title>"
@@ -204,6 +210,13 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent )
                      "<nl/><link url='%1'>More...</link>"
                      "</para>", Help::page("Manual/Task_Status_View")));
     
+}
+
+void TaskStatusView::itemDoubleClicked(const QPersistentModelIndex &idx)
+{
+    if (idx.column() == NodeModel::NodeDescription) {
+        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+    }
 }
 
 void TaskStatusView::updateReadWrite( bool rw )

@@ -124,6 +124,7 @@ public Q_SLOTS:
 
 protected Q_SLOTS:
     virtual void slotOptions();
+    void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 protected:
     void updateActionsEnabled( bool on );
