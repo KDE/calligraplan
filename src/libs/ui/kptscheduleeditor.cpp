@@ -332,6 +332,7 @@ void ScheduleEditor::setupGui()
 
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
+    addActionList("viewmenu", contextActionList());
 }
 
 void ScheduleEditor::updateReadWrite( bool readwrite )

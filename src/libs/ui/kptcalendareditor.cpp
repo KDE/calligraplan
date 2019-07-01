@@ -666,6 +666,7 @@ void CalendarEditor::setupGui()
     connect( actionSetUndefined, &QAction::triggered, this, &CalendarEditor::slotSetUndefined );
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
+    addActionList("viewmenu", contextActionList());
 }
 
 void CalendarEditor::slotOptions()

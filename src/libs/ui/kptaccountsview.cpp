@@ -198,6 +198,7 @@ void AccountsView::init()
 void AccountsView::setupGui()
 {
     createOptionActions(ViewBase::OptionAll);
+    addActionList("viewmenu", contextActionList());
 }
 
 void AccountsView::slotContextMenuRequested( const QModelIndex &index, const QPoint &pos )

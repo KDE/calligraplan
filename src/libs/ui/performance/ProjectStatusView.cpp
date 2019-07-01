@@ -99,6 +99,7 @@ void ProjectStatusView::setupGui()
 {
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintConfig | ViewBase::OptionViewConfig);
+    addActionList("viewmenu", contextActionList());
 }
 
 void ProjectStatusView::slotOptions()

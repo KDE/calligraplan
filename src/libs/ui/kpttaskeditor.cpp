@@ -874,6 +874,8 @@ void TaskEditor::setupGui()
 
     createOptionActions(ViewBase::OptionAll);
 
+    addActionList("viewmenu", contextActionList());
+
     createDockers();
 }
 
@@ -1364,6 +1366,7 @@ void TaskView::setupGui()
     addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionAll);
+    addActionList("viewmenu", contextActionList());
 }
 
 void TaskView::slotSplitView()
@@ -1685,6 +1688,7 @@ void TaskWorkPackageView::setupGui()
     addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionAll);
+    addActionList("viewmenu", contextActionList());
 }
 
 void TaskWorkPackageView::slotMailWorkpackage()

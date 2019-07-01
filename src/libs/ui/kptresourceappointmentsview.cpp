@@ -347,6 +347,7 @@ void ResourceAppointmentsView::setupGui()
 {
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionAll);
+    addActionList("viewmenu", contextActionList());
 }
 
 void ResourceAppointmentsView::slotOptions()

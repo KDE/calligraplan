@@ -38,6 +38,7 @@
 #include <QList>
 #include <QDockWidget>
 #include <QDomDocument>
+#include <QAction>
 
 class QMetaEnum;
 class QAbstractItemModel;
@@ -305,6 +306,8 @@ public:
     /// Columns are sorted according to the lists
     void showColumns(const QList<int> &left, const QList<int> &right = QList<int>());
 
+    void addActionList(const QString &name, const QList<QAction*> actions);
+
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt) { m_printingOptions = opt; }
     /// Activate/deactivate the gui
@@ -343,7 +346,7 @@ protected Q_SLOTS:
     virtual void slotOptionsFinished( int result );
 
 protected:
-    void createOptionActions(int actions);
+    void createOptionActions(int actions, const QString &prefix = QString());
 
     bool m_readWrite;
     PrintingOptions m_printingOptions;

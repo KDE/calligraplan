@@ -284,6 +284,7 @@ void PerformanceStatusView::setupGui()
 {
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionAll);
+    addActionList("viewmenu", contextActionList());
 }
 
 void PerformanceStatusView::slotOptions()

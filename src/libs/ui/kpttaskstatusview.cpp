@@ -326,6 +326,7 @@ void TaskStatusView::setupGui()
     addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionAll);
+    addActionList("viewmenu", contextActionList());
 }
 
 void TaskStatusView::slotSplitView()

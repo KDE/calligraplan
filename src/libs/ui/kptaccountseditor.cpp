@@ -298,6 +298,7 @@ void AccountsEditor::setupGui()
     addAction( name, actionDeleteSelection );
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);
+    addActionList("viewmenu", contextActionList());
 }
 
 void AccountsEditor::slotOptions()

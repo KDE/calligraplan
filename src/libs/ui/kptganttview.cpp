@@ -66,6 +66,7 @@
 #include <QDrag>
 
 #include <ktoggleaction.h>
+#include <KActionCollection>
 
 #include <KGanttGlobal>
 #include <KGanttStyleOptionGanttItem>
@@ -872,6 +873,7 @@ void GanttView::setupGui()
 {
     // create context menu actions
     actionShowProject = new KToggleAction( i18n( "Show Project" ), this );
+    actionShowProject->setObjectName("ganttview_show_project");
     // FIXME: Dependencies depend on these methods being called in the correct order
     connect(actionShowProject, &QAction::triggered, m_gantt, &MyKGanttView::clearDependencies);
     connect(actionShowProject, &QAction::triggered, m_gantt->model(), &NodeItemModel::setShowProject);
@@ -879,10 +881,12 @@ void GanttView::setupGui()
     addContextAction( actionShowProject );
 
     actionShowUnscheduled = new KToggleAction( i18n( "Show Unscheduled Tasks" ), this );
+    actionShowUnscheduled->setObjectName("ganttview_show_unscheduled_tasks");
     connect(actionShowUnscheduled, &QAction::triggered, m_gantt, &MyKGanttView::setShowUnscheduledTasks);
     addContextAction(actionShowUnscheduled);
 
     createOptionActions(ViewBase::OptionAll);
+    addActionList("viewmenu", contextActionList());
 }
 
 void GanttView::slotOptions()
@@ -1294,6 +1298,7 @@ Node *MilestoneGanttView::currentNode() const
 void MilestoneGanttView::setupGui()
 {
     createOptionActions(ViewBase::OptionAll);
+    addActionList("viewmenu", contextActionList());
 }
 
 void MilestoneGanttView::slotContextMenuRequested( const QModelIndex &idx, const QPoint &pos )
@@ -1501,6 +1506,7 @@ void ResourceAppointmentsGanttView::setScheduleManager( ScheduleManager *sm )
 void ResourceAppointmentsGanttView::setupGui()
 {
     createOptionActions(ViewBase::OptionAll);
+    addActionList("viewmenu", contextActionList());
 }
 
 Node *ResourceAppointmentsGanttView::currentNode() const

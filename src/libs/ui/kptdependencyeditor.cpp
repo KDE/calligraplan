@@ -2351,6 +2351,7 @@ void DependencyEditor::setupGui()
     addAction( name, actionDeleteTask );
 
     createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);
+    addActionList("viewmenu", contextActionList());
 }
 
 void DependencyEditor::slotOptions()
