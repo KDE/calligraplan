@@ -29,6 +29,7 @@
 #include <kactionmenu.h>
 #include <kzip.h>
 #include <KStandardAction>
+#include <KXMLGUIFactory>
 
 #include <KoIcon.h>
 #include <KoDocument.h>
@@ -568,6 +569,9 @@ ViewBase::ViewBase(KoPart *part, KoDocument *doc, QWidget *parent)
 
 ViewBase::~ViewBase()
 {
+    if (factory()) {
+        factory()->removeClient(this);
+    }
     if ( koDocument() ) {
         //HACK to avoid ~View to access koDocument()
         setDocumentDeleted();

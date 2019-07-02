@@ -182,6 +182,8 @@ set_target_properties(planui PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVE
 
 install(TARGETS planui ${INSTALL_TARGETS_DEFAULT_ARGS})
 
+install( FILES  GanttViewUi.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan)
+
 # reports files
 install(FILES
         reportsgenerator/ProjectPerformanceCost.odt

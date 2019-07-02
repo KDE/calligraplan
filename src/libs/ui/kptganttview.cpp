@@ -49,6 +49,7 @@
 #include <KoDocument.h>
 #include <KoXmlReader.h>
 #include <KoPageLayoutWidget.h>
+#include <KoIcon.h>
 
 #include <QSplitter>
 #include <QVBoxLayout>
@@ -824,6 +825,8 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
 {
     debugPlan <<" ---------------- KPlato: Creating GanttView ----------------";
 
+    setXMLFile("GanttViewUi.rc");
+
     QVBoxLayout *l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_splitter = new QSplitter( this );
@@ -831,6 +834,7 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
     m_splitter->setOrientation( Qt::Vertical );
 
     m_gantt = new MyKGanttView( m_splitter );
+    m_gantt->graphicsView()->setHeaderContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, &ViewBase::expandAll, m_gantt->treeView(), &TreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_gantt->treeView(), &TreeViewBase::slotCollapse);
 
@@ -844,6 +848,10 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
 
     connect( m_gantt->treeView(), &TreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
+    connect(m_gantt->graphicsView(), &KGantt::GraphicsView::headerContextMenuRequested, this, &GanttView::slotGanttHeaderContextMenuRequested);
+
+    connect(qobject_cast<KGantt::DateTimeGrid*>(m_gantt->graphicsView()->grid()), &KGantt::DateTimeGrid::gridChanged, this, &GanttView::slotDateTimeGridChanged);
+
     Help::add(this,
               xi18nc("@info:whatsthis",
                      "<title>Gantt View</title>"
@@ -856,6 +864,20 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
                      "This view supports configuration and printing using the context menu of the tree view."
                      "<nl/><link url='%1'>More...</link>"
                      "</para>", Help::page("Manual/Task_Gantt_View")));
+}
+
+void GanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
+{
+    QMenu menu;
+    menu.addAction(actionCollection()->action("scale_auto"));
+    menu.addAction(actionCollection()->action("scale_month"));
+    menu.addAction(actionCollection()->action("scale_week"));
+    menu.addAction(actionCollection()->action("scale_day"));
+    menu.addAction(actionCollection()->action("scale_hour"));
+    menu.addSeparator();
+    menu.addAction(actionCollection()->action("zoom_in"));
+    menu.addAction(actionCollection()->action("zoom_out"));
+    menu.exec(pt);
 }
 
 KoPrintJob *GanttView::createPrintJob()
@@ -873,7 +895,7 @@ void GanttView::setupGui()
 {
     // create context menu actions
     actionShowProject = new KToggleAction( i18n( "Show Project" ), this );
-    actionShowProject->setObjectName("ganttview_show_project");
+    actionCollection()->addAction("show_project", actionShowProject);
     // FIXME: Dependencies depend on these methods being called in the correct order
     connect(actionShowProject, &QAction::triggered, m_gantt, &MyKGanttView::clearDependencies);
     connect(actionShowProject, &QAction::triggered, m_gantt->model(), &NodeItemModel::setShowProject);
@@ -881,12 +903,107 @@ void GanttView::setupGui()
     addContextAction( actionShowProject );
 
     actionShowUnscheduled = new KToggleAction( i18n( "Show Unscheduled Tasks" ), this );
-    actionShowUnscheduled->setObjectName("ganttview_show_unscheduled_tasks");
+    actionCollection()->addAction("show_unscheduled_tasks", actionShowUnscheduled);
     connect(actionShowUnscheduled, &QAction::triggered, m_gantt, &MyKGanttView::setShowUnscheduledTasks);
     addContextAction(actionShowUnscheduled);
 
     createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
+    for (QAction *a : contextActionList()) {
+        actionCollection()->addAction(a->objectName(), a);
+    }
+
+    m_scalegroup = new QActionGroup(this);
+    QAction *a = new QAction(i18nc("@action:inmenu", "Auto"), this);
+    a->setCheckable(true);
+    a->setChecked(true);
+    actionCollection()->addAction("scale_auto", a);
+    connect(a, &QAction::triggered, this, &GanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Month"), this);
+    actionCollection()->addAction("scale_month", a);
+    a->setCheckable(true);
+    connect(a, &QAction::triggered, this, &GanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Week"), this);
+    actionCollection()->addAction("scale_week", a);
+    a->setCheckable(true);
+    connect(a, &QAction::triggered, this, &GanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Day"), this);
+    a->setCheckable(true);
+    actionCollection()->addAction("scale_day", a);
+    connect(a, &QAction::triggered, this, &GanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Hour"), this);
+    a->setCheckable(true);
+    actionCollection()->addAction("scale_hour", a);
+    connect(a, &QAction::triggered, this, &GanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Zoom In"), this);
+    a->setIcon(koIcon("zoom-in"));
+    actionCollection()->addAction("zoom_in", a);
+    connect(a, &QAction::triggered, this, &GanttView::ganttActions);
+
+    a = new QAction(i18nc("@action:inmenu", "Zoom Out"), this);
+    a->setIcon(koIcon("zoom-out"));
+    actionCollection()->addAction("zoom_out", a);
+    connect(a, &QAction::triggered, this, &GanttView::ganttActions);
+}
+
+void GanttView::slotDateTimeGridChanged()
+{
+    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(m_gantt->grid());
+    Q_ASSERT(grid);
+    if (!grid) {
+        return;
+    }
+    QAction *a = m_scalegroup->checkedAction();
+    switch (grid->scale()) {
+        case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action("scale_auto")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action("scale_hour")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleDay: actionCollection()->action("scale_day")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleWeek: actionCollection()->action("scale_week")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleMonth: actionCollection()->action("scale_month")->setChecked(true); break;
+        default:
+            warnPlan<<"Unused scale:"<<grid->scale();
+            break;
+    }
+}
+
+void GanttView::ganttActions()
+{
+    QAction *action = qobject_cast<QAction*>(sender());
+    if (!action) {
+        return;
+    }
+    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(m_gantt->grid());
+    Q_ASSERT(grid);
+    if (!grid) {
+        return;
+    }
+    if (action->objectName() == "scale_auto") {
+        grid->setScale(DateTimeGrid::ScaleAuto);
+    } else if (action->objectName() == "scale_month") {
+        grid->setScale(DateTimeGrid::ScaleMonth);
+    } else if (action->objectName() == "scale_week") {
+        grid->setScale( DateTimeGrid::ScaleWeek);
+    } else if (action->objectName() == "scale_day") {
+        grid->setScale( DateTimeGrid::ScaleDay);
+    } else if (action->objectName() == "scale_hour") {
+        grid->setScale( DateTimeGrid::ScaleHour);
+    } else if (action->objectName() == "zoom_in") {
+        grid->setDayWidth(grid->dayWidth() * 1.25);
+    } else if (action->objectName() == "zoom_out") {
+        // daywidth *MUST NOT* go below 1.0, it is used as an integer later on
+        grid->setDayWidth(qMax<qreal>(1.0, grid->dayWidth() * 0.8));
+    } else {
+        warnPlan<<"Unknown gantt action:"<<action;
+    }
 }
 
 void GanttView::slotOptions()
@@ -1229,6 +1346,8 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
 {
     debugPlan <<" ---------------- Plan: Creating Milesone GanttView ----------------";
 
+    setXMLFile("GanttViewUi.rc");
+
     QVBoxLayout *l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_splitter = new QSplitter( this );
@@ -1238,6 +1357,7 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     setupGui();
 
     m_gantt = new MilestoneKGanttView( m_splitter );
+    m_gantt->graphicsView()->setHeaderContextMenuPolicy(Qt::CustomContextMenu);
 
     m_showTaskName = false; // FIXME
     m_showProgress = false; //FIXME
@@ -1250,6 +1370,22 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     connect( m_gantt->treeView(), &TreeViewBase::contextMenuRequested, this, &MilestoneGanttView::slotContextMenuRequested );
 
     connect( m_gantt->treeView(), &TreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
+    connect(m_gantt->graphicsView(), &KGantt::GraphicsView::headerContextMenuRequested, this, &MilestoneGanttView::slotGanttHeaderContextMenuRequested);
+    connect(qobject_cast<KGantt::DateTimeGrid*>(m_gantt->graphicsView()->grid()), &KGantt::DateTimeGrid::gridChanged, this, &MilestoneGanttView::slotDateTimeGridChanged);
+}
+
+void MilestoneGanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
+{
+    QMenu menu;
+    menu.addAction(actionCollection()->action("scale_auto"));
+    menu.addAction(actionCollection()->action("scale_month"));
+    menu.addAction(actionCollection()->action("scale_week"));
+    menu.addAction(actionCollection()->action("scale_day"));
+    menu.addAction(actionCollection()->action("scale_hour"));
+    menu.addSeparator();
+    menu.addAction(actionCollection()->action("zoom_in"));
+    menu.addAction(actionCollection()->action("zoom_out"));
+    menu.exec(pt);
 }
 
 void MilestoneGanttView::setZoom( double )
@@ -1297,8 +1433,104 @@ Node *MilestoneGanttView::currentNode() const
 
 void MilestoneGanttView::setupGui()
 {
-    createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
+    createOptionActions(ViewBase::OptionAll & ~(ViewBase::OptionExpand|ViewBase::OptionCollapse));
+
+    for (QAction *a : contextActionList()) {
+        actionCollection()->addAction(a->objectName(), a);
+    }
+
+    m_scalegroup = new QActionGroup(this);
+    QAction *a = new QAction(i18nc("@action:inmenu", "Auto"), this);
+    a->setCheckable(true);
+    a->setChecked(true);
+    actionCollection()->addAction("scale_auto", a);
+    connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Month"), this);
+    actionCollection()->addAction("scale_month", a);
+    a->setCheckable(true);
+    connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Week"), this);
+    actionCollection()->addAction("scale_week", a);
+    a->setCheckable(true);
+    connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Day"), this);
+    a->setCheckable(true);
+    actionCollection()->addAction("scale_day", a);
+    connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Hour"), this);
+    a->setCheckable(true);
+    actionCollection()->addAction("scale_hour", a);
+    connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Zoom In"), this);
+    a->setIcon(koIcon("zoom-in"));
+    actionCollection()->addAction("zoom_in", a);
+    connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
+
+    a = new QAction(i18nc("@action:inmenu", "Zoom Out"), this);
+    a->setIcon(koIcon("zoom-out"));
+    actionCollection()->addAction("zoom_out", a);
+    connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
+}
+
+void MilestoneGanttView::slotDateTimeGridChanged()
+{
+    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(m_gantt->grid());
+    Q_ASSERT(grid);
+    if (!grid) {
+        return;
+    }
+    QAction *a = m_scalegroup->checkedAction();
+    switch (grid->scale()) {
+        case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action("scale_auto")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action("scale_hour")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleDay: actionCollection()->action("scale_day")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleWeek: actionCollection()->action("scale_week")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleMonth: actionCollection()->action("scale_month")->setChecked(true); break;
+        default:
+            warnPlan<<"Unused scale:"<<grid->scale();
+            break;
+    }
+}
+
+void MilestoneGanttView::ganttActions()
+{
+    QAction *action = qobject_cast<QAction*>(sender());
+    if (!action) {
+        return;
+    }
+    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(m_gantt->grid());
+    Q_ASSERT(grid);
+    if (!grid) {
+        return;
+    }
+    if (action->objectName() == "scale_auto") {
+        grid->setScale(DateTimeGrid::ScaleAuto);
+    } else if (action->objectName() == "scale_month") {
+        grid->setScale(DateTimeGrid::ScaleMonth);
+    } else if (action->objectName() == "scale_week") {
+        grid->setScale( DateTimeGrid::ScaleWeek);
+    } else if (action->objectName() == "scale_day") {
+        grid->setScale( DateTimeGrid::ScaleDay);
+    } else if (action->objectName() == "scale_hour") {
+        grid->setScale( DateTimeGrid::ScaleHour);
+    } else if (action->objectName() == "zoom_in") {
+        grid->setDayWidth(grid->dayWidth() * 1.25);
+    } else if (action->objectName() == "zoom_out") {
+        // daywidth *MUST NOT* go below 1.0, it is used as an integer later on
+        grid->setDayWidth(qMax<qreal>(1.0, grid->dayWidth() * 0.8));
+    } else {
+        warnPlan<<"Unknown gantt action:"<<action;
+    }
 }
 
 void MilestoneGanttView::slotContextMenuRequested( const QModelIndex &idx, const QPoint &pos )
@@ -1402,8 +1634,10 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
 {
     debugPlan <<" ---------------- KPlato: Creating ResourceAppointmentsGanttView ----------------";
 
-    m_gantt = new GanttViewBase( this );
+    setXMLFile("GanttViewUi.rc");
 
+    m_gantt = new GanttViewBase( this );
+    m_gantt->graphicsView()->setHeaderContextMenuPolicy(Qt::CustomContextMenu);
     m_gantt->graphicsView()->setItemDelegate( new ResourceGanttItemDelegate( m_gantt ) );
 
     GanttTreeView *tv = new GanttTreeView( m_gantt );
@@ -1438,6 +1672,8 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
     connect( m_gantt->leftView(), SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
 
     connect( m_gantt->leftView(), SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect(m_gantt->graphicsView(), &KGantt::GraphicsView::headerContextMenuRequested, this, &ResourceAppointmentsGanttView::slotGanttHeaderContextMenuRequested);
+    connect(qobject_cast<KGantt::DateTimeGrid*>(m_gantt->graphicsView()->grid()), &KGantt::DateTimeGrid::gridChanged, this, &ResourceAppointmentsGanttView::slotDateTimeGridChanged);
 
     Help::add(this,
               xi18nc("@info:whatsthis",
@@ -1456,6 +1692,20 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
 ResourceAppointmentsGanttView::~ResourceAppointmentsGanttView()
 {
     delete m_rowController;
+}
+
+void ResourceAppointmentsGanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
+{
+    QMenu menu;
+    menu.addAction(actionCollection()->action("scale_auto"));
+    menu.addAction(actionCollection()->action("scale_month"));
+    menu.addAction(actionCollection()->action("scale_week"));
+    menu.addAction(actionCollection()->action("scale_day"));
+    menu.addAction(actionCollection()->action("scale_hour"));
+    menu.addSeparator();
+    menu.addAction(actionCollection()->action("zoom_in"));
+    menu.addAction(actionCollection()->action("zoom_out"));
+    menu.exec(pt);
 }
 
 void ResourceAppointmentsGanttView::setZoom( double )
@@ -1506,7 +1756,103 @@ void ResourceAppointmentsGanttView::setScheduleManager( ScheduleManager *sm )
 void ResourceAppointmentsGanttView::setupGui()
 {
     createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
+
+    for (QAction *a : contextActionList()) {
+        actionCollection()->addAction(a->objectName(), a);
+    }
+
+    m_scalegroup = new QActionGroup(this);
+    QAction *a = new QAction(i18nc("@action:inmenu", "Auto"), this);
+    a->setCheckable(true);
+    a->setChecked(true);
+    actionCollection()->addAction("scale_auto", a);
+    connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Month"), this);
+    actionCollection()->addAction("scale_month", a);
+    a->setCheckable(true);
+    connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Week"), this);
+    actionCollection()->addAction("scale_week", a);
+    a->setCheckable(true);
+    connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Day"), this);
+    a->setCheckable(true);
+    actionCollection()->addAction("scale_day", a);
+    connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Hour"), this);
+    a->setCheckable(true);
+    actionCollection()->addAction("scale_hour", a);
+    connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
+    m_scalegroup->addAction(a);
+
+    a = new QAction(i18nc("@action:inmenu", "Zoom In"), this);
+    a->setIcon(koIcon("zoom-in"));
+    actionCollection()->addAction("zoom_in", a);
+    connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
+
+    a = new QAction(i18nc("@action:inmenu", "Zoom Out"), this);
+    a->setIcon(koIcon("zoom-out"));
+    actionCollection()->addAction("zoom_out", a);
+    connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
+}
+
+void ResourceAppointmentsGanttView::slotDateTimeGridChanged()
+{
+    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(m_gantt->grid());
+    Q_ASSERT(grid);
+    if (!grid) {
+        return;
+    }
+    QAction *a = m_scalegroup->checkedAction();
+    switch (grid->scale()) {
+        case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action("scale_auto")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action("scale_hour")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleDay: actionCollection()->action("scale_day")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleWeek: actionCollection()->action("scale_week")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleMonth: actionCollection()->action("scale_month")->setChecked(true); break;
+        default:
+            warnPlan<<"Unused scale:"<<grid->scale();
+            break;
+    }
+}
+
+void ResourceAppointmentsGanttView::ganttActions()
+{
+    QAction *action = qobject_cast<QAction*>(sender());
+    if (!action) {
+        return;
+    }
+    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(m_gantt->grid());
+    Q_ASSERT(grid);
+    if (!grid) {
+        return;
+    }
+    if (action->objectName() == "scale_auto") {
+        grid->setScale(DateTimeGrid::ScaleAuto);
+    } else if (action->objectName() == "scale_month") {
+        grid->setScale(DateTimeGrid::ScaleMonth);
+    } else if (action->objectName() == "scale_week") {
+        grid->setScale( DateTimeGrid::ScaleWeek);
+    } else if (action->objectName() == "scale_day") {
+        grid->setScale( DateTimeGrid::ScaleDay);
+    } else if (action->objectName() == "scale_hour") {
+        grid->setScale( DateTimeGrid::ScaleHour);
+    } else if (action->objectName() == "zoom_in") {
+        grid->setDayWidth(grid->dayWidth() * 1.25);
+    } else if (action->objectName() == "zoom_out") {
+        // daywidth *MUST NOT* go below 1.0, it is used as an integer later on
+        grid->setDayWidth(qMax<qreal>(1.0, grid->dayWidth() * 0.8));
+    } else {
+        warnPlan<<"Unknown gantt action:"<<action;
+    }
 }
 
 Node *ResourceAppointmentsGanttView::currentNode() const

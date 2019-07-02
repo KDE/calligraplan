@@ -1326,6 +1326,7 @@ ViewBase *View::createTaskWorkPackageView( ViewListItem *cat, const QString &tag
     connect(v, &TaskWorkPackageView::checkForWorkPackages, getPart(), &MainDocument::checkForWorkPackages);
     connect(v, &TaskWorkPackageView::loadWorkPackageUrl, this, &View::loadWorkPackage);
     v->updateReadWrite( m_readWrite );
+
     return v;
 }
 
@@ -1360,6 +1361,7 @@ ViewBase *View::createGanttView( ViewListItem *cat, const QString &tag, const QS
 
     connect( ganttview, &GanttView::requestPopupMenu, this, &View::slotPopupMenuRequested);
     ganttview->updateReadWrite( m_readWrite );
+
     return ganttview;
 }
 
@@ -1388,6 +1390,7 @@ ViewBase *View::createMilestoneGanttView( ViewListItem *cat, const QString &tag,
 
     connect( ganttview, &MilestoneGanttView::requestPopupMenu, this, &View::slotPopupMenuRequested);
     ganttview->updateReadWrite( m_readWrite );
+
     return ganttview;
 }
 
@@ -2924,11 +2927,13 @@ void View::slotViewActivated( ViewListItem *item, ViewListItem *prev )
         // A view is shown anyway...
         ViewBase *v = qobject_cast<ViewBase*>( m_viewlist->previousViewItem()->view() );
         if ( v ) {
+            factory()->removeClient(v);
             v->setGuiActive( false );
         }
     } else if ( prev && prev->type() == ViewListItem::ItemType_SubView ) {
         ViewBase *v = qobject_cast<ViewBase*>( prev->view() );
         if ( v ) {
+            factory()->removeClient(v);
             v->setGuiActive( false );
         }
     }
@@ -2938,6 +2943,7 @@ void View::slotViewActivated( ViewListItem *item, ViewListItem *prev )
         // Add sub-view specific gui
         ViewBase *v = dynamic_cast<ViewBase*>( m_tab->currentWidget() );
         if ( v ) {
+            factory()->addClient(v);
             v->setGuiActive( true );
         }
     }

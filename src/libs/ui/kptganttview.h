@@ -39,6 +39,7 @@ class KoDocument;
 
 class QPoint;
 class QSplitter;
+class QActionGroup;
 
 class KoPrintJob;
 
@@ -298,6 +299,7 @@ public:
     void setShowSpecialInfo( bool on ) { m_gantt->model()->setShowSpecial( on ); }
     bool showSpecialInfo() const { return m_gantt->model()->showSpecial(); }
 
+    void setMenuFile(const QString &name) { setXMLFile(name); }
 Q_SIGNALS:
     void modifyRelation(KPlato::Relation *rel) ;
     void addRelation(KPlato::Node *par, KPlato::Node *child);
@@ -319,8 +321,11 @@ public Q_SLOTS:
 
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
+    void slotGanttHeaderContextMenuRequested(const QPoint &pt);
+    void slotDateTimeGridChanged();
     virtual void slotOptions();
     virtual void slotOptionsFinished( int result );
+    void ganttActions();
 
 private:
     bool m_readWrite;
@@ -332,6 +337,8 @@ private:
     QAction *actionShowProject;
     QAction *actionShowUnscheduled;
     QDomDocument m_domdoc;
+
+    QActionGroup *m_scalegroup;
 };
 
 class MilestoneGanttViewSettingsDialog : public ItemViewSettupDialog
@@ -409,7 +416,10 @@ public Q_SLOTS:
 
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
+    void slotGanttHeaderContextMenuRequested(const QPoint &pt);
+    void slotDateTimeGridChanged();
     virtual void slotOptions();
+    void ganttActions();
 
 private:
     bool m_readWrite;
@@ -422,7 +432,7 @@ private:
     bool m_showCriticalTasks;
     bool m_showNoInformation;
     Project *m_project;
-
+    QActionGroup *m_scalegroup;
 };
 
 class ResourceAppointmentsGanttViewSettingsDialog : public ItemViewSettupDialog
@@ -472,7 +482,10 @@ public Q_SLOTS:
 
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
+    void slotGanttHeaderContextMenuRequested(const QPoint &pt);
+    void slotDateTimeGridChanged();
     virtual void slotOptions();
+    void ganttActions();
 
 private:
     GanttViewBase *m_gantt;
@@ -480,7 +493,7 @@ private:
     ResourceAppointmentsGanttModel *m_model;
     KGantt::TreeViewRowController *m_rowController;
     QDomDocument m_domdoc;
-
+    QActionGroup *m_scalegroup;
 };
 
 }  //KPlato namespace
