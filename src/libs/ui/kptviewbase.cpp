@@ -578,6 +578,15 @@ ViewBase::~ViewBase()
     }
 }
 
+QMenu *ViewBase::popupMenu(const QString& name)
+{
+    //debugPlan;
+    if (factory()) {
+        return dynamic_cast<QMenu*>(factory()->container(name, this));
+    }
+    return nullptr;
+}
+
 void ViewBase::setProject( Project *project )
 {
     m_proj = project;

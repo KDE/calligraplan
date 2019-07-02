@@ -308,6 +308,8 @@ public:
 
     void addActionList(const QString &name, const QList<QAction*> actions);
 
+    QMenu *popupMenu(const QString& name);
+
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt) { m_printingOptions = opt; }
     /// Activate/deactivate the gui

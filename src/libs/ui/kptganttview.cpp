@@ -868,16 +868,10 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
 
 void GanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
 {
-    QMenu menu;
-    menu.addAction(actionCollection()->action("scale_auto"));
-    menu.addAction(actionCollection()->action("scale_month"));
-    menu.addAction(actionCollection()->action("scale_week"));
-    menu.addAction(actionCollection()->action("scale_day"));
-    menu.addAction(actionCollection()->action("scale_hour"));
-    menu.addSeparator();
-    menu.addAction(actionCollection()->action("zoom_in"));
-    menu.addAction(actionCollection()->action("zoom_out"));
-    menu.exec(pt);
+    QMenu *menu = popupMenu("gantt_datetimegrid_popup");
+    if (menu) {
+        menu->exec(pt);
+    }
 }
 
 KoPrintJob *GanttView::createPrintJob()
@@ -1376,16 +1370,10 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
 
 void MilestoneGanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
 {
-    QMenu menu;
-    menu.addAction(actionCollection()->action("scale_auto"));
-    menu.addAction(actionCollection()->action("scale_month"));
-    menu.addAction(actionCollection()->action("scale_week"));
-    menu.addAction(actionCollection()->action("scale_day"));
-    menu.addAction(actionCollection()->action("scale_hour"));
-    menu.addSeparator();
-    menu.addAction(actionCollection()->action("zoom_in"));
-    menu.addAction(actionCollection()->action("zoom_out"));
-    menu.exec(pt);
+    QMenu *menu = popupMenu("gantt_datetimegrid_popup");
+    if (menu) {
+        menu->exec(pt);
+    }
 }
 
 void MilestoneGanttView::setZoom( double )
@@ -1696,16 +1684,10 @@ ResourceAppointmentsGanttView::~ResourceAppointmentsGanttView()
 
 void ResourceAppointmentsGanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
 {
-    QMenu menu;
-    menu.addAction(actionCollection()->action("scale_auto"));
-    menu.addAction(actionCollection()->action("scale_month"));
-    menu.addAction(actionCollection()->action("scale_week"));
-    menu.addAction(actionCollection()->action("scale_day"));
-    menu.addAction(actionCollection()->action("scale_hour"));
-    menu.addSeparator();
-    menu.addAction(actionCollection()->action("zoom_in"));
-    menu.addAction(actionCollection()->action("zoom_out"));
-    menu.exec(pt);
+    QMenu *menu = popupMenu("gantt_datetimegrid_popup");
+    if (menu) {
+        menu->exec(pt);
+    }
 }
 
 void ResourceAppointmentsGanttView::setZoom( double )

@@ -299,7 +299,6 @@ public:
     void setShowSpecialInfo( bool on ) { m_gantt->model()->setShowSpecial( on ); }
     bool showSpecialInfo() const { return m_gantt->model()->showSpecial(); }
 
-    void setMenuFile(const QString &name) { setXMLFile(name); }
 Q_SIGNALS:
     void modifyRelation(KPlato::Relation *rel) ;
     void addRelation(KPlato::Node *par, KPlato::Node *child);

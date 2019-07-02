@@ -29,4 +29,15 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
+    <Menu name="gantt_datetimegrid_popup">
+        <text>Gantt</text>
+        <Action name="scale_auto"/>
+        <Action name="scale_month"/>
+        <Action name="scale_week"/>
+        <Action name="scale_day"/>
+        <Action name="scale_hour"/>
+        <Separator/>
+        <Action name="zoom_in"/>
+        <Action name="zoom_out"/>
+    </Menu>
 </gui>
