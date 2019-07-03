@@ -1670,12 +1670,10 @@ void TaskWorkPackageView::updateActionsEnabled( bool on )
 void TaskWorkPackageView::setupGui()
 {
     actionMailWorkpackage  = new QAction(koIcon("cloud-upload"), i18n("Publish..."), this);
-    actionCollection()->setDefaultShortcut( actionMailWorkpackage, Qt::CTRL + Qt::Key_M );
     actionCollection()->addAction("send_workpackage", actionMailWorkpackage );
     connect( actionMailWorkpackage, &QAction::triggered, this, &TaskWorkPackageView::slotMailWorkpackage );
 
     actionOpenWorkpackages = new QAction(koIcon("view-task"), i18n("Work Packages..."), this);
-    actionCollection()->setDefaultShortcut( actionOpenWorkpackages, Qt::CTRL + Qt::Key_O );
     actionCollection()->addAction("open_workpackages", actionOpenWorkpackages );
     actionOpenWorkpackages->setEnabled(false);
     connect( actionOpenWorkpackages, &QAction::triggered, this, &TaskWorkPackageView::openWorkpackages );
