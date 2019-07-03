@@ -3452,8 +3452,10 @@ Qt::ItemFlags NodeItemModel::flags( const QModelIndex &index ) const
             } else if ( ! t->completion().isFinished() ) {
                 switch ( index.column() ) {
                     case NodeModel::NodeActualFinish:
-                    case NodeModel::NodeCompleted:
                     case NodeModel::NodeRemainingEffort:
+                        flags |= Qt::ItemIsEditable;
+                        break;
+                    case NodeModel::NodeCompleted:
                         flags |= Qt::ItemIsEditable;
                         break;
                     case NodeModel::NodeActualEffort:
@@ -4636,32 +4638,42 @@ Qt::ItemFlags MilestoneItemModel::flags( const QModelIndex &index ) const
         flags |= Qt::ItemIsDropEnabled;
         switch ( index.column() ) {
             case NodeModel::NodeName: // name
-                flags |= Qt::ItemIsEditable;
+                if (!isColumnReadOnly(index.column())) {
+                    flags |= Qt::ItemIsEditable;
+                }
                 break;
             case NodeModel::NodeType: break; // Node type
             case NodeModel::NodeResponsible: // Responsible
-                flags |= Qt::ItemIsEditable;
+                if (!isColumnReadOnly(index.column())) {
+                    flags |= Qt::ItemIsEditable;
+                }
                 break;
             case NodeModel::NodeConstraint: // constraint type
-                flags |= Qt::ItemIsEditable;
+                if (!isColumnReadOnly(index.column())) {
+                    flags |= Qt::ItemIsEditable;
+                }
                 break;
             case NodeModel::NodeConstraintStart: { // constraint start
-                Node *n = node( index );
-                if ( n == 0 )
-                    break;
-                int c = n->constraint();
-                if ( c == Node::MustStartOn || c == Node::StartNotEarlier || c == Node::FixedInterval ) {
-                    flags |= Qt::ItemIsEditable;
+                if (!isColumnReadOnly(index.column())) {
+                    Node *n = node( index );
+                    if ( n == 0 )
+                        break;
+                    int c = n->constraint();
+                    if ( c == Node::MustStartOn || c == Node::StartNotEarlier || c == Node::FixedInterval ) {
+                        flags |= Qt::ItemIsEditable;
+                    }
                 }
                 break;
             }
             case NodeModel::NodeConstraintEnd: { // constraint end
-                Node *n = node( index );
-                if ( n == 0 )
-                    break;
-                int c = n->constraint();
-                if ( c == Node::MustFinishOn || c == Node::FinishNotLater || c ==  Node::FixedInterval ) {
-                    flags |= Qt::ItemIsEditable;
+                if (!isColumnReadOnly(index.column())) {
+                    Node *n = node( index );
+                    if ( n == 0 )
+                        break;
+                    int c = n->constraint();
+                    if ( c == Node::MustFinishOn || c == Node::FinishNotLater || c ==  Node::FixedInterval ) {
+                        flags |= Qt::ItemIsEditable;
+                    }
                 }
                 break;
             }
@@ -4669,13 +4681,20 @@ Qt::ItemFlags MilestoneItemModel::flags( const QModelIndex &index ) const
             case NodeModel::NodeStartupCost: // startup cost
             case NodeModel::NodeShutdownAccount: // shutdown account
             case NodeModel::NodeShutdownCost: { // shutdown cost
-                Node *n = node( index );
-                if ( n && (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone) ) {
-                    flags |= Qt::ItemIsEditable;
+                if (!isColumnReadOnly(index.column())) {
+                    Node *n = node( index );
+                    if ( n && (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone) ) {
+                        flags |= Qt::ItemIsEditable;
+                    }
                 }
                 break;
             }
             case NodeModel::NodeDescription: // description
+                break;
+            case NodeModel::NodeCompleted:
+                if (!isColumnReadOnly(index.column())) {
+                    flags |= Qt::ItemIsEditable;
+                }
                 break;
             default:
                 flags &= ~Qt::ItemIsEditable;

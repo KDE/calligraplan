@@ -671,6 +671,11 @@ MyKGanttView::MyKGanttView( QWidget *parent )
 {
     debugPlan<<"------------------- create MyKGanttView -----------------------";
     GanttItemModel *gm = new GanttItemModel( this );
+    for (int i = 0; i < gm->columnCount(); ++i) {
+        if (i != NodeModel::NodeCompleted) {
+            gm->setReadOnly(i, true);
+        }
+    }
     setItemModel( gm );
     treeView()->createItemDelegates( gm );
 
@@ -1183,6 +1188,9 @@ void GanttView::updateReadWrite( bool on )
 {
     // TODO: KGanttView needs read/write mode
     m_readWrite = on;
+    if (m_gantt->model()) {
+        m_gantt->model()->setReadWrite(on);
+    }
 }
 
 //----
@@ -1220,6 +1228,11 @@ MilestoneKGanttView::MilestoneKGanttView( QWidget *parent )
 {
     debugPlan<<"------------------- create MilestoneKGanttView -----------------------";
     MilestoneItemModel *mm = new MilestoneItemModel( this );
+    for (int i = 0; i < mm->columnCount(); ++i) {
+        if (i != NodeModel::NodeCompleted) {
+            mm->setReadOnly(i, true);
+        }
+    }
     setItemModel( mm );
     treeView()->createItemDelegates( mm );
 
@@ -1579,6 +1592,9 @@ void MilestoneGanttView::saveContext( QDomElement &settings ) const
 void MilestoneGanttView::updateReadWrite( bool on )
 {
     m_readWrite = on;
+    if (m_gantt->model()) {
+        m_gantt->model()->setReadWrite(on);
+    }
 }
 
 KoPrintJob *MilestoneGanttView::createPrintJob()
