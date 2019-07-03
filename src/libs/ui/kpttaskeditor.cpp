@@ -1458,6 +1458,8 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
     : ViewBase(part, doc, parent ),
     m_cmd( 0 )
 {
+    setXMLFile("WorkPackageViewUi.rc");
+
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_view = new WorkPackageTreeView( this );
@@ -1644,7 +1646,7 @@ void TaskWorkPackageView::slotContextMenuRequested( const QModelIndex& index, co
         return;
     }
     m_view->setContextMenuIndex(index);
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -1667,28 +1669,25 @@ void TaskWorkPackageView::updateActionsEnabled( bool on )
 
 void TaskWorkPackageView::setupGui()
 {
-//    KActionCollection *coll = actionCollection();
-
-    QString name = "workpackage_list";
     actionMailWorkpackage  = new QAction(koIcon("cloud-upload"), i18n("Publish..."), this);
     actionCollection()->setDefaultShortcut( actionMailWorkpackage, Qt::CTRL + Qt::Key_M );
     actionCollection()->addAction("send_workpackage", actionMailWorkpackage );
     connect( actionMailWorkpackage, &QAction::triggered, this, &TaskWorkPackageView::slotMailWorkpackage );
-    addAction( name, actionMailWorkpackage );
 
     actionOpenWorkpackages = new QAction(koIcon("view-task"), i18n("Work Packages..."), this);
     actionCollection()->setDefaultShortcut( actionOpenWorkpackages, Qt::CTRL + Qt::Key_O );
     actionCollection()->addAction("open_workpackages", actionOpenWorkpackages );
     actionOpenWorkpackages->setEnabled(false);
     connect( actionOpenWorkpackages, &QAction::triggered, this, &TaskWorkPackageView::openWorkpackages );
-    addAction( name, actionOpenWorkpackages );
 
     // Add the context menu actions for the view options
     connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskWorkPackageView::slotSplitView);
     addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
+    for (QAction *a : contextActionList()) {
+        actionCollection()->addAction(a->objectName(), a);
+    }
 }
 
 void TaskWorkPackageView::slotMailWorkpackage()

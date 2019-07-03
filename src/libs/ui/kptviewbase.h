@@ -308,6 +308,7 @@ public:
 
     void addActionList(const QString &name, const QList<QAction*> actions);
 
+    void openPopupMenu(const QString& name, const QPoint &pos);
     QMenu *popupMenu(const QString& name);
 
 public Q_SLOTS:

@@ -578,6 +578,14 @@ ViewBase::~ViewBase()
     }
 }
 
+void ViewBase::openPopupMenu(const QString &name, const QPoint &pos)
+{
+    QMenu *menu = popupMenu(name);
+    if (menu) {
+        menu->exec(pos);
+    }
+}
+
 QMenu *ViewBase::popupMenu(const QString& name)
 {
     //debugPlan;
@@ -2292,6 +2300,7 @@ void DoubleTreeViewBase::init()
     connect( m_rightview, &TreeViewBase::dropAllowed, this, &DoubleTreeViewBase::dropAllowed );
 
     m_actionSplitView = new QAction(koIcon("view-split-left-right"), QString(), this);
+    m_actionSplitView->setObjectName("split_view");
     setViewSplitMode( true );
 
     connect( m_leftview->header(), &QHeaderView::sortIndicatorChanged, this, &DoubleTreeViewBase::slotLeftSortIndicatorChanged );
