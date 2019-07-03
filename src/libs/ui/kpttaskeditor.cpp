@@ -1670,7 +1670,7 @@ void TaskWorkPackageView::setupGui()
 //    KActionCollection *coll = actionCollection();
 
     QString name = "workpackage_list";
-    actionMailWorkpackage  = new QAction(koIcon("mail-send"), i18n("Send..."), this);
+    actionMailWorkpackage  = new QAction(koIcon("cloud-upload"), i18n("Publish..."), this);
     actionCollection()->setDefaultShortcut( actionMailWorkpackage, Qt::CTRL + Qt::Key_M );
     actionCollection()->addAction("send_workpackage", actionMailWorkpackage );
     connect( actionMailWorkpackage, &QAction::triggered, this, &TaskWorkPackageView::slotMailWorkpackage );
