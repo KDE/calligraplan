@@ -31,8 +31,6 @@
             <ActionList name="calendareditor_calendar_list"/>
             <Separator/>
             <ActionList name="calendareditor_day_list"/>
-            <Separator/>
-            <ActionList name="workpackage_list"/>
         </Menu>
         <Menu name="view"><text>&amp;View</text>
             <Action name="view_newview"/>
@@ -87,8 +85,6 @@
         <ActionList name="calendareditor_calendar_list"/>
         <Separator/>
         <ActionList name="calendareditor_day_list"/>
-        <Separator/>
-        <ActionList name="workpackage_list"/>
         <Separator/>
 <!--        <ActionList name="reportview_list"/>
         <Separator/>
