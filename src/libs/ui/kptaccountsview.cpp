@@ -221,7 +221,7 @@ void AccountsView::slotHeaderContextMenuRequested( const QPoint &pos )
 void AccountsView::slotOptions()
 {
     debugPlan;
-    AccountsviewConfigDialog *dlg = new AccountsviewConfigDialog( this, m_view, this, sender()->objectName() == "print options" );
+    AccountsviewConfigDialog *dlg = new AccountsviewConfigDialog( this, m_view, this, sender()->objectName() == "print_options" );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->show();
     dlg->raise();

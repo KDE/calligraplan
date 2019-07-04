@@ -2357,7 +2357,7 @@ void DependencyEditor::setupGui()
 void DependencyEditor::slotOptions()
 {
     debugPlan;
-    DependencyeditorConfigDialog *dlg = new DependencyeditorConfigDialog( this, this, sender()->objectName() == "print options" );
+    DependencyeditorConfigDialog *dlg = new DependencyeditorConfigDialog( this, this, sender()->objectName() == "print_options" );
     connect(dlg, &QDialog::finished, this, &DependencyEditor::slotOptionsFinished);
     dlg->show();
     dlg->raise();

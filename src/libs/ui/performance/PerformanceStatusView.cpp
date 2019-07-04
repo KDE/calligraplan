@@ -290,7 +290,7 @@ void PerformanceStatusView::setupGui()
 void PerformanceStatusView::slotOptions()
 {
     debugPlan;
-    PerformanceStatusViewSettingsDialog *dlg = new PerformanceStatusViewSettingsDialog(this, m_view, this, sender()->objectName() == "print options");
+    PerformanceStatusViewSettingsDialog *dlg = new PerformanceStatusViewSettingsDialog(this, m_view, this, sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->show();
     dlg->raise();

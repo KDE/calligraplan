@@ -1017,7 +1017,7 @@ void GanttView::ganttActions()
 void GanttView::slotOptions()
 {
     debugPlan;
-    GanttViewSettingsDialog *dlg = new GanttViewSettingsDialog( m_gantt, m_gantt->delegate(), this, sender()->objectName() == "print options" );
+    GanttViewSettingsDialog *dlg = new GanttViewSettingsDialog( m_gantt, m_gantt->delegate(), this, sender()->objectName() == "print_options" );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->show();
     dlg->raise();
@@ -1586,7 +1586,7 @@ void MilestoneGanttView::slotContextMenuRequested( const QModelIndex &idx, const
 void MilestoneGanttView::slotOptions()
 {
     debugPlan;
-    MilestoneGanttViewSettingsDialog *dlg =  new MilestoneGanttViewSettingsDialog( m_gantt, this, sender()->objectName() == "print options" );
+    MilestoneGanttViewSettingsDialog *dlg =  new MilestoneGanttViewSettingsDialog( m_gantt, this, sender()->objectName() == "print_options" );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->show();
     dlg->raise();
@@ -1900,7 +1900,7 @@ void ResourceAppointmentsGanttView::slotContextMenuRequested( const QModelIndex 
 void ResourceAppointmentsGanttView::slotOptions()
 {
     debugPlan;
-    ItemViewSettupDialog *dlg = new ResourceAppointmentsGanttViewSettingsDialog(m_gantt, this, sender()->objectName() == "print options");
+    ItemViewSettupDialog *dlg = new ResourceAppointmentsGanttViewSettingsDialog(m_gantt, this, sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->show();
     dlg->raise();

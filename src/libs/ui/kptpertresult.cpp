@@ -220,7 +220,7 @@ void PertResult::slotOptions()
     debugPlan;
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, widget.treeWidgetTaskResult, this );
     // Note: printing needs fixes in SplitterView/ScheduleHandlerView
-    //dlg->addPrintingOptions(sender()->objectName() == "print options");
+    //dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->show();
     dlg->raise();
@@ -422,7 +422,7 @@ void PertCpmView::slotOptions()
     debugPlan;
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, widget.cpmTable, this );
     // Note: printing needs fixes in SplitterView/ScheduleHandlerView
-    //dlg->addPrintingOptions(sender()->objectName() == "print options");
+    //dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->show();
     dlg->raise();
