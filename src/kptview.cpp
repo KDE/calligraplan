@@ -575,7 +575,6 @@ void View::createViews()
         m_defaultView = m_tab->count() - 1;
         v->showColumns(QList<int>() << NodeModel::NodeName
                                     << NodeModel::NodeType
-                                    << NodeModel::NodePriority
                                     << NodeModel::NodeAllocation
                                     << NodeModel::NodeEstimateCalendar
                                     << NodeModel::NodeEstimate
@@ -589,6 +588,7 @@ void View::createViews()
         v = createTaskEditor( cat, "TaskConstraintEditor", i18n("Task Constraints"), i18n("Edit task scheduling constraints") );
         v->showColumns(QList<int>() << NodeModel::NodeName
                                     << NodeModel::NodeType
+                                    << NodeModel::NodePriority
                                     << NodeModel::NodeConstraint
                                     << NodeModel::NodeConstraintStart
                                     << NodeModel::NodeConstraintEnd
