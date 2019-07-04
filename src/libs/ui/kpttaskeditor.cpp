@@ -893,9 +893,7 @@ void TaskEditor::slotOptions()
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, m_view, this );
     dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void TaskEditor::slotAddTask()
@@ -1382,9 +1380,7 @@ void TaskView::slotOptions()
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, m_view, this );
     dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 bool TaskView::loadContext( const KoXmlElement &context )
@@ -1743,9 +1739,7 @@ void TaskWorkPackageView::slotOptions()
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, m_view, this );
     dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 bool TaskWorkPackageView::loadContext( const KoXmlElement &context )

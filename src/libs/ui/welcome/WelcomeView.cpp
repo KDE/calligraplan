@@ -239,9 +239,7 @@ void WelcomeView::slotNewProject()
             connect(m_projectdialog.data(), &MainProjectDialog::dialogFinished, this, &WelcomeView::slotProjectEditFinished);
             connect(m_projectdialog.data(), &MainProjectDialog::sigLoadSharedResources, this, &WelcomeView::slotLoadSharedResources);
         }
-        m_projectdialog->show();
-        m_projectdialog->raise();
-        m_projectdialog->activateWindow();
+        m_projectdialog->open();
     }
 }
 

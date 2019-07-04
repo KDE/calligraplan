@@ -292,9 +292,7 @@ void PerformanceStatusView::slotOptions()
     debugPlan;
     PerformanceStatusViewSettingsDialog *dlg = new PerformanceStatusViewSettingsDialog(this, m_view, this, sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 bool PerformanceStatusView::loadContext(const KoXmlElement &context)

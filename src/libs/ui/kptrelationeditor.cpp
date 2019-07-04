@@ -179,9 +179,7 @@ void RelationEditor::slotOptions()
     }
     ItemViewSettupDialog *dlg = new ItemViewSettupDialog( this, v, col0, this );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void RelationEditor::slotAddRelation()

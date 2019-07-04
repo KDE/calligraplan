@@ -223,9 +223,7 @@ void AccountsView::slotOptions()
     debugPlan;
     AccountsviewConfigDialog *dlg = new AccountsviewConfigDialog( this, m_view, this, sender()->objectName() == "print_options" );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void AccountsView::setProject( Project *project )

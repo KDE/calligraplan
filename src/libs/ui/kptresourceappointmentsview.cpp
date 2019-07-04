@@ -355,9 +355,7 @@ void ResourceAppointmentsView::slotOptions()
     debugPlan;
     ResourceAppointmentsSettingsDialog *dlg = new ResourceAppointmentsSettingsDialog( this, m_view->model(), this, sender()->objectName() == "print_options" );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 

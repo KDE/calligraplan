@@ -306,9 +306,7 @@ void AccountsEditor::slotOptions()
     debugPlan;
     AccountseditorConfigDialog *dlg = new AccountseditorConfigDialog( this, m_view, this );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void AccountsEditor::slotAddAccount()

@@ -1019,9 +1019,7 @@ void GanttView::slotOptions()
     debugPlan;
     GanttViewSettingsDialog *dlg = new GanttViewSettingsDialog( m_gantt, m_gantt->delegate(), this, sender()->objectName() == "print_options" );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void GanttView::slotOptionsFinished( int result )
@@ -1588,9 +1586,7 @@ void MilestoneGanttView::slotOptions()
     debugPlan;
     MilestoneGanttViewSettingsDialog *dlg =  new MilestoneGanttViewSettingsDialog( m_gantt, this, sender()->objectName() == "print_options" );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 bool MilestoneGanttView::loadContext( const KoXmlElement &settings )
@@ -1902,9 +1898,7 @@ void ResourceAppointmentsGanttView::slotOptions()
     debugPlan;
     ItemViewSettupDialog *dlg = new ResourceAppointmentsGanttViewSettingsDialog(m_gantt, this, sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 bool ResourceAppointmentsGanttView::loadContext( const KoXmlElement &settings )

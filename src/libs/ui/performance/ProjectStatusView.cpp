@@ -106,9 +106,7 @@ void ProjectStatusView::slotOptions()
 {
     ProjectStatusViewSettingsDialog *dlg = new ProjectStatusViewSettingsDialog(this, m_view, this, sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 bool ProjectStatusView::loadContext(const KoXmlElement &context)

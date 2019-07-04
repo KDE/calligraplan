@@ -655,9 +655,7 @@ void ViewListWidget::slotConfigureItem()
     }
     if ( dlg ) {
         connect(dlg, &QDialog::finished, this, &ViewListWidget::slotDialogFinished);
-        dlg->show();
-        dlg->raise();
-        dlg->activateWindow();
+        dlg->open();
     }
 }
 

@@ -348,9 +348,7 @@ void ScheduleEditor::slotOptions()
     debugPlan;
     ItemViewSettupDialog *dlg = new ItemViewSettupDialog( this, m_view, true, this );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void ScheduleEditor::slotCalculateSchedule()

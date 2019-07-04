@@ -240,9 +240,7 @@ void CalendarDayView::slotSetWork()
     }
     IntervalEditDialog *dlg = new IntervalEditDialog( cal, days, this );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotIntervalEditDialogFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void CalendarDayView::slotIntervalEditDialogFinished( int result )
@@ -673,9 +671,7 @@ void CalendarEditor::slotOptions()
 {
     ItemViewSettupDialog *dlg = new ItemViewSettupDialog( this, m_calendarview, false, this );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void CalendarEditor::updateReadWrite( bool readwrite )
@@ -789,9 +785,7 @@ void CalendarEditor::slotSetWork()
     }
     IntervalEditDialog *dlg = new IntervalEditDialog( currentCalendar(), m_currentMenuDateList, this );
     connect(dlg, SIGNAL(finished(int)), SLOT(slotIntervalEditDialogFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
     m_currentMenuDateList.clear();
 }
 
