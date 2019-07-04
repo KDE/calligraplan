@@ -1325,6 +1325,7 @@ ViewBase *View::createTaskWorkPackageView( ViewListItem *cat, const QString &tag
     connect(this, &View::workPackagesAvailable, v, &TaskWorkPackageView::slotWorkpackagesAvailable);
     connect(v, &TaskWorkPackageView::checkForWorkPackages, getPart(), &MainDocument::checkForWorkPackages);
     connect(v, &TaskWorkPackageView::loadWorkPackageUrl, this, &View::loadWorkPackage);
+    connect(v, &TaskWorkPackageView::openTaskDescription, this, &View::slotOpenTaskDescription);
     v->updateReadWrite( m_readWrite );
 
     return v;
@@ -1360,6 +1361,7 @@ ViewBase *View::createGanttView( ViewListItem *cat, const QString &tag, const QS
     connect( this, &View::currentScheduleManagerChanged, ganttview, &GanttView::setScheduleManager);
 
     connect( ganttview, &GanttView::requestPopupMenu, this, &View::slotPopupMenuRequested);
+    connect( ganttview, &GanttView::openTaskDescription, this, &View::slotOpenTaskDescription);
     ganttview->updateReadWrite( m_readWrite );
 
     return ganttview;
@@ -1389,6 +1391,7 @@ ViewBase *View::createMilestoneGanttView( ViewListItem *cat, const QString &tag,
     connect( this, &View::currentScheduleManagerChanged, ganttview, &MilestoneGanttView::setScheduleManager);
 
     connect( ganttview, &MilestoneGanttView::requestPopupMenu, this, &View::slotPopupMenuRequested);
+    connect( ganttview, &MilestoneGanttView::openTaskDescription, this, &View::slotOpenTaskDescription);
     ganttview->updateReadWrite( m_readWrite );
 
     return ganttview;

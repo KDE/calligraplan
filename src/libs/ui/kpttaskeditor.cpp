@@ -1533,6 +1533,15 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
     connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
 
     connect(m_view->proxyModel(), &WorkPackageProxyModel::loadWorkPackage, this, &TaskWorkPackageView::slotLoadWorkPackage);
+    connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskWorkPackageView::itemDoubleClicked);
+    connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskWorkPackageView::itemDoubleClicked);
+}
+
+void TaskWorkPackageView::itemDoubleClicked(const QPersistentModelIndex &idx)
+{
+    if (idx.column() == NodeModel::NodeDescription) {
+        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+    }
 }
 
 Project *TaskWorkPackageView::project() const

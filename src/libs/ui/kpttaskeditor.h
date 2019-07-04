@@ -350,6 +350,7 @@ private Q_SLOTS:
     void slotSelectionChanged( const QModelIndexList& );
     void slotCurrentChanged( const QModelIndex&, const QModelIndex& );
     void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void itemDoubleClicked(const QPersistentModelIndex &idx);
 
     void slotEnableActions();
 

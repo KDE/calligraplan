@@ -857,6 +857,8 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
 
     connect(qobject_cast<KGantt::DateTimeGrid*>(m_gantt->graphicsView()->grid()), &KGantt::DateTimeGrid::gridChanged, this, &GanttView::slotDateTimeGridChanged);
 
+    connect(m_gantt->leftView(), &GanttTreeView::doubleClicked, this, &GanttView::itemDoubleClicked);
+
     Help::add(this,
               xi18nc("@info:whatsthis",
                      "<title>Gantt View</title>"
@@ -869,6 +871,13 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
                      "This view supports configuration and printing using the context menu of the tree view."
                      "<nl/><link url='%1'>More...</link>"
                      "</para>", Help::page("Manual/Task_Gantt_View")));
+}
+
+void GanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
+{
+    if (idx.column() == NodeModel::NodeDescription) {
+        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+    }
 }
 
 void GanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
@@ -1379,6 +1388,15 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     connect( m_gantt->treeView(), &TreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
     connect(m_gantt->graphicsView(), &KGantt::GraphicsView::headerContextMenuRequested, this, &MilestoneGanttView::slotGanttHeaderContextMenuRequested);
     connect(qobject_cast<KGantt::DateTimeGrid*>(m_gantt->graphicsView()->grid()), &KGantt::DateTimeGrid::gridChanged, this, &MilestoneGanttView::slotDateTimeGridChanged);
+
+    connect(m_gantt->treeView(), &GanttTreeView::doubleClicked, this, &MilestoneGanttView::itemDoubleClicked);
+}
+
+void MilestoneGanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
+{
+    if (idx.column() == NodeModel::NodeDescription) {
+        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+    }
 }
 
 void MilestoneGanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)

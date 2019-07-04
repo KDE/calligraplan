@@ -304,7 +304,6 @@ Q_SIGNALS:
     void addRelation(KPlato::Node *par, KPlato::Node *child);
     void modifyRelation(KPlato::Relation *rel, int linkType) ;
     void addRelation(KPlato::Node *par, KPlato::Node *child, int linkType);
-    void itemDoubleClicked();
 
 public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm);
@@ -325,6 +324,7 @@ protected Q_SLOTS:
     virtual void slotOptions();
     virtual void slotOptionsFinished( int result );
     void ganttActions();
+    void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 private:
     bool m_readWrite;
@@ -401,9 +401,6 @@ public:
 
     KoPrintJob *createPrintJob();
 
-Q_SIGNALS:
-    void itemDoubleClicked();
-
 public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm);
 
@@ -419,6 +416,7 @@ protected Q_SLOTS:
     void slotDateTimeGridChanged();
     virtual void slotOptions();
     void ganttActions();
+    void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 private:
     bool m_readWrite;
