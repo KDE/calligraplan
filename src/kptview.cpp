@@ -1578,9 +1578,7 @@ void View::slotInsertFile()
 {
     InsertFileDialog *dlg = new InsertFileDialog( getProject(), currentTask(), this );
     connect(dlg, &QDialog::finished, this, &View::slotInsertFileFinished);
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void View::slotInsertFileFinished( int result )
@@ -1599,9 +1597,7 @@ void View::slotLoadSharedProjects()
 {
     LoadSharedProjectsDialog *dlg = new LoadSharedProjectsDialog( getProject(), getPart()->url(), this );
     connect(dlg, &QDialog::finished, this, &View::slotLoadSharedProjectsFinished);
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void View::slotLoadSharedProjectsFinished( int result )
@@ -1625,9 +1621,7 @@ void View::slotProjectWorktime()
 {
     StandardWorktimeDialog *dia = new StandardWorktimeDialog( getProject(), this );
     connect(dia, &QDialog::finished, this, &View::slotProjectWorktimeFinished);
-    dia->show();
-    dia->raise();
-    dia->activateWindow();
+    dia->open();
 }
 
 void View::slotProjectWorktimeFinished( int result )
@@ -1876,9 +1870,7 @@ void View::slotAddSubTask()
     Task * node = getProject().createTask( getPart() ->config().taskDefaults() );
     SubTaskAddDialog *dia = new SubTaskAddDialog( getProject(), *node, currentNode(), getProject().accounts(), this );
     connect(dia, &QDialog::finished, this, &View::slotAddSubTaskFinished);
-    dia->show();
-    dia->raise();
-    dia->activateWindow();
+    dia->open();
 }
 
 void View::slotAddSubTaskFinished( int result )
@@ -1899,9 +1891,7 @@ void View::slotAddTask()
     Task * node = getProject().createTask( getPart() ->config().taskDefaults() );
     TaskAddDialog *dia = new TaskAddDialog( getProject(), *node, currentNode(), getProject().accounts(), this );
     connect(dia, &QDialog::finished, this, &View::slotAddTaskFinished);
-    dia->show();
-    dia->raise();
-    dia->activateWindow();
+    dia->open();
 }
 
 void View::slotAddTaskFinished( int result )
@@ -1924,9 +1914,7 @@ void View::slotAddMilestone()
 
     TaskAddDialog *dia = new TaskAddDialog( getProject(), *node, currentNode(), getProject().accounts(), this );
     connect(dia, &QDialog::finished, this, &View::slotAddMilestoneFinished);
-    dia->show();
-    dia->raise();
-    dia->activateWindow();
+    dia->open();
 }
 
 void View::slotAddMilestoneFinished( int result )
@@ -1950,9 +1938,7 @@ void View::slotAddSubMilestone()
 
     SubTaskAddDialog *dia = new SubTaskAddDialog( getProject(), *node, currentNode(), getProject().accounts(), this );
     connect(dia, &QDialog::finished, this, &View::slotAddSubMilestoneFinished);
-    dia->show();
-    dia->raise();
-    dia->activateWindow();
+    dia->open();
 }
 
 void View::slotAddSubMilestoneFinished( int result )
@@ -1975,9 +1961,7 @@ void View::slotDefineWBS()
     Project &p = getProject();
     WBSDefinitionDialog *dia = new WBSDefinitionDialog( p, p.wbsDefinition(), this );
     connect(dia, &QDialog::finished, this, &View::slotDefineWBSFinished);
-    dia->show();
-    dia->raise();
-    dia->activateWindow();
+    dia->open();
 }
 
 void View::slotDefineWBSFinished( int result )
@@ -2008,7 +1992,7 @@ void View::slotConfigure()
     dialog->addPage(new TaskDefaultPanel(), i18n("Task Defaults"), koIconName("view-task") );
     dialog->addPage(new ColorsConfigPanel(), i18n("Task Colors"), koIconName("fill-color") );
     dialog->addPage(new WorkPackageConfigPanel(), i18n("Work Package"), koIconName("calligraplanwork") );
-    dialog->show();
+    dialog->open();
 
 }
 
@@ -2093,9 +2077,7 @@ void View::slotOpenNode( Node *node )
                 connect(dia, &MainProjectDialog::sigLoadSharedResources, this, &View::slotInsertResourcesFile);
                 connect(dia, &MainProjectDialog::loadResourceAssignments, getPart(), &MainDocument::loadResourceAssignments);
                 connect(dia, &MainProjectDialog::clearResourceAssignments, getPart(), &MainDocument::clearResourceAssignments);
-                dia->show();
-                dia->raise();
-                dia->activateWindow();
+                dia->open();
                 break;
             }
         case Node::Type_Subproject:
@@ -2105,9 +2087,7 @@ void View::slotOpenNode( Node *node )
                 Task *task = static_cast<Task *>( node );
                 TaskDialog *dia = new TaskDialog( getProject(), *task, getProject().accounts(), this );
                 connect(dia, &QDialog::finished, this, &View::slotTaskEditFinished);
-                dia->show();
-                dia->raise();
-                dia->activateWindow();
+                dia->open();
                 break;
             }
         case Node::Type_Milestone: {
@@ -2118,9 +2098,7 @@ void View::slotOpenNode( Node *node )
                 Task *task = static_cast<Task *>( node );
                 TaskDialog *dia = new TaskDialog( getProject(), *task, getProject().accounts(), this );
                 connect(dia, &QDialog::finished, this, &View::slotTaskEditFinished);
-                dia->show();
-                dia->raise();
-                dia->activateWindow();
+                dia->open();
                 break;
             }
         case Node::Type_Summarytask: {
@@ -2128,9 +2106,7 @@ void View::slotOpenNode( Node *node )
                 Q_ASSERT( task );
                 SummaryTaskDialog *dia = new SummaryTaskDialog( *task, this );
                 connect(dia, &QDialog::finished, this, &View::slotSummaryTaskEditFinished);
-                dia->show();
-                dia->raise();
-                dia->activateWindow();
+                dia->open();
                 break;
             }
         default:
@@ -2228,9 +2204,7 @@ void View::slotTaskProgress()
                 Q_ASSERT( task );
                 TaskProgressDialog *dia = new TaskProgressDialog( *task, currentScheduleManager(),  getProject().standardWorktime(), this );
                 connect(dia, &QDialog::finished, this, &View::slotTaskProgressFinished);
-                dia->show();
-                dia->raise();
-                dia->activateWindow();
+                dia->open();
                 break;
             }
         case Node::Type_Milestone: {
@@ -2238,9 +2212,7 @@ void View::slotTaskProgress()
                 Q_ASSERT( task );
                 MilestoneProgressDialog *dia = new MilestoneProgressDialog( *task, this );
                 connect(dia, &QDialog::finished, this, &View::slotMilestoneProgressFinished);
-                dia->show();
-                dia->raise();
-                dia->activateWindow();
+                dia->open();
                 break;
             }
         case Node::Type_Summarytask: {
@@ -2304,9 +2276,7 @@ void View::slotOpenTaskDescription(bool rw)
         case Node::Type_Summarytask: {
                 TaskDescriptionDialog *dia = new TaskDescriptionDialog( *node, this, rw );
                 connect(dia, &QDialog::finished, this, &View::slotTaskDescriptionFinished);
-                dia->show();
-                dia->raise();
-                dia->activateWindow();
+                dia->open();
                 break;
             }
         default:
@@ -2346,9 +2316,7 @@ void View::slotDocuments()
         case Node::Type_Milestone: {
             DocumentsDialog *dia = new DocumentsDialog(*node, this);
             connect(dia, &QDialog::finished, this, &View::slotDocumentsFinished);
-            dia->show();
-            dia->raise();
-            dia->activateWindow();
+            dia->open();
             break;
         }
         default:
@@ -2515,9 +2483,7 @@ void View::openRelationDialog( Node *par, Node *child )
     Relation * rel = new Relation( par, child );
     AddRelationDialog *dia = new AddRelationDialog( getProject(), rel, this );
     connect(dia, &QDialog::finished, this, &View::slotAddRelationFinished);
-    dia->show();
-    dia->raise();
-    dia->activateWindow();
+    dia->open();
 }
 
 void View::slotAddRelationFinished( int result )
@@ -2553,9 +2519,7 @@ void View::slotEditRelation( Relation *rel )
     //debugPlan;
     ModifyRelationDialog *dia = new ModifyRelationDialog( getProject(), rel, this );
     connect(dia, &QDialog::finished, this, &View::slotModifyRelationFinished);
-    dia->show();
-    dia->raise();
-    dia->activateWindow();
+    dia->open();
 }
 
 void View::slotModifyRelationFinished( int result )
@@ -2622,9 +2586,7 @@ void View::slotEditResource( Resource *resource )
     }
     ResourceDialog *dia = new ResourceDialog( getProject(), resource, this );
     connect(dia, &QDialog::finished, this, &View::slotEditResourceFinished);
-    dia->show();
-    dia->raise();
-    dia->activateWindow();
+    dia->open();
 }
 
 void View::slotEditResourceFinished( int result )
@@ -2865,9 +2827,7 @@ void View::slotOpenReportFile()
 #ifdef PLAN_USE_KREPORT
     QFileDialog *dlg = new QFileDialog(this);
     connect(dlg, &QDialog::finished, &View::slotOpenReportFileFinished(int)));
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 #endif
 }
 
@@ -2908,9 +2868,7 @@ void View::slotCreateView()
 {
     ViewListDialog *dlg = new ViewListDialog( this, *m_viewlist, this );
     connect(dlg, &QDialog::finished, this, &View::slotCreateViewFinished);
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void View::slotCreateViewFinished( int )
@@ -3225,9 +3183,7 @@ void View::slotCurrencyConfig()
 {
     LocaleConfigMoneyDialog *dlg = new LocaleConfigMoneyDialog( getProject().locale(), this );
     connect(dlg, &QDialog::finished, this, &View::slotCurrencyConfigFinished);
-    dlg->show();
-    dlg->raise();
-    dlg->activateWindow();
+    dlg->open();
 }
 
 void View::slotCurrencyConfigFinished( int result )
