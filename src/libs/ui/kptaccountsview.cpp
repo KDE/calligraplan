@@ -169,6 +169,7 @@ AccountsView::AccountsView(KoPart *part, Project *project, KoDocument *doc, QWid
         m_project(project),
         m_manager( 0 )
 {
+    setXMLFile("AccountsViewUi.rc");
     init();
 
     setupGui();
@@ -198,7 +199,6 @@ void AccountsView::init()
 void AccountsView::setupGui()
 {
     createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
 }
 
 void AccountsView::slotContextMenuRequested( const QModelIndex &index, const QPoint &pos )

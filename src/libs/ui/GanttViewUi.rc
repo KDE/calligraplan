@@ -23,6 +23,7 @@
             </Menu>
             <Separator/>
             <Action name="print"/>
+            <Action name="print_preview"/>
             <Action name="print_pdf"/>
             <Action name="print_options"/>
             <Separator/>

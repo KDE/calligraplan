@@ -193,26 +193,10 @@ public:
     ViewActionLists() : actionOptions( 0 ) {}
     virtual ~ViewActionLists() {}
 
-    /// Returns the list of action lists that shall be plugged/unplugged
-    virtual QStringList actionListNames() const { return m_actionListMap.keys(); }
-    /// Returns the list of actions associated with the action list name
-    virtual QList<QAction*> actionList( const QString &name ) const { return m_actionListMap[name]; }
-    /// Add an action to the specified action list
-    void addAction( const QString &list, QAction *action ) { m_actionListMap[list].append( action ); }
-
-    virtual QList<QAction*> viewlistActionList() const { return m_viewlistActionList; }
-    void addViewlistAction( QAction *action ) { m_viewlistActionList.append( action ); }
-
     QList<QAction*> contextActionList() const { return m_contextActionList; }
-    void addContextAction( QAction *action ) { m_contextActionList.append( action ); }
+    void addContextAction(QAction *action, int pos = INT_MAX) { m_contextActionList.insert(pos, action); }
 
 protected:
-    /// List of all menu/toolbar actions (used for plug/unplug)
-    QMap<QString, QList<QAction*> > m_actionListMap;
-
-    /// List of actions that will be shown in the viewlist context menu
-    QList<QAction*> m_viewlistActionList;
-
     /// List of actions that will be shown in the views header context menu
     QList<QAction*> m_contextActionList;
 
@@ -292,7 +276,6 @@ public:
     PrintingOptions printingOptions() const { return m_printingOptions; }
     static QWidget *createPageLayoutWidget( ViewBase *view );
     static PrintingHeaderFooter *createHeaderFooterWidget( ViewBase *view );
-    void addAction( const QString &list, QAction *action ) { ViewActionLists::addAction( list, action );  }
 
     virtual void createDockers() {}
     void addDocker( DockWidget *ds );
@@ -305,8 +288,6 @@ public:
     /// If @p right is empty, the right view is hidden
     /// Columns are sorted according to the lists
     void showColumns(const QList<int> &left, const QList<int> &right = QList<int>());
-
-    void addActionList(const QString &name, const QList<QAction*> actions);
 
     void openPopupMenu(const QString& name, const QPoint &pos);
     QMenu *popupMenu(const QString& name);

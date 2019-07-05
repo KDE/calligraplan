@@ -38,6 +38,8 @@
 #include "KoPageLayoutWidget.h"
 #include <KoIcon.h>
 
+#include <KActionCollection>
+
 #include <QDragMoveEvent>
 #include <QModelIndex>
 #include <QVBoxLayout>
@@ -165,6 +167,8 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent )
     m_id( -1 )
 {
     debugPlan<<"-------------------- creating TaskStatusView -------------------";
+    setXMLFile("TaskStatusViewUi.rc");
+
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_view = new TaskStatusTreeView( this );
@@ -322,11 +326,11 @@ void TaskStatusView::slotContextMenuRequested( Node *node, const QPoint& pos )
 void TaskStatusView::setupGui()
 {
     // Add the context menu actions for the view options
+    actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskStatusView::slotSplitView);
     addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
 }
 
 void TaskStatusView::slotSplitView()

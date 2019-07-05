@@ -185,7 +185,7 @@ ResourceAppointmentsView::ResourceAppointmentsView(KoPart *part, KoDocument *doc
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"------------------- ResourceAppointmentsView -----------------------";
-
+    setXMLFile("ResourceAppointmentsViewUi.rc");
     setupGui();
 
     QVBoxLayout * l = new QVBoxLayout( this );
@@ -347,7 +347,6 @@ void ResourceAppointmentsView::setupGui()
 {
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
 }
 
 void ResourceAppointmentsView::slotOptions()

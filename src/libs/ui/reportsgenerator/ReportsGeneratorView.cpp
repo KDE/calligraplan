@@ -211,6 +211,8 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"----------------- Create ReportsGeneratorView ----------------------";
+    setXMLFile("ReportsGeneratorViewUi.rc");
+
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
     m_view = new QTreeView(this);
@@ -310,33 +312,24 @@ void ReportsGeneratorView::updateActionsEnabled(bool on)
 
 void ReportsGeneratorView::setupGui()
 {
-    // Umpff, adding a specific list name for this view in calligraplan.rc does not work!
-    // But reusing an already existing name works, so...
-    // Not important atm, the whole setup should be refactored anyway.
-    //QString name = "reportsgeneratorview_list";
-    QString name = "workpackage_list";
-
     KActionCollection *coll = actionCollection();
 
     actionAddReport = new QAction(koIcon("list-add"), i18n("Add Report"), this);
     coll->addAction("add_report", actionAddReport);
     coll->setDefaultShortcut(actionAddReport, Qt::CTRL + Qt::Key_I);
     connect(actionAddReport, &QAction::triggered, this, &ReportsGeneratorView::slotAddReport);
-    addAction(name, actionAddReport);
     addContextAction(actionAddReport);
 
     actionRemoveReport = new QAction(koIcon("list-remove"), i18n("Remove Report"), this);
     coll->addAction("remove_report", actionRemoveReport);
     coll->setDefaultShortcut(actionRemoveReport, Qt::CTRL + Qt::Key_D);
     connect(actionRemoveReport, &QAction::triggered, this, &ReportsGeneratorView::slotRemoveReport);
-    addAction(name, actionRemoveReport);
     addContextAction(actionRemoveReport);
 
     actionGenerateReport = new QAction(koIcon("document-export"), i18n("Generate Report"), this);
     coll->addAction("generate_report", actionGenerateReport);
     coll->setDefaultShortcut(actionGenerateReport, Qt::CTRL + Qt::Key_G);
     connect(actionGenerateReport, &QAction::triggered, this, &ReportsGeneratorView::slotGenerateReport);
-    addAction(name, actionGenerateReport);
     addContextAction(actionGenerateReport);
 
 //     createOptionAction();

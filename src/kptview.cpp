@@ -2732,15 +2732,7 @@ void View::slotUpdate()
 
 void View::slotGuiActivated( ViewBase *view, bool activate )
 {
-    //FIXME: Avoid unplug if possible, it flashes the gui
-    // always unplug, in case they already are plugged
-    foreach( const QString &name, view->actionListNames() ) {
-        unplugActionList( name );
-    }
     if ( activate ) {
-        foreach( const QString &name, view->actionListNames() ) {
-            plugActionList( name, view->actionList( name ) );
-        }
         foreach ( DockWidget *ds, view->dockers() ) {
             m_dockers.append( ds );
             ds->activate( mainWindow() );

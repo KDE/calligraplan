@@ -213,28 +213,6 @@ ViewBase *SplitterView::focusView() const
     return 0;
 }
 
-QStringList SplitterView::actionListNames() const
-{
-    QStringList lst = ViewActionLists::actionListNames();
-    ViewBase *view = focusView();
-    if ( view && view != this ) {
-        lst << view->actionListNames();
-    }
-    return lst;
-}
-
-QList<QAction*> SplitterView::actionList( const QString &name ) const
-{
-    QList<QAction*> lst = ViewActionLists::actionList( name );
-    if ( lst.isEmpty() ) {
-        ViewBase *view = focusView();
-        if ( view && view != this ) {
-            lst = view->actionList( name );
-        }
-    }
-    return lst;
-}
-    
 QList<QAction*> SplitterView::contextActionList() const
 {
     ViewBase *view = focusView();

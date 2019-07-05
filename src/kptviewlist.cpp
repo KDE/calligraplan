@@ -796,7 +796,8 @@ void ViewListWidget::contextMenuEvent ( QContextMenuEvent *event )
             lst += m_viewactions;
             ViewBase *v = dynamic_cast<ViewBase*>( m_contextitem->view() );
             if ( v ) {
-                lst += v->viewlistActionList();
+                // TODO: review
+                //lst += v->viewlistActionList();
             }
         }
         lst += m_listactions;

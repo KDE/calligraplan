@@ -48,7 +48,6 @@ set(planui_LIB_SRCS
 
     kptworkpackagesendpanel.cpp
     kptworkpackagesenddialog.cpp
-    
     kptdocumentseditor.cpp
     kptdocumentspanel.cpp
     kptdocumentsdialog.cpp
@@ -183,8 +182,22 @@ set_target_properties(planui PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVE
 install(TARGETS planui ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install( FILES
+        AccountsEditorUi.rc
+        AccountsViewUi.rc
+        CalendarEditorUi.rc
+        TaskEditorUi.rc
+        DependencyEditorUi.rc
+        ResourceEditorUi.rc
+        ResourceAppointmentsViewUi.rc
+        ScheduleEditorUi.rc
         GanttViewUi.rc
         WorkPackageViewUi.rc
+        reportsgenerator/ReportsGeneratorViewUi.rc
+        performance/PerformanceStatusViewUi.rc
+        performance/ProjectStatusViewUi.rc
+        PertResultUi.rc
+        TaskViewUi.rc
+        TaskStatusViewUi.rc
     DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan
 )
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kpartgui>
+<gui name="scheduleeditor" version="2" translationDomain="calligraplan">
+    <MenuBar>
+        <Menu name="edit">
+            <Action name="add_schedule"/>
+            <Action name="add_subschedule"/>
+            <Action name="delete_selection"/>
+            <Action name="calculate_schedule"/>
+            <Action name="schedule_baseline"/>
+            <Action name="schedule_move_left"/>
+        </Menu>
+        <Menu name="view">
+            <Separator/>
+            <Action name="expand_all"/>
+            <Action name="collapse_all"/>
+            <Separator/>
+            <Action name="print"/>
+            <Action name="print_pdf"/>
+            <Action name="print_options"/>
+            <Separator/>
+            <Action name="configure_view"/>
+        </Menu>
+    </MenuBar>
+    <ToolBar name="project">
+        <Action name="add_schedule"/>
+        <Action name="add_subschedule"/>
+        <Action name="delete_selection"/>
+        <Action name="calculate_schedule"/>
+        <Action name="schedule_baseline"/>
+        <Action name="schedule_move_left"/>
+    </ToolBar>
+</gui>

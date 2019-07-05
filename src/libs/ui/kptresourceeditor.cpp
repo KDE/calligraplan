@@ -118,6 +118,8 @@ QList<Resource*> ResourceTreeView::selectedResources() const
 ResourceEditor::ResourceEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
+    setXMLFile("ResourceEditorUi.rc");
+
     Help::add(this,
         xi18nc("@info:whatsthis", 
                "<title>Resource Editor</title>"
@@ -284,31 +286,27 @@ void ResourceEditor::updateActionsEnabled(  bool on )
 
 void ResourceEditor::setupGui()
 {
-    QString name = "resourceeditor_edit_list";
     actionAddGroup  = new QAction(koIcon("resource-group-new"), i18n("Add Resource Group"), this);
     actionCollection()->addAction("add_group", actionAddGroup );
     actionCollection()->setDefaultShortcut(actionAddGroup, Qt::CTRL + Qt::Key_I);
     connect( actionAddGroup, &QAction::triggered, this, &ResourceEditor::slotAddGroup );
-    addAction( name, actionAddGroup );
     
     actionAddResource  = new QAction(koIcon("list-add-user"), i18n("Add Resource"), this);
     actionCollection()->addAction("add_resource", actionAddResource );
     actionCollection()->setDefaultShortcut(actionAddResource, Qt::CTRL + Qt::SHIFT + Qt::Key_I);
     connect( actionAddResource, &QAction::triggered, this, &ResourceEditor::slotAddResource );
-    addAction( name, actionAddResource );
     
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
     actionCollection()->addAction("delete_selection", actionDeleteSelection );
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
     connect( actionDeleteSelection, &QAction::triggered, this, &ResourceEditor::slotDeleteSelection );
-    addAction( name, actionDeleteSelection );
     
     // Add the context menu actions for the view options
+    actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &ResourceEditor::slotSplitView);
     addContextAction( m_view->actionSplitView() );
     
     createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
 }
 
 void ResourceEditor::slotSplitView()

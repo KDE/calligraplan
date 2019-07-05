@@ -51,6 +51,8 @@ ProjectStatusView::ProjectStatusView(KoPart *part, KoDocument *doc, QWidget *par
     m_project(0)
 {
     debugPlan<<"-------------------- creating ProjectStatusView -------------------";
+    setXMLFile("ProjectStatusViewUi.rc");
+
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
     m_view = new PerformanceStatusBase(this);
@@ -98,8 +100,7 @@ void ProjectStatusView::setGuiActive(bool activate)
 void ProjectStatusView::setupGui()
 {
     // Add the context menu actions for the view options
-    createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintConfig | ViewBase::OptionViewConfig);
-    addActionList("viewmenu", contextActionList());
+    createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig | ViewBase::OptionViewConfig);
 }
 
 void ProjectStatusView::slotOptions()

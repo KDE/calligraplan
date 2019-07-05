@@ -696,46 +696,52 @@ void ViewBase::slotHeaderContextMenuRequested( const QPoint &pos )
 void ViewBase::createOptionActions(int actions, const QString &prefix)
 {
     QAction *action;
+    // These goes at the top
     action = new QAction(this);
     action->setSeparator(true);
-    addContextAction(action);
+    int pos = 0;
+    addContextAction(action, pos++);
 
     if (actions & OptionExpand) {
         action = new QAction(koIcon("arrow-down"), i18n("Expand All"), this);
-        action->setObjectName(prefix + "expand_all");
+        actionCollection()->addAction("expand_all", action);
         connect(action, &QAction::triggered, this, &ViewBase::expandAll);
-        addContextAction(action);
+        addContextAction(action, pos++);
     }
-    if (actions & OptionExpand) {
+    if (actions & OptionCollapse) {
         action = new QAction(koIcon("arrow-up"), i18n("Collapse All"), this);
-        action->setObjectName(prefix + "collapse_all");
+        actionCollection()->addAction("collapse_all", action);
         connect(action, &QAction::triggered, this, &ViewBase::collapseAll);
-        addContextAction(action);
+        addContextAction(action, pos++);
     }
+    action = new QAction(this);
+    action->setSeparator(true);
+    addContextAction(action, pos++);
 
+    // rest are appended
     action = new QAction(this);
     action->setSeparator(true);
     addContextAction(action);
 
     if (actions & OptionPrint) {
         action = KStandardAction::create(KStandardAction::Print, mainWindow(), SLOT(slotFilePrint()), this);
-        action->setObjectName(prefix + "print");
+        actionCollection()->addAction("print", action);
         addContextAction(action);
     }
     if (actions & OptionPrintPreview) {
         action = KStandardAction::create(KStandardAction::PrintPreview, mainWindow(), SLOT(slotFilePrintPreview()), this);
-        action->setObjectName(prefix + "print_preview");
+        actionCollection()->addAction("print_preview", action);
         addContextAction(action);
     }
     if (actions & OptionPrintPdf) {
         action = new QAction(koIcon("application-pdf"), i18n("Print to PDF..."), this);
-        action->setObjectName(prefix + "print_pdf");
+        actionCollection()->addAction("print_pdf", action);
         connect(action, SIGNAL(triggered()), mainWindow(), SLOT(exportToPdf()));
         addContextAction(action);
     }
     if (actions & OptionPrintConfig) {
         action = new QAction(koIcon("configure"), i18n("Print Options..."), this);
-        action->setObjectName(prefix + "print_options");
+        actionCollection()->addAction("print_options", action);
         connect(action, &QAction::triggered, this, &ViewBase::slotOptions);
         addContextAction(action);
     }
@@ -746,7 +752,7 @@ void ViewBase::createOptionActions(int actions, const QString &prefix)
 
     if (actions & OptionViewConfig) {
         action = new QAction(koIcon("configure"), i18n("Configure View..."), this);
-        action->setObjectName(prefix + "configure_view");
+        actionCollection()->addAction("configure_view", action);
         connect(action, &QAction::triggered, this, &ViewBase::slotOptions);
         addContextAction(action);
     }
@@ -870,16 +876,6 @@ void ViewBase::showColumns(const QList<int> &left, const QList<int> &right)
                     view2->mapToSection(right.at(i), i);
                 }
             }
-        }
-    }
-}
-
-void ViewBase::addActionList(const QString &name, const QList<QAction*> actions) {
-    for (QAction *a : actions) {
-        const QString &tag = a->objectName();
-        if (!tag.isEmpty()) {
-            addAction(name, a);
-            actionCollection()->addAction(tag, a);
         }
     }
 }

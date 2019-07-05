@@ -121,6 +121,8 @@ ScheduleManager *ScheduleTreeView::selectedManager() const
 ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
+    setXMLFile("ScheduleEditorUi.rc");
+
     setupGui();
     slotEnableActions();
 
@@ -292,47 +294,37 @@ void ScheduleEditor::slotEnableActions()
 
 void ScheduleEditor::setupGui()
 {
-    QString name = "scheduleeditor_edit_list";
-
     actionAddSchedule  = new QAction(koIcon("view-time-schedule-insert"), i18n("Add Schedule"), this);
     actionCollection()->setDefaultShortcut(actionAddSchedule, Qt::CTRL + Qt::Key_I);
     actionCollection()->addAction("add_schedule", actionAddSchedule );
     connect( actionAddSchedule, &QAction::triggered, this, &ScheduleEditor::slotAddSchedule );
-    addAction( name, actionAddSchedule );
 
     actionAddSubSchedule  = new QAction(koIcon("view-time-schedule-child-insert"), i18n("Add Sub-schedule"), this);
     actionCollection()->setDefaultShortcut(actionAddSubSchedule, Qt::CTRL + Qt::SHIFT + Qt::Key_I);
     actionCollection()->addAction("add_subschedule", actionAddSubSchedule );
     connect( actionAddSubSchedule, &QAction::triggered, this, &ScheduleEditor::slotAddSubSchedule );
-    addAction( name, actionAddSubSchedule );
 
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this );
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
-    actionCollection()->addAction("schedule_delete_selection", actionDeleteSelection );
+    actionCollection()->addAction("delete_selection", actionDeleteSelection );
     connect( actionDeleteSelection, &QAction::triggered, this, &ScheduleEditor::slotDeleteSelection );
-    addAction( name, actionDeleteSelection );
 
     actionCalculateSchedule  = new QAction(koIcon("view-time-schedule-calculus"), i18n("Calculate"), this);
 //    actionCollection()->setDefaultShortcut(actionCalculateSchedule, Qt::CTRL + Qt::Key_C);
     actionCollection()->addAction("calculate_schedule", actionCalculateSchedule );
     connect( actionCalculateSchedule, &QAction::triggered, this, &ScheduleEditor::slotCalculateSchedule );
-    addAction( name, actionCalculateSchedule );
 
     actionBaselineSchedule  = new QAction(koIcon("view-time-schedule-baselined-add"), i18n("Baseline"), this);
 //    actionCollection()->setDefaultShortcut(actionBaselineSchedule, Qt::CTRL + Qt::Key_B);
     actionCollection()->addAction("schedule_baseline", actionBaselineSchedule );
     connect( actionBaselineSchedule, &QAction::triggered, this, &ScheduleEditor::slotBaselineSchedule );
-    addAction( name, actionBaselineSchedule );
 
     actionMoveLeft  = new QAction(koIcon("go-first"), xi18nc("@action", "Detach"), this);
     actionCollection()->addAction("schedule_move_left", actionMoveLeft );
     connect( actionMoveLeft, &QAction::triggered, this, &ScheduleEditor::slotMoveLeft );
-    addAction( name, actionMoveLeft );
-
 
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
-    addActionList("viewmenu", contextActionList());
 }
 
 void ScheduleEditor::updateReadWrite( bool readwrite )
@@ -729,6 +721,7 @@ ScheduleHandlerView::ScheduleHandlerView(KoPart *part, KoDocument *doc, QWidget 
     m_scheduleEditor = new ScheduleEditor(part, doc, this );
     m_scheduleEditor->setObjectName( "ScheduleEditor" );
     addView( m_scheduleEditor );
+    insertChildClient(m_scheduleEditor);
 
     QTabWidget *tab = addTabWidget();
 
@@ -772,25 +765,6 @@ void ScheduleHandlerView::setGuiActive( bool active ) // virtual slot
 
 void ScheduleHandlerView::slotGuiActivated( ViewBase *, bool )
 {
-}
-
-QStringList ScheduleHandlerView::actionListNames() const
-{
-    QStringList lst;
-    foreach ( ViewBase *v, findChildren<ViewBase*>() ) {
-        lst += v->actionListNames();
-    }
-    return lst;
-}
-
-QList<QAction*> ScheduleHandlerView::actionList( const QString &name ) const
-{
-    //debugPlan<<name;
-    QList<QAction*> lst;
-    foreach ( ViewBase *v, findChildren<ViewBase*>() ) {
-        lst += v->actionList( name );
-    }
-    return lst;
 }
 
 SchedulingRange::SchedulingRange(KoDocument *doc, QWidget *parent)

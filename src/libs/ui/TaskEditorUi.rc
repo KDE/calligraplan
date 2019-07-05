@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kpartgui>
+<gui name="taskeditor" version="1" translationDomain="calligraplan">
+    <MenuBar>
+        <Menu name="edit">
+            <Action name="add_task"/>
+            <Action name="add_subtask"/>
+            <Action name="delete_task"/>
+            <Separator/>
+            <Action name="indent_task"/>
+            <Action name="unindent_task"/>
+            <Action name="move_task_up"/>
+            <Action name="move_task_down"/>
+        </Menu>
+        <Menu name="view">
+            <Separator/>
+            <Action name="expand_all"/>
+            <Action name="collapse_all"/>
+            <Separator/>
+            <Action name="show_project"/>
+            <Action name="split_view"/>
+            <Separator/>
+            <Action name="print"/>
+            <Action name="print_pdf"/>
+            <Action name="print_options"/>
+            <Separator/>
+            <Action name="configure_view"/>
+        </Menu>
+    </MenuBar>
+    <ToolBar name="project">
+        <Action name="add_task"/>
+        <Action name="add_subtask"/>
+        <Action name="delete_task"/>
+        <Separator/>
+        <Action name="indent_task"/>
+        <Action name="unindent_task"/>
+        <Action name="move_task_up"/>
+        <Action name="move_task_down"/>
+    </ToolBar>
+</gui>

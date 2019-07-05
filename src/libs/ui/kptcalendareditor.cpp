@@ -383,6 +383,8 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent )
     : ViewBase(part, doc, parent ),
     m_model( new DateTableDataModel( this ) )
 {
+    setXMLFile("CalendarEditorUi.rc");
+
     Help::add(this,
               xi18nc( "@info:whatsthis",
                       "<title>Work & Vacation Editor</title>"
@@ -635,7 +637,6 @@ void CalendarEditor::updateActionsEnabled(  bool on )
 void CalendarEditor::setupGui()
 {
     KActionCollection *coll = actionCollection();
-    QString name = "calendareditor_calendar_list";
 
     actionAddCalendar   = new QAction(koIcon("resource-calendar-insert"), i18n("Add Calendar"), this);
     coll->addAction("add_calendar", actionAddCalendar  );
@@ -648,13 +649,9 @@ void CalendarEditor::setupGui()
     connect( actionAddSubCalendar , &QAction::triggered, this, &CalendarEditor::slotAddSubCalendar );
 
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
-    coll->addAction("delete_calendar_selection", actionDeleteSelection );
+    coll->addAction("delete_selection", actionDeleteSelection );
     coll->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
     connect( actionDeleteSelection, &QAction::triggered, this, &CalendarEditor::slotDeleteCalendar );
-
-    addAction( name, actionAddCalendar  );
-    addAction( name, actionAddSubCalendar  );
-    addAction( name, actionDeleteSelection );
 
     actionSetWork = new QAction( i18n( "Work..." ), this );
     connect( actionSetWork, &QAction::triggered, this, &CalendarEditor::slotSetWork );
@@ -664,7 +661,6 @@ void CalendarEditor::setupGui()
     connect( actionSetUndefined, &QAction::triggered, this, &CalendarEditor::slotSetUndefined );
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
-    addActionList("viewmenu", contextActionList());
 }
 
 void CalendarEditor::slotOptions()

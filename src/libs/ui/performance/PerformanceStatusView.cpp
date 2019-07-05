@@ -186,6 +186,8 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"-------------------- creating PerformanceStatusView -------------------";
+    setXMLFile("PerformanceStatusViewUi.rc");
+
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
     m_view = new PerformanceStatusTreeView(this);
@@ -284,7 +286,6 @@ void PerformanceStatusView::setupGui()
 {
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
 }
 
 void PerformanceStatusView::slotOptions()

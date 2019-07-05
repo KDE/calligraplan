@@ -162,6 +162,7 @@ QList<Account*> AccountTreeView::selectedAccounts() const
 AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
+    setXMLFile("AccountsEditorUi.rc");
     setupGui();
     
     QVBoxLayout * l = new QVBoxLayout( this );
@@ -277,28 +278,22 @@ void AccountsEditor::updateActionsEnabled(  bool on )
 
 void AccountsEditor::setupGui()
 {
-    QString name = "accountseditor_edit_list";
-    
     actionAddAccount  = new QAction(koIcon("document-new"), i18n("Add Account"), this);
     actionCollection()->addAction("add_account", actionAddAccount );
     actionCollection()->setDefaultShortcut(actionAddAccount, Qt::CTRL + Qt::Key_I);
     connect( actionAddAccount, &QAction::triggered, this, &AccountsEditor::slotAddAccount );
-    addAction( name, actionAddAccount );
 
     actionAddSubAccount  = new QAction(koIcon("document-new"), i18n("Add Subaccount"), this);
     actionCollection()->addAction("add_subaccount", actionAddSubAccount );
     actionCollection()->setDefaultShortcut(actionAddSubAccount, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
     connect( actionAddSubAccount, &QAction::triggered, this, &AccountsEditor::slotAddSubAccount );
-    addAction( name, actionAddSubAccount );
 
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), i18nc("@action", "Delete"), this);
     actionCollection()->addAction("delete_selection", actionDeleteSelection );
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
     connect( actionDeleteSelection, &QAction::triggered, this, &AccountsEditor::slotDeleteSelection );
-    addAction( name, actionDeleteSelection );
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);
-    addActionList("viewmenu", contextActionList());
 }
 
 void AccountsEditor::slotOptions()

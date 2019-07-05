@@ -214,6 +214,7 @@ void DocumentsEditor::updateActionsEnabled(  bool on )
 
 void DocumentsEditor::setupGui()
 {
+#if 0
     QString name = "documentseditor_edit_list";
     actionEditDocument  = new QAction(koIcon("document-properties"), i18n("Edit..."), this);
     actionCollection()->addAction("edit_documents", actionEditDocument );
@@ -236,6 +237,7 @@ void DocumentsEditor::setupGui()
     
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
+#endif
 }
 
 void DocumentsEditor::slotOptions()

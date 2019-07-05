@@ -1998,6 +1998,7 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
     m_currentnode( 0 ),
     m_manager( 0 )
 {
+    setXMLFile("DependencyEditorUi.rc");
     setupGui();
 
     QVBoxLayout * l = new QVBoxLayout( this );
@@ -2311,12 +2312,9 @@ void DependencyEditor::setupGui()
 {
     KActionCollection *coll = actionCollection();
 
-    QString name = "taskeditor_add_list";
-
     menuAddTask = new KActionMenu(koIcon("view-task-add"), i18n("Add Task"), this);
     coll->addAction("add_task", menuAddTask );
     connect( menuAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask );
-    addAction( name, menuAddTask );
 
     actionAddTask  = new QAction( i18n("Add Task..."), this);
     actionAddTask->setShortcut( Qt::CTRL + Qt::Key_I );
@@ -2332,7 +2330,6 @@ void DependencyEditor::setupGui()
     menuAddSubTask = new KActionMenu(koIcon("view-task-child-add"), i18n("Add Sub-Task"), this);
     coll->addAction("add_subtask", menuAddTask );
     connect( menuAddSubTask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask );
-    addAction( name, menuAddSubTask );
 
     actionAddSubtask  = new QAction( i18n("Add Sub-Task..."), this );
     actionAddSubtask->setShortcut( Qt::CTRL + Qt::SHIFT + Qt::Key_I );
@@ -2348,10 +2345,8 @@ void DependencyEditor::setupGui()
     coll->addAction("delete_task", actionDeleteTask );
     coll->setDefaultShortcut(actionDeleteTask, Qt::Key_Delete);
     connect( actionDeleteTask, &QAction::triggered, this, &DependencyEditor::slotDeleteTask );
-    addAction( name, actionDeleteTask );
 
     createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);
-    addActionList("viewmenu", contextActionList());
 }
 
 void DependencyEditor::slotOptions()

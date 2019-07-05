@@ -243,10 +243,6 @@ public:
     Project *project() const { return 0; }
 
     ScheduleEditor *scheduleEditor() const { return m_scheduleEditor; }
-    /// Returns a list of actionlist names for all shown views
-    QStringList actionListNames() const;
-    /// Returns the list of actions associated with the action list @p name
-    virtual QList<QAction*> actionList( const QString &name ) const;
     /// Always returns this (if we are called, we are hit)
     virtual ViewBase *hitView( const QPoint &glpos );
 

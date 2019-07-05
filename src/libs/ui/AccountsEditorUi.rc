@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui>
-<gui name="workpackageview" version="2" translationDomain="calligraplan">
+<gui name="accountseditor" version="1" translationDomain="calligraplan">
     <MenuBar>
+        <Menu name="edit">
+            <Action name="add_account"/>
+            <Action name="add_subaccount"/>
+            <Action name="delete_selection"/>
+        </Menu>
         <Menu name="view">
-            <text>&amp;View</text>
-            <Action name="split_view"/>
             <Separator/>
             <Action name="expand_all"/>
             <Action name="collapse_all"/>
@@ -18,12 +21,8 @@
         </Menu>
     </MenuBar>
     <ToolBar name="project">
-        <Action name="send_workpackage"/>
-        <Action name="open_workpackages"/>
+        <Action name="add_account"/>
+        <Action name="add_subaccount"/>
+        <Action name="delete_selection"/>
     </ToolBar>
-    <Menu name="workpackage_popup">
-        <Action name="task_progress"/>
-        <Action name="task_description"/>
-        <Action name="task_documents"/>
-    </Menu>
 </gui>

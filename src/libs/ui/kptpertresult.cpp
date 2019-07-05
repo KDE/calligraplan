@@ -29,6 +29,8 @@
 
 #include <KoDocument.h>
 
+#include <KActionCollection>
+
 #include <QAbstractItemView>
 #include <QMenu>
 #include <QAction>
@@ -86,6 +88,7 @@ PertResult::PertResult(KoPart *part, KoDocument *doc, QWidget *parent)
     current_schedule( 0 )
 {
     debugPlan << " ---------------- KPlato: Creating PertResult ----------------";
+    setXMLFile("PertResultUi.rc");
     widget.setupUi(this);
     PertResultItemModel *m = new PertResultItemModel( widget.treeWidgetTaskResult );
     widget.treeWidgetTaskResult->setModel( m );
@@ -154,6 +157,7 @@ void PertResult::draw()
 void PertResult::setupGui()
 {
     // Add the context menu actions for the view options
+    actionCollection()->addAction(widget.treeWidgetTaskResult->actionSplitView()->objectName(), widget.treeWidgetTaskResult->actionSplitView());
     connect(widget.treeWidgetTaskResult->actionSplitView(), &QAction::triggered, this, &PertResult::slotSplitView);
     addContextAction( widget.treeWidgetTaskResult->actionSplitView() );
 

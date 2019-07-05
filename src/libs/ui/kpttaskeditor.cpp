@@ -293,6 +293,8 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent )
 {
     debugPlan<<"----------------- Create TaskEditor ----------------------";
+    setXMLFile("TaskEditorUi.rc");
+
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_view = new TaskEditorTreeView( this );
@@ -803,12 +805,9 @@ void TaskEditor::updateActionsEnabled( bool on )
 
 void TaskEditor::setupGui()
 {
-    QString name = "taskeditor_add_list";
-
     menuAddTask = new KActionMenu(koIcon("view-task-add"), i18n("Add Task"), this);
     actionCollection()->addAction("add_task", menuAddTask );
     connect( menuAddTask, &QAction::triggered, this, &TaskEditor::slotAddTask );
-    addAction( name, menuAddTask );
 
     actionAddTask  = new QAction( i18n( "Add Task" ), this);
     actionAddTask->setShortcut( Qt::CTRL + Qt::Key_I );
@@ -824,7 +823,6 @@ void TaskEditor::setupGui()
     menuAddSubTask = new KActionMenu(koIcon("view-task-child-add"), i18n("Add Sub-Task"), this);
     actionCollection()->addAction("add_subtask", menuAddTask );
     connect( menuAddSubTask, &QAction::triggered, this, &TaskEditor::slotAddSubtask );
-    addAction( name, menuAddSubTask );
 
     actionAddSubtask  = new QAction( i18n( "Add Sub-Task" ), this );
     actionAddSubtask->setShortcut( Qt::CTRL + Qt::SHIFT + Qt::Key_I );
@@ -840,41 +838,33 @@ void TaskEditor::setupGui()
     actionCollection()->setDefaultShortcut( actionDeleteTask, Qt::Key_Delete );
     actionCollection()->addAction("delete_task", actionDeleteTask );
     connect( actionDeleteTask, &QAction::triggered, this, &TaskEditor::slotDeleteTask );
-    addAction( name, actionDeleteTask );
 
 
-    name = "taskeditor_move_list";
     actionIndentTask  = new QAction(koIcon("format-indent-more"), i18n("Indent Task"), this);
     actionCollection()->addAction("indent_task", actionIndentTask );
     connect(actionIndentTask, &QAction::triggered, this, &TaskEditor::slotIndentTask);
-    addAction( name, actionIndentTask );
 
     actionUnindentTask  = new QAction(koIcon("format-indent-less"), i18n("Unindent Task"), this);
     actionCollection()->addAction("unindent_task", actionUnindentTask );
     connect(actionUnindentTask, &QAction::triggered, this, &TaskEditor::slotUnindentTask);
-    addAction( name, actionUnindentTask );
 
     actionMoveTaskUp  = new QAction(koIcon("arrow-up"), i18n("Move Up"), this);
     actionCollection()->addAction("move_task_up", actionMoveTaskUp );
     connect(actionMoveTaskUp, &QAction::triggered, this, &TaskEditor::slotMoveTaskUp);
-    addAction( name, actionMoveTaskUp );
 
     actionMoveTaskDown  = new QAction(koIcon("arrow-down"), i18n("Move Down"), this);
     actionCollection()->addAction("move_task_down", actionMoveTaskDown );
     connect(actionMoveTaskDown, &QAction::triggered, this, &TaskEditor::slotMoveTaskDown);
-    addAction( name, actionMoveTaskDown );
 
     // Add the context menu actions for the view options
     actionShowProject = new KToggleAction( i18n( "Show Project" ), this );
+    actionCollection()->addAction("show_project", actionShowProject);
     connect(actionShowProject, &QAction::triggered, baseModel(), &NodeItemModel::setShowProject);
-    addContextAction( actionShowProject );
 
+    actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskEditor::slotSplitView);
-    addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionAll);
-
-    addActionList("viewmenu", contextActionList());
 
     createDockers();
 }
@@ -1106,6 +1096,8 @@ void TaskEditor::slotEditPaste()
 TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
+    setXMLFile("TaskViewUi.rc");
+
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_view = new NodeTreeView( this );
@@ -1357,14 +1349,15 @@ void TaskView::setupGui()
 
     // Add the context menu actions for the view options
     actionShowProject = new KToggleAction( i18n( "Show Project" ), this );
+    actionCollection()->addAction("show_project", actionShowProject);
     connect(actionShowProject, &QAction::triggered, baseModel(), &NodeItemModel::setShowProject);
     addContextAction( actionShowProject );
 
+    actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskView::slotSplitView);
     addContextAction( m_view->actionSplitView() );
 
     createOptionActions(ViewBase::OptionAll);
-    addActionList("viewmenu", contextActionList());
 }
 
 void TaskView::slotSplitView()
@@ -1684,13 +1677,11 @@ void TaskWorkPackageView::setupGui()
     connect( actionOpenWorkpackages, &QAction::triggered, this, &TaskWorkPackageView::openWorkpackages );
 
     // Add the context menu actions for the view options
-    connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskWorkPackageView::slotSplitView);
     addContextAction( m_view->actionSplitView() );
+    actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
+    connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskWorkPackageView::slotSplitView);
 
     createOptionActions(ViewBase::OptionAll);
-    for (QAction *a : contextActionList()) {
-        actionCollection()->addAction(a->objectName(), a);
-    }
 }
 
 void TaskWorkPackageView::slotMailWorkpackage()
