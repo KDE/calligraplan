@@ -197,12 +197,8 @@ QVariant NodeModel::description( const Node *node, int role ) const
             KRichTextWidget w( node->description(), 0 );
             w.switchToPlainText();
             QString s = w.textOrHtml();
-            int i = s.indexOf( '\n' );
-            s = s.left( i );
-            if ( i > 0 ) {
-                s += "...";
-            }
-            return s;
+            s.remove('\r');
+            return s.replace('\n', ' ');
         }
         case Qt::ToolTipRole: {
             KRichTextWidget w( node->description(), 0 );
