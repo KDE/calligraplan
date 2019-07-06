@@ -318,8 +318,10 @@ void InsertProjectTester::addGroupRequest( MainDocument &part )
 {
     Project &p = part.getProject();
     Task *t = static_cast<Task*>( p.childNode( 0 ) );
+    int requests = p.resourceGroupAt( 0 )->requests().count();
     KUndo2Command *c = new AddResourceGroupRequestCmd( *t, new ResourceGroupRequest( p.resourceGroupAt( 0 ), 1 ) );
     part.addCommand( c );
+    QVERIFY(p.resourceGroupAt( 0 )->requests().count() == requests+1);
 }
 
 void InsertProjectTester::testGroupRequest()

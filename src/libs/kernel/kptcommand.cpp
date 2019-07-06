@@ -3407,11 +3407,12 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
         ResourceGroup *newGroup = pair.second;
         if (ResourceGroup *ng = existingGroups.key(newGroup)) {
             newGroup = ng;
-        }
+            debugPlanInsertProject<<"Using existing group:"<<newGroup<<newGroup->requests();
+        } else { debugPlanInsertProject<<"Using group from inserted project:"<<newGroup<<newGroup->requests(); }
         Q_ASSERT( allGroups.contains( newGroup ) );
         gr->setGroup( newGroup );
         addCommand( new AddResourceGroupRequestCmd( static_cast<Task&>( *n ), gr, kundo2_noi18n("Group %1", ++gi)  ) );
-        debugPlanInsertProject<<"Add resource group request:"<<n->name()<<":"<<newGroup->name();
+        debugPlanInsertProject<<"Add resource group request:"<<n->name()<<":"<<newGroup->name()<<"requests:"<<newGroup->requests();
         QHash<ResourceGroupRequest*, QPair<ResourceRequest*, Resource*> >::const_iterator i = rreqs.constFind( gr );
         for ( ; i != rreqs.constEnd() && i.key() == gr; ++i ) {
             ResourceRequest *rr = i.value().first;
@@ -3502,6 +3503,7 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
             addCommand( new ModifyDefaultAccountCmd( m_project->accounts(), 0, a ) );
         }
     }
+    debugPlanInsertProject<<"Cleanup unused stuff from inserted project:"<<&project;
     // Cleanup
     // Remove nodes from project so they are not deleted
     while ( Node *ch = project.childNode( 0 ) ) {
@@ -3525,12 +3527,14 @@ InsertProjectCmd::InsertProjectCmd( Project &project, Node *parent, Node *after,
 
     while ( project.numResourceGroups() > 0 ) {
         ResourceGroup *g = project.resourceGroupAt( 0 );
+        debugPlanInsertProject<<"Take used group:"<<g<<g->requests();
         while ( g->numResources() > 0 ) {
             g->takeResource( g->resourceAt( 0 ) );
         }
         project.takeResourceGroup( g );
     }
     qDeleteAll( existingResources ); // deletes unused resources
+    debugPlanInsertProject<<"Delete unused groups:"<<existingGroups;
     qDeleteAll( existingGroups ); // deletes unused resource groups
 }
 

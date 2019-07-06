@@ -1908,9 +1908,9 @@ ResourceGroupRequest::ResourceGroupRequest(const ResourceGroupRequest &g)
 
 ResourceGroupRequest::~ResourceGroupRequest() {
     //debugPlan;
-    if (m_group)
+    if (m_group) {
         m_group->unregisterRequest(this);
-
+    }
     while (!m_resourceRequests.isEmpty()) {
         delete m_resourceRequests.takeFirst();
     }
@@ -2216,6 +2216,7 @@ ResourceRequestCollection::~ResourceRequestCollection() {
 
 void ResourceRequestCollection::addRequest( ResourceGroupRequest *request )
 {
+    Q_ASSERT(request->group());
     foreach ( ResourceGroupRequest *r, m_requests ) {
         if ( r->group() == request->group() ) {
             errorPlan<<"Request to this group already exists";
@@ -2224,6 +2225,9 @@ void ResourceRequestCollection::addRequest( ResourceGroupRequest *request )
         }
     }
     m_requests.append( request );
+    if (!request->group()->requests().contains(request)) {
+        request->group()->registerRequest(request);
+    }
     request->setParent( this );
     changed();
 }
