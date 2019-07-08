@@ -275,21 +275,6 @@ find_package(ZLIB REQUIRED)
 ############################
 ###########################
 
-if (TEST_FOR_KCALCORE)
-    ##
-    ## Test for KF5CalendarCore
-    ##
-    find_package(KF5CalendarCore CONFIG QUIET)
-    set_package_properties(KF5CalendarCore PROPERTIES
-        DESCRIPTION "KDE Calendar Library"
-        URL "https://www.kde.org/"
-        PURPOSE "Required for Ical export"
-        TYPE OPTIONAL
-    )
-else()
-    message(STATUS "Test for KCalCore is skipped. To test for it use: -DTEST_FOR_KCALCORE=TRUE")
-endif()
-
 ##
 ## Test for KF5AkonadiContact
 ##
