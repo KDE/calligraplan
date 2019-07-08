@@ -71,15 +71,6 @@ if (KF5AkonadiContact_FOUND)
     message(WARNING "AkonadiContacs available, but function is disabled due to Bug 311940")
 endif ()
 
-if ("${KF5CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
-    set(HAVE_QDATETIME_KCALCORE TRUE)
-endif()
-
-set(KCALCORE_HAVE_NO_PERSION_PTR FALSE)
-if ("${KF5CalendarCore_VERSION}" VERSION_GREATER 5.11.42)
-    set(KCALCORE_HAVE_NO_PERSION_PTR TRUE)
-endif()
-
 if (PLANCHARTDEBUG)
     add_definitions(-DPLAN_CHART_DEBUG)
 endif ()

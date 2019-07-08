@@ -1,21 +1,22 @@
 /* This file is part of the KDE project
-   Copyright (C) 2009, 2011, 2012 Dag Andersen <danders@get2net.dk>
-
-   This library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU Library General Public
-   License as published by the Free Software Foundation; either
-   version 2 of the License, or (at your option) any later version.
-
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
-
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
-*/
+ * Copyright (C) 2009, 2011, 2012 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Library General Public License
+ * along with this library; see the file COPYING.LIB.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ */
 
 // clazy:excludeall=qstring-arg
 #include "icalendarexport.h"
@@ -28,15 +29,16 @@
 #include <kptdocuments.h>
 #include "kptdebug.h"
 
+#if 0
 #include <kcalcore/attendee.h>
 #include <kcalcore/attachment.h>
 #include <kcalcore/icalformat.h>
 #include <kcalcore/memorycalendar.h>
+#endif
 
 #include <QTextCodec>
 #include <QByteArray>
 #include <QString>
-#include <QTextStream>
 #include <QFile>
 
 #include <kpluginfactory.h>
@@ -99,6 +101,168 @@ KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, cons
     return status;
 }
 
+long scheduleId(const Project &project)
+{
+    //TODO: schedule selection dialog
+    long sid = ANYSCHEDULED;
+    bool baselined = project.isBaselined(sid);
+    QList<ScheduleManager*> lst = project.allScheduleManagers();
+    foreach(const ScheduleManager *m, lst) {
+        if (! baselined) {
+            sid = lst.last()->scheduleId();
+            //debugPlan<<"last:"<<sid;
+            break;
+        }
+        if (m->isBaselined()) {
+            sid = m->scheduleId();
+            //debugPlan<<"baselined:"<<sid;
+            break;
+        }
+    }
+    return sid;
+}
+
+QString beginCalendar()
+{
+    QString s;
+    s += QString("BEGIN:VCALENDAR") + "\r\n";
+    s += QString("PRODID:-//K Desktop Environment//NONSGML libkcal 4.3//EN") + "\r\n";
+    s += QString("VERSION:2.0") + "\r\n";
+    s += QString("X-KDE-ICAL-IMPLEMENTATION-VERSION:1.0") + "\r\n";
+    return s;
+}
+QString endCalendar()
+{
+    return QString() + QString("END:VCALENDAR") + "\r\n";
+}
+
+QString dtToString(const QDateTime &dt)
+{
+    return dt.toUTC().toString("yyyyMMddTHHmmssZ"); // 20160707T010000Z
+}
+
+QString doAttendees(const Node &node, long sid)
+{
+    QString s;
+    Schedule *schedule = node.schedule(sid);
+    if (schedule) {
+        foreach (const Resource *r, schedule->resources()) {
+            if (r->type() == Resource::Type_Work) {
+                s += QString("ATTENDEE;CN=") + r->name() + "\r\n";
+                s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n";
+                s += QString("CUTYPE=INDIVIDUAL;") + "\r\n";
+                s += QString("X-UID=") + r->id().right(10) + ':' + r->email() + "\r\n";
+            }
+        }
+    } else {
+        const QList<Resource*> lst = static_cast<const Task&>(node).requestedResources();
+        foreach(const Resource *r, lst) {
+            if (r->type() == Resource::Type_Work) {
+                s += QString("ATTENDEE;CN=") + r->name() + "\r\n";
+                s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n";
+                s += QString("CUTYPE=INDIVIDUAL;") + "\r\n";
+                s += QString("X-UID=") + r->id().right(10) + ':' + r->email() + "\r\n";
+            }
+        }
+    }
+    return s;
+}
+
+QString doAttachment(const Documents &docs)
+{
+    QString s;
+    foreach(const Document *doc, docs.documents()) {
+        s += QString("ATTACH:") + doc->url().url() + "\r\n";
+    }
+    return s;
+}
+
+QString doDescription(const QString &description)
+{
+    QString s = QString("DESCRIPTION;X-KDE-TEXTFORMAT=HTML:") + description;
+    if (!s.contains("\r\n")) {
+        s.replace("\n", "\r\n");
+    }
+    if (!s.endsWith('\n')) {
+        s += "\r\n";
+    }
+    return s;
+}
+
+QString createTodo(const Node &node, long sid)
+{
+    QString s;
+    s += QString("BEGIN:VTODO") + "\r\n";
+    s += QString("SUMMARY:") + node.name() + "\r\n";
+    s += doDescription(node.description());
+    s += QString("UID:") + node.id().right(10) + "\r\n";
+    s += QString("DTSTAMP:") + dtToString(QDateTime::currentDateTime()) + "\r\n";
+    s += QString("CREATED:") + dtToString(QDateTime::currentDateTime()) + "\r\n";
+    s += QString("LAST-MODIFIED:") + dtToString(QDateTime::currentDateTime()) + "\r\n";
+    s += QString("CATEGORIES:Plan") + "\r\n";
+    s += QString("DTSTART:") + dtToString(node.startTime(sid)) + "\r\n";
+    s += QString("DUE:") + dtToString(node.endTime(sid)) + "\r\n";
+    if (node.parentNode()) {
+        s += QString("RELATED-TO:") + node.parentNode()->id().right(10) + "\r\n";
+    }
+    if (node.type() == Node::Type_Task) {
+        s += QString("PERCENT-COMPLETE:") + QString::number(static_cast<const Task&>(node).completion().percentFinished()) + "\r\n";
+        s += doAttendees(node, sid);
+    } else if (node.type() == Node::Type_Milestone) {
+        s += QString("PERCENT-COMPLETE:") + QString::number(static_cast<const Task&>(node).completion().percentFinished()) + "\r\n";
+    } else if (node.type() == Node::Type_Project) {
+        if (!node.leader().isEmpty()) {
+            s += QString("ORGANIZER:") + node.leader() + "\r\n";
+        }
+    }
+    s += doAttachment(node.documents());
+    s += QString("END:VTODO") + "\r\n";
+    return s;
+}
+
+QString doNode(const Node *node, long sid)
+{
+    QString s = createTodo(*node, sid);
+    for (int i = 0; i < node->numChildren(); ++i) {
+        s += doNode(node->childNode(i), sid);
+    }
+    return s;
+}
+
+void formatData(QString &data, int pos = 0)
+{
+    if (pos < data.length() - 70) {
+        int next = data.indexOf("\r\n", pos);
+        if (next > pos && next < pos + 70) {
+            pos = next;
+        } else if (next > pos + 70 || data.length() > pos + 70) {
+            pos += 70;
+            data.insert(pos, "\r\n");
+        }
+        formatData(data, pos+2);
+    }
+    while (data.contains("\r\n\r\n")) {
+        data.replace("\r\n\r\n", "\r\n");
+    }
+}
+
+KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFile &file)
+{
+    long sid = scheduleId(project);
+    QString data = beginCalendar();
+    data += doNode(&project, sid);
+    data += endCalendar();
+
+    formatData(data);
+
+    qint64 n = file.write(data.toUtf8());
+    if (n < 0) {
+        return KoFilter::InternalError;
+    }
+    return KoFilter::OK;
+}
+
+#if 0
 KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFile &file)
 {
     KCalCore::Calendar::Ptr cal(new KCalCore::MemoryCalendar("UTC"));
@@ -194,5 +358,5 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
         createTodos(cal, n, id, todo);
     }
 }
-
+#endif
 #include "icalendarexport.moc"
