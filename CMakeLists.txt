@@ -275,16 +275,18 @@ find_package(ZLIB REQUIRED)
 ############################
 ###########################
 
+### Remove dependency on KF5AkonadiContact
+### Review how to get at contacts in more portable way
 ##
 ## Test for KF5AkonadiContact
 ##
-find_package(KF5AkonadiContact CONFIG QUIET)
-set_package_properties(KF5AkonadiContact PROPERTIES
-    DESCRIPTION "Library for Accessing Contacts stored in Akonadi"
-    URL "https://www.kde.org/"
-    PURPOSE "Required for address book support"
-    TYPE OPTIONAL
-)
+# find_package(KF5AkonadiContact CONFIG QUIET)
+# set_package_properties(KF5AkonadiContact PROPERTIES
+#     DESCRIPTION "Library for Accessing Contacts stored in Akonadi"
+#     URL "https://www.kde.org/"
+#     PURPOSE "Required for address book support"
+#     TYPE OPTIONAL
+# )
 
 if(WIN32)
     set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}
