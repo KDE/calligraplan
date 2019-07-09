@@ -200,8 +200,14 @@ QString createTodo(const Node &node, long sid)
     s += QString("CREATED:") + dtToString(QDateTime::currentDateTime()) + "\r\n";
     s += QString("LAST-MODIFIED:") + dtToString(QDateTime::currentDateTime()) + "\r\n";
     s += QString("CATEGORIES:Plan") + "\r\n";
-    s += QString("DTSTART:") + dtToString(node.startTime(sid)) + "\r\n";
-    s += QString("DUE:") + dtToString(node.endTime(sid)) + "\r\n";
+    DateTime dt = node.startTime(sid);
+    if (dt.isValid()) {
+        s += QString("DTSTART:") + dtToString(dt) + "\r\n";
+    }
+    dt = node.endTime(sid);
+    if (dt.isValid()) {
+        s += QString("DUE:") + dtToString(dt) + "\r\n";
+    }
     if (node.parentNode()) {
         s += QString("RELATED-TO:") + node.parentNode()->id().right(10) + "\r\n";
     }
