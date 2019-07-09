@@ -40,6 +40,7 @@
 #include <QByteArray>
 #include <QString>
 #include <QFile>
+#include <QTextEdit>
 
 #include <kpluginfactory.h>
 
@@ -126,9 +127,10 @@ QString beginCalendar()
 {
     QString s;
     s += QString("BEGIN:VCALENDAR") + "\r\n";
-    s += QString("PRODID:-//K Desktop Environment//NONSGML libkcal 4.3//EN") + "\r\n";
+    s += QString("PRODID:-//K Desktop Environment//NONSGML Calligra Plan %1//EN").arg(PLAN_VERSION_STRING) + "\r\n";
     s += QString("VERSION:2.0") + "\r\n";
-    s += QString("X-KDE-ICAL-IMPLEMENTATION-VERSION:1.0") + "\r\n";
+    s += QString("CALSCALE:GREGORIAN") + "\r\n";
+    s += QString("METHOD:PUBLISH") + "\r\n";
     return s;
 }
 QString endCalendar()
@@ -148,9 +150,9 @@ QString doAttendees(const Node &node, long sid)
     if (schedule) {
         foreach (const Resource *r, schedule->resources()) {
             if (r->type() == Resource::Type_Work) {
-                s += QString("ATTENDEE;CN=") + r->name() + "\r\n";
-                s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n";
-                s += QString("CUTYPE=INDIVIDUAL;") + "\r\n";
+                s += QString("ATTENDEE;CN=") + r->name() + "\r\n\t";
+                s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n\t";
+                s += QString("CUTYPE=INDIVIDUAL;") + "\r\n\t";
                 s += QString("X-UID=") + r->id().right(10) + ':' + r->email() + "\r\n";
             }
         }
@@ -158,9 +160,9 @@ QString doAttendees(const Node &node, long sid)
         const QList<Resource*> lst = static_cast<const Task&>(node).requestedResources();
         foreach(const Resource *r, lst) {
             if (r->type() == Resource::Type_Work) {
-                s += QString("ATTENDEE;CN=") + r->name() + "\r\n";
-                s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n";
-                s += QString("CUTYPE=INDIVIDUAL;") + "\r\n";
+                s += QString("ATTENDEE;CN=") + r->name() + "\r\n\t";
+                s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n\t";
+                s += QString("CUTYPE=INDIVIDUAL;") + "\r\n\t";
                 s += QString("X-UID=") + r->id().right(10) + ':' + r->email() + "\r\n";
             }
         }
@@ -177,23 +179,41 @@ QString doAttachment(const Documents &docs)
     return s;
 }
 
-QString doDescription(const QString &description)
+void escape(QString &txt)
 {
-    QString s = QString("DESCRIPTION;X-KDE-TEXTFORMAT=HTML:") + description;
-    if (!s.contains("\r\n")) {
-        s.replace("\n", "\r\n");
-    }
-    if (!s.endsWith('\n')) {
-        s += "\r\n";
+    txt.replace('\\', "\\\\");
+    txt.replace('\n', "\\n");
+    txt.replace(',', "\\,");
+    txt.replace(':', "\\:");
+    txt.replace(';', "\\;");
+}
+
+QString ICalendarExport::doDescription(const QString &description)
+{
+    QTextEdit te;
+    te.setHtml(description);
+    QString txt = te.toPlainText().trimmed();
+    QString s;
+    if (!txt.isEmpty()) {
+        s = QString("DESCRIPTION") + QString::number(m_descriptions.count()) + ':' + "\r\n";
+        escape(txt);
+        m_descriptions << txt;
+        txt = description;
+        txt.remove('\n');
+        txt.remove('\r'); // in case...
+        escape(txt);
+        s += QString("X-ALT-DESC;FMTTYPE=text/html:") + txt + "\r\n";
     }
     return s;
 }
 
-QString createTodo(const Node &node, long sid)
+QString ICalendarExport::createTodo(const Node &node, long sid)
 {
     QString s;
     s += QString("BEGIN:VTODO") + "\r\n";
-    s += QString("SUMMARY:") + node.name() + "\r\n";
+    QString txt = node.name();
+    escape(txt);
+    s += QString("SUMMARY:") + txt + "\r\n";
     s += doDescription(node.description());
     s += QString("UID:") + node.id().right(10) + "\r\n";
     s += QString("DTSTAMP:") + dtToString(QDateTime::currentDateTime()) + "\r\n";
@@ -226,7 +246,7 @@ QString createTodo(const Node &node, long sid)
     return s;
 }
 
-QString doNode(const Node *node, long sid)
+QString ICalendarExport::doNode(const Node *node, long sid)
 {
     QString s = createTodo(*node, sid);
     for (int i = 0; i < node->numChildren(); ++i) {
@@ -235,18 +255,25 @@ QString doNode(const Node *node, long sid)
     return s;
 }
 
-void formatData(QString &data, int pos = 0)
+void foldData(QString &data)
 {
-    if (pos < data.length() - 70) {
-        int next = data.indexOf("\r\n", pos);
-        if (next > pos && next < pos + 70) {
-            pos = next;
-        } else if (next > pos + 70 || data.length() > pos + 70) {
-            pos += 70;
-            data.insert(pos, "\r\n");
+    int count = 0; // bytecount
+    for (int i = 0; i < data.length() - 6; ++i) {
+        if (data.at(i) == '\r' && data.at(i+1) == '\n') {
+            count = 0;
+            ++i; // skip past LF
+            continue;
         }
-        formatData(data, pos+2);
+        if (count >= 70) {
+            data.insert(i, "\r\n\t");
+            count = 0;
+            i += 2; // skip past CRLFTAB
+            continue;
+        }
+        // we count bytes, so need to know bytesize of character
+        count += QByteArray::fromStdString(QString(data.at(i)).toStdString()).size();
     }
+    // remove any empty lines (not allowed)
     while (data.contains("\r\n\r\n")) {
         data.replace("\r\n\r\n", "\r\n");
     }
@@ -259,8 +286,13 @@ KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFil
     data += doNode(&project, sid);
     data += endCalendar();
 
-    formatData(data);
-
+    foldData(data);
+    for (int i = 0; i < m_descriptions.count(); ++i) {
+        QString rs = QString("DESCRIPTION") + QString::number(i) + ':';
+        QString s = QString("DESCRIPTION:") + m_descriptions.at(i);
+        foldData(s);
+        data.replace(rs, s);
+    }
     qint64 n = file.write(data.toUtf8());
     if (n < 0) {
         return KoFilter::InternalError;

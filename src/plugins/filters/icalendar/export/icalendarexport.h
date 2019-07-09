@@ -56,6 +56,14 @@ protected:
 #if 0
     void createTodos(KCalCore::Calendar::Ptr cal, const KPlato::Node *node, long id, KCalCore::Todo::Ptr parent = KCalCore::Todo::Ptr());
 #endif
+
+private:
+    QString doNode(const KPlato::Node *node, long sid);
+    QString createTodo(const KPlato::Node &node, long sid);
+    QString doDescription(const QString &description);
+
+private:
+    QList<QString> m_descriptions;
 };
 
 #endif // ICALENDAREXPORT_H
