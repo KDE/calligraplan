@@ -48,6 +48,11 @@
 namespace KPlato
 {
 
+QString generateId()
+{
+    return QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMddHHmmss")) + KRandom::randomString(10);
+}
+
 Project::Project( Node *parent )
         : Node( parent ),
         m_accounts( *this ),
@@ -1873,11 +1878,9 @@ bool Project::nodeIdentExists( const QString &id ) const
 QString Project::uniqueNodeId( int seed ) const
 {
     Q_UNUSED(seed);
-    QString s = QDateTime::currentDateTime().toString( Qt::ISODate ) + ' ';
-    QString ident = s + KRandom::randomString( 10 );
-//    int i = seed;
+    QString ident = generateId();
     while ( nodeIdentExists( ident ) ) {
-        ident = s + KRandom::randomString( 10 );
+        ident = generateId();
     }
     return ident;
 }
@@ -1986,10 +1989,9 @@ bool Project::setResourceGroupId( ResourceGroup *group )
 }
 
 QString Project::uniqueResourceGroupId() const {
-    QString s = QDateTime::currentDateTime().toString( Qt::ISODate ) + ' ';
-    QString id = s + KRandom::randomString( 10 );
+    QString id = generateId();
     while ( resourceGroupIdDict.contains( id ) ) {
-        id = s + KRandom::randomString( 10 );
+        id = generateId();
     }
     return id;
 }
@@ -2054,10 +2056,9 @@ bool Project::setResourceId( Resource *resource )
 }
 
 QString Project::uniqueResourceId() const {
-    QString s = QDateTime::currentDateTime().toString( Qt::ISODate ) + ' ';
-    QString id = s + KRandom::randomString( 10 );
+    QString id = generateId();
     while ( resourceIdDict.contains( id ) ) {
-        id = s + KRandom::randomString( 10 );
+        id = generateId();
     }
     return id;
 }
@@ -2411,10 +2412,9 @@ bool Project::setCalendarId( Calendar *calendar )
 }
 
 QString Project::uniqueCalendarId() const {
-    QString s = QDateTime::currentDateTime().toString( Qt::ISODate ) + ' ';
-    QString id = s + KRandom::randomString( 10 );
+    QString id = generateId();
     while ( calendarIdDict.contains( id ) ) {
-        id = s + KRandom::randomString( 10 );
+        id = generateId();
     }
     return id;
 }
