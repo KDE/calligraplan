@@ -153,7 +153,7 @@ QString doAttendees(const Node &node, long sid)
                 s += QString("ATTENDEE;CN=") + r->name() + "\r\n\t";
                 s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n\t";
                 s += QString("CUTYPE=INDIVIDUAL;") + "\r\n\t";
-                s += QString("X-UID=") + r->id().right(10) + ':' + r->email() + "\r\n";
+                s += QString("X-UID=") + r->id() + ':' + r->email() + "\r\n";
             }
         }
     } else {
@@ -215,7 +215,7 @@ QString ICalendarExport::createTodo(const Node &node, long sid)
     escape(txt);
     s += QString("SUMMARY:") + txt + "\r\n";
     s += doDescription(node.description());
-    s += QString("UID:") + node.id().right(10) + "\r\n";
+    s += QString("UID:") + node.id() + "\r\n";
     s += QString("DTSTAMP:") + dtToString(QDateTime::currentDateTime()) + "\r\n";
     s += QString("CREATED:") + dtToString(QDateTime::currentDateTime()) + "\r\n";
     s += QString("LAST-MODIFIED:") + dtToString(QDateTime::currentDateTime()) + "\r\n";
@@ -229,7 +229,7 @@ QString ICalendarExport::createTodo(const Node &node, long sid)
         s += QString("DUE:") + dtToString(dt) + "\r\n";
     }
     if (node.parentNode()) {
-        s += QString("RELATED-TO:") + node.parentNode()->id().right(10) + "\r\n";
+        s += QString("RELATED-TO:") + node.parentNode()->id() + "\r\n";
     }
     if (node.type() == Node::Type_Task) {
         s += QString("PERCENT-COMPLETE:") + QString::number(static_cast<const Task&>(node).completion().percentFinished()) + "\r\n";
