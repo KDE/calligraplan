@@ -20,6 +20,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "icalendarexport.h"
+#include "ICalExportDialog.h"
 #include "config.h"
 
 #include <kptmaindocument.h>
@@ -95,32 +96,20 @@ KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, cons
         errorPlan << "Failed to open output file:" << file.fileName();
         return KoFilter::StorageCreationError;
     }
-
+    QApplication::restoreOverrideCursor();
+    ICalExportDialog dlg(doc->getProject());
+    if (dlg.exec() != QDialog::Accepted) {
+        QApplication::setOverrideCursor(Qt::WaitCursor);
+        return KoFilter::UserCancelled;
+    }
+    QApplication::setOverrideCursor( Qt::WaitCursor );
+    m_scheduleId = dlg.scheduleId();
+    m_includeProject = dlg.includeProject();
+    m_includeSummarytasks = dlg.includeSummarytasks();
     KoFilter::ConversionStatus status = convert(doc->getProject(), file);
     file.close();
     //debugPlan << "Finished with status:"<<status;
     return status;
-}
-
-long scheduleId(const Project &project)
-{
-    //TODO: schedule selection dialog
-    long sid = ANYSCHEDULED;
-    bool baselined = project.isBaselined(sid);
-    QList<ScheduleManager*> lst = project.allScheduleManagers();
-    foreach(const ScheduleManager *m, lst) {
-        if (! baselined) {
-            sid = lst.last()->scheduleId();
-            //debugPlan<<"last:"<<sid;
-            break;
-        }
-        if (m->isBaselined()) {
-            sid = m->scheduleId();
-            //debugPlan<<"baselined:"<<sid;
-            break;
-        }
-    }
-    return sid;
 }
 
 QString beginCalendar()
@@ -229,7 +218,11 @@ QString ICalendarExport::createTodo(const Node &node, long sid)
         s += QString("DUE:") + dtToString(dt) + "\r\n";
     }
     if (node.parentNode()) {
-        s += QString("RELATED-TO:") + node.parentNode()->id() + "\r\n";
+        if (m_includeSummarytasks && node.parentNode()->type() == Node::Type_Summarytask) {
+            s += QString("RELATED-TO:") + node.parentNode()->id() + "\r\n";
+        } else if (m_includeProject) {
+            s += QString("RELATED-TO:") + node.projectNode()->id() + "\r\n";
+        }
     }
     if (node.type() == Node::Type_Task) {
         s += QString("PERCENT-COMPLETE:") + QString::number(static_cast<const Task&>(node).completion().percentFinished()) + "\r\n";
@@ -248,7 +241,16 @@ QString ICalendarExport::createTodo(const Node &node, long sid)
 
 QString ICalendarExport::doNode(const Node *node, long sid)
 {
-    QString s = createTodo(*node, sid);
+    QString s;
+    bool create = true;
+    if (node->type() == Node::Type_Project) {
+        create = m_includeProject;
+    } else if (node->type() == Node::Type_Summarytask) {
+        create = m_includeSummarytasks;
+    }
+    if (create) {
+         s = createTodo(*node, sid);
+    }
     for (int i = 0; i < node->numChildren(); ++i) {
         s += doNode(node->childNode(i), sid);
     }
@@ -281,7 +283,7 @@ void foldData(QString &data)
 
 KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFile &file)
 {
-    long sid = scheduleId(project);
+    long sid = m_scheduleId;
     QString data = beginCalendar();
     data += doNode(&project, sid);
     data += endCalendar();

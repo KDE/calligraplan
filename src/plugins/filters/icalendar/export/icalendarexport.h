@@ -63,6 +63,9 @@ private:
     QString doDescription(const QString &description);
 
 private:
+    long m_scheduleId;
+    bool m_includeProject;
+    bool m_includeSummarytasks;
     QList<QString> m_descriptions;
 };
 
