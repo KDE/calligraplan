@@ -65,6 +65,7 @@
 #include <QHoverEvent>
 #include <QScrollBar>
 #include <QDrag>
+#include <QClipboard>
 
 #include <ktoggleaction.h>
 #include <KActionCollection>
@@ -466,6 +467,15 @@ GanttViewBase::~GanttViewBase()
     // and seems sometimes graphicsview has already been deleted.
     // Note: this will be fixed in next KGantt release
     leftView()->verticalScrollBar()->disconnect();
+}
+
+void GanttViewBase::editCopy()
+{
+    QMimeData *mimeData = new QMimeData;
+    QPixmap pixmap(size());
+    render(&pixmap);
+    mimeData->setImageData(pixmap);
+    QGuiApplication::clipboard()->setMimeData(mimeData);
 }
 
 DateTimeTimeLine *GanttViewBase::timeLine() const
@@ -871,6 +881,11 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
                      "This view supports configuration and printing using the context menu of the tree view."
                      "<nl/><link url='%1'>More...</link>"
                      "</para>", Help::page("Manual/Task_Gantt_View")));
+}
+
+void GanttView::slotEditCopy()
+{
+    m_gantt->editCopy();
 }
 
 void GanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
@@ -1390,6 +1405,11 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     connect(m_gantt->treeView(), &GanttTreeView::doubleClicked, this, &MilestoneGanttView::itemDoubleClicked);
 }
 
+void MilestoneGanttView::slotEditCopy()
+{
+    m_gantt->editCopy();
+}
+
 void MilestoneGanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
@@ -1710,6 +1730,11 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
 ResourceAppointmentsGanttView::~ResourceAppointmentsGanttView()
 {
     delete m_rowController;
+}
+
+void ResourceAppointmentsGanttView::slotEditCopy()
+{
+    m_gantt->editCopy();
 }
 
 void ResourceAppointmentsGanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)

@@ -48,6 +48,7 @@
 #include <QMimeData>
 #include <QPixmap>
 #include <QMouseEvent>
+#include <QClipboard>
 
 using namespace KChart;
 
@@ -181,6 +182,15 @@ void PerformanceStatusTreeView::resizeSplitters()
     setSizes(QList<int>() << x1 << (tot - x1));
 }
 
+void PerformanceStatusTreeView::editCopy()
+{
+    QMimeData *mimeData = new QMimeData;
+    QPixmap pixmap(size());
+    render(&pixmap);
+    mimeData->setImageData(pixmap);
+    QGuiApplication::clipboard()->setMimeData(mimeData);
+}
+
 //-----------------------------------
 PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
@@ -212,6 +222,11 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
                      "</para>", Help::page("Manual/Task_Performance_View")));
+}
+
+void PerformanceStatusView::slotEditCopy()
+{
+    m_view->editCopy();
 }
 
 void PerformanceStatusView::slotContextMenuRequested(const QModelIndex &index, const QPoint& pos)

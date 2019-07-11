@@ -201,6 +201,8 @@ public:
 
     DateTimeTimeLine *timeLine() const;
 
+    void editCopy();
+
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::GanttPrintingOptions &opt) { m_printOptions = opt; }
 
@@ -217,7 +219,7 @@ private:
     QPoint m_dragStartPosition;
 };
 
-class NodeGanttViewBase : public GanttViewBase 
+class NodeGanttViewBase : public GanttViewBase
 {
     Q_OBJECT
 public:
@@ -317,6 +319,8 @@ public Q_SLOTS:
     void setShowNoInformation( bool on );
     void setShowAppointments( bool on );
 
+    void slotEditCopy();
+
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
     void slotGanttHeaderContextMenuRequested(const QPoint &pt);
@@ -410,6 +414,8 @@ public Q_SLOTS:
     void setShowCriticalTasks( bool on ) { m_showCriticalTasks = on; }
     void setShowNoInformation( bool on ) { m_showNoInformation = on; }
 
+    void slotEditCopy();
+
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
     void slotGanttHeaderContextMenuRequested(const QPoint &pt);
@@ -476,6 +482,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm);
+    void slotEditCopy();
 
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );

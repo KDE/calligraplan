@@ -81,6 +81,7 @@ public Q_SLOTS:
     virtual void setGuiActive(bool activate);
 
     void setScheduleManager(KPlato::ScheduleManager *sm);
+    void slotEditCopy();
 
 protected:
     void updateActionsEnabled(bool on);

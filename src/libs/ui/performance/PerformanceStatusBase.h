@@ -174,6 +174,8 @@ public:
 
     void setNodes(const QList<Node*> &nodes);
 
+    void editCopy();
+
 public Q_SLOTS:
     void refreshChart();
 

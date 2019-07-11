@@ -156,6 +156,11 @@ void ProjectStatusView::mouseMoveEvent(QMouseEvent *event)
     drag->exec(Qt::CopyAction);
 }
 
+void ProjectStatusView::slotEditCopy()
+{
+    m_view->editCopy();
+}
+
 //-----------------
 ProjectStatusViewSettingsDialog::ProjectStatusViewSettingsDialog(ViewBase *base, PerformanceStatusBase *view, QWidget *parent, bool selectPrint)
     : KPageDialog(parent),

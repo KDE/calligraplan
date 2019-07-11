@@ -45,6 +45,7 @@
 #include <KChartBackgroundAttributes>
 #include <KChartGridAttributes>
 
+#include <QClipboard>
 
 using namespace KChart;
 
@@ -139,6 +140,15 @@ PerformanceStatusBase::PerformanceStatusBase(QWidget *parent)
 #endif
     connect(&m_chartmodel, &QAbstractItemModel::modelReset, this, &PerformanceStatusBase::slotUpdate);
     setContextMenuPolicy (Qt::DefaultContextMenu);
+}
+
+void PerformanceStatusBase::editCopy()
+{
+    QMimeData *mimeData = new QMimeData;
+    QPixmap pixmap(size());
+    render(&pixmap);
+    mimeData->setImageData(pixmap);
+    QGuiApplication::clipboard()->setMimeData(mimeData);
 }
 
 void PerformanceStatusBase::setChartInfo(const PerformanceChartInfo &info)

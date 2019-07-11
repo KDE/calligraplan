@@ -81,6 +81,8 @@ public:
     
     KoPrintJob *createPrintJob(ViewBase *view);
 
+    void editCopy();
+
 protected Q_SLOTS:
     void slotSelectionChanged(const QItemSelection & selected, const QItemSelection & deselected);
     void resizeSplitters();
@@ -118,6 +120,8 @@ public Q_SLOTS:
     virtual void setGuiActive(bool activate);
 
     void setScheduleManager(KPlato::ScheduleManager *sm);
+
+    void slotEditCopy();
 
 protected Q_SLOTS:
     virtual void slotOptions();
