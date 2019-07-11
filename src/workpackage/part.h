@@ -175,6 +175,7 @@ public:
     /// Add @p child document to work package @p wp
 //    void addChild( WorkPackage *wp, DocumentChild *child );
 
+    QMap<QString, WorkPackage*> workPackages() const { return m_packageMap; }
     /// Number of workpackages
     int workPackageCount() const { return m_packageMap.count(); }
     /// Work package at index

@@ -168,6 +168,7 @@ protected:
 private:
     NodeModel m_nodemodel;
     Part *m_part;
+    QList<WorkPackage*> m_packages;
 };
 
 

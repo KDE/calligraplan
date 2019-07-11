@@ -52,6 +52,7 @@ TaskWorkPackageModel::TaskWorkPackageModel( Part *part, QObject *parent )
     : ItemModelBase( parent ),
     m_part( part )
 {
+    m_packages = m_part->workPackages().values();
     connect( part, &Part::workPackageAdded, this, &TaskWorkPackageModel::addWorkPackage );
     connect( part, &Part::workPackageRemoved, this, &TaskWorkPackageModel::removeWorkPackage );
 }
@@ -154,9 +155,11 @@ void TaskWorkPackageModel::slotDocumentChanged( Node *node, Document */*doc*/, i
     }
 }
 
-void TaskWorkPackageModel::addWorkPackage( WorkPackage *package, int row )
+void TaskWorkPackageModel::addWorkPackage( WorkPackage *package, int /*row*/ )
 {
+    int row = m_packages.count();
     beginInsertRows( QModelIndex(), row, row );
+    m_packages.append(package);
     Project *project = package->project();
     endInsertRows();
     if ( project ) {
@@ -173,9 +176,11 @@ void TaskWorkPackageModel::addWorkPackage( WorkPackage *package, int row )
     }
 }
 
-void TaskWorkPackageModel::removeWorkPackage( WorkPackage *package, int row )
+void TaskWorkPackageModel::removeWorkPackage( WorkPackage *package, int /*row*/ )
 {
+    int row = m_packages.indexOf(package);
     beginRemoveRows( QModelIndex(), row, row );
+    m_packages.removeAt(row);
     Project *project = package->project();
     debugPlanWork<<package->project();
     if ( project ) {
@@ -257,7 +262,7 @@ int TaskWorkPackageModel::rowCount( const QModelIndex &parent ) const
 {
     if ( ! parent.isValid() ) {
         //debugPlanWork<<parent<<"nodes:"<<m_part->workPackageCount();
-        return m_part->workPackageCount(); // == no of nodes (1 node pr wp)
+        return m_packages.count(); // == no of nodes (1 node pr wp)
     }
     Node *n = nodeForIndex( parent );
     if ( n ) {
@@ -689,12 +694,12 @@ QModelIndex TaskWorkPackageModel::indexForNode( Node *node ) const
     if ( p == 0 ) {
         return QModelIndex();
     }
-    return createIndex( m_part->indexOf( p ), 0, p );
+    return createIndex( m_packages.indexOf( p ), 0, p );
 }
 
 WorkPackage *TaskWorkPackageModel::workPackage( int index ) const
 {
-    return m_part->workPackage( index );
+    return m_packages.value(index);
 }
 
 QAbstractItemDelegate *TaskWorkPackageModel::createDelegate( int column, QWidget *parent ) const
