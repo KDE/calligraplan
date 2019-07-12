@@ -950,6 +950,13 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
     }
     DateTime time = node->startTime;
     DateTime end = node->endTime;
+    if (time == end) {
+#ifndef PLAN_NLOGDEBUG
+        m_currentSchedule->logDebug(QString("Task '%1' start time == end time: %2").arg(node->node()->name(), time.toString(Qt::ISODate)));
+#endif
+        node->resourceNotAvailable = true;
+        return;
+    }
     time = availableAfter(time, end);
     if (!time.isValid()) {
         m_currentSchedule->logWarning( i18n( "Resource %1 not available in interval: %2 to %3", m_name, locale.toString(node->startTime, QLocale::ShortFormat), locale.toString(end, QLocale::ShortFormat) ) );
