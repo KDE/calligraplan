@@ -1063,9 +1063,14 @@ void Task::initiateCalculationLists(MainSchedule &sch) {
     }
 }
 
-DateTime Task::calculatePredeccessors(const QList<Relation*> &list, int use) {
+DateTime Task::calculatePredeccessors(const QList<Relation*> &list_, int use) {
     DateTime time;
     // do them forward
+    QMultiMap<int, Relation*> lst;
+    for (Relation* r : list_) {
+        lst.insert(-r->parent()->priority(), r);
+    }
+    const QList<Relation*> list = lst.values();
     foreach (Relation *r, list) {
         if (r->parent()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<it.current()->parent()->name();
@@ -1331,8 +1336,13 @@ DateTime Task::calculateEarlyFinish(int use) {
     return m_earlyFinish;
 }
 
-DateTime Task::calculateSuccessors(const QList<Relation*> &list, int use) {
+DateTime Task::calculateSuccessors(const QList<Relation*> &list_, int use) {
     DateTime time;
+    QMultiMap<int, Relation*> lst;
+    for (Relation* r : list_) {
+        lst.insert(-r->child()->priority(), r);
+    }
+    const QList<Relation*> list = lst.values();
     foreach (Relation *r, list) {
         if (r->child()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<r->parent()->name();
@@ -1575,8 +1585,13 @@ DateTime Task::calculateLateStart(int use) {
     return cs->lateStart;
 }
 
-DateTime Task::schedulePredeccessors(const QList<Relation*> &list, int use) {
+DateTime Task::schedulePredeccessors(const QList<Relation*> &list_, int use) {
     DateTime time;
+    QMultiMap<int, Relation*> lst;
+    for (Relation* r : list_) {
+        lst.insert(-r->parent()->priority(), r);
+    }
+    const QList<Relation*> list = lst.values();
     foreach (Relation *r, list) {
         if (r->parent()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<r->parent()->name();
@@ -1980,8 +1995,13 @@ DateTime Task::scheduleFromStartTime(int use) {
     return cs->endTime;
 }
 
-DateTime Task::scheduleSuccessors(const QList<Relation*> &list, int use) {
+DateTime Task::scheduleSuccessors(const QList<Relation*> &list_, int use) {
     DateTime time;
+    QMultiMap<int, Relation*> lst;
+    for (Relation* r : list_) {
+        lst.insert(-r->child()->priority(), r);
+    }
+    const QList<Relation*> list = lst.values();
     foreach (Relation *r, list) {
         if (r->child()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<r->child()->name();

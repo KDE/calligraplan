@@ -694,7 +694,7 @@ void Project::tasksForward()
                 break;
             default:
                 if ( t->isEndNode() ) {
-                    m_terminalNodes.append( t );
+                    m_terminalNodes.insert(-t->priority(), t);
                 }
                 break;
         }
@@ -727,7 +727,7 @@ void Project::tasksBackward()
                 break;
             default:
                 if ( t->isStartNode() ) {
-                    m_terminalNodes.append( t );
+                    m_terminalNodes.insert(-t->priority(), t);
                 }
                 break;
         }

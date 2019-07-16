@@ -486,20 +486,20 @@ public:
         m_endNodes.clear();
         m_summarytasks.clear();
     }
-    virtual void insertHardConstraint( Node *node ) { m_hardconstraints.append( node ); }
-    QList<Node*> hardConstraints() const { return m_hardconstraints; }
-    virtual void insertSoftConstraint( Node *node ) { m_softconstraints.append( node ); }
-    QList<Node*> softConstraints() const { return m_softconstraints; }
-    QList<Node*> forwardNodes() const { return m_forwardnodes; }
-    virtual void insertForwardNode( Node *node ) { m_forwardnodes.append( node ); }
-    QList<Node*> backwardNodes() const { return m_backwardnodes; }
-    virtual void insertBackwardNode( Node *node ) { m_backwardnodes.append( node ); }
-    virtual void insertStartNode( Node *node ) { m_startNodes.append( node ); }
-    QList<Node*> startNodes() const { return m_startNodes; }
-    virtual void insertEndNode( Node *node ) { m_endNodes.append( node ); }
-    QList<Node*> endNodes() const { return m_endNodes; }
-    virtual void insertSummaryTask( Node *node ) { m_summarytasks.append( node ); }
-    QList<Node*> summaryTasks() const { return m_summarytasks; }
+    virtual void insertHardConstraint( Node *node );
+    QList<Node*> hardConstraints() const;
+    virtual void insertSoftConstraint( Node *node );
+    QList<Node*> softConstraints() const;
+    QList<Node*> forwardNodes() const;
+    virtual void insertForwardNode( Node *node );
+    QList<Node*> backwardNodes() const;
+    virtual void insertBackwardNode( Node *node );
+    virtual void insertStartNode( Node *node );
+    QList<Node*> startNodes() const;
+    virtual void insertEndNode( Node *node );
+    QList<Node*> endNodes() const;
+    virtual void insertSummaryTask( Node *node );
+    QList<Node*> summaryTasks() const;
     
     void clearCriticalPathList();
     QList<Node*> *currentCriticalPath() const;
@@ -537,11 +537,11 @@ private:
     
     ScheduleManager *m_manager;
     QList<Node*> m_hardconstraints;
-    QList<Node*> m_softconstraints;
+    QMultiMap<int, Node*> m_softconstraints;
     QList<Node*> m_forwardnodes;
     QList<Node*> m_backwardnodes;
-    QList<Node*> m_startNodes;
-    QList<Node*> m_endNodes;
+    QMultiMap<int, Node*> m_startNodes;
+    QMultiMap<int, Node*> m_endNodes;
     QList<Node*> m_summarytasks;
     
     QList<Node*> *m_currentCriticalPath;

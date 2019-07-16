@@ -712,7 +712,7 @@ private:
 
     QList<Task*> m_hardConstraints;
     QList<Task*> m_softConstraints;
-    QList<Task*> m_terminalNodes;
+    QMultiMap<int, Task*> m_terminalNodes;
 
     bool m_useSharedResources;
     bool m_sharedResourcesLoaded;

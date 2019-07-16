@@ -1274,6 +1274,76 @@ void MainSchedule::changed( Schedule *sch )
     }
 }
 
+void MainSchedule::insertHardConstraint( Node *node )
+{
+    m_hardconstraints.append( node );
+}
+
+QList<Node*> MainSchedule::hardConstraints() const
+{
+    return m_hardconstraints;
+}
+
+void MainSchedule::insertSoftConstraint( Node *node )
+{
+    m_softconstraints.insert(-node->priority(), node);
+}
+
+QList<Node*> MainSchedule::softConstraints() const
+{
+    return m_softconstraints.values();
+}
+
+QList<Node*> MainSchedule::forwardNodes() const
+{
+    return m_forwardnodes;
+}
+
+void MainSchedule::insertForwardNode( Node *node )
+{
+    m_forwardnodes.append( node );
+}
+
+QList<Node*> MainSchedule::backwardNodes() const
+{
+    return m_backwardnodes;
+}
+
+void MainSchedule::insertBackwardNode( Node *node )
+{
+    m_backwardnodes.append( node );
+}
+
+void MainSchedule::insertStartNode( Node *node )
+{
+    m_startNodes.insert(-node->priority(), node );
+}
+
+QList<Node*> MainSchedule::startNodes() const
+{
+    return m_startNodes.values();
+}
+
+void MainSchedule::insertEndNode( Node *node )
+{
+    m_endNodes.insert(-node->priority(), node);
+}
+
+QList<Node*> MainSchedule::endNodes() const
+{
+    return m_endNodes.values();
+}
+
+void MainSchedule::insertSummaryTask( Node *node )
+{
+    m_summarytasks.append( node );
+}
+
+QList<Node*> MainSchedule::summaryTasks() const
+{
+    return m_summarytasks;
+}
+
 bool MainSchedule::loadXML( const KoXmlElement &sch, XMLLoaderObject &status )
 {
     //debugPlan;
