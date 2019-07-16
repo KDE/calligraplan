@@ -61,6 +61,13 @@ K_PLUGIN_FACTORY_WITH_JSON(ICalendarExportFactory, "plan_icalendar_export.json",
 #define KQDT KDateTime
 #endif
 
+const QLoggingCategory &PLAN_ICAL_EXPORT_LOG()
+{
+    static const QLoggingCategory category("calligra.plan.ical.export");
+    return category;
+}
+#define debugPlanICalExport qCDebug(PLAN_ICAL_EXPORT_LOG)<<Q_FUNC_INFO
+
 ICalendarExport::ICalendarExport(QObject* parent, const QVariantList &)
         : KoFilter(parent)
 {
@@ -68,7 +75,7 @@ ICalendarExport::ICalendarExport(QObject* parent, const QVariantList &)
 
 KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, const QByteArray& to)
 {
-    debugPlan << from << to;
+    debugPlanICalExport << from << to;
     if ( ( from != "application/x-vnd.kde.plan" ) || ( to != "text/calendar" ) ) {
         return KoFilter::NotImplemented;
     }
@@ -78,10 +85,10 @@ KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, cons
     }
     if ( batch ) {
         //TODO
-        debugPlan << "batch";
+        debugPlanICalExport<<"batch";
         return KoFilter::UsageError;
     }
-    debugPlan<<"online:"<<m_chain->inputDocument();
+    debugPlanICalExport<<"online:"<<m_chain->inputDocument();
     MainDocument *doc = dynamic_cast<MainDocument*>( m_chain->inputDocument() );
     if (doc == 0) {
         errorPlan << "Cannot open Plan document";
@@ -108,7 +115,7 @@ KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, cons
     m_includeSummarytasks = dlg.includeSummarytasks();
     KoFilter::ConversionStatus status = convert(doc->getProject(), file);
     file.close();
-    //debugPlan << "Finished with status:"<<status;
+    debugPlanICalExport<<"Finished with status:"<<status;
     return status;
 }
 
@@ -142,7 +149,8 @@ QString doAttendees(const Node &node, long sid)
                 s += QString("ATTENDEE;CN=") + r->name() + "\r\n\t";
                 s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n\t";
                 s += QString("CUTYPE=INDIVIDUAL;") + "\r\n\t";
-                s += QString("X-UID=") + r->id() + ':' + r->email() + "\r\n";
+                s += QString("X-UID=") + r->id();
+                s += ":MAILTO:" + r->email() + "\r\n";
             }
         }
     } else {
@@ -152,7 +160,8 @@ QString doAttendees(const Node &node, long sid)
                 s += QString("ATTENDEE;CN=") + r->name() + "\r\n\t";
                 s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n\t";
                 s += QString("CUTYPE=INDIVIDUAL;") + "\r\n\t";
-                s += QString("X-UID=") + r->id().right(10) + ':' + r->email() + "\r\n";
+                s += QString("X-UID=") + r->id();
+                s += ":MAILTO:" + r->email() + "\r\n";
             }
         }
     }
@@ -248,6 +257,7 @@ QString ICalendarExport::doNode(const Node *node, long sid)
     } else if (node->type() == Node::Type_Summarytask) {
         create = m_includeSummarytasks;
     }
+    debugPlanICalExport<<node<<"create:"<<create;
     if (create) {
          s = createTodo(*node, sid);
     }
@@ -314,16 +324,16 @@ KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFil
     foreach(const ScheduleManager *m, lst) {
         if (! baselined) {
             id = lst.last()->scheduleId();
-            //debugPlan<<"last:"<<id;
+            //debugPlanICalExport<<"last:"<<id;
             break;
         }
         if (m->isBaselined()) {
             id = m->scheduleId();
-            //debugPlan<<"baselined:"<<id;
+            //debugPlanICalExport<<"baselined:"<<id;
             break;
         }
     }
-    //debugPlan<<id;
+    //debugPlanICalExport<<id;
     createTodos(cal, &project, id);
 
     KCalCore::ICalFormat format;
