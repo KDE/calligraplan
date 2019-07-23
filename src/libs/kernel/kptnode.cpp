@@ -1808,6 +1808,7 @@ double Estimate::scale( const Duration &value, Duration::Unit unit, const QList<
             Q_FALLTHROUGH();
         case Duration::Unit_h:
             lst << 60 * 60 * 1000; // add milliseconds in hour
+            Q_FALLTHROUGH();
         case Duration::Unit_m:
             lst << 60 * 1000; // add milliseconds in minute
             Q_FALLTHROUGH();
