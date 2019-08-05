@@ -860,9 +860,11 @@ void TaskEditor::setupGui()
     actionShowProject = new KToggleAction( i18n( "Show Project" ), this );
     actionCollection()->addAction("show_project", actionShowProject);
     connect(actionShowProject, &QAction::triggered, baseModel(), &NodeItemModel::setShowProject);
+    addContextAction(actionShowProject);
 
     actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskEditor::slotSplitView);
+    addContextAction(m_view->actionSplitView());
 
     createOptionActions(ViewBase::OptionAll);
 
