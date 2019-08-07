@@ -307,8 +307,9 @@ bool AccountsView::loadContext( const KoXmlElement &context )
     m_view->setEndMode( context.attribute( "end-mode", "0" ).toInt() );
     
     //debugPlan<<m_view->startMode()<<m_view->startDate()<<m_view->endMode()<<m_view->endDate();
-    m_view->masterView()->setObjectName("AccountsView");
-    m_view->loadContext(model()->columnMap(), context);
+    // Skip context loading, it doea not work for this type of view
+    // m_view->masterView()->setObjectName("AccountsView");
+    // m_view->loadContext(model()->columnMap(), context);
     return true;
 }
 
