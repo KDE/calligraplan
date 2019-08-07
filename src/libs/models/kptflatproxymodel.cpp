@@ -433,7 +433,6 @@ void FlatProxyModel::initiateMaps( const QModelIndex &sourceParent )
 {
     if ( ! sourceParent.isValid() ) {
         m_sourceIndexList.clear();
-        m_sourceIndexMap.clear();
     }
     QAbstractItemModel *m = sourceModel();
     if ( m == 0 ) {
@@ -443,10 +442,10 @@ void FlatProxyModel::initiateMaps( const QModelIndex &sourceParent )
     int count = m->rowCount( sourceParent );
     for ( int row = 0; row < count; ++row ) {
         QPersistentModelIndex idx = m->index( row, 0, sourceParent );
+        Q_ASSERT(idx.isValid());
         //debugPlan<<"map:"<<sourceParent<<row<<idx;
         if ( idx.isValid() ) { // fail safe
             m_sourceIndexList.append( idx );
-            m_sourceIndexMap.insert( idx.parent(), idx );
 
             initiateMaps( idx );
         }

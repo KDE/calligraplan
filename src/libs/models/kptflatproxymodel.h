@@ -107,10 +107,7 @@ private Q_SLOTS:
     void sourceModelDestroyed();
     
 private:
-    /// List of sourceIndexes
-    QList<QPersistentModelIndex> m_sourceIndexList;
-    /// Map of sourceIndexes (parent, index)
-    QMultiMap<QPersistentModelIndex, QPersistentModelIndex> m_sourceIndexMap;
+    QList<QPersistentModelIndex> m_sourceIndexList; /// List of sourceIndexes
 };
 
 } //namespace KPlato
