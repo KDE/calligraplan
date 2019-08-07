@@ -1637,7 +1637,7 @@ QModelIndex TreeViewBase::firstVisibleIndex( const QModelIndex &idx ) const
 
 bool TreeViewBase::loadContext( const QMetaEnum &map, const KoXmlElement &element, bool expand )
 {
-    //debugPlan<<objectName();
+    debugPlan<<this;
     header()->setStretchLastSection( (bool)( element.attribute( "stretch-last-column", "1" ).toInt() ) );
     KoXmlElement e = element.namedItem( "columns" ).toElement();
     if ( ! e.isNull() ) {
@@ -1663,7 +1663,7 @@ bool TreeViewBase::loadContext( const QMetaEnum &map, const KoXmlElement &elemen
                     } else if ( s == "shown" ) {
                         showColumn( i );
                     } else debugPlan<<objectName()<<"Unknown column:"<<s;
-                } else debugPlan<<"Column not in enum:"<<i;
+                } else debugPlan<<"Column not in enum:"<<i<<map.name()<<map.keyCount();
             }
         }
     }

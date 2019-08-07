@@ -1206,7 +1206,7 @@ bool Project::load( KoXmlElement &element, XMLLoaderObject &status )
     // These go last
     n = element.firstChild();
     for ( ; ! n.isNull(); n = n.nextSibling() ) {
-        debugPlan<<n.isElement();
+        //debugPlan<<n.isElement();
         if ( ! n.isElement() ) {
             continue;
         }
