@@ -1351,9 +1351,7 @@ void Project::save( QDomElement &element, const XmlSaveContext &context) const
     QDomElement loc = me.ownerDocument().createElement( "locale" );
     me.appendChild( loc );
     const Locale *l = locale();
-    if (!l->currencySymbolExplicit().isEmpty()) {
-        loc.setAttribute("currency-symbol", l->currencySymbolExplicit());
-    }
+    loc.setAttribute("currency-symbol", l->currencySymbol());
     loc.setAttribute("currency-digits", l->monetaryDecimalPlaces());
     loc.setAttribute("language", l->currencyLanguage());
     loc.setAttribute("country", l->currencyCountry());
