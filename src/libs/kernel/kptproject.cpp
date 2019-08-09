@@ -681,16 +681,19 @@ void Project::tasksForward()
     m_hardConstraints.clear();
     m_softConstraints.clear();
     m_terminalNodes.clear();
-    foreach ( Task *t, allTasks() ) {
+    // Do these in reverse order to get tasks with same prio in wbs order
+    const QList<Task*> tasks = allTasks();
+    for (int i = tasks.count() -1; i >= 0; --i) {
+        Task *t = tasks.at(i);
         switch ( t->constraint() ) {
             case Node::MustStartOn:
             case Node::MustFinishOn:
             case Node::FixedInterval:
-                m_hardConstraints.append( t );
+                m_hardConstraints.prepend( t );
                 break;
             case Node::StartNotEarlier:
             case Node::FinishNotLater:
-                m_softConstraints.append( t );
+                m_softConstraints.prepend( t );
                 break;
             default:
                 if ( t->isEndNode() ) {
@@ -714,16 +717,19 @@ void Project::tasksBackward()
     m_hardConstraints.clear();
     m_softConstraints.clear();
     m_terminalNodes.clear();
-    foreach ( Task *t, allTasks() ) {
+    // Do these in reverse order to get tasks with same prio in wbs order
+    const QList<Task*> tasks = allTasks();
+    for (int i = tasks.count() -1; i >= 0; --i) {
+        Task *t = tasks.at(i);
         switch ( t->constraint() ) {
             case Node::MustStartOn:
             case Node::MustFinishOn:
             case Node::FixedInterval:
-                m_hardConstraints.append( t );
+                m_hardConstraints.prepend( t );
                 break;
             case Node::StartNotEarlier:
             case Node::FinishNotLater:
-                m_softConstraints.append( t );
+                m_softConstraints.prepend( t );
                 break;
             default:
                 if ( t->isStartNode() ) {
