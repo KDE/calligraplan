@@ -273,6 +273,7 @@ protected Q_SLOTS:
     void slotOpenCurrentNode();
     void slotOpenNode(KPlato::Node *node);
     void slotTaskProgress();
+    void slotOpenProjectDescription();
     void slotTaskDescription();
     void slotOpenTaskDescription(bool);
     void slotDocuments();

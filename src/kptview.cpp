@@ -304,12 +304,19 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     actionCollection()->addAction("project_worktime", actionEditStandardWorktime );
     connect( actionEditStandardWorktime, &QAction::triggered, this, &View::slotProjectWorktime );
 
-
-    // ------ Tools
     actionDefineWBS  = new QAction(koIcon("configure"), i18n("Define WBS Pattern..."), this);
     actionCollection()->addAction("tools_define_wbs", actionDefineWBS );
     connect( actionDefineWBS, &QAction::triggered, this, &View::slotDefineWBS );
 
+    actionCurrencyConfig  = new QAction(koIcon("configure"), i18n("Define Currency..."), this);
+    actionCollection()->addAction( "config_currency", actionCurrencyConfig );
+    connect( actionCurrencyConfig, &QAction::triggered, this, &View::slotCurrencyConfig );
+
+    QAction *actionProjectDescription = new QAction(koIcon("document-edit"), i18n("Edit Description..."), this);
+    actionCollection()->addAction( "edit_project_description", actionProjectDescription );
+    connect( actionProjectDescription, &QAction::triggered, this, &View::slotOpenProjectDescription );
+
+    // ------ Tools
     actionInsertFile  = new QAction(koIcon("document-import"), i18n("Insert Project File..."), this);
     actionCollection()->addAction("insert_file", actionInsertFile );
     connect( actionInsertFile, &QAction::triggered, this, &View::slotInsertFile );
@@ -322,10 +329,6 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     actionConfigure  = new QAction(koIcon("configure"), i18n("Configure Plan..."), this);
     actionCollection()->addAction("configure", actionConfigure );
     connect( actionConfigure, &QAction::triggered, this, &View::slotConfigure );
-
-    actionCurrencyConfig  = new QAction(koIcon("configure"), i18n("Define Currency..."), this);
-    actionCollection()->addAction( "config_currency", actionCurrencyConfig );
-    connect( actionCurrencyConfig, &QAction::triggered, this, &View::slotCurrencyConfig );
 
 #ifdef PLAN_USE_KREPORT
     actionOpenReportFile  = new QAction(koIcon("document-open"), i18n("Open Report Definition File..."), this);
@@ -2257,12 +2260,20 @@ void View::slotMilestoneProgressFinished( int result )
     dia->deleteLater();
 }
 
-void View::slotTaskDescription()
+void View::slotOpenProjectDescription()
 {
-    slotOpenTaskDescription(true);
+    debugPlan<<koDocument()->isReadWrite();
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(getProject(), this, !koDocument()->isReadWrite());
+    connect(dia, &QDialog::finished, this, &View::slotTaskDescriptionFinished);
+    dia->open();
 }
 
-void View::slotOpenTaskDescription(bool rw)
+void View::slotTaskDescription()
+{
+    slotOpenTaskDescription(!koDocument()->isReadWrite());
+}
+
+void View::slotOpenTaskDescription(bool ro)
 {
     //debugPlan;
     Node * node = currentNode();
@@ -2277,7 +2288,7 @@ void View::slotOpenTaskDescription(bool rw)
         case Node::Type_Task:
         case Node::Type_Milestone:
         case Node::Type_Summarytask: {
-                TaskDescriptionDialog *dia = new TaskDescriptionDialog( *node, this, rw );
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog( *node, this, ro );
                 connect(dia, &QDialog::finished, this, &View::slotTaskDescriptionFinished);
                 dia->open();
                 break;
