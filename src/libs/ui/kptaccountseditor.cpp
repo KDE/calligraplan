@@ -89,14 +89,12 @@ void AccountseditorConfigDialog::slotOk()
 AccountTreeView::AccountTreeView( QWidget *parent )
     : TreeViewBase( parent )
 {
+    setDragPixmap(koIcon("account").pixmap(32));
     header()->setContextMenuPolicy( Qt::CustomContextMenu );
     setModel( new AccountItemModel( this ) );
     setSelectionModel( new QItemSelectionModel( model() ) );
-    setSelectionMode( QAbstractItemView::SingleSelection );
-    setSelectionBehavior( QAbstractItemView::SelectRows );
-
-    setAcceptDrops( false );
-    setDropIndicatorShown( false );
+    setSelectionMode( QAbstractItemView::ExtendedSelection );
+//     setSelectionBehavior( QAbstractItemView::SelectRows );
     
     connect( header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderContextMenuRequested(QPoint)) );
 }
@@ -164,7 +162,7 @@ AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     setXMLFile("AccountsEditorUi.rc");
     setupGui();
-    
+
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
     m_view = new AccountTreeView( this );
@@ -173,6 +171,12 @@ AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 
     l->addWidget( m_view );
     m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
+
+    m_view->setDragDropMode(QAbstractItemView::DragOnly);
+    m_view->setDropIndicatorShown( false );
+    m_view->setDragEnabled ( true );
+    m_view->setAcceptDrops( false );
+    m_view->setAcceptDropsOnView( false );
 
     connect( model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
     
@@ -372,6 +376,11 @@ bool AccountsEditor::loadContext(const KoXmlElement &context)
 void AccountsEditor::saveContext(QDomElement &context) const
 {
     m_view->saveContext(model()->columnMap(), context);
+}
+
+void AccountsEditor::slotEditCopy()
+{
+    m_view->editCopy();
 }
 
 } // namespace KPlato

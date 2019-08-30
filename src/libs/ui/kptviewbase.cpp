@@ -63,6 +63,25 @@
 namespace KPlato
 {
 
+// sort indexes the way they are displayed
+void sort(const QTreeView *view, QModelIndexList &list)
+{
+    QModelIndexList i; i << list.takeFirst();
+    for (QModelIndex idx = view->indexAbove(i.first()); idx.isValid() && !list.isEmpty(); idx = view->indexAbove(idx)) {
+        if (list.contains(idx)) {
+            i.prepend(idx);
+            list.removeOne(idx);
+        }
+    }
+    for (QModelIndex idx = view->indexBelow(i.last()); idx.isValid() && !list.isEmpty(); idx = view->indexBelow(idx)) {
+        if (list.contains(idx)) {
+            i.append(idx);
+            list.removeOne(idx);
+        }
+    }
+    list = i;
+}
+
 
 DockWidget::DockWidget( ViewBase *v, const QString &identity,  const QString &title )
     : QDockWidget( v ),
@@ -1342,7 +1361,7 @@ void TreeViewBase::mousePressEvent(QMouseEvent *event)
     // If  the mouse is pressed outside any item, the current item should be/remain selected
     QPoint pos = event->pos();
     QModelIndex index = indexAt(pos);
-    debugPlan<<index<<event->pos();
+    debugPlan<<index<<event->pos()<<index.flags();
     if ( ! index.isValid() ) {
         index = selectionModel()->currentIndex();
         if ( index.isValid() && ! selectionModel()->isSelected( index ) ) {
@@ -1901,18 +1920,15 @@ void TreeViewBase::startDrag(Qt::DropActions supportedActions)
         defaultDropAction = Qt::CopyAction;
     }
     if (m_handleDrag) {
-        QModelIndexList indexes = selectionModel()->selectedRows();
-        if (!indexes.isEmpty()) {
-            QMimeData *data = model()->mimeData(indexes);
-            if (!data) {
-                debugPlan<<"No mimedata";
-                return;
-            }
-            QDrag *drag = new QDrag(this);
-            drag->setPixmap(m_dragPixmap);
-            drag->setMimeData(data);
-            drag->exec(supportedActions, defaultDropAction);
+        QMimeData *data = mimeData();
+        if (!data) {
+            debugPlan<<"No mimedata";
+            return;
         }
+        QDrag *drag = new QDrag(this);
+        drag->setPixmap(m_dragPixmap);
+        drag->setMimeData(data);
+        drag->exec(supportedActions, defaultDropAction);
     } else {
         static_cast<DoubleTreeViewBase*>(parent())->handleDrag(supportedActions, defaultDropAction);
     }
@@ -1942,8 +1958,37 @@ QPixmap TreeViewBase::dragPixmap() const
     return m_dragPixmap;
 }
 
+QMimeData *TreeViewBase::mimeData() const
+{
+    QModelIndexList rows = selectionModel()->selectedRows();
+    sort(this, rows);
+    if (rows.isEmpty()) {
+        debugPlan<<"No rows selected";
+        return nullptr;
+    }
+    QList<int> columns;;
+    columns = visualColumns();
+    QModelIndexList indexes;
+    for (int r = 0; r < rows.count(); ++r) {
+        int row = rows.at(r).row();
+        const QModelIndex &parent = rows.at(r).parent();
+        for (int i = 0; i < columns.count(); ++i) {
+            indexes << model()->index(row, columns.at(i), parent);
+        }
+    }
+    return model()->mimeData(indexes);
+}
+
+
 void TreeViewBase::editCopy()
 {
+    QMimeData *data = mimeData();
+    if (!data) {
+        debugPlan<<"No mimedata";
+        return;
+    }
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    clipboard->setMimeData(data);
 }
 
 void TreeViewBase::editPaste()
@@ -2699,24 +2744,6 @@ void DoubleTreeViewBase::setContextMenuIndex(const QModelIndex &idx)
 {
     m_leftview->setContextMenuIndex(idx);
     m_rightview->setContextMenuIndex(idx);
-}
-
-void sort(QTreeView *view, QModelIndexList &list)
-{
-    QModelIndexList i; i << list.takeFirst();
-    for (QModelIndex idx = view->indexAbove(i.first()); idx.isValid() && !list.isEmpty(); idx = view->indexAbove(idx)) {
-        if (list.contains(idx)) {
-            i.prepend(idx);
-            list.removeOne(idx);
-        }
-    }
-    for (QModelIndex idx = view->indexBelow(i.last()); idx.isValid() && !list.isEmpty(); idx = view->indexBelow(idx)) {
-        if (list.contains(idx)) {
-            i.append(idx);
-            list.removeOne(idx);
-        }
-    }
-    list = i;
 }
 
 QMimeData *DoubleTreeViewBase::mimeData() const

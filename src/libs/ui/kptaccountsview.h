@@ -91,7 +91,8 @@ public:
     
 public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm);
-    
+    void slotEditCopy();
+
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
     void slotHeaderContextMenuRequested( const QPoint &pos );

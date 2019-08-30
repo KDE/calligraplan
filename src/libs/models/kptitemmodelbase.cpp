@@ -823,6 +823,7 @@ QStringList ItemModelBase::mimeTypes() const
 
 QMimeData *ItemModelBase::mimeData(const QModelIndexList &indexes) const
 {
+    debugPlan<<indexes;
     QMimeData *m = new QMimeData();
     if (indexes.isEmpty() || mimeTypes().isEmpty()) {
         debugPlan<<"No indexes or no mimeTypes";

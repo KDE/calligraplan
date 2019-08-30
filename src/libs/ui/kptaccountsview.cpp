@@ -30,6 +30,7 @@
 
 #include <KoDocument.h>
 #include <KoXmlReader.h>
+#include <KoIcon.h>
 
 #include <QVBoxLayout>
 #include <QPrinter>
@@ -45,6 +46,8 @@ AccountsTreeView::AccountsTreeView( QWidget *parent )
     : DoubleTreeViewBase( parent )
 {
     debugPlan<<"---------------"<<this<<"------------------";
+    setDragPixmap(koIcon("account").pixmap(32));
+
     setSelectionMode( QAbstractItemView::ExtendedSelection );
 
     CostBreakdownItemModel *m = new CostBreakdownItemModel( this );
@@ -174,6 +177,12 @@ AccountsView::AccountsView(KoPart *part, Project *project, KoDocument *doc, QWid
 
     setupGui();
 
+    m_view->setDragDropMode(QAbstractItemView::DragOnly);
+    m_view->setDropIndicatorShown( false );
+    m_view->setDragEnabled ( true );
+    m_view->setAcceptDrops( false );
+    m_view->setAcceptDropsOnView( false );
+
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);
 
@@ -217,6 +226,13 @@ void AccountsView::slotHeaderContextMenuRequested( const QPoint &pos )
         QMenu::exec( lst, pos,  lst.first() );
     }
 }
+
+void AccountsView::slotEditCopy()
+{
+    debugPlan;
+    m_view->editCopy();
+}
+
 
 void AccountsView::slotOptions()
 {

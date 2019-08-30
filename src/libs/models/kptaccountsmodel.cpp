@@ -219,12 +219,14 @@ void AccountItemModel::setProject( Project *project )
 Qt::ItemFlags AccountItemModel::flags( const QModelIndex &index ) const
 {
     Qt::ItemFlags flags = ItemModelBase::flags( index );
+    flags &= ~Qt::ItemIsEditable;
     if ( ! m_readWrite ) {
-        return flags &= ~Qt::ItemIsEditable;
+        return flags;
     }
     if ( ! index.isValid() || ! m_project ) {
         return flags;
     }
+    flags |= Qt::ItemIsDragEnabled;
     Account *a = account( index );
     if ( a ) {
         switch ( index.column() ) {
@@ -638,6 +640,16 @@ void CostBreakdownItemModel::fetchData()
         fetchPlannedCost( a );
         fetchActualCost( a );
     }
+}
+
+Qt::ItemFlags CostBreakdownItemModel::flags( const QModelIndex &index ) const
+{
+    Qt::ItemFlags flags = ItemModelBase::flags(index);
+    flags &= ~Qt::ItemIsEditable;
+    if (index.isValid()) {
+        flags |= Qt::ItemIsDragEnabled;
+    }
+    return flags;
 }
 
 QModelIndex CostBreakdownItemModel::parent( const QModelIndex &index ) const

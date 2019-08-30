@@ -446,6 +446,7 @@ public:
     void setDragPixmap(const QPixmap &pixmap);
     QPixmap dragPixmap() const;
 
+    QMimeData *mimeData() const;
     virtual void editCopy();
     virtual void editPaste();
 

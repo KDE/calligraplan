@@ -134,7 +134,8 @@ public:
     virtual void setProject( Project *project );
     virtual void setScheduleManager( ScheduleManager *sm );
     long id() const;
-    
+
+    Qt::ItemFlags flags( const QModelIndex &index ) const;
     virtual QModelIndex parent( const QModelIndex & index ) const;
     virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
     QModelIndex index( const Account* account ) const;
