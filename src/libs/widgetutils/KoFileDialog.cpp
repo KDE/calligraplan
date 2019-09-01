@@ -239,7 +239,6 @@ QString KoFileDialog::selectedMimeType() const
 
 void KoFileDialog::createFileDialog()
 {
-    qInfo()<<Q_FUNC_INFO<<d->type;
     d->fileDialog.reset(new QFileDialog(d->parent, d->caption, d->defaultDirectory));
 
     if (d->type == SaveFile) {
@@ -289,7 +288,6 @@ void KoFileDialog::createFileDialog()
 
 QString KoFileDialog::filename()
 {
-    qInfo()<<Q_FUNC_INFO<<d->useStaticForNative;
     QString url;
     if (!d->useStaticForNative) {
 

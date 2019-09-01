@@ -325,7 +325,7 @@ void MainProjectPanel::openResourcesFile()
 void MainProjectPanel::openProjectsPlace()
 {
     if (projectsType->currentIndex() == 0 /*Directory*/) {
-        qInfo()<<Q_FUNC_INFO<<"Directory";
+        debugPlan<<"Directory";
         QString dirName = QFileDialog::getExistingDirectory(this, tr("Projects Directory"));
         projectsPlace->setText(dirName);
         return;
