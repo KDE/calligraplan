@@ -135,6 +135,7 @@ void PerformanceStatusTreeView::setProject(Project *project)
 {
     nodeModel()->setProject(project);
     m_chart->setProject(project);
+    m_chart->setNodes(QList<Node*>() << project);
 }
 
 bool PerformanceStatusTreeView::loadContext(const KoXmlElement &context)
