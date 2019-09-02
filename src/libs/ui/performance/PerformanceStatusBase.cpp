@@ -172,8 +172,10 @@ void PerformanceStatusBase::refreshChart()
 void PerformanceStatusBase::createBarChart()
 {
     m_barchart.effortplane = new CartesianCoordinatePlane(ui_chart);
+    m_barchart.effortplane->setRubberBandZoomingEnabled(true);
     m_barchart.effortplane->setObjectName("Bar chart, Effort");
     m_barchart.costplane = new CartesianCoordinatePlane(ui_chart);
+    m_barchart.costplane->setRubberBandZoomingEnabled(true);
     m_barchart.costplane->setObjectName("Bar chart, Cost");
 
     BarDiagram *effortdiagram = new BarDiagram(ui_chart, m_barchart.effortplane);
