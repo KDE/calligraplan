@@ -138,8 +138,16 @@ PerformanceStatusBase::PerformanceStatusBase(QWidget *parent)
 #ifdef PLAN_CHART_DEBUG
     ui_tableView->setModel(&m_chartmodel);
 #endif
+    setContextMenuPolicy(Qt::PreventContextMenu);
     connect(&m_chartmodel, &QAbstractItemModel::modelReset, this, &PerformanceStatusBase::slotUpdate);
-    setContextMenuPolicy (Qt::DefaultContextMenu);
+    connect(ui_chart, &KPlato::Chart::customContextMenuRequested, this, &PerformanceStatusBase::customContextMenuRequested);
+    ui_performancetable->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui_performancetable, &PerformanceTableView::customContextMenuRequested, this, &PerformanceStatusBase::slotContextMenuRequested);
+}
+
+void PerformanceStatusBase::slotContextMenuRequested(const QPoint &pos)
+{
+    emit customContextMenuRequested(mapToGlobal(pos));
 }
 
 void PerformanceStatusBase::editCopy()

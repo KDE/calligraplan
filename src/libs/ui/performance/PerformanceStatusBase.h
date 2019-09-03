@@ -190,6 +190,7 @@ protected:
 protected Q_SLOTS:
     void slotUpdate();
     void slotLocaleChanged();
+    void slotContextMenuRequested(const QPoint &pos);
 
 private:
     struct ChartContents {

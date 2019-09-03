@@ -134,6 +134,8 @@ protected:
 private Q_SLOTS:
     void slotContextMenuRequested(KPlato::Node *node, const QPoint& pos);
     void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
+    void slotChartContextMenuRequested(const QPoint& pos);
+    void slotTableContextMenuRequested(const QPoint& pos);
 
 private:
     PerformanceStatusTreeView *m_view;

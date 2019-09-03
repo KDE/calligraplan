@@ -104,6 +104,7 @@ set(planui_LIB_SRCS
 
     ResourceAllocationView.cpp
 
+    performance/KPlatoChart.cpp
     performance/PerformanceStatusBase.cpp
     performance/ProjectStatusView.cpp
     performance/PerformanceStatusView.cpp

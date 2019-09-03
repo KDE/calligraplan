@@ -37,6 +37,8 @@
 #include "KoDocument.h"
 #include "KoPageLayoutWidget.h"
 
+#include <KActionCollection>
+
 #include <QModelIndex>
 #include <QItemSelection>
 #include <QVBoxLayout>
@@ -49,6 +51,7 @@
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QClipboard>
+#include <QMenu>
 
 using namespace KChart;
 
@@ -209,8 +212,7 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
 
     setupGui();
 
-    connect(m_view->treeView(), &TreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
-    connect(m_view->chartView(), &QWidget::customContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
+    connect(m_view->chartView(), &QWidget::customContextMenuRequested, this, &PerformanceStatusView::slotChartContextMenuRequested);
 
     connect(m_view->treeView(), SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
 
@@ -228,6 +230,29 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
 void PerformanceStatusView::slotEditCopy()
 {
     m_view->editCopy();
+}
+
+
+void PerformanceStatusView::slotChartContextMenuRequested(const QPoint& pos)
+{
+    debugPlan<<pos;
+    QList<QAction*> lst;
+    const KActionCollection *c = actionCollection();
+    lst << c->action("print");
+    lst << c->action("print_preview");
+    lst << c->action("print_pdf");
+    lst << c->action("print_options");
+    lst << new QAction();
+    lst.last()->setSeparator(true);
+    lst << c->action("configure_view");
+    if (!lst.isEmpty()) {
+        QMenu::exec(lst, pos, lst.first());
+    }
+}
+
+void PerformanceStatusView::slotTableContextMenuRequested(const QPoint& pos)
+{
+    debugPlan<<pos;
 }
 
 void PerformanceStatusView::slotContextMenuRequested(const QModelIndex &index, const QPoint& pos)

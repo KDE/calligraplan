@@ -133,17 +133,16 @@ void ProjectStatusView::mousePressEvent(QMouseEvent *event)
     if (event->button() == Qt::LeftButton) {
         m_dragStartPosition = event->pos();
     }
-    ViewBase::mousePressEvent(event);
+    event->ignore();
 }
 
 void ProjectStatusView::mouseMoveEvent(QMouseEvent *event)
 {
+    event->ignore();
     if (!(event->buttons() & Qt::LeftButton)) {
-        ViewBase::mouseMoveEvent(event);
         return;
     }
     if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
-        ViewBase::mouseMoveEvent(event);
         return;
     }
     event->accept();

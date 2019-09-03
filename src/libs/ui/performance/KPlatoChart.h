@@ -23,9 +23,6 @@
 
 #include <KChartChart>
 
-#include <QWidget>
-#include <QMouseEvent>
-#include <QDebug>
 
 namespace KPlato
 {
@@ -33,32 +30,25 @@ namespace KPlato
 /*
  * class KPlato::Chart
  * 
- * Wrapper for KChart::Chart to prevent rubberband selection
- * with no keyboard modifers.
+ * Wrapper for KChart::Chart to allow rubberband selection
+ * with no keyboard modifers when cursor is inside a coordinate plan.
  * 
- * By default KChart::Chart eats the mouse events which makes
- * implementation of drag and context menu difficult.
+ * When not inside a plane drag&drop and context menu can be activated.
  */
 class Chart : public KChart::Chart
 {
+    Q_OBJECT
 public:
-    Chart(QWidget *parent) : KChart::Chart(parent) {}
+    Chart(QWidget *parent);
 
 protected:
-    void mousePressEvent(QMouseEvent *event) {
-        if (event->modifiers() != Qt::NoModifier) {
-            KChart::Chart::mousePressEvent(event);
-        } else {
-            event->ignore();
-        }
-    }
-    void mouseMoveEvent(QMouseEvent *event) {
-        if (event->modifiers() != Qt::NoModifier) {
-            KChart::Chart::mouseMoveEvent(event);
-        } else {
-            event->ignore();
-        }
-    }
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
+
+private:
+    bool m_inplane;
 };
 
 }
