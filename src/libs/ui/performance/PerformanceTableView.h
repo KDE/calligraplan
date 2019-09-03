@@ -18,23 +18,13 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KPTPERFORMANCETABLEWIDGET_H
-#define KPTPERFORMANCETABLEWIDGET_H
+#ifndef KPLATOPERFORMANCETABLEVIEW_H
+#define KPLATOPERFORMANCETABLEVIEW_H
 
 #include <QTableWidget>
 
 namespace KPlato
 {
-
-class PerformanceTableWidget : public QTableWidget
-{
-    Q_OBJECT
-public:
-    explicit PerformanceTableWidget(QWidget *parent);
-
-    QSize sizeHint() const;
-    QSize minimumSizeHint() const;
-};
 
 class PerformanceTableView : public QTableView
 {

@@ -92,7 +92,6 @@ set(planui_LIB_SRCS
     kptwbsdefinitiondialog.cpp
     kptwbsdefinitionpanel.cpp
     kptresourceassignmentview.cpp
-    kptperformancetablewidget.cpp
     kptresourceallocationeditor.cpp
     kptworkpackagemergedialog.cpp
     kptrecalculatedialog.cpp
@@ -108,6 +107,7 @@ set(planui_LIB_SRCS
     performance/PerformanceStatusBase.cpp
     performance/ProjectStatusView.cpp
     performance/PerformanceStatusView.cpp
+    performance/PerformanceTableView.cpp
 )
 
 ki18n_wrap_ui(planui_LIB_SRCS

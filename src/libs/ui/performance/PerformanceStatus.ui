@@ -139,7 +139,7 @@
   <customwidget>
    <class>PerformanceTableView</class>
    <extends>QTableView</extends>
-   <header>kptperformancetablewidget.h</header>
+   <header>performance/PerformanceTableView.h</header>
   </customwidget>
   <customwidget>
    <class>KPlato::Chart</class>

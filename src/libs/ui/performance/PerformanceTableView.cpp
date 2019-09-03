@@ -19,7 +19,7 @@
  */
 
 // clazy:excludeall=qstring-arg
-#include "kptperformancetablewidget.h"
+#include "PerformanceTableView.h"
 
 #include <QHeaderView>
 #include <QMouseEvent>
@@ -28,32 +28,6 @@
 using namespace KPlato;
 
 
-PerformanceTableWidget::PerformanceTableWidget( QWidget *parent )
-    : QTableWidget( parent )
-{
-    horizontalHeader()->setSectionResizeMode( QHeaderView::Stretch );
-    verticalHeader()->setSectionResizeMode( QHeaderView::Fixed );
-}
-
-QSize PerformanceTableWidget::sizeHint() const
-{
-    QSize s = QTableView::sizeHint();
-    int h = horizontalHeader()->height();
-    for ( int r = 0; r < rowCount(); ++r ) {
-        if ( ! verticalHeader()->isSectionHidden( r ) ) {
-            h += verticalHeader()->sectionSize( r );
-        }
-    }
-    s.setHeight( h + frameWidth() * 2 );
-    return s;
-}
-
-QSize PerformanceTableWidget::minimumSizeHint() const
-{
-    return sizeHint();
-}
-
-//---------
 PerformanceTableView::PerformanceTableView( QWidget *parent )
     : QTableView( parent )
 {
