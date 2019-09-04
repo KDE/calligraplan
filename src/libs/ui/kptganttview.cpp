@@ -66,6 +66,7 @@
 #include <QScrollBar>
 #include <QDrag>
 #include <QClipboard>
+#include <QAbstractSlider>
 
 #include <ktoggleaction.h>
 #include <KActionCollection>
@@ -408,12 +409,23 @@ void GanttZoomWidget::setGrid( KGantt::DateTimeGrid *grid )
     }
 }
 
-void GanttZoomWidget::leaveEvent( QEvent *e )
+void GanttZoomWidget::mousePressEvent( QMouseEvent *e )
 {
-    if ( m_hide ) {
-        setVisible( false );
-    }
-    QSlider::leaveEvent( e );
+    QSlider::mousePressEvent( e );
+    setRepeatAction(QAbstractSlider::SliderNoAction);
+    e->accept();
+}
+
+void GanttZoomWidget::mouseMoveEvent( QMouseEvent *e )
+{
+    QSlider::mouseMoveEvent( e );
+    e->accept();
+}
+
+void GanttZoomWidget::mouseReleaseEvent( QMouseEvent *e )
+{
+    QSlider::mouseReleaseEvent( e );
+    e->accept();
 }
 
 void GanttZoomWidget::sliderValueChanged( int value )
@@ -425,12 +437,44 @@ void GanttZoomWidget::sliderValueChanged( int value )
     }
 }
 
+class MyGraphicsView : public KGantt::GraphicsView
+{
+public:
+    MyGraphicsView(GanttViewBase *parent) : KGantt::GraphicsView(parent)
+    {
+        setMouseTracking(true);
+    }
+protected:
+    void mousePressEvent(QMouseEvent *event) {
+        if (event->button() == Qt::LeftButton) {
+            event->ignore();
+            return;
+        }
+        KGantt::GraphicsView::mousePressEvent(event);
+    }
+    void mouseMoveEvent(QMouseEvent *event) {
+        if (event->buttons() & Qt::LeftButton) {
+            event->ignore();
+            return;
+        }
+        KGantt::GraphicsView::mouseMoveEvent(event);
+    }
+    void mouseReleaseEvent(QMouseEvent *event) {
+        if (event->button() == Qt::LeftButton) {
+            event->ignore();
+            return;
+        }
+        KGantt::GraphicsView::mouseMoveEvent(event);
+    }
+};
 //-------------------------------------------
 GanttViewBase::GanttViewBase( QWidget *parent )
     : KGantt::View( parent )
+    , m_mouseButton(Qt::NoButton)
 {
-    setGrid(new DateTimeGrid());
-    DateTimeGrid *g = static_cast<DateTimeGrid*>( grid() );
+    DateTimeGrid *g = new DateTimeGrid();
+    setGrid(g);
+    setGraphicsView(new MyGraphicsView(this));
     g->setUserDefinedUpperScale( new KGantt::DateTimeScaleFormatter(KGantt::DateTimeScaleFormatter::Month, QString::fromLatin1("yyyy-MMMM")));
     g->setUserDefinedLowerScale( new KGantt::DateTimeScaleFormatter(KGantt::DateTimeScaleFormatter::Day, QString::fromLatin1("ddd")));
 
@@ -449,15 +493,13 @@ GanttViewBase::GanttViewBase( QWidget *parent )
     }
     g->setFreeDays( fd );
 
-
-    m_zoomwidget = new GanttZoomWidget( graphicsView() );
-    m_zoomwidget->setGrid( g );
+    m_zoomwidget = new GanttZoomWidget(graphicsView());
+    m_zoomwidget->setGrid(g);
     m_zoomwidget->setEnableHideOnLeave( true );
     m_zoomwidget->hide();
     m_zoomwidget->move( 6, 6 );
 
     graphicsView()->installEventFilter(this);
-    graphicsView()->setMouseTracking(true);
 }
 
 GanttViewBase::~GanttViewBase()
@@ -498,15 +540,21 @@ bool GanttViewBase::eventFilter(QObject *obj, QEvent *event)
     }
     if (event->type() == QEvent::HoverMove) {
         QHoverEvent *e = static_cast<QHoverEvent*>( event );
-        if (e->pos().y() > 7 && e->pos().y() < m_zoomwidget->height() + 5 && e->pos().x() > 7 && e->pos().x() < m_zoomwidget->width() + 5 ) {
-            if ( !m_zoomwidget->isVisible()) {
-                m_zoomwidget->show();
-                m_zoomwidget->setFocus();
-            }
+        bool zoom = m_zoomwidget->geometry().contains(e->pos());
+        if (zoom && m_zoomwidget->isVisible()) {
             return true;
         }
+        if (m_mouseButton == Qt::NoButton && zoom && !m_zoomwidget->isVisible()) {
+            m_zoomwidget->show();
+            m_zoomwidget->raise();
+            m_zoomwidget->setFocus();
+        }
+        if (!zoom && m_zoomwidget->isVisible()) {
+            m_zoomwidget->hide();
+            graphicsView()->update();
+        }
     }
-    return false;
+    return QObject::eventFilter(obj, event);
 }
 
 bool GanttViewBase::loadContext( const KoXmlElement &settings )
@@ -547,20 +595,21 @@ void GanttViewBase::saveContext( QDomElement &settings ) const
 
 void GanttViewBase::mousePressEvent(QMouseEvent *event)
 {
+    m_mouseButton = event->button();
     if (event->button() == Qt::LeftButton) {
         m_dragStartPosition = event->pos();
     }
-    KGantt::View::mousePressEvent(event);
+    event->ignore();
 }
 
 void GanttViewBase::mouseMoveEvent(QMouseEvent *event)
 {
     if (!(event->buttons() & Qt::LeftButton)) {
-        KGantt::View::mouseMoveEvent(event);
+        event->ignore();
         return;
     }
     if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
-        KGantt::View::mouseMoveEvent(event);
+        event->ignore();
         return;
     }
     QDrag *drag = new QDrag(this);
@@ -570,6 +619,13 @@ void GanttViewBase::mouseMoveEvent(QMouseEvent *event)
     mimeData->setImageData(pixmap);
     drag->setMimeData(mimeData);
     drag->exec(Qt::CopyAction);
+    m_mouseButton = Qt::NoButton;
+}
+
+void GanttViewBase::mouseReleaseEvent(QMouseEvent *event)
+{
+    m_mouseButton = Qt::NoButton;
+    event->ignore();
 }
 
 //-------------------------------------------

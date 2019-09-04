@@ -176,7 +176,9 @@ public:
     void setEnableHideOnLeave( bool hide );
 
 protected:
-    void leaveEvent( QEvent *event );
+    void mousePressEvent( QMouseEvent *event );
+    void mouseMoveEvent( QMouseEvent *event );
+    void mouseReleaseEvent( QMouseEvent *event );
 
 private Q_SLOTS:
     void sliderValueChanged( int value );
@@ -210,13 +212,15 @@ protected:
     bool eventFilter(QObject *obj, QEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
     friend class GanttPrintingDialog;
     GanttPrintingOptions m_printOptions;
 
 private:
-    GanttZoomWidget *m_zoomwidget;
     QPoint m_dragStartPosition;
+    Qt::MouseButton m_mouseButton;
+    GanttZoomWidget *m_zoomwidget;
 };
 
 class NodeGanttViewBase : public GanttViewBase
