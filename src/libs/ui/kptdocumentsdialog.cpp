@@ -1,5 +1,6 @@
 /* This file is part of the KDE project
- * Copyright (C) 2019 Dag Andersen <calligra-devel@kde.org>
+ * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2007, 2012 Dag Andersen <danders@get2net.dk>
  * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -32,6 +33,7 @@ DocumentsDialog::DocumentsDialog(Node &node, QWidget *p, bool readOnly)
     : KoDialog(p)
     , m_panel(new DocumentsPanel(node, this))
 {
+    m_panel->addNodeName();
     setCaption(i18n("Task Documents"));
     if (readOnly) {
         setButtons(Close);
