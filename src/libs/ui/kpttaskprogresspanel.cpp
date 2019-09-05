@@ -210,6 +210,7 @@ TaskProgressPanelImpl::TaskProgressPanelImpl( Task &task, QWidget *parent )
       m_lastIsNextYear( false )
 {
     setupUi(this);
+    taskName->setText(task.name());
 
     connect(entryTable, &CompletionEntryEditor::selectedItemsChanged, this, &TaskProgressPanelImpl::slotSelectionChanged );
     removeEntryBtn->setEnabled( false );
