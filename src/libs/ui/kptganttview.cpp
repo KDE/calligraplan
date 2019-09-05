@@ -1,23 +1,23 @@
 /* This file is part of the KDE project
-  Copyright (C) 2002 - 2007, 2012 Dag Andersen <danders@get2net.dk>
-  Copyright (C) 2006 Raphael Langerhorst <raphael.langerhorst@kdemail.net>
-  Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Library General Public
-  License as published by the Free Software Foundation; either
-  version 2 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Library General Public License for more details.
-
-  You should have received a copy of the GNU Library General Public License
-  along with this library; see the file COPYING.LIB.  If not, write to
-  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301, USA.
-*/
+ *  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ *  Copyright (C) 2005 Dag Andersen <danders@get2net.dk>
+ *  Copyright (C) 2006 Raphael Langerhorst <raphael.langerhorst@kdemail.net>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ *  Boston, MA 02110-1301, USA.
+ */
 
 // clazy:excludeall=qstring-arg
 #include "kptganttview.h"
@@ -440,7 +440,7 @@ void GanttZoomWidget::sliderValueChanged( int value )
 class MyGraphicsView : public KGantt::GraphicsView
 {
 public:
-    MyGraphicsView(GanttViewBase *parent) : KGantt::GraphicsView(parent)
+    MyGraphicsView(GanttViewBase *parent) : KGantt::GraphicsView(parent), m_parent(parent)
     {
         setMouseTracking(true);
     }
@@ -466,6 +466,11 @@ protected:
         }
         KGantt::GraphicsView::mouseMoveEvent(event);
     }
+    void contextMenuEvent(QContextMenuEvent *event) {
+        m_parent->handleContextMenuEvent(indexAt(event->pos()), event->globalPos());
+    }
+private:
+    GanttViewBase *m_parent;
 };
 //-------------------------------------------
 GanttViewBase::GanttViewBase( QWidget *parent )
@@ -598,6 +603,9 @@ void GanttViewBase::mousePressEvent(QMouseEvent *event)
     m_mouseButton = event->button();
     if (event->button() == Qt::LeftButton) {
         m_dragStartPosition = event->pos();
+    } else if (event->button() == Qt::RightButton) {
+        // contextmenu is activated, so we do not get a mouseReleaseEvent
+        m_mouseButton = Qt::NoButton;
     }
     event->ignore();
 }
@@ -628,6 +636,10 @@ void GanttViewBase::mouseReleaseEvent(QMouseEvent *event)
     event->ignore();
 }
 
+void GanttViewBase::handleContextMenuEvent(const QModelIndex &idx, const QPoint &globalPos)
+{
+    emit contextMenuRequested(idx, globalPos);
+}
 //-------------------------------------------
 NodeGanttViewBase::NodeGanttViewBase( QWidget *parent )
     : GanttViewBase( parent ),
@@ -925,6 +937,8 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
 
     connect(m_gantt->leftView(), &GanttTreeView::doubleClicked, this, &GanttView::itemDoubleClicked);
 
+    connect(m_gantt, &MyKGanttView::contextMenuRequested, this, &GanttView::slotContextMenuRequested);
+
     Help::add(this,
               xi18nc("@info:whatsthis",
                      "<title>Gantt View</title>"
@@ -1205,9 +1219,23 @@ Node *GanttView::currentNode() const
 
 void GanttView::slotContextMenuRequested( const QModelIndex &idx, const QPoint &pos )
 {
-    debugPlan;
+    debugPlan<<idx<<idx.data();
     QString name;
-    Node *node = m_gantt->model()->node( m_gantt->sfModel()->mapToSource( idx ) );
+    QModelIndex sidx = idx;
+    if (sidx.isValid()) {
+        const QAbstractProxyModel *proxy = qobject_cast<const QAbstractProxyModel*>(sidx.model());
+        while (proxy != m_gantt->sfModel()) {
+            sidx = proxy->mapToSource(sidx);
+            proxy = qobject_cast<const QAbstractProxyModel*>(sidx.model());
+        }
+        if (!sidx.isValid()) {
+            warnPlan<<Q_FUNC_INFO<<"Failed to find item model";
+            return;
+        }
+    }
+    m_gantt->treeView()->selectionModel()->setCurrentIndex(sidx, QItemSelectionModel::ClearAndSelect);
+
+    Node *node = m_gantt->model()->node(m_gantt->sfModel()->mapToSource(sidx));
     if ( node ) {
         switch ( node->type() ) {
             case Node::Type_Project:
@@ -1226,7 +1254,8 @@ void GanttView::slotContextMenuRequested( const QModelIndex &idx, const QPoint &
                 break;
         }
     } else debugPlan<<"No node";
-    m_gantt->treeView()->setContextMenuIndex(idx);
+
+    m_gantt->treeView()->setContextMenuIndex(sidx);
     if ( name.isEmpty() ) {
         slotHeaderContextMenuRequested( pos );
         m_gantt->treeView()->setContextMenuIndex(QModelIndex());
@@ -1453,6 +1482,7 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     updateReadWrite( readWrite );
 
     connect( m_gantt->treeView(), &TreeViewBase::contextMenuRequested, this, &MilestoneGanttView::slotContextMenuRequested );
+    connect(m_gantt, &MyKGanttView::contextMenuRequested, this, &MilestoneGanttView::slotContextMenuRequested);
 
     connect( m_gantt->treeView(), &TreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
     connect(m_gantt->graphicsView(), &KGantt::GraphicsView::headerContextMenuRequested, this, &MilestoneGanttView::slotGanttHeaderContextMenuRequested);
@@ -1630,7 +1660,21 @@ void MilestoneGanttView::slotContextMenuRequested( const QModelIndex &idx, const
 {
     debugPlan;
     QString name;
-    Node *node = m_gantt->model()->node( m_gantt->sfModel()->mapToSource( idx ) );
+    QModelIndex sidx = idx;
+    if (sidx.isValid()) {
+        const QAbstractProxyModel *proxy = qobject_cast<const QAbstractProxyModel*>(sidx.model());
+        while (proxy != m_gantt->sfModel()) {
+            sidx = proxy->mapToSource(sidx);
+            proxy = qobject_cast<const QAbstractProxyModel*>(sidx.model());
+        }
+        if (!sidx.isValid()) {
+            warnPlan<<Q_FUNC_INFO<<"Failed to find item model";
+            return;
+        }
+    }
+    m_gantt->treeView()->selectionModel()->setCurrentIndex(sidx, QItemSelectionModel::ClearAndSelect);
+
+    Node *node = m_gantt->model()->node( m_gantt->sfModel()->mapToSource( sidx ) );
     if ( node ) {
         switch ( node->type() ) {
             case Node::Type_Task:
@@ -1764,6 +1808,7 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
     updateReadWrite( readWrite );
 
     connect( m_gantt->leftView(), SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect(m_gantt, &GanttViewBase::contextMenuRequested, this, &ResourceAppointmentsGanttView::slotContextMenuRequestedFromGantt);
 
     connect( m_gantt->leftView(), SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
     connect(m_gantt->graphicsView(), &KGantt::GraphicsView::headerContextMenuRequested, this, &ResourceAppointmentsGanttView::slotGanttHeaderContextMenuRequested);
@@ -1954,23 +1999,45 @@ Node *ResourceAppointmentsGanttView::currentNode() const
     return m_model->node( idx );
 }
 
+void ResourceAppointmentsGanttView::slotContextMenuRequestedFromGantt( const QModelIndex &idx, const QPoint &pos )
+{
+    QModelIndex sidx = idx;
+    if (sidx.isValid()) {
+        const QAbstractProxyModel *proxy = qobject_cast<const QAbstractProxyModel*>(sidx.model());
+        while (proxy != nullptr) {
+            sidx = proxy->mapToSource(sidx);
+            proxy = qobject_cast<const QAbstractProxyModel*>(sidx.model());
+        }
+        if (!sidx.isValid()) {
+            warnPlan<<Q_FUNC_INFO<<"Failed to find item model";
+            return;
+        }
+    }
+    if (sidx.isValid() && m_model->node(sidx.parent())) {
+        // we get the individual appointment interval, task is its parent
+        sidx = sidx.parent();
+    }
+    m_gantt->treeView()->selectionModel()->setCurrentIndex(sidx, QItemSelectionModel::ClearAndSelect);
+    slotContextMenuRequested(sidx, pos);
+}
+
 void ResourceAppointmentsGanttView::slotContextMenuRequested( const QModelIndex &idx, const QPoint &pos )
 {
     debugPlan<<idx;
     QString name;
-    if ( idx.isValid() ) {
-        Node *n = m_model->node( idx );
-        if ( n ) {
+    if (idx.isValid()) {
+        Node *n = m_model->node(idx);
+        if (n) {
             name = "taskview_popup";
         }
     }
     m_gantt->treeView()->setContextMenuIndex(idx);
-    if ( name.isEmpty() ) {
-        slotHeaderContextMenuRequested( pos );
+    if (name.isEmpty()) {
+        slotHeaderContextMenuRequested(pos);
         m_gantt->treeView()->setContextMenuIndex(QModelIndex());
         return;
     }
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
     m_gantt->treeView()->setContextMenuIndex(QModelIndex());
 }
 
