@@ -1169,7 +1169,13 @@ void GanttView::setShowTaskLinks( bool on )
 
 void GanttView::setProject( Project *project )
 {
-    m_gantt->setProject( project );
+    if (this->project()) {
+        disconnect(project, &Project::scheduleManagerChanged, this, &GanttView::setScheduleManager);
+    }
+    m_gantt->setProject(project);
+    if (project) {
+        connect(project, &Project::scheduleManagerChanged, this, &GanttView::setScheduleManager);
+    }
 }
 
 void GanttView::setScheduleManager( ScheduleManager *sm )
