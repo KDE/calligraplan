@@ -445,7 +445,6 @@ bool WorkPackage::isModified() const
 
 QString WorkPackage::name() const
 {
-    QString n;
     Task *t = task();
     return t ? t->name() : QString();
 }
