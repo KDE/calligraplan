@@ -1079,7 +1079,7 @@ DateTime Resource::WorkInfoCache::firstAvailableAfter( const DateTime &time, con
         }
         if ( sch ) {
             DateTimeInterval ti = sch->available( DateTimeInterval( it.value().startTime(), it.value().endTime() ) );
-            if ( ti.isValid() && ti.first < limit ) {
+            if ( ti.isValid() && ti.second > time && ti.first < limit ) {
                 ti.first = qMax( ti.first, time );
                 return ti.first;
             }
@@ -1273,7 +1273,7 @@ DateTime Resource::availableAfter(const DateTime &time, const DateTime &limit, S
     lmt = lmt.toTimeZone( tz );
     t = m_workinfocache.firstAvailableAfter( t, lmt, cal, sch );
 //    t = cal->firstAvailableAfter(t, lmt, sch);
-    //debugPlan<<m_currentSchedule<<""<<m_name<<" id="<<m_currentSchedule->id()<<" mode="<<m_currentSchedule->calculationMode()<<" returns:"<<time.toString()<<"="<<t.toString()<<""<<lmt.toString();
+    //if (sch) debugPlan<<sch<<""<<m_name<<" id="<<sch->id()<<" mode="<<sch->calculationMode()<<" returns:"<<time.toString()<<"="<<t.toString()<<""<<lmt.toString();
     return t;
 }
 
