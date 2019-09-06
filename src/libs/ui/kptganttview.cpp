@@ -833,7 +833,7 @@ void MyKGanttView::setScheduleManager( ScheduleManager *sm )
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
     if ( sm && project() ) {
         QDateTime start = project()->startTime( sm->scheduleId() );
-        if ( start.isValid() && g->startDateTime() !=  start ) {
+        if ( start.isValid() && g->startDateTime() != start ) {
             g->setStartDateTime( start );
         }
     }
@@ -842,6 +842,7 @@ void MyKGanttView::setScheduleManager( ScheduleManager *sm )
     }
     model()->setScheduleManager( sm );
     createDependencies();
+    graphicsView()->updateScene();
 }
 
 void MyKGanttView::slotNodeInserted( Node *node )
@@ -1449,6 +1450,7 @@ void MilestoneKGanttView::setScheduleManager( ScheduleManager *sm )
         g->setStartDateTime( QDateTime::currentDateTime() );
     }
     model()->setScheduleManager( sm );
+    graphicsView()->updateScene();
 }
 
 //------------------------------------------
@@ -1889,6 +1891,7 @@ void ResourceAppointmentsGanttView::setScheduleManager( ScheduleManager *sm )
     } else if (tryexpand) {
         treeView()->doExpand(m_domdoc);
     }
+    m_gantt->graphicsView()->updateScene();
 }
 
 void ResourceAppointmentsGanttView::setupGui()
