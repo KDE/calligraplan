@@ -207,7 +207,6 @@ public:
 
 Q_SIGNALS:
     void headerContextMenuRequested( const QPoint& );
-    void contextMenuRequested( const QModelIndex&, const QPoint& );
     void selectionChanged( const QModelIndexList& );
     void sectionsMoved();
 
