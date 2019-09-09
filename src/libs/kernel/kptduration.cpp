@@ -185,7 +185,11 @@ QString Duration::toString(Format format) const {
             hours = ms / (1000 * 60 * 60);
             ms -= (qint64)hours * (1000 * 60 * 60);
             minutes = ms / (1000 * 60);
-            result = i18nc("<hours>h:<minutes>m", "%1h:%2m", hours, minutes);
+            if (minutes > 0) {
+                result = i18nc("<hours>h:<minutes>m", "%1h:%2m", hours, minutes);
+            } else {
+                result = i18nc("<hours>h:<minutes>m", "%1h", hours);
+            }
             break;
         case Format_i18nDay:
             result = KFormat().formatSpelloutDuration( m_ms );
@@ -211,8 +215,12 @@ QString Duration::toString(Format format) const {
             ms -= seconds * (1000);
             if (days == 0) {
                 result = toString(Format_i18nHour);
-            } else {
+            } else if (minutes > 0) {
                 result = i18nc("<days>d <hours>h:<minutes>m", "%1d %2h:%3m", days, hours, minutes);
+            } else if (hours > 0 ) {
+                result = i18nc("<days>d <hours>h:<minutes>m", "%1d %2h", days, hours);
+            } else {
+                result = i18nc("<days>d <hours>h:<minutes>m", "%1d", days);
             }
             break;
         case Format_i18nHourFraction:
