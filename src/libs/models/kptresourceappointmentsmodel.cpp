@@ -1215,7 +1215,7 @@ QVariant ResourceAppointmentsRowModel::Private::appointmentData( int column, int
                                 n->wbsCode(),
                                 n->name(),
                                 QLocale().toString( a->startTime(), QLocale::ShortFormat ),
-                                KFormat().formatDuration( ( a->endTime() - a->startTime() ).milliseconds() )
+                                KFormat().formatSpelloutDuration( ( a->endTime() - a->startTime() ).milliseconds() )
                             );
     } else if ( role == Role::Maximum ) {
         return a->resource()->resource()->units(); //TODO: Maximum Load
@@ -1277,7 +1277,7 @@ QVariant ResourceAppointmentsRowModel::Private::intervalData( int column, int ro
                            n->wbsCode(),
                            n->name(),
                            QLocale().toString( a->startTime(), QLocale::ShortFormat ),
-                           KFormat().formatDuration( ( a->endTime() - a->startTime() ).milliseconds() ),
+                           KFormat().formatSpelloutDuration( ( a->endTime() - a->startTime() ).milliseconds() ),
                            interval.load(),
                            a->resource()->resource()->units()
             );
