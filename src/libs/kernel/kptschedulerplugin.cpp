@@ -182,12 +182,12 @@ void SchedulerPlugin::updateLog( SchedulerThread *j )
         Schedule::Log &l = i.next();
         // map log from temporary project to real project
         if ( l.resource ) {
-            const Resource *r = l.resource;
             l.resource = sm->project().findResource( l.resource->id() );
-            Q_ASSERT( r != l.resource );
-#ifdef NDEBUG
-            Q_UNUSED(r)
-#endif
+            // resource may have been deleted while scheduling is running
+            if (!l.resource) {
+                i.remove();
+                continue;
+            }
             Q_ASSERT( l.resource->project() == p );
         }
         if ( l.node ) {
@@ -196,6 +196,11 @@ void SchedulerPlugin::updateLog( SchedulerThread *j )
                 l.node = &( sm->project() );
             } else {
                 l.node = sm->project().findNode( l.node->id() );
+                // task may have been deleted while scheduling is running
+                if (!l.node) {
+                    i.remove();
+                    continue;
+                }
             }
             Q_ASSERT( n != l.node );
 #ifdef NDEBUG
@@ -227,14 +232,12 @@ void SchedulerPlugin::updateProject( const Project *tp, const ScheduleManager *t
 
     foreach ( const Node *tn, tp->allNodes() ) {
         Node *mn = mp->findNode( tn->id() );
-        Q_ASSERT( mn );
         if ( mn ) {
             updateNode( tn, mn, sid, status );
         }
     }
     foreach ( const Resource *tr, tp->resourceList() ) {
         Resource *r = mp->findResource( tr->id() );
-        Q_ASSERT( r );
         if ( r ) {
             updateResource( tr, r, status );
         }
@@ -353,6 +356,7 @@ SchedulerThread::~SchedulerThread()
     debugPlan<<"SchedulerThread::~SchedulerThread:"<<QThread::currentThreadId();
     delete m_project;
     m_project = 0;
+    wait();
 }
 
 void SchedulerThread::setMaxProgress( int value )
