@@ -84,21 +84,39 @@ public:
         State_NotScheduled = 2048,
         State_Late = 4096
     };
+    Q_ENUM(State);
 
     enum Properties {
-        Type,
-        StartupCost,
-        ShutdownCost,
-        CompletionEntry,
-        CompletionStarted,
-        CompletionFinished,
-        CompletionStartTime,
-        CompletionFinishTime,
-        CompletionPercentage,
-        CompletionRemainingEffort,
-        CompletionActualEffort,
-        CompletionUsedEffort
+        NameProperty,
+        LeaderProperty,
+        DescriptionProperty,
+        TypeProperty,
+        RunningAccountProperty,
+        StartupCostProperty,
+        StartupAccountProperty,
+        ShutdownCostProperty,
+        ShutdownAccountProperty,
+        CompletionEntryProperty,
+        CompletionStartedProperty,
+        CompletionFinishedProperty,
+        CompletionStartTimeProperty,
+        CompletionFinishTimeProperty,
+        CompletionPercentageProperty,
+        CompletionRemainingEffortProperty,
+        CompletionActualEffortProperty,
+        CompletionUsedEffortProperty,
+        CompletionNoteProperty,
+        ResourceRequestProperty,
+        ConstraintTypeProperty,
+        StartConstraintProperty,
+        EndConstraintProperty,
+        PriorityProperty,
+        EstimateProperty,
+        EstimateRiskProperty,
+        EstimateOptimisticProperty,
+        EstimatePessimisticProperty
     };
+    Q_ENUM(Properties);
 
     explicit Node(Node *parent = 0);
     Node(const Node &node, Node *parent = 0);
@@ -260,9 +278,9 @@ public:
     static QStringList constraintList( bool trans );
     
     virtual void setConstraintStartTime(const DateTime &time)
-        { m_constraintStartTime = time; changed( this ); }
+        { m_constraintStartTime = time; changed( this, StartConstraintProperty ); }
     virtual void setConstraintEndTime(const DateTime &time)
-        { m_constraintEndTime = time; changed( this ); }
+        { m_constraintEndTime = time; changed( this, EndConstraintProperty ); }
 
     virtual DateTime constraintStartTime() const { return m_constraintStartTime; }
     virtual DateTime constraintEndTime() const { return m_constraintEndTime; }
@@ -848,7 +866,7 @@ protected:
     /// Set (calculate) cached value
     void setPessimisticValue();
     /// Notify parent of changes
-    void changed() { if ( m_parent ) m_parent->changed(); }
+    void changed(int property) { if ( m_parent ) m_parent->changed(property); }
     /// Copy @p estimate, parentNode is not copied
     void copy( const Estimate &estimate );
     

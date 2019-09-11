@@ -3288,6 +3288,7 @@ void NodeItemModel::setProject( Project *project )
 
 void NodeItemModel::setScheduleManager( ScheduleManager *sm )
 {
+    qInfo()<<Q_FUNC_INFO<<sm<<':'<<m_nodemodel.manager();
     beginResetModel();
     if (sm == m_nodemodel.manager()) {
         endResetModel();
@@ -3504,6 +3505,7 @@ QModelIndex NodeItemModel::index( int row, int column, const QModelIndex &parent
     Node *p = node( parent );
     if ( row >= p->numChildren() ) {
         errorPlan<<p->name()<<" row too high"<<row<<","<<column;
+        debugPlan<<"parent:"<<parent<<"rows:"<<rowCount(parent)<<"children:"<<p->numChildren();
         return QModelIndex();
     }
     // now get the internal pointer for the index
@@ -4227,8 +4229,9 @@ Node *NodeItemModel::node( const QModelIndex &index ) const
     return n;
 }
 
-void NodeItemModel::slotNodeChanged( Node *node )
+void NodeItemModel::slotNodeChanged( Node *node, int property )
 {
+    qInfo()<<Q_FUNC_INFO<<node<<property;
     if ( node == 0 || ( ! m_projectshown && node->type() == Node::Type_Project ) ) {
         return;
     }

@@ -67,6 +67,13 @@ TaskEditorItemModel::TaskEditorItemModel( QObject *parent )
 {
 }
 
+void TaskEditorItemModel::setScheduleManager(ScheduleManager *sm)
+{
+    if (sm != manager()) {
+        NodeItemModel::setScheduleManager(sm);
+    }
+}
+
 Qt::ItemFlags TaskEditorItemModel::flags( const QModelIndex &index ) const
 {
     if ( index.column() == NodeModel::NodeType ) {

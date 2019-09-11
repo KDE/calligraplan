@@ -128,7 +128,7 @@ namespace KPlato
     QString ToolTip::accountName() { return xi18nc( "@info:tooltip", "The name of the account" ); }
     QString ToolTip::accountDescription() { return xi18nc( "@info:tooltip", "The description of the account" ); }
 
-    QString ToolTip::scheduleName() { return xi18nc( "@info:tooltip", "The name of the schedule" ); }
+    QString ToolTip::scheduleName() { return xi18nc( "@info:tooltip", "The name and scheduling mode of the schedule" ); }
     QString ToolTip::scheduleState() { return xi18nc( "@info:tooltip", "The schedules state" ); }
 
     QString ToolTip::scheduleOverbooking() { return xi18nc( "@info:tooltip", "Controls resource overbooking when scheduling" ); }

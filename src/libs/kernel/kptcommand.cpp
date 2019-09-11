@@ -1,24 +1,24 @@
 /* This file is part of the KDE project
-  Copyright (C) 2004 - 2007 Dag Andersen <danders@get2net.dk>
-  Copyright (C) 2011 Dag Andersen <danders@get2net.dk>
-  Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
-  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
-  
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Library General Public
-  License as published by the Free Software Foundation; either
-  version 2 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Library General Public License for more details.
-
-  You should have received a copy of the GNU Library General Public License
-  along with this library; see the file COPYING.LIB.  If not, write to
-  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301, USA.
-*/
+ * Copyright (C) 2004 - 2007 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2011 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Library General Public License
+ * along with this library; see the file COPYING.LIB.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ */
 
 // clazy:excludeall=qstring-arg
 #include "kptcommand.h"
@@ -2743,6 +2743,9 @@ AddScheduleManagerCmd::AddScheduleManagerCmd( ScheduleManager *parent, ScheduleM
     m_exp( sm->expected() ),
     m_mine( true)
 {
+    if (parent->schedulingMode() == ScheduleManager::AutoMode) {
+        m_cmd.addCommand(new ModifyScheduleManagerSchedulingModeCmd(*parent, ScheduleManager::ManualMode));
+    }
 }
 
 AddScheduleManagerCmd::~AddScheduleManagerCmd()
@@ -2755,6 +2758,7 @@ AddScheduleManagerCmd::~AddScheduleManagerCmd()
 
 void AddScheduleManagerCmd::execute()
 {
+    m_cmd.redo();
     m_node.addScheduleManager( m_sm, m_parent, m_index );
     m_sm->setExpected( m_exp );
     m_mine = false;
@@ -2765,6 +2769,7 @@ void AddScheduleManagerCmd::unexecute()
     m_node.takeScheduleManager( m_sm );
     m_sm->setExpected( 0 );
     m_mine = true;
+    m_cmd.undo();
 }
 
 DeleteScheduleManagerCmd::DeleteScheduleManagerCmd( Project &node, ScheduleManager *sm, const KUndo2MagicString& name )
@@ -2825,6 +2830,35 @@ void ModifyScheduleManagerNameCmd::execute()
 void ModifyScheduleManagerNameCmd::unexecute()
 {
     m_sm.setName( oldvalue );
+}
+
+ModifyScheduleManagerSchedulingModeCmd::ModifyScheduleManagerSchedulingModeCmd( ScheduleManager &sm, int value, const KUndo2MagicString& name )
+    : NamedCommand( name ),
+    m_sm( sm ),
+    oldvalue( sm.schedulingMode() ),
+    newvalue( value )
+{
+    if (value == ScheduleManager::AutoMode) {
+        // Allow only one
+        for (ScheduleManager *m : sm.project().allScheduleManagers()) {
+            if (m->schedulingMode() == ScheduleManager::AutoMode) {
+                m_cmd.addCommand(new ModifyScheduleManagerSchedulingModeCmd(*m, ScheduleManager::ManualMode));
+                break;
+            }
+        }
+    }
+}
+
+void ModifyScheduleManagerSchedulingModeCmd::execute()
+{
+    m_cmd.redo();
+    m_sm.setSchedulingMode( newvalue );
+}
+
+void ModifyScheduleManagerSchedulingModeCmd::unexecute()
+{
+    m_sm.setSchedulingMode( oldvalue );
+    m_cmd.undo();
 }
 
 ModifyScheduleManagerAllowOverbookingCmd::ModifyScheduleManagerAllowOverbookingCmd( ScheduleManager &sm, bool value, const KUndo2MagicString& name )
@@ -2940,6 +2974,13 @@ CalculateScheduleCmd::CalculateScheduleCmd( Project &node, ScheduleManager *sm, 
         postCmd.addCommand(new DeleteScheduleManagerCmd(node, sm));
     }
     m_oldexpected = m_sm->expected();
+}
+
+CalculateScheduleCmd::~CalculateScheduleCmd()
+{
+    if ( m_sm->scheduling() ) {
+        m_sm->haltCalculation();
+    }
 }
 
 void CalculateScheduleCmd::execute()

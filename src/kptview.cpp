@@ -1749,6 +1749,7 @@ void View::slotViewScheduleManager(ScheduleManager *sm)
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
     setLabel(sm);
+    qInfo()<<Q_FUNC_INFO<<sm<<':'<<currentScheduleManager();
     emit currentScheduleManagerChanged(sm);
     QApplication::restoreOverrideCursor();
 }
@@ -1830,15 +1831,20 @@ void View::slotBaselineSchedule( Project *project, ScheduleManager *sm )
         KMessageBox::sorry( this, i18n( "Cannot baseline. The project is already baselined." ) );
         return;
     }
-    KUndo2Command *cmd;
+    MacroCommand *cmd = nullptr;
     if ( sm->isBaselined() ) {
         KMessageBox::ButtonCode res = KMessageBox::warningContinueCancel( this, i18n( "This schedule is baselined. Do you want to remove the baseline?" ) );
         if ( res == KMessageBox::Cancel ) {
             return;
         }
-        cmd = new ResetBaselineScheduleCmd( *sm, kundo2_i18n( "Reset baseline %1", sm->name() ) );
+        cmd = new MacroCommand(kundo2_i18n("Reset baseline %1", sm->name()));
+        cmd->addCommand(new ResetBaselineScheduleCmd(*sm));
     } else {
-        cmd = new BaselineScheduleCmd( *sm, kundo2_i18n( "Baseline %1", sm->name() ) );
+        cmd = new MacroCommand(kundo2_i18n( "Baseline %1", sm->name() ) );
+        if (sm->schedulingMode() == ScheduleManager::AutoMode) {
+            cmd->addCommand(new ModifyScheduleManagerSchedulingModeCmd(*sm, ScheduleManager::ManualMode));
+        }
+        cmd->addCommand( new BaselineScheduleCmd( *sm, kundo2_i18n( "Baseline %1", sm->name() ) ));
     }
     getPart() ->addCommand( cmd );
 }

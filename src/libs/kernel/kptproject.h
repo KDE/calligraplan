@@ -429,7 +429,7 @@ public:
     void changed( ResourceGroup *group );
     void changed( Resource *resource );
 
-    void changed( ScheduleManager *sm );
+    void changed( ScheduleManager *sm, int property = -1 );
     void changed( MainSchedule *sch );
     void sendScheduleAdded( const MainSchedule *sch );
     void sendScheduleToBeAdded( const ScheduleManager *manager, int row );
@@ -558,7 +558,7 @@ Q_SIGNALS:
     /// Emitted when calculation is finished
     void sigCalculationFinished(KPlato::Project *project, KPlato::ScheduleManager *sm);
     /// This signal is emitted when one of the nodes members is changed.
-    void nodeChanged(KPlato::Node*);
+    void nodeChanged(KPlato::Node*, int);
     /// This signal is emitted when the node is to be added to the project.
     void nodeToBeAdded(KPlato::Node*, int);
     /// This signal is emitted when the node has been added to the project.
@@ -591,7 +591,7 @@ Q_SIGNALS:
     void resourceRemoved(const KPlato::Resource *resource);
     void resourceToBeRemoved(const KPlato::Resource *resource);
 
-    void scheduleManagerChanged(KPlato::ScheduleManager *sch);
+    void scheduleManagerChanged(KPlato::ScheduleManager *sch, int property = -1);
     void scheduleManagerAdded(const KPlato::ScheduleManager *sch);
     void scheduleManagerToBeAdded(const KPlato::ScheduleManager *sch, int row);
     void scheduleManagerRemoved(const KPlato::ScheduleManager *sch);

@@ -1,22 +1,23 @@
 /* This file is part of the KDE project
- Copyright (C) 2005 - 2011, 2012 Dag Andersen <danders@get2net.dk>
- Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
- 
- This library is free software; you can redistribute it and/or
- modify it under the terms of the GNU Library General Public
- License as published by the Free Software Foundation; either
- version 2 of the License, or (at your option) any later version.
-
- This library is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Library General Public License for more details.
-
- You should have received a copy of the GNU Library General Public License
- along with this library; see the file COPYING.LIB.  If not, write to
- the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- Boston, MA 02110-1301, USA.
-*/
+ * Copyright (C) 2005 - 2011, 2012 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Library General Public License
+ * along with this library; see the file COPYING.LIB.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ */
 
 // clazy:excludeall=qstring-arg
 #include "kptschedule.h"
@@ -1598,7 +1599,8 @@ ScheduleManager::ScheduleManager( Project &project, const QString name )
     m_scheduling( false ),
     m_progress( 0 ),
     m_maxprogress( 0 ),
-    m_expected( 0 )
+    m_expected( 0 ),
+    m_schedulingMode(false)
 {
     //debugPlan<<name;
 }
@@ -1722,7 +1724,7 @@ void ScheduleManager::setAllowOverbooking( bool on )
 {
     //debugPlan<<on;
     m_allowOverbooking = on;
-    m_project.changed( this );
+    m_project.changed( this, OverbookProperty );
 }
 
 bool ScheduleManager::allowOverbooking() const
@@ -1752,14 +1754,14 @@ void ScheduleManager::scheduleChanged( MainSchedule *sch )
 void ScheduleManager::setUsePert( bool on )
 {
     m_usePert = on;
-    m_project.changed( this );
+    m_project.changed( this, DistributionProperty );
 }
 
 void ScheduleManager::setSchedulingDirection( bool on )
 {
     //debugPlan<<on;
     m_schedulingDirection = on;
-    m_project.changed( this );
+    m_project.changed( this, DirectionProperty );
 }
 
 void ScheduleManager::setScheduling( bool on )
@@ -1931,7 +1933,18 @@ void ScheduleManager::setGranularity( int duration )
     if ( schedulerPlugin() ) {
         schedulerPlugin()->setGranularity( duration );
     }
-    m_project.changed( this );
+    m_project.changed( this, GranularityProperty );
+}
+
+bool ScheduleManager::schedulingMode() const
+{
+    return m_schedulingMode;
+}
+
+void ScheduleManager::setSchedulingMode(int mode)
+{
+    m_schedulingMode = mode;
+    m_project.changed( this, SchedulingModeProperty );
 }
 
 void ScheduleManager::incProgress()
@@ -2003,6 +2016,10 @@ bool ScheduleManager::loadXML( KoXmlElement &element, XMLLoaderObject &status )
     }
     m_recalculate = (bool)(element.attribute( "recalculate" ).toInt());
     m_recalculateFrom = DateTime::fromString( element.attribute( "recalculate-from" ), status.projectTimeZone() );
+    if (element.hasAttribute("scheduling-mode")) {
+        m_schedulingMode = element.attribute("scheduling-mode").toInt();
+    }
+
     KoXmlNode n = element.firstChild();
     for ( ; ! n.isNull(); n = n.nextSibling() ) {
         if ( ! n.isElement() ) {
@@ -2079,6 +2096,7 @@ void ScheduleManager::saveXML( QDomElement &element ) const
     }
     el.setAttribute( "recalculate", QString::number(m_recalculate) );
     el.setAttribute( "recalculate-from", m_recalculateFrom.toString( Qt::ISODate ) );
+    el.setAttribute("scheduling-mode", m_schedulingMode);
     if ( m_expected && ! m_expected->isDeleted() ) {
         QDomElement schs = el.ownerDocument().createElement( "schedule" );
         el.appendChild( schs );

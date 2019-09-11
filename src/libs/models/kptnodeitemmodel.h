@@ -345,7 +345,7 @@ public Q_SLOTS:
 
 protected Q_SLOTS:
     virtual void slotWbsDefinitionChanged();
-    virtual void slotNodeChanged(KPlato::Node* );
+    virtual void slotNodeChanged(KPlato::Node*, int );
     virtual void slotNodeToBeInserted(KPlato::Node *node, int row );
     virtual void slotNodeInserted(KPlato::Node *node );
     virtual void slotNodeToBeRemoved(KPlato::Node *node );

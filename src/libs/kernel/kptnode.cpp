@@ -128,6 +128,7 @@ void Node::init() {
 void Node::setPriority(int priority)
 {
     m_priority = priority;
+    changed(PriorityProperty);
 }
 
 int Node::priority() const
@@ -165,19 +166,19 @@ void Node::setName(const QString &n)
     setObjectName( n );
 #endif
      m_name = n;
-     changed(this);
+     changed(this, NameProperty);
 }
 
 void Node::setLeader(const QString &l)
 {
      m_leader = l;
-     changed(this);
+     changed(this, LeaderProperty);
 }
 
 void Node::setDescription(const QString &d)
 {
      m_description = d;
-     changed(this);
+     changed(this, DescriptionProperty);
 }
 
 Node *Node::projectNode() {
@@ -211,7 +212,7 @@ void Node::takeChildNode( Node *node) {
     }
     node->setParentNode(0);
     if ( t != type() ) {
-        changed( Type );
+        changed( TypeProperty );
     }
 }
 
@@ -225,7 +226,7 @@ void Node::takeChildNode( int number ) {
         }
     }
     if ( t != type() ) {
-        changed( Type );
+        changed( TypeProperty );
     }
 }
 
@@ -237,7 +238,7 @@ void Node::insertChildNode( int index, Node *node ) {
         m_nodes.insert(index,node);
     node->setParentNode( this );
     if ( t != type() ) {
-        changed( Type );
+        changed( TypeProperty );
     }
 }
 
@@ -248,14 +249,14 @@ void Node::addChildNode( Node *node, Node *after) {
         m_nodes.append(node);
         node->setParentNode( this );
         if ( t != type() ) {
-            changed( Type );
+            changed( TypeProperty );
         }
         return;
     }
     m_nodes.insert(index+1, node);
     node->setParentNode(this);
     if ( t != type() ) {
-        changed( Type );
+        changed( TypeProperty );
     }
 }
 
@@ -695,7 +696,7 @@ void Node::saveRelations(QDomElement &element, const XmlSaveContext &context) co
 void Node::setConstraint(Node::ConstraintType type)
 { 
     m_constraint = type;
-    changed( this );
+    changed( this, ConstraintTypeProperty );
 }
 
 void Node::setConstraint(const QString &type) {
@@ -1204,7 +1205,7 @@ void Node::setCurrentSchedule(long id) {
 void Node::setStartupCost(double cost)
 {
     m_startupCost = cost;
-    changed(StartupCost);
+    changed(StartupCostProperty);
 }
 
 void Node::setStartupAccount(Account *acc)
@@ -1214,13 +1215,13 @@ void Node::setStartupAccount(Account *acc)
         m_startupAccount->removeStartup( *this );
     }
     m_startupAccount = acc;
-    changed();
+    changed(StartupAccountProperty);
 }
 
 void Node::setShutdownCost(double cost)
 {
     m_shutdownCost = cost;
-    changed(ShutdownCost);
+    changed(ShutdownCostProperty);
 }
 
 void Node::setShutdownAccount(Account *acc)
@@ -1230,7 +1231,7 @@ void Node::setShutdownAccount(Account *acc)
         m_shutdownAccount->removeShutdown( *this );
     }
     m_shutdownAccount = acc;
-    changed();
+    changed(ShutdownAccountProperty);
 }
 
 void Node::setRunningAccount(Account *acc)
@@ -1240,7 +1241,7 @@ void Node::setRunningAccount(Account *acc)
         m_runningAccount->removeRunning( *this );
     }
     m_runningAccount = acc;
-    changed();
+    changed(RunningAccountProperty);
 }
 
 void Node::blockChanged(bool on)
@@ -1253,18 +1254,18 @@ void Node::changed(Node *node, int property) {
         return;
     }
     switch ( property) {
-        case Type:
-        case StartupCost:
-        case ShutdownCost:
-        case CompletionEntry:
-        case CompletionStarted:
-        case CompletionFinished:
-        case CompletionStartTime:
-        case CompletionFinishTime:
-        case CompletionPercentage:
-        case CompletionRemainingEffort:
-        case CompletionActualEffort:
-        case CompletionUsedEffort:
+        case TypeProperty:
+        case StartupCostProperty:
+        case ShutdownCostProperty:
+        case CompletionEntryProperty:
+        case CompletionStartedProperty:
+        case CompletionFinishedProperty:
+        case CompletionStartTimeProperty:
+        case CompletionFinishTimeProperty:
+        case CompletionPercentageProperty:
+        case CompletionRemainingEffortProperty:
+        case CompletionActualEffortProperty:
+        case CompletionUsedEffortProperty:
             foreach ( Schedule *s, m_schedules ) {
                 s->clearPerformanceCache();
             }
@@ -1457,7 +1458,7 @@ void Estimate::clear()
     m_calendar = 0;
     m_risktype = Risk_None;
     m_unit = Duration::Unit_h;
-    changed();
+    changed(Node::EstimateProperty);
 }
 
 Estimate &Estimate::operator=( const Estimate &estimate )
@@ -1488,7 +1489,7 @@ void Estimate::copy( const Estimate &estimate )
     m_calendar = estimate.m_calendar;
     m_risktype = estimate.m_risktype;
     m_unit = estimate.m_unit;
-    changed();
+    changed(Node::EstimateProperty);
 }
 
 double Estimate::variance() const
@@ -1568,7 +1569,7 @@ void Estimate::setUnit( Duration::Unit unit )
     m_optimisticCached = false;
     m_pessimisticCached = false;
     m_pertCached = false;
-    changed();
+    changed(Node::EstimateProperty);
 }
 
 bool Estimate::load(KoXmlElement &element, XMLLoaderObject &status) {
@@ -1632,7 +1633,7 @@ void Estimate::setType(Type type)
     m_optimisticCached = false;
     m_pessimisticCached = false;
     m_pertCached = false;
-    changed();
+    changed(Node::EstimateProperty);
 }
 
 void Estimate::setType(const QString& type) {
@@ -1672,7 +1673,7 @@ void Estimate::setRisktype(Risktype type)
 {
     m_pertCached = false;
     m_risktype = type;
-    changed();
+    changed(Node::EstimateRiskProperty);
 }
 
 void Estimate::setCalendar( Calendar *calendar )
@@ -1682,7 +1683,7 @@ void Estimate::setCalendar( Calendar *calendar )
     m_optimisticCached = false;
     m_pessimisticCached = false;
     m_pertCached = false;
-    changed();
+    changed(Node::EstimateProperty);
 }
 
 void Estimate::setExpectedEstimate( double value)
@@ -1690,7 +1691,7 @@ void Estimate::setExpectedEstimate( double value)
     m_expectedEstimate = value;
     m_expectedCached = false;
     m_pertCached = false;
-    changed();
+    changed(Node::EstimateProperty);
 }
 
 void Estimate::setOptimisticEstimate( double value )
@@ -1698,7 +1699,7 @@ void Estimate::setOptimisticEstimate( double value )
     m_optimisticEstimate = value;
     m_optimisticCached = false;
     m_pertCached = false;
-    changed();
+    changed(Node::EstimateOptimisticProperty);
 }
 
 void Estimate::setPessimisticEstimate( double value )
@@ -1706,7 +1707,7 @@ void Estimate::setPessimisticEstimate( double value )
     m_pessimisticEstimate = value;
     m_pessimisticCached = false;
     m_pertCached = false;
-    changed();
+    changed(Node::EstimatePessimisticProperty);
 }
 
 void Estimate::setOptimisticRatio(int percent)
@@ -1716,7 +1717,7 @@ void Estimate::setOptimisticRatio(int percent)
     m_optimisticEstimate = scale( m_optimisticValue, m_unit, scales() );
     m_optimisticCached = true;
     m_pertCached = false;
-    changed();
+    changed(Node::EstimateOptimisticProperty);
 }
 
 int Estimate::optimisticRatio() const {
@@ -1732,7 +1733,7 @@ void Estimate::setPessimisticRatio(int percent)
     m_pessimisticEstimate = scale( m_pessimisticValue, m_unit, scales() );
     m_pessimisticCached = true;
     m_pertCached = false;
-    changed();
+    changed(Node::EstimatePessimisticProperty);
 }
 
 int Estimate::pessimisticRatio() const {

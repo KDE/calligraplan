@@ -273,7 +273,14 @@ Qt::ItemFlags ScheduleItemModel::flags( const QModelIndex &index ) const
     flags &= ~Qt::ItemIsEditable;
     if ( sm && ! sm->isBaselined() ) {
         switch ( index.column() ) {
-            case ScheduleModel::ScheduleState: break;
+            case ScheduleModel::ScheduleName:
+                if (!hasChildren(index) && !index.parent().isValid()) {
+                    flags |= Qt::ItemIsUserCheckable;
+                }
+                flags |= Qt::ItemIsEditable;
+                break;
+            case ScheduleModel::ScheduleState:
+                break;
             case ScheduleModel::ScheduleOverbooking:
                 if ( capabilities & SchedulerPlugin::AllowOverbooking &&
                      capabilities & SchedulerPlugin::AvoidOverbooking )
@@ -298,7 +305,6 @@ Qt::ItemFlags ScheduleItemModel::flags( const QModelIndex &index ) const
                 break;
             default: flags |= Qt::ItemIsEditable; break;
         }
-        return flags;
     }
     return flags;
 }
@@ -382,16 +388,33 @@ QVariant ScheduleItemModel::name( const QModelIndex &index, int role ) const
     switch ( role ) {
         case Qt::DisplayRole:
         case Qt::EditRole:
-        case Qt::ToolTipRole:
             return sm->name();
         case Qt::StatusTipRole:
-        case Qt::WhatsThisRole:
             return QVariant();
+        case Qt::ToolTipRole:
+            if (sm->schedulingMode() == ScheduleManager::ManualMode) {
+                return i18nc("@info:tooltip", "The schedule is in Manual Mode");
+            }
+            return i18nc("@info:tooltip", "The schedule is in Auto Mode");
+        case Qt::WhatsThisRole:
+            return i18nc("@info:whatsthis",
+                         "<title>Schedule Name and Mode</title>"
+                         "<para>A schedule can have two scheduling modes:"
+                         "<list>"
+                         "<item>Manual: You must initiate calculation manually.</item>"
+                         "<item>Auto: The schedule is recalculated when data is changed.</item>"
+                         "</list></para>");
+
         case Qt::DecorationRole:
             if ( sm->isBaselined() ) {
                 return koIcon("view-time-schedule-baselined");
             }
             return QVariant();
+        case Qt::CheckStateRole:
+            if (!hasChildren(index) && !index.parent().isValid() && !sm->isBaselined()) {
+                return sm->schedulingMode() == ScheduleManager::ManualMode ? Qt::Unchecked : Qt::Checked;
+            }
+            break;
         default:
             break;
     }
@@ -408,6 +431,13 @@ bool ScheduleItemModel::setName( const QModelIndex &index, const QVariant &value
         case Qt::EditRole:
             emit executeCommand( new ModifyScheduleManagerNameCmd( *sm, value.toString(), kundo2_i18n( "Modify schedule name" ) ) );
             return true;
+        case Qt::CheckStateRole: {
+            int mode = value.toInt() ? ScheduleManager::AutoMode : ScheduleManager::ManualMode;
+            emit executeCommand( new ModifyScheduleManagerSchedulingModeCmd( *sm, mode, kundo2_i18n( "Modify scheduling mode" ) ) );
+            return true;
+        }
+        default:
+            break;
     }
     return false;
 }
@@ -899,7 +929,7 @@ bool ScheduleItemModel::setData( const QModelIndex &index, const QVariant &value
     if ( ! index.isValid() ) {
         return ItemModelBase::setData( index, value, role );
     }
-    if ( !index.isValid() || ( flags( index ) & Qt::ItemIsEditable ) == 0 || role != Qt::EditRole ) {
+    if ((flags(index) & (Qt::ItemIsEditable | Qt::ItemIsUserCheckable) ) == 0 || (role != Qt::EditRole && role != Qt::CheckStateRole) ) {
         return false;
     }
     switch (index.column()) {

@@ -111,7 +111,7 @@ ResourceGroupRequest *Task::resourceGroupRequest(const ResourceGroup *group) con
 
 void Task::clearResourceRequests() {
     m_requests.clear();
-    changed( this );
+    changed( this, ResourceRequestProperty );
 }
 
 void Task::addRequest(ResourceGroup *group, int numResources) {
@@ -121,13 +121,13 @@ void Task::addRequest(ResourceGroup *group, int numResources) {
 void Task::addRequest(ResourceGroupRequest *request) {
     //debugPlan<<m_name<<request<<request->group()<<request->group()->id()<<request->group()->name();
     m_requests.addRequest(request);
-    changed( this );
+    changed( this, Node::ResourceRequestProperty );
 }
 
 void Task::takeRequest(ResourceGroupRequest *request) {
     //debugPlan<<request;
     m_requests.takeRequest(request);
-    changed( this );
+    changed( this, Node::ResourceRequestProperty );
 }
 
 QStringList Task::requestNameList() const {
@@ -3025,25 +3025,25 @@ void Completion::changed( int property)
 void Completion::setStarted( bool on )
 {
      m_started = on;
-     changed(Node::CompletionStarted);
+     changed(Node::CompletionStartedProperty);
 }
 
 void Completion::setFinished( bool on )
 {
      m_finished = on;
-     changed(Node::CompletionFinished);
+     changed(Node::CompletionFinishedProperty);
 }
 
 void Completion::setStartTime( const DateTime &dt )
 {
      m_startTime = dt;
-     changed(Node::CompletionStartTime);
+     changed(Node::CompletionStartTimeProperty);
 }
 
 void Completion::setFinishTime( const DateTime &dt )
 {
      m_finishTime = dt;
-     changed(Node::CompletionFinishTime);
+     changed(Node::CompletionFinishTimeProperty);
 }
 
 void Completion::setPercentFinished( QDate date, int value )
@@ -3056,7 +3056,7 @@ void Completion::setPercentFinished( QDate date, int value )
         m_entries[ date ] = e;
     }
     e->percentFinished = value;
-    changed(Node::CompletionPercentage);
+    changed(Node::CompletionPercentageProperty);
 }
 
 void Completion::setRemainingEffort( QDate date, KPlato::Duration value )
@@ -3069,7 +3069,7 @@ void Completion::setRemainingEffort( QDate date, KPlato::Duration value )
         m_entries[ date ] = e;
     }
     e->remainingEffort = value;
-    changed(Node::CompletionRemainingEffort);
+    changed(Node::CompletionRemainingEffortProperty);
 }
 
 void Completion::setActualEffort( QDate date, KPlato::Duration value )
@@ -3082,14 +3082,14 @@ void Completion::setActualEffort( QDate date, KPlato::Duration value )
         m_entries[ date ] = e;
     }
     e->totalPerformed = value;
-    changed(Node::CompletionActualEffort);
+    changed(Node::CompletionActualEffortProperty);
 }
 
 void Completion::addEntry( QDate date, Entry *entry )
 {
      m_entries.insert( date, entry );
      //debugPlan<<m_entries.count()<<" added:"<<date;
-     changed(Node::CompletionEntry);
+     changed(Node::CompletionEntryProperty);
 }
 
 QDate Completion::entryDate() const
@@ -3312,7 +3312,7 @@ void Completion::addUsedEffort( const Resource *resource, Completion::UsedEffort
     } else {
         m_usedEffort.insert( resource, v );
     }
-    changed(Node::CompletionUsedEffort);
+    changed(Node::CompletionUsedEffortProperty);
 }
 
 QString Completion::note() const
@@ -3324,7 +3324,7 @@ void Completion::setNote( const QString &str )
 {
     if ( ! m_entries.isEmpty() ) {
         m_entries.last()->note = str;
-        changed();
+        changed(Node::CompletionNoteProperty);
     }
 }
 

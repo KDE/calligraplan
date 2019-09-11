@@ -1,25 +1,25 @@
 /* This file is part of the KDE project
- Copyright (C) 1998, 1999, 2000 Torben Weis <weis@kde.org>
- Copyright (C) 2004, 2010, 2012 Dag Andersen <danders@get2net.dk>
- Copyright (C) 2006 Raphael Langerhorst <raphael.langerhorst@kdemail.net>
- Copyright (C) 2007 Thorsten Zachmann <zachmann@kde.org>
- Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
- 
- This library is free software; you can redistribute it and/or
- modify it under the terms of the GNU Library General Public
- License as published by the Free Software Foundation; either
- version 2 of the License, or (at your option) any later version.
-
- This library is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Library General Public License for more details.
-
- You should have received a copy of the GNU Library General Public License
- along with this library; see the file COPYING.LIB.  If not, write to
- the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301, USA.
-*/
+ * Copyright (C) 1998, 1999, 2000 Torben Weis <weis@kde.org>
+ * Copyright (C) 2004, 2010, 2012 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2006 Raphael Langerhorst <raphael.langerhorst@kdemail.net>
+ * Copyright (C) 2007 Thorsten Zachmann <zachmann@kde.org>
+ * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Library General Public License
+ * along with this library; see the file COPYING.LIB.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ */
 
 // clazy:excludeall=qstring-arg
 #include "kptmaindocument.h"
@@ -33,6 +33,7 @@
 #include "kptschedulerpluginloader.h"
 #include "kptschedulerplugin.h"
 #include "kptbuiltinschedulerplugin.h"
+#include "kptschedule.h"
 #include "kptcommand.h"
 #include "calligraplansettings.h"
 #include "kpttask.h"
@@ -78,7 +79,10 @@ MainDocument::MainDocument(KoPart *part)
         m_checkingForWorkPackages( false ),
         m_loadingSharedProject(false),
         m_skipSharedProjects(false),
-        m_isTaskModule(false)
+        m_isTaskModule(false),
+        m_calculationCommand(nullptr),
+        m_currentCalculationManager(nullptr),
+        m_nextCalculationManager(nullptr)
 {
     Q_ASSERT(part);
     setAlwaysAllowSaving(true);
@@ -102,6 +106,89 @@ MainDocument::~MainDocument()
     }
     qDeleteAll( m_mergedPackages );
     delete m_context;
+    delete m_calculationCommand;
+}
+
+void MainDocument::slotNodeChanged(Node *node, int property)
+{
+    switch (property) {
+        case Node::TypeProperty:
+        case Node::ResourceRequestProperty:
+        case Node::ConstraintTypeProperty:
+        case Node::StartConstraintProperty:
+        case Node::EndConstraintProperty:
+        case Node::PriorityProperty:
+        case Node::EstimateProperty:
+        case Node::EstimateRiskProperty:
+            setCalculationNeeded();
+            break;
+        case Node::EstimateOptimisticProperty:
+        case Node::EstimatePessimisticProperty:
+            if (node->estimate()->risktype() != Estimate::Risk_None) {
+                setCalculationNeeded();
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+void MainDocument::slotScheduleManagerChanged(ScheduleManager *sm, int property)
+{
+    if (sm->schedulingMode() == ScheduleManager::AutoMode) {
+        switch (property) {
+            case ScheduleManager::DirectionProperty:
+            case ScheduleManager::OverbookProperty:
+            case ScheduleManager::DistributionProperty:
+            case ScheduleManager::SchedulingModeProperty:
+            case ScheduleManager::GranularityProperty:
+                setCalculationNeeded();
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+void MainDocument::setCalculationNeeded()
+{
+    for (ScheduleManager *sm : m_project->allScheduleManagers()) {
+        if (sm->isBaselined()) {
+            continue;
+        }
+        if (sm->schedulingMode() == ScheduleManager::AutoMode) {
+            m_nextCalculationManager = sm;
+            break;
+        }
+    }
+    if (!m_currentCalculationManager) {
+        m_currentCalculationManager = m_nextCalculationManager;
+        m_nextCalculationManager = nullptr;
+
+        QTimer::singleShot(0, this, &MainDocument::slotStartCalculation);
+    }
+}
+
+void MainDocument::slotStartCalculation()
+{
+    if (m_currentCalculationManager) {
+        m_calculationCommand = new CalculateScheduleCmd(*m_project, m_currentCalculationManager);
+        m_calculationCommand->redo();
+    }
+}
+
+void MainDocument::slotCalculationFinished(Project *p, ScheduleManager *sm)
+{
+    if (sm != m_currentCalculationManager) {
+        return;
+    }
+    delete m_calculationCommand;
+    m_calculationCommand = nullptr;
+    m_currentCalculationManager = m_nextCalculationManager;
+    m_nextCalculationManager = nullptr;
+    if (m_currentCalculationManager) {
+        QTimer::singleShot(0, this, &MainDocument::slotStartCalculation);
+    }
 }
 
 void MainDocument::setReadWrite( bool rw )
@@ -135,7 +222,6 @@ void MainDocument::configChanged()
 void MainDocument::setProject( Project *project )
 {
     if ( m_project ) {
-        disconnect( m_project, &Project::projectChanged, this, &MainDocument::changed );
         delete m_project;
     }
     m_project = project;
@@ -143,6 +229,23 @@ void MainDocument::setProject( Project *project )
         connect( m_project, &Project::projectChanged, this, &MainDocument::changed );
 //        m_project->setConfig( config() );
         m_project->setSchedulerPlugins( m_schedulerPlugins );
+
+        // For auto scheduling
+        delete m_calculationCommand;
+        m_calculationCommand = nullptr;
+        m_currentCalculationManager = nullptr;
+        m_nextCalculationManager = nullptr;
+        connect(m_project, &Project::nodeAdded, this, &MainDocument::setCalculationNeeded);
+        connect(m_project, &Project::nodeRemoved, this, &MainDocument::setCalculationNeeded);
+        connect(m_project, &Project::relationAdded, this, &MainDocument::setCalculationNeeded);
+        connect(m_project, &Project::relationRemoved, this, &MainDocument::setCalculationNeeded);
+        connect(m_project, &Project::calendarChanged, this, &MainDocument::setCalculationNeeded);
+        connect(m_project, &Project::defaultCalendarChanged, this, &MainDocument::setCalculationNeeded);
+        connect(m_project, &Project::calendarAdded, this, &MainDocument::setCalculationNeeded);
+        connect(m_project, &Project::calendarRemoved, this, &MainDocument::setCalculationNeeded);
+        connect(m_project, &Project::scheduleManagerChanged, this, &MainDocument::slotScheduleManagerChanged);
+        connect(m_project, &Project::nodeChanged, this, &MainDocument::slotNodeChanged);
+        connect(m_project, &Project::sigCalculationFinished, this, &MainDocument::slotCalculationFinished);
     }
     m_aboutPage.setProject( project );
     emit changed();
@@ -1364,6 +1467,11 @@ void MainDocument::slotProjectCreated()
 {
     if (url().isEmpty() && !m_project->name().isEmpty()) {
         setUrl(QUrl(m_project->name() + ".plan"));
+    }
+    if (m_project->scheduleManagers().isEmpty()) {
+        ScheduleManager *sm = m_project->createScheduleManager();
+        sm->setAllowOverbooking(false);
+        sm->setSchedulingMode(ScheduleManager::AutoMode);
     }
     Calendar *week = 0;
 

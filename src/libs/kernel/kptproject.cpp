@@ -1626,7 +1626,7 @@ bool Project::addSubTask( Node* task, int index, Node* parent, bool emitSignal )
         emit nodeAdded( task );
         emit projectChanged();
         if ( p != this && p->numChildren() == 1 ) {
-            emit nodeChanged( p );
+            emit nodeChanged( p, TypeProperty );
         }
     }
     return true;
@@ -1648,7 +1648,7 @@ void Project::takeTask( Node *node, bool emitSignal )
         emit nodeRemoved( node );
         emit projectChanged();
         if ( parent != this && parent->type() != Node::Type_Summarytask ) {
-            emit nodeChanged( parent );
+            emit nodeChanged( parent, TypeProperty );
         }
     }
 }
@@ -1692,10 +1692,10 @@ bool Project::moveTask( Node* node, Node *newParent, int newPos )
     addSubTask( node, i, newParent, false );
     emit nodeMoved( node );
     if ( oldParent != this && oldParent->numChildren() == 0 ) {
-        emit nodeChanged( oldParent );
+        emit nodeChanged( oldParent, TypeProperty );
     }
     if ( newParent != this && newParent->numChildren() == 1 ) {
-        emit nodeChanged( newParent );
+        emit nodeChanged( newParent, TypeProperty );
     }
     return true;
 }
@@ -2814,9 +2814,9 @@ void Project::changed( Node *node, int property )
 {
     if ( m_parent == 0 ) {
         Node::changed( node, property ); // reset cache
-        if ( property != Node::Type ) {
+        if ( property != Node::TypeProperty ) {
             // add/remove node is handled elsewhere
-            emit nodeChanged( node );
+            emit nodeChanged( node, property );
             emit projectChanged();
         }
         return;
@@ -2831,9 +2831,9 @@ void Project::changed( ResourceGroup *group )
     emit projectChanged();
 }
 
-void Project::changed( ScheduleManager *sm )
+void Project::changed( ScheduleManager *sm, int property )
 {
-    emit scheduleManagerChanged( sm );
+    emit scheduleManagerChanged( sm, property );
     emit projectChanged();
 }
 

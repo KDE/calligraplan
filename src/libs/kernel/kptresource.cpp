@@ -1717,7 +1717,7 @@ Task *ResourceRequest::task() const {
 void ResourceRequest::changed()
 {
     if ( task() ) {
-        task()->changed();
+        task()->changed(Node::ResourceRequestProperty);
     }
 }
 
@@ -2450,7 +2450,7 @@ void ResourceRequestCollection::changed()
 {
     //debugPlan<<m_task;
     if ( m_task ) {
-        m_task->changed();
+        m_task->changed(Node::ResourceRequestProperty);
     }
 }
 
