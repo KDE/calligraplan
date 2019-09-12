@@ -45,7 +45,6 @@
 #include <QUrl>
 #include <QMap>
 #include <QMessageBox>
-#include <QDebug>
 
 namespace KPlato
 {
@@ -73,14 +72,13 @@ QWidget *TemplateFileDelegate::createEditor(QWidget *parent, const QStyleOptionV
 {
     Q_UNUSED(option)
     Q_UNUSED(index);
-    qDebug()<<Q_FUNC_INFO;
     return new QComboBox(parent);
 }
 
 void TemplateFileDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
     QComboBox *cb = qobject_cast<QComboBox*>(editor);
-    qDebug()<<Q_FUNC_INFO<<cb;
+    debugPlan<<cb;
     if (!cb) {
         return;
     }
@@ -93,11 +91,11 @@ void TemplateFileDelegate::setEditorData(QWidget *editor, const QModelIndex &ind
 void TemplateFileDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
     QComboBox *cb = qobject_cast<QComboBox*>(editor);
-    qDebug()<<Q_FUNC_INFO<<cb;
+    debugPlan<<cb;
     if (cb) {
         QString cfile = index.data().toString();
         QString nfile = cb->currentText();
-        qDebug()<<"template file:"<<nfile<<files;
+        debugPlan<<"template file:"<<nfile<<files;
         if (cfile != nfile) {
             model->setData(index, nfile);
             if (files.contains(nfile)) {
@@ -105,7 +103,7 @@ void TemplateFileDelegate::setModelData(QWidget *editor, QAbstractItemModel *mod
             }
             model->setData(index, nfile, FULLPATHROLE);
         }
-    } else qDebug()<<"  No combo box editor!!";
+    } else debugPlan<<"  No combo box editor!!";
 }
 
 class FileItemDelegate : public QStyledItemDelegate
@@ -232,14 +230,14 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
 
     TemplateFileDelegate *del = new TemplateFileDelegate(m_view);
     QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, "reports", QStandardPaths::LocateDirectory);
-    qDebug()<<"standardpath:"<<path;
+    debugPlan<<"standardpath:"<<path;
     if (!path.isEmpty()) {
         QDir dir(path);
-        qDebug()<<dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
+        debugPlan<<dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
         foreach(const QString &file, dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot)) {
             QUrl url;
             url.setUrl(path + '/' + file);
-            qDebug()<<"templates:"<<url<<path<<file;
+            debugPlan<<"templates:"<<url<<path<<file;
             del->files.insert(url.fileName(), url);
         }
     }
