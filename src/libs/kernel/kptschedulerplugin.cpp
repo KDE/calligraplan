@@ -56,7 +56,9 @@ SchedulerPlugin::SchedulerPlugin(QObject *parent)
 SchedulerPlugin::~SchedulerPlugin()
 {
     foreach ( SchedulerThread *s, m_jobs ) {
+        s->mainManager()->setScheduling(false);
         s->haltScheduling();
+        s->wait();
     }
     delete d;
 }
@@ -97,7 +99,7 @@ void SchedulerPlugin::stopCalculation( ScheduleManager *sm )
 
 void SchedulerPlugin::haltCalculation( ScheduleManager *sm )
 {
-    debugPlan<<"SchedulerPlugin::haltCalculation:"<<sm;
+    debugPlan<<sm;
     foreach ( SchedulerThread *j, m_jobs ) {
         if ( sm == j->mainManager() ) {
             haltCalculation( j );
@@ -115,7 +117,7 @@ void SchedulerPlugin::stopCalculation( SchedulerThread *job )
 
 void SchedulerPlugin::haltCalculation( SchedulerThread *job )
 {
-    debugPlan<<"SchedulerPlugin::haltCalculation:"<<job<<m_jobs.contains( job );
+    debugPlan<<job<<m_jobs.contains( job );
     disconnect(this, 0, job, 0 );
     job->haltScheduling();
     if ( m_jobs.contains( job ) ) {
@@ -444,13 +446,13 @@ Project *SchedulerThread::project() const
 
 void SchedulerThread::stopScheduling()
 {
-    debugPlan<<"SchedulerThread::stopScheduling:";
+    debugPlan;
     m_stopScheduling = true;
 }
 
 void SchedulerThread::haltScheduling()
 {
-    debugPlan<<"SchedulerThread::haltScheduling:";
+    debugPlan;
     m_haltScheduling = true;
 }
 
