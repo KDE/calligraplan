@@ -1473,8 +1473,7 @@ void MainDocument::slotProjectCreated()
         sm->setAllowOverbooking(false);
         sm->setSchedulingMode(ScheduleManager::AutoMode);
     }
-    Calendar *week = 0;
-
+    Calendar *week = nullptr;
     if (KPlatoSettings::generateWeek()) {
         bool always = KPlatoSettings::generateWeekChoice() == KPlatoSettings::EnumGenerateWeekChoice::Always;
         bool ifnone = KPlatoSettings::generateWeekChoice() == KPlatoSettings::EnumGenerateWeekChoice::NoneExists;
@@ -1503,28 +1502,33 @@ void MainDocument::slotProjectCreated()
         bool subcalendar = week != 0 && KPlatoSettings::generateHolidaysChoice() == KPlatoSettings::EnumGenerateHolidaysChoice::AsSubCalendar;
         bool separate = week == 0 || KPlatoSettings::generateHolidaysChoice() == KPlatoSettings::EnumGenerateHolidaysChoice::AsSeparateCalendar;
 
-        Calendar *c = 0;
+        Calendar *holiday = nullptr;
         if (inweek) {
-            c = week;
-            qDebug()<<Q_FUNC_INFO<<"in week";
+            holiday = week;
+            week->setDefault(true);
+            debugPlan<<"in week";
         } else if (subcalendar) {
-            c = new Calendar(i18n("Holidays"));
-            m_project->addCalendar(c, week);
-            qDebug()<<Q_FUNC_INFO<<"subcalendar";
+            holiday = new Calendar(i18n("Holidays"));
+            m_project->addCalendar(holiday, week);
+            holiday->setDefault(true);
+            debugPlan<<"subcalendar";
         } else if (separate) {
-            c = new Calendar(i18n("Holidays"));
-            m_project->addCalendar(c);
-            qDebug()<<Q_FUNC_INFO<<"separate";
+            holiday = new Calendar(i18n("Holidays"));
+            m_project->addCalendar(holiday);
+            week->setDefault(true);
+            debugPlan<<"separate";
         } else {
             Q_ASSERT(false); // something wrong
         }
-        qDebug()<<Q_FUNC_INFO<<KPlatoSettings::region();
-        if (c == 0) {
+        debugPlan<<KPlatoSettings::region();
+        if (holiday == 0) {
             warnPlan<<Q_FUNC_INFO<<"Failed to generate holidays. Bad option:"<<KPlatoSettings::generateHolidaysChoice();
             return;
         }
-        c->setHolidayRegion(KPlatoSettings::region());
+        holiday->setHolidayRegion(KPlatoSettings::region());
     }
+#else
+    week->setDefault(true);
 #endif
 }
 
