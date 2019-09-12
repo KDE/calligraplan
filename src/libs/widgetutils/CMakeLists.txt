@@ -1,5 +1,6 @@
 
 set(kowidgetutils_LIB_SRCS
+    Help.cpp
     KoProgressBar.cpp
     KoProgressUpdater.cpp
     KoUpdater.cpp

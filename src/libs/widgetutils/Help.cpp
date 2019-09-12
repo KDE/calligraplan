@@ -26,8 +26,8 @@
 #include <QWidget>
 #include <QDebug>
 
-namespace KPlato
-{
+using namespace KPlato;
+
 
 Help* Help::self = 0;
 
@@ -82,5 +82,3 @@ bool WhatsThisClickedEventHandler::eventFilter(QObject *object, QEvent *event)
     }
     return false;
 }
-
-} // namespace KPlato

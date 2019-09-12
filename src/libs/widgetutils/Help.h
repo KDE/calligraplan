@@ -17,10 +17,10 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef WHATSTHIS_H
-#define WHATSTHIS_H
+#ifndef KPLATO_HELP_H
+#define KPLATO_HELP_H
 
-#include "planui_export.h"
+#include "kowidgetutils_export.h"
 
 #include <QObject>
 
@@ -30,7 +30,7 @@ class QEvent;
 namespace KPlato
 {
 
-class PLANUI_EXPORT Help
+    class KOWIDGETUTILS_EXPORT Help
 {
 public:
     Help(const QString &docpath);
@@ -46,7 +46,7 @@ private:
 };
 
 
-class PLANUI_EXPORT WhatsThisClickedEventHandler : public QObject
+class KOWIDGETUTILS_EXPORT WhatsThisClickedEventHandler : public QObject
 {
     Q_OBJECT
 public:
@@ -59,4 +59,4 @@ public:
 
 } // namespace KPlato
 
-#endif // WHATSTHIS_H
+#endif // KPLATO_HELP_H

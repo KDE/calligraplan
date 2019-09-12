@@ -35,8 +35,6 @@ endif()
 set(planui_LIB_SRCS
     ${planreports_LIB_SRC}
 
-    Help.cpp
-
     TasksEditController.cpp
     TasksEditDialog.cpp
 
