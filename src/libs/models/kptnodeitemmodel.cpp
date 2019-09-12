@@ -3288,7 +3288,6 @@ void NodeItemModel::setProject( Project *project )
 
 void NodeItemModel::setScheduleManager( ScheduleManager *sm )
 {
-    qInfo()<<Q_FUNC_INFO<<sm<<':'<<m_nodemodel.manager();
     beginResetModel();
     if (sm == m_nodemodel.manager()) {
         endResetModel();
@@ -4231,7 +4230,6 @@ Node *NodeItemModel::node( const QModelIndex &index ) const
 
 void NodeItemModel::slotNodeChanged( Node *node, int property )
 {
-    qInfo()<<Q_FUNC_INFO<<node<<property;
     if ( node == 0 || ( ! m_projectshown && node->type() == Node::Type_Project ) ) {
         return;
     }

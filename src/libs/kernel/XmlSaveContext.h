@@ -84,7 +84,6 @@ public:
         if (options & SaveAll) {
             return true;
         }
-        qInfo()<<Q_FUNC_INFO<<relation;
         return (options & SaveNodes) && nodes.contains(relation->parent()) && nodes.contains(relation->child());
     }
     void save() const {

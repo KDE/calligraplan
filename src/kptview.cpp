@@ -1749,7 +1749,6 @@ void View::slotViewScheduleManager(ScheduleManager *sm)
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
     setLabel(sm);
-    qInfo()<<Q_FUNC_INFO<<sm<<':'<<currentScheduleManager();
     emit currentScheduleManagerChanged(sm);
     QApplication::restoreOverrideCursor();
 }
