@@ -168,6 +168,14 @@ namespace KPlato
     }
 
     QString ToolTip::scheduleGranularity() { return xi18nc( "@info:tooltip", "The granularity used when calculating the project schedule" ); }
+    QString ToolTip::scheduleMode() { return xi18nc( "@info:tooltip",
+        "<para>The scheduling mode:"
+        "<list>"
+        "<item><emphasis>Manual:</emphasis> Calculation must be initiated manually.</item>"
+        "<item><emphasis>Auto:</emphasis> Calculation is initiated automatically.</item>"
+        "</list>"
+        "</para>");
+    }
 
     QString ToolTip::documentUrl() { return xi18nc( "@info:tooltip", "The url of the document" ); }
     QString ToolTip::documentType() { return xi18nc( "@info:tooltip", "The type of the document" ); }

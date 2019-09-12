@@ -132,6 +132,7 @@ struct PLANMODELS_EXPORT ToolTip
     static QString schedulingDirection();
     static QString scheduleScheduler();
     static QString scheduleGranularity();
+    static QString scheduleMode();
 
     static QString documentUrl();
     static QString documentType();

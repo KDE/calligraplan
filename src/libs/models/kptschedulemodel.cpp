@@ -281,6 +281,11 @@ Qt::ItemFlags ScheduleItemModel::flags( const QModelIndex &index ) const
                 break;
             case ScheduleModel::ScheduleState:
                 break;
+            case ScheduleModel::ScheduleMode:
+                if (!sm->isBaselined() && !hasChildren(index) && !index.parent().isValid()) {
+                    flags |= Qt::ItemIsEditable;
+                }
+                break;
             case ScheduleModel::ScheduleOverbooking:
                 if ( capabilities & SchedulerPlugin::AllowOverbooking &&
                      capabilities & SchedulerPlugin::AvoidOverbooking )
@@ -390,31 +395,14 @@ QVariant ScheduleItemModel::name( const QModelIndex &index, int role ) const
         case Qt::EditRole:
             return sm->name();
         case Qt::StatusTipRole:
-            return QVariant();
         case Qt::ToolTipRole:
-            if (sm->schedulingMode() == ScheduleManager::ManualMode) {
-                return i18nc("@info:tooltip", "The schedule is in Manual Mode");
-            }
-            return i18nc("@info:tooltip", "The schedule is in Auto Mode");
         case Qt::WhatsThisRole:
-            return i18nc("@info:whatsthis",
-                         "<title>Schedule Name and Mode</title>"
-                         "<para>A schedule can have two scheduling modes:"
-                         "<list>"
-                         "<item>Manual: You must initiate calculation manually.</item>"
-                         "<item>Auto: The schedule is recalculated when data is changed.</item>"
-                         "</list></para>");
-
+            break;
         case Qt::DecorationRole:
             if ( sm->isBaselined() ) {
                 return koIcon("view-time-schedule-baselined");
             }
             return QVariant();
-        case Qt::CheckStateRole:
-            if (!hasChildren(index) && !index.parent().isValid() && !sm->isBaselined()) {
-                return sm->schedulingMode() == ScheduleManager::ManualMode ? Qt::Unchecked : Qt::Checked;
-            }
-            break;
         default:
             break;
     }
@@ -431,11 +419,52 @@ bool ScheduleItemModel::setName( const QModelIndex &index, const QVariant &value
         case Qt::EditRole:
             emit executeCommand( new ModifyScheduleManagerNameCmd( *sm, value.toString(), kundo2_i18n( "Modify schedule name" ) ) );
             return true;
-        case Qt::CheckStateRole: {
-            int mode = value.toInt() ? ScheduleManager::AutoMode : ScheduleManager::ManualMode;
-            emit executeCommand( new ModifyScheduleManagerSchedulingModeCmd( *sm, mode, kundo2_i18n( "Modify scheduling mode" ) ) );
+        default:
+            break;
+    }
+    return false;
+}
+
+QVariant ScheduleItemModel::schedulingMode( const QModelIndex &index, int role ) const
+{
+    ScheduleManager *sm = manager ( index );
+    if ( sm == 0 ) {
+        return QVariant();
+    }
+    switch ( role ) {
+        case Qt::DisplayRole:
+            return schedulingMode(index, Role::EnumList).toList().value(sm->schedulingMode());
+        case Qt::EditRole:
+            return sm->schedulingMode();
+        case Qt::StatusTipRole:
+            break;
+        case Qt::ToolTipRole:
+            if (sm->schedulingMode() == ScheduleManager::ManualMode) {
+                return i18nc("@info:tooltip", "The schedule is in Manual Mode, calculation must be initiated manually");
+            }
+            return i18nc("@info:tooltip", "The schedule is in Auto Mode, it will be calulated automatically");
+        case Qt::WhatsThisRole:
+            break;
+        case Role::EnumList:
+            return QStringList() << xi18nc( "@label:listbox", "Manual" ) << xi18nc( "@label:listbox", "Auto" );
+        case Role::EnumListValue:
+            return sm->schedulingMode();
+        default:
+            break;
+    }
+    return QVariant();
+}
+
+bool ScheduleItemModel::setSchedulingMode( const QModelIndex &index, const QVariant &value, int role )
+{
+    ScheduleManager *sm = manager ( index );
+    if ( sm == 0 ) {
+        return false;
+    }
+    switch ( role ) {
+        case Qt::EditRole:
+            emit executeCommand( new ModifyScheduleManagerSchedulingModeCmd( *sm, value.toInt(), kundo2_i18n( "Modify scheduling mode" ) ) );
             return true;
-        }
         default:
             break;
     }
@@ -910,6 +939,7 @@ QVariant ScheduleItemModel::data( const QModelIndex &index, int role ) const
         case ScheduleModel::ScheduleScheduler: result = scheduler( index, role ); break;
         case ScheduleModel::ScheduleGranularity: result = granularity( index, role ); break;
         case ScheduleModel::ScheduleScheduled: result = isScheduled( index, role ); break;
+        case ScheduleModel::ScheduleMode: result = schedulingMode( index, role ); break;
         default:
             debugPlan<<"data: invalid display value column"<<index.column();
             return QVariant();
@@ -944,6 +974,7 @@ bool ScheduleItemModel::setData( const QModelIndex &index, const QVariant &value
         case ScheduleModel::ScheduleScheduler: return setScheduler( index, value, role ); break;
         case ScheduleModel::ScheduleGranularity: return setGranularity( index, value, role );
         case ScheduleModel::ScheduleScheduled: break;
+        case ScheduleModel::ScheduleMode: return setSchedulingMode( index, value, role );
         default:
             qWarning("data: invalid display value column %d", index.column());
             break;
@@ -958,6 +989,7 @@ QVariant ScheduleItemModel::headerData( int section, Qt::Orientation orientation
             switch ( section ) {
                 case ScheduleModel::ScheduleName: return i18n( "Name" );
                 case ScheduleModel::ScheduleState: return i18n( "State" );
+                case ScheduleModel::ScheduleMode: return i18n( "Mode" );
                 case ScheduleModel::ScheduleDirection: return i18n( "Direction" );
                 case ScheduleModel::ScheduleOverbooking: return i18n( "Overbooking" );
                 case ScheduleModel::ScheduleDistribution: return i18n( "Distribution" );
@@ -973,6 +1005,7 @@ QVariant ScheduleItemModel::headerData( int section, Qt::Orientation orientation
             switch ( section ) {
                 case ScheduleModel::ScheduleName: return "Name";
                 case ScheduleModel::ScheduleState: return "State";
+                case ScheduleModel::ScheduleMode: return "Mode";
                 case ScheduleModel::ScheduleDirection: return "Direction";
                 case ScheduleModel::ScheduleOverbooking: return "Overbooking";
                 case ScheduleModel::ScheduleDistribution: return "Distribution";
@@ -1001,6 +1034,7 @@ QVariant ScheduleItemModel::headerData( int section, Qt::Orientation orientation
             case ScheduleModel::ScheduleScheduler: return ToolTip::scheduleScheduler();
             case ScheduleModel::ScheduleGranularity: return ToolTip::scheduleGranularity();
             case ScheduleModel::ScheduleScheduled: return QVariant();
+            case ScheduleModel::ScheduleMode: return ToolTip::scheduleMode();
             default: return QVariant();
         }
     } else if ( role == Qt::WhatsThisRole ) {
@@ -1020,6 +1054,7 @@ QAbstractItemDelegate *ScheduleItemModel::createDelegate( int column, QWidget *p
 {
     switch ( column ) {
         case ScheduleModel::ScheduleState: return new ProgressBarDelegate( parent );
+        case ScheduleModel::ScheduleMode: return new EnumDelegate( parent );
         case ScheduleModel::ScheduleDirection: return new EnumDelegate( parent );
         case ScheduleModel::ScheduleOverbooking: return new EnumDelegate( parent );
         case ScheduleModel::ScheduleDistribution: return new EnumDelegate( parent );

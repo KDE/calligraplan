@@ -147,6 +147,7 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
         << ScheduleModel::SchedulePlannedFinish
         << ScheduleModel::ScheduleScheduler
         << ScheduleModel::ScheduleGranularity
+        << ScheduleModel::ScheduleMode
         ;
 
     QList<int> lst;
@@ -175,7 +176,12 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
         xi18nc("@info:whatsthis", 
                "<title>Schedule Editor</title>"
                "<para>"
-               "The Schedule Editor is used to create, edit, calculate and delete schedules. "
+               "The Schedule Editor is used to create, edit, calculate and delete schedules."
+               "</para><para>"
+               "If <emphasis>Mode</emphasis> is set to <emphasis>Auto</emphasis>, the schedule is calculated automatically."
+               " <note>Only one schedule can be in <emphasis>Auto Mode</emphasis> simultanously"
+               " and it must be a top level schedule without sub-schedules.</note>"
+               "</para><para>"
                "A schedule can have sub-schedules. A sub-schedule can use the projects progress data"
                " in order to reschedule only tasks that are not yet finished."
                " Rescheduling will then use e.g. actual start and remaining effort for the tasks."
