@@ -106,6 +106,7 @@
 #include "kpttaskdefaultpanel.h"
 #include "kptworkpackageconfigpanel.h"
 #include "kptcolorsconfigpanel.h"
+#include "ConfigDocumentationPanel.h"
 #include "kptinsertfiledlg.h"
 #include "kptloadsharedprojectsdialog.h"
 #include "kpthtmlview.h"
@@ -114,6 +115,7 @@
 #include "kptflatproxymodel.h"
 #include "kpttaskstatusmodel.h"
 #include "kptworkpackagemergedialog.h"
+#include "Help.h"
 
 #include "performance/PerformanceStatusView.h"
 #include "performance/ProjectStatusView.h"
@@ -144,72 +146,13 @@ namespace KPlato
 
 //-------------------------------
 ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton *config )
-    : KConfigDialog( parent, name, config ),
-    m_config( config )
+    : KConfigDialog( parent, name, config )
 {
-    KConfigDialogManager::changedMap()->insert("KRichTextWidget", SIGNAL(textChanged()) );
 }
 
-bool ConfigDialog::hasChanged()
+void ConfigDialog::showHelp()
 {
-    QRegExp kcfg( "kcfg_*" );
-    foreach ( KRichTextWidget *w, findChildren<KRichTextWidget*>( kcfg ) ) {
-        KConfigSkeletonItem *item = m_config->findItem( w->objectName().mid(5) );
-        if (  ! item->isEqual( w->toHtml() ) ) {
-            return true;
-        }
-    }
-    return false;
-}
-
-void ConfigDialog::updateSettings()
-{
-    bool changed = false;
-    QRegExp kcfg( "kcfg_*" );
-    foreach ( KRichTextWidget *w, findChildren<KRichTextWidget*>( kcfg ) ) {
-        KConfigSkeletonItem *item = m_config->findItem( w->objectName().mid(5) );
-        if ( ! item ) {
-            warnPlan << "The setting '" <<  w->objectName().mid(5)  << "' has disappeared!";
-            continue;
-        }
-        if ( ! item->isEqual( QVariant( w->toHtml() ) ) ) {
-            item->setProperty( QVariant( w->toHtml() ) );
-            changed = true;
-        }
-    }
-    if ( changed ) {
-        m_config->save();
-    }
-}
-
-void ConfigDialog::updateWidgets()
-{
-    QRegExp kcfg( "kcfg_*" );
-    foreach ( KRichTextWidget *w, findChildren<KRichTextWidget*>( kcfg ) ) {
-        KConfigSkeletonItem *item = m_config->findItem( w->objectName().mid(5) );
-        if ( ! item ) {
-            warnPlan << "The setting '" <<  w->objectName().mid(5)  << "' has disappeared!";
-            continue;
-        }
-        if ( ! item->isEqual( QVariant( w->toHtml() ) ) ) {
-            w->setHtml( item->property().toString() );
-        }
-    }
-}
-
-void ConfigDialog::updateWidgetsDefault()
-{
-    bool usedefault = m_config->useDefaults( true );
-    updateWidgets();
-    m_config->useDefaults( usedefault );
-}
-
-bool ConfigDialog::isDefault()
-{
-    bool bUseDefaults = m_config->useDefaults(true);
-    bool result = !hasChanged();
-    m_config->useDefaults(bUseDefaults);
-    return result;
+    Help::invoke("Manual/Configure_Plan");
 }
 
 //------------------------------------
@@ -222,6 +165,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
         m_partpart (part)
 {
     //debugPlan;
+    updateHelp();
 
     doc->registerView( this );
 
@@ -2003,8 +1947,14 @@ void View::slotConfigure()
     dialog->addPage(new TaskDefaultPanel(), i18n("Task Defaults"), koIconName("view-task") );
     dialog->addPage(new ColorsConfigPanel(), i18n("Task Colors"), koIconName("fill-color") );
     dialog->addPage(new WorkPackageConfigPanel(), i18n("Work Package"), koIconName("calligraplanwork") );
+    dialog->addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents") );
+    connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(updateHelp()));
     dialog->open();
+}
 
+void View::updateHelp()
+{
+    new Help(KPlatoSettings::documentationPath(), KPlatoSettings::language());
 }
 
 void View::slotIntroduction()

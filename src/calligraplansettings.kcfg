@@ -355,4 +355,14 @@
     </entry>
   </group>
 
+  <group name="Documentation">
+      <entry name="DocumentationPath" type="String">
+          <label>Path to the documentation</label>
+          <default>https://userbase.kde.org/Plan</default>
+      </entry>
+      <entry name="Language" type="String">
+          <label>The documentation must have been translated to the language</label>
+      </entry>
+  </group>
+
 </kcfg>

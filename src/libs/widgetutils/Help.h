@@ -33,9 +33,10 @@ namespace KPlato
     class KOWIDGETUTILS_EXPORT Help
 {
 public:
-    Help(const QString &docpath);
+    Help(const QString &docpath, const QString &language = QString());
     static void add(QWidget *widget, const QString &text);
     static QString page(const QString &page = QString());
+    static void invoke(const QString &page);
 
 protected:
     ~Help();

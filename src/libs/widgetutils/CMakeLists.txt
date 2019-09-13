@@ -21,6 +21,7 @@ target_link_libraries(planwidgetutils
     PRIVATE
         KF5::I18n
         KF5::ConfigCore
+        KF5::ConfigWidgets
 )
 
 set_target_properties(planwidgetutils

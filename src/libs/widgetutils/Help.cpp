@@ -20,6 +20,14 @@
 // clazy:excludeall=qstring-arg
 #include "Help.h"
 
+#include <KHelpClient>
+
+#include <KDesktopFile>
+
+#include <QCoreApplication>
+#include <QDir>
+#include <QDirIterator>
+#include <QUrlQuery>
 #include <QEvent>
 #include <QWhatsThisClickedEvent>
 #include <QDesktopServices>
@@ -29,19 +37,25 @@
 using namespace KPlato;
 
 
-Help* Help::self = 0;
+Help* Help::self = nullptr;
 
-Help::Help(const QString &docpath)
+Help::Help(const QString &docpath, const QString &language)
 {
+    if (self) {
+        delete self;
+    }
     if (!self) {
         self = this;
         m_docpath = docpath;
+        if (!language.isEmpty()) {
+            m_docpath += '/' + language;
+        }
     }
 }
 
 Help::~Help()
 {
-    self = 0;
+    self = nullptr;
 }
 
 void Help::add(QWidget *widget, const QString &text)
@@ -53,7 +67,7 @@ void Help::add(QWidget *widget, const QString &text)
 QString Help::page(const QString &page)
 {
     if (!self) {
-        new Help("https://userbase.kde.org/Plan");
+        new Help(QString());
     }
     QString url = self->m_docpath;
     if (!page.isEmpty()) {
@@ -62,6 +76,10 @@ QString Help::page(const QString &page)
     return url;
 }
 
+void Help::invoke(const QString &page)
+{
+    QDesktopServices::openUrl(QUrl(Help::page(page)));
+}
 
 WhatsThisClickedEventHandler::WhatsThisClickedEventHandler(QObject *parent)
     : QObject(parent)
