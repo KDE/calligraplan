@@ -179,7 +179,7 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                "The Schedule Editor is used to create, edit, calculate and delete schedules."
                "</para><para>"
                "If <emphasis>Mode</emphasis> is set to <emphasis>Auto</emphasis>, the schedule is calculated automatically."
-               " <note>Only one schedule can be in <emphasis>Auto Mode</emphasis> simultanously"
+               " <note>Only one schedule can be in <emphasis>Auto Mode</emphasis> simultaneously"
                " and it must be a top level schedule without sub-schedules.</note>"
                "</para><para>"
                "A schedule can have sub-schedules. A sub-schedule can use the projects progress data"
