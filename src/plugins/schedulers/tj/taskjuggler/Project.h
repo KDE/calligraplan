@@ -72,7 +72,7 @@ public:
      * happens when projects are composed of several sub-projects. Each sub
      * projects brings its own unique ID. Each ID must be registered with the
      * project by calling addId(). The most recently added ID is also the
-     * current ID. All subsequently added tasks are associtated with this
+     * current ID. All subsequently added tasks are associated with this
      * project ID. So, you have to add at least one ID before you add any
      * tasks.
      */

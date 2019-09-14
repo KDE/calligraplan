@@ -85,7 +85,7 @@ Allocation::isWorker() const
     return true;
 }
 
-/* Creation of the XML Reprsentation of the Allocation */
+/* Creation of the XML Representation of the Allocation */
 QDomElement Allocation::xmlElement( QDomDocument& doc )
 {
    Q_UNUSED(doc);

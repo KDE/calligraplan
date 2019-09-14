@@ -31,7 +31,7 @@ namespace KPlato
  * class KPlato::Chart
  * 
  * Wrapper for KChart::Chart to allow rubberband selection
- * with no keyboard modifers when cursor is inside a coordinate plan.
+ * with no keyboard modifiers when cursor is inside a coordinate plan.
  * 
  * When not inside a plane drag&drop and context menu can be activated.
  */

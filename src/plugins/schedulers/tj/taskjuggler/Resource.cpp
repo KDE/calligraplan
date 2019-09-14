@@ -1259,7 +1259,7 @@ Resource::copyBookings(int sc, SbBooking*** src, SbBooking*** dst)
             if (dst[sc][i] >= (SbBooking*) 4)
             {
                 /* Small pointers are fake bookings. We can safely ignore
-                 * them. Identical pointers in successiv slots must only be
+                 * them. Identical pointers in successive slots must only be
                  * deleted once. */
                 uint j;
                 for (j = i + 1; j < sbSize &&
@@ -1277,7 +1277,7 @@ Resource::copyBookings(int sc, SbBooking*** src, SbBooking*** dst)
         for (uint i = 0; i < sbSize; i++)
             if (src[sc][i] >= (SbBooking*) 4)
             {
-                /* Small pointers can just be copied. Identical successiv
+                /* Small pointers can just be copied. Identical successive
                  * pointers need to be allocated once and can then be assigned
                  * to all destination slots. */
                 dst[sc][i] = new SbBooking(src[sc][i]);

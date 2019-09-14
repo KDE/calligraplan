@@ -23,7 +23,7 @@ class Task;
 
 /**
  * Besides a reference to the dependent task it also stores information about
- * a mininum required time gap to this task. The gap can be specified in
+ * a minimum required time gap to this task. The gap can be specified in
  * calendar time (duration) or working time (length). If more than one gap
  * criteria is specified all are honored.
  *
@@ -59,9 +59,9 @@ private:
     QString taskRefId;
     // The pointer to the dependent Task.
     const Task* taskRef;
-    // Mininum required gap in calendar time.
+    // Minimum required gap in calendar time.
     long* gapDuration;
-    // Mininum required gap in working time.
+    // Minimum required gap in working time.
     long* gapLength;
 } ;
 

@@ -126,7 +126,7 @@ bool KPlatoXmlLoaderBase::load( Project *project, const KoXmlElement &element, X
             }
         }
     }
-    // calendars references calendars in arbritary saved order
+    // calendars references calendars in arbitrary saved order
     bool added = false;
     do {
         added = false;

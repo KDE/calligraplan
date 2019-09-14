@@ -52,7 +52,7 @@ public:
 
     /// Create a zero duration
     Duration();
-    /// Create a duration of @p value, the value is in @p unit (defaut unit is milliseconds)
+    /// Create a duration of @p value, the value is in @p unit (default unit is milliseconds)
     explicit Duration(const qint64 value, Unit unit = Unit_ms);
     /// Create a duration of @p value, the value is in @p unit (default is hours)
     explicit Duration(double value, Unit unit = Unit_h);

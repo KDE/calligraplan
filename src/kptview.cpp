@@ -388,7 +388,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 
 View::~View()
 {
-    // Disconnect and delete so we do not get called by destroyd() signal
+    // Disconnect and delete so we do not get called by destroyed() signal
     const QMap<QAction*, ScheduleManager*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
     QMap<QAction*, ScheduleManager*>::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {

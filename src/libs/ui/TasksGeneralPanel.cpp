@@ -225,7 +225,7 @@ TasksGeneralPanelImpl::TasksGeneralPanelImpl(QWidget *p, const char *n)
 #endif
 
     // FIXME
-    // [Bug 311940] New: Plan crashes when typing a text in the filter textbox before the textbook is fully loaded when selecting a contact from the adressbook
+    // [Bug 311940] New: Plan crashes when typing a text in the filter textbox before the textbook is fully loaded when selecting a contact from the addressbook
     chooseLeader->hide();
 
     connect(namefield, SIGNAL(textChanged(QString)), SLOT(checkAllFieldsFilled()));

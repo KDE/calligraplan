@@ -23,7 +23,7 @@
 #include <QDialog>
 
 /**
- * @brief The KoStartupDialog class shows the file selectioed, custom document
+ * @brief The KoStartupDialog class shows the file selected, custom document
  * widgets and template lists. A bit like it was in KOffice 1.4...
  */
 class KoStartupDialog : public QDialog

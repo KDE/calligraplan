@@ -236,7 +236,7 @@ bool loadWeek(const QDomElement &el, Calendar *calendar)
                         QTime start = QTime::fromString(iel.attribute("start"), "hhmm");
                         QTime end = QTime::fromString(iel.attribute("end"), "hhmm");
                         day->addInterval(TimeInterval(start, start.msecsTo(end)));
-                        debugPlannerImport<<"Overriden:"<<id<<"weekday="<<i+1<<iel.attribute("start")<<"->"<<start<<':'<<iel.attribute("end")<<end;
+                        debugPlannerImport<<"Overridden:"<<id<<"weekday="<<i+1<<iel.attribute("start")<<"->"<<start<<':'<<iel.attribute("end")<<end;
                     }
                 }
             }

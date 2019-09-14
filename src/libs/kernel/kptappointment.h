@@ -158,7 +158,7 @@ PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::AppointmentInterv
  * This list is sorted after 1) startdatetime, 2) enddatetime.
  * The intervals do not overlap, an interval does not start before the
  * previous interval ends.
- * An interval is a countinous time interval with the same load. It can span dates.
+ * An interval is a continuous time interval with the same load. It can span dates.
  */
 class PLANKERNEL_EXPORT Appointment {
 public:

@@ -2525,7 +2525,7 @@ void TestXmlReaderWithoutSpaces::testExternalOpenDocumentSpreadsheet(const QStri
         return;
     }
 
-    printf("Procesing content.xml....\n");
+    printf("Processing content.xml....\n");
 
     QString errorMsg;
     int errorLine = 0;

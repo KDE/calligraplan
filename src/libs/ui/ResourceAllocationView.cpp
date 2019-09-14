@@ -135,7 +135,7 @@ void ResourceAllocationView::slotAllocate()
         // remove any requests before adding new ones
         foreach(ResourceGroupRequest *r, t->requests().requests()) {
             RemoveResourceGroupRequestCmd *c = new RemoveResourceGroupRequestCmd(r);
-            c->execute(); // need to remove everyting before we add anything
+            c->execute(); // need to remove everything before we add anything
             cmd->addCommand(c);
         }
         QHash<ResourceGroup*, ResourceGroupRequest*> groups;

@@ -263,7 +263,7 @@ public:
         TS_None,        /// Not sent nor received
         TS_Send,        /// Package was sent to resource
         TS_Receive,     /// Package was received from resource
-        TS_Rejected     /// Recieved package was rejected by project manager
+        TS_Rejected     /// Received package was rejected by project manager
     };
 
     explicit WorkPackage( Task *task = 0 );
@@ -503,7 +503,7 @@ public:
     void setPositiveFloat( Duration fl, long id = CURRENTSCHEDULE ) const;
     /**
      * Return the duration by which the duration of an activity or path 
-     * has to be reduced in order to fulfil a timing- or dependency constraint.
+     * has to be reduced in order to fulfill a timing- or dependency constraint.
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
     Duration negativeFloat( long id = CURRENTSCHEDULE ) const;
@@ -539,7 +539,7 @@ public:
     virtual void setCurrentSchedule(long id);
     
     /**
-     * The assigned resources can not fulfil the estimated effort.
+     * The assigned resources can not fulfill the estimated effort.
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
     virtual bool effortMetError( long id = CURRENTSCHEDULE ) const;

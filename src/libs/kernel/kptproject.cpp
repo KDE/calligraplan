@@ -1114,7 +1114,7 @@ bool Project::load( KoXmlElement &element, XMLLoaderObject &status )
             }
         }
     }
-    // calendars references calendars in arbritary saved order
+    // calendars references calendars in arbitrary saved order
     bool added = false;
     do {
         added = false;

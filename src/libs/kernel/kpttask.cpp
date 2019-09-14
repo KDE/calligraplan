@@ -1901,7 +1901,7 @@ DateTime Task::scheduleFromStartTime(int use) {
         switch (m_constraint) {
         case Node::ASAP: {
             cs->endTime = cs->startTime;
-            // TODO check, do we need to check succeccors earliestStart?
+            // TODO check, do we need to check successors earliestStart?
             cs->positiveFloat = cs->lateFinish - cs->endTime;
             break;
         }

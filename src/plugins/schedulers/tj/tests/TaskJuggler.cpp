@@ -353,7 +353,7 @@ void TaskJuggler::scheduleDependencies()
     {
         DebugCtrl.setDebugLevel(1000);
         DebugCtrl.setDebugMode(7);
-        s = "Test sequeces of ASAP/ALAP milestones --------------------";
+        s = "Test sequences of ASAP/ALAP milestones --------------------";
         qDebug()<<s;
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity( 300 ); // seconds
@@ -445,7 +445,7 @@ void TaskJuggler::scheduleDependencies()
     {
         DebugCtrl.setDebugLevel(1000);
         DebugCtrl.setDebugMode(7);
-        s = "Test sequeces of ASAP/ALAP milestones and tasks ----------------";
+        s = "Test sequences of ASAP/ALAP milestones and tasks ----------------";
         qDebug()<<s;
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity( 300 ); // seconds

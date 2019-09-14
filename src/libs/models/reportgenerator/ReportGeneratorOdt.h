@@ -106,7 +106,7 @@ public:
         QStringList columns; // Lowercase list of headernames that shall be used
         QSortFilterProxyModel model;
         int seqNr; // A sequence number used to tabulate column names (eg: seqNr=2: table1.name2)
-        int serieNr; // A chart needs to know which data serie it works with
+        int serieNr; // A chart needs to know which data series it works with
         QString hasLabels; // A chart needs to know if data shall contain legends/labels
 
         QModelIndex currentIndex;

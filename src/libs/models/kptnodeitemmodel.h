@@ -228,9 +228,9 @@ public:
     QVariant resourceIsOverbooked( const Node *node, int role ) const;
     /// Set if the requested resource is not available
     QVariant resourceIsNotAvailable( const Node *node, int role ) const;
-    /// Set if the task cannot be scheduled to fulfil all the constraints
+    /// Set if the task cannot be scheduled to fulfill all the constraints
     QVariant schedulingConstraintsError( const Node *node, int role ) const;
-    /// Resources could not fulfil estimate
+    /// Resources could not fulfill estimate
     QVariant effortNotMet( const Node *node, int role ) const;
     /// Other scheduling error occurred
     QVariant schedulingError( const Node *node, int role ) const;

@@ -934,7 +934,7 @@ KoXmlWriter *ReportGeneratorOdt::createOasisXmlWriter(KoOdfReadStore &reader, QB
     }
     reader.store()->close();
     if (!writer) {
-        dbgRG<<"Failed to find a start elemet with namespace declarations in"<<fileName;
+        dbgRG<<"Failed to find a start element with namespace declarations in"<<fileName;
         m_lastError = xi18nc("@info", "Missing namespace declarations:<nl/><filename>%1</filename>", fileName);
     }
     return writer;
