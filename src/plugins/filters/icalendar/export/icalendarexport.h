@@ -24,7 +24,9 @@
 
 #include <KoFilter.h>
 
-#if 0
+//#define USE_KCALCORE
+
+#ifdef USE_KCALCORE
 #include <kcalcore/calendar.h>
 #endif
 
@@ -33,6 +35,7 @@
 
 class QFile;
 class QByteArray;
+
 
 namespace KPlato
 {
@@ -53,7 +56,7 @@ public:
 
 protected:
     KoFilter::ConversionStatus convert(const KPlato::Project &project, QFile &file);
-#if 0
+#ifdef USE_KCALCORE
     void createTodos(KCalCore::Calendar::Ptr cal, const KPlato::Node *node, long id, KCalCore::Todo::Ptr parent = KCalCore::Todo::Ptr());
 #endif
 

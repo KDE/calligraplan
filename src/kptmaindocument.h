@@ -79,6 +79,7 @@ public:
     virtual void paintContent( QPainter& painter, const QRect& rect);
 
     void setProject( Project *project );
+    Project *project() const { return m_project; }
     Project &getProject() { return *m_project; }
     const Project &getProject() const { return * m_project; }
 

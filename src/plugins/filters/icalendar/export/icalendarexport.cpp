@@ -74,6 +74,7 @@ ICalendarExport::ICalendarExport(QObject* parent, const QVariantList &)
 {
 }
 
+#ifndef USE_KCALCORE
 KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, const QByteArray& to)
 {
     debugPlanICalExport << from << to;
@@ -90,8 +91,8 @@ KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, cons
         return KoFilter::UsageError;
     }
     debugPlanICalExport<<"online:"<<m_chain->inputDocument();
-    MainDocument *doc = dynamic_cast<MainDocument*>( m_chain->inputDocument() );
-    if (doc == 0) {
+    KoDocument *doc = m_chain->inputDocument();
+    if (!doc || !doc->project()) {
         errorPlan << "Cannot open Plan document";
         return KoFilter::InternalError;
     }
@@ -105,7 +106,7 @@ KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, cons
         return KoFilter::StorageCreationError;
     }
     QApplication::restoreOverrideCursor();
-    ICalExportDialog dlg(doc->getProject());
+    ICalExportDialog dlg(*doc->project());
     if (dlg.exec() != QDialog::Accepted) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
         return KoFilter::UserCancelled;
@@ -114,7 +115,7 @@ KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, cons
     m_scheduleId = dlg.scheduleId();
     m_includeProject = dlg.includeProject();
     m_includeSummarytasks = dlg.includeSummarytasks();
-    KoFilter::ConversionStatus status = convert(doc->getProject(), file);
+    KoFilter::ConversionStatus status = convert(*doc->project(), file);
     file.close();
     debugPlanICalExport<<"Finished with status:"<<status;
     return status;
@@ -313,7 +314,7 @@ KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFil
     return KoFilter::OK;
 }
 
-#if 0
+#else
 KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFile &file)
 {
     KCalCore::Calendar::Ptr cal(new KCalCore::MemoryCalendar("UTC"));

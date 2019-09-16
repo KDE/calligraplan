@@ -61,6 +61,10 @@ class QDomDocument;
     struct KoPageLayout;
 #endif
 
+namespace KPlato {
+    class Project;
+}
+
 class KoVersionInfo
 {
 public:
@@ -98,6 +102,7 @@ public:
     explicit KoDocument(KoPart *parent,
                         KUndo2Stack *undoStack = new KUndo2Stack());
 
+    virtual KPlato::Project *project() const { return nullptr; }
     /**
      *  Destructor.
      *

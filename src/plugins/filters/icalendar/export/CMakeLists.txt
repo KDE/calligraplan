@@ -28,4 +28,8 @@ endif()
 
 target_link_libraries(planicalexport planprivate plankernel planmain)
 
+if (KF5CalendarCore_FOUND)
+    target_link_libraries(planicalexport KF5::CalendarCore)
+endif()
+
 install(TARGETS planicalexport  DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/formatfilters)
