@@ -26,10 +26,12 @@
 
 #include <KoIcon.h>
 #include <KoXmlReader.h>
+#include <KoDocument.h>
 
 #include <KActionCollection>
 #include <KUrlRequester>
 #include <KFile>
+#include <KRun>
 
 #include <QAction>
 #include <QHeaderView>
@@ -444,7 +446,9 @@ bool ReportsGeneratorView::generateReport(const QString &templateFile, const QSt
         QMessageBox::warning(this, i18n("Failed to create report"), rg.lastError());
         return false;
     }
-    QMessageBox::information(this, i18n("Report Generation"), i18n("Report file generated: %1", file));
+    if (QMessageBox::question(this, i18nc("@title", "Report Generation"), i18nc("@info", "Report file generated:<nl/><filename>%1</filename>", file), QMessageBox::Open|QMessageBox::Close, QMessageBox::Close) == QMessageBox::Open) {
+        return KRun::runUrl(QUrl(file), "application/vnd.oasis.opendocument.text", window(), (KRun::RunFlags)0);
+    }
     return true;
 }
 

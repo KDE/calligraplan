@@ -113,7 +113,7 @@ ChartItemModel *findChartItemModel(QSortFilterProxyModel &model)
 bool startsWith(const QStringList &keys, const QString &key)
 {
     for (const QString &k : keys) {
-        if (key.startsWith(k)) {
+        if (key.toLower().startsWith(k)) {
             return true;
         }
     }
@@ -177,7 +177,7 @@ QAbstractItemModel *translationModel()
     << QPair<QString, QString>("SPI", xi18nc("@title:column Schedule Performance Index", "SPI"))
     << QPair<QString, QString>("CPI", xi18nc("@title:column Cost Performance Index", "CPI"));
 
-    QStandardItemModel *model = new QStandardItemModel();
+    QStandardItemModel *model = new QStandardItemModel(0, names.count());
     for (int column = 0; column < names.count(); ++column) {
         model->setHeaderData(column, Qt::Horizontal, names.at(column).first, HeaderRole);
         model->setHeaderData(column, Qt::Horizontal, names.at(column).second);
@@ -257,7 +257,7 @@ void initScheduleModel(QAbstractItemModel *model, Project *project, ScheduleMana
         for (QModelIndex i = idx; i.isValid(); i = i.sibling(i.row(), i.column() + 1)) {
             QModelIndex midx = model->index(0, i.column());
             model->setData(midx, i.data());
-            dbgRGVariable<<model->headerData(midx.column(), Qt::Horizontal, HeaderRole).toString()<<'='<<i.data().toString();
+            dbgRGVariable<<model->headerData(midx.column(), Qt::Horizontal, HeaderRole).toString()<<'='<<i.data(Qt::UserRole+1).toString();
         }
     } else dbgRGVariable<<"Could not find schedule"<<sm;
     dbgRGVariable<<model->rowCount()<<model->columnCount();
@@ -277,25 +277,22 @@ ReportGeneratorOdt::ReportGeneratorOdt()
     << new ChartItemModel()
     << new ScheduleItemModel();
 
-    m_datamodels["tasks"] = m_basemodels.at(0);
-    m_headerrole["tasks"] = Qt::EditRole;
-    m_datamodels["taskstatus"] = m_basemodels.at(1);
-    m_headerrole["taskstatus"] = Qt::EditRole;
-    m_datamodels["chart.project"] = m_basemodels.at(2);
-    m_headerrole["chart.project"] = Qt::EditRole;
-    m_datamodels["projects"] = projectModel();
-    m_headerrole["projects"] = HeaderRole;
-    m_datamodels["schedules"] = m_basemodels.at(3);
-    m_headerrole["schedules"] = Qt::EditRole;
+    addDataModel("tasks", m_basemodels.at(0), Qt::EditRole);
+    addDataModel("taskstatus", m_basemodels.at(1), Qt::EditRole);
+    addDataModel("chart.project", m_basemodels.at(2), Qt::EditRole);
+    addDataModel("projects", projectModel(), HeaderRole);
+    addDataModel("schedules", m_basemodels.at(3), Qt::EditRole);
+    addDataModel("project", projectModel(), HeaderRole);
+    addDataModel("schedule", scheduleModel(), HeaderRole);
+    addDataModel("tr", translationModel(), HeaderRole);
 
-    m_datamodels["project"] = projectModel();
-    m_headerrole["project"] = HeaderRole;
-
-    m_datamodels["schedule"] = scheduleModel();
-    m_headerrole["schedule"] = HeaderRole;
-
-    m_datamodels["tr"] = translationModel();
-    m_headerrole["tr"] = HeaderRole;
+//     for (QAbstractItemModel *m : m_datamodels) {
+//         const QString key = m_datamodels.key(m);
+//         qInfo()<<key<<"columns:"<<m->columnCount();
+//         for (int i = 0; i < m->columnCount(); ++i) {
+//             qInfo()<<'\t'<<i<<m->headerData(i, Qt::Horizontal, m_headerrole.value(key)).toString();
+//         }
+//     }
 }
 
 
@@ -308,6 +305,13 @@ ReportGeneratorOdt::~ReportGeneratorOdt()
     }
     qDeleteAll(m_basemodels);
     close();
+}
+
+void ReportGeneratorOdt::addDataModel(const QString &name, QAbstractItemModel *model, int role)
+{
+    model->setObjectName(name);
+    m_datamodels[name] = model;
+    m_headerrole[name] = role;
 }
 
 bool ReportGeneratorOdt::open()
@@ -323,6 +327,10 @@ bool ReportGeneratorOdt::open()
     }
     if (m_templateStore) {
         m_lastError = i18n("Report generator is already open");
+        return false;
+    }
+    if (!QFile::exists(m_templateFile)) {
+        m_lastError = i18n("Report template file does not exist");
         return false;
     }
     m_templateStore = KoStore::createStore(m_templateFile, KoStore::Read);
@@ -342,6 +350,7 @@ bool ReportGeneratorOdt::open()
     initProjectModel(m_datamodels["projects"], m_project, m_manager);
     initProjectModel(m_datamodels["project"], m_project, m_manager);
     initScheduleModel(m_datamodels["schedule"], m_project, m_manager);
+    static_cast<ScheduleItemModel*>(m_datamodels["schedules"])->setProject(m_project);
     return true;
 }
 
@@ -461,6 +470,7 @@ bool ReportGeneratorOdt::handleTextP(KoXmlWriter &writer, const KoXmlElement &te
             dbgRG<<"Check:"<<field<<m_userfields;
             if (m_userfields.contains(field) && startsWith(m_keys, field)) {
                 m_sortedfields << field;
+                m_userfields[field]->finish();
                 dbgRG<<"Found:"<<tag<<field;
                 return false;
             } else {
@@ -523,7 +533,7 @@ void ReportGeneratorOdt::treatTable(KoXmlWriter &writer, const KoXmlElement &tab
         m_sortedfields.takeFirst();
         m_activefields << name;
         UserField *field = m_userfields[name];
-        field->seqNr = -1;
+        field->seqNr = USERFIELD_NONE;
         dbgRGTable<<field;
         writer.startElement("table:table");
         writeElementAttributes(writer, tableElement);
@@ -549,7 +559,7 @@ bool ReportGeneratorOdt::treatTableHeaderRows(KoXmlWriter &writer, const KoXmlEl
     }
     dbgRGTable;
     UserField *field = m_userfields[m_activefields.last()];
-    field->seqNr = 0; // we are in header row
+    field->seqNr = USERFIELD_HEADER; // we are in header row
     return false;
 }
 
@@ -560,17 +570,17 @@ bool ReportGeneratorOdt::treatTableRow(KoXmlWriter &writer, const KoXmlElement &
     }
     UserField *field = m_userfields[m_activefields.last()];
     dbgRGTable<<field->seqNr;
-    if (field->seqNr == -1) {
+    if (field->seqNr == USERFIELD_NONE) {
         // there is no header row, so start with data rows directly
-        field->seqNr = 1;
+        field->seqNr = USERFIELD_DATA;
     }
-    if (field->seqNr == 0) {
+    if (field->seqNr == USERFIELD_HEADER) {
         // header row
         writer.startElement("table:table-row");
         writeElementAttributes(writer, rowElement);
         writeChildElements(writer, rowElement);
         writer.endElement();
-        field->seqNr = 1; // next is first row
+        field->seqNr = USERFIELD_DATA; // next is first row
     } else {
         dbgRGTable<<" add rows:"<<field->rowCount();
         for (field->begin(); field->next();) {
@@ -579,6 +589,7 @@ bool ReportGeneratorOdt::treatTableRow(KoXmlWriter &writer, const KoXmlElement &
             writeChildElements(writer, rowElement);
             writer.endElement();
         }
+        field->finish();
     }
     return true;
 }
@@ -655,7 +666,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
         if (tag != "text:user-field-decl") {
             continue;
         }
-        QString name = e.attributeNS(KoXmlNS::text, "name").toLower();
+        QString name = e.attributeNS(KoXmlNS::text, "name");
         if (name.isEmpty()) {
             dbgRG<<"  User field name is empty";
             continue;
@@ -672,7 +683,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
             m_userfields[field->name] = field;
 
             field->dataName = value;
-            field->seqNr = -3;
+            field->seqNr = USERFIELD_TRANSLATION;
             field->columns << value;
             field->setModel(dataModel("tr"), m_headerrole["tr"]);
             dbgRGTr<<"    added translation"<<field->name<<field->dataName;
@@ -685,7 +696,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
             m_userfields[field->name] = field;
 
             field->dataName = tags.first();
-            field->seqNr = -2;
+            field->seqNr = USERFIELD_VARIABLE;
             QStringList vl = value.split(';');
             if (!vl.isEmpty()) {
                 field->columns << vl.takeFirst();
@@ -700,7 +711,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
                     continue;
                 }
                 if (tags.count() == 1) {
-                    // this is the main definition (eg: name: "table1", value: "tasks ...")
+                    // this is the main definition (eg: name: "table1", value: "project; values=bcws effort, bcwp effort, acwp effort;")
                     if (!m_userfields.contains(vname)) {
                         m_userfields[vname] = new UserField();
                     }
@@ -720,10 +731,12 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
                     // this is the fields column definitions (eg: name: "table1.type" value: "<not used>")
                     if (!m_userfields.contains(vname)) {
                         m_userfields[vname] = new UserField();
+                        UserField *field = m_userfields[vname];
+                        field->name = vname;
                     }
                     UserField *field = m_userfields[vname];
-                    field->name = vname;
                     field->columns << value.trimmed().toLower();
+                    Q_ASSERT(field->name == vname);
                     dbgRG<<"  "<<"added column:"<<field->name<<field->columns;
                 }
             }
@@ -1264,6 +1277,14 @@ bool ReportGeneratorOdt::UserField::next()
     return currentIndex.isValid();
 }
 
+void ReportGeneratorOdt::UserField::finish()
+{
+    currentIndex = QModelIndex();
+    if (seqNr > USERFIELD_NONE) {
+        seqNr = USERFIELD_NONE;
+    }
+}
+
 QString ReportGeneratorOdt::UserField::data(const QString &column) const
 {
     QModelIndex idx;
@@ -1296,10 +1317,10 @@ int ReportGeneratorOdt::UserField::variant() const
 {
     int t = Rows;
     switch (seqNr) {
-        case -3: t = Translation; break;
-        case -2: t = Variable; break;
-        case -1: t = None; break;
-        case 0: t = Header; break;
+        case USERFIELD_TRANSLATION: t = Translation; break;
+        case USERFIELD_VARIABLE: t = Variable; break;
+        case USERFIELD_NONE: t = None; break;
+        case USERFIELD_HEADER: t = Header; break;
         default: break;
     }
     return t;
@@ -1318,20 +1339,20 @@ QDebug operator<<(QDebug dbg, ReportGeneratorOdt::UserField &f)
     dbg.nospace() << "UserField[";
     switch (f.variant()) {
         case ReportGeneratorOdt::UserField::Header: dbg << "H: " + f.name + '.' + f.dataName; break;
-        case ReportGeneratorOdt::UserField::Rows: dbg << "R: " + f.name + '.' + f.dataName; break;
+        case ReportGeneratorOdt::UserField::Rows: dbg << "R: " + f.name + '.' + f.dataName << "seqNr: " << f.seqNr; break;
         case ReportGeneratorOdt::UserField::Variable: dbg << "V: " + f.name; break;
         case ReportGeneratorOdt::UserField::Translation: dbg << "T: " + f.name; break;
         default: dbg << "U: " + f.name; break;
     }
-    if (!f.columns.isEmpty()) {
-        dbg << endl <<"Columns: " << f.columns;
-    }
-    if (!f.headerNames.isEmpty()) {
-        dbg << endl << "Headers: " << f.headerNames;
-    }
-    if (!f.columns.isEmpty() || !f.headerNames.isEmpty()) {
-        dbg << endl;
-    }
+//     if (!f.columns.isEmpty()) {
+//         dbg << endl <<"Columns: " << f.columns;
+//     }
+//     if (!f.headerNames.isEmpty()) {
+//         dbg << endl << "Headers: " << f.headerNames;
+//     }
+//     if (!f.columns.isEmpty() || !f.headerNames.isEmpty()) {
+//         dbg << endl;
+//     }
     dbg << ']';
     return dbg.space();
 }

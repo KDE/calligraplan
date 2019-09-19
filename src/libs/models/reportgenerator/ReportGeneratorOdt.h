@@ -38,6 +38,12 @@ class KoStore;
 class KoOdfWriteStore;
 class KoOdfReadStore;
 
+#define USERFIELD_TRANSLATION -3
+#define USERFIELD_VARIABLE -2
+#define USERFIELD_NONE -1
+#define USERFIELD_HEADER 0
+#define USERFIELD_DATA 1
+
 namespace KPlato
 {
 
@@ -82,14 +88,17 @@ protected:
     void handleUserFieldDecls(KoXmlWriter &writer, const KoXmlElement &decls);
     QAbstractItemModel *dataModel(const QString &name) const;
 
+    void addDataModel(const QString &name, QAbstractItemModel *model, int role);
+
 public:
     class UserField {
     public:
         enum Variant { None, Header, Rows, Variable, Translation };
-        UserField() : seqNr(-1), serieNr(0) {}
+        UserField() : seqNr(USERFIELD_NONE), serieNr(0) {}
         int variant() const;
         void begin();
         bool next();
+        void finish();
         QString headerData(const QString &columnName) const;
         QString data(const QString &columnName) const;
 

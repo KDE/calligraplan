@@ -166,7 +166,10 @@ target_link_libraries(planui
         KF5::IconThemes
         KF5::Archive
         KF5::TextWidgets
-#         Qt5::Sql
+        KF5::KIOCore
+        KF5::KIOFileWidgets
+        KF5::KIOWidgets
+        KF5::KIONTLM
 )
 if (PLAN_USE_KREPORT)
     target_link_libraries(planui PUBLIC KReport PRIVATE KPropertyWidgets)
@@ -202,6 +205,7 @@ install( FILES
 
 # reports files
 install(FILES
+        reportsgenerator/templates/EmptyTemplate.odt
         reportsgenerator/ProjectPerformanceCost.odt
         reportsgenerator/ProjectPerformance.odt
         reportsgenerator/TaskStatus.odt
