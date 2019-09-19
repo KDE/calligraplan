@@ -206,8 +206,8 @@ install( FILES
 # reports files
 install(FILES
         reportsgenerator/templates/EmptyTemplate.odt
-        reportsgenerator/ProjectPerformanceCost.odt
-        reportsgenerator/ProjectPerformance.odt
-        reportsgenerator/TaskStatus.odt
+        reportsgenerator/templates/ProjectPerformanceCost.odt
+        reportsgenerator/templates/ProjectPerformanceEffort.odt
+        reportsgenerator/templates/TaskStatus.odt
     DESTINATION ${DATA_INSTALL_DIR}/calligraplan/reports
 )
