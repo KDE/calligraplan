@@ -20,7 +20,7 @@
 // clazy:excludeall=qstring-arg
 #include "plannerimport.h"
 
-#include <kptmaindocument.h>
+#include "kptproject.h"
 #include <kpttask.h>
 #include <kptnode.h>
 #include <kptresource.h>
@@ -92,7 +92,7 @@ KoFilter::ConversionStatus PlannerImport::convert(const QByteArray& from, const 
         return KoFilter::InvalidFormat;
     }
 
-    MainDocument *part = 0;
+    KoDocument *part = 0;
     bool batch = false;
     if (m_chain->manager()) {
         batch = m_chain->manager()->getBatchMode();
@@ -102,9 +102,9 @@ KoFilter::ConversionStatus PlannerImport::convert(const QByteArray& from, const 
         debugPlannerImport << "batch";
     } else {
         //debugPlannerImport<<"online";
-        part = qobject_cast<MainDocument*>(m_chain->outputDocument());
+        part = m_chain->outputDocument();
     }
-    if (part == 0) {
+    if (part == 0 || part->project() == 0) {
         errorPlannerImport << "Cannot open document";
         return KoFilter::InternalError;
     }
@@ -503,14 +503,14 @@ bool loadAllocations(const QDomElement &el, Project &project)
     return true;
 }
 
-bool PlannerImport::loadPlanner(const QDomDocument &in, MainDocument *doc) const
+bool PlannerImport::loadPlanner(const QDomDocument &in, KoDocument *doc) const
 {
     QDomElement pel = in.documentElement();
     if (pel.tagName() != "project") {
         errorPlannerImport << "Missing project element";
         return false;
     }
-    Project &project = doc->getProject();
+    Project &project = *doc->project();
     if (!loadProject(pel, project)) {
         return false;
     }

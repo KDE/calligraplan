@@ -30,9 +30,7 @@
 class QByteArray;
 class QDomDocument;
 
-namespace KPlato {
-    class MainDocument;
-}
+class KoDocument;
 
 class PlannerImport : public KoFilter
 {
@@ -43,7 +41,7 @@ public:
 
     virtual KoFilter::ConversionStatus convert(const QByteArray& from, const QByteArray& to);
 
-    bool loadPlanner(const QDomDocument &in, KPlato::MainDocument *doc) const;
+    bool loadPlanner(const QDomDocument &in, KoDocument *doc) const;
 };
 
 #endif // PLANNERIMPORT_H
