@@ -347,7 +347,7 @@
   <group name="Miscellaneous">
     <entry name="MinimumDurationUnit" type="Int">
       <label>The smallest duration unit allowed</label>
-      <default>EnumUnit::Hour</default>
+      <default>EnumUnit::Minute</default>
     </entry>
     <entry name="MaximumDurationUnit" type="Int">
       <label>The largest duration unit allowed</label>
