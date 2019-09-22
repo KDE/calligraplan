@@ -104,6 +104,7 @@ void TemplateFileDelegate::setModelData(QWidget *editor, QAbstractItemModel *mod
                 nfile = files[nfile].url();
             }
             model->setData(index, nfile, FULLPATHROLE);
+            model->setData(index, nfile, Qt::ToolTipRole);
         }
     } else debugPlan<<"  No combo box editor!!";
 }
@@ -487,6 +488,7 @@ bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
             model->setData(idx, name);
             idx = model->index(row, 1);
             model->setData(idx, tmp, FULLPATHROLE);
+            model->setData(idx, tmp, Qt::ToolTipRole);
             model->setData(idx, QUrl(tmp).fileName());
             idx = model->index(row, 2);
             model->setData(idx, file);
