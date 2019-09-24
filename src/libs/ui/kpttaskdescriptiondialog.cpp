@@ -27,6 +27,8 @@
 #include <ktextedit.h>
 #include <kactioncollection.h>
 
+#include <QDesktopServices>
+
 namespace KPlato
 {
 
@@ -79,13 +81,6 @@ void TaskDescriptionPanel::initDescription( bool readOnly )
     toolbar->setToolButtonStyle( Qt::ToolButtonIconOnly );
 
     KActionCollection *collection = new KActionCollection( this ); //krazy:exclude=tipsandthis
-    descriptionfield->setRichTextSupport( KRichTextWidget::SupportBold |
-                                            KRichTextWidget::SupportItalic |
-                                            KRichTextWidget::SupportUnderline |
-                                            KRichTextWidget::SupportStrikeOut |
-                                            KRichTextWidget::SupportChangeListStyle |
-                                            KRichTextWidget::SupportAlignment |
-                                            KRichTextWidget::SupportFormatPainting );
 
     collection->addActions(descriptionfield->createActions());
 
@@ -103,8 +98,14 @@ void TaskDescriptionPanel::initDescription( bool readOnly )
     toolbar->addAction( collection->action( "format_align_right" ) );
     toolbar->addAction( collection->action( "format_align_justify" ) );
     toolbar->addSeparator();
+    toolbar->addAction( collection->action( "manage_link" ) );
 
-//    toolbar->addAction( collection->action( "format_painter" ) );
+    if (descriptionfield->richTextSupport() & KRichTextWidget::SupportHyperlinks) {
+        QAction *openLink = new QAction(QIcon::fromTheme("link"), i18nc("@action:intoolbar", "Open Link"), toolbar);
+        openLink->setObjectName("open_link");
+        toolbar->addAction(openLink);
+        connect(openLink, &QAction::triggered, this, &TaskDescriptionPanel::slotOpenLink);
+    }
 
     descriptionfield->append( "" );
     descriptionfield->setReadOnly( readOnly );
@@ -112,6 +113,14 @@ void TaskDescriptionPanel::initDescription( bool readOnly )
     descriptionfield->setLineWrapMode( KTextEdit::WidgetWidth );
     descriptionfield->setTabChangesFocus( true );
 
+}
+
+void TaskDescriptionPanel::slotOpenLink()
+{
+    QUrl url = QUrl::fromUserInput(descriptionfield->currentLinkUrl());
+    if (url.isValid()) {
+        QDesktopServices::openUrl(url);
+    }
 }
 
 //-----------------------------
