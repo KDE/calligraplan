@@ -90,16 +90,18 @@ void RecentFilesModel::populate(const QList<QAction*> actions)
     clear();
     setColumnCount(1);
     setRowCount(actions.count());
-    QModelIndex idx = index(0, 0);
+    QModelIndex idx = index(rowCount()-1, 0);
     for (const QAction *a : actions) {
-        qInfo()<<Q_FUNC_INFO<<a<<idx;
+        // KRecentFilesAction format: <name> [<file path>]
+        // so we split it up and remove the []
         QString s = a->text();
         QString name = s.left(s.indexOf('['));
-        QString file = s.mid(s.indexOf('[')+1).left(s.lastIndexOf(']')-1);
+        QString file = s.mid(s.indexOf('[')+1);
+        file = file.left(file.lastIndexOf(']'));
         QString t = QString("%1\n%2").arg(name, file);
         setData(idx, t, Qt::EditRole);
         setData(idx, file, Qt::UserRole+1);
-        idx = idx.sibling(idx.row()+1, idx.column());
+        idx = idx.sibling(idx.row()-1, idx.column());
     }
 }
 
