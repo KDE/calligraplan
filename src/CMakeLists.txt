@@ -192,7 +192,7 @@ else()
 endif()
 
 
-target_link_libraries(calligraplanpart PUBLIC KF5::Parts KF5::CoreAddons  planprivate)
+target_link_libraries(calligraplanpart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE planprivate)
 
 install(TARGETS calligraplanpart DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/parts)
 
