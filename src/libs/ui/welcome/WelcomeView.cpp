@@ -29,8 +29,9 @@
 #include <KoDocument.h>
 #include <KoFileDialog.h>
 
+#include <QAction>
 #include <QStringList>
-#include <QStringListModel>
+#include <QStandardItemModel>
 #include <QItemSelectionModel>
 #include <QItemSelection>
 #include <QUrl>
@@ -51,22 +52,23 @@ const QLoggingCategory &PLANWELCOME_LOG()
 namespace KPlato
 {
 
-class RecentFilesModel : public QStringListModel
+class RecentFilesModel : public QStandardItemModel
 {
 public:
     RecentFilesModel(QObject *parent = 0);
     Qt::ItemFlags flags(const QModelIndex &idx) const;
     QVariant data(const QModelIndex &idx, int role) const;
+    void populate(const QList<QAction*> actions);
 };
 
 RecentFilesModel::RecentFilesModel(QObject *parent)
-: QStringListModel(parent)
+: QStandardItemModel(parent)
 {
 }
 
 Qt::ItemFlags RecentFilesModel::flags(const QModelIndex &idx) const
 {
-    Qt::ItemFlags f = (QStringListModel::flags(idx) & ~Qt::ItemIsEditable);
+    Qt::ItemFlags f = (QStandardItemModel::flags(idx) & ~Qt::ItemIsEditable);
     return f;
 }
 
@@ -75,12 +77,30 @@ QVariant RecentFilesModel::data(const QModelIndex &idx, int role) const
     switch(role) {
         case Qt::DecorationRole:
             return QIcon::fromTheme(QStringLiteral("document-open"));
+        case Qt::FontRole: {
             break;
-        case Qt::FontRole: break;
-        default:
-            break;
+        }
+        default: break;
     }
-    return QStringListModel::data(idx, role);
+    return QStandardItemModel::data(idx, role);
+}
+
+void RecentFilesModel::populate(const QList<QAction*> actions)
+{
+    clear();
+    setColumnCount(1);
+    setRowCount(actions.count());
+    QModelIndex idx = index(0, 0);
+    for (const QAction *a : actions) {
+        qInfo()<<Q_FUNC_INFO<<a<<idx;
+        QString s = a->text();
+        QString name = s.left(s.indexOf('['));
+        QString file = s.mid(s.indexOf('[')+1).left(s.lastIndexOf(']')-1);
+        QString t = QString("%1\n%2").arg(name, file);
+        setData(idx, t, Qt::EditRole);
+        setData(idx, file, Qt::UserRole+1);
+        idx = idx.sibling(idx.row()+1, idx.column());
+    }
 }
 
 //-----------------------------------
@@ -168,13 +188,9 @@ WelcomeView::~WelcomeView()
     debugWelcome;
 }
 
-void WelcomeView::setRecentFiles(const QStringList &files)
+void WelcomeView::setRecentFiles(const QList<QAction*> &actions)
 {
-    QStringList lst;
-    for (const QString &s : files) {
-        lst.prepend(s);
-    }
-    m_model->setStringList(lst);
+    m_model->populate(actions);
 }
 
 void WelcomeView::updateReadWrite(bool /*readwrite */)
@@ -189,7 +205,7 @@ void WelcomeView::setGuiActive(bool activate)
 void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
 {
     if (idx.isValid()) {
-        QString file = idx.data().toString();
+        QString file = idx.data(Qt::UserRole+1).toString();
         int start = file.indexOf('[');
         int end = file.indexOf(']');
         file = file.left(end).mid(start+1);

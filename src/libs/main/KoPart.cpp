@@ -263,11 +263,11 @@ void KoPart::openTemplate(const QUrl &url)
     QApplication::restoreOverrideCursor();
 }
 
-void KoPart::addRecentURLToAllMainWindows(const QUrl &url)
+void KoPart::addRecentURLToAllMainWindows(const QString &projectName, const QUrl &url)
 {
     // Add to recent actions list in our mainWindows
     foreach(KoMainWindow *mainWindow, d->mainWindows) {
-        mainWindow->addRecentURL(url);
+        mainWindow->addRecentURL(projectName, url);
     }
 
 }

@@ -116,7 +116,7 @@ public:
      */
     int mainwindowCount() const;
 
-    void addRecentURLToAllMainWindows(const QUrl &url);
+    void addRecentURLToAllMainWindows(const QString &projectName, const QUrl &url);
 
     KoMainWindow *currentMainwindow() const;
 

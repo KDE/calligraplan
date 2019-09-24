@@ -1248,7 +1248,7 @@ bool KoDocument::openUrl(const QUrl &_url)
         setModified(true);
     }
     else {
-        d->parentPart->addRecentURLToAllMainWindows(_url);
+        d->parentPart->addRecentURLToAllMainWindows(projectName(), _url);
 
         if (ret) {
             // Detect readonly local-files; remote files are assumed to be writable, unless we add a KIO::stat here (async).

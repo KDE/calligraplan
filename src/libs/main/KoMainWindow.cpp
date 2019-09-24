@@ -575,7 +575,7 @@ void KoMainWindow::setReadWrite(bool readwrite)
     updateCaption();
 }
 
-void KoMainWindow::addRecentURL(const QUrl &url)
+void KoMainWindow::addRecentURL(const QString &projectName, const QUrl &url)
 {
     debugMain << "url=" << url.toDisplayString();
     // Add entry to recent documents list
@@ -599,7 +599,7 @@ void KoMainWindow::addRecentURL(const QUrl &url)
             KRecentDocument::add(url.adjusted(QUrl::StripTrailingSlash));
         }
         if (ok) {
-            d->recent->addUrl(url);
+            d->recent->addUrl(url, projectName);
         }
         saveRecentFiles();
 
@@ -1068,7 +1068,7 @@ bool KoMainWindow::saveDocument(bool saveas, bool silent, int specialOutputFlag)
 
                     if (ret) {
                         debugMain << "Successful Save As!";
-                        addRecentURL(newURL);
+                        addRecentURL(d->rootDocument->projectName(), newURL);
                         setReadWrite(true);
                     } else {
                         debugMain << "Failed Save As!";

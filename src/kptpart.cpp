@@ -163,7 +163,7 @@ QWidget *Part::createWelcomeView(KoMainWindow *mw)
     KSharedConfigPtr configPtr = Factory::global().config();
     KRecentFilesAction recent("x", 0);
     recent.loadEntries(configPtr->group("RecentFiles"));
-    v->setRecentFiles(recent.items());
+    v->setRecentFiles(recent.actions());
 
     connect(v, &WelcomeView::loadSharedResources, doc, &MainDocument::insertResourcesFile);
     connect(v, &WelcomeView::recentProject, mw, &KoMainWindow::slotFileOpenRecent);

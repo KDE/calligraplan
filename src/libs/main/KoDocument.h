@@ -103,6 +103,8 @@ public:
                         KUndo2Stack *undoStack = new KUndo2Stack());
 
     virtual KPlato::Project *project() const { return nullptr; }
+    virtual QString projectName() const { return QString(); }
+
     /**
      *  Destructor.
      *

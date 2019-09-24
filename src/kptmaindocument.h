@@ -82,6 +82,7 @@ public:
     Project *project() const { return m_project; }
     Project &getProject() { return *m_project; }
     const Project &getProject() const { return * m_project; }
+    QString projectName() const { return m_project->name(); }
 
     /**
      * Return the set of SupportedSpecialFormats that the kplato wants to

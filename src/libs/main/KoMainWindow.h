@@ -118,7 +118,7 @@ public:
     /**
      * The document opened a URL -> store into recent documents list.
      */
-    void addRecentURL(const QUrl &url);
+    void addRecentURL(const QString &projectName, const QUrl &url);
 
     /**
      * Load the desired document and show it.

@@ -45,7 +45,7 @@ public:
     WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent);
     ~WelcomeView();
 
-    void setRecentFiles(const QStringList &files);
+    void setRecentFiles(const QList<QAction*> &actions);
 
     void setupGui();
 
