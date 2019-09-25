@@ -38,6 +38,7 @@ set(planui_LIB_SRCS
     TasksEditController.cpp
     TasksEditDialog.cpp
 
+    RichTextWidget.cpp
     welcome/WelcomeView.cpp
 
     reportsgenerator/ReportsGeneratorView.cpp

@@ -22,12 +22,11 @@
 #include "kptnode.h"
 #include "kpttask.h"
 #include "kptcommand.h"
+#include "RichTextWidget.h"
 
 #include <KLocalizedString>
 #include <ktextedit.h>
 #include <kactioncollection.h>
-
-#include <QDesktopServices>
 
 namespace KPlato
 {
@@ -99,28 +98,13 @@ void TaskDescriptionPanel::initDescription( bool readOnly )
     toolbar->addAction( collection->action( "format_align_justify" ) );
     toolbar->addSeparator();
     toolbar->addAction( collection->action( "manage_link" ) );
-
-    if (descriptionfield->richTextSupport() & KRichTextWidget::SupportHyperlinks) {
-        QAction *openLink = new QAction(QIcon::fromTheme("link"), i18nc("@action:intoolbar", "Open Link"), toolbar);
-        openLink->setObjectName("open_link");
-        toolbar->addAction(openLink);
-        connect(openLink, &QAction::triggered, this, &TaskDescriptionPanel::slotOpenLink);
-    }
+    toolbar->addAction(collection->action("open_link"));
 
     descriptionfield->append( "" );
     descriptionfield->setReadOnly( readOnly );
     descriptionfield->setOverwriteMode( false );
     descriptionfield->setLineWrapMode( KTextEdit::WidgetWidth );
     descriptionfield->setTabChangesFocus( true );
-
-}
-
-void TaskDescriptionPanel::slotOpenLink()
-{
-    QUrl url = QUrl::fromUserInput(descriptionfield->currentLinkUrl());
-    if (url.isValid()) {
-        QDesktopServices::openUrl(url);
-    }
 }
 
 //-----------------------------

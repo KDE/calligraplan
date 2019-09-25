@@ -69,9 +69,6 @@ public:
 
 protected:
     void initDescription( bool readOnly );
-
-protected Q_SLOTS:
-    void slotOpenLink();
 };
 
 class PLANUI_EXPORT TaskDescriptionDialog : public KoDialog
