@@ -148,7 +148,9 @@ void Config::setDefaultValues( Project &project )
     wpi.deleteAfterRetrieval = KPlatoSettings::deleteFile();
     wpi.archiveAfterRetrieval = !KPlatoSettings::deleteFile();
     wpi.archiveUrl = KPlatoSettings::saveUrl();
+#if 0 // not used atm
     wpi.publishUrl = KPlatoSettings::publishUrl();
+#endif
     project.setWorkPackageInfo(wpi);
 }
 
