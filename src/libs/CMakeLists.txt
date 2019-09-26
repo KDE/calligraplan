@@ -1,3 +1,4 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"calligraplanlibs\")
 
 add_subdirectory( plugin )
 add_subdirectory( widgetutils )
