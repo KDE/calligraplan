@@ -175,3 +175,24 @@ KoPageLayout::KoPageLayout()
   , border()
 {
 }
+
+void KoPageLayout::updatePageLayout(QPrinter *printer)
+{
+    QPageLayout p = printer->pageLayout();
+    QPageSize psize = p.pageSize();
+    orientation = p.orientation() == QPrinter::Portrait ? KoPageFormat::Portrait : KoPageFormat::Landscape;
+    QRectF full = p.fullRect(QPageLayout::Millimeter);
+    if (orientation == KoPageFormat::Portrait) {
+        format = KoPageFormat::guessFormat(full.width(), full.height());
+    } else {
+        format = KoPageFormat::guessFormat(full.height(), full.width());
+    }
+    QRectF rect = p.paintRectPoints();
+    width = rect.width();
+    height = rect.height();
+    QMarginsF margins = p.margins(QPageLayout::Point);
+    leftMargin =  margins.left();
+    rightMargin = margins.right();
+    topMargin = margins.top();
+    bottomMargin = margins.bottom();
+}

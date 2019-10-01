@@ -142,6 +142,7 @@ public:
 
         noCleanup = false;
         openingDocument = false;
+        printPreviewJob = nullptr;
     }
 
     ~KoMainWindowPrivate() {
@@ -243,7 +244,7 @@ public:
 
     bool noCleanup;
     bool openingDocument;
-
+    KoPrintJob *printPreviewJob;
 };
 
 KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentData &componentData)
@@ -1422,9 +1423,19 @@ void KoMainWindow::slotFilePrintPreview()
     printJob->setProperty("blocking", true);
     QPrintPreviewDialog *preview = new QPrintPreviewDialog(&printJob->printer(), this);
     printJob->setParent(preview); // will take care of deleting the job
-    connect(preview, SIGNAL(paintRequested(QPrinter*)), printJob, SLOT(startPrinting())); // clazy:exclude=old-style-connect
+    d->printPreviewJob = printJob;
+    connect(preview, SIGNAL(paintRequested(QPrinter*)), this, SLOT(slotPrintPreviewPaintRequest(QPrinter*))); // clazy:exclude=old-style-connect
     preview->exec();
     delete preview;
+    d->printPreviewJob = nullptr;
+}
+
+void KoMainWindow::slotPrintPreviewPaintRequest(QPrinter *printer)
+{
+    KoPageLayout pl = rootView()->pageLayout();
+    pl.updatePageLayout(printer);
+    rootView()->setPageLayout(pl);
+    d->printPreviewJob->startPrinting();
 }
 
 KoPrintJob* KoMainWindow::exportToPdf()

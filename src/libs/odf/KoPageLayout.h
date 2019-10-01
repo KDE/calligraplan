@@ -106,6 +106,7 @@ struct KoPageLayout {
      * default margins (2 cm), and portrait orientation.
      */
     KOODF_EXPORT KoPageLayout();
+    KOODF_EXPORT void updatePageLayout(QPrinter *printer);
 };
 
 #endif /* KOPAGELAYOUT_H */

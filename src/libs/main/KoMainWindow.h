@@ -36,6 +36,7 @@ class KoDockFactoryBase;
 class KRecentFilesAction;
 class KoComponentData;
 class QDockWidget;
+class QPrinter;
 
 struct KoPageLayout;
 
@@ -400,6 +401,7 @@ private Q_SLOTS:
      */
     virtual void newView();
 
+    void slotPrintPreviewPaintRequest(QPrinter *printer);
 
 // ---------------------  PartManager
 private:
