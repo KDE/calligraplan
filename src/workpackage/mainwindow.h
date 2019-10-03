@@ -49,7 +49,7 @@ class PLANWORK_EXPORT KPlatoWork_MainWindow : public KParts::MainWindow
 
 public:
     explicit KPlatoWork_MainWindow();
-    virtual ~KPlatoWork_MainWindow();
+    ~KPlatoWork_MainWindow() override;
 
     KPlatoWork::Part *rootDocument() const { return m_part; }
     bool openDocument(const QUrl & url);
@@ -67,11 +67,11 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     virtual void slotFileClose();
-    virtual void setCaption( const QString &text );
-    virtual void setCaption( const QString &text, bool modified );
+    void setCaption( const QString &text ) override;
+    void setCaption( const QString &text, bool modified ) override;
 
 protected Q_SLOTS:
-    virtual bool queryClose();
+    bool queryClose() override;
 
     virtual void slotFileOpen();
     /**

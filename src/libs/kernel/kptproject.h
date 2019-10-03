@@ -82,7 +82,7 @@ public:
     explicit Project( Node *parent = 0 );
     explicit Project( ConfigBase &config, Node *parent = 0 );
     explicit Project( ConfigBase &config, bool useDefaultValues, Node *parent = 0 );
-    ~Project();
+    ~Project() override;
 
     /// Reference this project.
     void ref() { ++m_refCount; }
@@ -90,7 +90,7 @@ public:
     void deref();
 
     /// Returns the node type. Can be Type_Project or Type_Subproject.
-    virtual int type() const;
+    int type() const override;
 
     /**
      * Calculate the schedules managed by the schedule manager
@@ -107,8 +107,8 @@ public:
      */
     void calculate( ScheduleManager &sm, const DateTime &dt );
 
-    virtual DateTime startTime( long id = -1 ) const;
-    virtual DateTime endTime( long id = -1 ) const;
+    DateTime startTime( long id = -1 ) const override;
+    DateTime endTime( long id = -1 ) const override;
 
     /// Returns the calculated duration for schedule @p id
     Duration duration( long id = -1 ) const;
@@ -118,10 +118,10 @@ public:
      * the Distribution of each Task. This can be used for Monte-Carlo
      * estimation of Project duration.
      */
-    Duration *getRandomDuration();
+    Duration *getRandomDuration() override;
 
-    virtual bool load( KoXmlElement &element, XMLLoaderObject &status );
-    virtual void save(QDomElement &element, const XmlSaveContext &context) const;
+    bool load( KoXmlElement &element, XMLLoaderObject &status ) override;
+    void save(QDomElement &element, const XmlSaveContext &context) const override;
 
     using Node::saveWorkPackageXML;
     /// Save a workpackage document containing @p node with schedule identity @p id
@@ -209,20 +209,20 @@ public:
     /// Returns a list of all resources
     QList<Resource*> resourceList() const { return resourceIdDict.values(); }
 
-    virtual EffortCostMap plannedEffortCostPrDay( QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
-    virtual EffortCostMap plannedEffortCostPrDay(const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    EffortCostMap plannedEffortCostPrDay( QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    EffortCostMap plannedEffortCostPrDay(const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
 
     using Node::plannedEffort;
     /// Returns the total planned effort for this project (or subproject)
-    virtual Duration plannedEffort( long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    Duration plannedEffort( long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     /// Returns the total planned effort for this project (or subproject) on date
-    virtual Duration plannedEffort( QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All  ) const;
+    Duration plannedEffort( QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All  ) const override;
     using Node::plannedEffortTo;
     /// Returns the planned effort up to and including date
-    virtual Duration plannedEffortTo( QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All  ) const;
+    Duration plannedEffortTo( QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All  ) const override;
 
     /// Returns the actual effort up to and including @p date
-    virtual Duration actualEffortTo( QDate date ) const;
+    Duration actualEffortTo( QDate date ) const override;
     /**
      * Planned cost up to and including date
      * @param date The cost is calculated from the start of the project upto including date.
@@ -230,34 +230,34 @@ public:
      * @param typ the type of calculation.
      * @sa EffortCostCalculationType
      */
-    virtual double plannedCostTo( QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All  ) const;
+    double plannedCostTo( QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All  ) const override;
 
     /**
      * Actual cost up to and including @p date
      * @param id Identity of the schedule to be used.
      * @param date The cost is calculated from the start of the project upto including date.
      */
-    virtual EffortCost actualCostTo(  long int id, QDate date ) const;
+    EffortCost actualCostTo(  long int id, QDate date ) const override;
 
-    virtual EffortCostMap actualEffortCostPrDay( QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    EffortCostMap actualEffortCostPrDay( QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
 
-    virtual EffortCostMap actualEffortCostPrDay( const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    EffortCostMap actualEffortCostPrDay( const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
 
-    double effortPerformanceIndex( QDate date, long id ) const;
+    double effortPerformanceIndex( QDate date, long id ) const override;
 
-    double schedulePerformanceIndex( QDate date, long id ) const;
+    double schedulePerformanceIndex( QDate date, long id ) const override;
 
     /// Returns the effort planned to be used to reach the actual percent finished
-    virtual Duration budgetedWorkPerformed( QDate date, long id = CURRENTSCHEDULE ) const;
+    Duration budgetedWorkPerformed( QDate date, long id = CURRENTSCHEDULE ) const override;
     /// Returns the cost planned to be used to reach the actual percent finished
-    virtual double budgetedCostPerformed( QDate date, long id = CURRENTSCHEDULE ) const;
+    double budgetedCostPerformed( QDate date, long id = CURRENTSCHEDULE ) const override;
 
     /// Budgeted Cost of Work Scheduled ( up to @p date )
-    virtual double bcws( QDate date, long id = BASELINESCHEDULE ) const;
+    double bcws( QDate date, long id = BASELINESCHEDULE ) const override;
     /// Budgeted Cost of Work Performed
-    virtual double bcwp( long id = BASELINESCHEDULE ) const;
+    double bcwp( long id = BASELINESCHEDULE ) const override;
     /// Budgeted Cost of Work Performed ( up to @p date )
-    virtual double bcwp( QDate date, long id = BASELINESCHEDULE ) const;
+    double bcwp( QDate date, long id = BASELINESCHEDULE ) const override;
 
     Calendar *defaultCalendar() const { return m_defaultCalendar; }
     void setDefaultCalendar( Calendar *cal );
@@ -290,7 +290,7 @@ public:
     /// Check if a link exists between node @p par and @p child.
     bool linkExists( const Node *par, const Node *child ) const;
     /// Check if node @p par can be linked to node @p child.
-    bool legalToLink( const Node *par, const Node *child ) const;
+    bool legalToLink( const Node *par, const Node *child ) const override;
     using Node::legalToLink;
 
     virtual const QHash<QString, Node*> &nodeDict() { return nodeIdDict; }
@@ -304,11 +304,11 @@ public:
 
     using Node::findNode;
     /// Find the node with identity id
-    virtual Node *findNode( const QString &id ) const;
+    Node *findNode( const QString &id ) const override;
 
     using Node::removeId;
     /// Remove the node with identity id from the registers
-    virtual bool removeId( const QString &id );
+    bool removeId( const QString &id ) override;
 
     /// Reserve @p id for the @p node
     virtual void reserveId( const QString &id, Node *node );
@@ -383,7 +383,7 @@ public:
     /// Set WBS Definition to @p def
     void setWbsDefinition( const WBSDefinition &def );
     /// Generate WBS Code
-    virtual QString generateWBSCode( QList<int> &indexes, bool sortable = false ) const;
+    QString generateWBSCode( QList<int> &indexes, bool sortable = false ) const override;
 
     Accounts &accounts() { return m_accounts; }
     const Accounts &accounts() const { return m_accounts; }
@@ -392,7 +392,7 @@ public:
      * Set current schedule to the schedule with identity @p id, for me and my children
      * Note that this is used (and may be changed) when calculating schedules
      */
-    virtual void setCurrentSchedule( long id );
+    void setCurrentSchedule( long id ) override;
     /// Create new schedule with unique name and id of type Expected.
     MainSchedule *createSchedule();
     /// Create new schedule with unique id.
@@ -400,7 +400,7 @@ public:
     /// Add the schedule to the project. A fresh id will be generated for the schedule.
     void addMainSchedule( MainSchedule *schedule );
     /// Set parent schedule for my children
-    virtual void setParentSchedule( Schedule *sch );
+    void setParentSchedule( Schedule *sch ) override;
 
     /// Find the schedule manager that manages the Schedule with @p id
     ScheduleManager *scheduleManager( long id ) const;
@@ -496,11 +496,11 @@ public:
     void setSchedulerPlugins( const QMap<QString, SchedulerPlugin*> &plugins );
     const QMap<QString, SchedulerPlugin*> &schedulerPlugins() const { return m_schedulerPlugins; }
 
-    void initiateCalculation( MainSchedule &sch );
-    void initiateCalculationLists( MainSchedule &sch );
+    void initiateCalculation( MainSchedule &sch ) override;
+    void initiateCalculationLists( MainSchedule &sch ) override;
 
     void finishCalculation( ScheduleManager &sm );
-    void adjustSummarytask();
+    void adjustSummarytask() override;
 
     /// Increments progress and emits signal sigProgress()
     void incProgress();
@@ -512,9 +512,9 @@ public:
     /// return a <id, name> map of all external projects
     QMap<QString, QString> externalProjects() const;
 
-    void emitDocumentAdded( Node*, Document*, int index );
-    void emitDocumentRemoved( Node*, Document*, int index );
-    void emitDocumentChanged( Node*, Document*, int index );
+    void emitDocumentAdded( Node*, Document*, int index ) override;
+    void emitDocumentRemoved( Node*, Document*, int index ) override;
+    void emitDocumentChanged( Node*, Document*, int index ) override;
 
     bool useSharedResources() const;
     void setUseSharedResources(bool on);
@@ -651,7 +651,7 @@ protected:
     void calculate( const DateTime &dt );
 
     /// Calculate critical path
-    virtual bool calcCriticalPath( bool fromEnd );
+    bool calcCriticalPath( bool fromEnd ) override;
 
     /// Prepare task lists for scheduling
     void tasksForward();
@@ -661,7 +661,7 @@ protected:
 protected:
     friend class KPlatoXmlLoaderBase;
     using Node::changed;
-    virtual void changed(Node *node, int property = -1);
+    void changed(Node *node, int property = -1) override;
 
     Accounts m_accounts;
     QList<ResourceGroup*> m_resourceGroups;
@@ -671,10 +671,10 @@ protected:
 
     StandardWorktime *m_standardWorktime;
 
-    DateTime calculateForward( int use );
-    DateTime calculateBackward( int use );
-    DateTime scheduleForward( const DateTime &earliest, int use );
-    DateTime scheduleBackward( const DateTime &latest, int use );
+    DateTime calculateForward( int use ) override;
+    DateTime calculateBackward( int use ) override;
+    DateTime scheduleForward( const DateTime &earliest, int use ) override;
+    DateTime scheduleBackward( const DateTime &latest, int use ) override;
     DateTime checkStartConstraints( const DateTime &dt ) const;
     DateTime checkEndConstraints( const DateTime &dt ) const;
 

@@ -70,7 +70,7 @@ public:
     /**
      * The destructor.
      **/
-    virtual ~KDatePicker();
+    ~KDatePicker() override;
 
     /** The size hint for date pickers. The size hint recommends the
      *   minimum size of the widget so that all elements may be placed

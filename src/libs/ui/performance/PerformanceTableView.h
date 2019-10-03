@@ -32,8 +32,8 @@ class PerformanceTableView : public QTableView
 public:
     explicit PerformanceTableView(QWidget *parent);
 
-    QSize sizeHint() const;
-    QSize minimumSizeHint() const;
+    QSize sizeHint() const override;
+    QSize minimumSizeHint() const override;
 };
 
 } // namespace KPlato

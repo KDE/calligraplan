@@ -77,7 +77,7 @@ public:
     /// Default constructor
     explicit ResourceGroup();
     explicit ResourceGroup( const ResourceGroup *group );
-    ~ResourceGroup();
+    ~ResourceGroup() override;
 
     enum Type { Type_Work, Type_Material };
 
@@ -228,7 +228,7 @@ public:
 
     Resource();
     explicit Resource(Resource *resource);
-    virtual ~Resource();
+    ~Resource() override;
 
     QString id() const { return m_id; }
     void setId( const QString& id );

@@ -57,11 +57,11 @@ public:
     enum Roles { NodeRole = Qt::UserRole + 1, EnabledRole };
     
     PertEditor(KoPart *part, KoDocument *doc, QWidget *parent);
-    virtual void updateReadWrite( bool readwrite );
-    void setProject( Project *project );
-    Project *project() const { return m_project; }
-    void draw( Project &project );
-    void draw();
+    void updateReadWrite( bool readwrite ) override;
+    void setProject( Project *project ) override;
+    Project *project() const override { return m_project; }
+    void draw( Project &project ) override;
+    void draw() override;
     void drawSubTasksName( QTreeWidgetItem *parent,Node * currentNode);
     void clearRequiredList();
     void loadRequiredTasksList(Node * taskNode);

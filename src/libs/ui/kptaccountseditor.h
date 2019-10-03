@@ -79,11 +79,11 @@ Q_SIGNALS:
     
 protected Q_SLOTS:
     void slotHeaderContextMenuRequested( const QPoint &pos );
-    virtual void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
-    virtual void currentChanged ( const QModelIndex & current, const QModelIndex & previous );
+    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
+    void currentChanged ( const QModelIndex & current, const QModelIndex & previous ) override;
 
 protected:
-    void contextMenuEvent ( QContextMenuEvent * event );
+    void contextMenuEvent ( QContextMenuEvent * event ) override;
     
 };
 
@@ -94,20 +94,20 @@ public:
     AccountsEditor(KoPart *part, KoDocument *document, QWidget *parent);
     
     void setupGui();
-    Project *project() const { return m_view->project(); }
-    virtual void draw( Project &project );
-    virtual void draw();
+    Project *project() const override { return m_view->project(); }
+    void draw( Project &project ) override;
+    void draw() override;
 
     AccountItemModel *model() const { return m_view->model(); }
     
-    virtual void updateReadWrite( bool readwrite );
+    void updateReadWrite( bool readwrite ) override;
 
     virtual Account *currentAccount() const;
     
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
 
-    bool loadContext(const KoXmlElement &context);
-    void saveContext(QDomElement &context) const;
+    bool loadContext(const KoXmlElement &context) override;
+    void saveContext(QDomElement &context) const override;
 
 Q_SIGNALS:
     void addAccount(KPlato::Account *account);
@@ -115,19 +115,19 @@ Q_SIGNALS:
     
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
-    void slotEditCopy();
+    void setGuiActive( bool activate ) override;
+    void slotEditCopy() override;
 
 protected:
     void updateActionsEnabled( bool on );
     void insertAccount( Account *account, Account *parent, int row );
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
     
 private Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
-    void slotHeaderContextMenuRequested( const QPoint &pos );
+    void slotHeaderContextMenuRequested( const QPoint &pos ) override;
 
     void slotSelectionChanged( const QModelIndexList& );
     void slotCurrentChanged( const QModelIndex& );

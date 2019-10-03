@@ -30,7 +30,7 @@ class KPlatoFactoryInit : public KPlato::Factory
 
 public:
     explicit KPlatoFactoryInit() : KPlato::Factory() {}
-    virtual ~KPlatoFactoryInit() {}
+    ~KPlatoFactoryInit() override {}
 
 };
 

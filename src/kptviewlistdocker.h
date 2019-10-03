@@ -35,7 +35,7 @@ class ViewListDocker : public QDockWidget
 
 public:
     explicit ViewListDocker(View *view);
-    ~ViewListDocker();
+    ~ViewListDocker() override;
     View *view();
     void setView(View *view);
     ViewListWidget *viewList() const { return m_viewlist; }
@@ -54,10 +54,10 @@ class ViewListDockerFactory : public KoDockFactoryBase
 public:
     explicit ViewListDockerFactory(View *view);
 
-    virtual QString id() const;
-    virtual QDockWidget* createDockWidget();
+    QString id() const override;
+    QDockWidget* createDockWidget() override;
     /// @return the dock widget area the widget should appear in by default
-    virtual KoDockFactoryBase::DockPosition defaultDockPosition() const { return DockLeft; }
+    KoDockFactoryBase::DockPosition defaultDockPosition() const override { return DockLeft; }
 
 private:
     View *m_view;

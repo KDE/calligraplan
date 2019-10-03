@@ -42,17 +42,17 @@ class PLAN_EXPORT Part : public KoPart
 public:
     explicit Part(QObject *parent);
 
-    virtual ~Part();
+    ~Part() override;
 
     void setDocument(KPlato::MainDocument *document);
 
     /// reimplemented
-    virtual KoView *createViewInstance(KoDocument *document, QWidget *parent);
+    KoView *createViewInstance(KoDocument *document, QWidget *parent) override;
 
     /// reimplemented
-    virtual KoMainWindow *createMainWindow();
+    KoMainWindow *createMainWindow() override;
 
-    virtual void showStartUpWidget(KoMainWindow *parent);
+    void showStartUpWidget(KoMainWindow *parent) override;
 
 public Q_SLOTS:
     void openTaskModule(const QUrl& url);
@@ -61,7 +61,7 @@ protected Q_SLOTS:
     void finish();
     void slotShowIntroduction();
     void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
-    virtual void openTemplate( const QUrl& url );
+    void openTemplate( const QUrl& url ) override;
     void slotOpenTemplate(const QUrl& url);
 
     void slotHelpContents();

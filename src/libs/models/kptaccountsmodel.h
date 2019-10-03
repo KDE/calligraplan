@@ -39,7 +39,7 @@ class PLANMODELS_EXPORT AccountModel : public QObject
     Q_OBJECT
 public:
     AccountModel();
-    ~AccountModel() {}
+    ~AccountModel() override {}
 
     enum Properties {
         Name = 0,
@@ -66,25 +66,25 @@ class PLANMODELS_EXPORT AccountItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit AccountItemModel( QObject *parent = 0 );
-    ~AccountItemModel();
+    ~AccountItemModel() override;
 
-    const QMetaEnum columnMap() const;
-    virtual void setProject( Project *project );
+    const QMetaEnum columnMap() const override;
+    void setProject( Project *project ) override;
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     QModelIndex index( const Account* account, int column = 0 ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
     Account *account( const QModelIndex &index ) const;
     QModelIndex insertAccount( Account *account, Account *parent = 0, int index = -1 );
@@ -118,7 +118,7 @@ public:
     enum ShowMode { ShowMode_Actual = 0, ShowMode_Planned = 1, ShowMode_Both = 2, ShowMode_Deviation = 3 };
 
     explicit CostBreakdownItemModel( QObject *parent = 0 );
-    ~CostBreakdownItemModel();
+    ~CostBreakdownItemModel() override;
 
     enum Properties {
         Name = 0,
@@ -128,24 +128,24 @@ public:
         Actual
     };
     Q_ENUM(Properties)
-    const QMetaEnum columnMap() const;
+    const QMetaEnum columnMap() const override;
     int propertyCount() const;
 
-    virtual void setProject( Project *project );
-    virtual void setScheduleManager( ScheduleManager *sm );
+    void setProject( Project *project ) override;
+    void setScheduleManager( ScheduleManager *sm ) override;
     long id() const;
 
-    Qt::ItemFlags flags( const QModelIndex &index ) const;
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    Qt::ItemFlags flags( const QModelIndex &index ) const override;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     QModelIndex index( const Account* account ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
     Account *account( const QModelIndex &index ) const;
 

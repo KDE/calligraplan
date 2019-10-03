@@ -40,7 +40,7 @@ public:
 
     WorkPackageSendPanel *panel() const { return m_wp; }
 
-    QSize sizeHint() const;
+    QSize sizeHint() const override;
 
 private:
     WorkPackageSendPanel *m_wp;

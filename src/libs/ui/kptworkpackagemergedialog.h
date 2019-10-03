@@ -59,7 +59,7 @@ public:
     enum Columns { DateColumn = 0, CompletionColumn, UsedEffortColumn, RemainingEffortColumn };
 
     WorkPackageMergeDialog(Project *project, const QMap<QDateTime, Package*> &list, QWidget *parent = 0 );
-    ~WorkPackageMergeDialog();
+    ~WorkPackageMergeDialog() override;
 
     QList<int> checkedList() const;
 

@@ -46,12 +46,12 @@ class PLANMODELS_EXPORT ChartProxyModel : public QSortFilterProxyModel
 public:
     explicit ChartProxyModel(QObject *parent = 0) : QSortFilterProxyModel( parent ) {}
 
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const {
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override {
         //if ( role == Qt::DisplayRole && orientation == Qt::Vertical ) debugPlan<<"fetch:"<<orientation<<section<<mapToSource( index(0, section) ).column()<<m_rejects;
         return QSortFilterProxyModel::headerData( section, orientation, role );
     }
 
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const {
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override {
         if ( role == Qt::DisplayRole && ! m_zerocolumns.isEmpty() ) {
             int column = mapToSource( index ).column();
             if ( m_zerocolumns.contains( column ) ) {
@@ -72,7 +72,7 @@ public:
     void reset() { beginResetModel(); endResetModel(); }
 
 protected:
-    bool filterAcceptsColumn ( int source_column, const QModelIndex &/*source_parent */) const {
+    bool filterAcceptsColumn ( int source_column, const QModelIndex &/*source_parent */) const override {
         //debugPlan<<this<<source_column<<m_rejects<<(! m_rejects.contains( source_column ));
         return ! m_rejects.contains( source_column );
     }
@@ -99,28 +99,28 @@ public:
         CPIEffort
     };
     Q_ENUM(Properties)
-    const QMetaEnum columnMap() const;
+    const QMetaEnum columnMap() const override;
 
     explicit ChartItemModel(QObject *parent = 0);
 
 
 //    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const;
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const;
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override;
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override;
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const;
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override;
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
 
     const EffortCostMap &bcwp() const { return m_bcws; }
     const EffortCostMap &acwp() const { return m_acwp; }
 
-    void setProject( Project *project );
+    void setProject( Project *project ) override;
 
     void setNodes( const QList<Node*> &nodes );
     void addNode( Node *node );
@@ -132,7 +132,7 @@ public:
     void setLocalizeValues( bool on );
 
 public Q_SLOTS:
-    void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void slotNodeRemoved(KPlato::Node *node);
     void slotNodeChanged(KPlato::Node *node);
     void slotResourceChanged(KPlato::Resource *resource);
@@ -165,11 +165,11 @@ class PLANMODELS_EXPORT PerformanceDataCurrentDateModel : public ChartItemModel
 public:
     explicit PerformanceDataCurrentDateModel(QObject *parent);
 
-    int rowCount( const QModelIndex &parent = QModelIndex() ) const;
-    int columnCount( const QModelIndex &parent = QModelIndex() ) const;
-    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const;
-    QVariant data( const QModelIndex &proxyIndex, int role = Qt::DisplayRole ) const;
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
+    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
+    QVariant data( const QModelIndex &proxyIndex, int role = Qt::DisplayRole ) const override;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
     QModelIndex mapIndex( const QModelIndex &idx ) const;
 };

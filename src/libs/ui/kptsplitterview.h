@@ -61,16 +61,16 @@ public:
     /// Constructor
     SplitterView(KoPart *part, KoDocument *doc, QWidget *parent);
     /// Destructor
-    virtual ~SplitterView() {}
+    ~SplitterView() override {}
 
     /// Set the project this view shall handle.
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
     /// Draw data from current part / project
-    virtual void draw();
+    void draw() override;
     /// Draw data from project.
-    virtual void draw( Project &project );
+    void draw( Project &project ) override;
     /// Set readWrite mode
-    virtual void updateReadWrite( bool );
+    void updateReadWrite( bool ) override;
 
     /// Return the view that has focus
     ViewBase *focusView() const;
@@ -92,25 +92,25 @@ public:
     ViewBase *findView( const QPoint &pos ) const;
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
     
-    virtual Node* currentNode() const;
+    Node* currentNode() const override;
     
-    virtual Resource* currentResource() const;
+    Resource* currentResource() const override;
     
-    virtual ResourceGroup* currentResourceGroup() const;
+    ResourceGroup* currentResourceGroup() const override;
 
-    virtual Calendar* currentCalendar() const;
+    Calendar* currentCalendar() const override;
 
-    virtual Relation *currentRelation() const;
+    Relation *currentRelation() const override;
 
 public Q_SLOTS:
     /// Activate/deactivate the gui (also of subviews)
-    virtual void setGuiActive( bool activate );
-    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
-    virtual void slotEditCopy();
+    void setGuiActive( bool activate ) override;
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
+    void slotEditCopy() override;
 
 protected Q_SLOTS:
     virtual void slotGuiActivated(KPlato::ViewBase *v, bool active);

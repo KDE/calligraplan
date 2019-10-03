@@ -69,15 +69,15 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     void slotHeaderContextMenuRequested( const QPoint &pos );
-    virtual void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
-    virtual void currentChanged ( const QModelIndex & current, const QModelIndex & previous );
+    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
+    void currentChanged ( const QModelIndex & current, const QModelIndex & previous ) override;
 
 protected:
-    void contextMenuEvent ( QContextMenuEvent * event );
-    void focusInEvent ( QFocusEvent * event );
-    void focusOutEvent ( QFocusEvent * event );
+    void contextMenuEvent ( QContextMenuEvent * event ) override;
+    void focusInEvent ( QFocusEvent * event ) override;
+    void focusOutEvent ( QFocusEvent * event ) override;
     
-    void dragMoveEvent(QDragMoveEvent *event);
+    void dragMoveEvent(QDragMoveEvent *event) override;
 };
 
 class PLANUI_EXPORT CalendarDayView : public QTableView
@@ -94,7 +94,7 @@ public:
     CalendarDay *selectedDay() const;
     TimeInterval *selectedInterval() const;
     
-    QSize sizeHint() const;
+    QSize sizeHint() const override;
     
     void setReadWrite( bool on ) { m_readwrite = on; }
     bool isReadWrite() const { return m_readwrite; }
@@ -113,8 +113,8 @@ public Q_SLOTS:
     void setCurrentCalendar(KPlato::Calendar *calendar);
     
 protected Q_SLOTS:
-    virtual void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
-    virtual void currentChanged ( const QModelIndex & current, const QModelIndex & previous );
+    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
+    void currentChanged ( const QModelIndex & current, const QModelIndex & previous ) override;
 
     void slotSetWork();
     void slotSetVacation();
@@ -123,9 +123,9 @@ protected Q_SLOTS:
     void slotIntervalEditDialogFinished( int result );
 
 protected:
-    void contextMenuEvent ( QContextMenuEvent * event );
-    void focusInEvent ( QFocusEvent * event );
-    void focusOutEvent ( QFocusEvent * event );
+    void contextMenuEvent ( QContextMenuEvent * event ) override;
+    void focusInEvent ( QFocusEvent * event ) override;
+    void focusOutEvent ( QFocusEvent * event ) override;
     
 private:
     CalendarDayItemModel *m_model;
@@ -144,18 +144,18 @@ public:
     CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
-    Project *project() const { return m_calendarview->project(); }
-    virtual void draw( Project &project );
-    virtual void draw();
+    Project *project() const override { return m_calendarview->project(); }
+    void draw( Project &project ) override;
+    void draw() override;
 
-    virtual void updateReadWrite( bool readwrite );
+    void updateReadWrite( bool readwrite ) override;
 
-    virtual Calendar *currentCalendar() const;
+    Calendar *currentCalendar() const override;
 
     /// Loads context info into this view.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
 
 Q_SIGNALS:
     void addCalendar(KPlato::Calendar *calendar);
@@ -163,7 +163,7 @@ Q_SIGNALS:
     
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
 
 protected:
     void updateActionsEnabled( bool on );
@@ -171,7 +171,7 @@ protected:
     
 protected Q_SLOTS:
     void slotIntervalEditDialogFinished( int result );
-    void slotOptions();
+    void slotOptions() override;
 
 private Q_SLOTS:
     void slotContextMenuCalendar( const QModelIndex& index, const QPoint& pos );

@@ -56,12 +56,12 @@ class PLANMODELS_EXPORT ReportGeneratorOdt : public ReportGenerator
 {
 public:
     explicit ReportGeneratorOdt();
-    ~ReportGeneratorOdt();
+    ~ReportGeneratorOdt() override;
 
-    bool open();
-    void close();
+    bool open() override;
+    void close() override;
 
-    bool createReport();
+    bool createReport() override;
 
 protected:
     bool createReportOdt();

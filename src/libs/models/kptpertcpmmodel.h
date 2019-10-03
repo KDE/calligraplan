@@ -43,21 +43,21 @@ class PLANMODELS_EXPORT CriticalPathItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit CriticalPathItemModel( QObject *parent = 0 );
-    ~CriticalPathItemModel();
+    ~CriticalPathItemModel() override;
     
-    const QMetaEnum columnMap() const { return m_nodemodel.columnMap(); }
+    const QMetaEnum columnMap() const override { return m_nodemodel.columnMap(); }
     
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
     
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
     
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
     
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
     
     Node *node( const QModelIndex &index ) const;
     void setManager( ScheduleManager *sm );
@@ -98,41 +98,41 @@ class PLANMODELS_EXPORT PertResultItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit PertResultItemModel( QObject *parent = 0 );
-    ~PertResultItemModel();
+    ~PertResultItemModel() override;
     
-    const QMetaEnum columnMap() const { return m_nodemodel.columnMap(); }
+    const QMetaEnum columnMap() const override { return m_nodemodel.columnMap(); }
     
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
     
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
     
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
 //    virtual QModelIndex index( const Node *node ) const;
     virtual QModelIndex index( const NodeList *lst ) const;
     
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
     
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
     
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
     
-    virtual QMimeData * mimeData( const QModelIndexList & indexes ) const;
-    virtual QStringList mimeTypes () const;
-    virtual Qt::DropActions supportedDropActions() const;
-    virtual bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
+    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QStringList mimeTypes () const override;
+    Qt::DropActions supportedDropActions() const override;
+    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
 
     NodeList *list( const QModelIndex &index ) const;
     Node *node( const QModelIndex &index ) const;
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
     
     NodeList nodeList( QDataStream &stream );
     using ItemModelBase::dropAllowed;
     bool dropAllowed( Node *on, const QMimeData *data );
     
     void clear();
-    void refresh();
+    void refresh() override;
     
     void setManager( ScheduleManager *sm );
     ScheduleManager *manager() const { return m_manager; }

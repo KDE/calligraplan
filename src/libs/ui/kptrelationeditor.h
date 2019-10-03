@@ -64,22 +64,22 @@ public:
     RelationEditor(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
-    virtual void draw( Project &project );
-    virtual void draw();
+    void draw( Project &project ) override;
+    void draw() override;
 
-    virtual Relation *currentRelation() const;
+    Relation *currentRelation() const override;
     Relation *selectedRelation() const;
 
-    virtual void updateReadWrite( bool readwrite );
+    void updateReadWrite( bool readwrite ) override;
 
     RelationItemModel *model() const { return m_view->model(); }
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
     
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
 
 Q_SIGNALS:
     void openNode();
@@ -88,10 +88,10 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
 
 protected:
     void updateActionsEnabled( bool on );
@@ -108,7 +108,7 @@ private Q_SLOTS:
 
     void slotSplitView();
     
-    void slotHeaderContextMenuRequested( const QPoint& );
+    void slotHeaderContextMenuRequested( const QPoint& ) override;
     
 private:
     void edit( const QModelIndex &index );

@@ -63,9 +63,9 @@ class PLANTJ_EXPORT Task : public CoreAttributes
 public:
     Task(Project* prj, const QString& id_, const QString& n, Task* p,
          const QString& f, int l);
-    virtual ~Task();
+    ~Task() override;
 
-    virtual CAType getType() const { return CA_Task; }
+    CAType getType() const override { return CA_Task; }
 
     Task* getParent() const { return static_cast<Task*>(parent); }
 

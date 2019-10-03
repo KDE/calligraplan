@@ -34,12 +34,12 @@ public:
         sorting[0] = TreeMode;
         sorting[1] = SequenceUp;
     }
-    virtual ~ShiftList() { }
+    ~ShiftList() override { }
 
     Shift* getShift(const QString& id) const;
 
-    virtual int compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
-                                  int level);
+    int compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
+                                  int level) override;
 } ;
 
 /**
@@ -52,7 +52,7 @@ class ShiftListIterator : public virtual CoreAttributesListIterator
 public:
     explicit ShiftListIterator(const CoreAttributesList& l) :
         CoreAttributesListIterator(l) { }
-    virtual ~ShiftListIterator() { }
+    ~ShiftListIterator() override { }
     Shift* operator*();
 } ;
 

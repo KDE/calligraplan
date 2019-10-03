@@ -32,7 +32,7 @@ class Config : public ConfigBase
     Q_OBJECT
 public:
     Config();
-    ~Config();
+    ~Config() override;
 
     void readConfig();
     void saveSettings();
@@ -41,29 +41,29 @@ public:
     QTime dayStartTime(int day) const;
     int dayLength(int day) const;
 
-    virtual void setDefaultValues( Project &project );
+    void setDefaultValues( Project &project ) override;
 
-    virtual void setDefaultValues( Task &task );
+    void setDefaultValues( Task &task ) override;
 
-    virtual int minimumDurationUnit() const;
-    virtual int maximumDurationUnit() const;
+    int minimumDurationUnit() const override;
+    int maximumDurationUnit() const override;
 
-    virtual bool summaryTaskLevelColorsEnabled() const;
-    virtual QBrush summaryTaskDefaultColor() const;
-    virtual QBrush summaryTaskLevelColor_1() const;
-    virtual QBrush summaryTaskLevelColor_2() const;
-    virtual QBrush summaryTaskLevelColor_3() const;
-    virtual QBrush summaryTaskLevelColor_4() const;
+    bool summaryTaskLevelColorsEnabled() const override;
+    QBrush summaryTaskDefaultColor() const override;
+    QBrush summaryTaskLevelColor_1() const override;
+    QBrush summaryTaskLevelColor_2() const override;
+    QBrush summaryTaskLevelColor_3() const override;
+    QBrush summaryTaskLevelColor_4() const override;
 
-    virtual QBrush taskNormalColor() const;
-    virtual QBrush taskErrorColor() const;
-    virtual QBrush taskCriticalColor() const;
-    virtual QBrush taskFinishedColor() const;
+    QBrush taskNormalColor() const override;
+    QBrush taskErrorColor() const override;
+    QBrush taskCriticalColor() const override;
+    QBrush taskFinishedColor() const override;
 
-    virtual QBrush milestoneNormalColor() const;
-    virtual QBrush milestoneErrorColor() const;
-    virtual QBrush milestoneCriticalColor() const;
-    virtual QBrush milestoneFinishedColor() const;
+    QBrush milestoneNormalColor() const override;
+    QBrush milestoneErrorColor() const override;
+    QBrush milestoneCriticalColor() const override;
+    QBrush milestoneFinishedColor() const override;
 
 };
 

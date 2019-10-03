@@ -44,11 +44,11 @@ class PLANMODELS_EXPORT CalendarDayItemModelBase : public ItemModelBase
     Q_OBJECT
 public:
     explicit CalendarDayItemModelBase( QObject *parent = 0 );
-    ~CalendarDayItemModelBase();
+    ~CalendarDayItemModelBase() override;
 
     virtual void setCalendar( Calendar *calendar );
     virtual Calendar *calendar() const { return m_calendar; }
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
 
     CalendarDay *day( const QModelIndex &index ) const;
 //    TimeInterval *interval( const QModelIndex &index ) const;
@@ -72,7 +72,7 @@ class PLANMODELS_EXPORT CalendarItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit CalendarItemModel( QObject *parent = 0 );
-    ~CalendarItemModel();
+    ~CalendarItemModel() override;
 
     enum Properties {
         Name = 0,
@@ -83,29 +83,29 @@ public:
 #endif
     };
     Q_ENUM(Properties)
-    const QMetaEnum columnMap() const;
+    const QMetaEnum columnMap() const override;
 
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     QModelIndex index( const Calendar *calendar, int column = 0 ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
     
-    virtual QMimeData * mimeData( const QModelIndexList & indexes ) const;
-    virtual QStringList mimeTypes () const;
-    virtual Qt::DropActions supportedDropActions() const;
-    virtual bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
+    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QStringList mimeTypes () const override;
+    Qt::DropActions supportedDropActions() const override;
+    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
     using ItemModelBase::dropAllowed;
     bool dropAllowed( Calendar *on, const QMimeData *data );
 
@@ -143,31 +143,31 @@ class PLANMODELS_EXPORT CalendarDayItemModel : public CalendarDayItemModelBase
     Q_OBJECT
 public:
     explicit CalendarDayItemModel( QObject *parent = 0 );
-    ~CalendarDayItemModel();
+    ~CalendarDayItemModel() override;
 
-    virtual void setCalendar( Calendar *calendar );
+    void setCalendar( Calendar *calendar ) override;
     
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual bool hasChildren( const QModelIndex & parent = QModelIndex() ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    bool hasChildren( const QModelIndex & parent = QModelIndex() ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     QModelIndex index( const CalendarDay* day ) const;
     QModelIndex index( const TimeInterval* ti ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
     CalendarDay *day( const QModelIndex &index ) const;
     TimeInterval *interval( const QModelIndex &index ) const;
     
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
     QModelIndex insertInterval ( TimeInterval *ti, CalendarDay *day );
     void removeInterval( TimeInterval *ti );
     QModelIndex insertDay ( CalendarDay *day );
@@ -216,9 +216,9 @@ public:
     explicit DateTableDataModel(QObject *parent);
 
     /// Fetch data for @p date, @p dataType specifies the type of data
-    virtual QVariant data( const QDate &date, int role = Qt::DisplayRole,  int dataType = -1 ) const;
-    virtual QVariant weekDayData( int day, int role = Qt::DisplayRole ) const;
-    virtual QVariant weekNumberData( int week, int role = Qt::DisplayRole ) const;
+    QVariant data( const QDate &date, int role = Qt::DisplayRole,  int dataType = -1 ) const override;
+    QVariant weekDayData( int day, int role = Qt::DisplayRole ) const override;
+    QVariant weekNumberData( int week, int role = Qt::DisplayRole ) const override;
 
 public Q_SLOTS:
     void setCalendar(KPlato::Calendar *calendar);
@@ -236,9 +236,9 @@ class PLANMODELS_EXPORT DateTableDateDelegate : public KDateTableDateDelegate
     Q_OBJECT
 public:
     explicit DateTableDateDelegate(QObject *parent = 0);
-    ~DateTableDateDelegate() {}
+    ~DateTableDateDelegate() override {}
 
-    virtual QRectF paint( QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model );
+    QRectF paint( QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model ) override;
 };
 
 class PLANMODELS_EXPORT CalendarExtendedItemModel : public CalendarItemModel
@@ -247,18 +247,18 @@ class PLANMODELS_EXPORT CalendarExtendedItemModel : public CalendarItemModel
 public:
     explicit CalendarExtendedItemModel( QObject *parent = 0 );
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
     using CalendarItemModel::index;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const;
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override;
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const;
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override;
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
     int columnNumber( const QString &name ) const;
 };

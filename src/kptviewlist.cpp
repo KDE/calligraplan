@@ -58,8 +58,8 @@ class ViewCategoryDelegate : public QItemDelegate
         m_view( view )
         {}
 
-        QSize sizeHint ( const QStyleOptionViewItem & option, const QModelIndex & index ) const;
-        virtual void paint( QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index ) const;
+        QSize sizeHint ( const QStyleOptionViewItem & option, const QModelIndex & index ) const override;
+        void paint( QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index ) const override;
 
     private:
         QTreeView *m_view;

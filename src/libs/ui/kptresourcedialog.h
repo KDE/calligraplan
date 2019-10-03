@@ -84,7 +84,7 @@ protected Q_SLOTS:
     void slotCalculationNeeded();
     void slotOk();
     void slotCalendarChanged(int);
-    void slotButtonClicked(int button);
+    void slotButtonClicked(int button) override;
     void slotAccountChanged( const QString &name );
 
     void slotResourceRemoved(const KPlato::Resource *resource);

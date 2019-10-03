@@ -42,7 +42,7 @@ class PLANMODELS_EXPORT ScheduleModel : public QObject
     Q_OBJECT
 public:
     explicit ScheduleModel( QObject *parent = 0 );
-    ~ScheduleModel();
+    ~ScheduleModel() override;
     
     enum Properties {
         ScheduleName = 0,
@@ -68,32 +68,32 @@ class PLANMODELS_EXPORT ScheduleItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit ScheduleItemModel( QObject *parent = 0 );
-    ~ScheduleItemModel();
+    ~ScheduleItemModel() override;
 
-    const QMetaEnum columnMap() const { return m_model.columnMap(); }
+    const QMetaEnum columnMap() const override { return m_model.columnMap(); }
     
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     QModelIndex index( const ScheduleManager *manager ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
     
-    virtual void sort( int column, Qt::SortOrder order = Qt::AscendingOrder );
+    void sort( int column, Qt::SortOrder order = Qt::AscendingOrder ) override;
 
-    virtual QMimeData * mimeData( const QModelIndexList & indexes ) const;
-    virtual QStringList mimeTypes () const;
+    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QStringList mimeTypes () const override;
 
     ScheduleManager *manager( const QModelIndex &index ) const;
     
@@ -167,11 +167,11 @@ class PLANMODELS_EXPORT ScheduleSortFilterModel : public QSortFilterProxyModel
     Q_OBJECT
 public:
     explicit ScheduleSortFilterModel( QObject *parent = 0 );
-    ~ScheduleSortFilterModel();
+    ~ScheduleSortFilterModel() override;
 
     ScheduleManager *manager( const QModelIndex &index ) const;
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const;
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override;
 };
 
 //----------------------------------------
@@ -182,14 +182,14 @@ public:
     enum DataRoles { SeverityRole = Qt::UserRole + 1, IdentityRole };
 
     explicit ScheduleLogItemModel( QObject *parent = 0 );
-    ~ScheduleLogItemModel();
+    ~ScheduleLogItemModel() override;
 
     void setProject( Project *project );
     Project *project() const { return m_project; }
     void setManager( ScheduleManager *manager );
     ScheduleManager *manager() const { return m_manager; }
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
     void refresh();
     

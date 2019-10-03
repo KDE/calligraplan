@@ -44,11 +44,11 @@ class PLANTJ_EXPORT Resource : public CoreAttributes
 public:
     Resource(Project* p, const QString& i, const QString& n, Resource* pr,
              const QString& df = QString(), uint dl = 0);
-    virtual ~Resource();
+    ~Resource() override;
 
     static void deleteStaticData();
 
-    virtual CAType getType() const { return CA_Resource; }
+    CAType getType() const override { return CA_Resource; }
 
     Resource* getParent() const { return static_cast<Resource*>(parent); }
 

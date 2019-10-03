@@ -49,7 +49,7 @@ public:
 
     void setSelectionMode( QAbstractItemView::SelectionMode mode );
 
-    void showPopup();
+    void showPopup() override;
 
 Q_SIGNALS:
     void changed();
@@ -59,7 +59,7 @@ public Q_SLOTS:
     void setCurrentIndexes( const QList<QPersistentModelIndex> &lst );
 
 protected:
-    void paintEvent( QPaintEvent *event );
+    void paintEvent( QPaintEvent *event ) override;
     
 protected Q_SLOTS:
     void updateCurrentIndexes( const QModelIndexList &lst );

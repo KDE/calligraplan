@@ -103,33 +103,33 @@ public:
     PerformanceStatusView(KoPart *part, KoDocument *doc, QWidget *parent);
 
     void setupGui();
-    Project *project() const { return m_view->project(); }
-    virtual void setProject(Project *project);
+    Project *project() const override { return m_view->project(); }
+    void setProject(Project *project) override;
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext(const KoXmlElement &context);
+    bool loadContext(const KoXmlElement &context) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext(QDomElement &context) const;
+    void saveContext(QDomElement &context) const override;
 
-    Node *currentNode() const;
+    Node *currentNode() const override;
 
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive(bool activate);
+    void setGuiActive(bool activate) override;
 
-    void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
-    void slotEditCopy();
+    void slotEditCopy() override;
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
 
 protected:
     void updateActionsEnabled(bool on);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
 private Q_SLOTS:
     void slotContextMenuRequested(KPlato::Node *node, const QPoint& pos);

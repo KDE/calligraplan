@@ -48,7 +48,7 @@ class PLANMODELS_EXPORT ResourceAllocationModel : public QObject
     Q_OBJECT
 public:
     explicit ResourceAllocationModel( QObject *parent = 0 );
-    ~ResourceAllocationModel();
+    ~ResourceAllocationModel() override;
 
     enum Properties {
         RequestName = 0,
@@ -94,30 +94,30 @@ class PLANMODELS_EXPORT ResourceAllocationItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit ResourceAllocationItemModel( QObject *parent = 0 );
-    ~ResourceAllocationItemModel();
+    ~ResourceAllocationItemModel() override;
 
-    virtual const QMetaEnum columnMap() const { return m_model.columnMap(); }
+    const QMetaEnum columnMap() const override { return m_model.columnMap(); }
 
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
     Task *task() const { return m_model.task(); }
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     QModelIndex index( const ResourceGroup *group ) const;
     QModelIndex index( const Resource *resource ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
-    QAbstractItemDelegate *createDelegate( int col, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int col, QWidget *parent ) const override;
     
     QObject *object( const QModelIndex &index ) const;
 

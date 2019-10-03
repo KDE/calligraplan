@@ -45,14 +45,14 @@ public:
         sortScenario(tl.sortScenario)
     { }
 
-    virtual ~TaskList() { }
+    ~TaskList() override { }
 
     Task* getTask(const QString& id) const;
 
     static bool isSupportedSortingCriteria(int sc);
 
-    virtual int compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
-                                  int level);
+    int compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
+                                  int level) override;
 
     void setSortScenario(int sc) { sortScenario = sc; }
 
@@ -70,7 +70,7 @@ class PLANTJ_EXPORT TaskListIterator : public virtual CoreAttributesListIterator
 public:
     explicit TaskListIterator(const CoreAttributesList& l) :
         CoreAttributesListIterator(l) { }
-    virtual ~TaskListIterator() { }
+    ~TaskListIterator() override { }
     Task* operator*();
 } ;
 

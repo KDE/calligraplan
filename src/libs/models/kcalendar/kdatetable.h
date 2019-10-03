@@ -75,7 +75,7 @@ public:
     /**
      * The destructor.
      */
-    ~KDateTable();
+    ~KDateTable() override;
 
     /**
      * Returns a recommended size for the widget.
@@ -244,7 +244,7 @@ class PLANMODELS_EXPORT KDateTableDataModel : public QObject
     Q_OBJECT
 public:
     KDateTableDataModel( QObject *parent );
-    ~KDateTableDataModel();
+    ~KDateTableDataModel() override;
     
     /// Fetch data for @p date, @p dataType specifies the type of data
     virtual QVariant data( const QDate &date, int role = Qt::DisplayRole,  int dataType = -1 ) const;
@@ -263,7 +263,7 @@ class PLANMODELS_EXPORT KDateTableDateDelegate : public QObject
     Q_OBJECT
 public:
     KDateTableDateDelegate( QObject *parent = 0 );
-    ~KDateTableDateDelegate() {}
+    ~KDateTableDateDelegate() override {}
 
     virtual QRectF paint( QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model );
     
@@ -275,9 +275,9 @@ class PLANMODELS_EXPORT KDateTableCustomDateDelegate : public KDateTableDateDele
     Q_OBJECT
 public:
     KDateTableCustomDateDelegate(  QObject *parent = 0 );
-    ~KDateTableCustomDateDelegate() {}
+    ~KDateTableCustomDateDelegate() override {}
 
-    virtual QRectF paint( QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model );
+    QRectF paint( QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model ) override;
     
 private:
     friend class KDateTable;
@@ -292,7 +292,7 @@ class PLANMODELS_EXPORT KDateTableWeekDayDelegate : public QObject
     Q_OBJECT
 public:
     KDateTableWeekDayDelegate( QObject *parent = 0 );
-    ~KDateTableWeekDayDelegate() {}
+    ~KDateTableWeekDayDelegate() override {}
 
     virtual QRectF paint( QPainter *painter, const StyleOptionHeader &option, int weekday,  KDateTableDataModel *model );
 
@@ -304,7 +304,7 @@ class PLANMODELS_EXPORT KDateTableWeekNumberDelegate : public QObject
     Q_OBJECT
 public:
     KDateTableWeekNumberDelegate( QObject *parent = 0 );
-    ~KDateTableWeekNumberDelegate() {}
+    ~KDateTableWeekNumberDelegate() override {}
 
     virtual QRectF paint( QPainter *painter, const StyleOptionHeader &option, int week,  KDateTableDataModel *model );
     

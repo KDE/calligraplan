@@ -63,7 +63,7 @@ class PLANKERNEL_EXPORT KPlatoXmlLoaderBase : public QObject
     Q_OBJECT
 public:
     KPlatoXmlLoaderBase();
-    virtual ~KPlatoXmlLoaderBase() {}
+    ~KPlatoXmlLoaderBase() override {}
 
     bool load( Project *project, const KoXmlElement &element, XMLLoaderObject &status );
     bool load( Task *task, const KoXmlElement &element, XMLLoaderObject &status );

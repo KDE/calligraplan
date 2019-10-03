@@ -32,7 +32,7 @@ class PLANKERNEL_EXPORT ConfigBase : public QObject
     Q_OBJECT
 public:
     ConfigBase();
-    virtual ~ConfigBase();
+    ~ConfigBase() override;
 
     void setReadWrite(bool readWrite) { m_readWrite = readWrite; }
     Task &taskDefaults() const {

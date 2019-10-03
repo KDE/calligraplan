@@ -35,9 +35,9 @@ public:
     DateTimeTimeLine *timeNow() const;
 
 protected:
-    void drawDayBackground(QPainter* painter, const QRectF& rect, const QDate& date);
+    void drawDayBackground(QPainter* painter, const QRectF& rect, const QDate& date) override;
 
-    void drawDayForeground(QPainter* painter, const QRectF& rect, const QDate& date);
+    void drawDayForeground(QPainter* painter, const QRectF& rect, const QDate& date) override;
 
     void drawTimeLine(QPainter* painter, const QRectF& rect);
 

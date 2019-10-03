@@ -33,9 +33,9 @@ class PLANMODELS_EXPORT TaskCompleteDelegate : public ProgressBarDelegate
 public:
     explicit TaskCompleteDelegate(QObject *parent = 0);
 
-    ~TaskCompleteDelegate();
+    ~TaskCompleteDelegate() override;
 
-    void paint( QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
+    void paint( QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
 
 };
 

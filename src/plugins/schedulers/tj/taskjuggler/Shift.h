@@ -35,9 +35,9 @@ class Shift : public CoreAttributes
 public:
     Shift(Project* prj, const QString& i, const QString& n, Shift* p,
           const QString& df = QString(), uint dl = 0);
-    virtual ~Shift();
+    ~Shift() override;
 
-    virtual CAType getType() const { return CA_Shift; }
+    CAType getType() const override { return CA_Shift; }
 
     Shift* getParent() const { return static_cast<Shift*>(parent); }
 

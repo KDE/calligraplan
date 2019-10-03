@@ -361,7 +361,7 @@ public:
     explicit HeaderView( QWidget* parent=0 ) : QHeaderView( Qt::Horizontal, parent ) {
     }
 
-    QSize sizeHint() const { QSize s = QHeaderView::sizeHint(); s.rheight() *= 2; return s; }
+    QSize sizeHint() const override { QSize s = QHeaderView::sizeHint(); s.rheight() *= 2; return s; }
 };
 
 GanttTreeView::GanttTreeView( QWidget* parent )
@@ -445,28 +445,28 @@ public:
         setMouseTracking(true);
     }
 protected:
-    void mousePressEvent(QMouseEvent *event) {
+    void mousePressEvent(QMouseEvent *event) override {
         if (event->button() == Qt::LeftButton) {
             event->ignore();
             return;
         }
         KGantt::GraphicsView::mousePressEvent(event);
     }
-    void mouseMoveEvent(QMouseEvent *event) {
+    void mouseMoveEvent(QMouseEvent *event) override {
         if (event->buttons() & Qt::LeftButton) {
             event->ignore();
             return;
         }
         KGantt::GraphicsView::mouseMoveEvent(event);
     }
-    void mouseReleaseEvent(QMouseEvent *event) {
+    void mouseReleaseEvent(QMouseEvent *event) override {
         if (event->button() == Qt::LeftButton) {
             event->ignore();
             return;
         }
         KGantt::GraphicsView::mouseMoveEvent(event);
     }
-    void contextMenuEvent(QContextMenuEvent *event) {
+    void contextMenuEvent(QContextMenuEvent *event) override {
         m_parent->handleContextMenuEvent(indexAt(event->pos()), event->globalPos());
     }
 private:

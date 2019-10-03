@@ -42,13 +42,13 @@ class PLANTJ_EXPORT PlanTJPlugin : public SchedulerPlugin
 
 public:
     PlanTJPlugin( QObject * parent,  const QVariantList & );
-    ~PlanTJPlugin();
+    ~PlanTJPlugin() override;
 
-    virtual QString description() const;
-    virtual int capabilities() const;
+    QString description() const override;
+    int capabilities() const override;
 
     /// Calculate the project
-    virtual void calculate( Project &project, ScheduleManager *sm, bool nothread = false );
+    void calculate( Project &project, ScheduleManager *sm, bool nothread = false ) override;
 
     /// Return the scheduling granularity in milliseconds
     ulong currentGranularity() const;
@@ -59,7 +59,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void stopAllCalculations();
-    void stopCalculation(KPlato::SchedulerThread *sch);
+    void stopCalculation(KPlato::SchedulerThread *sch) override;
 
 protected Q_SLOTS:
     void slotStarted(KPlato::SchedulerThread *job);

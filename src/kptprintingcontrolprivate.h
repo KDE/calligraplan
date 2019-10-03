@@ -33,7 +33,7 @@ class PrintingControlPrivate : public QObject
     Q_OBJECT
 public:
     PrintingControlPrivate( PrintingDialog *job, QPrintDialog *dia );
-    ~PrintingControlPrivate() {}
+    ~PrintingControlPrivate() override {}
 public Q_SLOTS:
     void slotChanged();
 private:

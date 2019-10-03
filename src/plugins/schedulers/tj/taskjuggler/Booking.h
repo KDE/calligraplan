@@ -40,7 +40,7 @@ public:
         interval(new Interval(iv))
     { }
 
-    virtual ~Booking() { delete interval; }
+    ~Booking() override { delete interval; }
 
     time_t getStart() const { return interval->getStart(); }
     time_t getEnd() const { return interval->getEnd(); }

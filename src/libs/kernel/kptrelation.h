@@ -119,7 +119,7 @@ public:
     : Relation(parent, child, type, lag) 
     {}
 
-    ~ProxyRelation() { m_parent = 0; m_child = 0;}
+    ~ProxyRelation() override { m_parent = 0; m_child = 0;}
 };
 
 }  //KPlato namespace

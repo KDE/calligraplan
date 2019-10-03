@@ -65,7 +65,7 @@ private:
 
 public:
     PlanTJScheduler( Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = 0 );
-    ~PlanTJScheduler();
+    ~PlanTJScheduler() override;
 
     bool check();
     bool solve();
@@ -86,7 +86,7 @@ public Q_SLOTS:
     void slotMessage( int type, const QString &msg, TJ::CoreAttributes *object );
 
 protected:
-    void run();
+    void run() override;
 
     void adjustSummaryTasks( const QList<Node*> &nodes );
 

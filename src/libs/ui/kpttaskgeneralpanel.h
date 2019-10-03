@@ -107,8 +107,8 @@ public:
     void hideWbs() { wbsfield->hide(); wbslabel->hide(); }
 
 public Q_SLOTS:
-    virtual void estimationTypeChanged(int type);
-    virtual void scheduleTypeChanged(int value);
+    void estimationTypeChanged(int type) override;
+    void scheduleTypeChanged(int value) override;
     
 private:
     Task &m_task;

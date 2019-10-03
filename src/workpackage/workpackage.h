@@ -62,7 +62,7 @@ class WorkPackage : public QObject
 public:
     explicit WorkPackage(bool fromProjectStore);
     WorkPackage( Project *project, bool fromProjectStore );
-    ~WorkPackage();
+    ~WorkPackage() override;
 
     /// @return Package name
     QString name() const;
@@ -178,9 +178,9 @@ class PackageRemoveCmd : public NamedCommand
 {
 public:
     PackageRemoveCmd( Part *part, WorkPackage *value, const KUndo2MagicString &name = KUndo2MagicString() );
-    ~PackageRemoveCmd();
-    void execute();
-    void unexecute();
+    ~PackageRemoveCmd() override;
+    void execute() override;
+    void unexecute() override;
 
 private:
     Part *m_part;
@@ -194,8 +194,8 @@ class CopySchedulesCmd : public NamedCommand
 public:
     CopySchedulesCmd( const Project &fromProject, Project &toProject,  const KUndo2MagicString &name = KUndo2MagicString() );
 
-    void execute();
-    void unexecute();
+    void execute() override;
+    void unexecute() override;
 
 private:
     void load( const QString &doc );
@@ -214,8 +214,8 @@ class ModifyWbsCodeCmd : public NamedCommand
 public:
     ModifyWbsCodeCmd(WorkPackage *wp, QString wbsCode,  const KUndo2MagicString &name = KUndo2MagicString());
 
-    void execute();
-    void unexecute();
+    void execute() override;
+    void unexecute() override;
 
 private:
     WorkPackage *m_wp;

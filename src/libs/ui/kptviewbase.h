@@ -131,7 +131,7 @@ class PLANUI_EXPORT PrintingHeaderFooter : public QWidget, public Ui::PrintingHe
     Q_OBJECT
 public:
     explicit PrintingHeaderFooter( const PrintingOptions &opt, QWidget *parent = 0 );
-    ~PrintingHeaderFooter();
+    ~PrintingHeaderFooter() override;
 
     void setOptions( const PrintingOptions &options );
     PrintingOptions options() const;
@@ -152,7 +152,7 @@ class PLANUI_EXPORT PrintingDialog : public KoPrintingDialog
     Q_OBJECT
 public:
     explicit PrintingDialog(ViewBase *view);
-    ~PrintingDialog();
+    ~PrintingDialog() override;
 
     QList<QWidget*> createOptionWidgets() const override;
 //    virtual QList<KoShape*> shapesOnPage(int);
@@ -225,12 +225,12 @@ public:
     /// Constructor
     ViewBase(KoPart *part, KoDocument *doc, QWidget *parent);
     /// Destructor
-    virtual ~ViewBase();
+    ~ViewBase() override;
     /// Return the part (document) this view handles
     KoDocument *part() const;
 
     /// Return the page layout used for printing this view
-    virtual KoPageLayout pageLayout() const;
+    KoPageLayout pageLayout() const override;
 
     /// Return the type of view this is (class name)
     QString viewType() const { return metaObject()->className(); }
@@ -251,7 +251,7 @@ public:
     /// Draw changed data from project.
     virtual void drawChanges(Project &project) { draw(project); }
     /// Set readWrite mode
-    virtual void updateReadWrite( bool );
+    void updateReadWrite( bool ) override;
     bool isReadWrite() const { return m_readWrite; }
 
     /// Reimplement if your view handles nodes
@@ -272,7 +272,7 @@ public:
     /// Save context info (printer settings) from this view.
     virtual void saveContext( QDomElement &context ) const;
 
-    virtual KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
     PrintingOptions printingOptions() const { return m_printingOptions; }
     static QWidget *createPageLayoutWidget( ViewBase *view );
     static PrintingHeaderFooter *createHeaderFooterWidget( ViewBase *view );
@@ -305,7 +305,7 @@ public Q_SLOTS:
     virtual void slotEditPaste() {}
     virtual void slotRefreshView() {}
 
-    void setPageLayout( const KoPageLayout &layout );
+    void setPageLayout( const KoPageLayout &layout ) override;
 
 Q_SIGNALS:
     /// Emitted when the gui has been activated or deactivated
@@ -352,15 +352,15 @@ class PLANUI_EXPORT TreeViewPrintingDialog : public PrintingDialog
     Q_OBJECT
 public:
     TreeViewPrintingDialog( ViewBase *view, TreeViewBase *treeview, Project *project = 0 );
-    ~TreeViewPrintingDialog() {}
+    ~TreeViewPrintingDialog() override {}
 
-    virtual int documentFirstPage() const { return 1; }
-    virtual int documentLastPage() const;
+    int documentFirstPage() const override { return 1; }
+    int documentLastPage() const override;
 
-    QList<QWidget*> createOptionWidgets() const;
+    QList<QWidget*> createOptionWidgets() const override;
 
 protected:
-    virtual void printPage( int pageNumber, QPainter &painter );
+    void printPage( int pageNumber, QPainter &painter ) override;
 
     int firstRow( int page ) const;
 
@@ -397,9 +397,9 @@ public:
 
     void setAcceptDropsOnView( bool mode ) { m_acceptDropsOnView = mode; }
 
-    virtual void setModel( QAbstractItemModel *model );
+    void setModel( QAbstractItemModel *model ) override;
 
-    virtual void setSelectionModel( QItemSelectionModel *model );
+    void setSelectionModel( QItemSelectionModel *model ) override;
 
     void setStretchLastSection( bool );
 
@@ -423,7 +423,7 @@ public:
       If any of the parents of the model item are collapsed, they will
       be expanded to ensure that the model item is visible.
     */
-    void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible);
+    void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible) override;
 
     void setDefaultColumns( const QList<int> &lst ) { m_defaultColumns = lst; }
     QList<int> defaultColumns() const { return m_defaultColumns; }
@@ -471,26 +471,26 @@ Q_SIGNALS:
 
 protected:
     /// Re-implemented to cater for hidden column 0
-    QModelIndexList selectedIndexes() const;
-    void keyPressEvent(QKeyEvent *event);
-    void mousePressEvent( QMouseEvent *event );
-    virtual void focusInEvent(QFocusEvent *event);
+    QModelIndexList selectedIndexes() const override;
+    void keyPressEvent(QKeyEvent *event) override;
+    void mousePressEvent( QMouseEvent *event ) override;
+    void focusInEvent(QFocusEvent *event) override;
 
     /**
       Reimplemented from QTreeView to make tab/backtab in editor work reasonably well.
       Move the cursor in the way described by \a cursorAction, *not* using the
       information provided by the button \a modifiers.
     */
-    QModelIndex moveCursor( CursorAction cursorAction, Qt::KeyboardModifiers modifiers );
+    QModelIndex moveCursor( CursorAction cursorAction, Qt::KeyboardModifiers modifiers ) override;
     /// Move cursor from @p index in direction @p cursorAction. @p modifiers is not used.
     QModelIndex moveCursor(  const QModelIndex &index, CursorAction cursorAction, Qt::KeyboardModifiers = Qt::NoModifier );
     /// Move from @p index to next editable item, in direction @p cursorAction.
     QModelIndex moveToEditable( const QModelIndex &index, CursorAction cursorAction );
 
-    void contextMenuEvent ( QContextMenuEvent * event );
+    void contextMenuEvent ( QContextMenuEvent * event ) override;
 
-    void dragMoveEvent(QDragMoveEvent *event);
-    void dropEvent( QDropEvent *e );
+    void dragMoveEvent(QDragMoveEvent *event) override;
+    void dropEvent( QDropEvent *e ) override;
     void updateSelection( const QModelIndex &oldidx, const QModelIndex &newidx, QKeyEvent *event );
 
     void expandRecursive(const QModelIndex &parent, bool xpand);
@@ -505,12 +505,12 @@ protected:
         }
     }
 
-    void startDrag(Qt::DropActions supportedActions);
+    void startDrag(Qt::DropActions supportedActions) override;
 
 protected Q_SLOTS:
     /// Close the @p editor, using sender()->endEditHint().
     /// Use @p hint if sender is not of type ItemDelegate.
-    virtual void closeEditor(QWidget *editor, QAbstractItemDelegate::EndEditHint hint);
+    void closeEditor(QWidget *editor, QAbstractItemDelegate::EndEditHint hint) override;
 
     virtual void slotCurrentChanged ( const QModelIndex & current, const QModelIndex & previous );
     void slotHeaderContextMenuRequested( const QPoint& );
@@ -539,15 +539,15 @@ class PLANUI_EXPORT DoubleTreeViewPrintingDialog : public PrintingDialog
     Q_OBJECT
 public:
     DoubleTreeViewPrintingDialog( ViewBase *view, DoubleTreeViewBase *treeview, Project *project );
-    ~DoubleTreeViewPrintingDialog() {}
+    ~DoubleTreeViewPrintingDialog() override {}
 
-    virtual int documentFirstPage() const { return 1; }
-    virtual int documentLastPage() const;
+    int documentFirstPage() const override { return 1; }
+    int documentLastPage() const override;
 
-    QList<QWidget*> createOptionWidgets() const;
+    QList<QWidget*> createOptionWidgets() const override;
 
 protected:
-    virtual void printPage( int pageNumber, QPainter &painter );
+    void printPage( int pageNumber, QPainter &painter ) override;
 
     int firstRow( int page ) const;
 
@@ -563,7 +563,7 @@ class PLANUI_EXPORT DoubleTreeViewBase : public QSplitter
 public:
     explicit DoubleTreeViewBase( QWidget *parent );
     DoubleTreeViewBase( bool mode, QWidget *parent );
-    ~DoubleTreeViewBase();
+    ~DoubleTreeViewBase() override;
 
     void setReadWrite( bool rw );
     void closePersistentEditor( const QModelIndex &index );

@@ -75,11 +75,11 @@ public:
     /// Extend EndEditHint for movement from edited item to next item to edit
     Delegate::EndEditHint endEditHint() const { return m_lastHint; }
     /// Increase the sizehint height a little to give room for editors
-    QSize sizeHint( const QStyleOptionViewItem & option, const QModelIndex & index ) const;
+    QSize sizeHint( const QStyleOptionViewItem & option, const QModelIndex & index ) const override;
 
 protected:
     /// Implements arrow key navigation
-    bool eventFilter(QObject *object, QEvent *event);
+    bool eventFilter(QObject *object, QEvent *event) override;
     /// Draw custom focus
 //    virtual void drawFocus(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect ) const;
     
@@ -94,7 +94,7 @@ public:
     explicit CheckStateItemDelegate(QObject *parent = 0);
 
 protected:
-    bool editorEvent( QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index );
+    bool editorEvent( QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index ) override;
 };
 
 class PLANMODELS_EXPORT DateTimeCalendarDelegate : public ItemDelegate
@@ -103,10 +103,10 @@ class PLANMODELS_EXPORT DateTimeCalendarDelegate : public ItemDelegate
 public:
     explicit DateTimeCalendarDelegate(QObject *parent = 0);
 
-    QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
-    void setEditorData( QWidget *editor, const QModelIndex &index ) const;
-    void setModelData( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const;
-    void updateEditorGeometry( QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
+    QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    void setEditorData( QWidget *editor, const QModelIndex &index ) const override;
+    void setModelData( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const override;
+    void updateEditorGeometry( QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
 
 };
 
@@ -116,15 +116,15 @@ class PLANMODELS_EXPORT ProgressBarDelegate : public ItemDelegate
 public:
     explicit ProgressBarDelegate(QObject *parent = 0);
 
-    ~ProgressBarDelegate();
+    ~ProgressBarDelegate() override;
 
-    void paint( QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
-    QSize sizeHint( const QStyleOptionViewItem &option, const QModelIndex &index ) const;
+    void paint( QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    QSize sizeHint( const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
 
-    QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
-    void setEditorData( QWidget *editor, const QModelIndex &index ) const;
-    void setModelData( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const;
-    void updateEditorGeometry( QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
+    QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    void setEditorData( QWidget *editor, const QModelIndex &index ) const override;
+    void setModelData( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const override;
+    void updateEditorGeometry( QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
 
 protected:
     void initStyleOptionProgressBar( QStyleOptionProgressBar *option, const QModelIndex &index ) const;
@@ -145,12 +145,12 @@ class PLANMODELS_EXPORT SelectorDelegate : public ItemDelegate
 public:
     explicit SelectorDelegate(QObject *parent = 0);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 class PLANMODELS_EXPORT EnumDelegate : public ItemDelegate
@@ -159,12 +159,12 @@ class PLANMODELS_EXPORT EnumDelegate : public ItemDelegate
 public:
     explicit EnumDelegate(QObject *parent = 0);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 //------------------------------------
@@ -174,12 +174,12 @@ class PLANMODELS_EXPORT RequieredResourceDelegate : public ItemDelegate
 public:
     explicit RequieredResourceDelegate(QObject *parent = 0);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 
@@ -189,12 +189,12 @@ class PLANMODELS_EXPORT DurationSpinBoxDelegate : public ItemDelegate
 public:
     explicit DurationSpinBoxDelegate(QObject *parent = 0);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 class PLANMODELS_EXPORT SpinBoxDelegate : public ItemDelegate
@@ -203,12 +203,12 @@ class PLANMODELS_EXPORT SpinBoxDelegate : public ItemDelegate
 public:
     explicit SpinBoxDelegate(QObject *parent = 0);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 class PLANMODELS_EXPORT DoubleSpinBoxDelegate : public ItemDelegate
@@ -217,12 +217,12 @@ class PLANMODELS_EXPORT DoubleSpinBoxDelegate : public ItemDelegate
 public:
     explicit DoubleSpinBoxDelegate(QObject *parent = 0);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 class PLANMODELS_EXPORT MoneyDelegate : public ItemDelegate
@@ -231,12 +231,12 @@ class PLANMODELS_EXPORT MoneyDelegate : public ItemDelegate
 public:
     explicit MoneyDelegate(QObject *parent = 0);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 class PLANMODELS_EXPORT TimeDelegate : public ItemDelegate
@@ -245,12 +245,12 @@ class PLANMODELS_EXPORT TimeDelegate : public ItemDelegate
 public:
     explicit TimeDelegate(QObject *parent = 0);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 class PLANMODELS_EXPORT ItemModelBase : public QAbstractItemModel
@@ -266,7 +266,7 @@ public:
     };
 
     explicit ItemModelBase( QObject *parent = 0 );
-    virtual ~ItemModelBase();
+    ~ItemModelBase() override;
 
     virtual const QMetaEnum columnMap() const { return QMetaEnum(); }
     Project *project() const { return m_project; }
@@ -288,15 +288,15 @@ public:
     /// If default should be used, return 0.
     virtual QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const { Q_UNUSED(column); Q_UNUSED(parent); return 0; }
 
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const;
-    bool setData( const QModelIndex &index, const QVariant &value, int role );
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+    bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
     /// Return the sortorder to be used for @p column
     virtual int sortRole( int /*column*/ ) const { return Qt::DisplayRole; }
 
-    QStringList mimeTypes() const;
-    virtual QMimeData *mimeData(const QModelIndexList &indexes) const;
+    QStringList mimeTypes() const override;
+    QMimeData *mimeData(const QModelIndexList &indexes) const override;
     void writeText(QMimeData *m, const QModelIndexList &indexes) const;
 
 Q_SIGNALS:

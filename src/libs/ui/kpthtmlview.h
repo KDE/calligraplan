@@ -46,9 +46,9 @@ public:
 
     void setupGui();
 
-    virtual void updateReadWrite( bool readwrite );
+    void updateReadWrite( bool readwrite ) override;
 
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
 
     KHTMLPart &htmlPart() { return *m_htmlPart; }
     const KHTMLPart &htmlPart() const { return *m_htmlPart; }
@@ -58,7 +58,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
 
     void slotOpenUrlRequest(const QUrl &url, const KParts::OpenUrlArguments &arguments=KParts::OpenUrlArguments(), const KParts::BrowserArguments &browserArguments=KParts::BrowserArguments());
 

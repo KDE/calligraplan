@@ -77,7 +77,7 @@ protected Q_SLOTS:
     void setSortOrder( int col, Qt::SortOrder order );
 
 protected:
-    void dragMoveEvent(QDragMoveEvent *event);
+    void dragMoveEvent(QDragMoveEvent *event) override;
 };
 
 
@@ -133,21 +133,21 @@ class PLANWORK_EXPORT TaskWorkPackageView : public AbstractView
     Q_OBJECT
 public:
     TaskWorkPackageView( Part *part, QWidget *parent );
-    ~TaskWorkPackageView();
+    ~TaskWorkPackageView() override;
 
     void setupGui();
 
     TaskWorkPackageModel *itemModel() const { return m_view->itemModel(); }
 
-    void updateReadWrite( bool readwrite );
-    Node *currentNode() const;
-    Document *currentDocument() const;
-    QList<Node*> selectedNodes() const;
+    void updateReadWrite( bool readwrite ) override;
+    Node *currentNode() const override;
+    Document *currentDocument() const override;
+    QList<Node*> selectedNodes() const override;
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext();
+    bool loadContext() override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext();
+    void saveContext() override;
 
     using AbstractView::slotContextMenuRequested;
 
@@ -175,8 +175,8 @@ public:
 
     explicit GanttItemDelegate(QObject *parent = 0);
 
-    void paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx );
-    QString toolTip( const QModelIndex &idx ) const;
+    void paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) override;
+    QString toolTip( const QModelIndex &idx ) const override;
 
 protected:
     bool showStatus;
@@ -188,7 +188,7 @@ class GanttView : public KPlato::GanttViewBase
     Q_OBJECT
 public:
     GanttView( Part *part, QWidget *parent );
-    ~GanttView();
+    ~GanttView() override;
 
     TaskWorkPackageModel *itemModel() const;
     void setProject( Project *project );
@@ -201,9 +201,9 @@ public:
     Document *currentDocument() const;
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &context );
+    bool loadContext( const KoXmlElement &context ) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &context ) const;
+    void saveContext( QDomElement &context ) const override;
 
 Q_SIGNALS:
     void headerContextMenuRequested( const QPoint& );
@@ -230,20 +230,20 @@ class PLANWORK_EXPORT TaskWPGanttView : public AbstractView
     Q_OBJECT
 public:
     TaskWPGanttView( Part *part, QWidget *parent );
-    ~TaskWPGanttView();
+    ~TaskWPGanttView() override;
 
     void setupGui();
 
     TaskWorkPackageModel *itemModel() const { return m_view->itemModel(); }
 
-    Node *currentNode() const;
-    QList<Node*> selectedNodes() const;
-    Document *currentDocument() const;
+    Node *currentNode() const override;
+    QList<Node*> selectedNodes() const override;
+    Document *currentDocument() const override;
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext();
+    bool loadContext() override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext();
+    void saveContext() override;
 
     using AbstractView::slotContextMenuRequested;
 

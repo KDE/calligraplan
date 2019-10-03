@@ -49,7 +49,7 @@ public:
     public:
         Item( int column, const QString &text );
         int column() const;
-        bool operator<( const QListWidgetItem & other ) const;
+        bool operator<( const QListWidgetItem & other ) const override;
     private:
         int m_column;
     };

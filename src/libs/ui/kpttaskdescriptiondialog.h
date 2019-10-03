@@ -40,7 +40,7 @@ class TaskDescriptionPanelImpl : public QWidget, public Ui_TaskDescriptionPanelB
     Q_OBJECT
 public:
     TaskDescriptionPanelImpl( Node &node, QWidget *parent );
-    ~TaskDescriptionPanelImpl();
+    ~TaskDescriptionPanelImpl() override;
         
 public Q_SLOTS:
     virtual void slotChanged();
@@ -86,7 +86,7 @@ public:
     MacroCommand *buildCommand();
 
 protected Q_SLOTS:
-    void slotButtonClicked( int button );
+    void slotButtonClicked( int button ) override;
 
 protected:
     TaskDescriptionPanel *m_descriptionTab;

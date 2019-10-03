@@ -374,7 +374,7 @@ public:
     Calendar();
     explicit Calendar(const QString& name, Calendar *parent=0);
     //Calendar( const Calendar &c ); QObject doesn't allow a copy constructor
-    ~Calendar();
+    ~Calendar() override;
 
     const Calendar &operator=(const Calendar &calendar ) { return copy( calendar ); }
 

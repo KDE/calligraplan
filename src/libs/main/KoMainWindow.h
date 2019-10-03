@@ -67,7 +67,7 @@ public:
     /**
      *  Destructor.
      */
-    virtual ~KoMainWindow();
+    ~KoMainWindow() override;
 
     // If noCleanup is set, KoMainWindow will not delete the root document
     // or part manager on destruction.
@@ -352,13 +352,13 @@ private:
      */
     KoPart* createPart() const;
 
-    void closeEvent(QCloseEvent * e);
-    void resizeEvent(QResizeEvent * e);
+    void closeEvent(QCloseEvent * e) override;
+    void resizeEvent(QResizeEvent * e) override;
 
     /**
      * Ask user about saving changes to the document upon exit.
      */
-    bool queryClose();
+    bool queryClose() override;
 
     bool openDocumentInternal(const QUrl &url, KoPart *newpart = 0, KoDocument *newdoc = 0);
 

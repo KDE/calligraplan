@@ -35,9 +35,9 @@ class PLAN_EXPORT Factory : public KPluginFactory
     Q_OBJECT
 public:
     explicit Factory();
-    ~Factory();
+    ~Factory() override;
 
-    virtual QObject* create(const char* iface, QWidget* parentWidget, QObject *parent, const QVariantList& args, const QString& keyword);
+    QObject* create(const char* iface, QWidget* parentWidget, QObject *parent, const QVariantList& args, const QString& keyword) override;
 
     static const KoComponentData &global();
 

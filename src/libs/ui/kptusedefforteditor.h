@@ -44,14 +44,14 @@ public:
 
     void setProject( Project *project ) { m_project = project; }
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
-    virtual QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const;
-    virtual bool setData( const QModelIndex &index, const QVariant & value, int role = Qt::EditRole );
-    virtual QVariant headerData ( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
-    virtual int columnCount( const QModelIndex &parent = QModelIndex() ) const;
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const;
-    virtual QModelIndex parent(const QModelIndex &) const { return QModelIndex(); }
-    QModelIndex index ( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+    bool setData( const QModelIndex &index, const QVariant & value, int role = Qt::EditRole ) override;
+    QVariant headerData ( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override;
+    QModelIndex parent(const QModelIndex &) const override { return QModelIndex(); }
+    QModelIndex index ( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
 
     void setCompletion( Completion *completion );
     const Resource *resource(const QModelIndex &index ) const;
@@ -70,8 +70,8 @@ Q_SIGNALS:
     void effortChanged(const QDate &date);
 
 public Q_SLOTS:
-    bool submit();
-    void revert();
+    bool submit() override;
+    void revert() override;
     void addResource(const QString &name);
 
 private:
@@ -98,7 +98,7 @@ public:
 
     UsedEffortItemModel *model() const { return static_cast<UsedEffortItemModel*>( QTableView::model() ); }
 
-    QSize sizeHint() const { return m_size.isValid() ? m_size : QTableView::sizeHint(); }
+    QSize sizeHint() const override { return m_size.isValid() ? m_size : QTableView::sizeHint(); }
     void setSizeHint(const QSize &size) { m_size = size; }
 
 Q_SIGNALS:
@@ -126,14 +126,14 @@ public:
 
     void setTask( Task *t );
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
-    virtual QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const;
-    virtual bool setData( const QModelIndex &index, const QVariant & value, int role = Qt::EditRole );
-    virtual QVariant headerData ( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
-    virtual int columnCount( const QModelIndex &parent = QModelIndex() ) const;
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const;
-    virtual QModelIndex parent(const QModelIndex &) const { return QModelIndex(); }
-    QModelIndex index ( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+    bool setData( const QModelIndex &index, const QVariant & value, int role = Qt::EditRole ) override;
+    QVariant headerData ( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override;
+    QModelIndex parent(const QModelIndex &) const override { return QModelIndex(); }
+    QModelIndex index ( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
 
     void setCompletion( Completion *completion );
     const Resource *resource(const QModelIndex &index ) const;
@@ -156,8 +156,8 @@ Q_SIGNALS:
     void changed();
 
 public Q_SLOTS:
-    bool submit();
-    void revert();
+    bool submit() override;
+    void revert() override;
     void slotDataChanged();
     void setManager(KPlato::ScheduleManager *sm);
 

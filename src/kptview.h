@@ -99,7 +99,7 @@ public:
     ConfigDialog( QWidget *parent, const QString &name, KConfigSkeleton *config );
 
 protected Q_SLOTS:
-    void showHelp();
+    void showHelp() override;
 };
 
 //-------------
@@ -109,7 +109,7 @@ class PLAN_EXPORT View : public KoView
 
 public:
     explicit View(KoPart *part, MainDocument *doc, QWidget *parent = 0);
-    ~View();
+    ~View() override;
 
     MainDocument *getPart() const;
 
@@ -124,8 +124,8 @@ public:
 
     QWidget *canvas() const;
 
-    KoPageLayout pageLayout() const;
-    void setPageLayout(const KoPageLayout &pageLayout);
+    KoPageLayout pageLayout() const override;
+    void setPageLayout(const KoPageLayout &pageLayout) override;
 
     ScheduleManager *currentScheduleManager() const;
     long activeScheduleId() const;
@@ -160,8 +160,8 @@ public:
     ViewBase *createReportView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
     ViewBase *createReportsGeneratorView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
 
-    KoPrintJob * createPrintJob();
-    QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*);
+    KoPrintJob * createPrintJob() override;
+    QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
 
 Q_SIGNALS:
     void currentScheduleManagerChanged(KPlato::ScheduleManager *sm);
@@ -276,8 +276,8 @@ protected Q_SLOTS:
     void taskModuleFileChanged(const QString &path);
 
 protected:
-    virtual void guiActivateEvent( bool activated );
-    virtual void updateReadWrite( bool readwrite );
+    void guiActivateEvent( bool activated ) override;
+    void updateReadWrite( bool readwrite ) override;
 
     QList<QAction*> sortedActionList();
     QAction *addScheduleAction( ScheduleManager *sch );

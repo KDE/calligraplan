@@ -49,7 +49,7 @@ public:
             setText(1, QLocale().toString(day->duration().toDouble(Duration::Unit_h), 'f', 2));
         }
     }
-    ~WeekdayListItem() {
+    ~WeekdayListItem() override {
         delete day;
     }
     void setHours() {

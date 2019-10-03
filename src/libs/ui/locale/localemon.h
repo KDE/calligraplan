@@ -42,7 +42,7 @@ class PLANUI_EXPORT LocaleConfigMoney : public QWidget, Ui::LocaleConfigMoney
 
 public:
   LocaleConfigMoney(Locale *locale, QWidget *parent);
-  virtual ~LocaleConfigMoney();
+  ~LocaleConfigMoney() override;
 
   /// Save all changes
   MacroCommand *buildCommand();

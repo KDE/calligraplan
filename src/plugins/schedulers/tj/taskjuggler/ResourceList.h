@@ -33,14 +33,14 @@ class PLANTJ_EXPORT ResourceList : public CoreAttributesList
 {
 public:
     ResourceList();
-    virtual ~ResourceList() { }
+    ~ResourceList() override { }
 
     Resource* getResource(const QString& id) const;
 
     static bool isSupportedSortingCriteria(int sc);
 
-    virtual int compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
-                                  int level);
+    int compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
+                                  int level) override;
 } ;
 
 /**
@@ -54,7 +54,7 @@ public:
         CoreAttributesListIterator(l)
     { }
 
-    ~ResourceListIterator() { }
+    ~ResourceListIterator() override { }
 
     Resource* operator*();
 } ;

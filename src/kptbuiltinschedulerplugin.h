@@ -38,11 +38,11 @@ class PLAN_EXPORT BuiltinSchedulerPlugin : public SchedulerPlugin
     Q_OBJECT
 public:
     explicit BuiltinSchedulerPlugin(QObject *parent);
-    virtual ~BuiltinSchedulerPlugin();
+    ~BuiltinSchedulerPlugin() override;
 
-    virtual QString description() const;
+    QString description() const override;
     /// Calculate the project
-    virtual void calculate( Project &project, ScheduleManager *sm, bool nothread = false );
+    void calculate( Project &project, ScheduleManager *sm, bool nothread = false ) override;
 
 Q_SIGNALS:
     void sigCalculationStarted(KPlato::Project*, KPlato::ScheduleManager*);
@@ -62,16 +62,16 @@ class KPlatoScheduler : public SchedulerThread
 
 public:
     KPlatoScheduler( Project *project, ScheduleManager *sm, QObject *parent = 0 );
-    ~KPlatoScheduler();
+    ~KPlatoScheduler() override;
 
 public Q_SLOTS:
     /// Stop scheduling.
-    virtual void stopScheduling();
+    void stopScheduling() override;
     /// Halt scheduling
-    virtual void haltScheduling() { m_haltScheduling = true; stopScheduling(); }
+    void haltScheduling() override { m_haltScheduling = true; stopScheduling(); }
 
 protected:
-    void run();
+    void run() override;
 
 };
 

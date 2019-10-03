@@ -222,7 +222,7 @@ class PLANKERNEL_EXPORT Accounts : public QObject
     Q_OBJECT
 public:
     explicit Accounts(Project &project);
-    ~Accounts();
+    ~Accounts() override;
     
     Account *defaultAccount() const { return m_defaultAccount; }
     void setDefaultAccount(Account *account);

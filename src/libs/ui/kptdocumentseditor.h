@@ -66,18 +66,18 @@ public:
     void setupGui();
     using ViewBase::draw;
     virtual void draw( Documents &docs );
-    virtual void draw();
+    void draw() override;
 
     DocumentItemModel *model() const { return m_view->model(); }
     
-    virtual void updateReadWrite( bool readwrite );
+    void updateReadWrite( bool readwrite ) override;
 
     virtual Document *currentDocument() const;
     
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
     
     DocumentTreeView *view() const { return m_view; }
     
@@ -89,17 +89,17 @@ Q_SIGNALS:
     
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
 
 protected:
     void updateActionsEnabled(  bool on = true );
 
 private Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
-    void slotHeaderContextMenuRequested( const QPoint &pos );
+    void slotHeaderContextMenuRequested( const QPoint &pos ) override;
     
     void slotSelectionChanged( const QModelIndexList& );
     void slotCurrentChanged( const QModelIndex& );

@@ -43,20 +43,20 @@ class PLANUI_EXPORT WelcomeView : public ViewBase
     Q_OBJECT
 public:
     WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent);
-    ~WelcomeView();
+    ~WelcomeView() override;
 
     void setRecentFiles(const QList<QAction*> &actions);
 
     void setupGui();
 
-    virtual void updateReadWrite(bool readwrite);
+    void updateReadWrite(bool readwrite) override;
 
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
 
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive(bool activate);
+    void setGuiActive(bool activate) override;
 
 Q_SIGNALS:
     void newProject();

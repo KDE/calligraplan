@@ -96,12 +96,12 @@ public:
     void save( QDomElement &element ) const;
 
 protected:
-    void drawRow( QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
-    virtual void mousePressEvent ( QMouseEvent *event );
+    void drawRow( QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    void mousePressEvent ( QMouseEvent *event ) override;
     /// Setup drop enabled/disabled dependent on the selected item
-    virtual void startDrag( Qt::DropActions supportedActions );
+    void startDrag( Qt::DropActions supportedActions ) override;
     /// If modified by the drop, emit modified
-    void dropEvent( QDropEvent *event );
+    void dropEvent( QDropEvent *event ) override;
 
 Q_SIGNALS:
     void activated( QTreeWidgetItem* );
@@ -117,7 +117,7 @@ class PLAN_EXPORT ViewListWidget : public QWidget
 Q_OBJECT
 public:
     ViewListWidget( MainDocument *part, QWidget *parent );//QString name, KXmlGuiWindow *parent );
-    ~ViewListWidget();
+    ~ViewListWidget() override;
 
     /// Set read/write permission on all views.
     void setReadWrite( bool rw );
@@ -195,7 +195,7 @@ protected Q_SLOTS:
     void slotDialogFinished( int result );
 
 protected:
-    virtual void contextMenuEvent ( QContextMenuEvent *event );
+    void contextMenuEvent ( QContextMenuEvent *event ) override;
 
 private:
     void setupContextMenus();

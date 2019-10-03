@@ -45,16 +45,16 @@ public:
     void setupGui();
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
 
     static QStringList addOptions();
     static QStringList addTags();
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
 
     void slotAddReport();
     void slotRemoveReport();
@@ -68,7 +68,7 @@ protected:
     bool generateReport(const QString &templateFile, const QString &file);
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
 
 private Q_SLOTS:
     void slotSelectionChanged();

@@ -32,7 +32,7 @@ class PLAN_EXPORT KPlatoConfigSkeleton : public KConfigSkeleton
 public:    
     KPlatoConfigSkeleton();
 
-    ~KPlatoConfigSkeleton();
+    ~KPlatoConfigSkeleton() override;
 
 };
 

@@ -30,14 +30,14 @@ class ScenarioList : public CoreAttributesList
 {
 public:
     ScenarioList();
-    virtual ~ScenarioList() { }
+    ~ScenarioList() override { }
 
     Scenario* getScenario(const QString& id) const;
 
     static bool isSupportedSortingCriteria(int sc);
 
-    virtual int compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
-                                  int level);
+    int compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
+                                  int level) override;
 
     virtual Scenario* operator[](int i);
 } ;
@@ -53,7 +53,7 @@ public:
         CoreAttributesListIterator(l)
     { }
 
-    ~ScenarioListIterator() { }
+    ~ScenarioListIterator() override { }
 
     Scenario* operator*();
 } ;

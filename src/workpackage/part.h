@@ -75,7 +75,7 @@ public:
     explicit DocumentChild( WorkPackage *parent );
 //    DocumentChild( KParts::ReadWritePart *editor, const QUrl &url, const Document *doc, Part *parent);
     
-    ~DocumentChild();
+    ~DocumentChild() override;
     
     WorkPackage *parentPackage() const;
     const Document *doc() const { return m_doc; }
@@ -141,7 +141,7 @@ class PLANWORK_EXPORT Part : public KParts::ReadWritePart
 
 public:
     explicit Part( QWidget *parentWidget, QObject *parent, const QVariantList & /*args*/ = QVariantList() );
-    ~Part();
+    ~Part() override;
 
     int docType( const Document *doc ) const;
     
@@ -149,7 +149,7 @@ public:
     virtual bool loadXML( const KoXmlDocument &document, KoStore *store );
     virtual QDomDocument saveXML();
     
-    bool saveAs( const QUrl &url );
+    bool saveAs( const QUrl &url ) override;
     /// Check if we have documents open for editing before saving
     virtual bool completeSaving( KoStore* store );
 
@@ -208,10 +208,10 @@ public:
 
     Node *node() const;
     
-    bool queryClose();
+    bool queryClose() override;
 
-    bool openFile();
-    bool saveFile();
+    bool openFile() override;
+    bool saveFile() override;
 
     KUndo2QStack *undoStack() const { return m_undostack; }
     int commandIndex() const { return m_undostack->index(); }
@@ -223,7 +223,7 @@ public Q_SLOTS:
      */
     virtual void setDocumentClean(bool clean);
 
-    virtual void setModified( bool mod );
+    void setModified( bool mod ) override;
     void saveModifiedWorkPackages();
     void saveWorkPackage(KPlatoWork::WorkPackage *wp );
     void addCommand( KUndo2Command *cmd );

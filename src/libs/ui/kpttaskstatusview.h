@@ -94,36 +94,36 @@ public:
     TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
-    virtual void setProject( Project *project );
-    Project *project() const { return m_view->project(); }
+    void setProject( Project *project ) override;
+    Project *project() const override { return m_view->project(); }
     using ViewBase::draw;
-    virtual void draw( Project &project );
+    void draw( Project &project ) override;
 
     TaskStatusItemModel *model() const { return m_view->model(); }
     
-    virtual void updateReadWrite( bool readwrite );
-    virtual Node *currentNode() const;
+    void updateReadWrite( bool readwrite ) override;
+    Node *currentNode() const override;
     
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
 
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
     
 Q_SIGNALS:
     void openNode();
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
 
-    void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
-    virtual void slotRefreshView();
+    void slotRefreshView() override;
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
     void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 protected:

@@ -30,9 +30,9 @@ class PLANTJ_EXPORT Scenario : public CoreAttributes
                                                int level);
 public:
     Scenario(Project* p, const QString& i, const QString& n, Scenario* s);
-    virtual ~Scenario();
+    ~Scenario() override;
 
-    virtual CAType getType() const { return CA_Scenario; }
+    CAType getType() const override { return CA_Scenario; }
 
     Scenario* getParent() const { return static_cast<Scenario*>(parent); }
 

@@ -374,31 +374,31 @@ public:
     NodeSchedule();
     NodeSchedule( Node *node, const QString& name, Schedule::Type type, long id );
     NodeSchedule( Schedule *parent, Node *node );
-    virtual ~NodeSchedule();
+    ~NodeSchedule() override;
 
-    virtual bool isDeleted() const
+    bool isDeleted() const override
     { return m_parent == 0 ? true : m_parent->isDeleted(); }
-    void setDeleted( bool on );
+    void setDeleted( bool on ) override;
 
-    virtual bool loadXML( const KoXmlElement &element, XMLLoaderObject &status );
-    virtual void saveXML( QDomElement &element ) const;
+    bool loadXML( const KoXmlElement &element, XMLLoaderObject &status ) override;
+    void saveXML( QDomElement &element ) const override;
 
     // tasks------------>
-    virtual void addAppointment( Schedule *resource, const DateTime &start, const DateTime &end, double load = 100 );
-    virtual void takeAppointment( Appointment *appointment, int type = Schedule::Scheduling );
+    void addAppointment( Schedule *resource, const DateTime &start, const DateTime &end, double load = 100 ) override;
+    void takeAppointment( Appointment *appointment, int type = Schedule::Scheduling ) override;
 
-    virtual Node *node() const { return m_node; }
+    Node *node() const override { return m_node; }
     virtual void setNode( Node *n ) { m_node = n; }
 
     /// Return the resources that has appointments to this schedule
-    virtual QList<Resource*> resources() const;
+    QList<Resource*> resources() const override;
     /// Return the resource names that has appointments to this schedule
-    virtual QStringList resourceNameList() const;
+    QStringList resourceNameList() const override;
 
-    virtual void logError( const QString &msg, int phase = -1 );
-    virtual void logWarning( const QString &msg, int phase = -1 );
-    virtual void logInfo( const QString &msg, int phase = -1 );
-    virtual void logDebug( const QString &, int = -1 );
+    void logError( const QString &msg, int phase = -1 ) override;
+    void logWarning( const QString &msg, int phase = -1 ) override;
+    void logInfo( const QString &msg, int phase = -1 ) override;
+    void logDebug( const QString &, int = -1 ) override;
 
 protected:
     void init();
@@ -417,27 +417,27 @@ public:
     ResourceSchedule();
     ResourceSchedule( Resource *Resource, const QString& name, Schedule::Type type, long id );
     ResourceSchedule( Schedule *parent, Resource *Resource );
-    virtual ~ResourceSchedule();
+    ~ResourceSchedule() override;
 
-    virtual bool isDeleted() const
+    bool isDeleted() const override
     { return m_parent == 0 ? true : m_parent->isDeleted(); }
-    virtual void addAppointment( Schedule *node, const DateTime &start, const DateTime &end, double load = 100 );
-    virtual void takeAppointment( Appointment *appointment, int type = Scheduling );
+    void addAppointment( Schedule *node, const DateTime &start, const DateTime &end, double load = 100 ) override;
+    void takeAppointment( Appointment *appointment, int type = Scheduling ) override;
 
-    virtual bool isOverbooked() const;
-    virtual bool isOverbooked( const DateTime &start, const DateTime &end ) const;
+    bool isOverbooked() const override;
+    bool isOverbooked( const DateTime &start, const DateTime &end ) const override;
 
-    virtual Resource *resource() const { return m_resource; }
-    virtual double normalRatePrHour() const;
+    Resource *resource() const override { return m_resource; }
+    double normalRatePrHour() const override;
 
     /// Return the effort available in the @p interval
-    virtual Duration effort( const DateTimeInterval &interval ) const;
-    virtual DateTimeInterval available( const DateTimeInterval &interval ) const;
+    Duration effort( const DateTimeInterval &interval ) const override;
+    DateTimeInterval available( const DateTimeInterval &interval ) const override;
     
-    virtual void logError( const QString &msg, int phase = -1 );
-    virtual void logWarning( const QString &msg, int phase = -1 );
-    virtual void logInfo( const QString &msg, int phase = -1 );
-    virtual void logDebug( const QString &, int = -1 );
+    void logError( const QString &msg, int phase = -1 ) override;
+    void logWarning( const QString &msg, int phase = -1 ) override;
+    void logInfo( const QString &msg, int phase = -1 ) override;
+    void logDebug( const QString &, int = -1 ) override;
 
     void setNodeSchedule( const Schedule *sch ) { m_nodeSchedule = sch; }
     
@@ -456,22 +456,22 @@ class PLANKERNEL_EXPORT MainSchedule : public NodeSchedule
 public:
     MainSchedule();
     MainSchedule( Node *node, const QString& name, Schedule::Type type, long id );
-    ~MainSchedule();
-    virtual bool isDeleted() const { return m_deleted; }
+    ~MainSchedule() override;
+    bool isDeleted() const override { return m_deleted; }
     
-    virtual bool isBaselined() const;
-    virtual bool allowOverbooking() const;
-    virtual bool checkExternalAppointments() const;
-    virtual bool usePert() const;
+    bool isBaselined() const override;
+    bool allowOverbooking() const override;
+    bool checkExternalAppointments() const override;
+    bool usePert() const override;
 
-    virtual bool loadXML( const KoXmlElement &element, XMLLoaderObject &status );
-    virtual void saveXML( QDomElement &element ) const;
+    bool loadXML( const KoXmlElement &element, XMLLoaderObject &status ) override;
+    void saveXML( QDomElement &element ) const override;
 
     void setManager( ScheduleManager *sm ) { m_manager = sm; }
-    ScheduleManager *manager() const { return m_manager; }
-    virtual bool recalculate() const;
-    virtual DateTime recalculateFrom() const;
-    virtual long parentScheduleId() const;
+    ScheduleManager *manager() const override { return m_manager; }
+    bool recalculate() const override;
+    DateTime recalculateFrom() const override;
+    long parentScheduleId() const override;
     
     DateTime calculateForward( int use );
     DateTime calculateBackward( int use );
@@ -487,19 +487,19 @@ public:
         m_endNodes.clear();
         m_summarytasks.clear();
     }
-    virtual void insertHardConstraint( Node *node );
+    void insertHardConstraint( Node *node ) override;
     QList<Node*> hardConstraints() const;
-    virtual void insertSoftConstraint( Node *node );
+    void insertSoftConstraint( Node *node ) override;
     QList<Node*> softConstraints() const;
     QList<Node*> forwardNodes() const;
-    virtual void insertForwardNode( Node *node );
+    void insertForwardNode( Node *node ) override;
     QList<Node*> backwardNodes() const;
-    virtual void insertBackwardNode( Node *node );
-    virtual void insertStartNode( Node *node );
+    void insertBackwardNode( Node *node ) override;
+    void insertStartNode( Node *node ) override;
     QList<Node*> startNodes() const;
-    virtual void insertEndNode( Node *node );
+    void insertEndNode( Node *node ) override;
     QList<Node*> endNodes() const;
-    virtual void insertSummaryTask( Node *node );
+    void insertSummaryTask( Node *node ) override;
     QList<Node*> summaryTasks() const;
     
     void clearCriticalPathList();
@@ -514,8 +514,8 @@ public:
     
     QVector<Schedule::Log> logs() const;
     void setLog( const QVector<Schedule::Log> &log ) { m_log = log; }
-    virtual void addLog( const Schedule::Log &log );
-    virtual void clearLogs() { m_log.clear(); m_logPhase.clear(); }
+    void addLog( const Schedule::Log &log ) override;
+    void clearLogs() override { m_log.clear(); m_logPhase.clear(); }
     
     void setPhaseName( int phase, const QString &name ) { m_logPhase[ phase ] = name; }
     QString logPhase( int phase ) const { return m_logPhase.value( phase ); }
@@ -523,7 +523,7 @@ public:
     QMap<int, QString> phaseNames() const { return m_logPhase; }
     void setPhaseNames( const QMap<int, QString> &pn ) { m_logPhase = pn; }
     
-    virtual void incProgress();
+    void incProgress() override;
 
     QStringList logMessages() const;
 
@@ -531,7 +531,7 @@ public:
     bool criticalPathListCached;
 
 protected:
-    virtual void changed( Schedule *sch );
+    void changed( Schedule *sch ) override;
 
 private:
     friend class Project;
@@ -576,7 +576,7 @@ public:
     Q_ENUM(Properties);
 
     explicit ScheduleManager( Project &project, const QString name = QString() );
-    ~ScheduleManager();
+    ~ScheduleManager() override;
     
     void setName( const QString& name );
     QString name() const { return m_name; }

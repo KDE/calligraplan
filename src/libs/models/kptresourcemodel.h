@@ -49,7 +49,7 @@ class PLANMODELS_EXPORT ResourceModel : public QObject
     Q_OBJECT
 public:
     explicit ResourceModel( QObject *parent = 0 );
-    ~ResourceModel();
+    ~ResourceModel() override;
 
     enum Properties {
         ResourceName = 0,
@@ -100,35 +100,35 @@ class PLANMODELS_EXPORT ResourceItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit ResourceItemModel( QObject *parent = 0 );
-    ~ResourceItemModel();
+    ~ResourceItemModel() override;
 
-    virtual const QMetaEnum columnMap() const { return m_model.columnMap(); }
+    const QMetaEnum columnMap() const override { return m_model.columnMap(); }
 
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     QModelIndex index( const ResourceGroup *group, int column = 0 ) const;
     QModelIndex index( const Resource *resource, int column = 0 ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
-    virtual QStringList mimeTypes () const;
-    virtual Qt::DropActions supportedDropActions() const;
-    virtual bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data );
-    virtual bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
-    QMimeData *mimeData( const QModelIndexList & indexes ) const;
+    QStringList mimeTypes () const override;
+    Qt::DropActions supportedDropActions() const override;
+    bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data ) override;
+    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
+    QMimeData *mimeData( const QModelIndexList & indexes ) const override;
     
-    QAbstractItemDelegate *createDelegate( int col, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int col, QWidget *parent ) const override;
     
     QObject *object( const QModelIndex &index ) const;
     ResourceGroup *group( const QModelIndex &index ) const;
@@ -136,7 +136,7 @@ public:
     QModelIndex insertGroup( ResourceGroup *g );
     QModelIndex insertResource( ResourceGroup *g, Resource *r, Resource *after = 0 );
 
-    virtual int sortRole( int column ) const;
+    int sortRole( int column ) const override;
 
 protected Q_SLOTS:
     void slotResourceChanged(KPlato::Resource*);
@@ -205,11 +205,11 @@ public:
     using QAbstractProxyModel::index;
     QModelIndex index( Resource *r ) const;
 
-    Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
     
     void addFilteredResource( const Resource *r );
 protected:
-    bool filterAcceptsRow( int source_row, const QModelIndex & source_parent ) const;
+    bool filterAcceptsRow( int source_row, const QModelIndex & source_parent ) const override;
     
     QList<const Resource*> m_filteredResources;
 };
@@ -220,7 +220,7 @@ class PLANMODELS_EXPORT AllocatedResourceItemModel : public QSortFilterProxyMode
 public:
     explicit AllocatedResourceItemModel(QObject *parent = 0);
 
-    int columnCount( const QModelIndex &idx ) const;
+    int columnCount( const QModelIndex &idx ) const override;
 
     Project *project() const;
     Task *task() const;
@@ -228,9 +228,9 @@ public:
     using QAbstractProxyModel::index;
     QModelIndex index( Resource *r ) const;
 
-    Qt::ItemFlags flags( const QModelIndex & index ) const;
-    QVariant headerData( int section, Qt::Orientation orientation, int role ) const;
-    QVariant data( const QModelIndex &idx, int role ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    QVariant headerData( int section, Qt::Orientation orientation, int role ) const override;
+    QVariant data( const QModelIndex &idx, int role ) const override;
 
 public Q_SLOTS:
     void setProject(KPlato::Project *project);
@@ -244,7 +244,7 @@ protected Q_SLOTS:
     void slotNodeChanged(KPlato::Node *n);
 
 protected:
-    bool filterAcceptsRow( int source_row, const QModelIndex & source_parent ) const;
+    bool filterAcceptsRow( int source_row, const QModelIndex & source_parent ) const override;
     void reset();
     QObject *object( const QModelIndex &idx ) const;
 

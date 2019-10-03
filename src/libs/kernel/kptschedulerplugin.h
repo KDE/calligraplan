@@ -65,7 +65,7 @@ class PLANKERNEL_EXPORT SchedulerPlugin : public QObject
     Q_OBJECT
 public:
     explicit SchedulerPlugin(QObject *parent);
-    virtual ~SchedulerPlugin();
+    ~SchedulerPlugin() override;
 
     /// Localized name
     QString name() const;
@@ -155,7 +155,7 @@ class PLANKERNEL_EXPORT SchedulerThread : public QThread
     Q_OBJECT
 public:
     SchedulerThread( Project *project, ScheduleManager *manager, QObject *parent );
-    ~SchedulerThread();
+    ~SchedulerThread() override;
 
     Project *mainProject() const { return m_mainproject; }
     ScheduleManager *mainManager() const { return m_mainmanager; }
@@ -220,7 +220,7 @@ protected Q_SLOTS:
 
 protected:
     /// Re-implement to do the job
-    virtual void run() {}
+    void run() override {}
 
 protected:
     /// The actual project to be calculated. Not accessed outside constructor.

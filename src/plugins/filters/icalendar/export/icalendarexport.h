@@ -50,9 +50,9 @@ class ICalendarExport : public KoFilter
 
 public:
     ICalendarExport(QObject* parent, const QVariantList &);
-    virtual ~ICalendarExport() {}
+    ~ICalendarExport() override {}
 
-    virtual KoFilter::ConversionStatus convert(const QByteArray& from, const QByteArray& to);
+    KoFilter::ConversionStatus convert(const QByteArray& from, const QByteArray& to) override;
 
 protected:
     KoFilter::ConversionStatus convert(const KPlato::Project &project, QFile &file);

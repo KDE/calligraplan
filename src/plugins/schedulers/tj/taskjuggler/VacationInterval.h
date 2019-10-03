@@ -34,7 +34,7 @@ public:
         name(n)
     { }
 
-    virtual ~VacationInterval() { }
+    ~VacationInterval() override { }
 
     void setStart(time_t s) { start = s; }
     void setEnd(time_t e) { end = e; }

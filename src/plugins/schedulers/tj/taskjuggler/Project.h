@@ -59,7 +59,7 @@ class PLANTJ_EXPORT Project : public QObject
     Q_OBJECT
 public:
     Project();
-    ~Project();
+    ~Project() override;
 
 /*    void addSourceFile(const QString& f);
     QStringList getSourceFiles() const;*/

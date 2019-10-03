@@ -58,7 +58,7 @@ public:
     virtual MacroCommand *buildCommand();
 
 protected Q_SLOTS:
-    void accept();
+    void accept() override;
     void setButtonOkEnabled(bool enabled);
 
     void slotTaskRemoved(KPlato::Node *node);
@@ -79,9 +79,9 @@ class PLANUI_EXPORT TaskAddDialog : public TaskDialog {
     Q_OBJECT
 public:
     TaskAddDialog(Project &project, Task &task, Node *currentNode, Accounts &accounts, QWidget *parent=0);
-    ~TaskAddDialog();
+    ~TaskAddDialog() override;
 
-    virtual MacroCommand *buildCommand();
+    MacroCommand *buildCommand() override;
 
 protected Q_SLOTS:
     void slotNodeRemoved(KPlato::Node*);
@@ -94,9 +94,9 @@ class PLANUI_EXPORT SubTaskAddDialog : public TaskDialog {
     Q_OBJECT
 public:
     SubTaskAddDialog(Project &project, Task &task, Node *currentNode, Accounts &accounts, QWidget *parent=0);
-    ~SubTaskAddDialog();
+    ~SubTaskAddDialog() override;
 
-    virtual MacroCommand *buildCommand();
+    MacroCommand *buildCommand() override;
 
 protected Q_SLOTS:
     void slotNodeRemoved(KPlato::Node*);

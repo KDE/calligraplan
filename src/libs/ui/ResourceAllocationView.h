@@ -49,7 +49,7 @@ protected Q_SLOTS:
     void slotAllocate();
 
 protected:
-    void contextMenuEvent(QContextMenuEvent *event);
+    void contextMenuEvent(QContextMenuEvent *event) override;
 
 private:
     KoDocument *m_doc;

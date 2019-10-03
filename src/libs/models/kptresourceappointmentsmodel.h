@@ -49,26 +49,26 @@ class PLANMODELS_EXPORT ResourceAppointmentsItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit ResourceAppointmentsItemModel( QObject *parent = 0 );
-    ~ResourceAppointmentsItemModel();
+    ~ResourceAppointmentsItemModel() override;
 
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
     long id() const;
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     QModelIndex index( const ResourceGroup *group ) const;
     QModelIndex index( const Resource *resource ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
 
     QObject *object( const QModelIndex &index ) const;
@@ -82,7 +82,7 @@ public:
     ResourceGroup *resourcegroup( const QModelIndex &index ) const;
     QModelIndex createGroupIndex( int row, int col, void *ptr ) const;
 
-    void refresh();
+    void refresh() override;
     void refreshData();
 
     QDate startDate() const;
@@ -100,7 +100,7 @@ Q_SIGNALS:
     void appointmentInserted(KPlato::Resource*, KPlato::Appointment*);
     
 public Q_SLOTS:
-    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
 protected Q_SLOTS:
     void slotResourceChanged(KPlato::Resource*);
@@ -165,22 +165,22 @@ public:
         Load
     };
     Q_ENUM(Properties)
-    const QMetaEnum columnMap() const;
+    const QMetaEnum columnMap() const override;
 
     explicit ResourceAppointmentsRowModel( QObject *parent = 0 );
-    ~ResourceAppointmentsRowModel();
+    ~ResourceAppointmentsRowModel() override;
 
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
     long id() const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    QModelIndex parent( const QModelIndex &idx = QModelIndex() ) const;
-    QModelIndex index(  int row, int column, const QModelIndex &parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex &idx = QModelIndex() ) const override;
+    QModelIndex index(  int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
     /// If @p index is a resource, return it's parent group, else 0
     ResourceGroup *parentGroup( const QModelIndex &index ) const;
@@ -205,12 +205,12 @@ public:
     Node *node( const QModelIndex &idx ) const;
     
     /// Return the sortorder to be used for @p column
-    virtual int sortRole( int column ) const;
+    int sortRole( int column ) const override;
 
     class Private;
 
 public Q_SLOTS:
-    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
 protected Q_SLOTS:
     void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row );
@@ -247,9 +247,9 @@ class PLANMODELS_EXPORT ResourceAppointmentsGanttModel : public ResourceAppointm
     Q_OBJECT
 public:
     explicit ResourceAppointmentsGanttModel( QObject *parent = 0 );
-    ~ResourceAppointmentsGanttModel();
+    ~ResourceAppointmentsGanttModel() override;
 
-    virtual QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const;
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
 
 protected:
     QVariant data( const ResourceGroup *g, int column, int role = Qt::DisplayRole ) const; 

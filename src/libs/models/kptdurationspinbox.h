@@ -50,15 +50,15 @@ public:
     Duration::Unit unit() const { return m_unit; }
     
     /// step the value steps step. If inside unit, steps unit +/- 1 step.
-    virtual void stepBy( int steps );
+    void stepBy( int steps ) override;
     /// Set maximum unit to @p unit.
     void setMaximumUnit( Duration::Unit unit );
     /// Set maximum unit to @p unit.
     void setMinimumUnit( Duration::Unit unit );
     
-    double valueFromText( const QString & text ) const;
-    QString textFromValue ( double value ) const;
-    QValidator::State validate ( QString & input, int & pos ) const;
+    double valueFromText( const QString & text ) const override;
+    QString textFromValue ( double value ) const override;
+    QValidator::State validate ( QString & input, int & pos ) const override;
 
 Q_SIGNALS:
     void unitChanged( int );
@@ -72,8 +72,8 @@ protected Q_SLOTS:
     void editorTextChanged( const QString &text );
 
 protected:
-    void keyPressEvent( QKeyEvent * event );
-    StepEnabled stepEnabled () const;
+    void keyPressEvent( QKeyEvent * event ) override;
+    StepEnabled stepEnabled () const override;
 
     void stepUnitUp();
     void stepUnitDown();

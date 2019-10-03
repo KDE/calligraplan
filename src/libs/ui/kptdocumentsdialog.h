@@ -48,7 +48,7 @@ public:
     MacroCommand *buildCommand();
 
 protected Q_SLOTS:
-    void slotButtonClicked( int button );
+    void slotButtonClicked( int button ) override;
 
 protected:
     DocumentsPanel *m_panel;

@@ -363,135 +363,135 @@ class PLANKERNEL_EXPORT Task : public Node {
 public:
     explicit Task(Node *parent = 0);
     explicit Task(const Task &task, Node *parent = 0);
-    ~Task();
+    ~Task() override;
 
     /// Return task type. Can be Type_Task, Type_Summarytask ot Type_Milestone.
-    virtual int type() const;
+    int type() const override;
 
     /**
      * Instead of using the expected duration, generate a random value using
      * the Distribution of each Task. This can be used for Monte-Carlo
      * estimation of Project duration.
      */
-    Duration *getRandomDuration();
+    Duration *getRandomDuration() override;
 
     /**
      * Return the resource request made to group
      * (There should be only one)
      */
-    ResourceGroupRequest *resourceGroupRequest(const ResourceGroup *group) const;
+    ResourceGroupRequest *resourceGroupRequest(const ResourceGroup *group) const override;
     void clearResourceRequests();
     void addRequest(ResourceGroup *group, int numResources);
     void addRequest(ResourceGroupRequest *request);
     void takeRequest(ResourceGroupRequest *request);
-    void makeAppointments();
-    virtual QStringList requestNameList() const;
+    void makeAppointments() override;
+    QStringList requestNameList() const override;
     virtual QList<Resource*> requestedResources() const;
-    virtual bool containsRequest( const QString &/*identity*/ ) const;
-    virtual ResourceRequest *resourceRequest( const QString &/*name*/ ) const;
+    bool containsRequest( const QString &/*identity*/ ) const override;
+    ResourceRequest *resourceRequest( const QString &/*name*/ ) const override;
     
     /// Return the list of resources assigned to this task
-    virtual QStringList assignedNameList( long id = CURRENTSCHEDULE ) const;
+    QStringList assignedNameList( long id = CURRENTSCHEDULE ) const override;
 
     /**
      * Calculates if the assigned resource is overbooked 
      * within the duration of this task
      */
-    void calcResourceOverbooked();
+    void calcResourceOverbooked() override;
     
     /// Load from document
-    virtual bool load(KoXmlElement &element, XMLLoaderObject &status );
+    bool load(KoXmlElement &element, XMLLoaderObject &status ) override;
     /// Save to document
-    virtual void save(QDomElement &element, const XmlSaveContext &context) const;
+    void save(QDomElement &element, const XmlSaveContext &context) const override;
     /// Save appointments for schedule with id
-    virtual void saveAppointments(QDomElement &element, long id) const;
+    void saveAppointments(QDomElement &element, long id) const override;
     
     /// Save a workpackage document with schedule identity @p id
-    void saveWorkPackageXML( QDomElement &element, long id ) const;
+    void saveWorkPackageXML( QDomElement &element, long id ) const override;
 
     /**
      * Returns a list of planned effort and cost for this task
      * for the interval start, end inclusive
      */
-    virtual EffortCostMap plannedEffortCostPrDay(QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    EffortCostMap plannedEffortCostPrDay(QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     /**
      * Returns a list of planned effort and cost for the @p resource
      * for the interval @p start, @p end inclusive, useng schedule with identity @p id
      */
-    virtual EffortCostMap plannedEffortCostPrDay(const Resource *resource, QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    EffortCostMap plannedEffortCostPrDay(const Resource *resource, QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     
     /// Returns the total planned effort for @p resource on this task (or subtasks)
-    virtual Duration plannedEffort( const Resource *resource, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    Duration plannedEffort( const Resource *resource, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     /// Returns the total planned effort for this task (or subtasks) 
-    virtual Duration plannedEffort( long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    Duration plannedEffort( long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     /// Returns the total planned effort for this task (or subtasks) on date
-    virtual Duration plannedEffort(QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    Duration plannedEffort(QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     /// Returns the total planned effort for @p resource on this task (or subtasks) on date
-    virtual Duration plannedEffort( const Resource *resource, QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    Duration plannedEffort( const Resource *resource, QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     /// Returns the planned effort up to and including date
-    virtual Duration plannedEffortTo(QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    Duration plannedEffortTo(QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     /// Returns the planned effort for @p resource up to and including date
-    virtual Duration plannedEffortTo( const Resource *resource, QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    Duration plannedEffortTo( const Resource *resource, QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     
     /// Returns the total actual effort for this task (or subtasks) 
-    virtual Duration actualEffort() const;
+    Duration actualEffort() const override;
     /// Returns the total actual effort for this task (or subtasks) on date
-    virtual Duration actualEffort(QDate date ) const;
+    Duration actualEffort(QDate date ) const override;
     /// Returns the actual effort up to and including date
-    virtual Duration actualEffortTo(QDate date ) const;
+    Duration actualEffortTo(QDate date ) const override;
     
     /**
      * Returns the total planned cost for this task (or subtasks)
      */
-    virtual EffortCost plannedCost( long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    EffortCost plannedCost( long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     /// Planned cost up to and including date
-    virtual double plannedCostTo(QDate /*date*/, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    double plannedCostTo(QDate /*date*/, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     
     /// Returns actual effort and cost up to and including @p date
-    virtual EffortCost actualCostTo(  long int id, QDate date ) const;
+    EffortCost actualCostTo(  long int id, QDate date ) const override;
 
     /**
      * Returns a list of actual effort and cost for this task
      * for the interval start, end inclusive
      */
-    virtual EffortCostMap actualEffortCostPrDay( QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    EffortCostMap actualEffortCostPrDay( QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
     /// Returns the actual effort and cost pr day used by @p resource
-    virtual EffortCostMap actualEffortCostPrDay( const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const;
+    EffortCostMap actualEffortCostPrDay( const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
 
     /// Returns the effort planned to be used to reach the actual percent finished
-    virtual Duration budgetedWorkPerformed( QDate date, long id = CURRENTSCHEDULE ) const;
+    Duration budgetedWorkPerformed( QDate date, long id = CURRENTSCHEDULE ) const override;
 
     /// Returns the cost planned to be used to reach the actual percent finished
-    virtual double budgetedCostPerformed( QDate date, long id = CURRENTSCHEDULE ) const;
+    double budgetedCostPerformed( QDate date, long id = CURRENTSCHEDULE ) const override;
 
     using Node::bcwsPrDay;
     /// Return map of Budgeted Cost of Work Scheduled pr day
-    virtual EffortCostMap bcwsPrDay( long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All );
+    EffortCostMap bcwsPrDay( long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All ) override;
     
     /// Budgeted Cost of Work Scheduled
-    virtual double bcws( QDate date, long id = CURRENTSCHEDULE ) const;
+    double bcws( QDate date, long id = CURRENTSCHEDULE ) const override;
 
     using Node::bcwpPrDay;
     /// Return map of Budgeted Cost of Work Performed pr day (also includes bcwsPrDay)
-    virtual EffortCostMap bcwpPrDay( long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All );
+    EffortCostMap bcwpPrDay( long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All ) override;
     /// Budgeted Cost of Work Performed
-    virtual double bcwp( long id = CURRENTSCHEDULE ) const;
+    double bcwp( long id = CURRENTSCHEDULE ) const override;
     /// Budgeted Cost of Work Performed ( up to @p date )
-    virtual double bcwp( QDate date, long id = CURRENTSCHEDULE ) const;
+    double bcwp( QDate date, long id = CURRENTSCHEDULE ) const override;
 
     using Node::acwp;
     /// Map of Actual Cost of Work Performed
-    virtual EffortCostMap acwp( long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All );
+    EffortCostMap acwp( long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All ) override;
     /// Actual Cost of Work Performed up to dat
-    virtual EffortCost acwp( QDate date, long id = CURRENTSCHEDULE ) const;
+    EffortCost acwp( QDate date, long id = CURRENTSCHEDULE ) const override;
 
     /// Effort based performance index
-    virtual double effortPerformanceIndex( QDate date, long id = CURRENTSCHEDULE ) const;
+    double effortPerformanceIndex( QDate date, long id = CURRENTSCHEDULE ) const override;
 
     /// Schedule performance index
-    virtual double schedulePerformanceIndex( QDate date, long id = CURRENTSCHEDULE ) const;
+    double schedulePerformanceIndex( QDate date, long id = CURRENTSCHEDULE ) const override;
     /// Cost performance index
-    virtual double costPerformanceIndex(  long int id, QDate date, bool *error=0 ) const;
+    double costPerformanceIndex(  long int id, QDate date, bool *error=0 ) const override;
     
     /**
      * Return the duration that an activity's start can be delayed 
@@ -530,19 +530,19 @@ public:
      * A task is critical if positive float equals 0
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
-    virtual bool isCritical( long id = CURRENTSCHEDULE ) const;
+    bool isCritical( long id = CURRENTSCHEDULE ) const override;
     
     /**
      * Set current schedule to schedule with identity id, for me and my children.
      * @param id Schedule identity
      */
-    virtual void setCurrentSchedule(long id);
+    void setCurrentSchedule(long id) override;
     
     /**
      * The assigned resources can not fulfill the estimated effort.
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
-    virtual bool effortMetError( long id = CURRENTSCHEDULE ) const;
+    bool effortMetError( long id = CURRENTSCHEDULE ) const override;
 
     /// @return true if this task has been started
     bool isStarted() const;
@@ -567,12 +567,12 @@ public:
      * Returns the state of the task
      * @param id The identity of the schedule used when calculating the state
      */
-    virtual uint state( long id = CURRENTSCHEDULE ) const;
+    uint state( long id = CURRENTSCHEDULE ) const override;
 
     /// Check if this node has any dependent child nodes
-    virtual bool isEndNode() const;
+    bool isEndNode() const override;
     /// Check if this node has any dependent parent nodes
-    virtual bool isStartNode() const;
+    bool isStartNode() const override;
     
     QList<Relation*> parentProxyRelations() const { return  m_parentProxyRelations; }
     QList<Relation*> childProxyRelations() const { return  m_childProxyRelations; }
@@ -585,7 +585,7 @@ public:
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      * @param backward If true, time specifies when the task should end.
      */
-    virtual Duration duration(const DateTime &time, int use, bool backward);
+    Duration duration(const DateTime &time, int use, bool backward) override;
 
     /**
      * Return the duration calculated on bases of the estimates calendar
@@ -607,19 +607,19 @@ Q_SIGNALS:
     void workPackageRemoved(KPlato::Node *node);
 
 public:
-    virtual void initiateCalculation(MainSchedule &sch);
+    void initiateCalculation(MainSchedule &sch) override;
     /**
      * Sets up the lists used for calculation.
      * This includes adding summarytasks relations to subtasks
      * and lists for start- and endnodes.
      */
-    virtual void initiateCalculationLists(MainSchedule &sch);
+    void initiateCalculationLists(MainSchedule &sch) override;
     /**
      * Calculates early start and early finish, first for all predeccessors,
      * then for this task.
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      */
-    virtual DateTime calculateForward(int use);
+    DateTime calculateForward(int use) override;
     /**
      * Calculates ref m_durationForward from ref earliestStart and
      * returns the resulting end time (early finish),
@@ -627,13 +627,13 @@ public:
      *
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      */
-    virtual DateTime calculateEarlyFinish(int use);
+    DateTime calculateEarlyFinish(int use) override;
     /**
      * Calculates late start and late finish, first for all successors,
      * then for this task.
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      */
-    virtual DateTime calculateBackward(int use);
+    DateTime calculateBackward(int use) override;
     /**
      * Calculates ref m_durationBackward from ref latestFinish and
      * returns the resulting start time (late start),
@@ -641,7 +641,7 @@ public:
      *
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      */
-    virtual DateTime calculateLateStart(int use);
+    DateTime calculateLateStart(int use) override;
     /**
      * Schedules the task within the limits of earliestStart and latestFinish.
      * Calculates ref m_startTime, ref m_endTime and ref m_duration,
@@ -651,7 +651,7 @@ public:
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      * @return The tasks endtime which can be used for scheduling the successor.
      */
-    virtual DateTime scheduleForward(const DateTime &earliest, int use);
+    DateTime scheduleForward(const DateTime &earliest, int use) override;
     /**
      * Schedules the task within the limits of start time and latestFinish,
      * Calculates end time and duration.
@@ -660,7 +660,7 @@ public:
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      * @return The tasks endtime which can be used for scheduling the successor.
      */
-    virtual DateTime scheduleFromStartTime(int use);
+    DateTime scheduleFromStartTime(int use) override;
     /**
      * Schedules the task within the limits of earliestStart and latestFinish.
      * Calculates ref m_startTime, ref m_endTime and ref m_duration,
@@ -670,7 +670,7 @@ public:
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      * @return The tasks starttime which can be used for scheduling the predeccessor.
      */
-    virtual DateTime scheduleBackward(const DateTime &latest, int use);
+    DateTime scheduleBackward(const DateTime &latest, int use) override;
     /**
      * Schedules the task within the limits of end time and latestFinish.
      * Calculates endTime and duration.
@@ -679,25 +679,25 @@ public:
      * @param use Calculate using expected-, optimistic- or pessimistic estimate.
      * @return The tasks starttime which can be used for scheduling the predeccessor.
      */
-    virtual DateTime scheduleFromEndTime(int use);
+    DateTime scheduleFromEndTime(int use) override;
     
     /**
      * Summarytasks (with milestones) need special treatment because 
      * milestones are always 'glued' to their predecessors.
      */
-    virtual void adjustSummarytask();
+    void adjustSummarytask() override;
     
     /// Calculate the critical path
-    virtual bool calcCriticalPath(bool fromEnd);
-    virtual void calcFreeFloat();
+    bool calcCriticalPath(bool fromEnd) override;
+    void calcFreeFloat() override;
     
     // Proxy relations are relations to/from summarytasks. 
     // These relations are distributed to the child tasks before calculation.
-    virtual void clearProxyRelations();
-    virtual void addParentProxyRelations( const QList<Relation*> & );
-    virtual void addChildProxyRelations( const QList<Relation*> & );
-    virtual void addParentProxyRelation(Node *, const Relation *);
-    virtual void addChildProxyRelation(Node *, const Relation *);
+    void clearProxyRelations() override;
+    void addParentProxyRelations( const QList<Relation*> & ) override;
+    void addChildProxyRelations( const QList<Relation*> & ) override;
+    void addParentProxyRelation(Node *, const Relation *) override;
+    void addChildProxyRelation(Node *, const Relation *) override;
 
 public:
     DateTime earlyStartDate();

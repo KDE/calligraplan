@@ -56,7 +56,7 @@ public:
     virtual MacroCommand *buildCommand();
 
 protected Q_SLOTS:
-    void accept();
+    void accept() override;
     void setButtonOkEnabled(bool enabled);
 
     void slotTaskRemoved(KPlato::Node *node );

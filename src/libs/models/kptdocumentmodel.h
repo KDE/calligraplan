@@ -43,7 +43,7 @@ public:
     DocumentModel()
         : QObject()
     {}
-    ~DocumentModel() {}
+    ~DocumentModel() override {}
 
     QVariant data( const Document *doc, int property, int role = Qt::DisplayRole ) const; 
     static bool setData( Document *doc, int property, const QVariant & value, int role = Qt::EditRole );
@@ -67,40 +67,40 @@ class PLANMODELS_EXPORT DocumentItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit DocumentItemModel( QObject *parent = 0 );
-    ~DocumentItemModel();
+    ~DocumentItemModel() override;
 
     virtual void setDocuments( Documents *docs );
     Documents *documents() const;
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     virtual QModelIndex index( const Document *doc ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
-    virtual QMimeData * mimeData( const QModelIndexList & indexes ) const;
-    virtual QStringList mimeTypes () const;
-    virtual Qt::DropActions supportedDropActions() const;
-    virtual bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
+    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QStringList mimeTypes () const override;
+    Qt::DropActions supportedDropActions() const override;
+    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
 
     Document *document( const QModelIndex &index ) const;
 
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
 
     QModelIndex insertDocument( Document *doc, Document *after );
 
     bool dropAllowed( Document *on, const QMimeData *data );
 
-    virtual bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data );
+    bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data ) override;
 
 protected Q_SLOTS:
     void slotDocumentChanged(KPlato::Document*);

@@ -46,7 +46,7 @@ public:
     explicit WorkPackageModel( QObject *parent = 0 )
         : QObject( parent )
      {}
-    ~WorkPackageModel() {}
+    ~WorkPackageModel() override {}
 
     QVariant data( const WorkPackage *wp, int column, int role = Qt::DisplayRole ) const;
 
@@ -69,7 +69,7 @@ public:
     explicit WPSortFilterProxyModel(QObject *parent = 0) : QSortFilterProxyModel( parent ) {}
 protected:
     /// Only accept scheduled tasks
-    bool filterAcceptsRow(int source_row, const QModelIndex &sourceParent) const;
+    bool filterAcceptsRow(int source_row, const QModelIndex &sourceParent) const override;
 };
 
 /**
@@ -87,25 +87,25 @@ class PLANMODELS_EXPORT WorkPackageProxyModel : public QAbstractProxyModel
 public:
     explicit WorkPackageProxyModel(QObject *parent = 0);
 
-    Qt::ItemFlags flags(const QModelIndex &index) const;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
 
-    Qt::DropActions supportedDropActions() const;
-    bool canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const;
-    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
-    virtual QStringList mimeTypes () const;
+    Qt::DropActions supportedDropActions() const override;
+    bool canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const override;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
+    QStringList mimeTypes () const override;
 
-    void setSourceModel( QAbstractItemModel *sourceModel );
-    bool hasChildren(const QModelIndex &parent) const;
-    int rowCount( const QModelIndex &parent = QModelIndex() ) const;
-    int columnCount( const QModelIndex &parent = QModelIndex() ) const;
-    QModelIndex parent( const QModelIndex &child ) const;
-    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const;
-    QVariant data( const QModelIndex &idx, int role = Qt::DisplayRole ) const;
+    void setSourceModel( QAbstractItemModel *sourceModel ) override;
+    bool hasChildren(const QModelIndex &parent) const override;
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
+    QModelIndex parent( const QModelIndex &child ) const override;
+    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
+    QVariant data( const QModelIndex &idx, int role = Qt::DisplayRole ) const override;
 
     NodeItemModel *baseModel() const;
 
-    QModelIndex mapToSource(const QModelIndex &proxyIndex) const;
-    QModelIndex mapFromSource(const QModelIndex &sourceIndex) const;
+    QModelIndex mapToSource(const QModelIndex &proxyIndex) const override;
+    QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override;
 
     Task *taskFromIndex( const QModelIndex &idx ) const;
     QModelIndex indexFromTask( const Node *node ) const;

@@ -40,7 +40,7 @@ class SchedulesDocker : public QDockWidget
     Q_OBJECT
 public:
     explicit SchedulesDocker();
-    ~SchedulesDocker();
+    ~SchedulesDocker() override;
 
     ScheduleManager *selectedSchedule() const;
 
@@ -65,10 +65,10 @@ class SchedulesDockerFactory : public KoDockFactoryBase
 public:
     SchedulesDockerFactory();
 
-    virtual QString id() const;
-    virtual QDockWidget* createDockWidget();
+    QString id() const override;
+    QDockWidget* createDockWidget() override;
     /// @return the dock widget area the widget should appear in by default
-    virtual KoDockFactoryBase::DockPosition defaultDockPosition() const { return DockLeft; }
+    KoDockFactoryBase::DockPosition defaultDockPosition() const override { return DockLeft; }
 
 };
 

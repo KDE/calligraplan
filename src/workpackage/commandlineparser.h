@@ -31,7 +31,7 @@ class CommandLineParser : public QObject
 
 public:
     CommandLineParser();
-    ~CommandLineParser();
+    ~CommandLineParser() override;
 
 public:
     void handleCommandLine(const QDir &workingDirectory);

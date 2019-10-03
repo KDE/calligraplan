@@ -37,9 +37,9 @@ class PlannerImport : public KoFilter
     Q_OBJECT
 public:
     PlannerImport(QObject* parent, const QVariantList &);
-    virtual ~PlannerImport() {}
+    ~PlannerImport() override {}
 
-    virtual KoFilter::ConversionStatus convert(const QByteArray& from, const QByteArray& to);
+    KoFilter::ConversionStatus convert(const QByteArray& from, const QByteArray& to) override;
 
     bool loadPlanner(const QDomDocument &in, KoDocument *doc) const;
 };

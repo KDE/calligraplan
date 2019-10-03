@@ -41,7 +41,7 @@ public:
         warnings(0),
         errors(0)
     { }
-    virtual ~TjMessageHandler() { }
+    ~TjMessageHandler() override { }
 
     void warningMessage( const QString& msg, const CoreAttributes *object = 0 );
     void warningMessage(const QString& msg, const QString& file,

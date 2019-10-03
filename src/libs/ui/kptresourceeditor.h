@@ -66,22 +66,22 @@ public:
     ResourceEditor(KoPart *part, KoDocument *dic, QWidget *parent);
     
     void setupGui();
-    Project *project() const { return m_view->project(); }
-    virtual void setProject( Project *project );
+    Project *project() const override { return m_view->project(); }
+    void setProject( Project *project ) override;
 
     ResourceItemModel *model() const { return m_view->model(); }
     
-    virtual void updateReadWrite( bool readwrite );
+    void updateReadWrite( bool readwrite ) override;
 
-    virtual Resource *currentResource() const;
-    virtual ResourceGroup *currentResourceGroup() const;
+    Resource *currentResource() const override;
+    ResourceGroup *currentResourceGroup() const override;
     
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
     
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
     
 Q_SIGNALS:
     void addResource(KPlato::ResourceGroup*);
@@ -89,11 +89,11 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
-    void slotEditCopy();
+    void setGuiActive( bool activate ) override;
+    void slotEditCopy() override;
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
 
 protected:
     void updateActionsEnabled(  bool on = true );

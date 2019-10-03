@@ -62,7 +62,7 @@ class PLANWORK_EXPORT TaskWorkPackageModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit TaskWorkPackageModel( Part *part, QObject *parent = 0 );
-    ~TaskWorkPackageModel() {}
+    ~TaskWorkPackageModel() override {}
 
     enum Properties {
         NodeName = 0,
@@ -91,28 +91,28 @@ public:
         ProjectManager
     };
     Q_ENUM(Properties)
-    const QMetaEnum columnMap() const
+    const QMetaEnum columnMap() const override
     {
         return metaObject()->enumerator( metaObject()->indexOfEnumerator("Properties") );
     }
 
     WorkPackage *workPackage( int index ) const;
 
-    virtual Qt::ItemFlags flags( const QModelIndex &index ) const;
-    virtual QModelIndex parent( const QModelIndex &index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const;
-    virtual QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    Qt::ItemFlags flags( const QModelIndex &index ) const override;
+    QModelIndex parent( const QModelIndex &index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
     
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
-    virtual int rowCount( const QModelIndex &parent = QModelIndex() ) const;
-    virtual int columnCount( const QModelIndex &index = QModelIndex() ) const;
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+    int columnCount( const QModelIndex &index = QModelIndex() ) const override;
     
     Node *nodeForIndex( const QModelIndex &index ) const;
     QModelIndex indexForNode( Node *node ) const;
 
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
 
     Document *documentForIndex( const QModelIndex &idx ) const;
 

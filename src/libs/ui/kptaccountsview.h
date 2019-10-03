@@ -78,25 +78,25 @@ public:
 
     //~AccountsView();
     void setupGui();
-    Project *project() const { return m_project; }
+    Project *project() const override { return m_project; }
     virtual void setZoom( double zoom );
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
 
-    virtual bool loadContext( const KoXmlElement &context );
-    virtual void saveContext( QDomElement &context ) const;
+    bool loadContext( const KoXmlElement &context ) override;
+    void saveContext( QDomElement &context ) const override;
 
     CostBreakdownItemModel *model() const;
 
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
     
 public Q_SLOTS:
-    void setScheduleManager(KPlato::ScheduleManager *sm);
-    void slotEditCopy();
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
+    void slotEditCopy() override;
 
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
-    void slotHeaderContextMenuRequested( const QPoint &pos );
-    virtual void slotOptions();
+    void slotHeaderContextMenuRequested( const QPoint &pos ) override;
+    void slotOptions() override;
     
 private:
     void init();

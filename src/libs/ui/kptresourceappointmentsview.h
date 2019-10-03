@@ -117,25 +117,25 @@ public:
     ResourceAppointmentsView(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
-    virtual void setProject( Project *project );
-    Project *project() const { return m_view->project(); }
-    virtual void draw( Project &project );
-    virtual void draw();
+    void setProject( Project *project ) override;
+    Project *project() const override { return m_view->project(); }
+    void draw( Project &project ) override;
+    void draw() override;
 
     ResourceAppointmentsItemModel *model() const { return m_view->model(); }
     
-    virtual void updateReadWrite( bool /*readwrite*/ ) {};
+    void updateReadWrite( bool /*readwrite*/ ) override {};
 
-    virtual Node *currentNode() const;
-    virtual Resource *currentResource() const;
-    virtual ResourceGroup *currentResourceGroup() const;
+    Node *currentNode() const override;
+    Resource *currentResource() const override;
+    ResourceGroup *currentResourceGroup() const override;
     
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
     
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
     
 Q_SIGNALS:
     void addResource(KPlato::ResourceGroup*);
@@ -143,12 +143,12 @@ Q_SIGNALS:
     
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
     
-    void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
 
 protected:
     void updateActionsEnabled(  bool on = true );

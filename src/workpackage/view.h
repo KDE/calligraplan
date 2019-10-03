@@ -70,7 +70,7 @@ class View : public QStackedWidget
 
 public:
     explicit View( Part* part, QWidget *parent, KActionCollection *collection );
-    ~View();
+    ~View() override;
 
     Part *part() const;
 

@@ -42,9 +42,9 @@ class PLANMODELS_EXPORT AddTaskCommand : public NamedCommand
 {
 public:
     AddTaskCommand( Project *project, Node *parent, Node *node, Node *after, const KUndo2MagicString& name = KUndo2MagicString() );
-    ~AddTaskCommand();
-    void execute();
-    void unexecute();
+    ~AddTaskCommand() override;
+    void execute() override;
+    void unexecute() override;
     
 private:
     Project *m_project;
@@ -58,9 +58,9 @@ class PLANMODELS_EXPORT InsertProjectXmlCommand : public MacroCommand
 {
 public:
     InsertProjectXmlCommand(Project *project, const QByteArray &data, Node *parent, Node *position,  const KUndo2MagicString& name = KUndo2MagicString());
-    ~InsertProjectXmlCommand();
-    void execute();
-    void unexecute();
+    ~InsertProjectXmlCommand() override;
+    void execute() override;
+    void unexecute() override;
 
 private:
     void createCmdAccounts(const KoXmlElement &projectElement);

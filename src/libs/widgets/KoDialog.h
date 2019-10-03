@@ -170,7 +170,7 @@ public:
     /**
      * Destroys the dialog.
      */
-    ~KoDialog();
+    ~KoDialog() override;
 
     /**
      * Creates (or recreates) the button box and all the buttons in it.

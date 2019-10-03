@@ -123,7 +123,7 @@ public:
 
 
     // Declare the class abstract
-    virtual ~Node() = 0;
+    ~Node() override = 0;
 
     void setId(const QString& id);
     QString id() const { return m_id; } // unique identity

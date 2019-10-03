@@ -50,7 +50,7 @@ class PLANUI_EXPORT AddRelationDialog : public KoDialog
     Q_OBJECT
 public:
     AddRelationDialog(Project &project, Relation *rel, QWidget *p, const QString& caption=QString(), ButtonCodes buttons=Ok|Cancel);
-    ~AddRelationDialog();
+    ~AddRelationDialog() override;
 
     virtual MacroCommand *buildCommand();
     int selectedRelationType() const;
@@ -78,7 +78,7 @@ class PLANUI_EXPORT ModifyRelationDialog : public AddRelationDialog
 public:
     explicit ModifyRelationDialog(Project &project, Relation *rel, QWidget *p=0);
 
-    virtual MacroCommand *buildCommand();
+    MacroCommand *buildCommand() override;
     bool relationIsDeleted() { return m_deleted; }
 
 protected Q_SLOTS:

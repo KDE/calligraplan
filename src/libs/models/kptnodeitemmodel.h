@@ -47,7 +47,7 @@ class PLANMODELS_EXPORT NodeModel : public QObject
     Q_OBJECT
 public:
     NodeModel();
-    ~NodeModel() {}
+    ~NodeModel() override {}
     
     enum SpecialRoles {
         SortableRole = Qt::UserRole + 5024 // unlikely high number
@@ -288,36 +288,36 @@ class PLANMODELS_EXPORT NodeItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit NodeItemModel( QObject *parent = 0 );
-    ~NodeItemModel();
+    ~NodeItemModel() override;
     
     /// Returns a column number/- name map for this model
-    virtual const QMetaEnum columnMap() const { return m_nodemodel.columnMap(); }
+    const QMetaEnum columnMap() const override { return m_nodemodel.columnMap(); }
     
     ScheduleManager *manager() const { return m_nodemodel.manager(); }
     long id() const { return m_nodemodel.id(); }
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
     
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     virtual QModelIndex index( const Node *node, int column = 0 ) const;
     
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
     
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
     
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
     
-    virtual QMimeData * mimeData( const QModelIndexList & indexes ) const;
-    virtual QStringList mimeTypes () const;
-    virtual Qt::DropActions supportedDropActions() const;
-    virtual bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
+    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QStringList mimeTypes () const override;
+    Qt::DropActions supportedDropActions() const override;
+    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
 
     Node *node( const QModelIndex &index ) const;
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
 
     QModelIndex insertTask( Node *node, Node *after );
     QModelIndex insertSubtask( Node *node, Node *parent );
@@ -327,20 +327,20 @@ public:
     static QList<Node*> removeChildNodes( const QList<Node*> &nodes );
     bool dropAllowed( Node *on, const QMimeData *data );
     
-    virtual bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data );
+    bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data ) override;
     
     bool projectShown() const { return m_projectshown; }
 
     /// Return the sortorder to be used for @p column
-    virtual int sortRole( int column ) const;
+    int sortRole( int column ) const override;
 
 Q_SIGNALS:
     void nodeInserted(KPlato::Node *node);
     void projectShownChanged( bool );
 
 public Q_SLOTS:
-    virtual void setProject(KPlato::Project *project);
-    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setProject(KPlato::Project *project) override;
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void setShowProject( bool on );
 
 protected Q_SLOTS:
@@ -354,7 +354,7 @@ protected Q_SLOTS:
     virtual void slotNodeToBeMoved(KPlato::Node *node, int pos, KPlato::Node *newParent, int newPos );
     virtual void slotNodeMoved(KPlato::Node *node );
 
-    virtual void slotLayoutChanged();
+    void slotLayoutChanged() override;
     virtual void slotProjectCalculated(KPlato::ScheduleManager *sm);
 
 protected:
@@ -382,13 +382,13 @@ public:
     enum GanttModelRoles { SpecialItemTypeRole = Qt::UserRole + 123 }; //FIXME
 
     explicit GanttItemModel(QObject *parent = 0);
-    ~GanttItemModel();
+    ~GanttItemModel() override;
 
-    virtual int rowCount( const QModelIndex &parent ) const;
+    int rowCount( const QModelIndex &parent ) const override;
     using NodeItemModel::index;
-    virtual QModelIndex index( int row, int column, const QModelIndex &parent ) const;
-    QModelIndex parent( const QModelIndex &idx ) const;
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const;
+    QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
+    QModelIndex parent( const QModelIndex &idx ) const override;
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override;
 
     void setShowSpecial( bool on ) { m_showSpecial = on; }
     bool showSpecial() const { return m_showSpecial; }
@@ -404,36 +404,36 @@ class PLANMODELS_EXPORT MilestoneItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit MilestoneItemModel( QObject *parent = 0 );
-    ~MilestoneItemModel();
+    ~MilestoneItemModel() override;
 
     /// Returns a column number/- name map for this model
-    virtual const QMetaEnum columnMap() const { return m_nodemodel.columnMap(); }
+    const QMetaEnum columnMap() const override { return m_nodemodel.columnMap(); }
 
     ScheduleManager *manager() const { return m_nodemodel.manager(); }
     long id() const { return m_nodemodel.id(); }
 
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
 
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     virtual QModelIndex index( const Node *node ) const;
 
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
 
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
 
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
 
-    virtual QMimeData * mimeData( const QModelIndexList & indexes ) const;
-    virtual QStringList mimeTypes () const;
-    virtual Qt::DropActions supportedDropActions() const;
-    virtual bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
+    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QStringList mimeTypes () const override;
+    Qt::DropActions supportedDropActions() const override;
+    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
 
     Node *node( const QModelIndex &index ) const;
-    virtual QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
 
     QModelIndex insertTask( Node *node, Node *after );
     QModelIndex insertSubtask( Node *node, Node *parent );
@@ -442,15 +442,15 @@ public:
     static QList<Node*> removeChildNodes( const QList<Node*> &nodes );
     bool dropAllowed( Node *on, const QMimeData *data );
 
-    virtual bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data );
+    bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data ) override;
 
     QList<Node*> mileStones() const;
 
-    int sortRole(int column) const;
+    int sortRole(int column) const override;
 
 public Q_SLOTS:
-    virtual void setProject(KPlato::Project *project);
-    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setProject(KPlato::Project *project) override;
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
 protected Q_SLOTS:
     void slotNodeChanged(KPlato::Node*);
@@ -461,7 +461,7 @@ protected Q_SLOTS:
     void slotNodeToBeMoved(KPlato::Node *node, int pos,KPlato::Node *newParent, int newPos);
     void slotNodeMoved(KPlato::Node *node);
 
-    void slotLayoutChanged();
+    void slotLayoutChanged() override;
     void slotWbsDefinitionChanged();
 
 protected:
@@ -483,10 +483,10 @@ public:
     void setFilterUnscheduled( bool on );
     bool filterUnscheduled() const { return m_filterUnscheduled; }
 
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
 
 protected:
-    bool filterAcceptsRow ( int source_row, const QModelIndex & source_parent ) const;
+    bool filterAcceptsRow ( int source_row, const QModelIndex & source_parent ) const override;
 
 private:
     NodeItemModel *m_model;
@@ -501,16 +501,16 @@ public:
 
     void addTaskModule(Project *project , const QUrl &url);
 
-    Qt::ItemFlags flags( const QModelIndex &idx ) const;
-    int columnCount( const QModelIndex &idx = QModelIndex() ) const;
-    int rowCount( const QModelIndex &idx = QModelIndex() ) const;
-    QVariant data( const QModelIndex &idx, int role = Qt::DisplayRole ) const;
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
-    QModelIndex parent( const QModelIndex &idx ) const;
-    QModelIndex index( int row, int column, const QModelIndex &parent ) const;
-    QStringList mimeTypes() const;
-    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
-    QMimeData *mimeData( const QModelIndexList &idx ) const;
+    Qt::ItemFlags flags( const QModelIndex &idx ) const override;
+    int columnCount( const QModelIndex &idx = QModelIndex() ) const override;
+    int rowCount( const QModelIndex &idx = QModelIndex() ) const override;
+    QVariant data( const QModelIndex &idx, int role = Qt::DisplayRole ) const override;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QModelIndex parent( const QModelIndex &idx ) const override;
+    QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
+    QStringList mimeTypes() const override;
+    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
+    QMimeData *mimeData( const QModelIndexList &idx ) const override;
 
     bool importProject( const QUrl &url, bool emitsignal = true );
 

@@ -66,8 +66,8 @@ Q_SIGNALS:
     void selectionChanged( const QModelIndexList& );
 
 protected Q_SLOTS:
-    virtual void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
-    virtual void currentChanged ( const QModelIndex & current, const QModelIndex & previous );
+    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
+    void currentChanged ( const QModelIndex & current, const QModelIndex & previous ) override;
     
 };
 
@@ -78,20 +78,20 @@ public:
     ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
-    Project *project() const { return m_view->project(); }
-    virtual void draw( Project &project );
-    virtual void draw();
+    Project *project() const override { return m_view->project(); }
+    void draw( Project &project ) override;
+    void draw() override;
     
     ScheduleItemModel *model() const { return m_view->model(); }
     
-    virtual void updateReadWrite( bool readwrite );
+    void updateReadWrite( bool readwrite ) override;
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
     
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
     
 Q_SIGNALS:
     void calculateSchedule(KPlato::Project*, KPlato::ScheduleManager*);
@@ -110,10 +110,10 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
 
 private Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
@@ -172,10 +172,10 @@ public Q_SLOTS:
     void slotEditCopy();
 
 protected Q_SLOTS:
-    void contextMenuEvent ( QContextMenuEvent *e );
+    void contextMenuEvent ( QContextMenuEvent *e ) override;
     void headerContextMenuRequested( const QPoint &pos );
-    virtual void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
-    virtual void currentChanged ( const QModelIndex & current, const QModelIndex & previous );
+    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
+    void currentChanged ( const QModelIndex & current, const QModelIndex & previous ) override;
 
     void slotShowDebug( bool );
 
@@ -192,19 +192,19 @@ public:
     ScheduleLogView(KoPart *part, KoDocument *doc, QWidget *parent);
 
     void setupGui();
-    virtual void setProject( Project *project );
-    Project *project() const { return m_view->project(); }
+    void setProject( Project *project ) override;
+    Project *project() const override { return m_view->project(); }
     using ViewBase::draw;
-    virtual void draw( Project &project );
+    void draw( Project &project ) override;
 
     ScheduleLogItemModel *baseModel() const { return m_view->logModel(); }
 
-    virtual void updateReadWrite( bool readwrite );
+    void updateReadWrite( bool readwrite ) override;
 
     /// Loads context info into this view.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    bool loadContext( const KoXmlElement &/*context*/ ) override;
     /// Save context info from this view.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    void saveContext( QDomElement &/*context*/ ) const override;
 
 Q_SIGNALS:
     void editNode(KPlato::Node *node);
@@ -212,12 +212,12 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
-    void slotEditCopy();
+    void setGuiActive( bool activate ) override;
+    void slotEditCopy() override;
     void slotEdit();
 
 protected Q_SLOTS:
-    virtual void slotOptions();
+    void slotOptions() override;
 
 private Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
@@ -240,7 +240,7 @@ class PLANUI_EXPORT ScheduleHandlerView : public SplitterView
 public:
     ScheduleHandlerView(KoPart *part, KoDocument *doc, QWidget *parent);
     
-    Project *project() const { return 0; }
+    Project *project() const override { return 0; }
 
     ScheduleEditor *scheduleEditor() const { return m_scheduleEditor; }
     /// Always returns this (if we are called, we are hit)
@@ -253,12 +253,12 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui (also of subviews)
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
 
 protected Q_SLOTS:
     /// Noop, we handle subviews ourselves
-    virtual void slotGuiActivated(KPlato::ViewBase *v, bool active );
-    virtual void currentTabChanged( int i );
+    void slotGuiActivated(KPlato::ViewBase *v, bool active ) override;
+    void currentTabChanged( int i ) override;
 
 private:
     ScheduleEditor *m_scheduleEditor;

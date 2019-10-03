@@ -38,9 +38,9 @@ class KPlatoImport : public KoFilter
     Q_OBJECT
 public:
     KPlatoImport(QObject* parent, const QVariantList &);
-    virtual ~KPlatoImport() {}
+    ~KPlatoImport() override {}
 
-    virtual KoFilter::ConversionStatus convert(const QByteArray& from, const QByteArray& to);
+    KoFilter::ConversionStatus convert(const QByteArray& from, const QByteArray& to) override;
 };
 
 #endif // KPLATOIMPORT_H

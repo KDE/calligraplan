@@ -136,13 +136,13 @@ class PLANUI_EXPORT PerformanceStatusPrintingDialog : public PrintingDialog
     Q_OBJECT
 public:
     PerformanceStatusPrintingDialog(ViewBase *view, PerformanceStatusBase *chart, Project *project = 0);
-    ~PerformanceStatusPrintingDialog() {}
+    ~PerformanceStatusPrintingDialog() override {}
 
-    virtual int documentLastPage() const;
-    virtual QList<QWidget*> createOptionWidgets() const;
+    int documentLastPage() const override;
+    QList<QWidget*> createOptionWidgets() const override;
 
 protected:
-    virtual void printPage(int pageNumber, QPainter &painter);
+    void printPage(int pageNumber, QPainter &painter) override;
 
 private:
     PerformanceStatusBase *m_chart;
@@ -180,7 +180,7 @@ public Q_SLOTS:
     void refreshChart();
 
 protected:
-    void contextMenuEvent(QContextMenuEvent *event);
+    void contextMenuEvent(QContextMenuEvent *event) override;
     
     void createBarChart();
     void createLineChart();

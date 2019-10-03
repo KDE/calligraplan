@@ -56,8 +56,8 @@ class RecentFilesModel : public QStandardItemModel
 {
 public:
     RecentFilesModel(QObject *parent = 0);
-    Qt::ItemFlags flags(const QModelIndex &idx) const;
-    QVariant data(const QModelIndex &idx, int role) const;
+    Qt::ItemFlags flags(const QModelIndex &idx) const override;
+    QVariant data(const QModelIndex &idx, int role) const override;
     void populate(const QList<QAction*> actions);
 };
 

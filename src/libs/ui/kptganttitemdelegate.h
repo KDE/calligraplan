@@ -47,11 +47,11 @@ class PLANUI_EXPORT GanttItemDelegate : public KGantt::ItemDelegate
 public:
     explicit GanttItemDelegate(QObject *parent = 0);
 
-    virtual QString toolTip( const QModelIndex& idx ) const;
-    virtual KGantt::Span itemBoundingSpan( const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) const;
-    virtual void paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx );
+    QString toolTip( const QModelIndex& idx ) const override;
+    KGantt::Span itemBoundingSpan( const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) const override;
+    void paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) override;
     
-    virtual void paintConstraintItem( QPainter* p, const QStyleOptionGraphicsItem& opt, const QPointF& start, const QPointF& end, const KGantt::Constraint &constraint );
+    void paintConstraintItem( QPainter* p, const QStyleOptionGraphicsItem& opt, const QPointF& start, const QPointF& end, const KGantt::Constraint &constraint ) override;
 
     QVariant data( const QModelIndex& idx, int column, int role = Qt::DisplayRole ) const;
     QString itemText( const QModelIndex& idx, int type ) const;
@@ -97,7 +97,7 @@ public:
 
     QVariant data( const QModelIndex& idx, int column, int role = Qt::DisplayRole ) const;
 
-    virtual void paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx );
+    void paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) override;
 
 protected:
     void paintResourceItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx );

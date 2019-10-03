@@ -41,7 +41,7 @@ public:
     RelationModel()
         : QObject()
     {}
-    ~RelationModel() {}
+    ~RelationModel() override {}
     
     QVariant data( const Relation *relation, int property, int role = Qt::DisplayRole ) const; 
     
@@ -61,27 +61,27 @@ class PLANMODELS_EXPORT RelationItemModel : public ItemModelBase
     Q_OBJECT
 public:
     explicit RelationItemModel( QObject *parent = 0 );
-    ~RelationItemModel();
+    ~RelationItemModel() override;
     
-    virtual void setProject( Project *project );
+    void setProject( Project *project ) override;
     virtual void setNode( Node *node );
     
-    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+    Qt::ItemFlags flags( const QModelIndex & index ) const override;
     
-    virtual QModelIndex parent( const QModelIndex & index ) const;
-    virtual QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex & index ) const override;
+    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
     
-    virtual int columnCount( const QModelIndex & parent = QModelIndex() ) const; 
-    virtual int rowCount( const QModelIndex & parent = QModelIndex() ) const; 
+    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
     
-    virtual QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const; 
-    virtual bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole );
+    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
 
     
-    virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
     
     Relation *relation( const QModelIndex &index ) const;
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const;
+    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
 
 protected Q_SLOTS:
     void slotNodeChanged(KPlato::Node*);
@@ -93,7 +93,7 @@ protected Q_SLOTS:
     void slotRelationAdded(KPlato::Relation *r);
     void slotRelationModified(KPlato::Relation *r);
 
-    void slotLayoutChanged();
+    void slotLayoutChanged() override;
     
 protected:
     bool setType( Relation *r, const QVariant &value, int role );

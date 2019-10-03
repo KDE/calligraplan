@@ -65,8 +65,8 @@ class PLANUI_EXPORT ResourceAssignmentView : public ViewBase
 public:
     ResourceAssignmentView(KoPart *part, KoDocument *doc, QWidget *parent);
     using ViewBase::draw;
-    Project *project() const { return m_project; }
-    void draw( Project &project );
+    Project *project() const override { return m_project; }
+    void draw( Project &project ) override;
     void drawResourcesName( QTreeWidgetItem *parent, ResourceGroup *group );
     void drawTasksAttributedToAResource (Resource *res, QTreeWidgetItem *parent);
     void drawTasksAttributedToAGroup (ResourceGroup *group, QTreeWidgetItem *parent);
@@ -93,7 +93,7 @@ void slotUpdate();
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    void setGuiActive( bool activate ) override;
 
 };
 

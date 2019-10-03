@@ -58,9 +58,9 @@ class TemplateFileDelegate : public QStyledItemDelegate
 public:
     TemplateFileDelegate(QObject *parent);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
     QMap<QString, QUrl> files;
 };
@@ -114,9 +114,9 @@ class FileItemDelegate : public QStyledItemDelegate
 public:
     FileItemDelegate(QObject *parent);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
     QMap<QString, QUrl> files;
 };
@@ -157,9 +157,9 @@ class FileNameExtensionDelegate : public QStyledItemDelegate
 public:
     FileNameExtensionDelegate(QObject *parent);
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
 };
 

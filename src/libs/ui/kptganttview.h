@@ -95,7 +95,7 @@ public:
     explicit GanttViewSettingsDialog( GanttViewBase *gantt, GanttItemDelegate *delegate, ViewBase *view, bool selectPrint = false );
 
 protected Q_SLOTS:
-    void slotOk();
+    void slotOk() override;
 
 private:
     GanttViewBase *m_gantt;
@@ -139,11 +139,11 @@ class GanttPrintingDialog : public PrintingDialog
 public:
     GanttPrintingDialog( ViewBase *view, GanttViewBase *gantt );
 
-    void startPrinting( RemovePolicy removePolicy );
-    QList<QWidget*> createOptionWidgets() const;
-    void printPage( int page, QPainter &painter );
+    void startPrinting( RemovePolicy removePolicy ) override;
+    QList<QWidget*> createOptionWidgets() const override;
+    void printPage( int page, QPainter &painter ) override;
 
-    int documentLastPage() const;
+    int documentLastPage() const override;
 
 protected Q_SLOTS:
     void slotPrintRowLabelsToogled( bool on );
@@ -177,9 +177,9 @@ public:
     void setEnableHideOnLeave( bool hide );
 
 protected:
-    void mousePressEvent( QMouseEvent *event );
-    void mouseMoveEvent( QMouseEvent *event );
-    void mouseReleaseEvent( QMouseEvent *event );
+    void mousePressEvent( QMouseEvent *event ) override;
+    void mouseMoveEvent( QMouseEvent *event ) override;
+    void mouseReleaseEvent( QMouseEvent *event ) override;
 
 private Q_SLOTS:
     void sliderValueChanged( int value );
@@ -194,7 +194,7 @@ class PLANUI_EXPORT GanttViewBase : public KGantt::View
     Q_OBJECT
 public:
     explicit GanttViewBase(QWidget *parent);
-    ~GanttViewBase();
+    ~GanttViewBase() override;
 
     GanttTreeView *treeView() const;
     GanttPrintingOptions printingOptions() const { return m_printOptions; }
@@ -215,10 +215,10 @@ Q_SIGNALS:
     void contextMenuRequested(const QModelIndex &idx, const QPoint &pos);
 
 protected:
-    bool eventFilter(QObject *obj, QEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
+    bool eventFilter(QObject *obj, QEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
     friend class GanttPrintingDialog;
     GanttPrintingOptions m_printOptions;
@@ -234,7 +234,7 @@ class NodeGanttViewBase : public GanttViewBase
     Q_OBJECT
 public:
     explicit NodeGanttViewBase(QWidget *parent);
-    ~NodeGanttViewBase();
+    ~NodeGanttViewBase() override;
 
     NodeSortFilterProxyModel *sfModel() const;
     void setItemModel( ItemModelBase *model );
@@ -244,8 +244,8 @@ public:
 
     GanttItemDelegate *delegate() const { return m_ganttdelegate; }
 
-    bool loadContext( const KoXmlElement &settings );
-    void saveContext( QDomElement &settings ) const;
+    bool loadContext( const KoXmlElement &settings ) override;
+    void saveContext( QDomElement &settings ) const override;
 
 public Q_SLOTS:
     void setShowUnscheduledTasks(bool show);
@@ -290,23 +290,23 @@ public:
 
     virtual void setZoom( double zoom );
     void setupGui();
-    Project *project() const { return m_gantt->project(); }
-    virtual void setProject( Project *project );
+    Project *project() const override { return m_gantt->project(); }
+    void setProject( Project *project ) override;
 
     using ViewBase::draw;
-    virtual void draw( Project &project );
-    virtual void drawChanges( Project &project );
+    void draw( Project &project ) override;
+    void drawChanges( Project &project ) override;
 
-    Node *currentNode() const;
+    Node *currentNode() const override;
 
     void clear();
 
-    virtual bool loadContext( const KoXmlElement &context );
-    virtual void saveContext( QDomElement &context ) const;
+    bool loadContext( const KoXmlElement &context ) override;
+    void saveContext( QDomElement &context ) const override;
 
-    void updateReadWrite( bool on );
+    void updateReadWrite( bool on ) override;
 
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
 
     void setShowSpecialInfo( bool on ) { m_gantt->model()->setShowSpecial( on ); }
     bool showSpecialInfo() const { return m_gantt->model()->showSpecial(); }
@@ -318,7 +318,7 @@ Q_SIGNALS:
     void addRelation(KPlato::Node *par, KPlato::Node *child, int linkType);
 
 public Q_SLOTS:
-    void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void setShowResources( bool on );
     void setShowTaskName( bool on );
     void setShowTaskLinks( bool on );
@@ -329,14 +329,14 @@ public Q_SLOTS:
     void setShowNoInformation( bool on );
     void setShowAppointments( bool on );
 
-    void slotEditCopy();
+    void slotEditCopy() override;
 
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
     void slotGanttHeaderContextMenuRequested(const QPoint &pt);
     void slotDateTimeGridChanged();
-    virtual void slotOptions();
-    virtual void slotOptionsFinished( int result );
+    void slotOptions() override;
+    void slotOptionsFinished( int result ) override;
     void ganttActions();
     void itemDoubleClicked(const QPersistentModelIndex &idx);
 
@@ -361,7 +361,7 @@ public:
     MilestoneGanttViewSettingsDialog( GanttViewBase *gantt, ViewBase *view, bool selectPrint = false );
 
 protected Q_SLOTS:
-    virtual void slotOk();
+    void slotOk() override;
 
 private:
     GanttViewBase *m_gantt;
@@ -394,29 +394,29 @@ public:
 
     virtual void setZoom( double zoom );
     void show();
-    virtual void setProject( Project *project );
-    Project *project() const { return m_gantt->project(); }
+    void setProject( Project *project ) override;
+    Project *project() const override { return m_gantt->project(); }
     using ViewBase::draw;
-    virtual void draw( Project &project );
-    virtual void drawChanges( Project &project );
+    void draw( Project &project ) override;
+    void drawChanges( Project &project ) override;
 
     void setupGui();
 
-    Node *currentNode() const;
+    Node *currentNode() const override;
 
     void clear();
 
-    virtual bool loadContext( const KoXmlElement &context );
-    virtual void saveContext( QDomElement &context ) const;
+    bool loadContext( const KoXmlElement &context ) override;
+    void saveContext( QDomElement &context ) const override;
 
-    void updateReadWrite( bool on );
+    void updateReadWrite( bool on ) override;
 
     bool showNoInformation() const { return m_showNoInformation; }
 
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
 
 public Q_SLOTS:
-    void setScheduleManager(KPlato::ScheduleManager *sm);
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
     void setShowTaskName( bool on ) { m_showTaskName = on; }
     void setShowProgress( bool on ) { m_showProgress = on; }
@@ -424,13 +424,13 @@ public Q_SLOTS:
     void setShowCriticalTasks( bool on ) { m_showCriticalTasks = on; }
     void setShowNoInformation( bool on ) { m_showNoInformation = on; }
 
-    void slotEditCopy();
+    void slotEditCopy() override;
 
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
     void slotGanttHeaderContextMenuRequested(const QPoint &pt);
     void slotDateTimeGridChanged();
-    virtual void slotOptions();
+    void slotOptions() override;
     void ganttActions();
     void itemDoubleClicked(const QPersistentModelIndex &idx);
 
@@ -455,7 +455,7 @@ public:
     ResourceAppointmentsGanttViewSettingsDialog(GanttViewBase *gantt, ViewBase *view, bool selectPrint = false);
 
 public Q_SLOTS:
-    void slotOk();
+    void slotOk() override;
 
 private:
     GanttViewBase *m_gantt;
@@ -468,38 +468,38 @@ class PLANUI_EXPORT ResourceAppointmentsGanttView : public ViewBase
     Q_OBJECT
 public:
     ResourceAppointmentsGanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWrite = true);
-    ~ResourceAppointmentsGanttView();
+    ~ResourceAppointmentsGanttView() override;
 
     virtual void setZoom( double zoom );
-    virtual void setProject( Project *project );
-    Project *project() const;
+    void setProject( Project *project ) override;
+    Project *project() const override;
 
     void setupGui();
 
-    virtual bool loadContext( const KoXmlElement &context );
-    virtual void saveContext( QDomElement &context ) const;
+    bool loadContext( const KoXmlElement &context ) override;
+    void saveContext( QDomElement &context ) const override;
 
-    void updateReadWrite( bool on );
+    void updateReadWrite( bool on ) override;
 
-    KoPrintJob *createPrintJob();
+    KoPrintJob *createPrintJob() override;
 
     GanttTreeView *treeView() const { return static_cast<GanttTreeView*>( m_gantt->leftView() ); }
 
-    Node *currentNode() const;
+    Node *currentNode() const override;
 
 Q_SIGNALS:
     void itemDoubleClicked();
 
 public Q_SLOTS:
-    void setScheduleManager(KPlato::ScheduleManager *sm);
-    void slotEditCopy();
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
+    void slotEditCopy() override;
 
 protected Q_SLOTS:
     void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
     void slotContextMenuRequestedFromGantt( const QModelIndex&, const QPoint &pos );
     void slotGanttHeaderContextMenuRequested(const QPoint &pt);
     void slotDateTimeGridChanged();
-    virtual void slotOptions();
+    void slotOptions() override;
     void ganttActions();
 
 private:

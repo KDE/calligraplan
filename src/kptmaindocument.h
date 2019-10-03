@@ -60,45 +60,45 @@ class PLAN_EXPORT MainDocument : public KoDocument
 
 public:
     explicit MainDocument(KoPart *part);
-    ~MainDocument();
+    ~MainDocument() override;
 
 
     /// reimplemented from KoDocument
-    virtual QByteArray nativeFormatMimeType() const { return PLAN_MIME_TYPE; }
+    QByteArray nativeFormatMimeType() const override { return PLAN_MIME_TYPE; }
     /// reimplemented from KoDocument
-    virtual QByteArray nativeOasisMimeType() const { return ""; }
+    QByteArray nativeOasisMimeType() const override { return ""; }
     /// reimplemented from KoDocument
-    virtual QStringList extraNativeMimeTypes() const
+    QStringList extraNativeMimeTypes() const override
     {
         return QStringList() << PLAN_MIME_TYPE;
     }
 
-    void setReadWrite( bool rw );
+    void setReadWrite( bool rw ) override;
     void configChanged();
 
-    virtual void paintContent( QPainter& painter, const QRect& rect);
+    void paintContent( QPainter& painter, const QRect& rect) override;
 
     void setProject( Project *project );
-    Project *project() const { return m_project; }
+    Project *project() const override { return m_project; }
     Project &getProject() { return *m_project; }
     const Project &getProject() const { return * m_project; }
-    QString projectName() const { return m_project->name(); }
+    QString projectName() const override { return m_project->name(); }
 
     /**
      * Return the set of SupportedSpecialFormats that the kplato wants to
      * offer in the "Save" file dialog.
      * Note: SaveEncrypted is not supported.
      */
-    virtual int supportedSpecialFormats() const { return SaveAsDirectoryStore; }
+    int supportedSpecialFormats() const override { return SaveAsDirectoryStore; }
 
     // The load and save functions. Look in the file kplato.dtd for info
-    virtual bool loadXML( const KoXmlDocument &document, KoStore *store );
-    virtual QDomDocument saveXML();
+    bool loadXML( const KoXmlDocument &document, KoStore *store ) override;
+    QDomDocument saveXML() override;
     /// Save a workpackage file containing @p node with schedule identity @p id, owned by @p resource
     QDomDocument saveWorkPackageXML( const Node *node, long id, Resource *resource = 0 );
 
-    bool saveOdf( SavingContext &/*documentContext */) { return false; }
-    bool loadOdf( KoOdfReadStore & odfStore );
+    bool saveOdf( SavingContext &/*documentContext */) override { return false; }
+    bool loadOdf( KoOdfReadStore & odfStore ) override;
 
     Config &config() { return m_config; }
     Context *context() const { return m_context; }
@@ -143,7 +143,7 @@ public:
 
     using KoDocument::setModified;
 public Q_SLOTS:
-    void setModified( bool mod );
+    void setModified( bool mod ) override;
 
     /// Inserts an item into all other views than @p view
     void insertViewListItem(KPlato::View *view, const KPlato::ViewListItem *item, const KPlato::ViewListItem *parent, int index);
@@ -189,9 +189,9 @@ Q_SIGNALS:
 
 protected:
     /// Load kplato specific files
-    virtual bool completeLoading( KoStore* store );
+    bool completeLoading( KoStore* store ) override;
     /// Save kplato specific files
-    virtual bool completeSaving( KoStore* store );
+    bool completeSaving( KoStore* store ) override;
 
     // used by insert file
     struct InsertFileInfo {
