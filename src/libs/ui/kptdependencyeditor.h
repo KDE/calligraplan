@@ -560,6 +560,7 @@ private Q_SLOTS:
     void slotAddMilestone();
     void slotAddSubMilestone();
     void slotDeleteTask();
+    void slotLinkTask();
 
 private:
     void edit( const QModelIndex &index );
@@ -577,6 +578,7 @@ private:
     QAction *actionAddSubtask;
     QAction *actionAddSubMilestone;
     QAction *actionDeleteTask;
+    QAction *actionLinkTask;
 };
 
 

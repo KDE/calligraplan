@@ -6,6 +6,8 @@
             <Action name="add_task"/>
             <Action name="add_subtask"/>
             <Action name="delete_task"/>
+            <Separator/>
+            <Action name="link_task"/>
         </Menu>
         <Menu name="view">
             <Separator/>
@@ -26,5 +28,7 @@
         <Action name="add_task"/>
         <Action name="add_subtask"/>
         <Action name="delete_task"/>
+        <Separator/>
+        <Action name="link_task"/>
     </ToolBar>
 </gui>

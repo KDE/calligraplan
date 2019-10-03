@@ -38,6 +38,7 @@
 #include "TasksEditController.h"
 #include "Help.h"
 #include "kpttaskdescriptiondialog.h"
+#include "RelationEditorDialog.h"
 
 #include <KoXmlReader.h>
 #include <KoDocument.h>
@@ -716,6 +717,7 @@ void TaskEditor::updateActionsEnabled( bool on )
         actionAddSubtask->setEnabled( false );
         actionAddSubMilestone->setEnabled( false );
         actionDeleteTask->setEnabled( false );
+        actionLinkTask->setEnabled( false );
         actionMoveTaskUp->setEnabled( false );
         actionMoveTaskDown->setEnabled( false );
         actionIndentTask->setEnabled( false );
@@ -734,6 +736,7 @@ void TaskEditor::updateActionsEnabled( bool on )
             actionAddSubtask->setEnabled( false );
             actionAddSubMilestone->setEnabled( false );
             actionDeleteTask->setEnabled( false );
+            actionLinkTask->setEnabled( false );
             actionMoveTaskUp->setEnabled( false );
             actionMoveTaskDown->setEnabled( false );
             actionIndentTask->setEnabled( false );
@@ -747,6 +750,7 @@ void TaskEditor::updateActionsEnabled( bool on )
             actionAddSubtask->setEnabled( false );
             actionAddSubMilestone->setEnabled( false );
             actionDeleteTask->setEnabled( false );
+            actionLinkTask->setEnabled( false );
             actionMoveTaskUp->setEnabled( false );
             actionMoveTaskDown->setEnabled( false );
             actionIndentTask->setEnabled( false );
@@ -788,6 +792,7 @@ void TaskEditor::updateActionsEnabled( bool on )
         actionAddSubtask->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
         actionAddSubMilestone->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
         actionDeleteTask->setEnabled( ! baselined );
+        actionLinkTask->setEnabled( ! baselined );
         Node *s = n->siblingBefore();
         actionMoveTaskUp->setEnabled( s );
         actionMoveTaskDown->setEnabled( n->siblingAfter() );
@@ -804,6 +809,7 @@ void TaskEditor::updateActionsEnabled( bool on )
     actionAddSubtask->setEnabled( false );
     actionAddSubMilestone->setEnabled( false );
     actionDeleteTask->setEnabled( ! baselined );
+    actionLinkTask->setEnabled( false );
     actionMoveTaskUp->setEnabled( false );
     actionMoveTaskDown->setEnabled( false );
     actionIndentTask->setEnabled( false );
@@ -846,6 +852,10 @@ void TaskEditor::setupGui()
     actionCollection()->addAction("delete_task", actionDeleteTask );
     connect( actionDeleteTask, &QAction::triggered, this, &TaskEditor::slotDeleteTask );
 
+    actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
+    actionCollection()->setDefaultShortcut( actionLinkTask, Qt::CTRL + Qt::Key_L );
+    actionCollection()->addAction("link_task", actionLinkTask );
+    connect( actionLinkTask, &QAction::triggered, this, &TaskEditor::slotLinkTask );
 
     actionIndentTask  = new QAction(koIcon("format-indent-more"), i18n("Indent Task"), this);
     actionCollection()->addAction("indent_task", actionIndentTask );
@@ -1017,6 +1027,21 @@ void TaskEditor::slotDeleteTask()
     if ( i.isValid() ) {
         m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect );
         m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
+    }
+}
+
+void TaskEditor::slotLinkTask()
+{
+    //debugPlan;
+    Node *n = currentNode();
+    if (n && project()) {
+        RelationEditorDialog dlg(project(), n);
+        if (dlg.exec()) {
+            KUndo2Command *cmd = dlg.buildCommand();
+            if (cmd) {
+                koDocument()->addCommand(cmd);
+            }
+        }
     }
 }
 

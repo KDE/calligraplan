@@ -7,6 +7,8 @@
             <Action name="add_subtask"/>
             <Action name="delete_task"/>
             <Separator/>
+            <Action name="link_task"/>
+            <Separator/>
             <Action name="indent_task"/>
             <Action name="unindent_task"/>
             <Action name="move_task_up"/>
@@ -31,6 +33,8 @@
         <Action name="add_task"/>
         <Action name="add_subtask"/>
         <Action name="delete_task"/>
+        <Separator/>
+        <Action name="link_task"/>
         <Separator/>
         <Action name="indent_task"/>
         <Action name="unindent_task"/>

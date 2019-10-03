@@ -180,6 +180,7 @@ private Q_SLOTS:
     void slotAddMilestone();
     void slotAddSubMilestone();
     void slotDeleteTask();
+    void slotLinkTask();
     void slotIndentTask();
     void slotUnindentTask();
     void slotMoveTaskUp();
@@ -203,6 +204,7 @@ private:
     QAction *actionAddSubtask;
     QAction *actionAddSubMilestone;
     QAction *actionDeleteTask;
+    QAction *actionLinkTask;
     QAction *actionMoveTaskUp;
     QAction *actionMoveTaskDown;
     QAction *actionIndentTask;

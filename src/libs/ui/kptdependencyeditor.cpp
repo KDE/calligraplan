@@ -32,9 +32,11 @@
 #include "kptdebug.h"
 #include "config.h"
 #include "Help.h"
+#include "RelationEditorDialog.h"
 
 #include "KoPageLayoutWidget.h"
 #include <KoIcon.h>
+#include <KoDocument.h>
 
 #include <QGraphicsSceneMouseEvent>
 #include <QItemSelectionModel>
@@ -2249,6 +2251,7 @@ void DependencyEditor::updateActionsEnabled( bool on )
         actionAddSubtask->setEnabled( false );
         actionAddSubMilestone->setEnabled( false );
         actionDeleteTask->setEnabled( false );
+        actionLinkTask->setEnabled( false );
         return;
     }
     int selCount = selectedNodeCount();
@@ -2261,6 +2264,7 @@ void DependencyEditor::updateActionsEnabled( bool on )
         actionAddSubtask->setEnabled( false );
         actionAddSubMilestone->setEnabled( false );
         actionDeleteTask->setEnabled( false );
+        actionLinkTask->setEnabled( false );
         return;
     }
     Node *n = selectedNode();
@@ -2276,6 +2280,7 @@ void DependencyEditor::updateActionsEnabled( bool on )
         actionAddSubtask->setEnabled( true );
         actionAddSubMilestone->setEnabled( true );
         actionDeleteTask->setEnabled( false );
+        actionLinkTask->setEnabled( false );
         return;
     }
     bool baselined = false;
@@ -2296,6 +2301,7 @@ void DependencyEditor::updateActionsEnabled( bool on )
         actionAddSubtask->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
         actionAddSubMilestone->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
         actionDeleteTask->setEnabled( ! baselined );
+        actionLinkTask->setEnabled( ! baselined );
         return;
     }
     // selCount > 1
@@ -2306,6 +2312,7 @@ void DependencyEditor::updateActionsEnabled( bool on )
     actionAddSubtask->setEnabled( false );
     actionAddSubMilestone->setEnabled( false );
     actionDeleteTask->setEnabled( ! baselined );
+    actionLinkTask->setEnabled( false );
 }
 
 void DependencyEditor::setupGui()
@@ -2345,6 +2352,11 @@ void DependencyEditor::setupGui()
     coll->addAction("delete_task", actionDeleteTask );
     coll->setDefaultShortcut(actionDeleteTask, Qt::Key_Delete);
     connect( actionDeleteTask, &QAction::triggered, this, &DependencyEditor::slotDeleteTask );
+
+    actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
+    actionCollection()->setDefaultShortcut( actionLinkTask, Qt::CTRL + Qt::Key_L );
+    actionCollection()->addAction("link_task", actionLinkTask );
+    connect( actionLinkTask, &QAction::triggered, this, &DependencyEditor::slotLinkTask );
 
     createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);
 }
@@ -2430,6 +2442,21 @@ void DependencyEditor::slotDeleteTask()
     }
     foreach ( Node* n, lst ) { debugPlanDepEditor<<n->name(); }
     emit deleteTaskList( lst );
+}
+
+void DependencyEditor::slotLinkTask()
+{
+    //debugPlan;
+    Node *n = selectedNode();
+    if (n && project()) {
+        RelationEditorDialog dlg(project(), n);
+        if (dlg.exec()) {
+            KUndo2Command *cmd = dlg.buildCommand();
+            if (cmd) {
+                koDocument()->addCommand(cmd);
+            }
+        }
+    }
 }
 
 KoPrintJob *DependencyEditor::createPrintJob()
