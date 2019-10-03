@@ -35,19 +35,19 @@ extern const PLANKERNEL_EXPORT QLoggingCategory &PLAN_LOG();
 
 extern const PLANKERNEL_EXPORT QLoggingCategory &PLANDEPEDITOR_LOG();
 
-#define debugPlanDepEditor qCDebug(PLANDEPEDITOR_LOG)
+#define debugPlanDepEditor qCDebug(PLANDEPEDITOR_LOG)<<Q_FUNC_INFO
 #define warnPlanDepEditor qCWarning(PLANDEPEDITOR_LOG)
 #define errorPlanDepEditor qCCritical(PLANDEPEDITOR_LOG)
 
 extern const PLANKERNEL_EXPORT QLoggingCategory &PLANXML_LOG();
 
-#define debugPlanXml qCDebug(PLANXML_LOG)
+#define debugPlanXml qCDebug(PLANXML_LOG)<<Q_FUNC_INFO
 #define warnPlanXml qCWarning(PLANXML_LOG)
 #define errorPlanXml qCCritical(PLANXML_LOG)
 
 extern const PLANKERNEL_EXPORT QLoggingCategory &PLANSHARED_LOG();
 
-#define debugPlanShared qCDebug(PLANSHARED_LOG)
+#define debugPlanShared qCDebug(PLANSHARED_LOG)<<Q_FUNC_INFO
 #define warnPlanShared qCWarning(PLANSHARED_LOG)
 #define errorPlanShared qCCritical(PLANSHARED_LOG)
 
