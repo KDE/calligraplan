@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>550</width>
-    <height>192</height>
+    <height>172</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,6 +102,9 @@
           <property name="selectionMode">
            <enum>QAbstractItemView::ExtendedSelection</enum>
           </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectItems</enum>
+          </property>
           <property name="rootIsDecorated">
            <bool>false</bool>
           </property>
@@ -128,7 +131,7 @@
           <item>
            <widget class="QToolButton" name="addBtn">
             <property name="text">
-             <string comment="New task dependency">New</string>
+             <string comment="Insert task dependency">Insert</string>
             </property>
             <property name="icon">
              <iconset theme="list-add">
@@ -139,13 +142,26 @@
           <item>
            <widget class="QToolButton" name="removeBtn">
             <property name="text">
-             <string comment="Remove selected dependencies">Remove</string>
+             <string/>
             </property>
             <property name="icon">
              <iconset theme="list-remove">
               <normaloff>.</normaloff>.</iconset>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>

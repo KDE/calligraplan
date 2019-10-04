@@ -1,16 +1,16 @@
 /* This file is part of the KDE project
  * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
  * version 2 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Library General Public License
  * along with this library; see the file COPYING.LIB.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -25,15 +25,18 @@
 #include "kptcommand.h"
 #include "kptitemmodelbase.h"
 #include "kptdurationspinbox.h"
+#include "KoIcon.h"
 
 #include <KLocalizedString>
 
 #include <QStandardItemModel>
+#include <QStandardItem>
 #include <QComboBox>
 #include <QTimer>
 #include <QHash>
 #include <QHashIterator>
 #include <QMutableHashIterator>
+#include <QMutableListIterator>
 
 using namespace KPlato;
 
@@ -77,12 +80,11 @@ QList<Task*> sortedTasks(Project *project, Task *task, const QModelIndex &index)
 
 BaseDelegate::BaseDelegate(QObject *parent)
     : QStyledItemDelegate(parent)
-{        
+{
 }
 
 void BaseDelegate::slotEditorDestroyed(QObject*o)
 {
-    qInfo()<<Q_FUNC_INFO<<o;
     emit const_cast<BaseDelegate*>(this)->editModeChanged(false);
 }
 
@@ -146,7 +148,6 @@ QWidget *TypeDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem 
 void TypeDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
     QComboBox *e = static_cast<QComboBox*>(editor);
-    QStandardItemModel *comboModel = new QStandardItemModel(e);
     const QStringList types = Relation::typeList(true);
     e->addItems(types);
     e->setCurrentText(index.data().toString());
@@ -155,9 +156,8 @@ void TypeDelegate::setEditorData(QWidget *editor, const QModelIndex &index) cons
 void TypeDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
     QComboBox *e = static_cast<QComboBox*>(editor);
-    QString name = e->currentText();
-    model->setData(index, index.row(), Qt::UserRole);
-    model->setData(index, name, Qt::EditRole);
+    model->setData(index, e->currentIndex(), Qt::UserRole);
+    model->setData(index, e->currentText(), Qt::EditRole);
 }
 
 void TypeDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &/* index */) const
@@ -205,7 +205,7 @@ void LagDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewIt
 void LagDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Q_ASSERT(index.isValid());
-    
+
     QStyleOptionViewItem opt = option;
     initStyleOption(&opt, index);
     Duration::Unit unit = static_cast<Duration::Unit>(index.data(Role::DurationUnit).toInt());
@@ -220,17 +220,24 @@ void LagDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
 RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget *parent)
     : KoDialog(parent)
     , m_project(project)
-    , m_task(task)
-      
+    , m_task(qobject_cast<Task*>(task))
+
 {
     ui.setupUi(this);
+
+    // set actions to get shortcuts
+    QAction *a = new QAction(ui.addBtn->icon(), ui.addBtn->text(), ui.addBtn);
+    a->setShortcut(Qt::Key_Insert);
+    ui.addBtn->setDefaultAction(a);
+    a = new QAction(ui.removeBtn);
+    a->setIcon(koIcon("edit-delete"));
+    a->setText(i18n("Delete"));
+    a->setShortcut(Qt::Key_Delete);
+    ui.removeBtn->setDefaultAction(a);
 
     setCaption(xi18nc("@title:window", "Edit Dependency"));
     setButtons(KoDialog::Ok|KoDialog::Cancel );
     showButtonSeparator( true );
-
-//     m_relationModel.setProject(project);
-//     m_relationModel.setNode(task);
 
     ui.taskName->setText(task->name());
 
@@ -259,7 +266,7 @@ RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget
     ui.view->setModel(m);
 
     BaseDelegate *del = new PredeccessorDelegate(project, task, ui.view);
-    connect(del, &BaseDelegate::editModeChanged, ui.addBtn, &QAbstractButton::setDisabled);
+    connect(del, &BaseDelegate::editModeChanged, this, &RelationEditorDialog::slotDisableInsert);
     connect(del, &BaseDelegate::editModeChanged, ui.removeBtn, &QAbstractButton::setDisabled);
     ui.view->setItemDelegateForColumn(0, del);
     del = new TypeDelegate(ui.view);
@@ -274,18 +281,49 @@ RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget
 
     setMainWidget(ui.mainWidget);
 
-    connect(ui.addBtn, &QToolButton::clicked, this, &RelationEditorDialog::addRelation);
-    connect(ui.removeBtn, &QToolButton::clicked, this, &RelationEditorDialog::removeRelation);
+    connect(ui.addBtn, &QToolButton::triggered, this, &RelationEditorDialog::addRelation);
+    connect(ui.removeBtn, &QToolButton::triggered, this, &RelationEditorDialog::removeRelation);
 
     if (relations.isEmpty()) {
         QTimer::singleShot(0, this, &RelationEditorDialog::addRelation);
     }
-//     connect(ui.view, &QAbstractItemView::editorDestroyed, this, &RelationEditorDialog::slotEditModeChanged);
+    slotDisableInsert(false);
+    connect(ui.view->selectionModel(), &QItemSelectionModel::currentChanged, this, &RelationEditorDialog::slotCurrentChanged);
 }
 
-void RelationEditorDialog::slotEditModeChanged(QObject *e)
+void RelationEditorDialog::slotCurrentChanged(const QModelIndex &idx)
 {
-    qInfo()<<Q_FUNC_INFO<<e;
+    QStandardItemModel *m = static_cast<QStandardItemModel*>(ui.view->model());
+    QStandardItem *item = m->itemFromIndex(idx);
+    if (item->data().toBool()) {
+        ui.removeBtn->defaultAction()->setIcon(koIcon("edit-undo"));
+        ui.removeBtn->defaultAction()->setText(i18n("Un-Delete"));
+    } else {
+        ui.removeBtn->defaultAction()->setIcon(koIcon("edit-delete"));
+        ui.removeBtn->defaultAction()->setText(i18n("Delete"));
+    }
+}
+
+void RelationEditorDialog::slotDisableInsert(bool _disable)
+{
+    bool disable = _disable;
+    if (!disable) {
+        QList<Task*> tasks = m_project->allTasks();
+        tasks.removeAll(m_task);
+        QMutableListIterator<Task*> it(tasks);
+        while (it.hasNext()) {
+            Task *t = it.next();
+            if (!m_project->legalToLink(t, m_task)) {
+                tasks.removeAll(t);
+            }
+        }
+        for(int i = 0; i < ui.view->model()->rowCount(); ++i) {
+            QModelIndex idx = ui.view->model()->index(i, 0);
+            tasks.removeAll(static_cast<Task*>(m_project->findNode(idx.data(Qt::UserRole).toString())));
+        }
+        disable = tasks.isEmpty();
+    }
+    ui.addBtn->setDisabled(disable);
 }
 
 void RelationEditorDialog::addRelation()
@@ -303,17 +341,37 @@ void RelationEditorDialog::addRelation()
     m->setData(idx, Duration::Unit_h, Role::DurationUnit);
 
     idx = idx.sibling(idx.row(), 0);
-    
+
     ui.view->edit(idx);
 }
 
 void RelationEditorDialog::removeRelation()
 {
-    QModelIndex idx = ui.view->selectionModel()->currentIndex();
-    qInfo()<<Q_FUNC_INFO<<idx;
-    if (idx.isValid()) {
-        ui.view->model()->removeRow(idx.row());
+    QModelIndex cidx = ui.view->selectionModel()->currentIndex();
+    cidx = cidx.sibling(cidx.row(), 0);
+    if (cidx.isValid()) {
+        QModelIndex idx = cidx;
+        QStandardItemModel *m = static_cast<QStandardItemModel*>(ui.view->model());
+        QStandardItem *item = m->itemFromIndex(idx);
+        if (item->data().toBool()) {
+            // undelete
+            item->setIcon(QIcon());
+            item->setData(false); // deleted
+            idx = idx.sibling(idx.row(), 1);
+            m->itemFromIndex(idx)->setEnabled(true);
+            idx = idx.sibling(idx.row(), 2);
+            m->itemFromIndex(idx)->setEnabled(true);
+        } else {
+            item->setIcon(koIcon("edit-delete"));
+            item->setData(true); // deleted
+            idx = idx.sibling(idx.row(), 1);
+            m->itemFromIndex(idx)->setEnabled(false);
+            idx = idx.sibling(idx.row(), 2);
+            m->itemFromIndex(idx)->setEnabled(false);
+        }
     }
+    slotDisableInsert(false);
+    slotCurrentChanged(cidx);
 }
 
 MacroCommand *RelationEditorDialog::buildCommand() {
@@ -326,6 +384,9 @@ MacroCommand *RelationEditorDialog::buildCommand() {
     const QAbstractItemModel *m = ui.view->model();
     for (int i = 0; i < m->rowCount(); ++i) {
         QModelIndex idx = m->index(i, 0);
+        if (idx.data(Qt::UserRole+1).toBool()) {
+            continue; // deleted
+        }
         Node *pred = m_project->findNode(idx.data(Qt::UserRole).toString());
         Q_ASSERT(pred);
         idx = idx.sibling(i, 1);

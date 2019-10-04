@@ -32,6 +32,7 @@ namespace KPlato
 
 class Project;
 class Node;
+class Task;
 class MacroCommand;
 
 
@@ -48,11 +49,12 @@ public Q_SLOTS:
     void removeRelation();
 
 private Q_SLOTS:
-    void slotEditModeChanged(QObject*);
+    void slotDisableInsert(bool disable);
+    void slotCurrentChanged(const QModelIndex &idx);
 
 private:
     Project *m_project;
-    Node *m_task;
+    Task *m_task;
     Ui::RelationEditorDialog ui;
 };
 
