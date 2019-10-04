@@ -236,7 +236,7 @@ RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget
 
     QStandardItemModel *m = new QStandardItemModel(0, 3, ui.view);
     QStringList headers;
-    headers << xi18nc("@title:column", "Predeccessor");
+    headers << xi18nc("@title:column", "Predecessor");
     headers << xi18nc("@title:column", "Type");
     headers << xi18nc("@title:column", "Lag");
     m->setHorizontalHeaderLabels(headers);
