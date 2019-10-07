@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE kpartgui>
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
 <gui name="ganttview_scale" version="4" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
