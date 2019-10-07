@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui>
-<gui name="ganttview_scale" version="4" translationDomain="calligraplan">
+<gui name="ganttview_scale" version="4" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
-            <text>&amp;View</text>
             <Action name="show_project"/>
             <Action name="show_unscheduled_tasks"/>
             <Separator/>

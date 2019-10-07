@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui>
-<gui name="scheduleeditor" version="2" translationDomain="calligraplan">
+<gui name="scheduleeditor" version="2" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="edit">
             <Action name="add_schedule"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui>
-<gui name="pertresult" version="1" translationDomain="calligraplan">
+<gui name="pertresult" version="1" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
             <Separator/>
