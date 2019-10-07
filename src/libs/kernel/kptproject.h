@@ -295,7 +295,7 @@ public:
 
     virtual const QHash<QString, Node*> &nodeDict() { return nodeIdDict; }
     /// Return a list of all nodes in the project (excluding myself)
-    QList<Node*> allNodes() const;
+    QList<Node*> allNodes(bool ordered = false, Node *parent = nullptr) const;
     /// Return the number of all nodes in the project (excluding myself)
     int nodeCount() const { return nodeIdDict.count() - 1; }
 

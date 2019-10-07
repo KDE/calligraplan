@@ -38,21 +38,25 @@
 #include <QMutableHashIterator>
 #include <QMutableListIterator>
 
+#define TASKID_ROLE Qt::UserRole
+#define TASKDELETED_ROLE Qt::UserRole+246
+#define RELATIONTYPE_ROLE Qt::UserRole
+
 using namespace KPlato;
 
 QList<Task*> sortedTasks(Project *project, Task *task, const QModelIndex &index)
 {
     QList<Task*> lst;
-    const QList<Task*> tasks = project->allTasks();
+    const QList<Node*> tasks = project->allNodes(true);
     int pos = tasks.indexOf(task);
     const QAbstractItemModel *model = index.model();
     const QString name = index.data().toString();
     for (int i = pos-1; i >= 0; --i) {
-        Task *t = tasks.at(i);
+        Task *t = static_cast<Task*>(tasks.at(i));
         if (t == task) {
             continue;
         }
-        if (name == t->name()) {
+        if (index.isValid() && name == t->name()) {
             lst << t;
         } else {
             bool match = !model->match(QModelIndex(), Qt::DisplayRole, t->name()).isEmpty();
@@ -62,11 +66,11 @@ QList<Task*> sortedTasks(Project *project, Task *task, const QModelIndex &index)
         }
     }
     for (int i = pos+1; i < tasks.count(); ++i) {
-        Task *t = tasks.at(i);
+        Task *t = static_cast<Task*>(tasks.at(i));
         if (t == task) {
             continue;
         }
-        if (name == t->name()) {
+        if (index.isValid() && name == t->name()) {
             lst << t;
         } else {
             bool match = !model->match(QModelIndex(), Qt::DisplayRole, t->name()).isEmpty();
@@ -83,7 +87,7 @@ BaseDelegate::BaseDelegate(QObject *parent)
 {
 }
 
-void BaseDelegate::slotEditorDestroyed(QObject*o)
+void BaseDelegate::slotEditorDestroyed(QObject*)
 {
     emit const_cast<BaseDelegate*>(this)->editModeChanged(false);
 }
@@ -113,7 +117,11 @@ void PredeccessorDelegate::setEditorData(QWidget *editor, const QModelIndex &ind
             e->addItem(t->name(), t->id());
         }
     }
-    e->setCurrentText(index.data().toString());
+    if (index.isValid() && index.data().isValid()) {
+        e->setCurrentText(index.data().toString());
+    } else {
+        e->setCurrentIndex(0);
+    }
 }
 
 void PredeccessorDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
@@ -121,7 +129,7 @@ void PredeccessorDelegate::setModelData(QWidget *editor, QAbstractItemModel *mod
     QComboBox *e = static_cast<QComboBox*>(editor);
     QString name = e->currentText();
     QVariant id = e->currentData();
-    model->setData(index, id, Qt::UserRole);
+    model->setData(index, id, TASKID_ROLE);
     model->setData(index, name, Qt::EditRole);
 }
 
@@ -156,7 +164,7 @@ void TypeDelegate::setEditorData(QWidget *editor, const QModelIndex &index) cons
 void TypeDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
     QComboBox *e = static_cast<QComboBox*>(editor);
-    model->setData(index, e->currentIndex(), Qt::UserRole);
+    model->setData(index, e->currentIndex(), RELATIONTYPE_ROLE);
     model->setData(index, e->currentText(), Qt::EditRole);
 }
 
@@ -252,10 +260,10 @@ RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget
         m->insertRow(m->rowCount());
         QModelIndex idx = m->index(m->rowCount()-1, 0);
         m->setData(idx, r->parent()->name());
-        m->setData(idx, r->parent()->id(), Qt::UserRole);
+        m->setData(idx, r->parent()->id(), TASKID_ROLE);
         idx = idx.sibling(idx.row(), 1);
         m->setData(idx, r->typeToString(true), Qt::EditRole);
-        m->setData(idx, r->type(), Qt::UserRole);
+        m->setData(idx, r->type(), RELATIONTYPE_ROLE);
         idx = idx.sibling(idx.row(), 2);
         Duration lag = r->lag();
         m->setData(idx, lag.toDouble(Duration::Unit_h), Qt::EditRole);
@@ -319,7 +327,7 @@ void RelationEditorDialog::slotDisableInsert(bool _disable)
         }
         for(int i = 0; i < ui.view->model()->rowCount(); ++i) {
             QModelIndex idx = ui.view->model()->index(i, 0);
-            tasks.removeAll(static_cast<Task*>(m_project->findNode(idx.data(Qt::UserRole).toString())));
+            tasks.removeAll(static_cast<Task*>(m_project->findNode(idx.data(TASKID_ROLE).toString())));
         }
         disable = tasks.isEmpty();
     }
@@ -332,7 +340,7 @@ void RelationEditorDialog::addRelation()
     m->setRowCount(m->rowCount()+1);
     QModelIndex idx = m->index(m->rowCount()-1, 1);
     m->setData(idx, Relation::typeList().at(0));
-    m->setData(idx, Relation::FinishStart, Qt::UserRole);
+    m->setData(idx, Relation::FinishStart, RELATIONTYPE_ROLE);
 
     idx = idx.sibling(idx.row(), 2);
     m->setData(idx, 0.0);
@@ -384,13 +392,13 @@ MacroCommand *RelationEditorDialog::buildCommand() {
     const QAbstractItemModel *m = ui.view->model();
     for (int i = 0; i < m->rowCount(); ++i) {
         QModelIndex idx = m->index(i, 0);
-        if (idx.data(Qt::UserRole+1).toBool()) {
+        if (idx.data(TASKDELETED_ROLE).toBool()) {
             continue; // deleted
         }
-        Node *pred = m_project->findNode(idx.data(Qt::UserRole).toString());
+        Node *pred = m_project->findNode(idx.data(TASKID_ROLE).toString());
         Q_ASSERT(pred);
         idx = idx.sibling(i, 1);
-        Relation::Type type = (Relation::Type)idx.data(Qt::UserRole).toInt();
+        Relation::Type type = (Relation::Type)idx.data(RELATIONTYPE_ROLE).toInt();
         idx = idx.sibling(i, 2);
         Duration lag = Duration(idx.data().toDouble(), (Duration::Unit)idx.data(Role::DurationUnit).toInt());
         bool found = false;
