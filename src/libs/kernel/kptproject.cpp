@@ -1935,12 +1935,22 @@ bool Project::registerNodeId( Node *node )
     return true;
 }
 
-QList<Node*> Project::allNodes() const
+QList<Node*> Project::allNodes(bool ordered, Node* parent) const
 {
-    QList<Node*> lst = nodeIdDict.values();
-    int me = lst.indexOf( const_cast<Project*>( this ) );
-    if ( me != -1 ) {
-        lst.removeAt( me );
+    QList<Node*> lst;
+    if (ordered) {
+        const Node *p = parent ? parent : this;
+        foreach ( Node *n, p->childNodeIterator() ) {
+            if ( n->type() == Node::Type_Task || n->type() == Type_Milestone || n->type() == Node::Type_Summarytask) {
+                lst << static_cast<Task*>( n );
+                lst += allNodes(ordered, n);
+            }
+        }
+    } else {
+        int me = lst.indexOf( const_cast<Project*>( this ) );
+        if ( me != -1 ) {
+            lst.removeAt( me );
+        }
     }
     return lst;
 }
