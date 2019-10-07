@@ -2335,7 +2335,7 @@ void DependencyEditor::setupGui()
 
 
     menuAddSubTask = new KActionMenu(koIcon("view-task-child-add"), i18n("Add Sub-Task"), this);
-    coll->addAction("add_subtask", menuAddTask );
+    coll->addAction("add_subtask", menuAddSubTask );
     connect( menuAddSubTask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask );
 
     actionAddSubtask  = new QAction( i18n("Add Sub-Task..."), this );

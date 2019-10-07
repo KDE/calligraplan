@@ -834,7 +834,7 @@ void TaskEditor::setupGui()
 
 
     menuAddSubTask = new KActionMenu(koIcon("view-task-child-add"), i18n("Add Sub-Task"), this);
-    actionCollection()->addAction("add_subtask", menuAddTask );
+    actionCollection()->addAction("add_subtask", menuAddSubTask );
     connect( menuAddSubTask, &QAction::triggered, this, &TaskEditor::slotAddSubtask );
 
     actionAddSubtask  = new QAction( i18n( "Add Sub-Task" ), this );
