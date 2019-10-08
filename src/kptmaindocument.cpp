@@ -86,7 +86,7 @@ MainDocument::MainDocument(KoPart *part)
 {
     Q_ASSERT(part);
     setAlwaysAllowSaving(true);
-    m_config.setReadWrite( true );
+    m_config.setReadWrite( isReadWrite() );
 
     loadSchedulerPlugins();
 
