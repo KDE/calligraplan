@@ -1947,6 +1947,7 @@ QList<Node*> Project::allNodes(bool ordered, Node* parent) const
             }
         }
     } else {
+        lst = nodeIdDict.values();
         int me = lst.indexOf( const_cast<Project*>( this ) );
         if ( me != -1 ) {
             lst.removeAt( me );
