@@ -1625,7 +1625,7 @@ void TreeViewBase::dragMoveEvent(QDragMoveEvent *event)
         debugPlan<<"On viewport:"<<event->isAccepted();
     } else {
         QModelIndex index = indexAt( event->pos() );
-        if ( index.isValid() ) {
+        if ( index.isValid() && m_readWrite) {
             emit dropAllowed( index, dropIndicatorPosition(), event );
         } else {
             event->ignore();

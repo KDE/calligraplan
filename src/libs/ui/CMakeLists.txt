@@ -189,16 +189,24 @@ install(TARGETS planui ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install( FILES
         AccountsEditorUi.rc
+        AccountsEditorUi_readonly.rc
         AccountsViewUi.rc
         CalendarEditorUi.rc
+        CalendarEditorUi_readonly.rc
         TaskEditorUi.rc
+        TaskEditorUi_readonly.rc
         DependencyEditorUi.rc
+        DependencyEditorUi_readonly.rc
         ResourceEditorUi.rc
+        ResourceEditorUi_readonly.rc
         ResourceAppointmentsViewUi.rc
         ScheduleEditorUi.rc
+        ScheduleEditorUi_readonly.rc
         GanttViewUi.rc
         WorkPackageViewUi.rc
+        WorkPackageViewUi_readonly.rc
         reportsgenerator/ReportsGeneratorViewUi.rc
+        reportsgenerator/ReportsGeneratorViewUi_readonly.rc
         performance/PerformanceStatusViewUi.rc
         performance/ProjectStatusViewUi.rc
         PertResultUi.rc

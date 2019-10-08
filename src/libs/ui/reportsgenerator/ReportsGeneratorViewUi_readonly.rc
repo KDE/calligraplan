@@ -2,11 +2,6 @@
 <!DOCTYPE kpartgui>
 <gui name="reportsgeneratorview" version="1" translationDomain="calligraplanlibs">
     <MenuBar>
-        <Menu name="edit">
-            <Action name="add_report"/>
-            <Action name="remove_report"/>
-            <Action name="generate_report"/>
-        </Menu>
         <Menu name="view">
             <Separator/>
             <Action name="expand_all"/>
@@ -20,9 +15,4 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="project">
-        <Action name="add_report"/>
-        <Action name="remove_report"/>
-        <Action name="generate_report"/>
-    </ToolBar>
 </gui>

@@ -301,7 +301,11 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent )
 {
     debugPlan<<"----------------- Create TaskEditor ----------------------";
-    setXMLFile("TaskEditorUi.rc");
+    if (doc && doc->isReadWrite()) {
+        setXMLFile("TaskEditorUi.rc");
+    } else {
+        setXMLFile("TaskEditorUi_readonly.rc");
+    }
 
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );
@@ -1481,7 +1485,11 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
     : ViewBase(part, doc, parent ),
     m_cmd( 0 )
 {
-    setXMLFile("WorkPackageViewUi.rc");
+    if (doc && doc->isReadWrite()) {
+        setXMLFile("WorkPackageViewUi.rc");
+    } else {
+        setXMLFile("WorkPackageViewUi_readonly.rc");
+    }
 
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );

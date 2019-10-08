@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE kpartgui>
-<gui name="reportsgeneratorview" version="1" translationDomain="calligraplanlibs">
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="workpackageview" version="2" translationDomain="calligraplanlibs">
     <MenuBar>
-        <Menu name="edit">
-            <Action name="add_report"/>
-            <Action name="remove_report"/>
-            <Action name="generate_report"/>
-        </Menu>
         <Menu name="view">
+            <Action name="split_view"/>
             <Separator/>
             <Action name="expand_all"/>
             <Action name="collapse_all"/>
@@ -20,9 +16,9 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="project">
-        <Action name="add_report"/>
-        <Action name="remove_report"/>
-        <Action name="generate_report"/>
-    </ToolBar>
+    <Menu name="workpackage_popup">
+        <Action name="task_progress"/>
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
+    </Menu>
 </gui>

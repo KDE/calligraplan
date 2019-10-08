@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE kpartgui>
-<gui name="projectstatusview" version="1" translationDomain="calligraplanlibs">
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="scheduleeditor" version="2" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
             <Separator/>
             <Action name="expand_all"/>
             <Action name="collapse_all"/>
             <Separator/>
-            <Action name="show_project"/>
-            <Action name="split_view"/>
-            <Separator/>
             <Action name="print"/>
-            <Action name="print_preview"/>
             <Action name="print_pdf"/>
             <Action name="print_options"/>
             <Separator/>

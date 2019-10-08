@@ -270,6 +270,8 @@ class SchedulingRange : public QWidget, public Ui::SchedulingRange
 public:
     SchedulingRange(KoDocument *doc, QWidget *parent = 0);
  
+    void setReadWrite(bool rw);
+
 public Q_SLOTS:
     void setProject(KPlato::Project *project);
     void slotProjectChanged(KPlato::Node*);

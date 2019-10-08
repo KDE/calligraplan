@@ -52,6 +52,8 @@ public:
     static QStringList addOptions();
     static QStringList addTags();
 
+    void updateReadWrite( bool ) override;
+
 public Q_SLOTS:
     /// Activate/deactivate the gui
     void setGuiActive( bool activate ) override;

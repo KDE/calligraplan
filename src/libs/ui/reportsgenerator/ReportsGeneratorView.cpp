@@ -212,7 +212,11 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"----------------- Create ReportsGeneratorView ----------------------";
-    setXMLFile("ReportsGeneratorViewUi.rc");
+    if (doc && doc->isReadWrite()) {
+        setXMLFile("ReportsGeneratorViewUi.rc");
+    } else {
+        setXMLFile("ReportsGeneratorViewUi_readonly.rc");
+    }
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -227,6 +231,8 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     m_view->setContextMenuPolicy(Qt::CustomContextMenu);
     m_view->setRootIsDecorated(false);
     m_view->setAlternatingRowColors(true);
+
+    updateReadWrite(doc && doc->isReadWrite());
 
     connect(m_view, &QWidget::customContextMenuRequested, this, &ReportsGeneratorView::slotContextMenuRequested);
     l->addWidget(m_view);
@@ -264,6 +270,22 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
                           "You can create a report template using any Open Document text editor."
                           "<nl/><link url='%1'>More...</link>"
                           "</para>", Help::page("Manual/Reports_Generator_View")));
+}
+
+void ReportsGeneratorView::updateReadWrite(bool rw)
+{
+    QStandardItemModel *m = static_cast<QStandardItemModel*>(m_view->model());
+    for (int r = 0; r < m->rowCount(); ++r) {
+        for (int c = 0; c < m->columnCount(); ++c) {
+            QStandardItem *item = m->itemFromIndex(m->index(r, c));
+            if (rw) {
+                item->setFlags(item->flags() | Qt::ItemIsEditable);
+            } else {
+                item->setFlags(item->flags() & ~Qt::ItemIsEditable);
+            }
+        }
+    }
+    ViewBase::updateReadWrite(rw);
 }
 
 void ReportsGeneratorView::setGuiActive(bool activate)
@@ -502,6 +524,7 @@ bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
     for (int c = 0; c < m_view->header()->count(); ++c) {
         m_view->resizeColumnToContents(c);
     }
+    updateReadWrite(isReadWrite());
     return true;
 }
 

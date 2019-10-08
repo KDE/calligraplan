@@ -740,6 +740,11 @@ bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocu
     if (!newdoc)
         newdoc = newpart->document();
 
+    KFileItem file(url, newdoc->mimeType(), KFileItem::Unknown);
+    if (!file.isWritable()) {
+        newdoc->setReadWrite(false);
+    }
+
     d->firstTime = true;
     connect(newdoc, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
     connect(newdoc, &KoDocument::completed, this, &KoMainWindow::slotLoadCompleted);
@@ -756,10 +761,6 @@ bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocu
     }
     updateReloadFileAction(newdoc);
 
-    KFileItem file(url, newdoc->mimeType(), KFileItem::Unknown);
-    if (!file.isWritable()) {
-        setReadWrite(false);
-    }
     return true;
 }
 
