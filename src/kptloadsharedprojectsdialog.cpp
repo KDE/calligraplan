@@ -37,7 +37,7 @@ LoadSharedProjectsDialog::LoadSharedProjectsDialog(Project &project, const QUrl 
     : KoDialog(parent)
     , m_view(new QTreeView(this))
 {
-    setCaption( i18nc("@title", "Load Resource Assignments") );
+    setCaption( xi18nc("@title:window", "Load Resource Assignments") );
     setButtons( KoDialog::Ok | KoDialog::Cancel );
     setDefaultButton( Ok );
     showButtonSeparator( true );

@@ -606,30 +606,30 @@ QVariant TaskWorkPackageModel::headerData( int section, Qt::Orientation orientat
     }
     if ( role == Qt::DisplayRole ) {
         switch ( section ) {
-        case NodeName: return i18n( "Name" );
-        case NodeType: return i18n( "Type" );
-        case NodeResponsible: return i18n( "Responsible" );
-        case NodeDescription: return i18n( "Description" );
+        case NodeName: return xi18nc( "@title:column", "Name" );
+        case NodeType: return xi18nc( "@title:column", "Type" );
+        case NodeResponsible: return xi18nc( "@title:column", "Responsible" );
+        case NodeDescription: return xi18nc( "@title:column", "Description" );
 
         // After scheduling
-        case NodeStartTime: return i18n( "Planned Start" );
-        case NodeEndTime: return i18n( "Planned Finish" );
-        case NodeAssignments: return i18n( "Resource Assignments" );
+        case NodeStartTime: return xi18nc( "@title:column", "Planned Start" );
+        case NodeEndTime: return xi18nc( "@title:column", "Planned Finish" );
+        case NodeAssignments: return xi18nc( "@title:column", "Resource Assignments" );
 
         // Completion
-        case NodeCompleted: return i18n( "Completion" );
-        case NodeActualEffort: return i18n( "Actual Effort" );
-        case NodeRemainingEffort: return i18n( "Remaining Effort" );
-        case NodePlannedEffort: return i18n( "Planned Effort" );
-        case NodeActualStart: return i18n( "Actual Start" );
-        case NodeStarted: return i18n( "Started" );
-        case NodeActualFinish: return i18n( "Actual Finish" );
-        case NodeFinished: return i18n( "Finished" );
-        case NodeStatus: return i18nc( "@title:column", "Status" );
-        case NodeStatusNote: return i18n( "Note" );
+        case NodeCompleted: return xi18nc( "@title:column", "Completion" );
+        case NodeActualEffort: return xi18nc( "@title:column", "Actual Effort" );
+        case NodeRemainingEffort: return xi18nc( "@title:column", "Remaining Effort" );
+        case NodePlannedEffort: return xi18nc( "@title:column", "Planned Effort" );
+        case NodeActualStart: return xi18nc( "@title:column", "Actual Start" );
+        case NodeStarted: return xi18nc( "@title:column", "Started" );
+        case NodeActualFinish: return xi18nc( "@title:column", "Actual Finish" );
+        case NodeFinished: return xi18nc( "@title:column", "Finished" );
+        case NodeStatus: return xi18nc( "@title:column", "Status" );
+        case NodeStatusNote: return xi18nc( "@title:column", "Note" );
 
-        case ProjectName: return i18n( "Project Name" );
-        case ProjectManager: return i18n( "Project Manager" );
+        case ProjectName: return xi18nc( "@title:column", "Project Name" );
+        case ProjectManager: return xi18nc( "@title:column", "Project Manager" );
 
         default:
             //debugPlanWork<<"Invalid column number: "<<index.column()<<endl;

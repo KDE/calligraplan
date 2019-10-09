@@ -440,9 +440,9 @@ QVariant ScheduleItemModel::schedulingMode( const QModelIndex &index, int role )
             break;
         case Qt::ToolTipRole:
             if (sm->schedulingMode() == ScheduleManager::ManualMode) {
-                return i18nc("@info:tooltip", "The schedule is in Manual Mode, calculation must be initiated manually");
+                return xi18nc("@info:tooltip", "The schedule is in Manual Mode, calculation must be initiated manually");
             }
-            return i18nc("@info:tooltip", "The schedule is in Auto Mode, it will be calculated automatically");
+            return xi18nc("@info:tooltip", "The schedule is in Auto Mode, it will be calculated automatically");
         case Qt::WhatsThisRole:
             break;
         case Role::EnumList:

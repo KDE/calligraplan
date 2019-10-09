@@ -469,7 +469,7 @@ bool ReportsGeneratorView::generateReport(const QString &templateFile, const QSt
         QMessageBox::warning(this, i18n("Failed to create report"), rg.lastError());
         return false;
     }
-    if (QMessageBox::question(this, i18nc("@title", "Report Generation"), i18nc("@info", "Report file generated:<nl/><filename>%1</filename>", file), QMessageBox::Open|QMessageBox::Close, QMessageBox::Close) == QMessageBox::Open) {
+    if (QMessageBox::question(this, xi18nc("@title:window", "Report Generation"), xi18nc("@info", "Report file generated:<nl/><filename>%1</filename>", file), QMessageBox::Open|QMessageBox::Close, QMessageBox::Close) == QMessageBox::Open) {
         return KRun::runUrl(QUrl(file), "application/vnd.oasis.opendocument.text", window(), (KRun::RunFlags)0);
     }
     return true;

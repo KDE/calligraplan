@@ -39,7 +39,7 @@ namespace KPlato
 ViewListDialog::ViewListDialog( View *view, ViewListWidget &viewlist, QWidget *parent )
     : KoDialog(parent)
 {
-    setCaption( i18nc( "@title:window", "Add View") );
+    setCaption( xi18nc( "@title:window", "Add View") );
     setButtons( KoDialog::Ok | KoDialog::Cancel );
     setDefaultButton( Ok );
 
@@ -301,7 +301,7 @@ void AddViewPanel::changed()
 ViewListEditViewDialog::ViewListEditViewDialog( ViewListWidget &viewlist, ViewListItem *item, QWidget *parent )
     : KoDialog(parent)
 {
-    setCaption( i18nc( "@title:window", "Configure View" ) );
+    setCaption( xi18nc( "@title:window", "Configure View" ) );
     setButtons( KoDialog::Ok | KoDialog::Cancel );
     setDefaultButton( Ok );
 
@@ -426,7 +426,7 @@ void EditViewPanel::fillAfter( ViewListItem *cat )
 ViewListEditCategoryDialog::ViewListEditCategoryDialog( ViewListWidget &viewlist, ViewListItem *item, QWidget *parent )
     : KoDialog(parent)
 {
-    setCaption( i18nc( "@title:window", "Configure Category" ) );
+    setCaption( xi18nc( "@title:window", "Configure Category" ) );
     setButtons( KoDialog::Ok | KoDialog::Cancel );
     setDefaultButton( Ok );
 
@@ -517,7 +517,7 @@ void EditCategoryPanel::fillAfter()
 ViewListReportsDialog::ViewListReportsDialog( View *view, ViewListWidget &viewlist, const QDomDocument &doc, QWidget *parent )
     : KoDialog(parent)
 {
-    setCaption( i18nc( "@title:window", "Add Report" ) );
+    setCaption( xi18nc( "@title:window", "Add Report" ) );
     setButtons( KoDialog::Ok | KoDialog::Cancel );
     setDefaultButton( Ok );
 
@@ -559,7 +559,7 @@ AddReportsViewPanel::AddReportsViewPanel( View *view, ViewListWidget &viewlist, 
     // NOTE: these lists must match switch in ok() FIXME: refactor
     m_viewtypes << "ReportView";
     QStringList lst;
-    lst << i18n( "Report" );
+    lst << xi18n( "Report" );
     widget.viewtype->addItems( lst );
 
     foreach ( ViewListItem *item, m_viewlist.categories() ) {
