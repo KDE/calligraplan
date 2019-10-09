@@ -25,6 +25,7 @@
 #include "kptcommand.h"
 #include "kptitemmodelbase.h"
 #include "kptdurationspinbox.h"
+#include "Help.h"
 #include "KoIcon.h"
 
 #include <KLocalizedString>
@@ -297,6 +298,16 @@ RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget
     }
     slotDisableInsert(false);
     connect(ui.view->selectionModel(), &QItemSelectionModel::currentChanged, this, &RelationEditorDialog::slotCurrentChanged);
+
+    Help::add(this, xi18nc("@info:whatsthis",
+                           "<title>Task Dependency Dialog</title>"
+                           "<para>"
+                           "The task dependency dialog enables you to easily add a predecessor to the selected task."
+                           "<nl/>When opened, it presents the previous task as the default predecessor."
+                           " This is often the desired predecessor, and can be added by just pressing <interface>OK</interface>."
+                           "<nl/>The dropdown list of possible predecessors is sorted with the most likely tasks first."
+                           "</para>"
+                          ));
 }
 
 void RelationEditorDialog::slotCurrentChanged(const QModelIndex &idx)
