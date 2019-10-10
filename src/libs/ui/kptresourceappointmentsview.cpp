@@ -216,7 +216,7 @@ ResourceAppointmentsView::ResourceAppointmentsView(KoPart *part, KoDocument *doc
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Resource_Assignment_Gantt_View")));
+                     "</para>", Help::page("Resource_Assignment_Gantt_View")));
 }
 
 void ResourceAppointmentsView::draw( Project &project )

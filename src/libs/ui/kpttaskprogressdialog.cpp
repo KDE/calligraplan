@@ -70,7 +70,7 @@ TaskProgressDialog::TaskProgressDialog(Task &task, ScheduleManager *sm, Standard
                      "</list>"
                      "<note>You should select the desired edit mode when starting the task.</note>"
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Task_Progress_Dialog")));
+                     "</para>", Help::page("Task_Progress_Dialog")));
 
 }
 

@@ -152,7 +152,7 @@ ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton
 
 void ConfigDialog::showHelp()
 {
-    Help::invoke("Manual/Configure_Plan");
+    Help::invoke("Configure_Plan");
 }
 
 //------------------------------------
@@ -1954,7 +1954,8 @@ void View::slotConfigure()
 
 void View::updateHelp()
 {
-    new Help(KPlatoSettings::documentationPath(), KPlatoSettings::language());
+    qInfo()<<Q_FUNC_INFO;
+    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 }
 
 void View::slotIntroduction()

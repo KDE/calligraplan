@@ -70,7 +70,7 @@ ProjectStatusView::ProjectStatusView(KoPart *part, KoDocument *doc, QWidget *par
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Project_Performance_View")));
+                     "</para>", Help::page("Project_Performance_View")));
 }
 
 void ProjectStatusView::setScheduleManager(ScheduleManager *sm)

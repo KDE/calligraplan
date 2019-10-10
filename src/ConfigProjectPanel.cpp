@@ -47,6 +47,18 @@ ConfigProjectPanelImpl::ConfigProjectPanelImpl(QWidget *p )
     connect(resourceFileBrowseBtn, &QAbstractButton::clicked, this, &ConfigProjectPanelImpl::resourceFileBrowseBtnClicked);
     connect(projectsPlaceBrowseBtn, &QAbstractButton::clicked, this, &ConfigProjectPanelImpl::projectsPlaceBrowseBtnClicked);
 
+    QString tooltip = xi18nc("@info:tooltip", "The project manager of this project.");
+    kcfg_Manager->setToolTip(tooltip);
+    leaderlabel->setToolTip(tooltip);
+    tooltip = xi18nc("@info:tooltip", "Check to enable shared resources");
+    kcfg_UseSharedResources->setToolTip(tooltip);
+    usrlabel->setToolTip(tooltip);
+    tooltip = xi18nc("@info:tooltip", "The file where shared resources are defined");
+    kcfg_SharedResourcesFile->setToolTip(tooltip);
+    srflabel->setToolTip(tooltip);
+    tooltip = xi18nc("@info:tooltip", "The directory where projects sharing the resources are placed");
+    kcfg_SharedProjectsPlace->setToolTip(tooltip);
+    spplabel->setToolTip(tooltip);
 }
 
 void ConfigProjectPanelImpl::resourceFileBrowseBtnClicked()

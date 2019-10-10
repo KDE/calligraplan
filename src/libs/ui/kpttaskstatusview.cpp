@@ -212,7 +212,7 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent )
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Task_Status_View")));
+                     "</para>", Help::page("Task_Status_View")));
     
 }
 

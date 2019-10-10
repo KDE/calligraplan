@@ -405,7 +405,7 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent )
                       "A calendar can be defined as the <emphasis>Default calendar</emphasis>. "
                       "The default calendar is used by a working resource, when the resources calendar is not explicitly set."
                       "<nl/><link url='%1'>More...</link>"
-                      "</para>", Help::page("Manual/Work_and_Vacation_Editor")));
+                      "</para>", Help::page("Work_and_Vacation_Editor")));
 
     setupGui();
 

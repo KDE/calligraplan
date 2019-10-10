@@ -134,7 +134,7 @@ ResourceEditor::ResourceEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                "When assigned to a task, a resource of type <emphasis>Work</emphasis> can affect the duration of the task, while a resource of type <emphasis>Material</emphasis> does not. "
                "A resource must refer to a <emphasis>Calendar</emphasis> defined in the <emphasis>Work and Vacation Editor</emphasis>."
                "<nl/><link url='%1'>More...</link>"
-               "</para>", Help::page("Manual/Resource_Editor")));
+               "</para>", Help::page("Resource_Editor")));
 
     QVBoxLayout * l = new QVBoxLayout( this );
     l->setMargin( 0 );

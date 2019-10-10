@@ -269,7 +269,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
                           "</para><para>"
                           "You can create a report template using any Open Document text editor."
                           "<nl/><link url='%1'>More...</link>"
-                          "</para>", Help::page("Manual/Reports_Generator_View")));
+                          "</para>", Help::page("Reports_Generator_View")));
 }
 
 void ReportsGeneratorView::updateReadWrite(bool rw)

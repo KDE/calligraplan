@@ -2032,7 +2032,7 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
                      "</para><para>"
                      "This view supports printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Task_Dependency_Editor_(Graphical)")));
+                     "</para>", Help::page("Task_Dependency_Editor_(Graphical)")));
 }
 
 void DependencyEditor::updateReadWrite( bool on )

@@ -75,7 +75,7 @@ AccountsTreeView::AccountsTreeView( QWidget *parent )
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Cost_Breakdown_View")));
+                     "</para>", Help::page("Cost_Breakdown_View")));
 }
 
 void AccountsTreeView::slotModelReset()

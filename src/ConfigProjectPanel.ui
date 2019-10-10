@@ -36,9 +36,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="leaderlabel">
          <property name="whatsThis">
-          <string>The person responsible for this task.
-
-This is not limited to persons available in a resource group but can be anyone. You can even directly access your address book with the Choose button.</string>
+          <string/>
          </property>
          <property name="text">
           <string>&amp;Manager:</string>
@@ -63,14 +61,12 @@ This is not limited to persons available in a resource group but can be anyone. 
           </sizepolicy>
          </property>
          <property name="whatsThis">
-          <string>The person responsible for this task.
-
-This is not limited to persons available in a resource group but can be anyone. You can even directly access your address book with the Choose button.</string>
+          <string/>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="usrlabel">
          <property name="text">
           <string>Use shared resources:</string>
          </property>
@@ -84,7 +80,7 @@ This is not limited to persons available in a resource group but can be anyone. 
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="srflabel">
          <property name="text">
           <string>Shared resource file:</string>
          </property>
@@ -109,7 +105,7 @@ This is not limited to persons available in a resource group but can be anyone. 
         </layout>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="spplabel">
          <property name="text">
           <string>Shared projects:</string>
          </property>
@@ -126,7 +122,8 @@ This is not limited to persons available in a resource group but can be anyone. 
             <string>Browse...</string>
            </property>
            <property name="icon">
-            <iconset theme="document-open"/>
+            <iconset theme="document-open">
+             <normaloff>.</normaloff>.</iconset>
            </property>
           </widget>
          </item>
@@ -179,6 +176,16 @@ This is not limited to persons available in a resource group but can be anyone. 
    <container>1</container>
   </customwidget>
   <customwidget>
+   <class>KRichTextEdit</class>
+   <extends>KTextEdit</extends>
+   <header>krichtextedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KRichTextWidget</class>
+   <extends>KRichTextEdit</extends>
+   <header>krichtextwidget.h</header>
+  </customwidget>
+  <customwidget>
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>
    <header>ktextedit.h</header>
@@ -188,16 +195,6 @@ This is not limited to persons available in a resource group but can be anyone. 
    <extends>QWidget</extends>
    <header location="global">KToolBar</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>KRichTextEdit</class>
-   <extends>KTextEdit</extends>
-   <header>krichtextedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KRichTextWidget</class>
-   <extends>KRichTextEdit</extends>
-   <header>krichtextwidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

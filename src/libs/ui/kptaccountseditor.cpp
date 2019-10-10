@@ -205,7 +205,7 @@ AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                      "</para><para>"
                      "This view supports printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Cost_Breakdown_Structure_Editor")));
+                     "</para>", Help::page("Cost_Breakdown_Structure_Editor")));
 }
 
 void AccountsEditor::updateReadWrite( bool readwrite )

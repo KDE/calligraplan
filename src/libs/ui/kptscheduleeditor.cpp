@@ -191,7 +191,7 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                " in order to reschedule only tasks that are not yet finished."
                " Rescheduling will then use e.g. actual start and remaining effort for the tasks."
                "<nl/><link url='%1'>More...</link>"
-               "</para>", Help::page("Manual/Schedule_Editor")));
+               "</para>", Help::page("Schedule_Editor")));
 }
 
 void ScheduleEditor::draw( Project &project )

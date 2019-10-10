@@ -26,6 +26,7 @@
 #include "welcome/WelcomeView.h"
 #include "kpthtmlview.h"
 #include "Help.h"
+#include "calligraplansettings.h"
 #include "kptdebug.h"
 
 #include <KoComponentData.h>
@@ -49,8 +50,7 @@ Part::Part(QObject *parent)
 {
     setTemplatesResourcePath(QLatin1String("calligraplan/templates/"));
 
-    KDesktopFile df(componentData().aboutData().desktopFileName() + ".desktop");
-    new Help(df.readDocPath());
+    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 }
 
 Part::~Part()
@@ -93,7 +93,7 @@ KoMainWindow *Part::createMainWindow()
 
 void Part::slotHelpContents()
 {
-    QDesktopServices::openUrl(QUrl(Help::page("Manual")));
+    QDesktopServices::openUrl(QUrl::fromUserInput(KPlatoSettings::documentationPath()));
 }
 
 void Part::showStartUpWidget(KoMainWindow *parent)

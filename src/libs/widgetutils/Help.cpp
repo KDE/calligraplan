@@ -44,12 +44,10 @@ Help::Help(const QString &docpath, const QString &language)
     if (self) {
         delete self;
     }
-    if (!self) {
-        self = this;
-        m_docpath = docpath;
-        if (!language.isEmpty()) {
-            m_docpath += '/' + language;
-        }
+    self = this;
+    m_docpath = docpath;
+    if (!language.isEmpty()) {
+        m_docpath += '/' + language;
     }
 }
 
@@ -79,6 +77,11 @@ QString Help::page(const QString &page)
 void Help::invoke(const QString &page)
 {
     QDesktopServices::openUrl(QUrl(Help::page(page)));
+}
+
+void Help::invoke(const QUrl &url)
+{
+    QDesktopServices::openUrl(url);
 }
 
 WhatsThisClickedEventHandler::WhatsThisClickedEventHandler(QObject *parent)

@@ -37,6 +37,7 @@ public:
     static void add(QWidget *widget, const QString &text);
     static QString page(const QString &page = QString());
     static void invoke(const QString &page);
+    static void invoke(const QUrl &url);
 
 protected:
     ~Help();

@@ -126,7 +126,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           " <resource>Target Start</resource>"
                           " and <resource>- End</resource> times."
                           "<nl/><link url='%1'>More...</link>"
-                          "</para>", Help::page("Manual/Creating_a_Project")));
+                          "</para>", Help::page("Creating_a_Project")));
 
     Help::add(widget.createResourceFileBtn,
                    xi18nc("@info:whatsthis",
@@ -139,7 +139,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           " to avoid overbooking resources across projects."
                           "<nl/>Shared resources must be defined in a separate file."
                           "<nl/><link url='%1'>More...</link>"
-                          "</para>", Help::page("Manual/Managing_Resources")));
+                          "</para>", Help::page("Managing_Resources")));
 
     Help::add(widget.recentProjects,
                    xi18nc("@info:whatsthis",
@@ -170,7 +170,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           "</para><para>"
                           "If you see <link url='%1'>More...</link> in the text,"
                           " pressing it will display more information from online resources in your browser."
-                          "</para>", Help::page("Manual/Context_Help")));
+                          "</para>", Help::page("Context_Help")));
 
     m_model = new RecentFilesModel(this);
     widget.recentProjects->setModel(m_model);

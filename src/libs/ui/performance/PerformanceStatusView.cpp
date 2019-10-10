@@ -224,7 +224,7 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Task_Performance_View")));
+                     "</para>", Help::page("Task_Performance_View")));
 }
 
 void PerformanceStatusView::slotEditCopy()

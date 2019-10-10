@@ -951,7 +951,7 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
                      "</para><para>"
                      "This view supports configuration and printing using the context menu of the tree view."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Task_Gantt_View")));
+                     "</para>", Help::page("Task_Gantt_View")));
 }
 
 void GanttView::slotEditCopy()
@@ -1401,7 +1401,7 @@ MilestoneKGanttView::MilestoneKGanttView( QWidget *parent )
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Milestone_Gantt_View")));
+                     "</para>", Help::page("Milestone_Gantt_View")));
 }
 
 MilestoneItemModel *MilestoneKGanttView::model() const
@@ -1833,7 +1833,7 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Resource_Assignment_Gantt_View")));
+                     "</para>", Help::page("Resource_Assignment_Gantt_View")));
 }
 
 ResourceAppointmentsGanttView::~ResourceAppointmentsGanttView()

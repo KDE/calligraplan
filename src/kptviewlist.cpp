@@ -355,7 +355,7 @@ ViewListWidget::ViewListWidget( MainDocument *part, QWidget *parent )//QString n
                      "<item>Insert categories and views</item>"
                      "</list>"
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/View_Selector")));
+                     "</para>", Help::page("View_Selector")));
     
     m_viewlist = new ViewListTreeWidget( this );
     m_viewlist->setEditTriggers( QAbstractItemView::NoEditTriggers );
@@ -373,7 +373,7 @@ ViewListWidget::ViewListWidget( MainDocument *part, QWidget *parent )//QString n
                      "Selects the schedule to be used when displaying schedule dependent data."
                      "<nl/><note>Unscheduled tasks are only shown in editors.</note>"
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Manual/Main_Work_Space#Schedule_Selector")));
+                     "</para>", Help::page("Main_Work_Space#Schedule_Selector")));
     
 
     QVBoxLayout *l = new QVBoxLayout( this );

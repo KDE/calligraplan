@@ -34,7 +34,6 @@ ConfigDocumentationPanel::ConfigDocumentationPanel(QWidget *parent)
 
 void ConfigDocumentationPanel::slotPathChanged()
 {
-    qInfo()<<Q_FUNC_INFO<<kcfg_DocumentationPath->text();
 }
 
 //-----------------------------
