@@ -1653,11 +1653,16 @@ void Project::takeTask( Node *node, bool emitSignal )
     }
 }
 
-bool Project::canMoveTask( Node* node, Node *newParent )
+bool Project::canMoveTask( Node* node, Node *newParent, bool checkBaselined )
 {
     //debugPlan<<node->name()<<" to"<<newParent->name();
     if ( node == this ) {
         return false;
+    }
+    if (checkBaselined) {
+        if (node->isBaselined() || (newParent->type() != Node::Type_Summarytask && newParent->isBaselined())) {
+            return false;
+        }
     }
     Node *p = newParent;
     while ( p && p != this ) {

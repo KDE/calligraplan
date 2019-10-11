@@ -146,7 +146,7 @@ public:
      * The node is not deleted.
      */
     void takeTask( Node *node, bool emitSignal = true );
-    bool canMoveTask( Node* node, Node *newParent );
+    bool canMoveTask( Node* node, Node *newParent, bool checkBaselined = false );
     bool moveTask( Node* node, Node *newParent, int newPos );
     bool canIndentTask( Node* node );
     bool indentTask( Node* node, int index = -1 );
