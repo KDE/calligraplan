@@ -710,6 +710,19 @@ void TaskEditor::slotEnableActions()
     updateActionsEnabled( isReadWrite() );
 }
 
+Node *newIndentParent(const QList<Node*> nodes)
+{
+    Node *node = nullptr;
+    for (Node *n : nodes) {
+        Node *s = n->siblingBefore();
+        if (!nodes.contains(s)) {
+            node = s;
+            break;
+        }
+    }
+    return node;
+}
+
 void TaskEditor::updateActionsEnabled( bool on )
 {
 //     debugPlan<<selectedRowCount()<<selectedNode()<<currentNode();
@@ -801,8 +814,8 @@ void TaskEditor::updateActionsEnabled( bool on )
         actionMoveTaskUp->setEnabled( s );
         actionMoveTaskDown->setEnabled( n->siblingAfter() );
         s = n->siblingBefore();
-        actionIndentTask->setEnabled( ! baselined && s && ! s->isBaselined() );
-        actionUnindentTask->setEnabled( ! baselined && n->level() > 1 );
+        actionIndentTask->setEnabled( project()->canIndentTask(n) && ! baselined && s && ! s->isBaselined() );
+        actionUnindentTask->setEnabled( project()->canUnindentTask(n) && ! baselined && n->level() > 1 );
         return;
     }
     // selCount > 1
@@ -816,8 +829,28 @@ void TaskEditor::updateActionsEnabled( bool on )
     actionLinkTask->setEnabled( false );
     actionMoveTaskUp->setEnabled( false );
     actionMoveTaskDown->setEnabled( false );
-    actionIndentTask->setEnabled( false );
-    actionUnindentTask->setEnabled( false );
+
+    actionIndentTask->setEnabled(true);
+    const QList<Node*> nodes = selectedNodes();
+    Node *newparent = newIndentParent(nodes);
+    if (!newparent) {
+        actionIndentTask->setEnabled(false);
+    } else {
+        for (Node *n : nodes) {
+            if (!project()->canMoveTask(n, newparent, true)) {
+                actionIndentTask->setEnabled(false);
+                break;
+            }
+        }
+    }
+    actionUnindentTask->setEnabled(true);
+    newparent = nodes.first()->parentNode()->parentNode();
+    for (Node *n : nodes) {
+        if (!project()->canMoveTask(n, newparent) || n->isBaselined()) {
+            actionUnindentTask->setEnabled(false);
+            break;
+        }
+    }
 }
 
 void TaskEditor::setupGui()
@@ -1052,25 +1085,37 @@ void TaskEditor::slotLinkTask()
 void TaskEditor::slotIndentTask()
 {
     debugPlan;
-    Node *n = selectedNode();
-    if ( n ) {
-        emit indentTask();
-        QModelIndex i = baseModel()->index( n );
-        m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect );
-        m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
-        m_view->setParentsExpanded( i, true );
+    const QList<Node*> nodes = selectedNodes();
+    if (nodes.count() > 0) {
+        Node *newparent = nodes.first()->siblingBefore();
+        Q_ASSERT(newparent);
+        if (newparent) {
+            MacroCommand *cmd = new MacroCommand(kundo2_i18np("Indent task", "Indent %1 tasks", nodes.count()));
+            for (Node *n : nodes) {
+                cmd->addCommand(new NodeMoveCmd(project(), n, newparent, -1));
+            }
+            koDocument()->addCommand(cmd);
+        }
     }
 }
 
 void TaskEditor::slotUnindentTask()
 {
     debugPlan;
-    Node *n = selectedNode();
-    if ( n ) {
+    const QList<Node*> nodes = selectedNodes();
+    if (nodes.count() == 1) {
         emit unindentTask();
-        QModelIndex i = baseModel()->index( n );
+        QModelIndex i = baseModel()->index(nodes.first());
         m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect );
         m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
+    } else if (nodes.count() > 1) {
+        MacroCommand *cmd = new MacroCommand(kundo2_i18np("Unindent task", "Unindent %1 tasks", nodes.count()));
+        Node *newparent = nodes.first()->parentNode()->parentNode();
+        int pos = newparent->indexOf(nodes.first()->parentNode());
+        for (Node *n : nodes) {
+            cmd->addCommand(new NodeMoveCmd(project(), n, newparent, ++pos));
+        }
+        koDocument()->addCommand(cmd);
     }
 }
 
