@@ -2511,9 +2511,9 @@ QAbstractItemModel *DoubleTreeViewBase::model() const
     return m_leftview->model();
 }
 
-void DoubleTreeViewBase::slotSelectionChanged( const QItemSelection &sel, const QItemSelection & )
+void DoubleTreeViewBase::slotSelectionChanged( const QItemSelection &, const QItemSelection & )
 {
-    emit selectionChanged( sel.indexes() );
+    emit selectionChanged(selectionModel()->selectedIndexes());
 }
 
 void DoubleTreeViewBase::setSelectionModel( QItemSelectionModel *model )
