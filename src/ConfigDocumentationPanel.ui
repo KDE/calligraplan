@@ -76,7 +76,7 @@ This is not limited to persons available in a resource group but can be anyone. 
       <item row="2" column="0">
        <widget class="QLabel" name="contextlabel">
         <property name="text">
-         <string>Contex help:</string>
+         <string>Context help:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
