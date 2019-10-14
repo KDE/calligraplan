@@ -338,7 +338,6 @@ void ResourceEditor::slotAddResource()
     if ( gl.count() > 1 ) {
         return;
     }
-    m_view->closePersistentEditor( m_view->selectionModel()->currentIndex() );
     ResourceGroup *g = 0;
     if ( !gl.isEmpty() ) {
         g = gl.first();
@@ -368,7 +367,6 @@ void ResourceEditor::slotAddResource()
 void ResourceEditor::slotAddGroup()
 {
     //debugPlan;
-    m_view->closePersistentEditor( m_view->selectionModel()->currentIndex() );
     ResourceGroup *g = new ResourceGroup();
     QModelIndex i = m_view->model()->insertGroup( g );
     if ( i.isValid() ) {

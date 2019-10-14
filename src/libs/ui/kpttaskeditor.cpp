@@ -946,7 +946,6 @@ void TaskEditor::slotAddTask()
 {
     debugPlan;
     if ( selectedRowCount() == 0 || ( selectedRowCount() == 1 && selectedNode() == 0 ) ) {
-        m_view->closePersistentEditor( m_view->selectionModel()->currentIndex() );
         Task *t = m_view->project()->createTask( m_view->project()->taskDefaults() );
         QModelIndex idx = m_view->baseModel()->insertSubtask( t, m_view->project() );
         Q_ASSERT( idx.isValid() );
@@ -957,7 +956,6 @@ void TaskEditor::slotAddTask()
     if ( sib == 0 ) {
         return;
     }
-    m_view->closePersistentEditor( m_view->selectionModel()->currentIndex() );
     Task *t = m_view->project()->createTask( m_view->project()->taskDefaults() );
     QModelIndex idx = m_view->baseModel()->insertTask( t, sib );
     Q_ASSERT( idx.isValid() );
@@ -969,7 +967,6 @@ void TaskEditor::slotAddMilestone()
     debugPlan;
     if ( selectedRowCount() == 0  || ( selectedRowCount() == 1 && selectedNode() == 0 ) ) {
         // None selected or only project selected: insert under main project
-        m_view->closePersistentEditor( m_view->selectionModel()->currentIndex() );
         Task *t = m_view->project()->createTask();
         t->estimate()->clear();
         QModelIndex idx = m_view->baseModel()->insertSubtask( t, m_view->project() );
@@ -981,7 +978,6 @@ void TaskEditor::slotAddMilestone()
     if ( sib == 0 ) {
         return;
     }
-    m_view->closePersistentEditor( m_view->selectionModel()->currentIndex() );
     Task *t = m_view->project()->createTask();
     t->estimate()->clear();
     QModelIndex idx = m_view->baseModel()->insertTask( t, sib );
@@ -1000,7 +996,9 @@ void TaskEditor::slotAddSubMilestone()
     if ( parent == 0 ) {
         return;
     }
-    m_view->closePersistentEditor( m_view->selectionModel()->currentIndex() );
+    // Adding a sub-task will change current task which seems to confuse the view
+    // so trigger a commitData() by changing the current index
+    m_view->selectionModel()->setCurrentIndex( QModelIndex(), QItemSelectionModel::NoUpdate );
     Task *t = m_view->project()->createTask( m_view->project()->taskDefaults() );
     t->estimate()->clear();
     QModelIndex idx = m_view->baseModel()->insertSubtask( t, parent );
@@ -1019,7 +1017,9 @@ void TaskEditor::slotAddSubtask()
     if ( parent == 0 ) {
         return;
     }
-    m_view->closePersistentEditor( m_view->selectionModel()->currentIndex() );
+    // Adding a sub-task will change current task which seems to confuse the view
+    // so trigger a commitData() by changing the current index
+    m_view->selectionModel()->setCurrentIndex( QModelIndex(), QItemSelectionModel::NoUpdate );
     Task *t = m_view->project()->createTask( m_view->project()->taskDefaults() );
     QModelIndex idx = m_view->baseModel()->insertSubtask( t, parent );
     Q_ASSERT( idx.isValid() );
@@ -1029,8 +1029,7 @@ void TaskEditor::slotAddSubtask()
 void TaskEditor::edit( const QModelIndex &i )
 {
     if ( i.isValid() ) {
-        m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect );
-        m_view->setParentsExpanded( i, true ); // in case treeview does not have focus
+        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
         m_view->edit( i );
     }
 }
@@ -1072,6 +1071,11 @@ void TaskEditor::slotLinkTask()
     //debugPlan;
     Node *n = currentNode();
     if (n && project()) {
+        // In case we are editing the task, trigger commitData() by changing currentIndex
+        // to get the data committed before the dialog is opened
+        QModelIndex idx = m_view->selectionModel()->currentIndex();
+        m_view->selectionModel()->setCurrentIndex(QModelIndex(), QItemSelectionModel::NoUpdate);
+        m_view->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::NoUpdate);
         RelationEditorDialog dlg(project(), n);
         if (dlg.exec()) {
             KUndo2Command *cmd = dlg.buildCommand();
