@@ -100,9 +100,9 @@ bool ItemDelegate::eventFilter(QObject *object, QEvent *event)
 
 QSize ItemDelegate::sizeHint( const QStyleOptionViewItem & option, const QModelIndex & index ) const
 {
-    // 18 is a bit arbitrary, it gives (most?) editors a usable size
+    // Decoration (like basline icon) increases height so check height of column 0 in case...
     QSize s = QStyledItemDelegate::sizeHint( option, index );
-    return QSize( s.width(), qMax( s.height(), 18 ) );
+    return QSize( s.width(), qMax( s.height(), QStyledItemDelegate::sizeHint(option, index.sibling(index.row(), 0)).height()));
 }
 
 //----------------------
