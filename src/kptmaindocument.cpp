@@ -1515,7 +1515,7 @@ void MainDocument::slotProjectCreated()
         } else if (separate) {
             holiday = new Calendar(i18n("Holidays"));
             m_project->addCalendar(holiday);
-            week->setDefault(true);
+            holiday->setDefault(true);
             debugPlan<<"separate";
         } else {
             Q_ASSERT(false); // something wrong
