@@ -59,6 +59,7 @@
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
 #include <KIO/CopyJob>
+#include <KDirWatch>
 
 #include <kundo2command.h>
 
@@ -82,7 +83,8 @@ MainDocument::MainDocument(KoPart *part)
         m_isTaskModule(false),
         m_calculationCommand(nullptr),
         m_currentCalculationManager(nullptr),
-        m_nextCalculationManager(nullptr)
+        m_nextCalculationManager(nullptr),
+        m_taskModulesWatch(nullptr)
 {
     Q_ASSERT(part);
     setAlwaysAllowSaving(true);
@@ -248,7 +250,28 @@ void MainDocument::setProject( Project *project )
         connect(m_project, &Project::sigCalculationFinished, this, &MainDocument::slotCalculationFinished);
     }
     m_aboutPage.setProject( project );
+
+    setTaskModulesWatch();
+    connect(project, &Project::taskModulesChanged, this, &MainDocument::setTaskModulesWatch);
+
     emit changed();
+}
+
+void MainDocument::setTaskModulesWatch()
+{
+    delete m_taskModulesWatch;
+    m_taskModulesWatch = new KDirWatch(this);
+    if (m_project->useLocalTaskModules()) {
+        QString dir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+        if (!dir.isEmpty()) {
+            dir += "/taskmodules";
+            m_taskModulesWatch->addDir(dir);
+        }
+    }
+    for (const QUrl &url : m_project->taskModules()) {
+        m_taskModulesWatch->addDir(url.toLocalFile());
+    }
+    connect(m_taskModulesWatch, &KDirWatch::dirty, this, &MainDocument::taskModuleDirChanged);
 }
 
 bool MainDocument::loadOdf( KoOdfReadStore &odfStore )

@@ -34,7 +34,6 @@
 #include <QMap>
 
 #include <kconfigdialog.h>
-#include <KDirWatch>
 
 class QMenu;
 class QPrintDialog;
@@ -49,6 +48,7 @@ class KToggleAction;
 class QLabel;
 class KConfigSkeleton;
 class KConfigSkeletonItem;
+class KPageWidgetItem;
 
 class KoView;
 
@@ -98,8 +98,20 @@ class ConfigDialog : public KConfigDialog
 public:
     ConfigDialog( QWidget *parent, const QString &name, KConfigSkeleton *config );
 
+Q_SIGNALS:
+    void updateWidgetsData();
+    void updateWidgetsSettings();
+
 protected Q_SLOTS:
+    void updateSettings() override;
+    void updateWidgets() override;
     void showHelp() override;
+
+protected:
+    bool hasChanged() override;
+
+private:
+    QList<KPageWidgetItem*> m_pages;
 };
 
 //-------------
@@ -273,8 +285,6 @@ protected Q_SLOTS:
     void saveTaskModule(const QUrl &url, KPlato::Project *project);
     void removeTaskModule( const QUrl &url );
 
-    void taskModuleFileChanged(const QString &path);
-
 protected:
     void guiActivateEvent( bool activated ) override;
     void updateReadWrite( bool readwrite ) override;
@@ -420,7 +430,6 @@ private:
     QMap<ViewListItem*, QAction*> m_reportActionMap;
 
     KoPart *m_partpart;
-    KDirWatch m_dirwatch;
 };
 
 

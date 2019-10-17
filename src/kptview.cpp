@@ -107,6 +107,7 @@
 #include "kptworkpackageconfigpanel.h"
 #include "kptcolorsconfigpanel.h"
 #include "ConfigDocumentationPanel.h"
+#include "ConfigTaskModulesPanel.h"
 #include "kptinsertfiledlg.h"
 #include "kptloadsharedprojectsdialog.h"
 #include "kpthtmlview.h"
@@ -148,6 +149,35 @@ namespace KPlato
 ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton *config )
     : KConfigDialog( parent, name, config )
 {
+    m_pages << addPage(new ConfigProjectPanel(), i18n("Project Defaults"), koIconName("calligraplan") );
+    m_pages << addPage(new ConfigWorkVacationPanel(), i18n("Work & Vacation"), koIconName("view-calendar") );
+    m_pages << addPage(new TaskDefaultPanel(), i18n("Task Defaults"), koIconName("view-task") );
+    m_pages << addPage(new ColorsConfigPanel(), i18n("Task Colors"), koIconName("fill-color") );
+    ConfigTaskModulesPanel *page = new ConfigTaskModulesPanel();
+    m_pages << addPage(page, i18n("Task Modules"), koIconName("calligraplanwork") );
+    connect(page, &ConfigTaskModulesPanel::settingsChanged, this, &ConfigDialog::updateButtons);
+    connect(this, &ConfigDialog::updateWidgetsSettings, page, &ConfigTaskModulesPanel::updateSettings);
+    connect(this, &ConfigDialog::updateWidgetsData, page, &ConfigTaskModulesPanel::updateWidgets);
+    m_pages << addPage(new WorkPackageConfigPanel(), i18n("Work Package"), koIconName("calligraplanwork") );
+    m_pages << addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents") );
+}
+
+void ConfigDialog::updateSettings()
+{
+    emit updateWidgetsSettings();
+
+    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
+}
+
+void ConfigDialog::updateWidgets()
+{
+    emit updateWidgetsData();
+}
+
+bool ConfigDialog::hasChanged()
+{
+    QWidget *w = currentPage()->widget()->findChild<QWidget*>("ConfigWidget");
+    return w ? w->property("hasChanged").toBool() : false;
 }
 
 void ConfigDialog::showHelp()
@@ -367,20 +397,6 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
         } else {
             // not our/valid plugin, so delete the created object
             object->deleteLater();
-        }
-    }
-    // do not watch task module changes if we are editing one
-    if (!doc->isTaskModule()) {
-        QString dir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-        if (!dir.isEmpty()) {
-            dir += "/taskmodules";
-            m_dirwatch.addDir(dir, KDirWatch::WatchFiles);
-            QStringList modules = KoResourcePaths::findAllResources( "calligraplan_taskmodules", "*.plan", KoResourcePaths::NoDuplicates|KoResourcePaths::Recursive );
-            for (const QString &f : modules) {
-                m_dirwatch.addFile(f);
-            }
-            connect(&m_dirwatch, &KDirWatch::created, this, &View::taskModuleFileChanged);
-            connect(&m_dirwatch, &KDirWatch::deleted, this, &View::taskModuleFileChanged);
         }
     }
     //debugPlan<<" end";
@@ -914,16 +930,12 @@ ViewBase *View::createTaskEditor( ViewListItem *cat, const QString &tag, const Q
     connect(taskeditor, &TaskEditor::saveTaskModule, this, &View::saveTaskModule);
     connect(taskeditor, &TaskEditor::removeTaskModule, this, &View::removeTaskModule);
     connect(taskeditor, &ViewBase::openDocument, static_cast<KPlato::Part*>(m_partpart), &Part::openTaskModule);
-    connect(this, &View::taskModulesChanged, taskeditor, &TaskEditor::setTaskModules);
+    connect(getPart(), &MainDocument::taskModuleDirChanged, taskeditor, &TaskEditor::slotTaskModuleDirChanged);
 
     connect( taskeditor, &TaskEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
     connect( taskeditor, &TaskEditor::openTaskDescription, this, &View::slotOpenTaskDescription);
     taskeditor->updateReadWrite( m_readWrite );
 
-    // last:
-    QStringList modules = KoResourcePaths::findAllResources( "calligraplan_taskmodules", "*.plan", KoResourcePaths::NoDuplicates|KoResourcePaths::Recursive );
-    debugPlan<<modules;
-    taskeditor->setTaskModules( modules );
     return taskeditor;
 }
 
@@ -1942,19 +1954,11 @@ void View::slotConfigure()
         return;
     }
     ConfigDialog *dialog = new ConfigDialog( this, "Plan Settings", KPlatoSettings::self() );
-    dialog->addPage(new ConfigProjectPanel(), i18n("Project Defaults"), koIconName("calligraplan") );
-    dialog->addPage(new ConfigWorkVacationPanel(), i18n("Work & Vacation"), koIconName("view-calendar") );
-    dialog->addPage(new TaskDefaultPanel(), i18n("Task Defaults"), koIconName("view-task") );
-    dialog->addPage(new ColorsConfigPanel(), i18n("Task Colors"), koIconName("fill-color") );
-    dialog->addPage(new WorkPackageConfigPanel(), i18n("Work Package"), koIconName("calligraplanwork") );
-    dialog->addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents") );
-    connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(updateHelp()));
     dialog->open();
 }
 
 void View::updateHelp()
 {
-    qInfo()<<Q_FUNC_INFO;
     new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 }
 
@@ -3165,6 +3169,7 @@ void View::slotCurrencyConfigFinished( int result )
 
 void View::saveTaskModule( const QUrl &url, Project *project )
 {
+    qInfo()<<Q_FUNC_INFO<<url;
     // NOTE: workaround: KoResourcePaths::saveLocation( "calligraplan_taskmodules" ); does not work
     const QString dir = KoResourcePaths::saveLocation( "appdata", "taskmodules/" );
     debugPlan<<"dir="<<dir;
@@ -3189,20 +3194,6 @@ void View::saveTaskModule( const QUrl &url, Project *project )
 void View::removeTaskModule( const QUrl &url )
 {
     debugPlan<<url;
-}
-
-void View::taskModuleFileChanged(const QString &path)
-{
-    if (!path.endsWith(".plan")) {
-        return;
-    }
-    m_dirwatch.stopScan();
-    int result = QMessageBox::question(this, xi18nc("@title", "Task module changed"), i18n("Do you want to reload task modules?"));
-    if (result == QMessageBox::Yes) {
-        QStringList modules = KoResourcePaths::findAllResources( "calligraplan_taskmodules", "*.plan", KoResourcePaths::NoDuplicates|KoResourcePaths::Recursive );
-        emit taskModulesChanged(modules);
-    }
-    m_dirwatch.startScan();
 }
 
 QString View::standardTaskStatusReport() const

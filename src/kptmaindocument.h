@@ -41,6 +41,8 @@
 
 #define PLAN_MIME_TYPE "application/x-vnd.kde.plan"
 
+class KDirWatch;
+
 /// The main namespace.
 namespace KPlato
 {
@@ -186,6 +188,7 @@ Q_SIGNALS:
     void viewListItemRemoved(const KPlato::ViewListItem *item);
 
     void insertSharedProject();
+    void taskModuleDirChanged();
 
 protected:
     /// Load kplato specific files
@@ -220,6 +223,8 @@ protected Q_SLOTS:
     void setCalculationNeeded();
     void slotCalculationFinished(KPlato::Project *project, KPlato::ScheduleManager *sm);
     void slotStartCalculation();
+
+    void setTaskModulesWatch();
 
 private:
     bool loadAndParse(KoStore* store, const QString& filename, KoXmlDocument& doc);
@@ -261,6 +266,8 @@ private:
     KUndo2Command* m_calculationCommand;
     ScheduleManager* m_currentCalculationManager;
     ScheduleManager* m_nextCalculationManager;
+
+    KDirWatch *m_taskModulesWatch;
 };
 
 

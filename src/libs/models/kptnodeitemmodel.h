@@ -513,9 +513,11 @@ public:
     QMimeData *mimeData( const QModelIndexList &idx ) const override;
 
     bool importProject( const QUrl &url, bool emitsignal = true );
+    Project *loadProjectFromUrl( const QUrl &url) const;
 
 public Q_SLOTS:
     void loadTaskModules( const QStringList &files );
+    void taskModulesChanged(const QList<QUrl> &modules);
 
 Q_SIGNALS:
     void executeCommand( KUndo2Command *cmd );

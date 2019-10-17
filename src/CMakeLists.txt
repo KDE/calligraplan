@@ -116,6 +116,7 @@ set(planprivate_LIB_SRCS
     kptworkpackageconfigpanel.cpp
     kptcolorsconfigpanel.cpp
     ConfigDocumentationPanel.cpp
+    ConfigTaskModulesPanel.cpp
 
     kptcontext.cpp
 
@@ -149,6 +150,7 @@ ki18n_wrap_ui(planprivate_LIB_SRCS
     kptworkpackageconfigpanel.ui
     kptcolorsconfigpanel.ui
     ConfigDocumentationPanel.ui
+    ConfigTaskModulesPanel.ui
 
     kptinsertfilepanel.ui
 )

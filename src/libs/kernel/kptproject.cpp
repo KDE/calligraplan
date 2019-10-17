@@ -61,7 +61,8 @@ Project::Project( Node *parent )
         m_schedulerPlugins(),
         m_useSharedResources(false),
         m_sharedResourcesLoaded(false),
-        m_loadProjectsAtStartup(false)
+        m_loadProjectsAtStartup(false),
+        m_useLocalTaskModules(true)
 {
     //debugPlan<<"("<<this<<")";
     init();
@@ -75,7 +76,8 @@ Project::Project( ConfigBase &config, Node *parent )
         m_schedulerPlugins(),
         m_useSharedResources(false),
         m_sharedResourcesLoaded(false),
-        m_loadProjectsAtStartup(false)
+        m_loadProjectsAtStartup(false),
+        m_useLocalTaskModules(true)
 {
     debugPlan<<"("<<this<<")";
     init();
@@ -90,7 +92,8 @@ Project::Project( ConfigBase &config, bool useDefaultValues, Node *parent )
         m_schedulerPlugins(),
         m_useSharedResources(false),
         m_sharedResourcesLoaded(false),
-        m_loadProjectsAtStartup(false)
+        m_loadProjectsAtStartup(false),
+        m_useLocalTaskModules(true)
 {
     debugPlan<<"("<<this<<")";
     init();
@@ -1045,6 +1048,18 @@ bool Project::load( KoXmlElement &element, XMLLoaderObject &status )
             if (e.hasAttribute("publish-url")) {
                 m_workPackageInfo.publishUrl = QUrl(e.attribute("publish-url"));
             }
+        } else if (e.tagName() == QLatin1String("task-modules")) {
+            m_useLocalTaskModules = (bool)e.attribute("use-local-task-modules").toInt();
+            for (KoXmlNode n = e.firstChild(); !n.isNull(); n = n.nextSibling()) {
+                KoXmlElement path = n.toElement();
+                if (path.isNull()) {
+                    continue;
+                }
+                QString s = path.attribute("url");
+                if (!s.isEmpty()) {
+                    m_taskModules << QUrl::fromUserInput(s);
+                }
+            }
         }
     }
     QList<Calendar*> cals;
@@ -1319,6 +1334,8 @@ bool Project::load( KoXmlElement &element, XMLLoaderObject &status )
             // handled earlier
         } else if ( e.tagName() == "workpackageinfo" ) {
             // handled earlier
+        } else if ( e.tagName() == "task-modules" ) {
+            // handled earlier
         } else {
             warnPlan<<"Unhandled tag:"<<e.tagName();
         }
@@ -1371,8 +1388,17 @@ void Project::save( QDomElement &element, const XmlSaveContext &context) const
     wpi.setAttribute("archive-after-retrieval", m_workPackageInfo.archiveAfterRetrieval);
     wpi.setAttribute("archive-url", m_workPackageInfo.archiveUrl.toString(QUrl::None));
     wpi.setAttribute("publish-url", m_workPackageInfo.publishUrl.toString(QUrl::None));
-    
+
     m_documents.save(me);
+
+    QDomElement tm = me.ownerDocument().createElement("task-modules");
+    me.appendChild(tm);
+    tm.setAttribute("use-local-task-modules", m_useLocalTaskModules);
+    for (const QUrl &url : m_taskModules) {
+        QDomElement e = tm.ownerDocument().createElement("task-module");
+        tm.appendChild(e);
+        e.setAttribute("url", url.toString());
+    }
 
     if (context.saveAll(this)) {
         m_accounts.save( me );
@@ -3017,6 +3043,28 @@ void Project::setLoadProjectsAtStartup(bool value)
 bool Project::loadProjectsAtStartup() const
 {
     return m_loadProjectsAtStartup;
+}
+
+QList<QUrl> Project::taskModules() const
+{
+    return m_taskModules;
+}
+
+void Project::setTaskModules(const QList<QUrl> modules)
+{
+    m_taskModules = modules;
+    emit taskModulesChanged(modules);
+}
+
+bool Project::useLocalTaskModules() const
+{
+    return m_useLocalTaskModules;
+}
+
+void Project::setUseLocalTaskModules(bool value)
+{
+    m_useLocalTaskModules = value;
+    emit taskModulesChanged(m_taskModules);
 }
 
 }  //KPlato namespace

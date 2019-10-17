@@ -527,6 +527,11 @@ public:
     void setLoadProjectsAtStartup(bool value);
     bool loadProjectsAtStartup() const;
 
+    QList<QUrl> taskModules() const;
+    void setTaskModules(const QList<QUrl> modules);
+    bool useLocalTaskModules() const;
+    void setUseLocalTaskModules(bool value);
+
 public Q_SLOTS:
     /// Sets m_progress to @p progress and emits signal sigProgress()
     /// If @p sm is not 0, progress is also set for the schedule manager
@@ -639,6 +644,8 @@ Q_SIGNALS:
     /// Emitted when locale data has changed
     void localeChanged();
 
+    void taskModulesChanged(const QList<QUrl> &modules);
+
 protected:
     /// Calculate the schedule.
     void calculate( Schedule *scedule );
@@ -745,6 +752,9 @@ public:
     WorkPackageInfo workPackageInfo() const { return m_workPackageInfo; }
 private:
     WorkPackageInfo m_workPackageInfo;
+
+    QList<QUrl> m_taskModules;
+    bool m_useLocalTaskModules;
 };
 
 

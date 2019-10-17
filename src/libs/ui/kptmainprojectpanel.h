@@ -50,12 +50,19 @@ public:
 
     bool loadSharedResources() const;
 
+    void initTaskModules();
+    MacroCommand *buildTaskModulesCommand();
+
 public Q_SLOTS:
     virtual void slotCheckAllFieldsFilled();
     virtual void slotChooseLeader();
     virtual void slotStartDateClicked();
     virtual void slotEndDateClicked();
     virtual void enableDateTime();
+
+    void insertTaskModuleClicked();
+    void removeTaskModuleClicked();
+    void taskModulesSelectionChanged();
 
 private Q_SLOTS:
     void openResourcesFile();

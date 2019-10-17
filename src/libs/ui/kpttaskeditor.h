@@ -153,8 +153,9 @@ public Q_SLOTS:
     void setGuiActive( bool activate ) override;
 
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
-    
+
     void setTaskModules( const QStringList &files );
+    void slotTaskModuleDirChanged();
     void slotEditCopy() override;
     void slotEditPaste() override;
 
@@ -190,6 +191,7 @@ private Q_SLOTS:
     void slotProjectShown( bool );
 
     void taskModuleDoubleClicked(QModelIndex idx);
+    void taskModulesChanged(const QList<QUrl> &urls);
 
 private:
     void edit( const QModelIndex &index );

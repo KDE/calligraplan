@@ -37,6 +37,10 @@
 #include "kptdocumentspanel.h"
 
 #include <QFileDialog>
+#include <QStandardItemModel>
+#include <QStandardItem>
+#include <QItemSelectionModel>
+#include <QFileDialog>
 
 namespace KPlato
 {
@@ -131,6 +135,8 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     projectsLoadBtn->setToolTip(xi18nc("@info:tooltip", "Load (or re-load) shared resource assignments"));
     projectsClearBtn->setToolTip(xi18nc("@info:tooltip", "Clear shared resource assignments"));
 
+    initTaskModules();
+
     // signals and slots connections
     connect( m_documents, &DocumentsPanel::changed, this, &MainProjectPanel::slotCheckAllFieldsFilled );
     connect( m_description, &TaskDescriptionPanelImpl::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
@@ -163,6 +169,19 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     connect(ui_PublishUrl, &KUrlRequester::urlSelected, this, &MainProjectPanel::slotCheckAllFieldsFilled);
 }
 
+void MainProjectPanel::initTaskModules()
+{
+    QStandardItemModel *m = new QStandardItemModel(0, 1, ui_taskModulesView);
+    for (const QUrl &url : project.taskModules()) {
+        QStandardItem *item = new QStandardItem(url.toString());
+        m->appendRow(item);
+    }
+    ui_taskModulesView->setModel(m);
+    connect(ui_insertModule, &QToolButton::clicked, this, &MainProjectPanel::insertTaskModuleClicked);
+    connect(ui_removeModule, &QToolButton::clicked, this, &MainProjectPanel::removeTaskModuleClicked);
+    connect(ui_taskModulesView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainProjectPanel::taskModulesSelectionChanged);
+    connect(ui_useLocalModules, &QCheckBox::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+}
 
 bool MainProjectPanel::ok() {
     if (useSharedResources->isChecked() && resourcesFile->text().isEmpty()) {
@@ -221,6 +240,11 @@ MacroCommand *MainProjectPanel::buildCommand() {
         if (!m) m = new MacroCommand(c);
         m->addCommand( cmd );
     }
+    cmd = buildTaskModulesCommand();
+    if ( cmd ) {
+        if (!m) m = new MacroCommand(c);
+        m->addCommand( cmd );
+    }
 
     Project::WorkPackageInfo wpi;
     wpi.checkForWorkPackages = ui_CheckForWorkPackages->isChecked();
@@ -234,8 +258,24 @@ MacroCommand *MainProjectPanel::buildCommand() {
         if (!m) m = new MacroCommand(c);
         m->addCommand( cmd );
     }
-    
+
     return m;
+}
+
+MacroCommand *MainProjectPanel::buildTaskModulesCommand()
+{
+    MacroCommand *cmd = new MacroCommand();
+    QAbstractItemModel *m = ui_taskModulesView->model();
+    QList<QUrl> lst;
+    for (QModelIndex idx = m->index(0,0); idx.isValid(); idx = idx.sibling(idx.row()+1, 0)) {
+        QUrl url = QUrl::fromUserInput(idx.data().toString());
+        if (url.isValid()) {
+            lst << url;
+        }
+    }
+    project.setTaskModules(lst); //TODO command
+    project.setUseLocalTaskModules(ui_useLocalModules->isChecked());
+    return cmd;
 }
 
 void MainProjectPanel::slotCheckAllFieldsFilled()
@@ -356,6 +396,33 @@ void MainProjectPanel::loadProjects()
 void MainProjectPanel::clearProjects()
 {
     emit clearResourceAssignments();
+}
+
+void MainProjectPanel::insertTaskModuleClicked()
+{
+    QString dirName = QFileDialog::getExistingDirectory(this, i18n("Task Modules Path"));
+    if (!dirName.isEmpty()) {
+        QStandardItemModel *m = static_cast<QStandardItemModel*>(ui_taskModulesView->model());
+        QStandardItem *item = new QStandardItem(dirName);
+        m->appendRow(item);
+        slotCheckAllFieldsFilled();
+    }
+}
+
+void MainProjectPanel::removeTaskModuleClicked()
+{
+    QList<QModelIndex> lst = ui_taskModulesView->selectionModel()->selectedRows();
+    for (const QModelIndex &idx : lst) {
+        ui_taskModulesView->model()->removeRow(idx.row(), idx.parent());
+    }
+    if (!lst.isEmpty()) {
+        slotCheckAllFieldsFilled();
+    }
+}
+
+void MainProjectPanel::taskModulesSelectionChanged()
+{
+
 }
 
 }  //KPlato namespace

@@ -14,8 +14,8 @@
   <property name="locale">
    <locale language="C" country="AnyCountry"/>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_7">
-   <item>
+  <layout class="QGridLayout" name="gridLayout_5">
+   <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
       <number>0</number>
@@ -333,6 +333,25 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="ui_description">
+      <attribute name="title">
+       <string>Description</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+      </layout>
+     </widget>
      <widget class="QWidget" name="ui_documents">
       <attribute name="title">
        <string>Documents</string>
@@ -457,11 +476,11 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="ui_description">
+     <widget class="QWidget" name="ui_taskModules">
       <attribute name="title">
-       <string>Description</string>
+       <string>Task Modules</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QGridLayout" name="gridLayout_4">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -474,6 +493,64 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
+       <property name="horizontalSpacing">
+        <number>0</number>
+       </property>
+       <item row="2" column="1">
+        <widget class="QToolButton" name="ui_removeModule">
+         <property name="text">
+          <string>Remove</string>
+         </property>
+         <property name="icon">
+          <iconset theme="list-remove">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>394</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="1">
+        <widget class="QToolButton" name="ui_insertModule">
+         <property name="text">
+          <string>Insert</string>
+         </property>
+         <property name="icon">
+          <iconset theme="list-add">
+           <normaloff>.</normaloff>.</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" rowspan="3">
+        <widget class="QTreeView" name="ui_taskModulesView">
+         <property name="rootIsDecorated">
+          <bool>false</bool>
+         </property>
+         <property name="itemsExpandable">
+          <bool>false</bool>
+         </property>
+         <attribute name="headerVisible">
+          <bool>false</bool>
+         </attribute>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="ui_useLocalModules">
+         <property name="text">
+          <string>Use local task modules</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>
@@ -482,15 +559,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KUrlRequester</class>
-   <extends>QFrame</extends>
-   <header>kurlrequester.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>KUrlRequester</class>
+   <extends>QWidget</extends>
+   <header>kurlrequester.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -498,10 +575,31 @@
   <tabstop>namefield</tabstop>
   <tabstop>leaderfield</tabstop>
   <tabstop>chooseLeader</tabstop>
-  <tabstop>startDate</tabstop>
   <tabstop>startTime</tabstop>
   <tabstop>endDate</tabstop>
   <tabstop>endTime</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>useSharedResources</tabstop>
+  <tabstop>resourcesType</tabstop>
+  <tabstop>resourcesFile</tabstop>
+  <tabstop>resourcesBrowseBtn</tabstop>
+  <tabstop>projectsType</tabstop>
+  <tabstop>projectsPlace</tabstop>
+  <tabstop>projectsBrowseBtn</tabstop>
+  <tabstop>projectsLoadAtStartup</tabstop>
+  <tabstop>projectsLoadBtn</tabstop>
+  <tabstop>projectsClearBtn</tabstop>
+  <tabstop>ui_PublishUrl</tabstop>
+  <tabstop>ui_CheckForWorkPackages</tabstop>
+  <tabstop>ui_RetrieveUrl</tabstop>
+  <tabstop>ui_DeleteFile</tabstop>
+  <tabstop>ui_ArchiveFile</tabstop>
+  <tabstop>ui_ArchiveUrl</tabstop>
+  <tabstop>startDate</tabstop>
+  <tabstop>ui_useLocalModules</tabstop>
+  <tabstop>ui_taskModulesView</tabstop>
+  <tabstop>ui_insertModule</tabstop>
+  <tabstop>ui_removeModule</tabstop>
  </tabstops>
  <resources/>
  <connections>

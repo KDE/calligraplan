@@ -43,6 +43,7 @@
 #include <KoXmlReader.h>
 #include <KoDocument.h>
 #include <KoIcon.h>
+#include <KoResourcePaths.h>
 
 #include <QItemSelectionModel>
 #include <QModelIndex>
@@ -52,6 +53,7 @@
 #include <QHeaderView>
 #include <QMenu>
 #include <QClipboard>
+#include <QDir>
 
 #include <kactionmenu.h>
 #include <KLocalizedString>
@@ -423,11 +425,19 @@ void TaskEditor::updateReadWrite( bool rw )
     ViewBase::updateReadWrite( rw );
 }
 
-void TaskEditor::setProject( Project *project )
+void TaskEditor::setProject( Project *project_ )
 {
-    debugPlan<<project;
-    m_view->setProject( project );
-    ViewBase::setProject( project );
+    debugPlan<<project_;
+    if (project()) {
+        disconnect(project(), &Project::taskModulesChanged, this, &TaskEditor::taskModulesChanged);
+        setTaskModules(QStringList());
+    }
+    m_view->setProject( project_ );
+    ViewBase::setProject( project_ );
+    if (project()) {
+        connect(project(), &Project::taskModulesChanged, this, &TaskEditor::taskModulesChanged);
+        taskModulesChanged(project()->taskModules());
+    }
 }
 
 void TaskEditor::createDockers()
@@ -510,6 +520,16 @@ void TaskEditor::createDockers()
         connect(m, &TaskModuleModel::saveTaskModule, this, &TaskEditor::saveTaskModule);
         connect(m, &TaskModuleModel::removeTaskModule, this, &TaskEditor::removeTaskModule);
         addDocker( ds );
+        Help::add(ds, xi18nc("@info:whatsthis",
+                            "<title>Task Modules</title>"
+                           "<para>"
+                           "Task Modules are a group of tasks that can be reused accross projects."
+                           " This makes it possible draw on past experience and to standardize similar operations."
+                           "</para><para>"
+                           "A task module is a regular plan file and typically includes tasks, estimates and dependencies."
+                           "</para><para>"
+                           "<link url='%1'>More...</link>"
+                           "</para>", Help::page("Task_Editor#Task_Modules_Docker")));
     }
 }
 
@@ -524,6 +544,29 @@ void TaskEditor::taskModuleDoubleClicked(QModelIndex idx)
 void TaskEditor::setTaskModules(const QStringList& files)
 {
     emit loadTaskModules( files );
+}
+
+void TaskEditor::taskModulesChanged(const QList<QUrl> &urls)
+{
+    QStringList files;
+    if (project() && project()->useLocalTaskModules()) {
+        files = KoResourcePaths::findAllResources( "calligraplan_taskmodules", "*.plan", KoResourcePaths::NoDuplicates|KoResourcePaths::Recursive );
+        debugPlan<<"private:"<<files;
+    }
+    for (const QUrl &url : urls) {
+        QDir dir(url.toLocalFile());
+        const QStringList entries = dir.entryList(QStringList()<<QStringLiteral("*.plan"), QDir::Files);
+        for (const QString &f : entries) {
+            files << url.path() + '/' + f;
+        }
+    }
+    setTaskModules(files);
+}
+
+void TaskEditor::slotTaskModuleDirChanged()
+{
+    // trigger an update
+    taskModulesChanged(project()->taskModules());
 }
 
 void TaskEditor::setGuiActive( bool activate )

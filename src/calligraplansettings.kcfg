@@ -369,4 +369,13 @@
       </entry>
   </group>
 
+  <group name="Task Modules">
+      <entry name="UseLocalTaskModules" type="Bool">
+          <label>Use the task modules from your private store</label>
+          <default>true</default>
+      </entry>
+      <entry name="TaskModulePaths" type="StringList">
+          <label>List of paths to task modules</label>
+      </entry>
+  </group>
 </kcfg>

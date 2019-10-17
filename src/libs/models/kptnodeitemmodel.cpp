@@ -5131,7 +5131,7 @@ QVariant TaskModuleModel::data( const QModelIndex& idx, int role ) const
     switch ( role ) {
         case Qt::DisplayRole: return m_modules.value( idx.row() )->name();
         case Qt::ToolTipRole: return m_modules.value( idx.row() )->description();
-        case Qt::WhatsThisRole: return m_modules.value( idx.row() )->description();
+        case Qt::WhatsThisRole: return QVariant();
         case Qt::UserRole: return m_urls.value(idx.row());
         default: break;
     }
@@ -5186,9 +5186,24 @@ bool TaskModuleModel::dropMimeData( const QMimeData *data, Qt::DropAction /*acti
 
 bool TaskModuleModel::importProject( const QUrl &url, bool emitsignal )
 {
+    Project *project = loadProjectFromUrl(url);
+    if (!project) {
+        return false;
+    }
+    addTaskModule(project, url);
+    if (emitsignal) {
+        // FIXME: save destroys the project, so give it a copy (see kptview.cpp)
+        project = loadProjectFromUrl(url);
+        emit saveTaskModule(url, project);
+    }
+    return true;
+}
+
+Project *TaskModuleModel::loadProjectFromUrl( const QUrl &url) const
+{
     if ( ! url.isLocalFile() ) {
         debugPlan<<"TODO: download if url not local";
-        return false;
+        return nullptr;
     }
     KoStore *store = KoStore::createStore( url.path(), KoStore::Read, "", KoStore::Auto );
     if ( store->bad() ) {
@@ -5196,12 +5211,12 @@ bool TaskModuleModel::importProject( const QUrl &url, bool emitsignal )
         debugPlan<<"bad store"<<url.toDisplayString();
         delete store;
         //        QApplication::restoreOverrideCursor();
-        return false;
+        return nullptr;
     }
     if ( ! store->open( "root" ) ) { // maindoc.xml
         debugPlan<<"No root"<<url.toDisplayString();
         delete store;
-        return false;
+        return nullptr;
     }
     KoXmlDocument doc;
     doc.setContent( store->device() );
@@ -5212,20 +5227,12 @@ bool TaskModuleModel::importProject( const QUrl &url, bool emitsignal )
     status.setProject( project );
     if ( project->load( element, status ) ) {
         stripProject( project );
-        addTaskModule( project, url );
-        if ( emitsignal ) {
-            // FIXME: save destroys the project, so give it a copy (see kptview.cpp)
-            Project p;
-            status.setProject( &p );
-            p.load( element, status );
-            emit saveTaskModule( url, &p );
-        }
     } else {
         debugPlan<<"Failed to load project from:"<<url;
         delete project;
-        return false;
+        return nullptr;
     }
-    return true;
+    return project;
 }
 
 QMimeData* TaskModuleModel::mimeData( const QModelIndexList &lst ) const
@@ -5234,10 +5241,14 @@ QMimeData* TaskModuleModel::mimeData( const QModelIndexList &lst ) const
     if ( lst.count() == 1 ) {
         QModelIndex idx = lst.at( 0 );
         if ( idx.isValid() ) {
-            Project *project = m_modules.value( idx.row() );
-            XmlSaveContext context(project);
-            context.save();
-            mime->setData( "application/x-vnd.kde.plan.project", context.document.toByteArray() );
+            QUrl url = m_urls.value(idx.row());
+            Project *project = loadProjectFromUrl(url);
+            if (project) {
+                XmlSaveContext context(project);
+                context.save();
+                mime->setData( "application/x-vnd.kde.plan.project", context.document.toByteArray() );
+                delete project;
+            }
         }
     }
     return mime;
@@ -5262,5 +5273,16 @@ void TaskModuleModel::loadTaskModules( const QStringList &files )
     endResetModel();
 }
 
+void TaskModuleModel::taskModulesChanged(const QList<QUrl> &modules)
+{
+    debugPlan<<modules;
+    beginResetModel();
+    m_modules.clear();
+    m_urls.clear();
+    for (const QUrl &url : modules) {
+        importProject(url , false);
+    }
+    endResetModel();
+}
 
 } //namespace KPlato
