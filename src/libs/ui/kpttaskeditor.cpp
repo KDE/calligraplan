@@ -523,7 +523,7 @@ void TaskEditor::createDockers()
         Help::add(ds, xi18nc("@info:whatsthis",
                             "<title>Task Modules</title>"
                            "<para>"
-                           "Task Modules are a group of tasks that can be reused accross projects."
+                           "Task Modules are a group of tasks that can be reused across projects."
                            " This makes it possible draw on past experience and to standardize similar operations."
                            "</para><para>"
                            "A task module is a regular plan file and typically includes tasks, estimates and dependencies."
