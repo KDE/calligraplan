@@ -516,8 +516,11 @@ public:
     Project *loadProjectFromUrl( const QUrl &url) const;
 
 public Q_SLOTS:
+    void setProject(Project *project);
     void loadTaskModules( const QStringList &files );
-    void taskModulesChanged(const QList<QUrl> &modules);
+    void slotTaskModulesChanged(const QList<QUrl> &modules);
+
+    void slotReset();
 
 Q_SIGNALS:
     void executeCommand( KUndo2Command *cmd );
@@ -528,6 +531,7 @@ protected:
     void stripProject( Project *project ) const;
 
 private:
+    Project *m_project;
     QList<Project*> m_modules;
     QList<QUrl> m_urls;
 };

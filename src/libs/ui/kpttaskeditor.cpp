@@ -428,16 +428,8 @@ void TaskEditor::updateReadWrite( bool rw )
 void TaskEditor::setProject( Project *project_ )
 {
     debugPlan<<project_;
-    if (project()) {
-        disconnect(project(), &Project::taskModulesChanged, this, &TaskEditor::taskModulesChanged);
-        setTaskModules(QStringList());
-    }
     m_view->setProject( project_ );
     ViewBase::setProject( project_ );
-    if (project()) {
-        connect(project(), &Project::taskModulesChanged, this, &TaskEditor::taskModulesChanged);
-        taskModulesChanged(project()->taskModules());
-    }
 }
 
 void TaskEditor::createDockers()
@@ -502,6 +494,7 @@ void TaskEditor::createDockers()
         QTreeView *e = new QTreeView( ds );
         QSortFilterProxyModel *sf = new QSortFilterProxyModel(e);
         TaskModuleModel *m = new TaskModuleModel(sf);
+        connect(this, &TaskEditor::projectChanged, m, &TaskModuleModel::setProject);
         sf->setSourceModel(m);
         e->setModel(sf);
         e->sortByColumn(0, Qt::AscendingOrder);
@@ -516,7 +509,6 @@ void TaskEditor::createDockers()
         e->setDragEnabled ( true );
         ds->setWidget( e );
         connect(e, &QAbstractItemView::doubleClicked, this, &TaskEditor::taskModuleDoubleClicked);
-        connect(this, &TaskEditor::loadTaskModules, m, &TaskModuleModel::loadTaskModules);
         connect(m, &TaskModuleModel::saveTaskModule, this, &TaskEditor::saveTaskModule);
         connect(m, &TaskModuleModel::removeTaskModule, this, &TaskEditor::removeTaskModule);
         addDocker( ds );
@@ -539,34 +531,6 @@ void TaskEditor::taskModuleDoubleClicked(QModelIndex idx)
     if (url.isValid()) {
         emit openDocument(url);
     }
-}
-
-void TaskEditor::setTaskModules(const QStringList& files)
-{
-    emit loadTaskModules( files );
-}
-
-void TaskEditor::taskModulesChanged(const QList<QUrl> &urls)
-{
-    QStringList files;
-    if (project() && project()->useLocalTaskModules()) {
-        files = KoResourcePaths::findAllResources( "calligraplan_taskmodules", "*.plan", KoResourcePaths::NoDuplicates|KoResourcePaths::Recursive );
-        debugPlan<<"private:"<<files;
-    }
-    for (const QUrl &url : urls) {
-        QDir dir(url.toLocalFile());
-        const QStringList entries = dir.entryList(QStringList()<<QStringLiteral("*.plan"), QDir::Files);
-        for (const QString &f : entries) {
-            files << url.path() + '/' + f;
-        }
-    }
-    setTaskModules(files);
-}
-
-void TaskEditor::slotTaskModuleDirChanged()
-{
-    // trigger an update
-    taskModulesChanged(project()->taskModules());
 }
 
 void TaskEditor::setGuiActive( bool activate )

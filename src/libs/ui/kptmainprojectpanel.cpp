@@ -172,11 +172,13 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
 void MainProjectPanel::initTaskModules()
 {
     QStandardItemModel *m = new QStandardItemModel(0, 1, ui_taskModulesView);
-    for (const QUrl &url : project.taskModules()) {
+    const QList<QUrl> lst = project.taskModules(false);
+    for (const QUrl &url : lst) {
         QStandardItem *item = new QStandardItem(url.toString());
         m->appendRow(item);
     }
     ui_taskModulesView->setModel(m);
+    ui_useLocalModules->setChecked(project.useLocalTaskModules());
     connect(ui_insertModule, &QToolButton::clicked, this, &MainProjectPanel::insertTaskModuleClicked);
     connect(ui_removeModule, &QToolButton::clicked, this, &MainProjectPanel::removeTaskModuleClicked);
     connect(ui_taskModulesView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainProjectPanel::taskModulesSelectionChanged);

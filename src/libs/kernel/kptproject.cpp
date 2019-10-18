@@ -3045,15 +3045,23 @@ bool Project::loadProjectsAtStartup() const
     return m_loadProjectsAtStartup;
 }
 
-QList<QUrl> Project::taskModules() const
+QList<QUrl> Project::taskModules(bool includeLocal) const
 {
+    if (!includeLocal && m_useLocalTaskModules) {
+        QList<QUrl> lst = m_taskModules;
+        lst.removeAll(m_localTaskModulesPath);
+        return lst;
+    }
     return m_taskModules;
 }
 
 void Project::setTaskModules(const QList<QUrl> modules)
 {
     m_taskModules = modules;
-    emit taskModulesChanged(modules);
+    if (m_useLocalTaskModules && m_localTaskModulesPath.isValid()) {
+        m_taskModules.prepend(m_localTaskModulesPath);
+    }
+    emit taskModulesChanged(m_taskModules);
 }
 
 bool Project::useLocalTaskModules() const
@@ -3063,7 +3071,23 @@ bool Project::useLocalTaskModules() const
 
 void Project::setUseLocalTaskModules(bool value)
 {
+    if (m_useLocalTaskModules) {
+        m_taskModules.removeAll(m_localTaskModulesPath);
+    }
     m_useLocalTaskModules = value;
+    if (m_useLocalTaskModules && m_localTaskModulesPath.isValid()) {
+        m_taskModules.prepend(m_localTaskModulesPath);
+    }
+    emit taskModulesChanged(m_taskModules);
+}
+
+void Project::setLocalTaskModulesPath(const QUrl &url)
+{
+    m_taskModules.removeAll(m_localTaskModulesPath);
+    m_localTaskModulesPath = url;
+    if (m_useLocalTaskModules && url.isValid()) {
+        m_taskModules.prepend(url);
+    }
     emit taskModulesChanged(m_taskModules);
 }
 

@@ -188,7 +188,6 @@ Q_SIGNALS:
     void viewListItemRemoved(const KPlato::ViewListItem *item);
 
     void insertSharedProject();
-    void taskModuleDirChanged();
 
 protected:
     /// Load kplato specific files
@@ -225,6 +224,7 @@ protected Q_SLOTS:
     void slotStartCalculation();
 
     void setTaskModulesWatch();
+    void taskModuleDirChanged();
 
 private:
     bool loadAndParse(KoStore* store, const QString& filename, KoXmlDocument& doc);

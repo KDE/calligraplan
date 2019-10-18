@@ -930,7 +930,6 @@ ViewBase *View::createTaskEditor( ViewListItem *cat, const QString &tag, const Q
     connect(taskeditor, &TaskEditor::saveTaskModule, this, &View::saveTaskModule);
     connect(taskeditor, &TaskEditor::removeTaskModule, this, &View::removeTaskModule);
     connect(taskeditor, &ViewBase::openDocument, static_cast<KPlato::Part*>(m_partpart), &Part::openTaskModule);
-    connect(getPart(), &MainDocument::taskModuleDirChanged, taskeditor, &TaskEditor::slotTaskModuleDirChanged);
 
     connect( taskeditor, &TaskEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
     connect( taskeditor, &TaskEditor::openTaskDescription, this, &View::slotOpenTaskDescription);

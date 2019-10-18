@@ -251,6 +251,11 @@ void MainDocument::setProject( Project *project )
     }
     m_aboutPage.setProject( project );
 
+    QString dir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    if (!dir.isEmpty()) {
+        dir += "/taskmodules";
+        m_project->setLocalTaskModulesPath(QUrl::fromLocalFile(dir));
+    }
     setTaskModulesWatch();
     connect(project, &Project::taskModulesChanged, this, &MainDocument::setTaskModulesWatch);
 
@@ -261,17 +266,16 @@ void MainDocument::setTaskModulesWatch()
 {
     delete m_taskModulesWatch;
     m_taskModulesWatch = new KDirWatch(this);
-    if (m_project->useLocalTaskModules()) {
-        QString dir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-        if (!dir.isEmpty()) {
-            dir += "/taskmodules";
-            m_taskModulesWatch->addDir(dir);
-        }
-    }
     for (const QUrl &url : m_project->taskModules()) {
         m_taskModulesWatch->addDir(url.toLocalFile());
     }
     connect(m_taskModulesWatch, &KDirWatch::dirty, this, &MainDocument::taskModuleDirChanged);
+}
+
+void MainDocument::taskModuleDirChanged()
+{
+    // HACK to trigger update FIXME
+    m_project->setUseLocalTaskModules(m_project->useLocalTaskModules());
 }
 
 bool MainDocument::loadOdf( KoOdfReadStore &odfStore )

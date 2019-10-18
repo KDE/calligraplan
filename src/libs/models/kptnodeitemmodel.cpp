@@ -5093,7 +5093,25 @@ void NodeSortFilterProxyModel::sort(int column, Qt::SortOrder order)
 //------------------
 TaskModuleModel::TaskModuleModel( QObject *parent )
     : QAbstractItemModel( parent )
+    , m_project(nullptr)
 {
+}
+
+void TaskModuleModel::setProject(Project *project)
+{
+    if (m_project) {
+        disconnect(m_project, &Project::taskModulesChanged, this, &TaskModuleModel::slotTaskModulesChanged);
+    }
+    m_project = project;
+    if (m_project) {
+        connect(m_project, &Project::taskModulesChanged, this, &TaskModuleModel::slotTaskModulesChanged);
+    }
+    slotReset();
+}
+
+void TaskModuleModel::slotReset()
+{
+    slotTaskModulesChanged(m_project ? m_project->taskModules() : QList<QUrl>());
 }
 
 void TaskModuleModel::addTaskModule( Project *project, const QUrl &url )
@@ -5188,6 +5206,7 @@ bool TaskModuleModel::importProject( const QUrl &url, bool emitsignal )
 {
     Project *project = loadProjectFromUrl(url);
     if (!project) {
+        warnPlan<<Q_FUNC_INFO<<"Failed to load project from:"<<url;
         return false;
     }
     addTaskModule(project, url);
@@ -5202,19 +5221,19 @@ bool TaskModuleModel::importProject( const QUrl &url, bool emitsignal )
 Project *TaskModuleModel::loadProjectFromUrl( const QUrl &url) const
 {
     if ( ! url.isLocalFile() ) {
-        debugPlan<<"TODO: download if url not local";
+        warnPlan<<Q_FUNC_INFO<<"TODO: download if url not local";
         return nullptr;
     }
     KoStore *store = KoStore::createStore( url.path(), KoStore::Read, "", KoStore::Auto );
     if ( store->bad() ) {
         //        d->lastErrorMessage = i18n( "Not a valid Calligra file: %1", file );
-        debugPlan<<"bad store"<<url.toDisplayString();
+        warnPlan<<Q_FUNC_INFO<<"bad store"<<url.toDisplayString()<<url.path();
         delete store;
         //        QApplication::restoreOverrideCursor();
         return nullptr;
     }
     if ( ! store->open( "root" ) ) { // maindoc.xml
-        debugPlan<<"No root"<<url.toDisplayString();
+        warnPlan<<Q_FUNC_INFO<<"No root"<<url.toDisplayString();
         delete store;
         return nullptr;
     }
@@ -5228,7 +5247,7 @@ Project *TaskModuleModel::loadProjectFromUrl( const QUrl &url) const
     if ( project->load( element, status ) ) {
         stripProject( project );
     } else {
-        debugPlan<<"Failed to load project from:"<<url;
+        warnPlan<<Q_FUNC_INFO<<"Failed to load project from:"<<url;
         delete project;
         return nullptr;
     }
@@ -5273,16 +5292,21 @@ void TaskModuleModel::loadTaskModules( const QStringList &files )
     endResetModel();
 }
 
-void TaskModuleModel::taskModulesChanged(const QList<QUrl> &modules)
+void TaskModuleModel::slotTaskModulesChanged(const QList<QUrl> &modules)
 {
     debugPlan<<modules;
     beginResetModel();
     m_modules.clear();
     m_urls.clear();
-    for (const QUrl &url : modules) {
-        importProject(url , false);
-    }
     endResetModel();
+    for (const QUrl &url : modules) {
+        QDir dir(url.toLocalFile());
+        QStringList files = dir.entryList(QStringList() << "*.plan", QDir::Files);
+        foreach ( const QString &file, files ) {
+            QUrl u = QUrl::fromLocalFile(dir.path() + '/' + file);
+            importProject(u, false);
+        }
+    }
 }
 
 } //namespace KPlato

@@ -527,10 +527,11 @@ public:
     void setLoadProjectsAtStartup(bool value);
     bool loadProjectsAtStartup() const;
 
-    QList<QUrl> taskModules() const;
+    QList<QUrl> taskModules(bool includeLocal = true) const;
     void setTaskModules(const QList<QUrl> modules);
     bool useLocalTaskModules() const;
     void setUseLocalTaskModules(bool value);
+    void setLocalTaskModulesPath(const QUrl &url);
 
 public Q_SLOTS:
     /// Sets m_progress to @p progress and emits signal sigProgress()
@@ -755,6 +756,7 @@ private:
 
     QList<QUrl> m_taskModules;
     bool m_useLocalTaskModules;
+    QUrl m_localTaskModulesPath;
 };
 
 

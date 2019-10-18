@@ -144,7 +144,6 @@ Q_SIGNALS:
     void indentTask();
     void unindentTask();
 
-    void loadTaskModules( const QStringList &files );
     void saveTaskModule(const QUrl &url, KPlato::Project *project);
     void removeTaskModule( const QUrl &url );
 
@@ -154,8 +153,6 @@ public Q_SLOTS:
 
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
-    void setTaskModules( const QStringList &files );
-    void slotTaskModuleDirChanged();
     void slotEditCopy() override;
     void slotEditPaste() override;
 
@@ -191,7 +188,6 @@ private Q_SLOTS:
     void slotProjectShown( bool );
 
     void taskModuleDoubleClicked(QModelIndex idx);
-    void taskModulesChanged(const QList<QUrl> &urls);
 
 private:
     void edit( const QModelIndex &index );
