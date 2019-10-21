@@ -25,6 +25,7 @@ set(planmodels_LIB_SRCS
     kpttreecombobox.cpp
 
     commands/InsertProjectXmlCommand.cpp
+    commands/InsertTaskModuleCommand.cpp
 
     kcalendar/kdatetable.cpp
     kcalendar/kdatepicker.cpp
@@ -65,6 +66,7 @@ target_link_libraries(planmodels
         Qt5::Gui
         KF5::Notifications
         KF5::TextWidgets
+        planwidgets
 )
 if(KF5Contacts_FOUND)
     target_link_libraries(planmodels  PRIVATE KF5::Contacts)

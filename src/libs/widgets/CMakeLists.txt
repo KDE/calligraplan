@@ -6,6 +6,7 @@ include_directories(${PLANODF_INCLUDES})
 include_directories(${PLANWIDGETS_INCLUDE})
 
 set(kowidgets_LIB_SRCS
+    ParameterSubstitutionDialog.cpp
     KoResourcePaths.cpp
     KoVBox.cpp
     KoDialog.cpp
@@ -22,6 +23,7 @@ set(kowidgets_LIB_SRCS
 )
 
 ki18n_wrap_ui( kowidgets_LIB_SRCS
+    ParameterSubstitutionPanel.ui
     koDocumentInfoAboutWidget.ui
     koDocumentInfoAuthorWidget.ui
 

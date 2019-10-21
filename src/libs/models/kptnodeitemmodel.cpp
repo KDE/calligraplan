@@ -1,22 +1,23 @@
 /* This file is part of the KDE project
-  Copyright (C) 2007 - 2009, 2012 Dag Andersen <danders@get2net.dk>
-  Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
-  
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Library General Public
-  License as published by the Free Software Foundation; either
-  version 2 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Library General Public License for more details.
-
-  You should have received a copy of the GNU Library General Public License
-  along with this library; see the file COPYING.LIB.  If not, write to
-  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301, USA.
-*/
+ * Copyright (C) 2007 - 2009, 2012 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public License
+ * along with this library; see the file COPYING.LIB.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ */
 
 // clazy:excludeall=qstring-arg
 #include "kptnodeitemmodel.h"
@@ -32,6 +33,7 @@
 #include "kptxmlloaderobject.h"
 #include "XmlSaveContext.h"
 #include "InsertProjectXmlCommand.h"
+#include "InsertTaskModuleCommand.h"
 #include "kptdebug.h"
 
 #include <KoXmlReader.h>
@@ -42,6 +44,7 @@
 #include <KoStoreDevice.h>
 #include <KoXmlNS.h>
 #include <KoIcon.h>
+#include <ParameterSubstitutionDialog.h>
 
 #include <QMimeData>
 #include <QMimeDatabase>
@@ -3818,6 +3821,7 @@ QStringList NodeItemModel::mimeTypes() const
             << "application/x-vnd.kde.plan.nodeitemmodel.internal"
             << "application/x-vnd.kde.plan.resourceitemmodel.internal"
             << "application/x-vnd.kde.plan.project"
+            << "application/x-vnd.kde.plan.taskmodule"
             << "text/uri-list";
 }
 
@@ -3886,6 +3890,7 @@ bool NodeItemModel::dropAllowed( const QModelIndex &index, int dropIndicatorPosi
         }
     } else if ( data->hasFormat( "application/x-vnd.kde.plan.nodeitemmodel.internal")
                 || data->hasFormat( "application/x-vnd.kde.plan.project" )
+                || data->hasFormat( "application/x-vnd.kde.plan.taskmodule" )
                 || data->hasUrls() )
     {
         switch ( dropIndicatorPosition ) {
@@ -4045,6 +4050,34 @@ bool NodeItemModel::dropProjectMimeData( const QMimeData *data, Qt::DropAction a
 
     KUndo2Command *cmd = new InsertProjectXmlCommand(project(), data->data("application/x-vnd.kde.plan.project"), n, n->childNode(row), kundo2_i18n("Insert tasks"));
     emit executeCommand( cmd );
+    return true;
+}
+
+bool NodeItemModel::dropTaskModuleMimeData( const QMimeData *data, Qt::DropAction action, int row, int /*column*/, const QModelIndex &parent )
+{
+    Node *n = node( parent );
+    if ( n == 0 ) {
+        n = m_project;
+    }
+    debugPlan<<n<<action<<row<<parent;
+    QRegularExpression reg("\\[\\[[^ ]*\\]\\]");
+    QRegularExpressionMatchIterator it = reg.globalMatch(data->data("application/x-vnd.kde.plan.taskmodule"));
+    QStringList substitute;
+    while (it.hasNext()) {
+        QRegularExpressionMatch match = it.next();
+        substitute << match.captured().remove("[[").remove("]]");
+    }
+    QMap<QString, QString> params;
+    if (!substitute.isEmpty()) {
+        ParameterSubstitutionDialog dlg(substitute);
+        dlg.setCaption(xi18nc("@title:window", "Task Module Parameters"));
+        if (!dlg.exec()) {
+            return false;
+        }
+        params = dlg.parameters();
+    }
+    KUndo2Command *cmd = new InsertTaskModuleCommand(project(), data->data("application/x-vnd.kde.plan.taskmodule"), n, n->childNode(row), params, kundo2_i18n("Insert task module"));
+    emit executeCommand(cmd);
     return true;
 }
 
@@ -4209,6 +4242,11 @@ bool NodeItemModel::dropMimeData( const QMimeData *data, Qt::DropAction action, 
     if ( data->hasFormat( "application/x-vnd.kde.plan.project" ) ) {
         debugPlan;
         return dropProjectMimeData( data, action, row, column, parent );
+
+    }
+    if ( data->hasFormat( "application/x-vnd.kde.plan.taskmodule" ) ) {
+        debugPlan;
+        return dropTaskModuleMimeData( data, action, row, column, parent );
 
     }
     if ( data->hasUrls() ) {
@@ -4516,7 +4554,7 @@ void MilestoneItemModel::slotNodeToBeRemoved( Node *node )
 {
     Q_UNUSED(node);
     //debugPlan<<node->name();
-/*    int row = m_nodemap.values().indexOf( node );
+/*   int row = m_nodemap.values().indexOf( node );
     if ( row != -1 ) {
         Q_ASSERT( m_nodemap.contains( node->wbsCode() ) );
         Q_ASSERT( m_nodemap.keys().indexOf( node->wbsCode() ) == row );
@@ -5265,7 +5303,7 @@ QMimeData* TaskModuleModel::mimeData( const QModelIndexList &lst ) const
             if (project) {
                 XmlSaveContext context(project);
                 context.save();
-                mime->setData( "application/x-vnd.kde.plan.project", context.document.toByteArray() );
+                mime->setData( "application/x-vnd.kde.plan.taskmodule", context.document.toByteArray() );
                 delete project;
             }
         }

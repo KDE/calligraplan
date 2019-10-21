@@ -122,7 +122,7 @@ ki18n_wrap_ui(planui_LIB_SRCS
 
     kptprintingheaderfooter.ui
     kptganttprintingoptions.ui
-    
+
     kptworkpackagesendpanel.ui
     
     kptdocumentspanel.ui
