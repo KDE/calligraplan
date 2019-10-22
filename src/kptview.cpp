@@ -195,7 +195,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
         m_partpart (part)
 {
     //debugPlan;
-    updateHelp();
+    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 
     doc->registerView( this );
 
@@ -298,11 +298,6 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     actionLoadSharedProjects  = new QAction(koIcon("document-import"), i18n("Load Shared Projects..."), this);
     actionCollection()->addAction("load_shared_projects", actionLoadSharedProjects );
     connect( actionLoadSharedProjects, &QAction::triggered, this, &View::slotLoadSharedProjects );
-
-    // ------ Settings
-    actionConfigure  = new QAction(koIcon("configure"), i18n("Configure Plan..."), this);
-    actionCollection()->addAction("configure", actionConfigure );
-    connect( actionConfigure, &QAction::triggered, this, &View::slotConfigure );
 
 #ifdef PLAN_USE_KREPORT
     actionOpenReportFile  = new QAction(koIcon("document-open"), i18n("Open Report Definition File..."), this);
@@ -1944,21 +1939,6 @@ void View::slotDefineWBSFinished( int result )
         }
     }
     dia->deleteLater();
-}
-
-void View::slotConfigure()
-{
-    //debugPlan;
-    if( KConfigDialog::showDialog("Plan Settings") ) {
-        return;
-    }
-    ConfigDialog *dialog = new ConfigDialog( this, "Plan Settings", KPlatoSettings::self() );
-    dialog->open();
-}
-
-void View::updateHelp()
-{
-    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 }
 
 void View::slotIntroduction()

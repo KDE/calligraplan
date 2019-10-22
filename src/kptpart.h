@@ -54,6 +54,8 @@ public:
 
     void showStartUpWidget(KoMainWindow *parent) override;
 
+    void configure(KoMainWindow *mw) override;
+
 public Q_SLOTS:
     void openTaskModule(const QUrl& url);
 

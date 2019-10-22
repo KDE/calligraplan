@@ -196,6 +196,7 @@ void KoPart::addMainWindow(KoMainWindow *mainWindow)
     if (d->mainWindows.indexOf(mainWindow) == -1) {
         debugMain <<"mainWindow" << (void*)mainWindow <<"added to doc" << this;
         d->mainWindows.append(mainWindow);
+        connect(mainWindow, &KoMainWindow::configure, this, &KoPart::configure);
     }
 }
 
@@ -204,6 +205,7 @@ void KoPart::removeMainWindow(KoMainWindow *mainWindow)
     debugMain <<"mainWindow" << (void*)mainWindow <<"removed from doc" << this;
     if (mainWindow) {
         d->mainWindows.removeAll(mainWindow);
+        disconnect(mainWindow, &KoMainWindow::configure, this, &KoPart::configure);
     }
 }
 

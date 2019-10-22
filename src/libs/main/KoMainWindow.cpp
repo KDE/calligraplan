@@ -245,6 +245,8 @@ public:
     bool noCleanup;
     bool openingDocument;
     KoPrintJob *printPreviewJob;
+
+    QAction *configureAction;
 };
 
 KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentData &componentData)
@@ -363,6 +365,10 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     actionCollection()->addAction("settings_dockers_menu", d->dockWidgetMenu);
     d->dockWidgetMenu->setVisible(false);
     d->dockWidgetMenu->setDelayed(false);
+
+    d->configureAction = new QAction(koIcon("configure"), i18n("Configure Plan..."), this);
+    actionCollection()->addAction("configure", d->configureAction );
+    connect(d->configureAction, &QAction::triggered, this, &KoMainWindow::slotConfigure );
 
     // Load list of recent files
     KSharedConfigPtr configPtr = componentData.config();
@@ -2160,4 +2166,9 @@ void KoMainWindow::showDockerTitleBars(bool show)
 
     KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group("Interface");
     configGroupInterface.writeEntry("ShowDockerTitleBars", show);
+}
+
+void KoMainWindow::slotConfigure()
+{
+    emit configure(this);
 }

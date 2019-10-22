@@ -41,7 +41,7 @@ public:
     QTime dayStartTime(int day) const;
     int dayLength(int day) const;
 
-    void setDefaultValues( Project &project ) override;
+    void setDefaultValues( Project &project ) const override;
 
     void setDefaultValues( Task &task ) override;
 
@@ -65,6 +65,12 @@ public:
     QBrush milestoneCriticalColor() const override;
     QBrush milestoneFinishedColor() const override;
 
+    QString documentationPath() const override;
+    QString contextPath() const override;
+    QString contextLanguage() const override;
+
+    bool useLocalTaskModules() const override;
+    QStringList taskModulePaths() const override;
 };
 
 }  //KPlato namespace

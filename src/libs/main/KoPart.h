@@ -128,6 +128,8 @@ public Q_SLOTS:
      */
     virtual void openExistingFile(const QUrl &url);
 
+    virtual void configure(KoMainWindow *mw) { Q_UNUSED(mw); }
+
 protected Q_SLOTS:
 
     /**

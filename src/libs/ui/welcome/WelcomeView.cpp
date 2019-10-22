@@ -252,6 +252,7 @@ void WelcomeView::slotNewProject()
     }
     Project *p = project();
     if (p) {
+        p->config().setDefaultValues(*p);
         if (!m_projectdialog) {
             m_projectdialog =  new MainProjectDialog(*p, this, false /*edit*/);
             connect(m_projectdialog.data(), &MainProjectDialog::dialogFinished, this, &WelcomeView::slotProjectEditFinished);

@@ -42,6 +42,7 @@
   <Action name="options_configure_toolbars"/>
   <Action name="theme_menu" />
   <DefineGroup name="settings_configure"/>
+  <Action name="configure"/>
  </Menu>
 </MenuBar>
 <ToolBar name="mainToolBar" fullWidth="false" noMerge="1"><Text>File</Text>

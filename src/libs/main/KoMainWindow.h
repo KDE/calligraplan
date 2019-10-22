@@ -188,6 +188,8 @@ Q_SIGNALS:
     /// This signal is emitted when the shortcut key configuration has changed
     void keyBindingsChanged();
 
+    void configure(KoMainWindow *mw);
+
 public Q_SLOTS:
 
     /**
@@ -332,6 +334,8 @@ public Q_SLOTS:
      *         but restore the original URL in slotFileSaveAs)
      */
     bool saveDocument(bool saveas = false, bool silent = false, int specialOutputFlag = 0);
+
+    void slotConfigure();
 
 private:
 

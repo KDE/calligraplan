@@ -201,7 +201,6 @@ public Q_SLOTS:
 
     void slotCreateView();
 
-    void slotConfigure();
     void slotIntroduction();
 
     void openRelationDialog(KPlato::Node *par, KPlato::Node *child);
@@ -336,8 +335,6 @@ private Q_SLOTS:
 
     void initiateViews();
     void slotViewScheduleManager(KPlato::ScheduleManager *sm);
-
-    void updateHelp();
 
 private:
     void createViews();

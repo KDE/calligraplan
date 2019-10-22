@@ -42,10 +42,10 @@ public:
 
     void setTaskDefaults( Task * );
 
-    virtual void setDefaultValues( Project & ) {}
+    virtual void setDefaultValues( Project & ) const {}
     virtual void setDefaultValues( Task & ) {}
     virtual QPair<int, int> durationUnitRange() const { return QPair<int, int>(); }
-    virtual int minimumDurationUnit() const { return Duration::Unit_h; }
+    virtual int minimumDurationUnit() const { return Duration::Unit_m; }
     virtual int maximumDurationUnit() const { return Duration::Unit_Y; }
 
     QBrush summaryTaskLevelColor( int level ) const;
@@ -68,6 +68,13 @@ public:
 
     const Locale *locale() const;
     Locale *locale();
+
+    virtual QString documentationPath() const { return QString(); }
+    virtual QString contextPath() const { return QString(); }
+    virtual QString contextLanguage() const { return QString(); }
+
+    virtual bool useLocalTaskModules() const { return true; }
+    virtual QStringList taskModulePaths() const { return QStringList(); }
 
     static QBrush gradientBrush( const QColor &c );
 

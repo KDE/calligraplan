@@ -125,7 +125,7 @@ int Config::dayLength(int day) const
 }
 
 
-void Config::setDefaultValues( Project &project )
+void Config::setDefaultValues( Project &project ) const
 {
     project.setLeader( KPlatoSettings::manager() );
     project.setUseSharedResources( KPlatoSettings::useSharedResources() );
@@ -152,6 +152,13 @@ void Config::setDefaultValues( Project &project )
     wpi.publishUrl = KPlatoSettings::publishUrl();
 #endif
     project.setWorkPackageInfo(wpi);
+
+    project.setUseLocalTaskModules(useLocalTaskModules());
+    QList<QUrl> urls;
+    for (const QString &s : taskModulePaths()) {
+        urls << QUrl::fromUserInput(s);
+    }
+    project.setTaskModules(urls);
 }
 
 void Config::setDefaultValues( Task &task )
@@ -325,6 +332,31 @@ QBrush Config::milestoneFinishedColor() const
         return gradientBrush( c );
     }
     return c;
+}
+
+QString Config::documentationPath() const
+{
+    return KPlatoSettings::documentationPath();
+}
+
+QString Config::contextPath() const
+{
+    return KPlatoSettings::contextPath();
+}
+
+QString Config::contextLanguage() const
+{
+    return KPlatoSettings::contextLanguage();
+}
+
+bool Config::useLocalTaskModules() const
+{
+    return KPlatoSettings::useLocalTaskModules();
+}
+
+QStringList Config::taskModulePaths() const
+{
+    return KPlatoSettings::taskModulePaths();
 }
 
 }  //KPlato namespace

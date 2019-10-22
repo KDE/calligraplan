@@ -219,3 +219,13 @@ QWidget *Part::createIntroductionView()
 
     return v;
 }
+
+void Part::configure(KoMainWindow *mw)
+{
+    //debugPlan;
+    if( KConfigDialog::showDialog("Plan Settings")) {
+        return;
+    }
+    ConfigDialog *dialog = new ConfigDialog(mw, "Plan Settings", KPlatoSettings::self());
+    dialog->open();
+}
