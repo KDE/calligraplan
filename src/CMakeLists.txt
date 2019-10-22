@@ -110,13 +110,15 @@ set(planprivate_LIB_SRCS
     kptschedulesdocker.cpp
 
     kptconfig.cpp
-    ConfigWorkVacationPanel.cpp
-    ConfigProjectPanel.cpp
-    kpttaskdefaultpanel.cpp
-    kptworkpackageconfigpanel.cpp
-    kptcolorsconfigpanel.cpp
-    ConfigDocumentationPanel.cpp
-    ConfigTaskModulesPanel.cpp
+
+    config/ConfigWorkVacationPanel.cpp
+    config/ConfigProjectPanel.cpp
+    config/kpttaskdefaultpanel.cpp
+    config/kptworkpackageconfigpanel.cpp
+    config/kptcolorsconfigpanel.cpp
+    config/ConfigDocumentationPanel.cpp
+    config/ConfigTaskModulesPanel.cpp
+    config/ConfigDialog.cpp
 
     kptcontext.cpp
 
@@ -144,13 +146,13 @@ ki18n_wrap_ui(planprivate_LIB_SRCS
     kptviewlisteditview.ui
     kptviewlisteditcategory.ui
 
-    ConfigWorkVacationPanel.ui
-    ConfigProjectPanel.ui
-    kptconfigtaskpanelbase.ui
-    kptworkpackageconfigpanel.ui
-    kptcolorsconfigpanel.ui
-    ConfigDocumentationPanel.ui
-    ConfigTaskModulesPanel.ui
+    config/ConfigWorkVacationPanel.ui
+    config/ConfigProjectPanel.ui
+    config/kptconfigtaskpanelbase.ui
+    config/kptworkpackageconfigpanel.ui
+    config/kptcolorsconfigpanel.ui
+    config/ConfigDocumentationPanel.ui
+    config/ConfigTaskModulesPanel.ui
 
     kptinsertfilepanel.ui
 )

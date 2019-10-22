@@ -53,10 +53,8 @@
 #include <kactionmenu.h>
 #include <kstandardaction.h>
 #include <ktoolbar.h>
-#include <kconfigdialogmanager.h>
 #include <kxmlguifactory.h>
 #include <ktoggleaction.h>
-#include <kconfigdialog.h>
 #include <ktoolinvocation.h>
 #include <krun.h>
 #include <khelpclient.h>
@@ -101,13 +99,6 @@
 #include "kpttaskstatusview.h"
 #include "kptsplitterview.h"
 #include "kptpertresult.h"
-#include "ConfigProjectPanel.h"
-#include "ConfigWorkVacationPanel.h"
-#include "kpttaskdefaultpanel.h"
-#include "kptworkpackageconfigpanel.h"
-#include "kptcolorsconfigpanel.h"
-#include "ConfigDocumentationPanel.h"
-#include "ConfigTaskModulesPanel.h"
 #include "kptinsertfiledlg.h"
 #include "kptloadsharedprojectsdialog.h"
 #include "kpthtmlview.h"
@@ -142,50 +133,8 @@
 
 #include <assert.h>
 
-namespace KPlato
-{
+using namespace KPlato;
 
-//-------------------------------
-ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton *config )
-    : KConfigDialog( parent, name, config )
-{
-    m_pages << addPage(new ConfigProjectPanel(), i18n("Project Defaults"), koIconName("calligraplan") );
-    m_pages << addPage(new ConfigWorkVacationPanel(), i18n("Work & Vacation"), koIconName("view-calendar") );
-    m_pages << addPage(new TaskDefaultPanel(), i18n("Task Defaults"), koIconName("view-task") );
-    m_pages << addPage(new ColorsConfigPanel(), i18n("Task Colors"), koIconName("fill-color") );
-    ConfigTaskModulesPanel *page = new ConfigTaskModulesPanel();
-    m_pages << addPage(page, i18n("Task Modules"), koIconName("calligraplanwork") );
-    connect(page, &ConfigTaskModulesPanel::settingsChanged, this, &ConfigDialog::updateButtons);
-    connect(this, &ConfigDialog::updateWidgetsSettings, page, &ConfigTaskModulesPanel::updateSettings);
-    connect(this, &ConfigDialog::updateWidgetsData, page, &ConfigTaskModulesPanel::updateWidgets);
-    m_pages << addPage(new WorkPackageConfigPanel(), i18n("Work Package"), koIconName("calligraplanwork") );
-    m_pages << addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents") );
-}
-
-void ConfigDialog::updateSettings()
-{
-    emit updateWidgetsSettings();
-
-    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
-}
-
-void ConfigDialog::updateWidgets()
-{
-    emit updateWidgetsData();
-}
-
-bool ConfigDialog::hasChanged()
-{
-    QWidget *w = currentPage()->widget()->findChild<QWidget*>("ConfigWidget");
-    return w ? w->property("hasChanged").toBool() : false;
-}
-
-void ConfigDialog::showHelp()
-{
-    Help::invoke("Configure_Plan");
-}
-
-//------------------------------------
 View::View(KoPart *part, MainDocument *doc, QWidget *parent)
         : KoView(part, doc, parent),
         m_currentEstimateType( Estimate::Use_Expected ),
@@ -3280,5 +3229,3 @@ QString View::standardTaskStatusReport() const
 #endif
     return s;
 }
-
-}  //KPlato namespace

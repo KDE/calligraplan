@@ -92,29 +92,7 @@ class ReportDesignDialog;
 
 class DockWidget;
 
-class ConfigDialog : public KConfigDialog
-{
-    Q_OBJECT
-public:
-    ConfigDialog( QWidget *parent, const QString &name, KConfigSkeleton *config );
 
-Q_SIGNALS:
-    void updateWidgetsData();
-    void updateWidgetsSettings();
-
-protected Q_SLOTS:
-    void updateSettings() override;
-    void updateWidgets() override;
-    void showHelp() override;
-
-protected:
-    bool hasChanged() override;
-
-private:
-    QList<KPageWidgetItem*> m_pages;
-};
-
-//-------------
 class PLAN_EXPORT View : public KoView
 {
     Q_OBJECT

@@ -20,6 +20,7 @@
 // clazy:excludeall=qstring-arg
 #include "kptpart.h"
 
+#include "config/ConfigDialog.h"
 #include "kptview.h"
 #include "kptmaindocument.h"
 #include "kptfactory.h"
