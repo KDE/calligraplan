@@ -120,6 +120,14 @@ public:
 
     KoMainWindow *currentMainwindow() const;
 
+    /**
+     * This loads a project template.
+     * Re-implement if needed, this implementation just returns false.
+     * @param url the template to load
+     * @return true on success
+     */
+    virtual bool openProjectTemplate(const QUrl &url);
+
 public Q_SLOTS:
 
     /**

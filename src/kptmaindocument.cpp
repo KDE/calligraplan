@@ -111,6 +111,12 @@ MainDocument::~MainDocument()
     delete m_calculationCommand;
 }
 
+void MainDocument::initEmpty()
+{
+    KoDocument::initEmpty();
+    setProject(new Project(m_config));
+}
+
 void MainDocument::slotNodeChanged(Node *node, int property)
 {
     switch (property) {

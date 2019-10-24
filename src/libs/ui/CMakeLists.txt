@@ -40,7 +40,6 @@ set(planui_LIB_SRCS
     TasksEditDialog.cpp
 
     RichTextWidget.cpp
-    welcome/WelcomeView.cpp
 
     reportsgenerator/ReportsGeneratorView.cpp
 
@@ -114,8 +113,6 @@ ki18n_wrap_ui(planui_LIB_SRCS
     ${planreports_ui_LIB_SRCS}
 
     RelationEditorDialog.ui
-
-    welcome/WelcomeView.ui
 
     kptresourceappointmentsdisplayoptions.ui
     kptganttchartdisplayoptions.ui

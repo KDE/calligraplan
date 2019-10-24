@@ -467,7 +467,9 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
 
     if (d->partToOpen && d->partToOpen->document() != doc) {
         d->partToOpen->removeMainWindow(this);
-        if (deletePrevious) delete d->partToOpen;
+        if (deletePrevious) {
+            delete d->partToOpen;
+        }
     }
     d->partToOpen = 0;
 
@@ -704,6 +706,16 @@ KoView *KoMainWindow::rootView() const
 
 bool KoMainWindow::openDocument(const QUrl &url)
 {
+    if (url.fileName().endsWith(".plant")) {
+        KMessageBox::error(0, xi18nc("@info", "Cannot open a template file.<nl/>"
+                                    "If you want to modify the template, create a new project using this template"
+                                    " and save it using <interface>File->Create Project Template...</interface>."));
+        return false;
+    }
+    if (url.fileName().endsWith(".plant")) {
+        KMessageBox::error(0, xi18nc("@info", "Cannot open a template file:<nl/>%1", url.fileName()));
+        return false;
+    }
     if (!KIO::NetAccess::exists(url, KIO::NetAccess::SourceSide, 0)) {
         KMessageBox::error(0, i18n("The file %1 does not exist.", url.url()));
         d->recent->removeUrl(url); //remove the file from the recent-opened-file-list
@@ -715,6 +727,12 @@ bool KoMainWindow::openDocument(const QUrl &url)
 
 bool KoMainWindow::openDocument(KoPart *newPart, const QUrl &url)
 {
+    if (url.fileName().endsWith(".plant")) {
+        KMessageBox::error(0, xi18nc("@info", "Cannot open a template file.<nl/>"
+                                    "If you want to modify the template, create a new project using this template"
+                                    " and save it using <interface>File->Create Project Template...</interface>."));
+        return false;
+    }
     if (!newPart) {
         return openDocument(url);
     }
@@ -736,10 +754,11 @@ bool KoMainWindow::openDocument(KoPart *newPart, const QUrl &url)
 bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocument *newdoc)
 {
     debugMain << newpart << newdoc << url.url();
-
-    if (!newpart)
+    bool keepPart = true;
+    if (!newpart) {
         newpart = createPart();
-
+        keepPart = false;
+    }
     if (!newpart)
         return false;
 
@@ -759,10 +778,13 @@ bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocu
     newpart->addMainWindow(this);   // used by openUrl
     bool openRet = (!isImporting()) ? newdoc->openUrl(url) : newdoc->importDocument(url);
     if (!openRet) {
-        newpart->removeMainWindow(this);
-        delete newdoc;
-        delete newpart;
-        d->openingDocument = false;
+        if (!keepPart) {
+            newpart->removeMainWindow(this);
+            delete newdoc;
+            delete newpart;
+            newpart = nullptr;
+            d->openingDocument = false;
+        }
         return false;
     }
     updateReloadFileAction(newdoc);

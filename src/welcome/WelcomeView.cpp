@@ -20,10 +20,14 @@
 // clazy:excludeall=qstring-arg
 #include "WelcomeView.h"
 
+#include <kptconfigbase.h>
 #include "kptcommand.h"
 #include "kptdebug.h"
 #include "Help.h"
+#include "kptpart.h"
+#include "kptmaindocument.h"
 
+#include <KoIcon.h>
 #include <KoApplication.h>
 #include <KoMainWindow.h>
 #include <KoDocument.h>
@@ -45,13 +49,11 @@ const QLoggingCategory &PLANWELCOME_LOG()
     return category;
 }
 
-#define debugWelcome qCDebug(PLANWELCOME_LOG)
+#define debugWelcome qCDebug(PLANWELCOME_LOG)<<Q_FUNC_INFO
 #define warnWelcome qCWarning(PLANWELCOME_LOG)
 #define errorWelcome qCCritical(PLANWELCOME_LOG)
 
-namespace KPlato
-{
-
+namespace KPlato {
 class RecentFilesModel : public QStandardItemModel
 {
 public:
@@ -60,6 +62,9 @@ public:
     QVariant data(const QModelIndex &idx, int role) const override;
     void populate(const QList<QAction*> actions);
 };
+}
+
+using namespace KPlato;
 
 RecentFilesModel::RecentFilesModel(QObject *parent)
 : QStandardItemModel(parent)
@@ -111,10 +116,11 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
     , m_projectdialog(0)
     , m_filedialog(0)
 {
-    widget.setupUi(this);
-    widget.recentProjects->setBackgroundRole(QPalette::Midlight);
+    ui.setupUi(this);
+    ui.recentProjects->setBackgroundRole(QPalette::Midlight);
+    ui.projectTemplates->setBackgroundRole(QPalette::Midlight);
 
-    Help::add(widget.newProjectBtn,
+    Help::add(ui.newProjectBtn,
                    xi18nc("@info:whatsthis",
                           "<title>Create a new project</title>"
                           "<para>"
@@ -128,7 +134,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           "<nl/><link url='%1'>More...</link>"
                           "</para>", Help::page("Creating_a_Project")));
 
-    Help::add(widget.createResourceFileBtn,
+    Help::add(ui.createResourceFileBtn,
                    xi18nc("@info:whatsthis",
                           "<title>Shared resources</title>"
                           "<para>"
@@ -141,7 +147,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           "<nl/><link url='%1'>More...</link>"
                           "</para>", Help::page("Managing_Resources")));
 
-    Help::add(widget.recentProjects,
+    Help::add(ui.recentProjects,
                    xi18nc("@info:whatsthis",
                           "<title>Recent Projects</title>"
                           "<para>"
@@ -150,7 +156,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           "<nl/>This enables you to quickly open projects you have worked on recently."
                           "</para>"));
 
-    Help::add(widget.introductionBtn,
+    Help::add(ui.introductionBtn,
                    xi18nc("@info:whatsthis",
                           "<title>Introduction to <application>Plan</application></title>"
                           "<para>"
@@ -158,7 +164,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           " you can use <application>Plan</application> for, and how to use it."
                           "</para>"));
 
-    Help::add(widget.contextHelp,
+    Help::add(ui.contextHelp,
                    xi18nc("@info:whatsthis",
                           "<title>Context help</title>"
                           "<para>"
@@ -173,21 +179,33 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           "</para>", Help::page("Context_Help")));
 
     m_model = new RecentFilesModel(this);
-    widget.recentProjects->setModel(m_model);
-    widget.recentProjects->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui.recentProjects->setModel(m_model);
+    ui.recentProjects->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    setProjectTemplatesModel();
+
     setupGui();
 
-    connect(widget.newProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotNewProject);
-    connect(widget.createResourceFileBtn, &QAbstractButton::clicked, this, &WelcomeView::slotCreateResourceFile);
-    connect(widget.openProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotOpenProject);
-    connect(widget.introductionBtn, &QAbstractButton::clicked, this, &WelcomeView::showIntroduction);
+    connect(ui.newProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotNewProject);
+    connect(ui.createResourceFileBtn, &QAbstractButton::clicked, this, &WelcomeView::slotCreateResourceFile);
+    connect(ui.openProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotOpenProject);
+    connect(ui.introductionBtn, &QAbstractButton::clicked, this, &WelcomeView::showIntroduction);
 
-    connect(widget.recentProjects, &QAbstractItemView::activated, this, &WelcomeView::slotRecentFileSelected);
+    connect(ui.recentProjects, &QAbstractItemView::activated, this, &WelcomeView::slotRecentFileSelected);
+
+    connect(ui.projectTemplates, &QAbstractItemView::activated, this, &WelcomeView::slotOpenProjectTemplate);
+
+    connect(mainWindow(), &KoMainWindow::loadCompleted, this, &WelcomeView::finished);
 }
 
 WelcomeView::~WelcomeView()
 {
     debugWelcome;
+}
+
+Project *WelcomeView::project() const
+{
+    return koDocument() ? koDocument()->project() : nullptr;
 }
 
 void WelcomeView::setRecentFiles(const QList<QAction*> &actions)
@@ -216,7 +234,6 @@ void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
         KoPart *part = koDocument()->isEmpty() ? koDocument()->documentPart() : nullptr;
         if (url.isValid()) {
             emit recentProject(url, part);
-            emit finished();
         }
     }
 }
@@ -247,9 +264,6 @@ KoPrintJob *WelcomeView::createPrintJob()
 
 void WelcomeView::slotNewProject()
 {
-    if (m_filedialog) {
-        return;
-    }
     Project *p = project();
     if (p) {
         p->config().setDefaultValues(*p);
@@ -264,7 +278,6 @@ void WelcomeView::slotNewProject()
 
 void WelcomeView::slotProjectEditFinished(int result)
 {
-    qDebug()<<Q_FUNC_INFO;
     MainProjectDialog *dia = qobject_cast<MainProjectDialog*>(sender());
     if (dia == 0) {
         return;
@@ -292,10 +305,6 @@ void WelcomeView::slotCreateResourceFile()
 
 void WelcomeView::slotOpenProject()
 {
-    if (m_projectdialog) {
-        qWarning()<<Q_FUNC_INFO<<"Project dialog is open";
-        return;
-    }
     Project *p = project();
     if (p) {
         KoFileDialog filedialog(this, KoFileDialog::OpenFile, "OpenDocument");
@@ -305,8 +314,45 @@ void WelcomeView::slotOpenProject()
         filedialog.setHideNameFilterDetailsOption();
         KoPart *part = koDocument()->isEmpty() ? koDocument()->documentPart() : nullptr;
         QUrl url = QUrl::fromUserInput(filedialog.filename());
-        if (!url.isEmpty() && mainWindow()->openDocument(part, url)) {
-            emit finished();
+        if (!url.isEmpty()) {
+            mainWindow()->openDocument(part, url);
+        }
+    }
+}
+
+void WelcomeView::slotOpenProjectTemplate(const QModelIndex &idx)
+{
+    if (idx.isValid()) {
+        QString file = idx.data(Qt::UserRole+1).toString();
+        QUrl url = QUrl::fromUserInput(file);
+        debugWelcome<<file<<url<<koDocument();
+        Q_ASSERT(koDocument());
+        KoPart *part = koDocument()->documentPart();
+        bool ok = false;
+        if (part && url.isValid()) {
+            ok = part->openProjectTemplate(url);
+        }
+        if (ok) {
+            Project *p = part->document()->project();
+            Q_ASSERT(p);
+            MainProjectDialog dlg(*p, nullptr, false /*edit*/);
+            if (dlg.exec()) {
+                MacroCommand *cmd = dlg.buildCommand();
+                if (cmd) {
+                    cmd->execute();
+                    delete cmd;
+                    part->document()->setModified(true);
+                    if (part->document()->url().isEmpty() && !p->name().isEmpty()) {
+                        part->document()->setUrl(QUrl(p->name() + ".plan"));
+                    }
+                    emit finished();
+                }
+            } else {
+                warnWelcome<<"cancelled dialog";
+                koDocument()->initEmpty();
+            }
+        } else {
+            warnWelcome<<"Failed to load template:"<<url;
         }
     }
 }
@@ -338,4 +384,21 @@ void WelcomeView::slotLoadSharedResources(const QString &file, const QUrl &proje
     }
 }
 
-} // namespace KPlato
+void WelcomeView::setProjectTemplatesModel()
+{
+    QStandardItemModel *m = new QStandardItemModel(ui.projectTemplates);
+    const ConfigBase &config = koDocument()->project()->config();
+    const QStringList dirs = config.projectTemplatePaths();
+    for (const QString &path : dirs) {
+        QDir dir(path, "*.plant");
+        for (const QString &file : dir.entryList(QDir::Files)) {
+            QStandardItem *item = new QStandardItem(file.left(file.lastIndexOf(".plant")));
+            item->setData(QString(path + '/' + file));
+            item->setToolTip(item->data().toString());
+            item->setIcon(koIcon("document-new-from-template"));
+            m->appendRow(item);
+        }
+    }
+    delete ui.projectTemplates->model();
+    ui.projectTemplates->setModel(m);
+}

@@ -26,6 +26,7 @@
 #include "kptcolorsconfigpanel.h"
 #include "ConfigDocumentationPanel.h"
 #include "ConfigTaskModulesPanel.h"
+#include "ConfigProjectTemplatesPanel.h"
 
 #include <calligraplansettings.h>
 #include <Help.h>
@@ -54,6 +55,12 @@ ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton
     connect(this, &ConfigDialog::updateWidgetsData, page, &ConfigTaskModulesPanel::updateWidgets);
     m_pages << addPage(new WorkPackageConfigPanel(), i18n("Work Package"), koIconName("calligraplanwork") );
     m_pages << addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents") );
+
+    ConfigProjectTemplatesPanel *p = new ConfigProjectTemplatesPanel();
+    m_pages << addPage(p, i18n("Project Templates"), koIconName("calligraplan"));
+    connect(p, &ConfigProjectTemplatesPanel::settingsChanged, this, &ConfigDialog::updateButtons);
+    connect(this, &ConfigDialog::updateWidgetsSettings, p, &ConfigProjectTemplatesPanel::updateSettings);
+    connect(this, &ConfigDialog::updateWidgetsData, p, &ConfigProjectTemplatesPanel::updateWidgets);
 }
 
 void ConfigDialog::updateSettings()
@@ -61,6 +68,8 @@ void ConfigDialog::updateSettings()
     emit updateWidgetsSettings();
     
     new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
+
+    KPlatoSettings::self()->save();
 }
 
 void ConfigDialog::updateWidgets()

@@ -204,6 +204,8 @@ public Q_SLOTS:
     /// Load the workpackages from @p urls into @p project.
     void loadWorkPackage(KPlato::Project *project, const QList<QUrl> &urls );
 
+    void slotCreateTemplate();
+
 protected Q_SLOTS:
     void slotGuiActivated(KPlato::ViewBase *view, bool);
     void slotViewActivated(KPlato::ViewListItem*, KPlato::ViewListItem*);

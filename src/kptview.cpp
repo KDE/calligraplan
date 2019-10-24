@@ -30,6 +30,7 @@
 #include "KoMainWindow.h"
 #include <KoIcon.h>
 #include <KoResourcePaths.h>
+#include <KoFileDialog.h>
 
 #include <QAction>
 #include <QApplication>
@@ -196,11 +197,11 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 
     // The menu items
     // ------ File
-/*    actionCreateTemplate = new QAction( i18n( "&Create Template From Document..." ), this );
+    actionCreateTemplate = new QAction(koIcon("document-save-as-template"), i18n( "Create Project Template..." ), this);
     actionCollection()->addAction("file_createtemplate", actionCreateTemplate );
     connect( actionCreateTemplate, SIGNAL(triggered(bool)), SLOT(slotCreateTemplate()) );
-*/
-    actionCreateNewProject = new QAction( i18n( "&Create New Project..." ), this );
+
+    actionCreateNewProject = new QAction( i18n( "Create New Project..." ), this );
     actionCollection()->addAction("file_createnewproject", actionCreateNewProject );
     connect( actionCreateNewProject, &QAction::triggered, this, &View::slotCreateNewProject );
 
@@ -407,6 +408,21 @@ void View::slotCreateNewProject()
         emit currentScheduleManagerChanged(0);
         getPart()->createNewProject();
         slotOpenNode( &getProject() );
+    }
+}
+
+void View::slotCreateTemplate()
+{
+    debugPlan;
+    KoFileDialog dlg(nullptr, KoFileDialog::SaveFile, "Create Template");
+    dlg.setNameFilters(QStringList()<<"Plan Template (*.plant)");
+    QString file = dlg.filename();
+    if (!file.isEmpty()) {
+        QUrl url = QUrl::fromUserInput(file);
+        koDocument()->exportDocument(url);
+        qInfo()<<Q_FUNC_INFO<<file;
+    } else {
+        qInfo()<<Q_FUNC_INFO<<"Could not find a location:"<<file;
     }
 }
 

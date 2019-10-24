@@ -129,6 +129,26 @@ void Part::openTemplate(const QUrl &url)
     m_document->setLoadingTemplate(false);
 }
 
+bool Part::openProjectTemplate(const QUrl &url)
+{
+    QApplication::setOverrideCursor(Qt::BusyCursor);
+    m_document->setLoadingTemplate(true);
+    bool ok = m_document->loadNativeFormat(url.path());
+    m_document->setModified(false);
+    m_document->undoStack()->clear();
+
+    if (ok) {
+        m_document->resetURL();
+        m_document->setEmpty();
+    } else {
+        m_document->showLoadingErrorDialog();
+        m_document->initEmpty();
+    }
+    m_document->setLoadingTemplate(false);
+    QApplication::restoreOverrideCursor();
+    return ok;
+}
+
 void Part::openTaskModule(const QUrl &url)
 {
     Part *part = new Part(0);

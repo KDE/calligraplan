@@ -359,4 +359,9 @@ QStringList Config::taskModulePaths() const
     return KPlatoSettings::taskModulePaths();
 }
 
+QStringList Config::projectTemplatePaths() const
+{
+    return KPlatoSettings::projectTemplatePaths();
+}
+
 }  //KPlato namespace

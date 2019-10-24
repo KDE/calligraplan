@@ -20,7 +20,7 @@
 #ifndef WELCOMEVIEW_H
 #define WELCOMEVIEW_H
 
-#include "planui_export.h"
+#include "plan_export.h"
 #include "kptviewbase.h"
 #include "ui_WelcomeView.h"
 #include "kptmainprojectdialog.h"
@@ -38,7 +38,7 @@ namespace KPlato
 
 class RecentFilesModel;
 
-class PLANUI_EXPORT WelcomeView : public ViewBase
+class PLAN_EXPORT WelcomeView : public ViewBase
 {
     Q_OBJECT
 public:
@@ -53,6 +53,9 @@ public:
 
     KoPrintJob *createPrintJob() override;
 
+    void setProjectTemplatesModel();
+
+    Project *project() const override;
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
@@ -85,13 +88,15 @@ private Q_SLOTS:
     void slotOpenProject();
     void slotLoadSharedResources(const QString &file, const QUrl &projects, bool loadProjectsAtStartup);
 
+    void slotOpenProjectTemplate(const QModelIndex &idx);
+
     void slotProjectEditFinished(int result);
     void slotOpenFileFinished(int result);
 
     void slotCreateResourceFile();
 
 private:
-    Ui::WelcomeView widget;
+    Ui::WelcomeView ui;
     RecentFilesModel *m_model;
     QPointer<MainProjectDialog> m_projectdialog;
     QPointer<KoFileDialog> m_filedialog;

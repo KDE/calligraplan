@@ -64,6 +64,7 @@ public:
     explicit MainDocument(KoPart *part);
     ~MainDocument() override;
 
+    void initEmpty() override;
 
     /// reimplemented from KoDocument
     QByteArray nativeFormatMimeType() const override { return PLAN_MIME_TYPE; }

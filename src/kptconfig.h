@@ -71,6 +71,8 @@ public:
 
     bool useLocalTaskModules() const override;
     QStringList taskModulePaths() const override;
+
+    QStringList projectTemplatePaths() const override;
 };
 
 }  //KPlato namespace

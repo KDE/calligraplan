@@ -56,11 +56,13 @@ public:
 
     void configure(KoMainWindow *mw) override;
 
+    bool openProjectTemplate(const QUrl &url) override;
+
 public Q_SLOTS:
     void openTaskModule(const QUrl& url);
+    void finish();
 
 protected Q_SLOTS:
-    void finish();
     void slotShowIntroduction();
     void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
     void openTemplate( const QUrl& url ) override;

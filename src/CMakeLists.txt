@@ -103,6 +103,8 @@ add_definitions(-DTRANSLATION_DOMAIN=\"calligraplan\")
 ########### KPlato private library ###############
 
 set(planprivate_LIB_SRCS
+    welcome/WelcomeView.cpp
+
     kptviewlistdocker.cpp
     kptviewlist.cpp
     kptviewlistdialog.cpp
@@ -118,6 +120,7 @@ set(planprivate_LIB_SRCS
     config/kptcolorsconfigpanel.cpp
     config/ConfigDocumentationPanel.cpp
     config/ConfigTaskModulesPanel.cpp
+    config/ConfigProjectTemplatesPanel.cpp
     config/ConfigDialog.cpp
 
     kptcontext.cpp
@@ -142,6 +145,8 @@ set(planprivate_LIB_SRCS
 )
 
 ki18n_wrap_ui(planprivate_LIB_SRCS
+    welcome/WelcomeView.ui
+
     kptviewlistaddview.ui
     kptviewlisteditview.ui
     kptviewlisteditcategory.ui
@@ -153,6 +158,7 @@ ki18n_wrap_ui(planprivate_LIB_SRCS
     config/kptcolorsconfigpanel.ui
     config/ConfigDocumentationPanel.ui
     config/ConfigTaskModulesPanel.ui
+    config/ConfigProjectTemplatesPanel.ui
 
     kptinsertfilepanel.ui
 )

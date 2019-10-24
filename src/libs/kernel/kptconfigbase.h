@@ -76,6 +76,8 @@ public:
     virtual bool useLocalTaskModules() const { return true; }
     virtual QStringList taskModulePaths() const { return QStringList(); }
 
+    virtual QStringList projectTemplatePaths() const { return QStringList(); }
+
     static QBrush gradientBrush( const QColor &c );
 
 protected:

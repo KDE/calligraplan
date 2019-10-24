@@ -378,4 +378,10 @@
           <label>List of paths to task modules</label>
       </entry>
   </group>
+
+  <group name="Project Templates">
+      <entry name="ProjectTemplatePaths" type="StringList">
+          <label>List of paths to project templates</label>
+      </entry>
+  </group>
 </kcfg>

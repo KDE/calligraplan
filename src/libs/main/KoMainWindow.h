@@ -162,6 +162,11 @@ public:
 
 //    QList<KoCanvasObserverBase*> canvasObservers() const;
 
+    /**
+     * Create a new empty document.
+     */
+    KoPart* createPart() const;
+
 Q_SIGNALS:
     /**
      * This signal is emitted if the document has been saved successfully.
@@ -350,11 +355,6 @@ private:
 
     /// Helper method for slotFileNew and slotFileClose
     void chooseNewDocument(InitDocFlags initDocFlags);
-
-    /**
-     * Create a new empty document.
-     */
-    KoPart* createPart() const;
 
     void closeEvent(QCloseEvent * e) override;
     void resizeEvent(QResizeEvent * e) override;
