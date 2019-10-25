@@ -58,6 +58,18 @@ bool Context::setContent( const QString &str )
     return false;
 }
 
+QDomDocument Context::document() const
+{
+    QDomDocument document( "plan.context" );
+
+    document.appendChild( document.createProcessingInstruction(
+        "xml",
+        "version=\"1.0\" encoding=\"UTF-8\"" ) );
+
+    KoXml::toQDomDocument(m_document, document);
+    return document;
+}
+
 bool Context::load( const KoXmlDocument &document ) {
     m_document = document; // create a copy, document is deleted under our feet
 

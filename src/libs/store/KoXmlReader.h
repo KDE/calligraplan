@@ -431,6 +431,12 @@ KOSTORE_EXPORT void asQDomElement(QDomDocument& ownerDoc, const KoXmlElement& el
  */
 KOSTORE_EXPORT QDomDocument asQDomDocument(const KoXmlDocument& document);
 
+/**
+ * Converts the whole @p document into the qdoc
+ * If KOXML_USE_QDOM is defined, does nothing
+ */
+KOSTORE_EXPORT void toQDomDocument(const KoXmlDocument& document, QDomDocument &qdoc);
+
 /*
  * Load an XML document from specified device to a document. You can of
  * course use it with QFile (which inherits QIODevice).

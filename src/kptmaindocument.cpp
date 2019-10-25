@@ -946,6 +946,19 @@ void MainDocument::registerView( View* view )
 
 bool MainDocument::completeSaving( KoStore *store )
 {
+    if (m_context && m_views.isEmpty()) {
+        if ( store->open( "context.xml" ) ) {
+            // When e.g. saving as a template there are no views,
+            // so we cannot get info from them.
+            // Just use the context info we have in this case.
+            KoStoreDevice dev( store );
+            QByteArray s = m_context->document().toByteArray();
+            (void)dev.write( s.data(), s.size() );
+            (void)store->close();
+            return true;
+        }
+        return false;
+    }
     foreach ( View *view, m_views ) {
         if ( view ) {
             if ( store->open( "context.xml" ) ) {

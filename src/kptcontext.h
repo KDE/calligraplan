@@ -43,6 +43,8 @@ public:
 
     bool setContent( const QString &str );
 
+    QDomDocument document() const;
+
     // View
     QString currentView;
     int currentEstimateType;
@@ -88,6 +90,7 @@ private:
     bool m_contextLoaded;
     KoXmlElement m_context;
     KoXmlDocument m_document;
+    QDomDocument m_qDomDocument;
 };
 
 }  //KPlato namespace

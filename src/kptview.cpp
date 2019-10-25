@@ -418,11 +418,28 @@ void View::slotCreateTemplate()
     dlg.setNameFilters(QStringList()<<"Plan Template (*.plant)");
     QString file = dlg.filename();
     if (!file.isEmpty()) {
-        QUrl url = QUrl::fromUserInput(file);
-        koDocument()->exportDocument(url);
-        qInfo()<<Q_FUNC_INFO<<file;
-    } else {
-        qInfo()<<Q_FUNC_INFO<<"Could not find a location:"<<file;
+        QTemporaryDir dir;
+        dir.setAutoRemove(false);
+        QString tmpfile = dir.path() + '/' + QUrl(file).fileName();
+        tmpfile.replace(".plant", ".plan");
+        Part *part = new Part(this);
+        MainDocument *doc = new MainDocument(part);
+        part->setDocument(doc);
+        doc->disconnect(); // doc shall not handle feedback from openUrl()
+        doc->setAutoSave(0); //disable
+        bool ok = koDocument()->exportDocument(QUrl::fromUserInput("file:/" + tmpfile));
+        ok &= doc->loadNativeFormat(tmpfile);
+        if (ok) {
+            // strip unused data
+            Project *project = doc->project();
+            for (ScheduleManager *sm : project->scheduleManagers()) {
+                DeleteScheduleManagerCmd c(*project, sm);
+                c.redo();
+            }
+        }
+        ok &= doc->saveNativeFormat(file);
+
+        part->deleteLater();
     }
 }
 
@@ -3113,7 +3130,6 @@ void View::slotCurrencyConfigFinished( int result )
 
 void View::saveTaskModule( const QUrl &url, Project *project )
 {
-    qInfo()<<Q_FUNC_INFO<<url;
     // NOTE: workaround: KoResourcePaths::saveLocation( "calligraplan_taskmodules" ); does not work
     const QString dir = KoResourcePaths::saveLocation( "appdata", "taskmodules/" );
     debugPlan<<"dir="<<dir;
