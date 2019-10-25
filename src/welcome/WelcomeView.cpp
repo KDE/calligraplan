@@ -389,14 +389,30 @@ void WelcomeView::setProjectTemplatesModel()
     QStandardItemModel *m = new QStandardItemModel(ui.projectTemplates);
     const ConfigBase &config = koDocument()->project()->config();
     const QStringList dirs = config.projectTemplatePaths();
+    bool addgroups = dirs.count() > 1;
+    ui.projectTemplates->setRootIsDecorated(addgroups);
     for (const QString &path : dirs) {
+        QStandardItem *parent = nullptr;
+        if (addgroups) {
+            QString p = path;
+            if (p.endsWith('/')) {
+                p.remove(p.length()-1, 1);
+            }
+            p = p.mid(p.lastIndexOf('/')+1);
+            parent = new QStandardItem(p);
+            m->appendRow(parent);
+        }
         QDir dir(path, "*.plant");
         for (const QString &file : dir.entryList(QDir::Files)) {
             QStandardItem *item = new QStandardItem(file.left(file.lastIndexOf(".plant")));
             item->setData(QString(path + '/' + file));
             item->setToolTip(item->data().toString());
             item->setIcon(koIcon("document-new-from-template"));
-            m->appendRow(item);
+            if (parent) {
+                parent->appendRow(item);
+            } else {
+                m->appendRow(item);
+            }
         }
     }
     delete ui.projectTemplates->model();
