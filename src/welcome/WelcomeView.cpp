@@ -183,6 +183,16 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
     ui.recentProjects->setSelectionMode(QAbstractItemView::SingleSelection);
 
     setProjectTemplatesModel();
+    Help::add(ui.projectTemplates, xi18nc("@info:whatsthis",
+        "<title>Project Templates</title>"
+        "<para>"
+        "Select a template to create a new project based on the selected template."
+        "</para><para>"
+        "Plan searches for templates in the places you can define in the settings dialog: <interface>Settings->Configure Plan</interface>."
+        "</para><para>"
+        "You can create new templates from a project using the <interface>File->Create Project Template</interface> menu entry."
+        "<nl/><link url='%1'>More...</link>"
+        "</para>", Help::page("Creating_a_Project")));
 
     setupGui();
 
@@ -417,4 +427,5 @@ void WelcomeView::setProjectTemplatesModel()
     }
     delete ui.projectTemplates->model();
     ui.projectTemplates->setModel(m);
+    ui.projectTemplates->expandAll();
 }
