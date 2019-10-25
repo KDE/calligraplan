@@ -150,6 +150,8 @@ AddViewPanel::AddViewPanel( View *view, ViewListWidget &viewlist, QWidget *paren
                                        "You can edit the category name to create a new category.");
     widget.categoryLabel->setWhatsThis(categoryWhatsThis);
     widget.category->setWhatsThis(categoryWhatsThis);
+
+    QTimer::singleShot(0, this, &AddViewPanel::changed);
 }
 
 void AddViewPanel::viewnameChanged( const QString &text )
