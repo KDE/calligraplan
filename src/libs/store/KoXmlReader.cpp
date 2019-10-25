@@ -2351,11 +2351,6 @@ QDomDocument KoXml::asQDomDocument(const KoXmlDocument& document)
 #endif
 }
 
-void KoXml::toQDomDocument(const KoXmlElement& element, QDomDocument& qdoc)
-{
-    KoXml::asQDomElement(qdoc, element);
-}
-
 bool KoXml::setDocument(KoXmlDocument& doc, QIODevice* device,
                         bool namespaceProcessing, QString* errorMsg, int* errorLine,
                         int* errorColumn)
