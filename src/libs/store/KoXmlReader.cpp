@@ -2351,18 +2351,9 @@ QDomDocument KoXml::asQDomDocument(const KoXmlDocument& document)
 #endif
 }
 
-void KoXml::toQDomDocument(const KoXmlDocument& document, QDomDocument& qdoc)
+void KoXml::toQDomDocument(const KoXmlElement& element, QDomDocument& qdoc)
 {
-#ifdef KOXML_USE_QDOM
-    Q_UNUSED(document);
-    Q_UNUSED(qdoc)
-#else
-    if ( document.hasChildNodes() ) {
-        for ( KoXmlNode n = document.firstChild(); ! n.isNull(); n = n.nextSibling() ) {
-            KoXml::asQDomNode(qdoc, n);
-        }
-    }
-#endif
+    KoXml::asQDomElement(qdoc, element);
 }
 
 bool KoXml::setDocument(KoXmlDocument& doc, QIODevice* device,

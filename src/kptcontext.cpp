@@ -66,7 +66,7 @@ QDomDocument Context::document() const
         "xml",
         "version=\"1.0\" encoding=\"UTF-8\"" ) );
 
-    KoXml::toQDomDocument(m_document, document);
+    KoXml::toQDomDocument(m_document.documentElement(), document);
     return document;
 }
 
