@@ -53,13 +53,12 @@ public:
 
     KoPrintJob *createPrintJob() override;
 
-    void setProjectTemplatesModel();
-
     Project *project() const override;
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
     void setGuiActive(bool activate) override;
+    void setProjectTemplatesModel();
 
 Q_SIGNALS:
     void newProject();

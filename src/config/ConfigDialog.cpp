@@ -70,6 +70,7 @@ void ConfigDialog::updateSettings()
     new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 
     KPlatoSettings::self()->save();
+    emit settingsUpdated();
 }
 
 void ConfigDialog::updateWidgets()

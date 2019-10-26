@@ -41,7 +41,8 @@ public:
 Q_SIGNALS:
     void updateWidgetsData();
     void updateWidgetsSettings();
-    
+    void settingsUpdated();
+
 protected Q_SLOTS:
     void updateSettings() override;
     void updateWidgets() override;

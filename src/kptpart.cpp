@@ -249,4 +249,7 @@ void Part::configure(KoMainWindow *mw)
     }
     ConfigDialog *dialog = new ConfigDialog(mw, "Plan Settings", KPlatoSettings::self());
     dialog->open();
+    if (startUpWidget) {
+        QObject::connect(dialog, &ConfigDialog::settingsUpdated, static_cast<WelcomeView*>(startUpWidget->widget(0)), &WelcomeView::setProjectTemplatesModel);
+    }
 }
