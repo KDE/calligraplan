@@ -220,7 +220,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     // ------ Insert
 
     // ------ Project
-    actionEditMainProject  = new QAction(koIcon("view-time-schedule-edit"), i18n("Edit Main Project..."), this);
+    actionEditMainProject  = new QAction(koIcon("view-time-schedule-edit"), i18n("Edit..."), this);
     actionCollection()->addAction("project_edit", actionEditMainProject );
     connect( actionEditMainProject, &QAction::triggered, this, &View::slotProjectEdit );
 
