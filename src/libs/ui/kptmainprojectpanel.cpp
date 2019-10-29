@@ -41,6 +41,7 @@
 #include <QStandardItem>
 #include <QItemSelectionModel>
 #include <QFileDialog>
+#include <QTimer>
 
 namespace KPlato
 {
@@ -59,7 +60,9 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     // [Bug 311940] New: Plan crashes when typing a text in the filter textbox before the textbook is fully loaded when selecting a contact from the addressbook
     chooseLeader->hide();
 
-    QString s = i18n( "The Work Breakdown Structure introduces numbering for all tasks in the project, according to the task structure.\nThe WBS code is auto-generated.\nYou can define the WBS code pattern using the Define WBS Pattern command in the Tools menu." );
+    QString s = xi18nc("@info:whatsthis", "The Work Breakdown Structure introduces numbering for all tasks in the project, according to the task structure."
+                       "<nl/>The WBS code is auto-generated."
+                       "<nl/>You can define the WBS code pattern using the <interface>Project->Define WBS Pattern</interface> menu entry.");
     wbslabel->setWhatsThis( s );
     wbs->setWhatsThis( s );
 
@@ -167,6 +170,9 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     connect(ui_ArchiveUrl, &KUrlRequester::urlSelected, this, &MainProjectPanel::slotCheckAllFieldsFilled);
     connect(ui_PublishUrl, &KUrlRequester::textEdited, this, &MainProjectPanel::slotCheckAllFieldsFilled);
     connect(ui_PublishUrl, &KUrlRequester::urlSelected, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+
+    // initiate ok button
+    QTimer::singleShot(0, this, &MainProjectPanel::slotCheckAllFieldsFilled);
 }
 
 void MainProjectPanel::initTaskModules()
