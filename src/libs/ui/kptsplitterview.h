@@ -64,13 +64,13 @@ public:
     ~SplitterView() override {}
 
     /// Set the project this view shall handle.
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     /// Draw data from current part / project
     void draw() override;
     /// Draw data from project.
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
     /// Set readWrite mode
-    void updateReadWrite( bool ) override;
+    void updateReadWrite(bool) override;
 
     /// Return the view that has focus
     ViewBase *focusView() const;
@@ -78,23 +78,23 @@ public:
     virtual QList<QAction*> contextActionList() const;
 
     /// Sets context info to this view. Reimplement.
-    virtual bool setContext( const Context &/*context*/ ) { return false; }
+    virtual bool setContext(const Context &/*context*/) { return false; }
     /// Gets context info from this view. Reimplement.
-    virtual void getContext( Context &/*context*/ ) const {}
+    virtual void getContext(Context &/*context*/) const {}
     
     /// Add a QTabWidget to the splitter
     QTabWidget *addTabWidget();
     /// Add the @p view to the splitter
-    void addView( ViewBase *view );
+    void addView(ViewBase *view);
     /// Add the @p view to the @p tab. Set the tabs label to @p label
-    void addView( ViewBase *view, QTabWidget *tab, const QString &label );
+    void addView(ViewBase *view, QTabWidget *tab, const QString &label);
     /// Return the active view at @p pos
-    ViewBase *findView( const QPoint &pos ) const;
+    ViewBase *findView(const QPoint &pos) const;
 
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
     
     Node* currentNode() const override;
     
@@ -108,13 +108,13 @@ public:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui (also of subviews)
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void slotEditCopy() override;
 
 protected Q_SLOTS:
     virtual void slotGuiActivated(KPlato::ViewBase *v, bool active);
-    virtual void currentTabChanged( int i );
+    virtual void currentTabChanged(int i);
     
 protected:
     QSplitter *m_splitter;

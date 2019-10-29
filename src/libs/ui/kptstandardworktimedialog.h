@@ -38,7 +38,7 @@ class MacroCommand;
 class StandardWorktimeDialogImpl : public QWidget, public Ui::StandardWorktimeDialogBase {
     Q_OBJECT
 public:
-    StandardWorktimeDialogImpl ( StandardWorktime *std, QWidget *parent);
+    StandardWorktimeDialogImpl (StandardWorktime *std, QWidget *parent);
 
     StandardWorktime *standardWorktime() { return m_std; }
     double inYear() const { return m_year; }

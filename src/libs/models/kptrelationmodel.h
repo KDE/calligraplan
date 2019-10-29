@@ -43,16 +43,16 @@ public:
     {}
     ~RelationModel() override {}
     
-    QVariant data( const Relation *relation, int property, int role = Qt::DisplayRole ) const; 
+    QVariant data(const Relation *relation, int property, int role = Qt::DisplayRole) const; 
     
-    static QVariant headerData( int section, int role = Qt::DisplayRole );
+    static QVariant headerData(int section, int role = Qt::DisplayRole);
 
     static int propertyCount();
     
-    QVariant parentName( const Relation *r, int role ) const;
-    QVariant childName( const Relation *r, int role ) const;
-    QVariant type( const Relation *r, int role ) const;
-    QVariant lag( const Relation *r, int role ) const;
+    QVariant parentName(const Relation *r, int role) const;
+    QVariant childName(const Relation *r, int role) const;
+    QVariant type(const Relation *r, int role) const;
+    QVariant lag(const Relation *r, int role) const;
 
 };
 
@@ -60,28 +60,28 @@ class PLANMODELS_EXPORT RelationItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit RelationItemModel( QObject *parent = 0 );
+    explicit RelationItemModel(QObject *parent = 0);
     ~RelationItemModel() override;
     
-    void setProject( Project *project ) override;
-    virtual void setNode( Node *node );
+    void setProject(Project *project) override;
+    virtual void setNode(Node *node);
     
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
     
-    QModelIndex parent( const QModelIndex & index ) const override;
-    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
+    QModelIndex parent(const QModelIndex & index) const override;
+    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
     
-    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
     
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
-    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
+    bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) override;
 
     
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     
-    Relation *relation( const QModelIndex &index ) const;
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
+    Relation *relation(const QModelIndex &index) const;
+    QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const override;
 
 protected Q_SLOTS:
     void slotNodeChanged(KPlato::Node*);
@@ -96,8 +96,8 @@ protected Q_SLOTS:
     void slotLayoutChanged() override;
     
 protected:
-    bool setType( Relation *r, const QVariant &value, int role );
-    bool setLag( Relation *r, const QVariant &value, int role );
+    bool setType(Relation *r, const QVariant &value, int role);
+    bool setLag(Relation *r, const QVariant &value, int role);
     
 private:
     Node *m_node;

@@ -30,7 +30,7 @@ namespace KPlato
 
 void DateTimeTester::subtractDay()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(8, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(8, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 2), QTime(8, 0, 0, 0));
     Duration d(1, 0, 0, 0, 0);
 
@@ -40,7 +40,7 @@ void DateTimeTester::subtractDay()
 }
 void DateTimeTester::subtractHour()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 1), QTime(1, 0, 0, 0));
     Duration d(0, 1, 0, 0, 0);
 
@@ -50,7 +50,7 @@ void DateTimeTester::subtractHour()
 }
 void DateTimeTester::subtractMinute()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 1), QTime(0, 1, 0, 0));
     Duration d(0, 0, 1, 0, 0);
 
@@ -60,7 +60,7 @@ void DateTimeTester::subtractMinute()
 }
 void DateTimeTester::subtractSecond()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 1), QTime(0, 0, 1, 0));
     Duration d(0, 0, 0, 1, 0);
 
@@ -72,7 +72,7 @@ void DateTimeTester::subtractSecond()
 
 void DateTimeTester::subtractMillisecond()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 1), QTime(0, 0, 0, 1));
     Duration d(0, 0, 0, 0, 1);
 
@@ -80,7 +80,7 @@ void DateTimeTester::subtractMillisecond()
     QVERIFY((dt1-dt2).toString() == d.toString()); // result always positive
     QVERIFY((dt2-d) == dt1);
     
-    dt1 = DateTime(QDate(2006, 1, 1), QTime(0, 0, 0, 1 ));
+    dt1 = DateTime(QDate(2006, 1, 1), QTime(0, 0, 0, 1));
     dt2 = DateTime(QDate(2006, 1, 1), QTime(0, 0, 0, 0));
     d = Duration(0, 0, 0, 0, 1);
 
@@ -88,7 +88,7 @@ void DateTimeTester::subtractMillisecond()
     QVERIFY((dt1-dt2).toString() == d.toString()); // result always positive
     QVERIFY((dt1-d) == dt2);
     
-    dt1 = DateTime(QDate(2006, 1, 1), QTime(0, 0, 1, 1 ));
+    dt1 = DateTime(QDate(2006, 1, 1), QTime(0, 0, 1, 1));
     dt2 = DateTime(QDate(2006, 1, 1), QTime(0, 1, 0, 0));
     d = Duration(0, 0, 0, 58, 999);
 
@@ -99,7 +99,7 @@ void DateTimeTester::subtractMillisecond()
 
 void DateTimeTester::addDay()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(8, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(8, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 2), QTime(8, 0, 0, 0));
     Duration d(1, 0, 0, 0, 0);
     
@@ -107,7 +107,7 @@ void DateTimeTester::addDay()
 }
 void DateTimeTester::addHour()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 1), QTime(1, 0, 0, 0));
     Duration d(0, 1, 0, 0, 0);
 
@@ -115,7 +115,7 @@ void DateTimeTester::addHour()
 }
 void DateTimeTester::addMinute()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 1), QTime(0, 1, 0, 0));
     Duration d(0, 0, 1, 0, 0);
 
@@ -123,7 +123,7 @@ void DateTimeTester::addMinute()
 }
 void DateTimeTester::addSecond()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 1), QTime(0, 0, 1, 0));
     Duration d(0, 0, 0, 1, 0);
 
@@ -132,7 +132,7 @@ void DateTimeTester::addSecond()
 }
 void DateTimeTester::addMillisecond()
 {
-    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0 ));
+    DateTime dt1(QDate(2006, 1, 1), QTime(0, 0, 0, 0));
     DateTime dt2(QDate(2006, 1, 1), QTime(0, 0, 0, 1));
     Duration d(0, 0, 0, 0, 1);
 
@@ -147,7 +147,7 @@ void DateTimeTester::timeZones()
     
     QTimeZone testZone("Europe/London");
     
-    DateTime dt1(QDate(2006, 1, 1), QTime(8, 0, 0, 0 ), testZone);
+    DateTime dt1(QDate(2006, 1, 1), QTime(8, 0, 0, 0), testZone);
     
     DateTime dt2 = dt1;
     qDebug()<<dt1<<dt2;
@@ -171,11 +171,11 @@ void DateTimeTester::timeZones()
     QCOMPARE(dt1.timeZone(), dt2.timeZone());
     QCOMPARE(dt2, dt1);
     
-    DateTime dt3 = QDateTime(QDate(2006, 1, 1), QTime(8, 0, 0, 0 ), testZone);
+    DateTime dt3 = QDateTime(QDate(2006, 1, 1), QTime(8, 0, 0, 0), testZone);
     qDebug()<<dt3;
     QCOMPARE(dt3.timeZone(), testZone);
     
-    DateTime dt4(QDateTime(QDate(2006, 1, 1), QTime(8, 0, 0, 0 ), Qt::UTC));
+    DateTime dt4(QDateTime(QDate(2006, 1, 1), QTime(8, 0, 0, 0), Qt::UTC));
     dt4 += Duration(1, 0, 0, 0, 0);
     qDebug()<<dt4;
     QCOMPARE(dt4.timeSpec(), Qt::UTC);
@@ -185,4 +185,4 @@ void DateTimeTester::timeZones()
 
 } //namespace KPlato
 
-QTEST_GUILESS_MAIN( KPlato::DateTimeTester )
+QTEST_GUILESS_MAIN(KPlato::DateTimeTester)

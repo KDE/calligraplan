@@ -367,8 +367,8 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     d->dockWidgetMenu->setDelayed(false);
 
     d->configureAction = new QAction(koIcon("configure"), i18n("Configure Plan..."), this);
-    actionCollection()->addAction("configure", d->configureAction );
-    connect(d->configureAction, &QAction::triggered, this, &KoMainWindow::slotConfigure );
+    actionCollection()->addAction("configure", d->configureAction);
+    connect(d->configureAction, &QAction::triggered, this, &KoMainWindow::slotConfigure);
 
     // Load list of recent files
     KSharedConfigPtr configPtr = componentData.config();
@@ -379,7 +379,7 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     d->mainWindowGuiIsBuilt = true;
 
     // we first figure out some good default size and restore the x,y position. See bug 285804Z.
-    KConfigGroup cfg( KSharedConfig::openConfig(), "MainWindow");
+    KConfigGroup cfg(KSharedConfig::openConfig(), "MainWindow");
     QByteArray geom = QByteArray::fromBase64(cfg.readEntry("ko_geometry", QByteArray()));
     if (!restoreGeometry(geom)) {
         const int scnum = QApplication::desktop()->screenNumber(parentWidget());
@@ -424,7 +424,7 @@ void KoMainWindow::setNoCleanup(bool noCleanup)
 
 KoMainWindow::~KoMainWindow()
 {
-    KConfigGroup cfg( KSharedConfig::openConfig(), "MainWindow");
+    KConfigGroup cfg(KSharedConfig::openConfig(), "MainWindow");
     cfg.writeEntry("ko_geometry", saveGeometry().toBase64());
     cfg.writeEntry("ko_windowstate", saveState().toBase64());
 
@@ -660,7 +660,7 @@ void KoMainWindow::updateCaption()
         updateCaption(QString(), false);
     }
     else {
-        QString caption( d->rootDocument->caption() );
+        QString caption(d->rootDocument->caption());
         if (d->readOnly) {
             caption += ' ' + i18n("(write protected)");
         }
@@ -1038,7 +1038,7 @@ bool KoMainWindow::saveDocument(bool saveas, bool silent, int specialOutputFlag)
         // adjust URL before doing checks on whether the file exists.
         if (specialOutputFlag) {
             QString fileName = newURL.fileName();
-            if ( specialOutputFlag== KoDocument::SaveAsDirectoryStore) {
+            if (specialOutputFlag== KoDocument::SaveAsDirectoryStore) {
                 // Do nothing
             }
 #if 0
@@ -1192,7 +1192,7 @@ void KoMainWindow::saveWindowSettings()
 {
     KSharedConfigPtr config = componentData().config();
 
-    if (d->windowSizeDirty ) {
+    if (d->windowSizeDirty) {
 
         // Save window size into the config file of our componentData
         // TODO: check if this is ever read again, seems lost over the years
@@ -1203,7 +1203,7 @@ void KoMainWindow::saveWindowSettings()
         d->windowSizeDirty = false;
     }
 
-    if ( rootDocument() && d->rootPart) {
+    if (rootDocument() && d->rootPart) {
 
         // Save toolbar position into the config file of the app, under the doc's component name
         KConfigGroup group =  KSharedConfig::openConfig()->group(d->rootPart->componentData().componentName());
@@ -1428,7 +1428,7 @@ void KoMainWindow::slotFilePrint()
     if (printJob == 0)
         return;
     d->applyDefaultSettings(printJob->printer());
-    QPrintDialog *printDialog = rootView()->createPrintDialog( printJob, this );
+    QPrintDialog *printDialog = rootView()->createPrintDialog(printJob, this);
     if (printDialog && printDialog->exec() == QDialog::Accepted)
         printJob->startPrinting(KoPrintJob::DeleteWhenDone);
     else
@@ -1492,9 +1492,9 @@ KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
         if (pDoc && pDoc->url().isValid()) {
             startUrl = pDoc->url();
             QString fileName = startUrl.fileName();
-            fileName = fileName.replace( QRegExp( "\\.\\w{2,5}$", Qt::CaseInsensitive ), ".pdf" );
+            fileName = fileName.replace(QRegExp("\\.\\w{2,5}$", Qt::CaseInsensitive), ".pdf");
             startUrl = startUrl.adjusted(QUrl::RemoveFilename);
-            startUrl.setPath(startUrl.path() +  fileName );
+            startUrl.setPath(startUrl.path() +  fileName);
         }
 
         QPointer<KoPageLayoutDialog> layoutDlg(new KoPageLayoutDialog(this, pageLayout));
@@ -1999,8 +1999,8 @@ void KoMainWindow::newView()
 
 void KoMainWindow::createMainwindowGUI()
 {
-    if ( isHelpMenuEnabled() && !d->m_helpMenu ) {
-        d->m_helpMenu = new KHelpMenu( this, componentData().aboutData(), true );
+    if (isHelpMenuEnabled() && !d->m_helpMenu) {
+        d->m_helpMenu = new KHelpMenu(this, componentData().aboutData(), true);
 
         KActionCollection *actions = actionCollection();
         QAction *helpContentsAction = d->m_helpMenu->action(KHelpMenu::menuHelpContents);
@@ -2031,33 +2031,33 @@ void KoMainWindow::createMainwindowGUI()
     }
 
     QString f = xmlFile();
-    setXMLFile( QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("ui/ui_standards.rc")) );
-    if ( !f.isEmpty() )
-        setXMLFile( f, true );
+    setXMLFile(QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("ui/ui_standards.rc")));
+    if (!f.isEmpty())
+        setXMLFile(f, true);
     else
     {
-        QString auto_file( componentData().componentName() + "ui.rc" );
-        setXMLFile( auto_file, true );
+        QString auto_file(componentData().componentName() + "ui.rc");
+        setXMLFile(auto_file, true);
     }
 
-    guiFactory()->addClient( this );
+    guiFactory()->addClient(this);
 
 }
 
 // PartManager
 
-void KoMainWindow::removePart( KoPart *part )
+void KoMainWindow::removePart(KoPart *part)
 {
     if (d->m_registeredPart.data() != part) {
         return;
     }
     d->m_registeredPart = 0;
-    if ( part == d->m_activePart ) {
+    if (part == d->m_activePart) {
         setActivePart(0, 0);
     }
 }
 
-void KoMainWindow::setActivePart(KoPart *part, QWidget *widget )
+void KoMainWindow::setActivePart(KoPart *part, QWidget *widget)
 {
     if (part && d->m_registeredPart.data() != part) {
         warnMain << "trying to activate a non-registered part!" << part->objectName();
@@ -2065,8 +2065,8 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget )
     }
 
     // don't activate twice
-    if ( d->m_activePart && part && d->m_activePart == part &&
-         (!widget || d->m_activeWidget == widget) )
+    if (d->m_activePart && part && d->m_activePart == part &&
+         (!widget || d->m_activeWidget == widget))
         return;
 
     KoPart *oldActivePart = d->m_activePart;
@@ -2079,16 +2079,16 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget )
         KoPart *savedActivePart = part;
         QWidget *savedActiveWidget = widget;
 
-        if ( oldActiveWidget ) {
-            disconnect( oldActiveWidget, &QObject::destroyed, this, &KoMainWindow::slotWidgetDestroyed );
+        if (oldActiveWidget) {
+            disconnect(oldActiveWidget, &QObject::destroyed, this, &KoMainWindow::slotWidgetDestroyed);
         }
 
         d->m_activePart = savedActivePart;
         d->m_activeWidget = savedActiveWidget;
     }
 
-    if (d->m_activePart && d->m_activeWidget ) {
-        connect( d->m_activeWidget, &QObject::destroyed, this, &KoMainWindow::slotWidgetDestroyed );
+    if (d->m_activePart && d->m_activeWidget) {
+        connect(d->m_activeWidget, &QObject::destroyed, this, &KoMainWindow::slotWidgetDestroyed);
     }
     // Set the new active instance in KGlobal
 //     KGlobal::setActiveComponent(d->m_activePart ? d->m_activePart->componentData() : KGlobal::mainComponent());
@@ -2167,7 +2167,7 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget )
 void KoMainWindow::slotWidgetDestroyed()
 {
     debugMain;
-    if ( static_cast<const QWidget *>( sender() ) == d->m_activeWidget )
+    if (static_cast<const QWidget *>(sender()) == d->m_activeWidget)
         setActivePart(0, 0); //do not remove the part because if the part's widget dies, then the
     //part will delete itself anyway, invoking removePart() in its destructor
 }

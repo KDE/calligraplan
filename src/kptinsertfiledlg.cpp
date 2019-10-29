@@ -28,21 +28,21 @@
 namespace KPlato
 {
 
-InsertFileDialog::InsertFileDialog( Project &project, Node *currentNode, QWidget *parent )
+InsertFileDialog::InsertFileDialog(Project &project, Node *currentNode, QWidget *parent)
     : KoDialog(parent)
 {
-    setCaption( i18n("Insert File") );
-    setButtons( KoDialog::Ok | KoDialog::Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setCaption(i18n("Insert File"));
+    setButtons(KoDialog::Ok | KoDialog::Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
     
-    m_panel = new InsertFilePanel( project, currentNode, this );
+    m_panel = new InsertFilePanel(project, currentNode, this);
 
-    setMainWidget( m_panel );
+    setMainWidget(m_panel);
     
     enableButtonOk(false);
 
-    connect( m_panel, &InsertFilePanel::enableButtonOk, this, &KoDialog::enableButtonOk );
+    connect(m_panel, &InsertFilePanel::enableButtonOk, this, &KoDialog::enableButtonOk);
 }
 
 QUrl InsertFileDialog::url() const
@@ -61,42 +61,42 @@ Node *InsertFileDialog::afterNode() const
 }
 
 //------------------------
-InsertFilePanel::InsertFilePanel( Project &project, Node *currentNode, QWidget *parent )
-    : QWidget( parent ),
-    m_project( project ),
-    m_node( currentNode )
+InsertFilePanel::InsertFilePanel(Project &project, Node *currentNode, QWidget *parent)
+    : QWidget(parent),
+    m_project(project),
+    m_node(currentNode)
 {
-    ui.setupUi( this );
+    ui.setupUi(this);
     
-    if ( currentNode == 0 || currentNode->type() == Node::Type_Project ) {
-        ui.ui_isAfter->setEnabled( false );
-        ui.ui_isParent->setEnabled( false );
-        ui.ui_useProject->setChecked( true );
+    if (currentNode == 0 || currentNode->type() == Node::Type_Project) {
+        ui.ui_isAfter->setEnabled(false);
+        ui.ui_isParent->setEnabled(false);
+        ui.ui_useProject->setChecked(true);
 
-        ui.ui_name->setText( project.name() );
+        ui.ui_name->setText(project.name());
     } else {
-        ui.ui_isAfter->setChecked( true );
+        ui.ui_isAfter->setChecked(true);
 
-        ui.ui_name->setText( currentNode->name() );
+        ui.ui_name->setText(currentNode->name());
     }
-    connect( ui.ui_url, &KUrlRequester::textChanged, this, &InsertFilePanel::changed );
+    connect(ui.ui_url, &KUrlRequester::textChanged, this, &InsertFilePanel::changed);
 
-    connect( ui.ui_url, &KUrlRequester::openFileDialog, this, &InsertFilePanel::slotOpenFileDialog );
+    connect(ui.ui_url, &KUrlRequester::openFileDialog, this, &InsertFilePanel::slotOpenFileDialog);
 }
 
-void InsertFilePanel::slotOpenFileDialog( KUrlRequester * )
+void InsertFilePanel::slotOpenFileDialog(KUrlRequester *)
 {
-    ui.ui_url->setFilter( "*.plan" );
+    ui.ui_url->setFilter("*.plan");
 }
 
-void InsertFilePanel::changed( const QString &text )
+void InsertFilePanel::changed(const QString &text)
 {
-    KIO::StatJob* statJob = KIO::stat( QUrl::fromUserInput(text) );
-    statJob->setSide( KIO::StatJob::SourceSide );
+    KIO::StatJob* statJob = KIO::stat(QUrl::fromUserInput(text));
+    statJob->setSide(KIO::StatJob::SourceSide);
 
     const bool isUrlReadable = statJob->exec();
 
-    emit enableButtonOk( isUrlReadable );
+    emit enableButtonOk(isUrlReadable);
 }
 
 QUrl InsertFilePanel::url() const
@@ -106,13 +106,13 @@ QUrl InsertFilePanel::url() const
 
 Node *InsertFilePanel::parentNode() const
 {
-    if ( ui.ui_useProject->isChecked() ) {
+    if (ui.ui_useProject->isChecked()) {
         return &(m_project);
     }
-    if ( ui.ui_isParent->isChecked() ) {
+    if (ui.ui_isParent->isChecked()) {
         return m_node;
     }
-    if ( ui.ui_isAfter->isChecked() ) {
+    if (ui.ui_isAfter->isChecked()) {
         return m_node->parentNode();
     }
     return &(m_project);
@@ -120,7 +120,7 @@ Node *InsertFilePanel::parentNode() const
 
 Node *InsertFilePanel::afterNode() const
 {
-    if ( ui.ui_isAfter->isChecked() ) {
+    if (ui.ui_isAfter->isChecked()) {
         return m_node;
     }
     return 0;

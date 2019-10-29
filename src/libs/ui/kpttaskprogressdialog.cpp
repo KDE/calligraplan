@@ -32,13 +32,13 @@ namespace KPlato
 {
 
 TaskProgressDialog::TaskProgressDialog(Task &task, ScheduleManager *sm, StandardWorktime *workTime, QWidget *p)
-    : KoDialog( p),
-    m_node( &task )
+    : KoDialog(p),
+    m_node(&task)
 {
-    setCaption( i18n("Task Progress") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setCaption(i18n("Task Progress"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
     m_panel = new TaskProgressPanel(task, sm, workTime, this);
 
     setMainWidget(m_panel);
@@ -46,8 +46,8 @@ TaskProgressDialog::TaskProgressDialog(Task &task, ScheduleManager *sm, Standard
     enableButtonOk(false);
 
     connect(m_panel, &TaskProgressPanelImpl::changed, this, &TaskProgressDialog::slotChanged);
-    Project *proj = static_cast<Project*>( task.projectNode() );
-    if ( proj ) {
+    Project *proj = static_cast<Project*>(task.projectNode());
+    if (proj) {
         connect(proj, &Project::nodeRemoved, this, &TaskProgressDialog::slotNodeRemoved);
     }
     Help::add(this,
@@ -74,9 +74,9 @@ TaskProgressDialog::TaskProgressDialog(Task &task, ScheduleManager *sm, Standard
 
 }
 
-void TaskProgressDialog::slotNodeRemoved( Node *node )
+void TaskProgressDialog::slotNodeRemoved(Node *node)
 {
-    if ( m_node == node ) {
+    if (m_node == node) {
         reject();
     }
 }

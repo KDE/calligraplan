@@ -82,7 +82,7 @@ void StoreDropTest::keyPressEvent(QKeyEvent * e)
             ((e->modifiers() & Qt::ControlModifier) && e->key() == Qt::Key_V))
         paste();
     //else
-    //    QTextBrowser::keyPressEvent( e );
+    //    QTextBrowser::keyPressEvent(e);
 }
 
 void StoreDropTest::paste()

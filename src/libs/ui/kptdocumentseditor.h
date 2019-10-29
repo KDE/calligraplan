@@ -39,10 +39,10 @@ class PLANUI_EXPORT DocumentTreeView : public TreeViewBase
 public:
     explicit DocumentTreeView(QWidget *parent);
 
-    DocumentItemModel *model() const { return static_cast<DocumentItemModel*>( TreeViewBase::model() ); }
+    DocumentItemModel *model() const { return static_cast<DocumentItemModel*>(TreeViewBase::model()); }
 
     Documents *documents() const { return model()->documents(); }
-    void setDocuments( Documents *docs ) { model()->setDocuments( docs ); }
+    void setDocuments(Documents *docs) { model()->setDocuments(docs); }
 
     Document *currentDocument() const;
     QList<Document*> selectedDocuments() const;
@@ -51,10 +51,10 @@ public:
     
     using QTreeView::selectionChanged;
 Q_SIGNALS:
-    void selectionChanged( const QModelIndexList& );
+    void selectionChanged(const QModelIndexList&);
     
 protected Q_SLOTS:
-    void slotSelectionChanged( const QItemSelection &selected );
+    void slotSelectionChanged(const QItemSelection &selected);
 };
 
 class PLANUI_EXPORT DocumentsEditor : public ViewBase
@@ -65,19 +65,19 @@ public:
     
     void setupGui();
     using ViewBase::draw;
-    virtual void draw( Documents &docs );
+    virtual void draw(Documents &docs);
     void draw() override;
 
     DocumentItemModel *model() const { return m_view->model(); }
     
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     virtual Document *currentDocument() const;
     
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
     
     DocumentTreeView *view() const { return m_view; }
     
@@ -89,21 +89,21 @@ Q_SIGNALS:
     
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
 protected Q_SLOTS:
     void slotOptions() override;
 
 protected:
-    void updateActionsEnabled(  bool on = true );
+    void updateActionsEnabled(bool on = true);
 
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
-    void slotHeaderContextMenuRequested( const QPoint &pos ) override;
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
+    void slotHeaderContextMenuRequested(const QPoint &pos) override;
     
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex& );
-    void slotEnableActions( bool on );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&);
+    void slotEnableActions(bool on);
 
     void slotEditDocument();
     void slotViewDocument();

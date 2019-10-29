@@ -84,18 +84,18 @@ public:
     void clear() { m_accountList.clear(); }
     void insert(Account *account, int index = -1);
     void take(Account *account);
-    bool isChildOf( const Account *account ) const;
+    bool isChildOf(const Account *account) const;
     void insertChildren();
-    int indexOf( Account *account ) const { return m_accountList.indexOf( account ); }
+    int indexOf(Account *account) const { return m_accountList.indexOf(account); }
     
-    bool isBaselined( long id = BASELINESCHEDULE ) const;
+    bool isBaselined(long id = BASELINESCHEDULE) const;
 
     bool load(KoXmlElement &element, Project &project);
     void save(QDomElement &element) const;
     
     const QList<Account*> &accountList() const { return m_accountList; }
     int childCount() const { return m_accountList.count(); }
-    Account *childAt( int index ) const { return m_accountList.value( index ); }
+    Account *childAt(int index) const { return m_accountList.value(index); }
     
     Account *findAccount() const { return findAccount(m_name); }
     Account *findAccount(const QString &id) const;
@@ -133,17 +133,17 @@ public:
         }
         ~CostPlace();
 
-        bool isBaselined( long id = BASELINESCHEDULE ) const;
+        bool isBaselined(long id = BASELINESCHEDULE) const;
 
         bool isEmpty() { return !(m_running || m_startup || m_shutdown); }
         Node *node() const { return m_node; }
-        void setNode( Node *node );
+        void setNode(Node *node);
 
         Resource *resource() const { return m_resource; }
-        void setResource( Resource *resource );
+        void setResource(Resource *resource);
 
         bool running() const { return m_running; }
-        void setRunning(bool on );
+        void setRunning(bool on);
         bool startup() const  { return m_startup; }
         void setStartup(bool on);
         bool shutdown() const  { return m_shutdown; }
@@ -152,7 +152,7 @@ public:
         bool load(KoXmlElement &element, Project &project);
         void save(QDomElement &element) const;
         // for loading xml
-        void setObjectId( const QString &id );
+        void setObjectId(const QString &id);
         QString objectId() const;
 
     private:
@@ -192,7 +192,7 @@ public:
     EffortCostMap actualCost(const QDate &start, const QDate &end, long id = BASELINESCHEDULE) const;
     
 protected:
-    EffortCostMap plannedCost(const CostPlace &cp, const QDate &start, const QDate &end, long id ) const;
+    EffortCostMap plannedCost(const CostPlace &cp, const QDate &start, const QDate &end, long id) const;
     EffortCostMap actualCost(const Account::CostPlace &cp, const QDate &start, const QDate &end, long id) const;
 
 private:
@@ -253,8 +253,8 @@ public:
         
     const AccountList &accountList() const { return m_accountList; }
     int accountCount() const { return m_accountList.count(); }
-    Account *accountAt( int index ) const { return m_accountList.value( index ); }
-    int indexOf( Account *account ) const { return m_accountList.indexOf( account ); }
+    Account *accountAt(int index) const { return m_accountList.value(index); }
+    int indexOf(Account *account) const { return m_accountList.indexOf(account); }
 
     Account *findRunningAccount(const Resource &resource) const;
 
@@ -264,11 +264,11 @@ public:
     Account *findAccount(const QString &id) const;
     bool insertId(Account *account);
     bool removeId(const QString &id);
-    QString uniqueId( const QString &seed ) const;
+    QString uniqueId(const QString &seed) const;
     
     void accountDeleted(Account *account);
 
-    void accountChanged( Account *account );
+    void accountChanged(Account *account);
     QList<Account*> allAccounts() const { return m_idDict.values(); }
     QList<Node*> allNodes() const;
     

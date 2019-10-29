@@ -49,7 +49,7 @@ void Config::readConfig()
 }
 void Config::saveSettings()
 {
-    if ( ! m_readWrite ) {
+    if (! m_readWrite) {
         return;
     }
     KPlatoSettings::self()->save();
@@ -125,13 +125,13 @@ int Config::dayLength(int day) const
 }
 
 
-void Config::setDefaultValues( Project &project ) const
+void Config::setDefaultValues(Project &project) const
 {
-    project.setLeader( KPlatoSettings::manager() );
-    project.setUseSharedResources( KPlatoSettings::useSharedResources() );
-    project.setSharedResourcesFile( KPlatoSettings::sharedResourcesFile() );
-    project.setSharedProjectsUrl( QUrl(KPlatoSettings::sharedProjectsPlace()) );
-    project.setDescription( KPlatoSettings::projectDescription() );
+    project.setLeader(KPlatoSettings::manager());
+    project.setUseSharedResources(KPlatoSettings::useSharedResources());
+    project.setSharedResourcesFile(KPlatoSettings::sharedResourcesFile());
+    project.setSharedProjectsUrl(QUrl(KPlatoSettings::sharedProjectsPlace()));
+    project.setDescription(KPlatoSettings::projectDescription());
 
     StandardWorktime *v = project.standardWorktime();
     Q_ASSERT(v);
@@ -161,45 +161,45 @@ void Config::setDefaultValues( Project &project ) const
     project.setTaskModules(urls);
 }
 
-void Config::setDefaultValues( Task &task )
+void Config::setDefaultValues(Task &task)
 {
-    task.setLeader( KPlatoSettings::leader() );
-    task.setDescription( KPlatoSettings::description() );
-    task.setConstraint( (Node::ConstraintType) KPlatoSettings::constraintType() );
+    task.setLeader(KPlatoSettings::leader());
+    task.setDescription(KPlatoSettings::description());
+    task.setConstraint((Node::ConstraintType) KPlatoSettings::constraintType());
 
     // avoid problems with start <= end & end >= start
-    task.setConstraintStartTime( DateTime() );
-    task.setConstraintEndTime( DateTime() );
-    switch ( KPlatoSettings::startTimeUsage() ) {
+    task.setConstraintStartTime(DateTime());
+    task.setConstraintEndTime(DateTime());
+    switch (KPlatoSettings::startTimeUsage()) {
         case KPlatoSettings::EnumStartTimeUsage::CurrentdateTime:
-            task.setConstraintStartTime( DateTime( QDateTime::currentDateTime() ) );
+            task.setConstraintStartTime(DateTime(QDateTime::currentDateTime()));
             break;
         case KPlatoSettings::EnumStartTimeUsage::CurrentDate:
-            task.setConstraintStartTime( DateTime( QDate::currentDate(), KPlatoSettings::constraintStartTime().time() ) );
+            task.setConstraintStartTime(DateTime(QDate::currentDate(), KPlatoSettings::constraintStartTime().time()));
             break;
         case KPlatoSettings::EnumStartTimeUsage::SpecifiedDateTime: //fall through
         default:
-            task.setConstraintStartTime( DateTime( KPlatoSettings::constraintStartTime() ) );
+            task.setConstraintStartTime(DateTime(KPlatoSettings::constraintStartTime()));
             break;
     }
-    switch ( KPlatoSettings::endTimeUsage() ) {
+    switch (KPlatoSettings::endTimeUsage()) {
         case KPlatoSettings::EnumEndTimeUsage::CurrentdateTime:
-            task.setConstraintEndTime( DateTime( QDateTime::currentDateTime() ) );
+            task.setConstraintEndTime(DateTime(QDateTime::currentDateTime()));
             break;
         case KPlatoSettings::EnumEndTimeUsage::CurrentDate:
-            task.setConstraintEndTime( DateTime( QDate::currentDate(), KPlatoSettings::constraintEndTime().time() ) );
+            task.setConstraintEndTime(DateTime(QDate::currentDate(), KPlatoSettings::constraintEndTime().time()));
             break;
         case KPlatoSettings::EnumEndTimeUsage::SpecifiedDateTime: //fall through
         default:
-            task.setConstraintEndTime( DateTime( KPlatoSettings::constraintEndTime() ) );
+            task.setConstraintEndTime(DateTime(KPlatoSettings::constraintEndTime()));
             break;
     }
 
-    task.estimate()->setType( (Estimate::Type) KPlatoSettings::estimateType() );
-    task.estimate()->setUnit( (Duration::Unit) KPlatoSettings::unit() );
-    task.estimate()->setExpectedEstimate( KPlatoSettings::expectedEstimate() );
-    task.estimate()->setPessimisticRatio( KPlatoSettings::pessimisticRatio() );
-    task.estimate()->setOptimisticRatio( KPlatoSettings::optimisticRatio() );
+    task.estimate()->setType((Estimate::Type) KPlatoSettings::estimateType());
+    task.estimate()->setUnit((Duration::Unit) KPlatoSettings::unit());
+    task.estimate()->setExpectedEstimate(KPlatoSettings::expectedEstimate());
+    task.estimate()->setPessimisticRatio(KPlatoSettings::pessimisticRatio());
+    task.estimate()->setOptimisticRatio(KPlatoSettings::optimisticRatio());
 }
 
 int Config::minimumDurationUnit() const
@@ -215,8 +215,8 @@ int Config::maximumDurationUnit() const
 QBrush Config::summaryTaskDefaultColor() const
 {
     QColor c = KPlatoSettings::summaryTaskDefaultColor();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -229,8 +229,8 @@ bool Config::summaryTaskLevelColorsEnabled() const
 QBrush Config::summaryTaskLevelColor_1() const
 {
     QColor c = KPlatoSettings::summaryTaskLevelColor_1();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -238,8 +238,8 @@ QBrush Config::summaryTaskLevelColor_1() const
 QBrush Config::summaryTaskLevelColor_2() const
 {
     QColor c = KPlatoSettings::summaryTaskLevelColor_2();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -247,8 +247,8 @@ QBrush Config::summaryTaskLevelColor_2() const
 QBrush Config::summaryTaskLevelColor_3() const
 {
     QColor c = KPlatoSettings::summaryTaskLevelColor_3();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -256,8 +256,8 @@ QBrush Config::summaryTaskLevelColor_3() const
 QBrush Config::summaryTaskLevelColor_4() const
 {
     QColor c = KPlatoSettings::summaryTaskLevelColor_4();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -265,8 +265,8 @@ QBrush Config::summaryTaskLevelColor_4() const
 QBrush Config::taskNormalColor() const
 {
     QColor c = KPlatoSettings::taskNormalColor();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -274,8 +274,8 @@ QBrush Config::taskNormalColor() const
 QBrush Config::taskErrorColor() const
 {
     QColor c = KPlatoSettings::taskErrorColor();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -283,8 +283,8 @@ QBrush Config::taskErrorColor() const
 QBrush Config::taskCriticalColor() const
 {
     QColor c = KPlatoSettings::taskCriticalColor();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -292,8 +292,8 @@ QBrush Config::taskCriticalColor() const
 QBrush Config::taskFinishedColor() const
 {
     QColor c = KPlatoSettings::taskFinishedColor();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -301,8 +301,8 @@ QBrush Config::taskFinishedColor() const
 QBrush Config::milestoneNormalColor() const
 {
     QColor c = KPlatoSettings::milestoneNormalColor();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -310,8 +310,8 @@ QBrush Config::milestoneNormalColor() const
 QBrush Config::milestoneErrorColor() const
 {
     QColor c = KPlatoSettings::milestoneErrorColor();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -319,8 +319,8 @@ QBrush Config::milestoneErrorColor() const
 QBrush Config::milestoneCriticalColor() const
 {
     QColor c = KPlatoSettings::milestoneCriticalColor();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }
@@ -328,8 +328,8 @@ QBrush Config::milestoneCriticalColor() const
 QBrush Config::milestoneFinishedColor() const
 {
     QColor c = KPlatoSettings::milestoneFinishedColor();
-    if ( KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear ) {
-        return gradientBrush( c );
+    if (KPlatoSettings::colorGradientType() == KPlatoSettings::EnumColorGradientType::Linear) {
+        return gradientBrush(c);
     }
     return c;
 }

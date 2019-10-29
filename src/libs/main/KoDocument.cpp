@@ -316,7 +316,7 @@ public:
         tempFile.open();
         m_file = tempFile.fileName();
 
-        const QUrl destURL = QUrl::fromLocalFile( m_file );
+        const QUrl destURL = QUrl::fromLocalFile(m_file);
         KIO::JobFlags flags = KIO::DefaultFlags;
         flags |= KIO::Overwrite;
         m_job = KIO::file_copy(m_url, destURL, 0600, flags);
@@ -334,11 +334,11 @@ public:
     void prepareSaving()
     {
         // Local file
-        if ( m_url.isLocalFile() )
+        if (m_url.isLocalFile())
         {
-            if ( m_bTemp ) // get rid of a possible temp file first
+            if (m_bTemp) // get rid of a possible temp file first
             {              // (happens if previous url was remote)
-                QFile::remove( m_file );
+                QFile::remove(m_file);
                 m_bTemp = false;
             }
             m_file = m_url.toLocalFile();
@@ -346,7 +346,7 @@ public:
         else
         { // Remote file
             // We haven't saved yet, or we did but locally - provide a temp file
-            if ( m_file.isEmpty() || !m_bTemp )
+            if (m_file.isEmpty() || !m_bTemp)
             {
                 QTemporaryFile tempFile;
                 tempFile.setAutoRemove(false);
@@ -359,14 +359,14 @@ public:
     }
 
 
-    void _k_slotJobFinished( KJob * job )
+    void _k_slotJobFinished(KJob * job)
     {
-        Q_ASSERT( job == m_job );
+        Q_ASSERT(job == m_job);
         m_job = 0;
         if (job->error())
-            emit document->canceled( job->errorString() );
+            emit document->canceled(job->errorString());
         else {
-            if ( openFile() ) {
+            if (openFile()) {
                 emit document->completed();
             }
             else {
@@ -405,7 +405,7 @@ public:
         }
     }
 
-    void _k_slotUploadFinished( KJob * )
+    void _k_slotUploadFinished(KJob *)
     {
         if (m_uploadJob->error())
         {
@@ -421,7 +421,7 @@ public:
             ::org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(m_url.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash).path()));
 
             m_uploadJob = 0;
-            document->setModified( false );
+            document->setModified(false);
             emit document->completed();
             m_saveOk = true;
         }
@@ -1247,7 +1247,7 @@ bool KoDocument::openUrl(const QUrl &_url)
         setReadWrite(true); // enable save button
         setModified(true);
     }
-    else if (ret ) {
+    else if (ret) {
         d->parentPart->addRecentURLToAllMainWindows(projectName(), _url);
 
         // Detect readonly local-files; remote files are assumed to be writable, unless we add a KIO::stat here (async).
@@ -1869,7 +1869,7 @@ bool KoDocument::loadNativeFormatFromStoreInternal(KoStore *store)
             d->docInfo->load(doc);
         }
     } else {
-        //kDebug( 30003 ) <<"cannot open document info";
+        //kDebug(30003) <<"cannot open document info";
         delete d->docInfo;
         d->docInfo = new KoDocumentInfo(this);
     }
@@ -2034,7 +2034,7 @@ void KoDocument::setModified(bool mod)
     if (isAutosaving())   // ignore setModified calls due to autosaving
         return;
 
-    if ( !d->readwrite && d->modified ) {
+    if (!d->readwrite && d->modified) {
         qCritical(/*1000*/) << "Can't set a read-only document to 'modified' !" << endl;
         return;
     }
@@ -2436,7 +2436,7 @@ bool KoDocument::closeUrl(bool promptToSave)
 {
     abortLoad(); //just in case
     if (promptToSave) {
-        if ( d->document->isReadWrite() && d->document->isModified()) {
+        if (d->document->isReadWrite() && d->document->isModified()) {
             if (!queryClose())
                 return false;
         }
@@ -2444,9 +2444,9 @@ bool KoDocument::closeUrl(bool promptToSave)
     // Not modified => ok and delete temp file.
     d->mimeType = QByteArray();
 
-    if ( d->m_bTemp )
+    if (d->m_bTemp)
     {
-        QFile::remove( d->m_file );
+        QFile::remove(d->m_file);
         d->m_bTemp = false;
     }
     // It always succeeds for a read-only part,
@@ -2456,7 +2456,7 @@ bool KoDocument::closeUrl(bool promptToSave)
 }
 
 
-bool KoDocument::saveAs( const QUrl &kurl )
+bool KoDocument::saveAs(const QUrl &kurl)
 {
     if (!kurl.isValid())
     {
@@ -2483,7 +2483,7 @@ bool KoDocument::saveAs( const QUrl &kurl )
 bool KoDocument::save()
 {
     d->m_saveOk = false;
-    if ( d->m_file.isEmpty() ) // document was created empty
+    if (d->m_file.isEmpty()) // document was created empty
         d->prepareSaving();
 
     DocumentProgressProxy *progressProxy = 0;
@@ -2533,12 +2533,12 @@ bool KoDocument::waitSaveComplete()
 
 void KoDocument::abortLoad()
 {
-    if ( d->m_statJob ) {
+    if (d->m_statJob) {
         //kDebug(1000) << "Aborting job" << d->m_statJob;
         d->m_statJob->kill();
         d->m_statJob = 0;
     }
-    if ( d->m_job ) {
+    if (d->m_job) {
         //kDebug(1000) << "Aborting job" << d->m_job;
         d->m_job->kill();
         d->m_job = 0;
@@ -2557,24 +2557,24 @@ QString KoDocument::localFilePath() const
 }
 
 
-void KoDocument::setLocalFilePath( const QString &localFilePath )
+void KoDocument::setLocalFilePath(const QString &localFilePath)
 {
     d->m_file = localFilePath;
 }
 
 bool KoDocument::queryClose()
 {
-    if ( !d->document->isReadWrite() || !d->document->isModified() )
+    if (!d->document->isReadWrite() || !d->document->isModified())
         return true;
 
     QString docName = url().fileName();
-    if (docName.isEmpty()) docName = i18n( "Untitled" );
+    if (docName.isEmpty()) docName = i18n("Untitled");
 
 
-    int res = KMessageBox::warningYesNoCancel( 0,
-                                               i18n( "The document \"%1\" has been modified.\n"
-                                                     "Do you want to save your changes or discard them?" ,  docName ),
-                                               i18n( "Close Document" ), KStandardGuiItem::save(), KStandardGuiItem::discard() );
+    int res = KMessageBox::warningYesNoCancel(0,
+                                               i18n("The document \"%1\" has been modified.\n"
+                                                     "Do you want to save your changes or discard them?" ,  docName),
+                                               i18n("Close Document"), KStandardGuiItem::save(), KStandardGuiItem::discard());
 
     bool abortClose=false;
     bool handled=false;
@@ -2594,7 +2594,7 @@ bool KoDocument::queryClose()
                 if (url.isEmpty())
                     return false;
 
-                saveAs( url );
+                saveAs(url);
             }
             else
             {
@@ -2612,11 +2612,11 @@ bool KoDocument::queryClose()
 
 bool KoDocument::saveToUrl()
 {
-    if ( d->m_url.isLocalFile() ) {
-        d->document->setModified( false );
+    if (d->m_url.isLocalFile()) {
+        d->document->setModified(false);
         emit completed();
         // if m_url is a local file there won't be a temp file -> nothing to remove
-        Q_ASSERT( !d->m_bTemp );
+        Q_ASSERT(!d->m_bTemp);
         d->m_saveOk = true;
         d->m_duringSaveAs = false;
         d->m_originalURL = QUrl();
@@ -2635,17 +2635,17 @@ bool KoDocument::saveToUrl()
         QString uploadFile = tempFile->fileName();
         delete tempFile;
         QUrl uploadUrl;
-        uploadUrl.setPath( uploadFile );
+        uploadUrl.setPath(uploadFile);
         // Create hardlink
         if (::link(QFile::encodeName(d->m_file), QFile::encodeName(uploadFile)) != 0) {
             // Uh oh, some error happened.
             return false;
         }
-        d->m_uploadJob = KIO::file_move( uploadUrl, d->m_url, -1, KIO::Overwrite );
+        d->m_uploadJob = KIO::file_move(uploadUrl, d->m_url, -1, KIO::Overwrite);
 #ifndef QT_NO_DBUS
         KJobWidgets::setWindow(d->m_uploadJob, 0);
 #endif
-        connect( d->m_uploadJob, SIGNAL(result(KJob*)), this, SLOT(_k_slotUploadFinished(KJob*)) ); // clazy:exclude=old-style-connect
+        connect(d->m_uploadJob, SIGNAL(result(KJob*)), this, SLOT(_k_slotUploadFinished(KJob*))); // clazy:exclude=old-style-connect
         return true;
     }
 #else
@@ -2656,7 +2656,7 @@ bool KoDocument::saveToUrl()
 
 bool KoDocument::openUrlInternal(const QUrl &url)
 {
-    if ( !url.isValid() )
+    if (!url.isValid())
         return false;
 
     if (d->m_bAutoDetectedMime) {
@@ -2666,7 +2666,7 @@ bool KoDocument::openUrlInternal(const QUrl &url)
 
     QByteArray mimetype = d->mimeType;
 
-    if ( !closeUrl() )
+    if (!closeUrl())
         return false;
 
     d->mimeType = mimetype;

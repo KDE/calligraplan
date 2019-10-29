@@ -40,11 +40,11 @@ namespace Scripting {
             Q_OBJECT
         public:
             /// Create a account
-            Account( Project *project, KPlato::Account *account, QObject *parent );
+            Account(Project *project, KPlato::Account *account, QObject *parent);
             /// Destructor
             virtual ~Account() {}
         
-            KPlato::Account *kplatoAccount() const { return static_cast<KPlato::Account*>( m_account ); }
+            KPlato::Account *kplatoAccount() const { return static_cast<KPlato::Account*>(m_account); }
             
         public Q_SLOTS:
             /// Return the project this account is part of
@@ -55,17 +55,17 @@ namespace Scripting {
             /// Return the number of child accounts
             int childCount() const;
             /// Return the child account at @p index
-            QObject *childAt( int index );
+            QObject *childAt(int index);
 
             /// Return a map of planned effort and cost pr day for interval @p start to @p end
-            QVariant plannedEffortCostPrDay( const QVariant &start, const QVariant &end, const QVariant &schedule );
+            QVariant plannedEffortCostPrDay(const QVariant &start, const QVariant &end, const QVariant &schedule);
             /// Return a map of actual effort and cost pr day for interval @p start to @p end
-            QVariant actualEffortCostPrDay( const QVariant &start, const QVariant &end, const QVariant &schedule );
+            QVariant actualEffortCostPrDay(const QVariant &start, const QVariant &end, const QVariant &schedule);
 
             /// Return a map of planned effort and cost pr day
-            QVariant plannedEffortCostPrDay( const QVariant &schedule );
+            QVariant plannedEffortCostPrDay(const QVariant &schedule);
             /// Return a map of actual effort and cost pr day
-            QVariant actualEffortCostPrDay( const QVariant &schedule );
+            QVariant actualEffortCostPrDay(const QVariant &schedule);
 
         private:
             Project *m_project;

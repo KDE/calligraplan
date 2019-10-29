@@ -63,11 +63,11 @@ void DateTimeGrid::drawTimeLine(QPainter* painter, const QRectF& rect)
     }
 }
 
-qreal DateTimeGrid::dateTimeToChartX( const QDateTime& dt ) const
+qreal DateTimeGrid::dateTimeToChartX(const QDateTime& dt) const
 {
     qreal result = startDateTime().date().daysTo(dt.date())*24.*60.*60.;
     result += startDateTime().time().msecsTo(dt.time())/1000.;
-    result *= dayWidth()/( 24.*60.*60. );
+    result *= dayWidth()/(24.*60.*60.);
     
     return result;
 }

@@ -353,7 +353,7 @@ QString KoFileDialog::filename()
 
         if (d->type == SaveFile && QFileInfo(url).suffix().isEmpty()) {
             int start = d->defaultFilter.lastIndexOf("*.") + 1;
-            int end = d->defaultFilter.lastIndexOf(" )");
+            int end = d->defaultFilter.lastIndexOf(")");
             int n = end - start;
             QString extension = d->defaultFilter.mid(start, n);
             url.append(extension);
@@ -402,9 +402,9 @@ QStringList KoFileDialog::filenames()
 
 void KoFileDialog::filterSelected(const QString &filter)
 {
-    // "Windows BMP image ( *.bmp )";
+    // "Windows BMP image (*.bmp)";
     int start = filter.lastIndexOf("*.") + 2;
-    int end = filter.lastIndexOf(" )");
+    int end = filter.lastIndexOf(")");
     int n = end - start;
     QString extension = filter.mid(start, n);
     d->defaultFilter = filter;
@@ -422,7 +422,7 @@ QStringList KoFileDialog::splitNameFilter(const QString &nameFilter, QStringList
         description = nameFilter.left(nameFilter.indexOf("(") -1).trimmed();
     }
 
-    QStringList entries = nameFilter.mid(nameFilter.indexOf("(") + 1).split(" ",QString::SkipEmptyParts );
+    QStringList entries = nameFilter.mid(nameFilter.indexOf("(") + 1).split(" ",QString::SkipEmptyParts);
 
     foreach(QString entry, entries) {
 
@@ -434,11 +434,11 @@ QStringList KoFileDialog::splitNameFilter(const QString &nameFilter, QStringList
         if (mime.name() != "application/octet-stream") {
             if (!mimeList->contains(mime.name())) {
                 mimeList->append(mime.name());
-                filters.append(mime.comment() + " ( *" + entry + " )");
+                filters.append(mime.comment() + " (*" + entry + ")");
             }
         }
         else {
-            filters.append(entry.remove(".").toUpper() + " " + description + " ( *." + entry + " )");
+            filters.append(entry.remove(".").toUpper() + " " + description + " (*." + entry + ")");
         }
     }
 
@@ -480,14 +480,14 @@ const QStringList KoFileDialog::getFilterStringListFromMime(const QStringList &m
                     }
                 }
             }
-            oneFilter = mimeType.comment() + " ( " + oneFilter + ")";
+            oneFilter = mimeType.comment() + " (" + oneFilter + ")";
             ret << oneFilter;
             mimeSeen << mimeType.name();
         }
     }
 
     if (withAllSupportedEntry) {
-        ret[0] = i18n("All supported formats") + " ( " + ret[0] + (")");
+        ret[0] = i18n("All supported formats") + " (" + ret[0] + (")");
     }
     return ret;
 }

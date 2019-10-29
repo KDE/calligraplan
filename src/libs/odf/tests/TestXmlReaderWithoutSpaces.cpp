@@ -863,7 +863,7 @@ void TestXmlReaderWithoutSpaces::testNamespace()
     // another way, find it using namedItemNS()
     KoXmlElement book2TitleElement;
     book2TitleElement = KoXml::namedItemNS(rootElement.firstChild(), bookNS, "title");
-    //book2TitleElement = bookElement.namedItemNS( bookNS, "title" ).toElement();
+    //book2TitleElement = bookElement.namedItemNS(bookNS, "title").toElement();
     QCOMPARE(book2TitleElement == bookTitleElement, true);
     QCOMPARE(book2TitleElement.isNull(), false);
     QCOMPARE(book2TitleElement.isElement(), true);
@@ -881,7 +881,7 @@ void TestXmlReaderWithoutSpaces::testNamespace()
     // another way, find it using namedItemNS()
     KoXmlElement book2AuthorElement;
     book2AuthorElement = KoXml::namedItemNS(bookElement, bookNS, "author");
-    //book2AuthorElement = bookElement.namedItemNS( bookNS, "author" ).toElement();
+    //book2AuthorElement = bookElement.namedItemNS(bookNS, "author").toElement();
     QCOMPARE(book2AuthorElement == bookAuthorElement, true);
     QCOMPARE(book2AuthorElement.isNull(), false);
     QCOMPARE(book2AuthorElement.isElement(), true);
@@ -990,7 +990,7 @@ void TestXmlReaderWithoutSpaces::testParseQString()
     // another way, find it using namedItemNS()
     KoXmlElement book2TitleElement;
     book2TitleElement = KoXml::namedItemNS(rootElement.firstChild(), bookNS, "title");
-    //book2TitleElement = bookElement.namedItemNS( bookNS, "title" ).toElement();
+    //book2TitleElement = bookElement.namedItemNS(bookNS, "title").toElement();
     QCOMPARE(book2TitleElement == bookTitleElement, true);
     QCOMPARE(book2TitleElement.isNull(), false);
     QCOMPARE(book2TitleElement.isElement(), true);
@@ -1008,7 +1008,7 @@ void TestXmlReaderWithoutSpaces::testParseQString()
     // another way, find it using namedItemNS()
     KoXmlElement book2AuthorElement;
     book2AuthorElement = KoXml::namedItemNS(bookElement, bookNS, "author");
-    //book2AuthorElement = bookElement.namedItemNS( bookNS, "author" ).toElement();
+    //book2AuthorElement = bookElement.namedItemNS(bookNS, "author").toElement();
     QCOMPARE(book2AuthorElement == bookAuthorElement, true);
     QCOMPARE(book2AuthorElement.isNull(), false);
     QCOMPARE(book2AuthorElement.isElement(), true);
@@ -1273,7 +1273,7 @@ static void dumpNodes(const KoXmlNode &node, int level=0)
         qDebug()<<indent<<"null";
     }
     qDebug()<<indent<<node.nodeName();
-    for(KoXmlNode n = node.firstChild(); ! n.isNull(); n = n.nextSibling() ) {
+    for(KoXmlNode n = node.firstChild(); ! n.isNull(); n = n.nextSibling()) {
         dumpNodes(n, level+1);
     }
 
@@ -1285,7 +1285,7 @@ static void dumpNodes(const QDomNode &node, int level=0)
         qDebug()<<indent<<"null";
     }
     qDebug()<<indent<<node.nodeName();
-    for(QDomNode n = node.firstChild(); ! n.isNull(); n = n.nextSibling() ) {
+    for(QDomNode n = node.firstChild(); ! n.isNull(); n = n.nextSibling()) {
         dumpNodes(n, level+1);
     }
 
@@ -1765,7 +1765,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(sheet1Element.attributeNS(tableNS, "style-name", ""), QString("ta1"));
     QCOMPARE(sheet1Element.attributeNS(tableNS, "print", ""), QString("false"));
 
-    //  KoXml::load( sheet1Element, 100 );
+    //  KoXml::load(sheet1Element, 100);
 
     // <table:table-column>
     KoXmlElement columnElement;
@@ -2420,7 +2420,7 @@ void TestXmlReaderWithoutSpaces::testLargeOpenDocumentSpreadsheet()
     printf("Large spreadsheet: KoXmlDocument parsing time is %d ms\n", timer.elapsed());
 
     // release memory taken by the XML document content
-    //xmlstream.setDevice( 0 );
+    //xmlstream.setDevice(0);
 
     // namespaces that will be used
     QString officeNS = "urn:oasis:names:tc:opendocument:xmlns:office:1.0";
@@ -2461,7 +2461,7 @@ void TestXmlReaderWithoutSpaces::testLargeOpenDocumentSpreadsheet()
         QCOMPARE(tableElement.attributeNS(tableNS, "print", ""), QString("false"));
 
         // load everything for this table
-        //KoXml::load( tableElement, 99 );
+        //KoXml::load(tableElement, 99);
 
         QCOMPARE(tableElement.parentNode().isNull(), false);
         QCOMPARE(tableElement.parentNode() == spreadsheetElement, true);
@@ -2495,7 +2495,7 @@ void TestXmlReaderWithoutSpaces::testLargeOpenDocumentSpreadsheet()
                 cellElement = cellElement.nextSibling().toElement();
             }
 
-            //KoXml::unload( rowElement );
+            //KoXml::unload(rowElement);
             rowElement = rowElement.nextSibling().toElement();
         }
 
@@ -2599,7 +2599,7 @@ void TestXmlReaderWithoutSpaces::testExternalOpenDocumentSpreadsheet(const QStri
             printf(" sheet #%ld (%s): ", tableCount + 1, qPrintable(tableName));
 
             // use to preload everything in this sheet, will slow it down!
-            // KoXml::load( tableElement, 50 );
+            // KoXml::load(tableElement, 50);
 
             long rowCount = -1;
             long cellCount = -1;

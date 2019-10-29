@@ -36,7 +36,7 @@ namespace QTest
     template<>
             char *toString(const KPlato::DateTime &dt)
     {
-        return toString( dt.toString() );
+        return toString(dt.toString());
     }
 }
 
@@ -44,33 +44,33 @@ namespace QTest
 namespace KPlato
 {
 
-void AccountsCommandTester::printDebug( long id ) const {
+void AccountsCommandTester::printDebug(long id) const {
     Project *p = m_project;
     Resource *r = m_resource;
     qDebug()<<"Debug info -------------------------------------";
     qDebug()<<"project start time:"<<p->startTime().toString();
     qDebug()<<"project end time  :"<<p->endTime().toString();
 
-    qDebug()<<"Resource start:"<<r->startTime( id ).toString();
-    qDebug()<<"Resource end  :"<<r->endTime( id ).toString();
-    qDebug()<<"Appointments:"<<r->numAppointments( id )<<"(internal)";
-    foreach ( Appointment *a, r->appointments( id ) ) {
-        foreach ( const AppointmentInterval &i, a->intervals().map() ) {
+    qDebug()<<"Resource start:"<<r->startTime(id).toString();
+    qDebug()<<"Resource end  :"<<r->endTime(id).toString();
+    qDebug()<<"Appointments:"<<r->numAppointments(id)<<"(internal)";
+    foreach (Appointment *a, r->appointments(id)) {
+        foreach (const AppointmentInterval &i, a->intervals().map()) {
             qDebug()<<"  "<<i.startTime().toString()<<"-"<<i.endTime().toString()<<";"<<i.load();
         }
     }
     qDebug()<<"Appointments:"<<r->numExternalAppointments()<<"(external)";
-    foreach ( Appointment *a, r->externalAppointmentList() ) {
-        foreach ( const AppointmentInterval &i, a->intervals().map() ) {
+    foreach (Appointment *a, r->externalAppointmentList()) {
+        foreach (const AppointmentInterval &i, a->intervals().map()) {
             qDebug()<<"  "<<i.startTime().toString()<<"-"<<i.endTime().toString()<<";"<<i.load();
         }
     }
 }
 
-void AccountsCommandTester::printSchedulingLog( const ScheduleManager &sm ) const
+void AccountsCommandTester::printSchedulingLog(const ScheduleManager &sm) const
 {
     qDebug()<<"Scheduling log ---------------------------------";
-    foreach ( const QString &s, sm.expected()->logMessages() ) {
+    foreach (const QString &s, sm.expected()->logMessages()) {
         qDebug()<<s;
     }
 }
@@ -78,44 +78,44 @@ void AccountsCommandTester::printSchedulingLog( const ScheduleManager &sm ) cons
 void AccountsCommandTester::init()
 {
     m_project = new Project();
-    m_project->setName( "P1" );
-    m_project->setId( m_project->uniqueNodeId() );
-    m_project->registerNodeId( m_project );
-    DateTime targetstart = DateTime( QDate::currentDate(), QTime(0,0,0) );
-    DateTime targetend = DateTime( targetstart.addDays( 3 ) );
-    m_project->setConstraintStartTime( targetstart );
-    m_project->setConstraintEndTime( targetend);
+    m_project->setName("P1");
+    m_project->setId(m_project->uniqueNodeId());
+    m_project->registerNodeId(m_project);
+    DateTime targetstart = DateTime(QDate::currentDate(), QTime(0,0,0));
+    DateTime targetend = DateTime(targetstart.addDays(3));
+    m_project->setConstraintStartTime(targetstart);
+    m_project->setConstraintEndTime(targetend);
 
     // standard worktime defines 8 hour day as default
-    QVERIFY( m_project->standardWorktime() );
-    QCOMPARE( m_project->standardWorktime()->day(), 8.0 );
-    m_calendar = new Calendar( "Test" );
-    m_calendar->setDefault( true );
-    QTime t1( 9, 0, 0 );
-    QTime t2 ( 17, 0, 0 );
-    int length = t1.msecsTo( t2 );
-    for ( int i=1; i <= 7; ++i ) {
-        CalendarDay *d = m_calendar->weekday( i );
-        d->setState( CalendarDay::Working );
-        d->addInterval( t1, length );
+    QVERIFY(m_project->standardWorktime());
+    QCOMPARE(m_project->standardWorktime()->day(), 8.0);
+    m_calendar = new Calendar("Test");
+    m_calendar->setDefault(true);
+    QTime t1(9, 0, 0);
+    QTime t2 (17, 0, 0);
+    int length = t1.msecsTo(t2);
+    for (int i=1; i <= 7; ++i) {
+        CalendarDay *d = m_calendar->weekday(i);
+        d->setState(CalendarDay::Working);
+        d->addInterval(t1, length);
     }
-    m_project->addCalendar( m_calendar );
+    m_project->addCalendar(m_calendar);
 
 
     ResourceGroup *g = new ResourceGroup();
-    g->setName( "G1" );
-    m_project->addResourceGroup( g );
+    g->setName("G1");
+    m_project->addResourceGroup(g);
     m_resource = new Resource();
-    m_resource->setName( "R1" );
-    m_resource->setCalendar( m_calendar );
-    m_project->addResource( g, m_resource );
+    m_resource->setName("R1");
+    m_resource->setCalendar(m_calendar);
+    m_project->addResource(g, m_resource);
 
     m_task = m_project->createTask();
-    m_task->setName( "T1" );
-    m_project->addTask( m_task, m_project );
-    m_task->estimate()->setUnit( Duration::Unit_h );
-    m_task->estimate()->setExpectedEstimate( 8.0 );
-    m_task->estimate()->setType( Estimate::Type_Effort );
+    m_task->setName("T1");
+    m_project->addTask(m_task, m_project);
+    m_task->estimate()->setUnit(Duration::Unit_h);
+    m_task->estimate()->setExpectedEstimate(8.0);
+    m_task->estimate()->setType(Estimate::Type_Effort);
 }
 
 void AccountsCommandTester::cleanup()
@@ -320,4 +320,4 @@ void AccountsCommandTester::costPlace()
 
 } //namespace KPlato
 
-QTEST_GUILESS_MAIN( KPlato::AccountsCommandTester )
+QTEST_GUILESS_MAIN(KPlato::AccountsCommandTester)

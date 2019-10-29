@@ -153,7 +153,7 @@ Project::~Project()
 //     delete xmlreport;
 
     for (int i = 0; i < 7; ++i) {
-        while ( ! workingHours[i]->isEmpty() ) {
+        while (! workingHours[i]->isEmpty()) {
             delete workingHours[i]->takeFirst();
         }
         delete workingHours[i];
@@ -242,7 +242,7 @@ Project::setWorkingHours(int day, const QList< Interval* >& l)
     // Create a deep copy of the interval list.
     workingHours[day] = new QList<Interval*>;
 //     workingHours[day]->setAutoDelete(true);
-    foreach( Interval *i, l) {
+    foreach(Interval *i, l) {
         workingHours[day]->append(new Interval(*i));
 
     }
@@ -490,9 +490,9 @@ Project::pass2(bool noDepCheck)
         return false;
     }
     qDebug()<<"pass2 task info:";
-    foreach ( CoreAttributes *a, taskList ) {
-        Task *t = static_cast<Task*>( a );
-        qDebug()<<t->getName()<<t->getDuration( 0 )<<t->getPrecedes()<<t->getDepends();
+    foreach (CoreAttributes *a, taskList) {
+        Task *t = static_cast<Task*>(a);
+        qDebug()<<t->getName()<<t->getDuration(0)<<t->getPrecedes()<<t->getDepends();
     }
     QMap<QString, Task*> idHash;
 
@@ -586,25 +586,25 @@ Project::pass2(bool noDepCheck)
     TJ::TaskList starts;
     TJ::TaskList ends;
     QStringList tl;
-    foreach ( TJ::CoreAttributes *t, taskList ) {
+    foreach (TJ::CoreAttributes *t, taskList) {
         tl << t->getName();
-        if ( ! static_cast<TJ::Task*>(t)->hasPrevious() ) {
+        if (! static_cast<TJ::Task*>(t)->hasPrevious()) {
             starts << static_cast<TJ::Task*>(t);
             tl << "(s)";
         }
-        if ( ! static_cast<TJ::Task*>(t)->hasFollowers() ) {
+        if (! static_cast<TJ::Task*>(t)->hasFollowers()) {
             ends << static_cast<TJ::Task*>(t);
             tl << "(e)";
         }
     }
     tl.clear();
-    foreach ( TJ::CoreAttributes *t, taskList ) {
+    foreach (TJ::CoreAttributes *t, taskList) {
         tl << t->getName();
-        if ( ! static_cast<TJ::Task*>(t)->hasPrevious() ) {
+        if (! static_cast<TJ::Task*>(t)->hasPrevious()) {
             starts << static_cast<TJ::Task*>(t);
             tl << "(s)";
         }
-        if ( ! static_cast<TJ::Task*>(t)->hasFollowers() ) {
+        if (! static_cast<TJ::Task*>(t)->hasFollowers()) {
             ends << static_cast<TJ::Task*>(t);
             tl << "(e)";
         }
@@ -613,54 +613,54 @@ Project::pass2(bool noDepCheck)
         qDebug()<<"Tasks:"<<tl;
         qDebug()<<"Depends/precedes: -------------------";
         tl.clear();
-        foreach ( TJ::CoreAttributes *t, taskList ) {
-            tl << t->getName() + ( static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" ) + " depends: ";
-            for ( QListIterator<TJ::TaskDependency*> it = static_cast<TJ::Task*>(t)->getDependsIterator(); it.hasNext(); ) {
+        foreach (TJ::CoreAttributes *t, taskList) {
+            tl << t->getName() + (static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)") + " depends: ";
+            for (QListIterator<TJ::TaskDependency*> it = static_cast<TJ::Task*>(t)->getDependsIterator(); it.hasNext();) {
                 const TJ::Task *a = it.next()->getTaskRef();
-                QString s = a->getName() + ( a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" );
+                QString s = a->getName() + (a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)");
                 tl << s;
             }
             qDebug()<<tl; tl.clear();
-            tl << t->getName() + ( static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" ) + " precedes: ";
-            for ( QListIterator<TJ::TaskDependency*> it = static_cast<TJ::Task*>(t)->getPrecedesIterator(); it.hasNext(); ) {
+            tl << t->getName() + (static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)") + " precedes: ";
+            for (QListIterator<TJ::TaskDependency*> it = static_cast<TJ::Task*>(t)->getPrecedesIterator(); it.hasNext();) {
                 const TJ::Task *a = it.next()->getTaskRef();
-                QString s = a->getName() + ( a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" );
+                QString s = a->getName() + (a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)");
                 tl << s;
             }
             qDebug()<<tl; tl.clear();
         }
         qDebug()<<"Followers/previous: -------------------";
         tl.clear();
-        foreach ( TJ::CoreAttributes *t, taskList ) {
-            tl << t->getName() + ( static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" ) + " followers: ";
-            for ( TJ::TaskListIterator it = static_cast<TJ::Task*>(t)->getFollowersIterator(); it.hasNext(); ) {
-                const TJ::Task *a = static_cast<TJ::Task*>( it.next() );
-                QString s = a->getName() + ( a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" );
+        foreach (TJ::CoreAttributes *t, taskList) {
+            tl << t->getName() + (static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)") + " followers: ";
+            for (TJ::TaskListIterator it = static_cast<TJ::Task*>(t)->getFollowersIterator(); it.hasNext();) {
+                const TJ::Task *a = static_cast<TJ::Task*>(it.next());
+                QString s = a->getName() + (a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)");
                 tl << s;
             }
             qDebug()<<tl; tl.clear();
-            tl << t->getName() + ( static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" ) + " previous: ";
-            for ( TJ::TaskListIterator it = static_cast<TJ::Task*>(t)->getPreviousIterator(); it.hasNext(); ) {
-                const TJ::Task *a = static_cast<TJ::Task*>( it.next() );
-                QString s = a->getName() + ( a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" );
+            tl << t->getName() + (static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)") + " previous: ";
+            for (TJ::TaskListIterator it = static_cast<TJ::Task*>(t)->getPreviousIterator(); it.hasNext();) {
+                const TJ::Task *a = static_cast<TJ::Task*>(it.next());
+                QString s = a->getName() + (a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)");
                 tl << s;
             }
             qDebug()<<tl; tl.clear();
         }
         qDebug()<<"Successors/predecessors: -------------------";
         tl.clear();
-        foreach ( TJ::CoreAttributes *c, taskList ) {
-            tl << c->getName() + ( static_cast<TJ::Task*>(c)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" ) + " successors: ";
-            foreach ( TJ::CoreAttributes *t, static_cast<TJ::Task*>(c)->getSuccessors() ) {
+        foreach (TJ::CoreAttributes *c, taskList) {
+            tl << c->getName() + (static_cast<TJ::Task*>(c)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)") + " successors: ";
+            foreach (TJ::CoreAttributes *t, static_cast<TJ::Task*>(c)->getSuccessors()) {
                 TJ::Task *a = static_cast<TJ::Task*>(t);
-                QString s = a->getName() + ( a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" );
+                QString s = a->getName() + (a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)");
                 tl << s;
             }
             qDebug()<<tl; tl.clear();
-            tl << c->getName() + ( static_cast<TJ::Task*>(c)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" ) + " predecessors: ";
-            foreach ( TJ::CoreAttributes *t, static_cast<TJ::Task*>(c)->getPredecessors() ) {
+            tl << c->getName() + (static_cast<TJ::Task*>(c)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)") + " predecessors: ";
+            foreach (TJ::CoreAttributes *t, static_cast<TJ::Task*>(c)->getPredecessors()) {
                 TJ::Task *a = static_cast<TJ::Task*>(t);
-                QString s = a->getName() + ( a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)" );
+                QString s = a->getName() + (a->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)");
                 tl << s;
             }
             qDebug()<<tl; tl.clear();
@@ -829,7 +829,7 @@ TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
         if (static_cast<Task*>(t)->isReadyForScheduling())
             workItems.append(static_cast<Task*>(t));
     }
-    if ( workItems.isEmpty() ) {
+    if (workItems.isEmpty()) {
         foreach (CoreAttributes *t, allLeafTasks) {
             if (!static_cast<Task*>(t)->isSchedulingDone() && !static_cast<Task*>(t)->isReadyForScheduling()) {
                 TJMH.debugMessage("Not ready to be scheduled", t);
@@ -845,15 +845,15 @@ TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
                         t->propagateStart(sc, es);
                     } else if (t->hasAlapPredecessor()) {
                         time_t le = t->latestEnd(sc);
-                        if (le > time_t(0) ) {
+                        if (le > time_t(0)) {
                             t->setScheduling(Task::ALAP);
-                            t->propagateEnd(sc, le );
+                            t->propagateEnd(sc, le);
                         }// else qDebug()<<"schedule rest: no end time"<<t;
                     } //else qDebug()<<"schedule rest: no start time"<<t;
                 } else {
                     time_t le = t->latestEnd(sc);
-                    if (le > time_t(0) ) {
-                        t->propagateEnd(sc, le );
+                    if (le > time_t(0)) {
+                        t->propagateEnd(sc, le);
                     } else qDebug()<<"ALAP schedule rest: no end time"<<t;
                 }
                 if (t->isReadyForScheduling()) {
@@ -879,11 +879,11 @@ TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
             }
         }
     }
-/*    if ( workItems.isEmpty() && getTask("TJ::StartJob")->getScheduling() == Task::ASAP) {
+/*    if (workItems.isEmpty() && getTask("TJ::StartJob")->getScheduling() == Task::ASAP) {
         foreach (CoreAttributes *c, allLeafTasks) {
         }
     }                                                                                                                                                                                                                                                                                                                                                                                               */
-    if ( workItems.isEmpty() && getTask("TJ::StartJob")->getScheduling() == Task::ALAP) {
+    if (workItems.isEmpty() && getTask("TJ::StartJob")->getScheduling() == Task::ALAP) {
         qDebug()<<"tasksReadyToSchedule:"<<"backward, try really hard";
         foreach (CoreAttributes *c, allLeafTasks) {
             Task *task = static_cast<Task*>(c);
@@ -908,7 +908,7 @@ TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
                     }
                 }
             }
-            if ( predecessor == 0 ) {
+            if (predecessor == 0) {
                 continue;
             }
             time_t potentialDate = task->start - 1;
@@ -1066,7 +1066,7 @@ Project::schedule(int sc)
                 // Update the progress bar after every 10th completed tasks.
                 if (oldSortedTasks / 10 != sortedTasks / 10)
                 {
-                    setProgressBar(100 * ( (double)sortedTasks / maxProgress ), sortedTasks);
+                    setProgressBar(100 * ((double)sortedTasks / maxProgress), sortedTasks);
                     setProgressInfo(QString("Scheduling scenario %1 at %2")
                          .arg(getScenarioId(sc)).arg(time2tjp(slot)));
                 }
@@ -1170,7 +1170,7 @@ Project::checkSchedule(int sc) const
 // 
 // bool Project::generateXMLReport() const
 // {
-//     if ( xmlreport )
+//     if (xmlreport)
 //         return xmlreport->generate();
 //     else
 //         return false;

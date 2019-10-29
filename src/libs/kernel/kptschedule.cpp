@@ -44,21 +44,21 @@ namespace KPlato
 
 class ScheduleManager;
 
-Schedule::Log::Log( const Node *n, int sev, const QString &msg, int ph )
-    : node( n ), resource( 0 ), message( msg ), severity( sev ), phase( ph )
+Schedule::Log::Log(const Node *n, int sev, const QString &msg, int ph)
+    : node(n), resource(0), message(msg), severity(sev), phase(ph)
 {
-    Q_ASSERT( n );
+    Q_ASSERT(n);
 //     debugPlan<<*this<<nodeId;
 }
 
-Schedule::Log::Log( const Node *n, const Resource *r, int sev, const QString &msg, int ph )
-    : node( n ), resource( r ), message( msg ), severity( sev ), phase( ph )
+Schedule::Log::Log(const Node *n, const Resource *r, int sev, const QString &msg, int ph)
+    : node(n), resource(r), message(msg), severity(sev), phase(ph)
 {
-    Q_ASSERT( r );
+    Q_ASSERT(r);
 //     debugPlan<<*this<<resourceId;
 }
 
-Schedule::Log::Log( const Log &other )
+Schedule::Log::Log(const Log &other)
 {
     node = other.node;
     resource = other.resource;
@@ -67,7 +67,7 @@ Schedule::Log::Log( const Log &other )
     phase = other.phase;
 }
 
-Schedule::Log &Schedule::Log::operator=( const Schedule::Log &other )
+Schedule::Log &Schedule::Log::operator=(const Schedule::Log &other)
 {
     node = other.node;
     resource = other.resource;
@@ -78,28 +78,28 @@ Schedule::Log &Schedule::Log::operator=( const Schedule::Log &other )
 }
 
 Schedule::Schedule()
-        : m_type( Expected ),
-        m_id( 0 ),
-        m_deleted( false ),
-        m_parent( 0 ),
-        m_obstate( OBS_Parent ),
-        m_calculationMode( Schedule::Scheduling ),
-        notScheduled( true )
+        : m_type(Expected),
+        m_id(0),
+        m_deleted(false),
+        m_parent(0),
+        m_obstate(OBS_Parent),
+        m_calculationMode(Schedule::Scheduling),
+        notScheduled(true)
 {
     initiateCalculation();
 }
 
-Schedule::Schedule( Schedule *parent )
-        : m_type( Expected ),
-        m_id( 0 ),
-        m_deleted( false ),
-        m_parent( parent ),
-        m_obstate( OBS_Parent ),
-        m_calculationMode( Schedule::Scheduling ),
-        notScheduled( true )
+Schedule::Schedule(Schedule *parent)
+        : m_type(Expected),
+        m_id(0),
+        m_deleted(false),
+        m_parent(parent),
+        m_obstate(OBS_Parent),
+        m_calculationMode(Schedule::Scheduling),
+        notScheduled(true)
 {
 
-    if ( parent ) {
+    if (parent) {
         m_name = parent->name();
         m_type = parent->type();
         m_id = parent->id();
@@ -108,15 +108,15 @@ Schedule::Schedule( Schedule *parent )
     //debugPlan<<"("<<this<<") Name: '"<<name<<"' Type="<<type<<" id="<<id;
 }
 
-Schedule::Schedule( const QString& name, Type type, long id )
-        : m_name( name ),
-        m_type( type ),
-        m_id( id ),
-        m_deleted( false ),
-        m_parent( 0 ),
-        m_obstate( OBS_Parent ),
-        m_calculationMode( Schedule::Scheduling ),
-        notScheduled( true )
+Schedule::Schedule(const QString& name, Type type, long id)
+        : m_name(name),
+        m_type(type),
+        m_id(id),
+        m_deleted(false),
+        m_parent(0),
+        m_obstate(OBS_Parent),
+        m_calculationMode(Schedule::Scheduling),
+        notScheduled(true)
 {
     //debugPlan<<"("<<this<<") Name: '"<<name<<"' Type="<<type<<" id="<<id;
     initiateCalculation();
@@ -126,16 +126,16 @@ Schedule::~Schedule()
 {
 }
 
-void Schedule::setParent( Schedule *parent )
+void Schedule::setParent(Schedule *parent)
 {
     m_parent = parent;
 }
 
-void Schedule::setDeleted( bool on )
+void Schedule::setDeleted(bool on)
 {
     //debugPlan<<"deleted="<<on;
     m_deleted = on;
-    //changed( this ); don't do this!
+    //changed(this); don't do this!
 }
 
 bool Schedule::isDeleted() const
@@ -143,17 +143,17 @@ bool Schedule::isDeleted() const
     return m_parent == 0 ? m_deleted : m_parent->isDeleted();
 }
 
-void Schedule::setType( const QString& type )
+void Schedule::setType(const QString& type)
 {
     m_type = Expected;
-    if ( type == "Expected" )
+    if (type == "Expected")
         m_type = Expected;
 }
 
-QString Schedule::typeToString( bool translate ) const
+QString Schedule::typeToString(bool translate) const
 {
-    if ( translate ) {
-        return i18n( "Expected" );
+    if (translate) {
+        return i18n("Expected");
     } else {
         return "Expected";
     }
@@ -162,30 +162,30 @@ QString Schedule::typeToString( bool translate ) const
 QStringList Schedule::state() const
 {
     QStringList lst;
-    if ( m_deleted )
+    if (m_deleted)
         lst << SchedulingState::deleted();
-    if ( notScheduled )
+    if (notScheduled)
         lst << SchedulingState::notScheduled();
-    if ( constraintError )
+    if (constraintError)
         lst << SchedulingState::constraintsNotMet();
-    if ( resourceError )
+    if (resourceError)
         lst << SchedulingState::resourceNotAllocated();
-    if ( resourceNotAvailable )
+    if (resourceNotAvailable)
         lst << SchedulingState::resourceNotAvailable();
-    if ( resourceOverbooked )
+    if (resourceOverbooked)
         lst << SchedulingState::resourceOverbooked();
-    if ( effortNotMet )
+    if (effortNotMet)
         lst << SchedulingState::effortNotMet();
-    if ( schedulingError )
+    if (schedulingError)
         lst << SchedulingState::schedulingError();
-    if ( lst.isEmpty() )
+    if (lst.isEmpty())
         lst << SchedulingState::scheduled();
     return lst;
 }
 
 bool Schedule::isBaselined() const
 {
-    if ( m_parent ) {
+    if (m_parent) {
         return m_parent->isBaselined();
     }
     return false;
@@ -193,13 +193,13 @@ bool Schedule::isBaselined() const
 
 bool Schedule::usePert() const
 {
-    if ( m_parent ) {
+    if (m_parent) {
         return m_parent->usePert();
     }
     return false;
 }
 
-void Schedule::setAllowOverbookingState( Schedule::OBState state )
+void Schedule::setAllowOverbookingState(Schedule::OBState state)
 {
     m_obstate = state;
 }
@@ -211,7 +211,7 @@ Schedule::OBState Schedule::allowOverbookingState() const
 
 bool Schedule::allowOverbooking() const
 {
-    if ( m_obstate == OBS_Parent && m_parent ) {
+    if (m_obstate == OBS_Parent && m_parent) {
         return m_parent->allowOverbooking();
     }
     return m_obstate == OBS_Allow;
@@ -219,26 +219,26 @@ bool Schedule::allowOverbooking() const
 
 bool Schedule::checkExternalAppointments() const
 {
-    if ( m_parent ) {
+    if (m_parent) {
         return m_parent->checkExternalAppointments();
     }
     return false;
 }
 
-void Schedule::setScheduled( bool on )
+void Schedule::setScheduled(bool on)
 {
     notScheduled = !on;
-    changed( this );
+    changed(this);
 }
 
-Duration Schedule::effort( const DateTimeInterval &interval ) const
+Duration Schedule::effort(const DateTimeInterval &interval) const
 {
     return interval.second - interval.first;
 }
 
-DateTimeInterval Schedule::available( const DateTimeInterval &interval ) const
+DateTimeInterval Schedule::available(const DateTimeInterval &interval) const
 {
-    return DateTimeInterval( interval.first, interval.second );
+    return DateTimeInterval(interval.first, interval.second);
 }
 
 void Schedule::initiateCalculation()
@@ -257,29 +257,29 @@ void Schedule::initiateCalculation()
 void Schedule::calcResourceOverbooked()
 {
     resourceOverbooked = false;
-    foreach( Appointment *a, m_appointments ) {
-        if ( a->resource() ->isOverbooked( a->startTime(), a->endTime() ) ) {
+    foreach(Appointment *a, m_appointments) {
+        if (a->resource() ->isOverbooked(a->startTime(), a->endTime())) {
             resourceOverbooked = true;
             break;
         }
     }
 }
 
-DateTimeInterval Schedule::firstBookedInterval( const DateTimeInterval &interval, const Schedule *node  ) const
+DateTimeInterval Schedule::firstBookedInterval(const DateTimeInterval &interval, const Schedule *node) const
 {
     QList<Appointment*> lst = m_appointments;
-    switch ( m_calculationMode ) {
+    switch (m_calculationMode) {
         case CalculateForward: lst = m_forward; break;
         case CalculateBackward: lst = m_backward; break;
         default: break;
     }
-    foreach ( Appointment *a, lst ) {
-        if ( a->node() == node ) {
-            AppointmentIntervalList i = a->intervals( interval.first, interval.second );
-            if ( i.isEmpty() ) {
+    foreach (Appointment *a, lst) {
+        if (a->node() == node) {
+            AppointmentIntervalList i = a->intervals(interval.first, interval.second);
+            if (i.isEmpty()) {
                 break;
             }
-            return DateTimeInterval( i.map().values().first().startTime(), i.map().values().first().endTime() );
+            return DateTimeInterval(i.map().values().first().startTime(), i.map().values().first().endTime());
         }
     }
     return DateTimeInterval();
@@ -288,8 +288,8 @@ DateTimeInterval Schedule::firstBookedInterval( const DateTimeInterval &interval
 QStringList Schedule::overbookedResources() const
 {
     QStringList rl;
-    foreach( Appointment *a, m_appointments ) {
-        if ( a->resource() ->isOverbooked( a->startTime(), a->endTime() ) ) {
+    foreach(Appointment *a, m_appointments) {
+        if (a->resource() ->isOverbooked(a->startTime(), a->endTime())) {
             rl += a->resource() ->resource() ->name();
         }
     }
@@ -306,84 +306,84 @@ QList<Resource*> Schedule::resources() const
     return QList<Resource*>();
 }
 
-bool Schedule::loadXML( const KoXmlElement &sch, XMLLoaderObject & )
+bool Schedule::loadXML(const KoXmlElement &sch, XMLLoaderObject &)
 {
-    m_name = sch.attribute( "name" );
-    setType( sch.attribute( "type" ) );
-    m_id = sch.attribute( "id" ).toLong();
+    m_name = sch.attribute("name");
+    setType(sch.attribute("type"));
+    m_id = sch.attribute("id").toLong();
 
     return true;
 }
 
-void Schedule::saveXML( QDomElement &element ) const
+void Schedule::saveXML(QDomElement &element) const
 {
-    QDomElement sch = element.ownerDocument().createElement( "schedule" );
-    element.appendChild( sch );
-    saveCommonXML( sch );
+    QDomElement sch = element.ownerDocument().createElement("schedule");
+    element.appendChild(sch);
+    saveCommonXML(sch);
 }
 
-void Schedule::saveCommonXML( QDomElement &element ) const
+void Schedule::saveCommonXML(QDomElement &element) const
 {
     //debugPlan<<m_name<<" save schedule";
-    element.setAttribute( "name", m_name );
-    element.setAttribute( "type", typeToString() );
-    element.setAttribute( "id", QString::number(qlonglong( m_id )) );
+    element.setAttribute("name", m_name);
+    element.setAttribute("type", typeToString());
+    element.setAttribute("id", QString::number(qlonglong(m_id)));
 }
 
-void Schedule::saveAppointments( QDomElement &element ) const
+void Schedule::saveAppointments(QDomElement &element) const
 {
     //debugPlan;
     QListIterator<Appointment*> it = m_appointments;
-    while ( it.hasNext() ) {
-        it.next() ->saveXML( element );
+    while (it.hasNext()) {
+        it.next() ->saveXML(element);
     }
 }
 
-void Schedule::insertForwardNode( Node *node )
+void Schedule::insertForwardNode(Node *node)
 {
-    if ( m_parent ) {
-        m_parent->insertForwardNode( node );
+    if (m_parent) {
+        m_parent->insertForwardNode(node);
     }
 }
 
-void Schedule::insertBackwardNode( Node *node )
+void Schedule::insertBackwardNode(Node *node)
 {
-    if ( m_parent ) {
-        m_parent->insertBackwardNode( node );
+    if (m_parent) {
+        m_parent->insertBackwardNode(node);
     }
 }
 
 // used (directly) when appointment wants to attach itself again
-bool Schedule::attach( Appointment *appointment )
+bool Schedule::attach(Appointment *appointment)
 {
     int mode = appointment->calculationMode();
     //debugPlan<<appointment<<mode;
-    if ( mode == Scheduling ) {
-        if ( m_appointments.indexOf( appointment ) != -1 ) {
+    if (mode == Scheduling) {
+        if (m_appointments.indexOf(appointment) != -1) {
             errorPlan << "Appointment already exists" << endl;
             return false;
         }
-        m_appointments.append( appointment );
+        m_appointments.append(appointment);
         //if (resource()) debugPlan<<appointment<<" For resource '"<<resource()->name()<<"'"<<" count="<<m_appointments.count();
         //if (node()) debugPlan<<"("<<this<<")"<<appointment<<" For node '"<<node()->name()<<"'"<<" count="<<m_appointments.count();
         return true;
     }
-    if ( mode == CalculateForward ) {
-        if ( m_forward.indexOf( appointment ) != -1 ) {
+    if (mode == CalculateForward) {
+        if (m_forward.indexOf(appointment) != -1) {
             errorPlan << "Appointment already exists" << endl;
             return false;
         }
-        m_forward.append( appointment );
+        m_forward.append(appointment);
         //if (resource()) debugPlan<<"For resource '"<<resource()->name()<<"'";
         //if (node()) debugPlan<<"For node '"<<node()->name()<<"'";
         return true;
     }
-    if ( mode == CalculateBackward ) {
-        if ( m_backward.indexOf( appointment ) != -1 ) {
+    if (mode == CalculateBackward) {
+        if (m_backward.indexOf(appointment) != -1) {
             errorPlan << "Appointment already exists" << endl;
             return false;
         }
-        m_backward.append( appointment );
+        m_backward.append(appointment);
         //if (resource()) debugPlan<<"For resource '"<<resource()->name()<<"'";
         //if (node()) debugPlan<<"For node '"<<node()->name()<<"'";
         return true;
@@ -393,59 +393,59 @@ bool Schedule::attach( Appointment *appointment )
 }
 
 // used to add new schedules
-bool Schedule::add( Appointment *appointment )
+bool Schedule::add(Appointment *appointment)
 {
     //debugPlan<<this;
-    appointment->setCalculationMode( m_calculationMode );
-    return attach( appointment );
+    appointment->setCalculationMode(m_calculationMode);
+    return attach(appointment);
 }
 
-void Schedule::takeAppointment( Appointment *appointment, int mode )
+void Schedule::takeAppointment(Appointment *appointment, int mode)
 {
     Q_UNUSED(mode);
     //debugPlan<<"("<<this<<")"<<mode<<":"<<appointment<<","<<appointment->calculationMode();
-    int i = m_forward.indexOf( appointment );
-    if ( i != -1 ) {
-        m_forward.removeAt( i );
-        Q_ASSERT( mode == CalculateForward );
+    int i = m_forward.indexOf(appointment);
+    if (i != -1) {
+        m_forward.removeAt(i);
+        Q_ASSERT(mode == CalculateForward);
     }
-    i = m_backward.indexOf( appointment );
-    if ( i != -1 ) {
-        m_backward.removeAt( i );
-        Q_ASSERT( mode == CalculateBackward );
+    i = m_backward.indexOf(appointment);
+    if (i != -1) {
+        m_backward.removeAt(i);
+        Q_ASSERT(mode == CalculateBackward);
     }
-    i = m_appointments.indexOf( appointment );
-    if ( i != -1 ) {
-        m_appointments.removeAt( i );
-        Q_ASSERT( mode == Scheduling );
+    i = m_appointments.indexOf(appointment);
+    if (i != -1) {
+        m_appointments.removeAt(i);
+        Q_ASSERT(mode == Scheduling);
     }
 }
 
-Appointment *Schedule::findAppointment( Schedule *resource, Schedule *node, int mode )
+Appointment *Schedule::findAppointment(Schedule *resource, Schedule *node, int mode)
 {
     //debugPlan<<this<<" ("<<resourceError<<","<<node<<")"<<mode;
-    if ( mode == Scheduling ) {
-        foreach( Appointment *a,  m_appointments ) {
-            if ( a->node() == node && a->resource() == resource ) {
+    if (mode == Scheduling) {
+        foreach(Appointment *a,  m_appointments) {
+            if (a->node() == node && a->resource() == resource) {
                 return a;
             }
         }
         return 0;
-    } else if ( mode == CalculateForward ) {
-        foreach( Appointment *a,  m_forward ) {
-            if ( a->node() == node && a->resource() == resource ) {
+    } else if (mode == CalculateForward) {
+        foreach(Appointment *a,  m_forward) {
+            if (a->node() == node && a->resource() == resource) {
                 return a;
             }
         }
-    } else if ( mode == CalculateBackward ) {
-        foreach( Appointment *a,  m_backward ) {
-            if ( a->node() == node && a->resource() == resource ) {
-                Q_ASSERT( mode == CalculateBackward );
+    } else if (mode == CalculateBackward) {
+        foreach(Appointment *a,  m_backward) {
+            if (a->node() == node && a->resource() == resource) {
+                Q_ASSERT(mode == CalculateBackward);
                 return a;
             }
         }
     } else {
-        Q_ASSERT( false ); // unknown mode
+        Q_ASSERT(false); // unknown mode
     }
     return 0;
 }
@@ -453,8 +453,8 @@ Appointment *Schedule::findAppointment( Schedule *resource, Schedule *node, int 
 DateTime Schedule::appointmentStartTime() const
 {
     DateTime dt;
-    foreach ( const Appointment *a, m_appointments ) {
-        if ( ! dt.isValid() || dt > a->startTime() ) {
+    foreach (const Appointment *a, m_appointments) {
+        if (! dt.isValid() || dt > a->startTime()) {
             dt = a->startTime();
         }
     }
@@ -463,63 +463,63 @@ DateTime Schedule::appointmentStartTime() const
 DateTime Schedule::appointmentEndTime() const
 {
     DateTime dt;
-    foreach ( const Appointment *a, m_appointments ) {
-        if ( ! dt.isValid() || dt > a->endTime() ) {
+    foreach (const Appointment *a, m_appointments) {
+        if (! dt.isValid() || dt > a->endTime()) {
             dt = a->endTime();
         }
     }
     return dt;
 }
 
-bool Schedule::hasAppointments( int which ) const
+bool Schedule::hasAppointments(int which) const
 {
-    if ( which == CalculateForward ) {
+    if (which == CalculateForward) {
         return m_forward.isEmpty();
-    } else if ( which == CalculateBackward ) {
+    } else if (which == CalculateBackward) {
         return m_backward.isEmpty();
     }
     return m_appointments.isEmpty();
 }
 
-QList<Appointment*> Schedule::appointments( int which ) const
+QList<Appointment*> Schedule::appointments(int which) const
 {
-    if ( which == CalculateForward ) {
+    if (which == CalculateForward) {
         return m_forward;
-    } else if ( which == CalculateBackward ) {
+    } else if (which == CalculateBackward) {
         return m_backward;
     }
     return m_appointments;
 }
 
-Appointment Schedule::appointmentIntervals( int which, const DateTimeInterval &interval ) const
+Appointment Schedule::appointmentIntervals(int which, const DateTimeInterval &interval) const
 {
     Appointment app;
-    if ( which == Schedule::CalculateForward ) {
+    if (which == Schedule::CalculateForward) {
         //debugPlan<<"list == CalculateForward";
-        foreach ( Appointment *a, m_forward ) {
-            app += interval.isValid() ? a->extractIntervals( interval ) : *a;
+        foreach (Appointment *a, m_forward) {
+            app += interval.isValid() ? a->extractIntervals(interval) : *a;
         }
         return app;
-    } else if ( which == Schedule::CalculateBackward ) {
+    } else if (which == Schedule::CalculateBackward) {
         //debugPlan<<"list == CalculateBackward";
-        foreach ( Appointment *a, m_backward ) {
-            app += interval.isValid() ? a->extractIntervals( interval ) : *a;
+        foreach (Appointment *a, m_backward) {
+            app += interval.isValid() ? a->extractIntervals(interval) : *a;
         }
         //debugPlan<<"list == CalculateBackward:"<<m_backward.count();
         return app;
     }
-    foreach ( Appointment *a, m_appointments ) {
-        app += interval.isValid() ? a->extractIntervals( interval ) : *a;
+    foreach (Appointment *a, m_appointments) {
+        app += interval.isValid() ? a->extractIntervals(interval) : *a;
     }
     return app;
 }
 
-void Schedule::copyAppointments( Schedule::CalculationMode from, Schedule::CalculationMode to )
+void Schedule::copyAppointments(Schedule::CalculationMode from, Schedule::CalculationMode to)
 {
-    switch ( to ) {
+    switch (to) {
         case Scheduling:
             m_appointments.clear();
-            switch( from ) {
+            switch(from) {
                 case CalculateForward:
                     m_appointments = m_forward;
                     break;
@@ -535,159 +535,159 @@ void Schedule::copyAppointments( Schedule::CalculationMode from, Schedule::Calcu
     }
 }
 
-EffortCostMap Schedule::bcwsPrDay( EffortCostCalculationType type ) const
+EffortCostMap Schedule::bcwsPrDay(EffortCostCalculationType type) const
 {
-    return const_cast<Schedule*>( this )->bcwsPrDay( type );
+    return const_cast<Schedule*>(this)->bcwsPrDay(type);
 }
 
-EffortCostMap Schedule::bcwsPrDay( EffortCostCalculationType type )
+EffortCostMap Schedule::bcwsPrDay(EffortCostCalculationType type)
 {
     //debugPlan<<m_name<<m_appointments;
     EffortCostCache &ec = m_bcwsPrDay[ (int)type ];
-    if ( ! ec.cached ) {
-        foreach ( Appointment *a, m_appointments ) {
-            ec.effortcostmap += a->plannedPrDay( a->startTime().date(), a->endTime().date(), type );
+    if (! ec.cached) {
+        foreach (Appointment *a, m_appointments) {
+            ec.effortcostmap += a->plannedPrDay(a->startTime().date(), a->endTime().date(), type);
         }
     }
     return ec.effortcostmap;
 }
 
-EffortCostMap Schedule::plannedEffortCostPrDay( const QDate &start, const QDate &end, EffortCostCalculationType type ) const
+EffortCostMap Schedule::plannedEffortCostPrDay(const QDate &start, const QDate &end, EffortCostCalculationType type) const
 {
     //debugPlan<<m_name<<m_appointments;
     EffortCostMap ec;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
         //debugPlan<<m_name;
-        ec += it.next() ->plannedPrDay( start, end, type );
+        ec += it.next() ->plannedPrDay(start, end, type);
     }
     return ec;
 }
 
-EffortCostMap Schedule::plannedEffortCostPrDay( const Resource *resource, const QDate &start, const QDate &end, EffortCostCalculationType type ) const
+EffortCostMap Schedule::plannedEffortCostPrDay(const Resource *resource, const QDate &start, const QDate &end, EffortCostCalculationType type) const
 {
     //debugPlan<<m_name<<m_appointments;
     EffortCostMap ec;
-    foreach ( Appointment *a, m_appointments ) {
-        if ( a->resource() && a->resource()->resource() == resource ) {
-            ec += a->plannedPrDay( start, end, type );
+    foreach (Appointment *a, m_appointments) {
+        if (a->resource() && a->resource()->resource() == resource) {
+            ec += a->plannedPrDay(start, end, type);
             break;
         }
     }
     return ec;
 }
 
-Duration Schedule::plannedEffort( const Resource *resource, EffortCostCalculationType type ) const
+Duration Schedule::plannedEffort(const Resource *resource, EffortCostCalculationType type) const
 {
     //debugPlan;
     Duration eff;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
-        eff += it.next() ->plannedEffort( resource, type );
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        eff += it.next() ->plannedEffort(resource, type);
     }
     return eff;
 }
 
-Duration Schedule::plannedEffort( EffortCostCalculationType type ) const
+Duration Schedule::plannedEffort(EffortCostCalculationType type) const
 {
     //debugPlan;
     Duration eff;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
-        eff += it.next() ->plannedEffort( type );
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        eff += it.next() ->plannedEffort(type);
     }
     return eff;
 }
 
-Duration Schedule::plannedEffort( const QDate &date, EffortCostCalculationType type ) const
+Duration Schedule::plannedEffort(const QDate &date, EffortCostCalculationType type) const
 {
     //debugPlan;
     Duration eff;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
-        eff += it.next() ->plannedEffort( date, type );
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        eff += it.next() ->plannedEffort(date, type);
     }
     return eff;
 }
 
-Duration Schedule::plannedEffort( const Resource *resource, const QDate &date, EffortCostCalculationType type ) const
+Duration Schedule::plannedEffort(const Resource *resource, const QDate &date, EffortCostCalculationType type) const
 {
     //debugPlan;
     Duration eff;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
-        eff += it.next() ->plannedEffort( resource, date, type );
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        eff += it.next() ->plannedEffort(resource, date, type);
     }
     return eff;
 }
 
-Duration Schedule::plannedEffortTo( const QDate &date, EffortCostCalculationType type ) const
+Duration Schedule::plannedEffortTo(const QDate &date, EffortCostCalculationType type) const
 {
     //debugPlan;
     Duration eff;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
-        eff += it.next() ->plannedEffortTo( date, type );
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        eff += it.next() ->plannedEffortTo(date, type);
     }
     return eff;
 }
 
-Duration Schedule::plannedEffortTo(  const Resource *resource, const QDate &date, EffortCostCalculationType type ) const
+Duration Schedule::plannedEffortTo(const Resource *resource, const QDate &date, EffortCostCalculationType type) const
 {
     //debugPlan;
     Duration eff;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
-        eff += it.next() ->plannedEffortTo( resource, date, type );
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        eff += it.next() ->plannedEffortTo(resource, date, type);
     }
     return eff;
 }
 
-EffortCost Schedule::plannedCost( EffortCostCalculationType type ) const
+EffortCost Schedule::plannedCost(EffortCostCalculationType type) const
 {
     //debugPlan;
     EffortCost c;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
-        c += it.next() ->plannedCost( type );
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        c += it.next() ->plannedCost(type);
     }
     return c;
 }
 
-double Schedule::plannedCost( const QDate &date, EffortCostCalculationType type ) const
+double Schedule::plannedCost(const QDate &date, EffortCostCalculationType type) const
 {
     //debugPlan;
     double c = 0;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
-        c += it.next() ->plannedCost( date, type );
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        c += it.next() ->plannedCost(date, type);
     }
     return c;
 }
 
-double Schedule::plannedCostTo( const QDate &date, EffortCostCalculationType type ) const
+double Schedule::plannedCostTo(const QDate &date, EffortCostCalculationType type) const
 {
     //debugPlan;
     double c = 0;
-    QListIterator<Appointment*> it( m_appointments );
-    while ( it.hasNext() ) {
-        c += it.next() ->plannedCostTo( date, type );
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        c += it.next() ->plannedCostTo(date, type);
     }
     return c;
 }
 
-void Schedule::addLog( const Schedule::Log &log )
+void Schedule::addLog(const Schedule::Log &log)
 {
-    if ( m_parent ) {
-        m_parent->addLog( log );
+    if (m_parent) {
+        m_parent->addLog(log);
     }
 }
 
 QString Schedule::Log::formatMsg() const
  {
     QString s;
-    s += node ? QString( "%1 " ).arg( node->name(), -8 ) : "";
-    s += resource ? QString( "%1 ").arg(resource->name(), -8 ) : "";
+    s += node ? QString("%1 ").arg(node->name(), -8) : "";
+    s += resource ? QString("%1 ").arg(resource->name(), -8) : "";
     s += message;
     return s;
 }
@@ -702,23 +702,23 @@ void Schedule::clearPerformanceCache()
 //-------------------------------------------------
 NodeSchedule::NodeSchedule()
         : Schedule(),
-        m_node( 0 )
+        m_node(0)
 {
     //debugPlan<<"("<<this<<")";
     init();
 }
 
-NodeSchedule::NodeSchedule( Node *node, const QString& name, Schedule::Type type, long id )
-        : Schedule( name, type, id ),
-        m_node( node )
+NodeSchedule::NodeSchedule(Node *node, const QString& name, Schedule::Type type, long id)
+        : Schedule(name, type, id),
+        m_node(node)
 {
     //debugPlan<<"node name:"<<node->name();
     init();
 }
 
-NodeSchedule::NodeSchedule( Schedule *parent, Node *node )
-        : Schedule( parent ),
-        m_node( node )
+NodeSchedule::NodeSchedule(Schedule *parent, Node *node)
+        : Schedule(parent),
+        m_node(node)
 {
 
     //debugPlan<<"node name:"<<node->name();
@@ -728,21 +728,21 @@ NodeSchedule::NodeSchedule( Schedule *parent, Node *node )
 NodeSchedule::~NodeSchedule()
 {
     //debugPlan<<this<<""<<m_appointments.count();
-    while ( !m_appointments.isEmpty() ) {
+    while (!m_appointments.isEmpty()) {
         Appointment *a = m_appointments.takeFirst();
-        a->setNode( 0 );
+        a->setNode(0);
         delete a;
     }
     //debugPlan<<"forw"<<m_forward.count();
-    while ( !m_forward.isEmpty() ) {
+    while (!m_forward.isEmpty()) {
         Appointment *a = m_forward.takeFirst();
-        a->setNode( 0 );
+        a->setNode(0);
         delete a;
     }
     //debugPlan<<"backw"<<m_backward.count();
-    while ( !m_backward.isEmpty() ) {
+    while (!m_backward.isEmpty()) {
         Appointment *a = m_backward.takeFirst();
-        a->setNode( 0 );
+        a->setNode(0);
         delete a;
     }
 }
@@ -762,150 +762,150 @@ void NodeSchedule::init()
     freeFloat = Duration::zeroDuration;
 }
 
-void NodeSchedule::setDeleted( bool on )
+void NodeSchedule::setDeleted(bool on)
 {
     //debugPlan<<"deleted="<<on;
     m_deleted = on;
     // set deleted also for possible resource schedules
     QListIterator<Appointment*> it = m_appointments;
-    while ( it.hasNext() ) {
+    while (it.hasNext()) {
         Appointment * a = it.next();
-        if ( a->resource() ) {
-            a->resource() ->setDeleted( on );
+        if (a->resource()) {
+            a->resource() ->setDeleted(on);
         }
     }
 }
 
-bool NodeSchedule::loadXML( const KoXmlElement &sch, XMLLoaderObject &status )
+bool NodeSchedule::loadXML(const KoXmlElement &sch, XMLLoaderObject &status)
 {
     //debugPlan;
     QString s;
-    Schedule::loadXML( sch, status );
-    s = sch.attribute( "earlystart" );
-    if ( s.isEmpty() ) { // try version < 0.6
-        s = sch.attribute( "earlieststart" );
+    Schedule::loadXML(sch, status);
+    s = sch.attribute("earlystart");
+    if (s.isEmpty()) { // try version < 0.6
+        s = sch.attribute("earlieststart");
     }
-    if ( !s.isEmpty() ) {
-        earlyStart = DateTime::fromString( s, status.projectTimeZone() );
+    if (!s.isEmpty()) {
+        earlyStart = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = sch.attribute( "latefinish" );
-    if ( s.isEmpty() ) { // try version < 0.6
-        s = sch.attribute( "latestfinish" );
+    s = sch.attribute("latefinish");
+    if (s.isEmpty()) { // try version < 0.6
+        s = sch.attribute("latestfinish");
     }
-    if ( !s.isEmpty() ) {
-        lateFinish = DateTime::fromString( s, status.projectTimeZone() );
+    if (!s.isEmpty()) {
+        lateFinish = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = sch.attribute( "latestart" );
-    if ( !s.isEmpty() ) {
-        lateStart = DateTime::fromString( s, status.projectTimeZone() );
+    s = sch.attribute("latestart");
+    if (!s.isEmpty()) {
+        lateStart = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = sch.attribute( "earlyfinish" );
-    if ( !s.isEmpty() ) {
-        earlyFinish = DateTime::fromString( s, status.projectTimeZone() );
+    s = sch.attribute("earlyfinish");
+    if (!s.isEmpty()) {
+        earlyFinish = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = sch.attribute( "start" );
-    if ( !s.isEmpty() )
-        startTime = DateTime::fromString( s, status.projectTimeZone() );
-    s = sch.attribute( "end" );
-    if ( !s.isEmpty() )
-        endTime = DateTime::fromString( s, status.projectTimeZone() );
-    s = sch.attribute( "start-work" );
-    if ( !s.isEmpty() )
-        workStartTime = DateTime::fromString( s, status.projectTimeZone() );
-    s = sch.attribute( "end-work" );
-    if ( !s.isEmpty() )
-        workEndTime = DateTime::fromString( s, status.projectTimeZone() );
-    duration = Duration::fromString( sch.attribute( "duration" ) );
+    s = sch.attribute("start");
+    if (!s.isEmpty())
+        startTime = DateTime::fromString(s, status.projectTimeZone());
+    s = sch.attribute("end");
+    if (!s.isEmpty())
+        endTime = DateTime::fromString(s, status.projectTimeZone());
+    s = sch.attribute("start-work");
+    if (!s.isEmpty())
+        workStartTime = DateTime::fromString(s, status.projectTimeZone());
+    s = sch.attribute("end-work");
+    if (!s.isEmpty())
+        workEndTime = DateTime::fromString(s, status.projectTimeZone());
+    duration = Duration::fromString(sch.attribute("duration"));
 
-    inCriticalPath = sch.attribute( "in-critical-path", "0" ).toInt();
-    resourceError = sch.attribute( "resource-error", "0" ).toInt();
-    resourceOverbooked = sch.attribute( "resource-overbooked", "0" ).toInt();
-    resourceNotAvailable = sch.attribute( "resource-not-available", "0" ).toInt();
-    constraintError = sch.attribute( "scheduling-conflict", "0" ).toInt();
-    schedulingError = sch.attribute( "scheduling-error", "0" ).toInt();
-    notScheduled = sch.attribute( "not-scheduled", "1" ).toInt();
+    inCriticalPath = sch.attribute("in-critical-path", "0").toInt();
+    resourceError = sch.attribute("resource-error", "0").toInt();
+    resourceOverbooked = sch.attribute("resource-overbooked", "0").toInt();
+    resourceNotAvailable = sch.attribute("resource-not-available", "0").toInt();
+    constraintError = sch.attribute("scheduling-conflict", "0").toInt();
+    schedulingError = sch.attribute("scheduling-error", "0").toInt();
+    notScheduled = sch.attribute("not-scheduled", "1").toInt();
 
-    positiveFloat = Duration::fromString( sch.attribute( "positive-float" ) );
-    negativeFloat = Duration::fromString( sch.attribute( "negative-float" ) );
-    freeFloat = Duration::fromString( sch.attribute( "free-float" ) );
+    positiveFloat = Duration::fromString(sch.attribute("positive-float"));
+    negativeFloat = Duration::fromString(sch.attribute("negative-float"));
+    freeFloat = Duration::fromString(sch.attribute("free-float"));
 
     return true;
 }
 
-void NodeSchedule::saveXML( QDomElement &element ) const
+void NodeSchedule::saveXML(QDomElement &element) const
 {
     //debugPlan;
-    QDomElement sch = element.ownerDocument().createElement( "schedule" );
-    element.appendChild( sch );
-    saveCommonXML( sch );
+    QDomElement sch = element.ownerDocument().createElement("schedule");
+    element.appendChild(sch);
+    saveCommonXML(sch);
 
-    if ( earlyStart.isValid() ) {
-        sch.setAttribute( "earlystart", earlyStart.toString( Qt::ISODate ) );
+    if (earlyStart.isValid()) {
+        sch.setAttribute("earlystart", earlyStart.toString(Qt::ISODate));
     }
-    if ( lateStart.isValid() ) {
-        sch.setAttribute( "latestart", lateStart.toString( Qt::ISODate ) );
+    if (lateStart.isValid()) {
+        sch.setAttribute("latestart", lateStart.toString(Qt::ISODate));
     }
-    if ( earlyFinish.isValid() ) {
-        sch.setAttribute( "earlyfinish", earlyFinish.toString( Qt::ISODate ) );
+    if (earlyFinish.isValid()) {
+        sch.setAttribute("earlyfinish", earlyFinish.toString(Qt::ISODate));
     }
-    if ( lateFinish.isValid() ) {
-        sch.setAttribute( "latefinish", lateFinish.toString( Qt::ISODate ) );
+    if (lateFinish.isValid()) {
+        sch.setAttribute("latefinish", lateFinish.toString(Qt::ISODate));
     }
-    if ( startTime.isValid() )
-        sch.setAttribute( "start", startTime.toString( Qt::ISODate ) );
-    if ( endTime.isValid() )
-        sch.setAttribute( "end", endTime.toString( Qt::ISODate ) );
-    if ( workStartTime.isValid() )
-        sch.setAttribute( "start-work", workStartTime.toString( Qt::ISODate ) );
-    if ( workEndTime.isValid() )
-        sch.setAttribute( "end-work", workEndTime.toString( Qt::ISODate ) );
+    if (startTime.isValid())
+        sch.setAttribute("start", startTime.toString(Qt::ISODate));
+    if (endTime.isValid())
+        sch.setAttribute("end", endTime.toString(Qt::ISODate));
+    if (workStartTime.isValid())
+        sch.setAttribute("start-work", workStartTime.toString(Qt::ISODate));
+    if (workEndTime.isValid())
+        sch.setAttribute("end-work", workEndTime.toString(Qt::ISODate));
 
-    sch.setAttribute( "duration", duration.toString() );
+    sch.setAttribute("duration", duration.toString());
 
-    sch.setAttribute( "in-critical-path", QString::number(inCriticalPath) );
-    sch.setAttribute( "resource-error", QString::number(resourceError) );
-    sch.setAttribute( "resource-overbooked", QString::number(resourceOverbooked) );
-    sch.setAttribute( "resource-not-available", QString::number(resourceNotAvailable) );
-    sch.setAttribute( "scheduling-conflict", QString::number(constraintError) );
-    sch.setAttribute( "scheduling-error", QString::number(schedulingError) );
-    sch.setAttribute( "not-scheduled", QString::number(notScheduled) );
+    sch.setAttribute("in-critical-path", QString::number(inCriticalPath));
+    sch.setAttribute("resource-error", QString::number(resourceError));
+    sch.setAttribute("resource-overbooked", QString::number(resourceOverbooked));
+    sch.setAttribute("resource-not-available", QString::number(resourceNotAvailable));
+    sch.setAttribute("scheduling-conflict", QString::number(constraintError));
+    sch.setAttribute("scheduling-error", QString::number(schedulingError));
+    sch.setAttribute("not-scheduled", QString::number(notScheduled));
 
-    sch.setAttribute( "positive-float", positiveFloat.toString() );
-    sch.setAttribute( "negative-float", negativeFloat.toString() );
-    sch.setAttribute( "free-float", freeFloat.toString() );
+    sch.setAttribute("positive-float", positiveFloat.toString());
+    sch.setAttribute("negative-float", negativeFloat.toString());
+    sch.setAttribute("free-float", freeFloat.toString());
 }
 
-void NodeSchedule::addAppointment( Schedule *resource, const DateTime &start, const DateTime &end, double load )
+void NodeSchedule::addAppointment(Schedule *resource, const DateTime &start, const DateTime &end, double load)
 {
     //debugPlan;
-    Appointment * a = findAppointment( resource, this, m_calculationMode );
-    if ( a != 0 ) {
+    Appointment * a = findAppointment(resource, this, m_calculationMode);
+    if (a != 0) {
         //debugPlan<<"Add interval to existing"<<a;
-        a->addInterval( start, end, load );
+        a->addInterval(start, end, load);
         return ;
     }
-    a = new Appointment( resource, this, start, end, load );
-    bool result = add( a );
-    Q_ASSERT ( result );
-    result = resource->add( a );
-    Q_ASSERT ( result );
-    Q_UNUSED ( result ); // cheating the compiler in release mode to not warn about unused-but-set-variable
+    a = new Appointment(resource, this, start, end, load);
+    bool result = add(a);
+    Q_ASSERT (result);
+    result = resource->add(a);
+    Q_ASSERT (result);
+    Q_UNUSED (result); // cheating the compiler in release mode to not warn about unused-but-set-variable
     //debugPlan<<"Added interval to new"<<a;
 }
 
-void NodeSchedule::takeAppointment( Appointment *appointment, int mode )
+void NodeSchedule::takeAppointment(Appointment *appointment, int mode)
 {
-    Schedule::takeAppointment( appointment, mode );
-    appointment->setNode( 0 ); // not my appointment anymore
+    Schedule::takeAppointment(appointment, mode);
+    appointment->setNode(0); // not my appointment anymore
     //debugPlan<<"Taken:"<<appointment;
-    if ( appointment->resource() )
-        appointment->resource() ->takeAppointment( appointment );
+    if (appointment->resource())
+        appointment->resource() ->takeAppointment(appointment);
 }
 
 QList<Resource*> NodeSchedule::resources() const
 {
     QList<Resource*> rl;
-    foreach( Appointment *a, m_appointments ) {
+    foreach(Appointment *a, m_appointments) {
         rl += a->resource() ->resource();
     }
     return rl;
@@ -914,74 +914,74 @@ QList<Resource*> NodeSchedule::resources() const
 QStringList NodeSchedule::resourceNameList() const
 {
     QStringList rl;
-    foreach( Appointment *a, m_appointments ) {
+    foreach(Appointment *a, m_appointments) {
         rl += a->resource() ->resource() ->name();
     }
     return rl;
 }
 
-void NodeSchedule::logError( const QString &msg, int phase )
+void NodeSchedule::logError(const QString &msg, int phase)
 {
-    Schedule::Log log( m_node, Log::Type_Error, msg, phase );
-    if ( m_parent ) {
-        m_parent->addLog( log );
+    Schedule::Log log(m_node, Log::Type_Error, msg, phase);
+    if (m_parent) {
+        m_parent->addLog(log);
     } else {
-        addLog( log );
+        addLog(log);
     }
 }
 
-void NodeSchedule::logWarning( const QString &msg, int phase )
+void NodeSchedule::logWarning(const QString &msg, int phase)
 {
-    Schedule::Log log( m_node, Log::Type_Warning, msg, phase );
-    if ( m_parent ) {
-        m_parent->addLog( log );
+    Schedule::Log log(m_node, Log::Type_Warning, msg, phase);
+    if (m_parent) {
+        m_parent->addLog(log);
     } else {
-        addLog( log );
+        addLog(log);
     }
 }
 
-void NodeSchedule::logInfo( const QString &msg, int phase )
+void NodeSchedule::logInfo(const QString &msg, int phase)
 {
-    Schedule::Log log( m_node, Log::Type_Info, msg, phase );
-    if ( m_parent ) {
-        m_parent->addLog( log );
+    Schedule::Log log(m_node, Log::Type_Info, msg, phase);
+    if (m_parent) {
+        m_parent->addLog(log);
     } else {
-        addLog( log );
+        addLog(log);
     }
 }
 
-void NodeSchedule::logDebug( const QString &msg, int phase )
+void NodeSchedule::logDebug(const QString &msg, int phase)
 {
-    Schedule::Log log( m_node, Log::Type_Debug, msg, phase );
-    if ( m_parent ) {
-        m_parent->addLog( log );
+    Schedule::Log log(m_node, Log::Type_Debug, msg, phase);
+    if (m_parent) {
+        m_parent->addLog(log);
     } else {
-        addLog( log );
+        addLog(log);
     }
 }
 
 //-----------------------------------------------
 ResourceSchedule::ResourceSchedule()
         : Schedule(),
-        m_resource( 0 )
+        m_resource(0)
 {
     //debugPlan<<"("<<this<<")";
 }
 
-ResourceSchedule::ResourceSchedule( Resource *resource, const QString& name, Schedule::Type type, long id )
-        : Schedule( name, type, id ),
-        m_resource( resource ),
-        m_parent( 0 ),
-        m_nodeSchedule( 0 )
+ResourceSchedule::ResourceSchedule(Resource *resource, const QString& name, Schedule::Type type, long id)
+        : Schedule(name, type, id),
+        m_resource(resource),
+        m_parent(0),
+        m_nodeSchedule(0)
 {
     //debugPlan<<"resource:"<<resource->name();
 }
 
-ResourceSchedule::ResourceSchedule( Schedule *parent, Resource *resource )
-        : Schedule( parent ),
-        m_resource( resource ),
-        m_parent( parent ),
-        m_nodeSchedule( 0 )
+ResourceSchedule::ResourceSchedule(Schedule *parent, Resource *resource)
+        : Schedule(parent),
+        m_resource(resource),
+        m_parent(parent),
+        m_nodeSchedule(0)
 {
     //debugPlan<<"resource:"<<resource->name();
 }
@@ -989,52 +989,52 @@ ResourceSchedule::ResourceSchedule( Schedule *parent, Resource *resource )
 ResourceSchedule::~ResourceSchedule()
 {
     //debugPlan<<this<<""<<m_appointments.count();
-    while ( !m_appointments.isEmpty() ) {
+    while (!m_appointments.isEmpty()) {
         Appointment *a = m_appointments.takeFirst();
-        a->setResource( 0 );
+        a->setResource(0);
         delete a;
     }
     //debugPlan<<"forw"<<m_forward.count();
-    while ( !m_forward.isEmpty() ) {
+    while (!m_forward.isEmpty()) {
         Appointment *a = m_forward.takeFirst();
-        a->setResource( 0 );
+        a->setResource(0);
         delete a;
     }
     //debugPlan<<"backw"<<m_backward.count();
-    while ( !m_backward.isEmpty() ) {
+    while (!m_backward.isEmpty()) {
         Appointment *a = m_backward.takeFirst();
-        a->setResource( 0 );
+        a->setResource(0);
         delete a;
     }
 }
 
 // called from the resource
-void ResourceSchedule::addAppointment( Schedule *node, const DateTime &start, const DateTime &end, double load )
+void ResourceSchedule::addAppointment(Schedule *node, const DateTime &start, const DateTime &end, double load)
 {
-    Q_ASSERT( start < end );
+    Q_ASSERT(start < end);
     //debugPlan<<"("<<this<<")"<<node<<","<<m_calculationMode;
-    Appointment * a = findAppointment( this, node, m_calculationMode );
-    if ( a != 0 ) {
+    Appointment * a = findAppointment(this, node, m_calculationMode);
+    if (a != 0) {
         //debugPlan<<"Add interval to existing"<<a;
-        a->addInterval( start, end, load );
+        a->addInterval(start, end, load);
         return ;
     }
-    a = new Appointment( this, node, start, end, load );
-    bool result = add( a );
-    Q_ASSERT ( result == true );
-    result = node->add( a );
-    Q_ASSERT ( result == true );
-    Q_UNUSED ( result );  //don't warn about unused-but-set-variable in release mode
+    a = new Appointment(this, node, start, end, load);
+    bool result = add(a);
+    Q_ASSERT (result == true);
+    result = node->add(a);
+    Q_ASSERT (result == true);
+    Q_UNUSED (result);  //don't warn about unused-but-set-variable in release mode
     //debugPlan<<"Added interval to new"<<a;
 }
 
-void ResourceSchedule::takeAppointment( Appointment *appointment, int mode )
+void ResourceSchedule::takeAppointment(Appointment *appointment, int mode)
 {
-    Schedule::takeAppointment( appointment, mode );
-    appointment->setResource( 0 );
+    Schedule::takeAppointment(appointment, mode);
+    appointment->setResource(0);
     //debugPlan<<"Taken:"<<appointment;
-    if ( appointment->node() )
-        appointment->node() ->takeAppointment( appointment );
+    if (appointment->node())
+        appointment->node() ->takeAppointment(appointment);
 }
 
 bool ResourceSchedule::isOverbooked() const
@@ -1042,21 +1042,21 @@ bool ResourceSchedule::isOverbooked() const
     return false;
 }
 
-bool ResourceSchedule::isOverbooked( const DateTime &start, const DateTime &end ) const
+bool ResourceSchedule::isOverbooked(const DateTime &start, const DateTime &end) const
 {
-    if ( m_resource == 0 )
+    if (m_resource == 0)
         return false;
     //debugPlan<<start.toString()<<" -"<<end.toString();
     Appointment a = appointmentIntervals();
-    foreach ( const AppointmentInterval &i, a.intervals().map() ) {
-        if ( ( !end.isValid() || i.startTime() < end ) &&
-                ( !start.isValid() || i.endTime() > start ) ) {
-            if ( i.load() > m_resource->units() ) {
+    foreach (const AppointmentInterval &i, a.intervals().map()) {
+        if ((!end.isValid() || i.startTime() < end) &&
+                (!start.isValid() || i.endTime() > start)) {
+            if (i.load() > m_resource->units()) {
                 //debugPlan<<m_name<<" overbooked";
                 return true;
             }
         }
-        if ( i.startTime() >= end )
+        if (i.startTime() >= end)
             break;
     }
     //debugPlan<<m_name<<" not overbooked";
@@ -1069,40 +1069,40 @@ double ResourceSchedule::normalRatePrHour() const
 }
 
 //TODO change to return the booked effort
-Duration ResourceSchedule::effort( const DateTimeInterval &interval ) const
+Duration ResourceSchedule::effort(const DateTimeInterval &interval) const
 {
     Duration eff = interval.second - interval.first;
-    if ( allowOverbooking() ) {
+    if (allowOverbooking()) {
         return eff;
     }
     Appointment a;
-    if ( checkExternalAppointments() ) {
-        a.setIntervals( m_resource->externalAppointments() );
+    if (checkExternalAppointments()) {
+        a.setIntervals(m_resource->externalAppointments());
     }
-    a.merge( appointmentIntervals( m_calculationMode ) );
-    if ( a.isEmpty() || a.startTime() >= interval.second || a.endTime() <= interval.first ) {
+    a.merge(appointmentIntervals(m_calculationMode));
+    if (a.isEmpty() || a.startTime() >= interval.second || a.endTime() <= interval.first) {
         return eff;
     }
-    foreach ( const AppointmentInterval &i, a.intervals().map() ) {
-        if ( interval.second <= i.startTime() ) {
+    foreach (const AppointmentInterval &i, a.intervals().map()) {
+        if (interval.second <= i.startTime()) {
             break;
         }
-        if ( interval.first >= i.startTime() ) {
+        if (interval.first >= i.startTime()) {
             DateTime et = i.endTime() < interval.second ? i.endTime() : interval.second;
-            eff -= ( et - interval.first ) * ((double)i.load()/100.0 );
+            eff -= (et - interval.first) * ((double)i.load()/100.0);
         } else {
             DateTime et = i.endTime() < interval.second ? i.endTime() : interval.second;
-            eff -= ( et - i.startTime() ) * ((double)i.load()/100.0 );
+            eff -= (et - i.startTime()) * ((double)i.load()/100.0);
         }
     }
     return eff;
 }
 
-DateTimeInterval ResourceSchedule::available( const DateTimeInterval &interval ) const
+DateTimeInterval ResourceSchedule::available(const DateTimeInterval &interval) const
 {
-    //const_cast<ResourceSchedule*>(this)->logDebug( QString( "Schedule available id=%1, Mode=%2: interval=%3 - %4" ).arg(m_id).arg(m_calculationMode).arg(interval.first.toString()).arg(interval.second.toString()) );
-    if ( allowOverbooking() ) {
-        return DateTimeInterval( interval.first, interval.second );
+    //const_cast<ResourceSchedule*>(this)->logDebug(QString("Schedule available id=%1, Mode=%2: interval=%3 - %4").arg(m_id).arg(m_calculationMode).arg(interval.first.toString()).arg(interval.second.toString()));
+    if (allowOverbooking()) {
+        return DateTimeInterval(interval.first, interval.second);
     }
     QTimeZone projectTimeZone = QTimeZone::systemTimeZone();
     if (m_resource) {
@@ -1110,33 +1110,33 @@ DateTimeInterval ResourceSchedule::available( const DateTimeInterval &interval )
     }
     DateTimeInterval ci(interval.first.toTimeZone(projectTimeZone), interval.second.toTimeZone(projectTimeZone));
     Appointment a;
-    if ( checkExternalAppointments() ) {
-        a.setIntervals( m_resource->externalAppointments( ci ) );
+    if (checkExternalAppointments()) {
+        a.setIntervals(m_resource->externalAppointments(ci));
     }
-    a.merge( appointmentIntervals( m_calculationMode, ci ) );
-    if ( a.isEmpty() || a.startTime() >= ci.second || a.endTime() <= ci.first ) {
+    a.merge(appointmentIntervals(m_calculationMode, ci));
+    if (a.isEmpty() || a.startTime() >= ci.second || a.endTime() <= ci.first) {
         //debugPlan<<this<<"id="<<m_id<<"Mode="<<m_calculationMode<<""<<interval.first<<","<<interval.second<<" FREE";
-        return DateTimeInterval( interval.first, interval.second ); // just return the interval
+        return DateTimeInterval(interval.first, interval.second); // just return the interval
     }
     //debugPlan<<"available:"<<interval<<endl<<a.intervals();
     DateTimeInterval res;
     int units = m_resource ? m_resource->units() : 100;
-    foreach ( const AppointmentInterval &i, a.intervals().map() ) {
-        //const_cast<ResourceSchedule*>(this)->logDebug( QString( "Schedule available check interval=%1 - %2" ).arg(i.startTime().toString()).arg(i.endTime().toString()) );
-        if ( i.startTime() < ci.second && i.endTime() > ci.first ) {
+    foreach (const AppointmentInterval &i, a.intervals().map()) {
+        //const_cast<ResourceSchedule*>(this)->logDebug(QString("Schedule available check interval=%1 - %2").arg(i.startTime().toString()).arg(i.endTime().toString()));
+        if (i.startTime() < ci.second && i.endTime() > ci.first) {
             // interval intersects appointment
-            if ( ci.first >= i.startTime() && ci.second <= i.endTime() ) {
+            if (ci.first >= i.startTime() && ci.second <= i.endTime()) {
                 // interval within appointment
-                if ( i.load() < units ) {
-                    if ( ! res.first.isValid() ) {
-                        res.first = qMax( ci.first, i.startTime() );
+                if (i.load() < units) {
+                    if (! res.first.isValid()) {
+                        res.first = qMax(ci.first, i.startTime());
                     }
-                    res.second = qMin( ci.second, i.endTime() );
+                    res.second = qMin(ci.second, i.endTime());
                 } else {
                     // fully booked
-                    if ( res.first.isValid() ) {
+                    if (res.first.isValid()) {
                         res.second = i.startTime();
-                        if ( res.first >= res.second ) {
+                        if (res.first >= res.second) {
                             res = DateTimeInterval();
                         }
                     }
@@ -1145,17 +1145,17 @@ DateTimeInterval ResourceSchedule::available( const DateTimeInterval &interval )
                 break;
             }
             DateTime t = i.startTime();
-            if ( ci.first < t ) {
+            if (ci.first < t) {
                 // Interval starts before appointment, so free from interval start
                 //debugPlan<<"available before:"<<interval<<i<<":"<<ci<<res;
-                //const_cast<ResourceSchedule*>(this)->logDebug( QString( "Schedule available t>first: returns interval=%1 - %2" ).arg(ci.first.toString()).arg(t.toString()) );
-                if ( ! res.first.isValid() ) {
+                //const_cast<ResourceSchedule*>(this)->logDebug(QString("Schedule available t>first: returns interval=%1 - %2").arg(ci.first.toString()).arg(t.toString()));
+                if (! res.first.isValid()) {
                     res.first = ci.first;
                 }
                 res.second = t;
-                if ( i.load() < units ) {
-                    res.second = qMin( ci.second, i.endTime() );
-                    if ( ci.second > i.endTime() ) {
+                if (i.load() < units) {
+                    res.second = qMin(ci.second, i.endTime());
+                    if (ci.second > i.endTime()) {
                         ci.first = i.endTime();
                         //debugPlan<<"available next 1:"<<interval<<i<<":"<<ci<<res;
                         continue; // check next appointment
@@ -1166,9 +1166,9 @@ DateTimeInterval ResourceSchedule::available( const DateTimeInterval &interval )
             }
             // interval start >= appointment start
             t = i.endTime();
-            if ( t < ci.second ) {
+            if (t < ci.second) {
                 // check if rest of appointment is free
-                if ( units <= i.load() ) {
+                if (units <= i.load()) {
                     ci.first = t; // fully booked, so move forward to appointment end
                 }
                 res = ci;
@@ -1176,8 +1176,8 @@ DateTimeInterval ResourceSchedule::available( const DateTimeInterval &interval )
                 continue;
             }
             //debugPlan<<"available:"<<interval<<i<<":"<<ci<<res;
-            Q_ASSERT( false );
-        } else if ( i.startTime() >= interval.second ) {
+            Q_ASSERT(false);
+        } else if (i.startTime() >= interval.second) {
             // no more overlaps
             break;
         }
@@ -1186,35 +1186,35 @@ DateTimeInterval ResourceSchedule::available( const DateTimeInterval &interval )
     return DateTimeInterval(res.first.toTimeZone(interval.first.timeZone()), res.second.toTimeZone(interval.second.timeZone()));
 }
 
-void ResourceSchedule::logError( const QString &msg, int phase )
+void ResourceSchedule::logError(const QString &msg, int phase)
 {
-    if ( m_parent ) {
-        Schedule::Log log( m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Error, msg, phase );
-        m_parent->addLog( log );
+    if (m_parent) {
+        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Error, msg, phase);
+        m_parent->addLog(log);
     }
 }
 
-void ResourceSchedule::logWarning( const QString &msg, int phase )
+void ResourceSchedule::logWarning(const QString &msg, int phase)
 {
-    if ( m_parent ) {
-        Schedule::Log log( m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Warning, msg, phase );
-        m_parent->addLog( log );
+    if (m_parent) {
+        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Warning, msg, phase);
+        m_parent->addLog(log);
     }
 }
 
-void ResourceSchedule::logInfo( const QString &msg, int phase )
+void ResourceSchedule::logInfo(const QString &msg, int phase)
 {
-    if ( m_parent ) {
-        Schedule::Log log( m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Info, msg, phase );
-        m_parent->addLog( log );
+    if (m_parent) {
+        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Info, msg, phase);
+        m_parent->addLog(log);
     }
 }
 
-void ResourceSchedule::logDebug( const QString &msg, int phase )
+void ResourceSchedule::logDebug(const QString &msg, int phase)
 {
-    if ( m_parent ) {
-        Schedule::Log log( m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Debug, msg, phase );
-        m_parent->addLog( log );
+    if (m_parent) {
+        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Debug, msg, phase);
+        m_parent->addLog(log);
     }
 }
 
@@ -1222,17 +1222,17 @@ void ResourceSchedule::logDebug( const QString &msg, int phase )
 MainSchedule::MainSchedule()
     : NodeSchedule(),
 
-    m_manager( 0 )
+    m_manager(0)
 {
     //debugPlan<<"("<<this<<")";
     init();
 }
 
-MainSchedule::MainSchedule( Node *node, const QString& name, Schedule::Type type, long id )
-    : NodeSchedule( node, name, type, id ),
-      criticalPathListCached( false ),
-      m_manager( 0 ),
-      m_currentCriticalPath( 0 )
+MainSchedule::MainSchedule(Node *node, const QString& name, Schedule::Type type, long id)
+    : NodeSchedule(node, name, type, id),
+      criticalPathListCached(false),
+      m_manager(0),
+      m_currentCriticalPath(0)
 {
     //debugPlan<<"node name:"<<node->name();
     init();
@@ -1245,7 +1245,7 @@ MainSchedule::~MainSchedule()
 
 void MainSchedule::incProgress()
 {
-    if ( m_manager ) m_manager->incProgress();
+    if (m_manager) m_manager->incProgress();
 }
 
 bool MainSchedule::isBaselined() const
@@ -1268,16 +1268,16 @@ bool MainSchedule::checkExternalAppointments() const
     return m_manager == 0 ? false : m_manager->checkExternalAppointments();
 }
 
-void MainSchedule::changed( Schedule *sch )
+void MainSchedule::changed(Schedule *sch)
 {
-    if ( m_manager ) {
-        m_manager->scheduleChanged( static_cast<MainSchedule*>( sch ) );
+    if (m_manager) {
+        m_manager->scheduleChanged(static_cast<MainSchedule*>(sch));
     }
 }
 
-void MainSchedule::insertHardConstraint( Node *node )
+void MainSchedule::insertHardConstraint(Node *node)
 {
-    m_hardconstraints.append( node );
+    m_hardconstraints.append(node);
 }
 
 QList<Node*> MainSchedule::hardConstraints() const
@@ -1285,7 +1285,7 @@ QList<Node*> MainSchedule::hardConstraints() const
     return m_hardconstraints;
 }
 
-void MainSchedule::insertSoftConstraint( Node *node )
+void MainSchedule::insertSoftConstraint(Node *node)
 {
     m_softconstraints.insert(-node->priority(), node);
 }
@@ -1300,9 +1300,9 @@ QList<Node*> MainSchedule::forwardNodes() const
     return m_forwardnodes;
 }
 
-void MainSchedule::insertForwardNode( Node *node )
+void MainSchedule::insertForwardNode(Node *node)
 {
-    m_forwardnodes.append( node );
+    m_forwardnodes.append(node);
 }
 
 QList<Node*> MainSchedule::backwardNodes() const
@@ -1310,14 +1310,14 @@ QList<Node*> MainSchedule::backwardNodes() const
     return m_backwardnodes;
 }
 
-void MainSchedule::insertBackwardNode( Node *node )
+void MainSchedule::insertBackwardNode(Node *node)
 {
-    m_backwardnodes.append( node );
+    m_backwardnodes.append(node);
 }
 
-void MainSchedule::insertStartNode( Node *node )
+void MainSchedule::insertStartNode(Node *node)
 {
-    m_startNodes.insert(-node->priority(), node );
+    m_startNodes.insert(-node->priority(), node);
 }
 
 QList<Node*> MainSchedule::startNodes() const
@@ -1325,7 +1325,7 @@ QList<Node*> MainSchedule::startNodes() const
     return m_startNodes.values();
 }
 
-void MainSchedule::insertEndNode( Node *node )
+void MainSchedule::insertEndNode(Node *node)
 {
     m_endNodes.insert(-node->priority(), node);
 }
@@ -1335,9 +1335,9 @@ QList<Node*> MainSchedule::endNodes() const
     return m_endNodes.values();
 }
 
-void MainSchedule::insertSummaryTask( Node *node )
+void MainSchedule::insertSummaryTask(Node *node)
 {
-    m_summarytasks.append( node );
+    m_summarytasks.append(node);
 }
 
 QList<Node*> MainSchedule::summaryTasks() const
@@ -1345,68 +1345,68 @@ QList<Node*> MainSchedule::summaryTasks() const
     return m_summarytasks;
 }
 
-bool MainSchedule::loadXML( const KoXmlElement &sch, XMLLoaderObject &status )
+bool MainSchedule::loadXML(const KoXmlElement &sch, XMLLoaderObject &status)
 {
     //debugPlan;
     QString s;
-    Schedule::loadXML( sch, status );
+    Schedule::loadXML(sch, status);
 
-    s = sch.attribute( "start" );
-    if ( !s.isEmpty() )
-        startTime = DateTime::fromString( s, status.projectTimeZone() );
-    s = sch.attribute( "end" );
-    if ( !s.isEmpty() )
-        endTime = DateTime::fromString( s, status.projectTimeZone() );
+    s = sch.attribute("start");
+    if (!s.isEmpty())
+        startTime = DateTime::fromString(s, status.projectTimeZone());
+    s = sch.attribute("end");
+    if (!s.isEmpty())
+        endTime = DateTime::fromString(s, status.projectTimeZone());
 
-    duration = Duration::fromString( sch.attribute( "duration" ) );
-    constraintError = sch.attribute( "scheduling-conflict", "0" ).toInt();
-    schedulingError = sch.attribute( "scheduling-error", "0" ).toInt();
+    duration = Duration::fromString(sch.attribute("duration"));
+    constraintError = sch.attribute("scheduling-conflict", "0").toInt();
+    schedulingError = sch.attribute("scheduling-error", "0").toInt();
     //NOTE: we use "scheduled" as default to match old format without "not-scheduled" element
-    notScheduled = sch.attribute( "not-scheduled", "0" ).toInt();
+    notScheduled = sch.attribute("not-scheduled", "0").toInt();
 
     KoXmlNode n = sch.firstChild();
-    for ( ; ! n.isNull(); n = n.nextSibling() ) {
-        if ( ! n.isElement() ) {
+    for (; ! n.isNull(); n = n.nextSibling()) {
+        if (! n.isElement()) {
             continue;
         }
         KoXmlElement el = n.toElement();
-        if ( el.tagName() == "appointment" ) {
+        if (el.tagName() == "appointment") {
             // Load the appointments.
             // Resources and tasks must already be loaded
             Appointment * child = new Appointment();
-            if ( !child->loadXML( el, status, *this ) ) {
+            if (!child->loadXML(el, status, *this)) {
                 // TODO: Complain about this
                 errorPlan << "Failed to load appointment" << endl;
                 delete child;
             }
-        } else if ( el.tagName() == "criticalpath-list" ) {
+        } else if (el.tagName() == "criticalpath-list") {
             // Tasks must already be loaded
-            for ( KoXmlNode n1 = el.firstChild(); ! n1.isNull(); n1 = n1.nextSibling() ) {
-                if ( ! n1.isElement() ) {
+            for (KoXmlNode n1 = el.firstChild(); ! n1.isNull(); n1 = n1.nextSibling()) {
+                if (! n1.isElement()) {
                     continue;
                 }
                 KoXmlElement e1 = n1.toElement();
-                if ( e1.tagName() != "criticalpath" ) {
+                if (e1.tagName() != "criticalpath") {
                     continue;
                 }
                 QList<Node*> lst;
-                for ( KoXmlNode n2 = e1.firstChild(); ! n2.isNull(); n2 = n2.nextSibling() ) {
-                    if ( ! n2.isElement() ) {
+                for (KoXmlNode n2 = e1.firstChild(); ! n2.isNull(); n2 = n2.nextSibling()) {
+                    if (! n2.isElement()) {
                         continue;
                     }
                     KoXmlElement e2 = n2.toElement();
-                    if ( e2.tagName() != "node" ) {
+                    if (e2.tagName() != "node") {
                         continue;
                     }
-                    QString s = e2.attribute( "id" );
-                    Node *node = status.project().findNode( s );
-                    if ( node ) {
-                        lst.append( node );
+                    QString s = e2.attribute("id");
+                    Node *node = status.project().findNode(s);
+                    if (node) {
+                        lst.append(node);
                     } else {
                         errorPlan<<"Failed to find node id="<<s;
                     }
                 }
-                m_pathlists.append( lst );
+                m_pathlists.append(lst);
             }
             criticalPathListCached = true;
         }
@@ -1414,77 +1414,77 @@ bool MainSchedule::loadXML( const KoXmlElement &sch, XMLLoaderObject &status )
     return true;
 }
 
-void MainSchedule::saveXML( QDomElement &element ) const
+void MainSchedule::saveXML(QDomElement &element) const
 {
-    saveCommonXML( element );
+    saveCommonXML(element);
 
-    element.setAttribute( "start", startTime.toString( Qt::ISODate ) );
-    element.setAttribute( "end", endTime.toString( Qt::ISODate ) );
-    element.setAttribute( "duration", duration.toString() );
-    element.setAttribute( "scheduling-conflict", QString::number(constraintError) );
-    element.setAttribute( "scheduling-error", QString::number(schedulingError) );
-    element.setAttribute( "not-scheduled", QString::number(notScheduled) );
+    element.setAttribute("start", startTime.toString(Qt::ISODate));
+    element.setAttribute("end", endTime.toString(Qt::ISODate));
+    element.setAttribute("duration", duration.toString());
+    element.setAttribute("scheduling-conflict", QString::number(constraintError));
+    element.setAttribute("scheduling-error", QString::number(schedulingError));
+    element.setAttribute("not-scheduled", QString::number(notScheduled));
 
-    if ( ! m_pathlists.isEmpty() ) {
-        QDomElement lists = element.ownerDocument().createElement( "criticalpath-list" );
-        element.appendChild( lists );
-        foreach ( const QList<Node*> &l, m_pathlists ) {
-            if ( l.isEmpty() ) {
+    if (! m_pathlists.isEmpty()) {
+        QDomElement lists = element.ownerDocument().createElement("criticalpath-list");
+        element.appendChild(lists);
+        foreach (const QList<Node*> &l, m_pathlists) {
+            if (l.isEmpty()) {
                 continue;
             }
-            QDomElement list = lists.ownerDocument().createElement( "criticalpath" );
-            lists.appendChild( list );
-            foreach ( Node *n, l ) {
-                QDomElement el = list.ownerDocument().createElement( "node" );
-                list.appendChild( el );
-                el.setAttribute( "id", n->id() );
+            QDomElement list = lists.ownerDocument().createElement("criticalpath");
+            lists.appendChild(list);
+            foreach (Node *n, l) {
+                QDomElement el = list.ownerDocument().createElement("node");
+                list.appendChild(el);
+                el.setAttribute("id", n->id());
             }
         }
     }
 }
 
-DateTime MainSchedule::calculateForward( int use )
+DateTime MainSchedule::calculateForward(int use)
 {
     DateTime late;
-    foreach( Node *n, m_backwardnodes ) {
-        DateTime t = n->calculateForward( use );
-        if ( !late.isValid() || late < t ) {
+    foreach(Node *n, m_backwardnodes) {
+        DateTime t = n->calculateForward(use);
+        if (!late.isValid() || late < t) {
             late = t;
         }
     }
     return late;
 }
 
-DateTime MainSchedule::calculateBackward( int use )
+DateTime MainSchedule::calculateBackward(int use)
 {
     DateTime early;
-    foreach( Node *n, m_forwardnodes ) {
-        DateTime t = n->calculateBackward( use );
-        if ( !early.isValid() || early > t ) {
+    foreach(Node *n, m_forwardnodes) {
+        DateTime t = n->calculateBackward(use);
+        if (!early.isValid() || early > t) {
             early = t;
         }
     }
     return early;
 }
 
-DateTime MainSchedule::scheduleForward( const DateTime &earliest, int use )
+DateTime MainSchedule::scheduleForward(const DateTime &earliest, int use)
 {
     DateTime end;
-    foreach( Node *n, m_forwardnodes ) {
-        DateTime t = n->scheduleForward( earliest, use );
-        if ( !end.isValid() || end < t ) {
+    foreach(Node *n, m_forwardnodes) {
+        DateTime t = n->scheduleForward(earliest, use);
+        if (!end.isValid() || end < t) {
             end = t;
         }
     }
     return end;
 }
 
-DateTime MainSchedule::scheduleBackward( const DateTime &latest, int use )
+DateTime MainSchedule::scheduleBackward(const DateTime &latest, int use)
 {
     DateTime start;
-    foreach( Node *n, m_backwardnodes ) {
-        DateTime t = n->scheduleBackward( latest, use );
-        if ( !start.isValid() || start > t ) {
+    foreach(Node *n, m_backwardnodes) {
+        DateTime t = n->scheduleBackward(latest, use);
+        if (!start.isValid() || start > t) {
             start = t;
         }
     }
@@ -1518,23 +1518,23 @@ QList<Node*> *MainSchedule::currentCriticalPath() const
     return m_currentCriticalPath;
 }
 
-void MainSchedule::addCriticalPath( QList<Node*> *lst )
+void MainSchedule::addCriticalPath(QList<Node*> *lst)
 {
     QList<Node*> l;
-    if ( lst ) {
+    if (lst) {
         l = *lst;
     }
-    m_pathlists.append( l );
-    m_currentCriticalPath = &( m_pathlists.last() );
+    m_pathlists.append(l);
+    m_currentCriticalPath = &(m_pathlists.last());
 }
 
-void MainSchedule::addCriticalPathNode( Node *node )
+void MainSchedule::addCriticalPathNode(Node *node)
 {
-    if ( m_currentCriticalPath == 0 ) {
+    if (m_currentCriticalPath == 0) {
         errorPlan<<"No currentCriticalPath"<<endl;
         return;
     }
-    m_currentCriticalPath->append( node );
+    m_currentCriticalPath->append(node);
 }
 
 QVector<Schedule::Log> MainSchedule::logs() const
@@ -1542,64 +1542,64 @@ QVector<Schedule::Log> MainSchedule::logs() const
     return m_log;
 }
 
-void MainSchedule::addLog( const KPlato::Schedule::Log &log )
+void MainSchedule::addLog(const KPlato::Schedule::Log &log)
 {
-    Q_ASSERT( log.resource || log.node );
+    Q_ASSERT(log.resource || log.node);
 #ifndef NDEBUG
-    if ( log.resource ) {
-        Q_ASSERT( manager()->project().findResource( log.resource->id() ) == log.resource );
-    } else if ( log.node ) {
-        Q_ASSERT( manager()->project().findNode( log.node->id() ) == log.node );
+    if (log.resource) {
+        Q_ASSERT(manager()->project().findResource(log.resource->id()) == log.resource);
+    } else if (log.node) {
+        Q_ASSERT(manager()->project().findNode(log.node->id()) == log.node);
     }
 #endif
-    const int phaseToSet = ( log.phase == -1 && ! m_log.isEmpty() ) ? m_log.last().phase : -1;
-    m_log.append( log );
+    const int phaseToSet = (log.phase == -1 && ! m_log.isEmpty()) ? m_log.last().phase : -1;
+    m_log.append(log);
 
-    if ( phaseToSet != -1 ) {
+    if (phaseToSet != -1) {
         m_log.last().phase = phaseToSet;
     }
-    if ( m_manager ) {
+    if (m_manager) {
         m_manager->logAdded(m_log.last());
     }
 }
 
 //static
-QString MainSchedule::logSeverity( int severity )
+QString MainSchedule::logSeverity(int severity)
 {
-    switch ( severity ) {
-        case Log::Type_Debug: return "Debug";//FIXME i18n( "Debug" );
-        case Log::Type_Info: return i18n( "Info" );
-        case Log::Type_Warning: return i18n( "Warning" );
-        case Log::Type_Error: return i18n( "Error" );
+    switch (severity) {
+        case Log::Type_Debug: return "Debug";//FIXME i18n("Debug");
+        case Log::Type_Info: return i18n("Info");
+        case Log::Type_Warning: return i18n("Warning");
+        case Log::Type_Error: return i18n("Error");
         default: break;
     }
-    return QString( "Severity %1" ).arg( severity );
+    return QString("Severity %1").arg(severity);
 }
 
 QStringList MainSchedule::logMessages() const
 {
     QStringList lst;
-    foreach ( const Schedule::Log &l, m_log ) {
+    foreach (const Schedule::Log &l, m_log) {
         lst << l.formatMsg();
     }
     return lst;
 }
 
 //-----------------------------------------
-ScheduleManager::ScheduleManager( Project &project, const QString name )
-    : m_project( project),
-    m_parent( 0 ),
-    m_name( name ),
-    m_baselined( false ),
-    m_allowOverbooking( false ),
-    m_checkExternalAppointments( true ),
-    m_usePert( false ),
-    m_recalculate( false ),
-    m_schedulingDirection( false ),
-    m_scheduling( false ),
-    m_progress( 0 ),
-    m_maxprogress( 0 ),
-    m_expected( 0 ),
+ScheduleManager::ScheduleManager(Project &project, const QString name)
+    : m_project(project),
+    m_parent(0),
+    m_name(name),
+    m_baselined(false),
+    m_allowOverbooking(false),
+    m_checkExternalAppointments(true),
+    m_usePert(false),
+    m_recalculate(false),
+    m_schedulingDirection(false),
+    m_scheduling(false),
+    m_progress(0),
+    m_maxprogress(0),
+    m_expected(0),
     m_schedulingMode(false)
 {
     //debugPlan<<name;
@@ -1607,59 +1607,59 @@ ScheduleManager::ScheduleManager( Project &project, const QString name )
 
 ScheduleManager::~ScheduleManager()
 {
-    qDeleteAll( m_children );
-    setParentManager( 0 );
+    qDeleteAll(m_children);
+    setParentManager(0);
 }
 
-void ScheduleManager::setParentManager( ScheduleManager *sm, int index )
+void ScheduleManager::setParentManager(ScheduleManager *sm, int index)
 {
-    if ( m_parent ) {
-        m_parent->removeChild( this );
+    if (m_parent) {
+        m_parent->removeChild(this);
     }
     m_parent = sm;
-    if ( sm ) {
-        sm->insertChild( this, index );
+    if (sm) {
+        sm->insertChild(this, index);
     }
 }
 
-int ScheduleManager::removeChild( const ScheduleManager *sm )
+int ScheduleManager::removeChild(const ScheduleManager *sm)
 {
-    int i = m_children.indexOf( const_cast<ScheduleManager*>( sm ) );
-    if ( i != -1 ) {
-        m_children.removeAt( i );
+    int i = m_children.indexOf(const_cast<ScheduleManager*>(sm));
+    if (i != -1) {
+        m_children.removeAt(i);
     }
     return i;
 }
 
-void ScheduleManager::insertChild( ScheduleManager *sm, int index )
+void ScheduleManager::insertChild(ScheduleManager *sm, int index)
 {
     //debugPlan<<m_name<<", insert"<<sm->name()<<","<<index;
-    if ( index == -1 ) {
-        m_children.append( sm );
+    if (index == -1) {
+        m_children.append(sm);
     } else {
-        m_children.insert( index, sm );
+        m_children.insert(index, sm);
     }
 }
 
 void ScheduleManager::createSchedules()
 {
-    setExpected( m_project.createSchedule( m_name, Schedule::Expected ) );
+    setExpected(m_project.createSchedule(m_name, Schedule::Expected));
 }
 
-int ScheduleManager::indexOf( const ScheduleManager *child ) const
+int ScheduleManager::indexOf(const ScheduleManager *child) const
 {
     //debugPlan<<this<<","<<child;
-    return m_children.indexOf( const_cast<ScheduleManager*>( child ) );
+    return m_children.indexOf(const_cast<ScheduleManager*>(child));
 }
 
-ScheduleManager *ScheduleManager::findManager( const QString& name ) const
+ScheduleManager *ScheduleManager::findManager(const QString& name) const
 {
-    if ( m_name == name ) {
-        return const_cast<ScheduleManager*>( this );
+    if (m_name == name) {
+        return const_cast<ScheduleManager*>(this);
     }
-    foreach ( ScheduleManager *sm, m_children ) {
-        ScheduleManager *m = sm->findManager( name );
-        if ( m ) {
+    foreach (ScheduleManager *sm, m_children) {
+        ScheduleManager *m = sm->findManager(name);
+        if (m) {
             return m;
         }
     }
@@ -1669,62 +1669,62 @@ ScheduleManager *ScheduleManager::findManager( const QString& name ) const
 QList<ScheduleManager*> ScheduleManager::allChildren() const
 {
     QList<ScheduleManager*> lst;
-    foreach ( ScheduleManager *sm, m_children ) {
+    foreach (ScheduleManager *sm, m_children) {
         lst << sm;
         lst << sm->allChildren();
     }
     return lst;
 }
 
-bool ScheduleManager::isParentOf( const ScheduleManager *sm ) const
+bool ScheduleManager::isParentOf(const ScheduleManager *sm) const
 {
-    if ( indexOf( sm ) >= 0 ) {
+    if (indexOf(sm) >= 0) {
         return true;
     }
-    foreach ( ScheduleManager *p, m_children ) {
-        if ( p->isParentOf( sm ) ) {
+    foreach (ScheduleManager *p, m_children) {
+        if (p->isParentOf(sm)) {
             return true;
         }
     }
     return false;
 }
 
-void ScheduleManager::setName( const QString& name )
+void ScheduleManager::setName(const QString& name)
 {
     m_name = name;
 #ifndef NDEBUG
-    setObjectName( name );
+    setObjectName(name);
 #endif
-    if ( m_expected ) {
-        m_expected->setName( name );
-        m_project.changed( m_expected );
+    if (m_expected) {
+        m_expected->setName(name);
+        m_project.changed(m_expected);
     }
-    m_project.changed( this );
+    m_project.changed(this);
 }
 
 bool ScheduleManager::isChildBaselined() const
 {
     //debugPlan<<on;
-    foreach ( ScheduleManager *sm, m_children ) {
-        if ( sm->isBaselined() || sm->isChildBaselined() ) {
+    foreach (ScheduleManager *sm, m_children) {
+        if (sm->isBaselined() || sm->isChildBaselined()) {
             return true;
         }
     }
     return false;
 }
 
-void ScheduleManager::setBaselined( bool on )
+void ScheduleManager::setBaselined(bool on)
 {
     //debugPlan<<on;
     m_baselined = on;
-    m_project.changed( this );
+    m_project.changed(this);
 }
 
-void ScheduleManager::setAllowOverbooking( bool on )
+void ScheduleManager::setAllowOverbooking(bool on)
 {
     //debugPlan<<on;
     m_allowOverbooking = on;
-    m_project.changed( this, OverbookProperty );
+    m_project.changed(this, OverbookProperty);
 }
 
 bool ScheduleManager::allowOverbooking() const
@@ -1739,38 +1739,38 @@ bool ScheduleManager::checkExternalAppointments() const
     return m_checkExternalAppointments;
 }
 
-void ScheduleManager::setCheckExternalAppointments( bool on )
+void ScheduleManager::setCheckExternalAppointments(bool on)
 {
     //debugPlan<<m_name<<"="<<m_checkExternalAppointments;
     m_checkExternalAppointments = on;
 }
 
-void ScheduleManager::scheduleChanged( MainSchedule *sch )
+void ScheduleManager::scheduleChanged(MainSchedule *sch)
 {
-    m_project.changed( sch );
-    m_project.changed( this ); //hmmm, due to aggregated info
+    m_project.changed(sch);
+    m_project.changed(this); //hmmm, due to aggregated info
 }
 
-void ScheduleManager::setUsePert( bool on )
+void ScheduleManager::setUsePert(bool on)
 {
     m_usePert = on;
-    m_project.changed( this, DistributionProperty );
+    m_project.changed(this, DistributionProperty);
 }
 
-void ScheduleManager::setSchedulingDirection( bool on )
+void ScheduleManager::setSchedulingDirection(bool on)
 {
     //debugPlan<<on;
     m_schedulingDirection = on;
-    m_project.changed( this, DirectionProperty );
+    m_project.changed(this, DirectionProperty);
 }
 
-void ScheduleManager::setScheduling( bool on )
+void ScheduleManager::setScheduling(bool on)
 {
     m_scheduling = on;
-    if ( ! on ) {
-        m_project.setProgress( 0, this );
+    if (! on) {
+        m_project.setProgress(0, this);
     }
-    m_project.changed( this );
+    m_project.changed(this);
 }
 
 const QList<SchedulerPlugin*> ScheduleManager::schedulerPlugins() const
@@ -1783,19 +1783,19 @@ QString ScheduleManager::schedulerPluginId() const
     return m_schedulerPluginId;
 }
 
-void ScheduleManager::setSchedulerPluginId( const QString &id )
+void ScheduleManager::setSchedulerPluginId(const QString &id)
 {
     m_schedulerPluginId = id;
-    m_project.changed( this );
+    m_project.changed(this);
 }
 
 SchedulerPlugin *ScheduleManager::schedulerPlugin() const
 {
-    if ( m_schedulerPluginId.isEmpty() || !m_project.schedulerPlugins().contains( m_schedulerPluginId ) ) {
+    if (m_schedulerPluginId.isEmpty() || !m_project.schedulerPlugins().contains(m_schedulerPluginId)) {
         // try to avoid crash
-        return m_project.schedulerPlugins().value( m_project.schedulerPlugins().keys().value( 0 ) );
+        return m_project.schedulerPlugins().value(m_project.schedulerPlugins().keys().value(0));
     }
-    return m_project.schedulerPlugins().value( m_schedulerPluginId );
+    return m_project.schedulerPlugins().value(m_schedulerPluginId);
 }
 
 QStringList ScheduleManager::schedulerPluginNames() const
@@ -1803,7 +1803,7 @@ QStringList ScheduleManager::schedulerPluginNames() const
     QStringList lst;
     QMap<QString, SchedulerPlugin*>::const_iterator it = m_project.schedulerPlugins().constBegin();
     QMap<QString, SchedulerPlugin*>::const_iterator end = m_project.schedulerPlugins().constEnd();
-    for ( ; it != end; ++it ) {
+    for (; it != end; ++it) {
         lst << it.value()->name();
     }
     return lst;
@@ -1811,100 +1811,100 @@ QStringList ScheduleManager::schedulerPluginNames() const
 
 int ScheduleManager::schedulerPluginIndex() const
 {
-    if ( m_schedulerPluginId.isEmpty() ) {
+    if (m_schedulerPluginId.isEmpty()) {
         return 0;
     }
-    return m_project.schedulerPlugins().keys().indexOf( m_schedulerPluginId );
+    return m_project.schedulerPlugins().keys().indexOf(m_schedulerPluginId);
 }
 
-void ScheduleManager::setSchedulerPlugin( int index )
+void ScheduleManager::setSchedulerPlugin(int index)
 {
-    if ( schedulerPlugin() ) {
-        schedulerPlugin()->stopCalculation( this ); // in case...
+    if (schedulerPlugin()) {
+        schedulerPlugin()->stopCalculation(this); // in case...
     }
 
-    m_schedulerPluginId = m_project.schedulerPlugins().keys().value( index );
+    m_schedulerPluginId = m_project.schedulerPlugins().keys().value(index);
     debugPlan<<index<<m_schedulerPluginId;
-    m_project.changed( this );
+    m_project.changed(this);
 }
 
 void ScheduleManager::calculateSchedule()
 {
     m_calculationresult = CalculationRunning;
-    if ( schedulerPlugin() ) {
-        schedulerPlugin()->calculate( m_project, this );
+    if (schedulerPlugin()) {
+        schedulerPlugin()->calculate(m_project, this);
     }
 }
 
 void ScheduleManager::stopCalculation()
 {
-    if ( schedulerPlugin() ) {
-        schedulerPlugin()->stopCalculation( this );
+    if (schedulerPlugin()) {
+        schedulerPlugin()->stopCalculation(this);
     }
 }
 
 void ScheduleManager::haltCalculation()
 {
-    if ( schedulerPlugin() ) {
-        schedulerPlugin()->haltCalculation( this );
+    if (schedulerPlugin()) {
+        schedulerPlugin()->haltCalculation(this);
     }
 }
 
-void ScheduleManager::setMaxProgress( int value )
+void ScheduleManager::setMaxProgress(int value)
 {
     m_maxprogress = value;
-    emit maxProgressChanged( value );
-    m_project.changed( this );
+    emit maxProgressChanged(value);
+    m_project.changed(this);
 }
 
-void ScheduleManager::setProgress( int value )
+void ScheduleManager::setProgress(int value)
 {
     m_progress = value;
-    emit progressChanged( value );
-    m_project.changed( this );
+    emit progressChanged(value);
+    m_project.changed(this);
 }
 
-void ScheduleManager::setDeleted( bool on )
+void ScheduleManager::setDeleted(bool on)
 {
-    if ( m_expected ) {
-        m_expected->setDeleted( on );
+    if (m_expected) {
+        m_expected->setDeleted(on);
     }
-    m_project.changed( this );
+    m_project.changed(this);
 }
 
-void ScheduleManager::setExpected( MainSchedule *sch )
+void ScheduleManager::setExpected(MainSchedule *sch)
 {
     //debugPlan<<m_expected<<","<<sch;
-    if ( m_expected ) {
-        m_project.sendScheduleToBeRemoved( m_expected );
-        m_expected->setDeleted( true );
-        m_project.sendScheduleRemoved( m_expected );
+    if (m_expected) {
+        m_project.sendScheduleToBeRemoved(m_expected);
+        m_expected->setDeleted(true);
+        m_project.sendScheduleRemoved(m_expected);
     }
     m_expected = sch;
-    if ( sch ) {
-        m_project.sendScheduleToBeAdded( this, 0 );
-        sch->setManager( this );
-        m_expected->setDeleted( false );
-        m_project.sendScheduleAdded( sch );
+    if (sch) {
+        m_project.sendScheduleToBeAdded(this, 0);
+        sch->setManager(this);
+        m_expected->setDeleted(false);
+        m_project.sendScheduleAdded(sch);
     }
-    m_project.changed( this );
+    m_project.changed(this);
 }
 
 QStringList ScheduleManager::state() const
 {
     QStringList lst;
-    if ( isBaselined() ) {
-        return lst << i18n( "Baselined" );
+    if (isBaselined()) {
+        return lst << i18n("Baselined");
     }
-    if ( m_scheduling ) {
-        return lst << i18n( "Scheduling" );
+    if (m_scheduling) {
+        return lst << i18n("Scheduling");
     }
-    if ( m_expected == 0 ) {
-        return lst << i18n( "Not scheduled" );
+    if (m_expected == 0) {
+        return lst << i18n("Not scheduled");
     }
-    if ( Schedule *s = m_expected ) {
-        if ( s->resourceError || s->resourceOverbooked || s->resourceNotAvailable || s->constraintError || s->schedulingError ) {
-            return lst << i18n( "Error" );
+    if (Schedule *s = m_expected) {
+        if (s->resourceError || s->resourceOverbooked || s->resourceNotAvailable || s->constraintError || s->schedulingError) {
+            return lst << i18n("Error");
         }
         return s->state();
     }
@@ -1914,7 +1914,7 @@ QStringList ScheduleManager::state() const
 QList<long unsigned int> ScheduleManager::supportedGranularities() const
 {
     QList<long unsigned int> lst;
-    if ( schedulerPlugin() ) {
+    if (schedulerPlugin()) {
         lst = schedulerPlugin()->granularities();
     }
     return lst;
@@ -1922,18 +1922,18 @@ QList<long unsigned int> ScheduleManager::supportedGranularities() const
 
 int ScheduleManager::granularity() const
 {
-    if ( schedulerPlugin() ) {
+    if (schedulerPlugin()) {
         return schedulerPlugin()->granularity();
     }
     return 0;
 }
 
-void ScheduleManager::setGranularity( int duration )
+void ScheduleManager::setGranularity(int duration)
 {
-    if ( schedulerPlugin() ) {
-        schedulerPlugin()->setGranularity( duration );
+    if (schedulerPlugin()) {
+        schedulerPlugin()->setGranularity(duration);
     }
-    m_project.changed( this, GranularityProperty );
+    m_project.changed(this, GranularityProperty);
 }
 
 bool ScheduleManager::schedulingMode() const
@@ -1944,7 +1944,7 @@ bool ScheduleManager::schedulingMode() const
 void ScheduleManager::setSchedulingMode(int mode)
 {
     m_schedulingMode = mode;
-    m_project.changed( this, SchedulingModeProperty );
+    m_project.changed(this, SchedulingModeProperty);
 }
 
 void ScheduleManager::incProgress()
@@ -1952,93 +1952,93 @@ void ScheduleManager::incProgress()
     m_project.incProgress();
 }
 
-void ScheduleManager::logAdded( const Schedule::Log &log )
+void ScheduleManager::logAdded(const Schedule::Log &log)
 {
-    emit sigLogAdded( log );
+    emit sigLogAdded(log);
     int row = expected()->logs().count() - 1;
-    emit logInserted( expected(), row, row );
+    emit logInserted(expected(), row, row);
 }
 
-void ScheduleManager::slotAddLog( const QVector<KPlato::Schedule::Log> &log )
+void ScheduleManager::slotAddLog(const QVector<KPlato::Schedule::Log> &log)
 {
-    if ( expected() && ! log.isEmpty() ) {
+    if (expected() && ! log.isEmpty()) {
         int first = expected()->logs().count();
         int last = first + log.count() - 1;
         Q_UNUSED(last);
-        foreach ( const KPlato::Schedule::Log &l, log ) {
-            expected()->addLog( l );
+        foreach (const KPlato::Schedule::Log &l, log) {
+            expected()->addLog(l);
         }
     }
 }
 
 QMap< int, QString > ScheduleManager::phaseNames() const
 {
-    if ( expected() ) {
+    if (expected()) {
         return expected()->phaseNames();
     }
     return QMap<int, QString>();
 }
 
-void ScheduleManager::setPhaseNames( const QMap<int, QString> &phasenames )
+void ScheduleManager::setPhaseNames(const QMap<int, QString> &phasenames)
 {
-    if ( expected() ) {
-        expected()->setPhaseNames( phasenames );
+    if (expected()) {
+        expected()->setPhaseNames(phasenames);
     }
 }
 
 
-bool ScheduleManager::loadXML( KoXmlElement &element, XMLLoaderObject &status )
+bool ScheduleManager::loadXML(KoXmlElement &element, XMLLoaderObject &status)
 {
     MainSchedule *sch = 0;
-    if ( status.version() <= "0.5" ) {
+    if (status.version() <= "0.5") {
         m_usePert = false;
-        sch = loadMainSchedule( element, status );
-        if ( sch ) {
-            sch->setManager( this );
-            switch ( sch->type() ) {
-                case Schedule::Expected: setExpected( sch ); break;
+        sch = loadMainSchedule(element, status);
+        if (sch) {
+            sch->setManager(this);
+            switch (sch->type()) {
+                case Schedule::Expected: setExpected(sch); break;
             }
         }
         return true;
     }
-    setName( element.attribute( "name" ) );
-    m_id = element.attribute( "id" );
-    m_usePert = (element.attribute( "distribution" ).toInt()) == 1;
-    m_allowOverbooking = (bool)(element.attribute( "overbooking" ).toInt());
-    m_checkExternalAppointments = (bool)(element.attribute( "check-external-appointments" ).toInt());
-    m_schedulingDirection = (bool)(element.attribute( "scheduling-direction" ).toInt());
-    m_baselined = (bool)(element.attribute( "baselined" ).toInt());
-    m_schedulerPluginId = element.attribute( "scheduler-plugin-id" );
-    if ( status.project().schedulerPlugins().contains( m_schedulerPluginId ) ) {
+    setName(element.attribute("name"));
+    m_id = element.attribute("id");
+    m_usePert = (element.attribute("distribution").toInt()) == 1;
+    m_allowOverbooking = (bool)(element.attribute("overbooking").toInt());
+    m_checkExternalAppointments = (bool)(element.attribute("check-external-appointments").toInt());
+    m_schedulingDirection = (bool)(element.attribute("scheduling-direction").toInt());
+    m_baselined = (bool)(element.attribute("baselined").toInt());
+    m_schedulerPluginId = element.attribute("scheduler-plugin-id");
+    if (status.project().schedulerPlugins().contains(m_schedulerPluginId)) {
         // atm we only load for current plugin
-        int g = element.attribute( "granularity", "0" ).toInt();
-        status.project().schedulerPlugins().value( m_schedulerPluginId )->setGranularity( g );
+        int g = element.attribute("granularity", "0").toInt();
+        status.project().schedulerPlugins().value(m_schedulerPluginId)->setGranularity(g);
     }
-    m_recalculate = (bool)(element.attribute( "recalculate" ).toInt());
-    m_recalculateFrom = DateTime::fromString( element.attribute( "recalculate-from" ), status.projectTimeZone() );
+    m_recalculate = (bool)(element.attribute("recalculate").toInt());
+    m_recalculateFrom = DateTime::fromString(element.attribute("recalculate-from"), status.projectTimeZone());
     if (element.hasAttribute("scheduling-mode")) {
         m_schedulingMode = element.attribute("scheduling-mode").toInt();
     }
 
     KoXmlNode n = element.firstChild();
-    for ( ; ! n.isNull(); n = n.nextSibling() ) {
-        if ( ! n.isElement() ) {
+    for (; ! n.isNull(); n = n.nextSibling()) {
+        if (! n.isElement()) {
             continue;
         }
         KoXmlElement e = n.toElement();
         //debugPlan<<e.tagName();
-        if ( e.tagName() == "schedule" ) {
-            sch = loadMainSchedule( e, status );
-            if ( sch ) {
-                sch->setManager( this );
-                switch ( sch->type() ) {
-                    case Schedule::Expected: setExpected( sch ); break;
+        if (e.tagName() == "schedule") {
+            sch = loadMainSchedule(e, status);
+            if (sch) {
+                sch->setManager(this);
+                switch (sch->type()) {
+                    case Schedule::Expected: setExpected(sch); break;
                 }
             }
-        } else if ( e.tagName() == "plan" ) {
-            ScheduleManager *sm = new ScheduleManager( status.project() );
-            if ( sm->loadXML( e, status ) ) {
-                m_project.addScheduleManager( sm, this );
+        } else if (e.tagName() == "plan") {
+            ScheduleManager *sm = new ScheduleManager(status.project());
+            if (sm->loadXML(e, status)) {
+                m_project.addScheduleManager(sm, this);
             } else {
                 errorPlan<<"Failed to load schedule manager"<<endl;
                 delete sm;
@@ -2048,12 +2048,12 @@ bool ScheduleManager::loadXML( KoXmlElement &element, XMLLoaderObject &status )
     return true;
 }
 
-MainSchedule *ScheduleManager::loadMainSchedule( KoXmlElement &element, XMLLoaderObject &status ) {
+MainSchedule *ScheduleManager::loadMainSchedule(KoXmlElement &element, XMLLoaderObject &status) {
     MainSchedule *sch = new MainSchedule();
-    if ( sch->loadXML( element, status ) ) {
-        status.project().addSchedule( sch );
-        sch->setNode( &(status.project()) );
-        status.project().setParentSchedule( sch );
+    if (sch->loadXML(element, status)) {
+        status.project().addSchedule(sch);
+        sch->setNode(&(status.project()));
+        status.project().setParentSchedule(sch);
     } else {
         errorPlan << "Failed to load schedule" << endl;
         delete sch;
@@ -2062,71 +2062,71 @@ MainSchedule *ScheduleManager::loadMainSchedule( KoXmlElement &element, XMLLoade
     return sch;
 }
 
-bool ScheduleManager::loadMainSchedule( MainSchedule *schedule, KoXmlElement &element, XMLLoaderObject &status ) {
+bool ScheduleManager::loadMainSchedule(MainSchedule *schedule, KoXmlElement &element, XMLLoaderObject &status) {
     long sid = schedule->id();
-    if ( schedule->loadXML( element, status ) ) {
-        if ( sid != schedule->id() && status.project().findSchedule( sid ) ) {
-            status.project().takeSchedule( schedule );
+    if (schedule->loadXML(element, status)) {
+        if (sid != schedule->id() && status.project().findSchedule(sid)) {
+            status.project().takeSchedule(schedule);
         }
-        if ( ! status.project().findSchedule( schedule->id() ) ) {
-            status.project().addSchedule( schedule );
+        if (! status.project().findSchedule(schedule->id())) {
+            status.project().addSchedule(schedule);
         }
-        schedule->setNode( &(status.project()) );
-        status.project().setParentSchedule( schedule );
+        schedule->setNode(&(status.project()));
+        status.project().setParentSchedule(schedule);
         return true;
     }
     return false;
 }
 
-void ScheduleManager::saveXML( QDomElement &element ) const
+void ScheduleManager::saveXML(QDomElement &element) const
 {
-    QDomElement el = element.ownerDocument().createElement( "plan" );
-    element.appendChild( el );
-    el.setAttribute( "name", m_name );
-    el.setAttribute( "id", m_id );
-    el.setAttribute( "distribution", QString::number(m_usePert ? 1 : 0) );
-    el.setAttribute( "overbooking", QString::number(m_allowOverbooking) );
-    el.setAttribute( "check-external-appointments", QString::number(m_checkExternalAppointments) );
-    el.setAttribute( "scheduling-direction", QString::number(m_schedulingDirection) );
-    el.setAttribute( "baselined", QString::number(m_baselined) );
-    el.setAttribute( "scheduler-plugin-id", m_schedulerPluginId );
-    if ( schedulerPlugin() ) {
+    QDomElement el = element.ownerDocument().createElement("plan");
+    element.appendChild(el);
+    el.setAttribute("name", m_name);
+    el.setAttribute("id", m_id);
+    el.setAttribute("distribution", QString::number(m_usePert ? 1 : 0));
+    el.setAttribute("overbooking", QString::number(m_allowOverbooking));
+    el.setAttribute("check-external-appointments", QString::number(m_checkExternalAppointments));
+    el.setAttribute("scheduling-direction", QString::number(m_schedulingDirection));
+    el.setAttribute("baselined", QString::number(m_baselined));
+    el.setAttribute("scheduler-plugin-id", m_schedulerPluginId);
+    if (schedulerPlugin()) {
         // atm we only save for current plugin
-        el.setAttribute( "granularity", QString::number(schedulerPlugin()->granularity()) );
+        el.setAttribute("granularity", QString::number(schedulerPlugin()->granularity()));
     }
-    el.setAttribute( "recalculate", QString::number(m_recalculate) );
-    el.setAttribute( "recalculate-from", m_recalculateFrom.toString( Qt::ISODate ) );
+    el.setAttribute("recalculate", QString::number(m_recalculate));
+    el.setAttribute("recalculate-from", m_recalculateFrom.toString(Qt::ISODate));
     el.setAttribute("scheduling-mode", m_schedulingMode);
-    if ( m_expected && ! m_expected->isDeleted() ) {
-        QDomElement schs = el.ownerDocument().createElement( "schedule" );
-        el.appendChild( schs );
-        m_expected->saveXML( schs );
-        m_project.saveAppointments( schs, m_expected->id() );
+    if (m_expected && ! m_expected->isDeleted()) {
+        QDomElement schs = el.ownerDocument().createElement("schedule");
+        el.appendChild(schs);
+        m_expected->saveXML(schs);
+        m_project.saveAppointments(schs, m_expected->id());
     }
-    foreach ( ScheduleManager *sm, m_children ) {
-        sm->saveXML( el );
+    foreach (ScheduleManager *sm, m_children) {
+        sm->saveXML(el);
     }
 
 }
 
-void ScheduleManager::saveWorkPackageXML( QDomElement &element, const Node &node ) const
+void ScheduleManager::saveWorkPackageXML(QDomElement &element, const Node &node) const
 {
-    QDomElement el = element.ownerDocument().createElement( "plan" );
-    element.appendChild( el );
-    el.setAttribute( "name", m_name );
-    el.setAttribute( "id", m_id );
-    el.setAttribute( "distribution", QString::number(m_usePert ? 1 : 0) );
-    el.setAttribute( "overbooking", QString::number(m_allowOverbooking) );
-    el.setAttribute( "check-external-appointments", QString::number(m_checkExternalAppointments) );
-    el.setAttribute( "scheduling-direction", QString::number(m_schedulingDirection) );
-    el.setAttribute( "baselined", QString::number(m_baselined) );
-    if ( m_expected && ! m_expected->isDeleted() ) { // TODO: should we check isScheduled() ?
-        QDomElement schs = el.ownerDocument().createElement( "schedule" );
-        el.appendChild( schs );
-        m_expected->saveXML( schs );
-        Schedule *s = node.findSchedule( m_expected->id() );
-        if ( s && ! s->isDeleted() ) {
-            s->saveAppointments( schs );
+    QDomElement el = element.ownerDocument().createElement("plan");
+    element.appendChild(el);
+    el.setAttribute("name", m_name);
+    el.setAttribute("id", m_id);
+    el.setAttribute("distribution", QString::number(m_usePert ? 1 : 0));
+    el.setAttribute("overbooking", QString::number(m_allowOverbooking));
+    el.setAttribute("check-external-appointments", QString::number(m_checkExternalAppointments));
+    el.setAttribute("scheduling-direction", QString::number(m_schedulingDirection));
+    el.setAttribute("baselined", QString::number(m_baselined));
+    if (m_expected && ! m_expected->isDeleted()) { // TODO: should we check isScheduled() ?
+        QDomElement schs = el.ownerDocument().createElement("schedule");
+        el.appendChild(schs);
+        m_expected->saveXML(schs);
+        Schedule *s = node.findSchedule(m_expected->id());
+        if (s && ! s->isDeleted()) {
+            s->saveAppointments(schs);
         }
     }
 }
@@ -2134,14 +2134,14 @@ void ScheduleManager::saveWorkPackageXML( QDomElement &element, const Node &node
 
 } //namespace KPlato
 
-QDebug operator<<( QDebug dbg, const KPlato::Schedule *s )
+QDebug operator<<(QDebug dbg, const KPlato::Schedule *s)
 {
-    if ( s ) {
+    if (s) {
         return dbg<<(*s);
     }
     return dbg<<"Schedule(0x0)";
 }
-QDebug operator<<( QDebug dbg, const KPlato::Schedule &s )
+QDebug operator<<(QDebug dbg, const KPlato::Schedule &s)
 {
     dbg.nospace()<<"Schedule["<<s.id();
     if (s.isDeleted()) {
@@ -2153,7 +2153,7 @@ QDebug operator<<( QDebug dbg, const KPlato::Schedule &s )
     return dbg.space();
 }
 
-QDebug operator<<( QDebug dbg, const KPlato::Schedule::Log &log )
+QDebug operator<<(QDebug dbg, const KPlato::Schedule::Log &log)
 {
     dbg.nospace()<<"Schedule::Log: "<<log.formatMsg();
     return dbg.space();

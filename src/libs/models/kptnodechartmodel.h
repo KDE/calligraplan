@@ -44,37 +44,37 @@ class PLANMODELS_EXPORT ChartProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit ChartProxyModel(QObject *parent = 0) : QSortFilterProxyModel( parent ) {}
+    explicit ChartProxyModel(QObject *parent = 0) : QSortFilterProxyModel(parent) {}
 
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override {
-        //if ( role == Qt::DisplayRole && orientation == Qt::Vertical ) debugPlan<<"fetch:"<<orientation<<section<<mapToSource( index(0, section) ).column()<<m_rejects;
-        return QSortFilterProxyModel::headerData( section, orientation, role );
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override {
+        //if (role == Qt::DisplayRole && orientation == Qt::Vertical) debugPlan<<"fetch:"<<orientation<<section<<mapToSource(index(0, section)).column()<<m_rejects;
+        return QSortFilterProxyModel::headerData(section, orientation, role);
     }
 
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override {
-        if ( role == Qt::DisplayRole && ! m_zerocolumns.isEmpty() ) {
-            int column = mapToSource( index ).column();
-            if ( m_zerocolumns.contains( column ) ) {
-                //debugPlan<<"zero:"<<index.column()<<mapToSource( index ).column();
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override {
+        if (role == Qt::DisplayRole && ! m_zerocolumns.isEmpty()) {
+            int column = mapToSource(index).column();
+            if (m_zerocolumns.contains(column) ) {
+                //debugPlan<<"zero:"<<index.column()<<mapToSource(index).column();
                 return QVariant();
             }
         }
-        //if ( role == Qt::DisplayRole ) debugPlan<<"fetch:"<<index.column()<<mapToSource( index ).column()<<m_rejects;
-        QVariant v = QSortFilterProxyModel::data( index, role );
-        //if ( role == Qt::DisplayRole ) debugPlan<<index.row()<<","<<index.column()<<"("<<columnCount()<<")"<<v;
+        //if (role == Qt::DisplayRole) debugPlan<<"fetch:"<<index.column()<<mapToSource(index).column()<<m_rejects;
+        QVariant v = QSortFilterProxyModel::data(index, role);
+        //if (role == Qt::DisplayRole) debugPlan<<index.row()<<","<<index.column()<<"("<<columnCount()<<")"<<v;
         return v;
     }
-    void setRejectColumns( const QList<int> &columns ) { m_rejects = columns; invalidateFilter(); }
+    void setRejectColumns(const QList<int> &columns) { m_rejects = columns; invalidateFilter(); }
     QList<int> rejectColumns() const { return m_rejects; }
-    void setZeroColumns( const QList<int> &columns ) { m_zerocolumns = columns; }
+    void setZeroColumns(const QList<int> &columns) { m_zerocolumns = columns; }
     QList<int> zeroColumns() const { return m_zerocolumns; }
 
     void reset() { beginResetModel(); endResetModel(); }
 
 protected:
-    bool filterAcceptsColumn ( int source_column, const QModelIndex &/*source_parent */) const override {
-        //debugPlan<<this<<source_column<<m_rejects<<(! m_rejects.contains( source_column ));
-        return ! m_rejects.contains( source_column );
+    bool filterAcceptsColumn (int source_column, const QModelIndex &/*source_parent */) const override {
+        //debugPlan<<this<<source_column<<m_rejects<<(! m_rejects.contains(source_column));
+        return ! m_rejects.contains(source_column);
     }
 
 private:
@@ -104,32 +104,32 @@ public:
     explicit ChartItemModel(QObject *parent = 0);
 
 
-//    virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
+//    virtual Qt::ItemFlags flags(const QModelIndex & index) const;
 
-    QModelIndex parent( const QModelIndex & index ) const override;
-    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
+    QModelIndex parent(const QModelIndex & index) const override;
+    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
 
-    int columnCount( const QModelIndex & parent = QModelIndex() ) const override;
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override;
+    int columnCount(const QModelIndex & parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override;
 
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
 
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
 
     const EffortCostMap &bcwp() const { return m_bcws; }
     const EffortCostMap &acwp() const { return m_acwp; }
 
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
 
-    void setNodes( const QList<Node*> &nodes );
-    void addNode( Node *node );
+    void setNodes(const QList<Node*> &nodes);
+    void addNode(Node *node);
     void clearNodes();
     QDate startDate() const;
     QDate endDate() const;
     void calculate();
 
-    void setLocalizeValues( bool on );
+    void setLocalizeValues(bool on);
 
 public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
@@ -141,16 +141,16 @@ public Q_SLOTS:
     void slotSetScheduleManager(KPlato::ScheduleManager *sm);
 
 protected:
-    double bcwsEffort( int day ) const;
-    double bcwpEffort( int day ) const;
-    double acwpEffort( int day ) const;
-    double bcwsCost( int day ) const;
-    double bcwpCost( int day ) const;
-    double acwpCost( int day ) const;
-    double spiEffort( int day ) const;
-    double cpiEffort( int day ) const;
-    double spiCost( int day ) const;
-    double cpiCost( int day ) const;
+    double bcwsEffort(int day) const;
+    double bcwpEffort(int day) const;
+    double acwpEffort(int day) const;
+    double bcwsCost(int day) const;
+    double bcwpCost(int day) const;
+    double acwpCost(int day) const;
+    double spiEffort(int day) const;
+    double cpiEffort(int day) const;
+    double spiCost(int day) const;
+    double cpiCost(int day) const;
 
 protected:
     QList<Node*> m_nodes;
@@ -165,13 +165,13 @@ class PLANMODELS_EXPORT PerformanceDataCurrentDateModel : public ChartItemModel
 public:
     explicit PerformanceDataCurrentDateModel(QObject *parent);
 
-    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
-    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
-    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
-    QVariant data( const QModelIndex &proxyIndex, int role = Qt::DisplayRole ) const override;
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &proxyIndex, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
-    QModelIndex mapIndex( const QModelIndex &idx ) const;
+    QModelIndex mapIndex(const QModelIndex &idx) const;
 };
 
 } //namespace KPlato

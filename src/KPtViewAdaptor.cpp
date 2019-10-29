@@ -32,8 +32,8 @@ namespace KPlato
  *
  ************************************************/
 
-ViewAdaptor::ViewAdaptor( View* t )
-    : KoViewAdaptor( t )
+ViewAdaptor::ViewAdaptor(View* t)
+    : KoViewAdaptor(t)
 {
 //     setAutoRelaySignals(true);
     m_view = t;

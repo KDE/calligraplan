@@ -130,7 +130,7 @@ void KoGlobal::createListOfLanguages()
             m_langMap.insert(name, tag);
 
             // enable this if writing a third way of finding languages below
-            //seenLanguages.insert( tag, true );
+            //seenLanguages.insert(tag, true);
         }
 
     }

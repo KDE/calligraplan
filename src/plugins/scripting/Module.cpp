@@ -67,7 +67,7 @@ namespace Scripting {
 
 Module::Module(QObject* parent)
     : KoScriptingModule(parent, "Plan")
-    , d( new Private() )
+    , d(new Private())
 {
     d->doc = 0;
     d->project = 0;
@@ -77,7 +77,7 @@ Module::Module(QObject* parent)
 Module::~Module()
 {
     endCommand();
-    qDeleteAll( d->modules );
+    qDeleteAll(d->modules);
     delete d->project;
     delete d;
 }
@@ -85,10 +85,10 @@ Module::~Module()
 KPlato::MainDocument* Module::part()
 {
     if(! d->doc) {
-        if( KPlato::View* v = dynamic_cast< KPlato::View* >(view()) ) {
+        if(KPlato::View* v = dynamic_cast< KPlato::View* >(view())) {
             d->doc = v->getPart();
         }
-        if( ! d->doc ) {
+        if(! d->doc) {
             KPlato::Part *part = new KPlato::Part(this);
             d->doc = new KPlato::MainDocument(part);
             part->setDocument(d->doc);
@@ -102,35 +102,35 @@ KoDocument* Module::doc()
     return part();
 }
 
-void Module::openUrl( const QString &url )
+void Module::openUrl(const QString &url)
 {
-    doc()->openUrl( QUrl(url) ); // QT5TODO: check QUrl usage here
+    doc()->openUrl(QUrl(url)); // QT5TODO: check QUrl usage here
 }
 
-QObject *Module::openDocument( const QString &tag, const QString &url )
+QObject *Module::openDocument(const QString &tag, const QString &url)
 {
     Module *m = d->modules[ tag ];
-    if ( m == 0 ) {
+    if (m == 0) {
         m = new Module();
         d->modules[ tag ] = m;
     }
-    m->part()->openUrl( QUrl(url) ); // QT5TODO: check QUrl usage here
+    m->part()->openUrl(QUrl(url)); // QT5TODO: check QUrl usage here
     return m;
 }
 
-void Module::beginCommand( const KUndo2MagicString &name )
+void Module::beginCommand(const KUndo2MagicString &name)
 {
     endCommand();
-    d->command = new KPlato::MacroCommand( name );
+    d->command = new KPlato::MacroCommand(name);
 }
 
 void Module::endCommand()
 {
-    if ( d->command && ! d->command->isEmpty() ) {
-        KPlato::MacroCommand *c = new KPlato::MacroCommand( KUndo2MagicString() );
-        doc()->addCommand( c );
+    if (d->command && ! d->command->isEmpty()) {
+        KPlato::MacroCommand *c = new KPlato::MacroCommand(KUndo2MagicString());
+        doc()->addCommand(c);
         doc()->endMacro(); // executes c and enables undo/redo
-        c->addCommand( d->command ); // this command is already executed
+        c->addCommand(d->command); // this command is already executed
         d->command = 0;
     } else {
         delete d->command;
@@ -140,8 +140,8 @@ void Module::endCommand()
 
 void Module::revertCommand()
 {
-    if ( d->command ) {
-        if ( ! d->command->isEmpty() ) {
+    if (d->command) {
+        if (! d->command->isEmpty()) {
             endCommand();
             doc()->undoStack()->undo();
         } else {
@@ -152,52 +152,52 @@ void Module::revertCommand()
 
 QObject *Module::project()
 {
-    if ( d->project != 0 && d->project->kplatoProject() != &( part()->getProject() ) ) {
+    if (d->project != 0 && d->project->kplatoProject() != &(part()->getProject())) {
         // need to replace the project, happens when new document is loaded
         delete d->project;
         d->project = 0;
     }
-    if ( d->project == 0 ) {
-        d->project = new Project( this, &(part()->getProject()) );
+    if (d->project == 0) {
+        d->project = new Project(this, &(part()->getProject()));
     }
     return d->project;
 }
 
 
-QWidget *Module::createScheduleListView( QWidget *parent )
+QWidget *Module::createScheduleListView(QWidget *parent)
 {
-    ScriptingScheduleListView *v = new ScriptingScheduleListView( this, parent );
-    if ( parent && parent->layout() ) {
-        parent->layout()->addWidget( v );
+    ScriptingScheduleListView *v = new ScriptingScheduleListView(this, parent);
+    if (parent && parent->layout()) {
+        parent->layout()->addWidget(v);
     }
     return v;
 }
 
-QWidget *Module::createDataQueryView( QWidget *parent )
+QWidget *Module::createDataQueryView(QWidget *parent)
 {
-    ScriptingDataQueryView *v = new ScriptingDataQueryView( this, parent );
-    if ( parent && parent->layout() ) {
-        parent->layout()->addWidget( v );
+    ScriptingDataQueryView *v = new ScriptingDataQueryView(this, parent);
+    if (parent && parent->layout()) {
+        parent->layout()->addWidget(v);
     }
     return v;
 }
 
-void Module::slotAddCommand( KUndo2Command *cmd )
+void Module::slotAddCommand(KUndo2Command *cmd)
 {
-    if ( d->command ) {
-        if ( d->command->isEmpty() ) {
-            doc()->beginMacro( d->command->text() ); // used to disable undo/redo
+    if (d->command) {
+        if (d->command->isEmpty()) {
+            doc()->beginMacro(d->command->text()); // used to disable undo/redo
         }
         cmd->redo();
-        d->command->addCommand( cmd );
+        d->command->addCommand(cmd);
     } else {
-        doc()->addCommand( cmd );
+        doc()->addCommand(cmd);
     }
 }
 
-void Module::addCommand( KUndo2Command *cmd )
+void Module::addCommand(KUndo2Command *cmd)
 {
-    slotAddCommand( cmd );
+    slotAddCommand(cmd);
 }
 
 } //namespace Scripting

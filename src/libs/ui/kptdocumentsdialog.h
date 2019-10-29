@@ -43,12 +43,12 @@ public:
      * @param parent parent widget
      * @param readOnly determines whether the data are read-only
      */
-    explicit DocumentsDialog( Node &node, QWidget *parent = 0, bool readOnly = false  );
+    explicit DocumentsDialog(Node &node, QWidget *parent = 0, bool readOnly = false  );
 
     MacroCommand *buildCommand();
 
 protected Q_SLOTS:
-    void slotButtonClicked( int button ) override;
+    void slotButtonClicked(int button) override;
 
 protected:
     DocumentsPanel *m_panel;

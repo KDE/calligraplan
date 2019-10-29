@@ -79,11 +79,11 @@
 namespace KPlatoWork
 {
 
-View::View( Part *part,  QWidget *parent, KActionCollection *collection )
-    : QStackedWidget( parent ),
-    m_part( part ),
-    m_scheduleActionGroup( new QActionGroup( this ) ),
-    m_manager( 0 )
+View::View(Part *part,  QWidget *parent, KActionCollection *collection)
+    : QStackedWidget(parent),
+    m_part(part),
+    m_scheduleActionGroup(new QActionGroup(this)),
+    m_manager(0)
 {
     m_readWrite = part->isReadWrite();
     debugPlanWork<<m_readWrite;
@@ -94,65 +94,65 @@ View::View( Part *part,  QWidget *parent, KActionCollection *collection )
     // The menu items
     // ------ Edit
     actionRemoveSelectedPackages  = new QAction(koIcon("edit-delete"), i18n("Remove Packages"), this);
-    collection->addAction("package_remove_selected", actionRemoveSelectedPackages );
-    connect( actionRemoveSelectedPackages, &QAction::triggered, this, &View::slotRemoveSelectedPackages );
+    collection->addAction("package_remove_selected", actionRemoveSelectedPackages);
+    connect(actionRemoveSelectedPackages, &QAction::triggered, this, &View::slotRemoveSelectedPackages);
 
     actionRemoveCurrentPackage  = new QAction(koIcon("edit-delete"), i18n("Remove Package"), this);
-    collection->addAction("package_remove_current", actionRemoveCurrentPackage );
-    connect( actionRemoveCurrentPackage, &QAction::triggered, this, &View::slotRemoveCurrentPackage );
+    collection->addAction("package_remove_current", actionRemoveCurrentPackage);
+    connect(actionRemoveCurrentPackage, &QAction::triggered, this, &View::slotRemoveCurrentPackage);
 
     actionViewList  = new QAction(koIcon("view-list-tree"), i18n("List"), this);
-    actionViewList->setToolTip( i18nc( "@info:tooltip", "Select task list" ) );
-    collection->addAction("view_list", actionViewList );
-    connect( actionViewList, &QAction::triggered, this, &View::slotViewList );
+    actionViewList->setToolTip(i18nc("@info:tooltip", "Select task list"));
+    collection->addAction("view_list", actionViewList);
+    connect(actionViewList, &QAction::triggered, this, &View::slotViewList);
 
     actionViewGantt  = new QAction(koIcon("view-time-schedule"), i18n("Gantt"), this);
-    actionViewGantt->setToolTip( i18nc( "@info:tooltip", "Select timeline" ) );
-    collection->addAction("view_gantt", actionViewGantt );
-    connect( actionViewGantt, &QAction::triggered, this, &View::slotViewGantt );
+    actionViewGantt->setToolTip(i18nc("@info:tooltip", "Select timeline"));
+    collection->addAction("view_gantt", actionViewGantt);
+    connect(actionViewGantt, &QAction::triggered, this, &View::slotViewGantt);
 
 //     actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-//     collection->addAction("task_progress", actionTaskProgress );
-//     connect( actionTaskProgress, SIGNAL(triggered(bool)), SLOT(slotTaskProgress()) );
+//     collection->addAction("task_progress", actionTaskProgress);
+//     connect(actionTaskProgress, SIGNAL(triggered(bool)), SLOT(slotTaskProgress()));
 
     //------ Settings
     actionConfigure  = new QAction(koIcon("configure"), i18n("Configure PlanWork..."), this);
-    collection->addAction("configure", actionConfigure );
-    connect( actionConfigure, &QAction::triggered, this, &View::slotConfigure );
+    collection->addAction("configure", actionConfigure);
+    connect(actionConfigure, &QAction::triggered, this, &View::slotConfigure);
 
     //------ Popups
     actionEditDocument  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    collection->addAction("edit_document", actionEditDocument );
-    connect( actionEditDocument, SIGNAL(triggered(bool)), SLOT(slotEditDocument()) );
+    collection->addAction("edit_document", actionEditDocument);
+    connect(actionEditDocument, SIGNAL(triggered(bool)), SLOT(slotEditDocument()));
 
-    actionViewDocument  = new QAction(koIcon("document-preview"), i18nc( "@verb", "View..."), this);
-    collection->addAction("view_document", actionViewDocument );
-    connect( actionViewDocument, &QAction::triggered, this, &View::slotViewDocument );
+    actionViewDocument  = new QAction(koIcon("document-preview"), i18nc("@verb", "View..."), this);
+    collection->addAction("view_document", actionViewDocument);
+    connect(actionViewDocument, &QAction::triggered, this, &View::slotViewDocument);
 
     // FIXME remove UndoText::removeDocument() when string freeze is lifted
     actionRemoveDocument = new QAction(koIcon("list-remove"), UndoText::removeDocument().toString(), this);
-    collection->addAction("remove_document", actionRemoveDocument );
-    connect( actionRemoveDocument, &QAction::triggered, this, &View::slotRemoveDocument );
+    collection->addAction("remove_document", actionRemoveDocument);
+    connect(actionRemoveDocument, &QAction::triggered, this, &View::slotRemoveDocument);
 
     actionSendPackage  = new QAction(koIcon("mail-send"), i18n("Send Package..."), this);
-    collection->addAction("edit_sendpackage", actionSendPackage );
-    connect( actionSendPackage, &QAction::triggered, this, &View::slotSendPackage );
+    collection->addAction("edit_sendpackage", actionSendPackage);
+    connect(actionSendPackage, &QAction::triggered, this, &View::slotSendPackage);
 
     actionTaskCompletion  = new QAction(koIcon("document-edit"), i18n("Edit Progress..."), this);
-    collection->addAction("task_progress", actionTaskCompletion );
-    connect( actionTaskCompletion, &QAction::triggered, this, &View::slotTaskCompletion );
+    collection->addAction("task_progress", actionTaskCompletion);
+    connect(actionTaskCompletion, &QAction::triggered, this, &View::slotTaskCompletion);
 
     actionViewDescription  = new QAction(/*koIcon("document_view"),*/ i18n("View Description..."), this);
-    collection->addAction("task_description", actionViewDescription );
-    connect( actionViewDescription, &QAction::triggered, this, &View::slotTaskDescription );
+    collection->addAction("task_description", actionViewDescription);
+    connect(actionViewDescription, &QAction::triggered, this, &View::slotTaskDescription);
 
 
-    updateReadWrite( m_readWrite );
+    updateReadWrite(m_readWrite);
     //debugPlanWork<<" end";
 
     loadContext();
-    slotCurrentChanged( currentIndex() );
-    connect( this, &QStackedWidget::currentChanged, this, &View::slotCurrentChanged );
+    slotCurrentChanged(currentIndex());
+    connect(this, &QStackedWidget::currentChanged, this, &View::slotCurrentChanged);
 
     slotSelectionChanged();
 }
@@ -162,71 +162,71 @@ View::~View()
     saveContext();
 }
 
-void View::slotCurrentChanged( int index )
+void View::slotCurrentChanged(int index)
 {
-    actionViewList->setEnabled( index != 0 );
-    actionViewGantt->setEnabled( index != 1 );
+    actionViewList->setEnabled(index != 0);
+    actionViewGantt->setEnabled(index != 1);
     saveContext();
 }
 
 void View::slotViewList()
 {
     debugPlanWork;
-    setCurrentIndex( 0 );
+    setCurrentIndex(0);
 }
 
 void View::slotViewGantt()
 {
     debugPlanWork;
-    setCurrentIndex( 1 );
+    setCurrentIndex(1);
 }
 
 void View::createViews()
 {
     QWidget *v = createTaskWorkPackageView();
-    addWidget( v );
+    addWidget(v);
     v = createGanttView();
-    addWidget( v );
+    addWidget(v);
 }
 
 TaskWorkPackageView *View::createTaskWorkPackageView()
 {
-    TaskWorkPackageView *v = new TaskWorkPackageView( part(), this );
+    TaskWorkPackageView *v = new TaskWorkPackageView(part(), this);
 
-    connect( v, &AbstractView::requestPopupMenu, this, &View::slotPopupMenu );
+    connect(v, &AbstractView::requestPopupMenu, this, &View::slotPopupMenu);
 
-    connect( v, &AbstractView::selectionChanged, this, &View::slotSelectionChanged );
-    v->updateReadWrite( m_readWrite );
+    connect(v, &AbstractView::selectionChanged, this, &View::slotSelectionChanged);
+    v->updateReadWrite(m_readWrite);
     v->loadContext();
     return v;
 }
 
 TaskWPGanttView *View::createGanttView()
 {
-    TaskWPGanttView *v = new TaskWPGanttView( part(), this );
+    TaskWPGanttView *v = new TaskWPGanttView(part(), this);
 
-    connect( v, &AbstractView::requestPopupMenu, this, &View::slotPopupMenu );
+    connect(v, &AbstractView::requestPopupMenu, this, &View::slotPopupMenu);
 
-    connect( v, &AbstractView::selectionChanged, this, &View::slotSelectionChanged );
-    v->updateReadWrite( m_readWrite );
+    connect(v, &AbstractView::selectionChanged, this, &View::slotSelectionChanged);
+    v->updateReadWrite(m_readWrite);
     v->loadContext();
     return v;
 }
 
-void View::setupPrinter( QPrinter &/*printer*/, QPrintDialog &/*printDialog */)
+void View::setupPrinter(QPrinter &/*printer*/, QPrintDialog &/*printDialog */)
 {
     //debugPlanWork;
 }
 
-void View::print( QPrinter &/*printer*/, QPrintDialog &/*printDialog*/ )
+void View::print(QPrinter &/*printer*/, QPrintDialog &/*printDialog*/)
 {
 }
 
 void View::slotSelectionChanged()
 {
     bool enable = ! currentView()->selectedNodes().isEmpty();
-    actionRemoveSelectedPackages->setEnabled( enable );
-    actionRemoveCurrentPackage->setEnabled( enable );
+    actionRemoveSelectedPackages->setEnabled(enable);
+    actionRemoveCurrentPackage->setEnabled(enable);
 }
 
 void View::slotEditCut()
@@ -244,7 +244,7 @@ void View::slotEditPaste()
     //debugPlanWork;
 }
 
-void View::slotProgressChanged( int )
+void View::slotProgressChanged(int)
 {
 }
 
@@ -254,18 +254,18 @@ void View::slotConfigure()
 
 ScheduleManager *View::currentScheduleManager() const
 {
-    WorkPackage *wp = m_part->findWorkPackage( currentNode() );
+    WorkPackage *wp = m_part->findWorkPackage(currentNode());
     return wp ? wp->project()->scheduleManagers().value(0) : nullptr;
 }
 
-void View::updateReadWrite( bool readwrite )
+void View::updateReadWrite(bool readwrite)
 {
     debugPlanWork<<m_readWrite<<"->"<<readwrite;
     m_readWrite = readwrite;
 
-//    actionTaskProgress->setEnabled( readwrite );
+//    actionTaskProgress->setEnabled(readwrite);
 
-    emit sigUpdateReadWrite( readwrite );
+    emit sigUpdateReadWrite(readwrite);
 }
 
 Part *View::part() const
@@ -273,117 +273,117 @@ Part *View::part() const
     return m_part;
 }
 
-void View::slotPopupMenu( const QString& name, const QPoint & pos )
+void View::slotPopupMenu(const QString& name, const QPoint & pos)
 {
     debugPlanWork<<name;
-    Q_ASSERT( m_part->factory() );
-    if ( m_part->factory() == 0 ) {
+    Q_ASSERT(m_part->factory());
+    if (m_part->factory() == 0) {
         return;
     }
-    QMenu *menu = ( ( QMenu* ) m_part->factory() ->container( name, m_part ) );
-    if ( menu == 0 ) {
+    QMenu *menu = ((QMenu*) m_part->factory() ->container(name, m_part));
+    if (menu == 0) {
         return;
     }
     QList<QAction*> lst;
     AbstractView *v = currentView();
-    if ( v ) {
+    if (v) {
         lst = v->contextActionList();
         debugPlanWork<<lst;
-        if ( ! lst.isEmpty() ) {
+        if (! lst.isEmpty()) {
             menu->addSeparator();
-            foreach ( QAction *a, lst ) {
-                menu->addAction( a );
+            foreach (QAction *a, lst) {
+                menu->addAction(a);
             }
         }
     }
-    menu->exec( pos );
-    foreach ( QAction *a, lst ) {
-        menu->removeAction( a );
+    menu->exec(pos);
+    foreach (QAction *a, lst) {
+        menu->removeAction(a);
     }
 }
 
 bool View::loadContext()
 {
     debugPlanWork;
-    setCurrentIndex( PlanWorkSettings::self()->currentView() );
+    setCurrentIndex(PlanWorkSettings::self()->currentView());
     return true;
 }
 
 void View::saveContext() const
 {
     debugPlanWork;
-    PlanWorkSettings::self()->setCurrentView( currentIndex() );
+    PlanWorkSettings::self()->setCurrentView(currentIndex());
     PlanWorkSettings::self()->save();
 }
 
 void View::slotEditDocument()
 {
-    slotEditDocument( currentDocument() );
+    slotEditDocument(currentDocument());
 }
 
-void View::slotEditDocument( Document *doc )
+void View::slotEditDocument(Document *doc)
 {
     debugPlanWork<<doc;
-    if ( doc == 0 ) {
+    if (doc == 0) {
         debugPlanWork<<"No document";
         return;
     }
-    if ( doc->type() != Document::Type_Product ) {
-        KMessageBox::error( 0, i18n( "This file is not editable" ) );
+    if (doc->type() != Document::Type_Product) {
+        KMessageBox::error(0, i18n("This file is not editable"));
         return;
     }
-    part()->editWorkpackageDocument( doc );
+    part()->editWorkpackageDocument(doc);
 }
 
 void View::slotViewDocument()
 {
-    emit viewDocument( currentDocument() );
+    emit viewDocument(currentDocument());
 }
 
 void View::slotRemoveDocument()
 {
-    part()->removeDocument( currentDocument() );
+    part()->removeDocument(currentDocument());
 }
 
 void View::slotSendPackage()
 {
     Node *node = currentNode();
-    if ( node == 0 ) {
-        KMessageBox::error(0, i18n("No work package is selected" ) );
+    if (node == 0) {
+        KMessageBox::error(0, i18n("No work package is selected"));
         return;
     }
     debugPlanWork<<node->name();
-    WorkPackage *wp = part()->findWorkPackage( node );
-    if ( wp == 0 ) {
-        KMessageBox::error(0, i18n("Cannot find work package" ) );
+    WorkPackage *wp = part()->findWorkPackage(node);
+    if (wp == 0) {
+        KMessageBox::error(0, i18n("Cannot find work package"));
         return;
     }
-/*    if ( wp->isModified() ) {
-        int r = KMessageBox::questionYesNoCancel( 0, i18n("This work package has been modified.\nDo you want to save it before sending?" ), node->name() );
-        switch ( r ) {
+/*    if (wp->isModified()) {
+        int r = KMessageBox::questionYesNoCancel(0, i18n("This work package has been modified.\nDo you want to save it before sending?"), node->name());
+        switch (r) {
             case KMessageBox::Cancel: return;
-            case KMessageBox::Yes: wp->saveToProjects( part() ); break;
+            case KMessageBox::Yes: wp->saveToProjects(part()); break;
             default: break;
         }
     }*/
 
     bool wasmodified = wp->isModified();
     if (wp->sendUrl().isValid()) {
-        QTemporaryFile temp(wp->sendUrl().toLocalFile() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String( ".planwork" ));
-        temp.setAutoRemove( false );
-        if ( ! temp.open() ) {
-            KMessageBox::error( 0, i18n("Could not open file. Sending is aborted." ) );
+        QTemporaryFile temp(wp->sendUrl().toLocalFile() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String(".planwork"));
+        temp.setAutoRemove(false);
+        if (! temp.open()) {
+            KMessageBox::error(0, i18n("Could not open file. Sending is aborted."));
             return;
         }
-        wp->saveNativeFormat( part(), temp.fileName() );
+        wp->saveNativeFormat(part(), temp.fileName());
     } else {
-        QTemporaryFile temp(QDir::tempPath() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String( ".planwork" ));
-        temp.setAutoRemove( false );
-        if ( ! temp.open() ) {
-            KMessageBox::error( 0, i18n("Could not open temporary file. Sending is aborted." ) );
+        QTemporaryFile temp(QDir::tempPath() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String(".planwork"));
+        temp.setAutoRemove(false);
+        if (! temp.open()) {
+            KMessageBox::error(0, i18n("Could not open temporary file. Sending is aborted."));
             return;
         }
-        wp->saveNativeFormat( part(), temp.fileName() );
+        wp->saveNativeFormat(part(), temp.fileName());
 
         QStringList attachURLs;
         attachURLs << temp.fileName();
@@ -391,29 +391,29 @@ void View::slotSendPackage()
         QString to = node->projectNode()->leader();
         QString cc;
         QString bcc;
-        QString subject = i18n( "Work Package: %1", node->name() );
+        QString subject = i18n("Work Package: %1", node->name());
         QString body = node->projectNode()->name();
         QString messageFile;
 
-        KToolInvocation::invokeMailer( to, cc, bcc, subject, body, messageFile, attachURLs );
+        KToolInvocation::invokeMailer(to, cc, bcc, subject, body, messageFile, attachURLs);
     }
-    wp->setModified( wasmodified );
+    wp->setModified(wasmodified);
 }
 
 void View::slotTaskDescription()
 {
-    Task *node = qobject_cast<Task*>( currentNode() );
-    if ( node == 0 ) {
+    Task *node = qobject_cast<Task*>(currentNode());
+    if (node == 0) {
         return;
     }
-    QPointer<TaskDescriptionDialog> dlg = new TaskDescriptionDialog( *node, this, true );
+    QPointer<TaskDescriptionDialog> dlg = new TaskDescriptionDialog(*node, this, true);
     dlg->exec();
     delete dlg;
 }
 
 AbstractView *View::currentView() const
 {
-    return qobject_cast<AbstractView*>( currentWidget() );
+    return qobject_cast<AbstractView*>(currentWidget());
 }
 
 Node *View::currentNode() const
@@ -431,16 +431,16 @@ Document *View::currentDocument() const
 void View::slotTaskProgress()
 {
     debugPlanWork;
-    Task *n = qobject_cast<Task*>( currentNode() );
-    if ( n == 0 ) {
+    Task *n = qobject_cast<Task*>(currentNode());
+    if (n == 0) {
         return;
     }
-    StandardWorktime *w = qobject_cast<Project*>( n->projectNode() )->standardWorktime();
-    QPointer<TaskProgressDialog> dlg = new TaskProgressDialog( *n, currentScheduleManager(), w, this );
-    if ( dlg->exec() == QDialog::Accepted && dlg ) {
+    StandardWorktime *w = qobject_cast<Project*>(n->projectNode())->standardWorktime();
+    QPointer<TaskProgressDialog> dlg = new TaskProgressDialog(*n, currentScheduleManager(), w, this);
+    if (dlg->exec() == QDialog::Accepted && dlg) {
         KUndo2Command *cmd = dlg->buildCommand();
-        if ( cmd ) {
-            cmd->redo(); //FIXME m_part->addCommand( cmd );
+        if (cmd) {
+            cmd->redo(); //FIXME m_part->addCommand(cmd);
         }
     }
 }
@@ -448,15 +448,15 @@ void View::slotTaskProgress()
 void View::slotTaskCompletion()
 {
     debugPlanWork;
-    WorkPackage *wp = m_part->findWorkPackage( currentNode() );
-    if ( wp == 0 ) {
+    WorkPackage *wp = m_part->findWorkPackage(currentNode());
+    if (wp == 0) {
         return;
     }
-    QPointer<TaskCompletionDialog> dlg = new TaskCompletionDialog( *wp, currentScheduleManager(), this );
-    if ( dlg->exec() == QDialog::Accepted && dlg ) {
+    QPointer<TaskCompletionDialog> dlg = new TaskCompletionDialog(*wp, currentScheduleManager(), this);
+    if (dlg->exec() == QDialog::Accepted && dlg) {
         KUndo2Command *cmd = dlg->buildCommand();
-        if ( cmd ) {
-            m_part->addCommand( cmd );
+        if (cmd) {
+            m_part->addCommand(cmd);
         }
     }
     delete dlg;
@@ -466,20 +466,20 @@ void View::slotRemoveSelectedPackages()
 {
     debugPlanWork;
     QList<Node*> lst = currentView()->selectedNodes();
-    if ( lst.isEmpty() ) {
+    if (lst.isEmpty()) {
         return;
     }
-    m_part->removeWorkPackages( lst );
+    m_part->removeWorkPackages(lst);
 }
 
 void View::slotRemoveCurrentPackage()
 {
     debugPlanWork;
     Node *n = currentNode();
-    if ( n == 0 ) {
+    if (n == 0) {
         return;
     }
-    m_part->removeWorkPackage( n );
+    m_part->removeWorkPackage(n);
 }
 
 

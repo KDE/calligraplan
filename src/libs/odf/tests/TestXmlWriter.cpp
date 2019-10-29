@@ -54,18 +54,18 @@ private:
 void TestXmlWriter::setup(const char *publicId, const char *systemId)
 {
     buffer = new QBuffer();
-    buffer->open( QIODevice::WriteOnly );
+    buffer->open(QIODevice::WriteOnly);
 
-    writer = new KoXmlWriter( buffer );
-    writer->startDocument( "dummy", publicId, systemId );
-    writer->startElement( "dummy" );
+    writer = new KoXmlWriter(buffer);
+    writer->startDocument("dummy", publicId, systemId);
+    writer->startElement("dummy");
 }
 
 QString TestXmlWriter::content()
 {
     writer->endElement();
     writer->endDocument();
-    buffer->putChar( '\0' ); /*null-terminate*/
+    buffer->putChar('\0'); /*null-terminate*/
     buffer->close();
     QString stringContent = QString::fromUtf8(buffer->data());
     int index = stringContent.indexOf("<dummy");

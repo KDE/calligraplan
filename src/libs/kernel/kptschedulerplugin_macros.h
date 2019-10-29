@@ -23,6 +23,6 @@
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
  
-#define PLAN_SCHEDULERPLUGIN_EXPORT( c, json ) \
-  K_PLUGIN_FACTORY_WITH_JSON( SchedulerFactory, json, registerPlugin< c >(); )
+#define PLAN_SCHEDULERPLUGIN_EXPORT(c, json) \
+  K_PLUGIN_FACTORY_WITH_JSON(SchedulerFactory, json, registerPlugin< c >();)
 #endif

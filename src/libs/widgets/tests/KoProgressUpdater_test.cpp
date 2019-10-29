@@ -36,7 +36,7 @@ class TestWeaverJob : public ThreadWeaver::Job
 {
 public:
 
-    TestWeaverJob( QPointer<KoUpdater> updater, int steps = 10 )
+    TestWeaverJob(QPointer<KoUpdater> updater, int steps = 10)
         : ThreadWeaver::Job()
         , m_updater(updater)
         , m_steps(steps)
@@ -48,7 +48,7 @@ public:
             for (int i = 1; i < m_steps + 1; ++i) {
                 for (int j = 1; j < 10000; ++j){}
                 m_updater->setProgress((100 / m_steps) * i);
-                if ( m_updater->interrupted() ) {
+                if (m_updater->interrupted()) {
                     m_updater->setProgress(100);
                     return;
                 }
@@ -67,10 +67,10 @@ class TestJob : public QThread {
 Q_OBJECT
 public:
 
-    TestJob( QPointer<KoUpdater> updater, int steps = 10 )
+    TestJob(QPointer<KoUpdater> updater, int steps = 10)
         : QThread()
-        , m_updater( updater )
-        , m_steps( steps )
+        , m_updater(updater)
+        , m_steps(steps)
         {
         }
 
@@ -79,7 +79,7 @@ public:
             for (int i = 1; i < m_steps + 1; ++i) {
                 sleep(1);
                 m_updater->setProgress((100 / m_steps) * i);
-                if ( m_updater->interrupted() ) {
+                if (m_updater->interrupted()) {
                     m_updater->setProgress(100);
                     return;
                 }
@@ -115,18 +115,18 @@ public:
             return max;
         }
 
-    void setValue( int v ) override
+    void setValue(int v) override
         {
             value = v;
         }
 
-    void setRange( int minimum, int maximum ) override
+    void setRange(int minimum, int maximum) override
         {
             min = minimum;
             max = maximum;
         }
 
-    void setFormat( const QString & format ) override
+    void setFormat(const QString & format) override
         {
             formatString = format;
         }
@@ -208,7 +208,7 @@ void KoProgressUpdaterTest::testThreadedSubUpdaters()
     TestJob t2(u2, 6);
     t1.start();
     t2.start();
-    while ( t1.isRunning() || t2.isRunning() ) {
+    while (t1.isRunning() || t2.isRunning()) {
         QTest::qWait(WAIT_FOR_PROGRESSUPDATER_UI_UPDATES); // allow the action to do its job.
     }
     for (int i = 0; i < 10 && bar.value < 100; ++i) {
@@ -249,7 +249,7 @@ void KoProgressUpdaterTest::testThreadedRecursiveProgress()
     TestJob t1(u2);
     t1.start();
 
-    while (t1.isRunning() ) {
+    while (t1.isRunning()) {
         QTest::qWait(WAIT_FOR_PROGRESSUPDATER_UI_UPDATES); // allow the action to do its job.
     }
     for (int i = 0; i < 10 && bar.value < 100; ++i) {
@@ -269,7 +269,7 @@ void KoProgressUpdaterTest::testFromWeaver()
     for (int i = 0; i < 10; ++i) {
         QPointer<KoUpdater> up = pu.startSubtask();
         ThreadWeaver::QObjectDecorator * job = new ThreadWeaver::QObjectDecorator(new TestWeaverJob(up, 10));
-        connect( job, SIGNAL(done(ThreadWeaver::JobPointer)), SLOT(jobDone(ThreadWeaver::JobPointer)) );
+        connect(job, SIGNAL(done(ThreadWeaver::JobPointer)), SLOT(jobDone(ThreadWeaver::JobPointer)));
         ThreadWeaver::Queue::instance()->enqueue(ThreadWeaver::make_job_raw(job));
     }
     while (!ThreadWeaver::Queue::instance()->isIdle()) {

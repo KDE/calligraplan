@@ -41,29 +41,29 @@ class PLANUI_EXPORT ProjectSettingsView : public ViewBase
 public:
     ProjectSettingsView(KoPart *part, KoDocument *doc, QWidget *parent);
 
-    bool openHtml( const QUrl &url );
+    bool openHtml(const QUrl &url);
 
     void setupGui();
 
-    virtual void updateReadWrite( bool readwrite );
+    virtual void updateReadWrite(bool readwrite);
 
     KoPrintJob *createPrintJob();
 
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    virtual void setGuiActive(bool activate);
 
 Q_SIGNALS:
     void connectResources(const QString &file);
 
 protected:
-    void updateActionsEnabled(  bool on = true );
+    void updateActionsEnabled(bool on = true);
 
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     
-    void slotEnableActions( bool on );
+    void slotEnableActions(bool on);
 
     void slotOpenResourcesFile();
     void slotResourcesConnect();

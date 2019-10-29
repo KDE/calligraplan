@@ -24,8 +24,8 @@
 
 #include <kptresource.h>
 
-Scripting::ResourceGroup::ResourceGroup( Scripting::Project *project, KPlato::ResourceGroup *group, QObject *parent )
-    : QObject( parent ), m_project( project ), m_group( group )
+Scripting::ResourceGroup::ResourceGroup(Scripting::Project *project, KPlato::ResourceGroup *group, QObject *parent)
+    : QObject(parent), m_project(project), m_group(group)
 {
 }
 
@@ -49,9 +49,9 @@ int Scripting::ResourceGroup::resourceCount() const
     return m_group->numResources();
 }
 
-QObject *Scripting::ResourceGroup::resourceAt( int index ) const
+QObject *Scripting::ResourceGroup::resourceAt(int index) const
 {
-    return m_project->resource( m_group->resourceAt( index ) );
+    return m_project->resource(m_group->resourceAt(index));
 }
 
 int Scripting::ResourceGroup::childCount() const
@@ -59,7 +59,7 @@ int Scripting::ResourceGroup::childCount() const
     return m_group->numResources();
 }
 
-QObject *Scripting::ResourceGroup::childAt( int index ) const
+QObject *Scripting::ResourceGroup::childAt(int index) const
 {
-    return m_project->resource( m_group->resourceAt( index ) );
+    return m_project->resource(m_group->resourceAt(index));
 }

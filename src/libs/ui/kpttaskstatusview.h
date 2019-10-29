@@ -66,24 +66,24 @@ class PLANUI_EXPORT TaskStatusTreeView : public DoubleTreeViewBase
 public:
     explicit TaskStatusTreeView(QWidget *parent);
 
-    //void setSelectionModel( QItemSelectionModel *selectionModel );
+    //void setSelectionModel(QItemSelectionModel *selectionModel);
 
     TaskStatusItemModel *model() const;
 
     Project *project() const;
-    void setProject( Project *project );
+    void setProject(Project *project);
 
     int defaultWeekday() const { return Qt::Friday; }
     int weekday() const;
-    void setWeekday( int day );
+    void setWeekday(int day);
 
     int defaultPeriod() const { return 7; }
     int period() const;
-    void setPeriod( int days );
+    void setPeriod(int days);
 
     int defaultPeriodType() const;
     int periodType() const;
-    void setPeriodType( int type );
+    void setPeriodType(int type);
 };
 
 
@@ -94,20 +94,20 @@ public:
     TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     Project *project() const override { return m_view->project(); }
     using ViewBase::draw;
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
 
     TaskStatusItemModel *model() const { return m_view->model(); }
     
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
     Node *currentNode() const override;
     
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
 
     KoPrintJob *createPrintJob() override;
     
@@ -116,7 +116,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
@@ -127,10 +127,10 @@ protected Q_SLOTS:
     void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 protected:
-    void updateActionsEnabled( bool on );
+    void updateActionsEnabled(bool on);
 
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     void slotContextMenuRequested(KPlato::Node *node, const QPoint& pos);
     void slotSplitView();
     
@@ -147,7 +147,7 @@ class TaskStatusViewSettingsPanel : public QWidget, public Ui::TaskStatusViewSet
 {
     Q_OBJECT
 public:
-    explicit TaskStatusViewSettingsPanel( TaskStatusTreeView *view, QWidget *parent = 0 );
+    explicit TaskStatusViewSettingsPanel(TaskStatusTreeView *view, QWidget *parent = 0);
 
 public Q_SLOTS:
     void slotOk();
@@ -164,7 +164,7 @@ class TaskStatusViewSettingsDialog : public SplitItemViewSettupDialog
 {
     Q_OBJECT
 public:
-    explicit TaskStatusViewSettingsDialog( ViewBase *view, TaskStatusTreeView *treeview, QWidget *parent = 0 );
+    explicit TaskStatusViewSettingsDialog(ViewBase *view, TaskStatusTreeView *treeview, QWidget *parent = 0);
 
 };
 

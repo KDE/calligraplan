@@ -81,23 +81,23 @@ private:
     };
 
 public:
-    KPlatoRCPSScheduler( Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = 0 );
+    KPlatoRCPSScheduler(Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = 0);
     ~KPlatoRCPSScheduler();
 
     int check();
 
     int result;
 
-    static int progress_callback( int generations, struct rcps_fitness fitness, void* arg );
-    static int duration_callback( int direction, int time, int nominal_duration, void *arg );
-    static int weight_callback( int time, int duration, struct rcps_fitness *nominal_weight, void* weight_arg, void* fitness_arg );
-    static void *fitness_callback_init( void *arg );
-    static int fitness_callback_result( struct rcps_fitness *fitness, void *arg );
+    static int progress_callback(int generations, struct rcps_fitness fitness, void* arg);
+    static int duration_callback(int direction, int time, int nominal_duration, void *arg);
+    static int weight_callback(int time, int duration, struct rcps_fitness *nominal_weight, void* weight_arg, void* fitness_arg);
+    static void *fitness_callback_init(void *arg);
+    static int fitness_callback_result(struct rcps_fitness *fitness, void *arg);
 
-    int progress( int generations, struct rcps_fitness fitness );
-    int duration( int direction, int time, int nominal_duration, duration_info *info );
-    int weight( int time, int duration, struct rcps_fitness *nominal_weight, KPlatoRCPSScheduler::weight_info* info, KPlatoRCPSScheduler::fitness_info *finfo );
-    int fitness( struct rcps_fitness *fit, KPlatoRCPSScheduler::fitness_info *info );
+    int progress(int generations, struct rcps_fitness fitness);
+    int duration(int direction, int time, int nominal_duration, duration_info *info);
+    int weight(int time, int duration, struct rcps_fitness *nominal_weight, KPlatoRCPSScheduler::weight_info* info, KPlatoRCPSScheduler::fitness_info *finfo);
+    int fitness(struct rcps_fitness *fit, KPlatoRCPSScheduler::fitness_info *info);
 
     /// Fill project data into RCPS structure
     int kplatoToRCPS();
@@ -105,8 +105,8 @@ public:
     void kplatoFromRCPS();
 
 Q_SIGNALS:
-    void sigCalculationStarted( Project*, ScheduleManager* );
-    void sigCalculationFinished( Project*, ScheduleManager* );
+    void sigCalculationStarted(Project*, ScheduleManager*);
+    void sigCalculationFinished(Project*, ScheduleManager*);
 
 public Q_SLOTS:
     void solve();
@@ -116,32 +116,32 @@ protected:
 
     void kplatoFromRCPSForward();
     void kplatoFromRCPSBackward();
-    void taskFromRCPSForward( struct rcps_job *job, Task *task, QMap<Node*, QList<ResourceRequest*> > &resourcemap );
-    void taskFromRCPSBackward( struct rcps_job *job, Task *task, QMap<Node*, QList<ResourceRequest*> > &resourcemap );
+    void taskFromRCPSForward(struct rcps_job *job, Task *task, QMap<Node*, QList<ResourceRequest*> > &resourcemap);
+    void taskFromRCPSBackward(struct rcps_job *job, Task *task, QMap<Node*, QList<ResourceRequest*> > &resourcemap);
 
     // Real durations for early-/late start/finish not calculated so values are approximate
-    void calculatePertValues( const QMap<Node*, QList<ResourceRequest*> > &map );
-    Duration calculateLateStuff( const QMap<Node*, QList<ResourceRequest*> > &map, Task *task );
-    Duration calculateEarlyStuff( const QMap<Node*, QList<ResourceRequest*> > &map, Task *task );
+    void calculatePertValues(const QMap<Node*, QList<ResourceRequest*> > &map);
+    Duration calculateLateStuff(const QMap<Node*, QList<ResourceRequest*> > &map, Task *task);
+    Duration calculateEarlyStuff(const QMap<Node*, QList<ResourceRequest*> > &map, Task *task);
 
-    void adjustSummaryTasks( const QList<Node*> &nodes );
+    void adjustSummaryTasks(const QList<Node*> &nodes);
 
     void addResources();
-    struct rcps_resource *addResource( KPlato::Resource *resource );
+    struct rcps_resource *addResource(KPlato::Resource *resource);
     void addTasks();
-    struct rcps_job *addTask( KPlato::Task *task );
-    struct rcps_job *addJob( const QString &name, int duration );
+    struct rcps_job *addTask(KPlato::Task *task);
+    struct rcps_job *addJob(const QString &name, int duration);
     void addDependencies();
-    void addDependenciesForward( struct rcps_job *job, Task *task );
-    void addDependenciesBackward( struct rcps_job *job, Task *task );
+    void addDependenciesForward(struct rcps_job *job, Task *task);
+    void addDependenciesBackward(struct rcps_job *job, Task *task);
     void addRequests();
-    void addRequest( struct rcps_job *job, Task *task );
+    void addRequest(struct rcps_job *job, Task *task);
     void setConstraints();
     void setWeights();
 
 private:
-    int toRcpsTime( const DateTime &time ) const;
-    DateTime fromRcpsTime( int time ) const;
+    int toRcpsTime(const DateTime &time) const;
+    DateTime fromRcpsTime(int time) const;
 
 private:
     MainSchedule *m_schedule;

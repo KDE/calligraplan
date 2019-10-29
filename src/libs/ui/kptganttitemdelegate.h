@@ -47,21 +47,21 @@ class PLANUI_EXPORT GanttItemDelegate : public KGantt::ItemDelegate
 public:
     explicit GanttItemDelegate(QObject *parent = 0);
 
-    QString toolTip( const QModelIndex& idx ) const override;
-    KGantt::Span itemBoundingSpan( const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) const override;
-    void paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) override;
+    QString toolTip(const QModelIndex& idx) const override;
+    KGantt::Span itemBoundingSpan(const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) const override;
+    void paintGanttItem(QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) override;
     
-    void paintConstraintItem( QPainter* p, const QStyleOptionGraphicsItem& opt, const QPointF& start, const QPointF& end, const KGantt::Constraint &constraint ) override;
+    void paintConstraintItem(QPainter* p, const QStyleOptionGraphicsItem& opt, const QPointF& start, const QPointF& end, const KGantt::Constraint &constraint) override;
 
-    QVariant data( const QModelIndex& idx, int column, int role = Qt::DisplayRole ) const;
-    QString itemText( const QModelIndex& idx, int type ) const;
-    QRectF itemPositiveFloatRect( const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) const;
-    QRectF itemNegativeFloatRect( const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) const;
+    QVariant data(const QModelIndex& idx, int column, int role = Qt::DisplayRole) const;
+    QString itemText(const QModelIndex& idx, int type) const;
+    QRectF itemPositiveFloatRect(const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) const;
+    QRectF itemNegativeFloatRect(const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) const;
 
-    bool hasStartConstraint( const QModelIndex& idx ) const;
-    bool hasEndConstraint( const QModelIndex& idx ) const;
-    QRectF itemStartConstraintRect( const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) const;
-    QRectF itemEndConstraintRect( const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) const;
+    bool hasStartConstraint(const QModelIndex& idx) const;
+    bool hasEndConstraint(const QModelIndex& idx) const;
+    QRectF itemStartConstraintRect(const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) const;
+    QRectF itemEndConstraintRect(const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) const;
 
     bool showResources;
     bool showTaskName;
@@ -77,7 +77,7 @@ public:
     bool showSchedulingError;
 
 protected:
-    void paintSpecialItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx, int typ );
+    void paintSpecialItem(QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx, int typ);
 
 protected:
     QBrush m_criticalBrush;
@@ -95,12 +95,12 @@ class PLANUI_EXPORT ResourceGanttItemDelegate : public KGantt::ItemDelegate
 public:
     explicit ResourceGanttItemDelegate(QObject *parent = 0);
 
-    QVariant data( const QModelIndex& idx, int column, int role = Qt::DisplayRole ) const;
+    QVariant data(const QModelIndex& idx, int column, int role = Qt::DisplayRole) const;
 
-    void paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) override;
+    void paintGanttItem(QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) override;
 
 protected:
-    void paintResourceItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx );
+    void paintResourceItem(QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx);
 
 private:
     Q_DISABLE_COPY(ResourceGanttItemDelegate)

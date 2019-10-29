@@ -34,7 +34,7 @@ namespace KPlato
 
 ViewListDocker::ViewListDocker(View *view)
 {
-    updateWindowTitle( false );
+    updateWindowTitle(false);
     setView(view);
 }
 
@@ -56,7 +56,7 @@ void ViewListDocker::setView(View *view)
     m_viewlist = new ViewListWidget(view->getPart(), this);
     setWhatsThis(m_viewlist->whatsThis());
     setWidget(m_viewlist);
-    m_viewlist->setProject( &( view->getProject() ) );
+    m_viewlist->setProject(&(view->getProject()));
     connect(m_viewlist, &ViewListWidget::selectionChanged, view, &View::slotSelectionChanged);
     connect(view, &View::currentScheduleManagerChanged, m_viewlist, &ViewListWidget::setSelectedSchedule);
     connect(m_viewlist, &ViewListWidget::updateViewInfo, view, &View::slotUpdateViewInfo);
@@ -65,15 +65,15 @@ void ViewListDocker::setView(View *view)
 
 void ViewListDocker::slotModified()
 {
-    setWindowTitle( xi18nc( "@title:window", "View Selector [modified]" ) );
+    setWindowTitle(xi18nc("@title:window", "View Selector [modified]"));
 }
 
-void ViewListDocker::updateWindowTitle( bool modified )
+void ViewListDocker::updateWindowTitle(bool modified)
 {
-    if ( modified ) {
-        setWindowTitle( xi18nc( "@title:window", "View Selector [modified]" ) );
+    if (modified) {
+        setWindowTitle(xi18nc("@title:window", "View Selector [modified]"));
     } else {
-        setWindowTitle(xi18nc( "@title:window", "View Selector"));
+        setWindowTitle(xi18nc("@title:window", "View Selector"));
     }
 }
 

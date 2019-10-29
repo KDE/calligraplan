@@ -34,13 +34,13 @@
 namespace KPlato
 {
 
-ConfigWorkVacationPanel::ConfigWorkVacationPanel( QWidget *parent )
-    : ConfigWorkVacationPanelImpl( parent )
+ConfigWorkVacationPanel::ConfigWorkVacationPanel(QWidget *parent)
+    : ConfigWorkVacationPanelImpl(parent)
 {
 }
 
 //-----------------------------
-ConfigWorkVacationPanelImpl::ConfigWorkVacationPanelImpl(QWidget *p )
+ConfigWorkVacationPanelImpl::ConfigWorkVacationPanelImpl(QWidget *p)
     : QWidget(p)
 {
     setupUi(this);

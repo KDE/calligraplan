@@ -65,8 +65,8 @@ namespace KPlato
 {
 
 //--------------------
-TaskEditorItemModel::TaskEditorItemModel( QObject *parent )
-: NodeItemModel( parent )
+TaskEditorItemModel::TaskEditorItemModel(QObject *parent)
+: NodeItemModel(parent)
 {
 }
 
@@ -77,29 +77,29 @@ void TaskEditorItemModel::setScheduleManager(ScheduleManager *sm)
     }
 }
 
-Qt::ItemFlags TaskEditorItemModel::flags( const QModelIndex &index ) const
+Qt::ItemFlags TaskEditorItemModel::flags(const QModelIndex &index) const
 {
-    if ( index.column() == NodeModel::NodeType ) {
-        if ( ! m_readWrite || isColumnReadOnly( index.column() ) ) {
-            return QAbstractItemModel::flags( index );
+    if (index.column() == NodeModel::NodeType) {
+        if (! m_readWrite || isColumnReadOnly(index.column())) {
+            return QAbstractItemModel::flags(index);
         }
-        Node *n = node( index );
+        Node *n = node(index);
         bool baselined = n ? n->isBaselined() : false;
-        if ( n && ! baselined && ( n->type() == Node::Type_Task || n->type() == Node::Type_Milestone ) ) {
-            return QAbstractItemModel::flags( index ) | Qt::ItemIsEditable | Qt::ItemIsDropEnabled;
+        if (n && ! baselined && (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone)) {
+            return QAbstractItemModel::flags(index) | Qt::ItemIsEditable | Qt::ItemIsDropEnabled;
         }
-        return QAbstractItemModel::flags( index ) | Qt::ItemIsDropEnabled;
+        return QAbstractItemModel::flags(index) | Qt::ItemIsDropEnabled;
     }
-    return NodeItemModel::flags( index );
+    return NodeItemModel::flags(index);
 }
 
-QVariant TaskEditorItemModel::headerData( int section, Qt::Orientation orientation, int role ) const
+QVariant TaskEditorItemModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if ( orientation == Qt::Horizontal && section == NodeModel::NodeType ) {
-        if ( role == Qt::ToolTipRole ) {
-            return xi18nc( "@info:tooltip", "The type of task or the estimate type of the task" );
-        } else if ( role == Qt::WhatsThisRole ) {
-            return xi18nc( "@info:whatsthis",
+    if (orientation == Qt::Horizontal && section == NodeModel::NodeType) {
+        if (role == Qt::ToolTipRole) {
+            return xi18nc("@info:tooltip", "The type of task or the estimate type of the task");
+        } else if (role == Qt::WhatsThisRole) {
+            return xi18nc("@info:whatsthis",
                           "<p>Indicates the type of task or the estimate type of the task.</p>"
                           "The type can be set to <emphasis>Milestone</emphasis>, <emphasis>Effort</emphasis> or <emphasis>Duration</emphasis>.<nl/>"
                           "<note>If the type is <emphasis>Summary</emphasis> or <emphasis>Project</emphasis> the type is not editable.</note>");
@@ -108,100 +108,100 @@ QVariant TaskEditorItemModel::headerData( int section, Qt::Orientation orientati
     return NodeItemModel::headerData(section, orientation, role);
 }
 
-QVariant TaskEditorItemModel::data( const QModelIndex &index, int role ) const
+QVariant TaskEditorItemModel::data(const QModelIndex &index, int role) const
 {
-    if ( role == Qt::TextAlignmentRole ) {
-        return NodeItemModel::data( index, role );
+    if (role == Qt::TextAlignmentRole) {
+        return NodeItemModel::data(index, role);
     }
-    Node *n = node( index );
-    if ( n != 0 && index.column() == NodeModel::NodeType ) {
-        return type( n, role );
+    Node *n = node(index);
+    if (n != 0 && index.column() == NodeModel::NodeType) {
+        return type(n, role);
     }
-    return NodeItemModel::data( index, role );
+    return NodeItemModel::data(index, role);
 }
 
-bool TaskEditorItemModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool TaskEditorItemModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    Node *n = node( index );
-    if ( n != 0 && role == Qt::EditRole && index.column() == NodeModel::NodeType ) {
-        return setType( n, value, role );
+    Node *n = node(index);
+    if (n != 0 && role == Qt::EditRole && index.column() == NodeModel::NodeType) {
+        return setType(n, value, role);
     }
-    return NodeItemModel::setData( index, value, role );
+    return NodeItemModel::setData(index, value, role);
 }
 
-QVariant TaskEditorItemModel::type( const Node *node, int role ) const
+QVariant TaskEditorItemModel::type(const Node *node, int role) const
 {
-    switch ( role ) {
+    switch (role) {
         case Qt::DisplayRole: {
-            if ( node->type() == Node::Type_Task ) {
-                return node->estimate()->typeToString( true );
+            if (node->type() == Node::Type_Task) {
+                return node->estimate()->typeToString(true);
             }
-            return node->typeToString( true );
+            return node->typeToString(true);
         }
         case Qt::EditRole:
             return node->type();
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
         case Qt::ToolTipRole: {
-            if ( node->type() == Node::Type_Task ) {
-                return xi18nc( "@info:tooltip", "Task with estimate type: %1", node->estimate()->typeToString( true ) );
+            if (node->type() == Node::Type_Task) {
+                return xi18nc("@info:tooltip", "Task with estimate type: %1", node->estimate()->typeToString(true));
             }
-            return xi18nc( "@info:tooltip", "Task type: %1", node->typeToString( true ) );
+            return xi18nc("@info:tooltip", "Task type: %1", node->typeToString(true));
         }
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
         case Role::EnumListValue: {
-            if ( node->type() == Node::Type_Milestone ) {
+            if (node->type() == Node::Type_Milestone) {
                 return 0;
             }
-            if ( node->type() == Node::Type_Task ) {
+            if (node->type() == Node::Type_Task) {
                 return node->estimate()->type() + 1;
             }
             return -1;
         }
         case Role::EnumList: {
             QStringList lst;
-            lst << Node::typeToString( Node::Type_Milestone, true );
-            lst += Estimate::typeToStringList( true );
+            lst << Node::typeToString(Node::Type_Milestone, true);
+            lst += Estimate::typeToStringList(true);
             return lst;
         }
     }
     return QVariant();
 }
 
-bool TaskEditorItemModel::setType( Node *node, const QVariant &value, int role )
+bool TaskEditorItemModel::setType(Node *node, const QVariant &value, int role)
 {
-    switch ( role ) {
+    switch (role) {
         case Qt::EditRole: {
-            if ( node->type() == Node::Type_Summarytask ) {
+            if (node->type() == Node::Type_Summarytask) {
                 return false;
             }
             int v = value.toInt();
-            switch ( v ) {
+            switch (v) {
                 case 0: { // Milestone
                     NamedCommand *cmd = 0;
-                    if ( node->constraint() == Node::FixedInterval ) {
-                        cmd = new NodeModifyConstraintEndTimeCmd( *node, node->constraintStartTime(), kundo2_i18n( "Set type to Milestone" ) );
+                    if (node->constraint() == Node::FixedInterval) {
+                        cmd = new NodeModifyConstraintEndTimeCmd(*node, node->constraintStartTime(), kundo2_i18n("Set type to Milestone"));
                     } else {
-                        cmd =  new ModifyEstimateCmd( *node, node->estimate()->expectedEstimate(), 0.0, kundo2_i18n( "Set type to Milestone" ) );
+                        cmd =  new ModifyEstimateCmd(*node, node->estimate()->expectedEstimate(), 0.0, kundo2_i18n("Set type to Milestone"));
                     }
-                    emit executeCommand( cmd );
+                    emit executeCommand(cmd);
                     return true;
                 }
                 default: { // Estimate
                     --v;
-                    MacroCommand *m = new MacroCommand( kundo2_i18n( "Set type to %1", Estimate::typeToString( (Estimate::Type)v, true ) ) );
-                    m->addCommand( new ModifyEstimateTypeCmd( *node, node->estimate()->type(), v ) );
-                    if ( node->type() == Node::Type_Milestone ) {
-                        if ( node->constraint() == Node::FixedInterval ) {
-                            m->addCommand( new NodeModifyConstraintEndTimeCmd( *node, node->constraintStartTime().addDays( 1 ) ) );
+                    MacroCommand *m = new MacroCommand(kundo2_i18n("Set type to %1", Estimate::typeToString((Estimate::Type)v, true)));
+                    m->addCommand(new ModifyEstimateTypeCmd(*node, node->estimate()->type(), v));
+                    if (node->type() == Node::Type_Milestone) {
+                        if (node->constraint() == Node::FixedInterval) {
+                            m->addCommand(new NodeModifyConstraintEndTimeCmd(*node, node->constraintStartTime().addDays(1)));
                         } else {
-                            m->addCommand( new ModifyEstimateUnitCmd( *node, node->estimate()->unit(), Duration::Unit_d ) );
-                            m->addCommand( new ModifyEstimateCmd( *node, node->estimate()->expectedEstimate(), 1.0 ) );
+                            m->addCommand(new ModifyEstimateUnitCmd(*node, node->estimate()->unit(), Duration::Unit_d));
+                            m->addCommand(new ModifyEstimateCmd(*node, node->estimate()->expectedEstimate(), 1.0));
                         }
                     }
-                    emit executeCommand( m );
+                    emit executeCommand(m);
                     return true;
                 }
             }
@@ -213,41 +213,41 @@ bool TaskEditorItemModel::setType( Node *node, const QVariant &value, int role )
 }
 
 //--------------------
-TaskEditorTreeView::TaskEditorTreeView( QWidget *parent )
-    : DoubleTreeViewBase( parent )
+TaskEditorTreeView::TaskEditorTreeView(QWidget *parent)
+    : DoubleTreeViewBase(parent)
 {
     setDragPixmap(koIcon("view-task").pixmap(32));
-    TaskEditorItemModel *m = new TaskEditorItemModel( this );
-    setModel( m );
-    //setSelectionBehavior( QAbstractItemView::SelectItems );
-    setSelectionMode( QAbstractItemView::ExtendedSelection );
-    setSelectionBehavior( QAbstractItemView::SelectRows );
+    TaskEditorItemModel *m = new TaskEditorItemModel(this);
+    setModel(m);
+    //setSelectionBehavior(QAbstractItemView::SelectItems);
+    setSelectionMode(QAbstractItemView::ExtendedSelection);
+    setSelectionBehavior(QAbstractItemView::SelectRows);
     setDefaultDropAction(Qt::CopyAction);
 
-    createItemDelegates( m );
-    setItemDelegateForColumn( NodeModel::NodeType, new EnumDelegate( this ) );
+    createItemDelegates(m);
+    setItemDelegateForColumn(NodeModel::NodeType, new EnumDelegate(this));
 
-    connect( this, &DoubleTreeViewBase::dropAllowed, this, &TaskEditorTreeView::slotDropAllowed );
+    connect(this, &DoubleTreeViewBase::dropAllowed, this, &TaskEditorTreeView::slotDropAllowed);
 }
 
 NodeItemModel *TaskEditorTreeView::baseModel() const
 {
     NodeSortFilterProxyModel *pr = proxyModel();
-    if ( pr ) {
-        return static_cast<NodeItemModel*>( pr->sourceModel() );
+    if (pr) {
+        return static_cast<NodeItemModel*>(pr->sourceModel());
     }
-    return static_cast<NodeItemModel*>( model() );
+    return static_cast<NodeItemModel*>(model());
 }
 
-void TaskEditorTreeView::slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event )
+void TaskEditorTreeView::slotDropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event)
 {
     QModelIndex idx = index;
     NodeSortFilterProxyModel *pr = proxyModel();
-    if ( pr ) {
-        idx = pr->mapToSource( index );
+    if (pr) {
+        idx = pr->mapToSource(index);
     }
     event->ignore();
-    if ( baseModel()->dropAllowed( idx, dropIndicatorPosition, event->mimeData() ) ) {
+    if (baseModel()->dropAllowed(idx, dropIndicatorPosition, event->mimeData())) {
         event->accept();
     }
 }
@@ -260,39 +260,39 @@ void TaskEditorTreeView::editPaste()
 }
 
 //--------------------
-NodeTreeView::NodeTreeView( QWidget *parent )
-    : DoubleTreeViewBase( parent )
+NodeTreeView::NodeTreeView(QWidget *parent)
+    : DoubleTreeViewBase(parent)
 {
     setDragPixmap(koIcon("view-task").pixmap(32));
-    NodeItemModel *m = new NodeItemModel( this );
-    setModel( m );
-    //setSelectionBehavior( QAbstractItemView::SelectItems );
-    setSelectionMode( QAbstractItemView::ExtendedSelection );
-    setSelectionBehavior( QAbstractItemView::SelectRows );
+    NodeItemModel *m = new NodeItemModel(this);
+    setModel(m);
+    //setSelectionBehavior(QAbstractItemView::SelectItems);
+    setSelectionMode(QAbstractItemView::ExtendedSelection);
+    setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    createItemDelegates( m );
+    createItemDelegates(m);
 
-    connect( this, &DoubleTreeViewBase::dropAllowed, this, &NodeTreeView::slotDropAllowed );
+    connect(this, &DoubleTreeViewBase::dropAllowed, this, &NodeTreeView::slotDropAllowed);
 }
 
 NodeItemModel *NodeTreeView::baseModel() const
 {
     NodeSortFilterProxyModel *pr = proxyModel();
-    if ( pr ) {
-        return static_cast<NodeItemModel*>( pr->sourceModel() );
+    if (pr) {
+        return static_cast<NodeItemModel*>(pr->sourceModel());
     }
-    return static_cast<NodeItemModel*>( model() );
+    return static_cast<NodeItemModel*>(model());
 }
 
-void NodeTreeView::slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event )
+void NodeTreeView::slotDropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event)
 {
     QModelIndex idx = index;
     NodeSortFilterProxyModel *pr = proxyModel();
-    if ( pr ) {
-        idx = pr->mapToSource( index );
+    if (pr) {
+        idx = pr->mapToSource(index);
     }
     event->ignore();
-    if ( baseModel()->dropAllowed( idx, dropIndicatorPosition, event->mimeData() ) ) {
+    if (baseModel()->dropAllowed(idx, dropIndicatorPosition, event->mimeData())) {
         event->accept();
     }
 }
@@ -300,7 +300,7 @@ void NodeTreeView::slotDropAllowed( const QModelIndex &index, int dropIndicatorP
 
 //-----------------------------------
 TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
-    : ViewBase(part, doc, parent )
+    : ViewBase(part, doc, parent)
 {
     debugPlan<<"----------------- Create TaskEditor ----------------------";
     if (doc && doc->isReadWrite()) {
@@ -309,24 +309,24 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
         setXMLFile("TaskEditorUi_readonly.rc");
     }
 
-    QVBoxLayout * l = new QVBoxLayout( this );
-    l->setMargin( 0 );
-    m_view = new TaskEditorTreeView( this );
+    QVBoxLayout * l = new QVBoxLayout(this);
+    l->setMargin(0);
+    m_view = new TaskEditorTreeView(this);
     m_doubleTreeView = m_view;
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);
 
-    l->addWidget( m_view );
+    l->addWidget(m_view);
     debugPlan<<m_view->actionSplitView();
     setupGui();
 
-    m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
+    m_view->setEditTriggers(m_view->editTriggers() | QAbstractItemView::EditKeyPressed);
 
-    m_view->setDragDropMode( QAbstractItemView::DragDrop );
-    m_view->setDropIndicatorShown( true );
-    m_view->setDragEnabled ( true );
-    m_view->setAcceptDrops( true );
-    m_view->setAcceptDropsOnView( true );
+    m_view->setDragDropMode(QAbstractItemView::DragDrop);
+    m_view->setDropIndicatorShown(true);
+    m_view->setDragEnabled (true);
+    m_view->setAcceptDrops(true);
+    m_view->setAcceptDropsOnView(true);
 
     QList<int> lst1; lst1 << 1 << -1; // only display column 0 (NodeName) in left view
     QList<int> show;
@@ -350,31 +350,31 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
             << NodeModel::NodeDescription;
 
     QList<int> lst2;
-    for ( int i = 0; i < model()->columnCount(); ++i ) {
-        if ( ! show.contains( i ) ) {
+    for (int i = 0; i < model()->columnCount(); ++i) {
+        if (! show.contains(i)) {
             lst2 << i;
         }
     }
-    for ( int i = 0; i < show.count(); ++i ) {
-        int sec = m_view->slaveView()->header()->visualIndex( show[ i ] );
+    for (int i = 0; i < show.count(); ++i) {
+        int sec = m_view->slaveView()->header()->visualIndex(show[ i ]);
         //debugPlan<<"move section:"<<i<<show[i]<<sec;
-        if ( i != sec ) {
-            m_view->slaveView()->header()->moveSection( sec, i );
+        if (i != sec) {
+            m_view->slaveView()->header()->moveSection(sec, i);
         }
     }
-    m_view->hideColumns( lst1, lst2 );
-    m_view->masterView()->setDefaultColumns( QList<int>() << NodeModel::NodeName );
-    m_view->slaveView()->setDefaultColumns( show );
+    m_view->hideColumns(lst1, lst2);
+    m_view->masterView()->setDefaultColumns(QList<int>() << NodeModel::NodeName);
+    m_view->slaveView()->setDefaultColumns(show);
 
-    connect( model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)) );
+    connect(model(), SIGNAL(executeCommand(KUndo2Command*)), doc, SLOT(addCommand(KUndo2Command*)));
 
-    connect( m_view, &DoubleTreeViewBase::currentChanged, this, &TaskEditor::slotCurrentChanged );
+    connect(m_view, &DoubleTreeViewBase::currentChanged, this, &TaskEditor::slotCurrentChanged);
 
-    connect( m_view, &DoubleTreeViewBase::selectionChanged, this, &TaskEditor::slotSelectionChanged );
+    connect(m_view, &DoubleTreeViewBase::selectionChanged, this, &TaskEditor::slotSelectionChanged);
 
-    connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &TaskEditor::slotContextMenuRequested );
+    connect(m_view, &DoubleTreeViewBase::contextMenuRequested, this, &TaskEditor::slotContextMenuRequested);
 
-    connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
+    connect(m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
     connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskEditor::itemDoubleClicked);
     connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskEditor::itemDoubleClicked);
 
@@ -400,36 +400,36 @@ void TaskEditor::itemDoubleClicked(const QPersistentModelIndex &idx)
     }
 }
 
-void TaskEditor::slotProjectShown( bool on )
+void TaskEditor::slotProjectShown(bool on)
 {
     debugPlan<<proxyModel();
     QModelIndex idx;
-    if ( proxyModel() ) {
-        if ( proxyModel()->rowCount() > 0 ) {
-            idx = proxyModel()->index( 0, 0 );
-            m_view->selectionModel()->setCurrentIndex( idx, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows );
+    if (proxyModel()) {
+        if (proxyModel()->rowCount() > 0) {
+            idx = proxyModel()->index(0, 0);
+            m_view->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }
-    } else if ( baseModel() && baseModel()->rowCount() > 0 ) {
-        idx = baseModel()->index( 0, 0 );
-        m_view->selectionModel()->setCurrentIndex( idx, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows );
+    } else if (baseModel() && baseModel()->rowCount() > 0) {
+        idx = baseModel()->index(0, 0);
+        m_view->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
     }
-    if ( on && idx.isValid() ) {
-        m_view->masterView()->expand( idx );
+    if (on && idx.isValid()) {
+        m_view->masterView()->expand(idx);
     }
     slotEnableActions();
 }
 
-void TaskEditor::updateReadWrite( bool rw )
+void TaskEditor::updateReadWrite(bool rw)
 {
-    m_view->setReadWrite( rw );
-    ViewBase::updateReadWrite( rw );
+    m_view->setReadWrite(rw);
+    ViewBase::updateReadWrite(rw);
 }
 
-void TaskEditor::setProject( Project *project_ )
+void TaskEditor::setProject(Project *project_)
 {
     debugPlan<<project_;
-    m_view->setProject( project_ );
-    ViewBase::setProject( project_ );
+    m_view->setProject(project_);
+    ViewBase::setProject(project_);
 }
 
 void TaskEditor::createDockers()
@@ -437,61 +437,61 @@ void TaskEditor::createDockers()
     // Add dockers
     DockWidget *ds = 0;
     {
-        ds = new DockWidget( this, "Allocations", xi18nc( "@title resource allocations", "Allocations" ) );
-        QTreeView *x = new QTreeView( ds );
-        AllocatedResourceItemModel *m1 = new AllocatedResourceItemModel( x );
-        x->setModel( m1 );
-        m1->setProject( project() );
-    //     x->setHeaderHidden( true );
-        x->setSelectionBehavior( QAbstractItemView::SelectRows );
-        x->setSelectionMode( QAbstractItemView::ExtendedSelection );
+        ds = new DockWidget(this, "Allocations", xi18nc("@title resource allocations", "Allocations"));
+        QTreeView *x = new QTreeView(ds);
+        AllocatedResourceItemModel *m1 = new AllocatedResourceItemModel(x);
+        x->setModel(m1);
+        m1->setProject(project());
+    //     x->setHeaderHidden(true);
+        x->setSelectionBehavior(QAbstractItemView::SelectRows);
+        x->setSelectionMode(QAbstractItemView::ExtendedSelection);
         x->expandAll();
-        x->resizeColumnToContents( 0 );
-        x->setDragDropMode( QAbstractItemView::DragOnly );
-        x->setDragEnabled ( true );
-        ds->setWidget( x );
+        x->resizeColumnToContents(0);
+        x->setDragDropMode(QAbstractItemView::DragOnly);
+        x->setDragEnabled (true);
+        ds->setWidget(x);
         connect(this, &ViewBase::projectChanged, m1, &AllocatedResourceItemModel::setProject);
         connect(this, &TaskEditor::taskSelected, m1, &AllocatedResourceItemModel::setTask);
         connect(m1, &AllocatedResourceItemModel::expandAll, x, &QTreeView::expandAll);
         connect(m1, &AllocatedResourceItemModel::resizeColumnToContents, x, &QTreeView::resizeColumnToContents);
-        addDocker( ds );
+        addDocker(ds);
     }
 
     {
-        ds = new DockWidget( this, "Resources", xi18nc( "@title", "Resources" ) );
-        ds->setToolTip( xi18nc( "@info:tooltip",
+        ds = new DockWidget(this, "Resources", xi18nc("@title", "Resources"));
+        ds->setToolTip(xi18nc("@info:tooltip",
                             "Drag resources into the Task Editor"
-                            " and drop into the allocations- or responsible column" ) );
-        ResourceAllocationView *e = new ResourceAllocationView(part(), ds );
-        ResourceItemModel *m = new ResourceItemModel( e );
-        e->setModel( m );
-        m->setProject( project() );
-        m->setReadWrite( isReadWrite() );
+                            " and drop into the allocations- or responsible column"));
+        ResourceAllocationView *e = new ResourceAllocationView(part(), ds);
+        ResourceItemModel *m = new ResourceItemModel(e);
+        e->setModel(m);
+        m->setProject(project());
+        m->setReadWrite(isReadWrite());
         QList<int> show; show << ResourceModel::ResourceName;
-        for ( int i = m->columnCount() - 1; i >= 0; --i ) {
-            e->setColumnHidden( i, ! show.contains( i ) );
+        for (int i = m->columnCount() - 1; i >= 0; --i) {
+            e->setColumnHidden(i, ! show.contains(i));
         }
-        e->setHeaderHidden( true );
-        e->setSelectionBehavior( QAbstractItemView::SelectRows );
-        e->setSelectionMode( QAbstractItemView::ExtendedSelection );
+        e->setHeaderHidden(true);
+        e->setSelectionBehavior(QAbstractItemView::SelectRows);
+        e->setSelectionMode(QAbstractItemView::ExtendedSelection);
         e->expandAll();
-        e->resizeColumnToContents( ResourceModel::ResourceName );
-        e->setDragDropMode( QAbstractItemView::DragOnly );
-        e->setDragEnabled ( true );
-        ds->setWidget( e );
+        e->resizeColumnToContents(ResourceModel::ResourceName);
+        e->setDragDropMode(QAbstractItemView::DragOnly);
+        e->setDragEnabled (true);
+        ds->setWidget(e);
         connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, e, &ResourceAllocationView::setSelectedTasks);
         connect(this, SIGNAL(projectChanged(KPlato::Project*)), m, SLOT(setProject(KPlato::Project*)));
         connect(this, &ViewBase::readWriteChanged, m, &ItemModelBase::setReadWrite);
         connect(m, &ItemModelBase::executeCommand, part(), &KoDocument::addCommand);
-        addDocker( ds );
+        addDocker(ds);
     }
 
     {
-        ds = new DockWidget( this, "Taskmodules", xi18nc( "@title", "Task Modules" ) );
-        ds->setToolTip( xi18nc( "@info:tooltip", "Drag a task module into the <emphasis>Task Editor</emphasis> to add it to the project" ) );
-        ds->setLocation( Qt::LeftDockWidgetArea );
+        ds = new DockWidget(this, "Taskmodules", xi18nc("@title", "Task Modules"));
+        ds->setToolTip(xi18nc("@info:tooltip", "Drag a task module into the <emphasis>Task Editor</emphasis> to add it to the project"));
+        ds->setLocation(Qt::LeftDockWidgetArea);
         ds->setShown(false); // hide by default
-        QTreeView *e = new QTreeView( ds );
+        QTreeView *e = new QTreeView(ds);
         QSortFilterProxyModel *sf = new QSortFilterProxyModel(e);
         TaskModuleModel *m = new TaskModuleModel(sf);
         connect(this, &TaskEditor::projectChanged, m, &TaskModuleModel::setProject);
@@ -499,19 +499,19 @@ void TaskEditor::createDockers()
         e->setModel(sf);
         e->sortByColumn(0, Qt::AscendingOrder);
         e->setSortingEnabled(true);
-        e->setHeaderHidden( true );
-        e->setRootIsDecorated( false );
-        e->setSelectionBehavior( QAbstractItemView::SelectRows );
-        e->setSelectionMode( QAbstractItemView::SingleSelection );
-//         e->resizeColumnToContents( 0 );
-        e->setDragDropMode( QAbstractItemView::DragDrop );
-        e->setAcceptDrops( true );
-        e->setDragEnabled ( true );
-        ds->setWidget( e );
+        e->setHeaderHidden(true);
+        e->setRootIsDecorated(false);
+        e->setSelectionBehavior(QAbstractItemView::SelectRows);
+        e->setSelectionMode(QAbstractItemView::SingleSelection);
+//         e->resizeColumnToContents(0);
+        e->setDragDropMode(QAbstractItemView::DragDrop);
+        e->setAcceptDrops(true);
+        e->setDragEnabled (true);
+        ds->setWidget(e);
         connect(e, &QAbstractItemView::doubleClicked, this, &TaskEditor::taskModuleDoubleClicked);
         connect(m, &TaskModuleModel::saveTaskModule, this, &TaskEditor::saveTaskModule);
         connect(m, &TaskModuleModel::removeTaskModule, this, &TaskEditor::removeTaskModule);
-        addDocker( ds );
+        addDocker(ds);
         Help::add(ds, xi18nc("@info:whatsthis",
                             "<title>Task Modules</title>"
                            "<para>"
@@ -533,27 +533,27 @@ void TaskEditor::taskModuleDoubleClicked(QModelIndex idx)
     }
 }
 
-void TaskEditor::setGuiActive( bool activate )
+void TaskEditor::setGuiActive(bool activate)
 {
     debugPlan<<activate;
-    updateActionsEnabled( true );
-    ViewBase::setGuiActive( activate );
-    if ( activate && !m_view->selectionModel()->currentIndex().isValid() && m_view->model()->rowCount() > 0 ) {
-        m_view->selectionModel()->setCurrentIndex(m_view->model()->index( 0, 0 ), QItemSelectionModel::NoUpdate);
+    updateActionsEnabled(true);
+    ViewBase::setGuiActive(activate);
+    if (activate && !m_view->selectionModel()->currentIndex().isValid() && m_view->model()->rowCount() > 0) {
+        m_view->selectionModel()->setCurrentIndex(m_view->model()->index(0, 0), QItemSelectionModel::NoUpdate);
     }
 }
 
-void TaskEditor::slotCurrentChanged( const QModelIndex &curr, const QModelIndex & )
+void TaskEditor::slotCurrentChanged(const QModelIndex &curr, const QModelIndex &)
 {
     debugPlan<<curr.row()<<","<<curr.column();
     slotEnableActions();
 }
 
-void TaskEditor::slotSelectionChanged( const QModelIndexList &list)
+void TaskEditor::slotSelectionChanged(const QModelIndexList &list)
 {
     debugPlan<<list.count();
     slotEnableActions();
-    emit taskSelected( dynamic_cast<Task*>( selectedNode() ) );
+    emit taskSelected(dynamic_cast<Task*>(selectedNode()));
 }
 
 QModelIndexList TaskEditor::selectedRows() const
@@ -563,8 +563,8 @@ QModelIndexList TaskEditor::selectedRows() const
     return m_view->selectionModel()->selectedRows();
 #else
     QModelIndexList lst;
-    foreach ( QModelIndex i, m_view->selectionModel()->selectedIndexes() ) {
-        if ( i.column() == 0 ) {
+    foreach (QModelIndex i, m_view->selectionModel()->selectedIndexes()) {
+        if (i.column() == 0) {
             lst << i;
         }
     }
@@ -579,10 +579,10 @@ int TaskEditor::selectedRowCount() const
 
 QList<Node*> TaskEditor::selectedNodes() const {
     QList<Node*> lst;
-    foreach ( const QModelIndex &i, selectedRows() ) {
-        Node * n = m_view->baseModel()->node( i );
-        if ( n != 0 && n->type() != Node::Type_Project ) {
-            lst.append( n );
+    foreach (const QModelIndex &i, selectedRows()) {
+        Node * n = m_view->baseModel()->node(i);
+        if (n != 0 && n->type() != Node::Type_Project) {
+            lst.append(n);
         }
     }
     return lst;
@@ -591,21 +591,21 @@ QList<Node*> TaskEditor::selectedNodes() const {
 Node *TaskEditor::selectedNode() const
 {
     QList<Node*> lst = selectedNodes();
-    if ( lst.count() != 1 ) {
+    if (lst.count() != 1) {
         return 0;
     }
     return lst.first();
 }
 
 Node *TaskEditor::currentNode() const {
-    Node * n = m_view->baseModel()->node( m_view->selectionModel()->currentIndex() );
-    if ( n == 0 || n->type() == Node::Type_Project ) {
+    Node * n = m_view->baseModel()->node(m_view->selectionModel()->currentIndex());
+    if (n == 0 || n->type() == Node::Type_Project) {
         return 0;
     }
     return n;
 }
 
-void TaskEditor::slotContextMenuRequested( const QModelIndex& index, const QPoint& pos, const QModelIndexList &rows )
+void TaskEditor::slotContextMenuRequested(const QModelIndex& index, const QPoint& pos, const QModelIndexList &rows)
 {
     QString name;
     if (rows.count() > 1) {
@@ -614,9 +614,9 @@ void TaskEditor::slotContextMenuRequested( const QModelIndex& index, const QPoin
         QList<Task*> tasks;
         QList<Task*> milestones;
         for (const QModelIndex &idx : rows) {
-            Node *node = m_view->baseModel()->node( idx );
+            Node *node = m_view->baseModel()->node(idx);
             if (node) {
-                switch ( node->type() ) {
+                switch (node->type()) {
                     case Node::Type_Task:
                         tasks << static_cast<Task*>(node); break;
                     case Node::Type_Milestone:
@@ -633,20 +633,20 @@ void TaskEditor::slotContextMenuRequested( const QModelIndex& index, const QPoin
         }
         return;
     }
-    Node *node = m_view->baseModel()->node( index );
-    if ( node == 0 ) {
+    Node *node = m_view->baseModel()->node(index);
+    if (node == 0) {
         return;
     }
     debugPlan<<node->name()<<" :"<<pos;
-    switch ( node->type() ) {
+    switch (node->type()) {
     case Node::Type_Project:
         name = "task_edit_popup";
         break;
     case Node::Type_Task:
-        name = node->isScheduled( baseModel()->id() ) ? "task_popup" : "task_edit_popup";
+        name = node->isScheduled(baseModel()->id()) ? "task_popup" : "task_edit_popup";
         break;
     case Node::Type_Milestone:
-        name = node->isScheduled( baseModel()->id() ) ? "taskeditor_milestone_popup" : "task_edit_popup";
+        name = node->isScheduled(baseModel()->id()) ? "taskeditor_milestone_popup" : "task_edit_popup";
         break;
     case Node::Type_Summarytask:
         name = "summarytask_popup";
@@ -656,20 +656,20 @@ void TaskEditor::slotContextMenuRequested( const QModelIndex& index, const QPoin
         break;
     }
     m_view->setContextMenuIndex(index);
-    if ( name.isEmpty() ) {
-        slotHeaderContextMenuRequested( pos );
+    if (name.isEmpty()) {
+        slotHeaderContextMenuRequested(pos);
         m_view->setContextMenuIndex(QModelIndex());
         return;
     }
     debugPlan<<name;
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
 void TaskEditor::editTasks(const QList<Task*> &tasks, const QPoint &pos)
 {
     QList<QAction*> lst;
-    QAction tasksEdit(i18n( "Edit..."), nullptr);
+    QAction tasksEdit(i18n("Edit..."), nullptr);
     if (!tasks.isEmpty()) {
         TasksEditController *ted = new TasksEditController(*project(), tasks, this);
         connect(&tasksEdit, &QAction::triggered, ted, &TasksEditController::activate);
@@ -678,12 +678,12 @@ void TaskEditor::editTasks(const QList<Task*> &tasks, const QPoint &pos)
     }
     lst += contextActionList();
     if (!lst.isEmpty()) {
-        QMenu::exec( lst, pos, lst.first() );
+        QMenu::exec(lst, pos, lst.first());
     }
 
 }
 
-void TaskEditor::setScheduleManager( ScheduleManager *sm )
+void TaskEditor::setScheduleManager(ScheduleManager *sm)
 {
     if (!sm && scheduleManager()) {
         // we should only get here if the only schedule manager is scheduled,
@@ -703,7 +703,7 @@ void TaskEditor::setScheduleManager( ScheduleManager *sm )
         m_view->masterView()->saveExpanded(element);
     }
     ViewBase::setScheduleManager(sm);
-    m_view->baseModel()->setScheduleManager( sm );
+    m_view->baseModel()->setScheduleManager(sm);
 
     if (expand) {
         m_view->masterView()->doExpand(doc);
@@ -714,7 +714,7 @@ void TaskEditor::setScheduleManager( ScheduleManager *sm )
 
 void TaskEditor::slotEnableActions()
 {
-    updateActionsEnabled( isReadWrite() );
+    updateActionsEnabled(isReadWrite());
 }
 
 Node *newIndentParent(const QList<Node*> nodes)
@@ -730,112 +730,112 @@ Node *newIndentParent(const QList<Node*> nodes)
     return node;
 }
 
-void TaskEditor::updateActionsEnabled( bool on )
+void TaskEditor::updateActionsEnabled(bool on)
 {
 //     debugPlan<<selectedRowCount()<<selectedNode()<<currentNode();
-    if ( ! on ) {
-        menuAddTask->setEnabled( false );
-        actionAddTask->setEnabled( false );
-        actionAddMilestone->setEnabled( false );
-        menuAddSubTask->setEnabled( false );
-        actionAddSubtask->setEnabled( false );
-        actionAddSubMilestone->setEnabled( false );
-        actionDeleteTask->setEnabled( false );
-        actionLinkTask->setEnabled( false );
-        actionMoveTaskUp->setEnabled( false );
-        actionMoveTaskDown->setEnabled( false );
-        actionIndentTask->setEnabled( false );
-        actionUnindentTask->setEnabled( false );
+    if (! on) {
+        menuAddTask->setEnabled(false);
+        actionAddTask->setEnabled(false);
+        actionAddMilestone->setEnabled(false);
+        menuAddSubTask->setEnabled(false);
+        actionAddSubtask->setEnabled(false);
+        actionAddSubMilestone->setEnabled(false);
+        actionDeleteTask->setEnabled(false);
+        actionLinkTask->setEnabled(false);
+        actionMoveTaskUp->setEnabled(false);
+        actionMoveTaskDown->setEnabled(false);
+        actionIndentTask->setEnabled(false);
+        actionUnindentTask->setEnabled(false);
         return;
     }
         
     int selCount = selectedRowCount();
-    if ( selCount == 0 ) {
-        if ( currentNode() ) {
+    if (selCount == 0) {
+        if (currentNode()) {
             // there are tasks but none is selected
-            menuAddTask->setEnabled( false );
-            actionAddTask->setEnabled( false );
-            actionAddMilestone->setEnabled( false );
-            menuAddSubTask->setEnabled( false );
-            actionAddSubtask->setEnabled( false );
-            actionAddSubMilestone->setEnabled( false );
-            actionDeleteTask->setEnabled( false );
-            actionLinkTask->setEnabled( false );
-            actionMoveTaskUp->setEnabled( false );
-            actionMoveTaskDown->setEnabled( false );
-            actionIndentTask->setEnabled( false );
-            actionUnindentTask->setEnabled( false );
+            menuAddTask->setEnabled(false);
+            actionAddTask->setEnabled(false);
+            actionAddMilestone->setEnabled(false);
+            menuAddSubTask->setEnabled(false);
+            actionAddSubtask->setEnabled(false);
+            actionAddSubMilestone->setEnabled(false);
+            actionDeleteTask->setEnabled(false);
+            actionLinkTask->setEnabled(false);
+            actionMoveTaskUp->setEnabled(false);
+            actionMoveTaskDown->setEnabled(false);
+            actionIndentTask->setEnabled(false);
+            actionUnindentTask->setEnabled(false);
         } else {
             // we need to be able to add the first task
-            menuAddTask->setEnabled( true );
-            actionAddTask->setEnabled( true );
-            actionAddMilestone->setEnabled( true );
-            menuAddSubTask->setEnabled( false );
-            actionAddSubtask->setEnabled( false );
-            actionAddSubMilestone->setEnabled( false );
-            actionDeleteTask->setEnabled( false );
-            actionLinkTask->setEnabled( false );
-            actionMoveTaskUp->setEnabled( false );
-            actionMoveTaskDown->setEnabled( false );
-            actionIndentTask->setEnabled( false );
-            actionUnindentTask->setEnabled( false );
+            menuAddTask->setEnabled(true);
+            actionAddTask->setEnabled(true);
+            actionAddMilestone->setEnabled(true);
+            menuAddSubTask->setEnabled(false);
+            actionAddSubtask->setEnabled(false);
+            actionAddSubMilestone->setEnabled(false);
+            actionDeleteTask->setEnabled(false);
+            actionLinkTask->setEnabled(false);
+            actionMoveTaskUp->setEnabled(false);
+            actionMoveTaskDown->setEnabled(false);
+            actionIndentTask->setEnabled(false);
+            actionUnindentTask->setEnabled(false);
         }
         return;
     }
     Node *n = selectedNode(); // 0 if not a single task, summarytask or milestone
-    if ( selCount == 1 && n == 0 ) {
+    if (selCount == 1 && n == 0) {
         // only project selected
-        menuAddTask->setEnabled( true );
-        actionAddTask->setEnabled( true );
-        actionAddMilestone->setEnabled( true );
-        menuAddSubTask->setEnabled( true );
-        actionAddSubtask->setEnabled( true );
-        actionAddSubMilestone->setEnabled( true );
-        actionDeleteTask->setEnabled( false );
-        actionMoveTaskUp->setEnabled( false );
-        actionMoveTaskDown->setEnabled( false );
-        actionIndentTask->setEnabled( false );
-        actionUnindentTask->setEnabled( false );
+        menuAddTask->setEnabled(true);
+        actionAddTask->setEnabled(true);
+        actionAddMilestone->setEnabled(true);
+        menuAddSubTask->setEnabled(true);
+        actionAddSubtask->setEnabled(true);
+        actionAddSubMilestone->setEnabled(true);
+        actionDeleteTask->setEnabled(false);
+        actionMoveTaskUp->setEnabled(false);
+        actionMoveTaskDown->setEnabled(false);
+        actionIndentTask->setEnabled(false);
+        actionUnindentTask->setEnabled(false);
         return;
     }
     bool baselined = false;
     Project *p = m_view->project();
-    if ( p && p->isBaselined() ) {
-        foreach ( Node *n, selectedNodes() ) {
-            if ( n->isBaselined() ) {
+    if (p && p->isBaselined()) {
+        foreach (Node *n, selectedNodes()) {
+            if (n->isBaselined()) {
                 baselined = true;
                 break;
             }
         }
     }
-    if ( selCount == 1 ) {
-        menuAddTask->setEnabled( true );
-        actionAddTask->setEnabled( true );
-        actionAddMilestone->setEnabled( true );
-        menuAddSubTask->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
-        actionAddSubtask->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
-        actionAddSubMilestone->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
-        actionDeleteTask->setEnabled( ! baselined );
-        actionLinkTask->setEnabled( ! baselined );
+    if (selCount == 1) {
+        menuAddTask->setEnabled(true);
+        actionAddTask->setEnabled(true);
+        actionAddMilestone->setEnabled(true);
+        menuAddSubTask->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
+        actionAddSubtask->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
+        actionAddSubMilestone->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
+        actionDeleteTask->setEnabled(! baselined);
+        actionLinkTask->setEnabled(! baselined);
         Node *s = n->siblingBefore();
-        actionMoveTaskUp->setEnabled( s );
-        actionMoveTaskDown->setEnabled( n->siblingAfter() );
+        actionMoveTaskUp->setEnabled(s);
+        actionMoveTaskDown->setEnabled(n->siblingAfter());
         s = n->siblingBefore();
-        actionIndentTask->setEnabled( project()->canIndentTask(n) && ! baselined && s && ! s->isBaselined() );
-        actionUnindentTask->setEnabled( project()->canUnindentTask(n) && ! baselined && n->level() > 1 );
+        actionIndentTask->setEnabled(project()->canIndentTask(n) && ! baselined && s && ! s->isBaselined());
+        actionUnindentTask->setEnabled(project()->canUnindentTask(n) && ! baselined && n->level() > 1);
         return;
     }
     // selCount > 1
-    menuAddTask->setEnabled( false );
-    actionAddTask->setEnabled( false );
-    actionAddMilestone->setEnabled( false );
-    menuAddSubTask->setEnabled( false );
-    actionAddSubtask->setEnabled( false );
-    actionAddSubMilestone->setEnabled( false );
-    actionDeleteTask->setEnabled( ! baselined );
-    actionLinkTask->setEnabled( false );
-    actionMoveTaskUp->setEnabled( false );
-    actionMoveTaskDown->setEnabled( false );
+    menuAddTask->setEnabled(false);
+    actionAddTask->setEnabled(false);
+    actionAddMilestone->setEnabled(false);
+    menuAddSubTask->setEnabled(false);
+    actionAddSubtask->setEnabled(false);
+    actionAddSubMilestone->setEnabled(false);
+    actionDeleteTask->setEnabled(! baselined);
+    actionLinkTask->setEnabled(false);
+    actionMoveTaskUp->setEnabled(false);
+    actionMoveTaskDown->setEnabled(false);
 
     actionIndentTask->setEnabled(true);
     const QList<Node*> nodes = selectedNodes();
@@ -863,62 +863,62 @@ void TaskEditor::updateActionsEnabled( bool on )
 void TaskEditor::setupGui()
 {
     menuAddTask = new KActionMenu(koIcon("view-task-add"), i18n("Add Task"), this);
-    actionCollection()->addAction("add_task", menuAddTask );
-    connect( menuAddTask, &QAction::triggered, this, &TaskEditor::slotAddTask );
+    actionCollection()->addAction("add_task", menuAddTask);
+    connect(menuAddTask, &QAction::triggered, this, &TaskEditor::slotAddTask);
 
-    actionAddTask  = new QAction( i18n( "Add Task" ), this);
-    actionAddTask->setShortcut( Qt::CTRL + Qt::Key_I );
-    connect( actionAddTask, &QAction::triggered, this, &TaskEditor::slotAddTask );
-    menuAddTask->addAction( actionAddTask );
+    actionAddTask  = new QAction(i18n("Add Task"), this);
+    actionAddTask->setShortcut(Qt::CTRL + Qt::Key_I);
+    connect(actionAddTask, &QAction::triggered, this, &TaskEditor::slotAddTask);
+    menuAddTask->addAction(actionAddTask);
 
-    actionAddMilestone  = new QAction( i18n( "Add Milestone" ), this );
-    actionAddMilestone->setShortcut( Qt::CTRL + Qt::ALT + Qt::Key_I );
-    connect( actionAddMilestone, &QAction::triggered, this, &TaskEditor::slotAddMilestone );
-    menuAddTask->addAction( actionAddMilestone );
+    actionAddMilestone  = new QAction(i18n("Add Milestone"), this);
+    actionAddMilestone->setShortcut(Qt::CTRL + Qt::ALT + Qt::Key_I);
+    connect(actionAddMilestone, &QAction::triggered, this, &TaskEditor::slotAddMilestone);
+    menuAddTask->addAction(actionAddMilestone);
 
 
     menuAddSubTask = new KActionMenu(koIcon("view-task-child-add"), i18n("Add Sub-Task"), this);
-    actionCollection()->addAction("add_subtask", menuAddSubTask );
-    connect( menuAddSubTask, &QAction::triggered, this, &TaskEditor::slotAddSubtask );
+    actionCollection()->addAction("add_subtask", menuAddSubTask);
+    connect(menuAddSubTask, &QAction::triggered, this, &TaskEditor::slotAddSubtask);
 
-    actionAddSubtask  = new QAction( i18n( "Add Sub-Task" ), this );
-    actionAddSubtask->setShortcut( Qt::CTRL + Qt::SHIFT + Qt::Key_I );
-    connect( actionAddSubtask, &QAction::triggered, this, &TaskEditor::slotAddSubtask );
-    menuAddSubTask->addAction( actionAddSubtask );
+    actionAddSubtask  = new QAction(i18n("Add Sub-Task"), this);
+    actionAddSubtask->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_I);
+    connect(actionAddSubtask, &QAction::triggered, this, &TaskEditor::slotAddSubtask);
+    menuAddSubTask->addAction(actionAddSubtask);
 
-    actionAddSubMilestone = new QAction( i18n( "Add Sub-Milestone" ), this );
-    actionAddSubMilestone->setShortcut( Qt::CTRL + Qt::SHIFT + Qt::ALT + Qt::Key_I );
-    connect( actionAddSubMilestone, &QAction::triggered, this, &TaskEditor::slotAddSubMilestone );
-    menuAddSubTask->addAction( actionAddSubMilestone );
+    actionAddSubMilestone = new QAction(i18n("Add Sub-Milestone"), this);
+    actionAddSubMilestone->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::ALT + Qt::Key_I);
+    connect(actionAddSubMilestone, &QAction::triggered, this, &TaskEditor::slotAddSubMilestone);
+    menuAddSubTask->addAction(actionAddSubMilestone);
 
     actionDeleteTask  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
-    actionCollection()->setDefaultShortcut( actionDeleteTask, Qt::Key_Delete );
-    actionCollection()->addAction("delete_task", actionDeleteTask );
-    connect( actionDeleteTask, &QAction::triggered, this, &TaskEditor::slotDeleteTask );
+    actionCollection()->setDefaultShortcut(actionDeleteTask, Qt::Key_Delete);
+    actionCollection()->addAction("delete_task", actionDeleteTask);
+    connect(actionDeleteTask, &QAction::triggered, this, &TaskEditor::slotDeleteTask);
 
     actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
-    actionCollection()->setDefaultShortcut( actionLinkTask, Qt::CTRL + Qt::Key_L );
-    actionCollection()->addAction("link_task", actionLinkTask );
-    connect( actionLinkTask, &QAction::triggered, this, &TaskEditor::slotLinkTask );
+    actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL + Qt::Key_L);
+    actionCollection()->addAction("link_task", actionLinkTask);
+    connect(actionLinkTask, &QAction::triggered, this, &TaskEditor::slotLinkTask);
 
     actionIndentTask  = new QAction(koIcon("format-indent-more"), i18n("Indent Task"), this);
-    actionCollection()->addAction("indent_task", actionIndentTask );
+    actionCollection()->addAction("indent_task", actionIndentTask);
     connect(actionIndentTask, &QAction::triggered, this, &TaskEditor::slotIndentTask);
 
     actionUnindentTask  = new QAction(koIcon("format-indent-less"), i18n("Unindent Task"), this);
-    actionCollection()->addAction("unindent_task", actionUnindentTask );
+    actionCollection()->addAction("unindent_task", actionUnindentTask);
     connect(actionUnindentTask, &QAction::triggered, this, &TaskEditor::slotUnindentTask);
 
     actionMoveTaskUp  = new QAction(koIcon("arrow-up"), i18n("Move Up"), this);
-    actionCollection()->addAction("move_task_up", actionMoveTaskUp );
+    actionCollection()->addAction("move_task_up", actionMoveTaskUp);
     connect(actionMoveTaskUp, &QAction::triggered, this, &TaskEditor::slotMoveTaskUp);
 
     actionMoveTaskDown  = new QAction(koIcon("arrow-down"), i18n("Move Down"), this);
-    actionCollection()->addAction("move_task_down", actionMoveTaskDown );
+    actionCollection()->addAction("move_task_down", actionMoveTaskDown);
     connect(actionMoveTaskDown, &QAction::triggered, this, &TaskEditor::slotMoveTaskDown);
 
     // Add the context menu actions for the view options
-    actionShowProject = new KToggleAction( i18n( "Show Project" ), this );
+    actionShowProject = new KToggleAction(i18n("Show Project"), this);
     actionCollection()->addAction("show_project", actionShowProject);
     connect(actionShowProject, &QAction::triggered, baseModel(), &NodeItemModel::setShowProject);
     addContextAction(actionShowProject);
@@ -935,7 +935,7 @@ void TaskEditor::setupGui()
 void TaskEditor::slotSplitView()
 {
     debugPlan;
-    m_view->setViewSplitMode( ! m_view->isViewSplit() );
+    m_view->setViewSplitMode(! m_view->isViewSplit());
     emit optionsModified();
 }
 
@@ -943,7 +943,7 @@ void TaskEditor::slotSplitView()
 void TaskEditor::slotOptions()
 {
     debugPlan;
-    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, m_view, this );
+    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
     dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
@@ -952,92 +952,92 @@ void TaskEditor::slotOptions()
 void TaskEditor::slotAddTask()
 {
     debugPlan;
-    if ( selectedRowCount() == 0 || ( selectedRowCount() == 1 && selectedNode() == 0 ) ) {
-        Task *t = m_view->project()->createTask( m_view->project()->taskDefaults() );
-        QModelIndex idx = m_view->baseModel()->insertSubtask( t, m_view->project() );
-        Q_ASSERT( idx.isValid() );
-        edit( idx );
+    if (selectedRowCount() == 0 || (selectedRowCount() == 1 && selectedNode() == 0)) {
+        Task *t = m_view->project()->createTask(m_view->project()->taskDefaults());
+        QModelIndex idx = m_view->baseModel()->insertSubtask(t, m_view->project());
+        Q_ASSERT(idx.isValid());
+        edit(idx);
         return;
     }
     Node *sib = selectedNode();
-    if ( sib == 0 ) {
+    if (sib == 0) {
         return;
     }
-    Task *t = m_view->project()->createTask( m_view->project()->taskDefaults() );
-    QModelIndex idx = m_view->baseModel()->insertTask( t, sib );
-    Q_ASSERT( idx.isValid() );
-    edit( idx );
+    Task *t = m_view->project()->createTask(m_view->project()->taskDefaults());
+    QModelIndex idx = m_view->baseModel()->insertTask(t, sib);
+    Q_ASSERT(idx.isValid());
+    edit(idx);
 }
 
 void TaskEditor::slotAddMilestone()
 {
     debugPlan;
-    if ( selectedRowCount() == 0  || ( selectedRowCount() == 1 && selectedNode() == 0 ) ) {
+    if (selectedRowCount() == 0  || (selectedRowCount() == 1 && selectedNode() == 0)) {
         // None selected or only project selected: insert under main project
         Task *t = m_view->project()->createTask();
         t->estimate()->clear();
-        QModelIndex idx = m_view->baseModel()->insertSubtask( t, m_view->project() );
-        Q_ASSERT( idx.isValid() );
-        edit( idx );
+        QModelIndex idx = m_view->baseModel()->insertSubtask(t, m_view->project());
+        Q_ASSERT(idx.isValid());
+        edit(idx);
         return;
     }
     Node *sib = selectedNode(); // sibling
-    if ( sib == 0 ) {
+    if (sib == 0) {
         return;
     }
     Task *t = m_view->project()->createTask();
     t->estimate()->clear();
-    QModelIndex idx = m_view->baseModel()->insertTask( t, sib );
-    Q_ASSERT( idx.isValid() );
-    edit( idx );
+    QModelIndex idx = m_view->baseModel()->insertTask(t, sib);
+    Q_ASSERT(idx.isValid());
+    edit(idx);
 }
 
 void TaskEditor::slotAddSubMilestone()
 {
     debugPlan;
     Node *parent = selectedNode();
-    if ( parent == 0 && selectedRowCount() == 1 ) {
+    if (parent == 0 && selectedRowCount() == 1) {
         // project selected
         parent = m_view->project();
     }
-    if ( parent == 0 ) {
+    if (parent == 0) {
         return;
     }
     // Adding a sub-task will change current task which seems to confuse the view
     // so trigger a commitData() by changing the current index
-    m_view->selectionModel()->setCurrentIndex( QModelIndex(), QItemSelectionModel::NoUpdate );
-    Task *t = m_view->project()->createTask( m_view->project()->taskDefaults() );
+    m_view->selectionModel()->setCurrentIndex(QModelIndex(), QItemSelectionModel::NoUpdate);
+    Task *t = m_view->project()->createTask(m_view->project()->taskDefaults());
     t->estimate()->clear();
-    QModelIndex idx = m_view->baseModel()->insertSubtask( t, parent );
-    Q_ASSERT( idx.isValid() );
-    edit( idx );
+    QModelIndex idx = m_view->baseModel()->insertSubtask(t, parent);
+    Q_ASSERT(idx.isValid());
+    edit(idx);
 }
 
 void TaskEditor::slotAddSubtask()
 {
     debugPlan;
     Node *parent = selectedNode();
-    if ( parent == 0 && selectedRowCount() == 1 ) {
+    if (parent == 0 && selectedRowCount() == 1) {
         // project selected
         parent = m_view->project();
     }
-    if ( parent == 0 ) {
+    if (parent == 0) {
         return;
     }
     // Adding a sub-task will change current task which seems to confuse the view
     // so trigger a commitData() by changing the current index
-    m_view->selectionModel()->setCurrentIndex( QModelIndex(), QItemSelectionModel::NoUpdate );
-    Task *t = m_view->project()->createTask( m_view->project()->taskDefaults() );
-    QModelIndex idx = m_view->baseModel()->insertSubtask( t, parent );
-    Q_ASSERT( idx.isValid() );
-    edit( idx );
+    m_view->selectionModel()->setCurrentIndex(QModelIndex(), QItemSelectionModel::NoUpdate);
+    Task *t = m_view->project()->createTask(m_view->project()->taskDefaults());
+    QModelIndex idx = m_view->baseModel()->insertSubtask(t, parent);
+    Q_ASSERT(idx.isValid());
+    edit(idx);
 }
 
-void TaskEditor::edit( const QModelIndex &i )
+void TaskEditor::edit(const QModelIndex &i)
 {
-    if ( i.isValid() ) {
+    if (i.isValid()) {
         m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
-        m_view->edit( i );
+        m_view->edit(i);
     }
 }
 
@@ -1045,31 +1045,31 @@ void TaskEditor::slotDeleteTask()
 {
     //debugPlan;
     QList<Node*> lst = selectedNodes();
-    while ( true ) {
+    while (true) {
         // remove children of selected tasks, as parents delete their children
         Node *ch = 0;
-        foreach ( Node *n1, lst ) {
-            foreach ( Node *n2, lst ) {
-                if ( n2->isChildOf( n1 ) ) {
+        foreach (Node *n1, lst) {
+            foreach (Node *n2, lst) {
+                if (n2->isChildOf(n1)) {
                     ch = n2;
                     break;
                 }
             }
-            if ( ch != 0 ) {
+            if (ch != 0) {
                 break;
             }
         }
-        if ( ch == 0 ) {
+        if (ch == 0) {
             break;
         }
-        lst.removeAt( lst.indexOf( ch ) );
+        lst.removeAt(lst.indexOf(ch));
     }
-    //foreach ( Node* n, lst ) { debugPlan<<n->name(); }
-    emit deleteTaskList( lst );
+    //foreach (Node* n, lst) { debugPlan<<n->name(); }
+    emit deleteTaskList(lst);
     QModelIndex i = m_view->selectionModel()->currentIndex();
-    if ( i.isValid() ) {
-        m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect );
-        m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
+    if (i.isValid()) {
+        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
+        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
     }
 }
 
@@ -1117,8 +1117,8 @@ void TaskEditor::slotUnindentTask()
     if (nodes.count() == 1) {
         emit unindentTask();
         QModelIndex i = baseModel()->index(nodes.first());
-        m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect );
-        m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
+        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
+        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
     } else if (nodes.count() > 1) {
         MacroCommand *cmd = new MacroCommand(kundo2_i18np("Unindent task", "Unindent %1 tasks", nodes.count()));
         Node *newparent = nodes.first()->parentNode()->parentNode();
@@ -1134,11 +1134,11 @@ void TaskEditor::slotMoveTaskUp()
 {
     debugPlan;
     Node *n = selectedNode();
-    if ( n ) {
+    if (n) {
         emit moveTaskUp();
-        QModelIndex i = baseModel()->index( n );
-        m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect );
-        m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
+        QModelIndex i = baseModel()->index(n);
+        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
+        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
     }
 }
 
@@ -1146,34 +1146,34 @@ void TaskEditor::slotMoveTaskDown()
 {
     debugPlan;
     Node *n = selectedNode();
-    if ( n ) {
+    if (n) {
         emit moveTaskDown();
-        QModelIndex i = baseModel()->index( n );
-        m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect );
-         m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
+        QModelIndex i = baseModel()->index(n);
+        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
+         m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
    }
 }
 
-bool TaskEditor::loadContext( const KoXmlElement &context )
+bool TaskEditor::loadContext(const KoXmlElement &context)
 {
-    ViewBase::loadContext( context );
-    bool show = (bool)(context.attribute( "show-project", "0" ).toInt() );
-    actionShowProject->setChecked( show );
-    baseModel()->setShowProject( show ); // why is this not called by the action?
-    bool res = m_view->loadContext( baseModel()->columnMap(), context );
+    ViewBase::loadContext(context);
+    bool show = (bool)(context.attribute("show-project", "0").toInt());
+    actionShowProject->setChecked(show);
+    baseModel()->setShowProject(show); // why is this not called by the action?
+    bool res = m_view->loadContext(baseModel()->columnMap(), context);
     return res;
 }
 
-void TaskEditor::saveContext( QDomElement &context ) const
+void TaskEditor::saveContext(QDomElement &context) const
 {
-    ViewBase::saveContext( context );
-    context.setAttribute( "show-project", QString::number(baseModel()->projectShown()) );
-    m_view->saveContext( baseModel()->columnMap(), context );
+    ViewBase::saveContext(context);
+    context.setAttribute("show-project", QString::number(baseModel()->projectShown()));
+    m_view->saveContext(baseModel()->columnMap(), context);
 }
 
 KoPrintJob *TaskEditor::createPrintJob()
 {
-    return m_view->createPrintJob( this );
+    return m_view->createPrintJob(this);
 }
 
 void TaskEditor::slotEditCopy()
@@ -1192,24 +1192,24 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     setXMLFile("TaskViewUi.rc");
 
-    QVBoxLayout * l = new QVBoxLayout( this );
-    l->setMargin( 0 );
-    m_view = new NodeTreeView( this );
+    QVBoxLayout * l = new QVBoxLayout(this);
+    l->setMargin(0);
+    m_view = new NodeTreeView(this);
     m_doubleTreeView = m_view;
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);
 
-    NodeSortFilterProxyModel *p = new NodeSortFilterProxyModel( m_view->baseModel(), m_view );
-    m_view->setModel( p );
-    l->addWidget( m_view );
+    NodeSortFilterProxyModel *p = new NodeSortFilterProxyModel(m_view->baseModel(), m_view);
+    m_view->setModel(p);
+    l->addWidget(m_view);
     setupGui();
 
-    //m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
+    //m_view->setEditTriggers(m_view->editTriggers() | QAbstractItemView::EditKeyPressed);
     m_view->setDragDropMode(QAbstractItemView::DragOnly);
-    m_view->setDropIndicatorShown( false );
-    m_view->setDragEnabled ( true );
-    m_view->setAcceptDrops( false );
-    m_view->setAcceptDropsOnView( false );
+    m_view->setDropIndicatorShown(false);
+    m_view->setDragEnabled (true);
+    m_view->setAcceptDrops(false);
+    m_view->setAcceptDropsOnView(false);
 
     QList<int> readonly;
     readonly << NodeModel::NodeName
@@ -1230,8 +1230,8 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
             << NodeModel::NodeShutdownAccount
             << NodeModel::NodeShutdownCost
             << NodeModel::NodeDescription;
-    foreach ( int c, readonly ) {
-        m_view->baseModel()->setReadOnly( c, true );
+    foreach (int c, readonly) {
+        m_view->baseModel()->setReadOnly(c, true);
     }
 
     QList<int> lst1; lst1 << 1 << -1;
@@ -1246,28 +1246,28 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
             << NodeModel::NodeACWP
             << NodeModel::NodeDescription;
 
-    for ( int s = 0; s < show.count(); ++s ) {
-        m_view->slaveView()->mapToSection( show[s], s );
+    for (int s = 0; s < show.count(); ++s) {
+        m_view->slaveView()->mapToSection(show[s], s);
     }
     QList<int> lst2;
-    for ( int i = 0; i < m_view->model()->columnCount(); ++i ) {
-        if ( ! show.contains( i ) ) {
+    for (int i = 0; i < m_view->model()->columnCount(); ++i) {
+        if (! show.contains(i)) {
             lst2 << i;
         }
     }
-    m_view->hideColumns( lst1, lst2 );
-    m_view->masterView()->setDefaultColumns( QList<int>() << 0 );
-    m_view->slaveView()->setDefaultColumns( show );
+    m_view->hideColumns(lst1, lst2);
+    m_view->masterView()->setDefaultColumns(QList<int>() << 0);
+    m_view->slaveView()->setDefaultColumns(show);
 
-    connect( m_view->baseModel(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
+    connect(m_view->baseModel(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
 
-    connect( m_view, &DoubleTreeViewBase::currentChanged, this, &TaskView::slotCurrentChanged );
+    connect(m_view, &DoubleTreeViewBase::currentChanged, this, &TaskView::slotCurrentChanged);
 
-    connect( m_view, &DoubleTreeViewBase::selectionChanged, this, &TaskView::slotSelectionChanged );
+    connect(m_view, &DoubleTreeViewBase::selectionChanged, this, &TaskView::slotSelectionChanged);
 
-    connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &TaskView::slotContextMenuRequested );
+    connect(m_view, &DoubleTreeViewBase::contextMenuRequested, this, &TaskView::slotContextMenuRequested);
 
-    connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
+    connect(m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
 
     connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskView::itemDoubleClicked);
     connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskView::itemDoubleClicked);
@@ -1290,38 +1290,38 @@ void TaskView::itemDoubleClicked(const QPersistentModelIndex &idx)
     }
 }
 
-void TaskView::updateReadWrite( bool rw )
+void TaskView::updateReadWrite(bool rw)
 {
-    m_view->setReadWrite( rw );
-    ViewBase::updateReadWrite( rw );
+    m_view->setReadWrite(rw);
+    ViewBase::updateReadWrite(rw);
 }
 
-void TaskView::draw( Project &project )
+void TaskView::draw(Project &project)
 {
-    m_view->setProject( &project );
+    m_view->setProject(&project);
 }
 
 void TaskView::draw()
 {
 }
 
-void TaskView::setGuiActive( bool activate )
+void TaskView::setGuiActive(bool activate)
 {
     debugPlan<<activate;
-    updateActionsEnabled( true );
-    ViewBase::setGuiActive( activate );
-    if ( activate && !m_view->selectionModel()->currentIndex().isValid() && m_view->model()->rowCount() > 0 ) {
-        m_view->selectionModel()->setCurrentIndex(m_view->model()->index( 0, 0 ), QItemSelectionModel::NoUpdate);
+    updateActionsEnabled(true);
+    ViewBase::setGuiActive(activate);
+    if (activate && !m_view->selectionModel()->currentIndex().isValid() && m_view->model()->rowCount() > 0) {
+        m_view->selectionModel()->setCurrentIndex(m_view->model()->index(0, 0), QItemSelectionModel::NoUpdate);
     }
 }
 
-void TaskView::slotCurrentChanged(  const QModelIndex &curr, const QModelIndex & )
+void TaskView::slotCurrentChanged(const QModelIndex &curr, const QModelIndex &)
 {
     debugPlan<<curr.row()<<","<<curr.column();
     slotEnableActions();
 }
 
-void TaskView::slotSelectionChanged( const QModelIndexList &list)
+void TaskView::slotSelectionChanged(const QModelIndexList &list)
 {
     debugPlan<<list.count();
     slotEnableActions();
@@ -1336,13 +1336,13 @@ int TaskView::selectedNodeCount() const
 QList<Node*> TaskView::selectedNodes() const {
     QList<Node*> lst;
     QItemSelectionModel* sm = m_view->selectionModel();
-    if ( sm == 0 ) {
+    if (sm == 0) {
         return lst;
     }
-    foreach ( const QModelIndex &i, sm->selectedRows() ) {
-        Node * n = m_view->baseModel()->node( proxyModel()->mapToSource( i ) );
-        if ( n != 0 && n->type() != Node::Type_Project ) {
-            lst.append( n );
+    foreach (const QModelIndex &i, sm->selectedRows()) {
+        Node * n = m_view->baseModel()->node(proxyModel()->mapToSource(i));
+        if (n != 0 && n->type() != Node::Type_Project) {
+            lst.append(n);
         }
     }
     return lst;
@@ -1351,26 +1351,26 @@ QList<Node*> TaskView::selectedNodes() const {
 Node *TaskView::selectedNode() const
 {
     QList<Node*> lst = selectedNodes();
-    if ( lst.count() != 1 ) {
+    if (lst.count() != 1) {
         return 0;
     }
     return lst.first();
 }
 
 Node *TaskView::currentNode() const {
-    Node * n = m_view->baseModel()->node( proxyModel()->mapToSource( m_view->selectionModel()->currentIndex() ) );
-    if ( n == 0 || n->type() == Node::Type_Project ) {
+    Node * n = m_view->baseModel()->node(proxyModel()->mapToSource(m_view->selectionModel()->currentIndex()));
+    if (n == 0 || n->type() == Node::Type_Project) {
         return 0;
     }
     return n;
 }
 
-void TaskView::slotContextMenuRequested( const QModelIndex& index, const QPoint& pos )
+void TaskView::slotContextMenuRequested(const QModelIndex& index, const QPoint& pos)
 {
     QString name;
-    Node *node = m_view->baseModel()->node( proxyModel()->mapToSource( index ) );
-    if ( node ) {
-        switch ( node->type() ) {
+    Node *node = m_view->baseModel()->node(proxyModel()->mapToSource(index));
+    if (node) {
+        switch (node->type()) {
             case Node::Type_Project:
                 name = "taskview_project_popup";
                 break;
@@ -1387,17 +1387,17 @@ void TaskView::slotContextMenuRequested( const QModelIndex& index, const QPoint&
                 break;
         }
     } else debugPlan<<"No node: "<<index;
-    if ( name.isEmpty() ) {
+    if (name.isEmpty()) {
         debugPlan<<"No menu";
-        slotHeaderContextMenuRequested( pos );
+        slotHeaderContextMenuRequested(pos);
         return;
     }
     m_view->setContextMenuIndex(index);
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
-void TaskView::setScheduleManager( ScheduleManager *sm )
+void TaskView::setScheduleManager(ScheduleManager *sm)
 {
     //debugPlan<<endl;
     if (!sm && scheduleManager()) {
@@ -1418,7 +1418,7 @@ void TaskView::setScheduleManager( ScheduleManager *sm )
         m_view->masterView()->saveExpanded(element);
     }
     ViewBase::setScheduleManager(sm);
-    m_view->baseModel()->setScheduleManager( sm );
+    m_view->baseModel()->setScheduleManager(sm);
 
     if (expand) {
         m_view->masterView()->doExpand(doc);
@@ -1429,10 +1429,10 @@ void TaskView::setScheduleManager( ScheduleManager *sm )
 
 void TaskView::slotEnableActions()
 {
-    updateActionsEnabled( true );
+    updateActionsEnabled(true);
 }
 
-void TaskView::updateActionsEnabled( bool /*on*/ )
+void TaskView::updateActionsEnabled(bool /*on*/)
 {
 
 }
@@ -1442,14 +1442,14 @@ void TaskView::setupGui()
 //    KActionCollection *coll = actionCollection();
 
     // Add the context menu actions for the view options
-    actionShowProject = new KToggleAction( i18n( "Show Project" ), this );
+    actionShowProject = new KToggleAction(i18n("Show Project"), this);
     actionCollection()->addAction("show_project", actionShowProject);
     connect(actionShowProject, &QAction::triggered, baseModel(), &NodeItemModel::setShowProject);
-    addContextAction( actionShowProject );
+    addContextAction(actionShowProject);
 
     actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskView::slotSplitView);
-    addContextAction( m_view->actionSplitView() );
+    addContextAction(m_view->actionSplitView());
 
     createOptionActions(ViewBase::OptionAll);
 }
@@ -1457,38 +1457,38 @@ void TaskView::setupGui()
 void TaskView::slotSplitView()
 {
     debugPlan;
-    m_view->setViewSplitMode( ! m_view->isViewSplit() );
+    m_view->setViewSplitMode(! m_view->isViewSplit());
     emit optionsModified();
 }
 
 void TaskView::slotOptions()
 {
     debugPlan;
-    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, m_view, this );
+    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
     dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
 
-bool TaskView::loadContext( const KoXmlElement &context )
+bool TaskView::loadContext(const KoXmlElement &context)
 {
-    ViewBase::loadContext( context );
-    bool show = (bool)(context.attribute( "show-project", "0" ).toInt() );
-    actionShowProject->setChecked( show );
-    baseModel()->setShowProject( show ); // why is this not called by the action?
-    return m_view->loadContext( m_view->baseModel()->columnMap(), context );
+    ViewBase::loadContext(context);
+    bool show = (bool)(context.attribute("show-project", "0").toInt());
+    actionShowProject->setChecked(show);
+    baseModel()->setShowProject(show); // why is this not called by the action?
+    return m_view->loadContext(m_view->baseModel()->columnMap(), context);
 }
 
-void TaskView::saveContext( QDomElement &context ) const
+void TaskView::saveContext(QDomElement &context) const
 {
-    ViewBase::saveContext( context );
-    context.setAttribute( "show-project", QString::number(baseModel()->projectShown()) );
-    m_view->saveContext( m_view->baseModel()->columnMap(), context );
+    ViewBase::saveContext(context);
+    context.setAttribute("show-project", QString::number(baseModel()->projectShown()));
+    m_view->saveContext(m_view->baseModel()->columnMap(), context);
 }
 
 KoPrintJob *TaskView::createPrintJob()
 {
-    return m_view->createPrintJob( this );
+    return m_view->createPrintJob(this);
 }
 
 void TaskView::slotEditCopy()
@@ -1497,22 +1497,22 @@ void TaskView::slotEditCopy()
 }
 
 //---------------------------------
-WorkPackageTreeView::WorkPackageTreeView( QWidget *parent )
-    : DoubleTreeViewBase( parent )
+WorkPackageTreeView::WorkPackageTreeView(QWidget *parent)
+    : DoubleTreeViewBase(parent)
 {
     debugPlan<<"----------"<<this<<"----------";
-    m = new WorkPackageProxyModel( this );
-    setModel( m );
-    //setSelectionBehavior( QAbstractItemView::SelectItems );
-    setSelectionMode( QAbstractItemView::ExtendedSelection );
-    setSelectionBehavior( QAbstractItemView::SelectRows );
+    m = new WorkPackageProxyModel(this);
+    setModel(m);
+    //setSelectionBehavior(QAbstractItemView::SelectItems);
+    setSelectionMode(QAbstractItemView::ExtendedSelection);
+    setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    createItemDelegates( baseModel() );
+    createItemDelegates(baseModel());
 
-    setSortingEnabled( true );
-    sortByColumn( NodeModel::NodeWBSCode, Qt::AscendingOrder );
+    setSortingEnabled(true);
+    sortByColumn(NodeModel::NodeWBSCode, Qt::AscendingOrder);
 
-    connect( this, &DoubleTreeViewBase::dropAllowed, this, &WorkPackageTreeView::slotDropAllowed );
+    connect(this, &DoubleTreeViewBase::dropAllowed, this, &WorkPackageTreeView::slotDropAllowed);
 }
 
 NodeItemModel *WorkPackageTreeView::baseModel() const
@@ -1520,26 +1520,26 @@ NodeItemModel *WorkPackageTreeView::baseModel() const
     return m->baseModel();
 }
 
-void WorkPackageTreeView::slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event )
+void WorkPackageTreeView::slotDropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event)
 {
     Q_UNUSED(index);
     Q_UNUSED(dropIndicatorPosition);
     Q_UNUSED(event);
 /*    QModelIndex idx = index;
     NodeSortFilterProxyModel *pr = proxyModel();
-    if ( pr ) {
-        idx = pr->mapToSource( index );
+    if (pr) {
+        idx = pr->mapToSource(index);
     }
     event->ignore();
-    if ( baseModel()->dropAllowed( idx, dropIndicatorPosition, event->mimeData() ) ) {
+    if (baseModel()->dropAllowed(idx, dropIndicatorPosition, event->mimeData())) {
         event->accept();
     }*/
 }
 
 //--------------------------------
 TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget *parent)
-    : ViewBase(part, doc, parent ),
-    m_cmd( 0 )
+    : ViewBase(part, doc, parent),
+    m_cmd(0)
 {
     if (doc && doc->isReadWrite()) {
         setXMLFile("WorkPackageViewUi.rc");
@@ -1547,22 +1547,22 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
         setXMLFile("WorkPackageViewUi_readonly.rc");
     }
 
-    QVBoxLayout * l = new QVBoxLayout( this );
-    l->setMargin( 0 );
-    m_view = new WorkPackageTreeView( this );
+    QVBoxLayout * l = new QVBoxLayout(this);
+    l->setMargin(0);
+    m_view = new WorkPackageTreeView(this);
     m_doubleTreeView = m_view;
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);
 
-    l->addWidget( m_view );
+    l->addWidget(m_view);
     setupGui();
 
-    //m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
-    m_view->setDragDropMode( QAbstractItemView::DragDrop );
-    m_view->setDropIndicatorShown( true );
-    m_view->setDragEnabled ( true );
-    m_view->setAcceptDrops( true );
-    m_view->setAcceptDropsOnView( true );
+    //m_view->setEditTriggers(m_view->editTriggers() | QAbstractItemView::EditKeyPressed);
+    m_view->setDragDropMode(QAbstractItemView::DragDrop);
+    m_view->setDropIndicatorShown(true);
+    m_view->setDragEnabled (true);
+    m_view->setAcceptDrops(true);
+    m_view->setAcceptDropsOnView(true);
     m_view->setDefaultDropAction(Qt::CopyAction);
 
     QList<int> readonly;
@@ -1584,8 +1584,8 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
             << NodeModel::NodeShutdownAccount
             << NodeModel::NodeShutdownCost
             << NodeModel::NodeDescription;
-    foreach ( int c, readonly ) {
-        m_view->baseModel()->setReadOnly( c, true );
+    foreach (int c, readonly) {
+        m_view->baseModel()->setReadOnly(c, true);
     }
 
     QList<int> lst1; lst1 << 1 << -1;
@@ -1596,28 +1596,28 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
             << NodeModel::NodeAssignments
             << NodeModel::NodeDescription;
 
-    for ( int s = 0; s < show.count(); ++s ) {
-        m_view->slaveView()->mapToSection( show[s], s );
+    for (int s = 0; s < show.count(); ++s) {
+        m_view->slaveView()->mapToSection(show[s], s);
     }
     QList<int> lst2;
-    for ( int i = 0; i < m_view->model()->columnCount(); ++i ) {
-        if ( ! show.contains( i ) ) {
+    for (int i = 0; i < m_view->model()->columnCount(); ++i) {
+        if (! show.contains(i)) {
             lst2 << i;
         }
     }
-    m_view->hideColumns( lst1, lst2 );
-    m_view->masterView()->setDefaultColumns( QList<int>() << 0 );
-    m_view->slaveView()->setDefaultColumns( show );
+    m_view->hideColumns(lst1, lst2);
+    m_view->masterView()->setDefaultColumns(QList<int>() << 0);
+    m_view->slaveView()->setDefaultColumns(show);
 
-    connect( m_view->baseModel(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
+    connect(m_view->baseModel(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
 
-    connect( m_view, &DoubleTreeViewBase::currentChanged, this, &TaskWorkPackageView::slotCurrentChanged );
+    connect(m_view, &DoubleTreeViewBase::currentChanged, this, &TaskWorkPackageView::slotCurrentChanged);
 
-    connect( m_view, &DoubleTreeViewBase::selectionChanged, this, &TaskWorkPackageView::slotSelectionChanged );
+    connect(m_view, &DoubleTreeViewBase::selectionChanged, this, &TaskWorkPackageView::slotSelectionChanged);
 
-    connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &TaskWorkPackageView::slotContextMenuRequested );
+    connect(m_view, &DoubleTreeViewBase::contextMenuRequested, this, &TaskWorkPackageView::slotContextMenuRequested);
 
-    connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
+    connect(m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
 
     connect(m_view->proxyModel(), &WorkPackageProxyModel::loadWorkPackage, this, &TaskWorkPackageView::slotLoadWorkPackage);
     connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskWorkPackageView::itemDoubleClicked);
@@ -1636,9 +1636,9 @@ Project *TaskWorkPackageView::project() const
     return m_view->project();
 }
 
-void TaskWorkPackageView::setProject( Project *project )
+void TaskWorkPackageView::setProject(Project *project)
 {
-    m_view->setProject( project );
+    m_view->setProject(project);
 }
 
 WorkPackageProxyModel *TaskWorkPackageView::proxyModel() const
@@ -1646,19 +1646,19 @@ WorkPackageProxyModel *TaskWorkPackageView::proxyModel() const
     return m_view->proxyModel();
 }
 
-void TaskWorkPackageView::updateReadWrite( bool rw )
+void TaskWorkPackageView::updateReadWrite(bool rw)
 {
-    m_view->setReadWrite( rw );
-    ViewBase::updateReadWrite( rw );
+    m_view->setReadWrite(rw);
+    ViewBase::updateReadWrite(rw);
 }
 
-void TaskWorkPackageView::setGuiActive( bool activate )
+void TaskWorkPackageView::setGuiActive(bool activate)
 {
     debugPlan<<activate;
-    updateActionsEnabled( true );
-    ViewBase::setGuiActive( activate );
-    if ( activate && !m_view->selectionModel()->currentIndex().isValid() && m_view->model()->rowCount() > 0 ) {
-        m_view->selectionModel()->setCurrentIndex(m_view->model()->index( 0, 0 ), QItemSelectionModel::NoUpdate);
+    updateActionsEnabled(true);
+    ViewBase::setGuiActive(activate);
+    if (activate && !m_view->selectionModel()->currentIndex().isValid() && m_view->model()->rowCount() > 0) {
+        m_view->selectionModel()->setCurrentIndex(m_view->model()->index(0, 0), QItemSelectionModel::NoUpdate);
     }
 }
 
@@ -1667,13 +1667,13 @@ void TaskWorkPackageView::slotRefreshView()
     emit checkForWorkPackages(false);
 }
 
-void TaskWorkPackageView::slotCurrentChanged(  const QModelIndex &curr, const QModelIndex & )
+void TaskWorkPackageView::slotCurrentChanged(const QModelIndex &curr, const QModelIndex &)
 {
     debugPlan<<curr.row()<<","<<curr.column();
     slotEnableActions();
 }
 
-void TaskWorkPackageView::slotSelectionChanged( const QModelIndexList &list)
+void TaskWorkPackageView::slotSelectionChanged(const QModelIndexList &list)
 {
     debugPlan<<list.count();
     slotEnableActions();
@@ -1688,13 +1688,13 @@ int TaskWorkPackageView::selectedNodeCount() const
 QList<Node*> TaskWorkPackageView::selectedNodes() const {
     QList<Node*> lst;
     QItemSelectionModel* sm = m_view->selectionModel();
-    if ( sm == 0 ) {
+    if (sm == 0) {
         return lst;
     }
-    foreach ( const QModelIndex &i, sm->selectedRows() ) {
-        Node * n = proxyModel()->taskFromIndex( i );
-        if ( n != 0 && n->type() != Node::Type_Project ) {
-            lst.append( n );
+    foreach (const QModelIndex &i, sm->selectedRows()) {
+        Node * n = proxyModel()->taskFromIndex(i);
+        if (n != 0 && n->type() != Node::Type_Project) {
+            lst.append(n);
         }
     }
     return lst;
@@ -1703,26 +1703,26 @@ QList<Node*> TaskWorkPackageView::selectedNodes() const {
 Node *TaskWorkPackageView::selectedNode() const
 {
     QList<Node*> lst = selectedNodes();
-    if ( lst.count() != 1 ) {
+    if (lst.count() != 1) {
         return 0;
     }
     return lst.first();
 }
 
 Node *TaskWorkPackageView::currentNode() const {
-    Node * n = proxyModel()->taskFromIndex( m_view->selectionModel()->currentIndex() );
-    if ( n == 0 || n->type() == Node::Type_Project ) {
+    Node * n = proxyModel()->taskFromIndex(m_view->selectionModel()->currentIndex());
+    if (n == 0 || n->type() == Node::Type_Project) {
         return 0;
     }
     return n;
 }
 
-void TaskWorkPackageView::slotContextMenuRequested( const QModelIndex& index, const QPoint& pos )
+void TaskWorkPackageView::slotContextMenuRequested(const QModelIndex& index, const QPoint& pos)
 {
     QString name;
-    Node *node = proxyModel()->taskFromIndex( index );
-    if ( node ) {
-        switch ( node->type() ) {
+    Node *node = proxyModel()->taskFromIndex(index);
+    if (node) {
+        switch (node->type()) {
             case Node::Type_Task:
                 name = "workpackage_popup";
                 break;
@@ -1736,9 +1736,9 @@ void TaskWorkPackageView::slotContextMenuRequested( const QModelIndex& index, co
                 break;
         }
     } else debugPlan<<"No node: "<<index;
-    if ( name.isEmpty() ) {
+    if (name.isEmpty()) {
         debugPlan<<"No menu";
-        slotHeaderContextMenuRequested( pos );
+        slotHeaderContextMenuRequested(pos);
         return;
     }
     m_view->setContextMenuIndex(index);
@@ -1746,36 +1746,36 @@ void TaskWorkPackageView::slotContextMenuRequested( const QModelIndex& index, co
     m_view->setContextMenuIndex(QModelIndex());
 }
 
-void TaskWorkPackageView::setScheduleManager( ScheduleManager *sm )
+void TaskWorkPackageView::setScheduleManager(ScheduleManager *sm)
 {
     //debugPlan<<endl;
-    m_view->baseModel()->setScheduleManager( sm );
+    m_view->baseModel()->setScheduleManager(sm);
 }
 
 void TaskWorkPackageView::slotEnableActions()
 {
-    updateActionsEnabled( true );
+    updateActionsEnabled(true);
 }
 
-void TaskWorkPackageView::updateActionsEnabled( bool on )
+void TaskWorkPackageView::updateActionsEnabled(bool on)
 {
     bool o = ! selectedNodes().isEmpty();
-    actionMailWorkpackage->setEnabled( o && on );
+    actionMailWorkpackage->setEnabled(o && on);
 }
 
 void TaskWorkPackageView::setupGui()
 {
     actionMailWorkpackage  = new QAction(koIcon("cloud-upload"), i18n("Publish..."), this);
-    actionCollection()->addAction("send_workpackage", actionMailWorkpackage );
-    connect( actionMailWorkpackage, &QAction::triggered, this, &TaskWorkPackageView::slotMailWorkpackage );
+    actionCollection()->addAction("send_workpackage", actionMailWorkpackage);
+    connect(actionMailWorkpackage, &QAction::triggered, this, &TaskWorkPackageView::slotMailWorkpackage);
 
     actionOpenWorkpackages = new QAction(koIcon("view-task"), i18n("Work Packages..."), this);
-    actionCollection()->addAction("open_workpackages", actionOpenWorkpackages );
+    actionCollection()->addAction("open_workpackages", actionOpenWorkpackages);
     actionOpenWorkpackages->setEnabled(false);
-    connect( actionOpenWorkpackages, &QAction::triggered, this, &TaskWorkPackageView::openWorkpackages );
+    connect(actionOpenWorkpackages, &QAction::triggered, this, &TaskWorkPackageView::openWorkpackages);
 
     // Add the context menu actions for the view options
-    addContextAction( m_view->actionSplitView() );
+    addContextAction(m_view->actionSplitView());
     actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskWorkPackageView::slotSplitView);
 
@@ -1785,17 +1785,17 @@ void TaskWorkPackageView::setupGui()
 void TaskWorkPackageView::slotMailWorkpackage()
 {
     QList<Node*> lst = selectedNodes();
-    if ( ! lst.isEmpty() ) {
+    if (! lst.isEmpty()) {
         // TODO find a better way to log to avoid undo/redo
-        m_cmd = new MacroCommand( kundo2_i18n( "Log Send Workpackage" ) );
-        QPointer<WorkPackageSendDialog> dlg = new WorkPackageSendDialog( lst, scheduleManager(), this );
-        connect ( dlg->panel(), &WorkPackageSendPanel::sendWorkpackages, this, &TaskWorkPackageView::publishWorkpackages );
+        m_cmd = new MacroCommand(kundo2_i18n("Log Send Workpackage"));
+        QPointer<WorkPackageSendDialog> dlg = new WorkPackageSendDialog(lst, scheduleManager(), this);
+        connect (dlg->panel(), &WorkPackageSendPanel::sendWorkpackages, this, &TaskWorkPackageView::publishWorkpackages);
 
-        connect ( dlg->panel(), &WorkPackageSendPanel::sendWorkpackages, this, &TaskWorkPackageView::slotWorkPackageSent );
+        connect (dlg->panel(), &WorkPackageSendPanel::sendWorkpackages, this, &TaskWorkPackageView::slotWorkPackageSent);
         dlg->exec();
         delete dlg;
-        if ( ! m_cmd->isEmpty() ) {
-            part()->addCommand( m_cmd );
+        if (! m_cmd->isEmpty()) {
+            part()->addCommand(m_cmd);
             m_cmd = 0;
         }
         delete m_cmd;
@@ -1803,50 +1803,50 @@ void TaskWorkPackageView::slotMailWorkpackage()
     }
 }
 
-void TaskWorkPackageView::slotWorkPackageSent( const QList<Node*> &nodes, Resource *resource )
+void TaskWorkPackageView::slotWorkPackageSent(const QList<Node*> &nodes, Resource *resource)
 {
-    foreach ( Node *n, nodes ) {
-        WorkPackage *wp = new WorkPackage( static_cast<Task*>( n )->workPackage() );
-        wp->setOwnerName( resource->name() );
-        wp->setOwnerId( resource->id() );
-        wp->setTransmitionTime( DateTime::currentDateTime() );
-        wp->setTransmitionStatus( WorkPackage::TS_Send );
-        m_cmd->addCommand( new WorkPackageAddCmd( static_cast<Project*>( n->projectNode() ), n, wp ) );
+    foreach (Node *n, nodes) {
+        WorkPackage *wp = new WorkPackage(static_cast<Task*>(n)->workPackage());
+        wp->setOwnerName(resource->name());
+        wp->setOwnerId(resource->id());
+        wp->setTransmitionTime(DateTime::currentDateTime());
+        wp->setTransmitionStatus(WorkPackage::TS_Send);
+        m_cmd->addCommand(new WorkPackageAddCmd(static_cast<Project*>(n->projectNode()), n, wp));
     }
 }
 
 void TaskWorkPackageView::slotSplitView()
 {
     debugPlan;
-    m_view->setViewSplitMode( ! m_view->isViewSplit() );
+    m_view->setViewSplitMode(! m_view->isViewSplit());
     emit optionsModified();
 }
 
 void TaskWorkPackageView::slotOptions()
 {
     debugPlan;
-    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, m_view, this );
+    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
     dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
 
-bool TaskWorkPackageView::loadContext( const KoXmlElement &context )
+bool TaskWorkPackageView::loadContext(const KoXmlElement &context)
 {
     debugPlan;
-    ViewBase::loadContext( context );
-    return m_view->loadContext( m_view->baseModel()->columnMap(), context );
+    ViewBase::loadContext(context);
+    return m_view->loadContext(m_view->baseModel()->columnMap(), context);
 }
 
-void TaskWorkPackageView::saveContext( QDomElement &context ) const
+void TaskWorkPackageView::saveContext(QDomElement &context) const
 {
-    ViewBase::saveContext( context );
-    m_view->saveContext( m_view->baseModel()->columnMap(), context );
+    ViewBase::saveContext(context);
+    m_view->saveContext(m_view->baseModel()->columnMap(), context);
 }
 
 KoPrintJob *TaskWorkPackageView::createPrintJob()
 {
-    return m_view->createPrintJob( this );
+    return m_view->createPrintJob(this);
 }
 
 void TaskWorkPackageView::slotEditCopy()

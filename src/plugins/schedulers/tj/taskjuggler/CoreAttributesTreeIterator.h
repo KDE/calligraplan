@@ -61,7 +61,7 @@ CoreAttributesTreeIteratorT<T>::operator++()
         // Find the current CA in the parent's sub list.
         CoreAttributesListIterator
             cli(current->getParent()->getSubListIterator());
-        for ( ; cli.hasNext() && cli.peekNext() != current; cli.next())
+        for (; cli.hasNext() && cli.peekNext() != current; cli.next())
             ;
         // Check if there is another task in the sub list.
         if (cli.hasNext())

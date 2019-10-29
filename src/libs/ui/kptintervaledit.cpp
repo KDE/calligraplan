@@ -34,17 +34,17 @@
 namespace KPlato
 {
 
-IntervalEdit::IntervalEdit( CalendarDay *day, QWidget *parent)
+IntervalEdit::IntervalEdit(CalendarDay *day, QWidget *parent)
     : IntervalEditImpl(parent)
 {
     //debugPlan;
-    if ( day ) {
+    if (day) {
         const QList<TimeInterval*> &intervals = day->timeIntervals();
-        setIntervals( intervals );
-        if ( ! intervals.isEmpty() ) {
-            startTime->setTime( intervals.last()->endTime() );
-            qreal l = ( intervals.last()->endTime().msecsTo( QTime().addMSecs( -1 ) ) + 1 )  / (1000.0*60.0*60.0);
-            length->setValue( qMin( l, (qreal) 8.0 ) );
+        setIntervals(intervals);
+        if (! intervals.isEmpty()) {
+            startTime->setTime(intervals.last()->endTime());
+            qreal l = (intervals.last()->endTime().msecsTo(QTime().addMSecs(-1)) + 1)  / (1000.0*60.0*60.0);
+            length->setValue(qMin(l, (qreal) 8.0));
         }
     }
     enableButtons();
@@ -56,15 +56,15 @@ IntervalEdit::IntervalEdit( CalendarDay *day, QWidget *parent)
 IntervalEditImpl::IntervalEditImpl(QWidget *parent)
     : IntervalEditBase(parent) 
 {
-    intervalList->setColumnCount( 2 );
+    intervalList->setColumnCount(2);
     QStringList lst;
-    lst << i18nc( "Interval start time", "Start" )
-        << i18nc( "Interval length", "Length" );
-    intervalList->setHeaderLabels( lst );
+    lst << i18nc("Interval start time", "Start")
+        << i18nc("Interval length", "Length");
+    intervalList->setHeaderLabels(lst);
 
-    intervalList->setRootIsDecorated( false );
-    intervalList->setSortingEnabled( true );
-    intervalList->sortByColumn( 0, Qt::AscendingOrder );
+    intervalList->setRootIsDecorated(false);
+    intervalList->setSortingEnabled(true);
+    intervalList->sortByColumn(0, Qt::AscendingOrder);
 
     bAddInterval->setIcon(koIcon("list-add"));
     bRemoveInterval->setIcon(koIcon("list-remove"));
@@ -75,8 +75,8 @@ IntervalEditImpl::IntervalEditImpl(QWidget *parent)
     connect(bRemoveInterval, &QAbstractButton::clicked, this, &IntervalEditImpl::slotRemoveIntervalClicked);
     connect(intervalList, &QTreeWidget::itemSelectionChanged, this, &IntervalEditImpl::slotIntervalSelectionChanged);
     
-    connect( startTime, &QDateTimeEdit::timeChanged, this, &IntervalEditImpl::enableButtons );
-    connect( length, SIGNAL(valueChanged(double)), SLOT(enableButtons()) );
+    connect(startTime, &QDateTimeEdit::timeChanged, this, &IntervalEditImpl::enableButtons);
+    connect(length, SIGNAL(valueChanged(double)), SLOT(enableButtons()));
     
 }
 
@@ -89,17 +89,17 @@ void IntervalEditImpl::slotClearClicked() {
 }
 
 void IntervalEditImpl::slotAddIntervalClicked() {
-    new IntervalItem(intervalList, startTime->time(), (int)(length->value() * 1000. * 60. *60.) );
+    new IntervalItem(intervalList, startTime->time(), (int)(length->value() * 1000. * 60. *60.));
     enableButtons();
     emit changed();
 }
 
 void IntervalEditImpl::slotRemoveIntervalClicked() {
-    IntervalItem *item = static_cast<IntervalItem*>( intervalList->currentItem() );
-    if ( item == 0) {
+    IntervalItem *item = static_cast<IntervalItem*>(intervalList->currentItem());
+    if (item == 0) {
         return;
     }
-    intervalList->takeTopLevelItem( intervalList->indexOfTopLevelItem( item ) );
+    intervalList->takeTopLevelItem(intervalList->indexOfTopLevelItem(item));
     delete item;
     enableButtons();
     emit changed();
@@ -137,143 +137,143 @@ void IntervalEditImpl::setIntervals(const QList<TimeInterval*> &intervals) {
 }
 
 void IntervalEditImpl::enableButtons() {
-    bClear->setEnabled( ! intervals().isEmpty() );
+    bClear->setEnabled(! intervals().isEmpty());
     
-    bRemoveInterval->setEnabled( intervalList->currentItem() );
+    bRemoveInterval->setEnabled(intervalList->currentItem());
     
-    if ( length->value() == 0.0 ) {
-        bAddInterval->setEnabled( false );
+    if (length->value() == 0.0) {
+        bAddInterval->setEnabled(false);
         return;
     }
-    if ( QTime( 0, 0, 0 ).secsTo( startTime->time() ) + (int)(length->value() * 60. * 60.) > 24 * 60 * 60 ) {
-        bAddInterval->setEnabled( false );
+    if (QTime(0, 0, 0).secsTo(startTime->time()) + (int)(length->value() * 60. * 60.) > 24 * 60 * 60) {
+        bAddInterval->setEnabled(false);
         return;
     }
-    TimeInterval ti( startTime->time(),  (int)(length->value() * 1000. * 60. *60.) );
+    TimeInterval ti(startTime->time(),  (int)(length->value() * 1000. * 60. *60.));
     foreach (TimeInterval *i, intervals()) {
-        if ( i->intersects( ti ) ) {
-            bAddInterval->setEnabled( false );
+        if (i->intersects(ti)) {
+            bAddInterval->setEnabled(false);
             return;
         }
     }
-    bAddInterval->setEnabled( true );
+    bAddInterval->setEnabled(true);
 }
 
 //-------------------------------------------------------------
-IntervalEditDialog::IntervalEditDialog( Calendar *calendar, const QList<CalendarDay*> &days, QWidget *parent)
-    : KoDialog( parent ),
-    m_calendar( calendar ),
-    m_days( days )
+IntervalEditDialog::IntervalEditDialog(Calendar *calendar, const QList<CalendarDay*> &days, QWidget *parent)
+    : KoDialog(parent),
+    m_calendar(calendar),
+    m_days(days)
 {
     //debugPlan;
-    setCaption( i18n("Edit Work Intervals") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setCaption(i18n("Edit Work Intervals"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
     //debugPlan<<&p;
-    m_panel = new IntervalEdit( days.value( 0 ), this );
-    setMainWidget( m_panel );
-    enableButtonOk( false );
+    m_panel = new IntervalEdit(days.value(0), this);
+    setMainWidget(m_panel);
+    enableButtonOk(false);
 
-    connect( m_panel, &IntervalEditImpl::changed, this, &IntervalEditDialog::slotChanged );
-    connect( calendar->project(), &Project::calendarRemoved, this, &IntervalEditDialog::slotCalendarRemoved );
+    connect(m_panel, &IntervalEditImpl::changed, this, &IntervalEditDialog::slotChanged);
+    connect(calendar->project(), &Project::calendarRemoved, this, &IntervalEditDialog::slotCalendarRemoved);
 }
 
-IntervalEditDialog::IntervalEditDialog( Calendar *calendar, const QList<QDate> &dates, QWidget *parent)
-    : KoDialog( parent ),
-    m_calendar( calendar ),
-    m_dates( dates )
+IntervalEditDialog::IntervalEditDialog(Calendar *calendar, const QList<QDate> &dates, QWidget *parent)
+    : KoDialog(parent),
+    m_calendar(calendar),
+    m_dates(dates)
 {
     //debugPlan;
-    setCaption( i18n("Edit Work Intervals") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setCaption(i18n("Edit Work Intervals"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
     //debugPlan<<&p;
-    foreach ( const QDate &d, dates ) {
-        CalendarDay *day = calendar->findDay( d );
-        if ( day ) {
+    foreach (const QDate &d, dates) {
+        CalendarDay *day = calendar->findDay(d);
+        if (day) {
             m_days << day;
         }
     }
-    m_panel = new IntervalEdit( m_days.value( 0 ), this );
-    setMainWidget( m_panel );
-    enableButtonOk( false );
+    m_panel = new IntervalEdit(m_days.value(0), this);
+    setMainWidget(m_panel);
+    enableButtonOk(false);
 
-    connect( m_panel, &IntervalEditImpl::changed, this, &IntervalEditDialog::slotChanged );
-    connect( calendar->project(), &Project::calendarRemoved, this, &IntervalEditDialog::slotCalendarRemoved );
+    connect(m_panel, &IntervalEditImpl::changed, this, &IntervalEditDialog::slotChanged);
+    connect(calendar->project(), &Project::calendarRemoved, this, &IntervalEditDialog::slotCalendarRemoved);
 }
 
-void IntervalEditDialog::slotCalendarRemoved( const Calendar *cal )
+void IntervalEditDialog::slotCalendarRemoved(const Calendar *cal)
 {
-    if ( m_calendar == cal ) {
+    if (m_calendar == cal) {
         reject();
     }
 }
 
 void IntervalEditDialog::slotChanged()
 {
-    enableButtonOk( true );
+    enableButtonOk(true);
 }
 
 MacroCommand *IntervalEditDialog::buildCommand()
 {
-    MacroCommand *cmd = new MacroCommand( kundo2_i18n( "Modify Work Interval" ) );
-    foreach ( const QDate &d, m_dates ) {
+    MacroCommand *cmd = new MacroCommand(kundo2_i18n("Modify Work Interval"));
+    foreach (const QDate &d, m_dates) {
         // these are dates, weekdays don't have date
-        CalendarDay *day = m_calendar->findDay( d );
-        if ( day == 0 ) {
+        CalendarDay *day = m_calendar->findDay(d);
+        if (day == 0) {
             // create a new day
-            day = new CalendarDay( d );
-            cmd->addCommand( new CalendarAddDayCmd( m_calendar, day ) );
+            day = new CalendarDay(d);
+            cmd->addCommand(new CalendarAddDayCmd(m_calendar, day));
         }
-        MacroCommand *c = buildCommand( m_calendar, day );
-        if ( c ) {
-            cmd->addCommand( c );
+        MacroCommand *c = buildCommand(m_calendar, day);
+        if (c) {
+            cmd->addCommand(c);
         }
     }
-    if ( m_dates.isEmpty() ) {
+    if (m_dates.isEmpty()) {
         // weekdays
-        foreach ( CalendarDay *day, m_days ) {
-            MacroCommand *c = buildCommand( m_calendar, day );
-            if ( c ) {
-                cmd->addCommand( c );
+        foreach (CalendarDay *day, m_days) {
+            MacroCommand *c = buildCommand(m_calendar, day);
+            if (c) {
+                cmd->addCommand(c);
             }
         }
     }
-    if ( cmd->isEmpty() ) {
+    if (cmd->isEmpty()) {
         delete cmd;
         return 0;
     }
     return cmd;
 }
 
-MacroCommand *IntervalEditDialog::buildCommand( Calendar *calendar, CalendarDay *day )
+MacroCommand *IntervalEditDialog::buildCommand(Calendar *calendar, CalendarDay *day)
 {
     //debugPlan;
     const QList<TimeInterval*> lst = m_panel->intervals();
-    if ( lst == day->timeIntervals() ) {
+    if (lst == day->timeIntervals()) {
         return 0;
     }
     MacroCommand *cmd = 0;
     // Set to Undefined. This will also clear any intervals
-    CalendarModifyStateCmd *c = new CalendarModifyStateCmd( calendar, day, CalendarDay::Undefined );
+    CalendarModifyStateCmd *c = new CalendarModifyStateCmd(calendar, day, CalendarDay::Undefined);
     if (cmd == 0) cmd = new MacroCommand(KUndo2MagicString());
     cmd->addCommand(c);
     //debugPlan<<"Set Undefined";
 
-    foreach ( TimeInterval *i, lst ) {
-        CalendarAddTimeIntervalCmd *c = new CalendarAddTimeIntervalCmd( calendar, day, i );
+    foreach (TimeInterval *i, lst) {
+        CalendarAddTimeIntervalCmd *c = new CalendarAddTimeIntervalCmd(calendar, day, i);
         if (cmd == 0) cmd = new MacroCommand(KUndo2MagicString());
         cmd->addCommand(c);
     }
-    if ( ! lst.isEmpty() ) {
-        CalendarModifyStateCmd *c = new CalendarModifyStateCmd( calendar, day, CalendarDay::Working );
+    if (! lst.isEmpty()) {
+        CalendarModifyStateCmd *c = new CalendarModifyStateCmd(calendar, day, CalendarDay::Working);
         if (cmd == 0) cmd = new MacroCommand(KUndo2MagicString());
         cmd->addCommand(c);
     }
     if (cmd) {
-        cmd->setText( kundo2_i18n( "Modify Work Interval" ) );
+        cmd->setText(kundo2_i18n("Modify Work Interval"));
     }
     return cmd;
 }

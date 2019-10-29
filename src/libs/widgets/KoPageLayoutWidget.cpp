@@ -112,18 +112,18 @@ void KoPageLayoutWidget::sizeChanged(int row)
     d->allowSignals = false;
     d->pageLayout.format = static_cast<KoPageFormat::Format> (row);
     bool custom =  d->pageLayout.format == KoPageFormat::CustomSize;
-    d->widget.width->setEnabled( custom );
-    d->widget.height->setEnabled( custom );
+    d->widget.width->setEnabled(custom);
+    d->widget.height->setEnabled(custom);
 
-    if ( !custom ) {
-        d->pageLayout.width = MM_TO_POINT( KoPageFormat::width( d->pageLayout.format, d->pageLayout.orientation ) );
-        d->pageLayout.height = MM_TO_POINT( KoPageFormat::height( d->pageLayout.format, d->pageLayout.orientation ) );
+    if (!custom) {
+        d->pageLayout.width = MM_TO_POINT(KoPageFormat::width(d->pageLayout.format, d->pageLayout.orientation));
+        d->pageLayout.height = MM_TO_POINT(KoPageFormat::height(d->pageLayout.format, d->pageLayout.orientation));
         if (d->widget.facingPages->isChecked()) // is pagespread
             d->pageLayout.width *= 2;
     }
 
-    d->widget.width->changeValue( d->pageLayout.width );
-    d->widget.height->changeValue( d->pageLayout.height );
+    d->widget.width->changeValue(d->pageLayout.width);
+    d->widget.height->changeValue(d->pageLayout.height);
 
     emit layoutChanged(d->pageLayout);
     d->allowSignals = true;
@@ -157,8 +157,8 @@ void KoPageLayoutWidget::setPageLayout(const KoPageLayout &layout)
     d->allowSignals = false;
     d->pageLayout = layout;
 
-    Q_ASSERT(d->orientationGroup->button( layout.orientation ));
-    d->orientationGroup->button( layout.orientation )->setChecked( true );
+    Q_ASSERT(d->orientationGroup->button(layout.orientation));
+    d->orientationGroup->button(layout.orientation)->setChecked(true);
     if (layout.bindingSide >= 0 && layout.pageEdge >= 0) {
         d->widget.facingPages->setChecked(true);
         d->widget.bindingEdgeMargin->changeValue(layout.bindingSide);
@@ -257,8 +257,8 @@ void KoPageLayoutWidget::orientationChanged()
     d->pageLayout.orientation = d->widget.landscape->isChecked() ? KoPageFormat::Landscape : KoPageFormat::Portrait;
 
     qreal x = d->widget.height->value();
-    d->widget.height->changeValue( d->widget.width->value() );
-    d->widget.width->changeValue( x );
+    d->widget.height->changeValue(d->widget.width->value());
+    d->widget.width->changeValue(x);
 
     d->allowSignals = true;
     optionsChanged();
@@ -302,7 +302,7 @@ void KoPageLayoutWidget::showTextDirection(bool on)
     d->widget.textDirection->setVisible(on);
 }
 /*
-void KoPageLayoutWidget::setTextDirection(KoText::Direction direction )
+void KoPageLayoutWidget::setTextDirection(KoText::Direction direction)
 {
     int index = 0;
     switch(direction) {

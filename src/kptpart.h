@@ -65,7 +65,7 @@ public Q_SLOTS:
 protected Q_SLOTS:
     void slotShowIntroduction();
     void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
-    void openTemplate( const QUrl& url ) override;
+    void openTemplate(const QUrl& url) override;
     void slotOpenTemplate(const QUrl& url);
 
     void slotHelpContents();

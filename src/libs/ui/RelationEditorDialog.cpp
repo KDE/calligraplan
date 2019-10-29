@@ -192,10 +192,10 @@ QWidget *LagDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &
 void LagDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
     DurationSpinBox *dsb = static_cast<DurationSpinBox*>(editor);
-    dsb->setMinimumUnit((Duration::Unit)(index.data( Role::Minimum ).toInt()));
-    dsb->setMaximumUnit((Duration::Unit)(index.data( Role::Maximum ).toInt()));
+    dsb->setMinimumUnit((Duration::Unit)(index.data(Role::Minimum).toInt()));
+    dsb->setMaximumUnit((Duration::Unit)(index.data(Role::Maximum).toInt()));
     dsb->setUnit((Duration::Unit)(index.model()->data(index, Role::DurationUnit).toInt()));
-    dsb->setValue(index.model()->data( index, Qt::EditRole).toDouble() );
+    dsb->setValue(index.model()->data(index, Qt::EditRole).toDouble());
 }
 
 void LagDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
@@ -245,8 +245,8 @@ RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget
     ui.removeBtn->setDefaultAction(a);
 
     setCaption(xi18nc("@title:window", "Edit Dependency"));
-    setButtons(KoDialog::Ok|KoDialog::Cancel );
-    showButtonSeparator( true );
+    setButtons(KoDialog::Ok|KoDialog::Cancel);
+    showButtonSeparator(true);
 
     ui.taskName->setText(task->name());
 
@@ -394,7 +394,7 @@ void RelationEditorDialog::removeRelation()
 }
 
 MacroCommand *RelationEditorDialog::buildCommand() {
-    MacroCommand *c = new MacroCommand( kundo2_i18n("Modify dependency") );
+    MacroCommand *c = new MacroCommand(kundo2_i18n("Modify dependency"));
     enum State {Skip, Deleted};
     QHash<Relation*, State> relations;
     for (int j = 0; j < m_task->numDependParentNodes(); ++j) {

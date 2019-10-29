@@ -34,27 +34,27 @@ namespace KPlato
 
 SummaryTaskDialog::SummaryTaskDialog(Task &task, QWidget *p)
     : KoDialog(p),
-    m_node( &task )
+    m_node(&task)
 {
-    setCaption( i18n("Summary Task Settings") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setCaption(i18n("Summary Task Settings"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
     m_generalTab = new SummaryTaskGeneralPanel(task, this);
     setMainWidget(m_generalTab);
     enableButtonOk(false);
 
     connect(m_generalTab, &SummaryTaskGeneralPanel::obligatedFieldsFilled, this, &KoDialog::enableButtonOk);
 
-    Project *proj = static_cast<Project*>( task.projectNode() );
-    if ( proj ) {
+    Project *proj = static_cast<Project*>(task.projectNode());
+    if (proj) {
         connect(proj, &Project::nodeRemoved, this, &SummaryTaskDialog::slotTaskRemoved);
     }
 }
 
-void SummaryTaskDialog::slotTaskRemoved( Node *node )
+void SummaryTaskDialog::slotTaskRemoved(Node *node)
 {
-    if ( node == m_node ) {
+    if (node == m_node) {
         reject();
     }
 }

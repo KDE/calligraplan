@@ -45,7 +45,7 @@ class KPluginFactory;
  * class MyPlugin : public QObject {
  *    Q_OBJECT
  * public:
- *    MyPlugin(QObject *parent, const QVariantList & );
+ *    MyPlugin(QObject *parent, const QVariantList &);
  *    ~MyPlugin() {}
  * };
  * @endcode
@@ -56,7 +56,7 @@ class KPluginFactory;
  * 
  * K_PLUGIN_FACTORY_WITH_JSON(MyPluginFactory, "myplugin.json", registerPlugin<MyPlugin>();)
  * 
- * MyPlugin::MyPlugin( QObject *parent, const QVariantList& ) : QObject(parent) {
+ * MyPlugin::MyPlugin(QObject *parent, const QVariantList&) : QObject(parent) {
  *    // do stuff like creating a factory and adding it to the
  *    // registry instance.
  * }

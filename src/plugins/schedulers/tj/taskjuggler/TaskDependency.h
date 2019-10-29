@@ -67,8 +67,8 @@ private:
 
 } // namespace TJ
 
-QDebug operator<<( QDebug dbg, const TJ::TaskDependency* dep );
-QDebug operator<<( QDebug dbg, const TJ::TaskDependency& dep );
+QDebug operator<<(QDebug dbg, const TJ::TaskDependency* dep);
+QDebug operator<<(QDebug dbg, const TJ::TaskDependency& dep);
 
 #endif
 

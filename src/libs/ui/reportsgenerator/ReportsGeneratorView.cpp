@@ -531,7 +531,7 @@ bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
 void ReportsGeneratorView::saveContext(QDomElement &context) const
 {
     debugPlan;
-    context.setAttribute( "stretch-last-column", QString::number(m_view->header()->stretchLastSection()) );
+    context.setAttribute("stretch-last-column", QString::number(m_view->header()->stretchLastSection()));
     QDomElement e = context.ownerDocument().createElement("sections");
     context.appendChild(e);
     QHeaderView *h = m_view->header();

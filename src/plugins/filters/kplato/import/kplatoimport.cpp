@@ -53,12 +53,12 @@ KPlatoImport::KPlatoImport(QObject* parent, const QVariantList &)
 KoFilter::ConversionStatus KPlatoImport::convert(const QByteArray& from, const QByteArray& to)
 {
     debugPlan << from << to;
-    if ( ( from != "application/x-vnd.kde.kplato" ) || ( to != "application/x-vnd.kde.plan" ) ) {
+    if ((from != "application/x-vnd.kde.kplato") || (to != "application/x-vnd.kde.plan")) {
         return KoFilter::NotImplemented;
     }
     KoDocument *part = 0;
     bool batch = false;
-    if ( m_chain->manager() ) {
+    if (m_chain->manager()) {
         batch = m_chain->manager()->getBatchMode();
     }
     if (batch) {
@@ -72,7 +72,7 @@ KoFilter::ConversionStatus KPlatoImport::convert(const QByteArray& from, const Q
         errorPlan << "Cannot open document";
         return KoFilter::InternalError;
     }
-    if ( ! part->loadNativeFormat( m_chain->inputFile() ) ) {
+    if (! part->loadNativeFormat(m_chain->inputFile())) {
         return KoFilter::ParsingError;
     }
 

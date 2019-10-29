@@ -36,8 +36,8 @@ private Q_SLOTS:
 
 private:
     QStringList data();
-    void testProject(const QString &fname, const KoXmlDocument &doc );
-    void compare( const QString &fname, Node *n, long id1, long id2 );
+    void testProject(const QString &fname, const KoXmlDocument &doc);
+    void compare(const QString &fname, Node *n, long id1, long id2);
 };
 
 } //namespace KPlato

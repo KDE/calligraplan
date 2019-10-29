@@ -241,7 +241,7 @@ CoreAttributes::inheritCustomAttributes
 (const QMap<QString, CustomAttributeDefinition*>& dict)
 {
     QMap<QString, CustomAttributeDefinition*>::const_iterator cadi = dict.constBegin();
-    for ( ; cadi != dict.constEnd(); ++cadi)
+    for (; cadi != dict.constEnd(); ++cadi)
     {
         const CustomAttribute* custAttr;
         if (cadi.value()->getInherit() &&
@@ -268,17 +268,17 @@ CoreAttributes::inheritCustomAttributes
 
 } // namespace TJ
 
-QDebug operator<<( QDebug dbg, const TJ::CoreAttributes* t )
+QDebug operator<<(QDebug dbg, const TJ::CoreAttributes* t)
 {
-    if ( t == 0 ) {
+    if (t == 0) {
         return dbg << (void*)t;
     }
-    return operator<<( dbg, *t );
+    return operator<<(dbg, *t);
 }
 
-QDebug operator<<( QDebug dbg, const TJ::CoreAttributes& t )
+QDebug operator<<(QDebug dbg, const TJ::CoreAttributes& t)
 {
-    switch ( t.getType() ) {
+    switch (t.getType()) {
         case CA_Task: dbg << "Task[" << t.getName() << "]"; break;
         case CA_Resource: dbg << "Resource[" << t.getName() << "]"; break;
         case CA_Account: dbg << "Account[" << t.getName() << "]"; break;

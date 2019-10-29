@@ -64,7 +64,7 @@ class PlanTJScheduler : public KPlato::SchedulerThread
 private:
 
 public:
-    PlanTJScheduler( Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = 0 );
+    PlanTJScheduler(Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = 0);
     ~PlanTJScheduler() override;
 
     bool check();
@@ -83,39 +83,39 @@ Q_SIGNALS:
     const char* taskname();
 
 public Q_SLOTS:
-    void slotMessage( int type, const QString &msg, TJ::CoreAttributes *object );
+    void slotMessage(int type, const QString &msg, TJ::CoreAttributes *object);
 
 protected:
     void run() override;
 
-    void adjustSummaryTasks( const QList<Node*> &nodes );
+    void adjustSummaryTasks(const QList<Node*> &nodes);
 
-    TJ::Resource *addResource( KPlato::Resource *resource );
+    TJ::Resource *addResource(KPlato::Resource *resource);
     void addTasks();
-    void addWorkingTime( KPlato::Task *task, TJ::Task *job );
-    TJ::Task *addTask( KPlato::Task *task , TJ::Task *parent = 0 );
+    void addWorkingTime(KPlato::Task *task, TJ::Task *job);
+    TJ::Task *addTask(KPlato::Task *task , TJ::Task *parent = 0);
     void addDependencies();
-    void addPrecedes( const Relation *rel );
-    void addDepends( const Relation *rel );
-    void addDependencies( Task *task );
+    void addPrecedes(const Relation *rel);
+    void addDepends(const Relation *rel);
+    void addDependencies(Task *task);
     void setConstraints();
-    void setConstraint( TJ::Task *job, KPlato::Task *task );
-    TJ::Task *addStartNotEarlier( Node *task );
-    TJ::Task *addFinishNotLater( Node *task );
+    void setConstraint(TJ::Task *job, KPlato::Task *task);
+    TJ::Task *addStartNotEarlier(Node *task);
+    TJ::Task *addFinishNotLater(Node *task);
     void addRequests();
-    void addRequest( TJ::Task *job, Task *task );
+    void addRequest(TJ::Task *job, Task *task);
     void addStartEndJob();
-    bool taskFromTJ( TJ::Task *job, Task *task );
-    void calcPertValues( Task *task );
-    Duration calcPositiveFloat( Task *task );
+    bool taskFromTJ(TJ::Task *job, Task *task);
+    void calcPertValues(Task *task);
+    Duration calcPositiveFloat(Task *task);
 
-    static bool exists( QList<CalendarDay*> &lst, CalendarDay *day );
-    static int toTJDayOfWeek( int day );
-    static DateTime fromTime_t( time_t, const QTimeZone &tz );
-    static time_t toTJTime_t( const QDateTime &dt, ulong granularity );
-    AppointmentInterval fromTJInterval( const TJ::Interval &tji, const QTimeZone &tz );
-    static TJ::Interval toTJInterval( const QDateTime &start, const QDateTime &end, ulong tjGranularity );
-    static TJ::Interval toTJInterval( const QTime &start, const QTime &end, ulong tjGranularity );
+    static bool exists(QList<CalendarDay*> &lst, CalendarDay *day);
+    static int toTJDayOfWeek(int day);
+    static DateTime fromTime_t(time_t, const QTimeZone &tz);
+    static time_t toTJTime_t(const QDateTime &dt, ulong granularity);
+    AppointmentInterval fromTJInterval(const TJ::Interval &tji, const QTimeZone &tz);
+    static TJ::Interval toTJInterval(const QDateTime &start, const QDateTime &end, ulong tjGranularity);
+    static TJ::Interval toTJInterval(const QTime &start, const QTime &end, ulong tjGranularity);
 
 
 private:

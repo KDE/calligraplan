@@ -58,8 +58,8 @@ class StyleOptionViewItem;
 class PLANMODELS_EXPORT KDateTable : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY( QDate date READ date WRITE setDate ) // clazy:exclude=qproperty-without-notify
-    Q_PROPERTY( bool popupMenu READ popupMenuEnabled WRITE setPopupMenuEnabled ) // clazy:exclude=qproperty-without-notify
+    Q_PROPERTY(QDate date READ date WRITE setDate) // clazy:exclude=qproperty-without-notify
+    Q_PROPERTY(bool popupMenu READ popupMenuEnabled WRITE setPopupMenuEnabled) // clazy:exclude=qproperty-without-notify
 
 public:
     /**
@@ -106,7 +106,7 @@ public:
      * When it's enabled, this object emits a aboutToShowContextMenu signal
      * where you can fill in the menu items.
      */
-    void setPopupMenuEnabled( bool enable );
+    void setPopupMenuEnabled(bool enable);
 
     /**
      * Returns if the popup menu is enabled or not
@@ -119,38 +119,38 @@ public:
      * Makes a given date be painted with a given foregroundColor, and background
      * (a rectangle, or a circle/ellipse) in a given color.
      */
-    void setCustomDatePainting( const QDate &date, const QColor &fgColor,
+    void setCustomDatePainting(const QDate &date, const QColor &fgColor,
                                 BackgroundMode bgMode=NoBgMode, const QColor &bgColor = QColor());
 
     /**
      * Unsets the custom painting of a date so that the date is painted as usual.
      */
-    void unsetCustomDatePainting( const QDate &date );
+    void unsetCustomDatePainting(const QDate &date);
 
     //----->
     enum ItemDataRole { DisplayRole_1 = Qt::UserRole + 1 };
     
     enum SelectionMode { SingleSelection, ExtendedSelection };
-    void setSelectionMode( SelectionMode mode );
+    void setSelectionMode(SelectionMode mode);
     
-    void setModel( KDateTableDataModel *model );
+    void setModel(KDateTableDataModel *model);
     KDateTableDataModel *model() const;
     
     // datetable takes ownership of delegate
-    void setDateDelegate( KDateTableDateDelegate *delegate );
+    void setDateDelegate(KDateTableDateDelegate *delegate);
     // datetable takes ownership of delegate
-    void setDateDelegate( const QDate &date, KDateTableDateDelegate *delegate );
+    void setDateDelegate(const QDate &date, KDateTableDateDelegate *delegate);
     // datetable takes ownership of delegate
-    void setWeekDayDelegate( KDateTableWeekDayDelegate *delegate );
+    void setWeekDayDelegate(KDateTableWeekDayDelegate *delegate);
     // datetable takes ownership of delegate
-    void setWeekNumberDelegate( KDateTableWeekNumberDelegate *delegate );
-    void setWeekNumbersEnabled( bool enable );
+    void setWeekNumberDelegate(KDateTableWeekNumberDelegate *delegate);
+    void setWeekNumbersEnabled(bool enable);
     
-    void setStyleOptionDate( const StyleOptionViewItem &so );
-    void setStyleOptionWeekDay( const StyleOptionHeader &so );
-    void setStyleOptionWeekNumber( const StyleOptionHeader &so );
+    void setStyleOptionDate(const StyleOptionViewItem &so);
+    void setStyleOptionWeekDay(const StyleOptionHeader &so);
+    void setStyleOptionWeekNumber(const StyleOptionHeader &so);
     
-    void setGridEnabled( bool enable );
+    void setGridEnabled(bool enable);
     //<-----
     
 protected:
@@ -158,18 +158,18 @@ protected:
      * calculate the position of the cell in the matrix for the given date.
      * The result is the 0-based index.
      */
-    virtual int posFromDate( const QDate &date ); 
+    virtual int posFromDate(const QDate &date); 
     /**
      * calculate the date that is displayed at a given cell in the matrix. pos is the
      * 0-based index in the matrix. Inverse function to posForDate().
      */
-    virtual QDate dateFromPos( int pos ); 
+    virtual QDate dateFromPos(int pos); 
 
     void paintEvent(QPaintEvent *e) Q_DECL_OVERRIDE;
     /**
      * React on mouse clicks that select a date.
      */
-    void mousePressEvent(QMouseEvent *e ) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
     void wheelEvent(QWheelEvent *e) Q_DECL_OVERRIDE;
     void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
     void focusInEvent(QFocusEvent *e) Q_DECL_OVERRIDE;
@@ -202,20 +202,20 @@ Q_SIGNALS:
      * right clicks on that date and the popup menu is enabled). Connect
      * the slot where you fill the menu to this signal.
      */
-    void aboutToShowContextMenu( QMenu * menu, const QDate &date );
+    void aboutToShowContextMenu(QMenu * menu, const QDate &date);
 
     /**
      * A popup menu for selected dates is about to be shown.
      * Connect the slot where you fill the menu to this signal.
      */
-    void aboutToShowContextMenu( QMenu * menu, const QList<QDate>& );
+    void aboutToShowContextMenu(QMenu * menu, const QList<QDate>&);
 
     //----->
-    void selectionChanged( const QList<QDate>& );
+    void selectionChanged(const QList<QDate>&);
 
 protected Q_SLOTS:
     void slotReset();
-    void slotDataChanged( const QDate &start, const QDate &end );
+    void slotDataChanged(const QDate &start, const QDate &end);
     //<------
     
 private:
@@ -243,17 +243,17 @@ class PLANMODELS_EXPORT KDateTableDataModel : public QObject
 {
     Q_OBJECT
 public:
-    KDateTableDataModel( QObject *parent );
+    KDateTableDataModel(QObject *parent);
     ~KDateTableDataModel() override;
     
     /// Fetch data for @p date, @p dataType specifies the type of data
-    virtual QVariant data( const QDate &date, int role = Qt::DisplayRole,  int dataType = -1 ) const;
-    virtual QVariant weekDayData( int day, int role = Qt::DisplayRole ) const;
-    virtual QVariant weekNumberData( int week, int role = Qt::DisplayRole ) const;
+    virtual QVariant data(const QDate &date, int role = Qt::DisplayRole,  int dataType = -1) const;
+    virtual QVariant weekDayData(int day, int role = Qt::DisplayRole) const;
+    virtual QVariant weekNumberData(int week, int role = Qt::DisplayRole) const;
     
 Q_SIGNALS:
     void reset();
-    void dataChanged( const QDate &start, const QDate &end );
+    void dataChanged(const QDate &start, const QDate &end);
 
 };
 
@@ -262,22 +262,22 @@ class PLANMODELS_EXPORT KDateTableDateDelegate : public QObject
 {
     Q_OBJECT
 public:
-    KDateTableDateDelegate( QObject *parent = 0 );
+    KDateTableDateDelegate(QObject *parent = 0);
     ~KDateTableDateDelegate() override {}
 
-    virtual QRectF paint( QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model );
+    virtual QRectF paint(QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model);
     
-    virtual QVariant data(  const QDate &date, int role, KDateTableDataModel *model );
+    virtual QVariant data(const QDate &date, int role, KDateTableDataModel *model);
 };
 
 class PLANMODELS_EXPORT KDateTableCustomDateDelegate : public KDateTableDateDelegate
 {
     Q_OBJECT
 public:
-    KDateTableCustomDateDelegate(  QObject *parent = 0 );
+    KDateTableCustomDateDelegate(QObject *parent = 0);
     ~KDateTableCustomDateDelegate() override {}
 
-    QRectF paint( QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model ) override;
+    QRectF paint(QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model) override;
     
 private:
     friend class KDateTable;
@@ -291,24 +291,24 @@ class PLANMODELS_EXPORT KDateTableWeekDayDelegate : public QObject
 {
     Q_OBJECT
 public:
-    KDateTableWeekDayDelegate( QObject *parent = 0 );
+    KDateTableWeekDayDelegate(QObject *parent = 0);
     ~KDateTableWeekDayDelegate() override {}
 
-    virtual QRectF paint( QPainter *painter, const StyleOptionHeader &option, int weekday,  KDateTableDataModel *model );
+    virtual QRectF paint(QPainter *painter, const StyleOptionHeader &option, int weekday,  KDateTableDataModel *model);
 
-    virtual QVariant data(  int day, int role, KDateTableDataModel *model );
+    virtual QVariant data(int day, int role, KDateTableDataModel *model);
 };
 
 class PLANMODELS_EXPORT KDateTableWeekNumberDelegate : public QObject
 {
     Q_OBJECT
 public:
-    KDateTableWeekNumberDelegate( QObject *parent = 0 );
+    KDateTableWeekNumberDelegate(QObject *parent = 0);
     ~KDateTableWeekNumberDelegate() override {}
 
-    virtual QRectF paint( QPainter *painter, const StyleOptionHeader &option, int week,  KDateTableDataModel *model );
+    virtual QRectF paint(QPainter *painter, const StyleOptionHeader &option, int week,  KDateTableDataModel *model);
     
-    virtual QVariant data(  int week, int role, KDateTableDataModel *model );
+    virtual QVariant data(int week, int role, KDateTableDataModel *model);
 };
 
 class StyleOptionHeader : public QStyleOptionHeader
@@ -325,8 +325,8 @@ public:
     StyleOptionViewItem() 
     : QStyleOptionViewItem()
     {}
-    StyleOptionViewItem( const StyleOptionViewItem &style ) 
-    : QStyleOptionViewItem( style )
+    StyleOptionViewItem(const StyleOptionViewItem &style) 
+    : QStyleOptionViewItem(style)
     {
         rectF = style.rectF;
     }

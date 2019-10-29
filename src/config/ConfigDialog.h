@@ -36,7 +36,7 @@ class PLAN_EXPORT ConfigDialog : public KConfigDialog
 {
     Q_OBJECT
 public:
-    ConfigDialog( QWidget *parent, const QString &name, KConfigSkeleton *config );
+    ConfigDialog(QWidget *parent, const QString &name, KConfigSkeleton *config);
     
 Q_SIGNALS:
     void updateWidgetsData();

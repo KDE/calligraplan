@@ -61,75 +61,75 @@ class WorkPackage : public QObject
     Q_OBJECT
 public:
     explicit WorkPackage(bool fromProjectStore);
-    WorkPackage( Project *project, bool fromProjectStore );
+    WorkPackage(Project *project, bool fromProjectStore);
     ~WorkPackage() override;
 
     /// @return Package name
     QString name() const;
 
-    DocumentChild *findChild( const Document *doc ) const;
+    DocumentChild *findChild(const Document *doc) const;
     /// Called when loading a work package. Saves to Project store.
     /// Asks to save/overwrite if already there.
     /// Does nothing if opened from Projects store.
-    void saveToProjects( Part *part );
+    void saveToProjects(Part *part);
 
-    bool contains( const DocumentChild* child ) const { 
-        return m_childdocs.contains( const_cast<DocumentChild*>( child ) );
+    bool contains(const DocumentChild* child) const { 
+        return m_childdocs.contains(const_cast<DocumentChild*>(child) );
     }
     QList<DocumentChild*> childDocs() { return m_childdocs; }
-    bool addChild( Part *part, const Document *doc );
-    void removeChild( DocumentChild *child );
+    bool addChild(Part *part, const Document *doc);
+    void removeChild(DocumentChild *child);
     
-    bool contains( const Document *doc ) const;
+    bool contains(const Document *doc) const;
 
     QString nodeId() const;
 
     /// Load the Plan work package document
-    bool loadXML( const KoXmlElement &element, XMLLoaderObject &status );
+    bool loadXML(const KoXmlElement &element, XMLLoaderObject &status);
     /// Load the old KPlato work package file format
-    bool loadKPlatoXML( const KoXmlElement &element, XMLLoaderObject &status );
+    bool loadKPlatoXML(const KoXmlElement &element, XMLLoaderObject &status);
 
     QDomDocument saveXML();
-    bool saveNativeFormat( Part *part, const QString &path );
-    bool saveDocumentsToStore( KoStore *store );
-    bool completeSaving( KoStore *store );
+    bool saveNativeFormat(Part *part, const QString &path);
+    bool saveDocumentsToStore(KoStore *store);
+    bool completeSaving(KoStore *store);
 
     Node *node() const;
     Task *task() const;
     Project *project() const { return m_project; }
 
     /// Remove document @p doc
-    bool removeDocument( Part *part, Document *doc );
+    bool removeDocument(Part *part, Document *doc);
 
     /// Set the file path to this package
-    void setFilePath( const QString &name ) { m_filePath = name; }
+    void setFilePath(const QString &name) { m_filePath = name; }
     /// Return the file path to this package
     QString filePath() const { return m_filePath; }
 
     /// Construct file path to projects store 
-    QString fileName( const Part *part ) const;
+    QString fileName(const Part *part) const;
     /// Remove work package file
     void removeFile();
 
     /// Merge data from work package @p wp
-    void merge( Part *part, const WorkPackage *wp, KoStore *store );
+    void merge(Part *part, const WorkPackage *wp, KoStore *store);
 
     bool isModified() const;
 
-    int queryClose( Part *part );
+    int queryClose(Part *part);
 
-    QUrl extractFile( const Document *doc );
-    QUrl extractFile( const Document *doc, KoStore *store );
+    QUrl extractFile(const Document *doc);
+    QUrl extractFile(const Document *doc, KoStore *store);
 
     QString id() const;
 
     bool isValid() const { return m_project && node(); }
 
     WorkPackageSettings &settings() { return m_settings; }
-    void setSettings( const WorkPackageSettings &settings );
+    void setSettings(const WorkPackageSettings &settings);
 
     QMap<const Document*, QUrl> newDocuments() const { return m_newdocs; }
-    void removeNewDocument( const Document *doc ) { m_newdocs.remove( doc ); }
+    void removeNewDocument(const Document *doc) { m_newdocs.remove(doc); }
 
     QUrl sendUrl() const { return m_sendUrl; }
     QUrl fetchUrl() const { return m_fetchUrl; }
@@ -138,23 +138,23 @@ public:
     void setWbsCode(const QString &wbsCode) { m_wbsCode = wbsCode; }
 
 Q_SIGNALS:
-    void modified( bool );
-    void saveWorkPackage(KPlatoWork::WorkPackage* );
+    void modified(bool);
+    void saveWorkPackage(KPlatoWork::WorkPackage*);
 
 public Q_SLOTS:
-    void setModified( bool on ) { m_modified = on; }
+    void setModified(bool on) { m_modified = on; }
 
 protected Q_SLOTS:
     void projectChanged();
-    void slotChildModified( bool mod );
+    void slotChildModified(bool mod);
 
 protected:
     /// Copy file @p filename from old store @p from, to the new store @p to
-    bool copyFile( KoStore *from, KoStore *to, const QString &filename );
+    bool copyFile(KoStore *from, KoStore *to, const QString &filename);
 
-    bool saveToStream( QIODevice * dev );
+    bool saveToStream(QIODevice * dev);
 
-    void openNewDocument( const Document *doc, KoStore *store );
+    void openNewDocument(const Document *doc, KoStore *store);
 
 protected:
     Project *m_project;
@@ -177,7 +177,7 @@ protected:
 class PackageRemoveCmd : public NamedCommand
 {
 public:
-    PackageRemoveCmd( Part *part, WorkPackage *value, const KUndo2MagicString &name = KUndo2MagicString() );
+    PackageRemoveCmd(Part *part, WorkPackage *value, const KUndo2MagicString &name = KUndo2MagicString());
     ~PackageRemoveCmd() override;
     void execute() override;
     void unexecute() override;
@@ -192,14 +192,14 @@ private:
 class CopySchedulesCmd : public NamedCommand
 {
 public:
-    CopySchedulesCmd( const Project &fromProject, Project &toProject,  const KUndo2MagicString &name = KUndo2MagicString() );
+    CopySchedulesCmd(const Project &fromProject, Project &toProject,  const KUndo2MagicString &name = KUndo2MagicString());
 
     void execute() override;
     void unexecute() override;
 
 private:
-    void load( const QString &doc );
-    void clean( const QDomDocument &doc );
+    void load(const QString &doc);
+    void clean(const QDomDocument &doc);
     void clearSchedules();
 
 private:

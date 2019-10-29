@@ -41,7 +41,7 @@ class PLAN_EXPORT ConfigDocumentationPanel : public ConfigDocumentationPanelImpl
 {
     Q_OBJECT
 public:
-    explicit ConfigDocumentationPanel( QWidget *parent=0 );
+    explicit ConfigDocumentationPanel(QWidget *parent=0);
 
 private Q_SLOTS:
     void slotPathChanged();

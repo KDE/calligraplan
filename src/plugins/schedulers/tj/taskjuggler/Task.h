@@ -378,7 +378,7 @@ public:
     void errorMessage(const QString& msg) const;
     void warningMessage(const QString& msg) const;
 
-    QDomElement xmlElement( QDomDocument& doc, bool absId = true );
+    QDomElement xmlElement(QDomDocument& doc, bool absId = true);
 
     TaskList getSuccessors() const { return successors; }
     TaskList getPredecessors() const { return predecessors; }
@@ -588,8 +588,8 @@ private:
 
 } // namespace TJ
 
-PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Task* t );
-PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Task& t );
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::Task* t);
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::Task& t);
 
 #endif
 

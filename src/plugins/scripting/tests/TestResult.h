@@ -40,8 +40,8 @@ public:
     QString message;
 
 public Q_SLOTS:
-    void setMessage( const QString &message );
-    void setResult( bool ok );
+    void setMessage(const QString &message);
+    void setResult(bool ok);
 
 private:
     bool m_result;

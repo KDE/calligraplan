@@ -57,7 +57,7 @@ private:
 class WBSDefinitionPanel : public QWidget, public Ui_WBSDefinitionPanelBase {
     Q_OBJECT
 public:
-    explicit WBSDefinitionPanel( Project &project, WBSDefinition &def, QWidget *parent=0, const char *name=0);
+    explicit WBSDefinitionPanel(Project &project, WBSDefinition &def, QWidget *parent=0, const char *name=0);
 
     KUndo2Command *buildCommand();
 

@@ -60,7 +60,7 @@ KPlatoWork_MainWindow::KPlatoWork_MainWindow()
 {
     debugPlanWork<<this;
 
-    m_part = new KPlatoWork::Part( this, this );
+    m_part = new KPlatoWork::Part(this, this);
 
     KStandardAction::quit(qApp, SLOT(quit()), actionCollection());
  
@@ -69,17 +69,17 @@ KPlatoWork_MainWindow::KPlatoWork_MainWindow()
 //     KStandardAction::save(this, SLOT(slotFileSave()), actionCollection());
 
     QAction *a = KStandardAction::undo(m_part->undoStack(), SLOT(undo()), actionCollection());
-    a->setEnabled( false );
-    connect( m_part->undoStack(), &KUndo2QStack::canUndoChanged, a, &QAction::setEnabled );
+    a->setEnabled(false);
+    connect(m_part->undoStack(), &KUndo2QStack::canUndoChanged, a, &QAction::setEnabled);
 
     a = KStandardAction::redo(m_part->undoStack(), SLOT(redo()), actionCollection());
-    a->setEnabled( false );
-    connect( m_part->undoStack(), &KUndo2QStack::canRedoChanged, a, &QAction::setEnabled );
+    a->setEnabled(false);
+    connect(m_part->undoStack(), &KUndo2QStack::canRedoChanged, a, &QAction::setEnabled);
     
-    setCentralWidget( m_part->widget() );
-    setupGUI( KXmlGuiWindow::ToolBar | KXmlGuiWindow::Keys | KXmlGuiWindow::StatusBar | KXmlGuiWindow::Save);
-    createGUI( m_part );
-    connect( m_part, SIGNAL(captionChanged(QString,bool)), SLOT(setCaption(QString,bool)) );
+    setCentralWidget(m_part->widget());
+    setupGUI(KXmlGuiWindow::ToolBar | KXmlGuiWindow::Keys | KXmlGuiWindow::StatusBar | KXmlGuiWindow::Save);
+    createGUI(m_part);
+    connect(m_part, SIGNAL(captionChanged(QString,bool)), SLOT(setCaption(QString,bool)));
 }
 
 
@@ -88,21 +88,21 @@ KPlatoWork_MainWindow::~KPlatoWork_MainWindow()
     debugPlanWork;
 }
 
-void KPlatoWork_MainWindow::setCaption( const QString & )
+void KPlatoWork_MainWindow::setCaption(const QString &)
 {
-    KParts::MainWindow::setCaption( QString() );
+    KParts::MainWindow::setCaption(QString());
 }
 
-void KPlatoWork_MainWindow::setCaption( const QString &, bool modified )
+void KPlatoWork_MainWindow::setCaption(const QString &, bool modified)
 {
-    KParts::MainWindow::setCaption( QString(), modified );
+    KParts::MainWindow::setCaption(QString(), modified);
 }
 
 bool KPlatoWork_MainWindow::openDocument(const QUrl & url)
 {
     // TODO: m_part->openUrl will find out about this as well, no?
-    KIO::StatJob* statJob = KIO::stat( url );
-    statJob->setSide(  KIO::StatJob::SourceSide );
+    KIO::StatJob* statJob = KIO::stat(url);
+    statJob->setSide(KIO::StatJob::SourceSide);
 
     const bool isUrlReadable = statJob->exec();
 
@@ -112,31 +112,31 @@ bool KPlatoWork_MainWindow::openDocument(const QUrl & url)
 //        saveRecentFiles();
         return false;
     }
-    return m_part->openUrl( url );
+    return m_part->openUrl(url);
 }
 
 QString KPlatoWork_MainWindow::configFile() const
 {
-  //return readConfigFile( QStandardPaths::locate(QStandardPaths::GenericDataLocation "koshell/koshell_shell.rc" ) );
+  //return readConfigFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation "koshell/koshell_shell.rc"));
   return QString(); // use UI standards only for now
 }
 
 //called from slotFileSave(), slotFileSaveAs(), queryClose(), slotEmailFile()
-bool KPlatoWork_MainWindow::saveDocument( bool saveas, bool silent )
+bool KPlatoWork_MainWindow::saveDocument(bool saveas, bool silent)
 {
     debugPlanWork<<saveas<<silent;
     KPlatoWork::Part *doc = rootDocument();
-    if ( doc == 0 ) {
+    if (doc == 0) {
         return true;
     }
-    return doc->saveWorkPackages( silent );
+    return doc->saveWorkPackages(silent);
 }
 
 
 bool KPlatoWork_MainWindow::queryClose()
 {
     KPlatoWork::Part *part = rootDocument();
-    if ( part == 0 ) {
+    if (part == 0) {
         return true;
     }
     return part->queryClose();
@@ -155,8 +155,8 @@ void KPlatoWork_MainWindow::slotFileSave()
 
 void KPlatoWork_MainWindow::slotFileOpen()
 {
-    const QUrl file = QFileDialog::getOpenFileUrl( 0, QString(), QUrl(), "*.planwork" );
-    if ( ! file.isEmpty() ) {
-        openDocument( file );
+    const QUrl file = QFileDialog::getOpenFileUrl(0, QString(), QUrl(), "*.planwork");
+    if (! file.isEmpty()) {
+        openDocument(file);
     }
 }

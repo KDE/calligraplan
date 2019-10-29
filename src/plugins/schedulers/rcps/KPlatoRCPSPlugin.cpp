@@ -41,7 +41,7 @@ PLAN_SCHEDULERPLUGIN_EXPORT(KPlatoRCPSPlugin, "planrcpsscheduler.json")
 
 using namespace KPlato;
 
-KPlatoRCPSPlugin::KPlatoRCPSPlugin( QObject * parent, const QVariantList & )
+KPlatoRCPSPlugin::KPlatoRCPSPlugin(QObject * parent, const QVariantList &)
     : KPlato::SchedulerPlugin(parent)
 {
     debugPlan<<rcps_version();
@@ -57,7 +57,7 @@ KPlatoRCPSPlugin::~KPlatoRCPSPlugin()
 
 QString KPlatoRCPSPlugin::description() const
 {
-    return xi18nc( "@info:whatsthis", "<title>RCPS Scheduler</title>"
+    return xi18nc("@info:whatsthis", "<title>RCPS Scheduler</title>"
                     "<para>The Resource Constrained Project Scheduler (RCPS) focuses on scheduling"
                     " the project to avoid overbooking resources."
                     " It still respects task dependencies and also tries to fulfill time constraints."
@@ -73,24 +73,24 @@ int KPlatoRCPSPlugin::capabilities() const
 
 ulong KPlatoRCPSPlugin::currentGranularity() const
 {
-    ulong v = m_granularities.value( m_granularity );
-    return qMax( v, (ulong)60000 ); // minimum 1 min
+    ulong v = m_granularities.value(m_granularity);
+    return qMax(v, (ulong)60000); // minimum 1 min
 }
 
-void KPlatoRCPSPlugin::calculate( KPlato::Project &project, KPlato::ScheduleManager *sm, bool nothread )
+void KPlatoRCPSPlugin::calculate(KPlato::Project &project, KPlato::ScheduleManager *sm, bool nothread)
 {
-    foreach ( SchedulerThread *j, m_jobs ) {
-        if ( j->manager() == sm ) {
+    foreach (SchedulerThread *j, m_jobs) {
+        if (j->manager() == sm) {
             return;
         }
     }
-    sm->setScheduling( true );
+    sm->setScheduling(true);
 
-    KPlatoRCPSScheduler *job = new KPlatoRCPSScheduler( &project, sm, currentGranularity() );
+    KPlatoRCPSScheduler *job = new KPlatoRCPSScheduler(&project, sm, currentGranularity());
     m_jobs << job;
     connect(job, SIGNAL(jobFinished(SchedulerThread*)), SLOT(slotFinished(SchedulerThread*)));
 
-    project.changed( sm );
+    project.changed(sm);
 
 //     connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
 //     connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), &project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
@@ -98,7 +98,7 @@ void KPlatoRCPSPlugin::calculate( KPlato::Project &project, KPlato::ScheduleMana
     connect(job, SIGNAL(maxProgressChanged(int)), sm, SLOT(setMaxProgress(int)));
     connect(job, SIGNAL(progressChanged(int)), sm, SLOT(setProgress(int)));
 
-    if ( nothread ) {
+    if (nothread) {
         job->doRun();
     } else {
         job->start();
@@ -107,55 +107,55 @@ void KPlatoRCPSPlugin::calculate( KPlato::Project &project, KPlato::ScheduleMana
 
 void KPlatoRCPSPlugin::stopAllCalculations()
 {
-    foreach ( SchedulerThread *s, m_jobs ) {
-        stopCalculation( s );
+    foreach (SchedulerThread *s, m_jobs) {
+        stopCalculation(s);
     }
 }
 
-void KPlatoRCPSPlugin::stopCalculation( SchedulerThread *sch )
+void KPlatoRCPSPlugin::stopCalculation(SchedulerThread *sch)
 {
-    if ( sch ) {
+    if (sch) {
          //FIXME: this should just call stopScheduling() and let the job finish "normally"
-        disconnect( sch, SIGNAL(jobFinished(KPlatoRCPSScheduler*)), this, SLOT(slotFinished(KPlatoRCPSScheduler*)) );
+        disconnect(sch, SIGNAL(jobFinished(KPlatoRCPSScheduler*)), this, SLOT(slotFinished(KPlatoRCPSScheduler*)));
         sch->stopScheduling();
         // wait max 20 seconds.
-        sch->mainManager()->setCalculationResult( ScheduleManager::CalculationStopped );
-        if ( ! sch->wait( 20000 ) ) {
+        sch->mainManager()->setCalculationResult(ScheduleManager::CalculationStopped);
+        if (! sch->wait(20000)) {
             sch->deleteLater();
-            m_jobs.removeAt( m_jobs.indexOf( sch ) );
+            m_jobs.removeAt(m_jobs.indexOf(sch));
         }   else {
-            slotFinished( sch );
+            slotFinished(sch);
         }
     }
 }
 
-void KPlatoRCPSPlugin::slotStarted( SchedulerThread */*job*/ )
+void KPlatoRCPSPlugin::slotStarted(SchedulerThread */*job*/)
 {
 //    debugPlan<<"KPlatoRCPSPlugin::slotStarted:";
 }
 
-void KPlatoRCPSPlugin::slotFinished( SchedulerThread *j )
+void KPlatoRCPSPlugin::slotFinished(SchedulerThread *j)
 {
-    KPlatoRCPSScheduler *job = static_cast<KPlatoRCPSScheduler*>( j );
+    KPlatoRCPSScheduler *job = static_cast<KPlatoRCPSScheduler*>(j);
     Project *mp = job->mainProject();
     ScheduleManager *sm = job->mainManager();
     //debugPlan<<"KPlatoRCPSPlugin::slotFinished:"<<mp<<sm<<job->isStopped();
-    if ( job->isStopped() ) {
-        sm->setCalculationResult( ScheduleManager::CalculationCanceled );
+    if (job->isStopped()) {
+        sm->setCalculationResult(ScheduleManager::CalculationCanceled);
     } else {
-        updateLog( job );
+        updateLog(job);
         Project *tp = job->project();
         ScheduleManager *tm = job->manager();
-        updateProject( tp, tm, mp, sm );
-        sm->setCalculationResult( ScheduleManager::CalculationDone );
+        updateProject(tp, tm, mp, sm);
+        sm->setCalculationResult(ScheduleManager::CalculationDone);
     }
-    sm->setScheduling( false );
+    sm->setScheduling(false);
 
-    m_jobs.removeAt( m_jobs.indexOf( job ) );
-    if ( m_jobs.isEmpty() ) {
+    m_jobs.removeAt(m_jobs.indexOf(job));
+    if (m_jobs.isEmpty()) {
         m_synctimer.stop();
     }
-    emit sigCalculationFinished( mp, sm );
+    emit sigCalculationFinished(mp, sm);
 
     disconnect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
     disconnect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));

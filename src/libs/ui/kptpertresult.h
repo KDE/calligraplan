@@ -53,17 +53,17 @@ public:
     explicit PertResult(KoPart *part, KoDocument *doc, QWidget *parent = 0);
     
     void setupGui();
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     Project *project() const override { return m_project; }
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
     void draw() override;
 
-    PertResultItemModel *model() const { return static_cast<PertResultItemModel*>( widget.treeWidgetTaskResult->model() ); }
+    PertResultItemModel *model() const { return static_cast<PertResultItemModel*>(widget.treeWidgetTaskResult->model()); }
 
     /// Loads context info into this view.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
 
     KoPrintJob *createPrintJob() override;
     
@@ -76,8 +76,8 @@ protected Q_SLOTS:
     void slotProjectCalculated(KPlato::ScheduleManager *sm);
     void slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager *sm);
     void slotScheduleManagerChanged(KPlato::ScheduleManager *sm);
-    void slotHeaderContextMenuRequested( const QPoint &pos ) override;
-    void slotContextMenuRequested( const QModelIndex& index, const QPoint& pos );
+    void slotHeaderContextMenuRequested(const QPoint &pos) override;
+    void slotContextMenuRequested(const QModelIndex& index, const QPoint& pos);
     
     void slotSplitView();
     void slotOptions() override;
@@ -101,20 +101,20 @@ public:
     explicit PertCpmView(KoPart *part, KoDocument *doc, QWidget *parent = 0);
     
     void setupGui();
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     Project *project() const override { return m_project; }
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
     void draw() override;
     
-    CriticalPathItemModel *model() const { return static_cast<CriticalPathItemModel*>( widget.cpmTable->model() ); }
+    CriticalPathItemModel *model() const { return static_cast<CriticalPathItemModel*>(widget.cpmTable->model()); }
 
-    double probability( double z ) const;
-    double valueZ( double p ) const;
+    double probability(double z) const;
+    double valueZ(double p) const;
     
     /// Loads context info into this view.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
 
     KoPrintJob *createPrintJob() override;
     
@@ -127,14 +127,14 @@ protected Q_SLOTS:
     void slotProjectCalculated(KPlato::ScheduleManager *sm);
     void slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager *sm);
     void slotScheduleManagerChanged(KPlato::ScheduleManager *sm);
-    void slotHeaderContextMenuRequested( const QPoint &pos ) override;
-    void slotContextMenuRequested( const QModelIndex& index, const QPoint& pos );
+    void slotHeaderContextMenuRequested(const QPoint &pos) override;
+    void slotContextMenuRequested(const QModelIndex& index, const QPoint& pos);
     
     void slotSplitView();
     void slotOptions() override;
     
-    void slotFinishTimeChanged( const QDateTime &dt );
-    void slotProbabilityChanged( int value );
+    void slotFinishTimeChanged(const QDateTime &dt);
+    void slotProbabilityChanged(int value);
 
 private Q_SLOTS:
     void slotUpdate();

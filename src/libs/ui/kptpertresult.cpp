@@ -82,18 +82,18 @@ static const double dist[][2] = {
 
 //-----------------------------------
 PertResult::PertResult(KoPart *part, KoDocument *doc, QWidget *parent)
-    : ViewBase(part, doc, parent ),
-    m_node( 0 ),
-    m_project( 0 ),
-    current_schedule( 0 )
+    : ViewBase(part, doc, parent),
+    m_node(0),
+    m_project(0),
+    current_schedule(0)
 {
     debugPlan << " ---------------- KPlato: Creating PertResult ----------------";
     setXMLFile("PertResultUi.rc");
     widget.setupUi(this);
-    PertResultItemModel *m = new PertResultItemModel( widget.treeWidgetTaskResult );
-    widget.treeWidgetTaskResult->setModel( m );
-    widget.treeWidgetTaskResult->setStretchLastSection( false );
-    widget.treeWidgetTaskResult->setSelectionMode( QAbstractItemView::ExtendedSelection );
+    PertResultItemModel *m = new PertResultItemModel(widget.treeWidgetTaskResult);
+    widget.treeWidgetTaskResult->setModel(m);
+    widget.treeWidgetTaskResult->setStretchLastSection(false);
+    widget.treeWidgetTaskResult->setSelectionMode(QAbstractItemView::ExtendedSelection);
 
     setupGui();
     
@@ -110,47 +110,47 @@ PertResult::PertResult(KoPart *part, KoDocument *doc, QWidget *parent)
             << NodeModel::NodeFinishFloat;
 
     QList<int> lst2; 
-    for ( int i = 0; i < m->columnCount(); ++i ) {
-        if ( ! show.contains( i ) ) {
+    for (int i = 0; i < m->columnCount(); ++i) {
+        if (! show.contains(i)) {
             lst2 << i;
         }
     }
-    widget.treeWidgetTaskResult->hideColumns( lst1, lst2 );
-    widget.treeWidgetTaskResult->masterView()->setDefaultColumns( QList<int>() << 0 );
-    widget.treeWidgetTaskResult->slaveView()->setDefaultColumns( show );
+    widget.treeWidgetTaskResult->hideColumns(lst1, lst2);
+    widget.treeWidgetTaskResult->masterView()->setDefaultColumns(QList<int>() << 0);
+    widget.treeWidgetTaskResult->slaveView()->setDefaultColumns(show);
     
-    connect( widget.treeWidgetTaskResult, &DoubleTreeViewBase::contextMenuRequested, this, &PertResult::slotContextMenuRequested );
+    connect(widget.treeWidgetTaskResult, &DoubleTreeViewBase::contextMenuRequested, this, &PertResult::slotContextMenuRequested);
     
-    connect( widget.treeWidgetTaskResult, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect(widget.treeWidgetTaskResult, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)));
 
     connect(this, &ViewBase::expandAll, widget.treeWidgetTaskResult, &DoubleTreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, widget.treeWidgetTaskResult, &DoubleTreeViewBase::slotCollapse);
 }
 
-void PertResult::draw( Project &project)
+void PertResult::draw(Project &project)
 {
-    setProject( &project );
+    setProject(&project);
     //draw();
 }
   
 void PertResult::draw()
 {
     debugPlan<<m_project;
-    widget.scheduleName->setText( i18n( "None" ) );
+    widget.scheduleName->setText(i18n("None"));
     widget.totalFloat->clear();
-    if ( m_project && model()->manager() && model()->manager()->isScheduled() ) {
+    if (m_project && model()->manager() && model()->manager()->isScheduled()) {
         long id = model()->manager()->scheduleId();
-        if ( id == -1 ) {
+        if (id == -1) {
             return;
         }
-        widget.scheduleName->setText( model()->manager()->name() );
+        widget.scheduleName->setText(model()->manager()->name());
         Duration f;
-        foreach ( Node *n, m_project->allNodes() ) {
-            if ( n->type() == Node::Type_Task || n->type() == Node::Type_Milestone ) {
-                f += static_cast<Task*>( n )->positiveFloat( id );
+        foreach (Node *n, m_project->allNodes()) {
+            if (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone) {
+                f += static_cast<Task*>(n)->positiveFloat(id);
             }
         }
-        widget.totalFloat->setText( QLocale().toString( f.toDouble( Duration::Unit_h ), 'f', 2 ) );
+        widget.totalFloat->setText(QLocale().toString(f.toDouble(Duration::Unit_h), 'f', 2));
     }
 }
 
@@ -159,7 +159,7 @@ void PertResult::setupGui()
     // Add the context menu actions for the view options
     actionCollection()->addAction(widget.treeWidgetTaskResult->actionSplitView()->objectName(), widget.treeWidgetTaskResult->actionSplitView());
     connect(widget.treeWidgetTaskResult->actionSplitView(), &QAction::triggered, this, &PertResult::slotSplitView);
-    addContextAction( widget.treeWidgetTaskResult->actionSplitView() );
+    addContextAction(widget.treeWidgetTaskResult->actionSplitView());
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
 }
@@ -167,26 +167,26 @@ void PertResult::setupGui()
 void PertResult::slotSplitView()
 {
     debugPlan;
-    widget.treeWidgetTaskResult->setViewSplitMode( ! widget.treeWidgetTaskResult->isViewSplit() );
+    widget.treeWidgetTaskResult->setViewSplitMode(! widget.treeWidgetTaskResult->isViewSplit());
     emit optionsModified();
 }
 
 Node *PertResult::currentNode() const
 {
-    return model()->node( widget.treeWidgetTaskResult->selectionModel()->currentIndex() );
+    return model()->node(widget.treeWidgetTaskResult->selectionModel()->currentIndex());
 }
 
-void PertResult::slotContextMenuRequested( const QModelIndex& index, const QPoint& pos )
+void PertResult::slotContextMenuRequested(const QModelIndex& index, const QPoint& pos)
 {
     debugPlan<<index<<pos;
-    Node *node = model()->node( index );
-    if ( node == 0 ) {
-        slotHeaderContextMenuRequested( pos );
+    Node *node = model()->node(index);
+    if (node == 0) {
+        slotHeaderContextMenuRequested(pos);
         return;
     }
     debugPlan<<node->name()<<" :"<<pos;
     QString name;
-    switch ( node->type() ) {
+    switch (node->type()) {
         case Node::Type_Task:
             name = "task_popup";
             break;
@@ -202,27 +202,27 @@ void PertResult::slotContextMenuRequested( const QModelIndex& index, const QPoin
             name = "node_popup";
             break;
     }
-    if ( name.isEmpty() ) {
-        slotHeaderContextMenuRequested( pos );
+    if (name.isEmpty()) {
+        slotHeaderContextMenuRequested(pos);
         return;
     }
     debugPlan<<name;
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
 }
 
-void PertResult::slotHeaderContextMenuRequested( const QPoint &pos )
+void PertResult::slotHeaderContextMenuRequested(const QPoint &pos)
 {
     debugPlan;
     QList<QAction*> lst = contextActionList();
-    if ( ! lst.isEmpty() ) {
-        QMenu::exec( lst, pos,  lst.first() );
+    if (! lst.isEmpty()) {
+        QMenu::exec(lst, pos,  lst.first());
     }
 }
 
 void PertResult::slotOptions()
 {
     debugPlan;
-    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, widget.treeWidgetTaskResult, this );
+    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, widget.treeWidgetTaskResult, this);
     // Note: printing needs fixes in SplitterView/ScheduleHandlerView
     //dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
@@ -234,93 +234,93 @@ void PertResult::slotUpdate(){
     draw();
 }
 
-void PertResult::slotScheduleSelectionChanged( ScheduleManager *sm )
+void PertResult::slotScheduleSelectionChanged(ScheduleManager *sm)
 {
     current_schedule = sm;
-    model()->setManager( sm );
+    model()->setManager(sm);
     draw();
 }
 
 void PertResult::slotProjectCalculated(KPlato::ScheduleManager *sm)
 {
-    if ( sm && sm == model()->manager() ) {
+    if (sm && sm == model()->manager()) {
         //draw();
-        slotScheduleSelectionChanged( sm );
+        slotScheduleSelectionChanged(sm);
     }
 }
 
-void PertResult::slotScheduleManagerToBeRemoved( const ScheduleManager *sm )
+void PertResult::slotScheduleManagerToBeRemoved(const ScheduleManager *sm)
 {
-    if ( sm == model()->manager() ) {
+    if (sm == model()->manager()) {
         current_schedule = 0;
-        model()->setManager( 0 );
+        model()->setManager(0);
     }
 }
 
-void PertResult::slotScheduleManagerChanged( ScheduleManager *sm )
+void PertResult::slotScheduleManagerChanged(ScheduleManager *sm)
 {
-    if ( current_schedule && current_schedule == sm ) {
-        slotScheduleSelectionChanged( sm );
+    if (current_schedule && current_schedule == sm) {
+        slotScheduleSelectionChanged(sm);
     }
 }
 
-void PertResult::setProject( Project *project )
+void PertResult::setProject(Project *project)
 {
-    if ( m_project ) {
-        disconnect( m_project, &Project::nodeChanged, this, &PertResult::slotUpdate );
-        disconnect( m_project, &Project::projectCalculated, this, &PertResult::slotProjectCalculated );
-        disconnect( m_project, &Project::scheduleManagerToBeRemoved, this, &PertResult::slotScheduleManagerToBeRemoved );
-        disconnect( m_project, &Project::scheduleManagerChanged, this, &PertResult::slotScheduleManagerChanged );
+    if (m_project) {
+        disconnect(m_project, &Project::nodeChanged, this, &PertResult::slotUpdate);
+        disconnect(m_project, &Project::projectCalculated, this, &PertResult::slotProjectCalculated);
+        disconnect(m_project, &Project::scheduleManagerToBeRemoved, this, &PertResult::slotScheduleManagerToBeRemoved);
+        disconnect(m_project, &Project::scheduleManagerChanged, this, &PertResult::slotScheduleManagerChanged);
     }
     m_project = project;
-    model()->setProject( m_project );
-    if ( m_project ) {
-        connect( m_project, &Project::nodeChanged, this, &PertResult::slotUpdate );
-        connect( m_project, &Project::projectCalculated, this, &PertResult::slotProjectCalculated );
-        connect( m_project, &Project::scheduleManagerToBeRemoved, this, &PertResult::slotScheduleManagerToBeRemoved );
-        connect( m_project, &Project::scheduleManagerChanged, this, &PertResult::slotScheduleManagerChanged );
+    model()->setProject(m_project);
+    if (m_project) {
+        connect(m_project, &Project::nodeChanged, this, &PertResult::slotUpdate);
+        connect(m_project, &Project::projectCalculated, this, &PertResult::slotProjectCalculated);
+        connect(m_project, &Project::scheduleManagerToBeRemoved, this, &PertResult::slotScheduleManagerToBeRemoved);
+        connect(m_project, &Project::scheduleManagerChanged, this, &PertResult::slotScheduleManagerChanged);
     }
     draw();
 }
 
-bool PertResult::loadContext( const KoXmlElement &context )
+bool PertResult::loadContext(const KoXmlElement &context)
 {
     debugPlan;
-    ViewBase::loadContext( context );
-    return widget.treeWidgetTaskResult->loadContext( model()->columnMap(), context );
+    ViewBase::loadContext(context);
+    return widget.treeWidgetTaskResult->loadContext(model()->columnMap(), context);
 }
 
-void PertResult::saveContext( QDomElement &context ) const
+void PertResult::saveContext(QDomElement &context) const
 {
-    ViewBase::saveContext( context );
-    widget.treeWidgetTaskResult->saveContext( model()->columnMap(), context );
+    ViewBase::saveContext(context);
+    widget.treeWidgetTaskResult->saveContext(model()->columnMap(), context);
 }
 
 KoPrintJob *PertResult::createPrintJob()
 {
-    return widget.treeWidgetTaskResult->createPrintJob( this );
+    return widget.treeWidgetTaskResult->createPrintJob(this);
 }
 
 //--------------------
 PertCpmView::PertCpmView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_project( 0 ),
-    current_schedule( 0 ),
-    block( false )
+    m_project(0),
+    current_schedule(0),
+    block(false)
 {
     debugPlan << " ---------------- KPlato: Creating PertCpmView ----------------";
     widget.setupUi(this);
-    widget.cpmTable->setSelectionMode( QAbstractItemView::ExtendedSelection );
-    widget.probabilityFrame->setVisible( false );
+    widget.cpmTable->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    widget.probabilityFrame->setVisible(false);
 
-    widget.cpmTable->setStretchLastSection ( false );
-    CriticalPathItemModel *m = new CriticalPathItemModel( widget.cpmTable );
-    widget.cpmTable->setModel( m );
+    widget.cpmTable->setStretchLastSection (false);
+    CriticalPathItemModel *m = new CriticalPathItemModel(widget.cpmTable);
+    widget.cpmTable->setModel(m);
     
     setupGui();
     
     QList<int> lst1; lst1 << 1 << -1; // only display first column (NodeName) in left view
-    widget.cpmTable->masterView()->setDefaultColumns( QList<int>() << 0 );
+    widget.cpmTable->masterView()->setDefaultColumns(QList<int>() << 0);
     
     QList<int> show;
     show << NodeModel::NodeDuration
@@ -334,32 +334,32 @@ PertCpmView::PertCpmView(KoPart *part, KoDocument *doc, QWidget *parent)
             << NodeModel::NodePessimistic;
 
     QList<int> lst2;
-    for ( int i = 0; i < m->columnCount(); ++i ) {
-        if ( ! show.contains( i ) ) {
+    for (int i = 0; i < m->columnCount(); ++i) {
+        if (! show.contains(i)) {
             lst2 << i;
         }
     }
-    widget.cpmTable->hideColumns( lst1, lst2 );
+    widget.cpmTable->hideColumns(lst1, lst2);
     
-    for ( int s = 0; s < show.count(); ++s ) {
-        widget.cpmTable->slaveView()->mapToSection( show[s], s );
+    for (int s = 0; s < show.count(); ++s) {
+        widget.cpmTable->slaveView()->mapToSection(show[s], s);
     }
-    widget.cpmTable->slaveView()->setDefaultColumns( show );
+    widget.cpmTable->slaveView()->setDefaultColumns(show);
     
-    connect( widget.cpmTable, &DoubleTreeViewBase::contextMenuRequested, this, &PertCpmView::slotContextMenuRequested );
+    connect(widget.cpmTable, &DoubleTreeViewBase::contextMenuRequested, this, &PertCpmView::slotContextMenuRequested);
 
-    connect( widget.cpmTable, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect(widget.cpmTable, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)));
     
-    connect( widget.finishTime, &QDateTimeEdit::dateTimeChanged, this, &PertCpmView::slotFinishTimeChanged );
+    connect(widget.finishTime, &QDateTimeEdit::dateTimeChanged, this, &PertCpmView::slotFinishTimeChanged);
     
-    connect( widget.probability, SIGNAL(valueChanged(int)), SLOT(slotProbabilityChanged(int)) );
+    connect(widget.probability, SIGNAL(valueChanged(int)), SLOT(slotProbabilityChanged(int)));
 }
 
 void PertCpmView::setupGui()
 {
     // Add the context menu actions for the view options
     connect(widget.cpmTable->actionSplitView(), &QAction::triggered, this, &PertCpmView::slotSplitView);
-    addContextAction( widget.cpmTable->actionSplitView() );
+    addContextAction(widget.cpmTable->actionSplitView());
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
 }
@@ -367,26 +367,26 @@ void PertCpmView::setupGui()
 void PertCpmView::slotSplitView()
 {
     debugPlan;
-    widget.cpmTable->setViewSplitMode( ! widget.cpmTable->isViewSplit() );
+    widget.cpmTable->setViewSplitMode(! widget.cpmTable->isViewSplit());
     emit optionsModified();
 }
 
 Node *PertCpmView::currentNode() const
 {
-    return model()->node( widget.cpmTable->selectionModel()->currentIndex() );
+    return model()->node(widget.cpmTable->selectionModel()->currentIndex());
 }
 
-void PertCpmView::slotContextMenuRequested( const QModelIndex& index, const QPoint& pos )
+void PertCpmView::slotContextMenuRequested(const QModelIndex& index, const QPoint& pos)
 {
     debugPlan<<index<<pos;
-    Node *node = model()->node( index );
-    if ( node == 0 ) {
-        slotHeaderContextMenuRequested( pos );
+    Node *node = model()->node(index);
+    if (node == 0) {
+        slotHeaderContextMenuRequested(pos);
         return;
     }
     debugPlan<<node->name()<<" :"<<pos;
     QString name;
-    switch ( node->type() ) {
+    switch (node->type()) {
         case Node::Type_Task:
             name = "task_popup";
             break;
@@ -402,174 +402,174 @@ void PertCpmView::slotContextMenuRequested( const QModelIndex& index, const QPoi
             name = "node_popup";
             break;
     }
-    if ( name.isEmpty() ) {
-        slotHeaderContextMenuRequested( pos );
+    if (name.isEmpty()) {
+        slotHeaderContextMenuRequested(pos);
         return;
     }
     debugPlan<<name;
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
 }
 
-void PertCpmView::slotHeaderContextMenuRequested( const QPoint &pos )
+void PertCpmView::slotHeaderContextMenuRequested(const QPoint &pos)
 {
     debugPlan;
     QList<QAction*> lst = contextActionList();
-    if ( ! lst.isEmpty() ) {
-        QMenu::exec( lst, pos,  lst.first() );
+    if (! lst.isEmpty()) {
+        QMenu::exec(lst, pos,  lst.first());
     }
 }
 
 void PertCpmView::slotOptions()
 {
     debugPlan;
-    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, widget.cpmTable, this );
+    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, widget.cpmTable, this);
     // Note: printing needs fixes in SplitterView/ScheduleHandlerView
     //dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
 
-void PertCpmView::slotScheduleSelectionChanged( ScheduleManager *sm )
+void PertCpmView::slotScheduleSelectionChanged(ScheduleManager *sm)
 {
     bool enbl = sm && sm->isScheduled() && sm->usePert();
     debugPlan<<sm<<(sm?sm->isScheduled():false)<<(sm?sm->usePert():false)<<enbl;
-    widget.probabilityFrame->setVisible( enbl );
+    widget.probabilityFrame->setVisible(enbl);
     current_schedule = sm;
-    model()->setManager( sm );
+    model()->setManager(sm);
     draw();
 }
 
-void PertCpmView::slotProjectCalculated( ScheduleManager *sm )
+void PertCpmView::slotProjectCalculated(ScheduleManager *sm)
 {
-    if ( sm && sm == model()->manager() ) {
-        slotScheduleSelectionChanged( sm );
+    if (sm && sm == model()->manager()) {
+        slotScheduleSelectionChanged(sm);
     }
 }
 
-void PertCpmView::slotScheduleManagerChanged( ScheduleManager *sm )
+void PertCpmView::slotScheduleManagerChanged(ScheduleManager *sm)
 {
-    if ( current_schedule == sm ) {
-        slotScheduleSelectionChanged( sm );
+    if (current_schedule == sm) {
+        slotScheduleSelectionChanged(sm);
     }
 }
 
-void PertCpmView::slotScheduleManagerToBeRemoved( const ScheduleManager *sm )
+void PertCpmView::slotScheduleManagerToBeRemoved(const ScheduleManager *sm)
 {
-    if ( sm == current_schedule ) {
+    if (sm == current_schedule) {
         current_schedule = 0;
-        model()->setManager( 0 );
-        widget.probabilityFrame->setVisible( false );
+        model()->setManager(0);
+        widget.probabilityFrame->setVisible(false);
     }
 }
 
-void PertCpmView::setProject( Project *project )
+void PertCpmView::setProject(Project *project)
 {
-    if ( m_project ) {
-        disconnect( m_project, &Project::nodeChanged, this, &PertCpmView::slotUpdate );
-        disconnect( m_project, &Project::projectCalculated, this, &PertCpmView::slotProjectCalculated );
-        disconnect( m_project, &Project::scheduleManagerToBeRemoved, this, &PertCpmView::slotScheduleManagerToBeRemoved );
-        disconnect( m_project, &Project::scheduleManagerChanged, this, &PertCpmView::slotScheduleManagerChanged );
+    if (m_project) {
+        disconnect(m_project, &Project::nodeChanged, this, &PertCpmView::slotUpdate);
+        disconnect(m_project, &Project::projectCalculated, this, &PertCpmView::slotProjectCalculated);
+        disconnect(m_project, &Project::scheduleManagerToBeRemoved, this, &PertCpmView::slotScheduleManagerToBeRemoved);
+        disconnect(m_project, &Project::scheduleManagerChanged, this, &PertCpmView::slotScheduleManagerChanged);
     }
     m_project = project;
-    model()->setProject( m_project );
-    if ( m_project ) {
-        connect( m_project, &Project::nodeChanged, this, &PertCpmView::slotUpdate );
-        connect( m_project, &Project::projectCalculated, this, &PertCpmView::slotProjectCalculated );
-        connect( m_project, &Project::scheduleManagerToBeRemoved, this, &PertCpmView::slotScheduleManagerToBeRemoved );
-        connect( m_project, &Project::scheduleManagerChanged, this, &PertCpmView::slotScheduleManagerChanged );
+    model()->setProject(m_project);
+    if (m_project) {
+        connect(m_project, &Project::nodeChanged, this, &PertCpmView::slotUpdate);
+        connect(m_project, &Project::projectCalculated, this, &PertCpmView::slotProjectCalculated);
+        connect(m_project, &Project::scheduleManagerToBeRemoved, this, &PertCpmView::slotScheduleManagerToBeRemoved);
+        connect(m_project, &Project::scheduleManagerChanged, this, &PertCpmView::slotScheduleManagerChanged);
     }
     draw();
 }
 
-void PertCpmView::draw( Project &project )
+void PertCpmView::draw(Project &project)
 {
-    setProject( &project );
+    setProject(&project);
     // draw()
 }
 
 void PertCpmView::draw()
 {
-    widget.scheduleName->setText( i18n( "None" ) );
+    widget.scheduleName->setText(i18n("None"));
     bool enbl = m_project && current_schedule && current_schedule->isScheduled() && current_schedule->usePert();
-    widget.probabilityFrame->setVisible( enbl );
-    if ( m_project && current_schedule && current_schedule->isScheduled() ) {
+    widget.probabilityFrame->setVisible(enbl);
+    if (m_project && current_schedule && current_schedule->isScheduled()) {
         long id = current_schedule->scheduleId();
-        if ( id == -1 ) {
+        if (id == -1) {
             return;
         }
-        widget.scheduleName->setText( current_schedule->name() );
-        widget.finishTime->setDateTime( m_project->endTime( id ) );
-        bool ro = model()->variance( Qt::EditRole ).toDouble() == 0.0;
-        if ( ro ) {
-            widget.probability->setValue( 50 );
+        widget.scheduleName->setText(current_schedule->name());
+        widget.finishTime->setDateTime(m_project->endTime(id));
+        bool ro = model()->variance(Qt::EditRole).toDouble() == 0.0;
+        if (ro) {
+            widget.probability->setValue(50);
         }
-        widget.finishTime->setReadOnly( ro );
-        widget.probability->setEnabled( ! ro );
+        widget.finishTime->setReadOnly(ro);
+        widget.probability->setEnabled(! ro);
     }
 }
 
-void PertCpmView::slotFinishTimeChanged( const QDateTime &dt )
+void PertCpmView::slotFinishTimeChanged(const QDateTime &dt)
 {
     debugPlan<<dt;
-    if ( block || m_project == 0 || current_schedule == 0 ) {
+    if (block || m_project == 0 || current_schedule == 0) {
         return;
     }
     block = true;
-    double var = model()->variance( Qt::EditRole ).toDouble();
-    double dev = sqrt( var );
-    DateTime et = m_project->endTime( current_schedule->scheduleId() );
-    DateTime t = DateTime( dt );
-    double d = ( et - t ).toDouble();
+    double var = model()->variance(Qt::EditRole).toDouble();
+    double dev = sqrt(var);
+    DateTime et = m_project->endTime(current_schedule->scheduleId());
+    DateTime t = DateTime(dt);
+    double d = (et - t).toDouble();
     d = t < et ? -d : d;
     double z = d / dev;
-    double v = probability( z );
-    widget.probability->setValue( (int)( v * 100 ) );
+    double v = probability(z);
+    widget.probability->setValue((int)(v * 100));
     //debugPlan<<z<<", "<<v;
     block = false;
 }
 
-void PertCpmView::slotProbabilityChanged( int value )
+void PertCpmView::slotProbabilityChanged(int value)
 {
     debugPlan<<value;
-    if ( value == 0 || block || m_project == 0 || current_schedule == 0 ) {
+    if (value == 0 || block || m_project == 0 || current_schedule == 0) {
         return;
     }
     block = true;
-    double var = model()->variance( Qt::EditRole ).toDouble();
-    double dev = sqrt( var );
-    DateTime et = m_project->endTime( current_schedule->scheduleId() );
-    double p = valueZ( value );
-    DateTime t = et + Duration( qint64( p * dev ) );
-    widget.finishTime->setDateTime( t );
+    double var = model()->variance(Qt::EditRole).toDouble();
+    double dev = sqrt(var);
+    DateTime et = m_project->endTime(current_schedule->scheduleId());
+    double p = valueZ(value);
+    DateTime t = et + Duration(qint64(p * dev));
+    widget.finishTime->setDateTime(t);
     //debugPlan<<p<<", "<<t.toString();
     block = false;
 }
 
-double PertCpmView::probability( double z ) const
+double PertCpmView::probability(double z) const
 {
     double p = 1.0;
     int i = 1;
-    for ( ; i < 151; ++i ) {
-        if ( qAbs( z ) <= dist[i][0] ) {
+    for (; i < 151; ++i) {
+        if (qAbs(z) <= dist[i][0]) {
             break;
         }
     }
-    p = dist[i-1][1] + ( ( dist[i][1] - dist[i-1][1] ) * ( ( qAbs(z) - dist[i-1][0] ) / (dist[i][0] - dist[i-1][0] ) ) );
+    p = dist[i-1][1] + ((dist[i][1] - dist[i-1][1]) * ((qAbs(z) - dist[i-1][0]) / (dist[i][0] - dist[i-1][0])));
     //debugPlan<<i<<":"<<z<<dist[i][0]<<dist[i][1]<<"="<<p;
     return z < 0 ? 1 - p : p;
 }
 
-double PertCpmView::valueZ( double pr ) const
+double PertCpmView::valueZ(double pr) const
 {
-    double p = ( pr >= 50.0 ? pr : 100.0 - pr ) / 100.0;
+    double p = (pr >= 50.0 ? pr : 100.0 - pr) / 100.0;
     double z = 3.0;
     int i = 1;
-    for ( ; i < 151; ++i ) {
-        if ( p < dist[i][1] ) {
+    for (; i < 151; ++i) {
+        if (p < dist[i][1]) {
             break;
         }
     }
-    z = dist[i-1][0] + ( ( dist[i][0] - dist[i-1][0] ) * ( ( p - dist[i-1][1] ) / (dist[i][1] - dist[i-1][1] ) ) );
+    z = dist[i-1][0] + ((dist[i][0] - dist[i-1][0]) * ((p - dist[i-1][1]) / (dist[i][1] - dist[i-1][1])));
     //debugPlan<<i<<":"<<pr<<p<<dist[i][0]<<dist[i][1]<<"="<<z;
     return pr < 50.0 ? -z : z;
 }
@@ -579,22 +579,22 @@ void PertCpmView::slotUpdate()
     draw();
 }
 
-bool PertCpmView::loadContext( const KoXmlElement &context )
+bool PertCpmView::loadContext(const KoXmlElement &context)
 {
     debugPlan<<objectName();
-    ViewBase::loadContext( context );
-    return widget.cpmTable->loadContext( model()->columnMap(), context );
+    ViewBase::loadContext(context);
+    return widget.cpmTable->loadContext(model()->columnMap(), context);
 }
 
-void PertCpmView::saveContext( QDomElement &context ) const
+void PertCpmView::saveContext(QDomElement &context) const
 {
-    ViewBase::saveContext( context );
-    widget.cpmTable->saveContext( model()->columnMap(), context );
+    ViewBase::saveContext(context);
+    widget.cpmTable->saveContext(model()->columnMap(), context);
 }
 
 KoPrintJob *PertCpmView::createPrintJob()
 {
-    return widget.cpmTable->createPrintJob( this );
+    return widget.cpmTable->createPrintJob(this);
 }
 
 } // namespace KPlato

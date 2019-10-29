@@ -52,23 +52,23 @@ public:
     ~EffortCost() {
         //debugPlan;
     }
-    double hours() const { return m_effort.toDouble( Duration::Unit_h ); }
+    double hours() const { return m_effort.toDouble(Duration::Unit_h); }
     Duration effort() const { return m_effort; }
-    void setEffort( KPlato::Duration effort ) { m_effort = effort; }
+    void setEffort(KPlato::Duration effort) { m_effort = effort; }
     double cost() const { return m_cost; }
     void setCost(double cost) { m_cost = cost; }
-    void setBcwpEffort( double value ) { m_bcwpEffort = value; }
+    void setBcwpEffort(double value) { m_bcwpEffort = value; }
     double bcwpEffort() const { return m_bcwpEffort; }
-    void setBcwpCost( double value ) { m_bcwpCost = value; }
+    void setBcwpCost(double value) { m_bcwpCost = value; }
     double bcwpCost() const { return m_bcwpCost; }
-    void add(const Duration &effort, double cost, double bcwpEffort = 0.0, double bcwpCost = 0.0 );
+    void add(const Duration &effort, double cost, double bcwpEffort = 0.0, double bcwpCost = 0.0);
     EffortCost &operator+=(const EffortCost &ec) {
         add(ec.m_effort, ec.m_cost, ec.m_bcwpEffort, ec.m_bcwpCost);
         return *this;
     }
     
 #ifndef QT_NO_DEBUG_STREAM
-    QDebug debug( QDebug dbg) const;
+    QDebug debug(QDebug dbg) const;
 #endif
 
 private:
@@ -86,7 +86,7 @@ public:
         : m_days() {
         //debugPlan; 
     }
-    EffortCostMap( const EffortCostMap &map );
+    EffortCostMap(const EffortCostMap &map);
     
     ~EffortCostMap() {
         //debugPlan;
@@ -106,7 +106,7 @@ public:
             ec = it.value();
         return ec;
     }
-    void insert(const QDate &date, const EffortCost &ec );
+    void insert(const QDate &date, const EffortCost &ec);
 
     void insert(QDate date, KPlato::Duration effort, const double cost) {
         if (!date.isValid()) {
@@ -184,7 +184,7 @@ public:
         }
         return 0.0;
     }
-    void addBcwpCost( const QDate &date, double cost );
+    void addBcwpCost(const QDate &date, double cost);
 
     double bcwpCostOnDate(QDate date) const {
         if (!date.isValid()) {
@@ -223,33 +223,33 @@ public:
         return eff;
     }
     
-    double costTo( QDate date ) const {
+    double costTo(QDate date) const {
         double cost = 0.0;
         EffortCostDayMap::const_iterator it;
         for(it = m_days.constBegin(); it != m_days.constEnd(); ++it) {
-            if ( it.key() > date ) {
+            if (it.key() > date) {
                 break;
             }
             cost += it.value().cost();
         }
         return cost;
     }
-    Duration effortTo( QDate date ) const {
+    Duration effortTo(QDate date) const {
         Duration eff;
         EffortCostDayMap::const_iterator it;
         for(it = m_days.constBegin(); it != m_days.constEnd(); ++it) {
-            if ( it.key() > date ) {
+            if (it.key() > date) {
                 break;
             }
             eff += it.value().effort();
         }
         return eff;
     }
-    double hoursTo( QDate date ) const {
+    double hoursTo(QDate date) const {
         double eff = 0.0;
         EffortCostDayMap::const_iterator it;
         for(it = m_days.constBegin(); it != m_days.constEnd(); ++it) {
-            if ( it.key() > date ) {
+            if (it.key() > date) {
                 break;
             }
             eff += it.value().hours();
@@ -257,13 +257,13 @@ public:
         return eff;
     }
     /// Return the BCWP cost to @p date. (BSWP is cumulative)
-    double bcwpCost( const QDate &date ) const;
+    double bcwpCost(const QDate &date) const;
     /// Return the BCWP effort to @p date. (BSWP is cumulative)
-    double bcwpEffort( const QDate &date ) const;
+    double bcwpEffort(const QDate &date) const;
     /// Return the BCWP total cost. Since BCWP is cumulative this is the last entry.
     double bcwpTotalCost() const {
         double cost = 0.0;
-        if ( ! m_days.isEmpty() ) {
+        if (! m_days.isEmpty()) {
             cost = m_days.last().bcwpCost();
         }
         return cost;
@@ -271,7 +271,7 @@ public:
     /// Return the BCWP total cost. Since BCWP is cumulative this is the last entry.
     double bcwpTotalEffort() const {
         double eff = 0.0;
-        if ( ! m_days.isEmpty() ) {
+        if (! m_days.isEmpty()) {
             eff = m_days.last().bcwpEffort();
         }
         return eff;
@@ -281,7 +281,7 @@ public:
     QDate endDate() const { return m_days.isEmpty() ? QDate() : m_days.lastKey(); }
     
 #ifndef QT_NO_DEBUG_STREAM
-    QDebug debug( QDebug dbg) const;
+    QDebug debug(QDebug dbg) const;
 #endif
 
 private:
@@ -295,13 +295,13 @@ private:
 
 } //namespace KPlato
 
-Q_DECLARE_METATYPE( KPlato::EffortCost )
-Q_DECLARE_METATYPE( KPlato::EffortCostMap )
+Q_DECLARE_METATYPE(KPlato::EffortCost)
+Q_DECLARE_METATYPE(KPlato::EffortCostMap)
 
 #ifndef QT_NO_DEBUG_STREAM
-PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::EffortCost &ec );
-PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::EffortCost *ec );
-PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::EffortCostMap &i );
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::EffortCost &ec);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::EffortCost *ec);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::EffortCostMap &i);
 #endif
 
 #endif

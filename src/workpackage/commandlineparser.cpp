@@ -37,10 +37,10 @@
 
 CommandLineParser::CommandLineParser()
     : QObject(),
-    m_mainwindow( 0 )
+    m_mainwindow(0)
 {
     KAboutData *aboutData = KPlatoWork::newAboutData();
-    KAboutData::setApplicationData( *aboutData );
+    KAboutData::setApplicationData(*aboutData);
     qApp->setWindowIcon(QIcon::fromTheme(QStringLiteral("calligraplanwork"), qApp->windowIcon()));
 
     aboutData->setupCommandLine(&m_commandLineParser);
@@ -74,21 +74,21 @@ void CommandLineParser::handleActivateRequest(const QStringList &arguments, cons
 void CommandLineParser::handleCommandLine(const QDir &workingDirectory)
 {
     QList<KMainWindow*> lst = KMainWindow::memberList();
-    if ( lst.count() > 1 ) {
+    if (lst.count() > 1) {
         warnPlanWork<<"windows count > 1:"<<lst.count();
         return; // should never happen
     }
-    if ( lst.isEmpty() ) {
-        Q_ASSERT( m_mainwindow == 0 );
+    if (lst.isEmpty()) {
+        Q_ASSERT(m_mainwindow == 0);
     }
-    if ( m_mainwindow == 0 ) {
+    if (m_mainwindow == 0) {
         m_mainwindow = new KPlatoWork_MainWindow();
         m_mainwindow->show();
     }    
     // Get the command line arguments which we have to parse
     const QStringList fileUrls = m_commandLineParser.positionalArguments();
     // TODO: remove once Qt has proper handling itself
-    const QRegExp withProtocolChecker( QStringLiteral("^[a-zA-Z]+:") );
+    const QRegExp withProtocolChecker(QStringLiteral("^[a-zA-Z]+:"));
     foreach(const QString &fileUrl, fileUrls) {
         // convert to an url
         const bool startsWithProtocol = (withProtocolChecker.indexIn(fileUrl) == 0);
@@ -97,8 +97,8 @@ void CommandLineParser::handleCommandLine(const QDir &workingDirectory)
             QUrl::fromLocalFile(workingDirectory.absoluteFilePath(fileUrl));
 
         // For now create an empty document
-        if ( ! m_mainwindow->openDocument(url) ) {
-            KMessageBox::error(0, i18n("Failed to open document") );
+        if (! m_mainwindow->openDocument(url)) {
+            KMessageBox::error(0, i18n("Failed to open document"));
         }
     }
 }

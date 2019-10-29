@@ -55,7 +55,7 @@ class KPlatoXmlLoaderBase;
 /// Caches effortcost data (bcws, bcwp, acwp)
 class EffortCostCache {
 public:
-    EffortCostCache() : cached( false ) {}
+    EffortCostCache() : cached(false) {}
     bool cached;
     EffortCostMap effortcostmap;
 };
@@ -64,7 +64,7 @@ public:
  * The Schedule class holds data calculated during project
  * calculation and scheduling, eg start- and end-times and
  * appointments.
- * There is one Schedule per node (tasks and project ) and one per resource.
+ * There is one Schedule per node (tasks and project) and one per resource.
  * Schedule is subclassed into:
  * MainSchedule     Used by the main project.
  * NodeSchedule     Used by all other nodes (tasks).
@@ -79,21 +79,21 @@ public:
 
     Schedule();
     explicit Schedule(Schedule *parent);
-    Schedule( const QString& name, Type type, long id );
+    Schedule(const QString& name, Type type, long id);
     virtual ~Schedule();
 
     QString name() const { return m_name; }
-    void setName( const QString& name ) { m_name = name; }
+    void setName(const QString& name) { m_name = name; }
     Type type() const { return m_type; }
-    void setType( Type type ) { m_type = type; }
-    void setType( const QString& type );
-    QString typeToString( bool translate = false ) const;
+    void setType(Type type) { m_type = type; }
+    void setType(const QString& type);
+    QString typeToString(bool translate = false) const;
     long id() const { return m_id; }
-    void setId( long id ) { m_id = id; }
-    void setParent( Schedule *parent );
+    void setId(long id) { m_id = id; }
+    void setParent(Schedule *parent);
     Schedule *parent() const { return m_parent; }
     virtual bool isDeleted() const;
-    virtual void setDeleted( bool on );
+    virtual void setDeleted(bool on);
     virtual bool recalculate() const { return m_parent == 0 ? false : m_parent->recalculate(); }
     virtual DateTime recalculateFrom() const { return m_parent == 0 ? DateTime() : m_parent->recalculateFrom(); }
 
@@ -108,110 +108,110 @@ public:
     enum OBState { OBS_Parent, OBS_Allow, OBS_Deny };
     /// Sets whether overbooking resources is allowed locally for this schedule
     /// If @p state is OBS_Parent, the parent is checked when allowOverbooking() is called
-    virtual void setAllowOverbookingState( OBState state );
+    virtual void setAllowOverbookingState(OBState state);
     OBState allowOverbookingState() const;
     virtual bool allowOverbooking() const;
     virtual bool checkExternalAppointments() const;
 
     bool isCritical() const { return positiveFloat == Duration::zeroDuration; }
 
-    virtual bool loadXML( const KoXmlElement &element, XMLLoaderObject &status );
-    virtual void saveXML( QDomElement &element ) const;
-    void saveCommonXML( QDomElement &element ) const;
-    void saveAppointments( QDomElement &element ) const;
+    virtual bool loadXML(const KoXmlElement &element, XMLLoaderObject &status);
+    virtual void saveXML(QDomElement &element) const;
+    void saveCommonXML(QDomElement &element) const;
+    void saveAppointments(QDomElement &element) const;
 
     /// Return the effort available in the @p interval
-    virtual Duration effort( const DateTimeInterval &interval ) const;
-    virtual DateTimeInterval available( const DateTimeInterval &interval ) const;
+    virtual Duration effort(const DateTimeInterval &interval) const;
+    virtual DateTimeInterval available(const DateTimeInterval &interval) const;
 
     enum CalculationMode { Scheduling, CalculateForward, CalculateBackward };
     /// Set calculation mode
-    void setCalculationMode( int mode ) { m_calculationMode = mode; }
+    void setCalculationMode(int mode) { m_calculationMode = mode; }
     /// Return calculation mode
     int calculationMode() const { return m_calculationMode; }
     /// Return the list of appointments
     QList<Appointment*> appointments() const { return m_appointments; }
     /// Return true if the @p which list is not empty
-    bool hasAppointments( int which ) const;
+    bool hasAppointments(int which) const;
     /// Return the list of appointments
     /// @param which specifies which list is returned
     QList<Appointment*> appointments(int which) const;
     /// Adds appointment to this schedule only
-    virtual bool add( Appointment *appointment );
+    virtual bool add(Appointment *appointment);
     /// Adds appointment to both this resource schedule and node schedule
-    virtual void addAppointment( Schedule * /*other*/, const DateTime & /*start*/, const DateTime & /*end*/, double /*load*/ = 100 ) {}
+    virtual void addAppointment(Schedule * /*other*/, const DateTime & /*start*/, const DateTime & /*end*/, double /*load*/ = 100) {}
     /// Removes appointment without deleting it.
-    virtual void takeAppointment( Appointment *appointment, int type = Scheduling );
-    Appointment *findAppointment( Schedule *resource, Schedule *node, int type = Scheduling );
+    virtual void takeAppointment(Appointment *appointment, int type = Scheduling);
+    Appointment *findAppointment(Schedule *resource, Schedule *node, int type = Scheduling);
     /// Attach the appointment to appropriate list (appointment->calculationMode() specifies list)
-    bool attach( Appointment *appointment );
+    bool attach(Appointment *appointment);
     
     DateTime appointmentStartTime() const;
     DateTime appointmentEndTime() const;
 
-    virtual Appointment appointmentIntervals( int which = Scheduling, const DateTimeInterval &interval = DateTimeInterval() ) const;
-    void copyAppointments( CalculationMode from, CalculationMode to );
+    virtual Appointment appointmentIntervals(int which = Scheduling, const DateTimeInterval &interval = DateTimeInterval()) const;
+    void copyAppointments(CalculationMode from, CalculationMode to);
 
     virtual bool isOverbooked() const { return false; }
-    virtual bool isOverbooked( const DateTime & /*start*/, const DateTime & /*end*/ ) const { return false; }
+    virtual bool isOverbooked(const DateTime & /*start*/, const DateTime & /*end*/) const { return false; }
     virtual QStringList overbookedResources() const;
     /// Returns the first booked interval to @p node that intersects @p interval (limited to @p interval)
-    virtual DateTimeInterval firstBookedInterval( const DateTimeInterval &interval, const Schedule *node ) const;
+    virtual DateTimeInterval firstBookedInterval(const DateTimeInterval &interval, const Schedule *node) const;
 
     /// Return the resources that has appointments to this schedule
     virtual QList<Resource*> resources() const;
     /// Return the resource names that has appointments to this schedule
     virtual QStringList resourceNameList() const;
 
-    virtual EffortCostMap bcwsPrDay( EffortCostCalculationType type = ECCT_All );
-    virtual EffortCostMap bcwsPrDay( EffortCostCalculationType type = ECCT_All ) const;
-    virtual EffortCostMap plannedEffortCostPrDay( const QDate &start, const QDate &end, EffortCostCalculationType type = ECCT_All ) const;
-    virtual EffortCostMap plannedEffortCostPrDay( const Resource *resource, const QDate &start, const QDate &end, EffortCostCalculationType type = ECCT_All ) const;
+    virtual EffortCostMap bcwsPrDay(EffortCostCalculationType type = ECCT_All);
+    virtual EffortCostMap bcwsPrDay(EffortCostCalculationType type = ECCT_All) const;
+    virtual EffortCostMap plannedEffortCostPrDay(const QDate &start, const QDate &end, EffortCostCalculationType type = ECCT_All) const;
+    virtual EffortCostMap plannedEffortCostPrDay(const Resource *resource, const QDate &start, const QDate &end, EffortCostCalculationType type = ECCT_All) const;
     
     /// Returns the total planned effort for @p resource this schedule
-    virtual Duration plannedEffort( const Resource *resource, EffortCostCalculationType type = ECCT_All) const;
+    virtual Duration plannedEffort(const Resource *resource, EffortCostCalculationType type = ECCT_All) const;
     /// Returns the total planned effort for this schedule
-    virtual Duration plannedEffort( EffortCostCalculationType type = ECCT_All) const;
+    virtual Duration plannedEffort(EffortCostCalculationType type = ECCT_All) const;
     /// Returns the total planned effort for this schedule on date
-    virtual Duration plannedEffort( const QDate &date, EffortCostCalculationType type = ECCT_All ) const;
+    virtual Duration plannedEffort(const QDate &date, EffortCostCalculationType type = ECCT_All) const;
     /// Returns the planned effort for @p resource on the @p date date
-    virtual Duration plannedEffort( const Resource *resource, const QDate &date, EffortCostCalculationType type = ECCT_All ) const;
+    virtual Duration plannedEffort(const Resource *resource, const QDate &date, EffortCostCalculationType type = ECCT_All) const;
     /// Returns the planned effort up to and including date
-    virtual Duration plannedEffortTo( const QDate &date, EffortCostCalculationType type = ECCT_All ) const;
+    virtual Duration plannedEffortTo(const QDate &date, EffortCostCalculationType type = ECCT_All) const;
     /// Returns the planned effort for @p resource up to and including date
-    virtual Duration plannedEffortTo( const Resource *resource, const QDate &date, EffortCostCalculationType type = ECCT_All ) const;
+    virtual Duration plannedEffortTo(const Resource *resource, const QDate &date, EffortCostCalculationType type = ECCT_All) const;
 
     /**
      * Planned cost is the sum total of all resources and other costs
      * planned for this node.
      */
-    virtual EffortCost plannedCost( EffortCostCalculationType type = ECCT_All ) const;
+    virtual EffortCost plannedCost(EffortCostCalculationType type = ECCT_All) const;
 
     /// Planned cost on date
-    virtual double plannedCost( const QDate &date, EffortCostCalculationType type = ECCT_All ) const;
+    virtual double plannedCost(const QDate &date, EffortCostCalculationType type = ECCT_All) const;
     /**
      * Planned cost from start of activity up to and including date
      * is the sum of all resource costs and other costs planned for this schedule.
      */
-    virtual double plannedCostTo( const QDate &date, EffortCostCalculationType type = ECCT_All ) const;
+    virtual double plannedCostTo(const QDate &date, EffortCostCalculationType type = ECCT_All) const;
     
     virtual double normalRatePrHour() const { return 0.0; }
 
-    void setEarliestStart( DateTime &dt ) { earlyStart = dt; }
-    void setLatestFinish( DateTime &dt ) { lateFinish = dt; }
+    void setEarliestStart(DateTime &dt) { earlyStart = dt; }
+    void setLatestFinish(DateTime &dt) { lateFinish = dt; }
 
     virtual void initiateCalculation();
     virtual void calcResourceOverbooked();
     
-    virtual void insertHardConstraint( Node * ) {}
-    virtual void insertSoftConstraint( Node * ) {}
-    virtual void insertForwardNode( Node *node );
-    virtual void insertBackwardNode( Node *node );
-    virtual void insertStartNode( Node * ) {}
-    virtual void insertEndNode( Node * ) {}
-    virtual void insertSummaryTask( Node * ) {}
+    virtual void insertHardConstraint(Node *) {}
+    virtual void insertSoftConstraint(Node *) {}
+    virtual void insertForwardNode(Node *node);
+    virtual void insertBackwardNode(Node *node);
+    virtual void insertStartNode(Node *) {}
+    virtual void insertEndNode(Node *) {}
+    virtual void insertSummaryTask(Node *) {}
 
-    void setScheduled( bool on );
+    void setScheduled(bool on);
     bool isScheduled() const { return !notScheduled; }
 
     DateTime start() const { return startTime; }
@@ -219,18 +219,18 @@ public:
 
     QStringList state() const;
 
-    void setResourceError( bool on ) { resourceError = on; }
-    void setResourceOverbooked( bool on ) { resourceOverbooked = on; }
-    void setResourceNotAvailable( bool on ) { resourceNotAvailable = on; }
-    void setConstraintError( bool on ) { constraintError = on; }
-    void setNotScheduled( bool on ) { notScheduled = on; }
-    void setSchedulingError( bool on ) { schedulingError = on; }
+    void setResourceError(bool on) { resourceError = on; }
+    void setResourceOverbooked(bool on) { resourceOverbooked = on; }
+    void setResourceNotAvailable(bool on) { resourceNotAvailable = on; }
+    void setConstraintError(bool on) { constraintError = on; }
+    void setNotScheduled(bool on) { notScheduled = on; }
+    void setSchedulingError(bool on) { schedulingError = on; }
 
-    void setPositiveFloat( KPlato::Duration f ) { positiveFloat = f; }
-    void setNegativeFloat( KPlato::Duration f ) { negativeFloat = f; }
-    void setFreeFloat( KPlato::Duration f ) { freeFloat = f; }
+    void setPositiveFloat(KPlato::Duration f) { positiveFloat = f; }
+    void setNegativeFloat(KPlato::Duration f) { negativeFloat = f; }
+    void setFreeFloat(KPlato::Duration f) { freeFloat = f; }
 
-    void setInCriticalPath( bool on = true ) { inCriticalPath = on; }
+    void setInCriticalPath(bool on = true) { inCriticalPath = on; }
 
     virtual ScheduleManager *manager() const { return 0; }
     
@@ -238,13 +238,13 @@ public:
         public:
             enum Type { Type_Debug = 0, Type_Info, Type_Warning, Type_Error };
             Log() 
-                : node( 0 ), resource( 0 ), severity( 0 ), phase( -1 )
+                : node(0), resource(0), severity(0), phase(-1)
             {}
-            Log( const Node *n, int sev, const QString &msg, int ph = -1 );
-            Log( const Node *n, const Resource *r, int sev, const QString &msg, int ph = -1 );
-            Log( const Log &other );
+            Log(const Node *n, int sev, const QString &msg, int ph = -1);
+            Log(const Node *n, const Resource *r, int sev, const QString &msg, int ph = -1);
+            Log(const Log &other);
 
-            Log &operator=( const Log &other );
+            Log &operator=(const Log &other);
 
             const Node *node;
             const Resource *resource;
@@ -254,19 +254,19 @@ public:
 
             QString formatMsg() const;
     };
-    virtual void addLog( const Log &log );
+    virtual void addLog(const Log &log);
     virtual void clearLogs() {};
-    virtual void logError( const QString &, int = -1 ) {}
-    virtual void logWarning( const QString &, int = -1 ) {}
-    virtual void logInfo( const QString &, int = -1 ) {}
-    virtual void logDebug( const QString &, int = -1 ) {}
+    virtual void logError(const QString &, int = -1) {}
+    virtual void logWarning(const QString &, int = -1) {}
+    virtual void logInfo(const QString &, int = -1) {}
+    virtual void logDebug(const QString &, int = -1) {}
     
-    virtual void incProgress() { if ( m_parent ) m_parent->incProgress(); }
+    virtual void incProgress() { if (m_parent) m_parent->incProgress(); }
 
     void clearPerformanceCache();
 
 protected:
-    virtual void changed( Schedule * /*sch*/ ) {}
+    virtual void changed(Schedule * /*sch*/) {}
     
 protected:
     QString m_name;
@@ -350,13 +350,13 @@ protected:
     Duration negativeFloat;
     Duration freeFloat;
 
-    EffortCostCache &bcwsPrDayCache( int type ) {
+    EffortCostCache &bcwsPrDayCache(int type) {
         return m_bcwsPrDay[ type ];
     }
-    EffortCostCache &bcwpPrDayCache( int type ) {
+    EffortCostCache &bcwpPrDayCache(int type) {
         return m_bcwpPrDay[ type ];
     }
-    EffortCostCache &acwpCache( int type ) {
+    EffortCostCache &acwpCache(int type) {
         return m_acwp[ type ];
     }
     QMap<int, EffortCostCache> m_bcwsPrDay;
@@ -372,33 +372,33 @@ class PLANKERNEL_EXPORT NodeSchedule : public Schedule
 {
 public:
     NodeSchedule();
-    NodeSchedule( Node *node, const QString& name, Schedule::Type type, long id );
-    NodeSchedule( Schedule *parent, Node *node );
+    NodeSchedule(Node *node, const QString& name, Schedule::Type type, long id);
+    NodeSchedule(Schedule *parent, Node *node);
     ~NodeSchedule() override;
 
     bool isDeleted() const override
     { return m_parent == 0 ? true : m_parent->isDeleted(); }
-    void setDeleted( bool on ) override;
+    void setDeleted(bool on) override;
 
-    bool loadXML( const KoXmlElement &element, XMLLoaderObject &status ) override;
-    void saveXML( QDomElement &element ) const override;
+    bool loadXML(const KoXmlElement &element, XMLLoaderObject &status) override;
+    void saveXML(QDomElement &element) const override;
 
     // tasks------------>
-    void addAppointment( Schedule *resource, const DateTime &start, const DateTime &end, double load = 100 ) override;
-    void takeAppointment( Appointment *appointment, int type = Schedule::Scheduling ) override;
+    void addAppointment(Schedule *resource, const DateTime &start, const DateTime &end, double load = 100) override;
+    void takeAppointment(Appointment *appointment, int type = Schedule::Scheduling) override;
 
     Node *node() const override { return m_node; }
-    virtual void setNode( Node *n ) { m_node = n; }
+    virtual void setNode(Node *n) { m_node = n; }
 
     /// Return the resources that has appointments to this schedule
     QList<Resource*> resources() const override;
     /// Return the resource names that has appointments to this schedule
     QStringList resourceNameList() const override;
 
-    void logError( const QString &msg, int phase = -1 ) override;
-    void logWarning( const QString &msg, int phase = -1 ) override;
-    void logInfo( const QString &msg, int phase = -1 ) override;
-    void logDebug( const QString &, int = -1 ) override;
+    void logError(const QString &msg, int phase = -1) override;
+    void logWarning(const QString &msg, int phase = -1) override;
+    void logInfo(const QString &msg, int phase = -1) override;
+    void logDebug(const QString &, int = -1) override;
 
 protected:
     void init();
@@ -415,31 +415,31 @@ class PLANKERNEL_EXPORT ResourceSchedule : public Schedule
 {
 public:
     ResourceSchedule();
-    ResourceSchedule( Resource *Resource, const QString& name, Schedule::Type type, long id );
-    ResourceSchedule( Schedule *parent, Resource *Resource );
+    ResourceSchedule(Resource *Resource, const QString& name, Schedule::Type type, long id);
+    ResourceSchedule(Schedule *parent, Resource *Resource);
     ~ResourceSchedule() override;
 
     bool isDeleted() const override
     { return m_parent == 0 ? true : m_parent->isDeleted(); }
-    void addAppointment( Schedule *node, const DateTime &start, const DateTime &end, double load = 100 ) override;
-    void takeAppointment( Appointment *appointment, int type = Scheduling ) override;
+    void addAppointment(Schedule *node, const DateTime &start, const DateTime &end, double load = 100) override;
+    void takeAppointment(Appointment *appointment, int type = Scheduling) override;
 
     bool isOverbooked() const override;
-    bool isOverbooked( const DateTime &start, const DateTime &end ) const override;
+    bool isOverbooked(const DateTime &start, const DateTime &end) const override;
 
     Resource *resource() const override { return m_resource; }
     double normalRatePrHour() const override;
 
     /// Return the effort available in the @p interval
-    Duration effort( const DateTimeInterval &interval ) const override;
-    DateTimeInterval available( const DateTimeInterval &interval ) const override;
+    Duration effort(const DateTimeInterval &interval) const override;
+    DateTimeInterval available(const DateTimeInterval &interval) const override;
     
-    void logError( const QString &msg, int phase = -1 ) override;
-    void logWarning( const QString &msg, int phase = -1 ) override;
-    void logInfo( const QString &msg, int phase = -1 ) override;
-    void logDebug( const QString &, int = -1 ) override;
+    void logError(const QString &msg, int phase = -1) override;
+    void logWarning(const QString &msg, int phase = -1) override;
+    void logInfo(const QString &msg, int phase = -1) override;
+    void logDebug(const QString &, int = -1) override;
 
-    void setNodeSchedule( const Schedule *sch ) { m_nodeSchedule = sch; }
+    void setNodeSchedule(const Schedule *sch) { m_nodeSchedule = sch; }
     
 private:
     Resource *m_resource;
@@ -455,7 +455,7 @@ class PLANKERNEL_EXPORT MainSchedule : public NodeSchedule
 {
 public:
     MainSchedule();
-    MainSchedule( Node *node, const QString& name, Schedule::Type type, long id );
+    MainSchedule(Node *node, const QString& name, Schedule::Type type, long id);
     ~MainSchedule() override;
     bool isDeleted() const override { return m_deleted; }
     
@@ -464,19 +464,19 @@ public:
     bool checkExternalAppointments() const override;
     bool usePert() const override;
 
-    bool loadXML( const KoXmlElement &element, XMLLoaderObject &status ) override;
-    void saveXML( QDomElement &element ) const override;
+    bool loadXML(const KoXmlElement &element, XMLLoaderObject &status) override;
+    void saveXML(QDomElement &element) const override;
 
-    void setManager( ScheduleManager *sm ) { m_manager = sm; }
+    void setManager(ScheduleManager *sm) { m_manager = sm; }
     ScheduleManager *manager() const override { return m_manager; }
     bool recalculate() const override;
     DateTime recalculateFrom() const override;
     long parentScheduleId() const override;
     
-    DateTime calculateForward( int use );
-    DateTime calculateBackward( int use );
-    DateTime scheduleForward( const DateTime &earliest, int use );
-    DateTime scheduleBackward( const DateTime &latest, int use );
+    DateTime calculateForward(int use);
+    DateTime calculateBackward(int use);
+    DateTime scheduleForward(const DateTime &earliest, int use);
+    DateTime scheduleBackward(const DateTime &latest, int use);
     
     void clearNodes() { 
         m_hardconstraints.clear(); 
@@ -487,41 +487,41 @@ public:
         m_endNodes.clear();
         m_summarytasks.clear();
     }
-    void insertHardConstraint( Node *node ) override;
+    void insertHardConstraint(Node *node) override;
     QList<Node*> hardConstraints() const;
-    void insertSoftConstraint( Node *node ) override;
+    void insertSoftConstraint(Node *node) override;
     QList<Node*> softConstraints() const;
     QList<Node*> forwardNodes() const;
-    void insertForwardNode( Node *node ) override;
+    void insertForwardNode(Node *node) override;
     QList<Node*> backwardNodes() const;
-    void insertBackwardNode( Node *node ) override;
-    void insertStartNode( Node *node ) override;
+    void insertBackwardNode(Node *node) override;
+    void insertStartNode(Node *node) override;
     QList<Node*> startNodes() const;
-    void insertEndNode( Node *node ) override;
+    void insertEndNode(Node *node) override;
     QList<Node*> endNodes() const;
-    void insertSummaryTask( Node *node ) override;
+    void insertSummaryTask(Node *node) override;
     QList<Node*> summaryTasks() const;
     
     void clearCriticalPathList();
     QList<Node*> *currentCriticalPath() const;
-    void addCriticalPath( QList<Node*> *lst = 0 );
+    void addCriticalPath(QList<Node*> *lst = 0);
     const QList< QList<Node*> > *criticalPathList() const { return &(m_pathlists); }
-    QList<Node*> criticalPath( int index = 0 ) {
+    QList<Node*> criticalPath(int index = 0) {
         QList<Node*> lst;
         return m_pathlists.count() <= index ? lst : m_pathlists[ index ];
     }
-    void addCriticalPathNode( Node *node );
+    void addCriticalPathNode(Node *node);
     
     QVector<Schedule::Log> logs() const;
-    void setLog( const QVector<Schedule::Log> &log ) { m_log = log; }
-    void addLog( const Schedule::Log &log ) override;
+    void setLog(const QVector<Schedule::Log> &log) { m_log = log; }
+    void addLog(const Schedule::Log &log) override;
     void clearLogs() override { m_log.clear(); m_logPhase.clear(); }
     
-    void setPhaseName( int phase, const QString &name ) { m_logPhase[ phase ] = name; }
-    QString logPhase( int phase ) const { return m_logPhase.value( phase ); }
-    static QString logSeverity( int severity );
+    void setPhaseName(int phase, const QString &name) { m_logPhase[ phase ] = name; }
+    QString logPhase(int phase) const { return m_logPhase.value(phase); }
+    static QString logSeverity(int severity);
     QMap<int, QString> phaseNames() const { return m_logPhase; }
-    void setPhaseNames( const QMap<int, QString> &pn ) { m_logPhase = pn; }
+    void setPhaseNames(const QMap<int, QString> &pn) { m_logPhase = pn; }
     
     void incProgress() override;
 
@@ -531,7 +531,7 @@ public:
     bool criticalPathListCached;
 
 protected:
-    void changed( Schedule *sch ) override;
+    void changed(Schedule *sch) override;
 
 private:
     friend class Project;
@@ -575,86 +575,86 @@ public:
     };
     Q_ENUM(Properties);
 
-    explicit ScheduleManager( Project &project, const QString name = QString() );
+    explicit ScheduleManager(Project &project, const QString name = QString());
     ~ScheduleManager() override;
     
-    void setName( const QString& name );
+    void setName(const QString& name);
     QString name() const { return m_name; }
 
-    void setManagerId( const QString &id ) { m_id = id; }
+    void setManagerId(const QString &id) { m_id = id; }
     QString managerId() const { return m_id; }
 
     Project &project() const { return m_project; }
     
-    void setParentManager( ScheduleManager *sm, int index = -1 );
+    void setParentManager(ScheduleManager *sm, int index = -1);
     ScheduleManager *parentManager() const { return m_parent; }
     
     long scheduleId() const { return m_expected == 0 ? NOTSCHEDULED : m_expected->id(); }
     
-    int removeChild( const ScheduleManager *sm );
-    void insertChild( ScheduleManager *sm, int index = -1 );
+    int removeChild(const ScheduleManager *sm);
+    void insertChild(ScheduleManager *sm, int index = -1);
     QList<ScheduleManager*> children() const { return m_children; }
     int childCount() const { return m_children.count(); }
-    ScheduleManager *childAt( int index ) const { return m_children.value( index ); }
+    ScheduleManager *childAt(int index) const { return m_children.value(index); }
     /// Return list of all child managers (also childrens children)
     QList<ScheduleManager*> allChildren() const;
-    int indexOf( const ScheduleManager* child ) const;
-    bool isParentOf( const ScheduleManager *sm ) const;
-    ScheduleManager *findManager( const QString &name ) const;
+    int indexOf(const ScheduleManager* child) const;
+    bool isParentOf(const ScheduleManager *sm) const;
+    ScheduleManager *findManager(const QString &name) const;
     
     /// This sub-schedule will be re-calculated based on the parents completion data
     bool recalculate() const { return m_recalculate; }
     /// Set re-calculate to @p on.
-    void setRecalculate( bool on ) { m_recalculate = on; }
+    void setRecalculate(bool on) { m_recalculate = on; }
     /// The datetime this schedule will be calculated from
     DateTime recalculateFrom() const { return m_recalculateFrom; }
     /// Set the datetime this schedule will be calculated from to @p dt
-    void setRecalculateFrom( const DateTime &dt ) { m_recalculateFrom = dt; }
+    void setRecalculateFrom(const DateTime &dt) { m_recalculateFrom = dt; }
     long parentScheduleId() const { return m_parent == 0 ? NOTSCHEDULED : m_parent->scheduleId(); }
     void createSchedules();
     
-    void setDeleted( bool on );
+    void setDeleted(bool on);
     
     bool isScheduled() const { return m_expected == 0 ? false :  m_expected->isScheduled(); }
 
-    void setExpected( MainSchedule *sch );
+    void setExpected(MainSchedule *sch);
     MainSchedule *expected() const { return m_expected; }
 
     QStringList state() const;
 
-    void setBaselined( bool on );
+    void setBaselined(bool on);
     bool isBaselined() const { return m_baselined; }
     bool isChildBaselined() const;
-    void setAllowOverbooking( bool on );
+    void setAllowOverbooking(bool on);
     bool allowOverbooking() const;
     
-    void setCheckExternalAppointments( bool on );
+    void setCheckExternalAppointments(bool on);
     bool checkExternalAppointments() const;
 
-    void setUsePert( bool on );
+    void setUsePert(bool on);
     bool usePert() const { return m_usePert; }
 
-    void setSchedulingDirection( bool on );
+    void setSchedulingDirection(bool on);
     bool schedulingDirection() const { return m_schedulingDirection; }
 
-    void setScheduling( bool on );
+    void setScheduling(bool on);
     bool scheduling() const { return m_scheduling; }
 
-    bool loadXML( KoXmlElement &element, XMLLoaderObject &status );
-    void saveXML( QDomElement &element ) const;
+    bool loadXML(KoXmlElement &element, XMLLoaderObject &status);
+    void saveXML(QDomElement &element) const;
     
     /// Save a workpackage document
-    void saveWorkPackageXML( QDomElement &element, const Node &node ) const;
+    void saveWorkPackageXML(QDomElement &element, const Node &node) const;
             
-    void scheduleChanged( MainSchedule *sch );
+    void scheduleChanged(MainSchedule *sch);
     
     const QList<SchedulerPlugin*> schedulerPlugins() const;
     QString schedulerPluginId() const;
-    void setSchedulerPluginId( const QString &id );
+    void setSchedulerPluginId(const QString &id);
     SchedulerPlugin *schedulerPlugin() const;
     QStringList schedulerPluginNames() const;
     int schedulerPluginIndex() const;
-    void setSchedulerPlugin( int index );
+    void setSchedulerPlugin(int index);
 
     /// Stop calculation. Use result if possible.
     void stopCalculation();
@@ -662,7 +662,7 @@ public:
     void haltCalculation();
     void calculateSchedule();
     int calculationResult() const { return m_calculationresult; }
-    void setCalculationResult( int r ) { m_calculationresult = r; }
+    void setCalculationResult(int r) { m_calculationresult = r; }
 
     /// Increments progress in the project
     void incProgress();
@@ -673,13 +673,13 @@ public:
 
     /// Log added by MainSchedule
     /// Emits sigLogAdded() to enable synchronization between schedules
-    void logAdded( const Schedule::Log &log );
+    void logAdded(const Schedule::Log &log);
 
     /// Create and load a MainSchedule
-    MainSchedule *loadMainSchedule( KoXmlElement &element, XMLLoaderObject &status );
+    MainSchedule *loadMainSchedule(KoXmlElement &element, XMLLoaderObject &status);
 
     /// Load an existing MainSchedule
-    bool loadMainSchedule( MainSchedule *schedule, KoXmlElement &element, XMLLoaderObject &status );
+    bool loadMainSchedule(MainSchedule *schedule, KoXmlElement &element, XMLLoaderObject &status);
 
     QMap< int, QString > phaseNames() const;
 
@@ -688,25 +688,25 @@ public:
     /// Return current index of supported granularities of the selected scheduler
     int granularity() const;
     /// Set current index of supported granularities of the selected scheduler
-    void setGranularity( int duration );
+    void setGranularity(int duration);
 
     bool schedulingMode() const;
     void setSchedulingMode(int mode);
 
 public Q_SLOTS:
     /// Set maximum progress. Emits signal maxProgressChanged
-    void setMaxProgress( int value );
+    void setMaxProgress(int value);
     /// Set progress. Emits signal progressChanged
-    void setProgress( int value );
+    void setProgress(int value);
 
     /// Add the lis of logs @p log to expected()
-    void slotAddLog( const QVector<KPlato::Schedule::Log> &log );
+    void slotAddLog(const QVector<KPlato::Schedule::Log> &log);
 
-    void setPhaseNames( const QMap<int, QString> &phasenames );
+    void setPhaseNames(const QMap<int, QString> &phasenames);
 
 Q_SIGNALS:
-    void maxProgressChanged( int );
-    void progressChanged( int );
+    void maxProgressChanged(int);
+    void progressChanged(int);
 
     /// Emitted by logAdded() when new log entries are added
     void logInserted(KPlato::MainSchedule*, int firstrow, int lastrow);
@@ -745,9 +745,9 @@ protected:
 Q_DECLARE_TYPEINFO(KPlato::Schedule::Log, Q_MOVABLE_TYPE);
 Q_DECLARE_METATYPE(KPlato::Schedule::Log);
 
-PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Schedule *s );
-PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Schedule &s );
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Schedule *s);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Schedule &s);
 
-PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Schedule::Log &log );
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Schedule::Log &log);
 
 #endif

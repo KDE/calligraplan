@@ -120,11 +120,11 @@ void PlanReportItemText::createProperties()
 {
     m_set = new KPropertySet;
 
-    //connect ( set, SIGNAL ( propertyChanged ( KPropertySet &, KProperty & ) ), this, SLOT ( propertyChanged ( KPropertySet &, KProperty & ) ) );
+    //connect (set, SIGNAL (propertyChanged (KPropertySet &, KProperty &)), this, SLOT (propertyChanged (KPropertySet &, KProperty &)));
 
     QStringList keys, strings;
 
-    //_query = new KProperty ( "Query", QStringList(), QStringList(), "Data Source", "Query" );
+    //_query = new KProperty ("Query", QStringList(), QStringList(), "Data Source", "Query");
     m_controlSource = new KProperty("item-data-source", QStringList(), QStringList(), QString(), tr("Data Source"));
 
     m_itemValue = new KProperty("value", QString(), tr("Value"), tr("Value used if not bound to a field"));

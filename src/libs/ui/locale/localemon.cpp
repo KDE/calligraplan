@@ -49,8 +49,8 @@ LocaleConfigMoney::LocaleConfigMoney(Locale *locale,
   setupUi(this);
 
   // Money
-  m_labMonCurSym->setObjectName( I18N_NOOP("Currency symbol:") );
-  m_labMonFraDig->setObjectName( I18N_NOOP("Fract digits:") );
+  m_labMonCurSym->setObjectName(I18N_NOOP("Currency symbol:"));
+  m_labMonFraDig->setObjectName(I18N_NOOP("Fract digits:"));
 
   connect(m_edMonCurSym,&QLineEdit::textChanged,this, &LocaleConfigMoney::slotMonCurSymChanged);
 
@@ -69,7 +69,7 @@ LocaleConfigMoney::~LocaleConfigMoney()
 
 void LocaleConfigMoney::slotLocaleChanged()
 {
-  m_edMonCurSym->setText( m_locale->currencySymbolExplicit());
+  m_edMonCurSym->setText(m_locale->currencySymbolExplicit());
   m_inMonFraDig->setValue(m_locale->monetaryDecimalPlaces());
 }
 
@@ -108,23 +108,23 @@ void LocaleConfigMoney::slotTranslate()
 {
   QString str;
 
-  str = i18n( "Here you can enter your usual currency "
-               "symbol, e.g. $ or €." );
-  m_labMonCurSym->setWhatsThis( str );
-  m_edMonCurSym->setWhatsThis( str );
+  str = i18n("Here you can enter your usual currency "
+               "symbol, e.g. $ or €.");
+  m_labMonCurSym->setWhatsThis(str);
+  m_edMonCurSym->setWhatsThis(str);
 }
 
 MacroCommand *LocaleConfigMoney::buildCommand()
 {
     MacroCommand *m = new MacroCommand();
-    if ( m_locale->currencySymbolExplicit() != m_edMonCurSym->text() ) {
-        m->addCommand( new ModifyCurrencySymolCmd( m_locale, m_edMonCurSym->text() ) );
+    if (m_locale->currencySymbolExplicit() != m_edMonCurSym->text()) {
+        m->addCommand(new ModifyCurrencySymolCmd(m_locale, m_edMonCurSym->text()));
     }
     if (m_locale->monetaryDecimalPlaces() != m_inMonFraDig->value()) {
-        m->addCommand( new ModifyCurrencyFractionalDigitsCmd( m_locale, m_inMonFraDig->value() ) );
+        m->addCommand(new ModifyCurrencyFractionalDigitsCmd(m_locale, m_inMonFraDig->value()));
     }
     debugPlan<<"buildCommand:"<<m->isEmpty();
-    if ( m->isEmpty() ) {
+    if (m->isEmpty()) {
         delete m;
         return 0;
     }

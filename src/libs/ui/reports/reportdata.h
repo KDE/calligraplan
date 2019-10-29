@@ -45,16 +45,16 @@ class ChartItemModel;
 
 namespace Report
 {
-    PLANUI_EXPORT QList<ReportData*> createBaseReportDataModels( QObject *parent = 0 );
-    PLANUI_EXPORT ReportData *findReportData( const QList<ReportData*> &lst, const QString &type );
+    PLANUI_EXPORT QList<ReportData*> createBaseReportDataModels(QObject *parent = 0);
+    PLANUI_EXPORT ReportData *findReportData(const QList<ReportData*> &lst, const QString &type);
 }
 
 class PLANUI_EXPORT ReportData : public QObject, public KReportData
 {
     Q_OBJECT
 public:
-    explicit ReportData( QObject *parent = 0 );
-    ReportData( const ReportData &other );
+    explicit ReportData(QObject *parent = 0);
+    ReportData(const ReportData &other);
     virtual ~ReportData();
 
     /// Re-implement this to create a clone of your report data object
@@ -63,7 +63,7 @@ public:
 
     /// Set the @p role that shall be used when fetching data for @p column
     /// Default is Qt::DisplayRole
-    void setColumnRole( int column, int role );
+    void setColumnRole(int column, int role);
 
     //!Open the dataset
     virtual bool open();
@@ -109,7 +109,7 @@ public:
     //!Sets the sorting for the data
     //!Should be called before open() so that the data source can be edited accordingly
     //!Default impl does nothing
-    virtual void setSorting( const QList<SortedField>& sorting );
+    virtual void setSorting(const QList<SortedField>& sorting);
 
     //!Return a list of data sources possible for advanced controls
     virtual QStringList dataSources() const;
@@ -121,27 +121,27 @@ public:
     //!Owner of the returned pointer is the caller
     virtual KReportData* data(const QString &source);
 
-    void setModel( QAbstractItemModel *model );
+    void setModel(QAbstractItemModel *model);
     QAbstractItemModel *model() const;
     ItemModelBase *itemModel() const;
 
     Project *project() const { return m_project; }
     ScheduleManager *scheduleManager() const { return m_schedulemanager; }
 
-    virtual bool loadXml( const KoXmlElement &/*element*/ ) { return true; }
-    virtual void saveXml( QDomElement &/*element*/ ) const {}
+    virtual bool loadXml(const KoXmlElement &/*element*/) { return true; }
+    virtual void saveXml(QDomElement &/*element*/) const {}
 
     bool isMainDataSource() const { return m_maindatasource; }
     bool isSubDataSource() const { return m_subdatasource; }
-    void setSubDataSources( QList<ReportData*> &lst ) { m_subdatasources = lst; }
+    void setSubDataSources(QList<ReportData*> &lst) { m_subdatasources = lst; }
 
 public Q_SLOTS:
-    virtual void setProject( Project *project );
-    virtual void setScheduleManager( ScheduleManager *sm );
+    virtual void setProject(Project *project);
+    virtual void setScheduleManager(ScheduleManager *sm);
 
 Q_SIGNALS:
-    void scheduleManagerChanged( ScheduleManager *sm );
-    void createReportData( const QString &type, ReportData *rd );
+    void scheduleManagerChanged(ScheduleManager *sm);
+    void createReportData(const QString &type, ReportData *rd);
 
 protected:
     /// Re-implement this to create data models
@@ -170,11 +170,11 @@ class PLANUI_EXPORT TaskReportData : public ReportData
 {
     Q_OBJECT
 public:
-    explicit TaskReportData( QObject *parent = 0 );
-    TaskReportData( const TaskReportData &other );
+    explicit TaskReportData(QObject *parent = 0);
+    TaskReportData(const TaskReportData &other);
 
-    bool loadXml( const KoXmlElement &element );
-    void saveXml( QDomElement &element ) const;
+    bool loadXml(const KoXmlElement &element);
+    void saveXml(QDomElement &element) const;
 
     ReportData *clone() const;
 
@@ -186,11 +186,11 @@ class PLANUI_EXPORT TaskStatusReportData : public ReportData
 {
     Q_OBJECT
 public:
-    explicit TaskStatusReportData( QObject *parent = 0 );
-    TaskStatusReportData( const TaskStatusReportData &other );
+    explicit TaskStatusReportData(QObject *parent = 0);
+    TaskStatusReportData(const TaskStatusReportData &other);
 
-    bool loadXml( const KoXmlElement &element );
-    void saveXml( QDomElement &element ) const;
+    bool loadXml(const KoXmlElement &element);
+    void saveXml(QDomElement &element) const;
 
     ReportData *clone() const;
 
@@ -202,11 +202,11 @@ class PLANUI_EXPORT ResourceReportData : public ReportData
 {
     Q_OBJECT
 public:
-    explicit ResourceReportData( QObject *parent = 0 );
-    ResourceReportData( const ResourceReportData &other );
+    explicit ResourceReportData(QObject *parent = 0);
+    ResourceReportData(const ResourceReportData &other);
 
-    bool loadXml( const KoXmlElement &element );
-    void saveXml( QDomElement &element ) const;
+    bool loadXml(const KoXmlElement &element);
+    void saveXml(QDomElement &element) const;
 
     ReportData *clone() const;
 
@@ -218,11 +218,11 @@ class PLANUI_EXPORT ResourceAssignmentReportData : public ReportData
 {
     Q_OBJECT
 public:
-    explicit ResourceAssignmentReportData( QObject *parent = 0 );
-    ResourceAssignmentReportData( const ResourceAssignmentReportData &other );
+    explicit ResourceAssignmentReportData(QObject *parent = 0);
+    ResourceAssignmentReportData(const ResourceAssignmentReportData &other);
 
-    bool loadXml( const KoXmlElement &element );
-    void saveXml( QDomElement &element ) const;
+    bool loadXml(const KoXmlElement &element);
+    void saveXml(QDomElement &element) const;
 
     ReportData *clone() const;
 
@@ -234,8 +234,8 @@ class PLANUI_EXPORT ChartReportData : public ReportData
 {
     Q_OBJECT
 public:
-    explicit ChartReportData( QObject *parent = 0 );
-    ChartReportData( const ChartReportData &other );
+    explicit ChartReportData(QObject *parent = 0);
+    ChartReportData(const ChartReportData &other);
 
     /// Prepare the data for access
     virtual bool open();
@@ -258,17 +258,17 @@ public:
     //!Return the value of the field at the given position for the current record
     virtual QVariant value(unsigned int) const;
     //!Return the value of the field named @p name
-    QVariant value( const QString &name ) const;
+    QVariant value(const QString &name) const;
 
     //!Return the list of field names, used for legends in a chart
     virtual QStringList fieldNames() const;
 
-    void addExpression( const QString &field, const QVariant &value, char relation = '=' );
+    void addExpression(const QString &field, const QVariant &value, char relation = '=');
 
     bool cbs;
 
-    bool loadXml( const KoXmlElement &element );
-    void saveXml( QDomElement &element ) const;
+    bool loadXml(const KoXmlElement &element);
+    void saveXml(QDomElement &element) const;
 
 protected:
     int firstRow();
@@ -285,8 +285,8 @@ class PLANUI_EXPORT CostPerformanceReportData : public ChartReportData
 {
     Q_OBJECT
 public:
-    explicit CostPerformanceReportData( QObject *parent = 0 );
-    CostPerformanceReportData( const CostPerformanceReportData &other );
+    explicit CostPerformanceReportData(QObject *parent = 0);
+    CostPerformanceReportData(const CostPerformanceReportData &other);
 
     ReportData *clone() const;
 
@@ -303,8 +303,8 @@ class PLANUI_EXPORT EffortPerformanceReportData : public ChartReportData
 {
     Q_OBJECT
 public:
-    explicit EffortPerformanceReportData( QObject *parent = 0 );
-    EffortPerformanceReportData( const EffortPerformanceReportData &other );
+    explicit EffortPerformanceReportData(QObject *parent = 0);
+    EffortPerformanceReportData(const EffortPerformanceReportData &other);
 
     ReportData *clone() const;
 
@@ -321,8 +321,8 @@ class PLANUI_EXPORT CostBreakdownReportData : public ChartReportData
 {
     Q_OBJECT
 public:
-    explicit CostBreakdownReportData( QObject *parent = 0 );
-    CostBreakdownReportData( const CostBreakdownReportData &other );
+    explicit CostBreakdownReportData(QObject *parent = 0);
+    CostBreakdownReportData(const CostBreakdownReportData &other);
 
     ReportData *clone() const;
 
@@ -336,8 +336,8 @@ class PLANUI_EXPORT ProjectReportData : public ReportData
 {
     Q_OBJECT
 public:
-    explicit ProjectReportData( QObject *parent = 0 );
-    ProjectReportData( const ProjectReportData &other );
+    explicit ProjectReportData(QObject *parent = 0);
+    ProjectReportData(const ProjectReportData &other);
 
     ReportData *clone() const;
 
@@ -363,8 +363,8 @@ public:
     virtual QVariant value(const QString &field) const;
 
 public Q_SLOTS:
-    virtual void setProject( Project *project );
-    virtual void setScheduleManager( ScheduleManager *sm );
+    virtual void setProject(Project *project);
+    virtual void setScheduleManager(ScheduleManager *sm);
 
 protected:
     void createModels();

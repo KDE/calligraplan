@@ -40,41 +40,41 @@ namespace KPlato
 class Resource;
 
 AppointmentInterval::AppointmentInterval()
-    : d( new AppointmentIntervalData() )
+    : d(new AppointmentIntervalData())
 {
     //debugPlan<<this;
 }
 
-AppointmentInterval::AppointmentInterval( const AppointmentInterval &interval )
-    : d( interval.d )
+AppointmentInterval::AppointmentInterval(const AppointmentInterval &interval)
+    : d(interval.d)
 {
 }
 
-AppointmentInterval::AppointmentInterval( const DateTime &start, const DateTime &end, double load )
-    : d( new AppointmentIntervalData() )
+AppointmentInterval::AppointmentInterval(const DateTime &start, const DateTime &end, double load)
+    : d(new AppointmentIntervalData())
 {
-    setStartTime( start );
-    setEndTime( end );
-    setLoad( load );
+    setStartTime(start);
+    setEndTime(end);
+    setLoad(load);
 #ifndef NDEBUG
-    if ( start.isValid() && end.isValid() && start.timeZone() != end.timeZone() ) {
+    if (start.isValid() && end.isValid() && start.timeZone() != end.timeZone()) {
         warnPlan<<"Timezones not equal:"<<start.timeZone()<<end.timeZone();
     }
 #endif
 }
 
-AppointmentInterval::AppointmentInterval( QDate date, const TimeInterval& timeInterval, double load )
-    : d( new AppointmentIntervalData() )
+AppointmentInterval::AppointmentInterval(QDate date, const TimeInterval& timeInterval, double load)
+    : d(new AppointmentIntervalData())
 {
-    Q_ASSERT( date.isValid() && timeInterval.isValid() );
-    DateTime s( date, timeInterval.startTime() );
-    DateTime e( date, timeInterval.endTime() );
-    if ( timeInterval.endsMidnight() ) {
-        e = e.addDays( 1 );
+    Q_ASSERT(date.isValid() && timeInterval.isValid());
+    DateTime s(date, timeInterval.startTime());
+    DateTime e(date, timeInterval.endTime());
+    if (timeInterval.endsMidnight()) {
+        e = e.addDays(1);
     }
-    setStartTime( s );
-    setEndTime( e );
-    setLoad( load );
+    setStartTime(s);
+    setEndTime(e);
+    setLoad(load);
 #ifndef NDEBUG
     if (s.isValid() && e.isValid()) {
         debugPlan<<*this;
@@ -91,9 +91,9 @@ const DateTime &AppointmentInterval::startTime() const
 {
     return d->start;
 }
-void AppointmentInterval::setStartTime( const DateTime &time )
+void AppointmentInterval::setStartTime(const DateTime &time)
 {
-    if ( d->start != time ) {
+    if (d->start != time) {
         d->start = time;
     }
 }
@@ -103,9 +103,9 @@ const DateTime &AppointmentInterval::endTime() const
     return d->end;
 }
 
-void AppointmentInterval::setEndTime( const DateTime &time )
+void AppointmentInterval::setEndTime(const DateTime &time)
 {
-    if ( d->end != time ) {
+    if (d->end != time) {
         d->end = time;
     }
 }
@@ -115,16 +115,16 @@ double AppointmentInterval::load() const
     return d->load;
 }
 
-void AppointmentInterval::setLoad( double load )
+void AppointmentInterval::setLoad(double load)
 {
-    if ( d->load != load ) {
+    if (d->load != load) {
         d->load = load;
     }
 }
 
 Duration AppointmentInterval::effort() const
 {
-    return ( d->end - d->start ) * d->load / 100;
+    return (d->end - d->start) * d->load / 100;
 }
 
 Duration AppointmentInterval::effort(const DateTime &start, const DateTime &end) const {
@@ -137,7 +137,7 @@ Duration AppointmentInterval::effort(const DateTime &start, const DateTime &end)
 }
 
 Duration AppointmentInterval::effort(QDate time, bool upto) const {
-    DateTime t( time );
+    DateTime t(time);
     //debugPlan<<time<<upto<<t<<d->start<<d->end;
     if (upto) {
         if (t <= d->start) {
@@ -167,7 +167,7 @@ bool AppointmentInterval::loadXML(KoXmlElement &element, XMLLoaderObject &status
         d->end = DateTime::fromString(s, status.projectTimeZone());
     d->load = element.attribute(QStringLiteral("load"), QStringLiteral("100")).toDouble(&ok);
     if (!ok) d->load = 100;
-    if ( ! isValid() ) {
+    if (! isValid()) {
         errorPlan<<"AppointmentInterval::loadXML: Invalid interval:"<<*this<<element.attribute(QStringLiteral("start"))<<element.attribute(QStringLiteral("end"));
     } else {
         Q_ASSERT(d->start.timeZone() == d->end.timeZone());
@@ -177,12 +177,12 @@ bool AppointmentInterval::loadXML(KoXmlElement &element, XMLLoaderObject &status
 
 void AppointmentInterval::saveXML(QDomElement &element) const
 {
-    Q_ASSERT( isValid() );
+    Q_ASSERT(isValid());
     QDomElement me = element.ownerDocument().createElement(QStringLiteral("interval"));
     element.appendChild(me);
 
-    me.setAttribute(QStringLiteral("start"), d->start.toString( Qt::ISODate ));
-    me.setAttribute(QStringLiteral("end"), d->end.toString( Qt::ISODate ));
+    me.setAttribute(QStringLiteral("start"), d->start.toString(Qt::ISODate));
+    me.setAttribute(QStringLiteral("end"), d->end.toString(Qt::ISODate));
     me.setAttribute(QStringLiteral("load"), QString::number(d->load));
 }
 
@@ -239,17 +239,17 @@ AppointmentInterval AppointmentInterval::firstInterval(const AppointmentInterval
     return a;
 }
 
-bool AppointmentInterval::operator==( const AppointmentInterval &interval ) const
+bool AppointmentInterval::operator==(const AppointmentInterval &interval) const
 {
     return d->start == interval.d->start && d->end == interval.d->end && d->load == interval.d->load;
 }
 
-bool AppointmentInterval::operator<( const AppointmentInterval &other ) const
+bool AppointmentInterval::operator<(const AppointmentInterval &other) const
 {
-    if ( d->start < other.d->start ) {
+    if (d->start < other.d->start) {
         //debugPlan<<"this start"<<d->start<<" < "<<other.d->start;
         return true;
-    } else if ( other.d->start < d->start ) {
+    } else if (other.d->start < d->start) {
         //debugPlan<<"other start"<<other.d->start<<" < "<<d->start;
         return false;
     }
@@ -258,28 +258,28 @@ bool AppointmentInterval::operator<( const AppointmentInterval &other ) const
     return d->end < other.d->end;
 }
 
-bool AppointmentInterval::intersects( const AppointmentInterval &other ) const
+bool AppointmentInterval::intersects(const AppointmentInterval &other) const
 {
-    return ( d->start < other.d->end && d->end > other.d->start );
+    return (d->start < other.d->end && d->end > other.d->start);
 }
 
-AppointmentInterval AppointmentInterval::interval( const DateTime &start, const DateTime &end ) const
+AppointmentInterval AppointmentInterval::interval(const DateTime &start, const DateTime &end) const
 {
     // TODO: Find and fix those that call with "wrong" timezone (should be local zone atm)
-    const DateTime s = start.toTimeZone( d->start.timeZone() );
-    const DateTime e = end.toTimeZone( d->end.timeZone() );
-    if ( s <= d->start && e >= d->end ) {
+    const DateTime s = start.toTimeZone(d->start.timeZone());
+    const DateTime e = end.toTimeZone(d->end.timeZone());
+    if (s <= d->start && e >= d->end) {
         return *this;
     }
-    return AppointmentInterval( qMax( s, d->start ), qMin( e, d->end ), d->load );
+    return AppointmentInterval(qMax(s, d->start), qMin(e, d->end), d->load);
 }
 
 QString AppointmentInterval::toString() const
 {
-    return QStringLiteral( "%1 - %2, %3%" ).arg( d->start.toString( Qt::ISODate ) ).arg( d->end.toString( Qt::ISODate ) ).arg( d->load );
+    return QStringLiteral("%1 - %2, %3%").arg(d->start.toString(Qt::ISODate)).arg(d->end.toString(Qt::ISODate)).arg(d->load);
 }
 
-QDebug operator<<( QDebug dbg, const KPlato::AppointmentInterval &i )
+QDebug operator<<(QDebug dbg, const KPlato::AppointmentInterval &i)
 {
     dbg<<"AppointmentInterval["<<i.startTime()<<i.endTime()<<i.load()<<"%"<<']';
     return dbg;
@@ -291,8 +291,8 @@ AppointmentIntervalList::AppointmentIntervalList()
 
 }
 
-AppointmentIntervalList::AppointmentIntervalList( const QMultiMap<QDate, AppointmentInterval> &other)
-    : m_map( other )
+AppointmentIntervalList::AppointmentIntervalList(const QMultiMap<QDate, AppointmentInterval> &other)
+    : m_map(other)
 {
 
 }
@@ -307,129 +307,129 @@ const QMultiMap< QDate, AppointmentInterval >& AppointmentIntervalList::map() co
     return m_map;
 }
 
-AppointmentIntervalList &AppointmentIntervalList::operator=( const AppointmentIntervalList &lst )
+AppointmentIntervalList &AppointmentIntervalList::operator=(const AppointmentIntervalList &lst)
 {
     m_map = lst.m_map;
     return *this;
 }
 
-AppointmentIntervalList &AppointmentIntervalList::operator-=( const AppointmentIntervalList &lst )
+AppointmentIntervalList &AppointmentIntervalList::operator-=(const AppointmentIntervalList &lst)
 {
-    if ( lst.m_map.isEmpty() ) {
+    if (lst.m_map.isEmpty()) {
         return *this;
     }
-    foreach ( const AppointmentInterval &ai, lst.map() ) {
-        subtract( ai );
+    foreach (const AppointmentInterval &ai, lst.map()) {
+        subtract(ai);
     }
     return *this;
 }
 
-void AppointmentIntervalList::subtract( const DateTime &st, const DateTime &et, double load )
+void AppointmentIntervalList::subtract(const DateTime &st, const DateTime &et, double load)
 {
-    subtract( AppointmentInterval( st, et, load ) );
+    subtract(AppointmentInterval(st, et, load));
 }
 
-void AppointmentIntervalList::subtract( const AppointmentInterval &interval )
+void AppointmentIntervalList::subtract(const AppointmentInterval &interval)
 {
     //debugPlan<<st<<et<<load;
-    if ( m_map.isEmpty() ) {
+    if (m_map.isEmpty()) {
         return;
     }
-    if ( ! interval.isValid() ) {
+    if (! interval.isValid()) {
         return;
     }
     const DateTime st = interval.startTime();
     const DateTime et = interval.endTime();
-    Q_ASSERT( st < et );
+    Q_ASSERT(st < et);
     const double load = interval.load();
 //     debugPlan<<"subtract:"<<*this<<endl<<"minus"<<interval;
-    for ( QDate date = st.date(); date <= et.date(); date = date.addDays( 1 ) ) {
-        if ( ! m_map.contains( date ) ) {
+    for (QDate date = st.date(); date <= et.date(); date = date.addDays(1)) {
+        if (! m_map.contains(date)) {
             continue;
         }
         QList<AppointmentInterval> l;
-        QList<AppointmentInterval> v = m_map.values( date );
-        m_map.remove( date );
-        foreach ( const AppointmentInterval &vi, v ) {
-            if ( ! vi.intersects( interval ) ) {
+        QList<AppointmentInterval> v = m_map.values(date);
+        m_map.remove(date);
+        foreach (const AppointmentInterval &vi, v) {
+            if (! vi.intersects(interval)) {
                 //debugPlan<<"subtract: not intersect:"<<vi<<interval;
-                l.insert( 0, vi );
-                //if ( ! l.at(0).isValid() ) { debugPlan<<vi<<interval<<l.at(0); qFatal( "Invalid interval" ); }
+                l.insert(0, vi);
+                //if (! l.at(0).isValid()) { debugPlan<<vi<<interval<<l.at(0); qFatal("Invalid interval"); }
                 continue;
             }
-            if ( vi < interval ) {
+            if (vi < interval) {
                 //debugPlan<<"subtract: vi<interval"<<vi<<interval;
-                if ( vi.startTime() < st ) {
-                    l.insert( 0, AppointmentInterval( vi.startTime(), st, vi.load() ) );
-                    //if ( ! l.at(0).isValid() ) { debugPlan<<vi<<interval<<l.at(0); qFatal( "Invalid interval" ); }
+                if (vi.startTime() < st) {
+                    l.insert(0, AppointmentInterval(vi.startTime(), st, vi.load()));
+                    //if (! l.at(0).isValid()) { debugPlan<<vi<<interval<<l.at(0); qFatal("Invalid interval"); }
                 }
-                if ( vi.load() > load ) {
-                    l.insert( 0, AppointmentInterval( st, qMin( vi.endTime(), et ), vi.load() - load ) );
-                    //if ( ! l.at(0).isValid() ) { debugPlan<<vi<<interval<<l.at(0); qFatal( "Invalid interval" ); }
+                if (vi.load() > load) {
+                    l.insert(0, AppointmentInterval(st, qMin(vi.endTime(), et), vi.load() - load));
+                    //if (! l.at(0).isValid()) { debugPlan<<vi<<interval<<l.at(0); qFatal("Invalid interval"); }
                 }
-            } else if ( interval < vi ) {
+            } else if (interval < vi) {
                 //debugPlan<<"subtract: interval<vi"<<vi<<interval;
-                if ( vi.load() > load ) {
+                if (vi.load() > load) {
                     //debugPlan<<"subtract: interval<vi vi.load > load"<<vi.load()<<load;
-                    l.insert( 0, AppointmentInterval( vi.startTime(), qMin( vi.endTime(), et ), vi.load() - load ) );
-                    //if ( ! l.at(0).isValid() ) { debugPlan<<vi<<interval<<l.at(0); qFatal( "Invalid interval" ); }
+                    l.insert(0, AppointmentInterval(vi.startTime(), qMin(vi.endTime(), et), vi.load() - load));
+                    //if (! l.at(0).isValid()) { debugPlan<<vi<<interval<<l.at(0); qFatal("Invalid interval"); }
                 }
-                if ( et < vi.endTime() ) {
+                if (et < vi.endTime()) {
                     //debugPlan<<"subtract: interval<vi et < vi.endTime"<<et<<vi.endTime();
-                    l.insert( 0, AppointmentInterval( et, vi.endTime(), vi.load() ) );
-                    //if ( ! l.at(0).isValid() ) { debugPlan<<vi<<interval<<l.at(0); qFatal( "Invalid interval" ); }
+                    l.insert(0, AppointmentInterval(et, vi.endTime(), vi.load()));
+                    //if (! l.at(0).isValid()) { debugPlan<<vi<<interval<<l.at(0); qFatal("Invalid interval"); }
                 }
-            } else if ( vi.load() > load ) {
+            } else if (vi.load() > load) {
                 //debugPlan<<"subtract: vi==interval"<<vi<<interval;
-                l.insert( 0, AppointmentInterval( st, et, vi.load() - load ) );
-                //if ( ! l.at(0).isValid() ) { debugPlan<<vi<<interval<<l.at(0); qFatal( "Invalid interval" ); }
+                l.insert(0, AppointmentInterval(st, et, vi.load() - load));
+                //if (! l.at(0).isValid()) { debugPlan<<vi<<interval<<l.at(0); qFatal("Invalid interval"); }
             }
         }
-        foreach ( const AppointmentInterval &i, l ) {
-            //if ( ! i.isValid() ) { debugPlan<<interval<<i; qFatal( "Invalid interval" ); }
-            m_map.insert( date, i );
+        foreach (const AppointmentInterval &i, l) {
+            //if (! i.isValid()) { debugPlan<<interval<<i; qFatal("Invalid interval"); }
+            m_map.insert(date, i);
         }
     }
     //debugPlan<<"subtract:"<<interval<<" result="<<endl<<*this;
 }
 
-AppointmentIntervalList &AppointmentIntervalList::operator+=( const AppointmentIntervalList &lst )
+AppointmentIntervalList &AppointmentIntervalList::operator+=(const AppointmentIntervalList &lst)
 {
-    if ( lst.isEmpty() ) {
+    if (lst.isEmpty()) {
         return *this;
     }
-    foreach ( const AppointmentInterval &ai, lst.m_map ) {
-        add( ai );
+    foreach (const AppointmentInterval &ai, lst.m_map) {
+        add(ai);
     }
     return *this;
 }
 
-AppointmentIntervalList AppointmentIntervalList::extractIntervals( const DateTime &start, const DateTime &end ) const
+AppointmentIntervalList AppointmentIntervalList::extractIntervals(const DateTime &start, const DateTime &end) const
 {
-    if ( isEmpty() ) {
+    if (isEmpty()) {
         return AppointmentIntervalList();
     }
     QMultiMap<QDate, AppointmentInterval> lst;
-    QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_map.lowerBound( start.date() );
-    for ( ; it != m_map.constEnd() && it.key() <= end.date(); ++it ) {
-        AppointmentInterval i = it.value().interval( start, end );
-        if ( i.isValid() ) {
-            lst.insert( it.key(), it.value().interval( start, end ) );
+    QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_map.lowerBound(start.date());
+    for (; it != m_map.constEnd() && it.key() <= end.date(); ++it) {
+        AppointmentInterval i = it.value().interval(start, end);
+        if (i.isValid()) {
+            lst.insert(it.key(), it.value().interval(start, end));
         }
     }
-    return AppointmentIntervalList( lst );
+    return AppointmentIntervalList(lst);
 }
 
-void AppointmentIntervalList::add( const DateTime &st, const DateTime &et, double load )
+void AppointmentIntervalList::add(const DateTime &st, const DateTime &et, double load)
 {
-    add( AppointmentInterval( st, et, load ) );
+    add(AppointmentInterval(st, et, load));
 }
 
-void AppointmentIntervalList::add( const AppointmentInterval &ai )
+void AppointmentIntervalList::add(const AppointmentInterval &ai)
 {
-    if ( ! ai.isValid() ) {
+    if (! ai.isValid()) {
         debugPlan<<ai;
-        Q_ASSERT( ai.isValid() );
+        Q_ASSERT(ai.isValid());
         return;
     }
     QDate date = ai.startTime().date();
@@ -437,103 +437,103 @@ void AppointmentIntervalList::add( const AppointmentInterval &ai )
     int load = ai.load();
 
     QList<AppointmentInterval> lst;
-    if ( date == ed ) {
+    if (date == ed) {
         lst << ai;
     } else {
         // split intervals into separate dates
         QTime t1 = ai.startTime().time();
-        while ( date < ed ) {
-            lst << AppointmentInterval( DateTime( date, t1 ), DateTime( date.addDays( 1 ) ), load );
+        while (date < ed) {
+            lst << AppointmentInterval(DateTime(date, t1), DateTime(date.addDays(1)), load);
             //debugPlan<<"split:"<<date<<lst.last();
             Q_ASSERT_X(lst.last().isValid(), "Split", "Invalid interval");
-            date = date.addDays( 1 );
+            date = date.addDays(1);
             t1 = QTime();
         }
-        if ( ai.endTime().time() != QTime( 0, 0, 0 ) ) {
-            lst << AppointmentInterval( DateTime( ed ), ai.endTime(), load );
+        if (ai.endTime().time() != QTime(0, 0, 0)) {
+            lst << AppointmentInterval(DateTime(ed), ai.endTime(), load);
             Q_ASSERT_X(lst.last().isValid(), "Split", "Invalid interval");
         }
     }
-    foreach ( AppointmentInterval li, lst ) {
+    foreach (AppointmentInterval li, lst) {
         Q_ASSERT_X(lst.last().isValid(), "Add", "Invalid interval");
         date = li.startTime().date();
-        if ( ! m_map.contains( date ) ) {
-            m_map.insert( date, li );
+        if (! m_map.contains(date)) {
+            m_map.insert(date, li);
             continue;
         }
-        QList<AppointmentInterval> v = m_map.values( date );
-        m_map.remove( date );
+        QList<AppointmentInterval> v = m_map.values(date);
+        m_map.remove(date);
         QList<AppointmentInterval> l;
-        foreach ( const AppointmentInterval &vi, v ) {
-            if ( ! li.isValid() ) {
-                l.insert( 0, vi );
+        foreach (const AppointmentInterval &vi, v) {
+            if (! li.isValid()) {
+                l.insert(0, vi);
                 Q_ASSERT_X(l.at(0).isValid(), "Original", "Invalid interval");
                 continue;
             }
-            if ( ! li.intersects( vi ) ) {
+            if (! li.intersects(vi)) {
                 //debugPlan<<"not intersects:"<<li<<vi;
-                if ( li < vi ) {
-                    if ( ! l.contains( li ) ) {
+                if (li < vi) {
+                    if (! l.contains(li)) {
                         //debugPlan<<"li < vi:"<<"insert li"<<li;
-                        l.insert( 0, li );
+                        l.insert(0, li);
                         Q_ASSERT_X(l.at(0).isValid(), "No intersects", "Add Invalid interval");
                         li = AppointmentInterval();
                     }
                     //debugPlan<<"li < vi:"<<"insert vi"<<vi;
-                    l.insert( 0, vi );
+                    l.insert(0, vi);
                     Q_ASSERT_X(l.at(0).isValid(), "No intersects", "Add Invalid interval");
-                } else if ( vi < li ) {
+                } else if (vi < li) {
                     //debugPlan<<"vi < li:"<<"insert vi"<<vi;
-                    l.insert( 0, vi );
+                    l.insert(0, vi);
                     Q_ASSERT_X(l.at(0).isValid(), "No intersects", "Add Invalid interval");
-                } else { Q_ASSERT( false ); }
+                } else { Q_ASSERT(false); }
             } else {
                 //debugPlan<<"intersects, merge"<<li<<vi;
-                if ( li < vi ) {
+                if (li < vi) {
                     //debugPlan<<"li < vi:";
                     if (li.startTime() < vi.startTime()) {
                         l.insert(0, AppointmentInterval(li.startTime(), vi.startTime(), li.load()));
                         Q_ASSERT_X(l.at(0).isValid(), "Intersects, start", "Add Invalid interval");
                     }
-                    l.insert( 0, AppointmentInterval( vi.startTime(), qMin( vi.endTime(), li.endTime() ), vi.load() + li.load() ) );
+                    l.insert(0, AppointmentInterval(vi.startTime(), qMin(vi.endTime(), li.endTime()), vi.load() + li.load()));
                     Q_ASSERT_X(l.at(0).isValid(), "Intersects, middle", "Add Invalid interval");
-                    li.setStartTime( l.at( 0 ).endTime() ); // if more of li, it may overlap with next vi
-                    if ( l.at( 0 ).endTime() < vi.endTime() ) {
-                        l.insert( 0, AppointmentInterval( l.at( 0 ).endTime(), vi.endTime(), vi.load() ) );
-                        //debugPlan<<"li < vi: vi rest:"<<l.at( 0 );
+                    li.setStartTime(l.at(0).endTime()); // if more of li, it may overlap with next vi
+                    if (l.at(0).endTime() < vi.endTime()) {
+                        l.insert(0, AppointmentInterval(l.at(0).endTime(), vi.endTime(), vi.load()));
+                        //debugPlan<<"li < vi: vi rest:"<<l.at(0);
                         Q_ASSERT_X(l.at(0).isValid(), "Intersects, end", "Add Invalid interval");
                     }
-                } else if ( vi < li ) {
+                } else if (vi < li) {
                     //debugPlan<<"vi < li:";
-                    if ( vi.startTime() < li.startTime() ) {
-                        l.insert( 0, AppointmentInterval( vi.startTime(), li.startTime(), vi.load() ) );
+                    if (vi.startTime() < li.startTime()) {
+                        l.insert(0, AppointmentInterval(vi.startTime(), li.startTime(), vi.load()));
                         Q_ASSERT_X(l.at(0).isValid(), "Intersects, start", "Add Invalid interval");
                     }
-                    l.insert( 0, AppointmentInterval( li.startTime(), qMin( vi.endTime(), li.endTime() ), vi.load() + li.load() ) );
+                    l.insert(0, AppointmentInterval(li.startTime(), qMin(vi.endTime(), li.endTime()), vi.load() + li.load()));
                     Q_ASSERT_X(l.at(0).isValid(), "Intersects, middle", "Add Invalid interval");
-                    li.setStartTime( l.at( 0 ).endTime() ); // if more of li, it may overlap with next vi
-                    if ( l.at( 0 ).endTime() < vi.endTime() ) {
-                        l.insert( 0, AppointmentInterval( l.at( 0 ).endTime(), vi.endTime(), vi.load() ) );
-                        //debugPlan<<"vi < li: vi rest:"<<l.at( 0 );
+                    li.setStartTime(l.at(0).endTime()); // if more of li, it may overlap with next vi
+                    if (l.at(0).endTime() < vi.endTime()) {
+                        l.insert(0, AppointmentInterval(l.at(0).endTime(), vi.endTime(), vi.load()));
+                        //debugPlan<<"vi < li: vi rest:"<<l.at(0);
                         Q_ASSERT_X(l.at(0).isValid(), "Intersects, end", "Add Invalid interval");
                     }
                 } else {
                     //debugPlan<<"vi == li:";
-                    li.setLoad( vi.load() + li.load() );
-                    l.insert( 0, li );
+                    li.setLoad(vi.load() + li.load());
+                    l.insert(0, li);
                     Q_ASSERT_X(l.at(0).isValid(), "Equal", "Add Invalid interval");
                     li = AppointmentInterval();
                 }
             }
         }
         // If there is a rest of li, it must be inserted
-        if ( li.isValid() ) {
+        if (li.isValid()) {
             //debugPlan<<"rest:"<<li;
-            l.insert( 0, li );
+            l.insert(0, li);
         }
-        foreach( const AppointmentInterval &i, l ) {
+        foreach(const AppointmentInterval &i, l) {
             Q_ASSERT(i.isValid());
-            m_map.insert( i.startTime().date(), i );
+            m_map.insert(i.startTime().date(), i);
         }
     }
 }
@@ -542,7 +542,7 @@ void AppointmentIntervalList::add( const AppointmentInterval &ai )
 Duration AppointmentIntervalList::effort() const
 {
     Duration d;
-    foreach ( const AppointmentInterval &i, m_map ) {
+    foreach (const AppointmentInterval &i, m_map) {
         d += i.effort();
     }
     return d;
@@ -552,19 +552,19 @@ Duration AppointmentIntervalList::effort() const
 Duration AppointmentIntervalList::effort(const DateTime &start, const DateTime &end) const
 {
     Duration d;
-    QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_map.lowerBound( start.date() );
-    for ( ; it != m_map.constEnd() && it.key() <= end.date(); ++it ) {
-        d += it.value().effort( start, end );
+    QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_map.lowerBound(start.date());
+    for (; it != m_map.constEnd() && it.key() <= end.date(); ++it) {
+        d += it.value().effort(start, end);
     }
     return d;
 }
 
-void AppointmentIntervalList::saveXML( QDomElement &element ) const
+void AppointmentIntervalList::saveXML(QDomElement &element) const
 {
-    foreach ( const AppointmentInterval &i, m_map ) {
-        i.saveXML( element );
+    foreach (const AppointmentInterval &i, m_map) {
+        i.saveXML(element);
 #ifndef NDEBUG
-        if ( !i.isValid() ) {
+        if (!i.isValid()) {
             // NOTE: This should not happen, so hunt down cause if it does
             warnPlan<<"Invalid interval:"<<i;
         }
@@ -572,7 +572,7 @@ void AppointmentIntervalList::saveXML( QDomElement &element ) const
     }
 }
 
-bool AppointmentIntervalList::loadXML( KoXmlElement &element, XMLLoaderObject &status )
+bool AppointmentIntervalList::loadXML(KoXmlElement &element, XMLLoaderObject &status)
 {
     KoXmlElement e;
     forEachElement(e, element) {
@@ -588,10 +588,10 @@ bool AppointmentIntervalList::loadXML( KoXmlElement &element, XMLLoaderObject &s
     return true;
 }
 
-QDebug operator<<( QDebug dbg, const KPlato::AppointmentIntervalList &i )
+QDebug operator<<(QDebug dbg, const KPlato::AppointmentIntervalList &i)
 {
     QMultiMap<QDate, AppointmentInterval>::const_iterator it = i.map().constBegin();
-    for ( ; it != i.map().constEnd(); ++it ) {
+    for (; it != i.map().constEnd(); ++it) {
         dbg<<endl<<it.key()<<":"<<it.value().startTime()<<it.value().endTime()<<it.value().load()<<"%";
     }
     return dbg;
@@ -635,9 +635,9 @@ Appointment::Appointment(Schedule *resource, Schedule *node, const DateTime &sta
 
 }
 
-Appointment::Appointment( const Appointment &app)
+Appointment::Appointment(const Appointment &app)
 {
-    copy( app );
+    copy(app);
 }
 
 
@@ -651,15 +651,15 @@ void Appointment::clear()
     m_intervals.clear();
 }
 
-AppointmentIntervalList Appointment::intervals( const DateTime &start, const DateTime &end ) const
+AppointmentIntervalList Appointment::intervals(const DateTime &start, const DateTime &end) const
 {
     //debugPlan<<start<<end;
     AppointmentIntervalList lst;
-    QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_intervals.map().lowerBound( start.date() );
-    for ( ; it != m_intervals.map().constEnd() && it.key() <= end.date(); ++it ) {
-        AppointmentInterval ai = it.value().interval( start, end );
-        if ( ai.isValid() ) {
-            lst.add( ai );
+    QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_intervals.map().lowerBound(start.date());
+    for (; it != m_intervals.map().constEnd() && it.key() <= end.date(); ++it) {
+        AppointmentInterval ai = it.value().interval(start, end);
+        if (ai.isValid()) {
+            lst.add(ai);
             //debugPlan<<ai.startTime().toString()<<ai.endTime().toString();
         }
     }
@@ -668,18 +668,18 @@ AppointmentIntervalList Appointment::intervals( const DateTime &start, const Dat
 
 void Appointment::setIntervals(const AppointmentIntervalList &lst) {
     m_intervals.clear();
-    foreach( const AppointmentInterval &i, lst.map() ) {
-        m_intervals.add( i );
+    foreach(const AppointmentInterval &i, lst.map()) {
+        m_intervals.add(i);
     }
 }
 
 void Appointment::addInterval(const AppointmentInterval &a) {
-    Q_ASSERT( a.isValid() );
+    Q_ASSERT(a.isValid());
     m_intervals.add(a);
-    //if ( m_resource && m_resource->resource() && m_node && m_node->node() ) debugPlan<<"Mode="<<m_calculationMode<<":"<<m_resource->resource()->name()<<" to"<<m_node->node()->name()<<""<<a.startTime()<<a.endTime();
+    //if (m_resource && m_resource->resource() && m_node && m_node->node()) debugPlan<<"Mode="<<m_calculationMode<<":"<<m_resource->resource()->name()<<" to"<<m_node->node()->name()<<""<<a.startTime()<<a.endTime();
 }
 void Appointment::addInterval(const DateTime &start, const DateTime &end, double load) {
-    Q_ASSERT( start < end );
+    Q_ASSERT(start < end);
     addInterval(AppointmentInterval(start, end, load));
 }
 
@@ -690,7 +690,7 @@ void Appointment::addInterval(const DateTime &start, KPlato::Duration duration, 
 
 double Appointment::maxLoad() const {
     double v = 0.0;
-    foreach (const AppointmentInterval &i, m_intervals.map() ) {
+    foreach (const AppointmentInterval &i, m_intervals.map()) {
         if (v < i.load())
             v = i.load();
     }
@@ -698,7 +698,7 @@ double Appointment::maxLoad() const {
 }
 
 DateTime Appointment::startTime() const {
-    if ( isEmpty() ) {
+    if (isEmpty()) {
         //debugPlan<<"empty list";
         return DateTime();
     }
@@ -706,7 +706,7 @@ DateTime Appointment::startTime() const {
 }
 
 DateTime Appointment::endTime() const {
-    if ( isEmpty() ) {
+    if (isEmpty()) {
         //debugPlan<<"empty list";
         return DateTime();
     }
@@ -739,7 +739,7 @@ bool Appointment::loadXML(KoXmlElement &element, XMLLoaderObject &status, Schedu
         return false;
     }
     //debugPlan<<"res="<<m_resource->resource()->name()<<" node="<<m_node->node()->name();
-    m_intervals.loadXML( element, status );
+    m_intervals.loadXML(element, status);
     if (isEmpty()) {
         errorPlan<<"Appointment is empty (added anyway): "<<node->name()<<res->name();
         return false;
@@ -766,22 +766,22 @@ void Appointment::saveXML(QDomElement &element) const {
     me.setAttribute(QStringLiteral("resource-id"), m_resource->resource()->id());
     me.setAttribute(QStringLiteral("task-id"), m_node->node()->id());
     //debugPlan<<m_resource->resource()->name()<<m_node->node()->name();
-    m_intervals.saveXML( me );
+    m_intervals.saveXML(me);
 }
 
 // Returns the total planned effort for this appointment
-Duration Appointment::plannedEffort( const Resource *resource, EffortCostCalculationType type) const {
-    if ( m_resource->resource() != resource ) {
+Duration Appointment::plannedEffort(const Resource *resource, EffortCostCalculationType type) const {
+    if (m_resource->resource() != resource) {
         return Duration::zeroDuration;
     }
-    return plannedEffort( type );
+    return plannedEffort(type);
 }
 
 // Returns the total planned effort for this appointment
 Duration Appointment::plannedEffort(EffortCostCalculationType type) const {
     Duration d;
-    if ( type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work ) {
-        foreach (const AppointmentInterval &i, m_intervals.map() ) {
+    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+        foreach (const AppointmentInterval &i, m_intervals.map()) {
             d += i.effort();
         }
     }
@@ -791,9 +791,9 @@ Duration Appointment::plannedEffort(EffortCostCalculationType type) const {
 // Returns the planned effort on the date
 Duration Appointment::plannedEffort(QDate date, EffortCostCalculationType type) const {
     Duration d;
-    if ( type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work ) {
-        QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_intervals.map().constFind( date );
-        for ( ; it != m_intervals.map().constEnd() && it.key() == date; ++it ) {
+    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+        QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_intervals.map().constFind(date);
+        for (; it != m_intervals.map().constEnd() && it.key() == date; ++it) {
             d += it.value().effort();
         }
     }
@@ -801,19 +801,19 @@ Duration Appointment::plannedEffort(QDate date, EffortCostCalculationType type) 
 }
 
 // Returns the planned effort on the date
-Duration Appointment::plannedEffort( const Resource *resource, QDate date, EffortCostCalculationType type ) const {
-    if ( resource != m_resource->resource() ) {
+Duration Appointment::plannedEffort(const Resource *resource, QDate date, EffortCostCalculationType type) const {
+    if (resource != m_resource->resource()) {
         return Duration::zeroDuration;
     }
-    return plannedEffort( date, type );
+    return plannedEffort(date, type);
 }
 
 // Returns the planned effort upto and including the date
 Duration Appointment::plannedEffortTo(QDate date, EffortCostCalculationType type) const {
     Duration d;
     QDate e(date.addDays(1));
-    if ( type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work ) {
-        foreach (const AppointmentInterval &i, m_intervals.map() ) {
+    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+        foreach (const AppointmentInterval &i, m_intervals.map()) {
             d += i.effort(e, true); // upto e, not including
         }
     }
@@ -822,11 +822,11 @@ Duration Appointment::plannedEffortTo(QDate date, EffortCostCalculationType type
 }
 
 // Returns the planned effort upto and including the date
-Duration Appointment::plannedEffortTo( const Resource *resource, QDate date, EffortCostCalculationType type ) const {
-    if ( resource != m_resource->resource() ) {
+Duration Appointment::plannedEffortTo(const Resource *resource, QDate date, EffortCostCalculationType type) const {
+    if (resource != m_resource->resource()) {
         return Duration::zeroDuration;
     }
-    return plannedEffortTo( date, type );
+    return plannedEffortTo(date, type);
 }
 
 EffortCostMap Appointment::plannedPrDay(QDate pstart, QDate pend, EffortCostCalculationType type) const {
@@ -838,11 +838,11 @@ EffortCostMap Appointment::plannedPrDay(QDate pstart, QDate pend, EffortCostCalc
     Resource::Type rt = m_resource && m_resource->resource() ? m_resource->resource()->type() : Resource::Type_Work;
     Duration zero;
     //debugPlan<<rate<<m_intervals.count();
-    QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_intervals.map().lowerBound( start );
-    for ( ; it != m_intervals.map().constEnd() && it.key() <= end; ++it ) {
+    QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_intervals.map().lowerBound(start);
+    for (; it != m_intervals.map().constEnd() && it.key() <= end; ++it) {
         //debugPlan<<start<<end<<dt;
         Duration eff;
-        switch ( type ) {
+        switch (type) {
             case ECCT_All:
                 eff = it.value().effort();
                 ec.add(it.key(), eff, eff.toDouble(Duration::Unit_h) * rate);
@@ -852,7 +852,7 @@ EffortCostMap Appointment::plannedPrDay(QDate pstart, QDate pend, EffortCostCalc
                 ec.add(it.key(), (rt == Resource::Type_Work ? eff : zero), eff.toDouble(Duration::Unit_h) * rate);
                 break;
             case ECCT_Work:
-                if ( rt == Resource::Type_Work ) {
+                if (rt == Resource::Type_Work) {
                     eff = it.value().effort();
                     ec.add(it.key(), eff, eff.toDouble(Duration::Unit_h) * rate);
                 }
@@ -864,16 +864,16 @@ EffortCostMap Appointment::plannedPrDay(QDate pstart, QDate pend, EffortCostCalc
 
 EffortCost Appointment::plannedCost(EffortCostCalculationType type) const {
     EffortCost ec;
-    ec.setEffort( plannedEffort(type) );
+    ec.setEffort(plannedEffort(type));
     if (m_resource && m_resource->resource()) {
-        switch ( type ) {
+        switch (type) {
             case ECCT_Work:
-                if ( m_resource->resource()->type() != Resource::Type_Work ) {
+                if (m_resource->resource()->type() != Resource::Type_Work) {
                     break;
                 }
                 // fall through
             default:
-                ec.setCost( ec.hours() * m_resource->resource()->normalRate() ); //FIXME overtime
+                ec.setCost(ec.hours() * m_resource->resource()->normalRate()); //FIXME overtime
                 break;
         }
     }
@@ -883,9 +883,9 @@ EffortCost Appointment::plannedCost(EffortCostCalculationType type) const {
 //Calculates the planned cost on date
 double Appointment::plannedCost(QDate date, EffortCostCalculationType type) {
     if (m_resource && m_resource->resource()) {
-        switch ( type ) {
+        switch (type) {
             case ECCT_Work:
-                if ( m_resource->resource()->type() != Resource::Type_Work ) {
+                if (m_resource->resource()->type() != Resource::Type_Work) {
                     break;
                 }
                 // fall through
@@ -899,9 +899,9 @@ double Appointment::plannedCost(QDate date, EffortCostCalculationType type) {
 //Calculates the planned cost upto and including date
 double Appointment::plannedCostTo(QDate date, EffortCostCalculationType type) {
     if (m_resource && m_resource->resource()) {
-        switch ( type ) {
+        switch (type) {
             case ECCT_Work:
-                if ( m_resource->resource()->type() != Resource::Type_Work ) {
+                if (m_resource->resource()->type() != Resource::Type_Work) {
                     break;
                 }
                 // fall through
@@ -937,16 +937,16 @@ void Appointment::detach() {
 // Returns the effort from start to end
 Duration Appointment::effort(const DateTime &start, const DateTime &end, EffortCostCalculationType type) const {
     Duration e;
-    if ( type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work ) {
-        e = m_intervals.effort( start, end );
+    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+        e = m_intervals.effort(start, end);
     }
     return e;
 }
 // Returns the effort from start for the duration
 Duration Appointment::effort(const DateTime &start, KPlato::Duration duration, EffortCostCalculationType type) const {
     Duration d;
-    if ( type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work ) {
-        foreach (const AppointmentInterval &i, m_intervals.map() ) {
+    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+        foreach (const AppointmentInterval &i, m_intervals.map()) {
             d += i.effort(start, start+duration);
         }
     }
@@ -954,17 +954,17 @@ Duration Appointment::effort(const DateTime &start, KPlato::Duration duration, E
 }
 
 Appointment &Appointment::operator=(const Appointment &app) {
-    copy( app );
+    copy(app);
     return *this;
 }
 
 Appointment &Appointment::operator+=(const Appointment &app) {
-    merge( app );
+    merge(app);
     return *this;
 }
 
 Appointment Appointment::operator+(const Appointment &app) {
-    Appointment a( *this );
+    Appointment a(*this);
     a.merge(app);
     return a;
 }
@@ -984,18 +984,18 @@ void Appointment::copy(const Appointment &app) {
     //m_repeatCount = app.repeatCount();
 
     m_intervals.clear();
-    foreach (const AppointmentInterval &i, app.intervals().map() ) {
+    foreach (const AppointmentInterval &i, app.intervals().map()) {
         addInterval(i);
     }
 }
 
 void Appointment::merge(const Appointment &app) {
     //debugPlan<<this<<(m_node ? m_node->node()->name() : "no node")<<(app.node() ? app.node()->node()->name() : "no node");
-    if ( app.isEmpty() ) {
+    if (app.isEmpty()) {
         return;
     }
-    if ( isEmpty() ) {
-        setIntervals( app.intervals() );
+    if (isEmpty()) {
+        setIntervals(app.intervals());
         return;
     }
     QList<AppointmentInterval> result;
@@ -1044,18 +1044,18 @@ void Appointment::merge(const Appointment &app) {
         }
     }
     m_intervals.clear();
-    foreach ( const AppointmentInterval &i, result ) {
-        m_intervals.add( i );
+    foreach (const AppointmentInterval &i, result) {
+        m_intervals.add(i);
     }
     //debugPlan<<this<<":"<<m_intervals.count();
     return;
 }
 
-Appointment Appointment::extractIntervals( const DateTimeInterval& interval ) const
+Appointment Appointment::extractIntervals(const DateTimeInterval& interval) const
 {
     Appointment a;
-    if ( interval.isValid() ) {
-        a.setIntervals( m_intervals.extractIntervals( interval.first, interval.second ) );
+    if (interval.isValid()) {
+        a.setIntervals(m_intervals.extractIntervals(interval.first, interval.second));
     }
     return a;
 }

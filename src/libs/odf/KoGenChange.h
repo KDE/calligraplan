@@ -110,13 +110,13 @@ public:
      * KoXmlWriter to generate it:
      * @code
      * QBuffer buffer;
-     * buffer.open( QIODevice::WriteOnly );
-     * KoXmlWriter elementWriter( &buffer );  // TODO pass indentation level
-     * elementWriter.startElement( "..." );
+     * buffer.open(QIODevice::WriteOnly);
+     * KoXmlWriter elementWriter(&buffer);  // TODO pass indentation level
+     * elementWriter.startElement("...");
      * ...
      * elementWriter.endElement();
-     * QString elementContents = QString::fromUtf8( buffer.buffer(), buffer.buffer().size() );
-     * gs.addChildElement( "...", elementContents );
+     * QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
+     * gs.addChildElement("...", elementContents);
      * @endcode
      *
      * The value of @p elementName isn't used, except that it must be unique.

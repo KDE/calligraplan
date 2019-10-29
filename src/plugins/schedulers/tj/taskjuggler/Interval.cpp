@@ -14,15 +14,15 @@
 // clazy:excludeall=qstring-arg
 #include "Interval.h"
 
-QDebug operator<<( QDebug dbg, const TJ::Interval *i )
+QDebug operator<<(QDebug dbg, const TJ::Interval *i)
 {
-    return i == 0 ? (dbg << (void*)i) : operator<<( dbg, *i );
+    return i == 0 ? (dbg << (void*)i) : operator<<(dbg, *i);
 }
 
-QDebug operator<<( QDebug dbg, const TJ::Interval &i )
+QDebug operator<<(QDebug dbg, const TJ::Interval &i)
 {
     dbg << "Interval[";
-    if ( i.isNull() ) dbg << "Null";
+    if (i.isNull()) dbg << "Null";
     else dbg << TJ::time2ISO(i.getStart())<<"-"<<TJ::time2ISO(i.getEnd());
     dbg << "]";
     return dbg;

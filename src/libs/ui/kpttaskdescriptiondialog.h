@@ -39,14 +39,14 @@ class TaskDescriptionPanelImpl : public QWidget, public Ui_TaskDescriptionPanelB
 {
     Q_OBJECT
 public:
-    TaskDescriptionPanelImpl( Node &node, QWidget *parent );
+    TaskDescriptionPanelImpl(Node &node, QWidget *parent);
     ~TaskDescriptionPanelImpl() override;
         
 public Q_SLOTS:
     virtual void slotChanged();
 
 Q_SIGNALS:
-    void textChanged( bool );
+    void textChanged(bool);
 
 protected:
     Node &m_node;
@@ -59,16 +59,16 @@ class TaskDescriptionPanel : public TaskDescriptionPanelImpl
 {
     Q_OBJECT
 public:
-    explicit TaskDescriptionPanel( Node &node, QWidget *parent = 0, bool readOnly = false );
+    explicit TaskDescriptionPanel(Node &node, QWidget *parent = 0, bool readOnly = false);
 
     MacroCommand *buildCommand();
 
     bool ok();
 
-    void setStartValues( Node &node );
+    void setStartValues(Node &node);
 
 protected:
-    void initDescription( bool readOnly );
+    void initDescription(bool readOnly);
 };
 
 class PLANUI_EXPORT TaskDescriptionDialog : public KoDialog
@@ -81,12 +81,12 @@ public:
      * @param parent parent widget
      * @param readOnly determines whether the data are read-only
      */
-    explicit TaskDescriptionDialog( Node &node, QWidget *parent = 0, bool readOnly = false  );
+    explicit TaskDescriptionDialog(Node &node, QWidget *parent = 0, bool readOnly = false  );
 
     MacroCommand *buildCommand();
 
 protected Q_SLOTS:
-    void slotButtonClicked( int button ) override;
+    void slotButtonClicked(int button) override;
 
 protected:
     TaskDescriptionPanel *m_descriptionTab;

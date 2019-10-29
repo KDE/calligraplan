@@ -26,7 +26,7 @@
 #include <klocalizedstring.h>
 #include <OdfDebug.h>
 
-// paper formats ( mm )
+// paper formats (mm)
 #define PG_A3_WIDTH             297.0
 #define PG_A3_HEIGHT            420.0
 #define PG_A4_WIDTH             210.0

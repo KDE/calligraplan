@@ -154,7 +154,7 @@ public:
      * For instance styles used by headers and footers need to go there, since
      * they are saved in styles.xml, and styles.xml must be independent from content.xml.
      *
-     * The application should use KoGenStyles::styles( type, true ) in order to retrieve
+     * The application should use KoGenStyles::styles(type, true) in order to retrieve
      * those styles and save them separately.
      */
     void setAutoStyleInStylesDotXml(bool b) {
@@ -167,7 +167,7 @@ public:
 
     /**
      * setDefaultStyle(true) marks a given style as being the default style.
-     * This means we expect that you will call writeStyle( ...,"style:default-style"),
+     * This means we expect that you will call writeStyle(...,"style:default-style"),
      * and its name will be omitted in the output.
      */
     void setDefaultStyle(bool b) {
@@ -377,13 +377,13 @@ public:
      * KoXmlWriter to generate it:
      * @code
      * QBuffer buffer;
-     * buffer.open( QIODevice::WriteOnly );
-     * KoXmlWriter elementWriter( &buffer );  // TODO pass indentation level
-     * elementWriter.startElement( "..." );
+     * buffer.open(QIODevice::WriteOnly);
+     * KoXmlWriter elementWriter(&buffer);  // TODO pass indentation level
+     * elementWriter.startElement("...");
      * ...
      * elementWriter.endElement();
-     * QString elementContents = QString::fromUtf8( buffer.buffer(), buffer.buffer().size() );
-     * gs.addChildElement( "...", elementContents );
+     * QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
+     * gs.addChildElement("...", elementContents);
      * @endcode
      *
      * The value of @p elementName is only used to set the order on how the child elements are written out.

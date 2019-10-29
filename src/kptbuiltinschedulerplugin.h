@@ -42,7 +42,7 @@ public:
 
     QString description() const override;
     /// Calculate the project
-    void calculate( Project &project, ScheduleManager *sm, bool nothread = false ) override;
+    void calculate(Project &project, ScheduleManager *sm, bool nothread = false) override;
 
 Q_SIGNALS:
     void sigCalculationStarted(KPlato::Project*, KPlato::ScheduleManager*);
@@ -61,7 +61,7 @@ class KPlatoScheduler : public SchedulerThread
     Q_OBJECT
 
 public:
-    KPlatoScheduler( Project *project, ScheduleManager *sm, QObject *parent = 0 );
+    KPlatoScheduler(Project *project, ScheduleManager *sm, QObject *parent = 0);
     ~KPlatoScheduler() override;
 
 public Q_SLOTS:

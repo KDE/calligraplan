@@ -39,13 +39,13 @@ class KPlatoRCPSPlugin : public SchedulerPlugin
     Q_OBJECT
 
 public:
-    KPlatoRCPSPlugin( QObject * parent,  const QVariantList & );
+    KPlatoRCPSPlugin(QObject * parent,  const QVariantList &);
     ~KPlatoRCPSPlugin();
 
     virtual QString description() const;
     virtual int capabilities() const;
     /// Calculate the project
-    virtual void calculate( Project &project, ScheduleManager *sm, bool nothread = false );
+    virtual void calculate(Project &project, ScheduleManager *sm, bool nothread = false);
 
     /// Return the scheduling granularity in milliseconds
     ulong currentGranularity() const;

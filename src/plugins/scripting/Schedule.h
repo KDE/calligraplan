@@ -41,7 +41,7 @@ namespace Scripting {
             Q_OBJECT
         public:
             /// Create a schedule
-            Schedule( Project *project, KPlato::ScheduleManager *schedule, QObject *parent );
+            Schedule(Project *project, KPlato::ScheduleManager *schedule, QObject *parent);
             /// Destructor
             virtual ~Schedule() {}
         
@@ -56,7 +56,7 @@ namespace Scripting {
             /// Return type of schedule
             int childCount() const;
             /// Return the child schedule at @p index
-            QObject *childAt( int index );
+            QObject *childAt(int index);
 
         private:
             Project *m_project;

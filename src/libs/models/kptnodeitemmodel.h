@@ -147,136 +147,136 @@ public:
     Q_ENUM(Properties)
     const QMetaEnum columnMap() const;
     
-    void setProject( Project *project );
-    void setManager( ScheduleManager *sm );
+    void setProject(Project *project);
+    void setManager(ScheduleManager *sm);
     Project *project() const { return m_project; }
     ScheduleManager *manager() const { return m_manager; }
     long id() const { return m_manager == 0 ? -1 : m_manager->scheduleId(); }
     
-    QVariant data( const Node *node, int property, int role = Qt::DisplayRole ) const; 
-    KUndo2Command *setData( Node *node, int property, const QVariant & value, int role = Qt::EditRole );
+    QVariant data(const Node *node, int property, int role = Qt::DisplayRole) const; 
+    KUndo2Command *setData(Node *node, int property, const QVariant & value, int role = Qt::EditRole);
     
-    static QVariant headerData( int section, int role = Qt::DisplayRole );
+    static QVariant headerData(int section, int role = Qt::DisplayRole);
 
     int propertyCount() const;
     
-    void setNow( const QDate &now ) { m_now = now; }
+    void setNow(const QDate &now) { m_now = now; }
     QDate now() const { return m_now; }
     
-    QVariant name( const Node *node, int role ) const;
-    QVariant leader( const Node *node, int role ) const;
-    QVariant allocation( const Node *node, int role ) const;
-    QVariant description( const Node *node, int role ) const;
-    QVariant type( const Node *node, int role ) const;
-    QVariant constraint( const Node *node, int role ) const;
-    QVariant constraintStartTime( const Node *node, int role ) const;
-    QVariant constraintEndTime( const Node *node, int role ) const;
-    QVariant estimateType( const Node *node, int role ) const;
-    QVariant estimateCalendar( const Node *node, int role ) const;
-    QVariant estimate( const Node *node, int role ) const;
-    QVariant optimisticRatio( const Node *node, int role ) const;
-    QVariant pessimisticRatio( const Node *node, int role ) const;
-    QVariant riskType( const Node *node, int role ) const;
-    QVariant priority( const Node *node, int role ) const;
-    QVariant runningAccount( const Node *node, int role ) const;
-    QVariant startupAccount( const Node *node, int role ) const;
-    QVariant startupCost( const Node *node, int role ) const;
-    QVariant shutdownAccount( const Node *node, int role ) const;
-    QVariant shutdownCost( const Node *node, int role ) const;
+    QVariant name(const Node *node, int role) const;
+    QVariant leader(const Node *node, int role) const;
+    QVariant allocation(const Node *node, int role) const;
+    QVariant description(const Node *node, int role) const;
+    QVariant type(const Node *node, int role) const;
+    QVariant constraint(const Node *node, int role) const;
+    QVariant constraintStartTime(const Node *node, int role) const;
+    QVariant constraintEndTime(const Node *node, int role) const;
+    QVariant estimateType(const Node *node, int role) const;
+    QVariant estimateCalendar(const Node *node, int role) const;
+    QVariant estimate(const Node *node, int role) const;
+    QVariant optimisticRatio(const Node *node, int role) const;
+    QVariant pessimisticRatio(const Node *node, int role) const;
+    QVariant riskType(const Node *node, int role) const;
+    QVariant priority(const Node *node, int role) const;
+    QVariant runningAccount(const Node *node, int role) const;
+    QVariant startupAccount(const Node *node, int role) const;
+    QVariant startupCost(const Node *node, int role) const;
+    QVariant shutdownAccount(const Node *node, int role) const;
+    QVariant shutdownCost(const Node *node, int role) const;
     
-    QVariant startTime( const Node *node, int role ) const;
-    QVariant endTime( const Node *node, int role ) const;
+    QVariant startTime(const Node *node, int role) const;
+    QVariant endTime(const Node *node, int role) const;
 
-    QVariant duration( const Node *node, int role ) const;
-    QVariant varianceDuration( const Node *node, int role ) const;
-    QVariant varianceEstimate( const Estimate *est, int role ) const;
-    QVariant optimisticDuration( const Node *node, int role ) const;
-    QVariant optimisticEstimate( const Estimate *est, int role ) const;
-    QVariant pertExpected( const Estimate *est, int role ) const;
-    QVariant pessimisticDuration( const Node *node, int role ) const;
-    QVariant pessimisticEstimate( const Estimate *est, int role ) const;
+    QVariant duration(const Node *node, int role) const;
+    QVariant varianceDuration(const Node *node, int role) const;
+    QVariant varianceEstimate(const Estimate *est, int role) const;
+    QVariant optimisticDuration(const Node *node, int role) const;
+    QVariant optimisticEstimate(const Estimate *est, int role) const;
+    QVariant pertExpected(const Estimate *est, int role) const;
+    QVariant pessimisticDuration(const Node *node, int role) const;
+    QVariant pessimisticEstimate(const Estimate *est, int role) const;
 
-    QVariant earlyStart( const Node *node, int role ) const;
-    QVariant earlyFinish( const Node *node, int role ) const;
-    QVariant lateStart( const Node *node, int role ) const;
-    QVariant lateFinish( const Node *node, int role ) const;
-    QVariant positiveFloat( const Node *node, int role ) const;
-    QVariant freeFloat( const Node *node, int role ) const;
-    QVariant negativeFloat( const Node *node, int role ) const;
-    QVariant startFloat( const Node *node, int role ) const;
-    QVariant finishFloat( const Node *node, int role ) const;
-    QVariant assignedResources( const Node *node, int role ) const;
+    QVariant earlyStart(const Node *node, int role) const;
+    QVariant earlyFinish(const Node *node, int role) const;
+    QVariant lateStart(const Node *node, int role) const;
+    QVariant lateFinish(const Node *node, int role) const;
+    QVariant positiveFloat(const Node *node, int role) const;
+    QVariant freeFloat(const Node *node, int role) const;
+    QVariant negativeFloat(const Node *node, int role) const;
+    QVariant startFloat(const Node *node, int role) const;
+    QVariant finishFloat(const Node *node, int role) const;
+    QVariant assignedResources(const Node *node, int role) const;
     
-    QVariant status( const Node *node, int role ) const;
-    QVariant completed( const Node *node, int role ) const;
-    QVariant startedTime( const Node *node, int role ) const;
-    QVariant isStarted( const Node *node, int role ) const;
-    QVariant finishedTime( const Node *node, int role ) const;
-    QVariant isFinished( const Node *node, int role ) const;
-    QVariant plannedEffortTo( const Node *node, int role ) const;
-    QVariant actualEffortTo( const Node *node, int role ) const;
-    QVariant remainingEffort( const Node *node, int role ) const;
-    QVariant plannedCostTo( const Node *node, int role ) const;
-    QVariant actualCostTo( const Node *node, int role ) const;
-    QVariant note( const Node *node, int role ) const;
+    QVariant status(const Node *node, int role) const;
+    QVariant completed(const Node *node, int role) const;
+    QVariant startedTime(const Node *node, int role) const;
+    QVariant isStarted(const Node *node, int role) const;
+    QVariant finishedTime(const Node *node, int role) const;
+    QVariant isFinished(const Node *node, int role) const;
+    QVariant plannedEffortTo(const Node *node, int role) const;
+    QVariant actualEffortTo(const Node *node, int role) const;
+    QVariant remainingEffort(const Node *node, int role) const;
+    QVariant plannedCostTo(const Node *node, int role) const;
+    QVariant actualCostTo(const Node *node, int role) const;
+    QVariant note(const Node *node, int role) const;
 
     /// The nodes scheduling status
-    QVariant nodeSchedulingStatus( const Node *node, int role ) const;
+    QVariant nodeSchedulingStatus(const Node *node, int role) const;
     /// Set if the node has not been scheduled
-    QVariant nodeIsNotScheduled( const Node *node, int role ) const;
+    QVariant nodeIsNotScheduled(const Node *node, int role) const;
     /// Set if EffortType == Effort, but no resource is requested
-    QVariant resourceIsMissing( const Node *node, int role ) const;
+    QVariant resourceIsMissing(const Node *node, int role) const;
     /// Set if the assigned resource is overbooked
-    QVariant resourceIsOverbooked( const Node *node, int role ) const;
+    QVariant resourceIsOverbooked(const Node *node, int role) const;
     /// Set if the requested resource is not available
-    QVariant resourceIsNotAvailable( const Node *node, int role ) const;
+    QVariant resourceIsNotAvailable(const Node *node, int role) const;
     /// Set if the task cannot be scheduled to fulfill all the constraints
-    QVariant schedulingConstraintsError( const Node *node, int role ) const;
+    QVariant schedulingConstraintsError(const Node *node, int role) const;
     /// Resources could not fulfill estimate
-    QVariant effortNotMet( const Node *node, int role ) const;
+    QVariant effortNotMet(const Node *node, int role) const;
     /// Other scheduling error occurred
-    QVariant schedulingError( const Node *node, int role ) const;
+    QVariant schedulingError(const Node *node, int role) const;
 
-    QVariant wbsCode( const Node *node, int role ) const;
-    QVariant nodeLevel( const Node *node, int role ) const;
+    QVariant wbsCode(const Node *node, int role) const;
+    QVariant nodeLevel(const Node *node, int role) const;
     
-    QVariant nodeBCWS( const Node *node, int role ) const;
-    QVariant nodeBCWP( const Node *node, int role ) const;
-    QVariant nodeACWP( const Node *node, int role ) const;
-    QVariant nodePerformanceIndex( const Node *node, int role ) const;
+    QVariant nodeBCWS(const Node *node, int role) const;
+    QVariant nodeBCWP(const Node *node, int role) const;
+    QVariant nodeACWP(const Node *node, int role) const;
+    QVariant nodePerformanceIndex(const Node *node, int role) const;
 
-    QVariant nodeIsCritical( const Node *node, int role ) const;
-    QVariant nodeInCriticalPath( const Node *node, int role ) const;
+    QVariant nodeIsCritical(const Node *node, int role) const;
+    QVariant nodeInCriticalPath(const Node *node, int role) const;
 
-    QVariant wpOwnerName( const Node *node, int role ) const;
-    QVariant wpTransmitionStatus( const Node *node, int role ) const;
-    QVariant wpTransmitionTime( const Node *node, int role ) const;
+    QVariant wpOwnerName(const Node *node, int role) const;
+    QVariant wpTransmitionStatus(const Node *node, int role) const;
+    QVariant wpTransmitionTime(const Node *node, int role) const;
 
-    KUndo2Command *setName( Node *node, const QVariant &value, int role );
-    KUndo2Command *setLeader( Node *node, const QVariant &value, int role );
-    KUndo2Command *setAllocation( Node *node, const QVariant &value, int role );
-    KUndo2Command *setDescription( Node *node, const QVariant &value, int role );
-    KUndo2Command *setType( Node *node, const QVariant &value, int role );
-    KUndo2Command *setConstraint( Node *node, const QVariant &value, int role );
-    KUndo2Command *setConstraintStartTime( Node *node, const QVariant &value, int role );
-    KUndo2Command *setConstraintEndTime( Node *node, const QVariant &value, int role );
-    KUndo2Command *setEstimateType( Node *node, const QVariant &value, int role );
-    KUndo2Command *setEstimateCalendar( Node *node, const QVariant &value, int role );
-    KUndo2Command *setEstimate( Node *node, const QVariant &value, int role );
-    KUndo2Command *setOptimisticRatio( Node *node, const QVariant &value, int role );
-    KUndo2Command *setPessimisticRatio( Node *node, const QVariant &value, int role );
-    KUndo2Command *setRiskType( Node *node, const QVariant &value, int role );
-    KUndo2Command *setPriority( Node *node, const QVariant &value, int role );
-    KUndo2Command *setRunningAccount( Node *node, const QVariant &value, int role );
-    KUndo2Command *setStartupAccount( Node *node, const QVariant &value, int role );
-    KUndo2Command *setStartupCost( Node *node, const QVariant &value, int role );
-    KUndo2Command *setShutdownAccount( Node *node, const QVariant &value, int role );
-    KUndo2Command *setShutdownCost( Node *node, const QVariant &value, int role );
-    KUndo2Command *setCompletion( Node *node, const QVariant &value, int role );
-    KUndo2Command *setActualEffort( Node *node, const QVariant &value, int role );
-    KUndo2Command *setRemainingEffort( Node *node, const QVariant &value, int role );
-    KUndo2Command *setStartedTime( Node *node, const QVariant &value, int role );
-    KUndo2Command *setFinishedTime( Node *node, const QVariant &value, int role );
+    KUndo2Command *setName(Node *node, const QVariant &value, int role);
+    KUndo2Command *setLeader(Node *node, const QVariant &value, int role);
+    KUndo2Command *setAllocation(Node *node, const QVariant &value, int role);
+    KUndo2Command *setDescription(Node *node, const QVariant &value, int role);
+    KUndo2Command *setType(Node *node, const QVariant &value, int role);
+    KUndo2Command *setConstraint(Node *node, const QVariant &value, int role);
+    KUndo2Command *setConstraintStartTime(Node *node, const QVariant &value, int role);
+    KUndo2Command *setConstraintEndTime(Node *node, const QVariant &value, int role);
+    KUndo2Command *setEstimateType(Node *node, const QVariant &value, int role);
+    KUndo2Command *setEstimateCalendar(Node *node, const QVariant &value, int role);
+    KUndo2Command *setEstimate(Node *node, const QVariant &value, int role);
+    KUndo2Command *setOptimisticRatio(Node *node, const QVariant &value, int role);
+    KUndo2Command *setPessimisticRatio(Node *node, const QVariant &value, int role);
+    KUndo2Command *setRiskType(Node *node, const QVariant &value, int role);
+    KUndo2Command *setPriority(Node *node, const QVariant &value, int role);
+    KUndo2Command *setRunningAccount(Node *node, const QVariant &value, int role);
+    KUndo2Command *setStartupAccount(Node *node, const QVariant &value, int role);
+    KUndo2Command *setStartupCost(Node *node, const QVariant &value, int role);
+    KUndo2Command *setShutdownAccount(Node *node, const QVariant &value, int role);
+    KUndo2Command *setShutdownCost(Node *node, const QVariant &value, int role);
+    KUndo2Command *setCompletion(Node *node, const QVariant &value, int role);
+    KUndo2Command *setActualEffort(Node *node, const QVariant &value, int role);
+    KUndo2Command *setRemainingEffort(Node *node, const QVariant &value, int role);
+    KUndo2Command *setStartedTime(Node *node, const QVariant &value, int role);
+    KUndo2Command *setFinishedTime(Node *node, const QVariant &value, int role);
 
 private:
     Project *m_project;
@@ -289,7 +289,7 @@ class PLANMODELS_EXPORT NodeItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit NodeItemModel( QObject *parent = 0 );
+    explicit NodeItemModel(QObject *parent = 0);
     ~NodeItemModel() override;
     
     /// Returns a column number/- name map for this model
@@ -298,78 +298,78 @@ public:
     ScheduleManager *manager() const { return m_nodemodel.manager(); }
     long id() const { return m_nodemodel.id(); }
 
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
     
-    QModelIndex parent( const QModelIndex & index ) const override;
-    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
-    virtual QModelIndex index( const Node *node, int column = 0 ) const;
+    QModelIndex parent(const QModelIndex & index) const override;
+    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
+    virtual QModelIndex index(const Node *node, int column = 0) const;
     
-    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
     
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
-    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
+    bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) override;
 
     
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     
-    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QMimeData * mimeData(const QModelIndexList & indexes) const override;
     QStringList mimeTypes () const override;
     Qt::DropActions supportedDropActions() const override;
-    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
 
-    Node *node( const QModelIndex &index ) const;
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
+    Node *node(const QModelIndex &index) const;
+    QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const override;
 
-    QModelIndex insertTask( Node *node, Node *after );
-    QModelIndex insertSubtask( Node *node, Node *parent );
+    QModelIndex insertTask(Node *node, Node *after);
+    QModelIndex insertSubtask(Node *node, Node *parent);
     
-    QList<Node*> nodeList( QDataStream &stream );
-    QList<Resource*> resourceList( QDataStream &stream );
-    static QList<Node*> removeChildNodes( const QList<Node*> &nodes );
-    bool dropAllowed( Node *on, const QMimeData *data );
+    QList<Node*> nodeList(QDataStream &stream);
+    QList<Resource*> resourceList(QDataStream &stream);
+    static QList<Node*> removeChildNodes(const QList<Node*> &nodes);
+    bool dropAllowed(Node *on, const QMimeData *data);
     
-    bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data ) override;
+    bool dropAllowed(const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data) override;
     
     bool projectShown() const { return m_projectshown; }
 
     /// Return the sortorder to be used for @p column
-    int sortRole( int column ) const override;
+    int sortRole(int column) const override;
 
 Q_SIGNALS:
     void nodeInserted(KPlato::Node *node);
-    void projectShownChanged( bool );
+    void projectShownChanged(bool);
 
 public Q_SLOTS:
     void setProject(KPlato::Project *project) override;
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
-    void setShowProject( bool on );
+    void setShowProject(bool on);
 
 protected Q_SLOTS:
     virtual void slotWbsDefinitionChanged();
-    virtual void slotNodeChanged(KPlato::Node*, int );
-    virtual void slotNodeToBeInserted(KPlato::Node *node, int row );
-    virtual void slotNodeInserted(KPlato::Node *node );
-    virtual void slotNodeToBeRemoved(KPlato::Node *node );
-    virtual void slotNodeRemoved(KPlato::Node *node );
+    virtual void slotNodeChanged(KPlato::Node*, int);
+    virtual void slotNodeToBeInserted(KPlato::Node *node, int row);
+    virtual void slotNodeInserted(KPlato::Node *node);
+    virtual void slotNodeToBeRemoved(KPlato::Node *node);
+    virtual void slotNodeRemoved(KPlato::Node *node);
 
-    virtual void slotNodeToBeMoved(KPlato::Node *node, int pos, KPlato::Node *newParent, int newPos );
-    virtual void slotNodeMoved(KPlato::Node *node );
+    virtual void slotNodeToBeMoved(KPlato::Node *node, int pos, KPlato::Node *newParent, int newPos);
+    virtual void slotNodeMoved(KPlato::Node *node);
 
     void slotLayoutChanged() override;
     virtual void slotProjectCalculated(KPlato::ScheduleManager *sm);
 
 protected:
-    virtual bool setType( Node *node, const QVariant &value, int role );
-    bool setCompletion( Node *node, const QVariant &value, int role );
-    bool setAllocation( Node *node, const QVariant &value, int role );
+    virtual bool setType(Node *node, const QVariant &value, int role);
+    bool setCompletion(Node *node, const QVariant &value, int role);
+    bool setAllocation(Node *node, const QVariant &value, int role);
 
-    bool dropResourceMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
-    bool dropProjectMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
-    bool dropTaskModuleMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
-    KUndo2Command *createAllocationCommand( Task &task, const QList<Resource*> &lst );
-    bool dropUrlMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent );
-    bool importProjectFile( const QUrl &url, Qt::DropAction action, int row, int column, const QModelIndex &parent );
+    bool dropResourceMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
+    bool dropProjectMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
+    bool dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
+    KUndo2Command *createAllocationCommand(Task &task, const QList<Resource*> &lst);
+    bool dropUrlMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
+    bool importProjectFile(const QUrl &url, Qt::DropAction action, int row, int column, const QModelIndex &parent);
 
 protected:
     Node *m_node; // for sanity check
@@ -387,13 +387,13 @@ public:
     explicit GanttItemModel(QObject *parent = 0);
     ~GanttItemModel() override;
 
-    int rowCount( const QModelIndex &parent ) const override;
+    int rowCount(const QModelIndex &parent) const override;
     using NodeItemModel::index;
-    QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
-    QModelIndex parent( const QModelIndex &idx ) const override;
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override;
+    QModelIndex index(int row, int column, const QModelIndex &parent) const override;
+    QModelIndex parent(const QModelIndex &idx) const override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
 
-    void setShowSpecial( bool on ) { m_showSpecial = on; }
+    void setShowSpecial(bool on) { m_showSpecial = on; }
     bool showSpecial() const { return m_showSpecial; }
 
 private:
@@ -406,7 +406,7 @@ class PLANMODELS_EXPORT MilestoneItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit MilestoneItemModel( QObject *parent = 0 );
+    explicit MilestoneItemModel(QObject *parent = 0);
     ~MilestoneItemModel() override;
 
     /// Returns a column number/- name map for this model
@@ -415,37 +415,37 @@ public:
     ScheduleManager *manager() const { return m_nodemodel.manager(); }
     long id() const { return m_nodemodel.id(); }
 
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
 
-    QModelIndex parent( const QModelIndex & index ) const override;
-    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
-    virtual QModelIndex index( const Node *node ) const;
+    QModelIndex parent(const QModelIndex & index) const override;
+    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
+    virtual QModelIndex index(const Node *node) const;
 
-    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
 
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
-    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
+    bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) override;
 
 
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
-    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QMimeData * mimeData(const QModelIndexList & indexes) const override;
     QStringList mimeTypes () const override;
     Qt::DropActions supportedDropActions() const override;
-    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
 
-    Node *node( const QModelIndex &index ) const;
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
+    Node *node(const QModelIndex &index) const;
+    QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const override;
 
-    QModelIndex insertTask( Node *node, Node *after );
-    QModelIndex insertSubtask( Node *node, Node *parent );
+    QModelIndex insertTask(Node *node, Node *after);
+    QModelIndex insertSubtask(Node *node, Node *parent);
 
-    QList<Node*> nodeList( QDataStream &stream );
-    static QList<Node*> removeChildNodes( const QList<Node*> &nodes );
-    bool dropAllowed( Node *on, const QMimeData *data );
+    QList<Node*> nodeList(QDataStream &stream);
+    static QList<Node*> removeChildNodes(const QList<Node*> &nodes);
+    bool dropAllowed(Node *on, const QMimeData *data);
 
-    bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data ) override;
+    bool dropAllowed(const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data) override;
 
     QList<Node*> mileStones() const;
 
@@ -480,16 +480,16 @@ class PLANMODELS_EXPORT NodeSortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    NodeSortFilterProxyModel( ItemModelBase* model, QObject *parent, bool filterUnscheduled = true );
+    NodeSortFilterProxyModel(ItemModelBase* model, QObject *parent, bool filterUnscheduled = true);
 
     ItemModelBase *itemModel() const;
-    void setFilterUnscheduled( bool on );
+    void setFilterUnscheduled(bool on);
     bool filterUnscheduled() const { return m_filterUnscheduled; }
 
     void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
 
 protected:
-    bool filterAcceptsRow ( int source_row, const QModelIndex & source_parent ) const override;
+    bool filterAcceptsRow (int source_row, const QModelIndex & source_parent) const override;
 
 private:
     NodeItemModel *m_model;
@@ -504,34 +504,34 @@ public:
 
     void addTaskModule(Project *project , const QUrl &url);
 
-    Qt::ItemFlags flags( const QModelIndex &idx ) const override;
-    int columnCount( const QModelIndex &idx = QModelIndex() ) const override;
-    int rowCount( const QModelIndex &idx = QModelIndex() ) const override;
-    QVariant data( const QModelIndex &idx, int role = Qt::DisplayRole ) const override;
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
-    QModelIndex parent( const QModelIndex &idx ) const override;
-    QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
+    Qt::ItemFlags flags(const QModelIndex &idx) const override;
+    int columnCount(const QModelIndex &idx = QModelIndex()) const override;
+    int rowCount(const QModelIndex &idx = QModelIndex()) const override;
+    QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    QModelIndex parent(const QModelIndex &idx) const override;
+    QModelIndex index(int row, int column, const QModelIndex &parent) const override;
     QStringList mimeTypes() const override;
-    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
-    QMimeData *mimeData( const QModelIndexList &idx ) const override;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
+    QMimeData *mimeData(const QModelIndexList &idx) const override;
 
-    bool importProject( const QUrl &url, bool emitsignal = true );
-    Project *loadProjectFromUrl( const QUrl &url) const;
+    bool importProject(const QUrl &url, bool emitsignal = true);
+    Project *loadProjectFromUrl(const QUrl &url) const;
 
 public Q_SLOTS:
     void setProject(Project *project);
-    void loadTaskModules( const QStringList &files );
+    void loadTaskModules(const QStringList &files);
     void slotTaskModulesChanged(const QList<QUrl> &modules);
 
     void slotReset();
 
 Q_SIGNALS:
-    void executeCommand( KUndo2Command *cmd );
-    void saveTaskModule( const QUrl &url, KPlato::Project *project );
-    void removeTaskModule( const QUrl &url );
+    void executeCommand(KUndo2Command *cmd);
+    void saveTaskModule(const QUrl &url, KPlato::Project *project);
+    void removeTaskModule(const QUrl &url);
 
 protected:
-    void stripProject( Project *project ) const;
+    void stripProject(Project *project) const;
 
 private:
     Project *m_project;

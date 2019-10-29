@@ -40,9 +40,9 @@ namespace KPlato
 {
 
 Node::Node(Node *parent) 
-    : QObject( 0 ), // We don't use qobjects parent
+    : QObject(0), // We don't use qobjects parent
       m_nodes(), m_dependChildNodes(), m_dependParentNodes(),
-      m_estimate( 0 ),
+      m_estimate(0),
       m_blockChanged(false)
 {
     //debugPlan<<"("<<this<<")";
@@ -52,11 +52,11 @@ Node::Node(Node *parent)
 }
 
 Node::Node(const Node &node, Node *parent) 
-    : QObject( 0 ), // Don't set parent, we handle parent/child ourselves
+    : QObject(0), // Don't set parent, we handle parent/child ourselves
       m_nodes(), 
       m_dependChildNodes(), 
       m_dependParentNodes(),
-      m_estimate( 0 ),
+      m_estimate(0),
       m_blockChanged(false)
 {
     //debugPlan<<"("<<this<<")";
@@ -76,7 +76,7 @@ Node::Node(const Node &node, Node *parent)
     m_startupCost = node.startupCost();
     m_shutdownCost = node.shutdownCost();
     
-    setObjectName( node.objectName() );
+    setObjectName(node.objectName());
 }
 
 Node::~Node() {
@@ -136,34 +136,34 @@ int Node::priority() const
     return m_priority;
 }
 
-QString Node::typeToString( bool trans ) const
+QString Node::typeToString(bool trans) const
 {
-    return typeToString( (Node::NodeTypes)type(), trans );
+    return typeToString((Node::NodeTypes)type(), trans);
 }
 
 // static
-QString Node::typeToString( Node::NodeTypes typ, bool trans )
+QString Node::typeToString(Node::NodeTypes typ, bool trans)
 {
-    return typeToStringList( trans ).at( typ );
+    return typeToStringList(trans).at(typ);
 }
 
 // static
-QStringList Node::typeToStringList( bool trans )
+QStringList Node::typeToStringList(bool trans)
 {
     return QStringList() 
-            << ( trans ? i18n( "None" ) : QString( "None" ) )
-            << ( trans ? i18n( "Project" ) : QString( "Project" ) )
-            << ( trans ? i18n( "Sub-Project" ) : QString( "Sub-Project" ) )
-            << ( trans ? i18n( "Task" ) : QString( "Task" ) )
-            << ( trans ? i18n( "Milestone" ) : QString( "Milestone" ) )
-            << ( trans ? i18n( "Periodic" ) : QString( "Periodic" ) )
-            << ( trans ? i18n( "Summary" ) : QString( "Summary-Task" ) );
+            << (trans ? i18n("None") : QString("None"))
+            << (trans ? i18n("Project") : QString("Project"))
+            << (trans ? i18n("Sub-Project") : QString("Sub-Project"))
+            << (trans ? i18n("Task") : QString("Task"))
+            << (trans ? i18n("Milestone") : QString("Milestone"))
+            << (trans ? i18n("Periodic") : QString("Periodic"))
+            << (trans ? i18n("Summary") : QString("Summary-Task"));
 }
 
 void Node::setName(const QString &n) 
 {
 #ifndef NDEBUG
-    setObjectName( n );
+    setObjectName(n);
 #endif
      m_name = n;
      changed(this, NameProperty);
@@ -203,97 +203,97 @@ const Node *Node::projectNode() const {
     return 0;
 }
 
-void Node::takeChildNode( Node *node) {
+void Node::takeChildNode(Node *node) {
     //debugPlan<<"find="<<m_nodes.indexOf(node);
     int t = type();
     int i = m_nodes.indexOf(node);
-    if ( i != -1 ) {
+    if (i != -1) {
         m_nodes.removeAt(i);
     }
     node->setParentNode(0);
-    if ( t != type() ) {
-        changed( TypeProperty );
+    if (t != type()) {
+        changed(TypeProperty);
     }
 }
 
-void Node::takeChildNode( int number ) {
+void Node::takeChildNode(int number) {
     int t = type();
     if (number >= 0 && number < m_nodes.size()) {
         Node *n = m_nodes.takeAt(number);
         //debugPlan<<(n?n->id():"null")<<" :"<<(n?n->name():"");
         if (n) {
-            n->setParentNode( 0 );
+            n->setParentNode(0);
         }
     }
-    if ( t != type() ) {
-        changed( TypeProperty );
+    if (t != type()) {
+        changed(TypeProperty);
     }
 }
 
-void Node::insertChildNode( int index, Node *node ) {
+void Node::insertChildNode(int index, Node *node) {
     int t = type();
     if (index == -1)
         m_nodes.append(node);
     else
         m_nodes.insert(index,node);
-    node->setParentNode( this );
-    if ( t != type() ) {
-        changed( TypeProperty );
+    node->setParentNode(this);
+    if (t != type()) {
+        changed(TypeProperty);
     }
 }
 
-void Node::addChildNode( Node *node, Node *after) {
+void Node::addChildNode(Node *node, Node *after) {
     int t = type();
     int index = m_nodes.indexOf(after);
     if (index == -1) {
         m_nodes.append(node);
-        node->setParentNode( this );
-        if ( t != type() ) {
-            changed( TypeProperty );
+        node->setParentNode(this);
+        if (t != type()) {
+            changed(TypeProperty);
         }
         return;
     }
     m_nodes.insert(index+1, node);
     node->setParentNode(this);
-    if ( t != type() ) {
-        changed( TypeProperty );
+    if (t != type()) {
+        changed(TypeProperty);
     }
 }
 
-int Node::findChildNode( const Node* node ) const
+int Node::findChildNode(const Node* node) const
 {
-    return m_nodes.indexOf( const_cast<Node*>( node ) );
+    return m_nodes.indexOf(const_cast<Node*>(node));
 }
 
-bool Node::isChildOf( const Node* node ) const
+bool Node::isChildOf(const Node* node) const
 {
-    if ( node == 0 || m_parent == 0 ) {
+    if (node == 0 || m_parent == 0) {
         return false;
     }
-    if ( node == m_parent ) {
+    if (node == m_parent) {
         return true;
     }
-    return m_parent->isChildOf( node );
+    return m_parent->isChildOf(node);
 }
 
 
 Node* Node::childNode(int number)
 {
     //debugPlan<<number;
-    return m_nodes.value( number );
+    return m_nodes.value(number);
 }
 
 const Node* Node::childNode(int number) const
 {
-    if ( number < 0 || number >= m_nodes.count() ) {
+    if (number < 0 || number >= m_nodes.count()) {
         return 0;
     }
-    return m_nodes.at( number );
+    return m_nodes.at(number);
 }
 
-int Node::indexOf( const Node *node ) const
+int Node::indexOf(const Node *node) const
 {
-    return m_nodes.indexOf( const_cast<Node*>(node) );
+    return m_nodes.indexOf(const_cast<Node*>(node));
 }
 
 
@@ -304,11 +304,11 @@ Duration *Node::getDelay() {
     return 0L;
 }
 
-void Node::addDependChildNode( Node *node, Relation::Type p) {
+void Node::addDependChildNode(Node *node, Relation::Type p) {
     addDependChildNode(node,p,Duration());
 }
 
-void Node::addDependChildNode( Node *node, Relation::Type p, Duration lag) {
+void Node::addDependChildNode(Node *node, Relation::Type p, Duration lag) {
     Relation *relation = new Relation(this, node, p, lag);
     if (node->addDependParentNode(relation))
         m_dependChildNodes.append(relation);
@@ -316,7 +316,7 @@ void Node::addDependChildNode( Node *node, Relation::Type p, Duration lag) {
         delete relation;
 }
 
-void Node::insertDependChildNode( unsigned int index, Node *node, Relation::Type p) {
+void Node::insertDependChildNode(unsigned int index, Node *node, Relation::Type p) {
     Relation *relation = new Relation(this, node, p, Duration());
     if (node->addDependParentNode(relation))
         m_dependChildNodes.insert(index, relation);
@@ -324,26 +324,26 @@ void Node::insertDependChildNode( unsigned int index, Node *node, Relation::Type
         delete relation;
 }
 
-bool Node::addDependChildNode( Relation *relation) {
+bool Node::addDependChildNode(Relation *relation) {
     if(m_dependChildNodes.indexOf(relation) != -1)
         return false;
     m_dependChildNodes.append(relation);
     return true;
 }
 
-void Node::takeDependChildNode( Relation *rel ) {
+void Node::takeDependChildNode(Relation *rel) {
     int i = m_dependChildNodes.indexOf(rel);
-    if ( i != -1 ) {
+    if (i != -1) {
         //debugPlan<<m_name<<": ("<<rel<<")";
         m_dependChildNodes.removeAt(i);
     }
 }
 
-void Node::addDependParentNode( Node *node, Relation::Type p) {
+void Node::addDependParentNode(Node *node, Relation::Type p) {
     addDependParentNode(node,p,Duration());
 }
 
-void Node::addDependParentNode( Node *node, Relation::Type p, Duration lag) {
+void Node::addDependParentNode(Node *node, Relation::Type p, Duration lag) {
     Relation *relation = new Relation(node, this, p, lag);
     if (node->addDependChildNode(relation))
         m_dependParentNodes.append(relation);
@@ -351,7 +351,7 @@ void Node::addDependParentNode( Node *node, Relation::Type p, Duration lag) {
         delete relation;
 }
 
-void Node::insertDependParentNode( unsigned int index, Node *node, Relation::Type p) {
+void Node::insertDependParentNode(unsigned int index, Node *node, Relation::Type p) {
     Relation *relation = new Relation(this, node, p, Duration());
     if (node->addDependChildNode(relation))
         m_dependParentNodes.insert(index,relation);
@@ -359,24 +359,24 @@ void Node::insertDependParentNode( unsigned int index, Node *node, Relation::Typ
         delete relation;
 }
 
-bool Node::addDependParentNode( Relation *relation) {
+bool Node::addDependParentNode(Relation *relation) {
     if(m_dependParentNodes.indexOf(relation) != -1)
         return false;
     m_dependParentNodes.append(relation);
     return true;
 }
 
-void Node::takeDependParentNode( Relation *rel ) {
+void Node::takeDependParentNode(Relation *rel) {
     int i = m_dependParentNodes.indexOf(rel);
-    if ( i != -1 ) {
+    if (i != -1) {
         //debugPlan<<m_name<<": ("<<rel<<")";
         m_dependParentNodes.removeAt(i);
     }
 }
 
-bool Node::isParentOf( const Node *node ) const
+bool Node::isParentOf(const Node *node) const
 {
-    if (m_nodes.indexOf( const_cast<Node*>( node ) ) != -1)
+    if (m_nodes.indexOf(const_cast<Node*>(node)) != -1)
         return true;
 
     QListIterator<Node*> nit(childNodeIterator());
@@ -387,7 +387,7 @@ bool Node::isParentOf( const Node *node ) const
     return false;
 }
 
-Relation *Node::findParentRelation( const Node *node ) const
+Relation *Node::findParentRelation(const Node *node) const
 {
     for (int i=0; i<numDependParentNodes(); i++) {
         Relation *rel = getDependParentNode(i);
@@ -397,7 +397,7 @@ Relation *Node::findParentRelation( const Node *node ) const
     return (Relation *)0;
 }
 
-Relation *Node::findChildRelation( const Node *node) const
+Relation *Node::findChildRelation(const Node *node) const
 {
     for (int i=0; i<numDependChildNodes(); i++) {
         Relation *rel = getDependChildNode(i);
@@ -407,7 +407,7 @@ Relation *Node::findChildRelation( const Node *node) const
     return (Relation *)0;
 }
 
-Relation *Node::findRelation( const Node *node ) const
+Relation *Node::findRelation(const Node *node) const
 {
     Relation *rel = findParentRelation(node);
     if (!rel)
@@ -415,7 +415,7 @@ Relation *Node::findRelation( const Node *node ) const
     return rel;
 }
 
-bool Node::isDependChildOf( const Node *node ) const
+bool Node::isDependChildOf(const Node *node) const
 {
     //debugPlan<<" '"<<m_name<<"' checking against '"<<node->name()<<"'";
     for (int i=0; i<numDependParentNodes(); i++) {
@@ -441,20 +441,20 @@ QList<Node*> Node::getParentNodes()
     return this->m_parentNodes;
 }
 
-bool Node::canMoveTo( const Node *newParent ) const
+bool Node::canMoveTo(const Node *newParent) const
 {
-    if ( m_parent == newParent ) {
+    if (m_parent == newParent) {
         return true;
     }
-    if ( newParent->isChildOf( this ) ) {
+    if (newParent->isChildOf(this)) {
         return false;
     }
-    if ( isDependChildOf( newParent ) || newParent->isDependChildOf( this ) ) {
+    if (isDependChildOf(newParent) || newParent->isDependChildOf(this)) {
         debugPlan<<"Can't move, node is dependent on new parent";
         return false;
     }
-    foreach ( Node *n, m_nodes ) {
-        if ( !n->canMoveTo( newParent ) ) {
+    foreach (Node *n, m_nodes) {
+        if (!n->canMoveTo(newParent)) {
             return false;
         }
     }
@@ -476,204 +476,204 @@ void Node::calcResourceOverbooked() {
 }
 
 // Returns the (previously) calculated duration
-Duration Node::duration( long id ) const
+Duration Node::duration(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->duration : Duration::zeroDuration;
 }
 
-double Node::variance( long id, Duration::Unit unit ) const
+double Node::variance(long id, Duration::Unit unit) const
 {
-    double d = deviation( id, unit );
+    double d = deviation(id, unit);
     return d * d;
 }
 
-double Node::deviation( long id, Duration::Unit unit ) const
+double Node::deviation(long id, Duration::Unit unit) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     double d = 0.0;
-    if ( s && m_estimate ) {
-        d = s->duration.toDouble( unit );
-        double o = ( d *  ( 100 + m_estimate->optimisticRatio() ) ) / 100;
-        double p = ( d * ( 100 + m_estimate->pessimisticRatio() ) ) / 100;
-        d =  ( p - o ) / 6;
+    if (s && m_estimate) {
+        d = s->duration.toDouble(unit);
+        double o = (d *  (100 + m_estimate->optimisticRatio())) / 100;
+        double p = (d * (100 + m_estimate->pessimisticRatio())) / 100;
+        d =  (p - o) / 6;
     }
     return d;
 }
 
-DateTime Node::startTime( long id ) const
+DateTime Node::startTime(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->startTime : DateTime();
 }
-DateTime Node::endTime( long id ) const
+DateTime Node::endTime(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->endTime : DateTime();
 }
 
-DateTime Node::appointmentStartTime( long id ) const
+DateTime Node::appointmentStartTime(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->appointmentStartTime() : DateTime();
 }
-DateTime Node::appointmentEndTime( long id ) const
+DateTime Node::appointmentEndTime(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->appointmentEndTime() : DateTime();
 }
 
-void Node::setDuration(const Duration &duration, long id )
+void Node::setDuration(const Duration &duration, long id)
 {
-    Schedule *s = schedule( id );
-    if ( s ) {
+    Schedule *s = schedule(id);
+    if (s) {
         s->duration = duration;
     }
 }
 
-void Node::setEarlyStart(const DateTime &dt, long id )
+void Node::setEarlyStart(const DateTime &dt, long id)
 {
-    Schedule *s = schedule( id );
-    if ( s ) s->earlyStart = dt;
+    Schedule *s = schedule(id);
+    if (s) s->earlyStart = dt;
 }
 
-DateTime Node::earlyStart( long id ) const
+DateTime Node::earlyStart(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->earlyStart : DateTime();
 }
 
-void Node::setLateStart(const DateTime &dt, long id )
+void Node::setLateStart(const DateTime &dt, long id)
 {
-    Schedule *s = schedule( id );
-    if ( s ) s->lateStart = dt;
+    Schedule *s = schedule(id);
+    if (s) s->lateStart = dt;
 }
 
-DateTime Node::lateStart( long id ) const
+DateTime Node::lateStart(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->lateStart : DateTime();
 }
     
-void Node::setEarlyFinish(const DateTime &dt, long id )
+void Node::setEarlyFinish(const DateTime &dt, long id)
 {
-    Schedule *s = schedule( id );
-    if ( s ) s->earlyFinish = dt;
+    Schedule *s = schedule(id);
+    if (s) s->earlyFinish = dt;
 }
 
-DateTime Node::earlyFinish( long id ) const
+DateTime Node::earlyFinish(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->earlyFinish : DateTime();
 }
 
-void Node::setLateFinish(const DateTime &dt, long id )
+void Node::setLateFinish(const DateTime &dt, long id)
 {
-    Schedule *s = schedule( id );
-    if ( s ) s->lateFinish = dt;
+    Schedule *s = schedule(id);
+    if (s) s->lateFinish = dt;
 }
 
-DateTime Node::lateFinish( long id ) const
+DateTime Node::lateFinish(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->lateFinish : DateTime();
 }
     
-DateTime Node::workStartTime( long id ) const
+DateTime Node::workStartTime(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->workStartTime : DateTime();
 }
 
-void Node::setWorkStartTime(const DateTime &dt, long id )
+void Node::setWorkStartTime(const DateTime &dt, long id)
 {
-    Schedule *s = schedule( id );
-    if ( s ) s->workStartTime = dt;
+    Schedule *s = schedule(id);
+    if (s) s->workStartTime = dt;
 }
 
-DateTime Node::workEndTime( long id ) const
+DateTime Node::workEndTime(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->workEndTime : DateTime();
 }
 
-void Node::setWorkEndTime(const DateTime &dt, long id )
+void Node::setWorkEndTime(const DateTime &dt, long id)
 {
-    Schedule *s = schedule( id );
-    if ( s ) s->workEndTime = dt;
+    Schedule *s = schedule(id);
+    if (s) s->workEndTime = dt;
 }
     
-bool Node::inCriticalPath( long id ) const
+bool Node::inCriticalPath(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->inCriticalPath : false;
 }
 
-QStringList Node::schedulingStatus( long id, bool trans ) const 
+QStringList Node::schedulingStatus(long id, bool trans) const 
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     QStringList lst;
-    if ( s ) {
+    if (s) {
         lst = s->state();
     }
-    if ( lst.isEmpty() ) {
-        lst.append( trans ? i18n( "Not scheduled" ) : QString( "Not scheduled" ) );
+    if (lst.isEmpty()) {
+        lst.append(trans ? i18n("Not scheduled") : QString("Not scheduled"));
     }
     return lst;
 }
 
-bool Node::resourceError( long id ) const 
+bool Node::resourceError(long id) const 
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->resourceError : false;
 }
     
-bool Node::resourceOverbooked( long id ) const
+bool Node::resourceOverbooked(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->resourceOverbooked : false;
 }
     
-bool Node::resourceNotAvailable( long id ) const
+bool Node::resourceNotAvailable(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->resourceNotAvailable : false;
 }
 
-bool Node::constraintError( long id ) const
+bool Node::constraintError(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->constraintError : false;
 }
 
-bool Node::schedulingError( long id ) const
+bool Node::schedulingError(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->schedulingError : false;
 }
 
-bool Node::notScheduled( long id ) const
+bool Node::notScheduled(long id) const
 {
-    if ( type() == Type_Summarytask ) {
+    if (type() == Type_Summarytask) {
         // i am scheduled if al least on child is scheduled
-        foreach ( Node *n, m_nodes ) {
-            if ( ! n->notScheduled( id ) ) {
+        foreach (Node *n, m_nodes) {
+            if (! n->notScheduled(id)) {
                 return false;
             }
         }
         return true;
     }
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s == 0 || s->isDeleted() || s->notScheduled;
 }
 
-QStringList Node::overbookedResources( long id ) const
+QStringList Node::overbookedResources(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->overbookedResources() : QStringList();
 }
 
-void Node::saveWorkPackageXML( QDomElement &, long ) const
+void Node::saveWorkPackageXML(QDomElement &, long) const
 {
     return;
 }
@@ -696,7 +696,7 @@ void Node::saveRelations(QDomElement &element, const XmlSaveContext &context) co
 void Node::setConstraint(Node::ConstraintType type)
 { 
     m_constraint = type;
-    changed( this, ConstraintTypeProperty );
+    changed(this, ConstraintTypeProperty);
 }
 
 void Node::setConstraint(const QString &type) {
@@ -719,11 +719,11 @@ void Node::setConstraint(const QString &type) {
         setConstraint(ASAP);  // default
 }
 
-QString Node::constraintToString( bool trans ) const {
-    return constraintList( trans ).at( m_constraint );
+QString Node::constraintToString(bool trans) const {
+    return constraintList(trans).at(m_constraint);
 }
 
-QStringList Node::constraintList( bool trans ) {
+QStringList Node::constraintList(bool trans) {
     // keep theses in the same order as the enum!
     return QStringList() 
             << (trans ? i18n("As Soon As Possible") : QString("ASAP"))
@@ -739,16 +739,16 @@ void Node::propagateEarliestStart(DateTime &time) {
     if (m_currentSchedule == 0) {
         return;
     }
-    if ( type() != Type_Project ) {
+    if (type() != Type_Project) {
         m_currentSchedule->earlyStart = time;
-        if ( m_currentSchedule->lateStart.isValid() && m_currentSchedule->lateStart < time ) {
+        if (m_currentSchedule->lateStart.isValid() && m_currentSchedule->lateStart < time) {
             m_currentSchedule->lateStart = time;
         }
-        //m_currentSchedule->logDebug( "propagateEarliestStart: " + time.toString() );
-        switch ( m_constraint ) {
+        //m_currentSchedule->logDebug("propagateEarliestStart: " + time.toString());
+        switch (m_constraint) {
             case FinishNotLater:
             case MustFinishOn:
-                if ( m_constraintEndTime < time ) {
+                if (m_constraintEndTime < time) {
                     m_currentSchedule->logWarning("Task constraint outside project constraint");
 #ifndef PLAN_NLOGDEBUG
                     m_currentSchedule->logDebug(QString("%1: end constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
@@ -757,7 +757,7 @@ void Node::propagateEarliestStart(DateTime &time) {
                 break;
             case MustStartOn:
             case FixedInterval:
-                if ( m_constraintStartTime < time ) {
+                if (m_constraintStartTime < time) {
                     m_currentSchedule->logWarning("Task constraint outside project constraint");
 #ifndef PLAN_NLOGDEBUG
                     m_currentSchedule->logDebug(QString("%1: start constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
@@ -779,15 +779,15 @@ void Node::propagateLatestFinish(DateTime &time) {
     if (m_currentSchedule == 0) {
         return;
     }
-    if ( type() != Type_Project ) {
+    if (type() != Type_Project) {
         m_currentSchedule->lateFinish = time;
-        if ( m_currentSchedule->earlyFinish.isValid() && m_currentSchedule->earlyFinish > time ) {
+        if (m_currentSchedule->earlyFinish.isValid() && m_currentSchedule->earlyFinish > time) {
             m_currentSchedule->earlyFinish = time;
         }
-        switch ( m_constraint ) {
+        switch (m_constraint) {
             case StartNotEarlier:
             case MustStartOn:
-                if ( m_constraintStartTime > time ) {
+                if (m_constraintStartTime > time) {
                     m_currentSchedule->logWarning("Task constraint outside project constraint");
 #ifndef PLAN_NLOGDEBUG
                     m_currentSchedule->logDebug(QString("%1: start constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
@@ -796,7 +796,7 @@ void Node::propagateLatestFinish(DateTime &time) {
                 break;
             case MustFinishOn:
             case FixedInterval:
-                if ( m_constraintEndTime > time ) {
+                if (m_constraintEndTime > time) {
                     m_currentSchedule->logWarning("Task constraint outside project constraint");
 #ifndef PLAN_NLOGDEBUG
                     m_currentSchedule->logDebug(QString("%1: end constraint %2 > %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
@@ -818,7 +818,7 @@ void Node::moveEarliestStart(DateTime &time) {
     if (m_currentSchedule == 0)
         return;
     if (m_currentSchedule->earlyStart < time) {
-        //m_currentSchedule->logDebug( "moveEarliestStart: " + m_currentSchedule->earlyStart.toString() + " -> " + time.toString() );
+        //m_currentSchedule->logDebug("moveEarliestStart: " + m_currentSchedule->earlyStart.toString() + " -> " + time.toString());
         m_currentSchedule->earlyStart = time;
     }
     QListIterator<Node*> it = m_nodes;
@@ -888,7 +888,7 @@ Node *Node::siblingAfter() {
 Node *Node::childAfter(Node *node)
 {
     //debugPlan;
-    Q_ASSERT( m_nodes.contains( node ) );
+    Q_ASSERT(m_nodes.contains(node));
     int index = m_nodes.indexOf(node);
     if (index < m_nodes.count()-1) {
         return m_nodes.at(index+1);
@@ -925,7 +925,7 @@ bool Node::moveChildDown(Node* node)
     return true;
 }
 
-bool Node::legalToLink( const Node *node ) const
+bool Node::legalToLink(const Node *node) const
 {
     Node *p = const_cast<Node*>(this)->projectNode();
     if (p)
@@ -945,17 +945,17 @@ void Node::setId(const QString& id) {
     m_id = id;
 }
 
-void Node::setStartTime(const DateTime &startTime, long id )
+void Node::setStartTime(const DateTime &startTime, long id)
 { 
-    Schedule *s = schedule( id );
-    if ( s )
+    Schedule *s = schedule(id);
+    if (s)
         s->startTime = startTime;
 }
 
-void Node::setEndTime(const DateTime &endTime, long id )
+void Node::setEndTime(const DateTime &endTime, long id)
 {
-    Schedule *s = schedule( id );
-    if ( s )
+    Schedule *s = schedule(id);
+    if (s)
         s->endTime = endTime;
 }
 
@@ -967,20 +967,20 @@ void Node::saveAppointments(QDomElement &element, long id) const {
     }
 }
 
-QList<Appointment*> Node::appointments( long id )
+QList<Appointment*> Node::appointments(long id)
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     QList<Appointment*> lst;
-    if ( s )
+    if (s)
         lst = s->appointments();
     return lst;
 }
 
-QList<Resource*> Node::assignedResources( long id ) const {
-    Schedule *s = schedule( id );
+QList<Resource*> Node::assignedResources(long id) const {
+    Schedule *s = schedule(id);
     QList<Resource*> res;
-    if ( s ) {
-        foreach ( Appointment *a, s->appointments() ) {
+    if (s) {
+        foreach (Appointment *a, s->appointments()) {
             res << a->resource()->resource();
         }
     }
@@ -994,7 +994,7 @@ QList<Resource*> Node::assignedResources( long id ) const {
 //     return 0;
 // }
 // bool Node::addAppointment(Appointment *appointment) {
-//     if ( m_currentSchedule )
+//     if (m_currentSchedule)
 //         return m_currentSchedule->add(appointment);
 //     return false;
 // }
@@ -1015,13 +1015,13 @@ void Node::addAppointment(ResourceSchedule *resource, const DateTime &start, con
     if (node == 0) {
         node = createSchedule(resource->parent());
     }
-    node->setCalculationMode( resource->calculationMode() );
+    node->setCalculationMode(resource->calculationMode());
     node->addAppointment(resource, start, end, load);
 }
 
-bool Node::isBaselined( long id ) const
+bool Node::isBaselined(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s ? s->isBaselined() : false;
 }
 
@@ -1053,12 +1053,12 @@ Schedule *Node::createSchedule(Schedule *parent) {
     return sch;
 }
 
-Schedule *Node::schedule( long id ) const
+Schedule *Node::schedule(long id) const
 {
-    switch ( id ) {
+    switch (id) {
         case ANYSCHEDULED: {
-            foreach ( Schedule *s, m_schedules ) {
-                if ( s->isScheduled() ) {
+            foreach (Schedule *s, m_schedules) {
+                if (s->isScheduled()) {
                     return s;
                 }
             }
@@ -1069,8 +1069,8 @@ Schedule *Node::schedule( long id ) const
         case NOTSCHEDULED:
             return 0;
         case BASELINESCHEDULE: {
-            foreach ( Schedule *s, m_schedules ) {
-                if ( s->isBaselined() ) {
+            foreach (Schedule *s, m_schedules) {
+                if (s->isBaselined()) {
                     return s;
                 }
             }
@@ -1079,12 +1079,12 @@ Schedule *Node::schedule( long id ) const
         default:
             break;
     }
-    return findSchedule( id );
+    return findSchedule(id);
 }
 
-Schedule *Node::findSchedule( long id ) const
+Schedule *Node::findSchedule(long id) const
 {
-    return m_schedules.value( id );
+    return m_schedules.value(id);
 }
 
 Schedule *Node::findSchedule(const QString &name, const Schedule::Type type) {
@@ -1162,7 +1162,7 @@ bool Node::calcCriticalPath(bool fromEnd) {
 }
 
 void Node::calcFreeFloat() {
-    foreach ( Node *n, m_nodes ) {
+    foreach (Node *n, m_nodes) {
         n->calcFreeFloat();
     }
     return;
@@ -1173,24 +1173,24 @@ int Node::level() const {
     return n ? n->level() + 1 : 0;
 }
 
-QString Node::generateWBSCode( QList<int> &indexes, bool sortable ) const {
+QString Node::generateWBSCode(QList<int> &indexes, bool sortable) const {
     //debugPlan<<m_name<<indexes;
-    if ( m_parent == 0 ) {
+    if (m_parent == 0) {
         return QString();
     }
-    indexes.insert( 0, m_parent->indexOf( this ) );
-    return m_parent->generateWBSCode( indexes, sortable );
+    indexes.insert(0, m_parent->indexOf(this));
+    return m_parent->generateWBSCode(indexes, sortable);
 }
 
 QString Node::wbsCode(bool sortable) const {
     //debugPlan<<m_name;
     QList<int> indexes;
-    return generateWBSCode( indexes, sortable );
+    return generateWBSCode(indexes, sortable);
 }
 
-bool Node::isScheduled( long id ) const
+bool Node::isScheduled(long id) const
 {
-    Schedule *s = schedule( id );
+    Schedule *s = schedule(id);
     return s != 0 && s->isScheduled();
 }
 
@@ -1211,8 +1211,8 @@ void Node::setStartupCost(double cost)
 void Node::setStartupAccount(Account *acc)
 {
     //debugPlan<<m_name<<"="<<acc;
-    if ( m_startupAccount ) {
-        m_startupAccount->removeStartup( *this );
+    if (m_startupAccount) {
+        m_startupAccount->removeStartup(*this);
     }
     m_startupAccount = acc;
     changed(StartupAccountProperty);
@@ -1227,8 +1227,8 @@ void Node::setShutdownCost(double cost)
 void Node::setShutdownAccount(Account *acc)
 {
     //debugPlan<<m_name<<"="<<acc;
-    if ( m_shutdownAccount ) {
-        m_shutdownAccount->removeShutdown( *this );
+    if (m_shutdownAccount) {
+        m_shutdownAccount->removeShutdown(*this);
     }
     m_shutdownAccount = acc;
     changed(ShutdownAccountProperty);
@@ -1237,8 +1237,8 @@ void Node::setShutdownAccount(Account *acc)
 void Node::setRunningAccount(Account *acc)
 {
     //debugPlan<<m_name<<"="<<acc;
-    if ( m_runningAccount ) {
-        m_runningAccount->removeRunning( *this );
+    if (m_runningAccount) {
+        m_runningAccount->removeRunning(*this);
     }
     m_runningAccount = acc;
     changed(RunningAccountProperty);
@@ -1253,7 +1253,7 @@ void Node::changed(Node *node, int property) {
     if (m_blockChanged) {
         return;
     }
-    switch ( property) {
+    switch (property) {
         case TypeProperty:
         case StartupCostProperty:
         case ShutdownCostProperty:
@@ -1266,7 +1266,7 @@ void Node::changed(Node *node, int property) {
         case CompletionRemainingEffortProperty:
         case CompletionActualEffortProperty:
         case CompletionUsedEffortProperty:
-            foreach ( Schedule *s, m_schedules ) {
+            foreach (Schedule *s, m_schedules) {
                 s->clearPerformanceCache();
             }
         break;
@@ -1277,113 +1277,113 @@ void Node::changed(Node *node, int property) {
     }
 }
 
-Duration Node::plannedEffort( const Resource *resource, long id, EffortCostCalculationType type ) const
+Duration Node::plannedEffort(const Resource *resource, long id, EffortCostCalculationType type) const
 {
     Duration e;
-    foreach ( Node *n, m_nodes ) {
-        e += n->plannedEffort( resource, id, type );
+    foreach (Node *n, m_nodes) {
+        e += n->plannedEffort(resource, id, type);
     }
     return e;
 }
 
-Duration Node::plannedEffort( const Resource *resource, QDate date, long id, EffortCostCalculationType type ) const
+Duration Node::plannedEffort(const Resource *resource, QDate date, long id, EffortCostCalculationType type) const
 {
     Duration e;
-    foreach ( Node *n, m_nodes ) {
-        e += n->plannedEffort( resource, date, id, type );
+    foreach (Node *n, m_nodes) {
+        e += n->plannedEffort(resource, date, id, type);
     }
     return e;
 }
 
-Duration Node::plannedEffortTo( const Resource *resource, QDate date, long id, EffortCostCalculationType type ) const
+Duration Node::plannedEffortTo(const Resource *resource, QDate date, long id, EffortCostCalculationType type) const
 {
     Duration e;
-    foreach ( Node *n, m_nodes ) {
-        e += n->plannedEffortTo( resource, date, id, type );
+    foreach (Node *n, m_nodes) {
+        e += n->plannedEffortTo(resource, date, id, type);
     }
     return e;
 }
 
-EffortCost Node::plannedCost( long id, EffortCostCalculationType type ) const
+EffortCost Node::plannedCost(long id, EffortCostCalculationType type) const
 {
     EffortCost ec;
-    foreach ( Node *n, m_nodes ) {
-        ec += n->plannedCost( id, type );
+    foreach (Node *n, m_nodes) {
+        ec += n->plannedCost(id, type);
     }
     return ec;
 }
 
-EffortCostMap Node::bcwsPrDay( long int id, EffortCostCalculationType type ) const
+EffortCostMap Node::bcwsPrDay(long int id, EffortCostCalculationType type) const
 {
-    return const_cast<Node*>( this )->bcwsPrDay( id, type );
+    return const_cast<Node*>(this)->bcwsPrDay(id, type);
 }
 
-EffortCostMap Node::bcwsPrDay( long int id, EffortCostCalculationType type )
+EffortCostMap Node::bcwsPrDay(long int id, EffortCostCalculationType type)
 {
-    Schedule *s = schedule( id );
-    if ( s == 0 ) {
+    Schedule *s = schedule(id);
+    if (s == 0) {
         return EffortCostMap();
     }
-    EffortCostCache &ec = s->bcwsPrDayCache( type );
-    if ( ! ec.cached ) {
+    EffortCostCache &ec = s->bcwsPrDayCache(type);
+    if (! ec.cached) {
         ec.effortcostmap = EffortCostMap();
-        foreach ( Node *n, m_nodes ) {
-            ec.effortcostmap += n->bcwsPrDay( id, type );
+        foreach (Node *n, m_nodes) {
+            ec.effortcostmap += n->bcwsPrDay(id, type);
         }
         ec.cached = true;
     }
     return ec.effortcostmap;
 }
 
-EffortCostMap Node::bcwpPrDay( long int id, EffortCostCalculationType type ) const
+EffortCostMap Node::bcwpPrDay(long int id, EffortCostCalculationType type) const
 {
-    return const_cast<Node*>( this )->bcwpPrDay( id, type);
+    return const_cast<Node*>(this)->bcwpPrDay(id, type);
 }
 
-EffortCostMap Node::bcwpPrDay( long int id, EffortCostCalculationType type )
+EffortCostMap Node::bcwpPrDay(long int id, EffortCostCalculationType type)
 {
-    Schedule *s = schedule( id );
-    if ( s == 0 ) {
+    Schedule *s = schedule(id);
+    if (s == 0) {
         return EffortCostMap();
     }
-    EffortCostCache &ec = s->bcwpPrDayCache( type );
-    if ( ! ec.cached ) {
+    EffortCostCache &ec = s->bcwpPrDayCache(type);
+    if (! ec.cached) {
         ec.effortcostmap = EffortCostMap();
-        foreach ( Node *n, m_nodes ) {
-            ec.effortcostmap += n->bcwpPrDay( id, type );
+        foreach (Node *n, m_nodes) {
+            ec.effortcostmap += n->bcwpPrDay(id, type);
         }
         ec.cached = true;
     }
     return ec.effortcostmap;
 }
 
-EffortCostMap Node::acwp( long id, EffortCostCalculationType type ) const
+EffortCostMap Node::acwp(long id, EffortCostCalculationType type) const
 {
-    return const_cast<Node*>( this )->acwp( id, type );
+    return const_cast<Node*>(this)->acwp(id, type);
 }
 
-EffortCostMap Node::acwp( long id, EffortCostCalculationType type )
+EffortCostMap Node::acwp(long id, EffortCostCalculationType type)
 {
-    Schedule *s = schedule( id );
-    if ( s == 0 ) {
+    Schedule *s = schedule(id);
+    if (s == 0) {
         return EffortCostMap();
     }
-    EffortCostCache &ec = s->acwpCache( type );
-    if ( ! ec.cached ) {
+    EffortCostCache &ec = s->acwpCache(type);
+    if (! ec.cached) {
         ec.effortcostmap = EffortCostMap();
-        foreach ( Node *n, m_nodes ) {
-            ec.effortcostmap += n->acwp( id, type );
+        foreach (Node *n, m_nodes) {
+            ec.effortcostmap += n->acwp(id, type);
         }
         ec.cached = true;
     }
     return ec.effortcostmap;
 }
 
-EffortCost Node::acwp( QDate date, long id ) const
+EffortCost Node::acwp(QDate date, long id) const
 {
     EffortCost ec;
-    foreach ( Node *n, m_nodes ) {
-        ec += n->acwp( date, id );
+    foreach (Node *n, m_nodes) {
+        ec += n->acwp(date, id);
     }
     return ec;
 }
@@ -1391,45 +1391,45 @@ EffortCost Node::acwp( QDate date, long id ) const
 void Node::slotStandardWorktimeChanged(KPlato::StandardWorktime*)
 {
     //debugPlan<<m_estimate;
-    if ( m_estimate ) {
+    if (m_estimate) {
         m_estimate->m_expectedCached = false;
         m_estimate->m_optimisticCached = false;
         m_estimate->m_pessimisticCached = false;
     }
 }
 
-void Node::emitDocumentAdded( Node *node, Document *doc, int idx )
+void Node::emitDocumentAdded(Node *node, Document *doc, int idx)
 {
-    if ( m_parent ) {
-        m_parent->emitDocumentAdded( node, doc, idx );
+    if (m_parent) {
+        m_parent->emitDocumentAdded(node, doc, idx);
     }
 }
 
-void Node::emitDocumentRemoved( Node *node, Document *doc, int idx )
+void Node::emitDocumentRemoved(Node *node, Document *doc, int idx)
 {
-    if ( m_parent ) {
-        m_parent->emitDocumentRemoved( node, doc, idx );
+    if (m_parent) {
+        m_parent->emitDocumentRemoved(node, doc, idx);
     }
 }
 
-void Node::emitDocumentChanged( Node *node, Document *doc, int idx )
+void Node::emitDocumentChanged(Node *node, Document *doc, int idx)
 {
-    if ( m_parent ) {
-        m_parent->emitDocumentChanged( node, doc, idx );
+    if (m_parent) {
+        m_parent->emitDocumentChanged(node, doc, idx);
     }
 }
 
 //////////////////////////   Estimate   /////////////////////////////////
 
-Estimate::Estimate( Node *parent )
-    : m_parent( parent )
+Estimate::Estimate(Node *parent)
+    : m_parent(parent)
 {
     m_pertCached = false;
 
-    setUnit( Duration::Unit_h );
-    setExpectedEstimate( 8.0 );
-    setPessimisticEstimate( 8.0 );
-    setOptimisticEstimate( 8.0 );
+    setUnit(Duration::Unit_h);
+    setExpectedEstimate(8.0);
+    setPessimisticEstimate(8.0);
+    setOptimisticEstimate(8.0);
     
     m_type = Type_Effort;
     m_calendar = 0;
@@ -1437,9 +1437,9 @@ Estimate::Estimate( Node *parent )
 }
 
 Estimate::Estimate(const Estimate &estimate, Node *parent)
-    : m_parent( parent )
+    : m_parent(parent)
 {
-    copy( estimate );
+    copy(estimate);
 }
 
 Estimate::~Estimate()
@@ -1450,9 +1450,9 @@ void Estimate::clear()
 {
     m_pertCached = false;
 
-    setExpectedEstimate( 0.0 );
-    setPessimisticEstimate( 0.0 );
-    setOptimisticEstimate( 0.0 );
+    setExpectedEstimate(0.0);
+    setPessimisticEstimate(0.0);
+    setOptimisticEstimate(0.0);
     
     m_type = Type_Effort;
     m_calendar = 0;
@@ -1461,13 +1461,13 @@ void Estimate::clear()
     changed(Node::EstimateProperty);
 }
 
-Estimate &Estimate::operator=( const Estimate &estimate )
+Estimate &Estimate::operator=(const Estimate &estimate)
 {
-    copy( estimate );
+    copy(estimate);
     return *this;
 }
 
-void Estimate::copy( const Estimate &estimate )
+void Estimate::copy(const Estimate &estimate)
 {
     //m_parent = 0; // don't touch
     m_expectedEstimate = estimate.m_expectedEstimate;
@@ -1498,37 +1498,37 @@ double Estimate::variance() const
     return d * d;
 }
 
-double Estimate::variance( Duration::Unit unit ) const
+double Estimate::variance(Duration::Unit unit) const
 {
-    double d = deviation( unit );
+    double d = deviation(unit);
     return d * d;
 }
 
 double Estimate::deviation() const
 {
-    return ( m_pessimisticEstimate - m_optimisticEstimate ) / 6;
+    return (m_pessimisticEstimate - m_optimisticEstimate) / 6;
 }
 
-double Estimate::deviation( Duration::Unit unit ) const
+double Estimate::deviation(Duration::Unit unit) const
 {
-    if ( unit == m_unit ) {
+    if (unit == m_unit) {
         return deviation();
     }
-    double p = pessimisticValue().toDouble( unit );
-    double o = optimisticValue().toDouble( unit );
-    double v = ( p - o ) / 6;
+    double p = pessimisticValue().toDouble(unit);
+    double o = optimisticValue().toDouble(unit);
+    double v = (p - o) / 6;
     return v;
 }
 
 Duration Estimate::pertExpected() const {
     if (m_risktype == Risk_Low) {
-        if ( ! m_pertCached ) {
+        if (! m_pertCached) {
             m_pertExpected = (optimisticValue() + pessimisticValue() + (expectedValue()*4))/6;
             m_pertCached = true;
         }
         return m_pertExpected;
     } else if (m_risktype == Risk_High) {
-        if ( ! m_pertCached ) {
+        if (! m_pertCached) {
             m_pertExpected = (optimisticValue() + (pessimisticValue()*2) + (expectedValue()*4))/7;
             m_pertCached = true;
         }
@@ -1539,14 +1539,14 @@ Duration Estimate::pertExpected() const {
 
 Duration Estimate::pertOptimistic() const {
     if (m_risktype != Risk_None) {
-        return pertExpected() - Duration( variance( Duration::Unit_ms ) );
+        return pertExpected() - Duration(variance(Duration::Unit_ms));
     }
     return optimisticValue();
 }
 
 Duration Estimate::pertPessimistic() const {
     if (m_risktype != Risk_None) {
-        return pertExpected() + Duration( variance( Duration::Unit_ms ) );
+        return pertExpected() + Duration(variance(Duration::Unit_ms));
     }
     return pessimisticValue();
 }
@@ -1562,7 +1562,7 @@ Duration Estimate::value(int valueType, bool pert) const {
     return expectedValue();
 }
 
-void Estimate::setUnit( Duration::Unit unit )
+void Estimate::setUnit(Duration::Unit unit)
 {
     m_unit = unit;
     m_expectedCached = false;
@@ -1575,18 +1575,18 @@ void Estimate::setUnit( Duration::Unit unit )
 bool Estimate::load(KoXmlElement &element, XMLLoaderObject &status) {
     setType(element.attribute("type"));
     setRisktype(element.attribute("risk"));
-    if ( status.version() <= "0.6" ) {
-        m_unit = (Duration::Unit)(element.attribute("display-unit", QString().number(Duration::Unit_h) ).toInt());
+    if (status.version() <= "0.6") {
+        m_unit = (Duration::Unit)(element.attribute("display-unit", QString().number(Duration::Unit_h)).toInt());
         QList<qint64> s = status.project().standardWorktime()->scales();
-        m_expectedEstimate = scale( Duration::fromString(element.attribute("expected")), m_unit, s );
-        m_optimisticEstimate = scale(  Duration::fromString(element.attribute("optimistic")), m_unit, s );
-        m_pessimisticEstimate = scale( Duration::fromString(element.attribute("pessimistic")), m_unit, s );
+        m_expectedEstimate = scale(Duration::fromString(element.attribute("expected")), m_unit, s);
+        m_optimisticEstimate = scale(Duration::fromString(element.attribute("optimistic")), m_unit, s);
+        m_pessimisticEstimate = scale(Duration::fromString(element.attribute("pessimistic")), m_unit, s);
     } else {
-        if ( status.version() <= "0.6.2" ) {
+        if (status.version() <= "0.6.2") {
             // 0 pos in unit is now Unit_Y, so add 3 to get the correct new unit
-            m_unit = (Duration::Unit)(element.attribute("unit", QString().number(Duration::Unit_ms - 3) ).toInt() + 3);
+            m_unit = (Duration::Unit)(element.attribute("unit", QString().number(Duration::Unit_ms - 3)).toInt() + 3);
         } else {
-            m_unit = Duration::unitFromString( element.attribute( "unit" ) );
+            m_unit = Duration::unitFromString(element.attribute("unit"));
         }
         m_expectedEstimate = element.attribute("expected", "0.0").toDouble();
         m_optimisticEstimate = element.attribute("optimistic", "0.0").toDouble();
@@ -1604,23 +1604,23 @@ void Estimate::save(QDomElement &element) const {
     me.setAttribute("optimistic", QString::number(m_optimisticEstimate));
     me.setAttribute("pessimistic", QString::number(m_pessimisticEstimate));
     me.setAttribute("type", typeToString());
-    if ( m_calendar ) {
-        me.setAttribute("calendar-id", m_calendar->id() );
+    if (m_calendar) {
+        me.setAttribute("calendar-id", m_calendar->id());
     }
     me.setAttribute("risk", risktypeToString());
-    me.setAttribute("unit", Duration::unitToString( m_unit ) );
+    me.setAttribute("unit", Duration::unitToString(m_unit));
 }
 
-QString Estimate::typeToString( bool trans ) const {
-    return typeToStringList( trans ).at( m_type );
+QString Estimate::typeToString(bool trans) const {
+    return typeToStringList(trans).at(m_type);
 }
 
-QString Estimate::typeToString( Estimate::Type typ, bool trans )
+QString Estimate::typeToString(Estimate::Type typ, bool trans)
 {
-    return typeToStringList( trans ).value( typ );
+    return typeToStringList(trans).value(typ);
 }
 
-QStringList Estimate::typeToStringList( bool trans ) {
+QStringList Estimate::typeToStringList(bool trans) {
     return QStringList() 
             << (trans ? i18n("Effort") : QString("Effort"))
             << (trans ? i18n("Duration") : QString("Duration"));
@@ -1649,11 +1649,11 @@ void Estimate::setType(const QString& type) {
         setType(Type_Effort); // default
 }
 
-QString Estimate::risktypeToString( bool trans ) const {
-    return risktypeToStringList( trans ).at( m_risktype );
+QString Estimate::risktypeToString(bool trans) const {
+    return risktypeToStringList(trans).at(m_risktype);
 }
 
-QStringList Estimate::risktypeToStringList( bool trans ) {
+QStringList Estimate::risktypeToStringList(bool trans) {
     return QStringList() 
             << (trans ? i18n("None") : QString("None"))
             << (trans ? i18n("Low") : QString("Low"))
@@ -1676,7 +1676,7 @@ void Estimate::setRisktype(Risktype type)
     changed(Node::EstimateRiskProperty);
 }
 
-void Estimate::setCalendar( Calendar *calendar )
+void Estimate::setCalendar(Calendar *calendar)
 {
     m_calendar = calendar;
     m_expectedCached = false;
@@ -1686,7 +1686,7 @@ void Estimate::setCalendar( Calendar *calendar )
     changed(Node::EstimateProperty);
 }
 
-void Estimate::setExpectedEstimate( double value)
+void Estimate::setExpectedEstimate(double value)
 {
     m_expectedEstimate = value;
     m_expectedCached = false;
@@ -1694,7 +1694,7 @@ void Estimate::setExpectedEstimate( double value)
     changed(Node::EstimateProperty);
 }
 
-void Estimate::setOptimisticEstimate( double value )
+void Estimate::setOptimisticEstimate(double value)
 {
     m_optimisticEstimate = value;
     m_optimisticCached = false;
@@ -1702,7 +1702,7 @@ void Estimate::setOptimisticEstimate( double value )
     changed(Node::EstimateOptimisticProperty);
 }
 
-void Estimate::setPessimisticEstimate( double value )
+void Estimate::setPessimisticEstimate(double value)
 {
     m_pessimisticEstimate = value;
     m_pessimisticCached = false;
@@ -1714,7 +1714,7 @@ void Estimate::setOptimisticRatio(int percent)
 {
     int p = percent>0 ? -percent : percent;
     m_optimisticValue = expectedValue()*(100+p)/100;
-    m_optimisticEstimate = scale( m_optimisticValue, m_unit, scales() );
+    m_optimisticEstimate = scale(m_optimisticValue, m_unit, scales());
     m_optimisticCached = true;
     m_pertCached = false;
     changed(Node::EstimateOptimisticProperty);
@@ -1730,7 +1730,7 @@ void Estimate::setPessimisticRatio(int percent)
 {
     int p = percent<0 ? -percent : percent;
     m_pessimisticValue = expectedValue()*(100+p)/100;
-    m_pessimisticEstimate = scale( m_pessimisticValue, m_unit, scales() );
+    m_pessimisticEstimate = scale(m_pessimisticValue, m_unit, scales());
     m_pessimisticCached = true;
     m_pertCached = false;
     changed(Node::EstimatePessimisticProperty);
@@ -1745,7 +1745,7 @@ int Estimate::pessimisticRatio() const {
 // internal
 void Estimate::setOptimisticValue()
 {
-    m_optimisticValue = scale( m_optimisticEstimate, m_unit, scales() );
+    m_optimisticValue = scale(m_optimisticEstimate, m_unit, scales());
     m_optimisticCached = true;
     m_pertCached = false;
 }
@@ -1753,7 +1753,7 @@ void Estimate::setOptimisticValue()
 // internal
 void Estimate::setExpectedValue()
 {
-    m_expectedValue = scale( m_expectedEstimate, m_unit, scales() );
+    m_expectedValue = scale(m_expectedEstimate, m_unit, scales());
     m_expectedCached = true;
     m_pertCached = false;
 }
@@ -1761,14 +1761,14 @@ void Estimate::setExpectedValue()
 // internal
 void Estimate::setPessimisticValue()
 {
-    m_pessimisticValue = scale( m_pessimisticEstimate, m_unit, scales() );
+    m_pessimisticValue = scale(m_pessimisticEstimate, m_unit, scales());
     m_pessimisticCached = true;
     m_pertCached = false;
 }
 
 Duration Estimate::optimisticValue() const
 {
-    if ( ! m_optimisticCached ) {
+    if (! m_optimisticCached) {
         const_cast<Estimate*>(this)->setOptimisticValue();
     }
     return m_optimisticValue;
@@ -1776,7 +1776,7 @@ Duration Estimate::optimisticValue() const
 
 Duration Estimate::pessimisticValue() const
 {
-    if ( ! m_pessimisticCached ) {
+    if (! m_pessimisticCached) {
         const_cast<Estimate*>(this)->setPessimisticValue();
     }
     return m_pessimisticValue;
@@ -1784,17 +1784,17 @@ Duration Estimate::pessimisticValue() const
 
 Duration Estimate::expectedValue() const
 {
-    if ( ! m_expectedCached ) {
+    if (! m_expectedCached) {
         const_cast<Estimate*>(this)->setExpectedValue();
     }
     return m_expectedValue;
 }
 
-double Estimate::scale( const Duration &value, Duration::Unit unit, const QList<qint64> &scales )
+double Estimate::scale(const Duration &value, Duration::Unit unit, const QList<qint64> &scales)
 {
-    //debugPlan<<value.toDouble( unit )<<","<<unit<<scales;
+    //debugPlan<<value.toDouble(unit)<<","<<unit<<scales;
     QList<qint64> lst = scales;
-    switch ( lst.count() ) {
+    switch (lst.count()) {
         case Duration::Unit_Y:
             lst << (qint64)(365 * 24) * 60 * 60 * 1000; // add milliseconds in a year
             Q_FALLTHROUGH();
@@ -1822,17 +1822,17 @@ double Estimate::scale( const Duration &value, Duration::Unit unit, const QList<
         default:
             break;
     }
-    double v = ( double )( value.milliseconds() );
+    double v = (double)(value.milliseconds());
     v /= lst[ unit ];
     //debugPlan<<value.toString()<<","<<unit<<"="<<v;
     return v;
 }
 
-Duration Estimate::scale( double value, Duration::Unit unit, const QList<qint64> &scales )
+Duration Estimate::scale(double value, Duration::Unit unit, const QList<qint64> &scales)
 {
     //debugPlan<<value<<","<<unit<<scales;
     QList<qint64> lst = scales;
-    switch ( lst.count() ) {
+    switch (lst.count()) {
         case Duration::Unit_Y:
             lst << (qint64)(365 * 24) * 60 * 60 * 1000; // add milliseconds in a year
             Q_FALLTHROUGH();
@@ -1860,9 +1860,9 @@ Duration Estimate::scale( double value, Duration::Unit unit, const QList<qint64>
         default:
             break;
     }
-    qint64 v = ( qint64 )( value * lst[ unit ] );
+    qint64 v = (qint64)(value * lst[ unit ]);
     //debugPlan<<value<<","<<unit<<"="<<v;
-    return Duration( v, Duration::Unit_ms );
+    return Duration(v, Duration::Unit_ms);
 }
 
 //static
@@ -1883,14 +1883,14 @@ QList<qint64> Estimate::defaultScales()
 QList<qint64> Estimate::scales() const
 {
     QList<qint64> s;
-    if ( m_type == Type_Duration && m_calendar == 0 ) {
-        return s; // Use default scaling ( 24h a day...)
+    if (m_type == Type_Duration && m_calendar == 0) {
+        return s; // Use default scaling (24h a day...)
     }
-    if ( m_parent == 0 ) {
+    if (m_parent == 0) {
         return s;
     }
-    Project *p = static_cast<Project*>( m_parent->projectNode() );
-    if ( p == 0 ) {
+    Project *p = static_cast<Project*>(m_parent->projectNode());
+    if (p == 0) {
         return s;
     }
     s << p->standardWorktime()->scales();

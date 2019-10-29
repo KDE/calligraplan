@@ -177,7 +177,7 @@ QPair<qreal,qreal> KoStyleStack::fontSize(const qreal defaultFontPointSize) cons
                     //sebsauer, 20070609, the specs don't say that we have to calc them together but
                     //just that we are looking for a valid parent fontsize. So, let's only take the
                     //first percent definition into account and keep on to seek for a valid parent,
-                    //percent *= value.left( value.length() - 1 ).toDouble() / 100.0;
+                    //percent *= value.left(value.length() - 1).toDouble() / 100.0;
                     if (percent == 100)
                         percent = value.leftRef(value.length() - 1).toDouble();
                 } else {
@@ -239,7 +239,7 @@ QString KoStyleStack::userStyleName(const QString& family) const
     QList<KoXmlElement>::ConstIterator it = m_stack.end();
     while (it != m_stack.begin()) {
         --it;
-        //debugOdf << (*it).attributeNS( m_styleNSURI,"name", QString());
+        //debugOdf << (*it).attributeNS(m_styleNSURI,"name", QString());
         if (isUserStyle(*it, family))
             return (*it).attributeNS(m_styleNSURI, "name", QString());
     }
@@ -252,7 +252,7 @@ QString KoStyleStack::userStyleDisplayName(const QString& family) const
     QList<KoXmlElement>::ConstIterator it = m_stack.end();
     while (it != m_stack.begin()) {
         --it;
-        //debugOdf << (*it).attributeNS( m_styleNSURI,"display-name");
+        //debugOdf << (*it).attributeNS(m_styleNSURI,"display-name");
         if (isUserStyle(*it, family))
             return (*it).attributeNS(m_styleNSURI, "display-name", QString());
     }

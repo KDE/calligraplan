@@ -37,7 +37,7 @@ class PLAN_EXPORT ConfigProjectTemplatesPanel : public QWidget
     Q_PROPERTY(bool hasChanged READ hasChanged)
 
 public:
-    explicit ConfigProjectTemplatesPanel( QWidget *parent=nullptr );
+    explicit ConfigProjectTemplatesPanel(QWidget *parent=nullptr);
 
     QStringListModel model;
     Ui::ConfigProjectTemplatesPanel ui;

@@ -59,75 +59,75 @@ namespace KPlato
 
 
 //--------------------
-CalendarTreeView::CalendarTreeView( QWidget *parent )
-    : TreeViewBase( parent )
+CalendarTreeView::CalendarTreeView(QWidget *parent)
+    : TreeViewBase(parent)
 {
-    header()->setContextMenuPolicy( Qt::CustomContextMenu );
-    setModel( new CalendarItemModel() );
+    header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    setModel(new CalendarItemModel());
 
-    setSelectionBehavior( QAbstractItemView::SelectRows );
-    setSelectionMode( QAbstractItemView::SingleSelection );
-    setSelectionModel( new QItemSelectionModel( model() ) );
+    setSelectionBehavior(QAbstractItemView::SelectRows);
+    setSelectionMode(QAbstractItemView::SingleSelection);
+    setSelectionModel(new QItemSelectionModel(model()));
 
-    setItemDelegateForColumn( CalendarItemModel::Scope, new EnumDelegate( this ) );
-    setItemDelegateForColumn( CalendarItemModel::TimeZone, new EnumDelegate( this ) ); // timezone
+    setItemDelegateForColumn(CalendarItemModel::Scope, new EnumDelegate(this));
+    setItemDelegateForColumn(CalendarItemModel::TimeZone, new EnumDelegate(this)); // timezone
 #ifdef HAVE_KHOLIDAYS
-    setItemDelegateForColumn( CalendarItemModel::HolidayRegion, new EnumDelegate( this ) );
+    setItemDelegateForColumn(CalendarItemModel::HolidayRegion, new EnumDelegate(this));
 #endif
-    connect( header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderContextMenuRequested(QPoint)) );
+    connect(header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderContextMenuRequested(QPoint)));
 }
 
-void CalendarTreeView::slotHeaderContextMenuRequested( const QPoint &pos )
+void CalendarTreeView::slotHeaderContextMenuRequested(const QPoint &pos)
 {
     emit contextMenuRequested(QModelIndex(), mapToGlobal(pos));
 }
 
-void CalendarTreeView::contextMenuEvent ( QContextMenuEvent *event )
+void CalendarTreeView::contextMenuEvent (QContextMenuEvent *event)
 {
-    emit contextMenuRequested( indexAt(event->pos()), event->globalPos() );
+    emit contextMenuRequested(indexAt(event->pos()), event->globalPos());
 }
 
-void CalendarTreeView::focusInEvent ( QFocusEvent *event )
+void CalendarTreeView::focusInEvent (QFocusEvent *event)
 {
     //debugPlan;
-    TreeViewBase::focusInEvent( event );
+    TreeViewBase::focusInEvent(event);
     emit focusChanged();
 }
 
-void CalendarTreeView::focusOutEvent ( QFocusEvent * event )
+void CalendarTreeView::focusOutEvent (QFocusEvent * event)
 {
     //debugPlan;
-    TreeViewBase::focusInEvent( event );
+    TreeViewBase::focusInEvent(event);
     emit focusChanged();
 }
 
-void CalendarTreeView::selectionChanged( const QItemSelection &sel, const QItemSelection &desel )
+void CalendarTreeView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
 {
     //debugPlan<<sel.indexes().count();
-    //foreach( const QModelIndex &i, selectionModel()->selectedIndexes() ) { debugPlan<<i.row()<<","<<i.column(); }
-    TreeViewBase::selectionChanged( sel, desel );
-    emit sigSelectionChanged( selectionModel()->selectedIndexes() );
+    //foreach(const QModelIndex &i, selectionModel()->selectedIndexes()) { debugPlan<<i.row()<<","<<i.column(); }
+    TreeViewBase::selectionChanged(sel, desel);
+    emit sigSelectionChanged(selectionModel()->selectedIndexes());
 }
 
-void CalendarTreeView::currentChanged( const QModelIndex & current, const QModelIndex & previous )
+void CalendarTreeView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
 {
     //debugPlan;
-    TreeViewBase::currentChanged( current, previous );
+    TreeViewBase::currentChanged(current, previous);
     // possible bug in qt: in QAbstractItemView::SingleSelection you can select multiple items/rows
-    selectionModel()->select( current, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows );
-    emit currentChanged( current );
+    selectionModel()->select(current, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+    emit currentChanged(current);
 }
 
 Calendar *CalendarTreeView::currentCalendar() const
 {
-    return model()->calendar( currentIndex() );
+    return model()->calendar(currentIndex());
 }
 
 Calendar *CalendarTreeView::selectedCalendar() const
 {
     QModelIndexList lst = selectionModel()->selectedRows();
-    if ( lst.count() == 1 ) {
-        return model()->calendar( lst.first() );
+    if (lst.count() == 1) {
+        return model()->calendar(lst.first());
     }
     return 0;
 }
@@ -135,9 +135,9 @@ Calendar *CalendarTreeView::selectedCalendar() const
 QList<Calendar*> CalendarTreeView::selectedCalendars() const
 {
     QList<Calendar *> lst;
-    foreach ( const QModelIndex &i, selectionModel()->selectedRows() ) {
-        Calendar *a = model()->calendar( i );
-        if ( a ) {
+    foreach (const QModelIndex &i, selectionModel()->selectedRows()) {
+        Calendar *a = model()->calendar(i);
+        if (a) {
             lst << a;
         }
     }
@@ -149,36 +149,36 @@ void CalendarTreeView::dragMoveEvent(QDragMoveEvent *event)
     if (dragDropMode() == InternalMove && (event->source() != this || !(event->possibleActions() & Qt::MoveAction))) {
         return;
     }
-    TreeViewBase::dragMoveEvent( event );
-    if ( ! event->isAccepted() ) {
+    TreeViewBase::dragMoveEvent(event);
+    if (! event->isAccepted()) {
         return;
     }
     // QTreeView thinks it's ok to drop, but it might not be...
     event->ignore();
-    QModelIndex index = indexAt( event->pos() );
-    if ( ! index.isValid() ) {
-        if ( model()->dropAllowed( 0, event->mimeData() ) ) {
+    QModelIndex index = indexAt(event->pos());
+    if (! index.isValid()) {
+        if (model()->dropAllowed(0, event->mimeData())) {
             event->accept();
         }
         return;
     }
-    Calendar *c = model()->calendar( index );
-    if ( c == 0 ) {
+    Calendar *c = model()->calendar(index);
+    if (c == 0) {
         errorPlan<<"no calendar to drop on!";
         return; // hmmm
     }
-    switch ( dropIndicatorPosition() ) {
+    switch (dropIndicatorPosition()) {
         case AboveItem:
         case BelowItem:
             // c == sibling
             // if siblings parent is me or child of me: illegal
-            if ( model()->dropAllowed( c->parentCal(), event->mimeData() ) ) {
+            if (model()->dropAllowed(c->parentCal(), event->mimeData())) {
                 event->accept();
             }
             break;
         case OnItem:
             // c == new parent
-            if ( model()->dropAllowed( c, event->mimeData() ) ) {
+            if (model()->dropAllowed(c, event->mimeData())) {
                 event->accept();
             }
             break;
@@ -188,72 +188,72 @@ void CalendarTreeView::dragMoveEvent(QDragMoveEvent *event)
 }
 
 //--------------------
-CalendarDayView::CalendarDayView( QWidget *parent )
-    : QTableView( parent ),
-    m_readwrite( false )
+CalendarDayView::CalendarDayView(QWidget *parent)
+    : QTableView(parent),
+    m_readwrite(false)
 {
-    setTabKeyNavigation( false );
-    setSizePolicy( QSizePolicy::Preferred, QSizePolicy::Fixed );
-    horizontalHeader()->setSectionResizeMode( QHeaderView::Stretch );
-    m_model = new CalendarDayItemModel( this );
+    setTabKeyNavigation(false);
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    m_model = new CalendarDayItemModel(this);
     setModel(m_model);
     verticalHeader()->hide();
 
-    actionSetWork = new QAction( i18n( "Work..." ), this );
-    connect( actionSetWork, &QAction::triggered, this, &CalendarDayView::slotSetWork );
-    actionSetVacation = new QAction( i18n( "Non-working" ), this );
-    connect( actionSetVacation, &QAction::triggered, this, &CalendarDayView::slotSetVacation );
-    actionSetUndefined = new QAction( i18n( "Undefined" ), this );
-    connect( actionSetUndefined, &QAction::triggered, this, &CalendarDayView::slotSetUndefined );
+    actionSetWork = new QAction(i18n("Work..."), this);
+    connect(actionSetWork, &QAction::triggered, this, &CalendarDayView::slotSetWork);
+    actionSetVacation = new QAction(i18n("Non-working"), this);
+    connect(actionSetVacation, &QAction::triggered, this, &CalendarDayView::slotSetVacation);
+    actionSetUndefined = new QAction(i18n("Undefined"), this);
+    connect(actionSetUndefined, &QAction::triggered, this, &CalendarDayView::slotSetUndefined);
 }
 
 QSize CalendarDayView::sizeHint() const
 {
     QSize s = QTableView::sizeHint();
-    s.setHeight( horizontalHeader()->height() + rowHeight( 0 ) + frameWidth() * 2 );
+    s.setHeight(horizontalHeader()->height() + rowHeight(0) + frameWidth() * 2);
     return s;
 }
 
 void CalendarDayView::slotSetWork()
 {
     debugPlan;
-    if ( receivers( SIGNAL(executeCommand(KUndo2Command*)) ) == 0 ) {
+    if (receivers(SIGNAL(executeCommand(KUndo2Command*))) == 0) {
         return;
     }
     Calendar *cal = model()->calendar();
-    if ( cal == 0 ) {
+    if (cal == 0) {
         return;
     }
     QModelIndexList lst = selectionModel()->selectedIndexes();
-    if ( lst.isEmpty() ) {
+    if (lst.isEmpty()) {
         lst << currentIndex();
     }
-    if ( lst.isEmpty() ) {
+    if (lst.isEmpty()) {
         return;
     }
     QList<CalendarDay*> days;
-    foreach ( const QModelIndex &i, lst ) {
-        CalendarDay *day = model()->day( i );
-        if ( day == 0 ) {
+    foreach (const QModelIndex &i, lst) {
+        CalendarDay *day = model()->day(i);
+        if (day == 0) {
             continue;
         }
         days << day;
     }
-    IntervalEditDialog *dlg = new IntervalEditDialog( cal, days, this );
+    IntervalEditDialog *dlg = new IntervalEditDialog(cal, days, this);
     connect(dlg, SIGNAL(finished(int)), SLOT(slotIntervalEditDialogFinished(int)));
     dlg->open();
 }
 
-void CalendarDayView::slotIntervalEditDialogFinished( int result )
+void CalendarDayView::slotIntervalEditDialogFinished(int result)
 {
-    IntervalEditDialog *dlg = qobject_cast<IntervalEditDialog*>( sender() );
-    if ( dlg == 0 ) {
+    IntervalEditDialog *dlg = qobject_cast<IntervalEditDialog*>(sender());
+    if (dlg == 0) {
         return;
     }
-    if ( result == QDialog::Accepted ) {
+    if (result == QDialog::Accepted) {
         MacroCommand *cmd = dlg->buildCommand();
-        if ( cmd ) {
-            emit executeCommand( cmd );
+        if (cmd) {
+            emit executeCommand(cmd);
         }
     }
     dlg->deleteLater();
@@ -262,28 +262,28 @@ void CalendarDayView::slotIntervalEditDialogFinished( int result )
 void CalendarDayView::slotSetVacation()
 {
     debugPlan;
-    if ( receivers( SIGNAL(executeCommand(KUndo2Command*)) ) == 0 ) {
+    if (receivers(SIGNAL(executeCommand(KUndo2Command*))) == 0) {
         return;
     }
     QModelIndexList lst = selectionModel()->selectedIndexes();
-    if ( lst.isEmpty() ) {
+    if (lst.isEmpty()) {
         lst << currentIndex();
     }
-    if ( lst.isEmpty() ) {
+    if (lst.isEmpty()) {
         return;
     }
     bool mod = false;
-    MacroCommand *m = new MacroCommand( kundo2_i18n( "Modify Weekday State" ) );
-    foreach ( const QModelIndex &i, lst ) {
-        CalendarDay *day = model()->day( i );
-        if ( day == 0 || day->state() == CalendarDay::NonWorking ) {
+    MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Weekday State"));
+    foreach (const QModelIndex &i, lst) {
+        CalendarDay *day = model()->day(i);
+        if (day == 0 || day->state() == CalendarDay::NonWorking) {
             continue;
         }
         mod = true;
-        m->addCommand( new CalendarModifyStateCmd( model()->calendar(), day, CalendarDay::NonWorking ) );
+        m->addCommand(new CalendarModifyStateCmd(model()->calendar(), day, CalendarDay::NonWorking));
     }
-    if ( mod ) {
-        emit executeCommand( m );
+    if (mod) {
+        emit executeCommand(m);
     } else {
         delete m;
     }
@@ -292,97 +292,97 @@ void CalendarDayView::slotSetVacation()
 void CalendarDayView::slotSetUndefined()
 {
     debugPlan;
-    if ( receivers( SIGNAL(executeCommand(KUndo2Command*)) ) == 0 ) {
+    if (receivers(SIGNAL(executeCommand(KUndo2Command*))) == 0) {
         return;
     }
     QModelIndexList lst = selectionModel()->selectedIndexes();
-    if ( lst.isEmpty() ) {
+    if (lst.isEmpty()) {
         lst << currentIndex();
     }
-    if ( lst.isEmpty() ) {
+    if (lst.isEmpty()) {
         return;
     }
     bool mod = false;
-    MacroCommand *m = new MacroCommand( kundo2_i18n( "Modify Weekday State" ) );
-    foreach ( const QModelIndex &i, lst ) {
-        CalendarDay *day = model()->day( i );
-        if ( day == 0 || day->state() == CalendarDay::Undefined ) {
+    MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Weekday State"));
+    foreach (const QModelIndex &i, lst) {
+        CalendarDay *day = model()->day(i);
+        if (day == 0 || day->state() == CalendarDay::Undefined) {
             continue;
         }
         mod = true;
-        m->addCommand( new CalendarModifyStateCmd( model()->calendar(), day, CalendarDay::Undefined ) );
+        m->addCommand(new CalendarModifyStateCmd(model()->calendar(), day, CalendarDay::Undefined));
     }
-    if ( mod ) {
-        emit executeCommand( m );
+    if (mod) {
+        emit executeCommand(m);
     } else {
         delete m;
     }
 }
 
-void CalendarDayView::setCurrentCalendar( Calendar *calendar )
+void CalendarDayView::setCurrentCalendar(Calendar *calendar)
 {
-    model()->setCalendar( calendar );
+    model()->setCalendar(calendar);
 }
 
-void CalendarDayView::contextMenuEvent ( QContextMenuEvent *event )
+void CalendarDayView::contextMenuEvent (QContextMenuEvent *event)
 {
     //debugPlan;
-    if ( !isReadWrite() || !model()->calendar() || model()->calendar()->isShared() ) {
+    if (!isReadWrite() || !model()->calendar() || model()->calendar()->isShared()) {
         return;
     }
     QMenu menu;
-    menu.addAction( actionSetWork );
-    menu.addAction( actionSetVacation );
-    menu.addAction( actionSetUndefined );
+    menu.addAction(actionSetWork);
+    menu.addAction(actionSetVacation);
+    menu.addAction(actionSetUndefined);
 
-    menu.exec( event->globalPos(), actionSetWork );
+    menu.exec(event->globalPos(), actionSetWork);
 
-    //emit contextMenuRequested( indexAt(event->pos()), event->globalPos() );
+    //emit contextMenuRequested(indexAt(event->pos()), event->globalPos());
 }
 
-void CalendarDayView::focusInEvent ( QFocusEvent *event )
+void CalendarDayView::focusInEvent (QFocusEvent *event)
 {
     //debugPlan;
-    QTableView::focusInEvent( event );
+    QTableView::focusInEvent(event);
     emit focusChanged();
 }
 
-void CalendarDayView::focusOutEvent ( QFocusEvent * event )
+void CalendarDayView::focusOutEvent (QFocusEvent * event)
 {
     //debugPlan;
-    QTableView::focusInEvent( event );
+    QTableView::focusInEvent(event);
     emit focusChanged();
 }
 
-void CalendarDayView::selectionChanged( const QItemSelection &sel, const QItemSelection &desel )
+void CalendarDayView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
 {
     //debugPlan<<sel.indexes().count();
-    //foreach( QModelIndex i, selectionModel()->selectedIndexes() ) { debugPlan<<i.row()<<","<<i.column(); }
-    QTableView::selectionChanged( sel, desel );
-    emit sigSelectionChanged( selectionModel()->selectedIndexes() );
+    //foreach(QModelIndex i, selectionModel()->selectedIndexes()) { debugPlan<<i.row()<<","<<i.column(); }
+    QTableView::selectionChanged(sel, desel);
+    emit sigSelectionChanged(selectionModel()->selectedIndexes());
 }
 
-void CalendarDayView::currentChanged( const QModelIndex & current, const QModelIndex & previous )
+void CalendarDayView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
 {
     //debugPlan;
-    QTableView::currentChanged( current, previous );
-//    selectionModel()->select( current, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows );
-    emit currentChanged( current );
+    QTableView::currentChanged(current, previous);
+//    selectionModel()->select(current, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+    emit currentChanged(current);
 }
 
 CalendarDay *CalendarDayView::selectedDay() const
 {
     QModelIndexList lst = selectionModel()->selectedIndexes();
-    if ( lst.count() == 1 ) {
-        return model()->day( lst.first() );
+    if (lst.count() == 1) {
+        return model()->day(lst.first());
     }
     return 0;
 }
 
 //-----------------------------------
-CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent )
-    : ViewBase(part, doc, parent ),
-    m_model( new DateTableDataModel( this ) )
+CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent)
+    : ViewBase(part, doc, parent),
+    m_model(new DateTableDataModel(this))
 {
     if (doc && doc->isReadWrite()) {
         setXMLFile("CalendarEditorUi.rc");
@@ -391,7 +391,7 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent )
     }
 
     Help::add(this,
-              xi18nc( "@info:whatsthis",
+              xi18nc("@info:whatsthis",
                       "<title>Work & Vacation Editor</title>"
                       "<para>"
                       "A calendar defines availability for resources or tasks of type <emphasis>Duration</emphasis>. "
@@ -409,186 +409,186 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent )
 
     setupGui();
 
-    QVBoxLayout *l = new QVBoxLayout( this );
-    l->setMargin( 0 );
-    QSplitter *sp = new QSplitter( this );
-    l->addWidget( sp );
+    QVBoxLayout *l = new QVBoxLayout(this);
+    l->setMargin(0);
+    QSplitter *sp = new QSplitter(this);
+    l->addWidget(sp);
 
-    m_calendarview = new CalendarTreeView( sp );
+    m_calendarview = new CalendarTreeView(sp);
     connect(this, &ViewBase::expandAll, m_calendarview, &TreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_calendarview, &TreeViewBase::slotCollapse);
 
-    QFrame *f = new QFrame( sp );
-    l = new QVBoxLayout( f );
-    l->setMargin( 0 );
+    QFrame *f = new QFrame(sp);
+    l = new QVBoxLayout(f);
+    l->setMargin(0);
 
-    m_dayview = new CalendarDayView( f );
-    l->addWidget( m_dayview );
+    m_dayview = new CalendarDayView(f);
+    l->addWidget(m_dayview);
 
-    sp = new QSplitter( f );
-    l->addWidget( sp );
-    m_datePicker = new KDatePicker( sp );
-    m_datePicker->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
-    m_datePicker->dateTable()->setWeekNumbersEnabled( true );
-    m_datePicker->dateTable()->setGridEnabled( true );
-    m_datePicker->dateTable()->setSelectionMode( KDateTable::ExtendedSelection );
-    m_datePicker->dateTable()->setDateDelegate( new DateTableDateDelegate( m_datePicker->dateTable() ) );
-    m_datePicker->dateTable()->setModel( m_model );
-    m_datePicker->dateTable()->setPopupMenuEnabled( true );
+    sp = new QSplitter(f);
+    l->addWidget(sp);
+    m_datePicker = new KDatePicker(sp);
+    m_datePicker->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
+    m_datePicker->dateTable()->setWeekNumbersEnabled(true);
+    m_datePicker->dateTable()->setGridEnabled(true);
+    m_datePicker->dateTable()->setSelectionMode(KDateTable::ExtendedSelection);
+    m_datePicker->dateTable()->setDateDelegate(new DateTableDateDelegate(m_datePicker->dateTable()));
+    m_datePicker->dateTable()->setModel(m_model);
+    m_datePicker->dateTable()->setPopupMenuEnabled(true);
 
-    m_calendarview->setDragDropMode( QAbstractItemView::InternalMove );
-    m_calendarview->setDropIndicatorShown( true );
-    m_calendarview->setDragEnabled ( true );
-    m_calendarview->setAcceptDrops( true );
-    m_calendarview->setAcceptDropsOnView( true );
+    m_calendarview->setDragDropMode(QAbstractItemView::InternalMove);
+    m_calendarview->setDropIndicatorShown(true);
+    m_calendarview->setDragEnabled (true);
+    m_calendarview->setAcceptDrops(true);
+    m_calendarview->setAcceptDropsOnView(true);
 
-    connect( m_datePicker->dateTable(), SIGNAL(aboutToShowContextMenu(QMenu*,QDate)), SLOT(slotContextMenuDate(QMenu*,QDate)) );
-    connect( m_datePicker->dateTable(), SIGNAL(aboutToShowContextMenu(QMenu*,QList<QDate>)), SLOT(slotContextMenuDate(QMenu*,QList<QDate>)) );
+    connect(m_datePicker->dateTable(), SIGNAL(aboutToShowContextMenu(QMenu*,QDate)), SLOT(slotContextMenuDate(QMenu*,QDate)));
+    connect(m_datePicker->dateTable(), SIGNAL(aboutToShowContextMenu(QMenu*,QList<QDate>)), SLOT(slotContextMenuDate(QMenu*,QList<QDate>)));
 
 /*    const QDate date(2007,7,19);
     const QColor fgColor(Qt::darkGray);
     KDateTable::BackgroundMode bgMode = KDateTable::CircleMode;
-    const QColor bgColor( Qt::lightGray);
-    m_datePicker->dateTable()->setCustomDatePainting( date, fgColor, bgMode, bgColor );*/
+    const QColor bgColor(Qt::lightGray);
+    m_datePicker->dateTable()->setCustomDatePainting(date, fgColor, bgMode, bgColor);*/
 
 
-    m_calendarview->setEditTriggers( m_calendarview->editTriggers() | QAbstractItemView::EditKeyPressed );
+    m_calendarview->setEditTriggers(m_calendarview->editTriggers() | QAbstractItemView::EditKeyPressed);
 
-    m_dayview->setEditTriggers( m_dayview->editTriggers() | QAbstractItemView::EditKeyPressed );
+    m_dayview->setEditTriggers(m_dayview->editTriggers() | QAbstractItemView::EditKeyPressed);
 
-    m_calendarview->setDragDropMode( QAbstractItemView::InternalMove );
-    m_calendarview->setDropIndicatorShown ( true );
-    m_calendarview->setDragEnabled ( true );
-    m_calendarview->setAcceptDrops( true );
+    m_calendarview->setDragDropMode(QAbstractItemView::InternalMove);
+    m_calendarview->setDropIndicatorShown (true);
+    m_calendarview->setDragEnabled (true);
+    m_calendarview->setAcceptDrops(true);
 
-    connect( m_calendarview->model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
-    connect( m_dayview->model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
-    connect( m_dayview, &CalendarDayView::executeCommand, doc, &KoDocument::addCommand );
+    connect(m_calendarview->model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
+    connect(m_dayview->model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
+    connect(m_dayview, &CalendarDayView::executeCommand, doc, &KoDocument::addCommand);
 
-    connect( m_calendarview, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentCalendarChanged(QModelIndex)) );
-    connect( m_calendarview, &CalendarTreeView::sigSelectionChanged, this, &CalendarEditor::slotCalendarSelectionChanged );
-    connect( m_calendarview, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuCalendar(QModelIndex,QPoint)) );
+    connect(m_calendarview, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentCalendarChanged(QModelIndex)));
+    connect(m_calendarview, &CalendarTreeView::sigSelectionChanged, this, &CalendarEditor::slotCalendarSelectionChanged);
+    connect(m_calendarview, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuCalendar(QModelIndex,QPoint)));
 
-    connect( m_dayview, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentDayChanged(QModelIndex)) );
-    connect( m_dayview, &CalendarDayView::sigSelectionChanged, this, &CalendarEditor::slotDaySelectionChanged );
-    connect( m_dayview, &CalendarDayView::contextMenuRequested, this, &CalendarEditor::slotContextMenuDay );
+    connect(m_dayview, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentDayChanged(QModelIndex)));
+    connect(m_dayview, &CalendarDayView::sigSelectionChanged, this, &CalendarEditor::slotDaySelectionChanged);
+    connect(m_dayview, &CalendarDayView::contextMenuRequested, this, &CalendarEditor::slotContextMenuDay);
 
-    connect( m_dayview->model(), &QAbstractItemModel::dataChanged, this, &CalendarEditor::slotEnableActions );
+    connect(m_dayview->model(), &QAbstractItemModel::dataChanged, this, &CalendarEditor::slotEnableActions);
 
-    connect( m_calendarview, &CalendarTreeView::focusChanged, this, &CalendarEditor::slotEnableActions );
-    connect( m_dayview, &CalendarDayView::focusChanged, this, &CalendarEditor::slotEnableActions );
+    connect(m_calendarview, &CalendarTreeView::focusChanged, this, &CalendarEditor::slotEnableActions);
+    connect(m_dayview, &CalendarDayView::focusChanged, this, &CalendarEditor::slotEnableActions);
 
 }
 
-void CalendarEditor::draw( Project &project )
+void CalendarEditor::draw(Project &project)
 {
-    m_calendarview->setProject( &project );
-    m_dayview->setProject( &project );
+    m_calendarview->setProject(&project);
+    m_dayview->setProject(&project);
 }
 
 void CalendarEditor::draw()
 {
 }
 
-void CalendarEditor::setGuiActive( bool activate )
+void CalendarEditor::setGuiActive(bool activate)
 {
     //debugPlan<<activate;
-    updateActionsEnabled( true );
-    ViewBase::setGuiActive( activate );
-    if ( activate ) {
-        if ( !m_calendarview->currentIndex().isValid() ) {
-            m_calendarview->selectionModel()->setCurrentIndex(m_calendarview->model()->index( 0, 0 ), QItemSelectionModel::NoUpdate);
+    updateActionsEnabled(true);
+    ViewBase::setGuiActive(activate);
+    if (activate) {
+        if (!m_calendarview->currentIndex().isValid()) {
+            m_calendarview->selectionModel()->setCurrentIndex(m_calendarview->model()->index(0, 0), QItemSelectionModel::NoUpdate);
         }
-        //slotSelectionChanged( m_calendarview->selectionModel()->selectedRows() );
+        //slotSelectionChanged(m_calendarview->selectionModel()->selectedRows());
     }
 }
 
-void CalendarEditor::slotContextMenuDate( QMenu *menu, const QList<QDate> &dates )
+void CalendarEditor::slotContextMenuDate(QMenu *menu, const QList<QDate> &dates)
 {
-    if ( ! isReadWrite() ) {
+    if (! isReadWrite()) {
         return;
     }
     if (!currentCalendar() || currentCalendar()->isShared()) {
         return;
     }
-    if ( dates.isEmpty() ) {
+    if (dates.isEmpty()) {
         m_currentMenuDateList << m_datePicker->date();
     } else {
         m_currentMenuDateList = dates;
     }
-    menu->addAction( actionSetWork );
-    menu->addAction( actionSetVacation );
-    menu->addAction( actionSetUndefined );
+    menu->addAction(actionSetWork);
+    menu->addAction(actionSetVacation);
+    menu->addAction(actionSetUndefined);
 }
 
-void CalendarEditor::slotContextMenuDate( QMenu *menu, const QDate &date )
+void CalendarEditor::slotContextMenuDate(QMenu *menu, const QDate &date)
 {
     debugPlan<<menu<<date;
-    if ( ! isReadWrite() || ! date.isValid() ) {
+    if (! isReadWrite() || ! date.isValid()) {
         return;
     }
     if (!currentCalendar() || currentCalendar()->isShared()) {
         return;
     }
     m_currentMenuDateList << date;
-    menu->addAction( actionSetWork );
-    menu->addAction( actionSetVacation );
-    menu->addAction( actionSetUndefined );
+    menu->addAction(actionSetWork);
+    menu->addAction(actionSetVacation);
+    menu->addAction(actionSetUndefined);
 }
 
-void CalendarEditor::slotContextMenuCalendar( const QModelIndex &index, const QPoint& pos )
+void CalendarEditor::slotContextMenuCalendar(const QModelIndex &index, const QPoint& pos)
 {
     if (!index.isValid()) {
         slotHeaderContextMenuRequested(pos);
         return;
     }
-    if ( ! isReadWrite() || !currentCalendar() ) {
+    if (! isReadWrite() || !currentCalendar()) {
         return;
     }
     //debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
     QString name;
-/*    if ( index.isValid() ) {
-        Calendar *a = m_calendarview->model()->calendar( index );
-        if ( a ) {
+/*    if (index.isValid()) {
+        Calendar *a = m_calendarview->model()->calendar(index);
+        if (a) {
             name = "calendareditor_calendar_popup";
         }
     }*/
     //debugPlan<<name;
     m_calendarview->setContextMenuIndex(index);
-    if ( name.isEmpty() ) {
+    if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
         m_calendarview->setContextMenuIndex(QModelIndex());
         return;
     }
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
     m_calendarview->setContextMenuIndex(QModelIndex());
 }
 
-void CalendarEditor::slotContextMenuDay( const QModelIndex &index, const QPoint& pos )
+void CalendarEditor::slotContextMenuDay(const QModelIndex &index, const QPoint& pos)
 {
-    if ( ! isReadWrite() ) {
+    if (! isReadWrite()) {
         return;
     }
     debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
 /*    QString name;
-    if ( index.isValid() ) {
-        if ( m_dayview->model()->day( index ) ) {
+    if (index.isValid()) {
+        if (m_dayview->model()->day(index)) {
             name = "calendareditor_day_popup";
         }
     }
     debugPlan<<name;
-    if ( name.isEmpty() ) {
+    if (name.isEmpty()) {
         return;
     }
-    emit requestPopupMenu( name, pos );*/
+    emit requestPopupMenu(name, pos);*/
 }
 
-bool CalendarEditor::loadContext( const KoXmlElement &context )
+bool CalendarEditor::loadContext(const KoXmlElement &context)
 {
     return m_calendarview->loadContext(m_calendarview->model()->columnMap(), context);
 }
 
-void CalendarEditor::saveContext( QDomElement &context ) const
+void CalendarEditor::saveContext(QDomElement &context) const
 {
     m_calendarview->saveContext(m_calendarview->model()->columnMap(), context);
 }
@@ -598,88 +598,88 @@ Calendar *CalendarEditor::currentCalendar() const
     return m_calendarview->currentCalendar();
 }
 
-void CalendarEditor::slotCurrentCalendarChanged(  const QModelIndex & )
+void CalendarEditor::slotCurrentCalendarChanged(const QModelIndex &)
 {
     //debugPlan<<curr.row()<<","<<curr.column();
-    m_dayview->setCurrentCalendar( currentCalendar() );
-    if ( m_model ) {
-        m_model->setCalendar( currentCalendar() );
+    m_dayview->setCurrentCalendar(currentCalendar());
+    if (m_model) {
+        m_model->setCalendar(currentCalendar());
     }
 }
 
-void CalendarEditor::slotCalendarSelectionChanged( const QModelIndexList& /*list */)
+void CalendarEditor::slotCalendarSelectionChanged(const QModelIndexList& /*list */)
 {
     //debugPlan<<list.count();
-    updateActionsEnabled( true );
+    updateActionsEnabled(true);
 }
 
-void CalendarEditor::slotCurrentDayChanged(  const QModelIndex & )
+void CalendarEditor::slotCurrentDayChanged(const QModelIndex &)
 {
     //debugPlan<<curr.row()<<","<<curr.column();
 }
 
-void CalendarEditor::slotDaySelectionChanged( const QModelIndexList& )
+void CalendarEditor::slotDaySelectionChanged(const QModelIndexList&)
 {
     //debugPlan<<list.count();
-    updateActionsEnabled( true );
+    updateActionsEnabled(true);
 }
 
 void CalendarEditor::slotEnableActions()
 {
-    updateActionsEnabled( true );
+    updateActionsEnabled(true);
 }
 
-void CalendarEditor::updateActionsEnabled(  bool on )
+void CalendarEditor::updateActionsEnabled(bool on)
 {
     QList<Calendar *> lst = m_calendarview->selectedCalendars();
     bool one = lst.count() == 1;
     bool more = lst.count() > 1;
-    actionAddCalendar ->setEnabled( on && !more );
-    actionAddSubCalendar ->setEnabled( on && one );
-    actionDeleteSelection->setEnabled( on && ( one || more ) );
+    actionAddCalendar ->setEnabled(on && !more);
+    actionAddSubCalendar ->setEnabled(on && one);
+    actionDeleteSelection->setEnabled(on && (one || more));
 }
 
 void CalendarEditor::setupGui()
 {
     KActionCollection *coll = actionCollection();
 
-    actionAddCalendar   = new QAction(koIcon("resource-calendar-insert"), i18n("Add Calendar"), this);
-    coll->addAction("add_calendar", actionAddCalendar  );
+    actionAddCalendar = new QAction(koIcon("resource-calendar-insert"), i18n("Add Calendar"), this);
+    coll->addAction("add_calendar", actionAddCalendar);
     coll->setDefaultShortcut(actionAddCalendar, Qt::CTRL + Qt::Key_I);
-    connect( actionAddCalendar , &QAction::triggered, this, &CalendarEditor::slotAddCalendar );
+    connect(actionAddCalendar , &QAction::triggered, this, &CalendarEditor::slotAddCalendar);
 
-    actionAddSubCalendar   = new QAction(koIcon("resource-calendar-child-insert"), i18n("Add Subcalendar"), this);
-    coll->addAction("add_subcalendar", actionAddSubCalendar  );
+    actionAddSubCalendar = new QAction(koIcon("resource-calendar-child-insert"), i18n("Add Subcalendar"), this);
+    coll->addAction("add_subcalendar", actionAddSubCalendar);
     coll->setDefaultShortcut(actionAddSubCalendar, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
-    connect( actionAddSubCalendar , &QAction::triggered, this, &CalendarEditor::slotAddSubCalendar );
+    connect(actionAddSubCalendar , &QAction::triggered, this, &CalendarEditor::slotAddSubCalendar);
 
-    actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
-    coll->addAction("delete_selection", actionDeleteSelection );
+    actionDeleteSelection = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
+    coll->addAction("delete_selection", actionDeleteSelection);
     coll->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
-    connect( actionDeleteSelection, &QAction::triggered, this, &CalendarEditor::slotDeleteCalendar );
+    connect(actionDeleteSelection, &QAction::triggered, this, &CalendarEditor::slotDeleteCalendar);
 
-    actionSetWork = new QAction( i18n( "Work..." ), this );
-    connect( actionSetWork, &QAction::triggered, this, &CalendarEditor::slotSetWork );
-    actionSetVacation = new QAction( i18n( "Non-working" ), this );
-    connect( actionSetVacation, &QAction::triggered, this, &CalendarEditor::slotSetVacation );
-    actionSetUndefined = new QAction( i18n( "Undefined" ), this );
-    connect( actionSetUndefined, &QAction::triggered, this, &CalendarEditor::slotSetUndefined );
+    actionSetWork = new QAction(i18n("Work..."), this);
+    connect(actionSetWork, &QAction::triggered, this, &CalendarEditor::slotSetWork);
+    actionSetVacation = new QAction(i18n("Non-working"), this);
+    connect(actionSetVacation, &QAction::triggered, this, &CalendarEditor::slotSetVacation);
+    actionSetUndefined = new QAction(i18n("Undefined"), this);
+    connect(actionSetUndefined, &QAction::triggered, this, &CalendarEditor::slotSetUndefined);
 
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
 }
 
 void CalendarEditor::slotOptions()
 {
-    ItemViewSettupDialog *dlg = new ItemViewSettupDialog( this, m_calendarview, false, this );
+    ItemViewSettupDialog *dlg = new ItemViewSettupDialog(this, m_calendarview, false, this);
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
 
-void CalendarEditor::updateReadWrite( bool readwrite )
+void CalendarEditor::updateReadWrite(bool readwrite)
 {
-    m_calendarview->setReadWrite( readwrite );
-    m_dayview->setReadWrite( readwrite );
-    ViewBase::updateReadWrite( readwrite );
+    m_calendarview->setReadWrite(readwrite);
+    m_dayview->setReadWrite(readwrite);
+    ViewBase::updateReadWrite(readwrite);
 }
 
 void CalendarEditor::slotAddCalendar ()
@@ -688,58 +688,58 @@ void CalendarEditor::slotAddCalendar ()
     // get parent through sibling
     Calendar *cal = m_calendarview->selectedCalendar();
     Calendar *parent = cal ? cal->parentCal() : 0;
-    int pos = parent ? parent->indexOf( cal ) : project()->indexOf( cal );
-    if ( pos >= 0 ) {
+    int pos = parent ? parent->indexOf(cal) : project()->indexOf(cal);
+    if (pos >= 0) {
         ++pos; // after selected calendar
     }
-    insertCalendar ( new Calendar(), parent, pos );
+    insertCalendar (new Calendar(), parent, pos);
 }
 
 void CalendarEditor::slotAddSubCalendar ()
 {
     //debugPlan;
-    insertCalendar ( new Calendar (), m_calendarview->selectedCalendar () );
+    insertCalendar (new Calendar (), m_calendarview->selectedCalendar ());
 }
 
-void CalendarEditor::insertCalendar ( Calendar *calendar, Calendar *parent, int pos )
+void CalendarEditor::insertCalendar (Calendar *calendar, Calendar *parent, int pos)
 {
-    QModelIndex i = m_calendarview->model()->insertCalendar ( calendar, pos, parent );
-    if ( i.isValid() ) {
-        QModelIndex p = m_calendarview->model()->parent( i );
+    QModelIndex i = m_calendarview->model()->insertCalendar (calendar, pos, parent);
+    if (i.isValid()) {
+        QModelIndex p = m_calendarview->model()->parent(i);
         //if (parent) debugPlan<<" parent="<<parent->name()<<":"<<p.row()<<","<<p.column();
         //debugPlan<<i.row()<<","<<i.column();
-        m_calendarview->setExpanded( p, true );
-        m_calendarview->setCurrentIndex( i );
-        m_calendarview->edit( i );
+        m_calendarview->setExpanded(p, true);
+        m_calendarview->setCurrentIndex(i);
+        m_calendarview->edit(i);
     }
 }
 
 void CalendarEditor::slotDeleteCalendar()
 {
     //debugPlan;
-    m_calendarview->model()->removeCalendar( m_calendarview->selectedCalendar() );
+    m_calendarview->model()->removeCalendar(m_calendarview->selectedCalendar());
 }
 
 void CalendarEditor::slotAddInterval ()
 {
     //debugPlan;
 /*    CalendarDay *parent = m_dayview->selectedDay ();
-    if ( parent == 0 ) {
+    if (parent == 0) {
         TimeInterval *ti = m_dayview->selectedInterval();
-        if ( ti == 0 ) {
+        if (ti == 0) {
             return;
         }
-        parent = m_dayview->model()->parentDay( ti );
-        if ( parent == 0 ) {
+        parent = m_dayview->model()->parentDay(ti);
+        if (parent == 0) {
             return;
         }
     }
-    QModelIndex i = m_dayview->model()->insertInterval( new TimeInterval(), parent );
-    if ( i.isValid() ) {
-        QModelIndex p = m_dayview->model()->index( parent );
-        m_dayview->setExpanded( p, true );
-        m_dayview->setCurrentIndex( i );
-        m_dayview->edit( i );
+    QModelIndex i = m_dayview->model()->insertInterval(new TimeInterval(), parent);
+    if (i.isValid()) {
+        QModelIndex p = m_dayview->model()->index(parent);
+        m_dayview->setExpanded(p, true);
+        m_dayview->setCurrentIndex(i);
+        m_dayview->edit(i);
     }*/
 }
 
@@ -747,13 +747,13 @@ void CalendarEditor::slotDeleteDaySelection()
 {
     //debugPlan;
 /*    TimeInterval *ti = m_dayview->selectedInterval();
-    if ( ti != 0 ) {
-        m_dayview->model()->removeInterval( ti );
+    if (ti != 0) {
+        m_dayview->model()->removeInterval(ti);
         return;
     }
     CalendarDay *day = m_dayview->selectedDay();
-    if ( day != 0 ) {
-        m_dayview->model()->removeDay( day );
+    if (day != 0) {
+        m_dayview->model()->removeDay(day);
     }*/
 }
 
@@ -761,44 +761,44 @@ void CalendarEditor::slotAddDay ()
 {
     //debugPlan;
 /*    Calendar *c = currentCalendar();
-    if ( c == 0 ) {
+    if (c == 0) {
         return;
     }
     QDate date = QDate::currentDate();
-    while ( c->day( date ) ) {
-        date = date.addDays( 1 );
+    while (c->day(date)) {
+        date = date.addDays(1);
     }
-    QModelIndex i = m_dayview->model()->insertDay( new CalendarDay(date,  CalendarDay::NonWorking ) );
-    if ( i.isValid() ) {
-        QModelIndex p = m_dayview->model()->parent( i );
-        m_dayview->setExpanded( p, true );
-        m_dayview->setCurrentIndex( i );
-        m_dayview->edit( i );
+    QModelIndex i = m_dayview->model()->insertDay(new CalendarDay(date,  CalendarDay::NonWorking));
+    if (i.isValid()) {
+        QModelIndex p = m_dayview->model()->parent(i);
+        m_dayview->setExpanded(p, true);
+        m_dayview->setCurrentIndex(i);
+        m_dayview->edit(i);
     }*/
 }
 
 void CalendarEditor::slotSetWork()
 {
     debugPlan<<currentCalendar()<<m_currentMenuDateList;
-    if ( currentCalendar() == 0 || m_currentMenuDateList.isEmpty() ) {
+    if (currentCalendar() == 0 || m_currentMenuDateList.isEmpty()) {
         return;
     }
-    IntervalEditDialog *dlg = new IntervalEditDialog( currentCalendar(), m_currentMenuDateList, this );
+    IntervalEditDialog *dlg = new IntervalEditDialog(currentCalendar(), m_currentMenuDateList, this);
     connect(dlg, SIGNAL(finished(int)), SLOT(slotIntervalEditDialogFinished(int)));
     dlg->open();
     m_currentMenuDateList.clear();
 }
 
-void CalendarEditor::slotIntervalEditDialogFinished( int result )
+void CalendarEditor::slotIntervalEditDialogFinished(int result)
 {
-    IntervalEditDialog *dlg = qobject_cast<IntervalEditDialog*>( sender() );
-    if ( dlg == 0 ) {
+    IntervalEditDialog *dlg = qobject_cast<IntervalEditDialog*>(sender());
+    if (dlg == 0) {
         return;
     }
-    if ( result == QDialog::Accepted ) {
+    if (result == QDialog::Accepted) {
         MacroCommand *cmd = dlg->buildCommand();
-        if ( cmd ) {
-            part()->addCommand( cmd );
+        if (cmd) {
+            part()->addCommand(cmd);
         }
     }
     dlg->deleteLater();
@@ -807,31 +807,31 @@ void CalendarEditor::slotIntervalEditDialogFinished( int result )
 void CalendarEditor::slotSetVacation()
 {
     debugPlan<<m_currentMenuDateList;
-    if ( m_currentMenuDateList.isEmpty() || currentCalendar() == 0 ) {
+    if (m_currentMenuDateList.isEmpty() || currentCalendar() == 0) {
         return;
     }
     bool mod = false;
-    MacroCommand *m = new MacroCommand( kundo2_i18n( "Modify Calendar" ) );
-    foreach ( const QDate &date, m_currentMenuDateList ) {
+    MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Calendar"));
+    foreach (const QDate &date, m_currentMenuDateList) {
         debugPlan<<"handle:"<<date;
-        CalendarDay *day = currentCalendar()->findDay( date );
-        if ( day == 0 ) {
+        CalendarDay *day = currentCalendar()->findDay(date);
+        if (day == 0) {
             mod = true;
-            day = new CalendarDay( date, CalendarDay::NonWorking );
-            m->addCommand( new CalendarAddDayCmd( currentCalendar(), day ) );
-            if ( m_currentMenuDateList.count() == 1 ) {
-                m->setText( kundo2_i18n( "%1: Set to Non-Working", date.toString() ) );
+            day = new CalendarDay(date, CalendarDay::NonWorking);
+            m->addCommand(new CalendarAddDayCmd(currentCalendar(), day));
+            if (m_currentMenuDateList.count() == 1) {
+                m->setText(kundo2_i18n("%1: Set to Non-Working", date.toString()));
             }
-        } else if ( day->state() != CalendarDay::NonWorking ) {
+        } else if (day->state() != CalendarDay::NonWorking) {
             mod = true;
-            m->addCommand( new CalendarModifyStateCmd( currentCalendar(), day, CalendarDay::NonWorking ) );
-            if ( m_currentMenuDateList.count() == 1 ) {
-                m->setText( kundo2_i18n( "%1: Set to Non-Working", date.toString() ) );
+            m->addCommand(new CalendarModifyStateCmd(currentCalendar(), day, CalendarDay::NonWorking));
+            if (m_currentMenuDateList.count() == 1) {
+                m->setText(kundo2_i18n("%1: Set to Non-Working", date.toString()));
             }
         }
     }
-    if ( mod ) {
-        part()->addCommand( m );
+    if (mod) {
+        part()->addCommand(m);
     } else {
         delete m;
     }
@@ -841,23 +841,23 @@ void CalendarEditor::slotSetVacation()
 void CalendarEditor::slotSetUndefined()
 {
     debugPlan;
-    if ( m_currentMenuDateList.isEmpty() || currentCalendar() == 0 ) {
+    if (m_currentMenuDateList.isEmpty() || currentCalendar() == 0) {
         return;
     }
     bool mod = false;
-    MacroCommand *m = new MacroCommand( kundo2_i18n( "Modify Calendar" ) );
-    foreach ( const QDate &date, m_currentMenuDateList ) {
-        CalendarDay *day = currentCalendar()->findDay( date );
-        if ( day && day->state() != CalendarDay::Undefined ) {
+    MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Calendar"));
+    foreach (const QDate &date, m_currentMenuDateList) {
+        CalendarDay *day = currentCalendar()->findDay(date);
+        if (day && day->state() != CalendarDay::Undefined) {
             mod = true;
-            m->addCommand( new CalendarRemoveDayCmd( currentCalendar(), day ) );
-            if ( m_currentMenuDateList.count() == 1 ) {
-                m->setText( kundo2_i18n( "Set %1 to Undefined", date.toString() ) );
+            m->addCommand(new CalendarRemoveDayCmd(currentCalendar(), day));
+            if (m_currentMenuDateList.count() == 1) {
+                m->setText(kundo2_i18n("Set %1 to Undefined", date.toString()));
             }
         }
     }
-    if ( mod ) {
-        part()->addCommand( m );
+    if (mod) {
+        part()->addCommand(m);
     } else {
         delete m;
     }

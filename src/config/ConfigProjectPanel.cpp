@@ -30,13 +30,13 @@
 namespace KPlato
 {
 
-ConfigProjectPanel::ConfigProjectPanel( QWidget *parent )
-    : ConfigProjectPanelImpl( parent )
+ConfigProjectPanel::ConfigProjectPanel(QWidget *parent)
+    : ConfigProjectPanelImpl(parent)
 {
 }
 
 //-----------------------------
-ConfigProjectPanelImpl::ConfigProjectPanelImpl(QWidget *p )
+ConfigProjectPanelImpl::ConfigProjectPanelImpl(QWidget *p)
     : QWidget(p)
 {
 
@@ -82,41 +82,41 @@ void ConfigProjectPanelImpl::projectsPlaceBrowseBtnClicked()
 
 void ConfigProjectPanelImpl::initDescription()
 {
-    toolbar->setToolButtonStyle( Qt::ToolButtonIconOnly );
+    toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
 
-    KActionCollection *collection = new KActionCollection( this ); //krazy:exclude=tipsandthis
-    kcfg_ProjectDescription->setRichTextSupport( KRichTextWidget::SupportBold |
+    KActionCollection *collection = new KActionCollection(this); //krazy:exclude=tipsandthis
+    kcfg_ProjectDescription->setRichTextSupport(KRichTextWidget::SupportBold |
                                             KRichTextWidget::SupportItalic |
                                             KRichTextWidget::SupportUnderline |
                                             KRichTextWidget::SupportStrikeOut |
                                             KRichTextWidget::SupportChangeListStyle |
                                             KRichTextWidget::SupportAlignment |
-                                            KRichTextWidget::SupportFormatPainting );
+                                            KRichTextWidget::SupportFormatPainting);
 
     collection->addActions(kcfg_ProjectDescription->createActions());
 
-    toolbar->addAction( collection->action( "format_text_bold" ) );
-    toolbar->addAction( collection->action( "format_text_italic" ) );
-    toolbar->addAction( collection->action( "format_text_underline" ) );
-    toolbar->addAction( collection->action( "format_text_strikeout" ) );
+    toolbar->addAction(collection->action("format_text_bold"));
+    toolbar->addAction(collection->action("format_text_italic"));
+    toolbar->addAction(collection->action("format_text_underline"));
+    toolbar->addAction(collection->action("format_text_strikeout"));
     toolbar->addSeparator();
 
-    toolbar->addAction( collection->action( "format_list_style" ) );
+    toolbar->addAction(collection->action("format_list_style"));
     toolbar->addSeparator();
 
-    toolbar->addAction( collection->action( "format_align_left" ) );
-    toolbar->addAction( collection->action( "format_align_center" ) );
-    toolbar->addAction( collection->action( "format_align_right" ) );
-    toolbar->addAction( collection->action( "format_align_justify" ) );
+    toolbar->addAction(collection->action("format_align_left"));
+    toolbar->addAction(collection->action("format_align_center"));
+    toolbar->addAction(collection->action("format_align_right"));
+    toolbar->addAction(collection->action("format_align_justify"));
     toolbar->addSeparator();
 
-//    toolbar->addAction( collection->action( "format_painter" ) );
+//    toolbar->addAction(collection->action("format_painter"));
 
-    kcfg_ProjectDescription->append( "" );
-    kcfg_ProjectDescription->setReadOnly( false );
-    kcfg_ProjectDescription->setOverwriteMode( false );
-    kcfg_ProjectDescription->setLineWrapMode( KTextEdit::WidgetWidth );
-    kcfg_ProjectDescription->setTabChangesFocus( true );
+    kcfg_ProjectDescription->append("");
+    kcfg_ProjectDescription->setReadOnly(false);
+    kcfg_ProjectDescription->setOverwriteMode(false);
+    kcfg_ProjectDescription->setLineWrapMode(KTextEdit::WidgetWidth);
+    kcfg_ProjectDescription->setTabChangesFocus(true);
 
 }
 

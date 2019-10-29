@@ -55,33 +55,33 @@ public:
             class PLANKERNEL_EXPORT ActualEffort : public std::pair<Duration, Duration>
             {
                 public:
-                    explicit ActualEffort( KPlato::Duration ne = Duration::zeroDuration, KPlato::Duration oe = Duration::zeroDuration )
-                        : std::pair<Duration, Duration>( ne, oe )
+                    explicit ActualEffort(KPlato::Duration ne = Duration::zeroDuration, KPlato::Duration oe = Duration::zeroDuration)
+                        : std::pair<Duration, Duration>(ne, oe)
                     {}
-                    ActualEffort( const ActualEffort &e )
-                        : std::pair<Duration, Duration>( e.first, e.second )
+                    ActualEffort(const ActualEffort &e)
+                        : std::pair<Duration, Duration>(e.first, e.second)
                     {}
                     ~ActualEffort() {}
                     Duration normalEffort() const { return first; }
-                    void setNormalEffort( KPlato::Duration e ) { first = e; }
+                    void setNormalEffort(KPlato::Duration e) { first = e; }
                     Duration overtimeEffort() const { return second; }
-                    void setOvertimeEffort( KPlato::Duration e ) { second = e; }
+                    void setOvertimeEffort(KPlato::Duration e) { second = e; }
                     /// Returns the sum of normalEffort + overtimeEffort
                     Duration effort() const { return first + second; }
-                    void setEffort( KPlato::Duration ne, KPlato::Duration oe = Duration::zeroDuration ) { first = ne; second = oe; }
+                    void setEffort(KPlato::Duration ne, KPlato::Duration oe = Duration::zeroDuration) { first = ne; second = oe; }
             };
             UsedEffort();
-            UsedEffort( const UsedEffort &e );
+            UsedEffort(const UsedEffort &e);
             ~UsedEffort();
-            bool operator==( const UsedEffort &e ) const;
-            bool operator!=( const UsedEffort &e ) const { return !operator==( e ); }
-            void mergeEffort( const UsedEffort &value );
-            void setEffort( QDate date, const ActualEffort &value );
+            bool operator==(const UsedEffort &e) const;
+            bool operator!=(const UsedEffort &e) const { return !operator==(e); }
+            void mergeEffort(const UsedEffort &value);
+            void setEffort(QDate date, const ActualEffort &value);
             /// Returns the total effort up to @p date
-            Duration effortTo( QDate date ) const;
+            Duration effortTo(QDate date) const;
             /// Returns the total effort on @p date
-            ActualEffort effort( QDate date ) const { return m_actual.value( date ); }
-            ActualEffort takeEffort( QDate date ) { return m_actual.take( date ); }
+            ActualEffort effort(QDate date) const { return m_actual.value(date); }
+            ActualEffort takeEffort(QDate date) { return m_actual.take(date); }
             /// Returns the total effort for all registered dates
             Duration effort() const;
             QDate firstDate() const { return m_actual.firstKey(); }
@@ -89,10 +89,10 @@ public:
             QMap<QDate, ActualEffort> actualEffortMap() const { return m_actual; }
             
             /// Load from document
-            bool loadXML(KoXmlElement &element, XMLLoaderObject &status );
+            bool loadXML(KoXmlElement &element, XMLLoaderObject &status);
             /// Save to document
             void saveXML(QDomElement &element) const;
-            bool contains( QDate date ) const { return m_actual.contains( date ); }
+            bool contains(QDate date) const { return m_actual.contains(date); }
 
         private:
             QMap<QDate, ActualEffort> m_actual;
@@ -103,31 +103,31 @@ public:
     {
         public:
             Entry()
-            : percentFinished( 0 ),
-              remainingEffort( Duration::zeroDuration ),
-              totalPerformed( Duration::zeroDuration )
+            : percentFinished(0),
+              remainingEffort(Duration::zeroDuration),
+              totalPerformed(Duration::zeroDuration)
             {}
-            Entry( int percent,  Duration remaining, Duration performed )
-            : percentFinished( percent ),
-              remainingEffort( remaining ),
-              totalPerformed( performed )
+            Entry(int percent,  Duration remaining, Duration performed)
+            : percentFinished(percent),
+              remainingEffort(remaining),
+              totalPerformed(performed)
             {}
-            Entry( const Entry &e ) { copy( e ); }
-            bool operator==( const Entry &e ) const {
+            Entry(const Entry &e) { copy(e); }
+            bool operator==(const Entry &e) const {
                 return percentFinished == e.percentFinished
                     && remainingEffort == e.remainingEffort
                     && totalPerformed == e.totalPerformed
                     && note == e.note;
             }
-            bool operator!=( const Entry &e ) const { return ! operator==( e ); }
-            Entry &operator=(const Entry &e ) { copy( e ); return *this; }
+            bool operator!=(const Entry &e) const { return ! operator==(e); }
+            Entry &operator=(const Entry &e) { copy(e); return *this; }
             
             int percentFinished;
             Duration remainingEffort;
             Duration totalPerformed;
             QString note;
         protected:
-            void copy( const Entry &e ) {
+            void copy(const Entry &e) {
                 percentFinished = e.percentFinished;
                 remainingEffort = e.remainingEffort;
                 totalPerformed = e.totalPerformed;
@@ -138,8 +138,8 @@ public:
 
     typedef QHash<const Resource*, UsedEffort*> ResourceUsedEffortMap;
     
-    explicit Completion( Node *node = 0 );  // review * or &, or at all?
-    Completion( const Completion &copy );
+    explicit Completion(Node *node = 0);  // review * or &, or at all?
+    Completion(const Completion &copy);
     virtual ~Completion();
     
     bool operator==(const Completion &p);
@@ -147,94 +147,94 @@ public:
     Completion &operator=(const Completion &p);
     
     /// Load from document
-    bool loadXML(KoXmlElement &element, XMLLoaderObject &status );
+    bool loadXML(KoXmlElement &element, XMLLoaderObject &status);
     /// Save to document
     void saveXML(QDomElement &element) const;
     
     bool startIsValid() const { return m_started && m_startTime.isValid(); }
     bool isStarted() const { return m_started; }
-    void setStarted( bool on );
+    void setStarted(bool on);
     bool finishIsValid() const { return m_finished && m_finishTime.isValid(); }
     bool isFinished() const { return m_finished; }
-    void setFinished( bool on );
+    void setFinished(bool on);
     DateTime startTime() const { return m_startTime; }
-    void setStartTime( const DateTime &dt );
+    void setStartTime(const DateTime &dt);
     DateTime finishTime() const { return m_finishTime; }
-    void setFinishTime( const DateTime &dt );
-    void setPercentFinished( QDate date, int value );
-    void setRemainingEffort( QDate date, Duration value );
-    void setActualEffort( QDate date, Duration value );
+    void setFinishTime(const DateTime &dt);
+    void setPercentFinished(QDate date, int value);
+    void setRemainingEffort(QDate date, Duration value);
+    void setActualEffort(QDate date, Duration value);
     
     /// Return a list of the resource that has done any work on this task
     QList<const Resource*> resources() const { return m_usedEffort.keys(); }
     
     const EntryList &entries() const { return m_entries; }
-    void addEntry( QDate date, Entry *entry );
-    Entry *takeEntry( QDate date ) { return m_entries.take( date ); changed(); }
-    Entry *entry( QDate date ) const { return m_entries[ date ]; }
+    void addEntry(QDate date, Entry *entry);
+    Entry *takeEntry(QDate date) { return m_entries.take(date); changed(); }
+    Entry *entry(QDate date) const { return m_entries[ date ]; }
     
     /// Returns the date of the latest entry
     QDate entryDate() const;
     /// Returns the percentFinished of the latest entry
     int percentFinished() const;
     /// Returns the percentFinished on @p date
-    int percentFinished( QDate date ) const;
+    int percentFinished(QDate date) const;
     /// Returns the estimated remaining effort
     Duration remainingEffort() const;
     /// Returns the estimated remaining effort on @p date
-    Duration remainingEffort( QDate date ) const;
+    Duration remainingEffort(QDate date) const;
     /// Returns the total actual effort
     Duration actualEffort() const;
     /// Returns the total actual effort on @p date
-    Duration actualEffort( QDate date ) const;
+    Duration actualEffort(QDate date) const;
     /// Returns the total actual effort upto and including @p date
-    Duration actualEffortTo( QDate date ) const;
+    Duration actualEffortTo(QDate date) const;
     /// Returns the actual effort for @p resource on @p date
-    Duration actualEffort( const Resource *resource, QDate date ) const;
+    Duration actualEffort(const Resource *resource, QDate date) const;
     /// TODO
     QString note() const;
     /// TODO
-    void setNote( const QString &str );
+    void setNote(const QString &str);
     
     /// Returns the total actual cost
     double actualCost() const;
     /// Returns the actual cost for @p resource
-    double actualCost( const Resource *resource ) const;
+    double actualCost(const Resource *resource) const;
     /// Returns the actual cost on @p date
-    double actualCost( QDate date ) const;
+    double actualCost(QDate date) const;
     /// Returns the total actual cost for @p resource on @p date
-    double actualCost( const Resource *resource, QDate date ) const;
+    double actualCost(const Resource *resource, QDate date) const;
     /// Returns the total actual effort and cost upto and including @p date
-    EffortCost actualCostTo(  long int id, QDate date ) const;
+    EffortCost actualCostTo(long int id, QDate date) const;
     
     /**
      * Returns a map of all actual effort and cost entered
      */
-    virtual EffortCostMap actualEffortCost( long id, EffortCostCalculationType type = ECCT_All ) const;
+    virtual EffortCostMap actualEffortCost(long id, EffortCostCalculationType type = ECCT_All) const;
 
-    void addUsedEffort( const Resource *resource, UsedEffort *value = 0 );
-    UsedEffort *takeUsedEffort( const Resource *r ) { return m_usedEffort.take( const_cast<Resource*>( r ) ); changed(); }
-    UsedEffort *usedEffort( const Resource *r ) const { return m_usedEffort.value( const_cast<Resource*>( r ) ); }
+    void addUsedEffort(const Resource *resource, UsedEffort *value = 0);
+    UsedEffort *takeUsedEffort(const Resource *r) { return m_usedEffort.take(const_cast<Resource*>(r) ); changed(); }
+    UsedEffort *usedEffort(const Resource *r) const { return m_usedEffort.value(const_cast<Resource*>(r) ); }
     const ResourceUsedEffortMap &usedEffortMap() const { return m_usedEffort; }
     
-    void changed( int property = -1 );
+    void changed(int property = -1);
     Node *node() const { return m_node; }
-    void setNode( Node *node ) { m_node = node; }
+    void setNode(Node *node) { m_node = node; }
     
     enum Entrymode { FollowPlan, EnterCompleted, EnterEffortPerTask, EnterEffortPerResource };
-    void setEntrymode( Entrymode mode ) { m_entrymode = mode; }
+    void setEntrymode(Entrymode mode) { m_entrymode = mode; }
     Entrymode entrymode() const { return m_entrymode; }
-    void setEntrymode( const QString &mode );
+    void setEntrymode(const QString &mode);
     QString entryModeToString() const;
     QStringList entrymodeList() const;
     
-    EffortCostMap effortCostPrDay(QDate start, QDate end, long id = -1 ) const;
+    EffortCostMap effortCostPrDay(QDate start, QDate end, long id = -1) const;
     /// Returns the actual effort and cost pr day used by @p resource
-    EffortCostMap effortCostPrDay(const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE ) const;
+    EffortCostMap effortCostPrDay(const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE) const;
 
 protected:
-    void copy( const Completion &copy);
-    double averageCostPrHour( QDate date, long id ) const;
+    void copy(const Completion &copy);
+    double averageCostPrHour(QDate date, long id) const;
     std::pair<QDate, QDate> actualStartEndDates() const;
 
 private:
@@ -247,7 +247,7 @@ private:
     
 #ifndef NDEBUG
 public:
-    void printDebug( const QByteArray &ident ) const;
+    void printDebug(const QByteArray &ident) const;
 #endif
 };
 
@@ -266,31 +266,31 @@ public:
         TS_Rejected     /// Received package was rejected by project manager
     };
 
-    explicit WorkPackage( Task *task = 0 );
-    explicit WorkPackage( const WorkPackage &wp );
+    explicit WorkPackage(Task *task = 0);
+    explicit WorkPackage(const WorkPackage &wp);
     virtual ~WorkPackage();
 
     Task *parentTask() const { return m_task; }
-    void setParentTask( Task *task ) { m_task = task; }
+    void setParentTask(Task *task) { m_task = task; }
 
     /// Returns the transmission status of this package
     WPTransmitionStatus transmitionStatus() const { return m_transmitionStatus; }
-    void setTransmitionStatus( WPTransmitionStatus sts ) { m_transmitionStatus = sts; }
-    static QString transmitionStatusToString( WPTransmitionStatus sts, bool trans = false );
-    static WPTransmitionStatus transmitionStatusFromString( const QString &sts );
+    void setTransmitionStatus(WPTransmitionStatus sts) { m_transmitionStatus = sts; }
+    static QString transmitionStatusToString(WPTransmitionStatus sts, bool trans = false);
+    static WPTransmitionStatus transmitionStatusFromString(const QString &sts);
     
     /// Load from document
-    virtual bool loadXML(KoXmlElement &element, XMLLoaderObject &status );
+    virtual bool loadXML(KoXmlElement &element, XMLLoaderObject &status);
     /// Save the full workpackage
     virtual void saveXML(QDomElement &element) const;
 
     /// Load from document
-    virtual bool loadLoggedXML(KoXmlElement &element, XMLLoaderObject &status );
+    virtual bool loadLoggedXML(KoXmlElement &element, XMLLoaderObject &status);
     /// Save the full workpackage
     virtual void saveLoggedXML(QDomElement &element) const;
 
     /// Set schedule manager
-    void setScheduleManager( ScheduleManager *sm );
+    void setScheduleManager(ScheduleManager *sm);
     /// Return schedule manager
     ScheduleManager *scheduleManager() const { return m_manager; }
     /// Return the schedule id, or NOTSCHEDULED if no schedule manager is set
@@ -299,7 +299,7 @@ public:
     Completion &completion();
     const Completion &completion() const;
 
-    void addLogEntry( DateTime &dt, const QString &str );
+    void addLogEntry(DateTime &dt, const QString &str);
     QMap<DateTime, QString> log() const;
     QStringList log();
 
@@ -309,20 +309,20 @@ public:
 
     /// Return a list of resources fetched from the appointments or requests
     /// merged with resources added to completion
-    QList<Resource*> fetchResources( long id );
+    QList<Resource*> fetchResources(long id);
 
     /// Returns id of the resource that owns this package. If empty, task leader owns it.
     QString ownerId() const { return m_ownerId; }
     /// Set the resource that owns this package to @p owner. If empty, task leader owns it.
-    void setOwnerId( const QString &id ) { m_ownerId = id; }
+    void setOwnerId(const QString &id) { m_ownerId = id; }
 
     /// Returns the name of the resource that owns this package.
     QString ownerName() const { return m_ownerName; }
     /// Set the name of the resource that owns this package.
-    void setOwnerName( const QString &name ) { m_ownerName = name; }
+    void setOwnerName(const QString &name) { m_ownerName = name; }
 
     DateTime transmitionTime() const { return m_transmitionTime; }
-    void setTransmitionTime( const DateTime &dt ) { m_transmitionTime = dt; }
+    void setTransmitionTime(const DateTime &dt) { m_transmitionTime = dt; }
 
     /// Clear workpackage data
     void clear();
@@ -343,10 +343,10 @@ class PLANKERNEL_EXPORT WorkPackageSettings
 {
 public:
     WorkPackageSettings();
-    bool loadXML( const KoXmlElement &element );
-    void saveXML( QDomElement &element) const;
-    bool operator==( WorkPackageSettings settings ) const;
-    bool operator!=( WorkPackageSettings settings ) const;
+    bool loadXML(const KoXmlElement &element);
+    void saveXML(QDomElement &element) const;
+    bool operator==(WorkPackageSettings settings) const;
+    bool operator!=(WorkPackageSettings settings) const;
     bool usedEffort;
     bool progress;
     bool documents;
@@ -387,11 +387,11 @@ public:
     void makeAppointments() override;
     QStringList requestNameList() const override;
     virtual QList<Resource*> requestedResources() const;
-    bool containsRequest( const QString &/*identity*/ ) const override;
-    ResourceRequest *resourceRequest( const QString &/*name*/ ) const override;
+    bool containsRequest(const QString &/*identity*/) const override;
+    ResourceRequest *resourceRequest(const QString &/*name*/) const override;
     
     /// Return the list of resources assigned to this task
-    QStringList assignedNameList( long id = CURRENTSCHEDULE ) const override;
+    QStringList assignedNameList(long id = CURRENTSCHEDULE) const override;
 
     /**
      * Calculates if the assigned resource is overbooked 
@@ -400,98 +400,98 @@ public:
     void calcResourceOverbooked() override;
     
     /// Load from document
-    bool load(KoXmlElement &element, XMLLoaderObject &status ) override;
+    bool load(KoXmlElement &element, XMLLoaderObject &status) override;
     /// Save to document
     void save(QDomElement &element, const XmlSaveContext &context) const override;
     /// Save appointments for schedule with id
     void saveAppointments(QDomElement &element, long id) const override;
     
     /// Save a workpackage document with schedule identity @p id
-    void saveWorkPackageXML( QDomElement &element, long id ) const override;
+    void saveWorkPackageXML(QDomElement &element, long id) const override;
 
     /**
      * Returns a list of planned effort and cost for this task
      * for the interval start, end inclusive
      */
-    EffortCostMap plannedEffortCostPrDay(QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    EffortCostMap plannedEffortCostPrDay(QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     /**
      * Returns a list of planned effort and cost for the @p resource
      * for the interval @p start, @p end inclusive, useng schedule with identity @p id
      */
-    EffortCostMap plannedEffortCostPrDay(const Resource *resource, QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    EffortCostMap plannedEffortCostPrDay(const Resource *resource, QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     
     /// Returns the total planned effort for @p resource on this task (or subtasks)
-    Duration plannedEffort( const Resource *resource, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    Duration plannedEffort(const Resource *resource, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     /// Returns the total planned effort for this task (or subtasks) 
-    Duration plannedEffort( long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    Duration plannedEffort(long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     /// Returns the total planned effort for this task (or subtasks) on date
-    Duration plannedEffort(QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    Duration plannedEffort(QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     /// Returns the total planned effort for @p resource on this task (or subtasks) on date
-    Duration plannedEffort( const Resource *resource, QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    Duration plannedEffort(const Resource *resource, QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     /// Returns the planned effort up to and including date
-    Duration plannedEffortTo(QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    Duration plannedEffortTo(QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     /// Returns the planned effort for @p resource up to and including date
-    Duration plannedEffortTo( const Resource *resource, QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    Duration plannedEffortTo(const Resource *resource, QDate date, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     
     /// Returns the total actual effort for this task (or subtasks) 
     Duration actualEffort() const override;
     /// Returns the total actual effort for this task (or subtasks) on date
-    Duration actualEffort(QDate date ) const override;
+    Duration actualEffort(QDate date) const override;
     /// Returns the actual effort up to and including date
-    Duration actualEffortTo(QDate date ) const override;
+    Duration actualEffortTo(QDate date) const override;
     
     /**
      * Returns the total planned cost for this task (or subtasks)
      */
-    EffortCost plannedCost( long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    EffortCost plannedCost(long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     /// Planned cost up to and including date
-    double plannedCostTo(QDate /*date*/, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    double plannedCostTo(QDate /*date*/, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     
     /// Returns actual effort and cost up to and including @p date
-    EffortCost actualCostTo(  long int id, QDate date ) const override;
+    EffortCost actualCostTo(long int id, QDate date) const override;
 
     /**
      * Returns a list of actual effort and cost for this task
      * for the interval start, end inclusive
      */
-    EffortCostMap actualEffortCostPrDay( QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    EffortCostMap actualEffortCostPrDay(QDate start, QDate end,  long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     /// Returns the actual effort and cost pr day used by @p resource
-    EffortCostMap actualEffortCostPrDay( const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All ) const override;
+    EffortCostMap actualEffortCostPrDay(const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
 
     /// Returns the effort planned to be used to reach the actual percent finished
-    Duration budgetedWorkPerformed( QDate date, long id = CURRENTSCHEDULE ) const override;
+    Duration budgetedWorkPerformed(QDate date, long id = CURRENTSCHEDULE) const override;
 
     /// Returns the cost planned to be used to reach the actual percent finished
-    double budgetedCostPerformed( QDate date, long id = CURRENTSCHEDULE ) const override;
+    double budgetedCostPerformed(QDate date, long id = CURRENTSCHEDULE) const override;
 
     using Node::bcwsPrDay;
     /// Return map of Budgeted Cost of Work Scheduled pr day
-    EffortCostMap bcwsPrDay( long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All ) override;
+    EffortCostMap bcwsPrDay(long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All) override;
     
     /// Budgeted Cost of Work Scheduled
-    double bcws( QDate date, long id = CURRENTSCHEDULE ) const override;
+    double bcws(QDate date, long id = CURRENTSCHEDULE) const override;
 
     using Node::bcwpPrDay;
     /// Return map of Budgeted Cost of Work Performed pr day (also includes bcwsPrDay)
-    EffortCostMap bcwpPrDay( long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All ) override;
+    EffortCostMap bcwpPrDay(long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All) override;
     /// Budgeted Cost of Work Performed
-    double bcwp( long id = CURRENTSCHEDULE ) const override;
-    /// Budgeted Cost of Work Performed ( up to @p date )
-    double bcwp( QDate date, long id = CURRENTSCHEDULE ) const override;
+    double bcwp(long id = CURRENTSCHEDULE) const override;
+    /// Budgeted Cost of Work Performed (up to @p date)
+    double bcwp(QDate date, long id = CURRENTSCHEDULE) const override;
 
     using Node::acwp;
     /// Map of Actual Cost of Work Performed
-    EffortCostMap acwp( long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All ) override;
+    EffortCostMap acwp(long id = CURRENTSCHEDULE, EffortCostCalculationType type = ECCT_All) override;
     /// Actual Cost of Work Performed up to dat
-    EffortCost acwp( QDate date, long id = CURRENTSCHEDULE ) const override;
+    EffortCost acwp(QDate date, long id = CURRENTSCHEDULE) const override;
 
     /// Effort based performance index
-    double effortPerformanceIndex( QDate date, long id = CURRENTSCHEDULE ) const override;
+    double effortPerformanceIndex(QDate date, long id = CURRENTSCHEDULE) const override;
 
     /// Schedule performance index
-    double schedulePerformanceIndex( QDate date, long id = CURRENTSCHEDULE ) const override;
+    double schedulePerformanceIndex(QDate date, long id = CURRENTSCHEDULE) const override;
     /// Cost performance index
-    double costPerformanceIndex(  long int id, QDate date, bool *error=0 ) const override;
+    double costPerformanceIndex(long int id, QDate date, bool *error=0) const override;
     
     /**
      * Return the duration that an activity's start can be delayed 
@@ -499,38 +499,38 @@ public:
      * An activity with positive float is not on the critical path.
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
-    Duration positiveFloat( long id = CURRENTSCHEDULE ) const;
-    void setPositiveFloat( Duration fl, long id = CURRENTSCHEDULE ) const;
+    Duration positiveFloat(long id = CURRENTSCHEDULE) const;
+    void setPositiveFloat(Duration fl, long id = CURRENTSCHEDULE) const;
     /**
      * Return the duration by which the duration of an activity or path 
      * has to be reduced in order to fulfill a timing- or dependency constraint.
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
-    Duration negativeFloat( long id = CURRENTSCHEDULE ) const;
-    void setNegativeFloat( Duration fl, long id = CURRENTSCHEDULE ) const;
+    Duration negativeFloat(long id = CURRENTSCHEDULE) const;
+    void setNegativeFloat(Duration fl, long id = CURRENTSCHEDULE) const;
     /**
      * Return the duration by which an activity can be delayed or extended 
      * without affecting the start of any succeeding activity.
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
-    Duration freeFloat( long id = CURRENTSCHEDULE ) const;
-    void setFreeFloat( Duration fl, long id = CURRENTSCHEDULE ) const;
+    Duration freeFloat(long id = CURRENTSCHEDULE) const;
+    void setFreeFloat(Duration fl, long id = CURRENTSCHEDULE) const;
     /**
      * Return the duration from Early Start to Late Start.
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
-    Duration startFloat( long id = CURRENTSCHEDULE ) const;
+    Duration startFloat(long id = CURRENTSCHEDULE) const;
     /**
      * Return the duration from Early Finish to Late Finish.
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
-    Duration finishFloat( long id = CURRENTSCHEDULE ) const;
+    Duration finishFloat(long id = CURRENTSCHEDULE) const;
     
     /**
      * A task is critical if positive float equals 0
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
-    bool isCritical( long id = CURRENTSCHEDULE ) const override;
+    bool isCritical(long id = CURRENTSCHEDULE) const override;
     
     /**
      * Set current schedule to schedule with identity id, for me and my children.
@@ -542,7 +542,7 @@ public:
      * The assigned resources can not fulfill the estimated effort.
      * @param id Schedule identity. If id is CURRENTSCHEDULE, use current schedule.
      */
-    bool effortMetError( long id = CURRENTSCHEDULE ) const override;
+    bool effortMetError(long id = CURRENTSCHEDULE) const override;
 
     /// @return true if this task has been started
     bool isStarted() const;
@@ -555,9 +555,9 @@ public:
 
     int workPackageLogCount() const { return m_packageLog.count(); }
     QList<WorkPackage*> workPackageLog() const { return m_packageLog; }
-    void addWorkPackage( WorkPackage *wp );
-    void removeWorkPackage( WorkPackage *wp );
-    WorkPackage *workPackageAt( int index ) const;
+    void addWorkPackage(WorkPackage *wp);
+    void removeWorkPackage(WorkPackage *wp);
+    WorkPackage *workPackageAt(int index) const;
 
     QString wpOwnerName() const;
     WorkPackage::WPTransmitionStatus wpTransmitionStatus() const;
@@ -567,7 +567,7 @@ public:
      * Returns the state of the task
      * @param id The identity of the schedule used when calculating the state
      */
-    uint state( long id = CURRENTSCHEDULE ) const override;
+    uint state(long id = CURRENTSCHEDULE) const override;
 
     /// Check if this node has any dependent child nodes
     bool isEndNode() const override;
@@ -598,7 +598,7 @@ public:
     /// Copy intervals from parent schedule
     void copyAppointments();
     /// Copy intervals from parent schedule in the range @p start, @p end
-    void copyAppointments( const DateTime &start, const DateTime &end = DateTime() );
+    void copyAppointments(const DateTime &start, const DateTime &end = DateTime());
 
 Q_SIGNALS:
     void workPackageToBeAdded(KPlato::Node *node, int row);
@@ -694,8 +694,8 @@ public:
     // Proxy relations are relations to/from summarytasks. 
     // These relations are distributed to the child tasks before calculation.
     void clearProxyRelations() override;
-    void addParentProxyRelations( const QList<Relation*> & ) override;
-    void addChildProxyRelations( const QList<Relation*> & ) override;
+    void addParentProxyRelations(const QList<Relation*> &) override;
+    void addChildProxyRelations(const QList<Relation*> &) override;
     void addParentProxyRelation(Node *, const Relation *) override;
     void addChildProxyRelation(Node *, const Relation *) override;
 
@@ -759,10 +759,10 @@ private:
 
 }  //KPlato namespace
 
-Q_DECLARE_METATYPE( KPlato::Completion::UsedEffort::ActualEffort )
+Q_DECLARE_METATYPE(KPlato::Completion::UsedEffort::ActualEffort)
 
 #ifndef QT_NO_DEBUG_STREAM
-PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Completion::UsedEffort::ActualEffort &ae );
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Completion::UsedEffort::ActualEffort &ae);
 #endif
 
 #endif

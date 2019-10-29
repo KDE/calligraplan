@@ -30,24 +30,24 @@ RecalculateDialogImpl::RecalculateDialogImpl (QWidget *parent)
     setupUi(this);
 
     QDateTime ct = QDateTime::currentDateTime();
-    ct.setTime( QTime( ct.time().hour(), ct.time().minute(), 0 ) ); // clear secs/msecs
-    dateTimeEdit->setDateTime( ct );
-    btnCurrent->setChecked( true );
-    dateTimeEdit->setEnabled( false );
-    connect( btnFrom, &QAbstractButton::toggled, dateTimeEdit, &QWidget::setEnabled );
+    ct.setTime(QTime(ct.time().hour(), ct.time().minute(), 0)); // clear secs/msecs
+    dateTimeEdit->setDateTime(ct);
+    btnCurrent->setChecked(true);
+    dateTimeEdit->setEnabled(false);
+    connect(btnFrom, &QAbstractButton::toggled, dateTimeEdit, &QWidget::setEnabled);
 }
 
 
 
 //////////////////  ResourceDialog  ////////////////////////
 
-RecalculateDialog::RecalculateDialog( QWidget *parent )
+RecalculateDialog::RecalculateDialog(QWidget *parent)
     : KoDialog(parent)
 {
-    setCaption( i18n("Re-calculate Schedule") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setCaption(i18n("Re-calculate Schedule"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
     dia = new RecalculateDialogImpl(this);
     setMainWidget(dia);
 }

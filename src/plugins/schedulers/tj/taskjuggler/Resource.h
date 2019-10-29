@@ -163,7 +163,7 @@ public:
     time_t getStartOfFirstSlot(int sc, const Task* task);
     time_t getEndOfLastSlot(int sc, const Task* task);
 
-    QDomElement xmlIDElement( QDomDocument& doc ) const;
+    QDomElement xmlIDElement(QDomDocument& doc) const;
 
     void copyBookings(int sc, SbBooking*** srd, SbBooking*** dst);
     void saveSpecifiedBookings();

@@ -39,7 +39,7 @@ namespace Scripting {
             Q_OBJECT
         public:
             /// Create a calendar
-            Calendar( Project *project, KPlato::Calendar *calendar, QObject *parent );
+            Calendar(Project *project, KPlato::Calendar *calendar, QObject *parent);
             /// Destructor
             virtual ~Calendar() {}
         
@@ -55,7 +55,7 @@ namespace Scripting {
             /// Return number of child calendars
             int childCount() const;
             /// Return the child calendar at @p index
-            QObject *childAt( int index );
+            QObject *childAt(int index);
         
         protected:
             Project *m_project;

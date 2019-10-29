@@ -347,7 +347,7 @@ void KUndo2Command::setTimedID(int value)
 
 bool KUndo2Command::timedMergeWith(KUndo2Command *other)
 {
-    if(other->timedId() == this->timedId() && other->timedId()!=-1 )
+    if(other->timedId() == this->timedId() && other->timedId()!=-1)
         m_mergeCommandsVector.append(other);
     else
         return false;

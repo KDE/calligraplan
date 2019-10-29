@@ -77,7 +77,7 @@ using namespace KPlato;
  * By default, no timeline is displayed.
  */
 DateTimeTimeLine::DateTimeTimeLine()
-    : d( new Private())
+    : d(new Private())
 {
     d->pen = QPen(QApplication::palette().color(QPalette::Highlight), 0);
     connect(&d->timer, SIGNAL(timeout()), this, SIGNAL(updated()));

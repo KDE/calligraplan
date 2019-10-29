@@ -28,16 +28,16 @@
 
 using namespace KPlato;
 
-WorkPackageSendDialog::WorkPackageSendDialog( const QList<Node*> &tasks,  ScheduleManager *sm, QWidget *p)
+WorkPackageSendDialog::WorkPackageSendDialog(const QList<Node*> &tasks,  ScheduleManager *sm, QWidget *p)
     : KoDialog(p)
 {
-    setCaption( xi18nc( "@title:window", "Send Work Packages") );
-    setButtons( Close );
-    setDefaultButton( Close );
-    showButtonSeparator( true );
+    setCaption(xi18nc("@title:window", "Send Work Packages"));
+    setButtons(Close);
+    setDefaultButton(Close);
+    showButtonSeparator(true);
 
-    m_wp = new WorkPackageSendPanel( tasks, sm, this);
-    setMainWidget( m_wp );
+    m_wp = new WorkPackageSendPanel(tasks, sm, this);
+    setMainWidget(m_wp);
 }
 
 QSize WorkPackageSendDialog::sizeHint() const

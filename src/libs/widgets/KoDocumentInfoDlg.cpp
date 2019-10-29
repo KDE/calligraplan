@@ -257,7 +257,7 @@ void KoDocumentInfoDlg::initAboutTab()
         }
     } else {
         d->aboutUi->lblEncrypted->setText(i18n("This document does not support encryption"));
-        d->aboutUi->pbEncrypt->setEnabled( false );
+        d->aboutUi->pbEncrypt->setEnabled(false);
     }
     connect(d->aboutUi->pbReset, &QAbstractButton::clicked,
             this, &KoDocumentInfoDlg::slotResetMetaData);
@@ -292,7 +292,7 @@ void KoDocumentInfoDlg::saveAboutData()
     d->applyToggleEncryption = d->toggleEncryption;
 }
 
-void KoDocumentInfoDlg::hideEvent( QHideEvent *event )
+void KoDocumentInfoDlg::hideEvent(QHideEvent *event)
 {
     Q_UNUSED(event);
 

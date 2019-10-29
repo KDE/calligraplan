@@ -76,12 +76,12 @@ public:
         return QStringList() << PLAN_MIME_TYPE;
     }
 
-    void setReadWrite( bool rw ) override;
+    void setReadWrite(bool rw) override;
     void configChanged();
 
-    void paintContent( QPainter& painter, const QRect& rect) override;
+    void paintContent(QPainter& painter, const QRect& rect) override;
 
-    void setProject( Project *project );
+    void setProject(Project *project);
     Project *project() const override { return m_project; }
     Project &getProject() { return *m_project; }
     const Project &getProject() const { return * m_project; }
@@ -95,13 +95,13 @@ public:
     int supportedSpecialFormats() const override { return SaveAsDirectoryStore; }
 
     // The load and save functions. Look in the file kplato.dtd for info
-    bool loadXML( const KoXmlDocument &document, KoStore *store ) override;
+    bool loadXML(const KoXmlDocument &document, KoStore *store) override;
     QDomDocument saveXML() override;
     /// Save a workpackage file containing @p node with schedule identity @p id, owned by @p resource
-    QDomDocument saveWorkPackageXML( const Node *node, long id, Resource *resource = 0 );
+    QDomDocument saveWorkPackageXML(const Node *node, long id, Resource *resource = 0);
 
-    bool saveOdf( SavingContext &/*documentContext */) override { return false; }
-    bool loadOdf( KoOdfReadStore & odfStore ) override;
+    bool saveOdf(SavingContext &/*documentContext */) override { return false; }
+    bool loadOdf(KoOdfReadStore & odfStore) override;
 
     Config &config() { return m_config; }
     Context *context() const { return m_context; }
@@ -110,15 +110,15 @@ public:
 
     const XMLLoaderObject &xmlLoader() const { return m_xmlLoader; }
 
-    DocumentChild *createChild( KoDocument *doc, const QRect &geometry = QRect() );
+    DocumentChild *createChild(KoDocument *doc, const QRect &geometry = QRect());
 
-    bool saveWorkPackageToStream( QIODevice * dev, const Node *node, long id, Resource *resource = 0 );
-    bool saveWorkPackageFormat( const QString &file, const Node *node, long id, Resource *resource = 0 );
-    bool saveWorkPackageUrl( const QUrl & _url, const Node *node, long id, Resource *resource = 0  );
+    bool saveWorkPackageToStream(QIODevice * dev, const Node *node, long id, Resource *resource = 0);
+    bool saveWorkPackageFormat(const QString &file, const Node *node, long id, Resource *resource = 0);
+    bool saveWorkPackageUrl(const QUrl & _url, const Node *node, long id, Resource *resource = 0  );
 
     /// Load the workpackage from @p url into @p project. Return true if successful, else false.
-    bool loadWorkPackage( Project &project, const QUrl &url );
-    Package *loadWorkPackageXML( Project& project, QIODevice*, const KoXmlDocument& document, const QUrl& url );
+    bool loadWorkPackage(Project &project, const QUrl &url);
+    Package *loadWorkPackageXML(Project& project, QIODevice*, const KoXmlDocument& document, const QUrl& url);
     QMap<QDateTime, Package*> workPackages() const { return m_workpackages; }
     void clearWorkPackages() {
         qDeleteAll(m_workpackages);
@@ -126,16 +126,16 @@ public:
         m_checkingForWorkPackages = false;
     }
 
-    void insertFile( const QUrl &url, Node *parent, Node *after = 0 );
-    bool insertProject( Project &project, Node *parent, Node *after );
+    void insertFile(const QUrl &url, Node *parent, Node *after = 0);
+    bool insertProject(Project &project, Node *parent, Node *after);
     bool mergeResources(Project &project);
 
     KPlatoAboutPage &aboutPage() { return m_aboutPage; }
 
-    bool extractFiles( KoStore *store, Package *package );
-    bool extractFile( KoStore *store, Package *package, const Document *doc );
+    bool extractFiles(KoStore *store, Package *package);
+    bool extractFile(KoStore *store, Package *package, const Document *doc);
 
-    void registerView( View *view );
+    void registerView(View *view);
 
     /// Create a new project from this project
     /// Generates new project id and task ids
@@ -146,7 +146,7 @@ public:
 
     using KoDocument::setModified;
 public Q_SLOTS:
-    void setModified( bool mod ) override;
+    void setModified(bool mod) override;
 
     /// Inserts an item into all other views than @p view
     void insertViewListItem(KPlato::View *view, const KPlato::ViewListItem *item, const KPlato::ViewListItem *parent, int index);
@@ -158,10 +158,10 @@ public Q_SLOTS:
     /// If @p keep is true, packages that has been refused will not be checked for again
     void checkForWorkPackages(bool keep);
     /// Remove @p package
-    void terminateWorkPackage( const KPlato::Package *package );
+    void terminateWorkPackage(const KPlato::Package *package);
 
-    void setLoadingTemplate( bool );
-    void setLoadingSharedResourcesTemplate( bool );
+    void setLoadingTemplate(bool);
+    void setLoadingSharedResourcesTemplate(bool);
 
     void insertResourcesFile(const QUrl &url, const QUrl &projects = QUrl());
     void slotProjectCreated();
@@ -184,7 +184,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void changed();
     void workPackageLoaded();
-    void viewlistModified( bool );
+    void viewlistModified(bool);
     void viewListItemAdded(const KPlato::ViewListItem *item, const KPlato::ViewListItem *parent, int index);
     void viewListItemRemoved(const KPlato::ViewListItem *item);
 
@@ -192,9 +192,9 @@ Q_SIGNALS:
 
 protected:
     /// Load kplato specific files
-    bool completeLoading( KoStore* store ) override;
+    bool completeLoading(KoStore* store) override;
     /// Save kplato specific files
-    bool completeSaving( KoStore* store ) override;
+    bool completeSaving(KoStore* store) override;
 
     // used by insert file
     struct InsertFileInfo {
@@ -212,11 +212,11 @@ protected Q_SLOTS:
 
     void insertFileCompleted();
     void insertResourcesFileCompleted();
-    void insertFileCancelled( const QString& );
+    void insertFileCancelled(const QString&);
 
     void slotInsertSharedProject();
     void insertSharedProjectCompleted();
-    void insertSharedProjectCancelled( const QString& );
+    void insertSharedProjectCancelled(const QString&);
 
     void slotNodeChanged(KPlato::Node*, int);
     void slotScheduleManagerChanged(KPlato::ScheduleManager *sm, int property);

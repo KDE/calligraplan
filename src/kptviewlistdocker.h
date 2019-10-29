@@ -42,7 +42,7 @@ public:
 
 public Q_SLOTS:
     void slotModified();
-    void updateWindowTitle( bool modified );
+    void updateWindowTitle(bool modified);
 
 private:
     View *m_view;

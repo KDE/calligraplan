@@ -51,11 +51,11 @@ Factory::~Factory()
     s_global = 0L;
 }
 
-QObject* Factory::create( const char* /*iface*/, QWidget* /*parentWidget*/, QObject *parent,
-                             const QVariantList& args, const QString& keyword )
+QObject* Factory::create(const char* /*iface*/, QWidget* /*parentWidget*/, QObject *parent,
+                             const QVariantList& args, const QString& keyword)
 {
-    Q_UNUSED( args );
-    Q_UNUSED( keyword );
+    Q_UNUSED(args);
+    Q_UNUSED(keyword);
 
     Part *part = new Part(parent);
     MainDocument *doc = new MainDocument(part);
@@ -71,17 +71,17 @@ QObject* Factory::create( const char* /*iface*/, QWidget* /*parentWidget*/, QObj
 
 KAboutData* Factory::aboutData()
 {
-    if ( !s_aboutData )
+    if (!s_aboutData)
         s_aboutData = newAboutData();
     return s_aboutData;
 }
 
 const KoComponentData &Factory::global()
 {
-    if ( !s_global )
+    if (!s_global)
     {
         debugPlan;
-        s_global = new KoComponentData( *aboutData() );
+        s_global = new KoComponentData(*aboutData());
 
         // Add any application-specific resource directories here
         KoResourcePaths::addResourceType("calligraplan_taskmodules", "data", "calligraplan/taskmodules/");

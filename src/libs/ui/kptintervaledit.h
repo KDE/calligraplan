@@ -35,8 +35,8 @@ class MacroCommand;
 class IntervalEditBase : public QWidget, public Ui::IntervalEditBase
 {
 public:
-    explicit IntervalEditBase(QWidget *parent) : QWidget( parent ) {
-    setupUi( this );
+    explicit IntervalEditBase(QWidget *parent) : QWidget(parent) {
+    setupUi(this);
   }
 };
 
@@ -63,7 +63,7 @@ Q_SIGNALS:
 class IntervalEdit : public IntervalEditImpl {
     Q_OBJECT
 public:
-    explicit IntervalEdit( CalendarDay *day, QWidget *parent=0);
+    explicit IntervalEdit(CalendarDay *day, QWidget *parent=0);
 
 };
 
@@ -71,9 +71,9 @@ class PLANUI_EXPORT IntervalEditDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    explicit IntervalEditDialog( Calendar *calendar, const QList<CalendarDay*> &days, QWidget *parent = 0 );
+    explicit IntervalEditDialog(Calendar *calendar, const QList<CalendarDay*> &days, QWidget *parent = 0);
     
-    explicit IntervalEditDialog( Calendar *calendar, const QList<QDate> &dates, QWidget *parent = 0 );
+    explicit IntervalEditDialog(Calendar *calendar, const QList<QDate> &dates, QWidget *parent = 0);
 
     MacroCommand *buildCommand();
     QList<TimeInterval*> intervals() const { return m_panel->intervals(); }
@@ -83,7 +83,7 @@ protected Q_SLOTS:
     void slotCalendarRemoved(const KPlato::Calendar *cal);
 
 protected:
-    MacroCommand *buildCommand( Calendar *calendar, CalendarDay *day );
+    MacroCommand *buildCommand(Calendar *calendar, CalendarDay *day);
 
 private:
     Calendar *m_calendar;

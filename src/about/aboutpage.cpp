@@ -36,7 +36,7 @@
 #include <khtml_part.h>
 
 KPlatoAboutPage::KPlatoAboutPage()
-    : m_project( 0 )
+    : m_project(0)
 {
 }
 
@@ -47,8 +47,8 @@ KPlatoAboutPage::~KPlatoAboutPage()
 QString KPlatoAboutPage::main()
 {
     KIconLoader *iconloader = KIconLoader::global();
-    QString res = loadFile( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "calligraplan/about/main.html" ));
-    if ( res.isEmpty() ) {
+    QString res = loadFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "calligraplan/about/main.html"));
+    if (res.isEmpty()) {
         return res;
     }
     const char *const up_icon_id = koIconNameCStr("go-up");
@@ -61,24 +61,24 @@ QString KPlatoAboutPage::main()
     QString icon_up =  "<img width='16' height='16' src=\"" + up_icon_path + "\">";
     QString icon_path = "<img width='16' height='16' src=\"" + continue_icon_path + "\">";
 
-    res = res.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css" ) );
-    if ( qApp->layoutDirection() == Qt::RightToLeft )
-    res = res.arg( "@import \"%1\";" ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css" ) );
+    res = res.arg(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css"));
+    if (qApp->layoutDirection() == Qt::RightToLeft)
+    res = res.arg("@import \"%1\";").arg(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css"));
     else
-    res = res.arg( "" );
+    res = res.arg("");
 
-    res = res.arg( i18n( "Plan" ) )
-    .arg( i18nc("KDE 4 tag line, see http://kde.org/img/kde40.png", "Be free.") )
-    .arg( i18n("Plan is a Project Planning and Management application.") )
-    .arg( i18n("Welcome to Plan.") )
-    .arg( i18n("These introductory pages should give you an idea of how to use Plan and what you can use it for.") )
-    .arg( icon_path ).arg( i18n( "A short introduction." ) )
-    .arg( icon_path ).arg( i18n( "Tips on how to manipulate and inspect data." ) )
-    .arg( icon_path ).arg( i18n( "A small tutorial to get you started." ) )
-    .arg( icon_up ).arg( i18n( "Close" ) )
-    .arg( i18n(
+    res = res.arg(i18n("Plan"))
+    .arg(i18nc("KDE 4 tag line, see http://kde.org/img/kde40.png", "Be free."))
+    .arg(i18n("Plan is a Project Planning and Management application."))
+    .arg(i18n("Welcome to Plan."))
+    .arg(i18n("These introductory pages should give you an idea of how to use Plan and what you can use it for."))
+    .arg(icon_path).arg(i18n("A short introduction."))
+    .arg(icon_path).arg(i18n("Tips on how to manipulate and inspect data."))
+    .arg(icon_path).arg(i18n("A small tutorial to get you started."))
+    .arg(icon_up).arg(i18n("Close"))
+    .arg(i18n(
         "<em>Note:</em> To view these pages when you are in other parts of Plan, choose the menu option <em>Help ->  Introduction to Plan</em>."
-        ) )
+        ))
     ;
 
     return res;
@@ -87,8 +87,8 @@ QString KPlatoAboutPage::main()
 QString KPlatoAboutPage::intro()
 {
     KIconLoader *iconloader = KIconLoader::global();
-    QString res = loadFile( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "calligraplan/about/intro.html" ));
-    if ( res.isEmpty() ) {
+    QString res = loadFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "calligraplan/about/intro.html"));
+    if (res.isEmpty()) {
         return res;
     }
 
@@ -106,21 +106,21 @@ QString KPlatoAboutPage::intro()
     const QString continue_icon_path = QApplication::isRightToLeft() ? prev_icon_path : next_icon_path;
     const QString back_icon_path = QApplication::isRightToLeft() ? next_icon_path : prev_icon_path;
 
-    res = res.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css" ) );
-    if ( qApp->layoutDirection() == Qt::RightToLeft )
-	res = res.arg( "@import \"%1\";" ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css" ) );
+    res = res.arg(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css"));
+    if (qApp->layoutDirection() == Qt::RightToLeft)
+	res = res.arg("@import \"%1\";").arg(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css"));
     else
-        res = res.arg( "" );
+        res = res.arg("");
 
-    res = res.arg( i18n("Plan is a Project Planning and Management application.") )
-    .arg( i18n(
+    res = res.arg(i18n("Plan is a Project Planning and Management application."))
+    .arg(i18n(
         "Plan is intended for managing moderately large projects with multiple resources. To enable you to model your project adequately, Plan offers different types of task dependencies and timing constraints. Usually you will define your tasks, estimate the effort needed to perform each task, allocate resources and then schedule the project according to the dependency network and resource availability."
         "<p>You can find more information online at <a href=\"https://userbase.kde.org/Plan\">https://userbase.kde.org/Plan</a></p>"
-        ) )
-    .arg( icon_up )
-    .arg( i18n( "Close" ) )
-    .arg( "<img width='16' height='16' src=\"%1\">" ).arg( continue_icon_path )
-    .arg( i18n( "Next: Tips" ) )
+        ))
+    .arg(icon_up)
+    .arg(i18n("Close"))
+    .arg("<img width='16' height='16' src=\"%1\">").arg(continue_icon_path)
+    .arg(i18n("Next: Tips"))
     ;
 
     return res;
@@ -128,8 +128,8 @@ QString KPlatoAboutPage::intro()
 
 QString KPlatoAboutPage::tips()
 {
-    QString res = loadFile( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "calligraplan/about/tips.html" ));
-    if ( res.isEmpty() ) {
+    QString res = loadFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "calligraplan/about/tips.html"));
+    if (res.isEmpty()) {
         return res;
     }
 
@@ -164,32 +164,32 @@ QString KPlatoAboutPage::tips()
     const QString continue_icon_path = QApplication::isRightToLeft() ? prev_icon_path : next_icon_path;
     const QString back_icon_path = QApplication::isRightToLeft() ? next_icon_path : prev_icon_path;
 
-    res = res.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css" ) );
-    if ( qApp->layoutDirection() == Qt::RightToLeft )
-        res = res.arg( "@import \"%1\";" ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css" ) );
+    res = res.arg(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css"));
+    if (qApp->layoutDirection() == Qt::RightToLeft)
+        res = res.arg("@import \"%1\";").arg(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css"));
     else
-        res = res.arg( "" );
+        res = res.arg("");
 
-    res = res.arg( i18n("Editing tips.") )
-    .arg( i18n(
+    res = res.arg(i18n("Editing tips."))
+    .arg(i18n(
         "<br/><b>To</b> edit project data, different views and editors can be selected in the View Selector docker."
         "<br/><b>The</b> views are generally used to inspect data after the project has been scheduled. No data will appear in the views if the project has not been scheduled. Scheduling is done in the Schedules editor."
         "<br/><b>You</b> can edit attributes in the various editors by selecting the item you want to edit (doubleclick or press F2), or open a dialog using the context menu."
         "</ul>"
-        ) )
-    .arg( icon_up )
-    .arg( i18n( "Close" ) )
-    .arg( "<img width='16' height='16' src=\"%1\">" ).arg( continue_icon_path )
-    .arg( i18n( "Next: Create a simple project" ) )
+        ))
+    .arg(icon_up)
+    .arg(i18n("Close"))
+    .arg("<img width='16' height='16' src=\"%1\">").arg(continue_icon_path)
+    .arg(i18n("Next: Create a simple project"))
     ;
 
     return res;
 }
 
-QString KPlatoAboutPage::tutorial( const QString &header, const QString &text, const QString &nextpage, const QString &nexttext)
+QString KPlatoAboutPage::tutorial(const QString &header, const QString &text, const QString &nextpage, const QString &nexttext)
 {
-    QString res = loadFile( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "calligraplan/about/tutorial.html" ));
-    if ( res.isEmpty() ) {
+    QString res = loadFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "calligraplan/about/tutorial.html"));
+    if (res.isEmpty()) {
         return res;
     }
     KIconLoader *iconloader = KIconLoader::global();
@@ -207,20 +207,20 @@ QString KPlatoAboutPage::tutorial( const QString &header, const QString &text, c
     const QString continue_icon_path = QApplication::isRightToLeft() ? prev_icon_path : next_icon_path;
     const QString back_icon_path = QApplication::isRightToLeft() ? next_icon_path : prev_icon_path;
 
-    res = res.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css" ) );
-    if ( qApp->layoutDirection() == Qt::RightToLeft )
-        res = res.arg( "@import \"%1\";" ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css" ) );
+    res = res.arg(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css"));
+    if (qApp->layoutDirection() == Qt::RightToLeft)
+        res = res.arg("@import \"%1\";").arg(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css"));
     else
-        res = res.arg( "" );
+        res = res.arg("");
 
-    res = res.arg( header )
-    .arg( text )
-    .arg( "about:close" )
-    .arg( icon_up )
-    .arg( i18n("Close") )
-    .arg( "about:plan/" + nextpage )
-    .arg( "<img width='16' height='16' src=\"%1\">" ).arg( continue_icon_path )
-    .arg( nexttext )
+    res = res.arg(header)
+    .arg(text)
+    .arg("about:close")
+    .arg(icon_up)
+    .arg(i18n("Close"))
+    .arg("about:plan/" + nextpage)
+    .arg("<img width='16' height='16' src=\"%1\">").arg(continue_icon_path)
+    .arg(nexttext)
     ;
 
     return res;
@@ -230,7 +230,7 @@ QString KPlatoAboutPage::tutorial1()
 {
     return tutorial(
         i18n("Create the simplest project ever."),
-        i18nc( "1=datetime",
+        i18nc("1=datetime",
             "Select the task editor <em>Editors->Tasks</em>:"
             "<ul>"
             "<li>Create a task by selecting <em>Add Task</em> in the toolbar.</li>"
@@ -245,21 +245,21 @@ QString KPlatoAboutPage::tutorial1()
             "<li>Calculate the schedule by selecting <em>Calculate</em> in the toolbar.</li>"
             "</ul>"
             "The task should now have been scheduled to start %1 with a duration of 8 hours. You can check this by selecting the Gantt chart <em>Views->Gantt</em>."
-        , KFormat().formatRelativeDateTime(m_project->startTime(), QLocale::LongFormat) ),
+        , KFormat().formatRelativeDateTime(m_project->startTime(), QLocale::LongFormat)),
         "tutorial2",
-        i18n( "Next: Resource allocation" )
+        i18n("Next: Resource allocation")
     );
 }
 
 QString KPlatoAboutPage::tutorial2()
 {
     DateTime dt = m_project->constraintStartTime();
-    if ( m_project->defaultCalendar() ) {
-        dt = m_project->defaultCalendar()->firstAvailableAfter( dt, m_project->constraintEndTime() );
+    if (m_project->defaultCalendar()) {
+        dt = m_project->defaultCalendar()->firstAvailableAfter(dt, m_project->constraintEndTime());
     }
     return tutorial(
         i18n("Allocate a resource to the task."),
-        i18nc( "1=datetime",
+        i18nc("1=datetime",
             "Select the task editor <em>Editors->Tasks</em>:"
             "<ul>"
             "<li>Enter a name (e.g. 'John') in the <em>Allocation</em> column."
@@ -269,13 +269,13 @@ QString KPlatoAboutPage::tutorial2()
             "Now you need to schedule the project again with the new allocation:"
             "<br/>Select the schedules editor <em>Editors->Schedules</em> and calculate the schedule by selecting <em>Calculate</em> in the toolbar."
             "<p>The task should be scheduled to start %1 with a duration of 8 hours. You can check this by selecting the Gantt chart <em>Views->Gantt</em>.<p>"
-        , KFormat().formatRelativeDateTime(dt, QLocale::LongFormat) ),
+        , KFormat().formatRelativeDateTime(dt, QLocale::LongFormat)),
         "main",
-        i18n( "Next: Introduction" )
+        i18n("Next: Introduction")
     );
 }
 
-void KPlatoAboutPage::generatePage( KHTMLPart &part, const QUrl &url)
+void KPlatoAboutPage::generatePage(KHTMLPart &part, const QUrl &url)
 {
     QString html;
     if (url.url() == "about:plan/main")
@@ -294,28 +294,28 @@ void KPlatoAboutPage::generatePage( KHTMLPart &part, const QUrl &url)
         html = main();
 
     part.begin();
-    part.write( html );
+    part.write(html);
     part.end();
 }
 
-QString KPlatoAboutPage::loadFile( const QString& file )
+QString KPlatoAboutPage::loadFile(const QString& file)
 {
     QString res;
-    if ( file.isEmpty() )
+    if (file.isEmpty())
     return res;
 
-    QFile f( file );
+    QFile f(file);
 
-    if ( !f.open( QIODevice::ReadOnly ) )
+    if (!f.open(QIODevice::ReadOnly))
     return res;
 
-    QTextStream t( &f );
+    QTextStream t(&f);
 
     res = t.readAll();
 
     // otherwise all embedded objects are referenced as about:/...
     QString basehref = QLatin1String("<BASE HREF=\"file:") +
-               file.left( file.lastIndexOf( '/' )) +
+               file.left(file.lastIndexOf('/')) +
                QLatin1String("/\">\n");
     res.replace("<head>", "<head>\n\t" + basehref, Qt::CaseInsensitive);
     return res;

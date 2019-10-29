@@ -63,8 +63,8 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     QString s = xi18nc("@info:whatsthis", "The Work Breakdown Structure introduces numbering for all tasks in the project, according to the task structure."
                        "<nl/>The WBS code is auto-generated."
                        "<nl/>You can define the WBS code pattern using the <interface>Project->Define WBS Pattern</interface> menu entry.");
-    wbslabel->setWhatsThis( s );
-    wbs->setWhatsThis( s );
+    wbslabel->setWhatsThis(s);
+    wbs->setWhatsThis(s);
 
     namefield->setText(project.name());
     leaderfield->setText(project.leader());
@@ -98,7 +98,7 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     ui_description->layout()->addWidget(m_description);
 
     wbs->setText(project.wbsCode());
-    if ( wbs->text().isEmpty() ) {
+    if (wbs->text().isEmpty()) {
         wbslabel->hide();
         wbs->hide();
     }
@@ -106,9 +106,9 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     DateTime st = project.constraintStartTime();
     DateTime et = project.constraintEndTime();
     startDate->setDate(st.date());
-    startTime->setTime( QTime( st.time().hour(), st.time().minute(), 0 ) );
+    startTime->setTime(QTime(st.time().hour(), st.time().minute(), 0));
     endDate->setDate(et.date());
-    endTime->setTime( QTime( et.time().hour(), et.time().minute(), 0 ) );
+    endTime->setTime(QTime(et.time().hour(), et.time().minute(), 0));
     enableDateTime();
     namefield->setFocus();
 
@@ -141,19 +141,19 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     initTaskModules();
 
     // signals and slots connections
-    connect( m_documents, &DocumentsPanel::changed, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( m_description, &TaskDescriptionPanelImpl::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( endDate, &QDateTimeEdit::dateChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( endTime, &QDateTimeEdit::timeChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( startDate, &QDateTimeEdit::dateChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( startTime, &QDateTimeEdit::timeChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( namefield, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( leaderfield, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( useSharedResources, &QGroupBox::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( resourcesFile, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
-    connect( projectsPlace, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled );
+    connect(m_documents, &DocumentsPanel::changed, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(m_description, &TaskDescriptionPanelImpl::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(endDate, &QDateTimeEdit::dateChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(endTime, &QDateTimeEdit::timeChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(startDate, &QDateTimeEdit::dateChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(startTime, &QDateTimeEdit::timeChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(namefield, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(leaderfield, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(useSharedResources, &QGroupBox::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(resourcesFile, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
+    connect(projectsPlace, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
     connect(projectsLoadAtStartup, &QAbstractButton::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled);
-    connect( chooseLeader, &QAbstractButton::clicked, this, &MainProjectPanel::slotChooseLeader );
+    connect(chooseLeader, &QAbstractButton::clicked, this, &MainProjectPanel::slotChooseLeader);
 
     connect(resourcesBrowseBtn, &QAbstractButton::clicked, this, &MainProjectPanel::openResourcesFile);
     connect(projectsBrowseBtn, &QAbstractButton::clicked, this, &MainProjectPanel::openProjectsPlace);
@@ -223,7 +223,7 @@ MacroCommand *MainProjectPanel::buildCommand() {
     }
     if (project.sharedResourcesFile() != resourcesFile->text()) {
         if (!m) m = new MacroCommand(c);
-        m->addCommand(new SharedResourcesFileCmd( &project, resourcesFile->text()));
+        m->addCommand(new SharedResourcesFileCmd(&project, resourcesFile->text()));
     }
     QString place = projectsPlace->text();
     if (projectsType->currentIndex() == 0 /*dir*/ && !place.isEmpty() && !place.endsWith('/')) {
@@ -232,26 +232,26 @@ MacroCommand *MainProjectPanel::buildCommand() {
     QUrl sharedProjectsUrl(place);
     if (project.sharedProjectsUrl() != sharedProjectsUrl) {
         if (!m) m = new MacroCommand(c);
-        m->addCommand(new SharedProjectsUrlCmd( &project, sharedProjectsUrl));
+        m->addCommand(new SharedProjectsUrlCmd(&project, sharedProjectsUrl));
     }
     if (project.loadProjectsAtStartup() != projectsLoadAtStartup->isChecked()) {
         if (!m) m = new MacroCommand(c);
-        m->addCommand(new LoadProjectsAtStartupCmd( &project, projectsLoadAtStartup->isChecked()));
+        m->addCommand(new LoadProjectsAtStartupCmd(&project, projectsLoadAtStartup->isChecked()));
     }
     MacroCommand *cmd = m_description->buildCommand();
-    if ( cmd ) {
+    if (cmd) {
         if (!m) m = new MacroCommand(c);
-        m->addCommand( cmd );
+        m->addCommand(cmd);
     }
     cmd = m_documents->buildCommand();
-    if ( cmd ) {
+    if (cmd) {
         if (!m) m = new MacroCommand(c);
-        m->addCommand( cmd );
+        m->addCommand(cmd);
     }
     cmd = buildTaskModulesCommand();
-    if ( cmd ) {
+    if (cmd) {
         if (!m) m = new MacroCommand(c);
-        m->addCommand( cmd );
+        m->addCommand(cmd);
     }
 
     Project::WorkPackageInfo wpi;
@@ -264,7 +264,7 @@ MacroCommand *MainProjectPanel::buildCommand() {
     if (wpi != project.workPackageInfo()) {
         ProjectModifyWorkPackageInfoCmd *cmd = new ProjectModifyWorkPackageInfoCmd(project, wpi);
         if (!m) m = new MacroCommand(c);
-        m->addCommand( cmd );
+        m->addCommand(cmd);
     }
 
     return m;
@@ -303,27 +303,27 @@ void MainProjectPanel::slotCheckAllFieldsFilled()
 void MainProjectPanel::slotChooseLeader()
 {
 #ifdef PLAN_KDEPIMLIBS_FOUND
-    QPointer<Akonadi::EmailAddressSelectionDialog> dlg = new Akonadi::EmailAddressSelectionDialog( this );
-    if ( dlg->exec() && dlg ) {
+    QPointer<Akonadi::EmailAddressSelectionDialog> dlg = new Akonadi::EmailAddressSelectionDialog(this);
+    if (dlg->exec() && dlg) {
         QStringList names;
         const Akonadi::EmailAddressSelection::List selections = dlg->selectedAddresses();
-        foreach ( const Akonadi::EmailAddressSelection &selection, selections ) {
+        foreach (const Akonadi::EmailAddressSelection &selection, selections) {
             QString s = selection.name();
-            if ( ! selection.email().isEmpty() ) {
-                if ( ! selection.name().isEmpty() ) {
+            if (! selection.email().isEmpty()) {
+                if (! selection.name().isEmpty()) {
                     s += " <";
                 }
                 s += selection.email();
-                if ( ! selection.name().isEmpty() ) {
+                if (! selection.name().isEmpty()) {
                     s += '>';
                 }
-                if ( ! s.isEmpty() ) {
+                if (! s.isEmpty()) {
                     names << s;
                 }
             }
         }
-        if ( ! names.isEmpty() ) {
-            leaderfield->setText( names.join( ", " ) );
+        if (! names.isEmpty()) {
+            leaderfield->setText(names.join(", "));
         }
     }
 #endif

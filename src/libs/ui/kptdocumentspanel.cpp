@@ -39,35 +39,35 @@
 
 using namespace KPlato;
 
-DocumentsPanel::DocumentsPanel( Node &node, QWidget *parent )
-    : QWidget( parent ),
-    m_node( node ),
-    m_docs( node.documents() )
+DocumentsPanel::DocumentsPanel(Node &node, QWidget *parent)
+    : QWidget(parent),
+    m_node(node),
+    m_docs(node.documents())
 {
-    widget.setupUi( this );
+    widget.setupUi(this);
     widget.nodeNameHolder->hide();
-    QVBoxLayout *l = new QVBoxLayout( widget.itemViewHolder );
-    m_view = new DocumentTreeView( widget.itemViewHolder );
+    QVBoxLayout *l = new QVBoxLayout(widget.itemViewHolder);
+    m_view = new DocumentTreeView(widget.itemViewHolder);
     l->setMargin(0);
-    l->addWidget( m_view );
-    m_view->setDocuments( &m_docs );
-    m_view->setReadWrite( true );
+    l->addWidget(m_view);
+    m_view->setDocuments(&m_docs);
+    m_view->setReadWrite(true);
     
-    currentChanged( QModelIndex() );
+    currentChanged(QModelIndex());
     
-    foreach ( Document *doc, m_docs.documents() ) {
-        m_orgurl.insert( doc, doc->url() );
+    foreach (Document *doc, m_docs.documents()) {
+        m_orgurl.insert(doc, doc->url());
     }
     slotSelectionChanged(QModelIndexList());
 
-    connect( widget.pbAdd, &QAbstractButton::clicked, this, &DocumentsPanel::slotAddUrl );
-    connect( widget.pbChange, &QAbstractButton::clicked, this, &DocumentsPanel::slotChangeUrl );
-    connect( widget.pbRemove, &QAbstractButton::clicked, this, &DocumentsPanel::slotRemoveUrl );
-    connect( widget.pbView, &QAbstractButton::clicked, this, &DocumentsPanel::slotViewUrl );
+    connect(widget.pbAdd, &QAbstractButton::clicked, this, &DocumentsPanel::slotAddUrl);
+    connect(widget.pbChange, &QAbstractButton::clicked, this, &DocumentsPanel::slotChangeUrl);
+    connect(widget.pbRemove, &QAbstractButton::clicked, this, &DocumentsPanel::slotRemoveUrl);
+    connect(widget.pbView, &QAbstractButton::clicked, this, &DocumentsPanel::slotViewUrl);
 
-    connect( m_view->model(), &QAbstractItemModel::dataChanged, this, &DocumentsPanel::dataChanged );
+    connect(m_view->model(), &QAbstractItemModel::dataChanged, this, &DocumentsPanel::dataChanged);
 
-    connect( m_view, SIGNAL(selectionChanged(QModelIndexList)), SLOT(slotSelectionChanged(QModelIndexList)) ); // clazy:exclude=old-style-connect
+    connect(m_view, SIGNAL(selectionChanged(QModelIndexList)), SLOT(slotSelectionChanged(QModelIndexList))); // clazy:exclude=old-style-connect
 
     if (model()->rowCount() > 0) {
         m_view->setCurrentIndex(model()->index(0, 0));
@@ -85,31 +85,31 @@ DocumentItemModel *DocumentsPanel::model() const
     return m_view->model();
 }
 
-void DocumentsPanel::dataChanged( const QModelIndex &index )
+void DocumentsPanel::dataChanged(const QModelIndex &index)
 {
-    Document *doc = m_docs.value( index.row() );
-    if ( doc == 0 ) {
+    Document *doc = m_docs.value(index.row());
+    if (doc == 0) {
         return;
     }
-    m_state.insert( doc, (State)( m_state[ doc ] | Modified ) );
+    m_state.insert(doc, (State)(m_state[ doc ] | Modified));
     emit changed(true);
     debugPlan<<index<<doc<<m_state[ doc ];
 }
 
-void DocumentsPanel::slotSelectionChanged( const QModelIndexList & )
+void DocumentsPanel::slotSelectionChanged(const QModelIndexList &)
 {
     QModelIndexList list = m_view->selectedRows();
     debugPlan<<list;
-    widget.pbChange->setEnabled( list.count() == 1 );
-    widget.pbRemove->setEnabled( ! list.isEmpty() );
-    widget.pbView->setEnabled( list.count() == 1 );
+    widget.pbChange->setEnabled(list.count() == 1);
+    widget.pbRemove->setEnabled(! list.isEmpty());
+    widget.pbView->setEnabled(list.count() == 1);
 }
 
-void DocumentsPanel::currentChanged( const QModelIndex &index )
+void DocumentsPanel::currentChanged(const QModelIndex &index)
 {
-//     widget.pbChange->setEnabled( index.isValid() );
-//     widget.pbRemove->setEnabled( index.isValid() );
-//     widget.pbView->setEnabled( index.isValid() );
+//     widget.pbChange->setEnabled(index.isValid());
+//     widget.pbRemove->setEnabled(index.isValid());
+//     widget.pbView->setEnabled(index.isValid());
 }
 
 Document *DocumentsPanel::selectedDocument() const
@@ -120,19 +120,19 @@ Document *DocumentsPanel::selectedDocument() const
 
 void DocumentsPanel::slotAddUrl()
 {
-    QPointer<KUrlRequesterDialog> dlg = new KUrlRequesterDialog( QUrl(), QString(), this );
-    dlg->setWindowTitle( xi18nc( "@title:window", "Attach Document" ) );
-    if ( dlg->exec() == QDialog::Accepted && dlg ) {
-        if ( m_docs.findDocument( dlg->selectedUrl() ) ) {
+    QPointer<KUrlRequesterDialog> dlg = new KUrlRequesterDialog(QUrl(), QString(), this);
+    dlg->setWindowTitle(xi18nc("@title:window", "Attach Document"));
+    if (dlg->exec() == QDialog::Accepted && dlg) {
+        if (m_docs.findDocument(dlg->selectedUrl())) {
             warnPlan<<"Document (url) already exists: "<<dlg->selectedUrl();
-            KMessageBox::sorry( this, xi18nc( "@info", "Document is already attached:<nl/><filename>%1</filename>", dlg->selectedUrl().toDisplayString() ), xi18nc( "@title:window", "Cannot Attach Document" ) );
+            KMessageBox::sorry(this, xi18nc("@info", "Document is already attached:<nl/><filename>%1</filename>", dlg->selectedUrl().toDisplayString()), xi18nc("@title:window", "Cannot Attach Document"));
         } else {
-            Document *doc = new Document( dlg->selectedUrl() );
-            //DocumentAddCmd *cmd = new DocumentAddCmd( m_docs, doc, kundo2_i18n( "Add document" ) );
-            //m_cmds.push( cmd );
-            m_docs.addDocument( doc );
-            m_state.insert( doc, Added );
-            model()->setDocuments( &m_docs ); // refresh
+            Document *doc = new Document(dlg->selectedUrl());
+            //DocumentAddCmd *cmd = new DocumentAddCmd(m_docs, doc, kundo2_i18n("Add document"));
+            //m_cmds.push(cmd);
+            m_docs.addDocument(doc);
+            m_state.insert(doc, Added);
+            model()->setDocuments(&m_docs); // refresh
             emit changed(true);
         }
     }
@@ -142,21 +142,21 @@ void DocumentsPanel::slotAddUrl()
 void DocumentsPanel::slotChangeUrl()
 {
     Document *doc = m_view->currentDocument();
-    if ( doc == 0 ) {
+    if (doc == 0) {
         return slotAddUrl();
     }
-    KUrlRequesterDialog *dlg = new KUrlRequesterDialog( doc->url(), QString(), this );
-    dlg->setWindowTitle( xi18nc( "@title:window", "Modify Url" ) );
-    if ( dlg->exec() == QDialog::Accepted ) {
-        if ( doc->url() != dlg->selectedUrl() ) {
-            if ( m_docs.findDocument( dlg->selectedUrl() ) ) {
+    KUrlRequesterDialog *dlg = new KUrlRequesterDialog(doc->url(), QString(), this);
+    dlg->setWindowTitle(xi18nc("@title:window", "Modify Url"));
+    if (dlg->exec() == QDialog::Accepted) {
+        if (doc->url() != dlg->selectedUrl()) {
+            if (m_docs.findDocument(dlg->selectedUrl())) {
                 warnPlan<<"Document url already exists";
-                KMessageBox::sorry( this, i18n( "Document url already exists: %1", dlg->selectedUrl().toDisplayString() ), i18n( "Cannot Modify Url" ) );
+                KMessageBox::sorry(this, i18n("Document url already exists: %1", dlg->selectedUrl().toDisplayString()), i18n("Cannot Modify Url"));
             } else {
                 debugPlan<<"Modify url: "<<doc->url()<<" : "<<dlg->selectedUrl();
-                doc->setUrl( dlg->selectedUrl() );
-                m_state.insert( doc, (State)( m_state[ doc ] | Modified ) );
-                model()->setDocuments( &m_docs );
+                doc->setUrl(dlg->selectedUrl());
+                m_state.insert(doc, (State)(m_state[ doc ] | Modified));
+                model()->setDocuments(&m_docs);
                 emit changed(true);
                 debugPlan<<"State: "<<doc->url()<<" : "<<m_state[ doc ];
             }
@@ -169,20 +169,20 @@ void DocumentsPanel::slotRemoveUrl()
 {
     QList<Document*> lst = m_view->selectedDocuments();
     bool mod = false;
-    foreach ( Document *doc, lst ) {
-        if ( doc == 0 ) {
+    foreach (Document *doc, lst) {
+        if (doc == 0) {
             continue;
         }
-        m_docs.takeDocument( doc );
-        if ( m_state.contains( doc ) && m_state[ doc ] & Added ) {
-            m_state.remove( doc );
+        m_docs.takeDocument(doc);
+        if (m_state.contains(doc) && m_state[ doc ] & Added) {
+            m_state.remove(doc);
         } else {
-            m_state.insert( doc, Removed );
+            m_state.insert(doc, Removed);
         }
         mod = true;
     }
-    if ( mod ) {
-        model()->setDocuments( &m_docs ); // refresh
+    if (mod) {
+        model()->setDocuments(&m_docs); // refresh
         emit changed(true);
     }
 }
@@ -192,7 +192,7 @@ void DocumentsPanel::slotViewUrl()
     Document *doc = selectedDocument();
     debugPlan<<"document:"<<doc;
     if (!doc || !doc->isValid()) {
-        //KMessageBox::error( 0, i18n( "Cannot open document. Invalid url: %1", filename.pathOrUrl() ) );
+        //KMessageBox::error(0, i18n("Cannot open document. Invalid url: %1", filename.pathOrUrl()));
         return;
     }
     KRun *run = new KRun(doc->url(), 0);
@@ -202,54 +202,54 @@ void DocumentsPanel::slotViewUrl()
 
 MacroCommand *DocumentsPanel::buildCommand()
 {
-    if ( m_docs == m_node.documents() ) {
+    if (m_docs == m_node.documents()) {
         debugPlan<<"No changes to save";
         return 0;
     }
     Documents &docs = m_node.documents();
     Document *d = 0;
-    KUndo2MagicString txt = kundo2_i18n( "Modify documents" );
+    KUndo2MagicString txt = kundo2_i18n("Modify documents");
     MacroCommand *m = 0;
     QMap<Document*, State>::const_iterator i = m_state.constBegin();
-    for ( ; i != m_state.constEnd(); ++i) {
+    for (; i != m_state.constEnd(); ++i) {
         debugPlan<<i.key()<<i.value();
-        if ( i.value() & Removed ) {
-            d = docs.findDocument( m_orgurl[ i.key() ] );
-            Q_ASSERT( d );
-            if ( m == 0 ) m = new MacroCommand( txt );
+        if (i.value() & Removed) {
+            d = docs.findDocument(m_orgurl[ i.key() ]);
+            Q_ASSERT(d);
+            if (m == 0) m = new MacroCommand(txt);
             debugPlan<<"remove document "<<i.key();
-            m->addCommand( new DocumentRemoveCmd( m_node.documents(), d, kundo2_i18n( "Remove document" ) ) );
-        } else if ( ( i.value() & Added ) == 0 && i.value() & Modified ) {
-            d = docs.findDocument( m_orgurl[ i.key() ] );
-            Q_ASSERT( d );
+            m->addCommand(new DocumentRemoveCmd(m_node.documents(), d, kundo2_i18n("Remove document")));
+        } else if ((i.value() & Added) == 0 && i.value() & Modified) {
+            d = docs.findDocument(m_orgurl[ i.key() ]);
+            Q_ASSERT(d);
             // do plain modifications before additions
             debugPlan<<"modify document "<<d;
-            if ( i.key()->url() != d->url() ) {
-                if ( m == 0 ) m = new MacroCommand( txt );
-                m->addCommand( new DocumentModifyUrlCmd( d, i.key()->url(), kundo2_i18n( "Modify document url" ) ) );
+            if (i.key()->url() != d->url()) {
+                if (m == 0) m = new MacroCommand(txt);
+                m->addCommand(new DocumentModifyUrlCmd(d, i.key()->url(), kundo2_i18n("Modify document url")));
             }
-            if ( i.key()->type() != d->type() ) {
-                if ( m == 0 ) m = new MacroCommand( txt );
-                m->addCommand( new DocumentModifyTypeCmd( d, i.key()->type(), kundo2_i18n( "Modify document type" ) ) );
+            if (i.key()->type() != d->type()) {
+                if (m == 0) m = new MacroCommand(txt);
+                m->addCommand(new DocumentModifyTypeCmd(d, i.key()->type(), kundo2_i18n("Modify document type")));
             }
-            if ( i.key()->status() != d->status() ) {
-                if ( m == 0 ) m = new MacroCommand( txt );
-                m->addCommand( new DocumentModifyStatusCmd( d, i.key()->status(), kundo2_i18n( "Modify document status" ) ) );
+            if (i.key()->status() != d->status()) {
+                if (m == 0) m = new MacroCommand(txt);
+                m->addCommand(new DocumentModifyStatusCmd(d, i.key()->status(), kundo2_i18n("Modify document status")));
             }
-            if ( i.key()->sendAs() != d->sendAs() ) {
-                if ( m == 0 ) m = new MacroCommand( txt );
-                m->addCommand( new DocumentModifySendAsCmd( d, i.key()->sendAs(), kundo2_i18n( "Modify document send control" ) ) );
+            if (i.key()->sendAs() != d->sendAs()) {
+                if (m == 0) m = new MacroCommand(txt);
+                m->addCommand(new DocumentModifySendAsCmd(d, i.key()->sendAs(), kundo2_i18n("Modify document send control")));
             }
-            if ( i.key()->name() != d->name() ) {
-                if ( m == 0 ) m = new MacroCommand( txt );
-                m->addCommand( new DocumentModifyNameCmd( d, i.key()->name()/*, kundo2_i18n( "Modify document name" )*/ ) );
+            if (i.key()->name() != d->name()) {
+                if (m == 0) m = new MacroCommand(txt);
+                m->addCommand(new DocumentModifyNameCmd(d, i.key()->name()/*, kundo2_i18n("Modify document name")*/));
             }
-        } else if ( i.value() & Added ) {
-            if ( m == 0 ) m = new MacroCommand( txt );
+        } else if (i.value() & Added) {
+            if (m == 0) m = new MacroCommand(txt);
             debugPlan<<i.key()<<m_docs.documents();
-            d = m_docs.takeDocument( i.key() );
+            d = m_docs.takeDocument(i.key());
             debugPlan<<"add document "<<d;
-            m->addCommand( new DocumentAddCmd( docs, d, kundo2_i18n( "Add document" ) ) );
+            m->addCommand(new DocumentAddCmd(docs, d, kundo2_i18n("Add document")));
         }
     }
     return m;

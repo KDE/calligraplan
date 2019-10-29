@@ -37,8 +37,8 @@ class PrintingHeaderFooter;
 class AccountsviewConfigurePanelBase : public QWidget, public Ui::AccountsviewConfigurePanelBase
 {
 public:
-  explicit AccountsviewConfigurePanelBase( QWidget *parent ) : QWidget( parent ) {
-    setupUi( this );
+  explicit AccountsviewConfigurePanelBase(QWidget *parent) : QWidget(parent) {
+    setupUi(this);
   }
 };
 
@@ -46,12 +46,12 @@ public:
 class AccountsviewConfigDialog : public KPageDialog {
     Q_OBJECT
 public:
-    AccountsviewConfigDialog( ViewBase *view, AccountsTreeView *treeview, QWidget *parent, bool selectPrint = false );
+    AccountsviewConfigDialog(ViewBase *view, AccountsTreeView *treeview, QWidget *parent, bool selectPrint = false);
 
 public Q_SLOTS:
     void slotOk();
 private Q_SLOTS:
-    void enableOkButton( bool enabled );
+    void enableOkButton(bool enabled);
 private:
     ViewBase *m_view;
     AccountsTreeView *m_treeview;

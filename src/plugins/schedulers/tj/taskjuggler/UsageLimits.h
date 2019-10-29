@@ -56,7 +56,7 @@ class UsageLimits
 
         /// Set percentage of how many working slots can be allocated on a day of total number of working slots
         /// dailyUnits has precedence over dailyMax
-        void setDailyUnits( uint units ) { dailyUnits = units; }
+        void setDailyUnits(uint units) { dailyUnits = units; }
         /// Get percentage of how many working slots can be allocated on a day of total number of working slots
         uint getDailyUnits() const { return dailyUnits; }
 

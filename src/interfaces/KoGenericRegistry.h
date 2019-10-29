@@ -69,7 +69,7 @@ public:
      * @param item the item to add (NOTE: T must have an QString id() const   function)
      */
     void add(T item) {
-        Q_ASSERT( item );
+        Q_ASSERT(item);
         QString id = item->id();
         if(m_hash.contains(id)) {
             m_doubleEntries << value(id);
@@ -84,7 +84,7 @@ public:
      * @param item the item to add
      */
     void add(const QString &id, T item) {
-        Q_ASSERT( item );
+        Q_ASSERT(item);
         if(m_hash.contains(id)) {
             m_doubleEntries << value(id);
             remove(id);

@@ -37,24 +37,24 @@ namespace KPlato
 SchedulesDocker::SchedulesDocker()
 {
     setWindowTitle(i18n("Schedule Selector"));
-    m_view = new QTreeView( this );
-    m_sfModel.setSourceModel( &m_model );
-    m_view->setModel( &m_sfModel );
-    m_sfModel.setFilterKeyColumn ( ScheduleModel::ScheduleScheduled );
-    m_sfModel.setFilterRole( Qt::EditRole );
-    m_sfModel.setFilterFixedString( "true" );
-    m_sfModel.setDynamicSortFilter ( true );
+    m_view = new QTreeView(this);
+    m_sfModel.setSourceModel(&m_model);
+    m_view->setModel(&m_sfModel);
+    m_sfModel.setFilterKeyColumn (ScheduleModel::ScheduleScheduled);
+    m_sfModel.setFilterRole(Qt::EditRole);
+    m_sfModel.setFilterFixedString("true");
+    m_sfModel.setDynamicSortFilter (true);
 
-    for( int c = 1; c <  m_model.columnCount(); ++c ) {
-        m_view->setColumnHidden( c, true );
+    for(int c = 1; c <  m_model.columnCount(); ++c) {
+        m_view->setColumnHidden(c, true);
     }
-    m_view->setHeaderHidden( true );
-    m_view->setSelectionMode( QAbstractItemView::SingleSelection );
-    m_view->setSelectionBehavior( QAbstractItemView::SelectRows );
+    m_view->setHeaderHidden(true);
+    m_view->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_view->setSelectionBehavior(QAbstractItemView::SelectRows);
 
     setWidget(m_view);
 
-    connect( m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SchedulesDocker::slotSelectionChanged );
+    connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SchedulesDocker::slotSelectionChanged);
 }
 
 SchedulesDocker::~SchedulesDocker()
@@ -63,34 +63,34 @@ SchedulesDocker::~SchedulesDocker()
 
 void SchedulesDocker::slotSelectionChanged()
 {
-    emit selectionChanged( selectedSchedule() );
+    emit selectionChanged(selectedSchedule());
 }
 
-void SchedulesDocker::setProject( Project *project )
+void SchedulesDocker::setProject(Project *project)
 {
     debugPlan<<project;
-    m_model.setProject( project );
+    m_model.setProject(project);
 }
 
 ScheduleManager *SchedulesDocker::selectedSchedule() const
 {
     QModelIndexList lst = m_view->selectionModel()->selectedRows();
-    Q_ASSERT( lst.count() <= 1 );
+    Q_ASSERT(lst.count() <= 1);
     ScheduleManager *sm = 0;
-    if ( ! lst.isEmpty() ) {
-        sm = m_model.manager( m_sfModel.mapToSource( lst.first() ) );
+    if (! lst.isEmpty()) {
+        sm = m_model.manager(m_sfModel.mapToSource(lst.first()));
     }
     return sm;
 }
 
-void SchedulesDocker::setSelectedSchedule( ScheduleManager *sm )
+void SchedulesDocker::setSelectedSchedule(ScheduleManager *sm)
 {
-    qDebug()<<"setSelectedSchedule:"<<sm<<m_model.index( sm );
-    QModelIndex idx = m_sfModel.mapFromSource( m_model.index( sm ) );
-    if ( sm ) {
-        Q_ASSERT( idx.isValid() );
+    qDebug()<<"setSelectedSchedule:"<<sm<<m_model.index(sm);
+    QModelIndex idx = m_sfModel.mapFromSource(m_model.index(sm));
+    if (sm) {
+        Q_ASSERT(idx.isValid());
     }
-    m_view->selectionModel()->select( idx, QItemSelectionModel::ClearAndSelect );
+    m_view->selectionModel()->select(idx, QItemSelectionModel::ClearAndSelect);
     qDebug()<<"setSelectedSchedule:"<<sm<<idx;
 }
 

@@ -51,12 +51,12 @@ class GroupSectionEditor : public QObject
 public:
     explicit GroupSectionEditor(QObject *parent);
 
-    void setupUi( QWidget *widget );
+    void setupUi(QWidget *widget);
     void clear();
-    void setData( KReportDesigner *designer, ReportData *rd );
+    void setData(KReportDesigner *designer, ReportData *rd);
 
 protected Q_SLOTS:
-    void slotSelectionChanged(const QItemSelection &sel );
+    void slotSelectionChanged(const QItemSelection &sel);
     void slotAddRow();
     void slotRemoveRows();
     void slotMoveRowUp();
@@ -71,7 +71,7 @@ private:
     class Item : public QStandardItem
     {
     public:
-        explicit Item(KReportDesignerSectionDetailGroup *g) : QStandardItem(), group( g ) {}
+        explicit Item(KReportDesignerSectionDetailGroup *g) : QStandardItem(), group(g) {}
         KReportDesignerSectionDetailGroup *group;
 
         QStringList names;
@@ -82,36 +82,36 @@ private:
     {
     public:
         explicit ColumnItem(KReportDesignerSectionDetailGroup *g);
-        QVariant data( int role = Qt::DisplayRole ) const;
-        void setData( const QVariant &value, int role = Qt::EditRole );
+        QVariant data(int role = Qt::DisplayRole) const;
+        void setData(const QVariant &value, int role = Qt::EditRole);
     };
     class SortItem : public Item
     {
     public:
         explicit SortItem(KReportDesignerSectionDetailGroup *g);
-        QVariant data( int role = Qt::DisplayRole ) const;
-        void setData( const QVariant &value, int role = Qt::EditRole );
+        QVariant data(int role = Qt::DisplayRole) const;
+        void setData(const QVariant &value, int role = Qt::EditRole);
     };
     class HeaderItem : public Item
     {
     public:
         explicit HeaderItem(KReportDesignerSectionDetailGroup *g);
-        QVariant data( int role = Qt::DisplayRole ) const;
-        void setData( const QVariant &value, int role = Qt::EditRole );
+        QVariant data(int role = Qt::DisplayRole) const;
+        void setData(const QVariant &value, int role = Qt::EditRole);
     };
     class FooterItem : public Item
     {
     public:
         explicit FooterItem(KReportDesignerSectionDetailGroup *g);
-        QVariant data( int role = Qt::DisplayRole ) const;
-        void setData( const QVariant &value, int role = Qt::EditRole );
+        QVariant data(int role = Qt::DisplayRole) const;
+        void setData(const QVariant &value, int role = Qt::EditRole);
     };
     class PageBreakItem : public Item
     {
     public:
         explicit PageBreakItem(KReportDesignerSectionDetailGroup *g);
-        QVariant data( int role = Qt::DisplayRole ) const;
-        void setData( const QVariant &value, int role = Qt::EditRole );
+        QVariant data(int role = Qt::DisplayRole) const;
+        void setData(const QVariant &value, int role = Qt::EditRole);
     };
 };
 

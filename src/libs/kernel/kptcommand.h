@@ -63,8 +63,8 @@ class StandardWorktime;
 class PLANKERNEL_EXPORT NamedCommand : public KUndo2Command
 {
 public:
-    explicit NamedCommand( const KUndo2MagicString& name )
-        : KUndo2Command( name )
+    explicit NamedCommand(const KUndo2MagicString& name)
+        : KUndo2Command(name)
     {}
     void redo() override { execute(); }
     void undo() override { unexecute(); }
@@ -76,9 +76,9 @@ protected:
     /// Set all scheduled in the m_schedules map to their original scheduled state
     void setSchScheduled();
     /// Set all schedules in the m_schedules map to scheduled state @p state
-    void setSchScheduled( bool state );
+    void setSchScheduled(bool state);
     /// Add a schedule to the m_schedules map along with its current scheduled state
-    void addSchScheduled( Schedule *sch );
+    void addSchScheduled(Schedule *sch);
 
     QHash<Schedule*, bool> m_schedules;
 
@@ -87,12 +87,12 @@ protected:
 class PLANKERNEL_EXPORT MacroCommand : public KUndo2Command
 {
 public:
-    explicit MacroCommand( const KUndo2MagicString& name = KUndo2MagicString() )
-        : KUndo2Command( name )
+    explicit MacroCommand(const KUndo2MagicString& name = KUndo2MagicString())
+        : KUndo2Command(name)
     {}
     ~MacroCommand() override;
 
-    void addCommand( KUndo2Command *cmd );
+    void addCommand(KUndo2Command *cmd);
 
     void redo() override { execute(); }
     void undo() override { unexecute(); }
@@ -110,7 +110,7 @@ protected:
 class PLANKERNEL_EXPORT CalendarAddCmd : public NamedCommand
 {
 public:
-    CalendarAddCmd( Project *project, Calendar *cal, int pos, Calendar *parent, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarAddCmd(Project *project, Calendar *cal, int pos, Calendar *parent, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarAddCmd() override;
     void execute() override;
     void unexecute() override;
@@ -126,7 +126,7 @@ private:
 class PLANKERNEL_EXPORT CalendarRemoveCmd : public NamedCommand
 {
 public:
-    CalendarRemoveCmd( Project *project, Calendar *cal, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarRemoveCmd(Project *project, Calendar *cal, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarRemoveCmd() override;
     void execute() override;
     void unexecute() override;
@@ -143,7 +143,7 @@ private:
 class PLANKERNEL_EXPORT CalendarMoveCmd : public NamedCommand
 {
 public:
-    CalendarMoveCmd( Project *project, Calendar *cal, int position, Calendar *parent, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarMoveCmd(Project *project, Calendar *cal, int position, Calendar *parent, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -159,7 +159,7 @@ private:
 class PLANKERNEL_EXPORT CalendarModifyNameCmd : public NamedCommand
 {
 public:
-    CalendarModifyNameCmd( Calendar *cal, const QString& newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarModifyNameCmd(Calendar *cal, const QString& newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -172,7 +172,7 @@ private:
 class PLANKERNEL_EXPORT CalendarModifyParentCmd : public NamedCommand
 {
 public:
-    CalendarModifyParentCmd( Project *project, Calendar *cal, Calendar *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarModifyParentCmd(Project *project, Calendar *cal, Calendar *newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarModifyParentCmd() override;
     void execute() override;
     void unexecute() override;
@@ -191,7 +191,7 @@ private:
 class PLANKERNEL_EXPORT CalendarModifyTimeZoneCmd : public NamedCommand
 {
 public:
-    CalendarModifyTimeZoneCmd( Calendar *cal, const QTimeZone &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarModifyTimeZoneCmd(Calendar *cal, const QTimeZone &value, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarModifyTimeZoneCmd() override;
     void execute() override;
     void unexecute() override;
@@ -207,7 +207,7 @@ private:
 class PLANKERNEL_EXPORT CalendarModifyHolidayRegionCmd : public NamedCommand
 {
 public:
-    CalendarModifyHolidayRegionCmd( Calendar *cal, const QString &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarModifyHolidayRegionCmd(Calendar *cal, const QString &value, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarModifyHolidayRegionCmd() override;
     void execute() override;
     void unexecute() override;
@@ -222,7 +222,7 @@ private:
 class PLANKERNEL_EXPORT CalendarAddDayCmd : public NamedCommand
 {
 public:
-    CalendarAddDayCmd( Calendar *cal, CalendarDay *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarAddDayCmd(Calendar *cal, CalendarDay *newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarAddDayCmd() override;
     void execute() override;
     void unexecute() override;
@@ -236,8 +236,8 @@ protected:
 class PLANKERNEL_EXPORT CalendarRemoveDayCmd : public NamedCommand
 {
 public:
-    CalendarRemoveDayCmd( Calendar *cal, CalendarDay *day, const KUndo2MagicString& name = KUndo2MagicString() );
-    CalendarRemoveDayCmd( Calendar *cal, const QDate &day, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarRemoveDayCmd(Calendar *cal, CalendarDay *day, const KUndo2MagicString& name = KUndo2MagicString());
+    CalendarRemoveDayCmd(Calendar *cal, const QDate &day, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -253,7 +253,7 @@ private:
 class PLANKERNEL_EXPORT CalendarModifyDayCmd : public NamedCommand
 {
 public:
-    CalendarModifyDayCmd( Calendar *cal, CalendarDay *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarModifyDayCmd(Calendar *cal, CalendarDay *value, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarModifyDayCmd() override;
     void execute() override;
     void unexecute() override;
@@ -268,7 +268,7 @@ private:
 class PLANKERNEL_EXPORT CalendarModifyStateCmd : public NamedCommand
 {
 public:
-    CalendarModifyStateCmd( Calendar *calendar, CalendarDay *day, CalendarDay::State value, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarModifyStateCmd(Calendar *calendar, CalendarDay *day, CalendarDay::State value, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarModifyStateCmd() override;
     void execute() override;
     void unexecute() override;
@@ -284,7 +284,7 @@ private:
 class PLANKERNEL_EXPORT CalendarModifyTimeIntervalCmd : public NamedCommand
 {
 public:
-    CalendarModifyTimeIntervalCmd( Calendar *calendar, TimeInterval &newvalue, TimeInterval *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarModifyTimeIntervalCmd(Calendar *calendar, TimeInterval &newvalue, TimeInterval *value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -298,7 +298,7 @@ private:
 class PLANKERNEL_EXPORT CalendarAddTimeIntervalCmd : public NamedCommand
 {
 public:
-    CalendarAddTimeIntervalCmd( Calendar *calendar, CalendarDay *day, TimeInterval *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarAddTimeIntervalCmd(Calendar *calendar, CalendarDay *day, TimeInterval *value, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarAddTimeIntervalCmd() override;
     void execute() override;
     void unexecute() override;
@@ -313,7 +313,7 @@ protected:
 class PLANKERNEL_EXPORT CalendarRemoveTimeIntervalCmd : public CalendarAddTimeIntervalCmd
 {
 public:
-    CalendarRemoveTimeIntervalCmd( Calendar *calendar, CalendarDay *day, TimeInterval *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarRemoveTimeIntervalCmd(Calendar *calendar, CalendarDay *day, TimeInterval *value, const KUndo2MagicString& name = KUndo2MagicString());
 
     void execute() override;
     void unexecute() override;
@@ -322,7 +322,7 @@ public:
 class PLANKERNEL_EXPORT CalendarModifyWeekdayCmd : public NamedCommand
 {
 public:
-    CalendarModifyWeekdayCmd( Calendar *cal, int weekday, CalendarDay *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarModifyWeekdayCmd(Calendar *cal, int weekday, CalendarDay *value, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalendarModifyWeekdayCmd() override;
     void execute() override;
     void unexecute() override;
@@ -337,7 +337,7 @@ private:
 class PLANKERNEL_EXPORT CalendarModifyDateCmd : public NamedCommand
 {
 public:
-    CalendarModifyDateCmd( Calendar *cal, CalendarDay *day, const QDate &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalendarModifyDateCmd(Calendar *cal, CalendarDay *day, const QDate &value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -350,7 +350,7 @@ private:
 class PLANKERNEL_EXPORT ProjectModifyDefaultCalendarCmd : public NamedCommand
 {
 public:
-    ProjectModifyDefaultCalendarCmd( Project *project, Calendar *cal, const KUndo2MagicString& name = KUndo2MagicString() );
+    ProjectModifyDefaultCalendarCmd(Project *project, Calendar *cal, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -363,7 +363,7 @@ private:
 class PLANKERNEL_EXPORT NodeDeleteCmd : public NamedCommand
 {
 public:
-    explicit NodeDeleteCmd( Node *node, const KUndo2MagicString& name = KUndo2MagicString() );
+    explicit NodeDeleteCmd(Node *node, const KUndo2MagicString& name = KUndo2MagicString());
     ~NodeDeleteCmd() override;
     void execute() override;
     void unexecute() override;
@@ -382,7 +382,7 @@ private:
 class PLANKERNEL_EXPORT TaskAddCmd : public NamedCommand
 {
 public:
-    TaskAddCmd( Project *project, Node *node, Node *after, const KUndo2MagicString& name = KUndo2MagicString() );
+    TaskAddCmd(Project *project, Node *node, Node *after, const KUndo2MagicString& name = KUndo2MagicString());
     ~TaskAddCmd() override;
     void execute() override;
     void unexecute() override;
@@ -397,7 +397,7 @@ private:
 class PLANKERNEL_EXPORT SubtaskAddCmd : public NamedCommand
 {
 public:
-    SubtaskAddCmd( Project *project, Node *node, Node *parent, const KUndo2MagicString& name = KUndo2MagicString() );
+    SubtaskAddCmd(Project *project, Node *node, Node *parent, const KUndo2MagicString& name = KUndo2MagicString());
     ~SubtaskAddCmd() override;
     void execute() override;
     void unexecute() override;
@@ -414,7 +414,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyNameCmd : public NamedCommand
 {
 public:
-    NodeModifyNameCmd( Node &node, const QString& nodename, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyNameCmd(Node &node, const QString& nodename, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -427,7 +427,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyPriorityCmd : public NamedCommand
 {
 public:
-    NodeModifyPriorityCmd(Node &node, int oldValue, int newValue, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyPriorityCmd(Node &node, int oldValue, int newValue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -440,7 +440,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyLeaderCmd : public NamedCommand
 {
 public:
-    NodeModifyLeaderCmd( Node &node, const QString& leader, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyLeaderCmd(Node &node, const QString& leader, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -453,7 +453,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyDescriptionCmd : public NamedCommand
 {
 public:
-    NodeModifyDescriptionCmd( Node &node, const QString& description, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyDescriptionCmd(Node &node, const QString& description, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -466,7 +466,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyConstraintCmd : public NamedCommand
 {
 public:
-    NodeModifyConstraintCmd( Node &node, Node::ConstraintType c, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyConstraintCmd(Node &node, Node::ConstraintType c, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -480,7 +480,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyConstraintStartTimeCmd : public NamedCommand
 {
 public:
-    NodeModifyConstraintStartTimeCmd( Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyConstraintStartTimeCmd(Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -493,7 +493,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyConstraintEndTimeCmd : public NamedCommand
 {
 public:
-    NodeModifyConstraintEndTimeCmd( Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyConstraintEndTimeCmd(Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -506,7 +506,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyStartTimeCmd : public NamedCommand
 {
 public:
-    NodeModifyStartTimeCmd( Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyStartTimeCmd(Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -519,7 +519,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyEndTimeCmd : public NamedCommand
 {
 public:
-    NodeModifyEndTimeCmd( Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyEndTimeCmd(Node &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -532,7 +532,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyIdCmd : public NamedCommand
 {
 public:
-    NodeModifyIdCmd( Node &node, const QString& id, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyIdCmd(Node &node, const QString& id, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -545,7 +545,7 @@ private:
 class PLANKERNEL_EXPORT NodeIndentCmd : public NamedCommand
 {
 public:
-    explicit NodeIndentCmd( Node &node, const KUndo2MagicString& name = KUndo2MagicString() );
+    explicit NodeIndentCmd(Node &node, const KUndo2MagicString& name = KUndo2MagicString());
     ~NodeIndentCmd() override;
     void execute() override;
     void unexecute() override;
@@ -560,7 +560,7 @@ private:
 class PLANKERNEL_EXPORT NodeUnindentCmd : public NamedCommand
 {
 public:
-    explicit NodeUnindentCmd( Node &node, const KUndo2MagicString& name = KUndo2MagicString() );
+    explicit NodeUnindentCmd(Node &node, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -573,7 +573,7 @@ private:
 class PLANKERNEL_EXPORT NodeMoveUpCmd : public NamedCommand
 {
 public:
-    explicit NodeMoveUpCmd( Node &node, const KUndo2MagicString& name = KUndo2MagicString() );
+    explicit NodeMoveUpCmd(Node &node, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -586,7 +586,7 @@ private:
 class PLANKERNEL_EXPORT NodeMoveDownCmd : public NamedCommand
 {
 public:
-    explicit NodeMoveDownCmd( Node &node, const KUndo2MagicString& name = KUndo2MagicString() );
+    explicit NodeMoveDownCmd(Node &node, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -599,7 +599,7 @@ private:
 class PLANKERNEL_EXPORT NodeMoveCmd : public NamedCommand
 {
 public:
-    NodeMoveCmd( Project *project, Node *node, Node *newParent, int newPos, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeMoveCmd(Project *project, Node *node, Node *newParent, int newPos, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -617,7 +617,7 @@ private:
 class PLANKERNEL_EXPORT AddRelationCmd : public NamedCommand
 {
 public:
-    AddRelationCmd( Project &project, Relation *rel, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddRelationCmd(Project &project, Relation *rel, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddRelationCmd() override;
     void execute() override;
     void unexecute() override;
@@ -632,7 +632,7 @@ private:
 class PLANKERNEL_EXPORT DeleteRelationCmd : public NamedCommand
 {
 public:
-    DeleteRelationCmd( Project &project, Relation *rel, const KUndo2MagicString& name = KUndo2MagicString() );
+    DeleteRelationCmd(Project &project, Relation *rel, const KUndo2MagicString& name = KUndo2MagicString());
     ~DeleteRelationCmd() override;
     void execute() override;
     void unexecute() override;
@@ -647,7 +647,7 @@ private:
 class PLANKERNEL_EXPORT ModifyRelationTypeCmd : public NamedCommand
 {
 public:
-    ModifyRelationTypeCmd( Relation *rel, Relation::Type type, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyRelationTypeCmd(Relation *rel, Relation::Type type, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -662,7 +662,7 @@ private:
 class PLANKERNEL_EXPORT ModifyRelationLagCmd : public NamedCommand
 {
 public:
-    ModifyRelationLagCmd( Relation *rel, Duration lag, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyRelationLagCmd(Relation *rel, Duration lag, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -677,7 +677,7 @@ private:
 class PLANKERNEL_EXPORT AddResourceRequestCmd : public NamedCommand
 {
 public:
-    AddResourceRequestCmd( ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddResourceRequestCmd(ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddResourceRequestCmd() override;
     void execute() override;
     void unexecute() override;
@@ -692,7 +692,7 @@ private:
 class PLANKERNEL_EXPORT RemoveResourceRequestCmd : public NamedCommand
 {
 public:
-    RemoveResourceRequestCmd( ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString() );
+    RemoveResourceRequestCmd(ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
     ~RemoveResourceRequestCmd() override;
     void execute() override;
     void unexecute() override;
@@ -707,7 +707,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceRequestUnitsCmd : public NamedCommand
 {
 public:
-    ModifyResourceRequestUnitsCmd( ResourceRequest *request, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceRequestUnitsCmd(ResourceRequest *request, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -720,7 +720,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceRequestRequiredCmd : public NamedCommand
 {
 public:
-    ModifyResourceRequestRequiredCmd( ResourceRequest *request, const QList<Resource*> &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceRequestRequiredCmd(ResourceRequest *request, const QList<Resource*> &value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -733,7 +733,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceGroupRequestUnitsCmd : public NamedCommand
 {
 public:
-    ModifyResourceGroupRequestUnitsCmd( ResourceGroupRequest *request, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceGroupRequestUnitsCmd(ResourceGroupRequest *request, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -746,7 +746,7 @@ private:
 class PLANKERNEL_EXPORT ModifyEstimateCmd : public NamedCommand
 {
 public:
-    ModifyEstimateCmd( Node &node, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyEstimateCmd(Node &node, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     ~ModifyEstimateCmd() override;
     void execute() override;
     void unexecute() override;
@@ -762,7 +762,7 @@ private:
 class PLANKERNEL_EXPORT EstimateModifyOptimisticRatioCmd : public NamedCommand
 {
 public:
-    EstimateModifyOptimisticRatioCmd( Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    EstimateModifyOptimisticRatioCmd(Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -775,7 +775,7 @@ private:
 class PLANKERNEL_EXPORT EstimateModifyPessimisticRatioCmd : public NamedCommand
 {
 public:
-    EstimateModifyPessimisticRatioCmd( Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    EstimateModifyPessimisticRatioCmd(Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -788,7 +788,7 @@ private:
 class PLANKERNEL_EXPORT ModifyEstimateTypeCmd : public NamedCommand
 {
 public:
-    ModifyEstimateTypeCmd( Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyEstimateTypeCmd(Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -801,7 +801,7 @@ private:
 class PLANKERNEL_EXPORT ModifyEstimateUnitCmd : public NamedCommand
 {
 public:
-    ModifyEstimateUnitCmd( Node &node, Duration::Unit oldvalue, Duration::Unit newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyEstimateUnitCmd(Node &node, Duration::Unit oldvalue, Duration::Unit newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -813,7 +813,7 @@ private:
 class PLANKERNEL_EXPORT EstimateModifyRiskCmd : public NamedCommand
 {
 public:
-    EstimateModifyRiskCmd( Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    EstimateModifyRiskCmd(Node &node, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -826,7 +826,7 @@ private:
 class PLANKERNEL_EXPORT ModifyEstimateCalendarCmd : public NamedCommand
 {
 public:
-    ModifyEstimateCalendarCmd( Node &node, Calendar *oldvalue, Calendar *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyEstimateCalendarCmd(Node &node, Calendar *oldvalue, Calendar *newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -840,7 +840,7 @@ private:
 class PLANKERNEL_EXPORT AddResourceGroupRequestCmd : public NamedCommand
 {
 public:
-    AddResourceGroupRequestCmd( Task &task, ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddResourceGroupRequestCmd(Task &task, ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -853,8 +853,8 @@ private:
 class PLANKERNEL_EXPORT RemoveResourceGroupRequestCmd : public NamedCommand
 {
 public:
-    explicit RemoveResourceGroupRequestCmd( ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString() );
-    RemoveResourceGroupRequestCmd( Task &task, ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString() );
+    explicit RemoveResourceGroupRequestCmd(ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
+    RemoveResourceGroupRequestCmd(Task &task, ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -867,7 +867,7 @@ private:
 class PLANKERNEL_EXPORT AddResourceCmd : public NamedCommand
 {
 public:
-    AddResourceCmd( ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddResourceCmd(ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddResourceCmd() override;
     void execute() override;
     void unexecute() override;
@@ -883,7 +883,7 @@ protected:
 class PLANKERNEL_EXPORT RemoveResourceCmd : public AddResourceCmd
 {
 public:
-    RemoveResourceCmd( ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString() );
+    RemoveResourceCmd(ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString());
     ~RemoveResourceCmd() override;
     void execute() override;
     void unexecute() override;
@@ -897,7 +897,7 @@ private:
 class PLANKERNEL_EXPORT MoveResourceCmd : public NamedCommand
 {
 public:
-    MoveResourceCmd( ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString() );
+    MoveResourceCmd(ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -911,7 +911,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceNameCmd : public NamedCommand
 {
 public:
-    ModifyResourceNameCmd( Resource *resource, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceNameCmd(Resource *resource, const QString& value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -924,7 +924,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceInitialsCmd : public NamedCommand
 {
 public:
-    ModifyResourceInitialsCmd( Resource *resource, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceInitialsCmd(Resource *resource, const QString& value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -936,7 +936,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceEmailCmd : public NamedCommand
 {
 public:
-    ModifyResourceEmailCmd( Resource *resource, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceEmailCmd(Resource *resource, const QString& value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -948,7 +948,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceAutoAllocateCmd : public NamedCommand
 {
 public:
-    ModifyResourceAutoAllocateCmd( Resource *resource, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceAutoAllocateCmd(Resource *resource, bool value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -960,7 +960,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceTypeCmd : public NamedCommand
 {
 public:
-    ModifyResourceTypeCmd( Resource *resource, int value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceTypeCmd(Resource *resource, int value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -973,7 +973,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceUnitsCmd : public NamedCommand
 {
 public:
-    ModifyResourceUnitsCmd( Resource *resource, int value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceUnitsCmd(Resource *resource, int value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -986,7 +986,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceAvailableFromCmd : public NamedCommand
 {
 public:
-    ModifyResourceAvailableFromCmd( Resource *resource, const QDateTime& value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceAvailableFromCmd(Resource *resource, const QDateTime& value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -999,7 +999,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceAvailableUntilCmd : public NamedCommand
 {
 public:
-    ModifyResourceAvailableUntilCmd( Resource *resource, const QDateTime& value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceAvailableUntilCmd(Resource *resource, const QDateTime& value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1013,7 +1013,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceNormalRateCmd : public NamedCommand
 {
 public:
-    ModifyResourceNormalRateCmd( Resource *resource, double value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceNormalRateCmd(Resource *resource, double value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1025,7 +1025,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceOvertimeRateCmd : public NamedCommand
 {
 public:
-    ModifyResourceOvertimeRateCmd( Resource *resource, double value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceOvertimeRateCmd(Resource *resource, double value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1037,7 +1037,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceCalendarCmd : public NamedCommand
 {
 public:
-    ModifyResourceCalendarCmd( Resource *resource, Calendar *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceCalendarCmd(Resource *resource, Calendar *value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1049,7 +1049,7 @@ private:
 class PLANKERNEL_EXPORT ModifyRequiredResourcesCmd : public NamedCommand
 {
 public:
-    ModifyRequiredResourcesCmd( Resource *resource, const QStringList &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyRequiredResourcesCmd(Resource *resource, const QStringList &value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1061,7 +1061,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceAccountCmd : public NamedCommand
 {
 public:
-    ModifyResourceAccountCmd( Resource *resource, Account *account, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceAccountCmd(Resource *resource, Account *account, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1073,7 +1073,7 @@ private:
 class PLANKERNEL_EXPORT AddResourceTeamCmd : public NamedCommand
 {
 public:
-    AddResourceTeamCmd( Resource *team, const QString &member, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddResourceTeamCmd(Resource *team, const QString &member, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1084,7 +1084,7 @@ private:
 class PLANKERNEL_EXPORT RemoveResourceTeamCmd : public NamedCommand
 {
 public:
-    RemoveResourceTeamCmd( Resource *team, const QString &member, const KUndo2MagicString& name = KUndo2MagicString() );
+    RemoveResourceTeamCmd(Resource *team, const QString &member, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1096,7 +1096,7 @@ private:
 class PLANKERNEL_EXPORT RemoveResourceGroupCmd : public NamedCommand
 {
 public:
-    RemoveResourceGroupCmd( Project *project, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString() );
+    RemoveResourceGroupCmd(Project *project, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString());
     ~RemoveResourceGroupCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1113,7 +1113,7 @@ protected:
 class PLANKERNEL_EXPORT AddResourceGroupCmd : public RemoveResourceGroupCmd
 {
 public:
-    AddResourceGroupCmd( Project *project, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddResourceGroupCmd(Project *project, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 };
@@ -1121,7 +1121,7 @@ public:
 class PLANKERNEL_EXPORT ModifyResourceGroupNameCmd : public NamedCommand
 {
 public:
-    ModifyResourceGroupNameCmd( ResourceGroup *group, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyResourceGroupNameCmd(ResourceGroup *group, const QString& value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1134,7 +1134,7 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceGroupTypeCmd : public NamedCommand
 {
     public:
-        ModifyResourceGroupTypeCmd( ResourceGroup *group, int value, const KUndo2MagicString& name = KUndo2MagicString() );
+        ModifyResourceGroupTypeCmd(ResourceGroup *group, int value, const KUndo2MagicString& name = KUndo2MagicString());
         void execute() override;
         void unexecute() override;
 
@@ -1147,7 +1147,7 @@ class PLANKERNEL_EXPORT ModifyResourceGroupTypeCmd : public NamedCommand
 class PLANKERNEL_EXPORT ModifyCompletionEntrymodeCmd : public NamedCommand
 {
 public:
-    ModifyCompletionEntrymodeCmd( Completion &completion, Completion::Entrymode value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyCompletionEntrymodeCmd(Completion &completion, Completion::Entrymode value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1160,7 +1160,7 @@ private:
 class PLANKERNEL_EXPORT ModifyCompletionStartedCmd : public NamedCommand
 {
 public:
-    ModifyCompletionStartedCmd( Completion &completion, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyCompletionStartedCmd(Completion &completion, bool value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1173,7 +1173,7 @@ private:
 class PLANKERNEL_EXPORT ModifyCompletionFinishedCmd : public NamedCommand
 {
 public:
-    ModifyCompletionFinishedCmd( Completion &completion, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyCompletionFinishedCmd(Completion &completion, bool value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1186,7 +1186,7 @@ private:
 class PLANKERNEL_EXPORT ModifyCompletionStartTimeCmd : public NamedCommand
 {
 public:
-    ModifyCompletionStartTimeCmd( Completion &completion, const QDateTime &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyCompletionStartTimeCmd(Completion &completion, const QDateTime &value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1200,7 +1200,7 @@ private:
 class PLANKERNEL_EXPORT ModifyCompletionFinishTimeCmd : public NamedCommand
 {
 public:
-    ModifyCompletionFinishTimeCmd( Completion &completion, const QDateTime &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyCompletionFinishTimeCmd(Completion &completion, const QDateTime &value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1214,7 +1214,7 @@ private:
 class PLANKERNEL_EXPORT AddCompletionEntryCmd : public NamedCommand
 {
 public:
-    AddCompletionEntryCmd( Completion &completion, const QDate &date, Completion::Entry *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddCompletionEntryCmd(Completion &completion, const QDate &date, Completion::Entry *value, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddCompletionEntryCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1229,7 +1229,7 @@ private:
 class PLANKERNEL_EXPORT RemoveCompletionEntryCmd : public NamedCommand
 {
 public:
-    RemoveCompletionEntryCmd( Completion &completion, const QDate& date, const KUndo2MagicString& name = KUndo2MagicString() );
+    RemoveCompletionEntryCmd(Completion &completion, const QDate& date, const KUndo2MagicString& name = KUndo2MagicString());
     ~RemoveCompletionEntryCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1244,7 +1244,7 @@ private:
 class PLANKERNEL_EXPORT ModifyCompletionEntryCmd : public NamedCommand
 {
 public:
-    ModifyCompletionEntryCmd( Completion &completion, const QDate &date, Completion::Entry *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyCompletionEntryCmd(Completion &completion, const QDate &date, Completion::Entry *value, const KUndo2MagicString& name = KUndo2MagicString());
     ~ModifyCompletionEntryCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1256,7 +1256,7 @@ private:
 class PLANKERNEL_EXPORT ModifyCompletionPercentFinishedCmd : public NamedCommand
 {
 public:
-    ModifyCompletionPercentFinishedCmd( Completion &completion, const QDate &date, int value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyCompletionPercentFinishedCmd(Completion &completion, const QDate &date, int value, const KUndo2MagicString& name = KUndo2MagicString());
 
     void execute() override;
     void unexecute() override;
@@ -1271,7 +1271,7 @@ private:
 class PLANKERNEL_EXPORT ModifyCompletionRemainingEffortCmd : public NamedCommand
 {
 public:
-    ModifyCompletionRemainingEffortCmd( Completion &completion, const QDate &date, const Duration &value, const KUndo2MagicString &name = KUndo2MagicString() );
+    ModifyCompletionRemainingEffortCmd(Completion &completion, const QDate &date, const Duration &value, const KUndo2MagicString &name = KUndo2MagicString());
 
     void execute() override;
     void unexecute() override;
@@ -1286,7 +1286,7 @@ private:
 class PLANKERNEL_EXPORT ModifyCompletionActualEffortCmd : public NamedCommand
 {
 public:
-    ModifyCompletionActualEffortCmd( Completion &completion, const QDate &date, const Duration &value, const KUndo2MagicString &name = KUndo2MagicString() );
+    ModifyCompletionActualEffortCmd(Completion &completion, const QDate &date, const Duration &value, const KUndo2MagicString &name = KUndo2MagicString());
 
     void execute() override;
     void unexecute() override;
@@ -1306,7 +1306,7 @@ private:
 class PLANKERNEL_EXPORT AddCompletionUsedEffortCmd : public NamedCommand
 {
 public:
-    AddCompletionUsedEffortCmd( Completion &completion, const Resource *resource, Completion::UsedEffort *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddCompletionUsedEffortCmd(Completion &completion, const Resource *resource, Completion::UsedEffort *value, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddCompletionUsedEffortCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1322,7 +1322,7 @@ private:
 class PLANKERNEL_EXPORT AddCompletionActualEffortCmd : public NamedCommand
 {
 public:
-    AddCompletionActualEffortCmd( Completion::UsedEffort &ue, const QDate &date, const Completion::UsedEffort::ActualEffort &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddCompletionActualEffortCmd(Completion::UsedEffort &ue, const QDate &date, const Completion::UsedEffort::ActualEffort &value, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddCompletionActualEffortCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1338,8 +1338,8 @@ private:
 class PLANKERNEL_EXPORT AddAccountCmd : public NamedCommand
 {
 public:
-    AddAccountCmd( Project &project, Account *account, Account *parent = 0, int index = -1, const KUndo2MagicString& name = KUndo2MagicString() );
-    AddAccountCmd( Project &project, Account *account, const QString& parent, int index = -1, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddAccountCmd(Project &project, Account *account, Account *parent = 0, int index = -1, const KUndo2MagicString& name = KUndo2MagicString());
+    AddAccountCmd(Project &project, Account *account, const QString& parent, int index = -1, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddAccountCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1358,7 +1358,7 @@ private:
 class PLANKERNEL_EXPORT RemoveAccountCmd : public NamedCommand
 {
 public:
-    RemoveAccountCmd( Project &project, Account *account, const KUndo2MagicString& name = KUndo2MagicString() );
+    RemoveAccountCmd(Project &project, Account *account, const KUndo2MagicString& name = KUndo2MagicString());
     ~RemoveAccountCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1376,7 +1376,7 @@ private:
 class PLANKERNEL_EXPORT RenameAccountCmd : public NamedCommand
 {
 public:
-    RenameAccountCmd( Account *account, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
+    RenameAccountCmd(Account *account, const QString& value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1389,7 +1389,7 @@ private:
 class PLANKERNEL_EXPORT ModifyAccountDescriptionCmd : public NamedCommand
 {
 public:
-    ModifyAccountDescriptionCmd( Account *account, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyAccountDescriptionCmd(Account *account, const QString& value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1402,7 +1402,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyStartupCostCmd : public NamedCommand
 {
 public:
-    NodeModifyStartupCostCmd( Node &node, double value, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyStartupCostCmd(Node &node, double value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1415,7 +1415,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyShutdownCostCmd : public NamedCommand
 {
 public:
-    NodeModifyShutdownCostCmd( Node &node, double value, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyShutdownCostCmd(Node &node, double value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1428,7 +1428,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyRunningAccountCmd : public NamedCommand
 {
 public:
-    NodeModifyRunningAccountCmd( Node &node, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyRunningAccountCmd(Node &node, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1441,7 +1441,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyStartupAccountCmd : public NamedCommand
 {
 public:
-    NodeModifyStartupAccountCmd( Node &node, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyStartupAccountCmd(Node &node, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1454,7 +1454,7 @@ private:
 class PLANKERNEL_EXPORT NodeModifyShutdownAccountCmd : public NamedCommand
 {
 public:
-    NodeModifyShutdownAccountCmd( Node &node, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    NodeModifyShutdownAccountCmd(Node &node, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1467,7 +1467,7 @@ private:
 class PLANKERNEL_EXPORT ModifyDefaultAccountCmd : public NamedCommand
 {
 public:
-    ModifyDefaultAccountCmd( Accounts &acc, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyDefaultAccountCmd(Accounts &acc, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1480,7 +1480,7 @@ private:
 class PLANKERNEL_EXPORT ResourceModifyAccountCmd : public NamedCommand
 {
 public:
-    ResourceModifyAccountCmd( Resource &resource, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ResourceModifyAccountCmd(Resource &resource, Account *oldvalue, Account *newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1493,7 +1493,7 @@ private:
 class PLANKERNEL_EXPORT ProjectModifyConstraintCmd : public NamedCommand
 {
 public:
-    ProjectModifyConstraintCmd( Project &node, Node::ConstraintType c, const KUndo2MagicString& name = KUndo2MagicString() );
+    ProjectModifyConstraintCmd(Project &node, Node::ConstraintType c, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1507,7 +1507,7 @@ private:
 class PLANKERNEL_EXPORT ProjectModifyStartTimeCmd : public NamedCommand
 {
 public:
-    ProjectModifyStartTimeCmd( Project &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
+    ProjectModifyStartTimeCmd(Project &node, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1521,7 +1521,7 @@ private:
 class PLANKERNEL_EXPORT ProjectModifyEndTimeCmd : public NamedCommand
 {
 public:
-    ProjectModifyEndTimeCmd( Project &project, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString() );
+    ProjectModifyEndTimeCmd(Project &project, const QDateTime& dt, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1535,7 +1535,7 @@ private:
 class PLANKERNEL_EXPORT ProjectModifyWorkPackageInfoCmd : public NamedCommand
 {
 public:
-    ProjectModifyWorkPackageInfoCmd( Project &project, const Project::WorkPackageInfo &wpi, const KUndo2MagicString& name = KUndo2MagicString() );
+    ProjectModifyWorkPackageInfoCmd(Project &project, const Project::WorkPackageInfo &wpi, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1548,7 +1548,7 @@ private:
 class PLANKERNEL_EXPORT SwapScheduleManagerCmd : public NamedCommand
 {
 public:
-    SwapScheduleManagerCmd( Project &project, ScheduleManager *from, ScheduleManager *to, const KUndo2MagicString& name = KUndo2MagicString() );
+    SwapScheduleManagerCmd(Project &project, ScheduleManager *from, ScheduleManager *to, const KUndo2MagicString& name = KUndo2MagicString());
     ~SwapScheduleManagerCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1562,8 +1562,8 @@ protected:
 class PLANKERNEL_EXPORT AddScheduleManagerCmd : public NamedCommand
 {
 public:
-    AddScheduleManagerCmd( Project &project, ScheduleManager *sm, int index = -1, const KUndo2MagicString& name = KUndo2MagicString() );
-    AddScheduleManagerCmd( ScheduleManager *parent, ScheduleManager *sm, int index = -1, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddScheduleManagerCmd(Project &project, ScheduleManager *sm, int index = -1, const KUndo2MagicString& name = KUndo2MagicString());
+    AddScheduleManagerCmd(ScheduleManager *parent, ScheduleManager *sm, int index = -1, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddScheduleManagerCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1581,7 +1581,7 @@ protected:
 class PLANKERNEL_EXPORT DeleteScheduleManagerCmd : public AddScheduleManagerCmd
 {
 public:
-    DeleteScheduleManagerCmd( Project &project, ScheduleManager *sm, const KUndo2MagicString& name = KUndo2MagicString() );
+    DeleteScheduleManagerCmd(Project &project, ScheduleManager *sm, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1592,7 +1592,7 @@ private:
 class PLANKERNEL_EXPORT MoveScheduleManagerCmd : public NamedCommand
 {
 public:
-    MoveScheduleManagerCmd( ScheduleManager *sm, ScheduleManager *newparent, int newindex, const KUndo2MagicString& name = KUndo2MagicString() );
+    MoveScheduleManagerCmd(ScheduleManager *sm, ScheduleManager *newparent, int newindex, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1608,7 +1608,7 @@ private:
 class PLANKERNEL_EXPORT ModifyScheduleManagerNameCmd : public NamedCommand
 {
 public:
-    ModifyScheduleManagerNameCmd( ScheduleManager &sm, const QString& value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyScheduleManagerNameCmd(ScheduleManager &sm, const QString& value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1620,7 +1620,7 @@ private:
 class PLANKERNEL_EXPORT ModifyScheduleManagerSchedulingModeCmd : public NamedCommand
 {
 public:
-    ModifyScheduleManagerSchedulingModeCmd( ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyScheduleManagerSchedulingModeCmd(ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1633,7 +1633,7 @@ private:
 class PLANKERNEL_EXPORT ModifyScheduleManagerAllowOverbookingCmd : public NamedCommand
 {
 public:
-    ModifyScheduleManagerAllowOverbookingCmd( ScheduleManager &sm, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyScheduleManagerAllowOverbookingCmd(ScheduleManager &sm, bool value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1645,7 +1645,7 @@ private:
 class PLANKERNEL_EXPORT ModifyScheduleManagerDistributionCmd : public NamedCommand
 {
 public:
-    ModifyScheduleManagerDistributionCmd( ScheduleManager &sm, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyScheduleManagerDistributionCmd(ScheduleManager &sm, bool value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1657,7 +1657,7 @@ private:
 class PLANKERNEL_EXPORT CalculateScheduleCmd : public NamedCommand
 {
 public:
-    CalculateScheduleCmd( Project &project, ScheduleManager *sm, const KUndo2MagicString& name = KUndo2MagicString() );
+    CalculateScheduleCmd(Project &project, ScheduleManager *sm, const KUndo2MagicString& name = KUndo2MagicString());
     ~CalculateScheduleCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1675,7 +1675,7 @@ private:
 class PLANKERNEL_EXPORT BaselineScheduleCmd : public NamedCommand
 {
 public:
-    explicit BaselineScheduleCmd( ScheduleManager &sm, const KUndo2MagicString& name = KUndo2MagicString() );
+    explicit BaselineScheduleCmd(ScheduleManager &sm, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1686,7 +1686,7 @@ private:
 class PLANKERNEL_EXPORT ResetBaselineScheduleCmd : public NamedCommand
 {
 public:
-    explicit ResetBaselineScheduleCmd( ScheduleManager &sm, const KUndo2MagicString& name = KUndo2MagicString() );
+    explicit ResetBaselineScheduleCmd(ScheduleManager &sm, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1697,7 +1697,7 @@ private:
 class PLANKERNEL_EXPORT ModifyScheduleManagerSchedulingDirectionCmd : public NamedCommand
 {
 public:
-    ModifyScheduleManagerSchedulingDirectionCmd( ScheduleManager &sm, bool value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyScheduleManagerSchedulingDirectionCmd(ScheduleManager &sm, bool value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1709,7 +1709,7 @@ private:
 class PLANKERNEL_EXPORT ModifyScheduleManagerSchedulerCmd : public NamedCommand
 {
 public:
-    ModifyScheduleManagerSchedulerCmd( ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyScheduleManagerSchedulerCmd(ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1721,7 +1721,7 @@ private:
 class PLANKERNEL_EXPORT ModifyScheduleManagerSchedulingGranularityCmd : public NamedCommand
 {
 public:
-    ModifyScheduleManagerSchedulingGranularityCmd( ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyScheduleManagerSchedulingGranularityCmd(ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1733,7 +1733,7 @@ private:
 class PLANKERNEL_EXPORT ModifyStandardWorktimeYearCmd : public NamedCommand
 {
 public:
-    ModifyStandardWorktimeYearCmd( StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyStandardWorktimeYearCmd(StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 private:
@@ -1745,7 +1745,7 @@ private:
 class PLANKERNEL_EXPORT ModifyStandardWorktimeMonthCmd : public NamedCommand
 {
 public:
-    ModifyStandardWorktimeMonthCmd( StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyStandardWorktimeMonthCmd(StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 private:
@@ -1757,7 +1757,7 @@ private:
 class PLANKERNEL_EXPORT ModifyStandardWorktimeWeekCmd : public NamedCommand
 {
 public:
-    ModifyStandardWorktimeWeekCmd( StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyStandardWorktimeWeekCmd(StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 private:
@@ -1769,7 +1769,7 @@ private:
 class PLANKERNEL_EXPORT ModifyStandardWorktimeDayCmd : public NamedCommand
 {
 public:
-    ModifyStandardWorktimeDayCmd( StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyStandardWorktimeDayCmd(StandardWorktime *wt, double oldvalue, double newvalue, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 private:
@@ -1781,7 +1781,7 @@ private:
 class PLANKERNEL_EXPORT DocumentAddCmd : public NamedCommand
 {
 public:
-    DocumentAddCmd( Documents& docs, Document *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    DocumentAddCmd(Documents& docs, Document *value, const KUndo2MagicString& name = KUndo2MagicString());
     ~DocumentAddCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1794,7 +1794,7 @@ private:
 class PLANKERNEL_EXPORT DocumentRemoveCmd : public NamedCommand
 {
 public:
-    DocumentRemoveCmd( Documents& docs, Document *value, const KUndo2MagicString& name = KUndo2MagicString() );
+    DocumentRemoveCmd(Documents& docs, Document *value, const KUndo2MagicString& name = KUndo2MagicString());
     ~DocumentRemoveCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1807,7 +1807,7 @@ private:
 class PLANKERNEL_EXPORT DocumentModifyUrlCmd : public NamedCommand
 {
 public:
-    DocumentModifyUrlCmd( Document *doc, const QUrl &url, const KUndo2MagicString& name = KUndo2MagicString() );
+    DocumentModifyUrlCmd(Document *doc, const QUrl &url, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 private:
@@ -1819,7 +1819,7 @@ private:
 class PLANKERNEL_EXPORT DocumentModifyNameCmd : public NamedCommand
 {
 public:
-    DocumentModifyNameCmd( Document *doc, const QString &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    DocumentModifyNameCmd(Document *doc, const QString &value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 private:
@@ -1831,7 +1831,7 @@ private:
 class PLANKERNEL_EXPORT DocumentModifyTypeCmd : public NamedCommand
 {
 public:
-    DocumentModifyTypeCmd( Document *doc, Document::Type value, const KUndo2MagicString& name = KUndo2MagicString() );
+    DocumentModifyTypeCmd(Document *doc, Document::Type value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 private:
@@ -1843,7 +1843,7 @@ private:
 class PLANKERNEL_EXPORT DocumentModifyStatusCmd : public NamedCommand
 {
 public:
-    DocumentModifyStatusCmd( Document *doc, const QString &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    DocumentModifyStatusCmd(Document *doc, const QString &value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 private:
@@ -1855,7 +1855,7 @@ private:
 class PLANKERNEL_EXPORT DocumentModifySendAsCmd : public NamedCommand
 {
     public:
-        DocumentModifySendAsCmd( Document *doc, const Document::SendAs value, const KUndo2MagicString& name = KUndo2MagicString() );
+        DocumentModifySendAsCmd(Document *doc, const Document::SendAs value, const KUndo2MagicString& name = KUndo2MagicString());
         void execute() override;
         void unexecute() override;
     private:
@@ -1867,7 +1867,7 @@ class PLANKERNEL_EXPORT DocumentModifySendAsCmd : public NamedCommand
 class PLANKERNEL_EXPORT WBSDefinitionModifyCmd : public NamedCommand
 {
 public:
-    WBSDefinitionModifyCmd( Project &project, const WBSDefinition value, const KUndo2MagicString& name = KUndo2MagicString() );
+    WBSDefinitionModifyCmd(Project &project, const WBSDefinition value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 private:
@@ -1878,15 +1878,15 @@ private:
 class PLANKERNEL_EXPORT InsertProjectCmd : public MacroCommand
 {
 public:
-    InsertProjectCmd( Project &project, Node *parent, Node *after, const KUndo2MagicString& name = KUndo2MagicString() );
+    InsertProjectCmd(Project &project, Node *parent, Node *after, const KUndo2MagicString& name = KUndo2MagicString());
 
     void execute() override;
     void unexecute() override;
 
 protected:
-    void addAccounts( Account *account, Account *parent, QList<Account*> &unused, QMap<QString, Account*> &all );
-    void addCalendars( Calendar *calendar, Calendar *parent, QList<Calendar*> &unused, QMap<QString, Calendar*> &all );
-    void addChildNodes( Node *node );
+    void addAccounts(Account *account, Account *parent, QList<Account*> &unused, QMap<QString, Account*> &all);
+    void addCalendars(Calendar *calendar, Calendar *parent, QList<Calendar*> &unused, QMap<QString, Calendar*> &all);
+    void addChildNodes(Node *node);
 
 private:
     Project *m_project;
@@ -1898,7 +1898,7 @@ private:
 class PLANKERNEL_EXPORT WorkPackageAddCmd : public NamedCommand
 {
 public:
-    WorkPackageAddCmd( Project *project, Node *node, WorkPackage *wp, const KUndo2MagicString& name = KUndo2MagicString() );
+    WorkPackageAddCmd(Project *project, Node *node, WorkPackage *wp, const KUndo2MagicString& name = KUndo2MagicString());
     ~WorkPackageAddCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1913,7 +1913,7 @@ private:
 class PLANKERNEL_EXPORT ModifyProjectLocaleCmd : public MacroCommand
 {
 public:
-    ModifyProjectLocaleCmd( Project &project, const KUndo2MagicString &name );
+    ModifyProjectLocaleCmd(Project &project, const KUndo2MagicString &name);
     void execute() override;
     void unexecute() override;
 private:
@@ -1923,7 +1923,7 @@ private:
 class PLANKERNEL_EXPORT ModifyCurrencySymolCmd : public NamedCommand
 {
 public:
-    ModifyCurrencySymolCmd( Locale *locale, const QString &value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyCurrencySymolCmd(Locale *locale, const QString &value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1936,7 +1936,7 @@ private:
 class  PLANKERNEL_EXPORT ModifyCurrencyFractionalDigitsCmd : public NamedCommand
 {
 public:
-    ModifyCurrencyFractionalDigitsCmd( Locale *locale, int value, const KUndo2MagicString& name = KUndo2MagicString() );
+    ModifyCurrencyFractionalDigitsCmd(Locale *locale, int value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1949,7 +1949,7 @@ private:
 class  PLANKERNEL_EXPORT AddExternalAppointmentCmd : public NamedCommand
 {
 public:
-    AddExternalAppointmentCmd( Resource *resource, const QString &pid, const QString &pname, const QDateTime &start, const QDateTime &end, double load, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddExternalAppointmentCmd(Resource *resource, const QString &pid, const QString &pname, const QDateTime &start, const QDateTime &end, double load, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 
@@ -1965,7 +1965,7 @@ private:
 class  PLANKERNEL_EXPORT ClearExternalAppointmentCmd : public NamedCommand
 {
 public:
-    ClearExternalAppointmentCmd( Resource *resource, const QString &pid, const KUndo2MagicString& name = KUndo2MagicString() );
+    ClearExternalAppointmentCmd(Resource *resource, const QString &pid, const KUndo2MagicString& name = KUndo2MagicString());
     ~ClearExternalAppointmentCmd() override;
     void execute() override;
     void unexecute() override;
@@ -1979,7 +1979,7 @@ private:
 class  PLANKERNEL_EXPORT ClearAllExternalAppointmentsCmd : public NamedCommand
 {
 public:
-    explicit ClearAllExternalAppointmentsCmd( Project *project, const KUndo2MagicString& name = KUndo2MagicString() );
+    explicit ClearAllExternalAppointmentsCmd(Project *project, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 

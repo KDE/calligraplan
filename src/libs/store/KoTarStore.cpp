@@ -113,7 +113,7 @@ QStringList KoTarStore::directoryList() const
 
 QByteArray KoTarStore::completeMagic(const QByteArray& appMimetype)
 {
-    debugStore << "QCString KoTarStore::completeMagic( const QCString& appMimetype )********************";
+    debugStore << "QCString KoTarStore::completeMagic(const QCString& appMimetype)********************";
     QByteArray res("Calligra ");
     res += appMimetype;
     res += '\004'; // Two magic bytes to make the identification

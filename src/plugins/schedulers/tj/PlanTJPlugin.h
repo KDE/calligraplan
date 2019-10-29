@@ -41,14 +41,14 @@ class PLANTJ_EXPORT PlanTJPlugin : public SchedulerPlugin
     Q_OBJECT
 
 public:
-    PlanTJPlugin( QObject * parent,  const QVariantList & );
+    PlanTJPlugin(QObject * parent,  const QVariantList &);
     ~PlanTJPlugin() override;
 
     QString description() const override;
     int capabilities() const override;
 
     /// Calculate the project
-    void calculate( Project &project, ScheduleManager *sm, bool nothread = false ) override;
+    void calculate(Project &project, ScheduleManager *sm, bool nothread = false) override;
 
     /// Return the scheduling granularity in milliseconds
     ulong currentGranularity() const;

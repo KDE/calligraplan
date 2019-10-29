@@ -37,8 +37,8 @@ TaskCostPanel::TaskCostPanel(Task &task, Accounts &accounts, QWidget *p, const c
       m_task(task),
       m_accounts(accounts)
 {
-    const Project *project = qobject_cast<const Project*>( task.projectNode() );
-    if ( project ) {
+    const Project *project = qobject_cast<const Project*>(task.projectNode());
+    if (project) {
         m_locale = project->locale();
         m_localeIsOwn = false;
     } else {
@@ -49,10 +49,10 @@ TaskCostPanel::TaskCostPanel(Task &task, Accounts &accounts, QWidget *p, const c
     m_accountList << i18n("None");
     m_accountList += accounts.costElements();
 
-    if ( task.isBaselined( BASELINESCHEDULE ) ) {
-        runningGroup->setEnabled( false );
-        startupGroup->setEnabled( false );
-        shutdownGroup->setEnabled( false );
+    if (task.isBaselined(BASELINESCHEDULE)) {
+        runningGroup->setEnabled(false);
+        startupGroup->setEnabled(false);
+        shutdownGroup->setEnabled(false);
     }
     setStartValues(task);
 }

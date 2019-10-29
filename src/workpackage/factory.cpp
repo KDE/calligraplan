@@ -49,28 +49,28 @@ Factory::~Factory()
     s_global = 0L;
 }
 
-QObject* Factory::create( const char* iface, QWidget* parentWidget, QObject *parent,
-                             const QVariantList& args, const QString& keyword )
+QObject* Factory::create(const char* iface, QWidget* parentWidget, QObject *parent,
+                             const QVariantList& args, const QString& keyword)
 {
-    Q_UNUSED( args );
-    Q_UNUSED( keyword );
-    Q_UNUSED( iface );
-    Part *part = new Part( parentWidget, parent );
+    Q_UNUSED(args);
+    Q_UNUSED(keyword);
+    Q_UNUSED(iface);
+    Part *part = new Part(parentWidget, parent);
     return part;
 }
 
 KAboutData* Factory::aboutData()
 {
-    if ( !s_aboutData )
+    if (!s_aboutData)
         s_aboutData = newAboutData();
     return s_aboutData;
 }
 
 const KoComponentData &Factory::global()
 {
-    if ( !s_global )
+    if (!s_global)
     {
-        s_global = new KoComponentData( *aboutData() );
+        s_global = new KoComponentData(*aboutData());
 
         // Add any application-specific resource directories here
         KoResourcePaths::addResourceType("planwork_template", "data", "calligraplanwork/templates/");

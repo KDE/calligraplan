@@ -416,7 +416,7 @@ private:
      *
      * Sets the active part to 0 if @p part is the activePart() .
      */
-    virtual void removePart( KoPart *part );
+    virtual void removePart(KoPart *part);
 
     /**
      * Sets the active part.

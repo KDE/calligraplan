@@ -107,10 +107,10 @@ public:
 
     Project& getProject() const;
 
-    QMenu *popupMenu( const QString& name );
+    QMenu *popupMenu(const QString& name);
 
     virtual bool loadContext();
-    virtual void saveContext( QDomElement &context ) const;
+    virtual void saveContext(QDomElement &context) const;
 
     QWidget *canvas() const;
 
@@ -119,36 +119,36 @@ public:
 
     ScheduleManager *currentScheduleManager() const;
     long activeScheduleId() const;
-    void setActiveSchedule( long id );
+    void setActiveSchedule(long id);
 
     /// Returns the default view information like standard name and tooltip for view type @p type
-    ViewInfo defaultViewInfo( const QString &type ) const;
+    ViewInfo defaultViewInfo(const QString &type) const;
     /// Returns the default category information like standard name and tooltip for category type @p type
-    ViewInfo defaultCategoryInfo( const QString &type ) const;
+    ViewInfo defaultCategoryInfo(const QString &type) const;
 
-    ViewBase *createTaskEditor( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createResourceEditor( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createAccountsEditor( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createCalendarEditor( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createScheduleHandler( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ScheduleEditor *createScheduleEditor( QWidget *parent );
-    ViewBase *createScheduleEditor( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createDependencyEditor( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createPertEditor( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createProjectStatusView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createPerformanceStatusView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createTaskStatusView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createTaskView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createTaskWorkPackageView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createGanttView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createMilestoneGanttView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createResourceAppointmentsView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createResourceAppointmentsGanttView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createAccountsView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createResourceAssignmentView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createChartView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createReportView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
-    ViewBase *createReportsGeneratorView( ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1 );
+    ViewBase *createTaskEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createResourceEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createAccountsEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createCalendarEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createScheduleHandler(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ScheduleEditor *createScheduleEditor(QWidget *parent);
+    ViewBase *createScheduleEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createDependencyEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createPertEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createProjectStatusView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createPerformanceStatusView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createTaskStatusView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createTaskView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createTaskWorkPackageView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createGanttView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createMilestoneGanttView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createResourceAppointmentsView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createResourceAppointmentsGanttView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createAccountsView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createResourceAssignmentView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createChartView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createReportView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createReportsGeneratorView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
 
     KoPrintJob * createPrintJob() override;
     QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
@@ -167,7 +167,7 @@ public Q_SLOTS:
     void slotEditCopy();
     void slotEditPaste();
     void slotRefreshView();
-    void slotViewSelector( bool show );
+    void slotViewSelector(bool show);
 
     void slotAddTask();
     void slotAddSubTask();
@@ -190,8 +190,8 @@ public Q_SLOTS:
 
     void slotRenameNode(KPlato::Node *node, const QString& name);
 
-    void slotPopupMenuRequested( const QString& menuname, const QPoint &pos );
-    void slotPopupMenu( const QString& menuname, const QPoint &pos, KPlato::ViewListItem *item );
+    void slotPopupMenuRequested(const QString& menuname, const QPoint &pos);
+    void slotPopupMenu(const QString& menuname, const QPoint &pos, KPlato::ViewListItem *item);
 
     void addViewListItem(const KPlato::ViewListItem *item, const KPlato::ViewListItem *parent, int index);
     void removeViewListItem(const KPlato::ViewListItem *item);
@@ -202,7 +202,7 @@ public Q_SLOTS:
     void slotUpdateViewInfo(KPlato::ViewListItem *itm);
 
     /// Load the workpackages from @p urls into @p project.
-    void loadWorkPackage(KPlato::Project *project, const QList<QUrl> &urls );
+    void loadWorkPackage(KPlato::Project *project, const QList<QUrl> &urls);
 
     void slotCreateTemplate();
 
@@ -210,9 +210,9 @@ protected Q_SLOTS:
     void slotGuiActivated(KPlato::ViewBase *view, bool);
     void slotViewActivated(KPlato::ViewListItem*, KPlato::ViewListItem*);
     void slotPlugScheduleActions();
-    void slotViewSchedule( QAction *act );
+    void slotViewSchedule(QAction *act);
     void slotScheduleAdded(const KPlato::ScheduleManager*);
-    void slotScheduleRemoved( const KPlato::ScheduleManager*);
+    void slotScheduleRemoved(const KPlato::ScheduleManager*);
     void slotScheduleSwapped(KPlato::ScheduleManager *from, KPlato::ScheduleManager *to);
     void slotScheduleCalculated(KPlato::Project *project, KPlato::ScheduleManager *manager);
 
@@ -243,9 +243,9 @@ protected Q_SLOTS:
 
     void slotDeleteResource(KPlato::Resource *resource);
     void slotDeleteResourceGroup(KPlato::ResourceGroup *group);
-    void slotDeleteResourceObjects( QObjectList );
+    void slotDeleteResourceObjects(QObjectList);
 
-    void slotCurrentChanged( int );
+    void slotCurrentChanged(int);
     void slotSelectDefaultView();
 
     void slotInsertResourcesFile(const QString&, const QUrl &projects);
@@ -262,55 +262,55 @@ protected Q_SLOTS:
     void createReportView(const QDomDocument &doc);
 
     void saveTaskModule(const QUrl &url, KPlato::Project *project);
-    void removeTaskModule( const QUrl &url );
+    void removeTaskModule(const QUrl &url);
 
 protected:
-    void guiActivateEvent( bool activated ) override;
-    void updateReadWrite( bool readwrite ) override;
+    void guiActivateEvent(bool activated) override;
+    void updateReadWrite(bool readwrite) override;
 
     QList<QAction*> sortedActionList();
-    QAction *addScheduleAction( ScheduleManager *sch );
-    void setLabel( ScheduleManager *sm = 0 );
+    QAction *addScheduleAction(ScheduleManager *sch);
+    void setLabel(ScheduleManager *sm = 0);
     Task *currentTask() const;
     Node *currentNode() const;
     Resource *currentResource();
     ResourceGroup *currentResourceGroup();
     Calendar *currentCalendar();
-    void updateView( QWidget *widget );
+    void updateView(QWidget *widget);
 
     ViewBase *currentView() const;
 
     ViewBase *createIntroductionView();
 
 private Q_SLOTS:
-    void slotActionDestroyed( QObject *o );
+    void slotActionDestroyed(QObject *o);
     void slotViewListItemRemoved(KPlato::ViewListItem *item);
     void slotViewListItemInserted(KPlato::ViewListItem *item, KPlato::ViewListItem *parent, int index);
 
-    void slotProjectEditFinished( int result );
-    void slotTaskEditFinished( int result );
-    void slotSummaryTaskEditFinished( int result );
-    void slotEditResourceFinished( int result );
-    void slotProjectWorktimeFinished( int result );
-    void slotDefineWBSFinished( int result );
-    void slotCurrencyConfigFinished( int result );
-    void slotInsertFileFinished( int result );
-    void slotAddSubTaskFinished( int result );
-    void slotAddTaskFinished( int result );
-    void slotAddSubMilestoneFinished( int result );
-    void slotAddMilestoneFinished( int result );
-    void slotTaskProgressFinished( int result );
-    void slotMilestoneProgressFinished( int result );
-    void slotTaskDescriptionFinished( int result );
+    void slotProjectEditFinished(int result);
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+    void slotEditResourceFinished(int result);
+    void slotProjectWorktimeFinished(int result);
+    void slotDefineWBSFinished(int result);
+    void slotCurrencyConfigFinished(int result);
+    void slotInsertFileFinished(int result);
+    void slotAddSubTaskFinished(int result);
+    void slotAddTaskFinished(int result);
+    void slotAddSubMilestoneFinished(int result);
+    void slotAddMilestoneFinished(int result);
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
     void slotDocumentsFinished(int result);
-    void slotAddRelationFinished( int result );
-    void slotModifyRelationFinished( int result );
-    void slotReportDesignFinished( int result );
-    void slotOpenReportFileFinished( int result );
-    void slotCreateViewFinished( int result );
-    void slotLoadSharedProjectsFinished( int result );
+    void slotAddRelationFinished(int result);
+    void slotModifyRelationFinished(int result);
+    void slotReportDesignFinished(int result);
+    void slotOpenReportFileFinished(int result);
+    void slotCreateViewFinished(int result);
+    void slotLoadSharedProjectsFinished(int result);
     void openWorkPackageMergeDialog();
-    void workPackageMergeDialogFinished( int result );
+    void workPackageMergeDialogFinished(int result);
     void slotRemoveCommands();
 
     void initiateViews();
@@ -318,7 +318,7 @@ private Q_SLOTS:
 
 private:
     void createViews();
-    ViewBase *createView( ViewListItem *cat, const QString &type, const QString &tag, const QString &name, const QString &tip, int index = -1 );
+    ViewBase *createView(ViewListItem *cat, const QString &type, const QString &tag, const QString &name, const QString &tip, int index = -1);
 
     QString standardTaskStatusReport() const;
 

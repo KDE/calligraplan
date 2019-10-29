@@ -46,17 +46,17 @@ public:
     void setupGui();
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const KoXmlElement &/*context*/ );
+    virtual bool loadContext(const KoXmlElement &/*context*/);
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( QDomElement &/*context*/ ) const;
+    virtual void saveContext(QDomElement &/*context*/) const;
 
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    virtual void setGuiActive(bool activate);
 
 protected:
-    void updateActionsEnabled( bool on );
+    void updateActionsEnabled(bool on);
     int selectedRowCount() const;
     QModelIndexList selectedRows() const;
 
@@ -67,7 +67,7 @@ protected Q_SLOTS:
 
 private Q_SLOTS:
     void slotSelectionChanged();
-    void slotCurrentChanged( const QModelIndex&, const QModelIndex& );
+    void slotCurrentChanged(const QModelIndex&, const QModelIndex&);
     void slotContextMenuRequested(const QPoint &pos);
 
     void slotEnableActions();

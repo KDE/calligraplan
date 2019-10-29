@@ -36,12 +36,12 @@ public:
     Context();
     virtual ~Context();
     
-    virtual bool load( const KoXmlDocument &doc );
-    virtual QDomDocument save( const View *view ) const;
+    virtual bool load(const KoXmlDocument &doc);
+    virtual QDomDocument save(const View *view) const;
     const KoXmlElement &context() const;
     bool isLoaded() const { return m_contextLoaded; }
 
-    bool setContent( const QString &str );
+    bool setContent(const QString &str);
 
     QDomDocument document() const;
 

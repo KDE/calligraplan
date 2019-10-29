@@ -40,20 +40,20 @@ class PLANUI_EXPORT RelationTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
-    explicit RelationTreeView( QWidget *parent = 0 );
+    explicit RelationTreeView(QWidget *parent = 0);
     
-    RelationItemModel *model() const { return static_cast<RelationItemModel*>( DoubleTreeViewBase::model() ); }
+    RelationItemModel *model() const { return static_cast<RelationItemModel*>(DoubleTreeViewBase::model()); }
     
     Project *project() const { return model()->project(); }
-    void setProject( Project *project ) { model()->setProject( project ); }
+    void setProject(Project *project) { model()->setProject(project); }
     
-    void setNode( Node *node ) { model()->setNode( node ); }
-    Relation *currentRelation() const { return model()->relation( selectionModel()->currentIndex() ); }
+    void setNode(Node *node) { model()->setNode(node); }
+    Relation *currentRelation() const { return model()->relation(selectionModel()->currentIndex()); }
 Q_SIGNALS:
-    void currentColumnChanged( const QModelIndex&, const QModelIndex& );
+    void currentColumnChanged(const QModelIndex&, const QModelIndex&);
     
 protected Q_SLOTS:
-    void slotCurrentChanged(const QModelIndex &curr, const QModelIndex& );
+    void slotCurrentChanged(const QModelIndex &curr, const QModelIndex&);
 };
 
 class PLANUI_EXPORT RelationEditor : public ViewBase
@@ -64,20 +64,20 @@ public:
     RelationEditor(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
     void draw() override;
 
     Relation *currentRelation() const override;
     Relation *selectedRelation() const;
 
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     RelationItemModel *model() const { return m_view->model(); }
 
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
     
     KoPrintJob *createPrintJob() override;
 
@@ -88,18 +88,18 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
 protected Q_SLOTS:
     void slotOptions() override;
 
 protected:
-    void updateActionsEnabled( bool on );
+    void updateActionsEnabled(bool on);
 
 private Q_SLOTS:
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex&, const QModelIndex& );
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&, const QModelIndex&);
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     
     void slotEnableActions();
 
@@ -108,10 +108,10 @@ private Q_SLOTS:
 
     void slotSplitView();
     
-    void slotHeaderContextMenuRequested( const QPoint& ) override;
+    void slotHeaderContextMenuRequested(const QPoint&) override;
     
 private:
-    void edit( const QModelIndex &index );
+    void edit(const QModelIndex &index);
 
 private:
     RelationTreeView *m_view;

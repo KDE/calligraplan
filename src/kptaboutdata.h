@@ -51,7 +51,7 @@ KAboutData * newAboutData()
     aboutData->setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"),
                              i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
-    aboutData->setProductName( "calligraplan" ); // for bugs.kde.org
+    aboutData->setProductName("calligraplan"); // for bugs.kde.org
     aboutData->setOrganizationDomain("kde.org");
 #if KCOREADDONS_VERSION >= 0x051600
     aboutData->setDesktopFileName(QStringLiteral("org.kde.calligraplan"));

@@ -57,48 +57,48 @@ public:
     enum Roles { NodeRole = Qt::UserRole + 1, EnabledRole };
     
     PertEditor(KoPart *part, KoDocument *doc, QWidget *parent);
-    void updateReadWrite( bool readwrite ) override;
-    void setProject( Project *project ) override;
+    void updateReadWrite(bool readwrite) override;
+    void setProject(Project *project) override;
     Project *project() const override { return m_project; }
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
     void draw() override;
-    void drawSubTasksName( QTreeWidgetItem *parent,Node * currentNode);
+    void drawSubTasksName(QTreeWidgetItem *parent,Node * currentNode);
     void clearRequiredList();
     void loadRequiredTasksList(Node * taskNode);
-    Node *itemToNode( QTreeWidgetItem *item );
-    QTreeWidgetItem *nodeToItem( Node *node, QTreeWidgetItem *item );
+    Node *itemToNode(QTreeWidgetItem *item);
+    QTreeWidgetItem *nodeToItem(Node *node, QTreeWidgetItem *item);
     QList<Node*> listNodeNotView(Node * node);
 
-    void updateAvailableTasks( QTreeWidgetItem *item = 0 );
-    void setAvailableItemEnabled( QTreeWidgetItem *item );
-    void setAvailableItemEnabled( Node *node );
+    void updateAvailableTasks(QTreeWidgetItem *item = 0);
+    void setAvailableItemEnabled(QTreeWidgetItem *item);
+    void setAvailableItemEnabled(Node *node);
     
 Q_SIGNALS:
-    void executeCommand( KUndo2Command* );
+    void executeCommand(KUndo2Command*);
 
 protected:
-    bool isInRequiredList( Node *node );
-    QTreeWidgetItem *findNodeItem( Node *node, QTreeWidgetItem *item );
-    QTableWidgetItem *findRequiredItem( Node *node );
+    bool isInRequiredList(Node *node);
+    QTreeWidgetItem *findNodeItem(Node *node, QTreeWidgetItem *item);
+    QTableWidgetItem *findRequiredItem(Node *node);
     
 private Q_SLOTS:
-    void slotNodeAdded(KPlato::Node* );
-    void slotNodeRemoved(KPlato::Node* );
-    void slotNodeMoved(KPlato::Node* );
-    void slotNodeChanged(KPlato::Node* );
-    void slotRelationAdded(KPlato::Relation *rel );
-    void slotRelationRemoved(KPlato::Relation *rel );
+    void slotNodeAdded(KPlato::Node*);
+    void slotNodeRemoved(KPlato::Node*);
+    void slotNodeMoved(KPlato::Node*);
+    void slotNodeChanged(KPlato::Node*);
+    void slotRelationAdded(KPlato::Relation *rel);
+    void slotRelationRemoved(KPlato::Relation *rel);
     
     void dispAvailableTasks();
-    void dispAvailableTasks(KPlato::Node *parent, KPlato::Node *selectedTask );
-    void dispAvailableTasks(KPlato::Relation *rel );
+    void dispAvailableTasks(KPlato::Node *parent, KPlato::Node *selectedTask);
+    void dispAvailableTasks(KPlato::Relation *rel);
     void addTaskInRequiredList(QTreeWidgetItem * currentItem);
     void removeTaskFromRequiredList();
     void slotUpdate();
 
-    void slotCurrentTaskChanged( QTreeWidgetItem *curr, QTreeWidgetItem *prev );
-    void slotAvailableChanged( QTreeWidgetItem *item );
-    void slotRequiredChanged( const QModelIndex &index );
+    void slotCurrentTaskChanged(QTreeWidgetItem *curr, QTreeWidgetItem *prev);
+    void slotAvailableChanged(QTreeWidgetItem *item);
+    void slotRequiredChanged(const QModelIndex &index);
     void slotAddClicked();
     void slotRemoveClicked();
 

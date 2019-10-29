@@ -34,12 +34,12 @@ class MacroCommand;
 
 MilestoneProgressDialog::MilestoneProgressDialog(Task &task, QWidget *p)
     : KoDialog(p),
-    m_node( &task )
+    m_node(&task)
 {
-    setCaption( i18n("Milestone Progress") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setCaption(i18n("Milestone Progress"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
     m_panel = new MilestoneProgressPanel(task, this);
 
     setMainWidget(m_panel);
@@ -47,15 +47,15 @@ MilestoneProgressDialog::MilestoneProgressDialog(Task &task, QWidget *p)
     enableButtonOk(false);
 
     connect(m_panel, &MilestoneProgressPanelImpl::changed, this, &MilestoneProgressDialog::slotChanged);
-    Project *proj = static_cast<Project*>( task.projectNode() );
-    if ( proj ) {
+    Project *proj = static_cast<Project*>(task.projectNode());
+    if (proj) {
         connect(proj, &Project::nodeRemoved, this, &MilestoneProgressDialog::slotNodeRemoved);
     }
 }
 
-void MilestoneProgressDialog::slotNodeRemoved( Node *node )
+void MilestoneProgressDialog::slotNodeRemoved(Node *node)
 {
-    if ( m_node == node ) {
+    if (m_node == node) {
         reject();
     }
 }

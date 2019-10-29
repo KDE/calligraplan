@@ -66,8 +66,8 @@ public:
     ResourceAssignmentView(KoPart *part, KoDocument *doc, QWidget *parent);
     using ViewBase::draw;
     Project *project() const override { return m_project; }
-    void draw( Project &project ) override;
-    void drawResourcesName( QTreeWidgetItem *parent, ResourceGroup *group );
+    void draw(Project &project) override;
+    void drawResourcesName(QTreeWidgetItem *parent, ResourceGroup *group);
     void drawTasksAttributedToAResource (Resource *res, QTreeWidgetItem *parent);
     void drawTasksAttributedToAGroup (ResourceGroup *group, QTreeWidgetItem *parent);
 
@@ -85,15 +85,15 @@ private:
 
 protected Q_SLOTS:
     void resSelectionChanged();
-    void resSelectionChanged( QTreeWidgetItem *item );
+    void resSelectionChanged(QTreeWidgetItem *item);
 
 private Q_SLOTS:
-    void slotRequestPopupMenu( const QPoint &p );
+    void slotRequestPopupMenu(const QPoint &p);
 void slotUpdate();
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
 };
 

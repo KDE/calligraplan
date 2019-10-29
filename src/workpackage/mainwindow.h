@@ -56,7 +56,7 @@ public:
 
     virtual QString configFile() const;
 
-     void editDocument( KPlatoWork::Part *part, const KPlato::Document *doc );
+     void editDocument(KPlatoWork::Part *part, const KPlato::Document *doc);
 
 //     bool isEditing() const { return m_editing; }
 //     bool isModified() const;
@@ -67,8 +67,8 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     virtual void slotFileClose();
-    void setCaption( const QString &text ) override;
-    void setCaption( const QString &text, bool modified ) override;
+    void setCaption(const QString &text) override;
+    void setCaption(const QString &text, bool modified) override;
 
 protected Q_SLOTS:
     bool queryClose() override;
@@ -80,7 +80,7 @@ protected Q_SLOTS:
     virtual void slotFileSave();
 
 protected:
-     virtual bool saveDocument( bool saveas = false, bool silent = false );
+     virtual bool saveDocument(bool saveas = false, bool silent = false);
 
 private:
     KPlatoWork::Part *m_part;

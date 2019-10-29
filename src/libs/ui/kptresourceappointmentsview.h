@@ -51,9 +51,9 @@ class ResourceAppointmentsDisplayOptionsPanel : public QWidget, public Ui::Resou
 {
     Q_OBJECT
 public:
-    explicit ResourceAppointmentsDisplayOptionsPanel( ResourceAppointmentsItemModel *model, QWidget *parent = 0 );
+    explicit ResourceAppointmentsDisplayOptionsPanel(ResourceAppointmentsItemModel *model, QWidget *parent = 0);
 
-    void setValues( const ResourceAppointmentsItemModel &del );
+    void setValues(const ResourceAppointmentsItemModel &del);
 
 public Q_SLOTS:
     void slotOk();
@@ -70,7 +70,7 @@ class ResourceAppointmentsSettingsDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit ResourceAppointmentsSettingsDialog( ViewBase *view, ResourceAppointmentsItemModel *model, QWidget *parent = 0, bool selectPrint = false );
+    explicit ResourceAppointmentsSettingsDialog(ViewBase *view, ResourceAppointmentsItemModel *model, QWidget *parent = 0, bool selectPrint = false);
 
 public Q_SLOTS:
     void slotOk();
@@ -88,19 +88,19 @@ class PLANUI_EXPORT ResourceAppointmentsTreeView : public DoubleTreeViewBase
 public:
     explicit ResourceAppointmentsTreeView(QWidget *parent);
 
-    ResourceAppointmentsItemModel *model() const { return static_cast<ResourceAppointmentsItemModel*>( DoubleTreeViewBase::model() ); }
+    ResourceAppointmentsItemModel *model() const { return static_cast<ResourceAppointmentsItemModel*>(DoubleTreeViewBase::model()); }
 
     Project *project() const { return model()->project(); }
-    void setProject( Project *project ) { model()->setProject( project ); }
-    void setScheduleManager( ScheduleManager *sm ) { model()->setScheduleManager( sm ); }
+    void setProject(Project *project) { model()->setProject(project); }
+    void setScheduleManager(ScheduleManager *sm) { model()->setScheduleManager(sm); }
 
     QModelIndex currentIndex() const;
     
     /// Load context info into this view.
-    virtual bool loadContext( const KoXmlElement &context );
+    virtual bool loadContext(const KoXmlElement &context);
     using DoubleTreeViewBase::loadContext;
     /// Save context info from this view.
-    virtual void saveContext( QDomElement &context ) const;
+    virtual void saveContext(QDomElement &context) const;
     using DoubleTreeViewBase::saveContext;
 
 protected Q_SLOTS:
@@ -117,33 +117,33 @@ public:
     ResourceAppointmentsView(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     Project *project() const override { return m_view->project(); }
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
     void draw() override;
 
     ResourceAppointmentsItemModel *model() const { return m_view->model(); }
     
-    void updateReadWrite( bool /*readwrite*/ ) override {};
+    void updateReadWrite(bool /*readwrite*/) override {};
 
     Node *currentNode() const override;
     Resource *currentResource() const override;
     ResourceGroup *currentResourceGroup() const override;
     
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
     
     KoPrintJob *createPrintJob() override;
     
 Q_SIGNALS:
     void addResource(KPlato::ResourceGroup*);
-    void deleteObjectList( const QObjectList& );
+    void deleteObjectList(const QObjectList&);
     
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
     
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
@@ -151,14 +151,14 @@ protected Q_SLOTS:
     void slotOptions() override;
 
 protected:
-    void updateActionsEnabled(  bool on = true );
+    void updateActionsEnabled(bool on = true);
 
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex& );
-    void slotEnableActions( bool on );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&);
+    void slotEnableActions(bool on);
 
     void slotAddResource();
     void slotAddGroup();

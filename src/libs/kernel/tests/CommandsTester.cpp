@@ -33,22 +33,22 @@ namespace KPlato {
 void CommandsTester::initTestCase()
 {
     m_project = new Project();
-    m_project->setId( m_project->uniqueNodeId() );
+    m_project->setId(m_project->uniqueNodeId());
     m_project->registerNodeId(m_project); //->rootTask());
     // standard worktime defines 8 hour day as default
-    QVERIFY( m_project->standardWorktime() );
-    QCOMPARE( m_project->standardWorktime()->day(), 8.0 );
+    QVERIFY(m_project->standardWorktime());
+    QCOMPARE(m_project->standardWorktime()->day(), 8.0);
 /*    m_calendar = new Calendar();
-    m_calendar->setDefault( true );
-    QTime t1( 9, 0, 0 );
-    QTime t2 ( 17, 0, 0 );
-    int length = t1.msecsTo( t2 );
-    for ( int i=1; i <= 7; ++i ) {
-        CalendarDay *d = m_calendar->weekday( i );
-        d->setState( CalendarDay::Working );
-        d->addInterval( t1, length );
+    m_calendar->setDefault(true);
+    QTime t1(9, 0, 0);
+    QTime t2 (17, 0, 0);
+    int length = t1.msecsTo(t2);
+    for (int i=1; i <= 7; ++i) {
+        CalendarDay *d = m_calendar->weekday(i);
+        d->setState(CalendarDay::Working);
+        d->addInterval(t1, length);
     }
-    m_project->addCalendar( m_calendar );
+    m_project->addCalendar(m_calendar);
 */
 }
 
@@ -532,4 +532,4 @@ void CommandsTester::testProjectModifyDefaultCalendarCmd()
 }
 } // namespace KPlato
 
-QTEST_GUILESS_MAIN( KPlato::CommandsTester)
+QTEST_GUILESS_MAIN(KPlato::CommandsTester)

@@ -738,7 +738,7 @@ public:
      */
     const QString& getTimeFormat() const { return timeFormat; }
 
-//     void addXMLReport(ReportXML *r ) { xmlreport = r; }
+//     void addXMLReport(ReportXML *r) { xmlreport = r; }
 // 
 //     void addReport(Report* r)
 //     {

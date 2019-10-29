@@ -40,26 +40,26 @@ ProjectSettingsView::ProjectSettingsView(KoPart *part, KoDocument *doc, QWidget 
     connect(widget.resourcesConnectBtn, SIGNAL(clicked()), this, SLOT(slotResourcesConnect()));
 }
 
-void ProjectSettingsView::updateReadWrite( bool /*readwrite */)
+void ProjectSettingsView::updateReadWrite(bool /*readwrite */)
 {
 }
 
-void ProjectSettingsView::setGuiActive( bool activate )
+void ProjectSettingsView::setGuiActive(bool activate)
 {
     debugPlan<<activate;
 }
 
-void ProjectSettingsView::slotContextMenuRequested( const QModelIndex &/*index*/, const QPoint& /*pos */)
+void ProjectSettingsView::slotContextMenuRequested(const QModelIndex &/*index*/, const QPoint& /*pos */)
 {
     //debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
 }
 
-void ProjectSettingsView::slotEnableActions( bool on )
+void ProjectSettingsView::slotEnableActions(bool on)
 {
-    updateActionsEnabled( on );
+    updateActionsEnabled(on);
 }
 
-void ProjectSettingsView::updateActionsEnabled(  bool /*on */)
+void ProjectSettingsView::updateActionsEnabled(bool /*on */)
 {
 }
 
@@ -70,7 +70,7 @@ void ProjectSettingsView::setupGui()
 
 KoPrintJob *ProjectSettingsView::createPrintJob()
 {
-    return 0;//m_view->createPrintJob( this );
+    return 0;//m_view->createPrintJob(this);
 }
 
 void ProjectSettingsView::slotOpenResourcesFile()

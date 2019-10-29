@@ -89,15 +89,15 @@ namespace Role
 
 struct PLANKERNEL_EXPORT SchedulingState
 {
-    static QString deleted( bool trans = true );
-    static QString notScheduled( bool trans = true );
-    static QString scheduled( bool trans = true );
-    static QString resourceOverbooked( bool trans = true );
-    static QString resourceNotAvailable( bool trans = true );
-    static QString resourceNotAllocated( bool trans = true );
-    static QString constraintsNotMet( bool trans = true );
-    static QString effortNotMet( bool trans = true );
-    static QString schedulingError( bool trans = true );
+    static QString deleted(bool trans = true);
+    static QString notScheduled(bool trans = true);
+    static QString scheduled(bool trans = true);
+    static QString resourceOverbooked(bool trans = true);
+    static QString resourceNotAvailable(bool trans = true);
+    static QString resourceNotAllocated(bool trans = true);
+    static QString constraintsNotMet(bool trans = true);
+    static QString effortNotMet(bool trans = true);
+    static QString schedulingError(bool trans = true);
 
 }; //namespace WhatsThis
 

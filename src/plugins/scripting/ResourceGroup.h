@@ -40,7 +40,7 @@ namespace Scripting {
             Q_OBJECT
         public:
             /// Create a group
-            ResourceGroup( Project *project, KPlato::ResourceGroup *group, QObject *parent );
+            ResourceGroup(Project *project, KPlato::ResourceGroup *group, QObject *parent);
             /// Destructor
             virtual ~ResourceGroup() {}
             
@@ -56,12 +56,12 @@ namespace Scripting {
             /// Number of resources in this group
             int resourceCount() const;
             /// Return resource at @p index
-            QObject *resourceAt( int index ) const;
+            QObject *resourceAt(int index) const;
             
             /// Number of resources in this group
             int childCount() const;
             /// Return resource at @p index
-            QObject *childAt( int index ) const;
+            QObject *childAt(int index) const;
 
         private:
             Project *m_project;

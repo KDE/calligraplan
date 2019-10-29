@@ -41,20 +41,20 @@
 
 using namespace KPlato;
 
-ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton *config )
-: KConfigDialog( parent, name, config )
+ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton *config)
+: KConfigDialog(parent, name, config)
 {
-    m_pages << addPage(new ConfigProjectPanel(), i18n("Project Defaults"), koIconName("calligraplan") );
-    m_pages << addPage(new ConfigWorkVacationPanel(), i18n("Work & Vacation"), koIconName("view-calendar") );
-    m_pages << addPage(new TaskDefaultPanel(), i18n("Task Defaults"), koIconName("view-task") );
-    m_pages << addPage(new ColorsConfigPanel(), i18n("Task Colors"), koIconName("fill-color") );
+    m_pages << addPage(new ConfigProjectPanel(), i18n("Project Defaults"), koIconName("calligraplan"));
+    m_pages << addPage(new ConfigWorkVacationPanel(), i18n("Work & Vacation"), koIconName("view-calendar"));
+    m_pages << addPage(new TaskDefaultPanel(), i18n("Task Defaults"), koIconName("view-task"));
+    m_pages << addPage(new ColorsConfigPanel(), i18n("Task Colors"), koIconName("fill-color"));
     ConfigTaskModulesPanel *page = new ConfigTaskModulesPanel();
-    m_pages << addPage(page, i18n("Task Modules"), koIconName("calligraplanwork") );
+    m_pages << addPage(page, i18n("Task Modules"), koIconName("calligraplanwork"));
     connect(page, &ConfigTaskModulesPanel::settingsChanged, this, &ConfigDialog::updateButtons);
     connect(this, &ConfigDialog::updateWidgetsSettings, page, &ConfigTaskModulesPanel::updateSettings);
     connect(this, &ConfigDialog::updateWidgetsData, page, &ConfigTaskModulesPanel::updateWidgets);
-    m_pages << addPage(new WorkPackageConfigPanel(), i18n("Work Package"), koIconName("calligraplanwork") );
-    m_pages << addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents") );
+    m_pages << addPage(new WorkPackageConfigPanel(), i18n("Work Package"), koIconName("calligraplanwork"));
+    m_pages << addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents"));
 
     ConfigProjectTemplatesPanel *p = new ConfigProjectTemplatesPanel();
     m_pages << addPage(p, i18n("Project Templates"), koIconName("calligraplan"));

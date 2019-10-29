@@ -47,7 +47,7 @@ class PLANMODELS_EXPORT ResourceAllocationModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit ResourceAllocationModel( QObject *parent = 0 );
+    explicit ResourceAllocationModel(QObject *parent = 0);
     ~ResourceAllocationModel() override;
 
     enum Properties {
@@ -60,24 +60,24 @@ public:
     Q_ENUM(Properties)
     
     const QMetaEnum columnMap() const;
-    void setProject( Project *project );
+    void setProject(Project *project);
     Task *task() const { return m_task; }
-    void setTask( Task *task );
+    void setTask(Task *task);
     int propertyCount() const;
-    QVariant data( const ResourceGroup *group, const Resource *resource, int property, int role = Qt::DisplayRole ) const;
-    QVariant data( const ResourceGroup *group, int property, int role = Qt::DisplayRole ) const;
-    static QVariant headerData( int section, int role = Qt::DisplayRole );
+    QVariant data(const ResourceGroup *group, const Resource *resource, int property, int role = Qt::DisplayRole) const;
+    QVariant data(const ResourceGroup *group, int property, int role = Qt::DisplayRole) const;
+    static QVariant headerData(int section, int role = Qt::DisplayRole);
 
-    QVariant name( const Resource *res, int role ) const;
-    QVariant type( const Resource *res, int role ) const;
-    QVariant allocation( const ResourceGroup *group, const Resource *res, int role ) const;
-    QVariant maximum( const Resource *res, int role ) const;
-    QVariant required( const Resource *res, int role ) const;
+    QVariant name(const Resource *res, int role) const;
+    QVariant type(const Resource *res, int role) const;
+    QVariant allocation(const ResourceGroup *group, const Resource *res, int role) const;
+    QVariant maximum(const Resource *res, int role) const;
+    QVariant required(const Resource *res, int role) const;
     
-    QVariant name( const ResourceGroup *res, int role ) const;
-    QVariant type( const ResourceGroup *res, int role ) const;
-    QVariant allocation( const ResourceGroup *res, int role ) const;
-    QVariant maximum( const ResourceGroup *res, int role ) const;
+    QVariant name(const ResourceGroup *res, int role) const;
+    QVariant type(const ResourceGroup *res, int role) const;
+    QVariant allocation(const ResourceGroup *res, int role) const;
+    QVariant maximum(const ResourceGroup *res, int role) const;
 
 private:
     Project *m_project;
@@ -93,40 +93,40 @@ class PLANMODELS_EXPORT ResourceAllocationItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit ResourceAllocationItemModel( QObject *parent = 0 );
+    explicit ResourceAllocationItemModel(QObject *parent = 0);
     ~ResourceAllocationItemModel() override;
 
     const QMetaEnum columnMap() const override { return m_model.columnMap(); }
 
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     Task *task() const { return m_model.task(); }
 
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
 
-    QModelIndex parent( const QModelIndex & index ) const override;
-    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
-    QModelIndex index( const ResourceGroup *group ) const;
-    QModelIndex index( const Resource *resource ) const;
+    QModelIndex parent(const QModelIndex & index) const override;
+    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
+    QModelIndex index(const ResourceGroup *group) const;
+    QModelIndex index(const Resource *resource) const;
 
-    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
 
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
-    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
+    bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) override;
 
 
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
-    QAbstractItemDelegate *createDelegate( int col, QWidget *parent ) const override;
+    QAbstractItemDelegate *createDelegate(int col, QWidget *parent) const override;
     
-    QObject *object( const QModelIndex &index ) const;
+    QObject *object(const QModelIndex &index) const;
 
     const QHash<const Resource*, ResourceRequest*> &resourceCache() const { return m_resourceCache; }
     const QHash<const ResourceGroup*, ResourceGroupRequest*> &groupCache() const { return m_groupCache; }
     
-    Resource *resource( const QModelIndex &idx ) const;
-    void setRequired( const QModelIndex &idx, const QList<Resource*> &lst );
-    QList<Resource*> required( const QModelIndex &idx ) const;
+    Resource *resource(const QModelIndex &idx) const;
+    void setRequired(const QModelIndex &idx, const QList<Resource*> &lst);
+    QList<Resource*> required(const QModelIndex &idx) const;
 
 public Q_SLOTS:
     void setTask(KPlato::Task *task);
@@ -144,22 +144,22 @@ protected Q_SLOTS:
     void slotResourceRemoved(const KPlato::Resource *resource);
     
 protected:
-    void filldata( Task *task );
+    void filldata(Task *task);
 
-    QVariant notUsed( const ResourceGroup *res, int role ) const;
+    QVariant notUsed(const ResourceGroup *res, int role) const;
     
-    QVariant allocation( const ResourceGroup *group, const Resource *res, int role ) const;
-    QVariant allocation( const ResourceGroup *res, int role ) const;
-    bool setAllocation( ResourceGroup *res, const QVariant &value, int role );
-    bool setAllocation( Resource *res, const QVariant &value, int role );
+    QVariant allocation(const ResourceGroup *group, const Resource *res, int role) const;
+    QVariant allocation(const ResourceGroup *res, int role) const;
+    bool setAllocation(ResourceGroup *res, const QVariant &value, int role);
+    bool setAllocation(Resource *res, const QVariant &value, int role);
 
-    QVariant maximum( const ResourceGroup *res, int role ) const;
+    QVariant maximum(const ResourceGroup *res, int role) const;
 
-    bool setRequired( const QModelIndex &idx, const QVariant &value, int role );
-    QVariant required( const QModelIndex &idx, int role ) const;
+    bool setRequired(const QModelIndex &idx, const QVariant &value, int role);
+    QVariant required(const QModelIndex &idx, int role) const;
 
 private:
-    int requestedResources( const ResourceGroup *res ) const;
+    int requestedResources(const ResourceGroup *res) const;
     bool hasMaterialResources() const;
 
 private:

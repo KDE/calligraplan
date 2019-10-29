@@ -42,29 +42,29 @@ class PLANMODELS_EXPORT CriticalPathItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit CriticalPathItemModel( QObject *parent = 0 );
+    explicit CriticalPathItemModel(QObject *parent = 0);
     ~CriticalPathItemModel() override;
     
     const QMetaEnum columnMap() const override { return m_nodemodel.columnMap(); }
     
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     
-    QModelIndex parent( const QModelIndex & index ) const override;
-    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
+    QModelIndex parent(const QModelIndex & index) const override;
+    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
     
-    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
     
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
     
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     
-    Node *node( const QModelIndex &index ) const;
-    void setManager( ScheduleManager *sm );
+    Node *node(const QModelIndex &index) const;
+    void setManager(ScheduleManager *sm);
     ScheduleManager *manager() const { return m_manager; }
 
     /// Select a proper unit for total path values, dependent on @p duration
-    Duration::Unit presentationUnit( const Duration &duration ) const;
+    Duration::Unit presentationUnit(const Duration &duration) const;
     
 protected Q_SLOTS:
     void slotNodeChanged(KPlato::Node*);
@@ -74,13 +74,13 @@ protected Q_SLOTS:
     void slotNodeRemoved(KPlato::Node *node);
 
 public:
-    QVariant alignment( int column ) const;
+    QVariant alignment(int column) const;
     
-    QVariant name( int role ) const;
-    QVariant duration( int role ) const;
-    QVariant variance( int role ) const;
+    QVariant name(int role) const;
+    QVariant duration(int role) const;
+    QVariant variance(int role) const;
     
-    QVariant notUsed( int role ) const;
+    QVariant notUsed(int role) const;
 
 private:
     ScheduleManager *m_manager;
@@ -97,44 +97,44 @@ class PLANMODELS_EXPORT PertResultItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit PertResultItemModel( QObject *parent = 0 );
+    explicit PertResultItemModel(QObject *parent = 0);
     ~PertResultItemModel() override;
     
     const QMetaEnum columnMap() const override { return m_nodemodel.columnMap(); }
     
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
     
-    QModelIndex parent( const QModelIndex & index ) const override;
-    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
-//    virtual QModelIndex index( const Node *node ) const;
-    virtual QModelIndex index( const NodeList *lst ) const;
+    QModelIndex parent(const QModelIndex & index) const override;
+    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
+//    virtual QModelIndex index(const Node *node) const;
+    virtual QModelIndex index(const NodeList *lst) const;
     
-    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
     
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
     
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     
-    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QMimeData * mimeData(const QModelIndexList & indexes) const override;
     QStringList mimeTypes () const override;
     Qt::DropActions supportedDropActions() const override;
-    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
 
-    NodeList *list( const QModelIndex &index ) const;
-    Node *node( const QModelIndex &index ) const;
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
+    NodeList *list(const QModelIndex &index) const;
+    Node *node(const QModelIndex &index) const;
+    QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const override;
     
-    NodeList nodeList( QDataStream &stream );
+    NodeList nodeList(QDataStream &stream);
     using ItemModelBase::dropAllowed;
-    bool dropAllowed( Node *on, const QMimeData *data );
+    bool dropAllowed(Node *on, const QMimeData *data);
     
     void clear();
     void refresh() override;
     
-    void setManager( ScheduleManager *sm );
+    void setManager(ScheduleManager *sm);
     ScheduleManager *manager() const { return m_manager; }
     
 protected Q_SLOTS:
@@ -148,19 +148,19 @@ protected Q_SLOTS:
     void slotNodeRemoved(KPlato:: Node *node);
 
 protected:
-    QVariant alignment( int column ) const;
+    QVariant alignment(int column) const;
     
-    QVariant name( int row, int role ) const;
-    QVariant name( const Node *node, int role ) const;
-    QVariant earlyStart( const Task *node, int role ) const;
-    QVariant earlyFinish( const Task *node, int role ) const;
-    QVariant lateStart( const Task *node, int role ) const;
-    QVariant lateFinish( const Task *node, int role ) const;
-    QVariant positiveFloat( const Task *node, int role ) const;
-    QVariant freeFloat( const Task *node, int role ) const;
-    QVariant negativeFloat( const Task *node, int role ) const;
-    QVariant startFloat( const Task *node, int role ) const;
-    QVariant finishFloat( const Task *node, int role ) const;
+    QVariant name(int row, int role) const;
+    QVariant name(const Node *node, int role) const;
+    QVariant earlyStart(const Task *node, int role) const;
+    QVariant earlyFinish(const Task *node, int role) const;
+    QVariant lateStart(const Task *node, int role) const;
+    QVariant lateFinish(const Task *node, int role) const;
+    QVariant positiveFloat(const Task *node, int role) const;
+    QVariant freeFloat(const Task *node, int role) const;
+    QVariant negativeFloat(const Task *node, int role) const;
+    QVariant startFloat(const Task *node, int role) const;
+    QVariant finishFloat(const Task *node, int role) const;
 
 private:
     QStringList m_topNames;

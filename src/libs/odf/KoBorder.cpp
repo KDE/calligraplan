@@ -1025,10 +1025,10 @@ void KoBorder::parseAndSetBorder(const BorderSide borderSide, const QString &bor
     }
 
     if (foundStyle) {
-        setBorderStyle( borderSide, borderStyle);
+        setBorderStyle(borderSide, borderStyle);
     }
     if (foundWidth) {
-        setBorderWidth( borderSide, borderWidth);
+        setBorderWidth(borderSide, borderWidth);
     }
 }
 

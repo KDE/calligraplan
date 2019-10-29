@@ -94,7 +94,7 @@ public Q_SLOTS:
     void interrupt();
 
     /// progress comes from KoUpdater
-    void setProgress( int percent );
+    void setProgress(int percent);
 
 Q_SIGNALS:
 

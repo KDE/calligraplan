@@ -96,9 +96,9 @@ void SchedulerPluginLoader::loadAllPlugins()
             const QString comment = readLocalValue(json, QLatin1String("Description")).toString();
 
             debugPlan << "Load plugin:" << key << name << ", " << comment;
-            plugin->setName( name );
-            plugin->setComment( comment );
-            emit pluginLoaded( key, plugin);
+            plugin->setName(name);
+            plugin->setComment(comment);
+            emit pluginLoaded(key, plugin);
         } else {
            debugPlan << "KPluginFactory could not create SchedulerPlugin:" << pluginLoader->fileName();
         }

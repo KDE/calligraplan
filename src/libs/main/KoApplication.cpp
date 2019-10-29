@@ -103,7 +103,7 @@ public:
     ~ResetStarting()  {
         if (m_splash) {
 
-            KConfigGroup cfg( KSharedConfig::openConfig(), "SplashScreen");
+            KConfigGroup cfg(KSharedConfig::openConfig(), "SplashScreen");
             bool hideSplash = cfg.readEntry("HideSplashAfterStartup", false);
             if (hideSplash) {
                 m_splash->hide();
@@ -158,7 +158,7 @@ KoApplication::KoApplication(const QByteArray &nativeMimeType,
 #endif
 
 #ifdef Q_OS_MACX
-    if ( QSysInfo::MacintoshVersion > QSysInfo::MV_10_8 )
+    if (QSysInfo::MacintoshVersion > QSysInfo::MV_10_8)
     {
         // fix Mac OS X 10.9 (mavericks) font issue
         // https://bugreports.qt-project.org/browse/QTBUG-32789
@@ -432,7 +432,7 @@ bool KoApplication::start()
 
         short int numberOfOpenDocuments = 0; // number of documents open
         // TODO: remove once Qt has proper handling itself
-        const QRegExp withProtocolChecker( QStringLiteral("^[a-zA-Z]+:") );
+        const QRegExp withProtocolChecker(QStringLiteral("^[a-zA-Z]+:"));
         for (int argNumber = 0; argNumber < fileUrls.size(); ++argNumber) {
             const QString fileUrl = fileUrls.at(argNumber);
             // convert to an url

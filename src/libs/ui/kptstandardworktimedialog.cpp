@@ -68,7 +68,7 @@ public:
         MacroCommand *cmd=0;
         if (*original != *day) {
             cmd = new MacroCommand();
-            cmd->addCommand( new CalendarModifyWeekdayCmd(calendar, weekday, day) );
+            cmd->addCommand(new CalendarModifyWeekdayCmd(calendar, weekday, day));
             day = 0;
         }
         return cmd;
@@ -83,10 +83,10 @@ StandardWorktimeDialog::StandardWorktimeDialog(Project &p, QWidget *parent)
     : KoDialog(parent),
       project(p)
 {
-    setCaption( i18n("Estimate Conversions") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setCaption(i18n("Estimate Conversions"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
     //debugPlan<<&p;
     m_original = p.standardWorktime();
     dia = new StandardWorktimeDialogImpl(m_original, this);

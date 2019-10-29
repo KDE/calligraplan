@@ -75,7 +75,7 @@ Q_SIGNALS:
     void openTemplate(QUrl);
 
 protected:
-    void updateActionsEnabled( bool on = true);
+    void updateActionsEnabled(bool on = true);
 
 private Q_SLOTS:
     void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);

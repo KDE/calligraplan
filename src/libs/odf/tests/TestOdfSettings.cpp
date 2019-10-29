@@ -47,7 +47,7 @@ void TestOdfSettings::initTestCase()
         "</office:settings>"
         "</office:document-settings>";
 
-    bool ok = doc.setContent( xml, true /* namespace processing */ );
+    bool ok = doc.setContent(xml, true /* namespace processing */);
     QVERIFY(ok);
     settings = new KoOasisSettings(doc);
 }

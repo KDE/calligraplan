@@ -47,7 +47,7 @@ class PLAN_EXPORT ConfigProjectPanel : public ConfigProjectPanelImpl
 {
     Q_OBJECT
 public:
-    explicit ConfigProjectPanel( QWidget *parent=0 );
+    explicit ConfigProjectPanel(QWidget *parent=0);
     
 };
 

@@ -28,14 +28,14 @@ namespace KPlato
 {
 
 
-ProjectAccess::ProjectAccess( ReportData *rd )
-    : m_reportdata( rd )
+ProjectAccess::ProjectAccess(ReportData *rd)
+    : m_reportdata(rd)
 {
 }
 
 QVariant ProjectAccess::Name() const
 {
-    if ( m_reportdata && m_reportdata->project() ) {
+    if (m_reportdata && m_reportdata->project()) {
         return m_reportdata->project()->name().toUtf8();
     }
     return QVariant();
@@ -43,7 +43,7 @@ QVariant ProjectAccess::Name() const
 
 QVariant ProjectAccess::Manager() const
 {
-    if ( m_reportdata && m_reportdata->project() ) {
+    if (m_reportdata && m_reportdata->project()) {
         return m_reportdata->project()->leader().toUtf8();
     }
     return QVariant();
@@ -51,7 +51,7 @@ QVariant ProjectAccess::Manager() const
 
 QVariant ProjectAccess::Plan() const
 {
-    if ( m_reportdata && m_reportdata->scheduleManager() ) {
+    if (m_reportdata && m_reportdata->scheduleManager()) {
         return m_reportdata->scheduleManager()->name().toUtf8();
     }
     return QVariant();
@@ -59,20 +59,20 @@ QVariant ProjectAccess::Plan() const
 
 QVariant ProjectAccess::BCWS() const
 {
-    if ( m_reportdata && m_reportdata->project() ) {
+    if (m_reportdata && m_reportdata->project()) {
         long id = m_reportdata->scheduleManager() ? m_reportdata->scheduleManager()->scheduleId() : BASELINESCHEDULE;
-        double r = m_reportdata->project()->bcws( QDate::currentDate(), id );
-        return QLocale().toString(r, 'f', 2 ).toUtf8();
+        double r = m_reportdata->project()->bcws(QDate::currentDate(), id);
+        return QLocale().toString(r, 'f', 2).toUtf8();
     }
     return QVariant();
 }
 
 QVariant ProjectAccess::BCWP() const
 {
-    if ( m_reportdata && m_reportdata->project() ) {
+    if (m_reportdata && m_reportdata->project()) {
         long id = m_reportdata->scheduleManager() ? m_reportdata->scheduleManager()->scheduleId() : BASELINESCHEDULE;
-        double r = m_reportdata->project()->bcwp( QDate::currentDate(), id );
-        return QLocale().toString(r, 'f', 2 ).toUtf8();
+        double r = m_reportdata->project()->bcwp(QDate::currentDate(), id);
+        return QLocale().toString(r, 'f', 2).toUtf8();
     }
     warnPlan<<"No report data or project"<<m_reportdata;
     return QVariant();
@@ -80,25 +80,25 @@ QVariant ProjectAccess::BCWP() const
 
 QVariant ProjectAccess::ACWP() const
 {
-    if ( m_reportdata && m_reportdata->project() ) {
+    if (m_reportdata && m_reportdata->project()) {
         long id = m_reportdata->scheduleManager() ? m_reportdata->scheduleManager()->scheduleId() : BASELINESCHEDULE;
-        double r = m_reportdata->project()->acwp( QDate::currentDate(), id ).cost();
-        return QLocale().toString(r, 'f', 2 ).toUtf8();
+        double r = m_reportdata->project()->acwp(QDate::currentDate(), id).cost();
+        return QLocale().toString(r, 'f', 2).toUtf8();
     }
     return QVariant();
 }
 
 QVariant ProjectAccess::CPI() const
 {
-    if ( m_reportdata && m_reportdata->project() ) {
+    if (m_reportdata && m_reportdata->project()) {
         double r = 0.0;
         long id = m_reportdata->scheduleManager() ? m_reportdata->scheduleManager()->scheduleId() : BASELINESCHEDULE;
-        double b = m_reportdata->project()->bcwp( QDate::currentDate(), id );
-        double a = m_reportdata->project()->acwp( QDate::currentDate(), id ).cost();
-        if ( a > 0 ) {
+        double b = m_reportdata->project()->bcwp(QDate::currentDate(), id);
+        double a = m_reportdata->project()->acwp(QDate::currentDate(), id).cost();
+        if (a > 0) {
             r = b / a;
         }
-        return QLocale().toString(r, 'f', 2 ).toUtf8();
+        return QLocale().toString(r, 'f', 2).toUtf8();
     }
     return QVariant();
 }
@@ -106,10 +106,10 @@ QVariant ProjectAccess::CPI() const
 QVariant ProjectAccess::SPI() const
 {
     debugPlan<<"ProjectAccess::SPI:";
-    if ( m_reportdata && m_reportdata->project() ) {
+    if (m_reportdata && m_reportdata->project()) {
         int id = m_reportdata->scheduleManager() ? m_reportdata->scheduleManager()->scheduleId() : BASELINESCHEDULE;
-        double r = m_reportdata->project()->schedulePerformanceIndex( QDate::currentDate(), id );
-        return QLocale().toString(r, 'f', 2 ).toUtf8();
+        double r = m_reportdata->project()->schedulePerformanceIndex(QDate::currentDate(), id);
+        return QLocale().toString(r, 'f', 2).toUtf8();
     }
     return QVariant();
 }

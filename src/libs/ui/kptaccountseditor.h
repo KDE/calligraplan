@@ -43,7 +43,7 @@ class AccountTreeView;
 class AccountseditorConfigDialog : public KPageDialog {
     Q_OBJECT
 public:
-    AccountseditorConfigDialog( ViewBase *view, AccountTreeView *treeview, QWidget *parent, bool selectPrint = false );
+    AccountseditorConfigDialog(ViewBase *view, AccountTreeView *treeview, QWidget *parent, bool selectPrint = false);
 
 public Q_SLOTS:
     void slotOk();
@@ -61,29 +61,29 @@ class PLANUI_EXPORT AccountTreeView : public TreeViewBase
 public:
     explicit AccountTreeView(QWidget *parent);
 
-    AccountItemModel *model() const { return static_cast<AccountItemModel*>( TreeViewBase::model() ); }
+    AccountItemModel *model() const { return static_cast<AccountItemModel*>(TreeViewBase::model()); }
 
     Project *project() const { return model()->project(); }
-    void setProject( Project *project ) { model()->setProject( project ); }
+    void setProject(Project *project) { model()->setProject(project); }
 
     Account *currentAccount() const;
     Account *selectedAccount() const;
     QList<Account*> selectedAccounts() const;
     
 Q_SIGNALS:
-    void currentChanged( const QModelIndex& );
-    void currentColumnChanged( const QModelIndex&, const QModelIndex& );
-    void selectionChanged( const QModelIndexList& );
+    void currentChanged(const QModelIndex&);
+    void currentColumnChanged(const QModelIndex&, const QModelIndex&);
+    void selectionChanged(const QModelIndexList&);
 
-    void contextMenuRequested( const QModelIndex&, const QPoint& );
+    void contextMenuRequested(const QModelIndex&, const QPoint&);
     
 protected Q_SLOTS:
-    void slotHeaderContextMenuRequested( const QPoint &pos );
+    void slotHeaderContextMenuRequested(const QPoint &pos);
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
-    void currentChanged ( const QModelIndex & current, const QModelIndex & previous ) override;
+    void currentChanged (const QModelIndex & current, const QModelIndex & previous) override;
 
 protected:
-    void contextMenuEvent ( QContextMenuEvent * event ) override;
+    void contextMenuEvent (QContextMenuEvent * event) override;
     
 };
 
@@ -95,12 +95,12 @@ public:
     
     void setupGui();
     Project *project() const override { return m_view->project(); }
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
     void draw() override;
 
     AccountItemModel *model() const { return m_view->model(); }
     
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     virtual Account *currentAccount() const;
     
@@ -115,23 +115,23 @@ Q_SIGNALS:
     
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
     void slotEditCopy() override;
 
 protected:
-    void updateActionsEnabled( bool on );
-    void insertAccount( Account *account, Account *parent, int row );
+    void updateActionsEnabled(bool on);
+    void insertAccount(Account *account, Account *parent, int row);
 
 protected Q_SLOTS:
     void slotOptions() override;
     
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
-    void slotHeaderContextMenuRequested( const QPoint &pos ) override;
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
+    void slotHeaderContextMenuRequested(const QPoint &pos) override;
 
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex& );
-    void slotEnableActions( bool on );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&);
+    void slotEnableActions(bool on);
 
     void slotAddAccount();
     void slotAddSubAccount();

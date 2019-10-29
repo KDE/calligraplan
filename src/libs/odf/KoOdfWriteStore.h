@@ -100,7 +100,7 @@ public:
     KoXmlWriter *manifestWriter(const char *mimeType);
 
     /**
-     * Return the manifest writer. It has to be created by manifestWriter( mimeType ) before you can use
+     * Return the manifest writer. It has to be created by manifestWriter(mimeType) before you can use
      * this function.
      */
     KoXmlWriter *manifestWriter();

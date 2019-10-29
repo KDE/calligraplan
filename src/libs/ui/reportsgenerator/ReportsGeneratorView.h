@@ -45,25 +45,25 @@ public:
     void setupGui();
 
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
 
     static QStringList addOptions();
     static QStringList addTags();
 
-    void updateReadWrite( bool ) override;
+    void updateReadWrite(bool) override;
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
     void slotAddReport();
     void slotRemoveReport();
     void slotGenerateReport();
 
 protected:
-    void updateActionsEnabled( bool on );
+    void updateActionsEnabled(bool on);
     int selectedRowCount() const;
     QModelIndexList selectedRows() const;
 
@@ -74,7 +74,7 @@ protected Q_SLOTS:
 
 private Q_SLOTS:
     void slotSelectionChanged();
-    void slotCurrentChanged( const QModelIndex&, const QModelIndex& );
+    void slotCurrentChanged(const QModelIndex&, const QModelIndex&);
     void slotContextMenuRequested(const QPoint &pos);
 
     void slotEnableActions();

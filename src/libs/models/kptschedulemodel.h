@@ -41,7 +41,7 @@ class PLANMODELS_EXPORT ScheduleModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit ScheduleModel( QObject *parent = 0 );
+    explicit ScheduleModel(QObject *parent = 0);
     ~ScheduleModel() override;
     
     enum Properties {
@@ -67,40 +67,40 @@ class PLANMODELS_EXPORT ScheduleItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit ScheduleItemModel( QObject *parent = 0 );
+    explicit ScheduleItemModel(QObject *parent = 0);
     ~ScheduleItemModel() override;
 
     const QMetaEnum columnMap() const override { return m_model.columnMap(); }
     
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
 
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
 
-    QModelIndex parent( const QModelIndex & index ) const override;
-    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
-    QModelIndex index( const ScheduleManager *manager ) const;
+    QModelIndex parent(const QModelIndex & index) const override;
+    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
+    QModelIndex index(const ScheduleManager *manager) const;
 
-    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
 
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
-    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
+    bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) override;
 
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
+    QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const override;
     
-    void sort( int column, Qt::SortOrder order = Qt::AscendingOrder ) override;
+    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
 
-    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QMimeData * mimeData(const QModelIndexList & indexes) const override;
     QStringList mimeTypes () const override;
 
-    ScheduleManager *manager( const QModelIndex &index ) const;
+    ScheduleManager *manager(const QModelIndex &index) const;
     
-    void setFlat( bool flat );
+    void setFlat(bool flat);
 
 Q_SIGNALS:
-    void scheduleManagerAdded(KPlato::ScheduleManager* );
+    void scheduleManagerAdded(KPlato::ScheduleManager*);
 
 protected Q_SLOTS:
     void slotManagerChanged(KPlato::ScheduleManager *sch);
@@ -113,44 +113,44 @@ protected Q_SLOTS:
     void slotScheduleManagerToBeMoved(const KPlato::ScheduleManager *manager);
     void slotScheduleManagerMoved(const KPlato::ScheduleManager *manager, int index);
     void slotScheduleToBeInserted(const KPlato::ScheduleManager *manager, int row);
-    void slotScheduleInserted( const KPlato::MainSchedule *schedule);
-    void slotScheduleToBeRemoved( const KPlato::MainSchedule *schedule);
-    void slotScheduleRemoved( const KPlato::MainSchedule *schedule);
+    void slotScheduleInserted(const KPlato::MainSchedule *schedule);
+    void slotScheduleToBeRemoved(const KPlato::MainSchedule *schedule);
+    void slotScheduleRemoved(const KPlato::MainSchedule *schedule);
 
 protected:
-    int row( const Schedule *sch ) const;
+    int row(const Schedule *sch) const;
     
-    QVariant name( const QModelIndex &index, int role ) const;
-    bool setName( const QModelIndex &index, const QVariant &value, int role );
+    QVariant name(const QModelIndex &index, int role) const;
+    bool setName(const QModelIndex &index, const QVariant &value, int role);
     
-    QVariant state( const QModelIndex &index, int role ) const;
-    bool setState( const QModelIndex &index, const QVariant &value, int role );
+    QVariant state(const QModelIndex &index, int role) const;
+    bool setState(const QModelIndex &index, const QVariant &value, int role);
 
-    QVariant allowOverbooking( const QModelIndex &index, int role ) const;
-    bool setAllowOverbooking( const QModelIndex &index, const QVariant &value, int role );
+    QVariant allowOverbooking(const QModelIndex &index, int role) const;
+    bool setAllowOverbooking(const QModelIndex &index, const QVariant &value, int role);
     
-    QVariant usePert( const QModelIndex &index, int role ) const;
-    bool setUsePert( const QModelIndex &index, const QVariant &value, int role );
+    QVariant usePert(const QModelIndex &index, int role) const;
+    bool setUsePert(const QModelIndex &index, const QVariant &value, int role);
 
-    QVariant projectStart( const QModelIndex &index, int role ) const;
-    QVariant projectEnd( const QModelIndex &index, int role ) const;
+    QVariant projectStart(const QModelIndex &index, int role) const;
+    QVariant projectEnd(const QModelIndex &index, int role) const;
 
-    QVariant schedulingDirection( const QModelIndex &index, int role ) const;
-    bool setSchedulingDirection( const QModelIndex &index, const QVariant &value, int role );
+    QVariant schedulingDirection(const QModelIndex &index, int role) const;
+    bool setSchedulingDirection(const QModelIndex &index, const QVariant &value, int role);
 
-    QVariant schedulingStartTime( const QModelIndex &index, int role ) const;
-    bool setSchedulingStartTime( const QModelIndex &index, const QVariant &value, int role );
+    QVariant schedulingStartTime(const QModelIndex &index, int role) const;
+    bool setSchedulingStartTime(const QModelIndex &index, const QVariant &value, int role);
 
-    QVariant scheduler( const QModelIndex &index, int role ) const;
-    bool setScheduler( const QModelIndex &index, const QVariant &value, int role );
+    QVariant scheduler(const QModelIndex &index, int role) const;
+    bool setScheduler(const QModelIndex &index, const QVariant &value, int role);
 
-    QVariant isScheduled( const QModelIndex &index, int role ) const;
+    QVariant isScheduled(const QModelIndex &index, int role) const;
 
-    QVariant granularity( const QModelIndex &index, int role ) const;
-    bool setGranularity( const QModelIndex &index, const QVariant &value, int role );
+    QVariant granularity(const QModelIndex &index, int role) const;
+    bool setGranularity(const QModelIndex &index, const QVariant &value, int role);
 
-    QVariant schedulingMode( const QModelIndex &index, int role ) const;
-    bool setSchedulingMode( const QModelIndex &index, const QVariant &value, int role );
+    QVariant schedulingMode(const QModelIndex &index, int role) const;
+    bool setSchedulingMode(const QModelIndex &index, const QVariant &value, int role);
 
 private:
     ScheduleManager *m_manager; // for sanity check
@@ -166,12 +166,12 @@ class PLANMODELS_EXPORT ScheduleSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit ScheduleSortFilterModel( QObject *parent = 0 );
+    explicit ScheduleSortFilterModel(QObject *parent = 0);
     ~ScheduleSortFilterModel() override;
 
-    ScheduleManager *manager( const QModelIndex &index ) const;
+    ScheduleManager *manager(const QModelIndex &index) const;
 
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
 };
 
 //----------------------------------------
@@ -181,19 +181,19 @@ class PLANMODELS_EXPORT ScheduleLogItemModel : public QStandardItemModel
 public:
     enum DataRoles { SeverityRole = Qt::UserRole + 1, IdentityRole };
 
-    explicit ScheduleLogItemModel( QObject *parent = 0 );
+    explicit ScheduleLogItemModel(QObject *parent = 0);
     ~ScheduleLogItemModel() override;
 
-    void setProject( Project *project );
+    void setProject(Project *project);
     Project *project() const { return m_project; }
-    void setManager( ScheduleManager *manager );
+    void setManager(ScheduleManager *manager);
     ScheduleManager *manager() const { return m_manager; }
 
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
 
     void refresh();
     
-    QString identity( const QModelIndex &idx ) const;
+    QString identity(const QModelIndex &idx) const;
 
 protected Q_SLOTS:
     void slotManagerChanged(KPlato::ScheduleManager *sch);
@@ -202,16 +202,16 @@ protected Q_SLOTS:
     void slotScheduleManagerToBeRemoved(const KPlato::ScheduleManager *manager);
     void slotScheduleManagerRemoved(const KPlato::ScheduleManager *manager);
     void slotScheduleToBeInserted(const KPlato::ScheduleManager *manager, int row);
-    void slotScheduleInserted( const KPlato::MainSchedule *schedule);
-    void slotScheduleToBeRemoved( const KPlato::MainSchedule *schedule);
-    void slotScheduleRemoved( const KPlato::MainSchedule *schedule);
+    void slotScheduleInserted(const KPlato::MainSchedule *schedule);
+    void slotScheduleToBeRemoved(const KPlato::MainSchedule *schedule);
+    void slotScheduleRemoved(const KPlato::MainSchedule *schedule);
 
-    void slotLogInserted(KPlato::MainSchedule*, int firstrow, int lastrow );
+    void slotLogInserted(KPlato::MainSchedule*, int firstrow, int lastrow);
 
     void projectDeleted();
 
 protected:
-    void addLogEntry( const Schedule::Log &log, int row );
+    void addLogEntry(const Schedule::Log &log, int row);
 
 private:
     Project *m_project;

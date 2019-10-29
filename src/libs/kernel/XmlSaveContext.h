@@ -42,15 +42,15 @@ public:
     {}
 
     static QDomDocument createDocument() {
-        QDomDocument document( "plan" );
-        document.appendChild( document.createProcessingInstruction(
+        QDomDocument document("plan");
+        document.appendChild(document.createProcessingInstruction(
             "xml",
-            "version=\"1.0\" encoding=\"UTF-8\"" ) );
+            "version=\"1.0\" encoding=\"UTF-8\"") );
         
-        QDomElement doc = document.createElement( "plan" );
-        doc.setAttribute( "editor", "Plan" );
-        doc.setAttribute( "mime", "application/x-vnd.kde.plan" );
-        doc.setAttribute( "version", PLAN_FILE_SYNTAX_VERSION );
+        QDomElement doc = document.createElement("plan");
+        doc.setAttribute("editor", "Plan");
+        doc.setAttribute("mime", "application/x-vnd.kde.plan");
+        doc.setAttribute("version", PLAN_FILE_SYNTAX_VERSION);
         document.appendChild(doc);
         return document;
     }

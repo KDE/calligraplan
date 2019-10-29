@@ -78,14 +78,14 @@ ICalendarExport::ICalendarExport(QObject* parent, const QVariantList &)
 KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, const QByteArray& to)
 {
     debugPlanICalExport << from << to;
-    if ( ( from != "application/x-vnd.kde.plan" ) || ( to != "text/calendar" ) ) {
+    if ((from != "application/x-vnd.kde.plan") || (to != "text/calendar")) {
         return KoFilter::NotImplemented;
     }
     bool batch = false;
-    if ( m_chain->manager() ) {
+    if (m_chain->manager()) {
         batch = m_chain->manager()->getBatchMode();
     }
-    if ( batch ) {
+    if (batch) {
         //TODO
         debugPlanICalExport<<"batch";
         return KoFilter::UsageError;
@@ -111,7 +111,7 @@ KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, cons
         QApplication::setOverrideCursor(Qt::WaitCursor);
         return KoFilter::UserCancelled;
     }
-    QApplication::setOverrideCursor( Qt::WaitCursor );
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     m_scheduleId = dlg.scheduleId();
     m_includeProject = dlg.includeProject();
     m_includeSummarytasks = dlg.includeSummarytasks();
@@ -349,14 +349,14 @@ KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFil
 void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node, long id, KCalCore::Todo::Ptr parent)
 {
     KCalCore::Todo::Ptr todo(new KCalCore::Todo());
-    todo->setUid( node->id() );
+    todo->setUid(node->id());
     todo->setSummary(node->name());
     todo->setDescription(node->description());
     todo->setCategories(QLatin1String("Plan"));
     if (! node->projectNode()->leader().isEmpty()) {
         todo->setOrganizer(node->projectNode()->leader());
     }
-    if ( node->type() != Node::Type_Project && ! node->leader().isEmpty()) {
+    if (node->type() != Node::Type_Project && ! node->leader().isEmpty()) {
 #if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
         KCalCore::Person p = KCalCore::Person::fromFullName(node->leader());
         KCalCore::Attendee a(p.name(), p.email());
@@ -371,10 +371,10 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
     DateTime st = node->startTime(id);
     DateTime et = node->endTime(id);
     if (st.isValid()) {
-        todo->setDtStart( KQDT( st ) );
+        todo->setDtStart(KQDT(st));
     }
     if (et.isValid()) {
-        todo->setDtDue( KQDT( et ) );
+        todo->setDtDue(KQDT(et));
     }
     if (node->type() == Node::Type_Task) {
         const Task *task = qobject_cast<Task*>(const_cast<Node*>(node));

@@ -59,8 +59,8 @@ protected Q_SLOTS:
     void accept() override;
     void setButtonOkEnabled(bool enabled);
 
-    void slotTaskRemoved(KPlato::Node *node );
-    void slotCurrentChanged( KPageWidgetItem*, KPageWidgetItem* );
+    void slotTaskRemoved(KPlato::Node *node);
+    void slotCurrentChanged(KPageWidgetItem*, KPageWidgetItem*);
 
 protected:
     Project &m_project;

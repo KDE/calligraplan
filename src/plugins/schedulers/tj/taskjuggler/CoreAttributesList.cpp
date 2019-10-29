@@ -283,16 +283,16 @@ QStringList CoreAttributesList::getSortCriteria()
 
 } // namespace TJ
 
-QDebug operator<<( QDebug dbg, const TJ::CoreAttributesList& lst )
+QDebug operator<<(QDebug dbg, const TJ::CoreAttributesList& lst)
 {
     QStringList s;
-    for ( int i = 0; i < TJ::CoreAttributesList::maxSortingLevel; ++i ) {
-        s << TJ::CoreAttributesList::getSortCriteria().at( lst.getSorting( i ) );
+    for (int i = 0; i < TJ::CoreAttributesList::maxSortingLevel; ++i) {
+        s << TJ::CoreAttributesList::getSortCriteria().at(lst.getSorting(i));
     }
     dbg.nospace() << "CoreAttributeList{sort: " << s.join("|") << " (";
-    for( int i = 0; i < lst.count(); ++i ) {
-        dbg << lst.at( i );
-        if ( i  < lst.count() - 1 ) {
+    for(int i = 0; i < lst.count(); ++i) {
+        dbg << lst.at(i);
+        if (i  < lst.count() - 1) {
             dbg.nospace() << ',';
         }
     }

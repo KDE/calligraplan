@@ -58,7 +58,7 @@ class PLANUI_EXPORT WorkPackageMergeDialog : public KoDialog
 public:
     enum Columns { DateColumn = 0, CompletionColumn, UsedEffortColumn, RemainingEffortColumn };
 
-    WorkPackageMergeDialog(Project *project, const QMap<QDateTime, Package*> &list, QWidget *parent = 0 );
+    WorkPackageMergeDialog(Project *project, const QMap<QDateTime, Package*> &list, QWidget *parent = 0);
     ~WorkPackageMergeDialog() override;
 
     QList<int> checkedList() const;

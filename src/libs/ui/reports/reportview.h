@@ -75,10 +75,10 @@ class ReportPrintingDialog : public KoPrintingDialog
 {
     Q_OBJECT
 public:
-    ReportPrintingDialog( ViewBase *view, ORODocument *reportDocument );
+    ReportPrintingDialog(ViewBase *view, ORODocument *reportDocument);
     ~ReportPrintingDialog();
     
-    void printPage( int page, QPainter &painter );
+    void printPage(int page, QPainter &painter);
 
     int documentLastPage() const;
 
@@ -103,16 +103,16 @@ class PLANUI_EXPORT ReportView : public ViewBase
 public:
     ReportView(KoPart *part, KoDocument *doc, QWidget *parent);
 
-    void setProject( Project *project );
+    void setProject(Project *project);
 
     KoPrintJob *createPrintJob();
 
     /// Load the design document @p doc
-    bool loadXML( const QDomDocument &doc );
+    bool loadXML(const QDomDocument &doc);
     /// Loads context info into this view.
-    virtual bool loadContext( const KoXmlElement &context );
+    virtual bool loadContext(const KoXmlElement &context);
     /// Save context info from this view.
-    virtual void saveContext( QDomElement &context ) const;
+    virtual void saveContext(QDomElement &context) const;
 
     ReportWidget *reportWidget() const;
     ReportDesigner *reportDesigner() const;
@@ -121,8 +121,8 @@ public:
     QList<ReportData*> reportDataModels() const;
 
 public Q_SLOTS:
-    void setGuiActive( bool active );
-    void setScheduleManager( ScheduleManager *sm );
+    void setGuiActive(bool active);
+    void setScheduleManager(ScheduleManager *sm);
 
     virtual void slotRefreshView(); // refresh display
 
@@ -131,7 +131,7 @@ private Q_SLOTS:
     void slotViewReport();
 
 Q_SIGNALS:
-    void editReportDesign( ReportWidget* );
+    void editReportDesign(ReportWidget*);
 
 private:
     QStackedWidget *m_stack;
@@ -144,25 +144,25 @@ public:
     ReportWidget(KoPart *part, KoDocument *doc, QWidget *parent);
 
 public Q_SLOTS:
-    void setGuiActive( bool active );
+    void setGuiActive(bool active);
     
-    void renderPage( int page );
+    void renderPage(int page);
     
     /// Return true if document is null
     bool documentIsNull() const;
     /// Load the design document @p doc
-    bool loadXML( const QDomDocument &doc );
+    bool loadXML(const QDomDocument &doc);
     /// Loads context info into this view.
-    virtual bool loadContext( const KoXmlElement &context );
+    virtual bool loadContext(const KoXmlElement &context);
     /// Save context info from this view.
-    virtual void saveContext( QDomElement &context ) const;
+    virtual void saveContext(QDomElement &context) const;
 
     KoPrintJob *createPrintJob();
 
     /// Return the page layout used for printing this view
     KoPageLayout pageLayout() const;
 
-    void setReportDataModels( const QList<ReportData*> &models );
+    void setReportDataModels(const QList<ReportData*> &models);
     QList<ReportData*> reportDataModels() const { return m_reportdatamodels; }
 
 Q_SIGNALS:
@@ -186,8 +186,8 @@ private Q_SLOTS:
     void exportAsWebPage();
 
 private:
-    ReportData *createReportData( const QDomElement &connection );
-    ReportData *createReportData( const QString &type );
+    ReportData *createReportData(const QDomElement &connection);
+    ReportData *createReportData(const QString &type);
     QUrl getExportFileName(const QString &mimetype);
 
 private:
@@ -210,13 +210,13 @@ class PLANUI_EXPORT ReportNavigator : public QWidget, public Ui::ReportNavigator
     Q_OBJECT
 public:
     explicit ReportNavigator(QWidget *parent = 0);
-    void setCurrentPage( int page );
+    void setCurrentPage(int page);
     
 public Q_SLOTS:
-    void setMaximum( int );
+    void setMaximum(int);
     
 protected Q_SLOTS:
-    void slotMaxChanged( int );
+    void slotMaxChanged(int);
     void setButtonsEnabled();
 };
 
@@ -224,7 +224,7 @@ protected Q_SLOTS:
 class  PLANUI_EXPORT ModifyReportDefinitionCmd : public NamedCommand
 {
 public:
-    ModifyReportDefinitionCmd( ReportView *view, const QDomDocument &value, const KUndo2MagicString &name = KUndo2MagicString() );
+    ModifyReportDefinitionCmd(ReportView *view, const QDomDocument &value, const KUndo2MagicString &name = KUndo2MagicString());
     void execute();
     void unexecute();
 
@@ -242,22 +242,22 @@ public:
     ReportDesigner(KoPart *part, KoDocument *doc, QWidget *parent = 0);
 
     bool isModified() const;
-    void setModified( bool on );
+    void setModified(bool on);
     QDomDocument document() const;
-    void setData( const QDomDocument &doc );
+    void setData(const QDomDocument &doc);
 
     /// Loads context info into this view.
-    virtual bool loadContext( const KoXmlElement &context );
+    virtual bool loadContext(const KoXmlElement &context);
     /// Save context info from this view.
-    virtual void saveContext( QDomElement &context ) const;
+    virtual void saveContext(QDomElement &context) const;
 
 public Q_SLOTS:
-    void setReportData( const QString &tag );
+    void setReportData(const QString &tag);
     void slotSaveReportDefinition();
 
 Q_SIGNALS:
     void viewReport();
-    void resetButtonState( bool );
+    void resetButtonState(bool);
     void raiseClicked();
     void lowerClicked();
     void cutActivated();
@@ -281,14 +281,14 @@ Q_SIGNALS:
 protected:
     void setupGui();
     void createDockers();
-    QStandardItemModel *createSourceModel( QObject *parent ) const;
+    QStandardItemModel *createSourceModel(QObject *parent) const;
     void setData();
 
 protected Q_SLOTS:
     void slotPropertySetChanged();
     void slotInsertAction();
-    void slotItemInserted( const QString & );
-    void slotSectionToggled( bool );
+    void slotItemInserted(const QString &);
+    void slotSectionToggled(bool);
     void undoAllChanges();
     void slotModified();
 

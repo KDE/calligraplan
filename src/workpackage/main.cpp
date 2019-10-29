@@ -29,7 +29,7 @@
 
 #include <Calligra2Migration.h>
 
-extern "C" Q_DECL_EXPORT int kdemain( int argc, char **argv )
+extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 {
     QApplication app(argc, argv);
 #ifdef Q_OS_MACOS

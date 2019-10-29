@@ -64,39 +64,39 @@ public:
     DateTimeInterval()
     : std::pair<DateTime, DateTime>()
     {}
-    DateTimeInterval( const DateTime &t1, const DateTime &t2 )
-    : std::pair<DateTime, DateTime>( t1, t2 )
+    DateTimeInterval(const DateTime &t1, const DateTime &t2)
+    : std::pair<DateTime, DateTime>(t1, t2)
     {}
-    DateTimeInterval &operator=( const DateTimeInterval &other ) {
+    DateTimeInterval &operator=(const DateTimeInterval &other) {
         first = other.first; second = other.second;
         return *this;
     }
     bool isValid() const { return first.isValid() && second.isValid(); }
-    void limitTo( const DateTime &start, const DateTime &end ) {
-        if ( ! first.isValid() || ( start.isValid() && start > first ) ) {
+    void limitTo(const DateTime &start, const DateTime &end) {
+        if (! first.isValid() || (start.isValid() && start > first) ) {
             first = start;
         }
-        if ( ! second.isValid() || ( end.isValid() && end < second ) ) {
+        if (! second.isValid() || (end.isValid() && end < second) ) {
             second = end;
         }
-        if ( isValid() && first > second ) {
+        if (isValid() && first > second) {
             first = second = DateTime();
         }
     }
-    void limitTo( const DateTimeInterval &interval ) {
-        limitTo( interval.first, interval.second );
+    void limitTo(const DateTimeInterval &interval) {
+        limitTo(interval.first, interval.second);
     }
 
-    DateTimeInterval limitedTo( const DateTime &start, const DateTime &end ) const {
+    DateTimeInterval limitedTo(const DateTime &start, const DateTime &end) const {
         DateTimeInterval i = *this;
-        i.limitTo( start, end );
+        i.limitTo(start, end);
         return i;
     }
-    DateTimeInterval limitedTo( const DateTimeInterval &interval ) const {
-        return limitedTo( interval.first, interval.second );
+    DateTimeInterval limitedTo(const DateTimeInterval &interval) const {
+        return limitedTo(interval.first, interval.second);
     }
     QString toString() const {
-        return QStringLiteral( "%1 to %2" )
+        return QStringLiteral("%1 to %2")
                     .arg(first.isValid()?first.toString():QStringLiteral("''"), second.isValid()?second.toString():QStringLiteral("''"));
     }
 };
@@ -107,60 +107,60 @@ class PLANKERNEL_EXPORT TimeInterval : public std::pair<QTime, int>
 {
 public:
     TimeInterval()
-    : std::pair<QTime, int>( QTime(), -1 )
+    : std::pair<QTime, int>(QTime(), -1)
     {}
-    explicit TimeInterval( std::pair<QTime, int> value )
-    : std::pair<QTime, int>( value )
+    explicit TimeInterval(std::pair<QTime, int> value)
+    : std::pair<QTime, int>(value)
     {
         init();
     }
-    TimeInterval( QTime start, int length )
-    : std::pair<QTime, int>( start, length )
+    TimeInterval(QTime start, int length)
+    : std::pair<QTime, int>(start, length)
     {
         init();
     }
-    TimeInterval( const TimeInterval &value )
-    : std::pair<QTime, int>( value.first, value.second )
+    TimeInterval(const TimeInterval &value)
+    : std::pair<QTime, int>(value.first, value.second)
     {
         init();
     }
     /// Return the intervals start time
     QTime startTime() const { return first; }
     /// Return the intervals calculated end time. Note: It may return QTime(0,0,0)
-    QTime endTime() const { return first.addMSecs( second ); }
-    double hours() const { return (double)(second) / ( 1000. * 60. * 60. ); }
+    QTime endTime() const { return first.addMSecs(second); }
+    double hours() const { return (double)(second) / (1000. * 60. * 60.); }
     /// Returns true if this interval ends at midnight, and thus endTime() returns QTime(0,0,0)
-    bool endsMidnight() const { return endTime() == QTime( 0, 0, 0 ); }
+    bool endsMidnight() const { return endTime() == QTime(0, 0, 0); }
 
     bool isValid() const { return first.isValid() && second > 0; }
     bool isNull() const { return first.isNull() || second < 0; }
 
-    TimeInterval &operator=( const TimeInterval &ti ) { 
+    TimeInterval &operator=(const TimeInterval &ti) { 
         first = ti.first;
         second = ti.second;
         return *this;
     }
     /// Returns true if the intervals overlap in any way
-    bool intersects( const TimeInterval &ti ) const {
-        if ( ! isValid() || ! ti.isValid() ) {
+    bool intersects(const TimeInterval &ti) const {
+        if (! isValid() || ! ti.isValid()) {
             return false;
         }
-        if ( endsMidnight() && ti.endsMidnight() ) {
+        if (endsMidnight() && ti.endsMidnight()) {
             return true;
         }
-        if ( endsMidnight() ) {
+        if (endsMidnight()) {
             return first < ti.endTime();
         }
-        if ( ti.endsMidnight() ) {
+        if (ti.endsMidnight()) {
             return ti.first < endTime();
         }
-        return ( first < ti.endTime() && endTime() > ti.first ) || ( ti.first < endTime() && ti.endTime() > first );
+        return (first < ti.endTime() && endTime() > ti.first) || (ti.first < endTime() && ti.endTime() > first);
     }
 protected:
     void init()
     {
-        int s = QTime( 0, 0, 0 ).msecsTo( first );
-        if ( ( s + second ) > 86400000 ) {
+        int s = QTime(0, 0, 0).msecsTo(first);
+        if ((s + second) > 86400000) {
             second = 86400000 - s;
             errorPlan<<"Overflow, limiting length to"<<second;
         }
@@ -181,11 +181,11 @@ public:
     explicit CalendarDay(CalendarDay *day);
     ~CalendarDay();
 
-    bool load( KoXmlElement &element, XMLLoaderObject &status );
+    bool load(KoXmlElement &element, XMLLoaderObject &status);
     void save(QDomElement &element) const;
 
     QList<TimeInterval*> timeIntervals() const { return m_timeIntervals; }
-    void addInterval( QTime t1, int length ) { addInterval( new TimeInterval( t1, length ) ); }
+    void addInterval(QTime t1, int length) { addInterval(new TimeInterval(t1, length) ); }
     /**
      * Caller needs to ensure that intervals are not overlapping.
      */
@@ -196,8 +196,8 @@ public:
         m_timeIntervals.clear();
         m_timeIntervals = intervals;
     }
-    void removeInterval( TimeInterval *interval );
-    bool hasInterval( const TimeInterval *interval ) const;
+    void removeInterval(TimeInterval *interval);
+    bool hasInterval(const TimeInterval *interval) const;
     int numIntervals() const;
 
     DateTime start() const;
@@ -259,8 +259,8 @@ public:
     
     const CalendarDay &copy(const CalendarDay &day);
 
-    static QString stateToString( int st, bool trans = false );
-    static QStringList stateList( bool trans = false );
+    static QString stateToString(int st, bool trans = false);
+    static QStringList stateList(bool trans = false);
 
 private:
     QDate m_date; //NOTE: inValid if used for weekdays
@@ -278,10 +278,10 @@ class PLANKERNEL_EXPORT CalendarWeekdays {
 
 public:
     CalendarWeekdays();
-    explicit CalendarWeekdays( const CalendarWeekdays *weekdays );
+    explicit CalendarWeekdays(const CalendarWeekdays *weekdays);
     ~CalendarWeekdays();
 
-    bool load( KoXmlElement &element, XMLLoaderObject &status );
+    bool load(KoXmlElement &element, XMLLoaderObject &status);
     void save(QDomElement &element) const;
 
     const QList<CalendarDay*> weekdays() const 
@@ -293,7 +293,7 @@ public:
     CalendarDay *weekday(int day) const;
     CalendarDay *weekday(QDate date) const { return weekday(date.dayOfWeek()); }
 
-    static int dayOfWeek( const QString &name );
+    static int dayOfWeek(const QString &name);
 
     const QMap<int, CalendarDay*> &weekdayMap() const;
     
@@ -334,7 +334,7 @@ public:
 
     const CalendarWeekdays &copy(const CalendarWeekdays &weekdays);
 
-    int indexOf( const CalendarDay *day ) const;
+    int indexOf(const CalendarDay *day) const;
     
 private:
     Calendar *m_calendar;
@@ -373,10 +373,10 @@ class PLANKERNEL_EXPORT Calendar : public QObject
 public:
     Calendar();
     explicit Calendar(const QString& name, Calendar *parent=0);
-    //Calendar( const Calendar &c ); QObject doesn't allow a copy constructor
+    //Calendar(const Calendar &c); QObject doesn't allow a copy constructor
     ~Calendar() override;
 
-    const Calendar &operator=(const Calendar &calendar ) { return copy( calendar ); }
+    const Calendar &operator=(const Calendar &calendar) { return copy(calendar); }
 
     QString name() const { return m_name; }
     void setName(const QString& name);
@@ -387,9 +387,9 @@ public:
      * Removes myself from current parent and
      * inserts myself as child to new parent.
      */
-    void setParentCal( Calendar *parent, int pos = -1 );
+    void setParentCal(Calendar *parent, int pos = -1);
     
-    bool isChildOf( const Calendar *cal ) const;
+    bool isChildOf(const Calendar *cal) const;
     
     Project *project() const { return m_project; }
     void setProject(Project *project);
@@ -398,22 +398,22 @@ public:
     void setId(const QString& id);
     
     const QList<Calendar*> &calendars() const { return m_calendars; }
-    void addCalendar( Calendar *calendar, int pos = -1 );
-    void takeCalendar( Calendar *calendar );
-    int indexOf( const Calendar *calendar ) const;
+    void addCalendar(Calendar *calendar, int pos = -1);
+    void takeCalendar(Calendar *calendar);
+    int indexOf(const Calendar *calendar) const;
     /// Return number of children
     int childCount() const { return m_calendars.count(); }
     /// Return child calendar at @p index, 0 if index out of bounds
-    Calendar *childAt( int index ) const { return m_calendars.value( index ); }
+    Calendar *childAt(int index) const { return m_calendars.value(index); }
     
-    bool load( KoXmlElement &element, XMLLoaderObject &status );
+    bool load(KoXmlElement &element, XMLLoaderObject &status);
     void save(QDomElement &element) const;
 
     int state(QDate date) const;
-    void setState( CalendarDay *day, CalendarDay::State state );
-    void addWorkInterval( CalendarDay *day, TimeInterval *ti );
-    void takeWorkInterval( CalendarDay *day, TimeInterval *ti );
-    void setWorkInterval( TimeInterval *ti, const TimeInterval &value );
+    void setState(CalendarDay *day, CalendarDay::State state);
+    void addWorkInterval(CalendarDay *day, TimeInterval *ti);
+    void takeWorkInterval(CalendarDay *day, TimeInterval *ti);
+    void setWorkInterval(TimeInterval *ti, const TimeInterval &value);
 
     /**
      * Find the definition for the day @p date.
@@ -425,22 +425,22 @@ public:
     const QList<CalendarDay*> &days() const { return m_days; }
     QList<std::pair<CalendarDay*, CalendarDay*> > consecutiveVacationDays() const;
     QList<CalendarDay*> workingDays() const;
-    int indexOf( const CalendarDay *day ) const { return m_days.indexOf( const_cast<CalendarDay*>( day ) ); }
-    CalendarDay *dayAt( int index ) { return m_days.value( index ); }
+    int indexOf(const CalendarDay *day) const { return m_days.indexOf(const_cast<CalendarDay*>(day) ); }
+    CalendarDay *dayAt(int index) { return m_days.value(index); }
     int numDays() const { return m_days.count(); }
-    void setDate( CalendarDay *day, QDate date );
-    CalendarDay *day( QDate date ) const;
+    void setDate(CalendarDay *day, QDate date);
+    CalendarDay *day(QDate date) const;
     
     IntMap weekdayStateMap() const;
     
     CalendarWeekdays *weekdays() const { return m_weekdays; }
     CalendarDay *weekday(int day) const { return m_weekdays->weekday(day); }
-    int indexOfWeekday( const CalendarDay *day ) const { return m_weekdays->indexOf( day ); }
+    int indexOfWeekday(const CalendarDay *day) const { return m_weekdays->indexOf(day); }
     const QList<CalendarDay*> weekdayList() const { return m_weekdays->weekdays(); }
     int numWeekdays() const { return weekdayList().count(); }
     
     /// Sets the @p weekday data to the data in @p day
-    void setWeekday( int weekday, const CalendarDay &day );
+    void setWeekday(int weekday, const CalendarDay &day);
     
     QString parentId() const { return m_parentId; }
     void setParentId(const QString& id) { m_parentId = id; }
@@ -495,18 +495,18 @@ public:
     void insertId(const QString &id);
 
     QTimeZone timeZone() const { return m_timeZone; }
-    void setTimeZone( const QTimeZone &tz );
+    void setTimeZone(const QTimeZone &tz);
     /// Return the project timezone, or local timezone if no project
     QTimeZone projectTimeZone() const;
 
-    void setDefault( bool on );
+    void setDefault(bool on);
     bool isDefault() const { return m_default; }
     
     int cacheVersion() const;
     void incCacheVersion();
-    void setCacheVersion( int version );
-    bool loadCacheVersion( KoXmlElement &element, XMLLoaderObject &status );
-    void saveCacheVersion( QDomElement &element ) const;
+    void setCacheVersion(int version);
+    bool loadCacheVersion(KoXmlElement &element, XMLLoaderObject &status);
+    void saveCacheVersion(QDomElement &element) const;
 
     /// A calendar can be local to this project, or
     /// defined externally and shared with other projects
@@ -573,7 +573,7 @@ protected:
      * starting at @p start and ending at @p end.
      * If no 'work interval' exists, returns an interval with invalid DateTime.
      */
-    DateTimeInterval firstInterval( const QDateTime &start, const QDateTime &end, Schedule *sch=0) const;
+    DateTimeInterval firstInterval(const QDateTime &start, const QDateTime &end, Schedule *sch=0) const;
 
     /**
      * Returns true if at least a part of a 'work interval' exists 
@@ -629,12 +629,12 @@ public:
 class PLANKERNEL_EXPORT StandardWorktime
 {
 public:
-    explicit StandardWorktime( Project *project = 0 );
+    explicit StandardWorktime(Project *project = 0);
     explicit StandardWorktime(StandardWorktime* worktime);
     ~StandardWorktime();
 
     /// Set Project
-    void setProject( Project *project ) { m_project = project; }
+    void setProject(Project *project) { m_project = project; }
     /// The work time of a normal year.
     Duration durationYear() const { return m_year; }
     /// The work time of a normal year.
@@ -673,7 +673,7 @@ public:
     
     QList<qint64> scales() const;
 
-    bool load( KoXmlElement &element, XMLLoaderObject &status );
+    bool load(KoXmlElement &element, XMLLoaderObject &status);
     void save(QDomElement &element) const;
 
     void changed();

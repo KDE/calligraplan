@@ -51,42 +51,42 @@ namespace KPlato
 {
 
 
-ResourceTreeView::ResourceTreeView( QWidget *parent )
-    : DoubleTreeViewBase( parent )
+ResourceTreeView::ResourceTreeView(QWidget *parent)
+    : DoubleTreeViewBase(parent)
 {
     setDragPixmap(koIcon("resource-group").pixmap(32));
-//    header()->setContextMenuPolicy( Qt::CustomContextMenu );
-    setStretchLastSection( false );
-    ResourceItemModel *m = new ResourceItemModel( this );
-    setModel( m );
+//    header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    setStretchLastSection(false);
+    ResourceItemModel *m = new ResourceItemModel(this);
+    setModel(m);
     
-    setSelectionMode( QAbstractItemView::ExtendedSelection );
-    setSelectionBehavior( QAbstractItemView::SelectRows );
+    setSelectionMode(QAbstractItemView::ExtendedSelection);
+    setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    createItemDelegates( m );
+    createItemDelegates(m);
 
-    connect( this, &DoubleTreeViewBase::dropAllowed, this, &ResourceTreeView::slotDropAllowed );
+    connect(this, &DoubleTreeViewBase::dropAllowed, this, &ResourceTreeView::slotDropAllowed);
 
 }
 
-void ResourceTreeView::slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event )
+void ResourceTreeView::slotDropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event)
 {
     event->ignore();
-    if ( model()->dropAllowed( index, dropIndicatorPosition, event->mimeData() ) ) {
+    if (model()->dropAllowed(index, dropIndicatorPosition, event->mimeData())) {
         event->accept();
     }
 }
 
 QObject *ResourceTreeView::currentObject() const
 {
-    return model()->object( selectionModel()->currentIndex() );
+    return model()->object(selectionModel()->currentIndex());
 }
 
 QList<QObject*> ResourceTreeView::selectedObjects() const
 {
     QList<QObject*> lst;
-    foreach (const QModelIndex &i, selectionModel()->selectedRows() ) {
-        lst << static_cast<QObject*>( i.internalPointer() );
+    foreach (const QModelIndex &i, selectionModel()->selectedRows()) {
+        lst << static_cast<QObject*>(i.internalPointer());
     }
     return lst;
 }
@@ -94,9 +94,9 @@ QList<QObject*> ResourceTreeView::selectedObjects() const
 QList<ResourceGroup*> ResourceTreeView::selectedGroups() const
 {
     QList<ResourceGroup*> gl;
-    foreach ( QObject *o, selectedObjects() ) {
-        ResourceGroup* g = qobject_cast<ResourceGroup*>( o );
-        if ( g ) {
+    foreach (QObject *o, selectedObjects()) {
+        ResourceGroup* g = qobject_cast<ResourceGroup*>(o);
+        if (g) {
             gl << g;
         }
     }
@@ -106,9 +106,9 @@ QList<ResourceGroup*> ResourceTreeView::selectedGroups() const
 QList<Resource*> ResourceTreeView::selectedResources() const
 {
     QList<Resource*> rl;
-    foreach ( QObject *o, selectedObjects() ) {
-        Resource* r = qobject_cast<Resource*>( o );
-        if ( r ) {
+    foreach (QObject *o, selectedObjects()) {
+        Resource* r = qobject_cast<Resource*>(o);
+        if (r) {
             rl << r;
         }
     }
@@ -136,125 +136,125 @@ ResourceEditor::ResourceEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                "<nl/><link url='%1'>More...</link>"
                "</para>", Help::page("Resource_Editor")));
 
-    QVBoxLayout * l = new QVBoxLayout( this );
-    l->setMargin( 0 );
-    m_view = new ResourceTreeView( this );
+    QVBoxLayout * l = new QVBoxLayout(this);
+    l->setMargin(0);
+    m_view = new ResourceTreeView(this);
     m_doubleTreeView = m_view;
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);
 
-    l->addWidget( m_view );
+    l->addWidget(m_view);
     setupGui();
     
-    m_view->setEditTriggers( m_view->editTriggers() | QAbstractItemView::EditKeyPressed );
-    m_view->setDragDropMode( QAbstractItemView::DragDrop );
-    m_view->setDropIndicatorShown( true );
-    m_view->setDragEnabled ( true );
-    m_view->setAcceptDrops( true );
-//    m_view->setAcceptDropsOnView( true );
+    m_view->setEditTriggers(m_view->editTriggers() | QAbstractItemView::EditKeyPressed);
+    m_view->setDragDropMode(QAbstractItemView::DragDrop);
+    m_view->setDropIndicatorShown(true);
+    m_view->setDragEnabled (true);
+    m_view->setAcceptDrops(true);
+//    m_view->setAcceptDropsOnView(true);
 
 
     QList<int> lst1; lst1 << 1 << -1;
     QList<int> lst2; lst2 << 0 << ResourceModel::ResourceOvertimeRate;
-    m_view->hideColumns( lst1, lst2 );
+    m_view->hideColumns(lst1, lst2);
     
-    m_view->masterView()->setDefaultColumns( QList<int>() << 0 );
+    m_view->masterView()->setDefaultColumns(QList<int>() << 0);
     QList<int> show;
-    for ( int c = 1; c < model()->columnCount(); ++c ) {
+    for (int c = 1; c < model()->columnCount(); ++c) {
         if (c != ResourceModel::ResourceOvertimeRate) {
             show << c;
         }
     }
-    m_view->slaveView()->setDefaultColumns( show );
+    m_view->slaveView()->setDefaultColumns(show);
 
-    connect( model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand );
+    connect(model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
 
-    connect( m_view, &DoubleTreeViewBase::currentChanged, this, &ResourceEditor::slotCurrentChanged );
+    connect(m_view, &DoubleTreeViewBase::currentChanged, this, &ResourceEditor::slotCurrentChanged);
 
-    connect( m_view, &DoubleTreeViewBase::selectionChanged, this, &ResourceEditor::slotSelectionChanged );
+    connect(m_view, &DoubleTreeViewBase::selectionChanged, this, &ResourceEditor::slotSelectionChanged);
 
-    connect( m_view, &DoubleTreeViewBase::contextMenuRequested, this, &ResourceEditor::slotContextMenuRequested );
+    connect(m_view, &DoubleTreeViewBase::contextMenuRequested, this, &ResourceEditor::slotContextMenuRequested);
     
-    connect( m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested );
+    connect(m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
 
 }
 
-void ResourceEditor::updateReadWrite( bool readwrite )
+void ResourceEditor::updateReadWrite(bool readwrite)
 {
-    m_view->setReadWrite( readwrite );
+    m_view->setReadWrite(readwrite);
 }
 
-void ResourceEditor::setProject( Project *project )
+void ResourceEditor::setProject(Project *project)
 {
     debugPlan<<project;
-    m_view->setProject( project );
-    ViewBase::setProject( project );
+    m_view->setProject(project);
+    ViewBase::setProject(project);
 }
 
-void ResourceEditor::setGuiActive( bool activate )
+void ResourceEditor::setGuiActive(bool activate)
 {
     debugPlan<<activate;
-    updateActionsEnabled( true );
-    ViewBase::setGuiActive( activate );
-    if ( activate && !m_view->selectionModel()->currentIndex().isValid() ) {
-        m_view->selectionModel()->setCurrentIndex(m_view->model()->index( 0, 0 ), QItemSelectionModel::NoUpdate);
+    updateActionsEnabled(true);
+    ViewBase::setGuiActive(activate);
+    if (activate && !m_view->selectionModel()->currentIndex().isValid()) {
+        m_view->selectionModel()->setCurrentIndex(m_view->model()->index(0, 0), QItemSelectionModel::NoUpdate);
     }
 }
 
-void ResourceEditor::slotContextMenuRequested( const QModelIndex &index, const QPoint& pos )
+void ResourceEditor::slotContextMenuRequested(const QModelIndex &index, const QPoint& pos)
 {
     //debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
     QString name;
-    if ( index.isValid() ) {
-        QObject *obj = m_view->model()->object( index );
-        ResourceGroup *g = qobject_cast<ResourceGroup*>( obj );
-        if ( g ) {
+    if (index.isValid()) {
+        QObject *obj = m_view->model()->object(index);
+        ResourceGroup *g = qobject_cast<ResourceGroup*>(obj);
+        if (g) {
             //name = "resourceeditor_group_popup";
         } else {
-            Resource *r = qobject_cast<Resource*>( obj );
-            if ( r && !r->isShared() ) {
+            Resource *r = qobject_cast<Resource*>(obj);
+            if (r && !r->isShared()) {
                 name = "resourceeditor_resource_popup";
             }
         }
     }
     m_view->setContextMenuIndex(index);
-    if ( name.isEmpty() ) {
-        slotHeaderContextMenuRequested( pos );
+    if (name.isEmpty()) {
+        slotHeaderContextMenuRequested(pos);
         m_view->setContextMenuIndex(QModelIndex());
         return;
     }
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
 Resource *ResourceEditor::currentResource() const
 {
-    return qobject_cast<Resource*>( m_view->currentObject() );
+    return qobject_cast<Resource*>(m_view->currentObject());
 }
 
 ResourceGroup *ResourceEditor::currentResourceGroup() const
 {
-    return qobject_cast<ResourceGroup*>( m_view->currentObject() );
+    return qobject_cast<ResourceGroup*>(m_view->currentObject());
 }
 
-void ResourceEditor::slotCurrentChanged(  const QModelIndex & )
+void ResourceEditor::slotCurrentChanged(const QModelIndex &)
 {
     //debugPlan<<curr.row()<<","<<curr.column();
 //    slotEnableActions();
 }
 
-void ResourceEditor::slotSelectionChanged( const QModelIndexList& )
+void ResourceEditor::slotSelectionChanged(const QModelIndexList&)
 {
     //debugPlan<<list.count();
     updateActionsEnabled();
 }
 
-void ResourceEditor::slotEnableActions( bool on )
+void ResourceEditor::slotEnableActions(bool on)
 {
-    updateActionsEnabled( on );
+    updateActionsEnabled(on);
 }
 
-void ResourceEditor::updateActionsEnabled(  bool on )
+void ResourceEditor::updateActionsEnabled(bool on)
 {
     bool o = on && m_view->project();
 
@@ -267,49 +267,49 @@ void ResourceEditor::updateActionsEnabled(  bool on )
 
     bool any = !nogroup || !noresource;
 
-    actionAddResource->setEnabled( o && ( (group  && noresource) || (resource && nogroup) ) );
-    actionAddGroup->setEnabled( o );
+    actionAddResource->setEnabled(o && ((group  && noresource) || (resource && nogroup)));
+    actionAddGroup->setEnabled(o);
 
-    if ( o && any ) {
-        foreach ( ResourceGroup *g, groupList ) {
-            if ( g->isBaselined() ) {
+    if (o && any) {
+        foreach (ResourceGroup *g, groupList) {
+            if (g->isBaselined()) {
                 o = false;
                 break;
             }
         }
     }
-    if ( o && any ) {
-        foreach ( Resource *r, resourceList ) {
-            if ( r->isBaselined() ) {
+    if (o && any) {
+        foreach (Resource *r, resourceList) {
+            if (r->isBaselined()) {
                 o = false;
                 break;
             }
         }
     }
-    actionDeleteSelection->setEnabled( o && any );
+    actionDeleteSelection->setEnabled(o && any);
 }
 
 void ResourceEditor::setupGui()
 {
     actionAddGroup  = new QAction(koIcon("resource-group-new"), i18n("Add Resource Group"), this);
-    actionCollection()->addAction("add_group", actionAddGroup );
+    actionCollection()->addAction("add_group", actionAddGroup);
     actionCollection()->setDefaultShortcut(actionAddGroup, Qt::CTRL + Qt::Key_I);
-    connect( actionAddGroup, &QAction::triggered, this, &ResourceEditor::slotAddGroup );
+    connect(actionAddGroup, &QAction::triggered, this, &ResourceEditor::slotAddGroup);
     
     actionAddResource  = new QAction(koIcon("list-add-user"), i18n("Add Resource"), this);
-    actionCollection()->addAction("add_resource", actionAddResource );
+    actionCollection()->addAction("add_resource", actionAddResource);
     actionCollection()->setDefaultShortcut(actionAddResource, Qt::CTRL + Qt::SHIFT + Qt::Key_I);
-    connect( actionAddResource, &QAction::triggered, this, &ResourceEditor::slotAddResource );
+    connect(actionAddResource, &QAction::triggered, this, &ResourceEditor::slotAddResource);
     
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
-    actionCollection()->addAction("delete_selection", actionDeleteSelection );
+    actionCollection()->addAction("delete_selection", actionDeleteSelection);
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
-    connect( actionDeleteSelection, &QAction::triggered, this, &ResourceEditor::slotDeleteSelection );
+    connect(actionDeleteSelection, &QAction::triggered, this, &ResourceEditor::slotDeleteSelection);
     
     // Add the context menu actions for the view options
     actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &ResourceEditor::slotSplitView);
-    addContextAction( m_view->actionSplitView() );
+    addContextAction(m_view->actionSplitView());
     
     createOptionActions(ViewBase::OptionAll);
 }
@@ -317,14 +317,14 @@ void ResourceEditor::setupGui()
 void ResourceEditor::slotSplitView()
 {
     debugPlan;
-    m_view->setViewSplitMode( ! m_view->isViewSplit() );
+    m_view->setViewSplitMode(! m_view->isViewSplit());
     emit optionsModified();
 }
 
 void ResourceEditor::slotOptions()
 {
     debugPlan;
-    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog( this, m_view, this );
+    SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
     dlg->addPrintingOptions(sender()->objectName() == "print_options");
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
@@ -335,31 +335,31 @@ void ResourceEditor::slotAddResource()
 {
     //debugPlan;
     QList<ResourceGroup*> gl = m_view->selectedGroups();
-    if ( gl.count() > 1 ) {
+    if (gl.count() > 1) {
         return;
     }
     ResourceGroup *g = 0;
-    if ( !gl.isEmpty() ) {
+    if (!gl.isEmpty()) {
         g = gl.first();
     } else {
         QList<Resource*> rl = m_view->selectedResources();
-        if ( rl.count() != 1 ) {
+        if (rl.count() != 1) {
             return;
         }
         g = rl.first()->parentGroup();
     }
-    if ( g == 0 ) {
+    if (g == 0) {
         return;
     }
     Resource *r = new Resource();
-    if ( g->type() == ResourceGroup::Type_Material ) {
-        r->setType( Resource::Type_Material );
+    if (g->type() == ResourceGroup::Type_Material) {
+        r->setType(Resource::Type_Material);
     }
-    QModelIndex i = m_view->model()->insertResource( g, r );
-    if ( i.isValid() ) {
-        m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect );
-        m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
-        m_view->edit( i );
+    QModelIndex i = m_view->model()->insertResource(g, r);
+    if (i.isValid()) {
+        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
+        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+        m_view->edit(i);
     }
 
 }
@@ -368,11 +368,11 @@ void ResourceEditor::slotAddGroup()
 {
     //debugPlan;
     ResourceGroup *g = new ResourceGroup();
-    QModelIndex i = m_view->model()->insertGroup( g );
-    if ( i.isValid() ) {
-        m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect );
-        m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
-        m_view->edit( i );
+    QModelIndex i = m_view->model()->insertGroup(g);
+    if (i.isValid()) {
+        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
+        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+        m_view->edit(i);
     }
 }
 
@@ -380,33 +380,33 @@ void ResourceEditor::slotDeleteSelection()
 {
     QObjectList lst = m_view->selectedObjects();
     //debugPlan<<lst.count()<<" objects";
-    if ( ! lst.isEmpty() ) {
-        emit deleteObjectList( lst );
+    if (! lst.isEmpty()) {
+        emit deleteObjectList(lst);
         QModelIndex i = m_view->selectionModel()->currentIndex();
-        if ( i.isValid() ) {
-            m_view->selectionModel()->select( i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect );
-            m_view->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
+        if (i.isValid()) {
+            m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
+            m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
         }
     }
 }
 
-bool ResourceEditor::loadContext( const KoXmlElement &context )
+bool ResourceEditor::loadContext(const KoXmlElement &context)
 {
     debugPlan<<objectName();
-    ViewBase::loadContext( context );
-    return m_view->loadContext( model()->columnMap(), context );
+    ViewBase::loadContext(context);
+    return m_view->loadContext(model()->columnMap(), context);
 }
 
-void ResourceEditor::saveContext( QDomElement &context ) const
+void ResourceEditor::saveContext(QDomElement &context) const
 {
     debugPlan<<objectName();
-    ViewBase::saveContext( context );
-    m_view->saveContext( model()->columnMap(), context );
+    ViewBase::saveContext(context);
+    m_view->saveContext(model()->columnMap(), context);
 }
 
 KoPrintJob *ResourceEditor::createPrintJob()
 {
-    return m_view->createPrintJob( this );
+    return m_view->createPrintJob(this);
 }
 
 void ResourceEditor::slotEditCopy()

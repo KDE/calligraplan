@@ -68,20 +68,20 @@ class PLANMODELS_EXPORT ItemDelegate : public QStyledItemDelegate
 public:
     /// Constructor
     explicit ItemDelegate(QObject *parent = 0)
-    : QStyledItemDelegate( parent ),
-    m_lastHint( Delegate::NoHint )
+    : QStyledItemDelegate(parent),
+    m_lastHint(Delegate::NoHint)
     {}
     
     /// Extend EndEditHint for movement from edited item to next item to edit
     Delegate::EndEditHint endEditHint() const { return m_lastHint; }
     /// Increase the sizehint height a little to give room for editors
-    QSize sizeHint( const QStyleOptionViewItem & option, const QModelIndex & index ) const override;
+    QSize sizeHint(const QStyleOptionViewItem & option, const QModelIndex & index) const override;
 
 protected:
     /// Implements arrow key navigation
     bool eventFilter(QObject *object, QEvent *event) override;
     /// Draw custom focus
-//    virtual void drawFocus(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect ) const;
+//    virtual void drawFocus(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
     
 private:
     Delegate::EndEditHint m_lastHint;
@@ -94,7 +94,7 @@ public:
     explicit CheckStateItemDelegate(QObject *parent = 0);
 
 protected:
-    bool editorEvent( QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index ) override;
+    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 };
 
 class PLANMODELS_EXPORT DateTimeCalendarDelegate : public ItemDelegate
@@ -103,10 +103,10 @@ class PLANMODELS_EXPORT DateTimeCalendarDelegate : public ItemDelegate
 public:
     explicit DateTimeCalendarDelegate(QObject *parent = 0);
 
-    QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
-    void setEditorData( QWidget *editor, const QModelIndex &index ) const override;
-    void setModelData( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const override;
-    void updateEditorGeometry( QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 };
 
@@ -118,25 +118,25 @@ public:
 
     ~ProgressBarDelegate() override;
 
-    void paint( QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
-    QSize sizeHint( const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
-    void setEditorData( QWidget *editor, const QModelIndex &index ) const override;
-    void setModelData( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const override;
-    void updateEditorGeometry( QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 protected:
-    void initStyleOptionProgressBar( QStyleOptionProgressBar *option, const QModelIndex &index ) const;
+    void initStyleOptionProgressBar(QStyleOptionProgressBar *option, const QModelIndex &index) const;
 
 };
 
 class Slider : public QSlider {
     Q_OBJECT
 public:
-    explicit Slider( QWidget *parent );
+    explicit Slider(QWidget *parent);
 private Q_SLOTS:
-    void updateTip( int value );
+    void updateTip(int value);
 };
 
 class PLANMODELS_EXPORT SelectorDelegate : public ItemDelegate
@@ -265,16 +265,16 @@ public:
         OnViewport /*QAbstractItemView::OnViewport*/ /// The item will be dropped onto a region of the viewport with no items if acceptDropsOnView is set.
     };
 
-    explicit ItemModelBase( QObject *parent = 0 );
+    explicit ItemModelBase(QObject *parent = 0);
     ~ItemModelBase() override;
 
     virtual const QMetaEnum columnMap() const { return QMetaEnum(); }
     Project *project() const { return m_project; }
     ScheduleManager *scheduleManager() const { return m_manager; }
     bool isReadWrite() { return m_readWrite; }
-    void setReadOnly( int column, bool ro ) { m_columnROMap[ column ] = ro; }
+    void setReadOnly(int column, bool ro) { m_columnROMap[ column ] = ro; }
     /// Returns true if @p column has been set to ReadOnly.
-    bool isColumnReadOnly( int column ) const { return m_columnROMap.contains( column ) && m_columnROMap[ column ]; }
+    bool isColumnReadOnly(int column) const { return m_columnROMap.contains(column) && m_columnROMap[ column ]; }
 
     /**
      * Check if the @p data is allowed to be dropped on @p index,
@@ -282,18 +282,18 @@ public:
      *
      * Base implementation checks flags and mimetypes.
      */
-    virtual bool dropAllowed( const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data );
+    virtual bool dropAllowed(const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data);
     
     /// Create the correct delegate for @p column. @p parent is the delegates parent widget.
     /// If default should be used, return 0.
-    virtual QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const { Q_UNUSED(column); Q_UNUSED(parent); return 0; }
+    virtual QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const { Q_UNUSED(column); Q_UNUSED(parent); return 0; }
 
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
-    bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
     /// Return the sortorder to be used for @p column
-    virtual int sortRole( int /*column*/ ) const { return Qt::DisplayRole; }
+    virtual int sortRole(int /*column*/) const { return Qt::DisplayRole; }
 
     QStringList mimeTypes() const override;
     QMimeData *mimeData(const QModelIndexList &indexes) const override;
@@ -301,12 +301,12 @@ public:
 
 Q_SIGNALS:
     /// Connect to this signal if your model modifies data using undo commands.
-    void executeCommand( KUndo2Command* );
+    void executeCommand(KUndo2Command*);
     
 public Q_SLOTS:
     virtual void setProject(KPlato::Project *project);
     virtual void setScheduleManager(KPlato::ScheduleManager *sm);
-    virtual void setReadWrite( bool rw ) { m_readWrite = rw; }
+    virtual void setReadWrite(bool rw) { m_readWrite = rw; }
     /// Reimplement if your model can be refreshed
     virtual void refresh() {}
 

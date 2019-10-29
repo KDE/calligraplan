@@ -31,20 +31,20 @@ namespace KPlato
 {
 
 MainProjectDialog::MainProjectDialog(Project &p, QWidget *parent, bool edit)
-    : KoDialog( parent),
+    : KoDialog(parent),
       project(p)
 {
-    setWindowTitle( i18n("Project Settings") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setWindowTitle(i18n("Project Settings"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
     panel = new MainProjectPanel(project, this);
     panel->projectsLoadBtn->setVisible(edit);
     panel->projectsClearBtn->setVisible(edit);
 
     setMainWidget(panel);
     enableButtonOk(false);
-    resize( QSize(500, 410).expandedTo(minimumSizeHint()));
+    resize(QSize(500, 410).expandedTo(minimumSizeHint()));
 
     connect(this, &QDialog::rejected, this, &MainProjectDialog::slotRejected);
     connect(this, &QDialog::accepted, this, &MainProjectDialog::slotOk);

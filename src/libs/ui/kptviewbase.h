@@ -70,14 +70,14 @@ class PLANUI_EXPORT DockWidget : public QDockWidget
 {
     Q_OBJECT
 public:
-    DockWidget( ViewBase *v, const QString &identity, const QString &title );
+    DockWidget(ViewBase *v, const QString &identity, const QString &title);
 
-    void activate( KoMainWindow *mainWindow );
-    void deactivate( KoMainWindow *mainWindow );
+    void activate(KoMainWindow *mainWindow);
+    void deactivate(KoMainWindow *mainWindow);
     bool shown() const;
 
-    bool saveXml( QDomElement &context ) const;
-    void loadXml( const KoXmlElement &context );
+    bool saveXml(QDomElement &context) const;
+    void loadXml(const KoXmlElement &context);
 
     const ViewBase *view;        /// The view this docker belongs to
     QString id;                  /// Docker identity
@@ -85,8 +85,8 @@ public:
     bool editor;                 /// Editor dockers will not be shown in read only mode
 
 public Q_SLOTS:
-    void setShown( bool show );
-    void setLocation( Qt::DockWidgetArea area );
+    void setShown(bool show);
+    void setLocation(Qt::DockWidgetArea area);
 
 private:
     bool m_shown;                /// The dockers visibility when the view is active
@@ -111,8 +111,8 @@ public:
     }
     ~PrintingOptions() {}
 
-    bool loadXml( KoXmlElement &element );
-    void saveXml( QDomElement &element ) const;
+    bool loadXml(KoXmlElement &element);
+    void saveXml(QDomElement &element) const;
 
     struct Data {
         bool group;
@@ -130,10 +130,10 @@ class PLANUI_EXPORT PrintingHeaderFooter : public QWidget, public Ui::PrintingHe
 {
     Q_OBJECT
 public:
-    explicit PrintingHeaderFooter( const PrintingOptions &opt, QWidget *parent = 0 );
+    explicit PrintingHeaderFooter(const PrintingOptions &opt, QWidget *parent = 0);
     ~PrintingHeaderFooter() override;
 
-    void setOptions( const PrintingOptions &options );
+    void setOptions(const PrintingOptions &options);
     PrintingOptions options() const;
 
 Q_SIGNALS:
@@ -159,7 +159,7 @@ public:
 
     QRect headerRect() const;
     QRect footerRect() const;
-    void paintHeaderFooter( QPainter &p, const PrintingOptions &options, int pageNumber, const Project &project );
+    void paintHeaderFooter(QPainter &p, const PrintingOptions &options, int pageNumber, const Project &project);
 
     PrintingOptions printingOptions() const;
 
@@ -172,13 +172,13 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt);
-    void setPrinterPageLayout( const KoPageLayout &pagelayout );
+    void setPrinterPageLayout(const KoPageLayout &pagelayout);
     void startPrinting(KoPrintJob::RemovePolicy removePolicy = DoNotDelete) override;
 
 protected:
-    virtual void paint( QPainter &p, const PrintingOptions::Data &options, const QRect &rect,  int pageNumber, const Project &project );
-    int headerFooterHeight( const PrintingOptions::Data &options ) const;
-    void drawRect( QPainter &p, const QRect &r, Qt::Edges edges = Qt::LeftEdge | Qt::RightEdge | Qt::BottomEdge );
+    virtual void paint(QPainter &p, const PrintingOptions::Data &options, const QRect &rect,  int pageNumber, const Project &project);
+    int headerFooterHeight(const PrintingOptions::Data &options) const;
+    void drawRect(QPainter &p, const QRect &r, Qt::Edges edges = Qt::LeftEdge | Qt::RightEdge | Qt::BottomEdge);
 
 
 protected:
@@ -190,7 +190,7 @@ protected:
 class PLANUI_EXPORT ViewActionLists
 {
 public:
-    ViewActionLists() : actionOptions( 0 ) {}
+    ViewActionLists() : actionOptions(0) {}
     virtual ~ViewActionLists() {}
 
     QList<QAction*> contextActionList() const { return m_contextActionList; }
@@ -239,7 +239,7 @@ public:
     bool isActive() const;
 
     /// Set the project this view shall handle.
-    virtual void setProject( Project *project );
+    virtual void setProject(Project *project);
     /// Return the project
     virtual Project *project() const { return m_proj; }
     /// Return the schedule manager
@@ -251,7 +251,7 @@ public:
     /// Draw changed data from project.
     virtual void drawChanges(Project &project) { draw(project); }
     /// Set readWrite mode
-    void updateReadWrite( bool ) override;
+    void updateReadWrite(bool) override;
     bool isReadWrite() const { return m_readWrite; }
 
     /// Reimplement if your view handles nodes
@@ -268,19 +268,19 @@ public:
 //    virtual KoZoomController *zoomController() const { return 0; }
 
     /// Loads context info (printer settings) into this view.
-    virtual bool loadContext( const KoXmlElement &context );
+    virtual bool loadContext(const KoXmlElement &context);
     /// Save context info (printer settings) from this view.
-    virtual void saveContext( QDomElement &context ) const;
+    virtual void saveContext(QDomElement &context) const;
 
     KoPrintJob *createPrintJob() override;
     PrintingOptions printingOptions() const { return m_printingOptions; }
-    static QWidget *createPageLayoutWidget( ViewBase *view );
-    static PrintingHeaderFooter *createHeaderFooterWidget( ViewBase *view );
+    static QWidget *createPageLayoutWidget(ViewBase *view);
+    static PrintingHeaderFooter *createHeaderFooterWidget(ViewBase *view);
 
     virtual void createDockers() {}
-    void addDocker( DockWidget *ds );
+    void addDocker(DockWidget *ds);
     QList<DockWidget*> dockers() const;
-    DockWidget *findDocker( const QString &id ) const;
+    DockWidget *findDocker(const QString &id) const;
 
     void setViewSplitMode(bool split);
     /// Show the listed columns in @p left and @p right
@@ -295,29 +295,29 @@ public:
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt) { m_printingOptions = opt; }
     /// Activate/deactivate the gui
-    virtual void setGuiActive( bool activate );
+    virtual void setGuiActive(bool activate);
     virtual void setScheduleManager(KPlato::ScheduleManager *sm) { m_schedulemanager = sm; }
-    void slotUpdateReadWrite( bool );
-    virtual void slotHeaderContextMenuRequested( const QPoint &pos );
+    void slotUpdateReadWrite(bool);
+    virtual void slotHeaderContextMenuRequested(const QPoint &pos);
 
     virtual void slotEditCopy() {}
     virtual void slotEditCut() {}
     virtual void slotEditPaste() {}
     virtual void slotRefreshView() {}
 
-    void setPageLayout( const KoPageLayout &layout ) override;
+    void setPageLayout(const KoPageLayout &layout) override;
 
 Q_SIGNALS:
     /// Emitted when the gui has been activated or deactivated
     void guiActivated(KPlato::ViewBase*, bool);
     /// Request for a context menu popup
-    void requestPopupMenu( const QString&, const QPoint & );
+    void requestPopupMenu(const QString&, const QPoint &);
 
     /// Emitted when options are modified
     void optionsModified();
 
     void projectChanged(KPlato::Project *project);
-    void readWriteChanged( bool );
+    void readWriteChanged(bool);
 
     void expandAll();
     void collapseAll();
@@ -327,7 +327,7 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     virtual void slotOptions() {}
-    virtual void slotOptionsFinished( int result );
+    virtual void slotOptionsFinished(int result);
 
 protected:
     void createOptionActions(int actions, const QString &prefix = QString());
@@ -351,7 +351,7 @@ class PLANUI_EXPORT TreeViewPrintingDialog : public PrintingDialog
 {
     Q_OBJECT
 public:
-    TreeViewPrintingDialog( ViewBase *view, TreeViewBase *treeview, Project *project = 0 );
+    TreeViewPrintingDialog(ViewBase *view, TreeViewBase *treeview, Project *project = 0);
     ~TreeViewPrintingDialog() override {}
 
     int documentFirstPage() const override { return 1; }
@@ -360,9 +360,9 @@ public:
     QList<QWidget*> createOptionWidgets() const override;
 
 protected:
-    void printPage( int pageNumber, QPainter &painter ) override;
+    void printPage(int pageNumber, QPainter &painter) override;
 
-    int firstRow( int page ) const;
+    int firstRow(int page) const;
 
 private:
     TreeViewBase *m_tree;
@@ -375,38 +375,38 @@ class PLANUI_EXPORT TreeViewBase : public QTreeView
 {
     Q_OBJECT
 public:
-    explicit TreeViewBase( QWidget *parent = 0 );
+    explicit TreeViewBase(QWidget *parent = 0);
 
-    void setReadWrite( bool rw );
-    virtual void createItemDelegates( ItemModelBase *model );
-    void setArrowKeyNavigation( bool on ) { m_arrowKeyNavigation = on; }
+    void setReadWrite(bool rw);
+    virtual void createItemDelegates(ItemModelBase *model);
+    void setArrowKeyNavigation(bool on) { m_arrowKeyNavigation = on; }
     bool arrowKeyNavigation() const { return m_arrowKeyNavigation; }
 
     /// Move move to first visual
-    QModelIndex firstColumn( int row, const QModelIndex &parent );
+    QModelIndex firstColumn(int row, const QModelIndex &parent);
     /// Move move to last visual
-    QModelIndex lastColumn( int row, const QModelIndex &parent );
+    QModelIndex lastColumn(int row, const QModelIndex &parent);
     /// Move from @p current to next item
-    QModelIndex nextColumn( const QModelIndex &current );
+    QModelIndex nextColumn(const QModelIndex &current);
     /// Move from @p current to next item
-    QModelIndex previousColumn( const QModelIndex &current );
+    QModelIndex previousColumn(const QModelIndex &current);
     /// Move to first editable index in @p row with @p parent
-    QModelIndex firstEditable( int row, const QModelIndex &parent );
+    QModelIndex firstEditable(int row, const QModelIndex &parent);
     /// Move to last editable index in @p row with @p parent
-    QModelIndex lastEditable( int row, const QModelIndex &parent );
+    QModelIndex lastEditable(int row, const QModelIndex &parent);
 
-    void setAcceptDropsOnView( bool mode ) { m_acceptDropsOnView = mode; }
+    void setAcceptDropsOnView(bool mode) { m_acceptDropsOnView = mode; }
 
-    void setModel( QAbstractItemModel *model ) override;
+    void setModel(QAbstractItemModel *model) override;
 
-    void setSelectionModel( QItemSelectionModel *model ) override;
+    void setSelectionModel(QItemSelectionModel *model) override;
 
-    void setStretchLastSection( bool );
+    void setStretchLastSection(bool);
 
-    void mapToSection( int column, int section );
-    int section( int col ) const;
+    void mapToSection(int column, int section);
+    int section(int col) const;
 
-    void setColumnsHidden( const QList<int> &list );
+    void setColumnsHidden(const QList<int> &list);
 
     /// Loads context info into this view. Reimplement.
     virtual bool loadContext(const QMetaEnum &map, const KoXmlElement &element, bool expand = true);
@@ -425,12 +425,12 @@ public:
     */
     void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible) override;
 
-    void setDefaultColumns( const QList<int> &lst ) { m_defaultColumns = lst; }
+    void setDefaultColumns(const QList<int> &lst) { m_defaultColumns = lst; }
     QList<int> defaultColumns() const { return m_defaultColumns; }
 
-    KoPrintJob *createPrintJob( ViewBase *parent );
+    KoPrintJob *createPrintJob(ViewBase *parent);
 
-    QModelIndex firstVisibleIndex( const QModelIndex &idx ) const;
+    QModelIndex firstVisibleIndex(const QModelIndex &idx) const;
 
     ItemModelBase *itemModel() const;
 
@@ -458,22 +458,22 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     /// Context menu requested from viewport at global position @p pos
-    void contextMenuRequested( const QModelIndex&, const QPoint &pos, const QModelIndexList& );
+    void contextMenuRequested(const QModelIndex&, const QPoint &pos, const QModelIndexList&);
     /// Context menu requested from header at global position @p pos
-    void headerContextMenuRequested( const QPoint &pos );
+    void headerContextMenuRequested(const QPoint &pos);
 
-    void moveAfterLastColumn( const QModelIndex & );
-    void moveBeforeFirstColumn( const QModelIndex & );
-    void editAfterLastColumn( const QModelIndex & );
-    void editBeforeFirstColumn( const QModelIndex & );
+    void moveAfterLastColumn(const QModelIndex &);
+    void moveBeforeFirstColumn(const QModelIndex &);
+    void editAfterLastColumn(const QModelIndex &);
+    void editBeforeFirstColumn(const QModelIndex &);
 
-    void dropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
+    void dropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event);
 
 protected:
     /// Re-implemented to cater for hidden column 0
     QModelIndexList selectedIndexes() const override;
     void keyPressEvent(QKeyEvent *event) override;
-    void mousePressEvent( QMouseEvent *event ) override;
+    void mousePressEvent(QMouseEvent *event) override;
     void focusInEvent(QFocusEvent *event) override;
 
     /**
@@ -481,17 +481,17 @@ protected:
       Move the cursor in the way described by \a cursorAction, *not* using the
       information provided by the button \a modifiers.
     */
-    QModelIndex moveCursor( CursorAction cursorAction, Qt::KeyboardModifiers modifiers ) override;
+    QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
     /// Move cursor from @p index in direction @p cursorAction. @p modifiers is not used.
-    QModelIndex moveCursor(  const QModelIndex &index, CursorAction cursorAction, Qt::KeyboardModifiers = Qt::NoModifier );
+    QModelIndex moveCursor(const QModelIndex &index, CursorAction cursorAction, Qt::KeyboardModifiers = Qt::NoModifier);
     /// Move from @p index to next editable item, in direction @p cursorAction.
-    QModelIndex moveToEditable( const QModelIndex &index, CursorAction cursorAction );
+    QModelIndex moveToEditable(const QModelIndex &index, CursorAction cursorAction);
 
-    void contextMenuEvent ( QContextMenuEvent * event ) override;
+    void contextMenuEvent (QContextMenuEvent * event) override;
 
     void dragMoveEvent(QDragMoveEvent *event) override;
-    void dropEvent( QDropEvent *e ) override;
-    void updateSelection( const QModelIndex &oldidx, const QModelIndex &newidx, QKeyEvent *event );
+    void dropEvent(QDropEvent *e) override;
+    void updateSelection(const QModelIndex &oldidx, const QModelIndex &newidx, QKeyEvent *event);
 
     void expandRecursive(const QModelIndex &parent, bool xpand);
 
@@ -512,8 +512,8 @@ protected Q_SLOTS:
     /// Use @p hint if sender is not of type ItemDelegate.
     void closeEditor(QWidget *editor, QAbstractItemDelegate::EndEditHint hint) override;
 
-    virtual void slotCurrentChanged ( const QModelIndex & current, const QModelIndex & previous );
-    void slotHeaderContextMenuRequested( const QPoint& );
+    virtual void slotCurrentChanged (const QModelIndex & current, const QModelIndex & previous);
+    void slotHeaderContextMenuRequested(const QPoint&);
 
     void doContextExpanded();
     void doExpanded();
@@ -538,7 +538,7 @@ class PLANUI_EXPORT DoubleTreeViewPrintingDialog : public PrintingDialog
 {
     Q_OBJECT
 public:
-    DoubleTreeViewPrintingDialog( ViewBase *view, DoubleTreeViewBase *treeview, Project *project );
+    DoubleTreeViewPrintingDialog(ViewBase *view, DoubleTreeViewBase *treeview, Project *project);
     ~DoubleTreeViewPrintingDialog() override {}
 
     int documentFirstPage() const override { return 1; }
@@ -547,9 +547,9 @@ public:
     QList<QWidget*> createOptionWidgets() const override;
 
 protected:
-    void printPage( int pageNumber, QPainter &painter ) override;
+    void printPage(int pageNumber, QPainter &painter) override;
 
-    int firstRow( int page ) const;
+    int firstRow(int page) const;
 
 private:
     DoubleTreeViewBase *m_tree;
@@ -561,89 +561,89 @@ class PLANUI_EXPORT DoubleTreeViewBase : public QSplitter
 {
     Q_OBJECT
 public:
-    explicit DoubleTreeViewBase( QWidget *parent );
-    DoubleTreeViewBase( bool mode, QWidget *parent );
+    explicit DoubleTreeViewBase(QWidget *parent);
+    DoubleTreeViewBase(bool mode, QWidget *parent);
     ~DoubleTreeViewBase() override;
 
-    void setReadWrite( bool rw );
-    void closePersistentEditor( const QModelIndex &index );
+    void setReadWrite(bool rw);
+    void closePersistentEditor(const QModelIndex &index);
 
-    void setModel( QAbstractItemModel *model );
+    void setModel(QAbstractItemModel *model);
     QAbstractItemModel *model() const;
 
-    void setArrowKeyNavigation( bool on ) { m_arrowKeyNavigation = on; }
+    void setArrowKeyNavigation(bool on) { m_arrowKeyNavigation = on; }
     bool arrowKeyNavigation() const { return m_arrowKeyNavigation; }
 
     QItemSelectionModel *selectionModel() const { return m_selectionmodel; }
-    void setSelectionModel( QItemSelectionModel *model );
-    void setSelectionMode( QAbstractItemView::SelectionMode mode );
-    void setSelectionBehavior( QAbstractItemView::SelectionBehavior mode );
-    virtual void createItemDelegates( ItemModelBase *model );
-    void setItemDelegateForColumn( int col, QAbstractItemDelegate * delegate );
-    void setEditTriggers ( QAbstractItemView::EditTriggers );
+    void setSelectionModel(QItemSelectionModel *model);
+    void setSelectionMode(QAbstractItemView::SelectionMode mode);
+    void setSelectionBehavior(QAbstractItemView::SelectionBehavior mode);
+    virtual void createItemDelegates(ItemModelBase *model);
+    void setItemDelegateForColumn(int col, QAbstractItemDelegate * delegate);
+    void setEditTriggers (QAbstractItemView::EditTriggers);
     QAbstractItemView::EditTriggers editTriggers() const;
 
-    void setAcceptDrops( bool );
-    void setAcceptDropsOnView( bool );
-    void setDropIndicatorShown( bool );
-    void setDragDropMode( QAbstractItemView::DragDropMode mode );
-    void setDragDropOverwriteMode( bool mode );
-    void setDragEnabled ( bool mode );
-    void setDefaultDropAction( Qt::DropAction action );
+    void setAcceptDrops(bool);
+    void setAcceptDropsOnView(bool);
+    void setDropIndicatorShown(bool);
+    void setDragDropMode(QAbstractItemView::DragDropMode mode);
+    void setDragDropOverwriteMode(bool mode);
+    void setDragEnabled (bool mode);
+    void setDefaultDropAction(Qt::DropAction action);
 
-    void setStretchLastSection( bool );
+    void setStretchLastSection(bool);
 
     /// Hide columns in the @p hideList, show all other columns.
     /// If the hideList.last() == -1, the rest of the columns are hidden.
-    void hideColumns( TreeViewBase *view, const QList<int> &hideList );
-    void hideColumns( const QList<int> &masterList, const QList<int> &slaveList = QList<int>() );
-    void hideColumn( int col ) {
-        m_leftview->hideColumn( col );
-        if ( m_rightview ) m_rightview->hideColumn( col );
+    void hideColumns(TreeViewBase *view, const QList<int> &hideList);
+    void hideColumns(const QList<int> &masterList, const QList<int> &slaveList = QList<int>());
+    void hideColumn(int col) {
+        m_leftview->hideColumn(col);
+        if (m_rightview) m_rightview->hideColumn(col);
     }
 
-    void showColumn( int col ) {
-        if ( col == 0 || m_rightview == 0 ) m_leftview->showColumn( col );
-        else m_rightview->showColumn( col );
+    void showColumn(int col) {
+        if (col == 0 || m_rightview == 0) m_leftview->showColumn(col);
+        else m_rightview->showColumn(col);
     }
-    bool isColumnHidden( int col ) const {
-        return m_rightview ? m_rightview->isColumnHidden( col ) : m_leftview->isColumnHidden( col );
+    bool isColumnHidden(int col) const {
+        return m_rightview ? m_rightview->isColumnHidden(col) : m_leftview->isColumnHidden(col);
     }
 
     TreeViewBase *masterView() const { return m_leftview; }
     TreeViewBase *slaveView() const { return m_rightview; }
 
     /// Loads context info into this view. Reimplement.
-    virtual bool loadContext( const QMetaEnum &map, const KoXmlElement &element );
+    virtual bool loadContext(const QMetaEnum &map, const KoXmlElement &element);
     /// Save context info from this view. Reimplement.
-    virtual void saveContext( const QMetaEnum &map, QDomElement &context ) const;
+    virtual void saveContext(const QMetaEnum &map, QDomElement &context) const;
 
-    void setViewSplitMode( bool split );
+    void setViewSplitMode(bool split);
     bool isViewSplit() const { return m_mode; }
     QAction *actionSplitView() const { return m_actionSplitView; }
 
-    void setRootIsDecorated ( bool show );
+    void setRootIsDecorated (bool show);
 
-    KoPrintJob *createPrintJob( ViewBase *parent );
+    KoPrintJob *createPrintJob(ViewBase *parent);
 
     void setStretchFactors();
 
-    QModelIndex indexAt( const QPoint &pos ) const;
+    QModelIndex indexAt(const QPoint &pos) const;
 
-    void setParentsExpanded( const QModelIndex &idx, bool expanded );
+    void setParentsExpanded(const QModelIndex &idx, bool expanded);
 
-    void setSortingEnabled( bool on ) {
-        m_leftview->setSortingEnabled( on );
-        m_rightview->setSortingEnabled( on );
+    void setSortingEnabled(bool on) {
+        m_leftview->setSortingEnabled(on);
+        m_rightview->setSortingEnabled(on);
     }
-    void sortByColumn( int col, Qt::SortOrder order = Qt::AscendingOrder ) {
-        if ( ! m_leftview->isColumnHidden( col ) ||
+    void sortByColumn(int col, Qt::SortOrder order = Qt::AscendingOrder) {
+        if (! m_leftview->isColumnHidden(col) ||
              ! m_rightview->isVisible() ||
-             m_rightview->isColumnHidden( col ) )
+             m_rightview->isColumnHidden(col) )
         {
-            m_leftview->sortByColumn( col, order );
+            m_leftview->sortByColumn(col, order);
         } else {
-            m_rightview->sortByColumn( col, order );
+            m_rightview->sortByColumn(col, order);
         }
     }
 
@@ -660,40 +660,40 @@ public:
 
 Q_SIGNALS:
     /// Context menu requested from the viewport, pointer over @p index at global position @p pos
-    void contextMenuRequested( const QModelIndex &index, const QPoint& pos, const QModelIndexList& );
+    void contextMenuRequested(const QModelIndex &index, const QPoint& pos, const QModelIndexList&);
     /// Context menu requested from master- or slave header at global position @p pos
-    void headerContextMenuRequested( const QPoint &pos );
+    void headerContextMenuRequested(const QPoint &pos);
     /// Context menu requested from master header at global position @p pos
-    void masterHeaderContextMenuRequested( const QPoint &pos );
+    void masterHeaderContextMenuRequested(const QPoint &pos);
     /// Context menu requested from slave header at global position @p pos
-    void slaveHeaderContextMenuRequested( const QPoint &pos );
+    void slaveHeaderContextMenuRequested(const QPoint &pos);
 
-    void currentChanged ( const QModelIndex & current, const QModelIndex & previous );
-    void selectionChanged( const QModelIndexList& );
+    void currentChanged (const QModelIndex & current, const QModelIndex & previous);
+    void selectionChanged(const QModelIndexList&);
 
-    void dropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
+    void dropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event);
 
 public Q_SLOTS:
-    void edit( const QModelIndex &index );
+    void edit(const QModelIndex &index);
     void slotExpand();
     void slotCollapse();
 
 protected Q_SLOTS:
-    void slotSelectionChanged( const QItemSelection &sel, const QItemSelection & );
-    void slotToRightView( const QModelIndex &index );
-    void slotToLeftView( const QModelIndex &index );
-    void slotEditToRightView( const QModelIndex &index );
-    void slotEditToLeftView( const QModelIndex &index );
+    void slotSelectionChanged(const QItemSelection &sel, const QItemSelection &);
+    void slotToRightView(const QModelIndex &index);
+    void slotToLeftView(const QModelIndex &index);
+    void slotEditToRightView(const QModelIndex &index);
+    void slotEditToLeftView(const QModelIndex &index);
 
-    void slotRightHeaderContextMenuRequested( const QPoint &pos );
-    void slotLeftHeaderContextMenuRequested( const QPoint &pos );
+    void slotRightHeaderContextMenuRequested(const QPoint &pos);
+    void slotLeftHeaderContextMenuRequested(const QPoint &pos);
 
-    void slotLeftSortIndicatorChanged( int logicalIndex, Qt::SortOrder order );
-    void slotRightSortIndicatorChanged( int logicalIndex, Qt::SortOrder order );
+    void slotLeftSortIndicatorChanged(int logicalIndex, Qt::SortOrder order);
+    void slotRightSortIndicatorChanged(int logicalIndex, Qt::SortOrder order);
 
 protected:
     void init();
-    QList<int> expandColumnList( const QList<int> &lst ) const;
+    QList<int> expandColumnList(const QList<int> &lst) const;
 
 protected:
     TreeViewBase *m_leftview;

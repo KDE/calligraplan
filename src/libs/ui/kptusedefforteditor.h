@@ -42,30 +42,30 @@ class PLANUI_EXPORT UsedEffortItemModel : public QAbstractItemModel
 public:
     explicit UsedEffortItemModel(QWidget *parent = 0);
 
-    void setProject( Project *project ) { m_project = project; }
+    void setProject(Project *project) { m_project = project; }
 
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
-    bool setData( const QModelIndex &index, const QVariant & value, int role = Qt::EditRole ) override;
-    QVariant headerData ( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
-    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant & value, int role = Qt::EditRole) override;
+    QVariant headerData (int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override;
     QModelIndex parent(const QModelIndex &) const override { return QModelIndex(); }
-    QModelIndex index ( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
+    QModelIndex index (int row, int column, const QModelIndex & parent = QModelIndex()) const override;
 
-    void setCompletion( Completion *completion );
-    const Resource *resource(const QModelIndex &index ) const;
-    Completion::UsedEffort *usedEffort(const QModelIndex &index ) const;
-    void setCurrentMonday( const QDate &date );
+    void setCompletion(Completion *completion);
+    const Resource *resource(const QModelIndex &index) const;
+    Completion::UsedEffort *usedEffort(const QModelIndex &index) const;
+    void setCurrentMonday(const QDate &date);
 
     QModelIndex addRow();
     QMap<QString, const Resource*> freeResources() const;
 
-    void setReadOnly( bool ro ) { m_readonly = ro; }
+    void setReadOnly(bool ro) { m_readonly = ro; }
     bool readOnly() const { return m_readonly; }
 
 Q_SIGNALS:
-    void rowInserted( const QModelIndex& );
+    void rowInserted(const QModelIndex&);
     void changed();
     void effortChanged(const QDate &date);
 
@@ -89,14 +89,14 @@ class PLANUI_EXPORT UsedEffortEditor : public QTableView
     Q_OBJECT
 public:
     explicit UsedEffortEditor(QWidget *parent);
-    void setProject( Project *project );
-    void setCompletion( Completion *completion );
-    void setCurrentMonday( const QDate &date );
+    void setProject(Project *project);
+    void setCompletion(Completion *completion);
+    void setCurrentMonday(const QDate &date);
     void addResource();
 
     bool hasFreeResources() const;
 
-    UsedEffortItemModel *model() const { return static_cast<UsedEffortItemModel*>( QTableView::model() ); }
+    UsedEffortItemModel *model() const { return static_cast<UsedEffortItemModel*>(QTableView::model()); }
 
     QSize sizeHint() const override { return m_size.isValid() ? m_size : QTableView::sizeHint(); }
     void setSizeHint(const QSize &size) { m_size = size; }
@@ -124,35 +124,35 @@ public:
 
     explicit CompletionEntryItemModel(QObject *parent = 0);
 
-    void setTask( Task *t );
+    void setTask(Task *t);
 
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
-    bool setData( const QModelIndex &index, const QVariant & value, int role = Qt::EditRole ) override;
-    QVariant headerData ( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
-    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant & value, int role = Qt::EditRole) override;
+    QVariant headerData (int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override;
     QModelIndex parent(const QModelIndex &) const override { return QModelIndex(); }
-    QModelIndex index ( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
+    QModelIndex index (int row, int column, const QModelIndex & parent = QModelIndex()) const override;
 
-    void setCompletion( Completion *completion );
-    const Resource *resource(const QModelIndex &index ) const;
-    Completion::UsedEffort *usedEffort(const QModelIndex &index ) const;
-    void setCurrentMonday( const QDate &date );
+    void setCompletion(Completion *completion);
+    const Resource *resource(const QModelIndex &index) const;
+    Completion::UsedEffort *usedEffort(const QModelIndex &index) const;
+    void setCurrentMonday(const QDate &date);
 
     QModelIndex addRow();
-    void removeRow( int row );
+    void removeRow(int row);
 
     /// These flags are in addition to flags return from QAbstractItemModel::flags()
-    void setFlags( int col, Qt::ItemFlags flags ) { m_flags[ col ] = flags; }
+    void setFlags(int col, Qt::ItemFlags flags) { m_flags[ col ] = flags; }
 
     long id() const { return m_manager == 0 ? -1 : m_manager->scheduleId(); }
 
     void addRow(const QDate &date);
 
 Q_SIGNALS:
-    void rowInserted( const QDate& );
-    void rowRemoved( const QDate& );
+    void rowInserted(const QDate&);
+    void rowRemoved(const QDate&);
     void changed();
 
 public Q_SLOTS:
@@ -162,14 +162,14 @@ public Q_SLOTS:
     void setManager(KPlato::ScheduleManager *sm);
 
 protected:
-    QVariant date ( int row, int role = Qt::DisplayRole ) const;
-    QVariant percentFinished ( int row, int role ) const;
-    QVariant remainingEffort ( int row, int role ) const;
-    virtual QVariant actualEffort ( int row, int role ) const;
-    QVariant plannedEffort ( int row, int role ) const;
+    QVariant date (int row, int role = Qt::DisplayRole) const;
+    QVariant percentFinished (int row, int role) const;
+    QVariant remainingEffort (int row, int role) const;
+    virtual QVariant actualEffort (int row, int role) const;
+    QVariant plannedEffort (int row, int role) const;
 
-    void removeEntry( const QDate& date );
-    void addEntry( const QDate& date );
+    void removeEntry(const QDate& date);
+    void addEntry(const QDate& date);
     void refresh();
 
     QList<qint64> scales() const;
@@ -190,17 +190,17 @@ class PLANUI_EXPORT CompletionEntryEditor : public QTableView
     Q_OBJECT
 public:
     explicit CompletionEntryEditor(QWidget *parent);
-    void setCompletion( Completion *completion );
+    void setCompletion(Completion *completion);
 
-    CompletionEntryItemModel *model() const { return static_cast<CompletionEntryItemModel*>( QTableView::model() ); }
-    void setCompletionModel( CompletionEntryItemModel *m );
+    CompletionEntryItemModel *model() const { return static_cast<CompletionEntryItemModel*>(QTableView::model()); }
+    void setCompletionModel(CompletionEntryItemModel *m);
 
     void insertEntry(const QDate &date);
 
 Q_SIGNALS:
     void changed();
-    void rowInserted( const QDate& );
-    void rowRemoved( const QDate& );
+    void rowInserted(const QDate&);
+    void rowRemoved(const QDate&);
     void selectedItemsChanged(const QItemSelection&, const QItemSelection&);
 
 public Q_SLOTS:

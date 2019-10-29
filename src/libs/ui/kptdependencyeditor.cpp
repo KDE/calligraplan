@@ -61,9 +61,9 @@
 namespace KPlato
 {
 
-void plan_paintFocusSelectedItem( QPainter *painter, const QStyleOptionGraphicsItem *option )
+void plan_paintFocusSelectedItem(QPainter *painter, const QStyleOptionGraphicsItem *option)
 {
-    if ( option->state & ( QStyle::State_Selected | QStyle::State_HasFocus ) ) {
+    if (option->state & (QStyle::State_Selected | QStyle::State_HasFocus)) {
         painter->save();
         if (option->state & QStyle::State_Selected) {
             debugPlanDepEditor<<"selected";
@@ -72,43 +72,43 @@ void plan_paintFocusSelectedItem( QPainter *painter, const QStyleOptionGraphicsI
             if (cg == QPalette::Normal && !(option->state & QStyle::State_Active))
                 cg = QPalette::Inactive;
 
-            QLinearGradient g( 0.0, option->rect.top(), 0.0, option->rect.bottom() );
+            QLinearGradient g(0.0, option->rect.top(), 0.0, option->rect.bottom());
             QColor col = option->palette.brush(cg, QPalette::Highlight).color();
-            g.setColorAt( 0.0, col.lighter( 125 ) );
-            g.setColorAt( 1.0, col.lighter( 60 ) );
+            g.setColorAt(0.0, col.lighter(125));
+            g.setColorAt(1.0, col.lighter(60));
 
-            painter->setPen( Qt::NoPen );
-            painter->setBrush( QBrush( g ) );
-            painter->drawRect( option->exposedRect );
+            painter->setPen(Qt::NoPen);
+            painter->setBrush(QBrush(g));
+            painter->drawRect(option->exposedRect);
         }
-        if ( option->state & QStyle::State_HasFocus ) {
+        if (option->state & QStyle::State_HasFocus) {
             debugPlanDepEditor<<"has focus";
             QPalette::ColorGroup cg = option->state & QStyle::State_Enabled
                     ? QPalette::Active : QPalette::Disabled;
             if (cg == QPalette::Active && !(option->state & QStyle::State_Active))
                 cg = QPalette::Inactive;
 
-            QPen p( Qt::DotLine );
-            p.setWidthF( 2. );
-            if ( option->state & QStyle::State_Selected ) {
-                p.setColor( option->palette.color( cg, QPalette::Shadow ) );
+            QPen p(Qt::DotLine);
+            p.setWidthF(2.);
+            if (option->state & QStyle::State_Selected) {
+                p.setColor(option->palette.color(cg, QPalette::Shadow));
                 debugPlanDepEditor<<"focus: selected"<<p.color();
             } else {
-                p.setColor( option->palette.color( cg, QPalette::Highlight ) );
+                p.setColor(option->palette.color(cg, QPalette::Highlight));
                 debugPlanDepEditor<<"focus: not selected"<<p.color();
             }
-            painter->setPen( p );
-            painter->setBrush( Qt::NoBrush );
-            painter->drawRect( option->exposedRect );
+            painter->setPen(p);
+            painter->setBrush(Qt::NoBrush);
+            painter->drawRect(option->exposedRect);
         }
         painter->restore();
     }
 }
 
 //----------------------
-DependecyViewPrintingDialog::DependecyViewPrintingDialog( ViewBase *parent, DependencyView *view )
-    : PrintingDialog( parent ),
-    m_depview( view )
+DependecyViewPrintingDialog::DependecyViewPrintingDialog(ViewBase *parent, DependencyView *view)
+    : PrintingDialog(parent),
+    m_depview(view)
 {
     debugPlanDepEditor<<this;
 }
@@ -127,56 +127,56 @@ QList<QWidget*> DependecyViewPrintingDialog::createOptionWidgets() const
     return  lst;
 }
 
-void DependecyViewPrintingDialog::printPage( int page, QPainter &painter )
+void DependecyViewPrintingDialog::printPage(int page, QPainter &painter)
 {
     painter.save();
 
     QRect hRect = headerRect();
     QRect fRect = footerRect();
     QRect pageRect = printer().pageRect();
-    pageRect.moveTo( 0, 0 );
+    pageRect.moveTo(0, 0);
     debugPlanDepEditor<<pageRect<<hRect<<fRect;
 
-    painter.translate( pageRect.topLeft() );
+    painter.translate(pageRect.topLeft());
 
-    painter.setClipping( true );
+    painter.setClipping(true);
 
-    paintHeaderFooter( painter, printingOptions(), page, *(m_depview->project()) );
+    paintHeaderFooter(painter, printingOptions(), page, *(m_depview->project()));
 
     int gap = 8;
     int pageHeight = pageRect.height();
-    if ( hRect.isValid() ) {
-        pageHeight -= ( hRect.height() + gap );
+    if (hRect.isValid()) {
+        pageHeight -= (hRect.height() + gap);
     }
-    if ( fRect.isValid() ) {
-        pageHeight -= ( fRect.height() + gap );
+    if (fRect.isValid()) {
+        pageHeight -= (fRect.height() + gap);
     }
-    painter.translate( 0, hRect.height() + gap );
+    painter.translate(0, hRect.height() + gap);
 
-    QRect r( 0, 0, pageRect.width(), pageHeight );
-    m_depview->itemScene()->render( &painter, r );
+    QRect r(0, 0, pageRect.width(), pageHeight);
+    m_depview->itemScene()->render(&painter, r);
 
     painter.restore();
 }
 
 
-DependencyLinkItemBase::DependencyLinkItemBase( QGraphicsItem *parent )
-    : QGraphicsPathItem( parent ),
-    m_editable( false ),
-    predItem( 0 ),
-    succItem( 0 ),
-    relation( 0 ),
-    m_arrow( new QGraphicsPathItem( this ) )
+DependencyLinkItemBase::DependencyLinkItemBase(QGraphicsItem *parent)
+    : QGraphicsPathItem(parent),
+    m_editable(false),
+    predItem(0),
+    succItem(0),
+    relation(0),
+    m_arrow(new QGraphicsPathItem(this))
 {
 }
 
-DependencyLinkItemBase::DependencyLinkItemBase( DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem *parent )
-    : QGraphicsPathItem( parent ),
-    m_editable( false ),
-    predItem( predecessor ),
-    succItem( successor ),
-    relation( rel ),
-    m_arrow( new QGraphicsPathItem( this ) )
+DependencyLinkItemBase::DependencyLinkItemBase(DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem *parent)
+    : QGraphicsPathItem(parent),
+    m_editable(false),
+    predItem(predecessor),
+    succItem(successor),
+    relation(rel),
+    m_arrow(new QGraphicsPathItem(this))
 {
 }
 
@@ -186,13 +186,13 @@ DependencyLinkItemBase::~DependencyLinkItemBase()
 
 DependencyScene *DependencyLinkItemBase::itemScene() const
 {
-    return static_cast<DependencyScene*>( scene() );
+    return static_cast<DependencyScene*>(scene());
 }
 
-void DependencyLinkItemBase::createPath( const QPointF &sp, int starttype, const QPointF &ep, int endtype )
+void DependencyLinkItemBase::createPath(const QPointF &sp, int starttype, const QPointF &ep, int endtype)
 {
-    //if ( predItem && succItem ) debugPlanDepEditor<<predItem->text()<<" ->"<<succItem->text()<<" visible="<<isVisible();
-    if ( ! isVisible() ) {
+    //if (predItem && succItem) debugPlanDepEditor<<predItem->text()<<" ->"<<succItem->text()<<" visible="<<isVisible();
+    if (! isVisible()) {
         return;
     }
     qreal hgap = itemScene()->horizontalGap();
@@ -201,135 +201,135 @@ void DependencyLinkItemBase::createPath( const QPointF &sp, int starttype, const
     bool right = sp.x() < ep.x();
     bool same = sp.x() == ep.x();
 
-    QPainterPath link( sp );
+    QPainterPath link(sp);
     qreal x = sp.x();
     qreal y = sp.y();
-    if ( right && starttype == DependencyNodeItem::Finish) {
+    if (right && starttype == DependencyNodeItem::Finish) {
         x = ep.x();
         x += endtype == DependencyNodeItem::Start ? - hgap/2 - 6 : hgap/2 - 6;
-        link.lineTo( x, y );
+        link.lineTo(x, y);
         x += 6;
-        QPointF cp( x, y );
+        QPointF cp(x, y);
         y += up ? -6 : +6;
-        link.quadTo( cp, QPointF( x, y ) );
+        link.quadTo(cp, QPointF(x, y));
         y = up ? ep.y() + 6 : ep.y() - 6;
-        link.lineTo( x, y );
+        link.lineTo(x, y);
         y = ep.y();
-        cp = QPointF( x, y );
+        cp = QPointF(x, y);
         x += endtype == DependencyNodeItem::Start ? 6 : -6;
-        link.quadTo(  cp, QPointF( x, y ) );
-    } else if ( right && starttype == DependencyNodeItem::Start ) {
+        link.quadTo(cp, QPointF(x, y));
+    } else if (right && starttype == DependencyNodeItem::Start) {
         x = sp.x() - hgap/2 + 6;
-        link.lineTo( x, y );
+        link.lineTo(x, y);
         x -= 6;
-        QPointF cp( x, y );
+        QPointF cp(x, y);
         y += up ? -6 : +6;
-        link.quadTo( cp, QPointF( x, y ) );
+        link.quadTo(cp, QPointF(x, y));
         y = up ? ep.y() + 6 : ep.y() - 6;
-        link.lineTo( x, y );
+        link.lineTo(x, y);
         y = ep.y();
-        cp = QPointF( x, y );
+        cp = QPointF(x, y);
         x += endtype == DependencyNodeItem::Start ? 6 : -6;
-        link.quadTo(  cp, QPointF( x, y ) );
-    } else if ( same ) {
+        link.quadTo(cp, QPointF(x, y));
+    } else if (same) {
         x = ep.x();
         x += endtype == DependencyNodeItem::Start ? - hgap/2 + 6 : hgap/2 - 6;
-        link.lineTo( x, y );
+        link.lineTo(x, y);
         x += endtype == DependencyNodeItem::Start ? -6 : +6;
-        QPointF cp( x, y );
+        QPointF cp(x, y);
         y += up ? -6 : 6;
-        link.quadTo( cp, QPointF( x, y ) );
+        link.quadTo(cp, QPointF(x, y));
         y = up ? ep.y() + 6 : ep.y() - 6;
-        link.lineTo( x, y );
+        link.lineTo(x, y);
         y = ep.y();
-        cp = QPointF( x, y );
-        if ( endtype == DependencyNodeItem::Start ) {
+        cp = QPointF(x, y);
+        if (endtype == DependencyNodeItem::Start) {
             x += 6;
         } else {
             x -= 6;
         }
-        link.quadTo( cp, QPointF( x, y ) );
+        link.quadTo(cp, QPointF(x, y));
     } else {
         x = ep.x();
         x += endtype == DependencyNodeItem::Start ? - hgap/2 + 6 : hgap/2 + 6;
-        link.lineTo( x, y );
+        link.lineTo(x, y);
         x -= 6;
-        QPointF cp( x, y );
+        QPointF cp(x, y);
         y += up ? -6 : 6;
-        link.quadTo( cp, QPointF( x, y ) );
+        link.quadTo(cp, QPointF(x, y));
         y = up ? ep.y() + 6 : ep.y() - 6;
-        link.lineTo( x, y );
+        link.lineTo(x, y);
         y = ep.y();
-        cp = QPointF( x, y );
+        cp = QPointF(x, y);
         x += endtype == DependencyNodeItem::Start ? 6 : -6;
-        link.quadTo( cp, QPointF( x, y ) );
+        link.quadTo(cp, QPointF(x, y));
     }
-    link.lineTo( ep );
+    link.lineTo(ep);
 
-    setPath( link );
+    setPath(link);
 
     QPainterPath arrow;
     x = endtype == DependencyNodeItem::Start ? -6 : 6;
-    arrow.moveTo( ep );
-    arrow.lineTo( ep.x() + x, ep.y() - 3 );
-    arrow.lineTo( ep.x() + x, ep.y() + 3 );
-    arrow.lineTo( ep );
-    m_arrow->setPath( arrow );
+    arrow.moveTo(ep);
+    arrow.lineTo(ep.x() + x, ep.y() - 3);
+    arrow.lineTo(ep.x() + x, ep.y() + 3);
+    arrow.lineTo(ep);
+    m_arrow->setPath(arrow);
     m_arrow->show();
 }
 
 //--------------------------------
-DependencyLinkItem::DependencyLinkItem( DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem *parent )
-    : DependencyLinkItemBase( predecessor, successor, rel, parent )
+DependencyLinkItem::DependencyLinkItem(DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem *parent)
+    : DependencyLinkItemBase(predecessor, successor, rel, parent)
 {
-    setZValue( 100.0 );
-    setAcceptHoverEvents( true );
+    setZValue(100.0);
+    setAcceptHoverEvents(true);
     //debugPlanDepEditor<<predecessor->text()<<"("<<predecessor->column()<<") -"<<successor->text();
-    predItem->addChildRelation( this );
-    succItem->addParentRelation( this );
+    predItem->addChildRelation(this);
+    succItem->addParentRelation(this);
     succItem->setColumn();
 
-    m_arrow->setBrush( Qt::black );
+    m_arrow->setBrush(Qt::black);
 
     m_pen = pen();
 }
 
 DependencyLinkItem::~DependencyLinkItem()
 {
-    if ( predItem ) {
-        predItem->takeChildRelation( this );
+    if (predItem) {
+        predItem->takeChildRelation(this);
     }
-    if ( succItem ) {
-        succItem->takeParentRelation( this );
+    if (succItem) {
+        succItem->takeParentRelation(this);
     }
 }
 
 int DependencyLinkItem::newChildColumn() const
 {
     int col = predItem->column();
-    if ( relation->type() == Relation::FinishStart ) {
+    if (relation->type() == Relation::FinishStart) {
         ++col;
     }
     //debugPlanDepEditor<<"new col="<<col;
     return col;
 }
 
-void DependencyLinkItem::setItemVisible( bool show )
+void DependencyLinkItem::setItemVisible(bool show)
 {
-    setVisible( show && predItem->isVisible() && succItem->isVisible() );
+    setVisible(show && predItem->isVisible() && succItem->isVisible());
 }
 
 void DependencyLinkItem::createPath()
 {
-    setVisible( predItem->isVisible() && succItem->isVisible() );
-    if ( ! isVisible() ) {
+    setVisible(predItem->isVisible() && succItem->isVisible());
+    if (! isVisible()) {
         //debugPlanDepEditor<<"Visible="<<isVisible()<<":"<<predItem->node()->name()<<" -"<<succItem->node()->name();
         return;
     }
     QPointF sp = startPoint();
     QPointF ep = endPoint();
     int stype = 0, etype = 0;
-    switch ( relation->type() ) {
+    switch (relation->type()) {
         case Relation::StartStart:
             stype = DependencyNodeItem::Start; etype = DependencyNodeItem::Start;
             break;
@@ -342,43 +342,43 @@ void DependencyLinkItem::createPath()
         default:
             break;
     }
-    DependencyLinkItemBase::createPath( sp, stype, ep, etype );
+    DependencyLinkItemBase::createPath(sp, stype, ep, etype);
 }
 
 QPointF DependencyLinkItem::startPoint() const
 {
-    if ( relation->type() == Relation::StartStart ) {
-        return predItem->connectorPoint( DependencyNodeItem::Start );
+    if (relation->type() == Relation::StartStart) {
+        return predItem->connectorPoint(DependencyNodeItem::Start);
     }
-    return predItem->connectorPoint( DependencyNodeItem::Finish );
+    return predItem->connectorPoint(DependencyNodeItem::Finish);
 }
 
 QPointF DependencyLinkItem::endPoint() const
 {
-    if ( relation->type() == Relation::FinishFinish ) {
-        return succItem->connectorPoint( DependencyNodeItem::Finish );
+    if (relation->type() == Relation::FinishFinish) {
+        return succItem->connectorPoint(DependencyNodeItem::Finish);
     }
-    return succItem->connectorPoint( DependencyNodeItem::Start );
+    return succItem->connectorPoint(DependencyNodeItem::Start);
 }
 
-void DependencyLinkItem::hoverEnterEvent( QGraphicsSceneHoverEvent * /*event*/ )
+void DependencyLinkItem::hoverEnterEvent(QGraphicsSceneHoverEvent * /*event*/)
 {
-    setZValue( zValue() + 1 );
-    setPen( QPen( Qt::black, 2 ) );
-    m_arrow->setPen( pen() );
+    setZValue(zValue() + 1);
+    setPen(QPen(Qt::black, 2));
+    m_arrow->setPen(pen());
     update();
 }
 
-void DependencyLinkItem::hoverLeaveEvent( QGraphicsSceneHoverEvent * /*event*/ )
+void DependencyLinkItem::hoverLeaveEvent(QGraphicsSceneHoverEvent * /*event*/)
 {
     resetHooverIndication();
 }
 
 void DependencyLinkItem::resetHooverIndication()
 {
-    setZValue( zValue() - 1 );
-    setPen( m_pen );
-    m_arrow->setPen( m_pen );
+    setZValue(zValue() - 1);
+    setPen(m_pen);
+    m_arrow->setPen(m_pen);
     update();
 }
 
@@ -386,82 +386,82 @@ void DependencyLinkItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     //debugPlanDepEditor;
     QGraphicsItem::GraphicsItemFlags f = flags();
-    if ( isEditable() && itemScene()->connectionMode() ) {
+    if (isEditable() && itemScene()->connectionMode()) {
         itemScene()->clearConnection();
-        setFlags( f & ~QGraphicsItem::ItemIsSelectable );
+        setFlags(f & ~QGraphicsItem::ItemIsSelectable);
     }
-    QGraphicsPathItem::mousePressEvent( event );
-    if ( f != flags() ) {
-        setFlags( f );
+    QGraphicsPathItem::mousePressEvent(event);
+    if (f != flags()) {
+        setFlags(f);
     }
 }
 
 //--------------------
-DependencyCreatorItem::DependencyCreatorItem( QGraphicsItem *parent )
-    : DependencyLinkItemBase( parent ),
-    predConnector( 0 ),
-    succConnector( 0 ),
-    m_editable( false )
+DependencyCreatorItem::DependencyCreatorItem(QGraphicsItem *parent)
+    : DependencyLinkItemBase(parent),
+    predConnector(0),
+    succConnector(0),
+    m_editable(false)
 {
-    setZValue( 1000.0 );
+    setZValue(1000.0);
     clear();
-    setPen( QPen( Qt::blue, 2 ) );
-    m_arrow->setBrush( Qt::blue );
-    m_arrow->setPen( QPen( Qt::blue, 2 ) );
+    setPen(QPen(Qt::blue, 2));
+    m_arrow->setBrush(Qt::blue);
+    m_arrow->setPen(QPen(Qt::blue, 2));
 }
 
 void DependencyCreatorItem::clear()
 {
     hide();
-    if ( predConnector && predConnector->parentItem() ) {
-        static_cast<DependencyNodeItem*>( predConnector->parentItem() )->setConnectorHoverMode( true );
-    } else if ( succConnector && succConnector->parentItem() ) {
-        static_cast<DependencyNodeItem*>( succConnector->parentItem() )->setConnectorHoverMode( true );
+    if (predConnector && predConnector->parentItem()) {
+        static_cast<DependencyNodeItem*>(predConnector->parentItem())->setConnectorHoverMode(true);
+    } else if (succConnector && succConnector->parentItem()) {
+        static_cast<DependencyNodeItem*>(succConnector->parentItem())->setConnectorHoverMode(true);
     }
     predConnector = 0;
     succConnector = 0;
-    setPath( QPainterPath() );
-    m_arrow->setPath( QPainterPath() );
+    setPath(QPainterPath());
+    m_arrow->setPath(QPainterPath());
 }
 
-void DependencyCreatorItem::setPredConnector( DependencyConnectorItem *item )
+void DependencyCreatorItem::setPredConnector(DependencyConnectorItem *item)
 {
     predConnector = item;
-    //static_cast<DependencyNodeItem*>( item->parentItem() )->setConnectorHoverMode( false );
+    //static_cast<DependencyNodeItem*>(item->parentItem())->setConnectorHoverMode(false);
 }
 
-void DependencyCreatorItem::setSuccConnector( DependencyConnectorItem *item )
+void DependencyCreatorItem::setSuccConnector(DependencyConnectorItem *item)
 {
     succConnector = item;
 }
 
 void DependencyCreatorItem::createPath()
 {
-    if ( predConnector == 0 ) {
+    if (predConnector == 0) {
         return;
     }
-    if ( succConnector == 0 ) {
+    if (succConnector == 0) {
         return;
     }
     QPointF sp = predConnector->connectorPoint();
     QPointF ep = succConnector->connectorPoint();
-    DependencyLinkItemBase::createPath( sp, predConnector->ctype(), ep, succConnector->ctype() );
+    DependencyLinkItemBase::createPath(sp, predConnector->ctype(), ep, succConnector->ctype());
 }
 
-void DependencyCreatorItem::createPath( const QPointF &ep )
+void DependencyCreatorItem::createPath(const QPointF &ep)
 {
     m_arrow->hide();
-    if ( succConnector ) {
+    if (succConnector) {
         return createPath();
     }
-    if ( predConnector == 0 ) {
+    if (predConnector == 0) {
         return;
     }
     QPointF sp = predConnector->connectorPoint();
 
-    QPainterPath link( sp );
-    link.lineTo( ep );
-    setPath( link );
+    QPainterPath link(sp);
+    link.lineTo(ep);
+    setPath(link);
 
 }
 
@@ -476,56 +476,56 @@ QPointF DependencyCreatorItem::endPoint() const
 }
 
 //--------------------
-DependencyConnectorItem::DependencyConnectorItem( DependencyNodeItem::ConnectorType type, DependencyNodeItem *parent )
-    : QGraphicsRectItem( parent ),
-    m_ctype( type ),
-    m_editable( false )
+DependencyConnectorItem::DependencyConnectorItem(DependencyNodeItem::ConnectorType type, DependencyNodeItem *parent)
+    : QGraphicsRectItem(parent),
+    m_ctype(type),
+    m_editable(false)
 {
-    setCursor( ConnectCursor);
-    setAcceptHoverEvents( true );
-    setZValue( 500.0 );
+    setCursor(ConnectCursor);
+    setAcceptHoverEvents(true);
+    setZValue(500.0);
 
-    setFlag( QGraphicsItem::ItemIsFocusable );
+    setFlag(QGraphicsItem::ItemIsFocusable);
 }
 
 DependencyScene *DependencyConnectorItem::itemScene() const
 {
-    return static_cast<DependencyScene*>( scene() );
+    return static_cast<DependencyScene*>(scene());
 }
 
 DependencyNodeItem *DependencyConnectorItem::nodeItem() const
 {
-    return static_cast<DependencyNodeItem*>( parentItem() );
+    return static_cast<DependencyNodeItem*>(parentItem());
 }
 
 Node *DependencyConnectorItem::node() const
 {
-    return static_cast<DependencyNodeItem*>( parentItem() )->node();
+    return static_cast<DependencyNodeItem*>(parentItem())->node();
 }
 
 QPointF DependencyConnectorItem::connectorPoint() const
 {
     QRectF r = rect();
-    return QPointF( r.x()+r.width(), r.y() + r.height()/2 );
+    return QPointF(r.x()+r.width(), r.y() + r.height()/2);
 }
 
-void DependencyConnectorItem::hoverEnterEvent( QGraphicsSceneHoverEvent * /*event*/ )
+void DependencyConnectorItem::hoverEnterEvent(QGraphicsSceneHoverEvent * /*event*/)
 {
-    itemScene()->connectorEntered( this, true );
+    itemScene()->connectorEntered(this, true);
 }
 
-void DependencyConnectorItem::hoverLeaveEvent( QGraphicsSceneHoverEvent * /*event*/ )
+void DependencyConnectorItem::hoverLeaveEvent(QGraphicsSceneHoverEvent * /*event*/)
 {
-    itemScene()->connectorEntered( this, false );
+    itemScene()->connectorEntered(this, false);
 }
 
 void DependencyConnectorItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    if ( ! isEditable() ) {
+    if (! isEditable()) {
         event->ignore();
         return;
     }
-    if (event->button() == Qt::LeftButton ) {
+    if (event->button() == Qt::LeftButton) {
         m_mousePressPos = event->pos();
     } else {
         event->ignore();
@@ -535,53 +535,53 @@ void DependencyConnectorItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 void DependencyConnectorItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     m_mousePressPos = QPointF();
-    if (event->button() != Qt::LeftButton ) {
+    if (event->button() != Qt::LeftButton) {
         event->ignore();
         return;
     }
-    if ( rect().contains( event->scenePos() ) ) {
+    if (rect().contains(event->scenePos())) {
         // user clicked on this item
         bool multiSelect = (event->modifiers() & Qt::ControlModifier) != 0;
         if (multiSelect) {
-            itemScene()->multiConnectorClicked( this );
+            itemScene()->multiConnectorClicked(this);
         } else {
-            itemScene()->singleConnectorClicked( this );
+            itemScene()->singleConnectorClicked(this);
         }
         return;
     }
     QGraphicsItem *item = 0;
-    foreach ( QGraphicsItem *i, itemScene()->items( event->scenePos() ) ) {
-        if ( i->type() == DependencyConnectorItem::Type ) {
+    foreach (QGraphicsItem *i, itemScene()->items(event->scenePos())) {
+        if (i->type() == DependencyConnectorItem::Type) {
             item = i;
             break;
         }
     }
-    if ( item == 0 || item == itemScene()->fromItem() ) {
-        itemScene()->setFromItem( 0 );
+    if (item == 0 || item == itemScene()->fromItem()) {
+        itemScene()->setFromItem(0);
         return;
     }
-    itemScene()->singleConnectorClicked( static_cast<DependencyConnectorItem*>( item ) );
+    itemScene()->singleConnectorClicked(static_cast<DependencyConnectorItem*>(item));
 }
 
 void DependencyConnectorItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (event->buttons() == Qt::LeftButton ) {
-        if ( ! m_mousePressPos.isNull() ) {
-            itemScene()->setFromItem( this );
+    if (event->buttons() == Qt::LeftButton) {
+        if (! m_mousePressPos.isNull()) {
+            itemScene()->setFromItem(this);
             m_mousePressPos = QPointF();
         }
         QGraphicsItem *item = 0;
-        foreach ( QGraphicsItem *i, itemScene()->items( event->scenePos() ) ) {
-            if ( i->type() == DependencyConnectorItem::Type ) {
+        foreach (QGraphicsItem *i, itemScene()->items(event->scenePos())) {
+            if (i->type() == DependencyConnectorItem::Type) {
                 item = i;
                 break;
             }
         }
-        if ( item != this ) {
-            itemScene()->connectorEntered( this, false );
+        if (item != this) {
+            itemScene()->connectorEntered(this, false);
         }
-        if ( item != 0 ) {
-            itemScene()->connectorEntered( static_cast<DependencyConnectorItem*>( item ), true );
+        if (item != 0) {
+            itemScene()->connectorEntered(static_cast<DependencyConnectorItem*>(item), true);
         }
     } else {
         event->ignore();
@@ -591,294 +591,294 @@ void DependencyConnectorItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 void DependencyConnectorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget */*widget*/)
 {
     //debugPlanDepEditor;
-    QStyleOptionGraphicsItem opt( *option );
+    QStyleOptionGraphicsItem opt(*option);
     opt.exposedRect = rect();
-    if ( itemScene()->fromItem() == this ) {
+    if (itemScene()->fromItem() == this) {
         opt.state |= QStyle::State_Selected;
     }
-    if ( itemScene()->focusItem() == this ) {
+    if (itemScene()->focusItem() == this) {
         opt.state |= QStyle::State_HasFocus;
     }
-    plan_paintFocusSelectedItem( painter, &opt );
+    plan_paintFocusSelectedItem(painter, &opt);
 
     QRectF r = rect();
-    if ( ctype() == DependencyNodeItem::Start ) {
-        r.setRect( r.right() - (r.width()/2.0) + 1.0, r.y() + ( r.height() * 0.33 ), r.width() / 2.0, r.height() * 0.33 );
+    if (ctype() == DependencyNodeItem::Start) {
+        r.setRect(r.right() - (r.width()/2.0) + 1.0, r.y() + (r.height() * 0.33), r.width() / 2.0, r.height() * 0.33);
     } else {
-        r.setRect( r.right() - (r.width()/2.0) - 1.0, r.y() + ( r.height() * 0.33 ), r.width() / 2.0, r.height() * 0.33 );
+        r.setRect(r.right() - (r.width()/2.0) - 1.0, r.y() + (r.height() * 0.33), r.width() / 2.0, r.height() * 0.33);
     }
-    painter->fillRect( r, Qt::black );
+    painter->fillRect(r, Qt::black);
 }
 
 QList<DependencyLinkItem*> DependencyConnectorItem::predecessorItems() const
 {
-    return nodeItem()->predecessorItems( m_ctype );
+    return nodeItem()->predecessorItems(m_ctype);
 }
 
 QList<DependencyLinkItem*> DependencyConnectorItem::successorItems() const
 {
-    return nodeItem()->successorItems( m_ctype );
+    return nodeItem()->successorItems(m_ctype);
 }
 
 //--------------------
-DependencyNodeItem::DependencyNodeItem( Node *node, DependencyNodeItem *parent )
-    : QGraphicsRectItem( parent ),
-    m_node( node ),
-    m_parent( 0 ),
-    m_editable( false )
+DependencyNodeItem::DependencyNodeItem(Node *node, DependencyNodeItem *parent)
+    : QGraphicsRectItem(parent),
+    m_node(node),
+    m_parent(0),
+    m_editable(false)
 {
-    setAcceptHoverEvents( true );
-    setZValue( 400.0 );
-    setParentItem( parent );
-    m_start = new DependencyConnectorItem( DependencyNodeItem::Start, this );
-    m_finish = new DependencyConnectorItem( DependencyNodeItem::Finish, this );
+    setAcceptHoverEvents(true);
+    setZValue(400.0);
+    setParentItem(parent);
+    m_start = new DependencyConnectorItem(DependencyNodeItem::Start, this);
+    m_finish = new DependencyConnectorItem(DependencyNodeItem::Finish, this);
 
-    m_text = new QGraphicsTextItem( this );
+    m_text = new QGraphicsTextItem(this);
     m_textFont = m_text->font();
-    m_textFont.setPointSize( 10 );
-    m_text->setFont( m_textFont );
+    m_textFont.setPointSize(10);
+    m_text->setFont(m_textFont);
     setText();
 
-    setFlags( QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsFocusable );
+    setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsFocusable);
 
     // do not attach this item to the scene as it gives continuous paint events when a node item is selected
     m_symbol = new DependencyNodeSymbolItem();
-    m_symbol->setZValue( zValue() + 10.0 );
+    m_symbol->setZValue(zValue() + 10.0);
     setSymbol();
 
-    m_treeIndicator = new QGraphicsPathItem( this );
-    m_treeIndicator->setPen( QPen( Qt::gray ) );
+    m_treeIndicator = new QGraphicsPathItem(this);
+    m_treeIndicator->setPen(QPen(Qt::gray));
 }
 
 DependencyNodeItem::~DependencyNodeItem()
 {
-    qDeleteAll( m_childrelations );
-    qDeleteAll( m_parentrelations );
-    //qDeleteAll( m_children );
+    qDeleteAll(m_childrelations);
+    qDeleteAll(m_parentrelations);
+    //qDeleteAll(m_children);
 
     delete m_symbol;
 }
 
 void DependencyNodeItem::setText()
 {
-    m_text->setPlainText( m_node == 0 ? QString() : QString( "%1  %2").arg( m_node->wbsCode() ).arg(m_node->name() ) );
+    m_text->setPlainText(m_node == 0 ? QString() : QString("%1  %2").arg(m_node->wbsCode()).arg(m_node->name()));
 }
 
 DependencyScene *DependencyNodeItem::itemScene() const
 {
-    return static_cast<DependencyScene*>( scene() );
+    return static_cast<DependencyScene*>(scene());
 }
 
 void DependencyNodeItem::setSymbol()
 {
-    m_symbol->setSymbol( m_node->type(), itemScene()->symbolRect() );
+    m_symbol->setSymbol(m_node->type(), itemScene()->symbolRect());
 }
 
-QPointF DependencyNodeItem::connectorPoint( DependencyNodeItem::ConnectorType type ) const
+QPointF DependencyNodeItem::connectorPoint(DependencyNodeItem::ConnectorType type) const
 {
     QRectF r;
-    if ( type == Start ) {
+    if (type == Start) {
         return m_start->connectorPoint();
     }
     return m_finish->connectorPoint();
 }
 
-void DependencyNodeItem::setConnectorHoverMode( bool mode )
+void DependencyNodeItem::setConnectorHoverMode(bool mode)
 {
-    m_start->setAcceptHoverEvents( mode );
-    m_finish->setAcceptHoverEvents( mode );
+    m_start->setAcceptHoverEvents(mode);
+    m_finish->setAcceptHoverEvents(mode);
 }
 
-void DependencyNodeItem::setParentItem( DependencyNodeItem *parent )
+void DependencyNodeItem::setParentItem(DependencyNodeItem *parent)
 {
-    if ( m_parent ) {
-        m_parent->takeChild( this );
+    if (m_parent) {
+        m_parent->takeChild(this);
     }
     m_parent = parent;
-    if ( m_parent ) {
-        m_parent->addChild( this );
+    if (m_parent) {
+        m_parent->addChild(this);
     }
 }
 
-void DependencyNodeItem::setExpanded( bool mode )
+void DependencyNodeItem::setExpanded(bool mode)
 {
-    foreach ( DependencyNodeItem *ch, m_children ) {
-        itemScene()->setItemVisible( ch, mode );
-        ch->setExpanded( mode );
+    foreach (DependencyNodeItem *ch, m_children) {
+        itemScene()->setItemVisible(ch, mode);
+        ch->setExpanded(mode);
     }
 }
 
-void DependencyNodeItem::setItemVisible( bool show )
+void DependencyNodeItem::setItemVisible(bool show)
 {
-    setVisible( show );
+    setVisible(show);
     //debugPlanDepEditor<<isVisible()<<","<<node()->name();
-    foreach ( DependencyLinkItem *i, m_parentrelations ) {
-        i->setItemVisible( show );
+    foreach (DependencyLinkItem *i, m_parentrelations) {
+        i->setItemVisible(show);
     }
-    foreach ( DependencyLinkItem *i, m_childrelations ) {
-        i->setItemVisible( show );
+    foreach (DependencyLinkItem *i, m_childrelations) {
+        i->setItemVisible(show);
     }
 }
 
-DependencyNodeItem *DependencyNodeItem::takeChild( DependencyNodeItem *ch )
+DependencyNodeItem *DependencyNodeItem::takeChild(DependencyNodeItem *ch)
 {
-    int i = m_children.indexOf( ch );
-    if ( i == -1 ) {
+    int i = m_children.indexOf(ch);
+    if (i == -1) {
         return 0;
     }
-    return m_children.takeAt( i );
+    return m_children.takeAt(i);
 }
 
-void DependencyNodeItem::setRectangle( const QRectF &rect )
+void DependencyNodeItem::setRectangle(const QRectF &rect)
 {
     //debugPlanDepEditor<<text()<<":"<<rect;
-    setRect( rect );
+    setRect(rect);
 
-    qreal connection = static_cast<DependencyScene*>( scene() )->connectorWidth();
-    m_start->setRect( rect.x() + connection, rect.y(), -connection, rect.height() );
-    m_finish->setRect( rect.right() - connection, rect.y(), connection, rect.height() );
+    qreal connection = static_cast<DependencyScene*>(scene())->connectorWidth();
+    m_start->setRect(rect.x() + connection, rect.y(), -connection, rect.height());
+    m_finish->setRect(rect.right() - connection, rect.y(), connection, rect.height());
 
-    m_text->setPos( m_finish->rect().right() + 2.0, itemScene()->gridY(  row() ) );
+    m_text->setPos(m_finish->rect().right() + 2.0, itemScene()->gridY(row()));
 
-    m_symbol->setPos( rect.topLeft() + QPointF( connection, 0 ) + QPointF( 2.0, 2.0 ) );
+    m_symbol->setPos(rect.topLeft() + QPointF(connection, 0) + QPointF(2.0, 2.0));
 }
 
-void DependencyNodeItem::moveToY( qreal y )
+void DependencyNodeItem::moveToY(qreal y)
 {
     QRectF r = rect();
-    r. moveTop( y );
-    setRectangle( r );
+    r. moveTop(y);
+    setRectangle(r);
     //debugPlanDepEditor<<text()<<" move to="<<y<<" new pos:"<<rect();
-    foreach ( DependencyLinkItem *i, m_parentrelations ) {
+    foreach (DependencyLinkItem *i, m_parentrelations) {
         i->createPath();
     }
-    foreach ( DependencyLinkItem *i, m_childrelations ) {
+    foreach (DependencyLinkItem *i, m_childrelations) {
         i->createPath();
     }
     DependencyNodeItem *par = this;
-    while ( par->parentItem() ) {
+    while (par->parentItem()) {
         par = par->parentItem();
     }
-    par->setTreeIndicator( true );
+    par->setTreeIndicator(true);
 }
 
-void DependencyNodeItem::setRow( int row )
+void DependencyNodeItem::setRow(int row)
 {
-    moveToY( itemScene()->itemY( row ) );
+    moveToY(itemScene()->itemY(row));
 }
 
 int DependencyNodeItem::row() const
 {
-    return itemScene()->row( rect().y() );
+    return itemScene()->row(rect().y());
 }
 
-void DependencyNodeItem::moveToX( qreal x )
+void DependencyNodeItem::moveToX(qreal x)
 {
     QRectF r = rect();
-    r. moveLeft( x );
-    setRectangle( r );
+    r. moveLeft(x);
+    setRectangle(r);
     //debugPlanDepEditor<<m_text->toPlainText()<<" to="<<x<<" new pos:"<<rect();
-    foreach ( DependencyLinkItem *i, m_parentrelations ) {
+    foreach (DependencyLinkItem *i, m_parentrelations) {
         i->createPath();
     }
-    foreach ( DependencyLinkItem *i, m_childrelations ) {
+    foreach (DependencyLinkItem *i, m_childrelations) {
         i->createPath();
     }
     DependencyNodeItem *par = this;
-    while ( par->parentItem() ) {
+    while (par->parentItem()) {
         par = par->parentItem();
     }
-    par->setTreeIndicator( true );
+    par->setTreeIndicator(true);
 }
 
 void DependencyNodeItem::setColumn()
 {
     int col = m_parent == 0 ? 0 : m_parent->column() + 1;
     //debugPlanDepEditor<<this<<text();
-    foreach ( DependencyLinkItem *i, m_parentrelations ) {
-        col = qMax( col, i->newChildColumn() );
+    foreach (DependencyLinkItem *i, m_parentrelations) {
+        col = qMax(col, i->newChildColumn());
     }
-    if ( col != column() ) {
-        setColumn( col );
-        foreach ( DependencyLinkItem *i, m_childrelations ) {
+    if (col != column()) {
+        setColumn(col);
+        foreach (DependencyLinkItem *i, m_childrelations) {
             i->succItem->setColumn();
         }
         //debugPlanDepEditor<<m_children.count()<<"Column="<<column()<<","<<text();
-        foreach ( DependencyNodeItem *i, m_children ) {
+        foreach (DependencyNodeItem *i, m_children) {
             i->setColumn();
         }
     }
 }
 
-void DependencyNodeItem::setColumn( int col )
+void DependencyNodeItem::setColumn(int col)
 {
-    moveToX( itemScene()->itemX( col ) );
+    moveToX(itemScene()->itemX(col));
 }
 
 int DependencyNodeItem::column() const
 {
-    return itemScene()->column( rect().x() );
+    return itemScene()->column(rect().x());
 }
 
-DependencyLinkItem *DependencyNodeItem::takeParentRelation( DependencyLinkItem *r )
+DependencyLinkItem *DependencyNodeItem::takeParentRelation(DependencyLinkItem *r)
 {
-    int i = m_parentrelations.indexOf( r );
-    if ( i == -1 ) {
+    int i = m_parentrelations.indexOf(r);
+    if (i == -1) {
         return 0;
     }
-    DependencyLinkItem *dep = m_parentrelations.takeAt( i );
+    DependencyLinkItem *dep = m_parentrelations.takeAt(i);
     setColumn();
     return dep;
 }
 
-DependencyLinkItem *DependencyNodeItem::takeChildRelation( DependencyLinkItem *r )
+DependencyLinkItem *DependencyNodeItem::takeChildRelation(DependencyLinkItem *r)
 {
-    int i = m_childrelations.indexOf( r );
-    if ( i == -1 ) {
+    int i = m_childrelations.indexOf(r);
+    if (i == -1) {
         return 0;
     }
-    return m_childrelations.takeAt( i );
+    return m_childrelations.takeAt(i);
 }
 
 void DependencyNodeItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     debugPlanDepEditor;
     QGraphicsItem::GraphicsItemFlags f = flags();
-    if ( itemScene()->connectionMode() ) {
+    if (itemScene()->connectionMode()) {
         itemScene()->clearConnection();
-        setFlags( f & ~QGraphicsItem::ItemIsSelectable );
+        setFlags(f & ~QGraphicsItem::ItemIsSelectable);
     }
-    QGraphicsRectItem::mousePressEvent( event );
-    if ( f != flags() ) {
-        setFlags( f );
+    QGraphicsRectItem::mousePressEvent(event);
+    if (f != flags()) {
+        setFlags(f);
     }
 }
 
-void DependencyNodeItem::paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget * )
+void DependencyNodeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *)
 {
     //debugPlanDepEditor;
-    QLinearGradient g( 0.0, rect().top(), 0.0, rect().bottom() );
-    g.setColorAt( 0.0, option->palette.color( QPalette::Midlight ) );
-    g.setColorAt( 1.0, option->palette.color( QPalette::Dark ) );
-    QBrush b( g );
-    painter->setBrush( b );
-    painter->setPen( QPen( Qt::NoPen ) );
-    painter->drawRect( rect() );
+    QLinearGradient g(0.0, rect().top(), 0.0, rect().bottom());
+    g.setColorAt(0.0, option->palette.color(QPalette::Midlight));
+    g.setColorAt(1.0, option->palette.color(QPalette::Dark));
+    QBrush b(g);
+    painter->setBrush(b);
+    painter->setPen(QPen(Qt::NoPen));
+    painter->drawRect(rect());
 
-    QStyleOptionGraphicsItem opt( *option );
-    opt.exposedRect = rect().adjusted( -m_start->rect().width(), 0.0, -m_finish->rect().width(), 0.0 );
-    if ( this == itemScene()->focusItem() ) {
+    QStyleOptionGraphicsItem opt(*option);
+    opt.exposedRect = rect().adjusted(-m_start->rect().width(), 0.0, -m_finish->rect().width(), 0.0);
+    if (this == itemScene()->focusItem()) {
         opt.state |= QStyle::State_HasFocus;
     }
-    plan_paintFocusSelectedItem( painter, &opt );
+    plan_paintFocusSelectedItem(painter, &opt);
 
     // paint the symbol
-    m_symbol->paint( itemScene()->project(), painter, &opt );
+    m_symbol->paint(itemScene()->project(), painter, &opt);
 }
 
-DependencyConnectorItem *DependencyNodeItem::connectorItem( ConnectorType ctype ) const
+DependencyConnectorItem *DependencyNodeItem::connectorItem(ConnectorType ctype) const
 {
-    switch ( ctype ) {
+    switch (ctype) {
         case Start: return m_start;
         case Finish: return m_finish;
         default: break;
@@ -886,28 +886,28 @@ DependencyConnectorItem *DependencyNodeItem::connectorItem( ConnectorType ctype 
     return 0;
 }
 
-QList<DependencyLinkItem*> DependencyNodeItem::predecessorItems( ConnectorType ctype ) const
+QList<DependencyLinkItem*> DependencyNodeItem::predecessorItems(ConnectorType ctype) const
 {
     QList<DependencyLinkItem*> lst;
-    foreach ( DependencyLinkItem *i, m_parentrelations ) {
-        if ( ctype == Start && ( i->relation->type() == Relation::StartStart || i->relation->type() == Relation::FinishStart ) ) {
+    foreach (DependencyLinkItem *i, m_parentrelations) {
+        if (ctype == Start && (i->relation->type() == Relation::StartStart || i->relation->type() == Relation::FinishStart)) {
             lst << i;
         }
-        if ( ctype == Finish && i->relation->type() == Relation::FinishFinish ) {
+        if (ctype == Finish && i->relation->type() == Relation::FinishFinish) {
             lst << i;
         }
     }
     return lst;
 }
 
-QList<DependencyLinkItem*> DependencyNodeItem::successorItems( ConnectorType ctype ) const
+QList<DependencyLinkItem*> DependencyNodeItem::successorItems(ConnectorType ctype) const
 {
     QList<DependencyLinkItem*> lst;
-    foreach ( DependencyLinkItem *i, m_childrelations ) {
-        if ( ctype == Start && i->relation->type() == Relation::StartStart ) {
+    foreach (DependencyLinkItem *i, m_childrelations) {
+        if (ctype == Start && i->relation->type() == Relation::StartStart) {
             lst << i;
         }
-        if ( ctype == Finish && ( i->relation->type() == Relation::FinishFinish || i->relation->type() == Relation::FinishStart ) ) {
+        if (ctype == Finish && (i->relation->type() == Relation::FinishFinish || i->relation->type() == Relation::FinishStart)) {
             lst << i;
         }
     }
@@ -919,129 +919,129 @@ qreal DependencyNodeItem::treeIndicatorX() const
     return rect().x() + 18.0;
 }
 
-void DependencyNodeItem::setTreeIndicator( bool on )
+void DependencyNodeItem::setTreeIndicator(bool on)
 {
-    paintTreeIndicator( on );
-    foreach ( DependencyNodeItem *i, m_children ) {
-        if ( i->isVisible() ) {
-            i->setTreeIndicator( on );
+    paintTreeIndicator(on);
+    foreach (DependencyNodeItem *i, m_children) {
+        if (i->isVisible()) {
+            i->setTreeIndicator(on);
         }
     }
 }
 
-void DependencyNodeItem::paintTreeIndicator( bool on )
+void DependencyNodeItem::paintTreeIndicator(bool on)
 {
-    if ( ! on ) {
+    if (! on) {
         m_treeIndicator->hide();
         return;
     }
     QPainterPath p;
-    qreal y1 = itemScene()->gridY( row() );
-    qreal y2 = itemScene()->gridY( row() + 1 );
-    for ( DependencyNodeItem *par = m_parent; par; par = par->parentItem() ) {
+    qreal y1 = itemScene()->gridY(row());
+    qreal y2 = itemScene()->gridY(row() + 1);
+    for (DependencyNodeItem *par = m_parent; par; par = par->parentItem()) {
         qreal x = par->treeIndicatorX();
-        p.moveTo( x, y1 );
-        if ( par == m_parent ) {
-            p.lineTo( x, (y1 + y2) / 2.0 );
-            p.lineTo( x + 6, (y1 + y2) / 2.0 );
-            if ( m_node->siblingAfter() ) {
-                p.moveTo( x, (y1 + y2) / 2.0 );
-                p.lineTo( x, y2 );
+        p.moveTo(x, y1);
+        if (par == m_parent) {
+            p.lineTo(x, (y1 + y2) / 2.0);
+            p.lineTo(x + 6, (y1 + y2) / 2.0);
+            if (m_node->siblingAfter()) {
+                p.moveTo(x, (y1 + y2) / 2.0);
+                p.lineTo(x, y2);
             }
         } else {
             const QList<DependencyNodeItem*> &children = par->children();
-            if ( children.last()->rect().y() > rect().y() ) {
-                p.lineTo( x, (y1 + y2) / 2.0 );
-                p.lineTo( x, y2 );
+            if (children.last()->rect().y() > rect().y()) {
+                p.lineTo(x, (y1 + y2) / 2.0);
+                p.lineTo(x, y2);
             }
         }
     }
-    if ( ! m_children.isEmpty() ) {
+    if (! m_children.isEmpty()) {
         qreal x = treeIndicatorX();
         qreal y = rect().bottom();
-        p.moveTo( x, y );
-        p.lineTo( x, itemScene()->gridY( row() + 1 ) );
+        p.moveTo(x, y);
+        p.lineTo(x, itemScene()->gridY(row() + 1));
     }
-    if ( p.isEmpty() ) {
+    if (p.isEmpty()) {
         m_treeIndicator->hide();
     } else {
-        m_treeIndicator->setPath( p );
+        m_treeIndicator->setPath(p);
         m_treeIndicator->show();
     }
     //debugPlanDepEditor<<text()<<rect()<<p;
 }
 
 //--------------------
-void DependencyNodeSymbolItem::setSymbol( int type, const QRectF &rect )
+void DependencyNodeSymbolItem::setSymbol(int type, const QRectF &rect)
 {
     m_nodetype = type;
     m_itemtype = KGantt::TypeNone;
     QPainterPath p;
-    switch ( type ) {
+    switch (type) {
         case Node::Type_Summarytask:
             m_itemtype = KGantt::TypeSummary;
-            p.moveTo( rect.topLeft() );
-            p.lineTo( rect.topRight() );
-            p.lineTo( rect.left() + rect.width() / 2.0, rect.bottom() );
+            p.moveTo(rect.topLeft());
+            p.lineTo(rect.topRight());
+            p.lineTo(rect.left() + rect.width() / 2.0, rect.bottom());
             p.closeSubpath();
             break;
         case Node::Type_Task:
             m_itemtype = KGantt::TypeTask;
-            p.moveTo( rect.topLeft() );
-            p.lineTo( rect.topRight() );
-            p.lineTo( rect.bottomRight() );
-            p.lineTo( rect.bottomLeft() );
+            p.moveTo(rect.topLeft());
+            p.lineTo(rect.topRight());
+            p.lineTo(rect.bottomRight());
+            p.lineTo(rect.bottomLeft());
             p.closeSubpath();
             break;
         case Node::Type_Milestone:
             m_itemtype = KGantt::TypeEvent;
-            p.moveTo( rect.left() + ( rect.width() / 2.0 ), rect.top() );
-            p.lineTo( rect.right(), rect.top() + ( rect.height() / 2.0 ) );
-            p.lineTo( rect.left() + ( rect.width() / 2.0 ), rect.bottom() );
-            p.lineTo( rect.left(), rect.top() + ( rect.height() / 2.0 ) );
+            p.moveTo(rect.left() + (rect.width() / 2.0), rect.top());
+            p.lineTo(rect.right(), rect.top() + (rect.height() / 2.0));
+            p.lineTo(rect.left() + (rect.width() / 2.0), rect.bottom());
+            p.lineTo(rect.left(), rect.top() + (rect.height() / 2.0));
             p.closeSubpath();
             break;
         default:
             break;
     }
-    setPath( p );
+    setPath(p);
 }
 
-void DependencyNodeSymbolItem::paint( Project *p, QPainter *painter, const QStyleOptionGraphicsItem *option )
+void DependencyNodeSymbolItem::paint(Project *p, QPainter *painter, const QStyleOptionGraphicsItem *option)
 {
-    if ( p ) {
-        switch ( m_nodetype ) {
+    if (p) {
+        switch (m_nodetype) {
             case Node::Type_Summarytask:
-                painter->setBrush( p->config().summaryTaskDefaultColor() );
+                painter->setBrush(p->config().summaryTaskDefaultColor());
                 break;
             case Node::Type_Task:
-                painter->setBrush( p->config().taskNormalColor() );
+                painter->setBrush(p->config().taskNormalColor());
                 break;
             case Node::Type_Milestone:
-                painter->setBrush( p->config().milestoneNormalColor() );
+                painter->setBrush(p->config().milestoneNormalColor());
                 break;
             default:
-                painter->setBrush( m_delegate.defaultBrush( m_itemtype ) );
+                painter->setBrush(m_delegate.defaultBrush(m_itemtype));
                 break;
         }
     } else {
-        painter->setBrush( m_delegate.defaultBrush( m_itemtype ) );
+        painter->setBrush(m_delegate.defaultBrush(m_itemtype));
     }
-    painter->setPen( Qt::NoPen );
-    painter->translate( option->exposedRect.x() + 2.0, option->exposedRect.y() + 2.0 );
-    painter->drawPath( path() );
+    painter->setPen(Qt::NoPen);
+    painter->translate(option->exposedRect.x() + 2.0, option->exposedRect.y() + 2.0);
+    painter->drawPath(path());
 
 }
 
 //--------------------
-DependencyScene::DependencyScene( QWidget *parent )
-    : QGraphicsScene( parent ),
-    m_model( 0 ),
-    m_readwrite( false )
+DependencyScene::DependencyScene(QWidget *parent)
+    : QGraphicsScene(parent),
+    m_model(0),
+    m_readwrite(false)
 {
-    setSceneRect( QRectF() );
+    setSceneRect(QRectF());
     m_connectionitem = new DependencyCreatorItem();
-    addItem( m_connectionitem );
+    addItem(m_connectionitem);
     //debugPlanDepEditor;
     m_connectionitem->hide();
 }
@@ -1052,104 +1052,104 @@ DependencyScene::~DependencyScene()
     clearScene();
 }
 
-void DependencyScene::setFromItem( DependencyConnectorItem *item )
+void DependencyScene::setFromItem(DependencyConnectorItem *item)
 {
     DependencyConnectorItem *old = fromItem();
     m_connectionitem->clear();
-    if ( old && old->parentItem() ) {
+    if (old && old->parentItem()) {
         old->parentItem()->update();
     }
-    if ( item ) {
-        foreach ( QGraphicsItem *i, items() ) {
-            if ( i != m_connectionitem && i->type() != DependencyConnectorItem::Type ) {
-                i->setAcceptHoverEvents( false );
-                if ( i->type() == DependencyLinkItem::Type ) {
-                    static_cast<DependencyLinkItem*>( i )->resetHooverIndication();
+    if (item) {
+        foreach (QGraphicsItem *i, items()) {
+            if (i != m_connectionitem && i->type() != DependencyConnectorItem::Type) {
+                i->setAcceptHoverEvents(false);
+                if (i->type() == DependencyLinkItem::Type) {
+                    static_cast<DependencyLinkItem*>(i)->resetHooverIndication();
                 }
             }
         }
-        item->setCursor( ConnectCursor );
-        m_connectionitem->setPredConnector( item );
+        item->setCursor(ConnectCursor);
+        m_connectionitem->setPredConnector(item);
         m_connectionitem->show();
     } else {
-        foreach ( QGraphicsItem *i, items() ) {
-            if ( i != m_connectionitem && i->type() != DependencyConnectorItem::Type )
-                i->setAcceptHoverEvents( true );
+        foreach (QGraphicsItem *i, items()) {
+            if (i != m_connectionitem && i->type() != DependencyConnectorItem::Type)
+                i->setAcceptHoverEvents(true);
         }
     }
-    if ( item && item->parentItem() ) {
+    if (item && item->parentItem()) {
         item->parentItem()->update();
     }
 }
 
-bool DependencyScene::connectionIsValid( DependencyConnectorItem *pred, DependencyConnectorItem *succ )
+bool DependencyScene::connectionIsValid(DependencyConnectorItem *pred, DependencyConnectorItem *succ)
 {
-    if ( pred->ctype() == DependencyNodeItem::Start && succ->ctype() == DependencyNodeItem::Finish ) {
+    if (pred->ctype() == DependencyNodeItem::Start && succ->ctype() == DependencyNodeItem::Finish) {
         return false;
     }
-    Node *par = static_cast<DependencyNodeItem*>( pred->parentItem() )->node();
-    Node *ch = static_cast<DependencyNodeItem*>( succ->parentItem() )->node();
-    return m_project->linkExists( par, ch ) || m_project->legalToLink( par, ch );
+    Node *par = static_cast<DependencyNodeItem*>(pred->parentItem())->node();
+    Node *ch = static_cast<DependencyNodeItem*>(succ->parentItem())->node();
+    return m_project->linkExists(par, ch) || m_project->legalToLink(par, ch);
 }
 
-void DependencyScene::connectorEntered( DependencyConnectorItem *item, bool entered )
+void DependencyScene::connectorEntered(DependencyConnectorItem *item, bool entered)
 {
     //debugPlanDepEditor<<entered;
-    item->setCursor( ConnectCursor );
-    if ( ! entered ) {
+    item->setCursor(ConnectCursor);
+    if (! entered) {
         // when we leave a connector we don't have a successor
-        m_connectionitem->setSuccConnector( 0 );
+        m_connectionitem->setSuccConnector(0);
         return;
     }
-    if ( m_connectionitem->predConnector == item ) {
+    if (m_connectionitem->predConnector == item) {
         // when inside the predecessor, clicking is allowed (deselects connector)
-        item->setCursor( ConnectCursor );
+        item->setCursor(ConnectCursor);
         return;
     }
-    if ( ! m_connectionitem->isVisible() ) {
+    if (! m_connectionitem->isVisible()) {
         // we are not in connection mode
         return;
     }
-    if ( m_connectionitem->predConnector == 0 ) {
+    if (m_connectionitem->predConnector == 0) {
         // nothing we can do if we don't have a predecessor (shouldn't happen)
         return;
     }
-    if ( item->parentItem() == m_connectionitem->predConnector->parentItem() ) {
+    if (item->parentItem() == m_connectionitem->predConnector->parentItem()) {
         // not allowed to connect to the same node
-        item->setCursor( Qt::ForbiddenCursor );
+        item->setCursor(Qt::ForbiddenCursor);
         return;
     }
-    if ( ! ( connectionIsValid( m_connectionitem->predConnector, item ) ) ) {
+    if (! (connectionIsValid(m_connectionitem->predConnector, item))) {
         // invalid connection (circular dependency, connecting to parent node, etc)
-        item->setCursor( Qt::ForbiddenCursor );
+        item->setCursor(Qt::ForbiddenCursor);
         return;
     }
-    m_connectionitem->setSuccConnector( item );
+    m_connectionitem->setSuccConnector(item);
     m_connectionitem->createPath();
 }
 
-void DependencyScene::drawBackground ( QPainter *painter, const QRectF &rect )
+void DependencyScene::drawBackground (QPainter *painter, const QRectF &rect)
 {
-    QGraphicsScene::drawBackground( painter, rect );
+    QGraphicsScene::drawBackground(painter, rect);
     QStyleOptionViewItem opt;
-    QBrush br( opt.palette.brush( QPalette::AlternateBase ) );
-    int first = row( rect.y() );
-    int last = row( rect.bottom() );
-    for ( int r = first; r <= last; ++r ) {
-        if ( r % 2 == 1 ) {
-            qreal oy = gridY( r );
-            QRectF rct( rect.x(), oy, rect.width(), gridHeight() );
-            painter->fillRect( rct, br );
+    QBrush br(opt.palette.brush(QPalette::AlternateBase));
+    int first = row(rect.y());
+    int last = row(rect.bottom());
+    for (int r = first; r <= last; ++r) {
+        if (r % 2 == 1) {
+            qreal oy = gridY(r);
+            QRectF rct(rect.x(), oy, rect.width(), gridHeight());
+            painter->fillRect(rct, br);
             //debugPlanDepEditor<<r<<": oy="<<oy<<""<<rct;
         }
     }
 }
 
-QList<QGraphicsItem*> DependencyScene::itemList( int type ) const
+QList<QGraphicsItem*> DependencyScene::itemList(int type) const
 {
     QList<QGraphicsItem*> lst;
-    foreach ( QGraphicsItem *i, items() ) {
-        if ( i->type() == type ) {
+    foreach (QGraphicsItem *i, items()) {
+        if (i->type() == type) {
             lst << i;
         }
     }
@@ -1160,56 +1160,56 @@ void DependencyScene::clearScene()
 {
     m_connectionitem->clear();
     QList<QGraphicsItem*> its, deps;
-    foreach ( QGraphicsItem *i, items() ) {
-        if ( i->type() == DependencyNodeItem::Type && i->parentItem() == 0 ) {
+    foreach (QGraphicsItem *i, items()) {
+        if (i->type() == DependencyNodeItem::Type && i->parentItem() == 0) {
             its << i;
-        } else if ( i->type() == DependencyLinkItem::Type ) {
+        } else if (i->type() == DependencyLinkItem::Type) {
             deps << i;
         }
     }
-    qDeleteAll( deps );
-    qDeleteAll( its );
-    removeItem( m_connectionitem );
-    qDeleteAll( items() );
-    setSceneRect( QRectF() );
-    addItem( m_connectionitem );
+    qDeleteAll(deps);
+    qDeleteAll(its);
+    removeItem(m_connectionitem);
+    qDeleteAll(items());
+    setSceneRect(QRectF());
+    addItem(m_connectionitem);
     //debugPlanDepEditor;
 }
 
-QList<DependencyNodeItem*> DependencyScene::removeChildItems( DependencyNodeItem *item )
+QList<DependencyNodeItem*> DependencyScene::removeChildItems(DependencyNodeItem *item)
 {
     QList<DependencyNodeItem*> lst;
-    foreach ( DependencyNodeItem *i, item->children() ) {
-        m_allItems.removeAt( m_allItems.indexOf( i ) );
+    foreach (DependencyNodeItem *i, item->children()) {
+        m_allItems.removeAt(m_allItems.indexOf(i));
         lst << i;
-        lst += removeChildItems( i );
+        lst += removeChildItems(i);
     }
     return lst;
 }
 
-void DependencyScene::moveItem( DependencyNodeItem *item, const QList<Node*> &lst )
+void DependencyScene::moveItem(DependencyNodeItem *item, const QList<Node*> &lst)
 {
     //debugPlanDepEditor<<item->text();
-    int idx = m_allItems.indexOf( item );
-    int ndx = lst.indexOf( item->node() );
-    Q_ASSERT( idx != -1 && ndx != -1 );
+    int idx = m_allItems.indexOf(item);
+    int ndx = lst.indexOf(item->node());
+    Q_ASSERT(idx != -1 && ndx != -1);
     Node *oldParent = item->parentItem() == 0 ? 0 : item->parentItem()->node();
     Node *newParent = item->node()->parentNode();
-    if ( newParent == m_project ) {
+    if (newParent == m_project) {
         newParent = 0;
     } else debugPlanDepEditor<<newParent->name()<<newParent->level();
-    if ( idx != ndx || oldParent != newParent ) {
+    if (idx != ndx || oldParent != newParent) {
         // If I have children, these must be moved too.
-        QList<DependencyNodeItem*> items = removeChildItems( item );
+        QList<DependencyNodeItem*> items = removeChildItems(item);
 
-        m_allItems.removeAt( idx );
-        m_allItems.insert( ndx, item );
-        item->setParentItem( m_allItems.value( lst.indexOf( newParent ) ) );
+        m_allItems.removeAt(idx);
+        m_allItems.insert(ndx, item);
+        item->setParentItem(m_allItems.value(lst.indexOf(newParent)));
         item->setColumn();
         //debugPlanDepEditor<<item->text()<<":"<<idx<<"->"<<ndx<<", "<<item->column()<<r;
-        if ( ! items.isEmpty() ) {
-            foreach ( DependencyNodeItem *i, items ) {
-                m_allItems.insert( ++ndx, i );
+        if (! items.isEmpty()) {
+            foreach (DependencyNodeItem *i, items) {
+                m_allItems.insert(++ndx, i);
                 i->setColumn();
                 //debugPlanDepEditor<<i->text()<<": ->"<<ndx<<", "<<i->column()<<r;
             }
@@ -1217,109 +1217,109 @@ void DependencyScene::moveItem( DependencyNodeItem *item, const QList<Node*> &ls
     }
 }
 
-void DependencyScene::setItemVisible( DependencyNodeItem *item, bool show )
+void DependencyScene::setItemVisible(DependencyNodeItem *item, bool show)
 {
     //debugPlanDepEditor<<"Visible count="<<m_visibleItems.count()<<" total="<<m_allItems.count();
-    item->setItemVisible( show );
-    int row = m_allItems.indexOf( item );
-    if ( row == -1 ) {
+    item->setItemVisible(show);
+    int row = m_allItems.indexOf(item);
+    if (row == -1) {
         debugPlanDepEditor<<"Unknown item!!";
         return;
     }
     if (show && CONTAINS(m_hiddenItems, item)) {
-        moveItem( item, m_project->flatNodeList() ); // might have been moved
+        moveItem(item, m_project->flatNodeList()); // might have been moved
     }
     m_hiddenItems.clear();
     m_visibleItems.clear();
     int viewrow = 0;
-    for ( int i = 0; i < m_allItems.count(); ++i ) {
+    for (int i = 0; i < m_allItems.count(); ++i) {
         DependencyNodeItem *itm = m_allItems[ i ];
-        if ( itm->isVisible() ) {
-            m_visibleItems.insert( i, itm );
+        if (itm->isVisible()) {
+            m_visibleItems.insert(i, itm);
             //debugPlanDepEditor<<itm->text()<<":"<<i<<viewrow;
-            itm->setRow( viewrow );
+            itm->setRow(viewrow);
             ++viewrow;
         } else {
-            m_hiddenItems.insert( i, itm );
+            m_hiddenItems.insert(i, itm);
         }
     }
 }
 
-DependencyNodeItem *DependencyScene::findPrevItem( Node *node )  const
+DependencyNodeItem *DependencyScene::findPrevItem(Node *node)  const
 {
-    if ( node->numChildren() == 0 ) {
-        return findItem( node );
+    if (node->numChildren() == 0) {
+        return findItem(node);
     }
-    return findPrevItem( node->childNodeIterator().last() );
+    return findPrevItem(node->childNodeIterator().last());
 }
 
-DependencyNodeItem *DependencyScene::itemBefore( DependencyNodeItem *parent, Node *node )  const
+DependencyNodeItem *DependencyScene::itemBefore(DependencyNodeItem *parent, Node *node)  const
 {
     Node *sib = node->siblingBefore();
     DependencyNodeItem *bef = parent;
-    if ( sib ) {
-        bef = findPrevItem( sib );
+    if (sib) {
+        bef = findPrevItem(sib);
     }
     return bef;
 }
 
-DependencyNodeItem *DependencyScene::createItem( Node *node )
+DependencyNodeItem *DependencyScene::createItem(Node *node)
 {
-    DependencyNodeItem *parent = findItem( node->parentNode() );
-    DependencyNodeItem *after = itemBefore( parent, node );
+    DependencyNodeItem *parent = findItem(node->parentNode());
+    DependencyNodeItem *after = itemBefore(parent, node);
     int i = m_allItems.count()-1;
-    if ( after ) {
-        i = m_allItems.indexOf( after );
+    if (after) {
+        i = m_allItems.indexOf(after);
         //debugPlanDepEditor<<"after="<<after->node()->name()<<" pos="<<i;
     }
-    DependencyNodeItem *item = new DependencyNodeItem( node, parent );
-    if ( item->scene() != this ) {
-        addItem( item );
+    DependencyNodeItem *item = new DependencyNodeItem(node, parent);
+    if (item->scene() != this) {
+        addItem(item);
     }
-    item->setEditable( m_readwrite );
-    item->startConnector()->setEditable( m_readwrite );
-    item->finishConnector()->setEditable( m_readwrite );
+    item->setEditable(m_readwrite);
+    item->startConnector()->setEditable(m_readwrite);
+    item->finishConnector()->setEditable(m_readwrite);
     //debugPlanDepEditor<<item->text()<<item;
     int col = 0;
-    if ( parent ) {
+    if (parent) {
         col += parent->column() + 1;
     }
-    item->setRectangle( QRectF( itemX( col ), itemY(), itemWidth(), itemHeight() ) );
-    m_allItems.insert( i+1, item );
-    setItemVisible( item, true );
+    item->setRectangle(QRectF(itemX(col), itemY(), itemWidth(), itemHeight()));
+    m_allItems.insert(i+1, item);
+    setItemVisible(item, true);
     return item;
 }
 
-DependencyLinkItem *DependencyScene::findItem( const Relation* rel ) const
+DependencyLinkItem *DependencyScene::findItem(const Relation* rel) const
 {
-    foreach ( QGraphicsItem *i, itemList( DependencyLinkItem::Type ) ) {
-        if ( static_cast<DependencyLinkItem*>( i )->relation == rel ) {
-            return static_cast<DependencyLinkItem*>( i );
+    foreach (QGraphicsItem *i, itemList(DependencyLinkItem::Type)) {
+        if (static_cast<DependencyLinkItem*>(i)->relation == rel) {
+            return static_cast<DependencyLinkItem*>(i);
         }
     }
     return 0;
 }
 
-DependencyLinkItem *DependencyScene::findItem( const DependencyConnectorItem *c1, const DependencyConnectorItem *c2, bool exact ) const
+DependencyLinkItem *DependencyScene::findItem(const DependencyConnectorItem *c1, const DependencyConnectorItem *c2, bool exact) const
 {
     DependencyNodeItem *n1 = c1->nodeItem();
     DependencyNodeItem *n2 = c2->nodeItem();
-    foreach ( QGraphicsItem *i, itemList( DependencyLinkItem::Type ) ) {
-        DependencyLinkItem *link = static_cast<DependencyLinkItem*>( i );
-        if ( link->predItem == n1 && link->succItem == n2 ) {
-            switch ( link->relation->type() ) {
+    foreach (QGraphicsItem *i, itemList(DependencyLinkItem::Type)) {
+        DependencyLinkItem *link = static_cast<DependencyLinkItem*>(i);
+        if (link->predItem == n1 && link->succItem == n2) {
+            switch (link->relation->type()) {
                 case Relation::StartStart:
-                    if ( c1->ctype() == DependencyNodeItem::Start && c2->ctype() == DependencyNodeItem::Start ) {
+                    if (c1->ctype() == DependencyNodeItem::Start && c2->ctype() == DependencyNodeItem::Start) {
                         return link;
                     }
                     break;
                 case Relation::FinishStart:
-                    if ( c1->ctype() == DependencyNodeItem::Finish && c2->ctype() == DependencyNodeItem::Start ) {
+                    if (c1->ctype() == DependencyNodeItem::Finish && c2->ctype() == DependencyNodeItem::Start) {
                         return link;
                     }
                     break;
                 case Relation::FinishFinish:
-                    if ( c1->ctype() == DependencyNodeItem::Finish && c2->ctype() == DependencyNodeItem::Finish ) {
+                    if (c1->ctype() == DependencyNodeItem::Finish && c2->ctype() == DependencyNodeItem::Finish) {
                         return link;
                     }
                     break;
@@ -1328,23 +1328,23 @@ DependencyLinkItem *DependencyScene::findItem( const DependencyConnectorItem *c1
             }
             return 0;
         }
-        if ( link->predItem == n2 && link->succItem == n1 ) {
-            if ( exact ) {
+        if (link->predItem == n2 && link->succItem == n1) {
+            if (exact) {
                 return 0;
             }
-            switch ( link->relation->type() ) {
+            switch (link->relation->type()) {
                 case Relation::StartStart:
-                    if ( c2->ctype() == DependencyNodeItem::Start && c1->ctype() == DependencyNodeItem::Start ) {
+                    if (c2->ctype() == DependencyNodeItem::Start && c1->ctype() == DependencyNodeItem::Start) {
                         return link;
                     }
                     break;
                 case Relation::FinishStart:
-                    if ( c2->ctype() == DependencyNodeItem::Finish && c1->ctype() == DependencyNodeItem::Start ) {
+                    if (c2->ctype() == DependencyNodeItem::Finish && c1->ctype() == DependencyNodeItem::Start) {
                         return link;
                     }
                     break;
                 case Relation::FinishFinish:
-                    if ( c2->ctype() == DependencyNodeItem::Finish && c1->ctype() == DependencyNodeItem::Finish ) {
+                    if (c2->ctype() == DependencyNodeItem::Finish && c1->ctype() == DependencyNodeItem::Finish) {
                         return link;
                     }
                     break;
@@ -1357,11 +1357,11 @@ DependencyLinkItem *DependencyScene::findItem( const DependencyConnectorItem *c1
     return 0;
 }
 
-DependencyNodeItem *DependencyScene::findItem( const Node *node ) const
+DependencyNodeItem *DependencyScene::findItem(const Node *node) const
 {
-    foreach ( QGraphicsItem *i, itemList( DependencyNodeItem::Type ) ) {
-        if ( static_cast<DependencyNodeItem*>( i )->node() == node ) {
-            return static_cast<DependencyNodeItem*>( i );
+    foreach (QGraphicsItem *i, itemList(DependencyNodeItem::Type)) {
+        if (static_cast<DependencyNodeItem*>(i)->node() == node) {
+            return static_cast<DependencyNodeItem*>(i);
         }
     }
     return 0;
@@ -1369,142 +1369,142 @@ DependencyNodeItem *DependencyScene::findItem( const Node *node ) const
 
 void DependencyScene::createLinks()
 {
-    foreach ( DependencyNodeItem *i, m_allItems ) {
-        createLinks( i );
+    foreach (DependencyNodeItem *i, m_allItems) {
+        createLinks(i);
     }
 }
-void DependencyScene::createLinks( DependencyNodeItem *item )
+void DependencyScene::createLinks(DependencyNodeItem *item)
 {
-    foreach ( Relation *rel, item->node()->dependChildNodes() ) {
-        createLink( item, rel );
+    foreach (Relation *rel, item->node()->dependChildNodes()) {
+        createLink(item, rel);
     }
 }
-void DependencyScene::createLink( DependencyNodeItem *parent, Relation *rel )
+void DependencyScene::createLink(DependencyNodeItem *parent, Relation *rel)
 {
-    DependencyNodeItem *child = findItem( rel->child() );
-    if ( parent == 0 || child == 0 ) {
+    DependencyNodeItem *child = findItem(rel->child());
+    if (parent == 0 || child == 0) {
         return;
     }
-    DependencyLinkItem *dep = new DependencyLinkItem( parent, child, rel );
-    dep->setEditable( m_readwrite );
-    addItem( dep );
+    DependencyLinkItem *dep = new DependencyLinkItem(parent, child, rel);
+    dep->setEditable(m_readwrite);
+    addItem(dep);
     //debugPlanDepEditor;
     dep->createPath();
 }
 
-void DependencyScene::mouseMoveEvent( QGraphicsSceneMouseEvent *mouseEvent )
+void DependencyScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
-    if ( m_connectionitem->isVisible() ) {
-        int x = qMin( qMax( sceneRect().left() + 2, mouseEvent->scenePos().x() ), sceneRect().right() - 4 );
-        int y = qMin( qMax( sceneRect().top() + 2, mouseEvent->scenePos().y() ), sceneRect().bottom() - 4 );
-        m_connectionitem->createPath( QPoint( x, y ) );
+    if (m_connectionitem->isVisible()) {
+        int x = qMin(qMax(sceneRect().left() + 2, mouseEvent->scenePos().x()), sceneRect().right() - 4);
+        int y = qMin(qMax(sceneRect().top() + 2, mouseEvent->scenePos().y()), sceneRect().bottom() - 4);
+        m_connectionitem->createPath(QPoint(x, y));
     }
-    QGraphicsScene::mouseMoveEvent( mouseEvent );
+    QGraphicsScene::mouseMoveEvent(mouseEvent);
     //debugPlanDepEditor<<mouseEvent->scenePos()<<","<<mouseEvent->isAccepted();
 
 }
 
-void DependencyScene::keyPressEvent( QKeyEvent *keyEvent )
+void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
 {
     //debugPlanDepEditor<<focusItem();
-    if ( m_visibleItems.isEmpty() ) {
-        return QGraphicsScene::keyPressEvent( keyEvent );
+    if (m_visibleItems.isEmpty()) {
+        return QGraphicsScene::keyPressEvent(keyEvent);
     }
     QGraphicsItem *fitem = focusItem();
-    if ( fitem == 0 ) {
-        setFocusItem( m_visibleItems.first() );
-        if ( focusItem() ) {
+    if (fitem == 0) {
+        setFocusItem(m_visibleItems.first());
+        if (focusItem()) {
             focusItem()->update();
         }
-        emit focusItemChanged( focusItem() );
+        emit focusItemChanged(focusItem());
         return;
     }
-    switch ( keyEvent->key() ) {
+    switch (keyEvent->key()) {
         case Qt::Key_Left: {
-            if ( fitem->type() == DependencyNodeItem::Type ) {
-                DependencyConnectorItem *item = static_cast<DependencyNodeItem*>( fitem )->startConnector();
-                if ( item ) {
-                    setFocusItem( item );
+            if (fitem->type() == DependencyNodeItem::Type) {
+                DependencyConnectorItem *item = static_cast<DependencyNodeItem*>(fitem)->startConnector();
+                if (item) {
+                    setFocusItem(item);
                 }
-            } else if ( fitem->type() == DependencyConnectorItem::Type ) {
-                DependencyConnectorItem *citem = static_cast<DependencyConnectorItem*>( fitem );
-                if ( citem->ctype() == DependencyNodeItem::Start ) {
+            } else if (fitem->type() == DependencyConnectorItem::Type) {
+                DependencyConnectorItem *citem = static_cast<DependencyConnectorItem*>(fitem);
+                if (citem->ctype() == DependencyNodeItem::Start) {
                     //Goto prev nodes finishConnector
-                    DependencyNodeItem *nitem = static_cast<DependencyNodeItem*>( citem->parentItem() );
-                    DependencyNodeItem *item = nodeItem( nitem->row() - 1 );
-                    if ( item ) {
-                        setFocusItem( item->finishConnector() );
+                    DependencyNodeItem *nitem = static_cast<DependencyNodeItem*>(citem->parentItem());
+                    DependencyNodeItem *item = nodeItem(nitem->row() - 1);
+                    if (item) {
+                        setFocusItem(item->finishConnector());
                     }
                 } else {
                     // Goto node item (parent)
-                    setFocusItem( citem->parentItem() );
+                    setFocusItem(citem->parentItem());
                 }
             }
             break;
         }
         case Qt::Key_Right: {
-            if ( fitem->type() == DependencyNodeItem::Type ) {
-                DependencyConnectorItem *item = static_cast<DependencyNodeItem*>( fitem )->finishConnector();
-                if ( item ) {
-                    setFocusItem( item );
+            if (fitem->type() == DependencyNodeItem::Type) {
+                DependencyConnectorItem *item = static_cast<DependencyNodeItem*>(fitem)->finishConnector();
+                if (item) {
+                    setFocusItem(item);
                 }
-            } else if ( fitem->type() == DependencyConnectorItem::Type ) {
-                DependencyConnectorItem *citem = static_cast<DependencyConnectorItem*>( fitem );
-                if ( citem->ctype() == DependencyNodeItem::Finish ) {
+            } else if (fitem->type() == DependencyConnectorItem::Type) {
+                DependencyConnectorItem *citem = static_cast<DependencyConnectorItem*>(fitem);
+                if (citem->ctype() == DependencyNodeItem::Finish) {
                     //Goto prev nodes startConnector
-                    DependencyNodeItem *nitem = static_cast<DependencyNodeItem*>( citem->parentItem() );
-                    DependencyNodeItem *item = nodeItem( nitem->row() + 1 );
-                    if ( item ) {
-                        setFocusItem( item->startConnector() );
+                    DependencyNodeItem *nitem = static_cast<DependencyNodeItem*>(citem->parentItem());
+                    DependencyNodeItem *item = nodeItem(nitem->row() + 1);
+                    if (item) {
+                        setFocusItem(item->startConnector());
                     }
                 } else {
                     // Goto node item (parent)
-                    setFocusItem( citem->parentItem() );
+                    setFocusItem(citem->parentItem());
                 }
             }
             break;
         }
         case Qt::Key_Up: {
-            if ( fitem->type() == DependencyNodeItem::Type ) {
-                DependencyNodeItem *item = nodeItem( static_cast<DependencyNodeItem*>( fitem )->row() - 1 );
-                if ( item ) {
-                    setFocusItem( item );
+            if (fitem->type() == DependencyNodeItem::Type) {
+                DependencyNodeItem *item = nodeItem(static_cast<DependencyNodeItem*>(fitem)->row() - 1);
+                if (item) {
+                    setFocusItem(item);
                 }
-            } else if ( fitem->type() == DependencyConnectorItem::Type ) {
-                DependencyConnectorItem *citem = static_cast<DependencyConnectorItem*>( fitem );
-                DependencyNodeItem *nitem = static_cast<DependencyNodeItem*>( citem->parentItem() );
-                if ( citem->ctype() == DependencyNodeItem::Finish ) {
-                    DependencyNodeItem *item = nodeItem( nitem->row() - 1 );
-                    if ( item ) {
-                        setFocusItem( item->finishConnector() );
+            } else if (fitem->type() == DependencyConnectorItem::Type) {
+                DependencyConnectorItem *citem = static_cast<DependencyConnectorItem*>(fitem);
+                DependencyNodeItem *nitem = static_cast<DependencyNodeItem*>(citem->parentItem());
+                if (citem->ctype() == DependencyNodeItem::Finish) {
+                    DependencyNodeItem *item = nodeItem(nitem->row() - 1);
+                    if (item) {
+                        setFocusItem(item->finishConnector());
                     }
                 } else {
-                    DependencyNodeItem *item = nodeItem( static_cast<DependencyNodeItem*>( fitem )->row() - 1 );
-                    if ( item ) {
-                        setFocusItem( item->startConnector() );
+                    DependencyNodeItem *item = nodeItem(static_cast<DependencyNodeItem*>(fitem)->row() - 1);
+                    if (item) {
+                        setFocusItem(item->startConnector());
                     }
                 }
             }
             break;
         }
         case Qt::Key_Down: {
-            if ( fitem->type() == DependencyNodeItem::Type ) {
-                DependencyNodeItem *item = nodeItem( static_cast<DependencyNodeItem*>( fitem )->row() + 1 );
-                if ( item ) {
-                    setFocusItem( item );
+            if (fitem->type() == DependencyNodeItem::Type) {
+                DependencyNodeItem *item = nodeItem(static_cast<DependencyNodeItem*>(fitem)->row() + 1);
+                if (item) {
+                    setFocusItem(item);
                 }
-            } else if ( fitem->type() == DependencyConnectorItem::Type ) {
-                DependencyConnectorItem *citem = static_cast<DependencyConnectorItem*>( fitem );
-                DependencyNodeItem *nitem = static_cast<DependencyNodeItem*>( citem->parentItem() );
-                if ( citem->ctype() == DependencyNodeItem::Finish ) {
-                    DependencyNodeItem *item = nodeItem( nitem->row() + 1 );
-                    if ( item ) {
-                        setFocusItem( item->finishConnector() );
+            } else if (fitem->type() == DependencyConnectorItem::Type) {
+                DependencyConnectorItem *citem = static_cast<DependencyConnectorItem*>(fitem);
+                DependencyNodeItem *nitem = static_cast<DependencyNodeItem*>(citem->parentItem());
+                if (citem->ctype() == DependencyNodeItem::Finish) {
+                    DependencyNodeItem *item = nodeItem(nitem->row() + 1);
+                    if (item) {
+                        setFocusItem(item->finishConnector());
                     }
                 } else {
-                    DependencyNodeItem *item = nodeItem( static_cast<DependencyNodeItem*>( fitem )->row() + 1 );
-                    if ( item ) {
-                        setFocusItem( item->startConnector() );
+                    DependencyNodeItem *item = nodeItem(static_cast<DependencyNodeItem*>(fitem)->row() + 1);
+                    if (item) {
+                        setFocusItem(item->startConnector());
                     }
                 }
             }
@@ -1512,177 +1512,177 @@ void DependencyScene::keyPressEvent( QKeyEvent *keyEvent )
         }
         case Qt::Key_Space:
         case Qt::Key_Select: {
-            if ( fitem->type() == DependencyConnectorItem::Type ) {
-                singleConnectorClicked( static_cast<DependencyConnectorItem*>( fitem ) );
-            } else if ( fitem->type() == DependencyNodeItem::Type ) {
-                singleConnectorClicked( 0 );
-                foreach ( QGraphicsItem *i, selectedItems() ) {
-                    i->setSelected( false );
+            if (fitem->type() == DependencyConnectorItem::Type) {
+                singleConnectorClicked(static_cast<DependencyConnectorItem*>(fitem));
+            } else if (fitem->type() == DependencyNodeItem::Type) {
+                singleConnectorClicked(0);
+                foreach (QGraphicsItem *i, selectedItems()) {
+                    i->setSelected(false);
                 }
-                fitem->setSelected( true );
+                fitem->setSelected(true);
             }
             return;
         }
         default:
-            QGraphicsScene::keyPressEvent( keyEvent );
+            QGraphicsScene::keyPressEvent(keyEvent);
     }
-    if ( fitem ) {
+    if (fitem) {
         fitem->parentItem() ? fitem->parentItem()->update() : fitem->update();
     }
-    if ( focusItem() ) {
+    if (focusItem()) {
         focusItem()->parentItem() ? focusItem()->parentItem()->update() : focusItem()->update();
     }
-    if ( fitem != focusItem() ) {
-        emit focusItemChanged( focusItem() );
+    if (fitem != focusItem()) {
+        emit focusItemChanged(focusItem());
     }
 }
 
-DependencyNodeItem *DependencyScene::nodeItem( int row ) const
+DependencyNodeItem *DependencyScene::nodeItem(int row) const
 {
-    if ( row < 0 || m_visibleItems.isEmpty() ) {
+    if (row < 0 || m_visibleItems.isEmpty()) {
         return 0;
     }
-    foreach ( DependencyNodeItem *i, m_visibleItems ) {
-        if ( i->row() == row ) {
+    foreach (DependencyNodeItem *i, m_visibleItems) {
+        if (i->row() == row) {
             return i;
         }
     }
     return 0;
 }
 
-void DependencyScene::singleConnectorClicked( DependencyConnectorItem *item )
+void DependencyScene::singleConnectorClicked(DependencyConnectorItem *item)
 {
     //debugPlanDepEditor;
     clearSelection();
     QList<DependencyConnectorItem*> lst;
-    if ( item == 0 || item == fromItem() ) {
-        setFromItem( 0 );
+    if (item == 0 || item == fromItem()) {
+        setFromItem(0);
         m_clickedItems = lst;
-    } else if ( fromItem() == 0 ) {
-        setFromItem( item );
-    } else if ( connectionIsValid( fromItem(), item ) ) {
-        emit connectItems( fromItem(), item );
-        setFromItem( 0 );
+    } else if (fromItem() == 0) {
+        setFromItem(item);
+    } else if (connectionIsValid(fromItem(), item)) {
+        emit connectItems(fromItem(), item);
+        setFromItem(0);
     } else {
-        setFromItem( 0 );
+        setFromItem(0);
     }
-    emit connectorClicked( item );
+    emit connectorClicked(item);
 }
 
-void DependencyScene::multiConnectorClicked( DependencyConnectorItem *item )
+void DependencyScene::multiConnectorClicked(DependencyConnectorItem *item)
 {
     //debugPlanDepEditor;
-    singleConnectorClicked( item );
+    singleConnectorClicked(item);
 }
 
 void DependencyScene::clearConnection()
 {
-    setFromItem( 0 );
+    setFromItem(0);
     m_clickedItems.clear();
 }
 
-void DependencyScene::mousePressEvent( QGraphicsSceneMouseEvent *mouseEvent )
+void DependencyScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     //debugPlanDepEditor;
-    QGraphicsScene::mousePressEvent( mouseEvent );
-    if ( ! mouseEvent->isAccepted() ) {
+    QGraphicsScene::mousePressEvent(mouseEvent);
+    if (! mouseEvent->isAccepted()) {
         clearConnection();
     }
 }
 
-void DependencyScene::mouseDoubleClickEvent ( QGraphicsSceneMouseEvent *event )
+void DependencyScene::mouseDoubleClickEvent (QGraphicsSceneMouseEvent *event)
 {
     //debugPlanDepEditor<<event->pos()<<event->scenePos()<<event->screenPos();
-    QGraphicsScene::mouseDoubleClickEvent( event );
-    emit itemDoubleClicked( itemAt( event->scenePos(), QTransform() ) );
+    QGraphicsScene::mouseDoubleClickEvent(event);
+    emit itemDoubleClicked(itemAt(event->scenePos(), QTransform()));
 }
 
-void DependencyScene::contextMenuEvent ( QGraphicsSceneContextMenuEvent *event )
+void DependencyScene::contextMenuEvent (QGraphicsSceneContextMenuEvent *event)
 {
-    if ( event->reason() == QGraphicsSceneContextMenuEvent::Mouse ) {
-        debugPlanDepEditor<<"Mouse:"<<itemAt( event->scenePos(), QTransform())<<event->pos()<<event->scenePos()<<event->screenPos();
-        emit contextMenuRequested( itemAt( event->scenePos(), QTransform() ), event->screenPos() );
+    if (event->reason() == QGraphicsSceneContextMenuEvent::Mouse) {
+        debugPlanDepEditor<<"Mouse:"<<itemAt(event->scenePos(), QTransform())<<event->pos()<<event->scenePos()<<event->screenPos();
+        emit contextMenuRequested(itemAt(event->scenePos(), QTransform()), event->screenPos());
         return;
     }
-    if ( focusItem() ) {
-        if ( focusItem()->type() == DependencyConnectorItem::Type ) {
-            DependencyConnectorItem *to = static_cast<DependencyConnectorItem*>( focusItem() );
+    if (focusItem()) {
+        if (focusItem()->type() == DependencyConnectorItem::Type) {
+            DependencyConnectorItem *to = static_cast<DependencyConnectorItem*>(focusItem());
             DependencyConnectorItem *from = fromItem();
             debugPlanDepEditor<<"DependencyConnectorItem:"<<from<<to;
-            if ( from ) {
-                DependencyLinkItem *link = findItem( from, to );
-                if ( link ) {
-                    emit dependencyContextMenuRequested( link, to );
-                    setFromItem( 0 ); // avoid showing spurious DependencyCreatorItem
+            if (from) {
+                DependencyLinkItem *link = findItem(from, to);
+                if (link) {
+                    emit dependencyContextMenuRequested(link, to);
+                    setFromItem(0); // avoid showing spurious DependencyCreatorItem
                     return;
                 } else debugPlanDepEditor<<"No link";
             }
         } else debugPlanDepEditor<<"Not connector type"<<focusItem();
     } else debugPlanDepEditor<<"No focusItem";
-    emit contextMenuRequested( focusItem() );
+    emit contextMenuRequested(focusItem());
 }
 
-void DependencyScene::setReadWrite( bool on )
+void DependencyScene::setReadWrite(bool on)
 {
     m_readwrite = on;
-    foreach ( QGraphicsItem *i, items() ) {
-        if ( i->type() == DependencyConnectorItem::Type ) {
-            static_cast<DependencyConnectorItem*>( i )->setEditable( on );
-        } else if ( i->type() == DependencyLinkItem::Type ) {
-            static_cast<DependencyLinkItem*>( i )->setEditable( on );
+    foreach (QGraphicsItem *i, items()) {
+        if (i->type() == DependencyConnectorItem::Type) {
+            static_cast<DependencyConnectorItem*>(i)->setEditable(on);
+        } else if (i->type() == DependencyLinkItem::Type) {
+            static_cast<DependencyLinkItem*>(i)->setEditable(on);
         }
     }
 }
 
 //--------------------
 
-DependencyView::DependencyView( QWidget *parent )
-    : QGraphicsView( parent ),
-    m_project( 0 ),
-    m_dirty( false ),
-    m_active( false )
+DependencyView::DependencyView(QWidget *parent)
+    : QGraphicsView(parent),
+    m_project(0),
+    m_dirty(false),
+    m_active(false)
 {
-    setItemScene( new DependencyScene( this ) );
-    setAlignment( Qt::AlignLeft | Qt::AlignTop );
+    setItemScene(new DependencyScene(this));
+    setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     connect(scene(), &QGraphicsScene::selectionChanged, this, &DependencyView::slotSelectionChanged);
     connect(itemScene(), &DependencyScene::connectItems, this, &DependencyView::makeConnection);
 
     connect(itemScene(), static_cast<void (DependencyScene::*)(QGraphicsItem*)>(&DependencyScene::contextMenuRequested), this, &DependencyView::slotContextMenuRequested);
 
-    connect(itemScene(), &DependencyScene::dependencyContextMenuRequested, this, &DependencyView::slotDependencyContextMenuRequested );
+    connect(itemScene(), &DependencyScene::dependencyContextMenuRequested, this, &DependencyView::slotDependencyContextMenuRequested);
 
     connect(itemScene(), SIGNAL(contextMenuRequested(QGraphicsItem*,QPoint)), this, SIGNAL(contextMenuRequested(QGraphicsItem*,QPoint))); // clazy:exclude=old-style-connect
 
     connect(itemScene(), static_cast<void (DependencyScene::*)(QGraphicsItem*)>(&DependencyScene::focusItemChanged), this, &DependencyView::slotFocusItemChanged);
 
-    m_autoScrollTimer.start( 100 );
-    connect( &m_autoScrollTimer, &QTimer::timeout, this, &DependencyView::slotAutoScroll );
+    m_autoScrollTimer.start(100);
+    connect(&m_autoScrollTimer, &QTimer::timeout, this, &DependencyView::slotAutoScroll);
 }
 
-void DependencyView::slotContextMenuRequested( QGraphicsItem *item )
+void DependencyView::slotContextMenuRequested(QGraphicsItem *item)
 {
-    if ( item ) {
-        debugPlanDepEditor<<item<<item->boundingRect()<<(item->mapToScene( item->pos() ).toPoint())<<(mapToGlobal( item->mapToParent( item->pos() ).toPoint()));
-        emit contextMenuRequested( item, mapToGlobal( item->mapToScene( item->boundingRect().topRight() ).toPoint() ) );
+    if (item) {
+        debugPlanDepEditor<<item<<item->boundingRect()<<(item->mapToScene(item->pos()).toPoint())<<(mapToGlobal(item->mapToParent(item->pos()).toPoint()));
+        emit contextMenuRequested(item, mapToGlobal(item->mapToScene(item->boundingRect().topRight()).toPoint()));
     }
 }
 
-void DependencyView::slotDependencyContextMenuRequested( DependencyLinkItem *item, DependencyConnectorItem */*connector */)
+void DependencyView::slotDependencyContextMenuRequested(DependencyLinkItem *item, DependencyConnectorItem */*connector */)
 {
-    if ( item ) {
-        debugPlanDepEditor<<item<<item->boundingRect()<<(item->mapToScene( item->pos() ).toPoint())<<(mapToGlobal( item->mapToParent( item->pos() ).toPoint()));
-        emit contextMenuRequested( item, mapToGlobal( item->mapToScene( item->boundingRect().topRight() ).toPoint() ) );
+    if (item) {
+        debugPlanDepEditor<<item<<item->boundingRect()<<(item->mapToScene(item->pos()).toPoint())<<(mapToGlobal(item->mapToParent(item->pos()).toPoint()));
+        emit contextMenuRequested(item, mapToGlobal(item->mapToScene(item->boundingRect().topRight()).toPoint()));
     }
 }
 
-void DependencyView::slotConnectorClicked( DependencyConnectorItem *item )
+void DependencyView::slotConnectorClicked(DependencyConnectorItem *item)
 {
-    if ( itemScene()->fromItem() == 0 ) {
-        itemScene()->setFromItem( item );
+    if (itemScene()->fromItem() == 0) {
+        itemScene()->setFromItem(item);
     } else {
-        //debugPlanDepEditor<<"emit makeConnection:"<<static_cast<DependencyNodeItem*>( item->parentItem() )->text();
-        emit makeConnection( itemScene()->fromItem(), item );
+        //debugPlanDepEditor<<"emit makeConnection:"<<static_cast<DependencyNodeItem*>(item->parentItem())->text();
+        emit makeConnection(itemScene()->fromItem(), item);
     }
 }
 
@@ -1694,63 +1694,63 @@ void DependencyView::slotSelectionChanged()
 
 void DependencyView::slotSelectedItems()
 {
-    emit selectionChanged( itemScene()->selectedItems() );
+    emit selectionChanged(itemScene()->selectedItems());
 }
 
-void DependencyView::slotFocusItemChanged( QGraphicsItem *item )
+void DependencyView::slotFocusItemChanged(QGraphicsItem *item)
 {
-    ensureVisible( item, 10, 10 );
+    ensureVisible(item, 10, 10);
 }
 
-void DependencyView::setItemScene( DependencyScene *scene )
+void DependencyView::setItemScene(DependencyScene *scene)
 {
-    setScene( scene );
-    scene->setProject( m_project );
-    //slotResizeScene( m_treeview->viewport()->size() );
-    if ( m_project ) {
+    setScene(scene);
+    scene->setProject(m_project);
+    //slotResizeScene(m_treeview->viewport()->size());
+    if (m_project) {
         createItems();
     }
 }
 
-void DependencyView::setActive( bool activate )
+void DependencyView::setActive(bool activate)
 {
     m_active = activate;
-    if ( m_active && m_dirty ) {
+    if (m_active && m_dirty) {
         createItems();
     }
 }
-void DependencyView::setProject( Project *project )
+void DependencyView::setProject(Project *project)
 {
-    if ( m_project ) {
-        disconnect( m_project, &Project::relationAdded, this, &DependencyView::slotRelationAdded );
-        disconnect( m_project, &Project::relationRemoved, this, &DependencyView::slotRelationRemoved );
-        disconnect( m_project, &Project::relationModified, this, &DependencyView::slotRelationModified );
+    if (m_project) {
+        disconnect(m_project, &Project::relationAdded, this, &DependencyView::slotRelationAdded);
+        disconnect(m_project, &Project::relationRemoved, this, &DependencyView::slotRelationRemoved);
+        disconnect(m_project, &Project::relationModified, this, &DependencyView::slotRelationModified);
 
-        disconnect( m_project, &Project::nodeAdded, this, &DependencyView::slotNodeAdded );
-        disconnect( m_project, &Project::nodeRemoved, this, &DependencyView::slotNodeRemoved );
-        disconnect( m_project, &Project::nodeChanged, this, &DependencyView::slotNodeChanged );
-        disconnect( m_project, &Project::nodeMoved, this, &DependencyView::slotNodeMoved );
+        disconnect(m_project, &Project::nodeAdded, this, &DependencyView::slotNodeAdded);
+        disconnect(m_project, &Project::nodeRemoved, this, &DependencyView::slotNodeRemoved);
+        disconnect(m_project, &Project::nodeChanged, this, &DependencyView::slotNodeChanged);
+        disconnect(m_project, &Project::nodeMoved, this, &DependencyView::slotNodeMoved);
 
-        if ( itemScene() ) {
+        if (itemScene()) {
             itemScene()->clearScene();
         }
     }
     m_project = project;
-    if ( project ) {
-        connect( m_project, &Project::relationAdded, this, &DependencyView::slotRelationAdded );
-        connect( m_project, &Project::relationRemoved, this, &DependencyView::slotRelationRemoved );
-        connect( m_project, &Project::relationModified, this, &DependencyView::slotRelationModified );
+    if (project) {
+        connect(m_project, &Project::relationAdded, this, &DependencyView::slotRelationAdded);
+        connect(m_project, &Project::relationRemoved, this, &DependencyView::slotRelationRemoved);
+        connect(m_project, &Project::relationModified, this, &DependencyView::slotRelationModified);
 
-        connect( m_project, &Project::nodeAdded, this, &DependencyView::slotNodeAdded );
-        connect( m_project, &Project::nodeRemoved, this, &DependencyView::slotNodeRemoved );
-        connect( m_project, &Project::nodeChanged, this, &DependencyView::slotNodeChanged );
-        connect( m_project, &Project::nodeMoved, this, &DependencyView::slotNodeMoved );
+        connect(m_project, &Project::nodeAdded, this, &DependencyView::slotNodeAdded);
+        connect(m_project, &Project::nodeRemoved, this, &DependencyView::slotNodeRemoved);
+        connect(m_project, &Project::nodeChanged, this, &DependencyView::slotNodeChanged);
+        connect(m_project, &Project::nodeMoved, this, &DependencyView::slotNodeMoved);
 
-        connect( m_project, &Project::wbsDefinitionChanged, this, &DependencyView::slotWbsCodeChanged );
+        connect(m_project, &Project::wbsDefinitionChanged, this, &DependencyView::slotWbsCodeChanged);
 
-        if ( itemScene() ) {
-            itemScene()->setProject( project );
-            if ( m_active ) {
+        if (itemScene()) {
+            itemScene()->setProject(project);
+            if (m_active) {
                 createItems();
             } else {
                 m_dirty = true;
@@ -1759,92 +1759,92 @@ void DependencyView::setProject( Project *project )
     }
 }
 
-DependencyLinkItem *DependencyView::findItem( const Relation* rel ) const
+DependencyLinkItem *DependencyView::findItem(const Relation* rel) const
 {
-    return itemScene()->findItem( rel );
+    return itemScene()->findItem(rel);
 }
 
-DependencyNodeItem *DependencyView::findItem( const Node *node ) const
+DependencyNodeItem *DependencyView::findItem(const Node *node) const
 {
-    return itemScene()->findItem( node );
+    return itemScene()->findItem(node);
 }
 
-void DependencyView::slotRelationAdded( Relation* rel )
+void DependencyView::slotRelationAdded(Relation* rel)
 {
-    if ( m_dirty ) {
+    if (m_dirty) {
         return;
     }
-    DependencyLinkItem *item = findItem( rel );
-    if ( item == 0 ) {
-        DependencyNodeItem *p = findItem( rel->parent() );
-        DependencyNodeItem *c = findItem( rel->child() );
-        DependencyLinkItem *r = new DependencyLinkItem( p, c, rel );
-        scene()->addItem( r );
+    DependencyLinkItem *item = findItem(rel);
+    if (item == 0) {
+        DependencyNodeItem *p = findItem(rel->parent());
+        DependencyNodeItem *c = findItem(rel->child());
+        DependencyLinkItem *r = new DependencyLinkItem(p, c, rel);
+        scene()->addItem(r);
         //debugPlanDepEditor;
         r->createPath();
-        r->setVisible( c->isVisible() && p->isVisible() );
+        r->setVisible(c->isVisible() && p->isVisible());
     } else debugPlanDepEditor<<"Relation already exists!";
 }
 
-void DependencyView::slotRelationRemoved( Relation* rel )
+void DependencyView::slotRelationRemoved(Relation* rel)
 {
-    if ( m_dirty ) {
+    if (m_dirty) {
         return;
     }
-    DependencyLinkItem *item = findItem( rel );
-    if ( item ) {
-        scene()->removeItem( item );
+    DependencyLinkItem *item = findItem(rel);
+    if (item) {
+        scene()->removeItem(item);
         delete item;
     } else debugPlanDepEditor<<"Relation does not exist!";
 }
 
-void DependencyView::slotRelationModified( Relation* rel )
+void DependencyView::slotRelationModified(Relation* rel)
 {
     //debugPlanDepEditor;
-    if ( m_dirty ) {
+    if (m_dirty) {
         return;
     }
-    slotRelationRemoved( rel );
-    slotRelationAdded( rel );
+    slotRelationRemoved(rel);
+    slotRelationAdded(rel);
 }
 
-void DependencyView::slotNodeAdded( Node *node )
+void DependencyView::slotNodeAdded(Node *node)
 {
     //debugPlanDepEditor;
-    if ( m_dirty ) {
+    if (m_dirty) {
         return;
     }
-    DependencyNodeItem *item = findItem( node );
-    if ( item == 0 ) {
-        item = createItem( node );
+    DependencyNodeItem *item = findItem(node);
+    if (item == 0) {
+        item = createItem(node);
     } else {
         //debugPlanDepEditor<<node->name();
-        itemScene()->setItemVisible( item, true );
+        itemScene()->setItemVisible(item, true);
     }
-    ensureVisible( item );
+    ensureVisible(item);
     slotWbsCodeChanged();
 }
 
-void DependencyView::slotNodeRemoved( Node *node )
+void DependencyView::slotNodeRemoved(Node *node)
 {
-    if ( m_dirty ) {
+    if (m_dirty) {
         return;
     }
-    DependencyNodeItem *item = findItem( node );
-    if ( item ) {
+    DependencyNodeItem *item = findItem(node);
+    if (item) {
         //debugPlanDepEditor<<node->name();
-        itemScene()->setItemVisible( item, false );
+        itemScene()->setItemVisible(item, false);
     } else debugPlanDepEditor<<"Node does not exist!";
     slotWbsCodeChanged();
 }
 
-void DependencyView::slotNodeChanged( Node *node )
+void DependencyView::slotNodeChanged(Node *node)
 {
-    if ( m_dirty ) {
+    if (m_dirty) {
         return;
     }
-    DependencyNodeItem *item = findItem( node );
-    if ( item && item->isVisible() ) {
+    DependencyNodeItem *item = findItem(node);
+    if (item && item->isVisible()) {
         item->setText();
         item->setSymbol();
     } else debugPlanDepEditor<<"Node does not exist!";
@@ -1852,26 +1852,26 @@ void DependencyView::slotNodeChanged( Node *node )
 
 void DependencyView::slotWbsCodeChanged()
 {
-    if ( m_dirty ) {
+    if (m_dirty) {
         return;
     }
-    foreach( DependencyNodeItem *i, itemScene()->nodeItems() ) {
-        if ( i->isVisible() ) {
+    foreach(DependencyNodeItem *i, itemScene()->nodeItems()) {
+        if (i->isVisible()) {
             i->setText();
         }
     }
 }
 
-void DependencyView::slotNodeMoved( Node *node )
+void DependencyView::slotNodeMoved(Node *node)
 {
-    if ( m_dirty ) {
+    if (m_dirty) {
         return;
     }
-    slotNodeRemoved( node );
-    slotNodeAdded( node );
+    slotNodeRemoved(node);
+    slotNodeAdded(node);
 }
 
-void DependencyView::setItemExpanded( int , bool )
+void DependencyView::setItemExpanded(int , bool)
 {
 }
 
@@ -1879,31 +1879,31 @@ void DependencyView::createItems()
 {
     itemScene()->clearScene();
     m_dirty = false;
-    if ( m_project == 0 ) {
+    if (m_project == 0) {
         return;
     }
-    scene()->addLine( 0.0, 0.0, 1.0, 0.0 );
-    createItems( m_project );
+    scene()->addLine(0.0, 0.0, 1.0, 0.0);
+    createItems(m_project);
 
     createLinks();
 }
 
-DependencyNodeItem *DependencyView::createItem( Node *node )
+DependencyNodeItem *DependencyView::createItem(Node *node)
 {
-    return itemScene()->createItem( node );
+    return itemScene()->createItem(node);
 }
 
-void DependencyView::createItems( Node *node )
+void DependencyView::createItems(Node *node)
 {
-    if ( node != m_project ) {
+    if (node != m_project) {
         //debugPlanDepEditor<<node->name()<<" ("<<node->numChildren()<<")";
-        DependencyNodeItem *i = createItem( node );
-        if ( i == 0 ) {
+        DependencyNodeItem *i = createItem(node);
+        if (i == 0) {
             return;
         }
     }
-    foreach ( Node *n, node->childNodeIterator() ) {
-        createItems( n );
+    foreach (Node *n, node->childNodeIterator()) {
+        createItems(n);
     }
 }
 
@@ -1915,30 +1915,30 @@ void DependencyView::createLinks()
 
 void DependencyView::keyPressEvent(QKeyEvent *event)
 {
-    if ( event->modifiers() & Qt::ControlModifier ) {
-        switch ( event->key() ) {
+    if (event->modifiers() & Qt::ControlModifier) {
+        switch (event->key()) {
             case Qt::Key_Plus:
-                return scale( 1.1, 1.1 );
+                return scale(1.1, 1.1);
             case Qt::Key_Minus:
-                return scale( 0.9, 0.9 );
+                return scale(0.9, 0.9);
             default: break;
         }
     }
     QGraphicsView::keyPressEvent(event);
 }
 
-void DependencyView::mouseMoveEvent( QMouseEvent *mouseEvent )
+void DependencyView::mouseMoveEvent(QMouseEvent *mouseEvent)
 {
     m_cursorPos = mouseEvent->pos();
-    if ( itemScene()->connectionMode() && itemScene()->mouseGrabberItem() ) {
-        QPointF spos = mapToScene( m_cursorPos );
+    if (itemScene()->connectionMode() && itemScene()->mouseGrabberItem()) {
+        QPointF spos = mapToScene(m_cursorPos);
         Qt::CursorShape c = Qt::ArrowCursor;
-        foreach ( QGraphicsItem *i, itemScene()->items( spos ) ) {
-            if ( i->type() == DependencyConnectorItem::Type ) {
-                if ( i == itemScene()->fromItem() ) {
+        foreach (QGraphicsItem *i, itemScene()->items(spos)) {
+            if (i->type() == DependencyConnectorItem::Type) {
+                if (i == itemScene()->fromItem()) {
                     c = ConnectCursor;
                 } else {
-                    if ( itemScene()->connectionIsValid( itemScene()->fromItem(), static_cast<DependencyConnectorItem*>( i ) ) ) {
+                    if (itemScene()->connectionIsValid(itemScene()->fromItem(), static_cast<DependencyConnectorItem*>(i))) {
                         c = ConnectCursor;
                     } else {
                         c = Qt::ForbiddenCursor;
@@ -1946,60 +1946,60 @@ void DependencyView::mouseMoveEvent( QMouseEvent *mouseEvent )
                 }
             }
         }
-        if ( viewport()->cursor().shape() != c ) {
-            viewport()->setCursor( c );
+        if (viewport()->cursor().shape() != c) {
+            viewport()->setCursor(c);
         }
     }
-    QGraphicsView::mouseMoveEvent( mouseEvent );
+    QGraphicsView::mouseMoveEvent(mouseEvent);
     //debugPlanDepEditor<<mouseEvent->scenePos()<<","<<mouseEvent->isAccepted();
 
 }
 
 void DependencyView::slotAutoScroll()
 {
-    if ( itemScene()->connectionMode() ) {
-        ensureVisible( QRectF( mapToScene( m_cursorPos ), QSizeF( 1, 1 ) ), 2, 2 );
+    if (itemScene()->connectionMode()) {
+        ensureVisible(QRectF(mapToScene(m_cursorPos), QSizeF(1, 1)), 2, 2);
     }
 }
 
 //-----------------------------------
-DependencyeditorConfigDialog::DependencyeditorConfigDialog( ViewBase *view, QWidget *p, bool selectPrint)
+DependencyeditorConfigDialog::DependencyeditorConfigDialog(ViewBase *view, QWidget *p, bool selectPrint)
     : KPageDialog(p),
-    m_view( view )
+    m_view(view)
 {
-    setWindowTitle( i18n("Settings") );
+    setWindowTitle(i18n("Settings"));
 
     QTabWidget *tab = new QTabWidget();
 
-    QWidget *w = ViewBase::createPageLayoutWidget( view );
-    tab->addTab( w, w->windowTitle() );
+    QWidget *w = ViewBase::createPageLayoutWidget(view);
+    tab->addTab(w, w->windowTitle());
     m_pagelayout = w->findChild<KoPageLayoutWidget*>();
-    Q_ASSERT( m_pagelayout );
+    Q_ASSERT(m_pagelayout);
 
-    m_headerfooter = ViewBase::createHeaderFooterWidget( view );
-    m_headerfooter->setOptions( view->printingOptions() );
-    tab->addTab( m_headerfooter, m_headerfooter->windowTitle() );
+    m_headerfooter = ViewBase::createHeaderFooterWidget(view);
+    m_headerfooter->setOptions(view->printingOptions());
+    tab->addTab(m_headerfooter, m_headerfooter->windowTitle());
 
-    KPageWidgetItem *page = addPage( tab, i18n( "Printing" ) );
-    page->setHeader( i18n( "Printing Options" ) );
+    KPageWidgetItem *page = addPage(tab, i18n("Printing"));
+    page->setHeader(i18n("Printing Options"));
     if (selectPrint) {
         setCurrentPage(page);
     }
-    connect( this, &QDialog::accepted, this, &DependencyeditorConfigDialog::slotOk);
+    connect(this, &QDialog::accepted, this, &DependencyeditorConfigDialog::slotOk);
 }
 
 void DependencyeditorConfigDialog::slotOk()
 {
     debugPlan;
-    m_view->setPageLayout( m_pagelayout->pageLayout() );
-    m_view->setPrintingOptions( m_headerfooter->options() );
+    m_view->setPageLayout(m_pagelayout->pageLayout());
+    m_view->setPrintingOptions(m_headerfooter->options());
 }
 
 //--------------------
-DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *parent )
+DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_currentnode( 0 ),
-    m_manager( 0 )
+    m_currentnode(0),
+    m_manager(0)
 {
     if (doc && doc->isReadWrite()) {
         setXMLFile("DependencyEditorUi.rc");
@@ -2009,17 +2009,17 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
 
     setupGui();
 
-    QVBoxLayout * l = new QVBoxLayout( this );
-    l->setMargin( 0 );
-    m_view = new DependencyView( this );
-    l->addWidget( m_view );
+    QVBoxLayout * l = new QVBoxLayout(this);
+    l->setMargin(0);
+    m_view = new DependencyView(this);
+    l->addWidget(m_view);
 
-    connect(m_view, &DependencyView::makeConnection, this, &DependencyEditor::slotCreateRelation );
+    connect(m_view, &DependencyView::makeConnection, this, &DependencyEditor::slotCreateRelation);
     connect(m_view, SIGNAL(selectionChanged(QList<QGraphicsItem*>)), this, SLOT(slotSelectionChanged(QList<QGraphicsItem*>))); // clazy::exclude=old-style-connect
 
-    connect(m_view->itemScene(), &DependencyScene::itemDoubleClicked, this, &DependencyEditor::slotItemDoubleClicked );
+    connect(m_view->itemScene(), &DependencyScene::itemDoubleClicked, this, &DependencyEditor::slotItemDoubleClicked);
 
-    connect(m_view, &DependencyView::contextMenuRequested, this, &DependencyEditor::slotContextMenuRequested );
+    connect(m_view, &DependencyView::contextMenuRequested, this, &DependencyEditor::slotContextMenuRequested);
 
     Help::add(this,
               xi18nc("@info:whatsthis",
@@ -2035,89 +2035,89 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
                      "</para>", Help::page("Task_Dependency_Editor_(Graphical)")));
 }
 
-void DependencyEditor::updateReadWrite( bool on )
+void DependencyEditor::updateReadWrite(bool on)
 {
-    m_view->itemScene()->setReadWrite( on );
-    ViewBase::updateReadWrite( on );
+    m_view->itemScene()->setReadWrite(on);
+    ViewBase::updateReadWrite(on);
 }
 
-void DependencyEditor::slotItemDoubleClicked( QGraphicsItem *item )
+void DependencyEditor::slotItemDoubleClicked(QGraphicsItem *item)
 {
     //debugPlanDepEditor;
-    if ( ! isReadWrite() ) {
+    if (! isReadWrite()) {
         return;
     }
-    if ( item && item->type() == DependencyLinkItem::Type ) {
-        emit editRelation( static_cast<DependencyLinkItem*>( item )->relation );
+    if (item && item->type() == DependencyLinkItem::Type) {
+        emit editRelation(static_cast<DependencyLinkItem*>(item)->relation);
         return;
     }
-    if ( item && item->type() == DependencyNodeItem::Type ) {
-        emit editNode( static_cast<DependencyNodeItem*>( item )->node() );
+    if (item && item->type() == DependencyNodeItem::Type) {
+        emit editNode(static_cast<DependencyNodeItem*>(item)->node());
         return;
     }
-    if ( item && item->type() == DependencyNodeSymbolItem::Type ) {
-        emit editNode( static_cast<DependencyNodeItem*>( item->parentItem() )->node() );
+    if (item && item->type() == DependencyNodeSymbolItem::Type) {
+        emit editNode(static_cast<DependencyNodeItem*>(item->parentItem())->node());
         return;
     }
 }
 
-void DependencyEditor::slotCreateRelation( DependencyConnectorItem *pred, DependencyConnectorItem *succ )
+void DependencyEditor::slotCreateRelation(DependencyConnectorItem *pred, DependencyConnectorItem *succ)
 {
     //debugPlanDepEditor;
-    if ( ! isReadWrite() ) {
+    if (! isReadWrite()) {
         return;
     }
     Node *par = pred->node();
     Node *ch = succ->node();
     Relation::Type type = Relation::FinishStart;
-    if ( pred->ctype() == DependencyNodeItem::Start ) {
-        if ( succ->ctype() == DependencyNodeItem::Start ) {
+    if (pred->ctype() == DependencyNodeItem::Start) {
+        if (succ->ctype() == DependencyNodeItem::Start) {
             type = Relation::StartStart;
         }
     } else {
-        if ( succ->ctype() == DependencyNodeItem::Start ) {
+        if (succ->ctype() == DependencyNodeItem::Start) {
             type = Relation::FinishStart;
         } else {
             type = Relation::FinishFinish;
         }
     }
-    Relation *rel = ch->findRelation( par );
-    if ( rel == 0 ) {
+    Relation *rel = ch->findRelation(par);
+    if (rel == 0) {
         //debugPlanDepEditor<<"New:"<<par->name()<<" ->"<<ch->name()<<","<<type;
-        emit addRelation( par, ch, type );
-    } else if ( rel->type() != type ) {
+        emit addRelation(par, ch, type);
+    } else if (rel->type() != type) {
         //debugPlanDepEditor<<"Mod:"<<par->name()<<" ->"<<ch->name()<<","<<type;
-        emit modifyRelation( rel, type );
+        emit modifyRelation(rel, type);
     }
 }
 
-void DependencyEditor::draw( Project &project )
+void DependencyEditor::draw(Project &project)
 {
-    m_view->setProject( &project );
+    m_view->setProject(&project);
 }
 
 void DependencyEditor::draw()
 {
 }
 
-void DependencyEditor::setGuiActive( bool activate )
+void DependencyEditor::setGuiActive(bool activate)
 {
     //debugPlanDepEditor<<activate;
-    updateActionsEnabled( true );
-    ViewBase::setGuiActive( activate );
-    m_view->setActive( activate );
-/*    if ( activate && !m_view->selectionModel()->currentIndex().isValid() ) {
-        m_view->selectionModel()->setCurrentIndex(m_view->model()->index( 0, 0 ), QItemSelectionModel::NoUpdate);
+    updateActionsEnabled(true);
+    ViewBase::setGuiActive(activate);
+    m_view->setActive(activate);
+/*    if (activate && !m_view->selectionModel()->currentIndex().isValid()) {
+        m_view->selectionModel()->setCurrentIndex(m_view->model()->index(0, 0), QItemSelectionModel::NoUpdate);
     }*/
 }
 
-void DependencyEditor::slotCurrentChanged(  const QModelIndex &, const QModelIndex & )
+void DependencyEditor::slotCurrentChanged(const QModelIndex &, const QModelIndex &)
 {
     //debugPlanDepEditor<<curr.row()<<","<<curr.column();
     slotEnableActions();
 }
 
-void DependencyEditor::slotSelectionChanged(  const QList<QGraphicsItem*>& )
+void DependencyEditor::slotSelectionChanged(const QList<QGraphicsItem*>&)
 {
     //debugPlanDepEditor<<lst.count();
     slotEnableActions();
@@ -2130,9 +2130,9 @@ int DependencyEditor::selectedNodeCount() const
 
 QList<Node*> DependencyEditor::selectedNodes() const {
     QList<Node*> lst;
-    foreach ( QGraphicsItem *i, m_view->itemScene()->selectedItems() ) {
-        if ( i->type() == DependencyNodeItem::Type ) {
-            lst << static_cast<DependencyNodeItem*>( i )->node();
+    foreach (QGraphicsItem *i, m_view->itemScene()->selectedItems()) {
+        if (i->type() == DependencyNodeItem::Type) {
+            lst << static_cast<DependencyNodeItem*>(i)->node();
         }
     }
     return lst;
@@ -2141,7 +2141,7 @@ QList<Node*> DependencyEditor::selectedNodes() const {
 Node *DependencyEditor::selectedNode() const
 {
     QList<Node*> lst = selectedNodes();
-    if ( lst.count() != 1 ) {
+    if (lst.count() != 1) {
         return 0;
     }
     return lst.first();
@@ -2151,10 +2151,10 @@ Node *DependencyEditor::currentNode() const {
     return m_currentnode;
 /*    Node * n = 0;
     QGraphicsItem *i = m_view->itemScene()->focusItem();
-    if ( i && i->type() == DependencyNodeItem::Type ) {
-        n = static_cast<DependencyNodeItem*>( i )->node();
+    if (i && i->type() == DependencyNodeItem::Type) {
+        n = static_cast<DependencyNodeItem*>(i)->node();
     }
-    if ( n == 0 || n->type() == Node::Type_Project ) {
+    if (n == 0 || n->type() == Node::Type_Project) {
         return 0;
     }
     return n;*/
@@ -2164,30 +2164,30 @@ Relation *DependencyEditor::currentRelation() const {
     return m_currentrelation;
 }
 
-void DependencyEditor::setScheduleManager( ScheduleManager *sm )
+void DependencyEditor::setScheduleManager(ScheduleManager *sm)
 {
     m_manager = sm;
 }
 
-void DependencyEditor::slotContextMenuRequested( QGraphicsItem *item, const QPoint& pos )
+void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoint& pos)
 {
     //debugPlanDepEditor<<item<<","<<pos;
-    if ( ! isReadWrite() ) {
+    if (! isReadWrite()) {
         return;
     }
     QString name;
-    if ( item && item->type() == DependencyNodeSymbolItem::Type ) {
+    if (item && item->type() == DependencyNodeSymbolItem::Type) {
         item = item->parentItem();
     }
-    if ( item ) {
-        if ( item->type() == DependencyNodeItem::Type ) {
-            m_currentnode = static_cast<DependencyNodeItem*>( item )->node();
-            if ( m_currentnode == 0 ) {
+    if (item) {
+        if (item->type() == DependencyNodeItem::Type) {
+            m_currentnode = static_cast<DependencyNodeItem*>(item)->node();
+            if (m_currentnode == 0) {
                 //debugPlanDepEditor<<"No node";
                 return;
             }
-            bool scheduled = m_manager != 0 && m_currentnode->isScheduled( m_manager->scheduleId() );
-            switch ( m_currentnode->type() ) {
+            bool scheduled = m_manager != 0 && m_currentnode->isScheduled(m_manager->scheduleId());
+            switch (m_currentnode->type()) {
                 case Node::Type_Task:
                     name = scheduled ? "task_popup" : "task_edit_popup";
                     break;
@@ -2201,41 +2201,41 @@ void DependencyEditor::slotContextMenuRequested( QGraphicsItem *item, const QPoi
                     break;
             }
             //debugPlanDepEditor<<m_currentnode->name()<<" :"<<pos;
-        } else if ( item->type() == DependencyLinkItem::Type ) {
-            m_currentrelation = static_cast<DependencyLinkItem*>( item )->relation;
-            if ( m_currentrelation ) {
+        } else if (item->type() == DependencyLinkItem::Type) {
+            m_currentrelation = static_cast<DependencyLinkItem*>(item)->relation;
+            if (m_currentrelation) {
                 name = "relation_popup";
             }
-        } else if ( item->type() == DependencyConnectorItem::Type ) {
-            DependencyConnectorItem *c = static_cast<DependencyConnectorItem*>( item );
+        } else if (item->type() == DependencyConnectorItem::Type) {
+            DependencyConnectorItem *c = static_cast<DependencyConnectorItem*>(item);
             QList<DependencyLinkItem*> items;
             QList<QAction*> actions;
             QMenu menu;
-            foreach ( DependencyLinkItem *i, c->predecessorItems() ) {
+            foreach (DependencyLinkItem *i, c->predecessorItems()) {
                 items << i;
                 actions << menu.addAction(koIcon("document-properties"), i->predItem->text());
             }
             menu.addSeparator();
-            foreach ( DependencyLinkItem *i, c->successorItems() ) {
+            foreach (DependencyLinkItem *i, c->successorItems()) {
                 items << i;
                 actions << menu.addAction(koIcon("document-properties"), i->succItem->text());
             }
-            if ( ! actions.isEmpty() ) {
-                QAction *action = menu.exec( pos );
-                if ( action && actions.contains( action ) ) {
-                    emit editRelation( items[ actions.indexOf( action ) ]->relation );
+            if (! actions.isEmpty()) {
+                QAction *action = menu.exec(pos);
+                if (action && actions.contains(action)) {
+                    emit editRelation(items[ actions.indexOf(action) ]->relation);
                     return;
                 }
             }
         }
     }
     //debugPlanDepEditor<<name;
-    if ( ! name.isEmpty() ) {
-        emit requestPopupMenu( name, pos );
+    if (! name.isEmpty()) {
+        emit requestPopupMenu(name, pos);
     } else {
         QList<QAction*> lst = contextActionList();
-        if ( ! lst.isEmpty() ) {
-            QMenu::exec( lst, pos,  lst.first() );
+        if (! lst.isEmpty()) {
+            QMenu::exec(lst, pos,  lst.first());
         }
     }
     m_currentnode = 0;
@@ -2244,81 +2244,81 @@ void DependencyEditor::slotContextMenuRequested( QGraphicsItem *item, const QPoi
 
 void DependencyEditor::slotEnableActions()
 {
-    updateActionsEnabled( true );
+    updateActionsEnabled(true);
 }
 
-void DependencyEditor::updateActionsEnabled( bool on )
+void DependencyEditor::updateActionsEnabled(bool on)
 {
-    if ( ! on || ! isReadWrite() ) { //FIXME: read-write is not set properly
-        menuAddTask->setEnabled( false );
-        actionAddTask->setEnabled( false );
-        actionAddMilestone->setEnabled( false );
-        menuAddSubTask->setEnabled( false );
-        actionAddSubtask->setEnabled( false );
-        actionAddSubMilestone->setEnabled( false );
-        actionDeleteTask->setEnabled( false );
-        actionLinkTask->setEnabled( false );
+    if (! on || ! isReadWrite()) { //FIXME: read-write is not set properly
+        menuAddTask->setEnabled(false);
+        actionAddTask->setEnabled(false);
+        actionAddMilestone->setEnabled(false);
+        menuAddSubTask->setEnabled(false);
+        actionAddSubtask->setEnabled(false);
+        actionAddSubMilestone->setEnabled(false);
+        actionDeleteTask->setEnabled(false);
+        actionLinkTask->setEnabled(false);
         return;
     }
     int selCount = selectedNodeCount();
         
-    if ( selCount == 0 ) {
-        menuAddTask->setEnabled( true );
-        actionAddTask->setEnabled( true );
-        actionAddMilestone->setEnabled( true );
-        menuAddSubTask->setEnabled( false );
-        actionAddSubtask->setEnabled( false );
-        actionAddSubMilestone->setEnabled( false );
-        actionDeleteTask->setEnabled( false );
-        actionLinkTask->setEnabled( false );
+    if (selCount == 0) {
+        menuAddTask->setEnabled(true);
+        actionAddTask->setEnabled(true);
+        actionAddMilestone->setEnabled(true);
+        menuAddSubTask->setEnabled(false);
+        actionAddSubtask->setEnabled(false);
+        actionAddSubMilestone->setEnabled(false);
+        actionDeleteTask->setEnabled(false);
+        actionLinkTask->setEnabled(false);
         return;
     }
     Node *n = selectedNode();
-    if ( n && n->type() != Node::Type_Task && n->type() != Node::Type_Milestone && n->type() != Node::Type_Summarytask ) {
+    if (n && n->type() != Node::Type_Task && n->type() != Node::Type_Milestone && n->type() != Node::Type_Summarytask) {
         n = 0;
     }
-    if ( selCount == 1 && n == 0 ) {
+    if (selCount == 1 && n == 0) {
         // only project selected
-        menuAddTask->setEnabled( true );
-        actionAddTask->setEnabled( true );
-        actionAddMilestone->setEnabled( true );
-        menuAddSubTask->setEnabled( true );
-        actionAddSubtask->setEnabled( true );
-        actionAddSubMilestone->setEnabled( true );
-        actionDeleteTask->setEnabled( false );
-        actionLinkTask->setEnabled( false );
+        menuAddTask->setEnabled(true);
+        actionAddTask->setEnabled(true);
+        actionAddMilestone->setEnabled(true);
+        menuAddSubTask->setEnabled(true);
+        actionAddSubtask->setEnabled(true);
+        actionAddSubMilestone->setEnabled(true);
+        actionDeleteTask->setEnabled(false);
+        actionLinkTask->setEnabled(false);
         return;
     }
     bool baselined = false;
     Project *p = m_view->project();
-    if ( p && p->isBaselined() ) {
-        foreach ( Node *n, selectedNodes() ) {
-            if ( n->isBaselined() ) {
+    if (p && p->isBaselined()) {
+        foreach (Node *n, selectedNodes()) {
+            if (n->isBaselined()) {
                 baselined = true;
                 break;
             }
         }
     }
-    if ( selCount == 1 ) {
-        menuAddTask->setEnabled( true );
-        actionAddTask->setEnabled( true );
-        actionAddMilestone->setEnabled( true );
-        menuAddSubTask->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
-        actionAddSubtask->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
-        actionAddSubMilestone->setEnabled( ! baselined || n->type() == Node::Type_Summarytask );
-        actionDeleteTask->setEnabled( ! baselined );
-        actionLinkTask->setEnabled( ! baselined );
+    if (selCount == 1) {
+        menuAddTask->setEnabled(true);
+        actionAddTask->setEnabled(true);
+        actionAddMilestone->setEnabled(true);
+        menuAddSubTask->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
+        actionAddSubtask->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
+        actionAddSubMilestone->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
+        actionDeleteTask->setEnabled(! baselined);
+        actionLinkTask->setEnabled(! baselined);
         return;
     }
     // selCount > 1
-    menuAddTask->setEnabled( false );
-    actionAddTask->setEnabled( false );
-    actionAddMilestone->setEnabled( false );
-    menuAddSubTask->setEnabled( false );
-    actionAddSubtask->setEnabled( false );
-    actionAddSubMilestone->setEnabled( false );
-    actionDeleteTask->setEnabled( ! baselined );
-    actionLinkTask->setEnabled( false );
+    menuAddTask->setEnabled(false);
+    actionAddTask->setEnabled(false);
+    actionAddMilestone->setEnabled(false);
+    menuAddSubTask->setEnabled(false);
+    actionAddSubtask->setEnabled(false);
+    actionAddSubMilestone->setEnabled(false);
+    actionDeleteTask->setEnabled(! baselined);
+    actionLinkTask->setEnabled(false);
 }
 
 void DependencyEditor::setupGui()
@@ -2326,43 +2326,43 @@ void DependencyEditor::setupGui()
     KActionCollection *coll = actionCollection();
 
     menuAddTask = new KActionMenu(koIcon("view-task-add"), i18n("Add Task"), this);
-    coll->addAction("add_task", menuAddTask );
-    connect( menuAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask );
+    coll->addAction("add_task", menuAddTask);
+    connect(menuAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask);
 
-    actionAddTask  = new QAction( i18n("Add Task..."), this);
-    actionAddTask->setShortcut( Qt::CTRL + Qt::Key_I );
-    connect( actionAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask );
-    menuAddTask->addAction( actionAddTask );
+    actionAddTask  = new QAction(i18n("Add Task..."), this);
+    actionAddTask->setShortcut(Qt::CTRL + Qt::Key_I);
+    connect(actionAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask);
+    menuAddTask->addAction(actionAddTask);
 
-    actionAddMilestone  = new QAction( i18n("Add Milestone..."), this );
-    actionAddMilestone->setShortcut( Qt::CTRL + Qt::ALT + Qt::Key_I );
-    connect( actionAddMilestone, &QAction::triggered, this, &DependencyEditor::slotAddMilestone );
-    menuAddTask->addAction( actionAddMilestone );
+    actionAddMilestone  = new QAction(i18n("Add Milestone..."), this);
+    actionAddMilestone->setShortcut(Qt::CTRL + Qt::ALT + Qt::Key_I);
+    connect(actionAddMilestone, &QAction::triggered, this, &DependencyEditor::slotAddMilestone);
+    menuAddTask->addAction(actionAddMilestone);
 
 
     menuAddSubTask = new KActionMenu(koIcon("view-task-child-add"), i18n("Add Sub-Task"), this);
-    coll->addAction("add_subtask", menuAddSubTask );
-    connect( menuAddSubTask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask );
+    coll->addAction("add_subtask", menuAddSubTask);
+    connect(menuAddSubTask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask);
 
-    actionAddSubtask  = new QAction( i18n("Add Sub-Task..."), this );
-    actionAddSubtask->setShortcut( Qt::CTRL + Qt::SHIFT + Qt::Key_I );
-    connect( actionAddSubtask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask );
-    menuAddSubTask->addAction( actionAddSubtask );
+    actionAddSubtask  = new QAction(i18n("Add Sub-Task..."), this);
+    actionAddSubtask->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_I);
+    connect(actionAddSubtask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask);
+    menuAddSubTask->addAction(actionAddSubtask);
 
-    actionAddSubMilestone = new QAction( i18n("Add Sub-Milestone..."), this );
-    actionAddSubMilestone->setShortcut( Qt::CTRL + Qt::SHIFT + Qt::ALT + Qt::Key_I );
-    connect( actionAddSubMilestone, &QAction::triggered, this, &DependencyEditor::slotAddSubMilestone );
-    menuAddSubTask->addAction( actionAddSubMilestone );
+    actionAddSubMilestone = new QAction(i18n("Add Sub-Milestone..."), this);
+    actionAddSubMilestone->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::ALT + Qt::Key_I);
+    connect(actionAddSubMilestone, &QAction::triggered, this, &DependencyEditor::slotAddSubMilestone);
+    menuAddSubTask->addAction(actionAddSubMilestone);
 
     actionDeleteTask  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
-    coll->addAction("delete_task", actionDeleteTask );
+    coll->addAction("delete_task", actionDeleteTask);
     coll->setDefaultShortcut(actionDeleteTask, Qt::Key_Delete);
-    connect( actionDeleteTask, &QAction::triggered, this, &DependencyEditor::slotDeleteTask );
+    connect(actionDeleteTask, &QAction::triggered, this, &DependencyEditor::slotDeleteTask);
 
     actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
-    actionCollection()->setDefaultShortcut( actionLinkTask, Qt::CTRL + Qt::Key_L );
-    actionCollection()->addAction("link_task", actionLinkTask );
-    connect( actionLinkTask, &QAction::triggered, this, &DependencyEditor::slotLinkTask );
+    actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL + Qt::Key_L);
+    actionCollection()->addAction("link_task", actionLinkTask);
+    connect(actionLinkTask, &QAction::triggered, this, &DependencyEditor::slotLinkTask);
 
     createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);
 }
@@ -2370,7 +2370,7 @@ void DependencyEditor::setupGui()
 void DependencyEditor::slotOptions()
 {
     debugPlan;
-    DependencyeditorConfigDialog *dlg = new DependencyeditorConfigDialog( this, this, sender()->objectName() == "print_options" );
+    DependencyeditorConfigDialog *dlg = new DependencyeditorConfigDialog(this, this, sender()->objectName() == "print_options");
     connect(dlg, &QDialog::finished, this, &DependencyEditor::slotOptionsFinished);
     dlg->open();
 }
@@ -2395,7 +2395,7 @@ void DependencyEditor::slotAddSubtask()
 {
     //debugPlanDepEditor;
     m_currentnode = selectedNode();
-    if ( m_currentnode == 0 ) {
+    if (m_currentnode == 0) {
         return;
     }
     emit addSubtask();
@@ -2406,20 +2406,20 @@ void DependencyEditor::slotAddSubMilestone()
 {
     debugPlanDepEditor;
     m_currentnode = selectedNode();
-    if ( m_currentnode == 0 ) {
+    if (m_currentnode == 0) {
         return;
     }
     emit addSubMilestone();
     m_currentnode = 0;
 }
 
-void DependencyEditor::edit( const QModelIndex &i )
+void DependencyEditor::edit(const QModelIndex &i)
 {
-    if ( i.isValid() ) {
-/*        QModelIndex p = m_view->itemModel()->parent( i );
-        m_view->treeView()->setExpanded( p, true );
-        m_view->treeView()->selectionModel()->setCurrentIndex( i, QItemSelectionModel::NoUpdate );
-        m_view->treeView()->edit( i );*/
+    if (i.isValid()) {
+/*        QModelIndex p = m_view->itemModel()->parent(i);
+        m_view->treeView()->setExpanded(p, true);
+        m_view->treeView()->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+        m_view->treeView()->edit(i);*/
     }
 }
 
@@ -2427,27 +2427,27 @@ void DependencyEditor::slotDeleteTask()
 {
     //debugPlanDepEditor;
     QList<Node*> lst = selectedNodes();
-    while ( true ) {
+    while (true) {
         // remove children of selected tasks, as parents delete their children
         Node *ch = 0;
-        foreach ( Node *n1, lst ) {
-            foreach ( Node *n2, lst ) {
-                if ( n2->isChildOf( n1 ) ) {
+        foreach (Node *n1, lst) {
+            foreach (Node *n2, lst) {
+                if (n2->isChildOf(n1)) {
                     ch = n2;
                     break;
                 }
             }
-            if ( ch != 0 ) {
+            if (ch != 0) {
                 break;
             }
         }
-        if ( ch == 0 ) {
+        if (ch == 0) {
             break;
         }
-        lst.removeAt( lst.indexOf( ch ) );
+        lst.removeAt(lst.indexOf(ch));
     }
-    foreach ( Node* n, lst ) { debugPlanDepEditor<<n->name(); }
-    emit deleteTaskList( lst );
+    foreach (Node* n, lst) { debugPlanDepEditor<<n->name(); }
+    emit deleteTaskList(lst);
 }
 
 void DependencyEditor::slotLinkTask()
@@ -2467,8 +2467,8 @@ void DependencyEditor::slotLinkTask()
 
 KoPrintJob *DependencyEditor::createPrintJob()
 {
-    DependecyViewPrintingDialog *dia = new DependecyViewPrintingDialog( this, m_view );
-    dia->printer().setCreator( QString( "Plan %1" ).arg( PLAN_VERSION_STRING ) );
+    DependecyViewPrintingDialog *dia = new DependecyViewPrintingDialog(this, m_view);
+    dia->printer().setCreator(QString("Plan %1").arg(PLAN_VERSION_STRING));
 //    dia->printer().setFullPage(true); // ignore printer margins
     return dia;
 }

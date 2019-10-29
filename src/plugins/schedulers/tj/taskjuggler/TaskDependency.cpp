@@ -42,7 +42,7 @@ TaskDependency::~TaskDependency()
 long
 TaskDependency::getGapDuration(int sc) const
 {
-    for ( ; ; )
+    for (; ;)
     {
         if (gapDuration[sc] >= 0)
             return gapDuration[sc];
@@ -56,7 +56,7 @@ TaskDependency::getGapDuration(int sc) const
 long
 TaskDependency::getGapLength(int sc) const
 {
-    for ( ; ; )
+    for (; ;)
     {
         if (gapLength[sc] >= 0)
             return gapLength[sc];
@@ -69,14 +69,14 @@ TaskDependency::getGapLength(int sc) const
 
 } // namespace TJ
 
-QDebug operator<<( QDebug dbg, const TJ::TaskDependency *dep )
+QDebug operator<<(QDebug dbg, const TJ::TaskDependency *dep)
 {
-    return dep == 0 ? (dbg<<0x000000) : operator<<( dbg, *dep );
+    return dep == 0 ? (dbg<<0x000000) : operator<<(dbg, *dep);
 }
-QDebug operator<<( QDebug dbg, const TJ::TaskDependency &dep )
+QDebug operator<<(QDebug dbg, const TJ::TaskDependency &dep)
 {
     dbg<<"TaskDependency[";
-    if ( dep.getTaskRef() ) {
+    if (dep.getTaskRef()) {
         dbg.nospace()<<"ref="<<dep.getTaskRef()->getId();
     } else {
         dbg.nospace()<<"id="<<dep.getTaskRefId();

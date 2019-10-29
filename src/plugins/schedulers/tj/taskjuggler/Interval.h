@@ -154,10 +154,10 @@ protected:
 
 } // namespace TJ
 
-Q_DECLARE_TYPEINFO( TJ::Interval, Q_MOVABLE_TYPE );
-Q_DECLARE_METATYPE( TJ::Interval )
+Q_DECLARE_TYPEINFO(TJ::Interval, Q_MOVABLE_TYPE);
+Q_DECLARE_METATYPE(TJ::Interval)
 
-PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Interval *i );
-PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::Interval &i );
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::Interval *i);
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::Interval &i);
 
 #endif

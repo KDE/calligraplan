@@ -37,7 +37,7 @@ class InsertFileDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    InsertFileDialog( Project &project, Node *currentNode, QWidget *parent=0 );
+    InsertFileDialog(Project &project, Node *currentNode, QWidget *parent=0);
 
     QUrl url() const;
     Node *parentNode() const;
@@ -52,7 +52,7 @@ class InsertFilePanel : public QWidget
 {
     Q_OBJECT
 public:
-    InsertFilePanel( Project &project, Node *currentNode, QWidget *parent );
+    InsertFilePanel(Project &project, Node *currentNode, QWidget *parent);
 
     QUrl url() const;
     Node *parentNode() const;
@@ -61,12 +61,12 @@ public:
     Ui::InsertFilePanel ui;
 
 Q_SIGNALS:
-    void enableButtonOk( bool );
+    void enableButtonOk(bool);
 
 protected Q_SLOTS:
-    void changed( const QString& );
+    void changed(const QString&);
 
-    void slotOpenFileDialog( KUrlRequester * );
+    void slotOpenFileDialog(KUrlRequester *);
 
 private:
     Project &m_project;

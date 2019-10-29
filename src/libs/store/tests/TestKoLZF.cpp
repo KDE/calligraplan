@@ -112,7 +112,7 @@ void TestKoLZF::testArrayRoundtripDifferentSizes_data()
     QTest::addColumn<char>("canary");
 
     static const char canary[] = {'\0',  '\xFF'};
-    static const int canaryCount = sizeof( canary ) / sizeof( canary[0] );
+    static const int canaryCount = sizeof(canary) / sizeof(canary[0]);
     static const int fillMethodCount = 2;
     static const char * const fillMethodName[fillMethodCount] = {"uni",  "series"};
 
@@ -167,7 +167,7 @@ void TestKoLZF::testArrayRoundtripDifferentSizes()
 
     QVERIFY(uncompressedDataLength != 0);
     QCOMPARE(uncompressedDataLength, size);
-    QCOMPARE(memcmp(uncompressedData, data, size), 0 );
+    QCOMPARE(memcmp(uncompressedData, data, size), 0);
     QCOMPARE(uncompressedData[size], canary);
 
     delete [] data;

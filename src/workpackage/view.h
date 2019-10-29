@@ -69,15 +69,15 @@ class View : public QStackedWidget
     Q_OBJECT
 
 public:
-    explicit View( Part* part, QWidget *parent, KActionCollection *collection );
+    explicit View(Part* part, QWidget *parent, KActionCollection *collection);
     ~View() override;
 
     Part *part() const;
 
-    virtual void setupPrinter( QPrinter &printer, QPrintDialog &printDialog );
-    virtual void print( QPrinter &printer, QPrintDialog &printDialog );
+    virtual void setupPrinter(QPrinter &printer, QPrintDialog &printDialog);
+    virtual void print(QPrinter &printer, QPrintDialog &printDialog);
 
-    QMenu *popupMenu( const QString& name, const QPoint &pos );
+    QMenu *popupMenu(const QString& name, const QPoint &pos);
 
 //    virtual ViewAdaptor* dbusObject();
 
@@ -97,8 +97,8 @@ public:
 
 Q_SIGNALS:
     void currentScheduleManagerChanged(KPlato::ScheduleManager *sm);
-    void openInternalDocument( KoStore * );
-    void sigUpdateReadWrite( bool );
+    void openInternalDocument(KoStore *);
+    void sigUpdateReadWrite(bool);
 
     void viewDocument(KPlato::Document *doc);
 
@@ -109,14 +109,14 @@ public Q_SLOTS:
 
     void slotConfigure();
 
-    void slotPopupMenu( const QString& menuname, const QPoint &pos );
+    void slotPopupMenu(const QString& menuname, const QPoint &pos);
 
     void slotTaskProgress();
     void slotTaskCompletion();
 
 protected Q_SLOTS:
-    void slotCurrentChanged( int index );
-    void slotProgressChanged( int value );
+    void slotCurrentChanged(int index);
+    void slotProgressChanged(int value);
 
     void slotEditDocument();
     void slotEditDocument(KPlato::Document *doc);
@@ -133,9 +133,9 @@ protected Q_SLOTS:
     void slotViewGantt();
 
 protected:
-    virtual void updateReadWrite( bool readwrite );
+    virtual void updateReadWrite(bool readwrite);
 
-    QAction *addScheduleAction( Schedule *sch );
+    QAction *addScheduleAction(Schedule *sch);
     void setLabel();
     AbstractView *currentView() const;
 

@@ -33,8 +33,8 @@ namespace KPlato
 {
 
 //-----------------------------
-TaskCompleteDelegate::TaskCompleteDelegate( QObject *parent )
- : ProgressBarDelegate( parent )
+TaskCompleteDelegate::TaskCompleteDelegate(QObject *parent)
+ : ProgressBarDelegate(parent)
 {
 }
 
@@ -42,26 +42,26 @@ TaskCompleteDelegate::~TaskCompleteDelegate()
 {
 }
 
-void TaskCompleteDelegate::paint( QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const
+void TaskCompleteDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QModelIndex typeidx = index.model()->index( index.row(), NodeModel::NodeType, index.parent() );
-    if ( ! typeidx.isValid() ) {
+    QModelIndex typeidx = index.model()->index(index.row(), NodeModel::NodeType, index.parent());
+    if (! typeidx.isValid()) {
         errorPlan<<"Cannot find nodetype for index:"<<index;
         return;
     }
-    int type = typeidx.data( Qt::EditRole ).toInt();
-    if ( type == Node::Type_Task || type == Node::Type_Milestone ) {
-        ProgressBarDelegate::paint( painter, option, index );
+    int type = typeidx.data(Qt::EditRole).toInt();
+    if (type == Node::Type_Task || type == Node::Type_Milestone) {
+        ProgressBarDelegate::paint(painter, option, index);
     } else {
         QStyle *style;
         QStyleOptionViewItem opt = option;
-        //initStyleOption( &opt, index );
+        //initStyleOption(&opt, index);
         style = opt.widget ? opt.widget->style() : QApplication::style();
-        style->drawPrimitive( QStyle::PE_PanelItemViewItem, &opt, painter );
+        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
 
-        //debugPlan<<"Draw something else, type="<<type<<index.model()->index( index.row(), NodeModel::NodeName, index.parent() ).data().toString();
+        //debugPlan<<"Draw something else, type="<<type<<index.model()->index(index.row(), NodeModel::NodeName, index.parent()).data().toString();
 
-        ProgressBarDelegate::paint( painter, option, index );
+        ProgressBarDelegate::paint(painter, option, index);
     }
 }
 

@@ -115,7 +115,7 @@ public:
 
     /**
      * Open a new file inside the store
-     * @param name The filename, internal representation ("root", "tar:/0"... ).
+     * @param name The filename, internal representation ("root", "tar:/0"...).
      *        If the tar:/ prefix is missing it's assumed to be a relative URI.
      * @return true on success.
      */

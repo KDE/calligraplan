@@ -63,16 +63,16 @@ namespace Scripting {
 
             KPlato::MainDocument* part();
             virtual KoDocument* doc();
-            void addCommand( KUndo2Command *cmd );
+            void addCommand(KUndo2Command *cmd);
 
         public Q_SLOTS:
 
             /// Open Plan document in this module
-            void openUrl( const QString &url );
+            void openUrl(const QString &url);
             /// Open another Plan document in a sub-module with name @p tag
-            QObject *openDocument( const QString &tag, const QString &url );
+            QObject *openDocument(const QString &tag, const QString &url);
             /// Start a command with @p name
-            void beginCommand( const KUndo2MagicString &name );
+            void beginCommand(const KUndo2MagicString &name);
             /// End a command started with beginCommand()
             void endCommand();
             /// Revert a command started with beginCommand(), bit not ended with endCommand()
@@ -80,12 +80,12 @@ namespace Scripting {
             /// Return the project
             QObject *project();
             /// Return a schedule list view
-            QWidget *createScheduleListView( QWidget *parent );
+            QWidget *createScheduleListView(QWidget *parent);
             /// Return a node property list view
-            QWidget *createDataQueryView( QWidget *parent );
+            QWidget *createDataQueryView(QWidget *parent);
 
         private Q_SLOTS:
-            void slotAddCommand( KUndo2Command *cmd );
+            void slotAddCommand(KUndo2Command *cmd);
 
         private:
             /// \internal d-pointer class.

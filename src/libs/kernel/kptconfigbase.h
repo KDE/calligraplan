@@ -36,19 +36,19 @@ public:
 
     void setReadWrite(bool readWrite) { m_readWrite = readWrite; }
     Task &taskDefaults() const {
-        const_cast<ConfigBase*>( this )->setDefaultValues( *m_taskDefaults );
+        const_cast<ConfigBase*>(this)->setDefaultValues(*m_taskDefaults);
         return *m_taskDefaults;
     }
 
-    void setTaskDefaults( Task * );
+    void setTaskDefaults(Task *);
 
-    virtual void setDefaultValues( Project & ) const {}
-    virtual void setDefaultValues( Task & ) {}
+    virtual void setDefaultValues(Project &) const {}
+    virtual void setDefaultValues(Task &) {}
     virtual QPair<int, int> durationUnitRange() const { return QPair<int, int>(); }
     virtual int minimumDurationUnit() const { return Duration::Unit_m; }
     virtual int maximumDurationUnit() const { return Duration::Unit_Y; }
 
-    QBrush summaryTaskLevelColor( int level ) const;
+    QBrush summaryTaskLevelColor(int level) const;
     virtual bool summaryTaskLevelColorsEnabled() const;
     virtual QBrush summaryTaskDefaultColor() const;
     virtual QBrush summaryTaskLevelColor_1() const;
@@ -78,7 +78,7 @@ public:
 
     virtual QStringList projectTemplatePaths() const { return QStringList(); }
 
-    static QBrush gradientBrush( const QColor &c );
+    static QBrush gradientBrush(const QColor &c);
 
 protected:
     bool m_readWrite;

@@ -36,16 +36,16 @@ public:
     KPlatoAboutPage();
     ~KPlatoAboutPage();
 
-    void generatePage( KHTMLPart &part, const QUrl &url );
+    void generatePage(KHTMLPart &part, const QUrl &url);
 
-    void setProject( Project *project ) { m_project = project; }
+    void setProject(Project *project) { m_project = project; }
 
 protected:
-    QString loadFile( const QString& file );
+    QString loadFile(const QString& file);
     QString main();
     QString intro();
     QString tips();
-    QString tutorial( const QString &header, const QString &text, const QString &nextpage, const QString &nexttext );
+    QString tutorial(const QString &header, const QString &text, const QString &nextpage, const QString &nexttext);
     QString tutorial1();
     QString tutorial2();
 

@@ -78,10 +78,10 @@ public:
     PredeccessorDelegate(Project *project, Node *task, QObject *parent);
     
 protected:
-    QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
-    void setEditorData( QWidget *editor, const QModelIndex &index ) const override;
-    void setModelData( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const override;
-    void updateEditorGeometry( QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
     Project *m_project;
@@ -94,10 +94,10 @@ public:
     TypeDelegate(QObject *parent);
     
 protected:
-    QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
-    void setEditorData( QWidget *editor, const QModelIndex &index ) const override;
-    void setModelData( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const override;
-    void updateEditorGeometry( QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 class LagDelegate : public BaseDelegate
@@ -106,10 +106,10 @@ public:
     LagDelegate(QObject *parent);
     
 protected:
-    QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
-    void setEditorData( QWidget *editor, const QModelIndex &index ) const override;
-    void setModelData( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const override;
-    void updateEditorGeometry( QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 

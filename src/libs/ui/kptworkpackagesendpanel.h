@@ -41,7 +41,7 @@ class PLANUI_EXPORT WorkPackageSendPanel : public QWidget, public Ui_WorkPackage
 {
     Q_OBJECT
 public:
-    explicit WorkPackageSendPanel( const QList<Node*> &tasks,  ScheduleManager *sm, QWidget *parent=0 );
+    explicit WorkPackageSendPanel(const QList<Node*> &tasks,  ScheduleManager *sm, QWidget *parent=0);
 
 Q_SIGNALS:
     void sendWorkpackages(const QList<KPlato::Node*>&, KPlato::Resource*, bool);

@@ -43,19 +43,19 @@ class PLANUI_EXPORT TaskEditorItemModel : public NodeItemModel
 {
     Q_OBJECT
 public:
-    explicit TaskEditorItemModel( QObject *parent = 0 );
+    explicit TaskEditorItemModel(QObject *parent = 0);
     
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
-    QVariant headerData( int section, Qt::Orientation orientation, int role ) const override;
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
-    bool setData( const QModelIndex & index, const QVariant &value, int role = Qt::EditRole ) override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
+    bool setData(const QModelIndex & index, const QVariant &value, int role = Qt::EditRole) override;
 
 public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
 protected:
-    QVariant type( const Node *node, int role ) const;
-    bool setType( Node *node, const QVariant &value, int role ) override;
+    QVariant type(const Node *node, int role) const;
+    bool setType(Node *node, const QVariant &value, int role) override;
 
 };
 
@@ -65,21 +65,21 @@ class PLANUI_EXPORT TaskEditorTreeView : public DoubleTreeViewBase
 public:
     explicit TaskEditorTreeView(QWidget *parent);
 
-    //void setSelectionModel( QItemSelectionModel *selectionModel );
+    //void setSelectionModel(QItemSelectionModel *selectionModel);
 
     NodeItemModel *baseModel() const;
-    NodeSortFilterProxyModel *proxyModel() const { return qobject_cast<NodeSortFilterProxyModel*>( model() ); }
+    NodeSortFilterProxyModel *proxyModel() const { return qobject_cast<NodeSortFilterProxyModel*>(model()); }
 
     Project *project() const { return baseModel()->project(); }
-    void setProject( Project *project ) { baseModel()->setProject( project ); }
+    void setProject(Project *project) { baseModel()->setProject(project); }
 
     void editPaste() override;
 
 Q_SIGNALS:
-    void currentColumnChanged( const QModelIndex&, const QModelIndex& );
+    void currentColumnChanged(const QModelIndex&, const QModelIndex&);
 
 protected Q_SLOTS:
-    void slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
+    void slotDropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event);
 };
 
 class PLANUI_EXPORT NodeTreeView : public DoubleTreeViewBase
@@ -88,19 +88,19 @@ class PLANUI_EXPORT NodeTreeView : public DoubleTreeViewBase
 public:
     explicit NodeTreeView(QWidget *parent);
 
-    //void setSelectionModel( QItemSelectionModel *selectionModel );
+    //void setSelectionModel(QItemSelectionModel *selectionModel);
 
     NodeItemModel *baseModel() const;
-    NodeSortFilterProxyModel *proxyModel() const { return qobject_cast<NodeSortFilterProxyModel*>( model() ); }
+    NodeSortFilterProxyModel *proxyModel() const { return qobject_cast<NodeSortFilterProxyModel*>(model()); }
 
     Project *project() const { return baseModel()->project(); }
-    void setProject( Project *project ) { baseModel()->setProject( project ); }
+    void setProject(Project *project) { baseModel()->setProject(project); }
     
 Q_SIGNALS:
-    void currentColumnChanged( const QModelIndex&, const QModelIndex& );
+    void currentColumnChanged(const QModelIndex&, const QModelIndex&);
 
 protected Q_SLOTS:
-    void slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
+    void slotDropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event);
 };
 
 class PLANUI_EXPORT TaskEditor : public ViewBase
@@ -110,7 +110,7 @@ public:
     TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     Project *project() const override { return m_view->project(); }
     void createDockers() override;
 
@@ -118,16 +118,16 @@ public:
     QList<Node*> selectedNodes() const ;
     Node *selectedNode() const;
 
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     NodeItemModel *baseModel() const { return m_view->baseModel(); }
     NodeSortFilterProxyModel *proxyModel() const { return m_view->proxyModel(); }
     QAbstractItemModel *model() const { return m_view->model(); }
 
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
 
     KoPrintJob *createPrintJob() override;
 
@@ -145,11 +145,11 @@ Q_SIGNALS:
     void unindentTask();
 
     void saveTaskModule(const QUrl &url, KPlato::Project *project);
-    void removeTaskModule( const QUrl &url );
+    void removeTaskModule(const QUrl &url);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
@@ -157,7 +157,7 @@ public Q_SLOTS:
     void slotEditPaste() override;
 
 protected:
-    void updateActionsEnabled( bool on );
+    void updateActionsEnabled(bool on);
     int selectedRowCount() const;
     QModelIndexList selectedRows() const;
     void editTasks(const QList<Task*> &tasks, const QPoint &pos);
@@ -167,8 +167,8 @@ protected Q_SLOTS:
     void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 private Q_SLOTS:
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex&, const QModelIndex& );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&, const QModelIndex&);
     void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos , const QModelIndexList &rows);
 
     void slotEnableActions();
@@ -185,12 +185,12 @@ private Q_SLOTS:
     void slotMoveTaskDown();
 
     void slotSplitView();
-    void slotProjectShown( bool );
+    void slotProjectShown(bool);
 
     void taskModuleDoubleClicked(QModelIndex idx);
 
 private:
-    void edit( const QModelIndex &index );
+    void edit(const QModelIndex &index);
 
 private:
     TaskEditorTreeView *m_view;
@@ -220,7 +220,7 @@ public:
 
     void setupGui();
     Project *project() const override { return m_view->project(); }
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
     void draw() override;
 
     NodeItemModel *baseModel() const { return m_view->baseModel(); }
@@ -230,12 +230,12 @@ public:
     QList<Node*> selectedNodes() const ;
     Node *selectedNode() const;
 
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
 
     KoPrintJob *createPrintJob() override;
     
@@ -244,13 +244,13 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void slotEditCopy() override;
 
 protected:
-    void updateActionsEnabled( bool on );
+    void updateActionsEnabled(bool on);
     int selectedNodeCount() const;
 
 protected Q_SLOTS:
@@ -258,9 +258,9 @@ protected Q_SLOTS:
     void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 private Q_SLOTS:
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex&, const QModelIndex& );
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&, const QModelIndex&);
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
 
     void slotEnableActions();
 
@@ -279,21 +279,21 @@ class WorkPackageTreeView : public DoubleTreeViewBase
 public:
     explicit WorkPackageTreeView(QWidget *parent);
 
-    //void setSelectionModel( QItemSelectionModel *selectionModel );
+    //void setSelectionModel(QItemSelectionModel *selectionModel);
 
     NodeItemModel *baseModel() const;
     WorkPackageProxyModel *proxyModel() const { return m; }
 
     Project *project() const { return baseModel()->project(); }
-    void setProject( Project *project ) { m->setProject( project ); }
+    void setProject(Project *project) { m->setProject(project); }
 
     ScheduleManager *scheduleManager() const { return baseModel()->manager(); }
 
 Q_SIGNALS:
-    void currentColumnChanged( const QModelIndex&, const QModelIndex& );
+    void currentColumnChanged(const QModelIndex&, const QModelIndex&);
 
 protected Q_SLOTS:
-    void slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
+    void slotDropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event);
 protected:
     WorkPackageProxyModel *m;
 };
@@ -306,7 +306,7 @@ public:
 
     void setupGui();
     Project *project() const override;
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     ScheduleManager *scheduleManager() const override { return m_view->scheduleManager(); }
 
     WorkPackageProxyModel *proxyModel() const;
@@ -315,12 +315,12 @@ public:
     QList<Node*> selectedNodes() const ;
     Node *selectedNode() const;
 
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
 
     KoPrintJob *createPrintJob() override;
 
@@ -333,14 +333,14 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
     void slotRefreshView() override;
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void slotEditCopy() override;
     void slotWorkpackagesAvailable(bool value);
 
 protected:
-    void updateActionsEnabled( bool on );
+    void updateActionsEnabled(bool on);
     int selectedNodeCount() const;
 
 protected Q_SLOTS:
@@ -350,9 +350,9 @@ protected Q_SLOTS:
     void slotLoadWorkPackage(QList<QString>);
 
 private Q_SLOTS:
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex&, const QModelIndex& );
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&, const QModelIndex&);
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     void itemDoubleClicked(const QPersistentModelIndex &idx);
 
     void slotEnableActions();

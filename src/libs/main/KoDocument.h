@@ -279,7 +279,7 @@ public:
 
     /**
      *  Tells the document that its title has been modified, either because
-     *  the modified status changes (this is done by setModified() ) or
+     *  the modified status changes (this is done by setModified()) or
      *  because the URL or the document-info's title changed.
      */
     void setTitleModified();
@@ -728,7 +728,7 @@ protected:
      *  url (using url().url()) before the filename, so that everything is kept relative
      *  to this document. For instance it will produce urls such as
      *  tar:/1/pictures/picture0.png, if the doc url is tar:/1
-     *  But do this ONLY if the document is not stored extern (see isStoredExtern() ).
+     *  But do this ONLY if the document is not stored extern (see isStoredExtern()).
      *  If it is, then the pictures should be saved to tar:/pictures.
      */
     virtual bool completeSaving(KoStore *store);
@@ -756,7 +756,7 @@ protected:
 public:
 
     QString localFilePath() const override;
-    void setLocalFilePath( const QString &localFilePath );
+    void setLocalFilePath(const QString &localFilePath);
 
     virtual KoDocumentInfoDlg* createDocumentInfoDialog(QWidget *parent, KoDocumentInfo *docInfo) const;
 
@@ -767,7 +767,7 @@ public:
 
     virtual bool closeUrl(bool promptToSave = true);
 
-    virtual bool saveAs( const QUrl &url );
+    virtual bool saveAs(const QUrl &url);
 
 public Q_SLOTS:
 
@@ -810,10 +810,10 @@ private:
     class Private;
     Private *const d;
 
-    Q_PRIVATE_SLOT(d, void _k_slotJobFinished( KJob * job ))
+    Q_PRIVATE_SLOT(d, void _k_slotJobFinished(KJob * job))
     Q_PRIVATE_SLOT(d, void _k_slotStatJobFinished(KJob*))
     Q_PRIVATE_SLOT(d, void _k_slotGotMimeType(KIO::Job *job, const QString &mime))
-    Q_PRIVATE_SLOT(d, void _k_slotUploadFinished( KJob * job ))
+    Q_PRIVATE_SLOT(d, void _k_slotUploadFinished(KJob * job))
 };
 
 Q_DECLARE_METATYPE(KoDocument*)

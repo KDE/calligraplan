@@ -45,7 +45,7 @@ int main(int /*argc*/, char ** /*argv*/)
     QList<KoDocumentEntry>::ConstIterator partEnd(parts.end());
 
     while (partIt != partEnd) {
-        //kDebug() << ( *partIt ).service()->desktopEntryName();
+        //kDebug() << (*partIt).service()->desktopEntryName();
         QJsonObject metaData = (*partIt).metaData();
         QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toString().split(',');
         nativeMimeTypes += metaData.value("X-KDE-NativeMimeType").toString();

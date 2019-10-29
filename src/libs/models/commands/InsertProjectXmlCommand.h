@@ -41,7 +41,7 @@ class Node;
 class PLANMODELS_EXPORT AddTaskCommand : public NamedCommand
 {
 public:
-    AddTaskCommand( Project *project, Node *parent, Node *node, Node *after, const KUndo2MagicString& name = KUndo2MagicString() );
+    AddTaskCommand(Project *project, Node *parent, Node *node, Node *after, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddTaskCommand() override;
     void execute() override;
     void unexecute() override;

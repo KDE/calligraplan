@@ -42,11 +42,11 @@ using namespace KPlatoWork;
 TaskCompletionDialog::TaskCompletionDialog(WorkPackage &package, ScheduleManager *sm, QWidget *parent)
     : KoDialog(parent)
 {
-    setCaption(i18n("Task Progress") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
-    m_panel = new TaskCompletionPanel( package, sm, this);
+    setCaption(i18n("Task Progress"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
+    m_panel = new TaskCompletionPanel(package, sm, this);
 
     setMainWidget(m_panel);
 
@@ -55,9 +55,9 @@ TaskCompletionDialog::TaskCompletionDialog(WorkPackage &package, ScheduleManager
     connect(m_panel, &TaskCompletionPanel::changed, this, &TaskCompletionDialog::slotChanged);
 }
 
-void TaskCompletionDialog::slotChanged( bool state )
+void TaskCompletionDialog::slotChanged(bool state)
 {
-    enableButtonOk( state );
+    enableButtonOk(state);
 }
 
 KUndo2Command *TaskCompletionDialog::buildCommand()
@@ -99,6 +99,6 @@ KUndo2Command *TaskCompletionPanel::buildCommand()
 
 void TaskCompletionPanel::slotChanged()
 {
-    emit changed( true ); //FIXME
+    emit changed(true); //FIXME
 }
 

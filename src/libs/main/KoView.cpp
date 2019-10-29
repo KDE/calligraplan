@@ -246,7 +246,7 @@ void KoView::dropEvent(QDropEvent *event)
             // make sure we download the files before inserting them
             if (!kurl.isLocalFile()) {
                 QString tmpFile;
-                if( KIO::NetAccess::download(kurl, tmpFile, this)) {
+                if(KIO::NetAccess::download(kurl, tmpFile, this)) {
                     image.load(tmpFile);
                     KIO::NetAccess::removeTempFile(tmpFile);
                 } else {
@@ -356,7 +356,7 @@ void KoView::setupGlobalActions()
 
 void KoView::changeAuthorProfile(const QString &profileName)
 {
-    KConfigGroup appAuthorGroup( KSharedConfig::openConfig(), "Author");
+    KConfigGroup appAuthorGroup(KSharedConfig::openConfig(), "Author");
     if (profileName.isEmpty()) {
         appAuthorGroup.writeEntry("active-profile", "");
     } else if (profileName == i18nc("choice for author profile", "Anonymous")) {
@@ -421,7 +421,7 @@ void KoView::slotUpdateAuthorProfileActions()
         d->actionAuthor->addAction(profile);
     }
 
-    KConfigGroup appAuthorGroup( KSharedConfig::openConfig(), "Author");
+    KConfigGroup appAuthorGroup(KSharedConfig::openConfig(), "Author");
     QString profileName = appAuthorGroup.readEntry("active-profile", "");
     if (profileName == "anonymous") {
         d->actionAuthor->setCurrentItem(1);

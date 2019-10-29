@@ -64,7 +64,7 @@ void rcps_problem_setfitness_mode(struct rcps_problem *problem, int mode);
 /* holds the result of the fitness calculation for a problem or job */
 #define FITNESS_MAX_GROUP	9999	/* the maximum fitness group allowed */
 struct rcps_fitness {
-    int group;	/* the group this weight belongs to ( less is better) */
+    int group;	/* the group this weight belongs to (less is better) */
     int weight;	/* the weight (less is better) */
 };
 /* compare two fitness values */

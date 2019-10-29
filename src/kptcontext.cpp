@@ -30,7 +30,7 @@ namespace KPlato
 Context::Context()
     : currentEstimateType(0),
       currentSchedule(0),
-      m_contextLoaded( false )
+      m_contextLoaded(false)
 {
     ganttview.ganttviewsize = -1;
     ganttview.taskviewsize = -1;
@@ -49,54 +49,54 @@ const KoXmlElement &Context::context() const
     return m_context;
 }
 
-bool Context::setContent( const QString &str )
+bool Context::setContent(const QString &str)
 {
     KoXmlDocument doc;
-    if ( doc.setContent( str ) ) {
-        return load( doc );
+    if (doc.setContent(str)) {
+        return load(doc);
     }
     return false;
 }
 
 QDomDocument Context::document() const
 {
-    QDomDocument document( "plan.context" );
+    QDomDocument document("plan.context");
 
-    document.appendChild( document.createProcessingInstruction(
+    document.appendChild(document.createProcessingInstruction(
         "xml",
-        "version=\"1.0\" encoding=\"UTF-8\"" ) );
+        "version=\"1.0\" encoding=\"UTF-8\""));
 
     KoXml::asQDomElement(document, m_document.documentElement());
     return document;
 }
 
-bool Context::load( const KoXmlDocument &document ) {
+bool Context::load(const KoXmlDocument &document) {
     m_document = document; // create a copy, document is deleted under our feet
 
     // Check if this is the right app
     KoXmlElement elm = m_document.documentElement();
-    QString value = elm.attribute( "mime", QString() );
-    if ( value.isEmpty() ) {
+    QString value = elm.attribute("mime", QString());
+    if (value.isEmpty()) {
         errorPlan << "No mime type specified!";
-//        setErrorMessage( i18n( "Invalid document. No mimetype specified." ) );
+//        setErrorMessage(i18n("Invalid document. No mimetype specified."));
         return false;
-    } else if ( value != "application/x-vnd.kde.plan" ) {
-        if ( value == "application/x-vnd.kde.kplato" ) {
+    } else if (value != "application/x-vnd.kde.plan") {
+        if (value == "application/x-vnd.kde.kplato") {
             // accept, since we forgot to change kplato to plan for so long...
         } else {
             errorPlan << "Unknown mime type " << value;
-//        setErrorMessage( i18n( "Invalid document. Expected mimetype application/x-vnd.kde.kplato, got %1", value ) );
+//        setErrorMessage(i18n("Invalid document. Expected mimetype application/x-vnd.kde.kplato, got %1", value));
             return false;
         }
     }
-/*    QString m_syntaxVersion = elm.attribute( "version", "0.0" );
-    if ( m_syntaxVersion > "0.0" ) {
+/*    QString m_syntaxVersion = elm.attribute("version", "0.0");
+    if (m_syntaxVersion > "0.0") {
         KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
-                      0, i18n( "This document was created with a newer version of Plan (syntax version: %1)\n"
-                               "Opening it in this version of Plan will lose some information.", m_syntaxVersion ),
-                      i18n( "File-Format Mismatch" ), KGuiItem( i18n( "Continue" ) ) );
-        if ( ret == KMessageBox::Cancel ) {
-            setErrorMessage( "USER_CANCELED" );
+                      0, i18n("This document was created with a newer version of Plan (syntax version: %1)\n"
+                               "Opening it in this version of Plan will lose some information.", m_syntaxVersion),
+                      i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
+        if (ret == KMessageBox::Cancel) {
+            setErrorMessage("USER_CANCELED");
             return false;
         }
     }
@@ -109,12 +109,12 @@ bool Context::load( const KoXmlDocument &document ) {
 #endif
 */
     KoXmlNode n = elm.firstChild();
-    for ( ; ! n.isNull(); n = n.nextSibling() ) {
-        if ( ! n.isElement() ) {
+    for (; ! n.isNull(); n = n.nextSibling()) {
+        if (! n.isElement()) {
             continue;
         }
         KoXmlElement element = n.toElement();
-        if ( element.tagName() == "context" ) {
+        if (element.tagName() == "context") {
             m_context = element;
             m_contextLoaded = true;
         }
@@ -122,22 +122,22 @@ bool Context::load( const KoXmlDocument &document ) {
     return true;
 }
 
-QDomDocument Context::save( const View *view ) const {
-    QDomDocument document( "plan.context" );
+QDomDocument Context::save(const View *view) const {
+    QDomDocument document("plan.context");
 
-    document.appendChild( document.createProcessingInstruction(
+    document.appendChild(document.createProcessingInstruction(
                               "xml",
-                              "version=\"1.0\" encoding=\"UTF-8\"" ) );
+                              "version=\"1.0\" encoding=\"UTF-8\""));
 
-    QDomElement doc = document.createElement( "context" );
-    doc.setAttribute( "editor", "Plan" );
-    doc.setAttribute( "mime", "application/x-vnd.kde.plan" );
-    doc.setAttribute( "version", QString::number(0.0) );
-    document.appendChild( doc );
+    QDomElement doc = document.createElement("context");
+    doc.setAttribute("editor", "Plan");
+    doc.setAttribute("mime", "application/x-vnd.kde.plan");
+    doc.setAttribute("version", QString::number(0.0));
+    document.appendChild(doc);
 
     QDomElement e = doc.ownerDocument().createElement("context");
-    doc.appendChild( e );
-    view->saveContext( e );
+    doc.appendChild(e);
+    view->saveContext(e);
 
     return document;
 }

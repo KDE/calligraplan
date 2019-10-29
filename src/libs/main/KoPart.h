@@ -70,7 +70,7 @@ public:
     ~KoPart() override;
 
     /**
-     * @return The componentData ( KoComponentData ) for this GUI client. You set the componentdata
+     * @return The componentData (KoComponentData) for this GUI client. You set the componentdata
      * in your subclass: setComponentData(AppFactory::componentData()); in the constructor
      */
     KoComponentData componentData() const;

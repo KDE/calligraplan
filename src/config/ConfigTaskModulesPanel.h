@@ -37,7 +37,7 @@ class PLAN_EXPORT ConfigTaskModulesPanel : public QWidget
     Q_PROPERTY(bool hasChanged READ hasChanged)
 
 public:
-    explicit ConfigTaskModulesPanel( QWidget *parent=nullptr );
+    explicit ConfigTaskModulesPanel(QWidget *parent=nullptr);
 
     QStringListModel model;
     Ui::ConfigTaskModulesPanel ui;

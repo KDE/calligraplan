@@ -95,18 +95,18 @@ public:
      */
     void addDays(qint64 delta) { addHours(delta * 24); }
 
-    bool   operator==( KPlato::Duration d ) const { return m_ms == d.m_ms; }
-    bool   operator==( qint64 d ) const { return m_ms == d; }
-    bool   operator!=( KPlato::Duration d ) const { return m_ms != d.m_ms; }
-    bool   operator!=( qint64 d ) const { return m_ms != d; }
-    bool   operator<( KPlato::Duration d ) const { return m_ms < d.m_ms; }
-    bool   operator<( qint64 d ) const { return m_ms < d; }
-    bool   operator<=( KPlato::Duration d ) const { return m_ms <= d.m_ms; }
-    bool   operator<=( qint64 d ) const { return m_ms <= d; }
-    bool   operator>( KPlato::Duration d ) const { return m_ms > d.m_ms; }
-    bool   operator>( qint64 d ) const { return m_ms > d; }
-    bool   operator>=( KPlato::Duration d ) const { return m_ms >= d.m_ms; }
-    bool   operator>=( qint64 d ) const { return m_ms >= d; }
+    bool   operator==(KPlato::Duration d) const { return m_ms == d.m_ms; }
+    bool   operator==(qint64 d) const { return m_ms == d; }
+    bool   operator!=(KPlato::Duration d) const { return m_ms != d.m_ms; }
+    bool   operator!=(qint64 d) const { return m_ms != d; }
+    bool   operator<(KPlato::Duration d) const { return m_ms < d.m_ms; }
+    bool   operator<(qint64 d) const { return m_ms < d; }
+    bool   operator<=(KPlato::Duration d) const { return m_ms <= d.m_ms; }
+    bool   operator<=(qint64 d) const { return m_ms <= d; }
+    bool   operator>(KPlato::Duration d) const { return m_ms > d.m_ms; }
+    bool   operator>(qint64 d) const { return m_ms > d; }
+    bool   operator>=(KPlato::Duration d) const { return m_ms >= d.m_ms; }
+    bool   operator>=(qint64 d) const { return m_ms >= d; }
     Duration operator*(int value) const; 
     Duration operator*(const double value) const;
     Duration operator*(const Duration value) const;
@@ -126,7 +126,7 @@ public:
     Duration &operator-=(KPlato::Duration d) {subtract(d); return *this; }
 
     /// Format duration into a string with @p unit and @p precision.
-    QString format( Unit unit = Unit_h, int precision = 1 ) const;
+    QString format(Unit unit = Unit_h, int precision = 1) const;
     /// Convert duration to a string with @p format
     QString toString(Format format = Format_DayTime) const;
     /// Create a duration from string @p s with @p format
@@ -137,16 +137,16 @@ public:
     /**
      * Converts Duration into a double and scales it to unit @p u (default unit is hours)
      */
-    double toDouble( Unit u = Unit_h ) const;
+    double toDouble(Unit u = Unit_h) const;
 
     /// Return the list of units. Translated if @p trans is true.
-    static QStringList unitList( bool trans = false );
+    static QStringList unitList(bool trans = false);
     /// Return @p unit in human readable form. Translated if @p trans is true.
-    static QString unitToString( Duration::Unit unit, bool trans = false );
+    static QString unitToString(Duration::Unit unit, bool trans = false);
     /// Convert @p unit name into Unit
-    static Unit unitFromString( const QString &unit );
+    static Unit unitFromString(const QString &unit);
     /// Returns value and unit from a @<value@>@<unit@> coded string in @p rv and @p unit.
-    static bool valueFromString( const QString &value, double &rv, Unit &unit );
+    static bool valueFromString(const QString &value, double &rv, Unit &unit);
     /**
      * This is useful for occasions where we need a zero duration.
      */

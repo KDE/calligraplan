@@ -455,7 +455,7 @@ QStringList KoFilterManager::mimeFilter()
     QHash<QByteArray, Vertex*> vertices;
     buildGraph(vertices, KoFilterManager::Import);
 
-    QList<KoDocumentEntry> parts(KoDocumentEntry::query( QString()));
+    QList<KoDocumentEntry> parts(KoDocumentEntry::query(QString()));
     QList<KoDocumentEntry>::ConstIterator partIt(parts.constBegin());
     QList<KoDocumentEntry>::ConstIterator partEnd(parts.constEnd());
 
@@ -504,12 +504,12 @@ bool KoFilterManager::filterAvailable(KoFilterEntry::Ptr entry)
 #if 1
         return true;
 #else
-    //kDebug( 30500 ) <<"Checking whether" << entry->service()->name() <<" applies.";
+    //kDebug(30500) <<"Checking whether" << entry->service()->name() <<" applies.";
     // generate some "unique" key
     QString key = entry->service()->name() + " - " + entry->service()->library();
 
     if (!m_filterAvailable.contains(key)) {
-        //kDebug( 30500 ) <<"Not cached, checking...";
+        //kDebug(30500) <<"Not cached, checking...";
 
         KLibrary library(QFile::encodeName(entry->service()->library()));
         if (library.fileName().isEmpty()) {

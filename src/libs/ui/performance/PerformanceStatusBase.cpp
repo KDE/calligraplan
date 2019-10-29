@@ -384,7 +384,7 @@ void PerformanceStatusBase::setupChart(ChartContents &cc)
             erc << 6 << 7 << 8 << 9;
             ezc << 6 << 7 << 8 << 9;
             // if cost is shown don't return a cost value or else it goes into the effort axis scale calculation
-            //cc.effortproxy.setZeroColumns(info.showCost ? QList<int>() << 0 << 1 << 2 : QList<int>() << 3 << 4 << 5 );
+            //cc.effortproxy.setZeroColumns(info.showCost ? QList<int>() << 0 << 1 << 2 : QList<int>() << 3 << 4 << 5);
             cc.effortaxis->setPosition(info.showCost ? CartesianAxis::Right : CartesianAxis::Left);
             ui_chart->addCoordinatePlane(cc.effortplane);
 

@@ -43,11 +43,11 @@ public:
     { }
     ~TjMessageHandler() override { }
 
-    void warningMessage( const QString& msg, const CoreAttributes *object = 0 );
+    void warningMessage(const QString& msg, const CoreAttributes *object = 0);
     void warningMessage(const QString& msg, const QString& file,
                         int line = -1);
 
-    void errorMessage(const QString& msg, const CoreAttributes *object = 0 );
+    void errorMessage(const QString& msg, const CoreAttributes *object = 0);
     void errorMessage(const QString& msg, const QString& file,
                       int line = -1);
 
@@ -59,33 +59,33 @@ public:
     void resetCounters() { warnings = errors = infos = debugs = 0; }
     void reset() { resetCounters(); messages.clear(); }
 
-    bool isWarning( int messagePos ) const { return warningPositions.contains( messagePos ); }
+    bool isWarning(int messagePos) const { return warningPositions.contains(messagePos); }
     int getWarnings() const { return warnings; }
-    QString getWarningMessage( int pos ) const { return getMessage( warningPositions.value( pos ) ); }
+    QString getWarningMessage(int pos) const { return getMessage(warningPositions.value(pos) ); }
 
-    bool isError( int messagePos ) const { return errorPositions.contains( messagePos ); }
+    bool isError(int messagePos) const { return errorPositions.contains(messagePos); }
     int getErrors() const { return errors; }
-    QString getErrorMessage( int pos ) const { return getMessage( errorPositions.value( pos ) ); }
+    QString getErrorMessage(int pos) const { return getMessage(errorPositions.value(pos) ); }
 
-    bool isInfo( int messagePos ) const { return infoPositions.contains( messagePos ); }
-    void infoMessage( const QString &msg, const CoreAttributes *object = 0 );
+    bool isInfo(int messagePos) const { return infoPositions.contains(messagePos); }
+    void infoMessage(const QString &msg, const CoreAttributes *object = 0);
     int getInfos() const { return infos; }
-    QString getInfoMessage( int pos ) const { return getMessage( infoPositions.value( pos ) ); }
+    QString getInfoMessage(int pos) const { return getMessage(infoPositions.value(pos) ); }
 
-    bool isDebug( int messagePos ) const { return debugPositions.contains( messagePos ); }
-    void debugMessage( const QString &msg, const CoreAttributes *object = 0 );
+    bool isDebug(int messagePos) const { return debugPositions.contains(messagePos); }
+    void debugMessage(const QString &msg, const CoreAttributes *object = 0);
     int getDebugs() const { return debugs; }
-    QString getDebugMessage( int pos ) const { return getMessage( debugPositions.value( pos ) ); }
+    QString getDebugMessage(int pos) const { return getMessage(debugPositions.value(pos) ); }
 
     int getMessageCount() const { return messages.count(); }
-    QString getMessage( int pos ) const { return messages.value( pos ); }
+    QString getMessage(int pos) const { return messages.value(pos); }
 
 Q_SIGNALS:
     void printWarning(const QString& msg, const QString& file, int line);
     void printError(const QString& msg, const QString& file, int line);
     void printFatal(const QString& msg, const QString& file, int line);
 
-    void message( int type, const QString &msg, TJ::CoreAttributes *object );
+    void message(int type, const QString &msg, TJ::CoreAttributes *object);
 
 private:
     bool consoleMode;

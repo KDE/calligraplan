@@ -51,7 +51,7 @@ static QString UtilityError;
 class LtHashTabEntry
 {
 public:
-    LtHashTabEntry() : tms( 0 ), next( 0 ) {}
+    LtHashTabEntry() : tms(0), next(0) {}
     ~LtHashTabEntry() { /*qDebug()<<"~LtHashTabEntry";*/ delete tms; }
     time_t t;
     struct tm* tms;
@@ -169,7 +169,7 @@ void exitUtility()
 
     qDebug()<<"exitUtility:"<<LTHASHTABSIZE;
     for (long i = 0; i < LTHASHTABSIZE; ++i)
-        for (LtHashTabEntry* htep = LtHashTab[i]; htep; )
+        for (LtHashTabEntry* htep = LtHashTab[i]; htep;)
         {
             LtHashTabEntry* tmp = htep->next;
             delete htep;
@@ -207,7 +207,7 @@ setTimezone(const char* tZone)
         return true;
     for (long i = 0; i < LTHASHTABSIZE; ++i)
     {
-        for (LtHashTabEntry* htep = LtHashTab[i]; htep; )
+        for (LtHashTabEntry* htep = LtHashTab[i]; htep;)
         {
             LtHashTabEntry* tmp = htep->next;
             delete htep->tms;
@@ -283,7 +283,7 @@ daysLeftInMonth(time_t t)
 {
     int left = 0;
     const struct tm* tms = clocaltime(&t);
-    for (int m = tms->tm_mon; tms->tm_mon == m; )
+    for (int m = tms->tm_mon; tms->tm_mon == m;)
     {
         left++;
         t = sameTimeNextDay(t);
@@ -297,7 +297,7 @@ weeksLeftInMonth(time_t t)
 {
     int left = 0;
     const struct tm* tms = clocaltime(&t);
-    for (int m = tms->tm_mon; tms->tm_mon == m; )
+    for (int m = tms->tm_mon; tms->tm_mon == m;)
     {
         left++;
         t = sameTimeNextWeek(t);
@@ -311,7 +311,7 @@ monthLeftInYear(time_t t)
 {
     int left = 0;
     const struct tm* tms = clocaltime(&t);
-    for (int m = tms->tm_year; tms->tm_year == m; )
+    for (int m = tms->tm_year; tms->tm_year == m;)
     {
         left++;
         t = sameTimeNextMonth(t);
@@ -325,7 +325,7 @@ quartersLeftInYear(time_t t)
 {
     int left = 0;
     const struct tm* tms = clocaltime(&t);
-    for (int m = tms->tm_year; tms->tm_year == m; )
+    for (int m = tms->tm_year; tms->tm_year == m;)
     {
         left++;
         t = sameTimeNextQuarter(t);
@@ -568,7 +568,7 @@ time_t
 beginOfWeek(time_t t, bool beginOnMonday)
 {
     const struct tm* tms;
-    for (tms = clocaltime(&t) ; tms->tm_wday != (beginOnMonday ? 1 : 0); )
+    for (tms = clocaltime(&t) ; tms->tm_wday != (beginOnMonday ? 1 : 0);)
     {
         t = sameTimeYesterday(t);
         tms = clocaltime(&t);

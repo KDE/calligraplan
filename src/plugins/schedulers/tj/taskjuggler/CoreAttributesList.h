@@ -112,7 +112,7 @@ template<class TL, class T> int compareTreeItemsT(TL* list, T* c1, T* c2)
 
     QList<T*> cl1, cl2;
     int res1 = 0;
-    for ( ; c1 || c2; )
+    for (; c1 || c2;)
     {
         if (c1)
         {
@@ -150,6 +150,6 @@ template<class TL, class T> int compareTreeItemsT(TL* list, T* c1, T* c2)
 
 } // namespace TJ
 
-PLANTJ_EXPORT QDebug operator<<( QDebug dbg, const TJ::CoreAttributesList& lst );
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::CoreAttributesList& lst);
 
 #endif

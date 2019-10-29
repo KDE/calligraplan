@@ -46,16 +46,16 @@
 using namespace KPlato;
 
 
-WorkPackageMergePanel::WorkPackageMergePanel( QWidget *parent )
-    : QWidget( parent )
+WorkPackageMergePanel::WorkPackageMergePanel(QWidget *parent)
+    : QWidget(parent)
 {
-    setupUi( this );
+    setupUi(this);
 }
 
-WorkPackageMergeDialog::WorkPackageMergeDialog(Project *project, const QMap<QDateTime, Package*> &list, QWidget *parent )
-    : KoDialog( parent )
+WorkPackageMergeDialog::WorkPackageMergeDialog(Project *project, const QMap<QDateTime, Package*> &list, QWidget *parent)
+    : KoDialog(parent)
     , m_project(project)
-    , m_packages( list.values() )
+    , m_packages(list.values())
     , m_currentPackage(-1)
     , m_cmd(nullptr)
     , m_progressPanel(nullptr)
@@ -139,7 +139,7 @@ void WorkPackageMergeDialog::gotoProgress()
     Q_ASSERT(package);
     if (package) {
         delete m_progressPanel;
-        m_progressPanel = new TaskProgressPanel( *(package->toTask), nullptr, nullptr, panel.ui_stackedWidget );
+        m_progressPanel = new TaskProgressPanel(*(package->toTask), nullptr, nullptr, panel.ui_stackedWidget);
         panel.ui_progressLayout->addWidget(m_progressPanel);
         setPage(panel.ui_progressPage);
     } else {
@@ -344,30 +344,30 @@ void WorkPackageMergeDialog::acceptPackage(const Package *package)
     Task *to = package->toTask;
     const Task *from = package->task;
 
-    Resource *resource = m_project->findResource( package->ownerId );
-    if ( resource == 0 ) {
-        KMessageBox::error( 0, i18n( "The package owner '%1' is not a resource in this project. You must handle this manually.", package->ownerName ) );
+    Resource *resource = m_project->findResource(package->ownerId);
+    if (resource == 0) {
+        KMessageBox::error(0, i18n("The package owner '%1' is not a resource in this project. You must handle this manually.", package->ownerName));
         return;
     }
 
-    m_cmd = new MacroCommand( kundo2_noi18n("Merge workpackage") );
+    m_cmd = new MacroCommand(kundo2_noi18n("Merge workpackage"));
     Completion &org = to->completion();
     const Completion &curr = from->completion();
 
     if (updateStarted()) {
-        if ( org.isStarted() != curr.isStarted() ) {
-            m_cmd->addCommand( new ModifyCompletionStartedCmd(org, curr.isStarted() ) );
+        if (org.isStarted() != curr.isStarted()) {
+            m_cmd->addCommand(new ModifyCompletionStartedCmd(org, curr.isStarted()));
         }
-        if ( org.startTime() != curr.startTime() ) {
-            m_cmd->addCommand( new ModifyCompletionStartTimeCmd( org, curr.startTime() ) );
+        if (org.startTime() != curr.startTime()) {
+            m_cmd->addCommand(new ModifyCompletionStartTimeCmd(org, curr.startTime()));
         }
     }
     if (updateFinished()) {
-        if ( org.isFinished() != curr.isFinished() ) {
-            m_cmd->addCommand( new ModifyCompletionFinishedCmd( org, curr.isFinished() ) );
+        if (org.isFinished() != curr.isFinished()) {
+            m_cmd->addCommand(new ModifyCompletionFinishedCmd(org, curr.isFinished()));
         }
-        if ( org.finishTime() != curr.finishTime() ) {
-            m_cmd->addCommand( new ModifyCompletionFinishTimeCmd( org, curr.finishTime() ) );
+        if (org.finishTime() != curr.finishTime()) {
+            m_cmd->addCommand(new ModifyCompletionFinishTimeCmd(org, curr.finishTime()));
         }
     }
     bool docsaved = false;
@@ -375,10 +375,10 @@ void WorkPackageMergeDialog::acceptPackage(const Package *package)
         //TODO: handle remote files
         QMap<QString, QUrl>::const_iterator it = package->documents.constBegin();
         QMap<QString, QUrl>::const_iterator end = package->documents.constEnd();
-        for ( ; it != end; ++it ) {
+        for (; it != end; ++it) {
             const QUrl src = QUrl::fromLocalFile(it.key());
-            KIO::CopyJob *job = KIO::move( src, it.value(), KIO::Overwrite );
-            if ( job->exec() ) {
+            KIO::CopyJob *job = KIO::move(src, it.value(), KIO::Overwrite);
+            if (job->exec()) {
                 docsaved = true;
                 //TODO: async
                 debugPlan<<"Moved file:"<<src<<it.value();
@@ -417,16 +417,16 @@ void WorkPackageMergeDialog::acceptPackage(const Package *package)
             m_cmd->addCommand(new AddCompletionActualEffortCmd(*ue, d, Completion::UsedEffort::ActualEffort(usedEffort(r), Duration::zeroDuration)));
         }
     }
-    if ( ! docsaved && m_cmd->isEmpty() ) {
-        //KMessageBox::information( 0, i18n( "Nothing to save from this package" ) );
+    if (! docsaved && m_cmd->isEmpty()) {
+        //KMessageBox::information(0, i18n("Nothing to save from this package"));
     }
     // add a copy to our tasks list of transmitted packages
-    WorkPackage *wp = new WorkPackage( from->workPackage() );
-    wp->setParentTask( to );
-    if ( ! wp->transmitionTime().isValid() ) {
-        wp->setTransmitionTime( package->timeTag );
+    WorkPackage *wp = new WorkPackage(from->workPackage());
+    wp->setParentTask(to);
+    if (! wp->transmitionTime().isValid()) {
+        wp->setTransmitionTime(package->timeTag);
     }
-    wp->setTransmitionStatus( WorkPackage::TS_Receive );
+    wp->setTransmitionStatus(WorkPackage::TS_Receive);
 
     m_cmd->addCommand(new WorkPackageAddCmd(m_project, to, wp));
     m_cmd->redo();

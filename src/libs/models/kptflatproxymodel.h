@@ -48,19 +48,19 @@ class PLANMODELS_EXPORT FlatProxyModel : public QAbstractProxyModel
 public:
     explicit FlatProxyModel(QObject *parent = 0);
 
-    QModelIndex mapFromSource ( const QModelIndex & sourceIndex ) const override;
-    QItemSelection mapSelectionFromSource ( const QItemSelection & sourceSelection ) const override;
-    QItemSelection mapSelectionToSource ( const QItemSelection & proxySelection ) const override;
-    QModelIndex mapToSource ( const QModelIndex & proxyIndex ) const override;
-    void setSourceModel ( QAbstractItemModel * sourceModel ) override;
+    QModelIndex mapFromSource (const QModelIndex & sourceIndex) const override;
+    QItemSelection mapSelectionFromSource (const QItemSelection & sourceSelection) const override;
+    QItemSelection mapSelectionToSource (const QItemSelection & proxySelection) const override;
+    QModelIndex mapToSource (const QModelIndex & proxyIndex) const override;
+    void setSourceModel (QAbstractItemModel * sourceModel) override;
 
-    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
     QModelIndex parent(const QModelIndex &child) const override;
-    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
-    int columnCount(const QModelIndex &parent  = QModelIndex() ) const override;
-    bool hasChildren(const QModelIndex &parent = QModelIndex() ) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole ) const override;
-    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent  = QModelIndex()) const override;
+    bool hasChildren(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role = Qt::EditRole) override;
@@ -93,17 +93,17 @@ public Q_SLOTS:
     void sourceRowsRemoved(const QModelIndex &source_parent,
                               int start, int end);
 
-    void sourceRowsAboutToBeMoved( const QModelIndex &source_parent,
-                                  int start, int end, const QModelIndex &destParent, int destStart );
-    void sourceRowsMoved( const QModelIndex &source_parent,
-                                  int start, int end, const QModelIndex &destParent, int destStart );
+    void sourceRowsAboutToBeMoved(const QModelIndex &source_parent,
+                                  int start, int end, const QModelIndex &destParent, int destStart);
+    void sourceRowsMoved(const QModelIndex &source_parent,
+                                  int start, int end, const QModelIndex &destParent, int destStart);
 
 protected:
-    int mapFromSourceRow( const QModelIndex & sourceIndex ) const;
-    int mapToSourceRow( const  QModelIndex & sourceIndex ) const;
+    int mapFromSourceRow(const QModelIndex & sourceIndex) const;
+    int mapToSourceRow(const  QModelIndex & sourceIndex) const;
 
 private Q_SLOTS:
-    void initiateMaps( const QModelIndex &sourceParent = QModelIndex() );
+    void initiateMaps(const QModelIndex &sourceParent = QModelIndex());
     void sourceModelDestroyed();
     
 private:

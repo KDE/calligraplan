@@ -51,7 +51,7 @@ public:
     /**
      * Get the styles
      *
-     * To get a usable result loadAndParse( QString ) has to be called first.
+     * To get a usable result loadAndParse(QString) has to be called first.
      *
      * @return styles
      */
@@ -60,7 +60,7 @@ public:
     /**
      * Get the content document
      *
-     * To get a usable result loadAndParse( QString ) has to be called first.
+     * To get a usable result loadAndParse(QString) has to be called first.
      *
      * This gives you the content of the content.xml file
      */
@@ -69,7 +69,7 @@ public:
     /**
      * Get the settings document
      *
-     * To get a usable result loadAndParse( QString ) has to be called first.
+     * To get a usable result loadAndParse(QString) has to be called first.
      *
      * This gives you the content of the settings.xml file
      */

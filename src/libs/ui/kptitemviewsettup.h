@@ -42,20 +42,20 @@ class PLANUI_EXPORT ItemViewSettup : public QWidget, public Ui::ItemViewSettings
 {
     Q_OBJECT
 public:
-    explicit ItemViewSettup( TreeViewBase *view, bool includeColumn0, QWidget *parent = 0 );
+    explicit ItemViewSettup(TreeViewBase *view, bool includeColumn0, QWidget *parent = 0);
     
     class Item : public QListWidgetItem
     {
     public:
-        Item( int column, const QString &text );
+        Item(int column, const QString &text);
         int column() const;
-        bool operator<( const QListWidgetItem & other ) const override;
+        bool operator<(const QListWidgetItem & other) const override;
     private:
         int m_column;
     };
     
 Q_SIGNALS:
-    void enableButtonOk( bool );
+    void enableButtonOk(bool);
     
 public Q_SLOTS:
     void slotChanged();
@@ -71,9 +71,9 @@ class PLANUI_EXPORT ItemViewSettupDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit ItemViewSettupDialog( ViewBase *view, TreeViewBase *treeview, bool includeColumn0 = false, QWidget *parent = 0 );
+    explicit ItemViewSettupDialog(ViewBase *view, TreeViewBase *treeview, bool includeColumn0 = false, QWidget *parent = 0);
 
-    KPageWidgetItem *insertWidget( int before, QWidget *widget, const QString &name, const QString &header );
+    KPageWidgetItem *insertWidget(int before, QWidget *widget, const QString &name, const QString &header);
     void addPrintingOptions(bool setAsCurrent = false);
 
 protected Q_SLOTS:
@@ -92,9 +92,9 @@ class PLANUI_EXPORT SplitItemViewSettupDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit SplitItemViewSettupDialog( ViewBase *view, DoubleTreeViewBase *treeview, QWidget *parent = 0 );
+    explicit SplitItemViewSettupDialog(ViewBase *view, DoubleTreeViewBase *treeview, QWidget *parent = 0);
 
-    KPageWidgetItem *insertWidget( int before, QWidget *widget, const QString &name, const QString &header );
+    KPageWidgetItem *insertWidget(int before, QWidget *widget, const QString &name, const QString &header);
     void addPrintingOptions(bool setAsCurrent = false);
 
 protected Q_SLOTS:

@@ -44,24 +44,24 @@ class PLANUI_EXPORT AccountsTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
-    explicit AccountsTreeView( QWidget *parent = 0 );
+    explicit AccountsTreeView(QWidget *parent = 0);
     
     CostBreakdownItemModel *model() const;
     
     bool cumulative() const;
-    void setCumulative( bool on );
+    void setCumulative(bool on);
     int periodType() const;
-    void setPeriodType( int period );
+    void setPeriodType(int period);
     int startMode() const;
-    void setStartMode( int mode );
+    void setStartMode(int mode);
     int endMode() const;
-    void setEndMode( int mode );
+    void setEndMode(int mode);
     QDate startDate() const;
-    void setStartDate( const QDate &date );
+    void setStartDate(const QDate &date);
     QDate endDate() const;
-    void setEndDate( const QDate &date );
+    void setEndDate(const QDate &date);
     int showMode() const;
-    void setShowMode( int show );
+    void setShowMode(int show);
 
 protected Q_SLOTS:
     void slotModelReset();
@@ -79,11 +79,11 @@ public:
     //~AccountsView();
     void setupGui();
     Project *project() const override { return m_project; }
-    virtual void setZoom( double zoom );
-    void setProject( Project *project ) override;
+    virtual void setZoom(double zoom);
+    void setProject(Project *project) override;
 
-    bool loadContext( const KoXmlElement &context ) override;
-    void saveContext( QDomElement &context ) const override;
+    bool loadContext(const KoXmlElement &context) override;
+    void saveContext(QDomElement &context) const override;
 
     CostBreakdownItemModel *model() const;
 
@@ -94,8 +94,8 @@ public Q_SLOTS:
     void slotEditCopy() override;
 
 protected Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex&, const QPoint &pos );
-    void slotHeaderContextMenuRequested( const QPoint &pos ) override;
+    void slotContextMenuRequested(const QModelIndex&, const QPoint &pos);
+    void slotHeaderContextMenuRequested(const QPoint &pos) override;
     void slotOptions() override;
     
 private:

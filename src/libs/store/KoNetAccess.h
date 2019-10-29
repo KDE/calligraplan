@@ -98,7 +98,7 @@ public:
      *
      * \code
      * QString tmpFile;
-     * if( KIO::NetAccess::download(url, tmpFile, window)) {
+     * if(KIO::NetAccess::download(url, tmpFile, window)) {
      *     loadFile(tmpFile);
      *     KIO::NetAccess::removeTempFile(tmpFile);
      * } else {
@@ -376,10 +376,10 @@ public:
      * and after the function returns it will contain all the data fetched by this job.
      *
      * @code
-     * KIO::Job *job = KIO::get( url );
+     * KIO::Job *job = KIO::get(url);
      * QMap<QString, QString> metaData;
-     * metaData.insert( "PropagateHttpHeader", "true" );
-     * if ( NetAccess::synchronousRun( job, 0, &data, &url, &metaData ) ) {
+     * metaData.insert("PropagateHttpHeader", "true");
+     * if (NetAccess::synchronousRun(job, 0, &data, &url, &metaData) ) {
      *   QString responseHeaders = metaData[ "HTTP-Headers" ];
      *   qDebug()<<"Response header = "<< responseHeaders;
      * }

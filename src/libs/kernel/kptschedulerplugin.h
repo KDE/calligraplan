@@ -70,11 +70,11 @@ public:
     /// Localized name
     QString name() const;
     /// Name is normally set by the plugin loader, from Name in the desktop file
-    void setName( const QString &name );
+    void setName(const QString &name);
     /// Localized comment
     QString comment() const;
     /// Comment is normally set by the plugin loader, from Comment in the desktop file
-    void setComment( const QString &name );
+    void setComment(const QString &name);
     /// A more elaborate description suitable for use in what's this
     virtual QString description() const { return QString(); }
     /// The schedulers capabilities
@@ -88,17 +88,17 @@ public:
     /// By default returns all capabilities
     virtual int capabilities() const;
     /// Stop calculation of the schedule @p sm. Current result may be used.
-    void stopCalculation( ScheduleManager *sm );
+    void stopCalculation(ScheduleManager *sm);
     /// Terminate calculation of the schedule @p sm. No results will be available.
-    void haltCalculation( ScheduleManager *sm );
+    void haltCalculation(ScheduleManager *sm);
     
     /// Stop calculation of the scheduling @p job. Current result may be used.
-    virtual void stopCalculation( SchedulerThread *job );
+    virtual void stopCalculation(SchedulerThread *job);
     /// Terminate calculation of the scheduling @p job. No results will be available.
-    virtual void haltCalculation( SchedulerThread *job );
+    virtual void haltCalculation(SchedulerThread *job);
     
     /// Calculate the project
-    virtual void calculate( Project &project, ScheduleManager *sm, bool nothread = false ) = 0;
+    virtual void calculate(Project &project, ScheduleManager *sm, bool nothread = false) = 0;
 
     /// Return the list of supported granularities
     /// An empty list means granularity is not supported (the default)
@@ -106,20 +106,20 @@ public:
     /// Return current index of supported granularities
     int granularity() const;
     /// Set current index of supported granularities
-    void setGranularity( int index );
+    void setGranularity(int index);
 
 protected Q_SLOTS:
     virtual void slotSyncData();
 
 protected:
-    void updateProject( const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm ) const;
-    void updateNode( const Node *tn, Node *mn, long sid, XMLLoaderObject &status ) const;
-    void updateResource( const KPlato::Resource *tr, Resource *r, XMLLoaderObject &status ) const;
-    void updateAppointments( const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm, XMLLoaderObject &status ) const;
+    void updateProject(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm) const;
+    void updateNode(const Node *tn, Node *mn, long sid, XMLLoaderObject &status) const;
+    void updateResource(const KPlato::Resource *tr, Resource *r, XMLLoaderObject &status) const;
+    void updateAppointments(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm, XMLLoaderObject &status) const;
 
     void updateProgress();
     void updateLog();
-    void updateLog( SchedulerThread *job );
+    void updateLog(SchedulerThread *job);
 
 private:
     class Private;
@@ -154,7 +154,7 @@ class PLANKERNEL_EXPORT SchedulerThread : public QThread
 {
     Q_OBJECT
 public:
-    SchedulerThread( Project *project, ScheduleManager *manager, QObject *parent );
+    SchedulerThread(Project *project, ScheduleManager *manager, QObject *parent);
     ~SchedulerThread() override;
 
     Project *mainProject() const { return m_mainproject; }
@@ -178,18 +178,18 @@ public:
     QMap<int, QString> phaseNames() const;
 
     /// Save the @p project into @p document
-    static void saveProject( Project *project, QDomDocument &document );
+    static void saveProject(Project *project, QDomDocument &document);
     /// Load the @p project from @p document
-    static bool loadProject( Project *project, const KoXmlDocument &document );
+    static bool loadProject(Project *project, const KoXmlDocument &document);
 
     ///Add a scheduling error log message
-    void logError( Node *n, Resource *r, const QString &msg, int phase = -1 );
+    void logError(Node *n, Resource *r, const QString &msg, int phase = -1);
     ///Add a scheduling warning log message
-    void logWarning( Node *n, Resource *r, const QString &msg, int phase = -1 );
+    void logWarning(Node *n, Resource *r, const QString &msg, int phase = -1);
     ///Add a scheduling information log message
-    void logInfo( Node *n, Resource *r, const QString &msg, int phase = -1 );
+    void logInfo(Node *n, Resource *r, const QString &msg, int phase = -1);
     ///Add a scheduling debug log message
-    void logDebug( Node *n, Resource *r, const QString &msg, int phase = -1 );
+    void logDebug(Node *n, Resource *r, const QString &msg, int phase = -1);
 
 Q_SIGNALS:
     /// Job has started
@@ -213,8 +213,8 @@ protected Q_SLOTS:
     virtual void slotStarted();
     virtual void slotFinished();
 
-    void setMaxProgress( int );
-    void setProgress( int );
+    void setMaxProgress(int);
+    void setProgress(int);
 
     void slotAddLog(const KPlato::Schedule::Log &log);
 

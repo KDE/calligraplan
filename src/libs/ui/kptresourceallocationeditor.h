@@ -45,15 +45,15 @@ class PLANUI_EXPORT ResourceAllocationTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
-    explicit ResourceAllocationTreeView( QWidget *parent );
+    explicit ResourceAllocationTreeView(QWidget *parent);
 
-    ResourceAllocationItemModel *model() const { return static_cast<ResourceAllocationItemModel*>( DoubleTreeViewBase::model() ); }
+    ResourceAllocationItemModel *model() const { return static_cast<ResourceAllocationItemModel*>(DoubleTreeViewBase::model()); }
 
     Project *project() const { return model()->project(); }
-    void setProject( Project *project ) { model()->setProject( project ); }
+    void setProject(Project *project) { model()->setProject(project); }
 
     Task *task() const { return model()->task(); }
-    void setTask( Task *task ) { model()->setTask( task ); }
+    void setTask(Task *task) { model()->setTask(task); }
 
     QObject *currentObject() const;
 
@@ -73,39 +73,39 @@ public:
     
     void setupGui();
     Project *project() const override { return m_view->project(); }
-    void setProject( Project *project ) override { m_view->setProject( project ); }
+    void setProject(Project *project) override { m_view->setProject(project); }
 
     ResourceAllocationItemModel *model() const { return m_view->model(); }
     
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     Resource *currentResource() const override;
     ResourceGroup *currentResourceGroup() const override;
     
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
     
     KoPrintJob *createPrintJob() override;
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
 protected Q_SLOTS:
     void slotOptions() override;
 
 protected:
-    void updateActionsEnabled(  bool on = true );
+    void updateActionsEnabled(bool on = true);
 
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     void slotSplitView();
 
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex& );
-    void slotEnableActions( bool on );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&);
+    void slotEnableActions(bool on);
 
 private:
     ResourceAllocationTreeView *m_view;

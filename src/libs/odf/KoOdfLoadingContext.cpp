@@ -85,11 +85,11 @@ KoOdfLoadingContext::KoOdfLoadingContext(KoOdfStylesReader &stylesReader, KoStor
         const QString fileName =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                    defaultStylesResourcePath + "defaultstyles.xml");
-        if ( ! fileName.isEmpty() ) {
-            QFile file( fileName );
+        if (! fileName.isEmpty()) {
+            QFile file(fileName);
             QString errorMessage;
-            if ( KoOdfReadStore::loadAndParse( &file, d->doc, errorMessage, fileName ) ) {
-                d->defaultStylesReader.createStyleMap( d->doc, true );
+            if (KoOdfReadStore::loadAndParse(&file, d->doc, errorMessage, fileName)) {
+                d->defaultStylesReader.createStyleMap(d->doc, true);
             }
             else {
                 warnOdf << "reading of defaultstyles.xml failed:" << errorMessage;
@@ -162,7 +162,7 @@ void KoOdfLoadingContext::addStyles(const KoXmlElement* style, const QString &fa
         }
     }
 
-    //debugOdf <<"pushing style" << style->attributeNS( KoXmlNS::style,"name", QString() );
+    //debugOdf <<"pushing style" << style->attributeNS(KoXmlNS::style,"name", QString());
     d->styleStack.push(*style);
 }
 

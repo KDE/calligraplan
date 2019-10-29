@@ -40,7 +40,7 @@ namespace Scripting {
             Q_OBJECT
         public:
             /// Create a resource
-            Resource( Project *project, KPlato::Resource *resource, QObject *parent );
+            Resource(Project *project, KPlato::Resource *resource, QObject *parent);
             /// Destructor
             virtual ~Resource() {}
 
@@ -55,27 +55,27 @@ namespace Scripting {
             QString id() const;
 
             /// Add external appointments
-            void addExternalAppointment( const KPlato::Resource */*resource*/, const QString &/*start*/, const QString &/*end*/, int /*load */) {}
+            void addExternalAppointment(const KPlato::Resource */*resource*/, const QString &/*start*/, const QString &/*end*/, int /*load */) {}
 
             /**
              * Return all internal appointments the resource has
              */
-            QVariantList appointmentIntervals( qlonglong schedule ) const;
+            QVariantList appointmentIntervals(qlonglong schedule) const;
             /**
              * Return all external appointments the resource has
              */
             QVariantList externalAppointments() const;
             /// Add an external appointment
-            void addExternalAppointment( const QVariant &id, const QString &name, const QVariantList &lst );
+            void addExternalAppointment(const QVariant &id, const QString &name, const QVariantList &lst);
             /// Clear appointments with identity @p id
-            void clearExternalAppointments( const QString &id );
+            void clearExternalAppointments(const QString &id);
 
             /// Number of child resources. Only team resources has children (team members)
             int childCount() const;
             /// Return resource at @p index.  Only team resources has children (team members)
-            QObject *childAt( int index ) const;
+            QObject *childAt(int index) const;
             /// Set list of children. The list of existing children is cleared
-            void setChildren( const QList<QObject*> &members );
+            void setChildren(const QList<QObject*> &members);
 
         private:
             Project *m_project;

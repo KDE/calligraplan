@@ -114,9 +114,9 @@ Task::~Task()
 //     qDebug()<<"~Task:"<<this;
     project->deleteTask(this);
     delete [] scenarios;
-    qDeleteAll( depends );
-    qDeleteAll( precedes );
-    qDeleteAll( allocations );
+    qDeleteAll(depends);
+    qDeleteAll(precedes);
+    qDeleteAll(allocations);
 }
 
 void
@@ -214,8 +214,8 @@ Task::inheritValues()
 TaskDependency*
 Task::addDepends(const QString& rid)
 {
-    foreach ( TaskDependency *d, depends ) {
-        if ( rid == d->getTaskRefId() ) {
+    foreach (TaskDependency *d, depends) {
+        if (rid == d->getTaskRefId()) {
             return d;
         }
     }
@@ -227,8 +227,8 @@ Task::addDepends(const QString& rid)
 TaskDependency*
 Task::addPrecedes(const QString& rid)
 {
-    foreach ( TaskDependency *d, precedes ) {
-        if ( rid == d->getTaskRefId() ) {
+    foreach (TaskDependency *d, precedes) {
+        if (rid == d->getTaskRefId()) {
             return d;
         }
     }
@@ -285,7 +285,7 @@ Task::schedule(int sc, time_t& date, time_t slotDuration)
     {
         if (start == 0 ||
             (effort == 0.0 && length == 0.0 && duration == 0.0 && end == 0)) {
-            if ( start == 0 ) {
+            if (start == 0) {
                 warningMessage(xi18nc("@info/plain", "Cannot schedule: Valid start time is not set"));
             } else {
                 warningMessage(xi18nc("@info/plain", "Cannot schedule: Estimate is 0"));
@@ -317,7 +317,7 @@ Task::schedule(int sc, time_t& date, time_t slotDuration)
     {
         if (end == 0 ||
             (effort == 0.0 && length == 0.0 && duration == 0.0 && start == 0)) {
-            if ( end == 0 ) {
+            if (end == 0) {
                 warningMessage(xi18nc("@info/plain", "Cannot schedule: Valid end time is not set"));
             } else {
                 warningMessage(xi18nc("@info/plain", "Cannot schedule: Estimate is 0"));
@@ -424,7 +424,7 @@ Task::schedule(int sc, time_t& date, time_t slotDuration)
         if (DEBUGTS(4)) {
             qDebug()<<"Scheduling of task"<<this<<"completed:"<<time2ISO(start)<<"-"<<time2ISO(end);
         }
-        TJMH.debugMessage(QString("Milestone scheduled: %1").arg(time2ISO(start)), this );
+        TJMH.debugMessage(QString("Milestone scheduled: %1").arg(time2ISO(start)), this);
         return true;
     }
     else if (start != 0 && end != 0)
@@ -486,8 +486,8 @@ Task::scheduleContainer(int sc)
 bool
 Task::hasAlapPredecessor() const
 {
-    foreach ( const CoreAttributes *t, predecessors ) {
-        if ( static_cast<const Task*>( t )->getScheduling() == TJ::Task::ALAP || static_cast<const Task*>( t )->hasAlapPredecessor() ) {
+    foreach (const CoreAttributes *t, predecessors) {
+        if (static_cast<const Task*>(t)->getScheduling() == TJ::Task::ALAP || static_cast<const Task*>(t)->hasAlapPredecessor()) {
             return true;
         }
     }
@@ -659,13 +659,13 @@ Task::isRunaway() const
 }
 
 int
-Task::isAvailable( Allocation *allocation, Resource *resource, time_t slot ) const
+Task::isAvailable(Allocation *allocation, Resource *resource, time_t slot) const
 {
     int max = resource->isAvailable(slot);
     if (allocation->hasRequiredResources(resource)) {
         foreach (Resource *r, allocation->getRequiredResources(resource)) {
             int a = r->isAvailable(slot);
-            if ( a > max ) {
+            if (a > max) {
 //                 TJMH.debugMessage(QString("Required resource '%1' is not available at %2").arg(r->getName()).arg(time2ISO(slot)), this);
                 max = a;
             }
@@ -770,7 +770,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
             }
         }
     }
-    if ( ! allMandatoriesAvailables ) {
+    if (! allMandatoriesAvailables) {
 //         TJMH.debugMessage(QString("All mandatory resourcea are not available"), this);
     }
     for (QListIterator<Allocation*> ali(allocations);
@@ -809,7 +809,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
                     workSlots += r->getWorkSlots(date); // returns 0 if no bookings yet
                     bookedSlots += r->getCurrentDaySlots(date, this); // booked to this task
                 }
-                if ( workSlots > 0 ) {
+                if (workSlots > 0) {
                     workSlots = (workSlots * limits->getDailyUnits()) / 100;
                     if (workSlots == 0) {
                         workSlots = 1;
@@ -1541,15 +1541,15 @@ Task::xRef(QMap<QString, Task*>& hash)
                                  .arg(t->id));
                     break;
                 }
-                if ( ! predecessors.contains( t ) ) {
+                if (! predecessors.contains(t)) {
                     // Unidirectional link
                     predecessors.append(t);
                 }
                 // Bidirectional link
-                if ( ! previous.contains( t ) ) {
+                if (! previous.contains(t)) {
                     previous.append(t);
                 }
-                if ( ! t->followers.contains( this ) ) {
+                if (! t->followers.contains(this)) {
                     t->followers.append(this);
                 }
                 if (DEBUGPF(11))
@@ -1605,15 +1605,15 @@ Task::xRef(QMap<QString, Task*>& hash)
                                  .arg(t->id));
                     break;
                 }
-                if ( ! successors.contains( t ) ) {
+                if (! successors.contains(t)) {
                     // Unidirectional link
                     successors.append(t);
                 }
                 // Bidirectional link
-                if ( ! followers.contains( t ) ) {
+                if (! followers.contains(t)) {
                     followers.append(t);
                 }
-                if ( ! t->previous.contains( this ) ) {
+                if (! t->previous.contains(this)) {
                     t->previous.append(this);
                 }
                 if (DEBUGPF(11))
@@ -1713,7 +1713,7 @@ Task::implicitXRef()
             if (scenarios[sc].duration != 0 || scenarios[sc].length != 0 ||
                 scenarios[sc].effort != 0)
                 hasDurationSpec = true;
-//             qDebug()<<"Task::implicitXRef:"<<id<<"effort="<<getEffort( sc )<<"sc="<<sc<<":"<<hasDurationSpec<<(hasStartSpec ^ hasEndSpec);
+//             qDebug()<<"Task::implicitXRef:"<<id<<"effort="<<getEffort(sc)<<"sc="<<sc<<":"<<hasDurationSpec<<(hasStartSpec ^ hasEndSpec);
         }
         if  (!hasDurationSpec && (hasStartSpec ^ hasEndSpec)) {
             milestone = true;
@@ -1729,7 +1729,7 @@ Task::sortAllocations()
         return;
 
 //     allocations.setAutoDelete(false);
-    for (QListIterator<Allocation*> ali(allocations); ali.hasNext(); )
+    for (QListIterator<Allocation*> ali(allocations); ali.hasNext();)
     {
         Allocation *a = static_cast<Allocation*>(ali.next());
         if (!a->isWorker())
@@ -1974,7 +1974,7 @@ Task::checkPathForLoops(LDIList& list, bool atEnd) const
         for (it = list.first(); *it != *thisTask; it = it->next())
             ;
         /* Then copy all loop elements to the loopChain string. */
-        for ( ; it != 0; it = it->next())
+        for (; it != 0; it = it->next())
         {
             loopChain += QString("%1 (%2) -> ")
                 .arg(it->getTask()->getId())
@@ -3674,43 +3674,43 @@ Task::sumUpEffort(int sc, time_t now, double& totalEffort,
     return false;
 }
 
-QDomElement Task::xmlElement( QDomDocument& doc, bool /* absId */ )
+QDomElement Task::xmlElement(QDomDocument& doc, bool /* absId */)
 {
-   QDomElement taskElem = doc.createElement( "Task" );
+   QDomElement taskElem = doc.createElement("Task");
 /*   QDomElement tempElem;
 
    QString idStr = getId();
-   if( !absId )
-      idStr = idStr.section( '.', -1 ); 
+   if(!absId)
+      idStr = idStr.section('.', -1); 
 
-   taskElem.setAttribute( "Id", idStr );
+   taskElem.setAttribute("Id", idStr);
 
    QDomText t;
-   taskElem.appendChild( ReportXML::createXMLElem( doc, "Index", QString::number(getIndex()) ));
-   taskElem.appendChild( ReportXML::createXMLElem( doc, "Name", getName() ));
-   taskElem.appendChild( ReportXML::createXMLElem( doc, "ProjectID", projectId ));
-   taskElem.appendChild( ReportXML::createXMLElem( doc, "Priority", QString::number(getPriority())));
+   taskElem.appendChild(ReportXML::createXMLElem(doc, "Index", QString::number(getIndex())));
+   taskElem.appendChild(ReportXML::createXMLElem(doc, "Name", getName()));
+   taskElem.appendChild(ReportXML::createXMLElem(doc, "ProjectID", projectId));
+   taskElem.appendChild(ReportXML::createXMLElem(doc, "Priority", QString::number(getPriority())));
 
    double cmplt = getCompletionDegree(0);
-   taskElem.appendChild( ReportXML::createXMLElem( doc, "complete", QString::number(cmplt, 'f', 1) ));
+   taskElem.appendChild(ReportXML::createXMLElem(doc, "complete", QString::number(cmplt, 'f', 1)));
 
    QString tType = "Milestone";
-   if( !isMilestone() )
+   if(!isMilestone())
    {
-      if( isContainer() )
+      if(isContainer())
      tType = "Container";
       else
      tType = "Task";
 
    }
-   taskElem.appendChild( ReportXML::createXMLElem( doc, "Type", tType  ));
+   taskElem.appendChild(ReportXML::createXMLElem(doc, "Type", tType));
 
    CoreAttributes *parent = getParent();
-   if( parent )
-      taskElem.appendChild( ReportXML::ReportXML::createXMLElem( doc, "ParentTask", parent->getId()));
+   if(parent)
+      taskElem.appendChild(ReportXML::ReportXML::createXMLElem(doc, "ParentTask", parent->getId()));
 
-   if( !note.isEmpty())
-      taskElem.appendChild( ReportXML::createXMLElem( doc, "Note", getNote()));
+   if(!note.isEmpty())
+      taskElem.appendChild(ReportXML::createXMLElem(doc, "Note", getNote()));
    if(!ref.isEmpty())
        taskElem.appendChild(ReportXML::createXMLElem(doc, "Reference",
                                                      ref));
@@ -3721,61 +3721,61 @@ QDomElement Task::xmlElement( QDomDocument& doc, bool /* absId */ )
     if (scenarios[0].minStart != 0)
     {
         tempElem = ReportXML::createXMLElem
-            ( doc, "minStart", QString::number(scenarios[0].minStart));
-        tempElem.setAttribute( "humanReadable",
+            (doc, "minStart", QString::number(scenarios[0].minStart));
+        tempElem.setAttribute("humanReadable",
                                time2ISO(scenarios[0].minStart));
-        taskElem.appendChild( tempElem );
+        taskElem.appendChild(tempElem);
     }
 
     if (scenarios[0].maxStart != 0)
     {
         tempElem = ReportXML::createXMLElem
             (doc, "maxStart", QString::number(scenarios[0].maxStart));
-        tempElem.setAttribute( "humanReadable",
+        tempElem.setAttribute("humanReadable",
                                time2ISO(scenarios[0].maxStart));
-        taskElem.appendChild( tempElem );
+        taskElem.appendChild(tempElem);
     }
 
     if (scenarios[0].minEnd != 0)
     {
         tempElem = ReportXML::createXMLElem
             (doc, "minEnd", QString::number(scenarios[0].minEnd));
-        tempElem.setAttribute( "humanReadable",
+        tempElem.setAttribute("humanReadable",
                                time2ISO(scenarios[0].minEnd));
-        taskElem.appendChild( tempElem );
+        taskElem.appendChild(tempElem);
     }
 
     if (scenarios[0].maxEnd != 0)
     {
         tempElem = ReportXML::createXMLElem
             (doc, "maxEnd", QString::number(scenarios[0].maxEnd));
-        tempElem.setAttribute( "humanReadable",
+        tempElem.setAttribute("humanReadable",
                                time2ISO(scenarios[0].maxEnd));
-        taskElem.appendChild( tempElem );
+        taskElem.appendChild(tempElem);
     }
     if (project->getMaxScenarios() > 1)
     {
-        tempElem = ReportXML::createXMLElem( doc, "actualStart",
+        tempElem = ReportXML::createXMLElem(doc, "actualStart",
                                              QString::number(scenarios[1].start));
-        tempElem.setAttribute( "humanReadable",
+        tempElem.setAttribute("humanReadable",
                                time2ISO(scenarios[1].start));
-        taskElem.appendChild( tempElem );
+        taskElem.appendChild(tempElem);
 
-        tempElem = ReportXML::createXMLElem( doc, "actualEnd",
+        tempElem = ReportXML::createXMLElem(doc, "actualEnd",
                                              QString::number(scenarios[1].end + 1));
-        tempElem.setAttribute( "humanReadable",
+        tempElem.setAttribute("humanReadable",
                                time2ISO(scenarios[1].end + 1));
-        taskElem.appendChild( tempElem );
+        taskElem.appendChild(tempElem);
     }
 
-   tempElem = ReportXML::createXMLElem( doc, "planStart", QString::number( scenarios[0].start ));
-   tempElem.setAttribute( "humanReadable", time2ISO( scenarios[0].start ));
-   taskElem.appendChild( tempElem );
+   tempElem = ReportXML::createXMLElem(doc, "planStart", QString::number(scenarios[0].start));
+   tempElem.setAttribute("humanReadable", time2ISO(scenarios[0].start));
+   taskElem.appendChild(tempElem);
 
-   tempElem = ReportXML::createXMLElem( doc, "planEnd",
+   tempElem = ReportXML::createXMLElem(doc, "planEnd",
                                         QString::number(scenarios[0].end + 1));
-   tempElem.setAttribute( "humanReadable", time2ISO( scenarios[0].end + 1));
-   taskElem.appendChild( tempElem );
+   tempElem.setAttribute("humanReadable", time2ISO(scenarios[0].end + 1));
+   taskElem.appendChild(tempElem);
 
    // Start- and Endbuffer 
    if(getStartBuffer(0) > 0.01)
@@ -3784,7 +3784,7 @@ QDomElement Task::xmlElement( QDomDocument& doc, bool /* absId */ )
        tempElem = ReportXML::createXMLElem
            (doc, "startBufferSize",
             QString::number(getStartBuffer(0)));
-       taskElem.appendChild( tempElem );
+       taskElem.appendChild(tempElem);
 
        tempElem = ReportXML::createXMLElem
            (doc, "PlanStartBufferEnd",
@@ -3824,47 +3824,47 @@ QDomElement Task::xmlElement( QDomDocument& doc, bool /* absId */ )
    }
 
    // Responsible persons 
-   if( getResponsible() )
-      taskElem.appendChild( getResponsible()->xmlIDElement( doc ));
+   if(getResponsible())
+      taskElem.appendChild(getResponsible()->xmlIDElement(doc));
 
    // Now start the subtasks 
    int cnt = 0;
-   QDomElement subTaskElem = doc.createElement( "SubTasks" );
+   QDomElement subTaskElem = doc.createElement("SubTasks");
    for (Task* t = subFirst(); t != 0; t = subNext())
    {
-      if( t != this )
+      if(t != this)
       {
-     QDomElement sTask = t->xmlElement( doc, false );
-     subTaskElem.appendChild( sTask );
+     QDomElement sTask = t->xmlElement(doc, false);
+     subTaskElem.appendChild(sTask);
      cnt++;
       }
    }
-   if( cnt > 0 )
-      taskElem.appendChild( subTaskElem);
+   if(cnt > 0)
+      taskElem.appendChild(subTaskElem);
 
    // list of tasks by id which are previous 
-   if( previous.count() > 0 )
+   if(previous.count() > 0)
    {
       for (TaskListIterator tli(previous); tli.hasNext();)
       {
           Task *t = static_cast<Task*>(tli.next());
-            if( *tli != this )
+            if(*tli != this)
             {
-                taskElem.appendChild( ReportXML::createXMLElem( doc, "Previous",
+                taskElem.appendChild(ReportXML::createXMLElem(doc, "Previous",
                                                                 t->getId()));
             }
       }
    }
 
    // list of tasks by id which follow 
-   if( followers.count() > 0 )
+   if(followers.count() > 0)
    {
       for (TaskListIterator tli(followers); tli.hasNext();)
       {
           Task *t = static_cast<Task*>(tli.next());
-            if( t != this )
+            if(t != this)
             {
-                taskElem.appendChild( ReportXML::createXMLElem( doc, "Follower",
+                taskElem.appendChild(ReportXML::createXMLElem(doc, "Follower",
                                                                 (t)->getId()));
             }
       }
@@ -3887,26 +3887,26 @@ QDomElement Task::xmlElement( QDomDocument& doc, bool /* absId */ )
     *
     *
    // Allocations 
-   if( allocations.count() > 0 )
+   if(allocations.count() > 0)
    {
       QPtrList<Allocation> al(allocations);
       for (QListIterator<Allocation*> ali(al); ali.hasNext();)
       {
           Allocation *a = static_cast<Allocation*>(ali.next());
-          taskElem.appendChild( a->xmlElement( doc ));
+          taskElem.appendChild(a->xmlElement(doc));
       }
    }
 
    // booked Resources 
-   if( bookedResources.count() > 0 )
+   if(bookedResources.count() > 0)
    {
        for (ResourceListIterator rli(bookedResources); *rli != 0; ++rli)
       {
-     taskElem.appendChild( r->xmlIDElement( doc ));
+     taskElem.appendChild(r->xmlIDElement(doc));
       }
    }
 */
-   return( taskElem );
+   return(taskElem);
 }
 
 bool
@@ -3927,23 +3927,23 @@ Task::isOrHasDescendantOnCriticalPath(int sc) const
 
 } // namespace TJ
 
-QDebug operator<<( QDebug dbg, const TJ::Task* t )
+QDebug operator<<(QDebug dbg, const TJ::Task* t)
 {
-    if ( t == 0 ) {
+    if (t == 0) {
         return dbg << (void*)t;
     }
-    return operator<<( dbg, *t );
+    return operator<<(dbg, *t);
 }
 
-QDebug operator<<( QDebug dbg, const TJ::Task& t )
+QDebug operator<<(QDebug dbg, const TJ::Task& t)
 {
     dbg << (t.isMilestone() ? "Milestone[" : "Task[");
     dbg << t.getName() << (t.getScheduling() == TJ::Task::ASAP ? "(ASAP)" : "(ALAP)");
-    if ( t.isSchedulingDone() ) {
+    if (t.isSchedulingDone()) {
         dbg << "Scheduled";
-    } else if ( t.isReadyForScheduling() ) {
+    } else if (t.isReadyForScheduling()) {
         dbg << "ReadyForScheduling";
-    } else if ( t.isRunaway() ) {
+    } else if (t.isRunaway()) {
         dbg << "Runaway";
     }
     dbg << "]";

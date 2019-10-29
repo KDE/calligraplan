@@ -203,40 +203,40 @@ void Part::slotShowIntroduction()
     slotOpenUrlRequest(static_cast<HtmlView*>(startUpWidget->currentWidget()), QUrl("about:plan/main"));
 }
 
-void Part::slotOpenUrlRequest( HtmlView *v, const QUrl &url )
+void Part::slotOpenUrlRequest(HtmlView *v, const QUrl &url)
 {
     debugPlan<<url;
-    if ( url.scheme() == QLatin1String("about") ) {
-        if ( url.url() == QLatin1String("about:close") ) {
+    if (url.scheme() == QLatin1String("about")) {
+        if (url.url() == QLatin1String("about:close")) {
             startUpWidget->setCurrentIndex(0);
             return;
         }
-        if ( url.url().startsWith( QLatin1String( "about:plan" ) ) ) {
+        if (url.url().startsWith(QLatin1String("about:plan"))) {
             MainDocument *doc = static_cast<MainDocument*>(document());
-            doc->aboutPage().generatePage( v->htmlPart(), url );
+            doc->aboutPage().generatePage(v->htmlPart(), url);
             return;
         }
     }
-    if ( url.scheme() == QLatin1String("help") ) {
-        KHelpClient::invokeHelp( "", url.fileName() );
+    if (url.scheme() == QLatin1String("help")) {
+        KHelpClient::invokeHelp("", url.fileName());
         return;
     }
     // try to open the url
     debugPlan<<url<<"is external, discard";
-    new KRun( url,  currentMainwindow() );
+    new KRun(url,  currentMainwindow());
 }
 
 QWidget *Part::createIntroductionView()
 {
-    HtmlView *v = new HtmlView(this, document(), startUpWidget );
+    HtmlView *v = new HtmlView(this, document(), startUpWidget);
     v->htmlPart().setJScriptEnabled(false);
     v->htmlPart().setJavaEnabled(false);
     v->htmlPart().setMetaRefreshEnabled(false);
     v->htmlPart().setPluginsEnabled(false);
 
-    slotOpenUrlRequest( v, QUrl( "about:plan/main" ) );
+    slotOpenUrlRequest(v, QUrl("about:plan/main"));
 
-    connect( v, &KPlato::HtmlView::openUrlRequest, this, &KPlato::Part::slotOpenUrlRequest );
+    connect(v, &KPlato::HtmlView::openUrlRequest, this, &KPlato::Part::slotOpenUrlRequest);
 
     return v;
 }
@@ -244,7 +244,7 @@ QWidget *Part::createIntroductionView()
 void Part::configure(KoMainWindow *mw)
 {
     //debugPlan;
-    if( KConfigDialog::showDialog("Plan Settings")) {
+    if(KConfigDialog::showDialog("Plan Settings")) {
         return;
     }
     ConfigDialog *dialog = new ConfigDialog(mw, "Plan Settings", KPlatoSettings::self());

@@ -26,7 +26,7 @@
 #include <KoComponentData.h>
 
 KPlatoConfigSkeleton::KPlatoConfigSkeleton()
-    : KConfigSkeleton( KPlato::Factory::global().config() )
+    : KConfigSkeleton(KPlato::Factory::global().config())
 {}
 
 KPlatoConfigSkeleton::~KPlatoConfigSkeleton()

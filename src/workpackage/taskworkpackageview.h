@@ -55,15 +55,15 @@ class PLANWORK_EXPORT TaskWorkPackageTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
-    TaskWorkPackageTreeView( Part *part, QWidget *parent );
+    TaskWorkPackageTreeView(Part *part, QWidget *parent);
     
     
-    //void setSelectionModel( QItemSelectionModel *selectionModel );
+    //void setSelectionModel(QItemSelectionModel *selectionModel);
 
     TaskWorkPackageModel *itemModel() const;
     
     Project *project() const;
-    void setProject( Project *project );
+    void setProject(Project *project);
 
     Document *currentDocument() const;
     Node *currentNode() const;
@@ -73,8 +73,8 @@ Q_SIGNALS:
     void sectionsMoved();
 
 protected Q_SLOTS:
-    void slotActivated( const QModelIndex &index );
-    void setSortOrder( int col, Qt::SortOrder order );
+    void slotActivated(const QModelIndex &index);
+    void setSortOrder(int col, Qt::SortOrder order);
 
 protected:
     void dragMoveEvent(QDragMoveEvent *event) override;
@@ -85,10 +85,10 @@ class PLANWORK_EXPORT AbstractView : public QWidget, public ViewActionLists
 {
     Q_OBJECT
 public:
-    AbstractView( Part *part, QWidget *parent );
+    AbstractView(Part *part, QWidget *parent);
 
     /// reimplement
-    virtual void updateReadWrite( bool readwrite );
+    virtual void updateReadWrite(bool readwrite);
     /// reimplement
     virtual Node *currentNode() const;
     /// reimplement
@@ -105,15 +105,15 @@ public:
     virtual KoPrintJob *createPrintJob();
     
 Q_SIGNALS:
-    void requestPopupMenu( const QString& name, const QPoint &pos );
+    void requestPopupMenu(const QString& name, const QPoint &pos);
     void selectionChanged();
 
 protected Q_SLOTS:
     /// Builds menu from action list
-    virtual void slotHeaderContextMenuRequested( const QPoint &pos );
+    virtual void slotHeaderContextMenuRequested(const QPoint &pos);
 
     /// Reimplement if you have index specific context menu, standard calls slotHeaderContextMenuRequested()
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
 
     /// Should not need to be reimplemented
     virtual void slotContextMenuRequested(KPlato::Node *node, const QPoint& pos);
@@ -132,14 +132,14 @@ class PLANWORK_EXPORT TaskWorkPackageView : public AbstractView
 {
     Q_OBJECT
 public:
-    TaskWorkPackageView( Part *part, QWidget *parent );
+    TaskWorkPackageView(Part *part, QWidget *parent);
     ~TaskWorkPackageView() override;
 
     void setupGui();
 
     TaskWorkPackageModel *itemModel() const { return m_view->itemModel(); }
 
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
     Node *currentNode() const override;
     Document *currentDocument() const override;
     QList<Node*> selectedNodes() const override;
@@ -155,11 +155,11 @@ protected Q_SLOTS:
     void slotOptions();
     void slotSplitView();
 
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
-    void slotSelectionChanged( const QModelIndexList &lst );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
+    void slotSelectionChanged(const QModelIndexList &lst);
 
 protected:
-    void updateActionsEnabled( bool on );
+    void updateActionsEnabled(bool on);
 
 private:
     TaskWorkPackageTreeView *m_view;
@@ -175,8 +175,8 @@ public:
 
     explicit GanttItemDelegate(QObject *parent = 0);
 
-    void paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx ) override;
-    QString toolTip( const QModelIndex &idx ) const override;
+    void paintGanttItem(QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) override;
+    QString toolTip(const QModelIndex &idx) const override;
 
 protected:
     bool showStatus;
@@ -187,11 +187,11 @@ class GanttView : public KPlato::GanttViewBase
 {
     Q_OBJECT
 public:
-    GanttView( Part *part, QWidget *parent );
+    GanttView(Part *part, QWidget *parent);
     ~GanttView() override;
 
     TaskWorkPackageModel *itemModel() const;
-    void setProject( Project *project );
+    void setProject(Project *project);
     Project *project() const { return m_project; }
 
     GanttItemDelegate *delegate() const { return m_ganttdelegate; }
@@ -201,19 +201,19 @@ public:
     Document *currentDocument() const;
 
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &context ) override;
+    bool loadContext(const KoXmlElement &context) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &context ) const override;
+    void saveContext(QDomElement &context) const override;
 
 Q_SIGNALS:
-    void headerContextMenuRequested( const QPoint& );
-    void selectionChanged( const QModelIndexList& );
+    void headerContextMenuRequested(const QPoint&);
+    void selectionChanged(const QModelIndexList&);
     void sectionsMoved();
 
 protected Q_SLOTS:
-    void slotSelectionChanged( const QItemSelection &selected, const QItemSelection &deselected );
-    void slotRowsInserted( const QModelIndex &parent, int start, int end );
-    void slotRowsRemoved( const QModelIndex &parent, int start, int end );
+    void slotSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
+    void slotRowsInserted(const QModelIndex &parent, int start, int end);
+    void slotRowsRemoved(const QModelIndex &parent, int start, int end);
 
     void updateDateTimeGrid(KPlatoWork::WorkPackage *wp);
 
@@ -229,7 +229,7 @@ class PLANWORK_EXPORT TaskWPGanttView : public AbstractView
 {
     Q_OBJECT
 public:
-    TaskWPGanttView( Part *part, QWidget *parent );
+    TaskWPGanttView(Part *part, QWidget *parent);
     ~TaskWPGanttView() override;
 
     void setupGui();
@@ -248,8 +248,8 @@ public:
     using AbstractView::slotContextMenuRequested;
 
 protected Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
-    void slotSelectionChanged( const QModelIndexList &lst );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
+    void slotSelectionChanged(const QModelIndexList &lst);
     void slotOptions();
 
 private:

@@ -40,49 +40,49 @@
 namespace KPlato
 {
 
-ResourcesList::ResourcesList( QWidget * parent )
-        : QTreeWidget( parent )
+ResourcesList::ResourcesList(QWidget * parent)
+        : QTreeWidget(parent)
 {
-    setContextMenuPolicy( Qt::CustomContextMenu );
-    //connect( this, SIGNAL(customContextMenuRequested(QPoint)), SLOT(slotContextMenuRequested(QPoint)) );
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    //connect(this, SIGNAL(customContextMenuRequested(QPoint)), SLOT(slotContextMenuRequested(QPoint)));
 }
 
-void ResourceAssignmentView::slotRequestPopupMenu( const QPoint &p )
+void ResourceAssignmentView::slotRequestPopupMenu(const QPoint &p)
 {
     debugPlan << p;
-    emit requestPopupMenu( "resourceassigment_popup", QCursor::pos() );
+    emit requestPopupMenu("resourceassigment_popup", QCursor::pos());
 }
 
-void ResourceAssignmentView::draw( Project &project )
+void ResourceAssignmentView::draw(Project &project)
 {
     m_project = &project;
     m_resList->clear();
 
-    foreach ( ResourceGroup * gr, project.resourceGroups() ) {
-        QTreeWidgetItem * item = new QTreeWidgetItem( m_resList );
-        item->setText( 0, gr->name() );
-        drawResourcesName( item, gr );
+    foreach (ResourceGroup * gr, project.resourceGroups()) {
+        QTreeWidgetItem * item = new QTreeWidgetItem(m_resList);
+        item->setText(0, gr->name());
+        drawResourcesName(item, gr);
 
         debugPlan <<"GROUP FOUND";
     }
 }
 
 /*This function is called for the left panel*/
-void ResourceAssignmentView::drawResourcesName( QTreeWidgetItem *parent, ResourceGroup *group )
+void ResourceAssignmentView::drawResourcesName(QTreeWidgetItem *parent, ResourceGroup *group)
 {
     /*for each resource*/
-    foreach ( Resource * res, group->resources() ) {
-        QTreeWidgetItem * item = new QTreeWidgetItem( parent );
+    foreach (Resource * res, group->resources()) {
+        QTreeWidgetItem * item = new QTreeWidgetItem(parent);
 
         /*Determine the name and the type of the resource*/
-        switch ( res->type() ) {
+        switch (res->type()) {
             case Resource::Type_Work:
-                item->setText( 0, res->name() );
-                item->setText( 1, i18n( "Work" ) );
+                item->setText(0, res->name());
+                item->setText(1, i18n("Work"));
                 break;
             case Resource::Type_Material:
-                item->setText( 0, res->name() );
-                item->setText( 1, i18n( "Material" ) );
+                item->setText(0, res->name());
+                item->setText(1, i18n("Material"));
                 break;
             default:
                 break;
@@ -94,36 +94,36 @@ void ResourceAssignmentView::drawResourcesName( QTreeWidgetItem *parent, Resourc
 /*Constructor*/
 ResourceAssignmentView::ResourceAssignmentView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_project( 0 )
+    m_project(0)
 {
     debugPlan <<" ---------------- KPlato: Creating ResourceAssignmentView ----------------";
 
     widget.setupUi(this);
 
 
-   /* QVBoxLayout *l = new QVBoxLayout( this );
-    l->setMargin( 0 );
-    m_splitter = new QSplitter( this );
-    l->addWidget( m_splitter );
-    m_splitter->setOrientation( Qt::Horizontal );
+   /* QVBoxLayout *l = new QVBoxLayout(this);
+    l->setMargin(0);
+    m_splitter = new QSplitter(this);
+    l->addWidget(m_splitter);
+    m_splitter->setOrientation(Qt::Horizontal);
 
-    m_resList = new ResourcesList( m_splitter );
+    m_resList = new ResourcesList(m_splitter);
 
     QStringList sl;
-    sl << i18n( "Name" ) << i18n( "Type" );
-    m_resList->setHeaderLabels( sl );
+    sl << i18n("Name") << i18n("Type");
+    m_resList->setHeaderLabels(sl);
 
-    m_taskList = new ResourcesList( m_splitter );
-    m_tasktreeroot = new QTreeWidgetItem ( m_taskList );
+    m_taskList = new ResourcesList(m_splitter);
+    m_tasktreeroot = new QTreeWidgetItem (m_taskList);
 
     QStringList sl2;
-    sl2 << i18n( "Task" ); << i18n( "Completed" );
-    m_taskList->setHeaderLabels( sl2 );*/
+    sl2 << i18n("Task"); << i18n("Completed");
+    m_taskList->setHeaderLabels(sl2);*/
 
 
-   /* m_resList = widget.assign( m_resList );
-    m_taskList = widget.assign( m_taskList );
-    m_tasktreeroot = widget.assign( m_tasktreeroot );*/
+   /* m_resList = widget.assign(m_resList);
+    m_taskList = widget.assign(m_taskList);
+    m_tasktreeroot = widget.assign(m_tasktreeroot);*/
 
 
     m_selectedItem = 0;
@@ -131,10 +131,10 @@ ResourceAssignmentView::ResourceAssignmentView(KoPart *part, KoDocument *doc, QW
     m_resList = (ResourcesList *)widget.m_resList;
     m_taskList = (ResourcesList *)widget.m_taskList;
     m_part = doc;
-    m_tasktreeroot = new QTreeWidgetItem ( m_taskList );
+    m_tasktreeroot = new QTreeWidgetItem (m_taskList);
 
-    connect( m_resList, SIGNAL(itemSelectionChanged()), SLOT(resSelectionChanged()) );
-    connect( m_taskList, &QWidget::customContextMenuRequested, this, &ResourceAssignmentView::slotRequestPopupMenu );
+    connect(m_resList, SIGNAL(itemSelectionChanged()), SLOT(resSelectionChanged()));
+    connect(m_taskList, &QWidget::customContextMenuRequested, this, &ResourceAssignmentView::slotRequestPopupMenu);
 }
 
 /*Store the selected item*/
@@ -142,16 +142,16 @@ void ResourceAssignmentView::resSelectionChanged()
 {
     QTreeWidgetItem * item = 0;
     QList<QTreeWidgetItem*> selList = m_resList->selectedItems();
-    if ( !selList.isEmpty() )
+    if (!selList.isEmpty())
         item = selList.first();
-    resSelectionChanged( item );
+    resSelectionChanged(item);
 }
 
 /*Update tasks attributed to the selected item*/
-void ResourceAssignmentView::resSelectionChanged( QTreeWidgetItem *item )
+void ResourceAssignmentView::resSelectionChanged(QTreeWidgetItem *item)
 {
     QTreeWidgetItem * resItem =  item;
-    if ( resItem ) {
+    if (resItem) {
         m_selectedItem = resItem;
         updateTasks();
         return ;
@@ -177,7 +177,7 @@ void ResourceAssignmentView::updateTasks()
         debugPlan <<"Group Selected:" << name;
     }
     m_taskList->clear();
-    if ( m_project == 0 ) {
+    if (m_project == 0) {
         return;
     }
 
@@ -186,8 +186,8 @@ void ResourceAssignmentView::updateTasks()
     /*The selected item is a resource*/
     if(!type.isEmpty())
     {
-        foreach ( ResourceGroup * gr, m_project->resourceGroups() ) {
-            foreach ( Resource * res, gr->resources() ) {
+        foreach (ResourceGroup * gr, m_project->resourceGroups()) {
+            foreach (Resource * res, gr->resources()) {
                 if (name == res->name())
                 {
                     ItemRes = res;
@@ -204,7 +204,7 @@ void ResourceAssignmentView::updateTasks()
     else
     /*The selected item is a group*/
     {
-        foreach ( ResourceGroup * gr, m_project->resourceGroups() ) {
+        foreach (ResourceGroup * gr, m_project->resourceGroups()) {
             if (name == gr->name())
             {
                 ItemGrp = gr;
@@ -238,25 +238,25 @@ void ResourceAssignmentView::drawTasksAttributedToAResource (Resource *res, QTre
     /*Case: the resource has no task attributed*/
     if((res->requests()).isEmpty())
     {
-        QTreeWidgetItem * item = new QTreeWidgetItem( m_taskList );
-        item->setText( 0, i18n( "No task attributed" ) );
+        QTreeWidgetItem * item = new QTreeWidgetItem(m_taskList);
+        item->setText(0, i18n("No task attributed"));
     }
     else
     /*Case: the resource has tasks attributed*/
     {
 
     /*Creation of 3 categories of task*/
-    notStarted = new QTreeWidgetItem( m_taskList );
-    started = new QTreeWidgetItem( m_taskList );
-    finished = new QTreeWidgetItem( m_taskList );
+    notStarted = new QTreeWidgetItem(m_taskList);
+    started = new QTreeWidgetItem(m_taskList);
+    finished = new QTreeWidgetItem(m_taskList);
 
     /*Set names of categories*/
-    notStarted->setText( 0, i18n( "Not Started" ) );
-    started->setText( 0, i18n( "Started" ) );
-    finished->setText( 0, i18n( "Finished" ) );
+    notStarted->setText(0, i18n("Not Started"));
+    started->setText(0, i18n("Started"));
+    finished->setText(0, i18n("Finished"));
 
     /*For each task attributed to the current resource*/
-    foreach ( ResourceRequest * rr , res->requests() ){
+    foreach (ResourceRequest * rr , res->requests()){
 
         /*get name*/
         currentTask = (rr->parent())->task();
@@ -268,31 +268,31 @@ void ResourceAssignmentView::drawTasksAttributedToAResource (Resource *res, QTre
         {
         debugPlan <<"[void KPlato::ResourceAssignmentView::drawTasksAttributedToAResource()] task started";
         /*adding to the tree*/
-        item = new QTreeWidgetItem( started );
-        item->setText( 0, taskName );
+        item = new QTreeWidgetItem(started);
+        item->setText(0, taskName);
 
         /*Determine the task's advance*/
         int percent = ((rr->parent())->task())->completion().percentFinished();
         //debugPlan <<"[void KPlato::ResourceAssignmentView::drawTasksAttributedToAResource()]" << percent <<"";
         advance.setNum(percent);
         advance += '%';
-        item->setText( 1, advance );
+        item->setText(1, advance);
         }
         /*State: Finished*/
         else if (((rr->parent())->task())->completion().isFinished())
         {
         /*adding to the tree*/
         debugPlan <<"[void KPlato::ResourceAssignmentView::drawTasksAttributedToAResource()] task finished";
-        item = new QTreeWidgetItem( finished );
-        item->setText( 0, taskName );
+        item = new QTreeWidgetItem(finished);
+        item->setText(0, taskName);
         }
         /*State not started*/
         else
         {
         /*adding to the tree*/
         debugPlan <<"[void KPlato::ResourceAssignmentView::drawTasksAttributedToAResource()] task not started";
-        item = new QTreeWidgetItem( notStarted );
-        item->setText( 0, taskName );
+        item = new QTreeWidgetItem(notStarted);
+        item->setText(0, taskName);
         }
     }
     }
@@ -317,24 +317,24 @@ void ResourceAssignmentView::drawTasksAttributedToAGroup (ResourceGroup *group, 
 
     if((group->resources()).isEmpty())
     {
-        QTreeWidgetItem * groupnode = new QTreeWidgetItem( parent );
-        groupnode->setText( 0, i18n( "No resource attributed" ) );
+        QTreeWidgetItem * groupnode = new QTreeWidgetItem(parent);
+        groupnode->setText(0, i18n("No resource attributed"));
     }
     else
     {
 
         /*Creation of 3 categories of task*/
-        notStarted = new QTreeWidgetItem( m_taskList );
-        started = new QTreeWidgetItem( m_taskList );
-        finished = new QTreeWidgetItem( m_taskList );
+        notStarted = new QTreeWidgetItem(m_taskList);
+        started = new QTreeWidgetItem(m_taskList);
+        finished = new QTreeWidgetItem(m_taskList);
 
         /*Set names of categories*/
-        notStarted->setText( 0, i18n( "Not Started" ) );
-        started->setText( 0, i18n( "Started" ) );
-        finished->setText( 0, i18n( "Finished" ) );
+        notStarted->setText(0, i18n("Not Started"));
+        started->setText(0, i18n("Started"));
+        finished->setText(0, i18n("Finished"));
 
-        foreach ( Resource * res, group->resources() ) {
-            foreach ( ResourceRequest * rr , res->requests() ) {
+        foreach (Resource * res, group->resources()) {
+            foreach (ResourceRequest * rr , res->requests()) {
 
                 /*get name*/
                 currentTask = (rr->parent())->task();
@@ -351,16 +351,16 @@ void ResourceAssignmentView::drawTasksAttributedToAGroup (ResourceGroup *group, 
                         { alreadyStored = true ;}
                     }
 
-                    if ( !alreadyStored )
+                    if (!alreadyStored)
                     {
-                    item = new QTreeWidgetItem( started );
-                    item->setText( 0, taskName );
+                    item = new QTreeWidgetItem(started);
+                    item->setText(0, taskName);
 
                     /*Determine the task's advance*/
                     int percent = ((rr->parent())->task())->completion().percentFinished();
                     advance.setNum(percent);
                     advance += '%';
-                    item->setText( 1, advance );
+                    item->setText(1, advance);
                     }
                 }
                 else if (((rr->parent())->task())->completion().isFinished())
@@ -371,10 +371,10 @@ void ResourceAssignmentView::drawTasksAttributedToAGroup (ResourceGroup *group, 
                         { alreadyStored = true ;}
                     }
 
-                    if ( !alreadyStored )
+                    if (!alreadyStored)
                     {
-                    item = new QTreeWidgetItem( finished );
-                    item->setText( 0, taskName );
+                    item = new QTreeWidgetItem(finished);
+                    item->setText(0, taskName);
                     }
                 }
                 else
@@ -385,10 +385,10 @@ void ResourceAssignmentView::drawTasksAttributedToAGroup (ResourceGroup *group, 
                         { alreadyStored = true ;}
                     }
 
-                    if ( !alreadyStored )
+                    if (!alreadyStored)
                     {
-                    item = new QTreeWidgetItem( notStarted );
-                    item->setText( 0, taskName );
+                    item = new QTreeWidgetItem(notStarted);
+                    item->setText(0, taskName);
                     }
                 }
             }
@@ -396,11 +396,11 @@ void ResourceAssignmentView::drawTasksAttributedToAGroup (ResourceGroup *group, 
     }
 }
 
-void ResourceAssignmentView::setGuiActive( bool activate )
+void ResourceAssignmentView::setGuiActive(bool activate)
 {
     debugPlan<<activate;
-//    updateActionsEnabled( true );
-    ViewBase::setGuiActive( activate );
+//    updateActionsEnabled(true);
+    ViewBase::setGuiActive(activate);
 }
 
 void ResourceAssignmentView::slotUpdate(){

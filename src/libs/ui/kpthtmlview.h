@@ -42,11 +42,11 @@ class PLANUI_EXPORT HtmlView : public ViewBase
 public:
     HtmlView(KoPart *part, KoDocument *doc, QWidget *parent);
 
-    bool openHtml( const QUrl &url );
+    bool openHtml(const QUrl &url);
 
     void setupGui();
 
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     KoPrintJob *createPrintJob() override;
 
@@ -58,17 +58,17 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
     void slotOpenUrlRequest(const QUrl &url, const KParts::OpenUrlArguments &arguments=KParts::OpenUrlArguments(), const KParts::BrowserArguments &browserArguments=KParts::BrowserArguments());
 
 protected:
-    void updateActionsEnabled(  bool on = true );
+    void updateActionsEnabled(bool on = true);
 
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     
-    void slotEnableActions( bool on );
+    void slotEnableActions(bool on);
 
 private:
     KHTMLPart *m_htmlPart;

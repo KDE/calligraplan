@@ -48,12 +48,12 @@ class PLANWORK_EXPORT TaskCompletionDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    explicit TaskCompletionDialog( WorkPackage &package, ScheduleManager *sm, QWidget *parent=0 );
+    explicit TaskCompletionDialog(WorkPackage &package, ScheduleManager *sm, QWidget *parent=0);
 
     KUndo2Command *buildCommand();
 
 protected Q_SLOTS:
-    void slotChanged( bool );
+    void slotChanged(bool);
 
 private:
     TaskCompletionPanel *m_panel;
@@ -63,14 +63,14 @@ class PLANWORK_EXPORT TaskCompletionPanel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TaskCompletionPanel( WorkPackage &package, ScheduleManager *sm, QWidget *parent=0 );
+    explicit TaskCompletionPanel(WorkPackage &package, ScheduleManager *sm, QWidget *parent=0);
 
     KUndo2Command *buildCommand();
 
     void enableWidgets();
 
 Q_SIGNALS:
-    void changed( bool );
+    void changed(bool);
 
 public Q_SLOTS:
     void slotChanged();

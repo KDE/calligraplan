@@ -62,7 +62,7 @@ KoDockRegistry* KoDockRegistry::instance()
 
 QFont KoDockRegistry::dockFont()
 {
-    KConfigGroup group( KSharedConfig::openConfig(), "GUI");
+    KConfigGroup group(KSharedConfig::openConfig(), "GUI");
     QFont dockWidgetFont = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
     QFont smallFont = QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont);
 

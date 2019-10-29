@@ -49,25 +49,25 @@ class PLANUI_EXPORT ScheduleTreeView : public TreeViewBase
 public:
     explicit ScheduleTreeView(QWidget *parent);
 
-    ScheduleItemModel *model() const { return static_cast<ScheduleItemModel*>( TreeViewBase::model() ); }
+    ScheduleItemModel *model() const { return static_cast<ScheduleItemModel*>(TreeViewBase::model()); }
 
     Project *project() const { return model()->project(); }
-    void setProject( Project *project ) { model()->setProject( project ); }
+    void setProject(Project *project) { model()->setProject(project); }
 
-    ScheduleManager *manager( const QModelIndex &idx ) const;
+    ScheduleManager *manager(const QModelIndex &idx) const;
     ScheduleManager *currentManager() const;
     ScheduleManager *selectedManager() const;
 
     QModelIndexList selectedRows() const;
 
 Q_SIGNALS:
-    void currentChanged( const QModelIndex& );
-    void currentColumnChanged( const QModelIndex&, const QModelIndex& );
-    void selectionChanged( const QModelIndexList& );
+    void currentChanged(const QModelIndex&);
+    void currentColumnChanged(const QModelIndex&, const QModelIndex&);
+    void selectionChanged(const QModelIndexList&);
 
 protected Q_SLOTS:
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
-    void currentChanged ( const QModelIndex & current, const QModelIndex & previous ) override;
+    void currentChanged (const QModelIndex & current, const QModelIndex & previous) override;
     
 };
 
@@ -79,17 +79,17 @@ public:
     
     void setupGui();
     Project *project() const override { return m_view->project(); }
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
     void draw() override;
     
     ScheduleItemModel *model() const { return m_view->model(); }
     
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
     
     KoPrintJob *createPrintJob() override;
     
@@ -110,17 +110,17 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
 protected Q_SLOTS:
     void slotOptions() override;
 
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
 
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex& );
-    void updateActionsEnabled( const QModelIndex &index );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&);
+    void updateActionsEnabled(const QModelIndex &index);
     void slotEnableActions();
 
     void slotCalculateSchedule();
@@ -151,33 +151,33 @@ public:
     explicit ScheduleLogTreeView(QWidget *parent);
 
     Project *project() const { return logModel()->project(); }
-    void setProject( Project *project ) { logModel()->setProject( project ); }
+    void setProject(Project *project) { logModel()->setProject(project); }
 
-    ScheduleLogItemModel *logModel() const { return static_cast<ScheduleLogItemModel*>( m_model->sourceModel() ); }
+    ScheduleLogItemModel *logModel() const { return static_cast<ScheduleLogItemModel*>(m_model->sourceModel()); }
     
     ScheduleManager *scheduleManager() const { return logModel()->manager(); }
-    void setScheduleManager( ScheduleManager *manager ) { logModel()->setManager( manager ); }
+    void setScheduleManager(ScheduleManager *manager) { logModel()->setManager(manager); }
 
-    void setFilterWildcard( const QString &filter );
+    void setFilterWildcard(const QString &filter);
     QRegExp filterRegExp() const;
 
 Q_SIGNALS:
-    void currentChanged( const QModelIndex& );
-    void currentColumnChanged( const QModelIndex&, const QModelIndex& );
-    void selectionChanged( const QModelIndexList& );
+    void currentChanged(const QModelIndex&);
+    void currentColumnChanged(const QModelIndex&, const QModelIndex&);
+    void selectionChanged(const QModelIndexList&);
 
-    void contextMenuRequested( const QModelIndex&, const QPoint& );
+    void contextMenuRequested(const QModelIndex&, const QPoint&);
 
 public Q_SLOTS:
     void slotEditCopy();
 
 protected Q_SLOTS:
-    void contextMenuEvent ( QContextMenuEvent *e ) override;
-    void headerContextMenuRequested( const QPoint &pos );
+    void contextMenuEvent (QContextMenuEvent *e) override;
+    void headerContextMenuRequested(const QPoint &pos);
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
-    void currentChanged ( const QModelIndex & current, const QModelIndex & previous ) override;
+    void currentChanged (const QModelIndex & current, const QModelIndex & previous) override;
 
-    void slotShowDebug( bool );
+    void slotShowDebug(bool);
 
 private:
     QSortFilterProxyModel *m_model;
@@ -192,19 +192,19 @@ public:
     ScheduleLogView(KoPart *part, KoDocument *doc, QWidget *parent);
 
     void setupGui();
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     Project *project() const override { return m_view->project(); }
     using ViewBase::draw;
-    void draw( Project &project ) override;
+    void draw(Project &project) override;
 
     ScheduleLogItemModel *baseModel() const { return m_view->logModel(); }
 
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     /// Loads context info into this view.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
 
 Q_SIGNALS:
     void editNode(KPlato::Node *node);
@@ -212,7 +212,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
     void slotEditCopy() override;
     void slotEdit();
 
@@ -220,13 +220,13 @@ protected Q_SLOTS:
     void slotOptions() override;
 
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     void slotScheduleSelectionChanged(KPlato::ScheduleManager *sm);
     void slotEnableActions(const KPlato::ScheduleManager *sm);
 
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex& );
-    void updateActionsEnabled( const QModelIndex &index );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&);
+    void updateActionsEnabled(const QModelIndex &index);
 
 private:
     ScheduleLogTreeView *m_view;
@@ -244,7 +244,7 @@ public:
 
     ScheduleEditor *scheduleEditor() const { return m_scheduleEditor; }
     /// Always returns this (if we are called, we are hit)
-    virtual ViewBase *hitView( const QPoint &glpos );
+    virtual ViewBase *hitView(const QPoint &glpos);
 
 Q_SIGNALS:
     void currentScheduleManagerChanged(KPlato::ScheduleManager*);
@@ -253,12 +253,12 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     /// Activate/deactivate the gui (also of subviews)
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
 
 protected Q_SLOTS:
     /// Noop, we handle subviews ourselves
-    void slotGuiActivated(KPlato::ViewBase *v, bool active ) override;
-    void currentTabChanged( int i ) override;
+    void slotGuiActivated(KPlato::ViewBase *v, bool active) override;
+    void currentTabChanged(int i) override;
 
 private:
     ScheduleEditor *m_scheduleEditor;

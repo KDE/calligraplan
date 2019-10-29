@@ -32,10 +32,10 @@ namespace KPlato
 WBSDefinitionDialog::WBSDefinitionDialog(Project &project, WBSDefinition &def, QWidget *p)
     : KoDialog(p)
 {
-    setCaption( i18n("WBS Definition") );
-    setButtons( Ok|Cancel );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
+    setCaption(i18n("WBS Definition"));
+    setButtons(Ok|Cancel);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
 
     m_panel = new WBSDefinitionPanel(project, def, this);
     setMainWidget(m_panel);

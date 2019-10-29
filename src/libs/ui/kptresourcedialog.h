@@ -40,7 +40,7 @@ class MacroCommand;
 class ResourceDialogImpl : public QWidget, public Ui_ResourceDialogBase {
     Q_OBJECT
 public:
-    explicit ResourceDialogImpl( const Project &m_project, Resource &resource, bool baselined, QWidget *parent );
+    explicit ResourceDialogImpl(const Project &m_project, Resource &resource, bool baselined, QWidget *parent);
 
 public Q_SLOTS:
     void slotChanged();
@@ -48,7 +48,7 @@ public Q_SLOTS:
     void slotCalculationNeeded(const QString&);
     void slotChooseResource();
     
-    void setCurrentIndexes( const QModelIndexList &lst );
+    void setCurrentIndexes(const QModelIndexList &lst);
 
 Q_SIGNALS:
     void changed();
@@ -58,8 +58,8 @@ protected Q_SLOTS:
     void slotAvailableFromChanged(const QDateTime& dt);
     void slotAvailableUntilChanged(const QDateTime& dt);
     
-    void slotUseRequiredChanged( int state );
-    void slotTeamChanged( const QModelIndex &index );
+    void slotUseRequiredChanged(int state);
+    void slotTeamChanged(const QModelIndex &index);
 
 private:
     const Project &m_project;
@@ -85,7 +85,7 @@ protected Q_SLOTS:
     void slotOk();
     void slotCalendarChanged(int);
     void slotButtonClicked(int button) override;
-    void slotAccountChanged( const QString &name );
+    void slotAccountChanged(const QString &name);
 
     void slotResourceRemoved(const KPlato::Resource *resource);
 

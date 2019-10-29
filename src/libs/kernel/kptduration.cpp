@@ -35,21 +35,21 @@ namespace KPlato
 {
 
 // Set the value of Duration::zeroDuration to zero.
-const Duration Duration::zeroDuration( 0, 0, 0 );
+const Duration Duration::zeroDuration(0, 0, 0);
 
 Duration::Duration() {
     m_ms = 0;
 }
 
-Duration::Duration( double value, Duration::Unit unit ) {
+Duration::Duration(double value, Duration::Unit unit) {
     if (unit == Unit_ms) m_ms = (qint64)value;
     else if (unit == Unit_s) m_ms = (qint64)(value * 1000);
-    else if (unit == Unit_m) m_ms = (qint64)(value * ( 1000 * 60 ));
-    else if (unit == Unit_h) m_ms = (qint64)(value * ( 1000 * 60 * 60 ));
-    else if (unit == Unit_d) m_ms = (qint64)(value * ( 1000 * 60 * 60 * 24 ));
-    else if (unit == Unit_w) m_ms = (qint64)(value * ( 1000 * 60 * 60 * 24 * 7 ));
-    else if (unit == Unit_M) m_ms = (qint64)(value * (qint64)( 1000 * 60 * 60 ) * ( 24 * 30 ));
-    else if (unit == Unit_Y) m_ms = (qint64)(value * (qint64)( 1000 * 60 * 60 ) * ( 24 * 365 ));
+    else if (unit == Unit_m) m_ms = (qint64)(value * (1000 * 60));
+    else if (unit == Unit_h) m_ms = (qint64)(value * (1000 * 60 * 60));
+    else if (unit == Unit_d) m_ms = (qint64)(value * (1000 * 60 * 60 * 24));
+    else if (unit == Unit_w) m_ms = (qint64)(value * (1000 * 60 * 60 * 24 * 7));
+    else if (unit == Unit_M) m_ms = (qint64)(value * (qint64)(1000 * 60 * 60) * (24 * 30));
+    else if (unit == Unit_Y) m_ms = (qint64)(value * (qint64)(1000 * 60 * 60) * (24 * 365));
 }
 
 Duration::Duration(unsigned d, unsigned h, unsigned m, unsigned s, unsigned ms) {
@@ -63,12 +63,12 @@ Duration::Duration(unsigned d, unsigned h, unsigned m, unsigned s, unsigned ms) 
 Duration::Duration(const qint64 value, Duration::Unit unit) {
     if (unit == Unit_ms) m_ms = value;
     else if (unit == Unit_s) m_ms = (qint64)(value * 1000);
-    else if (unit == Unit_m) m_ms = (qint64)(value * ( 1000 * 60 ));
-    else if (unit == Unit_h) m_ms = (qint64)(value * ( 1000 * 60 * 60 ));
-    else if (unit == Unit_d) m_ms = (qint64)(value * ( 1000 * 60 * 60 * 24 ));
-    else if (unit == Unit_w) m_ms = (qint64)(value * ( 1000 * 60 * 60 * 24 * 7 ));
-    else if (unit == Unit_M) m_ms = (qint64)(value * (qint64)( 1000 * 60 * 60 ) * ( 24 * 30 ));
-    else if (unit == Unit_Y) m_ms = (qint64)(value * (qint64)( 1000 * 60 * 60 ) * ( 24 * 365 ));
+    else if (unit == Unit_m) m_ms = (qint64)(value * (1000 * 60));
+    else if (unit == Unit_h) m_ms = (qint64)(value * (1000 * 60 * 60));
+    else if (unit == Unit_d) m_ms = (qint64)(value * (1000 * 60 * 60 * 24));
+    else if (unit == Unit_w) m_ms = (qint64)(value * (1000 * 60 * 60 * 24 * 7));
+    else if (unit == Unit_M) m_ms = (qint64)(value * (qint64)(1000 * 60 * 60) * (24 * 30));
+    else if (unit == Unit_Y) m_ms = (qint64)(value * (qint64)(1000 * 60 * 60) * (24 * 365));
     else errorPlan<<"Unknown unit: "<<unit;
 }
 
@@ -140,8 +140,8 @@ double Duration::operator/(KPlato::Duration d) const {
 QString Duration::format(Unit unit, int pres) const
 {
     /* FIXME if necessary
-    return i18nc( "<duration><unit>", "%1%2", QLocale().toString(toDouble(unit), 'f', pres), unitToString(unit) );*/
-    return QLocale().toString( toDouble( unit ), 'f', pres ) + unitToString( unit );
+    return i18nc("<duration><unit>", "%1%2", QLocale().toString(toDouble(unit), 'f', pres), unitToString(unit));*/
+    return QLocale().toString(toDouble(unit), 'f', pres) + unitToString(unit);
 }
 
 QString Duration::toString(Format format) const {
@@ -192,16 +192,16 @@ QString Duration::toString(Format format) const {
             }
             break;
         case Format_i18nDay:
-            result = KFormat().formatSpelloutDuration( m_ms );
+            result = KFormat().formatSpelloutDuration(m_ms);
             break;
         case Format_i18nWeek:
-            result = this->format( Unit_w, 2 );
+            result = this->format(Unit_w, 2);
             break;
         case Format_i18nMonth:
-            result = this->format( Unit_M, 2 );
+            result = this->format(Unit_M, 2);
             break;
         case Format_i18nYear:
-            result = this->format( Unit_Y, 2 );
+            result = this->format(Unit_Y, 2);
             break;
         case Format_i18nDayTime:
             ms = m_ms;
@@ -217,7 +217,7 @@ QString Duration::toString(Format format) const {
                 result = toString(Format_i18nHour);
             } else if (minutes > 0) {
                 result = i18nc("<days>d <hours>h:<minutes>m", "%1d %2h:%3m", days, hours, minutes);
-            } else if (hours > 0 ) {
+            } else if (hours > 0) {
                 result = i18nc("<days>d <hours>h:<minutes>m", "%1d %2h", days, hours);
             } else {
                 result = i18nc("<days>d <hours>h:<minutes>m", "%1d", days);
@@ -239,7 +239,7 @@ Duration Duration::fromString(const QString &s, Format format, bool *ok) {
     Duration tmp;
     switch (format) {
         case Format_Hour: {
-            matcher.setPattern(QStringLiteral("^(\\d*)h(\\d*)m$") );
+            matcher.setPattern(QStringLiteral("^(\\d*)h(\\d*)m$"));
             int pos = matcher.indexIn(s);
             if (pos > -1) {
                 tmp.addHours(matcher.cap(1).toUInt());
@@ -249,7 +249,7 @@ Duration Duration::fromString(const QString &s, Format format, bool *ok) {
             break;
         }
         case Format_DayTime: {
-            matcher.setPattern(QStringLiteral("^(\\d*) (\\d*):(\\d*):(\\d*)\\.(\\d*)$") );
+            matcher.setPattern(QStringLiteral("^(\\d*) (\\d*):(\\d*):(\\d*)\\.(\\d*)$"));
             int pos = matcher.indexIn(s);
             if (pos > -1) {
                 tmp.addDays(matcher.cap(1).toUInt());
@@ -278,45 +278,45 @@ Duration Duration::fromString(const QString &s, Format format, bool *ok) {
     return tmp;
 }
 
-QStringList Duration::unitList( bool trans )
+QStringList Duration::unitList(bool trans)
 {
     QStringList lst;
-    lst << ( trans ? i18nc( "Year. Note: Letter(s) only!", "Y" ) : QStringLiteral("Y") )
-        << ( trans ? i18nc( "Month. Note: Letter(s) only!", "M" ) : QStringLiteral("M") )
-        << ( trans ? i18nc( "Week. Note: Letter(s) only!", "w" ) : QStringLiteral("w") )
-        << ( trans ? i18nc( "Day. Note: Letter(s) only!", "d" ) : QStringLiteral("d") )
-        << ( trans ? i18nc( "Hour. Note: Letter(s) only!", "h" ) : QStringLiteral("h") )
-        << ( trans ? i18nc( "Minute. Note: Letter(s) only!", "m" ) : QStringLiteral("m") )
-        << ( trans ? i18nc( "Second. Note: Letter(s) only!", "s" ) : QStringLiteral("s") )
-        << ( trans ? i18nc( "Millisecond. Note: Letter(s) only!", "ms" ) : QStringLiteral("ms") );
+    lst << (trans ? i18nc("Year. Note: Letter(s) only!", "Y") : QStringLiteral("Y"))
+        << (trans ? i18nc("Month. Note: Letter(s) only!", "M") : QStringLiteral("M"))
+        << (trans ? i18nc("Week. Note: Letter(s) only!", "w") : QStringLiteral("w"))
+        << (trans ? i18nc("Day. Note: Letter(s) only!", "d") : QStringLiteral("d"))
+        << (trans ? i18nc("Hour. Note: Letter(s) only!", "h") : QStringLiteral("h"))
+        << (trans ? i18nc("Minute. Note: Letter(s) only!", "m") : QStringLiteral("m"))
+        << (trans ? i18nc("Second. Note: Letter(s) only!", "s") : QStringLiteral("s"))
+        << (trans ? i18nc("Millisecond. Note: Letter(s) only!", "ms") : QStringLiteral("ms"));
     return lst;
 }
 
-QString Duration::unitToString( Duration::Unit unit, bool trans )
+QString Duration::unitToString(Duration::Unit unit, bool trans)
 {
-    return unitList( trans ).at( unit );
+    return unitList(trans).at(unit);
 }
 
-Duration::Unit Duration::unitFromString( const QString &u )
+Duration::Unit Duration::unitFromString(const QString &u)
 {
-    int i = unitList().indexOf( u );
-    if ( i < 0 ) {
+    int i = unitList().indexOf(u);
+    if (i < 0) {
         errorPlan<<"Illegal unit: "<<u;
         return Unit_ms;
     }
-    return (Duration::Unit)( i ); 
+    return (Duration::Unit)(i); 
 }
 
-bool Duration::valueFromString( const QString &value, double &rv, Unit &unit ) {
+bool Duration::valueFromString(const QString &value, double &rv, Unit &unit) {
     QStringList lst = Duration::unitList();
-    foreach ( const QString &s, lst ) {
-        int pos = value.lastIndexOf( s );
-        if ( pos != -1 ) {
-            unit = Duration::unitFromString( s );
+    foreach (const QString &s, lst) {
+        int pos = value.lastIndexOf(s);
+        if (pos != -1) {
+            unit = Duration::unitFromString(s);
             QString v = value;
-            v.remove( s );
+            v.remove(s);
             bool ok;
-            rv = v.toDouble( &ok );
+            rv = v.toDouble(&ok);
             errorPlan<<value<<" -> "<<v<<", "<<s<<" = "<<ok<<endl;
             return ok;
         }
@@ -327,10 +327,10 @@ bool Duration::valueFromString( const QString &value, double &rv, Unit &unit ) {
 
 double Duration::toHours() const
 {
-    return toDouble( Unit_h );
+    return toDouble(Unit_h);
 }
 
-double Duration::toDouble( Unit u ) const
+double Duration::toDouble(Unit u) const
 {
     if (u == Unit_ms) return (double)m_ms;
     else if (u == Unit_s) return (double)m_ms/1000.0;

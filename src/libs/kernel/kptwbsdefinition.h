@@ -44,7 +44,7 @@ public:
     /// Construct a default definition
     WBSDefinition();
     /// Copy constructor
-    WBSDefinition( const WBSDefinition &def );
+    WBSDefinition(const WBSDefinition &def);
     /// Destructor
     ~WBSDefinition();
 
@@ -59,7 +59,7 @@ public:
             QString separator;
     };
     
-    WBSDefinition &operator=( const WBSDefinition &def );
+    WBSDefinition &operator=(const WBSDefinition &def);
     
     void clear();
     
@@ -90,12 +90,12 @@ public:
     void setDefaultSeparator(const QString& s);
 
     QString projectCode() const { return m_projectCode; }
-    void setProjectCode( const QString &str ) { m_projectCode = str; }
+    void setProjectCode(const QString &str) { m_projectCode = str; }
     QString projectSeparator() const { return m_projectSeparator; }
-    void setProjectSeparator( const QString &str ) { m_projectSeparator = str; }
+    void setProjectSeparator(const QString &str) { m_projectSeparator = str; }
     
     /// Load from document
-    bool loadXML(KoXmlElement &element, XMLLoaderObject &status );
+    bool loadXML(KoXmlElement &element, XMLLoaderObject &status);
     /// Save to document
     void saveXML(QDomElement &element) const;
     

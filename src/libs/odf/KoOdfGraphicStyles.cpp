@@ -41,7 +41,7 @@ void KoOdfGraphicStyles::saveOdfFillStyle(KoGenStyle &styleFill, KoGenStyles& ma
 {
     KoGenStyle::Type type = styleFill.type();
     KoGenStyle::PropertyType propertyType = (type == KoGenStyle::GraphicStyle || type == KoGenStyle::GraphicAutoStyle ||
-                                             type == KoGenStyle::DrawingPageStyle || type == KoGenStyle::DrawingPageAutoStyle )
+                                             type == KoGenStyle::DrawingPageStyle || type == KoGenStyle::DrawingPageAutoStyle)
                                             ? KoGenStyle::DefaultType : KoGenStyle::GraphicType;
     switch (brush.style()) {
     case Qt::Dense1Pattern:
@@ -177,7 +177,7 @@ QString KoOdfGraphicStyles::saveOdfHatchStyle(KoGenStyles& mainStyles, const QBr
 {
     KoGenStyle hatchStyle(KoGenStyle::HatchStyle /*no family name*/);
     hatchStyle.addAttribute("draw:color", brush.color().name());
-    //hatchStyle.addAttribute( "draw:distance", m_distance ); not implemented into Stage
+    //hatchStyle.addAttribute("draw:distance", m_distance); not implemented into Stage
     switch (brush.style()) {
     case Qt::HorPattern:
         hatchStyle.addAttribute("draw:style", "single");
@@ -386,7 +386,7 @@ QBrush KoOdfGraphicStyles::loadOdfGradientStyleByName(const KoOdfStylesReader &s
             qreal r = percent(*e, KoXmlNS::svg, "r", "50%", sqrt(size.width() * size.width() + size.height() * size.height()));
             focalPoint.setX(percent(*e, KoXmlNS::svg, "fx", QString(), size.width()));
             focalPoint.setY(percent(*e, KoXmlNS::svg, "fy", QString(), size.height()));
-            gradient = new QRadialGradient(center, r, focalPoint );
+            gradient = new QRadialGradient(center, r, focalPoint);
         }
         if (! gradient)
             return QBrush();
@@ -522,7 +522,7 @@ QBrush KoOdfGraphicStyles::loadOdfFillStyle(const KoStyleStack &styleStack, cons
                 debugOdf << "angle :" << angle;
             }
             if (draw->hasAttributeNS(KoXmlNS::draw, "color")) {
-                //debugOdf<<" draw:color :"<<draw->attributeNS( KoXmlNS::draw,"color", QString() );
+                //debugOdf<<" draw:color :"<<draw->attributeNS(KoXmlNS::draw,"color", QString());
                 tmpBrush.setColor(draw->attributeNS(KoXmlNS::draw, "color", QString()));
             }
             if (draw->hasAttributeNS(KoXmlNS::draw, "distance")) {
@@ -655,7 +655,7 @@ QPen KoOdfGraphicStyles::loadOdfStrokeStyle(const KoStyleStack &styleStack, cons
 
             // set width to 1 in case it is 0 as dividing by 0 gives infinity
             qreal width = tmpPen.widthF();
-            if ( width == 0 ) {
+            if (width == 0) {
                 width = 1;
             }
 
@@ -663,7 +663,7 @@ QPen KoOdfGraphicStyles::loadOdfStrokeStyle(const KoStyleStack &styleStack, cons
             if (dashElement) {
                 QVector<qreal> dashes;
                 if (dashElement->hasAttributeNS(KoXmlNS::draw, "dots1")) {
-                    QString distance( dashElement->attributeNS(KoXmlNS::draw, "distance", QString()) );
+                    QString distance(dashElement->attributeNS(KoXmlNS::draw, "distance", QString()));
                     qreal space = parseDashEntrySize(distance, width, 0.0);
 
                     QString dots1Length(dashElement->attributeNS(KoXmlNS::draw, "dots1-length", QString()));
@@ -716,7 +716,7 @@ QTransform KoOdfGraphicStyles::loadTransformation(const QString &transformation)
 
         subtransform[0] = subtransform[0].trimmed().toLower();
         subtransform[1] = subtransform[1].simplified();
-        QRegExp reg("[,( ]");
+        QRegExp reg("[,(]");
         QStringList params = subtransform[1].split(reg, QString::SkipEmptyParts);
 
         if (subtransform[0].startsWith(';') || subtransform[0].startsWith(','))

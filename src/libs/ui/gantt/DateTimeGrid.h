@@ -41,7 +41,7 @@ protected:
 
     void drawTimeLine(QPainter* painter, const QRectF& rect);
 
-    qreal dateTimeToChartX( const QDateTime& dt ) const;
+    qreal dateTimeToChartX(const QDateTime& dt) const;
 
 private:
     DateTimeTimeLine *m_timeLine;

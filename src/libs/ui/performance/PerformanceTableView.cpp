@@ -28,13 +28,13 @@
 using namespace KPlato;
 
 
-PerformanceTableView::PerformanceTableView( QWidget *parent )
-    : QTableView( parent )
+PerformanceTableView::PerformanceTableView(QWidget *parent)
+    : QTableView(parent)
 {
-    horizontalHeader()->setSectionResizeMode( QHeaderView::Stretch );
+    horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     horizontalHeader()->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(horizontalHeader(), &QHeaderView::customContextMenuRequested, this, &PerformanceTableView::customContextMenuRequested);
-    verticalHeader()->setSectionResizeMode( QHeaderView::Fixed );
+    verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
     verticalHeader()->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(verticalHeader(), &QHeaderView::customContextMenuRequested, this, &PerformanceTableView::customContextMenuRequested);
 }
@@ -43,12 +43,12 @@ QSize PerformanceTableView::sizeHint() const
 {
     QSize s = QTableView::sizeHint();
     int h = horizontalHeader()->height();
-    for ( int r = 0; r < verticalHeader()->count(); ++r ) {
-        if ( ! verticalHeader()->isSectionHidden( r ) ) {
-            h += verticalHeader()->sectionSize( r );
+    for (int r = 0; r < verticalHeader()->count(); ++r) {
+        if (! verticalHeader()->isSectionHidden(r)) {
+            h += verticalHeader()->sectionSize(r);
         }
     }
-    s.setHeight( h + frameWidth() * 2 );
+    s.setHeight(h + frameWidth() * 2);
     return s;
 }
 

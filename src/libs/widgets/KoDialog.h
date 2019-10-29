@@ -97,17 +97,17 @@ class KoDialogPrivate;
  * <b>Example:</b>\n
  *
  * \code
- *   KoDialog *dialog = new KoDialog( this );
- *   dialog->setCaption( "My title" );
- *   dialog->setButtons( KoDialog::Ok | KoDialog::Cancel | KoDialog::Apply );
+ *   KoDialog *dialog = new KoDialog(this);
+ *   dialog->setCaption("My title");
+ *   dialog->setButtons(KoDialog::Ok | KoDialog::Cancel | KoDialog::Apply);
  *
- *   FooWidget *widget = new FooWidget( dialog );
- *   dialog->setMainWidget( widget );
- *   connect( dialog, SIGNAL(applyClicked()), widget, SLOT(save()) );
- *   connect( dialog, SIGNAL(okClicked()), widget, SLOT(save()) );
- *   connect( widget, SIGNAL(changed(bool)), dialog, SLOT(enableButtonApply(bool)) );
+ *   FooWidget *widget = new FooWidget(dialog);
+ *   dialog->setMainWidget(widget);
+ *   connect(dialog, SIGNAL(applyClicked()), widget, SLOT(save()));
+ *   connect(dialog, SIGNAL(okClicked()), widget, SLOT(save()));
+ *   connect(widget, SIGNAL(changed(bool)), dialog, SLOT(enableButtonApply(bool)));
  *
- *   dialog->enableButtonApply( false );
+ *   dialog->enableButtonApply(false);
  *   dialog->show();
  * \endcode
  *

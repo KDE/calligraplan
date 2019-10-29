@@ -141,8 +141,8 @@ void KoPrintingDialog::startPrinting(RemovePolicy removePolicy)
         d->stop = false;
         delete d->painter;
         d->painter = 0;
-//        d->zoomer.setZoom( 1.0 );
-//        d->zoomer.setDpi( d->printer->resolution(), d->printer->resolution() );
+//        d->zoomer.setZoom(1.0);
+//        d->zoomer.setDpi(d->printer->resolution(), d->printer->resolution());
 
         d->progress->start(100, i18n("Printing"));
 

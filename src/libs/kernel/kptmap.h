@@ -116,7 +116,7 @@ public:
 
     // boolean use
     void toggle(int key, int state=CalendarDay::NonWorking) {
-        if ( IntMapType::contains(key) )
+        if (IntMapType::contains(key))
             remove(key);
         else
             insert(key, state);

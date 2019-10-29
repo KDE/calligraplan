@@ -41,9 +41,9 @@ public:
     QTime dayStartTime(int day) const;
     int dayLength(int day) const;
 
-    void setDefaultValues( Project &project ) const override;
+    void setDefaultValues(Project &project) const override;
 
-    void setDefaultValues( Task &task ) override;
+    void setDefaultValues(Task &task) override;
 
     int minimumDurationUnit() const override;
     int maximumDurationUnit() const override;

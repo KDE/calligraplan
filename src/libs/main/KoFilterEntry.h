@@ -39,7 +39,7 @@ class KOMAIN_TEST_EXPORT KoFilterEntry : public QSharedData
 public:
     typedef QExplicitlySharedDataPointer<KoFilterEntry> Ptr;
 
-    //KoFilterEntry() : weight( 0 ) { m_service = 0; } // for QList
+    //KoFilterEntry() : weight(0) { m_service = 0; } // for QList
     /**
      * @param loader pluginloader for the filter, KoFilterEntry takes ownership
      */

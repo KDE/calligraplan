@@ -41,7 +41,7 @@ KoPagePreviewWidget::KoPagePreviewWidget(QWidget *parent)
     : QWidget(parent)
     , d(new Private)
 {
-    setMinimumSize( 100, 100 );
+    setMinimumSize(100, 100);
 }
 
 KoPagePreviewWidget::~KoPagePreviewWidget()
@@ -53,8 +53,8 @@ void KoPagePreviewWidget::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     // resolution[XY] is in pixel per pt
-    qreal resolutionX = POINT_TO_INCH( static_cast<qreal>(KoDpi::dpiX()) );
-    qreal resolutionY = POINT_TO_INCH( static_cast<qreal>(KoDpi::dpiY()) );
+    qreal resolutionX = POINT_TO_INCH(static_cast<qreal>(KoDpi::dpiX()));
+    qreal resolutionY = POINT_TO_INCH(static_cast<qreal>(KoDpi::dpiY()));
 
     qreal pageWidth = d->pageLayout.width * resolutionX;
     qreal pageHeight = d->pageLayout.height * resolutionY;
@@ -64,12 +64,12 @@ void KoPagePreviewWidget::paintEvent(QPaintEvent *event)
 
     qreal zoomH = (height() * 90 / 100) / pageHeight;
     qreal zoomW = (width() * 90 / 100) / pageWidth;
-    qreal zoom = qMin( zoomW, zoomH );
+    qreal zoom = qMin(zoomW, zoomH);
 
     pageWidth *= zoom;
     sheetWidth *= zoom;
     pageHeight *= zoom;
-    QPainter painter( this );
+    QPainter painter(this);
 
     QRect page = QRectF((width() - pageWidth) / 2.0,
             (height() - pageHeight) / 2.0, sheetWidth, pageHeight).toRect();
@@ -99,7 +99,7 @@ void KoPagePreviewWidget::drawPage(QPainter &painter, qreal zoom, const QRect &d
     QRect textArea = dimensions;
     if ((d->pageLayout.topMargin == 0 && d->pageLayout.bottomMargin == 0 &&
             d->pageLayout.leftMargin == 0 && d->pageLayout.rightMargin == 0) ||
-            ( d->pageLayout.pageEdge == 0 && d->pageLayout.bindingSide == 0)) {
+            (d->pageLayout.pageEdge == 0 && d->pageLayout.bindingSide == 0)) {
         // no margin
         return;
     }
@@ -121,15 +121,15 @@ void KoPagePreviewWidget::drawPage(QPainter &painter, qreal zoom, const QRect &d
         textArea.setLeft(textArea.left() + qRound(zoom * leftMargin));
         textArea.setRight(textArea.right() - qRound(zoom * rightMargin));
     }
-    painter.setBrush( QBrush( palette().color(QPalette::ButtonText), Qt::HorPattern ) );
+    painter.setBrush(QBrush(palette().color(QPalette::ButtonText), Qt::HorPattern));
     painter.setPen(QPen(palette().color(QPalette::Dark), 0));
 
     // uniform columns?
     if (d->columns.columnData.isEmpty()) {
         qreal columnWidth = (textArea.width() + (d->columns.gapWidth * zoom)) / d->columns.count;
         int width = qRound(columnWidth - d->columns.gapWidth * zoom);
-        for ( int i = 0; i < d->columns.count; ++i )
-            painter.drawRect( qRound(textArea.x() + i * columnWidth), textArea.y(), width, textArea.height());
+        for (int i = 0; i < d->columns.count; ++i)
+            painter.drawRect(qRound(textArea.x() + i * columnWidth), textArea.y(), width, textArea.height());
     } else {
         qreal totalRelativeWidth = 0.0;
         foreach(const KoColumns::ColumnDatum &cd, d->columns.columnData) {
@@ -141,7 +141,7 @@ void KoPagePreviewWidget::drawPage(QPainter &painter, qreal zoom, const QRect &d
             const qreal columnWidth = textArea.width() * columnDatum.relativeWidth / totalRelativeWidth;
             const qreal columnXOffset = textArea.width() * relativeColumnXOffset / totalRelativeWidth;
 
-            painter.drawRect( qRound(textArea.x() + columnXOffset + columnDatum.leftMargin * zoom),
+            painter.drawRect(qRound(textArea.x() + columnXOffset + columnDatum.leftMargin * zoom),
                               qRound(textArea.y()  + columnDatum.topMargin * zoom),
                               qRound(columnWidth - (columnDatum.leftMargin + columnDatum.rightMargin) * zoom),
                               qRound(textArea.height() - (columnDatum.topMargin + columnDatum.bottomMargin) * zoom));

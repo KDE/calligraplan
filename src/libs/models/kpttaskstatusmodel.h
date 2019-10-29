@@ -38,57 +38,57 @@ class PLANMODELS_EXPORT TaskStatusItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit TaskStatusItemModel( QObject *parent = 0 );
+    explicit TaskStatusItemModel(QObject *parent = 0);
     ~TaskStatusItemModel() override;
     
     enum PeriodType { UseCurrentDate, UseWeekday };
     int periodType() const { return m_periodType; }
-    void setPeriodType( int type ) { m_periodType = type; }
+    void setPeriodType(int type) { m_periodType = type; }
     
     /// Returns a column number/- name map for this model
     const QMetaEnum columnMap() const override { return m_nodemodel.columnMap(); }
 
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
     
-    Qt::ItemFlags flags( const QModelIndex & index ) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
     
-    QModelIndex parent( const QModelIndex & index ) const override;
-    QModelIndex index( int row, int column, const QModelIndex & parent = QModelIndex() ) const override;
-    virtual QModelIndex index( const Node *node ) const;
-    virtual QModelIndex index( const NodeMap *lst ) const;
+    QModelIndex parent(const QModelIndex & index) const override;
+    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
+    virtual QModelIndex index(const Node *node) const;
+    virtual QModelIndex index(const NodeMap *lst) const;
     
-    int columnCount( const QModelIndex & parent = QModelIndex() ) const override; 
-    int rowCount( const QModelIndex & parent = QModelIndex() ) const override; 
+    int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
     
-    QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override; 
-    bool setData( const QModelIndex & index, const QVariant & value, int role = Qt::EditRole ) override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
+    bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) override;
 
     
-    QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     
-    QMimeData * mimeData( const QModelIndexList & indexes ) const override;
+    QMimeData * mimeData(const QModelIndexList & indexes) const override;
     QStringList mimeTypes () const override;
     Qt::DropActions supportedDropActions() const override;
-    bool dropMimeData( const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent ) override;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
 
-    NodeMap *list( const QModelIndex &index ) const;
-    Node *node( const QModelIndex &index ) const;
-    QAbstractItemDelegate *createDelegate( int column, QWidget *parent ) const override;
+    NodeMap *list(const QModelIndex &index) const;
+    Node *node(const QModelIndex &index) const;
+    QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const override;
     
-    NodeMap nodeList( QDataStream &stream );
+    NodeMap nodeList(QDataStream &stream);
     using ItemModelBase::dropAllowed;
-    bool dropAllowed( Node *on, const QMimeData *data );
+    bool dropAllowed(Node *on, const QMimeData *data);
     
     void clear();
     
     void setNow();
-    void setPeriod( int days ) { m_period = days; }
+    void setPeriod(int days) { m_period = days; }
     int period() const { return m_period; }
-    void setWeekday( int day ) { m_weekday = day; }
+    void setWeekday(int day) { m_weekday = day; }
     int weekday() const { return m_weekday; }
     
     /// Return the sortorder to be used for @p column
-    int sortRole( int column ) const override;
+    int sortRole(int column) const override;
 
 public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
@@ -98,13 +98,13 @@ protected Q_SLOTS:
     void slotAboutToBeReset();
     void slotReset();
 
-    void slotNodeChanged(KPlato::Node* );
-    void slotNodeToBeInserted(KPlato::Node *node, int row );
-    void slotNodeInserted(KPlato::Node *node );
-    void slotNodeToBeRemoved(KPlato::Node *node );
-    void slotNodeRemoved(KPlato::Node *node );
-    void slotNodeToBeMoved(KPlato::Node *node, int pos, KPlato::Node *newParent, int newPos );
-    void slotNodeMoved(KPlato::Node *node );
+    void slotNodeChanged(KPlato::Node*);
+    void slotNodeToBeInserted(KPlato::Node *node, int row);
+    void slotNodeInserted(KPlato::Node *node);
+    void slotNodeToBeRemoved(KPlato::Node *node);
+    void slotNodeRemoved(KPlato::Node *node);
+    void slotNodeToBeMoved(KPlato::Node *node, int pos, KPlato::Node *newParent, int newPos);
+    void slotNodeMoved(KPlato::Node *node);
 
     void slotWbsDefinitionChanged();
 
@@ -119,16 +119,16 @@ protected:
         TaskUpcoming = 3
     };
 
-    QVariant alignment( int column ) const;
+    QVariant alignment(int column) const;
 
-    QVariant name( int row, int role ) const;
+    QVariant name(int row, int role) const;
     TaskStatusItemModel::TaskStatus taskStatus(const Task *task, const QDate &begin, const QDate &end);
 
-    bool setCompletion( Node *node, const QVariant &value, int role );
-    bool setRemainingEffort( Node *node, const QVariant &value, int role );
-    bool setActualEffort( Node *node, const QVariant &value, int role );
-    bool setStartedTime( Node *node, const QVariant &value, int role );
-    bool setFinishedTime( Node *node, const QVariant &value, int role );
+    bool setCompletion(Node *node, const QVariant &value, int role);
+    bool setRemainingEffort(Node *node, const QVariant &value, int role);
+    bool setActualEffort(Node *node, const QVariant &value, int role);
+    bool setStartedTime(Node *node, const QVariant &value, int role);
+    bool setFinishedTime(Node *node, const QVariant &value, int role);
 
 private:
     NodeModel m_nodemodel;

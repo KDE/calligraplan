@@ -44,8 +44,8 @@ private Q_SLOTS:
     void externalOverbook();
 
 private:
-    void printDebug( long id ) const;
-    void printSchedulingLog( const ScheduleManager &sm ) const;
+    void printDebug(long id) const;
+    void printSchedulingLog(const ScheduleManager &sm) const;
 
     Project *m_project;
     Calendar *m_calendar;

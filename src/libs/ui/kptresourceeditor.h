@@ -45,10 +45,10 @@ class PLANUI_EXPORT ResourceTreeView : public DoubleTreeViewBase
 public:
     explicit ResourceTreeView(QWidget *parent);
 
-    ResourceItemModel *model() const { return static_cast<ResourceItemModel*>( DoubleTreeViewBase::model() ); }
+    ResourceItemModel *model() const { return static_cast<ResourceItemModel*>(DoubleTreeViewBase::model()); }
 
     Project *project() const { return model()->project(); }
-    void setProject( Project *project ) { model()->setProject( project ); }
+    void setProject(Project *project) { model()->setProject(project); }
 
     QObject *currentObject() const;
     QList<QObject*> selectedObjects() const;
@@ -56,7 +56,7 @@ public:
     QList<Resource*> selectedResources() const;
 
 protected Q_SLOTS:
-    void slotDropAllowed( const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event );
+    void slotDropAllowed(const QModelIndex &index, int dropIndicatorPosition, QDragMoveEvent *event);
 };
 
 class PLANUI_EXPORT ResourceEditor : public ViewBase
@@ -67,44 +67,44 @@ public:
     
     void setupGui();
     Project *project() const override { return m_view->project(); }
-    void setProject( Project *project ) override;
+    void setProject(Project *project) override;
 
     ResourceItemModel *model() const { return m_view->model(); }
     
-    void updateReadWrite( bool readwrite ) override;
+    void updateReadWrite(bool readwrite) override;
 
     Resource *currentResource() const override;
     ResourceGroup *currentResourceGroup() const override;
     
     /// Loads context info into this view. Reimplement.
-    bool loadContext( const KoXmlElement &/*context*/ ) override;
+    bool loadContext(const KoXmlElement &/*context*/) override;
     /// Save context info from this view. Reimplement.
-    void saveContext( QDomElement &/*context*/ ) const override;
+    void saveContext(QDomElement &/*context*/) const override;
     
     KoPrintJob *createPrintJob() override;
     
 Q_SIGNALS:
     void addResource(KPlato::ResourceGroup*);
-    void deleteObjectList( const QObjectList& );
+    void deleteObjectList(const QObjectList&);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui
-    void setGuiActive( bool activate ) override;
+    void setGuiActive(bool activate) override;
     void slotEditCopy() override;
 
 protected Q_SLOTS:
     void slotOptions() override;
 
 protected:
-    void updateActionsEnabled(  bool on = true );
+    void updateActionsEnabled(bool on = true);
 
 private Q_SLOTS:
-    void slotContextMenuRequested( const QModelIndex &index, const QPoint& pos );
+    void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     void slotSplitView();
     
-    void slotSelectionChanged( const QModelIndexList& );
-    void slotCurrentChanged( const QModelIndex& );
-    void slotEnableActions( bool on );
+    void slotSelectionChanged(const QModelIndexList&);
+    void slotCurrentChanged(const QModelIndex&);
+    void slotEnableActions(bool on);
 
     void slotAddResource();
     void slotAddGroup();

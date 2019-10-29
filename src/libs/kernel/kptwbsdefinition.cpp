@@ -45,14 +45,14 @@ WBSDefinition::WBSDefinition() {
     m_codeLists.append(qMakePair(QString("Letter, lower case"), i18n("Letter, lower case")));
 }
 
-WBSDefinition::WBSDefinition( const WBSDefinition &def ) {
-    (void)this->operator=( def );
+WBSDefinition::WBSDefinition(const WBSDefinition &def) {
+    (void)this->operator=(def);
 }
 
 WBSDefinition::~WBSDefinition() {
 }
 
-WBSDefinition &WBSDefinition::operator=( const WBSDefinition &def ) {
+WBSDefinition &WBSDefinition::operator=(const WBSDefinition &def) {
     m_projectCode = def.m_projectCode;
     m_projectSeparator = def.m_projectSeparator;
     m_defaultDef.code = def.m_defaultDef.code;
@@ -148,7 +148,7 @@ QString WBSDefinition::code(const CodeDef &def, uint index) const {
 }
 
 // Nicked from koparagcounter.cc
-QString WBSDefinition::toRoman( int n, bool upper ) const
+QString WBSDefinition::toRoman(int n, bool upper) const
 {
     static const QString RNUnits[] = {"", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"};
     static const QString RNTens[] = {"", "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc"};
@@ -160,10 +160,10 @@ QString WBSDefinition::toRoman( int n, bool upper ) const
         return QString::number(n);
     }
 
-    QString s = RNThousands[ ( n / 1000 ) ] +
-                RNHundreds[ ( n / 100 ) % 10 ] +
-                RNTens[ ( n / 10 ) % 10 ] +
-                RNUnits[ ( n ) % 10 ];
+    QString s = RNThousands[ (n / 1000) ] +
+                RNHundreds[ (n / 100) % 10 ] +
+                RNTens[ (n / 10) % 10 ] +
+                RNUnits[ (n) % 10 ];
     return upper ? s.toUpper() : s;
 }
 
@@ -199,32 +199,32 @@ void WBSDefinition::setDefaultSeparator(const QString& s) {
     m_defaultDef.separator = s;
 }
 
-bool WBSDefinition::loadXML(KoXmlElement &element, XMLLoaderObject & ) {
-    m_projectCode = element.attribute( "project-code" );
-    m_projectSeparator = element.attribute( "project-separator" );
-    m_levelsEnabled = (bool)element.attribute( "levels-enabled", "0" ).toInt();
+bool WBSDefinition::loadXML(KoXmlElement &element, XMLLoaderObject &) {
+    m_projectCode = element.attribute("project-code");
+    m_projectSeparator = element.attribute("project-separator");
+    m_levelsEnabled = (bool)element.attribute("levels-enabled", "0").toInt();
     KoXmlNode n = element.firstChild();
-    for ( ; ! n.isNull(); n = n.nextSibling() ) {
-        if ( ! n.isElement() ) {
+    for (; ! n.isNull(); n = n.nextSibling()) {
+        if (! n.isElement()) {
             continue;
         }
         KoXmlElement e = n.toElement();
         if (e.tagName() == "default") {
-            m_defaultDef.code = e.attribute( "code", "Number" );
-            m_defaultDef.separator = e.attribute( "separator", "." );
+            m_defaultDef.code = e.attribute("code", "Number");
+            m_defaultDef.separator = e.attribute("separator", ".");
         } else if (e.tagName() == "levels") {
             KoXmlNode n = e.firstChild();
-            for ( ; ! n.isNull(); n = n.nextSibling() ) {
-                if ( ! n.isElement() ) {
+            for (; ! n.isNull(); n = n.nextSibling()) {
+                if (! n.isElement()) {
                     continue;
                 }
                 KoXmlElement el = n.toElement();
                 CodeDef d;
-                d.code = el.attribute( "code" );
-                d.separator = el.attribute( "separator" );
-                int lvl = el.attribute( "level", "-1" ).toInt();
-                if ( lvl >= 0 ) {
-                    setLevelsDef( lvl, d );
+                d.code = el.attribute("code");
+                d.separator = el.attribute("separator");
+                int lvl = el.attribute("level", "-1").toInt();
+                if (lvl >= 0) {
+                    setLevelsDef(lvl, d);
                 } else errorPlan<<"Invalid levels definition";
             }
         }
@@ -236,19 +236,19 @@ void WBSDefinition::saveXML(QDomElement &element)  const {
     QDomElement me = element.ownerDocument().createElement("wbs-definition");
     element.appendChild(me);
 
-    me.setAttribute( "project-code", m_projectCode );
-    me.setAttribute( "project-separator", m_projectSeparator );
-    me.setAttribute( "levels-enabled", QString::number(m_levelsEnabled) );
-    if ( ! m_levelsDef.isEmpty() ) {
+    me.setAttribute("project-code", m_projectCode);
+    me.setAttribute("project-separator", m_projectSeparator);
+    me.setAttribute("levels-enabled", QString::number(m_levelsEnabled));
+    if (! m_levelsDef.isEmpty()) {
         QDomElement ld = element.ownerDocument().createElement("levels");
         me.appendChild(ld);
         QMap<int, CodeDef>::ConstIterator it;
         for (it = m_levelsDef.constBegin(); it != m_levelsDef.constEnd(); ++it) {
             QDomElement l = element.ownerDocument().createElement("level");
             ld.appendChild(l);
-            l.setAttribute( "level", QString::number(it.key()) );
-            l.setAttribute( "code", it.value().code );
-            l.setAttribute( "separator", it.value().separator );
+            l.setAttribute("level", QString::number(it.key()));
+            l.setAttribute("code", it.value().code);
+            l.setAttribute("separator", it.value().separator);
         }
     }
     QDomElement cd = element.ownerDocument().createElement("default");

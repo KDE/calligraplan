@@ -31,7 +31,7 @@ public:
 };
 
 KoDocumentBase::KoDocumentBase()
-    : d( new Private )
+    : d(new Private)
 {
 }
 

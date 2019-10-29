@@ -131,11 +131,11 @@ class ScriptingDataQueryView : public QWidget, Ui::ScriptingDataQueryView
 
 
     private Q_SLOTS:
-        void slotObjectTypeChanged( int index );
+        void slotObjectTypeChanged(int index);
         
     private:
         void setup();
-        void setupLists( QListWidget *list, const QString &tag, const QString &property, const QString &tooltip );
+        void setupLists(QListWidget *list, const QString &tag, const QString &property, const QString &tooltip);
         
     private:
         Scripting::Module *m_module;

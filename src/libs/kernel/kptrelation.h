@@ -61,17 +61,17 @@ public:
     virtual ~Relation();
 
     /// Set relation type
-    void setType(Type );
+    void setType(Type);
     /// Set relation type
-    void setType( const QString &type );
+    void setType(const QString &type);
     /// Return relation type
     Type type() const { return m_type; }
     /// Return relation type as a string. Translated if @p trans = true.
-    QString typeToString( bool trans = false ) const;
+    QString typeToString(bool trans = false) const;
     /// Convert @p type to a valid relation type
-    static Type typeFromString( const QString &type );
+    static Type typeFromString(const QString &type);
     /// Return a stringlist of relation types. Translated if @p trans = true
-    static QStringList typeList( bool trans = false );
+    static QStringList typeList(bool trans = false);
     
     /**
     * Returns the lag.
@@ -86,12 +86,12 @@ public:
      * @return The parent dependent node.
      */
     Node *parent() const { return m_parent; }
-    void setParent( Node *node );
+    void setParent(Node *node);
     /**
      * @return The child dependent node.
      */
     Node *child() const { return m_child; }
-    void setChild( Node *node );
+    void setChild(Node *node);
 
     bool load(KoXmlElement &element, Project &project);
     void save(QDomElement &element, const XmlSaveContext &context) const;
@@ -124,7 +124,7 @@ public:
 
 }  //KPlato namespace
 
-PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Relation* r );
-PLANKERNEL_EXPORT QDebug operator<<( QDebug dbg, const KPlato::Relation& r );
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Relation* r);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Relation& r);
 
 #endif

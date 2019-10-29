@@ -34,24 +34,24 @@ RelationPanel::RelationPanel(QWidget *parent)
     : QWidget(parent)
 {
     setupUi(this);
-    lagLabel->setText( xi18nc( "@label:spinbox Time lag", "Lag:" ) );
-    QString tt = xi18nc( "@info:tooltip", "<emphasis>Lag</emphasis> is the time the dependent task is delayed" );
-    lagLabel->setToolTip( tt );
-    lag->setToolTip( tt );
+    lagLabel->setText(xi18nc("@label:spinbox Time lag", "Lag:"));
+    QString tt = xi18nc("@info:tooltip", "<emphasis>Lag</emphasis> is the time the dependent task is delayed");
+    lagLabel->setToolTip(tt);
+    lag->setToolTip(tt);
 }
     
 AddRelationDialog::AddRelationDialog(Project &project, Relation *rel, QWidget *p, const QString& caption, ButtonCodes buttons)
     : KoDialog(p),
-    m_project( project ),
-    m_relation( rel ),
-    m_deleterelation( true )
+    m_project(project),
+    m_relation(rel),
+    m_deleterelation(true)
 {
-    setCaption( caption );
-    setButtons( buttons );
-    setDefaultButton( Ok );
-    showButtonSeparator( true );
-    if ( caption.isEmpty() ) {
-        setCaption( xi18nc( "@title:window", "Add Dependency" ) );
+    setCaption(caption);
+    setButtons(buttons);
+    setDefaultButton(Ok);
+    showButtonSeparator(true);
+    if (caption.isEmpty()) {
+        setCaption(xi18nc("@title:window", "Add Dependency"));
     }
     m_relation = rel;
     m_panel = new RelationPanel(this);
@@ -68,8 +68,8 @@ AddRelationDialog::AddRelationDialog(Project &project, Relation *rel, QWidget *p
         m_panel->bStartStart->setChecked(true);
     }
 
-    m_panel->lag->setUnit( Duration::Unit_h );
-    m_panel->lag->setValue(rel->lag().toDouble( Duration::Unit_h ) ); //FIXME store user input
+    m_panel->lag->setUnit(Duration::Unit_h);
+    m_panel->lag->setValue(rel->lag().toDouble(Duration::Unit_h)); //FIXME store user input
 
     m_panel->relationType->setFocus();
     enableButtonOk(true);
@@ -84,21 +84,21 @@ AddRelationDialog::AddRelationDialog(Project &project, Relation *rel, QWidget *p
 
 AddRelationDialog::~AddRelationDialog()
 {
-    if ( m_deleterelation ) {
+    if (m_deleterelation) {
         delete m_relation; //in case of cancel
     }
 }
 
-void AddRelationDialog::slotNodeRemoved( Node *node )
+void AddRelationDialog::slotNodeRemoved(Node *node)
 {
-    if ( m_relation->parent() == node || m_relation->child() == node ) {
+    if (m_relation->parent() == node || m_relation->child() == node) {
         reject();
     }
 }
 
 MacroCommand *AddRelationDialog::buildCommand() {
-    MacroCommand *c = new MacroCommand( kundo2_i18n("Add task dependency") );
-    c->addCommand( new AddRelationCmd(m_project, m_relation ) );
+    MacroCommand *c = new MacroCommand(kundo2_i18n("Add task dependency"));
+    c->addCommand(new AddRelationCmd(m_project, m_relation));
     m_deleterelation = false; // don't delete
     return c;
 }
@@ -143,11 +143,11 @@ int AddRelationDialog::selectedRelationType() const {
 //////////////////
 
 ModifyRelationDialog::ModifyRelationDialog(Project &project, Relation *rel, QWidget *p)
-    : AddRelationDialog(project, rel, p, xi18nc( "@title:window", "Edit Dependency"), Ok|Cancel|User1)
+    : AddRelationDialog(project, rel, p, xi18nc("@title:window", "Edit Dependency"), Ok|Cancel|User1)
 {
     m_deleterelation = false;
 
-    setButtonText( KoDialog::User1, xi18nc( "@action:button", "Delete") );
+    setButtonText(KoDialog::User1, xi18nc("@action:button", "Delete"));
     m_deleted = false;
     enableButtonOk(false);
     
@@ -156,9 +156,9 @@ ModifyRelationDialog::ModifyRelationDialog(Project &project, Relation *rel, QWid
     connect(&project, &Project::relationRemoved, this, &ModifyRelationDialog::slotRelationRemoved);
 }
 
-void ModifyRelationDialog::slotRelationRemoved( Relation *relation )
+void ModifyRelationDialog::slotRelationRemoved(Relation *relation)
 {
-    if ( m_relation == relation ) {
+    if (m_relation == relation) {
         reject();
     }
 }
@@ -171,15 +171,15 @@ void ModifyRelationDialog::slotUser1() {
 
 MacroCommand *ModifyRelationDialog::buildCommand() {
     MacroCommand *cmd=0;
-    if ( m_deleted ) {
-        cmd = new MacroCommand( kundo2_i18n( "Delete task dependency" ) );
-        cmd ->addCommand( new DeleteRelationCmd( m_project, m_relation ) );
+    if (m_deleted) {
+        cmd = new MacroCommand(kundo2_i18n("Delete task dependency"));
+        cmd ->addCommand(new DeleteRelationCmd(m_project, m_relation));
         return cmd;
     }
-    KUndo2MagicString s = kundo2_i18n( "Modify task dependency" );
+    KUndo2MagicString s = kundo2_i18n("Modify task dependency");
     if (selectedRelationType() != m_relation->type()) {
         if (cmd == 0)
-            cmd = new MacroCommand( s );
+            cmd = new MacroCommand(s);
         cmd->addCommand(new ModifyRelationTypeCmd(m_relation, (Relation::Type)(selectedRelationType())));
         
         //debugPlan<<m_panel->relationType->selectedId();
@@ -187,7 +187,7 @@ MacroCommand *ModifyRelationDialog::buildCommand() {
     Duration d(m_panel->lag->value(), m_panel->lag->unit());
     if (m_relation->lag() != d) {
         if (cmd == 0)
-            cmd = new MacroCommand( s );
+            cmd = new MacroCommand(s);
         cmd->addCommand(new ModifyRelationLagCmd(m_relation, d));
     }
     return cmd;

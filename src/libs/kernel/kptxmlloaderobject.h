@@ -44,7 +44,7 @@ public:
       m_warnings(0),
       m_logLevel(Diagnostics),
       m_log(),
-      m_baseCalendar( 0 ),
+      m_baseCalendar(0),
       m_loadTaskChildren(true)
     {}
     ~XMLLoaderObject() {}
@@ -53,16 +53,16 @@ public:
     Project &project() const { return *m_project; }
     
     QString version() const { return m_version; }
-    void setVersion( const QString &ver ) { m_version = ver; }
+    void setVersion(const QString &ver) { m_version = ver; }
 
     QString workVersion() const { return m_workversion; }
-    void setWorkVersion( const QString &ver ) { m_workversion = ver; }
+    void setWorkVersion(const QString &ver) { m_workversion = ver; }
 
     QString mimetype() const { return m_mimetype; }
-    void setMimetype( const QString &mime ) { m_mimetype = mime; }
+    void setMimetype(const QString &mime) { m_mimetype = mime; }
 
     const QTimeZone &projectTimeZone() const { return m_projectTimeZone; }
-    void setProjectTimeZone( const QTimeZone &timeZone ) { m_projectTimeZone = timeZone; }
+    void setProjectTimeZone(const QTimeZone &timeZone) { m_projectTimeZone = timeZone; }
 
     void startLoad() {
         m_timer.start();
@@ -81,11 +81,11 @@ public:
     
     void setLogLevel(Severity sev) { m_logLevel = sev; }
     const QStringList &log() const { return m_log; }
-    void error( const QString &msg ) { addMsg( Errors, msg ); }
-    void warning( const QString &msg ) { addMsg( Errors, msg ); }
-    void diagnostic( const QString &msg ) { addMsg( Diagnostics, msg ); }
-    void debug( const QString &msg ) { addMsg( Debug, msg ); }
-    void message( const QString &msg ) { addMsg( None, msg ); }
+    void error(const QString &msg) { addMsg(Errors, msg); }
+    void warning(const QString &msg) { addMsg(Errors, msg); }
+    void diagnostic(const QString &msg) { addMsg(Diagnostics, msg); }
+    void debug(const QString &msg) { addMsg(Debug, msg); }
+    void message(const QString &msg) { addMsg(None, msg); }
     void addMsg(int sev, const QString& msg) {
         increment(sev);
         if (m_logLevel < sev) return;
@@ -110,11 +110,11 @@ public:
     bool warning() const { return m_warnings > 0; }
 
     // help to handle version < 0.6
-    void setBaseCalendar( Calendar *cal ) { m_baseCalendar = cal; }
+    void setBaseCalendar(Calendar *cal) { m_baseCalendar = cal; }
     Calendar *baseCalendar() const { return m_baseCalendar; }
 
-    void setUpdater( KoUpdater *updater ) { m_updater = updater; }
-    void setProgress( int value ) { if ( m_updater ) m_updater->setProgress( value ); }
+    void setUpdater(KoUpdater *updater) { m_updater = updater; }
+    void setProgress(int value) { if (m_updater) m_updater->setProgress(value); }
 
     void setLoadTaskChildren(bool state) { m_loadTaskChildren = state; }
     bool loadTaskChildren() { return m_loadTaskChildren; }

@@ -40,11 +40,11 @@ QTimeZone createTimeZoneWithOffsetFromSystem(int hours, const QString & name, in
     QTimeZone systemTimeZone = QTimeZone::systemTimeZone();
     int systemOffsetSeconds = systemTimeZone.standardTimeOffset(QDateTime(QDate(1980, 1, 1), QTime(), Qt::UTC));
     int offsetSeconds = systemOffsetSeconds + 3600 * hours;
-    if (offsetSeconds >= (12*3600) ) {
+    if (offsetSeconds >= (12*3600)) {
         qDebug() << "reducing offset by 24h";
         offsetSeconds -= (24*3600);
         *shiftDays = -1;
-    } else if (offsetSeconds <= -(12*3600) ) {
+    } else if (offsetSeconds <= -(12*3600)) {
         qDebug() << "increasing offset by 24h";
         offsetSeconds += (24*3600);
         *shiftDays = 1;
@@ -65,13 +65,13 @@ void CalendarTester::testSingleDay() {
     QTime t2(10,0,0);
     DateTime wdt1(wdate, t1);
     DateTime wdt2(wdate, t2);
-    int length = t1.msecsTo( t2 );
+    int length = t1.msecsTo(t2);
     CalendarDay *day = new CalendarDay(wdate, CalendarDay::Working);
     day->addInterval(TimeInterval(t1, length));
     t.addDay(day);
     QVERIFY(t.findDay(wdate) == day);
 
-    QVERIFY(t.hasInterval(after, DateTime( after.addDays(1))) == false);
+    QVERIFY(t.hasInterval(after, DateTime(after.addDays(1))) == false);
     QVERIFY(t.hasInterval(before, DateTime(before.addDays(-1))) == false);
 
     QVERIFY(t.hasInterval(after, before) == false);
@@ -94,7 +94,7 @@ void CalendarTester::testWeekdays() {
     DateTime after = DateTime(wdate.addDays(2), QTime());
     QTime t1(8,0,0);
     QTime t2(10,0,0);
-    int length = t1.msecsTo( t2 );
+    int length = t1.msecsTo(t2);
 
     CalendarDay *wd1 = t.weekday(Qt::Wednesday);
     QVERIFY(wd1 != 0);
@@ -118,7 +118,7 @@ void CalendarTester::testCalendarWithParent() {
     DateTime after = DateTime(wdate.addDays(1), QTime());
     QTime t1(8,0,0);
     QTime t2(10,0,0);
-    int length = t1.msecsTo( t2 );
+    int length = t1.msecsTo(t2);
     DateTime wdt1(wdate, t1);
     DateTime wdt2(wdate, t2);
 
@@ -157,56 +157,56 @@ void CalendarTester::testTimezone()
     QTime t2(10,0,0);
     DateTime wdt1(wdate, t1);
     DateTime wdt2(wdate, t2);
-    int length = t1.msecsTo( t2 );
+    int length = t1.msecsTo(t2);
     CalendarDay *day = new CalendarDay(wdate, CalendarDay::Working);
     day->addInterval(TimeInterval(t1, length));
     t.addDay(day);
-    Debug::print( &t, "Time zone testing" );
+    Debug::print(&t, "Time zone testing");
     QVERIFY(t.findDay(wdate) == day);
 
-    // local zone: Europe/Berlin ( 1 hours from London )
+    // local zone: Europe/Berlin (1 hours from London)
     int loShiftDays;
     QTimeZone lo = createTimeZoneWithOffsetFromSystem(-1, "DummyLondon", &loShiftDays);
-    QVERIFY( lo.isValid() );
-    QDateTime dt1 = QDateTime( wdate, t1, lo ).addDays(loShiftDays).addSecs( -2 * 3600 );
-    QDateTime dt2 = QDateTime( wdate, t2, lo ).addDays(loShiftDays).addSecs( 0 * 3600 );
+    QVERIFY(lo.isValid());
+    QDateTime dt1 = QDateTime(wdate, t1, lo).addDays(loShiftDays).addSecs(-2 * 3600);
+    QDateTime dt2 = QDateTime(wdate, t2, lo).addDays(loShiftDays).addSecs(0 * 3600);
 
-    qDebug()<<QDateTime( wdt1 )<<QDateTime( wdt2 );
+    qDebug()<<QDateTime(wdt1)<<QDateTime(wdt2);
     qDebug()<<dt1<<dt2<<"("<<dt1.toLocalTime()<<dt2.toLocalTime()<<")";
-    QCOMPARE(t.firstAvailableAfter( DateTime( dt1 ), after ), wdt1 );
-    QCOMPARE(t.firstAvailableBefore( DateTime( dt2 ), before ), wdt2 );
+    QCOMPARE(t.firstAvailableAfter(DateTime(dt1), after), wdt1);
+    QCOMPARE(t.firstAvailableBefore(DateTime(dt2), before), wdt2);
 
     Duration e(0, 2, 0);
-    QCOMPARE( t.effort( DateTime( dt1 ), DateTime( dt2 ) ), e );
+    QCOMPARE(t.effort(DateTime(dt1), DateTime(dt2)), e);
 
-    // local zone: Europe/Berlin ( 9 hours from America/Los_Angeles )
+    // local zone: Europe/Berlin (9 hours from America/Los_Angeles)
     int laShiftDays;
     QTimeZone la = createTimeZoneWithOffsetFromSystem(-9, "DummyLos_Angeles", &laShiftDays);
-    QVERIFY( la.isValid() );
-    QDateTime dt3 = QDateTime( wdate, t1, la ).addDays(laShiftDays).addSecs( -10 * 3600 );
-    QDateTime dt4 = QDateTime( wdate, t2, la ).addDays(laShiftDays).addSecs( -8 * 3600 );
+    QVERIFY(la.isValid());
+    QDateTime dt3 = QDateTime(wdate, t1, la).addDays(laShiftDays).addSecs(-10 * 3600);
+    QDateTime dt4 = QDateTime(wdate, t2, la).addDays(laShiftDays).addSecs(-8 * 3600);
 
-    qDebug()<<QDateTime( wdt1 )<<QDateTime( wdt2 );
+    qDebug()<<QDateTime(wdt1)<<QDateTime(wdt2);
     qDebug()<<dt3<<dt4<<"("<<dt3.toLocalTime()<<dt4.toLocalTime()<<")";
-    QCOMPARE(t.firstAvailableAfter( DateTime( dt3 ), after ), wdt1 );
-    QCOMPARE(t.firstAvailableBefore( DateTime( dt4 ), before ), wdt2 );
+    QCOMPARE(t.firstAvailableAfter(DateTime(dt3), after), wdt1);
+    QCOMPARE(t.firstAvailableBefore(DateTime(dt4), before), wdt2);
 
-    QCOMPARE( t.effort( DateTime( dt3 ), DateTime( dt4 ) ), e );
+    QCOMPARE(t.effort(DateTime(dt3), DateTime(dt4)), e);
 
     QString s = "Test Cairo:";
     qDebug()<<s;
-    // local zone: Europe/Berlin ( 1 hour from cairo )
+    // local zone: Europe/Berlin (1 hour from cairo)
     int caShiftDays;
     QTimeZone ca = createTimeZoneWithOffsetFromSystem(1, "DummyCairo", &caShiftDays);
-    QDateTime dt5 = QDateTime( wdate, t1, ca ).addDays(caShiftDays).addSecs( 0 * 3600 );
-    QDateTime dt6 = QDateTime( wdate, t2, ca ).addDays(caShiftDays).addSecs( 2 * 3600 );
+    QDateTime dt5 = QDateTime(wdate, t1, ca).addDays(caShiftDays).addSecs(0 * 3600);
+    QDateTime dt6 = QDateTime(wdate, t2, ca).addDays(caShiftDays).addSecs(2 * 3600);
 
-    qDebug()<<QDateTime( wdt1 )<<QDateTime( wdt2 );
+    qDebug()<<QDateTime(wdt1)<<QDateTime(wdt2);
     qDebug()<<dt5<<dt6<<"("<<dt5.toLocalTime()<<dt6.toLocalTime()<<")";
-    QCOMPARE(t.firstAvailableAfter( DateTime( dt5 ), after ), wdt1 );
-    QCOMPARE(t.firstAvailableBefore( DateTime( dt6 ), before ), wdt2 );
+    QCOMPARE(t.firstAvailableAfter(DateTime(dt5), after), wdt1);
+    QCOMPARE(t.firstAvailableBefore(DateTime(dt6), before), wdt2);
 
-    QCOMPARE( t.effort( DateTime( dt5 ), DateTime( dt6 ) ), e );
+    QCOMPARE(t.effort(DateTime(dt5), DateTime(dt6)), e);
 }
 
 void CalendarTester::workIntervals()
@@ -217,64 +217,64 @@ void CalendarTester::workIntervals()
     DateTime after = DateTime(wdate.addDays(1), QTime());
     QTime t1(8,0,0);
     QTime t2(10,0,0);
-    DateTime wdt1( wdate, t1 );
-    DateTime wdt2( wdate, t2 );
-    int length = t1.msecsTo( t2 );
+    DateTime wdt1(wdate, t1);
+    DateTime wdt2(wdate, t2);
+    int length = t1.msecsTo(t2);
     CalendarDay *day = new CalendarDay(wdate, CalendarDay::Working);
-    day->addInterval( TimeInterval( t1, length ) );
+    day->addInterval(TimeInterval(t1, length));
     t.addDay(day);
     QVERIFY(t.findDay(wdate) == day);
 
-    AppointmentIntervalList lst = t.workIntervals( before, after, 100. );
-    QCOMPARE( lst.map().count(), 1 );
-    QCOMPARE( wdate, lst.map().values().first().startTime().date() );
-    QCOMPARE( t1, lst.map().values().first().startTime().time() );
-    QCOMPARE( wdate, lst.map().values().first().endTime().date() );
-    QCOMPARE( t2, lst.map().values().first().endTime().time() );
-    QCOMPARE( 100., lst.map().values().first().load() );
+    AppointmentIntervalList lst = t.workIntervals(before, after, 100.);
+    QCOMPARE(lst.map().count(), 1);
+    QCOMPARE(wdate, lst.map().values().first().startTime().date());
+    QCOMPARE(t1, lst.map().values().first().startTime().time());
+    QCOMPARE(wdate, lst.map().values().first().endTime().date());
+    QCOMPARE(t2, lst.map().values().first().endTime().time());
+    QCOMPARE(100., lst.map().values().first().load());
 
-    QTime t3( 12, 0, 0 );
-    day->addInterval( TimeInterval( t3, length ) );
+    QTime t3(12, 0, 0);
+    day->addInterval(TimeInterval(t3, length));
 
-    lst = t.workIntervals( before, after, 100. );
-    Debug::print( lst );
-    QCOMPARE( lst.map().count(), 2 );
-    QCOMPARE( wdate, lst.map().values().first().startTime().date() );
-    QCOMPARE( t1, lst.map().values().first().startTime().time() );
-    QCOMPARE( wdate, lst.map().values().first().endTime().date() );
-    QCOMPARE( t2, lst.map().values().first().endTime().time() );
-    QCOMPARE( 100., lst.map().values().first().load() );
+    lst = t.workIntervals(before, after, 100.);
+    Debug::print(lst);
+    QCOMPARE(lst.map().count(), 2);
+    QCOMPARE(wdate, lst.map().values().first().startTime().date());
+    QCOMPARE(t1, lst.map().values().first().startTime().time());
+    QCOMPARE(wdate, lst.map().values().first().endTime().date());
+    QCOMPARE(t2, lst.map().values().first().endTime().time());
+    QCOMPARE(100., lst.map().values().first().load());
 
-    QCOMPARE( wdate, lst.map().values().at( 1 ).startTime().date() );
-    QCOMPARE( t3, lst.map().values().at( 1 ).startTime().time() );
-    QCOMPARE( wdate, lst.map().values().at( 1 ).endTime().date() );
-    QCOMPARE( t3.addMSecs( length ), lst.map().values().at( 1 ).endTime().time() );
-    QCOMPARE( 100., lst.map().values().at( 1 ).load() );
+    QCOMPARE(wdate, lst.map().values().at(1).startTime().date());
+    QCOMPARE(t3, lst.map().values().at(1).startTime().time());
+    QCOMPARE(wdate, lst.map().values().at(1).endTime().date());
+    QCOMPARE(t3.addMSecs(length), lst.map().values().at(1).endTime().time());
+    QCOMPARE(100., lst.map().values().at(1).load());
 
     // add interval before the existing
-    QTime t4( 5, 30, 0 );
-    day->addInterval( TimeInterval( t4, length ) );
+    QTime t4(5, 30, 0);
+    day->addInterval(TimeInterval(t4, length));
 
-    lst = t.workIntervals( before, after, 100. );
-    Debug::print( lst );
-    QCOMPARE( lst.map().count(), 3 );
-    QCOMPARE( wdate, lst.map().values().first().startTime().date() );
-    QCOMPARE( t4, lst.map().values().first().startTime().time() );
-    QCOMPARE( wdate, lst.map().values().first().endTime().date() );
-    QCOMPARE( t4.addMSecs( length ), lst.map().values().first().endTime().time() );
-    QCOMPARE( 100., lst.map().values().first().load() );
+    lst = t.workIntervals(before, after, 100.);
+    Debug::print(lst);
+    QCOMPARE(lst.map().count(), 3);
+    QCOMPARE(wdate, lst.map().values().first().startTime().date());
+    QCOMPARE(t4, lst.map().values().first().startTime().time());
+    QCOMPARE(wdate, lst.map().values().first().endTime().date());
+    QCOMPARE(t4.addMSecs(length), lst.map().values().first().endTime().time());
+    QCOMPARE(100., lst.map().values().first().load());
 
-    QCOMPARE( wdate, lst.map().values().at( 1 ).startTime().date() );
-    QCOMPARE( t1, lst.map().values().at( 1 ).startTime().time() );
-    QCOMPARE( wdate, lst.map().values().at( 1 ).endTime().date() );
-    QCOMPARE( t2, lst.map().values().at( 1 ).endTime().time() );
-    QCOMPARE( 100., lst.map().values().at( 1 ).load() );
+    QCOMPARE(wdate, lst.map().values().at(1).startTime().date());
+    QCOMPARE(t1, lst.map().values().at(1).startTime().time());
+    QCOMPARE(wdate, lst.map().values().at(1).endTime().date());
+    QCOMPARE(t2, lst.map().values().at(1).endTime().time());
+    QCOMPARE(100., lst.map().values().at(1).load());
 
-    QCOMPARE( wdate, lst.map().values().at( 2 ).startTime().date() );
-    QCOMPARE( t3, lst.map().values().at( 2 ).startTime().time() );
-    QCOMPARE( wdate, lst.map().values().at( 2 ).endTime().date() );
-    QCOMPARE( t3.addMSecs( length ), lst.map().values().at( 2 ).endTime().time() );
-    QCOMPARE( 100., lst.map().values().at( 2 ).load() );
+    QCOMPARE(wdate, lst.map().values().at(2).startTime().date());
+    QCOMPARE(t3, lst.map().values().at(2).startTime().time());
+    QCOMPARE(wdate, lst.map().values().at(2).endTime().date());
+    QCOMPARE(t3.addMSecs(length), lst.map().values().at(2).endTime().time());
+    QCOMPARE(100., lst.map().values().at(2).load());
 }
 
 void CalendarTester::workIntervalsFullDays()
@@ -284,36 +284,36 @@ void CalendarTester::workIntervalsFullDays()
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(10), QTime());
 
-    CalendarDay *day = new CalendarDay( wdate, CalendarDay::Working );
-    day->addInterval( TimeInterval( QTime( 0, 0, 0), 24*60*60*1000 ) );
+    CalendarDay *day = new CalendarDay(wdate, CalendarDay::Working);
+    day->addInterval(TimeInterval(QTime(0, 0, 0), 24*60*60*1000));
     t.addDay(day);
 
-    QCOMPARE( day->numIntervals(), 1 );
-    QVERIFY( day->timeIntervals().constFirst()->endsMidnight() );
+    QCOMPARE(day->numIntervals(), 1);
+    QVERIFY(day->timeIntervals().constFirst()->endsMidnight());
 
     DateTime start = day->start();
     DateTime end = day->end();
 
-    QCOMPARE( t.workIntervals( start, end, 100. ).map().count(), 1 );
-    QCOMPARE( t.workIntervals( before, after, 100. ).map().count(), 1 );
+    QCOMPARE(t.workIntervals(start, end, 100.).map().count(), 1);
+    QCOMPARE(t.workIntervals(before, after, 100.).map().count(), 1);
 
-    day = new CalendarDay( wdate.addDays( 1 ), CalendarDay::Working );
-    day->addInterval( TimeInterval( QTime( 0, 0, 0), 24*60*60*1000 ) );
-    t.addDay( day );
-
-    end = day->end();
-
-    QCOMPARE( t.workIntervals( start, end, 100. ).map().count(), 2 );
-    QCOMPARE( t.workIntervals( before, after, 100. ).map().count(), 2 );
-
-    day = new CalendarDay( wdate.addDays( 2 ), CalendarDay::Working );
-    day->addInterval( TimeInterval( QTime( 0, 0, 0), 24*60*60*1000 ) );
-    t.addDay( day );
+    day = new CalendarDay(wdate.addDays(1), CalendarDay::Working);
+    day->addInterval(TimeInterval(QTime(0, 0, 0), 24*60*60*1000));
+    t.addDay(day);
 
     end = day->end();
 
-    QCOMPARE( t.workIntervals( start, end, 100. ).map().count(), 3 );
-    QCOMPARE( t.workIntervals( before, after, 100. ).map().count(), 3 );
+    QCOMPARE(t.workIntervals(start, end, 100.).map().count(), 2);
+    QCOMPARE(t.workIntervals(before, after, 100.).map().count(), 2);
+
+    day = new CalendarDay(wdate.addDays(2), CalendarDay::Working);
+    day->addInterval(TimeInterval(QTime(0, 0, 0), 24*60*60*1000));
+    t.addDay(day);
+
+    end = day->end();
+
+    QCOMPARE(t.workIntervals(start, end, 100.).map().count(), 3);
+    QCOMPARE(t.workIntervals(before, after, 100.).map().count(), 3);
 
 }
 
@@ -335,34 +335,34 @@ void CalendarTester::dstSpring()
     
     wd1->setState(CalendarDay::Working);
     wd1->addInterval(TimeInterval(t1, length));
-    AppointmentIntervalList lst = t.workIntervals( before, after, 100. );
+    AppointmentIntervalList lst = t.workIntervals(before, after, 100.);
     qDebug()<<lst;
-    QCOMPARE( lst.map().count(), 1 );
-    QCOMPARE( lst.map().first().effort().toHours(), 23. ); // clazy:exclude=detaching-temporary
+    QCOMPARE(lst.map().count(), 1);
+    QCOMPARE(lst.map().first().effort().toHours(), 23.); // clazy:exclude=detaching-temporary
     
     wd1->clearIntervals();
     qDebug()<<"clear list";
-    wd1->addInterval(TimeInterval(QTime(0,0,0), Duration(2., Duration::Unit_h).milliseconds() ));
-    wd1->addInterval(TimeInterval(QTime(2,0,0), Duration(2., Duration::Unit_h).milliseconds() ));
+    wd1->addInterval(TimeInterval(QTime(0,0,0), Duration(2., Duration::Unit_h).milliseconds()));
+    wd1->addInterval(TimeInterval(QTime(2,0,0), Duration(2., Duration::Unit_h).milliseconds()));
     
-    lst = t.workIntervals( before, after, 100. );
+    lst = t.workIntervals(before, after, 100.);
     qDebug()<<"DST?"<<DateTime(wdate, QTime(2,0,0))<<endl<<lst;
-    QCOMPARE( lst.map().count(), 2 );
+    QCOMPARE(lst.map().count(), 2);
 
     AppointmentInterval ai = lst.map().values().value(0);
-    QCOMPARE( ai.startTime(),  DateTime(wdate, QTime()));
-    QCOMPARE( ai.endTime(),  DateTime(wdate, QTime(2,0,0)));
-    QCOMPARE( ai.effort().toHours(),  2.);
+    QCOMPARE(ai.startTime(),  DateTime(wdate, QTime()));
+    QCOMPARE(ai.endTime(),  DateTime(wdate, QTime(2,0,0)));
+    QCOMPARE(ai.effort().toHours(),  2.);
 
     Debug::print(lst);
     ai = lst.map().values().value(1);
-    QCOMPARE( ai.startTime(),  DateTime(wdate, QTime(2,0,0)));
-    QCOMPARE( ai.endTime(),  DateTime(wdate, QTime(4,0,0)));
-    QCOMPARE( ai.effort().toHours(),  1.); // Missing DST hour is skipped
+    QCOMPARE(ai.startTime(),  DateTime(wdate, QTime(2,0,0)));
+    QCOMPARE(ai.endTime(),  DateTime(wdate, QTime(4,0,0)));
+    QCOMPARE(ai.effort().toHours(),  1.); // Missing DST hour is skipped
 
     unsetenv("TZ");
 }
 
 } //namespace KPlato
 
-QTEST_GUILESS_MAIN( KPlato::CalendarTester )
+QTEST_GUILESS_MAIN(KPlato::CalendarTester)

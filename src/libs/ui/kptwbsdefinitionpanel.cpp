@@ -76,17 +76,17 @@ void ComboBoxDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionV
 
 //----------------------
 
-WBSDefinitionPanel::WBSDefinitionPanel( Project &project, WBSDefinition &def, QWidget *p, const char *n)
+WBSDefinitionPanel::WBSDefinitionPanel(Project &project, WBSDefinition &def, QWidget *p, const char *n)
     : QWidget(p),
-      m_project( project ),
+      m_project(project),
       m_def(def),
       selectedRow(-1)
 {
     setObjectName(n);
     setupUi(this);
     
-    projectCode->setText( m_def.projectCode() );
-    projectSeparator->setText( m_def.projectSeparator() );
+    projectCode->setText(m_def.projectCode());
+    projectSeparator->setText(m_def.projectSeparator());
     QStringList codeList = m_def.codeList();
     debugPlan<<codeList;
     defaultSeparator->setText(m_def.defaultSeparator());
@@ -134,8 +134,8 @@ void WBSDefinitionPanel::setStartValues() {
 
 KUndo2Command *WBSDefinitionPanel::buildCommand() {
     WBSDefinition def = m_def;
-    def.setProjectCode( projectCode->text() );
-    def.setProjectSeparator( projectSeparator->text() );
+    def.setProjectCode(projectCode->text());
+    def.setProjectSeparator(projectSeparator->text());
     def.setDefaultCode(defaultCode->currentIndex());
     def.setDefaultSeparator(defaultSeparator->text());
     
@@ -145,7 +145,7 @@ KUndo2Command *WBSDefinitionPanel::buildCommand() {
     for (int i = 0; i < levelsTable->rowCount(); ++i) {
         def.setLevelsDef(levelsTable->verticalHeaderItem(i)->text().toInt(), levelsTable->item(i, 0)->text(), levelsTable->item(i, 1)->text());
     }
-    WBSDefinitionModifyCmd *cmd = new WBSDefinitionModifyCmd( m_project, def, kundo2_i18n("Modify WBS Code Definition"));
+    WBSDefinitionModifyCmd *cmd = new WBSDefinitionModifyCmd(m_project, def, kundo2_i18n("Modify WBS Code Definition"));
     return cmd;
 }
 

@@ -50,14 +50,14 @@ SummaryTaskGeneralPanel::SummaryTaskGeneralPanel(Task &task, QWidget *p, const c
     // [Bug 311940] New: Plan crashes when typing a text in the filter textbox before the textbook is fully loaded when selecting a contact from the addressbook
     chooseLeader->hide();
 
-    m_description = new TaskDescriptionPanel( task, this );
+    m_description = new TaskDescriptionPanel(task, this);
     m_description->namefield->hide();
     m_description->namelabel->hide();
-    layout()->addWidget( m_description );
+    layout()->addWidget(m_description);
 
-    QString s = i18n( "The Work Breakdown Structure introduces numbering for all tasks in the project, according to the task structure.\nThe WBS code is auto-generated.\nYou can define the WBS code pattern using the Define WBS Pattern command in the Tools menu." );
-    wbslabel->setWhatsThis( s );
-    wbsfield->setWhatsThis( s );
+    QString s = i18n("The Work Breakdown Structure introduces numbering for all tasks in the project, according to the task structure.\nThe WBS code is auto-generated.\nYou can define the WBS code pattern using the Define WBS Pattern command in the Tools menu.");
+    wbslabel->setWhatsThis(s);
+    wbsfield->setWhatsThis(s);
 
     setStartValues(task);
     
@@ -108,8 +108,8 @@ MacroCommand *SummaryTaskGeneralPanel::buildCommand() {
         modified = true;
     }*/
     MacroCommand *m = m_description->buildCommand();
-    if ( m ) {
-        cmd->addCommand( m );
+    if (m) {
+        cmd->addCommand(m);
         modified = true;
     }
     if (!modified) {
@@ -126,27 +126,27 @@ bool SummaryTaskGeneralPanel::ok() {
 void SummaryTaskGeneralPanel::slotChooseResponsible()
 {
 #ifdef PLAN_KDEPIMLIBS_FOUND
-    QPointer<Akonadi::EmailAddressSelectionDialog> dlg = new Akonadi::EmailAddressSelectionDialog( this );
-    if ( dlg->exec() && dlg ) {
+    QPointer<Akonadi::EmailAddressSelectionDialog> dlg = new Akonadi::EmailAddressSelectionDialog(this);
+    if (dlg->exec() && dlg) {
         QStringList names;
         const Akonadi::EmailAddressSelection::List selections = dlg->selectedAddresses();
-        foreach ( const Akonadi::EmailAddressSelection &selection, selections ) {
+        foreach (const Akonadi::EmailAddressSelection &selection, selections) {
             QString s = selection.name();
-            if ( ! selection.email().isEmpty() ) {
-                if ( ! selection.name().isEmpty() ) {
+            if (! selection.email().isEmpty()) {
+                if (! selection.name().isEmpty()) {
                     s += " <";
                 }
                 s += selection.email();
-                if ( ! selection.name().isEmpty() ) {
+                if (! selection.name().isEmpty()) {
                     s += '>';
                 }
-                if ( ! s.isEmpty() ) {
+                if (! s.isEmpty()) {
                     names << s;
                 }
             }
         }
-        if ( ! names.isEmpty() ) {
-            leaderfield->setText( names.join( ", " ) );
+        if (! names.isEmpty()) {
+            leaderfield->setText(names.join(", "));
         }
     }
 #endif

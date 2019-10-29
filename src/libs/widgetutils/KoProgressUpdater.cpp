@@ -70,7 +70,7 @@ public:
 
 // NOTE: do not make the KoProgressUpdater object part of the QObject
 // hierarchy. Do not make KoProgressProxy its parent (note that KoProgressProxy
-// is not necessarily castable to QObject ). This prevents proper functioning
+// is not necessarily castable to QObject). This prevents proper functioning
 // of progress reporting in multi-threaded environments.
 KoProgressUpdater::KoProgressUpdater(KoProgressProxy *progressBar,
                                      Mode mode, QTextStream *output)
@@ -198,7 +198,7 @@ void KoProgressUpdater::updateUi()
     }
 
     if (d->currentProgress == -1) {
-        d->progressBar->setValue( d->progressBar->maximum() );
+        d->progressBar->setValue(d->progressBar->maximum());
         // should we hide the progressbar after a little while?
         return;
     }

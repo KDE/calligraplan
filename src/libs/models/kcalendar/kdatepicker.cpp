@@ -91,8 +91,8 @@ KDatePickerPrivateYearSelector::KDatePickerPrivateYearSelector(
     setFrame(false);
 
     // TODO: Find a way to get that from QLocale
-    //val->setRange( calendar->year( calendar->earliestValidDate() ),
-    //               calendar->year( calendar->latestValidDate() ) );
+    //val->setRange(calendar->year(calendar->earliestValidDate()),
+    //               calendar->year(calendar->latestValidDate()));
     setValidator(val);
 
     connect(this, &QLineEdit::returnPressed, this, &KDatePickerPrivateYearSelector::yearEnteredSlot);

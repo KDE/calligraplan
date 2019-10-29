@@ -69,7 +69,7 @@ public:
     void startElement(const char* tagName, bool indentInside = true);
 
     /**
-     * Overloaded version of addAttribute( const char*, const char* ),
+     * Overloaded version of addAttribute(const char*, const char*),
      * which is a bit slower because it needs to convert @p value to utf8 first.
      */
     inline void addAttribute(const char* attrName, const QString& value) {
@@ -134,7 +134,7 @@ public:
      */
     void endElement();
     /**
-     * Overloaded version of addTextNode( const char* ),
+     * Overloaded version of addTextNode(const char*),
      * which is a bit slower because it needs to convert @p str to utf8 first.
      */
     inline void addTextNode(const QString& str) {
@@ -146,8 +146,8 @@ public:
      * @brief Adds a text node as a child of the current element.
      *
      * This is appends the literal content of @p str to the contents of the element.
-     * E.g. addTextNode( "foo" ) inside a \<p\> element gives \<p\>foo\</p\>,
-     * and startElement( "b" ); endElement( "b" ); addTextNode( "foo" ) gives \<p\>\<b/\>foo\</p\>
+     * E.g. addTextNode("foo") inside a \<p\> element gives \<p\>foo\</p\>,
+     * and startElement("b"); endElement("b"); addTextNode("foo") gives \<p\>\<b/\>foo\</p\>
      */
     void addTextNode(const char* cstr);
 

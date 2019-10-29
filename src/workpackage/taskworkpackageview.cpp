@@ -57,27 +57,27 @@ namespace KPlatoWork
 {
 
 
-TaskWorkPackageTreeView::TaskWorkPackageTreeView( Part *part, QWidget *parent )
-    : DoubleTreeViewBase( parent )
+TaskWorkPackageTreeView::TaskWorkPackageTreeView(Part *part, QWidget *parent)
+    : DoubleTreeViewBase(parent)
 {
-    setContextMenuPolicy( Qt::CustomContextMenu );
-    masterView()->header()->setSortIndicatorShown( true );
-    masterView()->header()->setSectionsClickable( true );
-    slaveView()->header()->setSortIndicatorShown( true );
-    slaveView()->header()->setSectionsClickable( true );
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    masterView()->header()->setSortIndicatorShown(true);
+    masterView()->header()->setSectionsClickable(true);
+    slaveView()->header()->setSortIndicatorShown(true);
+    slaveView()->header()->setSectionsClickable(true);
 
-    QSortFilterProxyModel *sf = new QSortFilterProxyModel( this );
-    TaskWorkPackageModel *m = new TaskWorkPackageModel( part, sf );
-    sf->setSourceModel( m );
-    setModel( sf );
-    //setSelectionBehavior( QAbstractItemView::SelectItems );
-    setSelectionMode( QAbstractItemView::SingleSelection );
-    setStretchLastSection( false );
+    QSortFilterProxyModel *sf = new QSortFilterProxyModel(this);
+    TaskWorkPackageModel *m = new TaskWorkPackageModel(part, sf);
+    sf->setSourceModel(m);
+    setModel(sf);
+    //setSelectionBehavior(QAbstractItemView::SelectItems);
+    setSelectionMode(QAbstractItemView::SingleSelection);
+    setStretchLastSection(false);
 
-    createItemDelegates( m );
+    createItemDelegates(m);
 
     QList<int> lst1; lst1 << 1 << -1; // display column 0 (NodeName) in left view
-    masterView()->setDefaultColumns( QList<int>() << TaskWorkPackageModel::NodeName );
+    masterView()->setDefaultColumns(QList<int>() << TaskWorkPackageModel::NodeName);
     QList<int> show;
     show << TaskWorkPackageModel::NodeCompleted
             << TaskWorkPackageModel::NodeActualEffort
@@ -91,13 +91,13 @@ TaskWorkPackageTreeView::TaskWorkPackageTreeView( Part *part, QWidget *parent )
             << TaskWorkPackageModel::ProjectManager;
 
     QList<int> lst2;
-    for ( int i = 0; i < m->columnCount(); ++i ) {
-        if ( ! show.contains( i ) ) {
+    for (int i = 0; i < m->columnCount(); ++i) {
+        if (! show.contains(i)) {
             lst2 << i;
         }
     }
-    hideColumns( lst1, lst2 );
-    slaveView()->setDefaultColumns( show );
+    hideColumns(lst1, lst2);
+    slaveView()->setDefaultColumns(show);
     setViewSplitMode(false);
     masterView()->setFocus();
 
@@ -109,19 +109,19 @@ TaskWorkPackageTreeView::TaskWorkPackageTreeView( Part *part, QWidget *parent )
     connect(masterView()->header(), &QHeaderView::sectionMoved, this, &TaskWorkPackageTreeView::sectionsMoved);
     connect(slaveView()->header(), &QHeaderView::sectionMoved, this, &TaskWorkPackageTreeView::sectionsMoved);
 
-    masterView()->header()->setSortIndicator( TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder );
+    masterView()->header()->setSortIndicator(TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder);
     sf->sort(TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder);
 }
 
-void TaskWorkPackageTreeView::setSortOrder( int col, Qt::SortOrder order )
+void TaskWorkPackageTreeView::setSortOrder(int col, Qt::SortOrder order)
 {
     static_cast<QSortFilterProxyModel*>(model())->setSortRole(Qt::EditRole);
-    model()->sort( col, order );
+    model()->sort(col, order);
 }
 
 TaskWorkPackageModel *TaskWorkPackageTreeView::itemModel() const
 {
-    return static_cast<TaskWorkPackageModel*>( static_cast<QSortFilterProxyModel*>( model() )->sourceModel() );
+    return static_cast<TaskWorkPackageModel*>(static_cast<QSortFilterProxyModel*>(model())->sourceModel());
 }
 
 Project *TaskWorkPackageTreeView::project() const
@@ -131,49 +131,49 @@ Project *TaskWorkPackageTreeView::project() const
 
 Document *TaskWorkPackageTreeView::currentDocument() const
 {
-    QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>( model() );
-    Q_ASSERT( sf );
-    if ( sf == 0 ) {
+    QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(model());
+    Q_ASSERT(sf);
+    if (sf == 0) {
         return 0;
     }
-    return itemModel()->documentForIndex( sf->mapToSource(  selectionModel()->currentIndex() ) );
+    return itemModel()->documentForIndex(sf->mapToSource(selectionModel()->currentIndex()));
 }
 
 Node *TaskWorkPackageTreeView::currentNode() const
 {
-    QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>( model() );
-    Q_ASSERT( sf );
-    if ( sf == 0 ) {
+    QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(model());
+    Q_ASSERT(sf);
+    if (sf == 0) {
         return 0;
     }
-    return itemModel()->nodeForIndex( sf->mapToSource(  selectionModel()->currentIndex() ) );
+    return itemModel()->nodeForIndex(sf->mapToSource(selectionModel()->currentIndex()));
 }
 
 QList<Node*> TaskWorkPackageTreeView::selectedNodes() const
 {
     QList<Node*> lst;
-    QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>( model() );
-    Q_ASSERT( sf );
-    if ( sf == 0 ) {
+    QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(model());
+    Q_ASSERT(sf);
+    if (sf == 0) {
         return lst;
     }
-    foreach( const QModelIndex &idx, selectionModel()->selectedIndexes() ) {
-        QModelIndex i = sf->mapToSource( idx );
-        Q_ASSERT( i.isValid() && i.model() == itemModel() );
-        Node *n = itemModel()->nodeForIndex( i );
-        if ( n && ! lst.contains( n ) ) {
+    foreach(const QModelIndex &idx, selectionModel()->selectedIndexes()) {
+        QModelIndex i = sf->mapToSource(idx);
+        Q_ASSERT(i.isValid() && i.model() == itemModel());
+        Node *n = itemModel()->nodeForIndex(i);
+        if (n && ! lst.contains(n)) {
             lst << n;
         }
     }
     return lst;
 }
 
-void TaskWorkPackageTreeView::setProject( Project *project )
+void TaskWorkPackageTreeView::setProject(Project *project)
 {
-    itemModel()->setProject( project );
+    itemModel()->setProject(project);
 }
 
-void TaskWorkPackageTreeView::slotActivated( const QModelIndex &index )
+void TaskWorkPackageTreeView::slotActivated(const QModelIndex &index)
 {
     debugPlanWork<<index.column();
 }
@@ -184,33 +184,33 @@ void TaskWorkPackageTreeView::dragMoveEvent(QDragMoveEvent */*event*/)
         && (event->source() != this || !(event->possibleActions() & Qt::MoveAction)))
         return;
 
-    TreeViewBase::dragMoveEvent( event );
-    if ( ! event->isAccepted() ) {
+    TreeViewBase::dragMoveEvent(event);
+    if (! event->isAccepted()) {
         return;
     }
     //QTreeView thinks it's ok to drop
     event->ignore();
-    QModelIndex index = indexAt( event->pos() );
-    if ( ! index.isValid() ) {
+    QModelIndex index = indexAt(event->pos());
+    if (! index.isValid()) {
         event->accept();
         return; // always ok to drop on main project
     }
-    Node *dn = model()->node( index );
-    if ( dn == 0 ) {
+    Node *dn = model()->node(index);
+    if (dn == 0) {
         errorPlanWork<<"no node to drop on!"
         return; // hmmm
     }
-    switch ( dropIndicatorPosition() ) {
+    switch (dropIndicatorPosition()) {
         case AboveItem:
         case BelowItem:
             //dn == sibling
-            if ( model()->dropAllowed( dn->parentNode(), event->mimeData() ) ) {
+            if (model()->dropAllowed(dn->parentNode(), event->mimeData())) {
                 event->accept();
             }
             break;
         case OnItem:
             //dn == new parent
-            if ( model()->dropAllowed( dn, event->mimeData() ) ) {
+            if (model()->dropAllowed(dn, event->mimeData())) {
                 event->accept();
             }
             break;
@@ -221,13 +221,13 @@ void TaskWorkPackageTreeView::dragMoveEvent(QDragMoveEvent */*event*/)
 
 
 //-----------------------------------
-AbstractView::AbstractView( Part *part, QWidget *parent )
-    : QWidget( parent ),
-      m_part( part )
+AbstractView::AbstractView(Part *part, QWidget *parent)
+    : QWidget(parent),
+      m_part(part)
 {
 }
 
-void AbstractView::updateReadWrite( bool /*rw*/ )
+void AbstractView::updateReadWrite(bool /*rw*/)
 {
 }
 
@@ -247,25 +247,25 @@ Document *AbstractView::currentDocument() const
 }
 
 
-void AbstractView::slotHeaderContextMenuRequested( const QPoint &pos )
+void AbstractView::slotHeaderContextMenuRequested(const QPoint &pos)
 {
     debugPlanWork;
     QList<QAction*> lst = contextActionList();
-    if ( ! lst.isEmpty() ) {
-        QMenu::exec( lst, pos, lst.first() );
+    if (! lst.isEmpty()) {
+        QMenu::exec(lst, pos, lst.first());
     }
 }
 
-void AbstractView::slotContextMenuRequested( const QModelIndex &/*index*/, const QPoint& pos )
+void AbstractView::slotContextMenuRequested(const QModelIndex &/*index*/, const QPoint& pos)
 {
-    return slotHeaderContextMenuRequested( pos );
+    return slotHeaderContextMenuRequested(pos);
 }
 
-void AbstractView::slotContextMenuRequested( Node *node, const QPoint& pos )
+void AbstractView::slotContextMenuRequested(Node *node, const QPoint& pos)
 {
     debugPlanWork<<node->name()<<" :"<<pos;
     QString name;
-    switch ( node->type() ) {
+    switch (node->type()) {
         case Node::Type_Task:
             name = "taskstatus_popup";
             break;
@@ -279,18 +279,18 @@ void AbstractView::slotContextMenuRequested( Node *node, const QPoint& pos )
             break;
     }
     debugPlanWork<<name;
-    if ( name.isEmpty() ) {
-        slotHeaderContextMenuRequested( pos );
+    if (name.isEmpty()) {
+        slotHeaderContextMenuRequested(pos);
         return;
     }
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
 }
 
-void AbstractView::slotContextMenuRequested( Document *doc, const QPoint& pos )
+void AbstractView::slotContextMenuRequested(Document *doc, const QPoint& pos)
 {
     debugPlanWork<<doc->url()<<" :"<<pos;
     QString name;
-    switch ( doc->type() ) {
+    switch (doc->type()) {
         case Document::Type_Product:
             name = "editdocument_popup";
             break;
@@ -299,11 +299,11 @@ void AbstractView::slotContextMenuRequested( Document *doc, const QPoint& pos )
             break;
     }
     debugPlanWork<<name;
-    if ( name.isEmpty() ) {
-        slotHeaderContextMenuRequested( pos );
+    if (name.isEmpty()) {
+        slotHeaderContextMenuRequested(pos);
         return;
     }
-    emit requestPopupMenu( name, pos );
+    emit requestPopupMenu(name, pos);
 }
 
 void AbstractView::sectionsMoved()
@@ -325,23 +325,23 @@ KoPrintJob *AbstractView::createPrintJob()
 }
 
 //-----------------------------------
-TaskWorkPackageView::TaskWorkPackageView( Part *part, QWidget *parent )
-    : AbstractView( part, parent )
+TaskWorkPackageView::TaskWorkPackageView(Part *part, QWidget *parent)
+    : AbstractView(part, parent)
 {
     debugPlanWork<<"-------------------- creating TaskWorkPackageView -------------------";
-    QVBoxLayout * l = new QVBoxLayout( this );
-    l->setMargin( 0 );
-    m_view = new TaskWorkPackageTreeView( part, this );
-    l->addWidget( m_view );
+    QVBoxLayout * l = new QVBoxLayout(this);
+    l->setMargin(0);
+    m_view = new TaskWorkPackageTreeView(part, this);
+    l->addWidget(m_view);
     setupGui();
 
-    connect( itemModel(), &KPlato::ItemModelBase::executeCommand, part, &Part::addCommand );
+    connect(itemModel(), &KPlato::ItemModelBase::executeCommand, part, &Part::addCommand);
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)) );
+    connect(m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
 
-    connect( m_view, &KPlato::DoubleTreeViewBase::headerContextMenuRequested, this, &TaskWorkPackageView::slotHeaderContextMenuRequested );
+    connect(m_view, &KPlato::DoubleTreeViewBase::headerContextMenuRequested, this, &TaskWorkPackageView::slotHeaderContextMenuRequested);
 
-    connect( m_view, &KPlato::DoubleTreeViewBase::selectionChanged, this, &TaskWorkPackageView::slotSelectionChanged );
+    connect(m_view, &KPlato::DoubleTreeViewBase::selectionChanged, this, &TaskWorkPackageView::slotSelectionChanged);
 
     loadContext();
 
@@ -353,12 +353,12 @@ TaskWorkPackageView::~TaskWorkPackageView()
     saveContext();
 }
 
-void TaskWorkPackageView::updateReadWrite( bool rw )
+void TaskWorkPackageView::updateReadWrite(bool rw)
 {
-    m_view->setReadWrite( rw );
+    m_view->setReadWrite(rw);
 }
 
-void TaskWorkPackageView::slotSelectionChanged( const QModelIndexList &/*lst*/ )
+void TaskWorkPackageView::slotSelectionChanged(const QModelIndexList &/*lst*/)
 {
     emit selectionChanged();
 }
@@ -378,57 +378,57 @@ Document *TaskWorkPackageView::currentDocument() const
     return m_view->currentDocument();
 }
 
-void TaskWorkPackageView::slotContextMenuRequested( const QModelIndex &index, const QPoint& pos )
+void TaskWorkPackageView::slotContextMenuRequested(const QModelIndex &index, const QPoint& pos)
 {
     debugPlanWork<<index<<pos;
-    if ( ! index.isValid() ) {
-        slotHeaderContextMenuRequested( pos );
+    if (! index.isValid()) {
+        slotHeaderContextMenuRequested(pos);
         return;
     }
-    QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>( m_view->model() );
-    Q_ASSERT( sf );
-    if ( sf == 0 ) {
+    QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(m_view->model());
+    Q_ASSERT(sf);
+    if (sf == 0) {
         return;
     }
-    QModelIndex idx = sf->mapToSource( index );
-    if ( ! idx.isValid() ) {
-        slotHeaderContextMenuRequested( pos );
+    QModelIndex idx = sf->mapToSource(index);
+    if (! idx.isValid()) {
+        slotHeaderContextMenuRequested(pos);
         return;
     }
 
-    Node *node = itemModel()->nodeForIndex( idx );
-    if ( node ) {
-        return slotContextMenuRequested( node, pos );
+    Node *node = itemModel()->nodeForIndex(idx);
+    if (node) {
+        return slotContextMenuRequested(node, pos);
     }
-    Document *doc = itemModel()->documentForIndex( idx );
-    if ( doc ) {
-        return slotContextMenuRequested( doc, pos );
+    Document *doc = itemModel()->documentForIndex(idx);
+    if (doc) {
+        return slotContextMenuRequested(doc, pos);
     }
-    return slotHeaderContextMenuRequested( pos );
+    return slotHeaderContextMenuRequested(pos);
 }
 
 void TaskWorkPackageView::setupGui()
 {
     // Add the context menu actions for the view options
     connect(m_view->actionSplitView(), &QAction::triggered, this, &TaskWorkPackageView::slotSplitView);
-    addContextAction( m_view->actionSplitView() );
+    addContextAction(m_view->actionSplitView());
 
     actionOptions = new QAction(koIcon("configure"), i18n("Configure View..."), this);
     connect(actionOptions, &QAction::triggered, this, &TaskWorkPackageView::slotOptions);
-    addContextAction( actionOptions );
+    addContextAction(actionOptions);
 }
 
 void TaskWorkPackageView::slotSplitView()
 {
     debugPlanWork;
-    m_view->setViewSplitMode( ! m_view->isViewSplit() );
+    m_view->setViewSplitMode(! m_view->isViewSplit());
 }
 
 
 void TaskWorkPackageView::slotOptions()
 {
     debugPlanWork;
-    QPointer<SplitItemViewSettupDialog> dlg = new SplitItemViewSettupDialog( 0, m_view, this );
+    QPointer<SplitItemViewSettupDialog> dlg = new SplitItemViewSettupDialog(0, m_view, this);
     dlg->exec();
     delete dlg;
 }
@@ -436,29 +436,29 @@ void TaskWorkPackageView::slotOptions()
 bool TaskWorkPackageView::loadContext()
 {
     KoXmlDocument doc;
-    doc.setContent( PlanWorkSettings::self()->taskWorkPackageView() );
-    KoXmlElement context = doc.namedItem( "TaskWorkPackageViewSettings" ).toElement();
-    if ( context.isNull() ) {
+    doc.setContent(PlanWorkSettings::self()->taskWorkPackageView());
+    KoXmlElement context = doc.namedItem("TaskWorkPackageViewSettings").toElement();
+    if (context.isNull()) {
         debugPlanWork<<"No settings";
         return false;
     }
     debugPlanWork<<KoXml::asQDomDocument(doc).toString();
-    return m_view->loadContext( itemModel()->columnMap(), context );
+    return m_view->loadContext(itemModel()->columnMap(), context);
 }
 
 void TaskWorkPackageView::saveContext()
 {
-    QDomDocument doc ( "TaskWorkPackageView" );
-    QDomElement context = doc.createElement( "TaskWorkPackageViewSettings" );
-    doc.appendChild( context );
-    m_view->saveContext( itemModel()->columnMap(), context );
-    PlanWorkSettings::self()->setTaskWorkPackageView( doc.toString() );
+    QDomDocument doc ("TaskWorkPackageView");
+    QDomElement context = doc.createElement("TaskWorkPackageViewSettings");
+    doc.appendChild(context);
+    m_view->saveContext(itemModel()->columnMap(), context);
+    PlanWorkSettings::self()->setTaskWorkPackageView(doc.toString());
     debugPlanWork<<"saved context:"<<endl<<doc.toString();
 }
 
 //-------------------------------------------
-GanttItemDelegate::GanttItemDelegate( QObject *parent )
-    : KPlato::GanttItemDelegate( parent )
+GanttItemDelegate::GanttItemDelegate(QObject *parent)
+    : KPlato::GanttItemDelegate(parent)
 {
     showResources = false;
     showTaskName = true;
@@ -474,57 +474,57 @@ GanttItemDelegate::GanttItemDelegate( QObject *parent )
     showSchedulingError = false;
     showStatus = true;
 
-    QLinearGradient b( 0., 0., 0., QApplication::fontMetrics().height() );
-    b.setColorAt( 0., Qt::green );
-    b.setColorAt( 1., Qt::darkGreen );
-    m_brushes.insert( Brush_Normal, QBrush( b ) );
+    QLinearGradient b(0., 0., 0., QApplication::fontMetrics().height());
+    b.setColorAt(0., Qt::green);
+    b.setColorAt(1., Qt::darkGreen);
+    m_brushes.insert(Brush_Normal, QBrush(b));
 
-    b.setColorAt( 0., Qt::red );
-    b.setColorAt( 1., Qt::darkRed );
-    m_brushes.insert( Brush_Late, QBrush( b ) );
+    b.setColorAt(0., Qt::red);
+    b.setColorAt(1., Qt::darkRed);
+    m_brushes.insert(Brush_Late, QBrush(b));
 
-    b.setColorAt( 0., Qt::gray );
-    b.setColorAt( 1., Qt::darkGray );
-    m_brushes.insert( Brush_Finished, QBrush( b ) );
+    b.setColorAt(0., Qt::gray);
+    b.setColorAt(1., Qt::darkGray);
+    m_brushes.insert(Brush_Finished, QBrush(b));
 
-    b.setColorAt( 0., Qt::blue );
-    b.setColorAt( 1., Qt::darkBlue );
-    m_brushes.insert( Brush_ReadyToStart, QBrush( b ) );
+    b.setColorAt(0., Qt::blue);
+    b.setColorAt(1., Qt::darkBlue);
+    m_brushes.insert(Brush_ReadyToStart, QBrush(b));
 
-    b.setColorAt( 0., Qt::white );
-    b.setColorAt( 1., Qt::gray );
-    m_brushes.insert( Brush_NotReadyToStart, QBrush( b ) );
+    b.setColorAt(0., Qt::white);
+    b.setColorAt(1., Qt::gray);
+    m_brushes.insert(Brush_NotReadyToStart, QBrush(b));
 
-    b.setColorAt( 0., Qt::white );
-    b.setColorAt( 1., Qt::white );
-    m_brushes.insert( Brush_NotScheduled, QBrush( b ) );
+    b.setColorAt(0., Qt::white);
+    b.setColorAt(1., Qt::white);
+    m_brushes.insert(Brush_NotScheduled, QBrush(b));
 }
 
-void GanttItemDelegate::paintGanttItem( QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx )
+void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx)
 {
-    if ( !idx.isValid() ) return;
+    if (!idx.isValid()) return;
 
-    const KGantt::ItemType typ = static_cast<KGantt::ItemType>( idx.data( KGantt::ItemTypeRole ).toInt() );
+    const KGantt::ItemType typ = static_cast<KGantt::ItemType>(idx.data(KGantt::ItemTypeRole).toInt());
 
-    QString txt = itemText( idx, typ );
+    QString txt = itemText(idx, typ);
     QRectF itemRect = opt.itemRect;
 
 //     painter->save();
-//     painter->setPen( Qt::blue );
-//     painter->drawRect( opt.boundingRect.adjusted( -1., -1., 1., 1. ) );
-//     painter->setPen( Qt::red );
-//     painter->drawRect( itemRect );
+//     painter->setPen(Qt::blue);
+//     painter->drawRect(opt.boundingRect.adjusted(-1., -1., 1., 1.));
+//     painter->setPen(Qt::red);
+//     painter->drawRect(itemRect);
 //     painter->restore();
 
     QRectF textRect = itemRect;
-    if ( ! txt.isEmpty() ) {
-        int tw = opt.fontMetrics.width( txt ) + static_cast<int>( itemRect.height()/1.5 );
-        switch( opt.displayPosition ) {
+    if (! txt.isEmpty()) {
+        int tw = opt.fontMetrics.width(txt) + static_cast<int>(itemRect.height()/1.5);
+        switch(opt.displayPosition) {
             case KGantt::StyleOptionGanttItem::Left:
-                textRect.adjust( -tw, 0.0, 0.0, 0.0 );
+                textRect.adjust(-tw, 0.0, 0.0, 0.0);
                 break;
             case KGantt::StyleOptionGanttItem::Right:
-                textRect.adjust( 0.0, 0.0, tw, 0.0 );
+                textRect.adjust(0.0, 0.0, tw, 0.0);
                 break;
             default:
                 break;
@@ -532,72 +532,72 @@ void GanttItemDelegate::paintGanttItem( QPainter* painter, const KGantt::StyleOp
     }
     painter->save();
 
-    QPen pen = defaultPen( typ );
-    if ( opt.state & QStyle::State_Selected ) pen.setWidth( 2*pen.width() );
-    painter->setPen( pen );
+    QPen pen = defaultPen(typ);
+    if (opt.state & QStyle::State_Selected) pen.setWidth(2*pen.width());
+    painter->setPen(pen);
 
     qreal pw = painter->pen().width()/2.;
-    switch( typ ) {
+    switch(typ) {
     case KGantt::TypeTask:
-        if ( itemRect.isValid() ) {
+        if (itemRect.isValid()) {
             pw-=1;
             QRectF r = itemRect;
-            r.translate( 0., r.height()/6. );
-            r.setHeight( 2.*r.height()/3. );
+            r.translate(0., r.height()/6.);
+            r.setHeight(2.*r.height()/3.);
             painter->save();
-            painter->setBrushOrigin( itemRect.topLeft() );
-            painter->translate( 0.5, 0.5 );
+            painter->setBrushOrigin(itemRect.topLeft());
+            painter->translate(0.5, 0.5);
             bool normal = true;
-            if ( showStatus ) {
-                int state = data( idx, TaskWorkPackageModel::NodeStatus, Qt::EditRole ).toInt();
-                if ( state & Node::State_NotScheduled ) {
-                    painter->setBrush( m_brushes[ Brush_NotScheduled ] );
+            if (showStatus) {
+                int state = data(idx, TaskWorkPackageModel::NodeStatus, Qt::EditRole).toInt();
+                if (state & Node::State_NotScheduled) {
+                    painter->setBrush(m_brushes[ Brush_NotScheduled ]);
                     normal = false;
-                } else if ( state & Node::State_Finished ) {
-                    painter->setBrush( m_brushes[ Brush_Finished ] );
+                } else if (state & Node::State_Finished) {
+                    painter->setBrush(m_brushes[ Brush_Finished ]);
                     normal = false;
-                } else if ( state & Node::State_Started ) {
-                    if ( state & Node::State_Late ) {
-                        painter->setBrush( m_brushes[ Brush_Late ] );
+                } else if (state & Node::State_Started) {
+                    if (state & Node::State_Late) {
+                        painter->setBrush(m_brushes[ Brush_Late ]);
                         normal = false;
                     }
                 } else  {
                     // scheduled, not started, not finished
-                    if ( state & Node::State_Late ) {
-                        painter->setBrush( m_brushes[ Brush_Late ] );
+                    if (state & Node::State_Late) {
+                        painter->setBrush(m_brushes[ Brush_Late ]);
                         normal = false;
-                    } else if ( state & Node::State_NotReadyToStart ) {
-                        painter->setBrush( m_brushes[ Brush_NotReadyToStart ] );
+                    } else if (state & Node::State_NotReadyToStart) {
+                        painter->setBrush(m_brushes[ Brush_NotReadyToStart ]);
                         normal = false;
-                    } else if ( state & Node::State_ReadyToStart ) {
-                        painter->setBrush(  m_brushes[ Brush_ReadyToStart ] );
+                    } else if (state & Node::State_ReadyToStart) {
+                        painter->setBrush(m_brushes[ Brush_ReadyToStart ]);
                         normal = false;
                     }
                 }
-            } else if ( showCriticalTasks ) {
-                bool critical = data( idx, NodeModel::NodeCritical, Qt::DisplayRole ).toBool();
-                if ( ! critical && showCriticalPath ) {
-                    critical = data( idx, NodeModel::NodeCriticalPath, Qt::DisplayRole ).toBool();
+            } else if (showCriticalTasks) {
+                bool critical = data(idx, NodeModel::NodeCritical, Qt::DisplayRole).toBool();
+                if (! critical && showCriticalPath) {
+                    critical = data(idx, NodeModel::NodeCriticalPath, Qt::DisplayRole).toBool();
                 }
-                if ( critical ) {
-                    QVariant br = data( idx, NodeModel::NodeCritical, Role::Foreground );
-                    painter->setBrush( br.isValid() ? br.value<QBrush>() : m_criticalBrush );
+                if (critical) {
+                    QVariant br = data(idx, NodeModel::NodeCritical, Role::Foreground);
+                    painter->setBrush(br.isValid() ? br.value<QBrush>() : m_criticalBrush);
                     normal = false;
                 }
             }
-            if ( normal ) {
-                painter->setBrush( m_brushes[ Brush_Normal ] );
+            if (normal) {
+                painter->setBrush(m_brushes[ Brush_Normal ]);
             }
-            painter->drawRect( r );
+            painter->drawRect(r);
 
-            if ( showProgress ) {
+            if (showProgress) {
                 bool ok;
-                qreal completion = idx.model()->data( idx, KGantt::TaskCompletionRole ).toDouble( &ok );
-                if ( ok ) {
+                qreal completion = idx.model()->data(idx, KGantt::TaskCompletionRole).toDouble(&ok);
+                if (ok) {
                     qreal h = r.height();
-                    QRectF cr( r.x(), r.y()+h/4. + 1,
-                            r.width()*completion/100., h/2. - 2 );
-                    painter->fillRect( cr, painter->pen().brush() );
+                    QRectF cr(r.x(), r.y()+h/4. + 1,
+                            r.width()*completion/100., h/2. - 2);
+                    painter->fillRect(cr, painter->pen().brush());
                 }
             }
             painter->restore();
@@ -608,7 +608,7 @@ void GanttItemDelegate::paintGanttItem( QPainter* painter, const KGantt::StyleOp
                 (opt.displayPosition == KGantt::StyleOptionGanttItem::Right) ? Qt::AlignRight :
                 /*                      KGantt::StyleOptionGanttItem::Center*/ Qt::AlignCenter;
 
-            painter->drawText( textRect, ta, txt );
+            painter->drawText(textRect, ta, txt);
         }
         break;
     default:
@@ -628,7 +628,7 @@ QModelIndex mapToSource(const QModelIndex &index)
     return idx;
 }
 
-QString GanttItemDelegate::toolTip( const QModelIndex &index ) const
+QString GanttItemDelegate::toolTip(const QModelIndex &index) const
 {
     if (!index.isValid()) {
         return QString();
@@ -636,24 +636,24 @@ QString GanttItemDelegate::toolTip( const QModelIndex &index ) const
     // map to source manually, gantt models do some tricks so we only get column 0
     QModelIndex idx = mapToSource(index);
     Q_ASSERT(idx.isValid());
-    if ( data( idx, TaskWorkPackageModel::NodeFinished, Qt::EditRole ).toBool() ) {
+    if (data(idx, TaskWorkPackageModel::NodeFinished, Qt::EditRole).toBool()) {
         // finished
-        return xi18nc( "@info:tooltip",
+        return xi18nc("@info:tooltip",
                       "Task: %1<nl/>"
                       "Actual finish: %2<nl/>"
                       "Planned finish: %3<nl/>"
                       "Status: %4<nl/>"
                       "Project: %5",
                       idx.data().toString(),
-                      data( idx, TaskWorkPackageModel::NodeActualFinish, Qt::DisplayRole ).toString(),
-                      data( idx, TaskWorkPackageModel::NodeEndTime, Qt::DisplayRole ).toString(),
-                      data( idx, TaskWorkPackageModel::NodeStatus, Qt::DisplayRole ).toString(),
-                      data( idx, TaskWorkPackageModel::ProjectName, Qt::DisplayRole ).toString()
+                      data(idx, TaskWorkPackageModel::NodeActualFinish, Qt::DisplayRole).toString(),
+                      data(idx, TaskWorkPackageModel::NodeEndTime, Qt::DisplayRole).toString(),
+                      data(idx, TaskWorkPackageModel::NodeStatus, Qt::DisplayRole).toString(),
+                      data(idx, TaskWorkPackageModel::ProjectName, Qt::DisplayRole).toString()
                       );
     }
-    if ( data( idx, TaskWorkPackageModel::NodeStarted, Qt::EditRole ).toBool() ) {
+    if (data(idx, TaskWorkPackageModel::NodeStarted, Qt::EditRole).toBool()) {
         // started
-        return xi18nc( "@info:tooltip",
+        return xi18nc("@info:tooltip",
                       "Task: %1<nl/>"
                       "Completion: %2 %<nl/>"
                       "Actual start: %3<nl/>"
@@ -661,53 +661,53 @@ QString GanttItemDelegate::toolTip( const QModelIndex &index ) const
                       "Status: %6<nl/>"
                       "Project: %7",
                       idx.data().toString(),
-                      data( idx, TaskWorkPackageModel::NodeCompleted, Qt::DisplayRole ).toString(),
-                      data( idx, TaskWorkPackageModel::NodeActualStart, Qt::DisplayRole ).toString(),
-                      data( idx, TaskWorkPackageModel::NodeStartTime, Qt::DisplayRole ).toString(),
-                      data( idx, TaskWorkPackageModel::NodeEndTime, Qt::DisplayRole ).toString(),
-                      data( idx, TaskWorkPackageModel::NodeStatus, Qt::DisplayRole ).toString(),
-                      data( idx, TaskWorkPackageModel::ProjectName, Qt::DisplayRole ).toString()
+                      data(idx, TaskWorkPackageModel::NodeCompleted, Qt::DisplayRole).toString(),
+                      data(idx, TaskWorkPackageModel::NodeActualStart, Qt::DisplayRole).toString(),
+                      data(idx, TaskWorkPackageModel::NodeStartTime, Qt::DisplayRole).toString(),
+                      data(idx, TaskWorkPackageModel::NodeEndTime, Qt::DisplayRole).toString(),
+                      data(idx, TaskWorkPackageModel::NodeStatus, Qt::DisplayRole).toString(),
+                      data(idx, TaskWorkPackageModel::ProjectName, Qt::DisplayRole).toString()
                       );
     }
     // Planned
     KGantt::StyleOptionGanttItem opt;
-    int typ = data( idx, NodeModel::NodeType, Qt::EditRole ).toInt();
-    switch ( typ ) {
+    int typ = data(idx, NodeModel::NodeType, Qt::EditRole).toInt();
+    switch (typ) {
         case Node::Type_Task:
-            return xi18nc( "@info:tooltip",
+            return xi18nc("@info:tooltip",
                           "Task: %1<nl/>"
                           "Planned: %2 - %3<nl/>"
                           "Status: %4<nl/>"
                           "Project: %5",
                           idx.data().toString(),
-                          data( idx, TaskWorkPackageModel::NodeStartTime, Qt::DisplayRole ).toString(),
-                          data( idx, TaskWorkPackageModel::NodeEndTime, Qt::DisplayRole ).toString(),
-                          data( idx, TaskWorkPackageModel::NodeStatus, Qt::DisplayRole ).toString(),
-                          data( idx, TaskWorkPackageModel::ProjectName, Qt::DisplayRole ).toString()
+                          data(idx, TaskWorkPackageModel::NodeStartTime, Qt::DisplayRole).toString(),
+                          data(idx, TaskWorkPackageModel::NodeEndTime, Qt::DisplayRole).toString(),
+                          data(idx, TaskWorkPackageModel::NodeStatus, Qt::DisplayRole).toString(),
+                          data(idx, TaskWorkPackageModel::ProjectName, Qt::DisplayRole).toString()
                           );
     }
     return QString();
 }
 
-GanttView::GanttView( Part *part, QWidget *parent )
-    : KPlato::GanttViewBase( parent ),
-      m_part( part ),
-      m_project( 0 ),
-      m_ganttdelegate( new GanttItemDelegate( this ) ),
-      m_itemmodel( new TaskWorkPackageModel( part, this ) )
+GanttView::GanttView(Part *part, QWidget *parent)
+    : KPlato::GanttViewBase(parent),
+      m_part(part),
+      m_project(0),
+      m_ganttdelegate(new GanttItemDelegate(this)),
+      m_itemmodel(new TaskWorkPackageModel(part, this))
 {
     debugPlanWork<<"------------------- create GanttView -----------------------";
-    m_itemmodel->setObjectName( "Gantt model" );
-    graphicsView()->setItemDelegate( m_ganttdelegate );
-    GanttTreeView *tv = new GanttTreeView( this );
+    m_itemmodel->setObjectName("Gantt model");
+    graphicsView()->setItemDelegate(m_ganttdelegate);
+    GanttTreeView *tv = new GanttTreeView(this);
     tv->setSortingEnabled(true);
     tv->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     tv->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    tv->setVerticalScrollMode( QAbstractItemView::ScrollPerPixel ); // needed since qt 4.2
-    setLeftView( tv );
-    m_rowController = new KGantt::TreeViewRowController( tv, ganttProxyModel() );
-    setRowController( m_rowController );
-    tv->header()->setStretchLastSection( true );
+    tv->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // needed since qt 4.2
+    setLeftView(tv);
+    m_rowController = new KGantt::TreeViewRowController(tv, ganttProxyModel());
+    setRowController(m_rowController);
+    tv->header()->setStretchLastSection(true);
 
     QSortFilterProxyModel *sf = new QSortFilterProxyModel(tv);
     sf->setSortRole(Qt::EditRole);
@@ -716,36 +716,36 @@ GanttView::GanttView( Part *part, QWidget *parent )
 
     QList<int> show;
     show << TaskWorkPackageModel::NodeName << TaskWorkPackageModel::NodeDescription;
-    tv->setDefaultColumns( show );
-    for ( int i = 0; i < m_itemmodel->columnCount(); ++i ) {
-        if ( ! show.contains( i ) ) {
-            tv->hideColumn( i );
+    tv->setDefaultColumns(show);
+    for (int i = 0; i < m_itemmodel->columnCount(); ++i) {
+        if (! show.contains(i)) {
+            tv->hideColumn(i);
         }
     }
     debugPlanWork<<"mapping roles";
-    KGantt::ProxyModel *m = static_cast<KGantt::ProxyModel*>( ganttProxyModel() );
+    KGantt::ProxyModel *m = static_cast<KGantt::ProxyModel*>(ganttProxyModel());
 
-    m->setRole( KGantt::ItemTypeRole, KGantt::ItemTypeRole ); // To provide correct format
-    m->setRole( KGantt::StartTimeRole, Qt::EditRole ); // To provide correct format
-    m->setRole( KGantt::EndTimeRole, Qt::EditRole ); // To provide correct format
+    m->setRole(KGantt::ItemTypeRole, KGantt::ItemTypeRole); // To provide correct format
+    m->setRole(KGantt::StartTimeRole, Qt::EditRole); // To provide correct format
+    m->setRole(KGantt::EndTimeRole, Qt::EditRole); // To provide correct format
 
-    m->setColumn( KGantt::ItemTypeRole, TaskWorkPackageModel::NodeType );
-    m->setColumn( KGantt::StartTimeRole, TaskWorkPackageModel::NodeStartTime );
-    m->setColumn( KGantt::EndTimeRole, TaskWorkPackageModel::NodeEndTime );
-    m->setColumn( KGantt::TaskCompletionRole, TaskWorkPackageModel::NodeCompleted );
+    m->setColumn(KGantt::ItemTypeRole, TaskWorkPackageModel::NodeType);
+    m->setColumn(KGantt::StartTimeRole, TaskWorkPackageModel::NodeStartTime);
+    m->setColumn(KGantt::EndTimeRole, TaskWorkPackageModel::NodeEndTime);
+    m->setColumn(KGantt::TaskCompletionRole, TaskWorkPackageModel::NodeCompleted);
     debugPlanWork<<"roles mapped";
 
-    KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
-    g->setDayWidth( 30 );
+    KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
+    g->setDayWidth(30);
     // TODO: extend QLocale/KGantt to support formats for hourly time display
     // see bug #349030
     // removed custom code here
 
-    for ( int i = 0; i < part->workPackageCount(); ++i ) {
-        updateDateTimeGrid( part->workPackage( i ) );
+    for (int i = 0; i < part->workPackageCount(); ++i) {
+        updateDateTimeGrid(part->workPackage(i));
     }
-    connect( m_itemmodel, &QAbstractItemModel::rowsInserted, this, &GanttView::slotRowsInserted);
-    connect( m_itemmodel, &QAbstractItemModel::rowsRemoved, this, &GanttView::slotRowsRemoved);
+    connect(m_itemmodel, &QAbstractItemModel::rowsInserted, this, &GanttView::slotRowsInserted);
+    connect(m_itemmodel, &QAbstractItemModel::rowsRemoved, this, &GanttView::slotRowsRemoved);
 
     connect(tv, &KPlato::TreeViewBase::contextMenuRequested, this, &GanttView::contextMenuRequested);
     connect(tv, &KPlato::TreeViewBase::headerContextMenuRequested, this, &GanttView::headerContextMenuRequested);
@@ -754,7 +754,7 @@ GanttView::GanttView( Part *part, QWidget *parent )
 
     connect(tv->header(), &QHeaderView::sectionMoved, this, &GanttView::sectionsMoved);
 
-    tv->header()->setSortIndicator( TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder );
+    tv->header()->setSortIndicator(TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder);
     sf->sort(TaskWorkPackageModel::NodeStartTime, Qt::AscendingOrder);
 }
 
@@ -763,26 +763,26 @@ GanttView::~GanttView()
     delete m_rowController;
 }
 
-void GanttView::slotSelectionChanged( const QItemSelection &selected, const QItemSelection& )
+void GanttView::slotSelectionChanged(const QItemSelection &selected, const QItemSelection&)
 {
-    emit selectionChanged( selected.indexes() );
+    emit selectionChanged(selected.indexes());
 }
 
-void GanttView::slotRowsInserted( const QModelIndex &parent, int start, int end )
+void GanttView::slotRowsInserted(const QModelIndex &parent, int start, int end)
 {
     debugPlanWork<<parent<<start<<end;
-    if ( ! parent.isValid() ) {
-        for ( int i = start; i <= end; ++i ) {
-            updateDateTimeGrid( m_itemmodel->workPackage( i ) );
+    if (! parent.isValid()) {
+        for (int i = start; i <= end; ++i) {
+            updateDateTimeGrid(m_itemmodel->workPackage(i));
         }
     }
 }
 
-void GanttView::slotRowsRemoved( const QModelIndex &/*parent*/, int /*start*/, int /*end*/ )
+void GanttView::slotRowsRemoved(const QModelIndex &/*parent*/, int /*start*/, int /*end*/)
 {
-    KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
+    KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
     QDateTime newStart;
-    for ( int i = 0; i < m_part->workPackageCount(); ++i ) {
+    for (int i = 0; i < m_part->workPackageCount(); ++i) {
         WorkPackage *wp = m_part->workPackage(i);
         Task *task = static_cast<Task*>(wp->project()->childNode(0));
         if (!newStart.isValid() || newStart > task->startTime()) {
@@ -794,25 +794,25 @@ void GanttView::slotRowsRemoved( const QModelIndex &/*parent*/, int /*start*/, i
     }
 }
 
-void GanttView::updateDateTimeGrid( WorkPackage *wp )
+void GanttView::updateDateTimeGrid(WorkPackage *wp)
 {
     debugPlanWork<<wp;
-    if ( ! wp || ! wp->project() || ! wp->project()->childNode( 0 ) ) {
+    if (! wp || ! wp->project() || ! wp->project()->childNode(0)) {
         return;
     }
-    Task *task = static_cast<Task*>( wp->project()->childNode( 0 ) );
+    Task *task = static_cast<Task*>(wp->project()->childNode(0));
     DateTime st = task->startTime();
-    if ( ! st.isValid() && task->completion().startTime().isValid() ) {
-        st = qMin( st, task->completion().startTime() );
+    if (! st.isValid() && task->completion().startTime().isValid()) {
+        st = qMin(st, task->completion().startTime());
     }
-    if ( ! st.isValid() ) {
+    if (! st.isValid()) {
         return;
     }
-    KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>( grid() );
+    KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
     QDateTime gst = g->startDateTime();
-    if ( ! gst.isValid() || gst > st ) {
+    if (! gst.isValid() || gst > st) {
         st.setTime(QTime(0, 0, 0, 0));
-        g->setStartDateTime( st );
+        g->setStartDateTime(st);
     }
 }
 
@@ -821,72 +821,72 @@ TaskWorkPackageModel *GanttView::itemModel() const
     return m_itemmodel;
 }
 
-void GanttView::setProject( Project *project )
+void GanttView::setProject(Project *project)
 {
-    itemModel()->setProject( project );
+    itemModel()->setProject(project);
     m_project = project;
 }
 
 QList<Node*> GanttView::selectedNodes() const
 {
     QList<Node*> nodes;
-    foreach( const QModelIndex &idx, treeView()->selectionModel()->selectedRows() ) {
-        nodes << itemModel()->nodeForIndex( idx );
+    foreach(const QModelIndex &idx, treeView()->selectionModel()->selectedRows()) {
+        nodes << itemModel()->nodeForIndex(idx);
     }
     return nodes;
 }
 
 Node *GanttView::currentNode() const
 {
-    return itemModel()->nodeForIndex( treeView()->selectionModel()->currentIndex() );
+    return itemModel()->nodeForIndex(treeView()->selectionModel()->currentIndex());
 }
 
 Document *GanttView::currentDocument() const
 {
-    return itemModel()->documentForIndex( treeView()->selectionModel()->currentIndex() );
+    return itemModel()->documentForIndex(treeView()->selectionModel()->currentIndex());
 }
 
-bool GanttView::loadContext( const KoXmlElement &context )
+bool GanttView::loadContext(const KoXmlElement &context)
 {
-    KoXmlElement e = context.namedItem( "itemview" ).toElement();
-    if ( ! e.isNull() ) {
-        treeView()->loadContext( itemModel()->columnMap(), e );
+    KoXmlElement e = context.namedItem("itemview").toElement();
+    if (! e.isNull()) {
+        treeView()->loadContext(itemModel()->columnMap(), e);
     }
-    e = context.namedItem( "ganttview" ).toElement();
-    if ( ! e.isNull() ) {
-        KPlato::GanttViewBase::loadContext( e );
+    e = context.namedItem("ganttview").toElement();
+    if (! e.isNull()) {
+        KPlato::GanttViewBase::loadContext(e);
     }
     return true;
 }
 
-void GanttView::saveContext(  QDomElement &context ) const
+void GanttView::saveContext(QDomElement &context) const
 {
-    QDomElement e = context.ownerDocument().createElement( "itemview" );
-    context.appendChild( e );
-    treeView()->saveContext( itemModel()->columnMap(), e );
-    e = context.ownerDocument().createElement( "ganttview" );
-    context.appendChild( e );
-    KPlato::GanttViewBase::saveContext( e );
+    QDomElement e = context.ownerDocument().createElement("itemview");
+    context.appendChild(e);
+    treeView()->saveContext(itemModel()->columnMap(), e);
+    e = context.ownerDocument().createElement("ganttview");
+    context.appendChild(e);
+    KPlato::GanttViewBase::saveContext(e);
 }
 
 //-----------------------------------
-TaskWPGanttView::TaskWPGanttView( Part *part, QWidget *parent )
-    : AbstractView( part, parent )
+TaskWPGanttView::TaskWPGanttView(Part *part, QWidget *parent)
+    : AbstractView(part, parent)
 {
     debugPlanWork<<"-------------------- creating TaskWPGanttView -------------------";
-    QVBoxLayout * l = new QVBoxLayout( this );
-    l->setMargin( 0 );
-    m_view = new GanttView( part, this );
-    l->addWidget( m_view );
+    QVBoxLayout * l = new QVBoxLayout(this);
+    l->setMargin(0);
+    m_view = new GanttView(part, this);
+    l->addWidget(m_view);
 
     setupGui();
 
     connect(itemModel(), &KPlato::ItemModelBase::executeCommand, part, &Part::addCommand);
 
-    connect( m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
-    connect( m_view, &GanttView::headerContextMenuRequested, this, &TaskWPGanttView::slotHeaderContextMenuRequested);
+    connect(m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
+    connect(m_view, &GanttView::headerContextMenuRequested, this, &TaskWPGanttView::slotHeaderContextMenuRequested);
 
-    connect( m_view, &GanttView::selectionChanged, this, &TaskWPGanttView::slotSelectionChanged);
+    connect(m_view, &GanttView::selectionChanged, this, &TaskWPGanttView::slotSelectionChanged);
 
     connect(m_view, &GanttView::sectionsMoved, this, &TaskWPGanttView::sectionsMoved);
 }
@@ -896,7 +896,7 @@ TaskWPGanttView::~TaskWPGanttView()
     saveContext();
 }
 
-void TaskWPGanttView::slotSelectionChanged( const QModelIndexList& /*lst*/ )
+void TaskWPGanttView::slotSelectionChanged(const QModelIndexList& /*lst*/)
 {
     emit selectionChanged();
 }
@@ -916,35 +916,35 @@ Document *TaskWPGanttView::currentDocument() const
     return m_view->currentDocument();
 }
 
-void TaskWPGanttView::slotContextMenuRequested( const QModelIndex &idx, const QPoint& pos )
+void TaskWPGanttView::slotContextMenuRequested(const QModelIndex &idx, const QPoint& pos)
 {
     debugPlanWork<<idx<<pos;
-    if ( ! idx.isValid() ) {
-        slotHeaderContextMenuRequested( pos );
+    if (! idx.isValid()) {
+        slotHeaderContextMenuRequested(pos);
         return;
     }
-    Node *node = itemModel()->nodeForIndex( idx );
-    if ( node ) {
-        return slotContextMenuRequested( node, pos );
+    Node *node = itemModel()->nodeForIndex(idx);
+    if (node) {
+        return slotContextMenuRequested(node, pos);
     }
-    Document *doc = itemModel()->documentForIndex( idx );
-    if ( doc ) {
-        return slotContextMenuRequested( doc, pos );
+    Document *doc = itemModel()->documentForIndex(idx);
+    if (doc) {
+        return slotContextMenuRequested(doc, pos);
     }
-    return slotHeaderContextMenuRequested( pos );
+    return slotHeaderContextMenuRequested(pos);
 }
 
 void TaskWPGanttView::setupGui()
 {
     actionOptions = new QAction(koIcon("configure"), i18n("Configure View..."), this);
     connect(actionOptions, &QAction::triggered, this, &TaskWPGanttView::slotOptions);
-    addContextAction( actionOptions );
+    addContextAction(actionOptions);
 }
 
 void TaskWPGanttView::slotOptions()
 {
     debugPlanWork;
-    QPointer<ItemViewSettupDialog> dlg = new ItemViewSettupDialog( 0, m_view->treeView(), true, this );
+    QPointer<ItemViewSettupDialog> dlg = new ItemViewSettupDialog(0, m_view->treeView(), true, this);
     dlg->exec();
     delete dlg;
 }
@@ -952,22 +952,22 @@ void TaskWPGanttView::slotOptions()
 bool TaskWPGanttView::loadContext()
 {
     KoXmlDocument doc;
-    doc.setContent( PlanWorkSettings::self()->taskWPGanttView() );
-    KoXmlElement context = doc.namedItem( "TaskWPGanttViewSettings" ).toElement();
-    if ( context.isNull() ) {
+    doc.setContent(PlanWorkSettings::self()->taskWPGanttView());
+    KoXmlElement context = doc.namedItem("TaskWPGanttViewSettings").toElement();
+    if (context.isNull()) {
         debugPlanWork<<"No settings";
         return false;
     }
-    return m_view->loadContext( context );
+    return m_view->loadContext(context);
 }
 
 void TaskWPGanttView::saveContext()
 {
-    QDomDocument doc ( "TaskWPGanttView" );
-    QDomElement context = doc.createElement( "TaskWPGanttViewSettings" );
-    doc.appendChild( context );
-    m_view->saveContext( context );
-    PlanWorkSettings::self()->setTaskWPGanttView( doc.toString() );
+    QDomDocument doc ("TaskWPGanttView");
+    QDomElement context = doc.createElement("TaskWPGanttViewSettings");
+    doc.appendChild(context);
+    m_view->saveContext(context);
+    PlanWorkSettings::self()->setTaskWPGanttView(doc.toString());
     debugPlanWork<<endl<<doc.toString();
 }
 

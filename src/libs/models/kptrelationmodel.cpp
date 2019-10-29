@@ -37,10 +37,10 @@
 namespace KPlato
 {
 
-QVariant RelationModel::parentName( const Relation *r, int role ) const
+QVariant RelationModel::parentName(const Relation *r, int role) const
 {
     //debugPlan<<r<<", "<<role<<endl;
-    switch ( role ) {
+    switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
         case Qt::EditRole:
@@ -53,10 +53,10 @@ QVariant RelationModel::parentName( const Relation *r, int role ) const
     return QVariant();
 }
 
-QVariant RelationModel::childName( const Relation *r, int role ) const
+QVariant RelationModel::childName(const Relation *r, int role) const
 {
     //debugPlan<<r<<", "<<role<<endl;
-    switch ( role ) {
+    switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
         case Qt::EditRole:
@@ -69,15 +69,15 @@ QVariant RelationModel::childName( const Relation *r, int role ) const
     return QVariant();
 }
 
-QVariant RelationModel::type( const Relation *r, int role ) const
+QVariant RelationModel::type(const Relation *r, int role) const
 {
     //debugPlan<<r<<", "<<role<<endl;
-    switch ( role ) {
+    switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
-            return r->typeToString( true );
+            return r->typeToString(true);
         case Role::EnumList:
-            return r->typeList( true );
+            return r->typeList(true);
         case Qt::EditRole:
         case Role::EnumListValue:
             return (int)r->type();
@@ -90,18 +90,18 @@ QVariant RelationModel::type( const Relation *r, int role ) const
     return QVariant();
 }
 
-QVariant RelationModel::lag( const Relation *r, int role ) const
+QVariant RelationModel::lag(const Relation *r, int role) const
 {
-    switch ( role ) {
+    switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole: {
             Duration::Unit unit = Duration::Unit_h;
-            return QVariant(QLocale().toString( r->lag().toDouble( unit ), 'f', 1 ) +  Duration::unitToString( unit, true ));
+            return QVariant(QLocale().toString(r->lag().toDouble(unit), 'f', 1) +  Duration::unitToString(unit, true));
         }
         case Qt::EditRole:
-            return r->lag().toDouble( Duration::Unit_h );
+            return r->lag().toDouble(Duration::Unit_h);
         case Role::DurationUnit:
-            return static_cast<int>( Duration::Unit_h );
+            return static_cast<int>(Duration::Unit_h);
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
@@ -109,14 +109,14 @@ QVariant RelationModel::lag( const Relation *r, int role ) const
     return QVariant();
 }
 
-QVariant RelationModel::data( const Relation *r, int property, int role ) const
+QVariant RelationModel::data(const Relation *r, int property, int role) const
 {
     QVariant result;
-    switch ( property ) {
-        case 0: result = parentName( r, role ); break;
-        case 1: result = childName( r, role ); break;
-        case 2: result = type( r, role ); break;
-        case 3: result = lag( r, role ); break;
+    switch (property) {
+        case 0: result = parentName(r, role); break;
+        case 1: result = childName(r, role); break;
+        case 2: result = type(r, role); break;
+        case 3: result = lag(r, role); break;
         default:
             //debugPlan<<"Invalid property number: "<<property<<endl;
             return result;
@@ -129,19 +129,19 @@ int RelationModel::propertyCount()
     return 4;
 }
 
-QVariant RelationModel::headerData( int section, int role )
+QVariant RelationModel::headerData(int section, int role)
 {
-    if ( role == Qt::DisplayRole ) {
-        switch ( section ) {
-            case 0: return i18n( "Parent" );
-            case 1: return i18n( "Child" );
-            case 2: return i18n( "Type" );
-            case 3: return i18n( "Lag" );
+    if (role == Qt::DisplayRole) {
+        switch (section) {
+            case 0: return i18n("Parent");
+            case 1: return i18n("Child");
+            case 2: return i18n("Type");
+            case 3: return i18n("Lag");
             default: return QVariant();
         }
     }
-    if ( role == Qt::ToolTipRole ) {
-        switch ( section ) {
+    if (role == Qt::ToolTipRole) {
+        switch (section) {
             case 0: return ToolTip::relationParent();
             case 1: return ToolTip::relationChild();
             case 2: return ToolTip::relationType();
@@ -153,10 +153,10 @@ QVariant RelationModel::headerData( int section, int role )
 }
 
 //----------------------------
-RelationItemModel::RelationItemModel( QObject *parent )
-    : ItemModelBase( parent ),
-    m_node( 0 ),
-    m_removedRelation( 0 )
+RelationItemModel::RelationItemModel(QObject *parent)
+    : ItemModelBase(parent),
+    m_node(0),
+    m_removedRelation(0)
 {
 }
 
@@ -164,66 +164,66 @@ RelationItemModel::~RelationItemModel()
 {
 }
 
-void RelationItemModel::slotRelationToBeAdded( Relation *relation, int, int )
+void RelationItemModel::slotRelationToBeAdded(Relation *relation, int, int)
 {
     debugPlan;
-    if ( m_node == 0 || m_node != relation->child() ) {
+    if (m_node == 0 || m_node != relation->child()) {
         return;
     }
     // relations always appended
     int row = rowCount();
-    beginInsertRows( QModelIndex(), row, row );
+    beginInsertRows(QModelIndex(), row, row);
 }
 
-void RelationItemModel::slotRelationAdded( Relation *relation )
+void RelationItemModel::slotRelationAdded(Relation *relation)
 {
     debugPlan;
-    if ( m_node == 0 || m_node != relation->child() ) {
+    if (m_node == 0 || m_node != relation->child()) {
         return;
     }
     endInsertRows();
 }
 
-void RelationItemModel::slotRelationToBeRemoved( Relation *relation )
+void RelationItemModel::slotRelationToBeRemoved(Relation *relation)
 {
-    if ( m_node == 0 || ! m_node->dependParentNodes().contains( relation ) ) {
+    if (m_node == 0 || ! m_node->dependParentNodes().contains(relation)) {
         return;
     }
     m_removedRelation = relation;
-    int row = m_node->dependParentNodes().indexOf( relation );
+    int row = m_node->dependParentNodes().indexOf(relation);
     debugPlan<<row;
-    beginRemoveRows( QModelIndex(), row, row );
+    beginRemoveRows(QModelIndex(), row, row);
 }
 
-void RelationItemModel::slotRelationRemoved( Relation *relation )
+void RelationItemModel::slotRelationRemoved(Relation *relation)
 {
     debugPlan;
-    if ( m_removedRelation != relation ) {
+    if (m_removedRelation != relation) {
         return;
     }
     m_removedRelation = 0;
     endRemoveRows();
 }
 
-void RelationItemModel::slotRelationModified( Relation *relation )
+void RelationItemModel::slotRelationModified(Relation *relation)
 {
     debugPlan;
-    if ( m_node == 0 || ! m_node->dependParentNodes().contains( relation ) ) {
+    if (m_node == 0 || ! m_node->dependParentNodes().contains(relation)) {
         return;
     }
-    int row = m_node->dependParentNodes().indexOf( relation );
-    emit dataChanged( createIndex( row, 0 ), createIndex( row, columnCount()-1 ) );
+    int row = m_node->dependParentNodes().indexOf(relation);
+    emit dataChanged(createIndex(row, 0), createIndex(row, columnCount()-1));
 }
 
-void RelationItemModel::slotNodeToBeRemoved( Node *node )
+void RelationItemModel::slotNodeToBeRemoved(Node *node)
 {
-    if ( node != m_node ) {
+    if (node != m_node) {
         return;
     }
-    setNode( 0 );
+    setNode(0);
 }
 
-void RelationItemModel::slotNodeRemoved( Node *node )
+void RelationItemModel::slotNodeRemoved(Node *node)
 {
     Q_UNUSED(node);
 }
@@ -235,58 +235,58 @@ void RelationItemModel::slotLayoutChanged()
     emit layoutChanged();
 }
 
-void RelationItemModel::setProject( Project *project )
+void RelationItemModel::setProject(Project *project)
 {
     beginResetModel();
-    if ( m_project ) {
+    if (m_project) {
         disconnect(m_project, &Project::aboutToBeDeleted, this, &RelationItemModel::projectDeleted);
-        disconnect( m_project, &Project::nodeChanged, this, &RelationItemModel::slotNodeChanged );
-        disconnect( m_project, &Project::nodeToBeRemoved, this, &RelationItemModel::slotNodeToBeRemoved );
+        disconnect(m_project, &Project::nodeChanged, this, &RelationItemModel::slotNodeChanged);
+        disconnect(m_project, &Project::nodeToBeRemoved, this, &RelationItemModel::slotNodeToBeRemoved);
 
-        disconnect( m_project, &Project::relationToBeAdded, this, &RelationItemModel::slotRelationToBeAdded );
-        disconnect( m_project, &Project::relationAdded, this, &RelationItemModel::slotRelationAdded );
+        disconnect(m_project, &Project::relationToBeAdded, this, &RelationItemModel::slotRelationToBeAdded);
+        disconnect(m_project, &Project::relationAdded, this, &RelationItemModel::slotRelationAdded);
 
-        disconnect( m_project, &Project::relationToBeRemoved, this, &RelationItemModel::slotRelationToBeRemoved );
-        disconnect( m_project, &Project::relationRemoved, this, &RelationItemModel::slotRelationRemoved );
+        disconnect(m_project, &Project::relationToBeRemoved, this, &RelationItemModel::slotRelationToBeRemoved);
+        disconnect(m_project, &Project::relationRemoved, this, &RelationItemModel::slotRelationRemoved);
 
-        disconnect( m_project, &Project::relationModified, this, &RelationItemModel::slotRelationModified );
+        disconnect(m_project, &Project::relationModified, this, &RelationItemModel::slotRelationModified);
     }
     m_project = project;
-    if ( project ) {
+    if (project) {
         connect(m_project, &Project::aboutToBeDeleted, this, &RelationItemModel::projectDeleted);
-        connect( m_project, &Project::nodeChanged, this, &RelationItemModel::slotNodeChanged );
-        connect( m_project, &Project::nodeToBeRemoved, this, &RelationItemModel::slotNodeToBeRemoved );
+        connect(m_project, &Project::nodeChanged, this, &RelationItemModel::slotNodeChanged);
+        connect(m_project, &Project::nodeToBeRemoved, this, &RelationItemModel::slotNodeToBeRemoved);
 
-        connect( m_project, &Project::relationToBeAdded, this, &RelationItemModel::slotRelationToBeAdded );
-        connect( m_project, &Project::relationAdded, this, &RelationItemModel::slotRelationAdded );
+        connect(m_project, &Project::relationToBeAdded, this, &RelationItemModel::slotRelationToBeAdded);
+        connect(m_project, &Project::relationAdded, this, &RelationItemModel::slotRelationAdded);
 
-        connect( m_project, &Project::relationToBeRemoved, this, &RelationItemModel::slotRelationToBeRemoved );
-        connect( m_project, &Project::relationRemoved, this, &RelationItemModel::slotRelationRemoved );
+        connect(m_project, &Project::relationToBeRemoved, this, &RelationItemModel::slotRelationToBeRemoved);
+        connect(m_project, &Project::relationRemoved, this, &RelationItemModel::slotRelationRemoved);
 
-        connect( m_project, &Project::relationModified, this, &RelationItemModel::slotRelationModified );
+        connect(m_project, &Project::relationModified, this, &RelationItemModel::slotRelationModified);
     }
     endResetModel();
 }
 
-void RelationItemModel::setNode( Node *node )
+void RelationItemModel::setNode(Node *node)
 {
     beginResetModel();
     m_node = node;
     endResetModel();
 }
 
-Qt::ItemFlags RelationItemModel::flags( const QModelIndex &index ) const
+Qt::ItemFlags RelationItemModel::flags(const QModelIndex &index) const
 {
-    Qt::ItemFlags flags = QAbstractItemModel::flags( index );
-    if ( !index.isValid() ) {
-        if ( m_readWrite ) {
+    Qt::ItemFlags flags = QAbstractItemModel::flags(index);
+    if (!index.isValid()) {
+        if (m_readWrite) {
             flags |= Qt::ItemIsDropEnabled;
         }
         return flags;
     }
-    if ( m_readWrite ) {
+    if (m_readWrite) {
         flags |= Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
-        switch ( index.column() ) {
+        switch (index.column()) {
             case 2: // type
                 flags |= Qt::ItemIsEditable;
                 break;
@@ -302,48 +302,48 @@ Qt::ItemFlags RelationItemModel::flags( const QModelIndex &index ) const
 }
 
 
-QModelIndex RelationItemModel::parent( const QModelIndex &/*index*/ ) const
+QModelIndex RelationItemModel::parent(const QModelIndex &/*index*/) const
 {
     return QModelIndex(); // flat model
 }
 
-QModelIndex RelationItemModel::index( int row, int column, const QModelIndex &parent ) const
+QModelIndex RelationItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if ( m_project == 0  ) {
+    if (m_project == 0) {
         return QModelIndex();
     }
-    if ( parent.isValid() ) {
+    if (parent.isValid()) {
         return QModelIndex(); // flat model
     }
-    return createIndex( row, column );
+    return createIndex(row, column);
 }
 
-bool RelationItemModel::setType( Relation *r, const QVariant &value, int role )
+bool RelationItemModel::setType(Relation *r, const QVariant &value, int role)
 {
-    switch ( role ) {
+    switch (role) {
         case Qt::EditRole:
-            Relation::Type v = Relation::Type( value.toInt() );
+            Relation::Type v = Relation::Type(value.toInt());
             //debugPlan<<v<<r->type();
-            if ( v == r->type() ) {
+            if (v == r->type()) {
                 return false;
             }
-            emit executeCommand( new ModifyRelationTypeCmd( r, v, kundo2_i18n("Modify relation type") ) );
+            emit executeCommand(new ModifyRelationTypeCmd(r, v, kundo2_i18n("Modify relation type")));
             return true;
     }
     return false;
 }
 
-bool RelationItemModel::setLag( Relation *r, const QVariant &value, int role )
+bool RelationItemModel::setLag(Relation *r, const QVariant &value, int role)
 {
-    switch ( role ) {
+    switch (role) {
         case Qt::EditRole: {
-            Duration::Unit unit = static_cast<Duration::Unit>( value.toList()[1].toInt() );
-            Duration d( value.toList()[0].toDouble(), unit );
+            Duration::Unit unit = static_cast<Duration::Unit>(value.toList()[1].toInt());
+            Duration d(value.toList()[0].toDouble(), unit);
             debugPlan<<value.toList()[0].toDouble()<<","<<unit<<" ->"<<d.toString();
-            if ( d == r->lag() ) {
+            if (d == r->lag()) {
                 return false;
             }
-            emit executeCommand( new ModifyRelationLagCmd( r, d, kundo2_i18n( "Modify relation time lag" ) ) );
+            emit executeCommand(new ModifyRelationLagCmd(r, d, kundo2_i18n("Modify relation time lag")));
             return true;
         }
         default:
@@ -352,19 +352,19 @@ bool RelationItemModel::setLag( Relation *r, const QVariant &value, int role )
     return false;
 }
 
-QVariant RelationItemModel::data( const QModelIndex &index, int role ) const
+QVariant RelationItemModel::data(const QModelIndex &index, int role) const
 {
-    if ( role == Qt::TextAlignmentRole ) {
-        return headerData( index.column(), Qt::Horizontal, role );
+    if (role == Qt::TextAlignmentRole) {
+        return headerData(index.column(), Qt::Horizontal, role);
     }
 
     QVariant result;
-    Relation *r = relation( index );
-    if ( r != 0 ) {
-        result = m_relationmodel.data( r, index.column(), role );
+    Relation *r = relation(index);
+    if (r != 0) {
+        result = m_relationmodel.data(r, index.column(), role);
     }
-    if ( result.isValid() ) {
-        if ( role == Qt::DisplayRole && result.type() == QVariant::String && result.toString().isEmpty()) {
+    if (result.isValid()) {
+        if (role == Qt::DisplayRole && result.type() == QVariant::String && result.toString().isEmpty()) {
             // HACK to show focus in empty cells
             result = ' ';
         }
@@ -373,20 +373,20 @@ QVariant RelationItemModel::data( const QModelIndex &index, int role ) const
     return result;
 }
 
-bool RelationItemModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool RelationItemModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if ( ! index.isValid() ) {
-        return ItemModelBase::setData( index, value, role );
+    if (! index.isValid()) {
+        return ItemModelBase::setData(index, value, role);
     }
-    if ( ( flags(index) & Qt::ItemIsEditable ) == 0 || role != Qt::EditRole ) {
+    if ((flags(index) & Qt::ItemIsEditable) == 0 || role != Qt::EditRole) {
         return false;
     }
-    Relation *r = relation( index );
+    Relation *r = relation(index);
     switch (index.column()) {
         case 0: return false;
         case 1: return false;
-        case 2: return setType( r, value, role );
-        case 3: return setLag( r, value, role );
+        case 2: return setType(r, value, role);
+        case 3: return setLag(r, value, role);
         default:
             qWarning("data: invalid display value column %d", index.column());
             return false;
@@ -394,12 +394,12 @@ bool RelationItemModel::setData( const QModelIndex &index, const QVariant &value
     return false;
 }
 
-QVariant RelationItemModel::headerData( int section, Qt::Orientation orientation, int role ) const
+QVariant RelationItemModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if ( orientation == Qt::Horizontal ) {
-        if ( role == Qt::DisplayRole ) {
-            return m_relationmodel.headerData( section, role );
-        } else if ( role == Qt::TextAlignmentRole ) {
+    if (orientation == Qt::Horizontal) {
+        if (role == Qt::DisplayRole) {
+            return m_relationmodel.headerData(section, role);
+        } else if (role == Qt::TextAlignmentRole) {
             switch (section) {
                 case 2: return Qt::AlignCenter;
                 case 3: return Qt::AlignRight;
@@ -407,44 +407,44 @@ QVariant RelationItemModel::headerData( int section, Qt::Orientation orientation
             }
         }
     }
-    if ( role == Qt::ToolTipRole ) {
-        return RelationModel::headerData( section, role );
+    if (role == Qt::ToolTipRole) {
+        return RelationModel::headerData(section, role);
     }
     return ItemModelBase::headerData(section, orientation, role);
 }
 
-QAbstractItemDelegate *RelationItemModel::createDelegate( int column, QWidget *parent ) const
+QAbstractItemDelegate *RelationItemModel::createDelegate(int column, QWidget *parent) const
 {
-    switch ( column ) {
-        case 2: return new EnumDelegate( parent );
-        case 3: return new DurationSpinBoxDelegate( parent );
+    switch (column) {
+        case 2: return new EnumDelegate(parent);
+        case 3: return new DurationSpinBoxDelegate(parent);
         default: return 0;
     }
     return 0;
 }
 
-int RelationItemModel::columnCount( const QModelIndex &/*parent*/ ) const
+int RelationItemModel::columnCount(const QModelIndex &/*parent*/) const
 {
     return m_relationmodel.propertyCount();
 }
 
-int RelationItemModel::rowCount( const QModelIndex &parent ) const
+int RelationItemModel::rowCount(const QModelIndex &parent) const
 {
-    if ( m_project == 0 || m_node == 0 || parent.isValid() ) {
+    if (m_project == 0 || m_node == 0 || parent.isValid()) {
         return 0;
     }
     return m_node->numDependParentNodes();
 }
 
-Relation *RelationItemModel::relation( const QModelIndex &index ) const
+Relation *RelationItemModel::relation(const QModelIndex &index) const
 {
-    if ( ! index.isValid() || m_node == 0 ) {
+    if (! index.isValid() || m_node == 0) {
         return 0;
     }
-    return m_node->dependParentNodes().value( index.row() );
+    return m_node->dependParentNodes().value(index.row());
 }
 
-void RelationItemModel::slotNodeChanged( Node *node )
+void RelationItemModel::slotNodeChanged(Node *node)
 {
     Q_UNUSED(node);
     beginResetModel();

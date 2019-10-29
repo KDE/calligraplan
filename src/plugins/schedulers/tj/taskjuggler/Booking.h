@@ -47,10 +47,10 @@ public:
     time_t getDuration() const { return interval->getDuration(); }
     Interval& getInterval() { return *interval; }
 
-    void setLockTS( const QString& ts ) { lockTS = ts; }
+    void setLockTS(const QString& ts) { lockTS = ts; }
     const QString& getLockTS() const { return lockTS; }
 
-    void setLockerId( const QString& id ) { lockerId = id; }
+    void setLockerId(const QString& id) { lockerId = id; }
     const QString& getLockerId() const { return lockerId; }
 
 private:

@@ -71,36 +71,36 @@ void Relation::setType(Type type) {
     m_type=type;
 }
 
-void Relation::setType( const QString &type )
+void Relation::setType(const QString &type)
 {
-    int t = typeList().indexOf( type );
-    if ( t == -1 ) {
+    int t = typeList().indexOf(type);
+    if (t == -1) {
         t = FinishStart;
     }
-    m_type = static_cast<Type>( t );
+    m_type = static_cast<Type>(t);
 }
 
-QString Relation::typeToString( bool trans ) const
+QString Relation::typeToString(bool trans) const
 {
-    return typeList( trans ).at( m_type );
+    return typeList(trans).at(m_type);
 }
 
-QStringList Relation::typeList( bool trans )
+QStringList Relation::typeList(bool trans)
 {
     //NOTE: must match enum
     QStringList lst;
-    lst << ( trans ? i18n( "Finish-Start" ) : "Finish-Start" );
-    lst << ( trans ? i18n( "Finish-Finish" ) : "Finish-Finish" );
-    lst << ( trans ? i18n( "Start-Start" ) : "Start-Start" );
+    lst << (trans ? i18n("Finish-Start") : "Finish-Start");
+    lst << (trans ? i18n("Finish-Finish") : "Finish-Finish");
+    lst << (trans ? i18n("Start-Start") : "Start-Start");
     return lst;
 }
 
-void Relation::setParent( Node* node )
+void Relation::setParent(Node* node)
 {
     m_parent = node;
 }
 
-void Relation::setChild( Node* node )
+void Relation::setChild(Node* node)
 {
     m_child = node;
 }
@@ -126,7 +126,7 @@ bool Relation::load(KoXmlElement &element, Project &project) {
     if (!m_parent->legalToLink(m_child))
         return false;
         
-    setType( element.attribute("type") );
+    setType(element.attribute("type"));
 
     m_lag = Duration::fromString(element.attribute("lag"));
 
@@ -186,17 +186,17 @@ void Relation::printDebug(const QByteArray& _indent) {
 
 }  //KPlato namespace
 
-QDebug operator<<( QDebug dbg, const KPlato::Relation *r )
+QDebug operator<<(QDebug dbg, const KPlato::Relation *r)
 {
     return dbg<<(*r);
 }
 
-QDebug operator<<( QDebug dbg, const KPlato::Relation &r )
+QDebug operator<<(QDebug dbg, const KPlato::Relation &r)
 {
     KPlato::Node *parent = r.parent();
     KPlato::Node *child = r.child();
     QString type = "FS";
-    switch ( r.type() ) {
+    switch (r.type()) {
     case KPlato::Relation::StartStart: type = "SS"; break;
     case KPlato::Relation::FinishFinish: type = "FF"; break;
     default: break;
@@ -204,8 +204,8 @@ QDebug operator<<( QDebug dbg, const KPlato::Relation &r )
 
     KPlato::Duration lag = r.lag();
     dbg<<"Relation["<<parent->name()<<"->"<<child->name()<<type;
-    if ( lag != 0 ) {
-        dbg<<lag.toString( KPlato::Duration::Format_HourFraction );
+    if (lag != 0) {
+        dbg<<lag.toString(KPlato::Duration::Format_HourFraction);
     }
     dbg <<']';
     return dbg;

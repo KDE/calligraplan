@@ -36,9 +36,9 @@ extern "C"
 
 TestResult::TestResult(QObject* parent)
     : QObject(parent)
-    , m_result( false )
+    , m_result(false)
 {
-    setObjectName( "TestResult" );
+    setObjectName("TestResult");
 }
 
 TestResult::~TestResult()
@@ -50,12 +50,12 @@ bool TestResult::isOk() const
     return m_result;
 }
 
-void TestResult::setResult( bool ok)
+void TestResult::setResult(bool ok)
 {
     m_result = ok;
 }
 
-void TestResult::setMessage( const QString &m )
+void TestResult::setMessage(const QString &m)
 {
     qDebug()<<m;
     message = m;

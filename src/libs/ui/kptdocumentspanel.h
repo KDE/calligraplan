@@ -45,7 +45,7 @@ class PLANUI_EXPORT DocumentsPanel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DocumentsPanel( Node &node, QWidget *parent = 0 );
+    explicit DocumentsPanel(Node &node, QWidget *parent = 0);
     ~DocumentsPanel() override {}
     
     MacroCommand *buildCommand();
@@ -66,10 +66,10 @@ protected Q_SLOTS:
     void slotRemoveUrl();
     void slotViewUrl();
     
-    void dataChanged( const QModelIndex& );
+    void dataChanged(const QModelIndex&);
     
-    void slotSelectionChanged( const QModelIndexList& );
-    void currentChanged( const QModelIndex &index );
+    void slotSelectionChanged(const QModelIndexList&);
+    void currentChanged(const QModelIndex &index);
     
 private:
     Node &m_node;

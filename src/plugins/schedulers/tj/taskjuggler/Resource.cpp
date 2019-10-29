@@ -401,7 +401,7 @@ Resource::isAvailable(time_t date)
                 ++bookedSlots;
             }
         }
-        if ( workSlots > 0 ) {
+        if (workSlots > 0) {
             workSlots = (workSlots * limits->getDailyUnits()) / 100;
             if (workSlots == 0) {
                 workSlots = 1;
@@ -1235,7 +1235,7 @@ Resource::getEndOfLastSlot(int sc, const Task* task)
     if (scoreboards[sc] == 0)
         return 0;
     int i = sbSize;
-    for ( ; ; )
+    for (; ;)
     {
         --i;
         if (scoreboards[sc][i] > ((SbBooking*) 3) &&
@@ -1382,13 +1382,13 @@ Resource::updateSlotMarks(int sc)
     }
 }
 
-QDomElement Resource::xmlIDElement( QDomDocument& doc ) const
+QDomElement Resource::xmlIDElement(QDomDocument& doc) const
 {
    Q_UNUSED(doc);
-   QDomElement elem;/* = ReportXML::createXMLElem( doc, "Resource", getName());
-   elem.setAttribute( "Id", getId() );*/
+   QDomElement elem;/* = ReportXML::createXMLElem(doc, "Resource", getName());
+   elem.setAttribute("Id", getId());*/
 
-   return( elem );
+   return(elem);
 }
 
 } // namespace TJ

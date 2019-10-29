@@ -331,9 +331,9 @@ private:
  * To find all child elements with a given name, use
  * \code
  * QDomElement e;
- * forEachElement( e, parent )
+ * forEachElement(e, parent)
  * {
- *     if ( e.localName() == "..." && e.namespaceURI() == KoXmlNS::... )
+ *     if (e.localName() == "..." && e.namespaceURI() == KoXmlNS::...)
  *     {
  *         ...
  *     }
@@ -446,7 +446,7 @@ KOSTORE_EXPORT bool setDocument(KoXmlDocument& doc, QIODevice* device,
 }
 
 /**
- * \def forEachElement( elem, parent )
+ * \def forEachElement(elem, parent)
  * \brief Loop through all child elements of \p parent.
  * This convenience macro is used to implement the forEachElement loop.
  * The \p elem parameter is a name of a QDomElement variable and the \p parent
@@ -454,16 +454,16 @@ KOSTORE_EXPORT bool setDocument(KoXmlDocument& doc, QIODevice* device,
  *
  * \code
  * QDomElement e;
- * forEachElement( e, parent )
+ * forEachElement(e, parent)
  * {
  *     kDebug() << e.localName() << " element found.";
  *     ...
  * }
  * \endcode
  */
-#define forEachElement( elem, parent ) \
-    for ( KoXmlNode _node = parent.firstChild(); !_node.isNull(); _node = _node.nextSibling() ) \
-        if ( ( elem = _node.toElement() ).isNull() ) {} else
+#define forEachElement(elem, parent) \
+    for (KoXmlNode _node = parent.firstChild(); !_node.isNull(); _node = _node.nextSibling()) \
+        if ((elem = _node.toElement()).isNull()) {} else
 
 
 #endif // KO_XMLREADER_H
