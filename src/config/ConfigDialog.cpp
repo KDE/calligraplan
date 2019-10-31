@@ -86,6 +86,6 @@ bool ConfigDialog::hasChanged()
 
 void ConfigDialog::showHelp()
 {
-    Help::invoke("Configure_Plan");
+    Help::invoke("Configure_Plan_Dialog");
 }
 
