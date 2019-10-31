@@ -90,7 +90,7 @@ This is not limited to persons available in a resource group but can be anyone. 
        <widget class="QLineEdit" name="kcfg_ContextPath"/>
       </item>
       <item row="3" column="0">
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="languageLabel">
         <property name="text">
          <string>Context language</string>
         </property>
@@ -103,7 +103,11 @@ This is not limited to persons available in a resource group but can be anyone. 
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="kcfg_ContextLanguage"/>
+       <widget class="QLineEdit" name="kcfg_ContextLanguage">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item row="4" column="0" colspan="2">
        <spacer name="verticalSpacer">

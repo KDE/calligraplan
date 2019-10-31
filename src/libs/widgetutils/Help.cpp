@@ -21,7 +21,6 @@
 #include "Help.h"
 
 #include <KHelpClient>
-
 #include <KDesktopFile>
 
 #include <QCoreApplication>
@@ -32,9 +31,14 @@
 #include <QWhatsThisClickedEvent>
 #include <QDesktopServices>
 #include <QWidget>
-#include <QDebug>
 
 using namespace KPlato;
+
+const QLoggingCategory &PLANHELP_LOG()
+{
+    static const QLoggingCategory category("calligra.plan.help");
+    return category;
+}
 
 
 Help* Help::self = nullptr;
@@ -76,11 +80,42 @@ QString Help::page(const QString &page)
 
 void Help::invoke(const QString &page)
 {
-    QDesktopServices::openUrl(QUrl(Help::page(page)));
+    invoke(QUrl(Help::page(page)));
 }
 
-void Help::invoke(const QUrl &url)
+void Help::invoke(const QUrl &xurl)
 {
+    debugPlanHelp<<"treat:"<<xurl;
+    QUrl url = xurl;
+    if (url.scheme() == QStringLiteral("help") || url.host() == QStringLiteral("docs.kde.org")) {
+        // The doc is converted from wiki to docbook, using the following rules:
+        // 1) Pages are accessed as a .html page
+        // 2) Page- and fragment ids are lower case
+        // 3) Spaces (or '_') in names and fragments are converted to '-'
+        QString path = url.path();
+        QString fileName = url.fileName();
+        if (fileName.isEmpty()) {
+            fileName = QStringLiteral("index.html");
+        } else {
+            path = path.left(path.lastIndexOf('/')+1);
+            fileName.replace('_', '-');
+            fileName = fileName.toLower();
+            if (!fileName.endsWith(QStringLiteral(".html"))) {
+                fileName.append(QStringLiteral(".html"));
+            }
+        }
+        url.setPath(path + fileName);
+        QString fragment = url.fragment();
+        if (!fragment.isEmpty()) {
+            fragment.replace('_', '-');
+            fragment = fragment.toLower();
+            url.setFragment(fragment);
+        }
+        if (url.scheme() == QStringLiteral("help") && !QDir::isAbsolutePath(url.path())) {
+            url.setPath(url.path().prepend(QString("/%1/").arg(qApp->applicationName())));
+        }
+    }
+    debugPlanHelp<<"open:"<<url;
     QDesktopServices::openUrl(url);
 }
 
@@ -97,7 +132,7 @@ bool WhatsThisClickedEventHandler::eventFilter(QObject *object, QEvent *event)
         QWhatsThisClickedEvent *e = static_cast<QWhatsThisClickedEvent*>(event);
         QUrl url(e->href());
         if (url.isValid()) {
-            QDesktopServices::openUrl(url);
+            Help::invoke(url);
         }
         return true;
     }

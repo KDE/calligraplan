@@ -30,6 +30,9 @@ ConfigDocumentationPanel::ConfigDocumentationPanel(QWidget *parent)
     : ConfigDocumentationPanelImpl(parent)
 {
     connect(kcfg_DocumentationPath, &QLineEdit::editingFinished, this, &ConfigDocumentationPanel::slotPathChanged);
+    // disable language, probably unusable
+    languageLabel->hide();
+    kcfg_ContextLanguage->hide();
 }
 
 void ConfigDocumentationPanel::slotPathChanged()

@@ -94,7 +94,7 @@ KoMainWindow *Part::createMainWindow()
 
 void Part::slotHelpContents()
 {
-    QDesktopServices::openUrl(QUrl::fromUserInput(KPlatoSettings::documentationPath()));
+    Help::invoke(QUrl::fromUserInput(KPlatoSettings::documentationPath()));
 }
 
 void Part::showStartUpWidget(KoMainWindow *parent)

@@ -46,7 +46,6 @@ MimeType=application/x-vnd.kde.plan;
 Type=Application
 Icon=calligraplan
 X-KDE-NativeMimeType=application/x-vnd.kde.plan
-X-DocPath=https://userbase.kde.org/Plan
 Categories=Qt;KDE;Office;ProjectManagement;
 X-KDE-StartupNotify=true
 X-DBUS-StartupType=Multi
