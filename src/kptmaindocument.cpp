@@ -855,10 +855,10 @@ void MainDocument::terminateWorkPackage(const Package *package)
         }
     } else if (wpi.deleteAfterRetrieval) {
         if (rename) {
-            debugPlanWp<<"removed package file:"<<file;
+            debugPlanWp<<"removed package file:"<<file.fileName();
             file.remove();
         } else {
-            debugPlanWp<<"package file not in 'from' dir:"<<file;
+            debugPlanWp<<"package file not in 'from' dir:"<<file.fileName();
         }
     } else {
         warnPlanWp<<"Cannot terminate package, archive:"<<wpi.archiveUrl;
