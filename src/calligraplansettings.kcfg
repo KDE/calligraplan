@@ -358,11 +358,11 @@
   <group name="Documentation">
       <entry name="DocumentationPath" type="String">
           <label>Path to the documentation</label>
-          <default>https://userbase.kde.org/Plan</default>
+          <default>https://userbase.kde.org/Special:MyLanguage/Plan</default>
       </entry>
       <entry name="ContextPath" type="String">
           <label>Path to the context help documentation</label>
-          <default>https://userbase.kde.org/Plan/Manual</default>
+          <default>https://userbase.kde.org/Special:MyLanguage/Plan/Manual</default>
       </entry>
       <entry name="ContextLanguage" type="String">
           <label>The context help documentation must have been translated to the language</label>
