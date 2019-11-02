@@ -73,7 +73,11 @@ QString Help::page(const QString &page)
     }
     QString url = self->m_docpath;
     if (!page.isEmpty()) {
-        url = QString("%1/%2").arg(url, page);
+        if (url.endsWith(':') || url.endsWith('/')) {
+            url = QString("%1%2").arg(url, page);
+        } else {
+            url = QString("%1/%2").arg(url, page);
+        }
     }
     return url;
 }
