@@ -355,7 +355,7 @@ ViewListWidget::ViewListWidget(MainDocument *part, QWidget *parent)//QString nam
                      "<item>Insert categories and views</item>"
                      "</list>"
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("View_Selector")));
+                     "</para>", Help::page("The_View_Selector")));
     
     m_viewlist = new ViewListTreeWidget(this);
     m_viewlist->setEditTriggers(QAbstractItemView::NoEditTriggers);
