@@ -96,6 +96,7 @@ void Help::invoke(const QUrl &xurl)
         // 1) Pages are accessed as a .html page
         // 2) Page- and fragment ids are lower case
         // 3) Spaces (or '_') in names and fragments are converted to '-'
+        // 4) Parantheses are removed
         QString path = url.path();
         QString fileName = url.fileName();
         if (fileName.isEmpty()) {
@@ -103,6 +104,8 @@ void Help::invoke(const QUrl &xurl)
         } else {
             path = path.left(path.lastIndexOf('/')+1);
             fileName.replace('_', '-');
+            fileName.remove('(');
+            fileName.remove(')');
             fileName = fileName.toLower();
             if (!fileName.endsWith(QStringLiteral(".html"))) {
                 fileName.append(QStringLiteral(".html"));
@@ -112,6 +115,8 @@ void Help::invoke(const QUrl &xurl)
         QString fragment = url.fragment();
         if (!fragment.isEmpty()) {
             fragment.replace('_', '-');
+            fileName.remove('(');
+            fileName.remove(')');
             fragment = fragment.toLower();
             url.setFragment(fragment);
         }
