@@ -232,6 +232,7 @@ RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget
     , m_task(qobject_cast<Task*>(task))
 
 {
+    Q_ASSERT(m_task);
     ui.setupUi(this);
 
     // set actions to get shortcuts
@@ -333,7 +334,7 @@ void RelationEditorDialog::slotDisableInsert(bool _disable)
         while (it.hasNext()) {
             Task *t = it.next();
             if (!m_project->legalToLink(t, m_task)) {
-                tasks.removeAll(t);
+                it.remove();
             }
         }
         for(int i = 0; i < ui.view->model()->rowCount(); ++i) {
