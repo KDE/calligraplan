@@ -66,8 +66,6 @@ ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton
 void ConfigDialog::updateSettings()
 {
     emit updateWidgetsSettings();
-    
-    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 
     KPlatoSettings::self()->save();
     emit settingsUpdated();

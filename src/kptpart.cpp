@@ -248,8 +248,14 @@ void Part::configure(KoMainWindow *mw)
         return;
     }
     ConfigDialog *dialog = new ConfigDialog(mw, "Plan Settings", KPlatoSettings::self());
+    connect(dialog, &ConfigDialog::settingsUpdated, this, &Part::slotSettingsUpdated, Qt::QueuedConnection);
     dialog->open();
+}
+
+void Part::slotSettingsUpdated()
+{
+    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
     if (startUpWidget) {
-        QObject::connect(dialog, &ConfigDialog::settingsUpdated, static_cast<WelcomeView*>(startUpWidget->widget(0)), &WelcomeView::setProjectTemplatesModel);
+        static_cast<WelcomeView*>(startUpWidget->widget(0))->setProjectTemplatesModel();
     }
 }

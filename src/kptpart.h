@@ -69,6 +69,7 @@ protected Q_SLOTS:
     void slotOpenTemplate(const QUrl& url);
 
     void slotHelpContents();
+    void slotSettingsUpdated();
 
 protected:
     void createStarUpWidget(KoMainWindow *parent);
