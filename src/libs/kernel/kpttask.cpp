@@ -3315,6 +3315,38 @@ void Completion::addUsedEffort(const Resource *resource, Completion::UsedEffort 
     changed(Node::CompletionUsedEffortProperty);
 }
 
+void Completion::setActualEffort(Resource *resource, const QDate &date, const Completion::UsedEffort::ActualEffort &value)
+{
+    if (value.isNull()) {
+        if (!m_usedEffort.contains(resource)) {
+            return;
+        }
+        UsedEffort *ue = m_usedEffort.value(resource);
+        if (!ue) {
+            return;
+        }
+        ue->takeEffort(date);
+    } else {
+        UsedEffort *ue = m_usedEffort[resource];
+        if (!ue) {
+            ue = new UsedEffort();
+            m_usedEffort.insert(resource, ue);
+        }
+        ue->setEffort(date, value);
+    }
+    changed(Node::CompletionActualEffortProperty);
+}
+
+Completion::UsedEffort::ActualEffort Completion::getActualEffort(Resource *resource, const QDate &date) const
+{
+    UsedEffort::ActualEffort value;
+    UsedEffort *ue = m_usedEffort.value(resource);
+    if (ue) {
+        value = ue->effort(date);
+    }
+    return value;
+}
+
 QString Completion::note() const
 {
     return m_entries.isEmpty() ? QString() : m_entries.last()->note;

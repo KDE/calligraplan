@@ -2274,31 +2274,25 @@ void AddCompletionUsedEffortCmd::unexecute()
 
 }
 
-AddCompletionActualEffortCmd::AddCompletionActualEffortCmd(Completion::UsedEffort &ue, const QDate &date, const Completion::UsedEffort::ActualEffort &value, const KUndo2MagicString& name)
-        : NamedCommand(name),
-        m_usedEffort(ue),
-        m_date(date),
-        newvalue(value)
+AddCompletionActualEffortCmd::AddCompletionActualEffortCmd(Task *task, Resource *resource, const QDate &date, const Completion::UsedEffort::ActualEffort &value, const KUndo2MagicString& name)
+    : NamedCommand(name)
+    , m_task(task)
+    , m_resource(resource)
+    , m_date(date)
+    , newvalue(value)
 {
-    oldvalue = ue.effort(date);
+    oldvalue = task->completion().getActualEffort(resource, date);
 }
 AddCompletionActualEffortCmd::~AddCompletionActualEffortCmd()
 {
 }
 void AddCompletionActualEffortCmd::execute()
 {
-    m_usedEffort.takeEffort(m_date);
-    if (newvalue.effort() > 0) {
-        m_usedEffort.setEffort(m_date, newvalue);
-    }
-
+    m_task->completion().setActualEffort(m_resource, m_date, newvalue);
 }
 void AddCompletionActualEffortCmd::unexecute()
 {
-    m_usedEffort.takeEffort(m_date);
-    if (oldvalue.effort() > 0) {
-        m_usedEffort.setEffort(m_date, oldvalue);
-    }
+    m_task->completion().setActualEffort(m_resource, m_date, oldvalue);
 }
 
 AddAccountCmd::AddAccountCmd(Project &project, Account *account, const QString& parent, int index, const KUndo2MagicString& name)

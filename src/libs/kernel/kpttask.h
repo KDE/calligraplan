@@ -62,6 +62,7 @@ public:
                         : std::pair<Duration, Duration>(e.first, e.second)
                     {}
                     ~ActualEffort() {}
+                    bool isNull() const { return (first + second) == Duration::zeroDuration; }
                     Duration normalEffort() const { return first; }
                     void setNormalEffort(KPlato::Duration e) { first = e; }
                     Duration overtimeEffort() const { return second; }
@@ -216,7 +217,11 @@ public:
     UsedEffort *takeUsedEffort(const Resource *r) { return m_usedEffort.take(const_cast<Resource*>(r) ); changed(); }
     UsedEffort *usedEffort(const Resource *r) const { return m_usedEffort.value(const_cast<Resource*>(r) ); }
     const ResourceUsedEffortMap &usedEffortMap() const { return m_usedEffort; }
-    
+
+    void setActualEffort(Resource *resource, const QDate &date, const UsedEffort::ActualEffort &value);
+    // FIXME name clash
+    UsedEffort::ActualEffort getActualEffort(Resource *resource, const QDate &date) const;
+
     void changed(int property = -1);
     Node *node() const { return m_node; }
     void setNode(Node *node) { m_node = node; }

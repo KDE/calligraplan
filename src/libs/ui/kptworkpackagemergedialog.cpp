@@ -409,12 +409,7 @@ void WorkPackageMergeDialog::acceptPackage(const Package *package)
         }
         // actual effort per resource on date (but not entry)
         if (updateUsedEffort(r)) {
-            Completion::UsedEffort *ue = org.usedEffort(resource);
-            if (!ue) {
-                ue = new Completion::UsedEffort();
-                m_cmd->addCommand(new AddCompletionUsedEffortCmd(org, resource, ue));
-            }
-            m_cmd->addCommand(new AddCompletionActualEffortCmd(*ue, d, Completion::UsedEffort::ActualEffort(usedEffort(r), Duration::zeroDuration)));
+            m_cmd->addCommand(new AddCompletionActualEffortCmd(to, resource, d, Completion::UsedEffort::ActualEffort(usedEffort(r))));
         }
     }
     if (! docsaved && m_cmd->isEmpty()) {

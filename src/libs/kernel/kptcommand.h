@@ -1322,13 +1322,14 @@ private:
 class PLANKERNEL_EXPORT AddCompletionActualEffortCmd : public NamedCommand
 {
 public:
-    AddCompletionActualEffortCmd(Completion::UsedEffort &ue, const QDate &date, const Completion::UsedEffort::ActualEffort &value, const KUndo2MagicString& name = KUndo2MagicString());
+    AddCompletionActualEffortCmd(Task *task, Resource *resource, const QDate &date, const Completion::UsedEffort::ActualEffort &value, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddCompletionActualEffortCmd() override;
     void execute() override;
     void unexecute() override;
 
 private:
-    Completion::UsedEffort &m_usedEffort;
+    Task *m_task;
+    Resource *m_resource;
     QDate m_date;
     Completion::UsedEffort::ActualEffort oldvalue;
     Completion::UsedEffort::ActualEffort newvalue;
