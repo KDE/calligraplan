@@ -267,7 +267,6 @@ if(Qca-qt5_FOUND AND KF5Wallet_FOUND)
 endif()
 
 find_package(Perl REQUIRED)
-find_package(ZLIB REQUIRED)
 
 ###########################
 ############################
