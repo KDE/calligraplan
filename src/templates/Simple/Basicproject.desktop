@@ -1,25 +1,5 @@
 [Desktop Entry]
 Name=Basic project
-Name[ca]=Projecte bàsic
-Name[ca@valencia]=Projecte bàsic
-Name[cs]=Základní projekt
-Name[de]=Einfaches Projekt
-Name[en_GB]=Basic project
-Name[es]=Proyecto básico
-Name[fr]=Projet de base
-Name[gl]=Proxecto básico
-Name[id]=Projek dasar
-Name[it]=Progetto di base
-Name[nl]=Basisproject
-Name[pl]=Podstawowy projekt
-Name[pt]=Projecto básico
-Name[pt_BR]=Projeto básico
-Name[ru]=Обычный проект
-Name[sk]=Základný projekt
-Name[sv]=Grundprojekt
-Name[uk]=Базовий проєкт
-Name[x-test]=xxBasic projectxx
-Name[zh_CN]=基本项目
 Type=Link
 Icon=template_timechart
 URL=.source/Basicproject.plant
