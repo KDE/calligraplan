@@ -1,6 +1,23 @@
 [Desktop Entry]
 Type=Service
 Name=Plan Planner Import Filter
+Name[ca]=Filtre d'importació Planner per al Plan
+Name[ca@valencia]=Filtre d'importació Planner per al Plan
+Name[cs]=Importní filtr plánovaní Planner
+Name[de]=Planner-Importfilter für Calligra Plan
+Name[en_GB]=Plan Planner Import Filter
+Name[es]=Filtro de importación Planner de Plan
+Name[gl]=Filtro para Plan de importación de Planner
+Name[id]=Filter Impor Planner Plan
+Name[it]=Filtro di importazione da Planner di Plan
+Name[nl]=Plan importfilter voor Planner
+Name[pl]=Filtr importu Plannera do Plan
+Name[pt]=Filtro de Importação do Planner do Plan
+Name[pt_BR]=Filtro de importação do Planner para Plan
+Name[sk]=Importný filter Plan Planner
+Name[sv]=Plan planeringsimportfilter
+Name[uk]=Фільтр імпортування даних Planner для Plan
+Name[x-test]=xxPlan Planner Import Filterxx
 X-KDE-Export=application/x-vnd.kde.plan
 X-KDE-Import=application/x-planner
 X-KDE-Weight=1

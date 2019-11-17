@@ -1,6 +1,25 @@
 [Desktop Entry]
 Type=Service
 Name=Plan KPlato Import Filter
+Name[ca]=Filtre d'importació KPlato per al Plan
+Name[ca@valencia]=Filtre d'importació KPlato per al Plan
+Name[de]=KPlato-Importfilter für Calligra Plan
+Name[en_GB]=Plan KPlato Import Filter
+Name[es]=Filtro de importación KPlato de Plan
+Name[fr]=Filtre d'importation KPlato de Plan
+Name[gl]=Filtro para Plan de importación de KPlato
+Name[id]=Filter Impor KPlato Plan
+Name[it]=Filtro di importazione da KPlato di Plan
+Name[nl]=Plan importfilter voor KPlato
+Name[pl]=Filtr importu KPlato do Plan
+Name[pt]=Filtro de Importação do KPlato do Plan
+Name[pt_BR]=Filtro de importação do KPlato para Plan
+Name[ru]=Фильтр импорта файлов планировщика KPlato
+Name[sk]=Importný filter Plan KPlato
+Name[sv]=Plan KPlato importfilter
+Name[uk]=Фільтр імпортування даних KPlato для Plan
+Name[x-test]=xxPlan KPlato Import Filterxx
+Name[zh_CN]=Plan KPlato 导入过滤器
 X-KDE-Export=application/x-vnd.kde.plan
 X-KDE-Import=application/x-vnd.kde.kplato
 X-KDE-Weight=1
