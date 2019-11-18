@@ -72,7 +72,7 @@ Qt::ItemFlags TaskWorkPackageModel::flags(const QModelIndex &index) const
     if (! t->completion().isStarted()) {
         switch (index.column()) {
             case NodeActualStart:
-                flags |= Qt::ItemIsEditable;
+                //flags |= Qt::ItemIsEditable;
                 break;
             case NodeCompleted:
                 flags |= Qt::ItemIsEditable;
@@ -85,8 +85,8 @@ Qt::ItemFlags TaskWorkPackageModel::flags(const QModelIndex &index) const
             case NodeActualFinish:
             case NodeCompleted:
             case NodeRemainingEffort:
-            case NodeActualEffort:
                 flags |= Qt::ItemIsEditable;
+            case NodeActualEffort:
                 break;
             default: break;
         }
