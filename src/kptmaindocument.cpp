@@ -80,6 +80,7 @@ MainDocument::MainDocument(KoPart *part)
         m_checkingForWorkPackages(false),
         m_loadingSharedProject(false),
         m_skipSharedProjects(false),
+        m_isLoading(false),
         m_isTaskModule(false),
         m_calculationCommand(nullptr),
         m_currentCalculationManager(nullptr),
@@ -1022,6 +1023,7 @@ void MainDocument::insertFile(const QUrl &url, Node *parent, Node *after)
     connect(doc, &KoDocument::completed, this, &MainDocument::insertFileCompleted);
     connect(doc, &KoDocument::canceled, this, &MainDocument::insertFileCancelled);
 
+    m_isLoading = true;
     doc->openUrl(url);
 }
 
@@ -1036,6 +1038,7 @@ void MainDocument::insertFileCompleted()
     } else {
         KMessageBox::error(0, i18n("Internal error, failed to insert file."));
     }
+    m_isLoading = false;
 }
 
 void MainDocument::insertResourcesFile(const QUrl &url, const QUrl &projects)
@@ -1053,6 +1056,7 @@ void MainDocument::insertResourcesFile(const QUrl &url, const QUrl &projects)
     connect(doc, &KoDocument::completed, this, &MainDocument::insertResourcesFileCompleted);
     connect(doc, &KoDocument::canceled, this, &MainDocument::insertFileCancelled);
 
+    m_isLoading = true;
     doc->openUrl(url);
 
 }
@@ -1070,6 +1074,7 @@ void MainDocument::insertResourcesFileCompleted()
     } else {
         KMessageBox::error(0, i18n("Internal error, failed to insert file."));
     }
+    m_isLoading = false;
 }
 
 void MainDocument::insertFileCancelled(const QString &error)
@@ -1082,6 +1087,7 @@ void MainDocument::insertFileCancelled(const QString &error)
     if (doc) {
         doc->documentPart()->deleteLater(); // also deletes document
     }
+    m_isLoading = false;
 }
 
 void MainDocument::clearResourceAssignments()
@@ -1152,6 +1158,7 @@ void MainDocument::slotInsertSharedProject()
     connect(doc, &KoDocument::completed, this, &MainDocument::insertSharedProjectCompleted);
     connect(doc, &KoDocument::canceled, this, &MainDocument::insertSharedProjectCancelled);
 
+    m_isLoading = true;
     doc->openUrl(m_sharedProjectsFiles.takeFirst());
 }
 
@@ -1195,9 +1202,11 @@ void MainDocument::insertSharedProjectCompleted()
             }
         }
         doc->documentPart()->deleteLater(); // also deletes document
+        m_isLoading = false;
         emit insertSharedProject(); // do next file
     } else {
         KMessageBox::error(0, i18n("Internal error, failed to insert file."));
+        m_isLoading = false;
     }
 }
 
@@ -1211,6 +1220,7 @@ void MainDocument::insertSharedProjectCancelled(const QString &error)
     if (doc) {
         doc->documentPart()->deleteLater(); // also deletes document
     }
+    m_isLoading = false;
 }
 
 bool MainDocument::insertProject(Project &project, Node *parent, Node *after)
@@ -1492,6 +1502,11 @@ void MainDocument::removeViewListItem(View */*view*/, const ViewListItem *item)
     emit viewListItemRemoved(item);
     setModified(true);
     m_viewlistModified = true;
+}
+
+bool MainDocument::isLoading() const
+{
+    return m_isLoading || KoDocument::isLoading();
 }
 
 void MainDocument::setModified(bool mod)
