@@ -4065,7 +4065,10 @@ bool NodeItemModel::dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction
     QStringList substitute;
     while (it.hasNext()) {
         QRegularExpressionMatch match = it.next();
-        substitute << match.captured().remove("[[").remove("]]");
+        QString param = match.captured().remove("[[").remove("]]");
+        if (!substitute.contains(param)) {
+            substitute << param;
+        }
     }
     QMap<QString, QString> params;
     if (!substitute.isEmpty()) {
