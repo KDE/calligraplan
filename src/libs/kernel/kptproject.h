@@ -530,7 +530,7 @@ public:
     QList<QUrl> taskModules(bool includeLocal = true) const;
     void setTaskModules(const QList<QUrl> modules);
     bool useLocalTaskModules() const;
-    void setUseLocalTaskModules(bool value);
+    void setUseLocalTaskModules(bool value, bool emitChanged = true);
     void setLocalTaskModulesPath(const QUrl &url);
 
 public Q_SLOTS:
