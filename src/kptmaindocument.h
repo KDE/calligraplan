@@ -144,6 +144,11 @@ public:
 
     bool isTaskModule() const;
 
+    /**
+     * Returns true during loading (openUrl can be asynchronous)
+     */
+    bool isLoading() const override;
+
     using KoDocument::setModified;
 public Q_SLOTS:
     void setModified(bool mod) override;
@@ -261,6 +266,8 @@ private:
     bool m_loadingSharedProject;
     QList<QUrl> m_sharedProjectsFiles;
     bool m_skipSharedProjects;
+
+    bool m_isLoading;
 
     bool m_isTaskModule;
 

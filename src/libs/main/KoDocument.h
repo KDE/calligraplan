@@ -490,7 +490,7 @@ public:
     /**
      * Returns true during loading (openUrl can be asynchronous)
      */
-    bool isLoading() const;
+    virtual bool isLoading() const;
 
     int queryCloseDia();
 
