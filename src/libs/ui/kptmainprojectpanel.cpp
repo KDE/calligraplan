@@ -19,7 +19,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "kptmainprojectpanel.h"
-
+#include <commands/SetTaskModulesCommand.h>
 #include "kptdebug.h"
 
 #include <KLocalizedString>
@@ -281,8 +281,7 @@ MacroCommand *MainProjectPanel::buildTaskModulesCommand()
             lst << url;
         }
     }
-    project.setTaskModules(lst); //TODO command
-    project.setUseLocalTaskModules(ui_useLocalModules->isChecked());
+    cmd->addCommand(new SetTaskModulesCommand(&project, lst, ui_useLocalModules->isChecked()));
     return cmd;
 }
 

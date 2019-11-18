@@ -3062,9 +3062,10 @@ QList<QUrl> Project::taskModules(bool includeLocal) const
     return m_taskModules;
 }
 
-void Project::setTaskModules(const QList<QUrl> modules)
+void Project::setTaskModules(const QList<QUrl> modules, bool useLocalTaskModules)
 {
     m_taskModules = modules;
+    m_useLocalTaskModules = useLocalTaskModules;
     if (m_useLocalTaskModules && m_localTaskModulesPath.isValid()) {
         m_taskModules.prepend(m_localTaskModulesPath);
     }
@@ -3085,7 +3086,9 @@ void Project::setUseLocalTaskModules(bool value, bool emitChanged)
     if (m_useLocalTaskModules && m_localTaskModulesPath.isValid()) {
         m_taskModules.prepend(m_localTaskModulesPath);
     }
-    emit taskModulesChanged(m_taskModules);
+    if (emitChanged) {
+        emit taskModulesChanged(m_taskModules);
+    }
 }
 
 void Project::setLocalTaskModulesPath(const QUrl &url)
