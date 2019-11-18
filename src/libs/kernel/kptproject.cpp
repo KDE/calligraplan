@@ -1049,17 +1049,24 @@ bool Project::load(KoXmlElement &element, XMLLoaderObject &status)
                 m_workPackageInfo.publishUrl = QUrl(e.attribute("publish-url"));
             }
         } else if (e.tagName() == QLatin1String("task-modules")) {
-            m_useLocalTaskModules = (bool)e.attribute("use-local-task-modules").toInt();
-            for (KoXmlNode n = e.firstChild(); !n.isNull(); n = n.nextSibling()) {
-                KoXmlElement path = n.toElement();
+            m_useLocalTaskModules = false;
+            QList<QUrl> urls;
+            for (KoXmlNode child = e.firstChild(); !child.isNull(); child = child.nextSibling()) {
+                KoXmlElement path = child.toElement();
                 if (path.isNull()) {
                     continue;
                 }
                 QString s = path.attribute("url");
                 if (!s.isEmpty()) {
-                    m_taskModules << QUrl::fromUserInput(s);
+                    QUrl url = QUrl::fromUserInput(s);
+                    if (!urls.contains(url)) {
+                        urls << url;
+                    }
                 }
             }
+            m_taskModules = urls;
+            // If set adds local path to taskModules()
+            setUseLocalTaskModules((bool)e.attribute("use-local-task-modules").toInt());
         }
     }
     QList<Calendar*> cals;
@@ -1389,16 +1396,16 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
     wpi.setAttribute("archive-url", m_workPackageInfo.archiveUrl.toString(QUrl::None));
     wpi.setAttribute("publish-url", m_workPackageInfo.publishUrl.toString(QUrl::None));
 
-    m_documents.save(me);
-
     QDomElement tm = me.ownerDocument().createElement("task-modules");
     me.appendChild(tm);
     tm.setAttribute("use-local-task-modules", m_useLocalTaskModules);
-    for (const QUrl &url : m_taskModules) {
+    for (const QUrl &url : taskModules(false/*no local*/)) {
         QDomElement e = tm.ownerDocument().createElement("task-module");
         tm.appendChild(e);
         e.setAttribute("url", url.toString());
     }
+
+    m_documents.save(me);
 
     if (context.saveAll(this)) {
         m_accounts.save(me);
@@ -3069,7 +3076,7 @@ bool Project::useLocalTaskModules() const
     return m_useLocalTaskModules;
 }
 
-void Project::setUseLocalTaskModules(bool value)
+void Project::setUseLocalTaskModules(bool value, bool emitChanged)
 {
     if (m_useLocalTaskModules) {
         m_taskModules.removeAll(m_localTaskModulesPath);

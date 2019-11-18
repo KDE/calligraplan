@@ -277,7 +277,7 @@ MacroCommand *MainProjectPanel::buildTaskModulesCommand()
     QList<QUrl> lst;
     for (QModelIndex idx = m->index(0,0); idx.isValid(); idx = idx.sibling(idx.row()+1, 0)) {
         QUrl url = QUrl::fromUserInput(idx.data().toString());
-        if (url.isValid()) {
+        if (url.isValid() && !lst.contains(url)) {
             lst << url;
         }
     }
@@ -410,10 +410,18 @@ void MainProjectPanel::insertTaskModuleClicked()
 {
     QString dirName = QFileDialog::getExistingDirectory(this, i18n("Task Modules Path"));
     if (!dirName.isEmpty()) {
+        dirName = QUrl::fromUserInput(dirName).toString();
         QStandardItemModel *m = static_cast<QStandardItemModel*>(ui_taskModulesView->model());
-        QStandardItem *item = new QStandardItem(dirName);
-        m->appendRow(item);
-        slotCheckAllFieldsFilled();
+        for (int r = 0; r < m->rowCount(); ++r) {
+            QUrl url1(dirName);
+            QUrl url2 = QUrl::fromUserInput(m->index(r, 0).data().toString());
+            if (url1.matches(url2, QUrl::StripTrailingSlash|QUrl::NormalizePathSegments)) {
+                break;
+            }
+            QStandardItem *item = new QStandardItem(dirName);
+            m->appendRow(item);
+            slotCheckAllFieldsFilled();
+        }
     }
 }
 
