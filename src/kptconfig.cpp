@@ -153,12 +153,11 @@ void Config::setDefaultValues(Project &project) const
 #endif
     project.setWorkPackageInfo(wpi);
 
-    project.setUseLocalTaskModules(useLocalTaskModules());
     QList<QUrl> urls;
     for (const QString &s : taskModulePaths()) {
         urls << QUrl::fromUserInput(s);
     }
-    project.setTaskModules(urls);
+    project.setTaskModules(urls, useLocalTaskModules());
 }
 
 void Config::setDefaultValues(Task &task)

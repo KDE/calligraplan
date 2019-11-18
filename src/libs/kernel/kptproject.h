@@ -528,7 +528,7 @@ public:
     bool loadProjectsAtStartup() const;
 
     QList<QUrl> taskModules(bool includeLocal = true) const;
-    void setTaskModules(const QList<QUrl> modules);
+    void setTaskModules(const QList<QUrl> modules, bool useLocalTaskModules);
     bool useLocalTaskModules() const;
     void setUseLocalTaskModules(bool value, bool emitChanged = true);
     void setLocalTaskModulesPath(const QUrl &url);
