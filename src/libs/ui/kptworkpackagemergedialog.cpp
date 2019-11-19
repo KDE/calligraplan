@@ -192,6 +192,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
 
         lst << new QStandardItem(it.key().toString(Qt::DefaultLocaleShortDate));
         lst.last()->setData(it.key().toString(Qt::ISODate));
+        lst.last()->setEditable(false);
         if (currCompletion.entries().contains(it.key())) {
             lst.last()->setToolTip(xi18nc("@info:tooltip", "Existing entry"));
         } else {
@@ -202,6 +203,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
         lst.last()->setData(it.value()->percentFinished);
         lst.last()->setToolTip(xi18nc("@info:tooltip", "New value: %1%<nl/>Current value: %2%", it.value()->percentFinished, currCompletion.percentFinished(it.key())));
         lst.last()->setCheckable(true);
+        lst.last()->setEditable(false);
         if (package->settings.progress && it.value()->percentFinished != currCompletion.percentFinished(it.key())) {
             lst.last()->setCheckState(Qt::Checked);
         }
@@ -214,6 +216,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
         lst.last()->setData(ne.toDouble());
         lst.last()->setToolTip(xi18nc("@info:tooltip", "New value: %1<nl/>Current value: %2", nv, ov));
         lst.last()->setCheckable(true);
+        lst.last()->setEditable(false);
         if (package->settings.usedEffort && ne != oe) {
             lst.last()->setCheckState(Qt::Checked);
         }
@@ -224,6 +227,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
         lst.last()->setData(it.value()->remainingEffort.toDouble());
         lst.last()->setToolTip(xi18nc("@info:tooltip", "New value: %1<nl/>Current value: %2", nv, ov));
         lst.last()->setCheckable(true);
+        lst.last()->setEditable(false);
         if (package->settings.remainingEffort && it.value()->remainingEffort != currCompletion.remainingEffort(it.key())) {
             lst.last()->setCheckState(Qt::Checked);
         }
