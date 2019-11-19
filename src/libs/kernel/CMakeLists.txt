@@ -21,7 +21,9 @@ set(plankernel_LIB_SRCS
     kptnode.cpp
     kptproject.cpp
     kptrelation.cpp
-    kptresource.cpp
+    ResourceGroup.cpp
+    Resource.cpp
+    kptresourcerequest.cpp
     kpttask.cpp
     kptduration.cpp
     kptdatetime.cpp

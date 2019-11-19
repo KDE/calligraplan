@@ -27,6 +27,8 @@
 #include "kptcalendar.h"
 #include "kpteffortcostmap.h"
 #include "kptresource.h"
+#include "kptdatetime.h"
+#include "kptduration.h"
 
 #include <QList>
 #include <QMap>
@@ -42,8 +44,6 @@ namespace KPlato
 {
 
 class Appointment;
-class DateTime;
-class Duration;
 class Node;
 class Project;
 class Task;
