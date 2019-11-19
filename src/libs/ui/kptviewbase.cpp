@@ -103,12 +103,10 @@ void DockWidget::activate(KoMainWindow *mainWindow)
     setVisible(m_shown);
     mainWindow->addDockWidget(location, this);
 
-    foreach(const KActionCollection *c, KActionCollection::allCollections()) {
-        KActionMenu *a = qobject_cast<KActionMenu*>(c->action("settings_dockers_menu"));
-        if (a) {
-            a->addAction(toggleViewAction());
-            break;
-        }
+    const KActionCollection *c = mainWindow->actionCollection();
+    KActionMenu *a = qobject_cast<KActionMenu*>(c->action("settings_dockers_menu"));
+    if (a) {
+        a->addAction(toggleViewAction());
     }
 }
 
@@ -118,12 +116,10 @@ void DockWidget::deactivate(KoMainWindow *mainWindow)
     mainWindow->removeDockWidget(this);
      // activation re-parents to QMainWindow, so re-parent back to view
     setParent(const_cast<ViewBase*>(view));
-    foreach(const KActionCollection *c, KActionCollection::allCollections()) {
-        KActionMenu *a = qobject_cast<KActionMenu*>(c->action("settings_dockers_menu"));
-        if (a) {
-            a->removeAction(toggleViewAction());
-            break;
-        }
+    const KActionCollection *c = mainWindow->actionCollection();
+    KActionMenu *a = qobject_cast<KActionMenu*>(c->action("settings_dockers_menu"));
+    if (a) {
+        a->removeAction(toggleViewAction());
     }
 }
 
