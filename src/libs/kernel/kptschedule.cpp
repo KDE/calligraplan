@@ -2035,7 +2035,7 @@ bool ScheduleManager::loadXML(KoXmlElement &element, XMLLoaderObject &status)
                     case Schedule::Expected: setExpected(sch); break;
                 }
             }
-        } else if (e.tagName() == "plan") {
+        } else if (e.tagName() == "schedule-management" || (status.version() < "0.7.0" && e.tagName() == "plan")) {
             ScheduleManager *sm = new ScheduleManager(status.project());
             if (sm->loadXML(e, status)) {
                 m_project.addScheduleManager(sm, this);
@@ -2080,7 +2080,7 @@ bool ScheduleManager::loadMainSchedule(MainSchedule *schedule, KoXmlElement &ele
 
 void ScheduleManager::saveXML(QDomElement &element) const
 {
-    QDomElement el = element.ownerDocument().createElement("plan");
+    QDomElement el = element.ownerDocument().createElement("schedule-management");
     element.appendChild(el);
     el.setAttribute("name", m_name);
     el.setAttribute("id", m_id);
@@ -2111,7 +2111,7 @@ void ScheduleManager::saveXML(QDomElement &element) const
 
 void ScheduleManager::saveWorkPackageXML(QDomElement &element, const Node &node) const
 {
-    QDomElement el = element.ownerDocument().createElement("plan");
+    QDomElement el = element.ownerDocument().createElement("schedule-management");
     element.appendChild(el);
     el.setAttribute("name", m_name);
     el.setAttribute("id", m_id);

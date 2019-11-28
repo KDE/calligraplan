@@ -360,6 +360,7 @@ ResourceRequest *ResourceGroupRequest::takeResourceRequest(ResourceRequest *requ
 
 ResourceRequest *ResourceGroupRequest::find(const Resource *resource) const {
     foreach (ResourceRequest *gr, m_resourceRequests) {
+        qInfo()<<Q_FUNC_INFO<<resource<<'='<<(void*)gr->resource();
         if (gr->resource() == resource) {
             return gr;
         }

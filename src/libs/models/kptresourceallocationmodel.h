@@ -138,10 +138,11 @@ protected Q_SLOTS:
     void slotResourceGroupInserted(const KPlato::ResourceGroup *group);
     void slotResourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
     void slotResourceGroupRemoved(const KPlato::ResourceGroup *group);
+
     void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceInserted(const KPlato::Resource *resource);
-    void slotResourceToBeRemoved(const KPlato::Resource *resource);
-    void slotResourceRemoved(const KPlato::Resource *resource);
+    void slotResourceInserted(const KPlato::ResourceGroup *group, int row);
+    void slotResourceToBeRemoved(const KPlato::ResourceGroup *group, int row);
+    void slotResourceRemoved(const KPlato::ResourceGroup *group, int row);
     
 protected:
     void filldata(Task *task);

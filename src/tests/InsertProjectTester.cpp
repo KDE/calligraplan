@@ -21,6 +21,7 @@
 #include "InsertProjectTester.h"
 
 #include "kptcommand.h"
+#include <AddResourceCmd.h>
 #include "kptmaindocument.h"
 #include "kptpart.h"
 #include "kptcalendar.h"
@@ -31,6 +32,8 @@
 #include <KoXmlReader.h>
 
 #include <QTest>
+
+#include <tests/debug.cpp>
 
 namespace KPlato
 {
@@ -171,13 +174,22 @@ void InsertProjectTester::testResourceGroup()
 Resource *InsertProjectTester::addResource(MainDocument &part, ResourceGroup *g)
 {
     Project &p = part.getProject();
+    if (p.resourceGroupCount() == 0) {
+        qInfo()<<"No resource groups in project";
+        return nullptr;
+    }
     if (g == 0) {
         g = p.resourceGroupAt(0);
+    }
+    Q_ASSERT(g);
+    if (!p.resourceGroups().contains(g)) {
+        qInfo()<<"Project does not contain resource group";
+        return nullptr;
     }
     Resource *r = new Resource();
     KUndo2Command *c = new AddResourceCmd(g, r);
     part.addCommand(c);
-    QString s = QString("%1.R%2").arg(r->parentGroup()->name()).arg(r->parentGroup()->indexOf(r));
+    QString s = QString("%1.R%2").arg(g->name()).arg(g->indexOf(r));
     r->setName(s);
     return r;
 }
@@ -196,7 +208,10 @@ void InsertProjectTester::testResource()
     Part pp2(0);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
+    //Debug::print(&part.getProject(), "Project to insert from: ------------", true);
+    //Debug::print(&part2.getProject(), "Project to insert into: -----------", true);
     part2.insertProject(p, 0, 0);
+    //Debug::print(&part2.getProject(), "Result: ---------------------------", true);
     QVERIFY(part2.getProject().resourceGroupAt(0)->numResources() == 1);
 }
 
@@ -551,15 +566,20 @@ void InsertProjectTester::testExistingResourceRequest()
     Part pp2(0);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
+    //Debug::print(&part.getProject(), "Project to be inserted from: --------------------------", true);
+    //Debug::print(&part2.getProject(), "Project to be inserted into: -------------------------", true);
     part2.insertProject(p, 0, 0);
+    //Debug::print(&part2.getProject(), "Result1:", true);
     Project &p2 = part2.getProject();
     QVERIFY(p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != 0);
 
     KoXmlDocument xdoc;
     xdoc.setContent(doc.toString());
     part.loadXML(xdoc, 0);
-
+    //Debug::print(&part.getProject(), "Project to be inserted from:", true);
+    //Debug::print(&part2.getProject(), "Project to be inserted into:", true);
     part2.insertProject(part.getProject(), 0, 0);
+    //Debug::print(&part2.getProject(), "Result2:", true);
     QVERIFY(p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != 0);
     QVERIFY(p2.childNode(1)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != 0);
 }

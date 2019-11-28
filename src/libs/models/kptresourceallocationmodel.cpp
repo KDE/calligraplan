@@ -379,23 +379,25 @@ void ResourceAllocationItemModel::slotResourceToBeInserted(const ResourceGroup *
     beginInsertRows(index(group), row, row);
 }
 
-void ResourceAllocationItemModel::slotResourceInserted(const Resource */*resource */)
+void ResourceAllocationItemModel::slotResourceInserted(const KPlato::ResourceGroup *group, int row)
 {
+    Q_UNUSED(group)
+    Q_UNUSED(row)
     //debugPlan<<resource->name();
     endInsertRows();
     emit layoutChanged(); //HACK to make the right view react! Bug in qt?
 }
 
-void ResourceAllocationItemModel::slotResourceToBeRemoved(const Resource *resource)
+void ResourceAllocationItemModel::slotResourceToBeRemoved(const KPlato::ResourceGroup *group, int row)
 {
     //debugPlan<<resource->name();
-    int row = index(resource).row();
-    beginRemoveRows(index(resource->parentGroup()), row, row);
+    beginRemoveRows(index(group), row, row);
 }
 
-void ResourceAllocationItemModel::slotResourceRemoved(const Resource */*resource */)
+void ResourceAllocationItemModel::slotResourceRemoved(const KPlato::ResourceGroup *group, int row)
 {
-    //debugPlan<<resource->name();
+    Q_UNUSED(group)
+    Q_UNUSED(row)
     endRemoveRows();
 }
 
@@ -435,17 +437,17 @@ void ResourceAllocationItemModel::setProject(Project *project)
 
         disconnect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAllocationItemModel::slotResourceGroupToBeRemoved);
 
-        disconnect(m_project, &Project::resourceToBeAdded, this, &ResourceAllocationItemModel::slotResourceToBeInserted);
+        disconnect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceAllocationItemModel::slotResourceToBeInserted);
 
-        disconnect(m_project, &Project::resourceToBeRemoved, this, &ResourceAllocationItemModel::slotResourceToBeRemoved);
+        disconnect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceAllocationItemModel::slotResourceToBeRemoved);
 
         disconnect(m_project, &Project::resourceGroupAdded, this, &ResourceAllocationItemModel::slotResourceGroupInserted);
 
         disconnect(m_project, &Project::resourceGroupRemoved, this, &ResourceAllocationItemModel::slotResourceGroupRemoved);
 
-        disconnect(m_project, &Project::resourceAdded, this, &ResourceAllocationItemModel::slotResourceInserted);
+        disconnect(m_project, &Project::resourceAddedToGroup, this, &ResourceAllocationItemModel::slotResourceInserted);
 
-        disconnect(m_project, &Project::resourceRemoved, this, &ResourceAllocationItemModel::slotResourceRemoved);
+        disconnect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceAllocationItemModel::slotResourceRemoved);
 
     }
     m_project = project;
@@ -458,17 +460,17 @@ void ResourceAllocationItemModel::setProject(Project *project)
 
         connect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAllocationItemModel::slotResourceGroupToBeRemoved);
 
-        connect(m_project, &Project::resourceToBeAdded, this, &ResourceAllocationItemModel::slotResourceToBeInserted);
+        connect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceAllocationItemModel::slotResourceToBeInserted);
 
-        connect(m_project, &Project::resourceToBeRemoved, this, &ResourceAllocationItemModel::slotResourceToBeRemoved);
+        connect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceAllocationItemModel::slotResourceToBeRemoved);
 
         connect(m_project, &Project::resourceGroupAdded, this, &ResourceAllocationItemModel::slotResourceGroupInserted);
 
         connect(m_project, &Project::resourceGroupRemoved, this, &ResourceAllocationItemModel::slotResourceGroupRemoved);
 
-        connect(m_project, &Project::resourceAdded, this, &ResourceAllocationItemModel::slotResourceInserted);
+        connect(m_project, &Project::resourceAddedToGroup, this, &ResourceAllocationItemModel::slotResourceInserted);
 
-        connect(m_project, &Project::resourceRemoved, this, &ResourceAllocationItemModel::slotResourceRemoved);
+        connect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceAllocationItemModel::slotResourceRemoved);
 
     }
     m_model.setProject(m_project);
@@ -580,10 +582,10 @@ QModelIndex ResourceAllocationItemModel::parent(const QModelIndex &index) const
     //debugPlan<<index.internalPointer()<<":"<<index.row()<<","<<index.column();
 
     Resource *r = qobject_cast<Resource*>(object(index));
-    if (r && r->parentGroup()) {
+    if (r && r->parentGroups().value(0)) {
         // only resources have parent
-        int row = m_project->indexOf(r->parentGroup());
-        return createIndex(row, 0, r->parentGroup());
+        int row = m_project->indexOf(r->parentGroups().value(0));
+        return createIndex(row, 0, r->parentGroups().value(0));
     }
 
     return QModelIndex();
@@ -618,7 +620,7 @@ QModelIndex ResourceAllocationItemModel::index(const Resource *resource) const
     }
     Resource *r = const_cast<Resource*>(resource);
     int row = -1;
-    ResourceGroup *par = r->parentGroup();
+    ResourceGroup *par = r->parentGroups().value(0);
     if (par) {
         row = par->indexOf(r);
         return createIndex(row, 0, r);
@@ -757,7 +759,7 @@ bool ResourceAllocationItemModel::setAllocation(Resource *res, const QVariant &v
     switch (role) {
         case Qt::EditRole: {
             m_resourceCache[ res ]->setUnits(value.toInt());
-            QModelIndex idx = index(res->parentGroup());
+            QModelIndex idx = index(res->parentGroups().value(0));
             emit dataChanged(index(idx.row(), 0, QModelIndex()), index(idx.row(), columnCount() - 1, QModelIndex()));
             return true;
         }
@@ -767,7 +769,7 @@ bool ResourceAllocationItemModel::setAllocation(Resource *res, const QVariant &v
             }
             if (m_resourceCache[ res ]->units() == 0) {
                 m_resourceCache[ res ]->setUnits(100);
-                ResourceGroup *g = res->parentGroup();
+                ResourceGroup *g = res->parentGroups().value(0);
                 if (m_groupCache.contains(g)) {
                     ResourceGroupRequest *gr = m_groupCache[ g ];
                     if (gr->units() + requestedResources(g) > g->numResources()) {
@@ -777,7 +779,7 @@ bool ResourceAllocationItemModel::setAllocation(Resource *res, const QVariant &v
             } else {
                 m_resourceCache[ res ]->setUnits(0);
             }
-            QModelIndex idx = index(res->parentGroup());
+            QModelIndex idx = index(res->parentGroups().value(0));
             emit dataChanged(index(idx.row(), 0, QModelIndex()), index(idx.row(), columnCount() - 1, QModelIndex()));
             return true;
         }
@@ -919,12 +921,12 @@ QVariant ResourceAllocationItemModel::data(const QModelIndex &index, int role) c
     Resource *r = qobject_cast<Resource*>(obj);
     if (r) {
         if (index.column() == ResourceAllocationModel::RequestAllocation) {
-            return allocation(r->parentGroup(), r, role);
+            return allocation(r->parentGroups().value(0), r, role);
         }
         if (index.column() == ResourceAllocationModel::RequestRequired) {
             return required(index, role);
         }
-        result = m_model.data(r->parentGroup(), r, index.column(), role);
+        result = m_model.data(r->parentGroups().value(0), r, index.column(), role);
     } else {
         ResourceGroup *g = qobject_cast<ResourceGroup*>(obj);
         if (g) {
@@ -1031,7 +1033,7 @@ QObject *ResourceAllocationItemModel::object(const QModelIndex &index) const
 
 void ResourceAllocationItemModel::slotResourceChanged(Resource *res)
 {
-    ResourceGroup *g = res->parentGroup();
+    ResourceGroup *g = res->parentGroups().value(0);
     if (g) {
         int row = g->indexOf(res);
         emit dataChanged(createIndex(row, 0, res), createIndex(row, columnCount() - 1, res));

@@ -72,8 +72,8 @@ ResourceGroup::~ResourceGroup() {
     foreach (ResourceGroupRequest* r, m_requests) {
         r->unregister(this);
     }
-    while (!m_resources.isEmpty()) {
-        delete m_resources.takeFirst();
+    for (Resource *r : m_resources) {
+        r->removeParentGroup(this);
     }
     //debugPlan<<"("<<this<<")";
 }
@@ -169,21 +169,41 @@ bool ResourceGroup::isBaselined(long id) const
     return false;
 }
 
-
-void ResourceGroup::addResource(int index, Resource* resource, Risk*) {
-    int i = index == -1 ? m_resources.count() : index;
-    resource->setParentGroup(this);
-    resource->setProject(m_project);
-    m_resources.insert(i, resource);
+void ResourceGroup::addResource(Resource* resource, Risk *risk)
+{
+    addResource(m_resources.count(), resource, risk);
 }
 
-Resource *ResourceGroup::takeResource(Resource *resource) {
+void ResourceGroup::addResource(int index, Resource* resource, Risk*)
+{
+    if (m_resources.contains(resource)) {
+        warnPlan<<Q_FUNC_INFO<<this<<"already contains resource"<<resource;
+        return;
+    }
+    int i = index == -1 ? m_resources.count() : index;
+    if (m_project) {
+        emit m_project->resourceToBeAddedToGroup(this, i);
+    }
+    m_resources.insert(i, resource);
+    resource->addParentGroup(this);
+    if (m_project) {
+        emit m_project->resourceAddedToGroup(this, i);
+    }
+}
+
+Resource *ResourceGroup::takeResource(Resource *resource)
+{
     Resource *r = 0;
     int i = m_resources.indexOf(resource);
     if (i != -1) {
+        if (m_project) {
+            emit m_project->resourceToBeRemovedFromGroup(this, i);
+        }
         r = m_resources.takeAt(i);
-        r->setParentGroup(0);
-        r->setProject(0);
+        r->removeParentGroup(this);
+        if (m_project) {
+            emit m_project->resourceRemovedFromGroup(this, i);
+        }
     }
     return r;
 }
@@ -214,20 +234,22 @@ bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
     setType(element.attribute("type"));
     m_shared = element.attribute("shared", "0").toInt();
 
-    KoXmlNode n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
-        if (e.tagName() == "resource") {
-            // Load the resource
-            Resource *child = new Resource();
-            if (child->load(e, status)) {
-                addResource(-1, child, 0);
-            } else {
-                // TODO: Complain about this
-                delete child;
+    if (status.version() < "0.7.0") {
+        KoXmlNode n = element.firstChild();
+        for (; ! n.isNull(); n = n.nextSibling()) {
+            if (! n.isElement()) {
+                continue;
+            }
+            KoXmlElement e = n.toElement();
+            if (e.tagName() == "resource") {
+                // Load the resource
+                Resource *child = new Resource();
+                if (child->load(e, status)) {
+                    child->addParentGroup(this);
+                } else {
+                    // TODO: Complain about this
+                    delete child;
+                }
             }
         }
     }
@@ -244,10 +266,6 @@ void ResourceGroup::save(QDomElement &element)  const {
     me.setAttribute("name", m_name);
     me.setAttribute("type", typeToString());
     me.setAttribute("shared", m_shared);
-
-    foreach (Resource *r, m_resources) {
-        r->save(me);
-    }
 }
 
 void ResourceGroup::saveWorkPackageXML(QDomElement &element, const QList<Resource*> &lst) const
@@ -266,9 +284,6 @@ void ResourceGroup::saveWorkPackageXML(QDomElement &element, const QList<Resourc
 }
 
 void ResourceGroup::initiateCalculation(Schedule &sch) {
-    foreach (Resource *r, m_resources) {
-        r->initiateCalculation(sch);
-    }
     clearNodes();
 }
 

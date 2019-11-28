@@ -21,6 +21,7 @@
 #include "InsertFileTester.h"
 
 #include "kptcommand.h"
+#include <AddResourceCmd.h>
 #include "kptmaindocument.h"
 #include "kptcalendar.h"
 #include "kptresource.h"

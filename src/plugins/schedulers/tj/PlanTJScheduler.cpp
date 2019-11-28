@@ -66,6 +66,7 @@ PlanTJScheduler::PlanTJScheduler(Project *project, ScheduleManager *sm, ulong gr
     m_backward(false),
     m_granularity(granularity)
 {
+    qInfo()<<Q_FUNC_INFO<<sm;
     TJ::TJMH.reset();
     connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
 
@@ -115,6 +116,7 @@ void PlanTJScheduler::run()
         m_project->setName("Schedule: " + m_project->name()); //Debug
         m_project->stopcalculation = false;
         m_manager = m_project->scheduleManager(m_mainmanagerId);
+        qInfo()<<Q_FUNC_INFO<<m_manager;
         Q_CHECK_PTR(m_manager);
         Q_ASSERT(m_manager->expected());
         Q_ASSERT(m_manager != m_mainmanager);

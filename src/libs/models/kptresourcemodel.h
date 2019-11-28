@@ -146,9 +146,9 @@ protected Q_SLOTS:
     void slotResourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
     void slotResourceGroupRemoved(const KPlato::ResourceGroup *group);
     void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceInserted(const KPlato::Resource *resource);
-    void slotResourceToBeRemoved(const KPlato::Resource *resource);
-    void slotResourceRemoved(const KPlato::Resource *resource);
+    void slotResourceInserted(const KPlato::ResourceGroup *group, int);
+    void slotResourceToBeRemoved(const KPlato::ResourceGroup *group, int row);
+    void slotResourceRemoved(const KPlato::ResourceGroup *group, int row);
     void slotCalendarChanged(KPlato::Calendar* cal);
 
     void slotDataArrived(KIO::Job *job, const QByteArray &data  );

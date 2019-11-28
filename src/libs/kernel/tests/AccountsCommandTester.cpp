@@ -108,7 +108,8 @@ void AccountsCommandTester::init()
     m_resource = new Resource();
     m_resource->setName("R1");
     m_resource->setCalendar(m_calendar);
-    m_project->addResource(g, m_resource);
+    m_project->addResource(m_resource);
+    m_resource->addParentGroup(g);
 
     m_task = m_project->createTask();
     m_task->setName("T1");

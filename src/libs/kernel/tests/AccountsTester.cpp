@@ -70,7 +70,8 @@ void AccountsTester::init()
     r->setAvailableFrom(QDateTime(yesterday, QTime(), Qt::LocalTime));
     r->setCalendar(c);
     r->setNormalRate(100.0);
-    project->addResource(g, r);
+    project->addResource(r);
+    r->addParentGroup(g);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     t->addRequest(gr);

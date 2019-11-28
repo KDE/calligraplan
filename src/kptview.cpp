@@ -87,6 +87,7 @@
 #include "kptperteditor.h"
 #include "kptdatetime.h"
 #include "kptcommand.h"
+#include <RemoveResourceCmd.h>
 #include "kptrelation.h"
 #include "kptrelationdialog.h"
 #include "kptresourceappointmentsview.h"
@@ -2541,7 +2542,7 @@ void View::slotEditResourceFinished(int result)
 
 void View::slotDeleteResource(Resource *resource)
 {
-    getPart()->addCommand(new RemoveResourceCmd(resource->parentGroup(), resource, kundo2_i18n("Delete resource")));
+    getPart()->addCommand(new RemoveResourceCmd(resource, kundo2_i18n("Delete resource")));
 }
 
 void View::slotDeleteResourceGroup(ResourceGroup *group)
@@ -2588,7 +2589,7 @@ void View::slotDeleteResourceObjects(QObjectList lst)
         Resource *r = qobject_cast<Resource*>(o);
         if (r) {
             if (rc == 0)  rc = new MacroCommand(KUndo2MagicString());
-            rc->addCommand(new RemoveResourceCmd(r->parentGroup(), r));
+            rc->addCommand(new RemoveResourceCmd(r));
             continue;
         }
         ResourceGroup *g = qobject_cast<ResourceGroup*>(o);

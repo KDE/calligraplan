@@ -343,7 +343,8 @@ bool loadResources(const QDomElement &el, Project &project)
             g->setName(i18n("Resources"));
             project.addResourceGroup(g);
         }
-        project.addResource(g, r);
+        project.addResource(r);
+        g->addResource(-1, r, nullptr);
     }
     return true;
 }
@@ -472,9 +473,9 @@ bool loadAllocations(const QDomElement &el, Project &project)
             warnPlannerImport<<"Could not find task/resource:"<<t<<r;
             continue;
         }
-        ResourceGroupRequest *gr = t->resourceGroupRequest(r->parentGroup());
+        ResourceGroupRequest *gr = t->resourceGroupRequest(r->parentGroups().value(0));
         if (!gr) {
-            gr = new ResourceGroupRequest(r->parentGroup());
+            gr = new ResourceGroupRequest(r->parentGroups().value(0));
             t->addRequest(gr);
         }
         ResourceRequest *rr = new ResourceRequest(r);

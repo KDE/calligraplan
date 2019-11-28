@@ -98,12 +98,20 @@ QString printAvailable(Resource *r, const QString &lead = QString()) {
     return sl.join(" ");
 }
 static
+void print(ResourceGroup *g, const QString &str, bool full = true) {
+    qDebug()<<"Debug info: Group"<<g->name()<<g->numResources()<<"id:"<<g->id()<<str;
+    for (Resource *r : g->resources()) {
+        qDebug()<<"  "<<r->name()<<r->id();
+    }
+}
+static
 void print(Resource *r, const QString &str, bool full = true) {
-    qDebug()<<"Debug info: Resource"<<r->name()<<str;
-    qDebug()<<"Parent group:"<<(r->parentGroup()
-                ? (r->parentGroup()->name() + " Type: "+ r->parentGroup()->typeToString())
-                : QString("None"));
-    qDebug()<<"Available:"
+    qDebug()<<"Debug info: Resource"<<r->name()<<"id:"<<r->id()<<(void*)r<<str;
+    qDebug()<<"  Parent groups:"<<r->parentGroups().count();
+    for (ResourceGroup *g : r->parentGroups()) {
+        qDebug()<<"    "<<g->name() + " Type: " + g->typeToString() << "id:"<<g->id();
+    }
+    qDebug()<<"  Available:"
         <<(r->availableFrom().isValid()
                 ? r->availableFrom().toString()
                 : (r->project() ? ('('+r->project()->constraintStartTime().toString()+')') : QString()))
@@ -111,11 +119,11 @@ void print(Resource *r, const QString &str, bool full = true) {
                 ? r->availableUntil().toString()
                 : (r->project() ? ('('+r->project()->constraintEndTime().toString()+')') : QString()))
         <<r->units()<<'%';
-    qDebug()<<"Type:"<<r->typeToString();
+    qDebug()<<"  Type:"<<r->typeToString();
     if (r->type() == Resource::Type_Team) {
-        qDebug()<<"Team members:"<<r->teamMembers().count();
+        qDebug()<<"  Team members:"<<r->teamMembers().count();
         foreach (Resource *tm, r->teamMembers()) {
-            qDebug()<<"   "<<tm->name()<<"Available:"
+            qDebug()<<"     "<<tm->name()<<"Available:"
                     <<(r->availableFrom().isValid()
                             ? r->availableFrom().toString()
                             : (r->project() ? ('('+r->project()->constraintStartTime().toString()+')') : QString()))
@@ -134,20 +142,28 @@ void print(Resource *r, const QString &str, bool full = true) {
             if (cal) {
                 s = cal->name() + " (Default)";
             } else {
-                s = "No calendar";
+                s = "  No calendar";
             }
         }
-        qDebug()<<"Calendar:"<<s;
+        qDebug()<<"  Calendar:"<<s;
         if (cal) {
-            print(cal, "Resource calendar");
+            print(cal, "    Resource calendar");
+        }
+    }
+    if (r->requiredResources().isEmpty()) {
+        qDebug()<<"  No required resources";
+    } else {
+        qDebug()<<"  Required resources:"<<r->requiredResources().count()<<'('<<r->requiredIds().count()<<')';
+        for (Resource *req : r->requiredResources()) {
+            qDebug()<<"  "<<req->name()<<req->type()<<req->id()<<(void*)req<<req->requiredIds().contains(req->id());
         }
     }
     if (! full) return;
-    qDebug()<<"External appointments:"<<r->numExternalAppointments();
+    qDebug()<<"  External appointments:"<<r->numExternalAppointments();
     foreach (Appointment *a, r->externalAppointmentList()) {
-        qDebug()<<"   appointment:"<<a->startTime().toString()<<a->endTime().toString();
+        qDebug()<<"     appointment:"<<a->startTime().toString()<<a->endTime().toString();
         foreach(const AppointmentInterval &i, a->intervals().map()) {
-            qDebug()<<"      "<<i.startTime().toString()<<i.endTime().toString()<<i.load();
+            qDebug()<<"        "<<i.startTime().toString()<<i.endTime().toString()<<i.load();
         }
     }
 }
@@ -155,16 +171,32 @@ static
 void print(Project *p, const QString &str, bool all = false) {
     qDebug()<<"Debug info: Project"<<p->name()<<str;
     qDebug()<<"project target start:"<<QTest::toString(QDateTime(p->constraintStartTime()));
-    qDebug()<<"  project target end:"<<QTest::toString(QDateTime(p->constraintEndTime()));
+    qDebug()<<"project target end  :"<<QTest::toString(QDateTime(p->constraintEndTime()));
     if (p->isScheduled()) {
         qDebug()<<"  project start time:"<<QTest::toString(QDateTime(p->startTime()));
-        qDebug()<<"    project end time:"<<QTest::toString(QDateTime(p->endTime()));
+        qDebug()<<"  project end time  :"<<QTest::toString(QDateTime(p->endTime()));
     } else {
-        qDebug()<<" Not scheduled";
+        qDebug()<<"  Not scheduled";
     }
     
     if (! all) {
         return;
+    }
+    if (p->resourceGroups().isEmpty()) {
+        qDebug()<<"  No resource groups";
+    } else {
+        for (ResourceGroup *g : p->resourceGroups()) {
+            qDebug();
+            print(g, "", true);
+        }
+    }
+    if (p->resourceList().isEmpty()) {
+        qDebug()<<"  No resources";
+    } else {
+        for (Resource *r : p->resourceList()) {
+            qDebug();
+            print(r, "", true);
+        }
     }
     for (int i = 0; i < p->numChildren(); ++i) {
         qDebug();
@@ -188,7 +220,7 @@ void print(Task *t, bool full = true) {
     if (t->level() > 0) {
         pad = QString("%1").arg("", t->level()*2, ' ');
     }
-    qDebug()<<pad<<"Task"<<t->name()<<t->typeToString()<<t->constraintToString();
+    qDebug()<<pad<<"Task"<<t->wbsCode()<<t->name()<<t->typeToString()<<t->constraintToString();
     if (t->isScheduled()) {
         qDebug()<<pad<<"     earlyStart:"<<QTest::toString(QDateTime(t->earlyStart()));
         qDebug()<<pad<<"      lateStart:"<<QTest::toString(QDateTime(t->lateStart()));
@@ -222,7 +254,7 @@ void print(Task *t, bool full = true) {
     foreach (ResourceGroupRequest *gr, t->requests().requests()) {
         qDebug()<<pad<<"Group request:"<<gr->group()->name()<<gr->units();
         foreach (ResourceRequest *rr, gr->resourceRequests()) {
-            qDebug()<<pad<<printAvailable(rr->resource(), "   " + rr->resource()->name());
+            qDebug()<<pad<<printAvailable(rr->resource(), "   " + rr->resource()->name())<<"id:"<<rr->resource()->id()<<(void*)rr->resource();
         }
     }
     if (t->isStartNode()) {

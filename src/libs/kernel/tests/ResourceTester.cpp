@@ -22,6 +22,8 @@
 
 #include <kptresource.h>
 #include <kptcalendar.h>
+#include <AddResourceCmd.h>
+#include <AddParentGroupCmd.h>
 #include <kptcommand.h>
 #include <kptdatetime.h>
 #include <kptduration.h>
@@ -143,25 +145,40 @@ void ResourceTester::team()
 
         AddResourceGroupCmd *c1 = new AddResourceGroupCmd(&p1, new ResourceGroup());
         c1->redo();
+        QCOMPARE(p1.resourceGroups().count(), 1);
         ResourceGroup *g = p1.resourceGroups().at(0);
-        QVERIFY(g);
         delete c1;
 
-        AddResourceCmd *c2 = new AddResourceCmd(g, new Resource());
+        AddResourceCmd *c2 = new AddResourceCmd(&p1, new Resource());
         c2->redo();
-        Resource *r1 = g->resourceAt(0);
-        QVERIFY(r1);
+        QCOMPARE(p1.resourceList().count(), 1);
+        Resource *r1 = p1.resourceList().at(0);
+        AddParentGroupCmd *c21 = new AddParentGroupCmd(r1, g);
+        c21->redo();
+        QCOMPARE(g->resources().count(), 1);
+        QCOMPARE(g->resourceAt(0), r1);
         delete c2;
-        c2 = new AddResourceCmd(g, new Resource());
+        delete c21;
+        c2 = new AddResourceCmd(&p1, new Resource());
         c2->redo();
-        Resource *r2 = g->resourceAt(1);
-        QVERIFY(r2);
+        QCOMPARE(p1.resourceList().count(), 2);
+        Resource *r2 = p1.resourceList().at(1);
+        c21 = new AddParentGroupCmd(r2, g);
+        c21->redo();
+        QCOMPARE(g->resources().count(), 2);
+        QCOMPARE(g->resourceAt(1), r2);
         delete c2;
-        c2 = new AddResourceCmd(g, new Resource());
+        delete c21;
+        c2 = new AddResourceCmd(&p1, new Resource());
         c2->redo();
-        Resource *r3 = g->resourceAt(2);
-        QVERIFY(r3);
+        QCOMPARE(p1.resourceList().count(), 3);
+        Resource *r3 = p1.resourceList().at(2);
+        c21 = new AddParentGroupCmd(r3, g);
+        c21->redo();
+        QCOMPARE(g->resources().count(), 3);
+        QCOMPARE(g->resourceAt(2), r3);
         delete c2;
+        delete c21;
 
         AddResourceTeamCmd *c3 = new AddResourceTeamCmd(r1, r2->id());
         c3->redo();
@@ -197,21 +214,30 @@ void ResourceTester::team()
 
         Resource *r1 = new Resource();
         r1->setType(Resource::Type_Team);
-        AddResourceCmd *c2 = new AddResourceCmd(g, r1);
+        AddResourceCmd *c2 = new AddResourceCmd(&p1, r1);
         c2->redo();
+        AddParentGroupCmd *c21 = new AddParentGroupCmd(r1, g);
+        c21->redo();
         r1 = g->resourceAt(0);
         QVERIFY(r1);
         delete c2;
-        c2 = new AddResourceCmd(g, new Resource());
+        delete c21;
+        Resource *r2 = new Resource();
+        c2 = new AddResourceCmd(&p1, r2);
         c2->redo();
-        Resource *r2 = g->resourceAt(1);
-        QVERIFY(r2);
+        c21 = new AddParentGroupCmd(r2, g);
+        c21->redo();
+        QCOMPARE(g->resourceAt(1), r2);
         delete c2;
-        c2 = new AddResourceCmd(g, new Resource());
+        delete c21;
+        Resource *r3 = new Resource();
+        c2 = new AddResourceCmd(&p1, r3);
         c2->redo();
-        Resource *r3 = g->resourceAt(2);
-        QVERIFY(r3);
+        c21 = new AddParentGroupCmd(r3, g);
+        c21->redo();
+        QCOMPARE(g->resourceAt(2), r3);
         delete c2;
+        delete c21;
 
         AddResourceTeamCmd *c3 = new AddResourceTeamCmd(r1, r2->id());
         c3->redo();
@@ -236,26 +262,41 @@ void ResourceTester::team()
         QVERIFY(g2);
         delete c1;
 
-        c2 = new AddResourceCmd(g2, new Resource(r1));
+        c2 = new AddResourceCmd(&p2, new Resource(r1));
         c2->redo();
-        Resource *r11 = g2->resourceAt(0);
-        QVERIFY(r11);
+        QCOMPARE(p2.resourceList().count(), 1);
+        Resource *r11 = p2.resourceList().at(0);
+        c21 = new AddParentGroupCmd(r11, g2);
+        c21->redo();
+        QCOMPARE(g2->resources().count(), 1);
+        QCOMPARE(g2->resourceAt(0), r11);
         delete c2;
-        c2 = new AddResourceCmd(g2, new Resource(r2));
+        delete c21;
+        c2 = new AddResourceCmd(&p2, new Resource(r2));
         c2->redo();
-        Resource *r12 = g->resourceAt(1);
-        QVERIFY(r12);
+        QCOMPARE(p2.resourceList().count(), 2);
+        Resource *r12 = p2.resourceList().at(1);
+        c21 = new AddParentGroupCmd(r12, g2);
+        c21->redo();
+        QCOMPARE(g2->resources().count(), 2);
+        QCOMPARE(g2->resourceAt(1), r12);
         delete c2;
-        c2 = new AddResourceCmd(g2, new Resource(r3));
+        delete c21;
+        c2 = new AddResourceCmd(&p2, new Resource(r3));
         c2->redo();
-        Resource *r13 = g->resourceAt(2);
-        QVERIFY(r13);
+        QCOMPARE(p2.resourceList().count(), 3);
+        Resource *r13 = p2.resourceList().at(2);
+        c21 = new AddParentGroupCmd(r13, g2);
+        c21->redo();
+        QCOMPARE(g2->resources().count(), 3);
+        QCOMPARE(g2->resourceAt(2), r13);
         delete c2;
-
-        QCOMPARE(r1->teamMemberIds().count(), 2);
-        QCOMPARE(r1->teamMembers().count(), 2);
-        QCOMPARE(r1->teamMembers().at(0), r12);
-        QCOMPARE(r1->teamMembers().at(1), r13);
+        delete c21;
+        
+        QCOMPARE(r11->teamMemberIds().count(), 2);
+        QCOMPARE(r11->teamMembers().count(), 2);
+        QCOMPARE(r11->teamMembers().at(0), r12);
+        QCOMPARE(r11->teamMembers().at(1), r13);
 
         // xml
         QDomDocument qdoc;
@@ -301,21 +342,29 @@ void ResourceTester::team()
 
         Resource *r1 = new Resource();
         r1->setType(Resource::Type_Team);
-        AddResourceCmd *c2 = new AddResourceCmd(g, r1);
+        AddResourceCmd *c2 = new AddResourceCmd(&p1, r1);
         c2->redo();
+        AddParentGroupCmd *c21 = new AddParentGroupCmd(r1, g);
+        c21->redo();
         QCOMPARE(r1, g->resourceAt(0));
         delete c2;
+        delete c21;
         Resource *r2 = new Resource();
-        c2 = new AddResourceCmd(mg, r2);
+        c2 = new AddResourceCmd(&p1, r2);
         c2->redo();
+        c21 = new AddParentGroupCmd(r2, mg);
+        c21->redo();
         QCOMPARE(r2, mg->resourceAt(0));
         delete c2;
+        delete c21;
         Resource *r3 = new Resource();
-        c2 = new AddResourceCmd(mg, r3);
+        c2 = new AddResourceCmd(&p1, r3);
         c2->redo();
+        c21 = new AddParentGroupCmd(r3, mg);
+        c21->redo();
         QCOMPARE(r3, mg->resourceAt(1));
         delete c2;
-
+        delete c21;
         AddResourceTeamCmd *c3 = new AddResourceTeamCmd(r1, r2->id());
         c3->redo();
         delete c3;
@@ -346,22 +395,31 @@ void ResourceTester::team()
         QVERIFY(mg2);
         delete c1;
 
-        c2 = new AddResourceCmd(g2, new Resource(r1));
+        c2 = new AddResourceCmd(&p2, new Resource(r1));
         c2->redo();
-        Resource *r11 = g2->resourceAt(0);
-        QVERIFY(r11);
+        Resource *r11 = p2.resourceList().at(0);
+        c21 = new AddParentGroupCmd(r11, g2);
+        c21->redo();
+        QCOMPARE(r11, g2->resourceAt(0));
         delete c2;
-        c2 = new AddResourceCmd(mg2, new Resource(r2));
+        delete c21;
+        c2 = new AddResourceCmd(&p2, new Resource(r2));
         c2->redo();
-        Resource *r12 = mg2->resourceAt(0);
-        QVERIFY(r12);
+        Resource *r12 = p2.resourceList().at(1);
+        c21 = new AddParentGroupCmd(r12, mg2);
+        c21->redo();
+        QCOMPARE(r12, mg2->resourceAt(0));
         delete c2;
-        c2 = new AddResourceCmd(mg2, new Resource(r3));
+        delete c21;
+        c2 = new AddResourceCmd(&p2, new Resource(r3));
         c2->redo();
-        Resource *r13 = mg2->resourceAt(1);
-        QVERIFY(r13);
+        Resource *r13 = p2.resourceList().at(2);
+        c21 = new AddParentGroupCmd(r13, mg2);
+        c21->redo();
+        QCOMPARE(r13, mg2->resourceAt(1));
         delete c2;
-
+        delete c21;
+        
         QCOMPARE(r11->teamMemberIds().count(), 2);
         QCOMPARE(r11->teamMembers().count(), 2);
         QCOMPARE(r11->teamMembers().at(0), r12);
@@ -408,21 +466,36 @@ void ResourceTester::required()
     QVERIFY(g);
     delete c1;
 
-    AddResourceCmd *c2 = new AddResourceCmd(g, new Resource());
+    AddResourceCmd *c2 = new AddResourceCmd(&p, new Resource());
     c2->redo();
-    Resource *r1 = g->resourceAt(0);
-    QVERIFY(r1);
+    QCOMPARE(p.resourceList().count(), 1);
+    Resource *r1 = p.resourceList().at(0);
+    AddParentGroupCmd *c21 = new AddParentGroupCmd(r1, g);
+    c21->redo();
+    QCOMPARE(g->resources().count(), 1);
+    QCOMPARE(g->resourceAt(0), r1);
     delete c2;
-    c2 = new AddResourceCmd(g, new Resource());
+    delete c21;
+    c2 = new AddResourceCmd(&p, new Resource());
     c2->redo();
-    Resource *r2 = g->resourceAt(1);
-    QVERIFY(r2);
+    QCOMPARE(p.resourceList().count(), 2);
+    Resource *r2 = p.resourceList().at(1);
+    c21 = new AddParentGroupCmd(r2, g);
+    c21->redo();
+    QCOMPARE(g->resources().count(), 2);
+    QCOMPARE(g->resourceAt(1), r2);
     delete c2;
-    c2 = new AddResourceCmd(g, new Resource());
+    delete c21;
+    c2 = new AddResourceCmd(&p, new Resource());
     c2->redo();
-    Resource *r3 = g->resourceAt(2);
-    QVERIFY(r3);
+    QCOMPARE(p.resourceList().count(), 3);
+    Resource *r3 = p.resourceList().at(2);
+    c21 = new AddParentGroupCmd(r3, g);
+    c21->redo();
+    QCOMPARE(g->resources().count(), 3);
+    QCOMPARE(g->resourceAt(2), r3);
     delete c2;
+    delete c21;
 
     QVERIFY(r1->requiredIds().isEmpty());
     QVERIFY(r1->requiredResources().isEmpty());
@@ -466,21 +539,37 @@ void ResourceTester::required()
     delete c1;
 
     ResourceGroup *g1 = p2.resourceGroupAt(0);
-    c2 = new AddResourceCmd(g1, new Resource(r1));
+
+    c2 = new AddResourceCmd(&p2, new Resource(r1));
     c2->redo();
-    Resource *r4 = g1->resourceAt(0);
-    QVERIFY(r4);
+    QCOMPARE(p2.resourceList().count(), 1);
+    Resource *r4 = p2.resourceList().at(0);
+    c21 = new AddParentGroupCmd(r4, g1);
+    c21->redo();
+    QCOMPARE(g1->resources().count(), 1);
+    QCOMPARE(g1->resourceAt(0), r4);
     delete c2;
-    c2 = new AddResourceCmd(g1, new Resource(r2));
+    delete c21;
+    c2 = new AddResourceCmd(&p2, new Resource(r2));
     c2->redo();
-    Resource *r5 = g1->resourceAt(1);
-    QVERIFY(r5);
+    QCOMPARE(p2.resourceList().count(), 2);
+    Resource *r5 = p2.resourceList().at(1);
+    c21 = new AddParentGroupCmd(r5, g1);
+    c21->redo();
+    QCOMPARE(g1->resources().count(), 2);
+    QCOMPARE(g1->resourceAt(1), r5);
     delete c2;
-    c2 = new AddResourceCmd(g1, new Resource(r3));
+    delete c21;
+    c2 = new AddResourceCmd(&p2, new Resource(r3));
     c2->redo();
-    Resource *r6 = g1->resourceAt(2);
-    QVERIFY(r6);
+    QCOMPARE(p2.resourceList().count(), 3);
+    Resource *r6 = p2.resourceList().at(2);
+    c21 = new AddParentGroupCmd(r6, g1);
+    c21->redo();
+    QCOMPARE(g1->resources().count(), 3);
+    QCOMPARE(g1->resourceAt(2), r6);
     delete c2;
+    delete c21;
 
     QCOMPARE(r4->requiredIds().count(), 2);
     QCOMPARE(r4->requiredResources().count(), 2);
@@ -489,14 +578,12 @@ void ResourceTester::required()
 
     // using xml
     {
-        QDomDocument qdoc;
-        QDomElement e = qdoc.createElement("plan");
-        qdoc.appendChild(e);
         p2.setId("p2");
-        p2.save(e, XmlSaveContext());
+        XmlSaveContext context(&p2);
+        context.save();
 
         KoXmlDocument xdoc;
-        xdoc.setContent(qdoc.toString());
+        xdoc.setContent(context.document.toString());
         XMLLoaderObject sts;
         sts.setProject(&p);
         sts.setVersion(PLAN_FILE_SYNTAX_VERSION);
@@ -537,24 +624,41 @@ void ResourceTester::required()
         delete c1;
 
         ResourceGroup *g3 = p4.resourceGroupAt(0);
-        c2 = new AddResourceCmd(g3, new Resource());
-        c2->redo();
-        Resource *r10 = g3->resourceAt(0);
-        QVERIFY(r4);
-        delete c2;
 
-        Resource *r11 = new Resource();
+        c2 = new AddResourceCmd(&p4, new Resource());
+        c2->redo();
+        QCOMPARE(p4.resourceList().count(), 1);
+        Resource *r10 = p4.resourceList().at(0);
+        c21 = new AddParentGroupCmd(r10, g3);
+        c21->redo();
+        QCOMPARE(g3->resources().count(), 1);
+        QCOMPARE(g3->resourceAt(0), r10);
+        delete c2;
+        delete c21;
+
+        c2 = new AddResourceCmd(&p4, new Resource());
+        c2->redo();
+        QCOMPARE(p4.resourceList().count(), 2);
+        Resource *r11 = p4.resourceList().at(1);
         r11->setType(Resource::Type_Material);
-        c2 = new AddResourceCmd(m, r11);
-        c2->redo();
-        QVERIFY(m->resourceAt(0) == r11);
+        c21 = new AddParentGroupCmd(r11, m);
+        c21->redo();
+        QCOMPARE(m->resources().count(), 1);
+        QCOMPARE(m->resourceAt(0), r11);
         delete c2;
-        Resource *r12 = new Resource();
+        delete c21;
+
+        c2 = new AddResourceCmd(&p4, new Resource());
+        c2->redo();
+        QCOMPARE(p4.resourceList().count(), 3);
+        Resource *r12 = p4.resourceList().at(2);
         r12->setType(Resource::Type_Material);
-        c2 = new AddResourceCmd(m, r12);
-        c2->redo();
-        QVERIFY(m->resourceAt(1) == r12);
+        c21 = new AddParentGroupCmd(r12, m);
+        c21->redo();
+        QCOMPARE(m->resources().count(), 2);
+        QCOMPARE(m->resourceAt(1), r12);
         delete c2;
+        delete c21;
 
         r10->addRequiredId(r11->id());
         r10->addRequiredId(r12->id());

@@ -140,15 +140,15 @@ void ResourceAllocationView::slotAllocate()
         }
         QHash<ResourceGroup*, ResourceGroupRequest*> groups;
         for (Resource *r : resources) {
-            if (!groups.contains(r->parentGroup())) {
-                groups[r->parentGroup()] = new ResourceGroupRequest(r->parentGroup());
-                AddResourceGroupRequestCmd *c = new AddResourceGroupRequestCmd(*t, groups[r->parentGroup()]);
+            if (!groups.contains(r->parentGroups().value(0))) {
+                groups[r->parentGroups().value(0)] = new ResourceGroupRequest(r->parentGroups().value(0));
+                AddResourceGroupRequestCmd *c = new AddResourceGroupRequestCmd(*t, groups[r->parentGroups().value(0)]);
                 c->execute();
                 cmd->addCommand(c);
             }
             ResourceRequest *rr = new ResourceRequest(r);
             rr->setUnits(100); // defaults to 100%
-            AddResourceRequestCmd *c = new AddResourceRequestCmd(groups[r->parentGroup()], rr);
+            AddResourceRequestCmd *c = new AddResourceRequestCmd(groups[r->parentGroups().value(0)], rr);
             c->execute();
             cmd->addCommand(c);
         }

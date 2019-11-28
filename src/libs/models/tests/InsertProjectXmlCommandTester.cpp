@@ -102,7 +102,8 @@ void addResources(Project *project)
     Resource *resource = new Resource();
     resource->setName("R1");
     resource->setCalendar(project->calendars().value(0));
-    project->addResource(g, resource);
+    project->addResource(resource);
+    g->addResource(resource);
 }
 
 void addTask(Project *project, const QString &name, Task *parent = 0)

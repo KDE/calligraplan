@@ -134,13 +134,16 @@ Project::~Project()
     for(Node *n : qAsConst(nodeIdDict)) {
         n->blockChanged();
     }
-    for (Resource *r : qAsConst(resourceIdDict)) {
+    for (Resource *r : qAsConst(m_resources)) {
         r->blockChanged();
     }
     for (ResourceGroup *g : qAsConst(resourceGroupIdDict)) {
         g->blockChanged();
     }
     delete m_standardWorktime;
+    for (Resource *r : m_resources) {
+        delete r;
+    }
     while (!m_resourceGroups.isEmpty())
         delete m_resourceGroups.takeFirst();
     while (!m_calendars.isEmpty())
@@ -978,6 +981,10 @@ void Project::initiateCalculation(MainSchedule &sch)
     while (git.hasNext()) {
         git.next() ->initiateCalculation(sch);
     }
+    for (Resource *r : m_resources) {
+        r->initiateCalculation(sch);
+    }
+    
     Node::initiateCalculation(sch);
 }
 
@@ -1173,21 +1180,136 @@ bool Project::load(KoXmlElement &element, XMLLoaderObject &status)
     status.setProgress(15);
 
     // Resource groups and resources, can reference calendars
-    n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
+    if (status.version() < "0.7.0") {
+        n = element.firstChild();
+        for (; ! n.isNull(); n = n.nextSibling()) {
+            if (! n.isElement()) {
+                continue;
+            }
+            KoXmlElement e = n.toElement();
+            if (e.tagName() == "resource-group") {
+                // Load the resources
+                // References calendars
+                ResourceGroup * child = new ResourceGroup();
+                if (child->load(e, status)) {
+                    addResourceGroup(child);
+                } else {
+                    // TODO: Complain about this
+                    errorPlan<<Q_FUNC_INFO<<"Failed to load resource group";
+                    delete child;
+                }
+            }
+        }
+        for (ResourceGroup *g : m_resourceGroups) {
+            for (Resource *r : g->resources()) {
+                addResource(r);
+            }
+        }
+    } else {
+        n = element.firstChild();
+        for (; ! n.isNull(); n = n.nextSibling()) {
+            if (n.nodeName() == "resource-groups") {
+                break;
+            }
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "resource-group") {
-            // Load the resources
-            // References calendars
-            ResourceGroup * child = new ResourceGroup();
-            if (child->load(e, status)) {
-                addResourceGroup(child);
-            } else {
-                // TODO: Complain about this
-                delete child;
+        if (e.tagName() == "resource-groups") {
+            KoXmlElement ge;
+            forEachElement(ge, e) {
+                if (ge.nodeName() != "resource-group") {
+                    continue;
+                }
+                ResourceGroup *child = new ResourceGroup();
+                if (child->load(ge, status)) {
+                    addResourceGroup(child);
+                } else {
+                    // TODO: Complain about this
+                    delete child;
+                }
+            }
+        }
+        // resources are not stored under groups anymore
+        n = element.firstChild();
+        for (; ! n.isNull(); n = n.nextSibling()) {
+            if (n.nodeName() == "resources") {
+                KoXmlElement e = n.toElement();
+                KoXmlElement re;
+                forEachElement(re, e) {
+                    if (re.nodeName() != "resource") {
+                        continue;
+                    }
+                    Resource *r = new Resource();
+                    if (r->load(re, status)) {
+                        addResource(r);
+                    } else {
+                        errorPlan<<"Failed to load resource xml";
+                        delete r;
+                    }
+                }
+                break;
+            }
+        }
+        // resource-group relations
+        n = element.firstChild();
+        for (; ! n.isNull(); n = n.nextSibling()) {
+            if (n.nodeName() == "resource-group-relations") {
+                KoXmlElement e = n.toElement();
+                KoXmlElement re;
+                forEachElement(re, e) {
+                    if (re.nodeName() != "resource-group-relation") {
+                        continue;
+                    }
+                    ResourceGroup *g = group(re.attribute("group-id"));
+                    Resource *r = resource(re.attribute("resource-id"));
+                    if (r && g) {
+                        r->addParentGroup(g);
+                    } else {
+                        errorPlan<<"Failed to load resource-group-relation";
+                    }
+                }
+                break;
+            }
+        }
+        n = element.firstChild();
+        for (; ! n.isNull(); n = n.nextSibling()) {
+            if (n.nodeName() == "required-resources") {
+                KoXmlElement e = n.toElement();
+                KoXmlElement re;
+                forEachElement(re, e) {
+                    if (re.nodeName() != "required-resource") {
+                        continue;
+                    }
+                    Resource *required = this->resource(re.attribute("required-id"));
+                    Resource *resource = this->resource(re.attribute("resource-id"));
+                    if (required && resource) {
+                        resource->addRequiredId(required->id());
+                    } else {
+                        errorPlan<<"Failed to load required-resource";
+                    }
+                }
+                break;
+            }
+        }
+        KoXmlElement parent = element.namedItem("external-appointments").toElement();
+        forEachElement(e, parent) {
+            if (e.nodeName() == "external-appointment") {
+                Resource *resource = this->resource(e.attribute("resource-id"));
+                if (!resource) {
+                    errorPlan<<"Cannot find resource:"<<e.attribute("resource-id");
+                    continue;
+                }
+                QString projectId = e.attribute("project-id");
+                if (projectId.isEmpty()) {
+                    errorPlan<<"Missing project id";
+                    continue;
+                }
+                resource->clearExternalAppointments(projectId); // in case...
+                AppointmentIntervalList lst;
+                lst.loadXML(e, status);
+                Appointment *a = new Appointment();
+                a->setIntervals(lst);
+                a->setAuxcilliaryInfo(e.attribute("project-name", "Unknown"));
+                resource->addExternalAppointment(projectId, a);
             }
         }
     }
@@ -1257,7 +1379,7 @@ bool Project::load(KoXmlElement &element, XMLLoaderObject &status)
                 delete child;
             }
             //debugPlan<<"Relation<---";
-        } else if (e.tagName() == "schedules") {
+        } else if (e.tagName() == "project-schedules" || (status.version() < "0.7.0" && e.tagName() == "schedules")) {
             //debugPlan<<"Project schedules & task appointments--->";
             // References tasks and resources
             KoXmlNode sn = e.firstChild();
@@ -1277,7 +1399,7 @@ bool Project::load(KoXmlElement &element, XMLLoaderObject &status)
                             add = true;
                         }
                     }
-                } else if (el.tagName() == "plan") {
+                } else if (el.tagName() == "schedule-management" || (status.version() < "0.7.0" && el.tagName() == "plan")) {
                     sm = new ScheduleManager(*this);
                     add = true;
                 }
@@ -1419,9 +1541,73 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
             m_standardWorktime->save(me);
 
         // save project resources, must be after calendars
-        QListIterator<ResourceGroup*> git(m_resourceGroups);
-        while (git.hasNext()) {
-            git.next() ->save(me);
+        if (!m_resourceGroups.isEmpty()) {
+            QDomElement ge = me.ownerDocument().createElement("resource-groups");
+            me.appendChild(ge);
+            QListIterator<ResourceGroup*> git(m_resourceGroups);
+            while (git.hasNext()) {
+                git.next()->save(ge);
+            }
+        }
+        if (!m_resources.isEmpty()) {
+            QDomElement re = me.ownerDocument().createElement("resources");
+            me.appendChild(re);
+            QListIterator<Resource*> rit(m_resources);
+            while (rit.hasNext()) {
+                rit.next()->save(re);
+            }
+        }
+        if (!m_resources.isEmpty() && !m_resourceGroups.isEmpty()) {
+            QDomElement e = me.ownerDocument().createElement("resource-group-relations");
+            me.appendChild(e);
+            for (ResourceGroup *g : m_resourceGroups) {
+                for (Resource *r : g->resources()) {
+                    QDomElement re = e.ownerDocument().createElement("resource-group-relation");
+                    e.appendChild(re);
+                    re.setAttribute("group-id", g->id());
+                    re.setAttribute("resource-id", r->id());
+                }
+            }
+        }
+        if (m_resources.count() > 1) {
+            QList<std::pair<QString, QString> > requiredList;
+            for (Resource *resource : m_resources) {
+                for (const QString &required : resource->requiredIds()) {
+                    requiredList << std::pair<QString, QString>(resource->id(), required);
+                }
+            }
+            if (!requiredList.isEmpty()) {
+                QDomElement e = me.ownerDocument().createElement("required-resources");
+                me.appendChild(e);
+                for (const std::pair<QString, QString> pair : requiredList) {
+                    QDomElement re = e.ownerDocument().createElement("required-resource");
+                    e.appendChild(re);
+                    re.setAttribute("resource-id", pair.first);
+                    re.setAttribute("required-id", pair.second);
+                }
+            }
+        }
+        QList<Resource*> externals;
+        for (Resource *resource : m_resources) {
+            if (!resource->externalAppointmentList().isEmpty()) {
+                externals << resource;
+            }
+        }
+        if (!externals.isEmpty()) {
+            QDomElement e = me.ownerDocument().createElement("external-appointments");
+            me.appendChild(e);
+            for (Resource *resource : externals) {
+                const QMap<QString, QString> projects = resource->externalProjects();
+                QMap<QString, QString>::const_iterator it;
+                for (it = projects.constBegin(); it != projects.constEnd(); ++it) {
+                    QDomElement re = e.ownerDocument().createElement("external-appointment");
+                    e.appendChild(re);
+                    re.setAttribute("resource-id", resource->id());
+                    re.setAttribute("project-id", it.key());
+                    re.setAttribute("project-name", it.value());
+                    resource->externalAppointments(it.key()).saveXML(e);
+                }
+            }
         }
     }
     // Only save parent relations
@@ -1444,7 +1630,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
     }
     if (context.saveAll(this)) {
         if (!m_managers.isEmpty()) {
-            QDomElement el = me.ownerDocument().createElement("schedules");
+            QDomElement el = me.ownerDocument().createElement("project-schedules");
             me.appendChild(el);
             foreach (ScheduleManager *sm, m_managers) {
                 sm->saveXML(el);
@@ -1453,7 +1639,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         // save resource teams
         QDomElement el = me.ownerDocument().createElement("resource-teams");
         me.appendChild(el);
-        foreach (Resource *r, resourceIdDict) {
+        foreach (Resource *r, m_resources) {
             if (r->type() != Resource::Type_Team) {
                 continue;
             }
@@ -1538,8 +1724,7 @@ ResourceGroup *Project::takeResourceGroup(ResourceGroup *group)
     g->setProject(0);
     removeResourceGroupId(g->id());
     foreach (Resource *r, g->resources()) {
-        r->setProject(0);
-        removeResourceId(r->id());
+        r->removeParentGroup(g);
     }
     emit resourceGroupRemoved(g);
     emit projectChanged();
@@ -1551,42 +1736,45 @@ QList<ResourceGroup*> &Project::resourceGroups()
     return m_resourceGroups;
 }
 
-void Project::addResource(ResourceGroup *group, Resource *resource, int index)
+void Project::addResource(Resource *resource, int index)
 {
-    int i = index == -1 ? group->numResources() : index;
-    emit resourceToBeAdded(group, i);
-    group->addResource(i, resource, 0);
+    int i = index == -1 ? m_resources.count() : index;
+    emit resourceToBeAddedToProject(resource, i);
     setResourceId(resource);
-    emit resourceAdded(resource);
+    m_resources.insert(i, resource);
+    resource->setProject(this);
+    emit resourceAddedToProject(resource, i);
     emit projectChanged();
 }
 
-Resource *Project::takeResource(ResourceGroup *group, Resource *resource)
+bool Project::takeResource(Resource *resource)
 {
-    emit resourceToBeRemoved(resource);
+    int index = m_resources.indexOf(resource);
+    emit resourceToBeRemovedFromProject(resource, index);
     bool result = removeResourceId(resource->id());
     Q_ASSERT(result == true);
     if (!result) {
         warnPlan << "Could not remove resource with id" << resource->id();
     }
     resource->removeRequests(); // not valid anymore
-    Resource *r = group->takeResource(resource);
-    Q_ASSERT(resource == r);
-    if (resource != r) {
-        warnPlan << "Could not take resource from group";
+    for (ResourceGroup *g : resource->parentGroups()) {
+        g->takeResource(resource);
     }
-    emit resourceRemoved(resource);
+    bool rem = m_resources.removeOne(resource);
+    Q_ASSERT(!m_resources.contains(resource));
+    emit resourceRemovedFromProject(resource, index);
     emit projectChanged();
-    return r;
+    return rem;
 }
 
 void Project::moveResource(ResourceGroup *group, Resource *resource)
 {
-    if (group == resource->parentGroup()) {
+    if (resource->parentGroups().contains(group)) {
         return;
     }
-    takeResource(resource->parentGroup(), resource);
-    addResource(group, resource);
+    takeResource(resource);
+    addResource(resource);
+    group->addResource(resource);
     return;
 }
 
@@ -2067,7 +2255,7 @@ ResourceGroup *Project::groupByName(const QString& name) const
 QList<Resource*> Project::autoAllocateResources() const
 {
     QList<Resource*> lst;
-    foreach (Resource *r, resourceIdDict) {
+    foreach (Resource *r, m_resources) {
         if (r->autoAllocate()) {
             lst << r;
         }
@@ -2137,7 +2325,7 @@ Resource *Project::resourceByName(const QString& name) const
 QStringList Project::resourceNameList() const
 {
     QStringList lst;
-    foreach (Resource *r, resourceIdDict) {
+    for (Resource *r : m_resources) {
         lst << r->name();
     }
     return lst;
@@ -2634,8 +2822,7 @@ void Project::setCurrentSchedule(long id)
     //debugPlan;
     setCurrentSchedulePtr(findSchedule(id));
     Node::setCurrentSchedule(id);
-    QHash<QString, Resource*> hash = resourceIdDict;
-    foreach (Resource * r, hash) {
+    for (Resource *r : m_resources) {
         r->setCurrentSchedule(id);
     }
     emit currentScheduleChanged();

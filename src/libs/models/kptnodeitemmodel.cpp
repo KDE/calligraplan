@@ -26,6 +26,7 @@
 #include "kptlocale.h"
 #include "kptcommonstrings.h"
 #include "kptcommand.h"
+#include <AddResourceCmd.h>
 #include "kptduration.h"
 #include "kptproject.h"
 #include "kptnode.h"
@@ -3614,7 +3615,7 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
                         emit executeCommand(cmd);
                         cmd = 0;
                     } else {
-                        pargr = r->parentGroup();
+                        pargr = r->parentGroups().value(0); // ###
                         //debugPlan<<"add '"<<r->name()<<"' to group:"<<pargr;
                     }
                     // add request
@@ -4147,9 +4148,9 @@ KUndo2Command *NodeItemModel::createAllocationCommand(Task &task, const QList<Re
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Modify resource allocations"));
     QHash<ResourceGroup*, ResourceGroupRequest*> groups;
     foreach (Resource *r, lst) {
-        if (! groups.contains(r->parentGroup()) && task.resourceGroupRequest(r->parentGroup()) == 0) {
-            ResourceGroupRequest *gr = new ResourceGroupRequest(r->parentGroup());
-            groups[ r->parentGroup() ] = gr;
+        if (! groups.contains(r->parentGroups().value(0)) && task.resourceGroupRequest(r->parentGroups().value(0)) == 0) {
+            ResourceGroupRequest *gr = new ResourceGroupRequest(r->parentGroups().value(0));
+            groups[ r->parentGroups().value(0) ] = gr;
             cmd->addCommand(new AddResourceGroupRequestCmd(task, gr));
         }
     }
@@ -4158,9 +4159,9 @@ KUndo2Command *NodeItemModel::createAllocationCommand(Task &task, const QList<Re
         if (resources.contains(r)) {
             continue;
         }
-        ResourceGroupRequest *gr = groups.value(r->parentGroup());
+        ResourceGroupRequest *gr = groups.value(r->parentGroups().value(0));
         if (gr == 0) {
-            gr = task.resourceGroupRequest(r->parentGroup());
+            gr = task.resourceGroupRequest(r->parentGroups().value(0));
         }
         if (gr == 0) {
             errorPlan<<"No group request found, cannot add resource request:"<<r->name();
@@ -4170,7 +4171,7 @@ KUndo2Command *NodeItemModel::createAllocationCommand(Task &task, const QList<Re
     }
     foreach (Resource *r, resources) {
         if (! lst.contains(r)) {
-            ResourceGroupRequest *gr = task.resourceGroupRequest(r->parentGroup());
+            ResourceGroupRequest *gr = task.resourceGroupRequest(r->parentGroups().value(0));
             ResourceRequest *rr = task.requests().find(r);
             if (gr && rr) {
                 cmd->addCommand(new RemoveResourceRequestCmd(gr, rr));
@@ -4290,13 +4291,13 @@ QModelIndex NodeItemModel::insertTask(Node *node, Node *after)
     if (m_project && node->type() == Node::Type_Task) {
         QHash<ResourceGroup*, ResourceGroupRequest*> groups;
         foreach (Resource *r, m_project->autoAllocateResources()) {
-            if (! groups.contains(r->parentGroup())) {
-                ResourceGroupRequest *gr = new ResourceGroupRequest(r->parentGroup());
+            if (! groups.contains(r->parentGroups().value(0))) {
+                ResourceGroupRequest *gr = new ResourceGroupRequest(r->parentGroups().value(0));
                 cmd->addCommand(new AddResourceGroupRequestCmd(static_cast<Task&>(*node), gr));
-                groups[ r->parentGroup() ] = gr;
+                groups[ r->parentGroups().value(0) ] = gr;
             }
             ResourceRequest *rr = new ResourceRequest(r, 100);
-            cmd->addCommand(new AddResourceRequestCmd(groups[ r->parentGroup() ], rr));
+            cmd->addCommand(new AddResourceRequestCmd(groups[ r->parentGroups().value(0) ], rr));
         }
     }
     emit executeCommand(cmd);

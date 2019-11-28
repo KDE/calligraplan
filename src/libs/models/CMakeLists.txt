@@ -1,8 +1,4 @@
 
-if(BUILD_TESTING)
-    add_subdirectory( tests )
-endif()
-
 include_directories(
     ${PLANKERNEL_INCLUDES}
     ${PLANWIDGETS_INCLUDES}
@@ -10,6 +6,10 @@ include_directories(
     ${PLANKUNDO2_INCLUDES}
     ${CMAKE_CURRENT_SOURCE_DIR}/commands
 )
+
+if(BUILD_TESTING)
+    add_subdirectory( tests )
+endif()
 
 if (KF5Contacts_FOUND)
     add_definitions(-DPLAN_KCONTACTS_FOUND)

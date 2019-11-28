@@ -189,16 +189,16 @@ public:
     ResourceGroup *groupByName(const QString& name) const;
 
     /**
-     * Adds the resource to the project and resource group.
+     * Adds the resource to the project
      * Always use this to add resources.
      */
-    void addResource(ResourceGroup *group, Resource *resource, int index = -1);
+    void addResource(Resource *resource, int index = -1);
     /**
-     * Removes the resource from the project and resource group.
+     * Removes the resource from the project and all resource groups.
      * The resource is not deleted.
      * Always use this to remove resources.
      */
-    Resource *takeResource(ResourceGroup *group, Resource *resource);
+    bool takeResource(Resource *resource);
     /// Move @p resource to the new @p group. Requests are removed.
     void moveResource(ResourceGroup *group, Resource *resource);
     /// Returns the resource with identity id.
@@ -207,7 +207,7 @@ public:
     Resource *resourceByName(const QString& name) const;
     QStringList resourceNameList() const;
     /// Returns a list of all resources
-    QList<Resource*> resourceList() const { return resourceIdDict.values(); }
+    QList<Resource*> resourceList() const { return m_resources; }
 
     EffortCostMap plannedEffortCostPrDay(QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     EffortCostMap plannedEffortCostPrDay(const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
@@ -591,11 +591,16 @@ Q_SIGNALS:
     void resourceGroupRemoved(const KPlato::ResourceGroup *group);
     void resourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
 
+    void resourceToBeAddedToGroup(const KPlato::ResourceGroup *group, int row);
+    void resourceAddedToGroup(const KPlato::ResourceGroup *group, int row);
+    void resourceToBeRemovedFromGroup(const KPlato::ResourceGroup *group, int row);
+    void resourceRemovedFromGroup(const KPlato::ResourceGroup *group, int row);
+
     void resourceChanged(KPlato::Resource *resource);
-    void resourceAdded(const KPlato::Resource *resource);
-    void resourceToBeAdded(const KPlato::ResourceGroup *group, int row);
-    void resourceRemoved(const KPlato::Resource *resource);
-    void resourceToBeRemoved(const KPlato::Resource *resource);
+    void resourceAddedToProject(const KPlato::Resource *resource, int row);
+    void resourceToBeAddedToProject(const KPlato::Resource* resource, int row);
+    void resourceRemovedFromProject(const KPlato::Resource *resource, int row);
+    void resourceToBeRemovedFromProject(const KPlato::Resource *resource, int row);
 
     void scheduleManagerChanged(KPlato::ScheduleManager *sch, int property = -1);
     void scheduleManagerAdded(const KPlato::ScheduleManager *sch);
@@ -673,6 +678,7 @@ protected:
 
     Accounts m_accounts;
     QList<ResourceGroup*> m_resourceGroups;
+    QList<Resource*> m_resources;
 
     QList<Calendar*> m_calendars;
     Calendar * m_defaultCalendar;

@@ -98,7 +98,8 @@ void CommandsTester::testCalendarRemoveCmd()
     m_project->addCalendar(calendar4);
     m_project->setDefaultCalendar(calendar3);
     m_project->addResourceGroup(group1);
-    m_project->addResource(group1, resource1);
+    m_project->addResource(resource1);
+    group1->addResource(-1, resource1, nullptr);
     resource1->setCalendar(calendar4);
     QVERIFY(m_project->calendarAt(0) == calendar1);
     QVERIFY(calendar1->childAt(0) == calendar2);
@@ -147,7 +148,7 @@ void CommandsTester::testCalendarRemoveCmd()
     m_project->takeCalendar(calendar3);
     m_project->takeCalendar(calendar2);
     m_project->takeCalendar(calendar1);
-    m_project->takeResource(group1, resource1);
+    m_project->takeResource(resource1);
     m_project->takeResourceGroup(group1);
     delete cmd1;
     delete cmd2;

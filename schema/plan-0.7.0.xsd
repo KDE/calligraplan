@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="plan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="project"/>
+            </xs:sequence>
+            <xs:attribute name="author" type="xs:string"/>
+            <xs:attribute name="email" type="xs:string"/>
+            <xs:attribute name="editor" type="xs:string"/>
+            <xs:attribute default="application/x-vnd.kde.plan" name="mime" type="xs:string"/>
+            <xs:attribute name="version" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="project">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="shared-resources"/>
+                <xs:element ref="wbs-definition"/>
+                <xs:element ref="locale"/>
+                <xs:element minOccurs="0" ref="workpackageinfos"/>
+                <xs:element minOccurs="0" ref="accounts"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="calendar"/>
+                <xs:element ref="standard-worktime"/>
+                <xs:element ref="resource-groups"/>
+                <xs:element ref="resources"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="task"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="relation"/>
+                <xs:element minOccurs="0" ref="project-schedules"/>
+                <xs:element minOccurs="0" ref="resource-teams"/>
+                <xs:element minOccurs="0" ref="external-appointments"/>
+            </xs:choice>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="leader" type="xs:string"/>
+            <xs:attribute name="description" type="xs:string"/>
+            <xs:attribute default="MustStartOn" name="scheduling">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="MustStartOn"/>
+                        <xs:enumeration value="MustFinishOn"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="start-time" type="xs:string"/>
+            <xs:attribute name="end-time" type="xs:string"/>
+            <xs:attribute name="timezone" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="wbs-definition">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="default"/>
+                <xs:element ref="levels"/>
+            </xs:choice>
+            <xs:attribute name="levels-enabled" type="xs:string"/>
+            <xs:attribute name="project-code" type="xs:string"/>
+            <xs:attribute name="project-separator" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="default">
+        <xs:complexType>
+            <xs:attribute default="." name="separator" type="xs:string"/>
+            <xs:attribute default="Number" name="code" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="levels">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="level"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="level">
+        <xs:complexType>
+            <xs:attribute name="level" type="xs:string" use="required"/>
+            <xs:attribute default="." name="separator" type="xs:string"/>
+            <xs:attribute default="Number" name="code" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="locale">
+        <xs:complexType>
+            <xs:attribute name="currency-symbol" type="xs:string"/>
+            <xs:attribute name="currency-digits" type="xs:string"/>
+            <xs:attribute name="language" type="xs:string"/>
+            <xs:attribute name="country" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="shared-resources">
+        <xs:complexType>
+            <xs:attribute name="use" type="xs:string"/>
+            <xs:attribute name="file" type="xs:string"/>
+            <xs:attribute name="projects-url" type="xs:string"/>
+            <xs:attribute name="projects-loadatstartup" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="workpackageinfos">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="accounts">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="account"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="account">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="account"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="costplace"/>
+            </xs:choice>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="description" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="costplace">
+        <xs:complexType>
+            <xs:attribute name="object-id" type="xs:string" use="required"/>
+            <xs:attribute default="0" name="startup-cost" type="xs:string"/>
+            <xs:attribute default="0" name="shutdown-cost" type="xs:string"/>
+            <xs:attribute default="0" name="running-cost" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="calendar">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="calendar"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="weekday"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="day"/>
+            </xs:choice>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="parent" type="xs:string"/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute default="0" name="default" type="xs:string"/>
+            <xs:attribute name="timezone" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="weekday">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="interval"/>
+            </xs:sequence>
+            <xs:attribute default="0" name="day">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                        <xs:enumeration value="3"/>
+                        <xs:enumeration value="4"/>
+                        <xs:enumeration value="5"/>
+                        <xs:enumeration value="6"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute default="0" name="state">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="interval">
+        <xs:complexType>
+            <xs:attribute name="start" type="xs:string"/>
+            <xs:attribute name="length" type="xs:string"/>
+            <xs:attribute name="end" type="xs:string"/>
+            <xs:attribute default="0" name="load" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="day">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="interval"/>
+            </xs:sequence>
+            <xs:attribute name="date" type="xs:string" use="required"/>
+            <xs:attribute default="0" name="state">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="standard-worktime">
+        <xs:complexType>
+            <xs:attribute default="8h0m" name="day" type="xs:string"/>
+            <xs:attribute default="40h0m" name="week" type="xs:string"/>
+            <xs:attribute default="176h0m" name="month" type="xs:string"/>
+            <xs:attribute default="1760h0m" name="year" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="resource-groups">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="resource-group"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="resource-group">
+        <xs:complexType>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute default="Work" name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Work"/>
+                        <xs:enumeration value="Material"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="name" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="resources">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="resource"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="resource">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="actual-effort"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute default="Work" name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Work"/>
+                        <xs:enumeration value="Material"/>
+                        <xs:enumeration value="Team"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="email" type="xs:string"/>
+            <xs:attribute name="initials" type="xs:string"/>
+            <xs:attribute name="normal-rate" type="xs:string"/>
+            <xs:attribute name="overtime-rate" type="xs:string"/>
+            <xs:attribute default="100" name="units" type="xs:string"/>
+            <xs:attribute name="calendar-id" type="xs:string"/>
+            <xs:attribute name="account" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="resource-group-relations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="resource-group-relation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="task">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="task"/>
+                <xs:element ref="estimate"/>
+                <xs:element minOccurs="0" ref="documents"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="resourcegroup-request"/>
+                <xs:element minOccurs="0" ref="task-schedules"/>
+                <xs:element minOccurs="0" ref="progress"/>
+            </xs:choice>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="leader" type="xs:string"/>
+            <xs:attribute name="description" type="xs:string"/>
+            <xs:attribute name="wbs" type="xs:string"/>
+            <xs:attribute default="ASAP" name="scheduling">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="ASAP"/>
+                        <xs:enumeration value="ALAP"/>
+                        <xs:enumeration value="MustStartOn"/>
+                        <xs:enumeration value="MustFinishOn"/>
+                        <xs:enumeration value="StratNotEarlier"/>
+                        <xs:enumeration value="FinishNotLater"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="constraint-starttime" type="xs:string"/>
+            <xs:attribute name="constraint-endtime" type="xs:string"/>
+            <xs:attribute name="startup-cost" type="xs:string"/>
+            <xs:attribute name="shutdown-cost" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="estimate">
+        <xs:complexType>
+            <xs:attribute default="Effort" name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Effort"/>
+                        <xs:enumeration value="Duration"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute default="None" name="risk">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="None"/>
+                        <xs:enumeration value="Low"/>
+                        <xs:enumeration value="High"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute default="0" name="expected" type="xs:string"/>
+            <xs:attribute default="0" name="optimistic" type="xs:string"/>
+            <xs:attribute default="0" name="pessimistic" type="xs:string"/>
+            <xs:attribute default="h" name="unit" type="xs:string"/>
+            <xs:attribute name="calendar-id" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="progress">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="completion-entry"/>
+                <xs:element ref="used-effort"/>
+            </xs:choice>
+            <xs:attribute default="EnterCompleted" name="entrymode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="FollowPlan"/>
+                        <xs:enumeration value="EnterCompleted"/>
+                        <xs:enumeration value="EnterEffortPerTask"/>
+                        <xs:enumeration value="EnterEffortPerResource"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="startTime" type="xs:string"/>
+            <xs:attribute name="finishTime" type="xs:string"/>
+            <xs:attribute default="0" name="started" type="xs:string"/>
+            <xs:attribute default="0" name="finished" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="completion-entry">
+        <xs:complexType>
+            <xs:attribute name="date" type="xs:string" use="required"/>
+            <xs:attribute name="performed-effort" type="xs:string"/>
+            <xs:attribute default="0" name="percent-finished" type="xs:string"/>
+            <xs:attribute name="remaining-effort" type="xs:string"/>
+            <xs:attribute name="note" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="used-effort">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="resource"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="actual-effort">
+        <xs:complexType>
+            <xs:attribute name="date" type="xs:string" use="required"/>
+            <xs:attribute name="normal-effort" type="xs:string"/>
+            <xs:attribute name="overtime-effort" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="project-schedules">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="schedule-management"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="schedule-management">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="schedule-management"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="schedule"/>
+            </xs:choice>
+            <xs:attribute name="id" type="xs:string"/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute default="0" name="scheduling-direction" type="xs:string"/>
+            <xs:attribute name="recalculate-from" type="xs:string"/>
+            <xs:attribute default="1" name="check-external-appointments" type="xs:string"/>
+            <xs:attribute default="0" name="distribution" type="xs:string"/>
+            <xs:attribute default="0" name="baselined" type="xs:string"/>
+            <xs:attribute default="0" name="recalculate" type="xs:string"/>
+            <xs:attribute default="0" name="overbooking" type="xs:string"/>
+            <xs:attribute name="scheduler-plugin-id" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="task-schedules">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="schedule"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="schedule">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element minOccurs="0" ref="criticalpath-list"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="appointment"/>
+            </xs:choice>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute default="Expected" name="type" type="xs:string"/>
+            <xs:attribute name="start" type="xs:string"/>
+            <xs:attribute name="end" type="xs:string"/>
+            <xs:attribute name="duration" type="xs:string"/>
+            <xs:attribute name="earlystart" type="xs:string"/>
+            <xs:attribute name="earlyfinish" type="xs:string"/>
+            <xs:attribute name="latestart" type="xs:string"/>
+            <xs:attribute name="latefinish" type="xs:string"/>
+            <xs:attribute name="positive-float" type="xs:string"/>
+            <xs:attribute name="free-float" type="xs:string"/>
+            <xs:attribute name="negative-float" type="xs:string"/>
+            <xs:attribute default="0" name="in-critical-path" type="xs:string"/>
+            <xs:attribute default="0" name="not-scheduled" type="xs:string"/>
+            <xs:attribute default="0" name="scheduling-conflict" type="xs:string"/>
+            <xs:attribute default="0" name="scheduling-error" type="xs:string"/>
+            <xs:attribute default="0" name="resource-error" type="xs:string"/>
+            <xs:attribute default="0" name="resource-overbooked" type="xs:string"/>
+            <xs:attribute default="0" name="resource-not-available" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="criticalpath-list">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="criticalpath"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="criticalpath">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="node"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="node">
+        <xs:complexType>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="appointment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="interval"/>
+            </xs:sequence>
+            <xs:attribute name="resource-id" type="xs:string" use="required"/>
+            <xs:attribute name="task-id" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="documents">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="document"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="document">
+        <xs:complexType>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="url" type="xs:string"/>
+            <xs:attribute default="0" name="type" type="xs:string"/>
+            <xs:attribute default="0" name="sendas" type="xs:string"/>
+            <xs:attribute name="status" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="resourcegroup-request">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="resource-request"/>
+            </xs:sequence>
+            <xs:attribute name="group-id" type="xs:string" use="required"/>
+            <xs:attribute default="0" name="units" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="resource-request">
+        <xs:complexType>
+            <xs:attribute name="resource-id" type="xs:string" use="required"/>
+            <xs:attribute default="100" name="units" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="relation">
+        <xs:complexType>
+            <xs:attribute name="parent-id" type="xs:string" use="required"/>
+            <xs:attribute name="child-id" type="xs:string" use="required"/>
+            <xs:attribute default="Start-Start" name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Finish-Start"/>
+                        <xs:enumeration value="Finish-Finish"/>
+                        <xs:enumeration value="Start-Start"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="lag" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="resource-teams">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="team"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="team">
+        <xs:complexType>
+            <xs:attribute name="team-id" type="xs:string" use="required"/>
+            <xs:attribute name="member-id" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="external-appointments">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="external-appointment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="external-appointment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="interval"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+

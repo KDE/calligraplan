@@ -1,12 +1,9 @@
 
-if(BUILD_TESTING)
-    add_subdirectory( tests )
-endif()
-
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR/commands}
-    ${PLANODF_INCLUDES}
-    ${PLANKUNDO2_INCLUDES})
+    ${PLANKERNEL_INCLUDES}
+    ${PLANKUNDO2_INCLUDES}
+    ${PLANSTORE_INCLUDES}
+)
 
 
 ########### KPlato kernel library ###############
@@ -34,7 +31,13 @@ set(plankernel_LIB_SRCS
     kptpackage.cpp
     kptdebug.cpp
 
+    commands/NamedCommand.cpp
+    commands/MacroCommand.cpp
     commands/SetTaskModulesCommand.cpp
+    commands/AddResourceCmd.cpp
+    commands/RemoveResourceCmd.cpp
+    commands/AddParentGroupCmd.cpp
+    commands/RemoveParentGroupCmd.cpp
 
     kptschedulerplugin.cpp
 
@@ -64,3 +67,7 @@ install(TARGETS plankernel ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 # TODO: with the new embedded JSON data for plugins there is no schema ATM to define extended properties
 # plan_schedulerplugin.desktop
+
+if(BUILD_TESTING)
+    add_subdirectory( tests )
+endif()

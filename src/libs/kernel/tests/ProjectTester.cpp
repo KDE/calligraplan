@@ -173,7 +173,8 @@ void ProjectTester::schedule()
     r->setName("R1");
     r->setAvailableFrom(QDateTime(yesterday, QTime(), Qt::LocalTime));
     r->setCalendar(m_calendar);
-    m_project->addResource(g, r);
+    m_project->addResource(r);
+    r->addParentGroup(g);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
@@ -974,7 +975,8 @@ void ProjectTester::scheduleFullday()
     r->setCalendar(c);
     r->setAvailableFrom(m_project->constraintStartTime());
     r->setAvailableUntil(r->availableFrom().addDays(21));
-    m_project->addResource(g, r);
+    m_project->addResource(r);
+    r->addParentGroup(g);
 
     Task *t = m_project->createTask();
     t->setName("T1");
@@ -1034,7 +1036,8 @@ void ProjectTester::scheduleFullday()
     r->setCalendar(c2);
     r->setAvailableFrom(m_project->constraintStartTime());
     r->setAvailableUntil(r->availableFrom().addDays(21));
-    m_project->addResource(g, r);
+    m_project->addResource(r);
+    r->addParentGroup(g);
     gr->addResourceRequest(new ResourceRequest(r, 100));
 
     r = new Resource();
@@ -1042,7 +1045,8 @@ void ProjectTester::scheduleFullday()
     r->setCalendar(c3);
     r->setAvailableFrom(m_project->constraintStartTime());
     r->setAvailableUntil(r->availableFrom().addDays(21));
-    m_project->addResource(g, r);
+    m_project->addResource(r);
+    r->addParentGroup(g);
     gr->addResourceRequest(new ResourceRequest(r, 100));
 
 
@@ -1086,7 +1090,8 @@ void ProjectTester::scheduleFulldayDstSpring()
     r->setCalendar(c);
     r->setAvailableFrom(project.constraintStartTime().addDays(-1));
     r->setAvailableUntil(r->availableFrom().addDays(21));
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
 
     Task *t = project.createTask();
     t->setName("T1");
@@ -1167,7 +1172,8 @@ void ProjectTester::scheduleFulldayDstSpring()
     r->setCalendar(c2);
     r->setAvailableFrom(project.constraintStartTime().addDays(-1));
     r->setAvailableUntil(r->availableFrom().addDays(21));
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
     gr->addResourceRequest(new ResourceRequest(r, 100));
 
     r = new Resource();
@@ -1175,7 +1181,8 @@ void ProjectTester::scheduleFulldayDstSpring()
     r->setCalendar(c3);
     r->setAvailableFrom(project.constraintStartTime().addDays(-1));
     r->setAvailableUntil(r->availableFrom().addDays(21));
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
     gr->addResourceRequest(new ResourceRequest(r, 100));
 
     project.setConstraintStartTime(DateTime(QDate::fromString("2011-03-25", Qt::ISODate)));
@@ -1240,7 +1247,8 @@ void ProjectTester::scheduleFulldayDstFall()
     r->setCalendar(c);
     r->setAvailableFrom(project.constraintStartTime().addDays(-1));
     r->setAvailableUntil(r->availableFrom().addDays(21));
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
 
     Task *t = project.createTask();
     t->setName("T1");
@@ -1317,7 +1325,8 @@ void ProjectTester::scheduleFulldayDstFall()
     r->setCalendar(c2);
     r->setAvailableFrom(project.constraintStartTime().addDays(-1));
     r->setAvailableUntil(r->availableFrom().addDays(21));
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
     gr->addResourceRequest(new ResourceRequest(r, 100));
 
     r = new Resource();
@@ -1325,7 +1334,8 @@ void ProjectTester::scheduleFulldayDstFall()
     r->setCalendar(c3);
     r->setAvailableFrom(project.constraintStartTime().addDays(-1));
     r->setAvailableUntil(r->availableFrom().addDays(21));
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
     gr->addResourceRequest(new ResourceRequest(r, 100));
 
 
@@ -1379,7 +1389,8 @@ void ProjectTester::scheduleWithExternalAppointments()
     Resource *r = new Resource();
     r->setName("R1");
     r->setCalendar(&c);
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
 
     r->addExternalAppointment("Ext-1", "External project 1", targetstart, targetstart.addDays(1), 100);
     r->addExternalAppointment("Ext-1", "External project 1", targetend.addDays(-1), targetend, 100);
@@ -1479,7 +1490,8 @@ void ProjectTester::reschedule()
     Resource *r = new Resource();
     r->setName("R1");
     r->setCalendar(c);
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
 
     QString s = "Re-schedule; schedule tasks T1, T2, T3 ---------------";
     qDebug()<<endl<<"Testing:"<<s;
@@ -1623,7 +1635,8 @@ void ProjectTester::materialResource()
     r->setName("Work");
     r->setAvailableFrom(targetstart);
     r->setCalendar(c);
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
 
     ResourceGroup *mg = new ResourceGroup();
     mg->setType(ResourceGroup::Type_Material);
@@ -1633,7 +1646,8 @@ void ProjectTester::materialResource()
     mr->setName("Material");
     mr->setAvailableFrom(targetstart);
     mr->setCalendar(c);
-    project.addResource(mg, mr);
+    project.addResource(mr);
+    mr->addParentGroup(mg);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     task1->addRequest(gr);
@@ -1702,7 +1716,8 @@ void ProjectTester::requiredResource()
     r->setName("Work");
     r->setAvailableFrom(targetstart);
     r->setCalendar(c);
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
 
     ResourceGroup *mg = new ResourceGroup();
     mg->setType(ResourceGroup::Type_Material);
@@ -1713,7 +1728,8 @@ void ProjectTester::requiredResource()
     mr->setName("Material");
     mr->setAvailableFrom(targetstart);
     mr->setCalendar(c);
-    project.addResource(mg, mr);
+    project.addResource(mr);
+    mr->addParentGroup(mg);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     task1->addRequest(gr);
@@ -1823,14 +1839,16 @@ void ProjectTester::resourceWithLimitedAvailability()
     r1->setName("R1");
     r1->setAvailableFrom(targetstart);
     r1->setCalendar(c);
-    project.addResource(g, r1);
+    project.addResource(r1);
+    r1->addParentGroup(g);
 
     Resource *r2 = new Resource();
     r2->setName("R2");
     r2->setAvailableFrom(targetstart);
     r2->setAvailableUntil(targetstart.addDays(1));
     r2->setCalendar(c);
-    project.addResource(g, r2);
+    project.addResource(r2);
+    r2->addParentGroup(g);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     task1->addRequest(gr);
@@ -1888,12 +1906,14 @@ void ProjectTester::unavailableResource()
     Resource *r1 = new Resource();
     r1->setName("R1");
     r1->setCalendar(c);
-    project.addResource(g, r1);
+    project.addResource(r1);
+    r1->addParentGroup(g);
 
     Resource *r2 = new Resource();
     r2->setName("Unavailable");
     r2->setCalendar(c);
-    project.addResource(g, r2);
+    project.addResource(r2);
+    r2->addParentGroup(g);
 
     
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
@@ -1971,17 +1991,20 @@ void ProjectTester::team()
     Resource *r1 = new Resource();
     r1->setName("R1");
     r1->setCalendar(c);
-    project.addResource(g, r1);
+    project.addResource(r1);
+    r1->addParentGroup(g);
 
     Resource *r2 = new Resource();
     r2->setName("Team member");
     r2->setCalendar(c);
-    project.addResource(g, r2);
+    project.addResource(r2);
+    r2->addParentGroup(g);
 
     Resource *team = new Resource();
     team->setType(Resource::Type_Team);
     team->setName("Team");
-    project.addResource(g, team);
+    project.addResource(team);
+    team->addParentGroup(g);
     team->addTeamMemberId(r2->id());
     
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
@@ -2083,7 +2106,7 @@ void ProjectTester::team()
 
     gr->takeResourceRequest(tr);
     task1->takeRequest(gr);
-    project.takeResource(g, team);
+    project.takeResource(team);
     team->removeTeamMemberId(r2->id());
 
 }
@@ -2116,7 +2139,8 @@ void ProjectTester::inWBSOrder()
     p.addResourceGroup(g);
     Resource *r1 = new Resource();
     r1->setName("R1");
-    p.addResource(g, r1);
+    p.addResource(r1);
+    r1->addParentGroup(g);
 
     Task *t = p.createTask();
     t->setName("T1");
@@ -2215,7 +2239,8 @@ void ProjectTester::resourceConflictALAP()
     p.addResourceGroup(g);
     Resource *r1 = new Resource();
     r1->setName("R1");
-    p.addResource(g, r1);
+    p.addResource(r1);
+    r1->addParentGroup(g);
 
     Task *t = p.createTask();
     t->setName("T1");
@@ -2389,7 +2414,8 @@ void ProjectTester::resourceConflictMustStartOn()
     p.addResourceGroup(g);
     Resource *r1 = new Resource();
     r1->setName("R1");
-    p.addResource(g, r1);
+    p.addResource(r1);
+    r1->addParentGroup(g);
 
     Task *t = p.createTask();
     t->setName("T1");
@@ -2605,7 +2631,8 @@ void ProjectTester::resourceConflictMustFinishOn()
     p.addResourceGroup(g);
     Resource *r1 = new Resource();
     r1->setName("R1");
-    p.addResource(g, r1);
+    p.addResource(r1);
+    r1->addParentGroup(g);
 
     Task *task1 = p.createTask();
     task1->setName("T1");
@@ -2808,7 +2835,8 @@ void ProjectTester::fixedInterval()
     p.addResourceGroup(g);
     Resource *r1 = new Resource();
     r1->setName("R1");
-    p.addResource(g, r1);
+    p.addResource(r1);
+    r1->addParentGroup(g);
 
     Task *task1 = p.createTask();
     task1->setName("T1");
@@ -2870,7 +2898,8 @@ void ProjectTester::estimateDuration()
     p.addResourceGroup(g);
     Resource *r1 = new Resource();
     r1->setName("R1");
-    p.addResource(g, r1);
+    p.addResource(r1);
+    r1->addParentGroup(g);
 
     Task *task1 = p.createTask();
     task1->setName("T1");
@@ -2933,11 +2962,13 @@ void ProjectTester::startStart()
     p.addResourceGroup(g);
     Resource *r1 = new Resource();
     r1->setName("R1");
-    p.addResource(g, r1);
+    p.addResource(r1);
+    r1->addParentGroup(g);
 
     Resource *r2 = new Resource();
     r2->setName("R2");
-    p.addResource(g, r2);
+    p.addResource(r2);
+    r2->addParentGroup(g);
 
     Task *task1 = p.createTask();
     task1->setName("T1");
@@ -3208,12 +3239,14 @@ void ProjectTester::scheduleTimeZone()
     Resource *r = new Resource();
     r->setName("R1");
     r->setCalendar(calendar);
-    project.addResource(g, r);
+    project.addResource(r);
+    r->addParentGroup(g);
 
     Resource *r2 = new Resource();
     r2->setName("R2");
     r2->setCalendar(cal2);
-    project.addResource(g, r2);
+    project.addResource(r2);
+    r2->addParentGroup(g);
     
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     t->addRequest(gr);

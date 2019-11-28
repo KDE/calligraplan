@@ -89,7 +89,8 @@ void PerformanceTester::init()
     r1 = new Resource();
     r1->setName("R1");
     r1->setNormalRate(1.0);
-    p1->addResource(g, r1);
+    p1->addResource(r1);
+    r1->addParentGroup(g);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     t1->addRequest(gr);
@@ -106,14 +107,16 @@ void PerformanceTester::init()
     r2->setType(Resource::Type_Material);
     r2->setCalendar(c); // limit availability to working hours
     r2->setNormalRate(0.0); // NOTE
-    p1->addResource(m, r2);
-
+    p1->addResource(r2);
+    r2->addParentGroup(m);
+    
     r3 = new Resource();
     r3->setName("Material 2");
     r3->setType(Resource::Type_Material);
     r3->setNormalRate(6.0);
-    p1->addResource(m, r3);
-
+    p1->addResource(r3);
+    r3->addParentGroup(m);
+    
     gr = new ResourceGroupRequest(m);
     t1->addRequest(gr);
     rr = new ResourceRequest(r2, 100);
@@ -989,7 +992,7 @@ void PerformanceTester::bcwpPrDayProject()
 
     r3->setNormalRate(1.0);
 
-    ResourceGroupRequest *gr = new ResourceGroupRequest(r3->parentGroup());
+    ResourceGroupRequest *gr = new ResourceGroupRequest(r3->parentGroups().first());
     tt->addRequest(gr);
     ResourceRequest *rr = new ResourceRequest(r3, 100);
     gr->addResourceRequest(rr);

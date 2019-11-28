@@ -84,7 +84,8 @@ void WorkPackageProxyModelTester::initTestCase()
     project.addResourceGroup(g);
     Resource *r = new Resource();
     r->setName("R1");
-    project.addResource(g, r);
+    project.addResource(r);
+    g->addResource(r);
 
     sm = project.createScheduleManager();
     m_model.setScheduleManager(sm);

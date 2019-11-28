@@ -95,7 +95,7 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
         qDebug()<<project.description();
         qDebug();
     }
-
+    Debug::print(&project, "Before calculation ------------", true);
     ScheduleManager *manager = project.scheduleManagers().value(0);
     s = QString("%1: No schedule to compare with").arg(fname);
     QVERIFY2(manager, s.toLatin1());

@@ -25,6 +25,9 @@
 
 #include "plankernel_export.h"
 
+#include "NamedCommand.h"
+#include "MacroCommand.h"
+
 #include <kundo2command.h>
 
 #include <QPointer>
@@ -59,52 +62,6 @@ class ResourceGroup;
 class Resource;
 class Schedule;
 class StandardWorktime;
-
-class PLANKERNEL_EXPORT NamedCommand : public KUndo2Command
-{
-public:
-    explicit NamedCommand(const KUndo2MagicString& name)
-        : KUndo2Command(name)
-    {}
-    void redo() override { execute(); }
-    void undo() override { unexecute(); }
-
-    virtual void execute() = 0;
-    virtual void unexecute() = 0;
-
-protected:
-    /// Set all scheduled in the m_schedules map to their original scheduled state
-    void setSchScheduled();
-    /// Set all schedules in the m_schedules map to scheduled state @p state
-    void setSchScheduled(bool state);
-    /// Add a schedule to the m_schedules map along with its current scheduled state
-    void addSchScheduled(Schedule *sch);
-
-    QHash<Schedule*, bool> m_schedules;
-
-};
-
-class PLANKERNEL_EXPORT MacroCommand : public KUndo2Command
-{
-public:
-    explicit MacroCommand(const KUndo2MagicString& name = KUndo2MagicString())
-        : KUndo2Command(name)
-    {}
-    ~MacroCommand() override;
-
-    void addCommand(KUndo2Command *cmd);
-
-    void redo() override { execute(); }
-    void undo() override { unexecute(); }
-
-    virtual void execute();
-    virtual void unexecute();
-
-    bool isEmpty() const { return cmds.isEmpty(); }
-
-protected:
-    QList<KUndo2Command*> cmds;
-};
 
 
 class PLANKERNEL_EXPORT CalendarAddCmd : public NamedCommand
@@ -862,36 +819,6 @@ private:
     Task &m_task;
     ResourceGroupRequest *m_request;
     bool m_mine;
-};
-
-class PLANKERNEL_EXPORT AddResourceCmd : public NamedCommand
-{
-public:
-    AddResourceCmd(ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString());
-    ~AddResourceCmd() override;
-    void execute() override;
-    void unexecute() override;
-
-protected:
-
-    ResourceGroup *m_group;
-    Resource *m_resource;
-    int m_index;
-    bool m_mine;
-};
-
-class PLANKERNEL_EXPORT RemoveResourceCmd : public AddResourceCmd
-{
-public:
-    RemoveResourceCmd(ResourceGroup *group, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString());
-    ~RemoveResourceCmd() override;
-    void execute() override;
-    void unexecute() override;
-
-private:
-    QList<ResourceRequest*> m_requests;
-    QList<Appointment*> m_appointments;
-    MacroCommand m_cmd;
 };
 
 class PLANKERNEL_EXPORT MoveResourceCmd : public NamedCommand

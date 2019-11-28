@@ -24,6 +24,7 @@
 
 #include "kptlocale.h"
 #include "kptcommonstrings.h"
+#include <AddResourceCmd.h>
 #include "kptcommand.h"
 #include "kptitemmodelbase.h"
 #include "kptcalendar.h"
@@ -579,39 +580,26 @@ void ResourceItemModel::slotResourceToBeInserted(const ResourceGroup *group, int
     beginInsertRows(index(group), row, row);
 }
 
-void ResourceItemModel::slotResourceInserted(const Resource *resource)
+void ResourceItemModel::slotResourceInserted(const ResourceGroup *group, int row)
 {
+    Q_UNUSED(row)
     //debugPlan<<resource->name();
-    Q_ASSERT(resource->parentGroup() == m_group);
-#ifdef NDEBUG
-    Q_UNUSED(resource)
-#endif
+    Q_ASSERT(group == m_group);
     endInsertRows();
     m_group = 0;
     emit layoutChanged(); //HACK to make the right view react! Bug in qt?
 }
 
-void ResourceItemModel::slotResourceToBeRemoved(const Resource *resource)
+void ResourceItemModel::slotResourceToBeRemoved(const ResourceGroup *group, int row)
 {
-    //debugPlan<<resource->name();
-    Q_ASSERT(m_resource == 0);
-#ifdef NDEBUG
-    Q_UNUSED(resource)
-#endif
-    m_resource = const_cast<Resource*>(resource);
-    int row = index(resource).row();
-    beginRemoveRows(index(resource->parentGroup()), row, row);
+    beginRemoveRows(index(group), row, row);
 }
 
-void ResourceItemModel::slotResourceRemoved(const Resource *resource)
+void ResourceItemModel::slotResourceRemoved(const ResourceGroup *group, int row)
 {
-    //debugPlan<<resource->name();
-    Q_ASSERT(resource == m_resource);
-#ifdef NDEBUG
-    Q_UNUSED(resource)
-#endif
+    Q_UNUSED(group)
+    Q_UNUSED(row)
     endRemoveRows();
-    m_resource = 0;
 }
 
 void ResourceItemModel::slotResourceGroupToBeInserted(const ResourceGroup *group, int row)
@@ -667,18 +655,18 @@ void ResourceItemModel::setProject(Project *project)
 
         disconnect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceItemModel::slotResourceGroupToBeRemoved);
 
-        disconnect(m_project, &Project::resourceToBeAdded, this, &ResourceItemModel::slotResourceToBeInserted);
+        disconnect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceItemModel::slotResourceToBeInserted);
 
-        disconnect(m_project, &Project::resourceToBeRemoved, this, &ResourceItemModel::slotResourceToBeRemoved);
+        disconnect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceItemModel::slotResourceToBeRemoved);
 
         disconnect(m_project, &Project::resourceGroupAdded, this, &ResourceItemModel::slotResourceGroupInserted);
 
         disconnect(m_project, &Project::resourceGroupRemoved, this, &ResourceItemModel::slotResourceGroupRemoved);
 
-        disconnect(m_project, &Project::resourceAdded, this, &ResourceItemModel::slotResourceInserted);
+        disconnect(m_project, &Project::resourceAddedToGroup, this, &ResourceItemModel::slotResourceInserted);
 
-        disconnect(m_project, &Project::resourceRemoved, this, &ResourceItemModel::slotResourceRemoved);
-
+        disconnect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceItemModel::slotResourceRemoved);
+        
         disconnect(m_project, &Project::defaultCalendarChanged, this, &ResourceItemModel::slotCalendarChanged);
     }
     m_project = project;
@@ -692,17 +680,17 @@ void ResourceItemModel::setProject(Project *project)
 
         connect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceItemModel::slotResourceGroupToBeRemoved);
 
-        connect(m_project, &Project::resourceToBeAdded, this, &ResourceItemModel::slotResourceToBeInserted);
+        connect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceItemModel::slotResourceToBeInserted);
 
-        connect(m_project, &Project::resourceToBeRemoved, this, &ResourceItemModel::slotResourceToBeRemoved);
+        connect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceItemModel::slotResourceToBeRemoved);
 
         connect(m_project, &Project::resourceGroupAdded, this, &ResourceItemModel::slotResourceGroupInserted);
 
         connect(m_project, &Project::resourceGroupRemoved, this, &ResourceItemModel::slotResourceGroupRemoved);
 
-        connect(m_project, &Project::resourceAdded, this, &ResourceItemModel::slotResourceInserted);
+        connect(m_project, &Project::resourceAddedToGroup, this, &ResourceItemModel::slotResourceInserted);
 
-        connect(m_project, &Project::resourceRemoved, this, &ResourceItemModel::slotResourceRemoved);
+        connect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceItemModel::slotResourceRemoved);
 
         connect(m_project, &Project::defaultCalendarChanged, this, &ResourceItemModel::slotCalendarChanged);
     }
@@ -794,10 +782,10 @@ QModelIndex ResourceItemModel::parent(const QModelIndex &index) const
     //debugPlan<<index.internalPointer()<<":"<<index.row()<<","<<index.column();
 
     Resource *r = resource(index);
-    if (r && r->parentGroup()) {
+    if (r && r->parentGroups().value(0)) {
         // only resources have parent
-        int row = m_project->indexOf(r->parentGroup());
-        return createIndex(row, 0, r->parentGroup());
+        int row = m_project->indexOf(r->parentGroups().value(0));
+        return createIndex(row, 0, r->parentGroups().value(0));
     }
 
     return QModelIndex();
@@ -831,7 +819,7 @@ QModelIndex ResourceItemModel::index(const Resource *resource, int column) const
     }
     Resource *r = const_cast<Resource*>(resource);
     int row = -1;
-    ResourceGroup *par = r->parentGroup();
+    ResourceGroup *par = r->parentGroups().value(0);
     if (par) {
         row = par->indexOf(r);
         return createIndex(row, column, r);
@@ -1263,7 +1251,7 @@ void ResourceItemModel::slotCalendarChanged(Calendar*)
 
 void ResourceItemModel::slotResourceChanged(Resource *res)
 {
-    ResourceGroup *g = res->parentGroup();
+    ResourceGroup *g = res->parentGroups().value(0);
     if (g) {
         int row = g->indexOf(res);
         emit dataChanged(createIndex(row, 0, res), createIndex(row, columnCount() - 1, res));
@@ -1408,7 +1396,7 @@ bool ResourceItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
             foreach (Resource *r, resourceList(stream)) {
-                if (r->parentGroup() == g) {
+                if (r->parentGroups().value(0) == g) {
                     continue;
                 }
                 if (m == 0) m = new MacroCommand(KUndo2MagicString());
@@ -1719,7 +1707,7 @@ QVariant AllocatedResourceItemModel::headerData(int section, Qt::Orientation ori
 QVariant AllocatedResourceItemModel::allocation(const Resource *res, int role) const
 {
     ResourceRequest *rr = m_task->requests().find(res);
-    ResourceGroupRequest *gr = m_task->requests().find(res->parentGroup());
+    ResourceGroupRequest *gr = m_task->requests().find(res->parentGroups().value(0));
     if (rr == 0 || gr == 0) {
         return QVariant();
     }
@@ -1733,7 +1721,7 @@ QVariant AllocatedResourceItemModel::allocation(const Resource *res, int role) c
             if (rr->units() == 0) {
                 return xi18nc("@info:tooltip", "Not allocated");
             }
-            return xi18nc("@info:tooltip", "%1 allocated out of %2 available", gr->count(), res->parentGroup()->numResources());
+            return xi18nc("@info:tooltip", "%1 allocated out of %2 available", gr->count(), res->parentGroups().value(0)->numResources());
         }
         default:
             break;

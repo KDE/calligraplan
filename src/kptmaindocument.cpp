@@ -35,6 +35,7 @@
 #include "kptbuiltinschedulerplugin.h"
 #include "kptschedule.h"
 #include "kptcommand.h"
+#include <RemoveResourceCmd.h>
 #include "calligraplansettings.h"
 #include "kpttask.h"
 #include "KPlatoXmlLoader.h"
@@ -1334,7 +1335,7 @@ bool MainDocument::mergeResources(Project &project)
         switch (result) {
         case KMessageBox::Yes: // Remove
             for (Resource *r : qAsConst(removedResources)) {
-                RemoveResourceCmd cmd(r->parentGroup(), r);
+                RemoveResourceCmd cmd(r);
                 cmd.redo();
             }
             for (ResourceGroup *g : qAsConst(removedGroups)) {
@@ -1473,7 +1474,7 @@ bool MainDocument::mergeResources(Project &project)
     }
     for (Resource *r : qAsConst(removeresources)) {
         debugPlanShared<<"Delete resource:"<<r<<r->id();
-        RemoveResourceCmd cmd(r->parentGroup(), r);
+        RemoveResourceCmd cmd(r);
         cmd.execute();
     }
     for (ResourceGroup *g : qAsConst(removegroups)) {

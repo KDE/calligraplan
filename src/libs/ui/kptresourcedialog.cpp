@@ -72,7 +72,7 @@ ResourceDialogImpl::ResourceDialogImpl(const Project &project, Resource &resourc
         item->setCheckable(true);
         item->setCheckState(m_resource.teamMemberIds().contains(r->id()) ? Qt::Checked : Qt::Unchecked);
         items << item;
-        item = new QStandardItem(r->parentGroup()->name());
+        item = new QStandardItem(r->parentGroups().value(0)->name());
         items << item;
 
         // Add id so we can find the resource
@@ -253,7 +253,7 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
     setMainWidget(dia);
     KoDialog::enableButtonOk(false);
 
-    if (resource->parentGroup() == 0) {
+    if (resource->parentGroups().value(0) == 0) {
         //HACK to handle calls from ResourcesPanel
         dia->groupLabel->hide();
         dia->group->hide();
@@ -262,7 +262,7 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
             m_groups.insert(g->name(), g);
         }
         dia->group->addItems(m_groups.keys());
-        dia->group->setCurrentIndex(m_groups.values().indexOf(resource->parentGroup())); // clazy:exclude=container-anti-pattern
+        dia->group->setCurrentIndex(m_groups.values().indexOf(resource->parentGroups().value(0))); // clazy:exclude=container-anti-pattern
     }
     dia->nameEdit->setText(resource->name());
     dia->initialsEdit->setText(resource->initials());
@@ -327,7 +327,7 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
     connect(dia->required, SIGNAL(changed()), SLOT(enableButtonOk()));
     connect(dia->account, SIGNAL(currentIndexChanged(QString)), SLOT(slotAccountChanged(QString)));
     
-    connect(&project, &Project::resourceRemoved, this, &ResourceDialog::slotResourceRemoved);
+    connect(&project, &Project::resourceRemovedFromProject, this, &ResourceDialog::slotResourceRemoved);
 }
 
 void ResourceDialog::slotResourceRemoved(const Resource *resource)
@@ -356,7 +356,7 @@ void ResourceDialog::slotButtonClicked(int button) {
 void ResourceDialog::slotOk() {
     if (! m_groups.isEmpty()) {
         //HACK to handle calls from ResourcesPanel
-        m_resource.setParentGroup(m_groups.value(dia->group->currentText()));
+        m_resource.addParentGroup(m_groups.value(dia->group->currentText()));
     }
     m_resource.setName(dia->nameEdit->text());
     m_resource.setInitials(dia->initialsEdit->text());
@@ -396,9 +396,9 @@ MacroCommand *ResourceDialog::buildCommand() {
 MacroCommand *ResourceDialog::buildCommand(Resource *original, Resource &resource) {
     MacroCommand *m=0;
     KUndo2MagicString n = kundo2_i18n("Modify Resource");
-    if (resource.parentGroup() != 0 && resource.parentGroup() != original->parentGroup()) {
+    if (resource.parentGroups().value(0) != 0 && resource.parentGroups().value(0) != original->parentGroups().value(0)) {
         if (!m) m = new MacroCommand(n);
-        m->addCommand(new MoveResourceCmd(resource.parentGroup(), original));
+        m->addCommand(new MoveResourceCmd(resource.parentGroups().value(0), original));
     }
     if (resource.name() != original->name()) {
         if (!m) m = new MacroCommand(n);

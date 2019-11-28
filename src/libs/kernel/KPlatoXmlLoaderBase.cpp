@@ -668,7 +668,8 @@ bool KPlatoXmlLoaderBase::load(ResourceGroup *rg, const KoXmlElement &element, X
             // Load the resource
             Resource *child = new Resource();
             if (load(child, e, status)) {
-                status.project().addResource(rg, child);
+                child->addParentGroup(rg);
+                status.project().addResource(child);
             } else {
                 // TODO: Complain about this
                 delete child;

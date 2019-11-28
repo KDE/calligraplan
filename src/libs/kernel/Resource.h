@@ -103,8 +103,10 @@ public:
 
     void copy(Resource *resource);
 
-    void setParentGroup(ResourceGroup *parent) { m_parent = parent; }
-    ResourceGroup *parentGroup() const { return m_parent; }
+    void addParentGroup(ResourceGroup *parent);
+    bool removeParentGroup(ResourceGroup *parent);
+    void setParentGroups(QList<ResourceGroup*> &parents);
+    QList<ResourceGroup*> parentGroups() const;
 
     /// Set the time from when the resource is available to this project
     void setAvailableFrom(const DateTime &af) { m_availableFrom = af; changed(); }
@@ -394,7 +396,7 @@ protected:
 
 private:
     Project *m_project;
-    ResourceGroup *m_parent;
+    QList<ResourceGroup*> m_parents;
     QHash<long, Schedule*> m_schedules;
     QString m_id; // unique id
     QString m_name;

@@ -22,6 +22,9 @@
 
 // clazy:excludeall=qstring-arg
 #include "kptcommand.h"
+#include "AddResourceCmd.h"
+#include "AddParentGroupCmd.h"
+#include "RemoveResourceCmd.h"
 #include "kptaccount.h"
 #include "kptappointment.h"
 #include "kptproject.h"
@@ -50,63 +53,6 @@ const QLoggingCategory &PLANCMDINSPROJECT_LOG()
 namespace KPlato
 {
 
-void NamedCommand::setSchScheduled()
-{
-    QHash<Schedule*, bool>::ConstIterator it;
-    for (it = m_schedules.constBegin(); it != m_schedules.constEnd(); ++it) {
-        //debugPlan << it.key() ->name() <<":" << it.value();
-        it.key() ->setScheduled(it.value());
-    }
-}
-void NamedCommand::setSchScheduled(bool state)
-{
-    QHash<Schedule*, bool>::ConstIterator it;
-    for (it = m_schedules.constBegin(); it != m_schedules.constEnd(); ++it) {
-        //debugPlan << it.key() ->name() <<":" << state;
-        it.key() ->setScheduled(state);
-    }
-}
-void NamedCommand::addSchScheduled(Schedule *sch)
-{
-    //debugPlan << sch->id() <<":" << sch->isScheduled();
-    m_schedules.insert(sch, sch->isScheduled());
-    foreach (Appointment * a, sch->appointments()) {
-        if (a->node() == sch) {
-            m_schedules.insert(a->resource(), a->resource() ->isScheduled());
-        } else if (a->resource() == sch) {
-            m_schedules.insert(a->node(), a->node() ->isScheduled());
-        }
-    }
-}
-
-//---------
-MacroCommand::~MacroCommand()
-{
-    while (! cmds.isEmpty()) {
-        delete cmds.takeLast();
-    }
-}
-
-void MacroCommand::addCommand(KUndo2Command *cmd)
-{
-    cmds.append(cmd);
-}
-
-void MacroCommand::execute()
-{
-    foreach (KUndo2Command *c, cmds) {
-        c->redo();
-    }
-}
-
-void MacroCommand::unexecute()
-{
-    for (int i = cmds.count() - 1; i >= 0; --i) {
-        cmds.at(i)->undo();
-    }
-}
-
-//-------------------------------------------------
 CalendarAddCmd::CalendarAddCmd(Project *project, Calendar *cal, int pos, Calendar *parent, const KUndo2MagicString& name)
         : NamedCommand(name),
         m_project(project),
@@ -1535,94 +1481,11 @@ void RemoveResourceGroupRequestCmd::unexecute()
 
 }
 
-AddResourceCmd::AddResourceCmd(ResourceGroup *group, Resource *resource, const KUndo2MagicString& name)
-        : NamedCommand(name),
-        m_group(group),
-        m_resource(resource)
-{
-    m_index = group->indexOf(resource);
-    m_mine = true;
-}
-AddResourceCmd::~AddResourceCmd()
-{
-    if (m_mine) {
-        //debugPlan<<"delete:"<<m_resource;
-        delete m_resource;
-    }
-}
-void AddResourceCmd::execute()
-{
-    Q_ASSERT(m_group->project());
-    if (m_group->project()) {
-        m_group->project()->addResource(m_group, m_resource, m_index);
-        m_mine = false;
-        //debugPlan<<"added:"<<m_resource;
-    }
-
-}
-void AddResourceCmd::unexecute()
-{
-    Q_ASSERT(m_group->project());
-    if (m_group->project()) {
-        m_group->project()->takeResource(m_group, m_resource);
-        //debugPlan<<"removed:"<<m_resource;
-        m_mine = true;
-    }
-
-    Q_ASSERT(m_group->project());
-}
-
-RemoveResourceCmd::RemoveResourceCmd(ResourceGroup *group, Resource *resource, const KUndo2MagicString& name)
-        : AddResourceCmd(group, resource, name)
-{
-    //debugPlan<<resource;
-    m_mine = false;
-    m_requests = m_resource->requests();
-
-    if (group->project()) {
-        foreach (Schedule * s, group->project()->schedules()) {
-            Schedule *rs = resource->findSchedule(s->id());
-            if (rs && ! rs->isDeleted()) {
-                debugPlan<<s->name();
-                addSchScheduled(s);
-            }
-        }
-    }
-    if (resource->account()) {
-        m_cmd.addCommand(new ResourceModifyAccountCmd(*resource, resource->account(), 0));
-    }
-}
-RemoveResourceCmd::~RemoveResourceCmd()
-{
-    while (!m_appointments.isEmpty())
-        delete m_appointments.takeFirst();
-}
-void RemoveResourceCmd::execute()
-{
-    foreach (ResourceRequest * r, m_requests) {
-        r->parent() ->takeResourceRequest(r);
-        //debugPlan<<"Remove request for"<<r->resource()->name();
-    }
-    AddResourceCmd::unexecute();
-    m_cmd.execute();
-    setSchScheduled(false);
-}
-void RemoveResourceCmd::unexecute()
-{
-    foreach (ResourceRequest * r, m_requests) {
-        r->parent() ->addResourceRequest(r);
-        //debugPlan<<"Add request for"<<r->resource()->name();
-    }
-    m_cmd.unexecute();
-    AddResourceCmd::execute();
-    setSchScheduled();
-}
-
 MoveResourceCmd::MoveResourceCmd(ResourceGroup *group, Resource *resource, const KUndo2MagicString& name)
     : NamedCommand(name),
     m_project(*(group->project())),
     m_resource(resource),
-    m_oldvalue(resource->parentGroup()),
+    m_oldvalue(resource->parentGroups().value(0)),
     m_newvalue(group)
 {
     foreach (ResourceRequest * r, resource->requests()) {
@@ -1971,6 +1834,7 @@ void ModifyResourceGroupTypeCmd::unexecute()
 
 
 }
+
 
 ModifyCompletionEntrymodeCmd::ModifyCompletionEntrymodeCmd(Completion &completion, Completion::Entrymode value, const KUndo2MagicString& name)
         : NamedCommand(name),
@@ -3275,19 +3139,19 @@ void WBSDefinitionModifyCmd::unexecute()
 }
 
 //----------------
-InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, const KUndo2MagicString& name)
+InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *after, const KUndo2MagicString& name)
     : MacroCommand(name),
     m_project(static_cast<Project*>(parent->projectNode())),
     m_parent(parent)
 {
-    Q_ASSERT(&project != m_project);
+    Q_ASSERT(&fromProject != m_project);
 
     if (m_project->defaultCalendar()) {
-        project.setDefaultCalendar(0); // or else m_project default calendar may be overwitten
+        fromProject.setDefaultCalendar(0); // or else m_project default calendar may be overwitten
     }
     QString defaultAccount;
-    if (! m_project->accounts().defaultAccount() && project.accounts().defaultAccount()) {
-        defaultAccount = project.accounts().defaultAccount()->name();
+    if (! m_project->accounts().defaultAccount() && fromProject.accounts().defaultAccount()) {
+        defaultAccount = fromProject.accounts().defaultAccount()->name();
     }
 
     QHash<Node*, QString> startupaccountmap;
@@ -3296,7 +3160,7 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
     QHash<Node*, QString> nodecalendarmap;
 
     // remove unhandled info in tasks and get accounts and calendars
-    foreach (Node *n, project.allNodes()) {
+    foreach (Node *n, fromProject.allNodes()) {
         if (n->type() == Node::Type_Task) {
             Task *t = static_cast<Task*>(n);
             t->workPackage().clear();
@@ -3326,7 +3190,7 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
     // get resources pointing to calendars and accounts
     QHash<Resource*, QString> resaccountmap;
     QHash<Resource*, QString> rescalendarmap;
-    foreach (Resource *r, project.resourceList()) {
+    foreach (Resource *r, fromProject.resourceList()) {
         if (r->account()) {
             resaccountmap.insert(r, r->account()->name());
             r->setAccount(0);
@@ -3342,7 +3206,7 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
     foreach (Account *a,  m_project->accounts().allAccounts()) {
         accountsmap.insert(a->name(), a);
     }
-    foreach (Account *a, project.accounts().accountList()) {
+    foreach (Account *a, fromProject.accounts().accountList()) {
         addAccounts(a, 0, unusedAccounts, accountsmap);
     }
     // create add calendar commands and keep track of used and unused calendars
@@ -3351,13 +3215,13 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
     foreach (Calendar *c,  m_project->allCalendars()) {
         calendarsmap.insert(c->id(), c);
     }
-    foreach (Calendar *c, project.calendars()) {
+    foreach (Calendar *c, fromProject.calendars()) {
         addCalendars(c, 0, unusedCalendars, calendarsmap);
     }
-    // get all requests before resources are merged
+    // get all requests from fromProject before resources are merged
     QHash<ResourceGroupRequest*, QPair<Node *, ResourceGroup*> > greqs;
     QHash<ResourceGroupRequest*, QPair<ResourceRequest*, Resource*> > rreqs;
-    foreach (Node *n, project.allNodes()) {
+    foreach (Node *n, fromProject.allNodes()) {
         QList<ResourceRequest*> resReq;
         if (n->type() != (int)Node::Type_Task || n->requests().isEmpty()) {
             continue;
@@ -3380,35 +3244,49 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
 #endif
         }
     }
+    debugPlanInsertProject<<"fromProject group requests:"<<greqs;
+    debugPlanInsertProject<<"fromProject resource requests:"<<rreqs;
     QList<ResourceGroup*> allGroups;
-    QList<Resource*> allResources;
-    QList<Resource*> newResources;
-    QHash<ResourceGroup*, ResourceGroup*> existingGroups;
-    QHash<Resource*, Resource*> existingResources;
-    foreach (ResourceGroup *g, project.resourceGroups()) {
+    QList<ResourceGroup*> newGroups;
+    QHash<ResourceGroup*, ResourceGroup*> existingGroups; // QHash<fromProject group, toProject group>
+    foreach (ResourceGroup *g, fromProject.resourceGroups()) {
         ResourceGroup *gr = m_project->findResourceGroup(g->id());
         if (gr == 0) {
-            addCommand(new AddResourceGroupCmd(m_project, g, kundo2_noi18n("ResourceGroup")));
             gr = g;
-            debugPlanInsertProject<<"AddResourceGroupCmd:"<<gr->name();
+            newGroups << gr;
         } else {
             existingGroups[ gr ] = g;
         }
         allGroups << gr;
-        foreach (Resource *r, g->resources()) {
-            while (Schedule *s = r->schedules().values().value(0)) {
-                r->deleteSchedule(s); // schedules not handled
-            }
-            Resource *res = m_project->findResource(r->id());
-            if (res == 0) {
-                addCommand(new AddResourceCmd(gr, r, kundo2_noi18n("Resource")));
-                allResources << r;
-                newResources << r;
-                debugPlanInsertProject<<"AddResourceCmd:"<<gr->name()<<r->name();
-            } else {
-                existingResources[ res ] = r;
-                allResources << res;
-            }
+    }
+    debugPlanInsertProject<<"fromProject resources:"<<fromProject.resourceList();
+    QList<Resource*> allResources;
+    QList<Resource*> newResources; // resource in fromProject that does not exist in toProject
+    QHash<Resource*, Resource*> existingResources; // hash[toProject resource, fromProject resource]
+    foreach (Resource *r, fromProject.resourceList()) {
+        while (Schedule *s = r->schedules().values().value(0)) {
+            r->deleteSchedule(s); // schedules not handled
+        }
+        Resource *res = m_project->resource(r->id());
+        if (res == nullptr) {
+            newResources << r;
+            allResources << r;
+        } else {
+            existingResources[ res ] = r;
+            allResources << res;
+        }
+    }
+    // Add new resources
+    for (Resource *r : newResources) {
+        debugPlanInsertProject<<"AddResourceCmd:"<<r->name()<<r->parentGroups();
+        addCommand(new AddResourceCmd(m_project, r, kundo2_noi18n("Resource")));
+    }
+    // Add new groups
+    for (ResourceGroup *g : newGroups) {
+        debugPlanInsertProject<<"AddResourceGroupCmd:"<<g->name()<<g->resources();
+        addCommand(new AddResourceGroupCmd(m_project, g, kundo2_noi18n("ResourceGroup")));
+        for (Resource *r : g->resources()) {
+            addCommand(new AddParentGroupCmd(r, g));
         }
     }
     // Update resource account
@@ -3431,7 +3309,15 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
             addCommand(new ModifyResourceCalendarCmd(r, calendarsmap.value(it.value())));
         }
     }}
-    // Requests: clean up requests to resources already in m_project
+    debugPlanInsertProject<<"Requests: clean up requests to resources already in m_project";
+    debugPlanInsertProject<<"All groups:"<<allGroups;
+    debugPlanInsertProject<<"New groups:"<<newGroups;
+    debugPlanInsertProject<<"Existing groups:"<<existingGroups;
+    debugPlanInsertProject<<"Group requests:"<<greqs;
+    debugPlanInsertProject<<"All resources:"<<allResources;
+    debugPlanInsertProject<<"New resources:"<<newResources;
+    debugPlanInsertProject<<"Existing resources:"<<existingResources;
+    debugPlanInsertProject<<"Resource requests:"<<rreqs;
     int gi = 0;
     int ri = 0;
     QHash<ResourceGroupRequest*, QPair<Node *, ResourceGroup*> >::const_iterator gregsIt;
@@ -3443,19 +3329,21 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
         if (ResourceGroup *ng = existingGroups.key(newGroup)) {
             newGroup = ng;
             debugPlanInsertProject<<"Using existing group:"<<newGroup<<newGroup->requests();
-        } else { debugPlanInsertProject<<"Using group from inserted project:"<<newGroup<<newGroup->requests(); }
+        } else { debugPlanInsertProject<<"Using group from inserted project:"<<newGroup<<"requests:"<<newGroup->requests(); }
         Q_ASSERT(allGroups.contains(newGroup));
         gr->setGroup(newGroup);
         addCommand(new AddResourceGroupRequestCmd(static_cast<Task&>(*n), gr, kundo2_noi18n("Group %1", ++gi)));
-        debugPlanInsertProject<<"Add resource group request:"<<n->name()<<":"<<newGroup->name()<<"requests:"<<newGroup->requests();
+        debugPlanInsertProject<<"Add resource group request: task:"<<n->wbsCode()<<n->name()<<":"<<newGroup->name()<<"requests:"<<newGroup->requests();
         QHash<ResourceGroupRequest*, QPair<ResourceRequest*, Resource*> >::const_iterator i = rreqs.constFind(gr);
         for (; i != rreqs.constEnd() && i.key() == gr; ++i) {
             ResourceRequest *rr = i.value().first;
             Resource *newRes = i.value().second;
+            debugPlanInsertProject<<"Resource exists:"<<newRes<<newRes->id()<<(void*)newRes<<':'<<m_project->resource(newRes->id());
             if (Resource *nr = existingResources.key(newRes)) {
                 newRes = nr;
+                debugPlanInsertProject<<"Resource existed:"<<newRes<<(void*)newRes;
             }
-            debugPlanInsertProject<<"Add resource request:"<<n->name()<<":"<<newGroup->name()<<":"<<newRes->name();
+            debugPlanInsertProject<<"Add resource request:"<<n->wbsCode()<<n->name()<<":"<<newGroup->name()<<":"<<newRes<<"requests:"<<rr;
             if (! rr->requiredResources().isEmpty()) {
                 // the resource request may have required resources that needs mapping
                 QList<Resource*> required;
@@ -3482,8 +3370,8 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
     }
     // Add nodes (ids are unique, no need to check)
     Node *node_after = after;
-    for (int i = 0; i < project.numChildren(); ++i) {
-        Node *n = project.childNode(i);
+    for (int i = 0; i < fromProject.numChildren(); ++i) {
+        Node *n = fromProject.childNode(i);
         Q_ASSERT(n);
         while (Schedule *s = n->schedules().values().value(0)) {
             n->takeSchedule(s); // schedules not handled
@@ -3499,7 +3387,7 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
         addChildNodes(n);
     }
     // Dependencies:
-    foreach (Node *n, project.allNodes()) {
+    foreach (Node *n, fromProject.allNodes()) {
         while (n->numDependChildNodes() > 0) {
             Relation *r = n->dependChildNodes().at(0);
             n->takeDependChildNode(r);
@@ -3538,36 +3426,42 @@ InsertProjectCmd::InsertProjectCmd(Project &project, Node *parent, Node *after, 
             addCommand(new ModifyDefaultAccountCmd(m_project->accounts(), 0, a));
         }
     }
-    debugPlanInsertProject<<"Cleanup unused stuff from inserted project:"<<&project;
+    debugPlanInsertProject<<"Cleanup unused stuff from inserted project:"<<&fromProject;
     // Cleanup
-    // Remove nodes from project so they are not deleted
-    while (Node *ch = project.childNode(0)) {
-        project.takeChildNode(ch);
+    // Remove nodes from fromProject so they are not deleted
+    while (Node *ch = fromProject.childNode(0)) {
+        fromProject.takeChildNode(ch);
     }
-    foreach (Node *n, project.allNodes()) {
-        project.removeId(n->id());
+    foreach (Node *n, fromProject.allNodes()) {
+        fromProject.removeId(n->id());
     }
 
-    // Remove calendars from project
-    while (project.calendarCount() > 0) {
-        project.takeCalendar(project.calendarAt(0));
+    // Remove calendars from fromProject
+    while (fromProject.calendarCount() > 0) {
+        fromProject.takeCalendar(fromProject.calendarAt(0));
     }
     qDeleteAll(unusedCalendars);
 
-    // Remove accounts from project
-    while (project.accounts().accountCount() > 0) {
-        project.accounts().take(project.accounts().accountAt(0));
+    // Remove accounts from fromProject
+    while (fromProject.accounts().accountCount() > 0) {
+        fromProject.accounts().take(fromProject.accounts().accountAt(0));
     }
     qDeleteAll(unusedAccounts);
 
-    while (project.numResourceGroups() > 0) {
-        ResourceGroup *g = project.resourceGroupAt(0);
-        debugPlanInsertProject<<"Take used group:"<<g<<g->requests();
-        while (g->numResources() > 0) {
-            g->takeResource(g->resourceAt(0));
+    for (Resource *r = fromProject.resourceList().value(0); r; r = fromProject.resourceList().value(0)) {
+        debugPlanInsertProject<<"remove all resources from fromProject:"<<r;
+        if (!fromProject.takeResource(r)) {
+            errorPlanInsertProject<<"Internal error, failed to remove resource";
+            Q_ASSERT(false);
+            break;
         }
-        project.takeResourceGroup(g);
     }
+    while (fromProject.numResourceGroups() > 0) {
+        ResourceGroup *g = fromProject.resourceGroupAt(0);
+        debugPlanInsertProject<<"Take used group:"<<g<<g->requests();
+        fromProject.takeResourceGroup(g);
+    }
+    debugPlanInsertProject<<"Delete unused resources:"<<existingResources;
     qDeleteAll(existingResources); // deletes unused resources
     debugPlanInsertProject<<"Delete unused groups:"<<existingGroups;
     qDeleteAll(existingGroups); // deletes unused resource groups
@@ -3636,9 +3530,11 @@ void InsertProjectCmd::addChildNodes(Node *node) {
 
 void InsertProjectCmd::execute()
 {
+    debugPlanInsertProject<<"before execute:"<<m_project->resourceGroups()<<m_project->resourceList();
     QApplication::setOverrideCursor(Qt::WaitCursor);
     MacroCommand::execute();
     QApplication::restoreOverrideCursor();
+    debugPlanInsertProject<<"after execute:"<<m_project->resourceGroups()<<m_project->resourceList();
 }
 void InsertProjectCmd::unexecute()
 {

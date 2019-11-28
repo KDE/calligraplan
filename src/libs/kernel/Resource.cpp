@@ -49,7 +49,6 @@ using namespace KPlato;
 Resource::Resource()
     : QObject(0), // atm QObject is only for casting
     m_project(0),
-    m_parent(0),
     m_autoAllocate(false),
     m_currentSchedule(0),
     m_blockChanged(false),
@@ -80,7 +79,6 @@ Resource::Resource()
 Resource::Resource(Resource *resource)
     : QObject(0), // atm QObject is only for casting
     m_project(0),
-    m_parent(0),
     m_currentSchedule(0),
     m_shared(false)
 {
@@ -100,6 +98,9 @@ Resource::~Resource() {
     clearExternalAppointments();
     if (cost.account) {
         cost.account->removeRunning(*this);
+    }
+    for (ResourceGroup *g : m_parents) {
+        g->takeResource(this);
     }
 }
 
@@ -138,6 +139,8 @@ void Resource::copy(Resource *resource) {
 
     m_requiredIds = resource->requiredIds();
     m_teamMembers = resource->m_teamMembers;
+
+    // No: m_parents = resource->m_parents;
 
     // hmmmm
     //m_externalAppointments = resource->m_externalAppointments;
@@ -245,6 +248,38 @@ void Resource::setCalendar(Calendar *calendar)
     changed();
 }
 
+void Resource::addParentGroup(ResourceGroup *parent)
+{
+    if (!parent) {
+        return;
+    }
+    if (!m_parents.contains(parent)) {
+        m_parents.append(parent);
+        parent->addResource(this);
+    }
+}
+
+bool Resource::removeParentGroup(ResourceGroup *parent)
+{
+    if (parent) {
+        parent->takeResource(this);
+    }
+    return m_parents.removeOne(parent);
+}
+
+void Resource::setParentGroups(QList<ResourceGroup*> &parents)
+{
+    for (ResourceGroup *g : m_parents) {
+        removeParentGroup(g);
+    }
+    m_parents = parents;
+}
+
+QList<ResourceGroup*> Resource::parentGroups() const
+{
+    return m_parents;
+}
+
 DateTime Resource::firstAvailableAfter(const DateTime &, const DateTime &) const {
     return DateTime();
 }
@@ -292,34 +327,36 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
         debugPlan<<"overtime-rate failed, tried readMoney()"<<money<<"->"<<cost.overtimeRate;;
     }
     cost.account = status.project().accounts().findAccount(element.attribute("account"));
-    
-    KoXmlElement e;
-    KoXmlElement parent = element.namedItem("required-resources").toElement();
-    forEachElement(e, parent) {
-        if (e.nodeName() == "resource") {
-            QString id = e.attribute("id");
-            if (id.isEmpty()) {
-                warnPlan<<"Missing resource id";
-                continue;
+
+    if (status.version() < "0.7.0") {
+        KoXmlElement e;
+        KoXmlElement parent = element.namedItem("required-resources").toElement();
+        forEachElement(e, parent) {
+            if (e.nodeName() == "resource") {
+                QString id = e.attribute("id");
+                if (id.isEmpty()) {
+                    warnPlan<<"Missing resource id";
+                    continue;
+                }
+                addRequiredId(id);
             }
-            addRequiredId(id);
         }
-    }
-    parent = element.namedItem("external-appointments").toElement();
-    forEachElement(e, parent) {
-        if (e.nodeName() == "project") {
-            QString id = e.attribute("id");
-            if (id.isEmpty()) {
-                errorPlan<<"Missing project id";
-                continue;
+        parent = element.namedItem("external-appointments").toElement();
+        forEachElement(e, parent) {
+            if (e.nodeName() == "project") {
+                QString id = e.attribute("id");
+                if (id.isEmpty()) {
+                    errorPlan<<"Missing project id";
+                    continue;
+                }
+                clearExternalAppointments(id); // in case...
+                AppointmentIntervalList lst;
+                lst.loadXML(e, status);
+                Appointment *a = new Appointment();
+                a->setIntervals(lst);
+                a->setAuxcilliaryInfo(e.attribute("name", "Unknown"));
+                m_externalAppointments[ id ] = a;
             }
-            clearExternalAppointments(id); // in case...
-            AppointmentIntervalList lst;
-            lst.loadXML(e, status);
-            Appointment *a = new Appointment();
-            a->setIntervals(lst);
-            a->setAuxcilliaryInfo(e.attribute("name", "Unknown"));
-            m_externalAppointments[ id ] = a;
         }
     }
     loadCalendarIntervalsCache(element, status);
@@ -387,28 +424,6 @@ void Resource::save(QDomElement &element) const {
     me.setAttribute("overtime-rate", money.setNum(cost.overtimeRate));
     if (cost.account) {
         me.setAttribute("account", cost.account->name());
-    }
-    
-    if (! m_requiredIds.isEmpty()) {
-        QDomElement e = me.ownerDocument().createElement("required-resources");
-        me.appendChild(e);
-        foreach (const QString &id, m_requiredIds) {
-            QDomElement el = e.ownerDocument().createElement("resource");
-            e.appendChild(el);
-            el.setAttribute("id", id);
-        }
-    }
-
-    if (! m_externalAppointments.isEmpty()) {
-        QDomElement e = me.ownerDocument().createElement("external-appointments");
-        me.appendChild(e);
-        foreach (const QString &id, m_externalAppointments.uniqueKeys()) {
-            QDomElement el = e.ownerDocument().createElement("project");
-            e.appendChild(el);
-            el.setAttribute("id", id);
-            el.setAttribute("name", m_externalAppointments[ id ]->auxcilliaryInfo());
-            m_externalAppointments[ id ]->intervals().saveXML(el);
-        }
     }
     saveCalendarIntervalsCache(me);
 }

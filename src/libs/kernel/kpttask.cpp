@@ -351,7 +351,7 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
             m_workPackage.loadXML(e, status);
         } else if (e.tagName() == QLatin1String("progress")) {
             completion().loadXML(e, status);
-        } else if (e.tagName() == QLatin1String("schedules")) {
+        } else if (e.tagName() == QLatin1String("task-schedules") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("schedules"))) {
             KoXmlNode n = e.firstChild();
             for (; ! n.isNull(); n = n.nextSibling()) {
                 if (! n.isElement()) {
@@ -427,7 +427,7 @@ void Task::save(QDomElement &element, const XmlSaveContext &context)  const
 
     if (context.saveAll(this)) {
         if (!m_schedules.isEmpty()) {
-            QDomElement schs = me.ownerDocument().createElement(QStringLiteral("schedules"));
+            QDomElement schs = me.ownerDocument().createElement(QStringLiteral("task-schedules"));
             me.appendChild(schs);
             foreach (const Schedule *s, m_schedules) {
                 if (!s->isDeleted()) {
@@ -489,7 +489,7 @@ void Task::saveWorkPackageXML(QDomElement &element, long id)  const
     completion().saveXML(me);
 
     if (m_schedules.contains(id) && ! m_schedules[ id ]->isDeleted()) {
-        QDomElement schs = me.ownerDocument().createElement(QStringLiteral("schedules"));
+        QDomElement schs = me.ownerDocument().createElement(QStringLiteral("task-schedules"));
         me.appendChild(schs);
         m_schedules[ id ]->saveXML(schs);
     }

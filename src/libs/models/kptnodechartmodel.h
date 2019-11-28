@@ -136,7 +136,7 @@ public Q_SLOTS:
     void slotNodeRemoved(KPlato::Node *node);
     void slotNodeChanged(KPlato::Node *node);
     void slotResourceChanged(KPlato::Resource *resource);
-    void slotResourceRemoved(const KPlato::Resource *resource);
+    void slotResourceRemoved(const KPlato::Resource *resource, int row);
 
     void slotSetScheduleManager(KPlato::ScheduleManager *sm);
 

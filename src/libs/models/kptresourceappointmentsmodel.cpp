@@ -64,18 +64,16 @@ ResourceAppointmentsItemModel::~ResourceAppointmentsItemModel()
 void ResourceAppointmentsItemModel::slotResourceToBeInserted(const ResourceGroup *group, int row)
 {
     debugPlan<<group->name()<<row;
-    Q_ASSERT(m_group == 0);
-    m_group = const_cast<ResourceGroup*>(group);
     QModelIndex i = index(group);
     beginInsertRows(i, row, row);
 }
 
-void ResourceAppointmentsItemModel::slotResourceInserted(const Resource *r)
+void ResourceAppointmentsItemModel::slotResourceInserted(const ResourceGroup *group, int row)
 {
+    Resource *r = group->resourceAt(row);
+    Q_ASSERT(r);
     debugPlan<<r->name();
-    Q_ASSERT(r->parentGroup() == m_group);
     endInsertRows();
-    m_group = 0;
     refresh();
     connect(r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsItemModel::slotAppointmentToBeInserted);
     connect(r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsItemModel::slotAppointmentInserted);
@@ -84,11 +82,12 @@ void ResourceAppointmentsItemModel::slotResourceInserted(const Resource *r)
     connect(r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsItemModel::slotAppointmentChanged);
 }
 
-void ResourceAppointmentsItemModel::slotResourceToBeRemoved(const Resource *r)
+void ResourceAppointmentsItemModel::slotResourceToBeRemoved(const ResourceGroup *group, int row)
 {
+    Resource *r = group->resourceAt(row);
+    Q_ASSERT(r);
     debugPlan<<r->name();
-    int row = r->parentGroup()->indexOf(r);
-    beginRemoveRows(index(r->parentGroup()), row, row);
+    beginRemoveRows(index(group), row, row);
     disconnect(r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsItemModel::slotAppointmentToBeInserted);
     disconnect(r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsItemModel::slotAppointmentInserted);
     disconnect(r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsItemModel::slotAppointmentToBeRemoved);
@@ -97,9 +96,10 @@ void ResourceAppointmentsItemModel::slotResourceToBeRemoved(const Resource *r)
 
 }
 
-void ResourceAppointmentsItemModel::slotResourceRemoved(const Resource *resource)
+void ResourceAppointmentsItemModel::slotResourceRemoved(const ResourceGroup *group, int row)
 {
-    Q_UNUSED(resource);
+    Q_UNUSED(group)
+    Q_UNUSED(row)
     //debugPlan<<resource->name();
     endRemoveRows();
     refresh();
@@ -237,17 +237,17 @@ void ResourceAppointmentsItemModel::setProject(Project *project)
 
         disconnect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeRemoved);
 
-        disconnect(m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsItemModel::slotResourceToBeInserted);
+        disconnect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceAppointmentsItemModel::slotResourceToBeInserted);
 
-        disconnect(m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceToBeRemoved);
+        disconnect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceAppointmentsItemModel::slotResourceToBeRemoved);
 
         disconnect(m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupInserted);
 
         disconnect(m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupRemoved);
 
-        disconnect(m_project, &Project::resourceAdded, this, &ResourceAppointmentsItemModel::slotResourceInserted);
+        disconnect(m_project, &Project::resourceAddedToGroup, this, &ResourceAppointmentsItemModel::slotResourceInserted);
 
-        disconnect(m_project, &Project::resourceRemoved, this, &ResourceAppointmentsItemModel::slotResourceRemoved);
+        disconnect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceAppointmentsItemModel::slotResourceRemoved);
 
         disconnect(m_project, &Project::defaultCalendarChanged, this, &ResourceAppointmentsItemModel::slotCalendarChanged);
 
@@ -273,17 +273,17 @@ void ResourceAppointmentsItemModel::setProject(Project *project)
 
         connect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeRemoved);
 
-        connect(m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsItemModel::slotResourceToBeInserted);
+        connect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceAppointmentsItemModel::slotResourceToBeInserted);
 
-        connect(m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceToBeRemoved);
+        connect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceAppointmentsItemModel::slotResourceToBeRemoved);
 
         connect(m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupInserted);
 
         connect(m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupRemoved);
 
-        connect(m_project, &Project::resourceAdded, this, &ResourceAppointmentsItemModel::slotResourceInserted);
+        connect(m_project, &Project::resourceAddedToGroup, this, &ResourceAppointmentsItemModel::slotResourceInserted);
 
-        connect(m_project, &Project::resourceRemoved, this, &ResourceAppointmentsItemModel::slotResourceRemoved);
+        connect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceAppointmentsItemModel::slotResourceRemoved);
 
         connect(m_project, &Project::defaultCalendarChanged, this, &ResourceAppointmentsItemModel::slotCalendarChanged);
 
@@ -356,9 +356,9 @@ QModelIndex ResourceAppointmentsItemModel::parent(const QModelIndex &idx) const
     if (! p.isValid()) {
         Resource *r = resource(idx);
         if (r) {
-            int row = m_project->indexOf(r->parentGroup());
-            p = createGroupIndex(row, 0, r->parentGroup());
-            //debugPlan<<"Parent:"<<p<<r->parentGroup()->name();
+            int row = m_project->indexOf(r->parentGroups().value(0));
+            p = createGroupIndex(row, 0, r->parentGroups().value(0));
+            //debugPlan<<"Parent:"<<p<<r->parentGroups().value(0)->name();
             Q_ASSERT(p.isValid());
         }
     }
@@ -366,7 +366,7 @@ QModelIndex ResourceAppointmentsItemModel::parent(const QModelIndex &idx) const
         Appointment *a = appointment(idx);
         if (a && a->resource() && a->resource()->resource()) {
             Resource *r = a->resource()->resource();
-            int row = r->parentGroup()->indexOf(r);
+            int row = r->parentGroups().value(0)->indexOf(r);
             p = createResourceIndex(row, 0, r);
             //debugPlan<<"Parent:"<<p<<r->name();
             Q_ASSERT(p.isValid());
@@ -376,7 +376,7 @@ QModelIndex ResourceAppointmentsItemModel::parent(const QModelIndex &idx) const
         Appointment *a = externalAppointment(idx);
         Resource *r = parent(a);
         if (r) {
-            int row = r->parentGroup()->indexOf(r);
+            int row = r->parentGroups().value(0)->indexOf(r);
             p = createResourceIndex(row, 0, r);
         }
     }
@@ -445,7 +445,7 @@ QModelIndex ResourceAppointmentsItemModel::index(const Resource *resource) const
     }
     Resource *r = const_cast<Resource*>(resource);
     int row = -1;
-    ResourceGroup *par = r->parentGroup();
+    ResourceGroup *par = r->parentGroups().value(0);
     if (par) {
         row = par->indexOf(r);
         return createResourceIndex(row, 0, r);
@@ -1069,7 +1069,7 @@ void ResourceAppointmentsItemModel::slotCalendarChanged(Calendar*)
 
 void ResourceAppointmentsItemModel::slotResourceChanged(Resource *res)
 {
-    ResourceGroup *g = res->parentGroup();
+    ResourceGroup *g = res->parentGroups().value(0);
     if (g) {
         int row = g->indexOf(res);
         emit dataChanged(createResourceIndex(row, 0, res), createResourceIndex(row, columnCount() - 1, res));
@@ -1375,17 +1375,17 @@ void ResourceAppointmentsRowModel::setProject(Project *project)
 
         disconnect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceGroupToBeRemoved);
 
-        disconnect(m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsRowModel::slotResourceToBeInserted);
-
-        disconnect(m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceToBeRemoved);
+        disconnect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceAppointmentsRowModel::slotResourceToBeInserted);
+        
+        disconnect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceAppointmentsRowModel::slotResourceToBeRemoved);
 
         disconnect(m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsRowModel::slotResourceGroupInserted);
 
         disconnect(m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsRowModel::slotResourceGroupRemoved);
 
-        disconnect(m_project, &Project::resourceAdded, this, &ResourceAppointmentsRowModel::slotResourceInserted);
+        disconnect(m_project, &Project::resourceAddedToGroup, this, &ResourceAppointmentsRowModel::slotResourceInserted);
 
-        disconnect(m_project, &Project::resourceRemoved, this, &ResourceAppointmentsRowModel::slotResourceRemoved);
+        disconnect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceAppointmentsRowModel::slotResourceRemoved);
 
         disconnect(m_project, &Project::projectCalculated, this, &ResourceAppointmentsRowModel::slotProjectCalculated);
 
@@ -1405,17 +1405,17 @@ void ResourceAppointmentsRowModel::setProject(Project *project)
 
         connect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceGroupToBeRemoved);
 
-        connect(m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsRowModel::slotResourceToBeInserted);
+        connect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceAppointmentsRowModel::slotResourceToBeInserted);
 
-        connect(m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceToBeRemoved);
+        connect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceAppointmentsRowModel::slotResourceToBeRemoved);
 
         connect(m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsRowModel::slotResourceGroupInserted);
 
         connect(m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsRowModel::slotResourceGroupRemoved);
 
-        connect(m_project, &Project::resourceAdded, this, &ResourceAppointmentsRowModel::slotResourceInserted);
+        connect(m_project, &Project::resourceAddedToGroup, this, &ResourceAppointmentsRowModel::slotResourceInserted);
 
-        connect(m_project, &Project::resourceRemoved, this, &ResourceAppointmentsRowModel::slotResourceRemoved);
+        connect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceAppointmentsRowModel::slotResourceRemoved);
 
         connect(m_project, &Project::projectCalculated, this, &ResourceAppointmentsRowModel::slotProjectCalculated);
 
@@ -1537,15 +1537,15 @@ QModelIndex ResourceAppointmentsRowModel::parent(const QModelIndex &idx) const
         // Resource, parent is ResourceGroup
         int row = m_project->indexOf(pg);
         p = const_cast<ResourceAppointmentsRowModel*>(this)->createGroupIndex(row, 0, m_project);
-        //debugPlan<<"Parent:"<<p<<r->parentGroup()->name();
+        //debugPlan<<"Parent:"<<p<<r->parentGroups().value(0)->name();
         Q_ASSERT(p.isValid());
         return p;
     }
     if (Resource *pr = parentResource(idx)) {
         // Appointment, parent is Resource
-        int row = pr->parentGroup()->indexOf(pr);
-        p = const_cast<ResourceAppointmentsRowModel*>(this)->createResourceIndex(row, 0, pr->parentGroup());
-        //debugPlan<<"Parent:"<<p<<r->parentGroup()->name();
+        int row = pr->parentGroups().value(0)->indexOf(pr);
+        p = const_cast<ResourceAppointmentsRowModel*>(this)->createResourceIndex(row, 0, pr->parentGroups().value(0));
+        //debugPlan<<"Parent:"<<p<<r->parentGroups().value(0)->name();
         Q_ASSERT(p.isValid());
         return p;
     }
@@ -1587,7 +1587,7 @@ QModelIndex ResourceAppointmentsRowModel::index(Resource *r) const
     if (m_project == 0 || r == 0) {
         return QModelIndex();
     }
-    return const_cast<ResourceAppointmentsRowModel*>(this)->createResourceIndex(r->parentGroup()->indexOf(r), 0, r->parentGroup());
+    return const_cast<ResourceAppointmentsRowModel*>(this)->createResourceIndex(r->parentGroups().value(0)->indexOf(r), 0, r->parentGroups().value(0));
 }
 
 QModelIndex ResourceAppointmentsRowModel::index(Appointment *a) const
@@ -1713,24 +1713,28 @@ void ResourceAppointmentsRowModel::slotResourceToBeInserted(const ResourceGroup 
     beginInsertRows(i, row, row);
 }
 
-void ResourceAppointmentsRowModel::slotResourceInserted(const Resource *r)
+void ResourceAppointmentsRowModel::slotResourceInserted(const ResourceGroup *group, int row)
 {
+    Resource *r = group->resourceAt(row);
+    Q_ASSERT(r);
     debugPlan<<r->name();
-    endInsertRows();
 
     connect(r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsRowModel::slotAppointmentToBeInserted);
     connect(r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsRowModel::slotAppointmentInserted);
     connect(r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentToBeRemoved);
     connect(r, &Resource::externalAppointmentRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentRemoved);
     connect(r, &Resource::externalAppointmentChanged, this, &ResourceAppointmentsRowModel::slotAppointmentChanged);
+
+    endInsertRows();
 }
 
-void ResourceAppointmentsRowModel::slotResourceToBeRemoved(const Resource *r)
+void ResourceAppointmentsRowModel::slotResourceToBeRemoved(const ResourceGroup *group, int row)
 {
+    Resource *r = group->resourceAt(row);
+    Q_ASSERT(r);
     debugPlan<<r->name();
-    int row = r->parentGroup()->indexOf(r);
 
-    beginRemoveRows(index(r->parentGroup()), row, row);
+    beginRemoveRows(index(const_cast<ResourceGroup*>(group)), row, row);
     disconnect(r, &Resource::externalAppointmentToBeAdded, this, &ResourceAppointmentsRowModel::slotAppointmentToBeInserted);
     disconnect(r, &Resource::externalAppointmentAdded, this, &ResourceAppointmentsRowModel::slotAppointmentInserted);
     disconnect(r, &Resource::externalAppointmentToBeRemoved, this, &ResourceAppointmentsRowModel::slotAppointmentToBeRemoved);
@@ -1762,9 +1766,10 @@ void ResourceAppointmentsRowModel::slotResourceToBeRemoved(const Resource *r)
     }
 }
 
-void ResourceAppointmentsRowModel::slotResourceRemoved(const Resource *resource)
+void ResourceAppointmentsRowModel::slotResourceRemoved(const ResourceGroup *group, int row)
 {
-    Q_UNUSED(resource);
+    Q_UNUSED(group)
+    Q_UNUSED(row)
     //debugPlan<<resource->name();
     endRemoveRows();
 }

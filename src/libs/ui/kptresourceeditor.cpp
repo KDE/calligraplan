@@ -346,7 +346,7 @@ void ResourceEditor::slotAddResource()
         if (rl.count() != 1) {
             return;
         }
-        g = rl.first()->parentGroup();
+        g = rl.first()->parentGroups().value(0);
     }
     if (g == 0) {
         return;

@@ -93,7 +93,7 @@ MacroCommand *RequestResourcesPanel::buildCommand()
     }
     for(QHash<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit) {
         Resource *resource = const_cast<Resource*>(rit.key());
-        ResourceGroup *group = resource->parentGroup();
+        ResourceGroup *group = resource->parentGroups().value(0);
         if (rit.value()->units() > 0) {
             ResourceRequest *rr = task->requests().find(resource);
             if (rr == 0) {
@@ -154,7 +154,7 @@ MacroCommand *RequestResourcesPanel::buildCommand(Task *task)
     // Add possible requests to resources
     for(QHash<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit) {
         Resource *resource = const_cast<Resource*>(rit.key());
-        ResourceGroup *group = resource->parentGroup();
+        ResourceGroup *group = resource->parentGroups().value(0);
         if (rit.value()->units() > 0) {
             ResourceGroupRequest *gr = groups.value(group);
             // Check if there is already a request to the group
