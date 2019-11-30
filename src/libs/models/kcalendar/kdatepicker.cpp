@@ -78,7 +78,7 @@ private:
 };
 
 // Week numbers are defined by ISO 8601
-// See http://www.merlyn.demon.co.uk/weekinfo.htm for details
+// See https://people.cs.nctu.edu.tw/~tsaiwn/sisc/runtime_error_200_div_by_0/www.merlyn.demon.co.uk/weekinfo.htm for details
 
 KDatePickerPrivateYearSelector::KDatePickerPrivateYearSelector(
     const QDate &currentDate, QWidget *parent)

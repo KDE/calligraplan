@@ -6,7 +6,7 @@
  * Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
  *
  * Requires the Qt widget libraries, available at no cost at
- * http://www.troll.no/
+ * https://qt.io/
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

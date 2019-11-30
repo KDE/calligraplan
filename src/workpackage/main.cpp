@@ -48,7 +48,7 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
      * For example, to get full debug output, run the following:
      * QT_LOGGING_RULES="calligra.planwork=true" calligraplan
      *
-     * See: http://doc.qt.io/qt-5/qloggingcategory.html
+     * See: https://doc.qt.io/qt-5/qloggingcategory.html
      */
     QLoggingCategory::setFilterRules("calligra.plan*.debug=false\n"
                                      "calligra.plan*.warning=true");

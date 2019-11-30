@@ -68,7 +68,7 @@ QString KPlatoAboutPage::main()
     res = res.arg("");
 
     res = res.arg(i18n("Plan"))
-    .arg(i18nc("KDE 4 tag line, see http://kde.org/img/kde40.png", "Be free."))
+    .arg(i18nc("KDE 4 tag line", "Be free."))
     .arg(i18n("Plan is a Project Planning and Management application."))
     .arg(i18n("Welcome to Plan."))
     .arg(i18n("These introductory pages should give you an idea of how to use Plan and what you can use it for."))
