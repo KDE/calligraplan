@@ -57,12 +57,12 @@
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="finished">
+       <widget class="QLabel" name="label_4">
         <property name="text">
          <string>Finished:</string>
         </property>
-        <property name="shortcut">
-         <string/>
+        <property name="buddy">
+         <cstring>finishTime</cstring>
         </property>
        </widget>
       </item>
@@ -70,6 +70,16 @@
        <widget class="QDateTimeEdit" name="finishTime">
         <property name="calendarPopup">
          <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="finished">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="shortcut">
+         <string/>
         </property>
        </widget>
       </item>
@@ -343,14 +353,19 @@
  <tabstops>
   <tabstop>started</tabstop>
   <tabstop>startTime</tabstop>
-  <tabstop>finished</tabstop>
   <tabstop>finishTime</tabstop>
-  <tabstop>addEntryBtn</tabstop>
-  <tabstop>removeEntryBtn</tabstop>
+  <tabstop>finished</tabstop>
+  <tabstop>editmode</tabstop>
   <tabstop>ui_year</tabstop>
   <tabstop>prevWeekBtn</tabstop>
   <tabstop>weekNumber</tabstop>
   <tabstop>nextWeekBtn</tabstop>
+  <tabstop>ui_resourceCombo</tabstop>
+  <tabstop>addEntryBtn</tabstop>
+  <tabstop>removeEntryBtn</tabstop>
+  <tabstop>entryTable</tabstop>
+  <tabstop>taskName</tabstop>
+  <tabstop>resourceTable</tabstop>
  </tabstops>
  <resources/>
  <connections/>

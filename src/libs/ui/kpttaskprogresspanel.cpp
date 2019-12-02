@@ -87,6 +87,7 @@ TaskProgressPanel::TaskProgressPanel(Task &task, ScheduleManager *sm, StandardWo
     entryTable->model()->setTask(&task);
     entryTable->setCompletion(&m_completion);
     connect(entryTable, &CompletionEntryEditor::rowInserted, this, &TaskProgressPanel::slotEntryAdded);
+    connect(entryTable, &CompletionEntryEditor::rowRemoved, this, &TaskProgressPanel::slotEntryRemoved);
 
     resourceTable->setProject(static_cast<Project*>(task.projectNode()));
     resourceTable->setCompletion(&m_completion);
@@ -105,6 +106,9 @@ TaskProgressPanel::TaskProgressPanel(Task &task, ScheduleManager *sm, StandardWo
     connect(startTime, &QDateTimeEdit::dateTimeChanged, this, &TaskProgressPanelImpl::slotStartTimeChanged);
     connect(finishTime, &QDateTimeEdit::dateTimeChanged, this, &TaskProgressPanelImpl::slotChanged);
     connect(finishTime, &QDateTimeEdit::dateTimeChanged, this, &TaskProgressPanelImpl::slotFinishTimeChanged);
+
+    finishTime->setToolTip(xi18nc("@info:tooltip", "Select the tasks finish time"));
+    finished->setToolTip(xi18nc("@info:tooltip", "Finish the task at the selected time"));
 }
 
 MacroCommand *TaskProgressPanel::buildCommand()
@@ -196,7 +200,14 @@ void TaskProgressPanel::slotWeekNumberChanged(int index)
 
 void TaskProgressPanel::slotEntryAdded(const QDate &date)
 {
-    debugPlan<<date;
+    Q_UNUSED(date)
+    updateFinishedDateTime();
+}
+
+void TaskProgressPanel::slotEntryRemoved(const QDate &date)
+{
+    Q_UNUSED(date)
+    updateFinishedDateTime();
 }
 
 //-------------------------------------
@@ -242,6 +253,11 @@ TaskProgressPanelImpl::TaskProgressPanelImpl(Task &task, QWidget *parent)
 
 }
 
+void TaskProgressPanelImpl::updateFinishedDateTime()
+{
+    finishTime->setMinimumDateTime(qMax(startTime->dateTime(), QDateTime(m_completion.entryDate(), QTime(), Qt::LocalTime)));
+}
+
 void TaskProgressPanelImpl::slotEffortChanged(const QDate &date)
 {
     if (date.isValid()) {
@@ -273,10 +289,11 @@ void TaskProgressPanelImpl::slotStartedChanged(bool state) {
 }
 
 void TaskProgressPanelImpl::setFinished() {
-    QTime t = QTime::currentTime();
-    t.setHMS(t.hour(), t.minute(), 0);
-    finishTime->setDateTime(QDateTime(QDate::currentDate(), t, Qt::LocalTime));
-    slotFinishTimeChanged(finishTime->dateTime());
+    const QDateTime dt = finishTime->dateTime();
+    m_completion.setPercentFinished(dt.date(), 100);
+    m_completion.setRemainingEffort(dt.date(), Duration::zeroDuration);
+    entryTable->setCompletion(&m_completion); // for refresh
+    updateFinishedDateTime();
 }
 
 void TaskProgressPanelImpl::slotFinishedChanged(bool state) {
@@ -292,27 +309,22 @@ void TaskProgressPanelImpl::slotFinishedChanged(bool state) {
 
 void TaskProgressPanelImpl::slotFinishTimeChanged(const QDateTime &dt)
 {
+    qInfo()<<Q_FUNC_INFO<<dt;
     if (! m_completion.isFinished()) {
         return;
     }
     m_completion.setFinishTime(dt);
-    if (m_completion.percentFinished() < 100) {
-        m_completion.setPercentFinished(dt.date(), 100);
-    }
-    m_completion.setRemainingEffort(dt.date(), Duration::zeroDuration);
-    entryTable->setCompletion(&m_completion); // for refresh
 }
 
 void TaskProgressPanelImpl::slotStartTimeChanged(const QDateTime &dt)
 {
     m_completion.setStartTime(dt);
-    finishTime->setMinimumDateTime(qMax(startTime->dateTime(), QDateTime(m_completion.entryDate(), QTime(), Qt::LocalTime)));
-    
+    updateFinishedDateTime();
 }
 
 void TaskProgressPanelImpl::slotEntryChanged()
 {
-    finishTime->setMinimumDateTime(qMax(startTime->dateTime(), QDateTime(m_completion.entryDate(), QTime(), Qt::LocalTime)));
+    updateFinishedDateTime();
 }
 
 void TaskProgressPanelImpl::updateResourceCombo()
@@ -328,7 +340,7 @@ void TaskProgressPanelImpl::enableWidgets() {
 
     started->setEnabled(!finished->isChecked());
     finished->setEnabled(started->isChecked());
-    finishTime->setEnabled(finished->isChecked());
+    finishTime->setEnabled(!finished->isChecked());
     startTime->setEnabled(started->isChecked() && !finished->isChecked());
 
     addEntryBtn->setEnabled(started->isChecked() && !finished->isChecked());
