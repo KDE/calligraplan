@@ -71,6 +71,8 @@ protected Q_SLOTS:
     void slotCalculateEffort();
     void slotFillWeekNumbers(int year);
 
+    void updateFinishedDateTime();
+
 protected:
     void setFinished();
 
@@ -98,6 +100,7 @@ public:
 protected Q_SLOTS:
     void slotWeekNumberChanged(int);
     void slotEntryAdded(const QDate &date);
+    void slotEntryRemoved(const QDate &date);
 };
 
 }  //KPlato namespace
