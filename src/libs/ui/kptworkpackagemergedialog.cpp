@@ -300,7 +300,7 @@ bool WorkPackageMergeDialog::updateFinished() const
 
 bool WorkPackageMergeDialog::updateEntry(int row) const
 {
-    return updateProgress(row) || updateUsedEffort(row);
+    return updateProgress(row) || updateUsedEffort(row) || updateRemainingEffort(row);
 }
 
 bool WorkPackageMergeDialog::updateProgress(int row) const
