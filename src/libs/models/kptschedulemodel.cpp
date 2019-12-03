@@ -1124,7 +1124,9 @@ QVariant ScheduleSortFilterModel::data(const QModelIndex &index, int role) const
         QModelIndex state = index.sibling(index.row(), ScheduleModel::ScheduleState);
         if (state.data(Qt::EditRole).toString() != "Scheduled") {
             QString s = state.data(SpecialScheduleDisplayRole).toString();
-            return QString("%1 (%2)").arg(v.toString(), s);
+            if (!s.isEmpty()) {
+                return QString("%1 (%2)").arg(v.toString(), s); // TODO i18n
+            }
         }
     }
     return v;
