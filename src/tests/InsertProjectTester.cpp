@@ -316,15 +316,16 @@ void InsertProjectTester::testTask()
     Part pp(0);
     MainDocument part(&pp);
     pp.setDocument(&part);
+    Project &p = part.getProject();
+    p.setName("Insert from");
 
     addTask(part);
-    Project &p = part.getProject();
     QVERIFY(p.numChildren() == 1);
 
     Part pp2(0);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
-
+    part2.getProject().setName("Insert into");
     part2.insertProject(p, 0, 0);
     QVERIFY(part2.getProject().numChildren() == 1);
 }
@@ -344,22 +345,22 @@ void InsertProjectTester::testGroupRequest()
     Part pp(0);
     MainDocument part(&pp);
     pp.setDocument(&part);
-
+    Project &p = part.getProject();
+    p.setName("Insert from");
     addCalendar(part);
     addResourceGroup(part);
     addResource(part);
     addTask(part);
     addGroupRequest(part);
 
-    Project &p = part.getProject();
     QVERIFY(p.numChildren() == 1);
 
     Part pp2(0);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
-
-    part2.insertProject(p, 0, 0);
     Project &p2 = part2.getProject();
+    p2.setName("Insert into");
+    part2.insertProject(p, 0, 0);
     QVERIFY(p2.childNode(0)->resourceGroupRequest(p2.resourceGroupAt(0)) != 0);
 }
 
@@ -385,12 +386,14 @@ void InsertProjectTester::testResourceRequest()
     addResourceRequest(part);
 
     Project &p = part.getProject();
+    Debug::print(&p, "To be inserted: --------", true);
     Part pp2(0);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
     part2.insertProject(p, 0, 0);
     Project &p2 = part2.getProject();
     QVERIFY(p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != 0);
+    Debug::print(&p2, "After insert: --------", true);
 }
 
 void InsertProjectTester::testTeamResourceRequest()

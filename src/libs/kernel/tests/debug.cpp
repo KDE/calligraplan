@@ -1,22 +1,23 @@
 /* This file is part of the KDE project
-   Copyright (C) 2009, 2010 Dag Andersen <danders@get2net.dk>
-   Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
-   
-   This library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU Library General Public
-   License as published by the Free Software Foundation; either
-   version 2 of the License, or (at your option) any later version.
-
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
-
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
-*/
+ *  Copyright (C) 2009, 2010 Dag Andersen <danders@get2net.dk>
+ *  Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
+ *  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ * 
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ * 
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ *  Boston, MA 02110-1301, USA.
+ */
 
 // clazy:excludeall=qstring-arg
 #include "kptappointment.h"
@@ -178,10 +179,11 @@ void print(Project *p, const QString &str, bool all = false) {
     } else {
         qDebug()<<"  Not scheduled";
     }
-    
+    qDebug()<<"  Default calendar:"<<(p->defaultCalendar()?p->defaultCalendar()->name():QString("None"));
     if (! all) {
         return;
     }
+
     if (p->resourceGroups().isEmpty()) {
         qDebug()<<"  No resource groups";
     } else {
@@ -220,7 +222,7 @@ void print(Task *t, bool full = true) {
     if (t->level() > 0) {
         pad = QString("%1").arg("", t->level()*2, ' ');
     }
-    qDebug()<<pad<<"Task"<<t->wbsCode()<<t->name()<<t->typeToString()<<t->constraintToString();
+    qDebug()<<pad<<"Task"<<t->wbsCode()<<t->name()<<t->typeToString()<<t->constraintToString()<<(void*)t;
     if (t->isScheduled()) {
         qDebug()<<pad<<"     earlyStart:"<<QTest::toString(QDateTime(t->earlyStart()));
         qDebug()<<pad<<"      lateStart:"<<QTest::toString(QDateTime(t->lateStart()));
@@ -251,10 +253,11 @@ void print(Task *t, bool full = true) {
                 ? (t->estimate()->calendar()?t->estimate()->calendar()->name():"Fixed")
                 : QString("%1 h").arg(t->estimate()->expectedValue().toDouble(Duration::Unit_h)));
 
+    qDebug()<<pad<<"Requests:"<<"groups:"<<t->requests().requests().count()<<"resources:"<<t->requests().resourceRequests().count();
     foreach (ResourceGroupRequest *gr, t->requests().requests()) {
-        qDebug()<<pad<<"Group request:"<<gr->group()->name()<<gr->units();
+        qDebug()<<pad<<"Group request:"<<gr->group()->name()<<gr->units()<<':'<<(void*)gr;
         foreach (ResourceRequest *rr, gr->resourceRequests()) {
-            qDebug()<<pad<<printAvailable(rr->resource(), "   " + rr->resource()->name())<<"id:"<<rr->resource()->id()<<(void*)rr->resource();
+            qDebug()<<pad<<printAvailable(rr->resource(), "   " + rr->resource()->name())<<"id:"<<rr->resource()->id()<<(void*)rr->resource()<<':'<<(void*)rr;
         }
     }
     if (t->isStartNode()) {
@@ -324,7 +327,7 @@ void print(const Completion &c, const QString &name, const QString &s = QString(
     qDebug()<<"     Started:"<<c.isStarted()<<c.startTime();
     qDebug()<<"    Finished:"<<c.isFinished()<<c.finishTime();
     qDebug()<<"  Completion:"<<c.percentFinished()<<'%';
-    
+
     if (! c.usedEffortMap().isEmpty()) {
         qDebug()<<"     Used effort:";
         foreach (const Resource *r, c.usedEffortMap().keys()) {  // clazy:exclude=container-anti-pattern

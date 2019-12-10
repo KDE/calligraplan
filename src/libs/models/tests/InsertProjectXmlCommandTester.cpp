@@ -34,39 +34,10 @@
 
 #include <QTest>
 
-namespace QTest
-{
-    template<>
-            char *toString(const KPlato::DateTime &dt)
-    {
-        return toString(dt.toString());
-    }
-}
-
+#include <tests/debug.cpp>
 
 using namespace KPlato;
 
-
-void InsertProjectXmlCommandTester::printDebug(Project *project) const
-{
-    Project *p = project;
-    qInfo()<<"Debug info -------------------------------------";
-    qInfo()<<"Project:"<<p;
-    qInfo()<<"Num tasks:"<<p->allTasks().count();
-    for (int i = 0; i < p->numChildren(); ++i) {
-        qInfo()<<i<<':'<<p->childNode(i);
-        const ResourceRequestCollection &coll = p->childNode(i)->requests();
-        qInfo()<<"\tRequests:"<<coll.requests().count();
-        for (int g = 0; g < coll.requests().count(); ++g) {
-            ResourceGroupRequest *gr = p->childNode(i)->requests().requests().at(g);
-            qInfo()<<"\tGroup:"<<gr->group();
-            for (int r = 0; r < gr->resourceRequests().count(); ++r) {
-                ResourceRequest *rr = gr->resourceRequests().at(r);
-                qInfo()<<"\t\tResource:"<<rr->resource();
-            }
-        }
-    }
-}
 
 Project *createProject()
 {
@@ -119,8 +90,9 @@ void addTask(Project *project, const QString &name, Task *parent = 0)
 void addRequests(Node *task, ResourceGroup *g, Resource *r)
 {
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
+    ResourceRequest *rr = new ResourceRequest(r, 100);
     task->requests().addRequest(gr);
+    task->requests().addResourceRequest(rr, gr);
 }
 
 void addDependency(Node *t1, Node *t2)
@@ -135,7 +107,7 @@ void InsertProjectXmlCommandTester::init()
 
 void InsertProjectXmlCommandTester::cleanup()
 {
-    printDebug(m_project);
+    Debug::print(m_project, "--------------------", true);
     delete m_project;
 }
 
@@ -146,7 +118,7 @@ void InsertProjectXmlCommandTester::copyBasics()
     QList<Node*> old = m_project->childNodeIterator();
 
     XmlSaveContext context(m_project);
-    context.options = XmlSaveContext::SaveNodes;
+    context.options = XmlSaveContext::SaveSelectedNodes;
     context.nodes << m_project->childNode(0);
     context.save();
     qInfo()<<context.document.toString();
@@ -167,16 +139,16 @@ void InsertProjectXmlCommandTester::copyRequests()
 
     addRequests(m_project->childNode(0), m_project->resourceGroupAt(0), m_project->resourceGroupAt(0)->resourceAt(0));
     addRequests(m_project->childNode(1), m_project->resourceGroupAt(0), m_project->resourceGroupAt(0)->resourceAt(0));
-    printDebug(m_project);
+    Debug::print(m_project, "--------------------", true);
 
     XmlSaveContext context(m_project);
-    context.options = XmlSaveContext::SaveNodes;
+    context.options = XmlSaveContext::SaveSelectedNodes|XmlSaveContext::SaveRequests;
     context.nodes << m_project->childNode(0) << m_project->childNode(1);
     context.save();
-    qInfo()<<context.document.toString();
+
     InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, nullptr /*last*/);
     cmd.redo();
-    printDebug(m_project);
+    Debug::print(m_project, "--------------------", true);
     QCOMPARE(m_project->allTasks().count(), 4);
 
     Node *copy1 = m_project->childNode(2);
@@ -205,15 +177,15 @@ void InsertProjectXmlCommandTester::copyDependency()
 
     addDependency(m_project->childNode(0), m_project->childNode(1));
 
-    printDebug(m_project);
+    Debug::print(m_project, "--------------------", true);
 
     XmlSaveContext context(m_project);
-    context.options = XmlSaveContext::SaveNodes;
+    context.options = XmlSaveContext::SaveSelectedNodes | XmlSaveContext::SaveRelations;
     context.nodes << m_project->childNode(0) << m_project->childNode(1);
     context.save();
     InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, nullptr /*last*/);
     cmd.redo();
-    printDebug(m_project);
+    Debug::print(m_project, "--------------------", true);
     QCOMPARE(m_project->allTasks().count(), 4);
 
     Node *copy1 = m_project->childNode(2);
@@ -232,7 +204,7 @@ void InsertProjectXmlCommandTester::copyToPosition()
 
     QList<Node*> old = m_project->childNodeIterator();
     XmlSaveContext context(m_project);
-    context.options = XmlSaveContext::SaveNodes;
+    context.options = XmlSaveContext::SaveSelectedNodes;
     context.nodes << m_project->childNode(0);
     context.save();
     {
@@ -244,15 +216,14 @@ void InsertProjectXmlCommandTester::copyToPosition()
     QCOMPARE(m_project->childNode(2), old.at(1));
     QVERIFY(!old.contains(m_project->childNode(1)));
 
-    qInfo()<<m_project->childNodeIterator();
     old = m_project->childNodeIterator();
-    context.options = XmlSaveContext::SaveNodes;
+    context.options = XmlSaveContext::SaveSelectedNodes;
     context.save();
     {
     InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project->childNode(1), nullptr);
     cmd.redo();
     }
-    qInfo()<<m_project->childNodeIterator();
+
     QCOMPARE(m_project->numChildren(), 3);
     QCOMPARE(m_project->allNodes().count(), 4);
     QVERIFY(m_project->childNode(1)->type() == Node::Type_Summarytask);

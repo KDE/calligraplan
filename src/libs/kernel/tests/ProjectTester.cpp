@@ -179,7 +179,7 @@ void ProjectTester::schedule()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     ResourceRequest *rr = new ResourceRequest(r, 100);
-    gr->addResourceRequest(rr);
+    t->requests().addResourceRequest(rr, gr);
     t->estimate()->setType(Estimate::Type_Effort);
 
     s = "Calculate forward, Task: ASAP -----------------------------------";
@@ -302,7 +302,7 @@ void ProjectTester::schedule()
     ResourceGroupRequest *gr2 = new ResourceGroupRequest(g);
     task2->addRequest(gr2);
     ResourceRequest *rr2 = new ResourceRequest(r, 50);
-    gr2->addResourceRequest(rr2);
+    task2->requests().addResourceRequest(rr2, gr2);
 
     sm = m_project->createScheduleManager("Test Plan");
     m_project->addScheduleManager(sm);
@@ -870,7 +870,7 @@ void ProjectTester::schedule()
     gr = new ResourceGroupRequest(g);
     tsk2->addRequest(gr);
     rr = new ResourceRequest(r, 100);
-    gr->addResourceRequest(rr);
+    tsk2->requests().addResourceRequest(rr, gr);
 
     sm = m_project->createScheduleManager("Test Plan");
     sm->setAllowOverbooking(false);
@@ -987,8 +987,8 @@ void ProjectTester::scheduleFullday()
     t->estimate()->setType(Estimate::Type_Effort);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
     t->addRequest(gr);
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     ScheduleManager *sm = m_project->createScheduleManager("Test Plan");
     m_project->addScheduleManager(sm);
@@ -1038,7 +1038,7 @@ void ProjectTester::scheduleFullday()
     r->setAvailableUntil(r->availableFrom().addDays(21));
     m_project->addResource(r);
     r->addParentGroup(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     r = new Resource();
     r->setName("R3");
@@ -1047,7 +1047,7 @@ void ProjectTester::scheduleFullday()
     r->setAvailableUntil(r->availableFrom().addDays(21));
     m_project->addResource(r);
     r->addParentGroup(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
 
     sm->createSchedules();
@@ -1102,8 +1102,8 @@ void ProjectTester::scheduleFulldayDstSpring()
     t->estimate()->setType(Estimate::Type_Effort);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
     t->addRequest(gr);
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     ScheduleManager *sm = project.createScheduleManager("Test Plan");
     project.addScheduleManager(sm);
@@ -1174,7 +1174,7 @@ void ProjectTester::scheduleFulldayDstSpring()
     r->setAvailableUntil(r->availableFrom().addDays(21));
     project.addResource(r);
     r->addParentGroup(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     r = new Resource();
     r->setName("R3");
@@ -1183,7 +1183,7 @@ void ProjectTester::scheduleFulldayDstSpring()
     r->setAvailableUntil(r->availableFrom().addDays(21));
     project.addResource(r);
     r->addParentGroup(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     project.setConstraintStartTime(DateTime(QDate::fromString("2011-03-25", Qt::ISODate)));
 
@@ -1259,8 +1259,8 @@ void ProjectTester::scheduleFulldayDstFall()
     t->estimate()->setType(Estimate::Type_Effort);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
     t->addRequest(gr);
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     ScheduleManager *sm = project.createScheduleManager("Test Plan");
     project.addScheduleManager(sm);
@@ -1327,7 +1327,7 @@ void ProjectTester::scheduleFulldayDstFall()
     r->setAvailableUntil(r->availableFrom().addDays(21));
     project.addResource(r);
     r->addParentGroup(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     r = new Resource();
     r->setName("R3");
@@ -1336,7 +1336,7 @@ void ProjectTester::scheduleFulldayDstFall()
     r->setAvailableUntil(r->availableFrom().addDays(21));
     project.addResource(r);
     r->addParentGroup(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
 
     sm = project.createScheduleManager("Test Foreward");
@@ -1403,8 +1403,8 @@ void ProjectTester::scheduleWithExternalAppointments()
     t->estimate()->setType(Estimate::Type_Effort);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
     t->addRequest(gr);
+    t->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     ScheduleManager *sm = project.createScheduleManager("Test Plan");
     project.addScheduleManager(sm);
@@ -1504,8 +1504,8 @@ void ProjectTester::reschedule()
     task1->estimate()->setType(Estimate::Type_Effort);
 
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
     task1->addRequest(gr);
+    task1->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     Task *task2 = project.createTask();
     task2->setName("T2");
@@ -1515,8 +1515,8 @@ void ProjectTester::reschedule()
     task2->estimate()->setType(Estimate::Type_Effort);
 
     gr = new ResourceGroupRequest(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
     task2->addRequest(gr);
+    task2->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     Task *task3 = project.createTask();
     task3->setName("T3");
@@ -1526,8 +1526,8 @@ void ProjectTester::reschedule()
     task3->estimate()->setType(Estimate::Type_Effort);
 
     gr = new ResourceGroupRequest(g);
-    gr->addResourceRequest(new ResourceRequest(r, 100));
     task3->addRequest(gr);
+    task3->requests().addResourceRequest(new ResourceRequest(r, 100), gr);
 
     Relation *rel = new Relation(task1, task2);
     project.addRelation(rel);
@@ -1652,12 +1652,12 @@ void ProjectTester::materialResource()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     task1->addRequest(gr);
     ResourceRequest *rr = new ResourceRequest(r, 100);
-    gr->addResourceRequest(rr);
+    task1->requests().addResourceRequest(rr, gr);
 
     ResourceGroupRequest *mgr = new ResourceGroupRequest(mg);
     task1->addRequest(mgr);
     ResourceRequest *mrr = new ResourceRequest(mr, 100);
-    mgr->addResourceRequest(mrr);
+    task1->requests().addResourceRequest(mrr, mgr);
 
     ScheduleManager *sm = project.createScheduleManager("Test Plan");
     project.addScheduleManager(sm);
@@ -1734,7 +1734,7 @@ void ProjectTester::requiredResource()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     task1->addRequest(gr);
     ResourceRequest *rr = new ResourceRequest(r, 100);
-    gr->addResourceRequest(rr);
+    task1->requests().addResourceRequest(rr, gr);
 
     QList<Resource*> lst; lst << mr;
     rr->setRequiredResources(lst);
@@ -1853,9 +1853,9 @@ void ProjectTester::resourceWithLimitedAvailability()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     task1->addRequest(gr);
     ResourceRequest *rr1 = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(rr1);
+    task1->requests().addResourceRequest(rr1, gr);
     ResourceRequest *rr2 = new ResourceRequest(r2, 100);
-    gr->addResourceRequest(rr2);
+    task1->requests().addResourceRequest(rr2, gr);
 
     ScheduleManager *sm = project.createScheduleManager("Test Plan");
     project.addScheduleManager(sm);
@@ -1918,7 +1918,7 @@ void ProjectTester::unavailableResource()
     
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     task1->addRequest(gr);
-    gr->addResourceRequest(new ResourceRequest(r1, 100));
+    task1->requests().addResourceRequest(new ResourceRequest(r1, 100), gr);
 
     ScheduleManager *sm = project.createScheduleManager("Plan R1");
     project.addScheduleManager(sm);
@@ -1939,7 +1939,7 @@ void ProjectTester::unavailableResource()
 
     r2->setAvailableFrom(targetend);
     r2->setAvailableUntil(targetend.addDays(1));
-    gr->addResourceRequest(new ResourceRequest(r2, 100));
+    task1->requests().addResourceRequest(new ResourceRequest(r2, 100), gr);
 
     sm = project.createScheduleManager("Team + Resource");
     project.addScheduleManager(sm);
@@ -2010,7 +2010,7 @@ void ProjectTester::team()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     task1->addRequest(gr);
     ResourceRequest *tr = new ResourceRequest(team, 100);
-    gr->addResourceRequest(tr);
+    task1->requests().addResourceRequest(tr, gr);
 
     ScheduleManager *sm = project.createScheduleManager("Team");
     project.addScheduleManager(sm);
@@ -2030,7 +2030,7 @@ void ProjectTester::team()
     qDebug()<<endl<<"Testing:"<<s;
 
     ResourceRequest *rr1 = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(rr1);
+    task1->requests().addResourceRequest(rr1, gr);
 
     sm = project.createScheduleManager("Team + Resource");
     project.addScheduleManager(sm);
@@ -2152,7 +2152,7 @@ void ProjectTester::inWBSOrder()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     ResourceRequest *tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
 
     t = p.createTask();
     t->setName("T2");
@@ -2164,7 +2164,7 @@ void ProjectTester::inWBSOrder()
     gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
 
     t = p.createTask();
     t->setName("T3");
@@ -2176,7 +2176,7 @@ void ProjectTester::inWBSOrder()
     gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
 
     t = p.createTask();
     t->setName("T4");
@@ -2188,7 +2188,7 @@ void ProjectTester::inWBSOrder()
     gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
     
     ScheduleManager *sm = p.createScheduleManager("WBS Order, forward");
     p.addScheduleManager(sm);
@@ -2253,7 +2253,7 @@ void ProjectTester::resourceConflictALAP()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     ResourceRequest *tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
 
     t = p.createTask();
     t->setName("T2");
@@ -2265,7 +2265,7 @@ void ProjectTester::resourceConflictALAP()
     gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
 
     t = p.createTask();
     t->setName("T3");
@@ -2277,7 +2277,7 @@ void ProjectTester::resourceConflictALAP()
     gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
 
     t = p.createTask();
     t->setName("T4");
@@ -2289,7 +2289,7 @@ void ProjectTester::resourceConflictALAP()
     gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
     
     ScheduleManager *sm = p.createScheduleManager("T1 ALAP");
     p.addScheduleManager(sm);
@@ -2429,7 +2429,7 @@ void ProjectTester::resourceConflictMustStartOn()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     ResourceRequest *tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
 
     t = p.createTask();
     t->setName("T2");
@@ -2441,7 +2441,7 @@ void ProjectTester::resourceConflictMustStartOn()
     gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
 
     t = p.createTask();
     t->setName("T3");
@@ -2453,7 +2453,7 @@ void ProjectTester::resourceConflictMustStartOn()
     gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
 
     t = p.createTask();
     t->setName("T4");
@@ -2465,7 +2465,7 @@ void ProjectTester::resourceConflictMustStartOn()
     gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    t->requests().addResourceRequest(tr, gr);
     
     ScheduleManager *sm = p.createScheduleManager("T1 MustStartOn");
     p.addScheduleManager(sm);
@@ -2646,7 +2646,7 @@ void ProjectTester::resourceConflictMustFinishOn()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     task1->addRequest(gr);
     ResourceRequest *tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    task1->requests().addResourceRequest(tr, gr);
 
     Task *task2 = p.createTask();
     task2->setName("T2");
@@ -2658,7 +2658,7 @@ void ProjectTester::resourceConflictMustFinishOn()
     gr = new ResourceGroupRequest(g);
     task2->addRequest(gr);
     tr = new ResourceRequest(r1, 100);
-    gr->addResourceRequest(tr);
+    task2->requests().addResourceRequest(tr, gr);
 
     QString s = "Schedule T1 MustFinishOn, T2 ASAP -------";
     qDebug()<<s;
@@ -3101,13 +3101,13 @@ void ProjectTester::startStart()
     ResourceGroupRequest *gr1 = new ResourceGroupRequest(g);
     task1->addRequest(gr1);
     ResourceRequest *rr1 = new ResourceRequest(r1, 100);
-    gr1->addResourceRequest(rr1);
+    task1->requests().addResourceRequest(rr1, gr1);
     task1->estimate()->setType(Estimate::Type_Effort);
 
     ResourceGroupRequest *gr2 = new ResourceGroupRequest(g);
     task2->addRequest(gr2);
     ResourceRequest *rr2 = new ResourceRequest(r2, 100);
-    gr2->addResourceRequest(rr2);
+    task2->requests().addResourceRequest(rr2, gr2);
     task2->estimate()->setType(Estimate::Type_Effort);
 
     sm = p.createScheduleManager("Resources, Lag = 1 hour");
@@ -3251,12 +3251,12 @@ void ProjectTester::scheduleTimeZone()
     ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     t->addRequest(gr);
     ResourceRequest *rr = new ResourceRequest(r, 100);
-    gr->addResourceRequest(rr);
+    t->requests().addResourceRequest(rr, gr);
 
     ResourceGroupRequest *gr2 = new ResourceGroupRequest(g);
     t2->addRequest(gr2);
     ResourceRequest *rr2 = new ResourceRequest(r2, 100);
-    gr2->addResourceRequest(rr2);
+    t2->requests().addResourceRequest(rr2, gr2);
     
     QString s = "Calculate forward, Task: ASAP -----------------------------------";
     qDebug()<<endl<<"Testing:"<<s;

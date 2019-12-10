@@ -186,16 +186,9 @@ public:
     /**
      * Used to clean up requests when the resource is deleted.
      */
-    void registerRequest(ResourceRequest *request)
-    { m_requests.append(request); }
-    void unregisterRequest(ResourceRequest *request)
-    {
-        int i = m_requests.indexOf(request);
-        if (i != -1)
-            m_requests.removeAt(i);
-    }
-    const QList<ResourceRequest*> &requests() const
-    { return m_requests; }
+    void registerRequest(ResourceRequest *request);
+    void unregisterRequest(ResourceRequest *request);
+    const QList<ResourceRequest*> &requests() const;
 
     /// Returns a list of work intervals in the interval @p from, @p until.
     /// Appointments are subtracted if @p schedule is not 0 and overbooking is not allowed.

@@ -3857,7 +3857,7 @@ QMimeData *NodeItemModel::mimeData(const QModelIndexList & indexes) const
     if (!nodes.isEmpty()) {
         XmlSaveContext context(project());
         context.nodes = nodes;
-        context.options = XmlSaveContext::SaveNodes;
+        context.options = XmlSaveContext::SaveSelectedNodes|XmlSaveContext::SaveRequests|XmlSaveContext::SaveRelations;
         context.save();
         m->setData("application/x-vnd.kde.plan.project", context.document.toByteArray());
     }

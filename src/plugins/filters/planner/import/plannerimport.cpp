@@ -480,7 +480,7 @@ bool loadAllocations(const QDomElement &el, Project &project)
         }
         ResourceRequest *rr = new ResourceRequest(r);
         rr->setUnits(pel.attribute("units").toInt());
-        gr->addResourceRequest(rr);
+        t->requests().addResourceRequest(rr, gr);
 
         // do assignments
         Calendar *calendar = r->calendar();

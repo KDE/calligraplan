@@ -48,7 +48,11 @@ RemoveResourceCmd::RemoveResourceCmd(Resource *resource, const KUndo2MagicString
         }
     }
     if (resource->account()) {
-        m_cmd.addCommand(new ResourceModifyAccountCmd(*resource, resource->account(), 0));
+        m_postCmd.addCommand(new ResourceModifyAccountCmd(*resource, resource->account(), 0));
+    }
+    foreach (ResourceRequest * r, m_requests) {
+        m_preCmd.addCommand(new RemoveResourceRequestCmd(r->parent(), r));
+        //debugPlan<<"Remove request for"<<r->resource()->name();
     }
 }
 
@@ -60,22 +64,16 @@ RemoveResourceCmd::~RemoveResourceCmd()
 
 void RemoveResourceCmd::execute()
 {
-    foreach (ResourceRequest * r, m_requests) {
-        r->parent()->takeResourceRequest(r);
-        //debugPlan<<"Remove request for"<<r->resource()->name();
-    }
+    m_preCmd.redo();
     AddResourceCmd::unexecute();
-    m_cmd.execute();
+    m_postCmd.redo();
     setSchScheduled(false);
 }
 
 void RemoveResourceCmd::unexecute()
 {
-    foreach (ResourceRequest * r, m_requests) {
-        r->parent()->addResourceRequest(r);
-        //debugPlan<<"Add request for"<<r->resource()->name();
-    }
-    m_cmd.unexecute();
+    m_postCmd.undo();
     AddResourceCmd::execute();
+    m_preCmd.undo();
     setSchScheduled();
 }

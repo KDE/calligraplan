@@ -178,7 +178,7 @@ bool AppointmentInterval::loadXML(KoXmlElement &element, XMLLoaderObject &status
 void AppointmentInterval::saveXML(QDomElement &element) const
 {
     Q_ASSERT(isValid());
-    QDomElement me = element.ownerDocument().createElement(QStringLiteral("interval"));
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("appointment-interval"));
     element.appendChild(me);
 
     me.setAttribute(QStringLiteral("start"), d->start.toString(Qt::ISODate));
@@ -576,7 +576,7 @@ bool AppointmentIntervalList::loadXML(KoXmlElement &element, XMLLoaderObject &st
 {
     KoXmlElement e;
     forEachElement(e, element) {
-        if (e.tagName() == QLatin1String("interval")) {
+        if (e.tagName() == QLatin1String("appointment-interval") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("interval"))) {
             AppointmentInterval a;
             if (a.loadXML(e, status)) {
                 add(a);

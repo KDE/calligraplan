@@ -58,15 +58,21 @@ class ResourceSchedule;
 class Schedule;
 class XMLLoaderObject;
 class DateTimeInterval;
-
+class ResourceRequestCollection;
 
 class PLANKERNEL_EXPORT ResourceRequest
 {
 public:
-    explicit ResourceRequest(Resource *resource = 0, int units = 1);
+    explicit ResourceRequest(Resource *resource = nullptr, int units = 1);
     explicit ResourceRequest(const ResourceRequest &r);
 
     ~ResourceRequest();
+
+    int id() const;
+    void setId(int id);
+
+    ResourceRequestCollection *collection() const;
+    void setCollection(ResourceRequestCollection *collection);
 
     ResourceGroupRequest *parent() const { return m_parent; }
     void setParent(ResourceGroupRequest *parent) { m_parent = parent; }
@@ -131,8 +137,10 @@ protected:
     void setCurrentSchedulePtr(Resource *resource, Schedule *ns);
 
 private:
+    int m_id;
     Resource *m_resource;
     int m_units;
+    ResourceRequestCollection *m_collection;
     ResourceGroupRequest *m_parent;
     bool m_dynamic;
     QList<Resource*> m_required;
@@ -151,6 +159,9 @@ public:
     explicit ResourceGroupRequest(const ResourceGroupRequest &group);
     ~ResourceGroupRequest();
 
+    int id() const;
+    void setId(int id);
+
     void setParent(ResourceRequestCollection *parent) { m_parent = parent;}
     ResourceRequestCollection *parent() const { return m_parent; }
 
@@ -161,8 +172,6 @@ public:
     /// If @p resolveTeam is true, include the team members,
     /// if @p resolveTeam is false, include the team resource itself.
     QList<ResourceRequest*> resourceRequests(bool resolveTeam=true) const;
-    void addResourceRequest(ResourceRequest *request);
-    void deleteResourceRequest(ResourceRequest *request);
     int count() const { return m_resourceRequests.count(); }
     ResourceRequest *requestAt(int idx) const { return m_resourceRequests.value(idx); }
 
@@ -216,7 +225,15 @@ public:
     /// Allocate dynamic requests. Do nothing if already allocated.
     void allocateDynamicRequests(const DateTime &time, const Duration &effort, Schedule *ns, bool backward);
 
+    void removeResourceRequest(ResourceRequest *request);
+
 private:
+    friend ResourceRequestCollection;
+    void addResourceRequest(ResourceRequest *request);
+    void deleteResourceRequest(ResourceRequest *request);
+
+private:
+    int m_id;
     ResourceGroup *m_group;
     int m_units;
     ResourceRequestCollection *m_parent;
@@ -237,34 +254,31 @@ public:
     explicit ResourceRequestCollection(Task *task = 0);
     ~ResourceRequestCollection();
 
-    QList<ResourceGroupRequest*> requests() const { return m_requests; }
+    /// Remove all group- and resource requests
+    /// Note: Does not delete
+    void removeRequests();
+
+    QList<ResourceGroupRequest*> requests() const { return m_groupRequests.values(); }
     void addRequest(ResourceGroupRequest *request);
     void deleteRequest(ResourceGroupRequest *request)
     {
-        int i = m_requests.indexOf(request);
-        if (i != -1)
-            m_requests.removeAt(i);
+        Q_ASSERT(m_groupRequests.contains(request->id()));
+        Q_ASSERT(m_groupRequests.value(request->id()) == request);
+        m_groupRequests.remove(request->id());
         delete request;
         changed();
     }
 
-    int takeRequest(ResourceGroupRequest *request)
-    {
-        int i = m_requests.indexOf(request);
-        if (i != -1) {
-            m_requests.removeAt(i);
-            changed();
-        }
-        return i;
-    }
-
+    int takeRequest(ResourceGroupRequest *request);
+    ResourceGroupRequest *groupRequest(int id) const;
     ResourceGroupRequest *find(const ResourceGroup *resource) const;
+    ResourceRequest *resourceRequest(int id) const;
     ResourceRequest *find(const Resource *resource) const;
     ResourceRequest *resourceRequest(const QString &name) const;
     /// The ResourceRequestCollection has no requests
     bool isEmpty() const;
     /// Empty the ResourceRequestCollection of all requets
-    void clear() { m_requests.clear(); }
+//     void clear() { m_groupRequests.clear(); }
     /// Reset dynamic resource allocations
     void resetDynamicAllocations();
 
@@ -285,6 +299,14 @@ public:
     /// If @p resolveTeam is true, include the team members,
     /// if @p resolveTeam is false, include the team resource itself.
     QList<ResourceRequest*> resourceRequests(bool resolveTeam=true) const;
+
+    /// Add the resource request @p request
+    /// If @p group is not nullptr, the request is also added to the @p group
+    void addResourceRequest(ResourceRequest *request, ResourceGroupRequest *group = nullptr);
+    /// Remove resource request @p request
+    void removeResourceRequest(ResourceRequest *request);
+    /// Delete resource request @p request
+    void deleteResourceRequest(ResourceRequest *request);
 
     //bool load(KoXmlElement &element, Project &project);
     void save(QDomElement &element) const;
@@ -312,8 +334,8 @@ public:
      */
     void reserve(const DateTime &start, const Duration &duration);
 
-    Task *task() const { return m_task; }
-    void setTask(Task *t) { m_task = t; }
+    Task *task() const;
+    void setTask(Task *t);
 
     void changed();
 
@@ -323,7 +345,8 @@ public:
 
 private:
     Task *m_task;
-    QList<ResourceGroupRequest*> m_requests;
+    QMap<int, ResourceGroupRequest*> m_groupRequests;
+    QMap<int, ResourceRequest*> m_resourceRequests;
 };
 
 }  //KPlato namespace

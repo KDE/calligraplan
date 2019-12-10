@@ -671,6 +671,9 @@ protected:
     /// Prepare task lists for scheduling
     void tasksBackward();
 
+    void saveSettings(QDomElement &element, const XmlSaveContext &context) const;
+    bool loadSettings(KoXmlElement &element, XMLLoaderObject &status);
+
 protected:
     friend class KPlatoXmlLoaderBase;
     using Node::changed;

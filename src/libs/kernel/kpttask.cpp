@@ -1,24 +1,25 @@
 /* This file is part of the KDE project
-   Copyright (C) 2001 Thomas zander <zander@kde.org>
-   Copyright (C) 2004 - 2007 Dag Andersen <danders@get2net.dk>
-   Copyright (C) 2007 Florian Piquemal <flotueur@yahoo.fr>
-   Copyright (C) 2007 Alexis Ménard <darktears31@gmail.com>
-
-   This library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU Library General Public
-   License as published by the Free Software Foundation; either
-   version 2 of the License, or (at your option) any later version.
-
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
-
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Copyright (C) 2001 Thomas zander <zander@kde.org>
+ * Copyright (C) 2004 - 2007 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2007 Florian Piquemal <flotueur@yahoo.fr>
+ * Copyright (C) 2007 Alexis Ménard <darktears31@gmail.com>
+ * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Library General Public License
+ * along with this library; see the file COPYING.LIB.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
-*/
+ */
 
 // clazy:excludeall=qstring-arg
 #include "kpttask.h"
@@ -109,10 +110,10 @@ ResourceGroupRequest *Task::resourceGroupRequest(const ResourceGroup *group) con
     return m_requests.find(group);
 }
 
-void Task::clearResourceRequests() {
-    m_requests.clear();
-    changed(this, ResourceRequestProperty);
-}
+// void Task::clearResourceRequests() {
+//     m_requests.clear();
+//     changed(this, ResourceRequestProperty);
+// }
 
 void Task::addRequest(ResourceGroup *group, int numResources) {
     addRequest(new ResourceGroupRequest(group, numResources));
@@ -301,7 +302,7 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
         KoXmlElement e = n.toElement();
         if (e.tagName() == QLatin1String("project")) {
             // Load the subproject
-/*                Project *child = new Project(this, status);
+/*              Project *child = new Project(this, status);
             if (child->load(e)) {
                 if (!project.addSubTask(child, this)) {
                     delete child;  // TODO: Complain about this
@@ -342,6 +343,9 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                 r = new ResourceGroupRequest();
                 if (r->load(e, status)) {
                     addRequest(r);
+                    for (ResourceRequest *rr : r->resourceRequests()) {
+                        m_requests.addResourceRequest(rr);
+                    }
                 } else {
                     errorPlan<<"Failed to load resource request";
                     delete r;
@@ -420,10 +424,6 @@ void Task::save(QDomElement &element, const XmlSaveContext &context)  const
     m_estimate->save(me);
 
     m_documents.save(me);
-
-    if (! m_requests.isEmpty()) {
-        m_requests.save(me);
-    }
 
     if (context.saveAll(this)) {
         if (!m_schedules.isEmpty()) {

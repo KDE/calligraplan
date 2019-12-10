@@ -45,8 +45,6 @@ private Q_SLOTS:
     void copyToPosition();
 
 private:
-    void printDebug(Project *project) const;
-
     Project *m_project;
 };
 

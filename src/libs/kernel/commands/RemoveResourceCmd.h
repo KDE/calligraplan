@@ -48,7 +48,8 @@ public:
 private:
     QList<ResourceRequest*> m_requests;
     QList<Appointment*> m_appointments;
-    MacroCommand m_cmd;
+    MacroCommand m_preCmd;
+    MacroCommand m_postCmd;
 };
 
 }

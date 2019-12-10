@@ -184,7 +184,7 @@ bool CalendarDay::load(KoXmlElement &element, XMLLoaderObject &status) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == QLatin1String("interval")) {
+        if (e.tagName() == QLatin1String("time-interval") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("interval"))) {
             //debugPlan<<"Interval start="<<e.attribute("start")<<" end="<<e.attribute("end");
             QString st = e.attribute(QStringLiteral("start"));
             if (st.isEmpty()) {
@@ -226,7 +226,7 @@ void CalendarDay::save(QDomElement &element) const {
         return;
 
     foreach (TimeInterval *i, m_timeIntervals) {
-        QDomElement me = element.ownerDocument().createElement(QStringLiteral("interval"));
+        QDomElement me = element.ownerDocument().createElement(QStringLiteral("time-interval"));
         element.appendChild(me);
         me.setAttribute(QStringLiteral("length"), QString::number(i->second));
         me.setAttribute(QStringLiteral("start"), i->first.toString());
@@ -916,7 +916,6 @@ void Calendar::saveCacheVersion(QDomElement &element) const
 }
 
 bool Calendar::load(KoXmlElement &element, XMLLoaderObject &status) {
-    //debugPlan<<element.text();
     //bool ok;
     m_blockversion = true;
     setId(element.attribute(QStringLiteral("id")));
@@ -926,7 +925,7 @@ bool Calendar::load(KoXmlElement &element, XMLLoaderObject &status) {
     if (tz.isValid()) {
         setTimeZone(tz);
     } else warnPlan<<"No timezone specified, use default (local)";
-    bool m_default = (bool)element.attribute(QStringLiteral("default"),QStringLiteral("0")).toInt();
+    m_default = (bool)element.attribute(QStringLiteral("default"),QStringLiteral("0")).toInt();
     if (m_default) {
         status.project().setDefaultCalendar(this);
     }

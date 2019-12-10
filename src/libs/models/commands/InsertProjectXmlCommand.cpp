@@ -83,7 +83,7 @@ InsertProjectXmlCommand::InsertProjectXmlCommand(Project *project, const QByteAr
         , m_position(position)
         , m_first(true)
 {
-    //debugPlan<<cal->name();
+    //debugPlanInsertProjectXml<<cal->name();
     Q_ASSERT(project != 0);
     m_context.setProject(project);
     m_context.setProjectTimeZone(project->timeZone()); // from xml doc?
@@ -108,6 +108,7 @@ void InsertProjectXmlCommand::execute()
         createCmdResources(projectElement);
         createCmdTasks(projectElement);
         createCmdRelations(projectElement);
+        createCmdRequests(projectElement);
         m_first = false;
         m_data.clear();
     } else {
@@ -138,6 +139,92 @@ void InsertProjectXmlCommand::createCmdResources(const KoXmlElement &projectElem
 {
     if (projectElement.isNull()) {
         return;
+    }
+}
+
+void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectElement)
+{
+    if (projectElement.isNull()) {
+        return;
+    }
+    debugPlanInsertProjectXml<<m_context.version();
+    if (m_context.version() < "0.7.0") {
+        return; // Requests loaded by tasks
+    }
+    KoXmlElement parentElement = projectElement.namedItem("resourcegroup-requests").toElement();
+    KoXmlElement ge;
+    forEachElement(ge, parentElement) {
+        if (ge.tagName() != "resourcegroup-request") {
+            continue;
+        }
+        Task *task = qobject_cast<Task*>(m_oldIds.value(ge.attribute("task-id")));
+        ResourceGroup *group = m_project->findResourceGroup(ge.attribute("group-id"));
+        if (task && group) {
+            int units = ge.attribute("units", "0").toInt();
+            int requestId = ge.attribute("request-id").toInt();
+            ResourceGroupRequest *request = new ResourceGroupRequest(group, units);
+            request->setId(requestId);
+            KUndo2Command *cmd = new AddResourceGroupRequestCmd(*task, request);
+            cmd->redo();
+            addCommand(cmd);
+            debugPlanInsertProjectXml<<"added grouprequest:"<<task<<request;
+        } else {
+            warnPlanInsertProjectXml<<"Failed to find group or task"<<task<<group;
+        }
+    }
+    parentElement = projectElement.namedItem("resource-requests").toElement();
+    KoXmlElement re;
+    forEachElement(re, parentElement) {
+        if (re.tagName() != "resource-request") {
+            continue;
+        }
+        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute("task-id")));
+        if (!task) {
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find task";
+            continue;
+        }
+        ResourceGroupRequest *group = task->requests().groupRequest(re.attribute("request-id").toInt());
+        if (!group) {
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find group request:"<<re.attribute("request-id");
+        }
+        Resource *resource = m_project->findResource(re.attribute("resource-id"));
+        Q_ASSERT(resource);
+        Q_ASSERT(task);
+        if (resource && task) {
+            int units = re.attribute("units", "100").toInt();
+            ResourceRequest *request = new ResourceRequest(resource, units);
+            int requestId = re.attribute("request-id").toInt();
+            Q_ASSERT(requestId > 0);
+            request->setId(requestId);
+            KUndo2Command *cmd = new AddResourceRequestCmd(&task->requests(), request, group);
+            cmd->redo();
+            addCommand(cmd);
+            debugPlanInsertProjectXml<<"added resourcerequest:"<<task<<request;
+        } else {
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find resource";
+        }
+    }
+    re = projectElement.namedItem("required-resource-requests").toElement();
+    forEachElement(re, parentElement) {
+        if (re.tagName() != "required-resource-request") {
+            continue;
+        }
+        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute("task-id")));
+        Q_ASSERT(task);
+        if (!task) {
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find task";
+            continue;
+        }
+        ResourceRequest *request = task->requests().resourceRequest(re.attribute("request-id").toInt());
+        Resource *required = m_project->findResource(re.attribute("required-id"));
+        QList<Resource*> lst;
+        if (required && request->resource() != required) {
+            lst << required;
+        }
+        KUndo2Command *cmd = new ModifyResourceRequestRequiredCmd(request, lst);
+        cmd->redo();
+        addCommand(cmd);
+        debugPlanInsertProjectXml<<"added requiredrequest:"<<task<<request<<lst;
     }
 }
 

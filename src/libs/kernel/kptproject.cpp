@@ -4,7 +4,7 @@
  Copyright (C) 2007 Florian Piquemal <flotueur@yahoo.fr>
  Copyright (C) 2007 Alexis Ménard <darktears31@gmail.com>
  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
- 
+
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Library General Public
  License as published by the Free Software Foundation; either
@@ -984,7 +984,7 @@ void Project::initiateCalculation(MainSchedule &sch)
     for (Resource *r : m_resources) {
         r->initiateCalculation(sch);
     }
-    
+
     Node::initiateCalculation(sch);
 }
 
@@ -1002,21 +1002,567 @@ void Project::initiateCalculationLists(MainSchedule &sch)
     }
 }
 
-bool Project::load(KoXmlElement &element, XMLLoaderObject &status)
+bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
 {
     //debugPlan<<"--->";
-    m_useSharedResources = false; // default should off in case old project
-    // load locale first
-    KoXmlNode n = element.firstChild();
+    QString s;
+    bool ok = false;
+    if (projectElement.hasAttribute("name")) {
+        setName(projectElement.attribute("name"));
+    }
+    if (projectElement.hasAttribute("id")) {
+        removeId(m_id);
+        m_id = projectElement.attribute("id");
+        registerNodeId(this);
+    }
+    if (projectElement.hasAttribute("priority")) {
+        m_priority = projectElement.attribute(QStringLiteral("priority"), "0").toInt();
+    }
+    if (projectElement.hasAttribute("leader")) {
+        m_leader = projectElement.attribute("leader");
+    }
+    if (projectElement.hasAttribute("description")) {
+        m_description = projectElement.attribute("description");
+    }
+    if (projectElement.hasAttribute("timezone")) {
+        QTimeZone tz(projectElement.attribute("timezone").toLatin1());
+        if (tz.isValid()) {
+            m_timeZone = tz;
+        } else warnPlan<<"No timezone specified, using default (local)";
+        status.setProjectTimeZone(m_timeZone);
+    }
+    if (projectElement.hasAttribute("scheduling")) {
+        // Allow for both numeric and text
+        s = projectElement.attribute("scheduling", "0");
+        m_constraint = (Node::ConstraintType) s.toInt(&ok);
+        if (!ok) {
+            setConstraint(s);
+        }
+        if (m_constraint != Node::MustStartOn && m_constraint != Node::MustFinishOn) {
+            errorPlanXml << "Illegal constraint: " << constraintToString();
+            setConstraint(Node::MustStartOn);
+        }
+    }
+    if (projectElement.hasAttribute("start-time")) {
+        s = projectElement.attribute("start-time");
+        if (!s.isEmpty())
+            m_constraintStartTime = DateTime::fromString(s, m_timeZone);
+    }
+    if (projectElement.hasAttribute("end-time")) {
+        s = projectElement.attribute("end-time");
+        if (!s.isEmpty())
+            m_constraintEndTime = DateTime::fromString(s, m_timeZone);
+    }
+    status.setProgress(10);
+
+    // Load the project children
+    KoXmlElement e = projectElement;
+    if (status.version() < "0.7.0") {
+        e = projectElement;
+    } else {
+        e = projectElement.namedItem("project-settings").toElement();
+    }
+    if (!e.isNull()) {
+        loadSettings(e, status);
+    }
+    e = projectElement.namedItem("documents").toElement();
+    if (!e.isNull()) {
+        m_documents.load(e, status);
+    }
+    // Do calendars first, they only reference other calendars
+    //debugPlan<<"Calendars--->";
+    if (status.version() < "0.7.0") {
+        e = projectElement;
+    } else {
+        e = projectElement.namedItem("calendars").toElement();
+    }
+    if (!e.isNull()) {
+        debugPlanXml<<status.version()<<e.tagName();
+        QList<Calendar*> cals;
+        KoXmlElement ce;
+        forEachElement(ce, e) {
+            if (ce.tagName() != "calendar") {
+                continue;
+            }
+            // Load the calendar.
+            // Referenced by resources
+            Calendar *child = new Calendar();
+            child->setProject(this);
+            if (child->load(ce, status)) {
+                cals.append(child); // temporary, reorder later
+            } else {
+                // TODO: Complain about this
+                errorPlan << "Failed to load calendar";
+                delete child;
+            }
+        }
+        // calendars references calendars in arbitrary saved order
+        bool added = false;
+        do {
+            added = false;
+            QList<Calendar*> lst;
+            while (!cals.isEmpty()) {
+                Calendar *c = cals.takeFirst();
+                c->m_blockversion = true;
+                if (c->parentId().isEmpty()) {
+                    addCalendar(c, status.baseCalendar()); // handle pre 0.6 version
+                    added = true;
+                    //debugPlan<<"added to project:"<<c->name();
+                } else {
+                    Calendar *par = calendar(c->parentId());
+                    if (par) {
+                        par->m_blockversion = true;
+                        addCalendar(c, par);
+                        added = true;
+                        //debugPlan<<"added:"<<c->name()<<" to parent:"<<par->name();
+                        par->m_blockversion = false;
+                    } else {
+                        lst.append(c); // treat later
+                        //debugPlan<<"treat later:"<<c->name();
+                    }
+                }
+                c->m_blockversion = false;
+            }
+            cals = lst;
+        } while (added);
+        if (! cals.isEmpty()) {
+            errorPlan<<"All calendars not saved!";
+        }
+        //debugPlan<<"Calendars<---";
+    }
+    status.setProgress(15);
+
+    KoXmlNode n;
+    // Resource groups and resources, can reference calendars
+    if (status.version() < "0.7.0") {
+        forEachElement(e, projectElement) {
+            if (e.tagName() == "resource-group") {
+                debugPlanXml<<status.version()<<e.tagName();
+                // Load the resources
+                // References calendars
+                ResourceGroup *child = new ResourceGroup();
+                if (child->load(e, status)) {
+                    addResourceGroup(child);
+                } else {
+                    // TODO: Complain about this
+                    errorPlan<<Q_FUNC_INFO<<"Failed to load resource group";
+                    delete child;
+                }
+            }
+        }
+        for (ResourceGroup *g : m_resourceGroups) {
+            for (Resource *r : g->resources()) {
+                addResource(r);
+            }
+        }
+    } else {
+        e = projectElement.namedItem("resource-groups").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement ge;
+            forEachElement(ge, e) {
+                if (ge.nodeName() != "resource-group") {
+                    continue;
+                }
+                ResourceGroup *child = new ResourceGroup();
+                if (child->load(ge, status)) {
+                    addResourceGroup(child);
+                } else {
+                    // TODO: Complain about this
+                    delete child;
+                }
+            }
+        }
+        e = projectElement.namedItem("resources").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement re;
+            forEachElement(re, e) {
+                if (re.nodeName() != "resource") {
+                    continue;
+                }
+                Resource *r = new Resource();
+                if (r->load(re, status)) {
+                    addResource(r);
+                } else {
+                    errorPlan<<"Failed to load resource xml";
+                    delete r;
+                }
+            }
+        }
+        // resource-group relations
+        e = projectElement.namedItem("resource-group-relations").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement re;
+            forEachElement(re, e) {
+                if (re.nodeName() != "resource-group-relation") {
+                    continue;
+                }
+                ResourceGroup *g = group(re.attribute("group-id"));
+                Resource *r = resource(re.attribute("resource-id"));
+                if (r && g) {
+                    r->addParentGroup(g);
+                } else {
+                    errorPlan<<"Failed to load resource-group-relation";
+                }
+            }
+        }
+        e = projectElement.namedItem("resource-teams").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement el;
+            forEachElement(el, e) {
+                if (el.tagName() == "team") {
+                    Resource *r = findResource(el.attribute("team-id"));
+                    Resource *tm = findResource(el.attribute("member-id"));
+                    if (r == nullptr || tm == nullptr) {
+                        errorPlan<<"resource-teams: cannot find resources";
+                        continue;
+                    }
+                    if (r == tm) {
+                        errorPlan<<"resource-teams: a team cannot be a member of itself";
+                        continue;
+                    }
+                    r->addTeamMemberId(tm->id());
+                } else {
+                    errorPlan<<"resource-teams: unhandled tag"<<el.tagName();
+                }
+            }
+        }
+        e = projectElement.namedItem("required-resources").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement re;
+            forEachElement(re, e) {
+                if (re.nodeName() != "required-resource") {
+                    continue;
+                }
+                Resource *required = this->resource(re.attribute("required-id"));
+                Resource *resource = this->resource(re.attribute("resource-id"));
+                if (required && resource) {
+                    resource->addRequiredId(required->id());
+                } else {
+                    errorPlan<<"Failed to load required-resource";
+                }
+            }
+        }
+        e = projectElement.namedItem("external-appointments").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement ext;
+            forEachElement(ext, e) {
+                if (e.nodeName() != "external-appointment") {
+                    continue;
+                }
+                Resource *resource = this->resource(e.attribute("resource-id"));
+                if (!resource) {
+                    errorPlan<<"Cannot find resource:"<<e.attribute("resource-id");
+                    continue;
+                }
+                QString projectId = e.attribute("project-id");
+                if (projectId.isEmpty()) {
+                    errorPlan<<"Missing project id";
+                    continue;
+                }
+                resource->clearExternalAppointments(projectId); // in case...
+                AppointmentIntervalList lst;
+                lst.loadXML(e, status);
+                Appointment *a = new Appointment();
+                a->setIntervals(lst);
+                a->setAuxcilliaryInfo(e.attribute("project-name", "Unknown"));
+                resource->addExternalAppointment(projectId, a);
+            }
+        }
+    }
+
+    status.setProgress(20);
+
+    // The main stuff
+    if (status.version() < "0.7.0") {
+        e = projectElement;
+    } else {
+        e = projectElement.namedItem("tasks").toElement();
+    }
+    if (!e.isNull()) {
+        debugPlanXml<<status.version()<<"tasks:"<<e.tagName();
+        KoXmlElement te;
+        forEachElement(te, e) {
+            if (te.tagName() != "task") {
+                continue;
+            }
+            //debugPlan<<"Task--->";
+            // Depends on resources already loaded
+            Task *child = new Task(this);
+            if (child->load(te, status)) {
+                if (!addTask(child, this)) {
+                    delete child; // TODO: Complain about this
+                } else {
+                    debugPlanXml<<status.version()<<"Added task:"<<child;
+                }
+            } else {
+                // TODO: Complain about this
+                delete child;
+            }
+        }
+    }
+    if (numChildren() == 0) {
+        warnPlanXml<<"No tasks added from"<<e.tagName();
+    }
+
+    status.setProgress(70);
+
+    // These go last
+    e = projectElement.namedItem("accounts").toElement();
+    if (!m_accounts.load(e, *this)) {
+        errorPlan << "Failed to load accounts";
+    }
+
+    n = projectElement.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
+        //debugPlan<<n.isElement();
         if (! n.isElement()) {
             continue;
         }
-        KoXmlElement e = n.toElement();
+        if (status.version() < "0.7.0" && e.tagName() == "relation") {
+            debugPlanXml<<status.version()<<e.tagName();
+            // Load the relation
+            // References tasks
+            Relation *child = new Relation();
+            if (!child->load(e, status)) {
+                // TODO: Complain about this
+                errorPlan << "Failed to load relation";
+                delete child;
+            }
+            //debugPlan<<"Relation<---";
+        } else if (status.version() < "0.7.0" && e.tagName() == "resource-requests") {
+            // NOTE: Not supported: request to project (or sub-project)
+            Q_ASSERT(false);
+#if 0
+            // Load the resource request
+            // Handle multiple requests to same group gracefully (Not really allowed)
+            KoXmlElement req;
+            forEachElement(req, e) {
+                ResourceGroupRequest *r = m_requests.findGroupRequestById(req.attribute(QStringLiteral("group-id")));
+                if (r) {
+                    warnPlan<<"Multiple requests to same group, loading into existing group";
+                    if (! r->load(e, status)) {
+                        errorPlan<<"Failed to load resource request";
+                    }
+                } else {
+                    r = new ResourceGroupRequest();
+                    if (r->load(e, status)) {
+                        addRequest(r);
+                    } else {
+                        errorPlan<<"Failed to load resource request";
+                        delete r;
+                    }
+                }
+            }
+#endif
+        } else if (status.version() < "0.7.0" && e.tagName() == "wbs-definition") {
+            m_wbsDefinition.loadXML(e, status);
+        } else if (e.tagName() == "locale") {
+            // handled earlier
+        } else if (e.tagName() == "resource-group") {
+            // handled earlier
+        } else if (e.tagName() == "calendar") {
+            // handled earlier
+        } else if (e.tagName() == "standard-worktime") {
+            // handled earlier
+        } else if (e.tagName() == "project") {
+            // handled earlier
+        } else if (e.tagName() == "task") {
+            // handled earlier
+        } else if (e.tagName() == "shared-resources") {
+            // handled earlier
+        } else if (e.tagName() == "documents") {
+            // handled earlier
+        } else if (e.tagName() == "workpackageinfo") {
+            // handled earlier
+        } else if (e.tagName() == "task-modules") {
+            // handled earlier
+        } else {
+            warnPlan<<"Unhandled tag:"<<e.tagName();
+        }
+    }
+    if (status.version() < "0.7.0") {
+        e = projectElement.namedItem("schedules").toElement();
+    } else {
+        e = projectElement.namedItem("project-schedules").toElement();
+    }
+    if (!e.isNull()) {
+        debugPlanXml<<status.version()<<e.tagName();
+        // References tasks and resources
+        KoXmlElement sn;
+        forEachElement(sn, e) {
+            //debugPlan<<sn.tagName()<<" Version="<<status.version();
+            ScheduleManager *sm = 0;
+            bool add = false;
+            if (status.version() <= "0.5") {
+                if (sn.tagName() == "schedule") {
+                    sm = findScheduleManagerByName(sn.attribute("name"));
+                    if (sm == 0) {
+                        sm = new ScheduleManager(*this, sn.attribute("name"));
+                        add = true;
+                    }
+                }
+            } else if (sn.tagName() == "schedule-management" || (status.version() < "0.7.0" && sn.tagName() == "plan")) {
+                sm = new ScheduleManager(*this);
+                add = true;
+            } else {
+                continue;
+            }
+            if (sm) {
+                debugPlan<<"load schedule manager";
+                if (sm->loadXML(sn, status)) {
+                    if (add)
+                        addScheduleManager(sm);
+                } else {
+                    errorPlan << "Failed to load schedule manager";
+                    delete sm;
+                }
+            } else {
+                debugPlan<<"No schedule manager ?!";
+            }
+        }
+        //debugPlan<<"Node schedules<---";
+    }
+    e = projectElement.namedItem("resource-teams").toElement();
+    if (!e.isNull()) {
+        debugPlanXml<<status.version()<<e.tagName();
+        // References other resources
+        KoXmlElement re;
+        forEachElement(re, e) {
+            if (re.tagName() != "team") {
+                continue;
+            }
+            Resource *r = findResource(re.attribute("team-id"));
+            Resource *tm = findResource(re.attribute("member-id"));
+            if (r == nullptr || tm == nullptr) {
+                errorPlan<<"resource-teams: cannot find resources";
+                continue;
+            }
+            if (r == tm) {
+                errorPlan<<"resource-teams: a team cannot be a member of itself";
+                continue;
+            }
+            r->addTeamMemberId(tm->id());
+        }
+    }
+    if (status.version() >= "0.7.0") {
+        e = projectElement.namedItem("relations").toElement();
+        debugPlanXml<<status.version()<<e.tagName();
+        if (!e.isNull()) {
+            KoXmlElement de;
+            forEachElement(de, e) {
+                if (de.tagName() != "relation") {
+                    continue;
+                }
+                Relation *child = new Relation();
+                if (!child->load(de, status)) {
+                    // TODO: Complain about this
+                    errorPlan << "Failed to load relation";
+                    delete child;
+                }
+            }
+        }
+        e = projectElement.namedItem("resourcegroup-requests").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement ge;
+            forEachElement(ge, e) {
+                if (ge.tagName() != "resourcegroup-request") {
+                    continue;
+                }
+                Node *task = findNode(ge.attribute("task-id"));
+                ResourceGroup *group = findResourceGroup(ge.attribute("group-id"));
+                if (task && group) {
+                    int units = ge.attribute("units", "0").toInt();
+                    int requestId = ge.attribute("request-id").toInt();
+                    ResourceGroupRequest *request = new ResourceGroupRequest(group, units);
+                    request->setId(requestId);
+                    task->requests().addRequest(request);
+                    debugPlanXml<<"Added group request:"<<task<<request<<requestId;
+                } else {
+                    warnPlanXml<<"Failed to find group or task";
+                }
+            }
+        }
+        e = projectElement.namedItem("resource-requests").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement re;
+            forEachElement(re, e) {
+                if (re.tagName() != "resource-request") {
+                    continue;
+                }
+                Node *task = findNode(re.attribute("task-id"));
+                if (!task) {
+                    warnPlanXml<<re.tagName()<<"Failed to find task";
+                    continue;
+                }
+                ResourceGroupRequest *group = task->requests().groupRequest(re.attribute("request-id").toInt());
+                if (!group) {
+                    warnPlanXml<<re.tagName()<<"Failed to find group request:"<<re.attribute("request-id");
+                }
+                Resource *resource = findResource(re.attribute("resource-id"));
+                Q_ASSERT(resource);
+                Q_ASSERT(task);
+                if (resource && task) {
+                    int units = re.attribute("units", "100").toInt();
+                    ResourceRequest *request = new ResourceRequest(resource, units);
+                    int requestId = re.attribute("request-id").toInt();
+                    Q_ASSERT(requestId > 0);
+                    request->setId(requestId);
+                    task->requests().addResourceRequest(request, group);
+                } else {
+                    warnPlanXml<<re.tagName()<<"Failed to find resource";
+                }
+            }
+        }
+        e = projectElement.namedItem("required-resource-requests").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement re;
+            forEachElement(re, e) {
+                if (re.tagName() != "required-resource-request") {
+                    continue;
+                }
+                Node *task = findNode(re.attribute("task-id"));
+                Q_ASSERT(task);
+                if (!task) {
+                    continue;
+                }
+                ResourceRequest *request = task->requests().resourceRequest(re.attribute("request-id").toInt());
+                Resource *required = findResource(re.attribute("required-id"));
+                QList<Resource*> lst;
+                if (required && request->resource() != required) {
+                    lst << required;
+                }
+                request->setRequiredResources(lst);
+            }
+        }
+    }
+    //debugPlan<<"<---";
+
+    status.setProgress(90);
+
+    return true;
+}
+
+bool Project::loadSettings(KoXmlElement &element, XMLLoaderObject &status)
+{
+    Q_UNUSED(status)
+
+    m_useSharedResources = false; // default should be off in case old project NOTE: review
+
+    KoXmlElement e;
+    forEachElement(e, element) {
+        debugPlanXml<<status.version()<<e.tagName();
         if (e.tagName() == "locale") {
             Locale *l = locale();
             l->setCurrencySymbol(e.attribute("currency-symbol", ""));
-
             if (e.hasAttribute("currency-digits")) {
                 l->setMonetaryDecimalPlaces(e.attribute("currency-digits").toInt());
             }
@@ -1034,8 +1580,6 @@ bool Project::load(KoXmlElement &element, XMLLoaderObject &status)
             m_sharedResourcesFile = e.attribute("file");
             m_sharedProjectsUrl = QUrl(e.attribute("projects-url"));
             m_loadProjectsAtStartup = (bool)e.attribute("projects-loadatstartup", "0").toInt();
-        } else if (e.tagName() == QLatin1String("documents")) {
-            m_documents.load(e, status);
         } else if (e.tagName() == QLatin1String("workpackageinfo")) {
             if (e.hasAttribute("check-for-workpackages")) {
                 m_workPackageInfo.checkForWorkPackages = e.attribute("check-for-workpackages").toInt();
@@ -1074,410 +1618,70 @@ bool Project::load(KoXmlElement &element, XMLLoaderObject &status)
             m_taskModules = urls;
             // If set adds local path to taskModules()
             setUseLocalTaskModules((bool)e.attribute("use-local-task-modules").toInt());
-        }
-    }
-    QList<Calendar*> cals;
-    QString s;
-    bool ok = false;
-    setName(element.attribute("name"));
-    removeId(m_id);
-    m_id = element.attribute("id");
-    registerNodeId(this);
-    m_priority = element.attribute(QStringLiteral("priority"), "0").toInt();
-    m_leader = element.attribute("leader");
-    m_description = element.attribute("description");
-    QTimeZone tz(element.attribute("timezone").toLatin1());
-    if (tz.isValid()) {
-        m_timeZone = tz;
-    } else warnPlan<<"No timezone specified, using default (local)";
-    status.setProjectTimeZone(m_timeZone);
-
-    // Allow for both numeric and text
-    s = element.attribute("scheduling", "0");
-    m_constraint = (Node::ConstraintType) s.toInt(&ok);
-    if (!ok)
-        setConstraint(s);
-    if (m_constraint != Node::MustStartOn &&
-            m_constraint != Node::MustFinishOn) {
-        errorPlan << "Illegal constraint: " << constraintToString();
-        setConstraint(Node::MustStartOn);
-    }
-    s = element.attribute("start-time");
-    if (!s.isEmpty())
-        m_constraintStartTime = DateTime::fromString(s, m_timeZone);
-    s = element.attribute("end-time");
-    if (!s.isEmpty())
-        m_constraintEndTime = DateTime::fromString(s, m_timeZone);
-
-    status.setProgress(10);
-
-    // Load the project children
-    // Do calendars first, they only reference other calendars
-    //debugPlan<<"Calendars--->";
-    n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
-        if (e.tagName() == "calendar") {
-            // Load the calendar.
-            // Referenced by resources
-            Calendar * child = new Calendar();
-            child->setProject(this);
-            if (child->load(e, status)) {
-                cals.append(child); // temporary, reorder later
-            } else {
-                // TODO: Complain about this
-                errorPlan << "Failed to load calendar";
-                delete child;
-            }
         } else if (e.tagName() == "standard-worktime") {
             // Load standard worktime
-            StandardWorktime * child = new StandardWorktime();
+            StandardWorktime *child = new StandardWorktime();
             if (child->load(e, status)) {
                 setStandardWorktime(child);
             } else {
-                errorPlan << "Failed to load standard worktime";
+                errorPlanXml << "Failed to load standard worktime";
                 delete child;
             }
         }
     }
-    // calendars references calendars in arbitrary saved order
-    bool added = false;
-    do {
-        added = false;
-        QList<Calendar*> lst;
-        while (!cals.isEmpty()) {
-            Calendar *c = cals.takeFirst();
-            c->m_blockversion = true;
-            if (c->parentId().isEmpty()) {
-                addCalendar(c, status.baseCalendar()); // handle pre 0.6 version
-                added = true;
-                //debugPlan<<"added to project:"<<c->name();
-            } else {
-                Calendar *par = calendar(c->parentId());
-                if (par) {
-                    par->m_blockversion = true;
-                    addCalendar(c, par);
-                    added = true;
-                    //debugPlan<<"added:"<<c->name()<<" to parent:"<<par->name();
-                    par->m_blockversion = false;
-                } else {
-                    lst.append(c); // treat later
-                    //debugPlan<<"treat later:"<<c->name();
-                }
-            }
-            c->m_blockversion = false;
-        }
-        cals = lst;
-    } while (added);
-    if (! cals.isEmpty()) {
-        errorPlan<<"All calendars not saved!";
-    }
-    //debugPlan<<"Calendars<---";
-
-    status.setProgress(15);
-
-    // Resource groups and resources, can reference calendars
-    if (status.version() < "0.7.0") {
-        n = element.firstChild();
-        for (; ! n.isNull(); n = n.nextSibling()) {
-            if (! n.isElement()) {
-                continue;
-            }
-            KoXmlElement e = n.toElement();
-            if (e.tagName() == "resource-group") {
-                // Load the resources
-                // References calendars
-                ResourceGroup * child = new ResourceGroup();
-                if (child->load(e, status)) {
-                    addResourceGroup(child);
-                } else {
-                    // TODO: Complain about this
-                    errorPlan<<Q_FUNC_INFO<<"Failed to load resource group";
-                    delete child;
-                }
-            }
-        }
-        for (ResourceGroup *g : m_resourceGroups) {
-            for (Resource *r : g->resources()) {
-                addResource(r);
-            }
-        }
-    } else {
-        n = element.firstChild();
-        for (; ! n.isNull(); n = n.nextSibling()) {
-            if (n.nodeName() == "resource-groups") {
-                break;
-            }
-        }
-        KoXmlElement e = n.toElement();
-        if (e.tagName() == "resource-groups") {
-            KoXmlElement ge;
-            forEachElement(ge, e) {
-                if (ge.nodeName() != "resource-group") {
-                    continue;
-                }
-                ResourceGroup *child = new ResourceGroup();
-                if (child->load(ge, status)) {
-                    addResourceGroup(child);
-                } else {
-                    // TODO: Complain about this
-                    delete child;
-                }
-            }
-        }
-        // resources are not stored under groups anymore
-        n = element.firstChild();
-        for (; ! n.isNull(); n = n.nextSibling()) {
-            if (n.nodeName() == "resources") {
-                KoXmlElement e = n.toElement();
-                KoXmlElement re;
-                forEachElement(re, e) {
-                    if (re.nodeName() != "resource") {
-                        continue;
-                    }
-                    Resource *r = new Resource();
-                    if (r->load(re, status)) {
-                        addResource(r);
-                    } else {
-                        errorPlan<<"Failed to load resource xml";
-                        delete r;
-                    }
-                }
-                break;
-            }
-        }
-        // resource-group relations
-        n = element.firstChild();
-        for (; ! n.isNull(); n = n.nextSibling()) {
-            if (n.nodeName() == "resource-group-relations") {
-                KoXmlElement e = n.toElement();
-                KoXmlElement re;
-                forEachElement(re, e) {
-                    if (re.nodeName() != "resource-group-relation") {
-                        continue;
-                    }
-                    ResourceGroup *g = group(re.attribute("group-id"));
-                    Resource *r = resource(re.attribute("resource-id"));
-                    if (r && g) {
-                        r->addParentGroup(g);
-                    } else {
-                        errorPlan<<"Failed to load resource-group-relation";
-                    }
-                }
-                break;
-            }
-        }
-        n = element.firstChild();
-        for (; ! n.isNull(); n = n.nextSibling()) {
-            if (n.nodeName() == "required-resources") {
-                KoXmlElement e = n.toElement();
-                KoXmlElement re;
-                forEachElement(re, e) {
-                    if (re.nodeName() != "required-resource") {
-                        continue;
-                    }
-                    Resource *required = this->resource(re.attribute("required-id"));
-                    Resource *resource = this->resource(re.attribute("resource-id"));
-                    if (required && resource) {
-                        resource->addRequiredId(required->id());
-                    } else {
-                        errorPlan<<"Failed to load required-resource";
-                    }
-                }
-                break;
-            }
-        }
-        KoXmlElement parent = element.namedItem("external-appointments").toElement();
-        forEachElement(e, parent) {
-            if (e.nodeName() == "external-appointment") {
-                Resource *resource = this->resource(e.attribute("resource-id"));
-                if (!resource) {
-                    errorPlan<<"Cannot find resource:"<<e.attribute("resource-id");
-                    continue;
-                }
-                QString projectId = e.attribute("project-id");
-                if (projectId.isEmpty()) {
-                    errorPlan<<"Missing project id";
-                    continue;
-                }
-                resource->clearExternalAppointments(projectId); // in case...
-                AppointmentIntervalList lst;
-                lst.loadXML(e, status);
-                Appointment *a = new Appointment();
-                a->setIntervals(lst);
-                a->setAuxcilliaryInfo(e.attribute("project-name", "Unknown"));
-                resource->addExternalAppointment(projectId, a);
-            }
-        }
-    }
-
-    status.setProgress(20);
-
-    // The main stuff
-    n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
-        if (e.tagName() == "project") {
-            //debugPlan<<"Sub project--->";
-/*                // Load the subproject
-            Project * child = new Project(this);
-            if (child->load(e)) {
-                if (!addTask(child, this)) {
-                    delete child; // TODO: Complain about this
-                }
-            } else {
-                // TODO: Complain about this
-                delete child;
-            }*/
-        } else if (e.tagName() == "task") {
-            //debugPlan<<"Task--->";
-            // Load the task (and resourcerequests).
-            // Depends on resources already loaded
-            Task * child = new Task(this);
-            if (child->load(e, status)) {
-                if (!addTask(child, this)) {
-                    delete child; // TODO: Complain about this
-                }
-            } else {
-                // TODO: Complain about this
-                delete child;
-            }
-        }
-    }
-
-    status.setProgress(70);
-
-    // These go last
-    n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        //debugPlan<<n.isElement();
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
-        if (e.tagName() == "accounts") {
-            //debugPlan<<"Accounts--->";
-            // Load accounts
-            // References tasks
-            if (!m_accounts.load(e, *this)) {
-                errorPlan << "Failed to load accounts";
-            }
-        } else if (e.tagName() == "relation") {
-            //debugPlan<<"Relation--->";
-            // Load the relation
-            // References tasks
-            Relation * child = new Relation();
-            if (!child->load(e, *this)) {
-                // TODO: Complain about this
-                errorPlan << "Failed to load relation";
-                delete child;
-            }
-            //debugPlan<<"Relation<---";
-        } else if (e.tagName() == "project-schedules" || (status.version() < "0.7.0" && e.tagName() == "schedules")) {
-            //debugPlan<<"Project schedules & task appointments--->";
-            // References tasks and resources
-            KoXmlNode sn = e.firstChild();
-            for (; ! sn.isNull(); sn = sn.nextSibling()) {
-                if (! sn.isElement()) {
-                    continue;
-                }
-                KoXmlElement el = sn.toElement();
-                //debugPlan<<el.tagName()<<" Version="<<status.version();
-                ScheduleManager *sm = 0;
-                bool add = false;
-                if (status.version() <= "0.5") {
-                    if (el.tagName() == "schedule") {
-                        sm = findScheduleManagerByName(el.attribute("name"));
-                        if (sm == 0) {
-                            sm = new ScheduleManager(*this, el.attribute("name"));
-                            add = true;
-                        }
-                    }
-                } else if (el.tagName() == "schedule-management" || (status.version() < "0.7.0" && el.tagName() == "plan")) {
-                    sm = new ScheduleManager(*this);
-                    add = true;
-                }
-                if (sm) {
-                    debugPlan<<"load schedule manager";
-                    if (sm->loadXML(el, status)) {
-                        if (add)
-                            addScheduleManager(sm);
-                    } else {
-                        errorPlan << "Failed to load schedule manager";
-                        delete sm;
-                    }
-                } else {
-                    debugPlan<<"No schedule manager ?!";
-                }
-            }
-            //debugPlan<<"Node schedules<---";
-        } else if (e.tagName() == "resource-teams") {
-            //debugPlan<<"Resource teams--->";
-            // References other resources
-            KoXmlNode tn = e.firstChild();
-            for (; ! tn.isNull(); tn = tn.nextSibling()) {
-                if (! tn.isElement()) {
-                    continue;
-                }
-                KoXmlElement el = tn.toElement();
-                if (el.tagName() == "team") {
-                    Resource *r = findResource(el.attribute("team-id"));
-                    Resource *tm = findResource(el.attribute("member-id"));
-                    if (r == 0 || tm == 0) {
-                        errorPlan<<"resource-teams: cannot find resources";
-                        continue;
-                    }
-                    if (r == tm) {
-                        errorPlan<<"resource-teams: a team cannot be a member of itself";
-                        continue;
-                    }
-                    r->addTeamMemberId(tm->id());
-                } else {
-                    errorPlan<<"resource-teams: unhandled tag"<<el.tagName();
-                }
-            }
-            //debugPlan<<"Resource teams<---";
-        } else if (e.tagName() == "wbs-definition") {
-            m_wbsDefinition.loadXML(e, status);
-        } else if (e.tagName() == "locale") {
-            // handled earlier
-        } else if (e.tagName() == "resource-group") {
-            // handled earlier
-        } else if (e.tagName() == "calendar") {
-            // handled earlier
-        } else if (e.tagName() == "standard-worktime") {
-            // handled earlier
-        } else if (e.tagName() == "project") {
-            // handled earlier
-        } else if (e.tagName() == "task") {
-            // handled earlier
-        } else if (e.tagName() == "shared-resources") {
-            // handled earlier
-        } else if (e.tagName() == "documents") {
-            // handled earlier
-        } else if (e.tagName() == "workpackageinfo") {
-            // handled earlier
-        } else if (e.tagName() == "task-modules") {
-            // handled earlier
-        } else {
-            warnPlan<<"Unhandled tag:"<<e.tagName();
-        }
-    }
-    //debugPlan<<"<---";
-
-    status.setProgress(90);
-
     return true;
+}
+void Project::saveSettings(QDomElement &element, const XmlSaveContext &context) const
+{
+    Q_UNUSED(context)
+
+    QDomElement settingsElement = element.ownerDocument().createElement("project-settings");
+    element.appendChild(settingsElement);
+
+    m_wbsDefinition.saveXML(settingsElement);
+
+    QDomElement loc = settingsElement.ownerDocument().createElement("locale");
+    settingsElement.appendChild(loc);
+    const Locale *l = locale();
+    loc.setAttribute("currency-symbol", l->currencySymbol());
+    loc.setAttribute("currency-digits", l->monetaryDecimalPlaces());
+    loc.setAttribute("language", l->currencyLanguage());
+    loc.setAttribute("country", l->currencyCountry());
+
+    QDomElement share = settingsElement.ownerDocument().createElement("shared-resources");
+    settingsElement.appendChild(share);
+    share.setAttribute("use", m_useSharedResources);
+    share.setAttribute("file", m_sharedResourcesFile);
+    share.setAttribute("projects-url", QString(m_sharedProjectsUrl.toEncoded()));
+    share.setAttribute("projects-loadatstartup", m_loadProjectsAtStartup);
+
+    QDomElement wpi = settingsElement.ownerDocument().createElement("workpackageinfo");
+    settingsElement.appendChild(wpi);
+    wpi.setAttribute("check-for-workpackages", m_workPackageInfo.checkForWorkPackages);
+    wpi.setAttribute("retrieve-url", m_workPackageInfo.retrieveUrl.toString(QUrl::None));
+    wpi.setAttribute("delete-after-retrieval", m_workPackageInfo.deleteAfterRetrieval);
+    wpi.setAttribute("archive-after-retrieval", m_workPackageInfo.archiveAfterRetrieval);
+    wpi.setAttribute("archive-url", m_workPackageInfo.archiveUrl.toString(QUrl::None));
+    wpi.setAttribute("publish-url", m_workPackageInfo.publishUrl.toString(QUrl::None));
+
+    QDomElement tm = settingsElement.ownerDocument().createElement("task-modules");
+    settingsElement.appendChild(tm);
+    tm.setAttribute("use-local-task-modules", m_useLocalTaskModules);
+    for (const QUrl &url : taskModules(false/*no local*/)) {
+        QDomElement e = tm.ownerDocument().createElement("task-module");
+        tm.appendChild(e);
+        e.setAttribute("url", url.toString());
+    }
+    // save standard worktime
+    if (m_standardWorktime) {
+        m_standardWorktime->save(settingsElement);
+    }
 }
 
 void Project::save(QDomElement &element, const XmlSaveContext &context) const
 {
+    debugPlanXml<<context.options;
+
     QDomElement me = element.ownerDocument().createElement("project");
     element.appendChild(me);
 
@@ -1492,55 +1696,24 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
     me.setAttribute("start-time", m_constraintStartTime.toString(Qt::ISODate));
     me.setAttribute("end-time", m_constraintEndTime.toString(Qt::ISODate));
 
-    m_wbsDefinition.saveXML(me);
-
-    QDomElement loc = me.ownerDocument().createElement("locale");
-    me.appendChild(loc);
-    const Locale *l = locale();
-    loc.setAttribute("currency-symbol", l->currencySymbol());
-    loc.setAttribute("currency-digits", l->monetaryDecimalPlaces());
-    loc.setAttribute("language", l->currencyLanguage());
-    loc.setAttribute("country", l->currencyCountry());
-
-    QDomElement share = me.ownerDocument().createElement("shared-resources");
-    me.appendChild(share);
-    share.setAttribute("use", m_useSharedResources);
-    share.setAttribute("file", m_sharedResourcesFile);
-    share.setAttribute("projects-url", QString(m_sharedProjectsUrl.toEncoded()));
-    share.setAttribute("projects-loadatstartup", m_loadProjectsAtStartup);
-
-    QDomElement wpi = me.ownerDocument().createElement("workpackageinfo");
-    me.appendChild(wpi);
-    wpi.setAttribute("check-for-workpackages", m_workPackageInfo.checkForWorkPackages);
-    wpi.setAttribute("retrieve-url", m_workPackageInfo.retrieveUrl.toString(QUrl::None));
-    wpi.setAttribute("delete-after-retrieval", m_workPackageInfo.deleteAfterRetrieval);
-    wpi.setAttribute("archive-after-retrieval", m_workPackageInfo.archiveAfterRetrieval);
-    wpi.setAttribute("archive-url", m_workPackageInfo.archiveUrl.toString(QUrl::None));
-    wpi.setAttribute("publish-url", m_workPackageInfo.publishUrl.toString(QUrl::None));
-
-    QDomElement tm = me.ownerDocument().createElement("task-modules");
-    me.appendChild(tm);
-    tm.setAttribute("use-local-task-modules", m_useLocalTaskModules);
-    for (const QUrl &url : taskModules(false/*no local*/)) {
-        QDomElement e = tm.ownerDocument().createElement("task-module");
-        tm.appendChild(e);
-        e.setAttribute("url", url.toString());
-    }
-
-    m_documents.save(me);
+    saveSettings(me, context);
+    m_documents.save(me); // project documents
 
     if (context.saveAll(this)) {
+        debugPlanXml<<"accounts";
         m_accounts.save(me);
 
         // save calendars
-        foreach (Calendar *c, calendarIdDict) {
-            c->save(me);
+        debugPlanXml<<"calendars:"<<calendarIdDict.count();
+        if (!calendarIdDict.isEmpty()) {
+            QDomElement ce = me.ownerDocument().createElement("calendars");
+            me.appendChild(ce);
+            foreach (Calendar *c, calendarIdDict) {
+                c->save(ce);
+            }
         }
-        // save standard worktime
-        if (m_standardWorktime)
-            m_standardWorktime->save(me);
-
-        // save project resources, must be after calendars
+        // save project resources
+        debugPlanXml<<"resource-groups:"<<m_resourceGroups.count();
         if (!m_resourceGroups.isEmpty()) {
             QDomElement ge = me.ownerDocument().createElement("resource-groups");
             me.appendChild(ge);
@@ -1549,6 +1722,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 git.next()->save(ge);
             }
         }
+        debugPlanXml<<"resources:"<<m_resources.count();
         if (!m_resources.isEmpty()) {
             QDomElement re = me.ownerDocument().createElement("resources");
             me.appendChild(re);
@@ -1557,6 +1731,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 rit.next()->save(re);
             }
         }
+        debugPlanXml<<"resource-group-relations";
         if (!m_resources.isEmpty() && !m_resourceGroups.isEmpty()) {
             QDomElement e = me.ownerDocument().createElement("resource-group-relations");
             me.appendChild(e);
@@ -1569,6 +1744,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 }
             }
         }
+        debugPlanXml<<"required-resources";
         if (m_resources.count() > 1) {
             QList<std::pair<QString, QString> > requiredList;
             for (Resource *resource : m_resources) {
@@ -1587,12 +1763,29 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 }
             }
         }
+        // save resource teams
+        debugPlanXml<<"resource-teams";
+        QDomElement el = me.ownerDocument().createElement("resource-teams");
+        me.appendChild(el);
+        foreach (Resource *r, m_resources) {
+            if (r->type() != Resource::Type_Team) {
+                continue;
+            }
+            foreach (const QString &id, r->teamMemberIds()) {
+                QDomElement e = el.ownerDocument().createElement("team");
+                el.appendChild(e);
+                e.setAttribute("team-id", r->id());
+                e.setAttribute("member-id", id);
+            }
+        }
+        // save resource usage in other projects
         QList<Resource*> externals;
         for (Resource *resource : m_resources) {
             if (!resource->externalAppointmentList().isEmpty()) {
                 externals << resource;
             }
         }
+        debugPlanXml<<"external-appointments"<<externals.count();
         if (!externals.isEmpty()) {
             QDomElement e = me.ownerDocument().createElement("external-appointments");
             me.appendChild(e);
@@ -1609,26 +1802,27 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 }
             }
         }
-    }
-    // Only save parent relations
-    QListIterator<Relation*> it(m_dependParentNodes);
-    while (it.hasNext()) {
-        Relation *r = it.next();
-        if (context.saveNode(r->parent()) && context.saveNode(r->child())) {
-            r->save(me, context);
+        debugPlanXml<<"tasks:"<<numChildren();
+        if (numChildren() > 0) {
+            QDomElement e = me.ownerDocument().createElement("tasks");
+            me.appendChild(e);
+            for (int i = 0; i < numChildren(); i++) {
+                childNode(i)->save(e, context);
+            }
         }
-    }
-    if (context.saveAll(this)) {
-        for (int i = 0; i < numChildren(); i++)
-        // Save all children
-        childNode(i)->save(me, context);
-    }
-    // Now we can save relations assuming no tasks have relations outside the project
-    QListIterator<Node*> nodes(m_nodes);
-    while (nodes.hasNext()) {
-        nodes.next()->saveRelations(me, context);
-    }
-    if (context.saveAll(this)) {
+        // Now we can save relations assuming no tasks have relations outside the project
+        QDomElement deps = me.ownerDocument().createElement("relations");
+        me.appendChild(deps);
+        QListIterator<Node*> nodes(m_nodes);
+        while (nodes.hasNext()) {
+            const Node *n = nodes.next();
+            n->saveRelations(deps, context);
+        }
+        debugPlanXml<<"task relations:"<<deps.childNodes().count();
+        if (!deps.hasChildNodes()) {
+            me.removeChild(deps);
+        }
+        debugPlanXml<<"project-schedules:"<<m_managers.count();
         if (!m_managers.isEmpty()) {
             QDomElement el = me.ownerDocument().createElement("project-schedules");
             me.appendChild(el);
@@ -1636,18 +1830,72 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 sm->saveXML(el);
             }
         }
-        // save resource teams
-        QDomElement el = me.ownerDocument().createElement("resource-teams");
-        me.appendChild(el);
-        foreach (Resource *r, m_resources) {
-            if (r->type() != Resource::Type_Team) {
-                continue;
+        // save resource requests
+        QHash<Task*, ResourceGroupRequest*> groups;
+        QHash<Task*, ResourceRequest*> resources;
+        for (Task *task : allTasks()) {
+            const ResourceRequestCollection &requests = task->requests();
+            for (ResourceGroupRequest *gr : requests.requests()) {
+                groups.insert(task, gr);
             }
-            foreach (const QString &id, r->teamMemberIds()) {
-                QDomElement e = el.ownerDocument().createElement("team");
-                el.appendChild(e);
-                e.setAttribute("team-id", r->id());
-                e.setAttribute("member-id", id);
+            for (ResourceRequest *rr : requests.resourceRequests(false)) {
+                resources.insert(task, rr);
+            }
+        }
+        debugPlanXml<<"resourcegroup-requests:"<<groups.count();
+        if (!groups.isEmpty()) {
+            QDomElement el = me.ownerDocument().createElement("resourcegroup-requests");
+            me.appendChild(el);
+            QHash<Task*, ResourceGroupRequest*>::const_iterator it;
+            for (it = groups.constBegin(); it != groups.constEnd(); ++it) {
+                if (!it.value()->group()) {
+                    warnPlanXml<<"resourcegroup-request with no group";
+                    continue;
+                }
+                QDomElement ge = el.ownerDocument().createElement("resourcegroup-request");
+                el.appendChild(ge);
+                ge.setAttribute("request-id", it.value()->id());
+                ge.setAttribute("task-id", it.key()->id());
+                ge.setAttribute("group-id", it.value()->group()->id());
+                ge.setAttribute("units", QString::number(it.value()->units()));
+            }
+        }
+        QHash<Task*, std::pair<ResourceRequest*, Resource*> > required; // QHash<Task*, std::pair<ResourceRequest*, Required*>>
+        debugPlanXml<<"resource-requests:"<<resources.count();
+        if (!resources.isEmpty()) {
+            QDomElement el = me.ownerDocument().createElement("resource-requests");
+            me.appendChild(el);
+            QHash<Task*, ResourceRequest*>::const_iterator it;
+            for (it = resources.constBegin(); it != resources.constEnd(); ++it) {
+                if (!it.value()->resource()) {
+                    continue;
+                }
+                QDomElement re = el.ownerDocument().createElement("resource-request");
+                el.appendChild(re);
+                re.setAttribute("request-id", it.value()->id());
+                re.setAttribute("task-id", it.key()->id());
+                if (it.value()->parent()) {
+                    re.setAttribute("group-id", it.value()->parent()->group()->id());
+                }
+                re.setAttribute("resource-id", it.value()->resource()->id());
+                re.setAttribute("units", QString::number(it.value()->units()));
+                // collect required resources
+                for (Resource *r : it.value()->requiredResources()) {
+                    required.insert(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
+                }
+            }
+        }
+        debugPlanXml<<"required-resource-requests:"<<required.count();
+        if (!required.isEmpty()) {
+            QDomElement reqs = me.ownerDocument().createElement("required-resource-requests");
+            me.appendChild(reqs);
+            QHash<Task*, std::pair<ResourceRequest*, Resource*> >::const_iterator it;
+            for (it = required.constBegin(); it != required.constEnd(); ++it) {
+                QDomElement req = reqs.ownerDocument().createElement("required-resource");
+                reqs.appendChild(req);
+                req.setAttribute("task-id", it.key()->id());
+                req.setAttribute("request-id", it.value().first->id());
+                req.setAttribute("required-id", it.value().second->id());
             }
         }
     }

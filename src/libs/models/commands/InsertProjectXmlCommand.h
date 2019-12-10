@@ -69,6 +69,7 @@ private:
     void createCmdTasks(const KoXmlElement &projectElement);
     void createCmdTask(const KoXmlElement &parentElement, Node *parent, Node *position = nullptr);
     void createCmdRelations(const KoXmlElement &projectElement);
+    void createCmdRequests(const KoXmlElement &projectElement);
 
 private:
     Project *m_project;

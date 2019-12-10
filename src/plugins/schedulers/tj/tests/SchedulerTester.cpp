@@ -104,10 +104,12 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
     project.addScheduleManager(sm);
 
     PlanTJPlugin tj(0, QVariantList());
-qDebug() << "+++++++++++++++++++++++++++calculate-start";
+    qDebug() << "+++++++++++++++++++++++++++calculate-start";
     tj.calculate(project, sm, true/*nothread*/);
-qDebug() << "+++++++++++++++++++++++++++calculate-end";
-    
+    qDebug() << "+++++++++++++++++++++++++++calculate-end";
+    if (sm->calculationResult() != ScheduleManager::CalculationDone) {
+        Debug::printSchedulingLog(*sm, "----");
+    }
     s = QString("%1: Scheduling failed").arg(fname);
     QVERIFY2(sm->calculationResult() == ScheduleManager::CalculationDone, s.toLatin1());
 

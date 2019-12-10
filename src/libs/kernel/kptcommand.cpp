@@ -1186,12 +1186,21 @@ void ModifyRelationLagCmd::unexecute()
     }
 }
 
-AddResourceRequestCmd::AddResourceRequestCmd(ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name)
-        : NamedCommand(name),
-        m_group(group),
-        m_request(request)
+AddResourceRequestCmd::AddResourceRequestCmd(ResourceRequestCollection *requests, ResourceRequest *request, ResourceGroupRequest *group, const KUndo2MagicString& name)
+    : NamedCommand(name)
+    , m_collection(requests)
+    , m_group(group)
+    , m_request(request)
 {
-
+    m_mine = true;
+}
+AddResourceRequestCmd::AddResourceRequestCmd(ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name)
+    : NamedCommand(name),
+    m_group(group),
+    m_request(request)
+{
+    Q_ASSERT(group->parent());
+    m_collection = group->parent();
     m_mine = true;
 }
 AddResourceRequestCmd::~AddResourceRequestCmd()
@@ -1202,22 +1211,23 @@ AddResourceRequestCmd::~AddResourceRequestCmd()
 void AddResourceRequestCmd::execute()
 {
     //debugPlan<<"group="<<m_group<<" req="<<m_request;
-    m_group->addResourceRequest(m_request);
+    m_collection->addResourceRequest(m_request, m_group);
     m_mine = false;
 }
 void AddResourceRequestCmd::unexecute()
 {
     //debugPlan<<"group="<<m_group<<" req="<<m_request;
-    m_group->takeResourceRequest(m_request);
+    m_collection->removeResourceRequest(m_request);
     m_mine = true;
 }
 
 RemoveResourceRequestCmd::RemoveResourceRequestCmd(ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name)
-        : NamedCommand(name),
-        m_group(group),
-        m_request(request)
+    : NamedCommand(name)
+    , m_collection(group->parent())
+    , m_group(group)
+    , m_request(request)
 {
-
+    Q_ASSERT(m_collection);
     m_mine = false;
     //debugPlan<<"group req="<<group<<" req="<<request<<" to gr="<<m_group->group();
 }
@@ -1228,12 +1238,12 @@ RemoveResourceRequestCmd::~RemoveResourceRequestCmd()
 }
 void RemoveResourceRequestCmd::execute()
 {
-    m_group->takeResourceRequest(m_request);
+    m_collection->removeResourceRequest(m_request);
     m_mine = true;
 }
 void RemoveResourceRequestCmd::unexecute()
 {
-    m_group->addResourceRequest(m_request);
+    m_collection->addResourceRequest(m_request, m_group);
     m_mine = false;
 }
 
@@ -3325,6 +3335,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         ResourceGroupRequest *gr = gregsIt.key();
         QPair<Node*, ResourceGroup*> pair = gregsIt.value();
         Node *n = pair.first;
+        n->requests().removeRequests();
         ResourceGroup *newGroup = pair.second;
         if (ResourceGroup *ng = existingGroups.key(newGroup)) {
             newGroup = ng;
@@ -3332,18 +3343,23 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         } else { debugPlanInsertProject<<"Using group from inserted project:"<<newGroup<<"requests:"<<newGroup->requests(); }
         Q_ASSERT(allGroups.contains(newGroup));
         gr->setGroup(newGroup);
+        gr->setId(0);
+        gr->setParent(nullptr);
         addCommand(new AddResourceGroupRequestCmd(static_cast<Task&>(*n), gr, kundo2_noi18n("Group %1", ++gi)));
         debugPlanInsertProject<<"Add resource group request: task:"<<n->wbsCode()<<n->name()<<":"<<newGroup->name()<<"requests:"<<newGroup->requests();
         QHash<ResourceGroupRequest*, QPair<ResourceRequest*, Resource*> >::const_iterator i = rreqs.constFind(gr);
         for (; i != rreqs.constEnd() && i.key() == gr; ++i) {
             ResourceRequest *rr = i.value().first;
+            rr->setId(0);
+            rr->setCollection(nullptr);
+            rr->setParent(nullptr);
             Resource *newRes = i.value().second;
             debugPlanInsertProject<<"Resource exists:"<<newRes<<newRes->id()<<(void*)newRes<<':'<<m_project->resource(newRes->id());
             if (Resource *nr = existingResources.key(newRes)) {
                 newRes = nr;
                 debugPlanInsertProject<<"Resource existed:"<<newRes<<(void*)newRes;
             }
-            debugPlanInsertProject<<"Add resource request:"<<n->wbsCode()<<n->name()<<":"<<newGroup->name()<<":"<<newRes<<"requests:"<<rr;
+            debugPlanInsertProject<<"Add resource request:"<<"task:"<<n->wbsCode()<<n->name()<<"group:"<<newGroup->name()<<"resource:"<<newRes<<"requests:"<<rr;
             if (! rr->requiredResources().isEmpty()) {
                 // the resource request may have required resources that needs mapping
                 QList<Resource*> required;
@@ -3365,7 +3381,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
             Q_ASSERT(allResources.contains(newRes));
             // all resource requests shall be reinserted
             rr->setResource(newRes);
-            addCommand(new AddResourceRequestCmd(gr, rr, kundo2_noi18n("Resource %1", ++ri)));
+            addCommand(new AddResourceRequestCmd(&n->requests(), rr, gr, kundo2_noi18n("Resource %1", ++ri)));
         }
     }
     // Add nodes (ids are unique, no need to check)

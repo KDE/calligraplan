@@ -634,12 +634,14 @@ private:
 class PLANKERNEL_EXPORT AddResourceRequestCmd : public NamedCommand
 {
 public:
+    AddResourceRequestCmd(ResourceRequestCollection *requests, ResourceRequest *request, ResourceGroupRequest *group = nullptr, const KUndo2MagicString& name = KUndo2MagicString());
     AddResourceRequestCmd(ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddResourceRequestCmd() override;
     void execute() override;
     void unexecute() override;
 
 private:
+    ResourceRequestCollection *m_collection;
     ResourceGroupRequest *m_group;
     ResourceRequest *m_request;
     bool m_mine;
@@ -655,6 +657,7 @@ public:
     void unexecute() override;
 
 private:
+    ResourceRequestCollection *m_collection;
     ResourceGroupRequest *m_group;
     ResourceRequest *m_request;
     bool m_mine;

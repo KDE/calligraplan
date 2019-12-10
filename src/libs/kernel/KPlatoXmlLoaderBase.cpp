@@ -1134,7 +1134,7 @@ bool KPlatoXmlLoaderBase::load(ResourceGroupRequest* gr, const KoXmlElement& ele
         return false;
     }
     gr->group()->registerRequest(gr);
-
+    Q_ASSERT(gr->parent());
 
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
@@ -1145,7 +1145,7 @@ bool KPlatoXmlLoaderBase::load(ResourceGroupRequest* gr, const KoXmlElement& ele
         if (e.tagName() == "resource-request") {
             ResourceRequest *r = new ResourceRequest();
             if (load(r, e, status)) {
-                gr->addResourceRequest(r);
+                gr->parent()->addResourceRequest(r, gr);
             } else {
                 errorPlanXml<<"Failed to load resource request";
                 delete r;

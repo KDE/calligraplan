@@ -38,10 +38,11 @@ Task *WorkPackageProxyModelTester::addTask(Node *parent, int after)
     TaskAddCmd cmd(&project, task, parent->childNode(after));
     cmd.redo();
     ResourceGroupRequest *gr = new ResourceGroupRequest(project.resourceGroupAt(0));
-    ResourceRequest *rr = new ResourceRequest(project.resourceGroupAt(0)->resourceAt(0), 100);
-    gr->addResourceRequest(rr);
     AddResourceGroupRequestCmd c(*task, gr);
     c.redo();
+    ResourceRequest *rr = new ResourceRequest(project.resourceGroupAt(0)->resourceAt(0), 100);
+    AddResourceRequestCmd c2(&task->requests(), rr, gr);
+    c2.redo();
     return task;
 }
 

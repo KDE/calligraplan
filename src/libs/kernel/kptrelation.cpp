@@ -23,6 +23,7 @@
 #include "kptnode.h"
 #include "kptproject.h"
 #include "XmlSaveContext.h"
+#include "kptxmlloaderobject.h"
 #include "kptdebug.h"
 
 #include <KoXmlReader.h>
@@ -106,7 +107,8 @@ void Relation::setChild(Node* node)
 }
 
 
-bool Relation::load(KoXmlElement &element, Project &project) {
+bool Relation::load(KoXmlElement &element, XMLLoaderObject &status) {
+    const Project &project = status.project();
     m_parent = project.findNode(element.attribute("parent-id"));
     if (m_parent == 0) {
         return false;

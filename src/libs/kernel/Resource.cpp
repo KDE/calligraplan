@@ -107,9 +107,26 @@ Resource::~Resource() {
 void Resource::removeRequests() {
     foreach (ResourceRequest *r, m_requests) {
         r->setResource(0); // avoid the request to mess with my list
-        r->parent()->deleteResourceRequest(r);
+        delete r;
     }
     m_requests.clear();
+}
+
+void Resource::registerRequest(ResourceRequest *request)
+{
+    Q_ASSERT(!m_requests.contains(request));
+    m_requests.append(request);
+}
+
+void Resource::unregisterRequest(ResourceRequest *request)
+{
+    m_requests.removeOne(request);
+    Q_ASSERT(!m_requests.contains(request));
+}
+
+const QList<ResourceRequest*> &Resource::requests() const
+{
+    return m_requests;
 }
 
 void Resource::setId(const QString& id) {

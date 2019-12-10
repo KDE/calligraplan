@@ -683,7 +683,7 @@ void Node::saveRelations(QDomElement &element, const XmlSaveContext &context) co
     QListIterator<Relation*> it(m_dependChildNodes);
     while (it.hasNext()) {
         Relation *r = it.next();
-        if (context.saveNode(r->child())) {
+        if (context.saveRelation(r)) {
             r->save(element, context);
         }
     }

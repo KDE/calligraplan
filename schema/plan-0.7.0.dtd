@@ -9,10 +9,7 @@
           usable java classes for import/export.
 -->
 
-<!--
-    plan is used both as the top level element (holding a project)
-    and for other things below (holding shedule data etc)
--->
+<!-- plan is the top level element (holding a project) -->
 <!ELEMENT plan (project?)>
 <!ATTLIST plan
     author CDATA #IMPLIED
@@ -22,7 +19,7 @@
     version CDATA #IMPLIED
 
 <!-- One project node -->
-<!ELEMENT project (shared-resources|wbs-definition|locale|workpackageinfos?|accounts?|calendar*|standard-worktime|resource-groups|resources|task*|relation*|project-schedules?|resource-teams?|external-appointments?)>
+<!ELEMENT project (settings?|accounts?|calendars?|resource-groups?|resources?|task?|relations?|project-schedules?|resource-teams?|external-appointments?|resource-group-requests?|resource-requests?)>
 <!ATTLIST project	id CDATA #REQUIRED
     name CDATA #IMPLIED
     leader CDATA #IMPLIED
@@ -32,8 +29,10 @@
     end-time CDATA #IMPLIED
     timezone CDATA #IMPLIED>
 
+<!-- settings -->
+<!ELEMENT settings (shared-resources?|wbs-definition?|locale?|workpackageinfo?|standard-worktime?)>
 <!-- WBS code generation format -->
-<!ELEMENT wbs-definition (default|levels)>
+<!ELEMENT wbs-definition (default|levels?)>
 <!ATTLIST wbs-definition
     levels-enabled CDATA #IMPLIED
     project-code  CDATA #IMPLIED
@@ -58,13 +57,7 @@
     currency-symbol CDATA #IMPLIED
     currency-digits  CDATA #IMPLIED
     language  CDATA #IMPLIED
-    country  CDATA #IMPLIED
-<!--
-    positive-prefix-currency-symbol CDATA #IMPLIED
-    negative-prefix-currency-symbol CDATA #IMPLIED
-    positive-monetary-sign-position CDATA #IMPLIED
-    negative-monetary-sign-position CDATA #IMPLIED>
--->
+    country  CDATA #IMPLIED>
 
 <!-- The shared resources/projects settings used in this project -->
 <!ELEMENT shared-resources EMPTY>
@@ -75,14 +68,22 @@
     projects-loadatstartup  CDATA #IMPLIED
 
 <!-- The workpackageinfo settings used in this project -->
-<!ELEMENT workpackageinfos EMPTY>
+<!ELEMENT workpackageinfo EMPTY>
 <!ATTLIST workpackageinfo
     check-for-workpackages  CDATA #IMPLIED
     retrieve-url  CDATA #IMPLIED
     delete-after-retrieval  CDATA #IMPLIED
     archive-after-retrieval  CDATA #IMPLIED
     archive-url  CDATA #IMPLIED
-    publish-url  CDATA #IMPLIED
+    publish-url  CDATA #IMPLIED>
+
+<!-- Standard worktime defines the numbers of hours resources are expected to work -->
+<!ELEMENT standard-worktime EMPTY>
+<!ATTLIST standard-worktime
+    day CDATA "8h0m"
+    week CDATA "40h0m"
+    month CDATA "176h0m"
+    year CDATA "1760h0m">
 
 <!-- Cost accounts -->
 <!ELEMENT accounts (account*)>
@@ -102,6 +103,7 @@
     running-cost CDATA "0">
 
 <!-- A calendar defines working hours for resource(s) or modifies duration for task(s) -->
+<!ELEMENT calendars (calendar*)>
 <!ELEMENT calendar (calendar*|weekday*|day*)>
 <!ATTLIST calendar
     id CDATA #REQUIRED
@@ -110,47 +112,30 @@
     default CDATA "0"
     timezone  CDATA #IMPLIED>
 
-<!--
-    7 weekdays (0=monday - 6=sunday), state: 0=Undefined, 1=NonWorking, 2=Working.
-    If state=Working, there will (should) be one or more interval
--->
-<!ELEMENT weekday (interval*)>
+<!-- 7 weekdays (0=monday - 6=sunday) -->
+<!ELEMENT weekday (day*)>
 <!ATTLIST weekday
-    day (0|1|2|3|4|5|6) "0"
-    state (0|1|2) "0">
+    day (0|1|2|3|4|5|6) "0">
 
 <!--
     interval as used by calendar:
         interval has a start time and a length (in ms)
         start+length must not exceed midnight
-    interval as used by appointment and external-appointment:
-        has a start datetime, end datetime and a load
 -->
-<!ELEMENT interval EMPTY>
-<!ATTLIST interval
+<!ELEMENT time-interval EMPTY>
+<!ATTLIST time-interval
     start CDATA #IMPLIED
-    length CDATA #IMPLIED
-
-    end CDATA #IMPLIED
-    load CDATA "0">
+    length CDATA #IMPLIED>
 
 <!--
     A day has a date and state: 0=Undefined, 1=NonWorking, 2=Working.
     If state=Working, there will (should) be one or more interval
  -->
-<!ELEMENT day (interval*)>
+<!ELEMENT day (time-interval*)>
 <!ATTLIST day
     date CDATA #REQUIRED
     state (0|1|2) "0">
 
-
-<!-- Standard worktime defines the numbers of hours resources are expected to work -->
-<!ELEMENT standard-worktime EMPTY>
-<!ATTLIST standard-worktime
-    day CDATA "8h0m"
-    week CDATA "40h0m"
-    month CDATA "176h0m"
-    year CDATA "1760h0m">
 
 <!-- Resource groups -->
 <!ELEMENT resource-groups (resource-group*)>
@@ -180,8 +165,9 @@
     group-id CDATA #REQUIRED
     resource-id CDATA #REQUIRED>
 
+<!ELEMENT tasks (task*)>
 <!-- Task can be tasks, milestones (zero estimate) or summary tasks (have children) -->
-<!ELEMENT task (task*|estimate|documents?|resourcegroup-request*|task-schedules?|progress?)>
+<!ELEMENT task (task*|estimate|documents?|task-schedules?|progress?)>
 <!ATTLIST task	id CDATA #REQUIRED
     name CDATA #IMPLIED
     leader CDATA #IMPLIED
@@ -290,11 +276,21 @@
     id CDATA #REQUIRED>
 
 <!-- Appointments between resources and tasks used by project -->
-<!ELEMENT appointment (interval*)>
+<!ELEMENT appointment (appointment-interval*)>
 <!ATTLIST appointment
     resource-id CDATA #REQUIRED
     task-id CDATA #REQUIRED>
-<!-- Note interval is shared, fake definition above -->
+
+<!--
+    appointment-interval as used by appointment and external-appointment:
+        has a start datetime, end datetime and a load
+-->
+<!ELEMENT appointment-interval EMPTY>
+<!ATTLIST appointment-interval
+    start CDATA #IMPLIED
+    end CDATA #IMPLIED
+    load CDATA "0">
+
 
 <!-- documents used by task -->
 <!ELEMENT documents (document*)>
@@ -319,23 +315,36 @@
 -->
 
 <!--
-	Resource requests are made by tasks and referes to
+    Resource requests are made by tasks and referes to
     the resources needed from a resource group
 -->
-<!ELEMENT resourcegroup-request (resource-request*)>
-<!ATTLIST resourcegroup-request
+<!ELEMENT resource-group-requests (resource-group-request?)>
+<!ELEMENT resource-group-request EMPTY>
+<!ATTLIST resource-group-request
+    task-id CDATA #REQUIRED
     group-id CDATA #REQUIRED
     units CDATA "0">
 
-<!ELEMENT resource-request EMPTY>
+<!ELEMENT resource-requests (resource-request?)>
+<!ELEMENT resource-request (required-resources?)>
 <!ATTLIST resource-request
-	resource-id CDATA #REQUIRED
+    task-id CDATA #REQUIRED
+    group-id CDATA #IMPLIED
+    resource-id CDATA #REQUIRED
     units CDATA "100">
 
+<!-- Used both by resource-request and by resource -->
+<!ELEMENT required-resources (required-resource*)>
+<!ELEMENT required-resource EMPTY>
+<!ATTLIST required-resource
+    resource-id CDATA #REQUIRED
+    required-id CDATA #REQUIRED>
+
 <!--
-	Relations are described by the two IDs and the type of constraint
+    Task relations are described by the two IDs, the type of constraint and lag
     The ids are references to tasks, so all tasks must have been loaded
 -->
+<!ELEMENT relations (relation*)>
 <!ELEMENT relation EMPTY>
 <!ATTLIST relation
 	parent-id CDATA #REQUIRED
@@ -353,8 +362,8 @@
 
 <!-- external appointments -->
 <!ELEMENT external-appointments (external-appointment*)>
-<!ELEMENT external-appointment (interval*)>
+<!ELEMENT external-appointment (appointment-interval*)>
 <!ATTLIST
     resource-id CDATA #REQUIRED
     project-id CDATA #REQUIRED
-    project-name CDATA #REQUIRED
+    project-name CDATA #REQUIRED>
