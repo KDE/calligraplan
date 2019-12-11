@@ -1555,6 +1555,7 @@ void MainDocument::slotProjectCreated()
                     week->setWeekday(i, vd);
                 }
             }
+            m_project->setDefaultCalendar(week);
         }
     }
 #ifdef HAVE_KHOLIDAYS
@@ -1571,12 +1572,10 @@ void MainDocument::slotProjectCreated()
         } else if (subcalendar) {
             holiday = new Calendar(i18n("Holidays"));
             m_project->addCalendar(holiday, week);
-            holiday->setDefault(true);
             debugPlan<<"subcalendar";
         } else if (separate) {
             holiday = new Calendar(i18n("Holidays"));
             m_project->addCalendar(holiday);
-            holiday->setDefault(true);
             debugPlan<<"separate";
         } else {
             Q_ASSERT(false); // something wrong
@@ -1587,9 +1586,8 @@ void MainDocument::slotProjectCreated()
             return;
         }
         holiday->setHolidayRegion(KPlatoSettings::region());
+        m_project->setDefaultCalendar(holiday);
     }
-#else
-    week->setDefault(true);
 #endif
 }
 
