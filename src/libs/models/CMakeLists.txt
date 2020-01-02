@@ -29,7 +29,10 @@ set(planmodels_LIB_SRCS
 
     kcalendar/kdatetable.cpp
     kcalendar/kdatepicker.cpp
-    
+
+    RequieredResourceDelegate.cpp
+    kptitemmodelbase.cpp
+
     kptnodechartmodel.cpp
     
     kptflatproxymodel.cpp
@@ -37,17 +40,22 @@ set(planmodels_LIB_SRCS
     kptrelationmodel.cpp
     kptworkpackagemodel.cpp
     kptdocumentmodel.cpp
-    kptitemmodelbase.cpp
     kptnodeitemmodel.cpp
     kptdurationspinbox.cpp
     kpttaskstatusmodel.cpp
-    kptresourcemodel.cpp
     kptcalendarmodel.cpp
     kptschedulemodel.cpp
     kptaccountsmodel.cpp
     kptpertcpmmodel.cpp
+
+    AllocatedResourceItemModel.cpp
+    ResourceGroupModel.cpp
+    ResourceModel.cpp
+    ResourceGroupItemModel.cpp
+    ResourceItemModel.cpp
     kptresourceappointmentsmodel.cpp
     kptresourceallocationmodel.cpp
+    ResourceItemSFModel.cpp
 
     kpttaskcompletedelegate.cpp
 )

@@ -208,6 +208,9 @@ public:
     QStringList resourceNameList() const;
     /// Returns a list of all resources
     QList<Resource*> resourceList() const { return m_resources; }
+    int indexOf(Resource *resource) const;
+    int resourceCount() const;
+    Resource *resourceAt(int pos) const;
 
     EffortCostMap plannedEffortCostPrDay(QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     EffortCostMap plannedEffortCostPrDay(const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
@@ -585,22 +588,17 @@ Q_SIGNALS:
     /// This signal is emitted when a document is changed
     void documentChanged(KPlato::Node*, KPlato::Document*, int index);
 
-    void resourceGroupChanged(KPlato::ResourceGroup *group);
-    void resourceGroupAdded(const KPlato::ResourceGroup *group);
-    void resourceGroupToBeAdded(const KPlato::ResourceGroup *group, int row);
-    void resourceGroupRemoved(const KPlato::ResourceGroup *group);
-    void resourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
+    void resourceGroupChanged(ResourceGroup *group);
+    void resourceGroupToBeAdded(Project *project, int row);
+    void resourceGroupAdded(KPlato::ResourceGroup *group);
+    void resourceGroupToBeRemoved(Project *project, int row, KPlato::ResourceGroup *group);
+    void resourceGroupRemoved();
 
-    void resourceToBeAddedToGroup(const KPlato::ResourceGroup *group, int row);
-    void resourceAddedToGroup(const KPlato::ResourceGroup *group, int row);
-    void resourceToBeRemovedFromGroup(const KPlato::ResourceGroup *group, int row);
-    void resourceRemovedFromGroup(const KPlato::ResourceGroup *group, int row);
-
-    void resourceChanged(KPlato::Resource *resource);
-    void resourceAddedToProject(const KPlato::Resource *resource, int row);
-    void resourceToBeAddedToProject(const KPlato::Resource* resource, int row);
-    void resourceRemovedFromProject(const KPlato::Resource *resource, int row);
-    void resourceToBeRemovedFromProject(const KPlato::Resource *resource, int row);
+    void resourceChanged(Resource *resource);
+    void resourceToBeAdded(Project *project, int row);
+    void resourceAdded(Resource *resource);
+    void resourceToBeRemoved(Project *project, int row, KPlato::Resource *resource);
+    void resourceRemoved();
 
     void scheduleManagerChanged(KPlato::ScheduleManager *sch, int property = -1);
     void scheduleManagerAdded(const KPlato::ScheduleManager *sch);

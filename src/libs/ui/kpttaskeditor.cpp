@@ -31,7 +31,8 @@
 #include "kptworkpackagesendpanel.h"
 #include "kptdatetime.h"
 #include "kptdebug.h"
-#include "kptresourcemodel.h"
+#include <ResourceItemModel.h>
+#include <AllocatedResourceItemModel.h>
 #include "kptresourceallocationmodel.h"
 #include "ResourceAllocationView.h"
 #include "kpttaskdialog.h"

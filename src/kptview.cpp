@@ -91,6 +91,7 @@
 #include "kptrelation.h"
 #include "kptrelationdialog.h"
 #include "kptresourceappointmentsview.h"
+#include "ResourceGroupEditor.h"
 #include "kptresourceeditor.h"
 #include "kptscheduleeditor.h"
 #include "kptresourcedialog.h"
@@ -510,6 +511,8 @@ void View::createViews()
 
         createAccountsEditor(cat, "AccountsEditor", QString(), TIP_USE_DEFAULT_TEXT);
 
+        v = createResourceGroupEditor(cat, "ResourceGroupEditor", QString(), TIP_USE_DEFAULT_TEXT);
+
         v = createResourceEditor(cat, "ResourceEditor", QString(), TIP_USE_DEFAULT_TEXT);
 
         v = createTaskEditor(cat, "TaskEditor", QString(), TIP_USE_DEFAULT_TEXT);
@@ -608,6 +611,8 @@ ViewBase *View::createView(ViewListItem *cat, const QString &type, const QString
         v = createCalendarEditor(cat, tag, name, tip, index);
     } else if (type == "AccountsEditor") {
         v = createAccountsEditor(cat, tag, name, tip, index);
+    } else if (type == "ResourceGroupEditor") {
+        v = createResourceGroupEditor(cat, tag, name, tip, index);
     } else if (type == "ResourceEditor") {
         v = createResourceEditor(cat, tag, name, tip, index);
     } else if (type == "TaskEditor") {
@@ -671,6 +676,9 @@ ViewInfo View::defaultViewInfo(const QString &type) const
     } else if (type == "AccountsEditor") {
         vi.name = i18n("Cost Breakdown Structure");
         vi.tip = xi18nc("@info:tooltip", "Edit cost breakdown structure.");
+    } else if (type == "ResourceGroupEditor") {
+        vi.name = i18n("Resource groups");
+        vi.tip = xi18nc("@info:tooltip", "Edit resource groups");
     } else if (type == "ResourceEditor") {
         vi.name = i18n("Resources");
         vi.tip = xi18nc("@info:tooltip", "Edit resource breakdown structure");
@@ -842,6 +850,33 @@ ViewBase *View::createResourceAppointmentsView(ViewListItem *cat, const QString 
     v->setScheduleManager(currentScheduleManager());
     v->updateReadWrite(m_readWrite);
     return v;
+}
+
+ViewBase *View::createResourceGroupEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
+{
+    ResourceGroupEditor *e = new ResourceGroupEditor(getKoPart(), getPart(), m_tab);
+    e->setViewSplitMode(false);
+    m_tab->addWidget(e);
+    e->setProject(&(getProject()));
+    
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, e, getPart(), "", index);
+    ViewInfo vi = defaultViewInfo("ResourceGroupEditor");
+    if (name.isEmpty()) {
+        i->setText(0, vi.name);
+    }
+    if (tip == TIP_USE_DEFAULT_TEXT) {
+        i->setToolTip(0, vi.tip);
+    } else {
+        i->setToolTip(0, tip);
+    }
+    
+    connect(e, &ViewBase::guiActivated, this, &View::slotGuiActivated);
+    
+    connect(e, &ResourceGroupEditor::deleteObjectList, this, &View::slotDeleteResourceObjects);
+    
+    connect(e, &ResourceGroupEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
+    e->updateReadWrite(m_readWrite);
+    return e;
 }
 
 ViewBase *View::createResourceEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)

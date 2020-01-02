@@ -1947,7 +1947,7 @@ void Project::setParentSchedule(Schedule *sch)
 void Project::addResourceGroup(ResourceGroup *group, int index)
 {
     int i = index == -1 ? m_resourceGroups.count() : index;
-    emit resourceGroupToBeAdded(group, i);
+    emit resourceGroupToBeAdded(this, i);
     m_resourceGroups.insert(i, group);
     setResourceGroupId(group);
     group->setProject(this);
@@ -1966,7 +1966,7 @@ ResourceGroup *Project::takeResourceGroup(ResourceGroup *group)
     if (i == -1) {
         return 0;
     }
-    emit resourceGroupToBeRemoved(group);
+    emit resourceGroupToBeRemoved(this, i, group);
     ResourceGroup *g = m_resourceGroups.takeAt(i);
     Q_ASSERT(group == g);
     g->setProject(0);
@@ -1974,7 +1974,7 @@ ResourceGroup *Project::takeResourceGroup(ResourceGroup *group)
     foreach (Resource *r, g->resources()) {
         r->removeParentGroup(g);
     }
-    emit resourceGroupRemoved(g);
+    emit resourceGroupRemoved();
     emit projectChanged();
     return g;
 }
@@ -1987,18 +1987,18 @@ QList<ResourceGroup*> &Project::resourceGroups()
 void Project::addResource(Resource *resource, int index)
 {
     int i = index == -1 ? m_resources.count() : index;
-    emit resourceToBeAddedToProject(resource, i);
+    emit resourceToBeAdded(this, i);
     setResourceId(resource);
     m_resources.insert(i, resource);
     resource->setProject(this);
-    emit resourceAddedToProject(resource, i);
+    emit resourceAdded(resource);
     emit projectChanged();
 }
 
 bool Project::takeResource(Resource *resource)
 {
     int index = m_resources.indexOf(resource);
-    emit resourceToBeRemovedFromProject(resource, index);
+    emit resourceToBeRemoved(this, index, resource);
     bool result = removeResourceId(resource->id());
     Q_ASSERT(result == true);
     if (!result) {
@@ -2010,7 +2010,7 @@ bool Project::takeResource(Resource *resource)
     }
     bool rem = m_resources.removeOne(resource);
     Q_ASSERT(!m_resources.contains(resource));
-    emit resourceRemovedFromProject(resource, index);
+    emit resourceRemoved();
     emit projectChanged();
     return rem;
 }
@@ -2577,6 +2577,21 @@ QStringList Project::resourceNameList() const
         lst << r->name();
     }
     return lst;
+}
+
+int Project::indexOf(Resource *resource) const
+{
+    return m_resources.indexOf(resource);
+}
+
+int Project::resourceCount() const
+{
+    return m_resources.count();
+}
+
+Resource *Project::resourceAt(int pos) const
+{
+    return m_resources.value(pos);
 }
 
 EffortCostMap Project::plannedEffortCostPrDay(QDate  start, QDate end, long id, EffortCostCalculationType typ) const
@@ -3311,7 +3326,7 @@ void Project::changed(Node *node, int property)
 void Project::changed(ResourceGroup *group)
 {
     //debugPlan;
-    emit resourceGroupChanged(group);
+//     emit resourceGroupChanged(group);
     emit projectChanged();
 }
 
@@ -3355,7 +3370,7 @@ void Project::sendScheduleRemoved(const MainSchedule *sch)
 
 void Project::changed(Resource *resource)
 {
-    emit resourceChanged(resource);
+//     emit resourceChanged(resource);
     emit projectChanged();
 }
 

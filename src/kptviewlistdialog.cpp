@@ -78,7 +78,9 @@ AddViewPanel::AddViewPanel(View *view, ViewListWidget &viewlist, QWidget *parent
     widget.setupUi(this);
 
     // NOTE: these lists must match switch in ok() FIXME: refactor
-    m_viewtypes << "ResourceEditor"
+    m_viewtypes
+            << "ResourceGroupEditor"
+            << "ResourceEditor"
             << "TaskEditor"
             << "CalendarEditor"
             << "AccountsEditor"
@@ -100,7 +102,8 @@ AddViewPanel::AddViewPanel(View *view, ViewListWidget &viewlist, QWidget *parent
     m_viewtypes << "ReportView";
 #endif
     QStringList lst;
-    lst << i18n("Resource Editor")
+    lst << i18n("Resource Group Editor")
+            << i18n("Resource Editor")
             << i18n("Task Editor")
             << i18n("Work & Vacation Editor")
             << i18n("Accounts Editor")
@@ -226,62 +229,65 @@ bool AddViewPanel::ok()
     int index = widget.insertAfter->currentIndex();
     int viewtype = widget.viewtype->currentIndex();
     switch (viewtype) {
-        case 0: { // Resource editor
+        case 0: { // Resource group editor
+            v = m_view->createResourceGroupEditor(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
+            break; }
+        case 1: { // Resource editor
             v = m_view->createResourceEditor(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 1: { // Task editor
+        case 2: { // Task editor
             v = m_view->createTaskEditor(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 2: { // Work & Vacation Editor
+        case 3: { // Work & Vacation Editor
             v = m_view->createCalendarEditor(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 3: { // Accounts Editor
+        case 4: { // Accounts Editor
             v = m_view->createAccountsEditor(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 4: { // Dependency Editor (Graphic)
+        case 5: { // Dependency Editor (Graphic)
             v = m_view->createDependencyEditor(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 5: { // Dependency Editor (List)
+        case 6: { // Dependency Editor (List)
             v = m_view->createPertEditor(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 6: { // Schedules Handler
+        case 7: { // Schedules Handler
             v = m_view->createScheduleHandler(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 7: { // Task status
+        case 8: { // Task status
             v = m_view->createTaskStatusView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 8: { // Task status
+        case 9: { // Task status
             v = m_view->createTaskView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 9: { // Task work package
+        case 10: { // Task work package
             v = m_view->createTaskWorkPackageView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 10: { // Gantt View
+        case 11: { // Gantt View
             v = m_view->createGanttView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 11: { // Milestone Gantt View
+        case 12: { // Milestone Gantt View
             v = m_view->createMilestoneGanttView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 12: { // Resource Assignments
+        case 13: { // Resource Assignments
             v = m_view->createResourceAppointmentsView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 13: { // Resource Assignments (Gantt)
+        case 14: { // Resource Assignments (Gantt)
             v = m_view->createResourceAppointmentsGanttView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 14: { // Cost Breakdown
+        case 15: { // Cost Breakdown
             v = m_view->createAccountsView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 15: { // Project Performance Chart
+        case 16: { // Project Performance Chart
             v = m_view->createProjectStatusView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 16: { // Task Performance Chart
+        case 17: { // Task Performance Chart
             v = m_view->createPerformanceStatusView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 17: { // Reports generator
+        case 18: { // Reports generator
             v = m_view->createReportsGeneratorView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
 #ifdef PLAN_USE_KREPORT
-        case 18: { // Report view
+        case 19: { // Report view
             v = m_view->createReportView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
 #endif

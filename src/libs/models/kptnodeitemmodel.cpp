@@ -3803,11 +3803,15 @@ int NodeItemModel::columnCount(const QModelIndex &/*parent*/) const
 
 int NodeItemModel::rowCount(const QModelIndex &parent) const
 {
+    int rows = 0;
+    Node *p = nullptr;
     if (m_projectshown && ! parent.isValid()) {
-        return m_project == 0 ? 0 : 1;
+        rows = m_project == 0 ? 0 : 1;
+    } else {
+        p = node(parent);
+        rows = p == 0 ? 0 : p->numChildren();
     }
-    Node *p = node(parent);
-    return p == 0 ? 0 : p->numChildren();
+    return rows;
 }
 
 Qt::DropActions NodeItemModel::supportedDropActions() const

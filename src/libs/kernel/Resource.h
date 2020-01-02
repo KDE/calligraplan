@@ -103,6 +103,8 @@ public:
 
     void copy(Resource *resource);
 
+    int groupCount() const;
+    int groupIndexOf(ResourceGroup *group) const;
     void addParentGroup(ResourceGroup *parent);
     bool removeParentGroup(ResourceGroup *parent);
     void setParentGroups(QList<ResourceGroup*> &parents);
@@ -327,6 +329,8 @@ public:
     /// Returns the list of required resource ids.
     QStringList requiredIds() const { return m_requiredIds; }
 
+    /// Number of team members
+    int teamCount() const;
     /// Return the list of team members.
     QList<Resource*> teamMembers() const;
     /// Return the list of team members.
@@ -376,11 +380,23 @@ public:
     const WorkInfoCache &workInfoCache() const { return m_workinfocache; }
 
 Q_SIGNALS:
+    void dataChanged(KPlato::Resource *resource);
+
+    void resourceGroupToBeAdded(KPlato::Resource *resource, int row);
+    void resourceGroupAdded(KPlato::ResourceGroup *group);
+    void resourceGroupToBeRemoved(KPlato::Resource *resource, int row, KPlato::ResourceGroup *group);
+    void resourceGroupRemoved();
+
     void externalAppointmentToBeAdded(KPlato::Resource *r, int row);
     void externalAppointmentAdded(KPlato::Resource*, KPlato::Appointment*);
     void externalAppointmentToBeRemoved(KPlato::Resource *r, int row);
     void externalAppointmentRemoved();
     void externalAppointmentChanged(KPlato::Resource *r, KPlato::Appointment *a);
+
+    void teamToBeAdded(KPlato::Resource *r, int row);
+    void teamAdded(KPlato::Resource*);
+    void teamToBeRemoved(KPlato::Resource *r, int row, KPlato::Resource *team);
+    void teamRemoved();
 
 protected:
     DateTimeInterval requiredAvailable(Schedule *node, const DateTime &start, const DateTime &end) const;

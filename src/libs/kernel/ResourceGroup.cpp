@@ -92,8 +92,11 @@ void ResourceGroup::blockChanged(bool on)
 }
 
 void ResourceGroup::changed() {
-    if (m_project && !m_blockChanged) {
-        m_project->changed(this);
+    if (!m_blockChanged) {
+        emit dataChanged(this);
+        if (m_project) {
+            emit m_project->resourceGroupChanged(this);
+        }
     }
 }
 
@@ -176,19 +179,13 @@ void ResourceGroup::addResource(Resource* resource, Risk *risk)
 
 void ResourceGroup::addResource(int index, Resource* resource, Risk*)
 {
-    if (m_resources.contains(resource)) {
-        warnPlan<<Q_FUNC_INFO<<this<<"already contains resource"<<resource;
-        return;
+    if (!m_resources.contains(resource)) {
+        int i = index == -1 ? m_resources.count() : index;
+        emit resourceToBeAdded(this, i);
+        m_resources.insert(i, resource);
+        emit resourceAdded(resource);
     }
-    int i = index == -1 ? m_resources.count() : index;
-    if (m_project) {
-        emit m_project->resourceToBeAddedToGroup(this, i);
-    }
-    m_resources.insert(i, resource);
     resource->addParentGroup(this);
-    if (m_project) {
-        emit m_project->resourceAddedToGroup(this, i);
-    }
 }
 
 Resource *ResourceGroup::takeResource(Resource *resource)
@@ -196,14 +193,10 @@ Resource *ResourceGroup::takeResource(Resource *resource)
     Resource *r = 0;
     int i = m_resources.indexOf(resource);
     if (i != -1) {
-        if (m_project) {
-            emit m_project->resourceToBeRemovedFromGroup(this, i);
-        }
+        emit resourceToBeRemoved(this, i, resource);
         r = m_resources.takeAt(i);
+        emit resourceRemoved();
         r->removeParentGroup(this);
-        if (m_project) {
-            emit m_project->resourceRemovedFromGroup(this, i);
-        }
     }
     return r;
 }

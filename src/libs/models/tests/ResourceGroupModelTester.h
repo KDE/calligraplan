@@ -17,37 +17,38 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KPLATO_RESOURCEMODELTESTER_H
-#define KPLATO_RESOURCEMODELTESTER_H
+#ifndef KPLATO_RESOURCEGROUPMODELTESTER_H
+#define KPLATO_RESOURCEGROUPMODELTESTER_H
 
 #include <QObject>
 
-#include "ResourceItemModel.h"
+#include "ResourceGroupItemModel.h"
+
+#include "kptproject.h"
+#include "kptdatetime.h"
 
 namespace KPlato
 {
 
-class Resource;
-class Calendar;
-class Project;
+class Task;
 
-class ResourceModelTester : public QObject
+class ResourceGroupModelTester : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
     void init();
     void cleanup();
     
+    void groups();
     void resources();
 
 private:
-    QModelIndex index(Resource *r);
-
     Project *m_project;
     Calendar *m_calendar;
+    Task *m_task;
     Resource *m_resource;
 
-    ResourceItemModel m_model;
+    ResourceGroupItemModel m_model;
 
 };
 

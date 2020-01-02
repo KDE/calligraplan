@@ -25,7 +25,8 @@
 #include "kptproject.h"
 #include "kptresource.h"
 #include "kptcalendar.h"
-#include "kptresourcemodel.h"
+#include "ResourceItemSFModel.h"
+#include "ResourceGroupItemModel.h"
 #include "kptdebug.h"
 
 #include <QList>
@@ -327,11 +328,13 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
     connect(dia->required, SIGNAL(changed()), SLOT(enableButtonOk()));
     connect(dia->account, SIGNAL(currentIndexChanged(QString)), SLOT(slotAccountChanged(QString)));
     
-    connect(&project, &Project::resourceRemovedFromProject, this, &ResourceDialog::slotResourceRemoved);
+    connect(&project, &Project::resourceToBeRemoved, this, &ResourceDialog::slotResourceRemoved);
 }
 
-void ResourceDialog::slotResourceRemoved(const Resource *resource)
+void ResourceDialog::slotResourceRemoved(Project *project, int row, Resource *resource)
 {
+    Q_UNUSED(project)
+    Q_UNUSED(row)
     if (m_original == resource) {
         reject();
     }

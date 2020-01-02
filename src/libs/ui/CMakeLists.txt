@@ -63,7 +63,6 @@ set(planui_LIB_SRCS
     kptperteditor.cpp
     kptpertresult.cpp
     kpttaskeditor.cpp
-    kptresourceeditor.cpp
     kptscheduleeditor.cpp
     kptsummarytaskdialog.cpp
     kptsummarytaskgeneralpanel.cpp
@@ -100,7 +99,9 @@ set(planui_LIB_SRCS
     locale/localemon.cpp
     kptlocaleconfigmoneydialog.cpp
 
+    ResourceGroupEditor.cpp
     ResourceAllocationView.cpp
+    kptresourceeditor.cpp
 
     performance/KPlatoChart.cpp
     performance/PerformanceStatusBase.cpp
@@ -196,6 +197,8 @@ install( FILES
         DependencyEditorUi_readonly.rc
         ResourceEditorUi.rc
         ResourceEditorUi_readonly.rc
+        ResourceGroupEditorUi.rc
+        ResourceGroupEditorUi_readonly.rc
         ResourceAppointmentsViewUi.rc
         ScheduleEditorUi.rc
         ScheduleEditorUi_readonly.rc

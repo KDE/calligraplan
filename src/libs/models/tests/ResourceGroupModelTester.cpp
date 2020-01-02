@@ -18,7 +18,7 @@
  */
 
 // clazy:excludeall=qstring-arg
-#include "ResourceModelTester.h"
+#include "ResourceGroupModelTester.h"
 
 #include "AddResourceCmd.h"
 #include "AddParentGroupCmd.h"
@@ -26,7 +26,6 @@
 #include "kptcalendar.h"
 #include "kptdatetime.h"
 #include "kptresource.h"
-
 #include <QModelIndex>
 
 #include <QTest>
@@ -35,7 +34,7 @@
 
 using namespace KPlato;
 
-void ResourceModelTester::init()
+void ResourceGroupModelTester::init()
 {
     m_project = new Project();
     m_project->setName("P1");
@@ -63,12 +62,38 @@ void ResourceModelTester::init()
     m_model.setProject(m_project);
 }
 
-void ResourceModelTester::cleanup()
+void ResourceGroupModelTester::cleanup()
 {
     m_project->deref();
 }
 
-void ResourceModelTester::resources()
+void ResourceGroupModelTester::groups()
+{
+    QCOMPARE(m_project->numResourceGroups(), 0);
+    ResourceGroup *g1 = new ResourceGroup();
+    AddResourceGroupCmd c1(m_project, g1);
+    c1.redo();
+    QCOMPARE(m_project->numResourceGroups(), 1);
+    c1.undo();
+    QCOMPARE(m_project->numResourceGroups(), 0);
+    c1.redo();
+    QCOMPARE(m_project->numResourceGroups(), 1);
+
+    QCOMPARE(m_model.rowCount(), 1);
+    
+    ResourceGroup *g2 = new ResourceGroup();
+    AddResourceGroupCmd c2(m_project, g2);
+    c2.redo();
+    QCOMPARE(m_project->numResourceGroups(), 2);
+    c2.undo();
+    QCOMPARE(m_project->numResourceGroups(), 1);
+    c2.redo();
+    QCOMPARE(m_project->numResourceGroups(), 2);
+
+    QCOMPARE(m_model.rowCount(), 2);
+}
+
+void ResourceGroupModelTester::resources()
 {
     QCOMPARE(m_project->resourceCount(), 0);
     Resource *r1 = new Resource();
@@ -89,8 +114,28 @@ void ResourceModelTester::resources()
     c2.redo();
     QCOMPARE(m_project->resourceCount(), 2);
 
-    QCOMPARE(m_model.rowCount(), 2);
+    QCOMPARE(m_model.rowCount(), 0);
+
+    ResourceGroup *g1 = new ResourceGroup();
+    AddResourceGroupCmd cg(m_project, g1);
+    cg.redo();
+    QCOMPARE(m_model.rowCount(), 1);
+
+    AddParentGroupCmd c3(r1, g1);
+    c3.redo();
+    QCOMPARE(m_model.rowCount(), 1);
+    QCOMPARE(m_model.rowCount(m_model.index(g1)), 1);
+    c3.undo();
+    QCOMPARE(m_model.rowCount(m_model.index(g1)), 0);
+    c3.redo();
+
+    AddParentGroupCmd c4(r2, g1);
+    c4.redo();
+    QCOMPARE(m_model.rowCount(), 1);
+    QCOMPARE(m_model.rowCount(m_model.index(g1)), 2);
+    c4.undo();
+    QCOMPARE(m_model.rowCount(m_model.index(g1)), 1);
 }
 
-QTEST_GUILESS_MAIN(KPlato::ResourceModelTester)
 
+QTEST_GUILESS_MAIN(KPlato::ResourceGroupModelTester)

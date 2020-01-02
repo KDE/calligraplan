@@ -29,6 +29,7 @@
 #include <QStyledItemDelegate>
 #include <QMetaEnum>
 #include <QMimeData>
+#include <QSortFilterProxyModel>
 
 #include <KoXmlReaderForward.h>
 
@@ -166,22 +167,6 @@ public:
 
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
-
-//------------------------------------
-class PLANMODELS_EXPORT RequieredResourceDelegate : public ItemDelegate
-{
-    Q_OBJECT
-public:
-    explicit RequieredResourceDelegate(QObject *parent = 0);
-
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-
-    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
-
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-};
-
 
 class PLANMODELS_EXPORT DurationSpinBoxDelegate : public ItemDelegate
 {

@@ -187,10 +187,17 @@ public:
     void setShared(bool on);
 
 #ifndef NDEBUG
-
     void printDebug(const QString& ident);
 #endif
 
+Q_SIGNALS:
+    void dataChanged(KPlato::ResourceGroup *group);
+
+    void resourceToBeAdded(KPlato::ResourceGroup *group, int row);
+    void resourceAdded(KPlato::Resource *resource);
+    void resourceToBeRemoved(KPlato::ResourceGroup *group, int row, KPlato::Resource *resource);
+    void resourceRemoved();
+    
 protected:
     virtual void changed();
 

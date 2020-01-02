@@ -171,8 +171,11 @@ void Resource::blockChanged(bool on)
 
 void Resource::changed()
 {
-    if (m_project && !m_blockChanged) {
-        m_project->changed(this);
+    if (m_blockChanged) {
+        emit dataChanged(this);
+        if (m_project) {
+            emit m_project->resourceChanged(this);
+        }
     }
 }
 
@@ -267,34 +270,50 @@ void Resource::setCalendar(Calendar *calendar)
 
 void Resource::addParentGroup(ResourceGroup *parent)
 {
-    if (!parent) {
-        return;
-    }
     if (!m_parents.contains(parent)) {
+        emit resourceGroupToBeAdded(this, m_parents.count());
         m_parents.append(parent);
+        emit resourceGroupAdded(parent);
         parent->addResource(this);
     }
 }
 
 bool Resource::removeParentGroup(ResourceGroup *parent)
 {
-    if (parent) {
-        parent->takeResource(this);
+    bool result = false;
+    if (m_parents.contains(parent)) {
+        int row = m_parents.indexOf(parent);
+        emit resourceGroupToBeRemoved(this, row, parent);
+        result = m_parents.removeOne(parent);
+        emit resourceGroupRemoved();
     }
-    return m_parents.removeOne(parent);
+    parent->takeResource(this);
+    return result;
 }
 
 void Resource::setParentGroups(QList<ResourceGroup*> &parents)
 {
-    for (ResourceGroup *g : m_parents) {
-        removeParentGroup(g);
+    while (!m_parents.isEmpty()) {
+        removeParentGroup(m_parents.at(0));
     }
-    m_parents = parents;
+    for (ResourceGroup *g : parents) {
+        addParentGroup(g);
+    }
 }
 
 QList<ResourceGroup*> Resource::parentGroups() const
 {
     return m_parents;
+}
+
+int Resource::groupCount() const
+{
+    return m_parents.count();
+}
+
+int Resource::groupIndexOf(ResourceGroup *group) const
+{
+    return m_parents.indexOf(group);
 }
 
 DateTime Resource::firstAvailableAfter(const DateTime &, const DateTime &) const {
@@ -1300,6 +1319,11 @@ DateTime Resource::endTime(long id) const
     return dt;
 }
 
+int Resource::teamCount() const
+{
+    return m_teamMembers.count();
+}
+
 QList<Resource*> Resource::teamMembers() const
 {
     QList<Resource*> lst;
@@ -1321,20 +1345,31 @@ QStringList Resource::teamMemberIds() const
 void Resource::addTeamMemberId(const QString &id)
 {
     if (! id.isEmpty() && ! m_teamMembers.contains(id)) {
+        emit teamToBeAdded(this, m_teamMembers.count());
         m_teamMembers.append(id);
+        emit teamAdded(teamMembers().last());
     }
 }
 
 void Resource::removeTeamMemberId(const QString &id)
 {
     if (m_teamMembers.contains(id)) {
-        m_teamMembers.removeAt(m_teamMembers.indexOf(id));
+        int row = m_teamMembers.indexOf(id);
+        Resource *team = teamMembers().value(row);
+        emit teamToBeRemoved(this, row, team);
+        m_teamMembers.removeAt(row);
+        emit teamRemoved();
     }
 }
 
 void Resource::setTeamMemberIds(const QStringList &ids)
 {
-    m_teamMembers = ids;
+    while (!m_teamMembers.isEmpty()) {
+        removeTeamMemberId(m_teamMembers.last());
+    }
+    for (const QString &id : ids) {
+        addTeamMemberId(id);
+    }
 }
 
 bool Resource::isShared() const
@@ -1372,7 +1407,7 @@ Risk::~Risk() {
 QDebug operator<<(QDebug dbg, KPlato::Resource *r)
 {
     if (!r) { return dbg << "Resource[0x0]"; }
-    dbg << "Resource[" << r->type();
+    dbg << "Resource[(" << (void*)r << ") " << r->typeToString();
     dbg << (r->name().isEmpty() ? r->id() : r->name());
     dbg << ']';
     return dbg;

@@ -277,7 +277,6 @@ public:
     static QWidget *createPageLayoutWidget(ViewBase *view);
     static PrintingHeaderFooter *createHeaderFooterWidget(ViewBase *view);
 
-    virtual void createDockers() {}
     void addDocker(DockWidget *ds);
     QList<DockWidget*> dockers() const;
     DockWidget *findDocker(const QString &id) const;

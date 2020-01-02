@@ -112,7 +112,6 @@ public:
     void setupGui();
     void setProject(Project *project) override;
     Project *project() const override { return m_view->project(); }
-    void createDockers() override;
 
     Node *currentNode() const override;
     QList<Node*> selectedNodes() const ;
@@ -161,6 +160,7 @@ protected:
     int selectedRowCount() const;
     QModelIndexList selectedRows() const;
     void editTasks(const QList<Task*> &tasks, const QPoint &pos);
+    void createDockers();
 
 protected Q_SLOTS:
     void slotOptions() override;

@@ -58,8 +58,7 @@ public:
 
     QModelIndex parent(const QModelIndex & index) const override;
     QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
-    QModelIndex index(const ResourceGroup *group) const;
-    QModelIndex index(const Resource *resource) const;
+    QModelIndex index(Resource *resource) const;
 
     int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
     int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
@@ -67,20 +66,15 @@ public:
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
     bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) override;
 
-
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
-
-    QObject *object(const QModelIndex &index) const;
     Node *node(const QModelIndex &index) const;
     Appointment *appointment(const QModelIndex &index) const;
     QModelIndex createAppointmentIndex(int row, int col, void *ptr) const;
     Appointment *externalAppointment(const QModelIndex &index) const;
     QModelIndex createExternalAppointmentIndex(int row, int col, void *ptr) const;
     Resource *resource(const QModelIndex &index) const;
-    QModelIndex createResourceIndex(int row, int col, void *ptr) const;
-    ResourceGroup *resourcegroup(const QModelIndex &index) const;
-    QModelIndex createGroupIndex(int row, int col, void *ptr) const;
+    QModelIndex createResourceIndex(int row, int col, Resource *ptr) const;
 
     void refresh() override;
     void refreshData();
@@ -104,17 +98,11 @@ public Q_SLOTS:
 
 protected Q_SLOTS:
     void slotResourceChanged(KPlato::Resource*);
-    void slotResourceGroupChanged(KPlato::ResourceGroup *);
+    void slotResourceToBeInserted(KPlato::Project *project, int row);
+    void slotResourceInserted(KPlato::Resource *resource);
+    void slotResourceToBeRemoved(KPlato::Project *project, int row, Resource *resource);
+    void slotResourceRemoved();
 
-    void slotResourceGroupToBeInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceGroupInserted(const KPlato::ResourceGroup *group);
-    void slotResourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
-    void slotResourceGroupRemoved(const KPlato::ResourceGroup *group);
-
-    void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceToBeRemoved(const KPlato::ResourceGroup *group, int row);
-    void slotResourceRemoved(const KPlato::ResourceGroup *group, int row);
     void slotCalendarChanged(KPlato::Calendar* cal);
     void slotProjectCalculated(KPlato::ScheduleManager *sm);
     
@@ -126,18 +114,20 @@ protected Q_SLOTS:
     
 protected:
     QVariant notUsed(const ResourceGroup *res, int role) const;
-    
+
     QVariant name(const Resource *res, int role) const;
-    QVariant name(const ResourceGroup *res, int role) const;
     QVariant name(const Node *node, int role) const;
     QVariant name(const Appointment *appointment, int role) const;
-    
+
     QVariant total(const Resource *res, int role) const;
     QVariant total(const Resource *res, const QDate &date, int role) const;
     QVariant total(const Appointment *a, int role) const;
-    
+
     QVariant assignment(const Appointment *a, const QDate &date, int role) const;
-    
+
+    void connectSignals(ResourceGroup *group, bool connect);
+    void connectSignals(Resource *resource, bool connect);
+
 private:
     int m_columnCount;
     QHash<const Appointment*, EffortCostMap> m_effortMap;
@@ -184,10 +174,6 @@ public:
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override; 
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
-    /// If @p index is a resource, return it's parent group, else 0
-    ResourceGroup *parentGroup(const QModelIndex &index) const;
-    /// If @p idx is a resource group, return it, else 0
-    ResourceGroup *resourcegroup(const QModelIndex &idx) const;
     /// If @p idx is an appointment, return it's parent resource, else 0
     Resource *parentResource(const QModelIndex &idx) const;
     /// If @p idx is a resource, return it, else 0
@@ -199,7 +185,6 @@ public:
     /// If @p idx is an appointment interval, return it, else 0
     AppointmentInterval *interval(const QModelIndex &idx) const;
 
-    QModelIndex index(ResourceGroup *g) const;
     QModelIndex index(Resource *r) const;
     QModelIndex index(Appointment *a) const;
 
@@ -215,14 +200,11 @@ public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
 protected Q_SLOTS:
-    void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceToBeRemoved(const KPlato::ResourceGroup *group, int row);
-    void slotResourceRemoved(const KPlato::ResourceGroup *group, int row);
-    void slotResourceGroupToBeInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceGroupInserted(const KPlato::ResourceGroup*);
-    void slotResourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
-    void slotResourceGroupRemoved(const KPlato::ResourceGroup *group);
+    void slotResourceToBeInserted(KPlato::Project *project, int row);
+    void slotResourceInserted(KPlato::Resource *resource);
+    void slotResourceToBeRemoved(KPlato::Project *project, int row, KPlato::Resource *resource);
+    void slotResourceRemoved();
+
     void slotAppointmentToBeInserted(KPlato::Resource *r, int row);
     void slotAppointmentInserted(KPlato::Resource *r, KPlato::Appointment *a);
     void slotAppointmentToBeRemoved(KPlato::Resource *r, int row);
@@ -231,10 +213,11 @@ protected Q_SLOTS:
     void slotProjectCalculated(KPlato::ScheduleManager *sm);
 
 protected:
-    QModelIndex createGroupIndex(int row, int column, Project *project);
-    QModelIndex createResourceIndex(int row, int column, ResourceGroup *g);
+    QModelIndex createResourceIndex(int row, int column);
     QModelIndex createAppointmentIndex(int row, int column, Resource *r);
     QModelIndex createIntervalIndex(int row, int column, Appointment *a);
+
+    void connectSignals(Resource *resource, bool connect);
 
 protected:
     QMap<void*, Private*> m_datamap;
@@ -254,7 +237,6 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 protected:
-    QVariant data(const ResourceGroup *g, int column, int role = Qt::DisplayRole) const; 
     QVariant data(const Resource *r, int column, int role = Qt::DisplayRole) const; 
     QVariant data(const Appointment *a, int column, int role = Qt::DisplayRole) const; 
     QVariant data(const AppointmentInterval *a, int column, int role = Qt::DisplayRole) const;

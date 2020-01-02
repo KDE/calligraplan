@@ -127,6 +127,7 @@ public:
     ViewInfo defaultCategoryInfo(const QString &type) const;
 
     ViewBase *createTaskEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
+    ViewBase *createResourceGroupEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
     ViewBase *createResourceEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
     ViewBase *createAccountsEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
     ViewBase *createCalendarEditor(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);

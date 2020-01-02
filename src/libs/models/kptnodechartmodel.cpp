@@ -311,7 +311,7 @@ void ChartItemModel::setProject(Project *project)
         disconnect(m_project, &Project::projectCalculated, this, &ChartItemModel::slotSetScheduleManager);
         disconnect(m_project, &Project::nodeRemoved, this, &ChartItemModel::slotNodeRemoved);
         disconnect(m_project, &Project::nodeChanged, this, &ChartItemModel::slotNodeChanged);
-        disconnect(m_project, &Project::resourceRemovedFromProject, this, &ChartItemModel::slotResourceRemoved);
+        disconnect(m_project, &Project::resourceRemoved, this, &ChartItemModel::slotResourceRemoved);
         disconnect(m_project, &Project::resourceChanged, this, &ChartItemModel::slotResourceChanged);
     }
     m_project = project;
@@ -320,7 +320,7 @@ void ChartItemModel::setProject(Project *project)
         connect(m_project, &Project::projectCalculated, this, &ChartItemModel::slotSetScheduleManager);
         connect(m_project, &Project::nodeRemoved, this, &ChartItemModel::slotNodeRemoved);
         connect(m_project, &Project::nodeChanged, this, &ChartItemModel::slotNodeChanged);
-        connect(m_project, &Project::resourceRemovedFromProject, this, &ChartItemModel::slotResourceRemoved);
+        connect(m_project, &Project::resourceRemoved, this, &ChartItemModel::slotResourceRemoved);
         connect(m_project, &Project::resourceChanged, this, &ChartItemModel::slotResourceChanged);
     }
     endResetModel();
@@ -393,17 +393,15 @@ void ChartItemModel::slotNodeChanged(Node *node)
     }
 }
 
-void ChartItemModel::slotResourceChanged(Resource*)
+void ChartItemModel::slotResourceChanged()
 {
     beginResetModel();
     calculate();
     endResetModel();
 }
 
-void ChartItemModel::slotResourceRemoved(const Resource *resource, int row)
+void ChartItemModel::slotResourceRemoved()
 {
-    Q_UNUSED(resource)
-    Q_UNUSED(row)
     beginResetModel();
     calculate();
     endResetModel();

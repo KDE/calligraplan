@@ -23,7 +23,7 @@
 #include "kptnode.h"
 #include "kptresource.h"
 #include "kptnodeitemmodel.h"
-#include "kptresourcemodel.h"
+#include "ResourceGroupItemModel.h"
 #include "kptcommand.h"
 
 #include <KoDocument.h>
@@ -51,7 +51,7 @@ ResourceAllocationView::ResourceAllocationView(KoDocument *doc, QWidget *parent)
 QList<Resource*> ResourceAllocationView::selectedResources() const
 {
     QList<Resource*> resources;
-    ResourceItemModel *m = qobject_cast<ResourceItemModel*>(model());
+    ResourceGroupItemModel *m = qobject_cast<ResourceGroupItemModel*>(model());
     if (m) {
         foreach(const QModelIndex &idx, selectionModel()->selectedRows()) {
             Resource *r = m->resource(idx);

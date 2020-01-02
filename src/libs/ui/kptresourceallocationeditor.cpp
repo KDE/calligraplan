@@ -20,7 +20,7 @@
 // clazy:excludeall=qstring-arg
 #include "kptresourceallocationeditor.h"
 
-#include "kptresourcemodel.h"
+#include "kptresourceallocationmodel.h"
 #include "kptcommand.h"
 #include "kptitemmodelbase.h"
 #include "kptcalendar.h"

@@ -132,17 +132,17 @@ public Q_SLOTS:
     void setTask(KPlato::Task *task);
 
 protected Q_SLOTS:
-    void slotResourceChanged(KPlato::Resource*);
     void slotResourceGroupChanged(KPlato::ResourceGroup*);
-    void slotResourceGroupToBeInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceGroupInserted(const KPlato::ResourceGroup *group);
-    void slotResourceGroupToBeRemoved(const KPlato::ResourceGroup *group);
-    void slotResourceGroupRemoved(const KPlato::ResourceGroup *group);
+    void slotResourceGroupToBeInserted(KPlato::Project *project, int row);
+    void slotResourceGroupInserted(KPlato::ResourceGroup *group);
+    void slotResourceGroupToBeRemoved(KPlato::Project *project, int row, KPlato::ResourceGroup *group);
+    void slotResourceGroupRemoved();
 
-    void slotResourceToBeInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceInserted(const KPlato::ResourceGroup *group, int row);
-    void slotResourceToBeRemoved(const KPlato::ResourceGroup *group, int row);
-    void slotResourceRemoved(const KPlato::ResourceGroup *group, int row);
+    void slotResourceChanged(KPlato::Resource*);
+    void slotResourceToBeAdded(KPlato::ResourceGroup *group, int row);
+    void slotResourceAdded(KPlato::Resource *resource);
+    void slotResourceToBeRemoved(KPlato::ResourceGroup *group, int row, KPlato::Resource *resource);
+    void slotResourceRemoved();
     
 protected:
     void filldata(Task *task);
@@ -158,6 +158,9 @@ protected:
 
     bool setRequired(const QModelIndex &idx, const QVariant &value, int role);
     QVariant required(const QModelIndex &idx, int role) const;
+
+    void connectSignals(ResourceGroup *group, bool enable);
+    void connectSignals(Resource *resource, bool enable);
 
 private:
     int requestedResources(const ResourceGroup *res) const;

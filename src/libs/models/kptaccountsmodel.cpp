@@ -551,8 +551,8 @@ void CostBreakdownItemModel::setProject(Project *project)
         disconnect(m_project, &Project::nodeRemoved, this, &CostBreakdownItemModel::slotDataChanged);
 
         disconnect(m_project, &Project::resourceChanged, this, &CostBreakdownItemModel::slotDataChanged);
-        disconnect(m_project, &Project::resourceAddedToProject, this, &CostBreakdownItemModel::slotDataChanged);
-        disconnect(m_project, &Project::resourceRemovedFromProject, this, &CostBreakdownItemModel::slotDataChanged);
+        disconnect(m_project, &Project::resourceAdded, this, &CostBreakdownItemModel::slotDataChanged);
+        disconnect(m_project, &Project::resourceRemoved, this, &CostBreakdownItemModel::slotDataChanged);
     }
     m_project = project;
     if (project) {
@@ -572,8 +572,8 @@ void CostBreakdownItemModel::setProject(Project *project)
         connect(m_project, &Project::nodeRemoved, this, &CostBreakdownItemModel::slotDataChanged);
 
         connect(m_project, &Project::resourceChanged, this, &CostBreakdownItemModel::slotDataChanged);
-        connect(m_project, &Project::resourceAddedToProject, this, &CostBreakdownItemModel::slotDataChanged);
-        connect(m_project, &Project::resourceRemovedFromProject, this, &CostBreakdownItemModel::slotDataChanged);
+        connect(m_project, &Project::resourceAdded, this, &CostBreakdownItemModel::slotDataChanged);
+        connect(m_project, &Project::resourceRemoved, this, &CostBreakdownItemModel::slotDataChanged);
     }
 }
 

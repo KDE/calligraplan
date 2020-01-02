@@ -20,6 +20,7 @@
 // clazy:excludeall=qstring-arg
 #include "kptresourceallocationmodel.h"
 
+#include "RequieredResourceDelegate.h"
 #include "kptcommonstrings.h"
 #include "kptcommand.h"
 #include "kptitemmodelbase.h"
@@ -373,107 +374,115 @@ ResourceAllocationItemModel::~ResourceAllocationItemModel()
 {
 }
 
-void ResourceAllocationItemModel::slotResourceToBeInserted(const ResourceGroup *group, int row)
+void ResourceAllocationItemModel::slotResourceToBeAdded(ResourceGroup *group, int row)
 {
     //debugPlan<<group->name()<<","<<row;
     beginInsertRows(index(group), row, row);
 }
 
-void ResourceAllocationItemModel::slotResourceInserted(const KPlato::ResourceGroup *group, int row)
+void ResourceAllocationItemModel::slotResourceAdded(KPlato::Resource *resource)
 {
-    Q_UNUSED(group)
-    Q_UNUSED(row)
-    //debugPlan<<resource->name();
+    connectSignals(resource, true);
     endInsertRows();
-    emit layoutChanged(); //HACK to make the right view react! Bug in qt?
 }
 
-void ResourceAllocationItemModel::slotResourceToBeRemoved(const KPlato::ResourceGroup *group, int row)
+void ResourceAllocationItemModel::slotResourceToBeRemoved(KPlato::ResourceGroup *group, int row, KPlato::Resource *resource)
 {
-    //debugPlan<<resource->name();
     beginRemoveRows(index(group), row, row);
+    if (resource->groupCount() == 1 && resource->parentGroups().at(0) == group) {
+        connectSignals(resource, false);
+    }
 }
 
-void ResourceAllocationItemModel::slotResourceRemoved(const KPlato::ResourceGroup *group, int row)
+void ResourceAllocationItemModel::slotResourceRemoved()
 {
-    Q_UNUSED(group)
-    Q_UNUSED(row)
     endRemoveRows();
 }
 
-void ResourceAllocationItemModel::slotResourceGroupToBeInserted(const ResourceGroup */*group*/, int row)
+void ResourceAllocationItemModel::slotResourceGroupToBeInserted(Project *project, int row)
 {
-    //debugPlan<<group->name();
+    Q_UNUSED(project)
     beginInsertRows(QModelIndex(), row, row);
 }
 
-void ResourceAllocationItemModel::slotResourceGroupInserted(const ResourceGroup */*group */)
+void ResourceAllocationItemModel::slotResourceGroupInserted(ResourceGroup *group)
 {
     //debugPlan<<group->name();
+    connectSignals(group, true);
     endInsertRows();
 }
 
-void ResourceAllocationItemModel::slotResourceGroupToBeRemoved(const ResourceGroup *group)
+void ResourceAllocationItemModel::slotResourceGroupToBeRemoved(Project *project, int row, ResourceGroup *group)
 {
-    //debugPlan<<group->name();
-    int row = index(group).row();
+    Q_UNUSED(project)
     beginRemoveRows(QModelIndex(), row, row);
+    connectSignals(group, false);
 }
 
-void ResourceAllocationItemModel::slotResourceGroupRemoved(const ResourceGroup */*group */)
+void ResourceAllocationItemModel::slotResourceGroupRemoved()
 {
-    //debugPlan<<group->name();
     endRemoveRows();
 }
 
 void ResourceAllocationItemModel::setProject(Project *project)
 {
+    beginResetModel();
     if (m_project) {
         disconnect(m_project, &Project::aboutToBeDeleted, this, &ResourceAllocationItemModel::projectDeleted);
-        disconnect(m_project, &Project::resourceChanged, this, &ResourceAllocationItemModel::slotResourceChanged);
+
         disconnect(m_project, &Project::resourceGroupChanged, this, &ResourceAllocationItemModel::slotResourceGroupChanged);
-
         disconnect(m_project, &Project::resourceGroupToBeAdded, this, &ResourceAllocationItemModel::slotResourceGroupToBeInserted);
-
-        disconnect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAllocationItemModel::slotResourceGroupToBeRemoved);
-
-        disconnect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceAllocationItemModel::slotResourceToBeInserted);
-
-        disconnect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceAllocationItemModel::slotResourceToBeRemoved);
-
         disconnect(m_project, &Project::resourceGroupAdded, this, &ResourceAllocationItemModel::slotResourceGroupInserted);
-
+        disconnect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAllocationItemModel::slotResourceGroupToBeRemoved);
         disconnect(m_project, &Project::resourceGroupRemoved, this, &ResourceAllocationItemModel::slotResourceGroupRemoved);
 
-        disconnect(m_project, &Project::resourceAddedToGroup, this, &ResourceAllocationItemModel::slotResourceInserted);
-
-        disconnect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceAllocationItemModel::slotResourceRemoved);
-
+        for (ResourceGroup *g : m_project->resourceGroups()) {
+            connectSignals(g, false);
+        }
     }
     m_project = project;
     if (m_project) {
-        connect(m_project, &Project::aboutToBeDeleted, this, &ResourceAllocationItemModel::projectDeleted);
-        connect(m_project, &Project::resourceChanged, this, &ResourceAllocationItemModel::slotResourceChanged);
-        connect(m_project, &Project::resourceGroupChanged, this, &ResourceAllocationItemModel::slotResourceGroupChanged);
-
-        connect(m_project, &Project::resourceGroupToBeAdded, this, &ResourceAllocationItemModel::slotResourceGroupToBeInserted);
-
-        connect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAllocationItemModel::slotResourceGroupToBeRemoved);
-
-        connect(m_project, &Project::resourceToBeAddedToGroup, this, &ResourceAllocationItemModel::slotResourceToBeInserted);
-
-        connect(m_project, &Project::resourceToBeRemovedFromGroup, this, &ResourceAllocationItemModel::slotResourceToBeRemoved);
-
-        connect(m_project, &Project::resourceGroupAdded, this, &ResourceAllocationItemModel::slotResourceGroupInserted);
-
-        connect(m_project, &Project::resourceGroupRemoved, this, &ResourceAllocationItemModel::slotResourceGroupRemoved);
-
-        connect(m_project, &Project::resourceAddedToGroup, this, &ResourceAllocationItemModel::slotResourceInserted);
-
-        connect(m_project, &Project::resourceRemovedFromGroup, this, &ResourceAllocationItemModel::slotResourceRemoved);
-
+        disconnect(m_project, &Project::aboutToBeDeleted, this, &ResourceAllocationItemModel::projectDeleted);
+        
+        disconnect(m_project, &Project::resourceGroupChanged, this, &ResourceAllocationItemModel::slotResourceGroupChanged);
+        disconnect(m_project, &Project::resourceGroupToBeAdded, this, &ResourceAllocationItemModel::slotResourceGroupToBeInserted);
+        disconnect(m_project, &Project::resourceGroupAdded, this, &ResourceAllocationItemModel::slotResourceGroupInserted);
+        disconnect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAllocationItemModel::slotResourceGroupToBeRemoved);
+        disconnect(m_project, &Project::resourceGroupRemoved, this, &ResourceAllocationItemModel::slotResourceGroupRemoved);
+        
+        for (ResourceGroup *g : m_project->resourceGroups()) {
+            connectSignals(g, true);
+        }
     }
     m_model.setProject(m_project);
+    endResetModel();
+}
+
+void ResourceAllocationItemModel::connectSignals(ResourceGroup *group, bool enable)
+{
+    if (enable) {
+        connect(group, &ResourceGroup::resourceToBeAdded, this, &ResourceAllocationItemModel::slotResourceToBeAdded);
+        connect(group, &ResourceGroup::resourceAdded, this, &ResourceAllocationItemModel::slotResourceAdded);
+        connect(group, &ResourceGroup::resourceToBeRemoved, this, &ResourceAllocationItemModel::slotResourceToBeRemoved);
+        connect(group, &ResourceGroup::resourceRemoved, this, &ResourceAllocationItemModel::slotResourceRemoved);
+    } else {
+        disconnect(group, &ResourceGroup::resourceToBeAdded, this, &ResourceAllocationItemModel::slotResourceToBeAdded);
+        disconnect(group, &ResourceGroup::resourceAdded, this, &ResourceAllocationItemModel::slotResourceAdded);
+        disconnect(group, &ResourceGroup::resourceToBeRemoved, this, &ResourceAllocationItemModel::slotResourceToBeRemoved);
+        disconnect(group, &ResourceGroup::resourceRemoved, this, &ResourceAllocationItemModel::slotResourceRemoved);
+    }
+    for (Resource *r : group->resources()) {
+        connectSignals(r, enable);
+    }
+}
+
+void ResourceAllocationItemModel::connectSignals(Resource *resource, bool enable)
+{
+    if (enable) {
+        connect(resource, &Resource::dataChanged, this, &ResourceAllocationItemModel::slotResourceChanged, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+    } else {
+        disconnect(resource, &Resource::dataChanged, this, &ResourceAllocationItemModel::slotResourceChanged);
+    }
 }
 
 void ResourceAllocationItemModel::setTask(Task *task)
@@ -1033,21 +1042,16 @@ QObject *ResourceAllocationItemModel::object(const QModelIndex &index) const
 
 void ResourceAllocationItemModel::slotResourceChanged(Resource *res)
 {
-    ResourceGroup *g = res->parentGroups().value(0);
-    if (g) {
+    for (ResourceGroup *g : res->parentGroups()) {
         int row = g->indexOf(res);
         emit dataChanged(createIndex(row, 0, res), createIndex(row, columnCount() - 1, res));
-        return;
     }
 }
 
-void ResourceAllocationItemModel::slotResourceGroupChanged(ResourceGroup *res)
+void ResourceAllocationItemModel::slotResourceGroupChanged(ResourceGroup *group)
 {
-    Project *p = res->project();
-    if (p) {
-        int row = p->resourceGroups().indexOf(res);
-        emit dataChanged(createIndex(row, 0, res), createIndex(row, columnCount() - 1, res));
-    }
+    int row = m_project->indexOf(group);
+    emit dataChanged(createIndex(row, 0, group), createIndex(row, columnCount() - 1, group));
 }
 
 Resource *ResourceAllocationItemModel::resource(const QModelIndex &idx) const

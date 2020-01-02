@@ -11,6 +11,10 @@ endmacro()
 
 ########### next target ###############
 
+planmodels_add_unit_test(ResourceGroupModelTester ResourceGroupModelTester.cpp  LINK_LIBRARIES planmodels Qt5::Test)
+
+########### next target ###############
+
 planmodels_add_unit_test(ResourceModelTester ResourceModelTester.cpp  LINK_LIBRARIES planmodels Qt5::Test)
 
 ########## next target ###############
