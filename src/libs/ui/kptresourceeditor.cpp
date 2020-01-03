@@ -298,7 +298,7 @@ void ResourceEditor::setupGui()
 {
     actionAddResource  = new QAction(koIcon("list-add-user"), i18n("Add Resource"), this);
     actionCollection()->addAction("add_resource", actionAddResource);
-    actionCollection()->setDefaultShortcut(actionAddResource, Qt::CTRL + Qt::SHIFT + Qt::Key_I);
+    actionCollection()->setDefaultShortcut(actionAddResource, Qt::CTRL + Qt::Key_I);
     connect(actionAddResource, &QAction::triggered, this, &ResourceEditor::slotAddResource);
     
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
@@ -400,6 +400,7 @@ void ResourceEditor::createDockers()
         x->setRootIsDecorated(false);
 //         x->setDragDropMode(QAbstractItemView::DragOnly);
 //         x->setDragEnabled (true);
+        connect(m1, &ParentGroupItemModel::executeCommand, koDocument(), &KoDocument::addCommand);
         ds->setWidget(x);
         connect(this, &ViewBase::projectChanged, m1, &ParentGroupItemModel::setProject);
         connect(this, &ResourceEditor::resourceSelected, m1, &ParentGroupItemModel::setResource);

@@ -63,7 +63,7 @@ class PLANUI_EXPORT ResourceEditor : public ViewBase
 {
     Q_OBJECT
 public:
-    ResourceEditor(KoPart *part, KoDocument *dic, QWidget *parent);
+    ResourceEditor(KoPart *part, KoDocument *doc, QWidget *parent);
     
     void setupGui();
     Project *project() const override { return m_view->project(); }

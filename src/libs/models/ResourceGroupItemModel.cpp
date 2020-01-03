@@ -1,29 +1,32 @@
 /* This file is part of the KDE project
-  Copyright (C) 2007 Dag Andersen <danders@get2net.dk>
-  Copyright (C) 2011, 2012 Dag Andersen <danders@get2net.dk>
-  Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
-  
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Library General Public
-  License as published by the Free Software Foundation; either
-  version 2 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Library General Public License for more details.
-
-  You should have received a copy of the GNU Library General Public License
-  along with this library; see the file COPYING.LIB.  If not, write to
-  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301, USA.
-*/
+ * Copyright (C) 2007 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2011, 2012 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2020 Dag Andersen <danders@get2net.dk>
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Library General Public License
+ * along with this library; see the file COPYING.LIB.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ */
 
 // clazy:excludeall=qstring-arg
 #include "ResourceGroupItemModel.h"
 
 #include <AddResourceCmd.h>
-#include <AddParentGroupCmd.h>
+#include "AddParentGroupCmd.h"
+#include "RemoveParentGroupCmd.h"
 #include "kptlocale.h"
 #include "kptcommonstrings.h"
 #include "kptcommand.h"
@@ -78,24 +81,32 @@ bool ResourceGroupItemModel::resourcesEnabled() const
 void ResourceGroupItemModel::slotResourceToBeAdded(ResourceGroup *group, int row)
 {
     debugPlan<<group<<","<<row;
-    beginInsertRows(index(group), row, row);
+    if (m_resourcesEnabled) {
+        beginInsertRows(index(group), row, row);
+    }
 }
 
 void ResourceGroupItemModel::slotResourceAdded(KPlato::Resource *resource)
 {
     connectSignals(resource, true);
-    endInsertRows();
+    if (m_resourcesEnabled) {
+        endInsertRows();
+    }
 }
 
 void ResourceGroupItemModel::slotResourceToBeRemoved(ResourceGroup *group, int row, KPlato::Resource *resource)
 {
-    beginRemoveRows(index(group), row, row);
+    if (m_resourcesEnabled) {
+        beginRemoveRows(index(group), row, row);
+    }
     connectSignals(resource, false);
 }
 
 void ResourceGroupItemModel::slotResourceRemoved()
 {
-    endRemoveRows();
+    if (m_resourcesEnabled) {
+        endRemoveRows();
+    }
 }
 
 void ResourceGroupItemModel::slotResourceGroupToBeAdded(Project *project, int row)
@@ -181,10 +192,12 @@ void ResourceGroupItemModel::connectSignals(ResourceGroup *group, bool enable)
 
 void ResourceGroupItemModel::connectSignals(Resource *resource, bool enable)
 {
-    if (enable) {
-        connect(resource, &Resource::dataChanged, this, &ResourceGroupItemModel::slotResourceChanged, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
-    } else {
-        disconnect(resource, &Resource::dataChanged, this, &ResourceGroupItemModel::slotResourceChanged);
+    if (m_resourcesEnabled) {
+        if (enable) {
+            connect(resource, &Resource::dataChanged, this, &ResourceGroupItemModel::slotResourceChanged, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+        } else {
+            disconnect(resource, &Resource::dataChanged, this, &ResourceGroupItemModel::slotResourceChanged);
+        }
     }
 }
 
@@ -407,15 +420,19 @@ bool ResourceGroupItemModel::setData(const QModelIndex &index, const QVariant &v
     }
     ResourceGroup *g = group(index);
     if (g) {
+        bool result = false;
         switch (index.column()) {
-            case ResourceGroupModel::Name: return setName(g, value, role);
+            case ResourceGroupModel::Name:  result = setName(g, value, role); break;
             case ResourceGroupModel::Scope: return false; // Not editable
-            case ResourceGroupModel::Type: return setType(g, value, role);
-            case ResourceGroupModel::Units: return setUnits(g, value, role);
-            case ResourceGroupModel::Coordinator: return setCoordinator(g, value, role);
+            case ResourceGroupModel::Type: result = setType(g, value, role); break;
+            case ResourceGroupModel::Units: result = setUnits(g, value, role); break;
+            case ResourceGroupModel::Coordinator: result = setCoordinator(g, value, role); break;
             default:
                 qWarning("data: invalid display value column %d", index.column());
                 return false;
+        }
+        if (result) {
+            emit dataChanged(index, index);
         }
     }
     return false;
@@ -798,6 +815,24 @@ QVariant ParentGroupItemModel::data(const QModelIndex &idx, int role) const
     return QSortFilterProxyModel::data(idx, role);
 }
 
+bool ParentGroupItemModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (role == Qt::CheckStateRole && m_resource) {
+        ResourceGroup *g = m_model->group(mapToSource(index));
+        if (g) {
+            if (value.toInt() == Qt::Checked) {
+                emit executeCommand(new AddParentGroupCmd(m_resource, g, kundo2_i18n("Add parent group")));
+            } else {
+                emit executeCommand(new RemoveParentGroupCmd(m_resource, g, kundo2_i18n("Remove parent group")));
+            }
+            return true;
+        }
+        return false;
+    }
+    return QSortFilterProxyModel::setData(index, value, role);
+}
+
+
 void ParentGroupItemModel::setProject(Project *project)
 {
     m_model->setProject(project);
@@ -805,17 +840,23 @@ void ParentGroupItemModel::setProject(Project *project)
 
 void ParentGroupItemModel::setResource(Resource *resource)
 {
+    beginResetModel();
     if (m_resource) {
+        disconnect(resource, &Resource::resourceGroupAdded, this, &ParentGroupItemModel::slotResourceAdded);
+        disconnect(resource, &Resource::resourceGroupRemoved, this, &ParentGroupItemModel::slotResourceRemoved);
         for (ResourceGroup *g : m_resource->parentGroups()) {
             m_model->setData(m_model->index(g), Qt::Unchecked, Qt::CheckStateRole);
         }
     }
     m_resource = resource;
     if (m_resource) {
+        connect(resource, &Resource::resourceGroupAdded, this, &ParentGroupItemModel::slotResourceAdded);
+        connect(resource, &Resource::resourceGroupRemoved, this, &ParentGroupItemModel::slotResourceRemoved);
         for (ResourceGroup *g : m_resource->parentGroups()) {
             m_model->setData(m_model->index(g), Qt::Checked, Qt::CheckStateRole);
         }
     }
+    endResetModel();
 }
     
 void ParentGroupItemModel::setGroupIsCheckable(bool checkable)
@@ -827,3 +868,16 @@ bool ParentGroupItemModel::groupIsCheckable() const
 {
     return m_groupIsCheckable;
 }
+
+void ParentGroupItemModel::slotResourceAdded(KPlato::ResourceGroup *group)
+{
+    QModelIndex idx = mapFromSource(m_model->index(group));
+    emit dataChanged(idx, idx);
+}
+
+void ParentGroupItemModel::slotResourceRemoved()
+{
+    beginResetModel();
+    endResetModel();
+}
+

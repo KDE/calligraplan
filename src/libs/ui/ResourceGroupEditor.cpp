@@ -1,4 +1,5 @@
 /* This file is part of the KDE project
+ * Copyright (C) 2020 Dag Andersen <danders@get2net.dk>
  * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
  * Copyright (C) 2006 - 2011, 2012 Dag Andersen <danders@get2net.dk>
  * 
@@ -56,6 +57,7 @@ ResourceGroupTreeView::ResourceGroupTreeView(QWidget *parent)
     setDragPixmap(koIcon("resource-group").pixmap(32));
 //    header()->setContextMenuPolicy(Qt::CustomContextMenu);
     setStretchLastSection(false);
+    setRootIsDecorated(false);
     ResourceGroupItemModel *m = new ResourceGroupItemModel(this);
     m->setResourcesEnabled(true);
     setModel(m);

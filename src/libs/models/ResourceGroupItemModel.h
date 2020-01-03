@@ -1,4 +1,5 @@
 /* This file is part of the KDE project
+ * Copyright (C) 2020 Dag Andersen <danders@get2net>
  * Copyright (C) 2019 Dag Andersen <danders@get2net>
  * Copyright (C) 2007 Dag Andersen <danders@get2net>
  * 
@@ -92,6 +93,10 @@ public:
     void setResourcesEnabled(bool enable);
     bool resourcesEnabled() const;
 
+Q_SIGNALS:
+    void resourceAdded(KPlato::Resource *resource);
+    void resourceRemoved();
+
 protected Q_SLOTS:
     void slotResourceGroupChanged(KPlato::ResourceGroup *group);
     void slotResourceGroupToBeAdded(Project *project, int row);
@@ -152,6 +157,7 @@ public:
     int columnCount(const QModelIndex &idx = QModelIndex()) const override;
     Qt::ItemFlags flags(const QModelIndex &idx) const override;
     QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) override;
 
     void setGroupIsCheckable(bool checkable);
     bool groupIsCheckable() const;
@@ -159,6 +165,13 @@ public:
 public Q_SLOTS:
     void setProject(Project *project);
     void setResource(Resource *resource);
+
+protected Q_SLOTS:
+    void slotResourceAdded(KPlato::ResourceGroup *group);
+    void slotResourceRemoved();
+
+Q_SIGNALS:
+    void executeCommand(KUndo2Command *cmd);
 
 private:
     ResourceGroupItemModel *m_model;
