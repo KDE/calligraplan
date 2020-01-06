@@ -27,6 +27,7 @@
 #include "kptcommonstrings.h"
 #include "kptcommand.h"
 #include <AddResourceCmd.h>
+#include <AddParentGroupCmd.h>
 #include "kptduration.h"
 #include "kptproject.h"
 #include "kptnode.h"
@@ -3549,7 +3550,11 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
     switch (role) {
         case Qt::EditRole:
         {
-            MacroCommand *cmd = 0;
+            MacroCommand *cmd = new MacroCommand();
+            bool removedAllocations = false;
+            bool addedAllocations = false;
+            KUndo2Command *cc = nullptr;
+
             QStringList res = m_project->resourceNameList();
             QStringList req = node->requestNameList();
             QStringList alloc;
@@ -3563,22 +3568,24 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
                 if (r != 0) {
                     continue;
                 }
-                if (cmd == 0) cmd = new MacroCommand(kundo2_i18n("Add resource"));
-                if (pargr == 0) {
+                if (pargr == nullptr) {
                     pargr = new ResourceGroup();
                     pargr->setName(i18n("Resources"));
-                    cmd->addCommand(new AddResourceGroupCmd(m_project, pargr));
+                    cc = new AddResourceGroupCmd(m_project, pargr);
+                    cc->redo();
+                    cmd->addCommand(cc);
                     //debugPlan<<"add group:"<<pargr->name();
                 }
                 r = new Resource();
                 r->setName(s.trimmed());
-                cmd->addCommand(new AddResourceCmd(pargr, r));
+                cc = new AddResourceCmd(m_project, r);
+                cc->redo();
+                cmd->addCommand(cc);
+                cc = new AddParentGroupCmd(r, pargr);
+                cc->redo();
+                cmd->addCommand(cc);
                 //debugPlan<<"add resource:"<<r->name();
-                emit executeCommand(cmd);
-                cmd = 0;
             }
-
-            KUndo2MagicString c = kundo2_i18n("Modify resource allocations");
             // Handle deleted requests
             foreach (const QString &s, req) {
                 // if a request is not in alloc, it must have been be removed by the user
@@ -3586,60 +3593,74 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
                     // remove removed resource request
                     ResourceRequest *r = node->resourceRequest(s);
                     if (r) {
-                        if (cmd == 0) cmd = new MacroCommand(c);
                         //debugPlan<<"delete request:"<<r->resource()->name()<<" group:"<<r->parent()->group()->name();
-                        cmd->addCommand(new RemoveResourceRequestCmd(r->parent(), r));
+                        cc = new RemoveResourceRequestCmd(r->parent(), r);
+                        cc->redo();
+                        cmd->addCommand(cc);
+                        removedAllocations = true;
                     }
                 }
             }
             // Handle new requests
             QHash<ResourceGroup*, ResourceGroupRequest*> groupmap;
-            foreach (const QString &s, alloc) {
+            for (const QString &s : alloc) {
                 // if an allocation is not in req, it must be added
                 if (req.indexOf(s) == -1) {
                     ResourceGroup *pargr = 0;
                     Resource *r = m_project->resourceByName(s);
-                    if (r == 0) {
+                    if (r == nullptr) {
                         // Handle request to non existing resource
                         pargr = m_project->groupByName(i18n("Resources"));
-                        if (pargr == 0) {
+                        if (pargr == nullptr) {
                             pargr = new ResourceGroup();
                             pargr->setName(i18n("Resources"));
-                            cmd->addCommand(new AddResourceGroupCmd(m_project, pargr));
+                            cc = new AddResourceGroupCmd(m_project, pargr);
+                            cc->redo();
+                            cmd->addCommand(cc);
                             //debugPlan<<"add group:"<<pargr->name();
                         }
                         r = new Resource();
                         r->setName(s);
-                        cmd->addCommand(new AddResourceCmd(pargr, r));
+                        cc = new AddResourceCmd(pargr, r);
                         //debugPlan<<"add resource:"<<r->name();
-                        emit executeCommand(cmd);
-                        cmd = 0;
+                        cc->redo();
+                        cmd->addCommand(cc);
+                        addedAllocations = true;
                     } else {
-                        pargr = r->parentGroups().value(0); // ###
+                        pargr = r->parentGroups().value(0); // ### TODO
                         //debugPlan<<"add '"<<r->name()<<"' to group:"<<pargr;
                     }
                     // add request
                     ResourceGroupRequest *g = node->resourceGroupRequest(pargr);
-                    if (g == 0) {
+                    if (g == nullptr) {
                         g = groupmap.value(pargr);
                     }
-                    if (g == 0) {
+                    if (g == nullptr) {
                         // create a group request
-                        if (cmd == 0) cmd = new MacroCommand(c);
                         g = new ResourceGroupRequest(pargr);
-                        cmd->addCommand(new AddResourceGroupRequestCmd(*task, g));
+                        cc = new AddResourceGroupRequestCmd(*task, g);
+                        cc->redo();
+                        cmd->addCommand(cc);
                         groupmap.insert(pargr, g);
                         //debugPlan<<"add group request:"<<g;
                     }
-                    if (cmd == 0) cmd = new MacroCommand(c);
-                    cmd->addCommand(new AddResourceRequestCmd(g, new ResourceRequest(r, r->units())));
+                    cc = new AddResourceRequestCmd(g, new ResourceRequest(r, r->units()));
+                    cc->redo();
+                    cmd->addCommand(cc);
                     //debugPlan<<"add request:"<<r->name()<<" group:"<<g;
                 }
             }
-            if (cmd) {
-                emit executeCommand(cmd);
+            if (!cmd->isEmpty()) {
+                KUndo2MagicString s = kundo2_i18n("Add resource allocation");
+                if (!addedAllocations && removedAllocations) {
+                    s = kundo2_i18n("Removed resource allocation");
+                }
+                MacroCommand *m = new MacroCommand(s);
+                emit executeCommand(m);
+                m->addCommand(cmd);
                 return true;
             }
+            delete cmd;
         }
     }
     return false;
