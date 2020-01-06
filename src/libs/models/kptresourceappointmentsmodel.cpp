@@ -1310,10 +1310,13 @@ QModelIndex ResourceAppointmentsRowModel::parent(const QModelIndex &idx) const
 
 QModelIndex ResourceAppointmentsRowModel::index(Resource *r) const
 {
+    Q_ASSERT(r);
     if (m_project == nullptr || r == nullptr) {
         return QModelIndex();
     }
-    return const_cast<ResourceAppointmentsRowModel*>(this)->createResourceIndex(m_project->indexOf(r), 0);
+    QModelIndex idx = const_cast<ResourceAppointmentsRowModel*>(this)->createResourceIndex(m_project->indexOf(r), 0);
+    Q_ASSERT(idx.isValid());
+    return idx;
 }
 
 QModelIndex ResourceAppointmentsRowModel::index(Appointment *a) const
@@ -1424,7 +1427,7 @@ void ResourceAppointmentsRowModel::slotResourceInserted(Resource *resource)
 void ResourceAppointmentsRowModel::slotResourceToBeRemoved(Project *project, int row, Resource *resource)
 {
     Q_UNUSED(project)
-    beginRemoveRows(index(resource), row, row);
+    beginRemoveRows(QModelIndex(), row, row);
     connectSignals(resource, false);
 
     Private *p = 0;
