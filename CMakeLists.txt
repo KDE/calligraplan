@@ -31,7 +31,7 @@ list(APPEND CMAKE_AUTOMOC_MACRO_NAMES "PLAN_SCHEDULERPLUGIN_EXPORT")
 
 # define the version of Plan
 # update these version for every release:
-set(PLAN_YEAR 2019) # update every year
+set(PLAN_YEAR 2020) # update every year
 set(PLAN_VERSION_STRING "3.2.89")
 set(PLAN_STABLE_VERSION_MAJOR 3) # 3 for 3.x, 4 for 4.x, etc.
 set(PLAN_STABLE_VERSION_MINOR 2) # 0 for 3.0, 1 for 3.1, etc.
