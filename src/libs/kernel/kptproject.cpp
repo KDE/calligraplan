@@ -1382,6 +1382,8 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
             // handled earlier
         } else if (e.tagName() == "task-modules") {
             // handled earlier
+        } else if (e.tagName() == "accounts") {
+            // handled earlier
         } else {
             warnPlan<<"Unhandled tag:"<<e.tagName();
         }
