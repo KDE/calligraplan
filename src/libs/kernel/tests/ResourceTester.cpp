@@ -108,38 +108,6 @@ void ResourceTester::testSingleDay() {
 
 void ResourceTester::team()
 {
-    Resource team;
-    team.setId("team");
-    Resource tm1, tm2;
-    tm1.setId("tm1");
-    tm2.setId("tm2");
-
-    QVERIFY(team.teamMemberIds().isEmpty());
-    team.addTeamMemberId(tm1.id());
-    QVERIFY(team.teamMemberIds().count() == 1);
-    team.removeTeamMemberId(tm1.id());
-    QVERIFY(team.teamMemberIds().isEmpty());
-    team.addTeamMemberId(tm1.id());
-    team.addTeamMemberId(tm2.id());
-    QVERIFY(team.teamMemberIds().count() == 2);
-    team.addTeamMemberId(tm2.id());
-    QVERIFY(team.teamMemberIds().count() == 2);
-    team.removeTeamMemberId(tm1.id());
-    team.removeTeamMemberId(tm2.id());
-    QVERIFY(team.teamMemberIds().isEmpty());
-
-    AddResourceTeamCmd ac(&team, tm1.id());
-    ac.execute();
-    QVERIFY(team.teamMemberIds().count() == 1);
-    ac.unexecute();
-    QVERIFY(team.teamMemberIds().isEmpty());
-    ac.execute();
-    RemoveResourceTeamCmd rc(&team, tm1.id());
-    rc.execute();
-    QVERIFY(team.teamMemberIds().isEmpty());
-    rc.unexecute();
-    QVERIFY(team.teamMemberIds().count() == 1);
-
     {
         Project p1;
 

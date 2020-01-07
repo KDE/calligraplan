@@ -36,6 +36,8 @@ using namespace KPlato;
 
 void ResourceGroupModelTester::init()
 {
+    m_model.setResourcesEnabled(true);
+
     m_project = new Project();
     m_project->setName("P1");
     m_project->setId(m_project->uniqueNodeId());
