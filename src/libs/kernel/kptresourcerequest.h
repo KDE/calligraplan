@@ -254,6 +254,9 @@ public:
     explicit ResourceRequestCollection(Task *task = 0);
     ~ResourceRequestCollection();
 
+    bool contains(ResourceGroupRequest *request) const;
+    bool contains(ResourceRequest *request) const;
+
     /// Remove all group- and resource requests
     /// Note: Does not delete
     void removeRequests();
@@ -345,6 +348,8 @@ public:
 
 private:
     Task *m_task;
+    int m_lastGroupId;
+    int m_lastResourceId;
     QMap<int, ResourceGroupRequest*> m_groupRequests;
     QMap<int, ResourceRequest*> m_resourceRequests;
 };

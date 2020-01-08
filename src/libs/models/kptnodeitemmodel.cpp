@@ -3606,7 +3606,7 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
             for (const QString &s : alloc) {
                 // if an allocation is not in req, it must be added
                 if (req.indexOf(s) == -1) {
-                    ResourceGroup *pargr = 0;
+                    ResourceGroup *pargr = nullptr;
                     Resource *r = m_project->resourceByName(s);
                     if (r == nullptr) {
                         // Handle request to non existing resource
@@ -3627,7 +3627,21 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
                         cmd->addCommand(cc);
                         addedAllocations = true;
                     } else {
-                        pargr = r->parentGroups().value(0); // ### TODO
+                        pargr = r->parentGroups().value(0);
+                        if (pargr == nullptr) {
+                            // For now we use/add default group
+                            pargr = m_project->groupByName(i18n("Resources"));
+                            if (pargr == nullptr) {
+                                pargr = new ResourceGroup();
+                                pargr->setName(i18n("Resources"));
+                                cc = new AddResourceGroupCmd(m_project, pargr);
+                                cc->redo();
+                                cmd->addCommand(cc);
+                            }
+                            cc = new AddParentGroupCmd(r, pargr);
+                            cc->redo();
+                            cmd->addCommand(cc);
+                        }
                         //debugPlan<<"add '"<<r->name()<<"' to group:"<<pargr;
                     }
                     // add request

@@ -79,7 +79,7 @@ ResourceRequest::~ResourceRequest() {
     if (m_parent) {
         m_parent->removeResourceRequest(this);
     }
-    if (m_collection) {
+    if (m_collection && m_collection->contains(this)) {
         m_collection->removeResourceRequest(this);
     }
 }
@@ -363,7 +363,7 @@ ResourceGroupRequest::~ResourceGroupRequest() {
     for (ResourceRequest *r : m_resourceRequests) {
         r->setParent(nullptr);
     }
-    if (m_parent) {
+    if (m_parent && m_parent->contains(this)) {
         m_parent->takeRequest(this);
     }
 }
@@ -668,6 +668,8 @@ void ResourceGroupRequest::allocateDynamicRequests(const DateTime &time, const D
 /////////
 ResourceRequestCollection::ResourceRequestCollection(Task *task)
     : m_task(task)
+    , m_lastGroupId(0)
+    , m_lastResourceId(0)
 {
     //debugPlan<<this<<(void*)(&task);
 }
@@ -683,6 +685,16 @@ ResourceRequestCollection::~ResourceRequestCollection()
     }
     qDeleteAll(m_resourceRequests); // removes themselves from possible group
     qDeleteAll(m_groupRequests);
+}
+
+bool ResourceRequestCollection::contains(ResourceGroupRequest *request) const
+{
+    return m_groupRequests.contains(request->id()) && m_groupRequests.value(request->id()) == request;
+}
+
+bool ResourceRequestCollection::contains(ResourceRequest *request) const
+{
+    return m_resourceRequests.contains(request->id()) && m_resourceRequests.value(request->id()) == request;
 }
 
 void ResourceRequestCollection::removeRequests()
@@ -718,12 +730,11 @@ void ResourceRequestCollection::addRequest(ResourceGroupRequest *request)
         }
     }
     int id = request->id();
+    m_lastGroupId = std::max(m_lastGroupId, id);
     if (id == 0) {
-        int i = 1;
-        while (m_groupRequests.contains(i)) {
-            ++i;
+        while (m_groupRequests.contains(++m_lastGroupId)) {
         }
-        request->setId(i);
+        request->setId(m_lastGroupId);
     }
     Q_ASSERT(!m_groupRequests.contains(request->id()));
     m_groupRequests.insert(request->id(), request);
@@ -763,12 +774,12 @@ void ResourceRequestCollection::addResourceRequest(ResourceRequest *request, Res
         Q_ASSERT(m_groupRequests.contains(group->id()));
     }
     int id = request->id();
+    m_lastResourceId = std::max(m_lastResourceId, id);
+    Q_ASSERT(!m_resourceRequests.contains(id));
     if (id == 0) {
-        int i = 1;
-        while (m_resourceRequests.contains(i)) {
-            ++i;
+        while (m_resourceRequests.contains(++m_lastResourceId)) {
         }
-        request->setId(i);
+        request->setId(m_lastResourceId);
     }
     Q_ASSERT(!m_resourceRequests.contains(request->id()));
     request->setCollection(this);
