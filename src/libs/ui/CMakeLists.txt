@@ -37,6 +37,7 @@ set(planui_LIB_SRCS
 
     RelationEditorDialog.cpp
     TasksEditController.cpp
+    GroupAllocationPanel.cpp
     TasksEditDialog.cpp
 
     RichTextWidget.cpp
