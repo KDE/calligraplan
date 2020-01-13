@@ -311,7 +311,7 @@
         <string>https://userbase.kde.org/Plan</string>
        </property>
        <property name="text">
-        <string comment="@action:button">&lt;a href=&quot;https://userbase.kde.org/Plan&quot;&gt;Plan user documentation&lt;/a&gt;</string>
+        <string comment="@action:button">&lt;a href=&quot;https://userbase.kde.org/Special:MyLanguage/Plan&quot;&gt;Plan user documentation&lt;/a&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
