@@ -10,6 +10,6 @@ source ../kundo2_aware_xgettext.sh
 
 # Note: Don't extract sub-directories: specifically not libs, workpackage and plugins.
 # NB! This means subdirs must be explicitly extracted!
-$EXTRACTRC *.ui *.kcfg *.rc welcome/*.ui >> rc.cpp
-kundo2_aware_xgettext $potfilename *.cpp about/*.cpp kptaboutdata.h welcome/*.cpp
+$EXTRACTRC *.ui *.kcfg *.rc welcome/*.ui config/*.ui >> rc.cpp
+kundo2_aware_xgettext $potfilename *.cpp about/*.cpp kptaboutdata.h welcome/*.cpp config/*.cpp
 rm -f rc.cpp
