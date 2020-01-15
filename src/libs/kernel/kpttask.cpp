@@ -346,7 +346,28 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                     }
                 }
             }
-            // TODO alternatives
+            ResourceGroup *group = status.project().group(e.attribute("group-id"));
+            if (!group) {
+                errorPlanXml<<"Could not find resourcegroup"<<e.attribute("group-id");
+            } else {
+                QList<ResourceRequest*> groupRequests;
+                int numRequests = e.attribute("units").toInt();
+                for (int i = 0; i < numRequests; ++i) {
+                    for (Resource *r : group->resources()) {
+                        if (!m_requests.find(r)) {
+                            groupRequests << new ResourceRequest(r, 100);
+                            m_requests.addResourceRequest(groupRequests.last());
+                        }
+                    }
+                }
+                for (ResourceRequest *rr : groupRequests) {
+                    for (Resource *r : group->resources()) {
+                        if (!m_requests.find(r)) {
+                            rr->addAlternativeRequest(new ResourceRequest(r));
+                        }
+                    }
+                }
+            }
         } else if (e.tagName() == QLatin1String("documents")) {
             m_documents.load(e, status);
         } else if (e.tagName() == QLatin1String("workpackage-log")) {
