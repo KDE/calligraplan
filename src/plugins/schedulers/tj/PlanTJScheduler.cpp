@@ -914,6 +914,15 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Task *task)
             a->setLimits(l);
         }
         a->addCandidate(tjr);
+        for (ResourceRequest *alt : rr->alternativeRequests()) {
+            TJ::Resource *atjr = addResource(alt->resource());
+            if (alt->units() != 100) {
+                TJ::UsageLimits *l = new TJ::UsageLimits();
+                l->setDailyUnits(alt->units());
+                a->setLimits(l);
+            }
+            a->addCandidate(atjr);
+        }
         job->addAllocation(a);
         logDebug(task, 0, "Added resource candidate: " + rr->resource()->name());
         foreach (Resource *r, rr->requiredResources()) {
