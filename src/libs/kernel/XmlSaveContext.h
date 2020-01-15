@@ -191,37 +191,15 @@ public:
         }
         if (options & SaveRequests) {
             // save resource requests
-            QHash<Task*, ResourceGroupRequest*> groups;
             QHash<Task*, ResourceRequest*> resources;
             for (Task *task : m_project->allTasks()) {
                 const ResourceRequestCollection &requests = task->requests();
-                for (ResourceGroupRequest *gr : requests.requests()) {
-                    groups.insert(task, gr);
-                }
                 for (ResourceRequest *rr : requests.resourceRequests(false)) {
                     resources.insert(task, rr);
                 }
             }
-            debugPlanXml<<"resourcegroup-requests:"<<groups.count();
-            if (!groups.isEmpty()) {
-                QDomElement el = projectElement.ownerDocument().createElement("resourcegroup-requests");
-                projectElement.appendChild(el);
-                QHash<Task*, ResourceGroupRequest*>::const_iterator it;
-                for (it = groups.constBegin(); it != groups.constEnd(); ++it) {
-                    if (!it.value()->group()) {
-                        warnPlanXml<<"resourcegroup-request with no group";
-                        continue;
-                    }
-                    QDomElement ge = el.ownerDocument().createElement("resourcegroup-request");
-                    el.appendChild(ge);
-                    ge.setAttribute("request-id", it.value()->id());
-                    ge.setAttribute("task-id", it.key()->id());
-                    ge.setAttribute("group-id", it.value()->group()->id());
-                    ge.setAttribute("units", QString::number(it.value()->units()));
-                }
-            }
-            QHash<Task*, std::pair<ResourceRequest*, Resource*> > required; // QHash<Task*, std::pair<ResourceRequest*, Required*>>
             debugPlanXml<<"resource-requests:"<<resources.count();
+            QHash<Task*, std::pair<ResourceRequest*, Resource*> > required; // QHash<Task*, std::pair<ResourceRequest*, Required*>>
             if (!resources.isEmpty()) {
                 QDomElement el = projectElement.ownerDocument().createElement("resource-requests");
                 projectElement.appendChild(el);
@@ -234,9 +212,6 @@ public:
                     el.appendChild(re);
                     re.setAttribute("request-id", it.value()->id());
                     re.setAttribute("task-id", it.key()->id());
-                    if (it.value()->parent()) {
-                        re.setAttribute("group-id", it.value()->parent()->group()->id());
-                    }
                     re.setAttribute("resource-id", it.value()->resource()->id());
                     re.setAttribute("units", QString::number(it.value()->units()));
                     // collect required resources
@@ -244,6 +219,8 @@ public:
                         required.insert(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
                     }
                 }
+                //FIXME: save required?
+                // TODO altarnatives
             }
         }
     }

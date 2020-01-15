@@ -380,15 +380,7 @@ public:
      */
     Duration *getRandomDuration() override;
 
-    /**
-     * Return the resource request made to group
-     * (There should be only one)
-     */
-    ResourceGroupRequest *resourceGroupRequest(const ResourceGroup *group) const override;
 //     void clearResourceRequests();
-    void addRequest(ResourceGroup *group, int numResources);
-    void addRequest(ResourceGroupRequest *request);
-    void takeRequest(ResourceGroupRequest *request);
     void makeAppointments() override;
     QStringList requestNameList() const override;
     virtual QList<Resource*> requestedResources() const;

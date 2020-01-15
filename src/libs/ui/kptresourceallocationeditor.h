@@ -38,7 +38,6 @@ namespace KPlato
 
 class Project;
 class Resource;
-class ResourceGroup;
 
 
 class PLANUI_EXPORT ResourceAllocationTreeView : public DoubleTreeViewBase
@@ -58,7 +57,6 @@ public:
     QObject *currentObject() const;
 
     const QHash<const Resource*, ResourceRequest*> &resourceCache() const { return model()->resourceCache(); }
-    const QHash<const ResourceGroup*, ResourceGroupRequest*> &groupCache() const { return model()->groupCache(); }
 
 Q_SIGNALS:
     void dataChanged();
@@ -80,7 +78,6 @@ public:
     void updateReadWrite(bool readwrite) override;
 
     Resource *currentResource() const override;
-    ResourceGroup *currentResourceGroup() const override;
     
     /// Loads context info into this view. Reimplement.
     bool loadContext(const KoXmlElement &/*context*/) override;

@@ -69,9 +69,6 @@ ResourceGroup::~ResourceGroup() {
     if (findId() == this) {
         removeId(); // only remove myself (I may be just a working copy)
     }
-    foreach (ResourceGroupRequest* r, m_requests) {
-        r->unregister(this);
-    }
     for (Resource *r : m_resources) {
         r->removeParentGroup(this);
     }

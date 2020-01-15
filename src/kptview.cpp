@@ -98,7 +98,6 @@
 #include "kptresource.h"
 #include "kptstandardworktimedialog.h"
 #include "kptwbsdefinitiondialog.h"
-#include "kptresourceassignmentview.h"
 #include "kpttaskstatusview.h"
 #include "kptsplitterview.h"
 #include "kptpertresult.h"
@@ -1394,32 +1393,6 @@ ViewBase *View::createAccountsView(ViewListItem *cat, const QString &tag, const 
     return accountsview;
 }
 
-ViewBase *View::createResourceAssignmentView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
-{
-    ResourceAssignmentView *resourceAssignmentView = new ResourceAssignmentView(getKoPart(), getPart(), m_tab);
-    m_tab->addWidget(resourceAssignmentView);
-    m_updateResourceAssignmentView = true;
-
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, resourceAssignmentView, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ResourceAssignmentView");
-    if (name.isEmpty()) {
-        i->setText(0, vi.name);
-    }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
-        i->setToolTip(0, vi.tip);
-    } else {
-        i->setToolTip(0, tip);
-    }
-
-    resourceAssignmentView->draw(getProject());
-
-    connect(resourceAssignmentView, &ViewBase::guiActivated, this, &View::slotGuiActivated);
-
-    connect(resourceAssignmentView, &ResourceAssignmentView::requestPopupMenu, this, &View::slotPopupMenuRequested);
-    resourceAssignmentView->updateReadWrite(m_readWrite);
-    return resourceAssignmentView;
-}
-
 ViewBase *View::createReportsGeneratorView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
     ReportsGeneratorView *v = new ReportsGeneratorView(getKoPart(), getPart(), m_tab);
@@ -2693,7 +2666,6 @@ void View::slotUpdate()
     //debugPlan<<"calculate="<<calculate;
 
 //    m_updateResourceview = true;
-    m_updateResourceAssignmentView = true;
     m_updatePertEditor = true;
     updateView(m_tab->currentWidget());
 }
@@ -2916,17 +2888,6 @@ void View::slotSelectDefaultView()
 
 void View::updateView(QWidget *)
 {
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    //setScheduleActionsEnabled();
-
-    QWidget *widget2;
-
-    widget2 = m_viewlist->findView("ResourceAssignmentView");
-    if (widget2 && m_updateResourceAssignmentView)
-        static_cast<ViewBase*>(widget2) ->draw(getProject());
-    m_updateResourceAssignmentView = false;
-
-    QApplication::restoreOverrideCursor();
 }
 
 void View::slotRenameNode(Node *node, const QString& name)

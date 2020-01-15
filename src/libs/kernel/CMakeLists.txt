@@ -38,6 +38,8 @@ set(plankernel_LIB_SRCS
     commands/RemoveResourceCmd.cpp
     commands/AddParentGroupCmd.cpp
     commands/RemoveParentGroupCmd.cpp
+    commands/AddParentGroupCmd.cpp
+    commands/RemoveParentGroupCmd.cpp
 
     kptschedulerplugin.cpp
 

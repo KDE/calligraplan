@@ -124,14 +124,15 @@ void print(Resource *r, const QString &str, bool full = true) {
     if (r->type() == Resource::Type_Team) {
         qDebug()<<"  Team members:"<<r->teamMembers().count();
         foreach (Resource *tm, r->teamMembers()) {
-            qDebug()<<"     "<<tm->name()<<"Available:"
-                    <<(r->availableFrom().isValid()
-                            ? r->availableFrom().toString()
-                            : (r->project() ? ('('+r->project()->constraintStartTime().toString()+')') : QString()))
-                    <<(r->availableUntil().isValid()
-                            ? r->availableUntil().toString()
-                            : (r->project() ? ('('+r->project()->constraintEndTime().toString()+')') : QString()))
-                    <<r->units()<<'%';
+            print(tm, "");
+//             qDebug()<<"     "<<tm->name()<<"Available:"
+//                     <<(r->availableFrom().isValid()
+//                             ? r->availableFrom().toString()
+//                             : (r->project() ? ('('+r->project()->constraintStartTime().toString()+')') : QString()))
+//                     <<(r->availableUntil().isValid()
+//                             ? r->availableUntil().toString()
+//                             : (r->project() ? ('('+r->project()->constraintEndTime().toString()+')') : QString()))
+//                     <<r->units()<<'%';
         }
     } else {
         Calendar *cal = r->calendar(true);
@@ -253,12 +254,9 @@ void print(Task *t, bool full = true) {
                 ? (t->estimate()->calendar()?t->estimate()->calendar()->name():"Fixed")
                 : QString("%1 h").arg(t->estimate()->expectedValue().toDouble(Duration::Unit_h)));
 
-    qDebug()<<pad<<"Requests:"<<"groups:"<<t->requests().requests().count()<<"resources:"<<t->requests().resourceRequests().count();
-    foreach (ResourceGroupRequest *gr, t->requests().requests()) {
-        qDebug()<<pad<<"Group request:"<<gr->group()->name()<<gr->units()<<':'<<(void*)gr;
-        foreach (ResourceRequest *rr, gr->resourceRequests()) {
-            qDebug()<<pad<<printAvailable(rr->resource(), "   " + rr->resource()->name())<<"id:"<<rr->resource()->id()<<(void*)rr->resource()<<':'<<(void*)rr;
-        }
+    qDebug()<<pad<<"Requests:"<<"resources:"<<t->requests().resourceRequests().count();
+    for (ResourceRequest *rr : t->requests().resourceRequests()) {
+        qDebug()<<pad<<printAvailable(rr->resource(), "   " + rr->resource()->name())<<"id:"<<rr->resource()->id()<<(void*)rr->resource()<<':'<<(void*)rr;
     }
     if (t->isStartNode()) {
         qDebug()<<pad<<"Start node";

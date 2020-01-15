@@ -634,15 +634,13 @@ private:
 class PLANKERNEL_EXPORT AddResourceRequestCmd : public NamedCommand
 {
 public:
-    AddResourceRequestCmd(ResourceRequestCollection *requests, ResourceRequest *request, ResourceGroupRequest *group = nullptr, const KUndo2MagicString& name = KUndo2MagicString());
-    AddResourceRequestCmd(ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
+    AddResourceRequestCmd(ResourceRequestCollection *requests, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddResourceRequestCmd() override;
     void execute() override;
     void unexecute() override;
 
 private:
     ResourceRequestCollection *m_collection;
-    ResourceGroupRequest *m_group;
     ResourceRequest *m_request;
     bool m_mine;
 
@@ -651,14 +649,13 @@ private:
 class PLANKERNEL_EXPORT RemoveResourceRequestCmd : public NamedCommand
 {
 public:
-    RemoveResourceRequestCmd(ResourceGroupRequest *group, ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
+    RemoveResourceRequestCmd(ResourceRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
     ~RemoveResourceRequestCmd() override;
     void execute() override;
     void unexecute() override;
 
 private:
     ResourceRequestCollection *m_collection;
-    ResourceGroupRequest *m_group;
     ResourceRequest *m_request;
     bool m_mine;
 
@@ -687,19 +684,6 @@ public:
 private:
     ResourceRequest *m_request;
     QList<Resource*> m_oldvalue, m_newvalue;
-
-};
-
-class PLANKERNEL_EXPORT ModifyResourceGroupRequestUnitsCmd : public NamedCommand
-{
-public:
-    ModifyResourceGroupRequestUnitsCmd(ResourceGroupRequest *request, int oldvalue, int newvalue, const KUndo2MagicString& name = KUndo2MagicString());
-    void execute() override;
-    void unexecute() override;
-
-private:
-    ResourceGroupRequest *m_request;
-    int m_oldvalue, m_newvalue;
 
 };
 
@@ -794,34 +778,6 @@ private:
     Estimate *m_estimate;
     Calendar *m_oldvalue, *m_newvalue;
 
-};
-
-
-class PLANKERNEL_EXPORT AddResourceGroupRequestCmd : public NamedCommand
-{
-public:
-    AddResourceGroupRequestCmd(Task &task, ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
-    void execute() override;
-    void unexecute() override;
-
-private:
-    Task &m_task;
-    ResourceGroupRequest *m_request;
-    bool m_mine;
-};
-
-class PLANKERNEL_EXPORT RemoveResourceGroupRequestCmd : public NamedCommand
-{
-public:
-    explicit RemoveResourceGroupRequestCmd(ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
-    RemoveResourceGroupRequestCmd(Task &task, ResourceGroupRequest *request, const KUndo2MagicString& name = KUndo2MagicString());
-    void execute() override;
-    void unexecute() override;
-
-private:
-    Task &m_task;
-    ResourceGroupRequest *m_request;
-    bool m_mine;
 };
 
 class PLANKERNEL_EXPORT MoveResourceCmd : public NamedCommand
@@ -1032,12 +988,11 @@ public:
     void unexecute() override;
 
 protected:
-
     ResourceGroup *m_group;
     Project *m_project;
     int m_index;
     bool m_mine;
-    MacroCommand *m_cmd;
+    MacroCommand cmd;
 };
 
 class PLANKERNEL_EXPORT AddResourceGroupCmd : public RemoveResourceGroupCmd

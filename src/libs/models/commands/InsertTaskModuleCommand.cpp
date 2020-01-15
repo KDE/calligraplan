@@ -167,40 +167,16 @@ void InsertTaskModuleCommand::createCmdRequests(const KoXmlElement &projectEleme
     if (m_context.version() < "0.7.0") {
         return; // requests loaded by tasks
     }
-    KoXmlElement parentElement = projectElement.namedItem("resourcegroup-requests").toElement();
-    KoXmlElement ge;
-    forEachElement(ge, parentElement) {
-        if (ge.tagName() != "resourcegroup-request") {
-            continue;
-        }
-        Task *task = qobject_cast<Task*>(m_oldIds.value(ge.attribute("task-id")));
-        ResourceGroup *group = m_project->findResourceGroup(ge.attribute("group-id"));
-        if (task && group) {
-            int units = ge.attribute("units", "0").toInt();
-            int requestId = ge.attribute("request-id").toInt();
-            ResourceGroupRequest *request = new ResourceGroupRequest(group, units);
-            request->setId(requestId);
-            KUndo2Command *cmd = new AddResourceGroupRequestCmd(*task, request);
-            cmd->redo();
-            addCommand(cmd);
-        } else {
-            warnPlanXml<<"Failed to find group or task"<<task<<group;
-        }
-    }
-    parentElement = projectElement.namedItem("resource-requests").toElement();
+    KoXmlElement parentElement = projectElement.namedItem("resource-requests").toElement();
     KoXmlElement re;
     forEachElement(re, parentElement) {
         if (re.tagName() != "resource-request") {
             continue;
         }
-        Task *task = qobject_cast<Task*>(m_oldIds.value(ge.attribute("task-id")));
+        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute("task-id")));
         if (!task) {
             warnPlanXml<<re.tagName()<<"Failed to find task";
             continue;
-        }
-        ResourceGroupRequest *group = task->requests().groupRequest(re.attribute("request-id").toInt());
-        if (!group) {
-            warnPlanXml<<re.tagName()<<"Failed to find group request:"<<re.attribute("request-id");
         }
         Resource *resource = m_project->findResource(re.attribute("resource-id"));
         Q_ASSERT(resource);
@@ -223,7 +199,7 @@ void InsertTaskModuleCommand::createCmdRequests(const KoXmlElement &projectEleme
         if (re.tagName() != "required-resource-request") {
             continue;
         }
-        Task *task = qobject_cast<Task*>(m_oldIds.value(ge.attribute("task-id")));
+        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute("task-id")));
         Q_ASSERT(task);
         if (!task) {
             warnPlanXml<<re.tagName()<<"Failed to find task";
@@ -239,6 +215,7 @@ void InsertTaskModuleCommand::createCmdRequests(const KoXmlElement &projectEleme
         cmd->redo();
         addCommand(cmd);
     }
+    // TODO alternatives
 }
 
 void InsertTaskModuleCommand::createCmdTasks(const KoXmlElement &projectElement)

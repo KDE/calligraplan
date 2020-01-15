@@ -894,6 +894,9 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Task *task)
         }
     }
     if (task->requests().isEmpty()) {
+        if (task->type() == Node::Type_Task) {
+            warnPlan<<"Task:"<<task<<"has no allocations";
+        }
         return;
     }
     foreach (ResourceRequest *rr, task->requests().resourceRequests(true /*resolveTeam*/)) {

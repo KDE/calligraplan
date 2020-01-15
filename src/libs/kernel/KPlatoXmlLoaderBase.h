@@ -51,7 +51,7 @@ namespace KPlato
     class WorkPackage;
     class Documents;
     class Estimate;
-    class ResourceGroupRequest;
+//     class ResourceGroupRequest;
     class ResourceRequest;
     class Completion;
     class Appointment;
@@ -86,7 +86,7 @@ public:
     bool load(Documents &documents, const KoXmlElement &element, XMLLoaderObject &status);
     bool load(Document *document, const KoXmlElement &element, XMLLoaderObject &status);
     bool load(Estimate *estimate, const KoXmlElement &element, XMLLoaderObject &status);
-    bool load(ResourceGroupRequest *gr, const KoXmlElement &element, XMLLoaderObject &status);
+//     bool load(ResourceGroupRequest *gr, const KoXmlElement &element, XMLLoaderObject &status);
     bool load(ResourceRequest *rr, const KoXmlElement &element, XMLLoaderObject &status);
     bool load(WorkPackage& wp, const KoXmlElement& element, XMLLoaderObject& status);
     bool loadWpLog(WorkPackage* wp, KoXmlElement &element, XMLLoaderObject &status);
@@ -95,7 +95,6 @@ public:
     bool load(Appointment *appointment, const KoXmlElement& element, XMLLoaderObject& status, Schedule &sch);
     bool load(AppointmentIntervalList &lst, const KoXmlElement& element, XMLLoaderObject& status);
     bool load(AppointmentInterval &interval, const KoXmlElement& element, XMLLoaderObject& status);
-
 };
 
 } // namespace KPlato

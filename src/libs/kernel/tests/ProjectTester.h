@@ -37,7 +37,6 @@ class ProjectTester : public QObject
 private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
-    
     void testAddTask();
     void testTakeTask();
     void testTaskAddCmd();
@@ -57,9 +56,7 @@ private Q_SLOTS:
 
     void resourceWithLimitedAvailability();
     void unavailableResource();
-    
     void team();
-
     // NOTE: It's not *mandatory* to schedule in wbs order but users expect it, so we'll try.
     // This test can be removed if for some important reason this isn't possible.
     void inWBSOrder();

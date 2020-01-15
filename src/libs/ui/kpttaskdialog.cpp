@@ -23,7 +23,6 @@
 #include "kpttaskcostpanel.h"
 #include "kpttaskgeneralpanel.h"
 #include "kptrequestresourcespanel.h"
-#include "GroupAllocationPanel.h"
 #include "kptdocumentspanel.h"
 #include "kpttaskdescriptiondialog.h"
 #include "kptcommand.h"
@@ -58,10 +57,6 @@ TaskDialog::TaskDialog(Project &project, Task &task, Accounts &accounts, QWidget
     m_resourcesTab = new RequestResourcesPanel(page, project, task);
 
     page =  new KoVBox();
-    addPage(page, i18n("&Groups"));
-    m_groupsTab = new GroupAllocationPanel(page, project, task);
-
-    page =  new KoVBox();
     addPage(page, i18n("&Documents"));
     m_documentsTab = new DocumentsPanel(task, page);
 
@@ -81,7 +76,6 @@ TaskDialog::TaskDialog(Project &project, Task &task, Accounts &accounts, QWidget
 
     connect(m_generalTab, &TaskGeneralPanelImpl::obligatedFieldsFilled, this, &TaskDialog::setButtonOkEnabled);
     connect(m_resourcesTab, &RequestResourcesPanel::changed, m_generalTab, &TaskGeneralPanelImpl::checkAllFieldsFilled);
-    connect(m_groupsTab, &GroupAllocationPanel::changed, m_generalTab, &TaskGeneralPanelImpl::checkAllFieldsFilled);
     connect(m_documentsTab, &DocumentsPanel::changed, m_generalTab, &TaskGeneralPanelImpl::checkAllFieldsFilled);
     connect(m_costTab, &TaskCostPanelImpl::changed, m_generalTab, &TaskGeneralPanelImpl::checkAllFieldsFilled);
     connect(m_descriptionTab, &TaskDescriptionPanelImpl::textChanged, m_generalTab, &TaskGeneralPanelImpl::checkAllFieldsFilled);
@@ -120,11 +114,6 @@ MacroCommand *TaskDialog::buildCommand() {
         modified = true;
     }
     cmd = m_resourcesTab->buildCommand();
-    if (cmd) {
-        m->addCommand(cmd);
-        modified = true;
-    }
-    cmd = m_groupsTab->buildCommand();
     if (cmd) {
         m->addCommand(cmd);
         modified = true;

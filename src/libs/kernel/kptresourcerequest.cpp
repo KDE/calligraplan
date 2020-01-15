@@ -51,7 +51,6 @@ ResourceRequest::ResourceRequest(Resource *resource, int units)
       m_resource(resource),
       m_units(units),
       m_collection(nullptr),
-      m_parent(nullptr),
       m_dynamic(false)
 {
     if (resource) {
@@ -65,7 +64,6 @@ ResourceRequest::ResourceRequest(const ResourceRequest &r)
       m_resource(r.m_resource),
       m_units(r.m_units),
       m_collection(nullptr),
-      m_parent(nullptr),
       m_dynamic(r.m_dynamic),
       m_required(r.m_required)
 {
@@ -76,9 +74,6 @@ ResourceRequest::~ResourceRequest() {
         m_resource->unregisterRequest(this);
     }
     m_resource = 0;
-    if (m_parent) {
-        m_parent->removeResourceRequest(this);
-    }
     if (m_collection && m_collection->contains(this)) {
         m_collection->removeResourceRequest(this);
     }
@@ -119,7 +114,7 @@ void ResourceRequest::unregisterRequest()
 bool ResourceRequest::load(KoXmlElement &element, Project &project) {
     debugPlanXml<<this;
     m_resource = project.resource(element.attribute("resource-id"));
-    if (m_resource == 0) {
+    if (m_resource == nullptr) {
         warnPlan<<"The referenced resource does not exist: resource id="<<element.attribute("resource-id");
         return false;
     }
@@ -166,7 +161,7 @@ void ResourceRequest::setUnits(int value)
 }
 
 Task *ResourceRequest::task() const {
-    return m_parent ? m_parent->task() : 0;
+    return m_collection ? m_collection->task() : 0;
 }
 
 void ResourceRequest::changed()
@@ -295,8 +290,15 @@ DateTime ResourceRequest::availableBefore(const DateTime &time, Schedule *ns) {
 
 Duration ResourceRequest::effort(const DateTime &time, const Duration &duration, Schedule *ns, bool backward)
 {
-    setCurrentSchedulePtr(ns);
-    Duration e = m_resource->effort(time, duration, m_units, backward, m_required);
+    Duration e;
+    if (m_resource->type() == Resource::Type_Team) {
+        for (ResourceRequest *rr : teamMembers()) {
+            e += rr->effort(time, duration, ns, backward);
+        }
+    } else {
+        setCurrentSchedulePtr(ns);
+        e = m_resource->effort(time, duration, m_units, backward, m_required);
+    }
     //debugPlan<<m_resource->name()<<time<<duration.toString()<<"delivers:"<<e.toString()<<"request:"<<(m_units/100)<<"parts";
     return e;
 }
@@ -335,340 +337,69 @@ QList<ResourceRequest*> ResourceRequest::teamMembers() const
     return m_teamMembers;
 }
 
-/////////
-ResourceGroupRequest::ResourceGroupRequest(ResourceGroup *group, int units)
-    : m_id(0)
-    , m_group(group)
-    , m_units(units)
-    , m_parent(nullptr)
+QList<ResourceRequest*> ResourceRequest::alternativeRequests() const
 {
-    //debugPlan<<"Request to:"<<(group ? group->name() : QString("None"));
-    if (group)
-        group->registerRequest(this);
+    return m_alternativeRequests;
 }
 
-ResourceGroupRequest::ResourceGroupRequest(const ResourceGroupRequest &g)
-    : m_id(g.m_id)
-    , m_group(g.m_group)
-    , m_units(g.m_units)
-    , m_parent(0)
+void ResourceRequest::setAlternativeRequests(const QList<ResourceRequest*> requests)
 {
-}
-
-ResourceGroupRequest::~ResourceGroupRequest() {
-    //debugPlan;
-    if (m_group) {
-        m_group->unregisterRequest(this);
+    for (ResourceRequest *r : m_alternativeRequests) {
+        removeAlternativeRequest(r);
     }
-    for (ResourceRequest *r : m_resourceRequests) {
-        r->setParent(nullptr);
-    }
-    if (m_parent && m_parent->contains(this)) {
-        m_parent->takeRequest(this);
+    for (ResourceRequest *r : requests) {
+        addAlternativeRequest(r);
     }
 }
 
-int ResourceGroupRequest::id() const
+bool ResourceRequest::addAlternativeRequest(ResourceRequest *request)
 {
-    return m_id;
-}
-
-void ResourceGroupRequest::setId(int id)
-{
-    m_id = id;
-}
-
-void ResourceGroupRequest::addResourceRequest(ResourceRequest *request) {
-    //debugPlan<<"("<<request<<") to Group:"<<(void*)m_group;
-    request->setParent(this);
-    m_resourceRequests.append(request);
-    changed();
-}
-
-ResourceRequest *ResourceGroupRequest::takeResourceRequest(ResourceRequest *request) {
-    if (request)
-        request->unregisterRequest();
-    ResourceRequest *r = 0;
-    int i = m_resourceRequests.indexOf(request);
-    if (i != -1) {
-        r = m_resourceRequests.takeAt(i);
-    }
-    changed();
-    return r;
-}
-
-ResourceRequest *ResourceGroupRequest::find(const Resource *resource) const {
-    foreach (ResourceRequest *gr, m_resourceRequests) {
-        if (gr->resource() == resource) {
-            return gr;
-        }
-    }
-    return 0;
-}
-
-ResourceRequest *ResourceGroupRequest::resourceRequest(const QString &name) {
-    foreach (ResourceRequest *r, m_resourceRequests) {
-        if (r->resource()->name() == name)
-            return r;
-    }
-    return 0;
-}
-
-QStringList ResourceGroupRequest::requestNameList(bool includeGroup) const {
-    QStringList lst;
-    if (includeGroup && m_units > 0 && m_group) {
-        lst << m_group->name();
-    }
-    foreach (ResourceRequest *r, m_resourceRequests) {
-        if (! r->isDynamicallyAllocated()) {
-            Q_ASSERT(r->resource());
-            lst << r->resource()->name();
-        }
-    }
-    return lst;
-}
-
-QList<Resource*> ResourceGroupRequest::requestedResources() const
-{
-    QList<Resource*> lst;
-    foreach (ResourceRequest *r, m_resourceRequests) {
-        if (! r->isDynamicallyAllocated()) {
-            Q_ASSERT(r->resource());
-            lst << r->resource();
-        }
-    }
-    return lst;
-}
-
-QList<ResourceRequest*> ResourceGroupRequest::resourceRequests(bool resolveTeam) const
-{
-    QList<ResourceRequest*> lst;
-    foreach (ResourceRequest *rr, m_resourceRequests) {
-        if (resolveTeam && rr->resource()->type() == Resource::Type_Team) {
-            lst += rr->teamMembers();
-        } else {
-            lst << rr;
-        }
-    }
-    return lst;
-}
-
-bool ResourceGroupRequest::load(KoXmlElement &element, XMLLoaderObject &status) {
-    debugPlanXml<<this;
-    m_group = status.project().findResourceGroup(element.attribute("group-id"));
-    if (m_group == 0) {
-        errorPlan<<"The referenced resource group does not exist: group id="<<element.attribute("group-id");
-        return false;
-    }
-    m_group->registerRequest(this);
-
-    KoXmlNode n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
-        if (e.tagName() == "resource-request") {
-            ResourceRequest *r = new ResourceRequest();
-            if (r->load(e, status.project()))
-                addResourceRequest(r);
-            else {
-                errorPlan<<"Failed to load resource request";
-                delete r;
-            }
-        }
-    }
-    // meaning of m_units changed
-    // Pre 0.6.6 the number *included* all requests, now it is in *addition* to resource requests
-    m_units  = element.attribute("units").toInt();
-    if (status.version() < "0.6.6") {
-        int x = m_units - m_resourceRequests.count();
-        m_units = x > 0 ? x : 0;
-    }
+    emitAlternativeRequestToBeAdded(this, m_alternativeRequests.count());
+    m_alternativeRequests.append(request);
+    emitAlternativeRequestAdded(request);
     return true;
 }
 
-void ResourceGroupRequest::save(QDomElement &element) const {
-    QDomElement me = element.ownerDocument().createElement("resourcegroup-request");
-    element.appendChild(me);
-    me.setAttribute("group-id", m_group->id());
-    me.setAttribute("units", QString::number(m_units));
-}
-
-int ResourceGroupRequest::units() const {
-    return m_units;
-}
-
-Duration ResourceGroupRequest::duration(const DateTime &time, const Duration &_effort, Schedule *ns, bool backward) {
-    Duration dur;
-    if (m_parent) {
-        dur = m_parent->duration(m_resourceRequests, time, _effort, ns, backward);
-    }
-    return dur;
-}
-
-DateTime ResourceGroupRequest::workTimeAfter(const DateTime &time, Schedule *ns) {
-    DateTime start;
-    if (m_resourceRequests.isEmpty()) {
-        return start;
-    }
-    foreach (ResourceRequest *r, m_resourceRequests) {
-        DateTime t = r->workTimeAfter(time, ns);
-        if (t.isValid() && (!start.isValid() || t < start))
-            start = t;
-    }
-    if (start.isValid() && start < time)
-        start = time;
-    //debugPlan<<time.toString()<<"="<<start.toString();
-    return start;
-}
-
-DateTime ResourceGroupRequest::workTimeBefore(const DateTime &time, Schedule *ns) {
-    DateTime end;
-    if (m_resourceRequests.isEmpty()) {
-        return end;
-    }
-    foreach (ResourceRequest *r, m_resourceRequests) {
-        DateTime t = r->workTimeBefore(time, ns);
-        if (t.isValid() && (!end.isValid() ||t > end))
-            end = t;
-    }
-    if (!end.isValid() || end > time)
-        end = time;
-    return end;
-}
-
-DateTime ResourceGroupRequest::availableAfter(const DateTime &time, Schedule *ns) {
-    DateTime start;
-    if (m_resourceRequests.isEmpty()) {
-        return start;
-    }
-    foreach (ResourceRequest *r, m_resourceRequests) {
-        DateTime t = r->availableAfter(time, ns);
-        if (t.isValid() && (!start.isValid() || t < start))
-            start = t;
-    }
-    if (start.isValid() && start < time)
-        start = time;
-    //debugPlan<<time.toString()<<"="<<start.toString()<<""<<m_group->name();
-    return start;
-}
-
-DateTime ResourceGroupRequest::availableBefore(const DateTime &time, Schedule *ns) {
-    DateTime end;
-    if (m_resourceRequests.isEmpty()) {
-        return end;
-    }
-    foreach (ResourceRequest *r, m_resourceRequests) {
-        DateTime t = r->availableBefore(time, ns);
-        if (t.isValid() && (!end.isValid() || t > end))
-            end = t;
-    }
-    if (!end.isValid() || end > time)
-        end = time;
-    //debugPlan<<time.toString()<<"="<<end.toString()<<""<<m_group->name();
-    return end;
-}
-
-void ResourceGroupRequest::makeAppointments(Schedule *schedule) {
-    //debugPlan;
-    foreach (ResourceRequest *r, m_resourceRequests) {
-        r->makeAppointment(schedule);
-    }
-}
-
-void ResourceGroupRequest::reserve(const DateTime &start, const Duration &duration) {
-    m_start = start;
-    m_duration = duration;
-}
-
-bool ResourceGroupRequest::isEmpty() const {
-    return m_resourceRequests.isEmpty() && m_units == 0;
-}
-
-Task *ResourceGroupRequest::task() const {
-    return m_parent ? m_parent->task() : 0;
-}
-
-void ResourceGroupRequest::changed()
+bool ResourceRequest::removeAlternativeRequest(ResourceRequest *request)
 {
-     if (m_parent) 
-         m_parent->changed();
+    emitAlternativeRequestToBeRemoved(this, m_alternativeRequests.indexOf(request), request);
+    m_alternativeRequests.removeAll(request);
+    emitAlternativeRequestRemoved();
+    return true;
 }
 
-void ResourceGroupRequest::removeResourceRequest(ResourceRequest *request)
+void ResourceRequest::emitAlternativeRequestToBeAdded(ResourceRequest *request, int row)
 {
-    m_resourceRequests.removeAll(request);
-    changed();
-}
-
-void ResourceGroupRequest::deleteResourceRequest(ResourceRequest *request)
-{
-    int i = m_resourceRequests.indexOf(request);
-    if (i != -1) {
-        m_resourceRequests.removeAt(i);
-    }
-    changed();
-}
-
-void ResourceGroupRequest::resetDynamicAllocations()
-{
-    QList<ResourceRequest*> lst;
-    foreach (ResourceRequest *r, m_resourceRequests) {
-        if (r->isDynamicallyAllocated()) {
-            lst << r;
-        }
-    }
-    while (! lst.isEmpty()) {
-        deleteResourceRequest(lst.takeFirst());
+    if (m_collection) {
+        emit m_collection->alternativeRequestToBeAdded(request, row);
     }
 }
 
-void ResourceGroupRequest::allocateDynamicRequests(const DateTime &time, const Duration &effort, Schedule *ns, bool backward)
+void ResourceRequest::emitAlternativeRequestAdded(ResourceRequest *alternative)
 {
-    int num = m_units;
-    if (num <= 0) {
-        return;
+    if (m_collection) {
+        emit m_collection->alternativeRequestAdded(alternative);
     }
-    if (num == m_group->numResources()) {
-        // TODO: allocate all
+}
+
+void ResourceRequest::emitAlternativeRequestToBeRemoved(ResourceRequest *request, int row, ResourceRequest *alternative)
+{
+    if (m_collection) {
+        emit m_collection->alternativeRequestToBeRemoved(request, row, alternative);
     }
-    Duration e = effort / m_units;
-    QMap<long, ResourceRequest*> map;
-    foreach (Resource *r, m_group->resources()) {
-        if (r->type() == Resource::Type_Team) {
-            continue;
-        }
-        ResourceRequest *rr = find(r);
-        if (rr) {
-            if (rr->isDynamicallyAllocated()) {
-                --num; // already allocated
-            }
-            continue;
-        }
-        rr = new ResourceRequest(r, r->units());
-        long s = rr->allocationSuitability(time, e, ns, backward);
-        if (s == 0) {
-            // not suitable at all
-            delete rr;
-        } else {
-            map.insertMulti(s, rr);
-        }
+}
+
+void ResourceRequest::emitAlternativeRequestRemoved()
+{
+    if (m_collection) {
+        emit m_collection->alternativeRequestRemoved();
     }
-    for (--num; num >= 0 && ! map.isEmpty(); --num) {
-        long key = map.lastKey();
-        ResourceRequest *r = map.take(key);
-        r->setAllocatedDynaically(true);
-        addResourceRequest(r);
-        debugPlan<<key<<r;
-    }
-    qDeleteAll(map); // delete the unused
 }
 
 /////////
 ResourceRequestCollection::ResourceRequestCollection(Task *task)
-    : m_task(task)
-    , m_lastGroupId(0)
+    : QObject()
+    , m_task(task)
     , m_lastResourceId(0)
 {
     //debugPlan<<this<<(void*)(&task);
@@ -680,16 +411,7 @@ ResourceRequestCollection::~ResourceRequestCollection()
     for (ResourceRequest *r : m_resourceRequests) {
         r->setCollection(nullptr);
     }
-    for (ResourceGroupRequest *r : m_groupRequests) {
-        r->setParent(nullptr);
-    }
     qDeleteAll(m_resourceRequests); // removes themselves from possible group
-    qDeleteAll(m_groupRequests);
-}
-
-bool ResourceRequestCollection::contains(ResourceGroupRequest *request) const
-{
-    return m_groupRequests.contains(request->id()) && m_groupRequests.value(request->id()) == request;
 }
 
 bool ResourceRequestCollection::contains(ResourceRequest *request) const
@@ -703,10 +425,6 @@ void ResourceRequestCollection::removeRequests()
     for (ResourceRequest *r : resourceRequests) {
         removeResourceRequest(r);
     }
-    const QList<ResourceGroupRequest*> groupRequests = m_groupRequests.values();
-    for (ResourceGroupRequest *r : groupRequests) {
-        takeRequest(r);
-    }
 }
 
 Task *ResourceRequestCollection::task() const
@@ -719,60 +437,8 @@ void ResourceRequestCollection::setTask(Task *t)
     m_task = t;
 }
 
-void ResourceRequestCollection::addRequest(ResourceGroupRequest *request)
+void ResourceRequestCollection::addResourceRequest(ResourceRequest *request)
 {
-    Q_ASSERT(request->group());
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        if (r->group() == request->group()) {
-            errorPlan<<"Request to this group already exists";
-            errorPlan<<"Task:"<<m_task->name()<<"Group:"<<request->group()->name();
-            Q_ASSERT(false);
-        }
-    }
-    int id = request->id();
-    m_lastGroupId = std::max(m_lastGroupId, id);
-    if (id == 0) {
-        while (m_groupRequests.contains(++m_lastGroupId)) {
-        }
-        request->setId(m_lastGroupId);
-    }
-    Q_ASSERT(!m_groupRequests.contains(request->id()));
-    m_groupRequests.insert(request->id(), request);
-    if (!request->group()->requests().contains(request)) {
-        request->group()->registerRequest(request);
-    }
-    request->setParent(this);
-    changed();
-}
-
-int ResourceRequestCollection::takeRequest(ResourceGroupRequest *request)
-{
-    Q_ASSERT(m_groupRequests.contains(request->id()));
-    Q_ASSERT(m_groupRequests.value(request->id()) == request);
-    int i = m_groupRequests.values().indexOf(request);
-    m_groupRequests.remove(request->id());
-    changed();
-    return i;
-}
-
-ResourceGroupRequest *ResourceRequestCollection::groupRequest(int id) const
-{
-    return m_groupRequests.value(id);
-}
-
-ResourceGroupRequest *ResourceRequestCollection::find(const ResourceGroup *group) const {
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        if (r->group() == group)
-            return r; // we assume only one request to the same group
-    }
-    return 0;
-}
-
-void ResourceRequestCollection::addResourceRequest(ResourceRequest *request, ResourceGroupRequest *group)
-{
-    if (group) {
-        Q_ASSERT(m_groupRequests.contains(group->id()));
-    }
     int id = request->id();
     m_lastResourceId = std::max(m_lastResourceId, id);
     Q_ASSERT(!m_resourceRequests.contains(id));
@@ -785,10 +451,6 @@ void ResourceRequestCollection::addResourceRequest(ResourceRequest *request, Res
     request->setCollection(this);
     request->registerRequest();
     m_resourceRequests.insert(request->id(), request);
-
-    if (group && !group->resourceRequests().contains(request)) {
-        group->addResourceRequest(request);
-    }
 }
 
 void ResourceRequestCollection::removeResourceRequest(ResourceRequest *request)
@@ -797,9 +459,6 @@ void ResourceRequestCollection::removeResourceRequest(ResourceRequest *request)
     Q_ASSERT(m_resourceRequests.values().contains(request));
     m_resourceRequests.remove(request->id());
     Q_ASSERT(!m_resourceRequests.values().contains(request));
-    if (request->parent()) {
-        request->parent()->takeResourceRequest(request);
-    }
 }
 
 void ResourceRequestCollection::deleteResourceRequest(ResourceRequest *request)
@@ -832,51 +491,39 @@ ResourceRequest *ResourceRequestCollection::resourceRequest(const QString &name)
     return nullptr;
 }
 
-QStringList ResourceRequestCollection::requestNameList(bool includeGroup) const {
+QStringList ResourceRequestCollection::requestNameList() const
+{
     QStringList lst;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        lst << r->requestNameList(includeGroup);
+    for (ResourceRequest *r : m_resourceRequests) {
+        lst << r->resource()->name();
     }
     return lst;
 }
 
 QList<Resource*> ResourceRequestCollection::requestedResources() const {
     QList<Resource*> lst;
-    foreach (ResourceGroupRequest *g, m_groupRequests) {
-        lst += g->requestedResources();
+    for (ResourceRequest *r : m_resourceRequests) {
+        lst += r->resource();
     }
     return lst;
 }
 
 QList<ResourceRequest*> ResourceRequestCollection::resourceRequests(bool resolveTeam) const
 {
-    // FIXME: skip going through groups, probably separate method for resolveTeam case?
-    if (!resolveTeam) {
-        return m_resourceRequests.values();
-    }
-    QList<ResourceRequest*> lst;
-    foreach (ResourceGroupRequest *g, m_groupRequests) {
-        foreach (ResourceRequest *r, g->resourceRequests(resolveTeam)) {
-            lst << r;
+    QList<ResourceRequest*> lst = m_resourceRequests.values();
+    if (resolveTeam) {
+        for (ResourceRequest *r : m_resourceRequests) {
+            lst += r->teamMembers();
         }
     }
     return lst;
 }
 
 
-bool ResourceRequestCollection::contains(const QString &identity) const {
+bool ResourceRequestCollection::contains(const QString &identity) const
+{
     QStringList lst = requestNameList();
     return lst.indexOf(QRegExp(identity, Qt::CaseSensitive, QRegExp::FixedString)) != -1;
-}
-
-ResourceGroupRequest *ResourceRequestCollection::findGroupRequestById(const QString &id) const
-{
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        if (r->group()->id() == id) {
-            return r;
-        }
-    }
-    return 0;
 }
 
 // bool ResourceRequestCollection::load(KoXmlElement &element, Project &project) {
@@ -886,7 +533,7 @@ ResourceGroupRequest *ResourceRequestCollection::findGroupRequestById(const QStr
 
 void ResourceRequestCollection::save(QDomElement &element) const {
     //debugPlan;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
+    for (ResourceRequest *r : m_resourceRequests) {
         r->save(element);
     }
 }
@@ -899,16 +546,15 @@ Duration ResourceRequestCollection::duration(const DateTime &time, const Duratio
         return effort;
     }
     Duration dur = effort;
+    // TODO: alternatives
     QList<ResourceRequest*> lst;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        r->allocateDynamicRequests(time, effort, ns, backward);
-        if (r->group()->type() == ResourceGroup::Type_Work) {
-            lst << r->resourceRequests();
-        } else if (r->group()->type() == ResourceGroup::Type_Material) {
-            //TODO
+    QMap<int, ResourceRequest*>::const_iterator it; 
+    for (it = m_resourceRequests.constBegin(); it != m_resourceRequests.constEnd(); ++it) {
+        if (it.value()->resource()->type() != Resource::Type_Material) {
+            lst << it.value();
         }
     }
-    if (! lst.isEmpty()) {
+    if (!lst.isEmpty()) {
         dur = duration(lst, time, effort, ns, backward);
     }
     return dur;
@@ -916,7 +562,8 @@ Duration ResourceRequestCollection::duration(const DateTime &time, const Duratio
 
 DateTime ResourceRequestCollection::workTimeAfter(const DateTime &time, Schedule *ns) const {
     DateTime start;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
+    // TODO: Alternatives
+    for (ResourceRequest *r : m_resourceRequests) {
         DateTime t = r->workTimeAfter(time, ns);
         if (t.isValid() && (!start.isValid() || t < start))
             start = t;
@@ -929,7 +576,8 @@ DateTime ResourceRequestCollection::workTimeAfter(const DateTime &time, Schedule
 
 DateTime ResourceRequestCollection::workTimeBefore(const DateTime &time, Schedule *ns) const {
     DateTime end;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
+    // TODO: Alternatives
+    for (ResourceRequest *r : m_resourceRequests) {
         DateTime t = r->workTimeBefore(time, ns);
         if (t.isValid() && (!end.isValid() ||t > end))
             end = t;
@@ -941,7 +589,8 @@ DateTime ResourceRequestCollection::workTimeBefore(const DateTime &time, Schedul
 
 DateTime ResourceRequestCollection::availableAfter(const DateTime &time, Schedule *ns) {
     DateTime start;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
+    // TODO: Alternatives
+    for (ResourceRequest *r : m_resourceRequests) {
         DateTime t = r->availableAfter(time, ns);
         if (t.isValid() && (!start.isValid() || t < start))
             start = t;
@@ -954,7 +603,8 @@ DateTime ResourceRequestCollection::availableAfter(const DateTime &time, Schedul
 
 DateTime ResourceRequestCollection::availableBefore(const DateTime &time, Schedule *ns) {
     DateTime end;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
+    // TODO: Alternatives
+    for (ResourceRequest *r : m_resourceRequests) {
         DateTime t = r->availableBefore(time, ns);
         if (t.isValid() && (!end.isValid() ||t > end))
             end = t;
@@ -966,8 +616,9 @@ DateTime ResourceRequestCollection::availableBefore(const DateTime &time, Schedu
 
 DateTime ResourceRequestCollection::workStartAfter(const DateTime &time, Schedule *ns) {
     DateTime start;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        if (r->group()->type() != ResourceGroup::Type_Work) {
+    // TODO: Alternatives
+    for (ResourceRequest *r : m_resourceRequests) {
+        if (r->resource()->type() != Resource::Type_Work) {
             continue;
         }
         DateTime t = r->availableAfter(time, ns);
@@ -982,8 +633,9 @@ DateTime ResourceRequestCollection::workStartAfter(const DateTime &time, Schedul
 
 DateTime ResourceRequestCollection::workFinishBefore(const DateTime &time, Schedule *ns) {
     DateTime end;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        if (r->group()->type() != ResourceGroup::Type_Work) {
+    // TODO: Alternatives
+    for (ResourceRequest *r : m_resourceRequests) {
+        if (r->resource()->type() != Resource::Type_Work) {
             continue;
         }
         DateTime t = r->availableBefore(time, ns);
@@ -998,24 +650,22 @@ DateTime ResourceRequestCollection::workFinishBefore(const DateTime &time, Sched
 
 void ResourceRequestCollection::makeAppointments(Schedule *schedule) {
     //debugPlan;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        r->makeAppointments(schedule);
+    // TODO: Alternatives
+    for (ResourceRequest *r : m_resourceRequests) {
+        r->makeAppointment(schedule);
     }
 }
 
 void ResourceRequestCollection::reserve(const DateTime &start, const Duration &duration) {
     //debugPlan;
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        r->reserve(start, duration);
+    // TODO: Alternatives
+    for (ResourceRequest *r : m_resourceRequests) {
+//         r->reserve(start, duration); //FIXME
     }
 }
 
 bool ResourceRequestCollection::isEmpty() const {
-    foreach (ResourceGroupRequest *r, m_groupRequests) {
-        if (!r->isEmpty())
-            return false;
-    }
-    return true;
+    return m_resourceRequests.isEmpty();
 }
 
 void ResourceRequestCollection::changed()
@@ -1028,9 +678,7 @@ void ResourceRequestCollection::changed()
 
 void ResourceRequestCollection::resetDynamicAllocations()
 {
-    foreach (ResourceGroupRequest *g, m_groupRequests) {
-        g->resetDynamicAllocations();
-    }
+    //TODO
 }
 
 Duration ResourceRequestCollection::effort(const QList<ResourceRequest*> &lst, const DateTime &time, const Duration &duration, Schedule *ns, bool backward) const {

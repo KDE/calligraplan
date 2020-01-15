@@ -32,7 +32,6 @@ namespace KPlato
 class Accounts;
 class TaskGeneralPanel;
 class RequestResourcesPanel;
-class GroupAllocationPanel;
 class DocumentsPanel;
 class TaskCostPanel;
 class TaskDescriptionPanel;
@@ -71,7 +70,6 @@ protected:
 
     TaskGeneralPanel *m_generalTab;
     RequestResourcesPanel *m_resourcesTab;
-    GroupAllocationPanel *m_groupsTab;
     DocumentsPanel *m_documentsTab;
     TaskCostPanel *m_costTab;
     TaskDescriptionPanel *m_descriptionTab;

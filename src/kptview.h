@@ -70,7 +70,6 @@ class CalendarEditor;
 class ScheduleEditor;
 class ScheduleManager;
 class CalculateScheduleCmd;
-class ResourceAssignmentView;
 class TaskStatusView;
 class Calendar;
 class MainDocument;
@@ -146,7 +145,6 @@ public:
     ViewBase *createResourceAppointmentsView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
     ViewBase *createResourceAppointmentsGanttView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
     ViewBase *createAccountsView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
-    ViewBase *createResourceAssignmentView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
     ViewBase *createChartView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
     ViewBase *createReportView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
     ViewBase *createReportsGeneratorView(ViewListItem *cat, const QString &tag, const QString &name = QString(), const QString &tip = QString(), int index = -1);
@@ -337,7 +335,6 @@ private:
     int m_currentEstimateType;
 
     bool m_updateAccountsview;
-    bool m_updateResourceAssignmentView;
     bool m_updatePertEditor;
 
     QLabel *m_estlabel;

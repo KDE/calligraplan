@@ -69,10 +69,8 @@ TaskProgressPanel::TaskProgressPanel(Task &task, ScheduleManager *sm, StandardWo
     setYear(QDate::currentDate().year());
     
     if (m_completion.usedEffortMap().isEmpty() || m_task.requests().isEmpty()) {
-        foreach (ResourceGroupRequest *g, m_task.requests().requests()) {
-            foreach (ResourceRequest *r, g->resourceRequests()) {
-                m_completion.addUsedEffort(r->resource());
-            }
+        for (ResourceRequest *r : task.requests().resourceRequests()) {
+            m_completion.addUsedEffort(r->resource());
         }
     }
     enableWidgets();

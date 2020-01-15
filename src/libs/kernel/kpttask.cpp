@@ -106,30 +106,10 @@ Duration *Task::getRandomDuration() {
     return 0L;
 }
 
-ResourceGroupRequest *Task::resourceGroupRequest(const ResourceGroup *group) const {
-    return m_requests.find(group);
-}
-
 // void Task::clearResourceRequests() {
 //     m_requests.clear();
 //     changed(this, ResourceRequestProperty);
 // }
-
-void Task::addRequest(ResourceGroup *group, int numResources) {
-    addRequest(new ResourceGroupRequest(group, numResources));
-}
-
-void Task::addRequest(ResourceGroupRequest *request) {
-    //debugPlan<<m_name<<request<<request->group()<<request->group()->id()<<request->group()->name();
-    m_requests.addRequest(request);
-    changed(this, Node::ResourceRequestProperty);
-}
-
-void Task::takeRequest(ResourceGroupRequest *request) {
-    //debugPlan<<request;
-    m_requests.takeRequest(request);
-    changed(this, Node::ResourceRequestProperty);
-}
 
 QStringList Task::requestNameList() const {
     return m_requests.requestNameList();
@@ -330,27 +310,6 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                    (/*status.version() < "0.6" &&*/ e.tagName() == QLatin1String("effort"))) {
             //  Load the estimate
             m_estimate->load(e, status);
-        } else if (e.tagName() == QLatin1String("resourcegroup-request")) {
-            // Load the resource request
-            // Handle multiple requests to same group gracefully (Not really allowed)
-            ResourceGroupRequest *r = m_requests.findGroupRequestById(e.attribute(QStringLiteral("group-id")));
-            if (r) {
-                warnPlan<<"Multiple requests to same group, loading into existing group";
-                if (! r->load(e, status)) {
-                    errorPlan<<"Failed to load resource request";
-                }
-            } else {
-                r = new ResourceGroupRequest();
-                if (r->load(e, status)) {
-                    addRequest(r);
-                    for (ResourceRequest *rr : r->resourceRequests()) {
-                        m_requests.addResourceRequest(rr);
-                    }
-                } else {
-                    errorPlan<<"Failed to load resource request";
-                    delete r;
-                }
-            }
         } else if (e.tagName() == QLatin1String("workpackage")) {
             m_workPackage.loadXML(e, status);
         } else if (e.tagName() == QLatin1String("progress")) {
@@ -373,6 +332,21 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                     }
                 }
             }
+        } else if (e.tagName() == QLatin1String("resourcegroup-request")) {
+            Q_ASSERT(status.version() < "0.7.0");
+            KoXmlElement re;
+            forEachElement(re, e) {
+                if (re.tagName() == "resource-request") {
+                    ResourceRequest *r = new ResourceRequest();
+                    if (r->load(re, status.project())) {
+                        m_requests.addResourceRequest(r);
+                    } else {
+                        errorPlan<<"Failed to load resource request";
+                        delete r;
+                    }
+                }
+            }
+            // TODO alternatives
         } else if (e.tagName() == QLatin1String("documents")) {
             m_documents.load(e, status);
         } else if (e.tagName() == QLatin1String("workpackage-log")) {

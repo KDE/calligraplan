@@ -1,5 +1,4 @@
 /* This file is part of the KDE project
- * Copyright (C) 2003 - 2007 Dag Andersen <danders@get2net.dk>
  * Copyright (C) 2020 Dag Andersen <danders@get2net.dk>
  * 
  * This library is free software; you can redistribute it and/or
@@ -18,47 +17,34 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KPTREQUESTRESOURCESPANEL_H
-#define KPTREQUESTRESOURCESPANEL_H
+#ifndef KPTADDALTERNATIVERESOURCECMD_H
+#define KPTADDALTERNATIVERESOURCECMD_H
 
-#include "planui_export.h"
-#include <kptresourceallocationmodel.h>
+#include "plankernel_export.h"
 
-#include <QWidget>
+#include "NamedCommand.h"
 
-class QTreeView;
 
+/// The main namespace
 namespace KPlato
 {
 
-class Task;
-class Project;
 class Resource;
-class MacroCommand;
+class ResourceGroup;
 
-class RequestResourcesPanel : public QWidget
+class PLANKERNEL_EXPORT AddAlternativeResourceCmd : public NamedCommand
 {
-    Q_OBJECT
 public:
-    RequestResourcesPanel(QWidget *parent, Project &project, Task &task, bool baseline=false);
+    AddAlternativeResourceCmd(ResourceRequest *request, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString());
+    ~AddAlternativeResourceCmd() override;
+    void execute() override;
+    void unexecute() override;
 
-    /// Builds an undocommand for the current task
-    /// only for changes (removals and/or additions)
-    MacroCommand *buildCommand();
-    /// Builds an undo command for @p task
-    /// that clears all current requests and adds the new ones (if any)
-    MacroCommand *buildCommand(Task *task);
-
-    bool ok();
-
-Q_SIGNALS:
-    void changed();
-
-private:
-    QTreeView *m_view;
-    ResourceAllocationItemModel m_model;
+protected:
+    ResourceRequest *m_request;
+    Resource *m_resource;
 };
 
-}  //KPlato namespace
+}
 
 #endif

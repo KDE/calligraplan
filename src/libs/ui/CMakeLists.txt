@@ -37,7 +37,7 @@ set(planui_LIB_SRCS
 
     RelationEditorDialog.cpp
     TasksEditController.cpp
-    GroupAllocationPanel.cpp
+#     GroupAllocationPanel.cpp
     TasksEditDialog.cpp
 
     RichTextWidget.cpp
@@ -90,7 +90,6 @@ set(planui_LIB_SRCS
     kpttaskdescriptiondialog.cpp
     kptwbsdefinitiondialog.cpp
     kptwbsdefinitionpanel.cpp
-    kptresourceassignmentview.cpp
     kptresourceallocationeditor.cpp
     kptworkpackagemergedialog.cpp
     kptrecalculatedialog.cpp
@@ -146,7 +145,6 @@ ki18n_wrap_ui(planui_LIB_SRCS
     kpttaskgeneralpanelbase.ui
     kpttaskprogresspanelbase.ui
     kptperteditor.ui
-    kptresourceassignmentview.ui
     kpttaskstatusviewsettingspanel.ui
     kptworkpackagemergepanel.ui
     kptrecalculatedialog.ui

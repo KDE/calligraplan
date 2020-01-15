@@ -329,46 +329,10 @@ void InsertProjectTester::testTask()
     part2.insertProject(p, 0, 0);
     QVERIFY(part2.getProject().numChildren() == 1);
 }
-
-void InsertProjectTester::addGroupRequest(MainDocument &part)
-{
-    Project &p = part.getProject();
-    Task *t = static_cast<Task*>(p.childNode(0));
-    int requests = p.resourceGroupAt(0)->requests().count();
-    KUndo2Command *c = new AddResourceGroupRequestCmd(*t, new ResourceGroupRequest(p.resourceGroupAt(0), 1));
-    part.addCommand(c);
-    QVERIFY(p.resourceGroupAt(0)->requests().count() == requests+1);
-}
-
-void InsertProjectTester::testGroupRequest()
-{
-    Part pp(0);
-    MainDocument part(&pp);
-    pp.setDocument(&part);
-    Project &p = part.getProject();
-    p.setName("Insert from");
-    addCalendar(part);
-    addResourceGroup(part);
-    addResource(part);
-    addTask(part);
-    addGroupRequest(part);
-
-    QVERIFY(p.numChildren() == 1);
-
-    Part pp2(0);
-    MainDocument part2(&pp2);
-    pp2.setDocument(&part2);
-    Project &p2 = part2.getProject();
-    p2.setName("Insert into");
-    part2.insertProject(p, 0, 0);
-    QVERIFY(p2.childNode(0)->resourceGroupRequest(p2.resourceGroupAt(0)) != 0);
-}
-
 void InsertProjectTester::addResourceRequest(MainDocument &part)
 {
     Project &p = part.getProject();
-    ResourceGroupRequest *g = p.childNode(0)->requests().requests().at(0);
-    KUndo2Command *c = new AddResourceRequestCmd(g, new  ResourceRequest(p.resourceGroupAt(0)->resourceAt(0), 1));
+    KUndo2Command *c = new AddResourceRequestCmd(&p.childNode(0)->requests(), new  ResourceRequest(p.resourceGroupAt(0)->resourceAt(0), 1));
     part.addCommand(c);
 }
 
@@ -382,7 +346,6 @@ void InsertProjectTester::testResourceRequest()
     addResourceGroup(part);
     addResource(part);
     addTask(part);
-    addGroupRequest(part);
     addResourceRequest(part);
 
     Project &p = part.getProject();
@@ -412,7 +375,6 @@ void InsertProjectTester::testTeamResourceRequest()
     Resource *t2 = addResource(part, tg);
     r->addTeamMemberId(t2->id());
     addTask(part);
-    addGroupRequest(part);
     addResourceRequest(part);
 
     qDebug()<<"Start test:";
@@ -560,7 +522,6 @@ void InsertProjectTester::testExistingResourceRequest()
     addResourceGroup(part);
     addResource(part);
     addTask(part);
-    addGroupRequest(part);
     addResourceRequest(part);
 
     QDomDocument doc = part.saveXML();
@@ -602,7 +563,6 @@ void InsertProjectTester::testExistingRequiredResourceRequest()
     m.first()->setType(Resource::Type_Material);
     r->setRequiredIds(QStringList() << m.first()->id());
     addTask(part);
-    addGroupRequest(part);
     addResourceRequest(part);
 
     QDomDocument doc = part.saveXML();
@@ -654,7 +614,6 @@ void InsertProjectTester::testExistingTeamResourceRequest()
     t2->setName("T2");
     r->addTeamMemberId(t2->id());
     addTask(part);
-    addGroupRequest(part);
     addResourceRequest(part);
 
     QDomDocument doc = part.saveXML();

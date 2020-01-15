@@ -49,9 +49,7 @@ class Task;
 class Node;
 class Project;
 class Resource;
-class ResourceGroup;
 class ResourceRequest;
-class ResourceGroupRequest;
 class ResourceRequestCollection;
 class Schedule;
 class ResourceSchedule;
@@ -73,9 +71,6 @@ public:
 
     ResourceRequestCollection *collection() const;
     void setCollection(ResourceRequestCollection *collection);
-
-    ResourceGroupRequest *parent() const { return m_parent; }
-    void setParent(ResourceGroupRequest *parent) { m_parent = parent; }
 
     Resource *resource() const { return m_resource; }
     void setResource(Resource* resource) { m_resource = resource; }
@@ -126,9 +121,18 @@ public:
     /// Set the list of required resources that will be used in scheduling.
     void setRequiredResources(const QList<Resource*> &lst) { m_required = lst; }
 
-private:
-    friend class ResourceGroupRequest;
+    QList<ResourceRequest*> alternativeRequests() const;
+    void setAlternativeRequests(const QList<ResourceRequest*> requests);
+    bool addAlternativeRequest(ResourceRequest *request);
+    bool removeAlternativeRequest(ResourceRequest *request);
+
     QList<ResourceRequest*> teamMembers() const;
+
+private:
+    void emitAlternativeRequestToBeAdded(ResourceRequest *request, int row);
+    void emitAlternativeRequestAdded(ResourceRequest *alternative);
+    void emitAlternativeRequestToBeRemoved(ResourceRequest *request, int row, ResourceRequest *alternative);
+    void emitAlternativeRequestRemoved();
 
 protected:
     void changed();
@@ -141,106 +145,11 @@ private:
     Resource *m_resource;
     int m_units;
     ResourceRequestCollection *m_collection;
-    ResourceGroupRequest *m_parent;
     bool m_dynamic;
     QList<Resource*> m_required;
     mutable QList<ResourceRequest*> m_teamMembers;
 
-#ifndef NDEBUG
-public:
-    void printDebug(const QString& ident);
-#endif
-};
-
-class PLANKERNEL_EXPORT ResourceGroupRequest
-{
-public:
-    explicit ResourceGroupRequest(ResourceGroup *group = 0, int units = 0);
-    explicit ResourceGroupRequest(const ResourceGroupRequest &group);
-    ~ResourceGroupRequest();
-
-    int id() const;
-    void setId(int id);
-
-    void setParent(ResourceRequestCollection *parent) { m_parent = parent;}
-    ResourceRequestCollection *parent() const { return m_parent; }
-
-    ResourceGroup *group() const { return m_group; }
-    void setGroup(ResourceGroup *group) { m_group = group; }
-    void unregister(const ResourceGroup *group) { if (group == m_group) m_group = 0; }
-    /// Return a list of resource requests.
-    /// If @p resolveTeam is true, include the team members,
-    /// if @p resolveTeam is false, include the team resource itself.
-    QList<ResourceRequest*> resourceRequests(bool resolveTeam=true) const;
-    int count() const { return m_resourceRequests.count(); }
-    ResourceRequest *requestAt(int idx) const { return m_resourceRequests.value(idx); }
-
-    ResourceRequest *takeResourceRequest(ResourceRequest *request);
-    ResourceRequest *find(const Resource *resource) const;
-    ResourceRequest *resourceRequest(const QString &name);
-    /// Return a list of allocated resources, allocation to group is not included by default.
-    QStringList requestNameList(bool includeGroup = false) const;
-    /// Return a list of allocated resources.
-    /// Allocations to groups are not included.
-    /// Team resources are included but *not* the team members.
-    /// Any dynamically allocated resource is not included.
-    QList<Resource*> requestedResources() const;
-    bool load(KoXmlElement &element, XMLLoaderObject &status);
-    void save(QDomElement &element) const;
-
-    /// The number of requested resources
-    int units() const;
-    void setUnits(int value) { m_units = value; changed(); }
-
-    /**
-     * Returns the duration needed to do the @p effort starting at @p start.
-     */
-    Duration duration(const DateTime &start, const Duration &effort, Schedule *ns, bool backward = false);
-
-    DateTime availableAfter(const DateTime &time, Schedule *ns);
-    DateTime availableBefore(const DateTime &time, Schedule *ns);
-    DateTime workTimeAfter(const DateTime &dt, Schedule *ns = 0);
-    DateTime workTimeBefore(const DateTime &dt, Schedule *ns = 0);
-
-    /**
-     * Makes appointments for schedule @p schedule to the
-     * requested resources for the duration found in @ref duration().
-     * @param schedule the schedule
-     */
-    void makeAppointments(Schedule *schedule);
-
-    /**
-     * Reserves the requested resources for the specified interval
-     */
-    void reserve(const DateTime &start, const Duration &duration);
-
-    bool isEmpty() const;
-
-    Task *task() const;
-
-    void changed();
-
-    /// Reset dynamic resource allocations
-    void resetDynamicAllocations();
-    /// Allocate dynamic requests. Do nothing if already allocated.
-    void allocateDynamicRequests(const DateTime &time, const Duration &effort, Schedule *ns, bool backward);
-
-    void removeResourceRequest(ResourceRequest *request);
-
-private:
-    friend ResourceRequestCollection;
-    void addResourceRequest(ResourceRequest *request);
-    void deleteResourceRequest(ResourceRequest *request);
-
-private:
-    int m_id;
-    ResourceGroup *m_group;
-    int m_units;
-    ResourceRequestCollection *m_parent;
-
-    QList<ResourceRequest*> m_resourceRequests;
-    DateTime m_start;
-    Duration m_duration;
+    QList<ResourceRequest*> m_alternativeRequests;
 
 #ifndef NDEBUG
 public:
@@ -248,33 +157,19 @@ public:
 #endif
 };
 
-class PLANKERNEL_EXPORT ResourceRequestCollection
+class PLANKERNEL_EXPORT ResourceRequestCollection : public QObject
 {
+    Q_OBJECT
 public:
     explicit ResourceRequestCollection(Task *task = 0);
     ~ResourceRequestCollection();
 
-    bool contains(ResourceGroupRequest *request) const;
     bool contains(ResourceRequest *request) const;
 
     /// Remove all group- and resource requests
     /// Note: Does not delete
     void removeRequests();
 
-    QList<ResourceGroupRequest*> requests() const { return m_groupRequests.values(); }
-    void addRequest(ResourceGroupRequest *request);
-    void deleteRequest(ResourceGroupRequest *request)
-    {
-        Q_ASSERT(m_groupRequests.contains(request->id()));
-        Q_ASSERT(m_groupRequests.value(request->id()) == request);
-        m_groupRequests.remove(request->id());
-        delete request;
-        changed();
-    }
-
-    int takeRequest(ResourceGroupRequest *request);
-    ResourceGroupRequest *groupRequest(int id) const;
-    ResourceGroupRequest *find(const ResourceGroup *resource) const;
     ResourceRequest *resourceRequest(int id) const;
     ResourceRequest *find(const Resource *resource) const;
     ResourceRequest *resourceRequest(const QString &name) const;
@@ -286,16 +181,11 @@ public:
     void resetDynamicAllocations();
 
     bool contains(const QString &identity) const;
-    ResourceGroupRequest *findGroupRequestById(const QString &id) const;
     /// Return a list of names of allocated resources.
-    /// Allocations to groups are not included by default.
     /// Team resources are included but *not* the team members.
-    /// Any dynamically allocated resource is not included.
-    QStringList requestNameList(bool includeGroup = false) const;
+    QStringList requestNameList() const;
     /// Return a list of allocated resources.
-    /// Allocations to groups are not included.
     /// Team resources are included but *not* the team members.
-    /// Any dynamically allocated resource is not included.
     QList<Resource*> requestedResources() const;
 
     /// Return a list of all resource requests.
@@ -304,8 +194,7 @@ public:
     QList<ResourceRequest*> resourceRequests(bool resolveTeam=true) const;
 
     /// Add the resource request @p request
-    /// If @p group is not nullptr, the request is also added to the @p group
-    void addResourceRequest(ResourceRequest *request, ResourceGroupRequest *group = nullptr);
+    void addResourceRequest(ResourceRequest *request);
     /// Remove resource request @p request
     void removeResourceRequest(ResourceRequest *request);
     /// Delete resource request @p request
@@ -346,11 +235,15 @@ public:
     int numDays(const QList<ResourceRequest*> &lst, const DateTime &time, bool backward) const;
     Duration duration(const QList<ResourceRequest*> &lst, const DateTime &time, const Duration &_effort, Schedule *ns, bool backward);
 
+Q_SIGNALS:
+    void alternativeRequestToBeAdded(ResourceRequest *request, int row);
+    void alternativeRequestAdded(ResourceRequest *alternative);
+    void alternativeRequestToBeRemoved(ResourceRequest *request, int row, ResourceRequest *alternative);
+    void alternativeRequestRemoved();
+
 private:
     Task *m_task;
-    int m_lastGroupId;
     int m_lastResourceId;
-    QMap<int, ResourceGroupRequest*> m_groupRequests;
     QMap<int, ResourceRequest*> m_resourceRequests;
 };
 

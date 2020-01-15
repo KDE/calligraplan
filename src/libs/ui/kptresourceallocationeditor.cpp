@@ -120,14 +120,9 @@ void ResourceAllocationEditor::slotContextMenuRequested(const QModelIndex &index
     QString name;
     if (index.isValid()) {
         QObject *obj = m_view->model()->object(index);
-        ResourceGroup *g = qobject_cast<ResourceGroup*>(obj);
-        if (g) {
-            //name = "resourceeditor_group_popup";
-        } else {
-            Resource *r = qobject_cast<Resource*>(obj);
-            if (r) {
-                //name = "resourceeditor_resource_popup";
-            }
+        Resource *r = qobject_cast<Resource*>(obj);
+        if (r) {
+            //name = "resourceeditor_resource_popup";
         }
     }
     if (name.isEmpty()) {
@@ -140,11 +135,6 @@ void ResourceAllocationEditor::slotContextMenuRequested(const QModelIndex &index
 Resource *ResourceAllocationEditor::currentResource() const
 {
     return qobject_cast<Resource*>(m_view->currentObject());
-}
-
-ResourceGroup *ResourceAllocationEditor::currentResourceGroup() const
-{
-    return qobject_cast<ResourceGroup*>(m_view->currentObject());
 }
 
 void ResourceAllocationEditor::slotCurrentChanged(const QModelIndex &)

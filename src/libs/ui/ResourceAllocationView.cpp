@@ -133,22 +133,15 @@ void ResourceAllocationView::slotAllocate()
         }
         Task *t = static_cast<Task*>(n);
         // remove any requests before adding new ones
-        foreach(ResourceGroupRequest *r, t->requests().requests()) {
-            RemoveResourceGroupRequestCmd *c = new RemoveResourceGroupRequestCmd(r);
+        foreach(ResourceRequest *r, t->requests().resourceRequests()) {
+            RemoveResourceRequestCmd *c = new RemoveResourceRequestCmd(r);
             c->execute(); // need to remove everything before we add anything
             cmd->addCommand(c);
         }
-        QHash<ResourceGroup*, ResourceGroupRequest*> groups;
         for (Resource *r : resources) {
-            if (!groups.contains(r->parentGroups().value(0))) {
-                groups[r->parentGroups().value(0)] = new ResourceGroupRequest(r->parentGroups().value(0));
-                AddResourceGroupRequestCmd *c = new AddResourceGroupRequestCmd(*t, groups[r->parentGroups().value(0)]);
-                c->execute();
-                cmd->addCommand(c);
-            }
             ResourceRequest *rr = new ResourceRequest(r);
             rr->setUnits(100); // defaults to 100%
-            AddResourceRequestCmd *c = new AddResourceRequestCmd(groups[r->parentGroups().value(0)], rr);
+            AddResourceRequestCmd *c = new AddResourceRequestCmd(&n->requests(), rr);
             c->execute();
             cmd->addCommand(c);
         }

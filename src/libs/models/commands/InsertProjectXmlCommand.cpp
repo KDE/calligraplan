@@ -151,28 +151,7 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
     if (m_context.version() < "0.7.0") {
         return; // Requests loaded by tasks
     }
-    KoXmlElement parentElement = projectElement.namedItem("resourcegroup-requests").toElement();
-    KoXmlElement ge;
-    forEachElement(ge, parentElement) {
-        if (ge.tagName() != "resourcegroup-request") {
-            continue;
-        }
-        Task *task = qobject_cast<Task*>(m_oldIds.value(ge.attribute("task-id")));
-        ResourceGroup *group = m_project->findResourceGroup(ge.attribute("group-id"));
-        if (task && group) {
-            int units = ge.attribute("units", "0").toInt();
-            int requestId = ge.attribute("request-id").toInt();
-            ResourceGroupRequest *request = new ResourceGroupRequest(group, units);
-            request->setId(requestId);
-            KUndo2Command *cmd = new AddResourceGroupRequestCmd(*task, request);
-            cmd->redo();
-            addCommand(cmd);
-            debugPlanInsertProjectXml<<"added grouprequest:"<<task<<request;
-        } else {
-            warnPlanInsertProjectXml<<"Failed to find group or task"<<task<<group;
-        }
-    }
-    parentElement = projectElement.namedItem("resource-requests").toElement();
+    KoXmlElement parentElement = projectElement.namedItem("resource-requests").toElement();
     KoXmlElement re;
     forEachElement(re, parentElement) {
         if (re.tagName() != "resource-request") {
@@ -183,10 +162,6 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
             warnPlanInsertProjectXml<<re.tagName()<<"Failed to find task";
             continue;
         }
-        ResourceGroupRequest *group = task->requests().groupRequest(re.attribute("request-id").toInt());
-        if (!group) {
-            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find group request:"<<re.attribute("request-id");
-        }
         Resource *resource = m_project->findResource(re.attribute("resource-id"));
         Q_ASSERT(resource);
         Q_ASSERT(task);
@@ -196,7 +171,7 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
             int requestId = re.attribute("request-id").toInt();
             Q_ASSERT(requestId > 0);
             request->setId(requestId);
-            KUndo2Command *cmd = new AddResourceRequestCmd(&task->requests(), request, group);
+            KUndo2Command *cmd = new AddResourceRequestCmd(&task->requests(), request);
             cmd->redo();
             addCommand(cmd);
             debugPlanInsertProjectXml<<"added resourcerequest:"<<task<<request;
@@ -226,6 +201,7 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
         addCommand(cmd);
         debugPlanInsertProjectXml<<"added requiredrequest:"<<task<<request<<lst;
     }
+    // TODO alternatives
 }
 
 void InsertProjectXmlCommand::createCmdTasks(const KoXmlElement &projectElement)

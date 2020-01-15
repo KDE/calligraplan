@@ -64,20 +64,14 @@ public:
     Task *task() const { return m_task; }
     void setTask(Task *task);
     int propertyCount() const;
-    QVariant data(const ResourceGroup *group, const Resource *resource, int property, int role = Qt::DisplayRole) const;
-    QVariant data(const ResourceGroup *group, int property, int role = Qt::DisplayRole) const;
+    QVariant data(const Resource *resource, int property, int role = Qt::DisplayRole) const;
     static QVariant headerData(int section, int role = Qt::DisplayRole);
 
     QVariant name(const Resource *res, int role) const;
     QVariant type(const Resource *res, int role) const;
-    QVariant allocation(const ResourceGroup *group, const Resource *res, int role) const;
+    QVariant allocation(const Resource *res, int role) const;
     QVariant maximum(const Resource *res, int role) const;
     QVariant required(const Resource *res, int role) const;
-    
-    QVariant name(const ResourceGroup *res, int role) const;
-    QVariant type(const ResourceGroup *res, int role) const;
-    QVariant allocation(const ResourceGroup *res, int role) const;
-    QVariant maximum(const ResourceGroup *res, int role) const;
 
 private:
     Project *m_project;
@@ -105,8 +99,7 @@ public:
 
     QModelIndex parent(const QModelIndex & index) const override;
     QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
-    QModelIndex index(const ResourceGroup *group) const;
-    QModelIndex index(const Resource *resource) const;
+    QModelIndex index(Resource *resource) const;
 
     int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
     int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
@@ -122,7 +115,6 @@ public:
     QObject *object(const QModelIndex &index) const;
 
     const QHash<const Resource*, ResourceRequest*> &resourceCache() const { return m_resourceCache; }
-    const QHash<const ResourceGroup*, ResourceGroupRequest*> &groupCache() const { return m_groupCache; }
     
     Resource *resource(const QModelIndex &idx) const;
     void setRequired(const QModelIndex &idx, const QList<Resource*> &lst);
@@ -132,35 +124,20 @@ public Q_SLOTS:
     void setTask(KPlato::Task *task);
 
 protected Q_SLOTS:
-    void slotResourceGroupChanged(KPlato::ResourceGroup*);
-    void slotResourceGroupToBeInserted(KPlato::Project *project, int row);
-    void slotResourceGroupInserted(KPlato::ResourceGroup *group);
-    void slotResourceGroupToBeRemoved(KPlato::Project *project, int row, KPlato::ResourceGroup *group);
-    void slotResourceGroupRemoved();
-
     void slotResourceChanged(KPlato::Resource*);
-    void slotResourceToBeAdded(KPlato::ResourceGroup *group, int row);
+    void slotResourceToBeAdded(KPlato::Project *project, int row);
     void slotResourceAdded(KPlato::Resource *resource);
-    void slotResourceToBeRemoved(KPlato::ResourceGroup *group, int row, KPlato::Resource *resource);
+    void slotResourceToBeRemoved(KPlato::Project *project, int row, KPlato::Resource *resource);
     void slotResourceRemoved();
     
 protected:
     void filldata(Task *task);
 
-    QVariant notUsed(const ResourceGroup *res, int role) const;
-    
-    QVariant allocation(const ResourceGroup *group, const Resource *res, int role) const;
-    QVariant allocation(const ResourceGroup *res, int role) const;
-    bool setAllocation(ResourceGroup *res, const QVariant &value, int role);
+    QVariant allocation(const Resource *res, int role) const;
     bool setAllocation(Resource *res, const QVariant &value, int role);
-
-    QVariant maximum(const ResourceGroup *res, int role) const;
 
     bool setRequired(const QModelIndex &idx, const QVariant &value, int role);
     QVariant required(const QModelIndex &idx, int role) const;
-
-    void connectSignals(ResourceGroup *group, bool enable);
-    void connectSignals(Resource *resource, bool enable);
 
 private:
     int requestedResources(const ResourceGroup *res) const;
@@ -171,7 +148,6 @@ private:
 
     QHash<const Resource*, ResourceRequest*> m_resourceCache;
     QHash<const Resource*, int> m_requiredChecked;
-    QHash<const ResourceGroup*, ResourceGroupRequest*> m_groupCache;
 };
 
 

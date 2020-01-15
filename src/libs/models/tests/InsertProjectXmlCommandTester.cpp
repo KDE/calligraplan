@@ -87,12 +87,10 @@ void addTask(Project *project, const QString &name, Task *parent = 0)
     task->estimate()->setType(Estimate::Type_Effort);
 }
 
-void addRequests(Node *task, ResourceGroup *g, Resource *r)
+void addRequests(Node *task, Resource *r)
 {
-    ResourceGroupRequest *gr = new ResourceGroupRequest(g);
     ResourceRequest *rr = new ResourceRequest(r, 100);
-    task->requests().addRequest(gr);
-    task->requests().addResourceRequest(rr, gr);
+    task->requests().addResourceRequest(rr);
 }
 
 void addDependency(Node *t1, Node *t2)
@@ -137,8 +135,10 @@ void InsertProjectXmlCommandTester::copyRequests()
     addTask(m_project, "T1");
     addTask(m_project, "T2");
 
-    addRequests(m_project->childNode(0), m_project->resourceGroupAt(0), m_project->resourceGroupAt(0)->resourceAt(0));
-    addRequests(m_project->childNode(1), m_project->resourceGroupAt(0), m_project->resourceGroupAt(0)->resourceAt(0));
+    Node *org1 = m_project->childNode(0);
+    Node *org2 = m_project->childNode(1);
+    addRequests(org1, m_project->resourceGroupAt(0)->resourceAt(0));
+    addRequests(org2, m_project->resourceGroupAt(0)->resourceAt(0));
     Debug::print(m_project, "--------------------", true);
 
     XmlSaveContext context(m_project);
@@ -152,20 +152,13 @@ void InsertProjectXmlCommandTester::copyRequests()
     QCOMPARE(m_project->allTasks().count(), 4);
 
     Node *copy1 = m_project->childNode(2);
-    QVERIFY(m_project->childNode(0)->id() != copy1->id());
-    QCOMPARE(m_project->childNode(0)->name(), copy1->name());
+    QVERIFY(org1->id() != copy1->id());
+    QCOMPARE(org1->name(), copy1->name());
 
-    QCOMPARE(m_project->childNode(0)->requests().requests().count(), copy1->requests().requests().count());
-    ResourceGroupRequest *gr = m_project->childNode(0)->requests().requests().at(0);
-    ResourceGroupRequest *cpgr = copy1->requests().requests().at(0);
-    QCOMPARE(gr->group(), cpgr->group());
-    QCOMPARE(gr->units(), cpgr->units());
-    QCOMPARE(gr->count(), cpgr->count());
-    ResourceRequest *rr = gr->resourceRequests().at(0);
-    ResourceRequest *cprr = cpgr->resourceRequests().at(0);
+    ResourceRequest *rr = org1->requests().resourceRequests().at(0);
+    ResourceRequest *cprr = copy1->requests().resourceRequests().at(0);
     QCOMPARE(rr->resource(), cprr->resource());
     QCOMPARE(rr->units(), cprr->units());
-
 }
 
 void InsertProjectXmlCommandTester::copyDependency()

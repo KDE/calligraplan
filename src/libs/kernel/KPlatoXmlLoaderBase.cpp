@@ -388,23 +388,7 @@ bool KPlatoXmlLoaderBase::load(Task *task, const KoXmlElement &element, XMLLoade
             //  Load the estimate
             load(task->estimate(), e, status);
         } else if (e.tagName() == "resourcegroup-request") {
-            // Load the resource request
-            // Handle multiple requests to same group gracefully (Not really allowed)
-            ResourceGroupRequest *r = task->requests().findGroupRequestById(e.attribute("group-id"));
-            if (r) {
-                warnPlanXml<<"Multiple requests to same group, loading into existing group";
-                if (! load(r, e, status)) {
-                    errorPlanXml<<"Failed to load resource request";
-                }
-            } else {
-                r = new ResourceGroupRequest();
-                if (load(r, e, status)) {
-                    task->addRequest(r);
-                } else {
-                    errorPlanXml<<"Failed to load resource request";
-                    delete r;
-                }
-            }
+            warnPlan<<"KPlatoXmlLoader: requests not handled";
         } else if (e.tagName() == "workpackage") {
             load(task->workPackage(), e, status);
         } else if (e.tagName() == "progress") {
@@ -1125,6 +1109,7 @@ bool KPlatoXmlLoaderBase::load(Estimate* estimate, const KoXmlElement& element, 
     return true;
 }
 
+#if 0
 bool KPlatoXmlLoaderBase::load(ResourceGroupRequest* gr, const KoXmlElement& element, XMLLoaderObject& status)
 {
     debugPlanXml<<"resourcegroup-request";
@@ -1158,7 +1143,7 @@ bool KPlatoXmlLoaderBase::load(ResourceGroupRequest* gr, const KoXmlElement& ele
 
     return true;
 }
-
+#endif
 bool KPlatoXmlLoaderBase::load(ResourceRequest *rr, const KoXmlElement& element, XMLLoaderObject& status)
 {
     debugPlanXml<<"resource-request";

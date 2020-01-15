@@ -473,14 +473,9 @@ bool loadAllocations(const QDomElement &el, Project &project)
             warnPlannerImport<<"Could not find task/resource:"<<t<<r;
             continue;
         }
-        ResourceGroupRequest *gr = t->resourceGroupRequest(r->parentGroups().value(0));
-        if (!gr) {
-            gr = new ResourceGroupRequest(r->parentGroups().value(0));
-            t->addRequest(gr);
-        }
         ResourceRequest *rr = new ResourceRequest(r);
         rr->setUnits(pel.attribute("units").toInt());
-        t->requests().addResourceRequest(rr, gr);
+        t->requests().addResourceRequest(rr);
 
         // do assignments
         Calendar *calendar = r->calendar();

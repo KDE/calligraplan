@@ -92,10 +92,8 @@ void PerformanceTester::init()
     p1->addResource(r1);
     r1->addParentGroup(g);
 
-    ResourceGroupRequest *gr = new ResourceGroupRequest(g);
-    t1->addRequest(gr);
     ResourceRequest *rr = new ResourceRequest(r1, 100);
-    t1->requests().addResourceRequest(rr, gr);
+    t1->requests().addResourceRequest(rr);
 
     // material resource
     ResourceGroup *m = new ResourceGroup();
@@ -116,11 +114,9 @@ void PerformanceTester::init()
     r3->setNormalRate(6.0);
     p1->addResource(r3);
     r3->addParentGroup(m);
-    
-    gr = new ResourceGroupRequest(m);
-    t1->addRequest(gr);
+
     rr = new ResourceRequest(r2, 100);
-    t1->requests().addResourceRequest(rr, gr);
+    t1->requests().addResourceRequest(rr);
 
     ScheduleManager *sm = p1->createScheduleManager("S1");
     p1->addScheduleManager(sm);
@@ -992,10 +988,8 @@ void PerformanceTester::bcwpPrDayProject()
 
     r3->setNormalRate(1.0);
 
-    ResourceGroupRequest *gr = new ResourceGroupRequest(r3->parentGroups().first());
-    tt->addRequest(gr);
     ResourceRequest *rr = new ResourceRequest(r3, 100);
-    tt->requests().addResourceRequest(rr, gr);
+    tt->requests().addResourceRequest(rr);
 
     ScheduleManager *sm = p1->createScheduleManager("");
     p1->addScheduleManager(sm);

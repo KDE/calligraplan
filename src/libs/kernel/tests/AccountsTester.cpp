@@ -73,10 +73,8 @@ void AccountsTester::init()
     project->addResource(r);
     r->addParentGroup(g);
 
-    ResourceGroupRequest *gr = new ResourceGroupRequest(g);
-    t->addRequest(gr);
     ResourceRequest *rr = new ResourceRequest(r, 100);
-    t->requests().addResourceRequest(rr, gr);
+    t->requests().addResourceRequest(rr);
     t->estimate()->setType(Estimate::Type_Effort);
     
     //qDebug()<<"Calculate forward, Task: ASAP -----------------------------------";

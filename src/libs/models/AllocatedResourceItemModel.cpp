@@ -160,8 +160,7 @@ QVariant AllocatedResourceItemModel::headerData(int section, Qt::Orientation ori
 QVariant AllocatedResourceItemModel::allocation(const Resource *res, int role) const
 {
     ResourceRequest *rr = m_task->requests().find(res);
-    ResourceGroupRequest *gr = m_task->requests().find(res->parentGroups().value(0));
-    if (rr == 0 || gr == 0) {
+    if (rr == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -174,7 +173,7 @@ QVariant AllocatedResourceItemModel::allocation(const Resource *res, int role) c
             if (rr->units() == 0) {
                 return xi18nc("@info:tooltip", "Not allocated");
             }
-            return xi18nc("@info:tooltip", "%1 allocated out of %2 available", gr->count(), res->parentGroups().value(0)->numResources());
+            break;
         }
         default:
             break;
@@ -184,42 +183,7 @@ QVariant AllocatedResourceItemModel::allocation(const Resource *res, int role) c
 
 QVariant AllocatedResourceItemModel::allocation(const ResourceGroup *res, int role) const
 {
-    ResourceGroupRequest *gr = m_task->requests().find(res);
-    if (gr == 0) {
-        return QVariant();
-    }
-    switch (role) {
-        case Qt::DisplayRole:
-        case Qt::EditRole:
-            return QString("%1 (%2)").arg(gr->units()).arg(gr->count());
-        case Qt::ToolTipRole: {
-            QString s1 = i18ncp("@info:tooltip",
-                                 "%1 resource requested for dynamic allocation",
-                                 "%1 resources requested for dynamic allocation",
-                                 gr->units());
-            QString s2 = i18ncp("@info:tooltip",
-                                 "%1 resource allocated",
-                                 "%1 resources allocated",
-                                 gr->count());
-
-            return xi18nc("@info:tooltip", "%1<nl/>%2", s1, s2);
-        }
-        case Qt::WhatsThisRole: {
-            return xi18nc("@info:whatsthis",
-                          "<title>Group allocations</title>"
-                          "<para>You can allocate a number of resources from a group and let"
-                          " the scheduler select from the available resources at the time of scheduling.</para>"
-                          " These dynamically allocated resources will be in addition to any resource you have allocated specifically.");
-        }
-        case Role::Minimum: {
-            return 0;
-        }
-        case Role::Maximum: {
-            return res->numResources() - gr->units();
-        }
-        default:
-            break;
-    }
+    // TODO
     return QVariant();
 }
 
@@ -256,7 +220,7 @@ bool AllocatedResourceItemModel::filterAcceptsRow(int source_row, const QModelIn
         return false;
     }
     QModelIndex idx = sourceModel()->index(source_row, 0, source_parent);
-    if (! idx.isValid()) {
+    if (!idx.isValid()) {
         return false;
     }
     bool result = false;
@@ -265,9 +229,7 @@ bool AllocatedResourceItemModel::filterAcceptsRow(int source_row, const QModelIn
         const Resource *r = static_cast<ResourceItemModel*>(sourceModel())->resource(idx);
         result = (bool) req.find(r);
     } else {
-        const ResourceGroup *g = static_cast<ResourceItemModel*>(sourceModel())->group(idx);
-        ResourceGroupRequest *gr = req.find(g);
-        result = (bool) gr && (gr->units() > 0 || gr->count() > 0);
+        // TODO
     }
     debugPlan<<result<<":"<<source_parent<<idx;
     return result;

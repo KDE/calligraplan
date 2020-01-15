@@ -1469,28 +1469,6 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
                 }
             }
         }
-        e = projectElement.namedItem("resourcegroup-requests").toElement();
-        if (!e.isNull()) {
-            debugPlanXml<<status.version()<<e.tagName();
-            KoXmlElement ge;
-            forEachElement(ge, e) {
-                if (ge.tagName() != "resourcegroup-request") {
-                    continue;
-                }
-                Node *task = findNode(ge.attribute("task-id"));
-                ResourceGroup *group = findResourceGroup(ge.attribute("group-id"));
-                if (task && group) {
-                    int units = ge.attribute("units", "0").toInt();
-                    int requestId = ge.attribute("request-id").toInt();
-                    ResourceGroupRequest *request = new ResourceGroupRequest(group, units);
-                    request->setId(requestId);
-                    task->requests().addRequest(request);
-                    debugPlanXml<<"Added group request:"<<task<<request<<requestId;
-                } else {
-                    warnPlanXml<<"Failed to find group or task";
-                }
-            }
-        }
         e = projectElement.namedItem("resource-requests").toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
@@ -1504,10 +1482,6 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
                     warnPlanXml<<re.tagName()<<"Failed to find task";
                     continue;
                 }
-                ResourceGroupRequest *group = task->requests().groupRequest(re.attribute("request-id").toInt());
-                if (!group) {
-                    warnPlanXml<<re.tagName()<<"Failed to find group request:"<<re.attribute("request-id");
-                }
                 Resource *resource = findResource(re.attribute("resource-id"));
                 Q_ASSERT(resource);
                 Q_ASSERT(task);
@@ -1517,7 +1491,7 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
                     int requestId = re.attribute("request-id").toInt();
                     Q_ASSERT(requestId > 0);
                     request->setId(requestId);
-                    task->requests().addResourceRequest(request, group);
+                    task->requests().addResourceRequest(request);
                 } else {
                     warnPlanXml<<re.tagName()<<"Failed to find resource";
                 }
@@ -1543,6 +1517,22 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
                     lst << required;
                 }
                 request->setRequiredResources(lst);
+            }
+        }
+        e = projectElement.namedItem("alternative-requests").toElement();
+        if (!e.isNull()) {
+            debugPlanXml<<status.version()<<e.tagName();
+            KoXmlElement re;
+            forEachElement(re, e) {
+                if (re.tagName() != "alternative-request") {
+                    continue;
+                }
+                Node *task = findNode(re.attribute("task-id"));
+                if (!task) {
+                    warnPlanXml<<re.tagName()<<"Failed to find task";
+                    continue;
+                }
+                //TODO
             }
         }
     }
@@ -1833,36 +1823,15 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
             }
         }
         // save resource requests
-        QHash<Task*, ResourceGroupRequest*> groups;
         QHash<Task*, ResourceRequest*> resources;
         for (Task *task : allTasks()) {
             const ResourceRequestCollection &requests = task->requests();
-            for (ResourceGroupRequest *gr : requests.requests()) {
-                groups.insert(task, gr);
-            }
             for (ResourceRequest *rr : requests.resourceRequests(false)) {
                 resources.insert(task, rr);
             }
         }
-        debugPlanXml<<"resourcegroup-requests:"<<groups.count();
-        if (!groups.isEmpty()) {
-            QDomElement el = me.ownerDocument().createElement("resourcegroup-requests");
-            me.appendChild(el);
-            QHash<Task*, ResourceGroupRequest*>::const_iterator it;
-            for (it = groups.constBegin(); it != groups.constEnd(); ++it) {
-                if (!it.value()->group()) {
-                    warnPlanXml<<"resourcegroup-request with no group";
-                    continue;
-                }
-                QDomElement ge = el.ownerDocument().createElement("resourcegroup-request");
-                el.appendChild(ge);
-                ge.setAttribute("request-id", it.value()->id());
-                ge.setAttribute("task-id", it.key()->id());
-                ge.setAttribute("group-id", it.value()->group()->id());
-                ge.setAttribute("units", QString::number(it.value()->units()));
-            }
-        }
         QHash<Task*, std::pair<ResourceRequest*, Resource*> > required; // QHash<Task*, std::pair<ResourceRequest*, Required*>>
+        QHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> > alternativeRequests; // QHash<Task*, std::pair<ResourceRequest*, Alternative*>>
         debugPlanXml<<"resource-requests:"<<resources.count();
         if (!resources.isEmpty()) {
             QDomElement el = me.ownerDocument().createElement("resource-requests");
@@ -1876,14 +1845,14 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 el.appendChild(re);
                 re.setAttribute("request-id", it.value()->id());
                 re.setAttribute("task-id", it.key()->id());
-                if (it.value()->parent()) {
-                    re.setAttribute("group-id", it.value()->parent()->group()->id());
-                }
                 re.setAttribute("resource-id", it.value()->resource()->id());
                 re.setAttribute("units", QString::number(it.value()->units()));
                 // collect required resources
                 for (Resource *r : it.value()->requiredResources()) {
                     required.insert(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
+                }
+                for (ResourceRequest *r : it.value()->alternativeRequests()) {
+                    alternativeRequests.insert(it.key(), std::pair<ResourceRequest*, ResourceRequest*>(it.value(), r));
                 }
             }
         }
@@ -1898,6 +1867,19 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 req.setAttribute("task-id", it.key()->id());
                 req.setAttribute("request-id", it.value().first->id());
                 req.setAttribute("required-id", it.value().second->id());
+            }
+        }
+        debugPlanXml<<"alternative-requests:"<<alternativeRequests.count();
+        if (!required.isEmpty()) {
+            QDomElement reqs = me.ownerDocument().createElement("alternative-requests");
+            me.appendChild(reqs);
+            QHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> >::const_iterator it;
+            for (it = alternativeRequests.constBegin(); it != alternativeRequests.constEnd(); ++it) {
+                QDomElement req = reqs.ownerDocument().createElement("alternative-request");
+                reqs.appendChild(req);
+                req.setAttribute("task-id", it.key()->id());
+                req.setAttribute("request-id", it.value().first->id());
+                req.setAttribute("alternative-id", it.value().second->id());
             }
         }
     }

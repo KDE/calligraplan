@@ -56,7 +56,7 @@ set(planmodels_LIB_SRCS
     kptresourceappointmentsmodel.cpp
     kptresourceallocationmodel.cpp
     ResourceItemSFModel.cpp
-    GroupAllocationItemModel.cpp
+#     GroupAllocationItemModel.cpp
 
     kpttaskcompletedelegate.cpp
 )

@@ -46,7 +46,6 @@ private Q_SLOTS:
     void testResourceAccount();
     void testResourceCalendar();
     void testTask();
-    void testGroupRequest();
     void testResourceRequest();
     void testTeamResourceRequest();
     void testDependencies();
@@ -62,7 +61,6 @@ private:
     ResourceGroup *addResourceGroup(MainDocument &part);
     Resource *addResource(MainDocument &part, ResourceGroup *g = 0);
     Task *addTask(MainDocument &part);
-    void addGroupRequest(MainDocument &part);
     void addResourceRequest(MainDocument &part);
     Relation *addDependency(MainDocument &part, Task *t1, Task *t2);
 };

@@ -50,7 +50,6 @@ class Node;
 class Project;
 class Resource;
 class ResourceRequest;
-class ResourceGroupRequest;
 class ResourceRequestCollection;
 class Schedule;
 class ResourceSchedule;
@@ -150,17 +149,6 @@ public:
 
     int units() const;
 
-    void registerRequest(ResourceGroupRequest *request)
-    { m_requests.append(request); }
-    void unregisterRequest(ResourceGroupRequest *request)
-    {
-        int i = m_requests.indexOf(request);
-        if (i != -1)
-            m_requests.removeAt(i);
-    }
-    const QList<ResourceGroupRequest*> &requests() const
-    { return m_requests; }
-
     ResourceGroup *findId() const { return findId(m_id); }
     ResourceGroup *findId(const QString &id) const;
     bool removeId() { return removeId(m_id); }
@@ -214,7 +202,6 @@ private:
     Calendar *m_defaultCalendar;
     Type m_type;
 
-    QList<ResourceGroupRequest*> m_requests;
     bool m_blockChanged;
     bool m_shared;
 };
