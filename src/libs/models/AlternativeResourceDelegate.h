@@ -19,8 +19,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef REQUIEREDRESOURCEDELEGATE_H
-#define REQUIEREDRESOURCEDELEGATE_H
+#ifndef ALTERNATIVERESOURCEDELEGATE_H
+#define ALTERNATIVERESOURCEDELEGATE_H
 
 #include "planmodels_export.h"
 
@@ -34,11 +34,11 @@ namespace KPlato
 {
 
 //------------------------------------
-class PLANMODELS_EXPORT RequieredResourceDelegate : public ItemDelegate
+class PLANMODELS_EXPORT AlternativeResourceDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit RequieredResourceDelegate(QObject *parent = 0);
+    explicit AlternativeResourceDelegate(QObject *parent = 0);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 

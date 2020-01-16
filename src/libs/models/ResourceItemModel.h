@@ -94,6 +94,7 @@ public:
 
     int sortRole(int column) const override;
 
+    QModelIndex index(Resource *resource) const;
     Resource *resource(const QModelIndex &idx) const;
     ResourceGroup *group(const QModelIndex &idx) const;
 

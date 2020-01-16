@@ -1,7 +1,5 @@
 /* This file is part of the KDE project
  * Copyright (C) 2020 Dag Andersen <danders@get2net.dk>
- * Copyright (C) 2019 Dag Andersen <calligra-devel@kde.org>
- * Copyright (C) 2006 - 2009 Dag Andersen <calligra-devel@kde.org>
  * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -19,35 +17,34 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef REQUIEREDRESOURCEDELEGATE_H
-#define REQUIEREDRESOURCEDELEGATE_H
+#ifndef MODIFYRESOURCEREQUESTALTERNATIVECMD_H
+#define MODIFYRESOURCEREQUESTALTERNATIVECMD_H
 
-#include "planmodels_export.h"
+#include "plankernel_export.h"
 
-#include "kptitemmodelbase.h"
-
-class KUndo2Command;
+#include "NamedCommand.h"
 
 
 /// The main namespace
 namespace KPlato
 {
 
-//------------------------------------
-class PLANMODELS_EXPORT RequieredResourceDelegate : public ItemDelegate
+class Resource;
+class ResourceRequest;
+class Appointment;
+
+class PLANKERNEL_EXPORT ModifyResourceRequestAlternativeCmd : public NamedCommand
 {
-    Q_OBJECT
 public:
-    explicit RequieredResourceDelegate(QObject *parent = 0);
+    ModifyResourceRequestAlternativeCmd(ResourceRequest *request, const QList<ResourceRequest*> &value, const KUndo2MagicString& name = KUndo2MagicString());
+    void execute() override;
+    void unexecute() override;
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-
-    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
-
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+private:
+    ResourceRequest *m_request;
+    QList<ResourceRequest*> m_oldvalue, m_newvalue;
 };
 
-} // namespace KPlato
+}
 
 #endif

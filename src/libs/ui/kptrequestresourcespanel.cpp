@@ -24,6 +24,7 @@
 #include <kptproject.h>
 #include <kptresource.h>
 #include <AddParentGroupCmd.h>
+#include <ModifyResourceRequestAlternativeCmd.h>
 #include <kptcommand.h>
 
 #include <QTreeView>
@@ -50,6 +51,9 @@ RequestResourcesPanel::RequestResourcesPanel(QWidget *parent, Project &project, 
     l->addWidget(m_view);
     m_view->header()->resizeSections(QHeaderView::ResizeToContents);
 
+    for (int i = 0; i < m_model.columnCount(); ++i) {
+        m_view->setItemDelegateForColumn(i, m_model.createDelegate(i, m_view));
+    }
     connect(&m_model, &ResourceAllocationItemModel::dataChanged, this, &RequestResourcesPanel::changed);
 }
 
@@ -94,6 +98,9 @@ MacroCommand *RequestResourcesPanel::buildCommand(Task *task)
                 }
                 if (rit.value()->requiredResources() != rr->requiredResources()) {
                     cmd->addCommand(new ModifyResourceRequestRequiredCmd(rr, rit.value()->requiredResources()));
+                }
+                if (rit.value()->alternativeRequests() != rr->alternativeRequests()) {
+                    cmd->addCommand(new ModifyResourceRequestAlternativeCmd(rr, rit.value()->alternativeRequests()));
                 }
             }
         }

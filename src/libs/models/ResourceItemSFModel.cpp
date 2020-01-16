@@ -1,4 +1,5 @@
 /* This file is part of the KDE project
+ * Copyright (C) 2020 Dag Andersen <danders@get2net.dk>
  * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
  * Copyright (C) 2006 - 2007, 2012 Dag Andersen <danders@get2net.dk>
  * 
@@ -21,9 +22,7 @@
 // clazy:excludeall=qstring-arg
 #include "ResourceItemSFModel.h"
 
-#include "ResourceGroupItemModel.h"
-#include "kptresourceallocationmodel.h"
-#include "RequieredResourceDelegate.h"
+#include "ResourceItemModel.h"
 #include <kptproject.h>
 #include <kptdebug.h>
 
@@ -59,51 +58,51 @@ using namespace KPlato;
 
 
 ResourceItemSFModel::ResourceItemSFModel(QObject *parent)
-: QSortFilterProxyModel(parent)
+    : QSortFilterProxyModel(parent)
+    , m_project(nullptr)
 {
     setDynamicSortFilter(true);
-    setSourceModel(new ResourceGroupItemModel(this));
+    setSourceModel(new ResourceItemModel(this));
 }
 
 void ResourceItemSFModel::setProject(Project *project)
 {
-    static_cast<ResourceGroupItemModel*>(sourceModel())->setProject(project);
+    static_cast<ResourceItemModel*>(sourceModel())->setProject(project);
+    m_project = project;
 }
 
 Resource *ResourceItemSFModel::resource(const QModelIndex &idx) const
 {
-    return static_cast<ResourceGroupItemModel*>(sourceModel())->resource(mapToSource(idx));
+    return static_cast<ResourceItemModel*>(sourceModel())->resource(mapToSource(idx));
 }
 
 QModelIndex ResourceItemSFModel::index(Resource *r) const
 {
-    return QModelIndex();//TODO mapFromSource(static_cast<ResourceGroupItemModel*>(sourceModel())->index(r));
+    return mapFromSource(static_cast<ResourceItemModel*>(sourceModel())->index(r));
 }
 
-Qt::ItemFlags ResourceItemSFModel::flags(const QModelIndex & index) const
+Qt::ItemFlags ResourceItemSFModel::flags(const QModelIndex &index) const
 {
     Qt::ItemFlags f = QSortFilterProxyModel::flags(index);
-    if (index.isValid() && ! parent(index).isValid()) {
-        // group, not selectable
-        f &= ~Qt::ItemIsSelectable;
-    }
     return f;
 }
 
-void ResourceItemSFModel::addFilteredResource(const Resource *r)
+void ResourceItemSFModel::setFilteredResources(const QList<Resource*> &lst)
 {
-    if (! m_filteredResources.contains(r)) {
+    m_filteredResources = lst;
+}
+
+void ResourceItemSFModel::addFilteredResource(Resource *r)
+{
+    if (!m_filteredResources.contains(r)) {
         m_filteredResources << r;
     }
 }
 
 bool ResourceItemSFModel::filterAcceptsRow(int source_row, const QModelIndex & source_parent) const
 {
-    //TODO make this general filter
-    ResourceGroupItemModel *m = static_cast<ResourceGroupItemModel*>(sourceModel());
-    if (m->index(source_row, ResourceModel::ResourceType, source_parent).data(Role::EnumListValue).toInt() == ResourceGroup::Type_Work) {
+    if (m_project && m_filteredResources.contains(m_project->resourceAt(source_row))) {
         return false;
     }
-    QModelIndex idx = m->index(source_row, 0, source_parent);
-    return ! m_filteredResources.contains(m->resource(idx));
+    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }

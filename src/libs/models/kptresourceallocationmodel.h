@@ -55,6 +55,7 @@ public:
         RequestType,
         RequestAllocation,
         RequestMaximum,
+        RequestAlternative,
         RequestRequired
     };
     Q_ENUM(Properties)
@@ -72,6 +73,7 @@ public:
     QVariant allocation(const Resource *res, int role) const;
     QVariant maximum(const Resource *res, int role) const;
     QVariant required(const Resource *res, int role) const;
+    QVariant alternative(const Resource *res, int role) const;
 
 private:
     Project *m_project;
@@ -120,6 +122,9 @@ public:
     void setRequired(const QModelIndex &idx, const QList<Resource*> &lst);
     QList<Resource*> required(const QModelIndex &idx) const;
 
+    void setAlternativeRequests(const QModelIndex &idx, const QList<Resource*> &lst);
+    QList<ResourceRequest*> alternativeRequests(const QModelIndex &idx) const;
+
 public Q_SLOTS:
     void setTask(KPlato::Task *task);
 
@@ -138,6 +143,8 @@ protected:
 
     bool setRequired(const QModelIndex &idx, const QVariant &value, int role);
     QVariant required(const QModelIndex &idx, int role) const;
+
+    QVariant alternative(const QModelIndex &idx, int role) const;
 
 private:
     int requestedResources(const ResourceGroup *res) const;

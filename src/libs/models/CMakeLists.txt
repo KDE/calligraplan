@@ -31,6 +31,7 @@ set(planmodels_LIB_SRCS
     kcalendar/kdatepicker.cpp
 
     RequieredResourceDelegate.cpp
+    AlternativeResourceDelegate.cpp
     kptitemmodelbase.cpp
 
     kptnodechartmodel.cpp

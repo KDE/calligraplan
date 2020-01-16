@@ -624,6 +624,16 @@ ResourceGroup *ResourceItemModel::group(const QModelIndex &index) const
     return r->parentGroups().value(index.row());
 }
 
+QModelIndex ResourceItemModel::index(Resource *resource) const
+{
+    QModelIndex idx;
+    int row = m_project->indexOf(resource);
+    if (row >= 0) {
+        idx = index(row, 0);
+    }
+    return idx;
+}
+
 Resource *ResourceItemModel::resource(const QModelIndex &index) const
 {
     if (index.internalPointer() == nullptr) {

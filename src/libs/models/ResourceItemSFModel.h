@@ -1,4 +1,5 @@
 /* This file is part of the KDE project
+ * Copyright (C) 2020 Dag Andersen <calligra-devel@kde.org>
  * Copyright (C) 2019 Dag Andersen <calligra-devel@kde.org>
  * Copyright (C) 2006 - 2009 Dag Andersen <calligra-devel@kde.org>
  * 
@@ -33,7 +34,6 @@ namespace KPlato
 {
 
 class Project;
-class ScheduleManager;
 class Resource;
 
 class PLANMODELS_EXPORT ResourceItemSFModel : public QSortFilterProxyModel
@@ -46,14 +46,17 @@ public:
     Resource *resource(const QModelIndex &index) const;
     using QAbstractProxyModel::index;
     QModelIndex index(Resource *r) const;
-    
+
     Qt::ItemFlags flags(const QModelIndex & index) const override;
-    
-    void addFilteredResource(const Resource *r);
+
+    void setFilteredResources(const QList<Resource*> &lst = QList<Resource*>());
+    void addFilteredResource(Resource *r);
+
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex & source_parent) const override;
     
-    QList<const Resource*> m_filteredResources;
+    QList<Resource*> m_filteredResources;
+    Project *m_project;
 };
 
 } // namespace KPlato

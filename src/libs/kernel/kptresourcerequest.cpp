@@ -65,7 +65,8 @@ ResourceRequest::ResourceRequest(const ResourceRequest &r)
       m_units(r.m_units),
       m_collection(nullptr),
       m_dynamic(r.m_dynamic),
-      m_required(r.m_required)
+      m_required(r.m_required),
+      m_alternativeRequests(r.m_alternativeRequests)
 {
 }
 
