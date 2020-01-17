@@ -452,6 +452,9 @@ void ResourceRequestCollection::addResourceRequest(ResourceRequest *request)
     request->setCollection(this);
     request->registerRequest();
     m_resourceRequests.insert(request->id(), request);
+    if (m_task) {
+        m_task->changed(Node::ResourceRequestProperty);
+    }
 }
 
 void ResourceRequestCollection::removeResourceRequest(ResourceRequest *request)
@@ -460,6 +463,9 @@ void ResourceRequestCollection::removeResourceRequest(ResourceRequest *request)
     Q_ASSERT(m_resourceRequests.values().contains(request));
     m_resourceRequests.remove(request->id());
     Q_ASSERT(!m_resourceRequests.values().contains(request));
+    if (m_task) {
+        m_task->changed(Node::ResourceRequestProperty);
+    }
 }
 
 void ResourceRequestCollection::deleteResourceRequest(ResourceRequest *request)
