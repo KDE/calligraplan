@@ -938,27 +938,22 @@ QList<Resource*> ResourceItemModel::resourceList(QDataStream &stream)
 QMimeData *ResourceItemModel::mimeData(const QModelIndexList & indexes) const
 {
     QMimeData *m = ItemModelBase::mimeData(indexes);
-#if 0
     QByteArray encodedData;
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
     QList<int> rows;
     foreach (const QModelIndex &index, indexes) {
         if (index.isValid() && !rows.contains(index.row())) {
             //debugPlan<<index.row();
-            Resource *r = ::qobject_cast<Resource*>(object(index));
+            Resource *r = resource(index);
             if (r) {
                 rows << index.row();
                 stream << r->id();
-            } else if (group(index)) {
-                rows.clear();
-                break;
             }
         }
     }
     if (!rows.isEmpty()) {
         m->setData("application/x-vnd.kde.plan.resourceitemmodel.internal", encodedData);
     }
-#endif
     return m;
 }
 
