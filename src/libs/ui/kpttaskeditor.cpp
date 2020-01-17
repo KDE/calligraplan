@@ -443,7 +443,7 @@ void TaskEditor::createDockers()
         AllocatedResourceItemModel *m1 = new AllocatedResourceItemModel(x);
         x->setModel(m1);
         m1->setProject(project());
-    //     x->setHeaderHidden(true);
+        x->setRootIsDecorated(false);
         x->setSelectionBehavior(QAbstractItemView::SelectRows);
         x->setSelectionMode(QAbstractItemView::ExtendedSelection);
         x->expandAll();
