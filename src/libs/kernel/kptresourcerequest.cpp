@@ -462,6 +462,7 @@ void ResourceRequestCollection::removeResourceRequest(ResourceRequest *request)
     Q_ASSERT(m_resourceRequests.contains(request->id()));
     Q_ASSERT(m_resourceRequests.values().contains(request));
     m_resourceRequests.remove(request->id());
+    request->unregisterRequest();
     Q_ASSERT(!m_resourceRequests.values().contains(request));
     if (m_task) {
         m_task->changed(Node::ResourceRequestProperty);
