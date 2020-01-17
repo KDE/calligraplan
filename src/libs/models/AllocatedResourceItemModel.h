@@ -40,7 +40,6 @@ namespace KPlato
 
 class Project;
 class Resource;
-class ResourceGroup;
 class Calendar;
 class Task;
 class Node;
@@ -77,10 +76,8 @@ protected Q_SLOTS:
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex & source_parent) const override;
     void reset();
-    QObject *object(const QModelIndex &idx) const;
 
     QVariant allocation(const Resource *r, int role) const;
-    QVariant allocation(const ResourceGroup *g, int role) const;
 
     Task *m_task;
 };

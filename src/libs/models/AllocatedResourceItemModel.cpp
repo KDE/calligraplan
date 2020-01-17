@@ -119,11 +119,6 @@ void AllocatedResourceItemModel::setTask(Task *task)
     debugPlan<<rowCount()<<":"<<sourceModel()->rowCount();
 }
 
-QObject* AllocatedResourceItemModel::object(const QModelIndex& idx) const
-{
-    return nullptr; //TODO static_cast<ResourceItemModel*>(sourceModel())->object(mapToSource(idx));
-}
-
 Resource *AllocatedResourceItemModel::resource(const QModelIndex &idx) const
 {
     QModelIndex sidx = mapToSource(idx);
@@ -181,12 +176,6 @@ QVariant AllocatedResourceItemModel::allocation(const Resource *res, int role) c
     return QVariant();
 }
 
-QVariant AllocatedResourceItemModel::allocation(const ResourceGroup *res, int role) const
-{
-    // TODO
-    return QVariant();
-}
-
 QVariant AllocatedResourceItemModel::data(const QModelIndex& idx, int role) const
 {
     if (m_task == 0 || role == Qt::CheckStateRole || role == Qt::DecorationRole) {
@@ -197,14 +186,9 @@ QVariant AllocatedResourceItemModel::data(const QModelIndex& idx, int role) cons
             case Qt::TextAlignmentRole:
                 return Qt::AlignLeft;
             default: {
-                QObject *o = object(idx);
-                Resource *r = qobject_cast<Resource*>(o);
+                Resource *r = resource(idx);
                 if (r) {
                     return allocation(r, role);
-                }
-                ResourceGroup *g = qobject_cast<ResourceGroup*>(o);
-                if (g) {
-                    return allocation(g, role);
                 }
                 break;
             }
@@ -216,21 +200,16 @@ QVariant AllocatedResourceItemModel::data(const QModelIndex& idx, int role) cons
 
 bool AllocatedResourceItemModel::filterAcceptsRow(int source_row, const QModelIndex & source_parent) const
 {
-    if (m_task == 0) {
+    if (m_task == nullptr || source_parent.isValid()) {
         return false;
     }
     QModelIndex idx = sourceModel()->index(source_row, 0, source_parent);
     if (!idx.isValid()) {
         return false;
     }
-    bool result = false;
-    const ResourceRequestCollection &req = m_task->requests();
-    if (source_parent.isValid()) {
-        const Resource *r = static_cast<ResourceItemModel*>(sourceModel())->resource(idx);
-        result = (bool) req.find(r);
-    } else {
-        // TODO
+    const Resource *resource = static_cast<ResourceItemModel*>(sourceModel())->resource(idx);
+    if (resource == nullptr) {
+        return false;
     }
-    debugPlan<<result<<":"<<source_parent<<idx;
-    return result;
+    return m_task->requests().find(resource) != nullptr;
 }
