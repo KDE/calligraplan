@@ -465,9 +465,10 @@ void TaskEditor::createDockers()
                             " and drop into the allocations- or responsible column"));
         ResourceAllocationView *e = new ResourceAllocationView(part(), ds);
         ResourceItemModel *m = new ResourceItemModel(e);
-        e->setModel(m);
-        m->setProject(project());
         m->setReadWrite(false);
+        m->setIsCheckable(false);
+        m->setProject(project());
+        e->setModel(m);
         QList<int> show; show << ResourceModel::ResourceName;
         for (int i = m->columnCount() - 1; i >= 0; --i) {
             e->setColumnHidden(i, ! show.contains(i));

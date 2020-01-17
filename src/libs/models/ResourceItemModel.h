@@ -105,6 +105,9 @@ public:
     bool requiredEnabled() const;
     void setRequiredEnabled(bool enable);
 
+    void setIsCheckable(bool enable);
+    bool isCheckable() const;
+
 protected Q_SLOTS:
     void slotResourceChanged(KPlato::Resource*);
     void slotResourceGroupChanged(KPlato::ResourceGroup *);
@@ -158,6 +161,7 @@ private:
     bool m_groupsEnabled;
     bool m_teamsEnabled;
     bool m_requiredEnabled;
+    bool m_isCheckable;
 
     struct DropData {
         Qt::DropAction action;

@@ -62,12 +62,22 @@ ResourceItemModel::ResourceItemModel(QObject *parent)
     , m_groupsEnabled(false)
     , m_teamsEnabled(false)
     , m_requiredEnabled(false)
-    
+    , m_isCheckable(true)
 {
 }
 
 ResourceItemModel::~ResourceItemModel()
 {
+}
+
+void ResourceItemModel::setIsCheckable(bool enable)
+{
+    m_isCheckable = enable;
+}
+
+bool ResourceItemModel::isCheckable() const
+{
+    return m_isCheckable;
 }
 
 void ResourceItemModel::slotResourceToBeAdded(Project *project, int row)
@@ -208,13 +218,18 @@ Qt::ItemFlags ResourceItemModel::flags(const QModelIndex &index) const
         if (r->isShared()) {
             flags &= ~Qt::ItemIsEditable;
             if (index.column() == ResourceModel::ResourceName) {
-                flags |= Qt::ItemIsUserCheckable;
+                if (m_isCheckable) {
+                    flags |= Qt::ItemIsUserCheckable;
+                }
             }
             return flags;
         }
         switch (index.column()) {
             case ResourceModel::ResourceName:
-                flags |= Qt::ItemIsEditable | Qt::ItemIsUserCheckable;
+                flags |= Qt::ItemIsEditable;
+                if (m_isCheckable) {
+                    flags |= Qt::ItemIsUserCheckable;
+                }
                 break;
             case ResourceModel::ResourceScope:
                 flags &= ~Qt::ItemIsEditable;
@@ -526,6 +541,9 @@ QVariant ResourceItemModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         return QModelIndex();
+    }
+    if (!m_isCheckable && role == Qt::CheckStateRole) {
+        return QVariant();
     }
     if (index.internalPointer() == nullptr) {
         // top level resource
