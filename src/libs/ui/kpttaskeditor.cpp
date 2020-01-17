@@ -467,11 +467,12 @@ void TaskEditor::createDockers()
         ResourceItemModel *m = new ResourceItemModel(e);
         e->setModel(m);
         m->setProject(project());
-        m->setReadWrite(isReadWrite());
+        m->setReadWrite(false);
         QList<int> show; show << ResourceModel::ResourceName;
         for (int i = m->columnCount() - 1; i >= 0; --i) {
             e->setColumnHidden(i, ! show.contains(i));
         }
+        e->setRootIsDecorated(false);
         e->setHeaderHidden(true);
         e->setSelectionBehavior(QAbstractItemView::SelectRows);
         e->setSelectionMode(QAbstractItemView::ExtendedSelection);
@@ -482,7 +483,6 @@ void TaskEditor::createDockers()
         ds->setWidget(e);
         connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, e, &ResourceAllocationView::setSelectedTasks);
         connect(this, SIGNAL(projectChanged(KPlato::Project*)), m, SLOT(setProject(KPlato::Project*)));
-        connect(this, &ViewBase::readWriteChanged, m, &ItemModelBase::setReadWrite);
         connect(m, &ItemModelBase::executeCommand, part(), &KoDocument::addCommand);
         addDocker(ds);
     }
