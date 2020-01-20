@@ -62,7 +62,9 @@ ResourceItemSFModel::ResourceItemSFModel(QObject *parent)
     , m_project(nullptr)
 {
     setDynamicSortFilter(true);
-    setSourceModel(new ResourceItemModel(this));
+    ResourceItemModel *m = new ResourceItemModel(this);
+    m->setIsCheckable(false);
+    setSourceModel(m);
 }
 
 void ResourceItemSFModel::setProject(Project *project)
