@@ -72,7 +72,9 @@ ResourceItemModel::~ResourceItemModel()
 
 void ResourceItemModel::setIsCheckable(bool enable)
 {
+    beginResetModel();
     m_isCheckable = enable;
+    endResetModel();
 }
 
 bool ResourceItemModel::isCheckable() const
