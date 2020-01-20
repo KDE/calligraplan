@@ -31,6 +31,7 @@
 #include <QHeaderView>
 #include <QHash>
 #include <QVBoxLayout>
+#include <QSortFilterProxyModel>
 
 
 using namespace KPlato;
@@ -46,7 +47,11 @@ RequestResourcesPanel::RequestResourcesPanel(QWidget *parent, Project &project, 
     QVBoxLayout *l = new QVBoxLayout(this);
     l->setMargin(0);
     m_view = new QTreeView(this);
-    m_view->setModel(&m_model);
+    QSortFilterProxyModel *m = new QSortFilterProxyModel(m_view);
+    m->setDynamicSortFilter(true);
+    m->setSourceModel(&m_model);
+    m_view->setModel(m);
+    m_view->setSortingEnabled(true);
     m_view->setRootIsDecorated(false);
     l->addWidget(m_view);
     m_view->header()->resizeSections(QHeaderView::ResizeToContents);
@@ -55,6 +60,7 @@ RequestResourcesPanel::RequestResourcesPanel(QWidget *parent, Project &project, 
         m_view->setItemDelegateForColumn(i, m_model.createDelegate(i, m_view));
     }
     connect(&m_model, &ResourceAllocationItemModel::dataChanged, this, &RequestResourcesPanel::changed);
+    m_view->sortByColumn(ResourceAllocationModel::RequestType, Qt::AscendingOrder);
 }
 
 bool RequestResourcesPanel::ok()

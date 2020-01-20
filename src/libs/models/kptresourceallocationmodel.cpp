@@ -134,16 +134,14 @@ QVariant ResourceAllocationModel::allocation(const Resource *res, int role) cons
         }
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
-        case Qt::StatusTipRole:
-        case Qt::WhatsThisRole:
-            return QVariant();
         case Role::Minimum:
             return 0;
         case Role::Maximum:
             return 100;
         case Qt::CheckStateRole:
             return Qt::Unchecked;
-
+        default:
+            break;
     }
     return QVariant();
 }
@@ -161,9 +159,6 @@ QVariant ResourceAllocationModel::maximum(const Resource *res, int role) const
             return i18n("Maximum units available: %1%", res->units());
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
-        case Qt::StatusTipRole:
-        case Qt::WhatsThisRole:
-            return QVariant();
     }
     return QVariant();
 }
@@ -180,19 +175,13 @@ QVariant ResourceAllocationModel::required(const Resource *res, int role) const
         }
         case Qt::EditRole:
             return QVariant();//Not used
-        case Qt::ToolTipRole:
-            return QVariant();
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
-        case Qt::StatusTipRole:
-            return QVariant();
         case Qt::WhatsThisRole:
             return xi18nc("@info:whatsthis", "<title>Required Resources</title>"
             "<para>A working resource can be assigned to one or more required resources."
             " A required resource is a material resource that the working resource depends on"
-            " in order to do the work.</para>"
-            "<para>To be able to use a material resource as a required resource, the material resource"
-            " must be part of a group of type <emphasis>Material</emphasis>.</para>");
+            " in order to do the work.</para>");
     }
     return QVariant();
 }
@@ -220,15 +209,12 @@ QVariant ResourceAllocationModel::alternative(const Resource *res, int role) con
             return Qt::AlignCenter;
         case Qt::StatusTipRole:
             return QVariant();
-        case Qt::WhatsThisRole:
-            return xi18nc("@info:whatsthis", "<title>Alternative Resource Allocation</title>"
-            "<para>A working resource can be assigned to one or more required resources."
-            " A required resource is a material resource that the working resource depends on"
-            " in order to do the work.</para>"
-            "<para>To be able to use a material resource as a required resource, the material resource"
-            " must be part of a group of type <emphasis>Material</emphasis>.</para>");
         case Qt::CheckStateRole:
             break;
+        case Qt::WhatsThisRole:
+            return xi18nc("@info:whatsthis", "<title>Alternative Resource Allocation</title>"
+            "<para>A resource can have one or more alternative resource assigned to it."
+            " The scheduling software will then select the most apropriate resource to use.</para>");
     }
     return QVariant();
 }
@@ -261,7 +247,7 @@ QVariant ResourceAllocationModel::headerData(int section, int role)
             case RequestType: return i18n("Type");
             case RequestAllocation: return i18n("Allocation");
             case RequestMaximum: return xi18nc("@title:column", "Available");
-            case RequestAlternative: return xi18nc("@title:column", "Alternative");
+            case RequestAlternative: return xi18nc("@title:column", "Alternative Resources");
             case RequestRequired: return xi18nc("@title:column", "Required Resources");
             default: return QVariant();
         }
@@ -275,20 +261,22 @@ QVariant ResourceAllocationModel::headerData(int section, int role)
             case RequestName: return ToolTip::resourceName();
             case RequestType: return ToolTip::resourceType();
             case RequestAllocation: return i18n("Resource allocation");
-            case RequestMaximum: return xi18nc("@info:tootip", "Available resources or resource units");
+            case RequestMaximum: return xi18nc("@info:tooltip", "Available resources or resource units");
             case RequestAlternative: return xi18nc("@info:tooltip", "List of resources that can be used as an alternative");
-            case RequestRequired: return xi18nc("@info:tootip", "Required material resources");
+            case RequestRequired: return xi18nc("@info:tooltip", "Required material resources");
             default: return QVariant();
         }
     } else if (role == Qt::WhatsThisRole) {
         switch (section) {
+            case RequestAlternative:
+                return xi18nc("@info:whatsthis", "<title>Alternative Resource Allocation</title>"
+                "<para>A resource can have one or more alternative resource assigned to it."
+                " The scheduling software will then select the most apropriate resource to use.</para>");
             case RequestRequired:
                 return xi18nc("@info:whatsthis", "<title>Required Resources</title>"
                 "<para>A working resource can be assigned to one or more required resources."
                 " A required resource is a material resource that the working resource depends on"
-                " in order to do the work.</para>"
-                "<para>To be able to use a material resource as a required resource, the material resource"
-                " must be part of a group of type Material.</para>");
+                " in order to do the work.</para>");
             default: return QVariant();
         }
     }
@@ -420,7 +408,13 @@ Qt::ItemFlags ResourceAllocationItemModel::flags(const QModelIndex &index) const
             flags |= (Qt::ItemIsEditable | Qt::ItemIsUserCheckable);
             break;
         case ResourceAllocationModel::RequestAlternative: {
-            flags |= (Qt::ItemIsEditable | Qt::ItemIsUserCheckable);
+            Resource *r = resource(index);
+            if (r && m_alternativeChecked.value(r) == Qt::Checked) {
+                flags |= (Qt::ItemIsEditable | Qt::ItemIsUserCheckable);
+            } else {
+                flags |= Qt::ItemIsUserCheckable;
+                flags &= ~Qt::ItemIsEditable;
+            }
             break;
         }
         case ResourceAllocationModel::RequestRequired: {
@@ -532,10 +526,14 @@ bool ResourceAllocationItemModel::setAllocation(Resource *res, const QVariant &v
         case Qt::EditRole: {
             m_resourceCache[res]->setUnits(value.toInt());
             QModelIndex idx = index(res);
+            if (value.toInt() == 0) {
+                setAlternative(idx.sibling(idx.row(), ResourceAllocationModel::RequestAlternative), Qt::Unchecked, Qt::CheckStateRole);
+            }
             emit dataChanged(idx, idx.sibling(idx.row(), ResourceAllocationModel::RequestAllocation));
             return true;
         }
         case Qt::CheckStateRole: {
+            QModelIndex idx = index(res);
             if (!m_resourceCache.contains(res)) {
                 m_resourceCache[res] = new ResourceRequest(res, 0);
             }
@@ -543,8 +541,8 @@ bool ResourceAllocationItemModel::setAllocation(Resource *res, const QVariant &v
                 m_resourceCache[res]->setUnits(100);
             } else {
                 m_resourceCache[res]->setUnits(0);
+                setAlternative(idx.sibling(idx.row(), ResourceAllocationModel::RequestAlternative), Qt::Unchecked, Qt::CheckStateRole);
             }
-            QModelIndex idx = index(res);
             emit dataChanged(idx, idx);
             return true;
         }
@@ -636,19 +634,44 @@ QVariant ResourceAllocationItemModel::alternative(const QModelIndex &idx, int ro
     switch (role) {
         case Qt::DisplayRole: {
             QStringList lst;
-            ResourceRequest *rr = m_resourceCache.value(res);
-            if (rr) {
-                for (ResourceRequest *r : rr->alternativeRequests()) {
-                    lst << r->resource()->name();
+            if (m_alternativeChecked[res] == Qt::Checked) {
+                ResourceRequest *rr = m_resourceCache.value(res);
+                if (rr) {
+                    for (ResourceRequest *r : rr->alternativeRequests()) {
+                        lst << r->resource()->name();
+                    }
                 }
             }
             return lst.isEmpty() ? i18n("None") : lst.join(",");
         }
-        case Qt::EditRole: break;
-        case Qt::ToolTipRole: break;
-        default: break;
+        case Qt::EditRole: break; // not used
+        case Qt::CheckStateRole:
+            return m_alternativeChecked[res];
+        default:
+            return m_model.alternative(res, role);
     }
     return QVariant();
+}
+
+bool ResourceAllocationItemModel::setAlternative(const QModelIndex &idx, const QVariant &value, int role)
+{
+    Resource *res = resource(idx);
+    if (res == nullptr) {
+        return false;
+    }
+    switch (role) {
+        case Qt::CheckStateRole:
+            m_alternativeChecked[res] = value.toInt();
+            if (value.toInt() == Qt::Unchecked) {
+                ResourceRequest *rr = m_resourceCache.value(res);
+                if (rr) {
+                    rr->setAlternativeRequests(QList<ResourceRequest*>());
+                }
+            }
+            emit dataChanged(idx, idx);
+            return true;
+    }
+    return false;
 }
 
 QVariant ResourceAllocationItemModel::data(const QModelIndex &index, int role) const
@@ -679,11 +702,7 @@ bool ResourceAllocationItemModel::setData(const QModelIndex &index, const QVaria
     if (!index.isValid()) {
         return ItemModelBase::setData(index, value, role);
     }
-    if (!(flags(index) & Qt::ItemIsEditable)) {
-        return false;
-    }
-    QObject *obj = object(index);
-    Resource *r = qobject_cast<Resource*>(obj);
+    Resource *r = resource(index);
     if (r) {
         switch (index.column()) {
             case ResourceAllocationModel::RequestAllocation:
@@ -695,7 +714,7 @@ bool ResourceAllocationItemModel::setData(const QModelIndex &index, const QVaria
                 }
                 return false;
             case ResourceAllocationModel::RequestAlternative:
-                return false;
+                return setAlternative(index, value, role);
             case ResourceAllocationModel::RequestRequired:
                 return setRequired(index, value, role);
             default:

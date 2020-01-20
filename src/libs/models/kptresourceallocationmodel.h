@@ -144,6 +144,7 @@ protected:
     bool setRequired(const QModelIndex &idx, const QVariant &value, int role);
     QVariant required(const QModelIndex &idx, int role) const;
 
+    bool setAlternative(const QModelIndex &idx, const QVariant &value, int role);
     QVariant alternative(const QModelIndex &idx, int role) const;
 
 private:
@@ -155,6 +156,7 @@ private:
 
     QHash<const Resource*, ResourceRequest*> m_resourceCache;
     QHash<const Resource*, int> m_requiredChecked;
+    QHash<const Resource*, int> m_alternativeChecked;
 };
 
 
