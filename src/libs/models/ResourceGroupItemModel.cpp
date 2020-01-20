@@ -70,7 +70,9 @@ ResourceGroupItemModel::~ResourceGroupItemModel()
 
 void ResourceGroupItemModel::setResourcesEnabled(bool enable)
 {
+    beginResetModel();
     m_resourcesEnabled = enable;
+    endResetModel();
 }
 
 bool ResourceGroupItemModel::resourcesEnabled() const

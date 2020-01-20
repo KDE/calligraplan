@@ -71,6 +71,8 @@ void ResourceGroupModelTester::cleanup()
 
 void ResourceGroupModelTester::groups()
 {
+    m_model.setResourcesEnabled(false);
+
     QCOMPARE(m_project->numResourceGroups(), 0);
     ResourceGroup *g1 = new ResourceGroup();
     AddResourceGroupCmd c1(m_project, g1);
@@ -93,10 +95,24 @@ void ResourceGroupModelTester::groups()
     QCOMPARE(m_project->numResourceGroups(), 2);
 
     QCOMPARE(m_model.rowCount(), 2);
+
+    // resources should not pop up in the model
+    Resource *r1 = new Resource();
+    AddResourceCmd c11(m_project, r1);
+    c11.redo();
+    QCOMPARE(m_project->resourceCount(), 1);
+    AddParentGroupCmd c12(r1, g1);
+    c12.redo();
+    QModelIndex idx = m_model.index(g1);
+    QVERIFY(idx.isValid());
+    QCOMPARE(m_model.rowCount(idx), 0);
+    c11.undo();
 }
 
 void ResourceGroupModelTester::resources()
 {
+    m_model.setResourcesEnabled(true);
+
     QCOMPARE(m_project->resourceCount(), 0);
     Resource *r1 = new Resource();
     AddResourceCmd c1(m_project, r1);
@@ -136,6 +152,11 @@ void ResourceGroupModelTester::resources()
     QCOMPARE(m_model.rowCount(), 1);
     QCOMPARE(m_model.rowCount(m_model.index(g1)), 2);
     c4.undo();
+    QCOMPARE(m_model.rowCount(m_model.index(g1)), 1);
+
+    m_model.setResourcesEnabled(false);
+    QCOMPARE(m_model.rowCount(m_model.index(g1)), 0);
+    m_model.setResourcesEnabled(true);
     QCOMPARE(m_model.rowCount(m_model.index(g1)), 1);
 }
 
