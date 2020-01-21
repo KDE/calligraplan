@@ -806,7 +806,7 @@ void ResourceAllocationItemModel::setAlternativeRequests(const QModelIndex &idx,
     if (m_resourceCache.contains(r)) {
         QList<ResourceRequest*> requests;
         for (Resource *r : lst) {
-            requests << new ResourceRequest(r);
+            requests << new ResourceRequest(r, 100);
         }
         m_resourceCache[r]->setAlternativeRequests(requests);
         emit dataChanged(idx, idx);
