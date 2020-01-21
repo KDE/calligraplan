@@ -1532,7 +1532,21 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
                     warnPlanXml<<re.tagName()<<"Failed to find task";
                     continue;
                 }
-                //TODO
+                const ResourceRequestCollection &collection = task->requests();
+                ResourceRequest *rr = collection.resourceRequest(re.attribute("request-id").toInt());
+                Q_ASSERT(rr);
+                if (!rr) {
+                    errorPlanXml<<"Failed to find request to add lternatives to";
+                    continue;
+                }
+                Resource *resource = findResource(re.attribute("resource-id"));
+                //Q_ASSERT(resource);
+                if (!resource) {
+                    errorPlanXml<<"Alternative request: Failed to find resource:"<<re.attribute("resource-id");
+                    continue;
+                }
+                ResourceRequest *alternative = new ResourceRequest(resource, re.attribute("units", "100").toInt());
+                rr->addAlternativeRequest(alternative);
             }
         }
     }
@@ -1847,12 +1861,12 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 re.setAttribute("task-id", it.key()->id());
                 re.setAttribute("resource-id", it.value()->resource()->id());
                 re.setAttribute("units", QString::number(it.value()->units()));
-                // collect required resources
+                // collect required resources and alternative requests
                 for (Resource *r : it.value()->requiredResources()) {
                     required.insert(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
                 }
                 for (ResourceRequest *r : it.value()->alternativeRequests()) {
-                    alternativeRequests.insert(it.key(), std::pair<ResourceRequest*, ResourceRequest*>(it.value(), r));
+                    alternativeRequests.insertMulti(it.key(), std::pair<ResourceRequest*, ResourceRequest*>(it.value(), r));
                 }
             }
         }
@@ -1870,7 +1884,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
             }
         }
         debugPlanXml<<"alternative-requests:"<<alternativeRequests.count();
-        if (!required.isEmpty()) {
+        if (!alternativeRequests.isEmpty()) {
             QDomElement reqs = me.ownerDocument().createElement("alternative-requests");
             me.appendChild(reqs);
             QHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> >::const_iterator it;
@@ -1879,7 +1893,8 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 reqs.appendChild(req);
                 req.setAttribute("task-id", it.key()->id());
                 req.setAttribute("request-id", it.value().first->id());
-                req.setAttribute("alternative-id", it.value().second->id());
+                req.setAttribute("resource-id", it.value().second->resource()->id());
+                req.setAttribute("units", it.value().second->units());
             }
         }
     }
