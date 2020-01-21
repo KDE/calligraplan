@@ -214,7 +214,7 @@ QVariant ResourceAllocationModel::alternative(const Resource *res, int role) con
         case Qt::WhatsThisRole:
             return xi18nc("@info:whatsthis", "<title>Alternative Resource Allocation</title>"
             "<para>A resource can have one or more alternative resource assigned to it."
-            " The scheduling software will then select the most apropriate resource to use.</para>");
+            " The scheduling software will then select the most appropriate resource to use.</para>");
     }
     return QVariant();
 }
@@ -271,7 +271,7 @@ QVariant ResourceAllocationModel::headerData(int section, int role)
             case RequestAlternative:
                 return xi18nc("@info:whatsthis", "<title>Alternative Resource Allocation</title>"
                 "<para>A resource can have one or more alternative resource assigned to it."
-                " The scheduling software will then select the most apropriate resource to use.</para>");
+                " The scheduling software will then select the most appropriate resource to use.</para>");
             case RequestRequired:
                 return xi18nc("@info:whatsthis", "<title>Required Resources</title>"
                 "<para>A working resource can be assigned to one or more required resources."
