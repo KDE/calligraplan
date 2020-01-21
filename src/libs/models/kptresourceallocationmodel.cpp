@@ -375,6 +375,9 @@ void ResourceAllocationItemModel::filldata(Task *task)
             if (!m_resourceCache[r]->requiredResources().isEmpty()) {
                 m_requiredChecked[r] = Qt::Checked;
             }
+            if (!m_resourceCache[r]->alternativeRequests().isEmpty()) {
+                m_alternativeChecked[r] = Qt::Checked;
+            }
         }
     }
 }

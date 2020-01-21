@@ -51,10 +51,11 @@ void AlternativeResourceDelegate::setEditorData(QWidget *editor, const QModelInd
 {
     TreeComboBox *box = static_cast<TreeComboBox*>(editor);
     ResourceItemSFModel *pm = static_cast<ResourceItemSFModel*>(box->model());
-    const ResourceAllocationItemModel *model = qobject_cast<const ResourceAllocationItemModel*>(index.model());
+    const QAbstractProxyModel *proxy = static_cast<const QAbstractProxyModel*>(index.model());
+    const ResourceAllocationItemModel *model = qobject_cast<const ResourceAllocationItemModel*>(proxy->sourceModel());
     Q_ASSERT(model);
     pm->setProject(model->project());
-    pm->setFilteredResources(QList<Resource*>() << model->resource(index));
+    pm->setFilteredResources(QList<Resource*>() << model->resource(proxy->mapToSource(index)));
     pm->setFilterKeyColumn(ResourceModel::ResourceType);
     pm->setFilterRole(Qt::EditRole);
     pm->setFilterRegularExpression(index.sibling(index.row(), ResourceAllocationModel::RequestType).data(Qt::EditRole).toString());
@@ -69,9 +70,9 @@ void AlternativeResourceDelegate::setModelData(QWidget *editor, QAbstractItemMod
     foreach (const QModelIndex &i, box->currentIndexes()) {
         lst << pm->resource(i);
     }
-    ResourceAllocationItemModel *mdl = qobject_cast<ResourceAllocationItemModel*>(model);
+    ResourceAllocationItemModel *mdl = qobject_cast<ResourceAllocationItemModel*>(static_cast<QAbstractProxyModel*>(model)->sourceModel());
     Q_ASSERT(mdl);
-    mdl->setAlternativeRequests(index, lst);
+    mdl->setAlternativeRequests(static_cast<QAbstractProxyModel*>(model)->mapToSource(index), lst);
 }
 
 void AlternativeResourceDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &/* index */) const
