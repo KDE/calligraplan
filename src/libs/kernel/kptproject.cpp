@@ -1512,11 +1512,12 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
                 }
                 ResourceRequest *request = task->requests().resourceRequest(re.attribute("request-id").toInt());
                 Resource *required = findResource(re.attribute("required-id"));
-                QList<Resource*> lst;
+                Q_ASSERT(required);
                 if (required && request->resource() != required) {
-                    lst << required;
+                    request->addRequiredResource(required);
+                } else {
+                    errorPlan<<"Loading required resource requests failed";
                 }
-                request->setRequiredResources(lst);
             }
         }
         e = projectElement.namedItem("alternative-requests").toElement();
@@ -1863,7 +1864,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 re.setAttribute("units", QString::number(it.value()->units()));
                 // collect required resources and alternative requests
                 for (Resource *r : it.value()->requiredResources()) {
-                    required.insert(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
+                    required.insertMulti(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
                 }
                 for (ResourceRequest *r : it.value()->alternativeRequests()) {
                     alternativeRequests.insertMulti(it.key(), std::pair<ResourceRequest*, ResourceRequest*>(it.value(), r));
@@ -1876,7 +1877,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
             me.appendChild(reqs);
             QHash<Task*, std::pair<ResourceRequest*, Resource*> >::const_iterator it;
             for (it = required.constBegin(); it != required.constEnd(); ++it) {
-                QDomElement req = reqs.ownerDocument().createElement("required-resource");
+                QDomElement req = reqs.ownerDocument().createElement("required-resource-request");
                 reqs.appendChild(req);
                 req.setAttribute("task-id", it.key()->id());
                 req.setAttribute("request-id", it.value().first->id());
