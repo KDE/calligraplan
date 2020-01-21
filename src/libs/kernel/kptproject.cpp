@@ -1514,6 +1514,10 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
                 Resource *required = findResource(re.attribute("required-id"));
                 Q_ASSERT(required);
                 if (required && request->resource() != required) {
+                    if (request->requiredResources().contains(required)) {
+                        errorPlan<<"Required resource request exists"<<required;
+                        continue;
+                    }
                     request->addRequiredResource(required);
                 } else {
                     errorPlan<<"Loading required resource requests failed";
