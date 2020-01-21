@@ -159,6 +159,13 @@
     calendar-id CDATA #IMPLIED
     account CDATA #IMPLIED>
 
+<!-- Used both by resource -->
+<!ELEMENT required-resources (required-resource*)>
+<!ELEMENT required-resource EMPTY>
+<!ATTLIST required-resource
+    resource-id CDATA #REQUIRED
+    required-id CDATA #REQUIRED>
+
 <!-- Resource-group-relations -->
 <!ELEMENT resource-group-relations (resource-group-relation*)>
 <!ATTLIST resource-group-relation
@@ -326,7 +333,7 @@
     units CDATA "0">
 
 <!ELEMENT resource-requests (resource-request?)>
-<!ELEMENT resource-request (required-resources?)>
+<!ELEMENT resource-request (required-resources?|alternative-requests?)>
 <!ATTLIST resource-request
     task-id CDATA #REQUIRED
     group-id CDATA #IMPLIED
@@ -334,11 +341,20 @@
     units CDATA "100">
 
 <!-- Used both by resource-request and by resource -->
-<!ELEMENT required-resources (required-resource*)>
-<!ELEMENT required-resource EMPTY>
-<!ATTLIST required-resource
-    resource-id CDATA #REQUIRED
+<!ELEMENT required-resource-requests (required-resource-request*)>
+<!ELEMENT required-resource-request EMPTY>
+<!ATTLIST required-resource-request
+    task-id CDATA #REQUIRED
+    request-id CDATA #REQUIRED
     required-id CDATA #REQUIRED>
+
+<!ELEMENT alternative-requests (alternative-request*)>
+<!ELEMENT alternative-request EMPTY>
+<!ATTLIST alternative-request
+    task-id CDATA #REQUIRED
+    request-id CDATA #REQUIRED
+    resource-id CDATA #REQUIRED
+    units CDATA "100">
 
 <!--
     Task relations are described by the two IDs, the type of constraint and lag
