@@ -86,10 +86,11 @@ void RequieredResourceDelegate::setEditorData(QWidget *editor, const QModelIndex
 {
     TreeComboBox *box = static_cast<TreeComboBox*>(editor);
     ResourceItemSFModel *pm = static_cast<ResourceItemSFModel*>(box->model());
-    const ResourceAllocationItemModel *model = qobject_cast<const ResourceAllocationItemModel*>(index.model());
+    const QAbstractProxyModel *proxy = static_cast<const QAbstractProxyModel*>(index.model());
+    const ResourceAllocationItemModel *model = qobject_cast<const ResourceAllocationItemModel*>(proxy->sourceModel());
     Q_ASSERT(model);
     pm->setProject(model->project());
-    pm->setFilteredResources(QList<Resource*>() << model->resource(index));
+    pm->setFilteredResources(QList<Resource*>() << model->resource(proxy->mapToSource(index)));
     QItemSelectionModel *sm = box->view()->selectionModel();
     sm->clearSelection();
     box->setCurrentIndexes(sm->selectedRows());
@@ -106,9 +107,9 @@ void RequieredResourceDelegate::setModelData(QWidget *editor, QAbstractItemModel
     foreach (const QModelIndex &i, box->currentIndexes()) {
         lst << rm->resource(pm->mapToSource(i));
     }
-    ResourceAllocationItemModel *mdl = qobject_cast<ResourceAllocationItemModel*>(model);
+    ResourceAllocationItemModel *mdl = qobject_cast<ResourceAllocationItemModel*>(static_cast<QAbstractProxyModel*>(model)->sourceModel());
     Q_ASSERT(mdl);
-    mdl->setRequired(index, lst);
+    mdl->setRequired(static_cast<QAbstractProxyModel*>(model)->mapToSource(index), lst);
 }
 
 void RequieredResourceDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &/* index */) const
