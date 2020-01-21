@@ -117,9 +117,11 @@ public:
 
     /// Returns a list of all the required resources that will be used in scheduling.
     /// Note: This list overrides the resources own list which is just used as default for allocation dialog.
-    QList<Resource*> requiredResources() const { return m_required; }
+    QList<Resource*> requiredResources() const;
     /// Set the list of required resources that will be used in scheduling.
-    void setRequiredResources(const QList<Resource*> &lst) { m_required = lst; }
+    void setRequiredResources(const QList<Resource*> &lst);
+    /// Add @p resource to list of requred resources
+    void addRequiredResource(Resource *resource);
 
     QList<ResourceRequest*> alternativeRequests() const;
     void setAlternativeRequests(const QList<ResourceRequest*> requests);

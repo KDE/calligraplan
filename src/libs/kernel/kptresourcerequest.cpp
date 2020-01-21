@@ -338,6 +338,26 @@ QList<ResourceRequest*> ResourceRequest::teamMembers() const
     return m_teamMembers;
 }
 
+QList<Resource*> ResourceRequest::requiredResources() const
+{
+    return m_required;
+}
+
+void ResourceRequest::setRequiredResources(const QList<Resource*> &lst)
+{
+    m_required = lst;
+    changed();
+}
+
+void ResourceRequest::addRequiredResource(Resource *resource)
+{
+    Q_ASSERT(!m_required.contains(resource));
+    if (!m_required.contains(resource)) {
+        m_required << resource;
+        changed();
+    }
+}
+
 QList<ResourceRequest*> ResourceRequest::alternativeRequests() const
 {
     return m_alternativeRequests;
