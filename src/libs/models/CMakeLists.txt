@@ -72,6 +72,7 @@ target_link_libraries(planmodels
         KChart
         KGantt
         KF5::KIOWidgets
+        KF5::ItemModels
     PRIVATE
         Qt5::Gui
         KF5::Notifications

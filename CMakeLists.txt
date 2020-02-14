@@ -125,6 +125,7 @@ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
         I18n
         IconThemes
         ItemViews
+        ItemModels
         JobWidgets
         KIO
         Notifications
