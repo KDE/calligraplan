@@ -173,12 +173,12 @@ public:
     int resourceGroupCount() const { return m_resourceGroups.count(); }
     QList<ResourceGroup*> &resourceGroups();
     /// Adds the resource group to the project.
-    virtual void addResourceGroup(ResourceGroup *resource, int index = -1);
+    virtual void addResourceGroup(ResourceGroup *resource, ResourceGroup *parent = nullptr,  int index = -1);
     /**
      * Removes the resource group @p resource from the project.
      * The resource group is not deleted.
      */
-    ResourceGroup *takeResourceGroup(ResourceGroup *resource);
+    void takeResourceGroup(ResourceGroup *resource);
     int indexOf(ResourceGroup *resource) const { return m_resourceGroups.indexOf(resource); }
     ResourceGroup *resourceGroupAt(int pos) const { return m_resourceGroups.value(pos); }
     int numResourceGroups() const { return m_resourceGroups.count(); }
@@ -332,17 +332,11 @@ public:
         return 0;
     }
     /// Remove the resourcegroup with identity id from the register
-    bool removeResourceGroupId(const QString &id)
-    {
-        if (resourceGroupIdDict.contains(id) )
-            return resourceGroupIdDict.remove(id);
-        return false;
-    }
+    /// If group is not nullptr, remove recursively
+    void removeResourceGroupId(const QString &id, ResourceGroup *group = nullptr);
     /// Insert the resourcegroup with identity id
-    void insertResourceGroupId(const QString &id, ResourceGroup* group)
-    {
-        resourceGroupIdDict.insert(id, group);
-    }
+    /// Always insert recursively
+    void insertResourceGroupId(const QString &id, ResourceGroup* group);
     /// Generate, set and insert unique id
     bool setResourceGroupId(ResourceGroup *group);
     /// returns a unique resourcegroup id

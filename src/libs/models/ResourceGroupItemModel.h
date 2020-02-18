@@ -48,6 +48,26 @@ class Calendar;
 class Task;
 class Node;
 
+/**
+ * @class ResourceGroupItemModel
+ * 
+ * ResourceGroups to any depth.
+ * Resources may be member of multiple groups on any level.
+ * Resources only shown if m_resourcesEnabled.
+ * Resources shown behind groups.
+ * 
+ *  * Structure:
+ * --- ResourceGroup
+ *  !   !- ResourceGroup (0 or more)
+ *  !   !   !- ResourceGroup (0 or more)
+ *  !   !   !- Resource (0 or more, if m_resourcesEnabled)
+ *  !   !- Resource (0 or more, if m_resourcesEnabled)
+ *  !- :
+ *  !- ResourceGroup
+ * 
+ * QModelIndex: internalPointer() pionts to parent group, nullptr if top level group.
+ */
+
 class PLANMODELS_EXPORT ResourceGroupItemModel : public ItemModelBase
 {
     Q_OBJECT
@@ -85,7 +105,7 @@ public:
 
     ResourceGroup *group(const QModelIndex &index) const;
     Resource *resource(const QModelIndex &index) const;
-    QModelIndex insertGroup(ResourceGroup *g);
+    QModelIndex insertGroup(ResourceGroup *g, ResourceGroup *parent = nullptr);
     QModelIndex insertResource(ResourceGroup *g, Resource *r, Resource *after = 0);
 
     int sortRole(int column) const override;

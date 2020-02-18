@@ -277,6 +277,7 @@ void ResourceGroupEditor::updateActionsEnabled(bool on)
     bool onegroup = groupList.count() == 1;
 
     actionAddGroup->setEnabled(o);
+    actionAddSubGroup->setEnabled(o && onegroup);
 
     if (o && !nogroup) {
         foreach (ResourceGroup *g, groupList) {
@@ -291,10 +292,15 @@ void ResourceGroupEditor::updateActionsEnabled(bool on)
 
 void ResourceGroupEditor::setupGui()
 {
-    actionAddGroup  = new QAction(koIcon("resource-group-new"), i18n("Add Resource Group"), this);
+    actionAddGroup = new QAction(koIcon("resource-group-new"), i18n("Add Resource Group"), this);
     actionCollection()->addAction("add_group", actionAddGroup);
-    actionCollection()->setDefaultShortcut(actionAddGroup, Qt::CTRL + Qt::Key_I);
+    actionCollection()->setDefaultShortcut(actionAddGroup, Qt::Key_Insert);
     connect(actionAddGroup, &QAction::triggered, this, &ResourceGroupEditor::slotAddGroup);
+
+    actionAddSubGroup = new QAction(koIcon("resource-group-new"), i18n("Add Child Resource Group"), this);
+    actionCollection()->addAction("add_subgroup", actionAddSubGroup);
+    actionCollection()->setDefaultShortcut(actionAddSubGroup, Qt::SHIFT + Qt::Key_Insert);
+    connect(actionAddSubGroup, &QAction::triggered, this, &ResourceGroupEditor::slotAddSubGroup);
     
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
     actionCollection()->addAction("delete_selection", actionDeleteSelection);
@@ -331,8 +337,19 @@ void ResourceGroupEditor::slotAddGroup()
     ResourceGroup *g = new ResourceGroup();
     QModelIndex i = m_view->model()->insertGroup(g);
     if (i.isValid()) {
-        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
-        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
+        m_view->edit(i);
+    }
+}
+
+void ResourceGroupEditor::slotAddSubGroup()
+{
+    //debugPlan;
+    ResourceGroup *parent = currentResourceGroup();
+    ResourceGroup *g = new ResourceGroup();
+    QModelIndex i = m_view->model()->insertGroup(g, parent);
+    if (i.isValid()) {
+        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
         m_view->edit(i);
     }
 }

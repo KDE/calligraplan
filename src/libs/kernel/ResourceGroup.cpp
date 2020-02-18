@@ -48,37 +48,44 @@ using namespace KPlato;
 
 
 ResourceGroup::ResourceGroup()
-    : QObject(0),
-    m_blockChanged(false),
-    m_shared(false)
+    : QObject(nullptr)
+    , m_blockChanged(false)
+    , m_shared(false)
 {
-    m_project = 0;
+    m_project = nullptr;
+    m_parent = nullptr;
     m_type = Type_Work;
     //debugPlan<<"("<<this<<")";
 }
 
 ResourceGroup::ResourceGroup(const ResourceGroup *group)
-    : QObject(0) 
+    : QObject(nullptr)
 {
-    m_project = 0;
+    m_project = nullptr;
+    m_parent = nullptr;
     copy(group);
 }
 
 ResourceGroup::~ResourceGroup() {
     //debugPlan<<"("<<this<<")";
-    if (findId() == this) {
-        removeId(); // only remove myself (I may be just a working copy)
+    if (m_parent) {
+        removeId();
+        m_parent->removeChildGroup(this);
+    } else if (m_project) {
+        m_project->takeResourceGroup(this); // also removes id
     }
     for (Resource *r : m_resources) {
         r->removeParentGroup(this);
     }
+    qDeleteAll(m_childGroups);
     //debugPlan<<"("<<this<<")";
 }
 
 void ResourceGroup::copy(const ResourceGroup *group)
 {
     //m_project = group->m_project; //Don't copy
-    m_id = group->m_id;
+    //m_parent = group->m_parent; //Don't copy
+    // m_id = group->m_id;  //Don't copy
     m_type = group->m_type;
     m_name = group->m_name;
 }
@@ -135,6 +142,11 @@ QStringList ResourceGroup::typeToStringList(bool trans) {
             << (trans ? i18n("Material") : QString("Material"));
 }
 
+Project *ResourceGroup::project() const
+{
+    return m_parent ? m_parent->project() : m_project;
+}
+
 void ResourceGroup::setProject(Project *project)
 {
     if (project != m_project) {
@@ -167,6 +179,55 @@ bool ResourceGroup::isBaselined(long id) const
         }
     }
     return false;
+}
+
+ResourceGroup *ResourceGroup::parentGroup() const
+{
+    return m_parent;
+}
+
+void ResourceGroup::setParentGroup(ResourceGroup *parent)
+{
+    m_parent = parent;
+}
+
+int ResourceGroup::indexOf(ResourceGroup *group) const
+{
+    return m_childGroups.indexOf(group);
+}
+
+int ResourceGroup::numChildGroups() const
+{
+    return m_childGroups.count();
+}
+
+void ResourceGroup::addChildGroup(ResourceGroup *group, int row)
+{
+    Q_ASSERT(!m_childGroups.contains(group));
+    int pos = row < 0 ? m_childGroups.count() : row;
+    emit groupToBeAdded(this, pos);
+    m_childGroups.insert(pos, group);
+    group->setParentGroup(this);
+    emit groupAdded(group);
+}
+
+ResourceGroup *ResourceGroup::childGroupAt(int row) const
+{
+    return m_childGroups.value(row);
+}
+
+QList<ResourceGroup*> ResourceGroup::childGroups() const
+{
+    return m_childGroups;
+}
+
+void ResourceGroup::removeChildGroup(ResourceGroup *child)
+{
+    int row = m_childGroups.indexOf(child);
+    emit groupToBeRemoved(this, row, child);
+    m_childGroups.removeOne(child);
+    child->setParentGroup(nullptr);
+    emit groupRemoved();
 }
 
 void ResourceGroup::addResource(Resource* resource, Risk *risk)
@@ -224,22 +285,28 @@ bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
     setType(element.attribute("type"));
     m_shared = element.attribute("shared", "0").toInt();
 
-    if (status.version() < "0.7.0") {
-        KoXmlNode n = element.firstChild();
-        for (; ! n.isNull(); n = n.nextSibling()) {
-            if (! n.isElement()) {
-                continue;
+    KoXmlNode n = element.firstChild();
+    for (; ! n.isNull(); n = n.nextSibling()) {
+        if (! n.isElement()) {
+            continue;
+        }
+        KoXmlElement e = n.toElement();
+        if (e.tagName() == "resource-group") {
+            ResourceGroup *child = new ResourceGroup();
+            if (child->load(e, status)) {
+                addChildGroup(child);
+            } else {
+                errorPlanXml<<"Faild to load ResourceGroup";
+                delete child;
             }
-            KoXmlElement e = n.toElement();
-            if (e.tagName() == "resource") {
-                // Load the resource
-                Resource *child = new Resource();
-                if (child->load(e, status)) {
-                    child->addParentGroup(this);
-                } else {
-                    // TODO: Complain about this
-                    delete child;
-                }
+        } else if (status.version() < "0.7.0" && e.tagName() == "resource") {
+            // Load the resource
+            Resource *child = new Resource();
+            if (child->load(e, status)) {
+                child->addParentGroup(this);
+            } else {
+                // TODO: Complain about this
+                delete child;
             }
         }
     }
@@ -256,6 +323,10 @@ void ResourceGroup::save(QDomElement &element)  const {
     me.setAttribute("name", m_name);
     me.setAttribute("type", typeToString());
     me.setAttribute("shared", m_shared);
+
+    for (ResourceGroup *g : m_childGroups) {
+        g->save(me);
+    }
 }
 
 void ResourceGroup::saveWorkPackageXML(QDomElement &element, const QList<Resource*> &lst) const
@@ -285,18 +356,26 @@ int ResourceGroup::units() const {
     return u;
 }
 
-ResourceGroup *ResourceGroup::findId(const QString &id) const {
-    return m_project ? m_project->findResourceGroup(id) : 0;
+ResourceGroup *ResourceGroup::findId(const QString &id) const
+{
+    Project *p = project();
+    return p ? p->findResourceGroup(id) : nullptr;
 }
 
-bool ResourceGroup::removeId(const QString &id) { 
-    return m_project ? m_project->removeResourceGroupId(id): false;
+void ResourceGroup::removeId(const QString &id)
+{
+    Project *p = project();
+    if (p) {
+        p->removeResourceGroupId(id);
+    }
 }
 
 void ResourceGroup::insertId(const QString &id) { 
     //debugPlan;
-    if (m_project)
-        m_project->insertResourceGroupId(id, this);
+    Project *p = project();
+    if (p) {
+        p->insertResourceGroupId(id, this);
+    }
 }
 
 Appointment ResourceGroup::appointmentIntervals() const {
@@ -339,4 +418,16 @@ bool ResourceGroup::isShared() const
 void ResourceGroup::setShared(bool on)
 {
     m_shared = on;
+}
+
+QDebug operator<<(QDebug dbg, const KPlato::ResourceGroup *g)
+{
+    dbg.nospace().noquote()<<"ResourceGroup[";
+    if (g) {
+        dbg<<g->name()<<','<<g->id()<<','<<g->numChildGroups();
+    } else {
+        dbg<<(void*)g;
+    }
+    dbg<<']';
+    return dbg.space().quote();
 }

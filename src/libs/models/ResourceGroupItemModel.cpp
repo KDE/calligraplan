@@ -121,14 +121,15 @@ void ResourceGroupItemModel::slotResourceGroupToBeAdded(Project *project, int ro
 void ResourceGroupItemModel::slotResourceGroupAdded(ResourceGroup *group)
 {
     Q_UNUSED(group)
+    connectSignals(group, true);
     endInsertRows();
 }
 
 void ResourceGroupItemModel::slotResourceGroupToBeRemoved(Project *project, int row, ResourceGroup *group)
 {
     Q_UNUSED(project)
-    Q_UNUSED(group)
     beginRemoveRows(QModelIndex(), row, row);
+    connectSignals(group, false);
 }
 
 void ResourceGroupItemModel::slotResourceGroupRemoved()
@@ -251,8 +252,14 @@ QModelIndex ResourceGroupItemModel::parent(const QModelIndex &index) const
         return QModelIndex();
     }
     ResourceGroup *g = group(index);
-    int row = m_project->indexOf(g);
-    return createIndex(row, index.column());
+    Q_ASSERT(g);
+    ResourceGroup *p = g->parentGroup();
+    if (!p) {
+        return QModelIndex();
+    }
+    ResourceGroup *gp = p ? p->parentGroup() : nullptr;
+    int row = gp ? gp->indexOf(p) : m_project->indexOf(p);
+    return createIndex(row, 0, gp);
 }
 
 QModelIndex ResourceGroupItemModel::index(int row, int column, const QModelIndex &parent) const
@@ -268,23 +275,30 @@ QModelIndex ResourceGroupItemModel::index(int row, int column, const QModelIndex
     }
     ResourceGroup *g = group(parent);
     if (g) {
-        if (row < g->numResources()) {
+        if (row < g->numChildGroups()) {
+            return createIndex(row, column, g);
+        } else if (m_resourcesEnabled) {
             return createIndex(row, column, g);
         }
-        return QModelIndex();
     }
     return QModelIndex();
 }
 
 QModelIndex ResourceGroupItemModel::index(const ResourceGroup *group, int column) const
 {
-    if (m_project == 0 || group == 0) {
+    if (m_project == nullptr || group == nullptr) {
         return QModelIndex();
     }
-    ResourceGroup *g = const_cast<ResourceGroup*>(group);
-    int row = m_project->indexOf(g);
-    return createIndex(row, column);
-
+    int row = -1;
+    if (group->parentGroup()) {
+        row = group->parentGroup()->indexOf(const_cast<ResourceGroup*>(group));
+    } else {
+        row = m_project->indexOf(const_cast<ResourceGroup*>(group));
+    }
+    if (row < 0) {
+        return QModelIndex();
+    }
+    return createIndex(row, column, group->parentGroup());
 }
 
 int ResourceGroupItemModel::columnCount(const QModelIndex &/*parent*/) const
@@ -294,19 +308,20 @@ int ResourceGroupItemModel::columnCount(const QModelIndex &/*parent*/) const
 
 int ResourceGroupItemModel::rowCount(const QModelIndex &parent) const
 {
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return 0;
     }
-    if (!parent.isValid()) {
-        return m_project->numResourceGroups();
-    }
-    if (m_resourcesEnabled) {
-        ResourceGroup *g = group(parent);
-        if (g) {
-            return g->numResources();
+    int rows = 0;
+    ResourceGroup *g = group(parent);
+    if (g) {
+        rows = g->numChildGroups();
+        if (m_resourcesEnabled) {
+            rows += g->numResources();
         }
+    } else {
+        rows = m_project->numResourceGroups();
     }
-    return 0;
+    return rows;
 }
 
 QVariant ResourceGroupItemModel::name(const  ResourceGroup *res, int role) const
@@ -395,15 +410,17 @@ QVariant ResourceGroupItemModel::data(const QModelIndex &index, int role) const
         // use same alignment as in header (headers always horizontal)
         return headerData(index.column(), Qt::Horizontal, role);
     }
-    Resource *r = resource(index);
-    if (r) {
-        return m_resourceModel.data(r, index.column(), role);
-    }
     ResourceGroup *g = group(index);
     if (g) {
         return m_groupModel.data(g, index.column(), role);
     }
-    return QModelIndex();
+    if (m_resourcesEnabled) {
+        Resource *r = resource(index);
+        if (r) {
+            return m_resourceModel.data(r, index.column(), role);
+        }
+    }
+    return QVariant();
 }
 
 bool ResourceGroupItemModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -464,36 +481,42 @@ QAbstractItemDelegate *ResourceGroupItemModel::createDelegate(int col, QWidget *
 
 ResourceGroup *ResourceGroupItemModel::group(const QModelIndex &index) const
 {
-    if (!index.isValid() || index.internalPointer() != nullptr) {
+    if (!index.isValid()) {
         return nullptr;
+    }
+    ResourceGroup *parent = static_cast<ResourceGroup*>(index.internalPointer());
+    if (parent) {
+        return parent->childGroupAt(index.row());
     }
     return m_project->resourceGroupAt(index.row());
 }
 
 Resource *ResourceGroupItemModel::resource(const QModelIndex &index) const
 {
-    Resource *r = nullptr;
-    if (index.isValid()) {
-        ResourceGroup *g = static_cast<ResourceGroup*>(index.internalPointer());
-        if (g) {
-            r = g->resourceAt(index.row());
-        }
+    if (!m_resourcesEnabled || !index.isValid()) {
+        return nullptr;
     }
-    return r;
+    ResourceGroup *parent = static_cast<ResourceGroup*>(index.internalPointer());
+    if (!parent) {
+        return nullptr;
+    }
+    int row = index.row() - parent->numChildGroups();
+    return m_project->resourceAt(row);
 }
 
 void ResourceGroupItemModel::slotResourceChanged(Resource *res)
 {
     for (ResourceGroup *g : res->parentGroups()) {
-        int row = g->indexOf(res);
+        int row = g->indexOf(res) + g->numChildGroups();
         emit dataChanged(createIndex(row, 0, g), createIndex(row, columnCount() - 1, g));
     }
 }
 
 void ResourceGroupItemModel::slotResourceGroupChanged(ResourceGroup *group)
 {
-    int row = project()->resourceGroups().indexOf(group);
-    emit dataChanged(createIndex(row, 0, group), createIndex(row, columnCount() - 1, group));
+    ResourceGroup *parent = group->parentGroup();
+    QModelIndex idx = index(group);
+    emit dataChanged(idx, idx.sibling(idx.row(), columnCount() - 1));
 }
 
 Qt::DropActions ResourceGroupItemModel::supportedDropActions() const
@@ -748,24 +771,25 @@ QMimeData *ResourceGroupItemModel::mimeData(const QModelIndexList & indexes) con
     return m;
 }
 
-QModelIndex ResourceGroupItemModel::insertGroup(ResourceGroup *g)
+QModelIndex ResourceGroupItemModel::insertGroup(ResourceGroup *group, ResourceGroup *parent)
 {
     //debugPlan;
-    emit executeCommand(new AddResourceGroupCmd(m_project, g, kundo2_i18n("Add resource group")));
-    int row = m_project->resourceGroups().indexOf(g);
-    if (row != -1) {
-        return createIndex(row, 0);
+    if (parent) {
+        emit executeCommand(new AddResourceGroupCmd(m_project, parent, group, kundo2_i18n("Add resource group")));
+        QModelIndex idx = index(group);
+        return idx;
     }
-    return QModelIndex();
+    emit executeCommand(new AddResourceGroupCmd(m_project, group, kundo2_i18n("Add resource group")));
+    return index(group);
 }
 
-QModelIndex ResourceGroupItemModel::insertResource(ResourceGroup *g, Resource *r, Resource * /*after*/)
+QModelIndex ResourceGroupItemModel::insertResource(ResourceGroup *parent, Resource *r, Resource * /*after*/)
 {
     //debugPlan;
-    emit executeCommand(new AddParentGroupCmd(r, g, kundo2_i18n("Add resource")));
-    int row = g->indexOf(r);
+    emit executeCommand(new AddParentGroupCmd(r, parent, kundo2_i18n("Add resource")));
+    int row = parent->indexOf(r) + parent->numChildGroups();
     if (row != -1) {
-        return createIndex(row, 0, g);
+        return createIndex(row, 0, parent);
     }
     return QModelIndex();
 }

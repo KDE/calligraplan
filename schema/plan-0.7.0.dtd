@@ -139,7 +139,7 @@
 
 <!-- Resource groups -->
 <!ELEMENT resource-groups (resource-group*)>
-<!ELEMENT resource-group EMPTY>
+<!ELEMENT resource-group (resource-group*)>
 <!ATTLIST resource-group id CDATA #REQUIRED
     type (Work|Material) "Work"
     name CDATA #IMPLIED>

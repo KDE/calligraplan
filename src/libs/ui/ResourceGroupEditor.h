@@ -105,12 +105,14 @@ private Q_SLOTS:
     void slotEnableActions(bool on);
 
     void slotAddGroup();
+    void slotAddSubGroup();
     void slotDeleteSelection();
 
 private:
     ResourceGroupTreeView *m_view;
 
     QAction *actionAddGroup;
+    QAction *actionAddSubGroup;
     QAction *actionDeleteSelection;
 
 };

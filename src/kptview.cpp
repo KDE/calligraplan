@@ -677,10 +677,10 @@ ViewInfo View::defaultViewInfo(const QString &type) const
         vi.tip = xi18nc("@info:tooltip", "Edit cost breakdown structure.");
     } else if (type == "ResourceGroupEditor") {
         vi.name = i18n("Resource groups");
-        vi.tip = xi18nc("@info:tooltip", "Edit resource groups");
+        vi.tip = xi18nc("@info:tooltip", "Edit resource breakdown structure");
     } else if (type == "ResourceEditor") {
         vi.name = i18n("Resources");
-        vi.tip = xi18nc("@info:tooltip", "Edit resource breakdown structure");
+        vi.tip = xi18nc("@info:tooltip", "Edit resources");
     } else if (type == "TaskEditor") {
         vi.name = i18n("Tasks");
         vi.tip = xi18nc("@info:tooltip", "Edit work breakdown structure");

@@ -1660,12 +1660,25 @@ void RemoveResourceTeamCmd::unexecute()
     m_team->addTeamMemberId(m_member);
 }
 
+RemoveResourceGroupCmd::RemoveResourceGroupCmd(Project *project, ResourceGroup *parent, ResourceGroup *group, const KUndo2MagicString& name)
+    : NamedCommand(name)
+    , m_group(group)
+    , m_project(project)
+    , m_parent(parent)
+{
+    m_index = m_parent ? m_parent->indexOf(group) : project->indexOf(group);
+    m_mine = false;
+    for (Resource *r : group->resources()) {
+        cmd.addCommand(new RemoveParentGroupCmd(r, group));
+    }
+}
 RemoveResourceGroupCmd::RemoveResourceGroupCmd(Project *project, ResourceGroup *group, const KUndo2MagicString& name)
     : NamedCommand(name)
     , m_group(group)
     , m_project(project)
+    , m_parent(group->parentGroup())
 {
-    m_index = project->indexOf(group);
+    m_index = m_parent ? m_parent->indexOf(group) : project->indexOf(group);
     m_mine = false;
     for (Resource *r : group->resources()) {
         cmd.addCommand(new RemoveParentGroupCmd(r, group));
@@ -1678,23 +1691,25 @@ RemoveResourceGroupCmd::~RemoveResourceGroupCmd()
 }
 void RemoveResourceGroupCmd::execute()
 {
-    // remove all requests to this group
     cmd.execute();
     if (m_project) {
         m_project->takeResourceGroup(m_group);
     }
     m_mine = true;
-
-
 }
 void RemoveResourceGroupCmd::unexecute()
 {
     if (m_project) {
-        m_project->addResourceGroup(m_group, m_index);
+        m_project->addResourceGroup(m_group, m_parent, m_index);
     }
-    m_mine = false;
     cmd.unexecute();
+    m_mine = false;
+}
 
+AddResourceGroupCmd::AddResourceGroupCmd(Project *project, ResourceGroup *parent, ResourceGroup *group, const KUndo2MagicString& name)
+    : RemoveResourceGroupCmd(project, parent, group, name)
+{
+    m_mine = true;
 }
 
 AddResourceGroupCmd::AddResourceGroupCmd(Project *project, ResourceGroup *group, const KUndo2MagicString& name)

@@ -84,7 +84,7 @@ void ResourceGroupModelTester::groups()
     QCOMPARE(m_project->numResourceGroups(), 1);
 
     QCOMPARE(m_model.rowCount(), 1);
-    
+
     ResourceGroup *g2 = new ResourceGroup();
     AddResourceGroupCmd c2(m_project, g2);
     c2.redo();
@@ -107,6 +107,96 @@ void ResourceGroupModelTester::groups()
     QVERIFY(idx.isValid());
     QCOMPARE(m_model.rowCount(idx), 0);
     c11.undo();
+}
+
+void ResourceGroupModelTester::childGroups()
+{
+    m_model.setResourcesEnabled(false);
+
+    QCOMPARE(m_project->numResourceGroups(), 0);
+    ResourceGroup *g1 = new ResourceGroup();
+    AddResourceGroupCmd c1(m_project, g1);
+    c1.redo();
+    QCOMPARE(m_project->numResourceGroups(), 1);
+    QCOMPARE(m_model.rowCount(), 1);
+    QModelIndex idx1 = m_model.index(g1);
+    QVERIFY(idx1.isValid());
+    QCOMPARE(m_model.rowCount(idx1), 0);
+    QVERIFY(!idx1.parent().isValid());
+
+    ResourceGroup *g2 = new ResourceGroup();
+    AddResourceGroupCmd c2(m_project, g2);
+    c2.redo();
+    QCOMPARE(m_project->numResourceGroups(), 2);
+    QCOMPARE(m_model.rowCount(), 2);
+    QModelIndex idx2 = m_model.index(g2);
+    QVERIFY(idx2.isValid());
+    QCOMPARE(m_model.rowCount(idx2), 0);
+    QVERIFY(!idx2.parent().isValid());
+
+    ResourceGroup *g11 = new ResourceGroup();
+    AddResourceGroupCmd c11(m_project, g1, g11);
+    c11.redo();
+    QCOMPARE(g1->numChildGroups(), 1);
+    QCOMPARE(m_model.rowCount(idx1), 1);
+    QModelIndex idx11 = m_model.index(g11);
+    QVERIFY(idx11.isValid());
+
+    QCOMPARE(m_model.group(idx11), g11);
+    QCOMPARE(idx11.parent(), idx1);
+    QCOMPARE(m_model.group(idx11.parent()), g1);
+
+    ResourceGroup *g21 = new ResourceGroup();
+    AddResourceGroupCmd c21(m_project, g2, g21);
+    c21.redo();
+    QCOMPARE(g2->numChildGroups(), 1);
+    QCOMPARE(m_model.rowCount(idx2), 1);
+    QModelIndex idx21 = m_model.index(g21);
+    QVERIFY(idx21.isValid());
+
+    QCOMPARE(m_model.group(idx21), g21);
+    QCOMPARE(idx21.parent(), idx2);
+    QCOMPARE(m_model.group(idx21.parent()), g2);
+
+    ResourceGroup *g12 = new ResourceGroup();
+    AddResourceGroupCmd c12(m_project, g1, g12);
+    c12.redo();
+    QCOMPARE(g1->numChildGroups(), 2);
+    QCOMPARE(m_model.rowCount(idx1), 2);
+    QModelIndex idx12 = m_model.index(g12);
+    QVERIFY(idx12.isValid());
+
+    QCOMPARE(m_model.group(idx12), g12);
+    QCOMPARE(idx12.parent(), idx1);
+    QCOMPARE(m_model.group(idx12.parent()), g1);
+
+    ResourceGroup *g111 = new ResourceGroup();
+    AddResourceGroupCmd c111(m_project, g11, g111);
+    c111.redo();
+    QCOMPARE(g11->numChildGroups(), 1);
+    QCOMPARE(m_model.rowCount(idx11), 1);
+    QModelIndex idx111 = m_model.index(g111);
+    QVERIFY(idx111.isValid());
+
+    QCOMPARE(m_model.group(idx111), g111);
+    QCOMPARE(idx111.parent(), idx11);
+    QCOMPARE(m_model.group(idx111.parent()), g11);
+
+    c111.undo();
+    QCOMPARE(g11->numChildGroups(), 0);
+    QCOMPARE(m_model.rowCount(idx11), 0);
+
+    c12.undo();
+    QCOMPARE(g1->numChildGroups(), 1);
+    QCOMPARE(m_model.rowCount(idx1), 1);
+
+    c21.undo();
+    QCOMPARE(g2->numChildGroups(), 0);
+    QCOMPARE(m_model.rowCount(idx2), 0);
+
+    c11.undo();
+    QCOMPARE(g1->numChildGroups(), 0);
+    QCOMPARE(m_model.rowCount(idx1), 0);
 }
 
 void ResourceGroupModelTester::resources()
@@ -135,8 +225,8 @@ void ResourceGroupModelTester::resources()
     QCOMPARE(m_model.rowCount(), 0);
 
     ResourceGroup *g1 = new ResourceGroup();
-    AddResourceGroupCmd cg(m_project, g1);
-    cg.redo();
+    AddResourceGroupCmd cg1(m_project, g1);
+    cg1.redo();
     QCOMPARE(m_model.rowCount(), 1);
 
     AddParentGroupCmd c3(r1, g1);
@@ -153,12 +243,33 @@ void ResourceGroupModelTester::resources()
     QCOMPARE(m_model.rowCount(m_model.index(g1)), 2);
     c4.undo();
     QCOMPARE(m_model.rowCount(m_model.index(g1)), 1);
+    c4.redo();
+    QCOMPARE(m_model.rowCount(m_model.index(g1)), 2);
 
-    m_model.setResourcesEnabled(false);
-    QCOMPARE(m_model.rowCount(m_model.index(g1)), 0);
-    m_model.setResourcesEnabled(true);
-    QCOMPARE(m_model.rowCount(m_model.index(g1)), 1);
+    ResourceGroup *g2 = new ResourceGroup();
+    AddResourceGroupCmd cg2(m_project, g2);
+    cg2.redo();
+    QCOMPARE(m_model.rowCount(), 2);
+
+    ResourceGroup *g11 = new ResourceGroup();
+    AddResourceGroupCmd cg11(m_project, g1, g11);
+    cg11.redo();
+    QModelIndex idx11 = m_model.index(g11);
+    QCOMPARE(m_model.rowCount(m_model.index(g1)), 3); // group + 2 resources
+    QCOMPARE(m_model.resource(idx11.sibling(idx11.row()+1, idx11.column())), r1);
+    QCOMPARE(m_model.resource(idx11.sibling(idx11.row()+2, idx11.column())), r2);
+
+    AddParentGroupCmd c5(r1, g2);
+    c5.redo();
+    QCOMPARE(m_model.rowCount(m_model.index(g2)), 1);
+    QCOMPARE(m_model.resource(m_model.index(0, 0, m_model.index(g2))), r1);
+    QCOMPARE(m_model.resource(idx11.sibling(idx11.row()+1, idx11.column())), r1); // found both places
+
+    AddParentGroupCmd c6(r2, g2);
+    c6.redo();
+    QCOMPARE(m_model.rowCount(m_model.index(g2)), 2);
+    QCOMPARE(m_model.resource(m_model.index(1, 0, m_model.index(g2))), r2);
+    QCOMPARE(m_model.resource(idx11.sibling(idx11.row()+2, idx11.column())), r2); // found both places
 }
-
 
 QTEST_GUILESS_MAIN(KPlato::ResourceGroupModelTester)

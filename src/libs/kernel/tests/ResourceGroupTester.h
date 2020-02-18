@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
- * Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2020 Dag Andersen <danders@get2net.dk>
  * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -17,40 +17,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KPLATO_RESOURCEGROUPMODELTESTER_H
-#define KPLATO_RESOURCEGROUPMODELTESTER_H
+#ifndef KPlato_ResourceGroupTester_h
+#define KPlato_ResourceGroupTester_h
 
 #include <QObject>
 
-#include "ResourceGroupItemModel.h"
-
-#include "kptproject.h"
-#include "kptdatetime.h"
-
 namespace KPlato
 {
+class ResourceGroup;
+class Project;
 
-class Task;
-
-class ResourceGroupModelTester : public QObject
+class ResourceGroupTester : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
-    void init();
-    void cleanup();
-    
-    void groups();
+    void topLevelGroups();
     void childGroups();
     void resources();
 
 private:
-    Project *m_project;
-    Calendar *m_calendar;
-    Task *m_task;
-    Resource *m_resource;
-
-    ResourceGroupItemModel m_model;
-
+    ResourceGroup *createResourceGroup(Project &project, const QString name, ResourceGroup *parent = nullptr);
 };
 
 } //namespace KPlato

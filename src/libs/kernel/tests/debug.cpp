@@ -99,12 +99,27 @@ QString printAvailable(Resource *r, const QString &lead = QString()) {
     return sl.join(" ");
 }
 static
-void print(ResourceGroup *g, const QString &str, bool full = true) {
-    qDebug()<<"Debug info: Group"<<g->name()<<g->numResources()<<"id:"<<g->id()<<str;
-    for (Resource *r : g->resources()) {
-        qDebug()<<"  "<<r->name()<<r->id();
+void print(ResourceGroup *group, bool full = true, const QString indent = QString()) {
+    qDebug()<<indent<<group->name()<<"id:"<<group->id()<<"parent:"<<group->parentGroup();
+    qDebug()<<(indent+"  ")<<"Resources:"<<group->numResources();
+    if (full) {
+        for (Resource *r : group->resources()) {
+            qDebug()<<(indent+"    ")<<r->name()<<r->id();
+        }
+    }
+    qDebug()<<(indent+"  ")<<"Resource groups:"<<group->numChildGroups();
+    if (full) {
+        for (ResourceGroup *g : group->childGroups()) {
+            print(g, true, indent + "   ");
+        }
     }
 }
+static
+void print(ResourceGroup *group, const QString &str, bool full = true) {
+    qDebug()<<"Debug info: Group"<<str;
+    print(group, full, "  ");
+}
+
 static
 void print(Resource *r, const QString &str, bool full = true) {
     qDebug()<<"Debug info: Resource"<<r->name()<<"id:"<<r->id()<<(void*)r<<str;
@@ -184,14 +199,9 @@ void print(Project *p, const QString &str, bool all = false) {
     if (! all) {
         return;
     }
-
-    if (p->resourceGroups().isEmpty()) {
-        qDebug()<<"  No resource groups";
-    } else {
-        for (ResourceGroup *g : p->resourceGroups()) {
-            qDebug();
-            print(g, "", true);
-        }
+    qDebug()<<"  "<<"Resource groups:"<<p->resourceGroupCount();
+    for (ResourceGroup *g : p->resourceGroups()) {
+        print(g, true, "  ");
     }
     if (p->resourceList().isEmpty()) {
         qDebug()<<"  No resources";

@@ -4,6 +4,7 @@
     <MenuBar>
         <Menu name="edit">
             <Action name="add_group"/>
+            <Action name="add_subgroup"/>
             <Action name="delete_selection"/>
         </Menu>
         <Menu name="view">
@@ -24,6 +25,7 @@
     </MenuBar>
     <ToolBar name="project">
         <Action name="add_group"/>
+        <Action name="add_subgroup"/>
         <Action name="delete_selection"/>
     </ToolBar>
 </gui>

@@ -982,6 +982,7 @@ private:
 class PLANKERNEL_EXPORT RemoveResourceGroupCmd : public NamedCommand
 {
 public:
+    RemoveResourceGroupCmd(Project *project, ResourceGroup *parent, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString());
     RemoveResourceGroupCmd(Project *project, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString());
     ~RemoveResourceGroupCmd() override;
     void execute() override;
@@ -990,6 +991,7 @@ public:
 protected:
     ResourceGroup *m_group;
     Project *m_project;
+    ResourceGroup *m_parent;
     int m_index;
     bool m_mine;
     MacroCommand cmd;
@@ -998,6 +1000,7 @@ protected:
 class PLANKERNEL_EXPORT AddResourceGroupCmd : public RemoveResourceGroupCmd
 {
 public:
+    AddResourceGroupCmd(Project *project, ResourceGroup *parent, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString());
     AddResourceGroupCmd(Project *project, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;

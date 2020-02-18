@@ -1948,45 +1948,80 @@ void Project::setParentSchedule(Schedule *sch)
     }
 }
 
-void Project::addResourceGroup(ResourceGroup *group, int index)
+void Project::addResourceGroup(ResourceGroup *group, ResourceGroup *parent, int index)
 {
-    int i = index == -1 ? m_resourceGroups.count() : index;
-    emit resourceGroupToBeAdded(this, i);
-    m_resourceGroups.insert(i, group);
-    setResourceGroupId(group);
-    group->setProject(this);
-    foreach (Resource *r, group->resources()) {
-        setResourceId(r);
-        r->setProject(this);
+    if (parent) {
+        setResourceGroupId(group);
+        parent->addChildGroup(group, index);
+    } else {
+        Q_ASSERT(!m_resourceGroups.contains(group));
+        int i = index == -1 ? m_resourceGroups.count() : index;
+        emit resourceGroupToBeAdded(this, i);
+        m_resourceGroups.insert(i, group);
+        setResourceGroupId(group);
+        group->setProject(this);
+        foreach (Resource *r, group->resources()) {
+            setResourceId(r);
+            r->setProject(this);
+        }
+        emit resourceGroupAdded(group);
     }
-    emit resourceGroupAdded(group);
     emit projectChanged();
 }
 
-ResourceGroup *Project::takeResourceGroup(ResourceGroup *group)
+void Project::takeResourceGroup(ResourceGroup *group)
 {
-    int i = m_resourceGroups.indexOf(group);
-    Q_ASSERT(i != -1);
-    if (i == -1) {
-        return 0;
+    ResourceGroup *parent = group->parentGroup();
+    if (parent) {
+        removeResourceGroupId(group->id(), group);
+        parent->removeChildGroup(group);
+        for (Resource *r : group->resources()) {
+            r->removeParentGroup(group);
+        }
+    } else {
+        removeResourceGroupId(group->id());
+        int i = m_resourceGroups.indexOf(group);
+        if (i == -1) {
+            return;
+        }
+        emit resourceGroupToBeRemoved(this, i, group);
+        ResourceGroup *g = m_resourceGroups.takeAt(i);
+        Q_ASSERT(group == g);
+        g->setProject(nullptr);
+        foreach (Resource *r, g->resources()) {
+            r->removeParentGroup(g);
+        }
+        emit resourceGroupRemoved();
     }
-    emit resourceGroupToBeRemoved(this, i, group);
-    ResourceGroup *g = m_resourceGroups.takeAt(i);
-    Q_ASSERT(group == g);
-    g->setProject(0);
-    removeResourceGroupId(g->id());
-    foreach (Resource *r, g->resources()) {
-        r->removeParentGroup(g);
-    }
-    emit resourceGroupRemoved();
     emit projectChanged();
-    return g;
 }
 
 QList<ResourceGroup*> &Project::resourceGroups()
 {
     return m_resourceGroups;
 }
+
+void Project::removeResourceGroupId(const QString &id, ResourceGroup *group)
+{
+    if (resourceGroupIdDict.contains(id)) {
+        resourceGroupIdDict.remove(id);
+    }
+    if (group) {
+        for (ResourceGroup *g : group->childGroups()) {
+            removeResourceGroupId(g->id(), g);
+        }
+    }
+    return;
+}
+
+void Project::insertResourceGroupId(const QString &id, ResourceGroup* group)
+{
+    resourceGroupIdDict.insert(id, group);
+    for (ResourceGroup *g : group->childGroups()) {
+        insertResourceGroupId(g->id(), g);
+    }
+}
+
 
 void Project::addResource(Resource *resource, int index)
 {

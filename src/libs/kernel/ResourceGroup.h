@@ -83,7 +83,7 @@ public:
     QString id() const { return m_id; }
     void setId(const QString& id);
 
-    Project *project() { return m_project; }
+    Project *project() const;
 
     void setName(const QString& n);
     const QString &name() const { return m_name;}
@@ -97,6 +97,16 @@ public:
 
     /// Return true if any resource in this group is baselined
     bool isBaselined(long id = BASELINESCHEDULE) const;
+
+    ResourceGroup *parentGroup() const;
+    void setParentGroup(ResourceGroup *parent);
+
+    int indexOf(ResourceGroup *group) const;
+    int numChildGroups() const;
+    void addChildGroup(ResourceGroup *group, int row = -1);
+    ResourceGroup *childGroupAt(int i) const;
+    QList<ResourceGroup*> childGroups() const;
+    void removeChildGroup(ResourceGroup *group);
 
     /** Manage the resources in this list
      * <p>At some point we will have to look at not mixing types of resources
@@ -151,8 +161,8 @@ public:
 
     ResourceGroup *findId() const { return findId(m_id); }
     ResourceGroup *findId(const QString &id) const;
-    bool removeId() { return removeId(m_id); }
-    bool removeId(const QString &id);
+    void removeId() { return removeId(m_id); }
+    void removeId(const QString &id);
     void insertId(const QString &id);
 
     Appointment appointmentIntervals() const;
@@ -181,6 +191,11 @@ public:
 Q_SIGNALS:
     void dataChanged(KPlato::ResourceGroup *group);
 
+    void groupToBeAdded(KPlato::ResourceGroup *group, int row);
+    void groupAdded(KPlato::ResourceGroup *child);
+    void groupToBeRemoved(KPlato::ResourceGroup *group, int row, KPlato::ResourceGroup *child);
+    void groupRemoved();
+
     void resourceToBeAdded(KPlato::ResourceGroup *group, int row);
     void resourceAdded(KPlato::Resource *resource);
     void resourceToBeRemoved(KPlato::ResourceGroup *group, int row, KPlato::Resource *resource);
@@ -193,6 +208,8 @@ private:
     Project *m_project;
     QString m_id;   // unique id
     QString m_name;
+    ResourceGroup *m_parent;
+    QList<ResourceGroup*> m_childGroups;
     QList<Resource*> m_resources;
     QList<Risk*> m_risks;
     QList<ResourceGroup*> m_requires;
@@ -207,5 +224,7 @@ private:
 };
 
 } // namespace KPlato
+
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::ResourceGroup *g);
 
 #endif
