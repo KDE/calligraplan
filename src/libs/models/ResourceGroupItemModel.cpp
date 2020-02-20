@@ -111,11 +111,11 @@ void ResourceGroupItemModel::slotResourceRemoved()
     }
 }
 
-void ResourceGroupItemModel::slotResourceGroupToBeAdded(Project *project, int row)
+void ResourceGroupItemModel::slotResourceGroupToBeAdded(Project *project, ResourceGroup *parent, int row)
 {
     Q_UNUSED(project)
     debugPlan<<row;
-    beginInsertRows(QModelIndex(), row, row);
+    beginInsertRows(index(parent), row, row);
 }
 
 void ResourceGroupItemModel::slotResourceGroupAdded(ResourceGroup *group)
@@ -125,10 +125,10 @@ void ResourceGroupItemModel::slotResourceGroupAdded(ResourceGroup *group)
     endInsertRows();
 }
 
-void ResourceGroupItemModel::slotResourceGroupToBeRemoved(Project *project, int row, ResourceGroup *group)
+void ResourceGroupItemModel::slotResourceGroupToBeRemoved(Project *project, ResourceGroup *parent, int row, ResourceGroup *group)
 {
     Q_UNUSED(project)
-    beginRemoveRows(QModelIndex(), row, row);
+    beginRemoveRows(index(parent), row, row);
     connectSignals(group, false);
 }
 
@@ -160,11 +160,11 @@ void ResourceGroupItemModel::setProject(Project *project)
         connect(m_project, &Project::aboutToBeDeleted, this, &ResourceGroupItemModel::projectDeleted);
         connect(m_project, &Project::localeChanged, this, &ResourceGroupItemModel::slotLayoutChanged);
 
-        connect(m_project, &Project::resourceGroupChanged, this, &ResourceGroupItemModel::slotResourceGroupChanged);
-        connect(m_project, &Project::resourceGroupToBeAdded, this, &ResourceGroupItemModel::slotResourceGroupToBeAdded);
-        connect(m_project, &Project::resourceGroupAdded, this, &ResourceGroupItemModel::slotResourceGroupAdded);
-        connect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceGroupItemModel::slotResourceGroupToBeRemoved);
-        connect(m_project, &Project::resourceGroupRemoved, this, &ResourceGroupItemModel::slotResourceGroupRemoved);
+        connect(m_project, &Project::resourceGroupChanged, this, &ResourceGroupItemModel::slotResourceGroupChanged, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+        connect(m_project, &Project::resourceGroupToBeAdded, this, &ResourceGroupItemModel::slotResourceGroupToBeAdded, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+        connect(m_project, &Project::resourceGroupAdded, this, &ResourceGroupItemModel::slotResourceGroupAdded, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+        connect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceGroupItemModel::slotResourceGroupToBeRemoved, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+        connect(m_project, &Project::resourceGroupRemoved, this, &ResourceGroupItemModel::slotResourceGroupRemoved, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
 
         for (ResourceGroup *g : m_project->resourceGroups()) {
             connectSignals(g, true);
@@ -178,15 +178,20 @@ void ResourceGroupItemModel::setProject(Project *project)
 void ResourceGroupItemModel::connectSignals(ResourceGroup *group, bool enable)
 {
     if (enable) {
-        connect(group, &ResourceGroup::resourceToBeAdded, this, &ResourceGroupItemModel::slotResourceToBeAdded);
-        connect(group, &ResourceGroup::resourceAdded, this, &ResourceGroupItemModel::slotResourceAdded);
-        connect(group, &ResourceGroup::resourceToBeRemoved, this, &ResourceGroupItemModel::slotResourceToBeRemoved);
-        connect(group, &ResourceGroup::resourceRemoved, this, &ResourceGroupItemModel::slotResourceRemoved);
+        connect(group, &ResourceGroup::dataChanged, this, &ResourceGroupItemModel::slotResourceGroupChanged, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+        connect(group, &ResourceGroup::groupToBeAdded, this, &ResourceGroupItemModel::slotResourceGroupToBeAdded, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+        connect(group, &ResourceGroup::groupAdded, this, &ResourceGroupItemModel::slotResourceGroupAdded, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+        connect(group, &ResourceGroup::groupToBeRemoved, this, &ResourceGroupItemModel::slotResourceGroupToBeRemoved, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
+        connect(group, &ResourceGroup::groupRemoved, this, &ResourceGroupItemModel::slotResourceGroupRemoved, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
     } else {
-        disconnect(group, &ResourceGroup::resourceToBeAdded, this, &ResourceGroupItemModel::slotResourceToBeAdded);
-        disconnect(group, &ResourceGroup::resourceAdded, this, &ResourceGroupItemModel::slotResourceAdded);
-        disconnect(group, &ResourceGroup::resourceToBeRemoved, this, &ResourceGroupItemModel::slotResourceToBeRemoved);
-        disconnect(group, &ResourceGroup::resourceRemoved, this, &ResourceGroupItemModel::slotResourceRemoved);
+        disconnect(group, &ResourceGroup::dataChanged, this, &ResourceGroupItemModel::slotResourceGroupChanged);
+        disconnect(group, &ResourceGroup::groupToBeAdded, this, &ResourceGroupItemModel::slotResourceGroupToBeAdded);
+        disconnect(group, &ResourceGroup::groupAdded, this, &ResourceGroupItemModel::slotResourceGroupAdded);
+        disconnect(group, &ResourceGroup::groupToBeRemoved, this, &ResourceGroupItemModel::slotResourceGroupToBeRemoved);
+        disconnect(group, &ResourceGroup::groupRemoved, this, &ResourceGroupItemModel::slotResourceGroupRemoved);
+    }
+    for (ResourceGroup *g : group->childGroups()) {
+        connectSignals(g, enable);
     }
     for (Resource *r : group->resources()) {
         connectSignals(r, enable);

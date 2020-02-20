@@ -191,9 +191,9 @@ public:
 Q_SIGNALS:
     void dataChanged(KPlato::ResourceGroup *group);
 
-    void groupToBeAdded(KPlato::ResourceGroup *group, int row);
+    void groupToBeAdded(KPlato::Project *project, KPlato::ResourceGroup *parent, int row);
     void groupAdded(KPlato::ResourceGroup *child);
-    void groupToBeRemoved(KPlato::ResourceGroup *group, int row, KPlato::ResourceGroup *child);
+    void groupToBeRemoved(KPlato::Project *project, KPlato::ResourceGroup *parent, int row, KPlato::ResourceGroup *group);
     void groupRemoved();
 
     void resourceToBeAdded(KPlato::ResourceGroup *group, int row);

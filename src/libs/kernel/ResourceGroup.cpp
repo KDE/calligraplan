@@ -205,7 +205,7 @@ void ResourceGroup::addChildGroup(ResourceGroup *group, int row)
 {
     Q_ASSERT(!m_childGroups.contains(group));
     int pos = row < 0 ? m_childGroups.count() : row;
-    emit groupToBeAdded(this, pos);
+    emit groupToBeAdded(project(), this, pos);
     m_childGroups.insert(pos, group);
     group->setParentGroup(this);
     emit groupAdded(group);
@@ -224,7 +224,7 @@ QList<ResourceGroup*> ResourceGroup::childGroups() const
 void ResourceGroup::removeChildGroup(ResourceGroup *child)
 {
     int row = m_childGroups.indexOf(child);
-    emit groupToBeRemoved(this, row, child);
+    emit groupToBeRemoved(project(), this, row, child);
     m_childGroups.removeOne(child);
     child->setParentGroup(nullptr);
     emit groupRemoved();

@@ -119,9 +119,9 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     void slotResourceGroupChanged(KPlato::ResourceGroup *group);
-    void slotResourceGroupToBeAdded(Project *project, int row);
+    void slotResourceGroupToBeAdded(Project *project, ResourceGroup *parent, int row);
     void slotResourceGroupAdded(KPlato::ResourceGroup *group);
-    void slotResourceGroupToBeRemoved(Project *project, int row, KPlato::ResourceGroup *group);
+    void slotResourceGroupToBeRemoved(Project *project, ResourceGroup *parent, int row, KPlato::ResourceGroup *group);
     void slotResourceGroupRemoved();
 
     void slotResourceChanged(KPlato::Resource *resource);

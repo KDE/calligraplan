@@ -1956,7 +1956,7 @@ void Project::addResourceGroup(ResourceGroup *group, ResourceGroup *parent, int 
     } else {
         Q_ASSERT(!m_resourceGroups.contains(group));
         int i = index == -1 ? m_resourceGroups.count() : index;
-        emit resourceGroupToBeAdded(this, i);
+        emit resourceGroupToBeAdded(this, nullptr, i);
         m_resourceGroups.insert(i, group);
         setResourceGroupId(group);
         group->setProject(this);
@@ -1984,7 +1984,7 @@ void Project::takeResourceGroup(ResourceGroup *group)
         if (i == -1) {
             return;
         }
-        emit resourceGroupToBeRemoved(this, i, group);
+        emit resourceGroupToBeRemoved(this, nullptr, i, group);
         ResourceGroup *g = m_resourceGroups.takeAt(i);
         Q_ASSERT(group == g);
         g->setProject(nullptr);

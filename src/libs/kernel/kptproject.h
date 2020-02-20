@@ -583,9 +583,9 @@ Q_SIGNALS:
     void documentChanged(KPlato::Node*, KPlato::Document*, int index);
 
     void resourceGroupChanged(ResourceGroup *group);
-    void resourceGroupToBeAdded(Project *project, int row);
+    void resourceGroupToBeAdded(Project *project, ResourceGroup *parent, int row);
     void resourceGroupAdded(KPlato::ResourceGroup *group);
-    void resourceGroupToBeRemoved(Project *project, int row, KPlato::ResourceGroup *group);
+    void resourceGroupToBeRemoved(KPlato::Project *project, KPlato::ResourceGroup *parent, int row, KPlato::ResourceGroup *group);
     void resourceGroupRemoved();
 
     void resourceChanged(Resource *resource);

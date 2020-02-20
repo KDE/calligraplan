@@ -57,7 +57,6 @@ ResourceGroupTreeView::ResourceGroupTreeView(QWidget *parent)
     setDragPixmap(koIcon("resource-group").pixmap(32));
 //    header()->setContextMenuPolicy(Qt::CustomContextMenu);
     setStretchLastSection(false);
-    setRootIsDecorated(false);
     ResourceGroupItemModel *m = new ResourceGroupItemModel(this);
     m->setResourcesEnabled(true);
     setModel(m);
