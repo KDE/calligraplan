@@ -294,12 +294,12 @@ void ResourceGroupEditor::setupGui()
 {
     actionAddGroup = new QAction(koIcon("resource-group-new"), i18n("Add Resource Group"), this);
     actionCollection()->addAction("add_group", actionAddGroup);
-    actionCollection()->setDefaultShortcut(actionAddGroup, Qt::Key_Insert);
+    actionCollection()->setDefaultShortcut(actionAddGroup, Qt::CTRL + Qt::Key_I);
     connect(actionAddGroup, &QAction::triggered, this, &ResourceGroupEditor::slotAddGroup);
 
     actionAddSubGroup = new QAction(koIcon("resource-group-new"), i18n("Add Child Resource Group"), this);
     actionCollection()->addAction("add_subgroup", actionAddSubGroup);
-    actionCollection()->setDefaultShortcut(actionAddSubGroup, Qt::SHIFT + Qt::Key_Insert);
+    actionCollection()->setDefaultShortcut(actionAddSubGroup, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
     connect(actionAddSubGroup, &QAction::triggered, this, &ResourceGroupEditor::slotAddSubGroup);
     
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
