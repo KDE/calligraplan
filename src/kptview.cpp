@@ -676,7 +676,7 @@ ViewInfo View::defaultViewInfo(const QString &type) const
         vi.name = i18n("Cost Breakdown Structure");
         vi.tip = xi18nc("@info:tooltip", "Edit cost breakdown structure.");
     } else if (type == "ResourceGroupEditor") {
-        vi.name = i18n("Resource groups");
+        vi.name = i18n("Resource Breakdown Structure");
         vi.tip = xi18nc("@info:tooltip", "Edit resource breakdown structure");
     } else if (type == "ResourceEditor") {
         vi.name = i18n("Resources");

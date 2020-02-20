@@ -151,14 +151,12 @@ ResourceGroupEditor::ResourceGroupEditor(KoPart *part, KoDocument *doc, QWidget 
 
     Help::add(this,
         xi18nc("@info:whatsthis", 
-               "<title>Resource Editor</title>"
+               "<title>Resource Breakdown Structure</title>"
                "<para>"
-               "Resources are organized in a Resource Breakdown Structure. "
-               "Resources can be of type <emphasis>Work</emphasis> or <emphasis>Material</emphasis>. "
-               "When assigned to a task, a resource of type <emphasis>Work</emphasis> can affect the duration of the task, while a resource of type <emphasis>Material</emphasis> does not. "
-               "A resource must refer to a <emphasis>Calendar</emphasis> defined in the <emphasis>Work and Vacation Editor</emphasis>."
+               "Resources can be organized in a Resource Breakdown Structure. "
+               "The structure is purely organizational and has no impact on resource allocations."
                "<nl/><link url='%1'>More...</link>"
-               "</para>", Help::page("Resource_Editor")));
+               "</para>", Help::page("Resource_Breakdown_Structure")));
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
