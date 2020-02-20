@@ -169,7 +169,7 @@ ResourceGroupEditor::ResourceGroupEditor(KoPart *part, KoDocument *doc, QWidget 
 
     l->addWidget(m_view);
     setupGui();
-    
+
     m_view->setEditTriggers(m_view->editTriggers() | QAbstractItemView::EditKeyPressed);
     m_view->setDragDropMode(QAbstractItemView::DragDrop);
     m_view->setDropIndicatorShown(true);
@@ -179,15 +179,13 @@ ResourceGroupEditor::ResourceGroupEditor(KoPart *part, KoDocument *doc, QWidget 
 
 
     QList<int> lst1; lst1 << 1 << -1;
-    QList<int> lst2; lst2 << 0 << ResourceModel::ResourceOvertimeRate;
+    QList<int> lst2; lst2 << 0;
     m_view->hideColumns(lst1, lst2);
-    
+
     m_view->masterView()->setDefaultColumns(QList<int>() << 0);
     QList<int> show;
     for (int c = 1; c < model()->columnCount(); ++c) {
-        if (c != ResourceModel::ResourceOvertimeRate) {
-            show << c;
-        }
+        show << c;
     }
     m_view->slaveView()->setDefaultColumns(show);
 
@@ -227,6 +225,7 @@ void ResourceGroupEditor::setGuiActive(bool activate)
 
 void ResourceGroupEditor::slotContextMenuRequested(const QModelIndex &index, const QPoint& pos)
 {
+    qInfo()<<Q_FUNC_INFO<<m_view->masterView()->visualColumns();
     //debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
     QString name;
     if (index.isValid()) {
