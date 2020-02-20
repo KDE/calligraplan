@@ -334,8 +334,10 @@ void ResourceGroupEditor::slotOptions()
 void ResourceGroupEditor::slotAddGroup()
 {
     //debugPlan;
+    ResourceGroup *current = currentResourceGroup();
+    ResourceGroup *parent = current ? current->parentGroup() : nullptr;
     ResourceGroup *g = new ResourceGroup();
-    QModelIndex i = m_view->model()->insertGroup(g);
+    QModelIndex i = m_view->model()->insertGroup(g, parent);
     if (i.isValid()) {
         m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
         m_view->edit(i);
