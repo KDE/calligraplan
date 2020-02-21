@@ -95,6 +95,7 @@ protected Q_SLOTS:
 
 protected:
     void updateActionsEnabled(bool on = true);
+    void createDockers();
 
 private Q_SLOTS:
     void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);

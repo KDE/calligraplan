@@ -22,7 +22,9 @@
 // clazy:excludeall=qstring-arg
 #include "ResourceGroupEditor.h"
 
+#include "ResourceGroupDocker.h"
 #include "ResourceGroupItemModel.h"
+#include "ResourceItemModel.h"
 #include "kptcommand.h"
 #include "kptitemmodelbase.h"
 #include "kptcalendar.h"
@@ -47,6 +49,7 @@
 
 #include <KLocalizedString>
 #include <kactioncollection.h>
+#include <KCheckableProxyModel>
 
 using namespace KPlato;
 
@@ -197,6 +200,7 @@ ResourceGroupEditor::ResourceGroupEditor(KoPart *part, KoDocument *doc, QWidget 
     
     connect(m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
 
+    createDockers();
 }
 
 void ResourceGroupEditor::updateReadWrite(bool readwrite)
@@ -388,4 +392,11 @@ KoPrintJob *ResourceGroupEditor::createPrintJob()
 void ResourceGroupEditor::slotEditCopy()
 {
     m_view->editCopy();
+}
+
+void ResourceGroupEditor::createDockers()
+{
+    // Add dockers
+    DockWidget *ds = new ResourceGroupDocker(m_view->selectionModel(), this, "Resources", xi18nc("@title", "Resources"));
+    addDocker(ds);
 }

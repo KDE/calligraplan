@@ -99,6 +99,7 @@ set(planui_LIB_SRCS
     locale/localemon.cpp
     kptlocaleconfigmoneydialog.cpp
 
+    ResourceGroupDocker.cpp
     ResourceGroupEditor.cpp
     ResourceAllocationView.cpp
     kptresourceeditor.cpp
