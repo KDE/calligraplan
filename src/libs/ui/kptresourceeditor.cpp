@@ -397,7 +397,6 @@ void ResourceEditor::createDockers()
         x->setSelectionMode(QAbstractItemView::ExtendedSelection);
         x->expandAll();
         x->resizeColumnToContents(0);
-        x->setRootIsDecorated(false);
 //         x->setDragDropMode(QAbstractItemView::DragOnly);
 //         x->setDragEnabled (true);
         connect(m1, &ParentGroupItemModel::executeCommand, koDocument(), &KoDocument::addCommand);
