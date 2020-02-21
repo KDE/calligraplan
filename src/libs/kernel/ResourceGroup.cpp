@@ -424,7 +424,7 @@ QDebug operator<<(QDebug dbg, const KPlato::ResourceGroup *g)
 {
     dbg.nospace().noquote()<<"ResourceGroup[";
     if (g) {
-        dbg<<g->name()<<','<<g->id()<<','<<g->numChildGroups();
+        dbg<<'('<<(void*)g<<')'<<g->name()<<','<<g->id()<<','<<g->numChildGroups();
     } else {
         dbg<<(void*)g;
     }
