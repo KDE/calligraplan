@@ -408,7 +408,7 @@ QVariant ResourceModel::headerData(int section, int role)
     if (role == Qt::DisplayRole) {
         switch (section) {
             case ResourceName: return i18n("Name");
-            case ResourceScope: return i18n("Scope");
+            case ResourceScope: return i18n("Origin");
             case ResourceType: return i18n("Type");
             case ResourceInitials: return i18n("Initials");
             case ResourceEmail: return i18n("Email");

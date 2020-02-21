@@ -204,7 +204,7 @@ QVariant ResourceGroupModel::headerData(int section, int role)
     if (role == Qt::DisplayRole) {
         switch (section) {
             case Name: return i18n("Name");
-            case Scope: return i18n("Scope");
+            case Scope: return i18n("Origin");
             case Type: return i18n("Type");
             case Units: return i18n("Units");
             case Coordinator: return i18n("Coordinator");
