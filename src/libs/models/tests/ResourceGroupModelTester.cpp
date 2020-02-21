@@ -75,6 +75,7 @@ void ResourceGroupModelTester::groups()
 
     QCOMPARE(m_project->numResourceGroups(), 0);
     ResourceGroup *g1 = new ResourceGroup();
+    g1->setName("g1");
     AddResourceGroupCmd c1(m_project, g1);
     c1.redo();
     QCOMPARE(m_project->numResourceGroups(), 1);
@@ -86,6 +87,7 @@ void ResourceGroupModelTester::groups()
     QCOMPARE(m_model.rowCount(), 1);
 
     ResourceGroup *g2 = new ResourceGroup();
+    g2->setName("g2");
     AddResourceGroupCmd c2(m_project, g2);
     c2.redo();
     QCOMPARE(m_project->numResourceGroups(), 2);
@@ -98,11 +100,13 @@ void ResourceGroupModelTester::groups()
 
     // resources should not pop up in the model
     Resource *r1 = new Resource();
+    r1->setName("r1");
     AddResourceCmd c11(m_project, r1);
     c11.redo();
     QCOMPARE(m_project->resourceCount(), 1);
     AddParentGroupCmd c12(r1, g1);
     c12.redo();
+    //Debug::print(m_project, "--------", true);
     QModelIndex idx = m_model.index(g1);
     QVERIFY(idx.isValid());
     QCOMPARE(m_model.rowCount(idx), 0);
@@ -228,6 +232,7 @@ void ResourceGroupModelTester::resources()
     AddResourceGroupCmd cg1(m_project, g1);
     cg1.redo();
     QCOMPARE(m_model.rowCount(), 1);
+    QModelIndex idx1 = m_model.index(g1);
 
     AddParentGroupCmd c3(r1, g1);
     c3.redo();
@@ -255,9 +260,15 @@ void ResourceGroupModelTester::resources()
     AddResourceGroupCmd cg11(m_project, g1, g11);
     cg11.redo();
     QModelIndex idx11 = m_model.index(g11);
+    QModelIndex idx12 = idx11.sibling(idx11.row()+1, idx11.column()); // r1
+    QModelIndex idx13 = idx11.sibling(idx12.row()+1, idx11.column()); // r2
     QCOMPARE(m_model.rowCount(m_model.index(g1)), 3); // group + 2 resources
-    QCOMPARE(m_model.resource(idx11.sibling(idx11.row()+1, idx11.column())), r1);
-    QCOMPARE(m_model.resource(idx11.sibling(idx11.row()+2, idx11.column())), r2);
+    QCOMPARE(m_model.resource(idx12), r1);
+    QCOMPARE(m_model.resource(idx13), r2);
+    QCOMPARE(idx11.parent(), idx1);
+    // check if parent of a resource index works
+    QCOMPARE(idx12.parent(), idx1);
+    QCOMPARE(idx13.parent(), idx1);
 
     AddParentGroupCmd c5(r1, g2);
     c5.redo();
