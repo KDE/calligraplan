@@ -51,9 +51,21 @@ int CheckableProxyModel::columnCount(const QModelIndex &idx) const
     return 1;
 }
 
+void CheckableProxyModel::clear(const QModelIndex &parent)
+{
+    for (int r = 0; r < rowCount(parent); ++r) {
+        QModelIndex idx = index(r, 0, parent);
+        if (idx.isValid()) {
+            setData(idx, Qt::Unchecked, Qt::CheckStateRole);
+            clear(idx);
+        }
+    }
+}
+
 ResourceGroupDocker::ResourceGroupDocker(QItemSelectionModel *groupSelection, ViewBase *view, const QString &identity, const QString &title)
     : DockWidget(view, identity, title)
     , m_groupSelection(groupSelection)
+    , m_group(nullptr)
 {
     QTreeView *x = new QTreeView(this);
     x->setModel(&m_checkable);
@@ -75,9 +87,37 @@ void ResourceGroupDocker::setProject(KPlato::Project *project)
     m->setProject(project);
 }
 
-ResourceGroup *ResourceGroupDocker::selectedGroup() const
+void ResourceGroupDocker::setGroup(KPlato::ResourceGroup *group)
 {
-    ResourceGroup *group = nullptr;
+    if (m_group) {
+        disconnect(m_group, &ResourceGroup::resourceAdded, this, &ResourceGroupDocker::updateCheckableModel);
+        disconnect(m_group, &ResourceGroup::resourceRemoved, this, &ResourceGroupDocker::updateCheckableModel);
+    }
+    m_group = group;
+    if (m_group) {
+        connect(m_group, &ResourceGroup::resourceAdded, this, &ResourceGroupDocker::updateCheckableModel);
+        connect(m_group, &ResourceGroup::resourceRemoved, this, &ResourceGroupDocker::updateCheckableModel);
+    }
+    updateCheckableModel();
+}
+
+void ResourceGroupDocker::updateCheckableModel()
+{
+    disconnect(&m_checkable, &CheckableProxyModel::dataChanged, this, &ResourceGroupDocker::slotDataChanged);
+    m_checkable.clear();
+    if (m_group) {
+        ResourceItemModel *m = qobject_cast<ResourceItemModel*>(m_checkable.sourceModel());
+        Q_ASSERT(m);
+        for (Resource *r : m_group->resources()) {
+            const QModelIndex ridx = m_checkable.mapFromSource(m->index(r));
+            m_checkable.setData(ridx, Qt::Checked, Qt::CheckStateRole);
+        }
+        connect(&m_checkable, &CheckableProxyModel::dataChanged, this, &ResourceGroupDocker::slotDataChanged);
+    }
+}
+
+QModelIndex ResourceGroupDocker::selectedGroupIndex() const
+{
     QModelIndexList lst;
     for (const QModelIndex &idx : m_groupSelection->selectedIndexes()) {
         if (idx.column() == 0) {
@@ -85,7 +125,16 @@ ResourceGroup *ResourceGroupDocker::selectedGroup() const
         }
     }
     if (lst.count() == 1) {
-        const QModelIndex idx = lst.at(0);
+        return lst.at(0);
+    }
+    return QModelIndex();
+}
+
+ResourceGroup *ResourceGroupDocker::selectedGroup() const
+{
+    ResourceGroup *group = nullptr;
+    const QModelIndex idx = selectedGroupIndex();
+    if (idx.isValid()) {
         const ResourceGroupItemModel *gm = qobject_cast<const ResourceGroupItemModel*>(idx.model());
         group = gm->group(idx);
     }
@@ -94,42 +143,30 @@ ResourceGroup *ResourceGroupDocker::selectedGroup() const
 
 void ResourceGroupDocker::slotSelectionChanged()
 {
-    m_checkable.selectionModel()->clear();
-    ResourceGroup *group = selectedGroup();
-    if (group) {
-        ResourceItemModel *m = qobject_cast<ResourceItemModel*>(m_checkable.sourceModel());
-        Q_ASSERT(m);
-        for (Resource *r : group->resources()) {
-            const QModelIndex ridx = m_checkable.mapFromSource(m->index(r));
-            m_checkable.setData(ridx, Qt::Checked, Qt::CheckStateRole);
-        }
-    }
+    setGroup(selectedGroup());
 }
 
 void ResourceGroupDocker::slotDataChanged(const QModelIndex &idx1, const QModelIndex &idx2)
 {
-    qInfo()<<Q_FUNC_INFO<<qobject_cast<const CheckableProxyModel*>(idx1.model());
-    ResourceGroup *group = selectedGroup();
-    if (!group) {
-        m_checkable.selectionModel()->clear();
+    Q_UNUSED(idx2);
+    if (!m_group) {
+        m_checkable.clear();
         return;
     }
     int checked = idx1.data(Qt::CheckStateRole).toInt();
     const ResourceItemModel *m = qobject_cast<const ResourceItemModel*>(m_checkable.sourceModel());
-    qInfo()<<Q_FUNC_INFO<<m;
     QModelIndex idx = m_checkable.mapToSource(idx1);
     Resource *resource = m->resource(idx);
     if (!resource) {
         return;
     }
-    if (checked && !group->resources().contains(resource)) {
+    disconnect(&m_checkable, &CheckableProxyModel::dataChanged, this, &ResourceGroupDocker::slotDataChanged);
+    if (checked && !m_group->resources().contains(resource)) {
         KoDocument *doc = view->part();
-        doc->addCommand(new AddParentGroupCmd(resource, group, kundo2_i18n("Add parent group")));
-        return;
-    }
-    if (!checked && group->resources().contains(resource)) {
+        doc->addCommand(new AddParentGroupCmd(resource, m_group, kundo2_i18n("Add parent group")));
+    } else if (!checked && m_group->resources().contains(resource)) {
         KoDocument *doc = view->part();
-        doc->addCommand(new RemoveParentGroupCmd(resource, group, kundo2_i18n("Remove parent group")));
-        return;
+        doc->addCommand(new RemoveParentGroupCmd(resource, m_group, kundo2_i18n("Remove parent group")));
     }
+    connect(&m_checkable, &CheckableProxyModel::dataChanged, this, &ResourceGroupDocker::slotDataChanged);
 }
