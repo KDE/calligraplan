@@ -66,6 +66,9 @@ namespace KPlato
 // sort indexes the way they are displayed
 void sort(const QTreeView *view, QModelIndexList &list)
 {
+    if (list.count() <= 1) {
+        return;
+    }
     QModelIndexList i; i << list.takeFirst();
     for (QModelIndex idx = view->indexAbove(i.first()); idx.isValid() && !list.isEmpty(); idx = view->indexAbove(idx)) {
         if (list.contains(idx)) {
@@ -2745,11 +2748,11 @@ void DoubleTreeViewBase::setContextMenuIndex(const QModelIndex &idx)
 QMimeData *DoubleTreeViewBase::mimeData() const
 {
     QModelIndexList rows = selectionModel()->selectedRows();
-    sort(m_leftview, rows);
     if (rows.isEmpty()) {
         debugPlan<<"No rows selected";
         return 0;
     }
+    sort(m_leftview, rows);
     QList<int> columns;;
     columns = m_leftview->visualColumns() + m_rightview->visualColumns();
     QModelIndexList indexes;
