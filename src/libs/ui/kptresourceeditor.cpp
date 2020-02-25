@@ -402,7 +402,7 @@ void ResourceEditor::createDockers()
     // Add dockers
     DockWidget *ds = nullptr;
     {
-        ds = new DockWidget(this, "Resource groups", xi18nc("@title", "Resource groups"));
+        ds = new DockWidget(this, "Resource Groups", xi18nc("@title", "Resource Groups"));
         QTreeView *x = new QTreeView(ds);
         ParentGroupItemModel *m1 = new ParentGroupItemModel(x);
         m1->setGroupIsCheckable(true);
