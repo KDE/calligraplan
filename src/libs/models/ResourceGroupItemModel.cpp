@@ -515,7 +515,7 @@ Resource *ResourceGroupItemModel::resource(const QModelIndex &index) const
         return nullptr;
     }
     int row = index.row() - parent->numChildGroups();
-    return m_project->resourceAt(row);
+    return parent->resourceAt(row);
 }
 
 void ResourceGroupItemModel::slotResourceChanged(Resource *res)
