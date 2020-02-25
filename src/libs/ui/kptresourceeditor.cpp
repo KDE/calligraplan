@@ -47,6 +47,7 @@
 
 #include <KLocalizedString>
 #include <kactioncollection.h>
+#include <KDescendantsProxyModel>
 
 using namespace KPlato;
 
@@ -345,7 +346,11 @@ void ResourceEditor::slotAddResource()
 
 void ResourceEditor::slotDeleteSelection()
 {
-    QObjectList lst = m_view->selectedObjects();
+    QObjectList lst;
+    // FIXME: Temporary to make the old code in kptview work
+    for (Resource *r : m_view->selectedResources()) {
+        lst << r;
+    }
     //debugPlan<<lst.count()<<" objects";
     if (! lst.isEmpty()) {
         emit deleteObjectList(lst);
@@ -390,9 +395,13 @@ void ResourceEditor::createDockers()
         QTreeView *x = new QTreeView(ds);
         ParentGroupItemModel *m1 = new ParentGroupItemModel(x);
         m1->setGroupIsCheckable(true);
-        x->setModel(m1);
+        m1->setResourcesEnabled(false);
+        KDescendantsProxyModel *m2 = new KDescendantsProxyModel(x);
+        m2->setSourceModel(m1);
+        x->setModel(m2);
         m1->setProject(project());
-        //     x->setHeaderHidden(true);
+        x->setRootIsDecorated(false);
+        x->setHeaderHidden(true);
         x->setSelectionBehavior(QAbstractItemView::SelectRows);
         x->setSelectionMode(QAbstractItemView::ExtendedSelection);
         x->expandAll();
