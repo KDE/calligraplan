@@ -171,7 +171,7 @@ void Resource::blockChanged(bool on)
 
 void Resource::changed()
 {
-    if (m_blockChanged) {
+    if (!m_blockChanged) {
         emit dataChanged(this);
         if (m_project) {
             emit m_project->resourceChanged(this);
@@ -1344,10 +1344,14 @@ QStringList Resource::teamMemberIds() const
 
 void Resource::addTeamMemberId(const QString &id)
 {
-    if (! id.isEmpty() && ! m_teamMembers.contains(id)) {
-        emit teamToBeAdded(this, m_teamMembers.count());
+    if (!id.isEmpty() && !m_teamMembers.contains(id)) {
+        if (m_project) {
+            emit teamToBeAdded(this, m_teamMembers.count());
+        }
         m_teamMembers.append(id);
-        emit teamAdded(teamMembers().last());
+        if (m_project) {
+            emit teamAdded(teamMembers().last());
+        }
     }
 }
 
