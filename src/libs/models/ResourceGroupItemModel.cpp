@@ -540,8 +540,8 @@ Qt::DropActions ResourceGroupItemModel::supportedDropActions() const
 
 bool ResourceGroupItemModel::dropAllowed(const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data)
 {
-    if (data->hasFormat("application/x-vnd.kde.plan.resourceitemmodel.internal")) {
-        QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourceitemmodel.internal");
+    if (data->hasFormat("application/x-vnd.kde.plan.resourcegroupitemmodel.internal")) {
+        QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
         int i = 0;
         foreach (Resource *r, resourceList(stream)) {
@@ -570,7 +570,7 @@ QStringList ResourceGroupItemModel::mimeTypes() const
             << "text/directory"
             << "text/uri-list"
 #endif
-            << "application/x-vnd.kde.plan.resourceitemmodel.internal";
+            << "application/x-vnd.kde.plan.resourcegroupitemmodel.internal";
 }
 
 void ResourceGroupItemModel::slotDataArrived(KIO::Job *job, const QByteArray &data)
@@ -653,11 +653,11 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
         return false;
     }
     debugPlan<<data->formats()<<g->name();
-    if (data->hasFormat("application/x-vnd.kde.plan.resourceitemmodel.internal")) {
+    if (data->hasFormat("application/x-vnd.kde.plan.resourcegroupitemmodel.internal")) {
         debugPlan<<action<<Qt::MoveAction;
         if (action == Qt::MoveAction) {
             MacroCommand *m = 0;
-            QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourceitemmodel.internal");
+            QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
             foreach (Resource *r, resourceList(stream)) {
@@ -678,7 +678,7 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
         }
         if (action == Qt::CopyAction) {
             MacroCommand *m = 0;
-            QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourceitemmodel.internal");
+            QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
             foreach (Resource *r, resourceList(stream)) {
@@ -780,7 +780,7 @@ QMimeData *ResourceGroupItemModel::mimeData(const QModelIndexList & indexes) con
         }
     }
     if (!rows.isEmpty()) {
-        m->setData("application/x-vnd.kde.plan.resourceitemmodel.internal", encodedData);
+        m->setData("application/x-vnd.kde.plan.resourcegroupitemmodel.internal", encodedData);
     }
     return m;
 }
