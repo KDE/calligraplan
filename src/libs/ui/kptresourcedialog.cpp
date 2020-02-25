@@ -63,7 +63,7 @@ ResourceDialogImpl::ResourceDialogImpl(const Project &project, Resource &resourc
     QStandardItemModel *m = new QStandardItemModel(ui_teamView);
     pr->setSourceModel(new QStandardItemModel(ui_teamView));
     ui_teamView->setModel(m);
-    m->setHorizontalHeaderLabels(QStringList() << xi18nc("title:column", "Select team members") << xi18nc("title:column", "Group"));
+    m->setHorizontalHeaderLabels(QStringList() << xi18nc("title:column", "Select team members") << xi18nc("title:column", "Groups"));
     foreach (Resource *r, m_project.resourceList()) {
         if (r->type() != Resource::Type_Work || r->id() == m_resource.id()) {
             continue;
@@ -94,7 +94,6 @@ ResourceDialogImpl::ResourceDialogImpl(const Project &project, Resource &resourc
     slotTypeChanged(resource.type());
     connect(m, &QAbstractItemModel::dataChanged, this, &ResourceDialogImpl::slotTeamChanged);
 
-    connect(group, SIGNAL(activated(int)), SLOT(slotChanged()));
     connect(type, SIGNAL(activated(int)), SLOT(slotTypeChanged(int)));
     connect(units, SIGNAL(valueChanged(int)), SLOT(slotChanged()));
     connect(nameEdit, &QLineEdit::textChanged, this, &ResourceDialogImpl::slotChanged);
@@ -254,17 +253,6 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
     setMainWidget(dia);
     KoDialog::enableButtonOk(false);
 
-    if (resource->parentGroups().value(0) == 0) {
-        //HACK to handle calls from ResourcesPanel
-        dia->groupLabel->hide();
-        dia->group->hide();
-    } else {
-        foreach (ResourceGroup *g, project.resourceGroups()) {
-            m_groups.insert(g->name(), g);
-        }
-        dia->group->addItems(m_groups.keys());
-        dia->group->setCurrentIndex(m_groups.values().indexOf(resource->parentGroups().value(0))); // clazy:exclude=container-anti-pattern
-    }
     dia->nameEdit->setText(resource->name());
     dia->initialsEdit->setText(resource->initials());
     dia->emailEdit->setText(resource->email());
@@ -356,11 +344,8 @@ void ResourceDialog::slotButtonClicked(int button) {
     }
 }
 
-void ResourceDialog::slotOk() {
-    if (! m_groups.isEmpty()) {
-        //HACK to handle calls from ResourcesPanel
-        m_resource.addParentGroup(m_groups.value(dia->group->currentText()));
-    }
+void ResourceDialog::slotOk()
+{
     m_resource.setName(dia->nameEdit->text());
     m_resource.setInitials(dia->initialsEdit->text());
     m_resource.setEmail(dia->emailEdit->text());
@@ -399,10 +384,6 @@ MacroCommand *ResourceDialog::buildCommand() {
 MacroCommand *ResourceDialog::buildCommand(Resource *original, Resource &resource) {
     MacroCommand *m=0;
     KUndo2MagicString n = kundo2_i18n("Modify Resource");
-    if (resource.parentGroups().value(0) != 0 && resource.parentGroups().value(0) != original->parentGroups().value(0)) {
-        if (!m) m = new MacroCommand(n);
-        m->addCommand(new MoveResourceCmd(resource.parentGroups().value(0), original));
-    }
     if (resource.name() != original->name()) {
         if (!m) m = new MacroCommand(n);
         m->addCommand(new ModifyResourceNameCmd(original, resource.name()));
