@@ -871,7 +871,7 @@ ViewBase *View::createResourceGroupEditor(ViewListItem *cat, const QString &tag,
     
     connect(e, &ViewBase::guiActivated, this, &View::slotGuiActivated);
     
-    connect(e, &ResourceGroupEditor::deleteObjectList, this, &View::slotDeleteResourceObjects);
+    connect(e, &ResourceGroupEditor::deleteObjectList, this, &View::slotDeleteResourceGroups);
     
     connect(e, &ResourceGroupEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
     e->updateReadWrite(m_readWrite);
@@ -2570,61 +2570,63 @@ void View::slotDeleteResourceObjects(QObjectList lst)
             }
             break;
         }
-        ResourceGroup *g = qobject_cast<ResourceGroup*>(o);
-        if (g && g->isScheduled()) {
-            KMessageBox::ButtonCode res = KMessageBox::warningContinueCancel(this, i18n("A resource that has been scheduled will be deleted. This will invalidate the schedule."));
-            if (res == KMessageBox::Cancel) {
-                return;
-            }
-            break;
-        }
+    }
+    if (lst.isEmpty()) {
+        return;
     }
     if (lst.count() == 1) {
         Resource *r = qobject_cast<Resource*>(lst.first());
         if (r) {
             slotDeleteResource(r);
-        } else {
-            ResourceGroup *g = qobject_cast<ResourceGroup*>(lst.first());
-            if (g) {
-                slotDeleteResourceGroup(g);
-            }
         }
         return;
     }
-//    int num = 0;
-    MacroCommand *cmd = 0, *rc = 0, *gc = 0;
+    MacroCommand *cmd = new MacroCommand(KUndo2MagicString());
+    int num = 0;
     foreach (QObject *o, lst) {
         Resource *r = qobject_cast<Resource*>(o);
         if (r) {
-            if (rc == 0)  rc = new MacroCommand(KUndo2MagicString());
-            rc->addCommand(new RemoveResourceCmd(r));
-            continue;
-        }
-        ResourceGroup *g = qobject_cast<ResourceGroup*>(o);
-        if (g) {
-            if (gc == 0)  gc = new MacroCommand(KUndo2MagicString());
-            gc->addCommand(new RemoveResourceGroupCmd(g->project(), g));
+            cmd->addCommand(new RemoveResourceCmd(r));
+            ++num;
         }
     }
-    if (rc || gc) {
-        KUndo2MagicString s;
-        if (rc && gc) {
-            s = kundo2_i18n("Delete resourcegroups and resources");
-        } else if (rc) {
-            s = kundo2_i18np("Delete resource", "Delete resources", lst.count());
-        } else {
-            s = kundo2_i18np("Delete resourcegroup", "Delete resourcegroups", lst.count());
-        }
-        cmd = new MacroCommand(s);
-    }
-    if (rc)
-        cmd->addCommand(rc);
-    if (gc)
-        cmd->addCommand(gc);
-    if (cmd)
+    if (num == 0) {
+        delete cmd;
+    } else {
+        cmd->setText(kundo2_i18np("Delete resource", "Delete resources", num));
         getPart()->addCommand(cmd);
+    }
 }
 
+void View::slotDeleteResourceGroups(QObjectList lst)
+{
+    //debugPlan;
+    if (lst.isEmpty()) {
+        return;
+    }
+    if (lst.count() == 1) {
+        ResourceGroup *g = qobject_cast<ResourceGroup*>(lst.first());
+        if (g) {
+            slotDeleteResourceGroup(g);
+        }
+        return;
+    }
+    MacroCommand *cmd = new MacroCommand(KUndo2MagicString());
+    int num = 0;
+    foreach (QObject *o, lst) {
+        ResourceGroup *g = qobject_cast<ResourceGroup*>(o);
+        if (g) {
+            cmd->addCommand(new RemoveResourceGroupCmd(&getProject(), g));
+            ++num;
+        }
+    }
+    if (num == 0) {
+        delete cmd;
+    } else {
+        cmd->setText(kundo2_i18np("Delete resourcegroup", "Delete resourcegroups", num));
+        getPart()->addCommand(cmd);
+    }
+}
 
 void View::updateReadWrite(bool readwrite)
 {

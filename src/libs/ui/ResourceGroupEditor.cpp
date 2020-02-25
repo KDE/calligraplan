@@ -110,9 +110,9 @@ QObject *ResourceGroupTreeView::currentObject() const
 QList<QObject*> ResourceGroupTreeView::selectedObjects() const
 {
     QList<QObject*> lst;
-//     foreach (const QModelIndex &i, selectionModel()->selectedRows()) {
-//         lst << static_cast<QObject*>(i.internalPointer());
-//     }
+    for (ResourceGroup *g : selectedGroups()) {
+        lst << g;
+    }
     return lst;
 }
 
