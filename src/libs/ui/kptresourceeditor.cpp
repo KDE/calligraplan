@@ -261,11 +261,22 @@ Resource *ResourceEditor::resource(const QModelIndex &idx) const
 
 void ResourceEditor::slotCurrentChanged(const QModelIndex &idx)
 {
-    emit resourceSelected(resource(idx));
 }
 
 void ResourceEditor::slotSelectionChanged(const QModelIndexList &lst)
 {
+    QModelIndexList idxs;
+    for (const QModelIndex &idx : lst) {
+        if (idx.column() == 0) {
+            idxs << idx;
+        }
+    }
+    Resource *r = nullptr;
+    if (idxs.count() == 1) {
+        r = resource(idxs.at(0));
+    }
+    emit resourceSelected(r);
+
     //debugPlan<<list.count();
     updateActionsEnabled();
 }

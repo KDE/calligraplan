@@ -885,9 +885,6 @@ void ParentGroupItemModel::setResource(Resource *resource)
     if (m_resource) {
         disconnect(resource, &Resource::resourceGroupAdded, this, &ParentGroupItemModel::slotResourceAdded);
         disconnect(resource, &Resource::resourceGroupRemoved, this, &ParentGroupItemModel::slotResourceRemoved);
-        for (ResourceGroup *g : m_resource->parentGroups()) {
-            m_model->setData(m_model->index(g), Qt::Unchecked, Qt::CheckStateRole);
-        }
     }
     m_resource = resource;
     if (m_resource) {
