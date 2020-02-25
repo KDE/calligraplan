@@ -150,7 +150,6 @@ void ResourceGroupDocker::slotDataChanged(const QModelIndex &idx1, const QModelI
 {
     Q_UNUSED(idx2);
     if (!m_group) {
-        m_checkable.clear();
         return;
     }
     int checked = idx1.data(Qt::CheckStateRole).toInt();
