@@ -922,3 +922,12 @@ void ParentGroupItemModel::slotResourceRemoved()
     endResetModel();
 }
 
+void ParentGroupItemModel::setResourcesEnabled(bool enable)
+{
+    m_model->setResourcesEnabled(enable);
+}
+
+bool ParentGroupItemModel::resourcesEnabled() const
+{
+    return m_model->resourcesEnabled();
+}

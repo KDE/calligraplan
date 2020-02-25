@@ -182,6 +182,9 @@ public:
     void setGroupIsCheckable(bool checkable);
     bool groupIsCheckable() const;
 
+    void setResourcesEnabled(bool enable);
+    bool resourcesEnabled() const;
+
 public Q_SLOTS:
     void setProject(Project *project);
     void setResource(Resource *resource);
