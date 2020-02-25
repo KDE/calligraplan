@@ -19,6 +19,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "RemoveResourceCmd.h"
+#include "RemoveParentGroupCmd.h"
 #include "Resource.h"
 #include "kptproject.h"
 #include "kptaccount.h"
@@ -53,6 +54,9 @@ RemoveResourceCmd::RemoveResourceCmd(Resource *resource, const KUndo2MagicString
     for (ResourceRequest *r : m_requests) {
         m_preCmd.addCommand(new RemoveResourceRequestCmd(r));
         //debugPlan<<"Remove request for"<<r->resource()->name();
+    }
+    for (ResourceGroup *g : resource->parentGroups()) {
+        m_preCmd.addCommand(new RemoveParentGroupCmd(resource, g));
     }
 }
 
