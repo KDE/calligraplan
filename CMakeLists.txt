@@ -120,7 +120,6 @@ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
         ConfigWidgets
         CoreAddons
         DBusAddons
-#             DocTools
         GuiAddons
         I18n
         IconThemes
@@ -334,6 +333,8 @@ endif (TEST_FOR_KREPORT)
 add_subdirectory(src)
 
 add_subdirectory(devtools)
+
+add_subdirectory(doc)
 
 if (BUILD_TESTING)
     add_subdirectory(tests)
