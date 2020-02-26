@@ -854,6 +854,7 @@ private:
     Resource *m_resource;
     int m_newvalue;
     int m_oldvalue;
+    MacroCommand m_cmd;
 };
 
 class PLANKERNEL_EXPORT ModifyResourceUnitsCmd : public NamedCommand

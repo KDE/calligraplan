@@ -1495,19 +1495,26 @@ void ModifyResourceAutoAllocateCmd::unexecute()
     m_resource->setAutoAllocate(m_oldvalue);
 }
 ModifyResourceTypeCmd::ModifyResourceTypeCmd(Resource *resource, int value, const KUndo2MagicString& name)
-        : NamedCommand(name),
-        m_resource(resource),
-        m_newvalue(value)
+    : NamedCommand(name),
+    m_resource(resource),
+    m_newvalue(value)
 {
     m_oldvalue = resource->type();
+    if (m_oldvalue == Resource::Type_Team) {
+        for (const QString &id : resource->teamMemberIds()) {
+            m_cmd.addCommand(new RemoveResourceTeamCmd(resource, id));
+        }
+    }
 }
 void ModifyResourceTypeCmd::execute()
 {
+    m_cmd.redo();
     m_resource->setType((Resource::Type) m_newvalue);
 }
 void ModifyResourceTypeCmd::unexecute()
 {
     m_resource->setType((Resource::Type) m_oldvalue);
+    m_cmd.undo();
 }
 ModifyResourceUnitsCmd::ModifyResourceUnitsCmd(Resource *resource, int value, const KUndo2MagicString& name)
         : NamedCommand(name),
