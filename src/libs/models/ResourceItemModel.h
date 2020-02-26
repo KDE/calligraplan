@@ -122,6 +122,11 @@ protected Q_SLOTS:
     void slotResourceToBeRemoved(KPlato::Project *project, int row, KPlato::Resource *resource);
     void slotResourceRemoved();
 
+    void slotResourceTeamToBeAdded(KPlato::Resource *resource, int row);
+    void slotResourceTeamAdded(KPlato::Resource *resource);
+    void slotResourceTeamToBeRemoved(KPlato::Resource *resource, int row, KPlato::Resource *team);
+    void slotResourceTeamRemoved();
+
     void slotCalendarChanged(KPlato::Calendar* cal);
 
     void slotDataArrived(KIO::Job *job, const QByteArray &data  );

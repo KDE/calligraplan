@@ -135,6 +135,40 @@ void ResourceItemModel::slotResourceGroupRemoved()
     endRemoveRows();
 }
 
+void ResourceItemModel::slotResourceTeamToBeAdded(Resource* resource, int row)
+{
+    debugPlan<<sender()<<resource<<row;
+    QModelIndex idx = createIndex(m_project->indexOf(resource), 0);
+    int r = row;
+    if (m_groupsEnabled) {
+        r += resource->groupCount();
+    }
+    beginInsertRows(idx, r, r);
+}
+
+void ResourceItemModel::slotResourceTeamAdded(Resource* resource)
+{
+    Q_UNUSED(resource)
+    endInsertRows();
+}
+
+void ResourceItemModel::slotResourceTeamToBeRemoved(KPlato::Resource *resource, int row, KPlato::Resource *team)
+{
+    //debugPlan<<group->name();
+    QModelIndex idx = createIndex(m_project->indexOf(resource), 0);
+    int r = row;
+    if (m_groupsEnabled) {
+        r += resource->groupCount();
+    }
+    beginRemoveRows(idx, r, r);
+}
+
+void ResourceItemModel::slotResourceTeamRemoved()
+{
+    //debugPlan<<group->name();
+    endRemoveRows();
+}
+
 void ResourceItemModel::setProject(Project *project)
 {
     beginResetModel();
@@ -180,11 +214,21 @@ void ResourceItemModel::connectSignals(Resource *resource, bool enable)
         connect(resource, &Resource::resourceGroupAdded, this, &ResourceItemModel::slotResourceGroupAdded);
         connect(resource, &Resource::resourceGroupToBeRemoved, this, &ResourceItemModel::slotResourceGroupToBeRemoved);
         connect(resource, &Resource::resourceGroupRemoved, this, &ResourceItemModel::slotResourceGroupRemoved);
+
+        connect(resource, &Resource::teamToBeAdded, this, &ResourceItemModel::slotResourceTeamToBeAdded);
+        connect(resource, &Resource::teamAdded, this, &ResourceItemModel::slotResourceTeamAdded);
+        connect(resource, &Resource::teamToBeRemoved, this, &ResourceItemModel::slotResourceTeamToBeRemoved);
+        connect(resource, &Resource::teamRemoved, this, &ResourceItemModel::slotResourceTeamRemoved);
     } else {
         disconnect(resource, &Resource::resourceGroupToBeAdded, this, &ResourceItemModel::slotResourceGroupToBeAdded);
         disconnect(resource, &Resource::resourceGroupAdded, this, &ResourceItemModel::slotResourceGroupAdded);
         disconnect(resource, &Resource::resourceGroupToBeRemoved, this, &ResourceItemModel::slotResourceGroupToBeRemoved);
         disconnect(resource, &Resource::resourceGroupRemoved, this, &ResourceItemModel::slotResourceGroupRemoved);
+
+        disconnect(resource, &Resource::teamToBeAdded, this, &ResourceItemModel::slotResourceTeamToBeAdded);
+        disconnect(resource, &Resource::teamAdded, this, &ResourceItemModel::slotResourceTeamAdded);
+        disconnect(resource, &Resource::teamToBeRemoved, this, &ResourceItemModel::slotResourceTeamToBeRemoved);
+        disconnect(resource, &Resource::teamRemoved, this, &ResourceItemModel::slotResourceTeamRemoved);
     }
     for (ResourceGroup *g : resource->parentGroups()) {
         connectSignals(g, enable);
@@ -563,11 +607,13 @@ QVariant ResourceItemModel::data(const QModelIndex &index, int role) const
     }
     if (m_teamsEnabled) {
         Resource *r = static_cast<Resource*>(index.internalPointer());
-        int row = index.row();
-        if (m_groupsEnabled) {
-            row -= r->groupCount();
+        if (r->type() == Resource::Type_Team) {
+            int row = index.row();
+            if (m_groupsEnabled) {
+                row -= r->groupCount();
+            }
+            return m_resourceModel.data(r->teamMembers().value(row), index.column(), role);
         }
-        return m_resourceModel.data(r->teamMembers().value(row), index.column());
     }
     return QVariant();
 }
@@ -684,7 +730,16 @@ void ResourceItemModel::slotResourceChanged(Resource *resource)
     int row = m_project->indexOf(resource);
     emit dataChanged(createIndex(row, 0), createIndex(row, columnCount() - 1));
     if (m_teamsEnabled) {
-        // TODO
+        int offset = 0;
+        if (m_groupsEnabled) {
+            offset = resource->groupCount();
+        }
+        for (Resource *r : m_project->resourceList()) {
+            if (r->type() == Resource::Type_Team && r->teamMembers().contains(resource)) {
+                int row = r->teamMembers().indexOf(resource) + offset;
+                emit dataChanged(createIndex(row, 0, resource), createIndex(row, columnCount() - 1, resource));
+            }
+        }
     }
 }
 

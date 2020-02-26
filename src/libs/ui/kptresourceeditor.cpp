@@ -59,6 +59,7 @@ ResourceTreeView::ResourceTreeView(QWidget *parent)
 //    header()->setContextMenuPolicy(Qt::CustomContextMenu);
     setStretchLastSection(false);
     ResourceItemModel *m = new ResourceItemModel(this);
+    m->setTeamsEnabled(true);
     setModel(m);
     
     setSelectionMode(QAbstractItemView::ExtendedSelection);
