@@ -37,8 +37,11 @@ class ResourceModelTester : public QObject
 private Q_SLOTS:
     void init();
     void cleanup();
-    
+
     void resources();
+    void groups();
+    void teams();
+    void groupsAndTeams();
 
 private:
     QModelIndex index(Resource *r);
@@ -47,7 +50,7 @@ private:
     Calendar *m_calendar;
     Resource *m_resource;
 
-    ResourceItemModel m_model;
+    ResourceItemModel *m_model;
 
 };
 
