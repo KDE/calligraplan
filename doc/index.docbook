@@ -72,15 +72,45 @@
     <para>An account is used in a <emphasis>Cost Breakdown Structure</emphasis> (<link linkend="cbs">CBS</link>) to represent a place where cost from <link linkend="task">tasks</link> or <link linkend="resource">resources</link> can be aggregated.</para>
      </listitem>
   </varlistentry>
+  <varlistentry><term id="acwp"><emphasis role="bold">ACWP</emphasis></term>
+      <listitem>
+          <para><link linkend="Actual-Cost-of-Work-Performed">Actual Cost of Work Performed</link></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry><term id="Actual-Cost-of-Work-Performed"><emphasis role="bold">Actual Cost of Work Performed</emphasis></term>
+      <listitem>
+          <para>The actual cost (or effort) that has been performed.</para>
+      </listitem>
+  </varlistentry>
   <varlistentry><term id="allocation"><emphasis role="bold">Allocation</emphasis></term>
     <listitem>
-    <para>Tasks are allocated to <link linkend="resource">Resources</link> during the planning stage of the project. The actual assignment is done during scheduling. Note that assignment is not guaranteed as the resource may not be available.</para>
+        <para>Tasks are allocated to <link linkend="resource">Resources</link> during the planning stage of the project. The actual assignment is done during scheduling. Note that assignment is not guaranteed as the resource may not be available.</para>
      </listitem>
   </varlistentry>
   <varlistentry><term id="assignment"><emphasis role="bold">Assignment</emphasis></term>
     <listitem>
     <para>Tasks are assigned to <link linkend="resource">Resources</link> during scheduling.</para>
      </listitem>
+  </varlistentry>
+  <varlistentry><term id="bcws"><emphasis role="bold">BCWS</emphasis></term>
+      <listitem>
+          <para><link linkend="Budgeted-Cost-of-Work-Scheduled">Budgeted Cost of Work Scheduled</link></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry><term id="Budgeted-Cost-of-Work-Scheduled"><emphasis role="bold">Budgeted Cost of Work Scheduled</emphasis></term>
+      <listitem>
+          <para>The cost (or effort) that should have been used in order to reach the stated progress.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry><term id="bcwp"><emphasis role="bold">BCWP</emphasis></term>
+      <listitem>
+          <para><link linkend="Budgeted-Cost-of-Work-Performed">Budgeted Cost of Work Performed</link></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry><term id="Budgeted-Cost-of-Work-Performed"><emphasis role="bold">Budgeted Cost of Work Performed</emphasis></term>
+      <listitem>
+          <para>The  cost (or effort) that has been performed.</para>
+      </listitem>
   </varlistentry>
   <varlistentry><term id="cbs"><emphasis role="bold">CBS</emphasis></term>
     <listitem>
@@ -89,7 +119,7 @@
   </varlistentry>
   <varlistentry><term id="cpi"><emphasis role="bold">CPI</emphasis></term>
     <listitem>
-    <para>Is the <emphasis>Cost Performance Index</emphasis> and is equal to BCWP/ACWP. When this index is below 1, means that you are over budget. If the index is greater than 1 means that the costs are under budget.</para>
+        <para>Is the <emphasis>Cost Performance Index</emphasis> and is equal to <link linkend="bcwp">BCWP</link>/<link linkend="acwp">ACWP</link>. When this index is below 1, means that you are over budget. If the index is greater than 1 means that the costs are under budget.</para>
      </listitem>
   </varlistentry>
   <varlistentry><term id="Cost-Breakdown-Structure"><emphasis role="bold">Cost Breakdown structure</emphasis></term>
@@ -220,7 +250,7 @@ Plan
 </chapter>
 <chapter id="managing-resources"><title>Managing Resources</title>
 <sect1 id="description"><title>Description</title>
-<para>You can create resources for a project using the <link linkend="managing-resources">Managing Resources</link> and <link linkend="managing-resources">Managing Resources</link>.
+    <para>You can create resources for a project using the <link linkend="resource-editor">Resource Editor</link> and <link linkend="work-and-vacation-editor">Work and Vacation Editor</link>.
 </para>
 <para>However, if you are going to use the same resources in many projects (which is often the case) it is more convenient to maintain resources in a separate file. The best way to do this is to create your resources file first and then set up Plan to always load this file when creating a new project.
 </para>
@@ -277,7 +307,7 @@ Plan
 <sect3 id="chart-data"><title>Chart Data</title>
 <para>A chart in a report template consists of a variable to specify the data to use in the chart.
 </para>
-<para>The variable name must start with <replaceable>chart</replaceable> (&eg; chartBudgetCost) and the variable value specifies the data group and values the populate the chart with.
+<para>The variable name must start with <replaceable>chart</replaceable> (&eg; chartBudgetCost) and the variable value specifies the data group and values to populate the chart.
 </para>
 <para>The variable has the following format (note the semicolons):
 </para>
@@ -1487,7 +1517,7 @@ Plan
 </para>
 <para>Example:
 </para>
-<para>Variable: <varname>Name: chart1 Value: values=bcws cost,bcwp cost, acwp cost;</varname>
+<para>Variable name: <varname>chart1</varname> Value: <varname>project; values=bcws cost,bcwp cost, acwp cost;</varname>
 </para>
 <para>Note that you cannot mix effort- and cost-based values. If you want to show both, create two charts.
 </para>
@@ -1563,7 +1593,7 @@ Plan
   <tbody>
   <row>
     <entry>
-    <para>The Task Editor is is a typical view that displays data in a tree structure. Most data in the Task Editor can be edited in situ.</para>
+    <para>The Task Editor is a view that displays task data in a tree structure. Most data in the Task Editor can be edited in situ.</para>
     </entry>
     <entry>
     <para>
@@ -2960,9 +2990,7 @@ Plan
     <para>Scheduler</para>
     </entry>
     <entry>
-    <para>The scheduler used for calculating the project schedule.</para><para>The default built-in scheduler is the Network Scheduler. Another scheduler presently available is RCPS if libRCPS is installed on your system.
-</para>
-<para>RCPS is a genetics-based resource-constrained project scheduler
+    <para>The scheduler used for calculating the project schedule.</para><para>The default built-in scheduler is the Network Scheduler.
 </para>
 </entry>
   </row>
