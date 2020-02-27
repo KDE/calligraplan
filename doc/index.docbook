@@ -214,7 +214,7 @@
   <chapter id="context-help"><title>Context Help</title>
     <para>Many functions and views have help and hints that can be displayed with the <emphasis>What's This</emphasis> function.
     </para>
-    <para>You can activate it with the menu entry <menuchoice><guimenu>Help</guimenu><guimenuitem>WhatsThis</guimenuitem></menuchoice> or keboard shortcut <keycombo>&Shift;<keycap>F1</keycap></keycombo>.
+    <para>You can activate it with the menu entry <menuchoice><guimenu>Help</guimenu><guimenuitem>WhatsThis</guimenuitem></menuchoice> or keyboard shortcut <keycombo>&Shift;<keycap>F1</keycap></keycombo>.
     </para>
     <para>In dialogs it is activated by pressing the <varname>?</varname> in the dialogs title bar.
     </para>
@@ -295,13 +295,13 @@
           </para>
           <para>These variables have the following format:
           </para>
-          <para>tableTasks.<replaceable>property</replaceable> = <replaceable>property identifer</replaceable>
+          <para>tableTasks.<replaceable>property</replaceable> = <replaceable>property identifier</replaceable>
           </para>
           <para>where:
           </para>
           <itemizedlist>
             <listitem><para><guilabel>property</guilabel> makes the user field name unique.</para></listitem>
-            <listitem><para><guilabel>property identity</guilabel> identifies the property in the data group.</para></listitem>
+            <listitem><para><guilabel>property identifier</guilabel> identifies the property in the data group.</para></listitem>
           </itemizedlist>
         </sect3>
         <sect3 id="chart-data"><title>Chart Data</title>
@@ -318,7 +318,7 @@
           <itemizedlist>
             <listitem><para><replaceable>name</replaceable> must start with <guilabel>chart</guilabel> (&eg; chartBudgetCost)</para></listitem>
             <listitem><para><replaceable>data group</replaceable></para></listitem>
-            <listitem><para><guilabel>property identity</guilabel> identifies the property in the data group.</para></listitem>
+            <listitem><para><guilabel>comma separated list of data properties</guilabel> identifies the properties in the data group.</para></listitem>
           </itemizedlist>
           <para>E.g.:
           </para>
@@ -910,7 +910,7 @@
                     <para>Shutdown Account</para>
                   </entry>
                   <entry>
-                    <para>Accoutn for shutdown cost</para>
+                    <para>Account for shutdown cost</para>
                   </entry>
                 </row>
                 <row>
@@ -976,7 +976,7 @@
                     <para>Start Time</para>
                   </entry>
                   <entry>
-                    <para>Shceduled start time</para>
+                    <para>Scheduled start time</para>
                   </entry>
                 </row>
                 <row>
