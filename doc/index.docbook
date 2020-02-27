@@ -234,16 +234,16 @@
     </para>
     <para><screen>
         Plan
-        !-- Resources
-        !      !-- SharedResources.plan
-        !-- Taskmodules
-        !      !-- Task modules (if any)
-        !-- Templates
-        !      !-- Project templates (if any)
-        !-- Projects
-        !-- &lt;project 1&gt;.plan
-        !-- &lt;project 2&gt;.plan
-        !-- etc
+        &nbsp;!-- Resources
+        &nbsp;!      !-- SharedResources.plan
+        &nbsp;!-- Taskmodules
+        &nbsp;!      !-- Task modules (if any)
+        &nbsp;!-- Templates
+        &nbsp;!      !-- Project templates (if any)
+        &nbsp;!-- Projects
+        &nbsp;!      !-- &lt;project 1&gt;.plan
+        &nbsp;!      !-- &lt;project 2&gt;.plan
+        &nbsp;!      !-- etc
       </screen>
     </para>
     
