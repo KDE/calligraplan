@@ -175,7 +175,7 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           "In dialogs it is available via the <interface>?</interface> in the dialog title bar."
                           "</para><para>"
                           "If you see <link url='%1'>More...</link> in the text,"
-                          " pressing it will display more information from online resources in your browser."
+                          " pressing it will display more information from the documentation."
                           "</para>", Help::page("Context_Help")));
 
     m_model = new RecentFilesModel(this);
