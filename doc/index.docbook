@@ -670,7 +670,7 @@ Plan
 </para>
 <para>You then put variables inside the table cells with name and value from the table below.
 </para>
-<para>Note that the schedules table supports the values described in <link linkend="schedule-values">Shedule Values</link> above.
+<para>Note that the schedules table supports the values described in <link linkend="schedule-values">Schedule Values</link> above.
 </para>
 <para>The projects, tasks and taskstatus tables supports the following values:
 </para>
@@ -847,7 +847,7 @@ Plan
     <para>Running Account</para>
     </entry>
     <entry>
-    <para>Account for runnning costs</para>
+    <para>Account for running costs</para>
     </entry>
   </row>
   <row>
@@ -3752,7 +3752,7 @@ Plan
     <para>Total</para>
     </entry>
     <entry>
-    <para>The total assignemnet for a resource</para>
+    <para>The total assignment for a resource</para>
     </entry>
   </row>
   <row>
@@ -3760,7 +3760,7 @@ Plan
     <para>Dates</para>
     </entry>
     <entry>
-    <para>The total assignemnts for a resource per day and the assigmnets for the resource per task.</para></entry>
+    <para>The total assignments for a resource per day and the assignments for the resource per task.</para></entry>
   </row>
   </tbody>
   </tgroup>
@@ -3860,7 +3860,7 @@ Plan
     <para>Start Time</para>
     </entry>
     <entry>
-    <para>The start og the assignment</para>
+    <para>The start of the assignment</para>
     </entry>
   </row>
   <row>
