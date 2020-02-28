@@ -139,7 +139,7 @@
     </para>
   </sect1>
   <sect1 id="editing-data5"><title>Editing data</title>
-    <para>Data can be edited inline as described <link linkend="using-the-views">here</link>  or by using the <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Task Settings Dialog">task settings dialog</ulink>.
+    <para>Data can be edited inline as described <link linkend="using-the-views">here</link>  or by using the Task Settings Dialog.
     </para>
     <para>The following columns are displayed as default:
     </para>
@@ -332,9 +332,9 @@
     </para>
     <para>A module can be opened for inspection or editing by double-clicking on the module.
     </para>
-    <para>The modules can be grouped by storing them in different directories. Where to search for them is configured using the <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Project Settings Dialog">Project Settings Dialog</ulink>.
+    <para>The modules can be grouped by storing them in different directories. Where to search for them is configured using the Project Settings Dialog.
     </para>
-    <para>Default values for new projects can be defined using the <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Configure Plan Dialog">Plan Configuration Dialog</ulink>.
+    <para>Default values for new projects can be defined using the Plan Configuration Dialog.
     </para>
   </sect1>
   <sect1 id="resources-docker"><title>Resources Docker</title>

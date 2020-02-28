@@ -83,7 +83,7 @@
         </tgroup>
       </informaltable>
     </para>
-    <para>Resources can be created by dropping data from any application that supports dragging <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Definitions#vCard">vCard</ulink> information, like <emphasis>KAddressBook</emphasis> or <emphasis>Evolution</emphasis>.
+    <para>Resources can be created by dropping data from any application that supports dragging vCard information, like <emphasis>KAddressBook</emphasis> or <emphasis>Evolution</emphasis>.
     </para>
     <para>Resources can be copied or moved to a different resource group using drag-and-drop.
     </para>
@@ -93,7 +93,7 @@
   <sect1 id="editing-data8"><title>Editing data</title>
     <para>Data can be edited inline as described <link linkend="using-the-views">here</link>.
     </para>
-    <para>Resources can also be edited using the <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Resource Settings Dialog">resource settings dialog</ulink>.
+    <para>Resources can also be edited using the Resource Settings Dialog.
     </para>
     <para>The following columns are displayed as default:
     </para>
