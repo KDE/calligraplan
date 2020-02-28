@@ -1,0 +1,121 @@
+<chapter id="cost-breakdown-structure-editor"><title>Cost Breakdown Structure Editor</title>
+  <sect1 id="description12"><title>Description</title>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry>
+                <para>The Cost Breakdown Structure Editor is used to create, edit, and delete accounts.</para>
+              </entry>
+              <entry>
+                <para>
+                  <screenshot>
+                    <screeninfo></screeninfo>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+                      </imageobject>
+                      <textobject>
+                        <phrase></phrase>
+                      </textobject>
+                    </mediaobject>
+                    </screenshot></para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+    <para>Accounts can be connected to by tasks and resources to accumulate costs from those tasks and resources.
+    </para>
+    <para>The default account accumulates costs incurred from tasks that are not connected to an account.
+    </para>
+  </sect1>
+  <sect1 id="toolbar13"><title>Toolbar</title>
+    <para>The toolbar provides the means to create and delete accounts:
+    </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry><guilabel>Button</guilabel></entry>
+              <entry><guilabel>Shortcut</guilabel></entry>
+              <entry><guilabel>Description</guilabel></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>Add Account</para>
+              </entry>
+              <entry>
+                <para><keycombo>&Ctrl;<keycap>I</keycap></keycombo></para>
+              </entry>
+              <entry>
+                <para>Button to create an account. The new account is inserted after the selected account. If no account is selected, the new account is appended at the top level.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Add Subaccount</para>
+              </entry>
+              <entry>
+                <para><keycombo>&Ctrl;&Shift;<keycap>I</keycap></keycombo></para>
+              </entry>
+              <entry>
+                <para>Button to create a sub-account. The new account is appended as a child to selected account.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Delete</para>
+              </entry>
+              <entry>
+                <para><keycap>Delete</keycap></para>
+              </entry>
+              <entry>
+                <para>Deletes the selected account.</para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect1>
+  <sect1 id="editing-data14"><title>Editing data</title>
+    <para>Data can be edited inline as described <link linkend="using-the-views">here</link>.
+    </para>
+    <para>The following columns are available:
+    </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry><guilabel>Column</guilabel></entry>
+              <entry><guilabel>Description</guilabel></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>Name</para>
+              </entry>
+              <entry>
+                <para>The name of the account.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Description</para>
+              </entry>
+              <entry>
+                <para>The description of the account.</para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+    
+  </sect1>
+</chapter>

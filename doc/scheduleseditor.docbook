@@ -1,0 +1,288 @@
+<chapter id="schedules-editor"><title>Schedules Editor</title>
+  <sect1 id="description17"><title>Description</title>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry>
+                <para>The Schedule Editor is used to create, edit, calculate and delete schedules.</para>
+              </entry>
+              <entry>
+                <para>
+                  <screenshot>
+                    <screeninfo></screeninfo>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+                      </imageobject>
+                      <textobject>
+                        <phrase></phrase>
+                      </textobject>
+                    </mediaobject>
+                    </screenshot></para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+    <para>The Schedule Editor has three sub-views that show the results of the scheduling.
+    </para>
+    <para>The Result sub-view shows the values needed for PERT analysis including early start and -finish, late start and -finish along with different types of float.
+    </para>
+    <para>
+      <screenshot>
+        <screeninfo></screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="plan_pertresult.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase></phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+    </para>
+    <para>The Critical Path sub-view shows the tasks that belong to the critical path.
+    </para>
+    <para>
+      <screenshot>
+        <screeninfo></screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase></phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+    </para>
+    <para>The Scheduling Log sub-view shows a list of messages produced during scheduling.
+    </para>
+    <para>
+      <screenshot>
+        <screeninfo></screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase></phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+    </para>
+  </sect1>
+  <sect1 id="toolbar18"><title>Toolbar</title>
+    <para>The toolbar provides the means to create, delete and calculate schedules:
+    </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry><guilabel>Button</guilabel></entry>
+              <entry><guilabel>Shortcut</guilabel></entry>
+              <entry><guilabel>Description</guilabel></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para><inlinemediaobject> <imageobject> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject> </inlinemediaobject> Add Schedule</para>
+              </entry>
+              <entry>
+                <para><keycombo>&Ctrl;<keycap>I</keycap></keycombo></para>
+              </entry>
+              <entry>
+                <para>Button to create a resource group. The new group is appended at the end of the groups.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para><inlinemediaobject> <imageobject> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject> </inlinemediaobject> Add Subschedule</para>
+              </entry>
+              <entry>
+                <para><keycombo>&Ctrl;&Shift;<keycap>I</keycap></keycombo></para>
+              </entry>
+              <entry>
+                <para>Button to create a sub-schedule. The new schedule is appended as a child to the currently selected schedule.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para><inlinemediaobject> <imageobject> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject> </inlinemediaobject> Delete</para>
+              </entry>
+              <entry>
+                <para><keycap>Delete</keycap></para>
+              </entry>
+              <entry>
+                <para>Deletes the selected schedule.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para><inlinemediaobject> <imageobject> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject> </inlinemediaobject> Calculate</para>
+              </entry>
+              <entry>
+                <para></para>
+              </entry>
+              <entry>
+                <para>Calculates the selected schedule.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para><inlinemediaobject> <imageobject> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject> </inlinemediaobject> Baseline</para>
+              </entry>
+              <entry>
+                <para></para>
+              </entry>
+              <entry>
+                <para>Baselines the selected schedule. Prevents the schedule from being re-calculated or deleted.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para><inlinemediaobject> <imageobject> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject> </inlinemediaobject> Detach</para>
+              </entry>
+              <entry>
+                <para></para>
+              </entry>
+              <entry>
+                <para>Make the selected sub-schedule a top schedule</para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect1>
+  <sect1 id="editing-data19"><title>Editing data</title>
+    <para>Data can be edited in-line as described <link linkend="using-the-views">here</link>.
+    </para>
+    <para>The following columns are displayed as default:
+    </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry><guilabel>Column</guilabel></entry>
+              <entry><guilabel>Description</guilabel></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>Name</para>
+              </entry>
+              <entry>
+                <para>The name of the schedule.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>State</para>
+              </entry>
+              <entry>
+                <para>The schedules state. Shows a progress bar during scheduling.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Direction</para>
+              </entry>
+              <entry>
+                <para>The scheduling direction.</para><para>If the direction is Forward, the project is scheduled starting at the project's earliest start time specified in the main project dialog. If the direction is Backward, the project is scheduled starting at the project's latest finish time specified in the main project dialog.&quot;
+                </para>
+                
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Overbooking</para>
+              </entry>
+              <entry>
+                <para>Controls resource overbooking when scheduling.</para><para>If overbooking is allowed, a resource may be booked (on working days) to work more than it is available. This can happen if the resource is allocated to multiple tasks or are booked on other projects.
+                </para>
+                <para>If overbooking is to be avoided, resources will not be booked more than they are available. On resource conflict, tasks will be delayed until the resource is available.
+                </para>
+                
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Distribution</para>
+              </entry>
+              <entry>
+                <para>The distribution to be used during scheduling.</para><para>If the distribution is 'None', the estimate of the task is used as-is during scheduling.
+                </para>
+                <para>If the distribution is 'PERT', the estimate (E) used is calculated based on the entered optimistic- (O), pessimistic-(P) and most likely (M) estimate. The formula used for this is:
+                </para>
+                <para>E = (O + 4 * M + P) / 6.
+                </para>
+                
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Planned Start</para>
+              </entry>
+              <entry>
+                <para>The scheduled start time.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Planned Finish</para>
+              </entry>
+              <entry>
+                <para>The scheduled finish time.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Scheduler</para>
+              </entry>
+              <entry>
+                <para>The scheduler used for calculating the project schedule.</para><para>The default built-in scheduler is the Network Scheduler.
+                </para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect1>
+  <sect1 id="configuration20"><title>Configuration</title>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry>
+                <para>Using the context menu, the view can be configured to split/unsplit the tree view or it can be configured using the configure dialog.</para><para>The configure dialog enables you to tailor the amount of information the view displays to fit your needs.
+                </para>
+                
+              </entry>
+              <entry>
+                <para>
+                  <screenshot>
+                    <screeninfo></screeninfo>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                      </imageobject>
+                      <textobject>
+                        <phrase></phrase>
+                      </textobject>
+                    </mediaobject>
+                    </screenshot></para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect1>
+</chapter>

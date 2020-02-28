@@ -1,0 +1,11 @@
+<chapter id="startup-view"><title>Startup View</title>
+  <para>The Startup View is shown at startup and when <menuchoice><guimenu>File</guimenu><guimenuitem>New</guimenuitem></menuchoice> is selected.
+  </para>
+  <para>It has 3 sections for:
+  </para>
+  <itemizedlist>
+    <listitem><para>Creation of new projects. See also <link linkend="creating-a-project">Creating a Project</link> and <link linkend="managing-resources">Managing Resources</link>&nbsp;</para></listitem>
+    <listitem><para>Opening existing projects. This section gives you the possibility to open an existing project file or one of the 10 most recent projects you have opened.</para></listitem>
+    <listitem><para>The Help section gives you links to introductory pages, documentation and community forum.</para></listitem>
+  </itemizedlist>
+</chapter>

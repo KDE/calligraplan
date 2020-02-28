@@ -1,0 +1,100 @@
+<chapter id="resource-assignment-view"><title>Resource Assignment View</title>
+  <sect1 id="description33"><title>Description</title>
+    <para>The Resource Assignment View displays the scheduled task-resource assignments.
+    </para>
+    <para>
+      <screenshot>
+        <screeninfo></screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Gantt View</phrase>
+          </textobject>
+          <caption>
+            <para>Gantt View</para>
+          </caption>
+        </mediaobject>
+      </screenshot>
+    </para>
+  </sect1>
+  <sect1 id="data34"><title>Data</title>
+    <para>The following columns are displayed as default:
+    </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry><guilabel>Column</guilabel></entry>
+              <entry><guilabel>Description</guilabel></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>Name</para>
+              </entry>
+              <entry>
+                <para>The name of the object (Resource group, resource, task)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Total</para>
+              </entry>
+              <entry>
+                <para>The total assignment for a resource</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Dates</para>
+              </entry>
+              <entry>
+                <para>The total assignments for a resource per day and the assignments for the resource per task.</para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect1>
+  <sect1 id="editing-data35"><title>Editing data</title>
+    <para>The task description and progress can be edited using the context menu.
+    </para>
+  </sect1>
+  <sect1 id="configuration36"><title>Configuration</title>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry>
+                <para>Using the context menu, the view can be configured using the configure dialog.</para><para>The configure dialog enables you to include or exclude assignments.
+                </para>
+                
+              </entry>
+              <entry>
+                <para>
+                  <screenshot>
+                    <screeninfo></screeninfo>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="plan_resourceassignmentview_config.png" format="PNG"/>
+                      </imageobject>
+                      <textobject>
+                        <phrase>Configuration Dialog</phrase>
+                      </textobject>
+                      <caption>
+                        <para>Configuration Dialog</para>
+                      </caption>
+                    </mediaobject>
+                    </screenshot></para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect1>
+</chapter>

@@ -1,0 +1,29 @@
+<chapter id="creating-a-project"><title>Creating a Project</title>
+  <para>A new project can be created by pressing the <emphasis>New Project</emphasis> button or selecting a <emphasis>project template</emphasis> in the <link linkend="startup-view">Startup View</link>.
+  </para>
+  <para>This will create a new project with default values defined in <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Configure Plan Dialog">Settings</ulink> or from values defined in the template. The <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Project Settings Dialog">project settings dialog</ulink> will open to enable you to define project specific properties like <emphasis>project name</emphasis>, <emphasis>manager</emphasis> and <emphasis>target times</emphasis>.
+  </para>
+  <para>When you create your first project, consider creating resources in a separate file. When you refer to this file in your project(s), you do not need to define your resources again, and you can coordinate resource usage across projects.
+  </para>
+  <para>See <link linkend="managing-resources">Managing Resources</link>.
+  </para>
+  <para>If you want to coordinate resource usage across projects, your project files must be stored in the same directory.
+  </para>
+  <para>A useful structure could be something like this:
+  </para>
+  <para><screen>
+      Plan
+      &nbsp;!-- Resources
+      &nbsp;!      !-- SharedResources.plan
+      &nbsp;!-- Taskmodules
+      &nbsp;!      !-- Task modules (if any)
+      &nbsp;!-- Templates
+      &nbsp;!      !-- Project templates (if any)
+      &nbsp;!-- Projects
+      &nbsp;!      !-- &lt;project 1&gt;.plan
+      &nbsp;!      !-- &lt;project 2&gt;.plan
+      &nbsp;!      !-- etc
+    </screen>
+  </para>
+  
+</chapter>

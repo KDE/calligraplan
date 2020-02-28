@@ -1,0 +1,224 @@
+<chapter id="task-status-view"><title>Task Status View</title>
+  <sect1 id="description22"><title>Description</title>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry>
+                <para>The Task Status View is used to inspect task progress information at a period, set in the configuration.</para>
+              </entry>
+              <entry>
+                <para>
+                  <screenshot>
+                    <screeninfo></screeninfo>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="plan_taskstatusview.png" format="PNG"/>
+                      </imageobject>
+                      <textobject>
+                        <phrase></phrase>
+                      </textobject>
+                    </mediaobject>
+                    </screenshot></para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+    <para>The tasks are divided into groups dependent on the status of the task:
+    </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry>
+                <para>Not Started</para>
+              </entry>
+              <entry>
+                <para>Tasks that should have been started by now.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Running</para>
+              </entry>
+              <entry>
+                <para>Tasks that have been started, but not yet finished.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Finished</para>
+              </entry>
+              <entry>
+                <para>Tasks that were finished in this period</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Next Period</para>
+              </entry>
+              <entry>
+                <para>Tasks that are scheduled to be started in the next period.</para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect1>
+  <sect1 id="editing-data23"><title>Editing data</title>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry>
+                <para>Progress information can be edited in-line as described <link linkend="using-the-views">here</link>  or by using the task progress dialog.</para>
+              </entry>
+              <entry>
+                <para>
+                  <screenshot>
+                    <screeninfo></screeninfo>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                      </imageobject>
+                      <textobject>
+                        <phrase></phrase>
+                      </textobject>
+                    </mediaobject>
+                    </screenshot></para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+    <para>The following columns are displayed as default:
+    </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry><guilabel>Column</guilabel></entry>
+              <entry><guilabel>Description</guilabel></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>Name</para>
+              </entry>
+              <entry>
+                <para>The name of the task.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Status</para>
+              </entry>
+              <entry>
+                <para>Task status</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>% Completion</para>
+              </entry>
+              <entry>
+                <para>Task completion</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Planned Effort</para>
+              </entry>
+              <entry>
+                <para>The amount of work planned to be used at the end of the current period.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Actual Effort</para>
+              </entry>
+              <entry>
+                <para>The amount of work spent.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Remaining Effort</para>
+              </entry>
+              <entry>
+                <para>The remaining effort needed to complete the task.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Planned Cost</para>
+              </entry>
+              <entry>
+                <para>The planned cost at the end of the current period.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Actual Cost</para>
+              </entry>
+              <entry>
+                <para>The actual cost incurred.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Actual Start</para>
+              </entry>
+              <entry>
+                <para>The actual start time of the task.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>Actual Finish</para>
+              </entry>
+              <entry>
+                <para>The actual finish time of the task.</para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect1>
+  <sect1 id="configuration24"><title>Configuration</title>
+    <para>Using the context menu, the view can be configured to split / unsplit the tree view or it can be configured using the configure dialog.
+    </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry>
+                <para>The configure dialog enables you to tailor the amount of information the view displays to fit your needs.</para>
+              </entry>
+              <entry>
+                <para>
+                  <screenshot>
+                    <screeninfo></screeninfo>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="plan_taskstatusview_config.png" format="PNG"/>
+                      </imageobject>
+                      <textobject>
+                        <phrase></phrase>
+                      </textobject>
+                    </mediaobject>
+                    </screenshot></para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect1>
+</chapter>
