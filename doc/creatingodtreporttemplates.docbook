@@ -2,7 +2,7 @@
   <sect1 id="description1"><title>Description</title>
     <para>Open Document Text report templates are regular ODT files that can be designed using any ODT word processor like <emphasis>Calligra Words</emphasis> or <emphasis>LibreOffice Writer</emphasis>. The technique used is to use <emphasis>user field</emphasis> variables to hold references to the information that shall be fetched from the project. The variables are called <emphasis>User Fields</emphasis> in <emphasis>Writer</emphasis> and can be found under <menuchoice><guimenu>Insert</guimenu><guisubmenu>Field</guisubmenu><guimenuitem>More Fields</guimenuitem><guimenuitem>Variables</guimenuitem><guimenuitem>User Fields</guimenuitem></menuchoice>. In <emphasis>Words</emphasis> they are called <emphasis>Custom Variables</emphasis> and can be found under <menuchoice><guimenu>Text Editing docker</guimenu><guisubmenu>Variable</guisubmenu><guimenuitem>Custom</guimenuitem></menuchoice>.
     </para>
-    <para>The easiest way to create a new report template is to modify an existing one as all user field s are defined.
+    <para>The easiest way to create a new report template is to modify an existing one as all user fields are defined.
     </para>
   </sect1>
   <sect1 id="user-field-variables"><title>User Field Variables</title>
@@ -1229,11 +1229,11 @@
     </sect2>
   </sect1>
   <sect1 id="chart"><title>Chart</title>
-    <para>Use by placing a variable with name chartX (X=number) with a value project before the chart that shall be used.
+    <para>Use by placing a variable with name chartX (X=some text to make the variable name unique) with a value project before the chart that shall be used.
     </para>
     <para>The variable has this format:
     </para>
-    <para>Variable: <varname>Name: chartX (X=number) Value: project; values=<replaceable>data</replaceable>;</varname>
+    <para>Variable: <varname>Name: chartX (X=some text) Value: project; values=<replaceable>data</replaceable>;</varname>
     </para>
     <para>where <replaceable>data</replaceable> is a comma separated list of values to be include in the chart.
     </para>

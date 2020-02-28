@@ -6,7 +6,7 @@
           <tbody>
             <row>
               <entry>
-                <para>The Reports Generator View is used to add and generate reports in Open Document Text (odt) format.</para><para>The reports can be based on the supplied report templates, or you can <link linkend="creating-odt-report-templates">write your own templates</link>
+                <para>The Reports Generator View is used to add and generate reports in Open Document Text (odt) format.</para><para>The reports can be based on the supplied report templates, or you can <link linkend="creating-odt-report-templates">write your own templates</link>.
                 </para>
                 
               </entry>
@@ -28,11 +28,6 @@
         </tgroup>
       </informaltable>
     </para>
-    <itemizedlist>
-      <listitem><para><emphasis>Nothing</emphasis>; use the filename as is</para></listitem>
-      <listitem><para><emphasis>Number</emphasis>; add a sequence number to the file name</para></listitem>
-      <listitem><para><emphasis>Date</emphasis>; add the current date to the file name</para></listitem>
-    </itemizedlist>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -72,7 +67,13 @@
                 <para>Add</para>
               </entry>
               <entry>
-                <para>Information that can be added to the report file name to distinguish it from previously generated versions. This can be:</para></entry>
+                <para>Information that can be added to the report file name to distinguish it from previously generated versions. This can be:</para>
+                <itemizedlist>
+                  <listitem><para><emphasis>Nothing</emphasis>; use the filename as is</para></listitem>
+                  <listitem><para><emphasis>Number</emphasis>; add a sequence number to the file name</para></listitem>
+                  <listitem><para><emphasis>Date</emphasis>; add the current date to the file name</para></listitem>
+                </itemizedlist>
+              </entry>
             </row>
           </tbody>
         </tgroup>

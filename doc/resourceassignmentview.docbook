@@ -1,8 +1,11 @@
 <chapter id="resource-assignment-view"><title>Resource Assignment View</title>
   <sect1 id="description33"><title>Description</title>
-    <para>The Resource Assignment View displays the scheduled task-resource assignments.
+    <para>
+      The Resource Assignment View displays the scheduled task-resource assignments in a table.
+      <note><para>This view can severly impact performance in large projects.</para></note>
     </para>
     <para>
+      <!--
       <screenshot>
         <screeninfo></screeninfo>
         <mediaobject>
@@ -10,13 +13,14 @@
             <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Gantt View</phrase>
+            <phrase>Resource assignment table</phrase>
           </textobject>
           <caption>
-            <para>Gantt View</para>
+            <para>Resource Assignment Table</para>
           </caption>
         </mediaobject>
       </screenshot>
+      -->
     </para>
   </sect1>
   <sect1 id="data34"><title>Data</title>

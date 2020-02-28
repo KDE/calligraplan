@@ -2,6 +2,7 @@
   <sect1 id="description37"><title>Description</title>
     <para>The Resource Assignment Gantt View displays the scheduled task-resource assignments in a Gantt chart.
     </para>
+    <!--
     <para>
       <screenshot>
         <screeninfo></screeninfo>
@@ -18,6 +19,7 @@
         </mediaobject>
       </screenshot>
     </para>
+    -->
   </sect1>
   <sect1 id="data38"><title>Data</title>
     <para>The following columns are displayed as default:
