@@ -1,5 +1,5 @@
-<chapter id="work-and-vacation-editor"><title>Work and Vacation Editor</title>
-  <sect1 id="description10"><title>Description</title>
+<sect1 id="work-and-vacation-editor"><title>Work and Vacation Editor</title>
+  <sect2 id="description10"><title>Description</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -83,8 +83,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="editing-data11"><title>Editing data</title>
+  </sect2>
+  <sect2 id="editing-data11"><title>Editing data</title>
     <para>Calendar name and time zone can be edited inline as described <link linkend="using-the-views">here</link>.
     </para>
     <para>The state of days and weekdays are edited by selecting the day or days you want to edit and open the context menu.
@@ -92,5 +92,5 @@
     <para>Selecting <emphasis>Work...</emphasis> opens the Edit Work Intervals Dialog.
     </para>
     
-  </sect1>
-</chapter>
+  </sect2>
+</sect1>

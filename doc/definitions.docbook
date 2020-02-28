@@ -1,11 +1,11 @@
-<chapter id="definitions"><title>Definitions</title>
-<sect1 id="introduction0"><title>Introduction</title>
+<sect1 id="definitions"><title>Definitions</title>
+  <sect2 id="introduction0"><title>Introduction</title>
     <para>In project management, terms may be used in different ways in different programs or different companies or project types. Looking at more exhaustive project management glossaries, one will find alternative definitions for most terms.
     </para>
     <para>This list defines how certain terms are used in <guilabel>Plan</guilabel>.
     </para>
-</sect1>
-<sect1 id="terms"><title>Terms</title>
+  </sect2>
+  <sect2 id="terms"><title>Terms</title>
     <variablelist>
     <varlistentry><term id="account"><emphasis role="bold">Account</emphasis></term>
         <listitem>
@@ -149,5 +149,5 @@
     </varlistentry>
     </variablelist>
     
+  </sect2>
 </sect1>
-</chapter>

@@ -1,0 +1,18 @@
+<chapter id="views-and-editors"><title>Views and Editors</title>
+  &startup-view-section;
+  &task-editor-section;
+  &resource-editor-section;
+  &work-and-vacation-editor-section;
+  &cost-breakdown-structure-editor-section;
+  &task-dependency-editor-graphical-section;
+  &task-dependency-editor-list-section;
+  &schedules-editor-section;
+  &project-performance-view-section;
+  &task-performance-view-section;
+  &task-status-view-section;
+  &task-execution-view-section;
+  &task-gantt-view-section;
+  &milestone-gantt-view-section;
+  &resource-assignment-view-section;
+  &resource-assignment-gantt-view-section;
+</chapter>

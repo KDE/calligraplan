@@ -1,5 +1,5 @@
-<chapter id="task-gantt-view"><title>Task Gantt View</title>
-  <sect1 id="description27"><title>Description</title>
+<sect1 id="task-gantt-view"><title>Task Gantt View</title>
+  <sect2 id="description27"><title>Description</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -29,8 +29,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="editing-data28"><title>Editing data</title>
+  </sect2>
+  <sect2 id="editing-data28"><title>Editing data</title>
     <para>Task description and progress can be edited using the context menu.
     </para>
     <para>The following columns are displayed as default:
@@ -80,8 +80,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="configuration29"><title>Configuration</title>
+  </sect2>
+  <sect2 id="configuration29"><title>Configuration</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -113,5 +113,5 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-</chapter>
+  </sect2>
+</sect1>

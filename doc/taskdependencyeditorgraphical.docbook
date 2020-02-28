@@ -1,5 +1,5 @@
-<chapter id="task-dependency-editor-graphical"><title>Task Dependency Editor (Graphical)</title>
-  <sect1 id="description15"><title>Description</title>
+<sect1 id="task-dependency-editor-graphical"><title>Task Dependency Editor (Graphical)</title>
+  <sect2 id="description15"><title>Description</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -67,8 +67,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="editing-dependencies"><title>Editing dependencies</title>
+  </sect2>
+  <sect2 id="editing-dependencies"><title>Editing dependencies</title>
     <para>Dependencies are created by first selecting a start- or finish area of the predecessor task, then selecting the start- or finish area of the successor task.
     </para>
     <para>This can be done using the mouse or the keyboard.
@@ -79,8 +79,8 @@
     </para>
     <para>You can also open the context menu on a connection area which will enable you to edit all dependencies connected to that area.
     </para>
-  </sect1>
-  <sect1 id="toolbar16"><title>Toolbar</title>
+  </sect2>
+  <sect2 id="toolbar16"><title>Toolbar</title>
     <para>The toolbar provides the means to create and delete tasks:
     </para>
     <para>
@@ -140,5 +140,5 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-</chapter>
+  </sect2>
+</sect1>

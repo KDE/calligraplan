@@ -1,5 +1,5 @@
-<chapter id="cost-breakdown-structure-editor"><title>Cost Breakdown Structure Editor</title>
-  <sect1 id="description12"><title>Description</title>
+<sect1 id="cost-breakdown-structure-editor"><title>Cost Breakdown Structure Editor</title>
+  <sect2 id="description12"><title>Description</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -30,8 +30,8 @@
     </para>
     <para>The default account accumulates costs incurred from tasks that are not connected to an account.
     </para>
-  </sect1>
-  <sect1 id="toolbar13"><title>Toolbar</title>
+  </sect2>
+  <sect2 id="toolbar13"><title>Toolbar</title>
     <para>The toolbar provides the means to create and delete accounts:
     </para>
     <para>
@@ -81,8 +81,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="editing-data14"><title>Editing data</title>
+  </sect2>
+  <sect2 id="editing-data14"><title>Editing data</title>
     <para>Data can be edited inline as described <link linkend="using-the-views">here</link>.
     </para>
     <para>The following columns are available:
@@ -117,5 +117,5 @@
       </informaltable>
     </para>
     
-  </sect1>
-</chapter>
+  </sect2>
+</sect1>

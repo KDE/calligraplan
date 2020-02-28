@@ -1,5 +1,5 @@
-<chapter id="managing-resources"><title>Managing Resources</title>
-  <sect1 id="description"><title>Description</title>
+<sect1 id="managing-resources"><title>Managing Resources</title>
+  <sect2 id="description"><title>Description</title>
     <para>You can create resources for a project using the <link linkend="resource-editor">Resource Editor</link> and <link linkend="work-and-vacation-editor">Work and Vacation Editor</link>.
     </para>
     <para>However, if you are going to use the same resources in many projects (which is often the case) it is more convenient to maintain resources in a separate file. The best way to do this is to create your resources file first and then set up Plan to always load this file when creating a new project.
@@ -8,5 +8,5 @@
     </para>
     <para>You can select the resource file to use when creating a new project.
     </para>
-  </sect1>
-</chapter>
+  </sect2>
+</sect1>

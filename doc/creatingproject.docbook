@@ -1,4 +1,4 @@
-<chapter id="creating-a-project"><title>Creating a Project</title>
+<sect1 id="creating-a-project"><title>Creating a Project</title>
   <para>A new project can be created by pressing the <emphasis>New Project</emphasis> button or selecting a <emphasis>project template</emphasis> in the <link linkend="startup-view">Startup View</link>.
   </para>
   <para>This will create a new project with default values defined in <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Configure Plan Dialog">Settings</ulink> or from values defined in the template. The Project Settings Dialog will open to enable you to define project specific properties like <emphasis>project name</emphasis>, <emphasis>manager</emphasis> and <emphasis>target times</emphasis>.
@@ -26,4 +26,4 @@
     </screen>
   </para>
   
-</chapter>
+</sect1>

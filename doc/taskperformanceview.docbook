@@ -1,4 +1,4 @@
-<chapter id="task-performance-view"><title>Task Performance View</title>
+<sect1 id="task-performance-view"><title>Task Performance View</title>
   <para>On the task performance chart, we can analyze deeply each subtask or task with the same indexes as for the project performance view.
   </para>
   <para>This is really useful in a long and complicated project.
@@ -33,4 +33,4 @@
     <listitem><para>CPI is the Cost Performance Index,</para></listitem>
     <listitem><para>SPI is the Schedule Performance Index.</para></listitem>
   </itemizedlist>
-</chapter>
+</sect1>

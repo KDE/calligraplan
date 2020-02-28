@@ -1,31 +1,35 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY managing-resources-chapter SYSTEM "managingresources.docbook">
-<!ENTITY introduction-chapter SYSTEM "introduction.docbook">
-<!ENTITY definitions-chapter SYSTEM "definitions.docbook">
-<!ENTITY context-help-chapter SYSTEM "contexthelp.docbook">
-<!ENTITY creating-project-chapter SYSTEM "creatingproject.docbook">
-<!ENTITY managing-resources-chapter SYSTEM "managingresources.docbook">
-<!ENTITY creating-odt-report-templates-chapter SYSTEM "creatingodtreporttemplates.docbook">
-<!ENTITY main-work-space-chapter SYSTEM "mainworkspace.docbook">
-<!ENTITY using-the-views-chapter SYSTEM "usingtheviews.docbook">
-<!ENTITY startup-view-chapter SYSTEM "startupview.docbook">
-<!ENTITY task-editor-chapter SYSTEM "taskeditor.docbook">
-<!ENTITY resource-editor-chapter SYSTEM "resourceeditor.docbook">
-<!ENTITY work-and-vacation-editor-chapter SYSTEM "workandvacationeditor.docbook">
-<!ENTITY cost-breakdown-structure-editor-chapter SYSTEM "costbreakdownstructureeditor.docbook">
-<!ENTITY task-dependency-editor-graphical-chapter SYSTEM "taskdependencyeditorgraphical.docbook">
-<!ENTITY task-dependency-editor-list-chapter SYSTEM "taskdependencyeditorlist.docbook">
-<!ENTITY schedules-editor-chapter SYSTEM "scheduleseditor.docbook">
-<!ENTITY project-performance-view-chapter SYSTEM "projectperformanceview.docbook">
-<!ENTITY task-performance-view-chapter SYSTEM "taskperformanceview.docbook">
-<!ENTITY task-status-view-chapter SYSTEM "taskstatusview.docbook">
-<!ENTITY task-execution-view-chapter SYSTEM "taskexecutionview.docbook">
-<!ENTITY task-gantt-view-chapter SYSTEM "taskganttview.docbook">
-<!ENTITY milestone-gantt-view-chapter SYSTEM "milestoneganttview.docbook">
-<!ENTITY resource-assignment-view-chapter SYSTEM "resourceassignmentview.docbook">
-<!ENTITY resource-assignment-gantt-view-chapter SYSTEM "resourceassignmentganttview.docbook">
-<!ENTITY reports-generator-view-chapter SYSTEM "reportsgeneratorview.docbook">
+<!ENTITY plan-introduction-chapter SYSTEM "planintroduction.docbook">
+<!ENTITY guidelines-chapter SYSTEM "guidelines.docbook">
+<!ENTITY common-user-interface-chapter SYSTEM "commonuserinterface.docbook">
+<!ENTITY views-and-editors-chapter SYSTEM "viewsandeditors.docbook">
+<!ENTITY reports-chapter SYSTEM "reports.docbook">
+<!ENTITY introduction-section SYSTEM "introduction.docbook">
+<!ENTITY definitions-section SYSTEM "definitions.docbook">
+<!ENTITY context-help-section SYSTEM "contexthelp.docbook">
+<!ENTITY creating-project-section SYSTEM "creatingproject.docbook">
+<!ENTITY managing-resources-section SYSTEM "managingresources.docbook">
+<!ENTITY creating-odt-report-templates-section SYSTEM "creatingodtreporttemplates.docbook">
+<!ENTITY main-work-space-section SYSTEM "mainworkspace.docbook">
+<!ENTITY using-the-views-section SYSTEM "usingtheviews.docbook">
+<!ENTITY startup-view-section SYSTEM "startupview.docbook">
+<!ENTITY task-editor-section SYSTEM "taskeditor.docbook">
+<!ENTITY resource-editor-section SYSTEM "resourceeditor.docbook">
+<!ENTITY work-and-vacation-editor-section SYSTEM "workandvacationeditor.docbook">
+<!ENTITY cost-breakdown-structure-editor-section SYSTEM "costbreakdownstructureeditor.docbook">
+<!ENTITY task-dependency-editor-graphical-section SYSTEM "taskdependencyeditorgraphical.docbook">
+<!ENTITY task-dependency-editor-list-section SYSTEM "taskdependencyeditorlist.docbook">
+<!ENTITY schedules-editor-section SYSTEM "scheduleseditor.docbook">
+<!ENTITY project-performance-view-section SYSTEM "projectperformanceview.docbook">
+<!ENTITY task-performance-view-section SYSTEM "taskperformanceview.docbook">
+<!ENTITY task-status-view-section SYSTEM "taskstatusview.docbook">
+<!ENTITY task-execution-view-section SYSTEM "taskexecutionview.docbook">
+<!ENTITY task-gantt-view-section SYSTEM "taskganttview.docbook">
+<!ENTITY milestone-gantt-view-section SYSTEM "milestoneganttview.docbook">
+<!ENTITY resource-assignment-view-section SYSTEM "resourceassignmentview.docbook">
+<!ENTITY resource-assignment-gantt-view-section SYSTEM "resourceassignmentganttview.docbook">
+<!ENTITY reports-generator-view-section SYSTEM "reportsgeneratorview.docbook">
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
@@ -50,34 +54,12 @@
       <keyword>KDE</keyword>
     </keywordset>
   </bookinfo>
-  <!--userbase <timestamp>2019-11-01T14:58:49Z</timestamp>-->
-  
-  <!--userbase-content-->
-  &introduction-chapter;
-  &definitions-chapter;
-  &context-help-chapter;
-  &creating-project-chapter;
-  &managing-resources-chapter;
-  &creating-odt-report-templates-chapter;
-  &main-work-space-chapter;
-  &using-the-views-chapter;
-  &startup-view-chapter;
-  &task-editor-chapter;
-  &resource-editor-chapter;
-  &work-and-vacation-editor-chapter;
-  &cost-breakdown-structure-editor-chapter;
-  &task-dependency-editor-graphical-chapter;
-  &task-dependency-editor-list-chapter;
-  &schedules-editor-chapter;
-  &project-performance-view-chapter;
-  &task-performance-view-chapter;
-  &task-status-view-chapter;
-  &task-execution-view-chapter;
-  &task-gantt-view-chapter;
-  &milestone-gantt-view-chapter;
-  &resource-assignment-view-chapter;
-  &resource-assignment-gantt-view-chapter;
-  &reports-generator-view-chapter;
+
+  &plan-introduction-chapter;
+  &guidelines-chapter;
+  &common-user-interface-chapter;
+  &views-and-editors-chapter;
+  &reports-chapter;
   
   <!--userbase-content-->
   <chapter id="credits">

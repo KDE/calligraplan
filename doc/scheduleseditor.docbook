@@ -1,5 +1,5 @@
-<chapter id="schedules-editor"><title>Schedules Editor</title>
-  <sect1 id="description17"><title>Description</title>
+<sect1 id="schedules-editor"><title>Schedules Editor</title>
+  <sect2 id="description17"><title>Description</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -73,8 +73,8 @@
         </mediaobject>
       </screenshot>
     </para>
-  </sect1>
-  <sect1 id="toolbar18"><title>Toolbar</title>
+  </sect2>
+  <sect2 id="toolbar18"><title>Toolbar</title>
     <para>The toolbar provides the means to create, delete and calculate schedules:
     </para>
     <para>
@@ -157,8 +157,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="editing-data19"><title>Editing data</title>
+  </sect2>
+  <sect2 id="editing-data19"><title>Editing data</title>
     <para>Data can be edited in-line as described <link linkend="using-the-views">here</link>.
     </para>
     <para>The following columns are displayed as default:
@@ -254,8 +254,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="configuration20"><title>Configuration</title>
+  </sect2>
+  <sect2 id="configuration20"><title>Configuration</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -284,5 +284,5 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-</chapter>
+  </sect2>
+</sect1>

@@ -1,4 +1,4 @@
-<chapter id="introduction"><title>Introduction</title>
+<sect1 id="introduction"><title>Introduction</title>
   <para>Features include:
   </para>
   <itemizedlist>
@@ -28,4 +28,4 @@
         </para></listitem>
     <listitem><para>Task tracking using the <link linkend="task-execution-view">Task Execution View</link> or <link linkend="task-status-view">Task Status View</link>&nbsp;</para></listitem>
   </itemizedlist>
-</chapter>
+</sect1>

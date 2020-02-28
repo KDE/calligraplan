@@ -1,4 +1,4 @@
-<chapter id="startup-view"><title>Startup View</title>
+<sect1 id="startup-view"><title>Startup View</title>
   <para>The Startup View is shown at startup and when <menuchoice><guimenu>File</guimenu><guimenuitem>New</guimenuitem></menuchoice> is selected.
   </para>
   <para>It has 3 sections for:
@@ -8,4 +8,4 @@
     <listitem><para>Opening existing projects. This section gives you the possibility to open an existing project file or one of the 10 most recent projects you have opened.</para></listitem>
     <listitem><para>The Help section gives you links to introductory pages, documentation and community forum.</para></listitem>
   </itemizedlist>
-</chapter>
+</sect1>

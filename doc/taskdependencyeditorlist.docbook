@@ -1,7 +1,7 @@
-<chapter id="task-dependency-editor-list"><title>Task Dependency Editor (List)</title>
+<sect1 id="task-dependency-editor-list"><title>Task Dependency Editor (List)</title>
   <para><note><para>This view is not shown by default. For large projects, it can impact performance severely</para></note>
   </para>
   <para>It can be activated using the <link linkend="the-view-selector">View Selector</link> context menu.
   </para>
   
-</chapter>
+</sect1>

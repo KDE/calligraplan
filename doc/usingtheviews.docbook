@@ -1,6 +1,6 @@
-<chapter id="using-the-views"><title>Using the Views</title>
+<sect1 id="using-the-views"><title>Using the Views</title>
   
-  <sect1 id="description3"><title>Description</title>
+  <sect2 id="description3"><title>Description</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -27,8 +27,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="navigation"><title>Navigation</title>
+  </sect2>
+  <sect2 id="navigation"><title>Navigation</title>
     <para>You can navigate the tree structure using the keyboard:
     </para>
     <para>
@@ -118,8 +118,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="editing-data"><title>Editing data</title>
+  </sect2>
+  <sect2 id="editing-data"><title>Editing data</title>
     <para>Editable items are opened for editing by double-clicking on the item or, if using the keyboard, pressing <keycap>F2</keycap> will open the current item.
     </para>
     <para>When editing an item you can navigate to the next editable item as follows:
@@ -163,5 +163,5 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-</chapter>
+  </sect2>
+</sect1>

@@ -1,5 +1,5 @@
-<chapter id="project-performance-view"><title>Project Performance View</title>
-  <sect1 id="description21"><title>Description</title>
+<sect1 id="project-performance-view"><title>Project Performance View</title>
+  <sect2 id="description21"><title>Description</title>
     <para>The Project performance view is a project management chart where can be understood the actual situation of the project according to the Earned Value Method.
     </para>
     <para>
@@ -30,5 +30,5 @@
       <listitem><para>CPI is the Cost Performance Index,</para></listitem>
       <listitem><para>SPI is the Schedule Performance Index.</para></listitem>
     </itemizedlist>
-  </sect1>
-</chapter>
+  </sect2>
+</sect1>

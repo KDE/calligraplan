@@ -1,5 +1,5 @@
-<chapter id="task-status-view"><title>Task Status View</title>
-  <sect1 id="description22"><title>Description</title>
+<sect1 id="task-status-view"><title>Task Status View</title>
+  <sect2 id="description22"><title>Description</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -67,8 +67,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="editing-data23"><title>Editing data</title>
+  </sect2>
+  <sect2 id="editing-data23"><title>Editing data</title>
     <para>
       <informaltable>
         <tgroup cols="2">
@@ -190,8 +190,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-  <sect1 id="configuration24"><title>Configuration</title>
+  </sect2>
+  <sect2 id="configuration24"><title>Configuration</title>
     <para>Using the context menu, the view can be configured to split / unsplit the tree view or it can be configured using the configure dialog.
     </para>
     <para>
@@ -220,5 +220,5 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect1>
-</chapter>
+  </sect2>
+</sect1>
