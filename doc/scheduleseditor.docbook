@@ -194,7 +194,7 @@
                 <para>Direction</para>
               </entry>
               <entry>
-                <para>The scheduling direction.</para><para>If the direction is Forward, the project is scheduled starting at the project's earliest start time specified in the main project dialog. If the direction is Backward, the project is scheduled starting at the project's latest finish time specified in the main project dialog.&quot;
+                <para>The scheduling direction.</para><para>If the direction is Forward, the project is scheduled starting at the project's earliest start time specified in the main project dialog. If the direction is Backward, the project is scheduled starting at the project's latest finish time specified in the main project dialog.
                 </para>
                 
               </entry>

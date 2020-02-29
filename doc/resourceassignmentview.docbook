@@ -2,7 +2,7 @@
   <sect2 id="description33"><title>Description</title>
     <para>
       The Resource Assignment View displays the scheduled task-resource assignments in a table.
-      <note><para>This view can severly impact performance in large projects.</para></note>
+      <note><para>This view can severely impact performance in large projects.</para></note>
     </para>
     <para>
       <!--
