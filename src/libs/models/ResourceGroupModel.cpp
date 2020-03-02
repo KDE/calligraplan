@@ -159,8 +159,10 @@ QVariant ResourceGroupModel::coordinator(const ResourceGroup *group, int role) c
 {
     switch (role) {
         case Qt::DisplayRole:
+            return group->coordinator();
         case Qt::EditRole:
         case Qt::ToolTipRole:
+            return QVariant();
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
         case Qt::StatusTipRole:
@@ -214,11 +216,11 @@ QVariant ResourceGroupModel::headerData(int section, int role)
         }
     } else if (role == Qt::ToolTipRole) {
         switch (section) {
-            case Name: return ToolTip::resourceName();
-            case Scope: return ToolTip::resourceScope();
-            case Type: return ToolTip::resourceType();
-            case Units: return ToolTip::resourceUnits();
-            case Coordinator: return i18n("TODO");
+            case Name: return ToolTip::resourceGroupName();
+            case Scope: return ToolTip::resourceGroupScope();
+            case Type: return ToolTip::resourceGroupType();
+            case Units: return ToolTip::resourceGroupUnits();
+            case Coordinator: return ToolTip::resourceGroupCoordinator();
             default: return QVariant();
         }
     }

@@ -91,6 +91,9 @@ public:
     void setType(const QString &type);
     QString type() const;
 
+    QString coordinator() const;
+    void setCoordinator(const QString &coordinator);
+
     bool isScheduled() const;
 
     /// Return true if any resource in this group is baselined
@@ -216,6 +219,7 @@ private:
 
     Calendar *m_defaultCalendar;
     QString m_type;
+    QString m_coordinator;
 
     bool m_blockChanged;
     bool m_shared;

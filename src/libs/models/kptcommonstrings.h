@@ -119,6 +119,12 @@ struct PLANMODELS_EXPORT ToolTip
     static QString resourceFixedCost();
     static QString resourceAccount();
 
+    static QString resourceGroupName();
+    static QString resourceGroupScope();
+    static QString resourceGroupType();
+    static QString resourceGroupUnits();
+    static QString resourceGroupCoordinator();
+
     static QString accountName();
     static QString accountDescription();
 

@@ -125,6 +125,16 @@ void ResourceGroup::setType(const QString &type)
     m_type = type;
 }
 
+QString ResourceGroup::coordinator() const
+{
+    return m_coordinator;
+}
+
+void ResourceGroup::setCoordinator(const QString &coordinator)
+{
+    m_coordinator = coordinator;
+}
+
 Project *ResourceGroup::project() const
 {
     return m_parent ? m_parent->project() : m_project;
@@ -267,6 +277,7 @@ bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
     m_name = element.attribute("name");
     setType(element.attribute("type"));
     m_shared = element.attribute("shared", "0").toInt();
+    m_coordinator = element.attribute("coordinator");
 
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
@@ -306,6 +317,7 @@ void ResourceGroup::save(QDomElement &element)  const {
     me.setAttribute("name", m_name);
     me.setAttribute("type", m_type);
     me.setAttribute("shared", m_shared);
+    me.setAttribute("coordinator", m_coordinator);
 
     for (ResourceGroup *g : m_childGroups) {
         g->save(me);

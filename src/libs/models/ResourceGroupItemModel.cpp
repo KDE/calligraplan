@@ -27,6 +27,7 @@
 #include <AddResourceCmd.h>
 #include "AddParentGroupCmd.h"
 #include "RemoveParentGroupCmd.h"
+#include <ResourceGroupModifyCoordinatorCmd.h>
 #include "kptlocale.h"
 #include "kptcommonstrings.h"
 #include "kptcommand.h"
@@ -244,6 +245,7 @@ Qt::ItemFlags ResourceGroupItemModel::flags(const QModelIndex &index) const
         switch (index.column()) {
             case ResourceGroupModel::Name: flags |= Qt::ItemIsEditable; break;
             case ResourceGroupModel::Type: flags |= Qt::ItemIsEditable; break;
+            case ResourceGroupModel::Coordinator: flags |= Qt::ItemIsEditable; break;
             default: flags &= ~Qt::ItemIsEditable;
         }
     } else if (m_resourcesEnabled) {
@@ -400,6 +402,12 @@ bool ResourceGroupItemModel::setUnits(ResourceGroup *res, const QVariant &value,
 
 bool ResourceGroupItemModel::setCoordinator(ResourceGroup *res, const QVariant &value, int role)
 {
+    switch (role) {
+        case Qt::EditRole: {
+            emit executeCommand(new ResourceGroupModifyCoordinatorCmd(res, value.toString(), kundo2_i18n("Modify resourcegroup coordinator")));
+            return true;
+        }
+    }
     return false;
 }
 

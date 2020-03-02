@@ -111,9 +111,9 @@ namespace KPlato
     QString ToolTip::nodeACWP() { return xi18nc("@info:tooltip", "Actual Cost of Work Performed"); }
     QString ToolTip::nodePerformanceIndex() { return i18n("Schedule performance index (BCWP/BCWS)"); }
 
-    QString ToolTip::resourceName() { return xi18nc("@info:tooltip", "The name of the resource or resource group"); }
-    QString ToolTip::resourceScope() { return xi18nc("@info:tooltip", "The origin of the resource or resource group"); }
-    QString ToolTip::resourceType() { return xi18nc("@info:tooltip", "The type of the resource or resource group"); }
+    QString ToolTip::resourceName() { return xi18nc("@info:tooltip", "The name of the resource"); }
+    QString ToolTip::resourceScope() { return xi18nc("@info:tooltip", "The origin of the resource"); }
+    QString ToolTip::resourceType() { return xi18nc("@info:tooltip", "The type of the resource"); }
     QString ToolTip::resourceInitials() { return xi18nc("@info:tooltip", "The initials of the resource"); }
     QString ToolTip::resourceEMail() { return xi18nc("@info:tooltip", "The e-mail address of the resource"); }
     QString ToolTip::resourceCalendar() { return xi18nc("@info:tooltip", "The calendar defines when the resource is working"); }
@@ -124,6 +124,12 @@ namespace KPlato
     QString ToolTip::resourceOvertimeRate() { return xi18nc("@info:tooltip", "The cost pr hour, overtime hours"); }
     QString ToolTip::resourceFixedCost() { return xi18nc("@info:tooltip", "The fixed cost"); }
     QString ToolTip::resourceAccount() { return xi18nc("@info:tooltip", "The account where the resource cost is accumulated"); }
+
+    QString ToolTip::resourceGroupName() { return xi18nc("@info:tooltip", "The name of the resource group"); }
+    QString ToolTip::resourceGroupScope() { return xi18nc("@info:tooltip", "The origin of the resource group"); }
+    QString ToolTip::resourceGroupType() { return xi18nc("@info:tooltip", "The type of the resource group"); }
+    QString ToolTip::resourceGroupUnits() { return xi18nc("@info:tooltip", "The aggregated units for the resources in the resource group"); }
+    QString ToolTip::resourceGroupCoordinator() { return xi18nc("@info:tooltip", "The coordinator of the resource group"); }
 
     QString ToolTip::accountName() { return xi18nc("@info:tooltip", "The name of the account"); }
     QString ToolTip::accountDescription() { return xi18nc("@info:tooltip", "The description of the account"); }

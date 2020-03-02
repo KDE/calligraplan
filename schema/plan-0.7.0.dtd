@@ -141,8 +141,9 @@
 <!ELEMENT resource-groups (resource-group*)>
 <!ELEMENT resource-group (resource-group*)>
 <!ATTLIST resource-group id CDATA #REQUIRED
-    type (Work|Material) "Work"
-    name CDATA #IMPLIED>
+    name CDATA #IMPLIED
+    type CDATA #IMPLIED
+    coordinator CDATA #IMPLIED>
 
 <!-- Resource, used by both resources and used effort -->
 <!ELEMENT resources (resource*)>
