@@ -1,110 +1,108 @@
-<sect1 id="resource-assignment-gantt-view"><title>Resource Assignment Gantt View</title>
-  <sect2 id="description37"><title>Description</title>
-    <para>The Resource Assignment Gantt View displays the scheduled task-resource assignments in a Gantt chart.
-    </para>
-    <!--
-    <para>
-      <screenshot>
-        <screeninfo></screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
-          </imageobject>
-          <textobject>
-            <phrase>Gantt View</phrase>
-          </textobject>
-          <caption>
-            <para>Gantt View</para>
-          </caption>
-        </mediaobject>
-      </screenshot>
-    </para>
-    -->
-  </sect2>
-  <sect2 id="data38"><title>Data</title>
-    <para>The following columns are displayed as default:
-    </para>
-    <para>
-      <informaltable>
-        <tgroup cols="2">
-          <thead>
-            <row>
-              <entry><guilabel>Column</guilabel></entry>
-              <entry><guilabel>Description</guilabel></entry>
-            </row>
-          </thead>
-          <tbody>
-            <row>
-              <entry>
-                <para>Name</para>
-              </entry>
-              <entry>
-                <para>The name of the object (Resource group, resource, task)</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>Type</para>
-              </entry>
-              <entry>
-                <para>Object type</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>Start Time</para>
-              </entry>
-              <entry>
-                <para>The start of the assignment</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>End Time</para>
-              </entry>
-              <entry>
-                <para>The end of the assignment</para></entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
-    </para>
-  </sect2>
-  <sect2 id="editing-data39"><title>Editing data</title>
-    <para>The task description and progress can be edited using the context menu.
-    </para>
-  </sect2>
-  <sect2 id="configuration40"><title>Configuration</title>
-    <para>
-      <informaltable>
-        <tgroup cols="2">
-          <tbody>
-            <row>
-              <entry>
-                <para>Using the context menu, the view can be configured using the configure dialog.</para><para>The configure dialog enables you to select which columns to display.
-                </para>
-                
-              </entry>
-              <entry>
-                <para>
-                  <screenshot>
-                    <screeninfo></screeninfo>
-                    <mediaobject>
-                      <imageobject>
-                        <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
-                      </imageobject>
-                      <textobject>
-                        <phrase>Configuration Dialog</phrase>
-                      </textobject>
-                      <caption>
-                        <para>Configuration Dialog</para>
-                      </caption>
-                    </mediaobject>
-                    </screenshot></para></entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
-    </para>
-  </sect2>
-</sect1>
+<sect2 id="description37"><title>Description</title>
+  <para>The Resource Assignment Gantt View displays the scheduled task-resource assignments in a Gantt chart.
+  </para>
+  <!--
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+  -->
+</sect2>
+<sect2 id="data38"><title>Data</title>
+  <para>The following columns are displayed as default:
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry><guilabel>Column</guilabel></entry>
+            <entry><guilabel>Description</guilabel></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>Name</para>
+            </entry>
+            <entry>
+              <para>The name of the object (Resource group, resource, task)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Type</para>
+            </entry>
+            <entry>
+              <para>Object type</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Start Time</para>
+            </entry>
+            <entry>
+              <para>The start of the assignment</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>End Time</para>
+            </entry>
+            <entry>
+              <para>The end of the assignment</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect2>
+<sect2 id="editing-data39"><title>Editing data</title>
+  <para>The task description and progress can be edited using the context menu.
+  </para>
+</sect2>
+<sect2 id="configuration40"><title>Configuration</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para>Using the context menu, the view can be configured using the configure dialog.</para><para>The configure dialog enables you to select which columns to display.
+              </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase>Configuration Dialog</phrase>
+                    </textobject>
+                    <caption>
+                      <para>Configuration Dialog</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot></para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect2>

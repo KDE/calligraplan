@@ -1,31 +1,29 @@
-<sect1 id="introduction"><title>Introduction</title>
-  <para>Features include:
-  </para>
-  <itemizedlist>
-    <listitem><para>Task management using the <link linkend="task-editor">Task Editor</link>&nbsp;<itemizedlist>
-          <listitem><para>Work breakdown structure with configurable WBS codes</para></listitem>
-          <listitem><para>Tasks, summary tasks, and milestones</para></listitem>
-          <listitem><para>Different types of time constraints</para></listitem>
-          <listitem><para>Different types of dependencies.</para></listitem>
-        </itemizedlist>
-        </para></listitem>
-    <listitem><para>Resource management using the <link linkend="resource-editor">Resource Editor</link>&nbsp;<itemizedlist>
-          <listitem><para>Resource breakdown structure</para></listitem>
-          <listitem><para>Working- and material resource types</para></listitem>
-          <listitem><para>Resource allocation on group level</para></listitem>
-          <listitem><para>Resource teams</para></listitem>
-        </itemizedlist>
-        </para></listitem>
-    <listitem><para>Work time &amp; vacation definition using the <link linkend="work-and-vacation-editor">Work and Vacation Editor</link>&nbsp;</para></listitem>
-    <listitem><para>Cost management using the <link linkend="cost-breakdown-structure-editor">Cost Breakdown Structure Editor</link>&nbsp;</para></listitem>
-    <listitem><para>Earned value management</para></listitem>
-    <listitem><para>Project scheduling using the <link linkend="schedules-editor">Schedules Editor</link>&nbsp;<itemizedlist>
-          <listitem><para>Schedule forward from start time or backward from finish time</para></listitem>
-          <listitem><para>Allow or avoid resource overbooking</para></listitem>
-          <listitem><para>PERT distribution with optimistic-, pessimistic-, and most likely estimates</para></listitem>
-          <listitem><para>Multiple schedules with a possibility to schedule from current progress information</para></listitem>
-        </itemizedlist>
-        </para></listitem>
-    <listitem><para>Task tracking using the <link linkend="task-execution-view">Task Execution View</link> or <link linkend="task-status-view">Task Status View</link>&nbsp;</para></listitem>
-  </itemizedlist>
-</sect1>
+<para>Features include:
+</para>
+<itemizedlist>
+  <listitem><para>Task management using the <link linkend="task-editor">Task Editor</link>&nbsp;<itemizedlist>
+        <listitem><para>Work breakdown structure with configurable WBS codes</para></listitem>
+        <listitem><para>Tasks, summary tasks, and milestones</para></listitem>
+        <listitem><para>Different types of time constraints</para></listitem>
+        <listitem><para>Different types of dependencies.</para></listitem>
+      </itemizedlist>
+      </para></listitem>
+  <listitem><para>Resource management using the <link linkend="resource-editor">Resource Editor</link>&nbsp;<itemizedlist>
+        <listitem><para>Resource breakdown structure</para></listitem>
+        <listitem><para>Working- and material resource types</para></listitem>
+        <listitem><para>Resource allocation on group level</para></listitem>
+        <listitem><para>Resource teams</para></listitem>
+      </itemizedlist>
+      </para></listitem>
+  <listitem><para>Work time &amp; vacation definition using the <link linkend="work-and-vacation-editor">Work and Vacation Editor</link>&nbsp;</para></listitem>
+  <listitem><para>Cost management using the <link linkend="cost-breakdown-structure-editor">Cost Breakdown Structure Editor</link>&nbsp;</para></listitem>
+  <listitem><para>Earned value management</para></listitem>
+  <listitem><para>Project scheduling using the <link linkend="schedules-editor">Schedules Editor</link>&nbsp;<itemizedlist>
+        <listitem><para>Schedule forward from start time or backward from finish time</para></listitem>
+        <listitem><para>Allow or avoid resource overbooking</para></listitem>
+        <listitem><para>PERT distribution with optimistic-, pessimistic-, and most likely estimates</para></listitem>
+        <listitem><para>Multiple schedules with a possibility to schedule from current progress information</para></listitem>
+      </itemizedlist>
+      </para></listitem>
+  <listitem><para>Task tracking using the <link linkend="task-execution-view">Task Execution View</link> or <link linkend="task-status-view">Task Status View</link>&nbsp;</para></listitem>
+</itemizedlist>

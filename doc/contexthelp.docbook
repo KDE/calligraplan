@@ -1,8 +1,6 @@
-<sect1 id="context-help"><title>Context Help</title>
-  <para>Many functions and views have help and hints that can be displayed with the <emphasis>What's This</emphasis> function.
-  </para>
-  <para>You can activate it with the menu entry <menuchoice><guimenu>Help</guimenu><guimenuitem>WhatsThis</guimenuitem></menuchoice> or keyboard shortcut <keycombo>&Shift;<keycap>F1</keycap></keycombo>.
-  </para>
-  <para>In dialogs it is activated by pressing the <varname>?</varname> in the dialogs title bar.
-  </para>
-</sect1>
+<para>Many functions and views have help and hints that can be displayed with the <emphasis>What's This</emphasis> function.
+</para>
+<para>You can activate it with the menu entry <menuchoice><guimenu>Help</guimenu><guimenuitem>WhatsThis</guimenuitem></menuchoice> or keyboard shortcut <keycombo>&Shift;<keycap>F1</keycap></keycombo>.
+</para>
+<para>In dialogs it is activated by pressing the <varname>?</varname> in the dialogs title bar.
+</para>

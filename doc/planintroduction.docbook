@@ -1,5 +1,18 @@
-<chapter id="plan-introduction"><title>Introduction to Plan</title>
-  &introduction-section;
-  &definitions-section;
-  &context-help-section;
+<!-- Note: Set id of chapter to the id the first section should have had -->
+<chapter id="introduction"><title>Introduction to Plan</title>
+  <sect1 id="introduction-section"><title>Introduction</title>
+    &introduction-section;
+  </sect1>
+  <sect1 id="definitions"><title>Definitions</title>
+    &definitions-section;
+  </sect1>
+  <sect1 id="context-help"><title>Context Help</title>
+    &context-help-section;
+  </sect1>
+  <sect1 id="main-work-space"><title>Main Work Space</title>
+    &main-work-space-section;
+  </sect1>
+  <sect1 id="using-the-views"><title>Using the Views</title>
+    &using-the-views-section;
+  </sect1>
 </chapter>

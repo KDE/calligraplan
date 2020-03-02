@@ -1,4 +1,8 @@
-<chapter id="common-user-interface"><title>Common User Interface</title>
-  &main-work-space-section;
-  &using-the-views-section;
+<chapter id="main-work-space"><title>Common User Interface</title>
+  <sect1 id="main-work-space-section"><title>Main Work Space</title>
+    &main-work-space-section;
+  </sect1>
+  <sect1 id="using-the-views"><title>Using the Views</title>
+    &using-the-views-section;
+  </sect1>
 </chapter>

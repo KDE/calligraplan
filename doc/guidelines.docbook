@@ -1,5 +1,11 @@
-<chapter id="guidelines"><title>Guidelines</title>
-  &creating-project-section;
-  &managing-resources-section;
-  &creating-odt-report-templates-section;
+<chapter id="creating-a-project"><title>Guidelines</title>
+  <sect1 id="creating-a-project-section"><title>Creating a Project</title>
+    &creating-project-section;
+  </sect1>
+  <sect1 id="managing-resources"><title>Managing Resources</title>
+    &managing-resources-section;
+  </sect1>
+  <sect1 id="creating-odt-report-templates"><title>Creating ODT Report Templates</title>
+    &creating-odt-report-templates-section;
+  </sect1>
 </chapter>

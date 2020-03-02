@@ -1,57 +1,54 @@
-<sect1 id="main-work-space"><title>Main Work Space</title>
-  
-  <sect2 id="description2"><title>Description</title>
-    <para>
-      <informaltable>
-        <tgroup cols="2">
-          <tbody>
-            <row>
-              <entry>
-                <para>The Main Work Space is normally organized with the View Selector to the left and the data view to the right.</para><para>As usual, you will also find the Menu bar and Toolbar at the top, and the Status bar at the bottom.
-                </para>
-                <para>Since both the View selector and the Scripts docker are dockers they can be moved to the different border, floated or hidden. To show a hidden docker, use the <menuchoice><guimenu>Settings</guimenu><guimenuitem>Dockers</guimenuitem></menuchoice> menu entry.
-                </para>
-                
-              </entry>
-              <entry>
-                <para>
-                  <screenshot>
-                    <screeninfo></screeninfo>
-                    <mediaobject>
-                      <imageobject>
-                        <imagedata fileref="plan_work_space.png" format="PNG"/>
-                      </imageobject>
-                      <textobject>
-                        <phrase></phrase>
-                      </textobject>
-                    </mediaobject>
-                    </screenshot></para></entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
-    </para>
-  </sect2>
-  <sect2 id="the-view-selector"><title>The View Selector</title>
-    <para>The <link linkend="the-view-selector">View Selector</link> enables you to select the data view you want to display from the currently listed views.
-    </para>
-    <para>Views are grouped into categories for easier retrieval: Editors, Views, Execution and Reports by default:
-    </para>
-    <itemizedlist>
-      <listitem><para>Editors holds the editors that you need to define and schedule your project.</para></listitem>
-      <listitem><para>Views holds views that are used for inspecting your project.</para></listitem>
-      <listitem><para>Execution holds views that are especially useful during the execution of your project.</para></listitem>
-      <listitem><para>Reports holds views for report generation.</para></listitem>
-    </itemizedlist>
-    <para>Views can also be moved within or across categories, or added to or removed from the <link linkend="the-view-selector">View Selector</link>.
-    </para>
-  </sect2>
-  <sect2 id="schedule-selector"><title>Schedule Selector</title>
-    <para>The Schedule Selector enables you to select the schedule all the views (&eg; <link linkend="task-gantt-view">Gantt View</link>) shall display values from. Tasks which has not been scheduled in the selected schedule are not normally shown in any of the views. (They are shown in editors, of course.)
-    </para>
-  </sect2>
-  <sect2 id="status-bar"><title>Status Bar</title>
-    <para>The status bar shows messages and progress information. Most notably is the currently selected schedule shown at the right of the status bar. Note that most of the views in the <emphasis>Views</emphasis> category display information depending on the selected schedule, so if the project is not scheduled (<emphasis>Not Scheduled</emphasis>), most views will be empty.
-    </para>
-  </sect2>
-</sect1>
+<sect2 id="description2"><title>Description</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para>The Main Work Space is normally organized with the View Selector to the left and the data view to the right.</para><para>As usual, you will also find the Menu bar and Toolbar at the top, and the Status bar at the bottom.
+              </para>
+              <para>Since both the View selector and the Scripts docker are dockers they can be moved to the different border, floated or hidden. To show a hidden docker, use the <menuchoice><guimenu>Settings</guimenu><guimenuitem>Dockers</guimenuitem></menuchoice> menu entry.
+              </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_work_space.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot></para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect2>
+<sect2 id="the-view-selector"><title>The View Selector</title>
+  <para>The <link linkend="the-view-selector">View Selector</link> enables you to select the data view you want to display from the currently listed views.
+  </para>
+  <para>Views are grouped into categories for easier retrieval: Editors, Views, Execution and Reports by default:
+  </para>
+  <itemizedlist>
+    <listitem><para>Editors holds the editors that you need to define and schedule your project.</para></listitem>
+    <listitem><para>Views holds views that are used for inspecting your project.</para></listitem>
+    <listitem><para>Execution holds views that are especially useful during the execution of your project.</para></listitem>
+    <listitem><para>Reports holds views for report generation.</para></listitem>
+  </itemizedlist>
+  <para>Views can also be moved within or across categories, or added to or removed from the <link linkend="the-view-selector">View Selector</link>.
+  </para>
+</sect2>
+<sect2 id="schedule-selector"><title>Schedule Selector</title>
+  <para>The Schedule Selector enables you to select the schedule all the views (&eg; <link linkend="task-gantt-view">Gantt View</link>) shall display values from. Tasks which has not been scheduled in the selected schedule are not normally shown in any of the views. (They are shown in editors, of course.)
+  </para>
+</sect2>
+<sect2 id="status-bar"><title>Status Bar</title>
+  <para>The status bar shows messages and progress information. Most notably is the currently selected schedule shown at the right of the status bar. Note that most of the views in the <emphasis>Views</emphasis> category display information depending on the selected schedule, so if the project is not scheduled (<emphasis>Not Scheduled</emphasis>), most views will be empty.
+  </para>
+</sect2>

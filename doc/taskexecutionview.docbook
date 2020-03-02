@@ -1,183 +1,181 @@
-<sect1 id="task-execution-view"><title>Task Execution View</title>
-  <sect2 id="description25"><title>Description</title>
-    <para>
-      <informaltable>
-        <tgroup cols="2">
-          <tbody>
-            <row>
-              <entry>
-                <para>The Task Execution View is used to inspect task performance information.</para>
-              </entry>
-              <entry>
-                <para>
-                  <screenshot>
-                    <screeninfo></screeninfo>
-                    <mediaobject>
-                      <imageobject>
-                        <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
-                      </imageobject>
-                      <textobject>
-                        <phrase></phrase>
-                      </textobject>
-                    </mediaobject>
-                    </screenshot></para></entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
-    </para>
-  </sect2>
-  <sect2 id="data"><title>Data</title>
-    <para>
-      <informaltable>
-        <tgroup cols="2">
-          <tbody>
-            <row>
-              <entry>
-                <para>Progress information can be edited in-line as described <link linkend="using-the-views">here</link> or by using the task progress dialog.</para>
-              </entry>
-              <entry>
-                <para>
-                  <screenshot>
-                    <screeninfo></screeninfo>
-                    <mediaobject>
-                      <imageobject>
-                        <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
-                      </imageobject>
-                      <textobject>
-                        <phrase></phrase>
-                      </textobject>
-                    </mediaobject>
-                    </screenshot></para></entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
-    </para>
-    <para>The following columns are displayed as default:
-    </para>
-    <para>
-      <informaltable>
-        <tgroup cols="2">
-          <thead>
-            <row>
-              <entry><guilabel>Column</guilabel></entry>
-              <entry><guilabel>Description</guilabel></entry>
-            </row>
-          </thead>
-          <tbody>
-            <row>
-              <entry>
-                <para>Name</para>
-              </entry>
-              <entry>
-                <para>The name of the task.</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>Status</para>
-              </entry>
-              <entry>
-                <para>Task status</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>% Completed</para>
-              </entry>
-              <entry>
-                <para>Task completion</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>Responsible</para>
-              </entry>
-              <entry>
-                <para>The person responsible for this task.</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>Assignment</para>
-              </entry>
-              <entry>
-                <para>The resources assigned to this task.</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>SPI</para>
-              </entry>
-              <entry>
-                <para>Schedule Performance Index. (BCWP / BCWS)</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>BCWS</para>
-              </entry>
-              <entry>
-                <para>Budgeted Cost of Work Scheduled.</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>BCWP</para>
-              </entry>
-              <entry>
-                <para>Budgeted Cost of Work Performed.</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>ACWP</para>
-              </entry>
-              <entry>
-                <para>Actual Cost of Work Performed.</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>Description</para>
-              </entry>
-              <entry>
-                <para>Task description</para></entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
-    </para>
-  </sect2>
-  <sect2 id="configuration26"><title>Configuration</title>
-    <para>Using the context menu, the view can be configured to show / hide the Project, split / unsplit the tree view or it can be configured using the configure dialog.
-    </para>
-    <para>
-      <informaltable>
-        <tgroup cols="2">
-          <tbody>
-            <row>
-              <entry>
-                <para>The configure dialog enables you to tailor the amount of information the view displays to fit your needs.</para>
-              </entry>
-              <entry>
-                <para>
-                  <screenshot>
-                    <screeninfo></screeninfo>
-                    <mediaobject>
-                      <imageobject>
-                        <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
-                      </imageobject>
-                      <textobject>
-                        <phrase></phrase>
-                      </textobject>
-                    </mediaobject>
-                    </screenshot></para></entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
-    </para>
-  </sect2>
-</sect1>
+<sect2 id="description25"><title>Description</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para>The Task Execution View is used to inspect task performance information.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot></para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect2>
+<sect2 id="data"><title>Data</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para>Progress information can be edited in-line as described <link linkend="using-the-views">here</link> or by using the task progress dialog.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot></para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para>The following columns are displayed as default:
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry><guilabel>Column</guilabel></entry>
+            <entry><guilabel>Description</guilabel></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>Name</para>
+            </entry>
+            <entry>
+              <para>The name of the task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Status</para>
+            </entry>
+            <entry>
+              <para>Task status</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>% Completed</para>
+            </entry>
+            <entry>
+              <para>Task completion</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Responsible</para>
+            </entry>
+            <entry>
+              <para>The person responsible for this task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Assignment</para>
+            </entry>
+            <entry>
+              <para>The resources assigned to this task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>SPI</para>
+            </entry>
+            <entry>
+              <para>Schedule Performance Index. (BCWP / BCWS)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>BCWS</para>
+            </entry>
+            <entry>
+              <para>Budgeted Cost of Work Scheduled.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>BCWP</para>
+            </entry>
+            <entry>
+              <para>Budgeted Cost of Work Performed.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>ACWP</para>
+            </entry>
+            <entry>
+              <para>Actual Cost of Work Performed.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Description</para>
+            </entry>
+            <entry>
+              <para>Task description</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect2>
+<sect2 id="configuration26"><title>Configuration</title>
+  <para>Using the context menu, the view can be configured to show / hide the Project, split / unsplit the tree view or it can be configured using the configure dialog.
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para>The configure dialog enables you to tailor the amount of information the view displays to fit your needs.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot></para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect2>
