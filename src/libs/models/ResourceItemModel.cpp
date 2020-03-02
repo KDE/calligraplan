@@ -277,7 +277,7 @@ Qt::ItemFlags ResourceItemModel::flags(const QModelIndex &index) const
                     flags |= Qt::ItemIsUserCheckable;
                 }
                 break;
-            case ResourceModel::ResourceScope:
+            case ResourceModel::ResourceOrigin:
                 flags &= ~Qt::ItemIsEditable;
                 break;
             case ResourceModel::ResourceType:
@@ -636,7 +636,7 @@ bool ResourceItemModel::setData(const QModelIndex &index, const QVariant &value,
     if (r) {
         switch (index.column()) {
             case ResourceModel::ResourceName: return setName(r, value, role);
-            case ResourceModel::ResourceScope: return false; // Not editable
+            case ResourceModel::ResourceOrigin: return false; // Not editable
             case ResourceModel::ResourceType: return setType(r, value, role);
             case ResourceModel::ResourceInitials: return setInitials(r, value, role);
             case ResourceModel::ResourceEmail: return setEmail(r, value, role);

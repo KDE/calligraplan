@@ -48,7 +48,7 @@ public:
 
     enum Properties {
         Name = 0,
-        Scope,
+        Origin,
         Type,
         Units,
         Coordinator
@@ -62,7 +62,7 @@ public:
     static QVariant headerData(int section, int role = Qt::DisplayRole);
 
     QVariant name(const ResourceGroup *group, int role) const;
-    QVariant scope(const ResourceGroup *group, int role) const;
+    QVariant origin(const ResourceGroup *group, int role) const;
     QVariant type(const ResourceGroup *group, int role) const;
     QVariant units(const ResourceGroup *group, int role) const;
     QVariant coordinator(const ResourceGroup *group, int role) const;

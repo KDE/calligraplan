@@ -112,7 +112,7 @@ namespace KPlato
     QString ToolTip::nodePerformanceIndex() { return i18n("Schedule performance index (BCWP/BCWS)"); }
 
     QString ToolTip::resourceName() { return xi18nc("@info:tooltip", "The name of the resource"); }
-    QString ToolTip::resourceScope() { return xi18nc("@info:tooltip", "The origin of the resource"); }
+    QString ToolTip::resourceOrigin() { return xi18nc("@info:tooltip", "The origin of the resource"); }
     QString ToolTip::resourceType() { return xi18nc("@info:tooltip", "The type of the resource"); }
     QString ToolTip::resourceInitials() { return xi18nc("@info:tooltip", "The initials of the resource"); }
     QString ToolTip::resourceEMail() { return xi18nc("@info:tooltip", "The e-mail address of the resource"); }
@@ -126,7 +126,7 @@ namespace KPlato
     QString ToolTip::resourceAccount() { return xi18nc("@info:tooltip", "The account where the resource cost is accumulated"); }
 
     QString ToolTip::resourceGroupName() { return xi18nc("@info:tooltip", "The name of the resource group"); }
-    QString ToolTip::resourceGroupScope() { return xi18nc("@info:tooltip", "The origin of the resource group"); }
+    QString ToolTip::resourceGroupOrigin() { return xi18nc("@info:tooltip", "The origin of the resource group"); }
     QString ToolTip::resourceGroupType() { return xi18nc("@info:tooltip", "The type of the resource group"); }
     QString ToolTip::resourceGroupUnits() { return xi18nc("@info:tooltip", "The aggregated units for the resources in the resource group"); }
     QString ToolTip::resourceGroupCoordinator() { return xi18nc("@info:tooltip", "The coordinator of the resource group"); }

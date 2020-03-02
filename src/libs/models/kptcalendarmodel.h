@@ -76,7 +76,7 @@ public:
 
     enum Properties {
         Name = 0,
-        Scope,
+        Origin,
         TimeZone
 #ifdef HAVE_KHOLIDAYS
         , HolidayRegion
@@ -124,7 +124,7 @@ protected Q_SLOTS:
 protected:
     QVariant name(const Calendar *calendar, int role) const;
     bool setName(Calendar *calendar, const QVariant &value, int role);
-    QVariant scope(const Calendar *calendar, int role) const;
+    QVariant origin(const Calendar *calendar, int role) const;
     QVariant timeZone(const Calendar *calendar, int role) const;
     bool setTimeZone(Calendar *calendar, const QVariant &value, int role);
 #ifdef HAVE_KHOLIDAYS

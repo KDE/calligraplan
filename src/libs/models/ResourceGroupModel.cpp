@@ -98,7 +98,7 @@ QVariant ResourceGroupModel::name(const  ResourceGroup *group, int role) const
     return QVariant();
 }
 
-QVariant ResourceGroupModel::scope(const ResourceGroup *group, int role) const
+QVariant ResourceGroupModel::origin(const ResourceGroup *group, int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
@@ -183,7 +183,7 @@ QVariant ResourceGroupModel::data(const ResourceGroup *group, int property, int 
     }
     switch (property) {
         case Name: result = name(group, role); break;
-        case Scope: result = scope(group, role); break;
+        case Origin: result = origin(group, role); break;
         case Type: result = type(group, role); break;
         case Units: result = units(group, role); break;
         case Coordinator: result = coordinator(group, role); break;
@@ -201,7 +201,7 @@ QVariant ResourceGroupModel::headerData(int section, int role)
     if (role == Qt::DisplayRole) {
         switch (section) {
             case Name: return i18n("Name");
-            case Scope: return i18n("Origin");
+            case Origin: return i18n("Origin");
             case Type: return i18n("Type");
             case Units: return i18n("Units");
             case Coordinator: return i18n("Coordinator");
@@ -217,7 +217,7 @@ QVariant ResourceGroupModel::headerData(int section, int role)
     } else if (role == Qt::ToolTipRole) {
         switch (section) {
             case Name: return ToolTip::resourceGroupName();
-            case Scope: return ToolTip::resourceGroupScope();
+            case Origin: return ToolTip::resourceGroupOrigin();
             case Type: return ToolTip::resourceGroupType();
             case Units: return ToolTip::resourceGroupUnits();
             case Coordinator: return ToolTip::resourceGroupCoordinator();

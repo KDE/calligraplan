@@ -106,7 +106,7 @@ struct PLANMODELS_EXPORT ToolTip
     static QString nodePerformanceIndex();
 
     static QString resourceName();
-    static QString resourceScope();
+    static QString resourceOrigin();
     static QString resourceType();
     static QString resourceInitials();
     static QString resourceEMail();
@@ -120,7 +120,7 @@ struct PLANMODELS_EXPORT ToolTip
     static QString resourceAccount();
 
     static QString resourceGroupName();
-    static QString resourceGroupScope();
+    static QString resourceGroupOrigin();
     static QString resourceGroupType();
     static QString resourceGroupUnits();
     static QString resourceGroupCoordinator();

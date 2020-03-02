@@ -426,7 +426,7 @@ QVariant ResourceGroupItemModel::data(const QModelIndex &index, int role) const
         if (r) {
             switch (index.column()) {
                 case ResourceGroupModel::Name: return m_resourceModel.data(r, ResourceModel::ResourceName, role);
-                case ResourceGroupModel::Scope: return m_resourceModel.data(r, ResourceModel::ResourceScope, role);
+                case ResourceGroupModel::Origin: return m_resourceModel.data(r, ResourceModel::ResourceOrigin, role);
                 case ResourceGroupModel::Type: return m_resourceModel.data(r, ResourceModel::ResourceType, role);
                 case ResourceGroupModel::Units: return m_resourceModel.data(r, ResourceModel::ResourceLimit, role);
                 case ResourceGroupModel::Coordinator: return QVariant();
@@ -457,7 +457,7 @@ bool ResourceGroupItemModel::setData(const QModelIndex &index, const QVariant &v
         bool result = false;
         switch (index.column()) {
             case ResourceGroupModel::Name:  result = setName(g, value, role); break;
-            case ResourceGroupModel::Scope: return false; // Not editable
+            case ResourceGroupModel::Origin: return false; // Not editable
             case ResourceGroupModel::Type: result = setType(g, value, role); break;
             case ResourceGroupModel::Units: result = setUnits(g, value, role); break;
             case ResourceGroupModel::Coordinator: result = setCoordinator(g, value, role); break;

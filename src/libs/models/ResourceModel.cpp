@@ -112,7 +112,7 @@ QVariant ResourceModel::name(const Resource *res, int role) const
     return QVariant();
 }
 
-QVariant ResourceModel::scope(const Resource *res, int role) const
+QVariant ResourceModel::origin(const Resource *res, int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
@@ -385,7 +385,7 @@ QVariant ResourceModel::data(const Resource *resource, int property, int role) c
     }
     switch (property) {
         case ResourceName: result = name(resource, role); break;
-        case ResourceScope: result = scope(resource, role); break;
+        case ResourceOrigin: result = origin(resource, role); break;
         case ResourceType: result = type(resource, role); break;
         case ResourceInitials: result = initials(resource, role); break;
         case ResourceEmail: result = email(resource, role); break;
@@ -408,7 +408,7 @@ QVariant ResourceModel::headerData(int section, int role)
     if (role == Qt::DisplayRole) {
         switch (section) {
             case ResourceName: return i18n("Name");
-            case ResourceScope: return i18n("Origin");
+            case ResourceOrigin: return i18n("Origin");
             case ResourceType: return i18n("Type");
             case ResourceInitials: return i18n("Initials");
             case ResourceEmail: return i18n("Email");
@@ -424,7 +424,7 @@ QVariant ResourceModel::headerData(int section, int role)
     } else if (role == Qt::TextAlignmentRole) {
         switch (section) {
             case ResourceName:
-            case ResourceScope:
+            case ResourceOrigin:
             case ResourceType:
             case ResourceInitials:
             case ResourceEmail:
@@ -446,7 +446,7 @@ QVariant ResourceModel::headerData(int section, int role)
     } else if (role == Qt::ToolTipRole) {
         switch (section) {
             case ResourceName: return ToolTip::resourceName();
-            case ResourceScope: return ToolTip::resourceScope();
+            case ResourceOrigin: return ToolTip::resourceOrigin();
             case ResourceType: return ToolTip::resourceType();
             case ResourceInitials: return ToolTip::resourceInitials();
             case ResourceEmail: return ToolTip::resourceEMail();

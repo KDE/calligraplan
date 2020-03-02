@@ -110,7 +110,8 @@
     parent CDATA #IMPLIED
     name CDATA #IMPLIED
     default CDATA "0"
-    timezone  CDATA #IMPLIED>
+    timezone  CDATA #IMPLIED
+    origin (local|shared) CDATA "local">
 
 <!-- 7 weekdays (0=monday - 6=sunday) -->
 <!ELEMENT weekday (day*)>
@@ -143,7 +144,8 @@
 <!ATTLIST resource-group id CDATA #REQUIRED
     name CDATA #IMPLIED
     type CDATA #IMPLIED
-    coordinator CDATA #IMPLIED>
+    coordinator CDATA #IMPLIED
+    origin (local|shared) CDATA "local">
 
 <!-- Resource, used by both resources and used effort -->
 <!ELEMENT resources (resource*)>
@@ -158,7 +160,8 @@
     overtime-rate CDATA #IMPLIED
     units CDATA "100"
     calendar-id CDATA #IMPLIED
-    account CDATA #IMPLIED>
+    account CDATA #IMPLIED
+    origin (Local|Shared) CDATA "Local">
 
 <!-- Used both by resource -->
 <!ELEMENT required-resources (required-resource*)>

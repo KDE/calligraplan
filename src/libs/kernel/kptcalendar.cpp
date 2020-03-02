@@ -929,7 +929,11 @@ bool Calendar::load(KoXmlElement &element, XMLLoaderObject &status) {
     if (m_default) {
         status.project().setDefaultCalendar(this);
     }
-    m_shared = element.attribute(QStringLiteral("shared"), QStringLiteral("0")).toInt();
+    if (status.version() < "0.7.0") {
+        m_shared = element.attribute(QStringLiteral("shared"), QStringLiteral("0")).toInt();
+    } else {
+        m_shared = element.attribute(QStringLiteral("origin"), QStringLiteral("local")) != QStringLiteral("local");
+    }
 
 #ifdef HAVE_KHOLIDAYS
     setHolidayRegion(element.attribute(QStringLiteral("holiday-region")));
@@ -995,7 +999,7 @@ void Calendar::save(QDomElement &element) const {
         me.appendChild(e);
         d->save(e);
     }
-    me.setAttribute(QStringLiteral("shared"), m_shared);
+    me.setAttribute(QStringLiteral("origin"), m_shared ? QStringLiteral("shared") : QStringLiteral("local"));
 
 #ifdef HAVE_KHOLIDAYS
     me.setAttribute(QStringLiteral("holiday-region"), m_regionCode);

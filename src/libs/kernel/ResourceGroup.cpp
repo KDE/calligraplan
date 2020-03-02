@@ -276,7 +276,11 @@ bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
     setId(element.attribute("id"));
     m_name = element.attribute("name");
     setType(element.attribute("type"));
-    m_shared = element.attribute("shared", "0").toInt();
+    if (status.version() < "07.0") {
+        m_shared = element.attribute("shared", "0").toInt();
+    } else {
+        m_shared = element.attribute("origin", "local") != "local";
+    }
     m_coordinator = element.attribute("coordinator");
 
     KoXmlNode n = element.firstChild();

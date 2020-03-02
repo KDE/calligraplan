@@ -338,7 +338,11 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
     m_email = element.attribute("email");
     m_autoAllocate = (bool)(element.attribute("auto-allocate", "0").toInt());
     setType(element.attribute("type"));
-    m_shared = element.attribute("shared", "0").toInt();
+    if (status.version() < "0.7.0") {
+        m_shared = element.attribute("shared").toInt();
+    } else {
+        m_shared = element.attribute("origin", "local") != "local";
+    }
     m_calendar = status.project().findCalendar(element.attribute("calendar-id"));
     m_units = element.attribute("units", "100").toInt();
     s = element.attribute("available-from");
@@ -447,7 +451,7 @@ void Resource::save(QDomElement &element) const {
     me.setAttribute("email", m_email);
     me.setAttribute("auto-allocate", m_autoAllocate);
     me.setAttribute("type", typeToString());
-    me.setAttribute("shared", m_shared);
+    me.setAttribute("origin", m_shared ? "shared" : "local");
     me.setAttribute("units", QString::number(m_units));
     if (m_availableFrom.isValid()) {
         me.setAttribute("available-from", m_availableFrom.toString(Qt::ISODate));

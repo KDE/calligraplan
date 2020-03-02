@@ -48,7 +48,7 @@ public:
 
     enum Properties {
         ResourceName = 0,
-        ResourceScope,
+        ResourceOrigin,
         ResourceType,
         ResourceInitials,
         ResourceEmail,
@@ -69,7 +69,7 @@ public:
     static QVariant headerData(int section, int role = Qt::DisplayRole);
 
     QVariant name(const Resource *res, int role) const;
-    QVariant scope(const Resource *res, int role) const;
+    QVariant origin(const Resource *res, int role) const;
     QVariant type(const Resource *res, int role) const;
     QVariant initials(const Resource *res, int role) const;
     QVariant email(const Resource *res, int role) const;

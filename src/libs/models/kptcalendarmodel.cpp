@@ -188,7 +188,7 @@ Qt::ItemFlags CalendarItemModel::flags(const QModelIndex &index) const
             case Name:
                 flags |= (Qt::ItemIsEditable | Qt::ItemIsUserCheckable);
                 break;
-            case Scope:
+            case Origin:
                 flags &= ~Qt::ItemIsEditable;
                 break;
             case TimeZone:
@@ -311,7 +311,7 @@ QVariant CalendarItemModel::name(const Calendar *a, int role) const
     return QVariant();
 }
 
-QVariant CalendarItemModel::scope(const Calendar *a, int role) const
+QVariant CalendarItemModel::origin(const Calendar *a, int role) const
 {
     //debugPlan<<res->name()<<","<<role;
     switch (role) {
@@ -498,7 +498,7 @@ QVariant CalendarItemModel::data(const QModelIndex &index, int role) const
     }
     switch (index.column()) {
         case Name: result = name(a, role); break;
-        case Scope: result = scope(a, role); break;
+        case Origin: result = origin(a, role); break;
         case TimeZone: result = timeZone(a, role); break;
 #ifdef HAVE_KHOLIDAYS
         case HolidayRegion: result = holidayRegion(a, role); break;
@@ -522,7 +522,7 @@ bool CalendarItemModel::setData(const QModelIndex &index, const QVariant &value,
     Calendar *a = calendar(index);
     switch (index.column()) {
         case Name: return setName(a, value, role);
-        case Scope: return false;
+        case Origin: return false;
         case TimeZone: return setTimeZone(a, value, role);
 #ifdef HAVE_KHOLIDAYS
         case HolidayRegion: return setHolidayRegion(a, value, role);
@@ -540,7 +540,7 @@ QVariant CalendarItemModel::headerData(int section, Qt::Orientation orientation,
         if (role == Qt::DisplayRole) {
             switch (section) {
                 case Name: return xi18nc("@title:column", "Name");
-                case Scope: return xi18nc("@title:column", "Scope");
+                case Origin: return xi18nc("@title:column", "Origin");
                 case TimeZone: return xi18nc("@title:column", "Timezone");
 #ifdef HAVE_KHOLIDAYS
                 case HolidayRegion: return xi18nc("@title:column", "Holiday Region");
@@ -556,7 +556,7 @@ QVariant CalendarItemModel::headerData(int section, Qt::Orientation orientation,
     if (role == Qt::ToolTipRole) {
         switch (section) {
             case Name: return ToolTip::calendarName();
-            case Scope: return QVariant();
+            case Origin: return QVariant();
             case TimeZone: return ToolTip::calendarTimeZone();
 #ifdef HAVE_KHOLIDAYS
             case HolidayRegion: return xi18nc("@info:tooltip", "The holiday region");
