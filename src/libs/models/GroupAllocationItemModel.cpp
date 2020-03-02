@@ -582,7 +582,6 @@ bool GroupAllocationItemModel::setData(const QModelIndex &index, const QVariant 
     if (! index.isValid()) {
         return ItemModelBase::setData(index, value, role);
     }
-    qInfo()<<Q_FUNC_INFO<<index<<value<<role;
     if (!(flags(index) & Qt::ItemIsEditable)) {
         return false;
     }

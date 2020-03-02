@@ -227,7 +227,6 @@ void ResourceGroupEditor::setGuiActive(bool activate)
 
 void ResourceGroupEditor::slotContextMenuRequested(const QModelIndex &index, const QPoint& pos)
 {
-    qInfo()<<Q_FUNC_INFO<<m_view->masterView()->visualColumns();
     //debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
     QString name;
     if (index.isValid()) {

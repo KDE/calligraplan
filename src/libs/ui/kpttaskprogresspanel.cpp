@@ -307,7 +307,6 @@ void TaskProgressPanelImpl::slotFinishedChanged(bool state) {
 
 void TaskProgressPanelImpl::slotFinishTimeChanged(const QDateTime &dt)
 {
-    qInfo()<<Q_FUNC_INFO<<dt;
     if (! m_completion.isFinished()) {
         return;
     }
