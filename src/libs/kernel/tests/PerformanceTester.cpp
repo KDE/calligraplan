@@ -98,7 +98,7 @@ void PerformanceTester::init()
     // material resource
     ResourceGroup *m = new ResourceGroup();
     m->setName("M1");
-    m->setType(ResourceGroup::Type_Material);
+    m->setType("Material");
     p1->addResourceGroup(m);
     r2 = new Resource();
     r2->setName("Material");

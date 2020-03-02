@@ -125,7 +125,7 @@ void print(Resource *r, const QString &str, bool full = true) {
     qDebug()<<"Debug info: Resource"<<r->name()<<"id:"<<r->id()<<(void*)r<<str;
     qDebug()<<"  Parent groups:"<<r->parentGroups().count();
     for (ResourceGroup *g : r->parentGroups()) {
-        qDebug()<<"    "<<g->name() + " Type: " + g->typeToString() << "id:"<<g->id();
+        qDebug()<<"    "<<g->name() + " Type: " + g->type() << "id:"<<g->id();
     }
     qDebug()<<"  Available:"
         <<(r->availableFrom().isValid()

@@ -1619,7 +1619,7 @@ void ProjectTester::materialResource()
     r->addParentGroup(g);
 
     ResourceGroup *mg = new ResourceGroup();
-    mg->setType(ResourceGroup::Type_Material);
+    mg->setType("Material");
     project.addResourceGroup(mg);
     Resource *mr = new Resource();
     mr->setType(Resource::Type_Material);
@@ -1696,7 +1696,7 @@ void ProjectTester::requiredResource()
     r->addParentGroup(g);
 
     ResourceGroup *mg = new ResourceGroup();
-    mg->setType(ResourceGroup::Type_Material);
+    mg->setType("Material");
     mg->setName("MG");
     project.addResourceGroup(mg);
     Resource *mr = new Resource();

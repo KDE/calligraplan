@@ -371,13 +371,8 @@ QVariant ResourceGroupItemModel::type(const ResourceGroup *res, int role) const
     switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
-            return res->typeToString(true);
         case Qt::EditRole:
-            return res->typeToString(false);
-        case Role::EnumList:
-            return res->typeToStringList(true);
-        case Role::EnumListValue:
-            return (int)res->type();
+            return res->type();
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
         case Qt::StatusTipRole:
@@ -391,17 +386,7 @@ bool ResourceGroupItemModel::setType(ResourceGroup *res, const QVariant &value, 
 {
     switch (role) {
         case Qt::EditRole: {
-            ResourceGroup::Type v;
-            QStringList lst = res->typeToStringList(false);
-            if (lst.contains(value.toString())) {
-                v = static_cast<ResourceGroup::Type>(lst.indexOf(value.toString()));
-            } else {
-                v = static_cast<ResourceGroup::Type>(value.toInt());
-            }
-            if (v == res->type()) {
-                return false;
-            }
-            emit executeCommand(new ModifyResourceGroupTypeCmd(res, v, kundo2_i18n("Modify resourcegroup type")));
+            emit executeCommand(new ModifyResourceGroupTypeCmd(res, value.toString(), kundo2_i18n("Modify resourcegroup type")));
             return true;
         }
     }
@@ -486,11 +471,9 @@ QVariant ResourceGroupItemModel::headerData(int section, Qt::Orientation orienta
 
 QAbstractItemDelegate *ResourceGroupItemModel::createDelegate(int col, QWidget *parent) const
 {
-    switch (col) {
-        case ResourceModel::ResourceType: return new EnumDelegate(parent);
-        default: break;
-    }
-    return 0;
+    Q_UNUSED(col)
+    Q_UNUSED(parent)
+    return nullptr;
 }
 
 ResourceGroup *ResourceGroupItemModel::group(const QModelIndex &index) const

@@ -1023,14 +1023,14 @@ private:
 class PLANKERNEL_EXPORT ModifyResourceGroupTypeCmd : public NamedCommand
 {
     public:
-        ModifyResourceGroupTypeCmd(ResourceGroup *group, int value, const KUndo2MagicString& name = KUndo2MagicString());
+        ModifyResourceGroupTypeCmd(ResourceGroup *group, const QString &value, const KUndo2MagicString& name = KUndo2MagicString());
         void execute() override;
         void unexecute() override;
 
     private:
         ResourceGroup *m_group;
-        int m_newvalue;
-        int m_oldvalue;
+        QString m_newvalue;
+        QString m_oldvalue;
 };
 
 class PLANKERNEL_EXPORT ModifyCompletionEntrymodeCmd : public NamedCommand

@@ -1753,7 +1753,7 @@ void ModifyResourceGroupNameCmd::unexecute()
 
 }
 
-ModifyResourceGroupTypeCmd::ModifyResourceGroupTypeCmd(ResourceGroup *group, int value, const KUndo2MagicString& name)
+ModifyResourceGroupTypeCmd::ModifyResourceGroupTypeCmd(ResourceGroup *group, const QString &value, const KUndo2MagicString& name)
     : NamedCommand(name),
         m_group(group),
         m_newvalue(value)
@@ -1762,13 +1762,13 @@ ModifyResourceGroupTypeCmd::ModifyResourceGroupTypeCmd(ResourceGroup *group, int
 }
 void ModifyResourceGroupTypeCmd::execute()
 {
-    m_group->setType(static_cast<ResourceGroup::Type>(m_newvalue));
+    m_group->setType(m_newvalue);
 
 
 }
 void ModifyResourceGroupTypeCmd::unexecute()
 {
-    m_group->setType(static_cast<ResourceGroup::Type>(m_oldvalue));
+    m_group->setType(m_oldvalue);
 
 
 }

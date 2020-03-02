@@ -558,7 +558,7 @@ void InsertProjectTester::testExistingRequiredResourceRequest()
     addResourceGroup(part);
     Resource *r = addResource(part);
     ResourceGroup *g = addResourceGroup(part);
-    g->setType(ResourceGroup::Type_Material);
+    g->setType("Material");
     QList<Resource*> m; m << addResource(part, g);
     m.first()->setType(Resource::Type_Material);
     r->setRequiredIds(QStringList() << m.first()->id());

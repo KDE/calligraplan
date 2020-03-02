@@ -586,7 +586,7 @@ void ResourceTester::required()
         delete c1;
 
         ResourceGroup *m = new ResourceGroup();
-        m->setType(ResourceGroup::Type_Material);
+        m->setType("Material");
         c1 = new AddResourceGroupCmd(&p4, m);
         c1->redo();
         delete c1;

@@ -115,31 +115,14 @@ void ResourceGroup::setName(const QString& n)
     changed();
 }
 
-void ResourceGroup::setType(Type type)
+QString ResourceGroup::type() const
 {
-     m_type = type;
-     changed();
+    return m_type;
 }
 
 void ResourceGroup::setType(const QString &type)
 {
-    if (type == "Work")
-        setType(Type_Work);
-    else if (type == "Material")
-        setType(Type_Material);
-    else
-        setType(Type_Work);
-}
-
-QString ResourceGroup::typeToString(bool trans) const {
-    return typeToStringList(trans).at(m_type);
-}
-
-QStringList ResourceGroup::typeToStringList(bool trans) {
-    // keep these in the same order as the enum!
-    return QStringList() 
-            << (trans ? i18n("Work") : QString("Work"))
-            << (trans ? i18n("Material") : QString("Material"));
+    m_type = type;
 }
 
 Project *ResourceGroup::project() const
@@ -321,7 +304,7 @@ void ResourceGroup::save(QDomElement &element)  const {
 
     me.setAttribute("id", m_id);
     me.setAttribute("name", m_name);
-    me.setAttribute("type", typeToString());
+    me.setAttribute("type", m_type);
     me.setAttribute("shared", m_shared);
 
     for (ResourceGroup *g : m_childGroups) {

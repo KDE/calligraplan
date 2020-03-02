@@ -128,13 +128,8 @@ QVariant ResourceGroupModel::type(const ResourceGroup *group, int role) const
     switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
-            return group->typeToString(true);
         case Qt::EditRole:
-            return group->typeToString(false);
-        case Role::EnumList:
-            return group->typeToStringList(true);
-        case Role::EnumListValue:
-            return (int)group->type();
+            return group->type();
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
         case Qt::StatusTipRole:
