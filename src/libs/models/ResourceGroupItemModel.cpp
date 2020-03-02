@@ -424,7 +424,15 @@ QVariant ResourceGroupItemModel::data(const QModelIndex &index, int role) const
     if (m_resourcesEnabled) {
         Resource *r = resource(index);
         if (r) {
-            return m_resourceModel.data(r, index.column(), role);
+            switch (index.column()) {
+                case ResourceGroupModel::Name: return m_resourceModel.data(r, ResourceModel::ResourceName, role);
+                case ResourceGroupModel::Scope: return m_resourceModel.data(r, ResourceModel::ResourceScope, role);
+                case ResourceGroupModel::Type: return m_resourceModel.data(r, ResourceModel::ResourceType, role);
+                case ResourceGroupModel::Units: return m_resourceModel.data(r, ResourceModel::ResourceLimit, role);
+                case ResourceGroupModel::Coordinator: return QVariant();
+                default:
+                    break;
+            }
         }
     }
     return QVariant();
