@@ -87,9 +87,8 @@
         <tbody>
           <row>
             <entry>
-              <para>Using the context menu, the view can be configured to split/unsplit the tree view or it can be configured using the configure dialog.</para><para>The configure dialog enables you to tailor the amount of information the view displays to fit your needs.
-              </para>
-              
+              <para>Using the context menu, the view can be configured using the configure dialog.</para>
+              <para>The configure dialog enables you to tailor the amount of information the view displays to fit your needs.</para>
             </entry>
             <entry>
               <para>
