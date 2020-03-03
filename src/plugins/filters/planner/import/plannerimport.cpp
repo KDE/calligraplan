@@ -402,7 +402,12 @@ bool loadTasks(const QDomElement &el, Project &project, Node *parent = 0)
         t->setCurrentSchedule(sid);
 
         const QString format = QString("yyyyMMddThhmmssZ");
-        QDateTime start = QDateTime::fromString(cel.attribute("work-start"), format);
+        QDateTime start;
+        if (cel.hasAttribute("work-start")) {
+            start = QDateTime::fromString(cel.attribute("work-start"), format);
+        } else {
+            start = QDateTime::fromString(cel.attribute("start"), format);
+        }
         QDateTime end = QDateTime::fromString(cel.attribute("end"), format);
         t->setStartTime(DateTime(start));
         t->setEndTime(DateTime(end));
