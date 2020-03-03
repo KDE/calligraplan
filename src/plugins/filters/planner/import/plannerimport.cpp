@@ -299,6 +299,7 @@ bool loadResourceGroups(const QDomElement &el, Project &project)
         ResourceGroup *g = new ResourceGroup();
         g->setId(gel.attribute("id"));
         g->setName(gel.attribute("name"));
+        g->setCoordinator(gel.attribute("admin-name"));
         project.addResourceGroup(g);
     }
     return true;
