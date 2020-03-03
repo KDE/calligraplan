@@ -54,7 +54,6 @@ ResourceGroup::ResourceGroup()
 {
     m_project = nullptr;
     m_parent = nullptr;
-    m_type = Type_Work;
     //debugPlan<<"("<<this<<")";
 }
 
@@ -320,7 +319,7 @@ void ResourceGroup::save(QDomElement &element)  const {
     me.setAttribute("id", m_id);
     me.setAttribute("name", m_name);
     me.setAttribute("type", m_type);
-    me.setAttribute("shared", m_shared);
+    me.setAttribute("shared", m_shared ? "shared" : "local");
     me.setAttribute("coordinator", m_coordinator);
 
     for (ResourceGroup *g : m_childGroups) {

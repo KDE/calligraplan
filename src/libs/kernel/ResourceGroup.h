@@ -78,8 +78,6 @@ public:
     explicit ResourceGroup(const ResourceGroup *group);
     ~ResourceGroup() override;
 
-    enum Type { Type_Work, Type_Material };
-
     QString id() const { return m_id; }
     void setId(const QString& id);
 
