@@ -1276,11 +1276,7 @@ QModelIndex ResourceAppointmentsRowModel::parent(const QModelIndex &idx) const
     pr = parentResource(idx);
     if (pr) {
         // Appointment, parent is Resource
-        int row = pr->parentGroups().value(0)->indexOf(pr);
-        QModelIndex p = const_cast<ResourceAppointmentsRowModel*>(this)->createResourceIndex(row, 0);
-        //debugPlan<<"Parent:"<<p<<r->parentGroups().value(0)->name();
-        Q_ASSERT(p.isValid());
-        return p;
+        return index(pr);
     }
     if (Appointment *a = parentAppointment(idx)) {
         // AppointmentInterval, parent is Appointment
