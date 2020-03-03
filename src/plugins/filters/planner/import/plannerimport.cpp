@@ -334,17 +334,12 @@ bool loadResources(const QDomElement &el, Project &project)
         r->setUnits(units);
         r->setNormalRate(rel.attribute("std-rate").toDouble());
         r->setCalendar(project.findCalendar(rel.attribute("calendar")));
+        project.addResource(r);
         QString gid = rel.attribute("group");
         ResourceGroup *g = project.group(gid);
-        if (!g) {
-            // add a default
-            g = new ResourceGroup();
-            g->setId(gid); // FIXME handle: gid *should* be empty if group was not found
-            g->setName(i18n("Resources"));
-            project.addResourceGroup(g);
+        if (g) {
+            g->addResource(-1, r, nullptr);
         }
-        project.addResource(r);
-        g->addResource(-1, r, nullptr);
     }
     return true;
 }
