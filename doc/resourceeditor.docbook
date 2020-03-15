@@ -1,29 +1,19 @@
 <sect2 id="description6"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Resource Editor is used to create, edit, and delete resources and resource groups. Resources must belong to a resource group. At the moment sub-groups are not allowed.</para>
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase></phrase>
-                    </textobject>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Resource Editor is used to create, edit, and delete resources and resource groups. Resources must belong to a resource group. At the moment sub-groups are not allowed.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
   </para>
   <para>Working resources must refer to a <emphasis>calendar</emphasis> that defines the working hours for the resource. Calendars are created using the <link linkend="work-and-vacation-editor">Work and Vacation Editor</link>.
   </para>

@@ -1,31 +1,19 @@
 <sect2 id="description15"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Task Dependency Editor is used to create, edit, and delete task dependencies. For convenience, tasks can also be inserted, deleted or edited.</para><para>The tasks are ordered in accordance with the Work Breakdown Structure (WBS).
-              </para>
-              
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase></phrase>
-                    </textobject>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Task Dependency Editor is used to create, edit, and delete task dependencies. For convenience, tasks can also be inserted, deleted or edited.</para><para>The tasks are ordered in accordance with the Work Breakdown Structure (WBS).
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
   </para>
   <para>The symbols for summary tasks, tasks and milestones are shown below:
   </para>

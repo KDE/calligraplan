@@ -1,32 +1,22 @@
 <sect2 id="description27"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Gantt view is used to show tasks in a timeline.</para>
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_ganttview.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase>Gantt View</phrase>
-                    </textobject>
-                    <caption>
-                      <para>Gantt View</para>
-                    </caption>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Gantt view is used to show tasks in a timeline.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_ganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
   </para>
 </sect2>
 <sect2 id="editing-data28"><title>Editing data</title>

@@ -1,29 +1,19 @@
 <sect2 id="description22"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Task Status View is used to inspect task progress information at a period, set in the configuration.</para>
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_taskstatusview.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase></phrase>
-                    </textobject>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Task Status View is used to inspect task progress information at a period, set in the configuration.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskstatusview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
   </para>
   <para>The tasks are divided into groups dependent on the status of the task:
   </para>

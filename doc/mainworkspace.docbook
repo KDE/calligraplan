@@ -1,34 +1,22 @@
 <sect2 id="description2"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Main Work Space is normally organized with the View Selector to the left and the data view to the right.</para><para>As usual, you will also find the Menu bar and Toolbar at the top, and the Status bar at the bottom.
-              </para>
-              <para>Since both the View selector and the Scripts docker are dockers they can be moved to the different border, floated or hidden. To show a hidden docker, use the <menuchoice><guimenu>Settings</guimenu><guimenuitem>Dockers</guimenuitem></menuchoice> menu entry.
-              </para>
-              
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_work_space.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase></phrase>
-                    </textobject>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Main Work Space is normally organized with the View Selector to the left and the data view to the right.</para><para>As usual, you will also find the Menu bar and Toolbar at the top, and the Status bar at the bottom.
   </para>
+  <para>
+    Since both the View selector and the Scripts docker are dockers they can be moved to the different border, floated or hidden. To show a hidden docker, use the <menuchoice><guimenu>Settings</guimenu><guimenuitem>Dockers</guimenuitem></menuchoice> menu entry.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_work_space.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot></para>
 </sect2>
 <sect2 id="the-view-selector"><title>The View Selector</title>
   <para>The <link linkend="the-view-selector">View Selector</link> enables you to select the data view you want to display from the currently listed views.

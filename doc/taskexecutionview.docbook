@@ -1,29 +1,19 @@
 <sect2 id="description25"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Task Execution View is used to inspect task performance information.</para>
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase></phrase>
-                    </textobject>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Task Execution View is used to inspect task performance information.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
   </para>
 </sect2>
 <sect2 id="data"><title>Data</title>

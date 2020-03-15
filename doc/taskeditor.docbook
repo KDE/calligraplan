@@ -1,31 +1,19 @@
 <sect2 id="description4"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Task Editor is used to create, edit, and delete tasks.</para><para>Tasks can be organized into a hierarchical tree structure to any depth.
-              </para>
-              
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_taskeditor.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase></phrase>
-                    </textobject>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Task Editor is used to create, edit, and delete tasks.</para><para>Tasks can be organized into a hierarchical tree structure to any depth.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
   </para>
 </sect2>
 <sect2 id="toolbar"><title>Toolbar</title>
@@ -134,7 +122,8 @@
       </tgroup>
     </informaltable>
   </para>
-  <para>Note that you can also move tasks with drag and drop.
+  <para>
+    Note that you can also move or copy tasks using drag and drop or copy/paste.
   </para>
 </sect2>
 <sect2 id="editing-data5"><title>Editing data</title>

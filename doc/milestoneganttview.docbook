@@ -1,32 +1,22 @@
 <sect2 id="description30"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Milestone Gantt view is used to show milestones in a time line.</para>
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_milestoneganttview.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase>Gantt View</phrase>
-                    </textobject>
-                    <caption>
-                      <para>Gantt View</para>
-                    </caption>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Milestone Gantt view is used to show milestones in a time line.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_milestoneganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
   </para>
 </sect2>
 <sect2 id="editing-data31"><title>Editing data</title>

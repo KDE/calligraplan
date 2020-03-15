@@ -1,37 +1,28 @@
 <sect2 id="description10"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Work and Vacation Editor is used to create, edit, and delete calendars.</para><para>Calendars define the working hours for resources. Calendars can also be used by tasks with estimate type <emphasis>Duration</emphasis>.
-              </para>
-              <para>Calendars have a time zone specification so you can define working hours in the resources local time.
-              </para>
-              <para>A calendar consists of definitions for weekdays and dates. If the date has a definition, this definition is used. If the state of the date is <emphasis>Undefined</emphasis>, the definition for the weekday is used. If this is also <emphasis>Undefined</emphasis>, the parent calendar is checked.
-              </para>
-              <para>A calendar can be defined as <emphasis>Default</emphasis> and is then used by all working resources without a calendar reference.
-              </para>
-              
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_workandvacation.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase></phrase>
-                    </textobject>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Work and Vacation Editor is used to create, edit, and delete calendars.</para><para>Calendars define the working hours for resources. Calendars can also be used by tasks with estimate type <emphasis>Duration</emphasis>.
+  </para>
+  <para>
+    Calendars have a time zone specification so you can define working hours in the resources local time.
+  </para>
+  <para>
+    A calendar consists of definitions for weekdays and dates. If the date has a definition, this definition is used. If the state of the date is <emphasis>Undefined</emphasis>, the definition for the weekday is used. If this is also <emphasis>Undefined</emphasis>, the parent calendar is checked.
+  </para>
+  <para>
+    A calendar can be defined as <emphasis>Default</emphasis> and is then used by all working resources without a calendar reference.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_workandvacation.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
   </para>
   <para>The toolbar provides the means to create and delete calendars:
   </para>

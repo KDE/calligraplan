@@ -1,31 +1,19 @@
 <sect2 id="description41"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Reports Generator View is used to add and generate reports in Open Document Text (odt) format.</para><para>The reports can be based on the supplied report templates, or you can <link linkend="creating-odt-report-templates">write your own templates</link>.
-              </para>
-              
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase></phrase>
-                    </textobject>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Reports Generator View is used to add and generate reports in Open Document Text (odt) format.</para><para>The reports can be based on the supplied report templates, or you can <link linkend="creating-odt-report-templates">write your own templates</link>.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
   </para>
   <para>
     <informaltable>

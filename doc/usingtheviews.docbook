@@ -1,29 +1,19 @@
 <sect2 id="description3"><title>Description</title>
   <para>
-    <informaltable>
-      <tgroup cols="2">
-        <tbody>
-          <row>
-            <entry>
-              <para>The Task Editor is a view that displays task data in a tree structure. Most data in the Task Editor can be edited in situ.</para>
-            </entry>
-            <entry>
-              <para>
-                <screenshot>
-                  <screeninfo></screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata fileref="plan_taskeditor.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase></phrase>
-                    </textobject>
-                  </mediaobject>
-                  </screenshot></para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
+    The Task Editor is a view that displays task data in a tree structure. Most data in the Task Editor can be edited in situ.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
   </para>
 </sect2>
 <sect2 id="navigation"><title>Navigation</title>
@@ -160,5 +150,12 @@
         </tbody>
       </tgroup>
     </informaltable>
+  </para>
+</sect2>
+<sect2 id="using-the-views-drag-drop"><title>Drag &amp; drop and copy/paste</title>
+  <para>
+    Most views support drag &amp; drop and copy/paste. Charts and Gantt charts can be dragged to applications that support images.
+    Table data uses the html mime type, so can be dropped on any applications that supports this.
+    If the view supports moving or copying items internally &eg; the <link linkend="task-editor">Task Editor</link>, items can also be moved or copied.
   </para>
 </sect2>
