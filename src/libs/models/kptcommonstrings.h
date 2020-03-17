@@ -22,7 +22,6 @@
 
 #include "planmodels_export.h"
 
-class KUndo2MagicString;
 class QString;
 
 namespace KPlato
@@ -168,11 +167,6 @@ struct PLANMODELS_EXPORT WhatsThis
     static QString scheduleScheduler();
 
 }; //namespace WhatsThis
-
-struct PLANMODELS_EXPORT UndoText
-{
-    static KUndo2MagicString removeDocument();
-}; //namespace Undo
 
 } //namespace KPlato
 

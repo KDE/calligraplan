@@ -467,7 +467,7 @@ bool WorkPackage::removeDocument(Part *part, Document *doc)
     if (n == 0) {
         return false;
     }
-    part->addCommand(new DocumentRemoveCmd(n->documents(), doc, UndoText::removeDocument()));
+    part->addCommand(new DocumentRemoveCmd(n->documents(), doc, kundo2_i18n("Remove document")));
     return true;
 }
 

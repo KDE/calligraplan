@@ -20,8 +20,6 @@
 // clazy:excludeall=qstring-arg
 #include "kptcommonstrings.h"
 
-#include <kundo2magicstring.h>
-
 #include <KLocalizedString>
 
 namespace KPlato
@@ -195,10 +193,6 @@ namespace KPlato
     QString ToolTip::relationChild() { return xi18nc("@info:tooltip", "The name of the dependent task"); }
     QString ToolTip::relationType() { return xi18nc("@info:tooltip", "The type of relation"); }
     QString ToolTip::relationLag() { return xi18nc("@info:tooltip", "The relations time lag"); }
-
-
-    // Work around string freeze
-    KUndo2MagicString UndoText::removeDocument() { return kundo2_i18n("Remove document"); }
 
 } //namespace KPlato
 

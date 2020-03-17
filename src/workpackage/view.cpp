@@ -129,8 +129,7 @@ View::View(Part *part,  QWidget *parent, KActionCollection *collection)
     collection->addAction("view_document", actionViewDocument);
     connect(actionViewDocument, &QAction::triggered, this, &View::slotViewDocument);
 
-    // FIXME remove UndoText::removeDocument() when string freeze is lifted
-    actionRemoveDocument = new QAction(koIcon("list-remove"), UndoText::removeDocument().toString(), this);
+    actionRemoveDocument = new QAction(koIcon("list-remove"), i18n("Remove document"), this);
     collection->addAction("remove_document", actionRemoveDocument);
     connect(actionRemoveDocument, &QAction::triggered, this, &View::slotRemoveDocument);
 
