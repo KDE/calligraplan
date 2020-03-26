@@ -1,4 +1,5 @@
-<sect2 id="description15"><title>Description</title>
+<sect2><title/>
+<sect3 id="description15"><title>Description</title>
   <para>
     The Task Dependency Editor is used to create, edit, and delete task dependencies. For convenience, tasks can also be inserted, deleted or edited.</para><para>The tasks are ordered in accordance with the Work Breakdown Structure (WBS).
   </para>
@@ -54,8 +55,8 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="editing-dependencies"><title>Editing dependencies</title>
+</sect3>
+<sect3 id="editing-dependencies"><title>Editing dependencies</title>
   <para>Dependencies are created by first selecting a start- or finish area of the predecessor task, then selecting the start- or finish area of the successor task.
   </para>
   <para>This can be done using the mouse or the keyboard.
@@ -66,8 +67,8 @@
   </para>
   <para>You can also open the context menu on a connection area which will enable you to edit all dependencies connected to that area.
   </para>
-</sect2>
-<sect2 id="toolbar16"><title>Toolbar</title>
+</sect3>
+<sect3 id="toolbar16"><title>Toolbar</title>
   <para>The toolbar provides the means to create and delete tasks:
   </para>
   <para>
@@ -127,4 +128,5 @@
       </tgroup>
     </informaltable>
   </para>
+</sect3>
 </sect2>

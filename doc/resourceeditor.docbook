@@ -1,4 +1,5 @@
-<sect2 id="description6"><title>Description</title>
+<sect2><title/>
+<sect3 id="description6"><title>Description</title>
   <para>
     The Resource Editor is used to create, edit, and delete resources and resource groups. Resources must belong to a resource group. At the moment sub-groups are not allowed.
   </para>
@@ -21,8 +22,8 @@
   </para>
   <para>Resources can be <emphasis>Shared</emphasis> or <emphasis>Local</emphasis>. A local resource is only used in the current project. A shared resource can be shared between multiple projects and is stored in a separate file, see <link linkend="managing-resources">Managing Resources</link>.
   </para>
-</sect2>
-<sect2 id="toolbar7"><title>Toolbar</title>
+</sect3>
+<sect3 id="toolbar7"><title>Toolbar</title>
   <para>The toolbar provides the means to create and delete resources and resource groups:
   </para>
   <para>
@@ -78,8 +79,8 @@
   </para>
   <para><note><para>When moving a resource, the resource will lose any allocations.</para></note>
   </para>
-</sect2>
-<sect2 id="editing-data8"><title>Editing data</title>
+</sect3>
+<sect3 id="editing-data8"><title>Editing data</title>
   <para>Data can be edited inline as described <link linkend="using-the-views">here</link>.
   </para>
   <para>Resources can also be edited using the Resource Settings Dialog.
@@ -187,8 +188,8 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="configuration9"><title>Configuration</title>
+</sect3>
+<sect3 id="configuration9"><title>Configuration</title>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -217,4 +218,5 @@
       </tgroup>
     </informaltable>
   </para>
+</sect3>
 </sect2>

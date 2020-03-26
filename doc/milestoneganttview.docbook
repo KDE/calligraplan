@@ -1,4 +1,5 @@
-<sect2 id="description30"><title>Description</title>
+<sect2><title/>
+<sect3 id="description30"><title>Description</title>
   <para>
     The Milestone Gantt view is used to show milestones in a time line.
   </para>
@@ -18,8 +19,8 @@
       </mediaobject>
     </screenshot>
   </para>
-</sect2>
-<sect2 id="editing-data31"><title>Editing data</title>
+</sect3>
+<sect3 id="editing-data31"><title>Editing data</title>
   <para>Milestone description and progress can be edited using the context menu.
   </para>
   <para>The following columns are displayed as default:
@@ -61,8 +62,8 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="configuration32"><title>Configuration</title>
+</sect3>
+<sect3 id="configuration32"><title>Configuration</title>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -93,4 +94,5 @@
       </tgroup>
     </informaltable>
   </para>
+</sect3>
 </sect2>

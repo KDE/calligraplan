@@ -1,4 +1,5 @@
-<sect2 id="description25"><title>Description</title>
+<sect2><title/>
+<sect3 id="description25"><title>Description</title>
   <para>
     The Task Execution View is used to inspect task performance information.
   </para>
@@ -15,8 +16,8 @@
       </mediaobject>
     </screenshot>
   </para>
-</sect2>
-<sect2 id="data"><title>Data</title>
+</sect3>
+<sect3 id="data"><title>Data</title>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -138,8 +139,8 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="configuration26"><title>Configuration</title>
+</sect3>
+<sect3 id="configuration26"><title>Configuration</title>
   <para>Using the context menu, the view can be configured to show / hide the Project, split / unsplit the tree view or it can be configured using the configure dialog.
   </para>
   <para>
@@ -168,4 +169,5 @@
       </tgroup>
     </informaltable>
   </para>
+</sect3>
 </sect2>

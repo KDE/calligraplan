@@ -1,4 +1,5 @@
-<sect2 id="description4"><title>Description</title>
+<sect2><title/>
+<sect3 id="description4"><title>Description</title>
   <para>
     The Task Editor is used to create, edit, and delete tasks.</para><para>Tasks can be organized into a hierarchical tree structure to any depth.
   </para>
@@ -15,8 +16,8 @@
       </mediaobject>
     </screenshot>
   </para>
-</sect2>
-<sect2 id="toolbar"><title>Toolbar</title>
+</sect3>
+<sect3 id="toolbar"><title>Toolbar</title>
   <para>The toolbar provides the means to create, delete and move tasks and milestones:
   </para>
   <para>
@@ -125,8 +126,8 @@
   <para>
     Note that you can also move or copy tasks using drag and drop or copy/paste.
   </para>
-</sect2>
-<sect2 id="editing-data5"><title>Editing data</title>
+</sect3>
+<sect3 id="editing-data5"><title>Editing data</title>
   <para>Data can be edited inline as described <link linkend="using-the-views">here</link>  or by using the Task Settings Dialog.
   </para>
   <para>The following columns are displayed as default:
@@ -304,8 +305,8 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="task-modules-docker"><title>Task Modules Docker</title>
+</sect3>
+<sect3 id="task-modules-docker"><title>Task Modules Docker</title>
   <para>Task Modules are groups of tasks that can be reused across projects.
   </para>
   <para>This makes it possible to draw on past experience and to standardize similar operations.
@@ -324,18 +325,18 @@
   </para>
   <para>Default values for new projects can be defined using the Plan Configuration Dialog.
   </para>
-</sect2>
-<sect2 id="resources-docker"><title>Resources Docker</title>
+</sect3>
+<sect3 id="resources-docker"><title>Resources Docker</title>
   <para>The Resources Docker offers a simple way to allocate resources to tasks by selecting the resources you need and dragging them onto the <emphasis>Allocation</emphasis> column.
   </para>
   <para>A resource can also be dropped on the <emphasis>Responsible</emphasis> column.
   </para>
-</sect2>
-<sect2 id="allocations-docker"><title>Allocations Docker</title>
+</sect3>
+<sect3 id="allocations-docker"><title>Allocations Docker</title>
   <para>The Allocations Docker displays the current resource allocation for the selected task.
   </para>
-</sect2>
-<sect2 id="configuration"><title>Configuration</title>
+</sect3>
+<sect3 id="configuration"><title>Configuration</title>
   <para>Using the context menu, the view can be configured to show / hide the Project, split / unsplit the tree view or it can be configured using the configure dialog.
   </para>
   <para>
@@ -364,4 +365,5 @@
       </tgroup>
     </informaltable>
   </para>
+</sect3>
 </sect2>

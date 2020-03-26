@@ -1,4 +1,5 @@
-<sect2 id="description41"><title>Description</title>
+<sect2><title/>
+<sect3 id="description41"><title>Description</title>
   <para>
     The Reports Generator View is used to add and generate reports in Open Document Text (odt) format.</para><para>The reports can be based on the supplied report templates, or you can <link linkend="creating-odt-report-templates">write your own templates</link>.
   </para>
@@ -66,8 +67,8 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="toolbar42"><title>Toolbar</title>
+</sect3>
+<sect3 id="toolbar42"><title>Toolbar</title>
   <para>The toolbar provides the means to add, remove and generate reports.
   </para>
   <para>
@@ -117,4 +118,5 @@
       </tgroup>
     </informaltable>
   </para>
+</sect3>
 </sect2>

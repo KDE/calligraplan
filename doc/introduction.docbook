@@ -1,3 +1,4 @@
+<sect2><title/>
 <para>Features include:
 </para>
 <itemizedlist>
@@ -27,3 +28,4 @@
       </para></listitem>
   <listitem><para>Task tracking using the <link linkend="task-execution-view">Task Execution View</link> or <link linkend="task-status-view">Task Status View</link>&nbsp;</para></listitem>
 </itemizedlist>
+</sect2>

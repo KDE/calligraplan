@@ -1,4 +1,5 @@
-<sect2 id="description33"><title>Description</title>
+<sect2><title/>
+<sect3 id="description33"><title>Description</title>
   <para>
     The Resource Assignment View displays the scheduled task-resource assignments in a table.
     <note><para>This view can severely impact performance in large projects.</para></note>
@@ -21,8 +22,8 @@
     </screenshot>
     -->
   </para>
-</sect2>
-<sect2 id="data34"><title>Data</title>
+</sect3>
+<sect3 id="data34"><title>Data</title>
   <para>The following columns are displayed as default:
   </para>
   <para>
@@ -62,12 +63,12 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="editing-data35"><title>Editing data</title>
+</sect3>
+<sect3 id="editing-data35"><title>Editing data</title>
   <para>The task description and progress can be edited using the context menu.
   </para>
-</sect2>
-<sect2 id="configuration36"><title>Configuration</title>
+</sect3>
+<sect3 id="configuration36"><title>Configuration</title>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -99,4 +100,5 @@
       </tgroup>
     </informaltable>
   </para>
+</sect3>
 </sect2>

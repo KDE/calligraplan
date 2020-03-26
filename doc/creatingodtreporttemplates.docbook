@@ -1,16 +1,17 @@
-<sect2 id="description1"><title>Description</title>
+<sect2><title/>
+<sect3 id="description1"><title>Description</title>
   <para>Open Document Text report templates are regular ODT files that can be designed using any ODT word processor like <emphasis>Calligra Words</emphasis> or <emphasis>LibreOffice Writer</emphasis>. The technique used is to use <emphasis>user field</emphasis> variables to hold references to the information that shall be fetched from the project. The variables are called <emphasis>User Fields</emphasis> in <emphasis>Writer</emphasis> and can be found under <menuchoice><guimenu>Insert</guimenu><guisubmenu>Field</guisubmenu><guimenuitem>More Fields</guimenuitem><guimenuitem>Variables</guimenuitem><guimenuitem>User Fields</guimenuitem></menuchoice>. In <emphasis>Words</emphasis> they are called <emphasis>Custom Variables</emphasis> and can be found under <menuchoice><guimenu>Text Editing docker</guimenu><guisubmenu>Variable</guisubmenu><guimenuitem>Custom</guimenuitem></menuchoice>.
   </para>
   <para>The easiest way to create a new report template is to modify an existing one as all user fields are defined.
   </para>
-</sect2>
-<sect2 id="user-field-variables"><title>User Field Variables</title>
-  <sect3 id="variables"><title>Variables</title>
+</sect3>
+<sect3 id="user-field-variables"><title>User Field Variables</title>
+  <sect4 id="variables"><title>Variables</title>
     <para>The variables are used to enable the generator to extract data from the project.
     </para>
     <para>A variable can be a reference to a single data field, a reference to table data or a reference to chart data.
     </para>
-    <sect4 id="single-data-field"><title>Single Data Field</title>
+    <para><emphasis>Single Data Field</emphasis></para>
       <para>A single data field variable has the following format:
       </para>
       <para><replaceable>data group name</replaceable>.<replaceable>property</replaceable> = <replaceable>property identifier</replaceable>
@@ -22,8 +23,7 @@
         <listitem><para><replaceable>property</replaceable> makes the user field name unique.</para></listitem>
         <listitem><para><replaceable>property identity</replaceable> identifies the property in the data group.</para></listitem>
       </itemizedlist>
-    </sect4>
-    <sect4 id="table-data"><title>Table Data</title>
+      <para><emphasis>Table Data</emphasis></para>
       <para>A table in a report template consists of a variable to specify the data table to use.
       </para>
       <para>The variable name must start with <replaceable>table</replaceable> (&eg; tableTasks) and the variable value must be the name of the data table (&eg; tasks).
@@ -40,8 +40,7 @@
         <listitem><para><guilabel>property</guilabel> makes the user field name unique.</para></listitem>
         <listitem><para><guilabel>property identifier</guilabel> identifies the property in the data group.</para></listitem>
       </itemizedlist>
-    </sect4>
-    <sect4 id="chart-data"><title>Chart Data</title>
+      <para><emphasis>Chart Data</emphasis></para>
       <para>A chart in a report template consists of a variable to specify the data to use in the chart.
       </para>
       <para>The variable name must start with <replaceable>chart</replaceable> (&eg; chartBudgetCost) and the variable value specifies the data group and values to populate the chart.
@@ -61,9 +60,8 @@
       </para>
       <para>chartBudget = project; values=bcws cost, bcwp cost, acwp cost;
       </para>
-    </sect4>
-  </sect3>
-  <sect3 id="translated-labels"><title>Translated Labels</title>
+  </sect4>
+  <sect4 id="translated-labels"><title>Translated Labels</title>
     <para>Translated labels enable us to produce general report templates that can be used in different languages.
     </para>
     <para>
@@ -143,8 +141,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect3>
-  <sect3 id="project-values"><title>Project Values</title>
+  </sect4>
+  <sect4 id="project-values"><title>Project Values</title>
     <para>Shows values from the main project.
     </para>
     <para>
@@ -293,8 +291,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect3>
-  <sect3 id="schedule-values"><title>Schedule Values</title>
+  </sect4>
+  <sect4 id="schedule-values"><title>Schedule Values</title>
     <para>Shows values from the current schedule.
     </para>
     <para>
@@ -421,8 +419,8 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect3>
-  <sect3 id="tables"><title>Tables</title>
+  </sect4>
+  <sect4 id="tables"><title>Tables</title>
     <para>Supported table types:
     </para>
     <itemizedlist>
@@ -1225,9 +1223,9 @@
         </tgroup>
       </informaltable>
     </para>
-  </sect3>
-</sect2>
-<sect2 id="chart"><title>Chart</title>
+  </sect4>
+</sect3>
+<sect3 id="chart"><title>Chart</title>
   <para>Use by placing a variable with name chartX (X=some text to make the variable name unique) with a value project before the chart that shall be used.
   </para>
   <para>The variable has this format:
@@ -1258,8 +1256,9 @@
   </para>
   <para>Note that you cannot mix effort- and cost-based values. If you want to show both, create two charts.
   </para>
-  <sect3 id="gantt"><title>Gantt</title>
+  <sect4 id="gantt"><title>Gantt</title>
     <para>Not supported.
     </para>
-  </sect3>
+  </sect4>
+</sect3>
 </sect2>

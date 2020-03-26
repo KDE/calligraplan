@@ -1,4 +1,5 @@
-<sect2 id="description2"><title>Description</title>
+<sect2><title/>
+<sect3 id="description2"><title>Description</title>
   <para>
     The Main Work Space is normally organized with the View Selector to the left and the data view to the right.</para><para>As usual, you will also find the Menu bar and Toolbar at the top, and the Status bar at the bottom.
   </para>
@@ -17,8 +18,8 @@
         </textobject>
       </mediaobject>
     </screenshot></para>
-</sect2>
-<sect2 id="the-view-selector"><title>The View Selector</title>
+</sect3>
+<sect3 id="the-view-selector"><title>The View Selector</title>
   <para>The <link linkend="the-view-selector">View Selector</link> enables you to select the data view you want to display from the currently listed views.
   </para>
   <para>Views are grouped into categories for easier retrieval: Editors, Views, Execution and Reports by default:
@@ -31,12 +32,13 @@
   </itemizedlist>
   <para>Views can also be moved within or across categories, or added to or removed from the <link linkend="the-view-selector">View Selector</link>.
   </para>
-</sect2>
-<sect2 id="schedule-selector"><title>Schedule Selector</title>
+</sect3>
+<sect3 id="schedule-selector"><title>Schedule Selector</title>
   <para>The Schedule Selector enables you to select the schedule all the views (&eg; <link linkend="task-gantt-view">Gantt View</link>) shall display values from. Tasks which has not been scheduled in the selected schedule are not normally shown in any of the views. (They are shown in editors, of course.)
   </para>
-</sect2>
-<sect2 id="status-bar"><title>Status Bar</title>
+</sect3>
+<sect3 id="status-bar"><title>Status Bar</title>
   <para>The status bar shows messages and progress information. Most notably is the currently selected schedule shown at the right of the status bar. Note that most of the views in the <emphasis>Views</emphasis> category display information depending on the selected schedule, so if the project is not scheduled (<emphasis>Not Scheduled</emphasis>), most views will be empty.
   </para>
+</sect3>
 </sect2>

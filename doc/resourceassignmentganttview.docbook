@@ -1,4 +1,5 @@
-<sect2 id="description37"><title>Description</title>
+<sect2><title/>
+<sect3 id="description37"><title>Description</title>
   <para>The Resource Assignment Gantt View displays the scheduled task-resource assignments in a Gantt chart.
   </para>
   <!--
@@ -19,8 +20,8 @@
     </screenshot>
   </para>
   -->
-</sect2>
-<sect2 id="data38"><title>Data</title>
+</sect3>
+<sect3 id="data38"><title>Data</title>
   <para>The following columns are displayed as default:
   </para>
   <para>
@@ -68,12 +69,12 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="editing-data39"><title>Editing data</title>
+</sect3>
+<sect3 id="editing-data39"><title>Editing data</title>
   <para>The task description and progress can be edited using the context menu.
   </para>
-</sect2>
-<sect2 id="configuration40"><title>Configuration</title>
+</sect3>
+<sect3 id="configuration40"><title>Configuration</title>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -105,4 +106,5 @@
       </tgroup>
     </informaltable>
   </para>
+</sect3>
 </sect2>

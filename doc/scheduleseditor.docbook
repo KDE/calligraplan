@@ -1,4 +1,5 @@
-<sect2 id="description17"><title>Description</title>
+<sect2><title/>
+<sect3 id="description17"><title>Description</title>
   <para>
     The Schedule Editor is used to create, edit, calculate and delete schedules.
   </para>
@@ -62,8 +63,8 @@
       </mediaobject>
     </screenshot>
   </para>
-</sect2>
-<sect2 id="toolbar18"><title>Toolbar</title>
+</sect3>
+<sect3 id="toolbar18"><title>Toolbar</title>
   <para>The toolbar provides the means to create, delete and calculate schedules:
   </para>
   <para>
@@ -146,8 +147,8 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="editing-data19"><title>Editing data</title>
+</sect3>
+<sect3 id="editing-data19"><title>Editing data</title>
   <para>Data can be edited in-line as described <link linkend="using-the-views">here</link>.
   </para>
   <para>The following columns are displayed as default:
@@ -243,8 +244,8 @@
       </tgroup>
     </informaltable>
   </para>
-</sect2>
-<sect2 id="configuration20"><title>Configuration</title>
+</sect3>
+<sect3 id="configuration20"><title>Configuration</title>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -273,4 +274,5 @@
       </tgroup>
     </informaltable>
   </para>
+</sect3>
 </sect2>
