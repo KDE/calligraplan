@@ -28,6 +28,7 @@
 #include <QModelIndex>
 #include <QApplication>
 #include <QPainter>
+#include <QPainterPath>
 #include <QLocale>
 
 #include <KLocalizedString>
