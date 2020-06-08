@@ -69,7 +69,7 @@
               <para><keycap>Arrow down</keycap></para>
             </entry>
             <entry>
-              <para>Go to previous row in the same column.</para>
+              <para>Go to next row in the same column.</para>
             </entry>
           </row>
           <row>

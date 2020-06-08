@@ -39,7 +39,7 @@
               <para><keycombo>&Ctrl;<keycap>I</keycap></keycombo></para>
             </entry>
             <entry>
-              <para>Drop-down button to create a task or milestone. The new item is positioned after the currently selected item on the same level as the selected item. If no item is selected, the new item is appended at the top level.</para>
+              <para>Dropdown box to create a task or milestone. The new item is positioned after the currently selected item on the same level as the selected item. If no item is selected, the new item is appended at the top level.</para>
             </entry>
           </row>
           <row>
@@ -56,7 +56,7 @@
               <para><keycombo>&Ctrl;&Shift;<keycap>I</keycap></keycombo></para>
             </entry>
             <entry>
-              <para>Drop-down button to create a sub-task or -milestone. The new item is appended as a child to the currently selected item.</para>
+              <para>Dropdown box to create a sub-task or -milestone. The new item is appended as a child to the currently selected item.</para>
             </entry>
           </row>
           <row>
