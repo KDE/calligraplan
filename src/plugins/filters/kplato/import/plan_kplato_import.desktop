@@ -18,7 +18,6 @@ Name[ru]=Фильтр импорта файлов планировщика KPlat
 Name[sk]=Importný filter Plan KPlato
 Name[sv]=Plan KPlato importfilter
 Name[uk]=Фільтр імпортування даних KPlato для Plan
-Name[x-test]=xxPlan KPlato Import Filterxx
 Name[zh_CN]=Plan KPlato 导入过滤器
 X-KDE-Export=application/x-vnd.kde.plan
 X-KDE-Import=application/x-vnd.kde.kplato
