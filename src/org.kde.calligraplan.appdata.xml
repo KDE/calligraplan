@@ -30,7 +30,6 @@
   <name xml:lang="sk">Plan</name>
   <name xml:lang="sv">Plan</name>
   <name xml:lang="uk">Plan</name>
-  <name xml:lang="x-test">xxPlanxx</name>
   <name xml:lang="zh-CN">Plan</name>
   <summary>Project Management</summary>
   <summary xml:lang="bs">Upravljanje projektom</summary>
@@ -57,7 +56,6 @@
   <summary xml:lang="sk">Správa projektov</summary>
   <summary xml:lang="sv">Projekthantering</summary>
   <summary xml:lang="uk">Керування проєктами</summary>
-  <summary xml:lang="x-test">xxProject Managementxx</summary>
   <summary xml:lang="zh-CN">项目管理</summary>
   <description>
     <p>
@@ -85,7 +83,6 @@
     <p xml:lang="sk">Plan je aplikácia na správu projektov. Je určená na správu stredne veľkých projektov s viacerými zdrojmi.</p>
     <p xml:lang="sv">Plan är ett projekthanteringsprogram. Det är avsett för att hantera måttligt stora projekt med flera resurser.</p>
     <p xml:lang="uk">Plan — програма для керування проєктами. Її призначено для керування помірно великими проєктами з декількома ресурсами або виконавцями.</p>
-    <p xml:lang="x-test">xxPlan is a project management application. It is intended for managing moderately large projects with multiple resources.xx</p>
     <p>Features:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -111,7 +108,6 @@
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
-    <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
     <ul>
       <li>Multiple views: Gant Charts, Resource View, Accounts View</li>
@@ -137,7 +133,6 @@
       <li xml:lang="sk">Mnoho pohľadov: Ganttove grafy, pohľad zdrojov, pohľad účtov</li>
       <li xml:lang="sv">Flera vyer: Gant-diagram, resursvy, kontovy</li>
       <li xml:lang="uk">Декілька режимів перегляду: діаграми Ґанта, перегляд виконавців, перегляд рахунків.</li>
-      <li xml:lang="x-test">xxMultiple views: Gant Charts, Resource View, Accounts Viewxx</li>
       <li>Uses standard structures: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)</li>
       <li xml:lang="bs">Koristi standardne strukture: Struktura prekida rada (WBS), Struktura prekida resursa (RBS), Struktura prekida troška (CBS)</li>
       <li xml:lang="ca">Usa estructures estàndard: Estructura de descomposició de treballs (WBS), Estructura de descomposició de recursos (RBS), Estructura de descomposició de costos (CBS)</li>
@@ -160,7 +155,6 @@
       <li xml:lang="sk">Používa štandardné štruktúry: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)</li>
       <li xml:lang="sv">Använder standardstrukturer: Arbetsfördelningsstruktur (WBS), resursfördelningsstruktur (RBS), kostnadsfördelningsstruktur (CBS)</li>
       <li xml:lang="uk">Використання стандартних структур: структури рознарядки робіт (СРР або WBS), структури розподілу вартості (СРВ або CBS) та структури розподілу ресурсів (СРР або RBS).</li>
-      <li xml:lang="x-test">xxUses standard structures: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)xx</li>
       <li>Configurable level of detail on Gantt Chart</li>
       <li xml:lang="bs">Konfigurabilan nivo detalja na Gantt Chart</li>
       <li xml:lang="ca">Es pot configurar el nivell de detall en el diagrama de Gantt</li>
@@ -184,7 +178,6 @@
       <li xml:lang="sk">Nastaviteľná úroveň detailu Ganttovho grafu</li>
       <li xml:lang="sv">Anpassningsbar detaljnivå för Gantt-diagram</li>
       <li xml:lang="uk">Налаштовуваний рівень деталізації у діаграмах Ґанта.</li>
-      <li xml:lang="x-test">xxConfigurable level of detail on Gantt Chartxx</li>
       <li>Supports Summarytasks, Tasks, and milestones</li>
       <li xml:lang="bs">Podržava rezime zadataka, zadatke i prekretnice</li>
       <li xml:lang="ca">Permet resums de tasques, tasques i fites</li>
@@ -207,7 +200,6 @@
       <li xml:lang="sk">Podporuje sumárne úlohy, úlohy a míľniky</li>
       <li xml:lang="sv">Stöder sammanfattningsaktiviteter, aktiviteter och milstenar</li>
       <li xml:lang="uk">Підтримка підсумкових завдань, завдань та етапів.</li>
-      <li xml:lang="x-test">xxSupports Summarytasks, Tasks, and milestonesxx</li>
       <li>Configurable Scheduling Constraints</li>
       <li xml:lang="bs">Konfigurabilna ograničenja rasporeda</li>
       <li xml:lang="ca">Es poden configurar restriccions de planificació</li>
@@ -230,7 +222,6 @@
       <li xml:lang="sk">Nastaviteľné plánovacie obmedzenia</li>
       <li xml:lang="sv">Anpassningsbara tidplanebegränsning</li>
       <li xml:lang="uk">Налаштовувані обмеження щодо планування.</li>
-      <li xml:lang="x-test">xxConfigurable Scheduling Constraintsxx</li>
     </ul>
   </description>
   <url type="homepage">https://www.calligra.org/plan/</url>
