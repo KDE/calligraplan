@@ -20,6 +20,7 @@ Comment[pt_BR]=Funcionalidade gráfica para o Plan
 Comment[sk]=GUI funkcionalita pre Plan
 Comment[sv]=Grafisk användargränssnittsfunktion för Plan
 Comment[uk]=Функціональність графічного інтерфейсу для Plan
+Comment[x-test]=xxGUI functionality for Planxx
 Comment[zh_CN]=Plan 的 GUI 功能
 [PropertyDef::X-Plan-Version]
 Type=int

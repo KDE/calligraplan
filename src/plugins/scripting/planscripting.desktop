@@ -18,6 +18,7 @@ Name[pt_BR]=Plugin de criação de scripts do Plan
 Name[sk]=Plugin skriptovania Plan
 Name[sv]=Plan skriptinsticksprogram
 Name[uk]=Додаток роботи зі скриптами для Plan
+Name[x-test]=xxPlan Scripting Pluginxx
 Name[zh_CN]=Plan 的脚本插件
 X-KDE-ServiceTypes=Plan/ViewPlugin
 Type=Service
