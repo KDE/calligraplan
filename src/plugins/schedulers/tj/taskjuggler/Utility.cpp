@@ -32,9 +32,11 @@ int setenv(const char* var, const char* val, int ignore);
 int unsetenv (const char *var);
 #endif
 
+#ifdef _MSC_VER
 #if _MSC_VER >= 1900
 #define tzname _tzname
 #define tzset _tzset
+#endif
 #endif
 
 namespace TJ
