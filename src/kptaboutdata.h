@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 1998 - 2001 Reginald Stadlbauer <reggie@kde.org>
-   Copyright (C) 2004 - 2011 Dag Andersen <danders@get2net.dk>
+   Copyright (C) 2004 - 2011 Dag Andersen <dag.andersen@kdemail.net>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -42,7 +42,7 @@ KAboutData * newAboutData()
         QString(),
         QStringLiteral("https://www.calligra.org/plan/"));
 
-    aboutData->addAuthor(i18n("Dag Andersen"), QString(), "danders@get2net.dk");
+    aboutData->addAuthor(i18n("Dag Andersen"), QString(), "dag.andersen@kdemail.net");
     aboutData->addAuthor(i18n("Thomas Zander")); // please don't re-add, I don't like getting personal emails :)
     aboutData->addAuthor(i18n("Bo Thorsen"), QString(), "bo@sonofthor.dk");
     aboutData->addAuthor(i18n("Raphael Langerhorst"),QString(),"raphael.langerhorst@kdemail.net");

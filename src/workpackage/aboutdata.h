@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 1998 - 2001 Reginald Stadlbauer <reggie@kde.org>
-   Copyright (C) 2007 - 2011 Dag Andersen <danders@get2net.dk>
+   Copyright (C) 2007 - 2011 Dag Andersen <dag.andersen@kdemail.net>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -45,7 +45,7 @@ KAboutData * newAboutData()
         QString(),
         QStringLiteral("https://www.calligra.org/plan/"));
 
-    aboutData->addAuthor(i18n("Dag Andersen"), QString(), QStringLiteral("danders@get2net.dk"));
+    aboutData->addAuthor(i18n("Dag Andersen"), QString(), QStringLiteral("dag.andersen@kdemail.net"));
     // standard ki18n translator strings
     aboutData->setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"),
                              i18nc("EMAIL OF TRANSLATORS", "Your emails"));

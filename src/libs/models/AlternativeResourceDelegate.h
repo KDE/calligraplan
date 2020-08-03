@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
- * Copyright (C) 2020 Dag Andersen <danders@get2net.dk>
+ * Copyright (C) 2020 Dag Andersen <dag.andersen@kdemail.net>
  * Copyright (C) 2019 Dag Andersen <calligra-devel@kde.org>
  * Copyright (C) 2006 - 2009 Dag Andersen <calligra-devel@kde.org>
  * 

@@ -5,8 +5,8 @@
 Python script to import content from a Plan Project stored
 within a Plan file into Tables.
 
-(C)2008 Dag Andersen <danders@get2net.dk>
-(C)2011 Dag Andersen <danders@get2net.dk>
+(C)2008 Dag Andersen <dag.andersen@kdemail.net>
+(C)2011 Dag Andersen <dag.andersen@kdemail.net>
 Licensed under LGPL v2+higher.
 """
 

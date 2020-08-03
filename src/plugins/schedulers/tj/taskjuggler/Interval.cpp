@@ -1,8 +1,8 @@
 /*
  * Interval.h - TaskJuggler
  *
- * Copyright (c) 2011 by Dag Andersen <danders@get2net.dk>
- * Copyright (c) 2011 by Dag Andersen <danders@get2net.dk>
+ * Copyright (c) 2011 by Dag Andersen <dag.andersen@kdemail.net>
+ * Copyright (c) 2011 by Dag Andersen <dag.andersen@kdemail.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of version 2 of the GNU General Public License as

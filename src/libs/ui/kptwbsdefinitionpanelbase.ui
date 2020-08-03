@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author>Dag Andersen &lt;danders@get2net.dk&gt;</author>
+ <author>Dag Andersen &lt;dag.andersen@kdemail.net&gt;</author>
  <class>KPlato::WBSDefinitionPanelBase</class>
  <widget class="QWidget" name="KPlato::WBSDefinitionPanelBase">
   <property name="geometry">

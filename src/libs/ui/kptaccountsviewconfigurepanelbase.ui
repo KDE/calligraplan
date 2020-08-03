@@ -1,5 +1,5 @@
 <ui version="4.0" >
- <author>Dag Andersen &lt;danders@get2net.dk></author>
+ <author>Dag Andersen &lt;dag.andersen@kdemail.net></author>
  <class>KPlato::AccountsviewConfigurePanelBase</class>
  <widget class="QWidget" name="KPlato::AccountsviewConfigurePanelBase" >
   <property name="geometry" >

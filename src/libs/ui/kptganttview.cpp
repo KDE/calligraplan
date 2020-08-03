@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
- *  Copyright (C) 2019 Dag Andersen <danders@get2net.dk>
- *  Copyright (C) 2005 Dag Andersen <danders@get2net.dk>
+ *  Copyright (C) 2019 Dag Andersen <dag.andersen@kdemail.net>
+ *  Copyright (C) 2005 Dag Andersen <dag.andersen@kdemail.net>
  *  Copyright (C) 2006 Raphael Langerhorst <raphael.langerhorst@kdemail.net>
  *
  *  This library is free software; you can redistribute it and/or

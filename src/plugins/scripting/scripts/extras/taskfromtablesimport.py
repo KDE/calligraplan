@@ -4,7 +4,7 @@
 """
 Python script to import task data from a spreadsheet
 
-(C)2011 Dag Andersen <danders@get2net.dk>
+(C)2011 Dag Andersen <dag.andersen@kdemail.net>
 Licensed under LGPL v2.1+higher.
 
 Requires Calligra Sheets

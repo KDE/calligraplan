@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author>Dag Andersen &lt;danders@get2net.dk&gt;</author>
+ <author>Dag Andersen &lt;dag.andersen@kdemail.net&gt;</author>
  <class>KPlatoWork::TaskCompletionPanel</class>
  <widget class="QWidget" name="KPlatoWork::TaskCompletionPanel">
   <property name="geometry">

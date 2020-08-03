@@ -4,7 +4,7 @@
 """
 Python script to export content from a Plan Project to an ods file.
 
-(C)2012 Dag Andersen <danders@get2net.dk>
+(C)2012 Dag Andersen <dag.andersen@kdemail.net>
 Licensed under LGPL v2+higher.
 """
 

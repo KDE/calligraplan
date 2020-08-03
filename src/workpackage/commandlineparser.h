@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
- * Copyright (C) 2016 Dag Andersen <danders@get2net>
+ * Copyright (C) 2016 Dag Andersen <dag.andersen@kdemail.net>
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public

@@ -2,8 +2,8 @@
  * localemon.cpp
  *
  * Copyright (c) 1999-2003 Hans Petter Bieker <bieker@kde.org>
- * Copyright (c) 2009, 2012 Dag Andersen <danders@get2net.dk>
- * Copyright (C) 2016 Dag Andersen <danders@get2net.dk>
+ * Copyright (c) 2009, 2012 Dag Andersen <dag.andersen@kdemail.net>
+ * Copyright (C) 2016 Dag Andersen <dag.andersen@kdemail.net>
  *
  * Requires the Qt widget libraries, available at no cost at
  * https://qt.io/
