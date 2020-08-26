@@ -290,13 +290,13 @@ find_package(Perl REQUIRED)
 ##
 ## Test for KF5CalendarCore
 ##
-# find_package(KF5CalendarCore CONFIG QUIET)
-# set_package_properties(KF5CalendarCore PROPERTIES
-#     DESCRIPTION "KDE Calendar Library"
-#     URL "https://www.kde.org/"
-#     PURPOSE "Optionally used by semantic item Event"
-#     TYPE OPTIONAL
-#     )
+find_package(KF5CalendarCore CONFIG QUIET)
+set_package_properties(KF5CalendarCore PROPERTIES
+    DESCRIPTION "KDE Calendar Library"
+    URL "https://www.kde.org/"
+    PURPOSE "Used by calendar export"
+    TYPE OPTIONAL
+    )
 
 if(WIN32)
     set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}

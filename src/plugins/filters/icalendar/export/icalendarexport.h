@@ -24,7 +24,7 @@
 
 #include <KoFilter.h>
 
-//#define USE_KCALCORE
+#define USE_KCALCORE
 
 #ifdef USE_KCALCORE
 #include <kcalcore/calendar.h>
