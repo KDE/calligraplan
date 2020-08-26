@@ -1,5 +1,8 @@
 
-add_subdirectory( icalendar )
+if(KF5CalendarCore_FOUND)
+    add_subdirectory( icalendar )
+endif()
+
 add_subdirectory( planner )
 
 if(WIN32)
