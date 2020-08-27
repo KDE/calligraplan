@@ -67,6 +67,9 @@ public:
     DateTimeInterval(const DateTime &t1, const DateTime &t2)
     : std::pair<DateTime, DateTime>(t1, t2)
     {}
+    DateTimeInterval(const DateTimeInterval &other)
+    : std::pair<DateTime, DateTime>(other.first, other.second)
+    {}
     DateTimeInterval &operator=(const DateTimeInterval &other) {
         first = other.first; second = other.second;
         return *this;
