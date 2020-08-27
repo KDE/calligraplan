@@ -39,6 +39,7 @@
 
 #include <KLocalizedString>
 
+#include <QElapsedTimer>
 
 namespace KPlato
 {
@@ -1145,7 +1146,7 @@ DateTime Task::calculateEarlyFinish(int use) {
     bool pert = cs->usePert();
     cs->setCalculationMode(Schedule::CalculateForward);
 #ifndef PLAN_NLOGDEBUG
-    QTime timer;
+    QElapsedTimer timer;
     timer.start();
     cs->logDebug(QStringLiteral("Start calculate forward: %1 ").arg(constraintToString(true)));
 #endif
@@ -1415,7 +1416,7 @@ DateTime Task::calculateLateStart(int use) {
     bool pert = cs->usePert();
     cs->setCalculationMode(Schedule::CalculateBackward);
 #ifndef PLAN_NLOGDEBUG
-    QTime timer;
+    QElapsedTimer timer;
     timer.start();
     cs->logDebug(QStringLiteral("Start calculate backward: %1 ").arg(constraintToString(true)));
 #endif
@@ -1664,7 +1665,7 @@ DateTime Task::scheduleFromStartTime(int use) {
         //cs->logDebug(QString("Schedule from start time: no start time use early start: %1").arg(cs->earlyStart.toString()));
         cs->startTime = cs->earlyStart;
     }
-    QTime timer;
+    QElapsedTimer timer;
     timer.start();
     cs->logInfo(i18n("Start schedule forward: %1 ", constraintToString(true)));
     QLocale locale;
@@ -2071,7 +2072,7 @@ DateTime Task::scheduleFromEndTime(int use) {
         cs->endTime = cs->lateFinish;
     }
 #ifndef PLAN_NLOGDEBUG
-    QTime timer;
+    QElapsedTimer timer;
     timer.start();
     cs->logDebug(QStringLiteral("Start schedule backward: %1 ").arg(constraintToString(true)));
 #endif

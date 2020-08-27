@@ -31,6 +31,7 @@
 #include <QString>
 #include <QStringList>
 #include <QPointer>
+#include <QElapsedTimer>
 
 namespace KPlato 
 {
@@ -126,7 +127,7 @@ protected:
     int m_logLevel;
     QStringList m_log;
     QDateTime m_starttime;
-    QTime m_timer;
+    QElapsedTimer m_timer;
     int m_elapsed;
     QString m_version;
     QString m_workversion;

@@ -239,6 +239,12 @@ AppointmentInterval AppointmentInterval::firstInterval(const AppointmentInterval
     return a;
 }
 
+AppointmentInterval &AppointmentInterval::operator=(const AppointmentInterval &interval)
+{
+    d = interval.d;
+    return *this;
+}
+
 bool AppointmentInterval::operator==(const AppointmentInterval &interval) const
 {
     return d->start == interval.d->start && d->end == interval.d->end && d->load == interval.d->load;
@@ -289,6 +295,11 @@ QDebug operator<<(QDebug dbg, const KPlato::AppointmentInterval &i)
 AppointmentIntervalList::AppointmentIntervalList()
 {
 
+}
+
+AppointmentIntervalList::AppointmentIntervalList(const AppointmentIntervalList &other)
+    : m_map(other.map())
+{
 }
 
 AppointmentIntervalList::AppointmentIntervalList(const QMultiMap<QDate, AppointmentInterval> &other)

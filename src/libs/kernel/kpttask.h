@@ -70,6 +70,11 @@ public:
                     /// Returns the sum of normalEffort + overtimeEffort
                     Duration effort() const { return first + second; }
                     void setEffort(KPlato::Duration ne, KPlato::Duration oe = Duration::zeroDuration) { first = ne; second = oe; }
+                    ActualEffort &operator=(const ActualEffort &other) {
+                        first = other.first;
+                        second = other.second;
+                        return *this;
+                    }
             };
             UsedEffort();
             UsedEffort(const UsedEffort &e);

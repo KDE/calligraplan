@@ -67,7 +67,7 @@ class PLANKERNEL_EXPORT AppointmentInterval
 {
 public:
     AppointmentInterval();
-    AppointmentInterval(const AppointmentInterval &AppointmentInterval);
+    AppointmentInterval(const AppointmentInterval &other);
     AppointmentInterval(const DateTime &start, const DateTime &end, double load=100);
     AppointmentInterval(QDate date, const TimeInterval &timeInterval, double load=100);
     ~AppointmentInterval();
@@ -89,6 +89,7 @@ public:
     bool isValid() const;
     AppointmentInterval firstInterval(const AppointmentInterval &interval, const DateTime &from) const;
 
+    AppointmentInterval &operator=(const AppointmentInterval &interval);
     bool operator==(const AppointmentInterval &interval) const;
     bool operator<(const AppointmentInterval &interval) const;
 
@@ -112,6 +113,8 @@ class PLANKERNEL_EXPORT AppointmentIntervalList
 {
 public:
     AppointmentIntervalList();
+    AppointmentIntervalList(const AppointmentIntervalList &lst);
+
     AppointmentIntervalList(const QMultiMap<QDate, AppointmentInterval> &other);
 
     /// Add @p interval to the list. Handle overlapping with existing intervals.

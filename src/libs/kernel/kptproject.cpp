@@ -44,6 +44,7 @@
 
 #include <QDateTime>
 #include <QLocale>
+#include <QElapsedTimer>
 
 namespace KPlato
 {
@@ -322,7 +323,7 @@ void Project::calculate()
     QLocale locale;
     Estimate::Use estType = (Estimate::Use) cs->type();
     if (type() == Type_Project) {
-        QTime timer; timer.start();
+        QElapsedTimer timer; timer.start();
         initiateCalculation(*cs);
         initiateCalculationLists(*cs); // must be after initiateCalculation() !!
         if (! backwards) {
@@ -763,7 +764,7 @@ DateTime Project::calculateForward(int use)
         return finish;
     }
     if (type() == Node::Type_Project) {
-        QTime timer;
+        QElapsedTimer timer;
         timer.start();
         cs->logInfo(i18n("Start calculating forward"));
         m_visitedForward = true;
@@ -827,7 +828,7 @@ DateTime Project::calculateBackward(int use)
         return start;
     }
     if (type() == Node::Type_Project) {
-        QTime timer;
+        QElapsedTimer timer;
         timer.start();
         cs->logInfo(i18n("Start calculating backward"));
         m_visitedBackward = true;
@@ -889,7 +890,7 @@ DateTime Project::scheduleForward(const DateTime &earliest, int use)
     if (cs == 0 || stopcalculation) {
         return DateTime();
     }
-    QTime timer;
+    QElapsedTimer timer;
     timer.start();
     cs->logInfo(i18n("Start scheduling forward"));
     resetVisited();
@@ -928,7 +929,7 @@ DateTime Project::scheduleBackward(const DateTime &latest, int use)
     if (cs == 0 || stopcalculation) {
         return start;
     }
-    QTime timer;
+    QElapsedTimer timer;
     timer.start();
     cs->logInfo(i18n("Start scheduling backward"));
     resetVisited();
