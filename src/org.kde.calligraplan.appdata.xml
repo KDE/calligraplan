@@ -234,7 +234,7 @@
   </description>
   <url type="homepage">https://www.calligra.org/plan/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=calligraplan</url>
-  <url type="help">https://userbase.kde.org/Plan/Manual</url>
+  <url type="help">https://docs.kde.org/index.php?application=calligraplan</url>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/calligra/calligraplan.png</image>
