@@ -518,7 +518,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
 
     QRectF textRect = itemRect;
     if (! txt.isEmpty()) {
-        int tw = opt.fontMetrics.width(txt) + static_cast<int>(itemRect.height()/1.5);
+        int tw = opt.fontMetrics.horizontalAdvance(txt) + static_cast<int>(itemRect.height()/1.5);
         switch(opt.displayPosition) {
             case KGantt::StyleOptionGanttItem::Left:
                 textRect.adjust(-tw, 0.0, 0.0, 0.0);

@@ -379,7 +379,7 @@ KGantt::Span GanttItemDelegate::itemBoundingSpan(const KGantt::StyleOptionGanttI
     QString txt = itemText(idx, typ);
     int tw = 0;
     if (! txt.isEmpty()) {
-        tw = opt.fontMetrics.width(txt);
+        tw = opt.fontMetrics.horizontalAdvance(txt);
         tw += static_cast<int>(itemRect.height()/1.5);
     }
     if (showPositiveFloat) {
@@ -452,7 +452,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
 
     QRectF textRect = itemRect;
     if (! txt.isEmpty()) {
-        int tw = opt.fontMetrics.width(txt) + static_cast<int>(itemRect.height()/1.5);
+        int tw = opt.fontMetrics.horizontalAdvance(txt) + static_cast<int>(itemRect.height()/1.5);
         switch(opt.displayPosition) {
             case KGantt::StyleOptionGanttItem::Left:
                 textRect.adjust(-tw, 0.0, 0.0, 0.0);
