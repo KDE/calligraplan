@@ -79,7 +79,10 @@ option(PACKAGERS_BUILD "Build support of multiple CPU architectures in one binar
 ###########################
 ##########################
 
-find_package(ECM 5.19 REQUIRED NO_MODULE)
+set(REQUIRED_QT_VERSION "5.12.0")
+set(REQUIRED_KF5_VERSION "5.60.0")
+
+find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 # ECM KDE macros (include first, to have their policies and settings effect all other macros)
@@ -107,8 +110,6 @@ include(ECMGenerateHeaders)
 # This macro is a copy from calligra so only needs to be included when plan is build stand alone
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 include(MacroOptionalFindPackage)
-
-set(REQUIRED_KF5_VERSION "5.45.0")
 
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
     COMPONENTS
@@ -161,9 +162,6 @@ set_package_properties(KF5Holidays PROPERTIES
     PURPOSE "Required for holidays support (optional)"
     TYPE RECOMMENDED
 )
-
-
-set(REQUIRED_QT_VERSION "5.9.0")
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
     COMPONENTS
@@ -224,10 +222,12 @@ endif()
 ############################
 ###########################
 
+set(REQUIRED_KDIAGRAM_VERSION 2.7.0)
+
 ##
 ## Test for KGantt
 ##
-macro_optional_find_package(KGantt 2.6.0 QUIET)
+macro_optional_find_package(KGantt ${REQUIRED_KDIAGRAM_VERSION} QUIET)
 set_package_properties(KGantt PROPERTIES
     DESCRIPTION "Library for creating Gantt diagrams (part of KDiagram)"
     URL "https://www.kde.org/"
@@ -242,7 +242,7 @@ endif()
 ##
 ## Test for KChart
 ##
-macro_optional_find_package(KChart 2.6.0 QUIET)
+macro_optional_find_package(KChart ${REQUIRED_KDIAGRAM_VERSION} QUIET)
 set_package_properties(KChart PROPERTIES
     DESCRIPTION "Library for creating business charts (part of KDiagram)"
     URL "https://www.kde.org/"
