@@ -1453,23 +1453,26 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
             r->addTeamMemberId(tm->id());
         }
     }
+    e = projectElement;
     if (status.version() >= "0.7.0") {
         e = projectElement.namedItem("relations").toElement();
-        debugPlanXml<<status.version()<<e.tagName();
-        if (!e.isNull()) {
-            KoXmlElement de;
-            forEachElement(de, e) {
-                if (de.tagName() != "relation") {
-                    continue;
-                }
-                Relation *child = new Relation();
-                if (!child->load(de, status)) {
-                    // TODO: Complain about this
-                    errorPlan << "Failed to load relation";
-                    delete child;
-                }
+    }
+    debugPlanXml<<status.version()<<e.tagName();
+    if (!e.isNull()) {
+        KoXmlElement de;
+        forEachElement(de, e) {
+            if (de.tagName() != "relation") {
+                continue;
+            }
+            Relation *child = new Relation();
+            if (!child->load(de, status)) {
+                // TODO: Complain about this
+                errorPlan << "Failed to load relation";
+                delete child;
             }
         }
+    }
+    if (status.version() >= "0.7.0") {
         e = projectElement.namedItem("resource-requests").toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
