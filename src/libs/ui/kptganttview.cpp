@@ -477,9 +477,9 @@ GanttViewBase::GanttViewBase(QWidget *parent)
     : KGantt::View(parent)
     , m_mouseButton(Qt::NoButton)
 {
+    setGraphicsView(new MyGraphicsView(this));
     DateTimeGrid *g = new DateTimeGrid();
     setGrid(g);
-    setGraphicsView(new MyGraphicsView(this));
     g->setUserDefinedUpperScale(new KGantt::DateTimeScaleFormatter(KGantt::DateTimeScaleFormatter::Month, QString::fromLatin1("yyyy-MMMM")));
     g->setUserDefinedLowerScale(new KGantt::DateTimeScaleFormatter(KGantt::DateTimeScaleFormatter::Day, QString::fromLatin1("ddd")));
 
