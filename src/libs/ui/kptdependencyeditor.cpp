@@ -6,12 +6,12 @@
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation;
  * version 2 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Library General Public License
  * along with this library; see the file COPYING.LIB.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -73,7 +73,7 @@ void plan_paintFocusSelectedItem(QPainter *painter, const QStyleOptionGraphicsIt
                 cg = QPalette::Inactive;
 
             QLinearGradient g(0.0, option->rect.top(), 0.0, option->rect.bottom());
-            QColor col = option->palette.brush(cg, QPalette::Highlight).color();
+            QColor col = QApplication::palette().brush(cg, QPalette::Highlight).color();
             g.setColorAt(0.0, col.lighter(125));
             g.setColorAt(1.0, col.lighter(60));
 
@@ -91,10 +91,10 @@ void plan_paintFocusSelectedItem(QPainter *painter, const QStyleOptionGraphicsIt
             QPen p(Qt::DotLine);
             p.setWidthF(2.);
             if (option->state & QStyle::State_Selected) {
-                p.setColor(option->palette.color(cg, QPalette::Shadow));
+                p.setColor(QApplication::palette().color(cg, QPalette::Shadow));
                 debugPlanDepEditor<<"focus: selected"<<p.color();
             } else {
-                p.setColor(option->palette.color(cg, QPalette::Highlight));
+                p.setColor(QApplication::palette().color(cg, QPalette::Highlight));
                 debugPlanDepEditor<<"focus: not selected"<<p.color();
             }
             painter->setPen(p);
@@ -289,9 +289,6 @@ DependencyLinkItem::DependencyLinkItem(DependencyNodeItem *predecessor, Dependen
     succItem->addParentRelation(this);
     succItem->setColumn();
 
-    m_arrow->setBrush(Qt::black);
-
-    m_pen = pen();
 }
 
 DependencyLinkItem::~DependencyLinkItem()
@@ -364,8 +361,10 @@ QPointF DependencyLinkItem::endPoint() const
 void DependencyLinkItem::hoverEnterEvent(QGraphicsSceneHoverEvent * /*event*/)
 {
     setZValue(zValue() + 1);
-    setPen(QPen(Qt::black, 2));
-    m_arrow->setPen(pen());
+    QPen p = pen();
+    p.setWidth(2);
+    setPen(p);
+    m_arrow->setPen(p);
     update();
 }
 
@@ -377,8 +376,10 @@ void DependencyLinkItem::hoverLeaveEvent(QGraphicsSceneHoverEvent * /*event*/)
 void DependencyLinkItem::resetHooverIndication()
 {
     setZValue(zValue() - 1);
-    setPen(m_pen);
-    m_arrow->setPen(m_pen);
+    QPen p = pen();
+    p.setWidth(1);
+    setPen(p);
+    m_arrow->setPen(p);
     update();
 }
 
@@ -394,6 +395,16 @@ void DependencyLinkItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
     if (f != flags()) {
         setFlags(f);
     }
+}
+
+void DependencyLinkItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    QPen p = pen();
+    p.setColor(QApplication::palette().color(QPalette::WindowText));
+    setPen(p);
+    m_arrow->setPen(p);
+    m_arrow->setBrush(p.color());
+    DependencyLinkItemBase::paint(painter, option, widget);
 }
 
 //--------------------
@@ -607,7 +618,7 @@ void DependencyConnectorItem::paint(QPainter *painter, const QStyleOptionGraphic
     } else {
         r.setRect(r.right() - (r.width()/2.0) - 1.0, r.y() + (r.height() * 0.33), r.width() / 2.0, r.height() * 0.33);
     }
-    painter->fillRect(r, Qt::black);
+    painter->fillRect(r, QApplication::palette().brush(QPalette::WindowText));
 }
 
 QList<DependencyLinkItem*> DependencyConnectorItem::predecessorItems() const
@@ -858,8 +869,8 @@ void DependencyNodeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem
 {
     //debugPlanDepEditor;
     QLinearGradient g(0.0, rect().top(), 0.0, rect().bottom());
-    g.setColorAt(0.0, option->palette.color(QPalette::Midlight));
-    g.setColorAt(1.0, option->palette.color(QPalette::Dark));
+    g.setColorAt(0.0, QApplication::palette().color(QPalette::Light));
+    g.setColorAt(1.0, QApplication::palette().color(QPalette::Mid));
     QBrush b(g);
     painter->setBrush(b);
     painter->setPen(QPen(Qt::NoPen));
@@ -1044,6 +1055,7 @@ DependencyScene::DependencyScene(QWidget *parent)
     addItem(m_connectionitem);
     //debugPlanDepEditor;
     m_connectionitem->hide();
+    connect(qApp, &QApplication::paletteChanged, this, &DependencyScene::update);
 }
 
 DependencyScene::~DependencyScene()
@@ -1131,8 +1143,7 @@ void DependencyScene::connectorEntered(DependencyConnectorItem *item, bool enter
 void DependencyScene::drawBackground (QPainter *painter, const QRectF &rect)
 {
     QGraphicsScene::drawBackground(painter, rect);
-    QStyleOptionViewItem opt;
-    QBrush br(opt.palette.brush(QPalette::AlternateBase));
+    QBrush br(QApplication::palette().brush(QPalette::AlternateBase));
     int first = row(rect.y());
     int last = row(rect.bottom());
     for (int r = first; r <= last; ++r) {
@@ -1632,6 +1643,11 @@ void DependencyScene::setReadWrite(bool on)
             static_cast<DependencyLinkItem*>(i)->setEditable(on);
         }
     }
+}
+
+void DependencyScene::update()
+{
+    emit sceneRectChanged(sceneRect());
 }
 
 //--------------------
@@ -2261,7 +2277,7 @@ void DependencyEditor::updateActionsEnabled(bool on)
         return;
     }
     int selCount = selectedNodeCount();
-        
+
     if (selCount == 0) {
         menuAddTask->setEnabled(true);
         actionAddTask->setEnabled(true);

@@ -1428,11 +1428,14 @@ void KoMainWindow::slotFilePrint()
     if (printJob == 0)
         return;
     d->applyDefaultSettings(printJob->printer());
+    // Must be blocking as we change the palette while printing
+    printJob->setProperty("blocking", true);
     QPrintDialog *printDialog = rootView()->createPrintDialog(printJob, this);
-    if (printDialog && printDialog->exec() == QDialog::Accepted)
+    if (printDialog && printDialog->exec() == QDialog::Accepted) {
         printJob->startPrinting(KoPrintJob::DeleteWhenDone);
-    else
+    } else {
         delete printJob;
+    }
     delete printDialog;
 }
 
