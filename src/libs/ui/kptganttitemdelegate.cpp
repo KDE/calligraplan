@@ -466,7 +466,8 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
     }
     painter->save();
 
-    QPen pen = defaultPen(typ);
+    QPen pen(QGuiApplication::palette().text().color(), 1.);
+    QPen textPen = pen;
     if (opt.state & QStyle::State_Selected) pen.setWidth(2*pen.width());
     painter->setPen(pen);
 
@@ -573,7 +574,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
                 painter->restore();
             }
             const Qt::Alignment ta = qAlignment(opt.displayPosition);
-            painter->setPen(QPen(opt.palette.text().color()));
+            painter->setPen(textPen);
             painter->drawText(textRect, ta, txt);
         }
         break;
@@ -601,7 +602,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
             painter->drawPath(path);
             painter->restore();
             const Qt::Alignment ta = qAlignment(opt.displayPosition);
-            painter->setPen(QPen(opt.palette.text().color()));
+            painter->setPen(textPen);
             painter->drawText(textRect, ta | Qt::AlignVCenter, txt);
         }
         break;
@@ -717,7 +718,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
             }
 
             const Qt::Alignment ta = qAlignment(opt.displayPosition);
-            painter->setPen(QPen(opt.palette.text().color()));
+            painter->setPen(textPen);
             painter->drawText(textRect, ta | Qt::AlignVCenter, txt);
         }
         break;
@@ -822,7 +823,7 @@ void GanttItemDelegate::paintConstraintItem(QPainter* painter, const  QStyleOpti
         return;
     }
     KGantt::Constraint c(constraint);
-    QPen pen(opt.palette.text().color());
+    QPen pen(QApplication::palette().text().color());
     if (showCriticalPath &&
          data(c.startIndex(), NodeModel::NodeCriticalPath).toBool() &&
          data(c.endIndex(), NodeModel::NodeCriticalPath).toBool())
@@ -994,6 +995,10 @@ void ResourceGanttItemDelegate::paintResourceItem(QPainter* painter, const KGant
     painter->setBrushOrigin(opt.itemRect.topLeft());
 
     qreal x0 = opt.grid->mapToChart(idx.data(KGantt::StartTimeRole).toDateTime());
+    QColor textColor = QApplication::palette().color(QPalette::Text);
+    QPen pen = painter->pen();
+    pen.setColor(textColor);
+    painter->setPen(pen);
 
     Appointment *external = static_cast<Appointment*>(idx.data(Role::ExternalAppointments).value<void*>());
     Appointment *internal = static_cast<Appointment*>(idx.data(Role::InternalAppointments).value<void*>());
@@ -1005,10 +1010,8 @@ void ResourceGanttItemDelegate::paintResourceItem(QPainter* painter, const KGant
     foreach (const AppointmentInterval &i, tot.intervals().map()) {
         int il = i.load();
         QString txt = locale.toString((double)il / (double)rl, 'f', 1);
-        QPen pen = painter->pen();
         if (il > rl) {
             painter->setBrush(m_overloadBrush);
-            pen.setColor(Qt::white);
         } else if (il < rl) {
             painter->setBrush(m_underloadBrush);
         } else {
@@ -1019,17 +1022,15 @@ void ResourceGanttItemDelegate::paintResourceItem(QPainter* painter, const KGant
         QRectF rr(v1 - x0, r.y(), v2 - v1, r.height());
         painter->drawRect(rr);
         if (painter->boundingRect(rr, Qt::AlignCenter, txt).width() < rr.width()) {
-            QPen pn = painter->pen();
-            painter->setPen(pen);
             painter->drawText(rr, Qt::AlignCenter, txt);
-            painter->setPen(pn);
         }
     }
 
     painter->restore();
-    const Qt::Alignment ta = qAlignment(opt.displayPosition);
-    painter->setPen(QPen(opt.palette.text().color()));
-    painter->drawText(boundingRect, ta, opt.text);
+    if (!opt.text.isEmpty()) {
+        const Qt::Alignment ta = qAlignment(opt.displayPosition);
+        painter->drawText(boundingRect, ta, opt.text);
+    }
 }
 
 } // namespace KPlato

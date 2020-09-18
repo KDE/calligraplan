@@ -33,6 +33,7 @@
 
 #include <QGraphicsView>
 #include <QGraphicsItem>
+#include <QGraphicsTextItem>
 #include <QTimer>
 
 #include <kpagedialog.h>
@@ -63,7 +64,7 @@ public:
     DependecyViewPrintingDialog(ViewBase *parent, DependencyView *view);
     int documentLastPage() const override;
     void printPage(int page, QPainter &painter) override;
-    
+
     QList<QWidget*> createOptionWidgets() const override;
 
 private:
@@ -76,10 +77,10 @@ public:
     explicit DependencyLinkItemBase (QGraphicsItem * parent = 0);
     DependencyLinkItemBase (DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem * parent = 0);
     ~DependencyLinkItemBase() override;
-    
+
     enum { Type = QGraphicsItem::UserType + 10 };
     int type() const override { return Type; }
-    
+
     DependencyScene *itemScene() const;
     virtual void createPath() {}
     virtual void createPath(const QPointF &sp, int stype, const QPointF &dp, int dtype);
@@ -102,29 +103,27 @@ class PLANUI_EXPORT DependencyLinkItem : public DependencyLinkItemBase
 public:
     explicit DependencyLinkItem (DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem * parent = 0);
     ~DependencyLinkItem() override;
-    
+
     enum { Type = QGraphicsItem::UserType + 11 };
     int type() const override { return Type; }
-    
-    
+
+
     int newChildColumn() const;
-    
+
     using DependencyLinkItemBase::createPath;
     void createPath() override;
     QPointF startPoint() const override;
     QPointF endPoint() const override;
-    
+
     void setItemVisible(bool show);
 
     void resetHooverIndication();
-    
+
 protected:
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
-    
-private:
-    QPen m_pen;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 };
 
 class PLANUI_EXPORT DependencyCreatorItem : public DependencyLinkItemBase
@@ -132,19 +131,19 @@ class PLANUI_EXPORT DependencyCreatorItem : public DependencyLinkItemBase
 public:
     explicit DependencyCreatorItem (QGraphicsItem * parent = 0);
     ~DependencyCreatorItem() override {}
-    
+
     enum { Type = QGraphicsItem::UserType + 12 };
     int type() const override { return Type; }
-    
+
     void clear();
-    
+
     using DependencyLinkItemBase::createPath;
     void createPath() override;
     void createPath(const QPointF &ep);
 
     QPointF startPoint() const override;
     QPointF endPoint() const override;
-    
+
     void setItemVisible(bool show);
 
     void setPredConnector(DependencyConnectorItem *item);
@@ -165,36 +164,36 @@ class PLANUI_EXPORT DependencyNodeItem : public QGraphicsRectItem
 public:
     explicit DependencyNodeItem(Node *node, DependencyNodeItem *parent = 0);
     ~DependencyNodeItem() override;
-    
+
     enum  { Type = QGraphicsItem::UserType + 1 };
     int type() const override { return Type; }
-    
+
     DependencyNodeItem *parentItem() const { return m_parent; }
     void setParentItem(DependencyNodeItem *parent);
-    
+
     void addChild(DependencyNodeItem *ch) { m_children.append(ch); }
     DependencyNodeItem *takeChild(DependencyNodeItem *ch);
     QList<DependencyNodeItem*> children() const { return m_children; }
-    
+
     DependencyScene *itemScene() const;
-    
+
     void setRectangle(const QRectF &rect);
-    
+
     void setRow(int row);
     int row() const;
     void setColumn();
     void setColumn(int column);
     int column() const;
-    
+
     Node *node() const { return m_node; }
     QString text() const { return m_text->toPlainText(); }
     void setText(const QString &text) const { m_text->setPlainText(text); }
     void setText();
-    
+
     enum ConnectorType { Start, Finish };
     QPointF connectorPoint(ConnectorType type) const;
     void setConnectorHoverMode(bool mode);
-    
+
     void addParentRelation(DependencyLinkItem *r) { m_parentrelations.append(r); }
     DependencyLinkItem *takeParentRelation(DependencyLinkItem *r);
     QList<DependencyLinkItem*> parentRelations() const { return m_parentrelations; }
@@ -205,14 +204,14 @@ public:
 
     void setExpanded(bool mode);
     void setItemVisible(bool show);
-    
+
     void setSymbol();
-    
+
     int nodeLevel() const { return m_node == 0 ? 0 : m_node->level() - 1; }
-    
+
     DependencyConnectorItem *startConnector() const { return m_start; }
     DependencyConnectorItem *finishConnector() const { return m_finish; }
-    
+
     DependencyConnectorItem *connectorItem(ConnectorType ctype) const;
     QList<DependencyLinkItem*> predecessorItems(ConnectorType ctype) const;
     QList<DependencyLinkItem*> successorItems(ConnectorType ctype) const;
@@ -240,10 +239,10 @@ private:
 
     DependencyNodeItem *m_parent;
     QList<DependencyNodeItem*> m_children;
-    
+
     QList<DependencyNodeItem*> m_dependParents;
     QList<DependencyNodeItem*> m_dependChildren;
-    
+
     QList<DependencyLinkItem*> m_parentrelations;
     QList<DependencyLinkItem*> m_childrelations;
 
@@ -262,7 +261,7 @@ public:
     {}
     enum  { Type = QGraphicsItem::UserType + 3 };
     int type() const override { return Type; }
-    
+
     void setSymbol(int type, const QRectF &rect);
     bool isEditable() const { return m_editable; }
     void setEditable(bool on) { m_editable = on; }
@@ -286,14 +285,14 @@ public:
 
     enum { Type = QGraphicsItem::UserType + 2 };
     int type() const override { return Type; }
-    
+
     DependencyNodeItem::ConnectorType ctype() const { return m_ctype; }
-    
+
     DependencyScene *itemScene() const;
     Node* node() const;
     QPointF connectorPoint() const;
     DependencyNodeItem *nodeItem() const;
-    
+
     QList<DependencyLinkItem*> predecessorItems() const;
     QList<DependencyLinkItem*> successorItems() const;
 
@@ -308,7 +307,7 @@ protected:
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
-    
+
 private:
     DependencyNodeItem::ConnectorType m_ctype;
 
@@ -330,39 +329,39 @@ public:
 
     QList<QGraphicsItem*> itemList(int type) const;
     void clearScene();
-    
+
     qreal horizontalGap() const { return 40.0; }
     qreal verticalGap() const { return 6.0; }
     qreal itemWidth() const { return 50.0; }
     qreal itemHeight() const { return 26.0; }
     QRectF symbolRect() const { return QRectF(1.0, 1.0, 15.0, 15.0); }
     qreal connectorWidth() const { return 8.0; }
-    
+
     qreal totalItemWidth() const { return itemWidth(); }
     qreal columnWidth() const { return horizontalGap() + totalItemWidth(); }
-    
+
     qreal gridHeight() const { return verticalGap() + itemHeight(); }
     qreal gridWidth() const { return horizontalGap() + totalItemWidth(); }
-    
-    
-    qreal gridX(int col) const { return col * gridWidth(); } 
+
+
+    qreal gridX(int col) const { return col * gridWidth(); }
     qreal itemX(int col=0) const { return (horizontalGap() / 2) + (gridWidth() * col); }
     int column(qreal x) const { return (int)(x / columnWidth()); }
-    
-    qreal gridY(int row) const { return row * gridHeight(); } 
+
+    qreal gridY(int row) const { return row * gridHeight(); }
     qreal itemY(int row=0) const { return (verticalGap() / 2) + (gridHeight() * row); }
     int row(qreal y) const { return (int)(y / gridHeight()); }
-    
+
     DependencyLinkItem *findItem(const Relation *rel) const;
     DependencyLinkItem *findItem(const DependencyConnectorItem *c1, const DependencyConnectorItem *c2, bool exact = true) const;
     DependencyNodeItem *findItem(const Node *node) const;
-    
+
     DependencyNodeItem *findPrevItem(Node *node)  const;
     DependencyNodeItem *itemBefore(DependencyNodeItem *parent, Node *node) const;
     DependencyNodeItem *createItem(Node *node);
-    
+
     void setItemVisible(DependencyNodeItem *item, bool show);
-    
+
     void createLinks();
     void createLinks(DependencyNodeItem *item);
     void createLink(DependencyNodeItem *parent, Relation *rel);
@@ -371,7 +370,7 @@ public:
     void setFromItem(DependencyConnectorItem *item);
     DependencyConnectorItem *fromItem() const { return m_connectionitem->predConnector; }
     bool connectionMode() const { return m_connectionitem->isVisible(); }
-    
+
     void singleConnectorClicked(DependencyConnectorItem *item);
     void multiConnectorClicked(DependencyConnectorItem *item);
     bool connectionIsValid(DependencyConnectorItem *pred, DependencyConnectorItem *succ);
@@ -380,7 +379,7 @@ public:
     /// Used when a node has been moved
     void moveItem(DependencyNodeItem *item, const QList<Node*> &lst);
     QList<DependencyNodeItem*> removeChildItems(DependencyNodeItem *item);
-    
+
     DependencyNodeItem *nodeItem(int row) const;
     const QList<DependencyNodeItem*> &nodeItems() const { return m_allItems; }
 
@@ -395,6 +394,9 @@ Q_SIGNALS:
     void dependencyContextMenuRequested(KPlato::DependencyLinkItem*, KPlato::DependencyConnectorItem*);
     void focusItemChanged(QGraphicsItem*);
 
+protected Q_SLOTS:
+    void update();
+
 protected:
     void drawBackground (QPainter * painter, const QRectF & rect) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent) override;
@@ -402,7 +404,7 @@ protected:
     void mouseDoubleClickEvent (QGraphicsSceneMouseEvent *mouseEvent) override;
     void keyPressEvent (QKeyEvent *keyEvent) override;
     void contextMenuEvent (QGraphicsSceneContextMenuEvent *contextMenuEvent) override;
-    
+
 private:
     Project *m_project;
     NodeItemModel *m_model;
@@ -411,7 +413,7 @@ private:
     QMap<int, DependencyNodeItem*> m_visibleItems;
     QMap<int, DependencyNodeItem*> m_hiddenItems;
     DependencyCreatorItem *m_connectionitem;
-    
+
     QList<DependencyConnectorItem*> m_clickedItems;
 };
 
@@ -452,9 +454,9 @@ public Q_SLOTS:
     void slotNodeRemoved(KPlato::Node *node);
     void slotNodeChanged(KPlato::Node *node);
     void slotNodeMoved(KPlato::Node *node);
-    
+
 protected:
-    void keyPressEvent(QKeyEvent *event) override;    
+    void keyPressEvent(QKeyEvent *event) override;
     void mouseMoveEvent(QMouseEvent *mouseEvent) override;
 
 protected Q_SLOTS:
@@ -463,7 +465,7 @@ protected Q_SLOTS:
     void slotRelationRemoved(KPlato::Relation* rel);
     void slotRelationModified(KPlato::Relation* rel);
     void slotWbsCodeChanged();
-    
+
     void slotSelectedItems(); // HACK due to tt bug 160653
     void slotConnectorClicked(KPlato::DependencyConnectorItem *item);
     void slotContextMenuRequested(QGraphicsItem*);
@@ -503,7 +505,7 @@ class PLANUI_EXPORT DependencyEditor : public ViewBase
     Q_OBJECT
 public:
     DependencyEditor(KoPart *part, KoDocument *doc, QWidget *parent);
-    
+
     void setupGui();
     Project *project() const override { return m_view->project(); }
     void draw(Project &project) override;
@@ -512,13 +514,13 @@ public:
     Node *currentNode() const override;
     QList<Node*> selectedNodes() const ;
     Node *selectedNode() const;
-    
+
     Relation *currentRelation() const override;
 
     void updateReadWrite(bool readwrite) override;
 
     KoPrintJob *createPrintJob() override;
-    
+
     DependencyView *view() const { return m_view; }
 
 Q_SIGNALS:
@@ -533,7 +535,7 @@ Q_SIGNALS:
     void addRelation(KPlato::Node*, KPlato::Node*, int);
     void modifyRelation(KPlato::Relation*, int);
     void editRelation(KPlato::Relation*);
-    
+
 public Q_SLOTS:
     /// Activate/deactivate the gui
     void setGuiActive(bool activate) override;
@@ -552,7 +554,7 @@ private Q_SLOTS:
     void slotCurrentChanged(const QModelIndex&, const QModelIndex&);
     void slotSelectionChanged(const QList<QGraphicsItem*> &lst);
     void slotContextMenuRequested(QGraphicsItem *item, const QPoint& pos);
-    
+
     void slotEnableActions();
 
     void slotAddTask();

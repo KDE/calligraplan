@@ -27,7 +27,7 @@
 //#include <KoShape.h>
 #include <KoProgressBar.h>
 
-#include <QCoreApplication>
+#include <QApplication>
 #include <MainDebug.h>
 #include <klocalizedstring.h>
 #include <QPainter>
@@ -107,6 +107,44 @@ bool KoPrintingDialog::isStopped() const
     return d->stop;
 }
 
+// Define a printer friendly palette
+#define VeryLightGray   "#f8f8f8"
+#define LightLightGray  "#f0f0f0"
+#define DarkDarkGray    "#b3b3b3"
+#define VeryDarkGray    "#838383"
+class PrintPalette {
+public:
+    PrintPalette() {
+        orig = QApplication::palette();
+        QPalette palette = orig;
+        // define a palette that works when printing on white paper
+        palette.setColor(QPalette::Window, Qt::white);
+        palette.setColor(QPalette::WindowText, Qt::black);
+        palette.setColor(QPalette::Base, Qt::white);
+        palette.setColor(QPalette::AlternateBase, VeryLightGray);
+        palette.setColor(QPalette::ToolTipBase, Qt::white);
+        palette.setColor(QPalette::ToolTipText, Qt::black);
+        palette.setColor(QPalette::Text, Qt::black);
+        palette.setColor(QPalette::Button, Qt::lightGray);
+        palette.setColor(QPalette::ButtonText, Qt::black);
+        palette.setColor(QPalette::BrightText, Qt::white);
+        palette.setColor(QPalette::Link, Qt::blue);
+        palette.setColor(QPalette::Highlight, Qt::blue);
+        palette.setColor(QPalette::HighlightedText, Qt::white);
+        palette.setColor(QPalette::Light, QColor(VeryLightGray));
+        palette.setColor(QPalette::Midlight, QColor(LightLightGray)); // used for freeDays in gantt chart
+        palette.setColor(QPalette::Dark, QColor(DarkDarkGray));
+        palette.setColor(QPalette::Mid, QColor(VeryDarkGray));
+        palette.setColor(QPalette::Shadow, Qt::black);
+        QApplication::setPalette(palette);
+    }
+    ~PrintPalette() {
+        QApplication::setPalette(orig);
+    }
+    QPalette orig;
+};
+
+
 void KoPrintingDialog::startPrinting(RemovePolicy removePolicy)
 {
     d->removePolicy = removePolicy;
@@ -144,6 +182,9 @@ void KoPrintingDialog::startPrinting(RemovePolicy removePolicy)
 //        d->zoomer.setZoom(1.0);
 //        d->zoomer.setDpi(d->printer->resolution(), d->printer->resolution());
 
+        if (blocking) {
+            QGuiApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+        }
         d->progress->start(100, i18n("Printing"));
 
         if (d->printer->numCopies() > 1) {
@@ -169,6 +210,7 @@ void KoPrintingDialog::startPrinting(RemovePolicy removePolicy)
             } while (iter != pages.begin());
         }
 
+        PrintPalette p;
 
         d->resetValues();
         foreach (int page, d->pages) {
@@ -190,6 +232,9 @@ void KoPrintingDialog::startPrinting(RemovePolicy removePolicy)
         }
         d->stop = true;
         d->resetValues();
+        if (blocking) {
+            QGuiApplication::restoreOverrideCursor();
+        }
     }
 }
 
