@@ -100,6 +100,7 @@ GanttChartDisplayOptionsPanel::GanttChartDisplayOptionsPanel(GanttViewBase *gant
     connect(ui_showCompletion, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
     connect(ui_showSchedulingError, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
     connect(ui_showTimeConstraint, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showRowSeparators, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
 }
 
 void GanttChartDisplayOptionsPanel::slotOk()
@@ -128,6 +129,8 @@ void GanttChartDisplayOptionsPanel::slotOk()
     opt.setFlag(DateTimeTimeLine::Background, ui_timeLineBackground->isChecked());
     opt.setFlag(DateTimeTimeLine::UseCustomPen, ui_timeLineUseCustom->isChecked());
     timeline->setOptions(opt);
+
+    m_gantt->setShowRowSeparators(ui_showRowSeparators->checkState());
 }
 
 void GanttChartDisplayOptionsPanel::setValues(const GanttItemDelegate &del)
@@ -156,6 +159,8 @@ void GanttChartDisplayOptionsPanel::setValues(const GanttItemDelegate &del)
     ui_timeLineBackground->setChecked(opt & DateTimeTimeLine::Background);
     ui_timeLineForeground->setChecked(opt & DateTimeTimeLine::Foreground);
     ui_timeLineUseCustom->setChecked(opt & DateTimeTimeLine::UseCustomPen);
+
+    ui_showRowSeparators->setCheckState(m_gantt->showRowSeparators() ? Qt::Checked : Qt::Unchecked);
 }
 
 void GanttChartDisplayOptionsPanel::setDefault()
@@ -581,6 +586,8 @@ bool GanttViewBase::loadContext(const KoXmlElement &settings)
     pen.setColor(QColor(settings.attribute("timeline-color")));
     timeLine()->setPen(pen);
 
+    setShowRowSeparators(settings.attribute("show-rowseparators", "0").toInt());
+
     return true;
 }
 
@@ -596,6 +603,8 @@ void GanttViewBase::saveContext(QDomElement &settings) const
     settings.setAttribute("timeline-custom", timeLine()->options() & DateTimeTimeLine::UseCustomPen);
     settings.setAttribute("timeline-width", timeLine()->pen().width());
     settings.setAttribute("timeline-color", timeLine()->pen().color().name());
+
+    settings.setAttribute("show-rowseparators", showRowSeparators());
 }
 
 void GanttViewBase::mousePressEvent(QMouseEvent *event)
@@ -640,6 +649,21 @@ void GanttViewBase::handleContextMenuEvent(const QModelIndex &idx, const QPoint 
 {
     emit contextMenuRequested(idx, globalPos);
 }
+
+void GanttViewBase::setShowRowSeparators(bool enable)
+{
+    KGantt::DateTimeGrid *g = qobject_cast<KGantt::DateTimeGrid*>(grid());
+    Q_ASSERT(g);
+    g->setRowSeparators(enable);
+}
+
+bool GanttViewBase::showRowSeparators() const
+{
+    KGantt::DateTimeGrid *g = qobject_cast<KGantt::DateTimeGrid*>(grid());
+    Q_ASSERT(g);
+    return g->rowSeparators();
+}
+
 //-------------------------------------------
 NodeGanttViewBase::NodeGanttViewBase(QWidget *parent)
     : GanttViewBase(parent),

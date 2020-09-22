@@ -208,6 +208,9 @@ public:
 
     void handleContextMenuEvent(const QModelIndex &idx, const QPoint &pos);
 
+    void setShowRowSeparators(bool enable);
+    bool showRowSeparators() const;
+
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::GanttPrintingOptions &opt) { m_printOptions = opt; }
 

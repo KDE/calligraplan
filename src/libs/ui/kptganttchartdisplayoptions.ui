@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>325</width>
-    <height>454</height>
+    <width>349</width>
+    <height>515</height>
    </rect>
   </property>
   <property name="toolTip">
    <string/>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QGroupBox" name="groupBox_3">
      <property name="title">
@@ -148,6 +148,22 @@
     </widget>
    </item>
    <item>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="title">
+      <string>Decorations</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QCheckBox" name="ui_showRowSeparators">
+        <property name="text">
+         <string>Show Row Separators</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string>Additional text information</string>
@@ -179,44 +195,17 @@
       <bool>false</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="ui_showCriticalPath">
+        <property name="text">
+         <string>Critical path</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QCheckBox" name="ui_showDependencies">
         <property name="text">
          <string>Task dependencies</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="ui_showCompletion">
-        <property name="text">
-         <string>Task completion</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QCheckBox" name="ui_showTimeConstraint">
-        <property name="text">
-         <string>Time constraints</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0" colspan="2">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="1">
-       <widget class="QCheckBox" name="ui_showPositiveFloat">
-        <property name="text">
-         <string>Positive float</string>
         </property>
        </widget>
       </item>
@@ -227,17 +216,24 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="ui_showCriticalPath">
-        <property name="text">
-         <string>Critical path</string>
-        </property>
-       </widget>
-      </item>
       <item row="3" column="0">
        <widget class="QCheckBox" name="ui_showCriticalTasks">
         <property name="text">
          <string>Critical tasks</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="ui_showCompletion">
+        <property name="text">
+         <string>Task completion</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="ui_showPositiveFloat">
+        <property name="text">
+         <string>Positive float</string>
         </property>
        </widget>
       </item>
@@ -248,8 +244,28 @@
         </property>
        </widget>
       </item>
+      <item row="3" column="1">
+       <widget class="QCheckBox" name="ui_showTimeConstraint">
+        <property name="text">
+         <string>Time constraints</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>15</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
@@ -257,7 +273,7 @@
   <customwidget>
    <class>KColorCombo</class>
    <extends>QComboBox</extends>
-   <header location="global">KColorCombo</header>
+   <header>kcolorcombo.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
