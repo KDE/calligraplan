@@ -45,8 +45,6 @@ CommandLineParser::CommandLineParser()
     qApp->setWindowIcon(QIcon::fromTheme(QStringLiteral("calligraplanwork"), qApp->windowIcon()));
 
     aboutData->setupCommandLine(&m_commandLineParser);
-    m_commandLineParser.addHelpOption();
-    m_commandLineParser.addVersionOption();
     m_commandLineParser.addPositionalArgument(QStringLiteral("[file]"), i18n("File to open"));
 
     m_commandLineParser.process(*qApp);

@@ -203,8 +203,6 @@ bool KoApplication::start()
     // process commandline parameters
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
-    parser.addHelpOption();
-    parser.addVersionOption();
 
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("benchmark-loading"), i18n("just load the file and then exit")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("benchmark-loading-show-window"), i18n("load the file, show the window and progressbar and then exit")));
