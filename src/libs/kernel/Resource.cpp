@@ -1395,7 +1395,7 @@ QDebug operator<<(QDebug dbg, const KPlato::Resource::WorkInfoCache &c)
     dbg.nospace()<<"WorkInfoCache: ["<<" version="<<c.version<<" start="<<c.start.toString(Qt::ISODate)<<" end="<<c.end.toString(Qt::ISODate)<<" intervals="<<c.intervals.map().count();
     if (! c.intervals.isEmpty()) {
         foreach (const AppointmentInterval &i, c.intervals.map()) {
-        dbg<<endl<<"   "<<i;
+        dbg<<'\n'<<"   "<<i;
         }
     }
     dbg<<"]";

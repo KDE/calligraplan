@@ -317,11 +317,11 @@ bool Duration::valueFromString(const QString &value, double &rv, Unit &unit) {
             v.remove(s);
             bool ok;
             rv = v.toDouble(&ok);
-            errorPlan<<value<<" -> "<<v<<", "<<s<<" = "<<ok<<endl;
+            errorPlan<<value<<" -> "<<v<<", "<<s<<" = "<<ok<<'\n';
             return ok;
         }
     }
-    errorPlan<<"Illegal format, no unit: "<<value<<endl;
+    errorPlan<<"Illegal format, no unit: "<<value<<'\n';
     return false;
 }
 

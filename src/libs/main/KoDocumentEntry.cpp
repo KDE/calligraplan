@@ -129,10 +129,10 @@ KoDocumentEntry KoDocumentEntry::queryByMimeType(const QString & mimetype)
             // Still no match. Either the mimetype itself is unknown, or we have no service for it.
             // Help the user debugging stuff by providing some more diagnostics
             if (!KServiceType::serviceType(mimetype)) {
-                errorMain << "Unknown Calligra Plan MimeType " << mimetype << "." << endl;
+                errorMain << "Unknown Calligra Plan MimeType " << mimetype << "." << '\n';
             } else {
-                errorMain << "Found no Calligra part able to handle " << mimetype << "!" << endl;
-                errorMain << "Check your installation (does the desktop file have X-KDE-NativeMimeType and Calligraplan/Part, did you install Calligra in a different prefix than KDE, without adding the prefix to /etc/kderc ?)" << endl;
+                errorMain << "Found no Calligra part able to handle " << mimetype << "!" << '\n';
+                errorMain << "Check your installation (does the desktop file have X-KDE-NativeMimeType and Calligraplan/Part, did you install Calligra in a different prefix than KDE, without adding the prefix to /etc/kderc ?)" << '\n';
             }
             return KoDocumentEntry();
         }

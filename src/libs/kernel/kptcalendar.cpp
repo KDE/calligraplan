@@ -411,7 +411,7 @@ TimeInterval CalendarDay::interval(QDate date, QTime start, int length, const QT
             }
             DateTime dt2 = timeZone.isValid() ? DateTime(d2, t2, timeZone) : DateTime(d2, t2);
             DateTimeInterval dti(dt1, dt2);
-            //debugPlan<<": Booked?"<<date<<","<<t1<<"+"<<l<<"="<<t1.addMSecs(l)<<endl<<dti;
+            //debugPlan<<": Booked?"<<date<<","<<t1<<"+"<<l<<"="<<t1.addMSecs(l)<<'\n'<<dti;
             dti = sch->available(dti);
             //debugPlan<<"Checked sch:"<<ti.first<<","<<ti.second<<"="<<dti;
             ti = TimeInterval(dti.first.time(), (dti.second - dti.first).milliseconds());
@@ -1727,13 +1727,13 @@ QDebug operator<<(QDebug dbg, KPlato::Calendar *c)
     dbg << "Calendar[" << c->name();
     for (int i = 1; i <= 7; ++i) {
         if (c->weekday(i)) {
-            dbg << endl << '\t' << i << ':' << c->weekday(i);
+            dbg << '\n' << '\t' << i << ':' << c->weekday(i);
         }
     }
     foreach(const KPlato::CalendarDay *day, c->days()) {
-        dbg << endl << '\t'<< day;
+        dbg << '\n' << '\t'<< day;
     }
-    dbg << endl << ']';
+    dbg << '\n' << ']';
     return dbg;
 }
 

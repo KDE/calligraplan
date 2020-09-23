@@ -39,7 +39,7 @@ namespace KPlato
 
 QVariant RelationModel::parentName(const Relation *r, int role) const
 {
-    //debugPlan<<r<<", "<<role<<endl;
+    //debugPlan<<r<<", "<<role<<'\n';
     switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
@@ -55,7 +55,7 @@ QVariant RelationModel::parentName(const Relation *r, int role) const
 
 QVariant RelationModel::childName(const Relation *r, int role) const
 {
-    //debugPlan<<r<<", "<<role<<endl;
+    //debugPlan<<r<<", "<<role<<'\n';
     switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
@@ -71,7 +71,7 @@ QVariant RelationModel::childName(const Relation *r, int role) const
 
 QVariant RelationModel::type(const Relation *r, int role) const
 {
-    //debugPlan<<r<<", "<<role<<endl;
+    //debugPlan<<r<<", "<<role<<'\n';
     switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
@@ -118,7 +118,7 @@ QVariant RelationModel::data(const Relation *r, int property, int role) const
         case 2: result = type(r, role); break;
         case 3: result = lag(r, role); break;
         default:
-            //debugPlan<<"Invalid property number: "<<property<<endl;
+            //debugPlan<<"Invalid property number: "<<property<<'\n';
             return result;
     }
     return result;
@@ -230,7 +230,7 @@ void RelationItemModel::slotNodeRemoved(Node *node)
 
 void RelationItemModel::slotLayoutChanged()
 {
-    //debugPlan<<node->name()<<endl;
+    //debugPlan<<node->name()<<'\n';
     emit layoutAboutToBeChanged();
     emit layoutChanged();
 }

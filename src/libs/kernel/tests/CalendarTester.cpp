@@ -346,7 +346,7 @@ void CalendarTester::dstSpring()
     wd1->addInterval(TimeInterval(QTime(2,0,0), Duration(2., Duration::Unit_h).milliseconds()));
     
     lst = t.workIntervals(before, after, 100.);
-    qDebug()<<"DST?"<<DateTime(wdate, QTime(2,0,0))<<endl<<lst;
+    qDebug()<<"DST?"<<DateTime(wdate, QTime(2,0,0))<<'\n'<<lst;
     QCOMPARE(lst.map().count(), 2);
 
     AppointmentInterval ai = lst.map().values().value(0);

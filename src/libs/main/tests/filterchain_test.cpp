@@ -37,14 +37,14 @@ int main(int /*argc*/, char ** /*argv*/)
     if (!chain)
         qDebug() << "Chain for 'foo/bar' is not available, OK";
     else {
-        qCritical() << "Chain for 'foo/bar' is available!" << endl;
+        qCritical() << "Chain for 'foo/bar' is available!" << '\n';
         chain->dump();
     }
 
     mimeType = "text/csv";
     chain = g.chain(manager, mimeType);
     if (!chain)
-        qCritical() << "Chain for 'text/csv' is not available!" << endl;
+        qCritical() << "Chain for 'text/csv' is not available!" << '\n';
     else {
         qDebug() << "Chain for 'text/csv' is available, OK";
         chain->dump();
@@ -56,16 +56,16 @@ int main(int /*argc*/, char ** /*argv*/)
     if (!chain)
         qDebug() << "It was already a Calligra part, OK";
     else
-        qCritical() << "We really got a chain? ugh :}" << endl;
+        qCritical() << "We really got a chain? ugh :}" << '\n';
 
     g.setSourceMimeType("text/csv");
     mimeType = "";
     chain = g.chain(manager, mimeType);
     if (!chain)
-        qCritical() << "Hmm... why didn't we find a chain?" << endl;
+        qCritical() << "Hmm... why didn't we find a chain?" << '\n';
     else {
         qDebug() << "Chain for 'text/csv' -> closest part is available ("
-        << mimeType << "), OK" << endl;
+        << mimeType << "), OK" << '\n';
         chain->dump();
     }
 

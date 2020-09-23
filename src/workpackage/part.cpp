@@ -510,7 +510,7 @@ bool Part::loadNativeFormatFromStoreInternal(KoStore * store)
         }
 
     } else {
-        errorPlanWork << "ERROR: No maindoc.xml" << endl;
+        errorPlanWork << "ERROR: No maindoc.xml" << '\n';
         KMessageBox::error(0, i18n("Invalid document. The document does not contain 'maindoc.xml'."));
         QApplication::restoreOverrideCursor();
         return false;
@@ -546,8 +546,8 @@ bool Part::loadAndParse(KoStore* store, const QString& filename, KoXmlDocument& 
     bool ok = doc.setContent(store->device(), &errorMsg, &errorLine, &errorColumn);
     store->close();
     if (!ok) {
-        errorPlanWork << "Parsing error in " << filename << "! Aborting!" << endl
-        << " In line: " << errorLine << ", column: " << errorColumn << endl
+        errorPlanWork << "Parsing error in " << filename << "! Aborting!" << '\n'
+        << " In line: " << errorLine << ", column: " << errorColumn << '\n'
         << " Error message: " << errorMsg;
         KMessageBox::error(0, i18n("Parsing error in file '%1' at line %2, column %3<br>Error message: %4", filename  , errorLine, errorColumn ,
                                    QCoreApplication::translate("QXml", errorMsg.toUtf8(), 0)));
@@ -565,7 +565,7 @@ bool Part::loadXML(const KoXmlDocument &document, KoStore* store)
     // Check if this is the right app
     value = plan.attribute("mime", QString());
     if (value.isEmpty()) {
-        errorPlanWork << "No mime type specified!" << endl;
+        errorPlanWork << "No mime type specified!" << '\n';
         KMessageBox::error(0, i18n("Invalid document. No mimetype specified."));
         return false;
     } else if (value == "application/x-vnd.kde.kplato.work") {
@@ -608,7 +608,7 @@ bool Part::loadKPlatoXML(const KoXmlDocument &document, KoStore*)
     // Check if this is the right app
     value = plan.attribute("mime", QString());
     if (value.isEmpty()) {
-        errorPlanWork << "No mime type specified!" << endl;
+        errorPlanWork << "No mime type specified!" << '\n';
         KMessageBox::error(0, i18n("Invalid document. No mimetype specified."));
         return false;
     } else if (value != "application/x-vnd.kde.kplato.work") {

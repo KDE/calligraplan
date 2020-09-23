@@ -67,14 +67,14 @@ namespace CalligraFilter {
     KoFilter::ConversionStatus ChainLink::invokeFilter(const ChainLink *const parentChainLink)
     {
         if (!m_filterEntry) {
-            errorFilter << "This filter entry is null. Strange stuff going on." << endl;
+            errorFilter << "This filter entry is null. Strange stuff going on." << '\n';
             return KoFilter::FilterEntryNull;
         }
 
         m_filter = m_filterEntry->createFilter(m_chain);
 
         if (!m_filter) {
-            errorFilter << "Couldn't create the filter." << endl;
+            errorFilter << "Couldn't create the filter." << '\n';
             return KoFilter::FilterCreationError;
         }
 

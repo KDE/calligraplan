@@ -2442,7 +2442,7 @@ void DoubleTreeViewBase::slotToLeftView(const QModelIndex &index)
 
 void DoubleTreeViewBase::slotEditToRightView(const QModelIndex &index)
 {
-    //debugPlan<<index.column()<<endl;
+    //debugPlan<<index.column()<<'\n';
     if (m_rightview->isHidden()) {
         return;
     }
@@ -2458,7 +2458,7 @@ void DoubleTreeViewBase::slotEditToRightView(const QModelIndex &index)
 
 void DoubleTreeViewBase::slotEditToLeftView(const QModelIndex &index)
 {
-    //debugPlan<<index.column()<<endl;
+    //debugPlan<<index.column()<<'\n';
     if (m_leftview->isHidden()) {
         return;
     }

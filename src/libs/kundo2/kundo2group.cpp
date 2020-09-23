@@ -53,7 +53,7 @@
     \since 4.2
 
     For an overview of the Qt's undo framework, see the
-    \link qundo.html overview\endlink.
+    \link qundo.html overview\'\n'ink.
 
     An application often has multiple undo stacks, one for each opened document. At the
     same time, an application usually has one undo action and one redo action, which

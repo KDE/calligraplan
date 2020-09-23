@@ -919,7 +919,7 @@ bool KPlatoXmlLoaderBase::loadMainSchedule(MainSchedule *ms, const KoXmlElement 
             Appointment * child = new Appointment();
             if (! load(child, el, status, *ms)) {
                 // TODO: Complain about this
-                errorPlanXml << "Failed to load appointment" << endl;
+                errorPlanXml << "Failed to load appointment" << '\n';
                 delete child;
             }
         } else if (el.tagName() == "criticalpath-list") {

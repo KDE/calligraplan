@@ -1453,7 +1453,7 @@ void MilestoneKGanttView::slotProjectCalculated(ScheduleManager *sm)
 
 void MilestoneKGanttView::setScheduleManager(ScheduleManager *sm)
 {
-    //debugPlan<<id<<endl;
+    //debugPlan<<id<<'\n';
     model()->setScheduleManager(0);
     m_manager = sm;
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
@@ -1564,7 +1564,7 @@ void MilestoneGanttView::setProject(Project *project)
 
 void MilestoneGanttView::setScheduleManager(ScheduleManager *sm)
 {
-    //debugPlan<<id<<endl;
+    //debugPlan<<id<<'\n';
     m_gantt->setScheduleManager(sm);
 }
 
@@ -1896,7 +1896,7 @@ void ResourceAppointmentsGanttView::setProject(Project *project)
 
 void ResourceAppointmentsGanttView::setScheduleManager(ScheduleManager *sm)
 {
-    //debugPlan<<id<<endl;
+    //debugPlan<<id<<'\n';
     if (!sm && scheduleManager()) {
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted

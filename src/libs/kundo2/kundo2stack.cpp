@@ -1135,7 +1135,7 @@ QAction *KUndo2QStack::createRedoAction(QObject *parent) const
     \i canUndo() and canRedo() return false,
     \i calling undo() or redo() has no effect,
     \i the undo/redo actions are disabled.
-    \endlist
+    \'\n'ist
 
     The stack becomes enabled and appropriate signals are emitted when endMacro()
     is called for the outermost macro.

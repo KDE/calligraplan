@@ -386,7 +386,7 @@ bool ReportGeneratorOdt::createReportOdt()
         dbgRG<<"Failed to copy template";
         return false;
     }
-    dbgRG << endl << "---- treat main content.xml ----" << endl;
+    dbgRG << '\n' << "---- treat main content.xml ----" << '\n';
     QBuffer buffer;
     KoXmlWriter *writer = createOasisXmlWriter(reader, &buffer, "content.xml", "office:document-content");
 
@@ -411,7 +411,7 @@ bool ReportGeneratorOdt::createReportOdt()
     buffer.close();
 
     if (m_manifestfiles.contains("styles.xml")) {
-        dbgRG << endl << "---- treat styles.xml (for master-page headers/footers) ----" << endl;
+        dbgRG << '\n' << "---- treat styles.xml (for master-page headers/footers) ----" << '\n';
         QBuffer buffer2;
         KoXmlWriter *styles = createOasisXmlWriter(reader, &buffer2, "styles.xml", "office:document-styles");
         if (!styles) {
@@ -437,9 +437,9 @@ bool ReportGeneratorOdt::createReportOdt()
         m_manifestfiles.removeAt(m_manifestfiles.indexOf("styles.xml"));
     }
 
-    dbgRG << endl << "---- treat the embedded files ----" << endl;
+    dbgRG << '\n' << "---- treat the embedded files ----" << '\n';
     treatEmbededObjects(reader, *outStore);
-    dbgRG << endl << "---- copy rest of files ----" << endl;
+    dbgRG << '\n' << "---- copy rest of files ----" << '\n';
     for (int i = 0; i < m_manifestfiles.count(); ++i) {
         copyFile(*reader.store(), *outStore, m_manifestfiles.at(i));
     }
@@ -1345,13 +1345,13 @@ QDebug operator<<(QDebug dbg, ReportGeneratorOdt::UserField &f)
         default: dbg << "U: " + f.name; break;
     }
 //     if (!f.columns.isEmpty()) {
-//         dbg << endl <<"Columns: " << f.columns;
+//         dbg << '\n' <<"Columns: " << f.columns;
 //     }
 //     if (!f.headerNames.isEmpty()) {
-//         dbg << endl << "Headers: " << f.headerNames;
+//         dbg << '\n' << "Headers: " << f.headerNames;
 //     }
 //     if (!f.columns.isEmpty() || !f.headerNames.isEmpty()) {
-//         dbg << endl;
+//         dbg << '\n';
 //     }
     dbg << ']';
     return dbg.space();

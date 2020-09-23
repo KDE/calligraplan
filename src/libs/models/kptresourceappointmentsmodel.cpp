@@ -373,7 +373,7 @@ void ResourceAppointmentsItemModel::refresh()
 
 void ResourceAppointmentsItemModel::refreshData()
 {
-    //debugPlan<<"Schedule id: "<<id<<endl;
+    //debugPlan<<"Schedule id: "<<id<<'\n';
     QDate start;
     QDate end;
     QHash<const Appointment*, EffortCostMap> ec;

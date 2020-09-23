@@ -578,7 +578,7 @@ bool KoEncryptedStore::openRead(const QString& name)
 
             decrypted = decryptFile(encryptedFile, encData, password);
             if (decrypted.isEmpty()) {
-                errorStore << "empty decrypted file" << endl;
+                errorStore << "empty decrypted file" << '\n';
                 return false;
             }
 

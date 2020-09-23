@@ -572,8 +572,8 @@ bool MainDocument::loadWorkPackage(Project &project, const QUrl &url)
     int errorLine, errorColumn;
     bool ok = doc.setContent(store->device(), &errorMsg, &errorLine, &errorColumn);
     if (! ok) {
-        errorPlanWp << "Parsing error in " << url.url() << "! Aborting!" << endl
-                << " In line: " << errorLine << ", column: " << errorColumn << endl
+        errorPlanWp << "Parsing error in " << url.url() << "! Aborting!" << '\n'
+                << " In line: " << errorLine << ", column: " << errorColumn << '\n'
                 << " Error message: " << errorMsg;
         //d->lastErrorMessage = i18n("Parsing error in %1 at line %2, column %3\nError message: %4",filename  ,errorLine, errorColumn , QCoreApplication::translate("QXml", errorMsg.toUtf8(), 0, QCoreApplication::UnicodeUTF8));
     } else {
@@ -997,8 +997,8 @@ bool MainDocument::loadAndParse(KoStore *store, const QString &filename, KoXmlDo
     bool ok = doc.setContent(store->device(), &errorMsg, &errorLine, &errorColumn);
     if (!ok)
     {
-        errorPlan << "Parsing error in " << filename << "! Aborting!" << endl
-            << " In line: " << errorLine << ", column: " << errorColumn << endl
+        errorPlan << "Parsing error in " << filename << "! Aborting!" << '\n'
+            << " In line: " << errorLine << ", column: " << errorColumn << '\n'
             << " Error message: " << errorMsg;
 /*        d->lastErrorMessage = i18n("Parsing error in %1 at line %2, column %3\nError message: %4"
                               ,filename  ,errorLine, errorColumn ,
@@ -1391,7 +1391,7 @@ bool MainDocument::mergeResources(Project &project)
     foreach(ResourceGroup *g, m_project->resourceGroups()) {
         l2 << g->id();
     }
-    debugPlanShared<<endl<<"  This:"<<l2<<endl<<"Shared:"<<l1;
+    debugPlanShared<<'\n'<<"  This:"<<l2<<'\n'<<"Shared:"<<l1;
     QList<ResourceGroup*> removegroups;
     foreach(ResourceGroup *g, project.resourceGroups()) {
         ResourceGroup *group = m_project->findResourceGroup(g->id());
@@ -1460,7 +1460,7 @@ bool MainDocument::mergeResources(Project &project)
             debugPlanShared<<"Updated calendar:"<<calendar<<calendar->id();
         }
     }
-    debugPlanShared<<"Remove:"<<endl<<"calendars:"<<removecalendars<<endl<<"resources:"<<removeresources<<endl<<"groups:"<<removegroups;
+    debugPlanShared<<"Remove:"<<'\n'<<"calendars:"<<removecalendars<<'\n'<<"resources:"<<removeresources<<'\n'<<"groups:"<<removegroups;
     while (!removecalendars.isEmpty()) {
         for (int i = 0; i < removecalendars.count(); ++i) {
             Calendar *c = removecalendars.at(i);

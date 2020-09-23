@@ -453,7 +453,7 @@ void TaskWorkPackageView::saveContext()
     doc.appendChild(context);
     m_view->saveContext(itemModel()->columnMap(), context);
     PlanWorkSettings::self()->setTaskWorkPackageView(doc.toString());
-    debugPlanWork<<"saved context:"<<endl<<doc.toString();
+    debugPlanWork<<"saved context:"<<'\n'<<doc.toString();
 }
 
 //-------------------------------------------
@@ -968,7 +968,7 @@ void TaskWPGanttView::saveContext()
     doc.appendChild(context);
     m_view->saveContext(context);
     PlanWorkSettings::self()->setTaskWPGanttView(doc.toString());
-    debugPlanWork<<endl<<doc.toString();
+    debugPlanWork<<'\n'<<doc.toString();
 }
 
 } // namespace KPlatoWork

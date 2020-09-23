@@ -151,13 +151,13 @@ QString KoFilterManager::importDocument(const QString& url,
     } else if (!d->importMimeType.isEmpty()) {
         chain = m_graph.chain(this, d->importMimeType);
     } else {
-        errorFilter << "You aren't supposed to use import() from a filter!" << endl;
+        errorFilter << "You aren't supposed to use import() from a filter!" << '\n';
         status = KoFilter::UsageError;
         return QString();
     }
 
     if (!chain) {
-        errorFilter << "Couldn't create a valid filter chain!" << endl;
+        errorFilter << "Couldn't create a valid filter chain!" << '\n';
         importErrorHelper(typeName);
         status = KoFilter::BadConversionGraph;
         return QString();
@@ -236,7 +236,7 @@ KoFilter::ConversionStatus KoFilterManager::exportDocument(const QString& url, Q
         chain = m_graph.chain(this, mimeType);
 
     if (!chain) {
-        errorFilter << "Couldn't create a valid filter chain to " << mimeType << " !" << endl;
+        errorFilter << "Couldn't create a valid filter chain to " << mimeType << " !" << '\n';
         if (!d->batch) KMessageBox::error(0, i18n("Could not export file."), i18n("Missing Export Filter"));
         return KoFilter::BadConversionGraph;
     }
@@ -525,7 +525,7 @@ bool KoFilterManager::filterAvailable(KoFilterEntry::Ptr entry)
         if (!sym) {
 //            warnFilter << "The library " << library.objectName()
 //                << " does not offer a check_" << library.objectName()
-//                << " function." << endl;
+//                << " function." << '\n';
             m_filterAvailable[key] = false;
         } else {
             typedef int (*t_func)();

@@ -460,7 +460,7 @@ bool KoApplication::start()
                     doc->setProfileStream(&profileoutput);
                     profileoutput << "KoApplication::start\t"
                                   << appStartTime.msecsTo(QTime::currentTime())
-                                  <<"\t0" << endl;
+                                  <<"\t0" << '\n';
                     doc->setAutoErrorHandlingEnabled(false);
                 }
                 doc->setProfileReferenceTime(appStartTime);
@@ -535,7 +535,7 @@ bool KoApplication::start()
                         if (profileoutput.device()) {
                             profileoutput << "KoApplication::start\t"
                                           << appStartTime.msecsTo(QTime::currentTime())
-                                          <<"\t100" << endl;
+                                          <<"\t100" << '\n';
                         }
                         return true; // only load one document!
                     } else {
@@ -551,7 +551,7 @@ bool KoApplication::start()
                 if (profileoutput.device()) {
                     profileoutput << "KoApplication::start\t"
                                   << appStartTime.msecsTo(QTime::currentTime())
-                                  <<"\t100" << endl;
+                                  <<"\t100" << '\n';
                 }
 
             }

@@ -360,7 +360,7 @@ bool Schedule::attach(Appointment *appointment)
     //debugPlan<<appointment<<mode;
     if (mode == Scheduling) {
         if (m_appointments.indexOf(appointment) != -1) {
-            errorPlan << "Appointment already exists" << endl;
+            errorPlan << "Appointment already exists" << '\n';
             return false;
         }
         m_appointments.append(appointment);
@@ -370,7 +370,7 @@ bool Schedule::attach(Appointment *appointment)
     }
     if (mode == CalculateForward) {
         if (m_forward.indexOf(appointment) != -1) {
-            errorPlan << "Appointment already exists" << endl;
+            errorPlan << "Appointment already exists" << '\n';
             return false;
         }
         m_forward.append(appointment);
@@ -380,7 +380,7 @@ bool Schedule::attach(Appointment *appointment)
     }
     if (mode == CalculateBackward) {
         if (m_backward.indexOf(appointment) != -1) {
-            errorPlan << "Appointment already exists" << endl;
+            errorPlan << "Appointment already exists" << '\n';
             return false;
         }
         m_backward.append(appointment);
@@ -388,7 +388,7 @@ bool Schedule::attach(Appointment *appointment)
         //if (node()) debugPlan<<"For node '"<<node()->name()<<"'";
         return true;
     }
-    errorPlan<<"Unknown mode: "<<m_calculationMode<<endl;
+    errorPlan<<"Unknown mode: "<<m_calculationMode<<'\n';
     return false;
 }
 
@@ -1118,7 +1118,7 @@ DateTimeInterval ResourceSchedule::available(const DateTimeInterval &interval) c
         //debugPlan<<this<<"id="<<m_id<<"Mode="<<m_calculationMode<<""<<interval.first<<","<<interval.second<<" FREE";
         return DateTimeInterval(interval.first, interval.second); // just return the interval
     }
-    //debugPlan<<"available:"<<interval<<endl<<a.intervals();
+    //debugPlan<<"available:"<<interval<<'\n'<<a.intervals();
     DateTimeInterval res;
     int units = m_resource ? m_resource->units() : 100;
     foreach (const AppointmentInterval &i, a.intervals().map()) {
@@ -1376,7 +1376,7 @@ bool MainSchedule::loadXML(const KoXmlElement &sch, XMLLoaderObject &status)
             Appointment * child = new Appointment();
             if (!child->loadXML(el, status, *this)) {
                 // TODO: Complain about this
-                errorPlan << "Failed to load appointment" << endl;
+                errorPlan << "Failed to load appointment" << '\n';
                 delete child;
             }
         } else if (el.tagName() == "criticalpath-list") {
@@ -1531,7 +1531,7 @@ void MainSchedule::addCriticalPath(QList<Node*> *lst)
 void MainSchedule::addCriticalPathNode(Node *node)
 {
     if (m_currentCriticalPath == 0) {
-        errorPlan<<"No currentCriticalPath"<<endl;
+        errorPlan<<"No currentCriticalPath"<<'\n';
         return;
     }
     m_currentCriticalPath->append(node);
@@ -2040,7 +2040,7 @@ bool ScheduleManager::loadXML(KoXmlElement &element, XMLLoaderObject &status)
             if (sm->loadXML(e, status)) {
                 m_project.addScheduleManager(sm, this);
             } else {
-                errorPlan<<"Failed to load schedule manager"<<endl;
+                errorPlan<<"Failed to load schedule manager"<<'\n';
                 delete sm;
             }
         }
@@ -2055,7 +2055,7 @@ MainSchedule *ScheduleManager::loadMainSchedule(KoXmlElement &element, XMLLoader
         sch->setNode(&(status.project()));
         status.project().setParentSchedule(sch);
     } else {
-        errorPlan << "Failed to load schedule" << endl;
+        errorPlan << "Failed to load schedule" << '\n';
         delete sch;
         sch = 0;
     }

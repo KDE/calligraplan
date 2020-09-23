@@ -397,7 +397,7 @@ QVariant TaskWorkPackageModel::nodeData(Node *n, int column, int role) const
         case ProjectManager: return projectManager(n, role);
 
         default:
-            //debugPlanWork<<"Invalid column number: "<<index.column()<<endl;
+            //debugPlanWork<<"Invalid column number: "<<index.column()<<'\n';
             break;
     }
     return "";
@@ -632,7 +632,7 @@ QVariant TaskWorkPackageModel::headerData(int section, Qt::Orientation orientati
         case ProjectManager: return xi18nc("@title:column", "Project Manager");
 
         default:
-            //debugPlanWork<<"Invalid column number: "<<index.column()<<endl;
+            //debugPlanWork<<"Invalid column number: "<<index.column()<<'\n';
             break;
     }
     }

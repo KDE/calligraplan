@@ -135,7 +135,7 @@ public:
     bool contains(QPair<int, int> week) { return contains(week.first,  week.second); }
 
     void insert(int week, int year, int state=CalendarDay::NonWorking) {
-        if (week < 1 || week > 53) { errorPlan<<"Illegal week number: "<<week<<endl; return; }
+        if (week < 1 || week > 53) { errorPlan<<"Illegal week number: "<<week<<'\n'; return; }
         IntMap::insert(week*10000 + year, state);
     }
     void insert(QPair<int, int> week, int state=CalendarDay::NonWorking) { insert(week.first, week.second, state); }
@@ -151,11 +151,11 @@ public:
     int state(int week, int year) const { return state(QPair<int, int>(week, year)); }
 
     void toggle(QPair<int, int> week, int state=CalendarDay::NonWorking) {
-        if (week.first < 1 || week.first > 53) { errorPlan<<"Illegal week number: "<<week.first<<endl; return; }
+        if (week.first < 1 || week.first > 53) { errorPlan<<"Illegal week number: "<<week.first<<'\n'; return; }
         IntMap::toggle(week.first*10000 + week.second, state);
     }
     void toggleClear(QPair<int, int> week, int state=CalendarDay::NonWorking) {
-        if (week.first < 1 || week.first > 53) { errorPlan<<"Illegal week number: "<<week.first<<endl; return; }
+        if (week.first < 1 || week.first > 53) { errorPlan<<"Illegal week number: "<<week.first<<'\n'; return; }
         IntMap::toggleClear(week.first*10000 + week.second, state);
     }
 };

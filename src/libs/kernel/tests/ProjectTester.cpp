@@ -143,7 +143,7 @@ void ProjectTester::schedule()
     t->estimate()->setType(Estimate::Type_Duration);
 
     QString s = "Calculate forward, Task: Duration -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     qDebug()<<t->name()<<t->id()<<m_project->findNode(t->id());
     qDebug()<<m_project->nodeDict();
     Debug::print(m_project, s, true);
@@ -157,7 +157,7 @@ void ProjectTester::schedule()
     QCOMPARE(t->endTime(), DateTime(t->startTime().addDays(1)));
 
     s = "Calculate forward, Task: Duration w calendar -------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     t->estimate()->setCalendar(m_calendar);
     sm->createSchedules();
@@ -181,7 +181,7 @@ void ProjectTester::schedule()
     t->estimate()->setType(Estimate::Type_Effort);
 
     s = "Calculate forward, Task: ASAP -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     sm = m_project->createScheduleManager("Test Plan");
     m_project->addScheduleManager(sm);
@@ -202,7 +202,7 @@ void ProjectTester::schedule()
     QVERIFY(t->schedulingError() == false);
 
     s = "Calculate forward, Task: ASAP, Resource 50% available -----------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     r->setUnits(50);
     sm = m_project->createScheduleManager("Test Plan");
     m_project->addScheduleManager(sm);
@@ -223,7 +223,7 @@ void ProjectTester::schedule()
     QVERIFY(t->schedulingError() == false);
 
     s = "Calculate forward, Task: ASAP, Resource 50% available, Request 50% load ---------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     r->setUnits(50);
     rr->setUnits(50);
     sm = m_project->createScheduleManager("Test Plan");
@@ -245,7 +245,7 @@ void ProjectTester::schedule()
     QVERIFY(t->schedulingError() == false);
 
     s = "Calculate forward, Task: ASAP, Resource 200% available, Request 50% load ---------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     r->setUnits(200);
     rr->setUnits(50);
     sm = m_project->createScheduleManager("Test Plan");
@@ -267,7 +267,7 @@ void ProjectTester::schedule()
     QVERIFY(t->schedulingError() == false);
 
     s = "Calculate forward, Task: ASAP, Resource 200% available, Request 100% load ---------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     r->setUnits(200);
     rr->setUnits(100);
     sm = m_project->createScheduleManager("Test Plan");
@@ -289,7 +289,7 @@ void ProjectTester::schedule()
     QVERIFY(t->schedulingError() == false);
 
     s = "Calculate forward, 2 tasks: Resource 200% available, Request 50% load each ---------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     r->setUnits(200);
     rr->setUnits(50);
 
@@ -321,7 +321,7 @@ void ProjectTester::schedule()
     delete task2;
 
     s = "Calculate forward, Task: ASAP, Resource available tomorrow --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     r->setAvailableFrom(QDateTime(tomorrow, QTime(), Qt::LocalTime));
     qDebug()<<"Tomorrow:"<<QDateTime(tomorrow, QTime(), Qt::LocalTime)<<r->availableFrom();
     r->setUnits(100);
@@ -344,7 +344,7 @@ void ProjectTester::schedule()
     QVERIFY(t->schedulingError() == false);
 
     s = "Calculate forward, Task: ALAP -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime(0,0,0)));
     t->setConstraint(Node::ALAP);
     r->setAvailableFrom(QDateTime(yesterday, QTime(), Qt::LocalTime));
@@ -366,7 +366,7 @@ void ProjectTester::schedule()
     QVERIFY(t->schedulingError() == false);
 
     s = "Calculate forward, Task: MustStartOn -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     r->setAvailableFrom(QDateTime(yesterday, QTime(), Qt::LocalTime));
     t->setConstraint(Node::MustStartOn);
     t->setConstraintStartTime(DateTime(nextweek, t1));
@@ -381,7 +381,7 @@ void ProjectTester::schedule()
 
     // Calculate backwards
     s = "Calculate backward, Task: MustStartOn -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintEndTime(DateTime(nextweek.addDays(1), QTime()));
     sm = m_project->createScheduleManager("Test Plan");
     sm->setSchedulingDirection(true);
@@ -398,7 +398,7 @@ void ProjectTester::schedule()
 
     // Calculate bacwords
     s = "Calculate backwards, Task: MustFinishOn -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime(0,0,0)));
     m_project->setConstraintEndTime(DateTime(nextweek.addDays(1), QTime()));
     t->setConstraint(Node::MustFinishOn);
@@ -415,7 +415,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: MustFinishOn -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::MustFinishOn);
     t->setConstraintEndTime(DateTime(tomorrow, t2));
@@ -433,7 +433,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: StartNotEarlier -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::StartNotEarlier);
     t->setConstraintStartTime(DateTime(today, t2));
@@ -452,7 +452,7 @@ void ProjectTester::schedule()
 
     // Calculate backward
     s = "Calculate backwards, Task: StartNotEarlier -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintEndTime(DateTime(nextweek, QTime()));
     t->setConstraint(Node::StartNotEarlier);
     t->setConstraintStartTime(DateTime(today, t2));
@@ -476,7 +476,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: FinishNotLater -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::FinishNotLater);
     t->setConstraintEndTime(DateTime(tomorrow.addDays(1), t2));
@@ -500,7 +500,7 @@ void ProjectTester::schedule()
 
     // Calculate backward
     s = "Calculate backwards, Task: FinishNotLater -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(nextweek, QTime()));
     t->setConstraint(Node::FinishNotLater);
     t->setConstraintEndTime(DateTime(tomorrow, t2));
@@ -524,7 +524,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forward, Task: FixedInterval -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::FixedInterval);
     t->setConstraintStartTime(DateTime(tomorrow, t1));
@@ -549,7 +549,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: FixedInterval -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::FixedInterval);
     t->setConstraintStartTime(DateTime(tomorrow, QTime())); // outside working hours
@@ -572,7 +572,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: Milestone, ASAP-------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::ASAP);
     t->estimate()->clear();
@@ -596,7 +596,7 @@ void ProjectTester::schedule()
 
     // Calculate backward
     s = "Calculate backwards, Task: Milestone, ASAP-------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintEndTime(DateTime(today, QTime()));
     t->setConstraint(Node::ASAP);
     t->estimate()->clear();
@@ -618,7 +618,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: Milestone, ALAP-------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::ALAP);
     t->estimate()->clear();
@@ -640,7 +640,7 @@ void ProjectTester::schedule()
 
     // Calculate backward
     s = "Calculate backwards, Task: Milestone, ALAP-------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintEndTime(DateTime(today, QTime()));
     t->setConstraint(Node::ALAP);
     t->estimate()->clear();
@@ -662,7 +662,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: Milestone, MustStartOn ------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::MustStartOn);
     t->setConstraintStartTime(DateTime(tomorrow, t1));
@@ -684,7 +684,7 @@ void ProjectTester::schedule()
 
     // Calculate backward
     s = "Calculate backwards, Task: Milestone, MustStartOn ------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintEndTime(DateTime(tomorrow, QTime()));
     t->setConstraint(Node::MustStartOn);
     t->setConstraintStartTime(DateTime(today, t1));
@@ -706,7 +706,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: Milestone, MustFinishOn ------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::MustFinishOn);
     t->setConstraintEndTime(DateTime(tomorrow, t1));
@@ -730,7 +730,7 @@ void ProjectTester::schedule()
 
     // Calculate backward
     s = "Calculate backwards, Task: Milestone, MustFinishOn ------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintEndTime(DateTime(tomorrow, QTime()));
     t->setConstraint(Node::MustFinishOn);
     t->setConstraintEndTime(DateTime(today, t1));
@@ -754,7 +754,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: Milestone, StartNotEarlier ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::StartNotEarlier);
     t->setConstraintEndTime(DateTime(tomorrow, t1));
@@ -778,7 +778,7 @@ void ProjectTester::schedule()
 
     // Calculate backward
     s = "Calculate backwards, Task: Milestone, StartNotEarlier ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintEndTime(DateTime(tomorrow, QTime()));
     t->setConstraint(Node::StartNotEarlier);
     t->setConstraintStartTime(DateTime(today, t1));
@@ -804,7 +804,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forwards, Task: Milestone, FinishNotLater ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::FinishNotLater);
     t->setConstraintEndTime(DateTime(tomorrow, t1));
@@ -828,7 +828,7 @@ void ProjectTester::schedule()
 
     // Calculate backward
     s = "Calculate backwards, Task: Milestone, FinishNotLater ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintEndTime(DateTime(tomorrow, QTime()));
     t->setConstraint(Node::FinishNotLater);
     t->setConstraintEndTime(DateTime(today, t1));
@@ -852,7 +852,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forward, 2 Tasks, no overbooking ----------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     m_project->setConstraintEndTime(DateTime(today, QTime()).addDays(4));
     t->setConstraint(Node::ASAP);
@@ -899,7 +899,7 @@ void ProjectTester::schedule()
 
     // Calculate forward
     s = "Calculate forward, 2 Tasks, relation ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     m_project->setConstraintStartTime(DateTime(today, QTime()));
     t->setConstraint(Node::ASAP);
     t->estimate()->setUnit(Duration::Unit_d);
@@ -945,7 +945,7 @@ void ProjectTester::schedule()
 void ProjectTester::scheduleFullday()
 {
     QString s = "Full day, 1 resource works 24 hours a day -------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     m_project->setConstraintStartTime(QDateTime::fromString("2011-09-01T00:00:00", Qt::ISODate));
     m_project->setConstraintEndTime(QDateTime::fromString("2011-09-16T00:00:00", Qt::ISODate));
@@ -996,7 +996,7 @@ void ProjectTester::scheduleFullday()
     QCOMPARE(t->endTime(), DateTime(t->startTime().addDays(14)));
 
     s = "Full day, 8 hour shifts, 3 resources ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     int hour = 60*60*1000;
     Calendar *c1 = new Calendar("Test 1");
     for (int i = 1; i <= 7; ++i) {
@@ -1055,7 +1055,7 @@ void ProjectTester::scheduleFullday()
 void ProjectTester::scheduleFulldayDstSpring()
 {
     QString s = "Daylight saving time - Spring, 1 resource works 24 hours a day -------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     Project project;
     project.setName("DST");
     project.setId(project.uniqueNodeId());
@@ -1109,7 +1109,7 @@ void ProjectTester::scheduleFulldayDstSpring()
     QCOMPARE(t->endTime(), t->startTime() + Duration(4, 0, 0));
 
     s = "Daylight saving time - Spring, Backward: 1 resource works 24 hours a day -------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     // make room for the task
     project.setConstraintStartTime(DateTime(QDate::fromString("2011-03-24", Qt::ISODate)));
@@ -1129,7 +1129,7 @@ void ProjectTester::scheduleFulldayDstSpring()
     QCOMPARE(t->startTime(), t->endTime() - Duration(4, 0, 0));
 
     s = "Daylight saving time - Spring, 8 hour shifts, 3 resources ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     
     int hour = 60*60*1000;
     Calendar *c1 = new Calendar("Test 1");
@@ -1189,7 +1189,7 @@ void ProjectTester::scheduleFulldayDstSpring()
     QCOMPARE(t->endTime(), t->startTime() + Duration(4, 0, 0));
 
     s = "Daylight saving time - Spring, Backward: 8 hour shifts, 3 resources ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     project.setConstraintStartTime(DateTime(QDate::fromString("2011-03-24", Qt::ISODate)));
 
@@ -1210,7 +1210,7 @@ void ProjectTester::scheduleFulldayDstSpring()
 void ProjectTester::scheduleFulldayDstFall()
 {
     QString s = "Daylight saving time - Fall, 1 resource works 24 hours a day -------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     Project project;
     project.setName("DST");
     project.setId(project.uniqueNodeId());
@@ -1264,7 +1264,7 @@ void ProjectTester::scheduleFulldayDstFall()
     QCOMPARE(t->endTime(), t->startTime() + Duration(4, 0, 0));
 
     s = "Daylight saving time - Fall, Backward: 1 resource works 24 hours a day -------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     sm = project.createScheduleManager("Test Backward");
     project.addScheduleManager(sm);
@@ -1281,7 +1281,7 @@ void ProjectTester::scheduleFulldayDstFall()
     QCOMPARE(t->startTime(), t->endTime() - Duration(4, 0, 0));
 
     s = "Daylight saving time - Fall, 8 hour shifts, 3 resources ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     int hour = 60*60*1000;
     Calendar *c1 = new Calendar("Test 1");
     for (int i = 1; i <= 7; ++i) {
@@ -1339,7 +1339,7 @@ void ProjectTester::scheduleFulldayDstFall()
     QCOMPARE(t->endTime(), t->startTime() + Duration(4, 0, 0));
 
     s = "Daylight saving time - Fall, Backward: 8 hour shifts, 3 resources ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     sm = project.createScheduleManager("Test Foreward");
     project.addScheduleManager(sm);
@@ -1398,7 +1398,7 @@ void ProjectTester::scheduleWithExternalAppointments()
     project.calculate(*sm);
 
     QString s = "Schedule with external appointments ----------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     Debug::print(r, s);
     Debug::print(&project, s, true);
@@ -1480,7 +1480,7 @@ void ProjectTester::reschedule()
     r->addParentGroup(g);
 
     QString s = "Re-schedule; schedule tasks T1, T2, T3 ---------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     Task *task1 = project.createTask();
     task1->setName("T1");
@@ -1540,7 +1540,7 @@ void ProjectTester::reschedule()
 
     DateTime restart = task1->endTime();
     s = QString("Re-schedule; re-schedule from %1 - tasks T1 (finished), T2, T3 ------").arg(restart.toString());
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     task1->completion().setStarted(true);
     task1->completion().setPercentFinished(task1->endTime().date(), 100);
@@ -1607,7 +1607,7 @@ void ProjectTester::materialResource()
     task1->estimate()->setType(Estimate::Type_Effort);
 
     QString s = "Calculate forward, Task: ASAP, Working + material resource --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     qDebug()<<s;
     ResourceGroup *g = new ResourceGroup();
     project.addResourceGroup(g);
@@ -1685,7 +1685,7 @@ void ProjectTester::requiredResource()
     task1->estimate()->setType(Estimate::Type_Effort);
 
     QString s = "Required resource: Working + required material resource --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     ResourceGroup *g = new ResourceGroup();
     project.addResourceGroup(g);
     Resource *r = new Resource();
@@ -1743,7 +1743,7 @@ void ProjectTester::requiredResource()
     QCOMPARE(task1->endTime(), apps.last()->endTime());
 
     s = "Required resource limits availability --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     DateTime tomorrow = targetstart.addDays(1);
     mr->setAvailableFrom(tomorrow);
     sm->createSchedules();
@@ -1806,7 +1806,7 @@ void ProjectTester::resourceWithLimitedAvailability()
     task1->estimate()->setType(Estimate::Type_Effort);
 
     QString s = "Two resources: One with available until < resulting task length --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     ResourceGroup *g = new ResourceGroup();
     project.addResourceGroup(g);
     Resource *r1 = new Resource();
@@ -1872,7 +1872,7 @@ void ProjectTester::unavailableResource()
     task1->estimate()->setType(Estimate::Type_Effort);
 
     QString s = "One available resource --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     ResourceGroup *g = new ResourceGroup();
     project.addResourceGroup(g);
     Resource *r1 = new Resource();
@@ -1904,7 +1904,7 @@ void ProjectTester::unavailableResource()
     QCOMPARE(task1->endTime(), expectedEndTime);
 
     s = "One available resource + one unavailable resource --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     r2->setAvailableFrom(targetend);
     r2->setAvailableUntil(targetend.addDays(1));
@@ -1954,7 +1954,7 @@ void ProjectTester::team()
     task1->estimate()->setType(Estimate::Type_Effort);
 
     QString s = "One team with one resource --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     ResourceGroup *g = new ResourceGroup();
     project.addResourceGroup(g);
     Resource *r1 = new Resource();
@@ -1994,7 +1994,7 @@ void ProjectTester::team()
     QCOMPARE(task1->endTime(), expectedEndTime);
 
     s = "One team with one resource + one resource --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     ResourceRequest *rr1 = new ResourceRequest(r1, 100);
     task1->requests().addResourceRequest(rr1);
@@ -2013,7 +2013,7 @@ void ProjectTester::team()
     QCOMPARE(task1->endTime(), expectedEndTime);
 
     s = "One team with one resource + one resource, resource available too late --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     
     r1->setAvailableFrom(targetend);
     r1->setAvailableUntil(targetend.addDays(7));
@@ -2032,7 +2032,7 @@ void ProjectTester::team()
     QCOMPARE(task1->endTime(), expectedEndTime);
 
     s = "One team with two resources --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     
     r1->removeRequests();
     team->addTeamMemberId(r1->id());
@@ -2053,7 +2053,7 @@ void ProjectTester::team()
     QCOMPARE(task1->endTime(), expectedEndTime);
 
     s = "One team with two resources, one resource unavailable --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     
     r1->setAvailableFrom(targetend);
     r1->setAvailableUntil(targetend.addDays(2));
@@ -3188,7 +3188,7 @@ void ProjectTester::scheduleTimeZone()
     t2->requests().addResourceRequest(rr2);
     
     QString s = "Calculate forward, Task: ASAP -----------------------------------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     ScheduleManager *sm = project.createScheduleManager("Test Plan");
     project.addScheduleManager(sm);
     sm->createSchedules();

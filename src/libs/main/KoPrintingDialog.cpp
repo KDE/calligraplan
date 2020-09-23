@@ -107,7 +107,7 @@ bool KoPrintingDialog::isStopped() const
     return d->stop;
 }
 
-// Define a printer friendly palette
+// Define a printer fri'\n'y palette
 #define VeryLightGray   "#f8f8f8"
 #define LightLightGray  "#f0f0f0"
 #define DarkDarkGray    "#b3b3b3"

@@ -130,10 +130,10 @@ QDebug EffortCostMap::debug(QDebug dbg) const
     if (! m_days.isEmpty()) {
         QMap<QDate, KPlato::EffortCost>::ConstIterator it = days().constBegin();
         for (; it != days().constEnd(); ++it) {
-            dbg<<endl;
+            dbg<<'\n';
             dbg<<"     "<<it.key().toString(Qt::ISODate)<<" "<<it.value();
         }
-        dbg<<endl;
+        dbg<<'\n';
     }
     return dbg;
 }

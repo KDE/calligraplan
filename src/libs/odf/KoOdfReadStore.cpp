@@ -134,9 +134,9 @@ bool KoOdfReadStore::loadAndParse(QIODevice *fileDevice, KoXmlDocument &doc, QSt
 
     bool ok = doc.setContent(&reader, &errorMsg, &errorLine, &errorColumn);
     if (!ok) {
-        errorOdf << "Parsing error in " << fileName << "! Aborting!" << endl
-        << " In line: " << errorLine << ", column: " << errorColumn << endl
-        << " Error message: " << errorMsg << endl;
+        errorOdf << "Parsing error in " << fileName << "! Aborting!" << '\n'
+        << " In line: " << errorLine << ", column: " << errorColumn << '\n'
+        << " Error message: " << errorMsg << '\n';
         errorMessage = i18n("Parsing error in the main document at line %1, column %2\nError message: %3"
                             , errorLine , errorColumn , errorMsg);
     } else {

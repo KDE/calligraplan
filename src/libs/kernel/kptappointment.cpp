@@ -353,7 +353,7 @@ void AppointmentIntervalList::subtract(const AppointmentInterval &interval)
     const DateTime et = interval.endTime();
     Q_ASSERT(st < et);
     const double load = interval.load();
-//     debugPlan<<"subtract:"<<*this<<endl<<"minus"<<interval;
+//     debugPlan<<"subtract:"<<*this<<'\n'<<"minus"<<interval;
     for (QDate date = st.date(); date <= et.date(); date = date.addDays(1)) {
         if (! m_map.contains(date)) {
             continue;
@@ -401,7 +401,7 @@ void AppointmentIntervalList::subtract(const AppointmentInterval &interval)
             m_map.insert(date, i);
         }
     }
-    //debugPlan<<"subtract:"<<interval<<" result="<<endl<<*this;
+    //debugPlan<<"subtract:"<<interval<<" result="<<'\n'<<*this;
 }
 
 AppointmentIntervalList &AppointmentIntervalList::operator+=(const AppointmentIntervalList &lst)
@@ -603,7 +603,7 @@ QDebug operator<<(QDebug dbg, const KPlato::AppointmentIntervalList &i)
 {
     QMultiMap<QDate, AppointmentInterval>::const_iterator it = i.map().constBegin();
     for (; it != i.map().constEnd(); ++it) {
-        dbg<<endl<<it.key()<<":"<<it.value().startTime()<<it.value().endTime()<<it.value().load()<<"%";
+        dbg<<'\n'<<it.key()<<":"<<it.value().startTime()<<it.value().endTime()<<it.value().load()<<"%";
     }
     return dbg;
 }

@@ -89,7 +89,7 @@ QVariant UsedEffortItemModel::data (const QModelIndex &index, int role) const
             }
             if (index.column() == 8) {
                 // Total
-                //debugPlan<<index.row()<<","<<index.column()<<" total"<<endl;
+                //debugPlan<<index.row()<<","<<index.column()<<" total"<<'\n';
                 double res = 0.0;
                 foreach (const QDate &d, m_dates) {
                     Completion::UsedEffort::ActualEffort e = ue->effort(d);
@@ -107,7 +107,7 @@ QVariant UsedEffortItemModel::data (const QModelIndex &index, int role) const
             }
             if (index.column() == 0) {
                 const Resource *r = resource(index);
-                //debugPlan<<index.row()<<","<<index.column()<<" "<<r<<endl;
+                //debugPlan<<index.row()<<","<<index.column()<<" "<<r<<'\n';
                 if (r) {
                     return r->name();
                 }
@@ -525,7 +525,7 @@ QVariant CompletionEntryItemModel::actualEffort (int row, int role) const
             } else {
                 v = e->totalPerformed;
             }
-            //debugPlan<<m_node->name()<<": "<<v<<" "<<unit<<" : "<<scales<<endl;
+            //debugPlan<<m_node->name()<<": "<<v<<" "<<unit<<" : "<<scales<<'\n';
             return v.format();
         }
         case Qt::EditRole:
@@ -695,13 +695,13 @@ bool CompletionEntryItemModel::setData (const QModelIndex &idx, const QVariant &
 
 bool CompletionEntryItemModel::submit()
 {
-    debugPlan<<endl;
+    debugPlan<<'\n';
     return QAbstractItemModel::submit();
 }
 
 void CompletionEntryItemModel::revert()
 {
-    debugPlan<<endl;
+    debugPlan<<'\n';
     refresh();
 }
 
@@ -815,7 +815,7 @@ void CompletionEntryItemModel::removeRow(int row)
 
 void CompletionEntryItemModel::addEntry(const QDate& date)
 {
-    debugPlan<<date<<endl;
+    debugPlan<<date<<'\n';
     Completion::Entry *e = new Completion::Entry();
     if (m_completion->entries().isEmpty()) {
         if (m_node) {
@@ -832,7 +832,7 @@ void CompletionEntryItemModel::addEntry(const QDate& date)
     if (i != -1) {
         emit rowInserted(date);
         emit dataChanged(createIndex(i, 1), createIndex(i, rowCount() - 1));
-    } else  errorPlan<<"Failed to find added entry: "<<date<<endl;
+    } else  errorPlan<<"Failed to find added entry: "<<date<<'\n';
 }
 
 void CompletionEntryItemModel::addRow(const QDate &date)
@@ -896,7 +896,7 @@ void CompletionEntryEditor::insertEntry(const QDate &date)
 
 void CompletionEntryEditor::addEntry()
 {
-    debugPlan<<endl;
+    debugPlan<<'\n';
     QModelIndex i = model()->addRow();
     if (i.isValid()) {
         model()->setFlags(i.column(), Qt::ItemIsEditable);

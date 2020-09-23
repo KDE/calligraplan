@@ -2386,7 +2386,7 @@ void View::slotMoveTaskUp()
     if (0 == task) {
         // is always != 0. At least we would get the Project, but you never know who might change that
         // so better be careful
-        errorPlan << "No current task" << endl;
+        errorPlan << "No current task" << '\n';
         return ;
     }
 

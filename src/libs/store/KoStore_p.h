@@ -52,7 +52,7 @@ public:
     /**
      * Conversion routine
      * @param internalNaming name used internally : "root", "tar:/0", ...
-     * @return the name used in the file, more user-friendly ("maindoc.xml",
+     * @return the name used in the file, more user-fri'\n'y ("maindoc.xml",
      *         "part0/maindoc.xml", ...)
      * Examples:
      *

@@ -4141,7 +4141,7 @@ KUndo2Command *NodeItemModel::createAllocationCommand(Task &task, const QList<Re
 
 bool NodeItemModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
-    debugPlan<<action<<parent<<row<<column<<endl<<data->formats();
+    debugPlan<<action<<parent<<row<<column<<'\n'<<data->formats();
 
     if (action == Qt::IgnoreAction) {
         return true;

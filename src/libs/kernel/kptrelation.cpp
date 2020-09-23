@@ -133,12 +133,12 @@ bool Relation::load(KoXmlElement &element, XMLLoaderObject &status) {
     m_lag = Duration::fromString(element.attribute("lag"));
 
     if (!m_parent->addDependChildNode(this)) {
-        errorPlan<<"Failed to add relation: Child="<<m_child->name()<<" parent="<<m_parent->name()<<endl;
+        errorPlan<<"Failed to add relation: Child="<<m_child->name()<<" parent="<<m_parent->name()<<'\n';
         return false;
     }
     if (!m_child->addDependParentNode(this)) {
         m_parent->takeDependChildNode(this);
-        errorPlan<<"Failed to add relation: Child="<<m_child->name()<<" parent="<<m_parent->name()<<endl;
+        errorPlan<<"Failed to add relation: Child="<<m_child->name()<<" parent="<<m_parent->name()<<'\n';
         return false;
     }
 

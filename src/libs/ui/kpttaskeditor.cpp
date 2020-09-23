@@ -1401,7 +1401,7 @@ void TaskView::slotContextMenuRequested(const QModelIndex& index, const QPoint& 
 
 void TaskView::setScheduleManager(ScheduleManager *sm)
 {
-    //debugPlan<<endl;
+    //debugPlan<<'\n';
     if (!sm && scheduleManager()) {
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted
@@ -1750,7 +1750,7 @@ void TaskWorkPackageView::slotContextMenuRequested(const QModelIndex& index, con
 
 void TaskWorkPackageView::setScheduleManager(ScheduleManager *sm)
 {
-    //debugPlan<<endl;
+    //debugPlan<<'\n';
     m_view->baseModel()->setScheduleManager(sm);
 }
 

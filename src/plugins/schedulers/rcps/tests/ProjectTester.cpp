@@ -362,7 +362,7 @@ void ProjectTester::team()
     task1->estimate()->setType(Estimate::Type_Effort);
 
     QString s = "One team with one resource --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     ResourceGroup *g = new ResourceGroup();
     project.addResourceGroup(g);
     Resource *r1 = new Resource();
@@ -405,7 +405,7 @@ void ProjectTester::team()
     QCOMPARE(task1->endTime(), expectedEndTime);
 
     s = "One team with one resource + one resource --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
 
     ResourceRequest *rr1 = new ResourceRequest(r1, 100);
     gr->addResourceRequest(rr1);
@@ -428,7 +428,7 @@ void ProjectTester::team()
     QCOMPARE(task1->endTime(), expectedEndTime);
 
     s = "One team with one resource + one resource, resource available too late --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     
     r1->setAvailableFrom(targetend);
     r1->setAvailableUntil(targetend.addDays(7));
@@ -451,7 +451,7 @@ void ProjectTester::team()
     QCOMPARE(task1->endTime(), expectedEndTime);
 
     s = "One team with two resources --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     
     r1->removeRequests();
     team->addTeamMemberId(r1->id());
@@ -476,7 +476,7 @@ void ProjectTester::team()
     QCOMPARE(task1->endTime(), expectedEndTime);
 
     s = "One team with two resources, one resource unavailable --------";
-    qDebug()<<endl<<"Testing:"<<s;
+    qDebug()<<'\n'<<"Testing:"<<s;
     
     r1->setAvailableFrom(targetend);
     r1->setAvailableUntil(targetend.addDays(2));

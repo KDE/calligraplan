@@ -71,7 +71,7 @@ QList<KoFilterEntry::Ptr> KoFilterEntry::query()
     //debugFilter <<"Query returned" << max <<" offers";
     for (unsigned int i = 0; i < max; i++) {
         //debugFilter <<"   desktopEntryPath=" << (*it)->entryPath()
-        //               << "   library=" << (*it)->library() << endl;
+        //               << "   library=" << (*it)->library() << '\n';
         // Append converted offer
         lst.append(KoFilterEntry::Ptr(new KoFilterEntry(*it)));
         // Next service
