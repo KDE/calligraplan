@@ -32,8 +32,8 @@
 namespace KPlatoWork
 {
 
-KoComponentData* Factory::s_global = 0L;
-KAboutData* Factory::s_aboutData = 0L;
+KoComponentData* Factory::s_global = nullptr;
+KAboutData* Factory::s_aboutData = nullptr;
 
 Factory::Factory()
     : KPluginFactory()
@@ -44,9 +44,9 @@ Factory::Factory()
 Factory::~Factory()
 {
     delete s_aboutData;
-    s_aboutData = 0L;
+    s_aboutData = nullptr;
     delete s_global;
-    s_global = 0L;
+    s_global = nullptr;
 }
 
 QObject* Factory::create(const char* iface, QWidget* parentWidget, QObject *parent,

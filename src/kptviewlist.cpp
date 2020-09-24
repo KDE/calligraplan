@@ -222,7 +222,7 @@ void ViewListTreeWidget::handleMousePress(QTreeWidgetItem *item)
         return ;
 
     if (item->parent() == 0) {
-        setItemExpanded(item, !isItemExpanded(item));
+        item->setExpanded(!item->isExpanded());
         return ;
     }
 }
