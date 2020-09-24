@@ -170,7 +170,7 @@ void AccountsTreeView::setShowMode(int show)
 AccountsView::AccountsView(KoPart *part, Project *project, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
         m_project(project),
-        m_manager(0)
+        m_manager(nullptr)
 {
     setXMLFile("AccountsViewUi.rc");
     init();

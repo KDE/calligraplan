@@ -90,7 +90,7 @@ public:
 
     QAbstractItemDelegate *createDelegate(int col, QWidget *parent) const override;
 
-    QModelIndex insertResource(Resource *resource, Resource *after = 0);
+    QModelIndex insertResource(Resource *resource, Resource *after = nullptr);
 
     int sortRole(int column) const override;
 

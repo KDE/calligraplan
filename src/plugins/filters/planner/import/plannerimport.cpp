@@ -92,7 +92,7 @@ KoFilter::ConversionStatus PlannerImport::convert(const QByteArray& from, const 
         return KoFilter::InvalidFormat;
     }
 
-    KoDocument *part = 0;
+    KoDocument *part = nullptr;
     bool batch = false;
     if (m_chain->manager()) {
         batch = m_chain->manager()->getBatchMode();
@@ -104,7 +104,7 @@ KoFilter::ConversionStatus PlannerImport::convert(const QByteArray& from, const 
         //debugPlannerImport<<"online";
         part = m_chain->outputDocument();
     }
-    if (part == 0 || part->project() == 0) {
+    if (part == nullptr || part->project() == nullptr) {
         errorPlannerImport << "Cannot open document";
         return KoFilter::InternalError;
     }
@@ -267,7 +267,7 @@ bool loadDays(const QDomElement &el, Calendar *calendar)
     }
     return true;
 }
-bool loadCalendars(const QDomElement &el, Project &project, Calendar *parent = 0)
+bool loadCalendars(const QDomElement &el, Project &project, Calendar *parent = nullptr)
 {
     QDomElement cel;
     forEachChildElementWithTag(cel, el, "calendar") {
@@ -376,7 +376,7 @@ bool loadConstraint(const QDomElement &el, Task *t)
     return true;
 }
 // <task id="1" name="T1" note="" work="57600" start="20190503T000000Z" end="20190507T170000Z" work-start="20190503T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-bool loadTasks(const QDomElement &el, Project &project, Node *parent = 0)
+bool loadTasks(const QDomElement &el, Project &project, Node *parent = nullptr)
 {
     QDomElement cel;
     forEachChildElementWithTag(cel, el, "task") {

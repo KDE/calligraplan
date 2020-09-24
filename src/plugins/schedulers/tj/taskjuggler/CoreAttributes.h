@@ -88,7 +88,7 @@ public:
     bool isDescendantOf(const CoreAttributes* c) const;
     bool isParentOf(const CoreAttributes* c) const;
 
-    bool isRoot() const { return parent == 0; }
+    bool isRoot() const { return parent == nullptr; }
     bool isLeaf() const;
 
     void addCustomAttribute(const QString& id, CustomAttribute* ca);

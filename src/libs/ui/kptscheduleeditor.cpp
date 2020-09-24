@@ -110,7 +110,7 @@ QModelIndexList ScheduleTreeView::selectedRows() const
 
 ScheduleManager *ScheduleTreeView::selectedManager() const
 {
-    ScheduleManager *sm = 0;
+    ScheduleManager *sm = nullptr;
     QModelIndexList lst = selectedRows();
     if (lst.count() == 1) {
         sm = model()->manager(lst.first());
@@ -242,7 +242,7 @@ void ScheduleEditor::slotSelectionChanged(const QModelIndexList &/*list*/)
         ScheduleManager *sm = m_view->model()->manager(lst.first());
         emit scheduleSelectionChanged(sm);
     } else {
-        emit scheduleSelectionChanged(0);
+        emit scheduleSelectionChanged(nullptr);
     }
     slotEnableActions();
 
@@ -359,7 +359,7 @@ void ScheduleEditor::slotCalculateSchedule()
 {
     //debugPlan;
     ScheduleManager *sm = m_view->selectedManager();
-    if (sm == 0) {
+    if (sm == nullptr) {
         return;
     }
     if (sm->parentManager() || (sm->isScheduled() && project()->isStarted())) {
@@ -455,13 +455,13 @@ void ScheduleEditor::slotMoveLeft()
     ScheduleManager *sm = m_view->selectedManager();
     if (sm) {
         int index = -1;
-        for (ScheduleManager *m = sm; m != 0; m = m->parentManager()) {
-            if (m->parentManager() == 0) {
+        for (ScheduleManager *m = sm; m != nullptr; m = m->parentManager()) {
+            if (m->parentManager() == nullptr) {
                  index = m->project().indexOf(m) + 1;
             }
         }
         debugPlan<<sm->name()<<index;
-        emit moveScheduleManager(sm, 0, index);
+        emit moveScheduleManager(sm, nullptr, index);
     }
 }
 
@@ -588,7 +588,7 @@ ScheduleLogView::ScheduleLogView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
     setupGui();
-    slotEnableActions(0);
+    slotEnableActions(nullptr);
 
     QVBoxLayout * l = new QVBoxLayout(this);
     m_view = new ScheduleLogTreeView(this);
@@ -771,7 +771,7 @@ void ScheduleHandlerView::setGuiActive(bool active) // virtual slot
     foreach (ViewBase *v, findChildren<ViewBase*>()) {
         v->setGuiActive(active);
     }
-    m_activeview = active ? this : 0;
+    m_activeview = active ? this : nullptr;
     emit guiActivated(this, active);
 }
 
@@ -782,7 +782,7 @@ void ScheduleHandlerView::slotGuiActivated(ViewBase *, bool)
 SchedulingRange::SchedulingRange(KoDocument *doc, QWidget *parent)
     : QWidget(parent)
     , m_doc(doc)
-    , m_project(0)
+    , m_project(nullptr)
 {
     setupUi(this);
 

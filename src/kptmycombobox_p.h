@@ -30,7 +30,7 @@ namespace KPlato
 class MyComboBox : public KComboBox
 {
 public:
-    explicit MyComboBox(QWidget *parent = 0) : KComboBox(parent) {}
+    explicit MyComboBox(QWidget *parent = nullptr) : KComboBox(parent) {}
 
     void emitActivated(int i) { emit activated(i); }
 

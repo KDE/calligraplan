@@ -151,7 +151,7 @@ public:
     void setManager(ScheduleManager *sm);
     Project *project() const { return m_project; }
     ScheduleManager *manager() const { return m_manager; }
-    long id() const { return m_manager == 0 ? -1 : m_manager->scheduleId(); }
+    long id() const { return m_manager == nullptr ? -1 : m_manager->scheduleId(); }
     
     QVariant data(const Node *node, int property, int role = Qt::DisplayRole) const; 
     KUndo2Command *setData(Node *node, int property, const QVariant & value, int role = Qt::EditRole);
@@ -289,7 +289,7 @@ class PLANMODELS_EXPORT NodeItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit NodeItemModel(QObject *parent = 0);
+    explicit NodeItemModel(QObject *parent = nullptr);
     ~NodeItemModel() override;
     
     /// Returns a column number/- name map for this model
@@ -384,7 +384,7 @@ class PLANMODELS_EXPORT GanttItemModel : public NodeItemModel
 public:
     enum GanttModelRoles { SpecialItemTypeRole = Qt::UserRole + 123 }; //FIXME
 
-    explicit GanttItemModel(QObject *parent = 0);
+    explicit GanttItemModel(QObject *parent = nullptr);
     ~GanttItemModel() override;
 
     int rowCount(const QModelIndex &parent) const override;
@@ -406,7 +406,7 @@ class PLANMODELS_EXPORT MilestoneItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit MilestoneItemModel(QObject *parent = 0);
+    explicit MilestoneItemModel(QObject *parent = nullptr);
     ~MilestoneItemModel() override;
 
     /// Returns a column number/- name map for this model
@@ -500,7 +500,7 @@ class PLANMODELS_EXPORT TaskModuleModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    explicit TaskModuleModel(QObject *parent = 0);
+    explicit TaskModuleModel(QObject *parent = nullptr);
 
     void addTaskModule(Project *project , const QUrl &url);
 

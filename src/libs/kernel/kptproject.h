@@ -79,9 +79,9 @@ class PLANKERNEL_EXPORT Project : public Node
 {
     Q_OBJECT
 public:
-    explicit Project(Node *parent = 0);
-    explicit Project(ConfigBase &config, Node *parent = 0);
-    explicit Project(ConfigBase &config, bool useDefaultValues, Node *parent = 0);
+    explicit Project(Node *parent = nullptr);
+    explicit Project(ConfigBase &config, Node *parent = nullptr);
+    explicit Project(ConfigBase &config, bool useDefaultValues, Node *parent = nullptr);
     ~Project() override;
 
     /// Reference this project.
@@ -265,7 +265,7 @@ public:
     Calendar *defaultCalendar() const { return m_defaultCalendar; }
     void setDefaultCalendar(Calendar *cal);
     const QList<Calendar*> &calendars() const;
-    void addCalendar(Calendar *calendar, Calendar *parent = 0, int index = -1);
+    void addCalendar(Calendar *calendar, Calendar *parent = nullptr, int index = -1);
     void takeCalendar(Calendar *calendar);
     int indexOf(const Calendar *calendar) const;
     /// Returns the calendar with identity id.
@@ -303,7 +303,7 @@ public:
     int nodeCount() const { return nodeIdDict.count() - 1; }
 
     /// Return a list of all tasks and milestones int the wbs order
-    QList<Task*> allTasks(const Node *parent = 0) const;
+    QList<Task*> allTasks(const Node *parent = nullptr) const;
 
     using Node::findNode;
     /// Find the node with identity id
@@ -329,7 +329,7 @@ public:
     {
         if (resourceGroupIdDict.contains(id) )
             return resourceGroupIdDict[ id ];
-        return 0;
+        return nullptr;
     }
     /// Remove the resourcegroup with identity id from the register
     /// If group is not nullptr, remove recursively
@@ -349,7 +349,7 @@ public:
     {
         if (resourceIdDict.contains(id) )
             return resourceIdDict[ id ];
-        return 0;
+        return nullptr;
     }
     /// Remove the resource with identity id from the register
     bool removeResourceId(const QString &id);
@@ -364,7 +364,7 @@ public:
     virtual Calendar *findCalendar(const QString &id) const
     {
         if (id.isEmpty() || !calendarIdDict.contains(id) )
-            return 0;
+            return nullptr;
         return calendarIdDict[ id ];
     }
     /// Remove the calendar with identity id from the register
@@ -414,9 +414,9 @@ public:
     int numScheduleManagers() const { return m_managers.count(); }
     int indexOf(const ScheduleManager *sm) const { return m_managers.indexOf(const_cast<ScheduleManager*>(sm)); }
     bool isScheduleManager(void* ptr) const;
-    void addScheduleManager(ScheduleManager *sm, ScheduleManager *parent = 0, int index = -1);
+    void addScheduleManager(ScheduleManager *sm, ScheduleManager *parent = nullptr, int index = -1);
     int takeScheduleManager(ScheduleManager *sm);
-    void moveScheduleManager(ScheduleManager *sm, ScheduleManager *newparent = 0, int newindex = -1);
+    void moveScheduleManager(ScheduleManager *sm, ScheduleManager *newparent = nullptr, int newindex = -1);
     ScheduleManager *findScheduleManagerByName(const QString &name) const;
     /// Returns a list of all schedule managers
     QList<ScheduleManager*> allScheduleManagers() const;
@@ -472,7 +472,7 @@ public:
     QList<Node*> criticalPath(long id = CURRENTSCHEDULE, int index = 0);
 
     /// Returns a flat list af all nodes
-    QList<Node*> flatNodeList(Node *parent = 0);
+    QList<Node*> flatNodeList(Node *parent = nullptr);
 
     void generateUniqueNodeIds();
     void generateUniqueIds();
@@ -533,10 +533,10 @@ public:
 public Q_SLOTS:
     /// Sets m_progress to @p progress and emits signal sigProgress()
     /// If @p sm is not 0, progress is also set for the schedule manager
-    void setProgress(int progress, KPlato::ScheduleManager *sm = 0);
+    void setProgress(int progress, KPlato::ScheduleManager *sm = nullptr);
     /// Sets m_maxprogress to @p max and emits signal maxProgress()
     /// If @p sm is not 0, max progress is also set for the schedule manager
-    void setMaxProgress(int max, KPlato::ScheduleManager *sm = 0);
+    void setMaxProgress(int max, KPlato::ScheduleManager *sm = nullptr);
 
     void swapScheduleManagers(KPlato::ScheduleManager *from, KPlato::ScheduleManager *to);
 

@@ -38,7 +38,7 @@ namespace KPlato
 //-----------------------------------
 PertEditor::PertEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_project(0)
+    m_project(nullptr)
 {
     debugPlan <<" ---------------- KPlato: Creating PertEditor ----------------";
     widget.setupUi(this);
@@ -57,7 +57,7 @@ PertEditor::PertEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 
     widget.addBtn->setIcon(koIcon("arrow-right"));
     widget.removeBtn->setIcon(koIcon("arrow-left"));
-    slotAvailableChanged(0);
+    slotAvailableChanged(nullptr);
     slotRequiredChanged(QModelIndex());
 
     connect(m_tasktree, &QTreeWidget::currentItemChanged, this, &PertEditor::slotCurrentTaskChanged);
@@ -77,10 +77,10 @@ PertEditor::PertEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 void PertEditor::slotCurrentTaskChanged(QTreeWidgetItem *curr, QTreeWidgetItem *prev)
 {
     //debugPlan<<curr<<prev;
-    if (curr == 0) {
+    if (curr == nullptr) {
         m_availableList->clear();
-        loadRequiredTasksList(0);
-    } else if (prev == 0) {
+        loadRequiredTasksList(nullptr);
+    } else if (prev == nullptr) {
         dispAvailableTasks();
     } else {
         updateAvailableTasks();
@@ -92,8 +92,8 @@ void PertEditor::slotCurrentTaskChanged(QTreeWidgetItem *curr, QTreeWidgetItem *
 void PertEditor::slotAvailableChanged(QTreeWidgetItem *item)
 {
     //debugPlan<<(item?item->text(0):"nil")<<(item?item->data(0, EnabledRole).toBool():false);
-    if (item == 0 || item == m_availableList->currentItem()) {
-        widget.addBtn->setEnabled(item != 0 && item->data(0, EnabledRole).toBool());
+    if (item == nullptr || item == m_availableList->currentItem()) {
+        widget.addBtn->setEnabled(item != nullptr && item->data(0, EnabledRole).toBool());
     }
 }
 
@@ -117,21 +117,21 @@ void PertEditor::slotAddClicked()
 void PertEditor::addTaskInRequiredList(QTreeWidgetItem * currentItem)
 {
     //debugPlan<<currentItem;
-    if (currentItem == 0) {
+    if (currentItem == nullptr) {
         return;
     }
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return;
     }
     // add the relation between the current task and the current task
     QTreeWidgetItem *selectedTask = m_tasktree->currentItem();
-    if (selectedTask == 0) {
+    if (selectedTask == nullptr) {
         return;
     }
 
     Node *par = itemToNode(currentItem);
     Node *child = itemToNode(selectedTask);
-    if (par == 0 || child == 0 || ! m_project->legalToLink(par, child)) {
+    if (par == nullptr || child == nullptr || ! m_project->legalToLink(par, child)) {
         return;
     }
     Relation *rel = new Relation (par, child);
@@ -145,7 +145,7 @@ void PertEditor::slotRemoveClicked()
     if (! isReadWrite()) {
         return;
     }
-    Node *n = 0;
+    Node *n = nullptr;
     Relation *r = m_requiredList->currentRelation();
     if (r) {
         n = r->parent();
@@ -158,7 +158,7 @@ void PertEditor::removeTaskFromRequiredList()
 {
     //debugPlan;
     Relation *r = m_requiredList->currentRelation();
-    if (r == 0) {
+    if (r == nullptr) {
         return;
     }
     // remove the relation
@@ -212,7 +212,7 @@ void PertEditor::slotNodeAdded(Node *node)
     Node *parent = node->parentNode();
     int index = parent->indexOf(node);
     QTreeWidgetItem *pitem = findNodeItem(parent, m_tasktree->invisibleRootItem());
-    if (pitem == 0) {
+    if (pitem == nullptr) {
         pitem = m_tasktree->invisibleRootItem();
     }
     QTreeWidgetItem *item = new QTreeWidgetItem();
@@ -221,7 +221,7 @@ void PertEditor::slotNodeAdded(Node *node)
     pitem->insertChild(index, item);
 
     pitem = findNodeItem(parent, m_availableList->invisibleRootItem());
-    if (pitem == 0) {
+    if (pitem == nullptr) {
         pitem = m_availableList->invisibleRootItem();
     }
     item = new QTreeWidgetItem();
@@ -238,7 +238,7 @@ void PertEditor::slotNodeRemoved(Node *node)
     QTreeWidgetItem *item = findNodeItem(node, m_tasktree->invisibleRootItem());
     if (item) {
         QTreeWidgetItem *parent = item->parent();
-        if (parent == 0) {
+        if (parent == nullptr) {
             parent = m_tasktree->invisibleRootItem();
         }
         Q_ASSERT(parent);
@@ -248,7 +248,7 @@ void PertEditor::slotNodeRemoved(Node *node)
     item = findNodeItem(node, m_availableList->invisibleRootItem());
     if (item) {
         QTreeWidgetItem *parent = item->parent();
-        if (parent == 0) {
+        if (parent == nullptr) {
             parent = m_availableList->invisibleRootItem();
         }
         Q_ASSERT(parent);
@@ -284,7 +284,7 @@ void PertEditor::draw(Project &project)
 void PertEditor::draw()
 {
     m_tasktree->clear();
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return;
     }
     drawSubTasksName(m_tasktree->invisibleRootItem(), m_project);
@@ -313,11 +313,11 @@ QTreeWidgetItem *PertEditor::findNodeItem(Node *node, QTreeWidgetItem *item) {
     }
     for (int i = 0; i < item->childCount(); ++i) {
         QTreeWidgetItem *itm = findNodeItem(node, item->child(i));
-        if (itm != 0) {
+        if (itm != nullptr) {
             return itm;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 
@@ -328,7 +328,7 @@ void PertEditor::dispAvailableTasks(Relation */*rel*/){
 void PertEditor::dispAvailableTasks(Node *parent, Node *selectedTask)
 {
     QTreeWidgetItem *pitem = findNodeItem(parent, m_availableList->invisibleRootItem());
-    if (pitem == 0) {
+    if (pitem == nullptr) {
         pitem = m_availableList->invisibleRootItem();
     }
     foreach(Node * currentNode, parent->childNodeIterator())
@@ -347,7 +347,7 @@ void PertEditor::dispAvailableTasks()
 {
     m_availableList->clear();
 
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return;
     }
     Node *selectedTask = itemToNode(m_tasktree->currentItem());
@@ -360,10 +360,10 @@ void PertEditor::dispAvailableTasks()
 void PertEditor::updateAvailableTasks(QTreeWidgetItem *item)
 {
     //debugPlan<<m_project<<item;
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return;
     }
-    if (item == 0) {
+    if (item == nullptr) {
         item = m_availableList->invisibleRootItem();
     } else {
         setAvailableItemEnabled(item);
@@ -377,12 +377,12 @@ void PertEditor::setAvailableItemEnabled(QTreeWidgetItem *item)
 {
     //debugPlan<<item;
     Node *node = itemToNode(item);
-    if (node == 0) {
+    if (node == nullptr) {
         return;
     }
 
     Node *selected = itemToNode(m_tasktree->currentItem());
-    if (selected == 0 || ! m_project->legalToLink(node, selected)) {
+    if (selected == nullptr || ! m_project->legalToLink(node, selected)) {
         //debugPlan<<"Disable:"<<node->name();
         item->setData(0, EnabledRole, false);
         QFont f = item->font(0);
@@ -415,13 +415,13 @@ QTreeWidgetItem *PertEditor::nodeToItem(Node *node, QTreeWidgetItem *item)
             return itm;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 Node * PertEditor::itemToNode(QTreeWidgetItem *item)
 {
-    if (m_project == 0 || item == 0) {
-        return 0;
+    if (m_project == nullptr || item == nullptr) {
+        return nullptr;
     }
     return m_project->findNode(item->data(0, NodeRole).toString());
 }

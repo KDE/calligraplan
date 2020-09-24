@@ -244,12 +244,12 @@ bool KPlatoXmlLoaderBase::load(Project *project, const KoXmlElement &element, XM
                 }
                 KoXmlElement el = sn.toElement();
                 //debugPlanXml<<el.tagName()<<" Version="<<status.version();
-                ScheduleManager *sm = 0;
+                ScheduleManager *sm = nullptr;
                 bool add = false;
                 if (status.version() <= "0.5") {
                     if (el.tagName() == "schedule") {
                         sm = project->findScheduleManagerByName(el.attribute("name"));
-                        if (sm == 0) {
+                        if (sm == nullptr) {
                             sm = new ScheduleManager(*project, el.attribute("name"));
                             add = true;
                         }
@@ -283,7 +283,7 @@ bool KPlatoXmlLoaderBase::load(Project *project, const KoXmlElement &element, XM
                 if (el.tagName() == "team") {
                     Resource *r = project->findResource(el.attribute("team-id"));
                     Resource *tm = project->findResource(el.attribute("member-id"));
-                    if (r == 0 || tm == 0) {
+                    if (r == nullptr || tm == nullptr) {
                         errorPlanXml<<"resource-teams: cannot find resources";
                         continue;
                     }
@@ -550,7 +550,7 @@ bool KPlatoXmlLoaderBase::load(CalendarWeekdays *weekdays, const KoXmlElement& e
         return true; // we continue anyway
     }
     CalendarDay *day = weekdays->weekday(dayNo + 1);
-    if (day == 0) {
+    if (day == nullptr) {
         errorPlanXml<<"No weekday: "<<dayNo;
         return false;
     }
@@ -601,12 +601,12 @@ bool KPlatoXmlLoaderBase::load(Relation *relation, const KoXmlElement &element, 
 {
     debugPlanXml<<"relation";
     relation->setParent(status.project().findNode(element.attribute("parent-id")));
-    if (relation->parent() == 0) {
+    if (relation->parent() == nullptr) {
         warnPlanXml<<"Parent node == 0, cannot find id:"<<element.attribute("parent-id");
         return false;
     }
     relation->setChild(status.project().findNode(element.attribute("child-id")));
-    if (relation->child() == 0) {
+    if (relation->child() == nullptr) {
         warnPlanXml<<"Child node == 0, cannot find id:"<<element.attribute("child-id");
         return false;
     }
@@ -741,7 +741,7 @@ bool KPlatoXmlLoaderBase::load(Accounts &accounts, const KoXmlElement &element, 
     }
     if (element.hasAttribute("default-account")) {
         accounts.setDefaultAccount(accounts.findAccount(element.attribute("default-account")));
-        if (accounts.defaultAccount() == 0) {
+        if (accounts.defaultAccount() == nullptr) {
             warnPlanXml<<"Could not find default account.";
         }
     }
@@ -793,9 +793,9 @@ bool KPlatoXmlLoaderBase::load(Account::CostPlace* cp, const KoXmlElement& eleme
         }
     }
     cp->setNode(status.project().findNode(cp->objectId()));
-    if (cp->node() == 0) {
+    if (cp->node() == nullptr) {
         cp->setResource(status.project().findResource(cp->objectId()));
-        if (cp->resource() == 0) {
+        if (cp->resource() == nullptr) {
             errorPlanXml<<"Cannot find object with id: "<<cp->objectId();
             return false;
         }
@@ -812,7 +812,7 @@ bool KPlatoXmlLoaderBase::load(Account::CostPlace* cp, const KoXmlElement& eleme
 bool KPlatoXmlLoaderBase::load(ScheduleManager *manager, const KoXmlElement &element, XMLLoaderObject &status)
 {
     debugPlanXml<<"schedule-manager";
-    MainSchedule *sch = 0;
+    MainSchedule *sch = nullptr;
     if (status.version() <= "0.5") {
         manager->setUsePert(false);
         MainSchedule *sch = loadMainSchedule(manager, element, status);
@@ -885,7 +885,7 @@ MainSchedule* KPlatoXmlLoaderBase::loadMainSchedule(ScheduleManager* /*manager*/
     } else {
         errorPlanXml << "Failed to load schedule";
         delete sch;
-        sch = 0;
+        sch = nullptr;
     }
     return sch;
 }
@@ -1148,7 +1148,7 @@ bool KPlatoXmlLoaderBase::load(ResourceRequest *rr, const KoXmlElement& element,
 {
     debugPlanXml<<"resource-request";
     rr->setResource(status.project().resource(element.attribute("resource-id")));
-    if (rr->resource() == 0) {
+    if (rr->resource() == nullptr) {
         warnPlanXml<<"The referenced resource does not exist: resource id="<<element.attribute("resource-id");
         return false;
     }
@@ -1165,7 +1165,7 @@ bool KPlatoXmlLoaderBase::load(ResourceRequest *rr, const KoXmlElement& element,
                 continue;
             }
             Resource *r = status.project().resource(id);
-            if (r == 0) {
+            if (r == nullptr) {
                 warnPlanXml<<"The referenced resource does not exist: resource id="<<element.attribute("resource-id");
             } else {
                 if (r != rr->resource()) {
@@ -1245,7 +1245,7 @@ bool KPlatoXmlLoaderBase::load(Completion &completion, const KoXmlElement& eleme
                             if (el.tagName() == "resource") {
                                 QString id = el.attribute("id");
                                 Resource *r = status.project().resource(id);
-                                if (r == 0) {
+                                if (r == nullptr) {
                                     warnPlanXml<<"Cannot find resource, id="<<id;
                                     continue;
                                 }
@@ -1282,12 +1282,12 @@ bool KPlatoXmlLoaderBase::load(Appointment *appointment, const KoXmlElement& ele
 {
     debugPlanXml<<"appointment";
     Node *node = status.project().findNode(element.attribute("task-id"));
-    if (node == 0) {
+    if (node == nullptr) {
         errorPlanXml<<"The referenced task does not exists: "<<element.attribute("task-id");
         return false;
     }
     Resource *res = status.project().resource(element.attribute("resource-id"));
-    if (res == 0) {
+    if (res == nullptr) {
         errorPlanXml<<"The referenced resource does not exists: resource id="<<element.attribute("resource-id");
         return false;
     }

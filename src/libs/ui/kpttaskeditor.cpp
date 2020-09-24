@@ -115,7 +115,7 @@ QVariant TaskEditorItemModel::data(const QModelIndex &index, int role) const
         return NodeItemModel::data(index, role);
     }
     Node *n = node(index);
-    if (n != 0 && index.column() == NodeModel::NodeType) {
+    if (n != nullptr && index.column() == NodeModel::NodeType) {
         return type(n, role);
     }
     return NodeItemModel::data(index, role);
@@ -124,7 +124,7 @@ QVariant TaskEditorItemModel::data(const QModelIndex &index, int role) const
 bool TaskEditorItemModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     Node *n = node(index);
-    if (n != 0 && role == Qt::EditRole && index.column() == NodeModel::NodeType) {
+    if (n != nullptr && role == Qt::EditRole && index.column() == NodeModel::NodeType) {
         return setType(n, value, role);
     }
     return NodeItemModel::setData(index, value, role);
@@ -181,7 +181,7 @@ bool TaskEditorItemModel::setType(Node *node, const QVariant &value, int role)
             int v = value.toInt();
             switch (v) {
                 case 0: { // Milestone
-                    NamedCommand *cmd = 0;
+                    NamedCommand *cmd = nullptr;
                     if (node->constraint() == Node::FixedInterval) {
                         cmd = new NodeModifyConstraintEndTimeCmd(*node, node->constraintStartTime(), kundo2_i18n("Set type to Milestone"));
                     } else {
@@ -436,7 +436,7 @@ void TaskEditor::setProject(Project *project_)
 void TaskEditor::createDockers()
 {
     // Add dockers
-    DockWidget *ds = 0;
+    DockWidget *ds = nullptr;
     {
         ds = new DockWidget(this, "Allocations", xi18nc("@title resource allocations", "Allocations"));
         QTreeView *x = new QTreeView(ds);
@@ -583,7 +583,7 @@ QList<Node*> TaskEditor::selectedNodes() const {
     QList<Node*> lst;
     foreach (const QModelIndex &i, selectedRows()) {
         Node * n = m_view->baseModel()->node(i);
-        if (n != 0 && n->type() != Node::Type_Project) {
+        if (n != nullptr && n->type() != Node::Type_Project) {
             lst.append(n);
         }
     }
@@ -594,15 +594,15 @@ Node *TaskEditor::selectedNode() const
 {
     QList<Node*> lst = selectedNodes();
     if (lst.count() != 1) {
-        return 0;
+        return nullptr;
     }
     return lst.first();
 }
 
 Node *TaskEditor::currentNode() const {
     Node * n = m_view->baseModel()->node(m_view->selectionModel()->currentIndex());
-    if (n == 0 || n->type() == Node::Type_Project) {
-        return 0;
+    if (n == nullptr || n->type() == Node::Type_Project) {
+        return nullptr;
     }
     return n;
 }
@@ -636,7 +636,7 @@ void TaskEditor::slotContextMenuRequested(const QModelIndex& index, const QPoint
         return;
     }
     Node *node = m_view->baseModel()->node(index);
-    if (node == 0) {
+    if (node == nullptr) {
         return;
     }
     debugPlan<<node->name()<<" :"<<pos;
@@ -785,7 +785,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         return;
     }
     Node *n = selectedNode(); // 0 if not a single task, summarytask or milestone
-    if (selCount == 1 && n == 0) {
+    if (selCount == 1 && n == nullptr) {
         // only project selected
         menuAddTask->setEnabled(true);
         actionAddTask->setEnabled(true);
@@ -954,7 +954,7 @@ void TaskEditor::slotOptions()
 void TaskEditor::slotAddTask()
 {
     debugPlan;
-    if (selectedRowCount() == 0 || (selectedRowCount() == 1 && selectedNode() == 0)) {
+    if (selectedRowCount() == 0 || (selectedRowCount() == 1 && selectedNode() == nullptr)) {
         Task *t = m_view->project()->createTask(m_view->project()->taskDefaults());
         QModelIndex idx = m_view->baseModel()->insertSubtask(t, m_view->project());
         Q_ASSERT(idx.isValid());
@@ -962,7 +962,7 @@ void TaskEditor::slotAddTask()
         return;
     }
     Node *sib = selectedNode();
-    if (sib == 0) {
+    if (sib == nullptr) {
         return;
     }
     Task *t = m_view->project()->createTask(m_view->project()->taskDefaults());
@@ -974,7 +974,7 @@ void TaskEditor::slotAddTask()
 void TaskEditor::slotAddMilestone()
 {
     debugPlan;
-    if (selectedRowCount() == 0  || (selectedRowCount() == 1 && selectedNode() == 0)) {
+    if (selectedRowCount() == 0  || (selectedRowCount() == 1 && selectedNode() == nullptr)) {
         // None selected or only project selected: insert under main project
         Task *t = m_view->project()->createTask();
         t->estimate()->clear();
@@ -984,7 +984,7 @@ void TaskEditor::slotAddMilestone()
         return;
     }
     Node *sib = selectedNode(); // sibling
-    if (sib == 0) {
+    if (sib == nullptr) {
         return;
     }
     Task *t = m_view->project()->createTask();
@@ -998,11 +998,11 @@ void TaskEditor::slotAddSubMilestone()
 {
     debugPlan;
     Node *parent = selectedNode();
-    if (parent == 0 && selectedRowCount() == 1) {
+    if (parent == nullptr && selectedRowCount() == 1) {
         // project selected
         parent = m_view->project();
     }
-    if (parent == 0) {
+    if (parent == nullptr) {
         return;
     }
     // Adding a sub-task will change current task which seems to confuse the view
@@ -1019,11 +1019,11 @@ void TaskEditor::slotAddSubtask()
 {
     debugPlan;
     Node *parent = selectedNode();
-    if (parent == 0 && selectedRowCount() == 1) {
+    if (parent == nullptr && selectedRowCount() == 1) {
         // project selected
         parent = m_view->project();
     }
-    if (parent == 0) {
+    if (parent == nullptr) {
         return;
     }
     // Adding a sub-task will change current task which seems to confuse the view
@@ -1049,7 +1049,7 @@ void TaskEditor::slotDeleteTask()
     QList<Node*> lst = selectedNodes();
     while (true) {
         // remove children of selected tasks, as parents delete their children
-        Node *ch = 0;
+        Node *ch = nullptr;
         foreach (Node *n1, lst) {
             foreach (Node *n2, lst) {
                 if (n2->isChildOf(n1)) {
@@ -1057,11 +1057,11 @@ void TaskEditor::slotDeleteTask()
                     break;
                 }
             }
-            if (ch != 0) {
+            if (ch != nullptr) {
                 break;
             }
         }
-        if (ch == 0) {
+        if (ch == nullptr) {
             break;
         }
         lst.removeAt(lst.indexOf(ch));
@@ -1338,12 +1338,12 @@ int TaskView::selectedNodeCount() const
 QList<Node*> TaskView::selectedNodes() const {
     QList<Node*> lst;
     QItemSelectionModel* sm = m_view->selectionModel();
-    if (sm == 0) {
+    if (sm == nullptr) {
         return lst;
     }
     foreach (const QModelIndex &i, sm->selectedRows()) {
         Node * n = m_view->baseModel()->node(proxyModel()->mapToSource(i));
-        if (n != 0 && n->type() != Node::Type_Project) {
+        if (n != nullptr && n->type() != Node::Type_Project) {
             lst.append(n);
         }
     }
@@ -1354,15 +1354,15 @@ Node *TaskView::selectedNode() const
 {
     QList<Node*> lst = selectedNodes();
     if (lst.count() != 1) {
-        return 0;
+        return nullptr;
     }
     return lst.first();
 }
 
 Node *TaskView::currentNode() const {
     Node * n = m_view->baseModel()->node(proxyModel()->mapToSource(m_view->selectionModel()->currentIndex()));
-    if (n == 0 || n->type() == Node::Type_Project) {
-        return 0;
+    if (n == nullptr || n->type() == Node::Type_Project) {
+        return nullptr;
     }
     return n;
 }
@@ -1541,7 +1541,7 @@ void WorkPackageTreeView::slotDropAllowed(const QModelIndex &index, int dropIndi
 //--------------------------------
 TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_cmd(0)
+    m_cmd(nullptr)
 {
     if (doc && doc->isReadWrite()) {
         setXMLFile("WorkPackageViewUi.rc");
@@ -1690,12 +1690,12 @@ int TaskWorkPackageView::selectedNodeCount() const
 QList<Node*> TaskWorkPackageView::selectedNodes() const {
     QList<Node*> lst;
     QItemSelectionModel* sm = m_view->selectionModel();
-    if (sm == 0) {
+    if (sm == nullptr) {
         return lst;
     }
     foreach (const QModelIndex &i, sm->selectedRows()) {
         Node * n = proxyModel()->taskFromIndex(i);
-        if (n != 0 && n->type() != Node::Type_Project) {
+        if (n != nullptr && n->type() != Node::Type_Project) {
             lst.append(n);
         }
     }
@@ -1706,15 +1706,15 @@ Node *TaskWorkPackageView::selectedNode() const
 {
     QList<Node*> lst = selectedNodes();
     if (lst.count() != 1) {
-        return 0;
+        return nullptr;
     }
     return lst.first();
 }
 
 Node *TaskWorkPackageView::currentNode() const {
     Node * n = proxyModel()->taskFromIndex(m_view->selectionModel()->currentIndex());
-    if (n == 0 || n->type() == Node::Type_Project) {
-        return 0;
+    if (n == nullptr || n->type() == Node::Type_Project) {
+        return nullptr;
     }
     return n;
 }
@@ -1798,10 +1798,10 @@ void TaskWorkPackageView::slotMailWorkpackage()
         delete dlg;
         if (! m_cmd->isEmpty()) {
             part()->addCommand(m_cmd);
-            m_cmd = 0;
+            m_cmd = nullptr;
         }
         delete m_cmd;
-        m_cmd = 0;
+        m_cmd = nullptr;
     }
 }
 

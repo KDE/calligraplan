@@ -195,9 +195,9 @@ public:
      * @return true if successful, false for failure
      * @deprecated since 5.0, use KIO::file_copy + job->ui()->setWindow() + job->exec() instead
      */
-    static  bool file_copy(const QUrl &src, const QUrl &target, QWidget *window = 0);
+    static  bool file_copy(const QUrl &src, const QUrl &target, QWidget *window = nullptr);
     static  bool copy(const QUrl &src, const QUrl &target,
-            QWidget *window = 0);
+            QWidget *window = nullptr);
 
     /**
      * Alternative method for copying over the network.
@@ -226,21 +226,21 @@ public:
      * Overloaded method, which takes a list of source URLs
      * @deprecated since 5.0, use KIO::copy + job->ui()->setWindow() + job->exec() instead
      */
-    static   bool dircopy(const QList<QUrl> &src, const QUrl &target, QWidget *window = 0L);
+    static   bool dircopy(const QList<QUrl> &src, const QUrl &target, QWidget *window = nullptr);
 
     /**
      * Full-fledged equivalent of KIO::move.
      * Moves or renames one file or directory.
      * @deprecated since 5.0, use KIO::move + job->ui()->setWindow() + job->exec() instead
      */
-    static  bool move(const QUrl &src, const QUrl &target, QWidget *window = 0L);
+    static  bool move(const QUrl &src, const QUrl &target, QWidget *window = nullptr);
 
     /**
      * Full-fledged equivalent of KIO::move.
      * Moves or renames a list of files or directories.
      * @deprecated since 5.0, use KIO::move + job->ui()->setWindow() + job->exec() instead
      */
-    static  bool move(const QList<QUrl> &src, const QUrl &target, QWidget *window = 0L);
+    static  bool move(const QList<QUrl> &src, const QUrl &target, QWidget *window = nullptr);
 
     /**
      * Tests whether a URL exists.
@@ -403,8 +403,8 @@ public:
      * @return true on success, false on failure.
      * @deprecated since 5.0, KJobWidgets::setWindow + job->exec() instead
      */
-    static bool synchronousRun(Job *job, QWidget *window, QByteArray *data = 0,
-                               QUrl *finalURL = 0, QMap<QString, QString> *metaData = 0);
+    static bool synchronousRun(Job *job, QWidget *window, QByteArray *data = nullptr,
+                               QUrl *finalURL = nullptr, QMap<QString, QString> *metaData = nullptr);
 
     /**
      * Determines the mimetype of a given URL.
@@ -460,15 +460,15 @@ private:
                           KIO::JobFlags flags, QWidget *window, bool move);
     bool dircopyInternal(const QList<QUrl> &src, const QUrl &target,
                          QWidget *window, bool move);
-    bool statInternal(const QUrl &url, int details, StatSide side, QWidget *window = 0);
+    bool statInternal(const QUrl &url, int details, StatSide side, QWidget *window = nullptr);
 
-    bool delInternal(const QUrl &url, QWidget *window = 0);
-    bool mkdirInternal(const QUrl &url, int permissions, QWidget *window = 0);
-    QString fish_executeInternal(const QUrl &url, const QString &command, QWidget *window = 0);
+    bool delInternal(const QUrl &url, QWidget *window = nullptr);
+    bool mkdirInternal(const QUrl &url, int permissions, QWidget *window = nullptr);
+    QString fish_executeInternal(const QUrl &url, const QString &command, QWidget *window = nullptr);
     bool synchronousRunInternal(Job *job, QWidget *window, QByteArray *data,
                                 QUrl *finalURL, QMap<QString, QString> *metaData);
 
-    QString mimetypeInternal(const QUrl &url, QWidget *window = 0);
+    QString mimetypeInternal(const QUrl &url, QWidget *window = nullptr);
     void enter_loop();
 
     friend class I_like_this_class;

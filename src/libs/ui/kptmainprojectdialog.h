@@ -36,7 +36,7 @@ class MacroCommand;
 class PLANUI_EXPORT MainProjectDialog : public KoDialog {
     Q_OBJECT
 public:
-    explicit MainProjectDialog(Project &project, QWidget *parent=0, bool edit=true);
+    explicit MainProjectDialog(Project &project, QWidget *parent=nullptr, bool edit=true);
 
     MacroCommand *buildCommand();
 

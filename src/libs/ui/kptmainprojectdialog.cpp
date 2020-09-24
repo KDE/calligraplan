@@ -79,7 +79,7 @@ void MainProjectDialog::slotOk() {
 }
 
 MacroCommand *MainProjectDialog::buildCommand() {
-    MacroCommand *m = 0;
+    MacroCommand *m = nullptr;
     KUndo2MagicString c = kundo2_i18n("Modify main project");
     MacroCommand *cmd = panel->buildCommand();
     if (cmd) {

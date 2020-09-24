@@ -68,7 +68,7 @@ Project::Project() :
 //     currencyFormat("(", ")", ",", ".", 0),
     priority(500),
     minEffort(0.0),
-    resourceLimits(0),
+    resourceLimits(nullptr),
     rate(0.0),
     dailyWorkingHours(8.0),
     yearlyWorkingDays(260.714),
@@ -108,13 +108,13 @@ Project::Project() :
 //     resourceAttributes.setAutoDelete(true);
 //     reports.setAutoDelete(true);
 
-    new Scenario(this, "plan", "Plan", 0);
+    new Scenario(this, "plan", "Plan", nullptr);
     scenarioList.createIndex(true);
     scenarioList.createIndex(false);
     foreach(CoreAttributes *s, scenarioList) {
         qDebug()<<"Project:"<<static_cast<CoreAttributes*>(s)<<static_cast<CoreAttributes*>(s)->getName()<<static_cast<CoreAttributes*>(s)->getSequenceNo();
     }
-    setNow(time(0));
+    setNow(time(nullptr));
 
     /* Initialize working hours with default values that match the Monday -
      * Friday 9 - 6 (with 1 hour lunch break) pattern used by many western
@@ -891,7 +891,7 @@ TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
                 continue;
             }
             qDebug()<<"tasksReadyToSchedule:"<<"scheduled task:"<<task<<time2ISO(task->start)<<time2ISO(task->end);
-            Task *predecessor = 0;
+            Task *predecessor = nullptr;
             long gapLength = 0;
             long gapDuration = 0;
             foreach (CoreAttributes *c, task->previous) {
@@ -908,7 +908,7 @@ TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
                     }
                 }
             }
-            if (predecessor == 0) {
+            if (predecessor == nullptr) {
                 continue;
             }
             time_t potentialDate = task->start - 1;
@@ -1117,7 +1117,7 @@ Project::checkSchedule(int sc) const
     foreach (CoreAttributes *t, taskList) {
         /* Only check top-level tasks, since they recursively check their sub
          * tasks. */
-        if (static_cast<Task*>(t)->getParent() == 0)
+        if (static_cast<Task*>(t)->getParent() == nullptr)
             static_cast<Task*>(t)->scheduleOk(sc);
         if (maxErrors > 0 && TJMH.getErrors() >= maxErrors)
         {

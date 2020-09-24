@@ -45,7 +45,7 @@ KoGlobal* KoGlobal::self()
 
 KoGlobal::KoGlobal()
     : m_pointSize(-1)
-    , m_planConfig(0)
+    , m_planConfig(nullptr)
 {
     // Fixes a bug where values from some config files are not picked up
     // due to  KSharedConfig::openConfig() being initialized before paths have been set up above.

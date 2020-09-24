@@ -16,7 +16,7 @@
 
 QDebug operator<<(QDebug dbg, const TJ::Interval *i)
 {
-    return i == 0 ? (dbg << (void*)i) : operator<<(dbg, *i);
+    return i == nullptr ? (dbg << (void*)i) : operator<<(dbg, *i);
 }
 
 QDebug operator<<(QDebug dbg, const TJ::Interval &i)

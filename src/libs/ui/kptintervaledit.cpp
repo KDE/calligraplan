@@ -96,7 +96,7 @@ void IntervalEditImpl::slotAddIntervalClicked() {
 
 void IntervalEditImpl::slotRemoveIntervalClicked() {
     IntervalItem *item = static_cast<IntervalItem*>(intervalList->currentItem());
-    if (item == 0) {
+    if (item == nullptr) {
         return;
     }
     intervalList->takeTopLevelItem(intervalList->indexOfTopLevelItem(item));
@@ -222,7 +222,7 @@ MacroCommand *IntervalEditDialog::buildCommand()
     foreach (const QDate &d, m_dates) {
         // these are dates, weekdays don't have date
         CalendarDay *day = m_calendar->findDay(d);
-        if (day == 0) {
+        if (day == nullptr) {
             // create a new day
             day = new CalendarDay(d);
             cmd->addCommand(new CalendarAddDayCmd(m_calendar, day));
@@ -243,7 +243,7 @@ MacroCommand *IntervalEditDialog::buildCommand()
     }
     if (cmd->isEmpty()) {
         delete cmd;
-        return 0;
+        return nullptr;
     }
     return cmd;
 }
@@ -253,23 +253,23 @@ MacroCommand *IntervalEditDialog::buildCommand(Calendar *calendar, CalendarDay *
     //debugPlan;
     const QList<TimeInterval*> lst = m_panel->intervals();
     if (lst == day->timeIntervals()) {
-        return 0;
+        return nullptr;
     }
-    MacroCommand *cmd = 0;
+    MacroCommand *cmd = nullptr;
     // Set to Undefined. This will also clear any intervals
     CalendarModifyStateCmd *c = new CalendarModifyStateCmd(calendar, day, CalendarDay::Undefined);
-    if (cmd == 0) cmd = new MacroCommand(KUndo2MagicString());
+    if (cmd == nullptr) cmd = new MacroCommand(KUndo2MagicString());
     cmd->addCommand(c);
     //debugPlan<<"Set Undefined";
 
     foreach (TimeInterval *i, lst) {
         CalendarAddTimeIntervalCmd *c = new CalendarAddTimeIntervalCmd(calendar, day, i);
-        if (cmd == 0) cmd = new MacroCommand(KUndo2MagicString());
+        if (cmd == nullptr) cmd = new MacroCommand(KUndo2MagicString());
         cmd->addCommand(c);
     }
     if (! lst.isEmpty()) {
         CalendarModifyStateCmd *c = new CalendarModifyStateCmd(calendar, day, CalendarDay::Working);
-        if (cmd == 0) cmd = new MacroCommand(KUndo2MagicString());
+        if (cmd == nullptr) cmd = new MacroCommand(KUndo2MagicString());
         cmd->addCommand(c);
     }
     if (cmd) {

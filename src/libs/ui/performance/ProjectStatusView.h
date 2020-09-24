@@ -102,7 +102,7 @@ class ProjectStatusViewSettingsDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit ProjectStatusViewSettingsDialog(ViewBase *base, PerformanceStatusBase *view, QWidget *parent = 0, bool selectPrint = false);
+    explicit ProjectStatusViewSettingsDialog(ViewBase *base, PerformanceStatusBase *view, QWidget *parent = nullptr, bool selectPrint = false);
 
 protected Q_SLOTS:
     void slotOk();

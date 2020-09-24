@@ -40,12 +40,12 @@ class PLANKERNEL_EXPORT XMLLoaderObject {
 public:
     enum Severity { None=0, Errors=1, Warnings=2, Diagnostics=3, Debug=4 };
     XMLLoaderObject()
-    : m_project(0),
+    : m_project(nullptr),
       m_errors(0),
       m_warnings(0),
       m_logLevel(Diagnostics),
       m_log(),
-      m_baseCalendar(0),
+      m_baseCalendar(nullptr),
       m_loadTaskChildren(true)
     {}
     ~XMLLoaderObject() {}

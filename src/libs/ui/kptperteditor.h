@@ -69,7 +69,7 @@ public:
     QTreeWidgetItem *nodeToItem(Node *node, QTreeWidgetItem *item);
     QList<Node*> listNodeNotView(Node * node);
 
-    void updateAvailableTasks(QTreeWidgetItem *item = 0);
+    void updateAvailableTasks(QTreeWidgetItem *item = nullptr);
     void setAvailableItemEnabled(QTreeWidgetItem *item);
     void setAvailableItemEnabled(Node *node);
     

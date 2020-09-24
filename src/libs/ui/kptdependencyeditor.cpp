@@ -163,9 +163,9 @@ void DependecyViewPrintingDialog::printPage(int page, QPainter &painter)
 DependencyLinkItemBase::DependencyLinkItemBase(QGraphicsItem *parent)
     : QGraphicsPathItem(parent),
     m_editable(false),
-    predItem(0),
-    succItem(0),
-    relation(0),
+    predItem(nullptr),
+    succItem(nullptr),
+    relation(nullptr),
     m_arrow(new QGraphicsPathItem(this))
 {
 }
@@ -410,8 +410,8 @@ void DependencyLinkItem::paint(QPainter *painter, const QStyleOptionGraphicsItem
 //--------------------
 DependencyCreatorItem::DependencyCreatorItem(QGraphicsItem *parent)
     : DependencyLinkItemBase(parent),
-    predConnector(0),
-    succConnector(0),
+    predConnector(nullptr),
+    succConnector(nullptr),
     m_editable(false)
 {
     setZValue(1000.0);
@@ -429,8 +429,8 @@ void DependencyCreatorItem::clear()
     } else if (succConnector && succConnector->parentItem()) {
         static_cast<DependencyNodeItem*>(succConnector->parentItem())->setConnectorHoverMode(true);
     }
-    predConnector = 0;
-    succConnector = 0;
+    predConnector = nullptr;
+    succConnector = nullptr;
     setPath(QPainterPath());
     m_arrow->setPath(QPainterPath());
 }
@@ -448,10 +448,10 @@ void DependencyCreatorItem::setSuccConnector(DependencyConnectorItem *item)
 
 void DependencyCreatorItem::createPath()
 {
-    if (predConnector == 0) {
+    if (predConnector == nullptr) {
         return;
     }
-    if (succConnector == 0) {
+    if (succConnector == nullptr) {
         return;
     }
     QPointF sp = predConnector->connectorPoint();
@@ -465,7 +465,7 @@ void DependencyCreatorItem::createPath(const QPointF &ep)
     if (succConnector) {
         return createPath();
     }
-    if (predConnector == 0) {
+    if (predConnector == nullptr) {
         return;
     }
     QPointF sp = predConnector->connectorPoint();
@@ -478,12 +478,12 @@ void DependencyCreatorItem::createPath(const QPointF &ep)
 
 QPointF DependencyCreatorItem::startPoint() const
 {
-    return predConnector == 0 ? QPointF() : predConnector->connectorPoint();
+    return predConnector == nullptr ? QPointF() : predConnector->connectorPoint();
 }
 
 QPointF DependencyCreatorItem::endPoint() const
 {
-    return succConnector == 0 ? QPointF() : succConnector->connectorPoint();
+    return succConnector == nullptr ? QPointF() : succConnector->connectorPoint();
 }
 
 //--------------------
@@ -560,15 +560,15 @@ void DependencyConnectorItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         }
         return;
     }
-    QGraphicsItem *item = 0;
+    QGraphicsItem *item = nullptr;
     foreach (QGraphicsItem *i, itemScene()->items(event->scenePos())) {
         if (i->type() == DependencyConnectorItem::Type) {
             item = i;
             break;
         }
     }
-    if (item == 0 || item == itemScene()->fromItem()) {
-        itemScene()->setFromItem(0);
+    if (item == nullptr || item == itemScene()->fromItem()) {
+        itemScene()->setFromItem(nullptr);
         return;
     }
     itemScene()->singleConnectorClicked(static_cast<DependencyConnectorItem*>(item));
@@ -581,7 +581,7 @@ void DependencyConnectorItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             itemScene()->setFromItem(this);
             m_mousePressPos = QPointF();
         }
-        QGraphicsItem *item = 0;
+        QGraphicsItem *item = nullptr;
         foreach (QGraphicsItem *i, itemScene()->items(event->scenePos())) {
             if (i->type() == DependencyConnectorItem::Type) {
                 item = i;
@@ -591,7 +591,7 @@ void DependencyConnectorItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         if (item != this) {
             itemScene()->connectorEntered(this, false);
         }
-        if (item != 0) {
+        if (item != nullptr) {
             itemScene()->connectorEntered(static_cast<DependencyConnectorItem*>(item), true);
         }
     } else {
@@ -635,7 +635,7 @@ QList<DependencyLinkItem*> DependencyConnectorItem::successorItems() const
 DependencyNodeItem::DependencyNodeItem(Node *node, DependencyNodeItem *parent)
     : QGraphicsRectItem(parent),
     m_node(node),
-    m_parent(0),
+    m_parent(nullptr),
     m_editable(false)
 {
     setAcceptHoverEvents(true);
@@ -672,7 +672,7 @@ DependencyNodeItem::~DependencyNodeItem()
 
 void DependencyNodeItem::setText()
 {
-    m_text->setPlainText(m_node == 0 ? QString() : QString("%1  %2").arg(m_node->wbsCode()).arg(m_node->name()));
+    m_text->setPlainText(m_node == nullptr ? QString() : QString("%1  %2").arg(m_node->wbsCode()).arg(m_node->name()));
 }
 
 DependencyScene *DependencyNodeItem::itemScene() const
@@ -735,7 +735,7 @@ DependencyNodeItem *DependencyNodeItem::takeChild(DependencyNodeItem *ch)
 {
     int i = m_children.indexOf(ch);
     if (i == -1) {
-        return 0;
+        return nullptr;
     }
     return m_children.takeAt(i);
 }
@@ -804,7 +804,7 @@ void DependencyNodeItem::moveToX(qreal x)
 
 void DependencyNodeItem::setColumn()
 {
-    int col = m_parent == 0 ? 0 : m_parent->column() + 1;
+    int col = m_parent == nullptr ? 0 : m_parent->column() + 1;
     //debugPlanDepEditor<<this<<text();
     foreach (DependencyLinkItem *i, m_parentrelations) {
         col = qMax(col, i->newChildColumn());
@@ -835,7 +835,7 @@ DependencyLinkItem *DependencyNodeItem::takeParentRelation(DependencyLinkItem *r
 {
     int i = m_parentrelations.indexOf(r);
     if (i == -1) {
-        return 0;
+        return nullptr;
     }
     DependencyLinkItem *dep = m_parentrelations.takeAt(i);
     setColumn();
@@ -846,7 +846,7 @@ DependencyLinkItem *DependencyNodeItem::takeChildRelation(DependencyLinkItem *r)
 {
     int i = m_childrelations.indexOf(r);
     if (i == -1) {
-        return 0;
+        return nullptr;
     }
     return m_childrelations.takeAt(i);
 }
@@ -894,7 +894,7 @@ DependencyConnectorItem *DependencyNodeItem::connectorItem(ConnectorType ctype) 
         case Finish: return m_finish;
         default: break;
     }
-    return 0;
+    return nullptr;
 }
 
 QList<DependencyLinkItem*> DependencyNodeItem::predecessorItems(ConnectorType ctype) const
@@ -1047,7 +1047,7 @@ void DependencyNodeSymbolItem::paint(Project *p, QPainter *painter, const QStyle
 //--------------------
 DependencyScene::DependencyScene(QWidget *parent)
     : QGraphicsScene(parent),
-    m_model(0),
+    m_model(nullptr),
     m_readwrite(false)
 {
     setSceneRect(QRectF());
@@ -1110,7 +1110,7 @@ void DependencyScene::connectorEntered(DependencyConnectorItem *item, bool enter
     item->setCursor(ConnectCursor);
     if (! entered) {
         // when we leave a connector we don't have a successor
-        m_connectionitem->setSuccConnector(0);
+        m_connectionitem->setSuccConnector(nullptr);
         return;
     }
     if (m_connectionitem->predConnector == item) {
@@ -1122,7 +1122,7 @@ void DependencyScene::connectorEntered(DependencyConnectorItem *item, bool enter
         // we are not in connection mode
         return;
     }
-    if (m_connectionitem->predConnector == 0) {
+    if (m_connectionitem->predConnector == nullptr) {
         // nothing we can do if we don't have a predecessor (shouldn't happen)
         return;
     }
@@ -1172,7 +1172,7 @@ void DependencyScene::clearScene()
     m_connectionitem->clear();
     QList<QGraphicsItem*> its, deps;
     foreach (QGraphicsItem *i, items()) {
-        if (i->type() == DependencyNodeItem::Type && i->parentItem() == 0) {
+        if (i->type() == DependencyNodeItem::Type && i->parentItem() == nullptr) {
             its << i;
         } else if (i->type() == DependencyLinkItem::Type) {
             deps << i;
@@ -1204,10 +1204,10 @@ void DependencyScene::moveItem(DependencyNodeItem *item, const QList<Node*> &lst
     int idx = m_allItems.indexOf(item);
     int ndx = lst.indexOf(item->node());
     Q_ASSERT(idx != -1 && ndx != -1);
-    Node *oldParent = item->parentItem() == 0 ? 0 : item->parentItem()->node();
+    Node *oldParent = item->parentItem() == nullptr ? nullptr : item->parentItem()->node();
     Node *newParent = item->node()->parentNode();
     if (newParent == m_project) {
-        newParent = 0;
+        newParent = nullptr;
     } else debugPlanDepEditor<<newParent->name()<<newParent->level();
     if (idx != ndx || oldParent != newParent) {
         // If I have children, these must be moved too.
@@ -1308,7 +1308,7 @@ DependencyLinkItem *DependencyScene::findItem(const Relation* rel) const
             return static_cast<DependencyLinkItem*>(i);
         }
     }
-    return 0;
+    return nullptr;
 }
 
 DependencyLinkItem *DependencyScene::findItem(const DependencyConnectorItem *c1, const DependencyConnectorItem *c2, bool exact) const
@@ -1337,11 +1337,11 @@ DependencyLinkItem *DependencyScene::findItem(const DependencyConnectorItem *c1,
                 default:
                     break;
             }
-            return 0;
+            return nullptr;
         }
         if (link->predItem == n2 && link->succItem == n1) {
             if (exact) {
-                return 0;
+                return nullptr;
             }
             switch (link->relation->type()) {
                 case Relation::StartStart:
@@ -1362,10 +1362,10 @@ DependencyLinkItem *DependencyScene::findItem(const DependencyConnectorItem *c1,
                 default:
                     break;
             }
-            return 0;
+            return nullptr;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 DependencyNodeItem *DependencyScene::findItem(const Node *node) const
@@ -1375,7 +1375,7 @@ DependencyNodeItem *DependencyScene::findItem(const Node *node) const
             return static_cast<DependencyNodeItem*>(i);
         }
     }
-    return 0;
+    return nullptr;
 }
 
 void DependencyScene::createLinks()
@@ -1393,7 +1393,7 @@ void DependencyScene::createLinks(DependencyNodeItem *item)
 void DependencyScene::createLink(DependencyNodeItem *parent, Relation *rel)
 {
     DependencyNodeItem *child = findItem(rel->child());
-    if (parent == 0 || child == 0) {
+    if (parent == nullptr || child == nullptr) {
         return;
     }
     DependencyLinkItem *dep = new DependencyLinkItem(parent, child, rel);
@@ -1422,7 +1422,7 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
         return QGraphicsScene::keyPressEvent(keyEvent);
     }
     QGraphicsItem *fitem = focusItem();
-    if (fitem == 0) {
+    if (fitem == nullptr) {
         setFocusItem(m_visibleItems.first());
         if (focusItem()) {
             focusItem()->update();
@@ -1526,7 +1526,7 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
             if (fitem->type() == DependencyConnectorItem::Type) {
                 singleConnectorClicked(static_cast<DependencyConnectorItem*>(fitem));
             } else if (fitem->type() == DependencyNodeItem::Type) {
-                singleConnectorClicked(0);
+                singleConnectorClicked(nullptr);
                 foreach (QGraphicsItem *i, selectedItems()) {
                     i->setSelected(false);
                 }
@@ -1551,14 +1551,14 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
 DependencyNodeItem *DependencyScene::nodeItem(int row) const
 {
     if (row < 0 || m_visibleItems.isEmpty()) {
-        return 0;
+        return nullptr;
     }
     foreach (DependencyNodeItem *i, m_visibleItems) {
         if (i->row() == row) {
             return i;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 void DependencyScene::singleConnectorClicked(DependencyConnectorItem *item)
@@ -1566,16 +1566,16 @@ void DependencyScene::singleConnectorClicked(DependencyConnectorItem *item)
     //debugPlanDepEditor;
     clearSelection();
     QList<DependencyConnectorItem*> lst;
-    if (item == 0 || item == fromItem()) {
-        setFromItem(0);
+    if (item == nullptr || item == fromItem()) {
+        setFromItem(nullptr);
         m_clickedItems = lst;
-    } else if (fromItem() == 0) {
+    } else if (fromItem() == nullptr) {
         setFromItem(item);
     } else if (connectionIsValid(fromItem(), item)) {
         emit connectItems(fromItem(), item);
-        setFromItem(0);
+        setFromItem(nullptr);
     } else {
-        setFromItem(0);
+        setFromItem(nullptr);
     }
     emit connectorClicked(item);
 }
@@ -1588,7 +1588,7 @@ void DependencyScene::multiConnectorClicked(DependencyConnectorItem *item)
 
 void DependencyScene::clearConnection()
 {
-    setFromItem(0);
+    setFromItem(nullptr);
     m_clickedItems.clear();
 }
 
@@ -1624,7 +1624,7 @@ void DependencyScene::contextMenuEvent (QGraphicsSceneContextMenuEvent *event)
                 DependencyLinkItem *link = findItem(from, to);
                 if (link) {
                     emit dependencyContextMenuRequested(link, to);
-                    setFromItem(0); // avoid showing spurious DependencyCreatorItem
+                    setFromItem(nullptr); // avoid showing spurious DependencyCreatorItem
                     return;
                 } else debugPlanDepEditor<<"No link";
             }
@@ -1654,7 +1654,7 @@ void DependencyScene::update()
 
 DependencyView::DependencyView(QWidget *parent)
     : QGraphicsView(parent),
-    m_project(0),
+    m_project(nullptr),
     m_dirty(false),
     m_active(false)
 {
@@ -1694,7 +1694,7 @@ void DependencyView::slotDependencyContextMenuRequested(DependencyLinkItem *item
 
 void DependencyView::slotConnectorClicked(DependencyConnectorItem *item)
 {
-    if (itemScene()->fromItem() == 0) {
+    if (itemScene()->fromItem() == nullptr) {
         itemScene()->setFromItem(item);
     } else {
         //debugPlanDepEditor<<"emit makeConnection:"<<static_cast<DependencyNodeItem*>(item->parentItem())->text();
@@ -1791,7 +1791,7 @@ void DependencyView::slotRelationAdded(Relation* rel)
         return;
     }
     DependencyLinkItem *item = findItem(rel);
-    if (item == 0) {
+    if (item == nullptr) {
         DependencyNodeItem *p = findItem(rel->parent());
         DependencyNodeItem *c = findItem(rel->child());
         DependencyLinkItem *r = new DependencyLinkItem(p, c, rel);
@@ -1831,7 +1831,7 @@ void DependencyView::slotNodeAdded(Node *node)
         return;
     }
     DependencyNodeItem *item = findItem(node);
-    if (item == 0) {
+    if (item == nullptr) {
         item = createItem(node);
     } else {
         //debugPlanDepEditor<<node->name();
@@ -1895,7 +1895,7 @@ void DependencyView::createItems()
 {
     itemScene()->clearScene();
     m_dirty = false;
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return;
     }
     scene()->addLine(0.0, 0.0, 1.0, 0.0);
@@ -1914,7 +1914,7 @@ void DependencyView::createItems(Node *node)
     if (node != m_project) {
         //debugPlanDepEditor<<node->name()<<" ("<<node->numChildren()<<")";
         DependencyNodeItem *i = createItem(node);
-        if (i == 0) {
+        if (i == nullptr) {
             return;
         }
     }
@@ -2014,8 +2014,8 @@ void DependencyeditorConfigDialog::slotOk()
 //--------------------
 DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_currentnode(0),
-    m_manager(0)
+    m_currentnode(nullptr),
+    m_manager(nullptr)
 {
     if (doc && doc->isReadWrite()) {
         setXMLFile("DependencyEditorUi.rc");
@@ -2098,7 +2098,7 @@ void DependencyEditor::slotCreateRelation(DependencyConnectorItem *pred, Depende
         }
     }
     Relation *rel = ch->findRelation(par);
-    if (rel == 0) {
+    if (rel == nullptr) {
         //debugPlanDepEditor<<"New:"<<par->name()<<" ->"<<ch->name()<<","<<type;
         emit addRelation(par, ch, type);
     } else if (rel->type() != type) {
@@ -2158,7 +2158,7 @@ Node *DependencyEditor::selectedNode() const
 {
     QList<Node*> lst = selectedNodes();
     if (lst.count() != 1) {
-        return 0;
+        return nullptr;
     }
     return lst.first();
 }
@@ -2198,11 +2198,11 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
     if (item) {
         if (item->type() == DependencyNodeItem::Type) {
             m_currentnode = static_cast<DependencyNodeItem*>(item)->node();
-            if (m_currentnode == 0) {
+            if (m_currentnode == nullptr) {
                 //debugPlanDepEditor<<"No node";
                 return;
             }
-            bool scheduled = m_manager != 0 && m_currentnode->isScheduled(m_manager->scheduleId());
+            bool scheduled = m_manager != nullptr && m_currentnode->isScheduled(m_manager->scheduleId());
             switch (m_currentnode->type()) {
                 case Node::Type_Task:
                     name = scheduled ? "task_popup" : "task_edit_popup";
@@ -2254,8 +2254,8 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
             QMenu::exec(lst, pos,  lst.first());
         }
     }
-    m_currentnode = 0;
-    m_currentrelation = 0;
+    m_currentnode = nullptr;
+    m_currentrelation = nullptr;
 }
 
 void DependencyEditor::slotEnableActions()
@@ -2291,9 +2291,9 @@ void DependencyEditor::updateActionsEnabled(bool on)
     }
     Node *n = selectedNode();
     if (n && n->type() != Node::Type_Task && n->type() != Node::Type_Milestone && n->type() != Node::Type_Summarytask) {
-        n = 0;
+        n = nullptr;
     }
-    if (selCount == 1 && n == 0) {
+    if (selCount == 1 && n == nullptr) {
         // only project selected
         menuAddTask->setEnabled(true);
         actionAddTask->setEnabled(true);
@@ -2396,7 +2396,7 @@ void DependencyEditor::slotAddTask()
     //debugPlanDepEditor;
     m_currentnode = selectedNode();
     emit addTask();
-    m_currentnode = 0;
+    m_currentnode = nullptr;
 }
 
 void DependencyEditor::slotAddMilestone()
@@ -2404,29 +2404,29 @@ void DependencyEditor::slotAddMilestone()
     //debugPlanDepEditor;
     m_currentnode = selectedNode(); // sibling
     emit addMilestone();
-    m_currentnode = 0;
+    m_currentnode = nullptr;
 }
 
 void DependencyEditor::slotAddSubtask()
 {
     //debugPlanDepEditor;
     m_currentnode = selectedNode();
-    if (m_currentnode == 0) {
+    if (m_currentnode == nullptr) {
         return;
     }
     emit addSubtask();
-    m_currentnode = 0;
+    m_currentnode = nullptr;
 }
 
 void DependencyEditor::slotAddSubMilestone()
 {
     debugPlanDepEditor;
     m_currentnode = selectedNode();
-    if (m_currentnode == 0) {
+    if (m_currentnode == nullptr) {
         return;
     }
     emit addSubMilestone();
-    m_currentnode = 0;
+    m_currentnode = nullptr;
 }
 
 void DependencyEditor::edit(const QModelIndex &i)
@@ -2445,7 +2445,7 @@ void DependencyEditor::slotDeleteTask()
     QList<Node*> lst = selectedNodes();
     while (true) {
         // remove children of selected tasks, as parents delete their children
-        Node *ch = 0;
+        Node *ch = nullptr;
         foreach (Node *n1, lst) {
             foreach (Node *n2, lst) {
                 if (n2->isChildOf(n1)) {
@@ -2453,11 +2453,11 @@ void DependencyEditor::slotDeleteTask()
                     break;
                 }
             }
-            if (ch != 0) {
+            if (ch != nullptr) {
                 break;
             }
         }
-        if (ch == 0) {
+        if (ch == nullptr) {
             break;
         }
         lst.removeAt(lst.indexOf(ch));

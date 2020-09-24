@@ -147,7 +147,7 @@ class PerformanceStatusViewSettingsDialog : public ItemViewSettupDialog
 {
     Q_OBJECT
 public:
-    explicit PerformanceStatusViewSettingsDialog(PerformanceStatusView *view, PerformanceStatusTreeView *treeview, QWidget *parent = 0, bool selectPrint = false);
+    explicit PerformanceStatusViewSettingsDialog(PerformanceStatusView *view, PerformanceStatusTreeView *treeview, QWidget *parent = nullptr, bool selectPrint = false);
 
 };
 

@@ -34,7 +34,7 @@ class LoadSharedProjectsDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    LoadSharedProjectsDialog(Project &project, const QUrl &own, QWidget *parent=0);
+    LoadSharedProjectsDialog(Project &project, const QUrl &own, QWidget *parent=nullptr);
 
     QList<QUrl> urls() const;
 

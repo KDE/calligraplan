@@ -96,7 +96,7 @@ protected:
 class TaskGeneralPanel : public TaskGeneralPanelImpl {
     Q_OBJECT
 public:
-    explicit TaskGeneralPanel(Project &project, Task &task, QWidget *parent=0, const char *name=0);
+    explicit TaskGeneralPanel(Project &project, Task &task, QWidget *parent=nullptr, const char *name=nullptr);
 
     MacroCommand *buildCommand();
 

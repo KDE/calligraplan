@@ -612,8 +612,8 @@ QDebug operator<<(QDebug dbg, const KPlato::AppointmentIntervalList &i)
 Appointment::Appointment()
     : m_extraRepeats(), m_skipRepeats() {
     //debugPlan<<"("<<this<<")";
-    m_resource=0;
-    m_node=0;
+    m_resource=nullptr;
+    m_node=nullptr;
     m_calculationMode = Schedule::Scheduling;
     m_repeatInterval=Duration();
     m_repeatCount=0;
@@ -731,12 +731,12 @@ bool Appointment::isBusy(const DateTime &/*start*/, const DateTime &/*end*/) {
 bool Appointment::loadXML(KoXmlElement &element, XMLLoaderObject &status, Schedule &sch) {
     //debugPlan<<project.name();
     Node *node = status.project().findNode(element.attribute(QStringLiteral("task-id")));
-    if (node == 0) {
+    if (node == nullptr) {
         errorPlan<<"The referenced task does not exists: "<<element.attribute(QStringLiteral("task-id"));
         return false;
     }
     Resource *res = status.project().resource(element.attribute(QStringLiteral("resource-id")));
-    if (res == 0) {
+    if (res == nullptr) {
         errorPlan<<"The referenced resource does not exists: resource id="<<element.attribute(QStringLiteral("resource-id"));
         return false;
     }
@@ -762,11 +762,11 @@ void Appointment::saveXML(QDomElement &element) const {
     if (isEmpty()) {
         errorPlan<<"Incomplete appointment data: No intervals";
     }
-    if (m_resource == 0 || m_resource->resource() == 0) {
+    if (m_resource == nullptr || m_resource->resource() == nullptr) {
         errorPlan<<"Incomplete appointment data: No resource";
         return;
     }
-    if (m_node == 0 || m_node->node() == 0) {
+    if (m_node == nullptr || m_node->node() == nullptr) {
         errorPlan<<"Incomplete appointment data: No node";
         return; // shouldn't happen
     }
@@ -791,7 +791,7 @@ Duration Appointment::plannedEffort(const Resource *resource, EffortCostCalculat
 // Returns the total planned effort for this appointment
 Duration Appointment::plannedEffort(EffortCostCalculationType type) const {
     Duration d;
-    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+    if (type == ECCT_All || m_resource == nullptr || m_resource->resource()->type() == Resource::Type_Work) {
         foreach (const AppointmentInterval &i, m_intervals.map()) {
             d += i.effort();
         }
@@ -802,7 +802,7 @@ Duration Appointment::plannedEffort(EffortCostCalculationType type) const {
 // Returns the planned effort on the date
 Duration Appointment::plannedEffort(QDate date, EffortCostCalculationType type) const {
     Duration d;
-    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+    if (type == ECCT_All || m_resource == nullptr || m_resource->resource()->type() == Resource::Type_Work) {
         QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_intervals.map().constFind(date);
         for (; it != m_intervals.map().constEnd() && it.key() == date; ++it) {
             d += it.value().effort();
@@ -823,7 +823,7 @@ Duration Appointment::plannedEffort(const Resource *resource, QDate date, Effort
 Duration Appointment::plannedEffortTo(QDate date, EffortCostCalculationType type) const {
     Duration d;
     QDate e(date.addDays(1));
-    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+    if (type == ECCT_All || m_resource == nullptr || m_resource->resource()->type() == Resource::Type_Work) {
         foreach (const AppointmentInterval &i, m_intervals.map()) {
             d += i.effort(e, true); // upto e, not including
         }
@@ -948,7 +948,7 @@ void Appointment::detach() {
 // Returns the effort from start to end
 Duration Appointment::effort(const DateTime &start, const DateTime &end, EffortCostCalculationType type) const {
     Duration e;
-    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+    if (type == ECCT_All || m_resource == nullptr || m_resource->resource()->type() == Resource::Type_Work) {
         e = m_intervals.effort(start, end);
     }
     return e;
@@ -956,7 +956,7 @@ Duration Appointment::effort(const DateTime &start, const DateTime &end, EffortC
 // Returns the effort from start for the duration
 Duration Appointment::effort(const DateTime &start, KPlato::Duration duration, EffortCostCalculationType type) const {
     Duration d;
-    if (type == ECCT_All || m_resource == 0 || m_resource->resource()->type() == Resource::Type_Work) {
+    if (type == ECCT_All || m_resource == nullptr || m_resource->resource()->type() == Resource::Type_Work) {
         foreach (const AppointmentInterval &i, m_intervals.map()) {
             d += i.effort(start, start+duration);
         }
@@ -986,8 +986,8 @@ Appointment &Appointment::operator-=(const Appointment &app) {
 }
 
 void Appointment::copy(const Appointment &app) {
-    m_resource = 0; //app.resource(); // NOTE: Don't copy, the new appointment
-    m_node = 0; //app.node();         // NOTE: doesn't belong to anyone yet.
+    m_resource = nullptr; //app.resource(); // NOTE: Don't copy, the new appointment
+    m_node = nullptr; //app.node();         // NOTE: doesn't belong to anyone yet.
     //TODO: incomplete but this is all we use atm
     m_calculationMode = app.calculationMode();
     

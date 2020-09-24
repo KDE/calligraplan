@@ -70,7 +70,7 @@ private:
 class PLANUI_EXPORT StandardWorktimeDialog : public KoDialog {
     Q_OBJECT
 public:
-    explicit StandardWorktimeDialog(Project &project, QWidget *parent=0);
+    explicit StandardWorktimeDialog(Project &project, QWidget *parent=nullptr);
     
     MacroCommand *buildCommand();
 

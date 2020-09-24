@@ -126,7 +126,7 @@ MacroCommand *LocaleConfigMoney::buildCommand()
     debugPlan<<"buildCommand:"<<m->isEmpty();
     if (m->isEmpty()) {
         delete m;
-        return 0;
+        return nullptr;
     }
     return m;
 }

@@ -58,7 +58,7 @@ using namespace KPlato;
 
 ResourceModel::ResourceModel(QObject *parent)
     : QObject(parent),
-    m_project(0)
+    m_project(nullptr)
 {
 }
 
@@ -238,7 +238,7 @@ QVariant ResourceModel::calendar(const Resource *res, int role) const
         case Qt::EditRole:
         case Role::EnumListValue: {
             Calendar *cal = res->calendar(true); // don't check for default calendar
-            return cal == 0 ? 0 : m_project->calendarNames().indexOf(cal->name()) + 1;
+            return cal == nullptr ? 0 : m_project->calendarNames().indexOf(cal->name()) + 1;
         }
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
@@ -350,16 +350,16 @@ QVariant ResourceModel::account(const Resource *resource, int role) const
     switch (role) {
         case Qt::DisplayRole: {
             Account *a = resource->account();
-            return a == 0 ? i18n("None") : a->name();
+            return a == nullptr ? i18n("None") : a->name();
         }
         case Qt::ToolTipRole: {
             Account *a = resource->account();
-            return i18n("Account: %1", (a == 0 ? i18n("None") : a->name()));
+            return i18n("Account: %1", (a == nullptr ? i18n("None") : a->name()));
         }
         case Role::EnumListValue:
         case Qt::EditRole: {
             Account *a = resource->account();
-            return a == 0 ? 0 : (m_project->accounts().costElements().indexOf(a->name()) + 1);
+            return a == nullptr ? 0 : (m_project->accounts().costElements().indexOf(a->name()) + 1);
         }
         case Role::EnumList: {
             QStringList lst;
@@ -380,7 +380,7 @@ QVariant ResourceModel::data(const Resource *resource, int property, int role) c
         return OT_Resource;
     }
     QVariant result;
-    if (resource == 0) {
+    if (resource == nullptr) {
         return result;
     }
     switch (property) {

@@ -46,7 +46,7 @@ class PLANMODELS_EXPORT FlatProxyModel : public KDescendantsProxyModel
 {
     Q_OBJECT
 public:
-    explicit FlatProxyModel(QObject *parent = 0);
+    explicit FlatProxyModel(QObject *parent = nullptr);
 
     QModelIndex mapToSource (const QModelIndex & proxyIndex) const override;
 

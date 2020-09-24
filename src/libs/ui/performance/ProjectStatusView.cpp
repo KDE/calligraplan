@@ -48,7 +48,7 @@ using namespace KPlato;
 
 ProjectStatusView::ProjectStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_project(0)
+    m_project(nullptr)
 {
     debugPlan<<"-------------------- creating ProjectStatusView -------------------";
     setXMLFile("ProjectStatusViewUi.rc");

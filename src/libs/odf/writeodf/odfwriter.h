@@ -38,10 +38,10 @@ class OdfWriter {
 private:
     void operator=(const OdfWriter&);
 protected:
-    OdfWriter(KoXmlWriter* xml_, const char* tag, bool indent) :child(0), parent(0), xml(xml_) {
+    OdfWriter(KoXmlWriter* xml_, const char* tag, bool indent) :child(nullptr), parent(nullptr), xml(xml_) {
         xml->startElement(tag, indent);
     }
-    OdfWriter(OdfWriter* p, const char* tag, bool indent) :child(0), parent(p), xml(parent->xml) {
+    OdfWriter(OdfWriter* p, const char* tag, bool indent) :child(nullptr), parent(p), xml(parent->xml) {
         if (parent->child) {
             parent->child->end();
         }
@@ -53,14 +53,14 @@ protected:
     }
     void endChild() {
         if (child) {
-            child->parent = 0;
+            child->parent = nullptr;
             child->end();
-            child = 0;
+            child = nullptr;
         }
     }
     OdfWriter(const OdfWriter&& o) :child(o.child), parent(o.parent), xml(o.xml) {
         // disable o and make the parent refer to this new copy
-        o.xml = 0;
+        o.xml = nullptr;
         if (parent && parent->child == &o) {
             parent->child = this;
         }
@@ -71,9 +71,9 @@ public:
             endChild();
             xml->endElement();
             if (parent) {
-                parent->child = 0;
+                parent->child = nullptr;
             }
-            xml = 0;
+            xml = nullptr;
         }
     }
     void addTextNode(const QString& str) {

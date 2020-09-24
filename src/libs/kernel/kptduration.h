@@ -130,7 +130,7 @@ public:
     /// Convert duration to a string with @p format
     QString toString(Format format = Format_DayTime) const;
     /// Create a duration from string @p s with @p format
-    static Duration fromString(const QString &s, Format format = Format_DayTime, bool *ok=0);
+    static Duration fromString(const QString &s, Format format = Format_DayTime, bool *ok=nullptr);
 
     /// Return the duration scaled to hours
     double toHours() const;

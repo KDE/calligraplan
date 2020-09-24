@@ -131,7 +131,7 @@ bool CheckStateItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     if ((event->type() == QEvent::MouseButtonRelease) || (event->type() == QEvent::MouseButtonDblClick) || (event->type() == QEvent::MouseButtonPress)) {
         QStyleOptionViewItem viewOpt(option);
         initStyleOption(&viewOpt, index);
-        QRect checkRect = style->subElementRect(QStyle::SE_ItemViewItemDecoration, &viewOpt, 0);
+        QRect checkRect = style->subElementRect(QStyle::SE_ItemViewItemDecoration, &viewOpt, nullptr);
         QMouseEvent *me = static_cast<QMouseEvent*>(event);
         if (me->button() != Qt::LeftButton || ! checkRect.contains(me->pos())) {
             return false;
@@ -332,7 +332,7 @@ QWidget *SelectorDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
             return editor;
         }
     }
-    return 0; // FIXME: What to do?
+    return nullptr; // FIXME: What to do?
 }
 
 void SelectorDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
@@ -608,8 +608,8 @@ void TimeDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewI
 //--------------------------
 ItemModelBase::ItemModelBase(QObject *parent)
     : QAbstractItemModel(parent),
-    m_project(0),
-    m_manager(0),
+    m_project(nullptr),
+    m_manager(nullptr),
     m_readWrite(false)//part->isReadWrite())
 {
 }

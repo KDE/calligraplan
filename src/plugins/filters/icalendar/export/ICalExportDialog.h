@@ -33,7 +33,7 @@ class ICalExportDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    ICalExportDialog(Project &project, QWidget *parent=0);
+    ICalExportDialog(Project &project, QWidget *parent=nullptr);
 
     bool includeProject() const;
     bool includeSummarytasks() const;

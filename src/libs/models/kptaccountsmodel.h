@@ -65,7 +65,7 @@ class PLANMODELS_EXPORT AccountItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit AccountItemModel(QObject *parent = 0);
+    explicit AccountItemModel(QObject *parent = nullptr);
     ~AccountItemModel() override;
 
     const QMetaEnum columnMap() const override;
@@ -87,7 +87,7 @@ public:
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
     Account *account(const QModelIndex &index) const;
-    QModelIndex insertAccount(Account *account, Account *parent = 0, int index = -1);
+    QModelIndex insertAccount(Account *account, Account *parent = nullptr, int index = -1);
     void removeAccounts(QList<Account*> lst);
     
 protected Q_SLOTS:
@@ -117,7 +117,7 @@ public:
     enum EndMode { EndMode_Project = 0, EndMode_Date = 1, EndMode_CurrentDate = 2 };
     enum ShowMode { ShowMode_Actual = 0, ShowMode_Planned = 1, ShowMode_Both = 2, ShowMode_Deviation = 3 };
 
-    explicit CostBreakdownItemModel(QObject *parent = 0);
+    explicit CostBreakdownItemModel(QObject *parent = nullptr);
     ~CostBreakdownItemModel() override;
 
     enum Properties {

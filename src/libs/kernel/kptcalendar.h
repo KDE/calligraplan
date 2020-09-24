@@ -221,26 +221,26 @@ public:
      * Returns the amount of 'worktime' that can be done on
      * this day between the times start and end.
      */
-    Duration effort(QTime start, int length, const QTimeZone &timeZone, Schedule *sch=0);
+    Duration effort(QTime start, int length, const QTimeZone &timeZone, Schedule *sch=nullptr);
     /**
      * Returns the amount of 'worktime' that can be done on
      * this day between the times start and end.
      */
-    Duration effort(QDate date, QTime start, int length, const QTimeZone &timeZone, Schedule *sch=0);
+    Duration effort(QDate date, QTime start, int length, const QTimeZone &timeZone, Schedule *sch=nullptr);
 
     /**
      * Returns the actual 'work interval' for the interval start to end.
      * If no 'work interval' exists, returns the interval start, end.
      * Use @ref hasInterval() to check if a 'work interval' exists.
      */
-    TimeInterval interval(QTime start, int length, const QTimeZone &timeZone,  Schedule *sch=0) const;
+    TimeInterval interval(QTime start, int length, const QTimeZone &timeZone,  Schedule *sch=nullptr) const;
     
     /**
      * Returns the actual 'work interval' for the interval start to end.
      * If no 'work interval' exists, returns the interval start, end.
      * Use @ref hasInterval() to check if a 'work interval' exists.
      */
-    TimeInterval interval(QDate date, QTime start, int length, const QTimeZone &timeZone, Schedule *sch=0) const;
+    TimeInterval interval(QDate date, QTime start, int length, const QTimeZone &timeZone, Schedule *sch=nullptr) const;
     
     bool hasInterval() const;
 
@@ -248,7 +248,7 @@ public:
      * Returns true if at least a part of a 'work interval' exists 
      * for the interval start to end.
      */
-    bool hasInterval(QTime start, int length, const QTimeZone &timeZone, Schedule *sch=0) const;
+    bool hasInterval(QTime start, int length, const QTimeZone &timeZone, Schedule *sch=nullptr) const;
     
     /**
      * Returns true if at least a part of a 'work interval' exists 
@@ -256,7 +256,7 @@ public:
      * Assumes this day is date. (Used by weekday hasInterval().)
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    bool hasInterval(QDate date, QTime start, int length, const QTimeZone &timeZone, Schedule *sch=0) const;
+    bool hasInterval(QDate date, QTime start, int length, const QTimeZone &timeZone, Schedule *sch=nullptr) const;
     
     Duration duration() const;
     
@@ -315,7 +315,7 @@ public:
     bool operator==(const CalendarWeekdays *weekdays) const;
     bool operator!=(const CalendarWeekdays *weekdays) const;
 
-    Duration effort(QDate date, QTime start, int length, const QTimeZone &timeZone, Schedule *sch=0);
+    Duration effort(QDate date, QTime start, int length, const QTimeZone &timeZone, Schedule *sch=nullptr);
     
     /**
      * Returns the actual 'work interval' on the weekday defined by date
@@ -375,7 +375,7 @@ class PLANKERNEL_EXPORT Calendar : public QObject
     Q_OBJECT
 public:
     Calendar();
-    explicit Calendar(const QString& name, Calendar *parent=0);
+    explicit Calendar(const QString& name, Calendar *parent=nullptr);
     //Calendar(const Calendar &c); QObject doesn't allow a copy constructor
     ~Calendar() override;
 
@@ -460,7 +460,7 @@ public:
      * interval from @p start to @p end
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    Duration effort(const DateTime &start, const DateTime &end, Schedule *sch=0) const;
+    Duration effort(const DateTime &start, const DateTime &end, Schedule *sch=nullptr) const;
 
     /**
      * Returns the first 'work interval' for the interval 
@@ -469,27 +469,27 @@ public:
      * You can also use @ref hasInterval() to check if a 'work interval' exists.
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    DateTimeInterval firstInterval(const DateTime &start, const DateTime &end, Schedule *sch=0) const;
+    DateTimeInterval firstInterval(const DateTime &start, const DateTime &end, Schedule *sch=nullptr) const;
     
     /**
      * Returns true if at least a part of a 'work interval' exists 
      * for the interval starting at @p start and ending at @p end.
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    bool hasInterval(const DateTime &start, const DateTime &end, Schedule *sch=0) const;
+    bool hasInterval(const DateTime &start, const DateTime &end, Schedule *sch=nullptr) const;
         
     /** 
      * Find the first available time after @p time before @p limit.
      * Return invalid datetime if not available.
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    DateTime firstAvailableAfter(const DateTime &time, const DateTime &limit, Schedule *sch = 0);
+    DateTime firstAvailableAfter(const DateTime &time, const DateTime &limit, Schedule *sch = nullptr);
     /** 
      * Find the first available time backwards from @p time. Search until @p limit.
      * Return invalid datetime if not available.
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    DateTime firstAvailableBefore(const DateTime &time, const DateTime &limit, Schedule *sch = 0);
+    DateTime firstAvailableBefore(const DateTime &time, const DateTime &limit, Schedule *sch = nullptr);
 
     Calendar *findCalendar() const { return findCalendar(m_id); }
     Calendar *findCalendar(const QString &id) const;
@@ -555,13 +555,13 @@ protected:
      * The date and times are in timespecification @p spec.
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    Duration effort(QDate date, QTime start, int length, Schedule *sch=0) const;
+    Duration effort(QDate date, QTime start, int length, Schedule *sch=nullptr) const;
     /**
      * Returns the amount of 'worktime' that can be done in the
      * interval from @p start to @p end
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    Duration effort(const QDateTime &start, const QDateTime &end, Schedule *sch=0) const;
+    Duration effort(const QDateTime &start, const QDateTime &end, Schedule *sch=nullptr) const;
     /**
      * Returns the first 'work interval' on date for the interval 
      * starting at @p start and ending at @p start + @p length.
@@ -570,20 +570,20 @@ protected:
      * The date and times are in timespecification spec.
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    TimeInterval firstInterval(QDate date, QTime start, int length, Schedule *sch=0) const;
+    TimeInterval firstInterval(QDate date, QTime start, int length, Schedule *sch=nullptr) const;
     /**
      * Returns the first 'work interval' for the interval
      * starting at @p start and ending at @p end.
      * If no 'work interval' exists, returns an interval with invalid DateTime.
      */
-    DateTimeInterval firstInterval(const QDateTime &start, const QDateTime &end, Schedule *sch=0) const;
+    DateTimeInterval firstInterval(const QDateTime &start, const QDateTime &end, Schedule *sch=nullptr) const;
 
     /**
      * Returns true if at least a part of a 'work interval' exists 
      * for the interval on date, starting at @p start and ending at @p start + @p length.
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    bool hasInterval(QDate date, QTime start, int length, Schedule *sch=0) const;
+    bool hasInterval(QDate date, QTime start, int length, Schedule *sch=nullptr) const;
 
     /**
      * Returns the work intervals in the interval from @p start to @p end
@@ -596,7 +596,7 @@ protected:
      * Return invalid datetime if not available.
      * If @p sch is not 0, the schedule is checked for availability.
      */
-    DateTime firstAvailableBefore(const QDateTime &time, const QDateTime &limit, Schedule *sch = 0);
+    DateTime firstAvailableBefore(const QDateTime &time, const QDateTime &limit, Schedule *sch = nullptr);
 
 private:
     QString m_name;
@@ -632,7 +632,7 @@ public:
 class PLANKERNEL_EXPORT StandardWorktime
 {
 public:
-    explicit StandardWorktime(Project *project = 0);
+    explicit StandardWorktime(Project *project = nullptr);
     explicit StandardWorktime(StandardWorktime* worktime);
     ~StandardWorktime();
 

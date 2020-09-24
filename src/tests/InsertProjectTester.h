@@ -56,10 +56,10 @@ private Q_SLOTS:
     void testExistingTeamResourceRequest();
 
 private:
-    Account *addAccount(MainDocument &part, Account *parent = 0);
+    Account *addAccount(MainDocument &part, Account *parent = nullptr);
     Calendar *addCalendar(MainDocument &part);
     ResourceGroup *addResourceGroup(MainDocument &part);
-    Resource *addResource(MainDocument &part, ResourceGroup *g = 0);
+    Resource *addResource(MainDocument &part, ResourceGroup *g = nullptr);
     Task *addTask(MainDocument &part);
     void addResourceRequest(MainDocument &part);
     Relation *addDependency(MainDocument &part, Task *t1, Task *t2);

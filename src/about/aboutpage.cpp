@@ -36,7 +36,7 @@
 #include <khtml_part.h>
 
 KPlatoAboutPage::KPlatoAboutPage()
-    : m_project(0)
+    : m_project(nullptr)
 {
 }
 

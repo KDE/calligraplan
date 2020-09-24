@@ -36,7 +36,7 @@ class Project;
 class PLANUI_EXPORT LocaleConfigMoneyDialog : public KoDialog {
     Q_OBJECT
 public:
-    explicit LocaleConfigMoneyDialog(Locale *locale, QWidget *parent=0);
+    explicit LocaleConfigMoneyDialog(Locale *locale, QWidget *parent=nullptr);
 
     KUndo2Command *buildCommand(Project &project);
 

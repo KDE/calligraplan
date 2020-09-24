@@ -37,7 +37,7 @@ class InsertFileDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    InsertFileDialog(Project &project, Node *currentNode, QWidget *parent=0);
+    InsertFileDialog(Project &project, Node *currentNode, QWidget *parent=nullptr);
 
     QUrl url() const;
     Node *parentNode() const;

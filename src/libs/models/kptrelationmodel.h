@@ -60,7 +60,7 @@ class PLANMODELS_EXPORT RelationItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit RelationItemModel(QObject *parent = 0);
+    explicit RelationItemModel(QObject *parent = nullptr);
     ~RelationItemModel() override;
     
     void setProject(Project *project) override;

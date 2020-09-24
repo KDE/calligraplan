@@ -118,7 +118,7 @@ void SchedulerPlugin::stopCalculation(SchedulerThread *job)
 void SchedulerPlugin::haltCalculation(SchedulerThread *job)
 {
     debugPlan<<job<<m_jobs.contains(job);
-    disconnect(this, 0, job, 0);
+    disconnect(this, nullptr, job, nullptr);
     job->haltScheduling();
     if (m_jobs.contains(job)) {
         debugPlan<<"SchedulerPlugin::haltCalculation: remove"<<job;
@@ -253,7 +253,7 @@ void SchedulerPlugin::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
 {
     //debugPlan<<"SchedulerPlugin::updateNode:"<<tn<<tn->name()<<"->"<<mn<<mn->name();
     NodeSchedule *s = static_cast<NodeSchedule*>(tn->schedule(sid));
-    if (s == 0) {
+    if (s == nullptr) {
         warnPlan<<"SchedulerPlugin::updateNode:"<<"Task:"<<tn->name()<<"could not find schedule with id:"<<sid;
         return;
     }
@@ -264,7 +264,7 @@ void SchedulerPlugin::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
 
     Q_ASSERT(! mn->findSchedule(sid));
     s = static_cast<NodeSchedule*>(mn->schedule(sid));
-    Q_ASSERT(s == 0);
+    Q_ASSERT(s == nullptr);
     s = new NodeSchedule();
 
     KoXmlDocument xd;
@@ -294,7 +294,7 @@ void SchedulerPlugin::updateResource(const Resource *tr, Resource *r, XMLLoaderO
 
     Calendar *cr = tr->calendar();
     Calendar *c = r->calendar();
-    if (cr == 0 || c == 0) {
+    if (cr == nullptr || c == nullptr) {
         return;
     }
     debugPlan<<"cr:"<<cr->cacheVersion()<<"c"<<c->cacheVersion();
@@ -335,8 +335,8 @@ SchedulerThread::SchedulerThread(Project *project, ScheduleManager *manager, QOb
     m_mainproject(project),
     m_mainmanager(manager),
     m_mainmanagerId(manager->managerId()),
-    m_project(0),
-    m_manager(0),
+    m_project(nullptr),
+    m_manager(nullptr),
     m_stopScheduling(false),
     m_haltScheduling(false),
     m_progress(0)
@@ -357,7 +357,7 @@ SchedulerThread::~SchedulerThread()
 {
     debugPlan<<"SchedulerThread::~SchedulerThread:"<<QThread::currentThreadId();
     delete m_project;
-    m_project = 0;
+    m_project = nullptr;
     wait();
 }
 
@@ -459,7 +459,7 @@ void SchedulerThread::haltScheduling()
 void SchedulerThread::logError(Node *n, Resource *r, const QString &msg, int phase)
 {
     Schedule::Log log;
-    if (r == 0) {
+    if (r == nullptr) {
         log = Schedule::Log(n, Schedule::Log::Type_Error, msg, phase);
     } else {
         log = Schedule::Log(n, r, Schedule::Log::Type_Error, msg, phase);
@@ -470,7 +470,7 @@ void SchedulerThread::logError(Node *n, Resource *r, const QString &msg, int pha
 void SchedulerThread::logWarning(Node *n, Resource *r, const QString &msg, int phase)
 {
     Schedule::Log log;
-    if (r == 0) {
+    if (r == nullptr) {
         log = Schedule::Log(n, Schedule::Log::Type_Warning, msg, phase);
     } else {
         log = Schedule::Log(n, r, Schedule::Log::Type_Warning, msg, phase);
@@ -481,7 +481,7 @@ void SchedulerThread::logWarning(Node *n, Resource *r, const QString &msg, int p
 void SchedulerThread::logInfo(Node *n, Resource *r, const QString &msg, int phase)
 {
     Schedule::Log log;
-    if (r == 0) {
+    if (r == nullptr) {
         log = Schedule::Log(n, Schedule::Log::Type_Info, msg, phase);
     } else {
         log = Schedule::Log(n, r, Schedule::Log::Type_Info, msg, phase);
@@ -492,7 +492,7 @@ void SchedulerThread::logInfo(Node *n, Resource *r, const QString &msg, int phas
 void SchedulerThread::logDebug(Node *n, Resource *r, const QString &msg, int phase)
 {
     Schedule::Log log;
-    if (r == 0) {
+    if (r == nullptr) {
         log = Schedule::Log(n, Schedule::Log::Type_Debug, msg, phase);
     } else {
         log = Schedule::Log(n, r, Schedule::Log::Type_Debug, msg, phase);

@@ -107,7 +107,7 @@ bool KPlatoWork_MainWindow::openDocument(const QUrl & url)
     const bool isUrlReadable = statJob->exec();
 
     if (! isUrlReadable) {
-        KMessageBox::error(0L, i18n("The file %1 does not exist.", url.url()));
+        KMessageBox::error(nullptr, i18n("The file %1 does not exist.", url.url()));
 //        d->recent->removeUrl(url); //remove the file from the recent-opened-file-list
 //        saveRecentFiles();
         return false;
@@ -126,7 +126,7 @@ bool KPlatoWork_MainWindow::saveDocument(bool saveas, bool silent)
 {
     debugPlanWork<<saveas<<silent;
     KPlatoWork::Part *doc = rootDocument();
-    if (doc == 0) {
+    if (doc == nullptr) {
         return true;
     }
     return doc->saveWorkPackages(silent);
@@ -136,7 +136,7 @@ bool KPlatoWork_MainWindow::saveDocument(bool saveas, bool silent)
 bool KPlatoWork_MainWindow::queryClose()
 {
     KPlatoWork::Part *part = rootDocument();
-    if (part == 0) {
+    if (part == nullptr) {
         return true;
     }
     return part->queryClose();
@@ -155,7 +155,7 @@ void KPlatoWork_MainWindow::slotFileSave()
 
 void KPlatoWork_MainWindow::slotFileOpen()
 {
-    const QUrl file = QFileDialog::getOpenFileUrl(0, QString(), QUrl(), "*.planwork");
+    const QUrl file = QFileDialog::getOpenFileUrl(nullptr, QString(), QUrl(), "*.planwork");
     if (! file.isEmpty()) {
         openDocument(file);
     }

@@ -30,9 +30,9 @@ namespace KPlato
 {
 
 ReportGenerator::ReportGenerator()
-    : m_project(0)
-    , m_manager(0)
-    , m_reportGenerator(0)
+    : m_project(nullptr)
+    , m_manager(nullptr)
+    , m_reportGenerator(nullptr)
 {
 }
 
@@ -85,7 +85,7 @@ bool ReportGenerator::open()
 void ReportGenerator::close()
 {
     delete m_reportGenerator;
-    m_reportGenerator = 0;
+    m_reportGenerator = nullptr;
 }
 
 bool ReportGenerator::createReport()

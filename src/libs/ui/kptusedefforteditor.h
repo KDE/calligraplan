@@ -40,7 +40,7 @@ class PLANUI_EXPORT UsedEffortItemModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    explicit UsedEffortItemModel(QWidget *parent = 0);
+    explicit UsedEffortItemModel(QWidget *parent = nullptr);
 
     void setProject(Project *project) { m_project = project; }
 
@@ -122,7 +122,7 @@ public:
             Property_PlannedEffort    /// Planned Effort
     };
 
-    explicit CompletionEntryItemModel(QObject *parent = 0);
+    explicit CompletionEntryItemModel(QObject *parent = nullptr);
 
     void setTask(Task *t);
 
@@ -146,7 +146,7 @@ public:
     /// These flags are in addition to flags return from QAbstractItemModel::flags()
     void setFlags(int col, Qt::ItemFlags flags) { m_flags[ col ] = flags; }
 
-    long id() const { return m_manager == 0 ? -1 : m_manager->scheduleId(); }
+    long id() const { return m_manager == nullptr ? -1 : m_manager->scheduleId(); }
 
     void addRow(const QDate &date);
 

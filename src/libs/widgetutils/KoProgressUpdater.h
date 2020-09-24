@@ -80,7 +80,7 @@ public:
      * @param output text stream to output data.
      */
     explicit KoProgressUpdater(KoProgressProxy *progressBar, Mode mode = Threaded,
-                               QTextStream *output = 0);
+                               QTextStream *output = nullptr);
 
     /// destructor
     ~KoProgressUpdater() override;

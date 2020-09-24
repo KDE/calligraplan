@@ -87,13 +87,13 @@ KoFilter* KoFilterEntry::createFilter(KoFilterChain* chain, QObject* parent)
 
     if (!factory) {
         warnMain << m_loader->errorString();
-        return 0;
+        return nullptr;
     }
 
     QObject* obj = factory->create<KoFilter>(parent);
     if (!obj || !obj->inherits("KoFilter")) {
         delete obj;
-        return 0;
+        return nullptr;
     }
 
     KoFilter* filter = static_cast<KoFilter*>(obj);

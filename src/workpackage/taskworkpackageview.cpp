@@ -133,8 +133,8 @@ Document *TaskWorkPackageTreeView::currentDocument() const
 {
     QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(model());
     Q_ASSERT(sf);
-    if (sf == 0) {
-        return 0;
+    if (sf == nullptr) {
+        return nullptr;
     }
     return itemModel()->documentForIndex(sf->mapToSource(selectionModel()->currentIndex()));
 }
@@ -143,8 +143,8 @@ Node *TaskWorkPackageTreeView::currentNode() const
 {
     QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(model());
     Q_ASSERT(sf);
-    if (sf == 0) {
-        return 0;
+    if (sf == nullptr) {
+        return nullptr;
     }
     return itemModel()->nodeForIndex(sf->mapToSource(selectionModel()->currentIndex()));
 }
@@ -154,7 +154,7 @@ QList<Node*> TaskWorkPackageTreeView::selectedNodes() const
     QList<Node*> lst;
     QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(model());
     Q_ASSERT(sf);
-    if (sf == 0) {
+    if (sf == nullptr) {
         return lst;
     }
     foreach(const QModelIndex &idx, selectionModel()->selectedIndexes()) {
@@ -238,12 +238,12 @@ QList<Node*> AbstractView::selectedNodes() const
 
 Node *AbstractView::currentNode() const
 {
-    return 0;
+    return nullptr;
 }
 
 Document *AbstractView::currentDocument() const
 {
-    return 0;
+    return nullptr;
 }
 
 
@@ -321,7 +321,7 @@ void AbstractView::saveContext()
 
 KoPrintJob *AbstractView::createPrintJob()
 {
-    return 0;
+    return nullptr;
 }
 
 //-----------------------------------
@@ -387,7 +387,7 @@ void TaskWorkPackageView::slotContextMenuRequested(const QModelIndex &index, con
     }
     QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(m_view->model());
     Q_ASSERT(sf);
-    if (sf == 0) {
+    if (sf == nullptr) {
         return;
     }
     QModelIndex idx = sf->mapToSource(index);
@@ -428,7 +428,7 @@ void TaskWorkPackageView::slotSplitView()
 void TaskWorkPackageView::slotOptions()
 {
     debugPlanWork;
-    QPointer<SplitItemViewSettupDialog> dlg = new SplitItemViewSettupDialog(0, m_view, this);
+    QPointer<SplitItemViewSettupDialog> dlg = new SplitItemViewSettupDialog(nullptr, m_view, this);
     dlg->exec();
     delete dlg;
 }
@@ -692,7 +692,7 @@ QString GanttItemDelegate::toolTip(const QModelIndex &index) const
 GanttView::GanttView(Part *part, QWidget *parent)
     : KPlato::GanttViewBase(parent),
       m_part(part),
-      m_project(0),
+      m_project(nullptr),
       m_ganttdelegate(new GanttItemDelegate(this)),
       m_itemmodel(new TaskWorkPackageModel(part, this))
 {
@@ -944,7 +944,7 @@ void TaskWPGanttView::setupGui()
 void TaskWPGanttView::slotOptions()
 {
     debugPlanWork;
-    QPointer<ItemViewSettupDialog> dlg = new ItemViewSettupDialog(0, m_view->treeView(), true, this);
+    QPointer<ItemViewSettupDialog> dlg = new ItemViewSettupDialog(nullptr, m_view->treeView(), true, this);
     dlg->exec();
     delete dlg;
 }

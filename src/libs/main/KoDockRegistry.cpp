@@ -32,7 +32,7 @@
 Q_GLOBAL_STATIC(KoDockRegistry, s_instance)
 
 KoDockRegistry::KoDockRegistry()
-  : d(0)
+  : d(nullptr)
 {
 }
 

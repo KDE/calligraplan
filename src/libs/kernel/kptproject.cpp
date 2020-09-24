@@ -57,7 +57,7 @@ QString generateId()
 Project::Project(Node *parent)
         : Node(parent),
         m_accounts(*this),
-        m_defaultCalendar(0),
+        m_defaultCalendar(nullptr),
         m_config(&emptyConfig),
         m_schedulerPlugins(),
         m_useSharedResources(false),
@@ -72,7 +72,7 @@ Project::Project(Node *parent)
 Project::Project(ConfigBase &config, Node *parent)
         : Node(parent),
         m_accounts(*this),
-        m_defaultCalendar(0),
+        m_defaultCalendar(nullptr),
         m_config(&config),
         m_schedulerPlugins(),
         m_useSharedResources(false),
@@ -88,7 +88,7 @@ Project::Project(ConfigBase &config, Node *parent)
 Project::Project(ConfigBase &config, bool useDefaultValues, Node *parent)
         : Node(parent),
         m_accounts(*this),
-        m_defaultCalendar(0),
+        m_defaultCalendar(nullptr),
         m_config(&config),
         m_schedulerPlugins(),
         m_useSharedResources(false),
@@ -111,7 +111,7 @@ void Project::init()
     m_standardWorktime = new StandardWorktime();
     m_timeZone = QTimeZone::systemTimeZone(); // local timezone as default
     //debugPlan<<m_timeZone;
-    if (m_parent == 0) {
+    if (m_parent == nullptr) {
         // set sensible defaults for a project wo parent
         m_constraintStartTime = DateTime(QDate::currentDate());
         m_constraintEndTime = m_constraintStartTime.addYears(2);
@@ -152,7 +152,7 @@ Project::~Project()
     while (!m_managers.isEmpty())
         delete m_managers.takeFirst();
 
-    m_config = 0; //not mine, don't delete
+    m_config = nullptr; //not mine, don't delete
 }
 
 int Project::type() const { return Node::Type_Project; }
@@ -201,7 +201,7 @@ void Project::generateUniqueIds()
 
 void Project::calculate(Schedule *schedule, const DateTime &dt)
 {
-    if (schedule == 0) {
+    if (schedule == nullptr) {
         errorPlan << "Schedule == 0, cannot calculate";
         return ;
     }
@@ -211,7 +211,7 @@ void Project::calculate(Schedule *schedule, const DateTime &dt)
 
 void Project::calculate(const DateTime &dt)
 {
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         errorPlan << "No current schedule to calculate";
         return ;
     }
@@ -300,7 +300,7 @@ void Project::calculate(ScheduleManager &sm)
 
 void Project::calculate(Schedule *schedule)
 {
-    if (schedule == 0) {
+    if (schedule == nullptr) {
         errorPlan << "Schedule == 0, cannot calculate";
         return ;
     }
@@ -310,7 +310,7 @@ void Project::calculate(Schedule *schedule)
 
 void Project::calculate()
 {
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         errorPlan << "No current schedule to calculate";
         return ;
     }
@@ -466,7 +466,7 @@ bool Project::calcCriticalPath(bool fromEnd)
 {
     //debugPlan;
     MainSchedule *cs = static_cast<MainSchedule*>(m_currentSchedule);
-    if (cs == 0) {
+    if (cs == nullptr) {
         return false;
     }
     if (fromEnd) {
@@ -520,9 +520,9 @@ void Project::calcCriticalPathList(MainSchedule *cs, Node *node)
 const QList< QList<Node*> > *Project::criticalPathList(long id)
 {
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         //debugPlan<<"No schedule with id="<<id;
-        return 0;
+        return nullptr;
     }
     MainSchedule *ms = static_cast<MainSchedule*>(s);
     if (! ms->criticalPathListCached) {
@@ -535,7 +535,7 @@ const QList< QList<Node*> > *Project::criticalPathList(long id)
 QList<Node*> Project::criticalPath(long id, int index)
 {
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         //debugPlan<<"No schedule with id="<<id;
         return QList<Node*>();
     }
@@ -567,7 +567,7 @@ Duration Project::duration(long id) const
 
 Duration *Project::getRandomDuration()
 {
-    return 0L;
+    return nullptr;
 }
 
 DateTime Project::checkStartConstraints(const DateTime &dt) const
@@ -760,7 +760,7 @@ DateTime Project::calculateForward(int use)
     //debugPlan<<m_name;
     DateTime finish;
     MainSchedule *cs = static_cast<MainSchedule*>(m_currentSchedule);
-    if (cs == 0) {
+    if (cs == nullptr) {
         return finish;
     }
     if (type() == Node::Type_Project) {
@@ -824,7 +824,7 @@ DateTime Project::calculateBackward(int use)
     //debugPlan<<m_name;
     DateTime start;
     MainSchedule *cs = static_cast<MainSchedule*>(m_currentSchedule);
-    if (cs == 0) {
+    if (cs == nullptr) {
         return start;
     }
     if (type() == Node::Type_Project) {
@@ -887,7 +887,7 @@ DateTime Project::scheduleForward(const DateTime &earliest, int use)
 {
     DateTime end;
     MainSchedule *cs = static_cast<MainSchedule*>(m_currentSchedule);
-    if (cs == 0 || stopcalculation) {
+    if (cs == nullptr || stopcalculation) {
         return DateTime();
     }
     QElapsedTimer timer;
@@ -926,7 +926,7 @@ DateTime Project::scheduleBackward(const DateTime &latest, int use)
 {
     DateTime start;
     MainSchedule *cs = static_cast<MainSchedule*>(m_currentSchedule);
-    if (cs == 0 || stopcalculation) {
+    if (cs == nullptr || stopcalculation) {
         return start;
     }
     QElapsedTimer timer;
@@ -963,7 +963,7 @@ DateTime Project::scheduleBackward(const DateTime &latest, int use)
 void Project::adjustSummarytask()
 {
     MainSchedule *cs = static_cast<MainSchedule*>(m_currentSchedule);
-    if (cs == 0 || stopcalculation) {
+    if (cs == nullptr || stopcalculation) {
         return;
     }
     QListIterator<Node*> it(cs->summaryTasks());
@@ -1400,12 +1400,12 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
         KoXmlElement sn;
         forEachElement(sn, e) {
             //debugPlan<<sn.tagName()<<" Version="<<status.version();
-            ScheduleManager *sm = 0;
+            ScheduleManager *sm = nullptr;
             bool add = false;
             if (status.version() <= "0.5") {
                 if (sn.tagName() == "schedule") {
                     sm = findScheduleManagerByName(sn.attribute("name"));
-                    if (sm == 0) {
+                    if (sm == nullptr) {
                         sm = new ScheduleManager(*this, sn.attribute("name"));
                         add = true;
                     }
@@ -1929,7 +1929,7 @@ void Project::saveWorkPackageXML(QDomElement &element, const Node *node, long id
         git.next() ->saveWorkPackageXML(me, node->assignedResources(id));
     }
 
-    if (node == 0) {
+    if (node == nullptr) {
         return;
     }
     node->saveWorkPackageXML(me, id);
@@ -2087,7 +2087,7 @@ bool Project::addTask(Node* task, Node* position)
 {
     // we want to add a task at the given position. => the new node will
     // become next sibling right after position.
-    if (0 == position) {
+    if (nullptr == position) {
         return addSubTask(task, this);
     }
     //debugPlan<<"Add"<<task->name()<<" after"<<position->name();
@@ -2123,7 +2123,7 @@ bool Project::addSubTask(Node* task, int index, Node* parent, bool emitSignal)
     // we want to add a subtask to the node "parent" at the given index.
     // If parent is 0, add to this
     Node *p = parent;
-    if (0 == p) {
+    if (nullptr == p) {
         p = this;
     }
     if (!registerNodeId(task)) {
@@ -2148,7 +2148,7 @@ void Project::takeTask(Node *node, bool emitSignal)
 {
     //debugPlan<<node->name();
     Node * parent = node->parentNode();
-    if (parent == 0) {
+    if (parent == nullptr) {
         debugPlan <<"Node must have a parent!";
         return;
     }
@@ -2219,7 +2219,7 @@ bool Project::moveTask(Node* node, Node *newParent, int newPos)
 
 bool Project::canIndentTask(Node* node)
 {
-    if (0 == node) {
+    if (nullptr == node) {
         // should always be != 0. At least we would get the Project,
         // but you never know who might change that, so better be careful
         return false;
@@ -2263,7 +2263,7 @@ bool Project::indentTask(Node* node, int index)
 
 bool Project::canUnindentTask(Node* node)
 {
-    if (0 == node) {
+    if (nullptr == node) {
         // is always != 0. At least we would get the Project, but you
         // never know who might change that, so better be careful
         return false;
@@ -2309,7 +2309,7 @@ bool Project::unindentTask(Node* node)
 
 bool Project::canMoveTaskUp(Node* node)
 {
-    if (node == 0)
+    if (node == nullptr)
         return false; // safety
     // we have to find the parent of task to manipulate its list of children
     Node* parentNode = node->parentNode();
@@ -2338,7 +2338,7 @@ bool Project::moveTaskUp(Node* node)
 
 bool Project::canMoveTaskDown(Node* node)
 {
-    if (node == 0)
+    if (node == nullptr)
         return false; // safety
     // we have to find the parent of task to manipulate its list of children
     Node* parentNode = node->parentNode();
@@ -2382,11 +2382,11 @@ Task *Project::createTask(const Task &def)
 
 Node *Project::findNode(const QString &id) const
 {
-    if (m_parent == 0) {
+    if (m_parent == nullptr) {
         if (nodeIdDict.contains(id)) {
             return nodeIdDict[ id ];
         }
-        return 0;
+        return nullptr;
     }
     return m_parent->findNode(id);
 }
@@ -2439,7 +2439,7 @@ bool Project::registerNodeId(Node *node)
         return false;
     }
     Node *rn = findNode(node->id());
-    if (rn == 0) {
+    if (rn == nullptr) {
         //debugPlan <<"id=" << node->id() << node->name();
         nodeIdDict.insert(node->id(), node);
         return true;
@@ -2499,14 +2499,14 @@ bool Project::isStarted() const
 
 bool Project::setResourceGroupId(ResourceGroup *group)
 {
-    if (group == 0) {
+    if (group == nullptr) {
         return false;
     }
     if (! group->id().isEmpty()) {
         ResourceGroup *g = findResourceGroup(group->id());
         if (group == g) {
             return true;
-        } else if (g == 0) {
+        } else if (g == nullptr) {
             insertResourceGroupId(group->id(), group);
             return true;
         }
@@ -2540,7 +2540,7 @@ ResourceGroup *Project::groupByName(const QString& name) const
             return g;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 QList<Resource*> Project::autoAllocateResources() const
@@ -2566,14 +2566,14 @@ bool Project::removeResourceId(const QString &id)
 
 bool Project::setResourceId(Resource *resource)
 {
-    if (resource == 0) {
+    if (resource == nullptr) {
         return false;
     }
     if (! resource->id().isEmpty()) {
         Resource *r = findResource(resource->id());
         if (resource == r) {
             return true;
-        } else if (r == 0) {
+        } else if (r == nullptr) {
             insertResourceId(resource->id(), resource);
             return true;
         }
@@ -2610,7 +2610,7 @@ Resource *Project::resourceByName(const QString& name) const
             return r;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 QStringList Project::resourceNameList() const
@@ -2641,7 +2641,7 @@ EffortCostMap Project::plannedEffortCostPrDay(QDate  start, QDate end, long id, 
 {
     //debugPlan<<start<<end<<id;
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return EffortCostMap();
     }
     EffortCostMap ec;
@@ -2854,16 +2854,16 @@ double Project::bcwp(QDate date, long id) const
 
 void Project::addCalendar(Calendar *calendar, Calendar *parent, int index)
 {
-    Q_ASSERT(calendar != 0);
+    Q_ASSERT(calendar != nullptr);
     //debugPlan<<calendar->name()<<","<<(parent?parent->name():"No parent");
-    int row = parent == 0 ? m_calendars.count() : parent->calendars().count();
+    int row = parent == nullptr ? m_calendars.count() : parent->calendars().count();
     if (index >= 0 && index < row) {
         row = index;
     }
     emit calendarToBeAdded(parent, row);
     calendar->setProject(this);
-    if (parent == 0) {
-        calendar->setParentCal(0); // in case
+    if (parent == nullptr) {
+        calendar->setParentCal(nullptr); // in case
         m_calendars.insert(row, calendar);
     } else {
         calendar->setParentCal(parent, row);
@@ -2881,18 +2881,18 @@ void Project::takeCalendar(Calendar *calendar)
     emit calendarToBeRemoved(calendar);
     removeCalendarId(calendar->id());
     if (calendar == m_defaultCalendar) {
-        m_defaultCalendar = 0;
+        m_defaultCalendar = nullptr;
     }
-    if (calendar->parentCal() == 0) {
+    if (calendar->parentCal() == nullptr) {
         int i = indexOf(calendar);
         if (i != -1) {
             m_calendars.removeAt(i);
         }
     } else {
-        calendar->setParentCal(0);
+        calendar->setParentCal(nullptr);
     }
     emit calendarRemoved(calendar);
-    calendar->setProject(0);
+    calendar->setProject(nullptr);
     emit projectChanged();
 }
 
@@ -2913,7 +2913,7 @@ Calendar *Project::calendarByName(const QString& name) const
             return c;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 const QList<Calendar*> &Project::calendars() const
@@ -2937,14 +2937,14 @@ QStringList Project::calendarNames() const
 
 bool Project::setCalendarId(Calendar *calendar)
 {
-    if (calendar == 0) {
+    if (calendar == nullptr) {
         return false;
     }
     if (! calendar->id().isEmpty()) {
         Calendar *c = findCalendar(calendar->id());
         if (calendar == c) {
             return true;
-        } else if (c == 0) {
+        } else if (c == nullptr) {
             insertCalendarId(calendar->id(), calendar);
             return true;
         }
@@ -3006,7 +3006,7 @@ void Project::emitDocumentChanged(Node *node , Document *doc , int index)
 
 bool Project::linkExists(const Node *par, const Node *child) const
 {
-    if (par == 0 || child == 0 || par == child || par->isDependChildOf(child)) {
+    if (par == nullptr || child == nullptr || par == child || par->isDependChildOf(child)) {
         return false;
     }
     foreach (Relation *r, par->dependChildNodes()) {
@@ -3021,7 +3021,7 @@ bool Project::legalToLink(const Node *par, const Node *child) const
 {
     //debugPlan<<par.name()<<" ("<<par.numDependParentNodes()<<" parents)"<<child.name()<<" ("<<child.numDependChildNodes()<<" children)";
 
-    if (par == 0 || child == 0 || par == child || par->isDependChildOf(child)) {
+    if (par == nullptr || child == nullptr || par == child || par->isDependChildOf(child)) {
         return false;
     }
     if (linkExists(par, child)) {
@@ -3142,7 +3142,7 @@ ScheduleManager *Project::scheduleManager(long id) const
             return sm;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 ScheduleManager *Project::scheduleManager(const QString &id) const
@@ -3153,7 +3153,7 @@ ScheduleManager *Project::scheduleManager(const QString &id) const
 ScheduleManager *Project::findScheduleManagerByName(const QString &name) const
 {
     //debugPlan;
-    ScheduleManager *m = 0;
+    ScheduleManager *m = nullptr;
     foreach(ScheduleManager *sm, m_managers) {
         m = sm->findManager(name);
         if (m) {
@@ -3176,14 +3176,14 @@ QList<ScheduleManager*> Project::allScheduleManagers() const
 QString Project::uniqueScheduleName() const {
     //debugPlan;
     QString n = i18n("Plan");
-    bool unique = findScheduleManagerByName(n) == 0;
+    bool unique = findScheduleManagerByName(n) == nullptr;
     if (unique) {
         return n;
     }
     n += " %1";
     int i = 1;
     for (; true; ++i) {
-        unique = findScheduleManagerByName(n.arg(i)) == 0;
+        unique = findScheduleManagerByName(n.arg(i)) == nullptr;
         if (unique) {
             break;
         }
@@ -3193,11 +3193,11 @@ QString Project::uniqueScheduleName() const {
 
 void Project::addScheduleManager(ScheduleManager *sm, ScheduleManager *parent, int index)
 {
-    int row = parent == 0 ? m_managers.count() : parent->childCount();
+    int row = parent == nullptr ? m_managers.count() : parent->childCount();
     if (index >= 0 && index < row) {
         row = index;
     }
-    if (parent == 0) {
+    if (parent == nullptr) {
         emit scheduleManagerToBeAdded(parent, row);
         m_managers.insert(row, sm);
     } else {
@@ -3228,7 +3228,7 @@ int Project::takeScheduleManager(ScheduleManager *sm)
         int index = sm->parentManager()->indexOf(sm);
         if (index >= 0) {
             emit scheduleManagerToBeRemoved(sm);
-            sm->setParentManager(0);
+            sm->setParentManager(nullptr);
             m_managerIdMap.remove(sm->managerId());
             emit scheduleManagerRemoved(sm);
             emit projectChanged();
@@ -3312,7 +3312,7 @@ bool Project::isBaselined(long id) const
         return false;
     }
     Schedule *s = schedule(id);
-    return s == 0 ? false : s->isBaselined();
+    return s == nullptr ? false : s->isBaselined();
 }
 
 MainSchedule *Project::createSchedule(const QString& name, Schedule::Type type)
@@ -3327,7 +3327,7 @@ MainSchedule *Project::createSchedule(const QString& name, Schedule::Type type)
 
 void Project::addMainSchedule(MainSchedule *sch)
 {
-    if (sch == 0) {
+    if (sch == nullptr) {
         return;
     }
     //debugPlan<<"No of schedules:"<<m_schedules.count();
@@ -3354,7 +3354,7 @@ void Project::insertCalendarId(const QString &id, Calendar *calendar)
 
 void Project::changed(Node *node, int property)
 {
-    if (m_parent == 0) {
+    if (m_parent == nullptr) {
         Node::changed(node, property); // reset cache
         if (property != Node::TypeProperty) {
             // add/remove node is handled elsewhere
@@ -3431,7 +3431,7 @@ void Project::changed(StandardWorktime *w)
 
 bool Project::addRelation(Relation *rel, bool check)
 {
-    if (rel->parent() == 0 || rel->child() == 0) {
+    if (rel->parent() == nullptr || rel->child() == nullptr) {
         return false;
     }
     if (check && !legalToLink(rel->parent(), rel->child())) {
@@ -3473,7 +3473,7 @@ void Project::setRelationLag(Relation *rel, const Duration &lag)
 QList<Node*> Project::flatNodeList(Node *parent)
 {
     QList<Node*> lst;
-    Node *p = parent == 0 ? this : parent;
+    Node *p = parent == nullptr ? this : parent;
     //debugPlan<<p->name()<<lst.count();
     foreach (Node *n, p->childNodeIterator()) {
         lst.append(n);

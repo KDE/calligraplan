@@ -49,7 +49,7 @@ RemoveResourceCmd::RemoveResourceCmd(Resource *resource, const KUndo2MagicString
         }
     }
     if (resource->account()) {
-        m_postCmd.addCommand(new ResourceModifyAccountCmd(*resource, resource->account(), 0));
+        m_postCmd.addCommand(new ResourceModifyAccountCmd(*resource, resource->account(), nullptr));
     }
     for (ResourceRequest *r : m_requests) {
         m_preCmd.addCommand(new RemoveResourceRequestCmd(r));

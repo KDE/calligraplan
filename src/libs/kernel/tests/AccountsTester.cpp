@@ -99,11 +99,11 @@ void AccountsTester::init()
 void AccountsTester::cleanup()
 {
     delete project;
-    project = 0;
-    t = 0;
-    r = 0;
-    sm = 0;
-    topaccount = 0;
+    project = nullptr;
+    t = nullptr;
+    r = nullptr;
+    sm = nullptr;
+    topaccount = nullptr;
 }
 
 void AccountsTester::defaultAccount() {
@@ -609,7 +609,7 @@ void AccountsTester::deleteAccount()
 
     qInfo()<<"Delete sub account";
     delete a2;
-    QVERIFY(project->accounts().defaultAccount() == 0);
+    QVERIFY(project->accounts().defaultAccount() == nullptr);
     QCOMPARE(project->accounts().allAccounts().count(), 1);
 
     qInfo()<<"Delete top account";

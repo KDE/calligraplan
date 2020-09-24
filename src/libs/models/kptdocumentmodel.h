@@ -66,7 +66,7 @@ class PLANMODELS_EXPORT DocumentItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit DocumentItemModel(QObject *parent = 0);
+    explicit DocumentItemModel(QObject *parent = nullptr);
     ~DocumentItemModel() override;
 
     virtual void setDocuments(Documents *docs);

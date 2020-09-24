@@ -88,7 +88,7 @@ MacroCommand *TasksEditDialog::buildCommand()
     }
     if (!modified) {
         delete m;
-        m = 0;
+        m = nullptr;
     }
     return m;
 }

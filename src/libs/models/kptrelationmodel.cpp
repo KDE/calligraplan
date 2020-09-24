@@ -155,8 +155,8 @@ QVariant RelationModel::headerData(int section, int role)
 //----------------------------
 RelationItemModel::RelationItemModel(QObject *parent)
     : ItemModelBase(parent),
-    m_node(0),
-    m_removedRelation(0)
+    m_node(nullptr),
+    m_removedRelation(nullptr)
 {
 }
 
@@ -167,7 +167,7 @@ RelationItemModel::~RelationItemModel()
 void RelationItemModel::slotRelationToBeAdded(Relation *relation, int, int)
 {
     debugPlan;
-    if (m_node == 0 || m_node != relation->child()) {
+    if (m_node == nullptr || m_node != relation->child()) {
         return;
     }
     // relations always appended
@@ -178,7 +178,7 @@ void RelationItemModel::slotRelationToBeAdded(Relation *relation, int, int)
 void RelationItemModel::slotRelationAdded(Relation *relation)
 {
     debugPlan;
-    if (m_node == 0 || m_node != relation->child()) {
+    if (m_node == nullptr || m_node != relation->child()) {
         return;
     }
     endInsertRows();
@@ -186,7 +186,7 @@ void RelationItemModel::slotRelationAdded(Relation *relation)
 
 void RelationItemModel::slotRelationToBeRemoved(Relation *relation)
 {
-    if (m_node == 0 || ! m_node->dependParentNodes().contains(relation)) {
+    if (m_node == nullptr || ! m_node->dependParentNodes().contains(relation)) {
         return;
     }
     m_removedRelation = relation;
@@ -201,14 +201,14 @@ void RelationItemModel::slotRelationRemoved(Relation *relation)
     if (m_removedRelation != relation) {
         return;
     }
-    m_removedRelation = 0;
+    m_removedRelation = nullptr;
     endRemoveRows();
 }
 
 void RelationItemModel::slotRelationModified(Relation *relation)
 {
     debugPlan;
-    if (m_node == 0 || ! m_node->dependParentNodes().contains(relation)) {
+    if (m_node == nullptr || ! m_node->dependParentNodes().contains(relation)) {
         return;
     }
     int row = m_node->dependParentNodes().indexOf(relation);
@@ -220,7 +220,7 @@ void RelationItemModel::slotNodeToBeRemoved(Node *node)
     if (node != m_node) {
         return;
     }
-    setNode(0);
+    setNode(nullptr);
 }
 
 void RelationItemModel::slotNodeRemoved(Node *node)
@@ -309,7 +309,7 @@ QModelIndex RelationItemModel::parent(const QModelIndex &/*index*/) const
 
 QModelIndex RelationItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return QModelIndex();
     }
     if (parent.isValid()) {
@@ -360,7 +360,7 @@ QVariant RelationItemModel::data(const QModelIndex &index, int role) const
 
     QVariant result;
     Relation *r = relation(index);
-    if (r != 0) {
+    if (r != nullptr) {
         result = m_relationmodel.data(r, index.column(), role);
     }
     if (result.isValid()) {
@@ -418,9 +418,9 @@ QAbstractItemDelegate *RelationItemModel::createDelegate(int column, QWidget *pa
     switch (column) {
         case 2: return new EnumDelegate(parent);
         case 3: return new DurationSpinBoxDelegate(parent);
-        default: return 0;
+        default: return nullptr;
     }
-    return 0;
+    return nullptr;
 }
 
 int RelationItemModel::columnCount(const QModelIndex &/*parent*/) const
@@ -430,7 +430,7 @@ int RelationItemModel::columnCount(const QModelIndex &/*parent*/) const
 
 int RelationItemModel::rowCount(const QModelIndex &parent) const
 {
-    if (m_project == 0 || m_node == 0 || parent.isValid()) {
+    if (m_project == nullptr || m_node == nullptr || parent.isValid()) {
         return 0;
     }
     return m_node->numDependParentNodes();
@@ -438,8 +438,8 @@ int RelationItemModel::rowCount(const QModelIndex &parent) const
 
 Relation *RelationItemModel::relation(const QModelIndex &index) const
 {
-    if (! index.isValid() || m_node == 0) {
-        return 0;
+    if (! index.isValid() || m_node == nullptr) {
+        return nullptr;
     }
     return m_node->dependParentNodes().value(index.row());
 }

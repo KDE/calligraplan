@@ -150,7 +150,7 @@ ViewBase *ViewListItem::view() const
     if (data(0, ViewListItem::DataRole_View).isValid()) {
         return static_cast<ViewBase*>(data(0, ViewListItem::DataRole_View).value<QObject*>());
     }
-    return 0;
+    return nullptr;
 }
 
 void ViewListItem::setDocument(KoDocument *doc)
@@ -163,7 +163,7 @@ KoDocument *ViewListItem::document() const
     if (data(0, ViewListItem::DataRole_Document).isValid()) {
         return static_cast<KoDocument*>(data(0, ViewListItem::DataRole_Document).value<QObject*>());
     }
-    return 0;
+    return nullptr;
 }
 
 QString ViewListItem::viewType() const
@@ -218,10 +218,10 @@ void ViewListTreeWidget::drawRow(QPainter *painter, const QStyleOptionViewItem &
 void ViewListTreeWidget::handleMousePress(QTreeWidgetItem *item)
 {
     //debugPlan;
-    if (item == 0)
+    if (item == nullptr)
         return ;
 
-    if (item->parent() == 0) {
+    if (item->parent() == nullptr) {
         item->setExpanded(!item->isExpanded());
         return ;
     }
@@ -318,7 +318,7 @@ ViewListItem *ViewListTreeWidget::findCategory(const QString &cat)
         if (static_cast<ViewListItem*>(item)->tag() == cat)
             return static_cast<ViewListItem*>(item);
     }
-    return 0;
+    return nullptr;
 }
 
 ViewListItem *ViewListTreeWidget::category(const KoView *view) const
@@ -333,15 +333,15 @@ ViewListItem *ViewListTreeWidget::category(const KoView *view) const
             }
         }
     }
-    return 0;
+    return nullptr;
 }
 
 //-----------------------
 ViewListWidget::ViewListWidget(MainDocument *part, QWidget *parent)//QString name, KXmlGuiWindow *parent)
     : QWidget(parent),
     m_part(part),
-    m_prev(0),
-    m_temp(0)
+    m_prev(nullptr),
+    m_temp(nullptr)
 {
     setObjectName("ViewListWidget");
     Help::add(this,
@@ -432,7 +432,7 @@ ViewListItem *ViewListWidget::addCategory(const QString &tag, const QString& nam
 {
     //debugPlan ;
     ViewListItem *item = m_viewlist->findCategory(tag);
-    if (item == 0) {
+    if (item == nullptr) {
         item = new ViewListItem(m_viewlist, tag, QStringList(name), ViewListItem::ItemType_Category);
         item->setExpanded(true);
         item->setFlags(item->flags() | Qt::ItemIsEditable);
@@ -491,7 +491,7 @@ ViewListItem *ViewListWidget::addView(QTreeWidgetItem *category, const QString &
 void ViewListWidget::setSelected(QTreeWidgetItem *item)
 {
     //debugPlan<<item<<","<<m_viewlist->currentItem();
-    if (item == 0 && m_viewlist->currentItem()) {
+    if (item == nullptr && m_viewlist->currentItem()) {
         m_viewlist->currentItem()->setSelected(false);
         if (m_prev) {
             m_prev->setData(0, Qt::BackgroundRole, QVariant());
@@ -515,8 +515,8 @@ ViewListItem *ViewListWidget::currentItem() const
 ViewListItem *ViewListWidget::currentCategory() const
 {
     ViewListItem *item = static_cast<ViewListItem*>(m_viewlist->currentItem());
-    if (item == 0) {
-        return 0;
+    if (item == nullptr) {
+        return nullptr;
     }
     if (item->type() == ViewListItem::ItemType_Category) {
         return item;
@@ -527,8 +527,8 @@ ViewListItem *ViewListWidget::currentCategory() const
 KoView *ViewListWidget::findView(const QString &tag) const
 {
     ViewListItem *i = findItem(tag);
-    if (i == 0) {
-        return 0;
+    if (i == nullptr) {
+        return nullptr;
     }
     return i->view();
 }
@@ -536,11 +536,11 @@ KoView *ViewListWidget::findView(const QString &tag) const
 ViewListItem *ViewListWidget::findItem(const QString &tag) const
 {
     ViewListItem *item = findItem(tag, m_viewlist->invisibleRootItem());
-    if (item == 0) {
+    if (item == nullptr) {
         QTreeWidgetItem *parent = m_viewlist->invisibleRootItem();
         for (int i = 0; i < parent->childCount(); ++i) {
             item = findItem(tag, parent->child(i));
-            if (item != 0) {
+            if (item != nullptr) {
                 break;
             }
         }
@@ -550,7 +550,7 @@ ViewListItem *ViewListWidget::findItem(const QString &tag) const
 
 ViewListItem *ViewListWidget::findItem(const QString &tag, QTreeWidgetItem *parent) const
 {
-    if (parent == 0) {
+    if (parent == nullptr) {
         return findItem(tag, m_viewlist->invisibleRootItem());
     }
     for (int i = 0; i < parent->childCount(); ++i) {
@@ -564,12 +564,12 @@ ViewListItem *ViewListWidget::findItem(const QString &tag, QTreeWidgetItem *pare
             return ch;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 ViewListItem *ViewListWidget::findItem(const ViewBase *view, QTreeWidgetItem *parent) const
 {
-    if (parent == 0) {
+    if (parent == nullptr) {
         return findItem(view, m_viewlist->invisibleRootItem());
     }
     for (int i = 0; i < parent->childCount(); ++i) {
@@ -583,7 +583,7 @@ ViewListItem *ViewListWidget::findItem(const ViewBase *view, QTreeWidgetItem *pa
             return ch;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 void ViewListWidget::slotAddView()
@@ -593,7 +593,7 @@ void ViewListWidget::slotAddView()
 
 void ViewListWidget::slotRemoveCategory()
 {
-    if (m_contextitem == 0) {
+    if (m_contextitem == nullptr) {
         return;
     }
     if (m_contextitem->type() != ViewListItem::ItemType_Category) {
@@ -614,7 +614,7 @@ void ViewListWidget::slotRemoveCategory()
     }
     takeViewListItem(m_contextitem);
     delete m_contextitem;
-    m_contextitem = 0;
+    m_contextitem = nullptr;
     emit modified();
 }
 
@@ -643,10 +643,10 @@ void ViewListWidget::slotEditViewTitle()
 
 void ViewListWidget::slotConfigureItem()
 {
-    if (m_contextitem == 0) {
+    if (m_contextitem == nullptr) {
         return;
     }
-    KoDialog *dlg = 0;
+    KoDialog *dlg = nullptr;
     if (m_contextitem->type() == ViewListItem::ItemType_Category) {
         debugPlan<<m_contextitem<<":"<<m_contextitem->type();
         dlg = new ViewListEditCategoryDialog(*this, m_contextitem, this);
@@ -682,7 +682,7 @@ void ViewListWidget::slotEditDocumentTitle()
 int ViewListWidget::removeViewListItem(ViewListItem *item)
 {
     QTreeWidgetItem *p = item->parent();
-    if (p == 0) {
+    if (p == nullptr) {
         p = m_viewlist->invisibleRootItem();
     }
     int i = p->indexOfChild(item);
@@ -696,7 +696,7 @@ int ViewListWidget::removeViewListItem(ViewListItem *item)
 void ViewListWidget::addViewListItem(ViewListItem *item, QTreeWidgetItem *parent, int index)
 {
     QTreeWidgetItem *p = parent;
-    if (p == 0) {
+    if (p == nullptr) {
         p = m_viewlist->invisibleRootItem();
     }
     if (index == -1) {
@@ -715,7 +715,7 @@ int ViewListWidget::takeViewListItem(ViewListItem *item)
     if (pos != -1) {
         emit viewListItemRemoved(item);
         if (item == m_prev) {
-            m_prev = 0;
+            m_prev = nullptr;
         }
         if (m_prev) {
             setCurrentItem(m_prev);
@@ -787,7 +787,7 @@ void ViewListWidget::contextMenuEvent (QContextMenuEvent *event)
     QMenu menu;
     QList<QAction*> lst;
     m_contextitem = static_cast<ViewListItem*>(m_viewlist->itemAt(event->pos()));
-    if (m_contextitem == 0) {
+    if (m_contextitem == nullptr) {
         lst += m_listactions;
     } else {
         if (m_contextitem->type() == ViewListItem::ItemType_Category) {
@@ -847,14 +847,14 @@ void ViewListWidget::setSelectedSchedule(ScheduleManager *sm)
     }
     m_currentSchedule->setCurrentIndex(idx.row());
     debugPlan<<sm<<idx;
-    m_temp = 0;
+    m_temp = nullptr;
 }
 
 void ViewListWidget::slotScheduleManagerAdded(ScheduleManager *sm)
 {
     if (m_temp && m_temp == sm) {
         setSelectedSchedule(sm);
-        m_temp = 0;
+        m_temp = nullptr;
     }
 }
 

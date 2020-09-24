@@ -37,7 +37,7 @@
 #include <limits.h> // UINT_MAX
 
 KoDocumentEntry::KoDocumentEntry()
-        : m_loader(0)
+        : m_loader(nullptr)
 {
 }
 
@@ -65,7 +65,7 @@ QString KoDocumentEntry::fileName() const
  * @return TRUE if the service pointer is null
  */
 bool KoDocumentEntry::isEmpty() const {
-    return (m_loader == 0);
+    return (m_loader == nullptr);
 }
 
 /**
@@ -100,17 +100,17 @@ bool KoDocumentEntry::supportsMimeType(const QString & _mimetype) const {
 KoPart *KoDocumentEntry::createKoPart(QString* errorMsg) const
 {
     if (!m_loader) {
-        return 0;
+        return nullptr;
     }
 
     QObject *obj = m_loader->instance();
     KPluginFactory *factory = qobject_cast<KPluginFactory *>(obj);
-    KoPart *part = factory->create<KoPart>(0, QVariantList());
+    KoPart *part = factory->create<KoPart>(nullptr, QVariantList());
 
     if (!part) {
         if (errorMsg)
             *errorMsg = m_loader->errorString();
-        return 0;
+        return nullptr;
     }
 
     return part;

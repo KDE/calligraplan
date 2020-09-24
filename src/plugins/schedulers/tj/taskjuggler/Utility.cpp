@@ -53,7 +53,7 @@ static QString UtilityError;
 class LtHashTabEntry
 {
 public:
-    LtHashTabEntry() : tms(0), next(0) {}
+    LtHashTabEntry() : tms(nullptr), next(nullptr) {}
     ~LtHashTabEntry() { /*qDebug()<<"~LtHashTabEntry";*/ delete tms; }
     time_t t;
     struct tm* tms;
@@ -61,7 +61,7 @@ public:
 };
 
 static long LTHASHTABSIZE;
-static LtHashTabEntry** LtHashTab = 0;
+static LtHashTabEntry** LtHashTab = nullptr;
 
 bool
 isRichText(const QString& str)
@@ -160,7 +160,7 @@ void initUtility(long dictSize)
 
     LtHashTab = new LtHashTabEntry*[LTHASHTABSIZE = dictSize];
     for (long i = 0; i < LTHASHTABSIZE; ++i)
-        LtHashTab[i] = 0;
+        LtHashTab[i] = nullptr;
 }
 
 void exitUtility()
@@ -179,7 +179,7 @@ void exitUtility()
         }
 
     delete [] LtHashTab;
-    LtHashTab = 0;
+    LtHashTab = nullptr;
 }
 
 bool
@@ -196,7 +196,7 @@ setTimezone(const char* tZone)
      * will just copy the wrong value to tzname[0] (glibc < 2.5) or fall back
      * to UTC. */
     tzset();
-    if (timezone2tz(tZone) == 0 &&
+    if (timezone2tz(tZone) == nullptr &&
         (strcmp(tzname[0], tZone) == 0 ||
          (strcmp(tZone, "UTC") != 0 && strcmp(tzname[0], "UTC") == 0)))
     {
@@ -216,7 +216,7 @@ setTimezone(const char* tZone)
             htep = tmp;
         }
         if (LtHashTab[i])
-            LtHashTab[i] = 0;
+            LtHashTab[i] = nullptr;
     }
     return true;
 }
@@ -822,11 +822,11 @@ date2time(const QString& date)
                &y, &m, &d, &hour, &min, tZone) == 6)
     {
         const char* tz;
-        if ((tz = getenv("TZ")) != 0)
+        if ((tz = getenv("TZ")) != nullptr)
         {
             savedTZ = tz;
         }
-        if ((tz = timezone2tz(tZone)) == 0)
+        if ((tz = timezone2tz(tZone)) == nullptr)
         {
             UtilityError = QString("Illegal timezone %1").arg(tZone);
             return 0;
@@ -891,7 +891,7 @@ date2time(const QString& date)
 #if defined(Q_OS_WIN) || defined(__CYGWIN__) || (defined(__SVR4) && defined(__sun))
     struct tm t = { sec, min, hour, d, m - 1, y - 1900, 0, 0, -1 };
 #else
-    struct tm t = { sec, min, hour, d, m - 1, y - 1900, 0, 0, -1, 0, 0 };
+    struct tm t = { sec, min, hour, d, m - 1, y - 1900, 0, 0, -1, 0, nullptr };
 #endif
     time_t localTime = mktime(&t);
 
@@ -929,7 +929,7 @@ qdate2time(const QDate& d)
                     0, 0, -1 };
 #else
     struct tm t = { 0, 0, 0, d.day(), d.month() - 1, d.year() - 1900,
-                    0, 0, -1, 0, 0 };
+                    0, 0, -1, 0, nullptr };
 #endif
     return mktime(&t);
 }

@@ -50,7 +50,7 @@ class PLANUI_EXPORT PertResult : public ViewBase
 {
     Q_OBJECT
 public:
-    explicit PertResult(KoPart *part, KoDocument *doc, QWidget *parent = 0);
+    explicit PertResult(KoPart *part, KoDocument *doc, QWidget *parent = nullptr);
     
     void setupGui();
     void setProject(Project *project) override;
@@ -98,7 +98,7 @@ class PLANUI_EXPORT PertCpmView : public ViewBase
 {
     Q_OBJECT
 public:
-    explicit PertCpmView(KoPart *part, KoDocument *doc, QWidget *parent = 0);
+    explicit PertCpmView(KoPart *part, KoDocument *doc, QWidget *parent = nullptr);
     
     void setupGui();
     void setProject(Project *project) override;

@@ -88,7 +88,7 @@ DocumentItemModel *DocumentsPanel::model() const
 void DocumentsPanel::dataChanged(const QModelIndex &index)
 {
     Document *doc = m_docs.value(index.row());
-    if (doc == 0) {
+    if (doc == nullptr) {
         return;
     }
     m_state.insert(doc, (State)(m_state[ doc ] | Modified));
@@ -142,7 +142,7 @@ void DocumentsPanel::slotAddUrl()
 void DocumentsPanel::slotChangeUrl()
 {
     Document *doc = m_view->currentDocument();
-    if (doc == 0) {
+    if (doc == nullptr) {
         return slotAddUrl();
     }
     KUrlRequesterDialog *dlg = new KUrlRequesterDialog(doc->url(), QString(), this);
@@ -170,7 +170,7 @@ void DocumentsPanel::slotRemoveUrl()
     QList<Document*> lst = m_view->selectedDocuments();
     bool mod = false;
     foreach (Document *doc, lst) {
-        if (doc == 0) {
+        if (doc == nullptr) {
             continue;
         }
         m_docs.takeDocument(doc);
@@ -195,7 +195,7 @@ void DocumentsPanel::slotViewUrl()
         //KMessageBox::error(0, i18n("Cannot open document. Invalid url: %1", filename.pathOrUrl()));
         return;
     }
-    KRun *run = new KRun(doc->url(), 0);
+    KRun *run = new KRun(doc->url(), nullptr);
     Q_UNUSED(run); // XXX: shouldn't run be deleted?
     return;
 }
@@ -204,19 +204,19 @@ MacroCommand *DocumentsPanel::buildCommand()
 {
     if (m_docs == m_node.documents()) {
         debugPlan<<"No changes to save";
-        return 0;
+        return nullptr;
     }
     Documents &docs = m_node.documents();
-    Document *d = 0;
+    Document *d = nullptr;
     KUndo2MagicString txt = kundo2_i18n("Modify documents");
-    MacroCommand *m = 0;
+    MacroCommand *m = nullptr;
     QMap<Document*, State>::const_iterator i = m_state.constBegin();
     for (; i != m_state.constEnd(); ++i) {
         debugPlan<<i.key()<<i.value();
         if (i.value() & Removed) {
             d = docs.findDocument(m_orgurl[ i.key() ]);
             Q_ASSERT(d);
-            if (m == 0) m = new MacroCommand(txt);
+            if (m == nullptr) m = new MacroCommand(txt);
             debugPlan<<"remove document "<<i.key();
             m->addCommand(new DocumentRemoveCmd(m_node.documents(), d, kundo2_i18n("Remove document")));
         } else if ((i.value() & Added) == 0 && i.value() & Modified) {
@@ -225,27 +225,27 @@ MacroCommand *DocumentsPanel::buildCommand()
             // do plain modifications before additions
             debugPlan<<"modify document "<<d;
             if (i.key()->url() != d->url()) {
-                if (m == 0) m = new MacroCommand(txt);
+                if (m == nullptr) m = new MacroCommand(txt);
                 m->addCommand(new DocumentModifyUrlCmd(d, i.key()->url(), kundo2_i18n("Modify document url")));
             }
             if (i.key()->type() != d->type()) {
-                if (m == 0) m = new MacroCommand(txt);
+                if (m == nullptr) m = new MacroCommand(txt);
                 m->addCommand(new DocumentModifyTypeCmd(d, i.key()->type(), kundo2_i18n("Modify document type")));
             }
             if (i.key()->status() != d->status()) {
-                if (m == 0) m = new MacroCommand(txt);
+                if (m == nullptr) m = new MacroCommand(txt);
                 m->addCommand(new DocumentModifyStatusCmd(d, i.key()->status(), kundo2_i18n("Modify document status")));
             }
             if (i.key()->sendAs() != d->sendAs()) {
-                if (m == 0) m = new MacroCommand(txt);
+                if (m == nullptr) m = new MacroCommand(txt);
                 m->addCommand(new DocumentModifySendAsCmd(d, i.key()->sendAs(), kundo2_i18n("Modify document send control")));
             }
             if (i.key()->name() != d->name()) {
-                if (m == 0) m = new MacroCommand(txt);
+                if (m == nullptr) m = new MacroCommand(txt);
                 m->addCommand(new DocumentModifyNameCmd(d, i.key()->name()/*, kundo2_i18n("Modify document name")*/));
             }
         } else if (i.value() & Added) {
-            if (m == 0) m = new MacroCommand(txt);
+            if (m == nullptr) m = new MacroCommand(txt);
             debugPlan<<i.key()<<m_docs.documents();
             d = m_docs.takeDocument(i.key());
             debugPlan<<"add document "<<d;

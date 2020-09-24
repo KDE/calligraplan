@@ -47,11 +47,11 @@ public:
         : parent(dia),
           stop(true),
 //          shapeManager(0),
-          painter(0),
+          painter(nullptr),
           printer(new QPrinter()),
           index(0),
-          progress(0),
-          dialog(0),
+          progress(nullptr),
+          dialog(nullptr),
           removePolicy(KoPrintJob::DoNotDelete)
     {
     }
@@ -123,7 +123,7 @@ public:
         if (painter && painter->isActive())
             painter->end();
         delete painter;
-        painter = 0;
+        painter = nullptr;
         stop = false;
     }
 

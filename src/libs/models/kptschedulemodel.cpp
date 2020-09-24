@@ -75,7 +75,7 @@ int ScheduleModel::propertyCount() const
 
 ScheduleItemModel::ScheduleItemModel(QObject *parent)
     : ItemModelBase(parent),
-    m_manager(0),
+    m_manager(nullptr),
     m_flat(false)
 {
 }
@@ -90,7 +90,7 @@ void ScheduleItemModel::slotScheduleManagerToBeInserted(const ScheduleManager *p
     if (m_flat) {
         return; // handle in *Inserted();
     }
-    Q_ASSERT(m_manager == 0);
+    Q_ASSERT(m_manager == nullptr);
     m_manager = const_cast<ScheduleManager*>(parent);
     beginInsertRows(index(parent), row, row);
 }
@@ -109,7 +109,7 @@ void ScheduleItemModel::slotScheduleManagerInserted(const ScheduleManager *manag
     }
     Q_ASSERT(manager->parentManager() == m_manager);
     endInsertRows();
-    m_manager = 0;
+    m_manager = nullptr;
     emit scheduleManagerAdded(const_cast<ScheduleManager*>(manager));
 }
 
@@ -123,7 +123,7 @@ void ScheduleItemModel::slotScheduleManagerToBeRemoved(const ScheduleManager *ma
         return;
     }
 
-    Q_ASSERT(m_manager == 0);
+    Q_ASSERT(m_manager == nullptr);
     m_manager = const_cast<ScheduleManager*>(manager);
     QModelIndex i = index(manager);
     int row = i.row();
@@ -139,7 +139,7 @@ void ScheduleItemModel::slotScheduleManagerRemoved(const ScheduleManager *manage
     }
     Q_ASSERT(manager == m_manager); Q_UNUSED(manager);
     endRemoveRows();
-    m_manager = 0;
+    m_manager = nullptr;
 }
 
 void ScheduleItemModel::slotScheduleManagerToBeMoved(const ScheduleManager *manager)
@@ -262,11 +262,11 @@ Qt::ItemFlags ScheduleItemModel::flags(const QModelIndex &index) const
         return flags &= ~Qt::ItemIsEditable;
     }
     ScheduleManager *sm = manager(index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return flags;
     }
     SchedulerPlugin *pl = sm->schedulerPlugin();
-    if (pl == 0) {
+    if (pl == nullptr) {
         return flags;
     }
     int capabilities = pl->capabilities();
@@ -294,7 +294,7 @@ Qt::ItemFlags ScheduleItemModel::flags(const QModelIndex &index) const
                 }
                 break;
             case ScheduleModel::ScheduleDirection:
-                if (sm->parentManager() == 0 &&
+                if (sm->parentManager() == nullptr &&
                     capabilities & SchedulerPlugin::ScheduleForward &&
                     capabilities & SchedulerPlugin::ScheduleBackward)
                 {
@@ -317,12 +317,12 @@ Qt::ItemFlags ScheduleItemModel::flags(const QModelIndex &index) const
 
 QModelIndex ScheduleItemModel::parent(const QModelIndex &inx) const
 {
-    if (!inx.isValid() || m_project == 0 || m_flat) {
+    if (!inx.isValid() || m_project == nullptr || m_flat) {
         return QModelIndex();
     }
     //debugPlan<<inx.internalPointer()<<":"<<inx.row()<<","<<inx.column();
     ScheduleManager *sm = manager(inx);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QModelIndex();
     }
     return index(sm->parentManager());
@@ -331,7 +331,7 @@ QModelIndex ScheduleItemModel::parent(const QModelIndex &inx) const
 QModelIndex ScheduleItemModel::index(int row, int column, const QModelIndex &parent) const
 {
     //debugPlan<<m_project<<":"<<row<<","<<column;
-    if (m_project == 0 || column < 0 || column >= columnCount() || row < 0 || row >= rowCount(parent)) {
+    if (m_project == nullptr || column < 0 || column >= columnCount() || row < 0 || row >= rowCount(parent)) {
         //debugPlan<<row<<","<<column<<" out of bounce";
         return QModelIndex();
     }
@@ -347,14 +347,14 @@ QModelIndex ScheduleItemModel::index(int row, int column, const QModelIndex &par
 
 QModelIndex ScheduleItemModel::index(const ScheduleManager *manager) const
 {
-    if (m_project == 0 || manager == 0) {
+    if (m_project == nullptr || manager == nullptr) {
         return QModelIndex();
     }
     if (m_flat) {
         return createIndex(m_managerlist.indexOf(const_cast<ScheduleManager*>(manager)), 0, const_cast<ScheduleManager*>(manager));
     }
 
-    if (manager->parentManager() == 0) {
+    if (manager->parentManager() == nullptr) {
         return createIndex(m_project->indexOf(manager), 0, const_cast<ScheduleManager*>(manager));
     }
     return createIndex(manager->parentManager()->indexOf(manager), 0, const_cast<ScheduleManager*>(manager));
@@ -367,7 +367,7 @@ int ScheduleItemModel::columnCount(const QModelIndex &/*parent*/) const
 
 int ScheduleItemModel::rowCount(const QModelIndex &parent) const
 {
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return 0;
     }
     if (m_flat) {
@@ -387,7 +387,7 @@ int ScheduleItemModel::rowCount(const QModelIndex &parent) const
 QVariant ScheduleItemModel::name(const QModelIndex &index, int role) const
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -412,7 +412,7 @@ QVariant ScheduleItemModel::name(const QModelIndex &index, int role) const
 bool ScheduleItemModel::setName(const QModelIndex &index, const QVariant &value, int role)
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return false;
     }
     switch (role) {
@@ -428,7 +428,7 @@ bool ScheduleItemModel::setName(const QModelIndex &index, const QVariant &value,
 QVariant ScheduleItemModel::schedulingMode(const QModelIndex &index, int role) const
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -458,7 +458,7 @@ QVariant ScheduleItemModel::schedulingMode(const QModelIndex &index, int role) c
 bool ScheduleItemModel::setSchedulingMode(const QModelIndex &index, const QVariant &value, int role)
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return false;
     }
     switch (role) {
@@ -474,7 +474,7 @@ bool ScheduleItemModel::setSchedulingMode(const QModelIndex &index, const QVaria
 QVariant ScheduleItemModel::state(const QModelIndex &index, int role) const
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -534,11 +534,11 @@ bool ScheduleItemModel::setState(const QModelIndex &, const QVariant &, int role
 QVariant ScheduleItemModel::allowOverbooking(const QModelIndex &index, int role) const
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     SchedulerPlugin *pl = sm->schedulerPlugin();
-    if (pl == 0) {
+    if (pl == nullptr) {
         return QVariant();
     }
     int capabilities = pl->capabilities();
@@ -593,7 +593,7 @@ QVariant ScheduleItemModel::allowOverbooking(const QModelIndex &index, int role)
 bool ScheduleItemModel::setAllowOverbooking(const QModelIndex &index, const QVariant &value, int role)
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return false;
     }
     switch (role) {
@@ -608,7 +608,7 @@ bool ScheduleItemModel::setAllowOverbooking(const QModelIndex &index, const QVar
 QVariant ScheduleItemModel::usePert(const QModelIndex &index, int role) const
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -636,7 +636,7 @@ QVariant ScheduleItemModel::usePert(const QModelIndex &index, int role) const
 bool ScheduleItemModel::setUsePert(const QModelIndex &index, const QVariant &value, int role)
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return false;
     }
     switch (role) {
@@ -650,11 +650,11 @@ bool ScheduleItemModel::setUsePert(const QModelIndex &index, const QVariant &val
 
 QVariant ScheduleItemModel::projectStart(const QModelIndex &index, int role) const
 {
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return QVariant();
     }
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -686,11 +686,11 @@ QVariant ScheduleItemModel::projectStart(const QModelIndex &index, int role) con
 
 QVariant ScheduleItemModel::projectEnd(const QModelIndex &index, int role) const
 {
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return QVariant();
     }
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -723,11 +723,11 @@ QVariant ScheduleItemModel::projectEnd(const QModelIndex &index, int role) const
 QVariant ScheduleItemModel::schedulingDirection(const QModelIndex &index, int role) const
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     SchedulerPlugin *pl = sm->schedulerPlugin();
-    if (pl == 0) {
+    if (pl == nullptr) {
         return QVariant();
     }
     int capabilities = pl->capabilities();
@@ -782,7 +782,7 @@ QVariant ScheduleItemModel::schedulingDirection(const QModelIndex &index, int ro
 bool ScheduleItemModel::setSchedulingDirection(const QModelIndex &index, const QVariant &value, int role)
 {
     ScheduleManager *sm = manager (index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return false;
     }
     switch (role) {
@@ -797,7 +797,7 @@ bool ScheduleItemModel::setSchedulingDirection(const QModelIndex &index, const Q
 QVariant ScheduleItemModel::scheduler(const QModelIndex &index, int role) const
 {
     ScheduleManager *sm = manager(index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     SchedulerPlugin *pl = sm->schedulerPlugin();
@@ -829,7 +829,7 @@ QVariant ScheduleItemModel::scheduler(const QModelIndex &index, int role) const
 bool ScheduleItemModel::setScheduler(const QModelIndex &index, const QVariant &value, int role)
 {
     ScheduleManager *sm = manager(index);
-    if (sm != 0) {
+    if (sm != nullptr) {
         switch (role) {
             case Qt::EditRole: {
                 emit executeCommand(new ModifyScheduleManagerSchedulerCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduler")));
@@ -843,7 +843,7 @@ bool ScheduleItemModel::setScheduler(const QModelIndex &index, const QVariant &v
 QVariant ScheduleItemModel::isScheduled(const QModelIndex &index, int role) const
 {
     ScheduleManager *sm = manager(index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -865,7 +865,7 @@ QVariant ScheduleItemModel::isScheduled(const QModelIndex &index, int role) cons
 QVariant ScheduleItemModel::granularity(const QModelIndex &index, int role) const
 {
     ScheduleManager *sm = manager(index);
-    if (sm == 0) {
+    if (sm == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -910,7 +910,7 @@ QVariant ScheduleItemModel::granularity(const QModelIndex &index, int role) cons
 bool ScheduleItemModel::setGranularity(const QModelIndex &index, const QVariant &value, int role)
 {
     ScheduleManager *sm = manager(index);
-    if (sm != 0) {
+    if (sm != nullptr) {
         switch (role) {
             case Qt::EditRole: {
                 emit executeCommand(new ModifyScheduleManagerSchedulingGranularityCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduling granularity")));
@@ -1061,7 +1061,7 @@ QAbstractItemDelegate *ScheduleItemModel::createDelegate(int column, QWidget *pa
         case ScheduleModel::ScheduleGranularity: return new EnumDelegate(parent);
         case ScheduleModel::ScheduleScheduler: return new EnumDelegate(parent);
     }
-    return 0;
+    return nullptr;
 }
 
 void ScheduleItemModel::sort(int column, Qt::SortOrder order)
@@ -1072,7 +1072,7 @@ void ScheduleItemModel::sort(int column, Qt::SortOrder order)
 
 QMimeData * ScheduleItemModel::mimeData(const QModelIndexList &) const
 {
-    return 0;
+    return nullptr;
 }
 
 QStringList ScheduleItemModel::mimeTypes () const
@@ -1082,8 +1082,8 @@ QStringList ScheduleItemModel::mimeTypes () const
 
 ScheduleManager *ScheduleItemModel::manager(const QModelIndex &index) const
 {
-    ScheduleManager *o = 0;
-    if (index.isValid() && m_project != 0 && index.internalPointer() != 0 && m_project->isScheduleManager(index.internalPointer())) {
+    ScheduleManager *o = nullptr;
+    if (index.isValid() && m_project != nullptr && index.internalPointer() != nullptr && m_project->isScheduleManager(index.internalPointer())) {
         o = static_cast<ScheduleManager*>(index.internalPointer());
         Q_ASSERT(o);
     }
@@ -1094,7 +1094,7 @@ void ScheduleItemModel::setFlat(bool flat)
 {
     m_flat = flat;
     m_managerlist.clear();
-    if (! flat || m_project == 0) {
+    if (! flat || m_project == nullptr) {
         return;
     }
     m_managerlist = m_project->allScheduleManagers();
@@ -1114,7 +1114,7 @@ ScheduleManager *ScheduleSortFilterModel::manager(const QModelIndex &index) cons
 {
     QModelIndex i = mapToSource(index);
     const ScheduleItemModel *m = qobject_cast<const ScheduleItemModel*>(i.model());
-    return m == 0 ? 0 : m->manager(i);
+    return m == nullptr ? nullptr : m->manager(i);
 }
 
 QVariant ScheduleSortFilterModel::data(const QModelIndex &index, int role) const
@@ -1135,9 +1135,9 @@ QVariant ScheduleSortFilterModel::data(const QModelIndex &index, int role) const
 //--------------------------------------
 ScheduleLogItemModel::ScheduleLogItemModel(QObject *parent)
     : QStandardItemModel(parent),
-    m_project(0),
-    m_manager(0),
-    m_schedule(0)
+    m_project(nullptr),
+    m_manager(nullptr),
+    m_schedule(nullptr)
 {
 }
 
@@ -1148,7 +1148,7 @@ ScheduleLogItemModel::~ScheduleLogItemModel()
 void ScheduleLogItemModel::slotScheduleManagerToBeRemoved(const ScheduleManager *manager)
 {
     if (m_manager == manager) {
-        setManager(0);
+        setManager(nullptr);
     }
 }
 
@@ -1179,7 +1179,7 @@ void ScheduleLogItemModel::slotScheduleToBeRemoved(const MainSchedule *sch)
 {
     debugPlan<<m_schedule<<sch;
     if (m_schedule == sch) {
-        m_schedule = 0;
+        m_schedule = nullptr;
         clear();
     }
 }
@@ -1191,7 +1191,7 @@ void ScheduleLogItemModel::slotScheduleRemoved(const MainSchedule *sch)
 
 void ScheduleLogItemModel::projectDeleted()
 {
-    setProject(0);
+    setProject(nullptr);
 }
 
 void ScheduleLogItemModel::setProject(Project *project)
@@ -1246,7 +1246,7 @@ void ScheduleLogItemModel::setManager(ScheduleManager *manager)
             disconnect(m_manager, &ScheduleManager::logInserted, this, &ScheduleLogItemModel::slotLogInserted);
         }
         m_manager = manager;
-        m_schedule = 0;
+        m_schedule = nullptr;
         clear();
         if (m_manager) {
             m_schedule = m_manager->expected();
@@ -1313,7 +1313,7 @@ void ScheduleLogItemModel::refresh()
     lst << i18n("Name") << i18n("Phase") << i18n("Severity") << i18n("Message");
     setHorizontalHeaderLabels(lst);
 
-    if (m_schedule == 0) {
+    if (m_schedule == nullptr) {
         debugPlan<<"No main schedule";
         return;
     }

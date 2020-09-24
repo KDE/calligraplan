@@ -25,7 +25,7 @@ namespace TJ
 
 TaskDependency::TaskDependency(QString tri, int maxScenarios) :
     taskRefId(tri),
-    taskRef(0),
+    taskRef(nullptr),
     gapDuration(new long[maxScenarios]),
     gapLength(new long[maxScenarios])
 {
@@ -71,7 +71,7 @@ TaskDependency::getGapLength(int sc) const
 
 QDebug operator<<(QDebug dbg, const TJ::TaskDependency *dep)
 {
-    return dep == 0 ? (dbg<<0x000000) : operator<<(dbg, *dep);
+    return dep == nullptr ? (dbg<<0x000000) : operator<<(dbg, *dep);
 }
 QDebug operator<<(QDebug dbg, const TJ::TaskDependency &dep)
 {

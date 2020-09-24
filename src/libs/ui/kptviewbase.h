@@ -130,7 +130,7 @@ class PLANUI_EXPORT PrintingHeaderFooter : public QWidget, public Ui::PrintingHe
 {
     Q_OBJECT
 public:
-    explicit PrintingHeaderFooter(const PrintingOptions &opt, QWidget *parent = 0);
+    explicit PrintingHeaderFooter(const PrintingOptions &opt, QWidget *parent = nullptr);
     ~PrintingHeaderFooter() override;
 
     void setOptions(const PrintingOptions &options);
@@ -190,7 +190,7 @@ protected:
 class PLANUI_EXPORT ViewActionLists
 {
 public:
-    ViewActionLists() : actionOptions(0) {}
+    ViewActionLists() : actionOptions(nullptr) {}
     virtual ~ViewActionLists() {}
 
     QList<QAction*> contextActionList() const { return m_contextActionList; }
@@ -257,15 +257,15 @@ public:
     bool isReadWrite() const { return m_readWrite; }
 
     /// Reimplement if your view handles nodes
-    virtual Node* currentNode() const { return 0; }
+    virtual Node* currentNode() const { return nullptr; }
     /// Reimplement if your view handles resources
-    virtual Resource* currentResource() const { return 0; }
+    virtual Resource* currentResource() const { return nullptr; }
     /// Reimplement if your view handles resource groups
-    virtual ResourceGroup* currentResourceGroup() const { return 0; }
+    virtual ResourceGroup* currentResourceGroup() const { return nullptr; }
     /// Reimplement if your view handles calendars
-    virtual Calendar* currentCalendar() const { return 0; }
+    virtual Calendar* currentCalendar() const { return nullptr; }
     /// Reimplement if your view handles relations
-    virtual Relation *currentRelation() const { return 0; }
+    virtual Relation *currentRelation() const { return nullptr; }
     /// Reimplement if your view handles zoom
 //    virtual KoZoomController *zoomController() const { return 0; }
 
@@ -352,7 +352,7 @@ class PLANUI_EXPORT TreeViewPrintingDialog : public PrintingDialog
 {
     Q_OBJECT
 public:
-    TreeViewPrintingDialog(ViewBase *view, TreeViewBase *treeview, Project *project = 0);
+    TreeViewPrintingDialog(ViewBase *view, TreeViewBase *treeview, Project *project = nullptr);
     ~TreeViewPrintingDialog() override {}
 
     int documentFirstPage() const override { return 1; }
@@ -376,7 +376,7 @@ class PLANUI_EXPORT TreeViewBase : public QTreeView
 {
     Q_OBJECT
 public:
-    explicit TreeViewBase(QWidget *parent = 0);
+    explicit TreeViewBase(QWidget *parent = nullptr);
 
     void setReadWrite(bool rw);
     virtual void createItemDelegates(ItemModelBase *model);
@@ -604,7 +604,7 @@ public:
     }
 
     void showColumn(int col) {
-        if (col == 0 || m_rightview == 0) m_leftview->showColumn(col);
+        if (col == 0 || m_rightview == nullptr) m_leftview->showColumn(col);
         else m_rightview->showColumn(col);
     }
     bool isColumnHidden(int col) const {

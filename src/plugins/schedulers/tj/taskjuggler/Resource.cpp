@@ -38,12 +38,12 @@ namespace TJ
  * division. We therefor use buffers that stores the index of the
  * first/last slot of a day/week/month for each slot.
  */
-static uint* DayStartIndex = 0;
-static uint* WeekStartIndex = 0;
-static uint* MonthStartIndex = 0;
-static uint* DayEndIndex = 0;
-static uint* WeekEndIndex = 0;
-static uint* MonthEndIndex = 0;
+static uint* DayStartIndex = nullptr;
+static uint* WeekStartIndex = nullptr;
+static uint* MonthStartIndex = nullptr;
+static uint* DayEndIndex = nullptr;
+static uint* WeekEndIndex = nullptr;
+static uint* MonthEndIndex = nullptr;
 
 
 Resource::Resource(Project* p, const QString& i, const QString& n,
@@ -51,13 +51,13 @@ Resource::Resource(Project* p, const QString& i, const QString& n,
     CoreAttributes(p, i, n, pr, df, dl),
     minEffort(0.0),
 //     journal(),
-    limits(0),
+    limits(nullptr),
     efficiency(0.0),
     rate(0.0),
     workingHours(),
     shifts(),
     vacations(),
-    scoreboard(0),
+    scoreboard(nullptr),
     sbSize((p->getEnd() + 1 - p->getStart()) / p->getScheduleGranularity() + 1),
     specifiedBookings(new SbBooking**[p->getMaxScenarios()]),
     scoreboards(new SbBooking**[p->getMaxScenarios()]),
@@ -71,8 +71,8 @@ Resource::Resource(Project* p, const QString& i, const QString& n,
 
     for (int sc = 0; sc < p->getMaxScenarios(); sc++)
     {
-        scoreboards[sc] = 0;
-        specifiedBookings[sc] = 0;
+        scoreboards[sc] = nullptr;
+        specifiedBookings[sc] = nullptr;
     }
 
     for (int i = 0; i < p->getMaxScenarios(); ++i)
@@ -159,7 +159,7 @@ Resource::~Resource()
                     i = j - 1;
                 }
             delete [] scoreboards[sc];
-            scoreboards[sc] = 0;
+            scoreboards[sc] = nullptr;
         }
         if (specifiedBookings[sc])
         {
@@ -175,7 +175,7 @@ Resource::~Resource()
                     i = j - 1;
                 }
             delete [] specifiedBookings[sc];
-            specifiedBookings[sc] = 0;
+            specifiedBookings[sc] = nullptr;
         }
     }
     delete [] allocationProbability;
@@ -197,12 +197,12 @@ Resource::deleteStaticData()
     delete [] DayEndIndex;
     delete [] WeekEndIndex;
     delete [] MonthEndIndex;
-    DayStartIndex = 0;
-    WeekStartIndex = 0;
-    MonthStartIndex = 0;
-    DayEndIndex = 0;
-    WeekEndIndex = 0;
-    MonthEndIndex = 0;
+    DayStartIndex = nullptr;
+    WeekStartIndex = nullptr;
+    MonthStartIndex = nullptr;
+    DayEndIndex = nullptr;
+    WeekEndIndex = nullptr;
+    MonthEndIndex = nullptr;
 }
 
 void
@@ -237,7 +237,7 @@ Resource::inheritValues()
         if (pr->limits)
             limits = new UsageLimits(*pr->limits);
         else
-            limits = 0;
+            limits = nullptr;
 
         rate = pr->rate;
         efficiency = pr->efficiency;
@@ -264,7 +264,7 @@ Resource::inheritValues()
         if (project->getResourceLimits())
             limits = new UsageLimits(*project->getResourceLimits());
         else
-            limits = 0;
+            limits = nullptr;
 
 //         rate = project->getRate();
         efficiency = 1.0;
@@ -293,7 +293,7 @@ Resource::initScoreboard()
          t += project->getScheduleGranularity())
     {
         if (isOnShift(Interval(t, t + project->getScheduleGranularity() - 1))) {
-            scoreboard[sbIndex(t)] = (SbBooking*) 0;
+            scoreboard[sbIndex(t)] = (SbBooking*) nullptr;
         }
     }
     // Then mark all resource specific vacation slots as such (2).
@@ -394,7 +394,7 @@ Resource::isAvailable(time_t date)
         int workSlots = 0;
         for (uint i = DayStartIndex[sbIdx]; i <= DayEndIndex[sbIdx]; i++) {
             SbBooking* b = scoreboard[i];
-            if (b == (SbBooking*) 0) {
+            if (b == (SbBooking*) nullptr) {
                 ++workSlots;
             } else if (b >= (SbBooking*) 4) {
                 ++workSlots;
@@ -498,7 +498,7 @@ bool
 Resource::bookSlot(uint idx, SbBooking* nb)
 {
     // Make sure that the time slot is still available.
-    if (scoreboard[idx] > (SbBooking*) 0)
+    if (scoreboard[idx] > (SbBooking*) nullptr)
     {
         delete nb;
         return false;
@@ -676,7 +676,7 @@ Resource::getWorkSlots(time_t date) const
     uint sbIdx = sbIndex(date);
     for (uint i = DayStartIndex[sbIdx]; i <= DayEndIndex[sbIdx]; i++) {
         SbBooking* b = scoreboard[i];
-        if (b == (SbBooking*) 0 || b >= (SbBooking*) 4) {
+        if (b == (SbBooking*) nullptr || b >= (SbBooking*) 4) {
             ++workSlots;
         }
     }
@@ -899,8 +899,8 @@ Resource::getAllocatedSlots(int sc, uint startIdx, uint endIdx,
         SbBooking* b = scoreboards[sc][i];
         if (b < (SbBooking*) 4)
             continue;
-        if ((task == 0 ||
-            (task != 0 && (task == b->getTask() ||
+        if ((task == nullptr ||
+            (task != nullptr && (task == b->getTask() ||
              b->getTask()->isDescendantOf(task))))/* &&
             (acctType == AllAccounts ||
             (b->getTask()->getAccount() && b->getTask()->getAccount()->getAcctType() == acctType))*/)
@@ -920,7 +920,7 @@ Resource::getEffectiveFreeLoad(int sc, const Interval& period)
 
     if (hasSubs())
     {
-        for (ResourceListIterator rli(*sub); *rli != 0; ++rli)
+        for (ResourceListIterator rli(*sub); *rli != nullptr; ++rli)
             load += (*rli)->getEffectiveFreeLoad(sc, iv);
     }
     else
@@ -960,7 +960,7 @@ Resource::getAvailableSlots(int sc, uint startIdx, uint endIdx)
 
     if (!sub->isEmpty())
     {
-        for (ResourceListIterator rli(*sub); *rli != 0; ++rli)
+        for (ResourceListIterator rli(*sub); *rli != nullptr; ++rli)
             availSlots += (*rli)->getAvailableSlots(sc, startIdx, endIdx);
     }
     else
@@ -973,7 +973,7 @@ Resource::getAvailableSlots(int sc, uint startIdx, uint endIdx)
         }
 
         for (uint i = startIdx; i <= endIdx; i++)
-            if (scoreboards[sc][i] == 0)
+            if (scoreboards[sc][i] == nullptr)
                 availSlots++;
     }
 
@@ -1017,7 +1017,7 @@ Resource::isAllocatedSub(int sc, uint startIdx, uint endIdx, const QString&
                          prjId) const
 {
     /* If resource is a group, check members first. */
-    for (ResourceListIterator rli(*sub); *rli != 0; ++rli)
+    for (ResourceListIterator rli(*sub); *rli != nullptr; ++rli)
         if ((*rli)->isAllocatedSub(sc, startIdx, endIdx, prjId))
             return true;
 
@@ -1061,7 +1061,7 @@ Resource::isAllocatedSub(int sc, uint startIdx, uint endIdx, const Task* task)
     const
 {
     /* If resource is a group, check members first. */
-    for (ResourceListIterator rli(*sub); *rli != 0; ++rli)
+    for (ResourceListIterator rli(*sub); *rli != nullptr; ++rli)
         if ((*rli)->isAllocatedSub(sc, startIdx, endIdx, task))
             return true;
 
@@ -1086,7 +1086,7 @@ Resource::getPIDs(int sc, const Interval& period, const Task* task,
     if (!iv.overlap(Interval(project->getStart(), project->getEnd())))
         return;
 
-    for (ResourceListIterator rli(*sub); *rli != 0; ++rli)
+    for (ResourceListIterator rli(*sub); *rli != nullptr; ++rli)
         (*rli)->getPIDs(sc, iv, task, pids);
 
     if (!scoreboards[sc])
@@ -1173,7 +1173,7 @@ Resource::getJobs(int sc) const
     BookingList bl;
     if (scoreboards[sc])
     {
-        SbBooking* b = 0;
+        SbBooking* b = nullptr;
         uint startIdx = 0;
         for (uint i = 0; i < sbSize; i++)
             if (scoreboards[sc][i] != b)
@@ -1188,7 +1188,7 @@ Resource::getJobs(int sc) const
                     startIdx = i;
                 }
                 else
-                    b = 0;
+                    b = nullptr;
             }
     }
     return bl;
@@ -1197,7 +1197,7 @@ Resource::getJobs(int sc) const
 QVector<Interval> Resource::getBookedIntervals(int sc, const TJ::Task* task) const
 {
     QVector<Interval> lst;
-    if (scoreboards[sc] == 0)
+    if (scoreboards[sc] == nullptr)
         return lst;
     for (uint i = 0; i < sbSize; ++i)
     {
@@ -1217,7 +1217,7 @@ QVector<Interval> Resource::getBookedIntervals(int sc, const TJ::Task* task) con
 time_t
 Resource::getStartOfFirstSlot(int sc, const Task* task)
 {
-    if (scoreboards[sc] == 0)
+    if (scoreboards[sc] == nullptr)
         return 0;
     for (uint i = 0; i < sbSize; ++i)
     {
@@ -1232,7 +1232,7 @@ Resource::getStartOfFirstSlot(int sc, const Task* task)
 time_t
 Resource::getEndOfLastSlot(int sc, const Task* task)
 {
-    if (scoreboards[sc] == 0)
+    if (scoreboards[sc] == nullptr)
         return 0;
     int i = sbSize;
     for (; ;)
@@ -1293,7 +1293,7 @@ Resource::copyBookings(int sc, SbBooking*** src, SbBooking*** dst)
     else
     {
         delete [] dst[sc];
-        dst[sc] = 0;
+        dst[sc] = nullptr;
     }
 }
 
@@ -1323,7 +1323,7 @@ Resource::finishScenario(int sc)
 bool
 Resource::bookingsOk(int sc)
 {
-    if (scoreboards[sc] == 0)
+    if (scoreboards[sc] == nullptr)
         return true;
 
     if (hasSubs())

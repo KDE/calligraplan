@@ -55,7 +55,7 @@ KUndo2Command *LocaleConfigMoneyDialog::buildCommand(Project &project) {
     }
     if (m->isEmpty()) {
         delete m;
-        return 0;
+        return nullptr;
     }
     return m;
 }

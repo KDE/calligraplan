@@ -43,7 +43,7 @@ class PLANMODELS_EXPORT CalendarDayItemModelBase : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit CalendarDayItemModelBase(QObject *parent = 0);
+    explicit CalendarDayItemModelBase(QObject *parent = nullptr);
     ~CalendarDayItemModelBase() override;
 
     virtual void setCalendar(Calendar *calendar);
@@ -71,7 +71,7 @@ class PLANMODELS_EXPORT CalendarItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit CalendarItemModel(QObject *parent = 0);
+    explicit CalendarItemModel(QObject *parent = nullptr);
     ~CalendarItemModel() override;
 
     enum Properties {
@@ -110,7 +110,7 @@ public:
     bool dropAllowed(Calendar *on, const QMimeData *data);
 
     Calendar *calendar(const QModelIndex &index) const;
-    QModelIndex insertCalendar(Calendar *calendar, int pos, Calendar *parent = 0);
+    QModelIndex insertCalendar(Calendar *calendar, int pos, Calendar *parent = nullptr);
     void removeCalendar(QList<Calendar*> lst);
     void removeCalendar(Calendar *calendar);
     
@@ -142,7 +142,7 @@ class PLANMODELS_EXPORT CalendarDayItemModel : public CalendarDayItemModelBase
 {
     Q_OBJECT
 public:
-    explicit CalendarDayItemModel(QObject *parent = 0);
+    explicit CalendarDayItemModel(QObject *parent = nullptr);
     ~CalendarDayItemModel() override;
 
     void setCalendar(Calendar *calendar) override;
@@ -235,7 +235,7 @@ class PLANMODELS_EXPORT DateTableDateDelegate : public KDateTableDateDelegate
 {
     Q_OBJECT
 public:
-    explicit DateTableDateDelegate(QObject *parent = 0);
+    explicit DateTableDateDelegate(QObject *parent = nullptr);
     ~DateTableDateDelegate() override {}
 
     QRectF paint(QPainter *painter, const StyleOptionViewItem &option, const QDate &date,  KDateTableDataModel *model) override;
@@ -245,7 +245,7 @@ class PLANMODELS_EXPORT CalendarExtendedItemModel : public CalendarItemModel
 {
     Q_OBJECT
 public:
-    explicit CalendarExtendedItemModel(QObject *parent = 0);
+    explicit CalendarExtendedItemModel(QObject *parent = nullptr);
 
     Qt::ItemFlags flags(const QModelIndex & index) const override;
 

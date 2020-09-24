@@ -97,7 +97,7 @@ class PLAN_EXPORT View : public KoView
     Q_OBJECT
 
 public:
-    explicit View(KoPart *part, MainDocument *doc, QWidget *parent = 0);
+    explicit View(KoPart *part, MainDocument *doc, QWidget *parent = nullptr);
     ~View() override;
 
     MainDocument *getPart() const;
@@ -254,7 +254,7 @@ protected Q_SLOTS:
     void slotLoadSharedProjects();
 
     void slotWorkPackageLoaded();
-    void slotMailWorkpackage(KPlato::Node *node, KPlato::Resource *resource = 0);
+    void slotMailWorkpackage(KPlato::Node *node, KPlato::Resource *resource = nullptr);
     void slotPublishWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource, bool mailTo);
 
     void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
@@ -270,7 +270,7 @@ protected:
 
     QList<QAction*> sortedActionList();
     QAction *addScheduleAction(ScheduleManager *sch);
-    void setLabel(ScheduleManager *sm = 0);
+    void setLabel(ScheduleManager *sm = nullptr);
     Task *currentTask() const;
     Node *currentNode() const;
     Resource *currentResource();

@@ -39,7 +39,7 @@ class DocumentsPanel;
 class MainProjectPanel : public QWidget, public Ui_MainProjectPanelBase {
     Q_OBJECT
 public:
-    explicit MainProjectPanel(Project &project, QWidget *parent=0);
+    explicit MainProjectPanel(Project &project, QWidget *parent=nullptr);
 
     virtual QDateTime startDateTime();
     virtual QDateTime endDateTime();

@@ -130,7 +130,7 @@ static const KoGenStyle::PropertyType s_propertyTypes[] = {
 };
 
 static const char* const s_propertyNames[] = {
-    0,
+    nullptr,
     "style:section-properties",
     "style:ruby-properties",
     "style:table-properties",
@@ -159,7 +159,7 @@ static KoGenStyle::PropertyType propertyTypeByElementName(const char* properties
 void KoGenStyle::writeStyleProperties(KoXmlWriter* writer, PropertyType type,
                                       const KoGenStyle* parentStyle) const
 {
-    const char* elementName = 0;
+    const char* elementName = nullptr;
     for (int i=0; i<s_propertyNamesCount; ++i) {
         if (s_propertyTypes[i] == type) {
             elementName = s_propertyNames[i];
@@ -190,7 +190,7 @@ void KoGenStyle::writeStyle(KoXmlWriter* writer, const KoGenStyles& styles, cons
 {
     //debugOdf <<"writing out style" << name <<" display-name=" << m_attributes["style:display-name"] <<" family=" << m_familyName;
     writer->startElement(elementName);
-    const KoGenStyle* parentStyle = 0;
+    const KoGenStyle* parentStyle = nullptr;
     if (!m_defaultStyle) {
         if (!drawElement)
             writer->addAttribute("style:name", name);

@@ -25,7 +25,7 @@
 
 KoVBox::KoVBox(QWidget *parent)
     : QFrame(parent),
-      d(0)
+      d(nullptr)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setSpacing(0);

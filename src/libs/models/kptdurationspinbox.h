@@ -44,7 +44,7 @@ class PLANMODELS_EXPORT DurationSpinBox : public QDoubleSpinBox
 {
     Q_OBJECT
 public:
-    explicit DurationSpinBox(QWidget *parent = 0);
+    explicit DurationSpinBox(QWidget *parent = nullptr);
 
     /// Return the current unit
     Duration::Unit unit() const { return m_unit; }

@@ -98,7 +98,7 @@ public:
     bool loadXML(const KoXmlDocument &document, KoStore *store) override;
     QDomDocument saveXML() override;
     /// Save a workpackage file containing @p node with schedule identity @p id, owned by @p resource
-    QDomDocument saveWorkPackageXML(const Node *node, long id, Resource *resource = 0);
+    QDomDocument saveWorkPackageXML(const Node *node, long id, Resource *resource = nullptr);
 
     bool saveOdf(SavingContext &/*documentContext */) override { return false; }
     bool loadOdf(KoOdfReadStore & odfStore) override;
@@ -112,9 +112,9 @@ public:
 
     DocumentChild *createChild(KoDocument *doc, const QRect &geometry = QRect());
 
-    bool saveWorkPackageToStream(QIODevice * dev, const Node *node, long id, Resource *resource = 0);
-    bool saveWorkPackageFormat(const QString &file, const Node *node, long id, Resource *resource = 0);
-    bool saveWorkPackageUrl(const QUrl & _url, const Node *node, long id, Resource *resource = 0  );
+    bool saveWorkPackageToStream(QIODevice * dev, const Node *node, long id, Resource *resource = nullptr);
+    bool saveWorkPackageFormat(const QString &file, const Node *node, long id, Resource *resource = nullptr);
+    bool saveWorkPackageUrl(const QUrl & _url, const Node *node, long id, Resource *resource = nullptr  );
 
     /// Load the workpackage from @p url into @p project. Return true if successful, else false.
     bool loadWorkPackage(Project &project, const QUrl &url);
@@ -126,7 +126,7 @@ public:
         m_checkingForWorkPackages = false;
     }
 
-    void insertFile(const QUrl &url, Node *parent, Node *after = 0);
+    void insertFile(const QUrl &url, Node *parent, Node *after = nullptr);
     bool insertProject(Project &project, Node *parent, Node *after);
     bool mergeResources(Project &project);
 

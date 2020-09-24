@@ -33,11 +33,11 @@ class Q_DECL_HIDDEN KoFilter::Private
 public:
     QPointer<KoUpdater> updater;
 
-    Private() :updater(0) {}
+    Private() :updater(nullptr) {}
 };
 
 KoFilter::KoFilter(QObject *parent)
-    : QObject(parent), m_chain(0), d(new Private)
+    : QObject(parent), m_chain(nullptr), d(new Private)
 {
 }
 

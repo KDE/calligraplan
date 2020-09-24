@@ -95,7 +95,7 @@ MacroCommand *TaskProgressDialog::buildCommand() {
     }
     if (!modified) {
         delete m;
-        return 0;
+        return nullptr;
     }
     return m;
 }

@@ -259,7 +259,7 @@ Qt::ItemFlags ResourceItemModel::flags(const QModelIndex &index) const
         return flags;
     }
     Resource *r = resource(index);
-    if (r != 0) {
+    if (r != nullptr) {
         flags |= Qt::ItemIsDragEnabled;
         if (r->isShared()) {
             flags &= ~Qt::ItemIsEditable;
@@ -327,7 +327,7 @@ Qt::ItemFlags ResourceItemModel::flags(const QModelIndex &index) const
 
 QModelIndex ResourceItemModel::parent(const QModelIndex &index) const
 {
-    if (!index.isValid() || m_project == 0) {
+    if (!index.isValid() || m_project == nullptr) {
         return QModelIndex();
     }
     //debugPlan<<index.internalPointer()<<":"<<index.row()<<","<<index.column();
@@ -343,7 +343,7 @@ QModelIndex ResourceItemModel::parent(const QModelIndex &index) const
 
 QModelIndex ResourceItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (m_project == 0 || column < 0 || column >= columnCount() || row < 0) {
+    if (m_project == nullptr || column < 0 || column >= columnCount() || row < 0) {
         return QModelIndex();
     }
     if (!parent.isValid()) {
@@ -474,7 +474,7 @@ bool ResourceItemModel::setCalendar(Resource *res, const QVariant &value, int ro
     switch (role) {
         case Qt::EditRole:
         {
-            Calendar *c = 0;
+            Calendar *c = nullptr;
             if (value.toInt() > 0) {
                 QStringList lst = m_resourceModel.calendar(res, Role::EnumList).toStringList();
                 if (value.toInt() < lst.count()) {
@@ -561,7 +561,7 @@ bool ResourceItemModel::setAccount(Resource *res, const QVariant &value, int rol
 {
     switch (role) {
         case Qt::EditRole: {
-            Account *a = 0;
+            Account *a = nullptr;
             if (value.type() == QVariant::Int) {
                 QStringList lst = m_resourceModel.account(res, Role::EnumList).toStringList();
                 if (value.toInt() >= lst.count()) {
@@ -678,7 +678,7 @@ QAbstractItemDelegate *ResourceItemModel::createDelegate(int col, QWidget *paren
         case ResourceModel::ResourceAccount: return new EnumDelegate(parent);
         default: break;
     }
-    return 0;
+    return nullptr;
 }
 
 ResourceGroup *ResourceItemModel::group(const QModelIndex &index) const
@@ -719,7 +719,7 @@ Resource *ResourceItemModel::resource(const QModelIndex &index) const
 void ResourceItemModel::slotCalendarChanged(Calendar*)
 {
     foreach (Resource *r, m_project->resourceList()) {
-        if (r->calendar(true) == 0) {
+        if (r->calendar(true) == nullptr) {
             slotResourceChanged(r);
         }
     }

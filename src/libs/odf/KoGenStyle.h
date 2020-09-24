@@ -145,7 +145,7 @@ public:
      *
      * @param parentName If set, name of the parent style from which this one inherits.
      */
-    explicit KoGenStyle(Type type = PageLayoutStyle, const char *familyName = 0,
+    explicit KoGenStyle(Type type = PageLayoutStyle, const char *familyName = nullptr,
                         const QString &parentName = QString());
     ~KoGenStyle();
 
@@ -459,7 +459,7 @@ public:
      *  @param parentStyle the parent to this style
      */
     void writeStyleProperties(KoXmlWriter *writer, PropertyType type,
-                              const KoGenStyle *parentStyle = 0) const;
+                              const KoGenStyle *parentStyle = nullptr) const;
 
     /**
      *  QMap requires a complete sorting order.

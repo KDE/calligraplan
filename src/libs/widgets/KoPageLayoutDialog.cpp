@@ -34,7 +34,7 @@
 class Q_DECL_HIDDEN KoPageLayoutDialog::Private
 {
 public:
-    Private() : pageLayoutWidget(0), documentCheckBox(0) {}
+    Private() : pageLayoutWidget(nullptr), documentCheckBox(nullptr) {}
     KoPageLayoutWidget *pageLayoutWidget;
     QCheckBox *documentCheckBox;
 };
@@ -103,7 +103,7 @@ bool KoPageLayoutDialog::applyToDocument() const
 
 void KoPageLayoutDialog::showApplyToDocument(bool on)
 {
-    if (on && d->documentCheckBox == 0) {
+    if (on && d->documentCheckBox == nullptr) {
         for (int i = 0; i < children().count(); ++i) {
             if (QDialogButtonBox *buttonBox = qobject_cast<QDialogButtonBox*>(children()[i])) {
                 d->documentCheckBox = new QCheckBox(i18n("Apply to document"), buttonBox);

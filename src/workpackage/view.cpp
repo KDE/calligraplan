@@ -83,7 +83,7 @@ View::View(Part *part,  QWidget *parent, KActionCollection *collection)
     : QStackedWidget(parent),
     m_part(part),
     m_scheduleActionGroup(new QActionGroup(this)),
-    m_manager(0)
+    m_manager(nullptr)
 {
     m_readWrite = part->isReadWrite();
     debugPlanWork<<m_readWrite;
@@ -276,11 +276,11 @@ void View::slotPopupMenu(const QString& name, const QPoint & pos)
 {
     debugPlanWork<<name;
     Q_ASSERT(m_part->factory());
-    if (m_part->factory() == 0) {
+    if (m_part->factory() == nullptr) {
         return;
     }
     QMenu *menu = ((QMenu*) m_part->factory() ->container(name, m_part));
-    if (menu == 0) {
+    if (menu == nullptr) {
         return;
     }
     QList<QAction*> lst;
@@ -323,12 +323,12 @@ void View::slotEditDocument()
 void View::slotEditDocument(Document *doc)
 {
     debugPlanWork<<doc;
-    if (doc == 0) {
+    if (doc == nullptr) {
         debugPlanWork<<"No document";
         return;
     }
     if (doc->type() != Document::Type_Product) {
-        KMessageBox::error(0, i18n("This file is not editable"));
+        KMessageBox::error(nullptr, i18n("This file is not editable"));
         return;
     }
     part()->editWorkpackageDocument(doc);
@@ -347,14 +347,14 @@ void View::slotRemoveDocument()
 void View::slotSendPackage()
 {
     Node *node = currentNode();
-    if (node == 0) {
-        KMessageBox::error(0, i18n("No work package is selected"));
+    if (node == nullptr) {
+        KMessageBox::error(nullptr, i18n("No work package is selected"));
         return;
     }
     debugPlanWork<<node->name();
     WorkPackage *wp = part()->findWorkPackage(node);
-    if (wp == 0) {
-        KMessageBox::error(0, i18n("Cannot find work package"));
+    if (wp == nullptr) {
+        KMessageBox::error(nullptr, i18n("Cannot find work package"));
         return;
     }
 /*    if (wp->isModified()) {
@@ -371,7 +371,7 @@ void View::slotSendPackage()
         QTemporaryFile temp(wp->sendUrl().toLocalFile() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String(".planwork"));
         temp.setAutoRemove(false);
         if (! temp.open()) {
-            KMessageBox::error(0, i18n("Could not open file. Sending is aborted."));
+            KMessageBox::error(nullptr, i18n("Could not open file. Sending is aborted."));
             return;
         }
         wp->saveNativeFormat(part(), temp.fileName());
@@ -379,7 +379,7 @@ void View::slotSendPackage()
         QTemporaryFile temp(QDir::tempPath() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String(".planwork"));
         temp.setAutoRemove(false);
         if (! temp.open()) {
-            KMessageBox::error(0, i18n("Could not open temporary file. Sending is aborted."));
+            KMessageBox::error(nullptr, i18n("Could not open temporary file. Sending is aborted."));
             return;
         }
         wp->saveNativeFormat(part(), temp.fileName());
@@ -402,7 +402,7 @@ void View::slotSendPackage()
 void View::slotTaskDescription()
 {
     Task *node = qobject_cast<Task*>(currentNode());
-    if (node == 0) {
+    if (node == nullptr) {
         return;
     }
     QPointer<TaskDescriptionDialog> dlg = new TaskDescriptionDialog(*node, this, true);
@@ -418,20 +418,20 @@ AbstractView *View::currentView() const
 Node *View::currentNode() const
 {
     AbstractView *v = currentView();
-    return v ? v->currentNode() : 0;
+    return v ? v->currentNode() : nullptr;
 }
 
 Document *View::currentDocument() const
 {
     AbstractView *v = currentView();
-    return v ? v->currentDocument() : 0;
+    return v ? v->currentDocument() : nullptr;
 }
 
 void View::slotTaskProgress()
 {
     debugPlanWork;
     Task *n = qobject_cast<Task*>(currentNode());
-    if (n == 0) {
+    if (n == nullptr) {
         return;
     }
     StandardWorktime *w = qobject_cast<Project*>(n->projectNode())->standardWorktime();
@@ -448,7 +448,7 @@ void View::slotTaskCompletion()
 {
     debugPlanWork;
     WorkPackage *wp = m_part->findWorkPackage(currentNode());
-    if (wp == 0) {
+    if (wp == nullptr) {
         return;
     }
     QPointer<TaskCompletionDialog> dlg = new TaskCompletionDialog(*wp, currentScheduleManager(), this);
@@ -475,7 +475,7 @@ void View::slotRemoveCurrentPackage()
 {
     debugPlanWork;
     Node *n = currentNode();
-    if (n == 0) {
+    if (n == nullptr) {
         return;
     }
     m_part->removeWorkPackage(n);

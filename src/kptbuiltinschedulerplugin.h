@@ -61,7 +61,7 @@ class KPlatoScheduler : public SchedulerThread
     Q_OBJECT
 
 public:
-    KPlatoScheduler(Project *project, ScheduleManager *sm, QObject *parent = 0);
+    KPlatoScheduler(Project *project, ScheduleManager *sm, QObject *parent = nullptr);
     ~KPlatoScheduler() override;
 
 public Q_SLOTS:

@@ -101,7 +101,7 @@ void TaskJuggler::projectTest()
 void TaskJuggler::oneTask()
 {
     qDebug();
-    TJ::Task *t = new TJ::Task(project, "T1", "T1 name", 0, QString(), 0);
+    TJ::Task *t = new TJ::Task(project, "T1", "T1 name", nullptr, QString(), 0);
     qDebug()<<"Task added:"<<t;
 
     QCOMPARE(t->getId(), QString("T1"));
@@ -120,10 +120,10 @@ void TaskJuggler::oneTask()
 void TaskJuggler::list()
 {
     TJ::CoreAttributesList lst;
-    TJ::CoreAttributes *a = new TJ::CoreAttributes(project, "A1", "A1 name", 0);
+    TJ::CoreAttributes *a = new TJ::CoreAttributes(project, "A1", "A1 name", nullptr);
     a->setSequenceNo(1);
     lst.inSort(a);
-    a = new TJ::CoreAttributes(project, "A2", "A2 name", 0);
+    a = new TJ::CoreAttributes(project, "A2", "A2 name", nullptr);
     a->setSequenceNo(3);
     lst.inSort(a);
     
@@ -131,7 +131,7 @@ void TaskJuggler::list()
     QCOMPARE(lst.at(0)->getId(), QString("A1")); 
     QCOMPARE(lst.at(1)->getId(), QString("A2")); 
 
-    a = new TJ::CoreAttributes(project, "A3", "A3 name", 0);
+    a = new TJ::CoreAttributes(project, "A3", "A3 name", nullptr);
     a->setSequenceNo(2);
     lst.inSort(a);
 
@@ -166,7 +166,7 @@ void TaskJuggler::list()
 
 void TaskJuggler::oneResource()
 {
-    TJ::Resource *r = new TJ::Resource(project, "R1", "R1 name", 0);
+    TJ::Resource *r = new TJ::Resource(project, "R1", "R1 name", nullptr);
     r->setEfficiency(1.0);
     for (int day = 0; day < 7; ++day) {
         r->setWorkingHours(day, *(project->getWorkingHours(day)));
@@ -180,9 +180,9 @@ void TaskJuggler::oneResource()
 void TaskJuggler::allocation()
 {
     TJ::Task *t = project->getTask("T1");
-    QVERIFY(t != 0);
+    QVERIFY(t != nullptr);
     TJ::Resource *r = project->getResource("R1");
-    QVERIFY(r != 0);
+    QVERIFY(r != nullptr);
 
     TJ::Allocation *a = new TJ::Allocation();
     a->addCandidate(r);
@@ -196,15 +196,15 @@ void TaskJuggler::dependency()
     int sc = project->getScenarioIndex("plan");
     QCOMPARE(sc, 1);
 
-    TJ::Task *m = new TJ::Task(project, "M1", "M1 name", 0, QString(), 0);
+    TJ::Task *m = new TJ::Task(project, "M1", "M1 name", nullptr, QString(), 0);
     m->setMilestone(true);
     m->setSpecifiedStart(sc-1, project->getStart());
 
     TJ::Task *t = project->getTask("T1");
-    QVERIFY(t != 0);
+    QVERIFY(t != nullptr);
 
     TJ::TaskDependency *d = t->addDepends(m->getId());
-    QVERIFY(d != 0);
+    QVERIFY(d != nullptr);
 }
 
 void TaskJuggler::scheduleResource()
@@ -212,7 +212,7 @@ void TaskJuggler::scheduleResource()
     QCOMPARE(project->getMaxScenarios(), 1);
 
     TJ::Task *t = project->getTask("T1");
-    QVERIFY(t != 0);
+    QVERIFY(t != nullptr);
     t->setDuration(0, 0.0);
     t->setEffort(0, 5.);
     QCOMPARE(t->getEffort(0), 5.);
@@ -241,7 +241,7 @@ void TaskJuggler::scheduleDependencies()
         proj->setStart(pstart.toTime_t());
         proj->setEnd(pend.toTime_t());
 
-        TJ::Task *m = new TJ::Task(proj, "M1", "M1", 0, QString(), 0);
+        TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
         m->setScheduling(TJ::Task::ALAP);
         m->setSpecifiedEnd(0, proj->getEnd() - 1);
@@ -265,12 +265,12 @@ void TaskJuggler::scheduleDependencies()
         proj->setStart(pstart.toTime_t());
         proj->setEnd(pend.toTime_t());
 
-        TJ::Task *m = new TJ::Task(proj, "M1", "M1", 0, QString(), 0);
+        TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
         m->setScheduling(TJ::Task::ALAP);
         m->setSpecifiedEnd(0, proj->getEnd() - 1);
 
-        TJ::Task *t = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
         t->setSpecifiedStart(0, proj->getStart());
 
@@ -298,35 +298,35 @@ void TaskJuggler::scheduleDependencies()
         proj->setStart(pstart.toTime_t());
         proj->setEnd(pend.toTime_t());
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setScheduling(TJ::Task::ASAP);
         t1->setSpecifiedStart(0, proj->getStart());
         t1->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
 
-        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", 0, QString(), 0);
+        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", nullptr, QString(), 0);
         t2->setScheduling(TJ::Task::ALAP);
         t2->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
         t2->setSpecifiedEnd(0, proj->getEnd() - 1);
     //     m->addPrecedes(t->getId());
 
-        TJ::Task *m1 = new TJ::Task(proj, "M1", "M1", 0, QString(), 0);
+        TJ::Task *m1 = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m1->setMilestone(true);
         m1->setScheduling(TJ::Task::ASAP);
         m1->addDepends(t1->getId());
         m1->addPrecedes(t2->getId());
 
-        TJ::Task *m2 = new TJ::Task(proj, "M2", "M2", 0, QString(), 0);
+        TJ::Task *m2 = new TJ::Task(proj, "M2", "M2", nullptr, QString(), 0);
         m2->setMilestone(true);
         m2->setScheduling(TJ::Task::ALAP);
         m2->addDepends(t1->getId());
         m2->addPrecedes(t2->getId());
 
-        TJ::Task *t3 = new TJ::Task(proj, "T3", "T3", 0, QString(), 0);
+        TJ::Task *t3 = new TJ::Task(proj, "T3", "T3", nullptr, QString(), 0);
         t3->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
         t3->addPrecedes(m2->getId());
         t3->setScheduling(TJ::Task::ALAP); // since t4 is ALAP, this must be ALAP too
 
-        TJ::Task *t4 = new TJ::Task(proj, "T4", "T4", 0, QString(), 0);
+        TJ::Task *t4 = new TJ::Task(proj, "T4", "T4", nullptr, QString(), 0);
         t4->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
         t4->addPrecedes(t3->getId());
         t4->setScheduling(TJ::Task::ALAP);
@@ -362,37 +362,37 @@ void TaskJuggler::scheduleDependencies()
         proj->setEnd(pend.toTime_t());
 
         // First milestone on project start
-        TJ::Task *m1 = new TJ::Task(proj, "Start", "Start", 0, QString(), 0);
+        TJ::Task *m1 = new TJ::Task(proj, "Start", "Start", nullptr, QString(), 0);
         m1->setMilestone(true);
         m1->setScheduling(TJ::Task::ASAP);
         m1->setSpecifiedStart(0, proj->getStart());
 
-        TJ::Task *m2 = new TJ::Task(proj, "M2-ASAP", "M2", 0, QString(), 0);
+        TJ::Task *m2 = new TJ::Task(proj, "M2-ASAP", "M2", nullptr, QString(), 0);
         m2->setMilestone(true);
         m2->setScheduling(TJ::Task::ASAP);
 
-        TJ::Task *m3 = new TJ::Task(proj, "M3-ASAP", "M3", 0, QString(), 0);
+        TJ::Task *m3 = new TJ::Task(proj, "M3-ASAP", "M3", nullptr, QString(), 0);
         m3->setMilestone(true);
         m3->setScheduling(TJ::Task::ASAP);
 
-        TJ::Task *m7 = new TJ::Task(proj, "M/-ASAP", "M7", 0, QString(), 0);
+        TJ::Task *m7 = new TJ::Task(proj, "M/-ASAP", "M7", nullptr, QString(), 0);
         m7->setMilestone(true);
         m7->setScheduling(TJ::Task::ASAP);
 
-        TJ::Task *m4 = new TJ::Task(proj, "M4-ALAP", "M4", 0, QString(), 0);
+        TJ::Task *m4 = new TJ::Task(proj, "M4-ALAP", "M4", nullptr, QString(), 0);
         m4->setScheduling(TJ::Task::ALAP);
         m4->setMilestone(true);
 
-        TJ::Task *m5 = new TJ::Task(proj, "M5-ALAP", "M5", 0, QString(), 0);
+        TJ::Task *m5 = new TJ::Task(proj, "M5-ALAP", "M5", nullptr, QString(), 0);
         m5->setScheduling(TJ::Task::ALAP);
         m5->setMilestone(true);
 
-        TJ::Task *m8 = new TJ::Task(proj, "M8-ALAP", "M8", 0, QString(), 0);
+        TJ::Task *m8 = new TJ::Task(proj, "M8-ALAP", "M8", nullptr, QString(), 0);
         m8->setScheduling(TJ::Task::ALAP);
         m8->setMilestone(true);
 
         // ALAP milestone on project end
-        TJ::Task *m6 = new TJ::Task(proj, "End", "End", 0, QString(), 0);
+        TJ::Task *m6 = new TJ::Task(proj, "End", "End", nullptr, QString(), 0);
         m6->setMilestone(true);
         m6->setScheduling(TJ::Task::ALAP);
         m6->setSpecifiedEnd(0, proj->getEnd() - 1);
@@ -454,31 +454,31 @@ void TaskJuggler::scheduleDependencies()
         proj->setEnd(pend.toTime_t());
 
         // First milestone on project start
-        TJ::Task *m1 = new TJ::Task(proj, "Start", "Start", 0, QString(), 0);
+        TJ::Task *m1 = new TJ::Task(proj, "Start", "Start", nullptr, QString(), 0);
         m1->setMilestone(true);
         m1->setScheduling(TJ::Task::ASAP);
         m1->setSpecifiedStart(0, proj->getStart());
 
         // ASAP milestone dependent on m1
-        TJ::Task *m2 = new TJ::Task(proj, "M2-ASAP", "M2", 0, QString(), 0);
+        TJ::Task *m2 = new TJ::Task(proj, "M2-ASAP", "M2", nullptr, QString(), 0);
         m2->setMilestone(true);
         m2->setScheduling(TJ::Task::ASAP);
 
         // ALAP milestone dependent on m1
-        TJ::Task *m3 = new TJ::Task(proj, "M3-ALAP", "M3", 0, QString(), 0);
+        TJ::Task *m3 = new TJ::Task(proj, "M3-ALAP", "M3", nullptr, QString(), 0);
         m3->setMilestone(true);
         m3->setScheduling(TJ::Task::ALAP);
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1-ASAP", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1-ASAP", "T1", nullptr, QString(), 0);
         t1->setScheduling(TJ::Task::ASAP);
         t1->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
 
-        TJ::Task *t2 = new TJ::Task(proj, "T2-ALAP", "T2", 0, QString(), 0);
+        TJ::Task *t2 = new TJ::Task(proj, "T2-ALAP", "T2", nullptr, QString(), 0);
         t2->setScheduling(TJ::Task::ALAP);
         t2->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
 
         // ALAP milestone on project end
-        TJ::Task *m4 = new TJ::Task(proj, "End", "End", 0, QString(), 0);
+        TJ::Task *m4 = new TJ::Task(proj, "End", "End", nullptr, QString(), 0);
         m4->setMilestone(true);
         m4->setScheduling(TJ::Task::ALAP);
         m4->setSpecifiedEnd(0, proj->getEnd() - 1);
@@ -537,31 +537,31 @@ void TaskJuggler::scheduleDependencies()
         proj->setEnd(pend.toTime_t());
 
         // First an ASAP milestone on project start to precede m2
-        TJ::Task *m1 = new TJ::Task(proj, "Start", "Start", 0, QString(), 0);
+        TJ::Task *m1 = new TJ::Task(proj, "Start", "Start", nullptr, QString(), 0);
         m1->setMilestone(true);
         m1->setScheduling(TJ::Task::ASAP);
         m1->setSpecifiedStart(0, proj->getStart());
 
         // ALAP milestone dependent on m1 to simulate backwards
-        TJ::Task *m2 = new TJ::Task(proj, "M2-ALAP", "M2", 0, QString(), 0);
+        TJ::Task *m2 = new TJ::Task(proj, "M2-ALAP", "M2", nullptr, QString(), 0);
         m2->setMilestone(true);
         m2->setScheduling(TJ::Task::ASAP);
 
         // Then the "project"
-        TJ::Task *m3 = new TJ::Task(proj, "M3-ASAP", "M3", 0, QString(), 0);
+        TJ::Task *m3 = new TJ::Task(proj, "M3-ASAP", "M3", nullptr, QString(), 0);
         m3->setMilestone(true);
         m3->setScheduling(TJ::Task::ASAP);
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1-ASAP", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1-ASAP", "T1", nullptr, QString(), 0);
         t1->setScheduling(TJ::Task::ASAP);
         t1->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
 
-        TJ::Task *t2 = new TJ::Task(proj, "T2-ALAP", "T2", 0, QString(), 0);
+        TJ::Task *t2 = new TJ::Task(proj, "T2-ALAP", "T2", nullptr, QString(), 0);
         t2->setScheduling(TJ::Task::ALAP);
         t2->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
 
         // Then an ALAP milestone on project end
-        TJ::Task *m4 = new TJ::Task(proj, "End", "End", 0, QString(), 0);
+        TJ::Task *m4 = new TJ::Task(proj, "End", "End", nullptr, QString(), 0);
         m4->setMilestone(true);
         m4->setScheduling(TJ::Task::ALAP);
         m4->setSpecifiedEnd(0, proj->getEnd() - 1);
@@ -621,18 +621,18 @@ void TaskJuggler::scheduleConstraints()
         proj->setStart(pstart.toTime_t());
         proj->setEnd(pend.toTime_t());
 
-        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", 0);
+        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
         for (int day = 0; day < 7; ++day) {
             r->setWorkingHours(day, *(proj->getWorkingHours(day)));
         }
 
-        TJ::Task *m = new TJ::Task(proj, "M1", "M1", 0, QString(), 0);
+        TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
         m->setScheduling(TJ::Task::ASAP);
         m->setSpecifiedStart(0, proj->getStart());
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setSpecifiedStart(0, proj->getStart() + TJ::ONEHOUR);
         t1->setEffort(0, 1.0/24.0);
         TJ::Allocation *a = new TJ::Allocation();
@@ -660,18 +660,18 @@ void TaskJuggler::scheduleConstraints()
         proj->setStart(pstart.toTime_t());
         proj->setEnd(pend.toTime_t());
 
-        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", 0);
+        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
         for (int day = 0; day < 7; ++day) {
             r->setWorkingHours(day, *(proj->getWorkingHours(day)));
         }
 
-        TJ::Task *m = new TJ::Task(proj, "M1", "M1", 0, QString(), 0);
+        TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
         m->setScheduling(TJ::Task::ASAP);
         m->setSpecifiedStart(0, proj->getStart());
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setPriority(600); // high prio so it is likely it will be scheduled on time
         t1->setSpecifiedStart(0, proj->getStart() + TJ::ONEHOUR);
         t1->setEffort(0, 1.0/24.0);
@@ -679,7 +679,7 @@ void TaskJuggler::scheduleConstraints()
         a->addCandidate(r);
         t1->addAllocation(a);
 
-        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", 0, QString(), 0);
+        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", nullptr, QString(), 0);
         t2->setPriority(500); // less than t1
         t2->setSpecifiedStart(0, proj->getStart() + TJ::ONEHOUR);
         t2->setEffort(0, 1.0/24.0);
@@ -716,18 +716,18 @@ void TaskJuggler::scheduleConstraints()
         proj->setStart(pstart.toTime_t());
         proj->setEnd(pend.toTime_t());
 
-        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", 0);
+        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
         for (int day = 0; day < 7; ++day) {
             r->setWorkingHours(day, *(proj->getWorkingHours(day)));
         }
 
-        TJ::Task *m = new TJ::Task(proj, "M1", "M1", 0, QString(), 0);
+        TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
         m->setScheduling(TJ::Task::ASAP);
         m->setSpecifiedStart(0, proj->getStart());
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setPriority(600); // high prio so it is likely it will be scheduled on time
         t1->setSpecifiedStart(0, proj->getStart() + TJ::ONEHOUR);
         t1->setEffort(0, 1.0 / proj->getDailyWorkingHours());
@@ -735,7 +735,7 @@ void TaskJuggler::scheduleConstraints()
         a->addCandidate(r);
         t1->addAllocation(a);
 
-        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", 0, QString(), 0);
+        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", nullptr, QString(), 0);
         t2->setPriority(500); // less than t1
         t2->setSpecifiedStart(0, proj->getStart() + TJ::ONEHOUR / 2);
         t2->setEffort(0, 1.0 / proj->getDailyWorkingHours());
@@ -773,18 +773,18 @@ void TaskJuggler::scheduleConstraints()
         proj->setStart(pstart.toTime_t());
         proj->setEnd(pend.toTime_t());
 
-        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", 0);
+        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
         for (int day = 0; day < 7; ++day) {
             r->setWorkingHours(day, *(proj->getWorkingHours(day)));
         }
 
-        TJ::Task *m = new TJ::Task(proj, "M1", "M1", 0, QString(), 0);
+        TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
         m->setScheduling(TJ::Task::ASAP);
         m->setSpecifiedStart(0, proj->getStart());
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setPriority(600); // high prio so it is likely it will be scheduled on time
         t1->setSpecifiedStart(0, proj->getStart() + TJ::ONEHOUR);
         t1->setSpecifiedEnd(0, proj->getStart() + (2*TJ::ONEHOUR) -1);
@@ -792,7 +792,7 @@ void TaskJuggler::scheduleConstraints()
         a->addCandidate(r);
         t1->addAllocation(a);
 
-        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", 0, QString(), 0);
+        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", nullptr, QString(), 0);
         t2->setPriority(500); // less than t1
         t2->setSpecifiedStart(0, proj->getStart() + TJ::ONEHOUR);
         t1->setSpecifiedEnd(0, proj->getStart() + (2*TJ::ONEHOUR) -1);
@@ -841,25 +841,25 @@ void TaskJuggler::resourceConflict()
 
         QCOMPARE(QDateTime::fromTime_t(proj->getStart()), pstart);
 
-        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", 0);
+        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
         for (int day = 0; day < 7; ++day) {
             r->setWorkingHours(day, *(proj->getWorkingHours(day)));
         }
 
-        TJ::Task *m = new TJ::Task(proj, "M1", "M1", 0, QString(), 0);
+        TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
         m->setScheduling(TJ::Task::ASAP);
         m->setSpecifiedStart(0, proj->getStart());
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setPriority(100); // this should be scheduled before t2
         t1->setEffort(0, 1.0/24.0);
         TJ::Allocation *a = new TJ::Allocation();
         a->addCandidate(r);
         t1->addAllocation(a);
 
-        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", 0, QString(), 0);
+        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", nullptr, QString(), 0);
         t2->setPriority(10);
         t2->setEffort(0, 1.0/24.0);
         a = new TJ::Allocation();
@@ -907,7 +907,7 @@ void TaskJuggler::units()
 
         QCOMPARE(QDateTime::fromTime_t(proj->getStart()), pstart);
 
-        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", 0);
+        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         TJ::UsageLimits *l = new TJ::UsageLimits();
         l->setDailyUnits(50);
         r->setLimits(l);
@@ -916,7 +916,7 @@ void TaskJuggler::units()
             r->setWorkingHours(day, *(proj->getWorkingHours(day)));
         }
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setSpecifiedStart(0, proj->getStart());
         t1->setEffort(0, 1.0);
         TJ::Allocation *a = new TJ::Allocation();
@@ -946,13 +946,13 @@ void TaskJuggler::units()
 
         QCOMPARE(QDateTime::fromTime_t(proj->getStart()), pstart);
 
-        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", 0);
+        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(0.5);
         for (int day = 0; day < 7; ++day) {
             r->setWorkingHours(day, *(proj->getWorkingHours(day)));
         }
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setSpecifiedStart(0, proj->getStart());
         t1->setEffort(0, 1.0 / proj->getDailyWorkingHours());
         TJ::Allocation *a = new TJ::Allocation();
@@ -982,13 +982,13 @@ void TaskJuggler::units()
 
         QCOMPARE(QDateTime::fromTime_t(proj->getStart()), pstart);
 
-        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", 0);
+        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
         for (int day = 0; day < 7; ++day) {
             r->setWorkingHours(day, *(proj->getWorkingHours(day)));
         }
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", 0, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setSpecifiedStart(0, proj->getStart());
         t1->setEffort(0, 1.0);
         TJ::Allocation *a = new TJ::Allocation();

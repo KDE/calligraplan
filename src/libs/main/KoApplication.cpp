@@ -75,7 +75,7 @@
 
 #include <QDesktopWidget>
 
-KoApplication* KoApplication::KoApp = 0;
+KoApplication* KoApplication::KoApp = nullptr;
 
 namespace {
 const QTime appStartTime(QTime::currentTime());
@@ -85,7 +85,7 @@ class KoApplicationPrivate
 {
 public:
     KoApplicationPrivate()
-        : splashScreen(0)
+        : splashScreen(nullptr)
     {}
     QByteArray nativeMimeType;
     QWidget *splashScreen;
@@ -95,7 +95,7 @@ public:
 class KoApplication::ResetStarting
 {
 public:
-    ResetStarting(QWidget *splash = 0)
+    ResetStarting(QWidget *splash = nullptr)
         : m_splash(splash)
     {
     }
@@ -261,7 +261,7 @@ bool KoApplication::start()
     qDeleteAll(pluginLoaders);
 
     if (entry.isEmpty()) {
-        QMessageBox::critical(0, i18n("%1: Critical Error", applicationName()), i18n("Essential application components could not be found.\n"
+        QMessageBox::critical(nullptr, i18n("%1: Critical Error", applicationName()), i18n("Essential application components could not be found.\n"
                                                                                     "This might be an installation issue.\n"
                                                                                     "Try restarting or reinstalling."));
         return false;
@@ -282,7 +282,7 @@ bool KoApplication::start()
 
         if (!part) {
             if (!errorMsg.isEmpty())
-                KMessageBox::error(0, errorMsg);
+                KMessageBox::error(nullptr, errorMsg);
             return false;
         }
 

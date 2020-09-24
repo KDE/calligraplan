@@ -51,7 +51,7 @@ class ResourceAppointmentsDisplayOptionsPanel : public QWidget, public Ui::Resou
 {
     Q_OBJECT
 public:
-    explicit ResourceAppointmentsDisplayOptionsPanel(ResourceAppointmentsItemModel *model, QWidget *parent = 0);
+    explicit ResourceAppointmentsDisplayOptionsPanel(ResourceAppointmentsItemModel *model, QWidget *parent = nullptr);
 
     void setValues(const ResourceAppointmentsItemModel &del);
 
@@ -70,7 +70,7 @@ class ResourceAppointmentsSettingsDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit ResourceAppointmentsSettingsDialog(ViewBase *view, ResourceAppointmentsItemModel *model, QWidget *parent = 0, bool selectPrint = false);
+    explicit ResourceAppointmentsSettingsDialog(ViewBase *view, ResourceAppointmentsItemModel *model, QWidget *parent = nullptr, bool selectPrint = false);
 
 public Q_SLOTS:
     void slotOk();

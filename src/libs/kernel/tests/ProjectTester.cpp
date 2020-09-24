@@ -62,7 +62,7 @@ void ProjectTester::initTestCase()
     }
     m_project->addCalendar(m_calendar);
 
-    m_task = 0;
+    m_task = nullptr;
 }
 
 void ProjectTester::cleanupTestCase()
@@ -79,7 +79,7 @@ void ProjectTester::testAddTask()
     QCOMPARE(m_project->findNode(m_task->id()), m_task);
 
     m_project->takeTask(m_task);
-    delete m_task; m_task = 0;
+    delete m_task; m_task = nullptr;
 }
 
 void ProjectTester::testTakeTask()
@@ -89,9 +89,9 @@ void ProjectTester::testTakeTask()
     QCOMPARE(m_project->findNode(m_task->id()), m_task);
 
     m_project->takeTask(m_task);
-    QVERIFY(m_project->findNode(m_task->id()) == 0);
+    QVERIFY(m_project->findNode(m_task->id()) == nullptr);
 
-    delete (m_task); m_task = 0;
+    delete (m_task); m_task = nullptr;
 }
 
 void ProjectTester::testTaskAddCmd()
@@ -102,9 +102,9 @@ void ProjectTester::testTaskAddCmd()
     QVERIFY(m_task->parentNode() == m_project);
     QCOMPARE(m_project->findNode(m_task->id()), m_task);
     cmd->unexecute();
-    QVERIFY(m_project->findNode(m_task->id()) == 0);
+    QVERIFY(m_project->findNode(m_task->id()) == nullptr);
     delete cmd;
-    m_task = 0;
+    m_task = nullptr;
 }
 
 void ProjectTester::testTaskDeleteCmd()
@@ -115,14 +115,14 @@ void ProjectTester::testTaskDeleteCmd()
 
     NodeDeleteCmd *cmd = new NodeDeleteCmd(m_task);
     cmd->execute();
-    QVERIFY(m_project->findNode(m_task->id()) == 0);
+    QVERIFY(m_project->findNode(m_task->id()) == nullptr);
 
     cmd->unexecute();
     QCOMPARE(m_project->findNode(m_task->id()), m_task);
 
     cmd->execute();
     delete cmd;
-    m_task = 0;
+    m_task = nullptr;
 }
 
 void ProjectTester::schedule()
@@ -2977,7 +2977,7 @@ void ProjectTester::startStart()
     s = "Schedule backward T1 calendar -------";
     qDebug()<<s;
 
-    task1->estimate()->setCalendar(0);
+    task1->estimate()->setCalendar(nullptr);
     task2->estimate()->setCalendar(c);
 
     sm = p.createScheduleManager("Backward, calendar, Lag = 0");
@@ -2996,7 +2996,7 @@ void ProjectTester::startStart()
     qDebug()<<s;
 
     task1->estimate()->setCalendar(c);
-    task2->estimate()->setCalendar(0);
+    task2->estimate()->setCalendar(nullptr);
 
     task1->dependChildNodes().at(0)->setLag(Duration(0, 1, 0));
 
@@ -3014,7 +3014,7 @@ void ProjectTester::startStart()
     s = "Schedule backward Lag = 1 hour -------";
     qDebug()<<s;
 
-    task1->estimate()->setCalendar(0);
+    task1->estimate()->setCalendar(nullptr);
     task2->estimate()->setCalendar(c);
 
     sm = p.createScheduleManager("Backward, Lag = 1 hour");
@@ -3032,8 +3032,8 @@ void ProjectTester::startStart()
     s = "Schedule resources Lag = 1 hour -------";
     qDebug()<<s;
 
-    task1->estimate()->setCalendar(0);
-    task2->estimate()->setCalendar(0);
+    task1->estimate()->setCalendar(nullptr);
+    task2->estimate()->setCalendar(nullptr);
 
     ResourceRequest *rr1 = new ResourceRequest(r1, 100);
     task1->requests().addResourceRequest(rr1);

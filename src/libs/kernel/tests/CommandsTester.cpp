@@ -67,7 +67,7 @@ void CommandsTester::testCalendarAddCmd()
     Calendar *calendar1 = new Calendar();
     Calendar *calendar2 = new Calendar();
 
-    CalendarAddCmd *cmd1 = new CalendarAddCmd(m_project, calendar1, 0, 0);
+    CalendarAddCmd *cmd1 = new CalendarAddCmd(m_project, calendar1, 0, nullptr);
     cmd1->execute();
     QVERIFY(m_project->calendarAt(0) == calendar1);
     CalendarAddCmd *cmd2 = new CalendarAddCmd(m_project, calendar2, 0, calendar1);

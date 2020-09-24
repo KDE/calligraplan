@@ -89,11 +89,11 @@ ResourceList::compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
 Resource*
 ResourceList::getResource(const QString& id) const
 {
-    for (ResourceListIterator rli(*this); *rli != 0; ++rli)
+    for (ResourceListIterator rli(*this); *rli != nullptr; ++rli)
         if ((*rli)->getId() == id)
             return *rli;
 
-    return 0;
+    return nullptr;
 }
 
 Resource* ResourceListIterator::operator*()

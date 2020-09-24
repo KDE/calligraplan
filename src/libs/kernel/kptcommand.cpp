@@ -63,7 +63,7 @@ CalendarAddCmd::CalendarAddCmd(Project *project, Calendar *cal, int pos, Calenda
         m_mine(true)
 {
     //debugPlan<<cal->name();
-    Q_ASSERT(project != 0);
+    Q_ASSERT(project != nullptr);
 }
 CalendarAddCmd::~CalendarAddCmd()
 {
@@ -99,17 +99,17 @@ CalendarRemoveCmd::CalendarRemoveCmd(Project *project, Calendar *cal, const KUnd
         m_mine(false),
         m_cmd(new MacroCommand(KUndo2MagicString()))
 {
-    Q_ASSERT(project != 0);
+    Q_ASSERT(project != nullptr);
 
     m_index = m_parent ? m_parent->indexOf(cal) : project->indexOf(cal);
 
     foreach (Resource *r, project->resourceList()) {
         if (r->calendar(true) == cal) {
-            m_cmd->addCommand(new ModifyResourceCalendarCmd(r, 0));
+            m_cmd->addCommand(new ModifyResourceCalendarCmd(r, nullptr));
         }
     }
     if (project->defaultCalendar() == cal) {
-        m_cmd->addCommand(new ProjectModifyDefaultCalendarCmd(project, 0));
+        m_cmd->addCommand(new ProjectModifyDefaultCalendarCmd(project, nullptr));
     }
     foreach (Calendar *c, cal->calendars()) {
         m_cmd->addCommand(new CalendarRemoveCmd(project, c));
@@ -145,7 +145,7 @@ CalendarMoveCmd::CalendarMoveCmd(Project *project, Calendar *cal, int position, 
         m_oldparent(cal->parentCal())
 {
     //debugPlan<<cal->name();
-    Q_ASSERT(project != 0);
+    Q_ASSERT(project != nullptr);
 
     m_oldpos = m_oldparent ? m_oldparent->indexOf(cal) : project->indexOf(cal);
 }
@@ -532,7 +532,7 @@ NodeDeleteCmd::NodeDeleteCmd(Node *node, const KUndo2MagicString& name)
         : NamedCommand(name),
         m_node(node),
         m_index(-1),
-        m_relCmd(0)
+        m_relCmd(nullptr)
 {
 
     m_parent = node->parentNode();
@@ -556,13 +556,13 @@ NodeDeleteCmd::NodeDeleteCmd(Node *node, const KUndo2MagicString& name)
         m_cmd->addCommand(new NodeDeleteCmd(lst[ i - 1 ]));
     }
     if (node->runningAccount()) {
-        m_cmd->addCommand(new NodeModifyRunningAccountCmd(*node, node->runningAccount(), 0));
+        m_cmd->addCommand(new NodeModifyRunningAccountCmd(*node, node->runningAccount(), nullptr));
     }
     if (node->startupAccount()) {
-        m_cmd->addCommand(new NodeModifyRunningAccountCmd(*node, node->startupAccount(), 0));
+        m_cmd->addCommand(new NodeModifyRunningAccountCmd(*node, node->startupAccount(), nullptr));
     }
     if (node->shutdownAccount()) {
-        m_cmd->addCommand(new NodeModifyRunningAccountCmd(*node, node->shutdownAccount(), 0));
+        m_cmd->addCommand(new NodeModifyRunningAccountCmd(*node, node->shutdownAccount(), nullptr));
     }
 
 }
@@ -668,7 +668,7 @@ SubtaskAddCmd::SubtaskAddCmd(Project *project, Node *node, Node *parent, const K
         m_node(node),
         m_parent(parent),
         m_added(false),
-        m_cmd(0)
+        m_cmd(nullptr)
 {
 
     // set some reasonable defaults for normally calculated values
@@ -681,21 +681,21 @@ SubtaskAddCmd::SubtaskAddCmd(Project *project, Node *node, Node *parent, const K
 
     // Summarytasks can't have resources, so remove resource requests from the new parent
     foreach (ResourceRequest *r, parent->requests().resourceRequests()) {
-        if (m_cmd == 0) m_cmd = new MacroCommand(KUndo2MagicString());
+        if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
         m_cmd->addCommand(new RemoveResourceRequestCmd(r));
     }
     // Also remove accounts
     if (parent->runningAccount()) {
-        if (m_cmd == 0) m_cmd = new MacroCommand(KUndo2MagicString());
-        m_cmd->addCommand(new NodeModifyRunningAccountCmd(*parent, parent->runningAccount(), 0));
+        if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+        m_cmd->addCommand(new NodeModifyRunningAccountCmd(*parent, parent->runningAccount(), nullptr));
     }
     if (parent->startupAccount()) {
-        if (m_cmd == 0) m_cmd = new MacroCommand(KUndo2MagicString());
-        m_cmd->addCommand(new NodeModifyStartupAccountCmd(*parent, parent->startupAccount(), 0));
+        if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+        m_cmd->addCommand(new NodeModifyStartupAccountCmd(*parent, parent->startupAccount(), nullptr));
     }
     if (parent->shutdownAccount()) {
-        if (m_cmd == 0) m_cmd = new MacroCommand(KUndo2MagicString());
-        m_cmd->addCommand(new NodeModifyShutdownAccountCmd(*parent, parent->shutdownAccount(), 0));
+        if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+        m_cmd->addCommand(new NodeModifyShutdownAccountCmd(*parent, parent->shutdownAccount(), nullptr));
     }
 }
 SubtaskAddCmd::~SubtaskAddCmd()
@@ -922,9 +922,9 @@ void NodeModifyIdCmd::unexecute()
 NodeIndentCmd::NodeIndentCmd(Node &node, const KUndo2MagicString& name)
         : NamedCommand(name),
         m_node(node),
-        m_newparent(0),
+        m_newparent(nullptr),
         m_newindex(-1),
-        m_cmd(0)
+        m_cmd(nullptr)
 {
 }
 NodeIndentCmd::~NodeIndentCmd()
@@ -940,23 +940,23 @@ void NodeIndentCmd::execute()
         m_newparent = m_node.parentNode();
         m_newindex = m_newparent->findChildNode(&m_node);
         // Summarytasks can't have resources, so remove resource requests from the new parent
-        if (m_cmd == 0) {
+        if (m_cmd == nullptr) {
             foreach (ResourceRequest *r, m_newparent->requests().resourceRequests()) {
-                if (m_cmd == 0) m_cmd = new MacroCommand(KUndo2MagicString());
+                if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
                 m_cmd->addCommand(new RemoveResourceRequestCmd(r));
             }
             // Also remove accounts
             if (m_newparent->runningAccount()) {
-                if (m_cmd == 0) m_cmd = new MacroCommand(KUndo2MagicString());
-                m_cmd->addCommand(new NodeModifyRunningAccountCmd(*m_newparent, m_newparent->runningAccount(), 0));
+                if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+                m_cmd->addCommand(new NodeModifyRunningAccountCmd(*m_newparent, m_newparent->runningAccount(), nullptr));
             }
             if (m_newparent->startupAccount()) {
-                if (m_cmd == 0) m_cmd = new MacroCommand(KUndo2MagicString());
-                m_cmd->addCommand(new NodeModifyStartupAccountCmd(*m_newparent, m_newparent->startupAccount(), 0));
+                if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+                m_cmd->addCommand(new NodeModifyStartupAccountCmd(*m_newparent, m_newparent->startupAccount(), nullptr));
             }
             if (m_newparent->shutdownAccount()) {
-                if (m_cmd == 0) m_cmd = new MacroCommand(KUndo2MagicString());
-                m_cmd->addCommand(new NodeModifyShutdownAccountCmd(*m_newparent, m_newparent->shutdownAccount(), 0));
+                if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+                m_cmd->addCommand(new NodeModifyShutdownAccountCmd(*m_newparent, m_newparent->shutdownAccount(), nullptr));
             }
        }
         if (m_cmd) {
@@ -980,7 +980,7 @@ void NodeIndentCmd::unexecute()
 NodeUnindentCmd::NodeUnindentCmd(Node &node, const KUndo2MagicString& name)
         : NamedCommand(name),
         m_node(node),
-        m_newparent(0),
+        m_newparent(nullptr),
         m_newindex(-1)
 {}
 void NodeUnindentCmd::execute()
@@ -1126,8 +1126,8 @@ DeleteRelationCmd::~DeleteRelationCmd()
 {
     if (m_taken) {
         // do not access nodes, the may already be deleted
-        m_rel->setParent(0);
-        m_rel->setChild(0);
+        m_rel->setParent(nullptr);
+        m_rel->setChild(nullptr);
         delete m_rel;
     }
 }
@@ -1281,7 +1281,7 @@ ModifyEstimateCmd::ModifyEstimateCmd(Node &node, double oldvalue, double newvalu
     if (newvalue == 0.0) {
         // Milestones can't have resources, so remove resource requests
         for (ResourceRequest *r : node.requests().resourceRequests()) {
-            if (m_cmd == 0) m_cmd = new MacroCommand(KUndo2MagicString());
+            if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
             m_cmd->addCommand(new RemoveResourceRequestCmd(r));
         }
     }
@@ -2101,7 +2101,7 @@ AddAccountCmd::AddAccountCmd(Project &project, Account *account, const QString& 
         : NamedCommand(name),
         m_project(project),
         m_account(account),
-        m_parent(0),
+        m_parent(nullptr),
         m_index(index),
         m_parentName(parent)
 {
@@ -2126,7 +2126,7 @@ AddAccountCmd::~AddAccountCmd()
 
 void AddAccountCmd::execute()
 {
-    if (m_parent == 0 && !m_parentName.isEmpty()) {
+    if (m_parent == nullptr && !m_parentName.isEmpty()) {
         m_parent = m_project.accounts().findAccount(m_parentName);
     }
     m_project.accounts().insert(m_account, m_parent, m_index);
@@ -2159,16 +2159,16 @@ RemoveAccountCmd::RemoveAccountCmd(Project &project, Account *account, const KUn
     for (Account::CostPlace *cp : m_account->costPlaces()) {
         if (cp->node()) {
             if (cp->running()) {
-                m_cmd.addCommand(new NodeModifyRunningAccountCmd(*cp->node(), cp->node()->runningAccount(), 0));
+                m_cmd.addCommand(new NodeModifyRunningAccountCmd(*cp->node(), cp->node()->runningAccount(), nullptr));
             }
             if (cp->startup()) {
-                m_cmd.addCommand(new NodeModifyStartupAccountCmd(*cp->node(), cp->node()->startupAccount(), 0));
+                m_cmd.addCommand(new NodeModifyStartupAccountCmd(*cp->node(), cp->node()->startupAccount(), nullptr));
             }
             if (cp->shutdown()) {
-                m_cmd.addCommand(new NodeModifyShutdownAccountCmd(*cp->node(), cp->node()->shutdownAccount(), 0));
+                m_cmd.addCommand(new NodeModifyShutdownAccountCmd(*cp->node(), cp->node()->shutdownAccount(), nullptr));
             }
         } else if (cp->resource()) {
-            m_cmd.addCommand(new ResourceModifyAccountCmd(*cp->resource(), cp->resource()->account(), 0));
+            m_cmd.addCommand(new ResourceModifyAccountCmd(*cp->resource(), cp->resource()->account(), nullptr));
         }
     }
     for (int i = account->accountList().count()-1; i >= 0; --i) {
@@ -2185,7 +2185,7 @@ RemoveAccountCmd::~RemoveAccountCmd()
 void RemoveAccountCmd::execute()
 {
     if (m_isDefault) {
-        m_project.accounts().setDefaultAccount(0);
+        m_project.accounts().setDefaultAccount(nullptr);
     }
     m_cmd.execute(); // remove costplaces and children
 
@@ -2547,7 +2547,7 @@ AddScheduleManagerCmd::AddScheduleManagerCmd(ScheduleManager *parent, ScheduleMa
 AddScheduleManagerCmd::~AddScheduleManagerCmd()
 {
     if (m_mine) {
-        m_sm->setParentManager(0);
+        m_sm->setParentManager(nullptr);
         delete m_sm;
     }
 }
@@ -2563,7 +2563,7 @@ void AddScheduleManagerCmd::execute()
 void AddScheduleManagerCmd::unexecute()
 {
     m_node.takeScheduleManager(m_sm);
-    m_sm->setExpected(0);
+    m_sm->setExpected(nullptr);
     m_mine = true;
     m_cmd.undo();
 }
@@ -2752,7 +2752,7 @@ CalculateScheduleCmd::CalculateScheduleCmd(Project &node, ScheduleManager *sm, c
     m_node(node),
     m_sm(sm),
     m_first(true),
-    m_newexpected(0)
+    m_newexpected(nullptr)
 {
     if (sm->recalculate() && sm->isScheduled()) {
         m_sm = new ScheduleManager(node);
@@ -3085,7 +3085,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     Q_ASSERT(&fromProject != m_project);
 
     if (m_project->defaultCalendar()) {
-        fromProject.setDefaultCalendar(0); // or else m_project default calendar may be overwitten
+        fromProject.setDefaultCalendar(nullptr); // or else m_project default calendar may be overwitten
     }
     QString defaultAccount;
     if (! m_project->accounts().defaultAccount() && fromProject.accounts().defaultAccount()) {
@@ -3110,19 +3110,19 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         }
         if (n->startupAccount()) {
             startupaccountmap.insert(n, n->startupAccount()->name());
-            n->setStartupAccount(0);
+            n->setStartupAccount(nullptr);
         }
         if (n->shutdownAccount()) {
             shutdownaccountmap.insert(n, n->shutdownAccount()->name());
-            n->setShutdownAccount(0);
+            n->setShutdownAccount(nullptr);
         }
         if (n->runningAccount()) {
             runningaccountmap.insert(n, n->runningAccount()->name());
-            n->setRunningAccount(0);
+            n->setRunningAccount(nullptr);
         }
         if (n->estimate()->calendar()) {
             nodecalendarmap.insert(n, n->estimate()->calendar()->id());
-            n->estimate()->setCalendar(0);
+            n->estimate()->setCalendar(nullptr);
         }
     }
     // get resources pointing to calendars and accounts
@@ -3131,11 +3131,11 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     foreach (Resource *r, fromProject.resourceList()) {
         if (r->account()) {
             resaccountmap.insert(r, r->account()->name());
-            r->setAccount(0);
+            r->setAccount(nullptr);
         }
         if (r->calendar()) {
             rescalendarmap.insert(r, r->calendar()->id());
-            r->setCalendar(0);
+            r->setCalendar(nullptr);
         }
     }
     // create add account commands and keep track of used and unused accounts
@@ -3145,7 +3145,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         accountsmap.insert(a->name(), a);
     }
     foreach (Account *a, fromProject.accounts().accountList()) {
-        addAccounts(a, 0, unusedAccounts, accountsmap);
+        addAccounts(a, nullptr, unusedAccounts, accountsmap);
     }
     // create add calendar commands and keep track of used and unused calendars
     QList<Calendar*> unusedCalendars;
@@ -3154,7 +3154,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         calendarsmap.insert(c->id(), c);
     }
     foreach (Calendar *c, fromProject.calendars()) {
-        addCalendars(c, 0, unusedCalendars, calendarsmap);
+        addCalendars(c, nullptr, unusedCalendars, calendarsmap);
     }
     // get all requests from fromProject before resources are merged
     QMultiHash<Node*, QPair<ResourceRequest*, Resource*> > rreqs;
@@ -3177,7 +3177,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     QHash<ResourceGroup*, ResourceGroup*> existingGroups; // QHash<fromProject group, toProject group>
     foreach (ResourceGroup *g, fromProject.resourceGroups()) {
         ResourceGroup *gr = m_project->findResourceGroup(g->id());
-        if (gr == 0) {
+        if (gr == nullptr) {
             gr = g;
             newGroups << gr;
         } else {
@@ -3222,7 +3222,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         Resource *r = it.key();
         if (newResources.contains(r)) {
             Q_ASSERT(allResources.contains(r));
-            addCommand(new ResourceModifyAccountCmd(*r, 0, accountsmap.value(it.value())));
+            addCommand(new ResourceModifyAccountCmd(*r, nullptr, accountsmap.value(it.value())));
         }
     }}
     // Update resource calendar
@@ -3293,7 +3293,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
             n->takeSchedule(s); // schedules not handled
             delete s;
         }
-        n->setParentNode(0);
+        n->setParentNode(nullptr);
         if (node_after) {
             addCommand(new TaskAddCmd(m_project, n, node_after, kundo2_noi18n("Task")));
             node_after = n;
@@ -3315,31 +3315,31 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     {QHash<Node*, QString>::const_iterator it = nodecalendarmap.constBegin();
     QHash<Node*, QString>::const_iterator end = nodecalendarmap.constEnd();
     for (; it != end; ++it) {
-        addCommand(new ModifyEstimateCalendarCmd(*(it.key()), 0, calendarsmap.value(it.value())));
+        addCommand(new ModifyEstimateCalendarCmd(*(it.key()), nullptr, calendarsmap.value(it.value())));
     }}
     // node startup account
     {QHash<Node*, QString>::const_iterator it = startupaccountmap.constBegin();
     QHash<Node*, QString>::const_iterator end = startupaccountmap.constEnd();
     for (; it != end; ++it) {
-        addCommand(new NodeModifyStartupAccountCmd(*(it.key()), 0, accountsmap.value(it.value())));
+        addCommand(new NodeModifyStartupAccountCmd(*(it.key()), nullptr, accountsmap.value(it.value())));
     }}
     // node shutdown account
     {QHash<Node*, QString>::const_iterator it = shutdownaccountmap.constBegin();
     QHash<Node*, QString>::const_iterator end = shutdownaccountmap.constEnd();
     for (; it != end; ++it) {
-        addCommand(new NodeModifyShutdownAccountCmd(*(it.key()), 0, accountsmap.value(it.value())));
+        addCommand(new NodeModifyShutdownAccountCmd(*(it.key()), nullptr, accountsmap.value(it.value())));
     }}
     // node running account
     {QHash<Node*, QString>::const_iterator it = runningaccountmap.constBegin();
     QHash<Node*, QString>::const_iterator end = runningaccountmap.constEnd();
     for (; it != end; ++it) {
-        addCommand(new NodeModifyRunningAccountCmd(*(it.key()), 0, accountsmap.value(it.value())));
+        addCommand(new NodeModifyRunningAccountCmd(*(it.key()), nullptr, accountsmap.value(it.value())));
     }}
 
     if (! defaultAccount.isEmpty()) {
         Account *a = accountsmap.value(defaultAccount);
         if (a && a->list()) {
-            addCommand(new ModifyDefaultAccountCmd(m_project->accounts(), 0, a));
+            addCommand(new ModifyDefaultAccountCmd(m_project->accounts(), nullptr, a));
         }
     }
     debugPlanInsertProject<<"Cleanup unused stuff from inserted project:"<<&fromProject;
@@ -3384,15 +3384,15 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
 }
 
 void InsertProjectCmd::addCalendars(Calendar *calendar, Calendar *parent, QList<Calendar*> &unused, QMap<QString, Calendar*> &calendarsmap) {
-    Calendar *par = 0;
+    Calendar *par = nullptr;
     if (parent) {
         par = calendarsmap.value(parent->id());
     }
-    if (par == 0) {
+    if (par == nullptr) {
         par = parent;
     }
     Calendar *cal = calendarsmap.value(calendar->id());
-    if (cal == 0) {
+    if (cal == nullptr) {
         calendarsmap.insert(calendar->id(), calendar);
         addCommand(new CalendarAddCmd(m_project, calendar, -1, par));
     } else {
@@ -3404,15 +3404,15 @@ void InsertProjectCmd::addCalendars(Calendar *calendar, Calendar *parent, QList<
 }
 
 void InsertProjectCmd::addAccounts(Account *account, Account *parent, QList<Account*>  &unused, QMap<QString, Account*>  &accountsmap) {
-    Account *par = 0;
+    Account *par = nullptr;
     if (parent) {
         par = accountsmap.value(parent->name());
     }
-    if (par == 0) {
+    if (par == nullptr) {
         par = parent;
     }
     Account *acc = accountsmap.value(account->name());
-    if (acc == 0) {
+    if (acc == nullptr) {
         debugPlanInsertProject<<"Move to new project:"<<account<<account->name();
         accountsmap.insert(account->name(), account);
         addCommand(new AddAccountCmd(*m_project, account, par, -1, kundo2_noi18n("Add account %1", account->name())));
@@ -3434,7 +3434,7 @@ void InsertProjectCmd::addChildNodes(Node *node) {
         delete s;
     }
     foreach (Node *n, node->childNodeIterator()) {
-        n->setParentNode(0);
+        n->setParentNode(nullptr);
         addCommand(new SubtaskAddCmd(m_project, n, node, kundo2_noi18n("Subtask")));
         addChildNodes(n);
     }
@@ -3563,7 +3563,7 @@ ClearExternalAppointmentCmd::ClearExternalAppointmentCmd(Resource *resource, con
     : NamedCommand(name),
     m_resource(resource),
     m_pid(pid),
-    m_appointments(0)
+    m_appointments(nullptr)
 {
 }
 
@@ -3584,7 +3584,7 @@ void ClearExternalAppointmentCmd::unexecute()
     if (m_appointments) {
         m_resource->addExternalAppointment(m_pid, m_appointments);
     }
-    m_appointments = 0;
+    m_appointments = nullptr;
 }
 
 ClearAllExternalAppointmentsCmd::ClearAllExternalAppointmentsCmd(Project *project, const KUndo2MagicString &name)

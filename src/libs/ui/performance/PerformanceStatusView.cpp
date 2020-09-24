@@ -61,7 +61,7 @@ using namespace KPlato;
 //-----------------------------------
 PerformanceStatusTreeView::PerformanceStatusTreeView(QWidget *parent)
     : QSplitter(parent)
-    , m_manager(0)
+    , m_manager(nullptr)
 {
     m_tree = new TreeViewBase(this);
 
@@ -264,7 +264,7 @@ void PerformanceStatusView::slotContextMenuRequested(const QModelIndex &index, c
         return;
     }
     Node *node = m_view->nodeModel()->node(index);
-    if (node == 0) {
+    if (node == nullptr) {
         slotHeaderContextMenuRequested(pos);
         m_view->treeView()->setContextMenuIndex(QModelIndex());
         return;

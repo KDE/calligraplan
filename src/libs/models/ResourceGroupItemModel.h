@@ -106,7 +106,7 @@ public:
     ResourceGroup *group(const QModelIndex &index) const;
     Resource *resource(const QModelIndex &index) const;
     QModelIndex insertGroup(ResourceGroup *g, ResourceGroup *parent = nullptr);
-    QModelIndex insertResource(ResourceGroup *g, Resource *r, Resource *after = 0);
+    QModelIndex insertResource(ResourceGroup *g, Resource *r, Resource *after = nullptr);
 
     int sortRole(int column) const override;
 

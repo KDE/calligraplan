@@ -45,7 +45,7 @@ class KoUpdaterPrivate : public QObject
 public:
 
     KoUpdaterPrivate(KoProgressUpdater *parent, int weight, const QString& name)
-        : QObject(0)
+        : QObject(nullptr)
         , m_progress(0)
         , m_weight(weight)
         , m_interrupted(false)

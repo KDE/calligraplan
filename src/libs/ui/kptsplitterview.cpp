@@ -34,7 +34,7 @@ namespace KPlato
 
 SplitterView::SplitterView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_activeview(0)
+    m_activeview(nullptr)
 {
     QVBoxLayout *b = new QVBoxLayout(this);
     b->setContentsMargins(0, 0, 0, 0);
@@ -98,7 +98,7 @@ void SplitterView::slotGuiActivated(ViewBase *v, bool active)
         }
         m_activeview = v;
     } else {
-        m_activeview = 0;
+        m_activeview = nullptr;
     }
     emit guiActivated(v, active);
 }
@@ -210,7 +210,7 @@ ViewBase *SplitterView::focusView() const
             return v;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 QList<QAction*> SplitterView::contextActionList() const
@@ -229,7 +229,7 @@ Node* SplitterView::currentNode() const
     if (view) {
         return view->currentNode();
     }
-    return 0;
+    return nullptr;
 }
     
 Resource* SplitterView::currentResource() const
@@ -238,7 +238,7 @@ Resource* SplitterView::currentResource() const
     if (view) {
         return view->currentResource();
     }
-    return 0;
+    return nullptr;
 }
 
 ResourceGroup* SplitterView::currentResourceGroup() const
@@ -247,7 +247,7 @@ ResourceGroup* SplitterView::currentResourceGroup() const
     if (view) {
         return view->currentResourceGroup();
     }
-    return 0;
+    return nullptr;
 }
 
 Calendar* SplitterView::currentCalendar() const
@@ -256,7 +256,7 @@ Calendar* SplitterView::currentCalendar() const
     if (view) {
         return view->currentCalendar();
     }
-    return 0;
+    return nullptr;
 }
 
 Relation *SplitterView::currentRelation() const
@@ -265,7 +265,7 @@ Relation *SplitterView::currentRelation() const
     if (view) {
         return view->currentRelation();
     }
-    return 0;
+    return nullptr;
 }
 
 bool SplitterView::loadContext(const KoXmlElement &context)
@@ -277,7 +277,7 @@ bool SplitterView::loadContext(const KoXmlElement &context)
 #ifndef KOXML_USE_QDOM
     foreach (const QString &s, e.attributeNames()) {
         ViewBase *v = findChildren<ViewBase*>(s).value(0);
-        if (v == 0) {
+        if (v == nullptr) {
             continue;
         }
         KoXmlElement e1 = e.namedItem(s).toElement();

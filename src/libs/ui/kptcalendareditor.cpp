@@ -129,7 +129,7 @@ Calendar *CalendarTreeView::selectedCalendar() const
     if (lst.count() == 1) {
         return model()->calendar(lst.first());
     }
-    return 0;
+    return nullptr;
 }
 
 QList<Calendar*> CalendarTreeView::selectedCalendars() const
@@ -157,13 +157,13 @@ void CalendarTreeView::dragMoveEvent(QDragMoveEvent *event)
     event->ignore();
     QModelIndex index = indexAt(event->pos());
     if (! index.isValid()) {
-        if (model()->dropAllowed(0, event->mimeData())) {
+        if (model()->dropAllowed(nullptr, event->mimeData())) {
             event->accept();
         }
         return;
     }
     Calendar *c = model()->calendar(index);
-    if (c == 0) {
+    if (c == nullptr) {
         errorPlan<<"no calendar to drop on!";
         return; // hmmm
     }
@@ -221,7 +221,7 @@ void CalendarDayView::slotSetWork()
         return;
     }
     Calendar *cal = model()->calendar();
-    if (cal == 0) {
+    if (cal == nullptr) {
         return;
     }
     QModelIndexList lst = selectionModel()->selectedIndexes();
@@ -234,7 +234,7 @@ void CalendarDayView::slotSetWork()
     QList<CalendarDay*> days;
     foreach (const QModelIndex &i, lst) {
         CalendarDay *day = model()->day(i);
-        if (day == 0) {
+        if (day == nullptr) {
             continue;
         }
         days << day;
@@ -247,7 +247,7 @@ void CalendarDayView::slotSetWork()
 void CalendarDayView::slotIntervalEditDialogFinished(int result)
 {
     IntervalEditDialog *dlg = qobject_cast<IntervalEditDialog*>(sender());
-    if (dlg == 0) {
+    if (dlg == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -276,7 +276,7 @@ void CalendarDayView::slotSetVacation()
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Weekday State"));
     foreach (const QModelIndex &i, lst) {
         CalendarDay *day = model()->day(i);
-        if (day == 0 || day->state() == CalendarDay::NonWorking) {
+        if (day == nullptr || day->state() == CalendarDay::NonWorking) {
             continue;
         }
         mod = true;
@@ -306,7 +306,7 @@ void CalendarDayView::slotSetUndefined()
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Weekday State"));
     foreach (const QModelIndex &i, lst) {
         CalendarDay *day = model()->day(i);
-        if (day == 0 || day->state() == CalendarDay::Undefined) {
+        if (day == nullptr || day->state() == CalendarDay::Undefined) {
             continue;
         }
         mod = true;
@@ -376,7 +376,7 @@ CalendarDay *CalendarDayView::selectedDay() const
     if (lst.count() == 1) {
         return model()->day(lst.first());
     }
-    return 0;
+    return nullptr;
 }
 
 //-----------------------------------
@@ -687,7 +687,7 @@ void CalendarEditor::slotAddCalendar ()
     //debugPlan;
     // get parent through sibling
     Calendar *cal = m_calendarview->selectedCalendar();
-    Calendar *parent = cal ? cal->parentCal() : 0;
+    Calendar *parent = cal ? cal->parentCal() : nullptr;
     int pos = parent ? parent->indexOf(cal) : project()->indexOf(cal);
     if (pos >= 0) {
         ++pos; // after selected calendar
@@ -780,7 +780,7 @@ void CalendarEditor::slotAddDay ()
 void CalendarEditor::slotSetWork()
 {
     debugPlan<<currentCalendar()<<m_currentMenuDateList;
-    if (currentCalendar() == 0 || m_currentMenuDateList.isEmpty()) {
+    if (currentCalendar() == nullptr || m_currentMenuDateList.isEmpty()) {
         return;
     }
     IntervalEditDialog *dlg = new IntervalEditDialog(currentCalendar(), m_currentMenuDateList, this);
@@ -792,7 +792,7 @@ void CalendarEditor::slotSetWork()
 void CalendarEditor::slotIntervalEditDialogFinished(int result)
 {
     IntervalEditDialog *dlg = qobject_cast<IntervalEditDialog*>(sender());
-    if (dlg == 0) {
+    if (dlg == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -807,7 +807,7 @@ void CalendarEditor::slotIntervalEditDialogFinished(int result)
 void CalendarEditor::slotSetVacation()
 {
     debugPlan<<m_currentMenuDateList;
-    if (m_currentMenuDateList.isEmpty() || currentCalendar() == 0) {
+    if (m_currentMenuDateList.isEmpty() || currentCalendar() == nullptr) {
         return;
     }
     bool mod = false;
@@ -815,7 +815,7 @@ void CalendarEditor::slotSetVacation()
     foreach (const QDate &date, m_currentMenuDateList) {
         debugPlan<<"handle:"<<date;
         CalendarDay *day = currentCalendar()->findDay(date);
-        if (day == 0) {
+        if (day == nullptr) {
             mod = true;
             day = new CalendarDay(date, CalendarDay::NonWorking);
             m->addCommand(new CalendarAddDayCmd(currentCalendar(), day));
@@ -841,7 +841,7 @@ void CalendarEditor::slotSetVacation()
 void CalendarEditor::slotSetUndefined()
 {
     debugPlan;
-    if (m_currentMenuDateList.isEmpty() || currentCalendar() == 0) {
+    if (m_currentMenuDateList.isEmpty() || currentCalendar() == nullptr) {
         return;
     }
     bool mod = false;

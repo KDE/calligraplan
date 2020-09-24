@@ -39,7 +39,7 @@ class ComboBoxDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
-    explicit ComboBoxDelegate(QStringList &list, QObject *parent = 0);
+    explicit ComboBoxDelegate(QStringList &list, QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option,
                             const QModelIndex &index) const override;
@@ -57,7 +57,7 @@ private:
 class WBSDefinitionPanel : public QWidget, public Ui_WBSDefinitionPanelBase {
     Q_OBJECT
 public:
-    explicit WBSDefinitionPanel(Project &project, WBSDefinition &def, QWidget *parent=0, const char *name=0);
+    explicit WBSDefinitionPanel(Project &project, WBSDefinition &def, QWidget *parent=nullptr, const char *name=nullptr);
 
     KUndo2Command *buildCommand();
 

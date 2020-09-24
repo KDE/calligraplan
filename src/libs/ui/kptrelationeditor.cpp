@@ -126,7 +126,7 @@ Relation *RelationEditor::currentRelation() const
 void RelationEditor::slotContextMenuRequested(const QModelIndex& index, const QPoint& pos)
 {
     Relation *rel = m_view->model()->relation(index);
-    if (rel == 0) {
+    if (rel == nullptr) {
         slotHeaderContextMenuRequested(pos);
         return;
     }

@@ -60,7 +60,7 @@ class KOWIDGETUTILS_EXPORT WhatsThisClickedEventHandler : public QObject
 {
     Q_OBJECT
 public:
-    WhatsThisClickedEventHandler(QObject *parent=0);
+    WhatsThisClickedEventHandler(QObject *parent=nullptr);
 
     bool eventFilter(QObject *object, QEvent *event) override;
 

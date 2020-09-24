@@ -97,7 +97,7 @@ void CalendarTester::testWeekdays() {
     int length = t1.msecsTo(t2);
 
     CalendarDay *wd1 = t.weekday(Qt::Wednesday);
-    QVERIFY(wd1 != 0);
+    QVERIFY(wd1 != nullptr);
 
     wd1->setState(CalendarDay::Working);
     wd1->addInterval(TimeInterval(t1, length));
@@ -331,7 +331,7 @@ void CalendarTester::dstSpring()
     int length = 24*60*60*1000;
     
     CalendarDay *wd1 = t.weekday(Qt::Sunday);
-    QVERIFY(wd1 != 0);
+    QVERIFY(wd1 != nullptr);
     
     wd1->setState(CalendarDay::Working);
     wd1->addInterval(TimeInterval(t1, length));

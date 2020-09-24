@@ -110,7 +110,7 @@ public:
     {
         //paint background for selected or hovered item
         QStyleOptionViewItem opt = option;
-        itemView()->style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, 0);
+        itemView()->style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, nullptr);
     }
 
     QSize sizeHint(const QStyleOptionViewItem&, const QModelIndex&) const override

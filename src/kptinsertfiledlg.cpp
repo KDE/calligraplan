@@ -68,7 +68,7 @@ InsertFilePanel::InsertFilePanel(Project &project, Node *currentNode, QWidget *p
 {
     ui.setupUi(this);
     
-    if (currentNode == 0 || currentNode->type() == Node::Type_Project) {
+    if (currentNode == nullptr || currentNode->type() == Node::Type_Project) {
         ui.ui_isAfter->setEnabled(false);
         ui.ui_isParent->setEnabled(false);
         ui.ui_useProject->setChecked(true);
@@ -123,7 +123,7 @@ Node *InsertFilePanel::afterNode() const
     if (ui.ui_isAfter->isChecked()) {
         return m_node;
     }
-    return 0;
+    return nullptr;
 }
 
 

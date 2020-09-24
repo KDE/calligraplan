@@ -253,7 +253,7 @@ void GanttPrintingOptionsWidget::setOptions(const GanttPrintingOptions &opt)
 GanttPrintingDialog::GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt)
     : PrintingDialog(view),
     m_gantt(gantt),
-    m_options(0)
+    m_options(nullptr)
 {
     m_headerHeight = gantt->treeView()->header()->height(); // same header hight
     m_sceneRect = gantt->graphicsView()->sceneRect();
@@ -363,7 +363,7 @@ void GanttPrintingDialog::printPage(int page, QPainter &painter)
 class HeaderView : public QHeaderView
 {
 public:
-    explicit HeaderView(QWidget* parent=0) : QHeaderView(Qt::Horizontal, parent) {
+    explicit HeaderView(QWidget* parent=nullptr) : QHeaderView(Qt::Horizontal, parent) {
     }
 
     QSize sizeHint() const override { QSize s = QHeaderView::sizeHint(); s.rheight() *= 2; return s; }
@@ -384,7 +384,7 @@ GanttTreeView::GanttTreeView(QWidget* parent)
 
 //-------------------------------------------
 GanttZoomWidget::GanttZoomWidget(QWidget *parent)
-    : QSlider(parent), m_hide(true), m_grid(0)
+    : QSlider(parent), m_hide(true), m_grid(nullptr)
 {
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setGeometry(0, 0, 200, minimumSizeHint().height());
@@ -579,7 +579,7 @@ bool GanttViewBase::loadContext(const KoXmlElement &settings)
     opt.setFlag(DateTimeTimeLine::UseCustomPen, settings.attribute("timeline-custom").toInt());
     timeLine()->setOptions(opt);
 
-    timeLine()->setInterval(settings.attribute("timeline-interval", 0).toInt() * 60000);
+    timeLine()->setInterval(settings.attribute("timeline-interval", nullptr).toInt() * 60000);
 
     QPen pen;
     pen.setWidth(settings.attribute("timeline-width").toInt());
@@ -667,7 +667,7 @@ bool GanttViewBase::showRowSeparators() const
 //-------------------------------------------
 NodeGanttViewBase::NodeGanttViewBase(QWidget *parent)
     : GanttViewBase(parent),
-    m_project(0),
+    m_project(nullptr),
     m_ganttdelegate(new GanttItemDelegate(this))
 {
     debugPlan<<"------------------- create NodeGanttViewBase -----------------------";
@@ -769,7 +769,7 @@ void NodeGanttViewBase::setShowUnscheduledTasks(bool show)
 //-------------------------------------------
 MyKGanttView::MyKGanttView(QWidget *parent)
     : NodeGanttViewBase(parent),
-    m_manager(0)
+    m_manager(nullptr)
 {
     debugPlan<<"------------------- create MyKGanttView -----------------------";
     GanttItemModel *gm = new GanttItemModel(this);
@@ -915,7 +915,7 @@ void MyKGanttView::clearDependencies()
 void MyKGanttView::createDependencies()
 {
     clearDependencies();
-    if (project() == 0 || m_manager == 0) {
+    if (project() == nullptr || m_manager == nullptr) {
         return;
     }
     foreach (Node* n, project()->allNodes()) {
@@ -929,7 +929,7 @@ void MyKGanttView::createDependencies()
 GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWrite)
     : ViewBase(part, doc, parent),
     m_readWrite(readWrite),
-    m_project(0)
+    m_project(nullptr)
 {
     debugPlan <<" ---------------- KPlato: Creating GanttView ----------------";
 
@@ -1362,7 +1362,7 @@ void MilestoneGanttViewSettingsDialog::slotOk()
 //------------------------
 MilestoneKGanttView::MilestoneKGanttView(QWidget *parent)
     : NodeGanttViewBase(parent),
-    m_manager(0)
+    m_manager(nullptr)
 {
     debugPlan<<"------------------- create MilestoneKGanttView -----------------------";
     MilestoneItemModel *mm = new MilestoneItemModel(this);
@@ -1454,7 +1454,7 @@ void MilestoneKGanttView::slotProjectCalculated(ScheduleManager *sm)
 void MilestoneKGanttView::setScheduleManager(ScheduleManager *sm)
 {
     //debugPlan<<id<<'\n';
-    model()->setScheduleManager(0);
+    model()->setScheduleManager(nullptr);
     m_manager = sm;
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
     if (sm && m_project) {
@@ -1488,7 +1488,7 @@ void MilestoneKGanttView::setScheduleManager(ScheduleManager *sm)
 MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWrite)
     : ViewBase(part, doc, parent),
         m_readWrite(readWrite),
-        m_project(0)
+        m_project(nullptr)
 {
     debugPlan <<" ---------------- Plan: Creating Milesone GanttView ----------------";
 
@@ -1799,7 +1799,7 @@ void ResourceAppointmentsGanttViewSettingsDialog::slotOk()
 
 ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWrite)
     : ViewBase(part, doc, parent),
-    m_project(0),
+    m_project(nullptr),
     m_model(new ResourceAppointmentsGanttModel(this))
 {
     debugPlan <<" ---------------- KPlato: Creating ResourceAppointmentsGanttView ----------------";

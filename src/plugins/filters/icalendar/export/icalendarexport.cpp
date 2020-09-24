@@ -374,7 +374,7 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
     if (node->type() == Node::Type_Task) {
         const Task *task = qobject_cast<Task*>(const_cast<Node*>(node));
         Schedule *s = task->schedule(id);
-        if (id < 0 || s == 0) {
+        if (id < 0 || s == nullptr) {
             // Not scheduled, use requests
             const QList<Resource*> lst = task->requestedResources();
             foreach(const Resource *r, lst) {

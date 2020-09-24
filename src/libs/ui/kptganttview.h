@@ -72,7 +72,7 @@ class GanttChartDisplayOptionsPanel : public QWidget, public Ui::GanttChartDispl
 {
     Q_OBJECT
 public:
-    explicit GanttChartDisplayOptionsPanel(GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent = 0);
+    explicit GanttChartDisplayOptionsPanel(GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent = nullptr);
 
     void setValues(const GanttItemDelegate &del);
 
@@ -119,7 +119,7 @@ class PLANUI_EXPORT GanttPrintingOptionsWidget : public QWidget, public Ui::Gant
 {
     Q_OBJECT
 public:
-    explicit GanttPrintingOptionsWidget(QWidget *parent = 0);
+    explicit GanttPrintingOptionsWidget(QWidget *parent = nullptr);
 
     GanttPrintingOptions options() const;
 

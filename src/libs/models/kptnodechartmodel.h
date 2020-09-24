@@ -44,7 +44,7 @@ class PLANMODELS_EXPORT ChartProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit ChartProxyModel(QObject *parent = 0) : QSortFilterProxyModel(parent) {}
+    explicit ChartProxyModel(QObject *parent = nullptr) : QSortFilterProxyModel(parent) {}
 
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override {
         //if (role == Qt::DisplayRole && orientation == Qt::Vertical) debugPlan<<"fetch:"<<orientation<<section<<mapToSource(index(0, section)).column()<<m_rejects;
@@ -101,7 +101,7 @@ public:
     Q_ENUM(Properties)
     const QMetaEnum columnMap() const override;
 
-    explicit ChartItemModel(QObject *parent = 0);
+    explicit ChartItemModel(QObject *parent = nullptr);
 
 
 //    virtual Qt::ItemFlags flags(const QModelIndex & index) const;

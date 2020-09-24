@@ -275,12 +275,12 @@ public:
     double getCompletedLoad(int sc) const;
     double getRemainingLoad(int sc) const;
 
-    double getLoad(int sc, const Interval& period, const Resource* resource = 0)
+    double getLoad(int sc, const Interval& period, const Resource* resource = nullptr)
         const;
     long getAllocatedTime(int sc, const Interval& period,
-                          const Resource* resource = 0) const;
+                          const Resource* resource = nullptr) const;
     double getAllocatedTimeLoad(int sc, const Interval& period,
-                                const Resource* resource = 0) const;
+                                const Resource* resource = nullptr) const;
 
     void addBookedResource(int sc, Resource* r)
     {
@@ -401,8 +401,8 @@ private:
                        bool fromOutside) const;
     bool checkPathForLoops(LDIList& list, bool atEnd) const;
     bool scheduleContainer(int sc);
-    Task* subFirst() { return 0/*(Task*) sub->first()*/; }
-    Task* subNext() { return 0/*(Task*) sub->next()*/; }
+    Task* subFirst() { return nullptr/*(Task*) sub->first()*/; }
+    Task* subNext() { return nullptr/*(Task*) sub->next()*/; }
     /// Returns the availability of @p resource and its required resources (if any)
     int isAvailable(Allocation *allocation, Resource *resource, time_t slot) const;
     /// Book resource @p r if it (and its required resources) is available

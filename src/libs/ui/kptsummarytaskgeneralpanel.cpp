@@ -114,7 +114,7 @@ MacroCommand *SummaryTaskGeneralPanel::buildCommand() {
     }
     if (!modified) {
         delete cmd;
-        return 0;
+        return nullptr;
     }
     return cmd;
 }

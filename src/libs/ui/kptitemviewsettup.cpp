@@ -135,8 +135,8 @@ ItemViewSettupDialog::ItemViewSettupDialog(ViewBase *view, TreeViewBase *treevie
     : KPageDialog(parent),
     m_view(view),
     m_treeview(treeview),
-    m_pagelayout(0),
-    m_headerfooter(0)
+    m_pagelayout(nullptr),
+    m_headerfooter(nullptr)
 {
     setWindowTitle(i18n("View Settings"));
     setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::RestoreDefaults);
@@ -209,8 +209,8 @@ SplitItemViewSettupDialog::SplitItemViewSettupDialog(ViewBase *view, DoubleTreeV
     : KPageDialog(parent),
     m_view(view),
     m_treeview(treeview),
-    m_pagelayout(0),
-    m_headerfooter(0)
+    m_pagelayout(nullptr),
+    m_headerfooter(nullptr)
 {
     setWindowTitle(i18n("View Settings"));
     setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::RestoreDefaults);

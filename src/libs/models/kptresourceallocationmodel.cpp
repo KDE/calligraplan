@@ -45,8 +45,8 @@ using namespace KPlato;
 
 ResourceAllocationModel::ResourceAllocationModel(QObject *parent)
     : QObject(parent),
-    m_project(0),
-    m_task(0)
+    m_project(nullptr),
+    m_task(nullptr)
 {
 }
 
@@ -759,7 +759,7 @@ QAbstractItemDelegate *ResourceAllocationItemModel::createDelegate(int col, QWid
 
 QObject *ResourceAllocationItemModel::object(const QModelIndex &index) const
 {
-    QObject *o = 0;
+    QObject *o = nullptr;
     if (index.isValid()) {
         o = static_cast<QObject*>(index.internalPointer());
         Q_ASSERT(o);

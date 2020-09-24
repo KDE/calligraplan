@@ -103,7 +103,7 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
     ScheduleManager *sm = project.createScheduleManager("Test Plan");
     project.addScheduleManager(sm);
 
-    PlanTJPlugin tj(0, QVariantList());
+    PlanTJPlugin tj(nullptr, QVariantList());
     qDebug() << "+++++++++++++++++++++++++++calculate-start";
     tj.calculate(project, sm, true/*nothread*/);
     qDebug() << "+++++++++++++++++++++++++++calculate-end";

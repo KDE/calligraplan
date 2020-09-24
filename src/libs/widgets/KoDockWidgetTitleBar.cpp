@@ -60,14 +60,14 @@ KoDockWidgetTitleBar::KoDockWidgetTitleBar(QDockWidget* dockWidget)
     QDockWidget *q = dockWidget;
 
     d->floatButton = new KoDockWidgetTitleBarButton(this);
-    d->floatButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarNormalButton, 0, q));
+    d->floatButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarNormalButton, nullptr, q));
     connect(d->floatButton, SIGNAL(clicked()), SLOT(toggleFloating())); // clazy:exclude=old-style-connect
     d->floatButton->setVisible(true);
     d->floatButton->setToolTip(i18nc("@info:tooltip", "Float Docker"));
     d->floatButton->setStyleSheet("border: 0");
 
     d->closeButton = new KoDockWidgetTitleBarButton(this);
-    d->closeButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarCloseButton, 0, q));
+    d->closeButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarCloseButton, nullptr, q));
     connect(d->closeButton, &QAbstractButton::clicked, q, &QWidget::close);
     d->closeButton->setVisible(true);
     d->closeButton->setToolTip(i18nc("@info:tooltip", "Close Docker"));
@@ -93,7 +93,7 @@ KoDockWidgetTitleBar::KoDockWidgetTitleBar(QDockWidget* dockWidget)
     connect(dockWidget, SIGNAL(featuresChanged(QDockWidget::DockWidgetFeatures)), SLOT(featuresChanged(QDockWidget::DockWidgetFeatures))); // clazy:exclude=old-style-connect
     connect(dockWidget, SIGNAL(topLevelChanged(bool)), SLOT(topLevelChanged(bool))); // clazy:exclude=old-style-connect
 
-    d->featuresChanged(0);
+    d->featuresChanged(nullptr);
 }
 
 KoDockWidgetTitleBar::~KoDockWidgetTitleBar()
@@ -114,8 +114,8 @@ QSize KoDockWidgetTitleBar::sizeHint() const
 
     QDockWidget *q = qobject_cast<QDockWidget*>(parentWidget());
 
-    int mw = q->style()->pixelMetric(QStyle::PM_DockWidgetTitleMargin, 0, q);
-    int fw = q->style()->pixelMetric(QStyle::PM_DockWidgetFrameWidth, 0, q);
+    int mw = q->style()->pixelMetric(QStyle::PM_DockWidgetTitleMargin, nullptr, q);
+    int fw = q->style()->pixelMetric(QStyle::PM_DockWidgetFrameWidth, nullptr, q);
 
     // get size of buttons...
     QSize closeSize(0, 0);
@@ -181,8 +181,8 @@ void KoDockWidgetTitleBar::paintEvent(QPaintEvent*)
 
     QDockWidget *q = qobject_cast<QDockWidget*>(parentWidget());
 
-    int fw = q->isFloating() ? q->style()->pixelMetric(QStyle::PM_DockWidgetFrameWidth, 0, q) : 0;
-    int mw = q->style()->pixelMetric(QStyle::PM_DockWidgetTitleMargin, 0, q);
+    int fw = q->isFloating() ? q->style()->pixelMetric(QStyle::PM_DockWidgetFrameWidth, nullptr, q) : 0;
+    int mw = q->style()->pixelMetric(QStyle::PM_DockWidgetTitleMargin, nullptr, q);
 
     QStyleOptionDockWidget titleOpt;
     titleOpt.initFrom(q);
@@ -209,7 +209,7 @@ void KoDockWidgetTitleBar::resizeEvent(QResizeEvent*)
 {
     QDockWidget *q = qobject_cast<QDockWidget*>(parentWidget());
 
-    int fw = q->isFloating() ? q->style()->pixelMetric(QStyle::PM_DockWidgetFrameWidth, 0, q) : 0;
+    int fw = q->isFloating() ? q->style()->pixelMetric(QStyle::PM_DockWidgetFrameWidth, nullptr, q) : 0;
 
     QStyleOptionDockWidget opt;
     opt.initFrom(q);
@@ -303,7 +303,7 @@ void KoDockWidgetTitleBar::setLocked(bool locked)
 
     d->updateIcons();
     q->setProperty("Locked", locked);
-    resizeEvent(0);
+    resizeEvent(nullptr);
 }
 
 
@@ -339,7 +339,7 @@ void KoDockWidgetTitleBar::Private::topLevelChanged(bool topLevel)
 void KoDockWidgetTitleBar::Private::toggleCollapsed()
 {
     QDockWidget *q = qobject_cast<QDockWidget*>(thePublic->parentWidget());
-    if (q == 0) // there does not *have* to be anything on the dockwidget.
+    if (q == nullptr) // there does not *have* to be anything on the dockwidget.
         return;
 
     preCollapsedWidth = q->widget()->isHidden() ? -1 : thePublic->width();
@@ -357,7 +357,7 @@ void KoDockWidgetTitleBar::Private::featuresChanged(QDockWidget::DockWidgetFeatu
     closeButton->setVisible(hasFeature(q, QDockWidget::DockWidgetClosable));
     floatButton->setVisible(hasFeature(q, QDockWidget::DockWidgetFloatable));
 
-    thePublic->resizeEvent(0);
+    thePublic->resizeEvent(nullptr);
 }
 
 // QT5TODO: this is not yet triggered by theme changes it seems
@@ -368,13 +368,13 @@ void KoDockWidgetTitleBar::Private::updateIcons()
     lockButton->setIcon((!locked) ? koIcon("object-unlocked") : koIcon("object-locked"));
 
     // this method gets called when switching themes, so update all of the themed icons now
-   floatButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarNormalButton, 0, q));
-   closeButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarCloseButton, 0, q));
+   floatButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarNormalButton, nullptr, q));
+   closeButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarCloseButton, nullptr, q));
 
     if (q->widget()) {
         collapseButton->setIcon(q->widget()->isHidden() ? closeIcon(q) : openIcon(q));
     }
-    thePublic->resizeEvent(0);
+    thePublic->resizeEvent(nullptr);
 
 }
 

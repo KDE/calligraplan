@@ -65,8 +65,8 @@ QVariant FlatProxyModel::headerData(int section, Qt::Orientation orientation, in
 
 QMimeData *FlatProxyModel::mimeData(const QModelIndexList &indexes) const
 {
-    if (sourceModel() == 0) {
-        return 0;
+    if (sourceModel() == nullptr) {
+        return nullptr;
     }
     QModelIndexList source_indexes;
     for (int i = 0; i < indexes.count(); ++i) {
@@ -77,7 +77,7 @@ QMimeData *FlatProxyModel::mimeData(const QModelIndexList &indexes) const
 
 QStringList FlatProxyModel::mimeTypes() const
 {
-    if (sourceModel() == 0) {
+    if (sourceModel() == nullptr) {
         return QStringList();
     }
     return sourceModel()->mimeTypes();
@@ -85,8 +85,8 @@ QStringList FlatProxyModel::mimeTypes() const
 
 Qt::DropActions FlatProxyModel::supportedDropActions() const
 {
-    if (sourceModel() == 0) {
-        return 0;
+    if (sourceModel() == nullptr) {
+        return nullptr;
     }
     return sourceModel()->supportedDropActions();
 }
@@ -94,7 +94,7 @@ Qt::DropActions FlatProxyModel::supportedDropActions() const
 bool FlatProxyModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
                                          int row, int column, const QModelIndex &parent)
 {
-    if (sourceModel() == 0) {
+    if (sourceModel() == nullptr) {
         return false;
     }
     if ((row == -1) && (column == -1))

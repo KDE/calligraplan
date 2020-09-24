@@ -19,11 +19,11 @@ namespace TJ
 Task*
 TaskList::getTask(const QString& id) const
 {
-    for (TaskListIterator tli(*this); *tli != 0; ++tli)
+    for (TaskListIterator tli(*this); *tli != nullptr; ++tli)
         if ((*tli)->getId() == id)
             return *tli;
 
-    return 0;
+    return nullptr;
 }
 
 bool

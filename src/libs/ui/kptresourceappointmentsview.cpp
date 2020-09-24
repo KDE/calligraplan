@@ -166,7 +166,7 @@ void ResourceAppointmentsTreeView::slotRefreshed()
 {
     //debugPlan<<model()->columnCount()<<", "<<m_leftview->header()->count()<<", "<<m_rightview->header()->count()<<", "<<m_leftview->header()->hiddenSectionCount()<<", "<<m_rightview->header()->hiddenSectionCount();
     ResourceAppointmentsItemModel *m = model();
-    setModel(0);
+    setModel(nullptr);
     setModel(m);
     setSelectionMode(QAbstractItemView::ExtendedSelection);
     QList<int> lst1; lst1 << 2 << -1;
@@ -299,13 +299,13 @@ Node *ResourceAppointmentsView::currentNode() const
 Resource *ResourceAppointmentsView::currentResource() const
 {
     //return qobject_cast<Resource*>(m_view->currentObject());
-    return 0;
+    return nullptr;
 }
 
 ResourceGroup *ResourceAppointmentsView::currentResourceGroup() const
 {
     //return qobject_cast<ResourceGroup*>(m_view->currentObject());
-    return 0;
+    return nullptr;
 }
 
 void ResourceAppointmentsView::slotCurrentChanged(const QModelIndex &)

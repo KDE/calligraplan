@@ -43,7 +43,7 @@ class PLANMODELS_EXPORT ResourceModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit ResourceModel(QObject *parent = 0);
+    explicit ResourceModel(QObject *parent = nullptr);
     ~ResourceModel() override;
 
     enum Properties {

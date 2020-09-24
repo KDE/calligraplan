@@ -46,7 +46,7 @@ public:
     explicit KoFilterEntry(QPluginLoader *loader);
     ~KoFilterEntry();
 
-    KoFilter* createFilter(KoFilterChain* chain, QObject* parent = 0);
+    KoFilter* createFilter(KoFilterChain* chain, QObject* parent = nullptr);
 
     /**
      *  The imported mimetype(s).

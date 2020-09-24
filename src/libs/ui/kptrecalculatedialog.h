@@ -41,7 +41,7 @@ class PLANUI_EXPORT RecalculateDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    explicit RecalculateDialog(QWidget *parent = 0);
+    explicit RecalculateDialog(QWidget *parent = nullptr);
 
     QDateTime dateTime() const;
 

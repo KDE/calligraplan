@@ -38,7 +38,7 @@ class MacroCommand;
 class PLANUI_EXPORT TaskProgressDialog : public KoDialog {
     Q_OBJECT
 public:
-    TaskProgressDialog(Task &task, ScheduleManager *sm, StandardWorktime *workTime, QWidget *parent=0);
+    TaskProgressDialog(Task &task, ScheduleManager *sm, StandardWorktime *workTime, QWidget *parent=nullptr);
 
     MacroCommand *buildCommand();
 

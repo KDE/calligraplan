@@ -289,7 +289,7 @@ void TaskStatusView::slotContextMenuRequested(const QModelIndex &index, const QP
     }
     m_view->setContextMenuIndex(index);
     Node *node = m_view->model()->node(index);
-    if (node == 0) {
+    if (node == nullptr) {
         slotHeaderContextMenuRequested(pos);
         m_view->setContextMenuIndex(QModelIndex());
         return;

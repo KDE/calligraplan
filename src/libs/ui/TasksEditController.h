@@ -50,7 +50,7 @@ class PLANUI_EXPORT TasksEditController : public QObject
 {
     Q_OBJECT
 public:
-    TasksEditController(Project &project, const QList<Task*> &tasks, QObject *parent = 0);
+    TasksEditController(Project &project, const QList<Task*> &tasks, QObject *parent = nullptr);
     ~TasksEditController() override;
 
 public Q_SLOTS:

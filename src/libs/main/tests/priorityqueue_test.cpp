@@ -51,7 +51,7 @@ static const char* const keys[] =
 {
     "one",  "two", "three",  "four", "five",
     "six", "seven", "eight", "nine", "ten",
-    "eleven", "twelve", 0
+    "eleven", "twelve", nullptr
 };
 
 
@@ -62,7 +62,7 @@ void PriorityQueue_test::testQueue()
 
     CalligraFilter::PriorityQueue<Node> queue;
 
-    srand(time(0));
+    srand(time(nullptr));
     for (int i = 0; i < 12; ++i) {
         Node *n = new Node(rand() % 20);
         list.append(n);

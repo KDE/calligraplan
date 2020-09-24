@@ -68,7 +68,7 @@ RequieredResourceDelegate::RequieredResourceDelegate(QObject *parent)
 QWidget *RequieredResourceDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */, const QModelIndex &index) const
 {
     if (index.data(Qt::CheckStateRole).toInt() == Qt::Unchecked) {
-        return 0;
+        return nullptr;
     }
     TreeComboBox *editor = new TreeComboBox(parent);
     editor->installEventFilter(const_cast<RequieredResourceDelegate*>(this));

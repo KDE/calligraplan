@@ -147,7 +147,7 @@ class TaskStatusViewSettingsPanel : public QWidget, public Ui::TaskStatusViewSet
 {
     Q_OBJECT
 public:
-    explicit TaskStatusViewSettingsPanel(TaskStatusTreeView *view, QWidget *parent = 0);
+    explicit TaskStatusViewSettingsPanel(TaskStatusTreeView *view, QWidget *parent = nullptr);
 
 public Q_SLOTS:
     void slotOk();
@@ -164,7 +164,7 @@ class TaskStatusViewSettingsDialog : public SplitItemViewSettupDialog
 {
     Q_OBJECT
 public:
-    explicit TaskStatusViewSettingsDialog(ViewBase *view, TaskStatusTreeView *treeview, QWidget *parent = 0);
+    explicit TaskStatusViewSettingsDialog(ViewBase *view, TaskStatusTreeView *treeview, QWidget *parent = nullptr);
 
 };
 

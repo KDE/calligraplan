@@ -44,7 +44,7 @@ namespace KoLZF {
 // the original implementation in http://liblzf.plan9.de/
 int compress(const void* input, int length, void* output, int maxout)
 {
-    if (input == 0 || length < 1 || output == 0 || maxout < 2) {
+    if (input == nullptr || length < 1 || output == nullptr || maxout < 2) {
         return 0;
     }
 
@@ -223,10 +223,10 @@ int compress(const void* input, int length, void* output, int maxout)
 
 int decompress(const void* input, int length, void* output, int maxout)
 {
-    if (input == 0 || length < 1) {
+    if (input == nullptr || length < 1) {
         return 0;
     }
-    if (output == 0 || maxout < 1) {
+    if (output == nullptr || maxout < 1) {
         return 0;
     }
 

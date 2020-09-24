@@ -101,17 +101,17 @@ MacroCommand *TaskCostPanel::buildCommand() {
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Modify Task Cost"));
     bool modified = false;
     
-    if ((m_oldrunning == 0 && runningAccount->currentIndex() != 0) ||
+    if ((m_oldrunning == nullptr && runningAccount->currentIndex() != 0) ||
         (m_oldrunning && m_oldrunning->name() != runningAccount->currentText())) {
         cmd->addCommand(new NodeModifyRunningAccountCmd(m_task, m_oldrunning, m_accounts.findAccount(runningAccount->currentText())));
         modified = true;
     }
-    if ((m_oldstartup == 0 && startupAccount->currentIndex() != 0) ||
+    if ((m_oldstartup == nullptr && startupAccount->currentIndex() != 0) ||
         (m_oldstartup && m_oldstartup->name() != startupAccount->currentText())) {
         cmd->addCommand(new NodeModifyStartupAccountCmd(m_task, m_oldstartup,  m_accounts.findAccount(startupAccount->currentText())));
         modified = true;
     }
-    if ((m_oldshutdown == 0 && shutdownAccount->currentIndex() != 0) ||
+    if ((m_oldshutdown == nullptr && shutdownAccount->currentIndex() != 0) ||
         (m_oldshutdown && m_oldshutdown->name() != shutdownAccount->currentText())) {
         cmd->addCommand(new NodeModifyShutdownAccountCmd(m_task, m_oldshutdown,  m_accounts.findAccount(shutdownAccount->currentText())));
         modified = true;
@@ -128,24 +128,24 @@ MacroCommand *TaskCostPanel::buildCommand() {
     }
     if (!modified) {
         delete cmd;
-        return 0;
+        return nullptr;
     }
     return cmd;
 }
 
 bool TaskCostPanel::ok() {
     if (runningAccount->currentIndex() == 0 ||
-        m_accounts.findAccount(runningAccount->currentText()) == 0) {
+        m_accounts.findAccount(runningAccount->currentText()) == nullptr) {
         //message
         return false;
     }
     if (startupAccount->currentIndex() == 0 ||
-        m_accounts.findAccount(startupAccount->currentText()) == 0) {
+        m_accounts.findAccount(startupAccount->currentText()) == nullptr) {
         //message
         return false;
     }
     if (shutdownAccount->currentIndex() == 0 ||
-        m_accounts.findAccount(shutdownAccount->currentText()) == 0) {
+        m_accounts.findAccount(shutdownAccount->currentText()) == nullptr) {
         //message
         return false;
     }

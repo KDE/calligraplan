@@ -274,7 +274,7 @@ PrintingOptions PrintingHeaderFooter::options() const
 PrintingDialog::PrintingDialog(ViewBase *view)
     : KoPrintingDialog(view),
     m_view(view),
-    m_widget(0)
+    m_widget(nullptr)
 {
     setPrinterPageLayout(view->pageLayout());
     QImage px(100, 600, QImage::Format_Mono);
@@ -578,8 +578,8 @@ void PrintingDialog::paint(QPainter &p, const PrintingOptions::Data &options, co
 ViewBase::ViewBase(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent),
     m_readWrite(false),
-    m_proj(0),
-    m_schedulemanager(0),
+    m_proj(nullptr),
+    m_schedulemanager(nullptr),
     m_singleTreeView(nullptr),
     m_doubleTreeView(nullptr)
 {
@@ -668,7 +668,7 @@ KoPrintJob *ViewBase::createPrintJob()
 {
     KMessageBox::sorry(this, i18n("This view does not support printing."));
 
-    return 0;
+    return nullptr;
 }
 
 /*static*/
@@ -856,7 +856,7 @@ DockWidget* ViewBase::findDocker(const QString &id) const
             return ds;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 void ViewBase::setViewSplitMode(bool split)
@@ -1379,7 +1379,7 @@ void TreeViewBase::closeEditor(QWidget *editor, QAbstractItemDelegate::EndEditHi
 {
     //debugPlan<<editor<<hint;
     ItemDelegate *delegate = ::qobject_cast<ItemDelegate*>(sender());
-    if (delegate == 0) {
+    if (delegate == nullptr) {
         warnPlan<<"Not a KPlato::ItemDelegate, try standard treatment"<<editor<<hint;
         return QTreeView::closeEditor(editor, hint);
     }
@@ -2120,7 +2120,7 @@ void DoubleTreeViewPrintingDialog::printPage(int page, QPainter &painter)
     QRect paperRect = printer().paperRect();
 
     QAbstractItemModel *model = m_tree->model();
-    Q_ASSERT(model != 0);
+    Q_ASSERT(model != nullptr);
     debugPlan<<pageRect<<paperRect;
 
     painter.translate(pageRect.topLeft());
@@ -2241,8 +2241,8 @@ void DoubleTreeViewPrintingDialog::printPage(int page, QPainter &painter)
 
 DoubleTreeViewBase::DoubleTreeViewBase(bool /*mode*/, QWidget *parent)
     : QSplitter(parent),
-    m_rightview(0),
-    m_selectionmodel(0),
+    m_rightview(nullptr),
+    m_selectionmodel(nullptr),
     m_readWrite(false),
     m_mode(false)
 {
@@ -2251,8 +2251,8 @@ DoubleTreeViewBase::DoubleTreeViewBase(bool /*mode*/, QWidget *parent)
 
 DoubleTreeViewBase::DoubleTreeViewBase(QWidget *parent)
     : QSplitter(parent),
-    m_rightview(0),
-    m_selectionmodel(0),
+    m_rightview(nullptr),
+    m_selectionmodel(nullptr),
     m_mode(false)
 {
     init();
@@ -2749,7 +2749,7 @@ QMimeData *DoubleTreeViewBase::mimeData() const
     QModelIndexList rows = selectionModel()->selectedRows();
     if (rows.isEmpty()) {
         debugPlan<<"No rows selected";
-        return 0;
+        return nullptr;
     }
     sort(m_leftview, rows);
     QList<int> columns;;

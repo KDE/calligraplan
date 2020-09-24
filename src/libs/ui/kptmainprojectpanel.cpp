@@ -199,7 +199,7 @@ bool MainProjectPanel::ok() {
 }
 
 MacroCommand *MainProjectPanel::buildCommand() {
-    MacroCommand *m = 0;
+    MacroCommand *m = nullptr;
     KUndo2MagicString c = kundo2_i18n("Modify main project");
     if (project.name() != namefield->text()) {
         if (!m) m = new MacroCommand(c);

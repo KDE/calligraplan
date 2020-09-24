@@ -65,11 +65,11 @@ public:
     }
     
     MacroCommand *save() {
-        MacroCommand *cmd=0;
+        MacroCommand *cmd=nullptr;
         if (*original != *day) {
             cmd = new MacroCommand();
             cmd->addCommand(new CalendarModifyWeekdayCmd(calendar, weekday, day));
-            day = 0;
+            day = nullptr;
         }
         return cmd;
     }
@@ -102,21 +102,21 @@ StandardWorktimeDialog::StandardWorktimeDialog(Project &p, QWidget *parent)
 MacroCommand *StandardWorktimeDialog::buildCommand() {
     //debugPlan;
     KUndo2MagicString n = kundo2_i18n("Modify Estimate Conversions");
-    MacroCommand *cmd = 0;
+    MacroCommand *cmd = nullptr;
     if (m_original->year() != dia->inYear()) {
-        if (cmd == 0) cmd = new MacroCommand(n);
+        if (cmd == nullptr) cmd = new MacroCommand(n);
         cmd->addCommand(new ModifyStandardWorktimeYearCmd(m_original, m_original->year(), dia->inYear()));
     }
     if (m_original->month() != dia->inMonth()) {
-        if (cmd == 0) cmd = new MacroCommand(n);
+        if (cmd == nullptr) cmd = new MacroCommand(n);
         cmd->addCommand(new ModifyStandardWorktimeMonthCmd(m_original, m_original->month(), dia->inMonth()));
     }
     if (m_original->week() != dia->inWeek()) {
-        if (cmd == 0) cmd = new MacroCommand(n);
+        if (cmd == nullptr) cmd = new MacroCommand(n);
         cmd->addCommand(new ModifyStandardWorktimeWeekCmd(m_original, m_original->week(), dia->inWeek()));
     }
     if (m_original->day() != dia->inDay()) {
-        if (cmd == 0) cmd = new MacroCommand(n);
+        if (cmd == nullptr) cmd = new MacroCommand(n);
         cmd->addCommand(new ModifyStandardWorktimeDayCmd(m_original, m_original->day(), dia->inDay()));
     }
     return cmd;

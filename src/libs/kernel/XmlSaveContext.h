@@ -36,7 +36,7 @@ namespace KPlato
 class PLANKERNEL_EXPORT XmlSaveContext
 {
 public:
-    XmlSaveContext(Project *project = 0)
+    XmlSaveContext(Project *project = nullptr)
     : options(SaveAll)
     , m_project(project)
     {}

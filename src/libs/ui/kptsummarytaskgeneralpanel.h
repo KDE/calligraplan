@@ -35,7 +35,7 @@ class MacroCommand;
 class SummaryTaskGeneralPanel : public QWidget, public Ui_SummaryTaskGeneralPanelBase {
     Q_OBJECT
 public:
-    explicit SummaryTaskGeneralPanel(Task &task, QWidget *parent=0, const char *name=0);
+    explicit SummaryTaskGeneralPanel(Task &task, QWidget *parent=nullptr, const char *name=nullptr);
 
     MacroCommand *buildCommand();
 

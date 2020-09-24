@@ -135,7 +135,7 @@ class PLANUI_EXPORT PerformanceStatusPrintingDialog : public PrintingDialog
 {
     Q_OBJECT
 public:
-    PerformanceStatusPrintingDialog(ViewBase *view, PerformanceStatusBase *chart, Project *project = 0);
+    PerformanceStatusPrintingDialog(ViewBase *view, PerformanceStatusBase *chart, Project *project = nullptr);
     ~PerformanceStatusPrintingDialog() override {}
 
     int documentLastPage() const override;
@@ -238,7 +238,7 @@ class PerformanceStatusViewSettingsPanel : public QWidget, public Ui::Performanc
 {
     Q_OBJECT
 public:
-    explicit PerformanceStatusViewSettingsPanel(PerformanceStatusBase *view, QWidget *parent = 0);
+    explicit PerformanceStatusViewSettingsPanel(PerformanceStatusBase *view, QWidget *parent = nullptr);
     
 public Q_SLOTS:
     void slotOk();

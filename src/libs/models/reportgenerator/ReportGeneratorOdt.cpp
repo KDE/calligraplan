@@ -107,7 +107,7 @@ ChartItemModel *findChartItemModel(QSortFilterProxyModel &model)
             return c;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 bool startsWith(const QStringList &keys, const QString &key)
@@ -219,7 +219,7 @@ void initProjectModel(QAbstractItemModel *model, Project *project, ScheduleManag
     idx = model->index(0, 1);
     model->setData(idx, project->leader());
 
-    PerformanceDataCurrentDateModel m(0);
+    PerformanceDataCurrentDateModel m(nullptr);
     m.setProject(project);
     m.setScheduleManager(sm);
     m.setNodes(QList<Node*>() << project);
@@ -266,7 +266,7 @@ void initScheduleModel(QAbstractItemModel *model, Project *project, ScheduleMana
 //--------------------------------------
 ReportGeneratorOdt::ReportGeneratorOdt()
     : ReportGenerator()
-    , m_templateStore(0)
+    , m_templateStore(nullptr)
 {
     m_keys = QStringList() << "table" << "chart";
     m_variables = QStringList() << "project" << "schedule";
@@ -357,7 +357,7 @@ bool ReportGeneratorOdt::open()
 void ReportGeneratorOdt::close()
 {
     delete m_templateStore;
-    m_templateStore = 0;
+    m_templateStore = nullptr;
 }
 
 bool ReportGeneratorOdt::createReport()
@@ -596,7 +596,7 @@ bool ReportGeneratorOdt::treatTableRow(KoXmlWriter &writer, const KoXmlElement &
 
 ReportGeneratorOdt::UserField *ReportGeneratorOdt::findUserField(const KoXmlElement &decl) const
 {
-    UserField *field = 0;
+    UserField *field = nullptr;
     QString name = decl.attributeNS(KoXmlNS::text, "name"); // eg: table1 or table1.Type or project.name or tr.bcws
 
     field = m_userfields.value(name); // if Variable or Translation
@@ -850,38 +850,38 @@ KoStore *ReportGeneratorOdt::copyStore(KoOdfReadStore &reader, const QString &ou
 {
     if (!reader.store()->hasFile("META-INF/manifest.xml")) {
         dbgRG<<"No manifest file";
-        return 0;
+        return nullptr;
     }
     KoXmlDocument manifest;
     if (!reader.loadAndParse("META-INF/manifest.xml", manifest, m_lastError)) {
         dbgRG<<"Failed to read manifest:"<<m_lastError;
-        return 0;
+        return nullptr;
     }
     QUrl url(outfile);
     if (!url.isLocalFile()) {
         // FIXME: KoStore only handles local files
         dbgRG<<"KoStore only handles local files";
         m_lastError = i18n("Report generator can only generate local files");
-        return 0;
+        return nullptr;
     }
     KoStore *out = KoStore::createStore(url.path(), KoStore::Write);
     if (!out) {
         dbgRG<<"Failed to create store";
         m_lastError = i18n("Failed to open report file: %1", url.path());
-        return 0;
+        return nullptr;
     }
     // This should go first, see OpenDocument v1.2 part 3: Packages
     if (reader.store()->hasFile("mimetype")) {
         if (!copyFile(*reader.store(), *out, "mimetype")) {
             m_lastError = i18n("Failed to load manifest file");
             delete out;
-            return 0;
+            return nullptr;
         }
     }
     if (!copyFile(*reader.store(), *out, "META-INF/manifest.xml")) {
         m_lastError = i18n("Failed to write manifest file");
         delete out;
-        return 0;
+        return nullptr;
     }
 
     KoXmlElement e;
@@ -907,7 +907,7 @@ KoXmlWriter *ReportGeneratorOdt::createOasisXmlWriter(KoOdfReadStore &reader, QB
     if (!reader.store()) {
         m_lastError = i18n("No store backend");
         dbgRG<<"No store";
-        return 0;
+        return nullptr;
     }
     dbgRGTmp<<fileName<<rootElementName<<"has file:"<<reader.store()->hasFile(fileName);
     if (reader.store()->isOpen()) {
@@ -916,12 +916,12 @@ KoXmlWriter *ReportGeneratorOdt::createOasisXmlWriter(KoOdfReadStore &reader, QB
     if (!reader.store()->open(fileName)) {
         dbgRG << "Entry " << fileName << " not found!";
         m_lastError = xi18nc("@info", "Failed to open file <filename>%1</filename> from store.", fileName);
-        return 0;
+        return nullptr;
     }
     if (!reader.store()->device()->isOpen()) {
         reader.store()->device()->open(QIODevice::ReadOnly);
     }
-    KoXmlWriter *writer = 0;
+    KoXmlWriter *writer = nullptr;
     QXmlStreamReader xml(reader.store()->device());
     xml.setNamespaceProcessing(true);
     while (!xml.atEnd()) {
@@ -1231,7 +1231,7 @@ void ReportGeneratorOdt::listChildNodes(const QDomNode &parent)
 QAbstractItemModel *ReportGeneratorOdt::dataModel(const QString &name) const
 {
     dbgRG<<name<<m_datamodels;
-    QAbstractItemModel *model = 0;
+    QAbstractItemModel *model = nullptr;
     if (m_datamodels.contains(name)) {
         model = m_datamodels[name];
     }

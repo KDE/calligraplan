@@ -38,7 +38,7 @@
 
 CommandLineParser::CommandLineParser()
     : QObject(),
-    m_mainwindow(0)
+    m_mainwindow(nullptr)
 {
     KAboutData *aboutData = KPlatoWork::newAboutData();
     KAboutData::setApplicationData(*aboutData);
@@ -83,9 +83,9 @@ void CommandLineParser::handleCommandLine(const QDir &workingDirectory)
         return; // should never happen
     }
     if (lst.isEmpty()) {
-        Q_ASSERT(m_mainwindow == 0);
+        Q_ASSERT(m_mainwindow == nullptr);
     }
-    if (m_mainwindow == 0) {
+    if (m_mainwindow == nullptr) {
         m_mainwindow = new KPlatoWork_MainWindow();
         m_mainwindow->show();
     }    
@@ -102,7 +102,7 @@ void CommandLineParser::handleCommandLine(const QDir &workingDirectory)
 
         // For now create an empty document
         if (! m_mainwindow->openDocument(url)) {
-            KMessageBox::error(0, i18n("Failed to open document"));
+            KMessageBox::error(nullptr, i18n("Failed to open document"));
         }
     }
 }

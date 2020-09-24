@@ -47,7 +47,7 @@ class PLAN_EXPORT ConfigWorkVacationPanel : public ConfigWorkVacationPanelImpl
 {
     Q_OBJECT
 public:
-    explicit ConfigWorkVacationPanel(QWidget *parent=0);
+    explicit ConfigWorkVacationPanel(QWidget *parent=nullptr);
     
 };
 

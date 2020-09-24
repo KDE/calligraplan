@@ -222,7 +222,7 @@ QVariant DocumentModel::headerData(int section, int role)
 //----------------------------
 DocumentItemModel::DocumentItemModel(QObject *parent)
     : ItemModelBase(parent),
-    m_documents(0)
+    m_documents(nullptr)
 {
 }
 
@@ -321,7 +321,7 @@ QModelIndex DocumentItemModel::index(int row, int column, const QModelIndex &par
     if (parent.isValid()) {
         return QModelIndex();
     }
-    if (m_documents == 0 || column < 0 || column >= columnCount() || row < 0) {
+    if (m_documents == nullptr || column < 0 || column >= columnCount() || row < 0) {
         //debugPlan<<"No index for"<<row<<","<<column;
         return QModelIndex();
     }
@@ -333,7 +333,7 @@ QModelIndex DocumentItemModel::index(int row, int column, const QModelIndex &par
 
 QModelIndex DocumentItemModel::index(const Document *doc) const
 {
-    if (m_documents == 0 || ! doc->isValid()) {
+    if (m_documents == nullptr || ! doc->isValid()) {
         return QModelIndex();
     }
     if (! m_documents->contains(doc)) {
@@ -471,7 +471,7 @@ QAbstractItemDelegate *DocumentItemModel::createDelegate(int column, QWidget *pa
         case DocumentModel::Property_SendAs: { debugPlan<< column; return new EnumDelegate(parent); }
         default: break;
     }
-    return 0;
+    return nullptr;
 }
 
 int DocumentItemModel::columnCount(const QModelIndex &/*parent*/) const
@@ -482,7 +482,7 @@ int DocumentItemModel::columnCount(const QModelIndex &/*parent*/) const
 
 int DocumentItemModel::rowCount(const QModelIndex &parent) const
 {
-    if (m_documents == 0 || parent.isValid()) {
+    if (m_documents == nullptr || parent.isValid()) {
         //debugPlan<<parent;
         return 0;
     }
@@ -548,15 +548,15 @@ bool DocumentItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
 
 Document *DocumentItemModel::document(const QModelIndex &index) const
 {
-    if (m_documents == 0) {
-        return 0;
+    if (m_documents == nullptr) {
+        return nullptr;
     }
     return m_documents->value(index.row());
 }
 
 void DocumentItemModel::slotDocumentChanged(Document *doc)
 {
-    if (m_documents == 0) {
+    if (m_documents == nullptr) {
         return;
     }
     int row = m_documents->indexOf(doc);

@@ -74,8 +74,8 @@ private:
 class PLANUI_EXPORT DependencyLinkItemBase : public QGraphicsPathItem
 {
 public:
-    explicit DependencyLinkItemBase (QGraphicsItem * parent = 0);
-    DependencyLinkItemBase (DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem * parent = 0);
+    explicit DependencyLinkItemBase (QGraphicsItem * parent = nullptr);
+    DependencyLinkItemBase (DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem * parent = nullptr);
     ~DependencyLinkItemBase() override;
 
     enum { Type = QGraphicsItem::UserType + 10 };
@@ -101,7 +101,7 @@ public:
 class PLANUI_EXPORT DependencyLinkItem : public DependencyLinkItemBase
 {
 public:
-    explicit DependencyLinkItem (DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem * parent = 0);
+    explicit DependencyLinkItem (DependencyNodeItem *predecessor, DependencyNodeItem *successor, Relation *rel, QGraphicsItem * parent = nullptr);
     ~DependencyLinkItem() override;
 
     enum { Type = QGraphicsItem::UserType + 11 };
@@ -129,7 +129,7 @@ protected:
 class PLANUI_EXPORT DependencyCreatorItem : public DependencyLinkItemBase
 {
 public:
-    explicit DependencyCreatorItem (QGraphicsItem * parent = 0);
+    explicit DependencyCreatorItem (QGraphicsItem * parent = nullptr);
     ~DependencyCreatorItem() override {}
 
     enum { Type = QGraphicsItem::UserType + 12 };
@@ -162,7 +162,7 @@ public:
 class PLANUI_EXPORT DependencyNodeItem : public QGraphicsRectItem
 {
 public:
-    explicit DependencyNodeItem(Node *node, DependencyNodeItem *parent = 0);
+    explicit DependencyNodeItem(Node *node, DependencyNodeItem *parent = nullptr);
     ~DependencyNodeItem() override;
 
     enum  { Type = QGraphicsItem::UserType + 1 };
@@ -207,7 +207,7 @@ public:
 
     void setSymbol();
 
-    int nodeLevel() const { return m_node == 0 ? 0 : m_node->level() - 1; }
+    int nodeLevel() const { return m_node == nullptr ? 0 : m_node->level() - 1; }
 
     DependencyConnectorItem *startConnector() const { return m_start; }
     DependencyConnectorItem *finishConnector() const { return m_finish; }
@@ -255,7 +255,7 @@ private:
 class PLANUI_EXPORT DependencyNodeSymbolItem : public QGraphicsPathItem
 {
 public:
-    explicit DependencyNodeSymbolItem(DependencyNodeItem *parent = 0)
+    explicit DependencyNodeSymbolItem(DependencyNodeItem *parent = nullptr)
         : QGraphicsPathItem(parent),
         m_editable(false)
     {}
@@ -321,7 +321,7 @@ class PLANUI_EXPORT DependencyScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    explicit DependencyScene(QWidget *parent = 0);
+    explicit DependencyScene(QWidget *parent = nullptr);
     ~DependencyScene() override;
 
     void setProject(Project *p) { m_project = p; }

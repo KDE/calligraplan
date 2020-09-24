@@ -31,7 +31,7 @@ class PLANMODELS_EXPORT TaskCompleteDelegate : public ProgressBarDelegate
 {
   Q_OBJECT
 public:
-    explicit TaskCompleteDelegate(QObject *parent = 0);
+    explicit TaskCompleteDelegate(QObject *parent = nullptr);
 
     ~TaskCompleteDelegate() override;
 

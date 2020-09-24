@@ -57,7 +57,7 @@ public:
      * Create a filter manager for a document
      */
     explicit KoFilterManager(KoDocument *document,
-                             KoProgressUpdater *progressUpdater = 0);
+                             KoProgressUpdater *progressUpdater = nullptr);
 
     /**
      * Create a filter manager for the Shape Collection docker.
@@ -80,7 +80,7 @@ public:
      *        to allow embedding for filters. Most likely you do not have to care.
      */
     explicit KoFilterManager(const QString& url, const QByteArray& mimetypeHint = QByteArray(),
-                             KoFilterChain * const parentChain = 0);
+                             KoFilterChain * const parentChain = nullptr);
 
     ~KoFilterManager() override;
 

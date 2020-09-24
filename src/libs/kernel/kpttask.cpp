@@ -104,7 +104,7 @@ int Task::type() const {
 }
 
 Duration *Task::getRandomDuration() {
-    return 0L;
+    return nullptr;
 }
 
 // void Task::clearResourceRequests() {
@@ -130,14 +130,14 @@ ResourceRequest *Task::resourceRequest(const QString &name) const {
 
 QStringList Task::assignedNameList(long id) const {
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return QStringList();
     }
     return s->resourceNameList();
 }
 
 void Task::makeAppointments() {
-    if (m_currentSchedule == 0)
+    if (m_currentSchedule == nullptr)
         return;
     if (type() == Node::Type_Task) {
         //debugPlan<<m_name<<":"<<m_currentSchedule->startTime<<","<<m_currentSchedule->endTime<<";"<<m_currentSchedule->duration.toString();
@@ -155,12 +155,12 @@ void Task::makeAppointments() {
 
 void Task::copySchedule()
 {
-    if (m_currentSchedule == 0 || type() != Node::Type_Task) {
+    if (m_currentSchedule == nullptr || type() != Node::Type_Task) {
         return;
     }
     int id = m_currentSchedule->parentScheduleId();
     NodeSchedule *ns = static_cast<NodeSchedule*>(findSchedule(id));
-    if (ns == 0) {
+    if (ns == nullptr) {
         return;
     }
     if (type() == Node::Type_Task) {
@@ -182,20 +182,20 @@ void Task::copyAppointments()
 
 void Task::copyAppointments(const DateTime &start, const DateTime &end)
 {
-    if (m_currentSchedule == 0 || type() != Node::Type_Task) {
+    if (m_currentSchedule == nullptr || type() != Node::Type_Task) {
         return;
     }
     int id = m_currentSchedule->parentScheduleId();
     NodeSchedule *ns = static_cast<NodeSchedule*>(findSchedule(id));
-    if (ns == 0) {
+    if (ns == nullptr) {
         return;
     }
     DateTime st = start.isValid() ? start : ns->startTime;
     DateTime et = end.isValid() ? end : ns->endTime;
     //debugPlan<<m_name<<st.toString()<<et.toString()<<m_currentSchedule->calculationMode();
     foreach (const Appointment *a, ns->appointments()) {
-        Resource *r = a->resource() == 0 ? 0 : a->resource()->resource();
-        if (r == 0) {
+        Resource *r = a->resource() == nullptr ? nullptr : a->resource()->resource();
+        if (r == nullptr) {
             errorPlan<<"No resource";
             continue;
         }
@@ -204,7 +204,7 @@ void Task::copyAppointments(const DateTime &start, const DateTime &end)
             //debugPlan<<"No intervals to copy from"<<a;
             continue;
         }
-        Appointment *curr = 0;
+        Appointment *curr = nullptr;
         foreach (Appointment *c, m_currentSchedule->appointments()) {
             if (c->resource()->resource() == r) {
                 //debugPlan<<"Found current appointment to"<<a->resource()->resource()->name()<<c;
@@ -212,14 +212,14 @@ void Task::copyAppointments(const DateTime &start, const DateTime &end)
                 break;
             }
         }
-        if (curr == 0) {
+        if (curr == nullptr) {
             curr = new Appointment();
             m_currentSchedule->add(curr);
             curr->setNode(m_currentSchedule);
             //debugPlan<<"Created new appointment"<<curr;
         }
         ResourceSchedule *rs = static_cast<ResourceSchedule*>(r->findSchedule(m_currentSchedule->id()));
-        if (rs == 0) {
+        if (rs == nullptr) {
             rs = r->createSchedule(m_currentSchedule->parent());
             rs->setId(m_currentSchedule->id());
             rs->setName(m_currentSchedule->name());
@@ -732,7 +732,7 @@ double Task::plannedCostTo(QDate date, long id, EffortCostCalculationType typ) c
         return c;
     }
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return c;
     }
     c = s->plannedCostTo(date, typ);
@@ -766,7 +766,7 @@ EffortCostMap Task::bcwsPrDay(long int id, EffortCostCalculationType typ)
         return Node::bcwsPrDay(id);
     }
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return EffortCostMap();
     }
     EffortCostCache &cache = s->bcwsPrDayCache(typ);
@@ -793,7 +793,7 @@ EffortCostMap Task::bcwpPrDay(long int id, EffortCostCalculationType typ)
         return Node::bcwpPrDay(id, typ);
     }
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return EffortCostMap();
     }
     EffortCostCache cache = s->bcwpPrDayCache(typ);
@@ -911,7 +911,7 @@ EffortCostMap Task::acwp(long int id, KPlato::EffortCostCalculationType typ)
         return Node::acwp(id, typ);
     }
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return EffortCostMap();
     }
     EffortCostCache ec = s->acwpCache(typ);
@@ -1107,7 +1107,7 @@ DateTime Task::calculateForward(int use)
     if (m_calculateForwardRun) {
         return m_currentSchedule->earlyFinish;
     }
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return DateTime();
     }
     Schedule *cs = m_currentSchedule;
@@ -1135,7 +1135,7 @@ DateTime Task::calculateForward(int use)
 
 DateTime Task::calculateEarlyFinish(int use) {
     //debugPlan<<m_name;
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return DateTime();
     }
     Schedule *cs = m_currentSchedule;
@@ -1380,7 +1380,7 @@ DateTime Task::calculateBackward(int use) {
     if (m_calculateBackwardRun) {
         return m_currentSchedule->lateStart;
     }
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return DateTime();
     }
     Schedule *cs = m_currentSchedule;
@@ -1405,7 +1405,7 @@ DateTime Task::calculateBackward(int use) {
 
 DateTime Task::calculateLateStart(int use) {
     //debugPlan<<m_name;
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return DateTime();
     }
     Schedule *cs = m_currentSchedule;
@@ -1624,7 +1624,7 @@ DateTime Task::scheduleForward(const DateTime &earliest, int use) {
     if (m_scheduleForwardRun) {
         return m_currentSchedule->endTime;
     }
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return DateTime();
     }
     Schedule *cs = m_currentSchedule;
@@ -1651,7 +1651,7 @@ DateTime Task::scheduleForward(const DateTime &earliest, int use) {
 
 DateTime Task::scheduleFromStartTime(int use) {
     //debugPlan<<m_name;
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return DateTime();
     }
     Schedule *cs = m_currentSchedule;
@@ -2032,7 +2032,7 @@ DateTime Task::scheduleBackward(const DateTime &latest, int use) {
     if (m_scheduleBackwardRun) {
         return m_currentSchedule->startTime;
     }
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return DateTime();
     }
     Schedule *cs = m_currentSchedule;
@@ -2058,7 +2058,7 @@ DateTime Task::scheduleBackward(const DateTime &latest, int use) {
 
 DateTime Task::scheduleFromEndTime(int use) {
     //debugPlan<<m_name;
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return DateTime();
     }
     Schedule *cs = m_currentSchedule;
@@ -2356,7 +2356,7 @@ DateTime Task::scheduleFromEndTime(int use) {
 }
 
 void Task::adjustSummarytask() {
-    if (m_currentSchedule == 0)
+    if (m_currentSchedule == nullptr)
         return;
     if (type() == Type_Summarytask) {
         DateTime start = m_currentSchedule->lateFinish;
@@ -2379,7 +2379,7 @@ void Task::adjustSummarytask() {
 Duration Task::duration(const DateTime &time, int use, bool backward) {
     //debugPlan;
     // TODO: handle risc
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         errorPlan<<"No current schedule";
         return Duration::zeroDuration;
     }
@@ -2448,7 +2448,7 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
         return l;
     }
     Calendar *cal = m_estimate->calendar();
-    if (cal == 0) {
+    if (cal == nullptr) {
 #ifndef PLAN_NLOGDEBUG
         if (sch) sch->logDebug("Calculate length: No calendar, return estimate " + duration.toString());
 #endif
@@ -2714,7 +2714,7 @@ DateTime Task::workTimeBefore(const DateTime &dt, Schedule *sch) const {
 Duration Task::positiveFloat(long id) const
 {
     Schedule *s = schedule(id);
-    return s == 0 ? Duration::zeroDuration : s->positiveFloat;
+    return s == nullptr ? Duration::zeroDuration : s->positiveFloat;
 }
 
 void Task::setPositiveFloat(KPlato::Duration fl, long id) const
@@ -2727,7 +2727,7 @@ void Task::setPositiveFloat(KPlato::Duration fl, long id) const
 Duration Task::negativeFloat(long id) const
 {
     Schedule *s = schedule(id);
-    return s == 0 ? Duration::zeroDuration : s->negativeFloat;
+    return s == nullptr ? Duration::zeroDuration : s->negativeFloat;
 }
 
 void Task::setNegativeFloat(KPlato::Duration fl, long id) const
@@ -2740,7 +2740,7 @@ void Task::setNegativeFloat(KPlato::Duration fl, long id) const
 Duration Task::freeFloat(long id) const
 {
     Schedule *s = schedule(id);
-    return s == 0 ? Duration::zeroDuration : s->freeFloat;
+    return s == nullptr ? Duration::zeroDuration : s->freeFloat;
 }
 
 void Task::setFreeFloat(KPlato::Duration fl, long id) const
@@ -2753,24 +2753,24 @@ void Task::setFreeFloat(KPlato::Duration fl, long id) const
 Duration Task::startFloat(long id) const
 {
     Schedule *s = schedule(id);
-    return s == 0 || s->earlyStart > s->lateStart ? Duration::zeroDuration : (s->earlyStart - s->lateStart);
+    return s == nullptr || s->earlyStart > s->lateStart ? Duration::zeroDuration : (s->earlyStart - s->lateStart);
 }
 
 Duration Task::finishFloat(long id) const
 {
     Schedule *s = schedule(id);
-    return s == 0 || s->lateFinish < s->earlyFinish ? Duration::zeroDuration : (s->lateFinish - s->earlyFinish);
+    return s == nullptr || s->lateFinish < s->earlyFinish ? Duration::zeroDuration : (s->lateFinish - s->earlyFinish);
 }
 
 bool Task::isCritical(long id) const
 {
     Schedule *s = schedule(id);
-    return s == 0 ? false : s->isCritical();
+    return s == nullptr ? false : s->isCritical();
 }
 
 bool Task::calcCriticalPath(bool fromEnd)
 {
-    if (m_currentSchedule == 0)
+    if (m_currentSchedule == nullptr)
         return false;
     //debugPlan<<m_name<<" fromEnd="<<fromEnd<<" cp="<<m_currentSchedule->inCriticalPath;
     if (m_currentSchedule->inCriticalPath) {
@@ -2824,7 +2824,7 @@ void Task::calcFreeFloat()
         return;
     }
     Schedule *cs = m_currentSchedule;
-    if (cs == 0) {
+    if (cs == nullptr) {
         return;
     }
     DateTime t;
@@ -2855,7 +2855,7 @@ void Task::setCurrentSchedule(long id)
 bool Task::effortMetError(long id) const
 {
     Schedule *s = schedule(id);
-    if (s == 0 || s->notScheduled || m_estimate->type() != Estimate::Type_Effort) {
+    if (s == nullptr || s->notScheduled || m_estimate->type() != Estimate::Type_Effort) {
         return false;
     }
     return s->effortNotMet;
@@ -2976,7 +2976,7 @@ Completion::~Completion()
 
 void Completion::copy(const Completion &p)
 {
-    m_node = 0; //NOTE
+    m_node = nullptr; //NOTE
     m_started = p.isStarted(); m_finished = p.isFinished();
     m_startTime = p.startTime(); m_finishTime = p.finishTime();
     m_entrymode = p.entrymode();
@@ -3044,7 +3044,7 @@ void Completion::setFinishTime(const DateTime &dt)
 
 void Completion::setPercentFinished(QDate date, int value)
 {
-    Entry *e = 0;
+    Entry *e = nullptr;
     if (m_entries.contains(date)) {
         e = m_entries[ date ];
     } else {
@@ -3057,7 +3057,7 @@ void Completion::setPercentFinished(QDate date, int value)
 
 void Completion::setRemainingEffort(QDate date, KPlato::Duration value)
 {
-    Entry *e = 0;
+    Entry *e = nullptr;
     if (m_entries.contains(date)) {
         e = m_entries[ date ];
     } else {
@@ -3070,7 +3070,7 @@ void Completion::setRemainingEffort(QDate date, KPlato::Duration value)
 
 void Completion::setActualEffort(QDate date, KPlato::Duration value)
 {
-    Entry *e = 0;
+    Entry *e = nullptr;
     if (m_entries.contains(date)) {
         e = m_entries[ date ];
     } else {
@@ -3143,7 +3143,7 @@ Duration Completion::actualEffort() const
 Duration Completion::actualEffort(const Resource *resource, QDate date) const
 {
     UsedEffort *ue = usedEffort(resource);
-    if (ue == 0) {
+    if (ue == nullptr) {
         return Duration::zeroDuration;
     }
     UsedEffort::ActualEffort ae = ue->effort(date);
@@ -3193,7 +3193,7 @@ Duration Completion::actualEffortTo(QDate date) const
 double Completion::averageCostPrHour(QDate date, long id) const
 {
     Schedule *s = m_node->schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return 0.0;
     }
     double cost = 0.0;
@@ -3301,7 +3301,7 @@ EffortCostMap Completion::effortCostPrDay(const Resource *resource, QDate start,
 
 void Completion::addUsedEffort(const Resource *resource, Completion::UsedEffort *value)
 {
-    UsedEffort *v = value == 0 ? new UsedEffort() : value;
+    UsedEffort *v = value == nullptr ? new UsedEffort() : value;
     if (m_usedEffort.contains(resource)) {
         m_usedEffort[ resource ]->mergeEffort(*v);
         delete v;
@@ -3395,7 +3395,7 @@ double Completion::actualCost(QDate date) const
 double Completion::actualCost(const Resource *resource) const
 {
     UsedEffort *ue = usedEffort(resource);
-    if (ue == 0) {
+    if (ue == nullptr) {
         return 0.0;
     }
     double c = 0.0;
@@ -3421,7 +3421,7 @@ double Completion::actualCost() const
 double Completion::actualCost(const Resource *resource, QDate date) const
 {
     UsedEffort *ue = usedEffort(resource);
-    if (ue == 0) {
+    if (ue == nullptr) {
         return 0.0;
     }
     UsedEffort::ActualEffort a = ue->actualEffortMap().value(date);
@@ -3582,7 +3582,7 @@ bool Completion::loadXML(KoXmlElement &element, XMLLoaderObject &status)
                             if (el.tagName() == QLatin1String("resource")) {
                                 QString id = el.attribute(QStringLiteral("id"));
                                 Resource *r = status.project().resource(id);
-                                if (r == 0) {
+                                if (r == nullptr) {
                                     warnPlan<<"Cannot find resource, id="<<id;
                                     continue;
                                 }
@@ -3720,15 +3720,15 @@ void Completion::UsedEffort::saveXML(QDomElement &element) const
 //----------------------------------
 WorkPackage::WorkPackage(Task *task)
     : m_task(task),
-    m_manager(0),
+    m_manager(nullptr),
     m_transmitionStatus(TS_None)
 {
     m_completion.setNode(task);
 }
 
 WorkPackage::WorkPackage(const WorkPackage &wp)
-    : m_task(0),
-    m_manager(0),
+    : m_task(nullptr),
+    m_manager(nullptr),
     m_completion(wp.m_completion),
     m_ownerName(wp.m_ownerName),
     m_ownerId(wp.m_ownerId),
@@ -3848,7 +3848,7 @@ WorkPackage::WPTransmitionStatus WorkPackage::transmitionStatusFromString(const 
 void WorkPackage::clear()
 {
     //m_task = 0;
-    m_manager = 0;
+    m_manager = nullptr;
     m_ownerName.clear();
     m_ownerId.clear();
     m_transmitionStatus = TS_None;

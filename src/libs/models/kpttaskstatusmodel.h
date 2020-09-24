@@ -38,7 +38,7 @@ class PLANMODELS_EXPORT TaskStatusItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit TaskStatusItemModel(QObject *parent = 0);
+    explicit TaskStatusItemModel(QObject *parent = nullptr);
     ~TaskStatusItemModel() override;
     
     enum PeriodType { UseCurrentDate, UseWeekday };

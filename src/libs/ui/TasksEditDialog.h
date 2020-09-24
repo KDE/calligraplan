@@ -51,7 +51,7 @@ public:
      * @param tasks the list of tasks to be edited
      * @param parent parent widget
      */
-    TasksEditDialog(Project &project, const QList<Task*> &tasks, QWidget *parent=0);
+    TasksEditDialog(Project &project, const QList<Task*> &tasks, QWidget *parent=nullptr);
 
     virtual MacroCommand *buildCommand();
 

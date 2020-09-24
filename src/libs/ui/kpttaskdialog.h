@@ -53,7 +53,7 @@ public:
      * @param accounts all defined accounts
      * @param parent parent widget
      */
-    TaskDialog(Project &project, Task &task, Accounts &accounts, QWidget *parent=0);
+    TaskDialog(Project &project, Task &task, Accounts &accounts, QWidget *parent=nullptr);
 
     virtual MacroCommand *buildCommand();
 
@@ -78,7 +78,7 @@ protected:
 class PLANUI_EXPORT TaskAddDialog : public TaskDialog {
     Q_OBJECT
 public:
-    TaskAddDialog(Project &project, Task &task, Node *currentNode, Accounts &accounts, QWidget *parent=0);
+    TaskAddDialog(Project &project, Task &task, Node *currentNode, Accounts &accounts, QWidget *parent=nullptr);
     ~TaskAddDialog() override;
 
     MacroCommand *buildCommand() override;
@@ -93,7 +93,7 @@ private:
 class PLANUI_EXPORT SubTaskAddDialog : public TaskDialog {
     Q_OBJECT
 public:
-    SubTaskAddDialog(Project &project, Task &task, Node *currentNode, Accounts &accounts, QWidget *parent=0);
+    SubTaskAddDialog(Project &project, Task &task, Node *currentNode, Accounts &accounts, QWidget *parent=nullptr);
     ~SubTaskAddDialog() override;
 
     MacroCommand *buildCommand() override;

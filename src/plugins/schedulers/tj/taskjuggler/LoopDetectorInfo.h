@@ -31,15 +31,15 @@ class LoopDetectorInfo
     friend class LDIList;
 public:
     LoopDetectorInfo() :
-        nextLDI(0),
-        prevLDI(0),
-        t(0),
+        nextLDI(nullptr),
+        prevLDI(nullptr),
+        t(nullptr),
         atEnd(false)
     { }
 
     LoopDetectorInfo(const Task* _t, bool ae) :
-        nextLDI(0),
-        prevLDI(0),
+        nextLDI(nullptr),
+        prevLDI(nullptr),
         t(_t),
         atEnd(ae)
     { }
@@ -79,14 +79,14 @@ class LDIList
 public:
     LDIList() :
         items(0),
-        root(0),
-        leaf(0)
+        root(nullptr),
+        leaf(nullptr)
     { }
 
     LDIList(const LDIList& list) :
         items(0),
-        root(0),
-        leaf(0)
+        root(nullptr),
+        leaf(nullptr)
     {
         for (LoopDetectorInfo* p = list.root; p; p = p->nextLDI)
             append(new LoopDetectorInfo(p->t, p->atEnd));
@@ -115,10 +115,10 @@ public:
 
     void append(LoopDetectorInfo* p)
     {
-        if (root == 0)
+        if (root == nullptr)
         {
             root = leaf = p;
-            leaf->prevLDI = 0;
+            leaf->prevLDI = nullptr;
         }
         else
         {
@@ -126,7 +126,7 @@ public:
             p->prevLDI = leaf;
             leaf = leaf->nextLDI;
         }
-        leaf->nextLDI = 0;
+        leaf->nextLDI = nullptr;
         ++items;
     }
     void removeLast()
@@ -134,13 +134,13 @@ public:
         if (leaf == root)
         {
             delete leaf;
-            root = leaf = 0;
+            root = leaf = nullptr;
         }
         else
         {
             leaf = leaf->prevLDI;
             delete leaf->nextLDI;
-            leaf->nextLDI = 0;
+            leaf->nextLDI = nullptr;
         }
         --items;
     }
@@ -148,14 +148,14 @@ public:
     {
         LoopDetectorInfo* lst = leaf;
         if (leaf == root)
-            root = leaf = 0;
+            root = leaf = nullptr;
         else
         {
             leaf = leaf->prevLDI;
-            leaf->nextLDI = 0;
+            leaf->nextLDI = nullptr;
         }
         --items;
-        lst->prevLDI = lst->nextLDI = 0;
+        lst->prevLDI = lst->nextLDI = nullptr;
         return lst;
     }
 private:

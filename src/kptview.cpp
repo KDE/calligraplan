@@ -163,8 +163,8 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     layout->setMargin(0);
     layout->addWidget(m_sp);
 
-    ViewListDocker *docker = 0;
-    if (mainWindow() == 0) {
+    ViewListDocker *docker = nullptr;
+    if (mainWindow() == nullptr) {
         // Don't use docker if embedded
         m_viewlist = new ViewListWidget(doc, m_sp);
         m_viewlist->setProject(&(getProject()));
@@ -311,7 +311,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     m_workPackageButton->setToolTip(i18nc("@info:tooltip", "Work packages available"));
     m_workPackageButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     connect(m_workPackageButton, &QToolButton::clicked, this, &View::openWorkPackageMergeDialog);
-    m_estlabel = new QLabel("", 0);
+    m_estlabel = new QLabel("", nullptr);
     if (statusBar()) {
         addStatusBarItem(m_estlabel, 0, true);
     }
@@ -406,7 +406,7 @@ void View::slotCreateNewProject()
                              "All scheduling information is removed.<nl/>"
                              "<nl/>Do you want to continue?")))
     {
-        emit currentScheduleManagerChanged(0);
+        emit currentScheduleManagerChanged(nullptr);
         getPart()->createNewProject();
         slotOpenNode(&getProject());
     }
@@ -479,7 +479,7 @@ void View::createViews()
                     if (e1.tagName() != "view") {
                         continue;
                     }
-                    ViewBase *v = 0;
+                    ViewBase *v = nullptr;
                     QString type = e1.attribute("viewtype");
                     QString tag = e1.attribute("tag");
                     QString name = e1.attribute("name");
@@ -501,7 +501,7 @@ void View::createViews()
         }
     } else {
         debugPlan<<"Default";
-        ViewBase *v = 0;
+        ViewBase *v = nullptr;
         ViewListItem *cat;
         QString ct = "Editors";
         cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name);
@@ -604,7 +604,7 @@ void View::createViews()
 
 ViewBase *View::createView(ViewListItem *cat, const QString &type, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ViewBase *v = 0;
+    ViewBase *v = nullptr;
     //NOTE: type is the same as classname (so if it is changed...)
     if (type == "CalendarEditor") {
         v = createCalendarEditor(cat, tag, name, tip, index);
@@ -1454,7 +1454,7 @@ ViewBase *View::createReportView(ViewListItem *cat, const QString &tag, const QS
     Q_UNUSED(name)
     Q_UNUSED(tip)
     Q_UNUSED(index)
-    return 0;
+    return nullptr;
 #endif
 }
 
@@ -1466,8 +1466,8 @@ Project& View::getProject() const
 KoPrintJob * View::createPrintJob()
 {
     KoView *v = qobject_cast<KoView*>(canvas());
-    if (v == 0) {
-        return 0;
+    if (v == nullptr) {
+        return nullptr;
     }
     return v->createPrintJob();
 }
@@ -1531,7 +1531,7 @@ void View::slotInsertFile()
 void View::slotInsertFileFinished(int result)
 {
     InsertFileDialog *dlg = qobject_cast<InsertFileDialog*>(sender());
-    if (dlg == 0) {
+    if (dlg == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -1550,7 +1550,7 @@ void View::slotLoadSharedProjects()
 void View::slotLoadSharedProjectsFinished(int result)
 {
     LoadSharedProjectsDialog *dlg = qobject_cast<LoadSharedProjectsDialog*>(sender());
-    if (dlg == 0) {
+    if (dlg == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -1574,7 +1574,7 @@ void View::slotProjectWorktime()
 void View::slotProjectWorktimeFinished(int result)
 {
     StandardWorktimeDialog *dia = qobject_cast<StandardWorktimeDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -1589,7 +1589,7 @@ void View::slotProjectWorktimeFinished(int result)
 
 void View::slotSelectionChanged(ScheduleManager *sm) {
     debugPlan<<sm;
-    if (sm == 0) {
+    if (sm == nullptr) {
         return;
     }
     QAction *a = m_scheduleActions.key(sm);
@@ -1625,7 +1625,7 @@ void View::slotScheduleSwapped(ScheduleManager *from,  ScheduleManager *to)
 void View::slotScheduleRemoved(const ScheduleManager *sch)
 {
     debugPlan<<sch<<sch->name();
-    QAction *a = 0;
+    QAction *a = nullptr;
     QAction *checked = m_scheduleActionGroup->checkedAction();
     QMapIterator<QAction*, ScheduleManager*> i(m_scheduleActions);
     while (i.hasNext()) {
@@ -1675,7 +1675,7 @@ void View::slotScheduleCalculated(Project *project, ScheduleManager *manager)
 
 QAction *View::addScheduleAction(ScheduleManager *sch)
 {
-    QAction *act = 0;
+    QAction *act = nullptr;
     QString n = sch->name();
     act = new KToggleAction(n, this);
     actionCollection()->addAction(n, act);
@@ -1697,12 +1697,12 @@ void View::slotViewScheduleManager(ScheduleManager *sm)
 void View::slotViewSchedule(QAction *act)
 {
     //debugPlan<<act;
-    ScheduleManager *sm = 0;
-    if (act != 0) {
+    ScheduleManager *sm = nullptr;
+    if (act != nullptr) {
         ScheduleManager *sch = m_scheduleActions.value(act, 0);
         sm = m_scheduleActions.value(act, 0);
     }
-    setLabel(0);
+    setLabel(nullptr);
     slotViewScheduleManager(sm);
 }
 
@@ -1723,7 +1723,7 @@ void View::slotPlugScheduleActions()
         delete it.key();
     }
     m_scheduleActions.clear();
-    QAction *ca = 0;
+    QAction *ca = nullptr;
     foreach(ScheduleManager *sm, getProject().allScheduleManagers()) {
         QAction *act = addScheduleAction(sm);
         if (sm == current) {
@@ -1731,7 +1731,7 @@ void View::slotPlugScheduleActions()
         }
     }
     plugActionList("view_schedule_list", sortedActionList());
-    if (ca == 0 && m_scheduleActionGroup->actions().count() > 0) {
+    if (ca == nullptr && m_scheduleActionGroup->actions().count() > 0) {
         ca = m_scheduleActionGroup->actions().constFirst();
     }
     if (ca) {
@@ -1742,7 +1742,7 @@ void View::slotPlugScheduleActions()
 
 void View::slotCalculateSchedule(Project *project, ScheduleManager *sm)
 {
-    if (project == 0 || sm == 0) {
+    if (project == nullptr || sm == nullptr) {
         return;
     }
     if (sm->parentManager() && ! sm->parentManager()->isScheduled()) {
@@ -1764,7 +1764,7 @@ void View::slotRemoveCommands()
 
 void View::slotBaselineSchedule(Project *project, ScheduleManager *sm)
 {
-    if (project == 0 || sm == 0) {
+    if (project == nullptr || sm == nullptr) {
         return;
     }
     if (! sm->isBaselined() && project->isBaselined()) {
@@ -1791,7 +1791,7 @@ void View::slotBaselineSchedule(Project *project, ScheduleManager *sm)
 
 void View::slotAddScheduleManager(Project *project)
 {
-    if (project == 0) {
+    if (project == nullptr) {
         return;
     }
     ScheduleManager *sm = project->createScheduleManager();
@@ -1801,7 +1801,7 @@ void View::slotAddScheduleManager(Project *project)
 
 void View::slotDeleteScheduleManager(Project *project, ScheduleManager *sm)
 {
-    if (project == 0 || sm == 0) {
+    if (project == nullptr || sm == nullptr) {
         return;
     }
     DeleteScheduleManagerCmd *cmd =  new DeleteScheduleManagerCmd(*project, sm, kundo2_i18n("Delete schedule %1", sm->name()));
@@ -1810,7 +1810,7 @@ void View::slotDeleteScheduleManager(Project *project, ScheduleManager *sm)
 
 void View::slotMoveScheduleManager(ScheduleManager *sm, ScheduleManager *parent, int index)
 {
-    if (sm == 0) {
+    if (sm == nullptr) {
         return;
     }
     MoveScheduleManagerCmd *cmd =  new MoveScheduleManagerCmd(sm, parent, index, kundo2_i18n("Move schedule %1", sm->name()));
@@ -1828,7 +1828,7 @@ void View::slotAddSubTask()
 void View::slotAddSubTaskFinished(int result)
 {
     SubTaskAddDialog *dia = qobject_cast<SubTaskAddDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result  == QDialog::Accepted) {
@@ -1849,7 +1849,7 @@ void View::slotAddTask()
 void View::slotAddTaskFinished(int result)
 {
     TaskAddDialog *dia = qobject_cast<TaskAddDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -1872,7 +1872,7 @@ void View::slotAddMilestone()
 void View::slotAddMilestoneFinished(int result)
 {
     TaskAddDialog *dia = qobject_cast<TaskAddDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -1896,7 +1896,7 @@ void View::slotAddSubMilestone()
 void View::slotAddSubMilestoneFinished(int result)
 {
     SubTaskAddDialog *dia = qobject_cast<SubTaskAddDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -1920,7 +1920,7 @@ void View::slotDefineWBSFinished(int result)
 {
     //debugPlan;
     WBSDefinitionDialog *dia = qobject_cast<WBSDefinitionDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -1941,8 +1941,8 @@ void View::slotIntroduction()
 Calendar *View::currentCalendar()
 {
     ViewBase *v = dynamic_cast<ViewBase*>(m_tab->currentWidget());
-    if (v == 0) {
-        return 0;
+    if (v == nullptr) {
+        return nullptr;
     }
     return v->currentCalendar();
 }
@@ -1950,11 +1950,11 @@ Calendar *View::currentCalendar()
 Node *View::currentNode() const
 {
     ViewBase *v = dynamic_cast<ViewBase*>(m_tab->currentWidget());
-    if (v == 0) {
-        return 0;
+    if (v == nullptr) {
+        return nullptr;
     }
     Node * task = v->currentNode();
-    if (0 != task) {
+    if (nullptr != task) {
         return task;
     }
     return &(getProject());
@@ -1963,21 +1963,21 @@ Node *View::currentNode() const
 Task *View::currentTask() const
 {
     ViewBase *v = dynamic_cast<ViewBase*>(m_tab->currentWidget());
-    if (v == 0) {
-        return 0;
+    if (v == nullptr) {
+        return nullptr;
     }
     Node * task = v->currentNode();
     if (task) {
         return dynamic_cast<Task*>(task);
     }
-    return 0;
+    return nullptr;
 }
 
 Resource *View::currentResource()
 {
     ViewBase *v = dynamic_cast<ViewBase*>(m_tab->currentWidget());
-    if (v == 0) {
-        return 0;
+    if (v == nullptr) {
+        return nullptr;
     }
     return v->currentResource();
 }
@@ -1985,8 +1985,8 @@ Resource *View::currentResource()
 ResourceGroup *View::currentResourceGroup()
 {
     ViewBase *v = dynamic_cast<ViewBase*>(m_tab->currentWidget());
-    if (v == 0) {
-        return 0;
+    if (v == nullptr) {
+        return nullptr;
     }
     return v->currentResourceGroup();
 }
@@ -2053,7 +2053,7 @@ void View::slotOpenNode(Node *node)
 void View::slotProjectEditFinished(int result)
 {
     MainProjectDialog *dia = qobject_cast<MainProjectDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -2068,7 +2068,7 @@ void View::slotProjectEditFinished(int result)
 void View::slotTaskEditFinished(int result)
 {
     TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -2083,7 +2083,7 @@ void View::slotTaskEditFinished(int result)
 void View::slotSummaryTaskEditFinished(int result)
 {
     SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -2163,7 +2163,7 @@ void View::slotTaskProgress()
 void View::slotTaskProgressFinished(int result)
 {
     TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -2178,7 +2178,7 @@ void View::slotTaskProgressFinished(int result)
 void View::slotMilestoneProgressFinished(int result)
 {
     MilestoneProgressDialog *dia = qobject_cast<MilestoneProgressDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -2231,7 +2231,7 @@ void View::slotOpenTaskDescription(bool ro)
 void View::slotTaskDescriptionFinished(int result)
 {
     TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -2271,7 +2271,7 @@ void View::slotDocuments()
 void View::slotDocumentsFinished(int result)
 {
     DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -2303,7 +2303,7 @@ void View::slotDeleteTaskList(QList<Node*> lst)
     MacroCommand *cmd = new MacroCommand(kundo2_i18np("Delete task", "Delete tasks", lst.count()));
     while (!lst.isEmpty()) {
         Node *node = lst.takeFirst();
-        if (node == 0 || node->parentNode() == 0) {
+        if (node == nullptr || node->parentNode() == nullptr) {
             debugPlan << (node ?"Task is main project" :"No current task");
             continue;
         }
@@ -2330,7 +2330,7 @@ void View::slotDeleteTaskList(QList<Node*> lst)
 void View::slotDeleteTask(Node *node)
 {
     //debugPlan;
-    if (node == 0 || node->parentNode() == 0) {
+    if (node == nullptr || node->parentNode() == nullptr) {
         debugPlan << (node ?"Task is main project" :"No current task");
         return ;
     }
@@ -2354,7 +2354,7 @@ void View::slotIndentTask()
 {
     //debugPlan;
     Node * node = currentNode();
-    if (node == 0 || node->parentNode() == 0) {
+    if (node == nullptr || node->parentNode() == nullptr) {
         debugPlan << (node ?"Task is main project" :"No current task");
         return ;
     }
@@ -2368,7 +2368,7 @@ void View::slotUnindentTask()
 {
     //debugPlan;
     Node * node = currentNode();
-    if (node == 0 || node->parentNode() == 0) {
+    if (node == nullptr || node->parentNode() == nullptr) {
         debugPlan << (node ?"Task is main project" :"No current task");
         return ;
     }
@@ -2383,7 +2383,7 @@ void View::slotMoveTaskUp()
     //debugPlan;
 
     Node * task = currentNode();
-    if (0 == task) {
+    if (nullptr == task) {
         // is always != 0. At least we would get the Project, but you never know who might change that
         // so better be careful
         errorPlan << "No current task" << '\n';
@@ -2405,7 +2405,7 @@ void View::slotMoveTaskDown()
     //debugPlan;
 
     Node * task = currentNode();
-    if (0 == task) {
+    if (nullptr == task) {
         // is always != 0. At least we would get the Project, but you never know who might change that
         // so better be careful
         return ;
@@ -2433,7 +2433,7 @@ void View::openRelationDialog(Node *par, Node *child)
 void View::slotAddRelationFinished(int result)
 {
     AddRelationDialog *dia = qobject_cast<AddRelationDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -2469,7 +2469,7 @@ void View::slotEditRelation(Relation *rel)
 void View::slotModifyRelationFinished(int result)
 {
     ModifyRelationDialog *dia = qobject_cast<ModifyRelationDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return ;
     }
     if (result == QDialog::Accepted) {
@@ -2496,7 +2496,7 @@ void View::slotModifyRelation(Relation *rel, int linkType)
 void View::slotModifyCurrentRelation()
 {
     ViewBase *v = dynamic_cast<ViewBase*>(m_tab->currentWidget());
-    if (v == 0) {
+    if (v == nullptr) {
         return;
     }
     Relation *rel = v->currentRelation();
@@ -2508,7 +2508,7 @@ void View::slotModifyCurrentRelation()
 void View::slotDeleteRelation()
 {
     ViewBase *v = dynamic_cast<ViewBase*>(m_tab->currentWidget());
-    if (v == 0) {
+    if (v == nullptr) {
         return;
     }
     Relation *rel = v->currentRelation();
@@ -2525,7 +2525,7 @@ void View::slotEditCurrentResource()
 
 void View::slotEditResource(Resource *resource)
 {
-    if (resource == 0) {
+    if (resource == nullptr) {
         return ;
     }
     ResourceDialog *dia = new ResourceDialog(getProject(), resource, this);
@@ -2537,7 +2537,7 @@ void View::slotEditResourceFinished(int result)
 {
     //debugPlan;
     ResourceDialog *dia = qobject_cast<ResourceDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return ;
     }
     if (result == QDialog::Accepted) {
@@ -2660,7 +2660,7 @@ QMenu * View::popupMenu(const QString& name)
         return ((QMenu*) factory() ->container(name, this));
     }
     debugPlan<<"No factory";
-    return 0L;
+    return nullptr;
 }
 
 void View::slotUpdate()
@@ -2708,11 +2708,11 @@ void View::slotViewListItemRemoved(ViewListItem *item)
 
 void View::removeViewListItem(const ViewListItem *item)
 {
-    if (item == 0) {
+    if (item == nullptr) {
         return;
     }
     ViewListItem *itm = m_viewlist->findItem(item->tag());
-    if (itm == 0) {
+    if (itm == nullptr) {
         return;
     }
     m_viewlist->removeViewListItem(itm);
@@ -2726,10 +2726,10 @@ void View::slotViewListItemInserted(ViewListItem *item, ViewListItem *parent, in
 
 void View::addViewListItem(const ViewListItem *item, const ViewListItem *parent, int index)
 {
-    if (item == 0) {
+    if (item == nullptr) {
         return;
     }
-    if (parent == 0) {
+    if (parent == nullptr) {
         if (item->type() != ViewListItem::ItemType_Category) {
             return;
         }
@@ -2740,7 +2740,7 @@ void View::addViewListItem(const ViewListItem *item, const ViewListItem *parent,
         return;
     }
     ViewListItem *cat = m_viewlist->findCategory(parent->tag());
-    if (cat == 0) {
+    if (cat == nullptr) {
         return;
     }
     m_viewlist->blockSignals(true);
@@ -2865,7 +2865,7 @@ QPrintDialog *View::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
     debugPlan<<printJob;
     KoPrintingDialog *job = dynamic_cast<KoPrintingDialog*>(printJob);
     if (! job) {
-        return 0;
+        return nullptr;
     }
     QPrintDialog *dia = KoView::createPrintDialog(job, parent);
 
@@ -2943,7 +2943,7 @@ void View::slotPopupMenu(const QString& menuname, const QPoint &pos, ViewListIte
 bool View::loadContext()
 {
     Context *ctx = getPart()->context();
-    if (ctx == 0 || ! ctx->isLoaded()) {
+    if (ctx == nullptr || ! ctx->isLoaded()) {
         return false;
     }
     KoXmlElement n = ctx->context();
@@ -2988,7 +2988,7 @@ void View::loadWorkPackage(Project *project, const QList<QUrl> &urls)
 void View::setLabel(ScheduleManager *sm)
 {
     //debugPlan;
-    Schedule *s = sm == 0 ? 0 : sm->expected();
+    Schedule *s = sm == nullptr ? nullptr : sm->expected();
     if (s && !s->isDeleted() && s->isScheduled()) {
         m_estlabel->setText(sm->name());
         return;
@@ -3035,18 +3035,18 @@ void View::slotMailWorkpackage(Node *node, Resource *resource)
     tmpfile.setAutoRemove(false);
     if (! tmpfile.open()) {
         debugPlan<<"Failed to open file";
-        KMessageBox::error(0, i18n("Failed to open temporary file"));
+        KMessageBox::error(nullptr, i18n("Failed to open temporary file"));
         return;
     }
     QUrl url = QUrl::fromLocalFile(tmpfile.fileName());
     if (! getPart()->saveWorkPackageUrl(url, node, activeScheduleId(), resource)) {
         debugPlan<<"Failed to save to file";
-        KMessageBox::error(0, xi18nc("@info", "Failed to save to temporary file:<br/> <filename>%1</filename>", url.url()));
+        KMessageBox::error(nullptr, xi18nc("@info", "Failed to save to temporary file:<br/> <filename>%1</filename>", url.url()));
         return;
     }
     QStringList attachURLs;
     attachURLs << url.url();
-    QString to = resource == 0 ? node->leader() : (resource->name() + " <" + resource->email() + '>');
+    QString to = resource == nullptr ? node->leader() : (resource->name() + " <" + resource->email() + '>');
     QString cc;
     QString bcc;
     QString subject = i18n("Work Package: %1", node->name());
@@ -3059,7 +3059,7 @@ void View::slotMailWorkpackage(Node *node, Resource *resource)
 void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource, bool mailTo)
 {
     debugPlanWp<<resource<<nodes;
-    if (resource == 0) {
+    if (resource == nullptr) {
         warnPlan<<"No resource, we don't handle node->leader() yet";
         return;
     }
@@ -3080,14 +3080,14 @@ void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource
         tmpfile.setAutoRemove(false);
         if (! tmpfile.open()) {
             debugPlanWp<<"Failed to open file";
-            KMessageBox::error(0, i18n("Failed to open work package file"));
+            KMessageBox::error(nullptr, i18n("Failed to open work package file"));
             return;
         }
         QUrl url = QUrl::fromLocalFile(tmpfile.fileName());
         debugPlanWp<<url;
         if (! getPart()->saveWorkPackageUrl(url, n, activeScheduleId(), resource)) {
             debugPlan<<"Failed to save to file";
-            KMessageBox::error(0, xi18nc("@info", "Failed to save to temporary file:<br/><filename>%1</filename>", url.url()));
+            KMessageBox::error(nullptr, xi18nc("@info", "Failed to save to temporary file:<br/><filename>%1</filename>", url.url()));
             return;
         }
         attachURLs << url.url();
@@ -3115,7 +3115,7 @@ void View::slotCurrencyConfig()
 void View::slotCurrencyConfigFinished(int result)
 {
     LocaleConfigMoneyDialog *dlg = qobject_cast<LocaleConfigMoneyDialog*>(sender());
-    if (dlg == 0) {
+    if (dlg == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -3138,7 +3138,7 @@ void View::saveTaskModule(const QUrl &url, Project *project)
         part->setDocument(doc);
         doc->disconnect(); // doc shall not handle feedback from openUrl()
         doc->setAutoSave(0); //disable
-        doc->insertProject(*project, 0, 0); // FIXME: destroys project, find better way
+        doc->insertProject(*project, nullptr, nullptr); // FIXME: destroys project, find better way
         doc->getProject().setName(project->name());
         doc->getProject().setLeader(project->leader());
         doc->getProject().setDescription(project->description());

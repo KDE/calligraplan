@@ -100,8 +100,8 @@ void PerformanceStatusPrintingDialog::printPage(int page, QPainter &painter)
 //-----------------------------------
 PerformanceStatusBase::PerformanceStatusBase(QWidget *parent)
     : QWidget(parent),
-    m_project(0),
-    m_manager(0)
+    m_project(nullptr),
+    m_manager(nullptr)
 {
     setupUi(this);
 
@@ -323,9 +323,9 @@ void PerformanceStatusBase::setupChart()
     debugPlan<<"Planes:"<<ui_chart->coordinatePlanes();
     foreach (AbstractCoordinatePlane *pl, ui_chart->coordinatePlanes()) {
         CartesianCoordinatePlane *p = dynamic_cast<CartesianCoordinatePlane*>(pl);
-        if (p == 0) continue;
+        if (p == nullptr) continue;
         GridAttributes ga = p->globalGridAttributes();
-        ga.setGridVisible(p->referenceCoordinatePlane() == 0);
+        ga.setGridVisible(p->referenceCoordinatePlane() == nullptr);
         p->setGlobalGridAttributes(ga);
     }
     m_legend->setDatasetHidden(0, ! (m_chartinfo.showBaseValues && m_chartinfo.showCost && m_chartinfo.showBCWSCost));
@@ -367,7 +367,7 @@ void PerformanceStatusBase::setupChart(ChartContents &cc)
     static_cast<AbstractCartesianDiagram*>(cc.effortplane->diagram())->takeAxis(cc.dateaxis);
     static_cast<AbstractCartesianDiagram*>(cc.costplane->diagram())->takeAxis(cc.dateaxis);
     static_cast<AbstractCartesianDiagram*>(cc.piplane->diagram())->takeAxis(cc.dateaxis);
-    cc.costplane->setReferenceCoordinatePlane(0);
+    cc.costplane->setReferenceCoordinatePlane(nullptr);
     if (info.showBaseValues) {
         if (info.showEffort) {
             // filter cost columns if cost is *not* shown, else hide them and zero out
@@ -406,7 +406,7 @@ void PerformanceStatusBase::setupChart(ChartContents &cc)
             erc << 6 << 7 << 8 << 9;
             ezc << 6 << 7 << 8 << 9;
 
-            cc.costplane->setReferenceCoordinatePlane(info.showEffort ? cc.effortplane : 0);
+            cc.costplane->setReferenceCoordinatePlane(info.showEffort ? cc.effortplane : nullptr);
             ui_chart->addCoordinatePlane(cc.costplane);
 
             static_cast<AbstractCartesianDiagram*>(cc.costplane->diagram())->addAxis(cc.dateaxis);

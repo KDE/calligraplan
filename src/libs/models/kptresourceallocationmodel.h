@@ -47,7 +47,7 @@ class PLANMODELS_EXPORT ResourceAllocationModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit ResourceAllocationModel(QObject *parent = 0);
+    explicit ResourceAllocationModel(QObject *parent = nullptr);
     ~ResourceAllocationModel() override;
 
     enum Properties {
@@ -89,7 +89,7 @@ class PLANMODELS_EXPORT ResourceAllocationItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit ResourceAllocationItemModel(QObject *parent = 0);
+    explicit ResourceAllocationItemModel(QObject *parent = nullptr);
     ~ResourceAllocationItemModel() override;
 
     const QMetaEnum columnMap() const override { return m_model.columnMap(); }

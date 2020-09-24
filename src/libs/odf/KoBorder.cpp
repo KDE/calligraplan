@@ -499,8 +499,8 @@ void KoBorder::paint(QPainter &painter, const QRectF &borderRect,
         start = borderRect.topLeft();
         end   = borderRect.bottomLeft();
         paintBorderSide(painter, start, end, &leftEdge, true,
-                        hasBorder(TopBorder) ? &topEdge : 0,
-                        hasBorder(BottomBorder) ? &bottomEdge : 0,
+                        hasBorder(TopBorder) ? &topEdge : nullptr,
+                        hasBorder(BottomBorder) ? &bottomEdge : nullptr,
                         1);
     }
 
@@ -509,8 +509,8 @@ void KoBorder::paint(QPainter &painter, const QRectF &borderRect,
         start = borderRect.topRight();
         end   = borderRect.bottomRight();
         paintBorderSide(painter, start, end, &rightEdge, true,
-                        hasBorder(TopBorder) ? &topEdge : 0,
-                        hasBorder(BottomBorder) ? &bottomEdge : 0,
+                        hasBorder(TopBorder) ? &topEdge : nullptr,
+                        hasBorder(BottomBorder) ? &bottomEdge : nullptr,
                         -1);
     }
 
@@ -519,8 +519,8 @@ void KoBorder::paint(QPainter &painter, const QRectF &borderRect,
         start = borderRect.topLeft();
         end   = borderRect.topRight();
         paintBorderSide(painter, start, end, &topEdge, false,
-                        hasBorder(LeftBorder) ? &leftEdge : 0,
-                        hasBorder(RightBorder) ? &rightEdge : 0,
+                        hasBorder(LeftBorder) ? &leftEdge : nullptr,
+                        hasBorder(RightBorder) ? &rightEdge : nullptr,
                         1);
     }
 
@@ -529,8 +529,8 @@ void KoBorder::paint(QPainter &painter, const QRectF &borderRect,
         start = borderRect.bottomLeft();
         end   = borderRect.bottomRight();
         paintBorderSide(painter, start, end, &bottomEdge, false,
-                        hasBorder(LeftBorder) ? &leftEdge : 0,
-                        hasBorder(RightBorder) ? &rightEdge : 0,
+                        hasBorder(LeftBorder) ? &leftEdge : nullptr,
+                        hasBorder(RightBorder) ? &rightEdge : nullptr,
                         -1);
     }
 

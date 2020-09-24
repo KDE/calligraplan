@@ -40,7 +40,7 @@ class PLANMODELS_EXPORT ResourceItemSFModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit ResourceItemSFModel(QObject *parent = 0);
+    explicit ResourceItemSFModel(QObject *parent = nullptr);
     
     void setProject(Project *project);
     Resource *resource(const QModelIndex &index) const;

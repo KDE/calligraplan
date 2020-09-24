@@ -74,7 +74,7 @@ ResourceRequest::~ResourceRequest() {
     if (m_resource) {
         m_resource->unregisterRequest(this);
     }
-    m_resource = 0;
+    m_resource = nullptr;
     if (m_collection && m_collection->contains(this)) {
         m_collection->removeResourceRequest(this);
     }
@@ -131,7 +131,7 @@ bool ResourceRequest::load(KoXmlElement &element, Project &project) {
                 continue;
             }
             Resource *r = project.resource(id);
-            if (r == 0) {
+            if (r == nullptr) {
                 warnPlan<<"The referenced resource does not exist: resource id="<<element.attribute("resource-id");
             } else {
                 if (r != m_resource) {
@@ -162,7 +162,7 @@ void ResourceRequest::setUnits(int value)
 }
 
 Task *ResourceRequest::task() const {
-    return m_collection ? m_collection->task() : 0;
+    return m_collection ? m_collection->task() : nullptr;
 }
 
 void ResourceRequest::changed()
@@ -192,12 +192,12 @@ void ResourceRequest::setCurrentSchedulePtr(Resource *resource, Schedule *ns)
 
 Schedule *ResourceRequest::resourceSchedule(Schedule *ns, Resource *res)
 {
-    if (ns == 0) {
-        return 0;
+    if (ns == nullptr) {
+        return nullptr;
     }
-    Resource *r = res == 0 ? resource() : res;
+    Resource *r = res == nullptr ? resource() : res;
     Schedule *s = r->findSchedule(ns->id());
-    if (s == 0) {
+    if (s == nullptr) {
         s = r->createSchedule(ns->parent());
     }
     s->setCalculationMode(ns->calculationMode());

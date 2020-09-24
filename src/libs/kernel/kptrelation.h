@@ -52,7 +52,7 @@ public:
     enum Type { FinishStart, FinishFinish, StartStart };
 
     Relation(Node *parent, Node *child, Type type, Duration lag);
-    explicit Relation(Node *parent=0, Node *child=0, Type type=FinishStart);
+    explicit Relation(Node *parent=nullptr, Node *child=nullptr, Type type=FinishStart);
     explicit Relation(Relation *rel);
     
     /** 
@@ -120,7 +120,7 @@ public:
     : Relation(parent, child, type, lag) 
     {}
 
-    ~ProxyRelation() override { m_parent = 0; m_child = 0;}
+    ~ProxyRelation() override { m_parent = nullptr; m_child = nullptr;}
 };
 
 }  //KPlato namespace

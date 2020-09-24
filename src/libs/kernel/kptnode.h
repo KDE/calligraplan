@@ -118,8 +118,8 @@ public:
     };
     Q_ENUM(Properties);
 
-    explicit Node(Node *parent = 0);
-    Node(const Node &node, Node *parent = 0);
+    explicit Node(Node *parent = nullptr);
+    Node(const Node &node, Node *parent = nullptr);
 
 
     // Declare the class abstract
@@ -171,7 +171,7 @@ public:
     void setParentNode(Node* newParent) { m_parent = newParent;}
     const QList<Node*> &childNodeIterator() const { return m_nodes; }
     int numChildren() const { return m_nodes.count(); }
-    virtual void addChildNode(Node *node, Node *after=0);
+    virtual void addChildNode(Node *node, Node *after=nullptr);
     virtual void insertChildNode(int index, Node *node);
     void takeChildNode(Node *node);
     void takeChildNode(int number);
@@ -289,10 +289,10 @@ public:
     virtual DateTime mustStartOn() const { return m_constraintStartTime; }
     virtual DateTime mustFinishOn() const { return m_constraintEndTime; }
 
-    virtual ResourceGroupRequest *resourceGroupRequest(const ResourceGroup * /*group*/) const { return 0; }
+    virtual ResourceGroupRequest *resourceGroupRequest(const ResourceGroup * /*group*/) const { return nullptr; }
     virtual QStringList requestNameList() const { return QStringList(); }
     virtual bool containsRequest(const QString &/*identity*/) const { return false; }
-    virtual ResourceRequest *resourceRequest(const QString &/*name*/) const { return 0; }
+    virtual ResourceRequest *resourceRequest(const QString &/*name*/) const { return nullptr; }
     
     /// Return the list of resources assigned to this task
     virtual QStringList assignedNameList(long /*id*/ = CURRENTSCHEDULE) const { return QStringList(); }
@@ -447,7 +447,7 @@ public:
     virtual Node *findNode() const { return findNode(m_id); }
     /// Find the node with identity id
     virtual Node *findNode(const QString &id) const
-        { return (m_parent ? m_parent->findNode(id) : 0); }
+        { return (m_parent ? m_parent->findNode(id) : nullptr); }
     /// Remove myself from the id register
     virtual bool removeId()  { return removeId(m_id); }
     /// Remove the registered identity @p id
@@ -715,9 +715,9 @@ private:
 class PLANKERNEL_EXPORT Estimate {
 public:
     /// Constructor
-    explicit Estimate(Node *parent = 0);
+    explicit Estimate(Node *parent = nullptr);
     /// Copy constructor.
-    Estimate (const Estimate &estimate, Node *parent = 0);
+    Estimate (const Estimate &estimate, Node *parent = nullptr);
     /// Destructor
     ~Estimate();
 

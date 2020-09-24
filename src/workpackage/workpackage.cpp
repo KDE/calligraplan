@@ -108,7 +108,7 @@ bool WorkPackage::addChild(Part */*part*/, const Document *doc)
     DocumentChild *ch = findChild(doc);
     if (ch) {
         if (ch->isOpen()) {
-            KMessageBox::error(0, i18n("Document is already open"));
+            KMessageBox::error(nullptr, i18n("Document is already open"));
             return false;
         }
     } else {
@@ -162,7 +162,7 @@ DocumentChild *WorkPackage::findChild(const Document *doc) const
             return c;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 bool WorkPackage::loadXML(const KoXmlElement &element, XMLLoaderObject &status)
@@ -181,7 +181,7 @@ bool WorkPackage::loadXML(const KoXmlElement &element, XMLLoaderObject &status)
             debugPlanWork<<"loading new project";
             if (! (ok = m_project->load(e, status))) {
                 status.addMsg(XMLLoaderObject::Errors, "Loading of work package failed");
-                KMessageBox::error(0, i18n("Failed to load project: %1" , m_project->name()));
+                KMessageBox::error(nullptr, i18n("Failed to load project: %1" , m_project->name()));
             } else {
                 KoXmlElement te = e.namedItem("task").toElement();
                 if (!te.isNull()) {
@@ -207,7 +207,7 @@ bool WorkPackage::loadXML(const KoXmlElement &element, XMLLoaderObject &status)
                 m_wbsCode = wbsCode;
 
                 Resource *r = m_project->findResource(t->workPackage().ownerId());
-                if (r == 0) {
+                if (r == nullptr) {
                     debugPlanWork<<"Cannot find resource id!!"<<t->workPackage().ownerId()<<t->workPackage().ownerName();
                 }
                 debugPlanWork<<"is this me?"<<t->workPackage().ownerName();
@@ -249,7 +249,7 @@ bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, XMLLoaderObject &st
             debugPlanWork<<"loading new project";
             if (! (ok = loader.load(m_project, e, status))) {
                 status.addMsg(XMLLoaderObject::Errors, "Loading of work package failed");
-                KMessageBox::error(0, i18n("Failed to load project: %1" , m_project->name()));
+                KMessageBox::error(nullptr, i18n("Failed to load project: %1" , m_project->name()));
             }
         }
     }
@@ -267,7 +267,7 @@ bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, XMLLoaderObject &st
                 t->workPackage().setOwnerId(e.attribute("owner-id"));
 
                 Resource *r = m_project->findResource(t->workPackage().ownerId());
-                if (r == 0) {
+                if (r == nullptr) {
                     debugPlanWork<<"Cannot find resource id!!"<<t->workPackage().ownerId()<<t->workPackage().ownerName();
                 }
                 debugPlanWork<<"is this me?"<<t->workPackage().ownerName();
@@ -308,13 +308,13 @@ bool WorkPackage::saveToStream(QIODevice * dev)
 bool WorkPackage::saveNativeFormat(Part */*part*/, const QString &path)
 {
     if (path.isEmpty()) {
-        KMessageBox::error(0, i18n("Cannot save to empty filename"));
+        KMessageBox::error(nullptr, i18n("Cannot save to empty filename"));
         return false;
     }
     debugPlanWork<<node()->name()<<path;
     KoStore* store = KoStore::createStore(path, KoStore::Write, "application/x-vnd.kde.plan.work", KoStore::Auto);
     if (store->bad()) {
-        KMessageBox::error(0, i18n("Could not create the file for saving"));
+        KMessageBox::error(nullptr, i18n("Could not create the file for saving"));
         delete store;
         return false;
     }
@@ -326,7 +326,7 @@ bool WorkPackage::saveNativeFormat(Part */*part*/, const QString &path)
             return false;
         }
     } else {
-        KMessageBox::error(0, i18n("Not able to write '%1'. Partition full?", QString("maindoc.xml")));
+        KMessageBox::error(nullptr, i18n("Not able to write '%1'. Partition full?", QString("maindoc.xml")));
         delete store;
         return false;
     }
@@ -350,7 +350,7 @@ bool WorkPackage::completeSaving(KoStore *store)
     debugPlanWork;
     KoStore *oldstore = KoStore::createStore(filePath(), KoStore::Read, "", KoStore::Zip);
     if (oldstore->bad()) {
-        KMessageBox::error(0, i18n("Failed to open store:\n %1", filePath()));
+        KMessageBox::error(nullptr, i18n("Failed to open store:\n %1", filePath()));
         return false;
     }
     if (oldstore->hasFile("documentinfo.xml")) {
@@ -389,12 +389,12 @@ bool WorkPackage::completeSaving(KoStore *store)
 QString WorkPackage::fileName(const Part *part) const
 {
     Q_UNUSED(part);
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         warnPlanWork<<"No project in this package";
         return QString();
     }
     Node *n = node();
-    if (n == 0) {
+    if (n == nullptr) {
         warnPlanWork<<"No node in this project";
         return QString();
     }
@@ -425,7 +425,7 @@ void WorkPackage::saveToProjects(Part *part)
         m_fromProjectStore = true;
         m_filePath = path;
     } else {
-        KMessageBox::error(0, i18n("Cannot save to projects store:\n%1" , path));
+        KMessageBox::error(nullptr, i18n("Cannot save to projects store:\n%1" , path));
     }
     return;
 }
@@ -451,7 +451,7 @@ QString WorkPackage::name() const
 
 Node *WorkPackage::node() const
 {
-    return m_project == 0 ? 0 : m_project->childNode(0);
+    return m_project == nullptr ? nullptr : m_project->childNode(0);
 }
 
 Task *WorkPackage::task() const
@@ -464,7 +464,7 @@ Task *WorkPackage::task() const
 bool WorkPackage::removeDocument(Part *part, Document *doc)
 {
     Node *n = node();
-    if (n == 0) {
+    if (n == nullptr) {
         return false;
     }
     part->addCommand(new DocumentRemoveCmd(n->documents(), doc, kundo2_i18n("Remove document")));
@@ -475,11 +475,11 @@ bool WorkPackage::copyFile(KoStore *from, KoStore *to, const QString &filename)
 {
     QByteArray data;
     if (! from->extractFile(filename , data)) {
-        KMessageBox::error(0, i18n("Failed read file:\n %1", filename));
+        KMessageBox::error(nullptr, i18n("Failed read file:\n %1", filename));
         return false;
     }
     if (! to->addDataToFile(data, filename)) {
-        KMessageBox::error(0, i18n("Failed write file:\n %1", filename));
+        KMessageBox::error(nullptr, i18n("Failed write file:\n %1", filename));
         return false;
     }
     debugPlanWork<<"Copied file:"<<filename;
@@ -606,11 +606,11 @@ void WorkPackage::openNewDocument(const Document *doc, KoStore *store)
 {
     const QUrl url = extractFile(doc, store);
     if (url.url().isEmpty()) {
-        KMessageBox::error(0, i18n("Could not extract document from storage:<br>%1", doc->url().path()));
+        KMessageBox::error(nullptr, i18n("Could not extract document from storage:<br>%1", doc->url().path()));
         return;
     }
     if (! url.isValid()) {
-        KMessageBox::error(0, i18n("Invalid URL:<br>%1", url.path()));
+        KMessageBox::error(nullptr, i18n("Invalid URL:<br>%1", url.path()));
         return;
     }
     m_newdocs.insert(doc, url);
@@ -629,7 +629,7 @@ int WorkPackage::queryClose(Part *part)
         }
     }
     if (! lst.isEmpty()) {
-        KMessageBox::ButtonCode result = KMessageBox::warningContinueCancelList(0,
+        KMessageBox::ButtonCode result = KMessageBox::warningContinueCancelList(nullptr,
                     i18np(
                         "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost if you continue.</p>",
                         "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost if you continue.</p>",
@@ -651,7 +651,7 @@ int WorkPackage::queryClose(Part *part)
     if (! isModified()) {
         return KMessageBox::Yes;
     }
-    KMessageBox::ButtonCode res = KMessageBox::warningYesNoCancel(0,
+    KMessageBox::ButtonCode res = KMessageBox::warningYesNoCancel(nullptr,
                 i18n("<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save it?</p>", name),
                 QString(),
                 KStandardGuiItem::save(),
@@ -678,7 +678,7 @@ QUrl WorkPackage::extractFile(const Document *doc)
     KoStore *store = KoStore::createStore(m_filePath, KoStore::Read, "", KoStore::Zip);
     if (store->bad())
     {
-        KMessageBox::error(0, i18n("<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>", node()->name(), m_filePath));
+        KMessageBox::error(nullptr, i18n("<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>", node()->name(), m_filePath));
         delete store;
         return QUrl();
     }
@@ -694,7 +694,7 @@ QUrl WorkPackage::extractFile(const Document *doc, KoStore *store)
     const QUrl url = QUrl::fromLocalFile(tmp);
     debugPlanWork<<"Extract: "<<doc->url().fileName()<<" -> "<<url.path();
     if (! store->extractFile(doc->url().fileName(), url.path())) {
-        KMessageBox::error(0, i18n("<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>", node()->name(), doc->url().fileName()));
+        KMessageBox::error(nullptr, i18n("<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>", node()->name(), doc->url().fileName()));
         return QUrl();
     }
     return url;

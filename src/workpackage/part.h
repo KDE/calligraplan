@@ -85,7 +85,7 @@ public:
     bool openDoc(const Document *doc, KoStore *store);
     /// Open document for editing, return true if ok, false if failure
     bool editDoc();
-    bool isOpen() const { return m_process != 0; }
+    bool isOpen() const { return m_process != nullptr; }
     bool isModified() const;
     bool isFileModified() const;
     
@@ -193,7 +193,7 @@ public:
     }
     void addWorkPackage(WorkPackage *wp);
     void removeWorkPackage(WorkPackage *wp);
-    void removeWorkPackage(Node *node, MacroCommand *m = 0);
+    void removeWorkPackage(Node *node, MacroCommand *m = nullptr);
     void removeWorkPackages(const QList<Node*> &nodes);
 
     /// Find the work package that handles document @p doc
@@ -241,7 +241,7 @@ protected:
     bool loadKPlatoXML(const KoXmlDocument &document, KoStore *store);
     /// Adds work package @p wp to the list of workpackages.
     /// If it already exists, the user is asked if it shall be merged with the existing one.
-    bool setWorkPackage(WorkPackage *wp, KoStore *store = 0);
+    bool setWorkPackage(WorkPackage *wp, KoStore *store = nullptr);
     bool completeLoading(KoStore *store);
 
     bool loadAndParse(KoStore* store, const QString& filename, KoXmlDocument& doc);

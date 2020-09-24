@@ -68,7 +68,7 @@ class PLANMODELS_EXPORT ItemDelegate : public QStyledItemDelegate
     Q_OBJECT
 public:
     /// Constructor
-    explicit ItemDelegate(QObject *parent = 0)
+    explicit ItemDelegate(QObject *parent = nullptr)
     : QStyledItemDelegate(parent),
     m_lastHint(Delegate::NoHint)
     {}
@@ -92,7 +92,7 @@ class PLANMODELS_EXPORT CheckStateItemDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit CheckStateItemDelegate(QObject *parent = 0);
+    explicit CheckStateItemDelegate(QObject *parent = nullptr);
 
 protected:
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
@@ -102,7 +102,7 @@ class PLANMODELS_EXPORT DateTimeCalendarDelegate : public ItemDelegate
 {
   Q_OBJECT
 public:
-    explicit DateTimeCalendarDelegate(QObject *parent = 0);
+    explicit DateTimeCalendarDelegate(QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     void setEditorData(QWidget *editor, const QModelIndex &index) const override;
@@ -115,7 +115,7 @@ class PLANMODELS_EXPORT ProgressBarDelegate : public ItemDelegate
 {
   Q_OBJECT
 public:
-    explicit ProgressBarDelegate(QObject *parent = 0);
+    explicit ProgressBarDelegate(QObject *parent = nullptr);
 
     ~ProgressBarDelegate() override;
 
@@ -144,7 +144,7 @@ class PLANMODELS_EXPORT SelectorDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit SelectorDelegate(QObject *parent = 0);
+    explicit SelectorDelegate(QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -158,7 +158,7 @@ class PLANMODELS_EXPORT EnumDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit EnumDelegate(QObject *parent = 0);
+    explicit EnumDelegate(QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -172,7 +172,7 @@ class PLANMODELS_EXPORT DurationSpinBoxDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit DurationSpinBoxDelegate(QObject *parent = 0);
+    explicit DurationSpinBoxDelegate(QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -186,7 +186,7 @@ class PLANMODELS_EXPORT SpinBoxDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit SpinBoxDelegate(QObject *parent = 0);
+    explicit SpinBoxDelegate(QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -200,7 +200,7 @@ class PLANMODELS_EXPORT DoubleSpinBoxDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit DoubleSpinBoxDelegate(QObject *parent = 0);
+    explicit DoubleSpinBoxDelegate(QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -214,7 +214,7 @@ class PLANMODELS_EXPORT MoneyDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit MoneyDelegate(QObject *parent = 0);
+    explicit MoneyDelegate(QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -228,7 +228,7 @@ class PLANMODELS_EXPORT TimeDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit TimeDelegate(QObject *parent = 0);
+    explicit TimeDelegate(QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -250,7 +250,7 @@ public:
         OnViewport /*QAbstractItemView::OnViewport*/ /// The item will be dropped onto a region of the viewport with no items if acceptDropsOnView is set.
     };
 
-    explicit ItemModelBase(QObject *parent = 0);
+    explicit ItemModelBase(QObject *parent = nullptr);
     ~ItemModelBase() override;
 
     virtual const QMetaEnum columnMap() const { return QMetaEnum(); }
@@ -271,7 +271,7 @@ public:
     
     /// Create the correct delegate for @p column. @p parent is the delegates parent widget.
     /// If default should be used, return 0.
-    virtual QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const { Q_UNUSED(column); Q_UNUSED(parent); return 0; }
+    virtual QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const { Q_UNUSED(column); Q_UNUSED(parent); return nullptr; }
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;

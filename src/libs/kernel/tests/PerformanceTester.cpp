@@ -33,13 +33,13 @@ namespace KPlato
 void PerformanceTester::cleanup()
 {
     delete p1;
-    p1 = 0;
-    r1 = 0;
-    r2 = 0;
-    s1 = 0;
-    t1 = 0;
-    s2 = 0;
-    m1 = 0;
+    p1 = nullptr;
+    r1 = nullptr;
+    r2 = nullptr;
+    s1 = nullptr;
+    t1 = nullptr;
+    s2 = nullptr;
+    m1 = nullptr;
 }
 
 void PerformanceTester::init()

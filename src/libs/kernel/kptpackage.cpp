@@ -23,8 +23,8 @@
 using namespace KPlato;
 
 Package::Package()
-    : task(0)
-    , toTask(0)
+    : task(nullptr)
+    , toTask(nullptr)
 {
 }
 

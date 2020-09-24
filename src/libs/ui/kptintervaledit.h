@@ -63,7 +63,7 @@ Q_SIGNALS:
 class IntervalEdit : public IntervalEditImpl {
     Q_OBJECT
 public:
-    explicit IntervalEdit(CalendarDay *day, QWidget *parent=0);
+    explicit IntervalEdit(CalendarDay *day, QWidget *parent=nullptr);
 
 };
 
@@ -71,9 +71,9 @@ class PLANUI_EXPORT IntervalEditDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    explicit IntervalEditDialog(Calendar *calendar, const QList<CalendarDay*> &days, QWidget *parent = 0);
+    explicit IntervalEditDialog(Calendar *calendar, const QList<CalendarDay*> &days, QWidget *parent = nullptr);
     
-    explicit IntervalEditDialog(Calendar *calendar, const QList<QDate> &dates, QWidget *parent = 0);
+    explicit IntervalEditDialog(Calendar *calendar, const QList<QDate> &dates, QWidget *parent = nullptr);
 
     MacroCommand *buildCommand();
     QList<TimeInterval*> intervals() const { return m_panel->intervals(); }

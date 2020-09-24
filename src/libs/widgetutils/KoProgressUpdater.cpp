@@ -38,7 +38,7 @@ class Q_DECL_HIDDEN KoProgressUpdater::Private
 public:
 
     Private(KoProgressUpdater *_parent, KoProgressProxy *p, Mode _mode,
-            QTextStream *output_ = 0)
+            QTextStream *output_ = nullptr)
         : parent(_parent)
         , progressBar(p)
         , mode(_mode)
@@ -217,7 +217,7 @@ bool KoProgressUpdater::interrupted() const
 
 bool KoProgressUpdater::hasOutput() const
 {
-    return d->output != 0;
+    return d->output != nullptr;
 }
 
 void KoProgressUpdater::Private::logEvents(QTextStream& out,

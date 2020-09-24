@@ -49,7 +49,7 @@ class WorkPackageMergePanel : public QWidget, public Ui::WorkPackageMergePanel
 {
     Q_OBJECT
 public:
-    explicit WorkPackageMergePanel(QWidget *parent = 0);
+    explicit WorkPackageMergePanel(QWidget *parent = nullptr);
 };
 
 class PLANUI_EXPORT WorkPackageMergeDialog : public KoDialog
@@ -58,7 +58,7 @@ class PLANUI_EXPORT WorkPackageMergeDialog : public KoDialog
 public:
     enum Columns { DateColumn = 0, CompletionColumn, UsedEffortColumn, RemainingEffortColumn };
 
-    WorkPackageMergeDialog(Project *project, const QMap<QDateTime, Package*> &list, QWidget *parent = 0);
+    WorkPackageMergeDialog(Project *project, const QMap<QDateTime, Package*> &list, QWidget *parent = nullptr);
     ~WorkPackageMergeDialog() override;
 
     QList<int> checkedList() const;

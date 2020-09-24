@@ -59,7 +59,7 @@ class TaskDescriptionPanel : public TaskDescriptionPanelImpl
 {
     Q_OBJECT
 public:
-    explicit TaskDescriptionPanel(Node &node, QWidget *parent = 0, bool readOnly = false);
+    explicit TaskDescriptionPanel(Node &node, QWidget *parent = nullptr, bool readOnly = false);
 
     MacroCommand *buildCommand();
 
@@ -81,7 +81,7 @@ public:
      * @param parent parent widget
      * @param readOnly determines whether the data are read-only
      */
-    explicit TaskDescriptionDialog(Node &node, QWidget *parent = 0, bool readOnly = false  );
+    explicit TaskDescriptionDialog(Node &node, QWidget *parent = nullptr, bool readOnly = false  );
 
     MacroCommand *buildCommand();
 

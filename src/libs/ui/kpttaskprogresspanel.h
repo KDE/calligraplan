@@ -41,7 +41,7 @@ class MacroCommand;
 class PLANUI_EXPORT TaskProgressPanelImpl : public QWidget, public Ui_TaskProgressPanelBase {
     Q_OBJECT
 public:
-    explicit TaskProgressPanelImpl(Task &task, QWidget *parent=0);
+    explicit TaskProgressPanelImpl(Task &task, QWidget *parent=nullptr);
 
     void enableWidgets();
 
@@ -91,7 +91,7 @@ protected:
 class PLANUI_EXPORT TaskProgressPanel : public TaskProgressPanelImpl {
     Q_OBJECT
 public:
-    explicit TaskProgressPanel(Task &task, ScheduleManager *sm, StandardWorktime *workTime=0, QWidget *parent=0);
+    explicit TaskProgressPanel(Task &task, ScheduleManager *sm, StandardWorktime *workTime=nullptr, QWidget *parent=nullptr);
 
     MacroCommand *buildCommand();
 

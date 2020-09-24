@@ -40,7 +40,7 @@ class PLANUI_EXPORT RelationTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
-    explicit RelationTreeView(QWidget *parent = 0);
+    explicit RelationTreeView(QWidget *parent = nullptr);
     
     RelationItemModel *model() const { return static_cast<RelationItemModel*>(DoubleTreeViewBase::model()); }
     

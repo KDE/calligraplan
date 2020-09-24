@@ -48,7 +48,7 @@ class PLANMODELS_EXPORT AllocatedResourceItemModel : public QSortFilterProxyMode
 {
     Q_OBJECT
 public:
-    explicit AllocatedResourceItemModel(QObject *parent = 0);
+    explicit AllocatedResourceItemModel(QObject *parent = nullptr);
 
     int columnCount(const QModelIndex &idx) const override;
 

@@ -503,7 +503,7 @@ QVariant WorkPackageProxyModel::data(const QModelIndex &idx, int role) const
 
 Task *WorkPackageProxyModel::taskFromIndex(const QModelIndex &idx) const
 {
-    Task *task = 0;
+    Task *task = nullptr;
     if (idx.internalPointer()) {
         task = static_cast<Task*>(idx.internalPointer());
     } else if (idx.isValid()) {

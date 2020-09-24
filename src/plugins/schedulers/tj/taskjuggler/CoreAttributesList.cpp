@@ -62,7 +62,7 @@ CoreAttributesList::deleteContents()
     // Don't understand this code (danders)
     while (!isEmpty()) {
         for (CoreAttributesListIterator li(*this); *li; ++li)
-            if ((*li)->getParent() == 0)
+            if ((*li)->getParent() == nullptr)
             {
                 delete *li;
                 break;
@@ -108,7 +108,7 @@ CoreAttributesList::createIndex(bool initial)
         {
             CoreAttributes *a = at(pos);
             a->setSequenceNo(i);
-            if (a->getParent() == 0)
+            if (a->getParent() == nullptr)
                 a->setHierarchNo(hNo++);
         }
     }
@@ -128,7 +128,7 @@ CoreAttributesList::createIndex(bool initial)
         {
             CoreAttributes *a = at(pos);
             a->setHierarchIndex(hNo);
-            if (a->getParent() == 0)
+            if (a->getParent() == nullptr)
                 hNo++;
         }
     }

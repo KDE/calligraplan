@@ -45,7 +45,7 @@ class PLANUI_EXPORT GanttItemDelegate : public KGantt::ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit GanttItemDelegate(QObject *parent = 0);
+    explicit GanttItemDelegate(QObject *parent = nullptr);
 
     QString toolTip(const QModelIndex& idx) const override;
     KGantt::Span itemBoundingSpan(const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) const override;
@@ -93,7 +93,7 @@ class PLANUI_EXPORT ResourceGanttItemDelegate : public KGantt::ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit ResourceGanttItemDelegate(QObject *parent = 0);
+    explicit ResourceGanttItemDelegate(QObject *parent = nullptr);
 
     QVariant data(const QModelIndex& idx, int column, int role = Qt::DisplayRole) const;
 

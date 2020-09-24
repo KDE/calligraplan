@@ -43,7 +43,7 @@ TasksEditController::TasksEditController(Project &project, const QList<Task*> &t
     : QObject(p)
     , m_project(project)
     , m_tasks(tasks)
-    , m_dlg(0)
+    , m_dlg(nullptr)
 {
 }
 

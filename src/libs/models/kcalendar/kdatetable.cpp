@@ -55,7 +55,7 @@ public:
         m_selectionmode = KDateTable::SingleSelection;
         m_paintweeknumbers = false;
         m_hoveredPos = -1;
-        m_model = 0;
+        m_model = nullptr;
         m_grid = false;
     }
 
@@ -425,7 +425,7 @@ void KDateTable::paintCell(QPainter *painter, int row, int column)
                 }
             }
             KDateTableDateDelegate *del = d->customPaintingModes.value(pCellDate.toJulianDay());
-            if (del == 0) {
+            if (del == nullptr) {
                 del = d->m_dateDelegate;
             }
             if (del) {
@@ -954,7 +954,7 @@ KDateTableDateDelegate::KDateTableDateDelegate(QObject *parent)
 QVariant KDateTableDateDelegate::data(const QDate &date, int role, KDateTableDataModel *model)
 {
     //debugPlan<<date<<role<<model;
-    if (model == 0) {
+    if (model == nullptr) {
         return QVariant();
     }
     return model->data(date, role);
@@ -1141,7 +1141,7 @@ KDateTableWeekDayDelegate::KDateTableWeekDayDelegate(QObject *parent)
 QVariant KDateTableWeekDayDelegate::data(int day, int role, KDateTableDataModel *model)
 {
     //debugPlan<<day<<role<<model;
-    if (model == 0) {
+    if (model == nullptr) {
         return QVariant();
     }
     return model->weekDayData(day, role);
@@ -1200,7 +1200,7 @@ KDateTableWeekNumberDelegate::KDateTableWeekNumberDelegate(QObject *parent)
 QVariant KDateTableWeekNumberDelegate::data(int week, int role, KDateTableDataModel *model)
 {
     //debugPlan<<week<<role<<model;
-    if (model == 0) {
+    if (model == nullptr) {
         return QVariant();
     }
     return model->weekNumberData(week, role);

@@ -50,8 +50,8 @@ namespace KPlato
 
 ResourceAppointmentsItemModel::ResourceAppointmentsItemModel(QObject *parent)
     : ItemModelBase(parent),
-    m_group(0),
-    m_resource(0),
+    m_group(nullptr),
+    m_resource(nullptr),
     m_showInternal(true),
     m_showExternal(true)
 {
@@ -314,7 +314,7 @@ QModelIndex ResourceAppointmentsItemModel::parent(const QModelIndex &idx) const
 Resource *ResourceAppointmentsItemModel::parent(const Appointment *a) const
 {
     if (a == nullptr || m_project == nullptr) {
-        return 0;
+        return nullptr;
     }
     foreach (Resource *r, m_project->resourceList()) {
         if (r->appointments(id()).contains(const_cast<Appointment*>(a))) {
@@ -324,7 +324,7 @@ Resource *ResourceAppointmentsItemModel::parent(const Appointment *a) const
             return r;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 QModelIndex ResourceAppointmentsItemModel::index(int row, int column, const QModelIndex &parent) const
@@ -538,7 +538,7 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, const QDate &
                 }
             }
             QString ds = QLocale().toString(d.toDouble(Duration::Unit_h), 'f', 1);
-            Duration avail = res->effort(0, DateTime(date, QTime(0,0,0)), Duration(1.0, Duration::Unit_d));
+            Duration avail = res->effort(nullptr, DateTime(date, QTime(0,0,0)), Duration(1.0, Duration::Unit_d));
             QString avails = QLocale().toString(avail.toDouble(Duration::Unit_h), 'f', 1);
             return QString("%1(%2)").arg(ds).arg(avails);
         }
@@ -780,8 +780,8 @@ QVariant ResourceAppointmentsItemModel::headerData(int section, Qt::Orientation 
 Node *ResourceAppointmentsItemModel::node(const QModelIndex &index) const
 {
     Appointment *a = appointment(index);
-    if (a == 0) {
-        return 0;
+    if (a == nullptr) {
+        return nullptr;
     }
     return a->node()->node();
 }
@@ -789,7 +789,7 @@ Node *ResourceAppointmentsItemModel::node(const QModelIndex &index) const
 Appointment *ResourceAppointmentsItemModel::appointment(const QModelIndex &index) const
 {
     if (m_project == nullptr || m_manager == nullptr) {
-        return 0;
+        return nullptr;
     }
     foreach (Resource *r, m_project->resourceList()) {
         foreach (Appointment *a, r->appointments(id())) {
@@ -798,13 +798,13 @@ Appointment *ResourceAppointmentsItemModel::appointment(const QModelIndex &index
             }
         }
     }
-    return 0;
+    return nullptr;
 }
 
 Appointment *ResourceAppointmentsItemModel::externalAppointment(const QModelIndex &index) const
 {
     if (m_project == nullptr || m_manager == nullptr) {
-        return 0;
+        return nullptr;
     }
     foreach (Resource *r, m_project->resourceList()) {
         foreach (Appointment *a, r->externalAppointmentList()) {
@@ -813,7 +813,7 @@ Appointment *ResourceAppointmentsItemModel::externalAppointment(const QModelInde
             }
         }
     }
-    return 0;
+    return nullptr;
 }
 
 QModelIndex ResourceAppointmentsItemModel::createAppointmentIndex(int row, int col, void *ptr) const
@@ -834,14 +834,14 @@ QModelIndex ResourceAppointmentsItemModel::createExternalAppointmentIndex(int ro
 Resource *ResourceAppointmentsItemModel::resource(const QModelIndex &index) const
 {
     if (m_project == nullptr) {
-        return 0;
+        return nullptr;
     }
     foreach (Resource *r, m_project->resourceList()) {
         if (r == index.internalPointer()) {
             return r;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 QModelIndex ResourceAppointmentsItemModel::createResourceIndex(int row, int col, Resource *ptr) const
@@ -852,7 +852,7 @@ QModelIndex ResourceAppointmentsItemModel::createResourceIndex(int row, int col,
 void ResourceAppointmentsItemModel::slotCalendarChanged(Calendar*)
 {
     foreach (Resource *r, m_project->resourceList()) {
-        if (r->calendar(true) == 0) {
+        if (r->calendar(true) == nullptr) {
             slotResourceChanged(r);
         }
     }
@@ -1010,7 +1010,7 @@ ResourceAppointmentsRowModel::Private *ResourceAppointmentsRowModel::Private::in
         return p;
     }
     Appointment *a = static_cast<Appointment*>(ptr);
-    p = new Private(const_cast<Private*>(this), 0, OT_Interval);
+    p = new Private(const_cast<Private*>(this), nullptr, OT_Interval);
     p->intervalRow = row;
     p->interval = a->intervalAt(row);
     intervals.insert(row, p);
@@ -1080,7 +1080,7 @@ QDebug operator<<(QDebug dbg, const ResourceAppointmentsRowModel::Private& s)
 }
 QDebug operator<<(QDebug dbg, const ResourceAppointmentsRowModel::Private* s)
 {
-    if (s == 0) {
+    if (s == nullptr) {
         dbg<<"ResourceAppointmentsRowModel::Private[ ("<<(void*)s<<") ]";
     } else {
         dbg << "ResourceAppointmentsRowModel::Private[ ("<<(void*)s<<") Type="<<s->type<<" parent=";
@@ -1114,7 +1114,7 @@ QDebug operator<<(QDebug dbg, const ResourceAppointmentsRowModel::Private* s)
 
 ResourceAppointmentsRowModel::ResourceAppointmentsRowModel(QObject *parent)
     : ItemModelBase(parent),
-    m_schedule(0)
+    m_schedule(nullptr)
 {
 }
 
@@ -1178,10 +1178,10 @@ void ResourceAppointmentsRowModel::connectSignals(Resource *resource, bool enabl
 void ResourceAppointmentsRowModel::setScheduleManager(ScheduleManager *sm)
 {
     debugPlan<<"ResourceAppointmentsRowModel::setScheduleManager:"<<sm;
-    if (sm == 0 || sm != m_manager || sm->expected() != m_schedule) {
+    if (sm == nullptr || sm != m_manager || sm->expected() != m_schedule) {
         beginResetModel();
         m_manager = sm;
-        m_schedule = sm ? sm->expected() : 0;
+        m_schedule = sm ? sm->expected() : nullptr;
         qDeleteAll(m_datamap);
         m_datamap.clear();
         endResetModel();
@@ -1361,7 +1361,7 @@ QModelIndex ResourceAppointmentsRowModel::createResourceIndex(int row, int colum
 {
     Resource *res = m_project->resourceAt(row);
     Private *p = m_datamap.value((void*)res);
-    if (p == 0) {
+    if (p == nullptr) {
         p = new Private(nullptr, res, OT_Resource);
         m_datamap.insert(res, p);
     }
@@ -1372,9 +1372,9 @@ QModelIndex ResourceAppointmentsRowModel::createResourceIndex(int row, int colum
 
 QModelIndex ResourceAppointmentsRowModel::createAppointmentIndex(int row, int column, Resource *r)
 {
-    Private *p = 0;
+    Private *p = nullptr;
     KPlato::ObjectType type;
-    Appointment *a = 0;
+    Appointment *a = nullptr;
     if (row < r->numAppointments(id())) {
         a = r->appointmentAt(row, id());
         type = OT_Appointment;
@@ -1384,7 +1384,7 @@ QModelIndex ResourceAppointmentsRowModel::createAppointmentIndex(int row, int co
     }
     Q_ASSERT(a);
     p = m_datamap.value((void*)a);
-    if (p == 0) {
+    if (p == nullptr) {
         Private *pr = m_datamap.value(r);
         Q_ASSERT(pr);
         p = new Private(pr, a, type);
@@ -1426,7 +1426,7 @@ void ResourceAppointmentsRowModel::slotResourceToBeRemoved(Project *project, int
     beginRemoveRows(QModelIndex(), row, row);
     connectSignals(resource, false);
 
-    Private *p = 0;
+    Private *p = nullptr;
     foreach (Appointment *a, resource->appointments(id())) {
         // remove appointment
         p = m_datamap.value(a);

@@ -110,11 +110,11 @@ void Relation::setChild(Node* node)
 bool Relation::load(KoXmlElement &element, XMLLoaderObject &status) {
     const Project &project = status.project();
     m_parent = project.findNode(element.attribute("parent-id"));
-    if (m_parent == 0) {
+    if (m_parent == nullptr) {
         return false;
     }
     m_child = project.findNode(element.attribute("child-id"));
-    if (m_child == 0) {
+    if (m_child == nullptr) {
         return false;
     }
     if (m_child == m_parent) {

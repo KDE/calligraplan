@@ -47,7 +47,7 @@ using namespace KPlato;
 
 Part::Part(QObject *parent)
     : KoPart(Factory::global(), parent)
-    , startUpWidget(0)
+    , startUpWidget(nullptr)
 {
     setTemplatesResourcePath(QLatin1String("calligraplan/templates/"));
 
@@ -86,7 +86,7 @@ KoMainWindow *Part::createMainWindow()
     QAction *handbookAction = w->action("help_contents");
     if (handbookAction) {
         // we do not want to use khelpcenter as we do not install docs
-        disconnect(handbookAction, 0, 0, 0);
+        disconnect(handbookAction, nullptr, nullptr, nullptr);
         connect(handbookAction, &QAction::triggered, this, &Part::slotHelpContents);
     }
     return w;
@@ -151,7 +151,7 @@ bool Part::openProjectTemplate(const QUrl &url)
 
 void Part::openTaskModule(const QUrl &url)
 {
-    Part *part = new Part(0);
+    Part *part = new Part(nullptr);
     MainDocument *doc = new MainDocument(part);
     part->setDocument(doc);
     doc->setIsTaskModule(true);
@@ -182,7 +182,7 @@ QWidget *Part::createWelcomeView(KoMainWindow *mw)
     v->setProject(&(doc->getProject()));
 
     KSharedConfigPtr configPtr = Factory::global().config();
-    KRecentFilesAction recent("x", 0);
+    KRecentFilesAction recent("x", nullptr);
     recent.loadEntries(configPtr->group("RecentFiles"));
     v->setRecentFiles(recent.actions());
 

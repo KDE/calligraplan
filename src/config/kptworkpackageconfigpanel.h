@@ -30,7 +30,7 @@ class WorkPackageConfigPanel : public QWidget, public Ui_WorkPackageConfigPanel
 {
     Q_OBJECT
 public:
-    explicit WorkPackageConfigPanel(QWidget *parent = 0);
+    explicit WorkPackageConfigPanel(QWidget *parent = nullptr);
 };
 
 } //KPlato namespace

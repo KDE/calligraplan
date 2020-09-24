@@ -43,7 +43,7 @@ class PLANMODELS_EXPORT WorkPackageModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit WorkPackageModel(QObject *parent = 0)
+    explicit WorkPackageModel(QObject *parent = nullptr)
         : QObject(parent)
      {}
     ~WorkPackageModel() override {}
@@ -66,7 +66,7 @@ class WPSortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit WPSortFilterProxyModel(QObject *parent = 0) : QSortFilterProxyModel(parent) {}
+    explicit WPSortFilterProxyModel(QObject *parent = nullptr) : QSortFilterProxyModel(parent) {}
 protected:
     /// Only accept scheduled tasks
     bool filterAcceptsRow(int source_row, const QModelIndex &sourceParent) const override;
@@ -85,7 +85,7 @@ class PLANMODELS_EXPORT WorkPackageProxyModel : public QAbstractProxyModel
 {
     Q_OBJECT
 public:
-    explicit WorkPackageProxyModel(QObject *parent = 0);
+    explicit WorkPackageProxyModel(QObject *parent = nullptr);
 
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
@@ -134,8 +134,8 @@ protected Q_SLOTS:
 
 protected:
     QModelIndex mapFromBaseModel(const QModelIndex &idx) const;
-    void detachTasks(Task *task = 0);
-    void attachTasks(Task *task = 0);
+    void detachTasks(Task *task = nullptr);
+    void attachTasks(Task *task = nullptr);
 
     inline bool isTaskIndex(const QModelIndex &idx) const {
         return idx.isValid() && ! idx.internalPointer();

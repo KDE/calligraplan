@@ -68,7 +68,7 @@ int ChartItemModel::rowCount(const QModelIndex &parent) const
 
 QModelIndex ChartItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (m_project == 0 || row < 0 || column < 0) {
+    if (m_project == nullptr || row < 0 || column < 0) {
         //debugPlan<<"No project"<<m_project<<" or illegal row, column"<<row<<column;
         return QModelIndex();
     }
@@ -160,7 +160,7 @@ QVariant ChartItemModel::data(const QModelIndex &index, int role) const
             QLocale locale;
             // TODO: temporary workaround while KLocale/money logic still used
             Locale *planLocale;
-            Locale *tmpPlanLocale = 0;
+            Locale *tmpPlanLocale = nullptr;
             if (project()) {
                 planLocale = project()->locale();
             } else {

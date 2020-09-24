@@ -48,28 +48,28 @@ MilestoneProgressPanel::MilestoneProgressPanel(Task &task, QWidget *parent, cons
 
 
 MacroCommand *MilestoneProgressPanel::buildCommand() {
-    MacroCommand *cmd = 0;
+    MacroCommand *cmd = nullptr;
     KUndo2MagicString c = kundo2_i18n("Modify milestone completion");
     
     if (m_completion.isFinished() != finished->isChecked()) {
-        if (cmd == 0) cmd = new MacroCommand(c);
+        if (cmd == nullptr) cmd = new MacroCommand(c);
         cmd->addCommand(new ModifyCompletionStartedCmd(m_completion, finished->isChecked()));
         cmd->addCommand(new ModifyCompletionFinishedCmd(m_completion, finished->isChecked()));
     }
     if (m_completion.finishTime() != finishTime->dateTime()) {
-        if (cmd == 0) cmd = new MacroCommand(c);
+        if (cmd == nullptr) cmd = new MacroCommand(c);
         cmd->addCommand(new ModifyCompletionStartTimeCmd(m_completion, finishTime->dateTime()));
         cmd->addCommand(new ModifyCompletionFinishTimeCmd(m_completion, finishTime->dateTime()));
     }
     if (finished->isChecked() && finishTime->dateTime().isValid()) {
-        if (cmd == 0) cmd = new MacroCommand(c);
+        if (cmd == nullptr) cmd = new MacroCommand(c);
         cmd->addCommand(new ModifyCompletionPercentFinishedCmd(m_completion, finishTime->dateTime().date(), 100));
     } else {
         Completion::EntryList::ConstIterator entriesIt = m_completion.entries().constBegin();
         const Completion::EntryList::ConstIterator entriesEnd = m_completion.entries().constEnd();
         for (; entriesIt != entriesEnd; ++entriesIt) {
             const QDate &date = entriesIt.key();
-            if (cmd == 0) cmd = new MacroCommand(c);
+            if (cmd == nullptr) cmd = new MacroCommand(c);
             cmd->addCommand(new RemoveCompletionEntryCmd(m_completion, date));
         }
     }

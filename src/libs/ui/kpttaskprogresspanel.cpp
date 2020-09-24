@@ -112,35 +112,35 @@ TaskProgressPanel::TaskProgressPanel(Task &task, ScheduleManager *sm, StandardWo
 MacroCommand *TaskProgressPanel::buildCommand()
 {
     Project *project = dynamic_cast<Project*>(m_task.projectNode());
-    if (project == 0) {
-        return 0;
+    if (project == nullptr) {
+        return nullptr;
     }
     return buildCommand(*project, m_original, m_completion);
 }
 
 MacroCommand *TaskProgressPanel::buildCommand(const Project &project, Completion &org, Completion &curr)
 {
-    MacroCommand *cmd = 0;
+    MacroCommand *cmd = nullptr;
     KUndo2MagicString c = kundo2_i18n("Modify task completion");
     
     if (org.entrymode() != curr.entrymode()) {
-        if (cmd == 0) cmd = new MacroCommand(c);
+        if (cmd == nullptr) cmd = new MacroCommand(c);
         cmd->addCommand(new ModifyCompletionEntrymodeCmd(org, curr.entrymode()));
     }
     if (org.startTime() != curr.startTime()) {
-        if (cmd == 0) cmd = new MacroCommand(c);
+        if (cmd == nullptr) cmd = new MacroCommand(c);
         cmd->addCommand(new ModifyCompletionStartTimeCmd(org, curr.startTime()));
     }
     if (org.finishTime() != curr.finishTime()) {
-        if (cmd == 0) cmd = new MacroCommand(c);
+        if (cmd == nullptr) cmd = new MacroCommand(c);
         cmd->addCommand(new ModifyCompletionFinishTimeCmd(org, curr.finishTime()));
     }
     if (org.isStarted() != curr.isStarted()) {
-        if (cmd == 0) cmd = new MacroCommand(c);
+        if (cmd == nullptr) cmd = new MacroCommand(c);
         cmd->addCommand(new ModifyCompletionStartedCmd(org, curr.isStarted()));
     }
     if (org.isFinished() != curr.isFinished()) {
-        if (cmd == 0) cmd = new MacroCommand(c);
+        if (cmd == nullptr) cmd = new MacroCommand(c);
         cmd->addCommand(new ModifyCompletionFinishedCmd(org, curr.isFinished()));
     }
     QList<QDate> orgdates = org.entries().keys();
@@ -150,19 +150,19 @@ MacroCommand *TaskProgressPanel::buildCommand(const Project &project, Completion
             if (curr.entry(d) == org.entry(d)) {
                 continue;
             }
-            if (cmd == 0) cmd = new MacroCommand(c);
+            if (cmd == nullptr) cmd = new MacroCommand(c);
             debugPlan<<"modify entry "<<d;
             Completion::Entry *e = new Completion::Entry(*(curr.entry(d)));
             cmd->addCommand(new ModifyCompletionEntryCmd(org, d, e));
         } else {
-            if (cmd == 0) cmd = new MacroCommand(c);
+            if (cmd == nullptr) cmd = new MacroCommand(c);
             debugPlan<<"remove entry "<<d;
             cmd->addCommand(new RemoveCompletionEntryCmd(org, d));
         }
     }
     foreach (const QDate &d, currdates) {
         if (! orgdates.contains(d)) {
-            if (cmd == 0) cmd = new MacroCommand(c);
+            if (cmd == nullptr) cmd = new MacroCommand(c);
             Completion::Entry *e = new Completion::Entry(* (curr.entry(d)));
             debugPlan<<"add entry "<<d<<e;
             cmd->addCommand(new AddCompletionEntryCmd(org, d, e));
@@ -172,16 +172,16 @@ MacroCommand *TaskProgressPanel::buildCommand(const Project &project, Completion
     Completion::ResourceUsedEffortMap::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {
         Resource *r = project.findResource(it.key()->id());
-        if (r == 0) {
+        if (r == nullptr) {
             warnPlan<<"Can't find resource:"<<it.key()->id()<<it.key()->name();
             continue;
         }
         Completion::UsedEffort *ue = map[ r ];
-        if (ue == 0) {
+        if (ue == nullptr) {
             continue;
         }
-        if (org.usedEffort(r) == 0 || *ue != *(org.usedEffort(r))) {
-            if (cmd == 0) cmd = new MacroCommand(c);
+        if (org.usedEffort(r) == nullptr || *ue != *(org.usedEffort(r))) {
+            if (cmd == nullptr) cmd = new MacroCommand(c);
             cmd->addCommand(new AddCompletionUsedEffortCmd(org, r, new Completion::UsedEffort(*ue)));
         }
     }

@@ -1228,7 +1228,7 @@ private:
 class PLANKERNEL_EXPORT AddAccountCmd : public NamedCommand
 {
 public:
-    AddAccountCmd(Project &project, Account *account, Account *parent = 0, int index = -1, const KUndo2MagicString& name = KUndo2MagicString());
+    AddAccountCmd(Project &project, Account *account, Account *parent = nullptr, int index = -1, const KUndo2MagicString& name = KUndo2MagicString());
     AddAccountCmd(Project &project, Account *account, const QString& parent, int index = -1, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddAccountCmd() override;
     void execute() override;

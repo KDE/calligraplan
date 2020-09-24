@@ -48,7 +48,7 @@ class PLANMODELS_EXPORT ResourceAppointmentsItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit ResourceAppointmentsItemModel(QObject *parent = 0);
+    explicit ResourceAppointmentsItemModel(QObject *parent = nullptr);
     ~ResourceAppointmentsItemModel() override;
 
     void setProject(Project *project) override;
@@ -159,7 +159,7 @@ public:
     Q_ENUM(Properties)
     const QMetaEnum columnMap() const override;
 
-    explicit ResourceAppointmentsRowModel(QObject *parent = 0);
+    explicit ResourceAppointmentsRowModel(QObject *parent = nullptr);
     ~ResourceAppointmentsRowModel() override;
 
     void setProject(Project *project) override;
@@ -231,7 +231,7 @@ class PLANMODELS_EXPORT ResourceAppointmentsGanttModel : public ResourceAppointm
 {
     Q_OBJECT
 public:
-    explicit ResourceAppointmentsGanttModel(QObject *parent = 0);
+    explicit ResourceAppointmentsGanttModel(QObject *parent = nullptr);
     ~ResourceAppointmentsGanttModel() override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

@@ -41,7 +41,7 @@ class PLANMODELS_EXPORT ScheduleModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit ScheduleModel(QObject *parent = 0);
+    explicit ScheduleModel(QObject *parent = nullptr);
     ~ScheduleModel() override;
     
     enum Properties {
@@ -67,7 +67,7 @@ class PLANMODELS_EXPORT ScheduleItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit ScheduleItemModel(QObject *parent = 0);
+    explicit ScheduleItemModel(QObject *parent = nullptr);
     ~ScheduleItemModel() override;
 
     const QMetaEnum columnMap() const override { return m_model.columnMap(); }
@@ -166,7 +166,7 @@ class PLANMODELS_EXPORT ScheduleSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit ScheduleSortFilterModel(QObject *parent = 0);
+    explicit ScheduleSortFilterModel(QObject *parent = nullptr);
     ~ScheduleSortFilterModel() override;
 
     ScheduleManager *manager(const QModelIndex &index) const;
@@ -181,7 +181,7 @@ class PLANMODELS_EXPORT ScheduleLogItemModel : public QStandardItemModel
 public:
     enum DataRoles { SeverityRole = Qt::UserRole + 1, IdentityRole };
 
-    explicit ScheduleLogItemModel(QObject *parent = 0);
+    explicit ScheduleLogItemModel(QObject *parent = nullptr);
     ~ScheduleLogItemModel() override;
 
     void setProject(Project *project);

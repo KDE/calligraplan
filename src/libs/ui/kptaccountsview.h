@@ -44,7 +44,7 @@ class PLANUI_EXPORT AccountsTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
 public:
-    explicit AccountsTreeView(QWidget *parent = 0);
+    explicit AccountsTreeView(QWidget *parent = nullptr);
     
     CostBreakdownItemModel *model() const;
     

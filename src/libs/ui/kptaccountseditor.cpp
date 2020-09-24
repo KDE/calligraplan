@@ -141,7 +141,7 @@ Account *AccountTreeView::selectedAccount() const
     if (lst.count() == 1) {
         return model()->account(lst.first());
     }
-    return 0;
+    return nullptr;
 }
 
 QList<Account*> AccountTreeView::selectedAccounts() const

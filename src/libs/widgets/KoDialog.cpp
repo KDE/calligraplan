@@ -67,7 +67,7 @@ void KoDialogPrivate::queuedLayoutUpdate()
 
     // Don't lose the focus widget when re-creating the layout.
     // Testcase: KOrganizer's "Select Categories" dialog
-    QPointer<QWidget> focusWidget = mMainWidget ? mMainWidget->focusWidget() : 0;
+    QPointer<QWidget> focusWidget = mMainWidget ? mMainWidget->focusWidget() : nullptr;
 
     if (q->layout() && q->layout() != mTopLayout) {
         qWarning() << q->metaObject()->className() << "created with a layout; don't do that, KoDialog takes care of it, use mainWidget or setMainWidget instead";
@@ -214,7 +214,7 @@ void KoDialog::setButtons(ButtonCodes buttonMask)
         d->mButtonList.clear();
 
         delete d->mButtonBox;
-        d->mButtonBox = 0;
+        d->mButtonBox = nullptr;
     }
 
     if (buttonMask & Cancel) {
@@ -329,7 +329,7 @@ void KoDialog::setDefaultButton(ButtonCode newDefaultButton)
         QPushButton *b = button(newDefaultButton);
         if (b) {
             b->setDefault(true);
-            if (focusWidget() == 0 || oldDefaultHadFocus) {
+            if (focusWidget() == nullptr || oldDefaultHadFocus) {
                 // No widget had focus yet, or the old default button had
                 // -> ok to give focus to the new default button, so that it's
                 // really default (Enter triggers it).
@@ -649,7 +649,7 @@ bool KoDialog::avoidArea(QWidget *widget, const QRect &area, int screen)
 void KoDialog::showButtonSeparator(bool state)
 {
     Q_D(KoDialog);
-    if ((d->mActionSeparator != 0) == state) {
+    if ((d->mActionSeparator != nullptr) == state) {
         return;
     }
     if (state) {
@@ -661,7 +661,7 @@ void KoDialog::showButtonSeparator(bool state)
         d->mActionSeparator->setOrientation(d->mButtonOrientation);
     } else {
         delete d->mActionSeparator;
-        d->mActionSeparator = 0;
+        d->mActionSeparator = nullptr;
     }
 
     d->setupLayout();
@@ -976,7 +976,7 @@ void KoDialog::slotButtonClicked(int button)
 void KoDialog::enableLinkedHelp(bool state)
 {
     Q_D(KoDialog);
-    if ((d->mUrlHelp != 0) == state) {
+    if ((d->mUrlHelp != nullptr) == state) {
         return;
     }
     if (state) {
@@ -994,7 +994,7 @@ void KoDialog::enableLinkedHelp(bool state)
         d->mUrlHelp->show();
     } else {
         delete d->mUrlHelp;
-        d->mUrlHelp = 0;
+        d->mUrlHelp = nullptr;
     }
 
     d->setupLayout();

@@ -39,7 +39,7 @@ class PLANMODELS_EXPORT TreeComboBox : public KComboBox
 {
     Q_OBJECT
 public:
-    explicit TreeComboBox(QWidget *parent = 0);
+    explicit TreeComboBox(QWidget *parent = nullptr);
 
     QTreeView *view() const;
     void setModel(QAbstractItemModel *model);

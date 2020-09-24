@@ -43,7 +43,7 @@ namespace KPlato
 //--------------------------------------
 AccountModel::AccountModel()
     : QObject(),
-    m_project(0)
+    m_project(nullptr)
 {
 }
 
@@ -60,7 +60,7 @@ int AccountModel::propertyCount() const
 QVariant AccountModel::data(const Account *a, int property, int role) const
 {
     QVariant result;
-    if (a == 0) {
+    if (a == nullptr) {
         return QVariant();
     }
     switch (property) {
@@ -143,7 +143,7 @@ QVariant AccountModel::headerData(int property, int role) const
 //----------------------------------------
 AccountItemModel::AccountItemModel(QObject *parent)
     : ItemModelBase(parent),
-    m_account(0)
+    m_account(nullptr)
 {
 }
 
@@ -159,7 +159,7 @@ const QMetaEnum AccountItemModel::columnMap() const
 void AccountItemModel::slotAccountToBeInserted(const Account *parent, int row)
 {
     //debugPlan<<parent->name();
-    Q_ASSERT(m_account == 0);
+    Q_ASSERT(m_account == nullptr);
     m_account = const_cast<Account*>(parent);
     beginInsertRows(index(parent), row, row);
 }
@@ -169,13 +169,13 @@ void AccountItemModel::slotAccountInserted(const Account *account)
     //debugPlan<<account->name();
     Q_ASSERT(account->parent() == m_account); Q_UNUSED(account);
     endInsertRows();
-    m_account = 0;
+    m_account = nullptr;
 }
 
 void AccountItemModel::slotAccountToBeRemoved(const Account *account)
 {
     //debugPlan<<account->name();
-    Q_ASSERT(m_account == 0);
+    Q_ASSERT(m_account == nullptr);
     m_account = const_cast<Account*>(account);
     int row = index(account).row();
     beginRemoveRows(index(account->parent()), row, row);
@@ -186,7 +186,7 @@ void AccountItemModel::slotAccountRemoved(const Account *account)
     //debugPlan<<account->name();
     Q_ASSERT(account == m_account); Q_UNUSED(account);
     endRemoveRows();
-    m_account = 0;
+    m_account = nullptr;
 }
 
 void AccountItemModel::setProject(Project *project)
@@ -246,12 +246,12 @@ Qt::ItemFlags AccountItemModel::flags(const QModelIndex &index) const
 
 QModelIndex AccountItemModel::parent(const QModelIndex &index) const
 {
-    if (!index.isValid() || m_project == 0) {
+    if (!index.isValid() || m_project == nullptr) {
         return QModelIndex();
     }
     //debugPlan<<index.internalPointer()<<":"<<index.row()<<","<<index.column();
     Account *a = account(index);
-    if (a == 0) {
+    if (a == nullptr) {
         return QModelIndex();
     }
     Account *par = a->parent();
@@ -271,11 +271,11 @@ QModelIndex AccountItemModel::parent(const QModelIndex &index) const
 
 QModelIndex AccountItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (m_project == 0 || column < 0 || column >= columnCount() || row < 0) {
+    if (m_project == nullptr || column < 0 || column >= columnCount() || row < 0) {
         return QModelIndex();
     }
     Account *par = account(parent);
-    if (par == 0) {
+    if (par == nullptr) {
         if (row < m_project->accounts().accountList().count()) {
             return createIndex(row, column, m_project->accounts().accountList().at(row));
         }
@@ -288,12 +288,12 @@ QModelIndex AccountItemModel::index(int row, int column, const QModelIndex &pare
 QModelIndex AccountItemModel::index(const Account *account, int column) const
 {
     Account *a = const_cast<Account*>(account);
-    if (m_project == 0 || account == 0) {
+    if (m_project == nullptr || account == nullptr) {
         return QModelIndex();
     }
     int row = -1;
     Account *par = a->parent();
-    if (par == 0) {
+    if (par == nullptr) {
          row = m_project->accounts().accountList().indexOf(a);
     } else {
         row = par->accountList().indexOf(a);
@@ -312,11 +312,11 @@ int AccountItemModel::columnCount(const QModelIndex &) const
 
 int AccountItemModel::rowCount(const QModelIndex &parent) const
 {
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return 0;
     }
     Account *par = account(parent);
-    if (par == 0) {
+    if (par == nullptr) {
         return m_project->accounts().accountList().count();
     }
     return par->accountList().count();
@@ -334,7 +334,7 @@ bool AccountItemModel::setName(Account *a, const QVariant &value, int role)
             switch (value.toInt()) {
                 case Qt::Unchecked:
                     if (a->isDefaultAccount()) {
-                        emit executeCommand(new ModifyDefaultAccountCmd(m_project->accounts(), a, 0, kundo2_i18n("De-select as default account")));
+                        emit executeCommand(new ModifyDefaultAccountCmd(m_project->accounts(), a, nullptr, kundo2_i18n("De-select as default account")));
                         return true;
                     }
                     break;
@@ -368,7 +368,7 @@ QVariant AccountItemModel::data(const QModelIndex &index, int role) const
 {
     QVariant result;
     Account *a = account(index);
-    if (a == 0) {
+    if (a == nullptr) {
         return QVariant();
     }
     result = m_model.data(a, index.column(), role);
@@ -425,7 +425,7 @@ QModelIndex AccountItemModel::insertAccount(Account *account, Account *parent, i
 {
     debugPlan;
     if (account->name().isEmpty() || m_project->accounts().findAccount(account->name())) {
-        QString s = parent == 0 ? account->name() : parent->name();
+        QString s = parent == nullptr ? account->name() : parent->name();
         account->setName(m_project->accounts().uniqueId(s));
         //m_project->accounts().insertId(account);
     }
@@ -446,7 +446,7 @@ QModelIndex AccountItemModel::insertAccount(Account *account, Account *parent, i
 
 void AccountItemModel::removeAccounts(QList<Account*> lst)
 {
-    MacroCommand *cmd = 0;
+    MacroCommand *cmd = nullptr;
     KUndo2MagicString c = kundo2_i18np("Delete Account", "Delete %1 Accounts", lst.count());
     while (! lst.isEmpty()) {
         bool del = true;
@@ -458,7 +458,7 @@ void AccountItemModel::removeAccounts(QList<Account*> lst)
             }
         }
         if (del) {
-            if (cmd == 0) cmd = new MacroCommand(c);
+            if (cmd == nullptr) cmd = new MacroCommand(c);
             cmd->addCommand(new RemoveAccountCmd(*m_project, acc));
         }
     }
@@ -469,7 +469,7 @@ void AccountItemModel::removeAccounts(QList<Account*> lst)
 //----------------------------------------
 CostBreakdownItemModel::CostBreakdownItemModel(QObject *parent)
     : ItemModelBase(parent),
-    m_manager(0),
+    m_manager(nullptr),
     m_cumulative(false),
     m_periodtype(Period_Day),
     m_startmode(StartMode_Project),
@@ -590,7 +590,7 @@ void CostBreakdownItemModel::setScheduleManager(ScheduleManager *sm)
 
 long CostBreakdownItemModel::id() const
 {
-    return m_manager == 0 ? -1 : m_manager->scheduleId();
+    return m_manager == nullptr ? -1 : m_manager->scheduleId();
 }
 
 EffortCostMap CostBreakdownItemModel::fetchPlannedCost(Account *account)
@@ -633,7 +633,7 @@ void CostBreakdownItemModel::fetchData()
     m_plannedCostMap.clear();
     m_plannedStart = m_plannedEnd = QDate();
     m_actualStart = m_actualEnd = QDate();
-    if (m_project == 0 || m_manager == 0) {
+    if (m_project == nullptr || m_manager == nullptr) {
         return;
     }
     foreach (Account *a, m_project->accounts().allAccounts()) {
@@ -654,12 +654,12 @@ Qt::ItemFlags CostBreakdownItemModel::flags(const QModelIndex &index) const
 
 QModelIndex CostBreakdownItemModel::parent(const QModelIndex &index) const
 {
-    if (!index.isValid() || m_project == 0) {
+    if (!index.isValid() || m_project == nullptr) {
         return QModelIndex();
     }
     //debugPlan<<index.internalPointer()<<":"<<index.row()<<","<<index.column();
     Account *a = account(index);
-    if (a == 0) {
+    if (a == nullptr) {
         return QModelIndex();
     }
     Account *par = a->parent();
@@ -679,11 +679,11 @@ QModelIndex CostBreakdownItemModel::parent(const QModelIndex &index) const
 
 QModelIndex CostBreakdownItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (m_project == 0 || column < 0 || column >= columnCount() || row < 0) {
+    if (m_project == nullptr || column < 0 || column >= columnCount() || row < 0) {
         return QModelIndex();
     }
     Account *par = account(parent);
-    if (par == 0) {
+    if (par == nullptr) {
         if (row < m_project->accounts().accountList().count()) {
             return createIndex(row, column, m_project->accounts().accountList().at(row));
         }
@@ -696,12 +696,12 @@ QModelIndex CostBreakdownItemModel::index(int row, int column, const QModelIndex
 QModelIndex CostBreakdownItemModel::index(const Account *account) const
 {
     Account *a = const_cast<Account*>(account);
-    if (m_project == 0 || account == 0) {
+    if (m_project == nullptr || account == nullptr) {
         return QModelIndex();
     }
     int row = -1;
     Account *par = a->parent();
-    if (par == 0) {
+    if (par == nullptr) {
         row = m_project->accounts().accountList().indexOf(a);
     } else {
         row = par->accountList().indexOf(a);
@@ -746,11 +746,11 @@ int CostBreakdownItemModel::columnCount(const QModelIndex &) const
 
 int CostBreakdownItemModel::rowCount(const QModelIndex &parent) const
 {
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return 0;
     }
     Account *par = account(parent);
-    if (par == 0) {
+    if (par == nullptr) {
         return m_project->accounts().accountList().count();
     }
     return par->accountList().count();
@@ -777,7 +777,7 @@ QVariant CostBreakdownItemModel::data(const QModelIndex &index, int role) const
 {
     QVariant result;
     Account *a = account(index);
-    if (a == 0) {
+    if (a == nullptr) {
         return QVariant();
     }
     if (role == Qt::DisplayRole) {
@@ -982,7 +982,7 @@ void CostBreakdownItemModel::setEndMode(int mode)
 
 QDate CostBreakdownItemModel::startDate() const
 {
-    if (m_project == 0 || m_manager == 0) {
+    if (m_project == nullptr || m_manager == nullptr) {
         return m_start;
     }
     switch (m_startmode) {
@@ -1011,7 +1011,7 @@ void CostBreakdownItemModel::setStartDate(const QDate &date)
 
 QDate CostBreakdownItemModel::endDate() const
 {
-    if (m_project == 0 || m_manager == 0) {
+    if (m_project == nullptr || m_manager == nullptr) {
         return m_end;
     }
     switch (m_endmode) {

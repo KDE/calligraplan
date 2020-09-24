@@ -57,7 +57,7 @@ namespace KPlato {
 class RecentFilesModel : public QStandardItemModel
 {
 public:
-    RecentFilesModel(QObject *parent = 0);
+    RecentFilesModel(QObject *parent = nullptr);
     Qt::ItemFlags flags(const QModelIndex &idx) const override;
     QVariant data(const QModelIndex &idx, int role) const override;
     void populate(const QList<QAction*> actions);
@@ -113,8 +113,8 @@ void RecentFilesModel::populate(const QList<QAction*> actions)
 //-----------------------------------
 WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
-    , m_projectdialog(0)
-    , m_filedialog(0)
+    , m_projectdialog(nullptr)
+    , m_filedialog(nullptr)
 {
     ui.setupUi(this);
     ui.recentProjects->setBackgroundRole(QPalette::Midlight);
@@ -269,7 +269,7 @@ void WelcomeView::setupGui()
 
 KoPrintJob *WelcomeView::createPrintJob()
 {
-    return 0;
+    return nullptr;
 }
 
 void WelcomeView::slotNewProject()
@@ -289,7 +289,7 @@ void WelcomeView::slotNewProject()
 void WelcomeView::slotProjectEditFinished(int result)
 {
     MainProjectDialog *dia = qobject_cast<MainProjectDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {
@@ -370,7 +370,7 @@ void WelcomeView::slotOpenProjectTemplate(const QModelIndex &idx)
 void WelcomeView::slotOpenFileFinished(int result)
 {
     KoFileDialog *dia = qobject_cast<KoFileDialog*>(sender());
-    if (dia == 0) {
+    if (dia == nullptr) {
         return;
     }
     if (result == QDialog::Accepted) {

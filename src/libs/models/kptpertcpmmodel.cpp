@@ -50,7 +50,7 @@ static const quintptr ProjectItemId  = static_cast<quintptr>(-2);
 
 CriticalPathItemModel::CriticalPathItemModel(QObject *parent)
     : ItemModelBase(parent),
-    m_manager(0)
+    m_manager(nullptr)
 {
 /*    connect(this, SIGNAL(modelAboutToBeReset()), SLOT(slotAboutToBeReset()));
     connect(this, SIGNAL(modelReset()), SLOT(slotReset()));*/
@@ -120,7 +120,7 @@ void CriticalPathItemModel::setManager(ScheduleManager *sm)
     debugPlan<<this;
     m_manager = sm;
     m_nodemodel.setManager(sm);
-    if (m_project == 0 || m_manager == 0) {
+    if (m_project == nullptr || m_manager == nullptr) {
         m_path.clear();
     } else {
         m_path = m_project->criticalPath(m_manager->scheduleId(), 0);
@@ -136,7 +136,7 @@ QModelIndex CriticalPathItemModel::parent(const QModelIndex &) const
 
 QModelIndex CriticalPathItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (m_project == 0 || column < 0 || column >= columnCount() || row < 0) {
+    if (m_project == nullptr || column < 0 || column >= columnCount() || row < 0) {
         return QModelIndex();
     }
     if (parent.isValid()) {
@@ -232,7 +232,7 @@ QVariant CriticalPathItemModel::data(const QModelIndex &index, int role) const
         return alignment(index.column());
     }
     Node *n = node(index);
-    if (n == 0) {
+    if (n == nullptr) {
         switch (index.column()) {
             case NodeModel::NodeName: result = name(role); break;
             case NodeModel::NodeDuration: result = duration(role); break;
@@ -294,7 +294,7 @@ int CriticalPathItemModel::rowCount(const QModelIndex &parent) const
 Node *CriticalPathItemModel::node(const QModelIndex &index) const
 {
     if (! index.isValid()) {
-        return 0;
+        return nullptr;
     }
     return m_path.value(index.row());
 }
@@ -302,7 +302,7 @@ Node *CriticalPathItemModel::node(const QModelIndex &index) const
 void CriticalPathItemModel::slotNodeChanged(Node *node)
 {
     debugPlan;
-    if (node == 0 || node->type() == Node::Type_Project || ! m_path.contains(node)) {
+    if (node == nullptr || node->type() == Node::Type_Project || ! m_path.contains(node)) {
         return;
     }
     int row = m_path.indexOf(node);
@@ -313,7 +313,7 @@ void CriticalPathItemModel::slotNodeChanged(Node *node)
 //-----------------------------
 PertResultItemModel::PertResultItemModel(QObject *parent)
     : ItemModelBase(parent),
-    m_manager(0)
+    m_manager(nullptr)
 {
 /*    connect(this, SIGNAL(modelAboutToBeReset()), SLOT(slotAboutToBeReset()));
     connect(this, SIGNAL(modelReset()), SLOT(slotReset()));*/
@@ -423,10 +423,10 @@ void PertResultItemModel::clear()
 void PertResultItemModel::refresh()
 {
     clear();
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return;
     }
-    long id = m_manager == 0 ? -1 : m_manager->scheduleId();
+    long id = m_manager == nullptr ? -1 : m_manager->scheduleId();
     debugPlan<<id;
     if (id == -1) {
         return;
@@ -503,7 +503,7 @@ QModelIndex PertResultItemModel::parent(const QModelIndex &index) const
 
 QModelIndex PertResultItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (m_project == 0 || column < 0 || column >= columnCount() || row < 0) {
+    if (m_project == nullptr || column < 0 || column >= columnCount() || row < 0) {
         return QModelIndex();
     }
     if (! parent.isValid()) {
@@ -522,7 +522,7 @@ QModelIndex PertResultItemModel::index(int row, int column, const QModelIndex &p
         return QModelIndex();
     }
     NodeList *l = m_top.value(parent.row());
-    if (l == 0) {
+    if (l == nullptr) {
         return QModelIndex();
     }
     QModelIndex i = createIndex(row, column, parent.row());
@@ -545,7 +545,7 @@ QModelIndex PertResultItemModel::index(int row, int column, const QModelIndex &p
 
 QModelIndex PertResultItemModel::index(const NodeList *lst) const
 {
-    if (m_project == 0 || lst == 0) {
+    if (m_project == nullptr || lst == nullptr) {
         return QModelIndex();
     }
     NodeList *l = const_cast<NodeList*>(lst);
@@ -732,7 +732,7 @@ QVariant PertResultItemModel::data(const QModelIndex &index, int role) const
         return alignment(index.column());
     }
     Node *n = node(index);
-    if (n == 0) {
+    if (n == nullptr) {
         switch (index.column()) {
             case 0: return name(index.row(), role);
             default: break;
@@ -786,9 +786,9 @@ QVariant PertResultItemModel::alignment(int column) const
 QAbstractItemDelegate *PertResultItemModel::createDelegate(int column, QWidget * /*parent*/) const
 {
     switch (column) {
-        default: return 0;
+        default: return nullptr;
     }
-    return 0;
+    return nullptr;
 }
 
 int PertResultItemModel::columnCount(const QModelIndex &) const
@@ -845,25 +845,25 @@ NodeList *PertResultItemModel::list(const QModelIndex &index) const
         return m_top.value(index.row());
     }
     //debugPlan<<index<<"is not list";
-    return 0;
+    return nullptr;
 }
 
 Node *PertResultItemModel::node(const QModelIndex &index) const
 {
     if (! index.isValid()) {
-        return 0;
+        return nullptr;
     }
     if (index.internalId() == ProjectItemId) {
         return m_project;
     }
     if (index.internalId() == 0) {
-        return 0;
+        return nullptr;
     }
     NodeList *l = m_top.value(index.internalId());
     if (l) {
         return l->value(index.row());
     }
-    return 0;
+    return nullptr;
 }
 
 void PertResultItemModel::slotNodeChanged(Node *)

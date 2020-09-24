@@ -70,7 +70,7 @@ private:
 class PLANUI_EXPORT ResourceDialog : public KoDialog {
     Q_OBJECT
 public:
-    ResourceDialog(Project &project, Resource *resource, QWidget *parent=0, const char *name=0);
+    ResourceDialog(Project &project, Resource *resource, QWidget *parent=nullptr, const char *name=nullptr);
 
     bool calculationNeeded() {  return m_calculationNeeded; }
 

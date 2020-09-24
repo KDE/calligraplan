@@ -68,11 +68,11 @@ ScenarioList::compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2,
 Scenario*
 ScenarioList::getScenario(const QString& id) const
 {
-    for (ScenarioListIterator rli(*this); *rli != 0; ++rli)
+    for (ScenarioListIterator rli(*this); *rli != nullptr; ++rli)
         if ((*rli)->getId() == id)
             return *rli;
 
-    return 0;
+    return nullptr;
 }
 
 Scenario* ScenarioListIterator::operator*()

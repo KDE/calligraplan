@@ -71,7 +71,7 @@ namespace KoPluginLoader
      * stating explicitly which plugins are wanted.
      */
     struct KOPLUGIN_EXPORT PluginsConfig {
-        PluginsConfig() : group(0), whiteList(0), blacklist(0) {}
+        PluginsConfig() : group(nullptr), whiteList(nullptr), blacklist(nullptr) {}
         /**
          * The properties are retrieved from the config using the following construct;
          * /code
@@ -102,7 +102,7 @@ namespace KoPluginLoader
      * @param owner the QObject owner
      * @return a list of services (by library name) that were not know in the config
      */
-    KOPLUGIN_EXPORT void load(const QString & directory, const PluginsConfig &config = PluginsConfig(), QObject* owner = 0);
+    KOPLUGIN_EXPORT void load(const QString & directory, const PluginsConfig &config = PluginsConfig(), QObject* owner = nullptr);
 
     /**
      * Load all plugins that are located in the specified directory and return their KPluginFactory objects.

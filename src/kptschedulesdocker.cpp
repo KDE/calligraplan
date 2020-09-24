@@ -76,7 +76,7 @@ ScheduleManager *SchedulesDocker::selectedSchedule() const
 {
     QModelIndexList lst = m_view->selectionModel()->selectedRows();
     Q_ASSERT(lst.count() <= 1);
-    ScheduleManager *sm = 0;
+    ScheduleManager *sm = nullptr;
     if (! lst.isEmpty()) {
         sm = m_model.manager(m_sfModel.mapToSource(lst.first()));
     }

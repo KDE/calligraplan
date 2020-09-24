@@ -271,7 +271,7 @@ void DocumentsEditor::slotAddDocument()
 {
     //debugPlan;
     QList<Document*> dl = m_view->selectedDocuments();
-    Document *after = 0;
+    Document *after = nullptr;
     if (dl.count() > 0) {
         after = dl.last();
     }

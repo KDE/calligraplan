@@ -21,7 +21,7 @@ namespace TJ
 
 
 TaskScenario::TaskScenario() :
-    task(0),
+    task(nullptr),
     index(0),
     specifiedStart(0),
     specifiedEnd(0),

@@ -216,7 +216,7 @@ void TaskStatusItemModel::setNow()
 void TaskStatusItemModel::refresh()
 {
     clear();
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return;
     }
     m_id = m_nodemodel.id();
@@ -254,7 +254,7 @@ Qt::ItemFlags TaskStatusItemModel::flags(const QModelIndex &index) const
     flags &= ~(Qt::ItemIsEditable | Qt::ItemIsDropEnabled);
     flags |= Qt::ItemIsDragEnabled;
     Node *n = node(index);
-    if (! m_readWrite || n == 0 || m_id == -1 || ! n->isScheduled(m_id)) {
+    if (! m_readWrite || n == nullptr || m_id == -1 || ! n->isScheduled(m_id)) {
         return flags;
     }
     if (n->type() != Node::Type_Task && n->type() != Node::Type_Milestone) {
@@ -304,17 +304,17 @@ QModelIndex TaskStatusItemModel::parent(const QModelIndex &index) const
         return QModelIndex(); // top level has no parent
     }
     Node *n = node(index);
-    if (n == 0) {
+    if (n == nullptr) {
         return QModelIndex();
     }
-    NodeMap *lst = 0;
+    NodeMap *lst = nullptr;
     foreach (NodeMap *l, m_top) {
         if (CONTAINS((*l), n)) {
             lst = l;
             break;
         }
     }
-    if (lst == 0) {
+    if (lst == nullptr) {
         return QModelIndex();
     }
     return createIndex(m_top.indexOf(lst), 0, lst);
@@ -323,7 +323,7 @@ QModelIndex TaskStatusItemModel::parent(const QModelIndex &index) const
 QModelIndex TaskStatusItemModel::index(int row, int column, const QModelIndex &parent) const
 {
     //debugPlan<<row<<column<<parent;
-    if (m_project == 0 || column < 0 || column >= columnCount() || row < 0) {
+    if (m_project == nullptr || column < 0 || column >= columnCount() || row < 0) {
         return QModelIndex();
     }
     if (! parent.isValid()) {
@@ -333,7 +333,7 @@ QModelIndex TaskStatusItemModel::index(int row, int column, const QModelIndex &p
         return createIndex(row, column, m_top.value(row));
     }
     NodeMap *l = list(parent);
-    if (l == 0) {
+    if (l == nullptr) {
         return QModelIndex();
     }
     if (row >= rowCount(parent)) {
@@ -342,13 +342,13 @@ QModelIndex TaskStatusItemModel::index(int row, int column, const QModelIndex &p
     }
     const QList<Node*> &nodes = l->values();
     QModelIndex i = createIndex(row, column, nodes.value(row));
-    Q_ASSERT(i.internalPointer() != 0);
+    Q_ASSERT(i.internalPointer() != nullptr);
     return i;
 }
 
 QModelIndex TaskStatusItemModel::index(const Node *node) const
 {
-    if (m_project == 0 || node == 0) {
+    if (m_project == nullptr || node == nullptr) {
         return QModelIndex();
     }
     foreach(NodeMap *l, m_top) {
@@ -363,7 +363,7 @@ QModelIndex TaskStatusItemModel::index(const Node *node) const
 
 QModelIndex TaskStatusItemModel::index(const NodeMap *lst) const
 {
-    if (m_project == 0 || lst == 0) {
+    if (m_project == nullptr || lst == nullptr) {
         return QModelIndex();
     }
     NodeMap *l = const_cast<NodeMap*>(lst);
@@ -473,7 +473,7 @@ bool TaskStatusItemModel::setStartedTime(Node *node, const QVariant &value, int 
     switch (role) {
         case Qt::EditRole: {
             Task *t = qobject_cast<Task*>(node);
-            if (t == 0) {
+            if (t == nullptr) {
                 return false;
             }
             MacroCommand *m = new MacroCommand(kundo2_i18n("Modify actual start time"));
@@ -501,7 +501,7 @@ bool TaskStatusItemModel::setFinishedTime(Node *node, const QVariant &value, int
     switch (role) {
         case Qt::EditRole: {
             Task *t = qobject_cast<Task*>(node);
-            if (t == 0) {
+            if (t == nullptr) {
                 return false;
             }
             MacroCommand *m = new MacroCommand(kundo2_i18n("Modify actual finish time"));
@@ -534,7 +534,7 @@ QVariant TaskStatusItemModel::data(const QModelIndex &index, int role) const
         return alignment(index.column());
     }
     Node *n = node(index);
-    if (n == 0) {
+    if (n == nullptr) {
         switch (index.column()) {
             case NodeModel::NodeName: return name(index.row(), role);
             default: break;
@@ -612,9 +612,9 @@ QAbstractItemDelegate *TaskStatusItemModel::createDelegate(int column, QWidget *
         case NodeModel::NodeCompleted: return new TaskCompleteDelegate(parent);
         case NodeModel::NodeRemainingEffort: return new DurationSpinBoxDelegate(parent);
         case NodeModel::NodeActualEffort: return new DurationSpinBoxDelegate(parent);
-        default: return 0;
+        default: return nullptr;
     }
-    return 0;
+    return nullptr;
 }
 
 int TaskStatusItemModel::columnCount(const QModelIndex &) const
@@ -670,7 +670,7 @@ NodeMap *TaskStatusItemModel::list(const QModelIndex &index) const
             return static_cast<NodeMap*>(index.internalPointer());
         }
     }
-    return 0;
+    return nullptr;
 }
 
 Node *TaskStatusItemModel::node(const QModelIndex &index) const
@@ -684,7 +684,7 @@ Node *TaskStatusItemModel::node(const QModelIndex &index) const
             }
         }
     }
-    return 0;
+    return nullptr;
 }
 
 TaskStatusItemModel::TaskStatus TaskStatusItemModel::taskStatus(const Task *task,
@@ -712,7 +712,7 @@ TaskStatusItemModel::TaskStatus TaskStatusItemModel::taskStatus(const Task *task
 void TaskStatusItemModel::slotNodeChanged(Node *node)
 {
     debugPlan;
-    if (node == 0 || node->type() == Node::Type_Project ||
+    if (node == nullptr || node->type() == Node::Type_Project ||
         (node->type() != Node::Type_Task && node->type() != Node::Type_Milestone)) {
         return;
     }

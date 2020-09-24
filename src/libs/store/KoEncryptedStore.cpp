@@ -74,10 +74,10 @@ KoEncryptedStore::KoEncryptedStore(const QString & filename, Mode mode,
                                    const QByteArray & appIdentification, bool writeMimetype)
   : KoStore(mode, writeMimetype)
   , m_filename(filename)
-  , m_tempFile(0)
+  , m_tempFile(nullptr)
   , m_bPasswordUsed(false)
   , m_bPasswordDeclined(false)
-  , m_currentDir(0)
+  , m_currentDir(nullptr)
 {
     Q_D(KoStore);
 
@@ -91,10 +91,10 @@ KoEncryptedStore::KoEncryptedStore(const QString & filename, Mode mode,
 KoEncryptedStore::KoEncryptedStore(QIODevice *dev, Mode mode, const QByteArray & appIdentification,
                                    bool writeMimetype)
     : KoStore(mode, writeMimetype)
-    , m_tempFile(0)
+    , m_tempFile(nullptr)
     , m_bPasswordUsed(false)
     , m_bPasswordDeclined(false)
-    , m_currentDir(0)
+    , m_currentDir(nullptr)
 {
     Q_D(KoStore);
 
@@ -109,10 +109,10 @@ KoEncryptedStore::KoEncryptedStore(QWidget* window, const QUrl &url, const QStri
                                    const QByteArray & appIdentification, bool writeMimetype)
     : KoStore(mode, writeMimetype)
     , m_filename(url.url())
-    , m_tempFile(0)
+    , m_tempFile(nullptr)
     , m_bPasswordUsed(false)
     , m_bPasswordDeclined(false)
-    , m_currentDir(0)
+    , m_currentDir(nullptr)
 {
     Q_D(KoStore);
 
@@ -163,7 +163,7 @@ void KoEncryptedStore::init(const QByteArray & appIdentification)
         }
     } else {
         d->good = m_pZip->open(QIODevice::ReadOnly);
-        d->good &= m_pZip->directory() != 0;
+        d->good &= m_pZip->directory() != nullptr;
         if (!d->good) {
             return;
         }
@@ -559,7 +559,7 @@ bool KoEncryptedStore::openRead(const QString& name)
             } else {
                 if (!m_filename.isNull())
                     keepPass = false;
-                KPasswordDialog dlg(d->window , keepPass ? KPasswordDialog::ShowKeepPassword : static_cast<KPasswordDialog::KPasswordDialogFlags>(0));
+                KPasswordDialog dlg(d->window , keepPass ? KPasswordDialog::ShowKeepPassword : static_cast<KPasswordDialog::KPasswordDialogFlags>(nullptr));
                 dlg.setPrompt(i18n("Please enter the password to open this file."));
                 if (! dlg.exec()) {
                     m_bPasswordDeclined = true;
@@ -740,7 +740,7 @@ bool KoEncryptedStore::closeWrite()
             // Without the first password, prevent asking again by deadsimply refusing to continue functioning
             // TODO: This feels rather hackish. There should be a better way to do this.
             delete m_pZip;
-            m_pZip = 0;
+            m_pZip = nullptr;
             d->good = false;
             return false;
         }
@@ -824,7 +824,7 @@ bool KoEncryptedStore::enterRelativeDirectory(const QString& dirName)
         const KArchiveEntry *entry = m_currentDir->entry(dirName);
         if (entry && entry->isDirectory()) {
             m_currentDir = dynamic_cast<const KArchiveDirectory*>(entry);
-            return m_currentDir != 0;
+            return m_currentDir != nullptr;
         }
         return false;
     } else { // Write, no checking here
@@ -835,11 +835,11 @@ bool KoEncryptedStore::enterRelativeDirectory(const QString& dirName)
 bool KoEncryptedStore::enterAbsoluteDirectory(const QString& path)
 {
     if (path.isEmpty()) {
-        m_currentDir = 0;
+        m_currentDir = nullptr;
         return true;
     }
     m_currentDir = dynamic_cast<const KArchiveDirectory*>(m_pZip->directory()->entry(path));
-    return m_currentDir != 0;
+    return m_currentDir != nullptr;
 }
 
 bool KoEncryptedStore::fileExists(const QString& absPath) const

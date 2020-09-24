@@ -45,7 +45,7 @@ namespace KPlato
 class ScheduleManager;
 
 Schedule::Log::Log(const Node *n, int sev, const QString &msg, int ph)
-    : node(n), resource(0), message(msg), severity(sev), phase(ph)
+    : node(n), resource(nullptr), message(msg), severity(sev), phase(ph)
 {
     Q_ASSERT(n);
 //     debugPlan<<*this<<nodeId;
@@ -81,7 +81,7 @@ Schedule::Schedule()
         : m_type(Expected),
         m_id(0),
         m_deleted(false),
-        m_parent(0),
+        m_parent(nullptr),
         m_obstate(OBS_Parent),
         m_calculationMode(Schedule::Scheduling),
         notScheduled(true)
@@ -113,7 +113,7 @@ Schedule::Schedule(const QString& name, Type type, long id)
         m_type(type),
         m_id(id),
         m_deleted(false),
-        m_parent(0),
+        m_parent(nullptr),
         m_obstate(OBS_Parent),
         m_calculationMode(Schedule::Scheduling),
         notScheduled(true)
@@ -140,7 +140,7 @@ void Schedule::setDeleted(bool on)
 
 bool Schedule::isDeleted() const
 {
-    return m_parent == 0 ? m_deleted : m_parent->isDeleted();
+    return m_parent == nullptr ? m_deleted : m_parent->isDeleted();
 }
 
 void Schedule::setType(const QString& type)
@@ -430,7 +430,7 @@ Appointment *Schedule::findAppointment(Schedule *resource, Schedule *node, int m
                 return a;
             }
         }
-        return 0;
+        return nullptr;
     } else if (mode == CalculateForward) {
         foreach(Appointment *a,  m_forward) {
             if (a->node() == node && a->resource() == resource) {
@@ -447,7 +447,7 @@ Appointment *Schedule::findAppointment(Schedule *resource, Schedule *node, int m
     } else {
         Q_ASSERT(false); // unknown mode
     }
-    return 0;
+    return nullptr;
 }
 
 DateTime Schedule::appointmentStartTime() const
@@ -702,7 +702,7 @@ void Schedule::clearPerformanceCache()
 //-------------------------------------------------
 NodeSchedule::NodeSchedule()
         : Schedule(),
-        m_node(0)
+        m_node(nullptr)
 {
     //debugPlan<<"("<<this<<")";
     init();
@@ -730,19 +730,19 @@ NodeSchedule::~NodeSchedule()
     //debugPlan<<this<<""<<m_appointments.count();
     while (!m_appointments.isEmpty()) {
         Appointment *a = m_appointments.takeFirst();
-        a->setNode(0);
+        a->setNode(nullptr);
         delete a;
     }
     //debugPlan<<"forw"<<m_forward.count();
     while (!m_forward.isEmpty()) {
         Appointment *a = m_forward.takeFirst();
-        a->setNode(0);
+        a->setNode(nullptr);
         delete a;
     }
     //debugPlan<<"backw"<<m_backward.count();
     while (!m_backward.isEmpty()) {
         Appointment *a = m_backward.takeFirst();
-        a->setNode(0);
+        a->setNode(nullptr);
         delete a;
     }
 }
@@ -879,7 +879,7 @@ void NodeSchedule::addAppointment(Schedule *resource, const DateTime &start, con
 {
     //debugPlan;
     Appointment * a = findAppointment(resource, this, m_calculationMode);
-    if (a != 0) {
+    if (a != nullptr) {
         //debugPlan<<"Add interval to existing"<<a;
         a->addInterval(start, end, load);
         return ;
@@ -896,7 +896,7 @@ void NodeSchedule::addAppointment(Schedule *resource, const DateTime &start, con
 void NodeSchedule::takeAppointment(Appointment *appointment, int mode)
 {
     Schedule::takeAppointment(appointment, mode);
-    appointment->setNode(0); // not my appointment anymore
+    appointment->setNode(nullptr); // not my appointment anymore
     //debugPlan<<"Taken:"<<appointment;
     if (appointment->resource())
         appointment->resource() ->takeAppointment(appointment);
@@ -963,7 +963,7 @@ void NodeSchedule::logDebug(const QString &msg, int phase)
 //-----------------------------------------------
 ResourceSchedule::ResourceSchedule()
         : Schedule(),
-        m_resource(0)
+        m_resource(nullptr)
 {
     //debugPlan<<"("<<this<<")";
 }
@@ -971,8 +971,8 @@ ResourceSchedule::ResourceSchedule()
 ResourceSchedule::ResourceSchedule(Resource *resource, const QString& name, Schedule::Type type, long id)
         : Schedule(name, type, id),
         m_resource(resource),
-        m_parent(0),
-        m_nodeSchedule(0)
+        m_parent(nullptr),
+        m_nodeSchedule(nullptr)
 {
     //debugPlan<<"resource:"<<resource->name();
 }
@@ -981,7 +981,7 @@ ResourceSchedule::ResourceSchedule(Schedule *parent, Resource *resource)
         : Schedule(parent),
         m_resource(resource),
         m_parent(parent),
-        m_nodeSchedule(0)
+        m_nodeSchedule(nullptr)
 {
     //debugPlan<<"resource:"<<resource->name();
 }
@@ -991,19 +991,19 @@ ResourceSchedule::~ResourceSchedule()
     //debugPlan<<this<<""<<m_appointments.count();
     while (!m_appointments.isEmpty()) {
         Appointment *a = m_appointments.takeFirst();
-        a->setResource(0);
+        a->setResource(nullptr);
         delete a;
     }
     //debugPlan<<"forw"<<m_forward.count();
     while (!m_forward.isEmpty()) {
         Appointment *a = m_forward.takeFirst();
-        a->setResource(0);
+        a->setResource(nullptr);
         delete a;
     }
     //debugPlan<<"backw"<<m_backward.count();
     while (!m_backward.isEmpty()) {
         Appointment *a = m_backward.takeFirst();
-        a->setResource(0);
+        a->setResource(nullptr);
         delete a;
     }
 }
@@ -1014,7 +1014,7 @@ void ResourceSchedule::addAppointment(Schedule *node, const DateTime &start, con
     Q_ASSERT(start < end);
     //debugPlan<<"("<<this<<")"<<node<<","<<m_calculationMode;
     Appointment * a = findAppointment(this, node, m_calculationMode);
-    if (a != 0) {
+    if (a != nullptr) {
         //debugPlan<<"Add interval to existing"<<a;
         a->addInterval(start, end, load);
         return ;
@@ -1031,7 +1031,7 @@ void ResourceSchedule::addAppointment(Schedule *node, const DateTime &start, con
 void ResourceSchedule::takeAppointment(Appointment *appointment, int mode)
 {
     Schedule::takeAppointment(appointment, mode);
-    appointment->setResource(0);
+    appointment->setResource(nullptr);
     //debugPlan<<"Taken:"<<appointment;
     if (appointment->node())
         appointment->node() ->takeAppointment(appointment);
@@ -1044,7 +1044,7 @@ bool ResourceSchedule::isOverbooked() const
 
 bool ResourceSchedule::isOverbooked(const DateTime &start, const DateTime &end) const
 {
-    if (m_resource == 0)
+    if (m_resource == nullptr)
         return false;
     //debugPlan<<start.toString()<<" -"<<end.toString();
     Appointment a = appointmentIntervals();
@@ -1189,7 +1189,7 @@ DateTimeInterval ResourceSchedule::available(const DateTimeInterval &interval) c
 void ResourceSchedule::logError(const QString &msg, int phase)
 {
     if (m_parent) {
-        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Error, msg, phase);
+        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : nullptr, m_resource, Log::Type_Error, msg, phase);
         m_parent->addLog(log);
     }
 }
@@ -1197,7 +1197,7 @@ void ResourceSchedule::logError(const QString &msg, int phase)
 void ResourceSchedule::logWarning(const QString &msg, int phase)
 {
     if (m_parent) {
-        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Warning, msg, phase);
+        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : nullptr, m_resource, Log::Type_Warning, msg, phase);
         m_parent->addLog(log);
     }
 }
@@ -1205,7 +1205,7 @@ void ResourceSchedule::logWarning(const QString &msg, int phase)
 void ResourceSchedule::logInfo(const QString &msg, int phase)
 {
     if (m_parent) {
-        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Info, msg, phase);
+        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : nullptr, m_resource, Log::Type_Info, msg, phase);
         m_parent->addLog(log);
     }
 }
@@ -1213,7 +1213,7 @@ void ResourceSchedule::logInfo(const QString &msg, int phase)
 void ResourceSchedule::logDebug(const QString &msg, int phase)
 {
     if (m_parent) {
-        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : 0, m_resource, Log::Type_Debug, msg, phase);
+        Schedule::Log log(m_nodeSchedule ? m_nodeSchedule->node() : nullptr, m_resource, Log::Type_Debug, msg, phase);
         m_parent->addLog(log);
     }
 }
@@ -1222,7 +1222,7 @@ void ResourceSchedule::logDebug(const QString &msg, int phase)
 MainSchedule::MainSchedule()
     : NodeSchedule(),
 
-    m_manager(0)
+    m_manager(nullptr)
 {
     //debugPlan<<"("<<this<<")";
     init();
@@ -1231,8 +1231,8 @@ MainSchedule::MainSchedule()
 MainSchedule::MainSchedule(Node *node, const QString& name, Schedule::Type type, long id)
     : NodeSchedule(node, name, type, id),
       criticalPathListCached(false),
-      m_manager(0),
-      m_currentCriticalPath(0)
+      m_manager(nullptr),
+      m_currentCriticalPath(nullptr)
 {
     //debugPlan<<"node name:"<<node->name();
     init();
@@ -1250,22 +1250,22 @@ void MainSchedule::incProgress()
 
 bool MainSchedule::isBaselined() const
 {
-    return m_manager == 0 ? false : m_manager->isBaselined();
+    return m_manager == nullptr ? false : m_manager->isBaselined();
 }
 
 bool MainSchedule::usePert() const
 {
-    return m_manager == 0 ? false : m_manager->usePert();
+    return m_manager == nullptr ? false : m_manager->usePert();
 }
 
 bool MainSchedule::allowOverbooking() const
 {
-    return m_manager == 0 ? false : m_manager->allowOverbooking();
+    return m_manager == nullptr ? false : m_manager->allowOverbooking();
 }
 
 bool MainSchedule::checkExternalAppointments() const
 {
-    return m_manager == 0 ? false : m_manager->checkExternalAppointments();
+    return m_manager == nullptr ? false : m_manager->checkExternalAppointments();
 }
 
 void MainSchedule::changed(Schedule *sch)
@@ -1493,23 +1493,23 @@ DateTime MainSchedule::scheduleBackward(const DateTime &latest, int use)
 
 bool MainSchedule::recalculate() const
 {
-    return m_manager == 0 ? false : m_manager->recalculate();
+    return m_manager == nullptr ? false : m_manager->recalculate();
 }
 
 DateTime MainSchedule::recalculateFrom() const
 {
-    return m_manager == 0 ? DateTime() : m_manager->recalculateFrom();
+    return m_manager == nullptr ? DateTime() : m_manager->recalculateFrom();
 }
 
 long MainSchedule::parentScheduleId() const
 {
-    return m_manager == 0 ? -2 : m_manager->parentScheduleId();
+    return m_manager == nullptr ? -2 : m_manager->parentScheduleId();
 }
 
 void MainSchedule::clearCriticalPathList()
 {
     m_pathlists.clear();
-    m_currentCriticalPath = 0;
+    m_currentCriticalPath = nullptr;
     criticalPathListCached = false;
 }
 
@@ -1530,7 +1530,7 @@ void MainSchedule::addCriticalPath(QList<Node*> *lst)
 
 void MainSchedule::addCriticalPathNode(Node *node)
 {
-    if (m_currentCriticalPath == 0) {
+    if (m_currentCriticalPath == nullptr) {
         errorPlan<<"No currentCriticalPath"<<'\n';
         return;
     }
@@ -1588,7 +1588,7 @@ QStringList MainSchedule::logMessages() const
 //-----------------------------------------
 ScheduleManager::ScheduleManager(Project &project, const QString name)
     : m_project(project),
-    m_parent(0),
+    m_parent(nullptr),
     m_name(name),
     m_baselined(false),
     m_allowOverbooking(false),
@@ -1599,7 +1599,7 @@ ScheduleManager::ScheduleManager(Project &project, const QString name)
     m_scheduling(false),
     m_progress(0),
     m_maxprogress(0),
-    m_expected(0),
+    m_expected(nullptr),
     m_schedulingMode(false)
 {
     //debugPlan<<name;
@@ -1608,7 +1608,7 @@ ScheduleManager::ScheduleManager(Project &project, const QString name)
 ScheduleManager::~ScheduleManager()
 {
     qDeleteAll(m_children);
-    setParentManager(0);
+    setParentManager(nullptr);
 }
 
 void ScheduleManager::setParentManager(ScheduleManager *sm, int index)
@@ -1663,7 +1663,7 @@ ScheduleManager *ScheduleManager::findManager(const QString& name) const
             return m;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 QList<ScheduleManager*> ScheduleManager::allChildren() const
@@ -1899,7 +1899,7 @@ QStringList ScheduleManager::state() const
     if (m_scheduling) {
         return lst << i18n("Scheduling");
     }
-    if (m_expected == 0) {
+    if (m_expected == nullptr) {
         return lst << i18n("Not scheduled");
     }
     if (Schedule *s = m_expected) {
@@ -1989,7 +1989,7 @@ void ScheduleManager::setPhaseNames(const QMap<int, QString> &phasenames)
 
 bool ScheduleManager::loadXML(KoXmlElement &element, XMLLoaderObject &status)
 {
-    MainSchedule *sch = 0;
+    MainSchedule *sch = nullptr;
     if (status.version() <= "0.5") {
         m_usePert = false;
         sch = loadMainSchedule(element, status);
@@ -2057,7 +2057,7 @@ MainSchedule *ScheduleManager::loadMainSchedule(KoXmlElement &element, XMLLoader
     } else {
         errorPlan << "Failed to load schedule" << '\n';
         delete sch;
-        sch = 0;
+        sch = nullptr;
     }
     return sch;
 }

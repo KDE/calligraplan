@@ -38,7 +38,7 @@ class ResourceAllocationView : public QTreeView
 {
     Q_OBJECT
 public:
-    ResourceAllocationView(KoDocument *doc, QWidget *parent = 0);
+    ResourceAllocationView(KoDocument *doc, QWidget *parent = nullptr);
 
     QList<Resource*> selectedResources() const;
 

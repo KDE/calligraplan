@@ -97,26 +97,26 @@ public:
     {
         nativeMimeType = _nativeMimeType;
         parent = w;
-        rootDocument = 0;
-        rootPart = 0;
-        partToOpen = 0;
+        rootDocument = nullptr;
+        rootPart = nullptr;
+        partToOpen = nullptr;
         mainWindowGuiIsBuilt = false;
         forQuit = false;
-        activePart = 0;
-        activeView = 0;
+        activePart = nullptr;
+        activeView = nullptr;
         firstTime = true;
-        progress = 0;
-        showDocumentInfo = 0;
-        saveAction = 0;
-        saveActionAs = 0;
-        printAction = 0;
-        printActionPreview = 0;
-        sendFileAction = 0;
-        exportPdf = 0;
-        closeFile = 0;
-        reloadFile = 0;
-        importFile = 0;
-        exportFile = 0;
+        progress = nullptr;
+        showDocumentInfo = nullptr;
+        saveAction = nullptr;
+        saveActionAs = nullptr;
+        printAction = nullptr;
+        printActionPreview = nullptr;
+        sendFileAction = nullptr;
+        exportPdf = nullptr;
+        closeFile = nullptr;
+        reloadFile = nullptr;
+        importFile = nullptr;
+        exportFile = nullptr;
 #if 0
         encryptDocument = 0;
 #ifndef NDEBUG
@@ -128,17 +128,17 @@ public:
         windowSizeDirty = false;
         lastExportSpecialOutputFlag = 0;
         readOnly = false;
-        dockWidgetMenu = 0;
-        deferredClosingEvent = 0;
+        dockWidgetMenu = nullptr;
+        deferredClosingEvent = nullptr;
 #ifdef HAVE_KACTIVITIES
-        activityResource = 0;
+        activityResource = nullptr;
 #endif
 
-        m_helpMenu = 0;
+        m_helpMenu = nullptr;
 
         // PartManger
-        m_activeWidget = 0;
-        m_activePart = 0;
+        m_activeWidget = nullptr;
+        m_activePart = nullptr;
 
         noCleanup = false;
         openingDocument = false;
@@ -438,11 +438,11 @@ KoMainWindow::~KoMainWindow()
     }
 
     // safety first ;)
-    setActivePart(0, 0);
+    setActivePart(nullptr, nullptr);
 
     if (d->rootViews.indexOf(d->activeView) == -1) {
         delete d->activeView;
-        d->activeView = 0;
+        d->activeView = nullptr;
     }
     while (!d->rootViews.isEmpty()) {
         delete d->rootViews.takeFirst();
@@ -471,7 +471,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
             delete d->partToOpen;
         }
     }
-    d->partToOpen = 0;
+    d->partToOpen = nullptr;
 
     //debugMain <<"KoMainWindow::setRootDocument this =" << this <<" doc =" << doc;
     QList<KoView*> oldRootViews = d->rootViews;
@@ -522,7 +522,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
         }
     }
 
-    bool enable = d->rootDocument != 0 ? true : false;
+    bool enable = d->rootDocument != nullptr ? true : false;
     d->showDocumentInfo->setEnabled(enable);
     d->saveAction->setEnabled(enable);
     d->saveActionAs->setEnabled(enable);
@@ -648,7 +648,7 @@ KoPart* KoMainWindow::createPart() const
     KoPart *part = entry.createKoPart(&errorMsg);
 
     if (!part || !errorMsg.isEmpty()) {
-        return 0;
+        return nullptr;
     }
     return part;
 }
@@ -707,17 +707,17 @@ KoView *KoMainWindow::rootView() const
 bool KoMainWindow::openDocument(const QUrl &url)
 {
     if (url.fileName().endsWith(".plant")) {
-        KMessageBox::error(0, xi18nc("@info", "Cannot open a template file.<nl/>"
+        KMessageBox::error(nullptr, xi18nc("@info", "Cannot open a template file.<nl/>"
                                     "If you want to modify the template, create a new project using this template"
                                     " and save it using <interface>File->Create Project Template...</interface>."));
         return false;
     }
     if (url.fileName().endsWith(".plant")) {
-        KMessageBox::error(0, xi18nc("@info", "Cannot open a template file:<nl/>%1", url.fileName()));
+        KMessageBox::error(nullptr, xi18nc("@info", "Cannot open a template file:<nl/>%1", url.fileName()));
         return false;
     }
-    if (!KIO::NetAccess::exists(url, KIO::NetAccess::SourceSide, 0)) {
-        KMessageBox::error(0, i18n("The file %1 does not exist.", url.url()));
+    if (!KIO::NetAccess::exists(url, KIO::NetAccess::SourceSide, nullptr)) {
+        KMessageBox::error(nullptr, i18n("The file %1 does not exist.", url.url()));
         d->recent->removeUrl(url); //remove the file from the recent-opened-file-list
         saveRecentFiles();
         return false;
@@ -728,7 +728,7 @@ bool KoMainWindow::openDocument(const QUrl &url)
 bool KoMainWindow::openDocument(KoPart *newPart, const QUrl &url)
 {
     if (url.fileName().endsWith(".plant")) {
-        KMessageBox::error(0, xi18nc("@info", "Cannot open a template file.<nl/>"
+        KMessageBox::error(nullptr, xi18nc("@info", "Cannot open a template file.<nl/>"
                                     "If you want to modify the template, create a new project using this template"
                                     " and save it using <interface>File->Create Project Template...</interface>."));
         return false;
@@ -738,7 +738,7 @@ bool KoMainWindow::openDocument(KoPart *newPart, const QUrl &url)
     }
     // the part always has a document; the document doesn't know about the part.
     KoDocument *newdoc = newPart->document();
-    if (!KIO::NetAccess::exists(url, KIO::NetAccess::SourceSide, 0)) {
+    if (!KIO::NetAccess::exists(url, KIO::NetAccess::SourceSide, nullptr)) {
         newdoc->initEmpty(); //create an empty document
         setRootDocument(newdoc, newPart);
         newdoc->setUrl(url);
@@ -1178,7 +1178,7 @@ void KoMainWindow::closeEvent(QCloseEvent *e)
         saveWindowSettings();
         if(d->noCleanup)
             return;
-        setRootDocument(0);
+        setRootDocument(nullptr);
         if (!d->dockWidgetVisibilityMap.isEmpty()) { // re-enable dockers for persistency
             foreach(QDockWidget* dockWidget, d->dockWidgetsMap)
                 dockWidget->setVisible(d->dockWidgetVisibilityMap.value(dockWidget));
@@ -1236,7 +1236,7 @@ void KoMainWindow::resizeEvent(QResizeEvent * e)
 
 bool KoMainWindow::queryClose()
 {
-    if (rootDocument() == 0)
+    if (rootDocument() == nullptr)
         return true;
     //debugMain <<"KoMainWindow::queryClose() viewcount=" << rootDocument()->viewCount()
     //               << " mainWindowCount=" << rootDocument()->mainWindowCount() << '\n';
@@ -1302,11 +1302,11 @@ void KoMainWindow::chooseNewDocument(InitDocFlags initDocFlags)
     }
 
     if (doc) {
-        setRootDocument(0);
+        setRootDocument(nullptr);
         if(d->rootDocument)
             d->rootDocument->clearUndoHistory();
         delete d->rootDocument;
-        d->rootDocument = 0;
+        d->rootDocument = nullptr;
     }
 
     newpart->addMainWindow(this);
@@ -1406,11 +1406,11 @@ void KoMainWindow::slotFileClose()
 {
     if (queryClose()) {
         saveWindowSettings();
-        setRootDocument(0);   // don't delete this main window when deleting the document
+        setRootDocument(nullptr);   // don't delete this main window when deleting the document
         if(d->rootDocument)
             d->rootDocument->clearUndoHistory();
         delete d->rootDocument;
-        d->rootDocument = 0;
+        d->rootDocument = nullptr;
         chooseNewDocument(InitDocFileClose);
     }
 }
@@ -1425,7 +1425,7 @@ void KoMainWindow::slotFilePrint()
     if (!rootView())
         return;
     KoPrintJob *printJob = rootView()->createPrintJob();
-    if (printJob == 0)
+    if (printJob == nullptr)
         return;
     d->applyDefaultSettings(printJob->printer());
     // Must be blocking as we change the palette while printing
@@ -1444,7 +1444,7 @@ void KoMainWindow::slotFilePrintPreview()
     if (!rootView())
         return;
     KoPrintJob *printJob = rootView()->createPrintJob();
-    if (printJob == 0)
+    if (printJob == nullptr)
         return;
 
     /* Sets the startPrinting() slot to be blocking.
@@ -1478,7 +1478,7 @@ KoPrintJob* KoMainWindow::exportToPdf()
 KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
 {
     if (!rootView())
-        return 0;
+        return nullptr;
     KoPageLayout pageLayout;
     pageLayout = rootView()->pageLayout();
 
@@ -1504,7 +1504,7 @@ KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
         layoutDlg->setWindowModality(Qt::WindowModal);
         if (layoutDlg->exec() != QDialog::Accepted || !layoutDlg) {
             delete layoutDlg;
-            return 0;
+            return nullptr;
         }
         pageLayout = layoutDlg->pageLayout();
         delete layoutDlg;
@@ -1517,12 +1517,12 @@ KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
 
         pdfFileName = url.toLocalFile();
         if (pdfFileName.isEmpty())
-            return 0;
+            return nullptr;
     }
 
     KoPrintJob *printJob = rootView()->createPdfPrintJob();
-    if (printJob == 0)
-        return 0;
+    if (printJob == nullptr)
+        return nullptr;
     if (isHidden()) {
         printJob->setProperty("noprogressdialog", true);
     }
@@ -1559,8 +1559,8 @@ KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
 
 void KoMainWindow::slotConfigureKeys()
 {
-    QAction* undoAction=0;
-    QAction* redoAction=0;
+    QAction* undoAction=nullptr;
+    QAction* redoAction=nullptr;
     QString oldUndoText;
     QString oldRedoText;
     if(currentView()) {
@@ -1676,7 +1676,7 @@ void KoMainWindow::slotProgress(int value)
         if (d->progress) {
             statusBar()->removeWidget(d->progress);
             delete d->progress;
-            d->progress = 0;
+            d->progress = nullptr;
         }
         d->firstTime = true;
         return;
@@ -1693,7 +1693,7 @@ void KoMainWindow::slotProgress(int value)
         if (d->progress) {
             statusBar()->removeWidget(d->progress);
             delete d->progress;
-            d->progress = 0;
+            d->progress = nullptr;
         }
 
         d->progress = new QProgressBar(statusBar());
@@ -1787,11 +1787,11 @@ void KoMainWindow::slotReloadFile()
     QUrl url = pDoc->url();
     if (!pDoc->isEmpty()) {
         saveWindowSettings();
-        setRootDocument(0);   // don't delete this main window when deleting the document
+        setRootDocument(nullptr);   // don't delete this main window when deleting the document
         if(d->rootDocument)
             d->rootDocument->clearUndoHistory();
         delete d->rootDocument;
-        d->rootDocument = 0;
+        d->rootDocument = nullptr;
     }
     openDocument(url);
     return;
@@ -1838,16 +1838,16 @@ KoComponentData KoMainWindow::componentData() const
 
 QDockWidget* KoMainWindow::createDockWidget(KoDockFactoryBase* factory)
 {
-    QDockWidget* dockWidget = 0;
+    QDockWidget* dockWidget = nullptr;
     if (!d->dockWidgetsMap.contains(factory->id())) {
         dockWidget = factory->createDockWidget();
 
         // It is quite possible that a dock factory cannot create the dock; don't
         // do anything in that case.
-        if (!dockWidget) return 0;
+        if (!dockWidget) return nullptr;
         d->dockWidgets.push_back(dockWidget);
 
-        KoDockWidgetTitleBar *titleBar = 0;
+        KoDockWidgetTitleBar *titleBar = nullptr;
         // Check if the dock widget is supposed to be collapsable
         if (!dockWidget->titleBarWidget()) {
             titleBar = new KoDockWidgetTitleBar(dockWidget);
@@ -1988,12 +1988,12 @@ KoView* KoMainWindow::currentView() const
     else if (!d->rootViews.isEmpty()) {
         return d->rootViews.first();
     }
-    return 0;
+    return nullptr;
 }
 
 void KoMainWindow::newView()
 {
-    Q_ASSERT((d != 0 && d->activeView && d->activePart && d->activeView->koDocument()));
+    Q_ASSERT((d != nullptr && d->activeView && d->activePart && d->activeView->koDocument()));
 
     KoMainWindow *mainWindow = d->activePart->createMainWindow();
     mainWindow->setRootDocument(d->activeView->koDocument(), d->activePart);
@@ -2054,9 +2054,9 @@ void KoMainWindow::removePart(KoPart *part)
     if (d->m_registeredPart.data() != part) {
         return;
     }
-    d->m_registeredPart = 0;
+    d->m_registeredPart = nullptr;
     if (part == d->m_activePart) {
-        setActivePart(0, 0);
+        setActivePart(nullptr, nullptr);
     }
 }
 
@@ -2158,8 +2158,8 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget)
 
     }
     else {
-        d->activeView = 0;
-        d->activePart = 0;
+        d->activeView = nullptr;
+        d->activePart = nullptr;
     }
 
     if (d->activeView) {
@@ -2171,7 +2171,7 @@ void KoMainWindow::slotWidgetDestroyed()
 {
     debugMain;
     if (static_cast<const QWidget *>(sender()) == d->m_activeWidget)
-        setActivePart(0, 0); //do not remove the part because if the part's widget dies, then the
+        setActivePart(nullptr, nullptr); //do not remove the part because if the part's widget dies, then the
     //part will delete itself anyway, invoking removePart() in its destructor
 }
 

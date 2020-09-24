@@ -53,8 +53,8 @@ template <class T>
 T*
 CoreAttributesTreeIteratorT<T>::operator++()
 {
-    if (current == 0)
-        return 0;
+    if (current == nullptr)
+        return nullptr;
 
     while (current != root)
     {
@@ -78,7 +78,7 @@ CoreAttributesTreeIteratorT<T>::operator++()
         if (iMode == parentAfterLeaves)
             return current;
     }
-    return (current = 0);
+    return (current = nullptr);
 }
 
 typedef CoreAttributesTreeIteratorT<CoreAttributes> CoreAttributesTreeIterator;

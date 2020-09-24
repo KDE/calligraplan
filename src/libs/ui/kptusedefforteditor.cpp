@@ -39,7 +39,7 @@ namespace KPlato
 
 UsedEffortItemModel::UsedEffortItemModel (QWidget *parent)
     : QAbstractItemModel(parent),
-    m_completion(0),
+    m_completion(nullptr),
     m_readonly(false)
 {
     m_headers << i18n("Resource");
@@ -84,7 +84,7 @@ QVariant UsedEffortItemModel::data (const QModelIndex &index, int role) const
                 break;
             }
             Completion::UsedEffort *ue = usedEffort(index);
-            if (ue == 0) {
+            if (ue == nullptr) {
                 return QVariant();
             }
             if (index.column() == 8) {
@@ -113,7 +113,7 @@ QVariant UsedEffortItemModel::data (const QModelIndex &index, int role) const
                 }
             } else {
                 Completion::UsedEffort *ue = usedEffort(index);
-                if (ue == 0) {
+                if (ue == nullptr) {
                     return QVariant();
                 }
                 Completion::UsedEffort::ActualEffort e = ue->effort(m_dates.value(index.column() - 1));
@@ -150,12 +150,12 @@ bool UsedEffortItemModel::setData (const QModelIndex &idx, const QVariant &value
             }
             if (idx.column() == 0) {
                 const Resource *er = resource(idx);
-                Q_ASSERT(er != 0);
+                Q_ASSERT(er != nullptr);
 
                 Q_ASSERT (m_editlist.count() > value.toInt());
 
                 const Resource *v = m_editlist.values().value(value.toInt()); // clazy:exclude=container-anti-pattern
-                Q_ASSERT(v != 0);
+                Q_ASSERT(v != nullptr);
 
                 int x = m_resourcelist.indexOf(er);
                 Q_ASSERT(x != -1);
@@ -166,7 +166,7 @@ bool UsedEffortItemModel::setData (const QModelIndex &idx, const QVariant &value
                 return true;
             }
             Completion::UsedEffort *ue = usedEffort(idx);
-            if (ue == 0) {
+            if (ue == nullptr) {
                 return false;
             }
             QDate d = m_dates.value(idx.column() - 1);
@@ -275,8 +275,8 @@ void UsedEffortItemModel::setCompletion(Completion *completion)
 const Resource *UsedEffortItemModel::resource(const QModelIndex &index) const
 {
     int row = index.row();
-    if (m_completion == 0 || row < 0 || row >= m_resourcelist.count()) {
-        return 0;
+    if (m_completion == nullptr || row < 0 || row >= m_resourcelist.count()) {
+        return nullptr;
     }
     return m_resourcelist.value(row);
 }
@@ -284,8 +284,8 @@ const Resource *UsedEffortItemModel::resource(const QModelIndex &index) const
 Completion::UsedEffort *UsedEffortItemModel::usedEffort(const QModelIndex &index) const
 {
     const Resource *r = resource(index);
-    if (r == 0) {
-        return 0;
+    if (r == nullptr) {
+        return nullptr;
     }
     return m_completion->usedEffort(r);
 }
@@ -303,7 +303,7 @@ void UsedEffortItemModel::setCurrentMonday(const QDate &date)
 
 QModelIndex UsedEffortItemModel::addRow()
 {
-    if (m_project == 0) {
+    if (m_project == nullptr) {
         return QModelIndex();
     }
     m_editlist.clear();
@@ -399,10 +399,10 @@ void UsedEffortEditor::addResource()
 //----------------------------------------
 CompletionEntryItemModel::CompletionEntryItemModel (QObject *parent)
     : QAbstractItemModel(parent),
-    m_node(0),
-    m_project(0),
-    m_manager(0),
-    m_completion(0)
+    m_node(nullptr),
+    m_project(nullptr),
+    m_manager(nullptr),
+    m_completion(nullptr)
 {
     m_headers << i18n("Date")
             // xgettext: no-c-format
@@ -421,7 +421,7 @@ CompletionEntryItemModel::CompletionEntryItemModel (QObject *parent)
 void CompletionEntryItemModel::setTask(Task *t)
 {
     m_node = t;
-    m_project = 0;
+    m_project = nullptr;
     if (m_node && m_node->projectNode()) {
         m_project = static_cast<Project*>(m_node->projectNode());
     }
@@ -460,7 +460,7 @@ QVariant CompletionEntryItemModel::date (int row, int role) const
 QVariant CompletionEntryItemModel::percentFinished (int row, int role) const
 {
     Completion::Entry *e = m_completion->entry(date(row).toDate());
-    if (e == 0) {
+    if (e == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -475,7 +475,7 @@ QVariant CompletionEntryItemModel::percentFinished (int row, int role) const
 QVariant CompletionEntryItemModel::remainingEffort (int row, int role) const
 {
     Completion::Entry *e = m_completion->entry(date(row).toDate());
-    if (e == 0) {
+    if (e == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -514,7 +514,7 @@ QVariant CompletionEntryItemModel::remainingEffort (int row, int role) const
 QVariant CompletionEntryItemModel::actualEffort (int row, int role) const
 {
     Completion::Entry *e = m_completion->entry(date(row).toDate());
-    if (e == 0) {
+    if (e == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -560,7 +560,7 @@ QVariant CompletionEntryItemModel::actualEffort (int row, int role) const
 
 QVariant CompletionEntryItemModel::plannedEffort (int /*row*/, int role) const
 {
-    if (m_node == 0) {
+    if (m_node == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -644,7 +644,7 @@ bool CompletionEntryItemModel::setData (const QModelIndex &idx, const QVariant &
             }
             if (idx.column() == Property_Completion) {
                 Completion::Entry *e = m_completion->entry(date(idx.row()).toDate());
-                if (e == 0) {
+                if (e == nullptr) {
                     return false;
                 }
                 e->percentFinished = value.toInt();
@@ -659,7 +659,7 @@ bool CompletionEntryItemModel::setData (const QModelIndex &idx, const QVariant &
             }
             if (idx.column() == Property_UsedEffort) {
                 Completion::Entry *e = m_completion->entry(date(idx.row()).toDate());
-                if (e == 0) {
+                if (e == nullptr) {
                     return false;
                 }
                 double v(value.toList()[0].toDouble());
@@ -674,7 +674,7 @@ bool CompletionEntryItemModel::setData (const QModelIndex &idx, const QVariant &
             }
             if (idx.column() == Property_RemainingEffort) {
                 Completion::Entry *e = m_completion->entry(date(idx.row()).toDate());
-                if (e == 0) {
+                if (e == nullptr) {
                     return false;
                 }
                 double v(value.toList()[0].toDouble());
@@ -741,7 +741,7 @@ int CompletionEntryItemModel::columnCount(const QModelIndex & /*parent */) const
 
 int CompletionEntryItemModel::rowCount(const QModelIndex &idx) const
 {
-    if (m_completion == 0 || idx.isValid()) {
+    if (m_completion == nullptr || idx.isValid()) {
         return 0;
     }
     return m_datelist.count();
@@ -778,7 +778,7 @@ void CompletionEntryItemModel::refresh()
 
 QModelIndex CompletionEntryItemModel::addRow()
 {
-    if (m_completion == 0) {
+    if (m_completion == nullptr) {
         return QModelIndex();
     }
     int row = rowCount();

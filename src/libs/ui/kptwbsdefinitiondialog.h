@@ -36,7 +36,7 @@ class Project;
 class PLANUI_EXPORT WBSDefinitionDialog : public KoDialog {
     Q_OBJECT
 public:
-    explicit WBSDefinitionDialog(Project &project, WBSDefinition &def, QWidget *parent=0);
+    explicit WBSDefinitionDialog(Project &project, WBSDefinition &def, QWidget *parent=nullptr);
 
     KUndo2Command *buildCommand();
 

@@ -205,7 +205,7 @@ QString DurationSpinBox::textFromValue (double value) const
 QValidator::State DurationSpinBox::validate (QString & input, int & pos) const
 {
     //debugPlan<<input;
-    QDoubleValidator validator(minimum(), maximum(), decimals(), 0);
+    QDoubleValidator validator(minimum(), maximum(), decimals(), nullptr);
     if (input.isEmpty()) {
         return validator.validate (input, pos);
     }

@@ -162,7 +162,7 @@ void
 CoreAttributes::getFullName(QString& fullName) const
 {
     fullName.clear();
-    for (const CoreAttributes* c = this; c != 0; c = c->parent)
+    for (const CoreAttributes* c = this; c != nullptr; c = c->parent)
         fullName = c->name + QLatin1Char('.') + fullName;
     // Remove trailing dot.
     fullName.remove(fullName.length() - 1, 1);
@@ -172,7 +172,7 @@ QString
 CoreAttributes::getFullId() const
 {
     QString fullID = id;
-    for (const CoreAttributes* c = parent; c != 0; c = c->parent)
+    for (const CoreAttributes* c = parent; c != nullptr; c = c->parent)
         fullID = c->id + QLatin1Char('.') + fullID;
     return fullID;
 }
@@ -180,7 +180,7 @@ CoreAttributes::getFullId() const
 bool
 CoreAttributes::hasSameAncestor(const CoreAttributes* c) const
 {
-    if (c == 0)
+    if (c == nullptr)
         return false;
 
     CoreAttributes const* p1;
@@ -195,7 +195,7 @@ CoreAttributes::hasSameAncestor(const CoreAttributes* c) const
 bool
 CoreAttributes::isDescendantOf(const CoreAttributes* c) const
 {
-    if (c == 0)
+    if (c == nullptr)
         return false;
 
     for (CoreAttributes const* p = this->parent; p; p = p->parent)
@@ -270,7 +270,7 @@ CoreAttributes::inheritCustomAttributes
 
 QDebug operator<<(QDebug dbg, const TJ::CoreAttributes* t)
 {
-    if (t == 0) {
+    if (t == nullptr) {
         return dbg << (void*)t;
     }
     return operator<<(dbg, *t);

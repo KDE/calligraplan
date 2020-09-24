@@ -42,7 +42,7 @@ Account *InsertProjectTester::addAccount(MainDocument &part, Account *parent)
 {
     Project &p = part.getProject();
     Account *a = new Account();
-    QString s = parent == 0 ? "Account" : parent->name();
+    QString s = parent == nullptr ? "Account" : parent->name();
     a->setName(p.accounts().uniqueId(s));
     KUndo2Command *c = new AddAccountCmd(p, a, parent);
     part.addCommand(c);
@@ -51,7 +51,7 @@ Account *InsertProjectTester::addAccount(MainDocument &part, Account *parent)
 
 void InsertProjectTester::testAccount()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -59,17 +59,17 @@ void InsertProjectTester::testAccount()
     Project &p = part.getProject();
     QCOMPARE(p.accounts().accountCount(), 1);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     QCOMPARE(part2.getProject().accounts().accountCount(), 1);
 
-    part2.insertProject(part.getProject(), 0, 0);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
     QCOMPARE(part2.getProject().accounts().accountCount(), 1);
 
-    Part ppB(0);
+    Part ppB(nullptr);
     MainDocument partB(&ppB);
     ppB.setDocument(&partB);
 
@@ -79,7 +79,7 @@ void InsertProjectTester::testAccount()
     QCOMPARE(partB.getProject().accounts().accountCount(), 1);
     QCOMPARE(parent->childCount(), 1);
 
-    part2.insertProject(partB.getProject(), 0, 0);
+    part2.insertProject(partB.getProject(), nullptr, nullptr);
     QCOMPARE(part2.getProject().accounts().accountCount(), 1);
     QCOMPARE(part2.getProject().accounts().accountAt(0)->childCount(), 1);
 }
@@ -89,13 +89,13 @@ Calendar *InsertProjectTester::addCalendar(MainDocument &part)
     Project &p = part.getProject();
     Calendar *c = new Calendar();
     p.setCalendarId(c);
-    part.addCommand(new CalendarAddCmd(&p, c, -1, 0));
+    part.addCommand(new CalendarAddCmd(&p, c, -1, nullptr));
     return c;
 }
 
 void InsertProjectTester::testCalendar()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -103,18 +103,18 @@ void InsertProjectTester::testCalendar()
     Project &p = part.getProject();
     QVERIFY(p.calendarCount() == 1);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
-    part2.insertProject(part.getProject(), 0, 0);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
     QVERIFY(part2.getProject().calendarCount() == 1);
-    QVERIFY(part2.getProject().defaultCalendar() == 0);
+    QVERIFY(part2.getProject().defaultCalendar() == nullptr);
 }
 
 void InsertProjectTester::testDefaultCalendar()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -124,21 +124,21 @@ void InsertProjectTester::testDefaultCalendar()
     QVERIFY(p.calendarCount() == 1);
     QCOMPARE(p.defaultCalendar(), c);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     QVERIFY(part2.getProject().calendarCount() == 1);
     QCOMPARE(part2.getProject().defaultCalendar(), c);
 
-    Part ppB(0);
+    Part ppB(nullptr);
     MainDocument partB(&ppB);
     ppB.setDocument(&partB);
 
     Calendar *c2 = addCalendar(partB);
     partB.getProject().setDefaultCalendar(c2);
-    part2.insertProject(partB.getProject(), 0, 0);
+    part2.insertProject(partB.getProject(), nullptr, nullptr);
     QVERIFY(part2.getProject().calendarCount() == 2);
     QCOMPARE(part2.getProject().defaultCalendar(), c); // NB: still c, not c2
 }
@@ -156,7 +156,7 @@ ResourceGroup *InsertProjectTester::addResourceGroup(MainDocument &part)
 
 void InsertProjectTester::testResourceGroup()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -164,10 +164,10 @@ void InsertProjectTester::testResourceGroup()
     Project &p = part.getProject();
     QVERIFY(p.resourceGroupCount() == 1);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     QVERIFY(part2.getProject().resourceGroupCount() == 1);
 }
 
@@ -178,7 +178,7 @@ Resource *InsertProjectTester::addResource(MainDocument &part, ResourceGroup *g)
         qInfo()<<"No resource groups in project";
         return nullptr;
     }
-    if (g == 0) {
+    if (g == nullptr) {
         g = p.resourceGroupAt(0);
     }
     Q_ASSERT(g);
@@ -196,7 +196,7 @@ Resource *InsertProjectTester::addResource(MainDocument &part, ResourceGroup *g)
 
 void InsertProjectTester::testResource()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -205,19 +205,19 @@ void InsertProjectTester::testResource()
     Project &p = part.getProject();
     QVERIFY(p.resourceGroupAt(0)->numResources() == 1);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
     //Debug::print(&part.getProject(), "Project to insert from: ------------", true);
     //Debug::print(&part2.getProject(), "Project to insert into: -----------", true);
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     //Debug::print(&part2.getProject(), "Result: ---------------------------", true);
     QVERIFY(part2.getProject().resourceGroupAt(0)->numResources() == 1);
 }
 
 void InsertProjectTester::testTeamResource()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -236,11 +236,11 @@ void InsertProjectTester::testTeamResource()
     QCOMPARE(required.at(0), t1);
     QCOMPARE(required.at(1), t2);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     Project &p2 = part2.getProject();
     QVERIFY(p2.resourceGroupAt(0)->numResources() == 1);
     QVERIFY(p2.resourceGroupAt(1)->numResources() == 2);
@@ -252,7 +252,7 @@ void InsertProjectTester::testTeamResource()
 
 void InsertProjectTester::testResourceAccount()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -264,11 +264,11 @@ void InsertProjectTester::testResourceAccount()
     Project &p = part.getProject();
     QVERIFY(p.resourceGroupAt(0)->numResources() == 1);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     QVERIFY(part2.getProject().resourceGroupAt(0)->numResources() == 1);
     QVERIFY(part2.getProject().accounts().allAccounts().contains(a));
     QCOMPARE(part2.getProject().resourceGroupAt(0)->resourceAt(0)->account(), a);
@@ -276,7 +276,7 @@ void InsertProjectTester::testResourceAccount()
 
 void InsertProjectTester::testResourceCalendar()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -290,11 +290,11 @@ void InsertProjectTester::testResourceCalendar()
 
     QVERIFY(p.resourceGroupAt(0)->numResources() == 1);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     QVERIFY(part2.getProject().resourceGroupAt(0)->numResources() == 1);
     QCOMPARE(part2.getProject().allCalendars().count(), 1);
     QVERIFY(part2.getProject().allCalendars().contains(c));
@@ -306,14 +306,14 @@ Task *InsertProjectTester::addTask(MainDocument &part)
     Project &p = part.getProject();
     Task *t = new Task();
     t->setId(p.uniqueNodeId());
-    KUndo2Command *c = new TaskAddCmd(&p, t, 0);
+    KUndo2Command *c = new TaskAddCmd(&p, t, nullptr);
     part.addCommand(c);
     return t;
 }
 
 void InsertProjectTester::testTask()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
     Project &p = part.getProject();
@@ -322,11 +322,11 @@ void InsertProjectTester::testTask()
     addTask(part);
     QVERIFY(p.numChildren() == 1);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
     part2.getProject().setName("Insert into");
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     QVERIFY(part2.getProject().numChildren() == 1);
 }
 void InsertProjectTester::addResourceRequest(MainDocument &part)
@@ -338,7 +338,7 @@ void InsertProjectTester::addResourceRequest(MainDocument &part)
 
 void InsertProjectTester::testResourceRequest()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -350,18 +350,18 @@ void InsertProjectTester::testResourceRequest()
 
     Project &p = part.getProject();
     Debug::print(&p, "To be inserted: --------", true);
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     Project &p2 = part2.getProject();
-    QVERIFY(p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != 0);
+    QVERIFY(p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != nullptr);
     Debug::print(&p2, "After insert: --------", true);
 }
 
 void InsertProjectTester::testTeamResourceRequest()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -378,10 +378,10 @@ void InsertProjectTester::testTeamResourceRequest()
     addResourceRequest(part);
 
     qDebug()<<"Start test:";
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
-    part2.insertProject(part.getProject(), 0, 0);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
     Project &p2 = part2.getProject();
     ResourceRequest *rr = p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0));
     QVERIFY(rr);
@@ -401,7 +401,7 @@ Relation *InsertProjectTester::addDependency(MainDocument &part, Task *t1, Task 
 
 void InsertProjectTester::testDependencies()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -417,11 +417,11 @@ void InsertProjectTester::testDependencies()
     QCOMPARE(t1->getDependChildNode(0), r);
     QCOMPARE(t2->getDependParentNode(0), r);
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
-    QVERIFY(part2.insertProject(part.getProject(), 0, 0));
+    QVERIFY(part2.insertProject(part.getProject(), nullptr, nullptr));
     Project &p2 = part2.getProject();
 
     QVERIFY(p2.numChildren() == 2);
@@ -436,7 +436,7 @@ void InsertProjectTester::testDependencies()
 
 void InsertProjectTester::testExistingResourceAccount()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -450,30 +450,30 @@ void InsertProjectTester::testExistingResourceAccount()
 
     QDomDocument doc = part.saveXML();
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     QVERIFY(part2.getProject().resourceGroupAt(0)->numResources() == 1);
     QVERIFY(part2.getProject().accounts().allAccounts().contains(a));
     QCOMPARE(part2.getProject().resourceGroupAt(0)->resourceAt(0)->account(), a);
 
-    part2.addCommand(new ResourceModifyAccountCmd(*(part2.getProject().resourceGroupAt(0)->resourceAt(0)), part2.getProject().resourceGroupAt(0)->resourceAt(0)->account(), 0));
+    part2.addCommand(new ResourceModifyAccountCmd(*(part2.getProject().resourceGroupAt(0)->resourceAt(0)), part2.getProject().resourceGroupAt(0)->resourceAt(0)->account(), nullptr));
 
     KoXmlDocument xdoc;
     xdoc.setContent(doc.toString());
-    part.loadXML(xdoc, 0);
+    part.loadXML(xdoc, nullptr);
 
-    part2.insertProject(part.getProject(), 0, 0);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
     QVERIFY(part2.getProject().resourceGroupAt(0)->numResources() == 1);
     QVERIFY(part2.getProject().accounts().allAccounts().contains(a));
-    QVERIFY(part2.getProject().resourceGroupAt(0)->resourceAt(0)->account() == 0);
+    QVERIFY(part2.getProject().resourceGroupAt(0)->resourceAt(0)->account() == nullptr);
 }
 
 void InsertProjectTester::testExistingResourceCalendar()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -489,32 +489,32 @@ void InsertProjectTester::testExistingResourceCalendar()
 
     QDomDocument doc = part.saveXML();
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     QVERIFY(part2.getProject().resourceGroupAt(0)->numResources() == 1);
     QCOMPARE(part2.getProject().allCalendars().count(), 1);
     QVERIFY(part2.getProject().allCalendars().contains(c));
     QCOMPARE(part2.getProject().resourceGroupAt(0)->resourceAt(0)->calendar(true), c);
 
-    part2.getProject().resourceGroupAt(0)->resourceAt(0)->setCalendar(0);
+    part2.getProject().resourceGroupAt(0)->resourceAt(0)->setCalendar(nullptr);
 
     KoXmlDocument xdoc;
     xdoc.setContent(doc.toString());
-    part.loadXML(xdoc, 0);
+    part.loadXML(xdoc, nullptr);
 
-    part2.insertProject(part.getProject(), 0, 0);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
     QVERIFY(part2.getProject().resourceGroupAt(0)->numResources() == 1);
     QCOMPARE(part2.getProject().allCalendars().count(), 1);
     QVERIFY(part2.getProject().allCalendars().contains(c));
-    QVERIFY(part2.getProject().resourceGroupAt(0)->resourceAt(0)->calendar(true) == 0);
+    QVERIFY(part2.getProject().resourceGroupAt(0)->resourceAt(0)->calendar(true) == nullptr);
 }
 
 void InsertProjectTester::testExistingResourceRequest()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -527,30 +527,30 @@ void InsertProjectTester::testExistingResourceRequest()
     QDomDocument doc = part.saveXML();
 
     Project &p = part.getProject();
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
     //Debug::print(&part.getProject(), "Project to be inserted from: --------------------------", true);
     //Debug::print(&part2.getProject(), "Project to be inserted into: -------------------------", true);
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     //Debug::print(&part2.getProject(), "Result1:", true);
     Project &p2 = part2.getProject();
-    QVERIFY(p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != 0);
+    QVERIFY(p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != nullptr);
 
     KoXmlDocument xdoc;
     xdoc.setContent(doc.toString());
-    part.loadXML(xdoc, 0);
+    part.loadXML(xdoc, nullptr);
     //Debug::print(&part.getProject(), "Project to be inserted from:", true);
     //Debug::print(&part2.getProject(), "Project to be inserted into:", true);
-    part2.insertProject(part.getProject(), 0, 0);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
     //Debug::print(&part2.getProject(), "Result2:", true);
-    QVERIFY(p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != 0);
-    QVERIFY(p2.childNode(1)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != 0);
+    QVERIFY(p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != nullptr);
+    QVERIFY(p2.childNode(1)->requests().find(p2.resourceGroupAt(0)->resourceAt(0)) != nullptr);
 }
 
 void InsertProjectTester::testExistingRequiredResourceRequest()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -568,10 +568,10 @@ void InsertProjectTester::testExistingRequiredResourceRequest()
     QDomDocument doc = part.saveXML();
 
     Project &p = part.getProject();
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
-    part2.insertProject(p, 0, 0);
+    part2.insertProject(p, nullptr, nullptr);
     Project &p2 = part2.getProject();
     ResourceRequest *rr = p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0));
     QVERIFY(rr);
@@ -580,9 +580,9 @@ void InsertProjectTester::testExistingRequiredResourceRequest()
 
     KoXmlDocument xdoc;
     xdoc.setContent(doc.toString());
-    part.loadXML(xdoc, 0);
+    part.loadXML(xdoc, nullptr);
 
-    part2.insertProject(part.getProject(), 0, 0);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
     rr = p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0));
     QVERIFY(rr);
     QVERIFY(! rr->requiredResources().isEmpty());
@@ -596,7 +596,7 @@ void InsertProjectTester::testExistingRequiredResourceRequest()
 
 void InsertProjectTester::testExistingTeamResourceRequest()
 {
-    Part pp(0);
+    Part pp(nullptr);
     MainDocument part(&pp);
     pp.setDocument(&part);
 
@@ -618,12 +618,12 @@ void InsertProjectTester::testExistingTeamResourceRequest()
 
     QDomDocument doc = part.saveXML();
 
-    Part pp2(0);
+    Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
     Project &p2 = part2.getProject();
-    part2.insertProject(part.getProject(), 0, 0);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
     ResourceRequest *rr = p2.childNode(0)->requests().find(p2.resourceGroupAt(0)->resourceAt(0));
     QVERIFY(rr);
     QCOMPARE(rr->resource()->teamMembers().count(), 2);
@@ -632,9 +632,9 @@ void InsertProjectTester::testExistingTeamResourceRequest()
 
     KoXmlDocument xdoc;
     xdoc.setContent(doc.toString());
-    part.loadXML(xdoc, 0);
+    part.loadXML(xdoc, nullptr);
 
-    part2.insertProject(part.getProject(), 0, 0);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
     QCOMPARE(p2.numChildren(), 2);
 
     QVERIFY(! p2.childNode(0)->requests().isEmpty());

@@ -240,7 +240,7 @@ void ResourceGroup::addResource(int index, Resource* resource, Risk*)
 
 Resource *ResourceGroup::takeResource(Resource *resource)
 {
-    Resource *r = 0;
+    Resource *r = nullptr;
     int i = m_resources.indexOf(resource);
     if (i != -1) {
         emit resourceToBeRemoved(this, i, resource);
@@ -257,14 +257,14 @@ int ResourceGroup::indexOf(const Resource *resource) const
 }
 
 Risk* ResourceGroup::getRisk(int) {
-    return 0L;
+    return nullptr;
 }
 
 void ResourceGroup::addRequiredResource(ResourceGroup*) {
 }
 
 ResourceGroup* ResourceGroup::getRequiredResource(int) {
-    return 0L;
+    return nullptr;
 }
 
 void ResourceGroup::deleteRequiredResource(int) {

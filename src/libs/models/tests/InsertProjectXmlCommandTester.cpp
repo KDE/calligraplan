@@ -77,7 +77,7 @@ void addResources(Project *project)
     g->addResource(resource);
 }
 
-void addTask(Project *project, const QString &name, Task *parent = 0)
+void addTask(Project *project, const QString &name, Task *parent = nullptr)
 {
     Task *task = project->createTask();
     task->setName(name);

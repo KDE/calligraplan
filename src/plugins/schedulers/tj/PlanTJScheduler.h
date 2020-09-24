@@ -64,7 +64,7 @@ class PlanTJScheduler : public KPlato::SchedulerThread
 private:
 
 public:
-    PlanTJScheduler(Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = 0);
+    PlanTJScheduler(Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = nullptr);
     ~PlanTJScheduler() override;
 
     bool check();
@@ -93,7 +93,7 @@ protected:
     TJ::Resource *addResource(KPlato::Resource *resource);
     void addTasks();
     void addWorkingTime(KPlato::Task *task, TJ::Task *job);
-    TJ::Task *addTask(KPlato::Task *task , TJ::Task *parent = 0);
+    TJ::Task *addTask(KPlato::Task *task , TJ::Task *parent = nullptr);
     void addDependencies();
     void addPrecedes(const Relation *rel);
     void addDepends(const Relation *rel);

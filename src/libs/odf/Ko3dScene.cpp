@@ -317,7 +317,7 @@ KOODF_EXPORT Ko3dScene *load3dScene(const KoXmlElement &element)
     }
 
     delete scene;
-    return 0;
+    return nullptr;
 }
 
 

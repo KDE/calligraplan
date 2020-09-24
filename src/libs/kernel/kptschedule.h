@@ -94,13 +94,13 @@ public:
     Schedule *parent() const { return m_parent; }
     virtual bool isDeleted() const;
     virtual void setDeleted(bool on);
-    virtual bool recalculate() const { return m_parent == 0 ? false : m_parent->recalculate(); }
-    virtual DateTime recalculateFrom() const { return m_parent == 0 ? DateTime() : m_parent->recalculateFrom(); }
+    virtual bool recalculate() const { return m_parent == nullptr ? false : m_parent->recalculate(); }
+    virtual DateTime recalculateFrom() const { return m_parent == nullptr ? DateTime() : m_parent->recalculateFrom(); }
 
-    virtual long parentScheduleId() const { return m_parent == 0 ? NOTSCHEDULED : m_parent->parentScheduleId(); }
+    virtual long parentScheduleId() const { return m_parent == nullptr ? NOTSCHEDULED : m_parent->parentScheduleId(); }
 
-    virtual Resource *resource() const { return 0; }
-    virtual Node *node() const { return 0; }
+    virtual Resource *resource() const { return nullptr; }
+    virtual Node *node() const { return nullptr; }
     
     virtual bool isBaselined() const;
     virtual bool usePert() const;
@@ -232,13 +232,13 @@ public:
 
     void setInCriticalPath(bool on = true) { inCriticalPath = on; }
 
-    virtual ScheduleManager *manager() const { return 0; }
+    virtual ScheduleManager *manager() const { return nullptr; }
     
     class PLANKERNEL_EXPORT Log {
         public:
             enum Type { Type_Debug = 0, Type_Info, Type_Warning, Type_Error };
             Log() 
-                : node(0), resource(0), severity(0), phase(-1)
+                : node(nullptr), resource(nullptr), severity(0), phase(-1)
             {}
             Log(const Node *n, int sev, const QString &msg, int ph = -1);
             Log(const Node *n, const Resource *r, int sev, const QString &msg, int ph = -1);
@@ -377,7 +377,7 @@ public:
     ~NodeSchedule() override;
 
     bool isDeleted() const override
-    { return m_parent == 0 ? true : m_parent->isDeleted(); }
+    { return m_parent == nullptr ? true : m_parent->isDeleted(); }
     void setDeleted(bool on) override;
 
     bool loadXML(const KoXmlElement &element, XMLLoaderObject &status) override;
@@ -420,7 +420,7 @@ public:
     ~ResourceSchedule() override;
 
     bool isDeleted() const override
-    { return m_parent == 0 ? true : m_parent->isDeleted(); }
+    { return m_parent == nullptr ? true : m_parent->isDeleted(); }
     void addAppointment(Schedule *node, const DateTime &start, const DateTime &end, double load = 100) override;
     void takeAppointment(Appointment *appointment, int type = Scheduling) override;
 
@@ -504,7 +504,7 @@ public:
     
     void clearCriticalPathList();
     QList<Node*> *currentCriticalPath() const;
-    void addCriticalPath(QList<Node*> *lst = 0);
+    void addCriticalPath(QList<Node*> *lst = nullptr);
     const QList< QList<Node*> > *criticalPathList() const { return &(m_pathlists); }
     QList<Node*> criticalPath(int index = 0) {
         QList<Node*> lst;
@@ -589,7 +589,7 @@ public:
     void setParentManager(ScheduleManager *sm, int index = -1);
     ScheduleManager *parentManager() const { return m_parent; }
     
-    long scheduleId() const { return m_expected == 0 ? NOTSCHEDULED : m_expected->id(); }
+    long scheduleId() const { return m_expected == nullptr ? NOTSCHEDULED : m_expected->id(); }
     
     int removeChild(const ScheduleManager *sm);
     void insertChild(ScheduleManager *sm, int index = -1);
@@ -610,12 +610,12 @@ public:
     DateTime recalculateFrom() const { return m_recalculateFrom; }
     /// Set the datetime this schedule will be calculated from to @p dt
     void setRecalculateFrom(const DateTime &dt) { m_recalculateFrom = dt; }
-    long parentScheduleId() const { return m_parent == 0 ? NOTSCHEDULED : m_parent->scheduleId(); }
+    long parentScheduleId() const { return m_parent == nullptr ? NOTSCHEDULED : m_parent->scheduleId(); }
     void createSchedules();
     
     void setDeleted(bool on);
     
-    bool isScheduled() const { return m_expected == 0 ? false :  m_expected->isScheduled(); }
+    bool isScheduled() const { return m_expected == nullptr ? false :  m_expected->isScheduled(); }
 
     void setExpected(MainSchedule *sch);
     MainSchedule *expected() const { return m_expected; }

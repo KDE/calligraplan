@@ -38,11 +38,11 @@ class KoDialogPrivate
 protected:
     KoDialogPrivate()
         : mDetailsVisible(false), mSettingDetails(false), mDeferredDelete(false),
-          mDetailsWidget(0),
-          mTopLayout(0), mMainWidget(0), mUrlHelp(0), mActionSeparator(0),
+          mDetailsWidget(nullptr),
+          mTopLayout(nullptr), mMainWidget(nullptr), mUrlHelp(nullptr), mActionSeparator(nullptr),
           mButtonOrientation(Qt::Horizontal),
           mDefaultButton(KoDialog::NoDefault),
-          mButtonBox(0)
+          mButtonBox(nullptr)
     {
     }
 

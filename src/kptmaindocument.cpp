@@ -73,8 +73,8 @@ namespace KPlato
 
 MainDocument::MainDocument(KoPart *part)
         : KoDocument(part),
-        m_project(0),
-        m_context(0), m_xmlLoader(),
+        m_project(nullptr),
+        m_context(nullptr), m_xmlLoader(),
         m_loadingTemplate(false),
         m_loadingSharedResourcesTemplate(false),
         m_viewlistModified(false),
@@ -289,7 +289,7 @@ void MainDocument::taskModuleDirChanged()
 bool MainDocument::loadOdf(KoOdfReadStore &odfStore)
 {
     warnPlan<< "OpenDocument not supported, let's try native xml format";
-    return loadXML(odfStore.contentDoc(), 0); // We have only one format, so try to load that!
+    return loadXML(odfStore.contentDoc(), nullptr); // We have only one format, so try to load that!
 }
 
 bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
@@ -354,7 +354,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
     m_xmlLoader.setVersion(syntaxVersion);
     if (syntaxVersion > PLAN_FILE_SYNTAX_VERSION) {
         KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
-                      0, i18n("This document was created with a newer version of Plan (syntax version: %1)\n"
+                      nullptr, i18n("This document was created with a newer version of Plan (syntax version: %1)\n"
                                "Opening it in this version of Plan will lose some information.", syntaxVersion),
                       i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
         if (ret == KMessageBox::Cancel) {
@@ -566,7 +566,7 @@ bool MainDocument::loadWorkPackage(Project &project, const QUrl &url)
 //        QApplication::restoreOverrideCursor();
         return false;
     }
-    Package *package = 0;
+    Package *package = nullptr;
     KoXmlDocument doc;
     QString errorMsg; // Error variables for QDomDocument::setContent
     int errorLine, errorColumn;
@@ -605,8 +605,8 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
 {
     QString value;
     bool ok = true;
-    Project *proj = 0;
-    Package *package = 0;
+    Project *proj = nullptr;
+    Package *package = nullptr;
     KoXmlElement plan = document.documentElement();
 
     // Check if this is the right app
@@ -614,7 +614,7 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
     if (value.isEmpty()) {
         errorPlanWp<<Q_FUNC_INFO<<"No mime type specified!";
         setErrorMessage(i18n("Invalid document. No mimetype specified."));
-        return 0;
+        return nullptr;
     } else if (value == "application/x-vnd.kde.kplato.work") {
         m_xmlLoader.setMimetype(value);
         m_xmlLoader.setWorkVersion(plan.attribute("version", "0.0.0"));
@@ -624,14 +624,14 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
         if (! ok) {
             setErrorMessage(loader.errorMessage());
             delete proj;
-            return 0;
+            return nullptr;
         }
         package = loader.package();
         package->timeTag = QDateTime::fromString(loader.timeTag(), Qt::ISODate);
     } else if (value != "application/x-vnd.kde.plan.work") {
         errorPlanWp << "Unknown mime type " << value;
         setErrorMessage(i18n("Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1", value));
-        return 0;
+        return nullptr;
     } else {
         if (plan.attribute("editor") != QStringLiteral("PlanWork")) {
             warnPlanWp<<"Skipped work package file not generated with PlanWork:"<<plan.attribute("editor")<<url;
@@ -641,12 +641,12 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
         m_xmlLoader.setWorkVersion(syntaxVersion);
         if (syntaxVersion > PLANWORK_FILE_SYNTAX_VERSION) {
             KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
-                    0, i18n("This document was created with a newer version of PlanWork (syntax version: %1)\n"
+                    nullptr, i18n("This document was created with a newer version of PlanWork (syntax version: %1)\n"
                     "Opening it in this version of PlanWork will lose some information.", syntaxVersion),
                     i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
             if (ret == KMessageBox::Cancel) {
                 setErrorMessage("USER_CANCELED");
-                return 0;
+                return nullptr;
             }
         }
         m_xmlLoader.setVersion(plan.attribute("plan-version", PLAN_FILE_SYNTAX_VERSION));
@@ -729,7 +729,7 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
 
 bool MainDocument::extractFiles(KoStore *store, Package *package)
 {
-    if (package->task == 0) {
+    if (package->task == nullptr) {
         errorPlan<<"No task!";
         return false;
     }
@@ -920,7 +920,7 @@ bool MainDocument::completeLoading(KoStore *store)
             insertResourcesFile(url, m_project->loadProjectsAtStartup() ? m_project->sharedProjectsUrl() : QUrl());
         }
     }
-    if (store == 0) {
+    if (store == nullptr) {
         // can happen if loading a template
         debugPlan<<"No store";
         return true; // continue anyway
@@ -964,7 +964,7 @@ bool MainDocument::completeSaving(KoStore *store)
     foreach (View *view, m_views) {
         if (view) {
             if (store->open("context.xml")) {
-                if (m_context == 0) m_context = new Context();
+                if (m_context == nullptr) m_context = new Context();
                 QDomDocument doc = m_context->save(view);
 
                 KoStoreDevice dev(store);
@@ -1037,7 +1037,7 @@ void MainDocument::insertFileCompleted()
         insertProject(p, doc->m_insertFileInfo.parent, doc->m_insertFileInfo.after);
         doc->documentPart()->deleteLater(); // also deletes document
     } else {
-        KMessageBox::error(0, i18n("Internal error, failed to insert file."));
+        KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
     }
     m_isLoading = false;
 }
@@ -1073,7 +1073,7 @@ void MainDocument::insertResourcesFileCompleted()
         doc->documentPart()->deleteLater(); // also deletes document
         slotInsertSharedProject(); // insert shared bookings
     } else {
-        KMessageBox::error(0, i18n("Internal error, failed to insert file."));
+        KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
     }
     m_isLoading = false;
 }
@@ -1082,7 +1082,7 @@ void MainDocument::insertFileCancelled(const QString &error)
 {
     debugPlan<<sender()<<"error="<<error;
     if (! error.isEmpty()) {
-        KMessageBox::error(0, error);
+        KMessageBox::error(nullptr, error);
     }
     MainDocument *doc = qobject_cast<MainDocument*>(sender());
     if (doc) {
@@ -1173,7 +1173,7 @@ void MainDocument::insertSharedProjectCompleted()
         if (p.id() != m_project->id() && p.isScheduled(ANYSCHEDULED)) {
             // FIXME: improve!
             // find a suitable schedule
-            ScheduleManager *sm = 0;
+            ScheduleManager *sm = nullptr;
             foreach(ScheduleManager *m, p.allScheduleManagers()) {
                 if (m->isBaselined()) {
                     sm = m;
@@ -1206,7 +1206,7 @@ void MainDocument::insertSharedProjectCompleted()
         m_isLoading = false;
         emit insertSharedProject(); // do next file
     } else {
-        KMessageBox::error(0, i18n("Internal error, failed to insert file."));
+        KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
         m_isLoading = false;
     }
 }
@@ -1215,7 +1215,7 @@ void MainDocument::insertSharedProjectCancelled(const QString &error)
 {
     debugPlanShared<<sender()<<"error="<<error;
     if (! error.isEmpty()) {
-        KMessageBox::error(0, error);
+        KMessageBox::error(nullptr, error);
     }
     MainDocument *doc = qobject_cast<MainDocument*>(sender());
     if (doc) {
@@ -1235,7 +1235,7 @@ bool MainDocument::insertProject(Project &project, Node *parent, Node *after)
         project.removeId(oldid); // remove old id
         project.registerNodeId(n); // register new id
     }
-    MacroCommand *m = new InsertProjectCmd(project, parent==0?m_project:parent, after, kundo2_i18n("Insert project"));
+    MacroCommand *m = new InsertProjectCmd(project, parent==nullptr?m_project:parent, after, kundo2_i18n("Insert project"));
     if (m->isEmpty()) {
         delete m;
     } else {
@@ -1323,7 +1323,7 @@ bool MainDocument::mergeResources(Project &project)
     }
     if (!removed.isEmpty()) {
         KMessageBox::ButtonCode result = KMessageBox::warningYesNoCancelList(
-                    0,
+                    nullptr,
                     i18n("Shared resources has been removed from the shared resources file."
                          "\nSelect how they shall be treated in this project."),
                     removed,
@@ -1484,7 +1484,7 @@ bool MainDocument::mergeResources(Project &project)
     }
     // insert new objects
     Q_ASSERT(project.childNodeIterator().isEmpty());
-    InsertProjectCmd cmd(project, m_project, 0);
+    InsertProjectCmd cmd(project, m_project, nullptr);
     cmd.execute();
     return true;
 }
@@ -1561,9 +1561,9 @@ void MainDocument::slotProjectCreated()
     }
 #ifdef HAVE_KHOLIDAYS
     if (KPlatoSettings::generateHolidays()) {
-        bool inweek = week != 0 && KPlatoSettings::generateHolidaysChoice() == KPlatoSettings::EnumGenerateHolidaysChoice::InWeekCalendar;
-        bool subcalendar = week != 0 && KPlatoSettings::generateHolidaysChoice() == KPlatoSettings::EnumGenerateHolidaysChoice::AsSubCalendar;
-        bool separate = week == 0 || KPlatoSettings::generateHolidaysChoice() == KPlatoSettings::EnumGenerateHolidaysChoice::AsSeparateCalendar;
+        bool inweek = week != nullptr && KPlatoSettings::generateHolidaysChoice() == KPlatoSettings::EnumGenerateHolidaysChoice::InWeekCalendar;
+        bool subcalendar = week != nullptr && KPlatoSettings::generateHolidaysChoice() == KPlatoSettings::EnumGenerateHolidaysChoice::AsSubCalendar;
+        bool separate = week == nullptr || KPlatoSettings::generateHolidaysChoice() == KPlatoSettings::EnumGenerateHolidaysChoice::AsSeparateCalendar;
 
         Calendar *holiday = nullptr;
         if (inweek) {
@@ -1582,7 +1582,7 @@ void MainDocument::slotProjectCreated()
             Q_ASSERT(false); // something wrong
         }
         debugPlan<<KPlatoSettings::region();
-        if (holiday == 0) {
+        if (holiday == nullptr) {
             warnPlan<<Q_FUNC_INFO<<"Failed to generate holidays. Bad option:"<<KPlatoSettings::generateHolidaysChoice();
             return;
         }
@@ -1616,7 +1616,7 @@ void MainDocument::createNewProject()
             }
             if (sm->expected()) {
                 sm->expected()->setDeleted(true);
-                sm->setExpected(0);
+                sm->setExpected(nullptr);
             }
             m_project->takeScheduleManager(sm);
             delete sm;

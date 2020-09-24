@@ -87,7 +87,7 @@ public:
 
     void init()
     {
-        lockedResource = 0;
+        lockedResource = nullptr;
         conflictStart = 0;
     }
 

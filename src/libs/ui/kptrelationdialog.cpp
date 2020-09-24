@@ -170,7 +170,7 @@ void ModifyRelationDialog::slotUser1() {
 }
 
 MacroCommand *ModifyRelationDialog::buildCommand() {
-    MacroCommand *cmd=0;
+    MacroCommand *cmd=nullptr;
     if (m_deleted) {
         cmd = new MacroCommand(kundo2_i18n("Delete task dependency"));
         cmd ->addCommand(new DeleteRelationCmd(m_project, m_relation));
@@ -178,7 +178,7 @@ MacroCommand *ModifyRelationDialog::buildCommand() {
     }
     KUndo2MagicString s = kundo2_i18n("Modify task dependency");
     if (selectedRelationType() != m_relation->type()) {
-        if (cmd == 0)
+        if (cmd == nullptr)
             cmd = new MacroCommand(s);
         cmd->addCommand(new ModifyRelationTypeCmd(m_relation, (Relation::Type)(selectedRelationType())));
         
@@ -186,7 +186,7 @@ MacroCommand *ModifyRelationDialog::buildCommand() {
     }
     Duration d(m_panel->lag->value(), m_panel->lag->unit());
     if (m_relation->lag() != d) {
-        if (cmd == 0)
+        if (cmd == nullptr)
             cmd = new MacroCommand(s);
         cmd->addCommand(new ModifyRelationLagCmd(m_relation, d));
     }

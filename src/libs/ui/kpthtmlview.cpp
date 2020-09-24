@@ -93,7 +93,7 @@ void HtmlView::setupGui()
 
 KoPrintJob *HtmlView::createPrintJob()
 {
-    return 0;//m_view->createPrintJob(this);
+    return nullptr;//m_view->createPrintJob(this);
 }
 
 

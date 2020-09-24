@@ -32,11 +32,11 @@ namespace TJ
 {
 
 Allocation::Allocation() :
-    limits(0),
+    limits(nullptr),
     shifts(),
     persistent(false),
     mandatory(false),
-    lockedResource(0),
+    lockedResource(nullptr),
     conflictStart(0),
     candidates(),
     selectionMode(minAllocationProbability)
@@ -51,7 +51,7 @@ Allocation::~Allocation()
 }
 
 Allocation::Allocation(const Allocation& a) :
-    limits(a.limits ? new UsageLimits(*a.limits) : 0),
+    limits(a.limits ? new UsageLimits(*a.limits) : nullptr),
     shifts(),
     persistent(a.persistent),
     mandatory(a.mandatory),

@@ -178,7 +178,7 @@ QVariant ResourceGroupModel::data(const ResourceGroup *group, int property, int 
         return OT_ResourceGroup;
     }
     QVariant result;
-    if (group == 0) {
+    if (group == nullptr) {
         return result;
     }
     switch (property) {

@@ -162,7 +162,7 @@ QList<KPluginFactory *> KoPluginLoader::instantiatePluginFactories(const QString
             continue;
         }
         KPluginFactory *factory = qobject_cast<KPluginFactory *>(pluginInstance);
-        if (factory == 0) {
+        if (factory == nullptr) {
             warnPlugin << "Expected a KPluginFactory, got a" << pluginInstance->metaObject()->className();
             delete pluginInstance;
             continue;

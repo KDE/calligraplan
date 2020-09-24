@@ -144,7 +144,7 @@ public:
 
     typedef QHash<const Resource*, UsedEffort*> ResourceUsedEffortMap;
     
-    explicit Completion(Node *node = 0);  // review * or &, or at all?
+    explicit Completion(Node *node = nullptr);  // review * or &, or at all?
     Completion(const Completion &copy);
     virtual ~Completion();
     
@@ -218,7 +218,7 @@ public:
      */
     virtual EffortCostMap actualEffortCost(long id, EffortCostCalculationType type = ECCT_All) const;
 
-    void addUsedEffort(const Resource *resource, UsedEffort *value = 0);
+    void addUsedEffort(const Resource *resource, UsedEffort *value = nullptr);
     UsedEffort *takeUsedEffort(const Resource *r) { return m_usedEffort.take(const_cast<Resource*>(r) ); changed(); }
     UsedEffort *usedEffort(const Resource *r) const { return m_usedEffort.value(const_cast<Resource*>(r) ); }
     const ResourceUsedEffortMap &usedEffortMap() const { return m_usedEffort; }
@@ -276,7 +276,7 @@ public:
         TS_Rejected     /// Received package was rejected by project manager
     };
 
-    explicit WorkPackage(Task *task = 0);
+    explicit WorkPackage(Task *task = nullptr);
     explicit WorkPackage(const WorkPackage &wp);
     virtual ~WorkPackage();
 
@@ -371,8 +371,8 @@ public:
 class PLANKERNEL_EXPORT Task : public Node {
     Q_OBJECT
 public:
-    explicit Task(Node *parent = 0);
-    explicit Task(const Task &task, Node *parent = 0);
+    explicit Task(Node *parent = nullptr);
+    explicit Task(const Task &task, Node *parent = nullptr);
     ~Task() override;
 
     /// Return task type. Can be Type_Task, Type_Summarytask ot Type_Milestone.
@@ -493,7 +493,7 @@ public:
     /// Schedule performance index
     double schedulePerformanceIndex(QDate date, long id = CURRENTSCHEDULE) const override;
     /// Cost performance index
-    double costPerformanceIndex(long int id, QDate date, bool *error=0) const override;
+    double costPerformanceIndex(long int id, QDate date, bool *error=nullptr) const override;
     
     /**
      * Return the duration that an activity's start can be delayed 
@@ -735,11 +735,11 @@ private:
     /// Fixed duration: Returns @p dt
     /// Duration with calendar: Returns first available after @p dt
     /// Has working resource(s) allocated: Returns the earliest time a resource can start work after @p dt, and checks appointments if @p sch is not null.
-    DateTime workTimeAfter(const DateTime &dt, Schedule *sch = 0) const;
+    DateTime workTimeAfter(const DateTime &dt, Schedule *sch = nullptr) const;
     /// Fixed duration: Returns @p dt
     /// Duration with calendar: Returns first available before @p dt
     /// Has working resource(s) allocated: Returns the latest time a resource can finish work, and checks appointments if @p sch is not null.
-    DateTime workTimeBefore(const DateTime &dt, Schedule *sch = 0) const;
+    DateTime workTimeBefore(const DateTime &dt, Schedule *sch = nullptr) const;
     
 private:
     QList<ResourceGroup*> m_resource;

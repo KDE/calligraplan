@@ -47,10 +47,10 @@
 using namespace KPlato;
 
 Resource::Resource()
-    : QObject(0), // atm QObject is only for casting
-    m_project(0),
+    : QObject(nullptr), // atm QObject is only for casting
+    m_project(nullptr),
     m_autoAllocate(false),
-    m_currentSchedule(0),
+    m_currentSchedule(nullptr),
     m_blockChanged(false),
     m_shared(false)
 {
@@ -63,9 +63,9 @@ Resource::Resource()
     cost.normalRate = 100;
     cost.overtimeRate = 0;
     cost.fixed = 0;
-    cost.account = 0;
-    m_calendar = 0;
-    m_currentSchedule = 0;
+    cost.account = nullptr;
+    m_calendar = nullptr;
+    m_currentSchedule = nullptr;
     //debugPlan<<"("<<this<<")";
     
     // material: by default material is always available
@@ -77,9 +77,9 @@ Resource::Resource()
 }
 
 Resource::Resource(Resource *resource)
-    : QObject(0), // atm QObject is only for casting
-    m_project(0),
-    m_currentSchedule(0),
+    : QObject(nullptr), // atm QObject is only for casting
+    m_project(nullptr),
+    m_currentSchedule(nullptr),
     m_shared(false)
 {
     //debugPlan<<"("<<this<<") from ("<<resource<<")";
@@ -106,7 +106,7 @@ Resource::~Resource() {
 
 void Resource::removeRequests() {
     foreach (ResourceRequest *r, m_requests) {
-        r->setResource(0); // avoid the request to mess with my list
+        r->setResource(nullptr); // avoid the request to mess with my list
         delete r;
     }
     m_requests.clear();
@@ -135,7 +135,7 @@ void Resource::setId(const QString& id) {
 }
 
 void Resource::copy(Resource *resource) {
-    m_project = 0; // NOTE: Don't copy, will be set when added to a project
+    m_project = nullptr; // NOTE: Don't copy, will be set when added to a project
     //m_appointments = resource->appointments(); // Note
     m_id = resource->id();
     m_name = resource->name();
@@ -252,7 +252,7 @@ Calendar *Resource::calendar(bool local) const {
         return m_calendar;
     }
     // No calendar is set, try default calendar
-    Calendar *c = 0;
+    Calendar *c = nullptr;
     if (m_type == Type_Work && project()) {
         c =  project()->defaultCalendar();
     } else if (m_type == Type_Material) {
@@ -482,7 +482,7 @@ bool Resource::isAvailable(Task * /*task*/) {
 
 QList<Appointment*> Resource::appointments(long id) const {
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return QList<Appointment*>();
     }
     return s->appointments();
@@ -496,7 +496,7 @@ bool Resource::addAppointment(Appointment *appointment) {
 
 bool Resource::addAppointment(Appointment *appointment, Schedule &main) {
     Schedule *s = findSchedule(main.id());
-    if (s == 0) {
+    if (s == nullptr) {
         s = createSchedule(&main);
     }
     appointment->setResource(s);
@@ -508,7 +508,7 @@ void Resource::addAppointment(Schedule *node, const DateTime &start, const DateT
 {
     Q_ASSERT(start < end);
     Schedule *s = findSchedule(node->id());
-    if (s == 0) {
+    if (s == nullptr) {
         s = createSchedule(node->parent());
     }
     s->setCalculationMode(node->calculationMode());
@@ -561,7 +561,7 @@ Schedule *Resource::findSchedule(long id) const
             }
         }
     }
-    return 0;
+    return nullptr;
 }
 
 bool Resource::isScheduled() const
@@ -580,15 +580,15 @@ void Resource::deleteSchedule(Schedule *schedule) {
 }
 
 void Resource::takeSchedule(const Schedule *schedule) {
-    if (schedule == 0)
+    if (schedule == nullptr)
         return;
     if (m_currentSchedule == schedule)
-        m_currentSchedule = 0;
+        m_currentSchedule = nullptr;
     m_schedules.take(schedule->id());
 }
 
 void Resource::addSchedule(Schedule *schedule) {
-    if (schedule == 0)
+    if (schedule == nullptr)
         return;
     m_schedules.remove(schedule->id());
     m_schedules.insert(schedule->id(), schedule);
@@ -627,7 +627,7 @@ DateTimeInterval Resource::requiredAvailable(Schedule *node, const DateTime &sta
     DateTime availableFrom = m_availableFrom.isValid() ? m_availableFrom : (m_project ? m_project->constraintStartTime() : DateTime());
     DateTime availableUntil = m_availableUntil.isValid() ? m_availableUntil : (m_project ? m_project->constraintEndTime() : DateTime());
     DateTimeInterval x = interval.limitedTo(availableFrom, availableUntil);
-    if (calendar() == 0) {
+    if (calendar() == nullptr) {
 #ifndef PLAN_NLOGDEBUG
         if (m_currentSchedule) m_currentSchedule->logDebug(QString("Required available: no calendar, %1").arg(x.toString()));
 #endif
@@ -654,7 +654,7 @@ void Resource::makeAppointment(Schedule *node, const DateTime &from, const DateT
         return;
     }
     Calendar *cal = calendar();
-    if (cal == 0) {
+    if (cal == nullptr) {
         m_currentSchedule->logWarning(i18n("Resource %1 has no calendar defined", m_name));
         return;
     }
@@ -704,7 +704,7 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
         if (!from.isValid() || !end.isValid()) {
             return;
         }
-        if (cal == 0) {
+        if (cal == nullptr) {
             // Allocate the whole period
             addAppointment(node, from, end, m_units);
             return;
@@ -753,13 +753,13 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
 
 AppointmentIntervalList Resource::workIntervals(const DateTime &from, const DateTime &until) const
 {
-    return workIntervals(from, until, 0);
+    return workIntervals(from, until, nullptr);
 }
 
 AppointmentIntervalList Resource::workIntervals(const DateTime &from, const DateTime &until, Schedule *sch) const
 {
     Calendar *cal = calendar();
-    if (cal == 0) {
+    if (cal == nullptr) {
         return AppointmentIntervalList();
     }
     // update cache
@@ -779,7 +779,7 @@ AppointmentIntervalList Resource::workIntervals(const DateTime &from, const Date
 void Resource::calendarIntervals(const DateTime &from, const DateTime &until) const
 {
     Calendar *cal = calendar();
-    if (cal == 0) {
+    if (cal == nullptr) {
         m_workinfocache.clear();
         return;
     }
@@ -952,7 +952,7 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
         return e;
     }
     Calendar *cal = calendar();
-    if (cal == 0) {
+    if (cal == nullptr) {
         if (sch) sch->logWarning(i18n("Resource %1 has no calendar defined", m_name));
         return e;
     }
@@ -1025,7 +1025,7 @@ DateTime Resource::availableAfter(const DateTime &time, const DateTime &limit, S
         return t;
     }
     Calendar *cal = calendar();
-    if (cal == 0) {
+    if (cal == nullptr) {
         if (sch) sch->logWarning(i18n("Resource %1 has no calendar defined", m_name));
         debugPlan<<this<<"No calendar";
         return t;
@@ -1058,7 +1058,7 @@ DateTime Resource::availableBefore(const DateTime &time, const DateTime &limit, 
         return t;
     }
     Calendar *cal = calendar();
-    if (cal == 0) {
+    if (cal == nullptr) {
         return t;
     }
     DateTime availableUntil = m_availableUntil.isValid() ? m_availableUntil : (m_project ? m_project->constraintEndTime() : DateTime());
@@ -1085,7 +1085,7 @@ DateTime Resource::availableBefore(const DateTime &time, const DateTime &limit, 
 }
 
 Resource *Resource::findId(const QString &id) const { 
-    return m_project ? m_project->findResource(id) : 0; 
+    return m_project ? m_project->findResource(id) : nullptr; 
 }
 
 bool Resource::removeId(const QString &id) { 
@@ -1099,7 +1099,7 @@ void Resource::insertId(const QString &id) {
 }
 
 Calendar *Resource::findCalendar(const QString &id) const { 
-    return (m_project ? m_project->findCalendar(id) : 0); 
+    return (m_project ? m_project->findCalendar(id) : nullptr); 
 }
 
 bool Resource::isOverbooked() const {
@@ -1118,7 +1118,7 @@ bool Resource::isOverbooked(const DateTime &start, const DateTime &end) const {
 Appointment Resource::appointmentIntervals(long id) const {
     Appointment a;
     Schedule *s = findSchedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return a;
     }
     foreach (Appointment *app, static_cast<ResourceSchedule*>(s)->appointments()) {
@@ -1129,7 +1129,7 @@ Appointment Resource::appointmentIntervals(long id) const {
 
 Appointment Resource::appointmentIntervals() const {
     Appointment a;
-    if (m_currentSchedule == 0)
+    if (m_currentSchedule == nullptr)
         return a;
     foreach (Appointment *app, m_currentSchedule->appointments()) {
         a += *app;
@@ -1141,7 +1141,7 @@ EffortCostMap Resource::plannedEffortCostPrDay(const QDate &start, const QDate &
 {
     EffortCostMap ec;
     Schedule *s = findSchedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return ec;
     }
     ec = s->plannedEffortCostPrDay(start, end, typ);
@@ -1185,7 +1185,7 @@ void Resource::addExternalAppointment(const QString& id, Appointment* a)
 void Resource::addExternalAppointment(const QString &id, const QString &name, const DateTime &from, const DateTime &end, double load)
 {
     Appointment *a = m_externalAppointments.value(id);
-    if (a == 0) {
+    if (a == nullptr) {
         a = new Appointment();
         a->setAuxcilliaryInfo(name);
         a->addInterval(from, end, load);
@@ -1236,7 +1236,7 @@ void Resource::clearExternalAppointments(const QString &projectId)
 
 Appointment *Resource::takeExternalAppointment(const QString &id)
 {
-    Appointment *a = 0;
+    Appointment *a = nullptr;
     if (m_externalAppointments.contains(id)) {
         int row = m_externalAppointments.keys().indexOf(id); // clazy:exclude=container-anti-pattern
         emit externalAppointmentToBeRemoved(this, row);
@@ -1295,7 +1295,7 @@ DateTime Resource::startTime(long id) const
 {
     DateTime dt;
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return dt;
     }
     foreach (Appointment *a, s->appointments()) {
@@ -1311,7 +1311,7 @@ DateTime Resource::endTime(long id) const
 {
     DateTime dt;
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return dt;
     }
     foreach (Appointment *a, s->appointments()) {

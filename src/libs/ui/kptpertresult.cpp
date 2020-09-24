@@ -83,9 +83,9 @@ static const double dist[][2] = {
 //-----------------------------------
 PertResult::PertResult(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_node(0),
-    m_project(0),
-    current_schedule(0)
+    m_node(nullptr),
+    m_project(nullptr),
+    current_schedule(nullptr)
 {
     debugPlan << " ---------------- KPlato: Creating PertResult ----------------";
     setXMLFile("PertResultUi.rc");
@@ -180,7 +180,7 @@ void PertResult::slotContextMenuRequested(const QModelIndex& index, const QPoint
 {
     debugPlan<<index<<pos;
     Node *node = model()->node(index);
-    if (node == 0) {
+    if (node == nullptr) {
         slotHeaderContextMenuRequested(pos);
         return;
     }
@@ -252,8 +252,8 @@ void PertResult::slotProjectCalculated(KPlato::ScheduleManager *sm)
 void PertResult::slotScheduleManagerToBeRemoved(const ScheduleManager *sm)
 {
     if (sm == model()->manager()) {
-        current_schedule = 0;
-        model()->setManager(0);
+        current_schedule = nullptr;
+        model()->setManager(nullptr);
     }
 }
 
@@ -304,8 +304,8 @@ KoPrintJob *PertResult::createPrintJob()
 //--------------------
 PertCpmView::PertCpmView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
-    m_project(0),
-    current_schedule(0),
+    m_project(nullptr),
+    current_schedule(nullptr),
     block(false)
 {
     debugPlan << " ---------------- KPlato: Creating PertCpmView ----------------";
@@ -380,7 +380,7 @@ void PertCpmView::slotContextMenuRequested(const QModelIndex& index, const QPoin
 {
     debugPlan<<index<<pos;
     Node *node = model()->node(index);
-    if (node == 0) {
+    if (node == nullptr) {
         slotHeaderContextMenuRequested(pos);
         return;
     }
@@ -456,8 +456,8 @@ void PertCpmView::slotScheduleManagerChanged(ScheduleManager *sm)
 void PertCpmView::slotScheduleManagerToBeRemoved(const ScheduleManager *sm)
 {
     if (sm == current_schedule) {
-        current_schedule = 0;
-        model()->setManager(0);
+        current_schedule = nullptr;
+        model()->setManager(nullptr);
         widget.probabilityFrame->setVisible(false);
     }
 }
@@ -511,7 +511,7 @@ void PertCpmView::draw()
 void PertCpmView::slotFinishTimeChanged(const QDateTime &dt)
 {
     debugPlan<<dt;
-    if (block || m_project == 0 || current_schedule == 0) {
+    if (block || m_project == nullptr || current_schedule == nullptr) {
         return;
     }
     block = true;
@@ -531,7 +531,7 @@ void PertCpmView::slotFinishTimeChanged(const QDateTime &dt)
 void PertCpmView::slotProbabilityChanged(int value)
 {
     debugPlan<<value;
-    if (value == 0 || block || m_project == 0 || current_schedule == 0) {
+    if (value == 0 || block || m_project == nullptr || current_schedule == nullptr) {
         return;
     }
     block = true;

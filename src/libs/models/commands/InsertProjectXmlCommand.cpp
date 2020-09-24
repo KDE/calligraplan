@@ -84,7 +84,7 @@ InsertProjectXmlCommand::InsertProjectXmlCommand(Project *project, const QByteAr
         , m_first(true)
 {
     //debugPlanInsertProjectXml<<cal->name();
-    Q_ASSERT(project != 0);
+    Q_ASSERT(project != nullptr);
     m_context.setProject(project);
     m_context.setProjectTimeZone(project->timeZone()); // from xml doc?
     m_context.setLoadTaskChildren(false);

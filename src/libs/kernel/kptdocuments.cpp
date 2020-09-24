@@ -34,7 +34,7 @@ namespace KPlato
 Document::Document()
     : m_type(Type_None),
     m_sendAs(SendAs_None),
-    parent (0)
+    parent (nullptr)
 {
     //debugPlan<<this;
 }
@@ -42,7 +42,7 @@ Document::Document()
 Document::Document(const QUrl &url, Document::Type type, Document::SendAs sendAs)
     : m_type(type),
     m_sendAs(sendAs),
-    parent (0)
+    parent (nullptr)
 {
     setUrl(url);
     //debugPlan<<this;
@@ -170,13 +170,13 @@ void Document::save(QDomElement &element) const
 
 //----------------
 Documents::Documents()
-    : node(0)
+    : node(nullptr)
 {
     //debugPlan<<this;
 }
 
 Documents::Documents(const Documents &docs)
-    : node(0)
+    : node(nullptr)
 {
     //debugPlan<<this;
     foreach (Document *doc, docs.documents()) {
@@ -231,14 +231,14 @@ Document *Documents::takeDocument(int index)
     if (index >= 0 && index < m_docs.count()) {
         Document *doc = m_docs.takeAt(index);
         if (doc) {
-            doc->parent = 0;
+            doc->parent = nullptr;
             if (node) {
                 node->emitDocumentRemoved(node, doc, index);
             }
         }
         return doc;
     }
-    return 0;
+    return nullptr;
 }
 
 Document *Documents::takeDocument(Document *doc)
@@ -247,13 +247,13 @@ Document *Documents::takeDocument(Document *doc)
     int idx = m_docs.indexOf(doc);
     if (idx >= 0) {
         takeDocument(idx);
-        doc->parent = 0;
+        doc->parent = nullptr;
         if (node) {
             node->emitDocumentRemoved(node, doc, idx);
         }
         return doc;
     }
-    return 0;
+    return nullptr;
 }
 
 Document *Documents::findDocument(const Document *doc) const
@@ -268,7 +268,7 @@ Document *Documents::findDocument(const QUrl &url) const
             return m_docs.at(i);
         }
     }
-    return 0;
+    return nullptr;
 }
 
 bool Documents::load(KoXmlElement &element, XMLLoaderObject &status)

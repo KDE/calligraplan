@@ -261,7 +261,7 @@ Qt::ItemFlags ResourceGroupItemModel::flags(const QModelIndex &index) const
 
 QModelIndex ResourceGroupItemModel::parent(const QModelIndex &index) const
 {
-    if (!index.isValid() || m_project == 0) {
+    if (!index.isValid() || m_project == nullptr) {
         return QModelIndex();
     }
     //debugPlan<<index.internalPointer()<<":"<<index.row()<<","<<index.column();
@@ -279,7 +279,7 @@ QModelIndex ResourceGroupItemModel::parent(const QModelIndex &index) const
 
 QModelIndex ResourceGroupItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (m_project == 0 || column < 0 || column >= columnCount() || row < 0) {
+    if (m_project == nullptr || column < 0 || column >= columnCount() || row < 0) {
         return QModelIndex();
     }
     if (!parent.isValid()) {
@@ -584,7 +584,7 @@ void ResourceGroupItemModel::slotJobFinished(KJob *job)
     if (job->error() || ! m_dropDataMap.contains(job)) {
         debugPlan<<(job->error() ? "Job error":"Error: no such job");
     } else if (QMimeDatabase().mimeTypeForData(m_dropDataMap[ job ].data).inherits(QStringLiteral("text/x-vcard"))) {
-        ResourceGroup *g = 0;
+        ResourceGroup *g = nullptr;
         if (m_dropDataMap[ job ].parent.isValid()) {
             g = group(m_dropDataMap[ job ].parent);
         } else {
@@ -655,7 +655,7 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
     if (data->hasFormat("application/x-vnd.kde.plan.resourcegroupitemmodel.internal")) {
         debugPlan<<action<<Qt::MoveAction;
         if (action == Qt::MoveAction) {
-            MacroCommand *m = 0;
+            MacroCommand *m = nullptr;
             QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
@@ -663,7 +663,7 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
                 if (r->parentGroups().value(0) == g) {
                     continue;
                 }
-                if (m == 0) m = new MacroCommand(KUndo2MagicString());
+                if (m == nullptr) m = new MacroCommand(KUndo2MagicString());
                 m->addCommand(new MoveResourceCmd(g, r));
                 ++i;
             }
@@ -676,13 +676,13 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
             return true;
         }
         if (action == Qt::CopyAction) {
-            MacroCommand *m = 0;
+            MacroCommand *m = nullptr;
             QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
             foreach (Resource *r, resourceList(stream)) {
                 Resource *nr = new Resource(r);
-                if (m == 0) m = new MacroCommand(KUndo2MagicString());
+                if (m == nullptr) m = new MacroCommand(KUndo2MagicString());
                 m->addCommand(new AddResourceCmd(g, nr));
                 ++i;
             }

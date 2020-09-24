@@ -135,7 +135,7 @@ MacroCommand *TaskDialog::buildCommand() {
     }
     if (!modified) {
         delete m;
-        return 0;
+        return nullptr;
     }
     return m;
 }
@@ -181,7 +181,7 @@ MacroCommand *TaskAddDialog::buildCommand()
     if (m) {
         c->addCommand(m);
     }
-    m_node = 0; // don't delete task
+    m_node = nullptr; // don't delete task
     return c;
 }
 
@@ -211,7 +211,7 @@ void SubTaskAddDialog::slotNodeRemoved(Node *node)
 MacroCommand *SubTaskAddDialog::buildCommand()
 {
     KUndo2MagicString s = kundo2_i18n("Add sub-task");
-    if (m_currentnode == 0) {
+    if (m_currentnode == nullptr) {
         s = kundo2_i18n("Add task"); // it will be added to project
     }
     MacroCommand *c = new MacroCommand(s);
@@ -220,7 +220,7 @@ MacroCommand *SubTaskAddDialog::buildCommand()
     if (m) {
         c->addCommand(m);
     }
-    m_node = 0; // don't delete task
+    m_node = nullptr; // don't delete task
     return c;
 }
 

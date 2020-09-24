@@ -58,7 +58,7 @@ using namespace KPlato;
 
 AllocatedResourceItemModel::AllocatedResourceItemModel(QObject *parent)
     : QSortFilterProxyModel(parent),
-    m_task(0)
+    m_task(nullptr)
 {
     setDynamicSortFilter(true);
     setSourceModel(new ResourceItemModel(this));
@@ -178,7 +178,7 @@ QVariant AllocatedResourceItemModel::allocation(const Resource *res, int role) c
 
 QVariant AllocatedResourceItemModel::data(const QModelIndex& idx, int role) const
 {
-    if (m_task == 0 || role == Qt::CheckStateRole || role == Qt::DecorationRole) {
+    if (m_task == nullptr || role == Qt::CheckStateRole || role == Qt::DecorationRole) {
         return QVariant();
     }
     if (idx.column() == 1) {

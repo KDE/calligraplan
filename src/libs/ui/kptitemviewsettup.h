@@ -42,7 +42,7 @@ class PLANUI_EXPORT ItemViewSettup : public QWidget, public Ui::ItemViewSettings
 {
     Q_OBJECT
 public:
-    explicit ItemViewSettup(TreeViewBase *view, bool includeColumn0, QWidget *parent = 0);
+    explicit ItemViewSettup(TreeViewBase *view, bool includeColumn0, QWidget *parent = nullptr);
     
     class Item : public QListWidgetItem
     {
@@ -71,7 +71,7 @@ class PLANUI_EXPORT ItemViewSettupDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit ItemViewSettupDialog(ViewBase *view, TreeViewBase *treeview, bool includeColumn0 = false, QWidget *parent = 0);
+    explicit ItemViewSettupDialog(ViewBase *view, TreeViewBase *treeview, bool includeColumn0 = false, QWidget *parent = nullptr);
 
     KPageWidgetItem *insertWidget(int before, QWidget *widget, const QString &name, const QString &header);
     void addPrintingOptions(bool setAsCurrent = false);
@@ -92,7 +92,7 @@ class PLANUI_EXPORT SplitItemViewSettupDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit SplitItemViewSettupDialog(ViewBase *view, DoubleTreeViewBase *treeview, QWidget *parent = 0);
+    explicit SplitItemViewSettupDialog(ViewBase *view, DoubleTreeViewBase *treeview, QWidget *parent = nullptr);
 
     KPageWidgetItem *insertWidget(int before, QWidget *widget, const QString &name, const QString &header);
     void addPrintingOptions(bool setAsCurrent = false);

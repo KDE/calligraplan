@@ -52,7 +52,7 @@ WorkPackageSendPanel::WorkPackageSendPanel(const QList<Node*> &tasks,  ScheduleM
     long id = sm ? sm->scheduleId() : NOTSCHEDULED;
     foreach (Node *n, tasks) {
         Task *t = qobject_cast<Task*>(n);
-        if (t == 0) {
+        if (t == nullptr) {
             continue;
         }
         foreach (Resource *r, t->workPackage().fetchResources(id)) {

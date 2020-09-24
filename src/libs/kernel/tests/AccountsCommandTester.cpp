@@ -228,15 +228,15 @@ void AccountsCommandTester::costPlace()
     cmds.push(new AddAccountCmd(*m_project, a3));
     QCOMPARE(m_project->accounts().allAccounts().count(), 3);
 
-    cmds.push(new NodeModifyRunningAccountCmd(*m_task, 0, a1));
+    cmds.push(new NodeModifyRunningAccountCmd(*m_task, nullptr, a1));
     QCOMPARE(m_task->runningAccount(), a1);
-    cmds.push(new NodeModifyStartupAccountCmd(*m_task, 0, a2));
+    cmds.push(new NodeModifyStartupAccountCmd(*m_task, nullptr, a2));
     QCOMPARE(m_task->startupAccount(), a2);
-    cmds.push(new NodeModifyShutdownAccountCmd(*m_task, 0, a3));
+    cmds.push(new NodeModifyShutdownAccountCmd(*m_task, nullptr, a3));
     QCOMPARE(m_task->shutdownAccount(), a3);
 
     cmds.push(new RemoveAccountCmd(*m_project, a1));
-    QVERIFY(m_task->runningAccount() == 0);
+    QVERIFY(m_task->runningAccount() == nullptr);
     QCOMPARE(m_task->startupAccount(), a2);
     QCOMPARE(m_task->shutdownAccount(), a3);
     cmds.undo();
@@ -245,7 +245,7 @@ void AccountsCommandTester::costPlace()
     QCOMPARE(m_task->shutdownAccount(), a3);
 
     cmds.push(new RemoveAccountCmd(*m_project, a2));
-    QVERIFY(m_task->startupAccount() == 0);
+    QVERIFY(m_task->startupAccount() == nullptr);
     QCOMPARE(m_task->runningAccount(), a1);
     QCOMPARE(m_task->shutdownAccount(), a3);
     cmds.undo();
@@ -254,7 +254,7 @@ void AccountsCommandTester::costPlace()
     QCOMPARE(m_task->shutdownAccount(), a3);
 
     cmds.push(new RemoveAccountCmd(*m_project, a3));
-    QVERIFY(m_task->shutdownAccount() == 0);
+    QVERIFY(m_task->shutdownAccount() == nullptr);
     QCOMPARE(m_task->runningAccount(), a1);
     QCOMPARE(m_task->startupAccount(), a2);
     cmds.undo();
@@ -262,12 +262,12 @@ void AccountsCommandTester::costPlace()
     QCOMPARE(m_task->startupAccount(), a2);
     QCOMPARE(m_task->shutdownAccount(), a3);
 
-    cmds.push(new ResourceModifyAccountCmd(*m_resource, 0, a1));
+    cmds.push(new ResourceModifyAccountCmd(*m_resource, nullptr, a1));
     QCOMPARE(m_resource->account(), a1);
 
     cmds.push(new RemoveAccountCmd(*m_project, a1));
-    QVERIFY(m_task->runningAccount() == 0);
-    QVERIFY(m_resource->account() == 0);
+    QVERIFY(m_task->runningAccount() == nullptr);
+    QVERIFY(m_resource->account() == nullptr);
     cmds.undo();
     QCOMPARE(m_task->runningAccount(), a1);
     QCOMPARE(m_resource->account(), a1);
@@ -281,37 +281,37 @@ void AccountsCommandTester::costPlace()
     cmds.push(new AddAccountCmd(*m_project, a1));
     QCOMPARE(m_project->accounts().allAccounts().count(), 1);
 
-    cmds.push(new NodeModifyRunningAccountCmd(*m_task, 0, a1));
+    cmds.push(new NodeModifyRunningAccountCmd(*m_task, nullptr, a1));
     QCOMPARE(m_task->runningAccount(), a1);
-    cmds.push(new NodeModifyStartupAccountCmd(*m_task, 0, a1));
+    cmds.push(new NodeModifyStartupAccountCmd(*m_task, nullptr, a1));
     QCOMPARE(m_task->startupAccount(), a1);
-    cmds.push(new NodeModifyShutdownAccountCmd(*m_task, 0, a1));
+    cmds.push(new NodeModifyShutdownAccountCmd(*m_task, nullptr, a1));
     QCOMPARE(m_task->shutdownAccount(), a1);
 
     cmds.undo();
     QCOMPARE(m_task->runningAccount(), a1);
     QCOMPARE(m_task->startupAccount(), a1);
-    QVERIFY(m_task->shutdownAccount() == 0);
+    QVERIFY(m_task->shutdownAccount() == nullptr);
 
     cmds.undo();
     QCOMPARE(m_task->runningAccount(), a1);
-    QVERIFY(m_task->startupAccount() == 0);
-    QVERIFY(m_task->shutdownAccount() == 0);
+    QVERIFY(m_task->startupAccount() == nullptr);
+    QVERIFY(m_task->shutdownAccount() == nullptr);
 
     cmds.undo();
-    QVERIFY(m_task->runningAccount() == 0);
-    QVERIFY(m_task->startupAccount() == 0);
-    QVERIFY(m_task->shutdownAccount() == 0);
+    QVERIFY(m_task->runningAccount() == nullptr);
+    QVERIFY(m_task->startupAccount() == nullptr);
+    QVERIFY(m_task->shutdownAccount() == nullptr);
 
     cmds.redo();
     QCOMPARE(m_task->runningAccount(), a1);
-    QVERIFY(m_task->startupAccount() == 0);
-    QVERIFY(m_task->shutdownAccount() == 0);
+    QVERIFY(m_task->startupAccount() == nullptr);
+    QVERIFY(m_task->shutdownAccount() == nullptr);
 
     cmds.redo();
     QCOMPARE(m_task->runningAccount(), a1);
     QCOMPARE(m_task->startupAccount(), a1);
-    QVERIFY(m_task->shutdownAccount() == 0);
+    QVERIFY(m_task->shutdownAccount() == nullptr);
 
     cmds.redo();
     QCOMPARE(m_task->runningAccount(), a1);

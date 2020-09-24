@@ -40,9 +40,9 @@ namespace KPlato
 {
 
 Node::Node(Node *parent) 
-    : QObject(0), // We don't use qobjects parent
+    : QObject(nullptr), // We don't use qobjects parent
       m_nodes(), m_dependChildNodes(), m_dependParentNodes(),
-      m_estimate(0),
+      m_estimate(nullptr),
       m_blockChanged(false)
 {
     //debugPlan<<"("<<this<<")";
@@ -52,11 +52,11 @@ Node::Node(Node *parent)
 }
 
 Node::Node(const Node &node, Node *parent) 
-    : QObject(0), // Don't set parent, we handle parent/child ourselves
+    : QObject(nullptr), // Don't set parent, we handle parent/child ourselves
       m_nodes(), 
       m_dependChildNodes(), 
       m_dependParentNodes(),
-      m_estimate(0),
+      m_estimate(nullptr),
       m_blockChanged(false)
 {
     //debugPlan<<"("<<this<<")";
@@ -105,22 +105,22 @@ Node::~Node() {
         delete s;
     }
     m_schedules.clear();
-    m_parent = 0; //safety
+    m_parent = nullptr; //safety
 }
 
 void Node::init() {
     m_priority = 0;
     m_documents.node = this;
-    m_currentSchedule = 0;
+    m_currentSchedule = nullptr;
     m_name="";
     m_constraint = Node::ASAP;
-    m_estimate = 0;
+    m_estimate = nullptr;
     m_visitedForward = false;
     m_visitedBackward = false;
     
-    m_runningAccount = 0;
-    m_startupAccount = 0;
-    m_shutdownAccount = 0;
+    m_runningAccount = nullptr;
+    m_startupAccount = nullptr;
+    m_shutdownAccount = nullptr;
     m_startupCost = 0.0;
     m_shutdownCost = 0.0;
 }
@@ -189,7 +189,7 @@ Node *Node::projectNode() {
         return m_parent->projectNode();
 
     // This happens for default tasks
-    return 0;
+    return nullptr;
 }
 
 const Node *Node::projectNode() const {
@@ -200,7 +200,7 @@ const Node *Node::projectNode() const {
         return m_parent->projectNode();
 
     // This happens for default tasks
-    return 0;
+    return nullptr;
 }
 
 void Node::takeChildNode(Node *node) {
@@ -210,7 +210,7 @@ void Node::takeChildNode(Node *node) {
     if (i != -1) {
         m_nodes.removeAt(i);
     }
-    node->setParentNode(0);
+    node->setParentNode(nullptr);
     if (t != type()) {
         changed(TypeProperty);
     }
@@ -222,7 +222,7 @@ void Node::takeChildNode(int number) {
         Node *n = m_nodes.takeAt(number);
         //debugPlan<<(n?n->id():"null")<<" :"<<(n?n->name():"");
         if (n) {
-            n->setParentNode(0);
+            n->setParentNode(nullptr);
         }
     }
     if (t != type()) {
@@ -267,7 +267,7 @@ int Node::findChildNode(const Node* node) const
 
 bool Node::isChildOf(const Node* node) const
 {
-    if (node == 0 || m_parent == 0) {
+    if (node == nullptr || m_parent == nullptr) {
         return false;
     }
     if (node == m_parent) {
@@ -286,7 +286,7 @@ Node* Node::childNode(int number)
 const Node* Node::childNode(int number) const
 {
     if (number < 0 || number >= m_nodes.count()) {
-        return 0;
+        return nullptr;
     }
     return m_nodes.at(number);
 }
@@ -301,7 +301,7 @@ Duration *Node::getDelay() {
     /* TODO
        Calculate the delay of this node. Use the calculated startTime and the set startTime.
     */
-    return 0L;
+    return nullptr;
 }
 
 void Node::addDependChildNode(Node *node, Relation::Type p) {
@@ -394,7 +394,7 @@ Relation *Node::findParentRelation(const Node *node) const
         if (rel->parent() == node)
             return rel;
     }
-    return (Relation *)0;
+    return (Relation *)nullptr;
 }
 
 Relation *Node::findChildRelation(const Node *node) const
@@ -404,7 +404,7 @@ Relation *Node::findChildRelation(const Node *node) const
         if (rel->child() == node)
             return rel;
     }
-    return (Relation *)0;
+    return (Relation *)nullptr;
 }
 
 Relation *Node::findRelation(const Node *node) const
@@ -664,7 +664,7 @@ bool Node::notScheduled(long id) const
         return true;
     }
     Schedule *s = schedule(id);
-    return s == 0 || s->isDeleted() || s->notScheduled;
+    return s == nullptr || s->isDeleted() || s->notScheduled;
 }
 
 QStringList Node::overbookedResources(long id) const
@@ -736,7 +736,7 @@ QStringList Node::constraintList(bool trans) {
 }
 
 void Node::propagateEarliestStart(DateTime &time) {
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return;
     }
     if (type() != Type_Project) {
@@ -776,7 +776,7 @@ void Node::propagateEarliestStart(DateTime &time) {
 }
 
 void Node::propagateLatestFinish(DateTime &time) {
-    if (m_currentSchedule == 0) {
+    if (m_currentSchedule == nullptr) {
         return;
     }
     if (type() != Type_Project) {
@@ -815,7 +815,7 @@ void Node::propagateLatestFinish(DateTime &time) {
 }
 
 void Node::moveEarliestStart(DateTime &time) {
-    if (m_currentSchedule == 0)
+    if (m_currentSchedule == nullptr)
         return;
     if (m_currentSchedule->earlyStart < time) {
         //m_currentSchedule->logDebug("moveEarliestStart: " + m_currentSchedule->earlyStart.toString() + " -> " + time.toString());
@@ -828,7 +828,7 @@ void Node::moveEarliestStart(DateTime &time) {
 }
 
 void Node::moveLatestFinish(DateTime &time) {
-    if (m_currentSchedule == 0)
+    if (m_currentSchedule == nullptr)
         return;
     if (m_currentSchedule->lateFinish > time)
         m_currentSchedule->lateFinish = time;
@@ -866,7 +866,7 @@ Node *Node::siblingBefore() {
     //debugPlan;
     if (parentNode())
         return parentNode()->childBefore(this);
-    return 0;
+    return nullptr;
 }
 
 Node *Node::childBefore(Node *node) {
@@ -875,14 +875,14 @@ Node *Node::childBefore(Node *node) {
     if (index > 0){
         return m_nodes.at(index-1);
     }
-    return 0;
+    return nullptr;
 }
 
 Node *Node::siblingAfter() {
     //debugPlan;
     if (parentNode())
         return parentNode()->childAfter(this);
-    return 0;
+    return nullptr;
 }
 
 Node *Node::childAfter(Node *node)
@@ -893,7 +893,7 @@ Node *Node::childAfter(Node *node)
     if (index < m_nodes.count()-1) {
         return m_nodes.at(index+1);
     }
-    return 0;
+    return nullptr;
 }
 
 bool Node::moveChildUp(Node* node)
@@ -1002,7 +1002,7 @@ QList<Resource*> Node::assignedResources(long id) const {
 // called from resource side when resource adds appointment
 bool Node::addAppointment(Appointment *appointment, Schedule &main) {
     Schedule *s = findSchedule(main.id());
-    if (s == 0) {
+    if (s == nullptr) {
         s = createSchedule(&main);
     }
     appointment->setNode(s);
@@ -1012,7 +1012,7 @@ bool Node::addAppointment(Appointment *appointment, Schedule &main) {
 
 void Node::addAppointment(ResourceSchedule *resource, const DateTime &start, const DateTime &end, double load) {
     Schedule *node = findSchedule(resource->id());
-    if (node == 0) {
+    if (node == nullptr) {
         node = createSchedule(resource->parent());
     }
     node->setCalculationMode(resource->calculationMode());
@@ -1026,15 +1026,15 @@ bool Node::isBaselined(long id) const
 }
 
 void Node::takeSchedule(const Schedule *schedule) {
-    if (schedule == 0)
+    if (schedule == nullptr)
         return;
     if (m_currentSchedule == schedule)
-        m_currentSchedule = 0;
+        m_currentSchedule = nullptr;
     m_schedules.take(schedule->id());
 }
 
 void Node::addSchedule(Schedule *schedule) {
-    if (schedule == 0)
+    if (schedule == nullptr)
         return;
     m_schedules.insert(schedule->id(), schedule);
 }
@@ -1062,19 +1062,19 @@ Schedule *Node::schedule(long id) const
                     return s;
                 }
             }
-            return 0;
+            return nullptr;
         }
         case CURRENTSCHEDULE:
             return m_currentSchedule;
         case NOTSCHEDULED:
-            return 0;
+            return nullptr;
         case BASELINESCHEDULE: {
             foreach (Schedule *s, m_schedules) {
                 if (s->isBaselined()) {
                     return s;
                 }
             }
-            return 0;
+            return nullptr;
         }
         default:
             break;
@@ -1094,7 +1094,7 @@ Schedule *Node::findSchedule(const QString &name, const Schedule::Type type) {
             sch->name() == name && sch->type() == type)
             return sch;
     }
-    return 0;
+    return nullptr;
 }
 
 Schedule *Node::findSchedule(const QString &name) {
@@ -1102,7 +1102,7 @@ Schedule *Node::findSchedule(const QString &name) {
         if (!sch->isDeleted() && sch->name() == name)
             return sch;
     }
-    return 0;
+    return nullptr;
 }
 
 
@@ -1114,12 +1114,12 @@ Schedule *Node::findSchedule(const Schedule::Type type) {
             return sch;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 void Node::setScheduleDeleted(long id, bool on) {
     Schedule *ns = findSchedule(id);
-    if (ns == 0) {
+    if (ns == nullptr) {
         errorPlan<<m_name<<" Could not find schedule with id="<<id;
     } else {
         ns->setDeleted(on);
@@ -1138,7 +1138,7 @@ void Node::setParentSchedule(Schedule *sch) {
 }
 
 bool Node::calcCriticalPath(bool fromEnd) {
-    if (m_currentSchedule == 0)
+    if (m_currentSchedule == nullptr)
         return false;
     //debugPlan<<m_name;
     if (!isCritical()) {
@@ -1175,7 +1175,7 @@ int Node::level() const {
 
 QString Node::generateWBSCode(QList<int> &indexes, bool sortable) const {
     //debugPlan<<m_name<<indexes;
-    if (m_parent == 0) {
+    if (m_parent == nullptr) {
         return QString();
     }
     indexes.insert(0, m_parent->indexOf(this));
@@ -1191,7 +1191,7 @@ QString Node::wbsCode(bool sortable) const {
 bool Node::isScheduled(long id) const
 {
     Schedule *s = schedule(id);
-    return s != 0 && s->isScheduled();
+    return s != nullptr && s->isScheduled();
 }
 
 void Node::setCurrentSchedule(long id) {
@@ -1321,7 +1321,7 @@ EffortCostMap Node::bcwsPrDay(long int id, EffortCostCalculationType type) const
 EffortCostMap Node::bcwsPrDay(long int id, EffortCostCalculationType type)
 {
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return EffortCostMap();
     }
     EffortCostCache &ec = s->bcwsPrDayCache(type);
@@ -1343,7 +1343,7 @@ EffortCostMap Node::bcwpPrDay(long int id, EffortCostCalculationType type) const
 EffortCostMap Node::bcwpPrDay(long int id, EffortCostCalculationType type)
 {
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return EffortCostMap();
     }
     EffortCostCache &ec = s->bcwpPrDayCache(type);
@@ -1365,7 +1365,7 @@ EffortCostMap Node::acwp(long id, EffortCostCalculationType type) const
 EffortCostMap Node::acwp(long id, EffortCostCalculationType type)
 {
     Schedule *s = schedule(id);
-    if (s == 0) {
+    if (s == nullptr) {
         return EffortCostMap();
     }
     EffortCostCache &ec = s->acwpCache(type);
@@ -1432,7 +1432,7 @@ Estimate::Estimate(Node *parent)
     setOptimisticEstimate(8.0);
     
     m_type = Type_Effort;
-    m_calendar = 0;
+    m_calendar = nullptr;
     m_risktype = Risk_None;
 }
 
@@ -1455,7 +1455,7 @@ void Estimate::clear()
     setOptimisticEstimate(0.0);
     
     m_type = Type_Effort;
-    m_calendar = 0;
+    m_calendar = nullptr;
     m_risktype = Risk_None;
     m_unit = Duration::Unit_h;
     changed(Node::EstimateProperty);
@@ -1883,14 +1883,14 @@ QList<qint64> Estimate::defaultScales()
 QList<qint64> Estimate::scales() const
 {
     QList<qint64> s;
-    if (m_type == Type_Duration && m_calendar == 0) {
+    if (m_type == Type_Duration && m_calendar == nullptr) {
         return s; // Use default scaling (24h a day...)
     }
-    if (m_parent == 0) {
+    if (m_parent == nullptr) {
         return s;
     }
     Project *p = static_cast<Project*>(m_parent->projectNode());
-    if (p == 0) {
+    if (p == nullptr) {
         return s;
     }
     s << p->standardWorktime()->scales();

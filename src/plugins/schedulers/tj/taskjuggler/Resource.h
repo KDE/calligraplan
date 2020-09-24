@@ -117,7 +117,7 @@ public:
     /// Return a list of booked intervals for scenario @p sc and task @p task
     QVector<Interval> getBookedIntervals(int sc, const Task* task) const;
 
-    double getCurrentLoad(const Interval& i, const Task* task = 0) const;
+    double getCurrentLoad(const Interval& i, const Task* task = nullptr) const;
 
     /// Get the number of work slots for the day @p date. It includes both free and booked.
     uint getWorkSlots(time_t date) const;
@@ -132,12 +132,12 @@ public:
      */
     double getEffectiveLoad(int sc, const Interval& i,
                             AccountType acctType = AllAccounts,
-                             const Task* task = 0) const;
+                             const Task* task = nullptr) const;
     double getAllocatedTimeLoad(int sc, const Interval& period,
-                                AccountType acctType, const Task* task = 0)
+                                AccountType acctType, const Task* task = nullptr)
         const;
     long getAllocatedTime(int sc, const Interval& period, AccountType acctType,
-                          const Task* task = 0) const;
+                          const Task* task = nullptr) const;
 
     /***
      * Return the unallocated load of the resource and its children wheighted
@@ -148,9 +148,9 @@ public:
     long getAvailableTime(int sc, const Interval& period);
 
     double getCredits(int sc, const Interval& i, AccountType acctType,
-                      const Task* task = 0) const;
+                      const Task* task = nullptr) const;
 
-    QString getProjectIDs(int sc, const Interval& i, const Task* task = 0)
+    QString getProjectIDs(int sc, const Interval& i, const Task* task = nullptr)
         const;
 
     bool isAllocated(int sc, const Interval& i,

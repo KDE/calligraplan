@@ -111,7 +111,7 @@ public:
      *
      * @return The string converted to a double
      */
-    double readMoney(const QString &numStr, bool *ok = 0) const;
+    double readMoney(const QString &numStr, bool *ok = nullptr) const;
 
     /**
      * Returns the explicitly set currency symbol.

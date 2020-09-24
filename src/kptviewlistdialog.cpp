@@ -219,13 +219,13 @@ bool AddViewPanel::ok()
 {
     QString n = widget.category->currentText();
     ViewListItem *curr = m_categories.value(n);
-    QString c = curr == 0 ? n : curr->tag();
+    QString c = curr == nullptr ? n : curr->tag();
 
     ViewListItem *cat = m_viewlist.addCategory(c, n);
-    if (cat == 0) {
+    if (cat == nullptr) {
         return false;
     }
-    ViewBase *v = 0;
+    ViewBase *v = nullptr;
     int index = widget.insertAfter->currentIndex();
     int viewtype = widget.viewtype->currentIndex();
     switch (viewtype) {
@@ -377,10 +377,10 @@ bool EditViewPanel::ok()
 {
     QString n = widget.category->currentText();
     ViewListItem *curr = m_categories.value(n);
-    QString c = curr == 0 ? n : curr->tag();
+    QString c = curr == nullptr ? n : curr->tag();
 
     ViewListItem *cat = m_viewlist.addCategory(c, n);
-    if (cat == 0) {
+    if (cat == nullptr) {
         warnPlan<<"No category";
         return false;
     }
@@ -491,7 +491,7 @@ bool EditCategoryPanel::ok()
     bool ex = m_item->isExpanded();
     m_viewlist.removeViewListItem(m_item);
     int index = widget.insertAfter->currentIndex();
-    m_viewlist.addViewListItem(m_item, 0, index);
+    m_viewlist.addViewListItem(m_item, nullptr, index);
     m_item->setExpanded(ex);
     return true;
 }

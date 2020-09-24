@@ -240,7 +240,7 @@ class PLANUI_EXPORT ScheduleHandlerView : public SplitterView
 public:
     ScheduleHandlerView(KoPart *part, KoDocument *doc, QWidget *parent);
     
-    Project *project() const override { return 0; }
+    Project *project() const override { return nullptr; }
 
     ScheduleEditor *scheduleEditor() const { return m_scheduleEditor; }
     /// Always returns this (if we are called, we are hit)
@@ -268,7 +268,7 @@ class SchedulingRange : public QWidget, public Ui::SchedulingRange
 {
     Q_OBJECT
 public:
-    SchedulingRange(KoDocument *doc, QWidget *parent = 0);
+    SchedulingRange(KoDocument *doc, QWidget *parent = nullptr);
  
     void setReadWrite(bool rw);
 

@@ -76,9 +76,9 @@ class KoViewPrivate
 {
 public:
     KoViewPrivate() {
-        tempActiveWidget = 0;
+        tempActiveWidget = nullptr;
         documentDeleted = false;
-        actionAuthor = 0;
+        actionAuthor = nullptr;
     }
     ~KoViewPrivate() {
     }
@@ -97,7 +97,7 @@ public:
     {
     public:
         StatusBarItem() // for QValueList
-            : m_widget(0),
+            : m_widget(nullptr),
               m_connected(false),
               m_hidden(false) {}
 
@@ -304,7 +304,7 @@ void KoView::removeStatusBarItem(QWidget *widget)
 KoPrintJob * KoView::createPrintJob()
 {
     warnMain << "Printing not implemented in this application";
-    return 0;
+    return nullptr;
 }
 
 KoPrintJob * KoView::createPdfPrintJob()
@@ -379,7 +379,7 @@ KoMainWindow * KoView::mainWindow() const
 QStatusBar * KoView::statusBar() const
 {
     KoMainWindow *mw = mainWindow();
-    return mw ? mw->statusBar() : 0;
+    return mw ? mw->statusBar() : nullptr;
 }
 
 void KoView::slotActionStatusText(const QString &text)

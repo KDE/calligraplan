@@ -100,12 +100,12 @@ public:
     /// For teams the latest time for any team member is used.
     DateTime availableUntil();
 
-    Schedule *resourceSchedule(Schedule *ns, Resource *resource = 0);
+    Schedule *resourceSchedule(Schedule *ns, Resource *resource = nullptr);
     DateTime availableAfter(const DateTime &time, Schedule *ns);
     DateTime availableBefore(const DateTime &time, Schedule *ns);
     Duration effort(const DateTime &time, const Duration &duration, Schedule *ns, bool backward);
-    DateTime workTimeAfter(const DateTime &dt, Schedule *ns = 0);
-    DateTime workTimeBefore(const DateTime &dt, Schedule *ns = 0);
+    DateTime workTimeAfter(const DateTime &dt, Schedule *ns = nullptr);
+    DateTime workTimeBefore(const DateTime &dt, Schedule *ns = nullptr);
 
     /// Resource is allocated dynamically by the group request
     bool isDynamicallyAllocated() const { return m_dynamic; }
@@ -163,7 +163,7 @@ class PLANKERNEL_EXPORT ResourceRequestCollection : public QObject
 {
     Q_OBJECT
 public:
-    explicit ResourceRequestCollection(Task *task = 0);
+    explicit ResourceRequestCollection(Task *task = nullptr);
     ~ResourceRequestCollection();
 
     bool contains(ResourceRequest *request) const;
@@ -212,8 +212,8 @@ public:
 
     DateTime availableAfter(const DateTime &time, Schedule *ns);
     DateTime availableBefore(const DateTime &time, Schedule *ns);
-    DateTime workTimeAfter(const DateTime &dt, Schedule *ns = 0) const;
-    DateTime workTimeBefore(const DateTime &dt, Schedule *ns = 0) const;
+    DateTime workTimeAfter(const DateTime &dt, Schedule *ns = nullptr) const;
+    DateTime workTimeBefore(const DateTime &dt, Schedule *ns = nullptr) const;
     DateTime workStartAfter(const DateTime &time, Schedule *ns);
     DateTime workFinishBefore(const DateTime &time, Schedule *ns);
 

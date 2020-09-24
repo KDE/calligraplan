@@ -58,7 +58,7 @@ Task::Task(Project* proj, const QString& id_, const QString& n, Task* p,
     milestone(false),
     priority(0),
     scheduling(ASAP),
-    responsible(0),
+    responsible(nullptr),
     shifts(),
     allocations(),
 //     account(0),
@@ -529,7 +529,7 @@ Task::propagateStart(int sc, time_t date)
     }
     /* Set start date to all previous that have no start date yet, but are
      * ALAP task or have no duration. */
-    for (TaskListIterator tli(previous); *tli != 0; ++tli) {
+    for (TaskListIterator tli(previous); *tli != nullptr; ++tli) {
         if ((*tli)->end == 0 && (*tli)->latestEnd(sc) != 0 &&
             !(*tli)->schedulingDone &&
             ((*tli)->scheduling == ALAP ||
@@ -743,7 +743,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
                      * of the group must be available. */
                     int availability = 0;
                     bool allAvailable = true;
-                    for (ResourceTreeIterator rti(r); *rti != 0; ++rti) {
+                    for (ResourceTreeIterator rti(r); *rti != nullptr; ++rti) {
                         if ((availability = isAvailable(a, (*rti), date)) > 0 ||
                             mandatoryResources.contains(*rti))
                         {
@@ -941,7 +941,7 @@ Task::bookResource(Allocation *allocation, Resource* r, time_t date, time_t slot
     bool booked = false;
     double intervalLoad = project->convertToDailyLoad(slotDuration);
 
-    for (ResourceTreeIterator rti(r); *rti != 0; ++rti)
+    for (ResourceTreeIterator rti(r); *rti != nullptr; ++rti)
     {
         int availability = isAvailable(allocation, (*rti), date);
         if (availability == 0)
@@ -1023,7 +1023,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
         candidates.removeAll(a->getLockedResource());
         /* When an allocation is booked the resource is saved as locked
          * resource. */
-        a->setLockedResource(0);
+        a->setLockedResource(nullptr);
     }
     switch (a->getSelectionMode())
     {
@@ -1049,7 +1049,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
                 /* Find canidate with smallest allocationProbability and
                  * append it to the candidate list. */
                 double minProbability = 0;
-                Resource* minProbResource = 0;
+                Resource* minProbResource = nullptr;
                 foreach (Resource *r, candidates)
                 {
                     double probability = r->getAllocationProbability(sc);
@@ -1071,7 +1071,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
             while (!candidates.isEmpty())
             {
                 double minLoad = 0;
-                Resource* minLoaded = 0;
+                Resource* minLoaded = nullptr;
                 foreach (Resource *r, candidates)
                 {
                     /* We calculate the load as a relative value to the daily
@@ -1079,14 +1079,14 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
                      * max as slowly as the full timers. */
                     double load =
                         r->getCurrentLoad(Interval(project->getStart(),
-                                                        date), 0) /
+                                                        date), nullptr) /
                         ((r->getLimits() &&
                           r->getLimits()->getDailyMax() > 0) ?
                          project->convertToDailyLoad
                          (r->getLimits()->getDailyMax() *
                           project->getScheduleGranularity()) : 1.0);
 
-                    if (minLoaded == 0 || load < minLoad)
+                    if (minLoaded == nullptr || load < minLoad)
                     {
                         minLoad = load;
                         minLoaded = r;
@@ -1104,7 +1104,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
             while (!candidates.isEmpty())
             {
                 double maxLoad = 0;
-                Resource* maxLoaded = 0;
+                Resource* maxLoaded = nullptr;
                 foreach (Resource *r, candidates)
                 {
                     /* We calculate the load as a relative value to the daily
@@ -1112,14 +1112,14 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
                      * max as fast as the full timers. */
                     double load =
                         r->getCurrentLoad(Interval(project->getStart(),
-                                                        date), 0) /
+                                                        date), nullptr) /
                         ((r->getLimits() &&
                           r->getLimits()->getDailyMax() > 0) ?
                          project->convertToDailyLoad
                          (r->getLimits()->getDailyMax() *
                           project->getScheduleGranularity()) : 1.0);
 
-                    if (maxLoaded == 0 || load > maxLoad)
+                    if (maxLoaded == nullptr || load > maxLoad)
                     {
                         maxLoad = load;
                         maxLoaded = r;
@@ -1222,7 +1222,7 @@ Task::isCompleted(int sc, time_t date) const
         {
             return qRound((scenarios[sc].effort *
                            (scenarios[sc].reportedCompletion / 100.0)) * 1000)
-                >= qRound(getLoad(sc, Interval(scenarios[sc].start, date), 0)
+                >= qRound(getLoad(sc, Interval(scenarios[sc].start, date), nullptr)
                          * 1000);
         }
         else
@@ -1503,7 +1503,7 @@ Task::xRef(QMap<QString, Task*>& hash)
         TaskDependency *td = static_cast<TaskDependency*>(tdi.next());
         QString absId = resolveId(td->getTaskRefId());
         Task* t;
-        if ((t = hash.value(absId)) == 0)
+        if ((t = hash.value(absId)) == nullptr)
         {
             errorMessage(QString("Unknown dependency '%1'").arg(absId));
             brokenDeps.append(td);
@@ -1568,7 +1568,7 @@ Task::xRef(QMap<QString, Task*>& hash)
         TaskDependency *td = static_cast<TaskDependency*>(tdi.next());
         QString absId = resolveId(td->getTaskRefId());
         Task* t;
-        if ((t = hash.value(absId)) == 0)
+        if ((t = hash.value(absId)) == nullptr)
         {
             errorMessage(QString("Unknown dependency '%1'").arg(absId));
             brokenDeps.append(td);
@@ -1974,7 +1974,7 @@ Task::checkPathForLoops(LDIList& list, bool atEnd) const
         for (it = list.first(); *it != *thisTask; it = it->next())
             ;
         /* Then copy all loop elements to the loopChain string. */
-        for (; it != 0; it = it->next())
+        for (; it != nullptr; it = it->next())
         {
             loopChain += QString("%1 (%2) -> ")
                 .arg(it->getTask()->getId())
@@ -2182,7 +2182,7 @@ Task::resolveId(QString relId)
     int i;
     for (i = 0; i < relId.length() && relId.mid(i, 1) == "!"; ++i)
     {
-        if (t == 0)
+        if (t == nullptr)
         {
             errorMessage(QString("Illegal relative ID '%1'").arg(relId));
             return relId;
@@ -2977,12 +2977,12 @@ Task::prepareScenario(int sc)
              * we need to find the resource with the last booking for this
              * task and save it as looked resource. */
             time_t lastSlot = 0;
-            Resource* lastResource = 0;
+            Resource* lastResource = nullptr;
             for (QListIterator<Resource*> rli = a->getCandidatesIterator(); rli.hasNext();) {
                 Resource *r = static_cast<Resource*>(rli.next());
                 for (ResourceTreeIterator rti(r); *rti; ++rti) {
                     if (bookedResources.indexOf(*rti) != -1 &&
-                        (lastResource == 0 ||
+                        (lastResource == nullptr ||
                          lastSlot < (*rti)->getEndOfLastSlot(sc, this)))
                     {
                         lastSlot = (*rti)->getEndOfLastSlot(sc, this);
@@ -3929,7 +3929,7 @@ Task::isOrHasDescendantOnCriticalPath(int sc) const
 
 QDebug operator<<(QDebug dbg, const TJ::Task* t)
 {
-    if (t == 0) {
+    if (t == nullptr) {
         return dbg << (void*)t;
     }
     return operator<<(dbg, *t);

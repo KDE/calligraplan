@@ -349,8 +349,8 @@ void WorkPackageMergeDialog::acceptPackage(const Package *package)
     const Task *from = package->task;
 
     Resource *resource = m_project->findResource(package->ownerId);
-    if (resource == 0) {
-        KMessageBox::error(0, i18n("The package owner '%1' is not a resource in this project. You must handle this manually.", package->ownerName));
+    if (resource == nullptr) {
+        KMessageBox::error(nullptr, i18n("The package owner '%1' is not a resource in this project. You must handle this manually.", package->ownerName));
         return;
     }
 

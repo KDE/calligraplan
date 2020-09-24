@@ -28,7 +28,7 @@
 
 static QIcon themedMessageBoxIcon(QMessageBox::Icon icon)
 {
-    const char *icon_name = 0;
+    const char *icon_name = nullptr;
 
     switch (icon) {
     case QMessageBox::NoIcon:
@@ -47,7 +47,7 @@ static QIcon themedMessageBoxIcon(QMessageBox::Icon icon)
         break;
     }
 
-   QIcon ret = KIconLoader::global()->loadIcon(QLatin1String(icon_name), KIconLoader::NoGroup, KIconLoader::SizeHuge, KIconLoader::DefaultState, QStringList(), 0, true);
+   QIcon ret = KIconLoader::global()->loadIcon(QLatin1String(icon_name), KIconLoader::NoGroup, KIconLoader::SizeHuge, KIconLoader::DefaultState, QStringList(), nullptr, true);
 
    if (ret.isNull()) {
        return QMessageBox::standardIcon(icon);

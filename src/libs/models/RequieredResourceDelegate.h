@@ -38,7 +38,7 @@ class PLANMODELS_EXPORT RequieredResourceDelegate : public ItemDelegate
 {
     Q_OBJECT
 public:
-    explicit RequieredResourceDelegate(QObject *parent = 0);
+    explicit RequieredResourceDelegate(QObject *parent = nullptr);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 

@@ -62,7 +62,7 @@ Qt::ItemFlags TaskWorkPackageModel::flags(const QModelIndex &index) const
     Qt::ItemFlags flags = QAbstractItemModel::flags(index);
     flags &= ~(Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled);
     Node *n = nodeForIndex(index);
-    if (n == 0) {
+    if (n == nullptr) {
         return flags;
     }
     if (n->type() != Node::Type_Task && n->type() != Node::Type_Milestone) {
@@ -121,7 +121,7 @@ void TaskWorkPackageModel::slotNodeRemoved(Node */*node*/)
 
 void TaskWorkPackageModel::slotNodeChanged(Node *node)
 {
-    if (node == 0 || node->type() == Node::Type_Project) {
+    if (node == nullptr || node->type() == Node::Type_Project) {
         return;
     }
     int row = indexForNode(node).row();
@@ -233,7 +233,7 @@ QVariant TaskWorkPackageModel::projectName(const Node *node, int role) const
         case Qt::EditRole:
         case Qt::ToolTipRole: {
             const Node *proj = node->projectNode();
-            return proj == 0 ? QVariant() : proj->name();
+            return proj == nullptr ? QVariant() : proj->name();
         }
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
@@ -249,7 +249,7 @@ QVariant TaskWorkPackageModel::projectManager(const Node *node, int role) const
         case Qt::EditRole:
         case Qt::ToolTipRole: {
             const Node *proj = node->projectNode();
-            return proj == 0 ? QVariant() : proj->leader();
+            return proj == nullptr ? QVariant() : proj->leader();
         }
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
@@ -519,7 +519,7 @@ bool TaskWorkPackageModel::setStartedTime(Node *node, const QVariant &value, int
     switch (role) {
         case Qt::EditRole: {
             Task *t = qobject_cast<Task*>(node);
-            if (t == 0) {
+            if (t == nullptr) {
                 return false;
             }
             MacroCommand *m = new MacroCommand(kundo2_noi18n(headerData(NodeModel::NodeActualStart, Qt::Horizontal, Qt::DisplayRole).toString())); //FIXME: proper description when string freeze is lifted
@@ -547,7 +547,7 @@ bool TaskWorkPackageModel::setFinishedTime(Node *node, const QVariant &value, in
     switch (role) {
         case Qt::EditRole: {
             Task *t = qobject_cast<Task*>(node);
-            if (t == 0) {
+            if (t == nullptr) {
                 return false;
             }
             MacroCommand *m = new MacroCommand(kundo2_noi18n(headerData(NodeModel::NodeActualFinish, Qt::Horizontal, Qt::DisplayRole).toString())); //FIXME: proper description when string freeze is lifted
@@ -673,7 +673,7 @@ Node *TaskWorkPackageModel::nodeForIndex(const QModelIndex &index) const
         //debugPlanWork<<index<<parent->node()->name();
         return wp->node();
     }
-    return 0;
+    return nullptr;
 }
 
 Document *TaskWorkPackageModel::documentForIndex(const QModelIndex &index) const
@@ -685,13 +685,13 @@ Document *TaskWorkPackageModel::documentForIndex(const QModelIndex &index) const
             return parent->documents().value(index.row());
         }
     }
-    return 0;
+    return nullptr;
 }
 
 QModelIndex TaskWorkPackageModel::indexForNode(Node *node) const
 {
     WorkPackage *p = m_part->workPackage(node);
-    if (p == 0) {
+    if (p == nullptr) {
         return QModelIndex();
     }
     return createIndex(m_packages.indexOf(p), 0, p);
@@ -713,7 +713,7 @@ QAbstractItemDelegate *TaskWorkPackageModel::createDelegate(int column, QWidget 
 
         default: break;
     }
-    return 0;
+    return nullptr;
 }
 
 QModelIndex mapToModel(const TaskWorkPackageModel *m, const QModelIndex &indx)

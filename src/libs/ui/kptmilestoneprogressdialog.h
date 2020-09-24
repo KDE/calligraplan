@@ -36,7 +36,7 @@ class MacroCommand;
 class PLANUI_EXPORT MilestoneProgressDialog : public KoDialog {
     Q_OBJECT
 public:
-    explicit MilestoneProgressDialog(Task &task, QWidget *parent=0);
+    explicit MilestoneProgressDialog(Task &task, QWidget *parent=nullptr);
 
     MacroCommand *buildCommand();
 

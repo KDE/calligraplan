@@ -45,7 +45,7 @@ class PLANUI_EXPORT DocumentsPanel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DocumentsPanel(Node &node, QWidget *parent = 0);
+    explicit DocumentsPanel(Node &node, QWidget *parent = nullptr);
     ~DocumentsPanel() override {}
     
     MacroCommand *buildCommand();

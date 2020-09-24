@@ -143,7 +143,7 @@ public:
     KoView *findView(const QString &tag) const;
     ViewListItem *findItem(const QString &tag) const;
     ViewListItem *findItem(const QString &tag, QTreeWidgetItem* parent) const;
-    ViewListItem *findItem(const ViewBase *view, QTreeWidgetItem* parent = 0) const;
+    ViewListItem *findItem(const ViewBase *view, QTreeWidgetItem* parent = nullptr) const;
 
     /// Remove @p item, don't emit signal
     int removeViewListItem(ViewListItem *item);

@@ -110,11 +110,11 @@ public:
     public:
         /// Create an empty cost place
         CostPlace() 
-            : m_account(0), m_objectId(), m_node(0), m_resource(0), m_running(false), m_startup(false), m_shutdown(false)
+            : m_account(nullptr), m_objectId(), m_node(nullptr), m_resource(nullptr), m_running(false), m_startup(false), m_shutdown(false)
         {}
         /// Create an empty cost place for account @p acc
         explicit CostPlace(Account *acc)
-            : m_account(acc), m_objectId(), m_node(0), m_resource(0), m_running(false), m_startup(false), m_shutdown(false)
+            : m_account(acc), m_objectId(), m_node(nullptr), m_resource(nullptr), m_running(false), m_startup(false), m_shutdown(false)
         {}
         /// Create a cost place for a task
         CostPlace(Account *acc, Node *node, bool running=false, bool strtup=false, bool shutdown=false);
@@ -242,7 +242,7 @@ public:
     EffortCostMap actualCost(const Account &account, const QDate &start, const QDate &end, long id = BASELINESCHEDULE) const;
     
     void clear() { m_accountList.clear(); m_idDict.clear(); }
-    void insert(Account *account, Account *parent=0, int index = -1);
+    void insert(Account *account, Account *parent=nullptr, int index = -1);
     void take(Account *account);
     
     bool load(KoXmlElement &element, Project &project);

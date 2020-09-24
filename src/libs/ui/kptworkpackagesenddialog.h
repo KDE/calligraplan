@@ -36,7 +36,7 @@ class PLANUI_EXPORT WorkPackageSendDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    explicit WorkPackageSendDialog(const QList<Node*> &tasks, ScheduleManager *sm, QWidget *parent=0);
+    explicit WorkPackageSendDialog(const QList<Node*> &tasks, ScheduleManager *sm, QWidget *parent=nullptr);
 
     WorkPackageSendPanel *panel() const { return m_wp; }
 

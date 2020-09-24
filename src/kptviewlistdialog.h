@@ -46,7 +46,7 @@ class ViewListDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    ViewListDialog(View *view, ViewListWidget &viewlist, QWidget *parent=0);
+    ViewListDialog(View *view, ViewListWidget &viewlist, QWidget *parent=nullptr);
 
 protected Q_SLOTS:
     void slotOk();
@@ -96,7 +96,7 @@ class ViewListEditViewDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    ViewListEditViewDialog(ViewListWidget &viewlist, ViewListItem *item, QWidget *parent=0);
+    ViewListEditViewDialog(ViewListWidget &viewlist, ViewListItem *item, QWidget *parent=nullptr);
 
 protected Q_SLOTS:
     void slotOk();
@@ -135,7 +135,7 @@ class ViewListEditCategoryDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    ViewListEditCategoryDialog(ViewListWidget &viewlist, ViewListItem *item, QWidget *parent=0);
+    ViewListEditCategoryDialog(ViewListWidget &viewlist, ViewListItem *item, QWidget *parent=nullptr);
 
 protected Q_SLOTS:
     void slotOk();

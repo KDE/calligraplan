@@ -116,7 +116,7 @@ QStringList CalendarDay::stateList(bool trans)
 CalendarDay::CalendarDay()
     : m_date(),
       m_state(Undefined),
-      m_calendar(0)
+      m_calendar(nullptr)
 {
 
     //debugPlan<<"("<<this<<")";
@@ -125,7 +125,7 @@ CalendarDay::CalendarDay()
 CalendarDay::CalendarDay(int state)
     : m_date(),
       m_state(state),
-      m_calendar(0)
+      m_calendar(nullptr)
 {
 
     //debugPlan<<"("<<this<<")";
@@ -134,7 +134,7 @@ CalendarDay::CalendarDay(int state)
 CalendarDay::CalendarDay(QDate date, int state)
     : m_date(date),
       m_state(state),
-      m_calendar(0)
+      m_calendar(nullptr)
 {
 
     //debugPlan<<"("<<this<<")";
@@ -153,7 +153,7 @@ CalendarDay::~CalendarDay() {
 }
 
 const CalendarDay &CalendarDay::copy(const CalendarDay &day) {
-    m_calendar = 0; // NOTE
+    m_calendar = nullptr; // NOTE
     //debugPlan<<"("<<&day<<") date="<<day.date().toString();
     m_date = day.date();
     m_state = day.state();
@@ -541,7 +541,7 @@ bool CalendarWeekdays::load(KoXmlElement &element, XMLLoaderObject &status) {
         return true; // we continue anyway
     }
     CalendarDay *day = m_weekdays.value(dayNo + 1);
-    if (day == 0) {
+    if (day == nullptr) {
         errorPlan<<"No weekday: "<<dayNo;
         return false;
     }
@@ -590,7 +590,7 @@ int CalendarWeekdays::state(int weekday) const {
 
 void CalendarWeekdays::setState(int weekday, int state) {
     CalendarDay *day = m_weekdays.value(weekday);
-    if (day == 0)
+    if (day == nullptr)
         return;
     day->setState(state);
 }
@@ -712,9 +712,9 @@ int CalendarWeekdays::indexOf(const CalendarDay *day) const
 /////   Calendar   ////
 
 Calendar::Calendar()
-    : QObject(0), // don't use parent
-      m_parent(0),
-      m_project(0),
+    : QObject(nullptr), // don't use parent
+      m_parent(nullptr),
+      m_project(nullptr),
       m_default(false),
       m_shared(false)
 {
@@ -722,10 +722,10 @@ Calendar::Calendar()
 }
 
 Calendar::Calendar(const QString& name, Calendar *parent)
-    : QObject(0), // don't use parent
+    : QObject(nullptr), // don't use parent
       m_name(name),
       m_parent(parent),
-      m_project(0),
+      m_project(nullptr),
       m_days(),
       m_default(false),
       m_shared(false)
@@ -831,7 +831,7 @@ void Calendar::setParentCal(Calendar *parent, int pos)
 bool Calendar::isChildOf(const Calendar *cal) const
 {
     Calendar *p = parentCal();
-    for (; p != 0; p = p->parentCal()) {
+    for (; p != nullptr; p = p->parentCal()) {
         if (cal == p) {
             return true;
         }
@@ -903,7 +903,7 @@ int Calendar::indexOf(const Calendar *calendar) const
 bool Calendar::loadCacheVersion(KoXmlElement &element, XMLLoaderObject &status)
 {
     Q_UNUSED(status);
-    m_cacheversion = element.attribute(QStringLiteral("version"), 0).toInt();
+    m_cacheversion = element.attribute(QStringLiteral("version"), nullptr).toInt();
     debugPlan<<m_name<<m_cacheversion;
     return true;
 }
@@ -1040,7 +1040,7 @@ CalendarDay *Calendar::findDay(QDate date, bool skipUndefined) const {
         }
     }
     //debugPlan<<date.toString()<<" not found";
-    return 0;
+    return nullptr;
 }
 
 void Calendar::setState(CalendarDay *day, CalendarDay::State state)
@@ -1091,7 +1091,7 @@ CalendarDay *Calendar::day(QDate date) const
             return d;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 IntMap Calendar::weekdayStateMap() const
@@ -1146,7 +1146,7 @@ AppointmentIntervalList Calendar::workIntervals(const QDateTime &start, const QD
             return lst;
         }
         //debugPlan<<"Check single day:"<<s.date()<<s.time()<<length;
-        res = firstInterval(start.date(), startTime, length, 0);
+        res = firstInterval(start.date(), startTime, length, nullptr);
         while (res.isValid()) {
             DateTime dt(start.date(), res.startTime(), m_timeZone);
             lst.add(AppointmentInterval(dt.toTimeZone(projectTimeZone()), dt.addMSecs(res.second).toTimeZone(projectTimeZone()), load));
@@ -1154,7 +1154,7 @@ AppointmentIntervalList Calendar::workIntervals(const QDateTime &start, const QD
             if (length <= 0 || res.endsMidnight()) {
                 break;
             }
-            res = firstInterval(start.date(), res.endTime(), length, 0);
+            res = firstInterval(start.date(), res.endTime(), length, nullptr);
         }
         //debugPlan<<lst;
         return lst;
@@ -1189,7 +1189,7 @@ AppointmentIntervalList Calendar::workIntervals(const QDateTime &start, const QD
                 break;
             }
             startTime = res.endTime();
-            res = firstInterval(date, startTime, length, 0);
+            res = firstInterval(date, startTime, length, nullptr);
         }
     }
     //debugPlan<<lst;
@@ -1497,7 +1497,7 @@ DateTime Calendar::firstAvailableBefore(const DateTime &time, const DateTime &li
 }
 
 Calendar *Calendar::findCalendar(const QString &id) const { 
-    return (m_project ? m_project->findCalendar(id) : 0); 
+    return (m_project ? m_project->findCalendar(id) : nullptr); 
 }
 
 bool Calendar::removeId(const QString &id) { 
@@ -1521,7 +1521,7 @@ CalendarDay *Calendar::takeDay(CalendarDay *day)
 {
     int i = m_days.indexOf(day);
     if (i == -1) {
-        return 0;
+        return nullptr;
     }
     emit dayToBeRemoved(day);
     m_days.removeAt(i);
@@ -1603,7 +1603,7 @@ void Calendar::setHolidayRegion(const QString &code)
         m_region = new KHolidays::HolidayRegion(code);
     }
     debugPlan<<code<<"->"<<m_regionCode<<m_region->isValid();
-    emit changed(static_cast<CalendarDay*>(0));
+    emit changed(static_cast<CalendarDay*>(nullptr));
     if (m_project) {
         m_project->changed(this);
     }

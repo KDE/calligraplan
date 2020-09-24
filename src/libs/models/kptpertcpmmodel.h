@@ -42,7 +42,7 @@ class PLANMODELS_EXPORT CriticalPathItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit CriticalPathItemModel(QObject *parent = 0);
+    explicit CriticalPathItemModel(QObject *parent = nullptr);
     ~CriticalPathItemModel() override;
     
     const QMetaEnum columnMap() const override { return m_nodemodel.columnMap(); }
@@ -97,7 +97,7 @@ class PLANMODELS_EXPORT PertResultItemModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit PertResultItemModel(QObject *parent = 0);
+    explicit PertResultItemModel(QObject *parent = nullptr);
     ~PertResultItemModel() override;
     
     const QMetaEnum columnMap() const override { return m_nodemodel.columnMap(); }

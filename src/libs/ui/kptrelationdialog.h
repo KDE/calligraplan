@@ -42,7 +42,7 @@ class RelationPanel : public QWidget, public Ui_RelationPanel
 {
     Q_OBJECT
 public:
-    explicit RelationPanel(QWidget *parent = 0);
+    explicit RelationPanel(QWidget *parent = nullptr);
 };
 
 class PLANUI_EXPORT AddRelationDialog : public KoDialog
@@ -76,7 +76,7 @@ class PLANUI_EXPORT ModifyRelationDialog : public AddRelationDialog
 {
     Q_OBJECT
 public:
-    explicit ModifyRelationDialog(Project &project, Relation *rel, QWidget *p=0);
+    explicit ModifyRelationDialog(Project &project, Relation *rel, QWidget *p=nullptr);
 
     MacroCommand *buildCommand() override;
     bool relationIsDeleted() { return m_deleted; }

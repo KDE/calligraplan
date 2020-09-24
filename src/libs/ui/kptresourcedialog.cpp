@@ -382,7 +382,7 @@ MacroCommand *ResourceDialog::buildCommand() {
 
 // static
 MacroCommand *ResourceDialog::buildCommand(Resource *original, Resource &resource) {
-    MacroCommand *m=0;
+    MacroCommand *m=nullptr;
     KUndo2MagicString n = kundo2_i18n("Modify Resource");
     if (resource.name() != original->name()) {
         if (!m) m = new MacroCommand(n);

@@ -21,11 +21,11 @@ namespace TJ
 Shift*
 ShiftList::getShift(const QString& id) const
 {
-    for (ShiftListIterator sli(*this); *sli != 0; ++sli)
+    for (ShiftListIterator sli(*this); *sli != nullptr; ++sli)
         if ((*sli)->getId() == id)
             return *sli;
 
-    return 0;
+    return nullptr;
 }
 
 int

@@ -61,7 +61,7 @@ class PLANWORK_EXPORT TaskWorkPackageModel : public ItemModelBase
 {
     Q_OBJECT
 public:
-    explicit TaskWorkPackageModel(Part *part, QObject *parent = 0);
+    explicit TaskWorkPackageModel(Part *part, QObject *parent = nullptr);
     ~TaskWorkPackageModel() override {}
 
     enum Properties {

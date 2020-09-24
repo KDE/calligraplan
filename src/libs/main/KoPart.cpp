@@ -56,7 +56,7 @@ class Q_DECL_HIDDEN KoPart::Private
 public:
     Private(const KoComponentData &componentData_, KoPart *_parent)
         : parent(_parent)
-        , document(0)
+        , document(nullptr)
         , componentData(componentData_)
     {
     }
@@ -152,7 +152,7 @@ void KoPart::addView(KoView *view, KoDocument *document)
 
     if (d->views.size() == 1) {
         KoApplication *app = qobject_cast<KoApplication*>(qApp);
-        if (0 != app) {
+        if (nullptr != app) {
             emit app->documentOpened('/'+objectName());
         }
     }
@@ -164,7 +164,7 @@ void KoPart::removeView(KoView *view)
 
     if (d->views.isEmpty()) {
         KoApplication *app = qobject_cast<KoApplication*>(qApp);
-        if (0 != app) {
+        if (nullptr != app) {
             emit app->documentClosed('/'+objectName());
         }
     }
@@ -183,7 +183,7 @@ int KoPart::viewCount() const
 QGraphicsItem *KoPart::createCanvasItem(KoDocument *document)
 {
     Q_UNUSED(document)
-    return 0;
+    return nullptr;
 /*    KoView *view = createView(document);
     QGraphicsProxyWidget *proxy = new QGraphicsProxyWidget();
     QWidget *canvasController = view->findChild<KoCanvasControllerWidget*>();

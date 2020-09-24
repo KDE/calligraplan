@@ -43,7 +43,7 @@ class PLANUI_EXPORT TaskEditorItemModel : public NodeItemModel
 {
     Q_OBJECT
 public:
-    explicit TaskEditorItemModel(QObject *parent = 0);
+    explicit TaskEditorItemModel(QObject *parent = nullptr);
     
     Qt::ItemFlags flags(const QModelIndex & index) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
@@ -325,7 +325,7 @@ public:
     KoPrintJob *createPrintJob() override;
 
 Q_SIGNALS:
-    void mailWorkpackage(KPlato::Node *n, KPlato::Resource *r = 0);
+    void mailWorkpackage(KPlato::Node *n, KPlato::Resource *r = nullptr);
     void publishWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *r, bool mailTo);
     void openWorkpackages();
     void checkForWorkPackages(bool);

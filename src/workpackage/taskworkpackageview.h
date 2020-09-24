@@ -173,7 +173,7 @@ class GanttItemDelegate : public KPlato::GanttItemDelegate
 public:
     enum Brushes { Brush_Normal, Brush_Late, Brush_NotScheduled, Brush_Finished, Brush_NotReadyToStart, Brush_ReadyToStart };
 
-    explicit GanttItemDelegate(QObject *parent = 0);
+    explicit GanttItemDelegate(QObject *parent = nullptr);
 
     void paintGanttItem(QPainter* painter, const KGantt::StyleOptionGanttItem& opt, const QModelIndex& idx) override;
     QString toolTip(const QModelIndex &idx) const override;
