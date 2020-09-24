@@ -262,11 +262,11 @@ void UsedEffortItemModel::setCompletion(Completion *completion)
     beginResetModel();
     m_completion = completion;
     m_resourcelist.clear();
-    QMap<QString, const Resource*> lst;
+    QMultiMap<QString, const Resource*> lst;
     const Completion::ResourceUsedEffortMap &map = completion->usedEffortMap();
     Completion::ResourceUsedEffortMap::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {
-        lst.insertMulti(it.key()->name(), it.key());
+        lst.insert(it.key()->name(), it.key());
     }
     m_resourcelist = lst.values();
     endResetModel();

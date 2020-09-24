@@ -3157,7 +3157,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         addCalendars(c, 0, unusedCalendars, calendarsmap);
     }
     // get all requests from fromProject before resources are merged
-    QHash<Node*, QPair<ResourceRequest*, Resource*> > rreqs;
+    QMultiHash<Node*, QPair<ResourceRequest*, Resource*> > rreqs;
     foreach (Node *n, fromProject.allNodes()) {
         QList<ResourceRequest*> resReq;
         if (n->type() != (int)Node::Type_Task || n->requests().isEmpty()) {
@@ -3165,7 +3165,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         }
         while (ResourceRequest *rr = n->requests().resourceRequests(false).value(0)) {
             debugPlanInsertProject<<"Get resource request:"<<rr;
-            rreqs.insertMulti(n, QPair<ResourceRequest*, Resource*>(rr, rr->resource()));
+            rreqs.insert(n, QPair<ResourceRequest*, Resource*>(rr, rr->resource()));
             // all resource requests shall be reinserted
             rr->unregisterRequest();
             n->requests().removeResourceRequest(rr);

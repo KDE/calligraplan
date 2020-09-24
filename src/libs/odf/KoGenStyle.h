@@ -411,7 +411,7 @@ public:
      * The value of @p elementName is only used to set the order on how the child elements are written out.
      */
     void addStyleChildElement(const QString &elementName, const QString& elementContents) {
-        m_properties[StyleChildElement].insertMulti(elementName, elementContents);
+        m_properties[StyleChildElement].insert(elementName, elementContents);
     }
 
     /**
@@ -420,7 +420,7 @@ public:
      * The value of @p elementName is only used to set the order on how the child elements are written out.
      */
     void addStyleChildElement(const QString &elementName, const QByteArray& elementContents) {
-        m_properties[StyleChildElement].insertMulti(elementName, QString::fromUtf8(elementContents));
+        m_properties[StyleChildElement].insert(elementName, QString::fromUtf8(elementContents));
     }
 
     /**
@@ -532,7 +532,7 @@ private:
     QByteArray m_familyName;
     QString m_parentName;
     /// We use QMaps since they provide automatic sorting on the key (important for unicity!)
-    typedef QMap<QString, QString> StyleMap;
+    typedef QMultiMap<QString, QString> StyleMap;
     StyleMap m_properties[LastPropertyType+1];
     StyleMap m_childProperties[LastPropertyType+1];
     StyleMap m_attributes;

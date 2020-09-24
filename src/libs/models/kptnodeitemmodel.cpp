@@ -4336,7 +4336,7 @@ QModelIndex GanttItemModel::index(int row, int column, const QModelIndex &parent
             }
             if (v == 0) {
                 v = new int(row);
-                const_cast<GanttItemModel*>(this)->parentmap.insertMulti(p, v);
+                const_cast<GanttItemModel*>(this)->parentmap.insert(p, v);
             }
             return createIndex(row, column, v);
         }

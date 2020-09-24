@@ -398,7 +398,7 @@ public:
 
 private:
     bool m_showSpecial;
-    QMap<Node*, void*> parentmap;
+    QMultiMap<Node*, void*> parentmap;
 };
 
 // TODO: Rename, this is now a flat node item model

@@ -1853,8 +1853,8 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 resources.insert(task, rr);
             }
         }
-        QHash<Task*, std::pair<ResourceRequest*, Resource*> > required; // QHash<Task*, std::pair<ResourceRequest*, Required*>>
-        QHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> > alternativeRequests; // QHash<Task*, std::pair<ResourceRequest*, Alternative*>>
+        QMultiHash<Task*, std::pair<ResourceRequest*, Resource*> > required; // QHash<Task*, std::pair<ResourceRequest*, Required*>>
+        QMultiHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> > alternativeRequests; // QHash<Task*, std::pair<ResourceRequest*, Alternative*>>
         debugPlanXml<<"resource-requests:"<<resources.count();
         if (!resources.isEmpty()) {
             QDomElement el = me.ownerDocument().createElement("resource-requests");
@@ -1872,10 +1872,10 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 re.setAttribute("units", QString::number(it.value()->units()));
                 // collect required resources and alternative requests
                 for (Resource *r : it.value()->requiredResources()) {
-                    required.insertMulti(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
+                    required.insert(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
                 }
                 for (ResourceRequest *r : it.value()->alternativeRequests()) {
-                    alternativeRequests.insertMulti(it.key(), std::pair<ResourceRequest*, ResourceRequest*>(it.value(), r));
+                    alternativeRequests.insert(it.key(), std::pair<ResourceRequest*, ResourceRequest*>(it.value(), r));
                 }
             }
         }
