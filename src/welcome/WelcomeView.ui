@@ -34,7 +34,7 @@
           <string comment="@info:whartsthis"/>
          </property>
          <property name="text">
-          <string>New project</string>
+          <string>New Project</string>
          </property>
          <property name="icon">
           <iconset theme="list-add">
