@@ -26,6 +26,7 @@
 
 #include "kptviewbase.h"
 #include "kptganttview.h"
+#include "gantt/kptganttitemdelegate.h"
 
 #include <KGanttView>
 

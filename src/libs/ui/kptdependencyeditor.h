@@ -27,7 +27,7 @@
 #include "kpttaskeditor.h"
 #include "kptviewbase.h"
 #include "kptnode.h"
-#include "kptganttitemdelegate.h"
+#include "gantt/kptganttitemdelegate.h"
 
 #include <KGanttGlobal>
 

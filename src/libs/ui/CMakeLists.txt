@@ -6,6 +6,7 @@ include_directories(
     ${PLANMAIN_INCLUDES}
     ${PLANWIDGETS_INCLUDES}
     ${KDEPIMLIBS_INCLUDE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/gantt
 )
 
 #add_subdirectory( tests )
@@ -44,7 +45,11 @@ set(planui_LIB_SRCS
 
     reportsgenerator/ReportsGeneratorView.cpp
 
-    kptganttitemdelegate.cpp
+    gantt/kptganttitemdelegate.cpp
+    gantt/DateTimeTimeLine.cpp
+    gantt/DateTimeGrid.cpp
+    gantt/GanttViewBase.cpp
+    kptganttview.cpp
 
     kptworkpackagesendpanel.cpp
     kptworkpackagesenddialog.cpp
@@ -76,9 +81,6 @@ set(planui_LIB_SRCS
     kpttaskdialog.cpp
     kptmainprojectdialog.cpp
     kptmainprojectpanel.cpp
-    kptganttview.cpp
-    gantt/DateTimeTimeLine.cpp
-    gantt/DateTimeGrid.cpp
     kptrelationdialog.cpp
     kptrequestresourcespanel.cpp
     kptresourcedialog.cpp
@@ -117,10 +119,11 @@ ki18n_wrap_ui(planui_LIB_SRCS
     RelationEditorDialog.ui
 
     kptresourceappointmentsdisplayoptions.ui
-    kptganttchartdisplayoptions.ui
+
+    gantt/kptganttchartdisplayoptions.ui
+    gantt/kptganttprintingoptions.ui
 
     kptprintingheaderfooter.ui
-    kptganttprintingoptions.ui
 
     kptworkpackagesendpanel.ui
     
