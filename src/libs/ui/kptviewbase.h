@@ -240,8 +240,6 @@ public:
     /// Returns true if this view or any child widget has focus
     bool isActive() const;
 
-    /// Set the project this view shall handle.
-    virtual void setProject(Project *project);
     /// Return the project
     virtual Project *project() const { return m_proj; }
     /// Return the schedule manager
@@ -297,7 +295,10 @@ public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt) { m_printingOptions = opt; }
     /// Activate/deactivate the gui
     virtual void setGuiActive(bool activate);
-    virtual void setScheduleManager(KPlato::ScheduleManager *sm) { m_schedulemanager = sm; }
+    /// Set the project this view shall handle.
+    virtual void setProject(KPlato::Project *project);
+    /// Set the schedule manager this view shall handle.
+    virtual void setScheduleManager(KPlato::ScheduleManager *sm);
     void slotUpdateReadWrite(bool);
     virtual void slotHeaderContextMenuRequested(const QPoint &pos);
 

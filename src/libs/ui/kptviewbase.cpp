@@ -613,10 +613,15 @@ QMenu *ViewBase::popupMenu(const QString& name)
     return nullptr;
 }
 
-void ViewBase::setProject(Project *project)
+void ViewBase::setProject(KPlato::Project *project)
 {
     m_proj = project;
     emit projectChanged(project);
+}
+
+void ViewBase::setScheduleManager(KPlato::ScheduleManager *sm)
+{
+    m_schedulemanager = sm;
 }
 
 KoDocument *ViewBase::part() const
