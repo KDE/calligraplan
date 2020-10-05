@@ -111,6 +111,8 @@ set(planui_LIB_SRCS
     performance/ProjectStatusView.cpp
     performance/PerformanceStatusView.cpp
     performance/PerformanceTableView.cpp
+
+    ResourceCoverageView.cpp
 )
 
 ki18n_wrap_ui(planui_LIB_SRCS

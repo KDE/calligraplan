@@ -111,6 +111,8 @@
 #include "kptworkpackagemergedialog.h"
 #include "Help.h"
 
+#include "ResourceCoverageView.h"
+
 #include "performance/PerformanceStatusView.h"
 #include "performance/ProjectStatusView.h"
 
@@ -569,6 +571,8 @@ void View::createViews()
 
         createAccountsView(cat, "AccountsView", QString(), TIP_USE_DEFAULT_TEXT);
 
+        createResourceCoverageView(cat, "ResourceCoverageView", QString(), TIP_USE_DEFAULT_TEXT);
+
         ct = "Execution";
         cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name);
 
@@ -640,6 +644,8 @@ ViewBase *View::createView(ViewListItem *cat, const QString &type, const QString
         v = createResourceAppointmentsView(cat, tag, name, tip, index);
     } else if (type == "ResourceAppointmentsGanttView") {
         v = createResourceAppointmentsGanttView(cat, tag, name, tip, index);
+    } else if (type == "ResourceCoverageView") {
+        v = createResourceCoverageView(cat, tag, name, tip, index);
     } else if (type == "AccountsView") {
         v = createAccountsView(cat, tag, name, tip, index);
     } else if (type == "PerformanceStatusView") {
@@ -720,6 +726,9 @@ ViewInfo View::defaultViewInfo(const QString &type) const
     } else if (type == "ResourceAppointmentsGanttView") {
         vi.name = i18n("Resource Assignments (Gantt)");
         vi.tip = xi18nc("@info:tooltip", "View resource assignments in Gantt chart");
+    } else if (type == "ResourceCoverageView") {
+        vi.name = i18n("Resource Coverage");
+        vi.tip = xi18nc("@info:tooltip", "Inspect resource coverage");
     } else if (type == "AccountsView") {
         vi.name = i18n("Cost Breakdown");
         vi.tip = xi18nc("@info:tooltip", "View planned and actual cost");
@@ -822,6 +831,30 @@ ViewBase *View::createResourceAppointmentsGanttView(ViewListItem *cat, const QSt
     return v;
 }
 
+ViewBase *View::createResourceCoverageView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
+{
+    ResourceCoverageView *v = new ResourceCoverageView(getKoPart(), getPart(), m_tab);
+    m_tab->addWidget(v);
+
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
+    ViewInfo vi = defaultViewInfo("ResourceCoverageView");
+    if (name.isEmpty()) {
+        i->setText(0, vi.name);
+    }
+    if (tip == TIP_USE_DEFAULT_TEXT) {
+        i->setToolTip(0, vi.tip);
+    } else {
+        i->setToolTip(0, tip);
+    }
+    connect(v, &ViewBase::guiActivated, this, &View::slotGuiActivated);
+    connect(this, &View::currentScheduleManagerChanged, v, &ResourceCoverageView::setScheduleManager);
+    connect(v, &ResourceCoverageView::requestPopupMenu, this, &View::slotPopupMenuRequested);
+
+    v->setProject(&(getProject()));
+    v->setScheduleManager(currentScheduleManager());
+    v->updateReadWrite(m_readWrite);
+    return v;
+}
 
 ViewBase *View::createResourceAppointmentsView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {

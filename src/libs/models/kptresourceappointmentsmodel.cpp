@@ -505,7 +505,26 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, int role) con
             }
             return QLocale().toString(d.toDouble(Duration::Unit_h), 'f', 1);
         }
-        case Qt::EditRole:
+        case Qt::EditRole: {
+            Duration d;
+            if (m_showInternal) {
+                QList<Appointment*> lst = res->appointments(id());
+                foreach (Appointment *a, lst) {
+                    if (m_effortMap.contains(a)) {
+                        d += m_effortMap[ a ].totalEffort();
+                    }
+                }
+            }
+            if (m_showExternal) {
+                QList<Appointment*> lst = res->externalAppointmentList();
+                foreach (Appointment *a, lst) {
+                    if (m_externalEffortMap.contains(a)) {
+                        d += m_externalEffortMap[ a ].totalEffort();
+                    }
+                }
+            }
+            return d.toDouble(Duration::Unit_h);
+        }
         case Qt::ToolTipRole:
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
@@ -542,7 +561,28 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, const QDate &
             QString avails = QLocale().toString(avail.toDouble(Duration::Unit_h), 'f', 1);
             return QString("%1(%2)").arg(ds).arg(avails);
         }
-        case Qt::EditRole:
+        case Qt::EditRole: {
+            Duration d;
+            if (m_showInternal) {
+                QList<Appointment*> lst = res->appointments(id());
+                foreach (Appointment *a, lst) {
+                    if (m_effortMap.contains(a)) {
+                        d += m_effortMap[ a ].effortOnDate(date);
+                    }
+                }
+            }
+            if (m_showExternal) {
+                QList<Appointment*> lst = res->externalAppointmentList();
+                foreach (Appointment *a, lst) {
+                    if (m_externalEffortMap.contains(a)) {
+                        d += m_externalEffortMap[ a ].effortOnDate(date);
+                    }
+                }
+            }
+//             QString ds = QLocale().toString(d.toDouble(Duration::Unit_h), 'f', 1);
+//             Duration avail = res->effort(nullptr, DateTime(date, QTime(0,0,0)), Duration(1.0, Duration::Unit_d));
+            return d.toDouble(Duration::Unit_h);
+        }
         case Qt::ToolTipRole:
             return i18n("The total booking on %1, along with the maximum hours for the resource", QLocale().toString(date, QLocale::ShortFormat));
         case Qt::StatusTipRole:
@@ -558,6 +598,8 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, const QDate &
             }
             break;
         }
+        case Role::Maximum:
+            return res->effort(nullptr, DateTime(date, QTime(0,0,0)), Duration(1.0, Duration::Unit_d)).toDouble(Duration::Unit_h);
     }
     return QVariant();
 }
@@ -618,7 +660,23 @@ QVariant ResourceAppointmentsItemModel::assignment(const Appointment *a, const Q
             }
             return QVariant();
         }
-        case Qt::EditRole:
+        case Qt::EditRole: {
+            Duration d;
+            if (m_effortMap.contains(a)) {
+                if (date < m_effortMap[ a ].startDate() || date > m_effortMap[ a ].endDate()) {
+                    return QVariant();
+                }
+                d = m_effortMap[ a ].effortOnDate(date);
+                return d.toDouble(Duration::Unit_h);
+            } else  if (m_externalEffortMap.contains(a)) {
+                if (date < m_externalEffortMap[ a ].startDate() || date > m_externalEffortMap[ a ].endDate()) {
+                    return QVariant();
+                }
+                d = m_externalEffortMap[ a ].effortOnDate(date);
+                return d.toDouble(Duration::Unit_h);
+            }
+            return QVariant();
+        }
         case Qt::ToolTipRole: {
             if (m_effortMap.contains(a)) {
                 return i18n("Booking by this task on %1", QLocale().toString(date, QLocale::ShortFormat));

@@ -94,6 +94,7 @@ AddViewPanel::AddViewPanel(View *view, ViewListWidget &viewlist, QWidget *parent
             << "MilestoneGanttView"
             << "ResourceAppointmentsView"
             << "ResourceAppointmentsGanttView"
+            << "ResourceCoverageView"
             << "AccountsView"
             << "ProjectStatusView"
             << "PerformanceStatusView"
@@ -117,6 +118,7 @@ AddViewPanel::AddViewPanel(View *view, ViewListWidget &viewlist, QWidget *parent
             << i18n("Milestone Gantt View")
             << i18n("Resource Assignments")
             << i18n("Resource Assignments (Gantt)")
+            << i18n("Resource Coverage")
             << i18n("Cost Breakdown")
             << i18n("Project Performance Chart")
             << i18n("Tasks Performance Chart")
@@ -274,20 +276,23 @@ bool AddViewPanel::ok()
         case 14: { // Resource Assignments (Gantt)
             v = m_view->createResourceAppointmentsGanttView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 15: { // Cost Breakdown
+        case 15: { // Resource Coverage
+            v = m_view->createResourceCoverageView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
+            break; }
+        case 16: { // Cost Breakdown
             v = m_view->createAccountsView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 16: { // Project Performance Chart
+        case 17: { // Project Performance Chart
             v = m_view->createProjectStatusView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 17: { // Task Performance Chart
+        case 18: { // Task Performance Chart
             v = m_view->createPerformanceStatusView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
-        case 18: { // Reports generator
+        case 19: { // Reports generator
             v = m_view->createReportsGeneratorView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
 #ifdef PLAN_USE_KREPORT
-        case 19: { // Report view
+        case 20: { // Report view
             v = m_view->createReportView(cat, m_viewtypes.value(viewtype), widget.viewname->text(), widget.tooltip->text(), index);
             break; }
 #endif
