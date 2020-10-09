@@ -609,7 +609,10 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
             m_externalAppointments[ id ] = a;
         }
     }
-    loadCalendarIntervalsCache(element, status);
+    // Do not load cache from old format, there was a bug (now fixed).
+    if (status.version() >= "0.6.7") {
+        loadCalendarIntervalsCache(element, status);
+    }
     return true;
 }
 
@@ -1008,7 +1011,7 @@ AppointmentIntervalList Resource::workIntervals(const DateTime &from, const Date
     return work;
 }
 
-void Resource::calendarIntervals(const DateTime &from, const DateTime &until) const
+void Resource::calendarIntervals(const DateTime &dtFrom, const DateTime &dtUntil) const
 {
     Calendar *cal = calendar();
     if (cal == 0) {
@@ -1019,6 +1022,8 @@ void Resource::calendarIntervals(const DateTime &from, const DateTime &until) co
         m_workinfocache.clear();
         m_workinfocache.version = cal->cacheVersion();
     }
+    const DateTime from = dtFrom.toTimeZone(timeZone());
+    const DateTime until = dtUntil.toTimeZone(timeZone());
     if (! m_workinfocache.isValid()) {
         // First time
 //         debugPlan<<"First time:"<<from<<until;
@@ -1140,8 +1145,11 @@ bool Resource::WorkInfoCache::load(const KoXmlElement &element, XMLLoaderObject 
     clear();
     version = element.attribute("version").toInt();
     effort = Duration::fromString(element.attribute("effort"));
-    start = DateTime::fromString(element.attribute("start"));
-    end = DateTime::fromString(element.attribute("end"));
+    // DateTime should always be saved in the projects timezone,
+    // but due to a bug (fixed) this did not always happen.
+    // This code takes care of this situation.
+    start = QDateTime::fromString(element.attribute("start"), Qt::ISODate).toTimeZone(status.projectTimeZone());
+    end = QDateTime::fromString(element.attribute("end"), Qt::ISODate).toTimeZone(status.projectTimeZone());
     KoXmlElement e = element.namedItem("intervals").toElement();
     if (! e.isNull()) {
         intervals.loadXML(e, status);
