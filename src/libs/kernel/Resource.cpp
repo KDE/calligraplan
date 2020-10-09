@@ -400,7 +400,7 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
         }
     }
     // Do not load cache from old format, there was a bug (now fixed).
-    if (status.version() >= "0.7.0") {
+    if (status.version() >= "0.6.7") {
         loadCalendarIntervalsCache(element, status);
     }
     return true;
