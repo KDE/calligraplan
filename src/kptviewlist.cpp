@@ -104,8 +104,7 @@ void ViewCategoryDelegate::paint(QPainter * painter, const QStyleOptionViewItem 
 
         // draw text
         QRect textrect = QRect(r.left() + i * 2, r.top(), r.width() - ((5 * i) / 2), r.height());
-        QString text = elidedText(option.fontMetrics, textrect.width(), Qt::ElideMiddle,
-                                model->data(index, Qt::DisplayRole).toString());
+        QString text = option.fontMetrics.elidedText(model->data(index, Qt::DisplayRole).toString(), Qt::ElideMiddle, textrect.width());
         m_view->style() ->drawItemText(painter, textrect, Qt::AlignLeft|Qt::AlignVCenter,
         option.palette, m_view->isEnabled(), text);
 
