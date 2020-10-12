@@ -142,7 +142,7 @@ void ViewListItem::setReadWrite(bool rw)
 
 void ViewListItem::setView(ViewBase *view)
 {
-    setData(0, ViewListItem::DataRole_View,  qVariantFromValue(static_cast<QObject*>(view)));
+    setData(0, ViewListItem::DataRole_View,  QVariant::fromValue<QObject*>(static_cast<QObject*>(view)));
 }
 
 ViewBase *ViewListItem::view() const
@@ -155,7 +155,7 @@ ViewBase *ViewListItem::view() const
 
 void ViewListItem::setDocument(KoDocument *doc)
 {
-    setData(0, ViewListItem::DataRole_Document,  qVariantFromValue(static_cast<QObject*>(doc)));
+    setData(0, ViewListItem::DataRole_Document,  QVariant::fromValue<QObject*>(static_cast<QObject*>(doc)));
 }
 
 KoDocument *ViewListItem::document() const
