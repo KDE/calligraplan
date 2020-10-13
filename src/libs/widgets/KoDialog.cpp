@@ -25,7 +25,6 @@
 #include "KoDialog_p.h"
 
 #include <QApplication>
-#include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QHBoxLayout>
 #include <QHideEvent>
