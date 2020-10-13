@@ -84,50 +84,11 @@ const QTime appStartTime(QTime::currentTime());
 class KoApplicationPrivate
 {
 public:
-    KoApplicationPrivate()
-        : splashScreen(nullptr)
-    {}
+    KoApplicationPrivate() {}
+
     QByteArray nativeMimeType;
-    QWidget *splashScreen;
     QList<KoPart *> partList;
 };
-
-class KoApplication::ResetStarting
-{
-public:
-    ResetStarting(QWidget *splash = nullptr)
-        : m_splash(splash)
-    {
-    }
-
-    ~ResetStarting()  {
-        if (m_splash) {
-
-            KConfigGroup cfg(KSharedConfig::openConfig(), "SplashScreen");
-            bool hideSplash = cfg.readEntry("HideSplashAfterStartup", false);
-            if (hideSplash) {
-                m_splash->hide();
-            }
-            else {
-                m_splash->setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
-                QRect r(QPoint(), m_splash->size());
-                m_splash->move(QApplication::desktop()->screenGeometry().center() - r.center());
-                m_splash->setWindowTitle(qAppName());
-                foreach(QObject *o, m_splash->children()) {
-                    QWidget *w = qobject_cast<QWidget*>(o);
-                    if (w && w->isHidden()) {
-                        w->setVisible(true);
-                    }
-                }
-
-                m_splash->show();
-            }
-        }
-    }
-
-    QWidget *m_splash;
-};
-
 
 KoApplication::KoApplication(const QByteArray &nativeMimeType,
                              const QString &windowIconName,
@@ -238,15 +199,6 @@ bool KoApplication::start()
                                       + appdir.absolutePath() + "/Frameworks" + ";"
                                       + appdir.absolutePath()));
 #endif
-
-    if (d->splashScreen) {
-        d->splashScreen->show();
-        d->splashScreen->repaint();
-        processEvents();
-    }
-
-    ResetStarting resetStarting(d->splashScreen); // remove the splash when done
-    Q_UNUSED(resetStarting);
 
     // Find the part component file corresponding to the application instance name
     KoDocumentEntry entry;
@@ -585,11 +537,6 @@ void KoApplication::benchmarkLoadingFinished()
     }
     // close the document
     mainWindow->slotFileQuit();
-}
-
-void KoApplication::setSplashScreen(QWidget *splashScreen)
-{
-    d->splashScreen = splashScreen;
 }
 
 QList<KoPart*> KoApplication::partList() const
