@@ -78,7 +78,7 @@ public:
      *  size hint, try adding 28 to each of the reported numbers of
      *  pixels.
      **/
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
     /**
      * Sets the date.
@@ -126,10 +126,10 @@ public:
 
 protected:
     /// to catch move keyEvents when QLineEdit has keyFocus
-    bool eventFilter(QObject *o, QEvent *e) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *o, QEvent *e) override;
     /// the resize event
-    void resizeEvent(QResizeEvent *) Q_DECL_OVERRIDE;
-    void changeEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *) override;
+    void changeEvent(QEvent *event) override;
 
 protected Q_SLOTS:
     void dateChangedSlot(const QDate &date);

@@ -68,7 +68,7 @@ public:
     DatePickerValidator(KDatePicker *parent)
         : QValidator(parent), picker(parent) {}
 
-    State validate(QString &text, int &) const Q_DECL_OVERRIDE
+    State validate(QString &text, int &) const override
     {
         return parseDateString(text).isValid() ? QValidator::Acceptable : QValidator::Intermediate;
     }
