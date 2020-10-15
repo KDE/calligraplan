@@ -125,7 +125,10 @@ void Account::take(Account *account) {
         } else {
             // child account has been removed from Accounts
             // so now we can remove child account from us
-            m_accountList.removeAt(m_accountList.indexOf(account));
+            // if still there
+            if (m_accountList.contains(account)) {
+                m_accountList.removeAt(m_accountList.indexOf(account));
+            }
         }
     } else if (account->m_list) {
         // we are top level so just needs Accounts to remove us
