@@ -114,7 +114,8 @@ void AccountTreeView::contextMenuEvent (QContextMenuEvent *event)
 void AccountTreeView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
 {
     debugPlan<<sel.indexes().count();
-    foreach(const QModelIndex &i, selectionModel()->selectedIndexes()) {
+    const QModelIndexList indexes = selectionModel()->selectedIndexes();
+    for (const QModelIndex &i : indexes) {
         debugPlan<<i.row()<<","<<i.column();
     }
     QTreeView::selectionChanged(sel, desel);
@@ -147,7 +148,8 @@ Account *AccountTreeView::selectedAccount() const
 QList<Account*> AccountTreeView::selectedAccounts() const
 {
     QList<Account*> lst;
-    foreach (const QModelIndex &i, selectionModel()->selectedRows()) {
+    const QModelIndexList indexes = selectionModel()->selectedRows();
+    for (const QModelIndex &i : indexes) {
         Account *a = model()->account(i);
         if (a) {
             lst << a;

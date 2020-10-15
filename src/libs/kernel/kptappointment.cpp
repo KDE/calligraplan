@@ -329,7 +329,8 @@ AppointmentIntervalList &AppointmentIntervalList::operator-=(const AppointmentIn
     if (lst.m_map.isEmpty()) {
         return *this;
     }
-    foreach (const AppointmentInterval &ai, lst.map()) {
+    const auto intervals = lst.map().values();
+    for (const AppointmentInterval &ai : intervals) {
         subtract(ai);
     }
     return *this;
@@ -359,9 +360,9 @@ void AppointmentIntervalList::subtract(const AppointmentInterval &interval)
             continue;
         }
         QList<AppointmentInterval> l;
-        QList<AppointmentInterval> v = m_map.values(date);
+        const QList<AppointmentInterval> v = m_map.values(date);
         m_map.remove(date);
-        foreach (const AppointmentInterval &vi, v) {
+        for (const AppointmentInterval &vi : v) {
             if (! vi.intersects(interval)) {
                 //debugPlan<<"subtract: not intersect:"<<vi<<interval;
                 l.insert(0, vi);
@@ -396,7 +397,7 @@ void AppointmentIntervalList::subtract(const AppointmentInterval &interval)
                 //if (! l.at(0).isValid()) { debugPlan<<vi<<interval<<l.at(0); qFatal("Invalid interval"); }
             }
         }
-        foreach (const AppointmentInterval &i, l) {
+        for (const AppointmentInterval &i : qAsConst(l)) {
             //if (! i.isValid()) { debugPlan<<interval<<i; qFatal("Invalid interval"); }
             m_map.insert(date, i);
         }
@@ -409,7 +410,8 @@ AppointmentIntervalList &AppointmentIntervalList::operator+=(const AppointmentIn
     if (lst.isEmpty()) {
         return *this;
     }
-    foreach (const AppointmentInterval &ai, lst.m_map) {
+    const auto intervals = lst.map().values();
+    for (const AppointmentInterval &ai : intervals) {
         add(ai);
     }
     return *this;
@@ -465,17 +467,17 @@ void AppointmentIntervalList::add(const AppointmentInterval &ai)
             Q_ASSERT_X(lst.last().isValid(), "Split", "Invalid interval");
         }
     }
-    foreach (AppointmentInterval li, lst) {
+    for (AppointmentInterval li : qAsConst(lst)) {
         Q_ASSERT_X(lst.last().isValid(), "Add", "Invalid interval");
         date = li.startTime().date();
         if (! m_map.contains(date)) {
             m_map.insert(date, li);
             continue;
         }
-        QList<AppointmentInterval> v = m_map.values(date);
+        const QList<AppointmentInterval> v = m_map.values(date);
         m_map.remove(date);
         QList<AppointmentInterval> l;
-        foreach (const AppointmentInterval &vi, v) {
+        for (const AppointmentInterval &vi : v) {
             if (! li.isValid()) {
                 l.insert(0, vi);
                 Q_ASSERT_X(l.at(0).isValid(), "Original", "Invalid interval");
@@ -542,7 +544,7 @@ void AppointmentIntervalList::add(const AppointmentInterval &ai)
             //debugPlan<<"rest:"<<li;
             l.insert(0, li);
         }
-        foreach(const AppointmentInterval &i, l) {
+        for(const AppointmentInterval &i : qAsConst(l)) {
             Q_ASSERT(i.isValid());
             m_map.insert(i.startTime().date(), i);
         }
@@ -553,7 +555,8 @@ void AppointmentIntervalList::add(const AppointmentInterval &ai)
 Duration AppointmentIntervalList::effort() const
 {
     Duration d;
-    foreach (const AppointmentInterval &i, m_map) {
+    const auto intervals = m_map.values();
+    for (const AppointmentInterval &i : intervals) {
         d += i.effort();
     }
     return d;
@@ -572,7 +575,8 @@ Duration AppointmentIntervalList::effort(const DateTime &start, const DateTime &
 
 void AppointmentIntervalList::saveXML(QDomElement &element) const
 {
-    foreach (const AppointmentInterval &i, m_map) {
+    const auto intervals = m_map.values();
+    for (const AppointmentInterval &i : intervals) {
         i.saveXML(element);
 #ifndef NDEBUG
         if (!i.isValid()) {
@@ -679,7 +683,8 @@ AppointmentIntervalList Appointment::intervals(const DateTime &start, const Date
 
 void Appointment::setIntervals(const AppointmentIntervalList &lst) {
     m_intervals.clear();
-    foreach(const AppointmentInterval &i, lst.map()) {
+    const auto intervals = lst.map().values();
+    for (const AppointmentInterval &i : intervals) {
         m_intervals.add(i);
     }
 }
@@ -701,7 +706,8 @@ void Appointment::addInterval(const DateTime &start, KPlato::Duration duration, 
 
 double Appointment::maxLoad() const {
     double v = 0.0;
-    foreach (const AppointmentInterval &i, m_intervals.map()) {
+    const auto intervals = m_intervals.map().values();
+    for (const AppointmentInterval &i : intervals) {
         if (v < i.load())
             v = i.load();
     }
@@ -792,7 +798,8 @@ Duration Appointment::plannedEffort(const Resource *resource, EffortCostCalculat
 Duration Appointment::plannedEffort(EffortCostCalculationType type) const {
     Duration d;
     if (type == ECCT_All || m_resource == nullptr || m_resource->resource()->type() == Resource::Type_Work) {
-        foreach (const AppointmentInterval &i, m_intervals.map()) {
+        const auto intervals = m_intervals.map().values();
+        for (const AppointmentInterval &i : intervals) {
             d += i.effort();
         }
     }
@@ -824,7 +831,8 @@ Duration Appointment::plannedEffortTo(QDate date, EffortCostCalculationType type
     Duration d;
     QDate e(date.addDays(1));
     if (type == ECCT_All || m_resource == nullptr || m_resource->resource()->type() == Resource::Type_Work) {
-        foreach (const AppointmentInterval &i, m_intervals.map()) {
+        const auto intervals = m_intervals.map().values();
+        for (const AppointmentInterval &i : intervals) {
             d += i.effort(e, true); // upto e, not including
         }
     }
@@ -957,7 +965,8 @@ Duration Appointment::effort(const DateTime &start, const DateTime &end, EffortC
 Duration Appointment::effort(const DateTime &start, KPlato::Duration duration, EffortCostCalculationType type) const {
     Duration d;
     if (type == ECCT_All || m_resource == nullptr || m_resource->resource()->type() == Resource::Type_Work) {
-        foreach (const AppointmentInterval &i, m_intervals.map()) {
+        const auto intervals = m_intervals.map().values();
+        for (const AppointmentInterval &i : intervals) {
             d += i.effort(start, start+duration);
         }
     }
@@ -995,7 +1004,8 @@ void Appointment::copy(const Appointment &app) {
     //m_repeatCount = app.repeatCount();
 
     m_intervals.clear();
-    foreach (const AppointmentInterval &i, app.intervals().map()) {
+    const auto intervals = app.intervals().map().values();
+    for (const AppointmentInterval &i : intervals) {
         addInterval(i);
     }
 }
@@ -1055,7 +1065,7 @@ void Appointment::merge(const Appointment &app) {
         }
     }
     m_intervals.clear();
-    foreach (const AppointmentInterval &i, result) {
+    for (const AppointmentInterval &i : qAsConst(result)) {
         m_intervals.add(i);
     }
     //debugPlan<<this<<":"<<m_intervals.count();

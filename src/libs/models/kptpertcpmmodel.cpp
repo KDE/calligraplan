@@ -190,7 +190,7 @@ QVariant CriticalPathItemModel::variance(int role) const
         case Qt::DisplayRole:
         case Qt::ToolTipRole: {
             double v = 0.0;
-            foreach (Node *n, m_path) {
+            for (Node *n : qAsConst(m_path)) {
                 long id = m_manager->scheduleId();
                 v += n->variance(id, presentationUnit(m_project->duration(id)));
             }
@@ -199,7 +199,7 @@ QVariant CriticalPathItemModel::variance(int role) const
         }
         case Qt::EditRole: {
             double v = 0.0;
-            foreach (Node *n, m_path) {
+            for (Node *n : qAsConst(m_path)) {
                 v += n->variance(m_manager->scheduleId());
             }
             return v;
@@ -399,7 +399,7 @@ void PertResultItemModel::setManager(ScheduleManager *sm)
 void PertResultItemModel::clear()
 {
     debugPlan<<this;
-    foreach (NodeList *l, m_top) {
+    for (NodeList *l : qAsConst(m_top)) {
         int c = l->count();
         if (c > 0) {
             // FIXME: gives error msg:
@@ -442,7 +442,8 @@ void PertResultItemModel::refresh()
         }
         if (lst->isEmpty()) debugPlan<<"No critical path";
     }
-    foreach(Node* n, m_project->allNodes()) {
+    const QList<Node*> nodes = m_project->allNodes();
+    for (Node* n : nodes) {
         if (n->type() != Node::Type_Task && n->type() != Node::Type_Milestone) {
             continue;
         }
@@ -467,7 +468,8 @@ void PertResultItemModel::refresh()
         debugPlan<<m_top;
         beginInsertRows(QModelIndex(), 0, m_top.count() -1);
         endInsertRows();
-        foreach (NodeList *l, m_top) {
+        
+        for (NodeList *l : qAsConst(m_top)) {
             int c = l->count();
             if (c > 0) {
                 beginInsertRows(index(l), 0, c-1);

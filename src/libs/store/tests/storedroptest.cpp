@@ -93,8 +93,8 @@ void StoreDropTest::paste()
         return;
 
     const QString acceptMimeType("application/vnd.oasis.opendocument.");
-    QStringList formats = m->formats();
-    foreach(QString fmt, formats) {
+    const QStringList formats = m->formats();
+    for (QString fmt : formats) {
         bool oasis = fmt.startsWith(acceptMimeType);
         if (oasis || fmt == "application/x-kpresenter") {
             QByteArray data = m->data(fmt);
@@ -117,7 +117,8 @@ void StoreDropTest::contentsDropEvent(QDropEvent *ev)
 bool StoreDropTest::processMimeData(const QMimeData* mimeData)
 {
     const QString acceptMimeType("application/vnd.oasis.opendocument.");
-    foreach (const QString &format, mimeData->formats()) {
+    const QStringList formats = mimeData->formats();
+    for (const QString &format : formats) {
         bool oasis = format.startsWith(acceptMimeType);
         if (oasis || format == "application/x-kpresenter") {
             const QByteArray data = mimeData->data(format);

@@ -540,7 +540,7 @@ int KoXmlWriter::indentLevel() const
 QList<const char*> KoXmlWriter::tagHierarchy() const
 {
     QList<const char*> answer;
-    foreach(const Tag & tag, d->tags)
+    for (const Tag & tag : qAsConst(d->tags))
         answer.append(tag.tagName);
 
     return answer;

@@ -929,7 +929,7 @@ void ReportDesigner::setReportData(const QString &tag)
 QStandardItemModel *ReportDesigner::createSourceModel(QObject *parent) const
 {
     QStandardItemModel *m = new QStandardItemModel(parent);
-    foreach (ReportData *r, m_reportdatamodels) {
+    for (ReportData *r : qAsConst(m_reportdatamodels)) {
         if (r->isMainDataSource()) {
             QStandardItem *item = new QStandardItem(r->sourceName());
             item->setData(r->objectName(), Reports::TagRole);
@@ -1137,7 +1137,8 @@ void GroupSectionEditor::slotRemoveRows()
         return;
     }
     QList<int> rows;
-    foreach (const QModelIndex &idx, gsw.view->selectionModel()->selectedRows()) {
+    const QModelIndexList indexes = gsw.view->selectionModel()->selectedRows();
+    for (const QModelIndex &idx : indexes) {
         rows <<idx.row();
     }
     qSort(rows);
@@ -1156,14 +1157,15 @@ void GroupSectionEditor::slotMoveRowUp()
         return;
     }
     QList<int> rows;
-    foreach (const QModelIndex &idx, gsw.view->selectionModel()->selectedRows()) {
+    const QModelIndexList indexes = gsw.view->selectionModel()->selectedRows();
+    for (const QModelIndex &idx : indexes) {
         rows <<idx.row();
     }
     qSort(rows);
     if (rows.isEmpty() || rows.first() == 0) {
         return;
     }
-    foreach (int row, rows) {
+    for (int row : qAsConst(rows)) {
         QList<QStandardItem*> items = model.takeRow(row);
         KReportDesignerSectionDetailGroup *g = sd->groupSection(row);
         bool showgh = g->groupHeaderVisible();
@@ -1188,7 +1190,8 @@ void GroupSectionEditor::slotMoveRowDown()
         return;
     }
     QList<int> rows;
-    foreach (const QModelIndex &idx, gsw.view->selectionModel()->selectedRows()) {
+    const QModelIndexList indexes = gsw.view->selectionModel()->selectedRows();
+    for (const QModelIndex &idx : indexes) {
         rows <<idx.row();
     }
     qSort(rows);

@@ -74,7 +74,8 @@ TaskCompletionPanel::TaskCompletionPanel(WorkPackage &package, ScheduleManager *
         package.task()->completion().setEntrymode(KPlato::Completion::EnterEffortPerResource);
     }
     if (package.task()->completion().resources().isEmpty()) {
-        foreach (Resource *r, package.task()->assignedResources(sm->scheduleId())) {
+        const QList<Resource*> resources = package.task()->assignedResources(sm->scheduleId());
+        for (Resource *r : resources) {
             if (r->id() == package.task()->workPackage().ownerId()) {
                 package.task()->completion().addUsedEffort(r);
             }

@@ -157,7 +157,7 @@ bool WorkPackage::contains(const Document *doc) const
 
 DocumentChild *WorkPackage::findChild(const Document *doc) const
 {
-    foreach (DocumentChild *c, m_childdocs) {
+    for (DocumentChild *c : qAsConst(m_childdocs)) {
         if (c->doc() == doc) {
             return c;
         }
@@ -362,12 +362,13 @@ bool WorkPackage::completeSaving(KoStore *store)
 
     // First get all open documents
     debugPlanWork<<m_childdocs.count();
-    foreach (DocumentChild *cd, m_childdocs) {
+    for (DocumentChild *cd : qAsConst(m_childdocs)) {
         if (! cd->saveToStore(store)) {
         }
     }
     // Then get new files
-    foreach (const Document *doc,  node()->documents().documents()) {
+    const QList<Document*> documents = node()->documents().documents();
+    for (const Document *doc : documents) {
         if (m_newdocs.contains(doc)) {
             store->addLocalFile(m_newdocs[ doc ].path(), doc->url().fileName());
             m_newdocs.remove(doc);
@@ -375,7 +376,7 @@ bool WorkPackage::completeSaving(KoStore *store)
         }
     }
     // Then get files from the old store copied to the new store
-    foreach (Document *doc,  node()->documents().documents()) {
+    for (Document *doc : documents) {
         if (doc->sendAs() != Document::SendAs_Copy) {
             continue;
         }
@@ -435,7 +436,7 @@ bool WorkPackage::isModified() const
     if (m_modified) {
         return true;
     }
-    foreach (DocumentChild *ch, m_childdocs) {
+    for (DocumentChild *ch : qAsConst(m_childdocs)) {
         if (ch->isModified() || ch->isFileModified()) {
             return true;
         }
@@ -551,7 +552,8 @@ void WorkPackage::merge(Part *part, const WorkPackage *wp, KoStore *store)
                 static_cast<Task*>(to)->workPackage().setOwnerName(static_cast<const Task*>(from)->workPackage().ownerName());
             }
         }
-        foreach (Document *doc,  from->documents().documents()) {
+        const QList<Document*> documents = from->documents().documents();
+        for (Document *doc : documents) {
             Document *org = to->documents().findDocument(doc->url());
             if (org) {
                 // TODO: also handle modified type, sendas
@@ -622,7 +624,7 @@ int WorkPackage::queryClose(Part *part)
     QString name = node()->name();
     QStringList lst;
     if (! m_childdocs.isEmpty()) {
-        foreach (DocumentChild *ch, m_childdocs) {
+        for (DocumentChild *ch : qAsConst(m_childdocs)) {
             if (ch->isOpen() && ch->doc()->sendAs() == Document::SendAs_Copy) {
                 lst << ch->doc()->url().fileName();
             }
@@ -805,18 +807,21 @@ void CopySchedulesCmd::load(const QString &doc)
 
 void CopySchedulesCmd::clearSchedules()
 {
-    foreach (Schedule *s, m_project.schedules()) {
+    const QList<Schedule*> schedules = m_project.childNode(0)->schedules().values();
+    for (Schedule *s : schedules) {
         m_project.takeSchedule(s);
     }
-    foreach (Schedule *s, m_project.childNode(0)->schedules()) {
-        foreach (Appointment *a, s->appointments()) {
+    for (Schedule *s : schedules) {
+        const QList<Appointment*> appointments = s->appointments();
+        for (Appointment *a : appointments) {
             if (a->resource() && a->resource()->resource()) {
                 a->resource()->resource()->takeSchedule(a->resource());
             }
         }
         m_project.childNode(0)->takeSchedule(s);
     }
-    foreach (ScheduleManager *sm,  m_project.scheduleManagers()) {
+    const QList<ScheduleManager*> managers = m_project.scheduleManagers();
+    for (ScheduleManager *sm : managers) {
         m_project.takeScheduleManager(sm);
         delete sm;
     }

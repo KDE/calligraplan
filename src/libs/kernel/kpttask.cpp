@@ -144,7 +144,7 @@ void Task::makeAppointments() {
         m_requests.makeAppointments(m_currentSchedule);
         //debugPlan<<m_name<<":"<<m_currentSchedule->startTime<<","<<m_currentSchedule->endTime<<";"<<m_currentSchedule->duration.toString();
     } else if (type() == Node::Type_Summarytask) {
-        foreach (Node *n, m_nodes) {
+        for (Node *n : qAsConst(m_nodes)) {
             n->makeAppointments();
         }
     } else if (type() == Node::Type_Milestone) {
@@ -193,7 +193,8 @@ void Task::copyAppointments(const DateTime &start, const DateTime &end)
     DateTime st = start.isValid() ? start : ns->startTime;
     DateTime et = end.isValid() ? end : ns->endTime;
     //debugPlan<<m_name<<st.toString()<<et.toString()<<m_currentSchedule->calculationMode();
-    foreach (const Appointment *a, ns->appointments()) {
+    const auto appointments = ns->appointments();
+    for (const Appointment *a : appointments) {
         Resource *r = a->resource() == nullptr ? nullptr : a->resource()->resource();
         if (r == nullptr) {
             errorPlan<<"No resource";
@@ -205,7 +206,8 @@ void Task::copyAppointments(const DateTime &start, const DateTime &end)
             continue;
         }
         Appointment *curr = nullptr;
-        foreach (Appointment *c, m_currentSchedule->appointments()) {
+        const auto appointments2 = m_currentSchedule->appointments();
+        for (Appointment *c : appointments2 ) {
             if (c->resource()->resource() == r) {
                 //debugPlan<<"Found current appointment to"<<a->resource()->resource()->name()<<c;
                 curr = c;
@@ -234,7 +236,7 @@ void Task::copyAppointments(const DateTime &start, const DateTime &end)
         }
         Appointment app;
         app.setIntervals(lst);
-        //foreach (AppointmentInterval *i, curr->intervals()) { debugPlan<<i->startTime().toString()<<i->endTime().toString(); }
+        //for (AppointmentInterval *i, curr->intervals()) { debugPlan<<i->startTime().toString()<<i->endTime().toString(); }
         curr->merge(app);
         //debugPlan<<"Appointments added";
     }
@@ -425,7 +427,7 @@ void Task::save(QDomElement &element, const XmlSaveContext &context)  const
         if (!m_schedules.isEmpty()) {
             QDomElement schs = me.ownerDocument().createElement(QStringLiteral("task-schedules"));
             me.appendChild(schs);
-            foreach (const Schedule *s, m_schedules) {
+            for (const Schedule *s : qAsConst(m_schedules)) {
                 if (!s->isDeleted()) {
                     s->saveXML(schs);
                 }
@@ -438,7 +440,7 @@ void Task::save(QDomElement &element, const XmlSaveContext &context)  const
         if (!m_packageLog.isEmpty()) {
             QDomElement log = me.ownerDocument().createElement(QStringLiteral("workpackage-log"));
             me.appendChild(log);
-            foreach (const WorkPackage *wp, m_packageLog) {
+            for (const WorkPackage *wp : qAsConst(m_packageLog)) {
                 wp->saveLoggedXML(log);
             }
         }
@@ -456,7 +458,7 @@ void Task::saveAppointments(QDomElement &element, long id) const {
     if (sch) {
         sch->saveAppointments(element);
     }
-    foreach (const Node *n, m_nodes) {
+    for (const Node *n : qAsConst(m_nodes)) {
         n->saveAppointments(element, id);
     }
 }
@@ -574,7 +576,7 @@ Duration Task::plannedEffort(const Resource *resource, long id, EffortCostCalcul
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             eff += n->plannedEffort(resource, id, typ);
         }
         return eff;
@@ -591,7 +593,7 @@ Duration Task::plannedEffort(long id, EffortCostCalculationType typ) const {
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             eff += n->plannedEffort(id, typ);
         }
         return eff;
@@ -608,7 +610,7 @@ Duration Task::plannedEffort(const Resource *resource, QDate date, long id, Effo
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             eff += n->plannedEffort(resource, date, id, typ);
         }
         return eff;
@@ -625,7 +627,7 @@ Duration Task::plannedEffort(QDate date, long id, EffortCostCalculationType typ)
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             eff += n->plannedEffort(date, id, typ);
         }
         return eff;
@@ -642,7 +644,7 @@ Duration Task::plannedEffortTo(QDate date, long id, EffortCostCalculationType ty
     //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             eff += n->plannedEffortTo(date, id, typ);
         }
         return eff;
@@ -659,7 +661,7 @@ Duration Task::plannedEffortTo(const Resource *resource, QDate date, long id, Ef
     //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             eff += n->plannedEffortTo(resource, date, id, typ);
         }
         return eff;
@@ -676,7 +678,7 @@ Duration Task::actualEffort() const {
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             eff += n->actualEffort();
         }
     }
@@ -688,7 +690,7 @@ Duration Task::actualEffort(QDate date) const {
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             eff += n->actualEffort(date);
         }
         return eff;
@@ -701,7 +703,7 @@ Duration Task::actualEffortTo(QDate date) const {
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             eff += n->actualEffortTo(date);
         }
         return eff;
@@ -726,7 +728,7 @@ double Task::plannedCostTo(QDate date, long id, EffortCostCalculationType typ) c
     //debugPlan;
     double c = 0;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             c += n->plannedCostTo(date, id, typ);
         }
         return c;
@@ -862,7 +864,7 @@ Duration Task::budgetedWorkPerformed(QDate date, long id) const
     //debugPlan;
     Duration e;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             e += n->budgetedWorkPerformed(date, id);
         }
         return e;
@@ -878,7 +880,7 @@ double Task::budgetedCostPerformed(QDate date, long id) const
     //debugPlan;
     double c = 0.0;
     if (type() == Node::Type_Summarytask) {
-        foreach (const Node *n, childNodeIterator()) {
+        for (const Node *n : qAsConst(m_nodes)) {
             c += n->budgetedCostPerformed(date, id);
         }
         return c;
@@ -1027,7 +1029,7 @@ void Task::initiateCalculationLists(MainSchedule &sch) {
     if (type() == Node::Type_Summarytask) {
         sch.insertSummaryTask(this);
         // propagate my relations to my children and dependent nodes
-        foreach (Node *n, m_nodes) {
+        for (Node *n : qAsConst(m_nodes)) {
             if (!dependParentNodes().isEmpty()) {
                 n->addParentProxyRelations(dependParentNodes());
             }
@@ -1067,7 +1069,7 @@ DateTime Task::calculatePredeccessors(const QList<Relation*> &list_, int use) {
         lst.insert(-r->parent()->priority(), r);
     }
     const QList<Relation*> list = lst.values();
-    foreach (Relation *r, list) {
+    for (Relation *r : list) {
         if (r->parent()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<it.current()->parent()->name();
             continue; // skip summarytasks
@@ -1317,7 +1319,8 @@ DateTime Task::calculateEarlyFinish(int use) {
     m_visitedForward = true;
     cs->insertForwardNode(this);
     cs->earlyFinish = cs->earlyStart + m_durationForward;
-    foreach (const Appointment *a, cs->appointments(Schedule::CalculateForward)) {
+    const auto appointments = cs->appointments(Schedule::CalculateForward);
+    for (const Appointment *a : appointments) {
         cs->logInfo(i18n("Resource %1 booked from %2 to %3", a->resource()->resource()->name(), locale.toString(a->startTime(), QLocale::ShortFormat), locale.toString(a->endTime(), QLocale::ShortFormat)));
     }
     // clean up temporary usage
@@ -1339,7 +1342,7 @@ DateTime Task::calculateSuccessors(const QList<Relation*> &list_, int use) {
         lst.insert(-r->child()->priority(), r);
     }
     const QList<Relation*> list = lst.values();
-    foreach (Relation *r, list) {
+    for (Relation *r : list) {
         if (r->child()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<r->parent()->name();
             continue; // skip summarytasks
@@ -1566,7 +1569,8 @@ DateTime Task::calculateLateStart(int use) {
     m_visitedBackward = true;
     cs->insertBackwardNode(this);
     cs->lateStart = cs->lateFinish - m_durationBackward;
-    foreach (const Appointment *a, cs->appointments(Schedule::CalculateBackward)) {
+    const auto appointments = cs->appointments(Schedule::CalculateBackward);
+    for (const Appointment *a : appointments) {
         cs->logInfo(i18n("Resource %1 booked from %2 to %3", a->resource()->resource()->name(), locale.toString(a->startTime(), QLocale::ShortFormat), locale.toString(a->endTime(), QLocale::ShortFormat)));
     }
     // clean up temporary usage
@@ -1588,7 +1592,7 @@ DateTime Task::schedulePredeccessors(const QList<Relation*> &list_, int use) {
         lst.insert(-r->parent()->priority(), r);
     }
     const QList<Relation*> list = lst.values();
-    foreach (Relation *r, list) {
+    for (Relation *r : list) {
         if (r->parent()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<r->parent()->name();
             continue; // skip summarytasks
@@ -1974,7 +1978,8 @@ DateTime Task::scheduleFromStartTime(int use) {
     if (cs->startTime < projectNode()->constraintStartTime() || cs->endTime > projectNode()->constraintEndTime()) {
         cs->logError(i18n("Failed to schedule within project target time"));
     }
-    foreach (const Appointment *a, cs->appointments()) {
+    const auto appointments = cs->appointments();
+    for (const Appointment *a : appointments) {
         cs->logInfo(i18n("Resource %1 booked from %2 to %3", a->resource()->resource()->name(), locale.toString(a->startTime(), QLocale::ShortFormat), locale.toString(a->endTime(), QLocale::ShortFormat)));
     }
     if (cs->startTime < cs->earlyStart) {
@@ -1997,8 +2002,8 @@ DateTime Task::scheduleSuccessors(const QList<Relation*> &list_, int use) {
     for (Relation* r : list_) {
         lst.insert(-r->child()->priority(), r);
     }
-    const QList<Relation*> list = lst.values();
-    foreach (Relation *r, list) {
+    const QList<Relation*> relations = lst.values();
+    for (Relation *r : relations) {
         if (r->child()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<r->child()->name();
             continue;
@@ -2336,7 +2341,8 @@ DateTime Task::scheduleFromEndTime(int use) {
     if (cs->startTime < projectNode()->constraintStartTime() || cs->endTime > projectNode()->constraintEndTime()) {
         cs->logError(i18n("Failed to schedule within project target time"));
     }
-    foreach (const Appointment *a, cs->appointments()) {
+    const auto appointments = cs->appointments();
+    for (const Appointment *a : appointments) {
         cs->logInfo(i18n("Resource %1 booked from %2 to %3", a->resource()->resource()->name(), locale.toString(a->startTime(), QLocale::ShortFormat), locale.toString(a->endTime(), QLocale::ShortFormat)));
     }
     if (cs->startTime < cs->earlyStart) {
@@ -2361,7 +2367,7 @@ void Task::adjustSummarytask() {
     if (type() == Type_Summarytask) {
         DateTime start = m_currentSchedule->lateFinish;
         DateTime end = m_currentSchedule->earlyStart;
-        foreach (Node *n, m_nodes) {
+        for (Node *n : qAsConst(m_nodes)) {
             n->adjustSummarytask();
             if (n->startTime() < start)
                 start = n->startTime();
@@ -2612,14 +2618,14 @@ void Task::addParentProxyRelations(const QList<Relation*> &list)
     if (type() == Type_Summarytask) {
         // propagate to my children
         //debugPlan<<m_name<<" is summary task";
-        foreach (Node *n, m_nodes) {
+        for (Node *n : qAsConst(m_nodes)) {
             n->addParentProxyRelations(list);
             n->addParentProxyRelations(dependParentNodes());
         }
     } else {
         // add 'this' as child relation to the relations parent
         //debugPlan<<m_name<<" is not summary task";
-        foreach (Relation *r, list) {
+        for (Relation *r : list) {
             r->parent()->addChildProxyRelation(this, r);
             // add a parent relation to myself
             addParentProxyRelation(r->parent(), r);
@@ -2632,14 +2638,14 @@ void Task::addChildProxyRelations(const QList<Relation*> &list) {
     if (type() == Type_Summarytask) {
         // propagate to my children
         //debugPlan<<m_name<<" is summary task";
-        foreach (Node *n, m_nodes) {
+        for (Node *n : qAsConst(m_nodes)) {
             n->addChildProxyRelations(list);
             n->addChildProxyRelations(dependChildNodes());
         }
     } else {
         // add 'this' as parent relation to the relations child
         //debugPlan<<m_name<<" is not summary task";
-        foreach (Relation *r, list) {
+        for (Relation *r : list) {
             r->child()->addParentProxyRelation(this, r);
             // add a child relation to myself
             addChildProxyRelation(r->child(), r);
@@ -2651,7 +2657,7 @@ void Task::addParentProxyRelation(Node *node, const Relation *rel) {
     if (node->type() != Type_Summarytask) {
         if (type() == Type_Summarytask) {
             //debugPlan<<"Add parent proxy from my children"<<m_name<<" to"<<node->name();
-            foreach (Node *n, m_nodes) {
+            for (Node *n : qAsConst(m_nodes)) {
                 n->addParentProxyRelation(node, rel);
             }
         } else {
@@ -2665,7 +2671,7 @@ void Task::addChildProxyRelation(Node *node, const Relation *rel) {
     if (node->type() != Type_Summarytask) {
         if (type() == Type_Summarytask) {
             //debugPlan<<"Add child proxy from my children"<<m_name<<" to"<<node->name();
-            foreach (Node *n, m_nodes) {
+            for (Node *n : qAsConst(m_nodes)) {
                 n->addChildProxyRelation(node, rel);
             }
         } else {
@@ -2785,12 +2791,12 @@ bool Task::calcCriticalPath(bool fromEnd)
             //debugPlan<<m_name<<" end node";
             return true;
         }
-        foreach (Relation *r, m_childProxyRelations) {
+        for (Relation *r : qAsConst(m_childProxyRelations)) {
             if (r->child()->calcCriticalPath(fromEnd)) {
                 m_currentSchedule->inCriticalPath = true;
             }
         }
-        foreach (Relation *r, m_dependChildNodes) {
+        for (Relation *r : qAsConst(m_dependChildNodes)) {
             if (r->child()->calcCriticalPath(fromEnd)) {
                 m_currentSchedule->inCriticalPath = true;
             }
@@ -2801,12 +2807,12 @@ bool Task::calcCriticalPath(bool fromEnd)
             //debugPlan<<m_name<<" start node";
             return true;
         }
-        foreach (Relation *r, m_parentProxyRelations) {
+        for (Relation *r : qAsConst(m_parentProxyRelations)) {
             if (r->parent()->calcCriticalPath(fromEnd)) {
                 m_currentSchedule->inCriticalPath = true;
             }
         }
-        foreach (Relation *r, m_dependParentNodes) {
+        for (Relation *r : qAsConst(m_dependParentNodes)) {
             if (r->parent()->calcCriticalPath(fromEnd)) {
                 m_currentSchedule->inCriticalPath = true;
             }
@@ -2828,13 +2834,13 @@ void Task::calcFreeFloat()
         return;
     }
     DateTime t;
-    foreach (Relation *r, m_dependChildNodes) {
+    for (Relation *r : qAsConst(m_dependChildNodes)) {
         DateTime c = r->child()->startTime();
         if (!t.isValid() || c < t) {
             t = c;
         }
     }
-    foreach (Relation *r, m_childProxyRelations) {
+    for (Relation *r : qAsConst(m_childProxyRelations)) {
         DateTime c = r->child()->startTime();
         if (!t.isValid() || c < t) {
             t = c;
@@ -2896,7 +2902,7 @@ uint Task::state(long id) const
     }
     st |= State_ReadyToStart;
     //TODO: check proxy relations
-    foreach (const Relation *r, m_dependParentNodes) {
+    for (const Relation *r : qAsConst(m_dependParentNodes)) {
         if (! static_cast<Task*>(r->parent())->completion().isFinished()) {
             st &= ~Node::State_ReadyToStart;
             st |= Node::State_NotReadyToStart;
@@ -3127,7 +3133,7 @@ Duration Completion::actualEffort() const
 {
     Duration eff;
     if (m_entrymode == EnterEffortPerResource) {
-        foreach(const UsedEffort *ue, m_usedEffort) {
+        for (const UsedEffort *ue : qAsConst(m_usedEffort)) {
             const QMap<QDate, UsedEffort::ActualEffort> map = ue->actualEffortMap();
             QMap<QDate, UsedEffort::ActualEffort>::const_iterator it;
             for (it = map.constBegin(); it != map.constEnd(); ++it) {
@@ -3154,7 +3160,7 @@ Duration Completion::actualEffort(QDate date) const
 {
     Duration eff;
     if (m_entrymode == EnterEffortPerResource) {
-        foreach(const UsedEffort *ue, m_usedEffort) {
+        for (const UsedEffort *ue : qAsConst(m_usedEffort)) {
             if (ue && ue->actualEffortMap().contains(date)) {
                 eff += ue->actualEffortMap().value(date).effort();
             }
@@ -3173,7 +3179,7 @@ Duration Completion::actualEffortTo(QDate date) const
     //debugPlan<<date;
     Duration eff;
     if (m_entrymode == EnterEffortPerResource) {
-        foreach(const UsedEffort *ue, m_usedEffort) {
+        for (const UsedEffort *ue : qAsConst(m_usedEffort)) {
             eff += ue->effortTo(date);
         }
     } else {
@@ -3199,7 +3205,8 @@ double Completion::averageCostPrHour(QDate date, long id) const
     double cost = 0.0;
     double eff = 0.0;
     QList<double> cl;
-    foreach (const Appointment *a, s->appointments()) {
+    const auto appointments = s->appointments();
+    for (const Appointment *a : appointments) {
         cl << a->resource()->resource()->normalRate();
         double e = a->plannedEffort(date).toDouble(Duration::Unit_h);
         if (e > 0.0) {
@@ -3210,7 +3217,7 @@ double Completion::averageCostPrHour(QDate date, long id) const
     if (eff > 0.0) {
         cost /= eff;
     } else {
-        foreach (double c, cl) {
+        for (double c : qAsConst(cl)) {
             cost += c;
         }
         cost /= cl.count();
@@ -3233,7 +3240,8 @@ EffortCostMap Completion::effortCostPrDay(QDate start, QDate end, long id) const
             QDate st = start.isValid() ? start : m_startTime.date();
             QDate et = end.isValid() ? end : m_finishTime.date();
             Duration last;
-            foreach (const QDate &d, m_entries.uniqueKeys()) {
+            const auto dates = m_entries.uniqueKeys();
+            for (const QDate &d : dates) {
                 if (d < st) {
                     continue;
                 }
@@ -3401,7 +3409,8 @@ double Completion::actualCost(const Resource *resource) const
     double c = 0.0;
     double nc = resource->normalRate();
     double oc = resource->overtimeRate();
-    foreach (const UsedEffort::ActualEffort &a, ue->actualEffortMap()) {
+    const auto list = ue->actualEffortMap().values();
+    for (const UsedEffort::ActualEffort &a : list) {
         c += a.normalEffort().toDouble(Duration::Unit_h) * nc;
         c += a.overtimeEffort().toDouble(Duration::Unit_h) * oc;
     }
@@ -3486,7 +3495,8 @@ EffortCostMap Completion::actualEffortCost(long int id, KPlato::EffortCostCalcul
         QDate st = start.isValid() ? start : m_startTime.date();
         QDate et = end.isValid() ? end : m_finishTime.date();
         Duration last;
-        foreach (const QDate &d, m_entries.uniqueKeys()) {
+        const auto dates = m_entries.uniqueKeys();
+        for (const QDate &d : dates) {
             if (d < st) {
                 continue;
             }
@@ -3606,7 +3616,8 @@ void Completion::saveXML(QDomElement &element)  const
     el.setAttribute(QStringLiteral("startTime"), m_startTime.toString(Qt::ISODate));
     el.setAttribute(QStringLiteral("finishTime"), m_finishTime.toString(Qt::ISODate));
     el.setAttribute(QStringLiteral("entrymode"), entryModeToString());
-    foreach(const QDate &date, m_entries.uniqueKeys()) {
+    const auto dates = m_entries.uniqueKeys();
+    for (const QDate &date : dates) {
         QDomElement elm = el.ownerDocument().createElement(QStringLiteral("completion-entry"));
         el.appendChild(elm);
         Entry *e = m_entries[ date ];
@@ -3673,7 +3684,7 @@ Duration Completion::UsedEffort::effortTo(QDate date) const
 Duration Completion::UsedEffort::effort() const
 {
     Duration eff;
-    foreach (const ActualEffort &e, m_actual) {
+    for (const ActualEffort &e : qAsConst(m_actual)) {
         eff += e.effort();
     }
     return eff;
@@ -3792,7 +3803,8 @@ QList<Resource*> WorkPackage::fetchResources(long id)
         }
     } else {
         if (m_task) lst = m_task->assignedResources(id);
-        foreach (const Resource *r, m_completion.resources()) {
+        const auto resources = m_completion.resources();
+        for (const Resource *r : resources) {
             if (! lst.contains(const_cast<Resource*>(r))) {
                 lst << const_cast<Resource*>(r);
             }

@@ -125,7 +125,8 @@ ViewBase *SplitterView::findView(const QPoint &pos) const
 
 void SplitterView::setProject(Project *project)
 {
-    foreach (ViewBase *v, findChildren<ViewBase*>()) {
+    const QList<ViewBase*> views = findChildren<ViewBase*>();
+    for (ViewBase *v : views) {
         v->setProject(project);
     }
     ViewBase::setProject(project);
@@ -133,7 +134,8 @@ void SplitterView::setProject(Project *project)
 
 void SplitterView::setScheduleManager(ScheduleManager *sm)
 {
-    foreach (ViewBase *v, findChildren<ViewBase*>()) {
+    const QList<ViewBase*> views = findChildren<ViewBase*>();
+    for (ViewBase *v : views) {
         v->setScheduleManager(sm);
     }
     ViewBase::setScheduleManager(sm);
@@ -202,9 +204,9 @@ void SplitterView::updateReadWrite(bool mode)
 
 ViewBase *SplitterView::focusView() const
 {
-    QList<ViewBase*> lst = findChildren<ViewBase*>();
+    const QList<ViewBase*> lst = findChildren<ViewBase*>();
     debugPlan<<lst;
-    foreach (ViewBase *v, lst) {
+    for (ViewBase *v : lst) {
         if (v->isActive()) {
             debugPlan<<v;
             return v;
@@ -275,7 +277,8 @@ bool SplitterView::loadContext(const KoXmlElement &context)
         return true;
     }
 #ifndef KOXML_USE_QDOM
-    foreach (const QString &s, e.attributeNames()) {
+    const QStringList names = e.attributeNames();
+    for (const QString &s : names) {
         ViewBase *v = findChildren<ViewBase*>(s).value(0);
         if (v == nullptr) {
             continue;
@@ -292,16 +295,16 @@ bool SplitterView::loadContext(const KoXmlElement &context)
 
 void SplitterView::saveContext(QDomElement &context) const
 {
-    QList<ViewBase*> lst = findChildren<ViewBase*>();
+    const QList<ViewBase*> lst = findChildren<ViewBase*>();
     if (lst.isEmpty()) {
         return;
     }
     QDomElement e = context.ownerDocument().createElement("views");
     context.appendChild(e);
-    foreach (ViewBase *v, lst) {
+    for (ViewBase *v : lst) {
         e.setAttribute(v->objectName(), "");
     }
-    foreach (ViewBase *v, lst) {
+    for (ViewBase *v : lst) {
         QDomElement e1 = e.ownerDocument().createElement(v->objectName());
         e.appendChild(e1);
         v->saveContext(e1);

@@ -91,7 +91,7 @@ QVariant UsedEffortItemModel::data (const QModelIndex &index, int role) const
                 // Total
                 //debugPlan<<index.row()<<","<<index.column()<<" total"<<'\n';
                 double res = 0.0;
-                foreach (const QDate &d, m_dates) {
+                for (const QDate &d: qAsConst(m_dates)) {
                     Completion::UsedEffort::ActualEffort e = ue->effort(d);
                     res += e.normalEffort().toDouble(Duration::Unit_h);
                 }
@@ -191,8 +191,8 @@ bool UsedEffortItemModel::submit()
 void UsedEffortItemModel::revert()
 {
     debugPlan;
-    QList<const Resource*> lst = m_resourcelist;
-    foreach (const Resource *r, lst) {
+    const QList<const Resource*> lst = m_resourcelist;
+    for (const Resource *r : lst) {
         if (! m_completion->usedEffortMap().contains(r)) {
             int row = m_resourcelist.indexOf(r);
             if (row != -1) {
@@ -336,7 +336,8 @@ void UsedEffortItemModel::addResource(const QString &name)
 QMap<QString, const Resource*> UsedEffortItemModel::freeResources() const
 {
     QMap<QString, const Resource*> map;
-    foreach (Resource *r, m_project->resourceList()) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
         if (! m_resourcelist.contains(r)) {
             map.insertMulti(r->name(), r);
         }

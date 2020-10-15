@@ -180,7 +180,7 @@ void TaskStatusItemModel::setScheduleManager(ScheduleManager *sm)
 
 void TaskStatusItemModel::clear()
 {
-    foreach (NodeMap *l, m_top) {
+    for (NodeMap *l : qAsConst(m_top)) {
         int c = l->count();
         if (c > 0) {
             //FIXME: gives error msg:
@@ -227,7 +227,8 @@ void TaskStatusItemModel::refresh()
     const QDate begin = m_nodemodel.now().addDays(-m_period);
     const QDate end = m_nodemodel.now().addDays(m_period);
 
-    foreach(Node* n, m_project->allNodes()) {
+    const QList<Node*> nodes = m_project->allNodes();
+    for (Node* n : nodes) {
         if (n->type() != Node::Type_Task && n->type() != Node::Type_Milestone) {
             continue;
         }
@@ -237,7 +238,7 @@ void TaskStatusItemModel::refresh()
             m_top.at(status)->insert(task->wbsCode(), task);
         }
     }
-    foreach (NodeMap *l, m_top) {
+    for (NodeMap *l : qAsConst(m_top)) {
         int c = l->count();
         if (c > 0) {
             debugPlan<<index(l)<<0<<c-1;
@@ -308,7 +309,7 @@ QModelIndex TaskStatusItemModel::parent(const QModelIndex &index) const
         return QModelIndex();
     }
     NodeMap *lst = nullptr;
-    foreach (NodeMap *l, m_top) {
+    for (NodeMap *l : qAsConst(m_top)) {
         if (CONTAINS((*l), n)) {
             lst = l;
             break;
@@ -351,7 +352,7 @@ QModelIndex TaskStatusItemModel::index(const Node *node) const
     if (m_project == nullptr || node == nullptr) {
         return QModelIndex();
     }
-    foreach(NodeMap *l, m_top) {
+    for(NodeMap *l : qAsConst(m_top)) {
         const QList<Node*> &nodes = l->values();
         int row = nodes.indexOf(const_cast<Node*>(node));
         if (row != -1) {
@@ -676,7 +677,7 @@ NodeMap *TaskStatusItemModel::list(const QModelIndex &index) const
 Node *TaskStatusItemModel::node(const QModelIndex &index) const
 {
     if (index.isValid()) {
-        foreach (NodeMap *l, m_top) {
+        for (NodeMap *l : qAsConst(m_top)) {
             const QList<Node*> &nodes = l->values();
             int row = nodes.indexOf(static_cast<Node*>(index.internalPointer()));
             if (row != -1) {
@@ -746,7 +747,7 @@ void TaskStatusItemModel::slotNodeChanged(Node *node)
 void TaskStatusItemModel::slotWbsDefinitionChanged()
 {
     debugPlan;
-    foreach (NodeMap *l, m_top) {
+    for (NodeMap *l : qAsConst(m_top)) {
         for (int row = 0; row < l->count(); ++row) {
             const QList<Node*> &nodes = l->values();
             emit dataChanged(createIndex(row, NodeModel::NodeWBSCode, nodes.value(row)), createIndex(row, NodeModel::NodeWBSCode, nodes.value(row)));

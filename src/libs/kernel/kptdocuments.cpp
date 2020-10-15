@@ -179,7 +179,8 @@ Documents::Documents(const Documents &docs)
     : node(nullptr)
 {
     //debugPlan<<this;
-    foreach (Document *doc, docs.documents()) {
+    const auto documents = docs.documents();
+    for (Document *doc : documents) {
         m_docs.append(new Document(*doc));
     }
 }
@@ -302,7 +303,7 @@ void Documents::save(QDomElement &element) const
     }
     QDomElement e = element.ownerDocument().createElement("documents");
     element.appendChild(e);
-    foreach (Document *d, m_docs) {
+    for (Document *d : qAsConst(m_docs)) {
         QDomElement me = element.ownerDocument().createElement("document");
         e.appendChild(me);
         d->save(me);
@@ -311,7 +312,7 @@ void Documents::save(QDomElement &element) const
 
 void Documents::saveToStore(KoStore *store) const
 {
-    foreach (Document *doc, m_docs) {
+    for (Document *doc : qAsConst(m_docs)) {
         if (doc->sendAs() == Document::SendAs_Copy) {
             QString path = doc->url().url();
             if (doc->url().isLocalFile()) {

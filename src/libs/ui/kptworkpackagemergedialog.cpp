@@ -159,7 +159,8 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
     }
     const Completion &newCompletion = package->task->completion();
     const Resource *resource1 = nullptr;
-    foreach(const Resource *r, newCompletion.resources()) {
+    const QList<const Resource*> resources = newCompletion.resources();
+    for(const Resource *r : resources) {
         if (r->id() == package->ownerId) {
             resource1 = r;
             break;

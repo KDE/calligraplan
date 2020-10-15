@@ -410,13 +410,13 @@ void TestXmlReaderWithoutSpaces::testAttributes()
     QCOMPARE(imgElement.attribute("border", "0").toInt(), 0);
     QCOMPARE(imgElement.attribute("border", "-1").toInt(), -1);
 
-    QStringList list = KoXml::attributeNames(imgElement);
+    const QStringList list = KoXml::attributeNames(imgElement);
     QCOMPARE(list.count(), 3);
     QVERIFY(list.contains("src"));
     QVERIFY(list.contains("width"));
     QVERIFY(list.contains("height"));
     QVERIFY(! list.contains("border"));
-    foreach(QString a, list) {
+    for (QString a : list) {
         QCOMPARE(imgElement.hasAttribute(a), true);
         QCOMPARE(imgElement.attribute(a).isEmpty(), false);
     }

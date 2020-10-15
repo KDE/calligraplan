@@ -132,7 +132,7 @@ void KoPagePreviewWidget::drawPage(QPainter &painter, qreal zoom, const QRect &d
             painter.drawRect(qRound(textArea.x() + i * columnWidth), textArea.y(), width, textArea.height());
     } else {
         qreal totalRelativeWidth = 0.0;
-        foreach(const KoColumns::ColumnDatum &cd, d->columns.columnData) {
+        for (const KoColumns::ColumnDatum &cd : qAsConst(d->columns.columnData)) {
             totalRelativeWidth += cd.relativeWidth;
         }
         int relativeColumnXOffset = 0;

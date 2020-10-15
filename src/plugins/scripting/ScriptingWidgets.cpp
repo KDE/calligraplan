@@ -62,7 +62,8 @@ ScriptingScheduleListView::ScriptingScheduleListView(Scripting::Module* module, 
     model->setHorizontalHeaderLabels(QStringList() << i18n("Schedule Name"));
     KPlato::Project *p = static_cast<Scripting::Project*>(m_module->project())->kplatoProject();
     debugPlanScripting<<p;
-    foreach (KPlato::ScheduleManager *sm, p->allScheduleManagers()) {
+    const auto managers = p->allScheduleManagers();
+    for (KPlato::ScheduleManager *sm : managers) {
         if (sm->isScheduled()) {
             QStandardItem *i = new QStandardItem(sm->name());
             i->setData((qlonglong)sm->scheduleId());

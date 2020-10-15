@@ -644,7 +644,8 @@ void ItemModelBase::slotLayoutToBeChanged()
 bool ItemModelBase::dropAllowed(const QModelIndex &index, int, const QMimeData *data)
 {
     if (flags(index) & Qt::ItemIsDropEnabled) {
-        foreach (const QString &s, data->formats()) {
+        const QList<QString> formats = data->formats();
+        for (const QString &s : formats) {
             if (mimeTypes().contains(s)) {
                 return true;
             }

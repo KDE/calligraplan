@@ -243,8 +243,8 @@ protected Q_SLOTS:
 
     void slotDeleteResource(KPlato::Resource *resource);
     void slotDeleteResourceGroup(KPlato::ResourceGroup *group);
-    void slotDeleteResourceObjects(QObjectList);
-    void slotDeleteResourceGroups(QObjectList lst);
+    void slotDeleteResourceObjects(const QObjectList);
+    void slotDeleteResourceGroups(const QObjectList lst);
 
     void slotCurrentChanged(int);
     void slotSelectDefaultView();

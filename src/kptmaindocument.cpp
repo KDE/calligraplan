@@ -326,8 +326,10 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             debugPlan<<newProject->schedules();
             // Cleanup after possible bug:
             // There should *not* be any deleted schedules (or with parent == 0)
-            foreach (Node *n, newProject->nodeDict()) {
-                foreach (Schedule *s, n->schedules()) {
+            const QList<Node*> nodes = newProject->nodeDict().values();
+            for (Node *n : nodes) {
+                const QList<Schedule*> schedules = n->schedules().values();
+                for (Schedule *s : schedules) {
                     if (s->isDeleted()) { // true also if parent == 0
                         errorPlan<<n->name()<<s;
                         n->takeSchedule(s);
@@ -398,8 +400,10 @@ This test does not work any longer. KoXml adds a couple of elements not present 
                 setProject(newProject);
                 // Cleanup after possible bug:
                 // There should *not* be any deleted schedules (or with parent == 0)
-                foreach (Node *n, newProject->nodeDict()) {
-                    foreach (Schedule *s, n->schedules()) {
+                const QList<Node*> nodes = newProject->nodeDict().values();
+                for (Node *n : nodes) {
+                    const QList<Schedule*> schedules = n->schedules().values();
+                    for (Schedule *s : schedules) {
                         if (s->isDeleted()) { // true also if parent == 0
                             errorPlan<<n->name()<<s;
                             n->takeSchedule(s);
@@ -733,7 +737,8 @@ bool MainDocument::extractFiles(KoStore *store, Package *package)
         errorPlan<<"No task!";
         return false;
     }
-    foreach (Document *doc, package->task->documents().documents()) {
+    const QList<Document*> documents = package->task->documents().documents();
+    for (Document *doc : documents) {
         if (! doc->isValid() || doc->type() != Document::Type_Product || doc->sendAs() != Document::SendAs_Copy) {
             continue;
         }
@@ -961,7 +966,7 @@ bool MainDocument::completeSaving(KoStore *store)
         }
         return false;
     }
-    foreach (View *view, m_views) {
+    for (View *view : qAsConst(m_views)) {
         if (view) {
             if (store->open("context.xml")) {
                 if (m_context == nullptr) m_context = new Context();
@@ -1093,7 +1098,8 @@ void MainDocument::insertFileCancelled(const QString &error)
 
 void MainDocument::clearResourceAssignments()
 {
-    foreach (Resource *r, m_project->resourceList()) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
         r->clearExternalAppointments();
     }
 }
@@ -1125,7 +1131,8 @@ void MainDocument::insertSharedProjects(const QUrl &url)
         // Get all plan files in this directory
         debugPlan<<"Get all projects in dir:"<<url;
         QDir dir = fi.dir();
-        foreach(const QString &f, dir.entryList(QStringList()<<"*.plan")) {
+        const QList<QString> files = dir.entryList(QStringList()<<"*.plan");
+        for(const QString &f : files) {
             QString path = dir.canonicalPath();
             if (path.isEmpty()) {
                 continue;
@@ -1174,7 +1181,8 @@ void MainDocument::insertSharedProjectCompleted()
             // FIXME: improve!
             // find a suitable schedule
             ScheduleManager *sm = nullptr;
-            foreach(ScheduleManager *m, p.allScheduleManagers()) {
+            const QList<ScheduleManager*> managers = p.allScheduleManagers();
+            for (ScheduleManager *m : managers) {
                 if (m->isBaselined()) {
                     sm = m;
                     break;
@@ -1184,12 +1192,14 @@ void MainDocument::insertSharedProjectCompleted()
                 }
             }
             if (sm) {
-                foreach(Resource *r, p.resourceList()) {
+                const QList<Resource*> resources = p.resourceList();
+                for (Resource *r : resources ) {
                     Resource *res = m_project->resource(r->id());
                     if (res && res->isShared()) {
                         Appointment *app = new Appointment();
                         app->setAuxcilliaryInfo(p.name());
-                        foreach(const Appointment *a, r->appointments(sm->scheduleId())) {
+                        const QList<Appointment*> appointments = r->appointments(sm->scheduleId());
+                        for (const Appointment *a : appointments) {
                             *app += *a;
                         }
                         if (app->isEmpty()) {
@@ -1229,7 +1239,8 @@ bool MainDocument::insertProject(Project &project, Node *parent, Node *after)
     debugPlan<<&project;
     // make sure node ids in new project is unique also in old project
     QList<QString> existingIds = m_project->nodeDict().keys();
-    foreach (Node *n, project.allNodes()) {
+    const QList<Node*> nodes = project.allNodes();
+    for (Node *n : nodes) {
         QString oldid = n->id();
         n->setId(project.uniqueNodeId(existingIds));
         project.removeId(oldid); // remove old id
@@ -1274,30 +1285,36 @@ bool MainDocument::mergeResources(Project &project)
 {
     debugPlanShared<<&project;
     // Just in case, remove stuff not related to resources
-    foreach(Node *n,  project.childNodeIterator()) {
+    const QList<Node*> nodes = project.childNodeIterator();
+    for (Node *n : nodes) {
         debugPlanShared<<"Project not empty, delete node:"<<n<<n->name();
         NodeDeleteCmd cmd(n);
         cmd.execute();
     }
-    foreach(ScheduleManager *m,  project.scheduleManagers()) {
+    const QList<ScheduleManager*> managers = project.scheduleManagers();
+    for (ScheduleManager *m : managers) {
         debugPlanShared<<"Project not empty, delete schedule:"<<m<<m->name();
         DeleteScheduleManagerCmd cmd(project, m);
         cmd.execute();
     }
-    foreach(Account *a, project.accounts().accountList()) {
+    const QList<Account*> accounts = project.accounts().accountList();
+    for (Account *a : accounts) {
         debugPlanShared<<"Project not empty, delete account:"<<a<<a->name();
         RemoveAccountCmd cmd(project, a);
         cmd.execute();
     }
     // Mark all resources / groups as shared
-    foreach(ResourceGroup *g, project.resourceGroups()) {
+    const QList<ResourceGroup*> groups = project.resourceGroups();
+    for (ResourceGroup *g : groups) {
         g->setShared(true);
     }
-    foreach(Resource *r, project.resourceList()) {
+    const QList<Resource*> resources = project.resourceList();
+    for (Resource *r : resources) {
         r->setShared(true);
     }
     // Mark all calendars shared
-    foreach(Calendar *c, project.allCalendars()) {
+    const QList<Calendar*> calendars = project.allCalendars();
+    for (Calendar *c : calendars) {
         c->setShared(true);
     }
     // check if any shared stuff has been removed
@@ -1305,13 +1322,15 @@ bool MainDocument::mergeResources(Project &project)
     QList<Resource*> removedResources;
     QList<Calendar*> removedCalendars;
     QStringList removed;
-    foreach(ResourceGroup *g, m_project->resourceGroups()) {
+    const QList<ResourceGroup*> groups2 = m_project->resourceGroups();
+    for (ResourceGroup *g : groups2) {
         if (g->isShared() && !project.findResourceGroup(g->id())) {
             removedGroups << g;
             removed << i18n("Group: %1", g->name());
         }
     }
-    foreach(Resource *r, m_project->resourceList()) {
+    const QList<Resource*> resources2 = m_project->resourceList();
+    for (Resource *r : resources2) {
         if (r->isShared() && !project.findResource(r->id())) {
             removedResources << r;
             removed << i18n("Resource: %1", r->name());
@@ -1384,16 +1403,18 @@ bool MainDocument::mergeResources(Project &project)
     }
     // update values of already existing objects
     QStringList l1;
-    foreach(ResourceGroup *g, project.resourceGroups()) {
+    const QList<ResourceGroup*> groups3 = project.resourceGroups();
+    for (ResourceGroup *g : groups3) {
         l1 << g->id();
     }
     QStringList l2;
-    foreach(ResourceGroup *g, m_project->resourceGroups()) {
+    const QList<ResourceGroup*> groups4 = m_project->resourceGroups();
+    for (ResourceGroup *g : groups4) {
         l2 << g->id();
     }
     debugPlanShared<<'\n'<<"  This:"<<l2<<'\n'<<"Shared:"<<l1;
     QList<ResourceGroup*> removegroups;
-    foreach(ResourceGroup *g, project.resourceGroups()) {
+    for (ResourceGroup *g : groups3) {
         ResourceGroup *group = m_project->findResourceGroup(g->id());
         if (group) {
             if (!group->isShared()) {
@@ -1410,7 +1431,8 @@ bool MainDocument::mergeResources(Project &project)
         }
     }
     QList<Resource*> removeresources;
-    foreach(Resource *r, project.resourceList()) {
+    const QList<Resource*> resources3 = project.resourceList();
+    for (Resource *r : resources3) {
         Resource *resource = m_project->findResource(r->id());
         if (resource) {
             if (!resource->isShared()) {
@@ -1445,7 +1467,8 @@ bool MainDocument::mergeResources(Project &project)
         }
     }
     QList<Calendar*> removecalendars;
-    foreach(Calendar *c, project.allCalendars()) {
+    const QList<Calendar*> calendars2 = project.allCalendars();
+    for (Calendar *c : calendars2) {
         Calendar *calendar = m_project->findCalendar(c->id());
         if (calendar) {
             if (!calendar->isShared()) {
@@ -1610,7 +1633,8 @@ void MainDocument::createNewProject()
     m_project->setConstraintEndTime(m_project->constraintStartTime() +  dur);
 
     while (m_project->numScheduleManagers() > 0) {
-        foreach (ScheduleManager *sm, m_project->allScheduleManagers()) {
+        const QList<ScheduleManager*> managers = m_project->allScheduleManagers();
+        for (ScheduleManager *sm : managers) {
             if (sm->childCount() > 0) {
                 continue;
             }
@@ -1622,18 +1646,23 @@ void MainDocument::createNewProject()
             delete sm;
         }
     }
-    foreach (Schedule *s, m_project->schedules()) {
+    const QList<Schedule*> schedules = m_project->schedules().values();
+    for (Schedule *s : schedules) {
         m_project->takeSchedule(s);
         delete s;
     }
-    foreach (Node *n, m_project->allNodes()) {
-        foreach (Schedule *s, n->schedules()) {
+    const QList<Node*> nodes = m_project->allNodes();
+    for (Node *n : nodes) {
+        const QList<Schedule*> schedules = n->schedules().values();
+        for (Schedule *s : schedules) {
             n->takeSchedule(s);
             delete s;
         }
     }
-    foreach (Resource *r, m_project->resourceList()) {
-        foreach (Schedule *s, r->schedules()) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
+        const QList<Schedule*> schedules = r->schedules().values();
+        for (Schedule *s : schedules) {
             r->takeSchedule(s);
             delete s;
         }

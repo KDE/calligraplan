@@ -644,7 +644,8 @@ bool ViewBase::isActive() const
     if (hasFocus()) {
         return true;
     }
-    foreach (QWidget *v, findChildren<QWidget*>()) {
+    const QList<QWidget*> widgets = findChildren<QWidget*>();
+    for (QWidget *v : widgets) {
         if (v->hasFocus()) {
             return true;
         }
@@ -837,7 +838,7 @@ void ViewBase::saveContext(QDomElement &context) const
     if (! m_dockers.isEmpty()) {
         QDomElement e = context.ownerDocument().createElement("dockers");
         context.appendChild(e);
-        foreach (const DockWidget *ds, m_dockers) {
+        for (const DockWidget *ds : qAsConst(m_dockers)) {
             ds->saveXml(e);
         }
     }
@@ -856,7 +857,7 @@ QList<DockWidget*> ViewBase::dockers() const
 
 DockWidget* ViewBase::findDocker(const QString &id) const
 {
-    foreach (DockWidget *ds, m_dockers) {
+    for (DockWidget *ds : qAsConst(m_dockers)) {
         if (ds->id == id) {
             return ds;
         }
@@ -1150,7 +1151,7 @@ void TreeViewBase::setColumnsHidden(const QList<int> &lst)
     //debugPlan<<m_hideList;
     int prev = -1;
     QList<int> xlst;
-    foreach (int c, lst) {
+    for (int c : lst) {
         if (c == -1) {
             // hide rest
             for (int i = prev+1; i < model()->columnCount(); ++i) {

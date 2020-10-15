@@ -141,7 +141,8 @@ QString doAttendees(const Node &node, long sid)
     QString s;
     Schedule *schedule = node.schedule(sid);
     if (schedule) {
-        foreach (const Resource *r, schedule->resources()) {
+        const auto resources = schedule->resources();
+        for (const Resource *r : resources) {
             if (r->type() == Resource::Type_Work) {
                 s += QString("ATTENDEE;CN=") + r->name() + "\r\n\t";
                 s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n\t";
@@ -152,7 +153,7 @@ QString doAttendees(const Node &node, long sid)
         }
     } else {
         const QList<Resource*> lst = static_cast<const Task&>(node).requestedResources();
-        foreach(const Resource *r, lst) {
+        for (const Resource *r :lst) {
             if (r->type() == Resource::Type_Work) {
                 s += QString("ATTENDEE;CN=") + r->name() + "\r\n\t";
                 s += QString(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + "\r\n\t";
@@ -168,7 +169,8 @@ QString doAttendees(const Node &node, long sid)
 QString doAttachment(const Documents &docs)
 {
     QString s;
-    foreach(const Document *doc, docs.documents()) {
+    const auto documents = docs.documents();
+    for (const Document *doc : documents) {
         s += QString("ATTACH:") + doc->url().url() + "\r\n";
     }
     return s;
@@ -318,7 +320,7 @@ KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFil
     long id = ANYSCHEDULED;
     bool baselined = project.isBaselined(id);
     QList<ScheduleManager*> lst = project.allScheduleManagers();
-    foreach(const ScheduleManager *m, lst) {
+    for (const ScheduleManager *m : lst) {
         if (! baselined) {
             id = lst.last()->scheduleId();
             //debugPlanICalExport<<"last:"<<id;
@@ -377,7 +379,7 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
         if (id < 0 || s == nullptr) {
             // Not scheduled, use requests
             const QList<Resource*> lst = task->requestedResources();
-            foreach(const Resource *r, lst) {
+            for (const Resource *r : lst) {
                 if (r->type() == Resource::Type_Work) {
 #if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
                     todo->addAttendee(KCalCore::Attendee(r->name(), r->email()));
@@ -387,7 +389,8 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
                 }
             }
         } else {
-            foreach(const Resource *r, s->resources()) {
+            const auto resources = s->resources();
+            for (const Resource *r : resources) {
                 if (r->type() == Resource::Type_Work) {
 #if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
                     todo->addAttendee(KCalCore::Attendee(r->name(), r->email()));
@@ -403,7 +406,8 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
         todo->setDtStart(QDateTime());
         todo->setPercentComplete(task->completion().percentFinished());
     }
-    foreach(const Document *doc, node->documents().documents()) {
+    const auto documents = node->documents().documents();
+    for (const Document *doc : documents) {
 #if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
         todo->addAttachment(KCalCore::Attachment(doc->url().url()));
 #else
@@ -414,7 +418,8 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
         todo->setRelatedTo(parent->uid(), KCalCore::Incidence::RelTypeParent);
     }
     cal->addTodo(todo);
-    foreach(const Node *n, node->childNodeIterator()) {
+    const auto nodes = node->childNodeIterator();
+    for (const Node *n : nodes) {
         createTodos(cal, n, id, todo);
     }
 }

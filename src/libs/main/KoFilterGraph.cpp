@@ -50,7 +50,7 @@ Graph::Graph(const QByteArray& from)
 
 Graph::~Graph()
 {
-    foreach(Vertex* vertex, m_vertices) {
+    for (Vertex* vertex : qAsConst(m_vertices)) {
         delete vertex;
     }
     m_vertices.clear();
@@ -64,7 +64,7 @@ void Graph::setSourceMimeType(const QByteArray& from)
     m_graphValid = false;
 
     // Initialize with "infinity" ...
-    foreach(Vertex* vertex, m_vertices) {
+    for (Vertex* vertex : qAsConst(m_vertices)) {
         vertex->reset();
     }
     // ...and re-run the shortest path search for the new source mime
@@ -105,7 +105,7 @@ void Graph::dump() const
 #ifndef NDEBUG
     debugFilter << "+++++++++ Graph::dump +++++++++";
     debugFilter << "From:" << m_from;
-    foreach(Vertex *vertex, m_vertices) {
+    for (Vertex *vertex : qAsConst(m_vertices)) {
         vertex->dump("   ");
     }
     debugFilter << "+++++++++ Graph::dump (done) +++++++++";
@@ -119,7 +119,7 @@ void Graph::buildGraph()
     // Make sure that all available parts are added to the graph
     const QList<KoDocumentEntry> parts(KoDocumentEntry::query());
 
-    foreach(const KoDocumentEntry& part, parts) {
+    for (const KoDocumentEntry& part : parts) {
 
         QJsonObject metaData = part.metaData();
 #ifdef CALLIGRA_OLD_PLUGIN_METADATA
@@ -129,7 +129,7 @@ void Graph::buildGraph()
 #endif
         nativeMimeTypes += metaData.value("X-KDE-NativeMimeType").toString();
 
-        foreach(const QString& nativeMimeType, nativeMimeTypes) {
+        for (const QString& nativeMimeType : qAsConst(nativeMimeTypes)) {
             const QByteArray key = nativeMimeType.toLatin1();
             if (!m_vertices.contains(key))
                 m_vertices[key] = new Vertex(key);
@@ -139,10 +139,10 @@ void Graph::buildGraph()
     // no constraint here - we want *all* :)
     const QList<KoFilterEntry::Ptr> filters(KoFilterEntry::query());
 
-    foreach(KoFilterEntry::Ptr filter, filters) {
+    for (KoFilterEntry::Ptr filter : filters) {
 
         // First add the "starting points" to the dict
-        foreach (const QString& import, filter->import) {
+        for (const QString& import : qAsConst(filter->import)) {
             const QByteArray key = import.toLatin1();    // latin1 is okay here (werner)
             // already there?
             if (!m_vertices.contains(key))
@@ -152,7 +152,7 @@ void Graph::buildGraph()
         // Are we allowed to use this filter at all?
         if (KoFilterManager::filterAvailable(filter)) {
 
-            foreach(const QString& exportIt, filter->export_) {
+            for (const QString& exportIt : qAsConst(filter->export_)) {
 
                 // First make sure the export vertex is in place
                 const QByteArray key = exportIt.toLatin1();    // latin1 is okay here
@@ -162,7 +162,7 @@ void Graph::buildGraph()
                     m_vertices.insert(key, exp);
                 }
                 // Then create the appropriate edges
-                foreach(const QString& import, filter->import) {
+                for (const QString& import : qAsConst(filter->import)) {
                     m_vertices[import.toLatin1()]->addEdge(new Edge(exp, filter));
                 }
             }

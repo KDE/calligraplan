@@ -119,7 +119,7 @@ struct KoColumns {
     qreal totalRelativeWidth() const
     {
         qreal result = 0.0;
-        foreach(const ColumnDatum &c, columnData) {
+        for (const ColumnDatum &c : qAsConst(columnData)) {
             result += c.relativeWidth;
         }
         return result;

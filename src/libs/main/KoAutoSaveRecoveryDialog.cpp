@@ -194,7 +194,7 @@ KoAutoSaveRecoveryDialog::KoAutoSaveRecoveryDialog(const QStringList &filenames,
     m_listView->setItemDelegate(delegate);
 
     QList<FileItem*> fileItems;
-    foreach(const QString &filename, filenames) {
+    for (const QString &filename : filenames) {
 
         FileItem *file = new FileItem();
         file->name = filename;
@@ -231,7 +231,7 @@ KoAutoSaveRecoveryDialog::KoAutoSaveRecoveryDialog(const QStringList &filenames,
 QStringList KoAutoSaveRecoveryDialog::recoverableFiles()
 {
     QStringList files;
-    foreach(FileItem* fileItem, m_model->m_fileItems) {
+    for (FileItem* fileItem : qAsConst(m_model->m_fileItems)) {
         if (fileItem->checked) {
             files << fileItem->name;
         }

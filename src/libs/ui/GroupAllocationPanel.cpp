@@ -95,7 +95,8 @@ MacroCommand *GroupAllocationPanel::buildCommand(Task *task)
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Modify resourcegroup allocation"));
 
     // First remove all
-    foreach(ResourceGroupRequest *g, task->requests().requests()) {
+    const QList<ResourceGroupRequest*> requests = task->requests().requests();
+    for (ResourceGroupRequest *g : requests) {
         cmd->addCommand(new RemoveResourceGroupRequestCmd(g));
     }
 

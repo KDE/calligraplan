@@ -308,8 +308,8 @@ Duration::Unit Duration::unitFromString(const QString &u)
 }
 
 bool Duration::valueFromString(const QString &value, double &rv, Unit &unit) {
-    QStringList lst = Duration::unitList();
-    foreach (const QString &s, lst) {
+    const QStringList lst = Duration::unitList();
+    for (const QString &s : lst) {
         int pos = value.lastIndexOf(s);
         if (pos != -1) {
             unit = Duration::unitFromString(s);

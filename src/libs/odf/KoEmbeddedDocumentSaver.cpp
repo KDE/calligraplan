@@ -180,7 +180,7 @@ bool KoEmbeddedDocumentSaver::saveEmbeddedDocuments(KoDocumentBase::SavingContex
     KoStore *store = documentContext.odfStore.store();
 
     // Write embedded documents.
-    foreach(KoDocumentBase *doc, d->documents) {
+    for (KoDocumentBase *doc : qAsConst(d->documents)) {
         QString path;
         if (doc->isStoredExtern()) {
             debugOdf << " external (don't save) url:" << doc->url().url();
@@ -234,7 +234,7 @@ bool KoEmbeddedDocumentSaver::saveEmbeddedDocuments(KoDocumentBase::SavingContex
     }
 
     // Write the embedded files.
-    foreach(FileEntry *entry, d->files) {
+    for (FileEntry *entry : qAsConst(d->files)) {
         QString path = entry->path;
         debugOdf << "saving" << path;
 
@@ -264,7 +264,7 @@ bool KoEmbeddedDocumentSaver::saveEmbeddedDocuments(KoDocumentBase::SavingContex
 
     // Write the manifest entries.
     KoXmlWriter *manifestWriter = documentContext.odfStore.manifestWriter();
-    foreach(KoOdfManifestEntry *entry, d->manifestEntries) {
+    for (KoOdfManifestEntry *entry : qAsConst(d->manifestEntries)) {
         manifestWriter->startElement("manifest:file-entry");
         manifestWriter->addAttribute("manifest:version", entry->version());
         manifestWriter->addAttribute("manifest:media-type", entry->mediaType());

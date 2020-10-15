@@ -161,9 +161,11 @@ QVariant NodeModel::allocation(const Node *node, int role) const
                 return node->requests().requestNameList().join(",");
             case Qt::ToolTipRole: {
                 QMap<QString, QStringList> lst;
-                foreach (ResourceRequest *rr, node->requests().resourceRequests(false)) {
+                const QList<ResourceRequest*> requests = node->requests().resourceRequests(false);
+                for (ResourceRequest *rr : requests) {
                     QStringList sl;
-                    foreach(Resource *r, rr->requiredResources()) {
+                    const QList<Resource*> resources = rr->requiredResources();
+                    for (Resource *r : resources) {
                         sl << r->name();
                     }
                     lst.insert(rr->resource()->name(), sl);
@@ -3244,7 +3246,8 @@ void NodeItemModel::slotWbsDefinitionChanged()
         QModelIndex idx = createIndex(0, NodeModel::NodeWBSCode, m_project);
         emit dataChanged(idx, idx);
     }
-    foreach (Node *n, m_project->allNodes()) {
+    const QList<Node*> nodes = m_project->allNodes();
+    for (Node *n : nodes) {
         int row = n->parentNode()->indexOf(n);
         QModelIndex idx = createIndex(row, NodeModel::NodeWBSCode, n);
         emit dataChanged(idx, idx);
@@ -3558,7 +3561,8 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
             QStringList res = m_project->resourceNameList();
             QStringList req = node->requestNameList();
             QStringList alloc;
-            foreach (const QString &s, value.toString().split(QRegExp(" *, *"), QString::SkipEmptyParts)) {
+            QStringList allocations = value.toString().split(QRegExp(" *, *"), QString::SkipEmptyParts);
+            for (const QString &s : allocations) {
                 alloc << s.trimmed();
             }
             // Handle deleted requests
@@ -3803,7 +3807,7 @@ QMimeData *NodeItemModel::mimeData(const QModelIndexList & indexes) const
     QByteArray encodedData;
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
     QList<int> rows;
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         if (index.isValid() && !rows.contains(index.row())) {
             //debugPlan<<index.row();
             Node *n = node(index);
@@ -3816,7 +3820,7 @@ QMimeData *NodeItemModel::mimeData(const QModelIndexList & indexes) const
     m->setData("application/x-vnd.kde.plan.nodeitemmodel.internal", encodedData);
 
     QList<const Node*> nodes;
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         if (index.isValid()) {
             //debugPlan<<index.row();
             Node *n = node(index);
@@ -3911,13 +3915,13 @@ bool NodeItemModel::dropAllowed(Node *on, const QMimeData *data)
         QByteArray encodedData = data->data("application/x-vnd.kde.plan.nodeitemmodel.internal");
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
         QList<Node*> lst = nodeList(stream);
-        foreach (Node *n, lst) {
+        for (Node *n : qAsConst(lst)) {
             if (n->type() == Node::Type_Project || on == n || on->isChildOf(n)) {
                 return false;
             }
         }
         lst = removeChildNodes(lst);
-        foreach (Node *n, lst) {
+        for (Node *n : lst) {
             if (! m_project->canMoveTask(n, on)) {
                 return false;
             }
@@ -3943,9 +3947,9 @@ QList<Node*> NodeItemModel::nodeList(QDataStream &stream)
 QList<Node*> NodeItemModel::removeChildNodes(const QList<Node*> &nodes)
 {
     QList<Node*> lst;
-    foreach (Node *node, nodes) {
+    for (Node *node : nodes) {
         bool ins = true;
-        foreach (Node *n, lst) {
+        for (Node *n : lst) {
             if (node->isChildOf(n)) {
                 //debugPlan<<node->name()<<" is child of"<<n->name();
                 ins = false;
@@ -3957,10 +3961,10 @@ QList<Node*> NodeItemModel::removeChildNodes(const QList<Node*> &nodes)
             lst << node;
         }
     }
-    QList<Node*> nl = lst;
-    QList<Node*> nlst = lst;
-    foreach (Node *node, nl) {
-        foreach (Node *n, nlst) {
+    const QList<Node*> nl = lst;
+    const QList<Node*> nlst = lst;
+    for (Node *node : nl) {
+        for (Node *n : nlst) {
             if (n->isChildOf(node)) {
                 //debugPlan<<n->name()<<" is child of"<<node->name();
                 int i = nodes.indexOf(n);
@@ -3983,7 +3987,8 @@ bool NodeItemModel::dropResourceMimeData(const QMimeData *data, Qt::DropAction a
     debugPlan<<n->name();
     if (parent.column() == NodeModel::NodeResponsible) {
         QString s;
-        foreach (Resource *r, resourceList(stream)) {
+        const QList<Resource*> resources = resourceList(stream);
+        for (Resource *r : resources) {
             s += r->name();
         }
         if (! s.isEmpty()) {
@@ -4059,9 +4064,9 @@ bool NodeItemModel::dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction
 bool NodeItemModel::dropUrlMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
     if (data->hasUrls()) {
-        QList<QUrl> urls = data->urls();
+        const QList<QUrl> urls = data->urls();
         debugPlan<<urls;
-        foreach (const QUrl &url, urls) {
+        for (const QUrl &url : urls) {
             const QMimeType mime = QMimeDatabase().mimeTypeForUrl(url);
             debugPlan<<url<<mime.name();
             if (mime.inherits("application/x-vnd.kde.plan")) {
@@ -4162,8 +4167,8 @@ bool NodeItemModel::dropMimeData(const QMimeData *data, Qt::DropAction action, i
                 par = m_project;
             }
             QList<Node*> lst = nodeList(stream);
-            QList<Node*> nodes = removeChildNodes(lst); // children goes with their parent
-            foreach (Node *n, nodes) {
+            const QList<Node*> nodes = removeChildNodes(lst); // children goes with their parent
+            for (Node *n : nodes) {
                 if (! m_project->canMoveTask(n, par)) {
                     //debugPlan<<"Can't move task:"<<n->name();
                     return false;
@@ -4171,7 +4176,7 @@ bool NodeItemModel::dropMimeData(const QMimeData *data, Qt::DropAction action, i
             }
             int offset = 0;
             MacroCommand *cmd = nullptr;
-            foreach (Node *n, nodes) {
+            for (Node *n : nodes) {
                 if (cmd == nullptr) cmd = new MacroCommand(kundo2_i18n("Move tasks"));
                 // append nodes if dropped *on* another node, insert if dropped *after*
                 int pos = row == -1 ? -1 : row + offset;
@@ -4328,7 +4333,8 @@ QModelIndex GanttItemModel::index(int row, int column, const QModelIndex &parent
         Node *p = node(parent);
         if (p->type() == Node::Type_Task) {
             void *v = nullptr;
-            foreach (void *i, parentmap.values(p)) { // clazy:exclude=container-anti-pattern
+            const QList<void*> parents = parentmap.values(p);
+            for (void *i : parents) {
                 if (*((int*)(i)) == row) {
                     v = i;
                     break;
@@ -4474,7 +4480,7 @@ MilestoneItemModel::~MilestoneItemModel()
 QList<Node*> MilestoneItemModel::mileStones() const
 {
     QList<Node*> lst;
-    foreach(Node* n, m_nodemap) {
+    for (Node* n : qAsConst(m_nodemap)) {
         if (n->type() == Node::Type_Milestone) {
             lst << n;
         }
@@ -4589,7 +4595,8 @@ bool MilestoneItemModel::resetData()
     int cnt = m_nodemap.count();
     m_nodemap.clear();
     if (m_project != nullptr) {
-        foreach (Node *n, m_project->allNodes()) {
+        const QList<Node*> nodes = m_project->allNodes();
+        for (Node *n : nodes) {
             m_nodemap.insert(n->wbsCode(true), n);
         }
     }
@@ -4817,7 +4824,7 @@ QMimeData *MilestoneItemModel::mimeData(const QModelIndexList & indexes) const
     QByteArray encodedData;
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
     QList<int> rows;
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         if (index.isValid() && !rows.contains(index.row())) {
             //debugPlan<<index.row();
             Node *n = node(index);
@@ -4864,13 +4871,13 @@ bool MilestoneItemModel::dropAllowed(Node *on, const QMimeData *data)
     QByteArray encodedData = data->data("application/x-vnd.kde.plan.nodeitemmodel.internal");
     QDataStream stream(&encodedData, QIODevice::ReadOnly);
     QList<Node*> lst = nodeList(stream);
-    foreach (Node *n, lst) {
+    for (Node *n : qAsConst(lst)) {
         if (on == n || on->isChildOf(n)) {
             return false;
         }
     }
     lst = removeChildNodes(lst);
-    foreach (Node *n, lst) {
+    for (Node *n : qAsConst(lst)) {
         if (! m_project->canMoveTask(n, on)) {
             return false;
         }
@@ -4895,9 +4902,9 @@ QList<Node*> MilestoneItemModel::nodeList(QDataStream &stream)
 QList<Node*> MilestoneItemModel::removeChildNodes(const QList<Node*> &nodes)
 {
     QList<Node*> lst;
-    foreach (Node *node, nodes) {
+    for (Node *node : nodes) {
         bool ins = true;
-        foreach (Node *n, lst) {
+        for (Node *n : nodes) {
             if (node->isChildOf(n)) {
                 //debugPlan<<node->name()<<" is child of"<<n->name();
                 ins = false;
@@ -4909,10 +4916,10 @@ QList<Node*> MilestoneItemModel::removeChildNodes(const QList<Node*> &nodes)
             lst << node;
         }
     }
-    QList<Node*> nl = lst;
-    QList<Node*> nlst = lst;
-    foreach (Node *node, nl) {
-        foreach (Node *n, nlst) {
+    const QList<Node*> nl = lst;
+    const QList<Node*> nlst = lst;
+    for (Node *node : nl) {
+        for (Node *n : nlst) {
             if (n->isChildOf(node)) {
                 //debugPlan<<n->name()<<" is child of"<<node->name();
                 int i = nodes.indexOf(n);
@@ -4943,9 +4950,9 @@ bool MilestoneItemModel::dropMimeData(const QMimeData *data, Qt::DropAction acti
         } else {
             par = m_project;
         }
-        QList<Node*> lst = nodeList(stream);
-        QList<Node*> nodes = removeChildNodes(lst); // children goes with their parent
-        foreach (Node *n, nodes) {
+        const QList<Node*> lst = nodeList(stream);
+        const QList<Node*> nodes = removeChildNodes(lst); // children goes with their parent
+        for (Node *n : nodes) {
             if (! m_project->canMoveTask(n, par)) {
                 //debugPlan<<"Can't move task:"<<n->name();
                 return false;
@@ -4953,7 +4960,7 @@ bool MilestoneItemModel::dropMimeData(const QMimeData *data, Qt::DropAction acti
         }
         int offset = 0;
         MacroCommand *cmd = nullptr;
-        foreach (Node *n, nodes) {
+        for (Node *n : nodes) {
             if (cmd == nullptr) cmd = new MacroCommand(kundo2_i18n("Move tasks"));
             // append nodes if dropped *on* another node, insert if dropped *after*
             int pos = row == -1 ? -1 : row + offset;
@@ -5170,9 +5177,9 @@ QStringList TaskModuleModel::mimeTypes() const
 bool TaskModuleModel::dropMimeData(const QMimeData *data, Qt::DropAction /*action*/, int /*row*/, int /*column*/, const QModelIndex &/*parent*/)
 {
     if (data->hasUrls()) {
-        QList<QUrl> urls = data->urls();
+        const QList<QUrl> urls = data->urls();
         debugPlan<<urls;
-        foreach (const QUrl &url, urls) {
+        for (const QUrl &url : urls) {
             const QMimeType mime = QMimeDatabase().mimeTypeForUrl(url);
             debugPlan<<url<<mime.name();
             if (mime.inherits(QStringLiteral("application/x-vnd.kde.plan")) || mime.inherits(QStringLiteral("application/xml"))) {
@@ -5257,7 +5264,8 @@ QMimeData* TaskModuleModel::mimeData(const QModelIndexList &lst) const
 
 void TaskModuleModel::stripProject(Project *project) const
 {
-    foreach (ScheduleManager *sm, project->scheduleManagers()) {
+    QList<ScheduleManager*> managers = project->scheduleManagers();
+    for (ScheduleManager *sm : managers) {
         DeleteScheduleManagerCmd c(*project, sm);
     }
 }
@@ -5268,7 +5276,7 @@ void TaskModuleModel::loadTaskModules(const QStringList &files)
     beginResetModel();
     m_modules.clear();
     m_urls.clear();
-    foreach (const QString &file, files) {
+    for (const QString &file : files) {
         importProject(QUrl::fromLocalFile(file), false);
     }
     endResetModel();
@@ -5284,7 +5292,7 @@ void TaskModuleModel::slotTaskModulesChanged(const QList<QUrl> &modules)
     for (const QUrl &url : modules) {
         QDir dir(url.toLocalFile());
         QStringList files = dir.entryList(QStringList() << "*.plan", QDir::Files);
-        foreach (const QString &file, files) {
+        for (const QString &file : files) {
             QUrl u = QUrl::fromLocalFile(dir.path() + '/' + file);
             importProject(u, false);
         }

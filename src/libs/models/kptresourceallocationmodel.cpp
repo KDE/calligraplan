@@ -168,7 +168,8 @@ QVariant ResourceAllocationModel::required(const Resource *res, int role) const
     switch (role) {
         case Qt::DisplayRole: {
             QStringList lst;
-            foreach (Resource *r, res->requiredResources()) {
+            const QList<Resource*> resources = res->requiredResources();
+            for (Resource *r : resources) {
                 lst << r->name();
             }
             return lst.join(",");
@@ -387,7 +388,8 @@ bool ResourceAllocationItemModel::hasMaterialResources() const
     if (!m_project) {
         return false;
     }
-    foreach (const Resource *r, m_project->resourceList()) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (const Resource *r : resources) {
         if (r->type() == Resource::Type_Material) {
             return true;
         }
@@ -567,7 +569,8 @@ QVariant ResourceAllocationItemModel::required(const QModelIndex &idx, int role)
             if (res->type() == Resource::Type_Work) {
                 QStringList lst;
                 if (m_requiredChecked[res]) {
-                    foreach (const Resource *r, required(idx)) {
+                    const QList<Resource*> resources = required(idx);
+                    for (const Resource *r : resources) {
                         lst << r->name();
                     }
                 }
@@ -584,7 +587,8 @@ QVariant ResourceAllocationItemModel::required(const QModelIndex &idx, int role)
                     }
                     QStringList lst;
                     if (m_requiredChecked[res]) {
-                        foreach (const Resource *r, required(idx)) {
+                        const QList<Resource*> resources = required(idx);
+                        for (const Resource *r : resources) {
                             lst << r->name();
                         }
                     }

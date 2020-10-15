@@ -191,7 +191,8 @@ QStringList KoZipStore::directoryList() const
 {
     QStringList retval;
     const KArchiveDirectory *directory = m_pZip->directory();
-    foreach(const QString &name, directory->entries()) {
+    const QStringList entries = directory->entries();
+    for (const QString &name : entries) {
         const KArchiveEntry* fileArchiveEntry = m_pZip->directory()->entry(name);
         if (fileArchiveEntry->isDirectory()) {
             retval << name;

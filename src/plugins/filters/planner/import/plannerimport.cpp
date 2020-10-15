@@ -491,7 +491,8 @@ bool loadAllocations(const QDomElement &el, Project &project)
         }
         r->setCurrentSchedulePtr(rs);
         AppointmentIntervalList apps = calendar->workIntervals(t->startTime(), t->endTime(), rr->units());
-        foreach (const AppointmentInterval &a, apps.map()) {
+        const auto intervals = apps.map().values();
+        for (const AppointmentInterval &a : intervals) {
             r->addAppointment(ts, a.startTime(), a.endTime(), a.load());
         }
         rs->setScheduled(true);
@@ -538,7 +539,8 @@ bool PlannerImport::loadPlanner(const QDomDocument &in, KoDocument *doc) const
     }
     loadAllocations(pel, project);
 
-    foreach(const Node *n, project.allNodes()) {
+    const auto nodes = project.allNodes();
+    for (const Node *n : nodes) {
         if (n->endTime() > project.endTime()) {
             project.setEndTime(n->endTime());
         }

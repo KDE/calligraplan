@@ -64,7 +64,8 @@ ResourceDialogImpl::ResourceDialogImpl(const Project &project, Resource &resourc
     pr->setSourceModel(new QStandardItemModel(ui_teamView));
     ui_teamView->setModel(m);
     m->setHorizontalHeaderLabels(QStringList() << xi18nc("title:column", "Select team members") << xi18nc("title:column", "Groups"));
-    foreach (Resource *r, m_project.resourceList()) {
+    const QList<Resource*> resources = m_project.resourceList();
+    for (Resource *r : resources) {
         if (r->type() != Resource::Type_Work || r->id() == m_resource.id()) {
             continue;
         }
@@ -166,7 +167,7 @@ void ResourceDialogImpl::slotChanged() {
 void ResourceDialogImpl::setCurrentIndexes(const QModelIndexList &lst)
 {
     m_currentIndexes.clear();
-    foreach (const QModelIndex &idx, lst) {
+    for (const QModelIndex &idx : lst) {
         m_currentIndexes << QPersistentModelIndex(idx);
     }
     useRequired->setCheckState(m_currentIndexes.isEmpty() ? Qt::Unchecked : Qt::Checked);
@@ -281,9 +282,9 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
     int cal = 0;
     dia->calendarList->addItem(i18n("None"));
     m_calendars.insert(0, 0);
-    QList<Calendar*> list = project.allCalendars();
+    const QList<Calendar*> list = project.allCalendars();
     int i=1;
-    foreach (Calendar *c, list) {
+    for (Calendar *c : list) {
         dia->calendarList->insertItem(i, c->name());
         m_calendars.insert(i, c);
         if (c == resource->calendar(true)) {
@@ -299,7 +300,8 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
     dia->required->view()->expandAll();
 
     QItemSelectionModel *sm = dia->required->view()->selectionModel();
-    foreach (Resource *r, resource->requiredResources()) {
+    const QList<Resource*> resources = resource->requiredResources();
+    for (Resource *r : resources) {
         sm->select(m->index(r), QItemSelectionModel::Select | QItemSelectionModel::Rows);
     }
     dia->setCurrentIndexes(sm->selectedRows());
@@ -359,7 +361,8 @@ void ResourceDialog::slotOk()
     m_resource.setAvailableUntil(dia->ui_rbuntil->isChecked() ? dia->availableUntil->dateTime() : QDateTime());
     ResourceItemSFModel *m = static_cast<ResourceItemSFModel*>(dia->required->model());
     QStringList lst;
-    foreach (const QModelIndex &i, dia->required->currentIndexes()) {
+    const auto indexes = dia->required->currentIndexes();
+    for (const QModelIndex &i : indexes) {
         Resource *r = m->resource(i);
         if (r) lst << r->id();
     }
@@ -434,13 +437,15 @@ MacroCommand *ResourceDialog::buildCommand(Resource *original, Resource &resourc
     }
     if (resource.type() == Resource::Type_Team) {
         //debugPlan<<original->teamMembers()<<resource.teamMembers();
-        foreach (const QString &id, resource.teamMemberIds()) {
+        const QStringList ids = resource.teamMemberIds();
+        for (const QString &id : ids) {
             if (! original->teamMemberIds().contains(id)) {
                 if (!m) m = new MacroCommand(n);
                 m->addCommand(new AddResourceTeamCmd(original, id));
             }
         }
-        foreach (const QString &id, original->teamMemberIds()) {
+        const QStringList ids2 = original->teamMemberIds();
+        for (const QString &id : ids2) {
             if (! resource.teamMemberIds().contains(id)) {
                 if (!m) m = new MacroCommand(n);
                 m->addCommand(new RemoveResourceTeamCmd(original, id));

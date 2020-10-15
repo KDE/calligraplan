@@ -252,8 +252,8 @@ QString KoOdfGraphicStyles::saveOdfGradientStyle(KoGenStyles &mainStyles, const 
     KoXmlWriter elementWriter(&buffer);    // TODO pass indentation level
 
     // save stops
-    QGradientStops stops = gradient->stops();
-    foreach(const QGradientStop & stop, stops) {
+    const QGradientStops stops = gradient->stops();
+    for (const QGradientStop & stop : stops) {
         elementWriter.startElement("svg:stop");
         elementWriter.addAttribute("svg:offset", QString("%1").arg(stop.first));
         elementWriter.addAttribute("svg:stop-color", stop.second.name());

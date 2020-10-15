@@ -561,7 +561,8 @@ void DependencyConnectorItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
     QGraphicsItem *item = nullptr;
-    foreach (QGraphicsItem *i, itemScene()->items(event->scenePos())) {
+    const QList<QGraphicsItem*> items = itemScene()->items(event->scenePos());
+    for (QGraphicsItem *i : items) {
         if (i->type() == DependencyConnectorItem::Type) {
             item = i;
             break;
@@ -582,7 +583,8 @@ void DependencyConnectorItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             m_mousePressPos = QPointF();
         }
         QGraphicsItem *item = nullptr;
-        foreach (QGraphicsItem *i, itemScene()->items(event->scenePos())) {
+        const QList<QGraphicsItem*> items = itemScene()->items(event->scenePos());
+        for (QGraphicsItem *i : items) {
             if (i->type() == DependencyConnectorItem::Type) {
                 item = i;
                 break;
@@ -713,7 +715,7 @@ void DependencyNodeItem::setParentItem(DependencyNodeItem *parent)
 
 void DependencyNodeItem::setExpanded(bool mode)
 {
-    foreach (DependencyNodeItem *ch, m_children) {
+    for (DependencyNodeItem *ch : qAsConst(m_children)) {
         itemScene()->setItemVisible(ch, mode);
         ch->setExpanded(mode);
     }
@@ -723,10 +725,10 @@ void DependencyNodeItem::setItemVisible(bool show)
 {
     setVisible(show);
     //debugPlanDepEditor<<isVisible()<<","<<node()->name();
-    foreach (DependencyLinkItem *i, m_parentrelations) {
+    for (DependencyLinkItem *i : qAsConst(m_parentrelations)) {
         i->setItemVisible(show);
     }
-    foreach (DependencyLinkItem *i, m_childrelations) {
+    for (DependencyLinkItem *i : qAsConst(m_childrelations)) {
         i->setItemVisible(show);
     }
 }
@@ -760,10 +762,10 @@ void DependencyNodeItem::moveToY(qreal y)
     r. moveTop(y);
     setRectangle(r);
     //debugPlanDepEditor<<text()<<" move to="<<y<<" new pos:"<<rect();
-    foreach (DependencyLinkItem *i, m_parentrelations) {
+    for (DependencyLinkItem *i : qAsConst(m_parentrelations)) {
         i->createPath();
     }
-    foreach (DependencyLinkItem *i, m_childrelations) {
+    for (DependencyLinkItem *i : qAsConst(m_childrelations)) {
         i->createPath();
     }
     DependencyNodeItem *par = this;
@@ -789,10 +791,10 @@ void DependencyNodeItem::moveToX(qreal x)
     r. moveLeft(x);
     setRectangle(r);
     //debugPlanDepEditor<<m_text->toPlainText()<<" to="<<x<<" new pos:"<<rect();
-    foreach (DependencyLinkItem *i, m_parentrelations) {
+    for (DependencyLinkItem *i : qAsConst(m_parentrelations)) {
         i->createPath();
     }
-    foreach (DependencyLinkItem *i, m_childrelations) {
+    for (DependencyLinkItem *i : qAsConst(m_childrelations)) {
         i->createPath();
     }
     DependencyNodeItem *par = this;
@@ -806,16 +808,16 @@ void DependencyNodeItem::setColumn()
 {
     int col = m_parent == nullptr ? 0 : m_parent->column() + 1;
     //debugPlanDepEditor<<this<<text();
-    foreach (DependencyLinkItem *i, m_parentrelations) {
+    for (DependencyLinkItem *i : qAsConst(m_parentrelations)) {
         col = qMax(col, i->newChildColumn());
     }
     if (col != column()) {
         setColumn(col);
-        foreach (DependencyLinkItem *i, m_childrelations) {
+        for (DependencyLinkItem *i : qAsConst(m_childrelations)) {
             i->succItem->setColumn();
         }
         //debugPlanDepEditor<<m_children.count()<<"Column="<<column()<<","<<text();
-        foreach (DependencyNodeItem *i, m_children) {
+        for (DependencyNodeItem *i : qAsConst(m_children)) {
             i->setColumn();
         }
     }
@@ -900,7 +902,7 @@ DependencyConnectorItem *DependencyNodeItem::connectorItem(ConnectorType ctype) 
 QList<DependencyLinkItem*> DependencyNodeItem::predecessorItems(ConnectorType ctype) const
 {
     QList<DependencyLinkItem*> lst;
-    foreach (DependencyLinkItem *i, m_parentrelations) {
+    for (DependencyLinkItem *i : qAsConst(m_parentrelations)) {
         if (ctype == Start && (i->relation->type() == Relation::StartStart || i->relation->type() == Relation::FinishStart)) {
             lst << i;
         }
@@ -914,7 +916,7 @@ QList<DependencyLinkItem*> DependencyNodeItem::predecessorItems(ConnectorType ct
 QList<DependencyLinkItem*> DependencyNodeItem::successorItems(ConnectorType ctype) const
 {
     QList<DependencyLinkItem*> lst;
-    foreach (DependencyLinkItem *i, m_childrelations) {
+    for (DependencyLinkItem *i : qAsConst(m_childrelations)) {
         if (ctype == Start && i->relation->type() == Relation::StartStart) {
             lst << i;
         }
@@ -933,7 +935,7 @@ qreal DependencyNodeItem::treeIndicatorX() const
 void DependencyNodeItem::setTreeIndicator(bool on)
 {
     paintTreeIndicator(on);
-    foreach (DependencyNodeItem *i, m_children) {
+    for (DependencyNodeItem *i : qAsConst(m_children)) {
         if (i->isVisible()) {
             i->setTreeIndicator(on);
         }
@@ -1072,7 +1074,8 @@ void DependencyScene::setFromItem(DependencyConnectorItem *item)
         old->parentItem()->update();
     }
     if (item) {
-        foreach (QGraphicsItem *i, items()) {
+        const QList<QGraphicsItem*> items = this->items();
+        for (QGraphicsItem *i : items) {
             if (i != m_connectionitem && i->type() != DependencyConnectorItem::Type) {
                 i->setAcceptHoverEvents(false);
                 if (i->type() == DependencyLinkItem::Type) {
@@ -1084,7 +1087,8 @@ void DependencyScene::setFromItem(DependencyConnectorItem *item)
         m_connectionitem->setPredConnector(item);
         m_connectionitem->show();
     } else {
-        foreach (QGraphicsItem *i, items()) {
+        const QList<QGraphicsItem*> items = this->items();
+        for (QGraphicsItem *i : items) {
             if (i != m_connectionitem && i->type() != DependencyConnectorItem::Type)
                 i->setAcceptHoverEvents(true);
         }
@@ -1159,7 +1163,8 @@ void DependencyScene::drawBackground (QPainter *painter, const QRectF &rect)
 QList<QGraphicsItem*> DependencyScene::itemList(int type) const
 {
     QList<QGraphicsItem*> lst;
-    foreach (QGraphicsItem *i, items()) {
+    const QList<QGraphicsItem*> items = this->items();
+    for (QGraphicsItem *i : items) {
         if (i->type() == type) {
             lst << i;
         }
@@ -1171,7 +1176,8 @@ void DependencyScene::clearScene()
 {
     m_connectionitem->clear();
     QList<QGraphicsItem*> its, deps;
-    foreach (QGraphicsItem *i, items()) {
+    const QList<QGraphicsItem*> items = this->items();
+    for (QGraphicsItem *i : items) {
         if (i->type() == DependencyNodeItem::Type && i->parentItem() == nullptr) {
             its << i;
         } else if (i->type() == DependencyLinkItem::Type) {
@@ -1181,7 +1187,7 @@ void DependencyScene::clearScene()
     qDeleteAll(deps);
     qDeleteAll(its);
     removeItem(m_connectionitem);
-    qDeleteAll(items());
+    qDeleteAll(this->items());
     setSceneRect(QRectF());
     addItem(m_connectionitem);
     //debugPlanDepEditor;
@@ -1190,7 +1196,8 @@ void DependencyScene::clearScene()
 QList<DependencyNodeItem*> DependencyScene::removeChildItems(DependencyNodeItem *item)
 {
     QList<DependencyNodeItem*> lst;
-    foreach (DependencyNodeItem *i, item->children()) {
+    const QList<DependencyNodeItem*> items = item->children();
+    for (DependencyNodeItem *i : items) {
         m_allItems.removeAt(m_allItems.indexOf(i));
         lst << i;
         lst += removeChildItems(i);
@@ -1211,7 +1218,7 @@ void DependencyScene::moveItem(DependencyNodeItem *item, const QList<Node*> &lst
     } else debugPlanDepEditor<<newParent->name()<<newParent->level();
     if (idx != ndx || oldParent != newParent) {
         // If I have children, these must be moved too.
-        QList<DependencyNodeItem*> items = removeChildItems(item);
+        const QList<DependencyNodeItem*> items = removeChildItems(item);
 
         m_allItems.removeAt(idx);
         m_allItems.insert(ndx, item);
@@ -1219,7 +1226,7 @@ void DependencyScene::moveItem(DependencyNodeItem *item, const QList<Node*> &lst
         item->setColumn();
         //debugPlanDepEditor<<item->text()<<":"<<idx<<"->"<<ndx<<", "<<item->column()<<r;
         if (! items.isEmpty()) {
-            foreach (DependencyNodeItem *i, items) {
+            for (DependencyNodeItem *i : items) {
                 m_allItems.insert(++ndx, i);
                 i->setColumn();
                 //debugPlanDepEditor<<i->text()<<": ->"<<ndx<<", "<<i->column()<<r;
@@ -1303,7 +1310,8 @@ DependencyNodeItem *DependencyScene::createItem(Node *node)
 
 DependencyLinkItem *DependencyScene::findItem(const Relation* rel) const
 {
-    foreach (QGraphicsItem *i, itemList(DependencyLinkItem::Type)) {
+    const QList<QGraphicsItem*> items = itemList(DependencyLinkItem::Type);
+    for (QGraphicsItem *i : items) {
         if (static_cast<DependencyLinkItem*>(i)->relation == rel) {
             return static_cast<DependencyLinkItem*>(i);
         }
@@ -1315,7 +1323,8 @@ DependencyLinkItem *DependencyScene::findItem(const DependencyConnectorItem *c1,
 {
     DependencyNodeItem *n1 = c1->nodeItem();
     DependencyNodeItem *n2 = c2->nodeItem();
-    foreach (QGraphicsItem *i, itemList(DependencyLinkItem::Type)) {
+    const QList<QGraphicsItem*> items = itemList(DependencyLinkItem::Type);
+    for (QGraphicsItem *i : items) {
         DependencyLinkItem *link = static_cast<DependencyLinkItem*>(i);
         if (link->predItem == n1 && link->succItem == n2) {
             switch (link->relation->type()) {
@@ -1370,7 +1379,8 @@ DependencyLinkItem *DependencyScene::findItem(const DependencyConnectorItem *c1,
 
 DependencyNodeItem *DependencyScene::findItem(const Node *node) const
 {
-    foreach (QGraphicsItem *i, itemList(DependencyNodeItem::Type)) {
+    const QList<QGraphicsItem*> items = itemList(DependencyNodeItem::Type);
+    for (QGraphicsItem *i : items) {
         if (static_cast<DependencyNodeItem*>(i)->node() == node) {
             return static_cast<DependencyNodeItem*>(i);
         }
@@ -1380,13 +1390,14 @@ DependencyNodeItem *DependencyScene::findItem(const Node *node) const
 
 void DependencyScene::createLinks()
 {
-    foreach (DependencyNodeItem *i, m_allItems) {
+    for (DependencyNodeItem *i : qAsConst(m_allItems)) {
         createLinks(i);
     }
 }
 void DependencyScene::createLinks(DependencyNodeItem *item)
 {
-    foreach (Relation *rel, item->node()->dependChildNodes()) {
+    const QList<Relation*> relations = item->node()->dependChildNodes();
+    for (Relation *rel : relations) {
         createLink(item, rel);
     }
 }
@@ -1527,7 +1538,8 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
                 singleConnectorClicked(static_cast<DependencyConnectorItem*>(fitem));
             } else if (fitem->type() == DependencyNodeItem::Type) {
                 singleConnectorClicked(nullptr);
-                foreach (QGraphicsItem *i, selectedItems()) {
+                const QList<QGraphicsItem*> items = selectedItems();
+                for (QGraphicsItem *i : items) {
                     i->setSelected(false);
                 }
                 fitem->setSelected(true);
@@ -1553,7 +1565,7 @@ DependencyNodeItem *DependencyScene::nodeItem(int row) const
     if (row < 0 || m_visibleItems.isEmpty()) {
         return nullptr;
     }
-    foreach (DependencyNodeItem *i, m_visibleItems) {
+    for (DependencyNodeItem *i : qAsConst(m_visibleItems)) {
         if (i->row() == row) {
             return i;
         }
@@ -1636,7 +1648,8 @@ void DependencyScene::contextMenuEvent (QGraphicsSceneContextMenuEvent *event)
 void DependencyScene::setReadWrite(bool on)
 {
     m_readwrite = on;
-    foreach (QGraphicsItem *i, items()) {
+    const QList<QGraphicsItem*> items = this->items();
+    for (QGraphicsItem *i : items) {
         if (i->type() == DependencyConnectorItem::Type) {
             static_cast<DependencyConnectorItem*>(i)->setEditable(on);
         } else if (i->type() == DependencyLinkItem::Type) {
@@ -1871,7 +1884,8 @@ void DependencyView::slotWbsCodeChanged()
     if (m_dirty) {
         return;
     }
-    foreach(DependencyNodeItem *i, itemScene()->nodeItems()) {
+    const QList<DependencyNodeItem*> items = itemScene()->nodeItems();
+    for (DependencyNodeItem *i : items) {
         if (i->isVisible()) {
             i->setText();
         }
@@ -1918,7 +1932,8 @@ void DependencyView::createItems(Node *node)
             return;
         }
     }
-    foreach (Node *n, node->childNodeIterator()) {
+    const QList<Node*> nodes = node->childNodeIterator();
+    for (Node *n : nodes) {
         createItems(n);
     }
 }
@@ -1949,7 +1964,8 @@ void DependencyView::mouseMoveEvent(QMouseEvent *mouseEvent)
     if (itemScene()->connectionMode() && itemScene()->mouseGrabberItem()) {
         QPointF spos = mapToScene(m_cursorPos);
         Qt::CursorShape c = Qt::ArrowCursor;
-        foreach (QGraphicsItem *i, itemScene()->items(spos)) {
+        const QList<QGraphicsItem*> items = itemScene()->items(spos);
+        for (QGraphicsItem *i : items) {
             if (i->type() == DependencyConnectorItem::Type) {
                 if (i == itemScene()->fromItem()) {
                     c = ConnectCursor;
@@ -2146,7 +2162,8 @@ int DependencyEditor::selectedNodeCount() const
 
 QList<Node*> DependencyEditor::selectedNodes() const {
     QList<Node*> lst;
-    foreach (QGraphicsItem *i, m_view->itemScene()->selectedItems()) {
+    const QList<QGraphicsItem*> items = m_view->itemScene()->selectedItems();
+    for (QGraphicsItem *i : items) {
         if (i->type() == DependencyNodeItem::Type) {
             lst << static_cast<DependencyNodeItem*>(i)->node();
         }
@@ -2227,12 +2244,14 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
             QList<DependencyLinkItem*> items;
             QList<QAction*> actions;
             QMenu menu;
-            foreach (DependencyLinkItem *i, c->predecessorItems()) {
+            const QList<DependencyLinkItem*> preds = c->predecessorItems();
+            for (DependencyLinkItem *i : preds) {
                 items << i;
                 actions << menu.addAction(koIcon("document-properties"), i->predItem->text());
             }
             menu.addSeparator();
-            foreach (DependencyLinkItem *i, c->successorItems()) {
+            const QList<DependencyLinkItem*> succs = c->successorItems();
+            for (DependencyLinkItem *i : succs) {
                 items << i;
                 actions << menu.addAction(koIcon("document-properties"), i->succItem->text());
             }
@@ -2308,7 +2327,8 @@ void DependencyEditor::updateActionsEnabled(bool on)
     bool baselined = false;
     Project *p = m_view->project();
     if (p && p->isBaselined()) {
-        foreach (Node *n, selectedNodes()) {
+        const QList<Node*> nodes = selectedNodes();
+        for (Node *n : nodes) {
             if (n->isBaselined()) {
                 baselined = true;
                 break;
@@ -2446,8 +2466,8 @@ void DependencyEditor::slotDeleteTask()
     while (true) {
         // remove children of selected tasks, as parents delete their children
         Node *ch = nullptr;
-        foreach (Node *n1, lst) {
-            foreach (Node *n2, lst) {
+        for (Node *n1 : qAsConst(lst)) {
+            for (Node *n2 : qAsConst(lst)) {
                 if (n2->isChildOf(n1)) {
                     ch = n2;
                     break;
@@ -2462,7 +2482,7 @@ void DependencyEditor::slotDeleteTask()
         }
         lst.removeAt(lst.indexOf(ch));
     }
-    foreach (Node* n, lst) { debugPlanDepEditor<<n->name(); }
+    for (Node* n : qAsConst(lst)) { debugPlanDepEditor<<n->name(); }
     emit deleteTaskList(lst);
 }
 

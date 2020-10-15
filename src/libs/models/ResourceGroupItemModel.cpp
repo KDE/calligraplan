@@ -543,7 +543,8 @@ bool ResourceGroupItemModel::dropAllowed(const QModelIndex &index, int dropIndic
         QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
         int i = 0;
-        foreach (Resource *r, resourceList(stream)) {
+        const QList<Resource*> resources = resourceList(stream);
+        for (Resource *r : resources) {
             if (r->isShared()) {
                 return false;
             }
@@ -659,7 +660,8 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
             QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
-            foreach (Resource *r, resourceList(stream)) {
+            const QList<Resource*> resources = resourceList(stream);
+            for (Resource *r : resources) {
                 if (r->parentGroups().value(0) == g) {
                     continue;
                 }
@@ -680,7 +682,8 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
             QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
-            foreach (Resource *r, resourceList(stream)) {
+            const QList<Resource*> resources = resourceList(stream);
+            for (Resource *r : resources) {
                 Resource *nr = new Resource(r);
                 if (m == nullptr) m = new MacroCommand(KUndo2MagicString());
                 m->addCommand(new AddResourceCmd(g, nr));
@@ -709,7 +712,7 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
             return false;
         }
         bool result = false;
-        foreach (const QUrl &url, urls) {
+        for (const QUrl &url : urls) {
             if (url.scheme() != "akonadi") {
                 debugPlan<<url<<"is not 'akonadi'";
                 continue;
@@ -765,7 +768,7 @@ QMimeData *ResourceGroupItemModel::mimeData(const QModelIndexList & indexes) con
     QByteArray encodedData;
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
     QList<int> rows;
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         if (index.isValid() && !rows.contains(index.row())) {
             //debugPlan<<index.row();
             Resource *r = resource(index);

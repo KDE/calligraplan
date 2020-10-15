@@ -135,7 +135,8 @@ Calendar *CalendarTreeView::selectedCalendar() const
 QList<Calendar*> CalendarTreeView::selectedCalendars() const
 {
     QList<Calendar *> lst;
-    foreach (const QModelIndex &i, selectionModel()->selectedRows()) {
+    const QModelIndexList indexes = selectionModel()->selectedRows();
+    for (const QModelIndex &i : indexes) {
         Calendar *a = model()->calendar(i);
         if (a) {
             lst << a;
@@ -232,7 +233,7 @@ void CalendarDayView::slotSetWork()
         return;
     }
     QList<CalendarDay*> days;
-    foreach (const QModelIndex &i, lst) {
+    for (const QModelIndex &i : qAsConst(lst)) {
         CalendarDay *day = model()->day(i);
         if (day == nullptr) {
             continue;
@@ -274,7 +275,7 @@ void CalendarDayView::slotSetVacation()
     }
     bool mod = false;
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Weekday State"));
-    foreach (const QModelIndex &i, lst) {
+    for (const QModelIndex &i : qAsConst(lst)) {
         CalendarDay *day = model()->day(i);
         if (day == nullptr || day->state() == CalendarDay::NonWorking) {
             continue;
@@ -304,7 +305,7 @@ void CalendarDayView::slotSetUndefined()
     }
     bool mod = false;
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Weekday State"));
-    foreach (const QModelIndex &i, lst) {
+    for (const QModelIndex &i : qAsConst(lst)) {
         CalendarDay *day = model()->day(i);
         if (day == nullptr || day->state() == CalendarDay::Undefined) {
             continue;
@@ -357,7 +358,6 @@ void CalendarDayView::focusOutEvent (QFocusEvent * event)
 void CalendarDayView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
 {
     //debugPlan<<sel.indexes().count();
-    //foreach(QModelIndex i, selectionModel()->selectedIndexes()) { debugPlan<<i.row()<<","<<i.column(); }
     QTableView::selectionChanged(sel, desel);
     emit sigSelectionChanged(selectionModel()->selectedIndexes());
 }

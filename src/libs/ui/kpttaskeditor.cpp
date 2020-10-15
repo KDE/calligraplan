@@ -565,7 +565,8 @@ QModelIndexList TaskEditor::selectedRows() const
     return m_view->selectionModel()->selectedRows();
 #else
     QModelIndexList lst;
-    foreach (QModelIndex i, m_view->selectionModel()->selectedIndexes()) {
+    const QModelIndexList indexes = m_view->selectionModel()->selectedIndexes();
+    for (QModelIndex i : indexes) {
         if (i.column() == 0) {
             lst << i;
         }
@@ -581,7 +582,8 @@ int TaskEditor::selectedRowCount() const
 
 QList<Node*> TaskEditor::selectedNodes() const {
     QList<Node*> lst;
-    foreach (const QModelIndex &i, selectedRows()) {
+    const QModelIndexList indexes = selectedRows();
+    for (const QModelIndex &i : indexes) {
         Node * n = m_view->baseModel()->node(i);
         if (n != nullptr && n->type() != Node::Type_Project) {
             lst.append(n);
@@ -803,7 +805,8 @@ void TaskEditor::updateActionsEnabled(bool on)
     bool baselined = false;
     Project *p = m_view->project();
     if (p && p->isBaselined()) {
-        foreach (Node *n, selectedNodes()) {
+        const QList<Node*> nodes = selectedNodes();
+        for (Node *n : nodes) {
             if (n->isBaselined()) {
                 baselined = true;
                 break;
@@ -1050,8 +1053,8 @@ void TaskEditor::slotDeleteTask()
     while (true) {
         // remove children of selected tasks, as parents delete their children
         Node *ch = nullptr;
-        foreach (Node *n1, lst) {
-            foreach (Node *n2, lst) {
+        for (Node *n1 : qAsConst(lst)) {
+            for (Node *n2 : qAsConst(lst)) {
                 if (n2->isChildOf(n1)) {
                     ch = n2;
                     break;
@@ -1232,7 +1235,7 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
             << NodeModel::NodeShutdownAccount
             << NodeModel::NodeShutdownCost
             << NodeModel::NodeDescription;
-    foreach (int c, readonly) {
+    for (int c : qAsConst(readonly)) {
         m_view->baseModel()->setReadOnly(c, true);
     }
 
@@ -1341,7 +1344,8 @@ QList<Node*> TaskView::selectedNodes() const {
     if (sm == nullptr) {
         return lst;
     }
-    foreach (const QModelIndex &i, sm->selectedRows()) {
+    const QModelIndexList indexes = sm->selectedRows();
+    for (const QModelIndex &i : indexes) {
         Node * n = m_view->baseModel()->node(proxyModel()->mapToSource(i));
         if (n != nullptr && n->type() != Node::Type_Project) {
             lst.append(n);
@@ -1586,7 +1590,7 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
             << NodeModel::NodeShutdownAccount
             << NodeModel::NodeShutdownCost
             << NodeModel::NodeDescription;
-    foreach (int c, readonly) {
+        for (int c : qAsConst(readonly)) {
         m_view->baseModel()->setReadOnly(c, true);
     }
 
@@ -1693,7 +1697,8 @@ QList<Node*> TaskWorkPackageView::selectedNodes() const {
     if (sm == nullptr) {
         return lst;
     }
-    foreach (const QModelIndex &i, sm->selectedRows()) {
+    const QModelIndexList indexes = sm->selectedRows();
+    for (const QModelIndex &i : indexes) {
         Node * n = proxyModel()->taskFromIndex(i);
         if (n != nullptr && n->type() != Node::Type_Project) {
             lst.append(n);
@@ -1807,7 +1812,7 @@ void TaskWorkPackageView::slotMailWorkpackage()
 
 void TaskWorkPackageView::slotWorkPackageSent(const QList<Node*> &nodes, Resource *resource)
 {
-    foreach (Node *n, nodes) {
+    for (Node *n : nodes) {
         WorkPackage *wp = new WorkPackage(static_cast<Task*>(n)->workPackage());
         wp->setOwnerName(resource->name());
         wp->setOwnerId(resource->id());

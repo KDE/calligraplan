@@ -507,7 +507,7 @@ QMimeData *DocumentItemModel::mimeData(const QModelIndexList & indexes) const
     QByteArray encodedData;
     //QDataStream stream(&encodedData, QIODevice::WriteOnly);
     //QList<int> rows;
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         Q_UNUSED(index);
         m->setData("application/x-vnd.kde.plan.documentitemmodel.internal", encodedData);
     }

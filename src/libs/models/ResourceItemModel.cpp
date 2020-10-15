@@ -718,7 +718,8 @@ Resource *ResourceItemModel::resource(const QModelIndex &index) const
 
 void ResourceItemModel::slotCalendarChanged(Calendar*)
 {
-    foreach (Resource *r, m_project->resourceList()) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
         if (r->calendar(true) == nullptr) {
             slotResourceChanged(r);
         }
@@ -792,7 +793,8 @@ bool ResourceItemModel::dropAllowed(const QModelIndex &index, int dropIndicatorP
         QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourceitemmodel.internal");
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
         int i = 0;
-        foreach (Resource *r, resourceList(stream)) {
+        const QList<Resource*> resources = resourceList(stream);
+        for (const Resource *r : resources) {
             if (r->isShared()) {
                 return false;
             }
@@ -909,7 +911,8 @@ bool ResourceItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
             QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourceitemmodel.internal");
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
-            foreach (Resource *r, resourceList(stream)) {
+            const QList<Resource*> resources = resourceList(stream);
+            for (const Resource *r : resources) {
                 if (r->parentGroups().value(0) == g) {
                     continue;
                 }
@@ -930,7 +933,8 @@ bool ResourceItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
             QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourceitemmodel.internal");
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
-            foreach (Resource *r, resourceList(stream)) {
+            const QList<Resource*> resources = resourceList(stream);
+            for (const Resource *r : resources) {
                 Resource *nr = new Resource(r);
                 if (m == 0) m = new MacroCommand(KUndo2MagicString());
                 m->addCommand(new AddResourceCmd(g, nr));
@@ -959,7 +963,7 @@ bool ResourceItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
             return false;
         }
         bool result = false;
-        foreach (const QUrl &url, urls) {
+        for (const QUrl &url : urls) {
             if (url.scheme() != "akonadi") {
                 debugPlan<<url<<"is not 'akonadi'";
                 continue;
@@ -1016,7 +1020,7 @@ QMimeData *ResourceItemModel::mimeData(const QModelIndexList & indexes) const
     QByteArray encodedData;
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
     QList<int> rows;
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         if (index.isValid() && !rows.contains(index.row())) {
             //debugPlan<<index.row();
             Resource *r = resource(index);

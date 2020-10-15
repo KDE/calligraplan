@@ -95,7 +95,7 @@ void TreeComboBox::showPopup()
     sm->clearSelection();
     view()->setSelectionMode(m_selectionmode);
     view()->setSelectionBehavior(QAbstractItemView::SelectRows);
-    foreach (const QModelIndex &i, m_currentIndexes) {
+    for (const QModelIndex &i : qAsConst(m_currentIndexes)) {
         if (i.isValid()) {
             sm->select(i, QItemSelectionModel::Select | QItemSelectionModel::Rows);
         }
@@ -115,7 +115,7 @@ void TreeComboBox::paintEvent(QPaintEvent *event)
     QStyleOptionComboBox opt;
     initStyleOption(&opt);
     QStringList lst;
-    foreach (const QPersistentModelIndex &idx, m_currentIndexes) {
+    for (const QPersistentModelIndex &idx : qAsConst(m_currentIndexes)) {
         if (idx.isValid()) {
             lst << idx.data().toString();
         }
@@ -130,7 +130,7 @@ void TreeComboBox::paintEvent(QPaintEvent *event)
 void TreeComboBox::setCurrentIndexes(const QModelIndexList &lst)
 {
     m_currentIndexes.clear();
-    foreach (const QModelIndex &idx, lst) {
+    for (const QModelIndex &idx : lst) {
         m_currentIndexes << QPersistentModelIndex(idx);
     }
 }
@@ -143,7 +143,7 @@ void TreeComboBox::setCurrentIndexes(const QList<QPersistentModelIndex> &lst)
 void TreeComboBox::updateCurrentIndexes(const QModelIndexList &lst)
 {
     QList<QPersistentModelIndex> x;
-    foreach (const QModelIndex &idx, lst) {
+    for (const QModelIndex &idx : lst) {
         x << QPersistentModelIndex(idx);
     }
     if (x == m_currentIndexes) {

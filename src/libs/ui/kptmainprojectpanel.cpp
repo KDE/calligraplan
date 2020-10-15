@@ -306,7 +306,7 @@ void MainProjectPanel::slotChooseLeader()
     if (dlg->exec() && dlg) {
         QStringList names;
         const Akonadi::EmailAddressSelection::List selections = dlg->selectedAddresses();
-        foreach (const Akonadi::EmailAddressSelection &selection, selections) {
+        for (const Akonadi::EmailAddressSelection &selection : selections) {
             QString s = selection.name();
             if (! selection.email().isEmpty()) {
                 if (! selection.name().isEmpty()) {

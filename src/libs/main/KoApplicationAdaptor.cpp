@@ -65,8 +65,8 @@ KoApplicationAdaptor::~KoApplicationAdaptor()
 QStringList KoApplicationAdaptor::getDocuments()
 {
     QStringList lst;
-    QList<KoPart*> parts = m_application->partList();
-    foreach(KoPart *part, parts) {
+    const QList<KoPart*> parts = m_application->partList();
+    for (KoPart *part : parts) {
         lst.append('/' + part->document()->objectName());
     }
     return lst;
@@ -75,9 +75,10 @@ QStringList KoApplicationAdaptor::getDocuments()
 QStringList KoApplicationAdaptor::getViews()
 {
     QStringList lst;
-    QList<KoPart*> parts = m_application->partList();
-    foreach(KoPart *part, parts) {
-        foreach(KoView* view, part->views()) {
+    const QList<KoPart*> parts = m_application->partList();
+    for (KoPart *part : parts) {
+        const auto views = part->views();
+        for (KoView* view : views) {
             lst.append('/' + view->objectName());
         }
     }
@@ -88,9 +89,9 @@ QStringList KoApplicationAdaptor::getViews()
 QStringList KoApplicationAdaptor::getWindows()
 {
     QStringList lst;
-    QList<KMainWindow*> mainWindows = KMainWindow::memberList();
+    const QList<KMainWindow*> mainWindows = KMainWindow::memberList();
     if (!mainWindows.isEmpty()) {
-        foreach(KMainWindow* mainWindow, mainWindows) {
+        for (KMainWindow* mainWindow : mainWindows) {
             lst.append(static_cast<KoMainWindow*>(mainWindow)->objectName());
         }
     }

@@ -147,14 +147,14 @@ void ResourceGroup::setProject(Project *project)
         }
     }
     m_project = project;
-    foreach (Resource *r, m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         r->setProject(project);
     }
 }
 
 bool ResourceGroup::isScheduled() const
 {
-    foreach (Resource *r, m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         if (r->isScheduled()) {
             return true;
         }
@@ -165,7 +165,7 @@ bool ResourceGroup::isScheduled() const
 bool ResourceGroup::isBaselined(long id) const
 {
     Q_UNUSED(id);
-    foreach (const Resource *r, m_resources) {
+    for (const Resource *r : qAsConst(m_resources)) {
         if (r->isBaselined()) {
             return true;
         }
@@ -335,7 +335,7 @@ void ResourceGroup::saveWorkPackageXML(QDomElement &element, const QList<Resourc
     me.setAttribute("id", m_id);
     me.setAttribute("name", m_name);
 
-    foreach (Resource *r, m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         if (lst.contains(r)) {
             r->save(me);
         }
@@ -348,7 +348,7 @@ void ResourceGroup::initiateCalculation(Schedule &sch) {
 
 int ResourceGroup::units() const {
     int u = 0;
-    foreach (const Resource *r, m_resources) {
+    for (const Resource *r : qAsConst(m_resources)) {
         u += r->units();
     }
     return u;
@@ -378,7 +378,7 @@ void ResourceGroup::insertId(const QString &id) {
 
 Appointment ResourceGroup::appointmentIntervals() const {
     Appointment a;
-    foreach (Resource *r, m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         a += r->appointmentIntervals();
     }
     return a;
@@ -387,7 +387,7 @@ Appointment ResourceGroup::appointmentIntervals() const {
 DateTime ResourceGroup::startTime(long id) const
 {
     DateTime dt;
-    foreach (Resource *r, m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         DateTime t = r->startTime(id);
         if (! dt.isValid() || t < dt) {
             dt = t;
@@ -399,7 +399,7 @@ DateTime ResourceGroup::startTime(long id) const
 DateTime ResourceGroup::endTime(long id) const
 {
     DateTime dt;
-    foreach (Resource *r, m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         DateTime t = r->endTime(id);
         if (! dt.isValid() || t > dt) {
             dt = t;

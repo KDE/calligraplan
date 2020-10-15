@@ -152,7 +152,7 @@ QPointer<KoUpdater> KoProgressUpdater::startSubtask(int weight,
 
 void KoProgressUpdater::cancel()
 {
-    foreach(KoUpdaterPrivate *updater, d->subtasks) {
+    for (KoUpdaterPrivate *updater : qAsConst(d->subtasks)) {
         updater->setProgress(100);
         updater->interrupt();
     }
@@ -179,7 +179,7 @@ void KoProgressUpdater::updateUi()
 
     if (d->updated) {
         int totalProgress = 0;
-        foreach(QPointer<KoUpdaterPrivate> updater, d->subtasks) {
+        for (QPointer<KoUpdaterPrivate> updater : qAsConst(d->subtasks)) {
             if (updater->interrupted()) {
                 d->currentProgress = -1;
                 return;
@@ -225,9 +225,10 @@ void KoProgressUpdater::Private::logEvents(QTextStream& out,
                                            const QTime& startTime,
                                            const QString& prefix) {
     // initial implementation: write out the names of all events
-    foreach (QPointer<KoUpdaterPrivate> p, updater->subtasks) {
+    for (QPointer<KoUpdaterPrivate> p : qAsConst(updater->subtasks)) {
         if (!p) continue;
-        foreach (const KoUpdaterPrivate::TimePoint &tp, p->getPoints()) {
+        const QVector<KoUpdaterPrivate::TimePoint> points = p->getPoints();
+        for  (const KoUpdaterPrivate::TimePoint &tp : points) {
             out << prefix+p->objectName() << '\t'
                     << startTime.msecsTo(tp.time) << '\t' << tp.value << '\n';
         }

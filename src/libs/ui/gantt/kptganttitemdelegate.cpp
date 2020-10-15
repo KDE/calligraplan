@@ -503,7 +503,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
                     << NodeModel::NodeConstraintsError
                     << NodeModel::NodeEffortNotMet
                     << NodeModel::NodeSchedulingError;
-                foreach (int i, lst) {
+                for (int i : qAsConst(lst)) {
                     QVariant v = data(idx, i, Qt::EditRole);
                     //debugPlan<<idx.data(NodeModel::NodeName).toString()<<": showSchedulingError"<<i<<v;
                     if (v.toBool()) {
@@ -639,7 +639,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
                     << NodeModel::NodeConstraintsError
                     << NodeModel::NodeEffortNotMet
                     << NodeModel::NodeSchedulingError;
-                foreach (int i, lst) {
+                for (int i : qAsConst(lst)) {
                     QVariant v = data(idx, i, Qt::EditRole);
                     //debugPlan<<idx.data(NodeModel::NodeName).toString()<<": showSchedulingError"<<i<<v;
                     if (v.toBool()) {
@@ -1007,7 +1007,8 @@ void ResourceGanttItemDelegate::paintResourceItem(QPainter* painter, const KGant
     painter->save();
     // TODO check load vs units properly, it's not as simple as below!
     QLocale locale;
-    foreach (const AppointmentInterval &i, tot.intervals().map()) {
+    const QList<AppointmentInterval> intervals = tot.intervals().map().values();
+    for (const AppointmentInterval &i : intervals) {
         int il = i.load();
         QString txt = locale.toString((double)il / (double)rl, 'f', 1);
         if (il > rl) {

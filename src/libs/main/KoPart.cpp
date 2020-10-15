@@ -96,7 +96,8 @@ KoPart::~KoPart()
 {
     // Tell our views that the document is already destroyed and
     // that they shouldn't try to access it.
-    foreach(KoView *view, views()) {
+    const auto views = this->views();
+    for (KoView *view : views) {
         view->setDocumentDeleted();
     }
 
@@ -273,7 +274,7 @@ bool KoPart::openProjectTemplate(const QUrl &url)
 void KoPart::addRecentURLToAllMainWindows(const QString &projectName, const QUrl &url)
 {
     // Add to recent actions list in our mainWindows
-    foreach(KoMainWindow *mainWindow, d->mainWindows) {
+    for (KoMainWindow *mainWindow : qAsConst(d->mainWindows)) {
         mainWindow->addRecentURL(projectName, url);
     }
 

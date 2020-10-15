@@ -40,7 +40,8 @@ RemoveResourceCmd::RemoveResourceCmd(Resource *resource, const KUndo2MagicString
     m_requests = m_resource->requests();
 
     if (m_project) {
-        foreach (Schedule * s, m_project->schedules()) {
+        const auto schedules = m_project->schedules();
+        for (Schedule * s : schedules) {
             Schedule *rs = resource->findSchedule(s->id());
             if (rs && ! rs->isDeleted()) {
                 debugPlan<<s->name();

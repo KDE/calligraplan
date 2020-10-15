@@ -148,7 +148,8 @@ void KoFileDialog::setOverrideDir(const QString &overrideDir)
 void KoFileDialog::setImageFilters()
 {
     QStringList imageMimeTypes;
-    foreach(const QByteArray &mimeType, QImageReader::supportedMimeTypes()) {
+    const QList<QByteArray> types = QImageReader::supportedMimeTypes();
+    for (const QByteArray &mimeType : types) {
         imageMimeTypes << QLatin1String(mimeType);
     }
     setMimeTypeFilters(imageMimeTypes);
@@ -174,7 +175,7 @@ void KoFileDialog::setNameFilters(const QStringList &filterList,
 
     if (d->type == KoFileDialog::SaveFile) {
         QStringList mimeList;
-        foreach(const QString &filter, filterList) {
+        for (const QString &filter : filterList) {
             d->filterList << splitNameFilter(filter, &mimeList);
         }
 
@@ -422,9 +423,9 @@ QStringList KoFileDialog::splitNameFilter(const QString &nameFilter, QStringList
         description = nameFilter.left(nameFilter.indexOf("(") -1).trimmed();
     }
 
-    QStringList entries = nameFilter.mid(nameFilter.indexOf("(") + 1).split(" ",QString::SkipEmptyParts);
+    const QStringList entries = nameFilter.mid(nameFilter.indexOf("(") + 1).split(" ",QString::SkipEmptyParts);
 
-    foreach(QString entry, entries) {
+    for (QString entry : entries) {
 
         entry = entry.remove("*");
         entry = entry.remove(")");

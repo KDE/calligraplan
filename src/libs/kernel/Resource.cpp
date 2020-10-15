@@ -92,7 +92,7 @@ Resource::~Resource() {
         removeId(); // only remove myself (I may be just a working copy)
     }
     removeRequests();
-    foreach (Schedule *s, m_schedules) {
+    for (Schedule *s : qAsConst(m_schedules)) {
         delete s;
     }
     clearExternalAppointments();
@@ -105,7 +105,7 @@ Resource::~Resource() {
 }
 
 void Resource::removeRequests() {
-    foreach (ResourceRequest *r, m_requests) {
+    for (ResourceRequest *r : qAsConst(m_requests)) {
         r->setResource(nullptr); // avoid the request to mess with my list
         delete r;
     }
@@ -409,7 +409,7 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
 QList<Resource*> Resource::requiredResources() const
 {
     QList<Resource*> lst;
-    foreach (const QString &s, m_requiredIds) {
+    for (const QString &s : qAsConst(m_requiredIds)) {
         Resource *r = findId(s);
         if (r) {
             lst << r;
@@ -531,7 +531,8 @@ Schedule *Resource::schedule(long id) const
 bool Resource::isBaselined(long id) const
 {
     if (m_type == Resource::Type_Team) {
-        foreach (const Resource *r, teamMembers()) {
+        const auto resources = teamMembers();
+        for (const Resource *r : resources) {
             if (r->isBaselined(id)) {
                 return true;
             }
@@ -551,14 +552,14 @@ Schedule *Resource::findSchedule(long id) const
         return m_currentSchedule;
     }
     if (id == BASELINESCHEDULE || id == ANYSCHEDULED) {
-        foreach (Schedule *s, m_schedules) {
+        for (Schedule *s : qAsConst(m_schedules)) {
             if (s->isBaselined()) {
                 return s;
             }
         }
     }
     if (id == ANYSCHEDULED) {
-        foreach (Schedule *s, m_schedules) {
+        for (Schedule *s : qAsConst(m_schedules)) {
             if (s->isScheduled()) {
                 return s;
             }
@@ -569,7 +570,7 @@ Schedule *Resource::findSchedule(long id) const
 
 bool Resource::isScheduled() const
 {
-    foreach (Schedule *s, m_schedules) {
+    for (Schedule *s : qAsConst(m_schedules)) {
         if (s->isScheduled()) {
             return true;
         }
@@ -663,14 +664,15 @@ void Resource::makeAppointment(Schedule *node, const DateTime &from, const DateT
     }
 #ifndef PLAN_NLOGDEBUG
     if (m_currentSchedule) {
-        QStringList lst; foreach (Resource *r, required) { lst << r->name(); }
+        QStringList lst; for (Resource *r : required) { lst << r->name(); }
         m_currentSchedule->logDebug(QString("Make appointments from %1 to %2 load=%4, required: %3").arg(from.toString()).arg(end.toString()).arg(lst.join(",")).arg(load));
     }
 #endif
     AppointmentIntervalList lst = workIntervals(from, end, m_currentSchedule);
-    foreach (const AppointmentInterval &i, lst.map()) {
+    const auto intervals = lst.map().values();
+    for (const AppointmentInterval &i : intervals) {
         m_currentSchedule->addAppointment(node, i.startTime(), i.endTime(), load);
-        foreach (Resource *r, required) {
+        for (Resource *r : required) {
             r->addAppointment(node, i.startTime(), i.endTime(), r->units()); //FIXME: units may not be correct
         }
     }
@@ -692,7 +694,8 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
         m_currentSchedule->logDebug("Make appointments to team " + m_name);
 #endif
         Duration e;
-        foreach (Resource *r, teamMembers()) {
+        const auto resources = teamMembers();
+        for (Resource *r : resources) {
             r->makeAppointment(node, load, required);
         }
         return;
@@ -735,7 +738,7 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
         return;
     }
     end = availableBefore(end, time);
-    foreach (Resource *r, required) {
+    for (Resource *r : required) {
         time = r->availableAfter(time, end);
         end = r->availableBefore(end, time);
         if (! (time.isValid() && end.isValid())) {
@@ -769,10 +772,11 @@ AppointmentIntervalList Resource::workIntervals(const DateTime &from, const Date
     calendarIntervals(from, until);
     AppointmentIntervalList work = m_workinfocache.intervals.extractIntervals(from, until);
     if (sch && ! sch->allowOverbooking()) {
-        foreach (const Appointment *a, sch->appointments(sch->calculationMode())) {
+        const auto appointments = sch->appointments(sch->calculationMode());
+        for (const Appointment *a : appointments) {
             work -= a->intervals();
         }
-        foreach (const Appointment *a, m_externalAppointments) {
+        for (const Appointment *a : qAsConst(m_externalAppointments)) {
             work -= a->intervals();
         }
     }
@@ -977,7 +981,7 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
         if (sch) sch->logDebug("Resource not available in interval:" + start.toString() + ',' + (start+duration).toString());
 #endif
     } else {
-        foreach (Resource *r, required) {
+        for (Resource *r : required) {
             from = r->availableAfter(from, until);
             until = r->availableBefore(until, from);
             if (! (from.isValid() && until.isValid())) {
@@ -1128,7 +1132,8 @@ Appointment Resource::appointmentIntervals(long id) const {
     if (s == nullptr) {
         return a;
     }
-    foreach (Appointment *app, static_cast<ResourceSchedule*>(s)->appointments()) {
+    const auto appointments = static_cast<ResourceSchedule*>(s)->appointments();
+    for (const Appointment *app : appointments) {
         a += *app;
     }
     return a;
@@ -1138,7 +1143,8 @@ Appointment Resource::appointmentIntervals() const {
     Appointment a;
     if (m_currentSchedule == nullptr)
         return a;
-    foreach (Appointment *app, m_currentSchedule->appointments()) {
+    const auto appointments = m_currentSchedule->appointments();
+    for (const Appointment *app : appointments) {
         a += *app;
     }
     return a;
@@ -1225,7 +1231,7 @@ void Resource::subtractExternalAppointment(const QString &id, const DateTime &st
 void Resource::clearExternalAppointments()
 {
     const QStringList keys = m_externalAppointments.keys();
-    foreach (const QString &id, keys) {
+    for (const QString &id : keys) {
         clearExternalAppointments(id);
     }
 }
@@ -1265,7 +1271,7 @@ AppointmentIntervalList Resource::externalAppointments(const DateTimeInterval &i
 {
     //debugPlan<<m_externalAppointments;
     Appointment app;
-    foreach (Appointment *a, m_externalAppointments) {
+    for (Appointment *a : qAsConst(m_externalAppointments)) {
         app += interval.isValid() ? a->extractIntervals(interval) : *a;
     }
     return app.intervals();
@@ -1289,7 +1295,8 @@ long Resource::allocationSuitability(const DateTime &time, const Duration &durat
     // FIXME: This is not *very* intelligent...
     Duration e;
     if (m_type == Type_Team) {
-        foreach (Resource *r, teamMembers()) {
+        const auto resources = teamMembers();
+        for (const Resource *r : resources) {
             e += r->effort(time, duration, 100, backward);
         }
     } else {
@@ -1305,7 +1312,8 @@ DateTime Resource::startTime(long id) const
     if (s == nullptr) {
         return dt;
     }
-    foreach (Appointment *a, s->appointments()) {
+    const auto appointments = s->appointments();
+    for (const Appointment *a : appointments) {
         DateTime t = a->startTime();
         if (! dt.isValid() || t < dt) {
             dt = t;
@@ -1321,7 +1329,8 @@ DateTime Resource::endTime(long id) const
     if (s == nullptr) {
         return dt;
     }
-    foreach (Appointment *a, s->appointments()) {
+    const auto appointments = s->appointments();
+    for (const Appointment *a : appointments) {
         DateTime t = a->endTime();
         if (! dt.isValid() || t > dt) {
             dt = t;
@@ -1338,7 +1347,7 @@ int Resource::teamCount() const
 QList<Resource*> Resource::teamMembers() const
 {
     QList<Resource*> lst;
-    foreach (const QString &s, m_teamMembers) {
+    for (const QString &s : qAsConst(m_teamMembers)) {
         Resource *r = findId(s);
         if (r) {
             lst << r;
@@ -1401,7 +1410,8 @@ QDebug operator<<(QDebug dbg, const KPlato::Resource::WorkInfoCache &c)
 {
     dbg.nospace()<<"WorkInfoCache: ["<<" version="<<c.version<<" start="<<c.start.toString(Qt::ISODate)<<" end="<<c.end.toString(Qt::ISODate)<<" intervals="<<c.intervals.map().count();
     if (! c.intervals.isEmpty()) {
-        foreach (const AppointmentInterval &i, c.intervals.map()) {
+        const auto intervals = c.intervals.map().values();
+        for (const AppointmentInterval &i : intervals) {
         dbg<<'\n'<<"   "<<i;
         }
     }

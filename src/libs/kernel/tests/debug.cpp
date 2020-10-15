@@ -73,13 +73,16 @@ void print(Calendar *c, const QString &str, bool full = true) {
     for (int wd = 1; wd <= 7; ++wd) {
         CalendarDay *d = c->weekday(wd);
         qDebug()<<"   "<<wd<<':'<<d->stateToString(d->state());
-        foreach (TimeInterval *t,  d->timeIntervals()) {
+        const auto intervals = d->timeIntervals();
+        for (TimeInterval *t : intervals) {
             qDebug()<<"      interval:"<<t->first<<t->second<<'('<<Duration(qint64(t->second)).toString()<<')';
         }
     }
-    foreach (const CalendarDay *d, c->days()) {
+    const auto days = c->days();
+    for (const CalendarDay *d : days) {
         qDebug()<<"   "<<d->date()<<':';
-        foreach (TimeInterval *t,  d->timeIntervals()) {
+        const auto intervals = d->timeIntervals();
+        for (TimeInterval *t : intervals) {
             qDebug()<<"      interval:"<<t->first<<t->second;
         }
     }
@@ -138,7 +141,8 @@ void print(Resource *r, const QString &str, bool full = true) {
     qDebug()<<"  Type:"<<r->typeToString();
     if (r->type() == Resource::Type_Team) {
         qDebug()<<"  Team members:"<<r->teamMembers().count();
-        foreach (Resource *tm, r->teamMembers()) {
+        const auto resources = r->teamMembers();
+        for (Resource *tm : resources) {
             print(tm, "");
 //             qDebug()<<"     "<<tm->name()<<"Available:"
 //                     <<(r->availableFrom().isValid()
@@ -177,9 +181,11 @@ void print(Resource *r, const QString &str, bool full = true) {
     }
     if (! full) return;
     qDebug()<<"  External appointments:"<<r->numExternalAppointments();
-    foreach (Appointment *a, r->externalAppointmentList()) {
+    const auto appointments = r->externalAppointmentList();
+    for (Appointment *a : appointments) {
         qDebug()<<"     appointment:"<<a->startTime().toString()<<a->endTime().toString();
-        foreach(const AppointmentInterval &i, a->intervals().map()) {
+        const auto intervals = a->intervals().map().values();
+        for(const AppointmentInterval &i : intervals ) {
             qDebug()<<"        "<<i.startTime().toString()<<i.endTime().toString()<<i.load();
         }
     }
@@ -272,7 +278,8 @@ void print(Task *t, bool full = true) {
         qDebug()<<pad<<"Start node";
     }
     QStringList rel;
-    foreach (Relation *r, t->dependChildNodes()) {
+    const auto relations = t->dependChildNodes();
+    for (Relation *r : relations) {
         QString type;
         switch(r->type()) {
         case Relation::StartStart: type = "SS"; break;
@@ -288,7 +295,8 @@ void print(Task *t, bool full = true) {
         qDebug()<<pad<<"End node";
     }
     rel.clear();
-    foreach (Relation *r, t->dependParentNodes()) {
+    const auto relations2 = t->dependParentNodes();
+    for (Relation *r : relations2) {
         QString type;
         switch(r->type()) {
         case Relation::StartStart: type = "SS"; break;
@@ -304,10 +312,12 @@ void print(Task *t, bool full = true) {
     Schedule *s = t->currentSchedule();
     if (s) {
         qDebug()<<pad<<"Appointments:"<<s->appointments().count();
-        foreach (Appointment *a, s->appointments()) {
+        const auto appointments = s->appointments();
+        for (Appointment *a : appointments) {
             qDebug()<<pad<<"  Resource:"<<a->resource()->resource()->name()<<"booked:"<<QTest::toString(QDateTime(a->startTime()))<<QTest::toString(QDateTime(a->endTime()))<<"effort:"<<a->effort(a->startTime(), a->endTime()).toDouble(Duration::Unit_h)<<'h';
             if (! full) { continue; }
-            foreach(const AppointmentInterval &i, a->intervals().map()) {
+            const auto intervals = a->intervals().map().values();
+            for(const AppointmentInterval &i : intervals ) {
                 qDebug()<<pad<<"    "<<QTest::toString(QDateTime(i.startTime()))<<QTest::toString(QDateTime(i.endTime()))<<i.load()<<"effort:"<<i.effort(i.startTime(), i.endTime()).toDouble(Duration::Unit_h)<<'h';
             }
         }
@@ -338,9 +348,11 @@ void print(const Completion &c, const QString &name, const QString &s = QString(
 
     if (! c.usedEffortMap().isEmpty()) {
         qDebug()<<"     Used effort:";
-        foreach (const Resource *r, c.usedEffortMap().keys()) {  // clazy:exclude=container-anti-pattern
+        const auto resources = c.usedEffortMap().keys();
+        for (const Resource *r : resources) {  // clazy:exclude=container-anti-pattern
             Completion::UsedEffort *ue = c.usedEffort(r);
-            foreach (const QDate &d, ue->actualEffortMap().keys()) { // clazy:exclude=container-anti-pattern
+            const auto dates = ue->actualEffortMap().keys();
+            for (const QDate &d : dates) { // clazy:exclude=container-anti-pattern
                 qDebug()<<"         "<<r->name()<<':';
                 qDebug()<<"             "<<d.toString(Qt::ISODate)<<':'<<c.actualEffort(d).toString()<<c.actualCost(d);
             }
@@ -364,7 +376,8 @@ void print(const EffortCostMap &m, const QString &s = QString()) {
             <<')';
 
     if (! m.days().isEmpty()) {
-        foreach (const QDate &d, m.days().keys()) { // clazy:exclude=container-anti-pattern
+        const auto dates = m.days().keys();
+        for (const QDate &d : dates ) { // clazy:exclude=container-anti-pattern
             qDebug()<<"   "<<d.toString(Qt::ISODate)<<':'<<m.hoursOnDate(d)<<'h'<<m.costOnDate(d)
                                                     <<'('<<m.bcwpEffortOnDate(d)<<'h'<<m.bcwpCostOnDate(d)<<')';
         }
@@ -375,7 +388,8 @@ void printSchedulingLog(const ScheduleManager &sm, const QString &s)
 {
     qDebug()<<"Scheduling log"<<s;
     qDebug()<<"Scheduling:"<<sm.name()<<(sm.recalculate()?QString("recalculate from %1").arg(sm.recalculateFrom().toString()):"");
-    foreach (const QString &s, sm.expected()->logMessages()) {
+    const auto logs = sm.expected()->logMessages();
+    for (const QString &s : logs) {
         qDebug()<<s;
     }
 }
@@ -387,13 +401,15 @@ void print(Account *a, long id = -1, const QString &s = QString())
     EffortCostMap ec = a->plannedCost(id);
     qDebug()<<"Planned cost:"<<ec.totalCost()<<"effort:"<<ec.totalEffort().toString();
     if (! a->isElement()) {
-        foreach (Account *c, a->accountList()) {
+        const auto accounts = a->accountList();
+        for (Account *c : accounts) {
             print(c);
         }
         return;
     }
     qDebug()<<"Cost places:";
-    foreach (Account::CostPlace *cp, a->costPlaces()) {
+    const auto costs = a->costPlaces();
+    for (Account::CostPlace *cp : costs) {
         qDebug()<<"     Node:"<<(cp->node() ? cp->node()->name() : "");
         qDebug()<<"  running:"<<cp->running();
         qDebug()<<"  startup:"<<cp->startup();
@@ -416,7 +432,8 @@ static
 void print(const AppointmentIntervalList &lst, const QString &s = QString())
 {
     qDebug()<<"Interval list:"<<lst.map().count()<<s;
-    foreach (const AppointmentInterval &i, lst.map()) {
+    const auto intervals = lst.map().values();
+    for (const AppointmentInterval &i : intervals) {
         print(i, "  ");
     }
 }

@@ -76,7 +76,7 @@ bool KoShadowStyle::operator==(const KoShadowStyle &other) const
     if (shadowCount() != other.shadowCount())
         return false;
 
-    foreach (const ShadowData &data, d->shadows)
+    for (const ShadowData &data : qAsConst(d->shadows))
     {
         if (!other.d->shadows.contains(data))
             return false;
@@ -96,7 +96,7 @@ bool KoShadowStyle::loadOdf (const QString &data)
         return true;
 
     const QStringList sub_shadows = data.split(QLatin1Char(','));
-    foreach (const QString &shadow, sub_shadows) {
+    for (const QString &shadow : sub_shadows) {
         QStringList words = shadow.split(QLatin1Char(' '), QString::SkipEmptyParts);
         if (words.isEmpty())
             return false;
@@ -149,7 +149,7 @@ QString KoShadowStyle::saveOdf() const
 
     QStringList parts;
     const QString pt = QLatin1String("%1pt");
-    foreach (const ShadowData &data, d->shadows) {
+    for (const ShadowData &data : qAsConst(d->shadows)) {
         QStringList elements;
         if (data.color.isValid()) {
             elements << data.color.name();

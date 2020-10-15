@@ -181,11 +181,12 @@ void ResourceRequest::setCurrentSchedulePtr(Resource *resource, Schedule *ns)
 {
     resource->setCurrentSchedulePtr(resourceSchedule(ns, resource));
     if(resource->type() == Resource::Type_Team) {
-        foreach (Resource *member, resource->teamMembers()) {
+        const auto resources = resource->teamMembers();
+        for (Resource *member : resources) {
             member->setCurrentSchedulePtr(resourceSchedule(ns, member));
         }
     }
-    foreach (Resource *r, m_required) {
+    for (Resource *r : qAsConst(m_required)) {
         r->setCurrentSchedulePtr(resourceSchedule(ns, r));
     }
 }
@@ -210,7 +211,7 @@ Schedule *ResourceRequest::resourceSchedule(Schedule *ns, Resource *res)
 DateTime ResourceRequest::workTimeAfter(const DateTime &dt, Schedule *ns) {
     if (m_resource->type() == Resource::Type_Work) {
         DateTime t = availableAfter(dt, ns);
-        foreach (Resource *r, m_required) {
+        for (Resource *r : qAsConst(m_required)) {
             if (! t.isValid()) {
                 break;
             }
@@ -226,7 +227,7 @@ DateTime ResourceRequest::workTimeAfter(const DateTime &dt, Schedule *ns) {
 DateTime ResourceRequest::workTimeBefore(const DateTime &dt, Schedule *ns) {
     if (m_resource->type() == Resource::Type_Work) {
         DateTime t = availableBefore(dt, ns);
-        foreach (Resource *r, m_required) {
+        for (Resource *r : qAsConst(m_required)) {
             if (! t.isValid()) {
                 break;
             }
@@ -260,7 +261,8 @@ DateTime ResourceRequest::availableUntil()
 DateTime ResourceRequest::availableAfter(const DateTime &time, Schedule *ns) {
     if (m_resource->type() == Resource::Type_Team) {
         DateTime t;// = m_resource->availableFrom();
-        foreach (Resource *r, m_resource->teamMembers()) {
+        const auto resources = m_resource->teamMembers();
+        for (Resource *r : resources) {
             setCurrentSchedulePtr(r, ns);
             DateTime x = r->availableAfter(time);
             if (x.isValid()) {
@@ -276,7 +278,8 @@ DateTime ResourceRequest::availableAfter(const DateTime &time, Schedule *ns) {
 DateTime ResourceRequest::availableBefore(const DateTime &time, Schedule *ns) {
     if (m_resource->type() == Resource::Type_Team) {
         DateTime t;
-        foreach (Resource *r, m_resource->teamMembers()) {
+        const auto resources = m_resource->teamMembers();
+        for (Resource *r : resources) {
             setCurrentSchedulePtr(r, ns);
             DateTime x = r->availableBefore(time);
             if (x.isValid()) {
@@ -331,7 +334,8 @@ QList<ResourceRequest*> ResourceRequest::teamMembers() const
     qDeleteAll(m_teamMembers);
     m_teamMembers.clear();
     if (m_resource->type() == Resource::Type_Team) {
-        foreach (Resource *r, m_resource->teamMembers()) {
+        const auto resources = m_resource->teamMembers();
+        for (Resource *r : resources) {
             m_teamMembers << new ResourceRequest(r, m_units);
         }
     }
@@ -711,7 +715,7 @@ void ResourceRequestCollection::resetDynamicAllocations()
 
 Duration ResourceRequestCollection::effort(const QList<ResourceRequest*> &lst, const DateTime &time, const Duration &duration, Schedule *ns, bool backward) const {
     Duration e;
-    foreach (ResourceRequest *r, lst) {
+    for (ResourceRequest *r : lst) {
         e += r->effort(time, duration, ns, backward);
         //debugPlan<<(backward?"(B)":"(F)")<<r<<": time="<<time<<" dur="<<duration.toString()<<"gave e="<<e.toString();
     }
@@ -722,7 +726,7 @@ Duration ResourceRequestCollection::effort(const QList<ResourceRequest*> &lst, c
 int ResourceRequestCollection::numDays(const QList<ResourceRequest*> &lst, const DateTime &time, bool backward) const {
     DateTime t1, t2 = time;
     if (backward) {
-        foreach (ResourceRequest *r, lst) {
+        for (ResourceRequest *r : lst) {
             t1 = r->availableFrom();
             if (!t2.isValid() || t2 > t1)
                 t2 = t1;
@@ -730,7 +734,7 @@ int ResourceRequestCollection::numDays(const QList<ResourceRequest*> &lst, const
         //debugPlan<<"bw"<<time.toString()<<":"<<t2.daysTo(time);
         return t2.daysTo(time);
     }
-    foreach (ResourceRequest *r, lst) {
+    for (ResourceRequest *r : lst) {
         t1 = r->availableUntil();
         if (!t2.isValid() || t2 < t1)
             t2 = t1;
@@ -883,7 +887,7 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
     }
     if (!match && ns) {
         ns->logError(i18n("Could not match effort. Want: %1 got: %2", _effort.toString(Duration::Format_Hour), e.toString(Duration::Format_Hour)));
-        foreach (ResourceRequest *r, lst) {
+        for (ResourceRequest *r : lst) {
             Resource *res = r->resource();
             ns->logInfo(i18n("Resource %1 available from %2 to %3", res->name(), locale.toString(r->availableFrom(), QLocale::ShortFormat), locale.toString(r->availableUntil(), QLocale::ShortFormat)));
         }
@@ -891,7 +895,7 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
     }
     DateTime t;
     if (e != Duration::zeroDuration) {
-        foreach (ResourceRequest *r, lst) {
+        for (ResourceRequest *r : lst) {
             DateTime tt;
             if (backward) {
                 tt = r->availableAfter(end, ns);

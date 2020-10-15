@@ -263,7 +263,7 @@ void KoColumns::saveOdf(KoGenStyle &style) const
             writer.endElement(); // style:column-sep
         }
 
-        foreach(const ColumnDatum &cd, columnData) {
+        for(const ColumnDatum &cd : qAsConst(columnData)) {
             writer.startElement("style:column");
             writer.addAttributePt("fo:start-indent", cd.leftMargin);
             writer.addAttributePt("fo:end-indent", cd.rightMargin);

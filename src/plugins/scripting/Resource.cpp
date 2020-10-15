@@ -52,7 +52,8 @@ QVariantList Scripting::Resource::appointmentIntervals(qlonglong schedule) const
 {
     KPlato::Appointment app = m_resource->appointmentIntervals(schedule);
     QVariantList lst;
-    foreach (const KPlato::AppointmentInterval &ai, app.intervals().map()) {
+    const auto intervals = app.intervals().map().values();
+    for (const KPlato::AppointmentInterval &ai : intervals) {
         lst << QVariant(QVariantList() << ai.startTime().toString() << ai.endTime().toString() << ai.load());
     }
     return lst;
@@ -67,7 +68,8 @@ QVariantList Scripting::Resource::externalAppointments() const
 {
     KPlato::AppointmentIntervalList ilst = m_resource->externalAppointments();
     QVariantList lst;
-    foreach (const KPlato::AppointmentInterval &ai, ilst.map()) {
+    const auto intervals = ilst.map().values();
+    for (const KPlato::AppointmentInterval &ai ; intervals) {
         lst << QVariant(QVariantList() << ai.startTime().toString() << ai.endTime().toString() << ai.load());
     }
     return lst;
@@ -100,10 +102,11 @@ void Scripting::Resource::setChildren(const QList<QObject*> &children)
         return;
     }
     KPlato::MacroCommand *cmd = new KPlato::MacroCommand(kundo2_i18n("Set resource team members"));
-    foreach (const QString &id, team->teamMemberIds()) {
+    const auto ids = team->teamMemberIds();
+    for (const QString &id : ids ) {
        cmd->addCommand(new KPlato::RemoveResourceTeamCmd(team, id));
     }
-    foreach (QObject *o, children) {
+    for (QObject *o : children) {
         Resource *r = qobject_cast<Resource*>(o);
         if (r && r->kplatoResource()) {
             cmd->addCommand(new KPlato::AddResourceTeamCmd(team, r->kplatoResource()->id()));

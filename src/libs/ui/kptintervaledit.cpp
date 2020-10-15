@@ -130,7 +130,7 @@ QList<TimeInterval*> IntervalEditImpl::intervals() const {
 
 void IntervalEditImpl::setIntervals(const QList<TimeInterval*> &intervals) {
     intervalList->clear();
-    foreach (TimeInterval *i, intervals) {
+    for (TimeInterval *i : intervals) {
         new IntervalItem(intervalList, i->first, i->second);
     }
     enableButtons();
@@ -150,7 +150,8 @@ void IntervalEditImpl::enableButtons() {
         return;
     }
     TimeInterval ti(startTime->time(),  (int)(length->value() * 1000. * 60. *60.));
-    foreach (TimeInterval *i, intervals()) {
+    const QList<TimeInterval*> intervals = this->intervals();
+    for (TimeInterval *i : intervals) {
         if (i->intersects(ti)) {
             bAddInterval->setEnabled(false);
             return;
@@ -190,7 +191,7 @@ IntervalEditDialog::IntervalEditDialog(Calendar *calendar, const QList<QDate> &d
     setDefaultButton(Ok);
     showButtonSeparator(true);
     //debugPlan<<&p;
-    foreach (const QDate &d, dates) {
+    for (const QDate &d : dates) {
         CalendarDay *day = calendar->findDay(d);
         if (day) {
             m_days << day;
@@ -219,7 +220,7 @@ void IntervalEditDialog::slotChanged()
 MacroCommand *IntervalEditDialog::buildCommand()
 {
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Modify Work Interval"));
-    foreach (const QDate &d, m_dates) {
+    for (const QDate &d : qAsConst(m_dates)) {
         // these are dates, weekdays don't have date
         CalendarDay *day = m_calendar->findDay(d);
         if (day == nullptr) {
@@ -234,7 +235,7 @@ MacroCommand *IntervalEditDialog::buildCommand()
     }
     if (m_dates.isEmpty()) {
         // weekdays
-        foreach (CalendarDay *day, m_days) {
+        for (CalendarDay *day : qAsConst(m_days)) {
             MacroCommand *c = buildCommand(m_calendar, day);
             if (c) {
                 cmd->addCommand(c);
@@ -262,7 +263,7 @@ MacroCommand *IntervalEditDialog::buildCommand(Calendar *calendar, CalendarDay *
     cmd->addCommand(c);
     //debugPlan<<"Set Undefined";
 
-    foreach (TimeInterval *i, lst) {
+    for (TimeInterval *i : lst) {
         CalendarAddTimeIntervalCmd *c = new CalendarAddTimeIntervalCmd(calendar, day, i);
         if (cmd == nullptr) cmd = new MacroCommand(KUndo2MagicString());
         cmd->addCommand(c);

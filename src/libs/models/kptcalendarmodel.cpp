@@ -376,7 +376,8 @@ QVariant CalendarItemModel::timeZone(const Calendar *a, int role) const
             return i18n(a->timeZone().id());
         case Role::EnumList: {
             QStringList lst;
-            foreach (const QByteArray &id, QTimeZone::availableTimeZoneIds()) {
+            const QList<QByteArray> zones = QTimeZone::availableTimeZoneIds();
+            for (const QByteArray &id : zones) {
                 lst << i18n(id);
             }
             lst.sort();
@@ -403,7 +404,8 @@ bool CalendarItemModel::setTimeZone(Calendar *a, const QVariant &value, int role
             QStringList lst = timeZone(a, Role::EnumList).toStringList();
             QString name = lst.value(value.toInt());
             QTimeZone tz;
-            foreach (const QByteArray &id, QTimeZone::availableTimeZoneIds()) {
+            const QList<QByteArray> zones = QTimeZone::availableTimeZoneIds();
+            for (const QByteArray &id : zones) {
                 if (name == i18n(id)) {
                     tz = QTimeZone(id);
                     break;
@@ -447,7 +449,8 @@ QVariant CalendarItemModel::holidayRegion(const Calendar *a, int role) const
         case Role::EnumList: {
             QStringList lst;
             lst << i18n("None") << i18n("Default");
-            foreach(const QString &code, a->holidayRegionCodes()) {
+            const QStringList codes = a->holidayRegionCodes();
+            for (const QString &code : codes) {
                 lst << KHolidays::HolidayRegion::name(code);
             }
             return lst;
@@ -601,7 +604,7 @@ QMimeData *CalendarItemModel::mimeData(const QModelIndexList & indexes) const
     QByteArray encodedData;
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
     QList<int> rows;
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         if (index.isValid() && !rows.contains(index.row())) {
             debugPlan<<index.row();
             Calendar *c = calendar(index);
@@ -633,8 +636,8 @@ bool CalendarItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
             par = calendar(parent);
         }
         MacroCommand *cmd = nullptr;
-        QList<Calendar*> lst = calendarList(stream);
-        foreach (Calendar *c, lst) {
+        const QList<Calendar*> lst = calendarList(stream);
+        for (Calendar *c : lst) {
             if (c->parentCal() != par) {
                 if (cmd == nullptr) cmd = new MacroCommand(kundo2_i18n("Re-parent calendar"));
                 cmd->addCommand(new CalendarModifyParentCmd(m_project, c, par));
@@ -677,8 +680,8 @@ bool CalendarItemModel::dropAllowed(Calendar *on, const QMimeData *data)
     }
     QByteArray encodedData = data->data("application/x-vnd.kde.plan.calendarid.internal");
     QDataStream stream(&encodedData, QIODevice::ReadOnly);
-    QList<Calendar*> lst = calendarList(stream);
-    foreach (Calendar *c, lst) {
+    const QList<Calendar*> lst = calendarList(stream);
+    for (Calendar *c : lst) {
         if ((flags(index(c)) & (int)Qt::ItemIsDropEnabled) == 0) {
             return false;
         }
@@ -938,7 +941,8 @@ QVariant CalendarDayItemModel::workDuration(const CalendarDay *day, int role) co
             if (day->state() == CalendarDay::Working) {
                 QLocale locale;
                 QStringList tip;
-                foreach (TimeInterval *i, day->timeIntervals()) {
+                const QList<TimeInterval*> intervals = day->timeIntervals();
+                for (TimeInterval *i : intervals) {
                     tip <<  i18nc("1=time 2=The number of hours of work duration (non integer)", "%1, %2 hours", locale.toString(i->startTime(), QLocale::ShortFormat), locale.toString(i->hours(), 'f', 2));
                 }
                 return tip.join("\n");
@@ -1002,7 +1006,8 @@ QVariant CalendarDayItemModel::data(const QModelIndex &index, int role) const
             QLocale locale;
             KFormat format(locale);
             QStringList tip;
-            foreach (TimeInterval *i, d->timeIntervals()) {
+                const QList<TimeInterval*> intervals = d->timeIntervals();
+                for (TimeInterval *i : intervals) {
                 tip <<  xi18nc("@info:tooltip 1=time 2=The work duration (non integer)", "%1, %2", locale.toString(i->startTime(), QLocale::ShortFormat), format.formatDuration(i->second));
             }
             return tip.join("<nl/>");
@@ -1168,7 +1173,8 @@ QVariant DateTableDataModel::data(const QDate &date, int role, int dataType) con
         QLocale locale;
         KFormat format(locale);
         QStringList tip;
-        foreach (TimeInterval *i, day->timeIntervals()) {
+        const QList<TimeInterval*> intervals = day->timeIntervals();
+        for (TimeInterval *i : intervals) {
             tip <<  xi18nc("@info:tooltip 1=time 2=The work duration (non integer)", "%1, %2", locale.toString(i->startTime(), QLocale::ShortFormat), format.formatDuration(i->second));
         }
         return tip.join("\n");

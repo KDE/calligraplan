@@ -321,7 +321,8 @@ void PerformanceStatusBase::setupChart()
     }
     ui_stack->setCurrentIndex(0);
     debugPlan<<"Planes:"<<ui_chart->coordinatePlanes();
-    foreach (AbstractCoordinatePlane *pl, ui_chart->coordinatePlanes()) {
+    const QList<AbstractCoordinatePlane*> planes = ui_chart->coordinatePlanes();
+    for (AbstractCoordinatePlane *pl : planes) {
         CartesianCoordinatePlane *p = dynamic_cast<CartesianCoordinatePlane*>(pl);
         if (p == nullptr) continue;
         GridAttributes ga = p->globalGridAttributes();

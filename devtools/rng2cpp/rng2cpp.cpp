@@ -310,12 +310,12 @@ void merge(RNGItemPtr& a, const RNGItemPtr& b)
     }
     assert(a->allowedItems.contains(b), "");
     if (a->requiredItems.contains(b)) {
-        foreach(RNGItemPtr i, b->requiredItems) {
+        for(RNGItemPtr i : qAsConst(b->requiredItems)) {
             a->requiredItems.insert(i);
         }
         a->requiredItems.remove(b);
     }
-    foreach(RNGItemPtr i, b->allowedItems) {
+    for (RNGItemPtr i : qAsConst(b->allowedItems)) {
         a->allowedItems.insert(i);
     }
     a->allowedItems.remove(b);
@@ -381,8 +381,10 @@ public:
      */
     ~Files() {
         typedef const QMap<QString,QTextStream*> map;
-        foreach (map& m, files) {
-            foreach (QTextStream* out, m) {
+        const auto openfiles = files;
+        for (map& m : openfiles) {
+            const auto streams = m.values();
+            for (QTextStream* out : streams) {
                 *out << "#endif\n";
                 out->device()->close();
                 delete out->device();
@@ -472,8 +474,8 @@ QStringList getNames(const QDomElement& e)
  */
 void parseElement(const QDomElement& e, RNGItem& parent, bool required)
 {
-    QStringList names = getNames(e);
-    foreach (const QString& name, names) {
+    const QStringList names = getNames(e);
+    for (const QString& name : names) {
         RNGItemPtr element = RNGItemPtr(new Element(name));
         parseContent(e, *element, true);
         parent.allowedItems.insert(element);
@@ -488,8 +490,8 @@ void parseElement(const QDomElement& e, RNGItem& parent, bool required)
  */
 void parseAttribute(const QDomElement& e, RNGItem& parent, bool required)
 {
-    QStringList names = getNames(e);
-    foreach (const QString& name, names) {
+    const QStringList names = getNames(e);
+    for (const QString& name : names) {
         RNGItemPtr attribute = RNGItemPtr(new Attribute(name));
         parseContent(e, *attribute, true);
         parent.allowedItems.insert(attribute);
@@ -607,7 +609,7 @@ QDomDocument loadDOM(const QString& url)
  */
 RNGItemPtr findEqualItem(const RNGItemPtr&i, const RNGItems& items)
 {
-    foreach (const RNGItemPtr& j, items) {
+    for (const RNGItemPtr& j : items) {
         if (*i == *j) {
             return j;
         }
@@ -632,13 +634,13 @@ bool RNGItem::operator==(const RNGItem& a) const
     if (unequal) {
         return false;
     }
-    foreach (const RNGItemPtr& i, allowedItems) {
+    for (const RNGItemPtr& i : qAsConst(allowedItems)) {
         RNGItemPtr j = findEqualItem(i, a.allowedItems);
         if (!j) {
             return false;
         }
     }
-    foreach (const RNGItemPtr& i, requiredItems) {
+    for (const RNGItemPtr& i : qAsConst(requiredItems)) {
         RNGItemPtr j = findEqualItem(i, a.requiredItems);
         if (!j) {
             return false;
@@ -655,7 +657,7 @@ void collect(RNGItem& item, RNGItems& collected)
 {
     typedef QPair<RNGItemPtr,RNGItemPtr> Pair;
     QList<Pair> toSwap;
-    foreach (const RNGItemPtr& i, item.allowedItems) {
+    for (const RNGItemPtr& i : qAsConst(item.allowedItems)) {
         RNGItemPtr j = findEqualItem(i, collected);
         if (!j) {
             collected.insert(i);
@@ -664,7 +666,7 @@ void collect(RNGItem& item, RNGItems& collected)
             toSwap.append(qMakePair(i, j));
         }
     }
-    foreach (const Pair& i, toSwap) {
+    for (const Pair& i : qAsConst(toSwap)) {
         RNGItemPtr toRemove = i.first;
         RNGItemPtr toAdd = i.second;
         if (item.requiredItems.contains(toRemove)) {
@@ -682,7 +684,7 @@ void collect(RNGItem& item, RNGItems& collected)
  */
 void collect(const RNGItems& items, RNGItems& collected)
 {
-    foreach (const RNGItemPtr& item, items) {
+    for (const RNGItemPtr& item : items) {
         collect(*item, collected);
     }
 }
@@ -692,7 +694,7 @@ void collect(const RNGItems& items, RNGItems& collected)
  */
 void countUsage(RNGItem& item, QHash<RNGItemPtr,int>& usageCount)
 {
-    foreach (const RNGItemPtr& i, item.allowedItems) {
+    for (const RNGItemPtr& i : qAsConst(item.allowedItems)) {
         if (usageCount.contains(i)) {
             usageCount[i]++;
         } else {
@@ -709,14 +711,14 @@ void countUsage(RNGItem& item, QHash<RNGItemPtr,int>& usageCount)
 int reduce(RNGItems& items)
 {
     QHash<RNGItemPtr,int> usageCount;
-    foreach (const RNGItemPtr& item, items) {
+    for (const RNGItemPtr& item : qAsConst(items)) {
         countUsage(*item, usageCount);
     }
     RNGItems toRemove;
-    foreach (RNGItemPtr item, items) {
+    for (RNGItemPtr item : qAsConst(items)) {
         if (usageCount[item] <= 1 && !item->isStart() && item->isDefine()) {
             RNGItemPtr user = RNGItemPtr(nullptr);
-            foreach (const RNGItemPtr& i, items) {
+            for (const RNGItemPtr& i : qAsConst(items)) {
                 if (i->allowedItems.contains(item)) {
                     assert(!user, "");
                     user = i;
@@ -729,7 +731,7 @@ int reduce(RNGItems& items)
             break;
         }
     }
-    foreach (const RNGItemPtr& item, toRemove) {
+    for (const RNGItemPtr& item : qAsConst(toRemove)) {
         items.remove(item);
     }
     return toRemove.size();
@@ -744,14 +746,14 @@ int reduce(RNGItems& items)
 int expand(RNGItems& items)
 {
     RNGItems toAdd;
-    foreach (RNGItemPtr item, items) {
-        foreach (const RNGItemPtr& i, item->allowedItems) {
+    for (RNGItemPtr item : qAsConst(items)) {
+        for (const RNGItemPtr& i : qAsConst(item->allowedItems)) {
             if (!items.contains(i)) {
                 toAdd.insert(i);
             }
         }
     }
-    foreach (RNGItemPtr item, toAdd) {
+    for (RNGItemPtr item : qAsConst(toAdd)) {
         items.insert(item);
     }
     return toAdd.size();
@@ -763,7 +765,7 @@ int expand(RNGItems& items)
 RNGItemPtr getDefine(const QString& name, const RNGItems& items)
 {
     RNGItemPtr item = RNGItemPtr(nullptr);
-    foreach (RNGItemPtr i, items) {
+    for (RNGItemPtr i : items) {
         if (i->name() == name) {
             assert(!item, "Doubly defined element " + name + ".");
             item = i;
@@ -784,7 +786,7 @@ void resolveDefines(RNGItemPtr start, const RNGItems& items, RNGItems& resolved)
         return;
     }
     resolved.insert(start);
-    foreach (const QString& name, start->referencedDeclares) {
+    for (const QString& name : qAsConst(start->referencedDeclares)) {
         RNGItemPtr i = getDefine(name, items);
         if (start->requiredReferencedDeclares.contains(name)) {
             start->requiredItems.insert(i);
@@ -794,7 +796,7 @@ void resolveDefines(RNGItemPtr start, const RNGItems& items, RNGItems& resolved)
     start->referencedDeclares.clear();
     start->requiredReferencedDeclares.clear();
 
-    foreach (RNGItemPtr item, start->allowedItems) {
+    for (RNGItemPtr item : qAsConst(start->allowedItems)) {
         resolveDefines(item, items, resolved);
     }
 }
@@ -838,19 +840,19 @@ void makeCppNames(RNGItemList& items)
 {
     QSet<QString> cppnames;
     // handle elements first so they have the nicest names
-    foreach (RNGItemPtr item, items) {
+    for (RNGItemPtr item : qAsConst(items)) {
         if (item->isElement()) {
             item->cppName = makeUniqueCppName(item, cppnames);
         }
     }
     // next handle the attributes
-    foreach (RNGItemPtr item, items) {
+    for (RNGItemPtr item : qAsConst(items)) {
         if (item->isAttribute()) {
             item->cppName = makeUniqueCppName(item, cppnames);
         }
     }
     // give the remaining declares names
-    foreach (RNGItemPtr item, items) {
+    for (RNGItemPtr item : qAsConst(items)) {
         if (item->isDefine()) {
             item->cppName = makeUniqueCppName(item, cppnames);
         }
@@ -865,7 +867,7 @@ bool hasElementOrAttribute(const RNGItemPtr& item, RNGItems& items)
     if (items.contains(item)) {
         return false;
     }
-    foreach (const RNGItemPtr& i, item->allowedItems) {
+    for (const RNGItemPtr& i : qAsConst(item->allowedItems)) {
         if (!i->isDefine() || hasElementOrAttribute(i, items)) {
             return true;
         }
@@ -898,10 +900,10 @@ RNGItemList getBasesList(RNGItemPtr item)
 {
     RNGItems list;
     RNGItems antilist;
-    foreach (RNGItemPtr i, item->allowedItems) {
+    for (RNGItemPtr i : qAsConst(item->allowedItems)) {
         if (i->isDefine() && hasElementOrAttribute(i)) {
             list.insert(i);
-            foreach (RNGItemPtr j, i->allowedItems) {
+            for (RNGItemPtr j : qAsConst(i->allowedItems)) {
                 if (j->isDefine() && j != i) {
                     antilist.insert(j);
                 }
@@ -931,7 +933,7 @@ RNGItemList list(const RNGItems& items)
 void resolveType(const RNGItemPtr& item, QSet<Datatype>& type)
 {
     type.unite(item->datatype);
-    foreach (const RNGItemPtr& i, item->allowedItems) {
+    for (const RNGItemPtr& i : qAsConst(item->allowedItems)) {
         resolveType(i, type);
     }
 }
@@ -941,7 +943,7 @@ void resolveType(const RNGItemPtr& item, QSet<Datatype>& type)
  */
 void resolveAttributeDataTypes(const RNGItems& items)
 {
-    foreach (const RNGItemPtr& i, items) {
+    for (const RNGItemPtr& i : items) {
         if (i->isAttribute()) {
             resolveType(i, i->datatype);
         }
@@ -960,7 +962,7 @@ void addInOrder(RNGItemList& undefined, RNGItemList& defined)
         for (int i = 0; i < undefined.size(); ++i) {
             const RNGItemPtr& ii = undefined[i];
             bool missingDependency = false;
-            foreach (const RNGItemPtr& j, list(ii->allowedItems)) {
+            for (const RNGItemPtr& j : list(ii->allowedItems)) {
                 if (j->isDefine() && !defined.contains(j) && j != ii) {
                     if (undefined.contains(j)) {
                         missingDependency = true;
@@ -1003,7 +1005,7 @@ RequiredArgsList makeRequiredArgsList(const RNGItemPtr& item)
 {
     RequiredArgsList r;
     r.length = 0;
-    foreach (RNGItemPtr i, list(item->requiredItems)) {
+    for (RNGItemPtr i : list(item->requiredItems)) {
         if (i->isAttribute() && i->singleConstant().isNull()) {
             QString name = makeCppName(i);
             QString type = i->singleType();
@@ -1027,7 +1029,7 @@ RNGItemList getAllRequiredAttributes(const RNGItemPtr& item, RNGItemList& list, 
     if (depth > 10) {
         return list;
     }
-    foreach (RNGItemPtr i, item->allowedItems) {
+    for (RNGItemPtr i : qAsConst(item->allowedItems)) {
         if (item->requiredItems.contains(i)) {
             if (i->isAttribute() && i->singleConstant().isNull()) {
                 list.append(i);
@@ -1049,7 +1051,7 @@ RequiredArgsList makeFullRequiredArgsList(const RNGItemPtr& item)
     RNGItemList list;
     getAllRequiredAttributes(item, list);
     qStableSort(list.begin(), list.end(), rngItemPtrLessThan);
-    foreach (RNGItemPtr i, list) {
+    for (RNGItemPtr i : qAsConst(list)) {
         QString name = makeCppName(i);
         QString type = i->singleType();
         if (type.isNull()) {
@@ -1072,7 +1074,7 @@ void setRequiredAttributes(QTextStream& out, const RNGItemPtr& item)
     if (!item->isElement()) {
         o = "xml.";
     }
-    foreach (RNGItemPtr i, list(item->requiredItems)) {
+    for (RNGItemPtr i : list(item->requiredItems)) {
         if (i->isAttribute()) {
             out << "        " << o << "addAttribute(\"" + i->name() + "\", ";
             QString constant = i->singleConstant();
@@ -1130,7 +1132,7 @@ void defineElement(QTextStream& out, const RNGItemPtr& item)
     out << "    }\n";
     QSet<QString> doneA;
     QSet<QString> doneE;
-    foreach (RNGItemPtr i, list(item->allowedItems)) {
+    for (RNGItemPtr i : list(item->allowedItems)) {
         QString name = makeCppName(i);
         if (i->isAttribute() && !item->requiredItems.contains(i) && !doneA.contains(name)) {
             QString type = i->singleType();
@@ -1183,7 +1185,7 @@ void defineGroup(QTextStream& out, const RNGItemPtr& item)
         r.args = ", " + r.args;
     }
     out << "    " << item->cppName << "(OdfWriter& x" + r.args + ") :";
-    foreach (const RNGItemPtr& i, bases) {
+    for (const RNGItemPtr& i : qAsConst(bases)) {
         RequiredArgsList r;
         if (item->requiredItems.contains(i)) {
             r = makeFullRequiredArgsList(i);
@@ -1195,13 +1197,13 @@ void defineGroup(QTextStream& out, const RNGItemPtr& item)
     out << "    }\n";
     if (r.length) {
         out << "    " << item->cppName << "(OdfWriter& x) :";
-        foreach (const RNGItemPtr& i, bases) {
+        for (const RNGItemPtr& i : qAsConst(bases)) {
             out << i->cppName << "(x), ";
         }
         out << "xml(x) {}\n";
     }
     QSet<QString> done;
-    foreach (RNGItemPtr i, list(item->allowedItems)) {
+    for (RNGItemPtr i : list(item->allowedItems)) {
         QString name = makeCppName(i);
         // also allow setting of required elements, because the might need to be
         // set in elements where the group is optional
@@ -1263,7 +1265,7 @@ void writeAdderDefinition(const RNGItemPtr& item, const RNGItemPtr& i, QTextStre
 void writeAdderDefinitions(const RNGItemPtr& item, Files& files)
 {
     QSet<QString> done;
-    foreach (RNGItemPtr i, list(item->allowedItems)) {
+    for (RNGItemPtr i : list(item->allowedItems)) {
         QString name = makeCppName(i);
         if (i->isElement() && !done.contains(name)) {
             QString tag1 = (item->isElement()) ?item->name() :QString();
@@ -1280,7 +1282,7 @@ void writeAdderDefinitions(const RNGItemPtr& item, Files& files)
  */
 void writeAdderDefinitions(const RNGItemList& items, Files& files)
 {
-    foreach (RNGItemPtr item, items) {
+    for (RNGItemPtr item : items) {
         writeAdderDefinitions(item, files);
     }
 }
@@ -1349,7 +1351,8 @@ QTextStream& Files::getFile(const QString& tag1, const QString& tag2 = QString()
 void Files::closeNamespace()
 {
     typedef const QMap<QString,QTextStream*> map;
-    foreach (map& m, files) {
+    const auto fileslist = files.values();
+    for (map& m : fileslist) {
         map::ConstIterator i = m.begin();
         while (i != m.end()) {
             if (!i.key().isNull() && !ns().isEmpty()) {
@@ -1372,12 +1375,12 @@ void write(const RNGItemList& items, const QString &outdir)
     RNGItemList defined;
     addInOrder(undefined, defined);
     // declare all classes
-    foreach (RNGItemPtr item, defined) {
+    for (RNGItemPtr item : qAsConst(defined)) {
         if (item->isElement() || (item->isDefine() && hasElementOrAttribute(item))) {
             out << "class " << item->cppName << ";\n";
         }
     }
-    foreach (RNGItemPtr item, defined) {
+    for (RNGItemPtr item : qAsConst(defined)) {
         if (item->isElement()) {
             defineElement(files.getFile(item->name()), item);
         } else if (item->isDefine()) {

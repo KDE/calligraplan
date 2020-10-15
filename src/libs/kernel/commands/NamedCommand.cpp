@@ -48,7 +48,8 @@ void NamedCommand::addSchScheduled(Schedule *sch)
 {
     //debugPlan << sch->id() <<":" << sch->isScheduled();
     m_schedules.insert(sch, sch->isScheduled());
-    foreach (Appointment * a, sch->appointments()) {
+    const auto appointments  = sch->appointments();
+    for (Appointment * a : appointments) {
         if (a->node() == sch) {
             m_schedules.insert(a->resource(), a->resource() ->isScheduled());
         } else if (a->resource() == sch) {

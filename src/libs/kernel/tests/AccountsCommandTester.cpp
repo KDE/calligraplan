@@ -54,14 +54,18 @@ void AccountsCommandTester::printDebug(long id) const {
     qDebug()<<"Resource start:"<<r->startTime(id).toString();
     qDebug()<<"Resource end  :"<<r->endTime(id).toString();
     qDebug()<<"Appointments:"<<r->numAppointments(id)<<"(internal)";
-    foreach (Appointment *a, r->appointments(id)) {
-        foreach (const AppointmentInterval &i, a->intervals().map()) {
+    const auto appointments = r->appointments(id);
+    for (Appointment *a : appointments) {
+        const auto intervals = a->intervals().map().values();
+        for (const AppointmentInterval &i : intervals) {
             qDebug()<<"  "<<i.startTime().toString()<<"-"<<i.endTime().toString()<<";"<<i.load();
         }
     }
     qDebug()<<"Appointments:"<<r->numExternalAppointments()<<"(external)";
-    foreach (Appointment *a, r->externalAppointmentList()) {
-        foreach (const AppointmentInterval &i, a->intervals().map()) {
+    const auto appointments2 = r->externalAppointmentList();
+    for (Appointment *a : appointments2) {
+        const auto intervals = a->intervals().map().values();
+        for (const AppointmentInterval &i : intervals) {
             qDebug()<<"  "<<i.startTime().toString()<<"-"<<i.endTime().toString()<<";"<<i.load();
         }
     }
@@ -70,7 +74,8 @@ void AccountsCommandTester::printDebug(long id) const {
 void AccountsCommandTester::printSchedulingLog(const ScheduleManager &sm) const
 {
     qDebug()<<"Scheduling log ---------------------------------";
-    foreach (const QString &s, sm.expected()->logMessages()) {
+    const auto logs = sm.expected()->logMessages();
+    for (const QString &s : logs) {
         qDebug()<<s;
     }
 }

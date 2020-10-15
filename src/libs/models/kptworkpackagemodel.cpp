@@ -183,7 +183,7 @@ WorkPackageProxyModel::WorkPackageProxyModel(QObject *parent)
     m_proxies << new FlatProxyModel(this);
     m_nodemodel = new NodeItemModel(this);
     QAbstractProxyModel *p = this;
-    foreach (QAbstractProxyModel *m, m_proxies) {
+    for (QAbstractProxyModel *m : qAsConst(m_proxies)) {
         p->setSourceModel(m);
         p = m;
     }

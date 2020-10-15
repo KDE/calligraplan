@@ -383,7 +383,7 @@ void ChartItemModel::slotNodeChanged(Node *node)
         endResetModel();
         return;
     }
-    foreach (Node *n, m_nodes) {
+    for (Node *n : qAsConst(m_nodes)) {
         if (node->isChildOf(n)) {
             beginResetModel();
             calculate();
@@ -430,9 +430,9 @@ void ChartItemModel::calculate()
     m_acwp.clear();
     if (m_manager) {
         if (m_project) {
-            foreach (Node *n, m_nodes) {
+            for (Node *n : qAsConst(m_nodes)) {
                 bool skip = false;
-                foreach (Node *p, m_nodes) {
+                for (Node *p : qAsConst(m_nodes)) {
                     if (n->isChildOf(p)) {
                         skip = true;
                         break;

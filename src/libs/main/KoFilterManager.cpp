@@ -312,10 +312,10 @@ void buildGraph(QHash<QByteArray, Vertex*>& vertices, KoFilterManager::Direction
         ++partIt;
     }
 
-    QList<KoFilterEntry::Ptr> filters = KoFilterEntry::query(); // no constraint here - we want *all* :)
+    const QList<KoFilterEntry::Ptr> filters = KoFilterEntry::query(); // no constraint here - we want *all* :)
     QList<KoFilterEntry::Ptr>::ConstIterator it = filters.constBegin();
     QList<KoFilterEntry::Ptr>::ConstIterator end = filters.constEnd();
-    foreach(KoFilterEntry::Ptr filterEntry, filters)
+    for (KoFilterEntry::Ptr filterEntry : filters)
     for (; it != end; ++it) {
         QStringList impList; // Import list
         QStringList expList; // Export list
@@ -323,14 +323,14 @@ void buildGraph(QHash<QByteArray, Vertex*>& vertices, KoFilterManager::Direction
         // Now we have to exclude the "stop" mimetypes (in the right direction!)
         if (direction == KoFilterManager::Import) {
             // Import: "stop" mime type should not appear in export
-            foreach(const QString & testIt, (*it)->export_) {
+            for (const QString & testIt : qAsConst((*it)->export_)) {
                 if (!stopList.contains(testIt))
                     expList.append(testIt);
             }
             impList = (*it)->import;
         } else {
             // Export: "stop" mime type should not appear in import
-            foreach(const QString & testIt, (*it)->import) {
+            for (const QString & testIt : qAsConst((*it)->import)) {
                 if (!stopList.contains(testIt))
                     impList.append(testIt);
             }
@@ -403,8 +403,8 @@ QStringList connected(const QHash<QByteArray, Vertex*>& vertices, const QByteArr
     while (!queue.empty()) {
         v = queue.front();
         queue.pop();
-        QList<Vertex*> edges = v->edges();
-        foreach(Vertex* current, edges) {
+        const QList<Vertex*> edges = v->edges();
+        for (Vertex* current : edges) {
             if (current->color() == Vertex::White) {
                 current->setColor(Vertex::Gray);
                 queue.push(current);
@@ -435,15 +435,16 @@ QStringList KoFilterManager::mimeFilter(const QByteArray &mimetype, Direction di
     QStringList lst = nativeMimeTypes;
 
     // Now look for filters which output each of those natives mimetypes
-    foreach(const QString &natit, nativeMimeTypes) {
+    for (const QString &natit : qAsConst(nativeMimeTypes)) {
         const QStringList outMimes = connected(vertices, natit.toLatin1());
         //debugFilter <<"output formats connected to mime" << natit <<" :" << outMimes;
-        foreach(const QString &mit, outMimes) {
+        for (const QString &mit : outMimes) {
             if (!lst.contains(mit))     // append only if not there already. Qt4: QSet<QString>?
                 lst.append(mit);
         }
     }
-    foreach(Vertex* vertex, vertices) {
+    const auto list = vertices.values();
+    for (Vertex* vertex : list) {
         delete vertex;
     }
     vertices.clear();

@@ -50,7 +50,8 @@ LoadSharedProjectsDialog::LoadSharedProjectsDialog(Project &project, const QUrl 
     QFileInfo fi(project.sharedProjectsUrl().path());
     QDir dir = fi.dir();
     QList<QUrl> paths;
-    foreach(const QString &f, dir.entryList(QStringList()<<"*.plan")) {
+    const QList<QString> files = dir.entryList(QStringList()<<"*.plan");
+    for(const QString &f : files) {
         QString path = dir.canonicalPath();
         if (path.isEmpty()) {
             continue;

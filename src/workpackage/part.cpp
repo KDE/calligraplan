@@ -431,7 +431,7 @@ void Part::removeWorkPackages(const QList<Node*> &nodes)
 {
     debugPlanWork<<nodes;
     MacroCommand *m = new MacroCommand(kundo2_i18np("Remove work package", "Remove work packages", nodes.count()));
-    foreach (Node *n, nodes) {
+    for (Node *n : nodes) {
         removeWorkPackage(n, m);
     }
     if (m->isEmpty()) {
@@ -467,7 +467,7 @@ bool Part::loadWorkPackages()
     m_loadingFromProjectStore = true;
     const QStringList lst = KoResourcePaths::findAllResources("projects", "*.planwork", KoResourcePaths::Recursive | KoResourcePaths::NoDuplicates);
     debugPlanWork<<lst;
-    foreach (const QString &file, lst) {
+    for (const QString &file : lst) {
         if (! loadNativeFormatFromStore(file)) {
             KMessageBox::information(nullptr, i18n("Failed to load file:<br>%1" , file));
         }
@@ -663,7 +663,7 @@ int Part::docType(const Document *doc) const
 
 DocumentChild *Part::findChild(const Document *doc) const
 {
-    foreach (const WorkPackage *wp, m_packageMap) {
+    for (const WorkPackage *wp : qAsConst(m_packageMap)) {
         DocumentChild *c = wp->findChild(doc);
         if (c) {
             return c;
@@ -674,7 +674,7 @@ DocumentChild *Part::findChild(const Document *doc) const
 
 WorkPackage *Part::findWorkPackage(const Document *doc) const
 {
-    foreach (const WorkPackage *wp, m_packageMap) {
+    for (const WorkPackage *wp : qAsConst(m_packageMap)) {
         if (wp->contains(doc)) {
             return const_cast<WorkPackage*>(wp);
         }
@@ -684,7 +684,7 @@ WorkPackage *Part::findWorkPackage(const Document *doc) const
 
 WorkPackage *Part::findWorkPackage(const DocumentChild *child) const
 {
-    foreach (const WorkPackage *wp, m_packageMap) {
+    for (const WorkPackage *wp : qAsConst(m_packageMap)) {
         if (wp->contains(child)) {
             return const_cast<WorkPackage*>(wp);
         }
@@ -779,7 +779,7 @@ bool Part::saveAs(const QUrl &/*url*/)
 
 void Part::saveModifiedWorkPackages()
 {
-    foreach (WorkPackage *wp, m_packageMap) {
+    for (WorkPackage *wp : qAsConst(m_packageMap)) {
         if (wp->isModified()) {
             saveWorkPackage(wp);
         }
@@ -795,7 +795,7 @@ void Part::saveWorkPackage(WorkPackage *wp)
 bool Part::saveWorkPackages(bool silent)
 {
     debugPlanWork<<silent;
-    foreach (WorkPackage *wp, m_packageMap) {
+    for (WorkPackage *wp : qAsConst(m_packageMap)) {
         wp->saveToProjects(this);
     }
     m_undostack->setClean();
@@ -817,7 +817,7 @@ bool Part::queryClose()
 {
     debugPlanWork;
     QList<WorkPackage*> modifiedList;
-    foreach (WorkPackage *wp, m_packageMap) {
+    for (WorkPackage *wp : qAsConst(m_packageMap)) {
         switch (wp->queryClose(this)) {
             case KMessageBox::No:
                 modifiedList << wp;
@@ -828,7 +828,7 @@ bool Part::queryClose()
         }
     }
     // closeEvent calls queryClose so modified must be reset or else wps are queried all over again
-    foreach (WorkPackage *wp, modifiedList) {
+    for (WorkPackage *wp : qAsConst(modifiedList)) {
         wp->setModified(false);
     }
     setModified(false);

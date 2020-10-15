@@ -77,7 +77,7 @@ void SchedulerPluginLoader::loadAllPlugins()
     debugPlan << "Load all plugins";
     const QList<QPluginLoader *> offers = KoPluginLoader::pluginLoaders(QStringLiteral("calligraplan/schedulers"));
 
-    foreach(QPluginLoader *pluginLoader, offers) {
+    for(QPluginLoader *pluginLoader : offers) {
         KPluginFactory *factory = qobject_cast<KPluginFactory*>(pluginLoader->instance());
  
         if (!factory)

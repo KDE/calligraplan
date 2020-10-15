@@ -84,7 +84,7 @@ void ScriptingTester::cleanupTestCase()
 void ScriptingTester::test()
 {
     qDebug()<<m_tests;
-    foreach (Kross::Action *a, m_tests) {
+    for (Kross::Action *a : qAsConst(m_tests)) {
         m_result->setResult(false);
         m_result->message = QString("%1: Failed to run test").arg(a->objectName());
         a->trigger();

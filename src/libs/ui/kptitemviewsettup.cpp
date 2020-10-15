@@ -72,7 +72,8 @@ ItemViewSettup::ItemViewSettup(TreeViewBase *view, bool includeColumn0, QWidget 
             map.insert(view->section(c), item);
         }
     }
-    foreach(Item *i, map) {
+    const QList<Item*> items = map.values();
+    for(Item *i : items) {
         selector->selectedListWidget()->addItem(i);
     }
 
@@ -114,7 +115,7 @@ void ItemViewSettup::setDefault()
     selector->selectedListWidget()->clear();
     QAbstractItemModel *model = m_view->model();
     int c = m_includeColumn0 ? 0 : 1;
-    QList<int> def = m_view->defaultColumns();
+    const QList<int> def = m_view->defaultColumns();
     for (; c < model->columnCount(); ++c) {
         if (! def.contains(c)) {
             Item *item = new Item(c, model->headerData(c, Qt::Horizontal).toString());
@@ -122,7 +123,7 @@ void ItemViewSettup::setDefault()
             selector->availableListWidget()->addItem(item);
         }
     }
-    foreach (int i, def) {
+    for (int i : def) {
         Item *item = new Item(i, model->headerData(i, Qt::Horizontal).toString());
         item->setToolTip(model->headerData(i, Qt::Horizontal, Qt::ToolTipRole).toString());
         selector->selectedListWidget()->addItem(item);

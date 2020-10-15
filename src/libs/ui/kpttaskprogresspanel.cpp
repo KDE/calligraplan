@@ -143,9 +143,9 @@ MacroCommand *TaskProgressPanel::buildCommand(const Project &project, Completion
         if (cmd == nullptr) cmd = new MacroCommand(c);
         cmd->addCommand(new ModifyCompletionFinishedCmd(org, curr.isFinished()));
     }
-    QList<QDate> orgdates = org.entries().keys();
-    QList<QDate> currdates = curr.entries().keys();
-    foreach (const QDate &d, orgdates) {
+    const QList<QDate> orgdates = org.entries().keys();
+    const QList<QDate> currdates = curr.entries().keys();
+    for (const QDate &d : orgdates) {
         if (currdates.contains(d)) {
             if (curr.entry(d) == org.entry(d)) {
                 continue;
@@ -160,7 +160,7 @@ MacroCommand *TaskProgressPanel::buildCommand(const Project &project, Completion
             cmd->addCommand(new RemoveCompletionEntryCmd(org, d));
         }
     }
-    foreach (const QDate &d, currdates) {
+    for (const QDate &d : currdates) {
         if (! orgdates.contains(d)) {
             if (cmd == nullptr) cmd = new MacroCommand(c);
             Completion::Entry *e = new Completion::Entry(* (curr.entry(d)));

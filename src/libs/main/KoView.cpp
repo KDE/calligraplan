@@ -190,7 +190,8 @@ KoView::KoView(KoPart *part, KoDocument *document, QWidget *parent)
      *          only. All actions added later will have the default
      *          context, which is Qt::WindowShortcut!
      */
-    foreach(QAction* action, actionCollection()->actions()) {
+    const auto actions = actionCollection()->actions();
+    for (QAction* action : actions) {
         action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     }
 }
@@ -230,8 +231,8 @@ void KoView::dropEvent(QDropEvent *event)
         }
     }
     else if (event->mimeData()->hasUrls()) {
-        QList<QUrl> urls = event->mimeData()->urls();
-        foreach (const QUrl &url, urls) {
+        const QList<QUrl> urls = event->mimeData()->urls();
+        for (const QUrl &url : urls) {
             QImage image;
             QUrl kurl(url);
             // make sure we download the files before inserting them
@@ -407,8 +408,8 @@ void KoView::slotUpdateAuthorProfileActions()
     d->actionAuthor->addAction(i18nc("choice for author profile", "Anonymous"));
 
     KConfigGroup authorGroup(KoGlobal::planConfig(), "Author");
-    QStringList profiles = authorGroup.readEntry("profile-names", QStringList());
-    foreach (const QString &profile , profiles) {
+    const QStringList profiles = authorGroup.readEntry("profile-names", QStringList());
+    for (const QString &profile : profiles) {
         d->actionAuthor->addAction(profile);
     }
 

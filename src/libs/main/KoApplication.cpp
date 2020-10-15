@@ -248,10 +248,6 @@ bool KoApplication::start()
         // and for KoDocument::slotStarted
         part->addMainWindow(mainWindow);
 
-        // Check for autosave files from a previous run. There can be several, and
-        // we want to offer a restore for every one. Including a nice thumbnail!
-        QStringList autoSaveFiles;
-
         // get all possible autosave files in the home dir, this is for unsaved document autosave files
         // Using the extension allows to avoid relying on the mime magic when opening
         QMimeType mimeType = QMimeDatabase().mimeTypeForName(doc->nativeFormatMimeType());
@@ -268,9 +264,6 @@ bool KoApplication::start()
 #else
         QDir autosaveDir = QDir::home();
 #endif
-        // all autosave files for our application
-        autoSaveFiles = autosaveDir.entryList(filters, QDir::Files | QDir::Hidden);
-
         QStringList pids;
         QString ourPid;
         ourPid.setNum(applicationPid());
@@ -278,8 +271,8 @@ bool KoApplication::start()
 #ifndef QT_NO_DBUS
         // all running instances of our application -- bit hackish, but we cannot get at the dbus name here, for some reason
         QDBusReply<QStringList> reply = QDBusConnection::sessionBus().interface()->registeredServiceNames();
-
-        foreach (const QString &name, reply.value()) {
+        const auto names = reply.value();
+        for (const QString &name : names) {
             if (name.contains(part->componentData().componentName())) {
                 // we got another instance of ourselves running, let's get the pid
                 QString pid = name.split('-').last();
@@ -290,8 +283,11 @@ bool KoApplication::start()
         }
 #endif
 
+        // Check for autosave files from a previous run. There can be several, and
+        // we want to offer a restore for every one. Including a nice thumbnail!
+        QStringList autoSaveFiles = autosaveDir.entryList(filters, QDir::Files | QDir::Hidden);
         // remove the autosave files that are saved for other, open instances of ourselves
-        foreach(const QString &autoSaveFileName, autoSaveFiles) {
+        for (const QString &autoSaveFileName : qAsConst(autoSaveFiles)) {
             if (!QFile::exists(autosaveDir.absolutePath() + QDir::separator() + autoSaveFileName)) {
                 autoSaveFiles.removeAll(autoSaveFileName);
                 continue;
@@ -310,7 +306,7 @@ bool KoApplication::start()
             KoAutoSaveRecoveryDialog dlg(autoSaveFiles);
             if (dlg.exec() == QDialog::Accepted) {
                 QStringList filesToRecover = dlg.recoverableFiles();
-                foreach (const QString &autoSaveFileName, autoSaveFiles) {
+                for (const QString &autoSaveFileName : qAsConst(autoSaveFiles)) {
                     if (!filesToRecover.contains(autoSaveFileName)) {
                         // remove the files the user didn't want to recover
                         QFile::remove(autosaveDir.absolutePath() + QDir::separator() + autoSaveFileName);
@@ -338,7 +334,7 @@ bool KoApplication::start()
 
             // And then for the other autosave files, we copy & paste the code
             // and loop through them.
-            foreach(const QString &autoSaveFile, autoSaveFiles) {
+            for (const QString &autoSaveFile : autoSaveFiles) {
                 // For now create an empty document
                 QString errorMsg;
                 KoPart *part = entry.createKoPart(&errorMsg);

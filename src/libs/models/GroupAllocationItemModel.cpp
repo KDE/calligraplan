@@ -350,7 +350,8 @@ void GroupAllocationItemModel::filldata(Task *task)
     qDeleteAll(m_groupCache);
     m_groupCache.clear();
     if (m_project && task) {
-        foreach (const ResourceGroupRequest *gr, task->requests().requests()) {
+        const QList<ResourceGroupRequest*> requests = task->requests().requests();
+        for (const ResourceGroupRequest *gr : requests) {
             m_groupCache[gr->group()] = new ResourceGroupRequest(*gr);
         }
     }

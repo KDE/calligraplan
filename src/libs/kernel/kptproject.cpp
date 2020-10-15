@@ -130,7 +130,7 @@ void Project::deref()
 
 Project::~Project()
 {
-    debugPlan<<"("<<this<<")";
+    qInfo()<<"("<<this<<")";
     disconnect();
     for(Node *n : qAsConst(nodeIdDict)) {
         n->blockChanged();
@@ -159,7 +159,8 @@ int Project::type() const { return Node::Type_Project; }
 
 void Project::generateUniqueNodeIds()
 {
-    foreach (Node *n, nodeIdDict) {
+    const auto nodes = nodeIdDict.values();
+    for (Node *n : nodes) {
         debugPlan<<n->name()<<"old"<<n->id();
         QString uid = uniqueNodeId();
         nodeIdDict.remove(n->id());
@@ -173,7 +174,8 @@ void Project::generateUniqueIds()
 {
     generateUniqueNodeIds();
 
-    foreach (ResourceGroup *g, resourceGroupIdDict) {
+    const auto groups = resourceGroupIdDict.values();
+    for (ResourceGroup *g : groups) {
         if (g->isShared()) {
             continue;
         }
@@ -181,7 +183,8 @@ void Project::generateUniqueIds()
         g->setId(uniqueResourceGroupId());
         resourceGroupIdDict[ g->id() ] = g;
     }
-    foreach (Resource *r, resourceIdDict) {
+    const auto resources = resourceIdDict.values();
+    for (Resource *r : resources) {
         if (r->isShared()) {
             continue;
         }
@@ -189,7 +192,8 @@ void Project::generateUniqueIds()
         r->setId(uniqueResourceId());
         resourceIdDict[ r->id() ] = r;
     }
-    foreach (Calendar *c, calendarIdDict) {
+    const auto calendars = calendarIdDict.values();
+    for (Calendar *c : calendars) {
         if (c->isShared()) {
             continue;
         }
@@ -267,7 +271,8 @@ void Project::calculate(ScheduleManager &sm)
     sm.setScheduling(true);
     m_progress = 0;
     int nodes = 0;
-    foreach (Node *n, nodeIdDict) {
+    const auto nodesList = nodeIdDict.values();
+    for (Node *n : nodesList) {
         if (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone) {
             nodes++;
         }
@@ -375,7 +380,8 @@ void Project::calculate()
             cs->logInfo(i18n("Schedule tasks backward"), 3);
             cs->startTime = scheduleBackward(cs->lateFinish, estType);
             cs->endTime = cs->startTime;
-            foreach (Node *n, allNodes()) {
+            const auto nodes = allNodes();
+            for (Node *n : nodes) {
                 if (n->type() == Type_Task || n->type() == Type_Milestone) {
                     DateTime e = n->endTime(cs->id());
                     if (cs->endTime <  e) {
@@ -488,7 +494,8 @@ void Project::calcCriticalPathList(MainSchedule *cs)
 {
     //debugPlan<<m_name<<", "<<cs->name();
     cs->clearCriticalPathList();
-    foreach (Node *n, allNodes()) {
+    const auto nodes = allNodes();
+    for (Node *n : nodes) {
         if (n->numDependParentNodes() == 0 && n->inCriticalPath(cs->id())) {
             cs->addCriticalPath();
             cs->addCriticalPathNode(n);
@@ -504,7 +511,8 @@ void Project::calcCriticalPathList(MainSchedule *cs, Node *node)
     //debugPlan<<node->name()<<", "<<cs->id();
     bool newPath = false;
     QList<Node*> lst = *(cs->currentCriticalPath());
-    foreach (Relation *r, node->dependChildNodes()) {
+    const auto relations = node->dependChildNodes();
+    for (Relation *r : relations) {
         if (r->child()->inCriticalPath(cs->id())) {
             if (newPath) {
                 cs->addCriticalPath(&lst);
@@ -573,7 +581,8 @@ Duration *Project::getRandomDuration()
 DateTime Project::checkStartConstraints(const DateTime &dt) const
 {
     DateTime t = dt;
-    foreach (Node *n, nodeIdDict) {
+    const auto nodes = nodeIdDict.values();
+    for (Node *n : nodes) {
         if (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone) {
             switch (n->constraint()) {
                 case Node::FixedInterval:
@@ -591,7 +600,8 @@ DateTime Project::checkStartConstraints(const DateTime &dt) const
 DateTime Project::checkEndConstraints(const DateTime &dt) const
 {
     DateTime t = dt;
-    foreach (Node *n, nodeIdDict) {
+    const auto nodes = nodeIdDict.values();
+    for (Node *n : nodes) {
         if (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone) {
             switch (n->constraint()) {
                 case Node::FixedInterval:
@@ -620,7 +630,8 @@ bool Project::checkParent(Node *n, const QList<Node*> &list, QList<Relation*> &c
     }
     QList<Node*> lst = list;
     lst << n;
-    foreach (Relation *r, n->dependParentNodes()) {
+    const auto relations = n->dependParentNodes();
+    for (Relation *r : relations) {
         if (checked.contains(r)) {
             debugPlan<<"Depend:"<<n<<":"<<r->parent()<<": checked";
             continue;
@@ -631,7 +642,8 @@ bool Project::checkParent(Node *n, const QList<Node*> &list, QList<Relation*> &c
         }
     }
     Task *t = static_cast<Task*>(n);
-    foreach (Relation *r, t->parentProxyRelations()) {
+    const auto relations2 = t->parentProxyRelations();
+    for (Relation *r : relations2) {
         if (checked.contains(r)) {
             debugPlan<<"Depend:"<<n<<":"<<r->parent()<<": checked";
             continue;
@@ -658,7 +670,8 @@ bool Project::checkChildren(Node *n, const QList<Node*> &list, QList<Relation*> 
     }
     QList<Node*> lst = list;
     lst << n;
-    foreach (Relation *r, n->dependChildNodes()) {
+    const auto relations = n->dependChildNodes();
+    for (Relation *r : relations) {
         if (checked.contains(r)) {
             debugPlan<<"Depend:"<<n<<":"<<r->parent()<<": checked";
             continue;
@@ -669,7 +682,8 @@ bool Project::checkChildren(Node *n, const QList<Node*> &list, QList<Relation*> 
         }
     }
     Task *t = static_cast<Task*>(n);
-    foreach (Relation *r, t->childProxyRelations()) {
+    const auto relations2 = t->childProxyRelations();
+    for (Relation *r : relations2) {
         if (checked.contains(r)) {
             debugPlan<<"Depend:"<<n<<":"<<r->parent()<<": checked";
             continue;
@@ -711,7 +725,7 @@ void Project::tasksForward()
     }
 #ifndef PLAN_NLOGDEBUG
     debugPlan<<"End nodes:"<<m_terminalNodes;
-    foreach (Node* n, m_terminalNodes) {
+    for (Node* n : qAsConst(m_terminalNodes)) {
         QList<Node*> lst;
         QList<Relation*> rel;
         Q_ASSERT(checkParent(n, lst, rel)); Q_UNUSED(n);
@@ -747,7 +761,7 @@ void Project::tasksBackward()
     }
 #ifndef PLAN_NLOGDEBUG
     debugPlan<<"Start nodes:"<<m_terminalNodes;
-    foreach (Node* n, m_terminalNodes) {
+    for (Node* n : qAsConst(m_terminalNodes)) {
         QList<Node*> lst;
         QList<Relation*> rel;
         Q_ASSERT(checkChildren(n, lst, rel)); Q_UNUSED(n);
@@ -772,7 +786,7 @@ DateTime Project::calculateForward(int use)
             // setup tasks
             tasksForward();
             // Do all hard constrained first
-            foreach (Node *n, m_hardConstraints) {
+            for (Node *n : qAsConst(m_hardConstraints)) {
                 cs->logDebug("Calculate task with hard constraint:" + n->name() + " : " + n->constraintToString());
                 DateTime time = n->calculateEarlyFinish(use); // do not do predeccessors
                 if (time > finish) {
@@ -780,7 +794,7 @@ DateTime Project::calculateForward(int use)
                 }
             }
             // do the predeccessors
-            foreach (Node *n, m_hardConstraints) {
+            for (Node *n : qAsConst(m_hardConstraints)) {
                 cs->logDebug("Calculate predeccessors to hard constrained task:" + n->name() + " : " + n->constraintToString());
                 DateTime time = n->calculateForward(use);
                 if (time > finish) {
@@ -788,7 +802,7 @@ DateTime Project::calculateForward(int use)
                 }
             }
             // now try to schedule soft constrained *with* predeccessors
-            foreach (Node *n, m_softConstraints) {
+            for (Node *n : qAsConst(m_softConstraints)) {
                 cs->logDebug("Calculate task with soft constraint:" + n->name() + " : " + n->constraintToString());
                 DateTime time = n->calculateForward(use);
                 if (time > finish) {
@@ -796,7 +810,7 @@ DateTime Project::calculateForward(int use)
                 }
             }
             // and then the rest using the end nodes to calculate everything (remaining)
-            foreach (Task *n, m_terminalNodes) {
+            for (Task *n : qAsConst(m_terminalNodes)) {
                 cs->logDebug("Calculate using end task:" + n->name() + " : " + n->constraintToString());
                 DateTime time = n->calculateForward(use);
                 if (time > finish) {
@@ -805,7 +819,8 @@ DateTime Project::calculateForward(int use)
             }
         } else {
             // tasks have been calculated backwards in this order
-            foreach (Node *n, cs->backwardNodes()) {
+            const auto nodes =  cs->backwardNodes();
+            for (Node *n : nodes) {
                 DateTime time = n->calculateForward(use);
                 if (time > finish) {
                     finish = time;
@@ -836,7 +851,7 @@ DateTime Project::calculateBackward(int use)
             // setup tasks
             tasksBackward();
             // Do all hard constrained first
-            foreach (Task *n, m_hardConstraints) {
+            for (Task *n : qAsConst(m_hardConstraints)) {
                 cs->logDebug("Calculate task with hard constraint:" + n->name() + " : " + n->constraintToString());
                 DateTime time = n->calculateLateStart(use); // do not do predeccessors
                 if (! start.isValid() || time < start) {
@@ -844,7 +859,7 @@ DateTime Project::calculateBackward(int use)
                 }
             }
             // then do the predeccessors
-            foreach (Task *n, m_hardConstraints) {
+            for (Task *n : qAsConst(m_hardConstraints)) {
                 cs->logDebug("Calculate predeccessors to hard constrained task:" + n->name() + " : " + n->constraintToString());
                 DateTime time = n->calculateBackward(use);
                 if (! start.isValid() || time < start) {
@@ -852,7 +867,7 @@ DateTime Project::calculateBackward(int use)
                 }
             }
             // now try to schedule soft constrained *with* predeccessors
-            foreach (Task *n, m_softConstraints) {
+            for (Task *n : qAsConst(m_softConstraints)) {
                 cs->logDebug("Calculate task with soft constraint:" + n->name() + " : " + n->constraintToString());
                 DateTime time = n->calculateBackward(use);
                 if (! start.isValid() || time < start) {
@@ -860,7 +875,7 @@ DateTime Project::calculateBackward(int use)
                 }
             }
             // and then the rest using the start nodes to calculate everything (remaining)
-            foreach (Task *n, m_terminalNodes) {
+            for (Task *n : qAsConst(m_terminalNodes)) {
                 cs->logDebug("Calculate using start task:" + n->name() + " : " + n->constraintToString());
                 DateTime time = n->calculateBackward(use);
                 if (! start.isValid() || time < start) {
@@ -869,7 +884,8 @@ DateTime Project::calculateBackward(int use)
             }
         } else {
             // tasks have been calculated forwards in this order
-            foreach (Node *n, cs->forwardNodes()) {
+            const auto nodes = cs->forwardNodes();
+            for (Node *n : nodes) {
                 DateTime time = n->calculateBackward(use);
                 if (! start.isValid() || time < start) {
                     start = time;
@@ -896,14 +912,15 @@ DateTime Project::scheduleForward(const DateTime &earliest, int use)
     resetVisited();
     // Schedule in the same order as calculated forward
     // Do all hard constrained first
-    foreach (Node *n, m_hardConstraints) {
+    for (Node *n : qAsConst(m_hardConstraints)) {
         cs->logDebug("Schedule task with hard constraint:" + n->name() + " : " + n->constraintToString());
         DateTime time = n->scheduleFromStartTime(use); // do not do predeccessors
         if (time > end) {
             end = time;
         }
     }
-    foreach (Node *n, cs->forwardNodes()) {
+    const auto nodes = cs->forwardNodes();
+    for (Node *n : nodes) {
         cs->logDebug("Schedule task:" + n->name() + " : " + n->constraintToString());
         DateTime time = n->scheduleForward(earliest, use);
         if (time > end) {
@@ -913,7 +930,8 @@ DateTime Project::scheduleForward(const DateTime &earliest, int use)
     // Fix summarytasks
     adjustSummarytask();
     cs->logInfo(i18n("Finished scheduling forward: %1 ms", timer.elapsed()));
-    foreach (Node *n, allNodes()) {
+    const auto nodes2 = allNodes();
+    for (Node *n : nodes2) {
         if (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone) {
             Q_ASSERT(n->isScheduled());
         }
@@ -935,14 +953,15 @@ DateTime Project::scheduleBackward(const DateTime &latest, int use)
     resetVisited();
     // Schedule in the same order as calculated backward
     // Do all hard constrained first
-    foreach (Node *n, m_hardConstraints) {
+    for (Node *n : qAsConst(m_hardConstraints)) {
         cs->logDebug("Schedule task with hard constraint:" + n->name() + " : " + n->constraintToString());
         DateTime time = n->scheduleFromEndTime(use); // do not do predeccessors
         if (! start.isValid() || time < start) {
             start = time;
         }
     }
-    foreach (Node *n, cs->backwardNodes()) {
+    const auto nodes = cs->backwardNodes();
+    for (Node *n : nodes) {
         cs->logDebug("Schedule task:" + n->name() + " : " + n->constraintToString());
         DateTime time = n->scheduleBackward(latest, use);
         if (! start.isValid() || time < start) {
@@ -952,7 +971,8 @@ DateTime Project::scheduleBackward(const DateTime &latest, int use)
     // Fix summarytasks
     adjustSummarytask();
     cs->logInfo(i18n("Finished scheduling backward: %1 ms", timer.elapsed()));
-    foreach (Node *n, allNodes()) {
+    const auto nodes2 = allNodes();
+    for (Node *n : nodes2) {
         if (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone) {
             Q_ASSERT(n->isScheduled());
         }
@@ -1723,7 +1743,8 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         if (!calendarIdDict.isEmpty()) {
             QDomElement ce = me.ownerDocument().createElement("calendars");
             me.appendChild(ce);
-            foreach (Calendar *c, calendarIdDict) {
+            const auto calendars = calendarIdDict.values();
+            for (Calendar *c : calendars) {
                 c->save(ce);
             }
         }
@@ -1782,11 +1803,12 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         debugPlanXml<<"resource-teams";
         QDomElement el = me.ownerDocument().createElement("resource-teams");
         me.appendChild(el);
-        foreach (Resource *r, m_resources) {
+        for (Resource *r : qAsConst(m_resources)) {
             if (r->type() != Resource::Type_Team) {
                 continue;
             }
-            foreach (const QString &id, r->teamMemberIds()) {
+            const auto ids = r->teamMemberIds();
+            for (const QString &id : ids) {
                 QDomElement e = el.ownerDocument().createElement("team");
                 el.appendChild(e);
                 e.setAttribute("team-id", r->id());
@@ -1841,7 +1863,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         if (!m_managers.isEmpty()) {
             QDomElement el = me.ownerDocument().createElement("project-schedules");
             me.appendChild(el);
-            foreach (ScheduleManager *sm, m_managers) {
+            for (ScheduleManager *sm : qAsConst(m_managers)) {
                 sm->saveXML(el);
             }
         }
@@ -1934,7 +1956,8 @@ void Project::saveWorkPackageXML(QDomElement &element, const Node *node, long id
     }
     node->saveWorkPackageXML(me, id);
 
-    foreach (ScheduleManager *sm, m_managerIdMap) {
+    const auto managers = m_managerIdMap.values();
+    for (ScheduleManager *sm : managers) {
         if (sm->scheduleId() == id) {
             QDomElement el = me.ownerDocument().createElement("schedules");
             me.appendChild(el);
@@ -1964,7 +1987,8 @@ void Project::addResourceGroup(ResourceGroup *group, ResourceGroup *parent, int 
         m_resourceGroups.insert(i, group);
         setResourceGroupId(group);
         group->setProject(this);
-        foreach (Resource *r, group->resources()) {
+        const auto resources = group->resources();
+        for (Resource *r : resources) {
             setResourceId(r);
             r->setProject(this);
         }
@@ -1992,7 +2016,8 @@ void Project::takeResourceGroup(ResourceGroup *group)
         ResourceGroup *g = m_resourceGroups.takeAt(i);
         Q_ASSERT(group == g);
         g->setProject(nullptr);
-        foreach (Resource *r, g->resources()) {
+        const auto resources = g->resources();
+        for (Resource *r : resources) {
             r->removeParentGroup(g);
         }
         emit resourceGroupRemoved();
@@ -2072,7 +2097,8 @@ void Project::moveResource(ResourceGroup *group, Resource *resource)
 QMap< QString, QString > Project::externalProjects() const
 {
     QMap< QString, QString > map;
-    foreach (Resource *r, resourceList()) {
+    const auto resources = resourceList();
+    for (Resource *r : resources) {
         for(QMapIterator<QString, QString> it(r->externalProjects()); it.hasNext();) {
             it.next();
             if (! map.contains(it.key())) {
@@ -2457,7 +2483,8 @@ QList<Node*> Project::allNodes(bool ordered, Node* parent) const
     QList<Node*> lst;
     if (ordered) {
         const Node *p = parent ? parent : this;
-        foreach (Node *n, p->childNodeIterator()) {
+        const auto nodes = p->childNodeIterator();
+        for (Node *n : nodes) {
             if (n->type() == Node::Type_Task || n->type() == Type_Milestone || n->type() == Node::Type_Summarytask) {
                 lst << static_cast<Task*>(n);
                 lst += allNodes(ordered, n);
@@ -2477,7 +2504,8 @@ QList<Task*> Project::allTasks(const Node *parent) const
 {
     QList<Task*> lst;
     const Node *p = parent ? parent : this;
-    foreach (Node *n, p->childNodeIterator()) {
+    const auto nodes = p->childNodeIterator();
+    for (Node *n : nodes) {
         if (n->type() == Node::Type_Task || n->type() == Type_Milestone) {
             lst << static_cast<Task*>(n);
         }
@@ -2535,7 +2563,8 @@ ResourceGroup *Project::group(const QString& id)
 
 ResourceGroup *Project::groupByName(const QString& name) const
 {
-    foreach (ResourceGroup *g, resourceGroupIdDict) {
+    const auto groups = resourceGroupIdDict.values();
+    for (ResourceGroup *g : groups) {
         if (g->name() == name) {
             return g;
         }
@@ -2546,7 +2575,7 @@ ResourceGroup *Project::groupByName(const QString& name) const
 QList<Resource*> Project::autoAllocateResources() const
 {
     QList<Resource*> lst;
-    foreach (Resource *r, m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         if (r->autoAllocate()) {
             lst << r;
         }
@@ -2763,7 +2792,8 @@ Duration Project::budgetedWorkPerformed(QDate date, long id) const
 {
     //debugPlan;
     Duration e;
-    foreach (Node *n, childNodeIterator()) {
+    const auto nodes = childNodeIterator();
+    for (Node *n : nodes) {
         e += n->budgetedWorkPerformed(date, id);
     }
     return e;
@@ -2773,7 +2803,8 @@ double Project::budgetedCostPerformed(QDate date, long id) const
 {
     //debugPlan;
     double c = 0.0;
-    foreach (Node *n, childNodeIterator()) {
+    const auto nodes = childNodeIterator();
+    for (Node *n : nodes) {
         c += n->budgetedCostPerformed(date, id);
     }
     return c;
@@ -2908,7 +2939,8 @@ Calendar *Project::calendar(const QString& id) const
 
 Calendar *Project::calendarByName(const QString& name) const
 {
-    foreach(Calendar *c, calendarIdDict) {
+    const auto calendars = calendarIdDict.values();
+    for(Calendar *c : calendars) {
         if (c->name() == name) {
             return c;
         }
@@ -2929,7 +2961,8 @@ QList<Calendar*> Project::allCalendars() const
 QStringList Project::calendarNames() const
 {
     QStringList lst;
-    foreach(Calendar *c, calendarIdDict) {
+    const auto calendars = calendarIdDict.values();
+    for (Calendar *c : calendars) {
         lst << c->name();
     }
     return lst;
@@ -3009,7 +3042,8 @@ bool Project::linkExists(const Node *par, const Node *child) const
     if (par == nullptr || child == nullptr || par == child || par->isDependChildOf(child)) {
         return false;
     }
-    foreach (Relation *r, par->dependChildNodes()) {
+    const auto relations = par->dependChildNodes();
+    for (Relation *r : relations) {
         if (r->child() == child) {
             return true;
         }
@@ -3038,7 +3072,8 @@ bool Project::legalToLink(const Node *par, const Node *child) const
         legal = legalParents(par, child);
 
     if (legal) {
-        foreach (Node *p, par->childNodeIterator()) {
+        const auto nodes = par->childNodeIterator();
+        for (Node *p : nodes) {
             if (! legalToLink(p, child)) {
                 return false;
             }
@@ -3100,7 +3135,7 @@ QString Project::generateWBSCode(QList<int> &indexes, bool sortable) const
     if (sortable) {
         int fw = (nodeIdDict.count() / 10) + 1;
         QLatin1Char fc('0');
-        foreach (int index, indexes) {
+        for (int index : qAsConst(indexes)) {
             code += ".%1";
             code = code.arg(QString::number(index), fw, fc);
         }
@@ -3110,7 +3145,7 @@ QString Project::generateWBSCode(QList<int> &indexes, bool sortable) const
             code += m_wbsDefinition.projectSeparator();
         }
         int level = 1;
-        foreach (int index, indexes) {
+        for (int index : qAsConst(indexes)) {
             code += m_wbsDefinition.code(index + 1, level);
             if (level < indexes.count()) {
                 // not last level, add separator also
@@ -3137,7 +3172,7 @@ void Project::setCurrentSchedule(long id)
 
 ScheduleManager *Project::scheduleManager(long id) const
 {
-    foreach (ScheduleManager *sm, m_managers) {
+    for (ScheduleManager *sm : qAsConst(m_managers)) {
         if (sm->scheduleId() == id) {
             return sm;
         }
@@ -3154,7 +3189,7 @@ ScheduleManager *Project::findScheduleManagerByName(const QString &name) const
 {
     //debugPlan;
     ScheduleManager *m = nullptr;
-    foreach(ScheduleManager *sm, m_managers) {
+    for (ScheduleManager *sm : qAsConst(m_managers)) {
         m = sm->findManager(name);
         if (m) {
             break;
@@ -3166,7 +3201,7 @@ ScheduleManager *Project::findScheduleManagerByName(const QString &name) const
 QList<ScheduleManager*> Project::allScheduleManagers() const
 {
     QList<ScheduleManager*> lst;
-    foreach (ScheduleManager *sm, m_managers) {
+    for (ScheduleManager *sm : qAsConst(m_managers)) {
         lst << sm;
         lst << sm->allChildren();
     }
@@ -3217,7 +3252,8 @@ void Project::addScheduleManager(ScheduleManager *sm, ScheduleManager *parent, i
 
 int Project::takeScheduleManager(ScheduleManager *sm)
 {
-    foreach (ScheduleManager *s, sm->children()) {
+    const auto managers = sm->children();
+    for (ScheduleManager *s : managers) {
         takeScheduleManager(s);
     }
     if (sm->scheduling()) {
@@ -3271,7 +3307,7 @@ bool Project::isScheduleManager(void *ptr) const
     if (indexOf(sm) >= 0) {
         return true;
     }
-    foreach (ScheduleManager *p, m_managers) {
+    for (ScheduleManager *p : qAsConst(m_managers)) {
         if (p->isParentOf(sm)) {
             return true;
         }
@@ -3304,7 +3340,8 @@ QString Project::uniqueScheduleManagerId() const
 bool Project::isBaselined(long id) const
 {
     if (id == ANYSCHEDULED) {
-        foreach (ScheduleManager *sm, allScheduleManagers()) {
+        const auto managers = allScheduleManagers();
+        for (ScheduleManager *sm : managers) {
             if (sm->isBaselined()) {
                 return true;
             }
@@ -3475,7 +3512,8 @@ QList<Node*> Project::flatNodeList(Node *parent)
     QList<Node*> lst;
     Node *p = parent == nullptr ? this : parent;
     //debugPlan<<p->name()<<lst.count();
-    foreach (Node *n, p->childNodeIterator()) {
+    const auto nodes = p->childNodeIterator();
+    for (Node *n : nodes) {
         lst.append(n);
         if (n->numChildren() > 0) {
             lst += flatNodeList(n);

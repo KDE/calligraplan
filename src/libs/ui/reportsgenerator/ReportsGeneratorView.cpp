@@ -243,7 +243,8 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     if (!path.isEmpty()) {
         QDir dir(path);
         debugPlan<<dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
-        foreach(const QString &file, dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot)) {
+        const QStringList entries = dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
+        for(const QString &file : entries) {
             QUrl url;
             url.setUrl(path + '/' + file);
             debugPlan<<"templates:"<<url<<path<<file;
@@ -412,7 +413,8 @@ void ReportsGeneratorView::slotGenerateReport()
 {
     debugPlan;
     QAbstractItemModel *model = m_view->model();
-    foreach(const QModelIndex &idx, selectedRows()) {
+    const QModelIndexList indexes = selectedRows();
+    for (const QModelIndex &idx : indexes) {
         QString name = model->index(idx.row(), 0).data().toString();
         QString tmp = model->index(idx.row(), 1).data(FULLPATHROLE).toString();
         QString file = model->index(idx.row(), 2).data().toString();

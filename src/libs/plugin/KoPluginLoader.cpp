@@ -67,7 +67,7 @@ void KoPluginLoader::load(const QString & directory, const PluginsConfig &config
     }
     pluginLoaderInstance->loadedDirectories << directory;
 
-    QList<QPluginLoader *> offers = KoPluginLoader::pluginLoaders(directory);
+    const QList<QPluginLoader *> offers = KoPluginLoader::pluginLoaders(directory);
     QList<QPluginLoader *> plugins;
     bool configChanged = false;
     QList<QString> blacklist; // what we will save out afterwards
@@ -83,7 +83,7 @@ void KoPluginLoader::load(const QString & directory, const PluginsConfig &config
         if (firstStart) {
             configChanged = true;
         }
-        foreach(QPluginLoader *loader, offers) {
+        for (QPluginLoader *loader : offers) {
             QJsonObject json = loader->metaData().value("MetaData").toObject();
             json = json.value("KPlugin").toObject();
             const QString pluginName = json.value("Id").toString();
@@ -105,7 +105,7 @@ void KoPluginLoader::load(const QString & directory, const PluginsConfig &config
     }
 
     QMap<QString, QPluginLoader *> serviceNames;
-    foreach(QPluginLoader *loader, plugins) {
+    for (QPluginLoader *loader : qAsConst(plugins)) {
         if (serviceNames.contains(loader->fileName())) { // duplicate
             QJsonObject json2 = loader->metaData().value("MetaData").toObject();
             QVariant pluginVersion2 = json2.value("X-Flake-PluginVersion").toVariant();
@@ -123,7 +123,8 @@ void KoPluginLoader::load(const QString & directory, const PluginsConfig &config
     }
 
     QList<QString> whiteList;
-    foreach(QPluginLoader *loader, serviceNames) {
+    const QList<QPluginLoader*> loaders = serviceNames.values();
+    for (QPluginLoader *loader : loaders) {
         KPluginFactory *factory = qobject_cast<KPluginFactory *>(loader->instance());
         QObject *plugin = factory->create<QObject>(owner ? owner : pluginLoaderInstance, QVariantList());
         if (plugin) {
@@ -155,7 +156,7 @@ QList<KPluginFactory *> KoPluginLoader::instantiatePluginFactories(const QString
 
     const QList<QPluginLoader *> offers = KoPluginLoader::pluginLoaders(directory);
 
-    foreach(QPluginLoader *pluginLoader, offers) {
+    for (QPluginLoader *pluginLoader : offers) {
         QObject* pluginInstance = pluginLoader->instance();
         if (!pluginInstance) {
             warnPlugin << "Loading plugin" << pluginLoader->fileName() << "failed, " << pluginLoader->errorString();

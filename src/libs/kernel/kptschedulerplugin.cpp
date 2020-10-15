@@ -55,7 +55,7 @@ SchedulerPlugin::SchedulerPlugin(QObject *parent)
 
 SchedulerPlugin::~SchedulerPlugin()
 {
-    foreach (SchedulerThread *s, m_jobs) {
+    for (SchedulerThread *s : qAsConst(m_jobs)) {
         s->mainManager()->setScheduling(false);
         s->haltScheduling();
         s->wait();
@@ -90,7 +90,7 @@ int SchedulerPlugin::capabilities() const
 
 void SchedulerPlugin::stopCalculation(ScheduleManager *sm)
 {
-    foreach (SchedulerThread *j, m_jobs) {
+    for (SchedulerThread *j : qAsConst(m_jobs)) {
         if (sm == j->mainManager()) {
             j->stopScheduling();
         }
@@ -100,7 +100,7 @@ void SchedulerPlugin::stopCalculation(ScheduleManager *sm)
 void SchedulerPlugin::haltCalculation(ScheduleManager *sm)
 {
     debugPlan<<sm;
-    foreach (SchedulerThread *j, m_jobs) {
+    for (SchedulerThread *j : qAsConst(m_jobs)) {
         if (sm == j->mainManager()) {
             haltCalculation(j);
             break;
@@ -149,7 +149,7 @@ void SchedulerPlugin::slotSyncData()
 
 void SchedulerPlugin::updateProgress()
 {
-    foreach (SchedulerThread *j, m_jobs) {
+    for (SchedulerThread *j : qAsConst(m_jobs)) {
         ScheduleManager *sm = j->mainManager();
         if (sm->maxProgress() != j->maxProgress()) {
             sm->setMaxProgress(j->maxProgress());
@@ -160,7 +160,7 @@ void SchedulerPlugin::updateProgress()
 
 void SchedulerPlugin::updateLog()
 {
-    foreach (SchedulerThread *j, m_jobs) {
+    for (SchedulerThread *j : qAsConst(m_jobs)) {
         updateLog(j);
     }
 }
@@ -232,13 +232,15 @@ void SchedulerPlugin::updateProject(const Project *tp, const ScheduleManager *tm
     status.setProject(mp);
     status.setProjectTimeZone(mp->timeZone());
 
-    foreach (const Node *tn, tp->allNodes()) {
+    const auto nodes = tp->allNodes();
+    for (const Node *tn : nodes) {
         Node *mn = mp->findNode(tn->id());
         if (mn) {
             updateNode(tn, mn, sid, status);
         }
     }
-    foreach (const Resource *tr, tp->resourceList()) {
+    const auto resources = tp->resourceList();
+    for (const Resource *tr : resources) {
         Resource *r = mp->findResource(tr->id());
         if (r) {
             updateResource(tr, r, status);

@@ -290,10 +290,12 @@ void MyKGanttView::setScheduleManager(ScheduleManager *sm)
 
 void MyKGanttView::slotNodeInserted(Node *node)
 {
-    foreach(Relation *r, node->dependChildNodes()) {
+    const QList<Relation*> relations = node->dependChildNodes();
+    for (Relation *r : relations) {
         addDependency(r);
     }
-    foreach(Relation *r, node->dependParentNodes()) {
+    const QList<Relation*> relations2 = node->dependParentNodes();
+    for (Relation *r : relations2) {
         addDependency(r);
     }
 }
@@ -337,8 +339,10 @@ void MyKGanttView::createDependencies()
     if (project() == nullptr || m_manager == nullptr) {
         return;
     }
-    foreach (Node* n, project()->allNodes()) {
-        foreach (Relation *r, n->dependChildNodes()) {
+    const QList<Node*> nodes = project()->allNodes();
+    for (Node* n : nodes) {
+        const QList<Relation*> relations = n->dependChildNodes();
+        for (Relation *r : relations) {
             addDependency(r);
         }
     }
@@ -878,7 +882,8 @@ void MilestoneKGanttView::setScheduleManager(ScheduleManager *sm)
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
     if (sm && m_project) {
         QDateTime start;
-        foreach (const Node *n, model()->mileStones()) {
+        const QList<Node*> nodes = model()->mileStones();
+        for (Node* n : nodes) {
             QDateTime nt = n->startTime(sm->scheduleId());
             if (! nt.isValid()) {
                 continue;

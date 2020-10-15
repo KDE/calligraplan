@@ -177,11 +177,13 @@ public:
             debugPlanXml<<"resource-teams";
             QDomElement el = projectElement.ownerDocument().createElement("resource-teams");
             projectElement.appendChild(el);
-            foreach (Resource *r, m_project->resourceList()) {
+            const auto resources = m_project->resourceList();
+            for (Resource *r : resources) {
                 if (r->type() != Resource::Type_Team) {
                     continue;
                 }
-                foreach (const QString &id, r->teamMemberIds()) {
+                const auto ids = r->teamMemberIds();
+                for (const QString &id : ids) {
                     QDomElement e = el.ownerDocument().createElement("team");
                     el.appendChild(e);
                     e.setAttribute("team-id", r->id());

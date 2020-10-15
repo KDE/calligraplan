@@ -101,7 +101,7 @@ Node::~Node() {
     if (m_shutdownAccount)
         m_shutdownAccount->removeShutdown(*this);
 
-    foreach (Schedule *s, m_schedules) {
+    for (Schedule *s : qAsConst(m_schedules)) {
         delete s;
     }
     m_schedules.clear();
@@ -431,7 +431,8 @@ bool Node::isDependChildOf(const Node *node) const
 QList<Node*> Node::getParentNodes()
 {
     this->m_parentNodes.clear();
-    foreach(Relation * currentRelation, this->dependParentNodes())
+    const QList<Relation*> relations = this->dependParentNodes();
+    for (Relation * currentRelation : relations)
     {
         if (!this->m_parentNodes.contains(currentRelation->parent())) 
         {
@@ -453,7 +454,7 @@ bool Node::canMoveTo(const Node *newParent) const
         debugPlan<<"Can't move, node is dependent on new parent";
         return false;
     }
-    foreach (Node *n, m_nodes) {
+    for (Node *n : qAsConst(m_nodes)) {
         if (!n->canMoveTo(newParent)) {
             return false;
         }
@@ -656,7 +657,7 @@ bool Node::notScheduled(long id) const
 {
     if (type() == Type_Summarytask) {
         // i am scheduled if al least on child is scheduled
-        foreach (Node *n, m_nodes) {
+        for (Node *n : qAsConst(m_nodes)) {
             if (! n->notScheduled(id)) {
                 return false;
             }
@@ -980,7 +981,8 @@ QList<Resource*> Node::assignedResources(long id) const {
     Schedule *s = schedule(id);
     QList<Resource*> res;
     if (s) {
-        foreach (Appointment *a, s->appointments()) {
+        const QList<Appointment*> appointments = s->appointments();
+        for (Appointment *a : appointments) {
             res << a->resource()->resource();
         }
     }
@@ -1057,7 +1059,7 @@ Schedule *Node::schedule(long id) const
 {
     switch (id) {
         case ANYSCHEDULED: {
-            foreach (Schedule *s, m_schedules) {
+            for (Schedule *s : qAsConst(m_schedules)) {
                 if (s->isScheduled()) {
                     return s;
                 }
@@ -1069,7 +1071,7 @@ Schedule *Node::schedule(long id) const
         case NOTSCHEDULED:
             return nullptr;
         case BASELINESCHEDULE: {
-            foreach (Schedule *s, m_schedules) {
+            for (Schedule *s : qAsConst(m_schedules)) {
                 if (s->isBaselined()) {
                     return s;
                 }
@@ -1088,8 +1090,8 @@ Schedule *Node::findSchedule(long id) const
 }
 
 Schedule *Node::findSchedule(const QString &name, const Schedule::Type type) {
-    QHash<long, Schedule*> it;
-    foreach (Schedule *sch, it) {
+    const QHash<long, Schedule*> it;
+    for (Schedule *sch : it) {
         if (!sch->isDeleted() && 
             sch->name() == name && sch->type() == type)
             return sch;
@@ -1098,7 +1100,7 @@ Schedule *Node::findSchedule(const QString &name, const Schedule::Type type) {
 }
 
 Schedule *Node::findSchedule(const QString &name) {
-    foreach (Schedule *sch, m_schedules) {
+    for (Schedule *sch : qAsConst(m_schedules)) {
         if (!sch->isDeleted() && sch->name() == name)
             return sch;
     }
@@ -1108,8 +1110,7 @@ Schedule *Node::findSchedule(const QString &name) {
 
 Schedule *Node::findSchedule(const Schedule::Type type) {
     //debugPlan<<m_name<<" find type="<<type<<" nr="<<m_schedules.count();
-    QHash<long, Schedule*> hash;
-    foreach (Schedule *sch, hash) {
+    for (Schedule *sch : qAsConst(m_schedules)) {
         if (!sch->isDeleted() && sch->type() == type) {
             return sch;
         }
@@ -1162,7 +1163,7 @@ bool Node::calcCriticalPath(bool fromEnd) {
 }
 
 void Node::calcFreeFloat() {
-    foreach (Node *n, m_nodes) {
+    for (Node *n : qAsConst(m_nodes)) {
         n->calcFreeFloat();
     }
     return;
@@ -1266,7 +1267,7 @@ void Node::changed(Node *node, int property) {
         case CompletionRemainingEffortProperty:
         case CompletionActualEffortProperty:
         case CompletionUsedEffortProperty:
-            foreach (Schedule *s, m_schedules) {
+            for (Schedule *s : qAsConst(m_schedules)) {
                 s->clearPerformanceCache();
             }
         break;
@@ -1280,7 +1281,7 @@ void Node::changed(Node *node, int property) {
 Duration Node::plannedEffort(const Resource *resource, long id, EffortCostCalculationType type) const
 {
     Duration e;
-    foreach (Node *n, m_nodes) {
+    for (Node *n : qAsConst(m_nodes)) {
         e += n->plannedEffort(resource, id, type);
     }
     return e;
@@ -1289,7 +1290,7 @@ Duration Node::plannedEffort(const Resource *resource, long id, EffortCostCalcul
 Duration Node::plannedEffort(const Resource *resource, QDate date, long id, EffortCostCalculationType type) const
 {
     Duration e;
-    foreach (Node *n, m_nodes) {
+    for (Node *n : qAsConst(m_nodes)) {
         e += n->plannedEffort(resource, date, id, type);
     }
     return e;
@@ -1298,7 +1299,7 @@ Duration Node::plannedEffort(const Resource *resource, QDate date, long id, Effo
 Duration Node::plannedEffortTo(const Resource *resource, QDate date, long id, EffortCostCalculationType type) const
 {
     Duration e;
-    foreach (Node *n, m_nodes) {
+    for (Node *n : qAsConst(m_nodes)) {
         e += n->plannedEffortTo(resource, date, id, type);
     }
     return e;
@@ -1307,7 +1308,7 @@ Duration Node::plannedEffortTo(const Resource *resource, QDate date, long id, Ef
 EffortCost Node::plannedCost(long id, EffortCostCalculationType type) const
 {
     EffortCost ec;
-    foreach (Node *n, m_nodes) {
+    for (Node *n : qAsConst(m_nodes)) {
         ec += n->plannedCost(id, type);
     }
     return ec;
@@ -1327,7 +1328,7 @@ EffortCostMap Node::bcwsPrDay(long int id, EffortCostCalculationType type)
     EffortCostCache &ec = s->bcwsPrDayCache(type);
     if (! ec.cached) {
         ec.effortcostmap = EffortCostMap();
-        foreach (Node *n, m_nodes) {
+        for (Node *n : qAsConst(m_nodes)) {
             ec.effortcostmap += n->bcwsPrDay(id, type);
         }
         ec.cached = true;
@@ -1349,7 +1350,7 @@ EffortCostMap Node::bcwpPrDay(long int id, EffortCostCalculationType type)
     EffortCostCache &ec = s->bcwpPrDayCache(type);
     if (! ec.cached) {
         ec.effortcostmap = EffortCostMap();
-        foreach (Node *n, m_nodes) {
+        for (Node *n : qAsConst(m_nodes)) {
             ec.effortcostmap += n->bcwpPrDay(id, type);
         }
         ec.cached = true;
@@ -1371,7 +1372,7 @@ EffortCostMap Node::acwp(long id, EffortCostCalculationType type)
     EffortCostCache &ec = s->acwpCache(type);
     if (! ec.cached) {
         ec.effortcostmap = EffortCostMap();
-        foreach (Node *n, m_nodes) {
+        for (Node *n : qAsConst(m_nodes)) {
             ec.effortcostmap += n->acwp(id, type);
         }
         ec.cached = true;
@@ -1382,7 +1383,7 @@ EffortCostMap Node::acwp(long id, EffortCostCalculationType type)
 EffortCost Node::acwp(QDate date, long id) const
 {
     EffortCost ec;
-    foreach (Node *n, m_nodes) {
+    for (Node *n : qAsConst(m_nodes)) {
         ec += n->acwp(date, id);
     }
     return ec;

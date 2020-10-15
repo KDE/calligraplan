@@ -898,7 +898,8 @@ QVariant ScheduleItemModel::granularity(const QModelIndex &index, int role) cons
         case Role::EnumList: {
             QStringList sl;
             KFormat format;
-            foreach (long unsigned int v, sm->supportedGranularities()) {
+            const QList<long unsigned int> values = sm->supportedGranularities();
+            for (long unsigned int v : values) {
                 sl << format.formatDuration(v);
             }
             return sl;
@@ -1280,7 +1281,7 @@ void ScheduleLogItemModel::addLogEntry(const Schedule::Log &log, int /*row*/)
     item->setData(log.severity, SeverityRole);
     lst.append(item);
     lst.append(new QStandardItem(log.message));
-    foreach (QStandardItem *itm, lst) {
+    for (QStandardItem *itm : qAsConst(lst)) {
             if (log.resource) {
                 itm->setData(log.resource->id(), IdentityRole);
             } else if (log.node) {
@@ -1319,7 +1320,8 @@ void ScheduleLogItemModel::refresh()
     }
 //     debugPlan<<m_schedule<<m_schedule->logs().count();
     int i = 1;
-    foreach (const Schedule::Log &l, m_schedule->logs()) {
+    const QVector<Schedule::Log> logs = m_schedule->logs();
+    for (const Schedule::Log &l : logs) {
         addLogEntry(l, i++);
     }
 }

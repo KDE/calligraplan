@@ -291,13 +291,13 @@ void ResourceEditor::updateActionsEnabled(bool on)
 {
     bool o = on && m_view->project();
 
-    QList<Resource*> resourceList = m_view->selectedResources();
+    const QList<Resource*> resourceList = m_view->selectedResources();
     bool resource = resourceList.count() == 1;
 
     actionAddResource->setEnabled(o);
 
     if (o && !resourceList.isEmpty()) {
-        foreach (Resource *r, resourceList) {
+        for (Resource *r : resourceList) {
             if (r->isBaselined()) {
                 o = false;
                 break;

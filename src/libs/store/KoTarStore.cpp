@@ -102,7 +102,8 @@ QStringList KoTarStore::directoryList() const
 {
     QStringList retval;
     const KArchiveDirectory *directory = m_pTar->directory();
-    foreach(const QString &name, directory->entries()) {
+    const QStringList entries = directory->entries();
+    for (const QString &name : entries) {
         const KArchiveEntry* fileArchiveEntry = m_pTar->directory()->entry(name);
         if (fileArchiveEntry->isDirectory()) {
             retval << name;

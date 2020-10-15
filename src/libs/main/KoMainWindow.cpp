@@ -486,7 +486,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
         // Hide all dockwidgets and remember their old state
         d->dockWidgetVisibilityMap.clear();
 
-        foreach(QDockWidget* dockWidget, d->dockWidgetsMap) {
+        for (QDockWidget* dockWidget : qAsConst(d->dockWidgetsMap)) {
             d->dockWidgetVisibilityMap.insert(dockWidget, dockWidget->isVisible());
             dockWidget->setVisible(false);
         }
@@ -555,7 +555,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
     }
 
     if (doc && !d->dockWidgetVisibilityMap.isEmpty()) {
-        foreach(QDockWidget* dockWidget, d->dockWidgetsMap) {
+        for (QDockWidget* dockWidget : qAsConst(d->dockWidgetsMap)) {
             dockWidget->setVisible(d->dockWidgetVisibilityMap.value(dockWidget));
         }
     }
@@ -594,7 +594,7 @@ void KoMainWindow::addRecentURL(const QString &projectName, const QUrl &url)
         if (url.isLocalFile()) {
             QString path = url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
             const QStringList tmpDirs = QStandardPaths::standardLocations(QStandardPaths::TempLocation);
-            foreach (const QString &tmpDir, tmpDirs) {
+            for (const QString &tmpDir : tmpDirs) {
                 if (path.startsWith(tmpDir)) {
                     ok = false; // it's in the tmp resource
                     break;
@@ -631,7 +631,8 @@ void KoMainWindow::saveRecentFiles()
 
     // Tell all windows to reload their list, after saving
     // Doesn't work multi-process, but it's a start
-    foreach(KMainWindow* window, KMainWindow::memberList())
+    const auto windows = KMainWindow::memberList();
+    for (KMainWindow* window : windows)
         static_cast<KoMainWindow *>(window)->reloadRecentFileList();
 }
 
@@ -1180,7 +1181,7 @@ void KoMainWindow::closeEvent(QCloseEvent *e)
             return;
         setRootDocument(nullptr);
         if (!d->dockWidgetVisibilityMap.isEmpty()) { // re-enable dockers for persistency
-            foreach(QDockWidget* dockWidget, d->dockWidgetsMap)
+            for (QDockWidget* dockWidget : qAsConst(d->dockWidgetsMap))
                 dockWidget->setVisible(d->dockWidgetVisibilityMap.value(dockWidget));
         }
     } else {
@@ -1650,7 +1651,7 @@ void KoMainWindow::showToolbar(const char * tbName, bool shown)
         tb->hide();
 
     // Update the action appropriately
-    foreach(QAction* action, d->toolbarList) {
+    for (QAction* action : qAsConst(d->toolbarList)) {
         if (action->objectName() != tbName) {
             //debugMain <<"KoMainWindow::showToolbar setChecked" << shown;
             static_cast<KToggleAction *>(action)->setChecked(shown);
@@ -1959,8 +1960,8 @@ void KoMainWindow::toggleDockersVisibility(bool visible)
 {
     if (!visible) {
         d->m_dockerStateBeforeHiding = saveState();
-
-        foreach(QObject* widget, children()) {
+        const auto widgets = children();
+        for (QObject* widget : widgets) {
             if (widget->inherits("QDockWidget")) {
                 QDockWidget* dw = static_cast<QDockWidget*>(widget);
                 if (dw->isVisible()) {
@@ -2132,7 +2133,7 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget)
 
         KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group("Interface");
         const bool showDockerTitleBar = configGroupInterface.readEntry("ShowDockerTitleBars", true);
-        foreach (QDockWidget *wdg, d->dockWidgets) {
+        for (QDockWidget *wdg : qAsConst(d->dockWidgets)) {
             if ((wdg->features() & QDockWidget::DockWidgetClosable) == 0) {
                 if (wdg->titleBarWidget()) {
                     wdg->titleBarWidget()->setVisible(showDockerTitleBar);
@@ -2142,7 +2143,8 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget)
         }
 
         // Create and plug toolbar list for Settings menu
-        foreach(QWidget* it, factory->containers("ToolBar")) {
+        const auto widgets = factory->containers("ToolBar");
+        for (QWidget* it : widgets) {
             KToolBar * toolBar = ::qobject_cast<KToolBar *>(it);
             if (toolBar) {
                 KToggleAction * act = new KToggleAction(i18n("Show %1 Toolbar", toolBar->windowTitle()), this);
@@ -2183,7 +2185,8 @@ void KoMainWindow::slotDocumentTitleModified(const QString &caption, bool mod)
 
 void KoMainWindow::showDockerTitleBars(bool show)
 {
-    foreach (QDockWidget *dock, dockWidgets()) {
+    const auto dockers = dockWidgets();
+    for (QDockWidget *dock : dockers) {
         if (dock->titleBarWidget()) {
             dock->titleBarWidget()->setVisible(show);
         }

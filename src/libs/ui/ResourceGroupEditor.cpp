@@ -271,7 +271,7 @@ void ResourceGroupEditor::updateActionsEnabled(bool on)
 {
     bool o = on && m_view->project();
 
-    QList<ResourceGroup*> groupList = m_view->selectedGroups();
+    const QList<ResourceGroup*> groupList = m_view->selectedGroups();
     bool nogroup = groupList.isEmpty();
     bool onegroup = groupList.count() == 1;
 
@@ -279,7 +279,7 @@ void ResourceGroupEditor::updateActionsEnabled(bool on)
     actionAddSubGroup->setEnabled(o && onegroup);
 
     if (o && !nogroup) {
-        foreach (ResourceGroup *g, groupList) {
+        for (ResourceGroup *g : groupList) {
             if (g->isBaselined()) {
                 o = false;
                 break;

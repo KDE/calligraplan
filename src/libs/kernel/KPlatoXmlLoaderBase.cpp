@@ -316,7 +316,8 @@ bool KPlatoXmlLoaderBase::load(Project *project, const KoXmlElement &element, XM
         }
     }
     // set schedule parent
-    foreach (Schedule *s, project->schedules()) {
+    const auto schedules = project->schedules();
+    for (Schedule *s : schedules) {
         project->setParentSchedule(s);
     }
 

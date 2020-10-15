@@ -53,7 +53,8 @@ QList<Resource*> ResourceAllocationView::selectedResources() const
     QList<Resource*> resources;
     ResourceGroupItemModel *m = qobject_cast<ResourceGroupItemModel*>(model());
     if (m) {
-        foreach(const QModelIndex &idx, selectionModel()->selectedRows()) {
+        const QModelIndexList indexes = selectionModel()->selectedRows();
+        for(const QModelIndex &idx : indexes) {
             Resource *r = m->resource(idx);
             if (r) {
                 resources << r;
@@ -133,7 +134,8 @@ void ResourceAllocationView::slotAllocate()
         }
         Task *t = static_cast<Task*>(n);
         // remove any requests before adding new ones
-        foreach(ResourceRequest *r, t->requests().resourceRequests()) {
+        const QList<ResourceRequest*> requests = t->requests().resourceRequests();
+        for (ResourceRequest *r : requests) {
             RemoveResourceRequestCmd *c = new RemoveResourceRequestCmd(r);
             c->execute(); // need to remove everything before we add anything
             cmd->addCommand(c);

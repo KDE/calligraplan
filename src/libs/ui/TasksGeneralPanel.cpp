@@ -67,9 +67,9 @@ void TasksGeneralPanel::setStartValues(Task *task) {
     m_calendars.clear();
     calendarCombo->addItem(i18n("None"));
     m_calendars.insert(0, 0);
-    QList<Calendar*> list = m_project.allCalendars();
+    const QList<Calendar*> list = m_project.allCalendars();
     int i=1;
-    foreach (Calendar *c, list) {
+    for (Calendar *c : list) {
         calendarCombo->insertItem(i, c->name());
         m_calendars.insert(i, c);
         if (c == task->estimate()->calendar()) {
@@ -264,7 +264,7 @@ void TasksGeneralPanelImpl::changeLeader()
     if (dlg->exec() && dlg) {
         QStringList names;
         const Akonadi::EmailAddressSelection::List selections = dlg->selectedAddresses();
-        foreach (const Akonadi::EmailAddressSelection &selection, selections) {
+        for (const Akonadi::EmailAddressSelection &selection : selections) {
             QString s = selection.name();
             if (! selection.email().isEmpty()) {
                 if (! selection.name().isEmpty()) {

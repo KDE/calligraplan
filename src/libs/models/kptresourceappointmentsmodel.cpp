@@ -192,7 +192,8 @@ void ResourceAppointmentsItemModel::setProject(Project *project)
         disconnect(m_project, &Project::resourceAdded, this, &ResourceAppointmentsItemModel::slotResourceInserted);
         disconnect(m_project, &Project::resourceRemoved, this, &ResourceAppointmentsItemModel::slotResourceRemoved);
 
-        foreach (Resource *r, m_project->resourceList()) {
+        const QList<Resource*> resources = m_project->resourceList();
+        for (Resource *r : resources) {
             connectSignals(r, false);
         }
     }
@@ -209,7 +210,8 @@ void ResourceAppointmentsItemModel::setProject(Project *project)
         connect(m_project, &Project::resourceAdded, this, &ResourceAppointmentsItemModel::slotResourceInserted);
         connect(m_project, &Project::resourceRemoved, this, &ResourceAppointmentsItemModel::slotResourceRemoved);
 
-        foreach (Resource *r, m_project->resourceList()) {
+        const QList<Resource*> resources = m_project->resourceList();
+        for (Resource *r : resources) {
             connectSignals(r, true);
         }
     }
@@ -316,7 +318,8 @@ Resource *ResourceAppointmentsItemModel::parent(const Appointment *a) const
     if (a == nullptr || m_project == nullptr) {
         return nullptr;
     }
-    foreach (Resource *r, m_project->resourceList()) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
         if (r->appointments(id()).contains(const_cast<Appointment*>(a))) {
             return r;
         }
@@ -378,8 +381,10 @@ void ResourceAppointmentsItemModel::refreshData()
     QDate end;
     QHash<const Appointment*, EffortCostMap> ec;
     QHash<const Appointment*, EffortCostMap> extEff;
-    foreach (Resource *r, m_project->resourceList()) {
-        foreach (Appointment* a, r->appointments(id())) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
+        const QList<Appointment*> appointments = r->appointments(id());
+        for (Appointment* a : appointments) {
             QDate s = a->startTime().date();
             QDate e = a->endTime().date();
             ec[ a ] = a->plannedPrDay(s, e);
@@ -392,7 +397,8 @@ void ResourceAppointmentsItemModel::refreshData()
             //debugPlan<<a->node()->node()->name()<<": "<<s<<e<<": "<<m_effortMap[ a ].totalEffort().toDouble(Duration::Unit_h);
         }
         // add external appointments
-        foreach (Appointment* a, r->externalAppointmentList()) {
+        const QList<Appointment*> appointments2 = r->externalAppointmentList();
+        for (Appointment* a : appointments2) {
             extEff[ a ] = a->plannedPrDay(startDate(), endDate());
             //debugPlan<<r->name()<<a->auxcilliaryInfo()<<": "<<extEff[ a ].totalEffort().toDouble(Duration::Unit_h);
             //debugPlan<<r->name()<<a->auxcilliaryInfo()<<": "<<extEff[ a ].startDate()<<extEff[ a ].endDate();
@@ -488,16 +494,16 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, int role) con
         case Qt::DisplayRole: {
             Duration d;
             if (m_showInternal) {
-                QList<Appointment*> lst = res->appointments(id());
-                foreach (Appointment *a, lst) {
+                const QList<Appointment*> lst = res->appointments(id());
+                for (Appointment *a : lst) {
                     if (m_effortMap.contains(a)) {
                         d += m_effortMap[ a ].totalEffort();
                     }
                 }
             }
             if (m_showExternal) {
-                QList<Appointment*> lst = res->externalAppointmentList();
-                foreach (Appointment *a, lst) {
+                const QList<Appointment*> lst = res->externalAppointmentList();
+                for (Appointment *a : lst) {
                     if (m_externalEffortMap.contains(a)) {
                         d += m_externalEffortMap[ a ].totalEffort();
                     }
@@ -508,16 +514,16 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, int role) con
         case Qt::EditRole: {
             Duration d;
             if (m_showInternal) {
-                QList<Appointment*> lst = res->appointments(id());
-                foreach (Appointment *a, lst) {
+                const QList<Appointment*> lst = res->appointments(id());
+                for (Appointment *a : lst) {
                     if (m_effortMap.contains(a)) {
                         d += m_effortMap[ a ].totalEffort();
                     }
                 }
             }
             if (m_showExternal) {
-                QList<Appointment*> lst = res->externalAppointmentList();
-                foreach (Appointment *a, lst) {
+                const QList<Appointment*> lst = res->externalAppointmentList();
+                for (Appointment *a : lst) {
                     if (m_externalEffortMap.contains(a)) {
                         d += m_externalEffortMap[ a ].totalEffort();
                     }
@@ -541,16 +547,16 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, const QDate &
         case Qt::DisplayRole: {
             Duration d;
             if (m_showInternal) {
-                QList<Appointment*> lst = res->appointments(id());
-                foreach (Appointment *a, lst) {
+                const QList<Appointment*> lst = res->appointments(id());
+                for (Appointment *a : lst) {
                     if (m_effortMap.contains(a)) {
                         d += m_effortMap[ a ].effortOnDate(date);
                     }
                 }
             }
             if (m_showExternal) {
-                QList<Appointment*> lst = res->externalAppointmentList();
-                foreach (Appointment *a, lst) {
+                const QList<Appointment*> lst = res->externalAppointmentList();
+                for (Appointment *a : lst) {
                     if (m_externalEffortMap.contains(a)) {
                         d += m_externalEffortMap[ a ].effortOnDate(date);
                     }
@@ -564,8 +570,8 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, const QDate &
         case Qt::EditRole: {
             Duration d;
             if (m_showInternal) {
-                QList<Appointment*> lst = res->appointments(id());
-                foreach (Appointment *a, lst) {
+                const QList<Appointment*> lst = res->appointments(id());
+                for (Appointment *a : lst) {
                     if (m_effortMap.contains(a)) {
                         d += m_effortMap[ a ].effortOnDate(date);
                     }
@@ -573,7 +579,7 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, const QDate &
             }
             if (m_showExternal) {
                 QList<Appointment*> lst = res->externalAppointmentList();
-                foreach (Appointment *a, lst) {
+                for (Appointment *a : lst) {
                     if (m_externalEffortMap.contains(a)) {
                         d += m_externalEffortMap[ a ].effortOnDate(date);
                     }
@@ -849,8 +855,10 @@ Appointment *ResourceAppointmentsItemModel::appointment(const QModelIndex &index
     if (m_project == nullptr || m_manager == nullptr) {
         return nullptr;
     }
-    foreach (Resource *r, m_project->resourceList()) {
-        foreach (Appointment *a, r->appointments(id())) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
+        const QList<Appointment*> appointments = r->appointments(id());
+        for (Appointment *a : appointments) {
             if (a == index.internalPointer()) {
                 return a;
             }
@@ -864,8 +872,10 @@ Appointment *ResourceAppointmentsItemModel::externalAppointment(const QModelInde
     if (m_project == nullptr || m_manager == nullptr) {
         return nullptr;
     }
-    foreach (Resource *r, m_project->resourceList()) {
-        foreach (Appointment *a, r->externalAppointmentList()) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
+        const QList<Appointment*> appointments = r->externalAppointmentList();
+        for (Appointment *a : appointments) {
             if (a == index.internalPointer()) {
                 return a;
             }
@@ -894,7 +904,8 @@ Resource *ResourceAppointmentsItemModel::resource(const QModelIndex &index) cons
     if (m_project == nullptr) {
         return nullptr;
     }
-    foreach (Resource *r, m_project->resourceList()) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
         if (r == index.internalPointer()) {
             return r;
         }
@@ -909,7 +920,8 @@ QModelIndex ResourceAppointmentsItemModel::createResourceIndex(int row, int col,
 
 void ResourceAppointmentsItemModel::slotCalendarChanged(Calendar*)
 {
-    foreach (Resource *r, m_project->resourceList()) {
+    const QList<Resource*> resources = m_project->resourceList();
+    for (Resource *r : resources) {
         if (r->calendar(true) == nullptr) {
             slotResourceChanged(r);
         }
@@ -993,7 +1005,8 @@ QVariant ResourceAppointmentsRowModel::Private::resourceData(int column, long id
         if (! internalCached) {
             Resource *r = static_cast<Resource*>(ptr);
             const_cast<Private*>(this)->internal.clear();
-            foreach (Appointment *a, r->appointments(id)) {
+            const QList<Appointment*> appointments = r->appointments(id);
+            for (Appointment *a : appointments) {
                 const_cast<Private*>(this)->internal += *a;
             }
             const_cast<Private*>(this)->internalCached = true;
@@ -1003,7 +1016,8 @@ QVariant ResourceAppointmentsRowModel::Private::resourceData(int column, long id
         if (! externalCached) {
             Resource *r = static_cast<Resource*>(ptr);
             const_cast<Private*>(this)->external.clear();
-            foreach (Appointment *a, r->externalAppointmentList()) {
+            const QList<Appointment*> appointments = r->externalAppointmentList();
+            for (Appointment *a : appointments) {
                 Appointment e;
                 e.setIntervals(a->intervals(r->startTime(id), r->endTime(id)));
                 const_cast<Private*>(this)->external += e;
@@ -1485,7 +1499,8 @@ void ResourceAppointmentsRowModel::slotResourceToBeRemoved(Project *project, int
     connectSignals(resource, false);
 
     Private *p = nullptr;
-    foreach (Appointment *a, resource->appointments(id())) {
+    const QList<Appointment*> appointments = resource->appointments(id());
+    for (Appointment *a : appointments) {
         // remove appointment
         p = m_datamap.value(a);
         if (p) {
@@ -1493,7 +1508,8 @@ void ResourceAppointmentsRowModel::slotResourceToBeRemoved(Project *project, int
             delete p;
         }
     }
-    foreach (Appointment *a, resource->externalAppointmentList()) {
+    const QList<Appointment*> appointments2 = resource->externalAppointmentList();
+    for (Appointment *a : appointments2) {
         // remove appointment
         p = m_datamap.value(a);
         if (p) {

@@ -745,11 +745,12 @@ void KoDocument::setReadWrite(bool readwrite)
 
 
     // XXX: this doesn't belong in KoDocument
-    foreach(KoView *view, d->parentPart->views()) {
+    const auto views = d->parentPart->views();
+    for (KoView *view : views ) {
         view->updateReadWrite(readwrite);
     }
-
-    foreach(KoMainWindow *mainWindow, d->parentPart->mainWindows()) {
+    const auto windows = d->parentPart->mainWindows();
+    for (KoMainWindow *mainWindow : windows) {
         mainWindow->setReadWrite(readwrite);
     }
 

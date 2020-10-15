@@ -451,7 +451,7 @@ void AccountItemModel::removeAccounts(QList<Account*> lst)
     while (! lst.isEmpty()) {
         bool del = true;
         Account *acc = lst.takeFirst();
-        foreach (Account *a, lst) {
+        for (Account *a : qAsConst(lst)) {
             if (acc->isChildOf(a)) {
                 del = false; // acc will be deleted when a is deleted
                 break;
@@ -636,7 +636,8 @@ void CostBreakdownItemModel::fetchData()
     if (m_project == nullptr || m_manager == nullptr) {
         return;
     }
-    foreach (Account *a, m_project->accounts().allAccounts()) {
+    const QList<Account*> accounts = m_project->accounts().allAccounts();
+    for (Account *a : accounts) {
         fetchPlannedCost(a);
         fetchActualCost(a);
     }

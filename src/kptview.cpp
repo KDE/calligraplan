@@ -337,7 +337,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     const QList<KPluginFactory *> pluginFactories =
         KoPluginLoader::instantiatePluginFactories(QStringLiteral("calligraplan/extensions"));
 
-    foreach (KPluginFactory* factory, pluginFactories) {
+    for (KPluginFactory* factory : pluginFactories) {
         QObject *object = factory->create<QObject>(this, QVariantList());
         KXMLGUIClient *clientPlugin = dynamic_cast<KXMLGUIClient*>(object);
         if (clientPlugin) {
@@ -1757,7 +1757,8 @@ void View::slotPlugScheduleActions()
     }
     m_scheduleActions.clear();
     QAction *ca = nullptr;
-    foreach(ScheduleManager *sm, getProject().allScheduleManagers()) {
+    const QList<ScheduleManager*> managers = getProject().allScheduleManagers();
+    for (ScheduleManager *sm : managers) {
         QAction *act = addScheduleAction(sm);
         if (sm == current) {
             ca = act;
@@ -2319,7 +2320,7 @@ void View::slotDocumentsFinished(int result)
 void View::slotDeleteTaskList(QList<Node*> lst)
 {
     //debugPlan;
-    foreach (Node *n, lst) {
+    for (Node *n : qAsConst(lst)) {
         if (n->isScheduled()) {
             KMessageBox::ButtonCode res = KMessageBox::warningContinueCancel(this, i18n("A task that has been scheduled will be deleted. This will invalidate the schedule."));
             if (res == KMessageBox::Cancel) {
@@ -2341,7 +2342,7 @@ void View::slotDeleteTaskList(QList<Node*> lst)
             continue;
         }
         bool del = true;
-        foreach (Node *n, lst) {
+        for (Node *n : qAsConst(lst)) {
             if (node->isChildOf(n)) {
                 del = false; // node is going to be deleted when we delete n
                 break;
@@ -2591,10 +2592,10 @@ void View::slotDeleteResourceGroup(ResourceGroup *group)
     getPart()->addCommand(new RemoveResourceGroupCmd(group->project(), group, kundo2_i18n("Delete resourcegroup")));
 }
 
-void View::slotDeleteResourceObjects(QObjectList lst)
+void View::slotDeleteResourceObjects(const QObjectList lst)
 {
     //debugPlan;
-    foreach (QObject *o, lst) {
+    for (QObject *o : lst) {
         Resource *r = qobject_cast<Resource*>(o);
         if (r && r->isScheduled()) {
             KMessageBox::ButtonCode res = KMessageBox::warningContinueCancel(this, i18n("A resource that has been scheduled will be deleted. This will invalidate the schedule."));
@@ -2616,7 +2617,7 @@ void View::slotDeleteResourceObjects(QObjectList lst)
     }
     MacroCommand *cmd = new MacroCommand(KUndo2MagicString());
     int num = 0;
-    foreach (QObject *o, lst) {
+    for (QObject *o : lst) {
         Resource *r = qobject_cast<Resource*>(o);
         if (r) {
             cmd->addCommand(new RemoveResourceCmd(r));
@@ -2631,7 +2632,7 @@ void View::slotDeleteResourceObjects(QObjectList lst)
     }
 }
 
-void View::slotDeleteResourceGroups(QObjectList lst)
+void View::slotDeleteResourceGroups(const QObjectList lst)
 {
     //debugPlan;
     if (lst.isEmpty()) {
@@ -2646,7 +2647,7 @@ void View::slotDeleteResourceGroups(QObjectList lst)
     }
     MacroCommand *cmd = new MacroCommand(KUndo2MagicString());
     int num = 0;
-    foreach (QObject *o, lst) {
+    for (QObject *o : lst) {
         ResourceGroup *g = qobject_cast<ResourceGroup*>(o);
         if (g) {
             cmd->addCommand(new RemoveResourceGroupCmd(&getProject(), g));
@@ -2708,7 +2709,8 @@ void View::slotUpdate()
 void View::slotGuiActivated(ViewBase *view, bool activate)
 {
     if (activate) {
-        foreach (DockWidget *ds, view->dockers()) {
+        const QList<DockWidget*> dockers = view->dockers();
+        for (DockWidget *ds : dockers) {
             m_dockers.append(ds);
             ds->activate(mainWindow());
         }
@@ -2954,13 +2956,13 @@ void View::slotPopupMenuRequested(const QString& menuname, const QPoint & pos)
             debugPlan<<lst;
             if (! lst.isEmpty()) {
                 menu->addSeparator();
-                foreach (QAction *a, lst) {
+                for (QAction *a : qAsConst(lst)) {
                     menu->addAction(a);
                 }
             }
         }
         menu->exec(pos);
-        foreach (QAction *a, lst) {
+        for (QAction *a : qAsConst(lst)) {
             menu->removeAction(a);
         }
     }
@@ -3108,7 +3110,7 @@ void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource
         path = QDir::tempPath();
         mail = true;
     }
-    foreach (Node *n, nodes) {
+    for (Node *n : nodes) {
         QTemporaryFile tmpfile(path + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String(".planwork"));
         tmpfile.setAutoRemove(false);
         if (! tmpfile.open()) {

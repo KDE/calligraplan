@@ -103,7 +103,8 @@ CalendarRemoveCmd::CalendarRemoveCmd(Project *project, Calendar *cal, const KUnd
 
     m_index = m_parent ? m_parent->indexOf(cal) : project->indexOf(cal);
 
-    foreach (Resource *r, project->resourceList()) {
+    const auto resources = project->resourceList();
+    for (Resource *r : resources) {
         if (r->calendar(true) == cal) {
             m_cmd->addCommand(new ModifyResourceCalendarCmd(r, nullptr));
         }
@@ -111,7 +112,8 @@ CalendarRemoveCmd::CalendarRemoveCmd(Project *project, Calendar *cal, const KUnd
     if (project->defaultCalendar() == cal) {
         m_cmd->addCommand(new ProjectModifyDefaultCalendarCmd(project, nullptr));
     }
-    foreach (Calendar *c, cal->calendars()) {
+    const auto calendars = cal->calendars();
+    for (Calendar *c : calendars) {
         m_cmd->addCommand(new CalendarRemoveCmd(project, c));
     }
 }
@@ -224,7 +226,8 @@ CalendarModifyTimeZoneCmd::CalendarModifyTimeZoneCmd(Calendar *cal, const QTimeZ
         m_cmd(new MacroCommand(KUndo2MagicString()))
 {
     m_oldvalue = cal->timeZone();
-    foreach (Calendar *c, cal->calendars()) {
+    const auto calendars = cal->calendars();
+    for (Calendar *c : calendars) {
         m_cmd->addCommand(new CalendarModifyTimeZoneCmd(c, value));
     }
     //debugPlan<<cal->name();
@@ -378,7 +381,8 @@ CalendarModifyStateCmd::CalendarModifyStateCmd(Calendar *calendar, CalendarDay *
     m_newvalue = value;
     m_oldvalue = (CalendarDay::State)day->state();
     if (value != CalendarDay::Working) {
-        foreach (TimeInterval *ti, day->timeIntervals()) {
+        const auto intervals = day->timeIntervals();
+        for (TimeInterval *ti : intervals) {
             m_cmd->addCommand(new CalendarRemoveTimeIntervalCmd(calendar, day, ti));
         }
     }
@@ -540,7 +544,8 @@ NodeDeleteCmd::NodeDeleteCmd(Node *node, const KUndo2MagicString& name)
 
     m_project = static_cast<Project*>(node->projectNode());
     if (m_project) {
-        foreach (Schedule * s, m_project->schedules()) {
+        const auto schedules = m_project->schedules();
+        for (Schedule * s : schedules) {
             if (s && s->isScheduled()) {
                 // Only invalidate schedules this node is part of
                 Schedule *ns = node->findSchedule(s->id());
@@ -585,10 +590,12 @@ void NodeDeleteCmd::execute()
             m_relCmd = new MacroCommand();
             // Only add delete relation commands if we (still) have relations
             // The other node might have deleted them...
-            foreach (Relation * r, m_node->dependChildNodes()) {
+            const auto relations = m_node->dependChildNodes();
+            for (Relation * r : relations) {
                 m_relCmd->addCommand(new DeleteRelationCmd(*m_project, r));
             }
-            foreach (Relation * r, m_node->dependParentNodes()) {
+            const auto relations2 = m_node->dependParentNodes();
+            for (Relation * r : relations2) {
                 m_relCmd->addCommand(new DeleteRelationCmd(*m_project, r));
             }
         }
@@ -680,7 +687,8 @@ SubtaskAddCmd::SubtaskAddCmd(Project *project, Node *node, Node *parent, const K
     node->setWorkEndTime(node->endTime());
 
     // Summarytasks can't have resources, so remove resource requests from the new parent
-    foreach (ResourceRequest *r, parent->requests().resourceRequests()) {
+    const auto requests = parent->requests().resourceRequests();
+    for (ResourceRequest *r : requests) {
         if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
         m_cmd->addCommand(new RemoveResourceRequestCmd(r));
     }
@@ -941,7 +949,8 @@ void NodeIndentCmd::execute()
         m_newindex = m_newparent->findChildNode(&m_node);
         // Summarytasks can't have resources, so remove resource requests from the new parent
         if (m_cmd == nullptr) {
-            foreach (ResourceRequest *r, m_newparent->requests().resourceRequests()) {
+            const auto requests = m_newparent->requests().resourceRequests();
+            for (ResourceRequest *r : requests) {
                 if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
                 m_cmd->addCommand(new RemoveResourceRequestCmd(r));
             }
@@ -1073,7 +1082,8 @@ void NodeMoveCmd::execute()
         if (m_moved) {
             if (m_cmd.isEmpty()) {
                 // Summarytasks can't have resources, so remove resource requests from the new parent
-                foreach (ResourceRequest *r, m_newparent->requests().resourceRequests()) {
+                const auto requests = m_newparent->requests().resourceRequests();
+                for (ResourceRequest *r : requests) {
                     m_cmd.addCommand(new RemoveResourceRequestCmd(r));
                 }
                 // TODO appointments ??
@@ -2573,7 +2583,8 @@ DeleteScheduleManagerCmd::DeleteScheduleManagerCmd(Project &node, ScheduleManage
 {
     m_mine = false;
     m_index = m_parent ? m_parent->indexOf(sm) : node.indexOf(sm);
-    foreach (ScheduleManager *s, sm->children()) {
+    const auto managers = sm->children();
+    for (ScheduleManager *s : managers) {
         cmd.addCommand(new DeleteScheduleManagerCmd(node, s));
     }
 }
@@ -3098,7 +3109,8 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     QHash<Node*, QString> nodecalendarmap;
 
     // remove unhandled info in tasks and get accounts and calendars
-    foreach (Node *n, fromProject.allNodes()) {
+    const auto nodes = fromProject.allNodes();
+    for (Node *n : nodes ) {
         if (n->type() == Node::Type_Task) {
             Task *t = static_cast<Task*>(n);
             t->workPackage().clear();
@@ -3128,7 +3140,8 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     // get resources pointing to calendars and accounts
     QHash<Resource*, QString> resaccountmap;
     QHash<Resource*, QString> rescalendarmap;
-    foreach (Resource *r, fromProject.resourceList()) {
+    const auto resources = fromProject.resourceList();
+    for (Resource *r : resources) {
         if (r->account()) {
             resaccountmap.insert(r, r->account()->name());
             r->setAccount(nullptr);
@@ -3141,24 +3154,29 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     // create add account commands and keep track of used and unused accounts
     QList<Account*> unusedAccounts;
     QMap<QString, Account*> accountsmap;
-    foreach (Account *a,  m_project->accounts().allAccounts()) {
+    const auto accounts = m_project->accounts().allAccounts();
+    for (Account *a : accounts) {
         accountsmap.insert(a->name(), a);
     }
-    foreach (Account *a, fromProject.accounts().accountList()) {
+    const auto accounts2 = fromProject.accounts().accountList();
+    for (Account *a : accounts2) {
         addAccounts(a, nullptr, unusedAccounts, accountsmap);
     }
     // create add calendar commands and keep track of used and unused calendars
     QList<Calendar*> unusedCalendars;
     QMap<QString, Calendar*> calendarsmap;
-    foreach (Calendar *c,  m_project->allCalendars()) {
+    const auto calendars = m_project->allCalendars();
+    for (Calendar *c : calendars) {
         calendarsmap.insert(c->id(), c);
     }
-    foreach (Calendar *c, fromProject.calendars()) {
+    const auto calendars2 = fromProject.calendars();
+    for (Calendar *c : calendars2) {
         addCalendars(c, nullptr, unusedCalendars, calendarsmap);
     }
     // get all requests from fromProject before resources are merged
     QMultiHash<Node*, QPair<ResourceRequest*, Resource*> > rreqs;
-    foreach (Node *n, fromProject.allNodes()) {
+    const auto nodes2 = fromProject.allNodes();
+    for (Node *n : nodes2 ) {
         QList<ResourceRequest*> resReq;
         if (n->type() != (int)Node::Type_Task || n->requests().isEmpty()) {
             continue;
@@ -3175,7 +3193,8 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     QList<ResourceGroup*> allGroups;
     QList<ResourceGroup*> newGroups;
     QHash<ResourceGroup*, ResourceGroup*> existingGroups; // QHash<fromProject group, toProject group>
-    foreach (ResourceGroup *g, fromProject.resourceGroups()) {
+    const auto groups = fromProject.resourceGroups();
+    for (ResourceGroup *g : groups) {
         ResourceGroup *gr = m_project->findResourceGroup(g->id());
         if (gr == nullptr) {
             gr = g;
@@ -3189,7 +3208,8 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     QList<Resource*> allResources;
     QList<Resource*> newResources; // resource in fromProject that does not exist in toProject
     QHash<Resource*, Resource*> existingResources; // hash[toProject resource, fromProject resource]
-    foreach (Resource *r, fromProject.resourceList()) {
+    const auto resources2 = fromProject.resourceList();
+    for (Resource *r : resources2) {
         while (Schedule *s = r->schedules().values().value(0)) {
             r->deleteSchedule(s); // schedules not handled
         }
@@ -3261,7 +3281,8 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         if (!rr->requiredResources().isEmpty()) {
             // the resource request may have required resources that needs mapping
             QList<Resource*> required;
-            foreach (Resource *r, rr->requiredResources()) {
+            const auto resources = rr->requiredResources();
+            for (Resource *r : resources) {
                 if (newResources.contains(r)) {
                     required << r;
                     debugPlanInsertProject<<"Request: required (new)"<<r->name();
@@ -3303,7 +3324,8 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         addChildNodes(n);
     }
     // Dependencies:
-    foreach (Node *n, fromProject.allNodes()) {
+    const auto nodes3 = fromProject.allNodes();
+    for (Node *n : nodes3) {
         while (n->numDependChildNodes() > 0) {
             Relation *r = n->dependChildNodes().at(0);
             n->takeDependChildNode(r);
@@ -3348,7 +3370,8 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     while (Node *ch = fromProject.childNode(0)) {
         fromProject.takeChildNode(ch);
     }
-    foreach (Node *n, fromProject.allNodes()) {
+    const auto nodes4 = fromProject.allNodes();
+    for (Node *n : nodes4) {
         fromProject.removeId(n->id());
     }
 
@@ -3398,12 +3421,14 @@ void InsertProjectCmd::addCalendars(Calendar *calendar, Calendar *parent, QList<
     } else {
         unused << calendar;
     }
-    foreach (Calendar *c, calendar->calendars()) {
+    const auto calendars = calendar->calendars();
+    for (Calendar *c : calendars) {
         addCalendars(c, calendar, unused, calendarsmap);
     }
 }
 
 void InsertProjectCmd::addAccounts(Account *account, Account *parent, QList<Account*>  &unused, QMap<QString, Account*>  &accountsmap) {
+    qInfo()<<Q_FUNC_INFO<<account<<parent<<"unused:"<<unused<<"to:"<<accountsmap;
     Account *par = nullptr;
     if (parent) {
         par = accountsmap.value(parent->name());
@@ -3413,18 +3438,21 @@ void InsertProjectCmd::addAccounts(Account *account, Account *parent, QList<Acco
     }
     Account *acc = accountsmap.value(account->name());
     if (acc == nullptr) {
-        debugPlanInsertProject<<"Move to new project:"<<account<<account->name();
+        qInfo()<<"Move to new project:"<<account<<account->name()<<"old parent:"<<account->parent()<<"new parent:"<<par;
+        if (account->parent()) qInfo()<<"old parent's list:"<<account->parent()->accountList();
         accountsmap.insert(account->name(), account);
         addCommand(new AddAccountCmd(*m_project, account, par, -1, kundo2_noi18n("Add account %1", account->name())));
     } else {
-        debugPlanInsertProject<<"Already exists:"<<account<<account->name();
+        qInfo()<<"Already exists:"<<account<<account->name();
         unused << account;
     }
     while (! account->accountList().isEmpty()) {
         Account *a = account->accountList().first();
         account->list()->take(a);
+        qInfo()<<"child:"<<a<<"rest:"<<account->accountList();
         addAccounts(a, account, unused, accountsmap);
     }
+    qInfo()<<Q_FUNC_INFO<<"result:"<<account<<parent<<"unused:"<<unused<<"to:"<<accountsmap;
 }
 
 void InsertProjectCmd::addChildNodes(Node *node) {
@@ -3433,7 +3461,8 @@ void InsertProjectCmd::addChildNodes(Node *node) {
         node->takeSchedule(s); // schedules not handled
         delete s;
     }
-    foreach (Node *n, node->childNodeIterator()) {
+    const auto nodes = node->childNodeIterator();
+    for (Node *n : nodes ) {
         n->setParentNode(nullptr);
         addCommand(new SubtaskAddCmd(m_project, n, node, kundo2_noi18n("Subtask")));
         addChildNodes(n);
@@ -3591,7 +3620,8 @@ ClearAllExternalAppointmentsCmd::ClearAllExternalAppointmentsCmd(Project *projec
     : NamedCommand(name),
     m_project(project)
 {
-    foreach (Resource *r, project->resourceList()) {
+    const auto resources = project->resourceList();
+    for (Resource *r : resources) {
         const QMap<QString, QString> map = r->externalProjects();
         QMap<QString, QString>::const_iterator it;
         for (it = map.constBegin(); it != map.constEnd(); ++it) {

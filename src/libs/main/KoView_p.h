@@ -65,8 +65,8 @@ private Q_SLOTS:
     void onUnitChanged(const KoUnit &unit)
     {
         const int indexInList = unit.indexInListForUi(m_listOptions);
-
-        foreach (QAction *action, actions()) {
+        const auto actions = this->actions();
+        for (QAction *action : actions) {
             if (action->data().toInt() == indexInList) {
                 action->setChecked(true);
                 break;

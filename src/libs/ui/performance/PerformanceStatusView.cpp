@@ -86,7 +86,8 @@ void PerformanceStatusTreeView::slotSelectionChanged(const QItemSelection&, cons
 {
     //debugPlan;
     QList<Node*> nodes;
-    foreach (const QModelIndex &i, m_tree->selectionModel()->selectedIndexes()) {
+    const QModelIndexList indexes = m_tree->selectionModel()->selectedIndexes();
+    for (const QModelIndex &i : indexes) {
         Node *n = nodeModel()->node(i);
         if (! nodes.contains(n)) {
             nodes.append(n);

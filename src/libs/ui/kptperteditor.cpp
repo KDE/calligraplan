@@ -292,7 +292,8 @@ void PertEditor::draw()
 
 void PertEditor::drawSubTasksName(QTreeWidgetItem *parent, Node * currentNode)
 {
-    foreach(Node * currentChild, currentNode->childNodeIterator()){
+    const QList<Node*> nodes = currentNode->childNodeIterator();
+    for(Node * currentChild : nodes) {
         QTreeWidgetItem * item = new QTreeWidgetItem(parent);
         item->setText(0, currentChild->name());
         item->setData(0, NodeRole, currentChild->id());
@@ -331,8 +332,8 @@ void PertEditor::dispAvailableTasks(Node *parent, Node *selectedTask)
     if (pitem == nullptr) {
         pitem = m_availableList->invisibleRootItem();
     }
-    foreach(Node * currentNode, parent->childNodeIterator())
-    {
+    const QList<Node*> nodes = parent->childNodeIterator();
+    for(Node * currentNode : nodes) {
         //debugPlan<<currentNode->name()<<"level="<<currentNode->level();
         QTreeWidgetItem *item = new QTreeWidgetItem(QStringList()<<currentNode->name());
         item->setData(0, NodeRole, currentNode->id());

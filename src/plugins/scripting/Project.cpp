@@ -653,7 +653,8 @@ void Scripting::Project::clearExternalAppointments(QObject *resource, const QStr
 
 void Scripting::Project::clearExternalAppointments(const QString &id)
 {
-    foreach (KPlato::Resource *r, kplatoProject()->resourceList()) {
+    const auto resources = kplatoProject()->resourceList();
+    for (KPlato::Resource *r : resources) {
         ClearExternalAppointmentCmd *cmd = new ClearExternalAppointmentCmd(r, id, kundo2_i18n("Clear external appointments"));
         m_module->addCommand(cmd);
     }

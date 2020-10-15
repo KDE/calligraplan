@@ -290,13 +290,13 @@ void View::slotPopupMenu(const QString& name, const QPoint & pos)
         debugPlanWork<<lst;
         if (! lst.isEmpty()) {
             menu->addSeparator();
-            foreach (QAction *a, lst) {
+            for (QAction *a : qAsConst(lst)) {
                 menu->addAction(a);
             }
         }
     }
     menu->exec(pos);
-    foreach (QAction *a, lst) {
+    for (QAction *a : qAsConst(lst)) {
         menu->removeAction(a);
     }
 }

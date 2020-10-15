@@ -399,7 +399,8 @@ ViewListWidget::~ViewListWidget()
 
 void ViewListWidget::setReadWrite(bool rw)
 {
-    foreach (ViewListItem *c, categories()) {
+    const QList<ViewListItem*> lst = categories();
+    for (ViewListItem *c : lst) {
         for (int i = 0; i < c->childCount(); ++i) {
             static_cast<ViewListItem*>(c->child(i))->setReadWrite(rw);
         }
@@ -803,7 +804,7 @@ void ViewListWidget::contextMenuEvent (QContextMenuEvent *event)
     }
     if (! lst.isEmpty()) {
         //menu.addTitle(i18n("Edit"));
-        foreach (QAction *a, lst) {
+        for (QAction *a : qAsConst(lst)) {
             menu.addAction(a);
         }
     }

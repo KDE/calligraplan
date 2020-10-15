@@ -166,7 +166,7 @@ KoDocumentInfoDlg::~KoDocumentInfoDlg()
 void KoDocumentInfoDlg::accept()
 {
     // check if any pages veto the close
-    foreach(KPageWidgetItem* item, d->pages) {
+    for (KPageWidgetItem* item : qAsConst(d->pages)) {
         KoPageWidgetItemAdapter *page = dynamic_cast<KoPageWidgetItemAdapter*>(item);
         if (page) {
             if (page->shouldDialogCloseBeVetoed()) {
@@ -177,7 +177,7 @@ void KoDocumentInfoDlg::accept()
 
     // all fine, go and apply
     saveAboutData();
-    foreach(KPageWidgetItem* item, d->pages) {
+    for (KPageWidgetItem* item : qAsConst(d->pages)) {
         KoPageWidgetItemAdapter *page = dynamic_cast<KoPageWidgetItemAdapter*>(item);
         if (page) {
             page->apply();
@@ -458,11 +458,13 @@ void KoDocumentInfoDlg::setReadOnly(bool ro)
 {
     d->aboutUi->meComments->setReadOnly(ro);
 
-    Q_FOREACH(KPageWidgetItem* page, d->pages) {
-        Q_FOREACH(QLineEdit* le, page->widget()->findChildren<QLineEdit *>()) {
+    for (KPageWidgetItem* page : qAsConst(d->pages)) {
+        const QList<QLineEdit*> lineEdits = page->widget()->findChildren<QLineEdit *>();
+        for (QLineEdit* le : lineEdits) {
             le->setReadOnly(ro);
         }
-        Q_FOREACH(QPushButton* le, page->widget()->findChildren<QPushButton *>()) {
+        const QList<QPushButton*> buttons = page->widget()->findChildren<QPushButton *>();
+        for (QPushButton* le : buttons ) {
             le->setDisabled(ro);
         }
     }

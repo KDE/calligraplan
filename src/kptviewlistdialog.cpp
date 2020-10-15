@@ -128,7 +128,8 @@ AddViewPanel::AddViewPanel(View *view, ViewListWidget &viewlist, QWidget *parent
 #endif
     widget.viewtype->addItems(lst);
 
-    foreach (ViewListItem *item, m_viewlist.categories()) {
+    const QList<ViewListItem*> items = m_viewlist.categories();
+    for (ViewListItem *item : items) {
         m_categories.insert(item->text(0), item);
     }
     widget.category->addItems(m_categories.keys());
@@ -353,7 +354,8 @@ EditViewPanel::EditViewPanel(ViewListWidget &viewlist, ViewListItem *item, QWidg
     e.setText(item->toolTip(0));
     widget.tooltip->setText(e.toPlainText());
 
-    foreach (ViewListItem *item, m_viewlist.categories()) {
+    const QList<ViewListItem*> items = m_viewlist.categories();
+    for (ViewListItem *item : items) {
         m_categories.insert(item->text(0), item);
     }
     widget.category->addItems(m_categories.keys());
@@ -575,7 +577,8 @@ AddReportsViewPanel::AddReportsViewPanel(View *view, ViewListWidget &viewlist, c
     lst << xi18n("Report");
     widget.viewtype->addItems(lst);
 
-    foreach (ViewListItem *item, m_viewlist.categories()) {
+    const QList<ViewListItem*> items = m_viewlist.categories();
+    for (ViewListItem *item : items) {
         m_categories.insert(item->text(0), item);
     }
     widget.category->addItems(m_categories.keys());

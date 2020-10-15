@@ -54,7 +54,7 @@ Account::Account(const QString& name, const QString& description)
 }
 
 Account::~Account() {
-    //debugPlan<<m_name;
+    qInfo()<<Q_FUNC_INFO<<(void*)this;
     if (m_list) {
         m_list->accountDeleted(this); // default account
     }
@@ -104,7 +104,7 @@ void Account::insert(Account *account, int index) {
 }
 
 void Account::insertChildren() {
-    foreach (Account *a, m_accountList) {
+    for (Account *a : qAsConst(m_accountList)) {
         a->setList(m_list);
         a->setParent(this);
         insertId(a);
@@ -147,7 +147,7 @@ bool Account::isChildOf(const Account *account) const
 
 bool Account::isBaselined(long id) const
 {
-    foreach (CostPlace *p, m_costPlaces) {
+    for (CostPlace *p : qAsConst(m_costPlaces)) {
         if (p->isBaselined(id)) {
             return true;
         }
@@ -190,17 +190,17 @@ void Account::save(QDomElement &element) const {
     element.appendChild(me);
     me.setAttribute("name", m_name);
     me.setAttribute("description", m_description);
-    foreach (Account::CostPlace *cp, m_costPlaces) {
+    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
         cp->save(me);
     }
-    foreach (Account *a, m_accountList) {
+    for (Account *a : qAsConst(m_accountList)) {
         a->save(me);
     }
 }
 
 Account::CostPlace *Account::findCostPlace(const Resource &resource) const
 {
-    foreach (Account::CostPlace *cp, m_costPlaces) {
+    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
         if (&resource == cp->resource()) {
             return cp;
         }
@@ -209,7 +209,7 @@ Account::CostPlace *Account::findCostPlace(const Resource &resource) const
 }
 
 Account::CostPlace *Account::findRunning(const Resource &resource) const {
-    foreach (Account::CostPlace *cp, m_costPlaces) {
+    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
         if (&resource == cp->resource() && cp->running()) {
             return cp;
         }
@@ -241,7 +241,7 @@ void Account::addRunning(Resource &resource) {
 
 Account::CostPlace *Account::findCostPlace(const Node &node) const
 {
-    foreach (Account::CostPlace *cp, m_costPlaces) {
+    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
         if (&node == cp->node()) {
             return cp;
         }
@@ -381,16 +381,16 @@ EffortCostMap Account::plannedCost(long id) const
 EffortCostMap Account::plannedCost(const QDate &start, const QDate &end, long id) const {
     EffortCostMap ec;
     if (! isElement()) {
-        foreach (Account *a, m_accountList) {
+        for (Account *a : qAsConst(m_accountList)) {
             ec += a->plannedCost(start, end, id);
         }
     }
-    foreach (Account::CostPlace *cp, m_costPlaces) {
+    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
         ec += plannedCost(*cp, start, end, id);
     }
     if (isDefaultAccount()) {
-        QList<Node*> list = m_list == nullptr ? QList<Node*>() : m_list->allNodes();
-        foreach (Node *n, list) {
+        const QList<Node*> list = m_list == nullptr ? QList<Node*>() : m_list->allNodes();
+        for (Node *n : list) {
             if (n->numChildren() > 0) {
                 continue;
             }
@@ -452,16 +452,17 @@ EffortCostMap Account::actualCost(const QDate &start, const QDate &end, long id)
 {
     EffortCostMap ec;
     if (! isElement()) {
-        foreach (Account *a, m_accountList) {
+        for (Account *a : qAsConst(m_accountList)) {
             ec += a->actualCost(start, end, id);
         }
     }
-    foreach (Account::CostPlace *cp, costPlaces()) {
+    const auto costs = costPlaces();
+    for (Account::CostPlace *cp : costs) {
         ec += actualCost(*cp, start, end, id);
     }
     if (isDefaultAccount()) {
-        QList<Node*> list = m_list == nullptr ? QList<Node*>() : m_list->allNodes();
-        foreach (Node *n, list) {
+        const QList<Node*> list = m_list == nullptr ? QList<Node*>() : m_list->allNodes();
+        for (Node *n : list) {
             if (n->numChildren() > 0) {
                 continue;
             }
@@ -518,7 +519,8 @@ EffortCostMap Account::actualCost(const Account::CostPlace &cp, const QDate &sta
             }
         }
     } else if (cp.resource() && m_list) {
-        foreach (Node *n, m_list->allNodes()) {
+        const auto nodes = m_list->allNodes();
+        for (Node *n : nodes) {
             if (n->type() == Node::Type_Task) {
                 ec += n->actualEffortCostPrDay(cp.resource(), start, end, id);
             }
@@ -818,14 +820,15 @@ void Accounts::save(QDomElement &element) const {
     if (m_defaultAccount) {
         me.setAttribute("default-account", m_defaultAccount->name());
     }
-    foreach (Account *a, m_accountList) {
+    for (Account *a : qAsConst(m_accountList)) {
         a->save(me);
     }
 }
 
 QStringList Accounts::costElements() const {
     QStringList l;
-    foreach (const QString &key, m_idDict.uniqueKeys()) {
+    const auto keys = m_idDict.uniqueKeys();
+    for (const QString &key : keys) {
         if (m_idDict[key]->isElement())
             l << key;
     }
@@ -838,7 +841,8 @@ QStringList Accounts::nameList() const {
 }
 
 Account *Accounts::findRunningAccount(const Resource &resource) const {
-    foreach (Account *a, m_idDict) {
+    const auto  accounts = m_idDict.values();
+    for (Account *a : accounts) {
         if (a->findRunning(resource)) {
             return a;
         }
@@ -847,7 +851,8 @@ Account *Accounts::findRunningAccount(const Resource &resource) const {
 }
 
 Account *Accounts::findRunningAccount(const Node &node) const {
-    foreach (Account *a, m_idDict) {
+    const auto  accounts = m_idDict.values();
+    for (Account *a : accounts) {
         if (a->findRunning(node))
             return a;
     }
@@ -855,7 +860,8 @@ Account *Accounts::findRunningAccount(const Node &node) const {
 }
 
 Account *Accounts::findStartupAccount(const Node &node) const {
-    foreach (Account *a, m_idDict) {
+    const auto  accounts = m_idDict.values();
+    for (Account *a : accounts) {
         if (a->findStartup(node))
             return a;
     }
@@ -863,7 +869,8 @@ Account *Accounts::findStartupAccount(const Node &node) const {
 }
 
 Account *Accounts::findShutdownAccount(const Node &node) const {
-    foreach (Account *a, m_idDict) {
+    const auto  accounts = m_idDict.values();
+    for (Account *a : accounts) {
         if (a->findShutdown(node))
             return a;
     }
@@ -943,14 +950,14 @@ QList<Node*> Accounts::allNodes() const
 
 #ifndef NDEBUG
 void Accounts::printDebug(const QString& indent) {
-    debugPlan<<indent<<"Accounts:"<<m_accountList.count()<<" children";
-    foreach(Account *a, m_accountList) {
+    debugPlan<<indent<<"Accounts:"<<this<<m_accountList.count()<<" children";
+    for(Account *a : qAsConst(m_accountList)) {
         a->printDebug(indent + "    !");
     }
 }
 void Account::printDebug(const QString& indent) {
-    debugPlan<<indent<<"--- Account:"<<m_name<<":"<<m_accountList.count()<<" children";
-    foreach(Account *a, m_accountList) {
+    qInfo()<<indent<<"--- Account:"<<this<<m_name<<":"<<m_accountList.count()<<" children";
+    for(Account *a : qAsConst(m_accountList)) {
         a->printDebug(indent + "    !");
     }
 }

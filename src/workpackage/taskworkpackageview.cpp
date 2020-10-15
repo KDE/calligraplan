@@ -157,7 +157,8 @@ QList<Node*> TaskWorkPackageTreeView::selectedNodes() const
     if (sf == nullptr) {
         return lst;
     }
-    foreach(const QModelIndex &idx, selectionModel()->selectedIndexes()) {
+    const QList<QModelIndex> indexes = selectionModel()->selectedIndexes();
+    for(const QModelIndex &idx : indexes) {
         QModelIndex i = sf->mapToSource(idx);
         Q_ASSERT(i.isValid() && i.model() == itemModel());
         Node *n = itemModel()->nodeForIndex(i);
@@ -830,7 +831,8 @@ void GanttView::setProject(Project *project)
 QList<Node*> GanttView::selectedNodes() const
 {
     QList<Node*> nodes;
-    foreach(const QModelIndex &idx, treeView()->selectionModel()->selectedRows()) {
+    const QList<QModelIndex> rows = treeView()->selectionModel()->selectedRows();
+    for(const QModelIndex &idx : rows) {
         nodes << itemModel()->nodeForIndex(idx);
     }
     return nodes;
