@@ -197,6 +197,7 @@
       <li xml:lang="fi">Yhteenvetotehtävien, tehtävien ja virstanpylväiden tuki</li>
       <li xml:lang="fr">Prends en charge les phases, les tâches et les jalons</li>
       <li xml:lang="gl">Permite definir tarefas de resumo, tarefas e fitos.</li>
+      <li xml:lang="ia">Supporta cargas de summario, cargas e petras milliari</li>
       <li xml:lang="id">Dukungan Summarytasks, Tasks, dan milestones</li>
       <li xml:lang="it">Supporta attività di riepilogo, attività e pietre miliari</li>
       <li xml:lang="ko">요약 작업, 작업 및 중요 시점 지원</li>
@@ -220,6 +221,7 @@
       <li xml:lang="fi">Mukautettavat aikataulutusehdot</li>
       <li xml:lang="fr">Contraintes d'ordonnancement configurables</li>
       <li xml:lang="gl">Restricións de planificación configurábeis.</li>
+      <li xml:lang="ia">Coercitiones de planificar configurabile</li>
       <li xml:lang="id">Kendala Penjadwalan Dapat Dikonfigurasi</li>
       <li xml:lang="it">Vincoli di pianificazione configurabili</li>
       <li xml:lang="ko">스케줄링 제약 조건 구성 가능</li>
