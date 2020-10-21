@@ -26,6 +26,7 @@
 #include "kptdatetime.h"
 
 #include <KoUpdater.h>
+#include <KoXmlReader.h>
 
 #include <QDateTime>
 #include <QString>
@@ -49,7 +50,7 @@ public:
       m_loadTaskChildren(true)
     {}
     ~XMLLoaderObject() {}
-    
+
     void setProject(Project *proj) { m_project = proj; }
     Project &project() const { return *m_project; }
     
@@ -119,6 +120,54 @@ public:
 
     void setLoadTaskChildren(bool state) { m_loadTaskChildren = state; }
     bool loadTaskChildren() { return m_loadTaskChildren; }
+
+    /// Load a project from xml
+    bool loadProject(Project *project, const KoXmlDocument &document)
+    {
+        m_project = project;
+        bool result = false;
+
+        if (m_updater) m_updater->setProgress(5);
+        startLoad();
+
+        KoXmlElement plan = document.documentElement();
+        m_version = plan.attribute("version", PLAN_FILE_SYNTAX_VERSION);
+        KoXmlNode n = plan.firstChild();
+        for (; ! n.isNull(); n = n.nextSibling()) {
+            if (! n.isElement()) {
+                continue;
+            }
+            KoXmlElement e = n.toElement();
+            if (e.tagName() == "project") {
+                if (m_project->load(e, *this)) {
+                    if (m_project->id().isEmpty()) {
+                        m_project->setId(m_project->uniqueNodeId());
+                        m_project->registerNodeId(m_project);
+                    }
+                    // Cleanup after possible bug:
+                    // There should *not* be any deleted schedules (or with parent == 0)
+                    const QList<Node*> nodes = m_project->nodeDict().values();
+                    for (Node *n : nodes) {
+                        const QList<Schedule*> schedules = n->schedules().values();
+                        for (Schedule *s : schedules) {
+                            if (s->isDeleted()) { // true also if parent == 0
+                                errorPlan<<n->name()<<s;
+                                n->takeSchedule(s);
+                                delete s;
+                            }
+                        }
+                    }
+                    result = true;
+                } else {
+                    addMsg(Errors, "Loading of project failed");
+                }
+            }
+        }
+        stopLoad();
+        if (m_updater) m_updater->setProgress(100); // the rest is only processing, not loading
+
+        return result;
+    }
 
 protected:
     Project *m_project;

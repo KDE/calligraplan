@@ -364,63 +364,12 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             return false;
         }
     }
-    if (updater) updater->setProgress(5);
-/*
-#ifdef KOXML_USE_QDOM
-    int numNodes = plan.childNodes().count();
-#else
-    int numNodes = plan.childNodesCount();
-#endif
-*/
-#if 0
-This test does not work any longer. KoXml adds a couple of elements not present in the file!!
-    if (numNodes > 2) {
-        //TODO: Make a proper bitching about this
-        debugPlan <<"*** Error ***";
-        debugPlan <<"  Children count should be maximum 2, but is" << numNodes;
-        return false;
+    Project *newProject = new Project(m_config, true);
+    if (!m_xmlLoader.loadProject(newProject, document)) {
+        delete newProject;
+    } else {
+        setProject(newProject);
     }
-#endif
-    m_xmlLoader.startLoad();
-    KoXmlNode n = plan.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
-        if (e.tagName() == "project") {
-            Project *newProject = new Project(m_config, true);
-            m_xmlLoader.setProject(newProject);
-            if (newProject->load(e, m_xmlLoader)) {
-                if (newProject->id().isEmpty()) {
-                    newProject->setId(newProject->uniqueNodeId());
-                    newProject->registerNodeId(newProject);
-                }
-                // The load went fine. Throw out the old project
-                setProject(newProject);
-                // Cleanup after possible bug:
-                // There should *not* be any deleted schedules (or with parent == 0)
-                const QList<Node*> nodes = newProject->nodeDict().values();
-                for (Node *n : nodes) {
-                    const QList<Schedule*> schedules = n->schedules().values();
-                    for (Schedule *s : schedules) {
-                        if (s->isDeleted()) { // true also if parent == 0
-                            errorPlan<<n->name()<<s;
-                            n->takeSchedule(s);
-                            delete s;
-                        }
-                    }
-                }
-            } else {
-                delete newProject;
-                m_xmlLoader.addMsg(XMLLoaderObject::Errors, "Loading of project failed");
-                //TODO add some ui here
-            }
-        }
-    }
-    m_xmlLoader.stopLoad();
-
-    if (updater) updater->setProgress(100); // the rest is only processing, not loading
 
     setModified(false);
     emit changed();
