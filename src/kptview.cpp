@@ -102,7 +102,6 @@
 #include "kptpertresult.h"
 #include "kptinsertfiledlg.h"
 #include "kptloadsharedprojectsdialog.h"
-#include "about/aboutpage.h"
 #include "kptlocaleconfigmoneydialog.h"
 #include "kptflatproxymodel.h"
 #include "kpttaskstatusmodel.h"
