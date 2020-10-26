@@ -33,7 +33,6 @@ class QStackedWidget;
 namespace KPlato
 {
 class MainDocument;
-class HtmlView;
 
 class PLAN_EXPORT Part : public KoPart
 {
@@ -63,8 +62,6 @@ public Q_SLOTS:
     void finish();
 
 protected Q_SLOTS:
-    void slotShowIntroduction();
-    void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
     void openTemplate(const QUrl& url) override;
     void slotOpenTemplate(const QUrl& url);
 
@@ -74,7 +71,6 @@ protected Q_SLOTS:
 protected:
     void createStarUpWidget(KoMainWindow *parent);
     QWidget *createWelcomeView(KoMainWindow *parent);
-    QWidget *createIntroductionView();
 
 private:
     KPlato::MainDocument *m_document;

@@ -103,7 +103,6 @@
 #include "kptpertresult.h"
 #include "kptinsertfiledlg.h"
 #include "kptloadsharedprojectsdialog.h"
-#include "kpthtmlview.h"
 #include "about/aboutpage.h"
 #include "kptlocaleconfigmoneydialog.h"
 #include "kptflatproxymodel.h"
@@ -196,7 +195,6 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Add sub views
-    createIntroductionView();
 
     // The menu items
     // ------ File
@@ -257,11 +255,6 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     actionCollection()->addAction("reportdesigner_open_file", actionOpenReportFile);
     connect(actionOpenReportFile, QAction::triggered, this, &View::slotOpenReportFile);
 #endif
-
-    // ------ Help
-    actionIntroduction  = new QAction(koIcon("dialog-information"), i18n("Introduction to Plan"), this);
-    actionCollection()->addAction("plan_introduction", actionIntroduction);
-    connect(actionIntroduction, &QAction::triggered, this, &View::slotIntroduction);
 
     // ------ Popup
     actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
@@ -760,46 +753,6 @@ ViewInfo View::defaultCategoryInfo(const QString &type) const
         vi.name = i18n("Reports");
     }
     return vi;
-}
-
-void View::slotOpenUrlRequest(HtmlView *v, const QUrl &url)
-{
-    debugPlan<<url;
-    if (url.scheme() == QLatin1String("about")) {
-        if (url.url() == QLatin1String("about:close")) {
-            int view = m_visitedViews.count() < 2 ? qMin(m_defaultView, m_tab->count()-1) : m_visitedViews.at(m_visitedViews.count() - 2);
-            debugPlan<<"Prev:"<<view<<m_visitedViews;
-            m_tab->setCurrentIndex(view);
-            return;
-        }
-        if (url.url().startsWith(QLatin1String("about:plan"))) {
-            getPart()->aboutPage().generatePage(v->htmlPart(), url);
-            return;
-        }
-    }
-    if (url.scheme() == QLatin1String("help")) {
-        KHelpClient::invokeHelp("", url.fileName());
-        return;
-    }
-    // try to open the url
-    debugPlan<<url<<"is external, try to open";
-    new KRun(url, mainWindow());
-}
-
-ViewBase *View::createIntroductionView()
-{
-    HtmlView *v = new HtmlView(getKoPart(), getPart(), m_tab);
-    v->htmlPart().setJScriptEnabled(false);
-    v->htmlPart().setJavaEnabled(false);
-    v->htmlPart().setMetaRefreshEnabled(false);
-    v->htmlPart().setPluginsEnabled(false);
-
-    slotOpenUrlRequest(v, QUrl("about:plan/main"));
-
-    connect(v, &HtmlView::openUrlRequest, this, &View::slotOpenUrlRequest);
-
-    m_tab->addWidget(v);
-    return v;
 }
 
 ViewBase *View::createResourceAppointmentsGanttView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
@@ -1965,12 +1918,6 @@ void View::slotDefineWBSFinished(int result)
     }
     dia->deleteLater();
 }
-
-void View::slotIntroduction()
-{
-    m_tab->setCurrentIndex(0);
-}
-
 
 Calendar *View::currentCalendar()
 {

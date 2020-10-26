@@ -64,7 +64,6 @@ Q_SIGNALS:
     void newProject();
     void openProject();
     void recentProject(const QUrl &file, KoPart *part);
-    void showIntroduction();
     void selectDefaultView();
     void loadSharedResources(const QUrl &url, const QUrl &projects);
     void openExistingFile(const QUrl &url);

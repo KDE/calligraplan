@@ -257,7 +257,6 @@ void MainDocument::setProject(Project *project)
         connect(m_project, &Project::nodeChanged, this, &MainDocument::slotNodeChanged);
         connect(m_project, &Project::sigCalculationFinished, this, &MainDocument::slotCalculationFinished);
     }
-    m_aboutPage.setProject(project);
 
     QString dir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     if (!dir.isEmpty()) {

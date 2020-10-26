@@ -231,13 +231,9 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="introductionBtn">
+        <widget class="QLabel" name="label_6">
          <property name="text">
           <string>Introduction</string>
-         </property>
-         <property name="icon">
-          <iconset theme="help-hint">
-           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
