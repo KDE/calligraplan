@@ -248,15 +248,6 @@ install(FILES org.kde.calligraplan.appdata.xml DESTINATION ${KDE_INSTALL_METAINF
 # TODO: with the new embedded JSON data for plugins there is no schema ATM to define extended properties
 # plan_viewplugin.desktop
 
-install(FILES
-    about/top-left-plan.png
-    about/main.html
-    about/intro.html
-    about/tips.html
-    about/tutorial.html
-    about/plan.css
-    DESTINATION ${DATA_INSTALL_DIR}/calligraplan/about
-)
 
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
 
