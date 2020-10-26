@@ -31,7 +31,6 @@
 #include "kptconfig.h"
 #include "kptwbsdefinition.h"
 #include "kptxmlloaderobject.h"
-#include "about/aboutpage.h"
 
 #include "KoDocument.h"
 
@@ -129,8 +128,6 @@ public:
     void insertFile(const QUrl &url, Node *parent, Node *after = 0);
     bool insertProject(Project &project, Node *parent, Node *after);
     bool mergeResources(Project &project);
-
-    KPlatoAboutPage &aboutPage() { return m_aboutPage; }
 
     bool extractFiles(KoStore *store, Package *package);
     bool extractFile(KoStore *store, Package *package, const Document *doc);
@@ -253,8 +250,6 @@ private:
     QFileInfoList m_infoList;
     QList<QUrl> m_skipUrls;
     QMap<QDateTime, Project*> m_mergedPackages;
-
-    KPlatoAboutPage m_aboutPage;
 
     QDomDocument m_reports;
 

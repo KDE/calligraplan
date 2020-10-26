@@ -139,8 +139,6 @@ set(planprivate_LIB_SRCS
     kptinsertfiledlg.cpp
     kptloadsharedprojectsdialog.cpp
 
-    about/aboutpage.cpp
-
     KPlatoXmlLoader.cpp
 )
 

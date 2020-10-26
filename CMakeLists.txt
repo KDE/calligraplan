@@ -149,11 +149,11 @@ if(KF5Activities_FOUND)
     set(HAVE_KACTIVITIES TRUE)
 endif()
 
-find_package(KF5KHtml)
-set_package_properties(KF5KHtml PROPERTIES
-    PURPOSE "Required for rich text support"
-    TYPE REQUIRED
-)
+#find_package(KF5KHtml)
+#set_package_properties(KF5KHtml PROPERTIES
+    #PURPOSE "Required for rich text support"
+    #TYPE REQUIRED
+#)
 
 find_package(KF5Holidays)
 set_package_properties(KF5Holidays PROPERTIES

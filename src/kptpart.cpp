@@ -25,7 +25,6 @@
 #include "kptmaindocument.h"
 #include "kptfactory.h"
 #include "welcome/WelcomeView.h"
-#include "kpthtmlview.h"
 #include "Help.h"
 #include "calligraplansettings.h"
 #include "kptdebug.h"
@@ -163,7 +162,6 @@ void Part::createStarUpWidget(KoMainWindow *parent)
     startUpWidget = new QStackedWidget(parent);
 
     startUpWidget->addWidget(createWelcomeView(parent));
-    startUpWidget->addWidget(createIntroductionView());
 }
 
 void Part::finish()
@@ -188,55 +186,10 @@ QWidget *Part::createWelcomeView(KoMainWindow *mw)
 
     connect(v, &WelcomeView::loadSharedResources, doc, &MainDocument::insertResourcesFile);
     connect(v, &WelcomeView::recentProject, mw, &KoMainWindow::slotFileOpenRecent);
-    connect(v, &WelcomeView::showIntroduction, this, &Part::slotShowIntroduction);
     connect(v, &WelcomeView::projectCreated, doc, &MainDocument::slotProjectCreated);
     connect(v, &WelcomeView::finished, this, &Part::finish);
 
     connect(v, &WelcomeView::openTemplate, this, &Part::slotOpenTemplate);
-
-    return v;
-}
-
-void Part::slotShowIntroduction()
-{
-    startUpWidget->setCurrentIndex(1);
-    slotOpenUrlRequest(static_cast<HtmlView*>(startUpWidget->currentWidget()), QUrl("about:plan/main"));
-}
-
-void Part::slotOpenUrlRequest(HtmlView *v, const QUrl &url)
-{
-    debugPlan<<url;
-    if (url.scheme() == QLatin1String("about")) {
-        if (url.url() == QLatin1String("about:close")) {
-            startUpWidget->setCurrentIndex(0);
-            return;
-        }
-        if (url.url().startsWith(QLatin1String("about:plan"))) {
-            MainDocument *doc = static_cast<MainDocument*>(document());
-            doc->aboutPage().generatePage(v->htmlPart(), url);
-            return;
-        }
-    }
-    if (url.scheme() == QLatin1String("help")) {
-        KHelpClient::invokeHelp("", url.fileName());
-        return;
-    }
-    // try to open the url
-    debugPlan<<url<<"is external, discard";
-    new KRun(url,  currentMainwindow());
-}
-
-QWidget *Part::createIntroductionView()
-{
-    HtmlView *v = new HtmlView(this, document(), startUpWidget);
-    v->htmlPart().setJScriptEnabled(false);
-    v->htmlPart().setJavaEnabled(false);
-    v->htmlPart().setMetaRefreshEnabled(false);
-    v->htmlPart().setPluginsEnabled(false);
-
-    slotOpenUrlRequest(v, QUrl("about:plan/main"));
-
-    connect(v, &KPlato::HtmlView::openUrlRequest, this, &KPlato::Part::slotOpenUrlRequest);
 
     return v;
 }

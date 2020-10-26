@@ -85,7 +85,6 @@ class ResourceGroup;
 class Relation;
 class Context;
 class ViewAdaptor;
-class HtmlView;
 class ReportView;
 
 class ReportDesignDialog;
@@ -179,8 +178,6 @@ public Q_SLOTS:
 
     void slotCreateView();
 
-    void slotIntroduction();
-
     void openRelationDialog(KPlato::Node *par, KPlato::Node *child);
     void slotEditRelation(KPlato::Relation *rel);
     void slotAddRelation(KPlato::Node *par, KPlato::Node *child, int linkType);
@@ -257,8 +254,6 @@ protected Q_SLOTS:
     void slotMailWorkpackage(KPlato::Node *node, KPlato::Resource *resource = 0);
     void slotPublishWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource, bool mailTo);
 
-    void slotOpenUrlRequest(KPlato::HtmlView *v, const QUrl &url);
-
     void createReportView(const QDomDocument &doc);
 
     void saveTaskModule(const QUrl &url, KPlato::Project *project);
@@ -279,8 +274,6 @@ protected:
     void updateView(QWidget *widget);
 
     ViewBase *currentView() const;
-
-    ViewBase *createIntroductionView();
 
 private Q_SLOTS:
     void slotActionDestroyed(QObject *o);
@@ -382,9 +375,6 @@ private:
 
     // ------ Settings
     QAction *actionConfigure;
-
-    // ------ Help
-    QAction *actionIntroduction;
 
     // ------ Popup
     QAction *actionOpenNode;

@@ -156,14 +156,6 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
                           "<nl/>This enables you to quickly open projects you have worked on recently."
                           "</para>"));
 
-    Help::add(ui.introductionBtn,
-                   xi18nc("@info:whatsthis",
-                          "<title>Introduction to <application>Plan</application></title>"
-                          "<para>"
-                          "These introductory pages gives you hints and tips on what"
-                          " you can use <application>Plan</application> for, and how to use it."
-                          "</para>"));
-
     Help::add(ui.contextHelp,
                    xi18nc("@info:whatsthis",
                           "<title>Context help</title>"
@@ -199,7 +191,6 @@ WelcomeView::WelcomeView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(ui.newProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotNewProject);
     connect(ui.createResourceFileBtn, &QAbstractButton::clicked, this, &WelcomeView::slotCreateResourceFile);
     connect(ui.openProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotOpenProject);
-    connect(ui.introductionBtn, &QAbstractButton::clicked, this, &WelcomeView::showIntroduction);
 
     connect(ui.recentProjects, &QAbstractItemView::activated, this, &WelcomeView::slotRecentFileSelected);
 

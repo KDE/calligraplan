@@ -95,8 +95,6 @@ set(planui_LIB_SRCS
     kptworkpackagemergedialog.cpp
     kptrecalculatedialog.cpp
 
-    kpthtmlview.cpp
-
     locale/localemon.cpp
     kptlocaleconfigmoneydialog.cpp
 
@@ -160,13 +158,12 @@ target_link_libraries(planui
     PUBLIC
         planmain
         planmodels
-        KF5::KHtml
+        KF5::TextWidgets
     PRIVATE
         KChart
         KF5::ItemViews
         KF5::IconThemes
         KF5::Archive
-        KF5::TextWidgets
         KF5::KIOCore
         KF5::KIOFileWidgets
         KF5::KIOWidgets
