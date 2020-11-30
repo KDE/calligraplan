@@ -157,6 +157,55 @@ Project::~Project()
 
 int Project::type() const { return Node::Type_Project; }
 
+uint Project::status(const ScheduleManager *sm) const
+{
+    if (m_managerIdMap.isEmpty()) {
+        return State_NotScheduled;
+    }
+    uint st = Node::State_None;
+    if (sm) {
+        if (sm->isBaselined()) {
+            st |= State_Baselined;
+        }
+        if (!sm->isScheduled()) {
+            st |= State_NotScheduled;
+        }
+        if (sm->scheduling()) {
+            st |= State_Scheduling;
+        }
+    } else {
+        if (isBaselined()) {
+            st |= State_Baselined;
+        }
+    }
+    const QList<Task*> tasks = allTasks();
+    bool started = false;
+    bool finished = false;
+    bool first = true;
+    for (const Task *t : tasks) {
+        const Completion completion = t->completion();
+        switch (t->type()) {
+            case Type_Task:
+            case Type_Milestone:
+                started |= completion.isStarted();
+                if (first) {
+                    finished = completion.isFinished();
+                    first = false;
+                } else {
+                    finished &= completion.isFinished();
+                }
+            default: break;
+        }
+    }
+    if (started) {
+        st |= State_Started;
+    }
+    if (finished) {
+        st |= State_Finished;
+    }
+    return st;
+}
+
 void Project::generateUniqueNodeIds()
 {
     const auto nodes = nodeIdDict.values();
@@ -3208,18 +3257,17 @@ QList<ScheduleManager*> Project::allScheduleManagers() const
     return lst;
 }
 
-QString Project::uniqueScheduleName() const {
+QString Project::uniqueScheduleName(const ScheduleManager *parent) const {
     //debugPlan;
-    QString n = i18n("Plan");
+    QString n = parent ? parent->name() : i18n("Plan");
     bool unique = findScheduleManagerByName(n) == nullptr;
     if (unique) {
         return n;
     }
-    n += " %1";
+    n += parent ? ".%1" : " %1";
     int i = 1;
     for (; true; ++i) {
-        unique = findScheduleManagerByName(n.arg(i)) == nullptr;
-        if (unique) {
+        if (!findScheduleManagerByName(n.arg(i))) {
             break;
         }
     }
@@ -3322,10 +3370,10 @@ ScheduleManager *Project::createScheduleManager(const QString &name)
     return sm;
 }
 
-ScheduleManager *Project::createScheduleManager()
+ScheduleManager *Project::createScheduleManager(const ScheduleManager *parent)
 {
     //debugPlan;
-    return createScheduleManager(uniqueScheduleName());
+    return createScheduleManager(uniqueScheduleName(parent));
 }
 
 QString Project::uniqueScheduleManagerId() const

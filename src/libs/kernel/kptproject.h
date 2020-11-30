@@ -92,6 +92,7 @@ public:
     /// Returns the node type. Can be Type_Project or Type_Subproject.
     int type() const override;
 
+    uint status(const ScheduleManager *sm = nullptr) const;
     /**
      * Calculate the schedules managed by the schedule manager
      *
@@ -404,10 +405,10 @@ public:
     /// Find the schedule manager with @p id
     ScheduleManager *scheduleManager(const QString &id) const;
     /// Create a unique schedule name (This may later be changed by the user)
-    QString uniqueScheduleName() const;
+    QString uniqueScheduleName(const ScheduleManager *parent = nullptr) const;
     /// Create a unique schedule manager identity
     QString uniqueScheduleManagerId() const;
-    ScheduleManager *createScheduleManager();
+    ScheduleManager *createScheduleManager(const ScheduleManager *parent = nullptr);
     ScheduleManager *createScheduleManager(const QString &name);
     /// Returns a list of all top level schedule managers
     QList<ScheduleManager*> scheduleManagers() const { return m_managers; }
