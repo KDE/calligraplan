@@ -1603,6 +1603,7 @@ ScheduleManager::ScheduleManager(Project &project, const QString name)
     m_progress(0),
     m_maxprogress(0),
     m_expected(nullptr),
+    m_calculationresult({}),
     m_schedulingMode(false)
 {
     //debugPlan<<name;
