@@ -195,10 +195,34 @@ void Task::copySchedule()
 
 void Task::copyAppointments()
 {
-    copyAppointments(DateTime(), m_currentSchedule->startTime);
+    if (!isStarted() || completion().isFinished()) {
+        return;
+    }
+    int id = m_currentSchedule->parentScheduleId();
+    NodeSchedule *ns = static_cast<NodeSchedule*>(findSchedule(id));
+    if (ns == nullptr) {
+        return;
+    }
+    DateTime time = m_currentSchedule->recalculateFrom();
+    qreal plannedEffort = ns->plannedEffortTo(time).toDouble();
+    if (plannedEffort == 0.0) {
+        return; // nothing to do, should not happen but...
+    }
+    // Problem is that actual effort is pr day so try to be smart...
+    QDate date = time.time() == QTime() ? time.date() : time.date().addDays(1); // hmmm, review
+    qreal actualEffort = actualEffortTo(date).toDouble();
+    qreal scale = actualEffort / plannedEffort;
+    if (scale == 0.0) {
+        // can happen if task is started but nobody has done any work yet
+        scale = 1.0;
+    }
+    // Copy and adjust for performance to get reasonable bcws/bcwp/acwp values.
+    // This means the historical *planned* values will not match parent schedule,
+    // but then this *is* a new schedule, so more important to get totals etc to work.
+    copyAppointments(ns->startTime, time, scale);
 }
 
-void Task::copyAppointments(const DateTime &start, const DateTime &end)
+void Task::copyAppointments(const DateTime &start, const DateTime &end, qreal factor)
 {
     if (m_currentSchedule == 0 || type() != Node::Type_Task) {
         return;
@@ -217,7 +241,11 @@ void Task::copyAppointments(const DateTime &start, const DateTime &end)
             errorPlan<<"No resource";
             continue;
         }
-        AppointmentIntervalList lst = a->intervals(st, et);
+        AppointmentIntervalList lst;
+        for (AppointmentInterval i : a->intervals(st, et).map()) {
+            i.setLoad(i.load() * factor);
+            lst.add(i);
+        }
         if (lst.isEmpty()) {
             //debugPlan<<"No intervals to copy from"<<a;
             continue;
