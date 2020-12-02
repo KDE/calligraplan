@@ -181,6 +181,9 @@ public:
     /// Returns the planned effort for @p resource up to and including date
     virtual Duration plannedEffortTo(const Resource *resource, const QDate &date, EffortCostCalculationType type = ECCT_All) const;
 
+    /// Returns the planned effort up to and including @p time
+    virtual Duration plannedEffortTo(const QDateTime &time, EffortCostCalculationType type = ECCT_All) const;
+
     /**
      * Planned cost is the sum total of all resources and other costs
      * planned for this node.
