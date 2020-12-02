@@ -70,19 +70,21 @@ public:
 
     enum State { 
         State_None = 0,
-        State_Started = 1,
-        State_StartedLate = 2,
-        State_StartedEarly = 4,
-        State_Finished = 8,
-        State_FinishedLate = 16,
-        State_FinishedEarly = 32,
-        State_Running = 64,
-        State_RunningLate = 128,
-        State_RunningEarly = 256,
-        State_ReadyToStart = 512, // all preceding tasks finished (if any)
-        State_NotReadyToStart = 1024, // all preceding tasks not finished (must be one or more)
-        State_NotScheduled = 2048,
-        State_Late = 4096
+        State_Started           = 1 << 0,
+        State_StartedLate       = 1 << 1,
+        State_StartedEarly      = 1 << 2,
+        State_Finished          = 1 << 3,
+        State_FinishedLate      = 1 << 4,
+        State_FinishedEarly     = 1 << 5,
+        State_Running           = 1 << 6,
+        State_RunningLate       = 1 << 7,
+        State_RunningEarly      = 1 << 8,
+        State_ReadyToStart      = 1 << 9,  // all preceding tasks finished (if any)
+        State_NotReadyToStart   = 1 << 10, // all preceding tasks not finished (must be one or more)
+        State_NotScheduled      = 1 << 11,
+        State_Late              = 1 << 12,
+        State_Baselined         = 1 << 13,
+        State_Scheduling        = 1 << 14
     };
     Q_ENUM(State);
 
@@ -538,7 +540,7 @@ public:
     const ResourceRequestCollection &requests() const { return m_requests; }
     ResourceRequestCollection &requests() { return m_requests; }
     
-    virtual uint state(long) const { return State_None; }
+    virtual uint state(long id = ANYSCHEDULED) const { return State_None; }
     
     const Documents &documents() const { return m_documents; }
     Documents &documents() { return m_documents; }
