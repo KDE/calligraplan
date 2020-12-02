@@ -829,6 +829,19 @@ Duration Appointment::plannedEffortTo(const Resource *resource, QDate date, Effo
     return plannedEffortTo(date, type);
 }
 
+// Returns the planned effort upto time
+Duration Appointment::plannedEffortTo(const QDateTime &time, EffortCostCalculationType type) const {
+    Duration d;
+    if (type == ECCT_All || m_resource == nullptr || m_resource->resource()->type() == Resource::Type_Work) {
+        const auto intervals = this->intervals(startTime(), time).map().values();
+        for (const AppointmentInterval &i : intervals) {
+            d += i.effort(i.startTime(), time); // upto e, not including
+        }
+    }
+    //debugPlan<<date<<d.toString();
+    return d;
+}
+
 EffortCostMap Appointment::plannedPrDay(QDate pstart, QDate pend, EffortCostCalculationType type) const {
     //debugPlan<<m_node->id()<<","<<m_resource->id();
     EffortCostMap ec;

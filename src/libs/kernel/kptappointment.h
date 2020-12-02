@@ -234,6 +234,9 @@ public:
     /// Returns the planned effort upto and including date
     Duration plannedEffortTo(const Resource *resource, QDate date, EffortCostCalculationType type = ECCT_All) const;
 
+    /// Returns the planned effort upto and including @p time
+    Duration plannedEffortTo(const QDateTime &time, EffortCostCalculationType type = ECCT_All) const;
+
      /// Calculates the total planned cost for this appointment
     EffortCost plannedCost(EffortCostCalculationType type = ECCT_All) const;
     /// Calculates the planned cost on date
