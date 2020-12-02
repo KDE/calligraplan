@@ -63,24 +63,38 @@ int ChartItemModel::columnCount(const QModelIndex &/*parent*/) const
 
 int ChartItemModel::rowCount(const QModelIndex &parent) const
 {
-    return parent.isValid() ? 0 : startDate().daysTo(endDate()) + 1;
+    if (parent.isValid()) {
+        return 0;
+    }
+    const QDate start = startDate();
+    const QDate end = endDate();
+    if (!start.isValid() || !end.isValid()) {
+        return 0;
+    }
+    return start.daysTo(end) + 1;
 }
 
 QModelIndex ChartItemModel::index(int row, int column, const QModelIndex &parent) const
 {
+    if (parent.isValid()) {
+        return QModelIndex();
+    }
     if (m_project == nullptr || row < 0 || column < 0) {
         //debugPlan<<"No project"<<m_project<<" or illegal row, column"<<row<<column;
         return QModelIndex();
     }
-    if (parent.isValid()) {
+    if (row >= rowCount()) {
         return QModelIndex();
     }
-    return createIndex(row, column);
+    QModelIndex i = createIndex(row, column);
+    return i;
 }
 
 double ChartItemModel::bcwsEffort(int day) const
 {
-    return m_bcws.hoursTo(startDate().addDays(day));
+    const QDate date = startDate().addDays(day);
+    double v = m_bcws.hoursTo(date);
+    return v;
 }
 
 double ChartItemModel::bcwpEffort(int day) const
@@ -171,9 +185,9 @@ QVariant ChartItemModel::data(const QModelIndex &index, int role) const
             case BCWSCost: result = planLocale->formatMoney(bcwsCost(index.row()), QString(), 0); break;
             case BCWPCost: result = planLocale->formatMoney(bcwpCost(index.row()), QString(), 0); break;
             case ACWPCost: result = planLocale->formatMoney(acwpCost(index.row()), QString(), 0); break;
-            case BCWSEffort: result = locale.toString(bcwsEffort(index.row()), 'f', 0); break;
-            case BCWPEffort: result = locale.toString(bcwpEffort(index.row()), 'f', 0); break;
-            case ACWPEffort: result = locale.toString(acwpEffort(index.row()), 'f', 0); break;
+            case BCWSEffort: result = locale.toString(bcwsEffort(index.row()), 'f', 1); break;
+            case BCWPEffort: result = locale.toString(bcwpEffort(index.row()), 'f', 1); break;
+            case ACWPEffort: result = locale.toString(acwpEffort(index.row()), 'f', 1); break;
             case SPICost: result = locale.toString(spiCost(index.row()), 'f', 2); break;
             case CPICost: result = locale.toString(cpiCost(index.row()), 'f', 2); break;
             case SPIEffort: result = locale.toString(spiEffort(index.row()), 'f', 2); break;
@@ -425,7 +439,7 @@ QDate ChartItemModel::endDate() const
 
 void ChartItemModel::calculate()
 {
-    //debugPlan<<m_project<<m_manager<<m_nodes;
+    //debugPlan<<this<<m_project<<m_manager<<m_nodes;
     m_bcws.clear();
     m_acwp.clear();
     if (m_manager) {
@@ -454,11 +468,18 @@ void ChartItemModel::setLocalizeValues(bool on)
     m_localizeValues = on;
 }
 
+int ChartItemModel::rowForDate(const QDate &date) const
+{
+    return std::min(rowCount()-1, static_cast<int>(startDate().daysTo(date)));
+}
+
 //-------------------------
 PerformanceDataCurrentDateModel::PerformanceDataCurrentDateModel(QObject *parent)
-    : ChartItemModel(parent)
+    : QAbstractProxyModel(parent)
 {
-    setLocalizeValues(true);
+    ChartItemModel *m = new ChartItemModel(this);
+    m->setLocalizeValues(true);
+    setSourceModel(m);
 }
 
 
@@ -475,6 +496,11 @@ int PerformanceDataCurrentDateModel::columnCount(const QModelIndex &/*parent*/) 
     return 5;
 }
 
+QModelIndex PerformanceDataCurrentDateModel::parent(const QModelIndex &idx) const
+{
+    return QModelIndex();
+}
+
 QModelIndex PerformanceDataCurrentDateModel::index(int row, int column, const QModelIndex &parent) const
 {
     if (parent.isValid()) {
@@ -485,7 +511,9 @@ QModelIndex PerformanceDataCurrentDateModel::index(int row, int column, const QM
 
 QVariant PerformanceDataCurrentDateModel::data(const QModelIndex &idx, int role) const
 {
-    return ChartItemModel::data(mapIndex(idx), role);
+    const QModelIndex i = mapToSource(idx);
+    QVariant v = sourceModel()->data(i, role);
+    return v;
 }
 
 QVariant PerformanceDataCurrentDateModel::headerData(int section, Qt::Orientation o, int role) const
@@ -528,28 +556,95 @@ QVariant PerformanceDataCurrentDateModel::headerData(int section, Qt::Orientatio
     return QVariant();
 }
 
-QModelIndex PerformanceDataCurrentDateModel::mapIndex(const QModelIndex &idx) const
+QModelIndex PerformanceDataCurrentDateModel::mapToSource(const QModelIndex &idx) const
 {
-    if (! startDate().isValid()) {
+    if (! startDate().isValid() || sourceModel()->rowCount() == 0) {
         return QModelIndex();
     }
-    int row = startDate().daysTo(QDate::currentDate());
+    int row = qobject_cast<ChartItemModel*>(sourceModel())->rowForDate(QDate::currentDate());
     if (row < 0) {
         return QModelIndex();
     }
     int column = -1;
     switch (idx.column()) {
-        case 0: column = idx.row() == 0 ? BCWSCost : BCWSEffort; break; // BCWS
-        case 1: column = idx.row() == 0 ? BCWPCost : BCWPEffort; break; // BCWP
-        case 2: column = idx.row() == 0 ? ACWPCost : ACWPEffort; break; // ACWP
-        case 3: column = idx.row() == 0 ? SPICost : SPIEffort; break; // SPI
-        case 4: column = idx.row() == 0 ? CPICost : CPIEffort; break; // CPI
+        case 0: column = idx.row() == 0 ? ChartItemModel::BCWSCost : ChartItemModel::BCWSEffort; break; // BCWS
+        case 1: column = idx.row() == 0 ? ChartItemModel::BCWPCost : ChartItemModel::BCWPEffort; break; // BCWP
+        case 2: column = idx.row() == 0 ? ChartItemModel::ACWPCost : ChartItemModel::ACWPEffort; break; // ACWP
+        case 3: column = idx.row() == 0 ? ChartItemModel::SPICost : ChartItemModel::SPIEffort; break; // SPI
+        case 4: column = idx.row() == 0 ? ChartItemModel::CPICost : ChartItemModel::CPIEffort; break; // CPI
         default: break;
     }
     if (column < 0) {
         return QModelIndex();
     }
-    return ChartItemModel::index(row, column);
+    const QModelIndex i = sourceModel()->index(row, column);
+    return i;
+}
+
+QModelIndex PerformanceDataCurrentDateModel::mapFromSource(const QModelIndex &sourceIndex) const
+{
+    int col = sourceIndex.column();
+    int row = 0;
+    if (col > columnCount()) {
+        col -= columnCount();
+        row = 1;
+    }
+    return createIndex(row, col);
+}
+
+QDate PerformanceDataCurrentDateModel::startDate() const
+{
+    return qobject_cast<ChartItemModel*>(sourceModel())->startDate();
+}
+
+QDate PerformanceDataCurrentDateModel::endDate() const
+{
+    return qobject_cast<ChartItemModel*>(sourceModel())->endDate();
+}
+
+Project *PerformanceDataCurrentDateModel::project() const
+{
+    return qobject_cast<ChartItemModel*>(sourceModel())->project();
+}
+
+ScheduleManager *PerformanceDataCurrentDateModel::scheduleManager() const
+{
+    return qobject_cast<ChartItemModel*>(sourceModel())->scheduleManager();
+}
+
+bool PerformanceDataCurrentDateModel::isReadWrite() const
+{
+    return qobject_cast<ChartItemModel*>(sourceModel())->isReadWrite();
+}
+
+void PerformanceDataCurrentDateModel::setNodes(const QList<Node*> &nodes)
+{
+    qobject_cast<ChartItemModel*>(sourceModel())->setNodes(nodes);
+}
+
+void PerformanceDataCurrentDateModel::addNode(Node *node)
+{
+    qobject_cast<ChartItemModel*>(sourceModel())->addNode(node);
+}
+
+void PerformanceDataCurrentDateModel::clearNodes()
+{
+    qobject_cast<ChartItemModel*>(sourceModel())->clearNodes();
+}
+
+void PerformanceDataCurrentDateModel::setProject(KPlato::Project *project)
+{
+    qobject_cast<ChartItemModel*>(sourceModel())->setProject(project);
+}
+
+void PerformanceDataCurrentDateModel::setScheduleManager(KPlato::ScheduleManager *sm)
+{
+    qobject_cast<ChartItemModel*>(sourceModel())->setScheduleManager(sm);
+}
+
+void PerformanceDataCurrentDateModel::setReadWrite(bool rw)
+{
+    qobject_cast<ChartItemModel*>(sourceModel())->setReadWrite(rw);
 }
 
 } //namespace KPlato
