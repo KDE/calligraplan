@@ -600,7 +600,8 @@ public:
     /// Copy intervals from parent schedule
     void copyAppointments();
     /// Copy intervals from parent schedule in the range @p start, @p end
-    void copyAppointments(const DateTime &start, const DateTime &end = DateTime());
+    /// All interval loads are scaled with @p factor
+    void copyAppointments(const DateTime &start, const DateTime &end = DateTime(), qreal factor = 1.0);
 
 Q_SIGNALS:
     void workPackageToBeAdded(KPlato::Node *node, int row);
