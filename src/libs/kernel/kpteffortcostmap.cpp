@@ -94,6 +94,42 @@ void EffortCostMap::addBcwpCost(const QDate &date, double cost)
     m_days[ date ] = ec;
 }
 
+double EffortCostMap::costTo(QDate date) const {
+    double cost = 0.0;
+    EffortCostDayMap::const_iterator it;
+    for(it = m_days.constBegin(); it != m_days.constEnd(); ++it) {
+        if (it.key() > date) {
+            break;
+        }
+        cost += it.value().cost();
+    }
+    return cost;
+}
+
+Duration EffortCostMap::effortTo(QDate date) const {
+    Duration eff;
+    EffortCostDayMap::const_iterator it;
+    for(it = m_days.constBegin(); it != m_days.constEnd(); ++it) {
+        if (it.key() > date) {
+            break;
+        }
+        eff += it.value().effort();
+    }
+    return eff;
+}
+
+double EffortCostMap::hoursTo(QDate date) const {
+    double eff = 0.0;
+    EffortCostDayMap::const_iterator it;
+    for(it = m_days.constBegin(); it != m_days.constEnd(); ++it) {
+        if (it.key() > date) {
+            break;
+        }
+        eff += it.value().hours();
+    }
+    return eff;
+}
+
 double EffortCostMap::bcwpCost(const QDate &date) const
 {
     double v = 0.0;

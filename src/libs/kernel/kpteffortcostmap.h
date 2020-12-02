@@ -223,39 +223,10 @@ public:
         return eff;
     }
     
-    double costTo(QDate date) const {
-        double cost = 0.0;
-        EffortCostDayMap::const_iterator it;
-        for(it = m_days.constBegin(); it != m_days.constEnd(); ++it) {
-            if (it.key() > date) {
-                break;
-            }
-            cost += it.value().cost();
-        }
-        return cost;
-    }
-    Duration effortTo(QDate date) const {
-        Duration eff;
-        EffortCostDayMap::const_iterator it;
-        for(it = m_days.constBegin(); it != m_days.constEnd(); ++it) {
-            if (it.key() > date) {
-                break;
-            }
-            eff += it.value().effort();
-        }
-        return eff;
-    }
-    double hoursTo(QDate date) const {
-        double eff = 0.0;
-        EffortCostDayMap::const_iterator it;
-        for(it = m_days.constBegin(); it != m_days.constEnd(); ++it) {
-            if (it.key() > date) {
-                break;
-            }
-            eff += it.value().hours();
-        }
-        return eff;
-    }
+    double costTo(QDate date) const;
+    Duration effortTo(QDate date) const;
+    double hoursTo(QDate date) const;
+
     /// Return the BCWP cost to @p date. (BSWP is cumulative)
     double bcwpCost(const QDate &date) const;
     /// Return the BCWP effort to @p date. (BSWP is cumulative)
