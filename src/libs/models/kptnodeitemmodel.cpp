@@ -114,6 +114,12 @@ QVariant NodeModel::name(const Node *node, int role) const
         case Qt::WhatsThisRole:
             return QVariant();
         case Qt::DecorationRole:
+            if (node->type() == Node::Type_Project) {
+                uint st = static_cast<const Project*>(node)->status();
+                if (st &= Node::State_Finished) {
+                    return koIcon("end-of-life");
+                }
+            }
             if (node->isBaselined()) {
                 return koIcon("view-time-schedule-baselined");
             }
