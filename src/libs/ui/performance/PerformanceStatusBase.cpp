@@ -509,7 +509,7 @@ void PerformanceStatusBase::setScheduleManager(ScheduleManager *sm)
     }
     m_manager = sm;
     m_chartmodel.setScheduleManager(sm);
-    static_cast<PerformanceDataCurrentDateModel*>(ui_performancetable->model())->setScheduleManager(sm);
+    qobject_cast<PerformanceDataCurrentDateModel*>(ui_performancetable->model())->setScheduleManager(sm);
 }
 
 void PerformanceStatusBase::setProject(Project *project)
@@ -522,7 +522,7 @@ void PerformanceStatusBase::setProject(Project *project)
         connect(m_project, &Project::localeChanged, this, &PerformanceStatusBase::slotLocaleChanged);
     }
     m_chartmodel.setProject(project);
-    static_cast<PerformanceDataCurrentDateModel*>(ui_performancetable->model())->setProject(project);
+    qobject_cast<PerformanceDataCurrentDateModel*>(ui_performancetable->model())->setProject(project);
 
     slotLocaleChanged();
 }
@@ -607,7 +607,7 @@ KoPrintJob *PerformanceStatusBase::createPrintJob(ViewBase *parent)
 void PerformanceStatusBase::setNodes(const QList<Node *> &nodes)
 {
     m_chartmodel.setNodes(nodes);
-    static_cast<PerformanceDataCurrentDateModel*>(ui_performancetable->model())->setNodes(nodes);
+    qobject_cast<PerformanceDataCurrentDateModel*>(ui_performancetable->model())->setNodes(nodes);
 }
 
 

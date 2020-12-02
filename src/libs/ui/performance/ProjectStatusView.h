@@ -67,7 +67,6 @@ public:
 
     void setupGui();
     Project *project() const override { return m_project; }
-    void setProject(Project *project) override;
 
     /// Loads context info into this view. Reimplement.
     bool loadContext(const KoXmlElement &/*context*/) override;
@@ -80,6 +79,7 @@ public Q_SLOTS:
     /// Activate/deactivate the gui
     void setGuiActive(bool activate) override;
 
+    void setProject(Project *project) override;
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void slotEditCopy() override;
 
