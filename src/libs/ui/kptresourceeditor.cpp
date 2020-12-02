@@ -230,14 +230,9 @@ void ResourceEditor::slotContextMenuRequested(const QModelIndex &index, const QP
     //debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
     QString name;
     if (index.isValid()) {
-        ResourceGroup *g = m_view->model()->group(index);
-        if (g) {
-            //name = "resourceeditor_group_popup";
-        } else {
-            Resource *r = m_view->model()->resource(index);
-            if (r && !r->isShared()) {
-                name = "resourceeditor_resource_popup";
-            }
+        Resource *r = m_view->model()->resource(index);
+        if (r && !r->isShared()) {
+            name = "resourceeditor_resource_popup";
         }
     }
     m_view->setContextMenuIndex(index);
