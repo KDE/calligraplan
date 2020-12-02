@@ -643,6 +643,17 @@ Duration Schedule::plannedEffortTo(const Resource *resource, const QDate &date, 
     return eff;
 }
 
+Duration Schedule::plannedEffortTo(const QDateTime &time, EffortCostCalculationType type) const
+{
+    //debugPlan;
+    Duration eff;
+    QListIterator<Appointment*> it(m_appointments);
+    while (it.hasNext()) {
+        eff += it.next() ->plannedEffortTo(time, type);
+    }
+    return eff;
+}
+
 EffortCost Schedule::plannedCost(EffortCostCalculationType type) const
 {
     //debugPlan;
