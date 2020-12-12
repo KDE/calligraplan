@@ -344,6 +344,34 @@ void KoView::setupGlobalActions()
     actionCollection()->addAction("settings_active_author", d->actionAuthor);
 
     slotUpdateAuthorProfileActions();
+
+    KoMainWindow *mw = mainWindow();
+    Q_ASSERT(mw);
+    auto *mainColl = mw->actionCollection();
+    // File
+    actionCollection()->addAction("file_new", mainColl->action("file_new"));
+    actionCollection()->addAction("file_open", mainColl->action("file_open"));
+    actionCollection()->addAction("file_open_recent", mainColl->action("file_open_recent"));
+    actionCollection()->addAction("file_save", mainColl->action("file_save"));
+    actionCollection()->addAction("file_save_as", mainColl->action("file_save_as"));
+    actionCollection()->addAction("file_open_recent", mainColl->action("file_open_recent"));
+    //actionCollection()->addAction("file_reload_file", mainColl->action("file_reload_file"));
+    actionCollection()->addAction("file_import_file", mainColl->action("file_import_file"));
+    actionCollection()->addAction("file_export_file", mainColl->action("file_export_file"));
+    actionCollection()->addAction("file_send_file", mainColl->action("file_send_file"));
+    actionCollection()->addAction("file_print", mainColl->action("file_print"));
+    actionCollection()->addAction("file_print_preview", mainColl->action("file_print_preview"));
+    actionCollection()->addAction("file_export_pdf", mainColl->action("file_export_pdf"));
+    actionCollection()->addAction("file_print_preview", mainColl->action("file_print_preview"));
+    actionCollection()->addAction("file_documentinfo", mainColl->action("file_documentinfo"));
+    actionCollection()->addAction("file_close", mainColl->action("file_close"));
+    
+    // View
+    actionCollection()->addAction("view_newview", mainColl->action("view_newview"));
+    
+    // Settings
+    actionCollection()->addAction("view_toggledockertitlebars", mainColl->action("view_toggledockertitlebars"));
+    actionCollection()->addAction("settings_dockers_menu", mainColl->action("settings_dockers_menu"));
 }
 
 void KoView::changeAuthorProfile(const QString &profileName)

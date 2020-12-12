@@ -2,20 +2,42 @@
 <gui name="Calligra Plan" version="55" translationDomain="calligraplan">
     <MenuBar>
         <Menu name="file"><text>&amp;File</text>
+            <Action name="file_new" />
+            <Action name="activeauthor" />
+            <Action name="file_open" />
+            <Action name="file_open_recent" />
+            <Separator />
+            <Action name="file_save" />
+            <Action name="file_save_as" />
+            <Action name="file_reload_file" />
+            <Action name="file_versions_file"/>
+            <Separator />
+            <Action name="file_import_file" />
+            <Action name="file_export_file" />
+            <Action name="file_send_file" />
+            <Separator />
+            <Merge/>
+            <Separator />
+            <Action name="file_print" />
+            <Action name="file_print_preview" />
+            <Action name="file_export_pdf" />
             <Separator/>
             <Action name="file_createtemplate"/>
             <Action name="file_createnewproject"/>
+            <Separator/>
+            <Action name="file_documentinfo" />
+            <DefineGroup name="file_infos" />
+            <Separator />
+            <Action name="file_close" />
         </Menu>
        <Menu name="edit"><text>&amp;Edit</text>
             <Action name="edit_undo"/>
             <Action name="edit_redo"/>
             <Separator/>
-            <ActionList name="edit_copypaste"/>
-            <Separator/>
-            <!--            <Action name="edit_cut"/>
+<!--             <Action name="edit_cut"/> -->
             <Action name="edit_copy"/>
             <Action name="edit_paste"/>
-            <Separator/> -->
+            <Separator/> 
         </Menu>
         <Menu name="view"><text>&amp;View</text>
             <Action name="view_newview"/>
@@ -38,13 +60,25 @@
             <Action name="reportdesigner_open_file"/>
         </Menu>
         <Menu name="settings"><text>&amp;Settings</text>
+            <Action name="view_toggledockertitlebars" group="settings_configure"/>
+            <Action name="settings_dockers_menu" group="settings_configure"/>
+            <Separator/>
             <Action name="configure" group="settings_configure"/>
         </Menu>
         <Menu name="help"><text>&amp;Help</text>
             <Action name="plan_introduction"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="edit" position="top"><Text>Edit</Text>
+    <ToolBar name="mainToolBar" fullWidth="false" noMerge="1"><Text>File</Text>
+        <Action name="file_new" />
+        <Action name="file_open" />
+        <Action name="file_save" />
+        <!--
+        <Action name="file_print" />
+        <Action name="file_print_preview" />
+        //-->
+    </ToolBar>
+    <ToolBar name="edit"><Text>Edit</Text>
         <Action name="edit_undo"/>
         <Action name="edit_redo"/>
     </ToolBar>

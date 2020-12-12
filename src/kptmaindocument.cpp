@@ -99,11 +99,14 @@ MainDocument::MainDocument(KoPart *part)
     m_project->registerNodeId(m_project); // register myself
 
     connect(this, &MainDocument::insertSharedProject, this, &MainDocument::slotInsertSharedProject);
+
+    qInfo()<<Q_FUNC_INFO<<this;
 }
 
 
 MainDocument::~MainDocument()
 {
+    qInfo()<<Q_FUNC_INFO<<this;
     qDeleteAll(m_schedulerPlugins);
     if (m_project) {
         m_project->deref(); // deletes if last user
@@ -820,11 +823,6 @@ void MainDocument::terminateWorkPackage(const Package *package)
     }
 }
 
-void MainDocument::paintContent(QPainter &, const QRect &)
-{
-    // Don't embed this app!!!
-}
-
 void MainDocument::slotViewDestroyed()
 {
 }
@@ -870,7 +868,11 @@ bool MainDocument::completeLoading(KoStore *store)
     if (m_project->useSharedResources() && !m_project->sharedResourcesFile().isEmpty() && !m_skipSharedProjects) {
         QUrl url = QUrl::fromLocalFile(m_project->sharedResourcesFile());
         if (url.isValid()) {
-            insertResourcesFile(url, m_project->loadProjectsAtStartup() ? m_project->sharedProjectsUrl() : QUrl());
+            QUrl projectsUrl;
+            if (!property(BLOCKSHAREDPROJECTSLOADING).toBool() && m_project->loadProjectsAtStartup()) {
+                projectsUrl = m_project->sharedProjectsUrl();
+            }
+            insertResourcesFile(url, projectsUrl);
         }
     }
     if (store == nullptr) {
@@ -1118,18 +1120,15 @@ void MainDocument::slotInsertSharedProject()
     doc->openUrl(m_sharedProjectsFiles.takeFirst());
 }
 
-void MainDocument::insertSharedProjectCompleted()
+void MainDocument::insertSharedResourceAssignments(const KPlato::Project *project)
 {
-    debugPlanShared<<sender();
-    MainDocument *doc = qobject_cast<MainDocument*>(sender());
-    if (doc) {
-        Project &p = doc->getProject();
-        debugPlanShared<<m_project->id()<<"Loaded project:"<<p.id()<<p.name();
-        if (p.id() != m_project->id() && p.isScheduled(ANYSCHEDULED)) {
-            // FIXME: improve!
+    debugPlanShared<<m_project->id()<<"Loaded project:"<<project->id()<<project->name();
+    if (project->id() != m_project->id() && project->isScheduled(ANYSCHEDULED)) {
+        ScheduleManager *sm = project->findScheduleManagerByName(project->property("schedulemanager-name").toString());
+        if (!sm) {
+            debugPlanShared<<"manager ("<<project->property("schedulemanager-name")<<") not set, search for a suitable one";
             // find a suitable schedule
-            ScheduleManager *sm = nullptr;
-            const QList<ScheduleManager*> managers = p.allScheduleManagers();
+            const QList<ScheduleManager*> managers = project->allScheduleManagers();
             for (ScheduleManager *m : managers) {
                 if (m->isBaselined()) {
                     sm = m;
@@ -1139,27 +1138,38 @@ void MainDocument::insertSharedProjectCompleted()
                     sm = m; // take the last one, more likely to be subschedule
                 }
             }
-            if (sm) {
-                const QList<Resource*> resources = p.resourceList();
-                for (Resource *r : resources ) {
-                    Resource *res = m_project->resource(r->id());
-                    if (res && res->isShared()) {
-                        Appointment *app = new Appointment();
-                        app->setAuxcilliaryInfo(p.name());
-                        const QList<Appointment*> appointments = r->appointments(sm->scheduleId());
-                        for (const Appointment *a : appointments) {
-                            *app += *a;
-                        }
-                        if (app->isEmpty()) {
-                            delete app;
-                        } else {
-                            res->addExternalAppointment(p.id(), app);
-                            debugPlanShared<<res->name()<<"added:"<<app->auxcilliaryInfo()<<app;
-                        }
+        }
+        debugPlanShared<<"manager"<<sm;
+        if (sm) {
+            debugPlanShared<<"manager"<<sm->name();
+            const QList<Resource*> resources = project->resourceList();
+            for (Resource *r : resources ) {
+                Resource *res = m_project->resource(r->id());
+                if (res && res->isShared()) {
+                    Appointment *app = new Appointment();
+                    app->setAuxcilliaryInfo(project->name());
+                    const QList<Appointment*> appointments = r->appointments(sm->scheduleId());
+                    for (const Appointment *a : appointments) {
+                        *app += *a;
+                    }
+                    if (app->isEmpty()) {
+                        delete app;
+                    } else {
+                        res->addExternalAppointment(project->id(), app);
+                        debugPlanShared<<res->name()<<"added:"<<app->auxcilliaryInfo()<<app;
                     }
                 }
             }
         }
+    }
+}
+
+void MainDocument::insertSharedProjectCompleted()
+{
+    debugPlanShared<<sender();
+    MainDocument *doc = qobject_cast<MainDocument*>(sender());
+    if (doc) {
+        insertSharedResourceAssignments(doc->project());
         doc->documentPart()->deleteLater(); // also deletes document
         m_isLoading = false;
         emit insertSharedProject(); // do next file

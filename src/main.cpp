@@ -18,11 +18,14 @@
 */
 
 // clazy:excludeall=qstring-arg
+#include "kptfactory.h"
 #include "kptaboutdata.h"
 #include "kptmaindocument.h"
+#include "calligraplansettings.h"
 
 #include <KoApplication.h>
 #include <Calligra2Migration.h>
+#include <Help.h>
 
 #include <QApplication>
 #include <QLoggingCategory>
@@ -49,10 +52,11 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
     m.setConfigFiles(QStringList() << QStringLiteral("planrc"));
     m.setUiFiles(QStringList() << QStringLiteral("plan.rc") << QStringLiteral("plan_readonly.rc"));
     m.migrate();
-    
-    if (!app.start()) {
-	return 1;
-    }
 
+    new KPlato::Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
+
+    if (!app.start(KPlato::Factory::global())) {
+        return 1;
+    }
     return app.exec();
 }

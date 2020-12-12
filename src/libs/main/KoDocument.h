@@ -47,6 +47,13 @@ class KoXmlWriter;
 
 class QDomDocument;
 
+// Define extra properties to KPlato::MainDocument
+#define ISPORTFOLIO "is-portfolio"
+#define SCHEDULEMANAGERNAME "schedulemanager-name"
+#define SCHEDULINGCONTROL "scheduling-control"
+#define SCHEDULINGPRIORITY "scheduling-priority"
+#define BLOCKSHAREDPROJECTSLOADING "blocksharedprojectsloading"
+
 // MSVC seems to need to know the declaration of the classes
 // we pass references of in, when used by external modules
 // e.g.
@@ -268,14 +275,6 @@ public:
      */
     virtual QPixmap generatePreview(const QSize& size);
 
-    /**
-     *  Paints the data itself.
-     *  It's this method that %Calligra Parts have to implement.
-     *
-     *  @param painter     The painter object onto which will be drawn.
-     *  @param rect        The rect that should be used in the painter object.
-     */
-    virtual void paintContent(QPainter &painter, const QRect &rect) = 0;
 
     /**
      *  Tells the document that its title has been modified, either because

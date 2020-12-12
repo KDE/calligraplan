@@ -27,6 +27,7 @@
 #include "welcome/WelcomeView.h"
 #include "Help.h"
 #include "calligraplansettings.h"
+#include "kptcommand.h"
 #include "kptdebug.h"
 
 #include <KoComponentData.h>
@@ -41,6 +42,8 @@
 
 #include <QStackedWidget>
 #include <QDesktopServices>
+#include <QPointer>
+#include <QUrl>
 
 using namespace KPlato;
 
@@ -61,6 +64,11 @@ void Part::setDocument(KPlato::MainDocument *document)
 {
     KoPart::setDocument(document);
     m_document = document;
+}
+
+KoDocument *Part::createDocument(KoPart *part) const
+{
+    return new MainDocument(part);
 }
 
 KoView *Part::createViewInstance(KoDocument *document, QWidget *parent)
@@ -91,27 +99,9 @@ KoMainWindow *Part::createMainWindow()
     return w;
 }
 
-void Part::slotHelpContents()
-{
-    Help::invoke(QUrl::fromUserInput(KPlatoSettings::documentationPath()));
-}
-
 void Part::showStartUpWidget(KoMainWindow *parent)
 {
-    m_toolbarVisible = parent->factory()->container("mainToolBar", parent)->isVisible();
-    if (m_toolbarVisible) {
-        parent->factory()->container("mainToolBar", parent)->hide();
-    }
-
-    if (startUpWidget) {
-        startUpWidget->show();
-    } else {
-        createStarUpWidget(parent);
-        parent->setCentralWidget(startUpWidget);
-    }
-
-    parent->setPartToOpen(this);
-
+    Q_UNUSED(parent)
 }
 
 void Part::slotOpenTemplate(const QUrl &url)
@@ -119,13 +109,17 @@ void Part::slotOpenTemplate(const QUrl &url)
     openTemplate(url);
 }
 
-void Part::openTemplate(const QUrl &url)
+bool Part::openTemplate(const QUrl &url)
 {
     debugPlan<<"Open shared resources template:"<<url;
     m_document->setLoadingTemplate(true);
     m_document->setLoadingSharedResourcesTemplate(url.fileName() == "SharedResources.plant");
-    KoPart::openTemplate(url);
+    bool res = KoPart::openTemplate(url);
     m_document->setLoadingTemplate(false);
+    if (res) {
+        finish();
+    }
+    return res;
 }
 
 bool Part::openProjectTemplate(const QUrl &url)
@@ -157,41 +151,12 @@ void Part::openTaskModule(const QUrl &url)
     mainWindows().first()->openDocument(part, url);
 }
 
-void Part::createStarUpWidget(KoMainWindow *parent)
-{
-    startUpWidget = new QStackedWidget(parent);
-
-    startUpWidget->addWidget(createWelcomeView(parent));
-}
-
 void Part::finish()
 {
     mainWindows().first()->setRootDocument(document(), this);
     if (m_toolbarVisible) {
         KoPart::mainWindows().first()->factory()->container("mainToolBar", mainWindows().first())->show();
     }
-}
-
-QWidget *Part::createWelcomeView(KoMainWindow *mw)
-{
-    MainDocument *doc = static_cast<MainDocument*>(document());
-
-    WelcomeView *v = new WelcomeView(this, doc, startUpWidget);
-    v->setProject(&(doc->getProject()));
-
-    KSharedConfigPtr configPtr = Factory::global().config();
-    KRecentFilesAction recent("x", nullptr);
-    recent.loadEntries(configPtr->group("RecentFiles"));
-    v->setRecentFiles(recent.actions());
-
-    connect(v, &WelcomeView::loadSharedResources, doc, &MainDocument::insertResourcesFile);
-    connect(v, &WelcomeView::recentProject, mw, &KoMainWindow::slotFileOpenRecent);
-    connect(v, &WelcomeView::projectCreated, doc, &MainDocument::slotProjectCreated);
-    connect(v, &WelcomeView::finished, this, &Part::finish);
-
-    connect(v, &WelcomeView::openTemplate, this, &Part::slotOpenTemplate);
-
-    return v;
 }
 
 void Part::configure(KoMainWindow *mw)
@@ -211,4 +176,43 @@ void Part::slotSettingsUpdated()
     if (startUpWidget) {
         static_cast<WelcomeView*>(startUpWidget->widget(0))->setProjectTemplatesModel();
     }
+}
+
+bool Part::editProject()
+{
+    MainDocument *doc = qobject_cast<MainDocument*>(document());
+    Q_ASSERT(doc);
+    QPointer<MainProjectDialog> dia = new MainProjectDialog(*doc->project());
+    connect(dia.data(), &MainProjectDialog::sigLoadSharedResources, this, &Part::slotLoadSharedResources);
+    int res = dia->exec();
+    if (res == QDialog::Accepted) {
+        MacroCommand *cmd = dia->buildCommand();
+        if (cmd) {
+            cmd->execute();
+            delete cmd;
+            document()->setModified(true);
+        }
+        doc->slotProjectCreated();
+        finish();
+    }
+    dia->deleteLater();
+    return res == QDialog::Accepted;
+}
+
+void Part::slotLoadSharedResources(const QString &file, const QUrl &projects, bool loadProjectsAtStartup)
+{
+    MainDocument *doc = qobject_cast<MainDocument*>(document());
+    Q_ASSERT(doc);
+    QUrl url(file);
+    if (url.scheme().isEmpty()) {
+        url.setScheme("file");
+    }
+    if (url.isValid()) {
+        doc->insertResourcesFile(url, loadProjectsAtStartup ? projects : QUrl());
+    }
+}
+
+QString Part::recentFilesGroupName() const
+{
+    return QStringLiteral("Recent Projects");
 }

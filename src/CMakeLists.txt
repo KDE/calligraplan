@@ -101,6 +101,8 @@ if(BUILD_TESTING)
 endif()
 
 add_subdirectory( workpackage )
+add_subdirectory(group)
+#add_subdirectory(qmlgroup)
 
 include_directories(${PLAN_INCLUDES})
 
@@ -230,7 +232,7 @@ if (APPLE)
    install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplan_KDEINIT_SRCS.icns DESTINATION ${BUNDLE_INSTALL_DIR}/calligraplan.app/Contents/Resources)
 endif ()
 
-target_link_libraries(kdeinit_calligraplan planmain)
+target_link_libraries(kdeinit_calligraplan planmain planprivate)
 
 install(TARGETS kdeinit_calligraplan  ${INSTALL_TARGETS_DEFAULT_ARGS})
 

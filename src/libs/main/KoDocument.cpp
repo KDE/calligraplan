@@ -1104,43 +1104,9 @@ bool KoDocument::savePreview(KoStore *store)
     return true;
 }
 
-QPixmap KoDocument::generatePreview(const QSize& size)
+QPixmap KoDocument::generatePreview(const QSize& /*size*/)
 {
-    qreal docWidth, docHeight;
-    int pixmapSize = qMax(size.width(), size.height());
-
-    if (d->pageLayout.width > 1.0) {
-        docWidth = d->pageLayout.width / 72 * KoDpi::dpiX();
-        docHeight = d->pageLayout.height / 72 * KoDpi::dpiY();
-    } else {
-        // If we don't have a page layout, just draw the top left hand corner
-        docWidth = 500.0;
-        docHeight = 500.0;
-    }
-
-    qreal ratio = docWidth / docHeight;
-
-    int previewWidth, previewHeight;
-    if (ratio > 1.0) {
-        previewWidth = (int) pixmapSize;
-        previewHeight = (int)(pixmapSize / ratio);
-    } else {
-        previewWidth = (int)(pixmapSize * ratio);
-        previewHeight = (int) pixmapSize;
-    }
-
-    QPixmap pix((int)docWidth, (int)docHeight);
-
-    pix.fill(QColor(245, 245, 245));
-
-    QRect rc(0, 0, pix.width(), pix.height());
-
-    QPainter p;
-    p.begin(&pix);
-    paintContent(p, rc);
-    p.end();
-
-    return pix.scaled(QSize(previewWidth, previewHeight), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    return QPixmap();
 }
 
 QString KoDocument::autoSaveFile(const QString & path) const
@@ -1168,8 +1134,9 @@ QString KoDocument::autoSaveFile(const QString & path) const
         Q_ASSERT(url.isLocalFile());
         QString dir = QFileInfo(url.toLocalFile()).absolutePath();
         QString filename = url.fileName();
-        retval = QString("%1.%2-autosave%3").arg(dir).arg(filename).arg(extension);
+        retval = QString("%1/.%2-autosave%3").arg(dir).arg(filename).arg(extension);
     }
+    qInfo()<<Q_FUNC_INFO<<retval;
     return retval;
 }
 
@@ -1768,7 +1735,7 @@ bool KoDocument::loadNativeFormatFromStore(const QString& file)
     KoStore *store = KoStore::createStore(file, KoStore::Read, "", backend);
 
     if (store->bad()) {
-        d->lastErrorMessage = i18n("Not a valid Calligra file: %1", file);
+        d->lastErrorMessage = i18n("Not a valid Calligra Plan file: %1", file);
         delete store;
         QApplication::restoreOverrideCursor();
         return false;

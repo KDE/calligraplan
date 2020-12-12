@@ -32,13 +32,13 @@
 #include "kptwbsdefinition.h"
 #include "kptxmlloaderobject.h"
 
+#include <MimeTypes.h>
 #include "KoDocument.h"
 
 #include <QFileInfo>
 #include <QDomDocument>
 
 
-#define PLAN_MIME_TYPE "application/x-vnd.kde.plan"
 
 class KDirWatch;
 
@@ -77,8 +77,6 @@ public:
 
     void setReadWrite(bool rw) override;
     void configChanged();
-
-    void paintContent(QPainter& painter, const QRect& rect) override;
 
     void setProject(Project *project);
     Project *project() const override { return m_project; }
@@ -146,6 +144,9 @@ public:
      */
     bool isLoading() const override;
 
+    /// Insert resource assignments from @p project
+    Q_INVOKABLE void insertSharedResourceAssignments(const KPlato::Project *project);
+
     using KoDocument::setModified;
 public Q_SLOTS:
     void setModified(bool mod) override;
@@ -173,6 +174,10 @@ public Q_SLOTS:
 
     /// Prepare for insertion of resource assignments of shared resources from the project(s) in @p url
     void insertSharedProjects(const QUrl &url);
+
+    void slotInsertSharedProject();
+    void insertSharedProjectCompleted();
+    void insertSharedProjectCancelled(const QString&);
 
     /// Clear resource assignments of shared resources
     void clearResourceAssignments();
@@ -215,10 +220,6 @@ protected Q_SLOTS:
     void insertFileCompleted();
     void insertResourcesFileCompleted();
     void insertFileCancelled(const QString&);
-
-    void slotInsertSharedProject();
-    void insertSharedProjectCompleted();
-    void insertSharedProjectCancelled(const QString&);
 
     void slotNodeChanged(KPlato::Node*, int);
     void slotScheduleManagerChanged(KPlato::ScheduleManager *sm, int property);

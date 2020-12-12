@@ -428,7 +428,9 @@ QStringList KoFilterManager::mimeFilter(const QByteArray &mimetype, Direction di
     // TODO maybe use the fake vertex trick from the method below, to make the search faster?
 
     QStringList nativeMimeTypes;
-    nativeMimeTypes.append(QString::fromLatin1(mimetype));
+    if (!mimetype.isEmpty()) {
+        nativeMimeTypes.append(QString::fromLatin1(mimetype));
+    }
     nativeMimeTypes += extraNativeMimeTypes;
 
     // Add the native mimetypes first so that they are on top.

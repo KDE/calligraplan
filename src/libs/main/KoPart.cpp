@@ -30,6 +30,7 @@
 #include "KoView.h"
 #include "KoFilterManager.h"
 #include <KoComponentData.h>
+#include "Help.h"
 
 //#include <KoCanvasController.h>
 //#include <KoCanvasControllerWidget.h>
@@ -125,6 +126,17 @@ void KoPart::setDocument(KoDocument *document)
 KoDocument *KoPart::document() const
 {
     return d->document;
+}
+
+KoDocument *KoPart::createDocument(KoPart *part) const
+{
+    Q_UNUSED(part)
+    return nullptr;
+}
+
+void KoPart::slotHelpContents()
+{
+//     KPlato::Help::invoke(QUrl::fromUserInput(KPlatoSettings::documentationPath()));
 }
 
 KoView *KoPart::createView(KoDocument *document, QWidget *parent)
@@ -245,7 +257,7 @@ void KoPart::openExistingFile(const QUrl &url)
     QApplication::restoreOverrideCursor();
 }
 
-void KoPart::openTemplate(const QUrl &url)
+bool KoPart::openTemplate(const QUrl &url)
 {
     QApplication::setOverrideCursor(Qt::BusyCursor);
     bool ok = d->document->loadNativeFormat(url.toLocalFile());
@@ -264,6 +276,7 @@ void KoPart::openTemplate(const QUrl &url)
         d->document->initEmpty();
     }
     QApplication::restoreOverrideCursor();
+    return ok;
 }
 
 bool KoPart::openProjectTemplate(const QUrl &url)

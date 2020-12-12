@@ -23,7 +23,6 @@
 #include "plan_export.h"
 
 #include <kconfigskeleton.h>
-#include "kptfactory.h"
 
 
 class PLAN_EXPORT KPlatoConfigSkeleton : public KConfigSkeleton

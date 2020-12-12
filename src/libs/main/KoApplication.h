@@ -25,12 +25,13 @@
 #include "komain_export.h"
 
 class KoPart;
-
+class KoComponentData;
 class KoApplicationPrivate;
 class KAboutData;
 
 class QWidget;
 class QStringList;
+class QDir;
 
 #include <KoFilterManager.h>
 
@@ -86,7 +87,7 @@ public:
      * It is valid behaviour not to call this method at all. In this case you
      * have to process your command line parameters by yourself.
      */
-    virtual bool start();
+    virtual bool start(const KoComponentData &componentData);
 
     /**
      * Tell KoApplication to show this splashscreen when you call start();
@@ -118,6 +119,9 @@ public:
      */
     static KoApplication* koApplication();
 
+    KoPart *getPart(const QString &appName, const QString &mimetype) const;
+    KoPart *getPartFromUrl(const QUrl &url) const;
+
 Q_SIGNALS:
 
     /// KoPart needs to be able to emit document signals from here. These
@@ -137,11 +141,13 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void benchmarkLoadingFinished();
+    void slotPartDestroyed();
 
 protected:
-
     // Current application object.
     static KoApplication *KoApp;
+
+    bool openAutosaveFile(const QDir &autosaveDir, const QString &autosaveFile);
 
 private:
     bool initHack();

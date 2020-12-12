@@ -17,6 +17,9 @@ if( Qca-qt5_FOUND )
 endif()
 
 set(komain_LIB_SRCS
+    welcome/KoWelcomeView.cpp
+    KoFactory.cpp
+
     KoAutoSaveRecoveryDialog.cpp
     KoApplication.cpp
     KoComponentData.cpp
@@ -59,6 +62,10 @@ if( Qt5DBus_FOUND )
     )
 endif()
 
+ki18n_wrap_ui(komain_LIB_SRCS
+    welcome/KoWelcomeView.ui
+)
+
 add_library(planmain SHARED  ${komain_LIB_SRCS})
 generate_export_header(planmain
     EXPORT_FILE_NAME komain_generated_export.h BASE_NAME komain
@@ -68,6 +75,7 @@ target_link_libraries(planmain
     PUBLIC
         planwidgets
         plankundo2
+        KF5::CoreAddons
     PRIVATE
         planplugin
         KF5::Notifications
@@ -95,7 +103,7 @@ install(TARGETS planmain ${INSTALL_TARGETS_DEFAULT_ARGS} )
 # TODO: with the new embedded JSON data for plugins there is no schema ATM to define extended properties
 # calligradocker.desktop
 
-install(FILES calligraplan_shell.rc DESTINATION ${DATA_INSTALL_DIR}/calligraplan )
+install(FILES calligraplan_shell.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan )
 
 if (APPLE)
     install(FILES osx.stylesheet DESTINATION ${DATA_INSTALL_DIR}/calligraplan )

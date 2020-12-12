@@ -42,6 +42,7 @@
 #include "KoComponentData.h"
 #include <config.h>
 #include <KoDockRegistry.h>
+#include <welcome/KoWelcomeView.h>
 
 #include <krecentdirs.h>
 #include <khelpmenu.h>
@@ -143,6 +144,8 @@ public:
         noCleanup = false;
         openingDocument = false;
         printPreviewJob = nullptr;
+
+        tbIsVisible = true;
     }
 
     ~KoMainWindowPrivate() {
@@ -247,6 +250,8 @@ public:
     KoPrintJob *printPreviewJob;
 
     QAction *configureAction;
+
+    bool tbIsVisible;
 };
 
 KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentData &componentData)
@@ -266,9 +271,11 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     // End
 
     QString doc;
-    const QStringList allFiles = KoResourcePaths::findAllResources("data", "calligraplan/calligraplan_shell.rc");
-    setXMLFile(findMostRecentXMLFile(allFiles, doc));
-    setLocalXMLFile(KoResourcePaths::locateLocal("data", "calligraplan/calligraplan_shell.rc"));
+    const QStringList allFiles = KoResourcePaths::findAllResources("data", "kxmlgui5/calligraplan/calligraplan_shell.rc");
+    const QString file = findMostRecentXMLFile(allFiles, doc);
+    setXMLFile(file);
+    const QString file2 = KoResourcePaths::locateLocal("data", "calligraplan/calligraplan_shell.rc");
+    setLocalXMLFile(file2);
 
     actionCollection()->addAction(KStandardAction::New, "file_new", this, SLOT(slotFileNew()));
     actionCollection()->addAction(KStandardAction::Open, "file_open", this, SLOT(slotFileOpen()));
@@ -315,6 +322,7 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
 #endif
 
     QAction *actionNewView  = new QAction(koIcon("window-new"), i18n("&New View"), this);
+    actionNewView->setMenuRole(QAction::NoRole);
     actionCollection()->addAction("view_newview", actionNewView);
     connect(actionNewView, &QAction::triggered, this, &KoMainWindow::newView);
 
@@ -327,10 +335,11 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     KStandardAction::keyBindings(this, SLOT(slotConfigureKeys()), actionCollection());
     KStandardAction::configureToolbars(this, SLOT(slotConfigureToolbars()), actionCollection());
 
+    actionCollection()->action("file_new")->setEnabled(false);
     d->showDocumentInfo->setEnabled(false);
     d->saveActionAs->setEnabled(false);
     d->reloadFile->setEnabled(false);
-    d->importFile->setEnabled(true);    // always enabled like File --> Open
+    d->importFile->setEnabled(false);
     d->exportFile->setEnabled(false);
     d->saveAction->setEnabled(false);
     d->printAction->setEnabled(false);
@@ -365,15 +374,6 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     actionCollection()->addAction("settings_dockers_menu", d->dockWidgetMenu);
     d->dockWidgetMenu->setVisible(false);
     d->dockWidgetMenu->setDelayed(false);
-
-    d->configureAction = new QAction(koIcon("configure"), i18n("Configure Plan..."), this);
-    actionCollection()->addAction("configure", d->configureAction);
-    connect(d->configureAction, &QAction::triggered, this, &KoMainWindow::slotConfigure);
-
-    // Load list of recent files
-    KSharedConfigPtr configPtr = componentData.config();
-    d->recent->loadEntries(configPtr->group("RecentFiles"));
-
 
     createMainwindowGUI();
     d->mainWindowGuiIsBuilt = true;
@@ -523,9 +523,11 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
     }
 
     bool enable = d->rootDocument != nullptr ? true : false;
+    actionCollection()->action("file_new")->setEnabled(true);
     d->showDocumentInfo->setEnabled(enable);
     d->saveAction->setEnabled(enable);
     d->saveActionAs->setEnabled(enable);
+    d->importFile->setEnabled(enable);
     d->importFile->setEnabled(enable);
     d->exportFile->setEnabled(enable);
 #if 0
@@ -542,6 +544,9 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
     updateCaption();
 
     setActivePart(d->rootPart, doc ? d->rootViews.first() : 0);
+    if (d->rootPart) {
+        reloadRecentFileList();
+    }
     emit restoringDone();
 
     while(!oldRootViews.isEmpty()) {
@@ -590,6 +595,7 @@ void KoMainWindow::addRecentURL(const QString &projectName, const QUrl &url)
     // Add entry to recent documents list
     // (call coming from KoDocument because it must work with cmd line, template dlg, file/open, etc.)
     if (!url.isEmpty()) {
+        QMimeType mime = QMimeDatabase().mimeTypeForUrl(url);
         bool ok = true;
         if (url.isLocalFile()) {
             QString path = url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
@@ -623,10 +629,12 @@ void KoMainWindow::addRecentURL(const QString &projectName, const QUrl &url)
 
 void KoMainWindow::saveRecentFiles()
 {
+    Q_ASSERT(d->rootPart);
+    const QString group = d->rootPart->recentFilesGroupName();
     // Save list of recent files
     KSharedConfigPtr config = componentData().config();
     debugMain << this << " Saving recent files list into config. componentData()=" << componentData().componentName();
-    d->recent->saveEntries(config->group("RecentFiles"));
+    d->recent->saveEntries(config->group(group));
     config->sync();
 
     // Tell all windows to reload their list, after saving
@@ -638,20 +646,10 @@ void KoMainWindow::saveRecentFiles()
 
 void KoMainWindow::reloadRecentFileList()
 {
+    Q_ASSERT(d->rootPart);
+    const QString group = d->rootPart->recentFilesGroupName();
     KSharedConfigPtr config = componentData().config();
-    d->recent->loadEntries(config->group("RecentFiles"));
-}
-
-KoPart* KoMainWindow::createPart() const
-{
-    KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(d->nativeMimeType);
-    QString errorMsg;
-    KoPart *part = entry.createKoPart(&errorMsg);
-
-    if (!part || !errorMsg.isEmpty()) {
-        return nullptr;
-    }
-    return part;
+    d->recent->loadEntries(config->group(group));
 }
 
 void KoMainWindow::updateCaption()
@@ -713,10 +711,6 @@ bool KoMainWindow::openDocument(const QUrl &url)
                                     " and save it using <interface>File->Create Project Template...</interface>."));
         return false;
     }
-    if (url.fileName().endsWith(".plant")) {
-        KMessageBox::error(nullptr, xi18nc("@info", "Cannot open a template file:<nl/>%1", url.fileName()));
-        return false;
-    }
     if (!KIO::NetAccess::exists(url, KIO::NetAccess::SourceSide, nullptr)) {
         KMessageBox::error(nullptr, i18n("The file %1 does not exist.", url.url()));
         d->recent->removeUrl(url); //remove the file from the recent-opened-file-list
@@ -757,7 +751,7 @@ bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocu
     debugMain << newpart << newdoc << url.url();
     bool keepPart = true;
     if (!newpart) {
-        newpart = createPart();
+        newpart = koApp->getPartFromUrl(url);
         keepPart = false;
     }
     if (!newpart)
@@ -789,7 +783,14 @@ bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocu
         return false;
     }
     updateReloadFileAction(newdoc);
-
+    // Delete welcomeview, it does not have part and document
+    // so must be explicitly deleted when a document is opened
+    KoWelcomeView* w = findChild<KoWelcomeView*>();
+    if (w) {
+        w->deleteLater();
+    }
+    // restore toolbar
+    showToolbar("mainToolBar", d->tbIsVisible);
     return true;
 }
 
@@ -1283,40 +1284,31 @@ bool KoMainWindow::queryClose()
 }
 
 // Helper method for slotFileNew and slotFileClose
-void KoMainWindow::chooseNewDocument(InitDocFlags initDocFlags)
+void KoMainWindow::openWelcomeView()
 {
     KoDocument* doc = rootDocument();
-    KoPart *newpart = createPart();
-    KoDocument *newdoc = newpart->document();
-
-    if (!newdoc)
-        return;
-
-    disconnect(newdoc, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
-
-    if ((!doc && initDocFlags == InitDocFileNew) || (doc && !doc->isEmpty())) {
-        KoMainWindow *s = newpart->createMainWindow();
-        s->show();
-        newpart->addMainWindow(s);
-        newpart->showStartUpWidget(s);
-        return;
-    }
-
-    if (doc) {
-        setRootDocument(nullptr);
-        if(d->rootDocument)
-            d->rootDocument->clearUndoHistory();
+    KoMainWindow *mainWindow = this;
+    if (doc && !doc->isEmpty()) {
+        // create a new main window
+        mainWindow = new KoMainWindow(d->nativeMimeType, d->componentData);
+    } else if (doc) {
+        // remove the empty doc
+        setRootDocument(nullptr); // don't delete this main window when deleting the document
         delete d->rootDocument;
         d->rootDocument = nullptr;
     }
-
-    newpart->addMainWindow(this);
-    newpart->showStartUpWidget(this);
+    if (!findChild<KoWelcomeView*>()) {
+        KoWelcomeView *v = new KoWelcomeView(mainWindow);
+        mainWindow->setCentralWidget(v);
+    }
+    mainWindow->show();
+    return;
 }
 
 void KoMainWindow::slotFileNew()
 {
-    chooseNewDocument(InitDocFileNew);
+    qInfo()<<Q_FUNC_INFO;
+    openWelcomeView();
 }
 
 void KoMainWindow::slotFileOpen()
@@ -1412,7 +1404,7 @@ void KoMainWindow::slotFileClose()
             d->rootDocument->clearUndoHistory();
         delete d->rootDocument;
         d->rootDocument = nullptr;
-        chooseNewDocument(InitDocFileClose);
+        openWelcomeView();
     }
 }
 
@@ -2033,19 +2025,7 @@ void KoMainWindow::createMainwindowGUI()
             actions->addAction(aboutKdeAction->objectName(), aboutKdeAction);
         }
     }
-
-    QString f = xmlFile();
-    setXMLFile(QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("ui/ui_standards.rc")));
-    if (!f.isEmpty())
-        setXMLFile(f, true);
-    else
-    {
-        QString auto_file(componentData().componentName() + "ui.rc");
-        setXMLFile(auto_file, true);
-    }
-
     guiFactory()->addClient(this);
-
 }
 
 // PartManager
@@ -2122,7 +2102,6 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget)
 
     if (newPart && d->m_activeWidget && d->m_activeWidget->inherits("KoView")) {
         d->activeView = qobject_cast<KoView *>(d->m_activeWidget);
-        d->activeView->actionCollection()->addAction("view_newview", actionCollection()->action("view_newview"));
         d->activePart = newPart;
         //debugMain <<"new active part is" << d->activePart;
 

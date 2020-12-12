@@ -6,3 +6,4 @@ Inherits=KPlatoConfigSkeleton
 IncludeFiles="kptconfigskeleton.h"
 TranslationSystem=kde
 TranslationDomain=calligraplan
+Visibility=PLAN_EXPORT

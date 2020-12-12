@@ -85,6 +85,12 @@ public:
      */
     KoDocument *document() const;
 
+    /**
+     * Re-implement to return a document.
+     * The document should not be set on this part.
+     * By default returns nullptr.
+     */
+    virtual KoDocument *createDocument(KoPart *part) const;
     // ----------------- mainwindow management -----------------
 
     /**
@@ -128,8 +134,17 @@ public:
      */
     virtual bool openProjectTemplate(const QUrl &url);
 
-public Q_SLOTS:
+    virtual bool editProject() { return false; }
 
+    virtual QString recentFilesGroupName() const { return QString(); }
+
+    /**
+     * Loads a template and deletes the start up widget.
+     * @param url the template to load
+     */
+    virtual bool openTemplate(const QUrl &url);
+
+public Q_SLOTS:
     /**
      * This slot loads an existing file and deletes the start up widget.
      * @param url the file to load
@@ -139,12 +154,7 @@ public Q_SLOTS:
     virtual void configure(KoMainWindow *mw) { Q_UNUSED(mw); }
 
 protected Q_SLOTS:
-
-    /**
-     * This slot loads a template and deletes the start up widget.
-     * @param url the template to load
-     */
-    virtual void openTemplate(const QUrl &url);
+    void slotHelpContents();
 
 public:
 

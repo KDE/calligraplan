@@ -34,21 +34,13 @@
 namespace KPlato
 {
 
-KoComponentData* Factory::s_global = nullptr;
-KAboutData* Factory::s_aboutData = nullptr;
-
 Factory::Factory()
-    : KPluginFactory()
+    : KoFactory()
 {
-    global();
 }
 
 Factory::~Factory()
 {
-    delete s_aboutData;
-    s_aboutData = nullptr;
-    delete s_global;
-    s_global = nullptr;
 }
 
 QObject* Factory::create(const char* /*iface*/, QWidget* /*parentWidget*/, QObject *parent,
@@ -67,32 +59,6 @@ QObject* Factory::create(const char* /*iface*/, QWidget* /*parentWidget*/, QObje
     timer->start(5000);
 
     return part;
-}
-
-KAboutData* Factory::aboutData()
-{
-    if (!s_aboutData)
-        s_aboutData = newAboutData();
-    return s_aboutData;
-}
-
-const KoComponentData &Factory::global()
-{
-    if (!s_global)
-    {
-        debugPlan;
-        s_global = new KoComponentData(*aboutData());
-
-        // Add any application-specific resource directories here
-        KoResourcePaths::addResourceType("calligraplan_taskmodules", "data", "calligraplan/taskmodules/");
-
-        // Tell the iconloader about share/apps/calligra/icons
-//        KIconLoader::global()->addAppDir("calligra");
-
-//        KoDockRegistry *dockRegistry = KoDockRegistry::instance();
-//        dockRegistry->remove("StencilBox"); //don't want this in plan
-    }
-    return *s_global;
 }
 
 } // KPlato namespace

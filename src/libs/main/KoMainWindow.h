@@ -162,11 +162,6 @@ public:
 
 //    QList<KoCanvasObserverBase*> canvasObservers() const;
 
-    /**
-     * Create a new empty document.
-     */
-    KoPart* createPart() const;
-
 Q_SIGNALS:
     /**
      * This signal is emitted if the document has been saved successfully.
@@ -342,20 +337,9 @@ public Q_SLOTS:
 
     void slotConfigure();
 
+    void openWelcomeView();
+
 private:
-
-    /**
-     * This setting indicates who is calling chooseNewDocument.
-     * Usually the app will want to
-     * - show the template dialog with 'everything' if InitDocAppStarting, InitDocFileClose or InitDocEmbedded
-     * - show the template dialog with 'templates only' if InitDocFileNew
-     * - create an empty document with default settings if InitDocEmpty
-     */
-    enum InitDocFlags { /*InitDocAppStarting, */ InitDocFileNew, InitDocFileClose /*, InitDocEmbedded, InitDocEmpty*/ };
-
-    /// Helper method for slotFileNew and slotFileClose
-    void chooseNewDocument(InitDocFlags initDocFlags);
-
     void closeEvent(QCloseEvent * e) override;
     void resizeEvent(QResizeEvent * e) override;
 

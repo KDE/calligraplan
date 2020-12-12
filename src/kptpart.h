@@ -45,6 +45,8 @@ public:
 
     void setDocument(KPlato::MainDocument *document);
 
+    KoDocument *createDocument(KoPart *part) const override;
+
     /// reimplemented
     KoView *createViewInstance(KoDocument *document, QWidget *parent) override;
 
@@ -57,20 +59,22 @@ public:
 
     bool openProjectTemplate(const QUrl &url) override;
 
+    bool editProject() override;
+
+    QString recentFilesGroupName() const override;
+
+    bool openTemplate(const QUrl& url) override;
+
 public Q_SLOTS:
     void openTaskModule(const QUrl& url);
     void finish();
 
 protected Q_SLOTS:
-    void openTemplate(const QUrl& url) override;
     void slotOpenTemplate(const QUrl& url);
 
-    void slotHelpContents();
     void slotSettingsUpdated();
 
-protected:
-    void createStarUpWidget(KoMainWindow *parent);
-    QWidget *createWelcomeView(KoMainWindow *parent);
+    void slotLoadSharedResources(const QString &file, const QUrl &projects, bool loadProjectsAtStartup);
 
 private:
     KPlato::MainDocument *m_document;
