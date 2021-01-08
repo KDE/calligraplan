@@ -35,6 +35,7 @@
 #include <KGanttGlobal>
 #include <KGanttView>
 #include <KGanttDateTimeGrid>
+#include <KGanttPrintingContext>
 
 class KoDocument;
 
@@ -107,12 +108,16 @@ class GanttPrintingOptions
 {
 public:
     GanttPrintingOptions();
+    GanttPrintingOptions(const GanttPrintingOptions &other);
 
     bool loadContext(const KoXmlElement &settings);
     void saveContext(QDomElement &settings) const;
 
-    bool printRowLabels;
-    bool singlePage;
+    KGantt::PrintingContext context;
+    bool useStartTime;
+    QDateTime diagramStart;
+    bool useEndTime;
+    QDateTime diagramEnd;
 };
 
 class PLANUI_EXPORT GanttPrintingOptionsWidget : public QWidget, public Ui::GanttPrintingOptionsWidget
@@ -126,8 +131,29 @@ public:
     void setPrintRowLabels(bool value) { ui_printRowLabels->setChecked(value); }
     bool printRowLabels() const { return ui_printRowLabels->isChecked(); }
 
-    void setSinglePage(bool value)  { value ? ui_singlePage->setChecked(false) : ui_multiplePages->setChecked(true); }
-    bool singlePage() const { return ui_singlePage->isChecked(); }
+    void setPrintColumnLabels(bool value) { ui_printColumnLabels->setChecked(value); }
+    bool printColumnLabels() const { return ui_printColumnLabels->isChecked(); }
+
+    void setFitting(const KGantt::PrintingContext::Fitting &fitting)  {
+        if (fitting & KGantt::PrintingContext::FitSinglePage) {
+            ui_fitSingle->setChecked(true);
+        } else if (fitting & KGantt::PrintingContext::FitPageHeight) {
+            ui_fitVertical->setChecked(true);
+        } else {
+            ui_noFitting->setChecked(true);
+        }
+    }
+    KGantt::PrintingContext::Fitting fitting() const {
+        KGantt::PrintingContext::Fitting s;
+        if (ui_fitSingle->isChecked()) {
+            s = KGantt::PrintingContext::FitSinglePage;
+        } else if (ui_fitVertical->isChecked()) {
+            s = KGantt::PrintingContext::FitPageHeight;
+        } else {
+            s = KGantt::PrintingContext::NoFitting;
+        }
+        return s;
+    }
 
 public Q_SLOTS:
     void setOptions(const KPlato::GanttPrintingOptions &opt);
@@ -144,6 +170,8 @@ public:
     void printPage(int page, QPainter &painter) override;
 
     int documentLastPage() const override;
+    qreal rowLabelsWidth(const QPaintDevice *device) const;
+    QRectF calcSceneRect(const QDateTime &startDateTime, const QDateTime &endDateTime) const;
 
 protected Q_SLOTS:
     void slotPrintRowLabelsToogled(bool on);
@@ -151,11 +179,13 @@ protected Q_SLOTS:
 
 protected:
     GanttViewBase *m_gantt;
+    GanttPrintingOptionsWidget *m_options;
     QRectF m_sceneRect;
     int m_horPages;
     int m_vertPages;
     double m_headerHeight;
-    GanttPrintingOptionsWidget *m_options;
+    qreal m_rowLabelsWidth;
+    QImage m_labelsImage;
     QImage m_image;
 };
 
@@ -209,7 +239,7 @@ public:
     void handleContextMenuEvent(const QModelIndex &idx, const QPoint &pos);
 
 public Q_SLOTS:
-    void setPrintingOptions(const KPlato::GanttPrintingOptions &opt) { m_printOptions = opt; }
+    void setPrintingOptions(const KPlato::GanttPrintingOptions &opt);
 
 Q_SIGNALS:
     void contextMenuRequested(const QModelIndex &idx, const QPoint &pos);

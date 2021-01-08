@@ -67,6 +67,9 @@
 #include <QDrag>
 #include <QClipboard>
 #include <QAbstractSlider>
+#include <QGraphicsTextItem>
+#include <QFont>
+#include <QFontMetricsF>
 
 #include <ktoggleaction.h>
 #include <KActionCollection>
@@ -178,6 +181,13 @@ GanttViewSettingsDialog::GanttViewSettingsDialog(GanttViewBase *gantt, GanttItem
     Q_ASSERT(m_pagelayout);
 
     m_printingoptions = new GanttPrintingOptionsWidget(this);
+    QRectF rect = m_gantt->graphicsView()->sceneRect();
+    QDateTime start = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapToDateTime(rect.left());
+    QDateTime end = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapToDateTime(rect.right());
+    m_printingoptions->ui_startTime->setMinimumDateTime(start);
+    m_printingoptions->ui_startTime->setMaximumDateTime(end);
+    m_printingoptions->ui_endTime->setMinimumDateTime(start);
+    m_printingoptions->ui_endTime->setMaximumDateTime(end);
     m_printingoptions->setOptions(gantt->printingOptions());
     tab->addTab(m_printingoptions, m_printingoptions->windowTitle());
     KPageWidgetItem *page = insertWidget(2, tab, i18n("Printing"), i18n("Printing Options"));
@@ -198,19 +208,38 @@ void GanttViewSettingsDialog::slotOk()
 
 //-------------------------
 GanttPrintingOptions::GanttPrintingOptions()
-    : printRowLabels(true),
-    singlePage(true)
+    : useStartTime(false)
+    , useEndTime(false)
 {
+}
+
+GanttPrintingOptions::GanttPrintingOptions(const GanttPrintingOptions &other)
+{
+    context = other.context;
+    useStartTime = other.useStartTime;
+    diagramStart = other.diagramStart;
+    useEndTime = other.useEndTime;
+    diagramEnd = other.diagramEnd;
 }
 
 bool GanttPrintingOptions::loadContext(const KoXmlElement &settings)
 {
     KoXmlElement e = settings.namedItem("print-options").toElement();
     if (! e.isNull()) {
-        printRowLabels = (bool)(e.attribute("print-rowlabels", "0").toInt());
-        singlePage = (bool)(e.attribute("print-singlepage", "0").toInt());
+        context.setDrawRowLabels((bool)(e.attribute("print-rowlabels", "1").toInt()));
+        context.setDrawColumnLabels((bool)(e.attribute("print-columnlabels", "1").toInt()));
+        if ((e.attribute("print-singlepage", "0").toInt())) {
+            context.setFitting(KGantt::PrintingContext::FitSinglePage);
+        } else if ((bool)(e.attribute("print-pageheight", "0").toInt())) {
+            context.setFitting(KGantt::PrintingContext::FitPageHeight);
+        } else if ((bool)(e.attribute("print-nofitting", "1").toInt())) {
+            context.setFitting(KGantt::PrintingContext::NoFitting);
+        }
+        useStartTime = (bool)(e.attribute("print-use-starttime", "0").toInt());
+        diagramStart = QDateTime::fromString(e.attribute("print-starttime"), Qt::ISODate);
+        useEndTime = (bool)(e.attribute("print-use-endtime", "0").toInt());
+        diagramEnd = QDateTime::fromString(e.attribute("print-endtime"), Qt::ISODate);
     }
-    debugPlan <<"..........."<<printRowLabels<<singlePage;
     return true;
 }
 
@@ -218,9 +247,22 @@ void GanttPrintingOptions::saveContext(QDomElement &settings) const
 {
     QDomElement e = settings.ownerDocument().createElement("print-options");
     settings.appendChild(e);
-    e.setAttribute("print-rowlabels", QString::number(printRowLabels));
-    e.setAttribute("print-singlepage", QString::number(singlePage));
+    e.setAttribute("print-rowlabels", QString::number(context.drawRowLabels()));
+    e.setAttribute("print-columnlabels", QString::number(context.drawColumnLabels()));
+    if (context.fitting() & KGantt::PrintingContext::FitSinglePage) {
+        e.setAttribute("print-singlepage", QString::number(1));
+    } else if (context.fitting() & KGantt::PrintingContext::FitPageHeight) {
+        e.setAttribute("print-pageheight", QString::number(1));
+    } else {
+        e.setAttribute("print-nofitting", QString::number(1));
+    }
+    e.setAttribute("print-use-starttime", QString::number(useStartTime));
+    e.setAttribute("print-starttime", diagramStart.toString(Qt::ISODate));
+    e.setAttribute("print-use-endtime", QString::number(useEndTime));
+    e.setAttribute("print-endtime", diagramEnd.toString(Qt::ISODate));
 }
+
+
 
 GanttPrintingOptionsWidget::GanttPrintingOptionsWidget(QWidget *parent)
     : QWidget(parent)
@@ -232,26 +274,47 @@ GanttPrintingOptionsWidget::GanttPrintingOptionsWidget(QWidget *parent)
 GanttPrintingOptions GanttPrintingOptionsWidget::options() const
 {
     GanttPrintingOptions opt;
-    opt.printRowLabels = printRowLabels();
-    opt.singlePage = singlePage();
+    opt.context.setDrawRowLabels(printRowLabels());
+    opt.context.setDrawColumnLabels(printColumnLabels());
+    opt.context.setFitting(fitting());
+    opt.useStartTime = ui_startTimeBtn->isChecked();
+    opt.diagramStart = ui_startTime->dateTime();
+    opt.useEndTime = ui_endTimeBtn->isChecked();
+    opt.diagramEnd = ui_endTime->dateTime();
     return opt;
 }
 
 void GanttPrintingOptionsWidget::setOptions(const GanttPrintingOptions &opt)
 {
-    setPrintRowLabels(opt.printRowLabels);
-    setSinglePage(opt.singlePage);
+    setPrintRowLabels(opt.context.drawRowLabels());
+    setPrintColumnLabels(opt.context.drawColumnLabels());
+    setFitting(opt.context.fitting());
+    ui_projectStartBtn->setChecked(!opt.useStartTime);
+    ui_startTimeBtn->setChecked(opt.useStartTime);
+    ui_startTime->setDateTime(opt.diagramStart);
+    ui_projectEndBtn->setChecked(!opt.useEndTime);
+    ui_endTimeBtn->setChecked(opt.useEndTime);
+    ui_endTime->setDateTime(opt.diagramEnd);
 }
 
 
 //----------------
 GanttPrintingDialog::GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt)
-    : PrintingDialog(view),
+    : PrintingDialog(view, QPrinter::HighResolution),
     m_gantt(gantt),
     m_options(0)
 {
     m_headerHeight = gantt->treeView()->header()->height(); // same header hight
     m_sceneRect = gantt->graphicsView()->sceneRect();
+    const GanttPrintingOptions opt = m_gantt->m_printOptions;
+    if (opt.useStartTime) {
+        qreal x = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapFromDateTime(opt.diagramStart);
+        m_sceneRect.setX(x);
+    }
+    if (opt.useEndTime) {
+        qreal x = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapFromDateTime(opt.diagramEnd);
+        m_sceneRect.setRight(x);
+    }
     m_horPages = 1;
     qreal c = m_sceneRect.width() - printer().pageRect().width();
     while (c > 0) {
@@ -268,62 +331,157 @@ GanttPrintingDialog::GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt)
     printer().setFromTo(documentFirstPage(), documentLastPage());
 }
 
-void GanttPrintingDialog::startPrinting(RemovePolicy removePolicy)
+QRectF GanttPrintingDialog::calcSceneRect(const QDateTime &startDateTime, const QDateTime &endDateTime) const
 {
-    QList<int> pages;
-    if (printer().fromPage() > 0) {
-        pages << printer().fromPage();
-        if (! m_gantt->m_printOptions.singlePage) {
-            int last = printer().toPage();
-            for (int i = pages.first() + 1; i <= last; ++i) {
-                pages << i;
-            }
-            if (m_vertPages > 1) {
-                m_image = QImage(m_sceneRect.width(), m_sceneRect.height() + m_headerHeight, QImage::Format_ARGB32);
-                m_image.fill(Qt::white);
-                QPainter p(&m_image);
-                m_gantt->print(&p, m_image.rect(), m_gantt->m_printOptions.printRowLabels, true);
-            }
+    //qInfo()<<Q_FUNC_INFO<<startDateTime<<endDateTime;
+    QRectF rect = m_gantt->graphicsView()->sceneRect();
+    if (!startDateTime.isValid() && !endDateTime.isValid()) {
+        return rect;
+    }
+    const KGantt::DateTimeGrid *grid = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid());
+    Q_ASSERT(grid);
+
+    QDateTime startTime = startDateTime.isValid() ? startDateTime : grid->mapToDateTime(rect.left());
+    rect.setLeft(std::max(rect.left(), grid->mapFromDateTime(startTime)));
+
+    QDateTime endTime = endDateTime.isValid() ? endDateTime : grid->mapToDateTime(rect.right());
+    rect.setRight(std::min(rect.right(), grid->mapFromDateTime(endTime)));
+
+    QTreeView *tv = qobject_cast<QTreeView*>(m_gantt->leftView());
+    Q_ASSERT(tv);
+    QModelIndexList items;
+    for (QModelIndex idx = tv->indexAt(QPoint(0, 0)); idx.isValid(); idx = tv->indexBelow(idx)) {
+        items << idx;
+    }
+    const int startRole = static_cast<KGantt::ProxyModel*>(m_gantt->ganttProxyModel())->role(KGantt::StartTimeRole);
+    const int endRole = static_cast<KGantt::ProxyModel*>(m_gantt->ganttProxyModel())->role(KGantt::EndTimeRole);
+    const int startCol = static_cast<KGantt::ProxyModel*>(m_gantt->ganttProxyModel())->column(KGantt::StartTimeRole);
+    const int endCol = static_cast<KGantt::ProxyModel*>(m_gantt->ganttProxyModel())->column(KGantt::EndTimeRole);
+
+    // Find the first item that end after rect.left AND start before rect.right
+    // Remove all items that is completely outside rect
+    bool startFound = false;
+    QModelIndexList lst = items;
+    for (const QModelIndex &idx : qAsConst(lst)) {
+        const QDateTime sdt = idx.sibling(idx.row(), startCol).data(startRole).toDateTime();
+        const QDateTime edt = idx.sibling(idx.row(), endCol).data(endRole).toDateTime();
+        //qInfo()<<Q_FUNC_INFO<<idx<<"start:"<<startTime<<idx.data().toString()<<idx.sibling(idx.row(), endCol).data(endRole);
+        if (edt <= startTime) {
+            items.removeAll(idx);
+            continue;
+        }
+        if (!startFound && sdt >= endTime) {
+            items.removeAll(idx);
+            continue;
+        }
+        if (!startFound) {
+            rect.setTop(tv->visualRect(idx).top());
+            startFound = true;
+            //qInfo()<<Q_FUNC_INFO<<idx<<"start first:"<<idx.data().toString()<<rect.top();
         }
     }
-    setPageRange(pages);
+    // All items ending before rect.left has been removed,
+    // so now find the first item (from bottom) that start before rect.right
+    for (int i = items.count() - 1; i >= 0; --i) {
+        const QModelIndex idx = items.at(i);
+        //qInfo()<<Q_FUNC_INFO<<idx<<"end:"<<endTime<<idx.data().toString()<<idx.sibling(idx.row(), startCol).data(startRole);
+        const QDateTime sdt = idx.sibling(idx.row(), startCol).data(startRole).toDateTime();
+        if (!sdt.isValid() || endTime < sdt) {
+            continue;
+        }
+        rect.setBottom(tv->visualRect(idx).bottom());
+        //qInfo()<<Q_FUNC_INFO<<idx<<"end last:"<<idx.data().toString()<<rect.bottom();
+        break;
+    }
+    return rect;
+}
 
-    PrintingDialog::startPrinting(removePolicy);
+qreal GanttPrintingDialog::rowLabelsWidth(const QPaintDevice *device) const
+{
+    qreal labelsWidth = 0.0;
+    QFont sceneFont(m_gantt->graphicsView()->font(), device);
+    QGraphicsTextItem dummyTextItem( QLatin1String("X") );
+    dummyTextItem.adjustSize();
+    QFontMetricsF fm(dummyTextItem.font());
+    sceneFont.setPixelSize( fm.height() );
+
+    /* row labels */
+    QVector<QGraphicsTextItem*> textLabels;
+    qreal charWidth = QFontMetricsF(sceneFont).boundingRect(QString::fromLatin1("X")).width();
+    const auto *summaryHandlingModel = m_gantt->graphicsView()->summaryHandlingModel();
+    const auto *rowController = m_gantt->graphicsView()->rowController();
+    QModelIndex sidx = summaryHandlingModel->mapToSource(summaryHandlingModel->index(0, 0));
+    do {
+        QModelIndex idx = summaryHandlingModel->mapFromSource(sidx);
+        const KGantt::Span rg=rowController->rowGeometry(sidx);
+        const QString txt = idx.data(Qt::DisplayRole).toString();
+        qreal textWidth = QFontMetricsF(sceneFont).boundingRect(txt).width() + charWidth;
+        labelsWidth = std::max(labelsWidth, textWidth);
+    } while ((sidx = rowController->indexBelow(sidx)).isValid());
+    //qInfo()<<Q_FUNC_INFO<<labelsWidth;
+    return labelsWidth;
+}
+
+void GanttPrintingDialog::startPrinting(RemovePolicy removePolicy)
+{
+    if (printer().fromPage() <= 0) {
+        return;
+    }
+    KGantt::PrintingContext ctx = m_gantt->m_printOptions.context;
+    //qInfo()<<Q_FUNC_INFO<<m_gantt->m_printOptions.context<<':'<<ctx;
+    QDateTime start, end;
+    if (m_gantt->m_printOptions.useStartTime) {
+        start = m_gantt->m_printOptions.diagramStart;
+    }
+    if (m_gantt->m_printOptions.useEndTime) {
+        end = m_gantt->m_printOptions.diagramEnd;
+    }
+    ctx.setSceneRect(calcSceneRect(start, end));
+    qInfo()<<Q_FUNC_INFO<<m_gantt->m_printOptions.context<<':'<<ctx;
+    printer().setFullPage(true);
+    m_gantt->printDiagram(&printer(), ctx);
 }
 
 QList<QWidget*> GanttPrintingDialog::createOptionWidgets() const
 {
     //debugPlan;
     GanttPrintingOptionsWidget *w = new GanttPrintingOptionsWidget();
-    w->setPrintRowLabels(m_gantt->m_printOptions.printRowLabels);
-    connect(w->ui_printRowLabels, &QAbstractButton::toggled, this, &GanttPrintingDialog::slotPrintRowLabelsToogled);
-    w->setSinglePage(m_gantt->m_printOptions.singlePage);
-    connect(w->ui_singlePage, &QAbstractButton::toggled, this, &GanttPrintingDialog::slotSinglePageToogled);
+    QRectF rect = m_gantt->graphicsView()->sceneRect();
+    QDateTime start = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapToDateTime(rect.left());
+    QDateTime end = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapToDateTime(rect.right());
+    w->ui_startTime->setMinimumDateTime(start);
+    w->ui_startTime->setMaximumDateTime(end);
+    w->ui_endTime->setMinimumDateTime(start);
+    w->ui_endTime->setMaximumDateTime(end);
+    w->setOptions(m_gantt->m_printOptions);
     const_cast<GanttPrintingDialog*>(this)->m_options = w;
+    //qInfo()<<Q_FUNC_INFO<<w<<rect<<start<<end;
 
     return QList<QWidget*>() << createPageLayoutWidget() << m_options;
 }
 
 void GanttPrintingDialog::slotPrintRowLabelsToogled(bool on)
 {
-    m_gantt->m_printOptions.printRowLabels = on;
+    m_gantt->m_printOptions.context.setDrawRowLabels(on);
 }
 
 void GanttPrintingDialog::slotSinglePageToogled(bool on)
 {
-    m_gantt->m_printOptions.singlePage = on;
-    printer().setFromTo(documentFirstPage(), documentLastPage());
+//     m_gantt->m_printOptions.singlePage = on;
+//     printer().setFromTo(documentFirstPage(), documentLastPage());
 }
 
 int GanttPrintingDialog::documentLastPage() const
 {
     //debugPlan<<m_gantt->m_printOptions.singlePage<<m_horPages<<m_vertPages;
-    return m_gantt->m_printOptions.singlePage ? documentFirstPage() : m_horPages * m_vertPages;
+    return (m_gantt->m_printOptions.context.fitting() & KGantt::PrintingContext::FitSinglePage) ? documentFirstPage() : m_horPages * m_vertPages;
 }
 
 
 void GanttPrintingDialog::printPage(int page, QPainter &painter)
 {
+    qInfo()<<Q_FUNC_INFO<<page;
+#if 0
     debugPlan<<"page:"<<page<<"first"<<documentFirstPage()<<"last:"<<documentLastPage()<<m_horPages<<m_vertPages;
     int p = page - documentFirstPage();
     QRectF pageRect = printer().pageRect();
@@ -352,6 +510,7 @@ void GanttPrintingDialog::printPage(int page, QPainter &painter)
         debugPlan<<p<<hor<<vert<<sourceRect;
         painter.drawImage(pageRect, m_image, sourceRect);
     }
+#endif
 }
 
 //---------------------
@@ -560,6 +719,11 @@ bool GanttViewBase::eventFilter(QObject *obj, QEvent *event)
         }
     }
     return QObject::eventFilter(obj, event);
+}
+
+void GanttViewBase::setPrintingOptions(const KPlato::GanttPrintingOptions &opt)
+{
+    m_printOptions = opt;
 }
 
 bool GanttViewBase::loadContext(const KoXmlElement &settings)

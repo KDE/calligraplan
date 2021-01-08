@@ -1,66 +1,159 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>KPlato::GanttPrintingOptionsWidget</class>
- <widget class="QWidget" name="KPlato::GanttPrintingOptionsWidget" >
-  <property name="geometry" >
+ <widget class="QWidget" name="KPlato::GanttPrintingOptionsWidget">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>486</width>
+    <height>377</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" >
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <widget class="QCheckBox" name="ui_printRowLabels" >
-     <property name="text" >
-      <string>Print row labels</string>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Headers</string>
      </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox" >
-     <property name="title" >
-      <string/>
-     </property>
-     <property name="flat" >
-      <bool>true</bool>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2" >
-      <property name="margin" >
-       <number>0</number>
-      </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QRadioButton" name="ui_singlePage" >
-        <property name="text" >
-         <string>Print chart on a single page</string>
-        </property>
-        <property name="checked" >
-         <bool>true</bool>
+       <widget class="QCheckBox" name="ui_printRowLabels">
+        <property name="text">
+         <string>Print task names</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="ui_multiplePages" >
-        <property name="text" >
+       <widget class="QCheckBox" name="ui_printColumnLabels">
+        <property name="text">
+         <string>Print time scale header</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Scaling</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QRadioButton" name="ui_noFitting">
+        <property name="text">
          <string>Divide chart on multiple pages</string>
         </property>
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer" >
-        <property name="orientation" >
-         <enum>Qt::Vertical</enum>
+       <widget class="QRadioButton" name="ui_fitVertical">
+        <property name="text">
+         <string>Fit chart to page height</string>
         </property>
-        <property name="sizeHint" stdset="0" >
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="ui_fitSingle">
+        <property name="text">
+         <string>Fit chart to a single page</string>
         </property>
-       </spacer>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="title">
+      <string>Range</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QFrame" name="frame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QRadioButton" name="ui_projectStartBtn">
+           <property name="text">
+            <string>Project start</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QRadioButton" name="ui_startTimeBtn">
+             <property name="text">
+              <string>Time:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateTimeEdit" name="ui_startTime"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_2">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QRadioButton" name="ui_projectEndBtn">
+           <property name="text">
+            <string>Project end</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QRadioButton" name="ui_endTimeBtn">
+             <property name="text">
+              <string>Time:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateTimeEdit" name="ui_endTime"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
