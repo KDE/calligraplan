@@ -43,12 +43,12 @@
 
 class KoPrintingDialogPrivate {
 public:
-    explicit KoPrintingDialogPrivate(KoPrintingDialog *dia)
+    explicit KoPrintingDialogPrivate(KoPrintingDialog *dia, QPrinter::PrinterMode mode)
         : parent(dia),
           stop(true),
 //          shapeManager(0),
           painter(nullptr),
-          printer(new QPrinter()),
+          printer(new QPrinter(mode)),
           index(0),
           progress(nullptr),
           dialog(nullptr),

@@ -66,8 +66,9 @@ public:
     /**
      * Create a new dialog.
      * @param parent the widget this dialog will use as a child.
+     * @param mode printer mode, default is QPrinter::ScreenResolution
      */
-    explicit KoPrintingDialog(QWidget *parent);
+    explicit KoPrintingDialog(QWidget *parent, QPrinter::PrinterMode mode = QPrinter::ScreenResolution);
     ~KoPrintingDialog() override;
 
     /**

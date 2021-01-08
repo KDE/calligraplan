@@ -61,9 +61,9 @@ public:
 };
 
 
-KoPrintingDialog::KoPrintingDialog(QWidget *parent)
+KoPrintingDialog::KoPrintingDialog(QWidget *parent, QPrinter::PrinterMode mode)
     : KoPrintJob(parent),
-      d(new KoPrintingDialogPrivate(this))
+      d(new KoPrintingDialogPrivate(this, mode))
 {
     d->dialog = new PrintDialog(d, parent);
 
