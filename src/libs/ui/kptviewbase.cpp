@@ -271,8 +271,8 @@ PrintingOptions PrintingHeaderFooter::options() const
     return opt;
 }
 
-PrintingDialog::PrintingDialog(ViewBase *view)
-    : KoPrintingDialog(view),
+PrintingDialog::PrintingDialog(ViewBase *view, QPrinter::PrinterMode mode)
+    : KoPrintingDialog(view, mode),
     m_view(view),
     m_widget(nullptr)
 {

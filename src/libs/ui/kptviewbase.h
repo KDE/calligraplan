@@ -151,7 +151,7 @@ class PLANUI_EXPORT PrintingDialog : public KoPrintingDialog
 {
     Q_OBJECT
 public:
-    explicit PrintingDialog(ViewBase *view);
+    explicit PrintingDialog(ViewBase *view, QPrinter::PrinterMode mode = QPrinter::ScreenResolution);
     ~PrintingDialog() override;
 
     QList<QWidget*> createOptionWidgets() const override;
