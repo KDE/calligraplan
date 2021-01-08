@@ -1,0 +1,6 @@
+<sect2><title/>
+<para><note><para>This view is not shown by default. For large projects, it can impact performance severely</para></note>
+</para>
+<para>It can be activated using the <link linkend="the-view-selector">View Selector</link> context menu.
+</para>
+</sect2>

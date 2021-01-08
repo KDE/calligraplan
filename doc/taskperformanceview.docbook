@@ -1,0 +1,36 @@
+<sect2><title/>
+<para>On the task performance chart, we can analyze deeply each subtask or task with the same indexes as for the project performance view.
+</para>
+<para>This is really useful in a long and complicated project.
+</para>
+<para>On the left window, you can choose every single sub-task as well as an entire task, then on the right window will appear in the corresponding chart.
+</para>
+<para>
+  <screenshot>
+    <screeninfo></screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="plan_tasks_perf_chart.png" format="PNG"/>
+      </imageobject>
+      <textobject>
+        <phrase></phrase>
+      </textobject>
+    </mediaobject>
+  </screenshot>
+</para>
+<para>where:
+</para>
+<itemizedlist>
+  <listitem><para>BCWS means Budgeted Cost Work Scheduled,</para></listitem>
+  <listitem><para>BCWP means Budgeted Cost Work Performed,</para></listitem>
+  <listitem><para>ACWP means Actual Cost Work Performed.</para></listitem>
+</itemizedlist>
+<para>All these are considered as effort in hours and costs.
+</para>
+<para>PI are the Performance Indexes, where:
+</para>
+<itemizedlist>
+  <listitem><para>CPI is the Cost Performance Index,</para></listitem>
+  <listitem><para>SPI is the Schedule Performance Index.</para></listitem>
+</itemizedlist>
+</sect2>

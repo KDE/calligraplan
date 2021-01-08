@@ -1,0 +1,122 @@
+<sect2><title/>
+<sect3 id="description41"><title>Description</title>
+  <para>
+    The Reports Generator View is used to add and generate reports in Open Document Text (odt) format.</para><para>The reports can be based on the supplied report templates, or you can <link linkend="creating-odt-report-templates">write your own templates</link>.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry><guilabel>Column</guilabel></entry>
+            <entry><guilabel>Description</guilabel></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>Name</para>
+            </entry>
+            <entry>
+              <para>A name of your choice</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Report Template</para>
+            </entry>
+            <entry>
+              <para>Path to the report template file. You can select one of the supplied standard templates or you can enter the filename of a template you provide yourself.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Report File</para>
+            </entry>
+            <entry>
+              <para>The name of the file that will be generated.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Add</para>
+            </entry>
+            <entry>
+              <para>Information that can be added to the report file name to distinguish it from previously generated versions. This can be:</para>
+              <itemizedlist>
+                <listitem><para><emphasis>Nothing</emphasis>; use the filename as is</para></listitem>
+                <listitem><para><emphasis>Number</emphasis>; add a sequence number to the file name</para></listitem>
+                <listitem><para><emphasis>Date</emphasis>; add the current date to the file name</para></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"><title>Toolbar</title>
+  <para>The toolbar provides the means to add, remove and generate reports.
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry><guilabel>Button</guilabel></entry>
+            <entry><guilabel>Shortcut</guilabel></entry>
+            <entry><guilabel>Description</guilabel></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>Add Report</para>
+            </entry>
+            <entry>
+              <para><keycombo>&Ctrl;<keycap>I</keycap></keycombo></para>
+            </entry>
+            <entry>
+              <para>Add a new report</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Remove Report</para>
+            </entry>
+            <entry>
+              <para><keycombo>&Ctrl;<keycap>D</keycap></keycombo></para>
+            </entry>
+            <entry>
+              <para>Remove the selected report</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Generate Report</para>
+            </entry>
+            <entry>
+              <para><keycombo>&Ctrl;<keycap>G</keycap></keycombo></para>
+            </entry>
+            <entry>
+              <para>Generate the selected report</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

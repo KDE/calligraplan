@@ -1,0 +1,163 @@
+<sect2><title/>
+<sect3 id="description3"><title>Description</title>
+  <para>
+    The Task Editor is a view that displays task data in a tree structure. Most data in the Task Editor can be edited in situ.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"><title>Navigation</title>
+  <para>You can navigate the tree structure using the keyboard:
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para><keycap>+</keycap></para>
+            </entry>
+            <entry>
+              <para>Expand an expandable row.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycap>-</keycap></para>
+            </entry>
+            <entry>
+              <para>Collapse a collapsible item.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycap>Arrow left</keycap></para>
+            </entry>
+            <entry>
+              <para>Go to previous column in the same row.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycap>Arrow right</keycap></para>
+            </entry>
+            <entry>
+              <para>Go to next column in the same row.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycap>Arrow up</keycap></para>
+            </entry>
+            <entry>
+              <para>Go to previous row in the same column.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycap>Arrow down</keycap></para>
+            </entry>
+            <entry>
+              <para>Go to next row in the same column.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycap>Home</keycap></para>
+            </entry>
+            <entry>
+              <para>Go to first row, first column.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycap>End</keycap></para>
+            </entry>
+            <entry>
+              <para>Go to last row, last column.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycap>Page up</keycap></para>
+            </entry>
+            <entry>
+              <para>Go to first visible row in the same column.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycap>Page down</keycap></para>
+            </entry>
+            <entry>
+              <para>Go to last visible row in the same column.</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"><title>Editing data</title>
+  <para>Editable items are opened for editing by double-clicking on the item or, if using the keyboard, pressing <keycap>F2</keycap> will open the current item.
+  </para>
+  <para>When editing an item you can navigate to the next editable item as follows:
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para><keycombo>&Ctrl;&Alt;<keycap>Arrow left</keycap></keycombo></para>
+            </entry>
+            <entry>
+              <para>Go to the previous editable item in the same row.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycombo>&Ctrl;&Alt;<keycap>Arrow right</keycap></keycombo></para>
+            </entry>
+            <entry>
+              <para>Go to the next editable item in the same row.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycombo>&Ctrl;&Alt;<keycap>Arrow up</keycap></keycombo></para>
+            </entry>
+            <entry>
+              <para>Go to the next editable item in preceding rows.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><keycombo>&Ctrl;&Alt;<keycap>Arrow down</keycap></keycombo></para>
+            </entry>
+            <entry>
+              <para>Go to the next editable item in succeeding rows.</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"><title>Drag &amp; drop and copy/paste</title>
+  <para>
+    Most views support drag &amp; drop and copy/paste. Charts and Gantt charts can be dragged to applications that support images.
+    Table data uses the html mime type, so can be dropped on any applications that supports this.
+    If the view supports moving or copying items internally &eg; the <link linkend="task-editor">Task Editor</link>, items can also be moved or copied.
+  </para>
+</sect3>
+</sect2>
