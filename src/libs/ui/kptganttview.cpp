@@ -540,65 +540,6 @@ GanttTreeView::GanttTreeView(QWidget* parent)
 }
 
 //-------------------------------------------
-GanttZoomWidget::GanttZoomWidget(QWidget *parent)
-    : QSlider(parent), m_hide(true), m_grid(0)
-{
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    setGeometry(0, 0, 200, minimumSizeHint().height());
-    setContextMenuPolicy(Qt::PreventContextMenu);
-    setOrientation(Qt::Horizontal);
-    setPageStep(5);
-    setMaximum(125);
-    connect(this, &QAbstractSlider::valueChanged, this, &GanttZoomWidget::sliderValueChanged);
-}
-
-void GanttZoomWidget::setEnableHideOnLeave(bool hide)
-{
-    m_hide = hide;
-}
-
-void GanttZoomWidget::setGrid(KGantt::DateTimeGrid *grid)
-{
-    m_grid = grid;
-    if (grid) {
-        int pos = -1; // daywidth always >= 0.1
-        for (qreal dw = grid->dayWidth(); dw >= 0.1 && pos < maximum(); ++pos) {
-            dw *= 1.0 / 1.1;
-        }
-        blockSignals(true);
-        setValue(pos);
-        blockSignals(false);
-    }
-}
-
-void GanttZoomWidget::mousePressEvent(QMouseEvent *e)
-{
-    QSlider::mousePressEvent(e);
-    setRepeatAction(QAbstractSlider::SliderNoAction);
-    e->accept();
-}
-
-void GanttZoomWidget::mouseMoveEvent(QMouseEvent *e)
-{
-    QSlider::mouseMoveEvent(e);
-    e->accept();
-}
-
-void GanttZoomWidget::mouseReleaseEvent(QMouseEvent *e)
-{
-    QSlider::mouseReleaseEvent(e);
-    e->accept();
-}
-
-void GanttZoomWidget::sliderValueChanged(int value)
-{
-    //debugPlan<<m_grid<<value;
-    if (m_grid) {
-        int v = qMax(1.0, qPow(1.1, value) * 0.1);
-        m_grid->setDayWidth(v);
-    }
-}
-
 class MyGraphicsView : public KGantt::GraphicsView
 {
 public:
@@ -660,12 +601,6 @@ GanttViewBase::GanttViewBase(QWidget *parent)
     }
     g->setFreeDays(fd);
 
-    m_zoomwidget = new GanttZoomWidget(graphicsView());
-    m_zoomwidget->setGrid(g);
-    m_zoomwidget->setEnableHideOnLeave(true);
-    m_zoomwidget->hide();
-    m_zoomwidget->move(6, 6);
-
     graphicsView()->installEventFilter(this);
 }
 
@@ -698,30 +633,6 @@ GanttTreeView *GanttViewBase::treeView() const
     GanttTreeView *tv = qobject_cast<GanttTreeView*>(const_cast<QAbstractItemView*>(leftView()));
     Q_ASSERT(tv);
     return tv;
-}
-
-bool GanttViewBase::eventFilter(QObject *obj, QEvent *event)
-{
-    if (obj != graphicsView()) {
-        return false;
-    }
-    if (event->type() == QEvent::HoverMove) {
-        QHoverEvent *e = static_cast<QHoverEvent*>(event);
-        bool zoom = m_zoomwidget->geometry().contains(e->pos());
-        if (zoom && m_zoomwidget->isVisible()) {
-            return true;
-        }
-        if (m_mouseButton == Qt::NoButton && zoom && !m_zoomwidget->isVisible()) {
-            m_zoomwidget->show();
-            m_zoomwidget->raise();
-            m_zoomwidget->setFocus();
-        }
-        if (!zoom && m_zoomwidget->isVisible()) {
-            m_zoomwidget->hide();
-            graphicsView()->update();
-        }
-    }
-    return QObject::eventFilter(obj, event);
 }
 
 void GanttViewBase::setPrintingOptions(const KPlato::GanttPrintingOptions &opt)
