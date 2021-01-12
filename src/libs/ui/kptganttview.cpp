@@ -441,7 +441,9 @@ void GanttPrintingDialog::startPrinting(RemovePolicy removePolicy)
     ctx.setSceneRect(calcSceneRect(start, end));
     qInfo()<<Q_FUNC_INFO<<m_gantt->m_printOptions.context<<':'<<ctx;
     printer().setFullPage(true);
+    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     m_gantt->printDiagram(&printer(), ctx);
+    QApplication::restoreOverrideCursor();
 }
 
 QList<QWidget*> GanttPrintingDialog::createOptionWidgets() const
