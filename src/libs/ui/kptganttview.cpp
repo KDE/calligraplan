@@ -439,7 +439,7 @@ void GanttPrintingDialog::startPrinting(RemovePolicy removePolicy)
         end = m_gantt->m_printOptions.diagramEnd;
     }
     ctx.setSceneRect(calcSceneRect(start, end));
-    qInfo()<<Q_FUNC_INFO<<m_gantt->m_printOptions.context<<':'<<ctx;
+    //qInfo()<<Q_FUNC_INFO<<m_gantt->m_printOptions.context<<':'<<ctx;
     printer().setFullPage(true);
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     m_gantt->printDiagram(&printer(), ctx);
@@ -484,7 +484,6 @@ int GanttPrintingDialog::documentLastPage() const
 
 void GanttPrintingDialog::printPage(int page, QPainter &painter)
 {
-    qInfo()<<Q_FUNC_INFO<<page;
 #if 0
     debugPlan<<"page:"<<page<<"first"<<documentFirstPage()<<"last:"<<documentLastPage()<<m_horPages<<m_vertPages;
     int p = page - documentFirstPage();
