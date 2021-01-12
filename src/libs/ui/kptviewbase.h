@@ -194,7 +194,7 @@ public:
     virtual ~ViewActionLists() {}
 
     QList<QAction*> contextActionList() const { return m_contextActionList; }
-    void addContextAction(QAction *action, int pos = INT_MAX) { m_contextActionList.insert(pos, action); }
+    void addContextAction(QAction *action, int pos = INT_MAX);
 
 protected:
     /// List of actions that will be shown in the views header context menu

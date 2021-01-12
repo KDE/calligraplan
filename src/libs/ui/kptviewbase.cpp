@@ -575,6 +575,15 @@ void PrintingDialog::paint(QPainter &p, const PrintingOptions::Data &options, co
 }
 
 //--------------
+void ViewActionLists::addContextAction(QAction *action, int pos) {
+    if (pos > m_contextActionList.count()) {
+        m_contextActionList.append(action);
+    } else {
+        m_contextActionList.insert(pos, action);
+    }
+}
+
+//--------------
 ViewBase::ViewBase(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent),
     m_readWrite(false),
