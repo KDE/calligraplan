@@ -197,28 +197,6 @@ public:
 
 };
 
-class GanttZoomWidget : public QSlider {
-    Q_OBJECT
-public:
-    explicit GanttZoomWidget(QWidget *parent);
-
-    void setGrid(KGantt::DateTimeGrid *grid);
-
-    void setEnableHideOnLeave(bool hide);
-
-protected:
-    void mousePressEvent(QMouseEvent *event) override;
-    void mouseMoveEvent(QMouseEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *event) override;
-
-private Q_SLOTS:
-    void sliderValueChanged(int value);
-
-private:
-    bool m_hide;
-    KGantt::DateTimeGrid *m_grid;
-};
-
 class PLANUI_EXPORT GanttViewBase : public KGantt::View
 {
     Q_OBJECT
@@ -245,7 +223,6 @@ Q_SIGNALS:
     void contextMenuRequested(const QModelIndex &idx, const QPoint &pos);
 
 protected:
-    bool eventFilter(QObject *obj, QEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
@@ -256,7 +233,6 @@ protected:
 private:
     QPoint m_dragStartPosition;
     Qt::MouseButton m_mouseButton;
-    GanttZoomWidget *m_zoomwidget;
 };
 
 class NodeGanttViewBase : public GanttViewBase
