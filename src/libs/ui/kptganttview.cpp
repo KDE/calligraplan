@@ -215,11 +215,17 @@ GanttPrintingOptions::GanttPrintingOptions()
 
 GanttPrintingOptions::GanttPrintingOptions(const GanttPrintingOptions &other)
 {
+    operator=(other);
+}
+
+GanttPrintingOptions &GanttPrintingOptions::operator=(const GanttPrintingOptions &other)
+{
     context = other.context;
     useStartTime = other.useStartTime;
     diagramStart = other.diagramStart;
     useEndTime = other.useEndTime;
     diagramEnd = other.diagramEnd;
+    return *this;
 }
 
 bool GanttPrintingOptions::loadContext(const KoXmlElement &settings)

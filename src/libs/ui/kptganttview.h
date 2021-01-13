@@ -109,6 +109,7 @@ class GanttPrintingOptions
 public:
     GanttPrintingOptions();
     GanttPrintingOptions(const GanttPrintingOptions &other);
+    GanttPrintingOptions &operator=(const GanttPrintingOptions &other);
 
     bool loadContext(const KoXmlElement &settings);
     void saveContext(QDomElement &settings) const;
