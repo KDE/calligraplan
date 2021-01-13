@@ -1,16 +1,17 @@
 /* This file is part of the KDE project
+ *  Copyright (C) 2021 Dag Andersen <dag.andersen@kdemail.net>
  *  Copyright (C) 2020 Dag Andersen <dag.andersen@kdemail.net>
- * 
+ *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Library General Public
  *  License as published by the Free Software Foundation; either
  *  version 2 of the License, or (at your option) any later version.
- * 
+ *
  *  This library is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  *  Library General Public License for more details.
- * 
+ *
  *  You should have received a copy of the GNU Library General Public License
  *  along with this library; see the file COPYING.LIB.  If not, write to
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -48,11 +49,12 @@ class GanttViewBase;
 class GanttItemDelegate;
 class GanttPrintingOptionsWidget;
 
+//---------------------------------------
 class GanttChartDisplayOptionsPanel : public QWidget, public Ui::GanttChartDisplayOptions
 {
     Q_OBJECT
 public:
-    explicit GanttChartDisplayOptionsPanel(GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent = nullptr);
+    explicit GanttChartDisplayOptionsPanel(GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent = 0);
 
     void setValues(const GanttItemDelegate &del);
 
@@ -87,27 +89,52 @@ class GanttPrintingOptions
 {
 public:
     GanttPrintingOptions();
+    GanttPrintingOptions(const GanttPrintingOptions &other);
 
     bool loadContext(const KoXmlElement &settings);
     void saveContext(QDomElement &settings) const;
 
-    bool printRowLabels;
-    bool singlePage;
+    KGantt::PrintingContext context;
+    bool useStartTime;
+    QDateTime diagramStart;
+    bool useEndTime;
+    QDateTime diagramEnd;
 };
 
 class PLANUI_EXPORT GanttPrintingOptionsWidget : public QWidget, public Ui::GanttPrintingOptionsWidget
 {
     Q_OBJECT
 public:
-    explicit GanttPrintingOptionsWidget(QWidget *parent = nullptr);
+    explicit GanttPrintingOptionsWidget(QWidget *parent = 0);
 
     GanttPrintingOptions options() const;
 
     void setPrintRowLabels(bool value) { ui_printRowLabels->setChecked(value); }
     bool printRowLabels() const { return ui_printRowLabels->isChecked(); }
 
-    void setSinglePage(bool value)  { value ? ui_singlePage->setChecked(false) : ui_multiplePages->setChecked(true); }
-    bool singlePage() const { return ui_singlePage->isChecked(); }
+    void setPrintColumnLabels(bool value) { ui_printColumnLabels->setChecked(value); }
+    bool printColumnLabels() const { return ui_printColumnLabels->isChecked(); }
+
+    void setFitting(const KGantt::PrintingContext::Fitting &fitting)  {
+        if (fitting & KGantt::PrintingContext::FitSinglePage) {
+            ui_fitSingle->setChecked(true);
+        } else if (fitting & KGantt::PrintingContext::FitPageHeight) {
+            ui_fitVertical->setChecked(true);
+        } else {
+            ui_noFitting->setChecked(true);
+        }
+    }
+    KGantt::PrintingContext::Fitting fitting() const {
+        KGantt::PrintingContext::Fitting s;
+        if (ui_fitSingle->isChecked()) {
+            s = KGantt::PrintingContext::FitSinglePage;
+        } else if (ui_fitVertical->isChecked()) {
+            s = KGantt::PrintingContext::FitPageHeight;
+        } else {
+            s = KGantt::PrintingContext::NoFitting;
+        }
+        return s;
+    }
 
 public Q_SLOTS:
     void setOptions(const KPlato::GanttPrintingOptions &opt);
@@ -124,6 +151,8 @@ public:
     void printPage(int page, QPainter &painter) override;
 
     int documentLastPage() const override;
+    qreal rowLabelsWidth(const QPaintDevice *device) const;
+    QRectF calcSceneRect(const QDateTime &startDateTime, const QDateTime &endDateTime) const;
 
 protected Q_SLOTS:
     void slotPrintRowLabelsToogled(bool on);
@@ -131,12 +160,12 @@ protected Q_SLOTS:
 
 protected:
     GanttViewBase *m_gantt;
+    GanttPrintingOptionsWidget *m_options;
     QRectF m_sceneRect;
     int m_horPages;
     int m_vertPages;
-    double m_headerHeight;
-    GanttPrintingOptionsWidget *m_options;
-    QImage m_image;
+    qreal m_headerHeight;
+    qreal m_rowLabelsWidth;
 };
 
 class PLANUI_EXPORT GanttTreeView : public TreeViewBase
@@ -145,28 +174,6 @@ class PLANUI_EXPORT GanttTreeView : public TreeViewBase
 public:
     explicit GanttTreeView(QWidget *parent);
 
-};
-
-class GanttZoomWidget : public QSlider {
-    Q_OBJECT
-public:
-    explicit GanttZoomWidget(QWidget *parent);
-
-    void setGrid(KGantt::DateTimeGrid *grid);
-
-    void setEnableHideOnLeave(bool hide);
-
-protected:
-    void mousePressEvent(QMouseEvent *event) override;
-    void mouseMoveEvent(QMouseEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *event) override;
-
-private Q_SLOTS:
-    void sliderValueChanged(int value);
-
-private:
-    bool m_hide;
-    KGantt::DateTimeGrid *m_grid;
 };
 
 class PLANUI_EXPORT GanttViewBase : public KGantt::View
@@ -198,7 +205,6 @@ Q_SIGNALS:
     void contextMenuRequested(const QModelIndex &idx, const QPoint &pos);
 
 protected:
-    bool eventFilter(QObject *obj, QEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
@@ -209,7 +215,6 @@ protected:
 private:
     QPoint m_dragStartPosition;
     Qt::MouseButton m_mouseButton;
-    GanttZoomWidget *m_zoomwidget;
 };
 
 }  //KPlato namespace
