@@ -186,8 +186,6 @@ protected:
     int m_vertPages;
     double m_headerHeight;
     qreal m_rowLabelsWidth;
-    QImage m_labelsImage;
-    QImage m_image;
 };
 
 class PLANUI_EXPORT GanttTreeView : public TreeViewBase
