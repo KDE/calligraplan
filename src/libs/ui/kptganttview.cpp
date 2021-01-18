@@ -180,15 +180,7 @@ GanttViewSettingsDialog::GanttViewSettingsDialog(GanttViewBase *gantt, GanttItem
     m_pagelayout = w->findChild<KoPageLayoutWidget*>();
     Q_ASSERT(m_pagelayout);
 
-    m_printingoptions = new GanttPrintingOptionsWidget(this);
-    QRectF rect = m_gantt->graphicsView()->sceneRect();
-    QDateTime start = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapToDateTime(rect.left());
-    QDateTime end = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapToDateTime(rect.right());
-    m_printingoptions->ui_startTime->setMinimumDateTime(start);
-    m_printingoptions->ui_startTime->setMaximumDateTime(end);
-    m_printingoptions->ui_endTime->setMinimumDateTime(start);
-    m_printingoptions->ui_endTime->setMaximumDateTime(end);
-    m_printingoptions->setOptions(gantt->printingOptions());
+    m_printingoptions = new GanttPrintingOptionsWidget(gantt, this);
     tab->addTab(m_printingoptions, m_printingoptions->windowTitle());
     KPageWidgetItem *page = insertWidget(2, tab, i18n("Printing"), i18n("Printing Options"));
     if (selectPrint) {
@@ -242,9 +234,13 @@ bool GanttPrintingOptions::loadContext(const KoXmlElement &settings)
             context.setFitting(KGantt::PrintingContext::NoFitting);
         }
         useStartTime = (bool)(e.attribute("print-use-starttime", "0").toInt());
-        diagramStart = QDateTime::fromString(e.attribute("print-starttime"), Qt::ISODate);
+        if (e.hasAttribute("print-starttime")) {
+            diagramStart = QDateTime::fromString(e.attribute("print-starttime"), Qt::ISODate);
+        }
         useEndTime = (bool)(e.attribute("print-use-endtime", "0").toInt());
-        diagramEnd = QDateTime::fromString(e.attribute("print-endtime"), Qt::ISODate);
+        if (e.hasAttribute("print-endtime")) {
+            diagramEnd = QDateTime::fromString(e.attribute("print-endtime"), Qt::ISODate);
+        }
     }
     return true;
 }
@@ -270,11 +266,22 @@ void GanttPrintingOptions::saveContext(QDomElement &settings) const
 
 
 
-GanttPrintingOptionsWidget::GanttPrintingOptionsWidget(QWidget *parent)
+GanttPrintingOptionsWidget::GanttPrintingOptionsWidget(GanttViewBase *gantt, QWidget *parent)
     : QWidget(parent)
 {
     setupUi(this);
     setWindowTitle(xi18nc("@title:tab", "Chart"));
+
+    QRectF rect = gantt->graphicsView()->sceneRect();
+    QDateTime start = qobject_cast<KGantt::DateTimeGrid*>(gantt->grid())->mapToDateTime(rect.left());
+    QDateTime end = qobject_cast<KGantt::DateTimeGrid*>(gantt->grid())->mapToDateTime(rect.right());
+    ui_startTime->setDateTime(start);
+    ui_chartStartTime->setDateTime(start);
+    ui_chartStartTime->setEnabled(false);
+    ui_endTime->setDateTime(end);
+    ui_chartEndTime->setDateTime(end);
+    ui_chartEndTime->setEnabled(false);
+    setOptions(gantt->printingOptions());
 }
 
 GanttPrintingOptions GanttPrintingOptionsWidget::options() const
@@ -453,17 +460,8 @@ void GanttPrintingDialog::startPrinting(RemovePolicy removePolicy)
 QList<QWidget*> GanttPrintingDialog::createOptionWidgets() const
 {
     //debugPlan;
-    GanttPrintingOptionsWidget *w = new GanttPrintingOptionsWidget();
-    QRectF rect = m_gantt->graphicsView()->sceneRect();
-    QDateTime start = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapToDateTime(rect.left());
-    QDateTime end = qobject_cast<KGantt::DateTimeGrid*>(m_gantt->grid())->mapToDateTime(rect.right());
-    w->ui_startTime->setMinimumDateTime(start);
-    w->ui_startTime->setMaximumDateTime(end);
-    w->ui_endTime->setMinimumDateTime(start);
-    w->ui_endTime->setMaximumDateTime(end);
-    w->setOptions(m_gantt->m_printOptions);
+    GanttPrintingOptionsWidget *w = new GanttPrintingOptionsWidget(m_gantt);
     const_cast<GanttPrintingDialog*>(this)->m_options = w;
-    //qInfo()<<Q_FUNC_INFO<<w<<rect<<start<<end;
 
     return QList<QWidget*>() << createPageLayoutWidget() << m_options;
 }
@@ -1400,8 +1398,7 @@ MilestoneGanttViewSettingsDialog::MilestoneGanttViewSettingsDialog(GanttViewBase
     m_pagelayout = w->findChild<KoPageLayoutWidget*>();
     Q_ASSERT(m_pagelayout);
 
-    m_printingoptions = new GanttPrintingOptionsWidget(this);
-    m_printingoptions->setOptions(gantt->printingOptions());
+    m_printingoptions = new GanttPrintingOptionsWidget(gantt, this);
     tab->addTab(m_printingoptions, m_printingoptions->windowTitle());
     KPageWidgetItem *page = insertWidget(-1, tab, i18n("Printing"), i18n("Printing Options"));
     if (selectPrint) {
@@ -1836,8 +1833,7 @@ ResourceAppointmentsGanttViewSettingsDialog::ResourceAppointmentsGanttViewSettin
     tab->addTab(w, w->windowTitle());
     m_pagelayout = w->findChild<KoPageLayoutWidget*>();
     Q_ASSERT(m_pagelayout);
-    m_printingoptions = new GanttPrintingOptionsWidget(this);
-    m_printingoptions->setOptions(gantt->printingOptions());
+    m_printingoptions = new GanttPrintingOptionsWidget(gantt, this);
     tab->addTab(m_printingoptions, m_printingoptions->windowTitle());
     KPageWidgetItem *page = insertWidget(-1, tab, i18n("Printing"), i18n("Printing Options"));
     if (selectPrint) {

@@ -6,28 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>486</width>
-    <height>377</height>
+    <width>547</width>
+    <height>382</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QGroupBox" name="groupBox_3">
      <property name="title">
-      <string>Headers</string>
+      <string comment="@title:group">Headers</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QCheckBox" name="ui_printRowLabels">
         <property name="text">
-         <string>Print task names</string>
+         <string comment="@option:check">Print task names</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QCheckBox" name="ui_printColumnLabels">
         <property name="text">
-         <string>Print time scale header</string>
+         <string comment="@option:check">Print time scale</string>
         </property>
        </widget>
       </item>
@@ -37,27 +37,27 @@
    <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
-      <string>Scaling</string>
+      <string comment="@title:group">Scaling</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QRadioButton" name="ui_noFitting">
         <property name="text">
-         <string>Divide chart on multiple pages</string>
+         <string comment="@option:radio">Divide chart on multiple pages</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="ui_fitVertical">
         <property name="text">
-         <string>Fit chart to page height</string>
+         <string comment="@option:radio">Fit chart to page height</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="ui_fitSingle">
         <property name="text">
-         <string>Fit chart to a single page</string>
+         <string comment="@option:radio">Fit chart to a single page</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -70,7 +70,7 @@
    <item>
     <widget class="QGroupBox" name="groupBox_5">
      <property name="title">
-      <string>Range</string>
+      <string comment="@title:group">Range</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
@@ -81,27 +81,43 @@
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
-         <item>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
           <widget class="QRadioButton" name="ui_projectStartBtn">
            <property name="text">
-            <string>Project start</string>
+            <string comment="@option:radio">Chart start:</string>
            </property>
           </widget>
          </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_5">
-           <item>
-            <widget class="QRadioButton" name="ui_startTimeBtn">
-             <property name="text">
-              <string>Time:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QDateTimeEdit" name="ui_startTime"/>
-           </item>
-          </layout>
+         <item row="0" column="1">
+          <widget class="QDateTimeEdit" name="ui_chartStartTime">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="ui_startTimeBtn">
+           <property name="text">
+            <string comment="@option:radio">Start:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QDateTimeEdit" name="ui_startTime">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="readOnly">
+            <bool>false</bool>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -114,27 +130,37 @@
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_5">
-         <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
           <widget class="QRadioButton" name="ui_projectEndBtn">
            <property name="text">
-            <string>Project end</string>
+            <string comment="@option:radio">Chart end:</string>
            </property>
           </widget>
          </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <item>
-            <widget class="QRadioButton" name="ui_endTimeBtn">
-             <property name="text">
-              <string>Time:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QDateTimeEdit" name="ui_endTime"/>
-           </item>
-          </layout>
+         <item row="0" column="1">
+          <widget class="QDateTimeEdit" name="ui_chartEndTime">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="ui_endTimeBtn">
+           <property name="text">
+            <string comment="@option:radio">End:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QDateTimeEdit" name="ui_endTime">
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>

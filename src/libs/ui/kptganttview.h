@@ -125,7 +125,7 @@ class PLANUI_EXPORT GanttPrintingOptionsWidget : public QWidget, public Ui::Gant
 {
     Q_OBJECT
 public:
-    explicit GanttPrintingOptionsWidget(QWidget *parent = 0);
+    explicit GanttPrintingOptionsWidget(GanttViewBase *gantt, QWidget *parent = nullptr);
 
     GanttPrintingOptions options() const;
 
