@@ -768,8 +768,7 @@ MilestoneGanttViewSettingsDialog::MilestoneGanttViewSettingsDialog(GanttViewBase
     m_pagelayout = w->findChild<KoPageLayoutWidget*>();
     Q_ASSERT(m_pagelayout);
 
-    m_printingoptions = new GanttPrintingOptionsWidget(this);
-    m_printingoptions->setOptions(gantt->printingOptions());
+    m_printingoptions = new GanttPrintingOptionsWidget(gantt, this);
     tab->addTab(m_printingoptions, m_printingoptions->windowTitle());
     KPageWidgetItem *page = insertWidget(-1, tab, i18n("Printing"), i18n("Printing Options"));
     if (selectPrint) {
@@ -1205,8 +1204,7 @@ ResourceAppointmentsGanttViewSettingsDialog::ResourceAppointmentsGanttViewSettin
     tab->addTab(w, w->windowTitle());
     m_pagelayout = w->findChild<KoPageLayoutWidget*>();
     Q_ASSERT(m_pagelayout);
-    m_printingoptions = new GanttPrintingOptionsWidget(this);
-    m_printingoptions->setOptions(gantt->printingOptions());
+    m_printingoptions = new GanttPrintingOptionsWidget(gantt, this);
     tab->addTab(m_printingoptions, m_printingoptions->windowTitle());
     KPageWidgetItem *page = insertWidget(-1, tab, i18n("Printing"), i18n("Printing Options"));
     if (selectPrint) {
