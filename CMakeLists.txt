@@ -227,7 +227,7 @@ endif()
 ##
 ## Test for KGantt
 ##
-macro_optional_find_package(KGantt 2.7.90 QUIET)
+macro_optional_find_package(KGantt 2.8.0 QUIET)
 set_package_properties(KGantt PROPERTIES
     DESCRIPTION "Library for creating Gantt diagrams (part of KDiagram)"
     URL "https://www.kde.org/"
@@ -242,7 +242,7 @@ endif()
 ##
 ## Test for KChart
 ##
-macro_optional_find_package(KChart 2.7.90 QUIET)
+macro_optional_find_package(KChart 2.8.0 QUIET)
 set_package_properties(KChart PROPERTIES
     DESCRIPTION "Library for creating business charts (part of KDiagram)"
     URL "https://www.kde.org/"
