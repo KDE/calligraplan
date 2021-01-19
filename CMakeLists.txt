@@ -222,7 +222,7 @@ endif()
 ############################
 ###########################
 
-set(REQUIRED_KDIAGRAM_VERSION 2.7.0)
+set(REQUIRED_KDIAGRAM_VERSION 2.8.0)
 
 ##
 ## Test for KGantt
