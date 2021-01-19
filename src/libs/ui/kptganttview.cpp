@@ -84,6 +84,43 @@ namespace KPlato
 
 class GanttItemDelegate;
 
+// Define a printer friendly palette
+#define VeryLightGray   "#f8f8f8"
+#define LightLightGray  "#f0f0f0"
+#define DarkDarkGray    "#b3b3b3"
+#define VeryDarkGray    "#838383"
+class PrintPalette {
+public:
+    PrintPalette() {
+        orig = QApplication::palette();
+        QPalette palette = orig;
+        // define a palette that works when printing on white paper
+        palette.setColor(QPalette::Window, Qt::white);
+        palette.setColor(QPalette::WindowText, Qt::black);
+        palette.setColor(QPalette::Base, Qt::white);
+        palette.setColor(QPalette::AlternateBase, VeryLightGray);
+        palette.setColor(QPalette::ToolTipBase, Qt::white);
+        palette.setColor(QPalette::ToolTipText, Qt::black);
+        palette.setColor(QPalette::Text, Qt::black);
+        palette.setColor(QPalette::Button, Qt::lightGray);
+        palette.setColor(QPalette::ButtonText, Qt::black);
+        palette.setColor(QPalette::BrightText, Qt::white);
+        palette.setColor(QPalette::Link, Qt::blue);
+        palette.setColor(QPalette::Highlight, Qt::blue);
+        palette.setColor(QPalette::HighlightedText, Qt::white);
+        palette.setColor(QPalette::Light, QColor(VeryLightGray));
+        palette.setColor(QPalette::Midlight, QColor(LightLightGray));
+        palette.setColor(QPalette::Dark, QColor(DarkDarkGray));
+        palette.setColor(QPalette::Mid, QColor(VeryDarkGray));
+        palette.setColor(QPalette::Shadow, Qt::black);
+        QApplication::setPalette(palette);
+    }
+    ~PrintPalette() {
+        QApplication::setPalette(orig);
+    }
+    QPalette orig;
+};
+
 //-------------------------------------------------
 GanttChartDisplayOptionsPanel::GanttChartDisplayOptionsPanel(GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent)
     : QWidget(parent)
@@ -453,6 +490,7 @@ void GanttPrintingDialog::startPrinting(RemovePolicy removePolicy)
     //qInfo()<<Q_FUNC_INFO<<m_gantt->m_printOptions.context<<':'<<ctx;
     printer().setFullPage(true);
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+    PrintPalette p;
     m_gantt->printDiagram(&printer(), ctx);
     QApplication::restoreOverrideCursor();
 }
