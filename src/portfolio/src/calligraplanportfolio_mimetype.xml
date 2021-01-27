@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-vnd.kde.plan.portfolio">
+    <comment>Calligra Plan Portfolio Management</comment>
+    <magic priority="50">
+        <match type="string" value="application/x-vnd.kde.plan.portfolio" offset="31:67"/>
+    </magic>
+    <glob pattern="*.planp"/>
+  </mime-type>
+</mime-info>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="portfolioview" version="1" translationDomain="calligraplangroup">
+    <MenuBar>
+        <Menu name="edit"><text>&amp;Edit</text>
+            <Action name="add_project"/>
+            <Action name="remove_selected"/>
+        </Menu>
+        <Menu name="view"><text>&amp;View</text>
+            <Action name="print"/>
+            <Action name="print_preview"/>
+            <Action name="print_pdf"/>
+            <Action name="print_options"/>
+            <Separator/>
+            <Action name="configure_view"/>
+        </Menu>
+    </MenuBar>
+    <ToolBar name="mainToolBar">
+        <Action name="add_project"/>
+        <Action name="remove_selected"/>
+    </ToolBar>
+</gui>

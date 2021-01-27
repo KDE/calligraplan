@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="schedulingview" version="1" translationDomain="calligraplangroup">
+    <MenuBar>
+        <Menu name="edit"><text>&amp;Edit</text>
+            <Action name="load_projects"/>
+            <Action name="calculate_schedule"/>
+        </Menu>
+        <Menu name="view"><text>&amp;View</text>
+            <Action name="print"/>
+            <Action name="print_preview"/>
+            <Action name="print_pdf"/>
+            <Action name="print_options"/>
+            <Separator/>
+            <Action name="configure_view"/>
+        </Menu>
+    </MenuBar>
+    <ToolBar name="mainToolBar">
+        <Action name="load_projects"/>
+        <Action name="calculate_schedule"/>
+    </ToolBar>
+    <Menu name="context_menu">
+        <Action name="open_project"/>
+    </Menu>
+</gui>
