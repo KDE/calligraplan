@@ -43,7 +43,6 @@
 #include <config.h>
 #include <KoResourcePaths.h>
 #include <KoComponentData.h>
-#include <welcome/KoWelcomeView.h>
 
 #include <klocalizedstring.h>
 #include <kdesktopfile.h>
@@ -171,7 +170,7 @@ bool KoApplication::openAutosaveFile(const QDir &autosaveDir, const QString &aut
     QString errorMsg;
     const QStringList split = autosaveFile.split('-');
     // FIXME: more generic?
-    QString mimetype = split.last().endsWith(".plangroup") ? QStringLiteral(PLANGROUP_MIME_TYPE) : QStringLiteral(PLAN_MIME_TYPE);
+    QString mimetype = split.last().endsWith(".planp") ? QStringLiteral(PLANPORTFOLIO_MIME_TYPE) : QStringLiteral(PLAN_MIME_TYPE);
     KoPart *part = getPart(split.value(0).remove('.'), mimetype);
     if (!part) {
         return false;
@@ -199,6 +198,7 @@ bool KoApplication::start(const KoComponentData &componentData)
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
 
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("portfolio"), i18n("start in portfolio mode")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("benchmark-loading"), i18n("just load the file and then exit")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("benchmark-loading-show-window"), i18n("load the file, show the window and progressbar and then exit")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("profile-filename"), i18n("Filename to write profiling information into."), QStringLiteral("filename")));
@@ -213,7 +213,7 @@ bool KoApplication::start(const KoComponentData &componentData)
         const QString extension = "plan";
         QStringList filters;
         filters << QString(".%1-%2-%3-autosave%4").arg("calligraplan").arg("*").arg("*").arg("plan");
-        filters << QString(".%1-%2-%3-autosave%4").arg("calligraplangroup").arg("*").arg("*").arg("plangroup");
+        filters << QString(".%1-%2-%3-autosave%4").arg("calligraplanportfolio").arg("*").arg("*").arg("planp");
 #ifdef Q_OS_WIN
         QDir autosaveDir = QDir::tempPath();
 #else
@@ -281,6 +281,17 @@ bool KoApplication::start(const KoComponentData &componentData)
                 }
             }
             if (numberOfOpenDocuments > 0) {
+                return true;
+            }
+        }
+        const bool portfolioMode = parser.isSet("portfolio");
+        if (portfolioMode) {
+            KoPart *part = getPart(QStringLiteral("calligraplanportfolio"), QStringLiteral(PLANPORTFOLIO_MIME_TYPE));
+            if (part) {
+                KoMainWindow *mainWindow = part->createMainWindow();
+                part->addMainWindow(mainWindow);
+                mainWindow->setRootDocument(part->document(), part);
+                mainWindow->show();
                 return true;
             }
         }
@@ -403,7 +414,7 @@ QStringList KoApplication::mimeFilter(KoFilterManager::Direction direction) cons
 #else
     QStringList mimeTypes = json.value("X-KDE-ExtraNativeMimeTypes").toVariant().toStringList();
 #endif
-    mimeTypes << PLANGROUP_MIME_TYPE << PLAN_MIME_TYPE;
+    mimeTypes << PLANPORTFOLIO_MIME_TYPE << PLAN_MIME_TYPE;
     return KoFilterManager::mimeFilter(QByteArray(), direction, mimeTypes);
 }
 

@@ -194,13 +194,6 @@ public:
     QString templatesResourcePath() const;
 
 
-    /**
-     * Creates and shows the start up widget.
-     * @param parent the KoMainWindow used as parent for the widget.
-     * @param alwaysShow always show the widget even if the user has configured it to not show.
-     */
-    virtual void showStartUpWidget(KoMainWindow *parent) = 0;
-
 protected:
 
     /**

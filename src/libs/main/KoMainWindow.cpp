@@ -34,6 +34,7 @@
 #include "KoPrintJob.h"
 #include "KoDocumentEntry.h"
 #include "KoPart.h"
+#include "WelcomeView.h"
 #include <KoPageLayoutDialog.h>
 #include <KoPageLayout.h>
 #include "KoApplication.h"
@@ -42,7 +43,6 @@
 #include "KoComponentData.h"
 #include <config.h>
 #include <KoDockRegistry.h>
-#include <welcome/KoWelcomeView.h>
 
 #include <krecentdirs.h>
 #include <khelpmenu.h>
@@ -785,7 +785,7 @@ bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocu
     updateReloadFileAction(newdoc);
     // Delete welcomeview, it does not have part and document
     // so must be explicitly deleted when a document is opened
-    KoWelcomeView* w = findChild<KoWelcomeView*>();
+    WelcomeView* w = findChild<WelcomeView*>();
     if (w) {
         w->deleteLater();
     }
@@ -1297,8 +1297,8 @@ void KoMainWindow::openWelcomeView()
         delete d->rootDocument;
         d->rootDocument = nullptr;
     }
-    if (!findChild<KoWelcomeView*>()) {
-        KoWelcomeView *v = new KoWelcomeView(mainWindow);
+    if (!findChild<WelcomeView*>()) {
+        WelcomeView *v = new WelcomeView(mainWindow);
         mainWindow->setCentralWidget(v);
     }
     mainWindow->show();

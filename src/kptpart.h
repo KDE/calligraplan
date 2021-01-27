@@ -53,8 +53,6 @@ public:
     /// reimplemented
     KoMainWindow *createMainWindow() override;
 
-    void showStartUpWidget(KoMainWindow *parent) override;
-
     void configure(KoMainWindow *mw) override;
 
     bool openProjectTemplate(const QUrl &url) override;
@@ -78,8 +76,6 @@ protected Q_SLOTS:
 
 private:
     KPlato::MainDocument *m_document;
-    QPointer<QStackedWidget> startUpWidget;
-    bool m_toolbarVisible;
 };
 
 }  //KPlato namespace

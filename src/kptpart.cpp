@@ -49,7 +49,6 @@ using namespace KPlato;
 
 Part::Part(QObject *parent)
     : KoPart(Factory::global(), parent)
-    , startUpWidget(nullptr)
 {
     setTemplatesResourcePath(QLatin1String("calligraplan/templates/"));
 
@@ -97,11 +96,6 @@ KoMainWindow *Part::createMainWindow()
         connect(handbookAction, &QAction::triggered, this, &Part::slotHelpContents);
     }
     return w;
-}
-
-void Part::showStartUpWidget(KoMainWindow *parent)
-{
-    Q_UNUSED(parent)
 }
 
 void Part::slotOpenTemplate(const QUrl &url)
@@ -154,9 +148,6 @@ void Part::openTaskModule(const QUrl &url)
 void Part::finish()
 {
     mainWindows().first()->setRootDocument(document(), this);
-    if (m_toolbarVisible) {
-        KoPart::mainWindows().first()->factory()->container("mainToolBar", mainWindows().first())->show();
-    }
 }
 
 void Part::configure(KoMainWindow *mw)
@@ -173,9 +164,6 @@ void Part::configure(KoMainWindow *mw)
 void Part::slotSettingsUpdated()
 {
     new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
-    if (startUpWidget) {
-        static_cast<WelcomeView*>(startUpWidget->widget(0))->setProjectTemplatesModel();
-    }
 }
 
 bool Part::editProject()

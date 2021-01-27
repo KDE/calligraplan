@@ -17,7 +17,7 @@ if( Qca-qt5_FOUND )
 endif()
 
 set(komain_LIB_SRCS
-    welcome/KoWelcomeView.cpp
+    WelcomeView.cpp
     KoFactory.cpp
 
     KoAutoSaveRecoveryDialog.cpp
@@ -63,7 +63,7 @@ if( Qt5DBus_FOUND )
 endif()
 
 ki18n_wrap_ui(komain_LIB_SRCS
-    welcome/KoWelcomeView.ui
+    WelcomeView.ui
 )
 
 add_library(planmain SHARED  ${komain_LIB_SRCS})
