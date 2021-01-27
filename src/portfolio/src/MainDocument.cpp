@@ -111,7 +111,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
         }
     }
     KoXmlElement projects = portfolio.namedItem("projects").toElement();
-    int step = 100 / projects.childNodesCount() + 1;
+    int step = 100 / (projects.childNodesCount() + 1);
     int progress = 0;
     KoXmlElement p;
     forEachElement(p, projects) {
