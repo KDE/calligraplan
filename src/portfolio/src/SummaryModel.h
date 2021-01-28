@@ -50,7 +50,7 @@ public:
     ~SummaryModel();
 
     MainDocument *portfolio() const;
-    
+
 public Q_SLOTS:
     void setPortfolio(MainDocument *portfolio);
 
@@ -73,23 +73,23 @@ class SummaryFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged);
-    
+
 public:
     explicit SummaryFilterModel(QObject *parent = nullptr);
     ~SummaryFilterModel();
-    
+
     MainDocument *portfolio() const;
-    
+
 public Q_SLOTS:
     void setPortfolio(MainDocument *portfolio);
-    
+
 Q_SIGNALS:
     void portfolioChanged();
-    
+
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
     bool filterAcceptsColumn(int source_column, const QModelIndex &source_parent) const override;
-    
+
 private:
     ProjectsModel *m_baseModel;
 };

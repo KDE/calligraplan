@@ -101,10 +101,7 @@ if(BUILD_TESTING)
 endif()
 
 add_subdirectory( workpackage )
-if(BUILD_PORTFOLIO)
-    add_subdirectory(portfolio)
-endif()
-#add_subdirectory(qmlgroup)
+add_subdirectory(portfolio)
 
 include_directories(${PLAN_INCLUDES})
 

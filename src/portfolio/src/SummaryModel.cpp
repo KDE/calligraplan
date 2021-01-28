@@ -75,7 +75,6 @@ void SummaryModel::slotUpdateChartModel()
         m->setProject(project);
         if (project) {
             KPlato::ScheduleManager *sm = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
-            qInfo()<<Q_FUNC_INFO<<project<<sm;
             m->setScheduleManager(sm);
             m->setNodes(QList<KPlato::Node*>() << project);
         }

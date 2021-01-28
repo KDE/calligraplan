@@ -49,13 +49,13 @@
 
 const QLoggingCategory &KOWELCOME_LOG()
 {
-    static const QLoggingCategory category("calligra.plan.kowelcome");
+    static const QLoggingCategory category("calligra.plan.welcome");
     return category;
 }
 
-#define debugKoWelcome qCDebug(KOWELCOME_LOG)<<Q_FUNC_INFO
-#define warnKoWelcome qCWarning(KOWELCOME_LOG)
-#define errorKoWelcome qCCritical(KOWELCOME_LOG)
+#define debugWelcome qCDebug(KOWELCOME_LOG)<<Q_FUNC_INFO
+#define warnWelcome qCWarning(KOWELCOME_LOG)
+#define errorWelcome qCCritical(KOWELCOME_LOG)
 
 class RecentProjectsModel : public QStandardItemModel
 {
@@ -186,10 +186,6 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
 {
     ui.setupUi(this);
 
-#ifndef BUILD_PORTFOLIO
-    ui.portfolioWidget->setVisible(false);
-#endif
-
     ui.recentProjects->setBackgroundRole(QPalette::Midlight);
     ui.projectTemplates->setBackgroundRole(QPalette::Midlight);
 
@@ -283,7 +279,7 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
         "You can create new templates from a project using the <interface>File->Create Project Template</interface> menu entry."
         "<nl/><link url='%1'>More...</link>"
         "</para>", KPlato::Help::page("Creating_a_Project")));
-    
+
     setupGui();
 
     connect(ui.newProjectBtn, &QAbstractButton::clicked, this, &WelcomeView::slotNewProject);
@@ -297,7 +293,7 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
     connect(ui.newPortfolioBtn, &QAbstractButton::clicked, this, &WelcomeView::slotNewPortfolio);
     connect(ui.openPortfolioBtn, &QAbstractButton::clicked, this, &WelcomeView::slotOpenPortfolio);
     connect(ui.recentPortfolios, &QAbstractItemView::activated, this, &WelcomeView::slotRecentPortfolioSelected);
-    
+
     connect(mainWindow(), &KoMainWindow::loadCompleted, this, &WelcomeView::finished);
 
     KSharedConfigPtr configPtr = parent->componentData().config();
@@ -310,7 +306,7 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
 
 WelcomeView::~WelcomeView()
 {
-    debugKoWelcome;
+    debugWelcome;
 }
 
 KoMainWindow * WelcomeView::mainWindow() const
@@ -322,9 +318,8 @@ void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
 {
     if (idx.isValid()) {
         QString file = idx.data(Qt::UserRole+1).toString();
-        qInfo()<<Q_FUNC_INFO<<file;
         QUrl url = QUrl::fromUserInput(file);
-        debugKoWelcome<<file<<url;
+        debugWelcome<<file<<url;
         if (url.isValid()) {
             KoPart *part = this->part(QStringLiteral("calligraplan"), QStringLiteral(PLAN_MIME_TYPE));
             mainWindow()->openDocument(part, url);
@@ -336,9 +331,8 @@ void WelcomeView::slotRecentPortfolioSelected(const QModelIndex &idx)
 {
     if (idx.isValid()) {
         QString file = idx.data(Qt::UserRole+1).toString();
-        qInfo()<<Q_FUNC_INFO<<file;
         QUrl url = QUrl::fromUserInput(file);
-        debugKoWelcome<<file<<url;
+        debugWelcome<<file<<url;
         if (url.isValid()) {
             KoPart *part = this->part(QStringLiteral("calligraplanportfolio"), QStringLiteral(PLANPORTFOLIO_MIME_TYPE));
             mainWindow()->openDocument(part, url);
@@ -404,7 +398,7 @@ void WelcomeView::slotOpenProjectTemplate(const QModelIndex &idx)
     if (idx.isValid()) {
         QString file = idx.data(Qt::UserRole+1).toString();
         QUrl url = QUrl::fromUserInput(file);
-        debugKoWelcome<<file<<url;
+        debugWelcome<<file<<url;
         KoPart *part = this->part(QStringLiteral("calligraplan"), QStringLiteral(PLAN_MIME_TYPE));
         bool ok = false;
         if (part && url.isValid()) {
@@ -417,7 +411,7 @@ void WelcomeView::slotOpenProjectTemplate(const QModelIndex &idx)
                 delete part;
             }
         } else {
-            warnKoWelcome<<"Failed to load template:"<<url;
+            warnWelcome<<"Failed to load template:"<<url;
             delete part;
         }
     }

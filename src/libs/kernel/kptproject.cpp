@@ -130,7 +130,6 @@ void Project::deref()
 
 Project::~Project()
 {
-    qInfo()<<"("<<this<<")";
     disconnect();
     for(Node *n : qAsConst(nodeIdDict)) {
         n->blockChanged();

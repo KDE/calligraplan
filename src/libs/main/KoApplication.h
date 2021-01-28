@@ -92,7 +92,7 @@ public:
     /**
      * Tell KoApplication to show this splashscreen when you call start();
      * when start returns, the splashscreen is hidden. Use KSplashScreen
-     * to have the splash show correctly on Xinerama displays. 
+     * to have the splash show correctly on Xinerama displays.
      */
     void setSplashScreen(QWidget *splash);
 

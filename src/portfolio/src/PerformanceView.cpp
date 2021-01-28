@@ -171,11 +171,11 @@ void PerformanceView::selectionChanged(const QItemSelection &selected, const QIt
     m_yAxes.at(1)->setTitleText(costTitle);
     QString effortTitle = i18n("Effort (Hour)");
     m_yAxes.at(3)->setTitleText(effortTitle);
-    
+
     double value =  m_chartModel->index(row, KPlato::ChartItemModel::SPICost).data(Qt::EditRole).toDouble();
     text = i18n("SPI: %1", QString("%1").arg(value, 0, 'f', 2));
     ui.costSPI->setText(text);
-    
+
     value =  m_chartModel->index(row, KPlato::ChartItemModel::CPICost).data(Qt::EditRole).toDouble();
     text = i18n("CPI: %1", QString("%1").arg(value, 0, 'f', 2));
     ui.costCPI->setText(text);
@@ -187,7 +187,7 @@ void PerformanceView::selectionChanged(const QItemSelection &selected, const QIt
     value =  m_chartModel->index(row, KPlato::ChartItemModel::BCWPCost).data(Qt::EditRole).toDouble();
     text = i18n("BCWP: %1", QString("%1").arg(value, 0, 'f', 0));
     ui.costBCWP->setText(text);
-    
+
     value =  m_chartModel->index(row, KPlato::ChartItemModel::ACWPCost).data(Qt::EditRole).toDouble();
     text = i18n("ACWP: %1", QString("%1").arg(value, 0, 'f', 0));
     ui.costACWP->setText(text);

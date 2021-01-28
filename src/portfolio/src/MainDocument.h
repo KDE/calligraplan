@@ -4,7 +4,7 @@
  * Copyright (C) 2006 Raphael Langerhorst <raphael.langerhorst@kdemail.net>
  * Copyright (C) 2007 Thorsten Zachmann <zachmann@kde.org>
  * Copyright (C) 2019 Dag Andersen <dag.andersen@kdemail.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either

@@ -3428,7 +3428,6 @@ void InsertProjectCmd::addCalendars(Calendar *calendar, Calendar *parent, QList<
 }
 
 void InsertProjectCmd::addAccounts(Account *account, Account *parent, QList<Account*>  &unused, QMap<QString, Account*>  &accountsmap) {
-    qInfo()<<Q_FUNC_INFO<<account<<parent<<"unused:"<<unused<<"to:"<<accountsmap;
     Account *par = nullptr;
     if (parent) {
         par = accountsmap.value(parent->name());
@@ -3438,21 +3437,16 @@ void InsertProjectCmd::addAccounts(Account *account, Account *parent, QList<Acco
     }
     Account *acc = accountsmap.value(account->name());
     if (acc == nullptr) {
-        qInfo()<<"Move to new project:"<<account<<account->name()<<"old parent:"<<account->parent()<<"new parent:"<<par;
-        if (account->parent()) qInfo()<<"old parent's list:"<<account->parent()->accountList();
         accountsmap.insert(account->name(), account);
         addCommand(new AddAccountCmd(*m_project, account, par, -1, kundo2_noi18n("Add account %1", account->name())));
     } else {
-        qInfo()<<"Already exists:"<<account<<account->name();
         unused << account;
     }
     while (! account->accountList().isEmpty()) {
         Account *a = account->accountList().first();
         account->list()->take(a);
-        qInfo()<<"child:"<<a<<"rest:"<<account->accountList();
         addAccounts(a, account, unused, accountsmap);
     }
-    qInfo()<<Q_FUNC_INFO<<"result:"<<account<<parent<<"unused:"<<unused<<"to:"<<accountsmap;
 }
 
 void InsertProjectCmd::addChildNodes(Node *node) {

@@ -365,10 +365,10 @@ void KoView::setupGlobalActions()
     actionCollection()->addAction("file_print_preview", mainColl->action("file_print_preview"));
     actionCollection()->addAction("file_documentinfo", mainColl->action("file_documentinfo"));
     actionCollection()->addAction("file_close", mainColl->action("file_close"));
-    
+
     // View
     actionCollection()->addAction("view_newview", mainColl->action("view_newview"));
-    
+
     // Settings
     actionCollection()->addAction("view_toggledockertitlebars", mainColl->action("view_toggledockertitlebars"));
     actionCollection()->addAction("settings_dockers_menu", mainColl->action("settings_dockers_menu"));

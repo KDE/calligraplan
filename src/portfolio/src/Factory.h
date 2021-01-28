@@ -24,9 +24,6 @@
 
 #include <KoFactory.h>
 
-class KAboutData;
-class KoComponentData;
-
 class PLANPORTFOLIO_EXPORT Factory : public KoFactory
 {
     Q_OBJECT

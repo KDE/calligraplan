@@ -43,10 +43,10 @@ public:
 
     void setDelegates(QAbstractItemView *view);
     MainDocument *portfolio() const;
-    
+
 public Q_SLOTS:
     void setPortfolio(MainDocument *portfolio);
-    
+
 Q_SIGNALS:
     void portfolioChanged();
 

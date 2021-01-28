@@ -36,7 +36,7 @@ SchedulingModel::SchedulingModel(QObject *parent)
 
     m_controlKeys << "Schedule" << "Include" << "Exclude";
     m_controlDisplay << i18n("Schedule") << i18n("Include") << i18n("Exclude");
-    
+
     m_baseModel = new ProjectsFilterModel(this);
     // Note: changes might affect methods below
     const QList<int> columns = QList<int>()

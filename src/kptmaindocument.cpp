@@ -99,14 +99,11 @@ MainDocument::MainDocument(KoPart *part)
     m_project->registerNodeId(m_project); // register myself
 
     connect(this, &MainDocument::insertSharedProject, this, &MainDocument::slotInsertSharedProject);
-
-    qInfo()<<Q_FUNC_INFO<<this;
 }
 
 
 MainDocument::~MainDocument()
 {
-    qInfo()<<Q_FUNC_INFO<<this;
     qDeleteAll(m_schedulerPlugins);
     if (m_project) {
         m_project->deref(); // deletes if last user

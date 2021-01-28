@@ -1307,7 +1307,6 @@ void KoMainWindow::openWelcomeView()
 
 void KoMainWindow::slotFileNew()
 {
-    qInfo()<<Q_FUNC_INFO;
     openWelcomeView();
 }
 

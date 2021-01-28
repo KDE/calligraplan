@@ -2675,7 +2675,6 @@ void View::slotGuiActivated(ViewBase *view, bool activate)
 
 void View::guiActivateEvent(bool activated)
 {
-    qInfo()<<Q_FUNC_INFO<<parentClient();
     if (activated) {
         // plug my own actionlists, they may be gone
         slotPlugScheduleActions();

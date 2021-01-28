@@ -1136,7 +1136,6 @@ QString KoDocument::autoSaveFile(const QString & path) const
         QString filename = url.fileName();
         retval = QString("%1/.%2-autosave%3").arg(dir).arg(filename).arg(extension);
     }
-    qInfo()<<Q_FUNC_INFO<<retval;
     return retval;
 }
 

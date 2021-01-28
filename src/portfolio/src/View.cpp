@@ -1,16 +1,16 @@
 /* This file is part of the KDE project
  * Copyright (C) 2021 Dag Andersen <dag.andersen@kdemail.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
  * version 2 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Library General Public License
  * along with this library; see the file COPYING.LIB.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -65,7 +65,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     item = m_views->addPage(new PortfolioView(part, doc, m_views), i18n("Configuration"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("settings-configure"));
-    
+
     SchedulingView *sv = new SchedulingView(part, doc, m_views);
     item = m_views->addPage(sv, i18n("Scheduling"));
     item->setHeaderVisible(false);
@@ -78,7 +78,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     if (!doc->isEmpty()) {
         m_views->setCurrentPage(item);
     }
-    
+
     item = m_views->addPage(new PerformanceView(part, doc, m_views), i18n("Performance"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("office-chart-bar"));
