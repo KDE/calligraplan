@@ -142,11 +142,7 @@ QList<Resource*> ResourceTreeView::selectedResources() const
 ResourceEditor::ResourceEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
-    if (doc && doc->isReadWrite()) {
-        setXMLFile("ResourceEditorUi.rc");
-    } else {
-        setXMLFile("ResourceEditorUi_readonly.rc");
-    }
+    setXMLFile("ResourceEditorUi.rc");
 
     Help::add(this,
         xi18nc("@info:whatsthis", 

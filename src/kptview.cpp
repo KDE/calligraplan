@@ -151,10 +151,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     doc->registerView(this);
 
     setComponentName(Factory::global().componentName(), Factory::global().componentDisplayName());
-    if (!doc->isReadWrite())
-        setXMLFile("calligraplan_readonly.rc");
-    else
-        setXMLFile("calligraplan.rc");
+    setXMLFile("calligraplan.rc");
 
 //     new ViewAdaptor(this);
 
@@ -783,7 +780,7 @@ ViewBase *View::createResourceAppointmentsGanttView(ViewListItem *cat, const QSt
 
     v->setProject(&(getProject()));
     v->setScheduleManager(currentScheduleManager());
-    v->updateReadWrite(m_readWrite);
+    v->updateReadWrite(true); // always allow editing
     return v;
 }
 
@@ -808,7 +805,7 @@ ViewBase *View::createResourceCoverageView(ViewListItem *cat, const QString &tag
 
     v->setProject(&(getProject()));
     v->setScheduleManager(currentScheduleManager());
-    v->updateReadWrite(m_readWrite);
+    v->updateReadWrite(true); // always allow editing
     return v;
 }
 
@@ -836,7 +833,7 @@ ViewBase *View::createResourceAppointmentsView(ViewListItem *cat, const QString 
 
     v->setProject(&(getProject()));
     v->setScheduleManager(currentScheduleManager());
-    v->updateReadWrite(m_readWrite);
+    v->updateReadWrite(true); // always allow editing
     return v;
 }
 
@@ -863,7 +860,7 @@ ViewBase *View::createResourceGroupEditor(ViewListItem *cat, const QString &tag,
     connect(e, &ResourceGroupEditor::deleteObjectList, this, &View::slotDeleteResourceGroups);
     
     connect(e, &ResourceGroupEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
-    e->updateReadWrite(m_readWrite);
+    e->updateReadWrite(true); // always allow editing
     return e;
 }
 
@@ -890,7 +887,7 @@ ViewBase *View::createResourceEditor(ViewListItem *cat, const QString &tag, cons
     connect(resourceeditor, &ResourceEditor::deleteObjectList, this, &View::slotDeleteResourceObjects);
 
     connect(resourceeditor, &ResourceEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
-    resourceeditor->updateReadWrite(m_readWrite);
+    resourceeditor->updateReadWrite(true); // always allow editing
     return resourceeditor;
 }
 
@@ -934,7 +931,7 @@ ViewBase *View::createTaskEditor(ViewListItem *cat, const QString &tag, const QS
 
     connect(taskeditor, &TaskEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
     connect(taskeditor, &TaskEditor::openTaskDescription, this, &View::slotOpenTaskDescription);
-    taskeditor->updateReadWrite(m_readWrite);
+    taskeditor->updateReadWrite(true); // always allow editing
 
     return taskeditor;
 }
@@ -958,7 +955,7 @@ ViewBase *View::createAccountsEditor(ViewListItem *cat, const QString &tag, cons
     ae->draw(getProject());
 
     connect(ae, &ViewBase::guiActivated, this, &View::slotGuiActivated);
-    ae->updateReadWrite(m_readWrite);
+    ae->updateReadWrite(true); // always allow editing
     return ae;
 }
 
@@ -983,7 +980,7 @@ ViewBase *View::createCalendarEditor(ViewListItem *cat, const QString &tag, cons
     connect(calendareditor, &ViewBase::guiActivated, this, &View::slotGuiActivated);
 
     connect(calendareditor, &CalendarEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
-    calendareditor->updateReadWrite(m_readWrite);
+    calendareditor->updateReadWrite(true); // always allow editing
     return calendareditor;
 }
 
@@ -1022,7 +1019,7 @@ ViewBase *View::createScheduleHandler(ViewListItem *cat, const QString &tag, con
     connect(handler, &ScheduleHandlerView::editResource, this, &View::slotEditResource);
 
     handler->draw(getProject());
-    handler->updateReadWrite(m_readWrite);
+    handler->updateReadWrite(true); // always allow editing
     return handler;
 }
 
@@ -1037,7 +1034,7 @@ ScheduleEditor *View::createScheduleEditor(QWidget *parent)
 
     connect(scheduleeditor, &ScheduleEditor::baselineSchedule, this, &View::slotBaselineSchedule);
 
-    scheduleeditor->updateReadWrite(m_readWrite);
+    scheduleeditor->updateReadWrite(true); // always allow editing
     return scheduleeditor;
 }
 
@@ -1069,7 +1066,7 @@ ViewBase *View::createScheduleEditor(ViewListItem *cat, const QString &tag, cons
 
     connect(scheduleeditor, &ScheduleEditor::baselineSchedule, this, &View::slotBaselineSchedule);
 
-    scheduleeditor->updateReadWrite(m_readWrite);
+    scheduleeditor->updateReadWrite(true); // always allow editing
     return scheduleeditor;
 }
 
@@ -1108,7 +1105,7 @@ ViewBase *View::createDependencyEditor(ViewListItem *cat, const QString &tag, co
     connect(this, &View::currentScheduleManagerChanged, editor, &DependencyEditor::setScheduleManager);
 
     connect(editor, &DependencyEditor::requestPopupMenu, this, &View::slotPopupMenuRequested);
-    editor->updateReadWrite(m_readWrite);
+    editor->updateReadWrite(true); // always allow editing
     editor->setScheduleManager(currentScheduleManager());
     return editor;
 }
@@ -1133,7 +1130,7 @@ ViewBase *View::createPertEditor(ViewListItem *cat, const QString &tag, const QS
 
     connect(perteditor, &ViewBase::guiActivated, this, &View::slotGuiActivated);
     m_updatePertEditor = true;
-    perteditor->updateReadWrite(m_readWrite);
+    perteditor->updateReadWrite(true); // always allow editing
     return perteditor;
 }
 
@@ -1157,7 +1154,7 @@ ViewBase *View::createProjectStatusView(ViewListItem *cat, const QString &tag, c
 
     connect(this, &View::currentScheduleManagerChanged, v, &ProjectStatusView::setScheduleManager);
 
-    v->updateReadWrite(m_readWrite);
+    v->updateReadWrite(true); // always allow editing
     v->setProject(&getProject());
     v->setScheduleManager(currentScheduleManager());
     return v;
@@ -1185,7 +1182,7 @@ ViewBase *View::createPerformanceStatusView(ViewListItem *cat, const QString &ta
 
     connect(v, &PerformanceStatusView::requestPopupMenu, this, &View::slotPopupMenuRequested);
 
-    v->updateReadWrite(m_readWrite);
+    v->updateReadWrite(true); // always allow editing
     v->setProject(&getProject());
     v->setScheduleManager(currentScheduleManager());
     return v;
@@ -1216,7 +1213,7 @@ ViewBase *View::createTaskStatusView(ViewListItem *cat, const QString &tag, cons
     connect(taskstatusview, &TaskStatusView::requestPopupMenu, this, &View::slotPopupMenuRequested);
     connect(taskstatusview, &TaskStatusView::openTaskDescription, this, &View::slotOpenTaskDescription);
 
-    taskstatusview->updateReadWrite(m_readWrite);
+    taskstatusview->updateReadWrite(true); // always allow editing
     taskstatusview->draw(getProject());
     taskstatusview->setScheduleManager(currentScheduleManager());
     return taskstatusview;
@@ -1248,7 +1245,7 @@ ViewBase *View::createTaskView(ViewListItem *cat, const QString &tag, const QStr
 
     connect(v, &TaskView::requestPopupMenu, this, &View::slotPopupMenuRequested);
     connect(v, &TaskView::openTaskDescription, this, &View::slotOpenTaskDescription);
-    v->updateReadWrite(m_readWrite);
+    v->updateReadWrite(true); // always allow editing
     return v;
 }
 
@@ -1285,14 +1282,14 @@ ViewBase *View::createTaskWorkPackageView(ViewListItem *cat, const QString &tag,
     connect(v, &TaskWorkPackageView::checkForWorkPackages, getPart(), &MainDocument::checkForWorkPackages);
     connect(v, &TaskWorkPackageView::loadWorkPackageUrl, this, &View::loadWorkPackage);
     connect(v, &TaskWorkPackageView::openTaskDescription, this, &View::slotOpenTaskDescription);
-    v->updateReadWrite(m_readWrite);
+    v->updateReadWrite(true); // always allow editing
 
     return v;
 }
 
 ViewBase *View::createGanttView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    GanttView *ganttview = new GanttView(getKoPart(), getPart(), m_tab, koDocument()->isReadWrite());
+    GanttView *ganttview = new GanttView(getKoPart(), getPart(), m_tab, true); // always allow editing
     m_tab->addWidget(ganttview);
 
     ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, getPart(), "", index);
@@ -1321,14 +1318,14 @@ ViewBase *View::createGanttView(ViewListItem *cat, const QString &tag, const QSt
 
     connect(ganttview, &GanttView::requestPopupMenu, this, &View::slotPopupMenuRequested);
     connect(ganttview, &GanttView::openTaskDescription, this, &View::slotOpenTaskDescription);
-    ganttview->updateReadWrite(m_readWrite);
+    ganttview->updateReadWrite(true); // always allow editing
 
     return ganttview;
 }
 
 ViewBase *View::createMilestoneGanttView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    MilestoneGanttView *ganttview = new MilestoneGanttView(getKoPart(), getPart(), m_tab, koDocument()->isReadWrite());
+    MilestoneGanttView *ganttview = new MilestoneGanttView(getKoPart(), getPart(), m_tab, true); // always allow editing
     m_tab->addWidget(ganttview);
 
     ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, getPart(), "", index);
@@ -1351,7 +1348,7 @@ ViewBase *View::createMilestoneGanttView(ViewListItem *cat, const QString &tag, 
 
     connect(ganttview, &MilestoneGanttView::requestPopupMenu, this, &View::slotPopupMenuRequested);
     connect(ganttview, &MilestoneGanttView::openTaskDescription, this, &View::slotOpenTaskDescription);
-    ganttview->updateReadWrite(m_readWrite);
+    ganttview->updateReadWrite(true); // always allow editing
 
     return ganttview;
 }
@@ -1378,7 +1375,7 @@ ViewBase *View::createAccountsView(ViewListItem *cat, const QString &tag, const 
     connect(this, &View::currentScheduleManagerChanged, accountsview, &AccountsView::setScheduleManager);
 
     connect(accountsview, &ViewBase::guiActivated, this, &View::slotGuiActivated);
-    accountsview->updateReadWrite(m_readWrite);
+    accountsview->updateReadWrite(true); // always allow editing
     return accountsview;
 }
 
@@ -1407,7 +1404,7 @@ ViewBase *View::createReportsGeneratorView(ViewListItem *cat, const QString &tag
     connect(v, &ViewBase::guiActivated, this, &View::slotGuiActivated);
     connect(v, &ReportsGeneratorView::requestPopupMenu, this, &View::slotPopupMenuRequested);
 
-    v->updateReadWrite(m_readWrite);
+    v->updateReadWrite(true); // always allow editing
     return v;
 }
 
@@ -1435,7 +1432,7 @@ ViewBase *View::createReportView(ViewListItem *cat, const QString &tag, const QS
     v->setScheduleManager(currentScheduleManager());
 
     connect(v, &ReportView::guiActivated, this, &View::slotGuiActivated);
-    v->updateReadWrite(m_readWrite);
+    v->updateReadWrite(true); // always allow editing
     return v;
 #else
     Q_UNUSED(cat)
@@ -2177,14 +2174,16 @@ void View::slotMilestoneProgressFinished(int result)
 void View::slotOpenProjectDescription()
 {
     debugPlan<<koDocument()->isReadWrite();
-    TaskDescriptionDialog *dia = new TaskDescriptionDialog(getProject(), this, !koDocument()->isReadWrite());
+    const ViewBase *cv = currentView();
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(getProject(), this, (cv && !cv->isReadWrite()));
     connect(dia, &QDialog::finished, this, &View::slotTaskDescriptionFinished);
     dia->open();
 }
 
 void View::slotTaskDescription()
 {
-    slotOpenTaskDescription(!koDocument()->isReadWrite());
+    const ViewBase *cv = currentView();
+    slotOpenTaskDescription(cv && !cv->isReadWrite());
 }
 
 void View::slotOpenTaskDescription(bool ro)

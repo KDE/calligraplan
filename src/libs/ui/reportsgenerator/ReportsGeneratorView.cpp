@@ -212,11 +212,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"----------------- Create ReportsGeneratorView ----------------------";
-    if (doc && doc->isReadWrite()) {
-        setXMLFile("ReportsGeneratorViewUi.rc");
-    } else {
-        setXMLFile("ReportsGeneratorViewUi_readonly.rc");
-    }
+    setXMLFile("ReportsGeneratorViewUi.rc");
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -231,8 +227,6 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     m_view->setContextMenuPolicy(Qt::CustomContextMenu);
     m_view->setRootIsDecorated(false);
     m_view->setAlternatingRowColors(true);
-
-    updateReadWrite(doc && doc->isReadWrite());
 
     connect(m_view, &QWidget::customContextMenuRequested, this, &ReportsGeneratorView::slotContextMenuRequested);
     l->addWidget(m_view);
@@ -287,6 +281,7 @@ void ReportsGeneratorView::updateReadWrite(bool rw)
         }
     }
     ViewBase::updateReadWrite(rw);
+    updateActionsEnabled(isReadWrite());
 }
 
 void ReportsGeneratorView::setGuiActive(bool activate)

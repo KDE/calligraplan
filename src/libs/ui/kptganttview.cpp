@@ -752,6 +752,7 @@ void GanttView::updateReadWrite(bool on)
 {
     // TODO: KGanttView needs read/write mode
     m_readWrite = on;
+    ViewBase::updateReadWrite(on);
     if (m_gantt->model()) {
         m_gantt->model()->setReadWrite(on);
     }
@@ -1184,6 +1185,7 @@ void MilestoneGanttView::saveContext(QDomElement &settings) const
 void MilestoneGanttView::updateReadWrite(bool on)
 {
     m_readWrite = on;
+    ViewBase::updateReadWrite(on);
     if (m_gantt->model()) {
         m_gantt->model()->setReadWrite(on);
     }

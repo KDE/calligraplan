@@ -146,11 +146,7 @@ QList<Resource*> ResourceGroupTreeView::selectedResources() const
 ResourceGroupEditor::ResourceGroupEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
-    if (doc && doc->isReadWrite()) {
-        setXMLFile("ResourceGroupEditorUi.rc");
-    } else {
-        setXMLFile("ResourceGroupEditorUi_readonly.rc");
-    }
+    setXMLFile("ResourceGroupEditorUi.rc");
 
     Help::add(this,
         xi18nc("@info:whatsthis", 
@@ -206,6 +202,8 @@ ResourceGroupEditor::ResourceGroupEditor(KoPart *part, KoDocument *doc, QWidget 
 void ResourceGroupEditor::updateReadWrite(bool readwrite)
 {
     m_view->setReadWrite(readwrite);
+    ViewBase::updateReadWrite(readwrite);
+    slotEnableActions(isReadWrite());
 }
 
 void ResourceGroupEditor::setProject(Project *project)
@@ -218,11 +216,11 @@ void ResourceGroupEditor::setProject(Project *project)
 void ResourceGroupEditor::setGuiActive(bool activate)
 {
     debugPlan<<activate;
-    updateActionsEnabled(true);
     ViewBase::setGuiActive(activate);
     if (activate && !m_view->selectionModel()->currentIndex().isValid()) {
         m_view->selectionModel()->setCurrentIndex(m_view->model()->index(0, 0), QItemSelectionModel::NoUpdate);
     }
+    updateActionsEnabled(isReadWrite());
 }
 
 void ResourceGroupEditor::slotContextMenuRequested(const QModelIndex &index, const QPoint& pos)
@@ -259,7 +257,7 @@ void ResourceGroupEditor::slotCurrentChanged(const QModelIndex &)
 void ResourceGroupEditor::slotSelectionChanged(const QModelIndexList&)
 {
     //debugPlan<<list.count();
-    updateActionsEnabled();
+    updateActionsEnabled(isReadWrite());
 }
 
 void ResourceGroupEditor::slotEnableActions(bool on)

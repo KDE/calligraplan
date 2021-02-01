@@ -122,11 +122,7 @@ ScheduleManager *ScheduleTreeView::selectedManager() const
 ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
-    if (doc && doc->isReadWrite()) {
-        setXMLFile("ScheduleEditorUi.rc");
-    } else {
-        setXMLFile("ScheduleEditorUi_readonly.rc");
-    }
+    setXMLFile("ScheduleEditorUi.rc");
 
     setupGui();
     slotEnableActions();

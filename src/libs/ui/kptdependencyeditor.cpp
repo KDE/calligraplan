@@ -2033,11 +2033,7 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
     m_currentnode(nullptr),
     m_manager(nullptr)
 {
-    if (doc && doc->isReadWrite()) {
-        setXMLFile("DependencyEditorUi.rc");
-    } else {
-        setXMLFile("DependencyEditorUi_readonly.rc");
-    }
+    setXMLFile("DependencyEditorUi.rc");
 
     setupGui();
 

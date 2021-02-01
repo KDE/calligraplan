@@ -328,7 +328,7 @@ void CalendarDayView::setCurrentCalendar(Calendar *calendar)
 void CalendarDayView::contextMenuEvent (QContextMenuEvent *event)
 {
     //debugPlan;
-    if (!isReadWrite() || !model()->calendar() || model()->calendar()->isShared()) {
+    if (!model()->calendar() || model()->calendar()->isShared()) {
         return;
     }
     QMenu menu;
@@ -384,11 +384,7 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
     m_model(new DateTableDataModel(this))
 {
-    if (doc && doc->isReadWrite()) {
-        setXMLFile("CalendarEditorUi.rc");
-    } else {
-        setXMLFile("CalendarEditorUi_readonly.rc");
-    }
+    setXMLFile("CalendarEditorUi.rc");
 
     Help::add(this,
               xi18nc("@info:whatsthis",
@@ -505,9 +501,6 @@ void CalendarEditor::setGuiActive(bool activate)
 
 void CalendarEditor::slotContextMenuDate(QMenu *menu, const QList<QDate> &dates)
 {
-    if (! isReadWrite()) {
-        return;
-    }
     if (!currentCalendar() || currentCalendar()->isShared()) {
         return;
     }
@@ -524,7 +517,7 @@ void CalendarEditor::slotContextMenuDate(QMenu *menu, const QList<QDate> &dates)
 void CalendarEditor::slotContextMenuDate(QMenu *menu, const QDate &date)
 {
     debugPlan<<menu<<date;
-    if (! isReadWrite() || ! date.isValid()) {
+    if (!date.isValid()) {
         return;
     }
     if (!currentCalendar() || currentCalendar()->isShared()) {
@@ -542,7 +535,7 @@ void CalendarEditor::slotContextMenuCalendar(const QModelIndex &index, const QPo
         slotHeaderContextMenuRequested(pos);
         return;
     }
-    if (! isReadWrite() || !currentCalendar()) {
+    if (!currentCalendar()) {
         return;
     }
     //debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
@@ -566,9 +559,6 @@ void CalendarEditor::slotContextMenuCalendar(const QModelIndex &index, const QPo
 
 void CalendarEditor::slotContextMenuDay(const QModelIndex &index, const QPoint& pos)
 {
-    if (! isReadWrite()) {
-        return;
-    }
     debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
 /*    QString name;
     if (index.isValid()) {

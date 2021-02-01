@@ -94,7 +94,7 @@ protected Q_SLOTS:
     void slotOptions() override;
 
 protected:
-    void updateActionsEnabled(bool on = true);
+    void updateActionsEnabled(bool on);
     void createDockers();
 
 private Q_SLOTS:

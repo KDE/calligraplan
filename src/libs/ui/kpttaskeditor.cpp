@@ -304,11 +304,7 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"----------------- Create TaskEditor ----------------------";
-    if (doc && doc->isReadWrite()) {
-        setXMLFile("TaskEditorUi.rc");
-    } else {
-        setXMLFile("TaskEditorUi_readonly.rc");
-    }
+    setXMLFile("TaskEditorUi.rc");
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -383,7 +379,7 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(model(), &QAbstractItemModel::rowsMoved, this, &TaskEditor::slotEnableActions);
 
     Help::add(this,
-              xi18nc("@info:whatsthis", 
+              xi18nc("@info:whatsthis",
                      "<title>Task Editor</title>"
                      "<para>"
                      "The Task Editor is used to create, edit, and delete tasks. "
@@ -424,6 +420,7 @@ void TaskEditor::updateReadWrite(bool rw)
 {
     m_view->setReadWrite(rw);
     ViewBase::updateReadWrite(rw);
+    slotEnableActions();
 }
 
 void TaskEditor::setProject(Project *project_)
@@ -538,11 +535,11 @@ void TaskEditor::taskModuleDoubleClicked(QModelIndex idx)
 void TaskEditor::setGuiActive(bool activate)
 {
     debugPlan<<activate;
-    updateActionsEnabled(true);
     ViewBase::setGuiActive(activate);
     if (activate && !m_view->selectionModel()->currentIndex().isValid() && m_view->model()->rowCount() > 0) {
         m_view->selectionModel()->setCurrentIndex(m_view->model()->index(0, 0), QItemSelectionModel::NoUpdate);
     }
+    slotEnableActions();
 }
 
 void TaskEditor::slotCurrentChanged(const QModelIndex &curr, const QModelIndex &)
@@ -736,7 +733,7 @@ Node *newIndentParent(const QList<Node*> nodes)
 
 void TaskEditor::updateActionsEnabled(bool on)
 {
-//     debugPlan<<selectedRowCount()<<selectedNode()<<currentNode();
+    //debugPlan<<selectedRowCount()<<selectedNode()<<currentNode();
     if (! on) {
         menuAddTask->setEnabled(false);
         actionAddTask->setEnabled(false);
@@ -752,7 +749,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionUnindentTask->setEnabled(false);
         return;
     }
-        
+
     int selCount = selectedRowCount();
     if (selCount == 0) {
         if (currentNode()) {
@@ -796,6 +793,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionAddSubtask->setEnabled(true);
         actionAddSubMilestone->setEnabled(true);
         actionDeleteTask->setEnabled(false);
+        actionLinkTask->setEnabled(false);
         actionMoveTaskUp->setEnabled(false);
         actionMoveTaskDown->setEnabled(false);
         actionIndentTask->setEnabled(false);
@@ -1278,7 +1276,7 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskView::itemDoubleClicked);
 
     Help::add(this,
-              xi18nc("@info:whatsthis", 
+              xi18nc("@info:whatsthis",
                      "<title>Task Execution View</title>"
                      "<para>"
                      "The view is used to edit and inspect task progress during project execution."
@@ -1567,8 +1565,8 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
     m_view->setDragDropMode(QAbstractItemView::DragDrop);
     m_view->setDropIndicatorShown(true);
     m_view->setDragEnabled (true);
-    m_view->setAcceptDrops(true);
-    m_view->setAcceptDropsOnView(true);
+    m_view->setAcceptDrops(doc && doc->isReadWrite());
+    m_view->setAcceptDropsOnView(doc && doc->isReadWrite());
     m_view->setDefaultDropAction(Qt::CopyAction);
 
     QList<int> readonly;

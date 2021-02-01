@@ -226,6 +226,8 @@ void TaskStatusView::itemDoubleClicked(const QPersistentModelIndex &idx)
 void TaskStatusView::updateReadWrite(bool rw)
 {
     m_view->setReadWrite(rw);
+    ViewBase::updateReadWrite(rw);
+    updateActionsEnabled(isReadWrite());
 }
 
 void TaskStatusView::setScheduleManager(ScheduleManager *sm)
@@ -380,6 +382,10 @@ KoPrintJob *TaskStatusView::createPrintJob()
     return m_view->createPrintJob(this);
 }
 
+void TaskStatusView::updateActionsEnabled(bool on)
+{
+    Q_UNUSED(on)
+}
 
 //------------------------------------------------
 TaskStatusViewSettingsPanel::TaskStatusViewSettingsPanel(TaskStatusTreeView *view, QWidget *parent)

@@ -123,8 +123,6 @@ public:
     void draw() override;
 
     ResourceAppointmentsItemModel *model() const { return m_view->model(); }
-    
-    void updateReadWrite(bool /*readwrite*/) override {};
 
     Node *currentNode() const override;
     Resource *currentResource() const override;

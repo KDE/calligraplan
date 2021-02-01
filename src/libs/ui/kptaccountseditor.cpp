@@ -163,11 +163,7 @@ QList<Account*> AccountTreeView::selectedAccounts() const
 AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
-    if (doc && doc->isReadWrite()) {
-        setXMLFile("AccountsEditorUi.rc");
-    } else {
-        setXMLFile("AccountsEditorUi_readonly.rc");
-    }
+    setXMLFile("AccountsEditorUi.rc");
 
     setupGui();
 
