@@ -54,7 +54,6 @@ Account::Account(const QString& name, const QString& description)
 }
 
 Account::~Account() {
-    qInfo()<<Q_FUNC_INFO<<(void*)this;
     if (m_list) {
         m_list->accountDeleted(this); // default account
     }
@@ -959,7 +958,7 @@ void Accounts::printDebug(const QString& indent) {
     }
 }
 void Account::printDebug(const QString& indent) {
-    qInfo()<<indent<<"--- Account:"<<this<<m_name<<":"<<m_accountList.count()<<" children";
+    debugPlan<<indent<<"--- Account:"<<this<<m_name<<":"<<m_accountList.count()<<" children";
     for(Account *a : qAsConst(m_accountList)) {
         a->printDebug(indent + "    !");
     }

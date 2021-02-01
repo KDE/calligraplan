@@ -166,7 +166,6 @@ BOOL isWow64()
 
 bool KoApplication::openAutosaveFile(const QDir &autosaveDir, const QString &autosaveFile)
 {
-    qInfo()<<Q_FUNC_INFO<<autosaveFile;
     QString errorMsg;
     const QStringList split = autosaveFile.split('-');
     // FIXME: more generic?
