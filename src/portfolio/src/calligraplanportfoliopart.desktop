@@ -1,6 +1,13 @@
 [Desktop Entry]
 Type=Service
 Name=CalligraPlanPortfolioPart
+Name[ca]=Part de portafolis del Calligra Plan
+Name[ca@valencia]=Part de portafolis del Calligra Plan
+Name[nl]=CalligraPlanPortfolioPart
+Name[pt]=CalligraPlanPortfolioPart
+Name[sv]=Calligra Plan-portföljprogramdel
+Name[uk]=Модуль портфоліо Calligra Plan
+Name[x-test]=xxCalligraPlanPortfolioPartxx
 Icon=calligraplanportfolio
 MimeType=application/x-vnd.kde.plan.portfolio;
 X-KDE-ServiceTypes=KParts/ReadOnlyPart,KParts/ReadWritePart
