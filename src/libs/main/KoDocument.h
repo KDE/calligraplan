@@ -70,6 +70,7 @@ class QDomDocument;
 
 namespace KPlato {
     class Project;
+    class SchedulerPlugin;
 }
 
 class KoVersionInfo
@@ -109,9 +110,6 @@ public:
     explicit KoDocument(KoPart *parent,
                         KUndo2Stack *undoStack = new KUndo2Stack());
 
-    virtual KPlato::Project *project() const { return nullptr; }
-    virtual QString projectName() const { return QString(); }
-
     /**
      *  Destructor.
      *
@@ -119,6 +117,10 @@ public:
      * delete the attached widget as returned by widget().
      */
     ~KoDocument() override;
+
+    virtual KPlato::Project *project() const { return nullptr; }
+    virtual QString projectName() const { return QString(); }
+    virtual QMap<QString, KPlato::SchedulerPlugin*> schedulerPlugins() const { return QMap<QString, KPlato::SchedulerPlugin*>(); }
 
     /// XXX: Temporary!
     KoPart *documentPart() const;

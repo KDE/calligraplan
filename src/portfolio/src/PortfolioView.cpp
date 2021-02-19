@@ -165,13 +165,13 @@ void PortfolioView::slotLoadCompleted()
     Q_ASSERT(doc);
     MainDocument *portfolio = qobject_cast<MainDocument*>(koDocument());
     disconnect(doc, &KoDocument::sigProgress, mainWindow(), &KoMainWindow::slotProgress);
-    doc->setProperty(ISPORTFOLIO, true);
+    portfolio->setDocumentProperty(doc, ISPORTFOLIO, true);
     if (!portfolio->addDocument(doc)) {
         doc->deleteLater();
     } else {
         auto manager = portfolio->findBestScheduleManager(doc);
         if (manager) {
-            doc->setProperty(SCHEDULEMANAGERNAME, manager->name());
+            portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, manager->name());
         }
     }
 }

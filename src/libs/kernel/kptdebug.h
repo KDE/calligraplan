@@ -30,31 +30,31 @@
 extern const PLANKERNEL_EXPORT QLoggingCategory &PLAN_LOG();
 
 #define debugPlan qCDebug(PLAN_LOG)<<Q_FUNC_INFO
-#define warnPlan qCWarning(PLAN_LOG)
-#define errorPlan qCCritical(PLAN_LOG)
+#define warnPlan qCWarning(PLAN_LOG)<<"WARN:"<<Q_FUNC_INFO
+#define errorPlan qCCritical(PLAN_LOG)<<"ERROR:"<<Q_FUNC_INFO
 
 extern const PLANKERNEL_EXPORT QLoggingCategory &PLANDEPEDITOR_LOG();
 
 #define debugPlanDepEditor qCDebug(PLANDEPEDITOR_LOG)<<Q_FUNC_INFO
-#define warnPlanDepEditor qCWarning(PLANDEPEDITOR_LOG)
-#define errorPlanDepEditor qCCritical(PLANDEPEDITOR_LOG)
+#define warnPlanDepEditor qCWarning(PLANDEPEDITOR_LOG)<<"WARN:"<<Q_FUNC_INFO
+#define errorPlanDepEditor qCCritical(PLANDEPEDITOR_LOG)<<"ERROR:"<<Q_FUNC_INFO
 
 extern const PLANKERNEL_EXPORT QLoggingCategory &PLANXML_LOG();
 
 #define debugPlanXml qCDebug(PLANXML_LOG)<<Q_FUNC_INFO
-#define warnPlanXml qCWarning(PLANXML_LOG)
-#define errorPlanXml qCCritical(PLANXML_LOG)
+#define warnPlanXml qCWarning(PLANXML_LOG)<<"WARN:"<<Q_FUNC_INFO
+#define errorPlanXml qCCritical(PLANXML_LOG)<<"ERROR:"<<Q_FUNC_INFO
 
 extern const PLANKERNEL_EXPORT QLoggingCategory &PLANSHARED_LOG();
 
 #define debugPlanShared qCDebug(PLANSHARED_LOG)<<Q_FUNC_INFO
-#define warnPlanShared qCWarning(PLANSHARED_LOG)
-#define errorPlanShared qCCritical(PLANSHARED_LOG)
+#define warnPlanShared qCWarning(PLANSHARED_LOG)<<"WARN:"<<Q_FUNC_INFO
+#define errorPlanShared qCCritical(PLANSHARED_LOG)<<"ERROR:"<<Q_FUNC_INFO
 
 extern const PLANKERNEL_EXPORT QLoggingCategory &PLANWP_LOG();
 
 #define debugPlanWp qCDebug(PLANWP_LOG)<<Q_FUNC_INFO
-#define warnPlanWp qCWarning(PLANWP_LOG)
-#define errorPlanWp qCCritical(PLANWP_LOG)
+#define warnPlanWp qCWarning(PLANWP_LOG)<<"WARN:"<<Q_FUNC_INFO
+#define errorPlanWp qCCritical(PLANWP_LOG)<<"ERROR:"<<Q_FUNC_INFO
 
 #endif

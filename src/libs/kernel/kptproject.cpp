@@ -63,7 +63,8 @@ Project::Project(Node *parent)
         m_useSharedResources(false),
         m_sharedResourcesLoaded(false),
         m_loadProjectsAtStartup(false),
-        m_useLocalTaskModules(true)
+        m_useLocalTaskModules(true),
+        m_currentScheduleManager(nullptr)
 {
     //debugPlan<<"("<<this<<")";
     init();
@@ -78,7 +79,8 @@ Project::Project(ConfigBase &config, Node *parent)
         m_useSharedResources(false),
         m_sharedResourcesLoaded(false),
         m_loadProjectsAtStartup(false),
-        m_useLocalTaskModules(true)
+        m_useLocalTaskModules(true),
+        m_currentScheduleManager(nullptr)
 {
     debugPlan<<"("<<this<<")";
     init();
@@ -94,7 +96,8 @@ Project::Project(ConfigBase &config, bool useDefaultValues, Node *parent)
         m_useSharedResources(false),
         m_sharedResourcesLoaded(false),
         m_loadProjectsAtStartup(false),
-        m_useLocalTaskModules(true)
+        m_useLocalTaskModules(true),
+        m_currentScheduleManager(nullptr)
 {
     debugPlan<<"("<<this<<")";
     init();
@@ -3216,6 +3219,15 @@ void Project::setCurrentSchedule(long id)
     }
     emit currentScheduleChanged();
     emit projectChanged();
+}
+
+void Project::setCurrentScheduleManager(ScheduleManager *sm)
+{
+    m_currentScheduleManager = sm;
+}
+ScheduleManager *Project::currentScheduleManager() const
+{
+    return m_currentScheduleManager;
 }
 
 ScheduleManager *Project::scheduleManager(long id) const

@@ -65,6 +65,7 @@ private:
 
 public:
     PlanTJScheduler(Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = nullptr);
+    explicit PlanTJScheduler(QObject *parent = nullptr);
     ~PlanTJScheduler() override;
 
     bool check();
@@ -76,6 +77,7 @@ public:
     /// Fetch project data from TJ structure
     bool kplatoFromTJ();
 
+    void schedule(SchedulingContext &context) override;
 
 Q_SIGNALS:
     void sigCalculationStarted(KPlato::Project*, KPlato::ScheduleManager*);
@@ -92,22 +94,26 @@ protected:
 
     TJ::Resource *addResource(KPlato::Resource *resource);
     void addTasks();
-    void addWorkingTime(KPlato::Task *task, TJ::Task *job);
-    TJ::Task *addTask(KPlato::Task *task , TJ::Task *parent = nullptr);
+    void addWorkingTime(const KPlato::Task *task, TJ::Task *job);
+    TJ::Task *addTask(const KPlato::Node *node , TJ::Task *parent = nullptr);
     void addDependencies();
     void addPrecedes(const Relation *rel);
     void addDepends(const Relation *rel);
-    void addDependencies(Task *task);
+    void addDependencies(Node *task);
     void setConstraints();
-    void setConstraint(TJ::Task *job, KPlato::Task *task);
+    void setConstraint(TJ::Task *job, KPlato::Node *task);
     TJ::Task *addStartNotEarlier(Node *task);
     TJ::Task *addFinishNotLater(Node *task);
     void addRequests();
-    void addRequest(TJ::Task *job, Task *task);
+    void addRequest(TJ::Task *job, Node *task);
     void addStartEndJob();
-    bool taskFromTJ(TJ::Task *job, Task *task);
-    void calcPertValues(Task *task);
-    Duration calcPositiveFloat(Task *task);
+    bool taskFromTJ(TJ::Task *job, Node *task);
+    bool taskFromTJ(Project *project, TJ::Task *job, Node *task);
+    void calcPertValues(Node *task);
+    Duration calcPositiveFloat(Node *task);
+    Resource *resource(Project *project, TJ::Resource *tjResource);
+
+    void populateProjects();
 
     static bool exists(QList<CalendarDay*> &lst, CalendarDay *day);
     static int toTJDayOfWeek(int day);
@@ -116,10 +122,12 @@ protected:
     AppointmentInterval fromTJInterval(const TJ::Interval &tji, const QTimeZone &tz);
     static TJ::Interval toTJInterval(const QDateTime &start, const QDateTime &end, ulong tjGranularity);
     static TJ::Interval toTJInterval(const QTime &start, const QTime &end, ulong tjGranularity);
-
-
+    
 private:
     ulong tjGranularity() const;
+    void insertProject(const KPlato::Project *project, int priority);
+    void insertBookings(const KPlato::Project *project);
+    void addTasks(const KPlato::Node *parent, TJ::Task *tjParent = nullptr);
 
 private:
     MainSchedule *m_schedule;
@@ -129,7 +137,7 @@ private:
     TJ::Project *m_tjProject;
 //     Task *m_backwardTask;
 
-    QMap<TJ::Task*, Task*> m_taskmap;
+    QMap<TJ::Task*, Node*> m_taskmap;
     QMap<TJ::Resource*, Resource*> m_resourcemap;
 
     ulong m_granularity;

@@ -147,6 +147,8 @@ public:
     /// Insert resource assignments from @p project
     Q_INVOKABLE void insertSharedResourceAssignments(const KPlato::Project *project);
 
+    QMap<QString, KPlato::SchedulerPlugin*> schedulerPlugins() const override;
+
     using KoDocument::setModified;
 public Q_SLOTS:
     void setModified(bool mod) override;

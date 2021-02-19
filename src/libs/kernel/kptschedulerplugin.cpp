@@ -28,6 +28,7 @@
 
 #include "KoXmlReader.h"
 
+#include <KLocalizedString>
 
 namespace KPlato
 {
@@ -331,6 +332,11 @@ void SchedulerPlugin::updateAppointments(const Project *tp, const ScheduleManage
     mp->changed(sm);
 }
 
+void SchedulerPlugin::schedule(SchedulingContext &context)
+{
+    Q_UNUSED(context)
+}
+
 //----------------------
 SchedulerThread::SchedulerThread(Project *project, ScheduleManager *manager, QObject *parent)
     : QThread(parent),
@@ -353,6 +359,18 @@ SchedulerThread::SchedulerThread(Project *project, ScheduleManager *manager, QOb
 
     connect(this, &QThread::started, this, &SchedulerThread::slotStarted);
     connect(this, &QThread::finished, this, &SchedulerThread::slotFinished);
+}
+
+SchedulerThread::SchedulerThread(QObject *parent)
+    : QThread(parent)
+    , m_mainproject(nullptr)
+    , m_mainmanager(nullptr)
+    , m_project(nullptr)
+    , m_manager(nullptr)
+    , m_stopScheduling(false)
+    , m_haltScheduling(false)
+    , m_progress(0)
+{
 }
 
 SchedulerThread::~SchedulerThread()
@@ -526,6 +544,11 @@ bool SchedulerThread::loadProject(Project *project, const KoXmlDocument &doc)
     status.setVersion(PLAN_FILE_SYNTAX_VERSION);
     status.setProject(project);
     return project->load(pel, status);
+}
+
+void SchedulerThread::schedule(SchedulingContext &context)
+{
+    Q_UNUSED(context)
 }
 
 

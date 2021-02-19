@@ -42,7 +42,7 @@
 #include <QHash>
 #include <QPointer>
 #include <QTimeZone>
-
+#include <QPointer>
 
 /// The main namespace.
 namespace KPlato
@@ -400,6 +400,10 @@ public:
     /// Set parent schedule for my children
     void setParentSchedule(Schedule *sch) override;
 
+    /// Set current schedule manager
+    void setCurrentScheduleManager(ScheduleManager *sm);
+    /// Get the schedule manager
+    ScheduleManager *currentScheduleManager() const;
     /// Find the schedule manager that manages the Schedule with @p id
     ScheduleManager *scheduleManager(long id) const;
     /// Find the schedule manager with @p id
@@ -759,6 +763,7 @@ private:
     QList<QUrl> m_taskModules;
     bool m_useLocalTaskModules;
     QUrl m_localTaskModulesPath;
+    QPointer<ScheduleManager> m_currentScheduleManager;
 };
 
 

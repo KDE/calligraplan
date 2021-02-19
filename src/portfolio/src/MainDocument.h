@@ -96,6 +96,10 @@ Q_SIGNALS:
     void changed();
     void documentChanged(KoDocument *doc, int index);
     void projectChanged(KoDocument *doc);
+    void documentAboutToBeInserted(int row);
+    void documentInserted();
+    void documentAboutToBeRemoved(int row);
+    void documentRemoved();
 
 protected Q_SLOTS:
     void slotProjectChanged();
@@ -105,6 +109,9 @@ protected:
     bool completeLoading(KoStore* store) override;
     /// Save kplato specific files
     bool completeSaving(KoStore* store) override;
+
+private:
+    QList<KoDocument*> m_documents;
 };
 
 #endif

@@ -23,6 +23,7 @@
 #include "plankernel_export.h"
 
 #include "kptschedule.h"
+#include "SchedulingContext.h"
 
 #include <KoXmlReader.h>
 
@@ -32,7 +33,7 @@
 #include <QThread>
 #include <QTimer>
 #include <QEventLoopLocker>
-
+#include <QMultiMap>
 
 namespace KPlato
 {
@@ -98,7 +99,7 @@ public:
     virtual void haltCalculation(SchedulerThread *job);
     
     /// Calculate the project
-    virtual void calculate(Project &project, ScheduleManager *sm, bool nothread = false) = 0;
+    virtual void calculate(Project &project, ScheduleManager *sm, bool nothread = false) {};
 
     /// Return the list of supported granularities
     /// An empty list means granularity is not supported (the default)
@@ -107,6 +108,9 @@ public:
     int granularity() const;
     /// Set current index of supported granularities
     void setGranularity(int index);
+
+    /// Schedule all projects
+    virtual void schedule(SchedulingContext &context);
 
 protected Q_SLOTS:
     virtual void slotSyncData();
@@ -132,6 +136,8 @@ protected:
     int m_granularity;
     QList<long unsigned int> m_granularities;
 
+    QList<const Project*> m_bookings; /// List of projects that shall have teir bookings added
+    QMultiMap<int, Project*> m_projects; /// QMultiMap<priority, project> of projects to be scheduled
 };
 
 /**
@@ -155,6 +161,7 @@ class PLANKERNEL_EXPORT SchedulerThread : public QThread
     Q_OBJECT
 public:
     SchedulerThread(Project *project, ScheduleManager *manager, QObject *parent);
+    explicit SchedulerThread(QObject *parent = nullptr);
     ~SchedulerThread() override;
 
     Project *mainProject() const { return m_mainproject; }
@@ -190,6 +197,9 @@ public:
     void logInfo(Node *n, Resource *r, const QString &msg, int phase = -1);
     ///Add a scheduling debug log message
     void logDebug(Node *n, Resource *r, const QString &msg, int phase = -1);
+
+    /// Schedule all projects
+    virtual void schedule(SchedulingContext &context);
 
 Q_SIGNALS:
     /// Job has started

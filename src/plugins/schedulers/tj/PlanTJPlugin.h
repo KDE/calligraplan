@@ -53,6 +53,8 @@ public:
     /// Return the scheduling granularity in milliseconds
     ulong currentGranularity() const;
 
+    void schedule(SchedulingContext &context) override;
+
 Q_SIGNALS:
     void sigCalculationStarted(KPlato::Project*, KPlato::ScheduleManager*);
     void sigCalculationFinished(KPlato::Project*, KPlato::ScheduleManager*);

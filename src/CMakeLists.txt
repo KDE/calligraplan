@@ -75,6 +75,10 @@ if(KF5Holidays_FOUND)
     add_definitions(-DHAVE_KHOLIDAYS)
 endif()
 
+# Define plugin install prefix
+set (PLAN_PLUGIN_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${PLUGIN_INSTALL_DIR}")
+
+
 if (KF5AkonadiContact_FOUND)
     # disable for now: there is a bug
     # it only works if you use kde contacts (of course) but many use other stuff, so gets dissapointed

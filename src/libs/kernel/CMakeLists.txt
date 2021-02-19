@@ -48,6 +48,7 @@ set(plankernel_LIB_SRCS
     kptconfigbase.cpp
 
     KPlatoXmlLoaderBase.cpp
+    SchedulingContext.cpp
 )
 
 add_library(plankernel SHARED ${plankernel_LIB_SRCS})

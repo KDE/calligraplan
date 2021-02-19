@@ -224,6 +224,11 @@ void MainDocument::addSchedulerPlugin(const QString &key, SchedulerPlugin *plugi
     m_schedulerPlugins[key] = plugin;
 }
 
+QMap<QString, KPlato::SchedulerPlugin*> MainDocument::schedulerPlugins() const
+{
+    return m_schedulerPlugins;
+}
+
 void MainDocument::configChanged()
 {
     //m_project->setConfig(m_config);

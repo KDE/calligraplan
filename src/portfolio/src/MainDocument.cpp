@@ -51,13 +51,15 @@ MainDocument::MainDocument(KoPart *part)
 
 MainDocument::~MainDocument()
 {
-    QList<KoDocument*> docs = documents();
-    for (KoDocument *doc : qAsConst(docs)) {
+    
+    for (KoDocument *doc : qAsConst(m_documents)) {
         if (doc->documentPart()->mainwindowCount() > 0) {
-            doc->setParent(nullptr);
+            // The doc has been opened in a separate window
             for (KoMainWindow *mw : doc->documentPart()->mainWindows()) {
-                mw->setNoCleanup(false);
+                mw->setNoCleanup(false); // mw will delete the doc
             }
+        } else {
+            delete doc;
         }
     }
 }
@@ -233,25 +235,26 @@ void MainDocument::setDocumentProperty(KoDocument *doc, const char *name, const 
 
 bool MainDocument::addDocument(KoDocument *newdoc)
 {
-    const QList<KoDocument*> docs = documents();
-    for (const KoDocument *doc : docs) {
-        if (doc->project()->id() == newdoc->project()->id()) {
-            return false;
-        }
+    Q_ASSERT(!m_documents.contains(newdoc));
+    if (m_documents.contains(newdoc)) {
+        return false;
     }
-    newdoc->setParent(this);
+    Q_EMIT documentAboutToBeInserted(m_documents.count());
+    m_documents << newdoc;
     newdoc->setAutoSave(0);
     connect(newdoc->project(), &KPlato::Project::projectCalculated, this, &MainDocument::slotProjectChanged);
+    Q_EMIT documentInserted();
     setModified(true);
     return true;
 }
 
 void MainDocument::removeDocument(KoDocument *doc)
 {
-    const QList<KoDocument*> docs = documents();
-    if (docs.contains(doc)) {
+    if (m_documents.contains(doc)) {
+        Q_EMIT documentAboutToBeRemoved(m_documents.indexOf(doc));
         disconnect(doc->project(), &KPlato::Project::projectCalculated, this, &MainDocument::slotProjectChanged);
-        doc->setParent(nullptr);
+        m_documents.removeOne(doc);
+        Q_EMIT documentRemoved();
         setModified(true);
     }
 }
@@ -271,7 +274,7 @@ void MainDocument::slotProjectChanged()
 
 QList<KoDocument*> MainDocument::documents() const
 {
-    return findChildren<KoDocument*>(QString(), Qt::FindDirectChildrenOnly);
+    return m_documents;
 }
 
 void MainDocument::emitChanged()

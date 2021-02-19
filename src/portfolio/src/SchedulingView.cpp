@@ -34,6 +34,7 @@
 #include <kptproject.h>
 #include <kptscheduleeditor.h>
 #include <kptdatetime.h>
+#include <kptschedulerplugin.h>
 
 #include <KActionCollection>
 #include <KXMLGUIFactory>
@@ -263,6 +264,43 @@ KPlato::ScheduleManager* SchedulingView::scheduleManager(const KoDocument *doc) 
 }
 
 void SchedulingView::calculate()
+{
+    MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
+    const QList<KoDocument*> docs = portfolio->documents();
+    if (docs.isEmpty()) {
+        return;
+    }
+    QMap<QString, KPlato::SchedulerPlugin*> map = docs.first()->schedulerPlugins();
+    QString schedulerName = "TJ Scheduler";// doc->schedulerName();
+    if (map.contains(schedulerName)) {
+        calculateTJ(map.value(schedulerName), docs);
+    } else {
+        calculatePert();
+    }
+}
+
+void SchedulingView::calculateTJ(KPlato::SchedulerPlugin *scheduler, const QList<KoDocument*> docs)
+{
+    KPlato::SchedulingContext context;
+    for (const KoDocument *doc : docs) {
+        int prio = doc->property(SCHEDULINGPRIORITY).isValid() ? doc->property(SCHEDULINGPRIORITY).toInt() : -1;
+        KPlato::Project *project = doc->project();
+        KPlato::ScheduleManager *sm = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
+        qInfo()<<Q_FUNC_INFO<<project<<sm<<doc->property(SCHEDULINGCONTROL).toString();
+        if (doc->property(SCHEDULINGCONTROL).toString() == "Schedule") {
+            project->setCurrentScheduleManager(sm);
+            context.addProject(doc->project(), prio);
+        } else if (doc->property(SCHEDULINGCONTROL).toString() == "Include") {
+            project->setCurrentScheduleManager(sm);
+            context.addResourceBookings(project);
+        }
+    }
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    scheduler->schedule(context);
+    QApplication::restoreOverrideCursor();
+}
+
+void SchedulingView::calculatePert()
 {
     QList<KoDocument*> toInclude;
     QMap<int, KoDocument*> toSchedule;

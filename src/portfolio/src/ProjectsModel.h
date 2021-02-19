@@ -112,7 +112,11 @@ protected Q_SLOTS:
     void reset();
     void documentChanged(KoDocument *doc, int row);
     void projectChanged(KoDocument *doc);
-
+    void documentAboutToBeInserted(int row);
+    void documentInserted();
+    void documentAboutToBeRemoved(int row);
+    void documentRemoved();
+    
 protected:
     MainDocument *m_portfolio;
     KPlato::NodeModel m_nodeModel;

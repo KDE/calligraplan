@@ -342,11 +342,21 @@ void ProjectsModel::setPortfolio(MainDocument *portfolio)
 {
     beginResetModel();
     if (m_portfolio) {
+        disconnect(m_portfolio, &MainDocument::documentAboutToBeInserted, this, &ProjectsModel::documentAboutToBeInserted);
+        disconnect(m_portfolio, &MainDocument::documentInserted, this, &ProjectsModel::documentInserted);
+        disconnect(m_portfolio, &MainDocument::documentAboutToBeRemoved, this, &ProjectsModel::documentAboutToBeRemoved);
+        disconnect(m_portfolio, &MainDocument::documentRemoved, this, &ProjectsModel::documentRemoved);
+
         disconnect(m_portfolio, &MainDocument::documentChanged, this, &ProjectsModel::documentChanged);
         disconnect(m_portfolio, &MainDocument::projectChanged, this, &ProjectsModel::projectChanged);
     }
     m_portfolio = portfolio;
     if (m_portfolio) {
+        connect(m_portfolio, &MainDocument::documentAboutToBeInserted, this, &ProjectsModel::documentAboutToBeInserted);
+        connect(m_portfolio, &MainDocument::documentInserted, this, &ProjectsModel::documentInserted);
+        connect(m_portfolio, &MainDocument::documentAboutToBeRemoved, this, &ProjectsModel::documentAboutToBeRemoved);
+        connect(m_portfolio, &MainDocument::documentRemoved, this, &ProjectsModel::documentRemoved);
+
         connect(m_portfolio, &MainDocument::documentChanged, this, &ProjectsModel::documentChanged);
         connect(m_portfolio, &MainDocument::projectChanged, this, &ProjectsModel::projectChanged);
     }
@@ -360,6 +370,26 @@ void ProjectsModel::reset()
     beginResetModel();
     endResetModel();
     Q_EMIT portfolioChanged();
+}
+
+void ProjectsModel::documentAboutToBeInserted(int row)
+{
+    beginInsertRows(QModelIndex(), row, row);
+}
+
+void ProjectsModel::documentInserted()
+{
+    endInsertRows();
+}
+
+void ProjectsModel::documentAboutToBeRemoved(int row)
+{
+    beginRemoveRows(QModelIndex(), row, row);
+}
+
+void ProjectsModel::documentRemoved()
+{
+    endRemoveRows();
 }
 
 void ProjectsModel::documentChanged(KoDocument *doc, int row)

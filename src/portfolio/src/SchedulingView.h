@@ -35,6 +35,7 @@ namespace KPlato {
     class ScheduleManager;
     class ScheduleLogTreeView;
     class DateTime;
+    class SchedulerPlugin;
 }
 
 class PLANPORTFOLIO_EXPORT SchedulingView : public KoView
@@ -53,6 +54,8 @@ protected Q_SLOTS:
     void slotLoadCanceled();
 
     void calculate();
+    void calculateTJ(KPlato::SchedulerPlugin *scheduler, const QList<KoDocument*> docs);
+    void calculatePert();
 
     void slotDoubleClicked(const QModelIndex &idx);
     void slotCustomContextMenuRequested(const QPoint &pos);
