@@ -190,8 +190,7 @@ QDomDocument MainDocument::saveXML()
     QDomElement portfolio = document.documentElement();
     QDomElement projects = document.createElement("projects");
     portfolio.appendChild(projects);
-    const QList<KoDocument*> docs = documents();
-    for (KoDocument *doc : docs) {
+    for (KoDocument *doc : qAsConst(m_documents)) {
         QDomElement p = document.createElement("project");
         p.setAttribute(QStringLiteral(SCHEDULEMANAGERNAME), doc->property(SCHEDULEMANAGERNAME).toString());
         p.setAttribute(QStringLiteral(ISPORTFOLIO), doc->property(ISPORTFOLIO).toBool());
@@ -222,7 +221,7 @@ void MainDocument::setModified(bool mod)
 
 void MainDocument::setDocumentProperty(KoDocument *doc, const char *name, const QVariant &value)
 {
-    int index = documents().indexOf(doc);
+    int index = m_documents.indexOf(doc);
     bool change = doc->property(name) != value;
     if (change) {
         doc->setProperty(name, value);
@@ -263,7 +262,7 @@ void MainDocument::slotProjectChanged()
 {
     KPlato::Project *project = qobject_cast<KPlato::Project*>(sender());
     if (project) {
-        for (KoDocument *doc : documents()) {
+        for (KoDocument *doc : qAsConst(m_documents)) {
             if (doc->project() == project) {
                 Q_EMIT projectChanged(doc);
                 return;
