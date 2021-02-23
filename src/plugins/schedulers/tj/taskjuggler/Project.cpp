@@ -986,13 +986,18 @@ Project::schedule(int sc)
         double pathCriticalness = 0.0;
         Task::SchedulingInfo schedulingInfo = Task::ASAP;
 
+        // helpers to avoid updateing workItems list inside loop
+        bool updateList = false;
+        TaskList temp;
+
         /* The task list is sorted by priority. The priority decreases towards
          * the end of the list. We iterate through the list and look for a
          * task that can be scheduled. It the determines the time slot that
          * will be scheduled during this run for all subsequent tasks as well.
          */
-        for (CoreAttributes *t : workItems) { // not const, list is updated in loop
+        for (CoreAttributes *t : qAsConst(workItems)) {
 //            TJMH.debugMessage(QString("'%1' schedule for slot: %2, (%3 -%4)").arg(static_cast<Task*>(t)->getName()).arg(time2ISO(slot)).arg(time2ISO(start)).arg(time2ISO(end)));
+
             if (slot == 0)
             {
                 /* No time slot has been set yet. Check if this task can be
@@ -1060,7 +1065,8 @@ Project::schedule(int sc)
             // Schedule this task for the current time slot.
             if (static_cast<Task*>(t)->schedule(sc, slot, scheduleGranularity))
             {
-                workItems = tasksReadyToBeScheduled(sc, allLeafTasks);
+                temp = tasksReadyToBeScheduled(sc, allLeafTasks);
+                updateList = true;
                 int oldSortedTasks = sortedTasks;
                 sortedTasks = 0;
                 for (CoreAttributes *t : qAsConst(allLeafTasks)) {
@@ -1075,6 +1081,9 @@ Project::schedule(int sc)
                          .arg(getScenarioId(sc)).arg(time2tjp(slot)));
                 }
             }
+        }
+        if (updateList) {
+            workItems = temp;
         }
     } while (!done && !breakFlag);
 
