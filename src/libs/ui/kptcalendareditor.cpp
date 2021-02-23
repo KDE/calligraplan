@@ -104,7 +104,7 @@ void CalendarTreeView::focusOutEvent (QFocusEvent * event)
 void CalendarTreeView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
 {
     //debugPlan<<sel.indexes().count();
-    //foreach(const QModelIndex &i, selectionModel()->selectedIndexes()) { debugPlan<<i.row()<<","<<i.column(); }
+    //for (const QModelIndex &i : qAsConst(selectionModel()->selectedIndexes())) { debugPlan<<i.row()<<","<<i.column(); }
     TreeViewBase::selectionChanged(sel, desel);
     Q_EMIT sigSelectionChanged(selectionModel()->selectedIndexes());
 }
@@ -802,7 +802,7 @@ void CalendarEditor::slotSetVacation()
     }
     bool mod = false;
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Calendar"));
-    foreach (const QDate &date, m_currentMenuDateList) {
+    for (const QDate &date : qAsConst(m_currentMenuDateList)) {
         debugPlan<<"handle:"<<date;
         CalendarDay *day = currentCalendar()->findDay(date);
         if (day == nullptr) {
@@ -836,7 +836,7 @@ void CalendarEditor::slotSetUndefined()
     }
     bool mod = false;
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Calendar"));
-    foreach (const QDate &date, m_currentMenuDateList) {
+    for (const QDate &date : qAsConst(m_currentMenuDateList)) {
         CalendarDay *day = currentCalendar()->findDay(date);
         if (day && day->state() != CalendarDay::Undefined) {
             mod = true;

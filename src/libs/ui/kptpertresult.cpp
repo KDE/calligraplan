@@ -145,7 +145,8 @@ void PertResult::draw()
         }
         widget.scheduleName->setText(model()->manager()->name());
         Duration f;
-        foreach (Node *n, m_project->allNodes()) {
+        const QList<Node*> nodes = m_project->allNodes();
+        for (Node *n : nodes) {
             if (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone) {
                 f += static_cast<Task*>(n)->positiveFloat(id);
             }

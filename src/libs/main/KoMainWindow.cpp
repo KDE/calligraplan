@@ -1938,7 +1938,7 @@ QList<QDockWidget*> KoMainWindow::dockWidgets() const
 
     QList<KoCanvasObserverBase*> observers;
 
-    foreach(QDockWidget *docker, dockWidgets()) {
+    for (QDockWidget *docker : qAsConst(dockWidgets())) {
         KoCanvasObserverBase *observer = dynamic_cast<KoCanvasObserverBase*>(docker);
         if (observer) {
             observers << observer;

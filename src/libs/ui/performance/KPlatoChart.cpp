@@ -38,7 +38,8 @@ Chart::Chart(QWidget *parent)
 
 void Chart::mousePressEvent(QMouseEvent *event)
 {
-    Q_FOREACH(KChart::AbstractCoordinatePlane* plane, coordinatePlanes()) {
+    const auto lst = coordinatePlanes();
+    for (KChart::AbstractCoordinatePlane* plane : lst) {
         if (plane->geometry().contains(event->pos()) && plane->diagrams().size() > 0) {
             KChart::Chart::mousePressEvent(event);
             m_inplane = true;

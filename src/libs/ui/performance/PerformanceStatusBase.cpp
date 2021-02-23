@@ -478,9 +478,9 @@ void PerformanceStatusBase::setupChart(ChartContents &cc)
         }
     }
 
-    foreach(AbstractCoordinatePlane *p, ui_chart->coordinatePlanes()) {
+    for (AbstractCoordinatePlane *p : qAsConst(ui_chart->coordinatePlanes())) {
         debugPlan<<p<<"references:"<<p->referenceCoordinatePlane();
-        foreach (AbstractDiagram *d, p->diagrams()) {
+        for (AbstractDiagram *d : qAsConst(p->diagrams())) {
             debugPlan<<p<<"diagram:"<<d;
         }
     }

@@ -153,7 +153,7 @@ void TaskJuggler::list()
     lst.setSorting(TJ::CoreAttributesList::SequenceDown, 2);
     lst.sort();
 
-    QStringList s; foreach(TJ::CoreAttributes *a, lst) s << a->getId();
+    QStringList s; for (TJ::CoreAttributes *a : qAsConst(lst)) s << a->getId();
     qDebug()<<s;
     QCOMPARE(lst.at(0)->getId(), QString("A3"));
     QCOMPARE(lst.at(1)->getId(), QString("A2"));
@@ -170,7 +170,8 @@ void TaskJuggler::oneResource()
     r->setEfficiency(1.0);
     for (int day = 0; day < 7; ++day) {
         r->setWorkingHours(day, *(project->getWorkingHours(day)));
-        foreach(TJ::Interval *i, *(r->getWorkingHours()[day])) {
+        const auto lst = *(r->getWorkingHours()[day]);
+        for (TJ::Interval *i : lst) {
             qDebug()<<day<<":"<<*i;
         }
     }

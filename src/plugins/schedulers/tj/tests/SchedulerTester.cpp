@@ -50,7 +50,8 @@ QStringList SchedulerTester::data()
 void SchedulerTester::test()
 {
     QString dir = QFINDTESTDATA("data/");
-    foreach (const QString &fname, data()) {
+    const auto lst = data();
+    for (const QString &fname : lst) {
         qDebug()<<"Testing file:"<<fname;
         QFile file(dir + fname);
         QVERIFY2(file.open(QIODevice::ReadOnly), fname.toLatin1());
@@ -121,8 +122,8 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
             .arg(project.startTime(id1).toString(Qt::ISODate))
             .arg(project.startTime(id2).toString(Qt::ISODate));
     QVERIFY2(project.startTime(id1) == project.startTime(id2), s.toLatin1()); 
-    
-    foreach (Node *n, project.allNodes()) {
+    const auto lst = project.allNodes();
+    for (Node *n : lst) {
         compare(fname, n, id1, id2);
     }
 }

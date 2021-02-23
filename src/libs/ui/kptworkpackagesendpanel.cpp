@@ -50,12 +50,13 @@ WorkPackageSendPanel::WorkPackageSendPanel(const QList<Node*> &tasks,  ScheduleM
     ui_treeView->setModel(m);
 
     long id = sm ? sm->scheduleId() : NOTSCHEDULED;
-    foreach (Node *n, tasks) {
+    for (Node *n : tasks) {
         Task *t = qobject_cast<Task*>(n);
         if (t == nullptr) {
             continue;
         }
-        foreach (Resource *r, t->workPackage().fetchResources(id)) {
+        const QList<Resource*> resources = t->workPackage().fetchResources(id);
+        for (Resource *r : resources) {
             m_resMap[r->name()] = r;
             m_nodeMap[ r ] << n;
         }

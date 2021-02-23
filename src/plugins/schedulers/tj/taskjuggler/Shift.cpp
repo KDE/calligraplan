@@ -102,7 +102,7 @@ Shift::isOnShift(const Interval& iv) const
         if (iv.getStart() >= workingIntervals.last().getEnd()) {
             return false;
         }
-        Q_FOREACH(const Interval &i, workingIntervals) {
+        for (const Interval &i : qAsConst(workingIntervals)) {
             if (iv.getEnd() <= i.getStart()) {
                 return false;
             }

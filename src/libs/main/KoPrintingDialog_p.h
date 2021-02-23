@@ -100,12 +100,12 @@ public:
         painter->save(); // state after page preparation
 
         /*
-        QList<KoShape*> shapes = parent->shapesOnPage(pageNumber);
+        const QList<KoShape*> shapes = parent->shapesOnPage(pageNumber);
         if (shapes.isEmpty()) {
             debugMain << "Printing page" << pageNumber << "I notice there are no shapes on this page";
         } else {
             const int progressPart = 45 / shapes.count();
-            foreach(KoShape *shape, shapes) {
+            for (KoShape *shape : shapes) {
                 debugMain << "Calling waitUntilReady on shape;" << shape;
                 if(! stop)
                     shape->waitUntilReady(zoomer);

@@ -214,7 +214,7 @@ Task::inheritValues()
 TaskDependency*
 Task::addDepends(const QString& rid)
 {
-    foreach (TaskDependency *d, depends) {
+    for (TaskDependency *d : qAsConst(depends)) {
         if (rid == d->getTaskRefId()) {
             return d;
         }
@@ -227,7 +227,7 @@ Task::addDepends(const QString& rid)
 TaskDependency*
 Task::addPrecedes(const QString& rid)
 {
-    foreach (TaskDependency *d, precedes) {
+    for (TaskDependency *d : qAsConst(precedes)) {
         if (rid == d->getTaskRefId()) {
             return d;
         }
@@ -486,7 +486,7 @@ Task::scheduleContainer(int sc)
 bool
 Task::hasAlapPredecessor() const
 {
-    foreach (const CoreAttributes *t, predecessors) {
+    for (const CoreAttributes *t : qAsConst(predecessors)) {
         if (static_cast<const Task*>(t)->getScheduling() == TJ::Task::ALAP || static_cast<const Task*>(t)->hasAlapPredecessor()) {
             return true;
         }
@@ -663,7 +663,8 @@ Task::isAvailable(Allocation *allocation, Resource *resource, time_t slot) const
 {
     int max = resource->isAvailable(slot);
     if (allocation->hasRequiredResources(resource)) {
-        foreach (Resource *r, allocation->getRequiredResources(resource)) {
+        const auto lst = allocation->getRequiredResources(resource);
+        for (Resource *r : lst) {
             int a = r->isAvailable(slot);
             if (a > max) {
 //                 TJMH.debugMessage(QString("Required resource '%1' is not available at %2").arg(r->getName()).arg(time2ISO(slot)), this);
@@ -737,7 +738,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
                 bool found = false;
                 int maxAvailability = 0;
                 QList<Resource*> candidates = a->getCandidates();
-                foreach (Resource *r, candidates)
+                for (Resource *r : qAsConst(candidates))
                 {
                     /* If a resource group is marked mandatory, all members
                      * of the group must be available. */
@@ -799,13 +800,13 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
         {
             QList<Resource*> resources = a->getCandidates();
             QString resStr;
-            foreach (Resource *r, resources) {
+            for (Resource *r : qAsConst(resources)) {
                 resStr += r->getId() + QLatin1Char(' ');
             }
             if (limits->getDailyUnits() > 0) {
                 uint bookedSlots = 0;
                 int workSlots = 0;
-                foreach (Resource *r, resources) {
+                for (Resource *r : qAsConst(resources)) {
                     workSlots += r->getWorkSlots(date); // returns 0 if no bookings yet
                     bookedSlots += r->getCurrentDaySlots(date, this); // booked to this task
                 }
@@ -828,7 +829,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
             else if (limits->getDailyMax() > 0)
             {
                 uint slotCount = 0;
-                foreach (Resource *r, resources)
+                for (Resource *r : qAsConst(resources))
                     slotCount += r->getCurrentDaySlots(date, this);
                 int freeSlots = limits->getDailyMax() - slotCount;
                 if (freeSlots <= 0)
@@ -843,7 +844,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
             if (limits->getWeeklyMax() > 0)
             {
                 uint slotCount = 0;
-                foreach (Resource *r, resources)
+                for (Resource *r : qAsConst(resources))
                     slotCount += r->getCurrentWeekSlots(date, this);
                 int freeSlots = limits->getWeeklyMax() - slotCount;
                 if (freeSlots <= 0)
@@ -858,7 +859,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
             if (limits->getMonthlyMax() > 0)
             {
                 uint slotCount = 0;
-                foreach (Resource *r, resources)
+                for (Resource *r : qAsConst(resources))
                     slotCount += r->getCurrentMonthSlots(date, this);
                 int freeSlots = limits->getMonthlyMax() - slotCount;
                 if (freeSlots <= 0)
@@ -900,7 +901,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
             QList<Resource*> cl = createCandidateList(sc, date, a);
 
             bool found = false;
-            foreach (Resource *r, cl)
+            for (Resource *r : qAsConst(cl))
                 if (bookResource(a, r, date, slotDuration, slotsToLimit,
                                  maxAvailability))
                 {
@@ -916,7 +917,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
                 {
                     QString candidates;
                     bool first = true;
-                    foreach (Resource *r, cl)
+                    for (Resource *r : qAsConst(cl))
                     {
                         if (first)
                             first = false;
@@ -959,7 +960,8 @@ Task::bookResource(Allocation *allocation, Resource* r, time_t date, time_t slot
                 qDebug()<<" Booked resource"<<(*rti)->getName()<<"at"<<time2ISO(date);
             }
             if (allocation->hasRequiredResources(*rti)) {
-                foreach(Resource *r, allocation->getRequiredResources(*rti)) {
+                const auto lst = allocation->getRequiredResources(*rti);
+                for(Resource *r : lst) {
                     if (r->book(new Booking(Interval(date, date + slotDuration - 1), this))) {
                         addBookedResource(r);
 //                         TJMH.debugMessage(QString("Booked required resource: '%1' at %2").arg(r->getName()).arg(time2ISO(date)), this);
@@ -1050,7 +1052,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
                  * append it to the candidate list. */
                 double minProbability = 0;
                 Resource* minProbResource = nullptr;
-                foreach (Resource *r, candidates)
+                for (Resource *r : qAsConst(candidates))
                 {
                     double probability = r->getAllocationProbability(sc);
                     if (minProbability == 0 || probability < minProbability)
@@ -1072,7 +1074,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
             {
                 double minLoad = 0;
                 Resource* minLoaded = nullptr;
-                foreach (Resource *r, candidates)
+                for (Resource *r : qAsConst(candidates))
                 {
                     /* We calculate the load as a relative value to the daily
                      * max load. This way part time people will reach their
@@ -1105,7 +1107,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
             {
                 double maxLoad = 0;
                 Resource* maxLoaded = nullptr;
-                foreach (Resource *r, candidates)
+                for (Resource *r : qAsConst(candidates))
                 {
                     /* We calculate the load as a relative value to the daily
                      * max load. This way part time people will reach their

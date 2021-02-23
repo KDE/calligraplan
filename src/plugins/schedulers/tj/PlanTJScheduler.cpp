@@ -266,7 +266,8 @@ bool PlanTJScheduler::kplatoToTJ()
             }
             if (d && d->state() == CalendarDay::Working) {
                 QList<TJ::Interval*> lst;
-                foreach (const TimeInterval *ti, d->timeIntervals()) {
+                const auto intervals = d->timeIntervals();
+                for (const TimeInterval *ti : intervals) {
                     TJ::Interval *tji = new TJ::Interval(toTJInterval(ti->startTime(), ti->endTime(),tjGranularity()));
                     lst << tji;
                 }
@@ -475,12 +476,13 @@ bool PlanTJScheduler::taskFromTJ(Project *project, TJ::Task *job, Node *task)
     if (task->endTime() > project->endTime()) {
         project->setEndTime(task->endTime());
     }
-    foreach (TJ::CoreAttributes *a, job->getBookedResources(0)) {
+    const auto lst = job->getBookedResources(0);
+    for (TJ::CoreAttributes *a : lst) {
         TJ::Resource *r = static_cast<TJ::Resource*>(a);
         Resource *res = resource(project, r);
         Q_ASSERT(res);
         const QVector<TJ::Interval> lst = r->getBookedIntervals(0, job);
-        foreach (const TJ::Interval &tji, lst) {
+        for (const TJ::Interval &tji : lst) {
             AppointmentInterval ai = fromTJInterval(tji, tz);
             double load = res->type() == Resource::Type_Material ? res->units() : ai.load() * r->getEfficiency();
             res->addAppointment(cs, ai.startTime(), ai.endTime(), load);
@@ -504,7 +506,7 @@ Resource *PlanTJScheduler::resource(Project *project, TJ::Resource *tjResource)
 
 void PlanTJScheduler::adjustSummaryTasks(const QList<Node*> &nodes)
 {
-    foreach (Node *n, nodes) {
+    for (Node *n : nodes) {
         adjustSummaryTasks(n->childNodeIterator());
         if (n->parentNode()->type() == Node::Type_Summarytask) {
             DateTime pt = n->parentNode()->startTime();
@@ -530,7 +532,8 @@ Duration PlanTJScheduler::calcPositiveFloat(Node *task)
     if (task->dependChildNodes().isEmpty() && static_cast<Task*>(task)->childProxyRelations().isEmpty()) {
         x = m_project->endTime() - task->endTime();
     } else {
-        foreach (const Relation *r, task->dependChildNodes() + static_cast<Task*>(task)->childProxyRelations()) {
+        const auto lst = task->dependChildNodes() + static_cast<Task*>(task)->childProxyRelations();
+        for (const Relation *r : lst) {
             if (! r->child()->inCriticalPath()) {
                 Duration f = calcPositiveFloat(static_cast<Task*>(r->child()));
                 if (x == 0 || f < x) {
@@ -584,7 +587,8 @@ void PlanTJScheduler::calcPertValues(Node *t)
     }
     debugPlan<<t->name()<<t->startTime()<<t->endTime();
     Duration negativefloat;
-    foreach (const Relation *r, t->dependParentNodes() + static_cast<Task*>(t)->parentProxyRelations()) {
+    const auto lst = t->dependParentNodes() + static_cast<Task*>(t)->parentProxyRelations();
+    for (const Relation *r : lst) {
         if (r->parent()->endTime() + r->lag() > t->startTime()) {
             Duration f = r->parent()->endTime() + r->lag() - t->startTime();
             if (f > negativefloat) {
@@ -601,7 +605,8 @@ void PlanTJScheduler::calcPertValues(Node *t)
         }
     }
     Duration freefloat;
-    foreach (const Relation *r, t->dependChildNodes() + static_cast<Task*>(t)->childProxyRelations()) {
+    const auto relations = t->dependChildNodes() + static_cast<Task*>(t)->childProxyRelations();
+    for (const Relation *r : relations) {
         if (t->endTime() + r->lag() <  r->child()->startTime()) {
             Duration f = r->child()->startTime() - r->lag() - t->endTime();
             if (f > 0 && (freefloat == 0 || freefloat > f)) {
@@ -614,7 +619,7 @@ void PlanTJScheduler::calcPertValues(Node *t)
 
 bool PlanTJScheduler::exists(QList<CalendarDay*> &lst, CalendarDay *day)
 {
-    foreach (CalendarDay *d, lst) {
+    for (CalendarDay *d : qAsConst(lst)) {
         if (d->date() == day->date() && day->state() != CalendarDay::Undefined && d->state() != CalendarDay::Undefined) {
             return true;
         }
@@ -742,7 +747,8 @@ void PlanTJScheduler::addPrecedes(const Relation *rel)
 
 void PlanTJScheduler::addDependencies(KPlato::Node *task)
 {
-    foreach (Relation *r, task->dependParentNodes() + static_cast<Task*>(task)->parentProxyRelations()) {
+    const auto lst = task->dependParentNodes() + static_cast<Task*>(task)->parentProxyRelations();
+    for (Relation *r : lst) {
         Node *n = r->parent();
         if (n == nullptr || n->type() == Node::Type_Summarytask) {
             continue;
@@ -932,7 +938,8 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
         }
         return;
     }
-    foreach (ResourceRequest *rr, task->requests().resourceRequests(true /*resolveTeam*/)) {
+    const auto lst = task->requests().resourceRequests(true /*resolveTeam*/);
+    for (ResourceRequest *rr : lst) {
         if (!rr->resource()->calendar()) {
             result = 1; // stops scheduling
             logError(task, nullptr, i18n("No working hours defined for resource: %1",rr->resource()->name()));
@@ -958,7 +965,8 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
         }
         job->addAllocation(a);
         logDebug(task, nullptr, "Added resource candidate: " + rr->resource()->name());
-        foreach (Resource *r, rr->requiredResources()) {
+        const auto lst = rr->requiredResources();
+        for (Resource *r : lst) {
             TJ::Resource *tr = addResource(r);
             a->addRequiredResource(tjr, tr);
             logDebug(task, nullptr, "Added required resource: " + r->name());
@@ -1059,7 +1067,8 @@ void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority
             }
             if (d && d->state() == CalendarDay::Working) {
                 QList<TJ::Interval*> lst;
-                foreach (const TimeInterval *ti, d->timeIntervals()) {
+                const auto intervals = d->timeIntervals();
+                for (const TimeInterval *ti : intervals) {
                     TJ::Interval *tji = new TJ::Interval(toTJInterval(ti->startTime(), ti->endTime(),tjGranularity()));
                     lst << tji;
                 }

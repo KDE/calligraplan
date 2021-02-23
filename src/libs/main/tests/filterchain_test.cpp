@@ -71,19 +71,19 @@ int main(int /*argc*/, char ** /*argv*/)
 
     qDebug() << "Checking mimeFilter() for Import:";
     QStringList list = KoFilterManager::mimeFilter("application/vnd.oasis.opendocument.text",  KoFilterManager::Import);
-    Q_FOREACH(const QString& it, list)
+    for (const QString& it : qAsConst(list))
         qDebug() << "" << it;
     qDebug() << "" << list.count() << " entries.";
 
     qDebug() << "Checking mimeFilter() for Export:";
     list = KoFilterManager::mimeFilter("application/vnd.oasis.opendocument.text",  KoFilterManager::Export);
-    Q_FOREACH(const QString& it, list)
+    for (const QString& it : qAsConst(list))
         qDebug() << "" << it;
     qDebug() << "" << list.count() << " entries.";
 
     qDebug() << "Checking KoShell's mimeFilter():";
     list = KoFilterManager::mimeFilter();
-    Q_FOREACH(const QString& it, list)
+    for (const QString& it : qAsConst(list))
         qDebug() << "" << it;
     qDebug() << "" << list.count() << " entries.";
 

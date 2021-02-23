@@ -75,7 +75,7 @@ ulong PlanTJPlugin::currentGranularity() const
 
 void PlanTJPlugin::calculate(KPlato::Project &project, KPlato::ScheduleManager *sm, bool nothread)
 {
-    foreach (SchedulerThread *j, m_jobs) {
+    for (SchedulerThread *j : qAsConst(m_jobs)) {
         if (j->manager() == sm) {
             return;
         }
@@ -103,7 +103,7 @@ void PlanTJPlugin::calculate(KPlato::Project &project, KPlato::ScheduleManager *
 
 void PlanTJPlugin::stopAllCalculations()
 {
-    foreach (SchedulerThread *s, m_jobs) {
+    for (SchedulerThread *s : qAsConst(m_jobs)) {
         stopCalculation(s);
     }
 }

@@ -74,7 +74,8 @@ ScheduleTreeView::ScheduleTreeView(QWidget *parent)
 void ScheduleTreeView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
 {
     //debugPlan<<sel.indexes().count();
-    foreach(const QModelIndex &i, selectionModel()->selectedIndexes()) {
+    const auto lst = selectionModel()->selectedIndexes();
+    for (const QModelIndex &i : lst) {
         Q_UNUSED(i);
         //debugPlan<<i.row()<<","<<i.column();
     }
@@ -536,7 +537,8 @@ void ScheduleLogTreeView::headerContextMenuRequested(const QPoint &pos)
 void ScheduleLogTreeView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
 {
     //debugPlan<<sel.indexes().count();
-    foreach(const QModelIndex &i, selectionModel()->selectedIndexes()) {
+    const auto lst = selectionModel()->selectedIndexes();
+    for (const QModelIndex &i : lst) {
         Q_UNUSED(i);
         //debugPlan<<i.row()<<","<<i.column();
     }
@@ -558,7 +560,8 @@ void ScheduleLogTreeView::slotEditCopy()
 //    int row = 0;
     QString s;
     QHeaderView *h = header();
-    foreach(const QModelIndex &i, selectionModel()->selectedRows()) {
+    const auto indexes = selectionModel()->selectedIndexes();
+    for (const QModelIndex &i : indexes) {
         QString s;
         for (int section = 0; section < h->count(); ++section) {
             QModelIndex idx = model()->index(i.row(), h->logicalIndex(section));
@@ -764,7 +767,8 @@ ViewBase *ScheduleHandlerView::hitView(const QPoint &/*glpos */)
 
 void ScheduleHandlerView::setGuiActive(bool active) // virtual slot
 {
-    foreach (ViewBase *v, findChildren<ViewBase*>()) {
+    const auto lst = findChildren<ViewBase*>();
+    for (ViewBase *v : lst) {
         v->setGuiActive(active);
     }
     m_activeview = active ? this : nullptr;

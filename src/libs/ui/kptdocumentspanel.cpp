@@ -54,8 +54,8 @@ DocumentsPanel::DocumentsPanel(Node &node, QWidget *parent)
     m_view->setReadWrite(true);
     
     currentChanged(QModelIndex());
-    
-    foreach (Document *doc, m_docs.documents()) {
+    const QList<Document*> docs = m_docs.documents();
+    for (Document *doc : docs) {
         m_orgurl.insert(doc, doc->url());
     }
     slotSelectionChanged(QModelIndexList());
@@ -167,9 +167,9 @@ void DocumentsPanel::slotChangeUrl()
 
 void DocumentsPanel::slotRemoveUrl()
 {
-    QList<Document*> lst = m_view->selectedDocuments();
+    const QList<Document*> lst = m_view->selectedDocuments();
     bool mod = false;
-    foreach (Document *doc, lst) {
+    for (Document *doc : lst) {
         if (doc == nullptr) {
             continue;
         }

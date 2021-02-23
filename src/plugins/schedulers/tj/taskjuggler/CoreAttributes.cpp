@@ -91,7 +91,7 @@ CoreAttributes::setHierarchNo(uint no)
 {
     hierarchNo = no;
     uint hNo = 1;
-    foreach (CoreAttributes *a, *sub) {
+    for (CoreAttributes *a : qAsConst(*sub)) {
         a->setHierarchNo(hNo++);
     }
 }
@@ -129,7 +129,8 @@ CoreAttributes::setHierarchIndex(uint no)
 
     /* Find the highest hierarchIndex of all children of this CAs parent. */
     uint max = 0;
-    foreach (CoreAttributes *a, (*parent->sub)) {
+    const auto lst = *parent->sub;
+    for (CoreAttributes *a : lst) {
         if (a->hierarchIndex > max)
             max = a->hierarchIndex;
     }
