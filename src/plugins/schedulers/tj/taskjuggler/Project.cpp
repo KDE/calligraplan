@@ -991,7 +991,7 @@ Project::schedule(int sc)
          * task that can be scheduled. It the determines the time slot that
          * will be scheduled during this run for all subsequent tasks as well.
          */
-        for (CoreAttributes *t : qAsConst(workItems)) {
+        for (CoreAttributes *t : workItems) { // not const, list is updated in loop
 //            TJMH.debugMessage(QString("'%1' schedule for slot: %2, (%3 -%4)").arg(static_cast<Task*>(t)->getName()).arg(time2ISO(slot)).arg(time2ISO(start)).arg(time2ISO(end)));
             if (slot == 0)
             {
