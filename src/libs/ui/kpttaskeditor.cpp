@@ -187,7 +187,7 @@ bool TaskEditorItemModel::setType(Node *node, const QVariant &value, int role)
                     } else {
                         cmd =  new ModifyEstimateCmd(*node, node->estimate()->expectedEstimate(), 0.0, kundo2_i18n("Set type to Milestone"));
                     }
-                    emit executeCommand(cmd);
+                    Q_EMIT executeCommand(cmd);
                     return true;
                 }
                 default: { // Estimate
@@ -202,7 +202,7 @@ bool TaskEditorItemModel::setType(Node *node, const QVariant &value, int role)
                             m->addCommand(new ModifyEstimateCmd(*node, node->estimate()->expectedEstimate(), 1.0));
                         }
                     }
-                    emit executeCommand(m);
+                    Q_EMIT executeCommand(m);
                     return true;
                 }
             }
@@ -393,7 +393,7 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 void TaskEditor::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
     }
 }
 
@@ -528,7 +528,7 @@ void TaskEditor::taskModuleDoubleClicked(QModelIndex idx)
 {
     QUrl url = idx.data(Qt::UserRole).toUrl();
     if (url.isValid()) {
-        emit openDocument(url);
+        Q_EMIT openDocument(url);
     }
 }
 
@@ -552,7 +552,7 @@ void TaskEditor::slotSelectionChanged(const QModelIndexList &list)
 {
     debugPlan<<list.count();
     slotEnableActions();
-    emit taskSelected(dynamic_cast<Task*>(selectedNode()));
+    Q_EMIT taskSelected(dynamic_cast<Task*>(selectedNode()));
 }
 
 QModelIndexList TaskEditor::selectedRows() const
@@ -663,7 +663,7 @@ void TaskEditor::slotContextMenuRequested(const QModelIndex& index, const QPoint
         return;
     }
     debugPlan<<name;
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -939,7 +939,7 @@ void TaskEditor::slotSplitView()
 {
     debugPlan;
     m_view->setViewSplitMode(! m_view->isViewSplit());
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 
@@ -1068,7 +1068,7 @@ void TaskEditor::slotDeleteTask()
         lst.removeAt(lst.indexOf(ch));
     }
     //foreach (Node* n, lst) { debugPlan<<n->name(); }
-    emit deleteTaskList(lst);
+    Q_EMIT deleteTaskList(lst);
     QModelIndex i = m_view->selectionModel()->currentIndex();
     if (i.isValid()) {
         m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
@@ -1118,7 +1118,7 @@ void TaskEditor::slotUnindentTask()
     debugPlan;
     const QList<Node*> nodes = selectedNodes();
     if (nodes.count() == 1) {
-        emit unindentTask();
+        Q_EMIT unindentTask();
         QModelIndex i = baseModel()->index(nodes.first());
         m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
         m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
@@ -1138,7 +1138,7 @@ void TaskEditor::slotMoveTaskUp()
     debugPlan;
     Node *n = selectedNode();
     if (n) {
-        emit moveTaskUp();
+        Q_EMIT moveTaskUp();
         QModelIndex i = baseModel()->index(n);
         m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
         m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
@@ -1150,7 +1150,7 @@ void TaskEditor::slotMoveTaskDown()
     debugPlan;
     Node *n = selectedNode();
     if (n) {
-        emit moveTaskDown();
+        Q_EMIT moveTaskDown();
         QModelIndex i = baseModel()->index(n);
         m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
          m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
@@ -1289,7 +1289,7 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
 void TaskView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
     }
 }
 
@@ -1397,7 +1397,7 @@ void TaskView::slotContextMenuRequested(const QModelIndex& index, const QPoint& 
         return;
     }
     m_view->setContextMenuIndex(index);
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -1462,7 +1462,7 @@ void TaskView::slotSplitView()
 {
     debugPlan;
     m_view->setViewSplitMode(! m_view->isViewSplit());
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 void TaskView::slotOptions()
@@ -1631,7 +1631,7 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
 void TaskWorkPackageView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
     }
 }
 
@@ -1668,7 +1668,7 @@ void TaskWorkPackageView::setGuiActive(bool activate)
 
 void TaskWorkPackageView::slotRefreshView()
 {
-    emit checkForWorkPackages(false);
+    Q_EMIT checkForWorkPackages(false);
 }
 
 void TaskWorkPackageView::slotCurrentChanged(const QModelIndex &curr, const QModelIndex &)
@@ -1747,7 +1747,7 @@ void TaskWorkPackageView::slotContextMenuRequested(const QModelIndex& index, con
         return;
     }
     m_view->setContextMenuIndex(index);
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -1824,7 +1824,7 @@ void TaskWorkPackageView::slotSplitView()
 {
     debugPlan;
     m_view->setViewSplitMode(! m_view->isViewSplit());
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 void TaskWorkPackageView::slotOptions()
@@ -1873,7 +1873,7 @@ void TaskWorkPackageView::slotLoadWorkPackage(QList<QString> files)
             urls << url;
         }
     }
-    emit loadWorkPackageUrl(m_view->project(), urls);
+    Q_EMIT loadWorkPackageUrl(m_view->project(), urls);
 }
 
 } // namespace KPlato

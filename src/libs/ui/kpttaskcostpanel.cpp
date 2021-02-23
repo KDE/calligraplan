@@ -167,7 +167,7 @@ TaskCostPanelImpl::TaskCostPanelImpl(QWidget *p, const char *n)
 }
 
 void TaskCostPanelImpl::slotChanged() {
-    emit changed();
+    Q_EMIT changed();
 }
 
 }  //KPlato namespace

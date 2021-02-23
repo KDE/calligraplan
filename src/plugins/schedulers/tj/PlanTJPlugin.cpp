@@ -128,7 +128,7 @@ void PlanTJPlugin::stopCalculation(SchedulerThread *sch)
 void PlanTJPlugin::slotStarted(SchedulerThread *job)
 {
 //    debugPlan<<"PlanTJPlugin::slotStarted:";
-    emit sigCalculationStarted(job->mainProject(), job->mainManager());
+    Q_EMIT sigCalculationStarted(job->mainProject(), job->mainManager());
 }
 
 void PlanTJPlugin::slotFinished(SchedulerThread *j)
@@ -156,7 +156,7 @@ void PlanTJPlugin::slotFinished(SchedulerThread *j)
     if (m_jobs.isEmpty()) {
         m_synctimer.stop();
     }
-    emit sigCalculationFinished(mp, sm);
+    Q_EMIT sigCalculationFinished(mp, sm);
 
     disconnect(this, &PlanTJPlugin::sigCalculationStarted, mp, &KPlato::Project::sigCalculationStarted);
     disconnect(this, &PlanTJPlugin::sigCalculationFinished, mp, &KPlato::Project::sigCalculationFinished);

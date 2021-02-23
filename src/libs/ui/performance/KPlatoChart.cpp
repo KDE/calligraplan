@@ -46,7 +46,7 @@ void Chart::mousePressEvent(QMouseEvent *event)
         }
     }
     if (event->button() == Qt::RightButton) {
-        emit customContextMenuRequested(event->globalPos());
+        Q_EMIT customContextMenuRequested(event->globalPos());
     } else {
         event->ignore();
     }
@@ -74,6 +74,6 @@ void Chart::mouseReleaseEvent(QMouseEvent *event)
 void Chart::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Menu) {
-        emit customContextMenuRequested(mapToGlobal(QPoint(0,0)));
+        Q_EMIT customContextMenuRequested(mapToGlobal(QPoint(0,0)));
     }
 }

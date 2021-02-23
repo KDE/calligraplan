@@ -268,7 +268,7 @@ void WorkPackageMergeDialog::slotReject()
         wp->setParentTask(package->toTask);
         wp->setTransmitionStatus(WorkPackage::TS_Rejected);
         package->toTask->addWorkPackage(wp);
-        emit terminateWorkPackage(package);
+        Q_EMIT terminateWorkPackage(package);
     }
     nextPackage();
 }
@@ -435,7 +435,7 @@ void WorkPackageMergeDialog::acceptPackage(const Package *package)
 void WorkPackageMergeDialog::applyPackage()
 {
     MacroCommand *cmd = new MacroCommand(m_cmd->text());
-    emit executeCommand(cmd);
+    Q_EMIT executeCommand(cmd);
     cmd->addCommand(m_cmd);
     m_cmd = nullptr;
     // user might have made manual changes, must go after m_cmd
@@ -444,6 +444,6 @@ void WorkPackageMergeDialog::applyPackage()
         mc->redo();
         cmd->addCommand(mc);
     }
-    emit terminateWorkPackage(m_packages.value(m_currentPackage));
+    Q_EMIT terminateWorkPackage(m_packages.value(m_currentPackage));
 }
 

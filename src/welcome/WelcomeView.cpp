@@ -234,7 +234,7 @@ void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
         debugWelcome<<file<<url;
         KoPart *part = koDocument()->isEmpty() ? koDocument()->documentPart() : nullptr;
         if (url.isValid()) {
-            emit recentProject(url, part);
+            Q_EMIT recentProject(url, part);
         }
     }
 }
@@ -290,9 +290,9 @@ void WelcomeView::slotProjectEditFinished(int result)
             delete cmd;
             koDocument()->setModified(true);
         }
-        emit projectCreated();
-        emit selectDefaultView();
-        emit finished();
+        Q_EMIT projectCreated();
+        Q_EMIT selectDefaultView();
+        Q_EMIT finished();
     }
     dia->deleteLater();
 }
@@ -300,8 +300,8 @@ void WelcomeView::slotProjectEditFinished(int result)
 void WelcomeView::slotCreateResourceFile()
 {
     QString file = QStandardPaths::locate(QStandardPaths::AppDataLocation, "templates/.source/SharedResources.plant");
-    emit openTemplate(QUrl::fromUserInput(file));
-    emit finished();
+    Q_EMIT openTemplate(QUrl::fromUserInput(file));
+    Q_EMIT finished();
 }
 
 void WelcomeView::slotOpenProject()
@@ -346,7 +346,7 @@ void WelcomeView::slotOpenProjectTemplate(const QModelIndex &idx)
                     if (part->document()->url().isEmpty() && !p->name().isEmpty()) {
                         part->document()->setUrl(QUrl(p->name() + ".plan"));
                     }
-                    emit finished();
+                    Q_EMIT finished();
                 }
             } else {
                 warnWelcome<<"cancelled dialog";
@@ -368,7 +368,7 @@ void WelcomeView::slotOpenFileFinished(int result)
         QUrl url = QUrl::fromUserInput(dia->filename());
         KoPart *part = koDocument()->isEmpty() ? nullptr : koDocument()->documentPart();
         if (!url.isEmpty() && mainWindow()->openDocument(part, url)) {
-            emit finished();
+            Q_EMIT finished();
         }
     }
     dia->deleteLater();
@@ -381,7 +381,7 @@ void WelcomeView::slotLoadSharedResources(const QString &file, const QUrl &proje
         url.setScheme("file");
     }
     if (url.isValid()) {
-        emit loadSharedResources(url, loadProjectsAtStartup ? projects :QUrl());
+        Q_EMIT loadSharedResources(url, loadProjectsAtStartup ? projects :QUrl());
     }
 }
 

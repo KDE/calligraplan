@@ -76,7 +76,7 @@ void WorkPackageSendPanel::slotSendClicked()
     if (idx.isValid()) {
         Resource *r = m_resMap.value(idx.data().toString());
         Q_ASSERT(r);
-        emit sendWorkpackages(m_nodeMap[ r ], r, true /*by mail for now*/); // FIXME
+        Q_EMIT sendWorkpackages(m_nodeMap[ r ], r, true /*by mail for now*/); // FIXME
         ui_treeView->model()->setData(idx, Qt::Checked, Qt::CheckStateRole);
     }
 }

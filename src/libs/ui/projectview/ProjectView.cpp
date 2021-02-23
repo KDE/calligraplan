@@ -124,7 +124,7 @@ int ProjectView::selectedRowCount() const
 void ProjectView::slotContextMenuRequested(const QPoint& pos)
 {
     debugPlan;
-    emit requestPopupMenu("reportsgeneratorview_popup", m_view->mapToGlobal(pos));
+    Q_EMIT requestPopupMenu("reportsgeneratorview_popup", m_view->mapToGlobal(pos));
 }
 
 void ProjectView::slotEnableActions()

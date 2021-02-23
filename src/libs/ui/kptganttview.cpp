@@ -412,7 +412,7 @@ void GanttView::slotEditCopy()
 void GanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
     }
 }
 
@@ -719,7 +719,7 @@ void GanttView::slotContextMenuRequested(const QModelIndex &idx, const QPoint &p
         debugPlan<<"No menu";
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_gantt->treeView()->setContextMenuIndex(QModelIndex());
 }
 
@@ -958,7 +958,7 @@ void MilestoneGanttView::slotEditCopy()
 void MilestoneGanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
     }
 }
 
@@ -1156,7 +1156,7 @@ void MilestoneGanttView::slotContextMenuRequested(const QModelIndex &idx, const 
         m_gantt->treeView()->setContextMenuIndex(QModelIndex());
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_gantt->treeView()->setContextMenuIndex(QModelIndex());
 }
 
@@ -1497,7 +1497,7 @@ void ResourceAppointmentsGanttView::slotContextMenuRequested(const QModelIndex &
         m_gantt->treeView()->setContextMenuIndex(QModelIndex());
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_gantt->treeView()->setContextMenuIndex(QModelIndex());
 }
 

@@ -79,14 +79,14 @@ void ScheduleTreeView::selectionChanged(const QItemSelection &sel, const QItemSe
         //debugPlan<<i.row()<<","<<i.column();
     }
     QTreeView::selectionChanged(sel, desel);
-    emit selectionChanged(selectionModel()->selectedIndexes());
+    Q_EMIT selectionChanged(selectionModel()->selectedIndexes());
 }
 
 void ScheduleTreeView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
 {
     //debugPlan<<current.row()<<","<<current.column();
     QTreeView::currentChanged(current, previous);
-    emit currentChanged(current);
+    Q_EMIT currentChanged(current);
     // possible bug in qt: in QAbstractItemView::SingleSelection you can select multiple items/rows
     selectionModel()->select(current, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
 }
@@ -220,7 +220,7 @@ void ScheduleEditor::slotContextMenuRequested(const QModelIndex &index, const QP
         return;
     }
     debugPlan<<name;
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -236,9 +236,9 @@ void ScheduleEditor::slotSelectionChanged(const QModelIndexList &/*list*/)
     QModelIndexList lst = m_view->selectedRows(); // gets column 0 in each row (should be 1 or 0 rows)
     if (lst.count() == 1) {
         ScheduleManager *sm = m_view->model()->manager(lst.first());
-        emit scheduleSelectionChanged(sm);
+        Q_EMIT scheduleSelectionChanged(sm);
     } else {
-        emit scheduleSelectionChanged(nullptr);
+        Q_EMIT scheduleSelectionChanged(nullptr);
     }
     slotEnableActions();
 
@@ -366,7 +366,7 @@ void ScheduleEditor::slotCalculateSchedule()
         sm->setRecalculate(true);
         sm->setRecalculateFrom(DateTime(dlg.dateTime()));
     }
-    emit calculateSchedule(m_view->project(), sm);
+    Q_EMIT calculateSchedule(m_view->project(), sm);
 }
 
 void ScheduleEditor::slotAddSchedule()
@@ -433,7 +433,7 @@ void ScheduleEditor::slotBaselineSchedule()
     //debugPlan;
     ScheduleManager *sm = m_view->selectedManager();
     if (sm) {
-        emit baselineSchedule(m_view->project(), sm);
+        Q_EMIT baselineSchedule(m_view->project(), sm);
     }
 }
 
@@ -442,7 +442,7 @@ void ScheduleEditor::slotDeleteSelection()
     //debugPlan;
     ScheduleManager *sm = m_view->selectedManager();
     if (sm) {
-        emit deleteScheduleManager(m_view->project(), sm);
+        Q_EMIT deleteScheduleManager(m_view->project(), sm);
     }
 }
 
@@ -457,7 +457,7 @@ void ScheduleEditor::slotMoveLeft()
             }
         }
         debugPlan<<sm->name()<<index;
-        emit moveScheduleManager(sm, nullptr, index);
+        Q_EMIT moveScheduleManager(sm, nullptr, index);
     }
 }
 
@@ -521,7 +521,7 @@ void ScheduleLogTreeView::slotShowDebug(bool on)
 void ScheduleLogTreeView::contextMenuEvent (QContextMenuEvent *e)
 {
     debugPlan<<indexAt(e->pos())<<" at"<<e->pos();
-    emit contextMenuRequested(indexAt(e->pos()), e->globalPos());
+    Q_EMIT contextMenuRequested(indexAt(e->pos()), e->globalPos());
 }
 
 void ScheduleLogTreeView::headerContextMenuRequested(const QPoint &pos)
@@ -541,14 +541,14 @@ void ScheduleLogTreeView::selectionChanged(const QItemSelection &sel, const QIte
         //debugPlan<<i.row()<<","<<i.column();
     }
     QTreeView::selectionChanged(sel, desel);
-    emit selectionChanged(selectionModel()->selectedIndexes());
+    Q_EMIT selectionChanged(selectionModel()->selectedIndexes());
 }
 
 void ScheduleLogTreeView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
 {
     //debugPlan<<current.row()<<","<<current.column();
     QTreeView::currentChanged(current, previous);
-    emit currentChanged(current);
+    Q_EMIT currentChanged(current);
 //    selectionModel()->select(current, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
 }
 
@@ -625,17 +625,17 @@ void ScheduleLogView::slotEdit()
 {
     QString id = sender()->property("p_identity").toString();
     if (id.isEmpty()) {
-        emit editNode(project());
+        Q_EMIT editNode(project());
         return;
     }
     Node *n = project()->findNode(id);
     if (n) {
-        emit editNode(n);
+        Q_EMIT editNode(n);
         return;
     }
     Resource *r = project()->findResource(id);
     if (r) {
-        emit editResource(r);
+        Q_EMIT editResource(r);
         return;
     }
     warnPlan<<"No object";
@@ -768,7 +768,7 @@ void ScheduleHandlerView::setGuiActive(bool active) // virtual slot
         v->setGuiActive(active);
     }
     m_activeview = active ? this : nullptr;
-    emit guiActivated(this, active);
+    Q_EMIT guiActivated(this, active);
 }
 
 void ScheduleHandlerView::slotGuiActivated(ViewBase *, bool)

@@ -547,7 +547,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
     if (d->rootPart) {
         reloadRecentFileList();
     }
-    emit restoringDone();
+    Q_EMIT restoringDone();
 
     while(!oldRootViews.isEmpty()) {
         delete oldRootViews.takeFirst();
@@ -821,7 +821,7 @@ void KoMainWindow::slotLoadCompleted()
     disconnect(newdoc, &KoDocument::completed, this, &KoMainWindow::slotLoadCompleted);
     disconnect(newdoc, &KoDocument::canceled, this, &KoMainWindow::slotLoadCanceled);
     d->openingDocument = false;
-    emit loadCompleted();
+    Q_EMIT loadCompleted();
 }
 
 void KoMainWindow::slotLoadCanceled(const QString & errMsg)
@@ -837,7 +837,7 @@ void KoMainWindow::slotLoadCanceled(const QString & errMsg)
     disconnect(doc, &KoDocument::completed, this, &KoMainWindow::slotLoadCompleted);
     disconnect(doc, &KoDocument::canceled, this, &KoMainWindow::slotLoadCanceled);
     d->openingDocument = false;
-    emit loadCanceled();
+    Q_EMIT loadCanceled();
 }
 
 void KoMainWindow::slotSaveCanceled(const QString &errMsg)
@@ -913,7 +913,7 @@ bool KoMainWindow::saveDocument(bool saveas, bool silent, int specialOutputFlag)
     bool reset_url;
 
     if (d->rootDocument->url().isEmpty()) {
-        emit saveDialogShown();
+        Q_EMIT saveDialogShown();
         reset_url = true;
         saveas = true;
     } else {
@@ -1349,25 +1349,25 @@ void KoMainWindow::slotFileOpenRecent(const QUrl & url, KoPart *part)
 void KoMainWindow::slotFileSave()
 {
     if (saveDocument())
-        emit documentSaved();
+        Q_EMIT documentSaved();
 }
 
 void KoMainWindow::slotFileSaveAs()
 {
     if (saveDocument(true))
-        emit documentSaved();
+        Q_EMIT documentSaved();
 }
 
 void KoMainWindow::slotEncryptDocument()
 {
     if (saveDocument(false, false, KoDocument::SaveEncrypted))
-        emit documentSaved();
+        Q_EMIT documentSaved();
 }
 
 void KoMainWindow::slotUncompressToDir()
 {
     if (saveDocument(true, false, KoDocument::SaveAsDirectoryStore))
-        emit documentSaved();
+        Q_EMIT documentSaved();
 }
 
 void KoMainWindow::slotDocumentInfo()
@@ -1572,7 +1572,7 @@ void KoMainWindow::slotConfigureKeys()
         redoAction->setText(oldRedoText);
     }
 
-    emit keyBindingsChanged();
+    Q_EMIT keyBindingsChanged();
 }
 
 void KoMainWindow::slotConfigureToolbars()
@@ -2176,5 +2176,5 @@ void KoMainWindow::showDockerTitleBars(bool show)
 
 void KoMainWindow::slotConfigure()
 {
-    emit configure(this);
+    Q_EMIT configure(this);
 }

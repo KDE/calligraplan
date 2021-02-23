@@ -168,7 +168,7 @@ void PertResult::slotSplitView()
 {
     debugPlan;
     widget.treeWidgetTaskResult->setViewSplitMode(! widget.treeWidgetTaskResult->isViewSplit());
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 Node *PertResult::currentNode() const
@@ -207,7 +207,7 @@ void PertResult::slotContextMenuRequested(const QModelIndex& index, const QPoint
         return;
     }
     debugPlan<<name;
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
 }
 
 void PertResult::slotHeaderContextMenuRequested(const QPoint &pos)
@@ -368,7 +368,7 @@ void PertCpmView::slotSplitView()
 {
     debugPlan;
     widget.cpmTable->setViewSplitMode(! widget.cpmTable->isViewSplit());
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 Node *PertCpmView::currentNode() const
@@ -407,7 +407,7 @@ void PertCpmView::slotContextMenuRequested(const QModelIndex& index, const QPoin
         return;
     }
     debugPlan<<name;
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
 }
 
 void PertCpmView::slotHeaderContextMenuRequested(const QPoint &pos)

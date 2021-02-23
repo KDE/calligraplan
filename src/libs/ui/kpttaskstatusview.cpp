@@ -219,7 +219,7 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
 void TaskStatusView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        emit openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
     }
 }
 
@@ -322,7 +322,7 @@ void TaskStatusView::slotContextMenuRequested(Node *node, const QPoint& pos)
         slotHeaderContextMenuRequested(pos);
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
 }
 
 void TaskStatusView::setupGui()
@@ -339,7 +339,7 @@ void TaskStatusView::slotSplitView()
 {
     debugPlan;
     m_view->setViewSplitMode(! m_view->isViewSplit());
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 void TaskStatusView::slotRefreshView()

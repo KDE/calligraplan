@@ -3174,7 +3174,7 @@ void NodeItemModel::setShowProject(bool on)
     beginResetModel();
     m_projectshown = on;
     endResetModel();
-    emit projectShownChanged(on);
+    Q_EMIT projectShownChanged(on);
 }
 
 void NodeItemModel::slotNodeToBeInserted(Node *parent, int row)
@@ -3191,7 +3191,7 @@ void NodeItemModel::slotNodeInserted(Node *node)
     Q_ASSERT(node->parentNode() == m_node);
     endInsertRows();
     m_node = nullptr;
-    emit nodeInserted(node);
+    Q_EMIT nodeInserted(node);
 }
 
 void NodeItemModel::slotNodeToBeRemoved(Node *node)
@@ -3230,8 +3230,8 @@ void NodeItemModel::slotNodeMoved(Node *node)
 void NodeItemModel::slotLayoutChanged()
 {
     //debugPlan<<node->name();
-    emit layoutAboutToBeChanged();
-    emit layoutChanged();
+    Q_EMIT layoutAboutToBeChanged();
+    Q_EMIT layoutChanged();
 }
 
 void NodeItemModel::slotProjectCalculated(ScheduleManager *sm)
@@ -3250,13 +3250,13 @@ void NodeItemModel::slotWbsDefinitionChanged()
     }
     if (m_projectshown) {
         QModelIndex idx = createIndex(0, NodeModel::NodeWBSCode, m_project);
-        emit dataChanged(idx, idx);
+        Q_EMIT dataChanged(idx, idx);
     }
     const QList<Node*> nodes = m_project->allNodes();
     for (Node *n : nodes) {
         int row = n->parentNode()->indexOf(n);
         QModelIndex idx = createIndex(row, NodeModel::NodeWBSCode, n);
-        emit dataChanged(idx, idx);
+        Q_EMIT dataChanged(idx, idx);
     }
 }
 
@@ -3612,7 +3612,7 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
                     s = kundo2_i18n("Removed resource allocation");
                 }
                 MacroCommand *m = new MacroCommand(s);
-                emit executeCommand(m);
+                Q_EMIT executeCommand(m);
                 m->addCommand(cmd);
                 return true;
             }
@@ -3642,7 +3642,7 @@ bool NodeItemModel::setCompletion(Node *node, const QVariant &value, int role)
             m->addCommand(new ModifyCompletionFinishTimeCmd(c, dt));
             m->addCommand(new ModifyCompletionFinishedCmd(c, true));
         }
-        emit executeCommand(m); // also adds a new entry if necessary
+        Q_EMIT executeCommand(m); // also adds a new entry if necessary
         if (c.entrymode() != Completion::EnterEffortPerResource) {
             Duration planned = static_cast<Task*>(node)->plannedEffort(m_nodemodel.id());
             Duration actual = (planned * value.toInt()) / 100;
@@ -3667,7 +3667,7 @@ bool NodeItemModel::setCompletion(Node *node, const QVariant &value, int role)
             m->addCommand(new ModifyCompletionFinishTimeCmd(c, dt));
             m->addCommand(new ModifyCompletionFinishedCmd(c, true));
             m->addCommand(new ModifyCompletionPercentFinishedCmd(c, date, 100));
-            emit executeCommand(m); // also adds a new entry if necessary
+            Q_EMIT executeCommand(m); // also adds a new entry if necessary
             return true;
         }
         return false;
@@ -3719,7 +3719,7 @@ bool NodeItemModel::setData(const QModelIndex &index, const QVariant &value, int
             default: {
                 KUndo2Command *c = m_nodemodel.setData(n, index.column(), value, role);
                 if (c) {
-                    emit executeCommand(c);
+                    Q_EMIT executeCommand(c);
                     return true;
                 }
                 break;
@@ -4003,7 +4003,7 @@ bool NodeItemModel::dropResourceMimeData(const QMimeData *data, Qt::DropAction a
             }
             KUndo2Command *cmd = m_nodemodel.setLeader(n, s, Qt::EditRole);
             if (cmd) {
-                emit executeCommand(cmd);
+                Q_EMIT executeCommand(cmd);
             }
             debugPlan<<s;
         }
@@ -4016,7 +4016,7 @@ bool NodeItemModel::dropResourceMimeData(const QMimeData *data, Qt::DropAction a
         }
         KUndo2Command *cmd = createAllocationCommand(static_cast<Task&>(*n), lst);
         if (cmd) {
-            emit executeCommand(cmd);
+            Q_EMIT executeCommand(cmd);
         }
         return true;
     }
@@ -4032,7 +4032,7 @@ bool NodeItemModel::dropProjectMimeData(const QMimeData *data, Qt::DropAction ac
     debugPlan<<n<<action<<row<<parent;
 
     KUndo2Command *cmd = new InsertProjectXmlCommand(project(), data->data("application/x-vnd.kde.plan.project"), n, n->childNode(row), kundo2_i18n("Insert tasks"));
-    emit executeCommand(cmd);
+    Q_EMIT executeCommand(cmd);
     return true;
 }
 
@@ -4063,7 +4063,7 @@ bool NodeItemModel::dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction
         params = dlg.parameters();
     }
     KUndo2Command *cmd = new InsertTaskModuleCommand(project(), data->data("application/x-vnd.kde.plan.taskmodule"), n, n->childNode(row), params, kundo2_i18n("Insert task module"));
-    emit executeCommand(cmd);
+    Q_EMIT executeCommand(cmd);
     return true;
 }
 
@@ -4121,7 +4121,7 @@ bool NodeItemModel::importProjectFile(const QUrl &url, Qt::DropAction /*action*/
         n = m_project;
     }
     KUndo2Command *cmd = new InsertProjectCmd(project, n, n->childNode(row - 1), kundo2_i18n("Insert %1", url.fileName()));
-    emit executeCommand(cmd);
+    Q_EMIT executeCommand(cmd);
     return true;
 }
 
@@ -4202,7 +4202,7 @@ bool NodeItemModel::dropMimeData(const QMimeData *data, Qt::DropAction action, i
                 offset++;
             }
             if (cmd) {
-                emit executeCommand(cmd);
+                Q_EMIT executeCommand(cmd);
             }
             //debugPlan<<row<<","<<column<<" parent="<<parent.row()<<","<<parent.column()<<":"<<par->name();
             return true;
@@ -4241,17 +4241,17 @@ void NodeItemModel::slotNodeChanged(Node *node, int property)
         return;
     }
     if (node->type() == Node::Type_Project) {
-        emit dataChanged(createIndex(0, 0, node), createIndex(0, columnCount()-1, node));
+        Q_EMIT dataChanged(createIndex(0, 0, node), createIndex(0, columnCount()-1, node));
         return;
     }
     int row = node->parentNode()->findChildNode(node);
     Q_ASSERT(row >= 0);
-    emit dataChanged(createIndex(row, 0, node), createIndex(row, columnCount()-1, node));
+    Q_EMIT dataChanged(createIndex(row, 0, node), createIndex(row, columnCount()-1, node));
 }
 
 QModelIndex NodeItemModel::insertTask(Node *node, Node *after)
 {
-    emit executeCommand(new TaskAddCmd(m_project, node, after, kundo2_i18n("Add task")));
+    Q_EMIT executeCommand(new TaskAddCmd(m_project, node, after, kundo2_i18n("Add task")));
     int row = -1;
     if (node->parentNode()) {
         row = node->parentNode()->indexOf(node);
@@ -4266,7 +4266,7 @@ QModelIndex NodeItemModel::insertTask(Node *node, Node *after)
 
 QModelIndex NodeItemModel::insertSubtask(Node *node, Node *parent)
 {
-    emit executeCommand(new SubtaskAddCmd(m_project, node, parent, kundo2_i18n("Add sub-task")));
+    Q_EMIT executeCommand(new SubtaskAddCmd(m_project, node, parent, kundo2_i18n("Add sub-task")));
     int row = -1;
     if (node->parentNode()) {
         row = node->parentNode()->indexOf(node);
@@ -4530,8 +4530,8 @@ void MilestoneItemModel::slotNodeRemoved(Node *node)
 void MilestoneItemModel::slotLayoutChanged()
 {
     //debugPlan<<node->name();
-    emit layoutAboutToBeChanged();
-    emit layoutChanged();
+    Q_EMIT layoutAboutToBeChanged();
+    Q_EMIT layoutChanged();
 }
 
 void MilestoneItemModel::slotNodeToBeMoved(Node *node, int pos, Node *newParent, int newPos)
@@ -4974,7 +4974,7 @@ bool MilestoneItemModel::dropMimeData(const QMimeData *data, Qt::DropAction acti
             offset++;
         }
         if (cmd) {
-            emit executeCommand(cmd);
+            Q_EMIT executeCommand(cmd);
         }
         //debugPlan<<row<<","<<column<<" parent="<<parent.row()<<","<<parent.column()<<":"<<par->name();
         return true;
@@ -5208,7 +5208,7 @@ bool TaskModuleModel::importProject(const QUrl &url, bool emitsignal)
     if (emitsignal) {
         // FIXME: save destroys the project, so give it a copy (see kptview.cpp)
         project = loadProjectFromUrl(url);
-        emit saveTaskModule(url, project);
+        Q_EMIT saveTaskModule(url, project);
     }
     return true;
 }

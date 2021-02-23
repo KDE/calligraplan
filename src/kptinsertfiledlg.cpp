@@ -96,7 +96,7 @@ void InsertFilePanel::changed(const QString &text)
 
     const bool isUrlReadable = statJob->exec();
 
-    emit enableButtonOk(isUrlReadable);
+    Q_EMIT enableButtonOk(isUrlReadable);
 }
 
 QUrl InsertFilePanel::url() const

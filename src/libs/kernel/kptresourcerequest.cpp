@@ -396,28 +396,28 @@ bool ResourceRequest::removeAlternativeRequest(ResourceRequest *request)
 void ResourceRequest::emitAlternativeRequestToBeAdded(ResourceRequest *request, int row)
 {
     if (m_collection) {
-        emit m_collection->alternativeRequestToBeAdded(request, row);
+        Q_EMIT m_collection->alternativeRequestToBeAdded(request, row);
     }
 }
 
 void ResourceRequest::emitAlternativeRequestAdded(ResourceRequest *alternative)
 {
     if (m_collection) {
-        emit m_collection->alternativeRequestAdded(alternative);
+        Q_EMIT m_collection->alternativeRequestAdded(alternative);
     }
 }
 
 void ResourceRequest::emitAlternativeRequestToBeRemoved(ResourceRequest *request, int row, ResourceRequest *alternative)
 {
     if (m_collection) {
-        emit m_collection->alternativeRequestToBeRemoved(request, row, alternative);
+        Q_EMIT m_collection->alternativeRequestToBeRemoved(request, row, alternative);
     }
 }
 
 void ResourceRequest::emitAlternativeRequestRemoved()
 {
     if (m_collection) {
-        emit m_collection->alternativeRequestRemoved();
+        Q_EMIT m_collection->alternativeRequestRemoved();
     }
 }
 

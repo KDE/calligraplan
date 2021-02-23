@@ -92,7 +92,7 @@ public:
 
     /**
      * Set the updater to which the filter will report progress.
-     * Every emit of the sigProgress signal is reported to the updater.
+     * Every Q_EMIT of the sigProgress signal is reported to the updater.
      */
     void setUpdater(const QPointer<KoUpdater>& updater);
 

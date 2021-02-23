@@ -284,7 +284,7 @@ void AbstractView::slotContextMenuRequested(Node *node, const QPoint& pos)
         slotHeaderContextMenuRequested(pos);
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
 }
 
 void AbstractView::slotContextMenuRequested(Document *doc, const QPoint& pos)
@@ -304,7 +304,7 @@ void AbstractView::slotContextMenuRequested(Document *doc, const QPoint& pos)
         slotHeaderContextMenuRequested(pos);
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
 }
 
 void AbstractView::sectionsMoved()
@@ -361,7 +361,7 @@ void TaskWorkPackageView::updateReadWrite(bool rw)
 
 void TaskWorkPackageView::slotSelectionChanged(const QModelIndexList &/*lst*/)
 {
-    emit selectionChanged();
+    Q_EMIT selectionChanged();
 }
 
 QList<Node*> TaskWorkPackageView::selectedNodes() const
@@ -766,7 +766,7 @@ GanttView::~GanttView()
 
 void GanttView::slotSelectionChanged(const QItemSelection &selected, const QItemSelection&)
 {
-    emit selectionChanged(selected.indexes());
+    Q_EMIT selectionChanged(selected.indexes());
 }
 
 void GanttView::slotRowsInserted(const QModelIndex &parent, int start, int end)
@@ -900,7 +900,7 @@ TaskWPGanttView::~TaskWPGanttView()
 
 void TaskWPGanttView::slotSelectionChanged(const QModelIndexList& /*lst*/)
 {
-    emit selectionChanged();
+    Q_EMIT selectionChanged();
 }
 
 QList<Node*> TaskWPGanttView::selectedNodes() const

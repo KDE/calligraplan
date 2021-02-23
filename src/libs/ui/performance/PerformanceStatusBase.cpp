@@ -147,7 +147,7 @@ PerformanceStatusBase::PerformanceStatusBase(QWidget *parent)
 
 void PerformanceStatusBase::slotContextMenuRequested(const QPoint &pos)
 {
-    emit customContextMenuRequested(mapToGlobal(pos));
+    Q_EMIT customContextMenuRequested(mapToGlobal(pos));
 }
 
 void PerformanceStatusBase::editCopy()
@@ -491,7 +491,7 @@ void PerformanceStatusBase::contextMenuEvent(QContextMenuEvent *event)
 {
     debugPlan<<event->globalPos();
     if (event->modifiers() == Qt::NoModifier) {
-        emit customContextMenuRequested(event->globalPos());
+        Q_EMIT customContextMenuRequested(event->globalPos());
     }
 }
 

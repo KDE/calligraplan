@@ -63,9 +63,9 @@ public:
 
 /*    void addSourceFile(const QString& f);
     QStringList getSourceFiles() const;*/
-    // Called to emit a signal with the currently processed file.
+    // Called to Q_EMIT a signal with the currently processed file.
     void setProgressInfo(const QString& i);
-    // Called to emit a signal with the current process of the scheduler.
+    // Called to Q_EMIT a signal with the current process of the scheduler.
     void setProgressBar(int i, int of);
     /**
      * Projects have at least one ID, but can have multiple IDs. This usually

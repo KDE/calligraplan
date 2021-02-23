@@ -80,7 +80,7 @@ void BuiltinSchedulerPlugin::slotStarted(SchedulerThread *job)
 {
     qDebug()<<"BuiltinSchedulerPlugin::slotStarted:"<<job->mainProject()<<job->mainManager();
     
-    emit sigCalculationStarted(job->mainProject(), job->mainManager());
+    Q_EMIT sigCalculationStarted(job->mainProject(), job->mainManager());
 }
 
 void BuiltinSchedulerPlugin::slotFinished(SchedulerThread *job)
@@ -103,7 +103,7 @@ void BuiltinSchedulerPlugin::slotFinished(SchedulerThread *job)
     if (m_jobs.isEmpty()) {
         m_synctimer.stop();
     }
-    emit sigCalculationFinished(mp, sm);
+    Q_EMIT sigCalculationFinished(mp, sm);
 
     disconnect(this, &BuiltinSchedulerPlugin::sigCalculationStarted, mp, &Project::sigCalculationStarted);
     disconnect(this, &BuiltinSchedulerPlugin::sigCalculationFinished, mp, &Project::sigCalculationFinished);

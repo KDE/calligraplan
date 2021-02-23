@@ -246,7 +246,7 @@ void TaskStatusItemModel::refresh()
             endInsertRows();
         }
     }
-    emit layoutChanged(); //HACK to get views updated
+    Q_EMIT layoutChanged(); //HACK to get views updated
 }
 
 Qt::ItemFlags TaskStatusItemModel::flags(const QModelIndex &index) const
@@ -410,7 +410,7 @@ bool TaskStatusItemModel::setCompletion(Node *node, const QVariant &value, int r
             m->addCommand(new ModifyCompletionFinishedCmd(c, true));
             m->addCommand(new ModifyCompletionFinishTimeCmd(c, dt));
         }
-        emit executeCommand(m); // also adds a new entry if necessary
+        Q_EMIT executeCommand(m); // also adds a new entry if necessary
         if (c.entrymode() != Completion::EnterEffortPerResource) {
             Duration planned = static_cast<Task*>(node)->plannedEffort(m_nodemodel.id());
             Duration actual = (planned * value.toInt()) / 100;
@@ -435,7 +435,7 @@ bool TaskStatusItemModel::setCompletion(Node *node, const QVariant &value, int r
             m->addCommand(new ModifyCompletionFinishedCmd(c, true));
             m->addCommand(new ModifyCompletionFinishTimeCmd(c, dt));
             m->addCommand(new ModifyCompletionPercentFinishedCmd(c, date, 100));
-            emit executeCommand(m); // also adds a new entry if necessary
+            Q_EMIT executeCommand(m); // also adds a new entry if necessary
             return true;
         }
         return false;
@@ -450,7 +450,7 @@ bool TaskStatusItemModel::setRemainingEffort(Node *node, const QVariant &value, 
         double d(value.toList()[0].toDouble());
         Duration::Unit unit = static_cast<Duration::Unit>(value.toList()[1].toInt());
         Duration dur(d, unit);
-        emit executeCommand(new ModifyCompletionRemainingEffortCmd(t->completion(), QDate::currentDate(), dur, kundo2_i18n("Modify remaining effort")));
+        Q_EMIT executeCommand(new ModifyCompletionRemainingEffortCmd(t->completion(), QDate::currentDate(), dur, kundo2_i18n("Modify remaining effort")));
         return true;
     }
     return false;
@@ -463,7 +463,7 @@ bool TaskStatusItemModel::setActualEffort(Node *node, const QVariant &value, int
         double d(value.toList()[0].toDouble());
         Duration::Unit unit = static_cast<Duration::Unit>(value.toList()[1].toInt());
         Duration dur(d, unit);
-        emit executeCommand(new ModifyCompletionActualEffortCmd(t->completion(), QDate::currentDate(), dur, kundo2_i18n("Modify actual effort")));
+        Q_EMIT executeCommand(new ModifyCompletionActualEffortCmd(t->completion(), QDate::currentDate(), dur, kundo2_i18n("Modify actual effort")));
         return true;
     }
     return false;
@@ -490,7 +490,7 @@ bool TaskStatusItemModel::setStartedTime(Node *node, const QVariant &value, int 
                     m->addCommand(new AddCompletionEntryCmd(t->completion(), value.toDate(), e));
                 }
             }
-            emit executeCommand(m);
+            Q_EMIT executeCommand(m);
             return true;
         }
     }
@@ -518,7 +518,7 @@ bool TaskStatusItemModel::setFinishedTime(Node *node, const QVariant &value, int
                 m->addCommand(new ModifyCompletionStartedCmd(t->completion(), true));
                 m->addCommand(new ModifyCompletionStartTimeCmd(t->completion(), value.toDateTime()));
             }
-            emit executeCommand(m);
+            Q_EMIT executeCommand(m);
             return true;
         }
     }
@@ -737,7 +737,7 @@ void TaskStatusItemModel::slotNodeChanged(Node *node)
 
     if (row >= 0) {
         // task in old group, just changed values
-        emit dataChanged(createIndex(row, 0, node), createIndex(row, columnCount() - 1, node));
+        Q_EMIT dataChanged(createIndex(row, 0, node), createIndex(row, columnCount() - 1, node));
     } else {
         // task is new or changed groups
         refresh();
@@ -750,7 +750,7 @@ void TaskStatusItemModel::slotWbsDefinitionChanged()
     for (NodeMap *l : qAsConst(m_top)) {
         for (int row = 0; row < l->count(); ++row) {
             const QList<Node*> &nodes = l->values();
-            emit dataChanged(createIndex(row, NodeModel::NodeWBSCode, nodes.value(row)), createIndex(row, NodeModel::NodeWBSCode, nodes.value(row)));
+            Q_EMIT dataChanged(createIndex(row, NodeModel::NodeWBSCode, nodes.value(row)), createIndex(row, NodeModel::NodeWBSCode, nodes.value(row)));
         }
     }
 }

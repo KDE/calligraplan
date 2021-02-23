@@ -287,7 +287,7 @@ MacroCommand *MainProjectPanel::buildTaskModulesCommand()
 
 void MainProjectPanel::slotCheckAllFieldsFilled()
 {
-    emit changed();
+    Q_EMIT changed();
     bool state = !namefield->text().isEmpty();
     if (state && useSharedResources->isChecked()) {
         state = !resourcesFile->text().isEmpty();
@@ -295,7 +295,7 @@ void MainProjectPanel::slotCheckAllFieldsFilled()
             state = !projectsPlace->text().isEmpty();
         }
     }
-    emit obligatedFieldsFilled(state);
+    Q_EMIT obligatedFieldsFilled(state);
 }
 
 
@@ -397,12 +397,12 @@ void MainProjectPanel::loadProjects()
         place.append('/');
     }
     QUrl url(place);
-    emit loadResourceAssignments(url);
+    Q_EMIT loadResourceAssignments(url);
 }
 
 void MainProjectPanel::clearProjects()
 {
-    emit clearResourceAssignments();
+    Q_EMIT clearResourceAssignments();
 }
 
 void MainProjectPanel::insertTaskModuleClicked()

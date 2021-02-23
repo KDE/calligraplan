@@ -161,8 +161,8 @@ bool UsedEffortItemModel::setData (const QModelIndex &idx, const QVariant &value
                 Q_ASSERT(x != -1);
                 m_resourcelist.replace(x, v);
                 m_completion->addUsedEffort(v);
-                emit dataChanged(createIndex(idx.row(), 1), createIndex(idx.row(), columnCount() - 1));
-                emit rowInserted(createIndex(idx.row(), 0));
+                Q_EMIT dataChanged(createIndex(idx.row(), 1), createIndex(idx.row(), columnCount() - 1));
+                Q_EMIT rowInserted(createIndex(idx.row(), 0));
                 return true;
             }
             Completion::UsedEffort *ue = usedEffort(idx);
@@ -173,8 +173,8 @@ bool UsedEffortItemModel::setData (const QModelIndex &idx, const QVariant &value
             Completion::UsedEffort::ActualEffort e = ue->effort(d);
             e.setNormalEffort(Duration(value.toDouble(), Duration::Unit_h));
             ue->setEffort(d, e);
-            emit effortChanged(d);
-            emit dataChanged(idx, idx);
+            Q_EMIT effortChanged(d);
+            Q_EMIT dataChanged(idx, idx);
             return true;
         }
         default: break;
@@ -298,7 +298,7 @@ void UsedEffortItemModel::setCurrentMonday(const QDate &date)
         m_dates << date.addDays(i);
     }
     endResetModel();
-    emit headerDataChanged (Qt::Horizontal, 1, 7);
+    Q_EMIT headerDataChanged (Qt::Horizontal, 1, 7);
 }
 
 QModelIndex UsedEffortItemModel::addRow()
@@ -640,7 +640,7 @@ bool CompletionEntryItemModel::setData (const QModelIndex &idx, const QVariant &
                 QDate od = date(idx.row()).toDate();
                 removeEntry(od);
                 addEntry(value.toDate());
-                // emit dataChanged(idx, idx);
+                // Q_EMIT dataChanged(idx, idx);
                 return true;
             }
             if (idx.column() == Property_Completion) {
@@ -655,7 +655,7 @@ bool CompletionEntryItemModel::setData (const QModelIndex &idx, const QVariant &
                     e->totalPerformed = est * e->percentFinished / 100;
                     e->remainingEffort = est - e->totalPerformed;
                 }
-                emit dataChanged(idx, createIndex(idx.row(), 3));
+                Q_EMIT dataChanged(idx, createIndex(idx.row(), 3));
                 return true;
             }
             if (idx.column() == Property_UsedEffort) {
@@ -670,7 +670,7 @@ bool CompletionEntryItemModel::setData (const QModelIndex &idx, const QVariant &
                     return false;
                 }
                 e->totalPerformed = d;
-                emit dataChanged(idx, idx);
+                Q_EMIT dataChanged(idx, idx);
                 return true;
             }
             if (idx.column() == Property_RemainingEffort) {
@@ -685,7 +685,7 @@ bool CompletionEntryItemModel::setData (const QModelIndex &idx, const QVariant &
                     return false;
                 }
                 e->remainingEffort = d;
-                emit dataChanged(idx, idx);
+                Q_EMIT dataChanged(idx, idx);
                 return true;
             }
         }
@@ -810,8 +810,8 @@ void CompletionEntryItemModel::removeRow(int row)
     endRemoveRows();
     debugPlan<<date<<" removed row"<<row;
     m_completion->takeEntry(date);
-    emit rowRemoved(date);
-    emit changed();
+    Q_EMIT rowRemoved(date);
+    Q_EMIT changed();
 }
 
 void CompletionEntryItemModel::addEntry(const QDate& date)
@@ -831,8 +831,8 @@ void CompletionEntryItemModel::addEntry(const QDate& date)
     refresh();
     int i = m_datelist.indexOf(date);
     if (i != -1) {
-        emit rowInserted(date);
-        emit dataChanged(createIndex(i, 1), createIndex(i, rowCount() - 1));
+        Q_EMIT rowInserted(date);
+        Q_EMIT dataChanged(createIndex(i, 1), createIndex(i, rowCount() - 1));
     } else  errorPlan<<"Failed to find added entry: "<<date<<'\n';
 }
 
@@ -842,7 +842,7 @@ void CompletionEntryItemModel::addRow(const QDate &date)
         if (this->date(i).toDate() == date) {
             const QModelIndex idx1 = index(i, Property_UsedEffort);
             const QModelIndex idx2 = index(rowCount()-1, Property_UsedEffort);
-            emit dataChanged(idx1, idx2);
+            Q_EMIT dataChanged(idx1, idx2);
             return;
         }
     }
@@ -902,7 +902,7 @@ void CompletionEntryEditor::addEntry()
     if (i.isValid()) {
         model()->setFlags(i.column(), Qt::ItemIsEditable);
         setCurrentIndex(i);
-        emit selectedItemsChanged(QItemSelection(), QItemSelection()); //hmmm, control removeEntryBtn
+        Q_EMIT selectedItemsChanged(QItemSelection(), QItemSelection()); //hmmm, control removeEntryBtn
         scrollTo(i);
         edit(i);
         model()->setFlags(i.column(), Qt::NoItemFlags);

@@ -401,7 +401,7 @@ void View::slotCreateNewProject()
                              "All scheduling information is removed.<nl/>"
                              "<nl/>Do you want to continue?")))
     {
-        emit currentScheduleManagerChanged(nullptr);
+        Q_EMIT currentScheduleManagerChanged(nullptr);
         getPart()->createNewProject();
         slotOpenNode(&getProject());
     }
@@ -1676,7 +1676,7 @@ void View::slotViewScheduleManager(ScheduleManager *sm)
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
     setLabel(sm);
-    emit currentScheduleManagerChanged(sm);
+    Q_EMIT currentScheduleManagerChanged(sm);
     QApplication::restoreOverrideCursor();
 }
 
@@ -2984,7 +2984,7 @@ void View::slotWorkPackageLoaded()
 {
     debugPlan<<getPart()->workPackages();
     addStatusBarItem(m_workPackageButton, 0, true);
-    emit workPackagesAvailable(true);
+    Q_EMIT workPackagesAvailable(true);
 }
 
 void View::openWorkPackageMergeDialog()
@@ -2995,7 +2995,7 @@ void View::openWorkPackageMergeDialog()
     connect(dlg, &WorkPackageMergeDialog::executeCommand, koDocument(), &KoDocument::addCommand);
     dlg->open();
     removeStatusBarItem(m_workPackageButton);
-    emit workPackagesAvailable(false);
+    Q_EMIT workPackagesAvailable(false);
 }
 
 void View::workPackageMergeDialogFinished(int result)

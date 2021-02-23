@@ -62,7 +62,7 @@ void ConfigProjectTemplatesPanel::slotInsertClicked()
     if (!dirName.isEmpty()) {
         model.setStringList(model.stringList() << dirName);
     }
-    emit settingsChanged();
+    Q_EMIT settingsChanged();
 }
 
 void ConfigProjectTemplatesPanel::slotRemoveClicked()
@@ -71,6 +71,6 @@ void ConfigProjectTemplatesPanel::slotRemoveClicked()
     for (const QModelIndex &idx : lst) {
         model.removeRow(idx.row(), idx.parent());
     }
-    emit settingsChanged();
+    Q_EMIT settingsChanged();
 }
 

@@ -88,7 +88,7 @@ ItemViewSettup::ItemViewSettup(TreeViewBase *view, bool includeColumn0, QWidget 
 
 void ItemViewSettup::slotChanged()
 {
-    emit enableButtonOk(true);
+    Q_EMIT enableButtonOk(true);
 }
 
 void ItemViewSettup::slotOk()

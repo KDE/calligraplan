@@ -98,7 +98,7 @@ void SchedulerPluginLoader::loadAllPlugins()
             debugPlan << "Load plugin:" << key << name << ", " << comment;
             plugin->setName(name);
             plugin->setComment(comment);
-            emit pluginLoaded(key, plugin);
+            Q_EMIT pluginLoaded(key, plugin);
         } else {
            debugPlan << "KPluginFactory could not create SchedulerPlugin:" << pluginLoader->fileName();
         }

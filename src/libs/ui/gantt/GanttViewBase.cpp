@@ -693,7 +693,7 @@ void GanttViewBase::mouseReleaseEvent(QMouseEvent *event)
 
 void GanttViewBase::handleContextMenuEvent(const QModelIndex &idx, const QPoint &globalPos)
 {
-    emit contextMenuRequested(idx, globalPos);
+    Q_EMIT contextMenuRequested(idx, globalPos);
 }
 
 void GanttViewBase::setShowRowSeparators(bool enable)

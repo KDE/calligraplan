@@ -156,11 +156,11 @@ StandardWorktimeDialogImpl::StandardWorktimeDialogImpl(StandardWorktime *std, QW
 
 
 void StandardWorktimeDialogImpl::slotEnableButtonOk(bool on) {
-    emit enableButtonOk(on);
+    Q_EMIT enableButtonOk(on);
 }
 
 void StandardWorktimeDialogImpl::slotCheckAllFieldsFilled() {
-    emit obligatedFieldsFilled(true);
+    Q_EMIT obligatedFieldsFilled(true);
 }
 
 void StandardWorktimeDialogImpl::slotYearChanged(double value) {

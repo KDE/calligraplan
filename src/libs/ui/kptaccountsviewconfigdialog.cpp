@@ -151,7 +151,7 @@ AccountsviewConfigPanel::AccountsviewConfigPanel(QWidget *parent)
 }
 
 void AccountsviewConfigPanel::slotChanged() {
-    emit changed(true);
+    Q_EMIT changed(true);
 }
 
 

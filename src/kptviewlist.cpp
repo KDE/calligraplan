@@ -231,7 +231,7 @@ void ViewListTreeWidget::mousePressEvent (QMouseEvent *event)
         QTreeWidgetItem *item = itemAt(event->pos());
         if (item && item->type() == ViewListItem::ItemType_Category) {
             setCurrentItem(item);
-            emit customContextMenuRequested(event->pos());
+            Q_EMIT customContextMenuRequested(event->pos());
             event->accept();
             return;
         }
@@ -254,7 +254,7 @@ void ViewListTreeWidget::save(QDomElement &element) const
         }
         QDomElement c = cs.ownerDocument().createElement("category");
         cs.appendChild(c);
-        emit const_cast<ViewListTreeWidget*>(this)->updateViewInfo(itm);
+        Q_EMIT const_cast<ViewListTreeWidget*>(this)->updateViewInfo(itm);
         itm->save(c);
         for (int j = 0; j < itm->childCount(); ++j) {
             ViewListItem *vi = static_cast<ViewListItem*>(itm->child(j));
@@ -263,7 +263,7 @@ void ViewListTreeWidget::save(QDomElement &element) const
             }
             QDomElement el = c.ownerDocument().createElement("view");
             c.appendChild(el);
-            emit const_cast<ViewListTreeWidget*>(this)->updateViewInfo(vi);
+            Q_EMIT const_cast<ViewListTreeWidget*>(this)->updateViewInfo(vi);
             vi->save(el);
             QDomElement elm = el.ownerDocument().createElement("settings");
             el.appendChild(elm);
@@ -304,7 +304,7 @@ void ViewListTreeWidget::dropEvent(QDropEvent *event)
 {
     QTreeWidget::dropEvent(event);
     if (event->isAccepted()) {
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -420,7 +420,7 @@ void ViewListWidget::slotActivated(QTreeWidgetItem *item, QTreeWidgetItem *prev)
     if (item && item->type() == ViewListItem::ItemType_Category) {
         return ;
     }
-    emit activated(static_cast<ViewListItem*>(item), static_cast<ViewListItem*>(prev));
+    Q_EMIT activated(static_cast<ViewListItem*>(item), static_cast<ViewListItem*>(prev));
     if (item) {
         QVariant v = QBrush(QColor(Qt::yellow));
         item->setData(0, Qt::BackgroundRole, v);
@@ -588,7 +588,7 @@ ViewListItem *ViewListWidget::findItem(const ViewBase *view, QTreeWidgetItem *pa
 
 void ViewListWidget::slotAddView()
 {
-    emit createView();
+    Q_EMIT createView();
 }
 
 void ViewListWidget::slotRemoveCategory()
@@ -615,7 +615,7 @@ void ViewListWidget::slotRemoveCategory()
     takeViewListItem(m_contextitem);
     delete m_contextitem;
     m_contextitem = nullptr;
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ViewListWidget::slotRemoveView()
@@ -624,7 +624,7 @@ void ViewListWidget::slotRemoveView()
         takeViewListItem(m_contextitem);
         delete m_contextitem->view();
         delete m_contextitem;
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -636,7 +636,7 @@ void ViewListWidget::slotEditViewTitle()
         QString title = m_contextitem->text(0);
         m_viewlist->editItem(m_contextitem);
         if (title != m_contextitem->text(0)) {
-            emit modified();
+            Q_EMIT modified();
         }
     }
 }
@@ -662,7 +662,7 @@ void ViewListWidget::slotConfigureItem()
 void ViewListWidget::slotDialogFinished(int result)
 {
     if (result == QDialog::Accepted) {
-        emit modified();
+        Q_EMIT modified();
     }
     if (sender()) {
         sender()->deleteLater();
@@ -688,7 +688,7 @@ int ViewListWidget::removeViewListItem(ViewListItem *item)
     int i = p->indexOfChild(item);
     if (i != -1) {
         p->takeChild(i);
-        emit modified();
+        Q_EMIT modified();
     }
     return i;
 }
@@ -703,7 +703,7 @@ void ViewListWidget::addViewListItem(ViewListItem *item, QTreeWidgetItem *parent
         index = p->childCount();
     }
     p->insertChild(index, item);
-    emit modified();
+    Q_EMIT modified();
 }
 
 int ViewListWidget::takeViewListItem(ViewListItem *item)
@@ -713,7 +713,7 @@ int ViewListWidget::takeViewListItem(ViewListItem *item)
     }
     int pos = removeViewListItem(item);
     if (pos != -1) {
-        emit viewListItemRemoved(item);
+        Q_EMIT viewListItemRemoved(item);
         if (item == m_prev) {
             m_prev = nullptr;
         }
@@ -727,7 +727,7 @@ int ViewListWidget::takeViewListItem(ViewListItem *item)
 void ViewListWidget::insertViewListItem(ViewListItem *item, QTreeWidgetItem *parent, int index)
 {
     addViewListItem(item, parent, index);
-    emit viewListItemInserted(item, static_cast<ViewListItem*>(parent), index);
+    Q_EMIT viewListItemInserted(item, static_cast<ViewListItem*>(parent), index);
 }
 
 void ViewListWidget::setupContextMenus()
@@ -827,7 +827,7 @@ void ViewListWidget::setProject(Project *project)
 void ViewListWidget::slotCurrentScheduleChanged(int idx)
 {
     debugPlan<<idx<<selectedSchedule();
-    emit selectionChanged(selectedSchedule());
+    Q_EMIT selectionChanged(selectedSchedule());
 }
 
 ScheduleManager *ViewListWidget::selectedSchedule() const
@@ -860,7 +860,7 @@ void ViewListWidget::slotScheduleManagerAdded(ScheduleManager *sm)
 
 void ViewListWidget::setModified()
 {
-    emit modified();
+    Q_EMIT modified();
 }
 
 }  //KPlato namespace

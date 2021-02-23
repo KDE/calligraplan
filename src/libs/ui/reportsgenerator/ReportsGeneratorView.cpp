@@ -314,7 +314,7 @@ int ReportsGeneratorView::selectedRowCount() const
 void ReportsGeneratorView::slotContextMenuRequested(const QPoint& pos)
 {
     debugPlan;
-    emit requestPopupMenu("reportsgeneratorview_popup", m_view->mapToGlobal(pos));
+    Q_EMIT requestPopupMenu("reportsgeneratorview_popup", m_view->mapToGlobal(pos));
 }
 
 void ReportsGeneratorView::slotEnableActions()
@@ -380,7 +380,7 @@ void ReportsGeneratorView::slotAddReport()
 
     m_view->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
     m_view->edit(idx);
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 void ReportsGeneratorView::slotRemoveReport()
@@ -401,7 +401,7 @@ void ReportsGeneratorView::slotRemoveReport()
         Q_ASSERT(!idx.parent().isValid()); // must be flat
         m->removeRow(idx.row(), idx.parent());
     }
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 void ReportsGeneratorView::slotGenerateReport()

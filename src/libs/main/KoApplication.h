@@ -124,7 +124,7 @@ public:
 
 Q_SIGNALS:
 
-    /// KoPart needs to be able to emit document signals from here. These
+    /// KoPart needs to be able to Q_EMIT document signals from here. These
     /// signals are used for the dbus interface of stage, see commit
     /// d102d9beef80cc93fc9c130b0ad5fe1caf238267
     friend class KoPart;

@@ -212,7 +212,7 @@ void RelationItemModel::slotRelationModified(Relation *relation)
         return;
     }
     int row = m_node->dependParentNodes().indexOf(relation);
-    emit dataChanged(createIndex(row, 0), createIndex(row, columnCount()-1));
+    Q_EMIT dataChanged(createIndex(row, 0), createIndex(row, columnCount()-1));
 }
 
 void RelationItemModel::slotNodeToBeRemoved(Node *node)
@@ -231,8 +231,8 @@ void RelationItemModel::slotNodeRemoved(Node *node)
 void RelationItemModel::slotLayoutChanged()
 {
     //debugPlan<<node->name()<<'\n';
-    emit layoutAboutToBeChanged();
-    emit layoutChanged();
+    Q_EMIT layoutAboutToBeChanged();
+    Q_EMIT layoutChanged();
 }
 
 void RelationItemModel::setProject(Project *project)
@@ -327,7 +327,7 @@ bool RelationItemModel::setType(Relation *r, const QVariant &value, int role)
             if (v == r->type()) {
                 return false;
             }
-            emit executeCommand(new ModifyRelationTypeCmd(r, v, kundo2_i18n("Modify relation type")));
+            Q_EMIT executeCommand(new ModifyRelationTypeCmd(r, v, kundo2_i18n("Modify relation type")));
             return true;
     }
     return false;
@@ -343,7 +343,7 @@ bool RelationItemModel::setLag(Relation *r, const QVariant &value, int role)
             if (d == r->lag()) {
                 return false;
             }
-            emit executeCommand(new ModifyRelationLagCmd(r, d, kundo2_i18n("Modify relation time lag")));
+            Q_EMIT executeCommand(new ModifyRelationLagCmd(r, d, kundo2_i18n("Modify relation time lag")));
             return true;
         }
         default:

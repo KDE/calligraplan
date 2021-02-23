@@ -100,7 +100,7 @@ protected:
     void mousePressEvent (QMouseEvent *event) override;
     /// Setup drop enabled/disabled dependent on the selected item
     void startDrag(Qt::DropActions supportedActions) override;
-    /// If modified by the drop, emit modified
+    /// If modified by the drop, Q_EMIT modified
     void dropEvent(QDropEvent *event) override;
 
 Q_SIGNALS:
@@ -145,14 +145,14 @@ public:
     ViewListItem *findItem(const QString &tag, QTreeWidgetItem* parent) const;
     ViewListItem *findItem(const ViewBase *view, QTreeWidgetItem* parent = nullptr) const;
 
-    /// Remove @p item, don't emit signal
+    /// Remove @p item, don't Q_EMIT signal
     int removeViewListItem(ViewListItem *item);
-    /// Add @p item to @p parent at @p index, don't emit signal
+    /// Add @p item to @p parent at @p index, don't Q_EMIT signal
     void addViewListItem(ViewListItem *item, QTreeWidgetItem *parent, int index);
 
-    /// Remove @p item, emit signal
+    /// Remove @p item, Q_EMIT signal
     int takeViewListItem(ViewListItem *item);
-    /// Add @p item to @p parent at @ index, emit signal
+    /// Add @p item to @p parent at @ index, Q_EMIT signal
     void insertViewListItem(ViewListItem *item, QTreeWidgetItem *parent, int index);
 
     void save(QDomElement &element) const;

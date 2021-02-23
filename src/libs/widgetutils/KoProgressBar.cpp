@@ -41,7 +41,7 @@ void KoProgressBar::setValue(int value)
     if (value >= minimum() && value < maximum()) {
         setVisible(true);
     } else {
-        emit done();
+        Q_EMIT done();
         setVisible(false);
     }
 }

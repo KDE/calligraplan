@@ -104,13 +104,13 @@ void ScheduleItemModel::slotScheduleManagerInserted(const ScheduleManager *manag
         beginInsertRows(QModelIndex(), row, row);
         m_managerlist.insert(row, const_cast<ScheduleManager*>(manager));
         endInsertRows();
-        emit scheduleManagerAdded(const_cast<ScheduleManager*>(manager));
+        Q_EMIT scheduleManagerAdded(const_cast<ScheduleManager*>(manager));
         return;
     }
     Q_ASSERT(manager->parentManager() == m_manager);
     endInsertRows();
     m_manager = nullptr;
-    emit scheduleManagerAdded(const_cast<ScheduleManager*>(manager));
+    Q_EMIT scheduleManagerAdded(const_cast<ScheduleManager*>(manager));
 }
 
 void ScheduleItemModel::slotScheduleManagerToBeRemoved(const ScheduleManager *manager)
@@ -238,13 +238,13 @@ void ScheduleItemModel::slotManagerChanged(ScheduleManager *sch)
 {
     if (m_flat) {
         int row = m_managerlist.indexOf(sch);
-        emit dataChanged(createIndex(row, 0, sch), createIndex(row, columnCount() - 1, sch));
+        Q_EMIT dataChanged(createIndex(row, 0, sch), createIndex(row, columnCount() - 1, sch));
         return;
     }
 
     int r = sch->parentManager() ? sch->parentManager()->indexOf(sch) : m_project->indexOf(sch);
     //debugPlan<<sch<<":"<<r;
-    emit dataChanged(createIndex(r, 0, sch), createIndex(r, columnCount() - 1, sch));
+    Q_EMIT dataChanged(createIndex(r, 0, sch), createIndex(r, columnCount() - 1, sch));
 }
 
 
@@ -417,7 +417,7 @@ bool ScheduleItemModel::setName(const QModelIndex &index, const QVariant &value,
     }
     switch (role) {
         case Qt::EditRole:
-            emit executeCommand(new ModifyScheduleManagerNameCmd(*sm, value.toString(), kundo2_i18n("Modify schedule name")));
+            Q_EMIT executeCommand(new ModifyScheduleManagerNameCmd(*sm, value.toString(), kundo2_i18n("Modify schedule name")));
             return true;
         default:
             break;
@@ -463,7 +463,7 @@ bool ScheduleItemModel::setSchedulingMode(const QModelIndex &index, const QVaria
     }
     switch (role) {
         case Qt::EditRole:
-            emit executeCommand(new ModifyScheduleManagerSchedulingModeCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduling mode")));
+            Q_EMIT executeCommand(new ModifyScheduleManagerSchedulingModeCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduling mode")));
             return true;
         default:
             break;
@@ -598,7 +598,7 @@ bool ScheduleItemModel::setAllowOverbooking(const QModelIndex &index, const QVar
     }
     switch (role) {
         case Qt::EditRole:
-            emit executeCommand(new ModifyScheduleManagerAllowOverbookingCmd(*sm, value.toBool(), kundo2_i18n("Modify allow overbooking")));
+            Q_EMIT executeCommand(new ModifyScheduleManagerAllowOverbookingCmd(*sm, value.toBool(), kundo2_i18n("Modify allow overbooking")));
             return true;
     }
     return false;
@@ -641,7 +641,7 @@ bool ScheduleItemModel::setUsePert(const QModelIndex &index, const QVariant &val
     }
     switch (role) {
         case Qt::EditRole:
-            emit executeCommand(new ModifyScheduleManagerDistributionCmd(*sm, value.toBool(), kundo2_i18n("Modify scheduling distribution")));
+            Q_EMIT executeCommand(new ModifyScheduleManagerDistributionCmd(*sm, value.toBool(), kundo2_i18n("Modify scheduling distribution")));
             slotManagerChanged(static_cast<ScheduleManager*>(sm));
             return true;
     }
@@ -787,7 +787,7 @@ bool ScheduleItemModel::setSchedulingDirection(const QModelIndex &index, const Q
     }
     switch (role) {
         case Qt::EditRole:
-            emit executeCommand(new ModifyScheduleManagerSchedulingDirectionCmd(*sm, value.toBool(), kundo2_i18n("Modify scheduling direction")));
+            Q_EMIT executeCommand(new ModifyScheduleManagerSchedulingDirectionCmd(*sm, value.toBool(), kundo2_i18n("Modify scheduling direction")));
             slotManagerChanged(static_cast<ScheduleManager*>(sm));
             return true;
     }
@@ -832,7 +832,7 @@ bool ScheduleItemModel::setScheduler(const QModelIndex &index, const QVariant &v
     if (sm != nullptr) {
         switch (role) {
             case Qt::EditRole: {
-                emit executeCommand(new ModifyScheduleManagerSchedulerCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduler")));
+                Q_EMIT executeCommand(new ModifyScheduleManagerSchedulerCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduler")));
                 return true;
             }
         }
@@ -914,7 +914,7 @@ bool ScheduleItemModel::setGranularity(const QModelIndex &index, const QVariant 
     if (sm != nullptr) {
         switch (role) {
             case Qt::EditRole: {
-                emit executeCommand(new ModifyScheduleManagerSchedulingGranularityCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduling granularity")));
+                Q_EMIT executeCommand(new ModifyScheduleManagerSchedulingGranularityCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduling granularity")));
                 return true;
             }
         }

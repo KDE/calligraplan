@@ -338,10 +338,10 @@ void GroupAllocationItemModel::setTask(Task *task)
         return;
     }
     if (task) {
-        emit layoutAboutToBeChanged();
+        Q_EMIT layoutAboutToBeChanged();
         filldata(task);
         m_model.setTask(task);
-        emit layoutChanged();
+        Q_EMIT layoutChanged();
     }
 }
 
@@ -510,7 +510,7 @@ bool GroupAllocationItemModel::setAllocation(ResourceGroup *group, const QVarian
                 m_groupCache[group] = new ResourceGroupRequest(group, 0);
             }
             m_groupCache[group]->setUnits(value.toInt());
-            emit dataChanged(index(group), index(group));
+            Q_EMIT dataChanged(index(group), index(group));
             return true;
     }
     return false;
@@ -592,7 +592,7 @@ bool GroupAllocationItemModel::setData(const QModelIndex &index, const QVariant 
         switch (index.column()) {
             case GroupAllocationModel::RequestAllocation:
                 if (setAllocation(g, value, role)) {
-                    emit dataChanged(index, index);
+                    Q_EMIT dataChanged(index, index);
                     return true;
                 }
                 return false;
@@ -644,12 +644,12 @@ void GroupAllocationItemModel::slotResourceChanged(Resource *res)
 {
 //     for (ResourceGroup *g : res->parentGroups()) {
 //         int row = g->indexOf(res);
-//         emit dataChanged(createIndex(row, 0, res), createIndex(row, columnCount() - 1, res));
+//         Q_EMIT dataChanged(createIndex(row, 0, res), createIndex(row, columnCount() - 1, res));
 //     }
 }
 
 void GroupAllocationItemModel::slotResourceGroupChanged(ResourceGroup *group)
 {
     int row = m_project->indexOf(group);
-    emit dataChanged(createIndex(row, 0, group), createIndex(row, columnCount() - 1, group));
+    Q_EMIT dataChanged(createIndex(row, 0, group), createIndex(row, columnCount() - 1, group));
 }

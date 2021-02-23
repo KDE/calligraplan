@@ -264,7 +264,7 @@ void View::updateReadWrite(bool readwrite)
 
 //    actionTaskProgress->setEnabled(readwrite);
 
-    emit sigUpdateReadWrite(readwrite);
+    Q_EMIT sigUpdateReadWrite(readwrite);
 }
 
 Part *View::part() const
@@ -336,7 +336,7 @@ void View::slotEditDocument(Document *doc)
 
 void View::slotViewDocument()
 {
-    emit viewDocument(currentDocument());
+    Q_EMIT viewDocument(currentDocument());
 }
 
 void View::slotRemoveDocument()

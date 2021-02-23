@@ -1438,7 +1438,7 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
         if (focusItem()) {
             focusItem()->update();
         }
-        emit focusItemChanged(focusItem());
+        Q_EMIT focusItemChanged(focusItem());
         return;
     }
     switch (keyEvent->key()) {
@@ -1556,7 +1556,7 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
         focusItem()->parentItem() ? focusItem()->parentItem()->update() : focusItem()->update();
     }
     if (fitem != focusItem()) {
-        emit focusItemChanged(focusItem());
+        Q_EMIT focusItemChanged(focusItem());
     }
 }
 
@@ -1584,12 +1584,12 @@ void DependencyScene::singleConnectorClicked(DependencyConnectorItem *item)
     } else if (fromItem() == nullptr) {
         setFromItem(item);
     } else if (connectionIsValid(fromItem(), item)) {
-        emit connectItems(fromItem(), item);
+        Q_EMIT connectItems(fromItem(), item);
         setFromItem(nullptr);
     } else {
         setFromItem(nullptr);
     }
-    emit connectorClicked(item);
+    Q_EMIT connectorClicked(item);
 }
 
 void DependencyScene::multiConnectorClicked(DependencyConnectorItem *item)
@@ -1617,14 +1617,14 @@ void DependencyScene::mouseDoubleClickEvent (QGraphicsSceneMouseEvent *event)
 {
     //debugPlanDepEditor<<event->pos()<<event->scenePos()<<event->screenPos();
     QGraphicsScene::mouseDoubleClickEvent(event);
-    emit itemDoubleClicked(itemAt(event->scenePos(), QTransform()));
+    Q_EMIT itemDoubleClicked(itemAt(event->scenePos(), QTransform()));
 }
 
 void DependencyScene::contextMenuEvent (QGraphicsSceneContextMenuEvent *event)
 {
     if (event->reason() == QGraphicsSceneContextMenuEvent::Mouse) {
         debugPlanDepEditor<<"Mouse:"<<itemAt(event->scenePos(), QTransform())<<event->pos()<<event->scenePos()<<event->screenPos();
-        emit contextMenuRequested(itemAt(event->scenePos(), QTransform()), event->screenPos());
+        Q_EMIT contextMenuRequested(itemAt(event->scenePos(), QTransform()), event->screenPos());
         return;
     }
     if (focusItem()) {
@@ -1635,14 +1635,14 @@ void DependencyScene::contextMenuEvent (QGraphicsSceneContextMenuEvent *event)
             if (from) {
                 DependencyLinkItem *link = findItem(from, to);
                 if (link) {
-                    emit dependencyContextMenuRequested(link, to);
+                    Q_EMIT dependencyContextMenuRequested(link, to);
                     setFromItem(nullptr); // avoid showing spurious DependencyCreatorItem
                     return;
                 } else debugPlanDepEditor<<"No link";
             }
         } else debugPlanDepEditor<<"Not connector type"<<focusItem();
     } else debugPlanDepEditor<<"No focusItem";
-    emit contextMenuRequested(focusItem());
+    Q_EMIT contextMenuRequested(focusItem());
 }
 
 void DependencyScene::setReadWrite(bool on)
@@ -1660,7 +1660,7 @@ void DependencyScene::setReadWrite(bool on)
 
 void DependencyScene::update()
 {
-    emit sceneRectChanged(sceneRect());
+    Q_EMIT sceneRectChanged(sceneRect());
 }
 
 //--------------------
@@ -1693,7 +1693,7 @@ void DependencyView::slotContextMenuRequested(QGraphicsItem *item)
 {
     if (item) {
         debugPlanDepEditor<<item<<item->boundingRect()<<(item->mapToScene(item->pos()).toPoint())<<(mapToGlobal(item->mapToParent(item->pos()).toPoint()));
-        emit contextMenuRequested(item, mapToGlobal(item->mapToScene(item->boundingRect().topRight()).toPoint()));
+        Q_EMIT contextMenuRequested(item, mapToGlobal(item->mapToScene(item->boundingRect().topRight()).toPoint()));
     }
 }
 
@@ -1701,7 +1701,7 @@ void DependencyView::slotDependencyContextMenuRequested(DependencyLinkItem *item
 {
     if (item) {
         debugPlanDepEditor<<item<<item->boundingRect()<<(item->mapToScene(item->pos()).toPoint())<<(mapToGlobal(item->mapToParent(item->pos()).toPoint()));
-        emit contextMenuRequested(item, mapToGlobal(item->mapToScene(item->boundingRect().topRight()).toPoint()));
+        Q_EMIT contextMenuRequested(item, mapToGlobal(item->mapToScene(item->boundingRect().topRight()).toPoint()));
     }
 }
 
@@ -1710,8 +1710,8 @@ void DependencyView::slotConnectorClicked(DependencyConnectorItem *item)
     if (itemScene()->fromItem() == nullptr) {
         itemScene()->setFromItem(item);
     } else {
-        //debugPlanDepEditor<<"emit makeConnection:"<<static_cast<DependencyNodeItem*>(item->parentItem())->text();
-        emit makeConnection(itemScene()->fromItem(), item);
+        //debugPlanDepEditor<<"Q_EMIT makeConnection:"<<static_cast<DependencyNodeItem*>(item->parentItem())->text();
+        Q_EMIT makeConnection(itemScene()->fromItem(), item);
     }
 }
 
@@ -1723,7 +1723,7 @@ void DependencyView::slotSelectionChanged()
 
 void DependencyView::slotSelectedItems()
 {
-    emit selectionChanged(itemScene()->selectedItems());
+    Q_EMIT selectionChanged(itemScene()->selectedItems());
 }
 
 void DependencyView::slotFocusItemChanged(QGraphicsItem *item)
@@ -2076,15 +2076,15 @@ void DependencyEditor::slotItemDoubleClicked(QGraphicsItem *item)
         return;
     }
     if (item && item->type() == DependencyLinkItem::Type) {
-        emit editRelation(static_cast<DependencyLinkItem*>(item)->relation);
+        Q_EMIT editRelation(static_cast<DependencyLinkItem*>(item)->relation);
         return;
     }
     if (item && item->type() == DependencyNodeItem::Type) {
-        emit editNode(static_cast<DependencyNodeItem*>(item)->node());
+        Q_EMIT editNode(static_cast<DependencyNodeItem*>(item)->node());
         return;
     }
     if (item && item->type() == DependencyNodeSymbolItem::Type) {
-        emit editNode(static_cast<DependencyNodeItem*>(item->parentItem())->node());
+        Q_EMIT editNode(static_cast<DependencyNodeItem*>(item->parentItem())->node());
         return;
     }
 }
@@ -2112,10 +2112,10 @@ void DependencyEditor::slotCreateRelation(DependencyConnectorItem *pred, Depende
     Relation *rel = ch->findRelation(par);
     if (rel == nullptr) {
         //debugPlanDepEditor<<"New:"<<par->name()<<" ->"<<ch->name()<<","<<type;
-        emit addRelation(par, ch, type);
+        Q_EMIT addRelation(par, ch, type);
     } else if (rel->type() != type) {
         //debugPlanDepEditor<<"Mod:"<<par->name()<<" ->"<<ch->name()<<","<<type;
-        emit modifyRelation(rel, type);
+        Q_EMIT modifyRelation(rel, type);
     }
 }
 
@@ -2254,7 +2254,7 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
             if (! actions.isEmpty()) {
                 QAction *action = menu.exec(pos);
                 if (action && actions.contains(action)) {
-                    emit editRelation(items[ actions.indexOf(action) ]->relation);
+                    Q_EMIT editRelation(items[ actions.indexOf(action) ]->relation);
                     return;
                 }
             }
@@ -2262,7 +2262,7 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
     }
     //debugPlanDepEditor<<name;
     if (! name.isEmpty()) {
-        emit requestPopupMenu(name, pos);
+        Q_EMIT requestPopupMenu(name, pos);
     } else {
         QList<QAction*> lst = contextActionList();
         if (! lst.isEmpty()) {
@@ -2411,7 +2411,7 @@ void DependencyEditor::slotAddTask()
 {
     //debugPlanDepEditor;
     m_currentnode = selectedNode();
-    emit addTask();
+    Q_EMIT addTask();
     m_currentnode = nullptr;
 }
 
@@ -2419,7 +2419,7 @@ void DependencyEditor::slotAddMilestone()
 {
     //debugPlanDepEditor;
     m_currentnode = selectedNode(); // sibling
-    emit addMilestone();
+    Q_EMIT addMilestone();
     m_currentnode = nullptr;
 }
 
@@ -2430,7 +2430,7 @@ void DependencyEditor::slotAddSubtask()
     if (m_currentnode == nullptr) {
         return;
     }
-    emit addSubtask();
+    Q_EMIT addSubtask();
     m_currentnode = nullptr;
 }
 
@@ -2441,7 +2441,7 @@ void DependencyEditor::slotAddSubMilestone()
     if (m_currentnode == nullptr) {
         return;
     }
-    emit addSubMilestone();
+    Q_EMIT addSubMilestone();
     m_currentnode = nullptr;
 }
 
@@ -2479,7 +2479,7 @@ void DependencyEditor::slotDeleteTask()
         lst.removeAt(lst.indexOf(ch));
     }
     for (Node* n : qAsConst(lst)) { debugPlanDepEditor<<n->name(); }
-    emit deleteTaskList(lst);
+    Q_EMIT deleteTaskList(lst);
 }
 
 void DependencyEditor::slotLinkTask()

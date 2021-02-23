@@ -301,7 +301,7 @@ void PerformanceStatusView::slotContextMenuRequested(Node *node, const QPoint& p
         slotHeaderContextMenuRequested(pos);
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
 }
 
 

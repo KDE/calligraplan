@@ -85,13 +85,13 @@ void IntervalEditImpl::slotClearClicked() {
     intervalList->clear();
     enableButtons();
     if (c)
-        emit changed();
+        Q_EMIT changed();
 }
 
 void IntervalEditImpl::slotAddIntervalClicked() {
     new IntervalItem(intervalList, startTime->time(), (int)(length->value() * 1000. * 60. *60.));
     enableButtons();
-    emit changed();
+    Q_EMIT changed();
 }
 
 void IntervalEditImpl::slotRemoveIntervalClicked() {
@@ -102,7 +102,7 @@ void IntervalEditImpl::slotRemoveIntervalClicked() {
     intervalList->takeTopLevelItem(intervalList->indexOfTopLevelItem(item));
     delete item;
     enableButtons();
-    emit changed();
+    Q_EMIT changed();
 }
 
 

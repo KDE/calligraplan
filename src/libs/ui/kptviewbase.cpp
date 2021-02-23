@@ -233,7 +233,7 @@ PrintingHeaderFooter::~PrintingHeaderFooter()
 void PrintingHeaderFooter::slotChanged()
 {
     debugPlan;
-    emit changed(options());
+    Q_EMIT changed(options());
 }
 
 void PrintingHeaderFooter::setOptions(const PrintingOptions &options)
@@ -307,8 +307,8 @@ void PrintingDialog::setPrintingOptions(const PrintingOptions &opt)
 {
     debugPlan;
     m_view->setPrintingOptions(opt);
-    emit changed(opt);
-    emit changed();
+    Q_EMIT changed(opt);
+    Q_EMIT changed();
 }
 
 void PrintingDialog::setPrinterPageLayout(const KoPageLayout &pagelayout)
@@ -616,7 +616,7 @@ QMenu *ViewBase::popupMenu(const QString& name)
 void ViewBase::setProject(KPlato::Project *project)
 {
     m_proj = project;
-    emit projectChanged(project);
+    Q_EMIT projectChanged(project);
 }
 
 void ViewBase::setScheduleManager(KPlato::ScheduleManager *sm)
@@ -656,13 +656,13 @@ bool ViewBase::isActive() const
 void ViewBase::updateReadWrite(bool readwrite)
 {
     m_readWrite = readwrite;
-    emit readWriteChanged(readwrite);
+    Q_EMIT readWriteChanged(readwrite);
 }
 
 void ViewBase::setGuiActive(bool active) // virtual slot
 {
     //debugPlan<<active;
-    emit guiActivated(this, active);
+    Q_EMIT guiActivated(this, active);
 }
 
 void ViewBase::slotUpdateReadWrite(bool rw)
@@ -785,7 +785,7 @@ void ViewBase::createOptionActions(int actions, const QString &prefix)
 void ViewBase::slotOptionsFinished(int result)
 {
     if (result == QDialog::Accepted) {
-        emit optionsModified();
+        Q_EMIT optionsModified();
     }
     if (sender()) {
         sender()->deleteLater();
@@ -1143,7 +1143,7 @@ void TreeViewBase::createItemDelegates(ItemModelBase *model)
 void TreeViewBase::slotHeaderContextMenuRequested(const QPoint& pos)
 {
     //debugPlan;
-    emit headerContextMenuRequested(header()->mapToGlobal(pos));
+    Q_EMIT headerContextMenuRequested(header()->mapToGlobal(pos));
 }
 
 void TreeViewBase::setColumnsHidden(const QList<int> &lst)
@@ -1292,7 +1292,7 @@ void TreeViewBase::keyPressEvent(QKeyEvent *event)
                 if (nxt.isValid()) {
                     selectionModel()->setCurrentIndex(nxt, QItemSelectionModel::NoUpdate);
                 } else {
-                    emit moveAfterLastColumn(current);
+                    Q_EMIT moveAfterLastColumn(current);
                 }
                 event->accept();
                 return;
@@ -1303,7 +1303,7 @@ void TreeViewBase::keyPressEvent(QKeyEvent *event)
                 if (prv.isValid()) {
                     selectionModel()->setCurrentIndex(prv, QItemSelectionModel::NoUpdate);
                 } else {
-                    emit moveBeforeFirstColumn(current);
+                    Q_EMIT moveBeforeFirstColumn(current);
                 }
                 event->accept();
                 return;
@@ -1435,9 +1435,9 @@ QModelIndex TreeViewBase::moveToEditable(const QModelIndex &index, CursorAction 
     if (! ix.isValid()) {
         switch (cursorAction) {
             case MovePrevious:
-            case MoveLeft: emit editBeforeFirstColumn(index); break;
+            case MoveLeft: Q_EMIT editBeforeFirstColumn(index); break;
             case MoveNext:
-            case MoveRight: emit editAfterLastColumn(index); break;
+            case MoveRight: Q_EMIT editAfterLastColumn(index); break;
             default: break;
         }
     }
@@ -1566,7 +1566,7 @@ QModelIndex TreeViewBase::moveCursor(const QModelIndex &index, CursorAction curs
 void TreeViewBase::contextMenuEvent (QContextMenuEvent *event)
 {
     debugPlan<<selectionModel()->selectedRows();
-    emit contextMenuRequested(indexAt(event->pos()), event->globalPos(), selectionModel()->selectedRows());
+    Q_EMIT contextMenuRequested(indexAt(event->pos()), event->globalPos(), selectionModel()->selectedRows());
 }
 
 void TreeViewBase::slotCurrentChanged(const QModelIndex &current, const QModelIndex &)
@@ -1631,7 +1631,7 @@ void TreeViewBase::dragMoveEvent(QDragMoveEvent *event)
     } else {
         QModelIndex index = indexAt(event->pos());
         if (index.isValid() && m_readWrite) {
-            emit dropAllowed(index, dropIndicatorPosition(), event);
+            Q_EMIT dropAllowed(index, dropIndicatorPosition(), event);
         } else {
             event->ignore();
             debugPlan<<"Invalid index:"<<event->isAccepted();
@@ -2518,7 +2518,7 @@ QAbstractItemModel *DoubleTreeViewBase::model() const
 
 void DoubleTreeViewBase::slotSelectionChanged(const QItemSelection &, const QItemSelection &)
 {
-    emit selectionChanged(selectionModel()->selectedIndexes());
+    Q_EMIT selectionChanged(selectionModel()->selectedIndexes());
 }
 
 void DoubleTreeViewBase::setSelectionModel(QItemSelectionModel *model)
@@ -2624,15 +2624,15 @@ void DoubleTreeViewBase::setDefaultDropAction(Qt::DropAction action)
 void DoubleTreeViewBase::slotRightHeaderContextMenuRequested(const QPoint &pos)
 {
     //debugPlan;
-    emit slaveHeaderContextMenuRequested(pos);
-    emit headerContextMenuRequested(pos);
+    Q_EMIT slaveHeaderContextMenuRequested(pos);
+    Q_EMIT headerContextMenuRequested(pos);
 }
 
 void DoubleTreeViewBase::slotLeftHeaderContextMenuRequested(const QPoint &pos)
 {
     //debugPlan;
-    emit masterHeaderContextMenuRequested(pos);
-    emit headerContextMenuRequested(pos);
+    Q_EMIT masterHeaderContextMenuRequested(pos);
+    Q_EMIT headerContextMenuRequested(pos);
 }
 
 void DoubleTreeViewBase::setStretchFactors()

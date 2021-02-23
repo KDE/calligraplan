@@ -124,7 +124,7 @@ void ResourceAppointmentsItemModel::slotAppointmentChanged(Resource *r, Appointm
     int row = rowNumber(r, a);
     Q_ASSERT(row >= 0);
     refreshData();
-    emit dataChanged(createExternalAppointmentIndex(row, 0, a), createExternalAppointmentIndex(row, columnCount() - 1, a));
+    Q_EMIT dataChanged(createExternalAppointmentIndex(row, 0, a), createExternalAppointmentIndex(row, columnCount() - 1, a));
 }
 
 void ResourceAppointmentsItemModel::slotProjectCalculated(ScheduleManager *sm)
@@ -217,7 +217,7 @@ void ResourceAppointmentsItemModel::setProject(Project *project)
     }
     refreshData();
     endResetModel();
-    emit refreshed();
+    Q_EMIT refreshed();
 }
 
 void ResourceAppointmentsItemModel::connectSignals(Resource *resource, bool enable)
@@ -263,7 +263,7 @@ void ResourceAppointmentsItemModel::setScheduleManager(ScheduleManager *sm)
     m_manager = sm;
     refreshData();
     endResetModel();
-    emit refreshed();
+    Q_EMIT refreshed();
 }
 
 long ResourceAppointmentsItemModel::id() const
@@ -371,7 +371,7 @@ QModelIndex ResourceAppointmentsItemModel::index(Resource *resource) const
 void ResourceAppointmentsItemModel::refresh()
 {
     refreshData();
-    emit refreshed();
+    Q_EMIT refreshed();
 }
 
 void ResourceAppointmentsItemModel::refreshData()
@@ -931,7 +931,7 @@ void ResourceAppointmentsItemModel::slotCalendarChanged(Calendar*)
 void ResourceAppointmentsItemModel::slotResourceChanged(Resource *res)
 {
     int row = m_project->indexOf(res);
-    emit dataChanged(createResourceIndex(row, 0, res), createResourceIndex(row, columnCount() - 1, res));
+    Q_EMIT dataChanged(createResourceIndex(row, 0, res), createResourceIndex(row, columnCount() - 1, res));
 }
 
 //-------------------------------------------------------

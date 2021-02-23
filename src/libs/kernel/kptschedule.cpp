@@ -1868,14 +1868,14 @@ void ScheduleManager::haltCalculation()
 void ScheduleManager::setMaxProgress(int value)
 {
     m_maxprogress = value;
-    emit maxProgressChanged(value);
+    Q_EMIT maxProgressChanged(value);
     m_project.changed(this);
 }
 
 void ScheduleManager::setProgress(int value)
 {
     m_progress = value;
-    emit progressChanged(value);
+    Q_EMIT progressChanged(value);
     m_project.changed(this);
 }
 
@@ -1969,9 +1969,9 @@ void ScheduleManager::incProgress()
 
 void ScheduleManager::logAdded(const Schedule::Log &log)
 {
-    emit sigLogAdded(log);
+    Q_EMIT sigLogAdded(log);
     int row = expected()->logs().count() - 1;
-    emit logInserted(expected(), row, row);
+    Q_EMIT logInserted(expected(), row, row);
 }
 
 void ScheduleManager::slotAddLog(const QVector<KPlato::Schedule::Log> &log)

@@ -264,7 +264,7 @@ void TaskProgressPanelImpl::slotEffortChanged(const QDate &date)
 }
 
 void TaskProgressPanelImpl::slotChanged() {
-    emit changed();
+    Q_EMIT changed();
 }
 
 void TaskProgressPanelImpl::slotEditmodeChanged(int idx)

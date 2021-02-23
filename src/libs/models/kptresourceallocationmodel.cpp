@@ -357,10 +357,10 @@ void ResourceAllocationItemModel::setTask(Task *task)
         return;
     }
     if (task) {
-        emit layoutAboutToBeChanged();
+        Q_EMIT layoutAboutToBeChanged();
         filldata(task);
         m_model.setTask(task);
-        emit layoutChanged();
+        Q_EMIT layoutChanged();
     }
 }
 
@@ -534,7 +534,7 @@ bool ResourceAllocationItemModel::setAllocation(Resource *res, const QVariant &v
             if (value.toInt() == 0) {
                 setAlternative(idx.sibling(idx.row(), ResourceAllocationModel::RequestAlternative), Qt::Unchecked, Qt::CheckStateRole);
             }
-            emit dataChanged(idx, idx.sibling(idx.row(), ResourceAllocationModel::RequestAllocation));
+            Q_EMIT dataChanged(idx, idx.sibling(idx.row(), ResourceAllocationModel::RequestAllocation));
             return true;
         }
         case Qt::CheckStateRole: {
@@ -548,7 +548,7 @@ bool ResourceAllocationItemModel::setAllocation(Resource *res, const QVariant &v
                 m_resourceCache[res]->setUnits(0);
                 setAlternative(idx.sibling(idx.row(), ResourceAllocationModel::RequestAlternative), Qt::Unchecked, Qt::CheckStateRole);
             }
-            emit dataChanged(idx, idx);
+            Q_EMIT dataChanged(idx, idx);
             return true;
         }
     }
@@ -623,7 +623,7 @@ bool ResourceAllocationItemModel::setRequired(const QModelIndex &idx, const QVar
             if (value.toInt() == Qt::Unchecked) {
                 m_resourceCache[res]->setRequiredResources(QList<Resource*>());
             }
-            emit dataChanged(idx, idx);
+            Q_EMIT dataChanged(idx, idx);
             return true;
     }
     return false;
@@ -675,7 +675,7 @@ bool ResourceAllocationItemModel::setAlternative(const QModelIndex &idx, const Q
                     rr->setAlternativeRequests(QList<ResourceRequest*>());
                 }
             }
-            emit dataChanged(idx, idx);
+            Q_EMIT dataChanged(idx, idx);
             return true;
     }
     return false;
@@ -714,9 +714,9 @@ bool ResourceAllocationItemModel::setData(const QModelIndex &index, const QVaria
         switch (index.column()) {
             case ResourceAllocationModel::RequestAllocation:
                 if (setAllocation(r, value, role)) {
-                    emit dataChanged(index, index);
+                    Q_EMIT dataChanged(index, index);
                     QModelIndex idx = this->index(index.row(), ResourceAllocationModel::RequestAllocation, parent(parent(index)));
-                    emit dataChanged(idx, idx);
+                    Q_EMIT dataChanged(idx, idx);
                     return true;
                 }
                 return false;
@@ -774,7 +774,7 @@ QObject *ResourceAllocationItemModel::object(const QModelIndex &index) const
 void ResourceAllocationItemModel::slotResourceChanged(Resource *res)
 {
     QModelIndex idx = index(res); 
-    emit dataChanged(idx, idx.sibling(idx.row(), columnCount()-1));
+    Q_EMIT dataChanged(idx, idx.sibling(idx.row(), columnCount()-1));
 }
 
 Resource *ResourceAllocationItemModel::resource(const QModelIndex &idx) const
@@ -788,7 +788,7 @@ void ResourceAllocationItemModel::setRequired(const QModelIndex &idx, const QLis
     Q_ASSERT(r);
     if (m_resourceCache.contains(r)) {
         m_resourceCache[r]->setRequiredResources(lst);
-        emit dataChanged(idx, idx);
+        Q_EMIT dataChanged(idx, idx);
     }
 }
 
@@ -813,7 +813,7 @@ void ResourceAllocationItemModel::setAlternativeRequests(const QModelIndex &idx,
             requests << new ResourceRequest(r, 100);
         }
         m_resourceCache[r]->setAlternativeRequests(requests);
-        emit dataChanged(idx, idx);
+        Q_EMIT dataChanged(idx, idx);
     }
 }
 

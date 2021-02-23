@@ -92,7 +92,7 @@ MilestoneProgressPanelImpl::MilestoneProgressPanelImpl(QWidget *parent, const ch
 }
 
 void MilestoneProgressPanelImpl::slotChanged() {
-    emit changed();
+    Q_EMIT changed();
 }
 
 void MilestoneProgressPanelImpl::slotFinishedChanged(bool state) {

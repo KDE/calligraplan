@@ -63,7 +63,7 @@ SchedulesDocker::~SchedulesDocker()
 
 void SchedulesDocker::slotSelectionChanged()
 {
-    emit selectionChanged(selectedSchedule());
+    Q_EMIT selectionChanged(selectedSchedule());
 }
 
 void SchedulesDocker::setProject(Project *project)

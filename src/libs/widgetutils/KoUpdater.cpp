@@ -42,7 +42,7 @@ KoUpdater::KoUpdater(KoUpdaterPrivate *p)
 
 void KoUpdater::cancel()
 {
-    emit sigCancel();
+    Q_EMIT sigCancel();
 }
 
 void KoUpdater::setProgress(int percent)
@@ -54,7 +54,7 @@ void KoUpdater::setProgress(int percent)
 
     m_progressPercent = percent;
 
-    emit sigProgress(percent);
+    Q_EMIT sigProgress(percent);
 }
 
 int KoUpdater::progress() const

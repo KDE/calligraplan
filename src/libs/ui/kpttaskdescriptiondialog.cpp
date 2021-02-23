@@ -125,7 +125,7 @@ TaskDescriptionPanelImpl::~TaskDescriptionPanelImpl()
 
 void TaskDescriptionPanelImpl::slotChanged()
 {
-    emit textChanged(descriptionfield->textOrHtml() != m_node.description());
+    Q_EMIT textChanged(descriptionfield->textOrHtml() != m_node.description());
 }
 
 //-----------------------------

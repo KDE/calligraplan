@@ -85,7 +85,7 @@ void SplitterView::setGuiActive(bool active) // virtual slot
     if (m_activeview) {
         m_activeview->setGuiActive(active);
     } else {
-        emit guiActivated(this, active);
+        Q_EMIT guiActivated(this, active);
     }
 }
 
@@ -94,13 +94,13 @@ void SplitterView::slotGuiActivated(ViewBase *v, bool active)
     debugPlan<<active<<m_activeview<<" -> "<<v;
     if (active) {
         if (m_activeview) {
-            emit guiActivated(m_activeview, false);
+            Q_EMIT guiActivated(m_activeview, false);
         }
         m_activeview = v;
     } else {
         m_activeview = nullptr;
     }
-    emit guiActivated(v, active);
+    Q_EMIT guiActivated(v, active);
 }
 
 ViewBase *SplitterView::findView(const QPoint &pos) const

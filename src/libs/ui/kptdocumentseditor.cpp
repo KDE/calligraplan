@@ -86,7 +86,7 @@ QModelIndexList DocumentTreeView::selectedRows() const
 
 void DocumentTreeView::slotSelectionChanged(const QItemSelection &selected)
 {
-    emit selectionChanged(selected.indexes());
+    Q_EMIT selectionChanged(selected.indexes());
 }
 
 QList<Document*> DocumentTreeView::selectedDocuments() const
@@ -165,7 +165,7 @@ void DocumentsEditor::slotContextMenuRequested(const QModelIndex &index, const Q
         }
     }
     m_view->setContextMenuIndex(index);
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -255,7 +255,7 @@ void DocumentsEditor::slotEditDocument()
         return;
     }
     debugPlan<<dl;
-    emit editDocument(dl.first());
+    Q_EMIT editDocument(dl.first());
 }
 
 void DocumentsEditor::slotViewDocument()
@@ -265,7 +265,7 @@ void DocumentsEditor::slotViewDocument()
         return;
     }
     debugPlan<<dl;
-    emit viewDocument(dl.first());
+    Q_EMIT viewDocument(dl.first());
 }
 
 void DocumentsEditor::slotAddDocument()
@@ -289,7 +289,7 @@ void DocumentsEditor::slotDeleteSelection()
     QList<Document*> lst = m_view->selectedDocuments();
     //debugPlan<<lst.count()<<" objects";
     if (! lst.isEmpty()) {
-        emit deleteDocumentList(lst);
+        Q_EMIT deleteDocumentList(lst);
     }
 }
 

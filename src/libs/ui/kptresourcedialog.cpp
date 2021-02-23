@@ -138,7 +138,7 @@ void ResourceDialogImpl::slotTeamChanged(const QModelIndex &index) {
     } else {
         m_resource.removeTeamMemberId(id);
     }
-    emit changed();
+    Q_EMIT changed();
 }
 
 void ResourceDialogImpl::slotTypeChanged(int index) {
@@ -157,11 +157,11 @@ void ResourceDialogImpl::slotTypeChanged(int index) {
             ui_stackedWidget->setCurrentIndex(1);
             break;
     }
-    emit changed();
+    Q_EMIT changed();
 }
 
 void ResourceDialogImpl::slotChanged() {
-    emit changed();
+    Q_EMIT changed();
 }
 
 void ResourceDialogImpl::setCurrentIndexes(const QModelIndexList &lst)
@@ -208,8 +208,8 @@ void ResourceDialogImpl::slotAvailableUntilChanged(const QDateTime&) {
 }
 
 void ResourceDialogImpl::slotCalculationNeeded(const QString&) {
-    emit calculate();
-    emit changed();
+    Q_EMIT calculate();
+    Q_EMIT changed();
 }
 
 void ResourceDialogImpl::slotChooseResource()

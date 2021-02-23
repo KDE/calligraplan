@@ -47,7 +47,7 @@ void ReportSourceEditor::setModel(QAbstractItemModel *model)
 
 void ReportSourceEditor::slotCurrentIndexChanged()
 {
-    emit selectFromChanged(selectFromTag());
+    Q_EMIT selectFromChanged(selectFromTag());
 }
 
 QString ReportSourceEditor::selectFromTag() const

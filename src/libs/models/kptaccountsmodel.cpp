@@ -327,20 +327,20 @@ bool AccountItemModel::setName(Account *a, const QVariant &value, int role)
     switch (role) {
         case Qt::EditRole:
             if (value.toString() != a->name()) {
-                emit executeCommand(new RenameAccountCmd(a, value.toString(), kundo2_i18n("Modify account name")));
+                Q_EMIT executeCommand(new RenameAccountCmd(a, value.toString(), kundo2_i18n("Modify account name")));
             }
             return true;
         case Qt::CheckStateRole: {
             switch (value.toInt()) {
                 case Qt::Unchecked:
                     if (a->isDefaultAccount()) {
-                        emit executeCommand(new ModifyDefaultAccountCmd(m_project->accounts(), a, nullptr, kundo2_i18n("De-select as default account")));
+                        Q_EMIT executeCommand(new ModifyDefaultAccountCmd(m_project->accounts(), a, nullptr, kundo2_i18n("De-select as default account")));
                         return true;
                     }
                     break;
                 case Qt::Checked:
                     if (! a->isDefaultAccount()) {
-                        emit executeCommand(new ModifyDefaultAccountCmd(m_project->accounts(), m_project->accounts().defaultAccount(), a, kundo2_i18n("Select as default account")));
+                        Q_EMIT executeCommand(new ModifyDefaultAccountCmd(m_project->accounts(), m_project->accounts().defaultAccount(), a, kundo2_i18n("Select as default account")));
                         return true;
                     }
                     break;
@@ -357,7 +357,7 @@ bool AccountItemModel::setDescription(Account *a, const QVariant &value, int rol
     switch (role) {
         case Qt::EditRole:
             if (value.toString() != a->description()) {
-                emit executeCommand(new ModifyAccountDescriptionCmd(a, value.toString(), kundo2_i18n("Modify account description")));
+                Q_EMIT executeCommand(new ModifyAccountDescriptionCmd(a, value.toString(), kundo2_i18n("Modify account description")));
             }
             return true;
     }
@@ -414,10 +414,10 @@ void AccountItemModel::slotAccountChanged(Account *account)
     Account *par = account->parent();
     if (par) {
         int row = par->accountList().indexOf(account);
-        emit dataChanged(createIndex(row, 0, account), createIndex(row, columnCount() - 1, account));
+        Q_EMIT dataChanged(createIndex(row, 0, account), createIndex(row, columnCount() - 1, account));
     } else {
         int row = m_project->accounts().accountList().indexOf(account);
-        emit dataChanged(createIndex(row, 0, account), createIndex(row, columnCount() - 1, account));
+        Q_EMIT dataChanged(createIndex(row, 0, account), createIndex(row, columnCount() - 1, account));
     }
 }
 
@@ -429,7 +429,7 @@ QModelIndex AccountItemModel::insertAccount(Account *account, Account *parent, i
         account->setName(m_project->accounts().uniqueId(s));
         //m_project->accounts().insertId(account);
     }
-    emit executeCommand(new AddAccountCmd(*m_project, account, parent, index, kundo2_i18n("Add account")));
+    Q_EMIT executeCommand(new AddAccountCmd(*m_project, account, parent, index, kundo2_i18n("Add account")));
     int row = -1;
     if (parent) {
         row = parent->accountList().indexOf(account);
@@ -463,7 +463,7 @@ void AccountItemModel::removeAccounts(QList<Account*> lst)
         }
     }
     if (cmd)
-        emit executeCommand(cmd);
+        Q_EMIT executeCommand(cmd);
 }
 
 //----------------------------------------
@@ -529,7 +529,7 @@ void CostBreakdownItemModel::slotDataChanged()
         QModelIndex idx1 = index(it.key());
         QModelIndex idx2 = index(idx1.row(), columnCount() - 1, parent(idx1));
         //debugPlan<<a->name()<<idx1<<idx2;
-        emit dataChanged(idx1, idx2);
+        Q_EMIT dataChanged(idx1, idx2);
     }
 }
 
@@ -1163,7 +1163,7 @@ void CostBreakdownItemModel::slotAccountChanged(Account *account)
         QModelIndex idx1 = index(it.key());
         QModelIndex idx2 = index(idx1.row(), columnCount() - 1, parent(idx1));
         //debugPlan<<a->name()<<idx1<<idx2;
-        emit dataChanged(idx1, idx2);
+        Q_EMIT dataChanged(idx1, idx2);
     }
 }
 

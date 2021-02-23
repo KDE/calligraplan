@@ -287,7 +287,7 @@ void ResourceAppointmentsView::slotContextMenuRequested(const QModelIndex &index
         m_view->setContextMenuIndex(QModelIndex());
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -403,7 +403,7 @@ void ResourceAppointmentsView::slotDeleteSelection()
 /*    QObjectList lst = m_view->selectedObjects();
     //debugPlan<<lst.count()<<" objects";
     if (! lst.isEmpty()) {
-        emit deleteObjectList(lst);
+        Q_EMIT deleteObjectList(lst);
     }*/
 }
 

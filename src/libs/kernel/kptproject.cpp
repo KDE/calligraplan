@@ -126,7 +126,7 @@ void Project::deref()
     --m_refCount;
     Q_ASSERT(m_refCount >= 0);
     if (m_refCount <= 0) {
-        emit aboutToBeDeleted();
+        Q_EMIT aboutToBeDeleted();
         deleteLater();
     }
 }
@@ -307,8 +307,8 @@ void Project::calculate(const DateTime &dt)
         calcResourceOverbooked();
         cs->notScheduled = false;
         calcFreeFloat();
-        emit scheduleChanged(cs);
-        emit projectChanged();
+        Q_EMIT scheduleChanged(cs);
+        Q_EMIT projectChanged();
     } else if (type() == Type_Subproject) {
         warnPlan << "Subprojects not implemented";
     } else {
@@ -318,7 +318,7 @@ void Project::calculate(const DateTime &dt)
 
 void Project::calculate(ScheduleManager &sm)
 {
-    emit sigCalculationStarted(this, &sm);
+    Q_EMIT sigCalculationStarted(this, &sm);
     sm.setScheduling(true);
     m_progress = 0;
     int nodes = 0;
@@ -330,7 +330,7 @@ void Project::calculate(ScheduleManager &sm)
     }
     int maxprogress = nodes * 3;
     if (sm.recalculate()) {
-        emit maxProgress(maxprogress);
+        Q_EMIT maxProgress(maxprogress);
         sm.setMaxProgress(maxprogress);
         incProgress();
         if (sm.parentManager()) {
@@ -340,17 +340,17 @@ void Project::calculate(ScheduleManager &sm)
         incProgress();
         calculate(sm.expected(), sm.recalculateFrom());
     } else {
-        emit maxProgress(maxprogress);
+        Q_EMIT maxProgress(maxprogress);
         sm.setMaxProgress(maxprogress);
         calculate(sm.expected());
-        emit scheduleChanged(sm.expected());
+        Q_EMIT scheduleChanged(sm.expected());
         setCurrentSchedule(sm.expected()->id());
     }
-    emit sigProgress(maxprogress);
-    emit sigCalculationFinished(this, &sm);
-    emit scheduleManagerChanged(&sm);
-    emit projectCalculated(&sm);
-    emit projectChanged();
+    Q_EMIT sigProgress(maxprogress);
+    Q_EMIT sigCalculationFinished(this, &sm);
+    Q_EMIT scheduleManagerChanged(&sm);
+    Q_EMIT projectCalculated(&sm);
+    Q_EMIT projectChanged();
     sm.setScheduling(false);
 }
 
@@ -486,8 +486,8 @@ void Project::finishCalculation(ScheduleManager &sm)
     calcResourceOverbooked();
     cs->notScheduled = false;
     calcFreeFloat();
-    emit scheduleChanged(cs);
-    emit projectChanged();
+    Q_EMIT scheduleChanged(cs);
+    Q_EMIT projectChanged();
     debugPlan<<cs->startTime<<cs->endTime<<"-------------------------";
 }
 
@@ -497,7 +497,7 @@ void Project::setProgress(int progress, ScheduleManager *sm)
     if (sm) {
         sm->setProgress(progress);
     }
-    emit sigProgress(progress);
+    Q_EMIT sigProgress(progress);
 }
 
 void Project::setMaxProgress(int max, ScheduleManager *sm)
@@ -511,12 +511,12 @@ void Project::setMaxProgress(int max, ScheduleManager *sm)
 void Project::incProgress()
 {
     m_progress += 1;
-    emit sigProgress(m_progress);
+    Q_EMIT sigProgress(m_progress);
 }
 
 void Project::emitMaxProgress(int value)
 {
-    emit maxProgress(value);
+    Q_EMIT maxProgress(value);
 }
 
 bool Project::calcCriticalPath(bool fromEnd)
@@ -2034,7 +2034,7 @@ void Project::addResourceGroup(ResourceGroup *group, ResourceGroup *parent, int 
     } else {
         Q_ASSERT(!m_resourceGroups.contains(group));
         int i = index == -1 ? m_resourceGroups.count() : index;
-        emit resourceGroupToBeAdded(this, nullptr, i);
+        Q_EMIT resourceGroupToBeAdded(this, nullptr, i);
         m_resourceGroups.insert(i, group);
         setResourceGroupId(group);
         group->setProject(this);
@@ -2043,9 +2043,9 @@ void Project::addResourceGroup(ResourceGroup *group, ResourceGroup *parent, int 
             setResourceId(r);
             r->setProject(this);
         }
-        emit resourceGroupAdded(group);
+        Q_EMIT resourceGroupAdded(group);
     }
-    emit projectChanged();
+    Q_EMIT projectChanged();
 }
 
 void Project::takeResourceGroup(ResourceGroup *group)
@@ -2063,7 +2063,7 @@ void Project::takeResourceGroup(ResourceGroup *group)
         if (i == -1) {
             return;
         }
-        emit resourceGroupToBeRemoved(this, nullptr, i, group);
+        Q_EMIT resourceGroupToBeRemoved(this, nullptr, i, group);
         ResourceGroup *g = m_resourceGroups.takeAt(i);
         Q_ASSERT(group == g);
         g->setProject(nullptr);
@@ -2071,9 +2071,9 @@ void Project::takeResourceGroup(ResourceGroup *group)
         for (Resource *r : resources) {
             r->removeParentGroup(g);
         }
-        emit resourceGroupRemoved();
+        Q_EMIT resourceGroupRemoved();
     }
-    emit projectChanged();
+    Q_EMIT projectChanged();
 }
 
 QList<ResourceGroup*> &Project::resourceGroups()
@@ -2106,18 +2106,18 @@ void Project::insertResourceGroupId(const QString &id, ResourceGroup* group)
 void Project::addResource(Resource *resource, int index)
 {
     int i = index == -1 ? m_resources.count() : index;
-    emit resourceToBeAdded(this, i);
+    Q_EMIT resourceToBeAdded(this, i);
     setResourceId(resource);
     m_resources.insert(i, resource);
     resource->setProject(this);
-    emit resourceAdded(resource);
-    emit projectChanged();
+    Q_EMIT resourceAdded(resource);
+    Q_EMIT projectChanged();
 }
 
 bool Project::takeResource(Resource *resource)
 {
     int index = m_resources.indexOf(resource);
-    emit resourceToBeRemoved(this, index, resource);
+    Q_EMIT resourceToBeRemoved(this, index, resource);
     bool result = removeResourceId(resource->id());
     Q_ASSERT(result == true);
     if (!result) {
@@ -2129,8 +2129,8 @@ bool Project::takeResource(Resource *resource)
     }
     bool rem = m_resources.removeOne(resource);
     Q_ASSERT(!m_resources.contains(resource));
-    emit resourceRemoved();
-    emit projectChanged();
+    Q_EMIT resourceRemoved();
+    Q_EMIT projectChanged();
     return rem;
 }
 
@@ -2208,14 +2208,14 @@ bool Project::addSubTask(Node* task, int index, Node* parent, bool emitSignal)
         return false;
     }
     int i = index == -1 ? p->numChildren() : index;
-    if (emitSignal) emit nodeToBeAdded(p, i);
+    if (emitSignal) Q_EMIT nodeToBeAdded(p, i);
     p->insertChildNode(i, task);
     connect(this, &Project::standardWorktimeChanged, task, &Node::slotStandardWorktimeChanged);
     if (emitSignal) {
-        emit nodeAdded(task);
-        emit projectChanged();
+        Q_EMIT nodeAdded(task);
+        Q_EMIT projectChanged();
         if (p != this && p->numChildren() == 1) {
-            emit nodeChanged(p, TypeProperty);
+            Q_EMIT nodeChanged(p, TypeProperty);
         }
     }
     return true;
@@ -2230,14 +2230,14 @@ void Project::takeTask(Node *node, bool emitSignal)
         return;
     }
     removeId(node->id());
-    if (emitSignal) emit nodeToBeRemoved(node);
+    if (emitSignal) Q_EMIT nodeToBeRemoved(node);
     disconnect(this, &Project::standardWorktimeChanged, node, &Node::slotStandardWorktimeChanged);
     parent->takeChildNode(node);
     if (emitSignal) {
-        emit nodeRemoved(node);
-        emit projectChanged();
+        Q_EMIT nodeRemoved(node);
+        Q_EMIT projectChanged();
         if (parent != this && parent->type() != Node::Type_Summarytask) {
-            emit nodeChanged(parent, TypeProperty);
+            Q_EMIT nodeChanged(parent, TypeProperty);
         }
     }
 }
@@ -2281,15 +2281,15 @@ bool Project::moveTask(Node* node, Node *newParent, int newPos)
         ++newRow; // itemmodels wants new row *before* node is removed from old position
     }
     debugPlan<<node->name()<<"at"<<oldParent->indexOf(node)<<"to"<<newParent->name()<<i<<newRow<<"("<<newPos<<")";
-    emit nodeToBeMoved(node, oldPos, newParent, newRow);
+    Q_EMIT nodeToBeMoved(node, oldPos, newParent, newRow);
     takeTask(node, false);
     addSubTask(node, i, newParent, false);
-    emit nodeMoved(node);
+    Q_EMIT nodeMoved(node);
     if (oldParent != this && oldParent->numChildren() == 0) {
-        emit nodeChanged(oldParent, TypeProperty);
+        Q_EMIT nodeChanged(oldParent, TypeProperty);
     }
     if (newParent != this && newParent->numChildren() == 1) {
-        emit nodeChanged(newParent, TypeProperty);
+        Q_EMIT nodeChanged(newParent, TypeProperty);
     }
     return true;
 }
@@ -2942,7 +2942,7 @@ void Project::addCalendar(Calendar *calendar, Calendar *parent, int index)
     if (index >= 0 && index < row) {
         row = index;
     }
-    emit calendarToBeAdded(parent, row);
+    Q_EMIT calendarToBeAdded(parent, row);
     calendar->setProject(this);
     if (parent == nullptr) {
         calendar->setParentCal(nullptr); // in case
@@ -2954,13 +2954,13 @@ void Project::addCalendar(Calendar *calendar, Calendar *parent, int index)
         setDefaultCalendar(calendar);
     }
     setCalendarId(calendar);
-    emit calendarAdded(calendar);
-    emit projectChanged();
+    Q_EMIT calendarAdded(calendar);
+    Q_EMIT projectChanged();
 }
 
 void Project::takeCalendar(Calendar *calendar)
 {
-    emit calendarToBeRemoved(calendar);
+    Q_EMIT calendarToBeRemoved(calendar);
     removeCalendarId(calendar->id());
     if (calendar == m_defaultCalendar) {
         m_defaultCalendar = nullptr;
@@ -2973,9 +2973,9 @@ void Project::takeCalendar(Calendar *calendar)
     } else {
         calendar->setParentCal(nullptr);
     }
-    emit calendarRemoved(calendar);
+    Q_EMIT calendarRemoved(calendar);
     calendar->setProject(nullptr);
-    emit projectChanged();
+    Q_EMIT projectChanged();
 }
 
 int Project::indexOf(const Calendar *calendar) const
@@ -3059,8 +3059,8 @@ void Project::setDefaultCalendar(Calendar *cal)
     if (cal) {
         cal->setDefault(true);
     }
-    emit defaultCalendarChanged(cal);
-    emit projectChanged();
+    Q_EMIT defaultCalendarChanged(cal);
+    Q_EMIT projectChanged();
 }
 
 void Project::setStandardWorktime(StandardWorktime * worktime)
@@ -3069,23 +3069,23 @@ void Project::setStandardWorktime(StandardWorktime * worktime)
         delete m_standardWorktime;
         m_standardWorktime = worktime;
         m_standardWorktime->setProject(this);
-        emit standardWorktimeChanged(worktime);
+        Q_EMIT standardWorktimeChanged(worktime);
     }
 }
 
 void Project::emitDocumentAdded(Node *node , Document *doc , int index)
 {
-    emit documentAdded(node, doc, index);
+    Q_EMIT documentAdded(node, doc, index);
 }
 
 void Project::emitDocumentRemoved(Node *node , Document *doc , int index)
 {
-    emit documentRemoved(node, doc, index);
+    Q_EMIT documentRemoved(node, doc, index);
 }
 
 void Project::emitDocumentChanged(Node *node , Document *doc , int index)
 {
-    emit documentChanged(node, doc, index);
+    Q_EMIT documentChanged(node, doc, index);
 }
 
 bool Project::linkExists(const Node *par, const Node *child) const
@@ -3176,8 +3176,8 @@ void Project::setWbsDefinition(const WBSDefinition &def)
 {
     //debugPlan;
     m_wbsDefinition = def;
-    emit wbsDefinitionChanged();
-    emit projectChanged();
+    Q_EMIT wbsDefinitionChanged();
+    Q_EMIT projectChanged();
 }
 
 QString Project::generateWBSCode(QList<int> &indexes, bool sortable) const
@@ -3217,8 +3217,8 @@ void Project::setCurrentSchedule(long id)
     for (Resource *r : m_resources) {
         r->setCurrentSchedule(id);
     }
-    emit currentScheduleChanged();
-    emit projectChanged();
+    Q_EMIT currentScheduleChanged();
+    Q_EMIT projectChanged();
 }
 
 void Project::setCurrentScheduleManager(ScheduleManager *sm)
@@ -3292,10 +3292,10 @@ void Project::addScheduleManager(ScheduleManager *sm, ScheduleManager *parent, i
         row = index;
     }
     if (parent == nullptr) {
-        emit scheduleManagerToBeAdded(parent, row);
+        Q_EMIT scheduleManagerToBeAdded(parent, row);
         m_managers.insert(row, sm);
     } else {
-        emit scheduleManagerToBeAdded(parent, row);
+        Q_EMIT scheduleManagerToBeAdded(parent, row);
         sm->setParentManager(parent, row);
     }
     if (sm->managerId().isEmpty()) {
@@ -3304,8 +3304,8 @@ void Project::addScheduleManager(ScheduleManager *sm, ScheduleManager *parent, i
     Q_ASSERT(! m_managerIdMap.contains(sm->managerId()));
     m_managerIdMap.insert(sm->managerId(), sm);
 
-    emit scheduleManagerAdded(sm);
-    emit projectChanged();
+    Q_EMIT scheduleManagerAdded(sm);
+    Q_EMIT projectChanged();
     //debugPlan<<"Added:"<<sm->name()<<", now"<<m_managers.count();
 }
 
@@ -3322,20 +3322,20 @@ int Project::takeScheduleManager(ScheduleManager *sm)
     if (sm->parentManager()) {
         int index = sm->parentManager()->indexOf(sm);
         if (index >= 0) {
-            emit scheduleManagerToBeRemoved(sm);
+            Q_EMIT scheduleManagerToBeRemoved(sm);
             sm->setParentManager(nullptr);
             m_managerIdMap.remove(sm->managerId());
-            emit scheduleManagerRemoved(sm);
-            emit projectChanged();
+            Q_EMIT scheduleManagerRemoved(sm);
+            Q_EMIT projectChanged();
         }
     } else {
         index = indexOf(sm);
         if (index >= 0) {
-            emit scheduleManagerToBeRemoved(sm);
+            Q_EMIT scheduleManagerToBeRemoved(sm);
             m_managers.removeAt(indexOf(sm));
             m_managerIdMap.remove(sm->managerId());
-            emit scheduleManagerRemoved(sm);
-            emit projectChanged();
+            Q_EMIT scheduleManagerRemoved(sm);
+            Q_EMIT projectChanged();
         }
     }
     return index;
@@ -3343,13 +3343,13 @@ int Project::takeScheduleManager(ScheduleManager *sm)
 
 void Project::swapScheduleManagers(ScheduleManager *from, ScheduleManager *to)
 {
-    emit scheduleManagersSwapped(from, to);
+    Q_EMIT scheduleManagersSwapped(from, to);
 }
 
 void Project::moveScheduleManager(ScheduleManager *sm, ScheduleManager *newparent, int newindex)
 {
     //debugPlan<<sm->name()<<newparent<<newindex;
-    emit scheduleManagerToBeMoved(sm);
+    Q_EMIT scheduleManagerToBeMoved(sm);
     if (! sm->parentManager()) {
         m_managers.removeAt(indexOf(sm));
     }
@@ -3357,7 +3357,7 @@ void Project::moveScheduleManager(ScheduleManager *sm, ScheduleManager *newparen
     if (! newparent) {
         m_managers.insert(newindex, sm);
     }
-    emit scheduleManagerMoved(sm, newindex);
+    Q_EMIT scheduleManagerMoved(sm, newindex);
 }
 
 bool Project::isScheduleManager(void *ptr) const
@@ -3454,8 +3454,8 @@ void Project::changed(Node *node, int property)
         Node::changed(node, property); // reset cache
         if (property != Node::TypeProperty) {
             // add/remove node is handled elsewhere
-            emit nodeChanged(node, property);
-            emit projectChanged();
+            Q_EMIT nodeChanged(node, property);
+            Q_EMIT projectChanged();
         }
         return;
     }
@@ -3465,64 +3465,64 @@ void Project::changed(Node *node, int property)
 void Project::changed(ResourceGroup *group)
 {
     //debugPlan;
-//     emit resourceGroupChanged(group);
-    emit projectChanged();
+//     Q_EMIT resourceGroupChanged(group);
+    Q_EMIT projectChanged();
 }
 
 void Project::changed(ScheduleManager *sm, int property)
 {
-    emit scheduleManagerChanged(sm, property);
-    emit projectChanged();
+    Q_EMIT scheduleManagerChanged(sm, property);
+    Q_EMIT projectChanged();
 }
 
 void Project::changed(MainSchedule *sch)
 {
     //debugPlan<<sch->id();
-    emit scheduleChanged(sch);
-    emit projectChanged();
+    Q_EMIT scheduleChanged(sch);
+    Q_EMIT projectChanged();
 }
 
 void Project::sendScheduleToBeAdded(const ScheduleManager *sm, int row)
 {
-    emit scheduleToBeAdded(sm, row);
+    Q_EMIT scheduleToBeAdded(sm, row);
 }
 
 void Project::sendScheduleAdded(const MainSchedule *sch)
 {
     //debugPlan<<sch->id();
-    emit scheduleAdded(sch);
-    emit projectChanged();
+    Q_EMIT scheduleAdded(sch);
+    Q_EMIT projectChanged();
 }
 
 void Project::sendScheduleToBeRemoved(const MainSchedule *sch)
 {
     //debugPlan<<sch->id();
-    emit scheduleToBeRemoved(sch);
+    Q_EMIT scheduleToBeRemoved(sch);
 }
 
 void Project::sendScheduleRemoved(const MainSchedule *sch)
 {
     //debugPlan<<sch->id();
-    emit scheduleRemoved(sch);
-    emit projectChanged();
+    Q_EMIT scheduleRemoved(sch);
+    Q_EMIT projectChanged();
 }
 
 void Project::changed(Resource *resource)
 {
-//     emit resourceChanged(resource);
-    emit projectChanged();
+//     Q_EMIT resourceChanged(resource);
+    Q_EMIT projectChanged();
 }
 
 void Project::changed(Calendar *cal)
 {
-    emit calendarChanged(cal);
-    emit projectChanged();
+    Q_EMIT calendarChanged(cal);
+    Q_EMIT projectChanged();
 }
 
 void Project::changed(StandardWorktime *w)
 {
-    emit standardWorktimeChanged(w);
-    emit projectChanged();
+    Q_EMIT standardWorktimeChanged(w);
+    Q_EMIT projectChanged();
 }
 
 bool Project::addRelation(Relation *rel, bool check)
@@ -3533,37 +3533,37 @@ bool Project::addRelation(Relation *rel, bool check)
     if (check && !legalToLink(rel->parent(), rel->child())) {
         return false;
     }
-    emit relationToBeAdded(rel, rel->parent()->numDependChildNodes(), rel->child()->numDependParentNodes());
+    Q_EMIT relationToBeAdded(rel, rel->parent()->numDependChildNodes(), rel->child()->numDependParentNodes());
     rel->parent()->addDependChildNode(rel);
     rel->child()->addDependParentNode(rel);
-    emit relationAdded(rel);
-    emit projectChanged();
+    Q_EMIT relationAdded(rel);
+    Q_EMIT projectChanged();
     return true;
 }
 
 void Project::takeRelation(Relation *rel)
 {
-    emit relationToBeRemoved(rel);
+    Q_EMIT relationToBeRemoved(rel);
     rel->parent() ->takeDependChildNode(rel);
     rel->child() ->takeDependParentNode(rel);
-    emit relationRemoved(rel);
-    emit projectChanged();
+    Q_EMIT relationRemoved(rel);
+    Q_EMIT projectChanged();
 }
 
 void Project::setRelationType(Relation *rel, Relation::Type type)
 {
-    emit relationToBeModified(rel);
+    Q_EMIT relationToBeModified(rel);
     rel->setType(type);
-    emit relationModified(rel);
-    emit projectChanged();
+    Q_EMIT relationModified(rel);
+    Q_EMIT projectChanged();
 }
 
 void Project::setRelationLag(Relation *rel, const Duration &lag)
 {
-    emit relationToBeModified(rel);
+    Q_EMIT relationToBeModified(rel);
     rel->setLag(lag);
-    emit relationModified(rel);
-    emit projectChanged();
+    Q_EMIT relationModified(rel);
+    Q_EMIT projectChanged();
 }
 
 QList<Node*> Project::flatNodeList(Node *parent)
@@ -3589,7 +3589,7 @@ void Project::setSchedulerPlugins(const QMap<QString, SchedulerPlugin*> &plugins
 
 void Project::emitLocaleChanged()
 {
-    emit localeChanged();
+    Q_EMIT localeChanged();
 }
 
 bool Project::useSharedResources() const
@@ -3659,7 +3659,7 @@ void Project::setTaskModules(const QList<QUrl> modules, bool useLocalTaskModules
     if (m_useLocalTaskModules && m_localTaskModulesPath.isValid()) {
         m_taskModules.prepend(m_localTaskModulesPath);
     }
-    emit taskModulesChanged(m_taskModules);
+    Q_EMIT taskModulesChanged(m_taskModules);
 }
 
 bool Project::useLocalTaskModules() const
@@ -3677,7 +3677,7 @@ void Project::setUseLocalTaskModules(bool value, bool emitChanged)
         m_taskModules.prepend(m_localTaskModulesPath);
     }
     if (emitChanged) {
-        emit taskModulesChanged(m_taskModules);
+        Q_EMIT taskModulesChanged(m_taskModules);
     }
 }
 
@@ -3688,7 +3688,7 @@ void Project::setLocalTaskModulesPath(const QUrl &url)
     if (m_useLocalTaskModules && url.isValid()) {
         m_taskModules.prepend(url);
     }
-    emit taskModulesChanged(m_taskModules);
+    Q_EMIT taskModulesChanged(m_taskModules);
 }
 
 }  //KPlato namespace

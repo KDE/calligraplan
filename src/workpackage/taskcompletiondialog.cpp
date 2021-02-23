@@ -100,6 +100,6 @@ KUndo2Command *TaskCompletionPanel::buildCommand()
 
 void TaskCompletionPanel::slotChanged()
 {
-    emit changed(true); //FIXME
+    Q_EMIT changed(true); //FIXME
 }
 

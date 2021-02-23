@@ -67,7 +67,7 @@ void DurationSpinBox::setMaximumUnit(Duration::Unit unit)
     }
     if (m_unit < unit) {
         setUnit(unit);
-        emit unitChanged(m_unit);
+        Q_EMIT unitChanged(m_unit);
     }
 }
 
@@ -80,7 +80,7 @@ void DurationSpinBox::setMinimumUnit(Duration::Unit unit)
     }
     if (m_unit > unit) {
         setUnit(unit);
-        emit unitChanged(m_unit);
+        Q_EMIT unitChanged(m_unit);
     }
 }
 
@@ -91,7 +91,7 @@ void DurationSpinBox::stepUnitUp()
         setUnit(static_cast<Duration::Unit>(m_unit - 1));
         // line may change length, make sure cursor stays within unit
         lineEdit()->setCursorPosition(lineEdit()->displayText().length() - suffix().length());
-        emit unitChanged(m_unit);
+        Q_EMIT unitChanged(m_unit);
     }
 }
 
@@ -102,7 +102,7 @@ void DurationSpinBox::stepUnitDown()
         setUnit(static_cast<Duration::Unit>(m_unit + 1));
         // line may change length, make sure cursor stays within unit
         lineEdit()->setCursorPosition(lineEdit()->displayText().length() - suffix().length());
-        emit unitChanged(m_unit);
+        Q_EMIT unitChanged(m_unit);
     }
 }
 
@@ -258,7 +258,7 @@ void DurationSpinBox::updateUnit(Duration::Unit unit)
     }
     if (m_unit != unit) {
         m_unit = unit;
-        emit unitChanged(unit);
+        Q_EMIT unitChanged(unit);
     }
 }
 

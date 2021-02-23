@@ -413,10 +413,10 @@ bool ResourceItemModel::setName(Resource *res, const QVariant &value, int role)
             if (value.toString() == res->name()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceNameCmd(res, value.toString(), kundo2_i18n("Modify resource name")));
+            Q_EMIT executeCommand(new ModifyResourceNameCmd(res, value.toString(), kundo2_i18n("Modify resource name")));
             return true;
         case Qt::CheckStateRole:
-            emit executeCommand(new ModifyResourceAutoAllocateCmd(res, value.toBool(), kundo2_i18n("Modify resource auto allocate")));
+            Q_EMIT executeCommand(new ModifyResourceAutoAllocateCmd(res, value.toBool(), kundo2_i18n("Modify resource auto allocate")));
             return true;
     }
     return false;
@@ -436,7 +436,7 @@ bool ResourceItemModel::setType(Resource *res, const QVariant &value, int role)
             if (v == res->type()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceTypeCmd(res, v, kundo2_i18n("Modify resource type")));
+            Q_EMIT executeCommand(new ModifyResourceTypeCmd(res, v, kundo2_i18n("Modify resource type")));
             return true;
         }
     }
@@ -450,7 +450,7 @@ bool ResourceItemModel::setInitials(Resource *res, const QVariant &value, int ro
             if (value.toString() == res->initials()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceInitialsCmd(res, value.toString(), kundo2_i18n("Modify resource initials")));
+            Q_EMIT executeCommand(new ModifyResourceInitialsCmd(res, value.toString(), kundo2_i18n("Modify resource initials")));
             return true;
     }
     return false;
@@ -463,7 +463,7 @@ bool ResourceItemModel::setEmail(Resource *res, const QVariant &value, int role)
             if (value.toString() == res->email()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceEmailCmd(res, value.toString(), kundo2_i18n("Modify resource email")));
+            Q_EMIT executeCommand(new ModifyResourceEmailCmd(res, value.toString(), kundo2_i18n("Modify resource email")));
             return true;
     }
     return false;
@@ -484,7 +484,7 @@ bool ResourceItemModel::setCalendar(Resource *res, const QVariant &value, int ro
             if (c == res->calendar(true)) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceCalendarCmd(res, c, kundo2_i18n("Modify resource calendar")));
+            Q_EMIT executeCommand(new ModifyResourceCalendarCmd(res, c, kundo2_i18n("Modify resource calendar")));
             return true;
         }
     }
@@ -499,7 +499,7 @@ bool ResourceItemModel::setUnits(Resource *res, const QVariant &value, int role)
             if (value.toInt() == res->units()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceUnitsCmd(res, value.toInt(), kundo2_i18n("Modify resource available units")));
+            Q_EMIT executeCommand(new ModifyResourceUnitsCmd(res, value.toInt(), kundo2_i18n("Modify resource available units")));
             return true;
     }
     return false;
@@ -512,7 +512,7 @@ bool ResourceItemModel::setAvailableFrom(Resource *res, const QVariant &value, i
             if (value.toDateTime() == res->availableFrom()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceAvailableFromCmd(res, value.toDateTime(), kundo2_i18n("Modify resource available from")));
+            Q_EMIT executeCommand(new ModifyResourceAvailableFromCmd(res, value.toDateTime(), kundo2_i18n("Modify resource available from")));
             return true;
     }
     return false;
@@ -525,7 +525,7 @@ bool ResourceItemModel::setAvailableUntil(Resource *res, const QVariant &value, 
             if (value.toDateTime() == res->availableUntil()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceAvailableUntilCmd(res, value.toDateTime(), kundo2_i18n("Modify resource available until")));
+            Q_EMIT executeCommand(new ModifyResourceAvailableUntilCmd(res, value.toDateTime(), kundo2_i18n("Modify resource available until")));
             return true;
     }
     return false;
@@ -538,7 +538,7 @@ bool ResourceItemModel::setNormalRate(Resource *res, const QVariant &value, int 
             if (value.toDouble() == res->normalRate()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceNormalRateCmd(res, value.toDouble(), kundo2_i18n("Modify resource normal rate")));
+            Q_EMIT executeCommand(new ModifyResourceNormalRateCmd(res, value.toDouble(), kundo2_i18n("Modify resource normal rate")));
             return true;
     }
     return false;
@@ -551,7 +551,7 @@ bool ResourceItemModel::setOvertimeRate(Resource *res, const QVariant &value, in
             if (value.toDouble() == res->overtimeRate()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceOvertimeRateCmd(res, value.toDouble(), kundo2_i18n("Modify resource overtime rate")));
+            Q_EMIT executeCommand(new ModifyResourceOvertimeRateCmd(res, value.toDouble(), kundo2_i18n("Modify resource overtime rate")));
             return true;
     }
     return false;
@@ -573,7 +573,7 @@ bool ResourceItemModel::setAccount(Resource *res, const QVariant &value, int rol
             }
             Account *old = res->account();
             if (old != a) {
-                emit executeCommand(new ResourceModifyAccountCmd(*res, old, a, kundo2_i18n("Modify resource account")));
+                Q_EMIT executeCommand(new ResourceModifyAccountCmd(*res, old, a, kundo2_i18n("Modify resource account")));
                 return true;
             }
         }
@@ -729,7 +729,7 @@ void ResourceItemModel::slotCalendarChanged(Calendar*)
 void ResourceItemModel::slotResourceChanged(Resource *resource)
 {
     int row = m_project->indexOf(resource);
-    emit dataChanged(createIndex(row, 0), createIndex(row, columnCount() - 1));
+    Q_EMIT dataChanged(createIndex(row, 0), createIndex(row, columnCount() - 1));
     if (m_teamsEnabled) {
         int offset = 0;
         if (m_groupsEnabled) {
@@ -738,7 +738,7 @@ void ResourceItemModel::slotResourceChanged(Resource *resource)
         for (Resource *r : m_project->resourceList()) {
             if (r->type() == Resource::Type_Team && r->teamMembers().contains(resource)) {
                 int row = r->teamMembers().indexOf(resource) + offset;
-                emit dataChanged(createIndex(row, 0, resource), createIndex(row, columnCount() - 1, resource));
+                Q_EMIT dataChanged(createIndex(row, 0, resource), createIndex(row, columnCount() - 1, resource));
             }
         }
     }
@@ -748,7 +748,7 @@ void ResourceItemModel::slotResourceGroupChanged(ResourceGroup *group)
 {
     for (Resource *r : group->resources()) {
         int row = r->groupIndexOf(group);
-        emit dataChanged(createIndex(row, 0, r), createIndex(row, columnCount() - 1, r));
+        Q_EMIT dataChanged(createIndex(row, 0, r), createIndex(row, columnCount() - 1, r));
     }
 }
 
@@ -874,7 +874,7 @@ bool ResourceItemModel::createResources(ResourceGroup *group, const QByteArray &
         delete m;
         return false;
     }
-    emit executeCommand(m);
+    Q_EMIT executeCommand(m);
     return true;
 #else
     Q_UNUSED(group);
@@ -924,7 +924,7 @@ bool ResourceItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
                 KUndo2MagicString msg = kundo2_i18np("Move resource", "Move %1 resources", i);
                 MacroCommand *c = new MacroCommand(msg);
                 c->addCommand(m);
-                emit executeCommand(c);
+                Q_EMIT executeCommand(c);
             }
             return true;
         }
@@ -944,7 +944,7 @@ bool ResourceItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
                 KUndo2MagicString msg = kundo2_i18np("Copy resource", "Copy %1 resources", i);
                 MacroCommand *c = new MacroCommand(msg);
                 c->addCommand(m);
-                emit executeCommand(c);
+                Q_EMIT executeCommand(c);
             }
             return true;
         }
@@ -1039,7 +1039,7 @@ QMimeData *ResourceItemModel::mimeData(const QModelIndexList & indexes) const
 QModelIndex ResourceItemModel::insertResource(Resource *resource, Resource * /*after*/)
 {
     //debugPlan;
-    emit executeCommand(new AddResourceCmd(m_project, resource, kundo2_i18n("Add resource")));
+    Q_EMIT executeCommand(new AddResourceCmd(m_project, resource, kundo2_i18n("Add resource")));
     int row = m_project->indexOf(resource);
     if (row != -1) {
         return createIndex(row, ResourceModel::ResourceName);

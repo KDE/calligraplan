@@ -439,7 +439,7 @@ bool DocumentItemModel::setData(const QModelIndex &index, const QVariant &value,
             break;
     }
     if (result) {
-        emit dataChanged(index, index);
+        Q_EMIT dataChanged(index, index);
     }
     return result;
 }
@@ -563,7 +563,7 @@ void DocumentItemModel::slotDocumentChanged(Document *doc)
     if (row == -1) {
         return;
     }
-    emit dataChanged(createIndex(row, 0), createIndex(row, columnCount() - 1));
+    Q_EMIT dataChanged(createIndex(row, 0), createIndex(row, columnCount() - 1));
 }
 
 QModelIndex DocumentItemModel::insertDocument(Document *doc, Document *after)

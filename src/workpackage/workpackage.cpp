@@ -132,8 +132,8 @@ bool WorkPackage::addChild(Part */*part*/, const Document *doc)
 void WorkPackage::slotChildModified(bool mod)
 {
     debugPlanWork<<mod;
-    emit modified(isModified());
-    emit saveWorkPackage(this);
+    Q_EMIT modified(isModified());
+    Q_EMIT saveWorkPackage(this);
 }
 
 void WorkPackage::removeChild(DocumentChild *child)

@@ -234,7 +234,7 @@ bool WorkPackageProxyModel::dropMimeData(const QMimeData *data, Qt::DropAction a
             if (f.endsWith(".planwork")) {
                 files << f;
             }
-            emit loadWorkPackage(files);
+            Q_EMIT loadWorkPackage(files);
         }
         return true;
     }
@@ -335,7 +335,7 @@ void WorkPackageProxyModel::setSourceModel(QAbstractItemModel *model)
 
 void WorkPackageProxyModel::sourceDataChanged(const QModelIndex &start, const QModelIndex &end)
 {
-    emit dataChanged(mapFromSource(start), mapFromSource(end));
+    Q_EMIT dataChanged(mapFromSource(start), mapFromSource(end));
 }
 
 void WorkPackageProxyModel::sourceModelAboutToBeReset()

@@ -100,12 +100,12 @@ bool SchedulingModel::setData(const QModelIndex &idx, const QVariant &value, int
                 break;
             case 1: { // Control
                 doc->setProperty(SCHEDULINGCONTROL, m_controlKeys.value(value.toInt()));
-                emit dataChanged(idx, idx);
+                Q_EMIT dataChanged(idx, idx);
                 return true;
             }
             case 2: { // Priority
                 doc->setProperty(SCHEDULINGPRIORITY, value);
-                emit dataChanged(idx, idx);
+                Q_EMIT dataChanged(idx, idx);
                 return true;
             }
             default: {

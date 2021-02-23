@@ -340,7 +340,7 @@ bool CalendarItemModel::setName(Calendar *a, const QVariant &value, int role)
     switch (role) {
         case Qt::EditRole:
             if (value.toString() != a->name()) {
-                emit executeCommand(new CalendarModifyNameCmd(a, value.toString(), kundo2_i18n("Modify calendar name")));
+                Q_EMIT executeCommand(new CalendarModifyNameCmd(a, value.toString(), kundo2_i18n("Modify calendar name")));
                 return true;
             }
             break;
@@ -348,13 +348,13 @@ bool CalendarItemModel::setName(Calendar *a, const QVariant &value, int role)
             switch (value.toInt()) {
                 case Qt::Unchecked:
                     if (a->isDefault()) {
-                        emit executeCommand(new ProjectModifyDefaultCalendarCmd(m_project, nullptr, kundo2_i18n("De-select as default calendar")));
+                        Q_EMIT executeCommand(new ProjectModifyDefaultCalendarCmd(m_project, nullptr, kundo2_i18n("De-select as default calendar")));
                         return true;
                     }
                     break;
                 case Qt::Checked:
                     if (! a->isDefault()) {
-                        emit executeCommand(new ProjectModifyDefaultCalendarCmd(m_project, a, kundo2_i18n("Select as default calendar")));
+                        Q_EMIT executeCommand(new ProjectModifyDefaultCalendarCmd(m_project, a, kundo2_i18n("Select as default calendar")));
                         return true;
                     }
                     break;
@@ -414,7 +414,7 @@ bool CalendarItemModel::setTimeZone(Calendar *a, const QVariant &value, int role
             if (!tz.isValid()) {
                 return false;
             }
-            emit executeCommand(new CalendarModifyTimeZoneCmd(a, tz, kundo2_i18n("Modify calendar timezone")));
+            Q_EMIT executeCommand(new CalendarModifyTimeZoneCmd(a, tz, kundo2_i18n("Modify calendar timezone")));
             return true;
         }
     }
@@ -484,7 +484,7 @@ bool CalendarItemModel::setHolidayRegion(Calendar *a, const QVariant &value, int
             if (a->holidayRegionCode() == code || (code == "None" && a->holidayRegionCode().isEmpty())) {
                 return false;
             }
-            emit executeCommand(new CalendarModifyHolidayRegionCmd(a, code, kundo2_i18n("Modify calendar holiday region")));
+            Q_EMIT executeCommand(new CalendarModifyHolidayRegionCmd(a, code, kundo2_i18n("Modify calendar holiday region")));
             return true;
         }
     }
@@ -580,10 +580,10 @@ void CalendarItemModel::slotCalendarChanged(Calendar *calendar)
     Calendar *par = calendar->parentCal();
     if (par) {
         int row = par->indexOf(calendar);
-        emit dataChanged(createIndex(row, 0, calendar), createIndex(row, columnCount() - 1, calendar));
+        Q_EMIT dataChanged(createIndex(row, 0, calendar), createIndex(row, columnCount() - 1, calendar));
     } else {
         int row = m_project->indexOf(calendar);
-        emit dataChanged(createIndex(row, 0, calendar), createIndex(row, columnCount() - 1, calendar));
+        Q_EMIT dataChanged(createIndex(row, 0, calendar), createIndex(row, columnCount() - 1, calendar));
     }
 }
 
@@ -647,7 +647,7 @@ bool CalendarItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
             }
         }
         if (cmd) {
-            emit executeCommand(cmd);
+            Q_EMIT executeCommand(cmd);
             return true;
         }
         //debugPlan<<row<<","<<column<<" parent="<<parent.row()<<","<<parent.column()<<":"<<par->name();
@@ -698,7 +698,7 @@ bool CalendarItemModel::dropAllowed(Calendar *on, const QMimeData *data)
 QModelIndex CalendarItemModel::insertCalendar (Calendar *calendar, int pos, Calendar *parent)
 {
     //debugPlan<<calendar<<pos<<parent;
-    emit executeCommand(new CalendarAddCmd(m_project, calendar, pos, parent, kundo2_i18n("Add calendar")));
+    Q_EMIT executeCommand(new CalendarAddCmd(m_project, calendar, pos, parent, kundo2_i18n("Add calendar")));
     int row = -1;
     if (parent) {
         row = parent->indexOf(calendar);
@@ -721,7 +721,7 @@ void CalendarItemModel::removeCalendar(Calendar *calendar)
     if (calendar == nullptr) {
         return;
     }
-    emit executeCommand(new CalendarRemoveCmd(m_project, calendar, kundo2_i18n("Delete calendar")));
+    Q_EMIT executeCommand(new CalendarRemoveCmd(m_project, calendar, kundo2_i18n("Delete calendar")));
 }
 
 
@@ -743,7 +743,7 @@ void CalendarDayItemModel::slotWorkIntervalAdded(CalendarDay *day, TimeInterval 
     if (c == -1) {
         return;
     }
-    emit dataChanged(createIndex(0, c, day), createIndex(0, c, day));
+    Q_EMIT dataChanged(createIndex(0, c, day), createIndex(0, c, day));
 }
 
 void CalendarDayItemModel::slotWorkIntervalRemoved(CalendarDay *day, TimeInterval *ti)
@@ -753,7 +753,7 @@ void CalendarDayItemModel::slotWorkIntervalRemoved(CalendarDay *day, TimeInterva
     if (c == -1) {
         return;
     }
-    emit dataChanged(createIndex(0, c, day), createIndex(0, c, day));
+    Q_EMIT dataChanged(createIndex(0, c, day), createIndex(0, c, day));
 }
 
 void CalendarDayItemModel::slotDayChanged(CalendarDay *day)
@@ -763,7 +763,7 @@ void CalendarDayItemModel::slotDayChanged(CalendarDay *day)
         return;
     }
     debugPlan<<day<<", "<<c;
-    emit dataChanged(createIndex(0, c, day), createIndex(0, c, day));
+    Q_EMIT dataChanged(createIndex(0, c, day), createIndex(0, c, day));
 }
 
 void CalendarDayItemModel::slotTimeIntervalChanged(TimeInterval *ti)
@@ -774,7 +774,7 @@ void CalendarDayItemModel::slotTimeIntervalChanged(TimeInterval *ti)
         return;
     }
     int row = d->indexOf(ti);
-    emit dataChanged(createIndex(row, 0, ti), createIndex(row, columnCount() - 1, ti));*/
+    Q_EMIT dataChanged(createIndex(row, 0, ti), createIndex(row, columnCount() - 1, ti));*/
 }
 
 void CalendarDayItemModel::setCalendar(Calendar *calendar)
@@ -921,7 +921,7 @@ bool CalendarDayItemModel::setDayState(CalendarDay *d, const QVariant &value, in
     switch (role) {
         case Qt::EditRole:
             int v = value.toInt();
-            emit executeCommand(new CalendarModifyStateCmd(m_calendar, d, static_cast<CalendarDay::State>(v), kundo2_i18n("Modify calendar state")));
+            Q_EMIT executeCommand(new CalendarModifyStateCmd(m_calendar, d, static_cast<CalendarDay::State>(v), kundo2_i18n("Modify calendar state")));
             return true;
     }
     return false;
@@ -1102,7 +1102,7 @@ void DateTableDataModel::setCalendar(Calendar *calendar)
         connect(m_calendar, &Calendar::dayRemoved, this, &KDateTableDataModel::reset);
         connect(m_calendar, static_cast<void (Calendar::*)(KPlato::CalendarDay*)>(&Calendar::changed), this, &DateTableDataModel::reset);
     }
-    emit reset();
+    Q_EMIT reset();
 }
 
 QVariant DateTableDataModel::data(const Calendar &cal, const QDate &date, int role) const
@@ -1360,7 +1360,7 @@ bool CalendarExtendedItemModel::setData(const QModelIndex &index, const QVariant
                     return false;
                 }
                 CalendarModifyWeekdayCmd *cmd = new CalendarModifyWeekdayCmd(cal, wd, day, kundo2_i18n("Modify calendar weekday"));
-                emit executeCommand(cmd);
+                Q_EMIT executeCommand(cmd);
                 return true;
             }
             if (lst.count() % 2 == 0) {
@@ -1384,7 +1384,7 @@ bool CalendarExtendedItemModel::setData(const QModelIndex &index, const QVariant
                 day->addInterval(t1, length);
             }
             CalendarModifyWeekdayCmd *cmd = new CalendarModifyWeekdayCmd(cal, wd, day, kundo2_i18n("Modify calendar weekday"));
-            emit executeCommand(cmd);
+            Q_EMIT executeCommand(cmd);
             return true;
         }
         case 1: { // day
@@ -1412,7 +1412,7 @@ bool CalendarExtendedItemModel::setData(const QModelIndex &index, const QVariant
                     return false;
                 }
                 CalendarModifyDayCmd *cmd = new CalendarModifyDayCmd(cal, day, kundo2_i18n("Modify calendar date"));
-                emit executeCommand(cmd);
+                Q_EMIT executeCommand(cmd);
                 return true;
             }
             if (lst.count() % 2 == 0) {
@@ -1436,7 +1436,7 @@ bool CalendarExtendedItemModel::setData(const QModelIndex &index, const QVariant
                 day->addInterval(t1, length);
             }
             CalendarModifyDayCmd *cmd = new CalendarModifyDayCmd(cal, day, kundo2_i18n("Modify calendar date"));
-            emit executeCommand(cmd);
+            Q_EMIT executeCommand(cmd);
             return true;
         }
     }

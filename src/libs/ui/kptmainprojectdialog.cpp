@@ -56,7 +56,7 @@ MainProjectDialog::MainProjectDialog(Project &p, QWidget *parent, bool edit)
 
 void MainProjectDialog::slotRejected()
 {
-    emit dialogFinished(QDialog::Rejected);
+    Q_EMIT dialogFinished(QDialog::Rejected);
 }
 
 void MainProjectDialog::slotOk() {
@@ -73,9 +73,9 @@ void MainProjectDialog::slotOk() {
             place.append('/');
         }
         QUrl url(place);
-        emit sigLoadSharedResources(file, url, panel->projectsLoadAtStartup->isChecked());
+        Q_EMIT sigLoadSharedResources(file, url, panel->projectsLoadAtStartup->isChecked());
     }
-    emit dialogFinished(QDialog::Accepted);
+    Q_EMIT dialogFinished(QDialog::Accepted);
 }
 
 MacroCommand *MainProjectDialog::buildCommand() {

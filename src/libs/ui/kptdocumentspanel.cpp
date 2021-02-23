@@ -92,7 +92,7 @@ void DocumentsPanel::dataChanged(const QModelIndex &index)
         return;
     }
     m_state.insert(doc, (State)(m_state[ doc ] | Modified));
-    emit changed(true);
+    Q_EMIT changed(true);
     debugPlan<<index<<doc<<m_state[ doc ];
 }
 
@@ -133,7 +133,7 @@ void DocumentsPanel::slotAddUrl()
             m_docs.addDocument(doc);
             m_state.insert(doc, Added);
             model()->setDocuments(&m_docs); // refresh
-            emit changed(true);
+            Q_EMIT changed(true);
         }
     }
     delete dlg;
@@ -157,7 +157,7 @@ void DocumentsPanel::slotChangeUrl()
                 doc->setUrl(dlg->selectedUrl());
                 m_state.insert(doc, (State)(m_state[ doc ] | Modified));
                 model()->setDocuments(&m_docs);
-                emit changed(true);
+                Q_EMIT changed(true);
                 debugPlan<<"State: "<<doc->url()<<" : "<<m_state[ doc ];
             }
         }
@@ -183,7 +183,7 @@ void DocumentsPanel::slotRemoveUrl()
     }
     if (mod) {
         model()->setDocuments(&m_docs); // refresh
-        emit changed(true);
+        Q_EMIT changed(true);
     }
 }
 

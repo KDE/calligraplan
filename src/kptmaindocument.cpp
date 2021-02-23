@@ -271,7 +271,7 @@ void MainDocument::setProject(Project *project)
     setTaskModulesWatch();
     connect(project, &Project::taskModulesChanged, this, &MainDocument::setTaskModulesWatch);
 
-    emit changed();
+    Q_EMIT changed();
 }
 
 void MainDocument::setTaskModulesWatch()
@@ -348,7 +348,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
         if (updater) {
             updater->setProgress(100); // the rest is only processing, not loading
         }
-        emit changed();
+        Q_EMIT changed();
         return ok;
     }
     if (value != "application/x-vnd.kde.plan") {
@@ -376,7 +376,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
     }
 
     setModified(false);
-    emit changed();
+    Q_EMIT changed();
     return true;
 }
 
@@ -493,11 +493,11 @@ bool MainDocument::saveWorkPackageUrl(const QUrl &_url, const Node *node, long i
 {
     debugPlanWp<<_url;
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    emit statusBarMessage(i18n("Saving..."));
+    Q_EMIT statusBarMessage(i18n("Saving..."));
     bool ret = false;
     ret = saveWorkPackageFormat(_url.path(), node, id, resource); // kzip don't handle file://
     QApplication::restoreOverrideCursor();
-    emit clearStatusBarMessage();
+    Q_EMIT clearStatusBarMessage();
     return ret;
 }
 
@@ -762,7 +762,7 @@ void MainDocument::checkForWorkPackage()
         }
         // Merge our workpackages
         if (! m_workpackages.isEmpty()) {
-            emit workPackageLoaded();
+            Q_EMIT workPackageLoaded();
         }
         m_checkingForWorkPackages = false;
     }
@@ -930,7 +930,7 @@ bool MainDocument::completeSaving(KoStore *store)
                 (void)store->close();
 
                 m_viewlistModified = false;
-                emit viewlistModified(false);
+                Q_EMIT viewlistModified(false);
             }
             break;
         }
@@ -1174,7 +1174,7 @@ void MainDocument::insertSharedProjectCompleted()
         insertSharedResourceAssignments(doc->project());
         doc->documentPart()->deleteLater(); // also deletes document
         m_isLoading = false;
-        emit insertSharedProject(); // do next file
+        Q_EMIT insertSharedProject(); // do next file
     } else {
         KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
         m_isLoading = false;
@@ -1475,7 +1475,7 @@ bool MainDocument::mergeResources(Project &project)
 void MainDocument::insertViewListItem(View */*view*/, const ViewListItem *item, const ViewListItem *parent, int index)
 {
     // FIXME callers should take care that they now get a signal even if originating from themselves
-    emit viewListItemAdded(item, parent, index);
+    Q_EMIT viewListItemAdded(item, parent, index);
     setModified(true);
     m_viewlistModified = true;
 }
@@ -1483,7 +1483,7 @@ void MainDocument::insertViewListItem(View */*view*/, const ViewListItem *item, 
 void MainDocument::removeViewListItem(View */*view*/, const ViewListItem *item)
 {
     // FIXME callers should take care that they now get a signal even if originating from themselves
-    emit viewListItemRemoved(item);
+    Q_EMIT viewListItemRemoved(item);
     setModified(true);
     m_viewlistModified = true;
 }

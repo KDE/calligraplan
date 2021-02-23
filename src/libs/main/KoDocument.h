@@ -650,7 +650,7 @@ Q_SIGNALS:
 
     /**
      * Progress info while loading or saving. The value is in percents (i.e. a number between 0 and 100)
-     * Your KoDocument-derived class should emit the signal now and then during load/save.
+     * Your KoDocument-derived class should Q_EMIT the signal now and then during load/save.
      * KoMainWindow will take care of displaying a progress bar automatically.
      */
     void sigProgress(int value);

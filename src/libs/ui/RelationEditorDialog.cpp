@@ -90,7 +90,7 @@ BaseDelegate::BaseDelegate(QObject *parent)
 
 void BaseDelegate::slotEditorDestroyed(QObject*)
 {
-    emit const_cast<BaseDelegate*>(this)->editModeChanged(false);
+    Q_EMIT const_cast<BaseDelegate*>(this)->editModeChanged(false);
 }
 
 PredeccessorDelegate::PredeccessorDelegate(Project *project, Node *task, QObject *parent)
@@ -105,7 +105,7 @@ QWidget *PredeccessorDelegate::createEditor(QWidget *parent, const QStyleOptionV
     QComboBox *editor = new QComboBox(parent);
     editor->installEventFilter(const_cast<PredeccessorDelegate*>(this));
     connect(editor, &QComboBox::destroyed, this, &BaseDelegate::slotEditorDestroyed);
-    emit const_cast<PredeccessorDelegate*>(this)->editModeChanged(true);
+    Q_EMIT const_cast<PredeccessorDelegate*>(this)->editModeChanged(true);
     return editor;
 }
 
@@ -150,7 +150,7 @@ QWidget *TypeDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem 
     QComboBox *editor = new QComboBox(parent);
     editor->installEventFilter(const_cast<TypeDelegate*>(this));
     connect(editor, &QComboBox::destroyed, this, &BaseDelegate::slotEditorDestroyed);
-    emit const_cast<TypeDelegate*>(this)->editModeChanged(true);
+    Q_EMIT const_cast<TypeDelegate*>(this)->editModeChanged(true);
     return editor;
 }
 
@@ -185,7 +185,7 @@ QWidget *LagDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &
     DurationSpinBox *editor = new DurationSpinBox(parent);
     editor->installEventFilter(const_cast<LagDelegate*>(this));
     connect(editor, &QComboBox::destroyed, this, &BaseDelegate::slotEditorDestroyed);
-    emit const_cast<LagDelegate*>(this)->editModeChanged(true);
+    Q_EMIT const_cast<LagDelegate*>(this)->editModeChanged(true);
     return editor;
 }
 

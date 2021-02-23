@@ -301,14 +301,14 @@ bool AddViewPanel::ok()
             errorPlan<<"Unknown view type!";
             break;
     }
-    emit viewCreated(v);
+    Q_EMIT viewCreated(v);
     return true;
 }
 
 void AddViewPanel::changed()
 {
     bool disable = widget.viewname->text().isEmpty() | widget.viewtype->currentText().isEmpty() | widget.category->currentText().isEmpty();
-    emit enableButtonOk(! disable);
+    Q_EMIT enableButtonOk(! disable);
 }
 
 //------------------------
@@ -407,7 +407,7 @@ bool EditViewPanel::ok()
 void EditViewPanel::changed()
 {
     bool disable = widget.viewname->text().isEmpty() | widget.category->currentText().isEmpty();
-    emit enableButtonOk(! disable);
+    Q_EMIT enableButtonOk(! disable);
 }
 
 void EditViewPanel::categoryChanged()
@@ -506,7 +506,7 @@ bool EditCategoryPanel::ok()
 void EditCategoryPanel::changed()
 {
     bool disable = widget.viewname->text().isEmpty();
-    emit enableButtonOk(! disable);
+    Q_EMIT enableButtonOk(! disable);
 }
 
 void EditCategoryPanel::fillAfter()
@@ -679,14 +679,14 @@ bool AddReportsViewPanel::ok()
             errorPlan<<"Unknown view type!";
             break;
     }
-    emit viewCreated(v);
+    Q_EMIT viewCreated(v);
     return true;
 }
 
 void AddReportsViewPanel::changed()
 {
     bool disable = widget.viewname->text().isEmpty() | widget.viewtype->currentText().isEmpty() | widget.category->currentText().isEmpty();
-    emit enableButtonOk(! disable);
+    Q_EMIT enableButtonOk(! disable);
 }
 #endif
 

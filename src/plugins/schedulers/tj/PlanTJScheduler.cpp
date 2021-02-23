@@ -71,7 +71,7 @@ PlanTJScheduler::PlanTJScheduler(Project *project, ScheduleManager *sm, ulong gr
     connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
 
     connect(this, &PlanTJScheduler::sigCalculationStarted, project, &KPlato::Project::sigCalculationStarted);
-    emit sigCalculationStarted(project, sm);
+    Q_EMIT sigCalculationStarted(project, sm);
 
     connect(this, &PlanTJScheduler::sigCalculationFinished, project, &KPlato::Project::sigCalculationFinished);
 }
@@ -90,7 +90,7 @@ PlanTJScheduler::PlanTJScheduler(QObject *parent)
     //connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
     
 //     connect(this, &PlanTJScheduler::sigCalculationStarted, project, &KPlato::Project::sigCalculationStarted);
-//     emit sigCalculationStarted(project, sm);
+//     Q_EMIT sigCalculationStarted(project, sm);
 //     
 //     connect(this, &PlanTJScheduler::sigCalculationFinished, project, &KPlato::Project::sigCalculationFinished);
 }

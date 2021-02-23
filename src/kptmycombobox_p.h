@@ -32,7 +32,7 @@ class MyComboBox : public KComboBox
 public:
     explicit MyComboBox(QWidget *parent = nullptr) : KComboBox(parent) {}
 
-    void emitActivated(int i) { emit activated(i); }
+    void emitActivated(int i) { Q_EMIT activated(i); }
 
 };
 

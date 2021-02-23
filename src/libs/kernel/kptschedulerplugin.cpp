@@ -386,7 +386,7 @@ void SchedulerThread::setMaxProgress(int value)
     m_maxprogressMutex.lock();
     m_maxprogress = value;
     m_maxprogressMutex.unlock();
-    emit maxProgressChanged(value, m_mainmanager);
+    Q_EMIT maxProgressChanged(value, m_mainmanager);
 }
 
 int SchedulerThread::maxProgress() const
@@ -400,7 +400,7 @@ void SchedulerThread::setProgress(int value)
     m_progressMutex.lock();
     m_progress = value;
     m_progressMutex.unlock();
-    emit progressChanged(value, m_mainmanager);
+    Q_EMIT progressChanged(value, m_mainmanager);
 }
 
 int SchedulerThread::progress() const
@@ -433,7 +433,7 @@ QMap<int, QString> SchedulerThread::phaseNames() const
 
 void SchedulerThread::slotStarted()
 {
-    emit jobStarted(this);
+    Q_EMIT jobStarted(this);
 }
 
 void SchedulerThread::slotFinished()
@@ -441,7 +441,7 @@ void SchedulerThread::slotFinished()
     if (m_haltScheduling) {
         deleteLater();
     } else {
-        emit jobFinished(this);
+        Q_EMIT jobFinished(this);
     }
 }
 

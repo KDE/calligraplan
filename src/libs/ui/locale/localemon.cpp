@@ -75,32 +75,32 @@ void LocaleConfigMoney::slotLocaleChanged()
 
 void LocaleConfigMoney::slotMonCurSymChanged(const QString &/*t*/)
 {
-  emit localeChanged();
+  Q_EMIT localeChanged();
 }
 
 void LocaleConfigMoney::slotMonFraDigChanged(int /*value*/)
 {
-  emit localeChanged();
+  Q_EMIT localeChanged();
 }
 
 void LocaleConfigMoney::slotMonPosPreCurSymChanged()
 {
-  emit localeChanged();
+  Q_EMIT localeChanged();
 }
 
 void LocaleConfigMoney::slotMonNegPreCurSymChanged()
 {
-  emit localeChanged();
+  Q_EMIT localeChanged();
 }
 
 void LocaleConfigMoney::slotMonPosMonSignPosChanged(int /*i*/)
 {
-  emit localeChanged();
+  Q_EMIT localeChanged();
 }
 
 void LocaleConfigMoney::slotMonNegMonSignPosChanged(int /*i*/)
 {
-  emit localeChanged();
+  Q_EMIT localeChanged();
 }
 
 

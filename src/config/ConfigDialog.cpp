@@ -65,15 +65,15 @@ ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton
 
 void ConfigDialog::updateSettings()
 {
-    emit updateWidgetsSettings();
+    Q_EMIT updateWidgetsSettings();
 
     KPlatoSettings::self()->save();
-    emit settingsUpdated();
+    Q_EMIT settingsUpdated();
 }
 
 void ConfigDialog::updateWidgets()
 {
-    emit updateWidgetsData();
+    Q_EMIT updateWidgetsData();
 }
 
 bool ConfigDialog::hasChanged()

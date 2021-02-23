@@ -251,7 +251,7 @@ void KUndo2View::setEmptyLabel(const QString &label)
     bool changed = d->model->emptyLabel() != label;
     d->model->setEmptyLabel(label);
     if (changed) {
-        emit emptyLabelChanged();
+        Q_EMIT emptyLabelChanged();
     }
 }
 
@@ -274,7 +274,7 @@ QString KUndo2View::emptyLabel() const
 void KUndo2View::setCleanIcon(const QIcon &icon)
 {
     d->model->setCleanIcon(icon);
-    emit cleanIconChanged();
+    Q_EMIT cleanIconChanged();
 }
 
 QIcon KUndo2View::cleanIcon() const

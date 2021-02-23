@@ -179,13 +179,13 @@ Project::~Project()
 void
 Project::setProgressInfo(const QString& i)
 {
-    emit updateProgressInfo(i);
+    Q_EMIT updateProgressInfo(i);
 }
 
 void
 Project::setProgressBar(int i, int of)
 {
-    emit updateProgressBar(i, of);
+    Q_EMIT updateProgressBar(i, of);
 }
 
 bool

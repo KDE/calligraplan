@@ -155,7 +155,7 @@ void KPlatoRCPSPlugin::slotFinished(SchedulerThread *j)
     if (m_jobs.isEmpty()) {
         m_synctimer.stop();
     }
-    emit sigCalculationFinished(mp, sm);
+    Q_EMIT sigCalculationFinished(mp, sm);
 
     disconnect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
     disconnect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), mp, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));

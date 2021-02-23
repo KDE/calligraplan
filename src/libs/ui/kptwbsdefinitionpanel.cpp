@@ -155,7 +155,7 @@ bool WBSDefinitionPanel::ok() {
 }
 
 void WBSDefinitionPanel::slotChanged() {
-    emit changed(true);
+    Q_EMIT changed(true);
 }
 
 void WBSDefinitionPanel::slotSelectionChanged() {

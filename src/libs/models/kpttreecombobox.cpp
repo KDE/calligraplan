@@ -150,7 +150,7 @@ void TreeComboBox::updateCurrentIndexes(const QModelIndexList &lst)
         return;
     }
     m_currentIndexes = x;
-    emit changed();
+    Q_EMIT changed();
 }
 
 } //namespace KPlato

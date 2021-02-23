@@ -237,7 +237,7 @@ void ResourceEditor::slotContextMenuRequested(const QModelIndex &index, const QP
         m_view->setContextMenuIndex(QModelIndex());
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -267,7 +267,7 @@ void ResourceEditor::slotSelectionChanged(const QModelIndexList &lst)
     if (idxs.count() == 1) {
         r = resource(idxs.at(0));
     }
-    emit resourceSelected(r);
+    Q_EMIT resourceSelected(r);
 
     //debugPlan<<list.count();
     updateActionsEnabled();
@@ -322,7 +322,7 @@ void ResourceEditor::slotSplitView()
 {
     debugPlan;
     m_view->setViewSplitMode(! m_view->isViewSplit());
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 void ResourceEditor::slotOptions()
@@ -356,7 +356,7 @@ void ResourceEditor::slotDeleteSelection()
     }
     //debugPlan<<lst.count()<<" objects";
     if (! lst.isEmpty()) {
-        emit deleteObjectList(lst);
+        Q_EMIT deleteObjectList(lst);
         QModelIndex i = m_view->selectionModel()->currentIndex();
         if (i.isValid()) {
             m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);

@@ -1049,15 +1049,15 @@ CalendarDay *Calendar::findDay(QDate date, bool skipUndefined) const {
 void Calendar::setState(CalendarDay *day, CalendarDay::State state)
 {
     day->setState(state);
-    emit changed(day);
+    Q_EMIT changed(day);
     incCacheVersion();
 }
 
 void Calendar::addWorkInterval(CalendarDay *day, TimeInterval *ti)
 {
-    emit workIntervalToBeAdded(day, ti, day->numIntervals());
+    Q_EMIT workIntervalToBeAdded(day, ti, day->numIntervals());
     day->addInterval(ti);
-    emit workIntervalAdded(day, ti);
+    Q_EMIT workIntervalAdded(day, ti);
     incCacheVersion();
 }
 
@@ -1066,9 +1066,9 @@ void Calendar::takeWorkInterval(CalendarDay *day, TimeInterval *ti)
     if (!day->hasInterval(ti)) {
         return;
     }
-    emit workIntervalToBeRemoved(day, ti);
+    Q_EMIT workIntervalToBeRemoved(day, ti);
     day->removeInterval(ti);
-    emit workIntervalRemoved(day, ti);
+    Q_EMIT workIntervalRemoved(day, ti);
     incCacheVersion();
     return;
 }
@@ -1076,14 +1076,14 @@ void Calendar::takeWorkInterval(CalendarDay *day, TimeInterval *ti)
 void Calendar::setWorkInterval(TimeInterval *ti, const TimeInterval &value)
 {
     *ti = value;
-    emit changed(ti);
+    Q_EMIT changed(ti);
     incCacheVersion();
 }
 
 void Calendar::setDate(CalendarDay *day, QDate date)
 {
     day->setDate(date);
-    emit changed(day);
+    Q_EMIT changed(day);
     incCacheVersion();
 }
 
@@ -1110,18 +1110,18 @@ void Calendar::setWeekday(int dayno, const CalendarDay &day)
     CalendarDay *wd = weekday(dayno);
     while (! wd->timeIntervals().isEmpty()) {
         TimeInterval *ti = wd->timeIntervals().constLast();
-        emit workIntervalToBeRemoved(wd, ti);
+        Q_EMIT workIntervalToBeRemoved(wd, ti);
         wd->removeInterval(ti);
-        emit workIntervalRemoved(wd, ti);
+        Q_EMIT workIntervalRemoved(wd, ti);
     }
     wd->setState(day.state());
-    emit changed(wd);
+    Q_EMIT changed(wd);
     const auto intervals = day.timeIntervals();
     for (TimeInterval *ti : intervals) {
         TimeInterval *t = new TimeInterval(*ti);
-        emit workIntervalToBeAdded(wd, t, wd->numIntervals()); // hmmmm
+        Q_EMIT workIntervalToBeAdded(wd, t, wd->numIntervals()); // hmmmm
         wd->addInterval(t);
-        emit workIntervalAdded(wd, t);
+        Q_EMIT workIntervalAdded(wd, t);
     }
     incCacheVersion();
 }
@@ -1515,9 +1515,9 @@ void Calendar::insertId(const QString &id){
 
 void Calendar::addDay(CalendarDay *day)
 {
-    emit dayToBeAdded(day, 0);
+    Q_EMIT dayToBeAdded(day, 0);
     m_days.insert(0, day);
-    emit dayAdded(day);
+    Q_EMIT dayAdded(day);
     incCacheVersion();
 }
 
@@ -1527,9 +1527,9 @@ CalendarDay *Calendar::takeDay(CalendarDay *day)
     if (i == -1) {
         return nullptr;
     }
-    emit dayToBeRemoved(day);
+    Q_EMIT dayToBeRemoved(day);
     m_days.removeAt(i);
-    emit dayRemoved(day);
+    Q_EMIT dayRemoved(day);
     incCacheVersion();
     return day;
 }
@@ -1607,7 +1607,7 @@ void Calendar::setHolidayRegion(const QString &code)
         m_region = new KHolidays::HolidayRegion(code);
     }
     debugPlan<<code<<"->"<<m_regionCode<<m_region->isValid();
-    emit changed(static_cast<CalendarDay*>(nullptr));
+    Q_EMIT changed(static_cast<CalendarDay*>(nullptr));
     if (m_project) {
         m_project->changed(this);
     }

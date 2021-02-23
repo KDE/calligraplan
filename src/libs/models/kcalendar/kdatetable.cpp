@@ -518,7 +518,7 @@ void KDateTable::keyPressEvent(QKeyEvent *e)
         break;
     case Qt::Key_Return:
     case Qt::Key_Enter:
-        emit tableClicked();
+        Q_EMIT tableClicked();
         break;
     case Qt::Key_Control:
     case Qt::Key_Alt:
@@ -574,10 +574,10 @@ void KDateTable::keyPressEvent(QKeyEvent *e)
         {
             QMenu *menu = new QMenu();
             if (d->m_selectionmode == ExtendedSelection) {
-                emit aboutToShowContextMenu(menu, d->m_selectedDates);
+                Q_EMIT aboutToShowContextMenu(menu, d->m_selectedDates);
             } else {
                 menu->setTitle(QLocale().toString(d->m_date, QLocale::ShortFormat));
-                emit aboutToShowContextMenu(menu, d->m_date);
+                Q_EMIT aboutToShowContextMenu(menu, d->m_date);
             }
             if (menu->isEmpty()) {
                 delete menu;
@@ -797,7 +797,7 @@ void KDateTable::mousePressEvent(QMouseEvent *e)
                 d->m_selectedDates.clear();
                 d->m_selectedDates << clickedDate;
             }
-            emit selectionChanged(d->m_selectedDates);
+            Q_EMIT selectionChanged(d->m_selectedDates);
             break;
         default: break;
     }
@@ -812,15 +812,15 @@ void KDateTable::mousePressEvent(QMouseEvent *e)
     // much here
     update();
   }
-  emit tableClicked();
+  Q_EMIT tableClicked();
 
   if (e->button() == Qt::RightButton && d->m_popupMenuEnabled) {
         QMenu *menu = new QMenu();
         if (d->m_selectionmode == ExtendedSelection) {
-            emit aboutToShowContextMenu(menu, d->m_selectedDates);
+            Q_EMIT aboutToShowContextMenu(menu, d->m_selectedDates);
         } else {
             menu->setTitle(QLocale().toString(clickedDate, QLocale::ShortFormat));
-            emit aboutToShowContextMenu(menu, clickedDate);
+            Q_EMIT aboutToShowContextMenu(menu, clickedDate);
         }
         menu->popup(e->globalPos());
   }
@@ -840,15 +840,15 @@ bool KDateTable::setDate(const QDate& date_)
             QDate dt(date_.year(), date_.month(), 1);
             d->m_weekDayFirstOfMonth = dt.dayOfWeek();
         }
-        emit dateChanged(oldDate, date_);
-        emit dateChanged(date_);
+        Q_EMIT dateChanged(oldDate, date_);
+        Q_EMIT dateChanged(date_);
     }
 
     if (d->m_selectionmode == KDateTable::SingleSelection)
     {
         d->m_selectedDates.clear();
         d->m_selectedDates << date_;
-        emit selectionChanged(d->m_selectedDates);
+        Q_EMIT selectionChanged(d->m_selectedDates);
     }
 
     update();

@@ -195,7 +195,7 @@ void ReportView::slotViewReport()
         reportWidget()->loadXML(reportDesigner()->document());
     }
     if (reportDesigner()->isModified()) {
-        emit optionsModified();
+        Q_EMIT optionsModified();
         reportDesigner()->setModified(false);
     }
     m_stack->setCurrentIndex(0);
@@ -770,18 +770,18 @@ void ReportDesigner::setData()
     connect(this, SIGNAL(pasteActivated()), m_designer, SLOT(slotEditPaste()));
     connect(this, SIGNAL(deleteActivated()), m_designer, SLOT(slotEditDelete()));
 
-    emit reportheaderShown(m_designer->section(KReportSectionData::ReportHeader));
-    emit reportfooterShown(m_designer->section(KReportSectionData::ReportFooter));
-    emit headerFirstpageShown(m_designer->section(KReportSectionData::PageHeaderFirst));
-    emit headerLastpageShown(m_designer->section(KReportSectionData::PageHeaderLast));
-    emit headerOddpagesShown(m_designer->section(KReportSectionData::PageHeaderOdd));
-    emit headerEvenpagesShown(m_designer->section(KReportSectionData::PageHeaderEven));
-    emit headerAllpagesShown(m_designer->section(KReportSectionData::PageHeaderAny));
-    emit footerFirstpageShown(m_designer->section(KReportSectionData::PageFooterFirst));
-    emit footerLastpageShown(m_designer->section(KReportSectionData::PageFooterLast));
-    emit footerOddpagesShown(m_designer->section(KReportSectionData::PageFooterOdd));
-    emit footerEvenpagesShown(m_designer->section(KReportSectionData::PageFooterEven));
-    emit footerAllpagesShown(m_designer->section(KReportSectionData::PageFooterAny));
+    Q_EMIT reportheaderShown(m_designer->section(KReportSectionData::ReportHeader));
+    Q_EMIT reportfooterShown(m_designer->section(KReportSectionData::ReportFooter));
+    Q_EMIT headerFirstpageShown(m_designer->section(KReportSectionData::PageHeaderFirst));
+    Q_EMIT headerLastpageShown(m_designer->section(KReportSectionData::PageHeaderLast));
+    Q_EMIT headerOddpagesShown(m_designer->section(KReportSectionData::PageHeaderOdd));
+    Q_EMIT headerEvenpagesShown(m_designer->section(KReportSectionData::PageHeaderEven));
+    Q_EMIT headerAllpagesShown(m_designer->section(KReportSectionData::PageHeaderAny));
+    Q_EMIT footerFirstpageShown(m_designer->section(KReportSectionData::PageFooterFirst));
+    Q_EMIT footerLastpageShown(m_designer->section(KReportSectionData::PageFooterLast));
+    Q_EMIT footerOddpagesShown(m_designer->section(KReportSectionData::PageFooterOdd));
+    Q_EMIT footerEvenpagesShown(m_designer->section(KReportSectionData::PageFooterEven));
+    Q_EMIT footerAllpagesShown(m_designer->section(KReportSectionData::PageFooterAny));
 
     m_designer->setModified(false);
     slotModified();
@@ -916,7 +916,7 @@ void ReportDesigner::createDockers()
 
 void ReportDesigner::setReportData(const QString &tag)
 {
-    emit optionsModified();
+    Q_EMIT optionsModified();
     ReportData *rd = Report::findReportData(m_reportdatamodels, tag);
     if (rd) {
         rd = rd->clone(); // KReportDesigner takes ownership, so give it a clone it can delete
@@ -954,7 +954,7 @@ void ReportDesigner::slotInsertAction()
 
 void ReportDesigner::slotItemInserted(const QString &)
 {
-    emit resetButtonState(false);
+    Q_EMIT resetButtonState(false);
 }
 
 void ReportDesigner::slotSectionToggled(bool on)

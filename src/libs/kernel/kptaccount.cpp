@@ -752,7 +752,7 @@ void Accounts::insert(Account *account, Account *parent, int index) {
     Q_ASSERT(account);
     if (parent == nullptr) {
         int i = index == -1 ? m_accountList.count() : index;
-        emit accountToBeAdded(parent, i);
+        Q_EMIT accountToBeAdded(parent, i);
         m_accountList.insert(i, account);
         account->setList(this);
         account->setParent(nullptr); // incase...
@@ -760,11 +760,11 @@ void Accounts::insert(Account *account, Account *parent, int index) {
         account->insertChildren();
     } else {
         int i = index == -1 ? parent->accountList().count() : index;
-        emit accountToBeAdded(parent, i);
+        Q_EMIT accountToBeAdded(parent, i);
         parent->insert(account, i);
     }
     //debugPlan<<account->name();
-    emit accountAdded(account);
+    Q_EMIT accountAdded(account);
 }
 
 void Accounts::take(Account *account){
@@ -774,17 +774,17 @@ void Accounts::take(Account *account){
     account->m_list = nullptr;
     removeId(account->name());
     if (account->parent()) {
-        emit accountToBeRemoved(account);
+        Q_EMIT accountToBeRemoved(account);
         account->parent()->take(account);
-        emit accountRemoved(account);
+        Q_EMIT accountRemoved(account);
         //debugPlan<<account->name();
         return;
     }
     int i = m_accountList.indexOf(account);
     if (i != -1) {
-        emit accountToBeRemoved(account);
+        Q_EMIT accountToBeRemoved(account);
         m_accountList.removeAt(i);
-        emit accountRemoved(account);
+        Q_EMIT accountRemoved(account);
     }
     //debugPlan<<account->name();
 }
@@ -923,13 +923,13 @@ void Accounts::setDefaultAccount(Account *account)
     Account *a = m_defaultAccount;
     m_defaultAccount = account;
     if (a) {
-        emit changed(a);
+        Q_EMIT changed(a);
     }
     if (account) {
-        emit changed(account);
+        Q_EMIT changed(account);
     }
     if (a != account) {
-        emit defaultAccountChanged();
+        Q_EMIT defaultAccountChanged();
     }
 }
 
@@ -942,7 +942,7 @@ void Accounts::accountDeleted(Account *account)
 
 void Accounts::accountChanged(Account *account) 
 {
-    emit changed(account);
+    Q_EMIT changed(account);
 }
 
 QList<Node*> Accounts::allNodes() const

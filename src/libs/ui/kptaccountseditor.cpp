@@ -108,7 +108,7 @@ void AccountTreeView::slotHeaderContextMenuRequested(const QPoint &pos)
 void AccountTreeView::contextMenuEvent (QContextMenuEvent *event)
 {
     debugPlan;
-    emit contextMenuRequested(indexAt(event->pos()), event->globalPos());
+    Q_EMIT contextMenuRequested(indexAt(event->pos()), event->globalPos());
 }
 
 void AccountTreeView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
@@ -119,14 +119,14 @@ void AccountTreeView::selectionChanged(const QItemSelection &sel, const QItemSel
         debugPlan<<i.row()<<","<<i.column();
     }
     QTreeView::selectionChanged(sel, desel);
-    emit selectionChanged(selectionModel()->selectedIndexes());
+    Q_EMIT selectionChanged(selectionModel()->selectedIndexes());
 }
 
 void AccountTreeView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
 {
     debugPlan;
     QTreeView::currentChanged(current, previous);
-    emit currentChanged(current);
+    Q_EMIT currentChanged(current);
     // possible bug in qt: in QAbstractItemView::SingleSelection you can select multiple items/rows
     selectionModel()->select(current, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
 }

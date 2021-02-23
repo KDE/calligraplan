@@ -93,8 +93,8 @@ void AllocatedResourceItemModel::reset()
 {
     beginResetModel();
     endResetModel();
-    emit expandAll();
-    emit resizeColumnToContents(0);
+    Q_EMIT expandAll();
+    Q_EMIT resizeColumnToContents(0);
 }
 
 void AllocatedResourceItemModel::slotNodeChanged(Node *n)

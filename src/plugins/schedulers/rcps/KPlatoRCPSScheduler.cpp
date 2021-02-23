@@ -84,7 +84,7 @@ KPlatoRCPSScheduler::KPlatoRCPSScheduler(Project *project, ScheduleManager *sm, 
     m_progressinfo(new ProgressInfo())
 {
     connect(this, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)), project, SIGNAL(sigCalculationStarted(KPlato::Project*,KPlato::ScheduleManager*)));
-    emit sigCalculationStarted(project, sm);
+    Q_EMIT sigCalculationStarted(project, sm);
 
     connect(this, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)), project, SIGNAL(sigCalculationFinished(KPlato::Project*,KPlato::ScheduleManager*)));
 }

@@ -79,26 +79,26 @@ CalendarTreeView::CalendarTreeView(QWidget *parent)
 
 void CalendarTreeView::slotHeaderContextMenuRequested(const QPoint &pos)
 {
-    emit contextMenuRequested(QModelIndex(), mapToGlobal(pos));
+    Q_EMIT contextMenuRequested(QModelIndex(), mapToGlobal(pos));
 }
 
 void CalendarTreeView::contextMenuEvent (QContextMenuEvent *event)
 {
-    emit contextMenuRequested(indexAt(event->pos()), event->globalPos());
+    Q_EMIT contextMenuRequested(indexAt(event->pos()), event->globalPos());
 }
 
 void CalendarTreeView::focusInEvent (QFocusEvent *event)
 {
     //debugPlan;
     TreeViewBase::focusInEvent(event);
-    emit focusChanged();
+    Q_EMIT focusChanged();
 }
 
 void CalendarTreeView::focusOutEvent (QFocusEvent * event)
 {
     //debugPlan;
     TreeViewBase::focusInEvent(event);
-    emit focusChanged();
+    Q_EMIT focusChanged();
 }
 
 void CalendarTreeView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
@@ -106,7 +106,7 @@ void CalendarTreeView::selectionChanged(const QItemSelection &sel, const QItemSe
     //debugPlan<<sel.indexes().count();
     //foreach(const QModelIndex &i, selectionModel()->selectedIndexes()) { debugPlan<<i.row()<<","<<i.column(); }
     TreeViewBase::selectionChanged(sel, desel);
-    emit sigSelectionChanged(selectionModel()->selectedIndexes());
+    Q_EMIT sigSelectionChanged(selectionModel()->selectedIndexes());
 }
 
 void CalendarTreeView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
@@ -115,7 +115,7 @@ void CalendarTreeView::currentChanged(const QModelIndex & current, const QModelI
     TreeViewBase::currentChanged(current, previous);
     // possible bug in qt: in QAbstractItemView::SingleSelection you can select multiple items/rows
     selectionModel()->select(current, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-    emit currentChanged(current);
+    Q_EMIT currentChanged(current);
 }
 
 Calendar *CalendarTreeView::currentCalendar() const
@@ -254,7 +254,7 @@ void CalendarDayView::slotIntervalEditDialogFinished(int result)
     if (result == QDialog::Accepted) {
         MacroCommand *cmd = dlg->buildCommand();
         if (cmd) {
-            emit executeCommand(cmd);
+            Q_EMIT executeCommand(cmd);
         }
     }
     dlg->deleteLater();
@@ -284,7 +284,7 @@ void CalendarDayView::slotSetVacation()
         m->addCommand(new CalendarModifyStateCmd(model()->calendar(), day, CalendarDay::NonWorking));
     }
     if (mod) {
-        emit executeCommand(m);
+        Q_EMIT executeCommand(m);
     } else {
         delete m;
     }
@@ -314,7 +314,7 @@ void CalendarDayView::slotSetUndefined()
         m->addCommand(new CalendarModifyStateCmd(model()->calendar(), day, CalendarDay::Undefined));
     }
     if (mod) {
-        emit executeCommand(m);
+        Q_EMIT executeCommand(m);
     } else {
         delete m;
     }
@@ -338,28 +338,28 @@ void CalendarDayView::contextMenuEvent (QContextMenuEvent *event)
 
     menu.exec(event->globalPos(), actionSetWork);
 
-    //emit contextMenuRequested(indexAt(event->pos()), event->globalPos());
+    //Q_EMIT contextMenuRequested(indexAt(event->pos()), event->globalPos());
 }
 
 void CalendarDayView::focusInEvent (QFocusEvent *event)
 {
     //debugPlan;
     QTableView::focusInEvent(event);
-    emit focusChanged();
+    Q_EMIT focusChanged();
 }
 
 void CalendarDayView::focusOutEvent (QFocusEvent * event)
 {
     //debugPlan;
     QTableView::focusInEvent(event);
-    emit focusChanged();
+    Q_EMIT focusChanged();
 }
 
 void CalendarDayView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
 {
     //debugPlan<<sel.indexes().count();
     QTableView::selectionChanged(sel, desel);
-    emit sigSelectionChanged(selectionModel()->selectedIndexes());
+    Q_EMIT sigSelectionChanged(selectionModel()->selectedIndexes());
 }
 
 void CalendarDayView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
@@ -367,7 +367,7 @@ void CalendarDayView::currentChanged(const QModelIndex & current, const QModelIn
     //debugPlan;
     QTableView::currentChanged(current, previous);
 //    selectionModel()->select(current, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-    emit currentChanged(current);
+    Q_EMIT currentChanged(current);
 }
 
 CalendarDay *CalendarDayView::selectedDay() const
@@ -553,7 +553,7 @@ void CalendarEditor::slotContextMenuCalendar(const QModelIndex &index, const QPo
         m_calendarview->setContextMenuIndex(QModelIndex());
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
     m_calendarview->setContextMenuIndex(QModelIndex());
 }
 
@@ -570,7 +570,7 @@ void CalendarEditor::slotContextMenuDay(const QModelIndex &index, const QPoint& 
     if (name.isEmpty()) {
         return;
     }
-    emit requestPopupMenu(name, pos);*/
+    Q_EMIT requestPopupMenu(name, pos);*/
 }
 
 bool CalendarEditor::loadContext(const KoXmlElement &context)

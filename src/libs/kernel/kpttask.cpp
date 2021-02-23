@@ -2942,9 +2942,9 @@ uint Task::state(long id) const
 
 void Task::addWorkPackage(WorkPackage *wp)
 {
-    emit workPackageToBeAdded(this, m_packageLog.count());
+    Q_EMIT workPackageToBeAdded(this, m_packageLog.count());
     m_packageLog.append(wp);
-    emit workPackageAdded(this);
+    Q_EMIT workPackageAdded(this);
 }
 
 void Task::removeWorkPackage(WorkPackage *wp)
@@ -2953,9 +2953,9 @@ void Task::removeWorkPackage(WorkPackage *wp)
     if (index < 0) {
         return;
     }
-    emit workPackageToBeRemoved(this, index);
+    Q_EMIT workPackageToBeRemoved(this, index);
     m_packageLog.removeAt(index);
-    emit workPackageRemoved(this);
+    Q_EMIT workPackageRemoved(this);
 }
 
 WorkPackage *Task::workPackageAt(int index) const

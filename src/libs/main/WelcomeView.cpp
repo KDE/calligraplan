@@ -424,7 +424,7 @@ void WelcomeView::slotLoadSharedResources(const QString &file, const QUrl &proje
         url.setScheme("file");
     }
     if (url.isValid()) {
-        emit loadSharedResources(url, loadProjectsAtStartup ? projects :QUrl());
+        Q_EMIT loadSharedResources(url, loadProjectsAtStartup ? projects :QUrl());
     }
 }
 

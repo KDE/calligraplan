@@ -362,7 +362,7 @@ bool ResourceGroupItemModel::setName(ResourceGroup *res, const QVariant &value, 
             if (value.toString() == res->name()) {
                 return false;
             }
-            emit executeCommand(new ModifyResourceGroupNameCmd(res, value.toString(), kundo2_i18n("Modify resourcegroup name")));
+            Q_EMIT executeCommand(new ModifyResourceGroupNameCmd(res, value.toString(), kundo2_i18n("Modify resourcegroup name")));
             return true;
     }
     return false;
@@ -388,7 +388,7 @@ bool ResourceGroupItemModel::setType(ResourceGroup *res, const QVariant &value, 
 {
     switch (role) {
         case Qt::EditRole: {
-            emit executeCommand(new ModifyResourceGroupTypeCmd(res, value.toString(), kundo2_i18n("Modify resourcegroup type")));
+            Q_EMIT executeCommand(new ModifyResourceGroupTypeCmd(res, value.toString(), kundo2_i18n("Modify resourcegroup type")));
             return true;
         }
     }
@@ -404,7 +404,7 @@ bool ResourceGroupItemModel::setCoordinator(ResourceGroup *res, const QVariant &
 {
     switch (role) {
         case Qt::EditRole: {
-            emit executeCommand(new ResourceGroupModifyCoordinatorCmd(res, value.toString(), kundo2_i18n("Modify resourcegroup coordinator")));
+            Q_EMIT executeCommand(new ResourceGroupModifyCoordinatorCmd(res, value.toString(), kundo2_i18n("Modify resourcegroup coordinator")));
             return true;
         }
     }
@@ -466,7 +466,7 @@ bool ResourceGroupItemModel::setData(const QModelIndex &index, const QVariant &v
                 return false;
         }
         if (result) {
-            emit dataChanged(index, index);
+            Q_EMIT dataChanged(index, index);
         }
     }
     return false;
@@ -521,7 +521,7 @@ void ResourceGroupItemModel::slotResourceChanged(Resource *res)
 {
     for (ResourceGroup *g : res->parentGroups()) {
         int row = g->indexOf(res) + g->numChildGroups();
-        emit dataChanged(createIndex(row, 0, g), createIndex(row, columnCount() - 1, g));
+        Q_EMIT dataChanged(createIndex(row, 0, g), createIndex(row, columnCount() - 1, g));
     }
 }
 
@@ -529,7 +529,7 @@ void ResourceGroupItemModel::slotResourceGroupChanged(ResourceGroup *group)
 {
     ResourceGroup *parent = group->parentGroup();
     QModelIndex idx = index(group);
-    emit dataChanged(idx, idx.sibling(idx.row(), columnCount() - 1));
+    Q_EMIT dataChanged(idx, idx.sibling(idx.row(), columnCount() - 1));
 }
 
 Qt::DropActions ResourceGroupItemModel::supportedDropActions() const
@@ -624,7 +624,7 @@ bool ResourceGroupItemModel::createResources(ResourceGroup *group, const QByteAr
         delete m;
         return false;
     }
-    emit executeCommand(m);
+    Q_EMIT executeCommand(m);
     return true;
 #else
     Q_UNUSED(group);
@@ -673,7 +673,7 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
                 KUndo2MagicString msg = kundo2_i18np("Move resource", "Move %1 resources", i);
                 MacroCommand *c = new MacroCommand(msg);
                 c->addCommand(m);
-                emit executeCommand(c);
+                Q_EMIT executeCommand(c);
             }
             return true;
         }
@@ -693,7 +693,7 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
                 KUndo2MagicString msg = kundo2_i18np("Copy resource", "Copy %1 resources", i);
                 MacroCommand *c = new MacroCommand(msg);
                 c->addCommand(m);
-                emit executeCommand(c);
+                Q_EMIT executeCommand(c);
             }
             return true;
         }
@@ -791,18 +791,18 @@ QModelIndex ResourceGroupItemModel::insertGroup(ResourceGroup *group, ResourceGr
 {
     //debugPlan;
     if (parent) {
-        emit executeCommand(new AddResourceGroupCmd(m_project, parent, group, kundo2_i18n("Add resource group")));
+        Q_EMIT executeCommand(new AddResourceGroupCmd(m_project, parent, group, kundo2_i18n("Add resource group")));
         QModelIndex idx = index(group);
         return idx;
     }
-    emit executeCommand(new AddResourceGroupCmd(m_project, group, kundo2_i18n("Add resource group")));
+    Q_EMIT executeCommand(new AddResourceGroupCmd(m_project, group, kundo2_i18n("Add resource group")));
     return index(group);
 }
 
 QModelIndex ResourceGroupItemModel::insertResource(ResourceGroup *parent, Resource *r, Resource * /*after*/)
 {
     //debugPlan;
-    emit executeCommand(new AddParentGroupCmd(r, parent, kundo2_i18n("Add resource")));
+    Q_EMIT executeCommand(new AddParentGroupCmd(r, parent, kundo2_i18n("Add resource")));
     int row = parent->indexOf(r) + parent->numChildGroups();
     if (row != -1) {
         return createIndex(row, 0, parent);
@@ -864,9 +864,9 @@ bool ParentGroupItemModel::setData(const QModelIndex &index, const QVariant &val
         ResourceGroup *g = m_model->group(mapToSource(index));
         if (g) {
             if (value.toInt() == Qt::Checked) {
-                emit executeCommand(new AddParentGroupCmd(m_resource, g, kundo2_i18n("Add parent group")));
+                Q_EMIT executeCommand(new AddParentGroupCmd(m_resource, g, kundo2_i18n("Add parent group")));
             } else {
-                emit executeCommand(new RemoveParentGroupCmd(m_resource, g, kundo2_i18n("Remove parent group")));
+                Q_EMIT executeCommand(new RemoveParentGroupCmd(m_resource, g, kundo2_i18n("Remove parent group")));
             }
             return true;
         }
@@ -912,7 +912,7 @@ bool ParentGroupItemModel::groupIsCheckable() const
 void ParentGroupItemModel::slotResourceAdded(KPlato::ResourceGroup *group)
 {
     QModelIndex idx = mapFromSource(m_model->index(group));
-    emit dataChanged(idx, idx);
+    Q_EMIT dataChanged(idx, idx);
 }
 
 void ParentGroupItemModel::slotResourceRemoved()

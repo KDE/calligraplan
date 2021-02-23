@@ -145,7 +145,7 @@ void DocumentChild::setModified(bool mod)
     debugPlanWork<<mod<<filePath();
     if (m_editormodified != mod) {
         m_editormodified = mod;
-        emit modified(mod);
+        Q_EMIT modified(mod);
     }
 }
 
@@ -155,7 +155,7 @@ void DocumentChild::slotDirty(const QString &file)
     if (file == filePath() && ! m_filemodified) {
         debugPlanWork<<file<<"is modified";
         m_filemodified = true;
-        emit fileModified(true);
+        Q_EMIT fileModified(true);
     }
 }
 
@@ -332,7 +332,7 @@ bool DocumentChild::saveToStore(KoStore *store)
         store->addLocalFile(filePath(), fileName());
         m_filemodified = false;
         if (wasmod != m_filemodified) {
-            emit fileModified(m_filemodified);
+            Q_EMIT fileModified(m_filemodified);
         }
     }
     m_fileSystemWatcher->addPath(filePath());
@@ -406,7 +406,7 @@ bool Part::setWorkPackage(WorkPackage *wp, KoStore *store)
     }
     connect(wp->project(), SIGNAL(projectChanged()), wp, SLOT(projectChanged()));
     connect (wp, SIGNAL(modified(bool)), this, SLOT(setModified(bool)));
-    emit workPackageAdded(wp, indexOf(wp));
+    Q_EMIT workPackageAdded(wp, indexOf(wp));
     connect(wp, &WorkPackage::saveWorkPackage, this, &Part::saveWorkPackage);
     return true;
 }
@@ -449,7 +449,7 @@ void Part::removeWorkPackage(WorkPackage *wp)
         const QList<QString> &lst = m_packageMap.keys();
         const QString &key = lst.value(row);
         m_packageMap.remove(key);
-        emit workPackageRemoved(wp, row);
+        Q_EMIT workPackageRemoved(wp, row);
     }
 }
 
@@ -459,7 +459,7 @@ void Part::addWorkPackage(WorkPackage *wp)
     QString id = wp->id();
     Q_ASSERT(! m_packageMap.contains(id));
     m_packageMap[ id ] = wp;
-    emit workPackageAdded(wp, indexOf(wp));
+    Q_EMIT workPackageAdded(wp, indexOf(wp));
 }
 
 bool Part::loadWorkPackages()
@@ -595,7 +595,7 @@ bool Part::loadXML(const KoXmlDocument &document, KoStore* store)
         // rejected, so nothing changed...
         return true;
     }
-    emit changed();
+    Q_EMIT changed();
     return true;
 }
 
@@ -637,7 +637,7 @@ bool Part::loadKPlatoXML(const KoXmlDocument &document, KoStore*)
         // rejected, so nothing changed...
         return true;
     }
-    emit changed();
+    Q_EMIT changed();
     return true;
 }
 
@@ -769,7 +769,7 @@ void Part::setDocumentClean(bool clean)
 void Part::setModified(bool mod)
 {
     KParts::ReadWritePart::setModified(mod);
-    emit captionChanged(QString(), mod);
+    Q_EMIT captionChanged(QString(), mod);
 }
 
 bool Part::saveAs(const QUrl &/*url*/)

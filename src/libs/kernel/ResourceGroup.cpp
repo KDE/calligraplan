@@ -96,9 +96,9 @@ void ResourceGroup::blockChanged(bool on)
 
 void ResourceGroup::changed() {
     if (!m_blockChanged) {
-        emit dataChanged(this);
+        Q_EMIT dataChanged(this);
         if (m_project) {
-            emit m_project->resourceGroupChanged(this);
+            Q_EMIT m_project->resourceGroupChanged(this);
         }
     }
 }
@@ -197,10 +197,10 @@ void ResourceGroup::addChildGroup(ResourceGroup *group, int row)
 {
     Q_ASSERT(!m_childGroups.contains(group));
     int pos = row < 0 ? m_childGroups.count() : row;
-    emit groupToBeAdded(project(), this, pos);
+    Q_EMIT groupToBeAdded(project(), this, pos);
     m_childGroups.insert(pos, group);
     group->setParentGroup(this);
-    emit groupAdded(group);
+    Q_EMIT groupAdded(group);
 }
 
 ResourceGroup *ResourceGroup::childGroupAt(int row) const
@@ -216,10 +216,10 @@ QList<ResourceGroup*> ResourceGroup::childGroups() const
 void ResourceGroup::removeChildGroup(ResourceGroup *child)
 {
     int row = m_childGroups.indexOf(child);
-    emit groupToBeRemoved(project(), this, row, child);
+    Q_EMIT groupToBeRemoved(project(), this, row, child);
     m_childGroups.removeOne(child);
     child->setParentGroup(nullptr);
-    emit groupRemoved();
+    Q_EMIT groupRemoved();
 }
 
 void ResourceGroup::addResource(Resource* resource, Risk *risk)
@@ -231,9 +231,9 @@ void ResourceGroup::addResource(int index, Resource* resource, Risk*)
 {
     if (!m_resources.contains(resource)) {
         int i = index == -1 ? m_resources.count() : index;
-        emit resourceToBeAdded(this, i);
+        Q_EMIT resourceToBeAdded(this, i);
         m_resources.insert(i, resource);
-        emit resourceAdded(resource);
+        Q_EMIT resourceAdded(resource);
     }
     resource->addParentGroup(this);
 }
@@ -243,9 +243,9 @@ Resource *ResourceGroup::takeResource(Resource *resource)
     Resource *r = nullptr;
     int i = m_resources.indexOf(resource);
     if (i != -1) {
-        emit resourceToBeRemoved(this, i, resource);
+        Q_EMIT resourceToBeRemoved(this, i, resource);
         r = m_resources.takeAt(i);
-        emit resourceRemoved();
+        Q_EMIT resourceRemoved();
         r->removeParentGroup(this);
     }
     return r;

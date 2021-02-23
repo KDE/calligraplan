@@ -67,7 +67,7 @@ void TasksEditController::finish(int result)
     if (result == QDialog::Accepted) {
         MacroCommand *m = m_dlg->buildCommand();
         if (m) {
-            emit addCommand(m);
+            Q_EMIT addCommand(m);
         }
     }
     m_dlg->hide();

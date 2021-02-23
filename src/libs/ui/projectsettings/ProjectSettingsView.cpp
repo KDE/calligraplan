@@ -85,7 +85,7 @@ void ProjectSettingsView::slotResourcesConnect()
     if (fn.startsWith('/')) {
         fn.prepend("file:/");
     }
-    emit connectResources(fn);
+    Q_EMIT connectResources(fn);
 }
 
 } // namespace KPlato

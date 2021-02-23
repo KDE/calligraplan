@@ -249,7 +249,7 @@ void TasksGeneralPanelImpl::setSchedulingType(int type)
 {
     enableDateTime(type);
     scheduleType->setCurrentIndex(type);
-    emit schedulingTypeChanged(type);
+    Q_EMIT schedulingTypeChanged(type);
 }
 
 int TasksGeneralPanelImpl::schedulingType() const
@@ -384,8 +384,8 @@ void TasksGeneralPanelImpl::setEstimateType(int type)
 
 void TasksGeneralPanelImpl::checkAllFieldsFilled()
 {
-    emit changed();
-    emit obligatedFieldsFilled(true); // do not block save even if name is not filled
+    Q_EMIT changed();
+    Q_EMIT obligatedFieldsFilled(true); // do not block save even if name is not filled
 }
 
 

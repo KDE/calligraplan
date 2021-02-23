@@ -129,7 +129,7 @@ void ResourceAllocationEditor::slotContextMenuRequested(const QModelIndex &index
         slotHeaderContextMenuRequested(pos);
         return;
     }
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
 }
 
 Resource *ResourceAllocationEditor::currentResource() const
@@ -171,7 +171,7 @@ void ResourceAllocationEditor::slotSplitView()
 {
     debugPlan;
     m_view->setViewSplitMode(! m_view->isViewSplit());
-    emit optionsModified();
+    Q_EMIT optionsModified();
 }
 
 void ResourceAllocationEditor::slotOptions()

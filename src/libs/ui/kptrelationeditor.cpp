@@ -131,7 +131,7 @@ void RelationEditor::slotContextMenuRequested(const QModelIndex& index, const QP
         return;
     }
     QString name = "relation_popup";
-    emit requestPopupMenu(name, pos);
+    Q_EMIT requestPopupMenu(name, pos);
 }
 
 void RelationEditor::slotHeaderContextMenuRequested(const QPoint &pos)
@@ -199,7 +199,7 @@ void RelationEditor::edit(const QModelIndex &i)
 
 void RelationEditor::slotDeleteRelation(Relation *r)
 {
-    emit deleteRelation(r);
+    Q_EMIT deleteRelation(r);
 }
 
 bool RelationEditor::loadContext(const KoXmlElement &context)

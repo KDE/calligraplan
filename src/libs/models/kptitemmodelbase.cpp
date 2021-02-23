@@ -69,23 +69,23 @@ bool ItemDelegate::eventFilter(QObject *object, QEvent *event)
             switch (e->key()) {
                 case Qt::Key_Left:
                     m_lastHint = Delegate::EditLeftItem;
-                    emit commitData(editor);
-                    emit closeEditor(editor, QAbstractItemDelegate::NoHint);
+                    Q_EMIT commitData(editor);
+                    Q_EMIT closeEditor(editor, QAbstractItemDelegate::NoHint);
                     return true;
                 case Qt::Key_Right:
                     m_lastHint = Delegate::EditRightItem;
-                    emit commitData(editor);
-                    emit closeEditor(editor, QAbstractItemDelegate::NoHint);
+                    Q_EMIT commitData(editor);
+                    Q_EMIT closeEditor(editor, QAbstractItemDelegate::NoHint);
                     return true;
                 case Qt::Key_Down:
                     m_lastHint = Delegate::EditDownItem;
-                    emit commitData(editor);
-                    emit closeEditor(editor, QAbstractItemDelegate::NoHint);
+                    Q_EMIT commitData(editor);
+                    Q_EMIT closeEditor(editor, QAbstractItemDelegate::NoHint);
                     return true;
                 case Qt::Key_Up:
                     m_lastHint = Delegate::EditUpItem;
-                    emit commitData(editor);
-                    emit closeEditor(editor, QAbstractItemDelegate::NoHint);
+                    Q_EMIT commitData(editor);
+                    Q_EMIT closeEditor(editor, QAbstractItemDelegate::NoHint);
                     return true;
                 default:
                     break;
@@ -631,14 +631,14 @@ void ItemModelBase::setScheduleManager(ScheduleManager *sm)
 void ItemModelBase::slotLayoutChanged()
 {
     debugPlan;
-    emit layoutAboutToBeChanged();
-    emit layoutChanged();
+    Q_EMIT layoutAboutToBeChanged();
+    Q_EMIT layoutChanged();
 }
 
 void ItemModelBase::slotLayoutToBeChanged()
 {
     debugPlan;
-    emit layoutAboutToBeChanged();
+    Q_EMIT layoutAboutToBeChanged();
 }
 
 bool ItemModelBase::dropAllowed(const QModelIndex &index, int, const QMimeData *data)
