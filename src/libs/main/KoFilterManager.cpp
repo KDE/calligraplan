@@ -43,8 +43,6 @@ Boston, MA 02110-1301, USA.
 
 #include <queue>
 
-#include <unistd.h>
-
 // static cache for filter availability
 QMap<QString, bool> KoFilterManager::m_filterAvailable;
 

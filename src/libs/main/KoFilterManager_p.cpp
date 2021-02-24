@@ -31,8 +31,6 @@ Boston, MA 02110-1301, USA.
 #include <klocalizedstring.h>
 #include <ksqueezedtextlabel.h>
 
-#include <unistd.h>
-
 KoFilterChooser::KoFilterChooser(QWidget *parent, const QStringList &mimeTypes, const QString &/*nativeFormat*/, const QUrl &url)
         : KoDialog(parent),
         m_mimeTypes(mimeTypes)

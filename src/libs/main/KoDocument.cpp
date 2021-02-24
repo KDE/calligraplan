@@ -86,8 +86,6 @@
 #include <kactioncollection.h>
 #include "KoUndoStackAction.h"
 
-#include <unistd.h>
-
 using namespace std;
 
 /**********************************************************
