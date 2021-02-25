@@ -608,7 +608,7 @@ void parseOdfBorder(const QString &border, QColor *color,
     *hasBorderWidth = false;
 
     if (!border.isEmpty() && border != "none" && border != "hidden") {
-        QStringList borderData = border.split(' ', QString::SkipEmptyParts);
+        QStringList borderData = border.split(' ', Qt::SkipEmptyParts);
         if (borderData.length() > 0)
         {
             const QColor borderColor = QColor(borderData.last());
@@ -717,7 +717,7 @@ bool KoBorder::loadOdf(const KoXmlElement &style)
         result = true;
         QString borderLineWidth = style.attributeNS(KoXmlNS::style, "border-line-width");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(LeftBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(LeftBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(LeftBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -740,7 +740,7 @@ bool KoBorder::loadOdf(const KoXmlElement &style)
             result = true;
             QString borderLineWidth = style.attributeNS(KoXmlNS::style, "border-line-width-left");
             if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-                QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+                QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
                 setInnerBorderWidth(LeftBorder, KoUnit::parseValue(blw[0], 0.1));
                 setBorderSpacing(LeftBorder, KoUnit::parseValue(blw[1], 1.0));
                 setOuterBorderWidth(LeftBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -750,7 +750,7 @@ bool KoBorder::loadOdf(const KoXmlElement &style)
             result = true;
             QString borderLineWidth = style.attributeNS(KoXmlNS::style, "border-line-width-top");
             if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-                QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+                QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
                 setInnerBorderWidth(TopBorder, KoUnit::parseValue(blw[0], 0.1));
                 setBorderSpacing(TopBorder, KoUnit::parseValue(blw[1], 1.0));
                 setOuterBorderWidth(TopBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -760,7 +760,7 @@ bool KoBorder::loadOdf(const KoXmlElement &style)
             result = true;
             QString borderLineWidth = style.attributeNS(KoXmlNS::style, "border-line-width-right");
             if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-                QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+                QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
                 setInnerBorderWidth(RightBorder, KoUnit::parseValue(blw[0], 0.1));
                 setBorderSpacing(RightBorder, KoUnit::parseValue(blw[1], 1.0));
                 setOuterBorderWidth(RightBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -770,7 +770,7 @@ bool KoBorder::loadOdf(const KoXmlElement &style)
             result = true;
             QString borderLineWidth = style.attributeNS(KoXmlNS::style, "border-line-width-bottom");
             if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-                QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+                QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
                 setInnerBorderWidth(BottomBorder, KoUnit::parseValue(blw[0], 0.1));
                 setBorderSpacing(BottomBorder, KoUnit::parseValue(blw[1], 1.0));
                 setOuterBorderWidth(BottomBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -782,7 +782,7 @@ bool KoBorder::loadOdf(const KoXmlElement &style)
         result = true;
         QString borderLineWidth = style.attributeNS(KoXmlNS::style, "diagonal-tl-br-widths");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(TlbrBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(TlbrBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(TlbrBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -792,7 +792,7 @@ bool KoBorder::loadOdf(const KoXmlElement &style)
         result = true;
         QString borderLineWidth = style.attributeNS(KoXmlNS::style, "diagonal-bl-tr-widths");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(BltrBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(BltrBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(BltrBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -877,7 +877,7 @@ bool KoBorder::loadOdf(const KoStyleStack &styleStack)
         result = true;
         QString borderLineWidth = styleStack.property(KoXmlNS::style, "border-line-width");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(LeftBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(LeftBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(LeftBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -902,7 +902,7 @@ bool KoBorder::loadOdf(const KoStyleStack &styleStack)
         result = true;
         QString borderLineWidth = styleStack.property(KoXmlNS::style, "border-line-width-left");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(LeftBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(LeftBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(LeftBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -912,7 +912,7 @@ bool KoBorder::loadOdf(const KoStyleStack &styleStack)
         result = true;
         QString borderLineWidth = styleStack.property(KoXmlNS::style, "border-line-width-top");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(TopBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(TopBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(TopBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -922,7 +922,7 @@ bool KoBorder::loadOdf(const KoStyleStack &styleStack)
         result = true;
         QString borderLineWidth = styleStack.property(KoXmlNS::style, "border-line-width-right");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(RightBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(RightBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(RightBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -932,7 +932,7 @@ bool KoBorder::loadOdf(const KoStyleStack &styleStack)
         result = true;
         QString borderLineWidth = styleStack.property(KoXmlNS::style, "border-line-width-bottom");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(BottomBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(BottomBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(BottomBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -944,7 +944,7 @@ bool KoBorder::loadOdf(const KoStyleStack &styleStack)
         result = true;
         QString borderLineWidth = styleStack.property(KoXmlNS::style, "diagonal-tl-br-widths");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(TlbrBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(TlbrBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(TlbrBorder, KoUnit::parseValue(blw[2], 0.1));
@@ -954,7 +954,7 @@ bool KoBorder::loadOdf(const KoStyleStack &styleStack)
         result = true;
         QString borderLineWidth = styleStack.property(KoXmlNS::style, "diagonal-bl-tr-widths");
         if (!borderLineWidth.isEmpty() && borderLineWidth != "none" && borderLineWidth != "hidden") {
-            QStringList blw = borderLineWidth.split(' ', QString::SkipEmptyParts);
+            QStringList blw = borderLineWidth.split(' ', Qt::SkipEmptyParts);
             setInnerBorderWidth(BltrBorder, KoUnit::parseValue(blw[0], 0.1));
             setBorderSpacing(BltrBorder, KoUnit::parseValue(blw[1], 1.0));
             setOuterBorderWidth(BltrBorder, KoUnit::parseValue(blw[2], 0.1));

@@ -423,7 +423,7 @@ QStringList KoFileDialog::splitNameFilter(const QString &nameFilter, QStringList
         description = nameFilter.left(nameFilter.indexOf("(") -1).trimmed();
     }
 
-    const QStringList entries = nameFilter.mid(nameFilter.indexOf("(") + 1).split(" ",QString::SkipEmptyParts);
+    const QStringList entries = nameFilter.mid(nameFilter.indexOf("(") + 1).split(" ",Qt::SkipEmptyParts);
 
     for (QString entry : entries) {
 

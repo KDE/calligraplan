@@ -752,7 +752,7 @@ QStringList ChartReportData::fieldNames() const
 void ChartReportData::addExpression(const QString &field, const QVariant &/*value*/, char /*relation*/)
 {
 //     debugPlan<<field<<value<<relation;
-    QStringList lst = field.split('=', QString::SkipEmptyParts);
+    QStringList lst = field.split('=', Qt::SkipEmptyParts);
     if (lst.count() == 2) {
         QString key = lst[ 0 ].trimmed().toLower();
         if (m_keywords.contains(key)) {

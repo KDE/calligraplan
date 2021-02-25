@@ -718,7 +718,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
                     UserField *field = m_userfields[vname];
                     field->name = vname;
                     field->type = k;
-                    QStringList vl = trimmed(value.toLower().split(';', QString::SkipEmptyParts));
+                    QStringList vl = trimmed(value.toLower().split(';', Qt::SkipEmptyParts));
                     field->dataName = vl.takeFirst();
                     field->properties += vl;
                     field->setModel(dataModel(field->dataName), m_headerrole[field->dataName]);

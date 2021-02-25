@@ -83,7 +83,7 @@ QString KoDocumentEntry::name() const {
 QStringList KoDocumentEntry::mimeTypes() const {
     QJsonObject json = metaData();
 #ifdef CALLIGRA_OLD_PLUGIN_METADATA
-    return json.value("MimeType").toString().split(';', QString::SkipEmptyParts);
+    return json.value("MimeType").toString().split(';', Qt::SkipEmptyParts);
 #else
     QJsonObject pluginData = json.value("KPlugin").toObject();
     return pluginData.value("MimeTypes").toVariant().toStringList();
