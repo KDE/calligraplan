@@ -174,7 +174,7 @@ QString Duration::toString(Format format) const {
             ms -= minutes * (1000 * 60);
             seconds = ms / (1000);
             ms -= seconds * (1000);
-            result.sprintf("%u %02u:%02u:%02u.%u", (unsigned)days, hours, minutes, seconds, (unsigned)ms);
+            result.asprintf("%u %02u:%02u:%02u.%u", (unsigned)days, hours, minutes, seconds, (unsigned)ms);
             break;
         case Format_HourFraction:
             result = QLocale().toString(toDouble(Unit_h), 'f', 2);
