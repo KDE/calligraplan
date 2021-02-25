@@ -39,7 +39,7 @@
 using namespace KPlatoWork;
 
 
-TaskCompletionDialog::TaskCompletionDialog(WorkPackage &package, ScheduleManager *sm, QWidget *parent)
+TaskCompletionDialog::TaskCompletionDialog(KPlatoWork::WorkPackage &package, ScheduleManager *sm, QWidget *parent)
     : KoDialog(parent)
 {
     setCaption(i18n("Task Progress"));
