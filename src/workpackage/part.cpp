@@ -802,8 +802,9 @@ bool Part::saveWorkPackages(bool silent)
     return true;
 }
 
-bool Part::completeSaving(KoStore */*store*/)
+bool Part::completeSaving(KoStore *store)
 {
+    Q_UNUSED(store)
     return true;
 }
 

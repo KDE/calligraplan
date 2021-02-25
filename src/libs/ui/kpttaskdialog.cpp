@@ -87,8 +87,9 @@ void TaskDialog::setButtonOkEnabled(bool enabled) {
     buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(enabled);
 }
 
-void TaskDialog::slotCurrentChanged(KPageWidgetItem *current, KPageWidgetItem */*prev*/)
+void TaskDialog::slotCurrentChanged(KPageWidgetItem *current, KPageWidgetItem *prev)
 {
+    Q_UNUSED(prev)
     //debugPlan<<current->widget()<<m_descriptionTab->parent();
     // HACK: KPageDialog grabs focus when a tab is clicked.
     // KRichTextWidget still flashes the caret so the user thinks it has the focus.

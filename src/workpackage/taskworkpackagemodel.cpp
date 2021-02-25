@@ -100,8 +100,9 @@ void TaskWorkPackageModel::slotNodeToBeInserted(Node *parent, int row)
     beginInsertRows(indexForNode(parent), row, row);
 }
 
-void TaskWorkPackageModel::slotNodeInserted(Node */*node*/)
+void TaskWorkPackageModel::slotNodeInserted(Node *node)
 {
+    Q_UNUSED(node)
     //debugPlanWork<<node->parentNode()->name()<<"-->"<<node->name();
     endInsertRows();
 }
@@ -113,8 +114,9 @@ void TaskWorkPackageModel::slotNodeToBeRemoved(Node *node)
     beginRemoveRows(indexForNode(node->parentNode()), row, row);
 }
 
-void TaskWorkPackageModel::slotNodeRemoved(Node */*node*/)
+void TaskWorkPackageModel::slotNodeRemoved(Node *node)
 {
+    Q_UNUSED(node)
     //debugPlanWork<<node->name();
     endRemoveRows();
 }
@@ -129,8 +131,9 @@ void TaskWorkPackageModel::slotNodeChanged(Node *node)
     Q_EMIT dataChanged(createIndex(row, 0, node->parentNode()), createIndex(row, columnCount()-1, node->parentNode()));
 }
 
-void TaskWorkPackageModel::slotDocumentAdded(Node *node, Document */*doc*/, int row)
+void TaskWorkPackageModel::slotDocumentAdded(Node *node, Document *doc, int row)
 {
+    Q_UNUSED(doc)
     QModelIndex parent = indexForNode(node);
     if (parent.isValid()) {
         beginInsertRows(parent, row, row);
@@ -138,8 +141,9 @@ void TaskWorkPackageModel::slotDocumentAdded(Node *node, Document */*doc*/, int 
     }
 }
 
-void TaskWorkPackageModel::slotDocumentRemoved(Node *node, Document */*doc*/, int row)
+void TaskWorkPackageModel::slotDocumentRemoved(Node *node, Document *doc, int row)
 {
+    Q_UNUSED(doc)
     QModelIndex parent = indexForNode(node);
     if (parent.isValid()) {
         beginRemoveRows(parent, row, row);
@@ -147,16 +151,18 @@ void TaskWorkPackageModel::slotDocumentRemoved(Node *node, Document */*doc*/, in
     }
 }
 
-void TaskWorkPackageModel::slotDocumentChanged(Node *node, Document */*doc*/, int row)
+void TaskWorkPackageModel::slotDocumentChanged(Node *node, Document *doc, int row)
 {
+    Q_UNUSED(doc)
     QModelIndex parent = indexForNode(node);
     if (parent.isValid()) {
         Q_EMIT dataChanged(index(row, 0, parent), index(row, columnCount(parent), parent));
     }
 }
 
-void TaskWorkPackageModel::addWorkPackage(WorkPackage *package, int /*row*/)
+void TaskWorkPackageModel::addWorkPackage(WorkPackage *package, int row_)
 {
+    Q_UNUSED(row_)
     int row = m_packages.count();
     beginInsertRows(QModelIndex(), row, row);
     m_packages.append(package);

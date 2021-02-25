@@ -257,8 +257,9 @@ void PertEditor::slotNodeRemoved(Node *node)
     }
 }
 
-void PertEditor::slotNodeMoved(Node */*node */)
+void PertEditor::slotNodeMoved(Node *node)
 {
+    Q_UNUSED(node)
     //debugPlan;
     draw();
 }
@@ -322,7 +323,9 @@ QTreeWidgetItem *PertEditor::findNodeItem(Node *node, QTreeWidgetItem *item) {
 }
 
 
-void PertEditor::dispAvailableTasks(Relation */*rel*/){
+void PertEditor::dispAvailableTasks(Relation *rel)
+{
+    Q_UNUSED(rel)
     dispAvailableTasks();
 }
 

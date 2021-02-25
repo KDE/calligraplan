@@ -55,7 +55,7 @@ namespace Scripting {
             QString id() const;
 
             /// Add external appointments
-            void addExternalAppointment(const KPlato::Resource */*resource*/, const QString &/*start*/, const QString &/*end*/, int /*load */) {}
+            void addExternalAppointment(const KPlato::Resource *resource, const QString &/*start*/, const QString &/*end*/, int /*load */) {Q_UNUSED(resource)}
 
             /**
              * Return all internal appointments the resource has

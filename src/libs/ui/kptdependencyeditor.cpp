@@ -601,8 +601,9 @@ void DependencyConnectorItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     }
 }
 
-void DependencyConnectorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget */*widget*/)
+void DependencyConnectorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    Q_UNUSED(widget)
     //debugPlanDepEditor;
     QStyleOptionGraphicsItem opt(*option);
     opt.exposedRect = rect();
@@ -1697,8 +1698,9 @@ void DependencyView::slotContextMenuRequested(QGraphicsItem *item)
     }
 }
 
-void DependencyView::slotDependencyContextMenuRequested(DependencyLinkItem *item, DependencyConnectorItem */*connector */)
+void DependencyView::slotDependencyContextMenuRequested(DependencyLinkItem *item, DependencyConnectorItem *connector)
 {
+    Q_UNUSED(connector)
     if (item) {
         debugPlanDepEditor<<item<<item->boundingRect()<<(item->mapToScene(item->pos()).toPoint())<<(mapToGlobal(item->mapToParent(item->pos()).toPoint()));
         Q_EMIT contextMenuRequested(item, mapToGlobal(item->mapToScene(item->boundingRect().topRight()).toPoint()));

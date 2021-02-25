@@ -407,8 +407,10 @@ void ViewListWidget::setReadWrite(bool rw)
     }
 }
 
-void ViewListWidget::slotItemChanged(QTreeWidgetItem */*item*/, int /*col */)
+void ViewListWidget::slotItemChanged(QTreeWidgetItem *item, int col)
 {
+    Q_UNUSED(item)
+    Q_UNUSED(col)
     //debugPlan;
 }
 

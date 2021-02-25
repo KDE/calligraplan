@@ -179,8 +179,9 @@ void TaskWorkPackageTreeView::slotActivated(const QModelIndex &index)
     debugPlanWork<<index.column();
 }
 
-void TaskWorkPackageTreeView::dragMoveEvent(QDragMoveEvent */*event*/)
+void TaskWorkPackageTreeView::dragMoveEvent(QDragMoveEvent *event)
 {
+    Q_UNUSED(event)
 /*    if (dragDropMode() == InternalMove
         && (event->source() != this || !(event->possibleActions() & Qt::MoveAction)))
         return;

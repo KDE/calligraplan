@@ -547,7 +547,7 @@ bool KoDocument::saveFile()
 
     if (backupFile()) {
         if (url().isLocalFile())
-            KBackup::backupFile(url().toLocalFile(), d->backupPath);
+            KBackup::simpleBackupFile(url().toLocalFile(), d->backupPath);
         else {
             KIO::UDSEntry entry;
             if (KIO::NetAccess::stat(url(),

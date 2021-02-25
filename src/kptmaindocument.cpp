@@ -1472,16 +1472,18 @@ bool MainDocument::mergeResources(Project &project)
     return true;
 }
 
-void MainDocument::insertViewListItem(View */*view*/, const ViewListItem *item, const ViewListItem *parent, int index)
+void MainDocument::insertViewListItem(View *view, const ViewListItem *item, const ViewListItem *parent, int index)
 {
+    Q_UNUSED(view)
     // FIXME callers should take care that they now get a signal even if originating from themselves
     Q_EMIT viewListItemAdded(item, parent, index);
     setModified(true);
     m_viewlistModified = true;
 }
 
-void MainDocument::removeViewListItem(View */*view*/, const ViewListItem *item)
+void MainDocument::removeViewListItem(View *view, const ViewListItem *item)
 {
+    Q_UNUSED(view)
     // FIXME callers should take care that they now get a signal even if originating from themselves
     Q_EMIT viewListItemRemoved(item);
     setModified(true);

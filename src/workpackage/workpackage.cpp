@@ -103,8 +103,9 @@ void WorkPackage::projectChanged()
     setModified(true);
 }
 
-bool WorkPackage::addChild(Part */*part*/, const Document *doc)
+bool WorkPackage::addChild(Part *part, const Document *doc)
 {
+    Q_UNUSED(part)
     DocumentChild *ch = findChild(doc);
     if (ch) {
         if (ch->isOpen()) {
@@ -305,8 +306,9 @@ bool WorkPackage::saveToStream(QIODevice * dev)
     return nwritten == (int)s.size();
 }
 
-bool WorkPackage::saveNativeFormat(Part */*part*/, const QString &path)
+bool WorkPackage::saveNativeFormat(Part *part, const QString &path)
 {
+    Q_UNUSED(part)
     if (path.isEmpty()) {
         KMessageBox::error(nullptr, i18n("Cannot save to empty filename"));
         return false;

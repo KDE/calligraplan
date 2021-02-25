@@ -2728,8 +2728,11 @@ KUndo2Command *NodeModel::setLeader(Node *node, const QVariant &value, int role)
     return nullptr;
 }
 
-KUndo2Command *NodeModel::setAllocation(Node */*node*/, const QVariant &/*value*/, int /*role*/)
+KUndo2Command *NodeModel::setAllocation(Node *node, const QVariant &value, int role)
 {
+    Q_UNUSED(node)
+    Q_UNUSED(value)
+    Q_UNUSED(role)
     return nullptr;
 }
 
@@ -3069,8 +3072,11 @@ KUndo2Command *NodeModel::setShutdownCost(Node *node, const QVariant &value, int
     return nullptr;
 }
 
-KUndo2Command *NodeModel::setCompletion(Node */*node*/, const QVariant &/*value*/, int /*role*/)
+KUndo2Command *NodeModel::setCompletion(Node *node, const QVariant &value, int role)
 {
+    Q_UNUSED(node)
+    Q_UNUSED(value)
+    Q_UNUSED(role)
     return nullptr;
 }
 
