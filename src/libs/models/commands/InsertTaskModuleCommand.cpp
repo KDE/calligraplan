@@ -228,8 +228,16 @@ void InsertTaskModuleCommand::createCmdTasks(const KoXmlElement &projectElement)
 
 void InsertTaskModuleCommand::createCmdTask(const KoXmlElement &parentElement, Node *parent, Node *position)
 {
+    KoXmlElement pe = parentElement;
+    if (pe.tagName() == "project") {
+        pe = pe.namedItem("tasks").toElement();
+    }
+    if (pe.isNull()) {
+        warnPlanInsertTaskModule<<"Invalid parent element";
+        return;
+    }
     KoXmlElement taskElement;
-    forEachElement(taskElement, parentElement) {
+    forEachElement(taskElement, pe) {
         if (taskElement.tagName() != "task") {
             continue;
         }
