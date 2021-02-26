@@ -411,15 +411,21 @@ void MainProjectPanel::insertTaskModuleClicked()
     if (!dirName.isEmpty()) {
         dirName = QUrl::fromUserInput(dirName).toString();
         QStandardItemModel *m = static_cast<QStandardItemModel*>(ui_taskModulesView->model());
-        for (int r = 0; r < m->rowCount(); ++r) {
-            QUrl url1(dirName);
-            QUrl url2 = QUrl::fromUserInput(m->index(r, 0).data().toString());
-            if (url1.matches(url2, QUrl::StripTrailingSlash|QUrl::NormalizePathSegments)) {
-                break;
-            }
+        if (m->rowCount() == 0) {
             QStandardItem *item = new QStandardItem(dirName);
             m->appendRow(item);
             slotCheckAllFieldsFilled();
+        } else {
+            for (int r = 0; r < m->rowCount(); ++r) {
+                QUrl url1(dirName);
+                QUrl url2 = QUrl::fromUserInput(m->index(r, 0).data().toString());
+                if (url1.matches(url2, QUrl::StripTrailingSlash|QUrl::NormalizePathSegments)) {
+                    break;
+                }
+                QStandardItem *item = new QStandardItem(dirName);
+                m->appendRow(item);
+                slotCheckAllFieldsFilled();
+            }
         }
     }
 }
