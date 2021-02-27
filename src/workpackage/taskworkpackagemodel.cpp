@@ -43,13 +43,11 @@
 
 #include "debugarea.h"
 
-using namespace KPlato;
-
 namespace KPlatoWork
 {
 
 TaskWorkPackageModel::TaskWorkPackageModel(Part *part, QObject *parent)
-    : ItemModelBase(parent),
+    : KPlato::ItemModelBase(parent),
     m_part(part)
 {
     m_packages = m_part->workPackages().values();
@@ -61,14 +59,14 @@ Qt::ItemFlags TaskWorkPackageModel::flags(const QModelIndex &index) const
 {
     Qt::ItemFlags flags = QAbstractItemModel::flags(index);
     flags &= ~(Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled);
-    Node *n = nodeForIndex(index);
+    KPlato::Node *n = nodeForIndex(index);
     if (n == nullptr) {
         return flags;
     }
-    if (n->type() != Node::Type_Task && n->type() != Node::Type_Milestone) {
+    if (n->type() != KPlato::Node::Type_Task && n->type() != KPlato::Node::Type_Milestone) {
         return flags;
     }
-    Task *t = static_cast<Task*>(n);
+    KPlato::Task *t = static_cast<KPlato::Task*>(n);
     if (! t->completion().isStarted()) {
         switch (index.column()) {
             case NodeActualStart:
@@ -94,36 +92,36 @@ Qt::ItemFlags TaskWorkPackageModel::flags(const QModelIndex &index) const
     return flags;
 }
 
-void TaskWorkPackageModel::slotNodeToBeInserted(Node *parent, int row)
+void TaskWorkPackageModel::slotNodeToBeInserted(KPlato::Node *parent, int row)
 {
     //debugPlanWork<<parent->name()<<"; "<<row;
     beginInsertRows(indexForNode(parent), row, row);
 }
 
-void TaskWorkPackageModel::slotNodeInserted(Node *node)
+void TaskWorkPackageModel::slotNodeInserted(KPlato::Node *node)
 {
     Q_UNUSED(node)
     //debugPlanWork<<node->parentNode()->name()<<"-->"<<node->name();
     endInsertRows();
 }
 
-void TaskWorkPackageModel::slotNodeToBeRemoved(Node *node)
+void TaskWorkPackageModel::slotNodeToBeRemoved(KPlato::Node *node)
 {
     //debugPlanWork<<node->name();
     int row = indexForNode(node).row();
     beginRemoveRows(indexForNode(node->parentNode()), row, row);
 }
 
-void TaskWorkPackageModel::slotNodeRemoved(Node *node)
+void TaskWorkPackageModel::slotNodeRemoved(KPlato::Node *node)
 {
     Q_UNUSED(node)
     //debugPlanWork<<node->name();
     endRemoveRows();
 }
 
-void TaskWorkPackageModel::slotNodeChanged(Node *node)
+void TaskWorkPackageModel::slotNodeChanged(KPlato::Node *node)
 {
-    if (node == nullptr || node->type() == Node::Type_Project) {
+    if (node == nullptr || node->type() == KPlato::Node::Type_Project) {
         return;
     }
     int row = indexForNode(node).row();
@@ -131,7 +129,7 @@ void TaskWorkPackageModel::slotNodeChanged(Node *node)
     Q_EMIT dataChanged(createIndex(row, 0, node->parentNode()), createIndex(row, columnCount()-1, node->parentNode()));
 }
 
-void TaskWorkPackageModel::slotDocumentAdded(Node *node, Document *doc, int row)
+void TaskWorkPackageModel::slotDocumentAdded(KPlato::Node *node, KPlato::Document *doc, int row)
 {
     Q_UNUSED(doc)
     QModelIndex parent = indexForNode(node);
@@ -141,7 +139,7 @@ void TaskWorkPackageModel::slotDocumentAdded(Node *node, Document *doc, int row)
     }
 }
 
-void TaskWorkPackageModel::slotDocumentRemoved(Node *node, Document *doc, int row)
+void TaskWorkPackageModel::slotDocumentRemoved(KPlato::Node *node, KPlato::Document *doc, int row)
 {
     Q_UNUSED(doc)
     QModelIndex parent = indexForNode(node);
@@ -151,7 +149,7 @@ void TaskWorkPackageModel::slotDocumentRemoved(Node *node, Document *doc, int ro
     }
 }
 
-void TaskWorkPackageModel::slotDocumentChanged(Node *node, Document *doc, int row)
+void TaskWorkPackageModel::slotDocumentChanged(KPlato::Node *node, KPlato::Document *doc, int row)
 {
     Q_UNUSED(doc)
     QModelIndex parent = indexForNode(node);
@@ -166,7 +164,7 @@ void TaskWorkPackageModel::addWorkPackage(WorkPackage *package, int row_)
     int row = m_packages.count();
     beginInsertRows(QModelIndex(), row, row);
     m_packages.append(package);
-    Project *project = package->project();
+    KPlato::Project *project = package->project();
     endInsertRows();
     if (project) {
         connect(project, &KPlato::Project::nodeChanged, this, &TaskWorkPackageModel::slotNodeChanged);
@@ -187,7 +185,7 @@ void TaskWorkPackageModel::removeWorkPackage(WorkPackage *package, int /*row*/)
     int row = m_packages.indexOf(package);
     beginRemoveRows(QModelIndex(), row, row);
     m_packages.removeAt(row);
-    Project *project = package->project();
+    KPlato::Project *project = package->project();
     debugPlanWork<<package->project();
     if (project) {
         disconnect(project, &KPlato::Project::nodeChanged, this, &TaskWorkPackageModel::slotNodeChanged);
@@ -204,7 +202,7 @@ void TaskWorkPackageModel::removeWorkPackage(WorkPackage *package, int /*row*/)
     endRemoveRows();
 }
 
-QVariant TaskWorkPackageModel::name(const Resource *r, int role) const
+QVariant TaskWorkPackageModel::name(const KPlato::Resource *r, int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
@@ -218,7 +216,7 @@ QVariant TaskWorkPackageModel::name(const Resource *r, int role) const
     return QVariant();
 }
 
-QVariant TaskWorkPackageModel::email(const Resource *r, int role) const
+QVariant TaskWorkPackageModel::email(const KPlato::Resource *r, int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
@@ -232,13 +230,13 @@ QVariant TaskWorkPackageModel::email(const Resource *r, int role) const
     return QVariant();
 }
 
-QVariant TaskWorkPackageModel::projectName(const Node *node, int role) const
+QVariant TaskWorkPackageModel::projectName(const KPlato::Node *node, int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
         case Qt::EditRole:
         case Qt::ToolTipRole: {
-            const Node *proj = node->projectNode();
+            const KPlato::Node *proj = node->projectNode();
             return proj == nullptr ? QVariant() : proj->name();
         }
         case Qt::StatusTipRole:
@@ -248,13 +246,13 @@ QVariant TaskWorkPackageModel::projectName(const Node *node, int role) const
     return QVariant();
 }
 
-QVariant TaskWorkPackageModel::projectManager(const Node *node, int role) const
+QVariant TaskWorkPackageModel::projectManager(const KPlato::Node *node, int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
         case Qt::EditRole:
         case Qt::ToolTipRole: {
-            const Node *proj = node->projectNode();
+            const KPlato::Node *proj = node->projectNode();
             return proj == nullptr ? QVariant() : proj->leader();
         }
         case Qt::StatusTipRole:
@@ -270,7 +268,7 @@ int TaskWorkPackageModel::rowCount(const QModelIndex &parent) const
         //debugPlanWork<<parent<<"nodes:"<<m_part->workPackageCount();
         return m_packages.count(); // == no of nodes (1 node pr wp)
     }
-    Node *n = nodeForIndex(parent);
+    KPlato::Node *n = nodeForIndex(parent);
     if (n) {
         //debugPlanWork<<parent<<"docs:"<<n->documents().count();
         return n->documents().count();
@@ -289,7 +287,7 @@ QVariant TaskWorkPackageModel::data(const QModelIndex &index, int role) const
     if (! index.isValid()) {
         return QVariant();
     }
-    Node *n = nodeForIndex(index);
+    KPlato::Node *n = nodeForIndex(index);
     if (n) {
         if (role == Qt::ToolTipRole && index.column() == NodeName) {
             WorkPackage *wp = workPackage(index.row());
@@ -312,14 +310,14 @@ QVariant TaskWorkPackageModel::data(const QModelIndex &index, int role) const
         }
         return nodeData(n, index.column(), role);
     }
-    Document *doc = documentForIndex(index);
+    KPlato::Document *doc = documentForIndex(index);
     if (doc) {
         return documentData(doc, index.column(), role);
     }
     return QVariant();
 }
 
-QVariant TaskWorkPackageModel::actualStart(Node *n, int role) const
+QVariant TaskWorkPackageModel::actualStart(KPlato::Node *n, int role) const
 {
     QVariant v = m_nodemodel.startedTime(n, role);
     if (role == Qt::EditRole && ! v.toDateTime().isValid()) {
@@ -328,7 +326,7 @@ QVariant TaskWorkPackageModel::actualStart(Node *n, int role) const
     return v;
 }
 
-QVariant TaskWorkPackageModel::actualFinish(Node *n, int role) const
+QVariant TaskWorkPackageModel::actualFinish(KPlato::Node *n, int role) const
 {
     QVariant v = m_nodemodel.finishedTime(n, role);
     if (role == Qt::EditRole && ! v.toDateTime().isValid()) {
@@ -337,12 +335,12 @@ QVariant TaskWorkPackageModel::actualFinish(Node *n, int role) const
     return v;
 }
 
-QVariant TaskWorkPackageModel::plannedEffort(Node *n, int role) const
+QVariant TaskWorkPackageModel::plannedEffort(KPlato::Node *n, int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole: {
-            Duration v = n->plannedEffort(CURRENTSCHEDULE, ECCT_EffortWork);
+            KPlato::Duration v = n->plannedEffort(CURRENTSCHEDULE, KPlato::ECCT_EffortWork);
             return v.format();
         }
         default:
@@ -351,53 +349,53 @@ QVariant TaskWorkPackageModel::plannedEffort(Node *n, int role) const
     return QVariant();
 }
 
-QVariant TaskWorkPackageModel::status(Node *n, int role) const
+QVariant TaskWorkPackageModel::status(KPlato::Node *n, int role) const
 {
     return m_nodemodel.status(n, role);
 }
 
-QVariant TaskWorkPackageModel::nodeData(Node *n, int column, int role) const
+QVariant TaskWorkPackageModel::nodeData(KPlato::Node *n, int column, int role) const
 {
     if (role >= Qt::UserRole) {
 //        debugPlanWork<<this<<n->name()<<column<<role;
         switch (role) {
         case KGantt::ItemTypeRole:
             switch (n->type()) {
-            case Node::Type_Task: return KGantt::TypeTask;
+            case KPlato::Node::Type_Task: return KGantt::TypeTask;
             default: break;
             }
             break;
         case KGantt::StartTimeRole:
             debugPlanWork<<this<<n->name()<<"start:"<<n->startTime();
-            return m_nodemodel.data(n, NodeModel::NodeStartTime, Qt::EditRole);
+            return m_nodemodel.data(n, KPlato::NodeModel::NodeStartTime, Qt::EditRole);
         case KGantt::EndTimeRole:
             debugPlanWork<<this<<n->name()<<"end:"<<n->endTime();
-            return m_nodemodel.data(n, NodeModel::NodeEndTime, Qt::EditRole);
+            return m_nodemodel.data(n, KPlato::NodeModel::NodeEndTime, Qt::EditRole);
         default: break;
         }
     }
     switch (column) {
-        case NodeName: return m_nodemodel.data(n, NodeModel::NodeName, role);
-        case NodeType: return m_nodemodel.data(n, NodeModel::NodeType, role);
-        case NodeResponsible: return m_nodemodel.data(n, NodeModel::NodeResponsible, role);
-        case NodeDescription: return m_nodemodel.data(n, NodeModel::NodeDescription, role);
+        case NodeName: return m_nodemodel.data(n, KPlato::NodeModel::NodeName, role);
+        case NodeType: return m_nodemodel.data(n, KPlato::NodeModel::NodeType, role);
+        case NodeResponsible: return m_nodemodel.data(n, KPlato::NodeModel::NodeResponsible, role);
+        case NodeDescription: return m_nodemodel.data(n, KPlato::NodeModel::NodeDescription, role);
 
         // After scheduling
-        case NodeStartTime: return m_nodemodel.data(n, NodeModel::NodeStartTime, role);
-        case NodeEndTime: return m_nodemodel.data(n, NodeModel::NodeEndTime, role);
-        case NodeAssignments: return m_nodemodel.data(n, NodeModel::NodeAssignments, role);
+        case NodeStartTime: return m_nodemodel.data(n, KPlato::NodeModel::NodeStartTime, role);
+        case NodeEndTime: return m_nodemodel.data(n, KPlato::NodeModel::NodeEndTime, role);
+        case NodeAssignments: return m_nodemodel.data(n, KPlato::NodeModel::NodeAssignments, role);
 
         // Completion
-        case NodeCompleted: return m_nodemodel.data(n, NodeModel::NodeCompleted, role);
-        case NodeActualEffort: return m_nodemodel.data(n, NodeModel::NodeActualEffort, role);
-        case NodeRemainingEffort: return m_nodemodel.data(n, NodeModel::NodeRemainingEffort, role);
+        case NodeCompleted: return m_nodemodel.data(n, KPlato::NodeModel::NodeCompleted, role);
+        case NodeActualEffort: return m_nodemodel.data(n, KPlato::NodeModel::NodeActualEffort, role);
+        case NodeRemainingEffort: return m_nodemodel.data(n, KPlato::NodeModel::NodeRemainingEffort, role);
         case NodePlannedEffort: return plannedEffort(n, role);
         case NodeActualStart: return actualStart(n, role);
-        case NodeStarted: return m_nodemodel.data(n, NodeModel::NodeStarted, role);
+        case NodeStarted: return m_nodemodel.data(n, KPlato::NodeModel::NodeStarted, role);
         case NodeActualFinish: return actualFinish(n, role);
-        case NodeFinished: return m_nodemodel.data(n, NodeModel::NodeFinished, role);
+        case NodeFinished: return m_nodemodel.data(n, KPlato::NodeModel::NodeFinished, role);
         case NodeStatus: return status(n, role);
-        case NodeStatusNote: return m_nodemodel.data(n, NodeModel::NodeStatusNote, role);
+        case NodeStatusNote: return m_nodemodel.data(n, KPlato::NodeModel::NodeStatusNote, role);
 
         case ProjectName: return projectName(n, role);
         case ProjectManager: return projectManager(n, role);
@@ -409,7 +407,7 @@ QVariant TaskWorkPackageModel::nodeData(Node *n, int column, int role) const
     return "";
 }
 
-QVariant TaskWorkPackageModel::documentData(Document *doc, int column, int role) const
+QVariant TaskWorkPackageModel::documentData(KPlato::Document *doc, int column, int role) const
 {
     //debugPlanWork<<doc->url().fileName()<<column<<role;
     if (role == Qt::DisplayRole) {
@@ -435,57 +433,57 @@ QVariant TaskWorkPackageModel::documentData(Document *doc, int column, int role)
     return QVariant();
 }
 
-bool TaskWorkPackageModel::setCompletion(Node *node, const QVariant &value, int role)
+bool TaskWorkPackageModel::setCompletion(KPlato::Node *node, const QVariant &value, int role)
 {
     if (role != Qt::EditRole) {
         return false;
     }
-    if (node->type() == Node::Type_Task) {
-        Completion &c = static_cast<Task*>(node)->completion();
+    if (node->type() == KPlato::Node::Type_Task) {
+        KPlato::Completion &c = static_cast<KPlato::Task*>(node)->completion();
         QDate date = qMax(c.entryDate(), QDate::currentDate());
         QDateTime dt(date, QTime::currentTime());
         // xgettext: no-c-format
-        MacroCommand *m = new MacroCommand(kundo2_i18n("Modify completion"));
+        KPlato::MacroCommand *m = new KPlato::MacroCommand(kundo2_i18n("Modify completion"));
         if (! c.isStarted()) {
-            m->addCommand(new ModifyCompletionStartedCmd(c, true));
-            m->addCommand(new ModifyCompletionStartTimeCmd(c, dt));
+            m->addCommand(new KPlato::ModifyCompletionStartedCmd(c, true));
+            m->addCommand(new KPlato::ModifyCompletionStartTimeCmd(c, dt));
         }
-        m->addCommand(new ModifyCompletionPercentFinishedCmd(c, date, value.toInt()));
+        m->addCommand(new KPlato::ModifyCompletionPercentFinishedCmd(c, date, value.toInt()));
         if (value.toInt() == 100) {
-            m->addCommand(new ModifyCompletionFinishedCmd(c, true));
-            m->addCommand(new ModifyCompletionFinishTimeCmd(c, dt));
+            m->addCommand(new KPlato::ModifyCompletionFinishedCmd(c, true));
+            m->addCommand(new KPlato::ModifyCompletionFinishTimeCmd(c, dt));
         }
         bool newentry = c.entryDate() < date;
         Q_EMIT executeCommand(m); // also adds a new entry if necessary
         if (newentry) {
             // new entry so calculate used/remaining based on completion
-            Duration planned = static_cast<Task*>(node)->plannedEffort(m_nodemodel.id());
-            Duration actual = (planned * value.toInt()) / 100;
+            KPlato::Duration planned = static_cast<KPlato::Task*>(node)->plannedEffort(m_nodemodel.id());
+            KPlato::Duration actual = (planned * value.toInt()) / 100;
             debugPlanWork<<planned.toString()<<value.toInt()<<actual.toString();
-            NamedCommand *cmd = new ModifyCompletionActualEffortCmd(c, date, actual);
+            KPlato::NamedCommand *cmd = new KPlato::ModifyCompletionActualEffortCmd(c, date, actual);
             cmd->execute();
             m->addCommand(cmd);
-            cmd = new ModifyCompletionRemainingEffortCmd(c, date, planned - actual);
+            cmd = new KPlato::ModifyCompletionRemainingEffortCmd(c, date, planned - actual);
             cmd->execute();
             m->addCommand(cmd);
         } else if (c.isFinished() && c.remainingEffort() != 0) {
-            ModifyCompletionRemainingEffortCmd *cmd = new ModifyCompletionRemainingEffortCmd(c, date, Duration::zeroDuration);
+            KPlato::ModifyCompletionRemainingEffortCmd *cmd = new KPlato::ModifyCompletionRemainingEffortCmd(c, date, KPlato::Duration::zeroDuration);
             cmd->execute();
             m->addCommand(cmd);
         }
         return true;
     }
-    if (node->type() == Node::Type_Milestone) {
-        Completion &c = static_cast<Task*>(node)->completion();
+    if (node->type() == KPlato::Node::Type_Milestone) {
+        KPlato::Completion &c = static_cast<KPlato::Task*>(node)->completion();
         if (value.toInt() > 0) {
             QDateTime dt = QDateTime::currentDateTime();
             QDate date = dt.date();
-            MacroCommand *m = new MacroCommand(kundo2_i18n("Set finished"));
-            m->addCommand(new ModifyCompletionStartedCmd(c, true));
-            m->addCommand(new ModifyCompletionStartTimeCmd(c, dt));
-            m->addCommand(new ModifyCompletionFinishedCmd(c, true));
-            m->addCommand(new ModifyCompletionFinishTimeCmd(c, dt));
-            m->addCommand(new ModifyCompletionPercentFinishedCmd(c, date, 100));
+            KPlato::MacroCommand *m = new KPlato::MacroCommand(kundo2_i18n("Set finished"));
+            m->addCommand(new KPlato::ModifyCompletionStartedCmd(c, true));
+            m->addCommand(new KPlato::ModifyCompletionStartTimeCmd(c, dt));
+            m->addCommand(new KPlato::ModifyCompletionFinishedCmd(c, true));
+            m->addCommand(new KPlato::ModifyCompletionFinishTimeCmd(c, dt));
+            m->addCommand(new KPlato::ModifyCompletionPercentFinishedCmd(c, date, 100));
             Q_EMIT executeCommand(m); // also adds a new entry if necessary
             return true;
         }
@@ -494,51 +492,51 @@ bool TaskWorkPackageModel::setCompletion(Node *node, const QVariant &value, int 
     return false;
 }
 
-bool TaskWorkPackageModel::setRemainingEffort(Node *node, const QVariant &value, int role)
+bool TaskWorkPackageModel::setRemainingEffort(KPlato::Node *node, const QVariant &value, int role)
 {
-    if (role == Qt::EditRole && node->type() == Node::Type_Task) {
-        Task *t = static_cast<Task*>(node);
+    if (role == Qt::EditRole && node->type() == KPlato::Node::Type_Task) {
+        KPlato::Task *t = static_cast<KPlato::Task*>(node);
         double d(value.toList()[0].toDouble());
-        Duration::Unit unit = static_cast<Duration::Unit>(value.toList()[1].toInt());
-        Duration dur(d, unit);
-        Q_EMIT executeCommand(new ModifyCompletionRemainingEffortCmd(t->completion(), QDate::currentDate(), dur, kundo2_i18n("Modify remaining effort")));
+        KPlato::Duration::Unit unit = static_cast<KPlato::Duration::Unit>(value.toList()[1].toInt());
+        KPlato::Duration dur(d, unit);
+        Q_EMIT executeCommand(new KPlato::ModifyCompletionRemainingEffortCmd(t->completion(), QDate::currentDate(), dur, kundo2_i18n("Modify remaining effort")));
         return true;
     }
     return false;
 }
 
-bool TaskWorkPackageModel::setActualEffort(Node *node, const QVariant &value, int role)
+bool TaskWorkPackageModel::setActualEffort(KPlato::Node *node, const QVariant &value, int role)
 {
-    if (role == Qt::EditRole && node->type() == Node::Type_Task) {
-        Task *t = static_cast<Task*>(node);
+    if (role == Qt::EditRole && node->type() == KPlato::Node::Type_Task) {
+        KPlato::Task *t = static_cast<KPlato::Task*>(node);
         double d(value.toList()[0].toDouble());
-        Duration::Unit unit = static_cast<Duration::Unit>(value.toList()[1].toInt());
-        Duration dur(d, unit);
-        Q_EMIT executeCommand(new ModifyCompletionActualEffortCmd(t->completion(), QDate::currentDate(), dur, kundo2_i18n("Modify actual effort")));
+        KPlato::Duration::Unit unit = static_cast<KPlato::Duration::Unit>(value.toList()[1].toInt());
+        KPlato::Duration dur(d, unit);
+        Q_EMIT executeCommand(new KPlato::ModifyCompletionActualEffortCmd(t->completion(), QDate::currentDate(), dur, kundo2_i18n("Modify actual effort")));
         return true;
     }
     return false;
 }
 
-bool TaskWorkPackageModel::setStartedTime(Node *node, const QVariant &value, int role)
+bool TaskWorkPackageModel::setStartedTime(KPlato::Node *node, const QVariant &value, int role)
 {
     switch (role) {
         case Qt::EditRole: {
-            Task *t = qobject_cast<Task*>(node);
+            KPlato::Task *t = qobject_cast<KPlato::Task*>(node);
             if (t == nullptr) {
                 return false;
             }
-            MacroCommand *m = new MacroCommand(kundo2_noi18n(headerData(NodeModel::NodeActualStart, Qt::Horizontal, Qt::DisplayRole).toString())); //FIXME: proper description when string freeze is lifted
+            KPlato::MacroCommand *m = new KPlato::MacroCommand(kundo2_noi18n(headerData(KPlato::NodeModel::NodeActualStart, Qt::Horizontal, Qt::DisplayRole).toString())); //FIXME: proper description when string freeze is lifted
             if (! t->completion().isStarted()) {
-                m->addCommand(new ModifyCompletionStartedCmd(t->completion(), true));
+                m->addCommand(new KPlato::ModifyCompletionStartedCmd(t->completion(), true));
             }
-            m->addCommand(new ModifyCompletionStartTimeCmd(t->completion(), value.toDateTime()));
-            if (t->type() == Node::Type_Milestone) {
-                m->addCommand(new ModifyCompletionFinishedCmd(t->completion(), true));
-                m->addCommand(new ModifyCompletionFinishTimeCmd(t->completion(), value.toDateTime()));
+            m->addCommand(new KPlato::ModifyCompletionStartTimeCmd(t->completion(), value.toDateTime()));
+            if (t->type() == KPlato::Node::Type_Milestone) {
+                m->addCommand(new KPlato::ModifyCompletionFinishedCmd(t->completion(), true));
+                m->addCommand(new KPlato::ModifyCompletionFinishTimeCmd(t->completion(), value.toDateTime()));
                 if (t->completion().percentFinished() < 100) {
-                    Completion::Entry *e = new Completion::Entry(100, Duration::zeroDuration, Duration::zeroDuration);
-                    m->addCommand(new AddCompletionEntryCmd(t->completion(), value.toDate(), e));
+                    KPlato::Completion::Entry *e = new KPlato::Completion::Entry(100, KPlato::Duration::zeroDuration, KPlato::Duration::zeroDuration);
+                    m->addCommand(new KPlato::AddCompletionEntryCmd(t->completion(), value.toDate(), e));
                 }
             }
             Q_EMIT executeCommand(m);
@@ -548,33 +546,33 @@ bool TaskWorkPackageModel::setStartedTime(Node *node, const QVariant &value, int
     return false;
 }
 
-bool TaskWorkPackageModel::setFinishedTime(Node *node, const QVariant &value, int role)
+bool TaskWorkPackageModel::setFinishedTime(KPlato::Node *node, const QVariant &value, int role)
 {
     switch (role) {
         case Qt::EditRole: {
-            Task *t = qobject_cast<Task*>(node);
+            KPlato::Task *t = qobject_cast<KPlato::Task*>(node);
             if (t == nullptr) {
                 return false;
             }
-            MacroCommand *m = new MacroCommand(kundo2_noi18n(headerData(NodeModel::NodeActualFinish, Qt::Horizontal, Qt::DisplayRole).toString())); //FIXME: proper description when string freeze is lifted
+            KPlato::MacroCommand *m = new KPlato::MacroCommand(kundo2_noi18n(headerData(KPlato::NodeModel::NodeActualFinish, Qt::Horizontal, Qt::DisplayRole).toString())); //FIXME: proper description when string freeze is lifted
             if (! t->completion().isFinished()) {
-                m->addCommand(new ModifyCompletionFinishedCmd(t->completion(), true));
+                m->addCommand(new KPlato::ModifyCompletionFinishedCmd(t->completion(), true));
                 if (t->completion().percentFinished() < 100) {
                     QDate lastdate = t->completion().entryDate();
                     if (! lastdate.isValid() || lastdate < value.toDate()) {
-                        Completion::Entry *e = new Completion::Entry(100, Duration::zeroDuration, Duration::zeroDuration);
-                        m->addCommand(new AddCompletionEntryCmd(t->completion(), value.toDate(), e));
+                        KPlato::Completion::Entry *e = new KPlato::Completion::Entry(100, KPlato::Duration::zeroDuration, KPlato::Duration::zeroDuration);
+                        m->addCommand(new KPlato::AddCompletionEntryCmd(t->completion(), value.toDate(), e));
                     } else {
-                        Completion::Entry *e = new Completion::Entry(*(t->completion().entry(lastdate)));
+                        KPlato::Completion::Entry *e = new KPlato::Completion::Entry(*(t->completion().entry(lastdate)));
                         e->percentFinished = 100;
-                        m->addCommand(new ModifyCompletionEntryCmd(t->completion(), lastdate, e));
+                        m->addCommand(new KPlato::ModifyCompletionEntryCmd(t->completion(), lastdate, e));
                     }
                 }
             }
-            m->addCommand(new ModifyCompletionFinishTimeCmd(t->completion(), value.toDateTime()));
-            if (t->type() == Node::Type_Milestone) {
-                m->addCommand(new ModifyCompletionStartedCmd(t->completion(), true));
-                m->addCommand(new ModifyCompletionStartTimeCmd(t->completion(), value.toDateTime()));
+            m->addCommand(new KPlato::ModifyCompletionFinishTimeCmd(t->completion(), value.toDateTime()));
+            if (t->type() == KPlato::Node::Type_Milestone) {
+                m->addCommand(new KPlato::ModifyCompletionStartedCmd(t->completion(), true));
+                m->addCommand(new KPlato::ModifyCompletionStartTimeCmd(t->completion(), value.toDateTime()));
             }
             Q_EMIT executeCommand(m);
             return true;
@@ -586,7 +584,7 @@ bool TaskWorkPackageModel::setFinishedTime(Node *node, const QVariant &value, in
 bool TaskWorkPackageModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (! index.isValid()) {
-        return ItemModelBase::setData(index, value, role);
+        return KPlato::ItemModelBase::setData(index, value, role);
     }
     switch (index.column()) {
         case NodeCompleted:
@@ -672,7 +670,7 @@ QModelIndex TaskWorkPackageModel::index(int row, int column, const QModelIndex &
     return QModelIndex();
 }
 
-Node *TaskWorkPackageModel::nodeForIndex(const QModelIndex &index) const
+KPlato::Node *TaskWorkPackageModel::nodeForIndex(const QModelIndex &index) const
 {
     WorkPackage *wp = ptrToWorkPackage(index);
     if (wp) {
@@ -682,10 +680,10 @@ Node *TaskWorkPackageModel::nodeForIndex(const QModelIndex &index) const
     return nullptr;
 }
 
-Document *TaskWorkPackageModel::documentForIndex(const QModelIndex &index) const
+KPlato::Document *TaskWorkPackageModel::documentForIndex(const QModelIndex &index) const
 {
     if (index.isValid()) {
-        Node *parent = ptrToNode(index);
+        KPlato::Node *parent = ptrToNode(index);
         if (parent && index.row() < parent->documents().count()) {
             //debugPlanWork<<index<<parent->name();
             return parent->documents().value(index.row());
@@ -694,7 +692,7 @@ Document *TaskWorkPackageModel::documentForIndex(const QModelIndex &index) const
     return nullptr;
 }
 
-QModelIndex TaskWorkPackageModel::indexForNode(Node *node) const
+QModelIndex TaskWorkPackageModel::indexForNode(KPlato::Node *node) const
 {
     WorkPackage *p = m_part->workPackage(node);
     if (p == nullptr) {
@@ -711,11 +709,11 @@ WorkPackage *TaskWorkPackageModel::workPackage(int index) const
 QAbstractItemDelegate *TaskWorkPackageModel::createDelegate(int column, QWidget *parent) const
 {
     switch (column) {
-        case NodeCompleted: return new TaskCompleteDelegate(parent);
-        case NodeRemainingEffort: return new DurationSpinBoxDelegate(parent);
-        case NodeActualEffort: return new DurationSpinBoxDelegate(parent);
-        case NodeActualStart: return new DateTimeCalendarDelegate(parent);
-        case NodeActualFinish: return new DateTimeCalendarDelegate(parent);
+        case NodeCompleted: return new KPlato::TaskCompleteDelegate(parent);
+        case NodeRemainingEffort: return new KPlato::DurationSpinBoxDelegate(parent);
+        case NodeActualEffort: return new KPlato::DurationSpinBoxDelegate(parent);
+        case NodeActualStart: return new KPlato::DateTimeCalendarDelegate(parent);
+        case NodeActualFinish: return new KPlato::DateTimeCalendarDelegate(parent);
 
         default: break;
     }
@@ -743,11 +741,11 @@ WorkPackage *TaskWorkPackageModel::ptrToWorkPackage(const QModelIndex &indx) con
     return qobject_cast<WorkPackage*>(static_cast<QObject*>(idx.internalPointer()));
 }
 
-Node *TaskWorkPackageModel::ptrToNode(const QModelIndex &indx) const
+KPlato::Node *TaskWorkPackageModel::ptrToNode(const QModelIndex &indx) const
 {
     QModelIndex idx = mapToModel(this, indx);
     Q_ASSERT(idx.model() == this);
-    return qobject_cast<Node*>(static_cast<QObject*>(idx.internalPointer()));
+    return qobject_cast<KPlato::Node*>(static_cast<QObject*>(idx.internalPointer()));
 }
 
 bool TaskWorkPackageModel::isNode(const QModelIndex &indx) const
@@ -763,7 +761,7 @@ bool TaskWorkPackageModel::isDocument(const QModelIndex &indx) const
     QModelIndex idx = mapToModel(this, indx);
     Q_ASSERT(idx.model() == this);
     // a document index: ptr is Node*
-    return qobject_cast<Node*>(static_cast<QObject*>(idx.internalPointer())) != 0;
+    return qobject_cast<KPlato::Node*>(static_cast<QObject*>(idx.internalPointer())) != 0;
 }
 
 

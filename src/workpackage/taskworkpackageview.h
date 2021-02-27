@@ -43,7 +43,6 @@ class Node;
 class Document;
 
 }
-using namespace KPlato;
 
 namespace KPlatoWork
 {
@@ -52,7 +51,7 @@ class WorkPackage;
 
 class TaskWorkPackageModel;
 
-class PLANWORK_EXPORT TaskWorkPackageTreeView : public DoubleTreeViewBase
+class PLANWORK_EXPORT TaskWorkPackageTreeView : public KPlato::DoubleTreeViewBase
 {
     Q_OBJECT
 public:
@@ -63,12 +62,12 @@ public:
 
     TaskWorkPackageModel *itemModel() const;
     
-    Project *project() const;
-    void setProject(Project *project);
+    KPlato::Project *project() const;
+    void setProject(KPlato::Project *project);
 
-    Document *currentDocument() const;
-    Node *currentNode() const;
-    QList<Node*> selectedNodes() const;
+    KPlato::Document *currentDocument() const;
+    KPlato::Node *currentNode() const;
+    QList<KPlato::Node*> selectedNodes() const;
 
 Q_SIGNALS:
     void sectionsMoved();
@@ -82,7 +81,7 @@ protected:
 };
 
 
-class PLANWORK_EXPORT AbstractView : public QWidget, public ViewActionLists
+class PLANWORK_EXPORT AbstractView : public QWidget, public KPlato::ViewActionLists
 {
     Q_OBJECT
 public:
@@ -91,11 +90,11 @@ public:
     /// reimplement
     virtual void updateReadWrite(bool readwrite);
     /// reimplement
-    virtual Node *currentNode() const;
+    virtual KPlato::Node *currentNode() const;
     /// reimplement
-    virtual Document *currentDocument() const;
+    virtual KPlato::Document *currentDocument() const;
     /// reimplement
-    virtual QList<Node*> selectedNodes() const;
+    virtual QList<KPlato::Node*> selectedNodes() const;
     
     /// Loads context info into this view. Reimplement.
     virtual bool loadContext();
@@ -141,9 +140,9 @@ public:
     TaskWorkPackageModel *itemModel() const { return m_view->itemModel(); }
 
     void updateReadWrite(bool readwrite) override;
-    Node *currentNode() const override;
-    Document *currentDocument() const override;
-    QList<Node*> selectedNodes() const override;
+    KPlato::Node *currentNode() const override;
+    KPlato::Document *currentDocument() const override;
+    QList<KPlato::Node*> selectedNodes() const override;
 
     /// Loads context info into this view. Reimplement.
     bool loadContext() override;
@@ -192,14 +191,14 @@ public:
     ~GanttView() override;
 
     TaskWorkPackageModel *itemModel() const;
-    void setProject(Project *project);
-    Project *project() const { return m_project; }
+    void setProject(KPlato::Project *project);
+    KPlato::Project *project() const { return m_project; }
 
     GanttItemDelegate *delegate() const { return m_ganttdelegate; }
 
-    QList<Node*> selectedNodes() const;
-    Node *currentNode() const;
-    Document *currentDocument() const;
+    QList<KPlato::Node*> selectedNodes() const;
+    KPlato::Node *currentNode() const;
+    KPlato::Document *currentDocument() const;
 
     /// Loads context info into this view. Reimplement.
     bool loadContext(const KoXmlElement &context) override;
@@ -220,7 +219,7 @@ protected Q_SLOTS:
 
 protected:
     Part *m_part;
-    Project *m_project;
+    KPlato::Project *m_project;
     GanttItemDelegate *m_ganttdelegate;
     TaskWorkPackageModel *m_itemmodel;
     KGantt::TreeViewRowController *m_rowController;
@@ -237,9 +236,9 @@ public:
 
     TaskWorkPackageModel *itemModel() const { return m_view->itemModel(); }
 
-    Node *currentNode() const override;
-    QList<Node*> selectedNodes() const override;
-    Document *currentDocument() const override;
+    KPlato::Node *currentNode() const override;
+    QList<KPlato::Node*> selectedNodes() const override;
+    KPlato::Document *currentDocument() const override;
 
     /// Loads context info into this view. Reimplement.
     bool loadContext() override;

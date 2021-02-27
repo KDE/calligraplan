@@ -43,15 +43,12 @@ namespace KPlato
 {
 
 class Document;
-class GanttView;
 class ScheduleManager;
 
 class Node;
 class Schedule;
-class Resource;
 
 }
-using namespace KPlato;
 
 /// Then namespace for the KPlato work package handler
 namespace KPlatoWork
@@ -84,7 +81,7 @@ public:
     virtual bool loadContext();
     virtual void saveContext() const;
 
-    ScheduleManager *currentScheduleManager() const;
+    KPlato::ScheduleManager *currentScheduleManager() const;
     long currentScheduleId() const;
     
     TaskWorkPackageView *createTaskWorkPackageView();
@@ -92,8 +89,8 @@ public:
 
     KPlatoWork_MainWindow *kplatoWorkMainWindow() const;
 
-    Node *currentNode() const;
-    Document *currentDocument() const;
+    KPlato::Node *currentNode() const;
+    KPlato::Document *currentDocument() const;
 
 Q_SIGNALS:
     void currentScheduleManagerChanged(KPlato::ScheduleManager *sm);
@@ -135,7 +132,7 @@ protected Q_SLOTS:
 protected:
     virtual void updateReadWrite(bool readwrite);
 
-    QAction *addScheduleAction(Schedule *sch);
+    QAction *addScheduleAction(KPlato::Schedule *sch);
     void setLabel();
     AbstractView *currentView() const;
 
@@ -146,8 +143,8 @@ private:
     Part *m_part;
 
     QActionGroup *m_scheduleActionGroup;
-    QMap<QAction*, Schedule*> m_scheduleActions;
-    ScheduleManager *m_manager;
+    QMap<QAction*, KPlato::Schedule*> m_scheduleActions;
+    KPlato::ScheduleManager *m_manager;
     
     bool m_readWrite;
     

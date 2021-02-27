@@ -48,7 +48,7 @@ class PLANWORK_EXPORT TaskCompletionDialog : public KoDialog
 {
     Q_OBJECT
 public:
-    explicit TaskCompletionDialog(WorkPackage &package, ScheduleManager *sm, QWidget *parent=nullptr);
+    explicit TaskCompletionDialog(WorkPackage &package, KPlato::ScheduleManager *sm, QWidget *parent=nullptr);
 
     KUndo2Command *buildCommand();
 
@@ -63,7 +63,7 @@ class PLANWORK_EXPORT TaskCompletionPanel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TaskCompletionPanel(WorkPackage &package, ScheduleManager *sm, QWidget *parent=nullptr);
+    explicit TaskCompletionPanel(WorkPackage &package, KPlato::ScheduleManager *sm, QWidget *parent=nullptr);
 
     KUndo2Command *buildCommand();
 

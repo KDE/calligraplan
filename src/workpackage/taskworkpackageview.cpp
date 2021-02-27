@@ -51,8 +51,6 @@
 
 #include "debugarea.h"
 
-using namespace KPlato;
-
 namespace KPlatoWork
 {
 
@@ -124,12 +122,12 @@ TaskWorkPackageModel *TaskWorkPackageTreeView::itemModel() const
     return static_cast<TaskWorkPackageModel*>(static_cast<QSortFilterProxyModel*>(model())->sourceModel());
 }
 
-Project *TaskWorkPackageTreeView::project() const
+KPlato::Project *TaskWorkPackageTreeView::project() const
 {
     return itemModel()->project();
 }
 
-Document *TaskWorkPackageTreeView::currentDocument() const
+KPlato::Document *TaskWorkPackageTreeView::currentDocument() const
 {
     QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(model());
     Q_ASSERT(sf);
@@ -139,7 +137,7 @@ Document *TaskWorkPackageTreeView::currentDocument() const
     return itemModel()->documentForIndex(sf->mapToSource(selectionModel()->currentIndex()));
 }
 
-Node *TaskWorkPackageTreeView::currentNode() const
+KPlato::Node *TaskWorkPackageTreeView::currentNode() const
 {
     QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(model());
     Q_ASSERT(sf);
@@ -149,9 +147,9 @@ Node *TaskWorkPackageTreeView::currentNode() const
     return itemModel()->nodeForIndex(sf->mapToSource(selectionModel()->currentIndex()));
 }
 
-QList<Node*> TaskWorkPackageTreeView::selectedNodes() const
+QList<KPlato::Node*> TaskWorkPackageTreeView::selectedNodes() const
 {
-    QList<Node*> lst;
+    QList<KPlato::Node*> lst;
     QSortFilterProxyModel *sf = qobject_cast<QSortFilterProxyModel*>(model());
     Q_ASSERT(sf);
     if (sf == nullptr) {
@@ -161,7 +159,7 @@ QList<Node*> TaskWorkPackageTreeView::selectedNodes() const
     for(const QModelIndex &idx : indexes) {
         QModelIndex i = sf->mapToSource(idx);
         Q_ASSERT(i.isValid() && i.model() == itemModel());
-        Node *n = itemModel()->nodeForIndex(i);
+        KPlato::Node *n = itemModel()->nodeForIndex(i);
         if (n && ! lst.contains(n)) {
             lst << n;
         }
@@ -169,7 +167,7 @@ QList<Node*> TaskWorkPackageTreeView::selectedNodes() const
     return lst;
 }
 
-void TaskWorkPackageTreeView::setProject(Project *project)
+void TaskWorkPackageTreeView::setProject(KPlato::Project *project)
 {
     itemModel()->setProject(project);
 }
@@ -197,7 +195,7 @@ void TaskWorkPackageTreeView::dragMoveEvent(QDragMoveEvent *event)
         event->accept();
         return; // always ok to drop on main project
     }
-    Node *dn = model()->node(index);
+    KPlato::Node *dn = model()->node(index);
     if (dn == 0) {
         errorPlanWork<<"no node to drop on!"
         return; // hmmm
@@ -233,17 +231,17 @@ void AbstractView::updateReadWrite(bool /*rw*/)
 {
 }
 
-QList<Node*> AbstractView::selectedNodes() const
+QList<KPlato::Node*> AbstractView::selectedNodes() const
 {
-    return QList<Node*>();
+    return QList<KPlato::Node*>();
 }
 
-Node *AbstractView::currentNode() const
+KPlato::Node *AbstractView::currentNode() const
 {
     return nullptr;
 }
 
-Document *AbstractView::currentDocument() const
+KPlato::Document *AbstractView::currentDocument() const
 {
     return nullptr;
 }
@@ -263,18 +261,18 @@ void AbstractView::slotContextMenuRequested(const QModelIndex &/*index*/, const 
     return slotHeaderContextMenuRequested(pos);
 }
 
-void AbstractView::slotContextMenuRequested(Node *node, const QPoint& pos)
+void AbstractView::slotContextMenuRequested(KPlato::Node *node, const QPoint& pos)
 {
     debugPlanWork<<node->name()<<" :"<<pos;
     QString name;
     switch (node->type()) {
-        case Node::Type_Task:
+        case KPlato::Node::Type_Task:
             name = "taskstatus_popup";
             break;
-        case Node::Type_Milestone:
+        case KPlato::Node::Type_Milestone:
             name = "taskview_milestone_popup";
             break;
-        case Node::Type_Summarytask:
+        case KPlato::Node::Type_Summarytask:
             name = "taskview_summary_popup";
             break;
         default:
@@ -288,12 +286,12 @@ void AbstractView::slotContextMenuRequested(Node *node, const QPoint& pos)
     Q_EMIT requestPopupMenu(name, pos);
 }
 
-void AbstractView::slotContextMenuRequested(Document *doc, const QPoint& pos)
+void AbstractView::slotContextMenuRequested(KPlato::Document *doc, const QPoint& pos)
 {
     debugPlanWork<<doc->url()<<" :"<<pos;
     QString name;
     switch (doc->type()) {
-        case Document::Type_Product:
+        case KPlato::Document::Type_Product:
             name = "editdocument_popup";
             break;
         default:
@@ -365,17 +363,17 @@ void TaskWorkPackageView::slotSelectionChanged(const QModelIndexList &/*lst*/)
     Q_EMIT selectionChanged();
 }
 
-QList<Node*> TaskWorkPackageView::selectedNodes() const
+QList<KPlato::Node*> TaskWorkPackageView::selectedNodes() const
 {
     return m_view->selectedNodes();
 }
 
-Node *TaskWorkPackageView::currentNode() const
+KPlato::Node *TaskWorkPackageView::currentNode() const
 {
     return m_view->currentNode();
 }
 
-Document *TaskWorkPackageView::currentDocument() const
+KPlato::Document *TaskWorkPackageView::currentDocument() const
 {
     return m_view->currentDocument();
 }
@@ -398,11 +396,11 @@ void TaskWorkPackageView::slotContextMenuRequested(const QModelIndex &index, con
         return;
     }
 
-    Node *node = itemModel()->nodeForIndex(idx);
+    KPlato::Node *node = itemModel()->nodeForIndex(idx);
     if (node) {
         return slotContextMenuRequested(node, pos);
     }
-    Document *doc = itemModel()->documentForIndex(idx);
+    KPlato::Document *doc = itemModel()->documentForIndex(idx);
     if (doc) {
         return slotContextMenuRequested(doc, pos);
     }
@@ -430,7 +428,7 @@ void TaskWorkPackageView::slotSplitView()
 void TaskWorkPackageView::slotOptions()
 {
     debugPlanWork;
-    QPointer<SplitItemViewSettupDialog> dlg = new SplitItemViewSettupDialog(nullptr, m_view, this);
+    QPointer<KPlato::SplitItemViewSettupDialog> dlg = new KPlato::SplitItemViewSettupDialog(nullptr, m_view, this);
     dlg->exec();
     delete dlg;
 }
@@ -552,37 +550,37 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
             bool normal = true;
             if (showStatus) {
                 int state = data(idx, TaskWorkPackageModel::NodeStatus, Qt::EditRole).toInt();
-                if (state & Node::State_NotScheduled) {
+                if (state & KPlato::Node::State_NotScheduled) {
                     painter->setBrush(m_brushes[ Brush_NotScheduled ]);
                     normal = false;
-                } else if (state & Node::State_Finished) {
+                } else if (state & KPlato::Node::State_Finished) {
                     painter->setBrush(m_brushes[ Brush_Finished ]);
                     normal = false;
-                } else if (state & Node::State_Started) {
-                    if (state & Node::State_Late) {
+                } else if (state & KPlato::Node::State_Started) {
+                    if (state & KPlato::Node::State_Late) {
                         painter->setBrush(m_brushes[ Brush_Late ]);
                         normal = false;
                     }
                 } else  {
                     // scheduled, not started, not finished
-                    if (state & Node::State_Late) {
+                    if (state & KPlato::Node::State_Late) {
                         painter->setBrush(m_brushes[ Brush_Late ]);
                         normal = false;
-                    } else if (state & Node::State_NotReadyToStart) {
+                    } else if (state & KPlato::Node::State_NotReadyToStart) {
                         painter->setBrush(m_brushes[ Brush_NotReadyToStart ]);
                         normal = false;
-                    } else if (state & Node::State_ReadyToStart) {
+                    } else if (state & KPlato::Node::State_ReadyToStart) {
                         painter->setBrush(m_brushes[ Brush_ReadyToStart ]);
                         normal = false;
                     }
                 }
             } else if (showCriticalTasks) {
-                bool critical = data(idx, NodeModel::NodeCritical, Qt::DisplayRole).toBool();
+                bool critical = data(idx, KPlato::NodeModel::NodeCritical, Qt::DisplayRole).toBool();
                 if (! critical && showCriticalPath) {
-                    critical = data(idx, NodeModel::NodeCriticalPath, Qt::DisplayRole).toBool();
+                    critical = data(idx, KPlato::NodeModel::NodeCriticalPath, Qt::DisplayRole).toBool();
                 }
                 if (critical) {
-                    QVariant br = data(idx, NodeModel::NodeCritical, Role::Foreground);
+                    QVariant br = data(idx, KPlato::NodeModel::NodeCritical, KPlato::Role::Foreground);
                     painter->setBrush(br.isValid() ? br.value<QBrush>() : m_criticalBrush);
                     normal = false;
                 }
@@ -673,9 +671,9 @@ QString GanttItemDelegate::toolTip(const QModelIndex &index) const
     }
     // Planned
     KGantt::StyleOptionGanttItem opt;
-    int typ = data(idx, NodeModel::NodeType, Qt::EditRole).toInt();
+    int typ = data(idx, KPlato::NodeModel::NodeType, Qt::EditRole).toInt();
     switch (typ) {
-        case Node::Type_Task:
+        case KPlato::Node::Type_Task:
             return xi18nc("@info:tooltip",
                           "Task: %1<nl/>"
                           "Planned: %2 - %3<nl/>"
@@ -701,7 +699,7 @@ GanttView::GanttView(Part *part, QWidget *parent)
     debugPlanWork<<"------------------- create GanttView -----------------------";
     m_itemmodel->setObjectName("Gantt model");
     graphicsView()->setItemDelegate(m_ganttdelegate);
-    GanttTreeView *tv = new GanttTreeView(this);
+    KPlato::GanttTreeView *tv = new KPlato::GanttTreeView(this);
     tv->setSortingEnabled(true);
     tv->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     tv->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -786,7 +784,7 @@ void GanttView::slotRowsRemoved(const QModelIndex &/*parent*/, int /*start*/, in
     QDateTime newStart;
     for (int i = 0; i < m_part->workPackageCount(); ++i) {
         WorkPackage *wp = m_part->workPackage(i);
-        Task *task = static_cast<Task*>(wp->project()->childNode(0));
+        KPlato::Task *task = static_cast<KPlato::Task*>(wp->project()->childNode(0));
         if (!newStart.isValid() || newStart > task->startTime()) {
             newStart = task->startTime();
         }
@@ -802,8 +800,8 @@ void GanttView::updateDateTimeGrid(WorkPackage *wp)
     if (! wp || ! wp->project() || ! wp->project()->childNode(0)) {
         return;
     }
-    Task *task = static_cast<Task*>(wp->project()->childNode(0));
-    DateTime st = task->startTime();
+    KPlato::Task *task = static_cast<KPlato::Task*>(wp->project()->childNode(0));
+    KPlato::DateTime st = task->startTime();
     if (! st.isValid() && task->completion().startTime().isValid()) {
         st = qMin(st, task->completion().startTime());
     }
@@ -823,15 +821,15 @@ TaskWorkPackageModel *GanttView::itemModel() const
     return m_itemmodel;
 }
 
-void GanttView::setProject(Project *project)
+void GanttView::setProject(KPlato::Project *project)
 {
     itemModel()->setProject(project);
     m_project = project;
 }
 
-QList<Node*> GanttView::selectedNodes() const
+QList<KPlato::Node*> GanttView::selectedNodes() const
 {
-    QList<Node*> nodes;
+    QList<KPlato::Node*> nodes;
     const QList<QModelIndex> rows = treeView()->selectionModel()->selectedRows();
     for(const QModelIndex &idx : rows) {
         nodes << itemModel()->nodeForIndex(idx);
@@ -839,12 +837,12 @@ QList<Node*> GanttView::selectedNodes() const
     return nodes;
 }
 
-Node *GanttView::currentNode() const
+KPlato::Node *GanttView::currentNode() const
 {
     return itemModel()->nodeForIndex(treeView()->selectionModel()->currentIndex());
 }
 
-Document *GanttView::currentDocument() const
+KPlato::Document *GanttView::currentDocument() const
 {
     return itemModel()->documentForIndex(treeView()->selectionModel()->currentIndex());
 }
@@ -904,17 +902,17 @@ void TaskWPGanttView::slotSelectionChanged(const QModelIndexList& /*lst*/)
     Q_EMIT selectionChanged();
 }
 
-QList<Node*> TaskWPGanttView::selectedNodes() const
+QList<KPlato::Node*> TaskWPGanttView::selectedNodes() const
 {
     return m_view->selectedNodes();
 }
 
-Node *TaskWPGanttView::currentNode() const
+KPlato::Node *TaskWPGanttView::currentNode() const
 {
     return m_view->currentNode();
 }
 
-Document *TaskWPGanttView::currentDocument() const
+KPlato::Document *TaskWPGanttView::currentDocument() const
 {
     return m_view->currentDocument();
 }
@@ -926,11 +924,11 @@ void TaskWPGanttView::slotContextMenuRequested(const QModelIndex &idx, const QPo
         slotHeaderContextMenuRequested(pos);
         return;
     }
-    Node *node = itemModel()->nodeForIndex(idx);
+    KPlato::Node *node = itemModel()->nodeForIndex(idx);
     if (node) {
         return slotContextMenuRequested(node, pos);
     }
-    Document *doc = itemModel()->documentForIndex(idx);
+    KPlato::Document *doc = itemModel()->documentForIndex(idx);
     if (doc) {
         return slotContextMenuRequested(doc, pos);
     }
@@ -947,7 +945,7 @@ void TaskWPGanttView::setupGui()
 void TaskWPGanttView::slotOptions()
 {
     debugPlanWork;
-    QPointer<ItemViewSettupDialog> dlg = new ItemViewSettupDialog(nullptr, m_view->treeView(), true, this);
+    QPointer<KPlato::ItemViewSettupDialog> dlg = new KPlato::ItemViewSettupDialog(nullptr, m_view->treeView(), true, this);
     dlg->exec();
     delete dlg;
 }

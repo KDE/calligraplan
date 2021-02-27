@@ -46,12 +46,9 @@ class QFileSystemWatcher;
 
 namespace KPlato
 {
-    class Project;
     class Document;
     class MacroCommand;
 }
-
-using namespace KPlato;
 
 /// The main namespace for KPlato WorkPackage Handler
 namespace KPlatoWork
@@ -73,16 +70,16 @@ public:
     enum DocType { Type_Unknown = 0, Type_Calligra, Type_KParts, Type_Other };
 
     explicit DocumentChild(WorkPackage *parent);
-//    DocumentChild(KParts::ReadWritePart *editor, const QUrl &url, const Document *doc, Part *parent);
+//    DocumentChild(KParts::ReadWritePart *editor, const QUrl &url, const KPlato::Document *doc, Part *parent);
     
     ~DocumentChild() override;
     
     WorkPackage *parentPackage() const;
-    const Document *doc() const { return m_doc; }
+    const KPlato::Document *doc() const { return m_doc; }
     /// Set document, return true if ok, false if failure
-    bool setDoc(const Document *doc);
+    bool setDoc(const KPlato::Document *doc);
     /// Open @p doc from @p store
-    bool openDoc(const Document *doc, KoStore *store);
+    bool openDoc(const KPlato::Document *doc, KoStore *store);
     /// Open document for editing, return true if ok, false if failure
     bool editDoc();
     bool isOpen() const { return m_process != nullptr; }
@@ -118,7 +115,7 @@ protected Q_SLOTS:
     void slotUpdateModified();
     
 protected:
-    const Document *m_doc;
+    const KPlato::Document *m_doc;
     int m_type;
     bool m_copy;
     KProcess *m_process; // Used if m_type == Type_Other;
@@ -143,7 +140,7 @@ public:
     explicit Part(QWidget *parentWidget, QObject *parent, const QVariantList & /*args*/ = QVariantList());
     ~Part() override;
 
-    int docType(const Document *doc) const;
+    int docType(const KPlato::Document *doc) const;
     
     bool loadWorkPackages();
     virtual bool loadXML(const KoXmlDocument &document, KoStore *store);
@@ -154,24 +151,24 @@ public:
     virtual bool completeSaving(KoStore* store);
 
     /// Extract document file from the store to disk
-    QUrl extractFile(const Document *doc);
+    QUrl extractFile(const KPlato::Document *doc);
     
     //Config &config() { return m_config; }
     
     /// Open Calligra document for editing
-//     DocumentChild *openCalligraDocument(KMimeType::Ptr mimetype, const Document *doc);
+//     DocumentChild *openCalligraDocument(KMimeType::Ptr mimetype, const KPlato::Document *doc);
     /// Open KParts document for editing
-//     DocumentChild *openKPartsDocument(KService::Ptr service, const Document *doc);
+//     DocumentChild *openKPartsDocument(KService::Ptr service, const KPlato::Document *doc);
     /// Open document for editing, return true if ok, false if failure
-    bool editWorkpackageDocument(const Document *doc);
+    bool editWorkpackageDocument(const KPlato::Document *doc);
     /// Open document for editing, return true if ok, false if failure
-    bool editOtherDocument(const Document *doc);
+    bool editOtherDocument(const KPlato::Document *doc);
     /// Remove the document @p doc from its workpackage
-    bool removeDocument(Document *doc);
+    bool removeDocument(KPlato::Document *doc);
     /// Remove the child document
 //    void removeChildDocument(DocumentChild *child);
     /// Find the child that handles document @p doc
-    DocumentChild *findChild(const Document *doc) const;
+    DocumentChild *findChild(const KPlato::Document *doc) const;
     /// Add @p child document to work package @p wp
 //    void addChild(WorkPackage *wp, DocumentChild *child);
 
@@ -184,7 +181,7 @@ public:
         return lst.value(index);
     }
     /// Work package containing node
-    WorkPackage *workPackage(Node *node) const { 
+    WorkPackage *workPackage(KPlato::Node *node) const { 
         return m_packageMap.value(node->projectNode()->id() + node->id());
     }
     int indexOf(WorkPackage *package) const {
@@ -193,20 +190,20 @@ public:
     }
     void addWorkPackage(WorkPackage *wp);
     void removeWorkPackage(WorkPackage *wp);
-    void removeWorkPackage(Node *node, MacroCommand *m = nullptr);
-    void removeWorkPackages(const QList<Node*> &nodes);
+    void removeWorkPackage(KPlato::Node *node, KPlato::MacroCommand *m = nullptr);
+    void removeWorkPackages(const QList<KPlato::Node*> &nodes);
 
     /// Find the work package that handles document @p doc
-    WorkPackage *findWorkPackage(const Document *doc) const;
+    WorkPackage *findWorkPackage(const KPlato::Document *doc) const;
     /// Find the work package that handles document child @p child
     WorkPackage *findWorkPackage(const DocumentChild *child) const;
     /// Find the work package that handles @p node
-    WorkPackage *findWorkPackage(const Node *node) const;
+    WorkPackage *findWorkPackage(const KPlato::Node *node) const;
 
     /// Save all work packages
     bool saveWorkPackages(bool silent);
 
-    Node *node() const;
+    KPlato::Node *node() const;
     
     bool queryClose() override;
 
@@ -252,7 +249,7 @@ protected:
 
 private:
     View *m_view;
-    XMLLoaderObject m_xmlLoader;
+    KPlato::XMLLoaderObject m_xmlLoader;
     //Config m_config;
     
     QMap<QString, WorkPackage*> m_packageMap;

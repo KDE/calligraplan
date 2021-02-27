@@ -251,7 +251,7 @@ void View::slotConfigure()
 {
 }
 
-ScheduleManager *View::currentScheduleManager() const
+KPlato::ScheduleManager *View::currentScheduleManager() const
 {
     WorkPackage *wp = m_part->findWorkPackage(currentNode());
     return wp ? wp->project()->scheduleManagers().value(0) : nullptr;
@@ -320,14 +320,14 @@ void View::slotEditDocument()
     slotEditDocument(currentDocument());
 }
 
-void View::slotEditDocument(Document *doc)
+void View::slotEditDocument(KPlato::Document *doc)
 {
     debugPlanWork<<doc;
     if (doc == nullptr) {
         debugPlanWork<<"No document";
         return;
     }
-    if (doc->type() != Document::Type_Product) {
+    if (doc->type() != KPlato::Document::Type_Product) {
         KMessageBox::error(nullptr, i18n("This file is not editable"));
         return;
     }
@@ -346,7 +346,7 @@ void View::slotRemoveDocument()
 
 void View::slotSendPackage()
 {
-    Node *node = currentNode();
+    KPlato::Node *node = currentNode();
     if (node == nullptr) {
         KMessageBox::error(nullptr, i18n("No work package is selected"));
         return;
@@ -401,11 +401,11 @@ void View::slotSendPackage()
 
 void View::slotTaskDescription()
 {
-    Task *node = qobject_cast<Task*>(currentNode());
+    KPlato::Task *node = qobject_cast<KPlato::Task*>(currentNode());
     if (node == nullptr) {
         return;
     }
-    QPointer<TaskDescriptionDialog> dlg = new TaskDescriptionDialog(*node, this, true);
+    QPointer<KPlato::TaskDescriptionDialog> dlg = new KPlato::TaskDescriptionDialog(*node, this, true);
     dlg->exec();
     delete dlg;
 }
@@ -415,13 +415,13 @@ AbstractView *View::currentView() const
     return qobject_cast<AbstractView*>(currentWidget());
 }
 
-Node *View::currentNode() const
+KPlato::Node *View::currentNode() const
 {
     AbstractView *v = currentView();
     return v ? v->currentNode() : nullptr;
 }
 
-Document *View::currentDocument() const
+KPlato::Document *View::currentDocument() const
 {
     AbstractView *v = currentView();
     return v ? v->currentDocument() : nullptr;
@@ -430,12 +430,12 @@ Document *View::currentDocument() const
 void View::slotTaskProgress()
 {
     debugPlanWork;
-    Task *n = qobject_cast<Task*>(currentNode());
+    KPlato::Task *n = qobject_cast<KPlato::Task*>(currentNode());
     if (n == nullptr) {
         return;
     }
-    StandardWorktime *w = qobject_cast<Project*>(n->projectNode())->standardWorktime();
-    QPointer<TaskProgressDialog> dlg = new TaskProgressDialog(*n, currentScheduleManager(), w, this);
+    KPlato::StandardWorktime *w = qobject_cast<KPlato::Project*>(n->projectNode())->standardWorktime();
+    QPointer<KPlato::TaskProgressDialog> dlg = new KPlato::TaskProgressDialog(*n, currentScheduleManager(), w, this);
     if (dlg->exec() == QDialog::Accepted && dlg) {
         KUndo2Command *cmd = dlg->buildCommand();
         if (cmd) {
@@ -464,7 +464,7 @@ void View::slotTaskCompletion()
 void View::slotRemoveSelectedPackages()
 {
     debugPlanWork;
-    QList<Node*> lst = currentView()->selectedNodes();
+    QList<KPlato::Node*> lst = currentView()->selectedNodes();
     if (lst.isEmpty()) {
         return;
     }
@@ -474,7 +474,7 @@ void View::slotRemoveSelectedPackages()
 void View::slotRemoveCurrentPackage()
 {
     debugPlanWork;
-    Node *n = currentNode();
+    KPlato::Node *n = currentNode();
     if (n == nullptr) {
         return;
     }

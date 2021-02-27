@@ -50,20 +50,18 @@
 
 #include "debugarea.h"
 
-using namespace KPlato;
-
 namespace KPlatoWork
 {
 
 WorkPackage::WorkPackage(bool fromProjectStore)
-    : m_project(new Project()),
+    : m_project(new KPlato::Project()),
     m_fromProjectStore(fromProjectStore),
     m_modified(false)
 {
     m_project->setConfig(&m_config);
 }
 
-WorkPackage::WorkPackage(Project *project, bool fromProjectStore)
+WorkPackage::WorkPackage(KPlato::Project *project, bool fromProjectStore)
     : m_project(project),
     m_fromProjectStore(fromProjectStore),
     m_modified(false)
@@ -75,7 +73,7 @@ WorkPackage::WorkPackage(Project *project, bool fromProjectStore)
 
     if (! project->scheduleManagers().isEmpty()) {
         // should be only one manager, so just get the first
-        const QList<ScheduleManager*> &lst = m_project->scheduleManagers();
+        const QList<KPlato::ScheduleManager*> &lst = m_project->scheduleManagers();
         project->setCurrentSchedule(lst.first()->scheduleId());
     }
     connect(project, &KPlato::Project::projectChanged, this, &WorkPackage::projectChanged);
@@ -88,7 +86,7 @@ WorkPackage::~WorkPackage()
     qDeleteAll(m_childdocs);
 }
 
-void WorkPackage::setSettings(const WorkPackageSettings &settings)
+void WorkPackage::setSettings(const KPlato::WorkPackageSettings &settings)
 {
     if (m_settings != settings) {
         m_settings = settings;
@@ -103,7 +101,7 @@ void WorkPackage::projectChanged()
     setModified(true);
 }
 
-bool WorkPackage::addChild(Part *part, const Document *doc)
+bool WorkPackage::addChild(Part *part, const KPlato::Document *doc)
 {
     Q_UNUSED(part)
     DocumentChild *ch = findChild(doc);
@@ -151,12 +149,12 @@ void WorkPackage::removeChild(DocumentChild *child)
     }
 }
 
-bool WorkPackage::contains(const Document *doc) const
+bool WorkPackage::contains(const KPlato::Document *doc) const
 {
     return node() ? node()->documents().contains(doc) : false;
 }
 
-DocumentChild *WorkPackage::findChild(const Document *doc) const
+DocumentChild *WorkPackage::findChild(const KPlato::Document *doc) const
 {
     for (DocumentChild *c : qAsConst(m_childdocs)) {
         if (c->doc() == doc) {
@@ -166,7 +164,7 @@ DocumentChild *WorkPackage::findChild(const Document *doc) const
     return nullptr;
 }
 
-bool WorkPackage::loadXML(const KoXmlElement &element, XMLLoaderObject &status)
+bool WorkPackage::loadXML(const KoXmlElement &element, KPlato::XMLLoaderObject &status)
 {
     bool ok = false;
     QString wbsCode = "Unknown";
@@ -181,7 +179,7 @@ bool WorkPackage::loadXML(const KoXmlElement &element, XMLLoaderObject &status)
             status.setProject(m_project);
             debugPlanWork<<"loading new project";
             if (! (ok = m_project->load(e, status))) {
-                status.addMsg(XMLLoaderObject::Errors, "Loading of work package failed");
+                status.addMsg(KPlato::XMLLoaderObject::Errors, "Loading of work package failed");
                 KMessageBox::error(nullptr, i18n("Failed to load project: %1" , m_project->name()));
             } else {
                 KoXmlElement te = e.namedItem("task").toElement();
@@ -200,14 +198,14 @@ bool WorkPackage::loadXML(const KoXmlElement &element, XMLLoaderObject &status)
             KoXmlElement e = n.toElement();
             debugPlanWork<<e.tagName();
             if (e.tagName() == "workpackage") {
-                Task *t = static_cast<Task*>(m_project->childNode(0));
+                KPlato::Task *t = static_cast<KPlato::Task*>(m_project->childNode(0));
                 t->workPackage().setOwnerName(e.attribute("owner"));
                 t->workPackage().setOwnerId(e.attribute("owner-id"));
                 m_sendUrl = QUrl(e.attribute("save-url"));
                 m_fetchUrl = QUrl(e.attribute("load-url"));
                 m_wbsCode = wbsCode;
 
-                Resource *r = m_project->findResource(t->workPackage().ownerId());
+                KPlato::Resource *r = m_project->findResource(t->workPackage().ownerId());
                 if (r == nullptr) {
                     debugPlanWork<<"Cannot find resource id!!"<<t->workPackage().ownerId()<<t->workPackage().ownerName();
                 }
@@ -228,13 +226,13 @@ bool WorkPackage::loadXML(const KoXmlElement &element, XMLLoaderObject &status)
     }
     if (! m_project->scheduleManagers().isEmpty()) {
         // should be only one manager
-        const QList<ScheduleManager*> &lst = m_project->scheduleManagers();
+        const QList<KPlato::ScheduleManager*> &lst = m_project->scheduleManagers();
         m_project->setCurrentSchedule(lst.first()->scheduleId());
     }
     return ok;
 }
 
-bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, XMLLoaderObject &status)
+bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, KPlato::XMLLoaderObject &status)
 {
     bool ok = false;
     KoXmlNode n = element.firstChild();
@@ -246,10 +244,10 @@ bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, XMLLoaderObject &st
         debugPlanWork<<e.tagName();
         if (e.tagName() == "project") {
             status.setProject(m_project);
-            KPlatoXmlLoader loader(status, m_project);
+            KPlato::KPlatoXmlLoader loader(status, m_project);
             debugPlanWork<<"loading new project";
             if (! (ok = loader.load(m_project, e, status))) {
-                status.addMsg(XMLLoaderObject::Errors, "Loading of work package failed");
+                status.addMsg(KPlato::XMLLoaderObject::Errors, "Loading of work package failed");
                 KMessageBox::error(nullptr, i18n("Failed to load project: %1" , m_project->name()));
             }
         }
@@ -263,11 +261,11 @@ bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, XMLLoaderObject &st
             KoXmlElement e = n.toElement();
             debugPlanWork<<e.tagName();
             if (e.tagName() == "workpackage") {
-                Task *t = static_cast<Task*>(m_project->childNode(0));
+                KPlato::Task *t = static_cast<KPlato::Task*>(m_project->childNode(0));
                 t->workPackage().setOwnerName(e.attribute("owner"));
                 t->workPackage().setOwnerId(e.attribute("owner-id"));
 
-                Resource *r = m_project->findResource(t->workPackage().ownerId());
+                KPlato::Resource *r = m_project->findResource(t->workPackage().ownerId());
                 if (r == nullptr) {
                     debugPlanWork<<"Cannot find resource id!!"<<t->workPackage().ownerId()<<t->workPackage().ownerName();
                 }
@@ -288,7 +286,7 @@ bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, XMLLoaderObject &st
     }
     if (! m_project->scheduleManagers().isEmpty()) {
         // should be only one manager
-        const QList<ScheduleManager*> &lst = m_project->scheduleManagers();
+        const QList<KPlato::ScheduleManager*> &lst = m_project->scheduleManagers();
         m_project->setCurrentSchedule(lst.first()->scheduleId());
     }
     return ok;
@@ -369,8 +367,8 @@ bool WorkPackage::completeSaving(KoStore *store)
         }
     }
     // Then get new files
-    const QList<Document*> documents = node()->documents().documents();
-    for (const Document *doc : documents) {
+    const QList<KPlato::Document*> documents = node()->documents().documents();
+    for (const KPlato::Document *doc : documents) {
         if (m_newdocs.contains(doc)) {
             store->addLocalFile(m_newdocs[ doc ].path(), doc->url().fileName());
             m_newdocs.remove(doc);
@@ -378,8 +376,8 @@ bool WorkPackage::completeSaving(KoStore *store)
         }
     }
     // Then get files from the old store copied to the new store
-    for (Document *doc : documents) {
-        if (doc->sendAs() != Document::SendAs_Copy) {
+    for (KPlato::Document *doc : documents) {
+        if (doc->sendAs() != KPlato::Document::SendAs_Copy) {
             continue;
         }
         if (! store->hasFile(doc->url().fileName())) {
@@ -396,7 +394,7 @@ QString WorkPackage::fileName(const Part *part) const
         warnPlanWork<<"No project in this package";
         return QString();
     }
-    Node *n = node();
+    KPlato::Node *n = node();
     if (n == nullptr) {
         warnPlanWork<<"No node in this project";
         return QString();
@@ -448,29 +446,29 @@ bool WorkPackage::isModified() const
 
 QString WorkPackage::name() const
 {
-    Task *t = task();
+    KPlato::Task *t = task();
     return t ? t->name() : QString();
 }
 
-Node *WorkPackage::node() const
+KPlato::Node *WorkPackage::node() const
 {
     return m_project == nullptr ? nullptr : m_project->childNode(0);
 }
 
-Task *WorkPackage::task() const
+KPlato::Task *WorkPackage::task() const
 {
-    Task *task = qobject_cast<Task*>(node());
+    KPlato::Task *task = qobject_cast<KPlato::Task*>(node());
     Q_ASSERT(task);
     return task;
 }
 
-bool WorkPackage::removeDocument(Part *part, Document *doc)
+bool WorkPackage::removeDocument(Part *part, KPlato::Document *doc)
 {
-    Node *n = node();
+    KPlato::Node *n = node();
     if (n == nullptr) {
         return false;
     }
-    part->addCommand(new DocumentRemoveCmd(n->documents(), doc, kundo2_i18n("Remove document")));
+    part->addCommand(new KPlato::DocumentRemoveCmd(n->documents(), doc, kundo2_i18n("Remove document")));
     return true;
 }
 
@@ -509,91 +507,91 @@ QDomDocument WorkPackage::saveXML()
     QDomElement wp = document.createElement("workpackage");
     wp.setAttribute("time-tag", QDateTime::currentDateTime().toString(Qt::ISODate));
     m_settings.saveXML(wp);
-    Task *t = qobject_cast<Task*>(node());
+    KPlato::Task *t = qobject_cast<KPlato::Task*>(node());
     if (t) {
         wp.setAttribute("owner", t->workPackage().ownerName());
         wp.setAttribute("owner-id", t->workPackage().ownerId());
     }
     doc.appendChild(wp);
-    m_project->save(doc, XmlSaveContext());
+    m_project->save(doc, KPlato::XmlSaveContext());
     return document;
 }
 
 void WorkPackage::merge(Part *part, const WorkPackage *wp, KoStore *store)
 {
     debugPlanWork;
-    const Node *from = wp->node();
-    Node *to = node();
+    const KPlato::Node *from = wp->node();
+    KPlato::Node *to = node();
 
-    MacroCommand *m = new MacroCommand(kundo2_i18n("Merge data"));
+    KPlato::MacroCommand *m = new KPlato::MacroCommand(kundo2_i18n("Merge data"));
     if (m_wbsCode != wp->wbsCode()) {
         m->addCommand(new ModifyWbsCodeCmd(this, wp->wbsCode()));
     }
     if (to->name() != from->name()) {
-        m->addCommand(new NodeModifyNameCmd(*to, from->name()));
+        m->addCommand(new KPlato::NodeModifyNameCmd(*to, from->name()));
     }
     if (to->description() != from->description()) {
-        m->addCommand(new NodeModifyDescriptionCmd(*to, from->description()));
+        m->addCommand(new KPlato::NodeModifyDescriptionCmd(*to, from->description()));
     }
     if (to->startTime() != from->startTime() && from->startTime().isValid()) {
-        m->addCommand(new NodeModifyStartTimeCmd(*to, from->startTime()));
+        m->addCommand(new KPlato::NodeModifyStartTimeCmd(*to, from->startTime()));
     }
     if (to->endTime() != from->endTime() && from->endTime().isValid()) {
-        m->addCommand(new NodeModifyEndTimeCmd(*to, from->endTime()));
+        m->addCommand(new KPlato::NodeModifyEndTimeCmd(*to, from->endTime()));
     }
     if (to->leader() != from->leader()) {
-        m->addCommand(new NodeModifyLeaderCmd(*to, from->leader()));
+        m->addCommand(new KPlato::NodeModifyLeaderCmd(*to, from->leader()));
     }
 
-    if (from->type() == Node::Type_Task && from->type() == Node::Type_Task) {
-        if (static_cast<Task*>(to)->workPackage().ownerId() != static_cast<const Task*>(from)->workPackage().ownerId()) {
-            debugPlanWork<<"merge:"<<"different owners"<<static_cast<const Task*>(from)->workPackage().ownerName()<<static_cast<Task*>(to)->workPackage().ownerName();
-            if (static_cast<Task*>(to)->workPackage().ownerId().isEmpty()) {
+    if (from->type() == KPlato::Node::Type_Task && from->type() == KPlato::Node::Type_Task) {
+        if (static_cast<KPlato::Task*>(to)->workPackage().ownerId() != static_cast<const KPlato::Task*>(from)->workPackage().ownerId()) {
+            debugPlanWork<<"merge:"<<"different owners"<<static_cast<const KPlato::Task*>(from)->workPackage().ownerName()<<static_cast<KPlato::Task*>(to)->workPackage().ownerName();
+            if (static_cast<KPlato::Task*>(to)->workPackage().ownerId().isEmpty()) {
                 //TODO cmd
-                static_cast<Task*>(to)->workPackage().setOwnerId(static_cast<const Task*>(from)->workPackage().ownerId());
-                static_cast<Task*>(to)->workPackage().setOwnerName(static_cast<const Task*>(from)->workPackage().ownerName());
+                static_cast<KPlato::Task*>(to)->workPackage().setOwnerId(static_cast<const KPlato::Task*>(from)->workPackage().ownerId());
+                static_cast<KPlato::Task*>(to)->workPackage().setOwnerName(static_cast<const KPlato::Task*>(from)->workPackage().ownerName());
             }
         }
-        const QList<Document*> documents = from->documents().documents();
-        for (Document *doc : documents) {
-            Document *org = to->documents().findDocument(doc->url());
+        const QList<KPlato::Document*> documents = from->documents().documents();
+        for (KPlato::Document *doc : documents) {
+            KPlato::Document *org = to->documents().findDocument(doc->url());
             if (org) {
                 // TODO: also handle modified type, sendas
                 // update ? what if open, modified ...
-                if (doc->type() == Document::Type_Product) {
+                if (doc->type() == KPlato::Document::Type_Product) {
                     //### FIXME. user feedback
                     warnPlanWork<<"We do not update existing deliverables (except name change)";
                     if (doc->name() != org->name()) {
-                        m->addCommand(new DocumentModifyNameCmd(org, doc->name()));
+                        m->addCommand(new KPlato::DocumentModifyNameCmd(org, doc->name()));
                     }
                 } else {
                     if (doc->name() != org->name()) {
-                        m->addCommand(new DocumentModifyNameCmd(org, doc->name()));
+                        m->addCommand(new KPlato::DocumentModifyNameCmd(org, doc->name()));
                     }
                     if (doc->sendAs() != org->sendAs()) {
-                        m->addCommand(new DocumentModifySendAsCmd(org, doc->sendAs()));
+                        m->addCommand(new KPlato::DocumentModifySendAsCmd(org, doc->sendAs()));
                     }
-                    if (doc->sendAs() == Document::SendAs_Copy) {
+                    if (doc->sendAs() == KPlato::Document::SendAs_Copy) {
                         debugPlanWork<<"Update existing doc:"<<org->url();
                         openNewDocument(org, store);
                     }
                 }
             } else {
                 debugPlanWork<<"new document:"<<doc->typeToString(doc->type())<<doc->url();
-                Document *newdoc = new Document(*doc);
-                m->addCommand(new DocumentAddCmd(to->documents(), newdoc));
-                if (doc->sendAs() == Document::SendAs_Copy) {
+                KPlato::Document *newdoc = new KPlato::Document(*doc);
+                m->addCommand(new KPlato::DocumentAddCmd(to->documents(), newdoc));
+                if (doc->sendAs() == KPlato::Document::SendAs_Copy) {
                     debugPlanWork<<"Copy file";
                     openNewDocument(newdoc, store);
                 }
             }
         }
     }
-    const Project *fromProject = wp->project();
-    Project *toProject = m_project;
-    const ScheduleManager *fromSm = fromProject->scheduleManagers().value(0);
+    const KPlato::Project *fromProject = wp->project();
+    KPlato::Project *toProject = m_project;
+    const KPlato::ScheduleManager *fromSm = fromProject->scheduleManagers().value(0);
     Q_ASSERT(fromSm);
-    ScheduleManager *toSm = toProject->scheduleManagers().value(0);
+    KPlato::ScheduleManager *toSm = toProject->scheduleManagers().value(0);
     Q_ASSERT(toSm);
     if (fromSm->managerId() != toSm->managerId() || fromSm->scheduleId() != toSm->scheduleId()) {
         // rescheduled, update schedules
@@ -606,7 +604,7 @@ void WorkPackage::merge(Part *part, const WorkPackage *wp, KoStore *store)
     }
 }
 
-void WorkPackage::openNewDocument(const Document *doc, KoStore *store)
+void WorkPackage::openNewDocument(const KPlato::Document *doc, KoStore *store)
 {
     const QUrl url = extractFile(doc, store);
     if (url.url().isEmpty()) {
@@ -627,7 +625,7 @@ int WorkPackage::queryClose(Part *part)
     QStringList lst;
     if (! m_childdocs.isEmpty()) {
         for (DocumentChild *ch : qAsConst(m_childdocs)) {
-            if (ch->isOpen() && ch->doc()->sendAs() == Document::SendAs_Copy) {
+            if (ch->isOpen() && ch->doc()->sendAs() == KPlato::Document::SendAs_Copy) {
                 lst << ch->doc()->url().fileName();
             }
         }
@@ -677,7 +675,7 @@ int WorkPackage::queryClose(Part *part)
     return res;
 }
 
-QUrl WorkPackage::extractFile(const Document *doc)
+QUrl WorkPackage::extractFile(const KPlato::Document *doc)
 {
     KoStore *store = KoStore::createStore(m_filePath, KoStore::Read, "", KoStore::Zip);
     if (store->bad())
@@ -691,7 +689,7 @@ QUrl WorkPackage::extractFile(const Document *doc)
     return url;
 }
 
-QUrl WorkPackage::extractFile(const Document *doc, KoStore *store)
+QUrl WorkPackage::extractFile(const KPlato::Document *doc, KoStore *store)
 {
     //FIXME: should use a special tmp dir
     QString tmp = QDir::tempPath() + QLatin1Char('/') + doc->url().fileName();
@@ -740,20 +738,20 @@ void PackageRemoveCmd::unexecute()
 }
 
 //---------------------
-CopySchedulesCmd::CopySchedulesCmd(const Project &fromProject, Project &toProject, const KUndo2MagicString &name)
-    : NamedCommand(name),
+CopySchedulesCmd::CopySchedulesCmd(const KPlato::Project &fromProject, KPlato::Project &toProject, const KUndo2MagicString &name)
+    : KPlato::NamedCommand(name),
       m_project(toProject)
 {
     QDomDocument olddoc;
     QDomElement e = olddoc.createElement("old");
     olddoc.appendChild(e);
-    toProject.save(e, XmlSaveContext());
+    toProject.save(e, KPlato::XmlSaveContext());
     m_olddoc = olddoc.toString();
 
     QDomDocument newdoc;
     e = newdoc.createElement("new");
     newdoc.appendChild(e);
-    fromProject.save(e, XmlSaveContext());
+    fromProject.save(e, KPlato::XmlSaveContext());
     m_newdoc = newdoc.toString();
 }
 void CopySchedulesCmd::execute()
@@ -780,11 +778,11 @@ void CopySchedulesCmd::load(const QString &doc)
     KoXmlElement ps = proj.namedItem("schedules").namedItem("plan").toElement();
     Q_ASSERT(! ps.isNull());
 
-    XMLLoaderObject status;
+    KPlato::XMLLoaderObject status;
     status.setProject(&m_project);
     status.setVersion(PLAN_FILE_SYNTAX_VERSION);
     // task first
-    NodeSchedule *ns = new NodeSchedule();
+    KPlato::NodeSchedule *ns = new KPlato::NodeSchedule();
     if (ns->loadXML(ts, status)) {
         debugPlanWork<<ns->name()<<ns->type()<<ns->id();
         ns->setNode(m_project.childNode(0));
@@ -794,7 +792,7 @@ void CopySchedulesCmd::load(const QString &doc)
         delete ns;
     }
     // schedule manager next (includes main schedule and resource schedule)
-    ScheduleManager *sm = new ScheduleManager(m_project);
+    KPlato::ScheduleManager *sm = new KPlato::ScheduleManager(m_project);
     if (sm->loadXML(ps, status)) {
         m_project.addScheduleManager(sm);
     } else {
@@ -809,21 +807,21 @@ void CopySchedulesCmd::load(const QString &doc)
 
 void CopySchedulesCmd::clearSchedules()
 {
-    const QList<Schedule*> schedules = m_project.childNode(0)->schedules().values();
-    for (Schedule *s : schedules) {
+    const QList<KPlato::Schedule*> schedules = m_project.childNode(0)->schedules().values();
+    for (KPlato::Schedule *s : schedules) {
         m_project.takeSchedule(s);
     }
-    for (Schedule *s : schedules) {
-        const QList<Appointment*> appointments = s->appointments();
-        for (Appointment *a : appointments) {
+    for (KPlato::Schedule *s : schedules) {
+        const QList<KPlato::Appointment*> appointments = s->appointments();
+        for (KPlato::Appointment *a : appointments) {
             if (a->resource() && a->resource()->resource()) {
                 a->resource()->resource()->takeSchedule(a->resource());
             }
         }
         m_project.childNode(0)->takeSchedule(s);
     }
-    const QList<ScheduleManager*> managers = m_project.scheduleManagers();
-    for (ScheduleManager *sm : managers) {
+    const QList<KPlato::ScheduleManager*> managers = m_project.scheduleManagers();
+    for (KPlato::ScheduleManager *sm : managers) {
         m_project.takeScheduleManager(sm);
         delete sm;
     }

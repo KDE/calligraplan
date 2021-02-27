@@ -42,8 +42,6 @@ class Document;
 
 }
 
-using namespace KPlato;
-
 /// The main namespace
 namespace KPlatoWork
 {
@@ -57,7 +55,7 @@ class WorkPackage;
  *
  * The model stores a nodes parentNode() in the index's internalPointer().
  */
-class PLANWORK_EXPORT TaskWorkPackageModel : public ItemModelBase
+class PLANWORK_EXPORT TaskWorkPackageModel : public KPlato::ItemModelBase
 {
     Q_OBJECT
 public:
@@ -109,15 +107,15 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &index = QModelIndex()) const override;
     
-    Node *nodeForIndex(const QModelIndex &index) const;
-    QModelIndex indexForNode(Node *node) const;
+    KPlato::Node *nodeForIndex(const QModelIndex &index) const;
+    QModelIndex indexForNode(KPlato::Node *node) const;
 
     QAbstractItemDelegate *createDelegate(int column, QWidget *parent) const override;
 
-    Document *documentForIndex(const QModelIndex &idx) const;
+    KPlato::Document *documentForIndex(const QModelIndex &idx) const;
 
     WorkPackage *ptrToWorkPackage(const QModelIndex &idx) const;
-    Node *ptrToNode(const QModelIndex &idx) const;
+    KPlato::Node *ptrToNode(const QModelIndex &idx) const;
 
     bool isNode(const QModelIndex &idx) const;
     bool isDocument(const QModelIndex &idx) const;
@@ -138,35 +136,35 @@ protected Q_SLOTS:
     void slotDocumentChanged(KPlato::Node *node, KPlato::Document *doc, int index);
 
 protected:
-    QVariant nodeData(Node *node, int column, int role) const; 
-    QVariant documentData(Document *doc, int column, int role) const; 
+    QVariant nodeData(KPlato::Node *node, int column, int role) const; 
+    QVariant documentData(KPlato::Document *doc, int column, int role) const; 
 
-    QVariant name(const Resource *r, int role) const;
-    QVariant email(const Resource *r, int role) const;
-    QVariant sendStatus(const Resource *r, int role) const;
-    QVariant sendTime(const Resource *r, int role) const;
-    QVariant responseType(const Resource *r, int role) const;
-    QVariant requiredTime(const Resource *r, int role) const;
-    QVariant responseStatus(const Resource *r, int role) const;
-    QVariant responseTime(const Resource *r, int role) const;
-    QVariant lastAction(const Resource *r, int role) const;
-    QVariant projectName(const Node *n, int role) const;
-    QVariant projectManager(const Node *n, int role) const;
+    QVariant name(const KPlato::Resource *r, int role) const;
+    QVariant email(const KPlato::Resource *r, int role) const;
+    QVariant sendStatus(const KPlato::Resource *r, int role) const;
+    QVariant sendTime(const KPlato::Resource *r, int role) const;
+    QVariant responseType(const KPlato::Resource *r, int role) const;
+    QVariant requiredTime(const KPlato::Resource *r, int role) const;
+    QVariant responseStatus(const KPlato::Resource *r, int role) const;
+    QVariant responseTime(const KPlato::Resource *r, int role) const;
+    QVariant lastAction(const KPlato::Resource *r, int role) const;
+    QVariant projectName(const KPlato::Node *n, int role) const;
+    QVariant projectManager(const KPlato::Node *n, int role) const;
     
-    bool setCompletion(Node *node, const QVariant &value, int role);
-    bool setRemainingEffort(Node *node, const QVariant &value, int role);
-    bool setActualEffort(Node *node, const QVariant &value, int role);
-    bool setStartedTime(Node *node, const QVariant &value, int role);
-    bool setFinishedTime(Node *node, const QVariant &value, int role);
+    bool setCompletion(KPlato::Node *node, const QVariant &value, int role);
+    bool setRemainingEffort(KPlato::Node *node, const QVariant &value, int role);
+    bool setActualEffort(KPlato::Node *node, const QVariant &value, int role);
+    bool setStartedTime(KPlato::Node *node, const QVariant &value, int role);
+    bool setFinishedTime(KPlato::Node *node, const QVariant &value, int role);
 
-    QVariant actualStart(Node *n, int role) const;
-    QVariant actualFinish(Node *n, int role) const;
-    QVariant plannedEffort(Node *n, int role) const;
+    QVariant actualStart(KPlato::Node *n, int role) const;
+    QVariant actualFinish(KPlato::Node *n, int role) const;
+    QVariant plannedEffort(KPlato::Node *n, int role) const;
 
-    QVariant status(Node *n, int role) const;
+    QVariant status(KPlato::Node *n, int role) const;
 
 private:
-    NodeModel m_nodemodel;
+    KPlato::NodeModel m_nodemodel;
     Part *m_part;
     QList<WorkPackage*> m_packages;
 };

@@ -39,7 +39,7 @@
 using namespace KPlatoWork;
 
 
-TaskCompletionDialog::TaskCompletionDialog(KPlatoWork::WorkPackage &package, ScheduleManager *sm, QWidget *parent)
+TaskCompletionDialog::TaskCompletionDialog(KPlatoWork::WorkPackage &package, KPlato::ScheduleManager *sm, QWidget *parent)
     : KoDialog(parent)
 {
     setCaption(i18n("Task Progress"));
@@ -66,7 +66,7 @@ KUndo2Command *TaskCompletionDialog::buildCommand()
     return m_panel->buildCommand();
 }
 
-TaskCompletionPanel::TaskCompletionPanel(WorkPackage &package, ScheduleManager *sm, QWidget *parent)
+TaskCompletionPanel::TaskCompletionPanel(WorkPackage &package, KPlato::ScheduleManager *sm, QWidget *parent)
     : QWidget(parent)
 {
     Q_ASSERT(sm);
@@ -74,8 +74,8 @@ TaskCompletionPanel::TaskCompletionPanel(WorkPackage &package, ScheduleManager *
         package.task()->completion().setEntrymode(KPlato::Completion::EnterEffortPerResource);
     }
     if (package.task()->completion().resources().isEmpty()) {
-        const QList<Resource*> resources = package.task()->assignedResources(sm->scheduleId());
-        for (Resource *r : resources) {
+        const QList<KPlato::Resource*> resources = package.task()->assignedResources(sm->scheduleId());
+        for (KPlato::Resource *r : resources) {
             if (r->id() == package.task()->workPackage().ownerId()) {
                 package.task()->completion().addUsedEffort(r);
             }

@@ -68,8 +68,6 @@
 
 #include "debugarea.h"
 
-using namespace KPlato;
-
 namespace KPlatoWork
 {
 
@@ -88,7 +86,7 @@ DocumentChild::DocumentChild(WorkPackage *parent)
 {
 }
 
-// DocumentChild::DocumentChild(KParts::ReadWritePart *editor, const QUrl &url, const Document *doc, Part *parent)
+// DocumentChild::DocumentChild(KParts::ReadWritePart *editor, const QUrl &url, const KPlato::Document *doc, Part *parent)
 //     : KoDocumentChild(parent),
 //     m_doc(doc),
 //     m_type(Type_Unknown),
@@ -167,7 +165,7 @@ void DocumentChild::slotUpdateModified()
     QTimer::singleShot(500, this, &DocumentChild::slotUpdateModified);
 }
 
-bool DocumentChild::setDoc(const Document *doc)
+bool DocumentChild::setDoc(const KPlato::Document *doc)
 {
     Q_ASSERT (m_doc == nullptr);
     if (isOpen()) {
@@ -180,7 +178,7 @@ bool DocumentChild::setDoc(const Document *doc)
         url = parentPackage()->newDocuments().value(doc);
         Q_ASSERT(url.isValid());
         parentPackage()->removeNewDocument(doc);
-    } else if (doc->sendAs() == Document::SendAs_Copy) {
+    } else if (doc->sendAs() == KPlato::Document::SendAs_Copy) {
         url = parentPackage()->extractFile(doc);
         if (url.url().isEmpty()) {
             KMessageBox::error(nullptr, i18n("Could not extract document from storage:<br>%1", doc->url().url()));
@@ -198,7 +196,7 @@ bool DocumentChild::setDoc(const Document *doc)
     return true;
 }
 
-bool DocumentChild::openDoc(const Document *doc, KoStore *store)
+bool DocumentChild::openDoc(const KPlato::Document *doc, KoStore *store)
 {
     Q_ASSERT (m_doc == nullptr);
     if (isOpen()) {
@@ -207,7 +205,7 @@ bool DocumentChild::openDoc(const Document *doc, KoStore *store)
     }
     m_doc = doc;
     QUrl url;
-    if (doc->sendAs() == Document::SendAs_Copy) {
+    if (doc->sendAs() == KPlato::Document::SendAs_Copy) {
         url = parentPackage()->extractFile(doc, store);
         if (url.url().isEmpty()) {
             KMessageBox::error(nullptr, i18n("Could not extract document from storage:<br>%1", doc->url().path()));
@@ -411,7 +409,7 @@ bool Part::setWorkPackage(WorkPackage *wp, KoStore *store)
     return true;
 }
 
-void Part::removeWorkPackage(Node *node, MacroCommand *m)
+void Part::removeWorkPackage(KPlato::Node *node, KPlato::MacroCommand *m)
 {
     debugPlanWork<<node->name();
     WorkPackage *wp = findWorkPackage(node);
@@ -427,11 +425,11 @@ void Part::removeWorkPackage(Node *node, MacroCommand *m)
     }
 }
 
-void Part::removeWorkPackages(const QList<Node*> &nodes)
+void Part::removeWorkPackages(const QList<KPlato::Node*> &nodes)
 {
     debugPlanWork<<nodes;
-    MacroCommand *m = new MacroCommand(kundo2_i18np("Remove work package", "Remove work packages", nodes.count()));
-    for (Node *n : nodes) {
+    KPlato::MacroCommand *m = new KPlato::MacroCommand(kundo2_i18np("Remove work package", "Remove work packages", nodes.count()));
+    for (KPlato::Node *n : nodes) {
         removeWorkPackage(n, m);
     }
     if (m->isEmpty()) {
@@ -646,13 +644,13 @@ bool Part::completeLoading(KoStore *)
     return true;
 }
 
-QUrl Part::extractFile(const Document *doc)
+QUrl Part::extractFile(const KPlato::Document *doc)
 {
     WorkPackage *wp = findWorkPackage(doc);
     return wp == nullptr ? QUrl() : wp->extractFile(doc);
 }
 
-int Part::docType(const Document *doc) const
+int Part::docType(const KPlato::Document *doc) const
 {
     DocumentChild *ch = findChild(doc);
     if (ch == nullptr) {
@@ -661,7 +659,7 @@ int Part::docType(const Document *doc) const
     return ch->type();
 }
 
-DocumentChild *Part::findChild(const Document *doc) const
+DocumentChild *Part::findChild(const KPlato::Document *doc) const
 {
     for (const WorkPackage *wp : qAsConst(m_packageMap)) {
         DocumentChild *c = wp->findChild(doc);
@@ -672,7 +670,7 @@ DocumentChild *Part::findChild(const Document *doc) const
     return nullptr;
 }
 
-WorkPackage *Part::findWorkPackage(const Document *doc) const
+WorkPackage *Part::findWorkPackage(const KPlato::Document *doc) const
 {
     for (const WorkPackage *wp : qAsConst(m_packageMap)) {
         if (wp->contains(doc)) {
@@ -692,19 +690,19 @@ WorkPackage *Part::findWorkPackage(const DocumentChild *child) const
     return nullptr;
 }
 
-WorkPackage *Part::findWorkPackage(const Node *node) const
+WorkPackage *Part::findWorkPackage(const KPlato::Node *node) const
 {
     return m_packageMap.value(node->projectNode()->id() + node->id());
 }
 
-bool Part::editWorkpackageDocument(const Document *doc)
+bool Part::editWorkpackageDocument(const KPlato::Document *doc)
 {
     //debugPlanWork<<doc<<doc->url();
     // start in any suitable application
     return editOtherDocument(doc);
 }
 
-bool Part::editOtherDocument(const Document *doc)
+bool Part::editOtherDocument(const KPlato::Document *doc)
 {
     Q_ASSERT(doc != nullptr);
     //debugPlanWork<<doc->url();
@@ -716,14 +714,14 @@ bool Part::editOtherDocument(const Document *doc)
     return wp->addChild(this, doc);
 }
 
-void Part::viewWorkpackageDocument(Document *doc)
+void Part::viewWorkpackageDocument(KPlato::Document *doc)
 {
     debugPlanWork<<doc;
     if (doc == nullptr) {
         return;
     }
     QUrl filename;
-    if (doc->sendAs() == Document::SendAs_Copy) {
+    if (doc->sendAs() == KPlato::Document::SendAs_Copy) {
         filename = extractFile(doc);
     } else {
         filename = doc->url();
@@ -732,7 +730,7 @@ void Part::viewWorkpackageDocument(Document *doc)
     viewDocument(filename);
 }
 
-bool Part::removeDocument(Document *doc)
+bool Part::removeDocument(KPlato::Document *doc)
 {
     if (doc == nullptr) {
         return false;
