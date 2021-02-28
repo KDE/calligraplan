@@ -417,7 +417,7 @@ void Part::removeWorkPackage(KPlato::Node *node, KPlato::MacroCommand *m)
         KMessageBox::error(nullptr, i18n("Remove failed. Cannot find work package"));
         return;
     }
-    PackageRemoveCmd *cmd = new PackageRemoveCmd(this, wp, kundo2_i18n("Remove work package"));
+    PackageRemoveCmd *cmd = new PackageRemoveCmd(this, wp, kundo2_i18nc("@action", "Remove work package"));
     if (m) {
         m->addCommand(cmd);
     } else {

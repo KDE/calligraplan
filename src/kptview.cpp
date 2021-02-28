@@ -2279,7 +2279,7 @@ void View::slotDeleteTaskList(QList<Node*> lst)
         }
     }
     if (lst.count() == 1) {
-        getPart()->addCommand(new NodeDeleteCmd(lst.takeFirst(), kundo2_i18n("Delete task")));
+        getPart()->addCommand(new NodeDeleteCmd(lst.takeFirst(), kundo2_i18nc("Delete one task", "Delete task")));
         return;
     }
     int num = 0;
@@ -2299,7 +2299,7 @@ void View::slotDeleteTaskList(QList<Node*> lst)
         }
         if (del) {
             //debugPlan<<num<<": delete:"<<node->name();
-            cmd->addCommand(new NodeDeleteCmd(node, kundo2_i18n("Delete task")));
+            cmd->addCommand(new NodeDeleteCmd(node, kundo2_i18nc("@action", "Delete task")));
             num++;
         }
     }
@@ -2533,12 +2533,12 @@ void View::slotEditResourceFinished(int result)
 
 void View::slotDeleteResource(Resource *resource)
 {
-    getPart()->addCommand(new RemoveResourceCmd(resource, kundo2_i18n("Delete resource")));
+    getPart()->addCommand(new RemoveResourceCmd(resource, kundo2_i18nc("@action", "Delete resource")));
 }
 
 void View::slotDeleteResourceGroup(ResourceGroup *group)
 {
-    getPart()->addCommand(new RemoveResourceGroupCmd(group->project(), group, kundo2_i18n("Delete resourcegroup")));
+    getPart()->addCommand(new RemoveResourceGroupCmd(group->project(), group, kundo2_i18n("@action", "Delete resourcegroup")));
 }
 
 void View::slotDeleteResourceObjects(const QObjectList lst)
