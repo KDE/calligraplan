@@ -2538,7 +2538,7 @@ void View::slotDeleteResource(Resource *resource)
 
 void View::slotDeleteResourceGroup(ResourceGroup *group)
 {
-    getPart()->addCommand(new RemoveResourceGroupCmd(group->project(), group, kundo2_i18n("@action", "Delete resourcegroup")));
+    getPart()->addCommand(new RemoveResourceGroupCmd(group->project(), group, kundo2_i18nc("@action", "Delete resourcegroup")));
 }
 
 void View::slotDeleteResourceObjects(const QObjectList lst)
