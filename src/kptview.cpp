@@ -2323,7 +2323,7 @@ void View::slotDeleteTask(Node *node)
             return;
         }
     }
-    NodeDeleteCmd *cmd = new NodeDeleteCmd(node, kundo2_i18n("Delete task"));
+    NodeDeleteCmd *cmd = new NodeDeleteCmd(node, kundo2_i18nc("@action", "Delete task"));
     getPart() ->addCommand(cmd);
 }
 
