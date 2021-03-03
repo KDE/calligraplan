@@ -41,6 +41,168 @@
 
 using namespace KPlato;
 
+ResourceAlternativesModel::ResourceAlternativesModel(ResourceAllocationItemModel *dataModel, QObject *parent)
+    : QSortFilterProxyModel(parent)
+    , m_resource(nullptr)
+{
+    Q_ASSERT(dataModel);
+    setSourceModel(dataModel);
+    connect(dataModel, &ResourceAllocationItemModel::dataChanged, this, &ResourceAlternativesModel::slotDataChanged);
+}
+
+void ResourceAlternativesModel::slotDataChanged()
+{
+    beginResetModel();
+    endResetModel();
+}
+
+void ResourceAlternativesModel::setResource(Resource *resource)
+{
+    beginResetModel();
+    m_resource = resource;
+    endResetModel();
+}
+
+Resource *ResourceAlternativesModel::resource() const
+{
+    return m_resource;
+}
+
+Resource *ResourceAlternativesModel::resource(const QModelIndex &idx) const
+{
+    QVariant v = QSortFilterProxyModel::data(idx, Role::Object);
+    return v.value<Resource*>();
+}
+
+ResourceRequest *ResourceAlternativesModel::request(const QModelIndex &idx) const
+{
+    const ResourceAllocationItemModel *m = static_cast<ResourceAllocationItemModel*>(sourceModel());
+    return m->alternativeRequest(m_resource, resource(idx));
+}
+
+bool ResourceAlternativesModel::filterAcceptsColumn(int source_column, const QModelIndex &source_parent) const
+{
+    Q_UNUSED(source_parent)
+    switch (source_column) {
+        case ResourceAllocationModel::RequestName:
+        case ResourceAllocationModel::RequestAllocation:
+        case ResourceAllocationModel::RequestMaximum:
+            return true;
+        default:
+            break;
+    }
+    return false;
+}
+
+bool ResourceAlternativesModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    if (!m_resource || source_parent.isValid()) {
+        return false;
+    }
+    auto m = static_cast<ResourceAllocationItemModel*>(sourceModel());
+    const QModelIndex idx = m->index(source_row, 0);
+    auto r = m->resource(idx);
+    return r && (r != m_resource) && (r->type() == m_resource->type());
+}
+
+Qt::ItemFlags ResourceAlternativesModel::flags(const QModelIndex &idx) const
+{
+    if (!m_resource) {
+        return Qt::NoItemFlags;
+    }
+    const ResourceAllocationItemModel *m = static_cast<ResourceAllocationItemModel*>(sourceModel());
+    if (!m->resourceCache().contains(m_resource)) {
+        return Qt::NoItemFlags;
+    }
+    return QSortFilterProxyModel::flags(idx);
+}
+
+QVariant ResourceAlternativesModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+//     if (orientation == Qt::Vertical) {
+//         return QVariant();
+//     }
+//     if (role == Qt::DisplayRole) {
+//         switch (section) {
+//             case 0: return i18n("Alternative");
+//             default: break;
+//         }
+//     }
+    return QSortFilterProxyModel::headerData(section, orientation, role);
+}
+
+QVariant ResourceAlternativesModel::data(const QModelIndex &idx, int role) const
+{
+    QModelIndex aIdx = mapToSource(idx);
+    switch (aIdx.column()) {
+        case ResourceAllocationModel::RequestAllocation: {
+            ResourceRequest *alternative = request(idx);
+            if (role == Qt::CheckStateRole) {
+                return alternative ? Qt::Checked : Qt::Unchecked;
+            } else if (role == Qt::DisplayRole) {
+                int units = alternative ? alternative->units() : 0;
+                // xgettext: no-c-format
+                return i18nc("<value>%", "%1%", units);
+            } else if (role == Qt::EditRole) {
+                return alternative ? alternative->units() : 0;
+            } else if (role == Role::Minimum) {
+                break;
+            } else if (role == Role::Maximum) {
+                break;
+            } if (role == Qt::ToolTipRole) {
+                int units = alternative ? alternative->units() : 0;
+                if (units == 0) {
+                    return xi18nc("@info:tooltip", "Not allocated");
+                }
+                QString max = mapToSource(idx).siblingAtColumn(ResourceAllocationModel::RequestMaximum).data(Qt::DisplayRole).toString();
+                QString alloced = i18nc("<value>%", "%1%", units);
+                return xi18nc("@info:tooltip", "%1 allocated out of %2 available", alloced, max);
+            }
+            break;
+        }
+    }
+    return QSortFilterProxyModel::data(idx, role);
+}
+
+bool ResourceAlternativesModel::setData(const QModelIndex &idx, const QVariant &value, int role)
+{
+    if (mapToSource(idx).column() == ResourceAllocationModel::RequestAllocation) {
+        if (role == Qt::CheckStateRole) {
+            Resource *alternative = resource(idx);
+            if (alternative) {
+                ResourceAllocationItemModel *m = static_cast<ResourceAllocationItemModel*>(sourceModel());
+                if (value.toInt() == Qt::Checked) {
+                    ResourceRequest *rr = m->alternativeRequest(m_resource, alternative);
+                    if (!rr) {
+                        int max = mapToSource(idx).siblingAtColumn(ResourceAllocationModel::RequestAllocation).data(Role::Maximum).toInt();
+                        rr = new ResourceRequest(alternative, max);
+                    }
+                    m->addAlternativeRequest(m_resource, rr);
+                    Q_EMIT dataChanged(idx, idx);
+                    return true;
+                } else if (m->removeAlternativeRequest(m_resource, alternative)) {
+                    Q_EMIT dataChanged(idx, idx);
+                    return true;
+                }
+            }
+            return false;
+        } else if (role == Qt::EditRole) {
+            Resource *alternative = resource(idx);
+            if (alternative) {
+                ResourceAllocationItemModel *m = static_cast<ResourceAllocationItemModel*>(sourceModel());
+                ResourceRequest *rr = m->alternativeRequest(m_resource, alternative);
+                if (rr) {
+                    rr->setUnits(value.toInt());
+                    Q_EMIT dataChanged(idx, idx);
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+    return QSortFilterProxyModel::setData(idx, value, role);
+}
+
 //--------------------------------------
 
 ResourceAllocationModel::ResourceAllocationModel(QObject *parent)
@@ -333,7 +495,7 @@ void ResourceAllocationItemModel::setProject(Project *project)
     m_project = project;
     if (m_project) {
         disconnect(m_project, &Project::aboutToBeDeleted, this, &ResourceAllocationItemModel::projectDeleted);
-        
+
         disconnect(m_project, &Project::resourceChanged, this, &ResourceAllocationItemModel::slotResourceChanged);
         disconnect(m_project, &Project::resourceToBeAdded, this, &ResourceAllocationItemModel::slotResourceToBeAdded);
         disconnect(m_project, &Project::resourceAdded, this, &ResourceAllocationItemModel::slotResourceAdded);
@@ -477,7 +639,7 @@ QModelIndex ResourceAllocationItemModel::index(Resource *resource) const
 
 int ResourceAllocationItemModel::columnCount(const QModelIndex &/*parent*/) const
 {
-    return m_model.propertyCount();
+    return 4;//m_model.propertyCount();
 }
 
 int ResourceAllocationItemModel::rowCount(const QModelIndex &parent) const
@@ -579,7 +741,7 @@ QVariant ResourceAllocationItemModel::required(const QModelIndex &idx, int role)
             break;
         }
         case Qt::EditRole: break;
-        case Qt::ToolTipRole: 
+        case Qt::ToolTipRole:
             switch (res->type()) {
                 case Resource::Type_Work: {
                     if (!hasMaterialResources()) {
@@ -681,6 +843,47 @@ bool ResourceAllocationItemModel::setAlternative(const QModelIndex &idx, const Q
     return false;
 }
 
+void ResourceAllocationItemModel::addAlternativeRequest(Resource *resource, ResourceRequest *alternative)
+{
+    removeAlternativeRequest(resource, alternative->resource());
+    ResourceRequest *request = m_resourceCache[resource];
+    request->addAlternativeRequest(alternative);
+}
+
+bool ResourceAllocationItemModel::removeAlternativeRequest(Resource *resource, Resource *alternative)
+{
+    if (!m_resourceCache.contains(resource)) {
+        return false;
+    }
+    ResourceRequest *request = m_resourceCache[resource];
+    ResourceRequest *alt = nullptr;
+    for (ResourceRequest *rr : request->alternativeRequests()) {
+        if (rr->resource() == alternative) {
+            alt = rr;
+            break;
+        }
+    }
+    if (alt) {
+        request->removeAlternativeRequest(alt);
+        return true;
+    }
+    return false;
+}
+
+ResourceRequest *ResourceAllocationItemModel::alternativeRequest(Resource *resource, Resource *alternative) const
+{
+    if (!m_resourceCache.contains(resource)) {
+        return nullptr;
+    }
+    ResourceRequest *request = m_resourceCache[resource];
+    for (ResourceRequest *rr : request->alternativeRequests()) {
+        if (rr->resource() == alternative) {
+            return rr;
+        }
+    }
+    return nullptr;
+}
+
 QVariant ResourceAllocationItemModel::data(const QModelIndex &index, int role) const
 {
     if (role == Qt::TextAlignmentRole) {
@@ -689,6 +892,9 @@ QVariant ResourceAllocationItemModel::data(const QModelIndex &index, int role) c
     }
     QVariant result;
     Resource *r = resource(index);
+    if (role == Role::Object) {
+        return QVariant::fromValue(r);
+    }
     if (r) {
         if (index.column() == ResourceAllocationModel::RequestAllocation) {
             return allocation(r, role);
@@ -773,7 +979,7 @@ QObject *ResourceAllocationItemModel::object(const QModelIndex &index) const
 
 void ResourceAllocationItemModel::slotResourceChanged(Resource *res)
 {
-    QModelIndex idx = index(res); 
+    QModelIndex idx = index(res);
     Q_EMIT dataChanged(idx, idx.sibling(idx.row(), columnCount()-1));
 }
 

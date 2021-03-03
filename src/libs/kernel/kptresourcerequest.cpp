@@ -927,7 +927,7 @@ QDebug operator<<(QDebug dbg, const KPlato::ResourceRequest *rr)
 QDebug operator<<(QDebug dbg, const KPlato::ResourceRequest &rr)
 {
     if (rr.resource()) {
-        dbg<<"ResourceRequest["<<rr.id()<<':'<<rr.resource()->name()<<']';
+        dbg<<"ResourceRequest["<<rr.id()<<':'<<rr.resource()->name()<<QString("%1%").arg(rr.units())<<']';
     } else {
         dbg<<"ResourceRequest["<<rr.id()<<':'<<"No resource]";
     }

@@ -22,6 +22,8 @@
 #define KPTREQUESTRESOURCESPANEL_H
 
 #include "planui_export.h"
+
+#include <ui_ResourceAllocationPanel.h>
 #include <kptresourceallocationmodel.h>
 
 #include <QWidget>
@@ -54,8 +56,11 @@ public:
 Q_SIGNALS:
     void changed();
 
+private Q_SLOTS:
+    void slotCurrentChanged(const QModelIndex &current, const QModelIndex &previous);
+
 private:
-    QTreeView *m_view;
+    Ui::ResourceAllocationPanel ui;
     ResourceAllocationItemModel m_model;
 };
 

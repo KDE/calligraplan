@@ -32,35 +32,56 @@
 #include <QHash>
 #include <QVBoxLayout>
 #include <QSortFilterProxyModel>
+#include <QAbstractTableModel>
+#include <QItemSelectionModel>
 
 
 using namespace KPlato;
 
-
 RequestResourcesPanel::RequestResourcesPanel(QWidget *parent, Project &project, Task &task, bool)
     : QWidget(parent)
 {
+    ui.setupUi(this);
+
     m_model.setReadWrite(true);
     m_model.setProject(&project);
     m_model.setTask(&task);
 
-    QVBoxLayout *l = new QVBoxLayout(this);
-    l->setMargin(0);
-    m_view = new QTreeView(this);
-    QSortFilterProxyModel *m = new QSortFilterProxyModel(m_view);
+    QSortFilterProxyModel *m = new QSortFilterProxyModel(ui.resourcesView);
     m->setDynamicSortFilter(true);
     m->setSourceModel(&m_model);
-    m_view->setModel(m);
-    m_view->setSortingEnabled(true);
-    m_view->setRootIsDecorated(false);
-    l->addWidget(m_view);
-    m_view->header()->resizeSections(QHeaderView::ResizeToContents);
+
+    ui.resourcesView->setModel(m);
+    ui.resourcesView->header()->resizeSections(QHeaderView::ResizeToContents);
 
     for (int i = 0; i < m_model.columnCount(); ++i) {
-        m_view->setItemDelegateForColumn(i, m_model.createDelegate(i, m_view));
+        ui.resourcesView->setItemDelegateForColumn(i, m_model.createDelegate(i, ui.resourcesView));
     }
+    ui.resourcesView->sortByColumn(ResourceAllocationModel::RequestType, Qt::AscendingOrder);
+
+    ResourceAlternativesModel *alts = new ResourceAlternativesModel(&m_model, ui.alternativsView);
+    alts->setDynamicSortFilter(true);
+
+    ui.alternativsView->setModel(alts);
+    // HACK
+    ui.alternativsView->setItemDelegateForColumn(1 /*Allocation*/, m_model.createDelegate(ResourceAllocationModel::RequestAllocation, ui.alternativsView));
+
+    connect(ui.resourcesView->selectionModel(), &QItemSelectionModel::currentChanged, this, &RequestResourcesPanel::slotCurrentChanged);
     connect(&m_model, &ResourceAllocationItemModel::dataChanged, this, &RequestResourcesPanel::changed);
-    m_view->sortByColumn(ResourceAllocationModel::RequestType, Qt::AscendingOrder);
+}
+
+void RequestResourcesPanel::slotCurrentChanged(const QModelIndex &current, const QModelIndex &previous)
+{
+    Q_UNUSED(previous)
+    if (!current.isValid()) {
+        return;
+    }
+    auto idx = static_cast<const QSortFilterProxyModel*>(current.model())->mapToSource(current);
+    Q_ASSERT(idx.isValid());
+    auto resource = m_model.resource(idx);
+    Q_ASSERT(resource);
+    auto m = static_cast<ResourceAlternativesModel*>(ui.alternativsView->model());
+    m->setResource(resource);
 }
 
 bool RequestResourcesPanel::ok()

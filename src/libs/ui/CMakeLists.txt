@@ -153,6 +153,7 @@ ki18n_wrap_ui(planui_LIB_SRCS
     kptworkpackagemergepanel.ui
     kptrecalculatedialog.ui
     kptscheduleeditor.ui
+    ResourceAllocationPanel.ui
 
     locale/localemon.ui
 )

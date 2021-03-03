@@ -24,6 +24,7 @@
 
 #include <kptitemmodelbase.h>
 
+#include <QSortFilterProxyModel>
 #include <QMetaEnum>
 #include <QHash>
 
@@ -38,6 +39,35 @@ class Resource;
 class ResourceGroup;
 class ResourceRequest;
 class ResourceGroupRequest;
+class ResourceAllocationItemModel;
+
+class PLANMODELS_EXPORT ResourceAlternativesModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+    explicit ResourceAlternativesModel(ResourceAllocationItemModel *dataModel, QObject *parent = nullptr);
+
+    void setResource(Resource *resource);
+    Resource *resource() const;
+    Resource *resource(const QModelIndex &idx) const;
+    ResourceRequest *request(const QModelIndex &idx) const;
+
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &idx, const QVariant &value, int role = Qt::EditRole) override;
+
+protected:
+    bool filterAcceptsColumn(int source_column, const QModelIndex &source_parent) const override;
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
+private Q_SLOTS:
+    void slotDataChanged();
+
+private:
+    Resource *m_resource;
+    QHash<Resource*, QList<Resource*> > m_alternatives;
+};
 
 /**
  The ResourceAllocationModel gives access to resource requests
@@ -122,6 +152,10 @@ public:
     void setRequired(const QModelIndex &idx, const QList<Resource*> &lst);
     QList<Resource*> required(const QModelIndex &idx) const;
 
+    void addAlternativeRequest(Resource *resource, ResourceRequest *alternative);
+    bool removeAlternativeRequest(Resource *resource, Resource *alternative);
+    ResourceRequest *alternativeRequest(Resource *resource, Resource *alternative) const;
+
     void setAlternativeRequests(const QModelIndex &idx, const QList<Resource*> &lst);
     QList<ResourceRequest*> alternativeRequests(const QModelIndex &idx) const;
 
@@ -134,7 +168,7 @@ protected Q_SLOTS:
     void slotResourceAdded(KPlato::Resource *resource);
     void slotResourceToBeRemoved(KPlato::Project *project, int row, KPlato::Resource *resource);
     void slotResourceRemoved();
-    
+
 protected:
     void filldata(Task *task);
 
