@@ -48,8 +48,8 @@ public:
     /// only for changes (removals and/or additions)
     MacroCommand *buildCommand();
     /// Builds an undo command for @p task
-    /// that clears all current requests and adds the new ones (if any)
-    MacroCommand *buildCommand(Task *task);
+    /// If @p clear is true, clears all current requests and adds the new ones (if any)
+    MacroCommand *buildCommand(Task *task, bool clear = false);
 
     bool ok();
 

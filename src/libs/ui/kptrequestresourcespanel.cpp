@@ -94,7 +94,7 @@ MacroCommand *RequestResourcesPanel::buildCommand()
     return buildCommand(m_model.task());
 }
 
-MacroCommand *RequestResourcesPanel::buildCommand(Task *task)
+MacroCommand *RequestResourcesPanel::buildCommand(Task *task, bool clear)
 {
     if (task == nullptr) {
         return nullptr;
@@ -103,11 +103,17 @@ MacroCommand *RequestResourcesPanel::buildCommand(Task *task)
     const QHash<const Resource*, ResourceRequest*> &rmap = m_model.resourceCache();
 
     // First remove all that should be removed
-    for(QHash<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit) {
-        if (rit.value()->units() == 0) {
-            ResourceRequest *rr = task->requests().find(rit.key());
-            if (rr) {
-                cmd->addCommand(new RemoveResourceRequestCmd(rr));
+    if (clear) {
+        for (ResourceRequest *rr : task->requests().resourceRequests(false)) {
+            cmd->addCommand(new RemoveResourceRequestCmd(rr));
+        }
+    } else {
+        for(QHash<const Resource*, ResourceRequest*>::const_iterator rit = rmap.constBegin(); rit != rmap.constEnd(); ++rit) {
+            if (rit.value()->units() == 0) {
+                ResourceRequest *rr = task->requests().find(rit.key());
+                if (rr) {
+                    cmd->addCommand(new RemoveResourceRequestCmd(rr));
+                }
             }
         }
     }
@@ -118,6 +124,7 @@ MacroCommand *RequestResourcesPanel::buildCommand(Task *task)
             if (rr == nullptr) {
                 ResourceRequest *rr = new ResourceRequest(resource, rit.value()->units());
                 rr->setRequiredResources(rit.value()->requiredResources());
+                rr->setAlternativeRequests(rit.value()->alternativeRequests());
                 cmd->addCommand(new AddResourceRequestCmd(&task->requests(), rr));
             } else {
                 if (rit.value()->units() != rr->units()) {

@@ -80,7 +80,7 @@ MacroCommand *TasksEditDialog::buildCommand()
     bool modified = false;
 
     for (Task *t : m_tasks) {
-        MacroCommand *c = m_resourcesTab->buildCommand(t);
+        MacroCommand *c = m_resourcesTab->buildCommand(t, true);
         if (c) {
             m->addCommand(c);
             modified = true;
