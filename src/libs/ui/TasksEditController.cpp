@@ -39,7 +39,7 @@
 namespace KPlato
 {
 
-TasksEditController::TasksEditController(Project &project, const QList<Task*> &tasks, QObject *p)
+TasksEditController::TasksEditController(Project &project, const QList<Task*> &tasks, QWidget *p)
     : QObject(p)
     , m_project(project)
     , m_tasks(tasks)
@@ -54,7 +54,7 @@ TasksEditController::~TasksEditController()
 
 void TasksEditController::activate()
 {
-    m_dlg = new TasksEditDialog(m_project, m_tasks);
+    m_dlg = new TasksEditDialog(m_project, m_tasks, qobject_cast<QWidget*>(parent()));
     connect(m_dlg, &QDialog::finished, this, &TasksEditController::finish);
     m_dlg->open();
 }
