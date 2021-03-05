@@ -1919,7 +1919,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
             }
         }
         // save resource requests
-        QHash<Task*, ResourceRequest*> resources;
+        QMultiHash<Task*, ResourceRequest*> resources;
         for (Task *task : allTasks()) {
             const ResourceRequestCollection &requests = task->requests();
             for (ResourceRequest *rr : requests.resourceRequests(false)) {
