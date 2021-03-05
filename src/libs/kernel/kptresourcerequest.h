@@ -120,8 +120,10 @@ public:
     QList<Resource*> requiredResources() const;
     /// Set the list of required resources that will be used in scheduling.
     void setRequiredResources(const QList<Resource*> &lst);
-    /// Add @p resource to list of requred resources
+    /// Add @p resource to list of required resources
     void addRequiredResource(Resource *resource);
+    /// Remove @p resource from list of required resources
+    void removeRequiredResource(Resource *resource);
 
     QList<ResourceRequest*> alternativeRequests() const;
     void setAlternativeRequests(const QList<ResourceRequest*> requests);

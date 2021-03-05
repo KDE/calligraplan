@@ -205,6 +205,135 @@ bool ResourceAlternativesModel::setData(const QModelIndex &idx, const QVariant &
 
 //--------------------------------------
 
+ResourceRequiredModel::ResourceRequiredModel(ResourceAllocationItemModel *dataModel, QObject *parent)
+    : QSortFilterProxyModel(parent)
+    , m_resource(nullptr)
+{
+    Q_ASSERT(dataModel);
+    setSourceModel(dataModel);
+    connect(dataModel, &ResourceAllocationItemModel::dataChanged, this, &ResourceRequiredModel::slotDataChanged);
+}
+
+void ResourceRequiredModel::slotDataChanged()
+{
+    beginResetModel();
+    endResetModel();
+}
+
+void ResourceRequiredModel::setResource(Resource *resource)
+{
+    beginResetModel();
+    m_resource = resource;
+    endResetModel();
+}
+
+Resource *ResourceRequiredModel::resource() const
+{
+    return m_resource;
+}
+
+Resource *ResourceRequiredModel::resource(const QModelIndex &idx) const
+{
+    QVariant v = QSortFilterProxyModel::data(idx, Role::Object);
+    return v.value<Resource*>();
+}
+
+bool ResourceRequiredModel::filterAcceptsColumn(int source_column, const QModelIndex &source_parent) const
+{
+    Q_UNUSED(source_parent)
+    switch (source_column) {
+        case ResourceAllocationModel::RequestName:
+            return true;
+        case ResourceAllocationModel::RequestAllocation:
+        case ResourceAllocationModel::RequestMaximum:
+        default:
+            break;
+    }
+    return false;
+}
+
+bool ResourceRequiredModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    if (!m_resource || source_parent.isValid()) {
+        return false;
+    }
+    auto m = static_cast<ResourceAllocationItemModel*>(sourceModel());
+    const QModelIndex idx = m->index(source_row, 0);
+    auto r = m->resource(idx);
+    return r && (r != m_resource) && (r->type() == Resource::Type_Material);
+}
+
+Qt::ItemFlags ResourceRequiredModel::flags(const QModelIndex &idx) const
+{
+    if (!m_resource) {
+        return Qt::NoItemFlags;
+    }
+    const auto m = static_cast<ResourceAllocationItemModel*>(sourceModel());
+    if (!m->resourceCache().contains(m_resource)) {
+        return Qt::NoItemFlags;
+    }
+    if (idx.column() == 0) {
+        return Qt::ItemIsUserCheckable | Qt::ItemIsEditable | QSortFilterProxyModel::flags(idx);
+    }
+    return QSortFilterProxyModel::flags(idx);
+}
+
+QVariant ResourceRequiredModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    return QSortFilterProxyModel::headerData(section, orientation, role);
+}
+
+QVariant ResourceRequiredModel::data(const QModelIndex &idx, int role) const
+{
+    const auto aIdx = mapToSource(idx);
+    switch (aIdx.column()) {
+        case ResourceAllocationModel::RequestName: {
+            if (role == Qt::CheckStateRole) {
+                auto required = resource(idx);
+                const auto m = static_cast<ResourceAllocationItemModel*>(sourceModel());
+                auto request = m->resourceCache().value(m_resource);
+                if (request && request->requiredResources().contains(required)) {
+                    return Qt::Checked;
+                }
+                return Qt::Unchecked;
+            }
+            break;
+        }
+    }
+    return QSortFilterProxyModel::data(idx, role);
+}
+
+bool ResourceRequiredModel::setData(const QModelIndex &idx, const QVariant &value, int role)
+{
+    if (role == Qt::CheckStateRole) {
+        if (mapToSource(idx).column() == ResourceAllocationModel::RequestName) {
+            auto required = resource(idx);
+            const auto m = static_cast<ResourceAllocationItemModel*>(sourceModel());
+            auto request = m->resourceCache().value(m_resource);
+            Q_ASSERT(request);
+            if (!request) {
+                return false;
+            }
+            if (value.toInt() == Qt::Checked) {
+                if (!request->requiredResources().contains(required)) {
+                    request->addRequiredResource(required);
+                    Q_EMIT dataChanged(idx, idx);
+                    return true;
+                }
+            } else if (value.toInt() == Qt::Unchecked) {
+                if (request->requiredResources().contains(required)) {
+                    request->removeRequiredResource(required);
+                    Q_EMIT dataChanged(idx, idx);
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+//--------------------------------------
+
 ResourceAllocationModel::ResourceAllocationModel(QObject *parent)
     : QObject(parent),
     m_project(nullptr),
@@ -713,6 +842,27 @@ bool ResourceAllocationItemModel::setAllocation(Resource *res, const QVariant &v
             Q_EMIT dataChanged(idx, idx);
             return true;
         }
+    }
+    return false;
+}
+
+void ResourceAllocationItemModel::addRequiredResource(Resource *resource, Resource *required)
+{
+    ResourceRequest *request = m_resourceCache[resource];
+    if (!request->requiredResources().contains(required)) {
+        request->addRequiredResource(required);
+    }
+}
+
+bool ResourceAllocationItemModel::removeRequiredResource(Resource *resource, Resource *required)
+{
+    if (!m_resourceCache.contains(resource)) {
+        return false;
+    }
+    ResourceRequest *request = m_resourceCache[resource];
+    if (request->requiredResources().contains(required)) {
+        request->removeRequiredResource(required);
+        return true;
     }
     return false;
 }

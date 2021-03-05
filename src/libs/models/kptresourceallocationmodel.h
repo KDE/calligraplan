@@ -69,6 +69,33 @@ private:
     QHash<Resource*, QList<Resource*> > m_alternatives;
 };
 
+class PLANMODELS_EXPORT ResourceRequiredModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+    explicit ResourceRequiredModel(ResourceAllocationItemModel *dataModel, QObject *parent = nullptr);
+
+    void setResource(Resource *resource);
+    Resource *resource() const;
+    Resource *resource(const QModelIndex &idx) const;
+
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &idx, const QVariant &value, int role = Qt::EditRole) override;
+
+protected:
+    bool filterAcceptsColumn(int source_column, const QModelIndex &source_parent) const override;
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
+private Q_SLOTS:
+    void slotDataChanged();
+
+private:
+    Resource *m_resource;
+    QHash<Resource*, QList<Resource*> > m_alternatives;
+};
+
 /**
  The ResourceAllocationModel gives access to resource requests
 */
@@ -149,6 +176,10 @@ public:
     const QHash<const Resource*, ResourceRequest*> &resourceCache() const { return m_resourceCache; }
     
     Resource *resource(const QModelIndex &idx) const;
+
+    void addRequiredResource(Resource *resource, Resource *required);
+    bool removeRequiredResource(Resource *resource, Resource *required);
+
     void setRequired(const QModelIndex &idx, const QList<Resource*> &lst);
     QList<Resource*> required(const QModelIndex &idx) const;
 

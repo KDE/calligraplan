@@ -362,6 +362,15 @@ void ResourceRequest::addRequiredResource(Resource *resource)
     }
 }
 
+void ResourceRequest::removeRequiredResource(Resource *resource)
+{
+    Q_ASSERT(m_required.contains(resource));
+    if (m_required.contains(resource)) {
+        m_required.removeAll(resource);
+        changed();
+    }
+}
+
 QList<ResourceRequest*> ResourceRequest::alternativeRequests() const
 {
     return m_alternativeRequests;

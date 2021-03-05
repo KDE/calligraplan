@@ -66,6 +66,11 @@ RequestResourcesPanel::RequestResourcesPanel(QWidget *parent, Project &project, 
     // HACK
     ui.alternativsView->setItemDelegateForColumn(1 /*Allocation*/, m_model.createDelegate(ResourceAllocationModel::RequestAllocation, ui.alternativsView));
 
+    ResourceRequiredModel *req = new ResourceRequiredModel(&m_model, ui.requiredView);
+    req->setDynamicSortFilter(true);
+
+    ui.requiredView->setModel(req);
+
     connect(ui.resourcesView->selectionModel(), &QItemSelectionModel::currentChanged, this, &RequestResourcesPanel::slotCurrentChanged);
     connect(&m_model, &ResourceAllocationItemModel::dataChanged, this, &RequestResourcesPanel::changed);
 }
@@ -82,6 +87,13 @@ void RequestResourcesPanel::slotCurrentChanged(const QModelIndex &current, const
     Q_ASSERT(resource);
     auto m = static_cast<ResourceAlternativesModel*>(ui.alternativsView->model());
     m->setResource(resource);
+
+    auto m2 = static_cast<ResourceRequiredModel*>(ui.requiredView->model());
+    if (resource->type() == Resource::Type_Work) {
+        m2->setResource(resource);
+    } else {
+        m2->setResource(nullptr);
+    }
 }
 
 bool RequestResourcesPanel::ok()
