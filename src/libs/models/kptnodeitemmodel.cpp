@@ -166,26 +166,37 @@ QVariant NodeModel::allocation(const Node *node, int role) const
             case Qt::EditRole:
                 return node->requests().requestNameList().join(",");
             case Qt::ToolTipRole: {
-                QMap<QString, QStringList> lst;
+                QMap<QString, std::pair<QStringList, QStringList> > lst;
                 const QList<ResourceRequest*> requests = node->requests().resourceRequests(false);
                 for (ResourceRequest *rr : requests) {
-                    QStringList sl;
-                    const QList<Resource*> resources = rr->requiredResources();
-                    for (Resource *r : resources) {
-                        sl << r->name();
+                    const auto name = rr->resource()->name();
+                    lst.insert(name, std::pair<QStringList, QStringList>());
+                    const auto alternatives = rr->alternativeRequests();
+                    for (ResourceRequest *r : alternatives) {
+                        lst[name].first << r->resource()->name();
                     }
-                    lst.insert(rr->resource()->name(), sl);
+                    const QList<Resource*> required = rr->requiredResources();
+                    for (Resource *r : required) {
+                        lst[name].second << r->name();
+                    }
                 }
                 if (lst.isEmpty()) {
                     return xi18nc("@info:tooltip", "No resources has been allocated");
                 }
                 QStringList sl;
-                for (QMap<QString, QStringList>::ConstIterator it = lst.constBegin(); it != lst.constEnd(); ++it) {
-                    if (it.value().isEmpty()) {
-                        sl << it.key();
-                    } else {
-                        sl << xi18nc("1=resource name, 2=list of required resources", "%1 (%2)", it.key(), it.value().join(", "));
+                for (QMap<QString, std::pair<QStringList, QStringList> >::ConstIterator it = lst.constBegin(); it != lst.constEnd(); ++it) {
+                    const auto name = it.key();
+                    const auto alternatives = lst.value(name).first;
+                    const auto required = lst.value(name).second;
+                    QString alts;
+                    QString reqs;
+                    if (!alternatives.isEmpty()) {
+                        alts = i18nc("list of alternative resources", " [%1]", alternatives.join(", "));
                     }
+                    if (!required.isEmpty()) {
+                        reqs = i18nc("list of required resources", " (%1)", required.join(", "));
+                    }
+                    sl << i18nc("1=resource name 2=list of alternatives 3=list of required", "%1%2%3", name, alts, reqs);
                 }
                 if (sl.count() == 1) {
                     return xi18nc("@info:tooltip 1=resource name", "Allocated resource:<nl/>%1", sl.first());
