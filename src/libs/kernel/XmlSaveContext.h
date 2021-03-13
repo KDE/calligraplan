@@ -227,6 +227,26 @@ public:
         }
     }
 
+    bool saveWorkIntervalsCache() {
+        if (!m_project) {
+            return false;
+        }
+        const auto resources = m_project->resourceList();
+        if (resources.isEmpty()) {
+            return false;
+        }
+        document = createDocument();
+        for (const Resource *r : resources) {
+            QDomElement doc = document.documentElement();
+            QDomElement me = document.createElement("resource");
+            doc.appendChild(me);
+            me.setAttribute("id", r->id());
+            me.setAttribute("name", r->name());
+            r->saveCalendarIntervalsCache(me);
+        }
+        return true;
+    }
+
     mutable QDomDocument document;
     int options;
     QList<const Node*> nodes;

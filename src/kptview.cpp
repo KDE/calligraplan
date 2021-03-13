@@ -433,6 +433,7 @@ void View::slotCreateTemplate()
                 c.redo();
             }
         }
+        doc->setSavingTemplate(true);
         ok &= doc->saveNativeFormat(file);
 
         part->deleteLater();

@@ -167,6 +167,7 @@ public Q_SLOTS:
 
     void setLoadingTemplate(bool);
     void setLoadingSharedResourcesTemplate(bool);
+    void setSavingTemplate(bool);
 
     void insertResourcesFile(const QUrl &url, const QUrl &projects = QUrl());
     void slotProjectCreated();
@@ -247,6 +248,7 @@ private:
     XMLLoaderObject m_xmlLoader;
     bool m_loadingTemplate;
     bool m_loadingSharedResourcesTemplate;
+    bool m_savingTemplate;
 
     QMap<QString, SchedulerPlugin*> m_schedulerPlugins;
     QMap<QDateTime, Package*> m_workpackages;

@@ -399,10 +399,6 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
             }
         }
     }
-    // Do not load cache from old format, there was a bug (now fixed).
-    if (status.version() >= "0.6.7") {
-        loadCalendarIntervalsCache(element, status);
-    }
     return true;
 }
 
@@ -468,7 +464,6 @@ void Resource::save(QDomElement &element) const {
     if (cost.account) {
         me.setAttribute("account", cost.account->name());
     }
-    saveCalendarIntervalsCache(me);
 }
 
 bool Resource::isAvailable(Task * /*task*/) {
@@ -827,6 +822,7 @@ bool Resource::loadCalendarIntervalsCache(const KoXmlElement &element, XMLLoader
         return true;
     }
     m_workinfocache.load(e, status);
+    debugPlanXml<<this<<m_workinfocache.intervals;
     return true;
 }
 

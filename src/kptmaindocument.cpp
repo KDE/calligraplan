@@ -839,6 +839,11 @@ void MainDocument::setLoadingSharedResourcesTemplate(bool loading)
     m_loadingSharedResourcesTemplate = loading;
 }
 
+void MainDocument::setSavingTemplate(bool on)
+{
+    m_savingTemplate = on;
+}
+
 bool MainDocument::completeLoading(KoStore *store)
 {
     // If we get here the new project is loaded and set
@@ -882,13 +887,27 @@ bool MainDocument::completeLoading(KoStore *store)
         debugPlan<<"No store";
         return true; // continue anyway
     }
+    if (!m_loadingTemplate) {
+        KoXmlDocument doc;
+        if (loadAndParse(store, "workintervalscache.xml", doc)) {
+            store->close();
+            XMLLoaderObject loader;
+            if (!loader.loadWorkIntervalsCache(m_project, doc.documentElement())) {
+                warnPlanXml<<"Failed to load work intervals cache";
+            }
+        } else {
+            warnPlanXml<<"Failed to parse workintervalscache.xml";
+        }
+    }
     delete m_context;
     m_context = new Context();
     KoXmlDocument doc;
     if (loadAndParse(store, "context.xml", doc)) {
         store->close();
         m_context->load(doc);
-    } else warnPlan<<"No context";
+    } else {
+        warnPlan<<"No context";
+    }
     return true;
 }
 
@@ -905,6 +924,17 @@ void MainDocument::registerView(View* view)
 
 bool MainDocument::completeSaving(KoStore *store)
 {
+    if (!m_savingTemplate) {
+        XmlSaveContext saver(m_project);
+        if (saver.saveWorkIntervalsCache()) {
+            if (store->open("workintervalscache.xml")) {
+                KoStoreDevice dev(store);
+                QByteArray s = saver.document.toByteArray(); // this is already Utf8!
+                (void)dev.write(s.data(), s.size());
+                (void)store->close();
+            }
+        }
+    }
     if (m_context && m_views.isEmpty()) {
         if (store->open("context.xml")) {
             // When e.g. saving as a template there are no views,

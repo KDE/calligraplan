@@ -169,6 +169,25 @@ public:
         return result;
     }
 
+    bool loadWorkIntervalsCache(Project *project, const KoXmlElement &plan) {
+        if (!project) {
+            return false;
+        }
+        m_project = project;
+        KoXmlElement re;
+        forEachElement(re, plan) {
+            if (re.localName() == "resource") {
+                Resource *r = project->resource(re.attribute("id"));
+                if (r) {
+                    r->loadCalendarIntervalsCache(re, *this);
+                } else {
+                    warnPlanXml<<"Resource not found:"<<"id:"<<re.attribute("id")<<"name:"<<re.attribute("name");
+                }
+            }
+        }
+        return true;
+    }
+
 protected:
     Project *m_project;
     int m_errors;
