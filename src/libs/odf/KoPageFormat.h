@@ -34,8 +34,8 @@ namespace KoPageFormat
  * @brief Represents the paper format a document shall be printed on.
  *
  * For compatibility reasons, and because of screen and custom,
- * this enum doesn't map to QPrinter::PageSize but KoPageFormat::printerPageSize
- * does the conversion.
+ * this enum doesn't map to QPageSize::PageSizeId but instead
+ * KoPageFormat::qPageSize() does the conversion.
  */
 enum Format {
     IsoA3Size,
@@ -78,14 +78,12 @@ enum Orientation {
 };
 
 /**
- * @brief Convert a Format into a KPrinter::PageSize.
+ * @brief Convert a Format into a QPageSize.
  *
  * If format is 'screen' it will use A4 landscape.
  * If format is 'custom' it will use A4 portrait.
- * (you may want to take care of those cases separately).
- * Usually passed to KPrinter::setPageSize().
  */
-KOODF_EXPORT QPrinter::PageSize printerPageSize(Format format);
+KOODF_EXPORT QPageSize qPageSize(KoPageFormat::Format format);
 
 /**
  * Returns the width (in mm) for a given page format and orientation

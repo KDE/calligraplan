@@ -88,6 +88,8 @@ struct KoPageLayout {
     /// page border definition
     KoBorder  border;
 
+    KOODF_EXPORT QMarginsF pageMargins() const;
+
     KOODF_EXPORT bool operator==(const KoPageLayout &l) const;
     KOODF_EXPORT bool operator!=(const KoPageLayout& l) const;
 

@@ -187,15 +187,15 @@ void KoPrintingDialog::startPrinting(RemovePolicy removePolicy)
         }
         d->progress->start(100, i18n("Printing"));
 
-        if (d->printer->numCopies() > 1) {
+        if (d->printer->copyCount() > 1) {
             const QList<int> oldPages = d->pages;
             if (d->printer->collateCopies()) { // means we print whole doc at once
-                for (int count = 1; count < d->printer->numCopies(); ++count)
+                for (int count = 1; count < d->printer->copyCount(); ++count)
                     d->pages.append(oldPages);
             } else {
                 d->pages.clear();
                 for (int page : oldPages) {
-                    for (int count = 1; count < d->printer->numCopies(); ++count)
+                    for (int count = 1; count < d->printer->copyCount(); ++count)
                         d->pages.append(page);
                 }
             }

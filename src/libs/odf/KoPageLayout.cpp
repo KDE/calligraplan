@@ -30,6 +30,11 @@
 #include "KoUnit.h"
 #include "KoXmlReader.h"
 
+KOODF_EXPORT QMarginsF KoPageLayout::pageMargins() const
+{
+    return QMarginsF(leftMargin, topMargin, rightMargin, bottomMargin);
+}
+
 KoGenStyle KoPageLayout::saveOdf() const
 {
     KoGenStyle style(KoGenStyle::PageLayoutStyle);
@@ -180,7 +185,7 @@ void KoPageLayout::updatePageLayout(QPrinter *printer)
 {
     QPageLayout p = printer->pageLayout();
     QPageSize psize = p.pageSize();
-    orientation = p.orientation() == QPrinter::Portrait ? KoPageFormat::Portrait : KoPageFormat::Landscape;
+    orientation = p.orientation() == QPageLayout::Portrait ? KoPageFormat::Portrait : KoPageFormat::Landscape;
     QRectF full = p.fullRect(QPageLayout::Millimeter);
     if (orientation == KoPageFormat::Portrait) {
         format = KoPageFormat::guessFormat(full.width(), full.height());

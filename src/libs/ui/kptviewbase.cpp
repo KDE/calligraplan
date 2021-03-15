@@ -321,8 +321,8 @@ void PrintingDialog::setPrinterPageLayout(const KoPageLayout &pagelayout)
         default: o = QPrinter::Portrait; break;
     }
     p.setOrientation(o);
-    p.setPaperSize(KoPageFormat::printerPageSize(pagelayout.format));
-    p.setPageMargins(pagelayout.leftMargin, pagelayout.topMargin, pagelayout.rightMargin, pagelayout.bottomMargin, QPrinter::Point);
+    p.setPageSize(KoPageFormat::qPageSize(pagelayout.format));
+    p.setPageMargins(QMarginsF(pagelayout.leftMargin, pagelayout.topMargin, pagelayout.rightMargin, pagelayout.bottomMargin), QPageLayout::Point);
 }
 
 void PrintingDialog::startPrinting(RemovePolicy removePolicy)

@@ -1525,17 +1525,17 @@ KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
     printJob->printer().setColorMode(QPrinter::Color);
 
     if (pageLayout.format == KoPageFormat::CustomSize) {
-        printJob->printer().setPaperSize(QSizeF(pageLayout.width, pageLayout.height), QPrinter::Millimeter);
+        printJob->printer().setPageSize(QPageSize(QSizeF(pageLayout.width, pageLayout.height), QPageSize::Millimeter));
     } else {
-        printJob->printer().setPaperSize(KoPageFormat::printerPageSize(pageLayout.format));
+        printJob->printer().setPageSize(KoPageFormat::qPageSize(pageLayout.format));
     }
 
     switch (pageLayout.orientation) {
-    case KoPageFormat::Portrait: printJob->printer().setOrientation(QPrinter::Portrait); break;
-    case KoPageFormat::Landscape: printJob->printer().setOrientation(QPrinter::Landscape); break;
+    case KoPageFormat::Portrait: printJob->printer().setPageOrientation(QPageLayout::Portrait); break;
+    case KoPageFormat::Landscape: printJob->printer().setPageOrientation(QPageLayout::Landscape); break;
     }
 
-    printJob->printer().setPageMargins(pageLayout.leftMargin, pageLayout.topMargin, pageLayout.rightMargin, pageLayout.bottomMargin, QPrinter::Millimeter);
+    printJob->printer().setPageMargins(pageLayout.pageMargins(), QPageLayout::Millimeter);
 
     //before printing check if the printer can handle printing
     if (!printJob->canPrint()) {
