@@ -1029,9 +1029,15 @@ void MainDocument::insertFileCompleted()
     m_isLoading = false;
 }
 
-void MainDocument::insertResourcesFile(const QUrl &url, const QUrl &projects)
+void MainDocument::insertResourcesFile(const QUrl &url_, const QUrl &projects)
 {
     insertSharedProjects(projects); // prepare for insertion after shared resources
+    QUrl url = url_;
+    // We only handle local files atm
+    if (!QDir::isAbsolutePath(url.path())) {
+        url.setScheme(QString()); // makes url relative
+        url = this->url().resolved(url);
+    }
     m_sharedProjectsFiles.removeAll(url); // resource file is not a project
 
     Part *part = new Part(this);
@@ -1046,7 +1052,6 @@ void MainDocument::insertResourcesFile(const QUrl &url, const QUrl &projects)
 
     m_isLoading = true;
     doc->openUrl(url);
-
 }
 
 void MainDocument::insertResourcesFileCompleted()
@@ -1494,6 +1499,22 @@ bool MainDocument::mergeResources(Project &project)
         debugPlanShared<<"Delete group:"<<g<<g->id();
         RemoveResourceGroupCmd cmd(&project, g);
         cmd.execute();
+    }
+    // update resources
+    const QList<Resource*> sharedResources = project.resourceList();
+    for (const Resource *r : sharedResources) {
+        Resource *existingResource = m_project->findResource(r->id());
+        if (!existingResource) {
+            continue;
+        }
+        if (r->calendar()) {
+            Calendar *existingCalendar = m_project->findCalendar(r->calendar()->id());
+            if (existingCalendar && existingResource->calendar() != existingCalendar) {
+                existingResource->setCalendar(existingCalendar);
+            }
+        } else if (existingResource->calendar()) {
+            existingResource->setCalendar(nullptr);
+        }
     }
     // insert new objects
     Q_ASSERT(project.childNodeIterator().isEmpty());
