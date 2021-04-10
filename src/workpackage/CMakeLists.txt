@@ -72,7 +72,8 @@ kcoreaddons_desktop_to_json(calligraplanworkpart planworkpart.desktop
 
 target_link_libraries(calligraplanworkpart Qt5::Core KF5::Parts planworkfactory)
 
-install(TARGETS calligraplanworkpart DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS calligraplanworkpart DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/parts)
+install(FILES planworkpart.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})
 
 
 ########### Calligra PlanWork executable ###############
