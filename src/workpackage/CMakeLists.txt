@@ -12,7 +12,7 @@ include_directories(${PLAN_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURR
 
 ########### PlanWork private library ###############
 
-set(planworkfactory_LIB_SRCS
+set(planworkprivate_LIB_SRCS
     factory.cpp
     mainwindow.cpp
     part.cpp
@@ -29,16 +29,16 @@ set(planworkfactory_LIB_SRCS
     ../KPlatoXmlLoader.cpp #NB
 )
 
-ki18n_wrap_ui(planworkfactory_LIB_SRCS
+ki18n_wrap_ui(planworkprivate_LIB_SRCS
     taskcompletionpanel.ui
 )
 
 kconfig_add_kcfg_files(planworksettings_SRCS calligraplanworksettings.kcfgc)
 
-add_library(planworkfactory SHARED ${planworkfactory_LIB_SRCS} ${planworksettings_SRCS})
-generate_export_header(planworkfactory BASE_NAME planwork)
+add_library(planworkprivate SHARED ${planworkprivate_LIB_SRCS} ${planworksettings_SRCS})
+generate_export_header(planworkprivate BASE_NAME planwork)
 
-target_link_libraries(planworkfactory
+target_link_libraries(planworkprivate
     PUBLIC
         plankernel
         planmodels
@@ -51,28 +51,10 @@ target_link_libraries(planworkfactory
         KF5::IconThemes
 )
 
-set_target_properties(planworkfactory PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
+set_target_properties(planworkprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS planworkfactory ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS planworkprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES calligraplanworksettings.kcfg DESTINATION ${KCFG_INSTALL_DIR})
-
-
-########### PlanWork part ###############
-
-set(planworkpart_PART_SRCS factoryinit.cpp )
-
-
-add_library(calligraplanworkpart MODULE ${planworkpart_PART_SRCS})
-if(NOT ${KF5_VERSION} VERSION_LESS "5.16.0")
-    set(calligraplanworkpart_SERVICE_TYPES_ARGS SERVICE_TYPES kpart.desktop)
-endif()
-kcoreaddons_desktop_to_json(calligraplanworkpart planworkpart.desktop
-    ${calligraplanworkpart_SERVICE_TYPES_ARGS}
-)
-
-target_link_libraries(calligraplanworkpart Qt5::Core KF5::Parts planworkfactory)
-
-install(TARGETS calligraplanworkpart DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### Calligra PlanWork executable ###############
@@ -96,7 +78,7 @@ endif ()
 target_link_libraries(
     kdeinit_calligraplanwork
 
-    planworkfactory
+    planworkprivate
     plankernel
     planmain
     KF5::Parts
