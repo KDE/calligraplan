@@ -112,6 +112,9 @@ public:
     bool book(Booking* b);
 
     bool bookSlot(uint idx, SbBooking* nb);
+
+    bool bookInterval(int scIndex, const Interval &interval, uint reason);
+
 //    bool bookInterval(Booking* b, int sc, int sloppy = 0, int overtime = 0);
 //    bool addBooking(int sc, Booking* b, int sloppy = 0, int overtime = 0);
     /// Return a list of booked intervals for scenario @p sc and task @p task
@@ -198,6 +201,7 @@ private:
                  QStringList& pids) const;
 
     void initScoreboard();
+    void initSpecifiedBookings(int scIndex);
 
     long getCurrentLoadSub(uint startIdx, uint endIdx, const Task* task) const;
 
@@ -255,6 +259,7 @@ private:
      * 0 if the resource is available,
      * 1 if slot is off-hours,
      * 2 if slot is during a vacation.
+     * 3 if booked by another project
      */
     SbBooking** scoreboard;
     /// The number of time slots in the project.

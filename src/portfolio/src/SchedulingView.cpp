@@ -35,6 +35,7 @@
 #include <kptscheduleeditor.h>
 #include <kptdatetime.h>
 #include <kptschedulerplugin.h>
+#include <kptcommand.h>
 
 #include <KActionCollection>
 #include <KXMLGUIFactory>
@@ -68,31 +69,53 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     sp->setOrientation(Qt::Vertical);
     layout->addWidget(sp);
 
-    m_view = new QTreeView(this);
-    m_view->setRootIsDecorated(false);
-    m_view->setContextMenuPolicy(Qt::CustomContextMenu);
-    sp->addWidget(m_view);
+    QWidget *w = new QWidget(this);
+    ui.setupUi(w);
+    sp->addWidget(w);
 
-    SchedulingModel *model = new SchedulingModel(m_view);
+    SchedulingModel *model = new SchedulingModel(ui.schedulingView);
     model->setPortfolio(qobject_cast<MainDocument*>(doc));
-    m_view->setModel(model);
-    model->setDelegates(m_view);
+    ui.schedulingView->setModel(model);
+    model->setDelegates(ui.schedulingView);
 
     // move some column after our extracolumns
-    m_view->header()->moveSection(1, model->columnCount()-1); // target start
-    m_view->header()->moveSection(1, model->columnCount()-1); // target finish
-    m_view->header()->moveSection(1, model->columnCount()-1); // description
-    connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SchedulingView::selectionChanged);
-    connect(m_view, &QTreeView::customContextMenuRequested, this, &SchedulingView::slotCustomContextMenuRequested);
-    connect(m_view, &QAbstractItemView::doubleClicked, this, &SchedulingView::slotDoubleClicked);
+    ui.schedulingView->header()->moveSection(1, model->columnCount()-1); // target start
+    ui.schedulingView->header()->moveSection(1, model->columnCount()-1); // target finish
+    ui.schedulingView->header()->moveSection(1, model->columnCount()-1); // description
+    connect(ui.schedulingView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SchedulingView::selectionChanged);
+    connect(ui.schedulingView, &QTreeView::customContextMenuRequested, this, &SchedulingView::slotCustomContextMenuRequested);
+    connect(ui.schedulingView, &QAbstractItemView::doubleClicked, this, &SchedulingView::slotDoubleClicked);
 
-    m_logView = new KPlato::ScheduleLogTreeView(sp);
+    m_logView = new QTreeView(sp);
+    m_logView->setRootIsDecorated(false);
     sp->addWidget(m_logView);
+    SchedulingLogFilterModel *fm = new SchedulingLogFilterModel(m_logView);
+    fm->setSeveritiesDenied(QList<int>()<<KPlato::Schedule::Log::Type_Debug);
+    fm->setSourceModel(&m_logModel);
+    m_logView->setModel(fm);
     updateActionsEnabled();
+
+    updateSchedulingProperties();
+    connect(static_cast<MainDocument*>(doc), &MainDocument::changed, this, &SchedulingView::updateSchedulingProperties);
 }
 
 SchedulingView::~SchedulingView()
 {
+}
+
+void SchedulingView::updateSchedulingProperties()
+{
+    MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
+    if (portfolio->documents().isEmpty()) {
+        ui.schedulingProperties->setEnabled(false);
+        return;
+    }
+    ui.schedulingProperties->setEnabled(true);
+    ui.schedulersCombo->clear();
+    const QMap<QString, KPlato::SchedulerPlugin*> plugins = portfolio->schedulerPlugins();
+    for (const QString &name : plugins.keys()) {
+        ui.schedulersCombo->addItem(name);
+    }
 }
 
 void SchedulingView::setupGui()
@@ -123,7 +146,7 @@ QPrintDialog *SchedulingView::createPrintDialog(KoPrintJob *printJob, QWidget *p
 
 void SchedulingView::updateActionsEnabled()
 {
-    bool enable = m_view->selectionModel() && (m_view->selectionModel()->selectedRows().count() == 1);
+    bool enable = ui.schedulingView->selectionModel() && (ui.schedulingView->selectionModel()->selectedRows().count() == 1);
     actionCollection()->action("load_projects")->setEnabled(enable);
     actionCollection()->action("calculate_schedule")->setEnabled(enable);
     actionCollection()->action("open_project")->setEnabled(enable);
@@ -131,14 +154,26 @@ void SchedulingView::updateActionsEnabled()
 
 void SchedulingView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
+    Q_UNUSED(selected)
+    Q_UNUSED(deselected)
+
     KPlato::Project *project = nullptr;
-    KoDocument *doc = m_view->selectionModel()->selectedRows().value(0).data(DOCUMENT_ROLE).value<KoDocument*>();
+    KoDocument *doc = ui.schedulingView->selectionModel()->selectedRows().value(0).data(DOCUMENT_ROLE).value<KoDocument*>();
     if (doc) {
         project = doc->project();
     }
-    m_logView->setProject(project);
-    if (project) {
-        m_logView->setScheduleManager(project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString()));
+    SchedulingLogModel *m = &m_logModel;
+    if (m_schedulingContext.projects.values().contains(project)) {
+        m_logModel.setLog(m_schedulingContext.log);
+    } else if (project) {
+        KPlato::ScheduleManager *sm = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
+        if (sm) {
+            m_logModel.setLog(sm->expected()->logs());
+        } else {
+            m_logModel.setLog(QVector<KPlato::Schedule::Log>());
+        }
+    } else {
+        m_logModel.setLog(QVector<KPlato::Schedule::Log>());
     }
     updateActionsEnabled();
 }
@@ -158,7 +193,7 @@ void SchedulingView::slotCustomContextMenuRequested(const QPoint &pos)
 
 void SchedulingView::openProject()
 {
-    QModelIndex idx = m_view->selectionModel()->selectedRows().value(0);
+    QModelIndex idx = ui.schedulingView->selectionModel()->selectedRows().value(0);
     KoDocument *doc = idx.data(DOCUMENT_ROLE).value<KoDocument*>();
     Q_EMIT openDocument(doc);
 }
@@ -263,44 +298,75 @@ KPlato::ScheduleManager* SchedulingView::scheduleManager(const KoDocument *doc) 
     return static_cast<MainDocument*>(koDocument())->scheduleManager(doc);
 }
 
+QString SchedulingView::schedulerName() const
+{
+    return ui.schedulersCombo->currentText();
+}
+
 void SchedulingView::calculate()
 {
     MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
+    delete m_schedulingContext.scheduleManager();
+    m_schedulingContext.clear();
     const QList<KoDocument*> docs = portfolio->documents();
     if (docs.isEmpty()) {
         return;
     }
-    QMap<QString, KPlato::SchedulerPlugin*> map = docs.first()->schedulerPlugins();
-    QString schedulerName = "TJ Scheduler";// doc->schedulerName();
-    if (map.contains(schedulerName)) {
-        calculateTJ(map.value(schedulerName), docs);
+
+    KPlato::SchedulerPlugin *scheduler = docs.first()->schedulerPlugins().value(schedulerName());
+    if (scheduler) {
+        calculateSchedule(scheduler, docs);
     } else {
-        calculatePert();
+        calculatePert(m_schedulingContext);
     }
+    selectionChanged(QItemSelection(), QItemSelection());
 }
 
-void SchedulingView::calculateTJ(KPlato::SchedulerPlugin *scheduler, const QList<KoDocument*> docs)
+void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler, const QList<KoDocument*> docs)
 {
-    KPlato::SchedulingContext context;
-    for (const KoDocument *doc : docs) {
+    if (! scheduler || docs.isEmpty()) {
+        return;
+    }
+    MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
+    QList<KoDocument*> scheduledDocs;
+    m_schedulingContext.project = new KPlato::Project();
+    m_schedulingContext.project->setName("Project Collection");
+    for (KoDocument *doc : docs) {
         int prio = doc->property(SCHEDULINGPRIORITY).isValid() ? doc->property(SCHEDULINGPRIORITY).toInt() : -1;
         KPlato::Project *project = doc->project();
         KPlato::ScheduleManager *sm = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
-        qInfo()<<Q_FUNC_INFO<<project<<sm<<doc->property(SCHEDULINGCONTROL).toString();
         if (doc->property(SCHEDULINGCONTROL).toString() == "Schedule") {
+            scheduledDocs << doc;
+            if (!sm) {
+                sm = new KPlato::ScheduleManager(*project, project->uniqueScheduleName());
+                KPlato::AddScheduleManagerCmd cmd(*project, sm);
+                cmd.redo();
+                portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
+            } else if (sm->isBaselined() || (sm->isScheduled() && project->isStarted())) {
+                sm = project->createScheduleManager(sm);
+                KPlato::AddScheduleManagerCmd cmd(*project, sm);
+                cmd.redo();
+                portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
+            }
             project->setCurrentScheduleManager(sm);
-            context.addProject(doc->project(), prio);
+            m_schedulingContext.addProject(doc->project(), prio);
         } else if (doc->property(SCHEDULINGCONTROL).toString() == "Include") {
             project->setCurrentScheduleManager(sm);
-            context.addResourceBookings(project);
+            m_schedulingContext.addResourceBookings(project);
         }
     }
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    scheduler->schedule(context);
+    connect(scheduler, &KPlato::SchedulerPlugin::calculateSchedule, this, &SchedulingView::calculatePert);
+    scheduler->schedule(m_schedulingContext);
+    disconnect(scheduler, &KPlato::SchedulerPlugin::calculateSchedule, this, &SchedulingView::calculatePert);
+    m_logModel.setLog(m_schedulingContext.log);
+    for (KoDocument *doc : qAsConst(scheduledDocs)) {
+        portfolio->emitDocumentChanged(doc);
+    }
     QApplication::restoreOverrideCursor();
 }
 
-void SchedulingView::calculatePert()
+void SchedulingView::calculatePert(KPlato::SchedulingContext &context)
 {
     QList<KoDocument*> toInclude;
     QMap<int, KoDocument*> toSchedule;
@@ -318,7 +384,7 @@ void SchedulingView::calculatePert()
         toInclude << doc;
     }
     qApp->restoreOverrideCursor();
-    selectionChanged(QItemSelection(), QItemSelection());
+    m_schedulingContext.clear();
 }
 
 void SchedulingView::schedule(KoDocument *doc, QList<KoDocument*> include)
@@ -338,7 +404,13 @@ void SchedulingView::schedule(KoDocument *doc, QList<KoDocument*> include)
     if (oldstart > start) {
         start = oldstart;
     }
-    if (sm && sm->isScheduled() && project->isStarted()) {
+    if (!sm) {
+        // create a new schedule
+        sm = project->createScheduleManager();
+        project->addScheduleManager(sm);
+        portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
+        project->setConstraintStartTime(start);
+    } else if (sm->isBaselined() || (sm->isScheduled() && project->isStarted())) {
         // create a subschedule
         KPlato::ScheduleManager *parent = sm;
         sm = project->createScheduleManager(parent);
@@ -346,13 +418,7 @@ void SchedulingView::schedule(KoDocument *doc, QList<KoDocument*> include)
         portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
         sm->setRecalculate(true);
         sm->setRecalculateFrom(start);
-    } else {
-        // create a new schedule
-        sm = project->createScheduleManager();
-        project->addScheduleManager(sm);
-        portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
-        project->setConstraintStartTime(start);
-    }
+    } // else calculate the current schedule
     Q_ASSERT(sm);
     if (!sm->expected()) {
         sm->createSchedules();

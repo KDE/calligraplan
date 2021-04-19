@@ -8,6 +8,8 @@ set_package_properties(SharedMimeInfo PROPERTIES
     TYPE REQUIRED
 )
 
+include_directories(${PLAN_INCLUDES})
+
 set(planportfolioprivate_LIB_SRCS
     PlanGroupDebug.cpp
     SummaryModel.cpp
@@ -19,6 +21,7 @@ set(planportfolioprivate_LIB_SRCS
     PerformanceView.cpp
     DetailsView.cpp
     SchedulingModel.cpp
+    SchedulingLogModel.cpp
     SchedulingView.cpp
     GanttView.cpp
     Factory.cpp
@@ -29,6 +32,7 @@ set(planportfolioprivate_LIB_SRCS
 
 ki18n_wrap_ui(planportfolioprivate_LIB_SRCS
     PerformanceView.ui
+    SchedulingView.ui
 )
 
 add_library(planportfolioprivate SHARED ${planportfolioprivate_LIB_SRCS})

@@ -459,6 +459,9 @@ public:
     void setProgressProxy(KoProgressProxy *progressProxy);
     KoProgressProxy* progressProxy() const;
 
+    void setProgressEnabled(bool enable);
+    bool progressEnabled() const;
+
     /**
      * Return true if url() is a real filename, false if url() is
      * an internal url in the store, like "tar:/..."

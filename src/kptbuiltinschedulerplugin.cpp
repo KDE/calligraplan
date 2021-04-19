@@ -112,6 +112,10 @@ void BuiltinSchedulerPlugin::slotFinished(SchedulerThread *job)
     qDebug()<<"BuiltinSchedulerPlugin::slotFinished: <<<";
 }
 
+void BuiltinSchedulerPlugin::schedule(SchedulingContext &context)
+{
+    Q_EMIT calculateSchedule(context);
+}
 
 //--------------------
 KPlatoScheduler::KPlatoScheduler(Project *project, ScheduleManager *sm, QObject *parent)

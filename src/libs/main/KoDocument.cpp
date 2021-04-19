@@ -167,7 +167,8 @@ public:
         modified(false),
         readwrite(true),
         alwaysAllowSaving(false),
-        disregardAutosaveFailure(false)
+        disregardAutosaveFailure(false),
+        progressEnabled(true)
     {
         m_job = nullptr;
         m_statJob = nullptr;
@@ -254,6 +255,7 @@ public:
     bool readwrite;
     bool alwaysAllowSaving;
     bool disregardAutosaveFailure;
+    bool progressEnabled;
 
     bool openFile()
     {
@@ -1417,21 +1419,23 @@ bool KoDocument::openFile()
 
     QString importedFile = localFilePath();
 
-    // create the main progress monitoring object for loading, this can
-    // contain subtasks for filtering and loading
-    KoProgressProxy *progressProxy = nullptr;
-    if (d->progressProxy) {
-        progressProxy = d->progressProxy;
+    if (d->progressEnabled) {
+        // create the main progress monitoring object for loading, this can
+        // contain subtasks for filtering and loading
+        KoProgressProxy *progressProxy = nullptr;
+        if (d->progressProxy) {
+            progressProxy = d->progressProxy;
+        }
+
+        d->progressUpdater = new KoProgressUpdater(progressProxy,
+                KoProgressUpdater::Unthreaded,
+                d->profileStream);
+
+        d->progressUpdater->setReferenceTime(d->profileReferenceTime);
+        d->progressUpdater->start(100, i18n("Opening Document"));
+
+        setupOpenFileSubProgress();
     }
-
-    d->progressUpdater = new KoProgressUpdater(progressProxy,
-            KoProgressUpdater::Unthreaded,
-            d->profileStream);
-
-    d->progressUpdater->setReferenceTime(d->profileReferenceTime);
-    d->progressUpdater->start(100, i18n("Opening Document"));
-
-    setupOpenFileSubProgress();
 
     if (!isNativeFormat(typeName.toLatin1())) {
         KoFilter::ConversionStatus status;
@@ -2647,6 +2651,16 @@ bool KoDocument::openUrlInternal(const QUrl &url)
         d->openRemoteFile();
         return true;
     }
+}
+
+void KoDocument::setProgressEnabled(bool enable)
+{
+    d->progressEnabled = enable;
+}
+
+bool KoDocument::progressEnabled() const
+{
+    return d->progressEnabled;
 }
 
 // have to include this because of Q_PRIVATE_SLOT

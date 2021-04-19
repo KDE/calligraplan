@@ -22,8 +22,13 @@
 
 #include "planportfolio_export.h"
 
+#include "SchedulingLogModel.h"
+#include "ui_SchedulingView.h"
+
 #include <KoView.h>
 #include <KoPageLayout.h>
+
+#include <SchedulingContext.h>
 
 class KoDocument;
 class KoPrintJob;
@@ -33,7 +38,6 @@ class QItemSelection;
 
 namespace KPlato {
     class ScheduleManager;
-    class ScheduleLogTreeView;
     class DateTime;
     class SchedulerPlugin;
 }
@@ -47,6 +51,8 @@ public:
 
     QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
 
+    QString schedulerName() const;
+
 protected Q_SLOTS:
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void loadProjects();
@@ -54,12 +60,14 @@ protected Q_SLOTS:
     void slotLoadCanceled();
 
     void calculate();
-    void calculateTJ(KPlato::SchedulerPlugin *scheduler, const QList<KoDocument*> docs);
-    void calculatePert();
+    void calculateSchedule(KPlato::SchedulerPlugin *scheduler, const QList<KoDocument*> docs);
+    void calculatePert(KPlato::SchedulingContext &context);
 
     void slotDoubleClicked(const QModelIndex &idx);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void openProject();
+
+    void updateSchedulingProperties();
 
 Q_SIGNALS:
     void openDocument(KoDocument *doc);
@@ -79,8 +87,10 @@ protected:
 
 private:
     bool m_readWrite;
-    QTreeView *m_view;
-    KPlato::ScheduleLogTreeView *m_logView;
+    Ui::SchedulingView ui;
+    QTreeView *m_logView;
+    SchedulingLogModel m_logModel;
+    KPlato::SchedulingContext m_schedulingContext;
 };
 
 #endif

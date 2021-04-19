@@ -44,6 +44,8 @@ public:
     /// Calculate the project
     void calculate(Project &project, ScheduleManager *sm, bool nothread = false) override;
 
+    void schedule(SchedulingContext &context) override;
+
 Q_SIGNALS:
     void sigCalculationStarted(KPlato::Project*, KPlato::ScheduleManager*);
     void sigCalculationFinished(KPlato::Project*, KPlato::ScheduleManager*);

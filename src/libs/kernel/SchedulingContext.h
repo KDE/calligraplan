@@ -37,6 +37,9 @@ class PLANKERNEL_EXPORT SchedulingContext : public QObject
 {
 public:
     explicit SchedulingContext(QObject *parent = nullptr);
+    ~SchedulingContext();
+
+    void clear();
 
     ScheduleManager *scheduleManager() const;
     void setSchedulingManager(ScheduleManager *sm);
@@ -44,11 +47,12 @@ public:
     void addProject(Project *project, int priority = -1);
     void addResourceBookings(const Project *project);
 
+    Project *project;
     QMultiMap<int, Project*> projects;
     QList<const Project*> resourceBookings;
+    int granularity;
 
-private Q_SLOTS:
-    void slotAddLog(const QVector<KPlato::Schedule::Log> &log);
+    QVector<KPlato::Schedule::Log> log;
 
 private:
     ScheduleManager *m_scheduleManager;

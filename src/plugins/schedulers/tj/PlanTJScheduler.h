@@ -113,7 +113,7 @@ protected:
     Duration calcPositiveFloat(Node *task);
     Resource *resource(Project *project, TJ::Resource *tjResource);
 
-    void populateProjects();
+    void populateProjects(KPlato::SchedulingContext &context);
 
     static bool exists(QList<CalendarDay*> &lst, CalendarDay *day);
     static int toTJDayOfWeek(int day);
@@ -126,8 +126,8 @@ protected:
 private:
     ulong tjGranularity() const;
     void insertProject(const KPlato::Project *project, int priority);
-    void insertBookings(const KPlato::Project *project);
-    void addTasks(const KPlato::Node *parent, TJ::Task *tjParent = nullptr);
+    void insertBookings(KPlato::SchedulingContext &context);
+    void addTasks(const KPlato::Node *parent, TJ::Task *tjParent = nullptr, int projectPriority = 0);
 
 private:
     MainSchedule *m_schedule;
@@ -139,6 +139,7 @@ private:
 
     QMap<TJ::Task*, Node*> m_taskmap;
     QMap<TJ::Resource*, Resource*> m_resourcemap;
+    QMap<QString, Resource*> m_resourceIds;
 
     ulong m_granularity;
 };

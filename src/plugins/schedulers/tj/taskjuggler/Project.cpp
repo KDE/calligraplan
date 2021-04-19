@@ -138,7 +138,7 @@ Project::Project() :
 
 Project::~Project()
 {
-    qDebug()<<"~Project:"<<this;
+    qDebug()<<"~Project:"<<this<<">>>";
     taskList.deleteContents();
     resourceList.deleteContents();
     Resource::deleteStaticData();
@@ -160,7 +160,7 @@ Project::~Project()
     }
     exitUtility();
 
-    qDebug()<<"~Project:"<<this;
+    qDebug()<<"~Project:"<<this<<"<<<";
 }
 
 // void

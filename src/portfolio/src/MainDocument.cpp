@@ -219,6 +219,11 @@ void MainDocument::setModified(bool mod)
     Q_EMIT changed();
 }
 
+void MainDocument::emitDocumentChanged(KoDocument *doc)
+{
+    Q_EMIT documentChanged(doc, m_documents.indexOf(doc));
+}
+
 void MainDocument::setDocumentProperty(KoDocument *doc, const char *name, const QVariant &value)
 {
     int index = m_documents.indexOf(doc);
@@ -304,4 +309,13 @@ KPlato::ScheduleManager *MainDocument::findBestScheduleManager(const KoDocument 
         }
     }
     return sm;
+}
+
+QMap<QString, KPlato::SchedulerPlugin*> MainDocument::schedulerPlugins() const
+{
+    // FIXME
+    if (m_documents.isEmpty()) {
+        return QMap<QString, KPlato::SchedulerPlugin*>();
+    }
+    return m_documents.first()->schedulerPlugins();
 }

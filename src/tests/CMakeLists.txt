@@ -16,3 +16,10 @@ plan_add_unit_test(InsertProjectTester
     InsertProjectTester.cpp
     LINK_LIBRARIES planprivate plankernel planmain Qt5::Test
 )
+
+########## next target ###############
+
+#plan_add_unit_test(TJSchedulerTester
+    #TJSchedulerTester.cpp TestSchedulerPluginLoader.cpp
+    #LINK_LIBRARIES planprivate plankernel planmain planplugin Qt5::Test
+#)

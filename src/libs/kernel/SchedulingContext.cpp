@@ -25,7 +25,25 @@ using namespace KPlato;
 
 SchedulingContext::SchedulingContext(QObject *parent)
     : QObject(parent)
+    , project(nullptr)
+    , granularity(0)
+    , m_scheduleManager(nullptr)
 {
+}
+
+SchedulingContext::~SchedulingContext()
+{
+    clear();
+}
+
+void SchedulingContext::clear()
+{
+    m_scheduleManager = nullptr;
+    log.clear();
+    projects.clear();
+    resourceBookings.clear();
+    delete project;
+    project = nullptr;
 }
 
 ScheduleManager *SchedulingContext::scheduleManager() const
@@ -48,9 +66,7 @@ void SchedulingContext::addResourceBookings(const Project *project)
 }
 
 void SchedulingContext::addProject(Project *project, int priority)
-{
-    qInfo()<<Q_FUNC_INFO<<project<<priority<<project->currentScheduleManager()<<projects;
-    
+{    
     if (!project->currentScheduleManager()) {
         errorPlan<<"ERROR"<<Q_FUNC_INFO<<"No current schedule manager";
         return;
@@ -60,6 +76,4 @@ void SchedulingContext::addProject(Project *project, int priority)
         projects.remove(prio, project);
     }
     projects.insert(priority, project);
-    qInfo()<<Q_FUNC_INFO<<projects;
 }
-

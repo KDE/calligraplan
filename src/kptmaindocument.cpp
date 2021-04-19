@@ -71,7 +71,7 @@
 namespace KPlato
 {
 
-MainDocument::MainDocument(KoPart *part)
+MainDocument::MainDocument(KoPart *part, bool loadSchedulerPlugins)
         : KoDocument(part),
         m_project(nullptr),
         m_context(nullptr), m_xmlLoader(),
@@ -92,7 +92,9 @@ MainDocument::MainDocument(KoPart *part)
     setAlwaysAllowSaving(true);
     m_config.setReadWrite(isReadWrite());
 
-    loadSchedulerPlugins();
+    if (loadSchedulerPlugins) {
+        this->loadSchedulerPlugins();
+    }
 
     setProject(new Project(m_config)); // after config & plugins are loaded
     m_project->setId(m_project->uniqueNodeId());
@@ -227,6 +229,11 @@ void MainDocument::addSchedulerPlugin(const QString &key, SchedulerPlugin *plugi
 QMap<QString, KPlato::SchedulerPlugin*> MainDocument::schedulerPlugins() const
 {
     return m_schedulerPlugins;
+}
+
+void MainDocument::setSchedulerPlugins(QMap<QString, KPlato::SchedulerPlugin*> &plugins)
+{
+    m_schedulerPlugins = plugins;
 }
 
 void MainDocument::configChanged()
@@ -1029,6 +1036,11 @@ void MainDocument::insertFileCompleted()
     m_isLoading = false;
 }
 
+void MainDocument::setSkipSharedResourcesAndProjects(bool skip)
+{
+    m_skipSharedProjects = skip;
+}
+
 void MainDocument::insertResourcesFile(const QUrl &url_, const QUrl &projects)
 {
     insertSharedProjects(projects); // prepare for insertion after shared resources
@@ -1501,21 +1513,21 @@ bool MainDocument::mergeResources(Project &project)
         cmd.execute();
     }
     // update resources
-    const QList<Resource*> sharedResources = project.resourceList();
-    for (const Resource *r : sharedResources) {
-        Resource *existingResource = m_project->findResource(r->id());
-        if (!existingResource) {
-            continue;
-        }
-        if (r->calendar()) {
-            Calendar *existingCalendar = m_project->findCalendar(r->calendar()->id());
-            if (existingCalendar && existingResource->calendar() != existingCalendar) {
-                existingResource->setCalendar(existingCalendar);
-            }
-        } else if (existingResource->calendar()) {
-            existingResource->setCalendar(nullptr);
-        }
-    }
+//     const QList<Resource*> sharedResources = project.resourceList();
+//     for (const Resource *r : sharedResources) {
+//         Resource *existingResource = m_project->findResource(r->id());
+//         if (!existingResource) {
+//             continue;
+//         }
+//         if (r->calendar()) {
+//             Calendar *existingCalendar = m_project->findCalendar(r->calendar()->id());
+//             if (existingCalendar && existingResource->calendar() != existingCalendar) {
+//                 existingResource->setCalendar(existingCalendar);
+//             }
+//         } else if (existingResource->calendar()) {
+//             existingResource->setCalendar(nullptr);
+//         }
+//     }
     // insert new objects
     Q_ASSERT(project.childNodeIterator().isEmpty());
     InsertProjectCmd cmd(project, m_project, nullptr);
@@ -1691,4 +1703,14 @@ bool MainDocument::isTaskModule() const
 {
     return m_isTaskModule;
 }
+
+bool MainDocument::openLocalFile(const QString &localFileName)
+{
+    if (!QFile::exists(localFileName)) {
+        return false;
+    }
+    setLocalFilePath(localFileName);
+    return openFile();
+}
+
 }  //KPlato namespace

@@ -86,6 +86,7 @@ PlanTJScheduler::PlanTJScheduler(QObject *parent)
     , m_tjProject(nullptr)
     , m_granularity(0)
 {
+    qInfo()<<Q_FUNC_INFO<<this;
     TJ::TJMH.reset();
     //connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
     
@@ -97,6 +98,7 @@ PlanTJScheduler::PlanTJScheduler(QObject *parent)
 
 PlanTJScheduler::~PlanTJScheduler()
 {
+    qInfo()<<Q_FUNC_INFO<<this;
     delete m_tjProject;
 }
 
@@ -430,7 +432,7 @@ bool PlanTJScheduler::taskFromTJ(TJ::Task *job, Node *task)
     return taskFromTJ(m_project, job, task);
 }
 
-bool PlanTJScheduler::taskFromTJ(Project *project, TJ::Task *job, Node *task)
+bool PlanTJScheduler::taskFromTJ(Project *project_, TJ::Task *job, Node *task)
 {
     if (m_haltScheduling) {
         return true;
@@ -438,10 +440,10 @@ bool PlanTJScheduler::taskFromTJ(Project *project, TJ::Task *job, Node *task)
     if (task->type() == KPlato::Node::Type_Summarytask || task->type() == KPlato::Node::Type_Project) {
         return true;
     }
+    Project *project = static_cast<Project*>(task->projectNode());
     Schedule *cs = task->currentSchedule();
     Q_ASSERT(cs);
     QTimeZone tz = m_project->timeZone();
-    qInfo()<<Q_FUNC_INFO<<"taskFromTJ:"<<task<<task->name()<<cs->id()<<tz;
     time_t s = job->getStart(0);
     if (s < m_tjProject->getStart() || s > m_tjProject->getEnd()) {
         project->currentSchedule()->setSchedulingError(true);
@@ -470,7 +472,7 @@ bool PlanTJScheduler::taskFromTJ(Project *project, TJ::Task *job, Node *task)
         logError(task, nullptr, xi18nc("@info/plain", "Invalid end time"));
         return false;
     }
-    if (project->startTime() > task->startTime()) {
+    if (!project->startTime().isValid() || project->startTime() > task->startTime()) {
         project->setStartTime(task->startTime());
     }
     if (task->endTime() > project->endTime()) {
@@ -629,35 +631,40 @@ bool PlanTJScheduler::exists(QList<CalendarDay*> &lst, CalendarDay *day)
 
 TJ::Resource *PlanTJScheduler::addResource(KPlato::Resource *r)
 {
-    if (m_resourcemap.values().contains(r)) {
-        debugPlan<<r->name()<<"already exist";
-        return m_resourcemap.key(r);
+    KPlato::Resource *resource = m_resourceIds.value(r->id());
+    if (!resource) {
+        m_resourceIds.insert(r->id(), r);
+        resource = r;
     }
-    TJ::Resource *res = new TJ::Resource(m_tjProject, r->id(), r->name(), nullptr);
-    if (r->type() == Resource::Type_Material) {
+    if (m_resourcemap.values().contains(resource)) {
+        debugPlan<<r->name()<<"already exist";
+        return m_resourcemap.key(resource);
+    }
+    TJ::Resource *res = new TJ::Resource(m_tjProject, resource->id(), resource->name(), nullptr);
+    if (resource->type() == Resource::Type_Material) {
         res->setEfficiency(0.0);
     } else {
-        res->setEfficiency((double)(r->units()) / 100.);
+        res->setEfficiency((double)(resource->units()) / 100.);
     }
-    Calendar *cal = r->calendar();
+    Calendar *cal = resource->calendar();
     Q_ASSERT(cal);
-    DateTime start = qMax(r->availableFrom(), m_project->constraintStartTime());
+    DateTime start = qMax(resource->availableFrom(), m_project->constraintStartTime());
     DateTime end = m_project->constraintEndTime();
-    if (r->availableUntil().isValid() && end > r->availableUntil()) {
-        end = r->availableUntil();
+    if (resource->availableUntil().isValid() && end > resource->availableUntil()) {
+        end = resource->availableUntil();
     }
     AppointmentIntervalList lst = cal->workIntervals(start, end, 1.0);
 //    qDebug()<<r->name()<<lst;
     const QMultiMap<QDate, AppointmentInterval> &map = lst.map();
     QMultiMap<QDate, AppointmentInterval>::const_iterator mapend = map.constEnd();
     QMultiMap<QDate, AppointmentInterval>::const_iterator it = map.constBegin();
-    TJ::Shift *shift = new TJ::Shift(m_tjProject, r->id(), r->name(), nullptr, QString(), 0);
+    TJ::Shift *shift = new TJ::Shift(m_tjProject, resource->id(), resource->name(), nullptr, QString(), 0);
     for (; it != mapend; ++it) {
         shift->addWorkingInterval(toTJInterval(it.value().startTime(), it.value().endTime(), m_granularity/1000));
     }
     res->addShift(toTJInterval(start, end, m_granularity/1000), shift);
-    m_resourcemap[res] = r;
-    logDebug(m_project, nullptr, "Added resource: " + r->name());
+    m_resourcemap[res] = resource;
+    logDebug(m_project, nullptr, "Added resource: " + resource->name());
 /*    QListIterator<TJ::Interval*> it = res->getVacationListIterator();
     while (it.hasNext()) {
         TJ::Interval *i = it.next();
@@ -677,6 +684,12 @@ TJ::Task *PlanTJScheduler::addTask(const KPlato::Node *node, TJ::Task *parent)
     if (node->type() == KPlato::Node::Type_Task) {
         m_taskmap[t] = const_cast<KPlato::Task*>(static_cast<const KPlato::Task*>(node));
         addWorkingTime(static_cast<const KPlato::Task*>(node), t);
+    } else if (node->type() == KPlato::Node::Type_Project) {
+        if (node->constraint() == Node::MustStartOn) {
+            t->setSpecifiedStart(0, node->constraintStartTime().toTime_t());
+        } else {
+            t->setSpecifiedEnd(0, node->constraintEndTime().toTime_t());
+        }
     }
     return t;
 }
@@ -976,12 +989,15 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
 
 void PlanTJScheduler::schedule(SchedulingContext &context)
 {
+    qInfo()<<Q_FUNC_INFO<<"============"<<context.projects<<context.resourceBookings;
     if (context.projects.isEmpty()) {
         warnPlan<<"WARN:"<<Q_FUNC_INFO<<"No projects";
+        logError(context.project, nullptr, "No projects to schedule");
         return;
     }
     if (m_tjProject) {
         warnPlan<<"WARN:"<<Q_FUNC_INFO<<"Projects are already scheduled";
+        logError(context.project, nullptr, "Projects already scheduled");
         return;
     }
 //     for (Project *p : projects) {
@@ -996,54 +1012,99 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
 //             return;
 //         }
 //     }
-    m_granularity = 5*60*1000; // 5 minutes
+    m_project = context.project;
+    m_granularity = std::max(context.granularity, 5*60*1000 /*5 minutes*/);
     m_tjProject = new TJ::Project();
     m_tjProject->setPriority(0);
     m_tjProject->setScheduleGranularity(m_granularity / 1000);
     m_tjProject->getScenario(0)->setMinSlackRate(0.0); // Do not calculate critical path
 
+    connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
+
+    logInfo(m_project, nullptr, "Scheduling started");
+
     QMultiMap<int, KPlato::Project*>::const_iterator it = context.projects.constBegin();
     for (; it != context.projects.constEnd(); ++it) {
+        logInfo(m_project, nullptr, QString("Inserting project: %1, priority %2").arg(it.value()->name()).arg(it.key()));
         insertProject(it.value(), it.key());
     }
-    for (const KPlato::Project *p : context.resourceBookings) {
-        insertBookings(p);
-    }
+    addRequests();
+    insertBookings(context);
+    setConstraints();
+    addDependencies();
     addStartEndJob();
     if (!check()) {
         warnPlan<<"WARN:"<<Q_FUNC_INFO<<"Project check failed";
+        logError(m_project, nullptr, "Project check failed");
     } else {
         if (solve()) {
-            populateProjects();
+            populateProjects(context);
+            for (KPlato::Project *p : context.projects.values()) {
+                if (p->currentSchedule()->isScheduled()) {
+                    logInfo(p, nullptr, QString("Scheduled: %1 - %2").arg(p->startTime().toString(Qt::ISODate), p->endTime().toString(Qt::ISODate)));
+                } else {
+                    logError(p, nullptr, QString("Failed"));
+                }
+            }
         } else {
             warnPlan<<"WARN:"<<Q_FUNC_INFO<<"Project scheduling failed";
+            logError(m_project, nullptr, "Project scheduling failed");
         }
     }
-    delete m_tjProject;
-    m_tjProject = nullptr;
+    logInfo(m_project, nullptr, "Scheduling finished");
+    context.log = takeLog();
+    m_project = nullptr;
 }
 
-void PlanTJScheduler::insertBookings(const KPlato::Project *project)
+void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
 {
+    // Collect appointments from all resource in all projects and
+    // map them to tj resources
+    QHash<TJ::Resource*, KPlato::Appointment> apps;
+    for (const Project *project : context.resourceBookings) {
+        for (Resource *r : project->resourceList()) {
+            TJ::Resource *tjResource = m_resourcemap.key(m_resourceIds.value(r->id()));
+            if (!tjResource) {
+                continue;
+            }
+            apps[tjResource] += r->appointmentIntervals();
+        }
+    }
+    qInfo()<<Q_FUNC_INFO<<"============"<<apps.count();
+    // TODO: Handle load < 100%
+    QHash<TJ::Resource*, KPlato::Appointment>::const_iterator ait;
+    for (ait = apps.constBegin(); ait != apps.constEnd(); ++ait) {
+        KPlato::Resource *r = m_resourcemap.value(ait.key());
+        qInfo()<<Q_FUNC_INFO<<r<<ait.value().intervals().map();
+        Q_ASSERT(r);
+        const QMultiMap<QDate, AppointmentInterval> map = ait.value().intervals().map();
+        QMultiMap<QDate, AppointmentInterval>::const_iterator it;
+        for (it = map.constBegin(); it != map.constEnd(); ++it) {
+            TJ::Interval interval = toTJInterval(it.value().startTime(), it.value().endTime(), m_granularity / 1000);
+            qInfo()<<Q_FUNC_INFO<<"===== book interval"<<r<<it.value()<<interval;
+            ait.key()->bookInterval(0, interval, 3 /*undefined*/);
+            if (it.value().load() < r->units()) {
+                logWarning(m_project, r, QString("Appointment load less than available resource units (%1) not supported (%2)").arg(it.value().load(), r->units()));
+            }
+        }
+    }
 }
 
 void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority)
 {
-    // FIXME set prio in a different way
-    const_cast<KPlato::Project*>(project)->setPriority(priority);
-
     time_t time = project->constraintStartTime().toTime_t();
-    if (m_tjProject->getNow() > time) {
+    if (m_tjProject->getNow() == 0 || m_tjProject->getNow() > time) {
         m_tjProject->setNow(time);
     }
     time = project->constraintStartTime().toTime_t();
-    if (m_tjProject->getStart() > time) {
+    if (m_tjProject->getStart() == 0 || m_tjProject->getStart() > time) {
         m_tjProject->setStart(time);
     }
     time = project->constraintEndTime().toTime_t();
     if (m_tjProject->getEnd() < time) {
         m_tjProject->setEnd(time);
     }
+    qInfo()<<Q_FUNC_INFO<<"============"<<project<<TJ::time2ISO(m_tjProject->getStart())<<'-'<<TJ::time2ISO(m_tjProject->getEnd());
 
     m_tjProject->setDailyWorkingHours(const_cast<KPlato::Project*>(project)->standardWorktime()->day());
     
@@ -1077,13 +1138,11 @@ void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority
             }
         }
     }
-    addTasks(project);
-//     setConstraints();
-//     addDependencies();
-//     addRequests();
+    TJ::Task *t = addTask(project, nullptr);
+    addTasks(project, t, priority);
 }
 
-void PlanTJScheduler::addTasks(const KPlato::Node *parent, TJ::Task *tjParent)
+void PlanTJScheduler::addTasks(const KPlato::Node *parent, TJ::Task *tjParent, int projectPriority)
 {
     debugPlan;
     for (const KPlato::Node *n : parent->childNodeIterator()) {
@@ -1095,7 +1154,7 @@ void PlanTJScheduler::addTasks(const KPlato::Node *parent, TJ::Task *tjParent)
                 break;
             }
             case Node::Type_Task:
-            case Node::Type_Milestone:
+            case Node::Type_Milestone: {
                 switch (n->constraint()) {
                     case Node::StartNotEarlier:
                         // TODO parent = addStartNotEarlier(n);
@@ -1106,20 +1165,37 @@ void PlanTJScheduler::addTasks(const KPlato::Node *parent, TJ::Task *tjParent)
                     default:
                         break;
                 }
-                addTask(n, tjParent);
+                TJ::Task *t = addTask(n, tjParent);
+                t->setPriority(t->getPriority() + projectPriority);
                 break;
+            }
             default:
                 break;
         }
     }
 }
 
-void PlanTJScheduler::populateProjects()
+void PlanTJScheduler::populateProjects(KPlato::SchedulingContext &context)
 {
     QMap<TJ::Task*, Node*>::const_iterator it;
     for (it = m_taskmap.constBegin(); it != m_taskmap.constEnd(); ++it) {
         KPlato::Node *node = it.value();
         KPlato::Project *project = qobject_cast<KPlato::Project*>(node->projectNode());
+        Q_ASSERT(context.projects.values().contains(project));
+        if (!project->currentScheduleManager()->expected()) {
+            project->currentScheduleManager()->createSchedules();
+        }
+        auto mainschedule = project->currentScheduleManager()->expected();
+        project->setCurrentSchedule(mainschedule->id());
+        switch (node->type()) {
+            case KPlato::Node::Type_Task:
+            case KPlato::Node::Type_Milestone:
+                node->createSchedule(mainschedule);
+                node->setCurrentSchedule(mainschedule->id());
+                break;
+            default:
+                break;
+        }
         switch (node->type()) {
             case KPlato::Node::Type_Project:
                 break;
@@ -1131,5 +1207,6 @@ void PlanTJScheduler::populateProjects()
                 break;
             default: break;
         }
+        mainschedule->setScheduled(true);
     }
 }

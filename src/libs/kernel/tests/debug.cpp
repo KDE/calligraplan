@@ -239,7 +239,7 @@ void print(Task *t, bool full = true) {
     if (t->level() > 0) {
         pad = QString("%1").arg("", t->level()*2, ' ');
     }
-    qDebug()<<pad<<"Task"<<t->wbsCode()<<t->name()<<t->typeToString()<<t->constraintToString()<<(void*)t;
+    qDebug()<<pad<<"Task"<<t->wbsCode()<<t->name()<<t->typeToString()<<"Priority:"<<t->priority()<<t->constraintToString()<<(void*)t;
     if (t->isScheduled()) {
         qDebug()<<pad<<"     earlyStart:"<<QTest::toString(QDateTime(t->earlyStart()));
         qDebug()<<pad<<"      lateStart:"<<QTest::toString(QDateTime(t->lateStart()));

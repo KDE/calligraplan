@@ -525,6 +525,38 @@ Resource::bookSlot(uint idx, SbBooking* nb)
     return true;
 }
 
+bool
+Resource::bookInterval(int scIndex, const Interval &interval, uint reason)
+{
+    if (reason >= 4) {
+        return false;
+    }
+    if (interval.getStart() > project->getEnd()) {
+        return false;
+    }
+    if (interval.getEnd() <= project->getStart()) {
+        return false;
+    }
+    if (!scoreboard) {
+        initScoreboard();
+        scoreboards[scIndex] = scoreboard;
+    }
+    // Limit to part of interval that overlaps project
+    uint idxStart = sbIndex(std::max(interval.getStart(), project->getStart()));
+    uint idxEnd = sbIndex(std::min(interval.getEnd(), project->getEnd()));
+    for (uint idx = idxStart; idx <= idxEnd; ++idx) {
+        SbBooking *b = scoreboard[idx];
+        if (b >= (SbBooking*) 4) {
+            if (scoreboard[idx-1] != b && scoreboard[idx+1] != b) {
+                // not merged
+                delete b;
+            }
+        }
+        scoreboard[idx] = (SbBooking*) reason;
+    }
+    return true;
+}
+
 //bool
 //Resource::bookInterval(Booking* nb, int sc, int sloppy, int overtime)
 //{
@@ -1287,8 +1319,9 @@ Resource::copyBookings(int sc, SbBooking*** src, SbBooking*** dst)
                     dst[sc][j] = dst[sc][i];
                 i = j - 1;
             }
-            else
+            else {
                 dst[sc][i] = src[sc][i];
+            }
     }
     else
     {

@@ -112,6 +112,9 @@ public:
     /// Schedule all projects
     virtual void schedule(SchedulingContext &context);
 
+Q_SIGNALS:
+    void calculateSchedule(KPlato::SchedulingContext &context);
+
 protected Q_SLOTS:
     virtual void slotSyncData();
 

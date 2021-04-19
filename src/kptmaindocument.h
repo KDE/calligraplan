@@ -60,7 +60,7 @@ class PLAN_EXPORT MainDocument : public KoDocument
     Q_OBJECT
 
 public:
-    explicit MainDocument(KoPart *part);
+    explicit MainDocument(KoPart *part, bool loadSchedulerPlugins = true);
     ~MainDocument() override;
 
     void initEmpty() override;
@@ -148,6 +148,9 @@ public:
     Q_INVOKABLE void insertSharedResourceAssignments(const KPlato::Project *project);
 
     QMap<QString, KPlato::SchedulerPlugin*> schedulerPlugins() const override;
+    void setSchedulerPlugins(QMap<QString, KPlato::SchedulerPlugin*> &plugins);
+
+    bool openLocalFile(const QString &localFileName);
 
     using KoDocument::setModified;
 public Q_SLOTS:
@@ -168,6 +171,8 @@ public Q_SLOTS:
     void setLoadingTemplate(bool);
     void setLoadingSharedResourcesTemplate(bool);
     void setSavingTemplate(bool);
+
+    void setSkipSharedResourcesAndProjects(bool skip);
 
     void insertResourcesFile(const QUrl &url, const QUrl &projects = QUrl());
     void slotProjectCreated();

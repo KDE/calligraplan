@@ -78,6 +78,7 @@ public:
     bool isLoading() const override;
 
     void emitChanged();
+    void emitDocumentChanged(KoDocument *doc);
 
     /// @return a schedule manager in the following priority:
     /// 1) The manager set with property "schedulemanager-name"
@@ -87,6 +88,8 @@ public:
     /// 5) nullptr
     KPlato::ScheduleManager *scheduleManager(const KoDocument *doc) const;
     KPlato::ScheduleManager *findBestScheduleManager(const KoDocument *doc) const;
+
+    QMap<QString, KPlato::SchedulerPlugin*> schedulerPlugins() const override;
 
     using KoDocument::setModified;
 public Q_SLOTS:

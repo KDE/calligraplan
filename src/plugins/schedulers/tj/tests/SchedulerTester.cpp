@@ -47,25 +47,29 @@ QStringList SchedulerTester::data()
             ;
 }
 
-void SchedulerTester::test()
+void SchedulerTester::loadDocument(const QString &dir, const QString &fname, KoXmlDocument &doc) const
+{
+    QFile file(dir + fname);
+    QVERIFY2(file.open(QIODevice::ReadOnly), fname.toLatin1());
+
+    QString error;
+    bool setContent;
+    int line, column;
+    if (! (setContent = doc.setContent(&file, &error, &line, &column))) {
+        file.close();
+        QString s = QString("%1: %2 Line %3, column %4").arg(fname).arg(error).arg(line).arg(column);
+        QVERIFY2(setContent, s.toLatin1());
+    }
+}
+
+void SchedulerTester::testSingle()
 {
     QString dir = QFINDTESTDATA("data/");
     const auto lst = data();
     for (const QString &fname : lst) {
         qDebug()<<"Testing file:"<<fname;
-        QFile file(dir + fname);
-        QVERIFY2(file.open(QIODevice::ReadOnly), fname.toLatin1());
-
         KoXmlDocument doc;
-        QString error;
-        bool setContent;
-        int line, column;
-        if (! (setContent = doc.setContent(&file, &error, &line, &column))) {
-            file.close();
-            QString s = QString("%1: %2 Line %3, column %4").arg(fname).arg(error).arg(line).arg(column);
-            QVERIFY2(setContent, s.toLatin1());
-        }
-        file.close();
+        loadDocument(dir, fname, doc);
 
         testProject(fname, doc);
     }
@@ -73,7 +77,6 @@ void SchedulerTester::test()
 
 void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc)
 {
-    
     KoXmlElement pel = doc.documentElement().namedItem("project").toElement();
     if (pel.isNull()) {
         QString s = QString("%1: Cannot find 'project' element").arg(fname);
@@ -133,6 +136,32 @@ void SchedulerTester::compare(const QString &fname, Node *n, long id1, long id2)
     QString s = QString("%1: '%2' Compare task schedules:\n Expected: %3\n   Result: %4").arg(fname).arg(n->name());
     QVERIFY2(n->startTime(id1) == n->startTime(id2), (s.arg(n->startTime(id1).toString(Qt::ISODate)).arg(n->startTime(id2).toString(Qt::ISODate))).toLatin1());
     QVERIFY2(n->endTime(id1) == n->endTime(id2), (s.arg(n->endTime(id1).toString(Qt::ISODate)).arg(n->endTime(id2).toString(Qt::ISODate))).toLatin1());
+}
+
+void SchedulerTester::loadDocuments(QString &dir, QList<QString> files, QList<KoXmlDocument> &docs) const
+{
+    for (const QString &fname : files) {
+        QFile file(dir + fname);
+        QVERIFY2(file.open(QIODevice::ReadOnly), fname.toLatin1());
+        KoXmlDocument doc;
+        loadDocument(dir, fname, doc);
+        docs << doc;
+    }
+}
+
+void SchedulerTester::testMultiple()
+{
+//     QString dir = QFINDTESTDATA("data");
+//     const auto projectFiles = QStringList() << "Test 1.plan" << "Test 2.plan"; 
+//     QList<KoXmlDocument> projects;
+//     loadDocuments(dir + "schedule/", projectFiles, projects);
+//     QCOMPARE(projects.count(), projectFiles.count());
+// 
+//     const auto bookingFiles = QStringList() << "Booking 1.plan" << "Booking 2.plan"; 
+//     QList<KoXmlDocument> bookings;
+//     loadDocuments(dir + "bookings/", bookingFiles, bookings);
+//     QCOMPARE(bookingFiles.count(), bookings.count());
+
 }
 
 } //namespace KPlato

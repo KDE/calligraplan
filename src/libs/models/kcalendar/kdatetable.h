@@ -315,7 +315,9 @@ class StyleOptionHeader : public QStyleOptionHeader
 {
 public:
     StyleOptionHeader() : QStyleOptionHeader() {}
-    
+
+    StyleOptionHeader &operator=(const StyleOptionHeader &) = default;
+
     QRectF rectF;
 };
 
@@ -330,7 +332,9 @@ public:
     {
         rectF = style.rectF;
     }
-    
+
+    StyleOptionViewItem &operator=(const StyleOptionViewItem &) = default;
+
     QRectF rectF;
 };
 
