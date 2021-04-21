@@ -95,35 +95,35 @@ public:
      */
     void addDays(qint64 delta) { addHours(delta * 24); }
 
-    bool   operator==(KPlato::Duration d) const { return m_ms == d.m_ms; }
+    bool   operator==(const KPlato::Duration &d) const { return m_ms == d.m_ms; }
     bool   operator==(qint64 d) const { return m_ms == d; }
-    bool   operator!=(KPlato::Duration d) const { return m_ms != d.m_ms; }
+    bool   operator!=(const KPlato::Duration &d) const { return m_ms != d.m_ms; }
     bool   operator!=(qint64 d) const { return m_ms != d; }
-    bool   operator<(KPlato::Duration d) const { return m_ms < d.m_ms; }
+    bool   operator<(const KPlato::Duration &d) const { return m_ms < d.m_ms; }
     bool   operator<(qint64 d) const { return m_ms < d; }
-    bool   operator<=(KPlato::Duration d) const { return m_ms <= d.m_ms; }
+    bool   operator<=(const KPlato::Duration &d) const { return m_ms <= d.m_ms; }
     bool   operator<=(qint64 d) const { return m_ms <= d; }
-    bool   operator>(KPlato::Duration d) const { return m_ms > d.m_ms; }
+    bool   operator>(const KPlato::Duration &d) const { return m_ms > d.m_ms; }
     bool   operator>(qint64 d) const { return m_ms > d; }
-    bool   operator>=(KPlato::Duration d) const { return m_ms >= d.m_ms; }
+    bool   operator>=(const KPlato::Duration &d) const { return m_ms >= d.m_ms; }
     bool   operator>=(qint64 d) const { return m_ms >= d; }
     Duration operator*(int value) const; 
     Duration operator*(const double value) const;
-    Duration operator*(const Duration value) const;
+    Duration operator*(const Duration &value) const;
     /// Divide duration with the integer @p value
     Duration operator/(int value) const;
     /// Divide duration with the duration @p d
-    double operator/(KPlato::Duration d) const;
+    double operator/(const KPlato::Duration &d) const;
     /// Add duration with duration @p d
-    Duration operator+(KPlato::Duration d) const
+    Duration operator+(const KPlato::Duration &d) const
         {Duration dur(*this); dur.add(d); return dur; }
     /// Add duration with duration @p d
-    Duration &operator+=(KPlato::Duration d) {add(d); return *this; }
+    Duration &operator+=(const KPlato::Duration &d) {add(d); return *this; }
     /// Subtract duration with duration @p d
-    Duration operator-(KPlato::Duration d) const
+    Duration operator-(const KPlato::Duration &d) const
         {Duration dur(*this); dur.subtract(d); return dur; }
     /// Subtract duration with duration @p d
-    Duration &operator-=(KPlato::Duration d) {subtract(d); return *this; }
+    Duration &operator-=(const KPlato::Duration &d) {subtract(d); return *this; }
 
     /// Format duration into a string with @p unit and @p precision.
     QString format(Unit unit = Unit_h, int precision = 1) const;
@@ -162,12 +162,12 @@ private:
     
 private:
     void add(qint64 delta);
-    void add(KPlato::Duration delta);
+    void add(const Duration &delta);
 
     /**
     * Subtracts @param delta from *this. If @param delta > *this, *this is set to zeroDuration.
     */
-    void subtract(KPlato::Duration delta);
+    void subtract(const Duration &delta);
 };
 
 }  //KPlato namespace

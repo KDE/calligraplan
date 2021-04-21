@@ -72,7 +72,7 @@ Duration::Duration(const qint64 value, Duration::Unit unit) {
     else errorPlan<<"Unknown unit: "<<unit;
 }
 
-void Duration::add(KPlato::Duration delta) {
+void Duration::add(const Duration &delta) {
     m_ms += delta.m_ms;
 }
 
@@ -86,7 +86,7 @@ void Duration::add(qint64 delta) {
     m_ms = tmp;
 }
 
-void Duration::subtract(KPlato::Duration delta) {
+void Duration::subtract(const Duration &delta) {
     if (m_ms < delta.m_ms) {
         debugPlan<<"Underflow"<<delta.toString()<<" from"<<this->toString();
         m_ms = 0;
@@ -123,13 +123,13 @@ Duration Duration::operator*(const double value) const {
     return dur;
 }
 
-Duration Duration::operator*(const Duration value) const {
+Duration Duration::operator*(const Duration &value) const {
     Duration dur(*this);
     dur.m_ms = m_ms * value.m_ms;
     return dur;
 }
 
-double Duration::operator/(KPlato::Duration d) const {
+double Duration::operator/(const Duration &d) const {
     if (d == zeroDuration) {
         debugPlan<<"Divide by zero:"<<this->toString();
         return 0.0;
@@ -164,7 +164,7 @@ QString Duration::toString(Format format) const {
             days = m_ms / (1000 * 60 * 60 * 24.0);
             result = QStringLiteral("%1d").arg(QString::number(days, 'f', 4));
             break;
-        case Format_DayTime:
+        case Format_DayTime: {
             ms = m_ms;
             days = m_ms / (1000 * 60 * 60 * 24);
             ms -= (qint64)days * (1000 * 60 * 60 * 24);
@@ -174,8 +174,14 @@ QString Duration::toString(Format format) const {
             ms -= minutes * (1000 * 60);
             seconds = ms / (1000);
             ms -= seconds * (1000);
-            result.asprintf("%u %02u:%02u:%02u.%u", (unsigned)days, hours, minutes, seconds, (unsigned)ms);
+            const QString dayString = QString::number((unsigned)days);
+            const QString hourString = QString::number(hours);
+            const QString minString = QString::number(minutes);
+            const QString secString = QString::number(seconds);
+            const QString msString = QString::number(ms);
+            result = QStringLiteral("%1 %2:%3:%4.%5").arg(dayString, hourString, minString, secString, msString);
             break;
+        }
         case Format_HourFraction:
             result = QLocale().toString(toDouble(Unit_h), 'f', 2);
             break;
