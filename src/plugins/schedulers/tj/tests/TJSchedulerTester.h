@@ -37,10 +37,14 @@ class TJSchedulerTester : public QObject
 private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
+private:
     void testSingleProject();
     void testSingleProjectWithBookings();
     void testMultiple();
     void testMultipleWithBookings();
+
+private Q_SLOTS:
+    void testRecalculate();
 
 private:
     void populateSchedulingContext(SchedulingContext &context, const QString &name, const QList<Part*> &projects, const QList<Part*> &bookings = QList<Part*>()) const;

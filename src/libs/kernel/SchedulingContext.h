@@ -51,6 +51,7 @@ public:
     QMultiMap<int, Project*> projects;
     QList<const Project*> resourceBookings;
     int granularity;
+    QDateTime calculateFrom;
 
     QVector<KPlato::Schedule::Log> log;
 

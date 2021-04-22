@@ -939,6 +939,7 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
         }
         if (m_recalculate && static_cast<Task*>(task)->completion().isStarted()) {
             job->setEffort(0, static_cast<Task*>(task)->completion().remainingEffort().toDouble(Duration::Unit_d));
+            logInfo(task, nullptr, QString("Recalculating, adding remaining effort: %1").arg(static_cast<Task*>(task)->completion().remainingEffort().toDouble(Duration::Unit_d)));
         } else {
             Estimate *estimate = task->estimate();
             double e = estimate->scale(estimate->value(Estimate::Use_Expected, m_usePert), Duration::Unit_d, estimate->scales());
@@ -1018,6 +1019,10 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     m_tjProject->setPriority(0);
     m_tjProject->setScheduleGranularity(m_granularity / 1000);
     m_tjProject->getScenario(0)->setMinSlackRate(0.0); // Do not calculate critical path
+    if (context.calculateFrom.isValid()) {
+        m_tjProject->setStart(context.calculateFrom.toTime_t());
+        m_recalculate = true;
+    }
 
     connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
 
@@ -1026,7 +1031,11 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     QMultiMap<int, KPlato::Project*>::const_iterator it = context.projects.constBegin();
     for (; it != context.projects.constEnd(); ++it) {
         logInfo(m_project, nullptr, QString("Inserting project: %1, priority %2").arg(it.value()->name()).arg(it.key()));
-        insertProject(it.value(), it.key());
+        insertProject(it.value(), it.key(), context);
+    }
+    if (m_tjProject->getStart() > m_tjProject->getEnd()) {
+        logError(m_project, nullptr, "Invalid project, start > end");
+        return;
     }
     addRequests();
     insertBookings(context);
@@ -1090,17 +1099,18 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
     }
 }
 
-void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority)
+void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority, KPlato::SchedulingContext &context)
 {
-    time_t time = project->constraintStartTime().toTime_t();
-    if (m_tjProject->getNow() == 0 || m_tjProject->getNow() > time) {
-        m_tjProject->setNow(time);
+    if (!context.calculateFrom.isValid()) {
+        time_t time = project->constraintStartTime().toTime_t();
+        if (m_tjProject->getNow() == 0 || m_tjProject->getNow() > time) {
+            m_tjProject->setNow(time);
+        }
+        if (m_tjProject->getStart() == 0 || m_tjProject->getStart() > time) {
+            m_tjProject->setStart(time);
+        }
     }
-    time = project->constraintStartTime().toTime_t();
-    if (m_tjProject->getStart() == 0 || m_tjProject->getStart() > time) {
-        m_tjProject->setStart(time);
-    }
-    time = project->constraintEndTime().toTime_t();
+    time_t time = project->constraintEndTime().toTime_t();
     if (m_tjProject->getEnd() < time) {
         m_tjProject->setEnd(time);
     }

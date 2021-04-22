@@ -52,29 +52,37 @@ public:
     class PLANKERNEL_EXPORT UsedEffort
     {
         public:
-            class PLANKERNEL_EXPORT ActualEffort : public std::pair<Duration, Duration>
+            class PLANKERNEL_EXPORT ActualEffort
             {
                 public:
                     explicit ActualEffort(KPlato::Duration ne = Duration::zeroDuration, KPlato::Duration oe = Duration::zeroDuration)
-                        : std::pair<Duration, Duration>(ne, oe)
+                        : m_normalEffort(ne)
+                        , m_overtimeEffort(oe)
                     {}
                     ActualEffort(const ActualEffort &e)
-                        : std::pair<Duration, Duration>(e.first, e.second)
+                        : m_normalEffort(e.m_normalEffort)
+                        , m_overtimeEffort(e.m_overtimeEffort)
                     {}
                     ~ActualEffort() {}
-                    bool isNull() const { return (first + second) == Duration::zeroDuration; }
-                    Duration normalEffort() const { return first; }
-                    void setNormalEffort(KPlato::Duration e) { first = e; }
-                    Duration overtimeEffort() const { return second; }
-                    void setOvertimeEffort(KPlato::Duration e) { second = e; }
+                    bool isNull() const { return (m_normalEffort + m_overtimeEffort) == Duration::zeroDuration; }
+                    Duration normalEffort() const { return m_normalEffort; }
+                    void setNormalEffort(KPlato::Duration e) { m_normalEffort = e; }
+                    Duration overtimeEffort() const { return m_overtimeEffort; }
+                    void setOvertimeEffort(KPlato::Duration e) { m_overtimeEffort = e; }
                     /// Returns the sum of normalEffort + overtimeEffort
-                    Duration effort() const { return first + second; }
-                    void setEffort(KPlato::Duration ne, KPlato::Duration oe = Duration::zeroDuration) { first = ne; second = oe; }
+                    Duration effort() const { return m_normalEffort + m_overtimeEffort; }
+                    void setEffort(KPlato::Duration ne, KPlato::Duration oe = Duration::zeroDuration) { m_normalEffort = ne; m_overtimeEffort = oe; }
                     ActualEffort &operator=(const ActualEffort &other) {
-                        first = other.first;
-                        second = other.second;
+                        m_normalEffort = other.m_normalEffort;
+                        m_overtimeEffort = other.m_overtimeEffort;
                         return *this;
                     }
+                    bool operator==(const ActualEffort &a) const {
+                        return m_normalEffort == a.m_normalEffort && m_overtimeEffort == a.m_overtimeEffort;
+                    }
+                private:
+                    Duration m_normalEffort;
+                    Duration m_overtimeEffort;
             };
             UsedEffort();
             UsedEffort(const UsedEffort &e);
