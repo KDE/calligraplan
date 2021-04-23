@@ -70,8 +70,11 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
         auto doc = part->document();
         auto project = doc->project();
         ScheduleManager *sm = nullptr;
+        ScheduleManager *parentManager = nullptr;
         if (project->isStarted()) {
-            sm = project->createScheduleManager(project->scheduleManagers().value(0));
+            parentManager = project->scheduleManagers().value(0);
+            sm = project->createScheduleManager(parentManager);
+            sm->setParentManager(parentManager);
         } else {
             sm = new KPlato::ScheduleManager(*project, project->uniqueScheduleName());
         }
@@ -82,6 +85,9 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
         project->initiateCalculation(*(sm->expected()));
         project->setCurrentScheduleManager(sm);
         project->setCurrentSchedule(sm->expected()->id());
+        if (parentManager) {
+            project->setParentSchedule(parentManager->expected());
+        }
         context.projects.insert(prio--, project);
 
         if (!context.project->constraintStartTime().isValid()) {
@@ -103,9 +109,8 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
 Part *TJSchedulerTester::loadDocument(const QString &dir, const QString &fname)
 {
     const QString localFilePath = dir + fname;
-    qInfo()<<"load:"<<localFilePath;
     if (!QFile::exists(localFilePath)) {
-        qInfo()<<"File does not exist:"<<localFilePath;
+        qDebug()<<"File does not exist:"<<localFilePath;
         return nullptr;
     }
     Part *part = new Part(nullptr);
@@ -128,7 +133,7 @@ QList<Part*> TJSchedulerTester::loadDocuments(QString &dir, QList<QString> files
         if (part) {
             parts << part;
         } else {
-            qInfo()<<"Failed to load:"<<dir<<fname;
+            qDebug()<<"Failed to load:"<<dir<<fname;
         }
     }
     return parts;
@@ -186,7 +191,7 @@ void TJSchedulerTester::testMultiple()
     SchedulingContext context;
     populateSchedulingContext(context, "Test Multiple Project", projects);
     m_scheduler->schedule(context);
-    for (const Schedule::Log &l : qAsConst(context.log)) qInfo()<<l;
+    for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     auto project = projects.value(0)->document()->project();
     QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date().addDays(0)); // thursday
     QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(1)); // friday
@@ -210,7 +215,7 @@ void TJSchedulerTester::testMultipleWithBookings()
     SchedulingContext context;
     populateSchedulingContext(context, "Test Multiple Project With Bookings", projects, bookings);
     m_scheduler->schedule(context);
-    // for (const Schedule::Log &l : qAsConst(context.log)) qInfo()<<l;
+    // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     auto project = projects.value(0)->document()->project();
     QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date().addDays(6)); // wednesday
     QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(7)); // thursday
@@ -228,13 +233,14 @@ void TJSchedulerTester::testRecalculate()
 
     SchedulingContext context;
     populateSchedulingContext(context, "Test Recalculate Project", projects);
+    QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
     context.calculateFrom = context.project->constraintStartTime().addDays(7); // next monday
     m_scheduler->schedule(context);
-    for (const Schedule::Log &l : qAsConst(context.log)) qInfo()<<l;
+    //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     auto project = projects.value(0)->document()->project();
     QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date().addDays(0)); // monday (as before)
-    QCOMPARE(project->childNode(0)->endTime().date(), project->constraintStartTime().date().addDays(0)); // next wednesday
-    QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(1)); // thursday
+    QCOMPARE(project->childNode(0)->endTime().date(), project->constraintStartTime().date().addDays(9)); // next wednesday
+    QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(10)); // thursday
 }
 
 QTEST_MAIN(KPlato::TJSchedulerTester)

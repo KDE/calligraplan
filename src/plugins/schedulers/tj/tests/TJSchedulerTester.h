@@ -37,13 +37,10 @@ class TJSchedulerTester : public QObject
 private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
-private:
     void testSingleProject();
     void testSingleProjectWithBookings();
     void testMultiple();
     void testMultipleWithBookings();
-
-private Q_SLOTS:
     void testRecalculate();
 
 private:

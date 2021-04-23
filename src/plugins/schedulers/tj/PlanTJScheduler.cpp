@@ -86,19 +86,17 @@ PlanTJScheduler::PlanTJScheduler(QObject *parent)
     , m_tjProject(nullptr)
     , m_granularity(0)
 {
-    qInfo()<<Q_FUNC_INFO<<this;
     TJ::TJMH.reset();
     //connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
-    
+
 //     connect(this, &PlanTJScheduler::sigCalculationStarted, project, &KPlato::Project::sigCalculationStarted);
 //     Q_EMIT sigCalculationStarted(project, sm);
-//     
+//
 //     connect(this, &PlanTJScheduler::sigCalculationFinished, project, &KPlato::Project::sigCalculationFinished);
 }
 
 PlanTJScheduler::~PlanTJScheduler()
 {
-    qInfo()<<Q_FUNC_INFO<<this;
     delete m_tjProject;
 }
 
@@ -490,7 +488,11 @@ bool PlanTJScheduler::taskFromTJ(Project *project_, TJ::Task *job, Node *task)
             res->addAppointment(cs, ai.startTime(), ai.endTime(), load);
             logDebug(task, nullptr, '\'' + res->name() + "' added appointment: " +  ai.startTime().toString(Qt::ISODate) + " - " + ai.endTime().toString(Qt::ISODate));
         }
+        if (m_recalculate) {
+            addPastAppointments(task, res);
+        }
     }
+
     cs->setScheduled(true);
     QLocale locale;
     if (task->type() == Node::Type_Milestone) {
@@ -499,6 +501,39 @@ bool PlanTJScheduler::taskFromTJ(Project *project_, TJ::Task *job, Node *task)
         logInfo(task, nullptr, xi18nc("@info/plain" , "Scheduled task: %1 - %2", locale.toString(task->startTime(), QLocale::ShortFormat), locale.toString(task->endTime(), QLocale::ShortFormat)));
     }
     return true;
+}
+
+void PlanTJScheduler::addPastAppointments(Node *task, Resource *resource)
+{
+    if (!static_cast<Task*>(task)->isStarted()) {
+        logDebug(task, nullptr, "Task is not started, no appointments to copy");
+        return;
+    }
+    const auto taskSchedule = dynamic_cast<NodeSchedule*>(task->schedule(task->schedule()->parentScheduleId()));
+    if (!taskSchedule) {
+        logWarning(task, nullptr, "No parent schedule found");
+        return;
+    }
+    const auto resourceSchedule = resource->schedule(taskSchedule->id());
+    if (!resourceSchedule) {
+        logWarning(nullptr, resource, "No parent schedule found");
+        return;
+    }
+    const auto app = taskSchedule->findAppointment(resourceSchedule, taskSchedule);
+    if (!app) {
+        logWarning(task, nullptr, QString("%1: No parent appointments found").arg(resource->name()));
+        return;
+    }
+    if (app->isEmpty()) {
+        logWarning(task, nullptr, QString("%1: Parent appointment is empty").arg(resource->name()));
+        return;
+    }
+    const auto intervals = app->intervals(app->startTime(), task->startTime()).map();
+    task->setStartTime(app->startTime());
+    for (const AppointmentInterval &interval : intervals) {
+        resource->currentSchedule()->addAppointment(task->currentSchedule(), interval.startTime(), interval.endTime(), interval.load());
+        logDebug(task, nullptr, '\'' + resource->name() + "' copied appointment: " +  interval.startTime().toString(Qt::ISODate) + " - " + interval.endTime().toString(Qt::ISODate));
+    }
 }
 
 Resource *PlanTJScheduler::resource(Project *project, TJ::Resource *tjResource)
@@ -938,8 +973,9 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
             return;
         }
         if (m_recalculate && static_cast<Task*>(task)->completion().isStarted()) {
-            job->setEffort(0, static_cast<Task*>(task)->completion().remainingEffort().toDouble(Duration::Unit_d));
-            logInfo(task, nullptr, QString("Recalculating, adding remaining effort: %1").arg(static_cast<Task*>(task)->completion().remainingEffort().toDouble(Duration::Unit_d)));
+            const Estimate *estimate = task->estimate();
+            const double e = estimate->scale(static_cast<Task*>(task)->completion().remainingEffort(), Duration::Unit_d, estimate->scales());
+            job->setEffort(0, e);
         } else {
             Estimate *estimate = task->estimate();
             double e = estimate->scale(estimate->value(Estimate::Use_Expected, m_usePert), Duration::Unit_d, estimate->scales());
@@ -949,6 +985,7 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
     if (task->requests().isEmpty()) {
         if (task->type() == Node::Type_Task) {
             warnPlan<<"Task:"<<task<<"has no allocations";
+            logDebug(task, nullptr, "Task has no resource allocations");
         }
         return;
     }
@@ -956,7 +993,7 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
     for (ResourceRequest *rr : lst) {
         if (!rr->resource()->calendar()) {
             result = 1; // stops scheduling
-            logError(task, nullptr, i18n("No working hours defined for resource: %1",rr->resource()->name()));
+            logError(task, nullptr, i18n("No working hours defined for resource: %1", rr->resource()->name()));
             continue; // may happen if no calendar is set, and no default calendar
         }
         TJ::Resource *tjr = addResource(rr->resource());
@@ -990,29 +1027,11 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
 
 void PlanTJScheduler::schedule(SchedulingContext &context)
 {
-    qInfo()<<Q_FUNC_INFO<<"============"<<context.projects<<context.resourceBookings;
     if (context.projects.isEmpty()) {
         warnPlan<<"WARN:"<<Q_FUNC_INFO<<"No projects";
         logError(context.project, nullptr, "No projects to schedule");
         return;
     }
-    if (m_tjProject) {
-        warnPlan<<"WARN:"<<Q_FUNC_INFO<<"Projects are already scheduled";
-        logError(context.project, nullptr, "Projects already scheduled");
-        return;
-    }
-//     for (Project *p : projects) {
-//         logInfo(p, nullptr, i18n("Scheduling with priority %1, using Schedule Manager: %2", projects.key(p), p->currentScheduleManager()->name()));
-//         const KPlato::ScheduleManager *sm = p->currentScheduleManager();
-//         ulong grn = sm->supportedGranularities().value(sm->granularity());
-//         m_granularity = std::min(m_granularity, grn);
-//         qInfo()<<Q_FUNC_INFO<<p<<grn<<m_granularity;
-//         if (m_granularity == 0) {
-//             logError(p, nullptr, i18n("Invalid granularity: %1", m_granularity));
-//             warnPlan<<"WARN:"<<Q_FUNC_INFO<<"Invalid granularity:"<<m_granularity;
-//             return;
-//         }
-//     }
     m_project = context.project;
     m_granularity = std::max(context.granularity, 5*60*1000 /*5 minutes*/);
     m_tjProject = new TJ::Project();
@@ -1062,7 +1081,7 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     }
     logInfo(m_project, nullptr, "Scheduling finished");
     context.log = takeLog();
-    m_project = nullptr;
+    m_project = nullptr; // or else it is deleted
 }
 
 void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
@@ -1079,21 +1098,18 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
             apps[tjResource] += r->appointmentIntervals();
         }
     }
-    qInfo()<<Q_FUNC_INFO<<"============"<<apps.count();
     // TODO: Handle load < 100%
     QHash<TJ::Resource*, KPlato::Appointment>::const_iterator ait;
     for (ait = apps.constBegin(); ait != apps.constEnd(); ++ait) {
         KPlato::Resource *r = m_resourcemap.value(ait.key());
-        qInfo()<<Q_FUNC_INFO<<r<<ait.value().intervals().map();
         Q_ASSERT(r);
         const QMultiMap<QDate, AppointmentInterval> map = ait.value().intervals().map();
         QMultiMap<QDate, AppointmentInterval>::const_iterator it;
         for (it = map.constBegin(); it != map.constEnd(); ++it) {
             TJ::Interval interval = toTJInterval(it.value().startTime(), it.value().endTime(), m_granularity / 1000);
-            qInfo()<<Q_FUNC_INFO<<"===== book interval"<<r<<it.value()<<interval;
             ait.key()->bookInterval(0, interval, 3 /*undefined*/);
             if (it.value().load() < r->units()) {
-                logWarning(m_project, r, QString("Appointment load less than available resource units (%1) not supported (%2)").arg(it.value().load(), r->units()));
+                logWarning(m_project, r, i18n("Appointment with load (%1) less than available resource units (%2) not supported").arg(it.value().load(), r->units()));
             }
         }
     }
@@ -1114,10 +1130,8 @@ void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority
     if (m_tjProject->getEnd() < time) {
         m_tjProject->setEnd(time);
     }
-    qInfo()<<Q_FUNC_INFO<<"============"<<project<<TJ::time2ISO(m_tjProject->getStart())<<'-'<<TJ::time2ISO(m_tjProject->getEnd());
-
     m_tjProject->setDailyWorkingHours(const_cast<KPlato::Project*>(project)->standardWorktime()->day());
-    
+
     // Set working days for the project, it is used for tasks with a length specification
     // FIXME: Plan has task specific calendars for this estimate type
     KPlato::Calendar *cal = project->defaultCalendar();
