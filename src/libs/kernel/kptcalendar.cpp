@@ -760,6 +760,7 @@ const Calendar &Calendar::copy(const Calendar &calendar) {
 #ifdef HAVE_KHOLIDAYS
     delete m_region;
     m_region = new KHolidays::HolidayRegion(calendar.holidayRegion()->regionCode());
+    m_regionCode = calendar.m_regionCode;
 #endif
     const auto days = calendar.days();
     for (CalendarDay *d : days) {
