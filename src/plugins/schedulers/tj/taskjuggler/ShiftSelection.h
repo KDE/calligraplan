@@ -58,4 +58,7 @@ private:
 
 } // namespace TJ
 
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::ShiftSelection &s);
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::ShiftSelection *s);
+
 #endif

@@ -63,11 +63,16 @@ public:
     /// Add non-overlapping work intervals 
     /// This will override usage of workingHours[]
     void addWorkingInterval(const Interval &interval);
+    QList<Interval> getWorkingIntervals() const;
+
 private:
     QList<Interval*>* workingHours[7];
     QList<Interval> workingIntervals;
 };
 
 } // namespace TJ
+
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::Shift &s);
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::Shift *s);
 
 #endif

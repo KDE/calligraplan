@@ -135,4 +135,22 @@ Shift::addWorkingInterval(const Interval &interval)
     workingIntervals.append(interval);
 }
 
+QList<Interval>
+Shift::getWorkingIntervals() const
+{
+    return workingIntervals;
+}
+
 } // namespace TJ
+
+QDebug operator<<(QDebug dbg, const TJ::Shift &s)
+{
+    return dbg << &s;
+}
+QDebug operator<<(QDebug dbg, const TJ::Shift *s)
+{
+    dbg << "Shift[";
+    if (s) dbg << s->getWorkingIntervals();
+    else dbg << (void*)s;
+    return dbg << ']';
+}

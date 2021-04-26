@@ -44,4 +44,6 @@ private:
 
 } // namespace TJ
 
+PLANTJ_EXPORT QDebug operator<<(QDebug dbg, const TJ::ShiftSelectionList *s);
+
 #endif

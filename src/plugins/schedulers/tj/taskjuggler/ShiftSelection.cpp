@@ -31,3 +31,14 @@ ShiftSelection::isVacationDay(time_t day) const
 
 } // namespace TJ
 
+QDebug operator<<(QDebug dbg, const TJ::ShiftSelection &s)
+{
+    return dbg << &s;
+}
+QDebug operator<<(QDebug dbg, const TJ::ShiftSelection *s)
+{
+    dbg << "ShiftSelection[";
+    if (s) dbg << s->getPeriod() << s->getShift();
+    else (void*)s;
+    return dbg << ']';
+}

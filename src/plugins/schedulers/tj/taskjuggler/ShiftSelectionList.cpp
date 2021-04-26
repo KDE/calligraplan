@@ -60,3 +60,9 @@ ShiftSelectionList::insert(ShiftSelection* s)
 }
 
 } // namespace TJ
+
+QDebug operator<<(QDebug dbg, const TJ::ShiftSelectionList *s)
+{
+    if (!s) return dbg << "ShiftSelectionList(" << (void*)s << ')';
+    return dbg << *s;
+}
