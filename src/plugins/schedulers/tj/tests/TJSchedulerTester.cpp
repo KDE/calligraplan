@@ -93,9 +93,10 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
         if (!context.project->constraintStartTime().isValid()) {
             context.project->setConstraintStartTime(project->constraintStartTime());
             context.project->setConstraintEndTime(project->constraintEndTime());
+        } else {
+            context.project->setConstraintStartTime(std::min(project->constraintStartTime(), context.project->constraintStartTime()));
+            context.project->setConstraintEndTime(std::max(project->constraintEndTime(), context.project->constraintEndTime()));
         }
-        context.project->setConstraintStartTime(std::min(project->constraintStartTime(), context.project->constraintStartTime()));
-        context.project->setConstraintEndTime(std::max(project->constraintEndTime(), context.project->constraintEndTime()));
     }
     for (const auto part : bookings) {
         auto project = part->document()->project();
@@ -117,7 +118,7 @@ Part *TJSchedulerTester::loadDocument(const QString &dir, const QString &fname)
     MainDocument *doc = new MainDocument(part, false);
     part->setDocument(doc);
     doc->setProgressEnabled(false);
-    doc->setSkipSharedResourcesAndProjects(true);
+    doc->setProperty(NOUI, true); // avoid possible error message
     if (!doc->openLocalFile(localFilePath)) {
         delete part;
         return nullptr;
@@ -152,8 +153,8 @@ void TJSchedulerTester::testSingleProject()
     m_scheduler->schedule(context);
     auto project = context.projects.first();
     //Debug::print(project, "--", true);
-    QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date());
-    QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(1));
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 8));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 9));
     qDeleteAll(projects);
 }
 
@@ -173,10 +174,11 @@ void TJSchedulerTester::testSingleProjectWithBookings()
     populateSchedulingContext(context, "Test Single Project With Bookings", projects, bookings);
 
     m_scheduler->schedule(context);
+    // Booking 1: R1 booked 2021-04-08, 2021-04-09
     auto project = context.projects.first();
-//     Debug::print(project, "--", true);
-    QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date().addDays(4)); // monday
-    QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(5)); // tuesday
+    // Debug::print(project, "--", true);
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 10));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 11));
     qDeleteAll(projects);
 
 }
@@ -191,13 +193,13 @@ void TJSchedulerTester::testMultiple()
     SchedulingContext context;
     populateSchedulingContext(context, "Test Multiple Project", projects);
     m_scheduler->schedule(context);
-    for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     auto project = projects.value(0)->document()->project();
-    QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date().addDays(0)); // thursday
-    QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(1)); // friday
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 8));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 9));
     project = projects.value(1)->document()->project();
-    QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date().addDays(4)); // monday
-    QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(5)); // tuesday
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 10));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 11));
 }
 
 void TJSchedulerTester::testMultipleWithBookings()
@@ -216,12 +218,14 @@ void TJSchedulerTester::testMultipleWithBookings()
     populateSchedulingContext(context, "Test Multiple Project With Bookings", projects, bookings);
     m_scheduler->schedule(context);
     // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    // Booking 1: R1 booked 2021-04-08, 2021-04-09
+    // Booking 2: R1 booked 2021-04-12, 2021-04-13
     auto project = projects.value(0)->document()->project();
-    QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date().addDays(6)); // wednesday
-    QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(7)); // thursday
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 10));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 11));
     project = projects.value(1)->document()->project();
-    QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date().addDays(8)); // friday
-    QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(11)); // monday
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 14));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 15));
 }
 
 void TJSchedulerTester::testRecalculate()
@@ -234,13 +238,42 @@ void TJSchedulerTester::testRecalculate()
     SchedulingContext context;
     populateSchedulingContext(context, "Test Recalculate Project", projects);
     QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
-    context.calculateFrom = context.project->constraintStartTime().addDays(7); // next monday
+    context.calculateFrom = QDateTime(QDate(2021, 4, 26));
     m_scheduler->schedule(context);
     //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    // T1 Recalculate 1: Two first days has been completed, 3 last days moved
     auto project = projects.value(0)->document()->project();
-    QCOMPARE(project->childNode(0)->startTime().date(), project->constraintStartTime().date().addDays(0)); // monday (as before)
-    QCOMPARE(project->childNode(0)->endTime().date(), project->constraintStartTime().date().addDays(9)); // next wednesday
-    QCOMPARE(project->childNode(1)->startTime().date(), project->constraintStartTime().date().addDays(10)); // thursday
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 19)); // as before
+    QCOMPARE(project->childNode(0)->endTime().date(), QDate(2021, 4, 28));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 29));
+}
+
+void TJSchedulerTester::testRecalculateMultiple()
+{
+    const auto projectFiles = QStringList() << "Test 1.plan" << "Test Recalculate 1.plan";
+    QString dir = QFINDTESTDATA("data/multi/schedule/");
+    QList<Part*> projects = loadDocuments(dir, projectFiles);
+    QCOMPARE(projects.count(), 2);
+
+    SchedulingContext context;
+    populateSchedulingContext(context, "Test Recalculate Multiple Projects", projects);
+    QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
+    context.calculateFrom = QDateTime(QDate(2021, 4, 26));
+    m_scheduler->schedule(context);
+    for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    auto project = projects.value(0)->document()->project();
+    qDebug()<<"Check project"<<project;
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 26));
+    QCOMPARE(project->childNode(0)->endTime().date(), QDate(2021, 4, 26));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 30));
+
+    project = projects.value(1)->document()->project();
+    qDebug()<<"Check project"<<project;
+    // T1 Recalculate 1: Two first days has been completed, 3 last days moved
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 19)); // as before
+    QCOMPARE(project->childNode(0)->endTime().date(), QDate(2021, 4, 29));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 5, 1));
+
 }
 
 QTEST_MAIN(KPlato::TJSchedulerTester)

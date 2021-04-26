@@ -250,7 +250,7 @@ bool PlanTJScheduler::kplatoToTJ()
     // FIXME: Plan has task specific calendars for this estimate type
     KPlato::Calendar *cal = m_project->defaultCalendar();
     if (! cal) {
-        m_project->calendars().value(0);
+        cal = m_project->calendars().value(0);
     }
     if (cal) {
         int days[ 7 ] = { Qt::Sunday, Qt::Monday, Qt::Tuesday, Qt::Wednesday, Qt::Thursday, Qt::Friday, Qt::Saturday };
@@ -528,7 +528,7 @@ void PlanTJScheduler::addPastAppointments(Node *task, Resource *resource)
         logWarning(task, nullptr, QString("%1: Parent appointment is empty").arg(resource->name()));
         return;
     }
-    const auto intervals = app->intervals(app->startTime(), task->startTime()).map();
+    const auto intervals = app->intervals(app->startTime(), DateTime(static_cast<Task*>(task)->completion().entryDate()).addDays(1)).map();
     task->setStartTime(app->startTime());
     for (const AppointmentInterval &interval : intervals) {
         resource->currentSchedule()->addAppointment(task->currentSchedule(), interval.startTime(), interval.endTime(), interval.load());
@@ -689,7 +689,7 @@ TJ::Resource *PlanTJScheduler::addResource(KPlato::Resource *r)
         end = resource->availableUntil();
     }
     AppointmentIntervalList lst = cal->workIntervals(start, end, 1.0);
-//    qDebug()<<r->name()<<lst;
+//     qDebug()<<r<<lst;
     const QMultiMap<QDate, AppointmentInterval> &map = lst.map();
     QMultiMap<QDate, AppointmentInterval>::const_iterator mapend = map.constEnd();
     QMultiMap<QDate, AppointmentInterval>::const_iterator it = map.constBegin();
@@ -700,9 +700,9 @@ TJ::Resource *PlanTJScheduler::addResource(KPlato::Resource *r)
     res->addShift(toTJInterval(start, end, m_granularity/1000), shift);
     m_resourcemap[res] = resource;
     logDebug(m_project, nullptr, "Added resource: " + resource->name());
-/*    QListIterator<TJ::Interval*> it = res->getVacationListIterator();
-    while (it.hasNext()) {
-        TJ::Interval *i = it.next();
+/*    QListIterator<TJ::Interval*> vit = res->getVacationListIterator();
+    while (vit.hasNext()) {
+        TJ::Interval *i = vit.next();
         logDebug(m_project, 0, "Vacation: " + TJ::time2ISO(i->getStart()) + " - " + TJ::time2ISO(i->getEnd()));
     }*/
     return res;
@@ -976,6 +976,7 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
             const Estimate *estimate = task->estimate();
             const double e = estimate->scale(static_cast<Task*>(task)->completion().remainingEffort(), Duration::Unit_d, estimate->scales());
             job->setEffort(0, e);
+            logDebug(task, nullptr, QString("Task has started. Remainig effort: %1d").arg(e));
         } else {
             Estimate *estimate = task->estimate();
             double e = estimate->scale(estimate->value(Estimate::Use_Expected, m_usePert), Duration::Unit_d, estimate->scales());
@@ -1032,6 +1033,9 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
         logError(context.project, nullptr, "No projects to schedule");
         return;
     }
+    QElapsedTimer timer;
+    timer.start();
+
     m_project = context.project;
     m_granularity = std::max(context.granularity, 5*60*1000 /*5 minutes*/);
     m_tjProject = new TJ::Project();
@@ -1045,15 +1049,22 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
 
     connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
 
-    logInfo(m_project, nullptr, "Scheduling started");
+    logInfo(m_project, nullptr, i18n("Scheduling started: %1", QDateTime::currentDateTime().toString(Qt::ISODate)));
+    if (m_recalculate) {
+        logInfo(m_project, nullptr, i18n("Recalculating from: %1", context.calculateFrom.toString(Qt::ISODate)));
+    }
 
     QMultiMap<int, KPlato::Project*>::const_iterator it = context.projects.constBegin();
     for (; it != context.projects.constEnd(); ++it) {
         logInfo(m_project, nullptr, QString("Inserting project: %1, priority %2").arg(it.value()->name()).arg(it.key()));
         insertProject(it.value(), it.key(), context);
     }
+    logInfo(m_project, nullptr, i18n("Scheduling interval: %1 - %2, granularity: %3 minutes",
+                                     QDateTime::fromTime_t(m_tjProject->getStart()).toString(Qt::ISODate),
+                                     QDateTime::fromTime_t(m_tjProject->getEnd()).toString(Qt::ISODate),
+                                     (double)m_tjProject->getScheduleGranularity()/60));
     if (m_tjProject->getStart() > m_tjProject->getEnd()) {
-        logError(m_project, nullptr, "Invalid project, start > end");
+        logError(m_project, nullptr, i18n("Invalid project, start > end"));
         return;
     }
     addRequests();
@@ -1062,24 +1073,22 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     addDependencies();
     addStartEndJob();
     if (!check()) {
-        warnPlan<<"WARN:"<<Q_FUNC_INFO<<"Project check failed";
-        logError(m_project, nullptr, "Project check failed");
+        logError(m_project, nullptr, i18n("Project check failed"));
     } else {
         if (solve()) {
             populateProjects(context);
             for (KPlato::Project *p : context.projects.values()) {
                 if (p->currentSchedule()->isScheduled()) {
-                    logInfo(p, nullptr, QString("Scheduled: %1 - %2").arg(p->startTime().toString(Qt::ISODate), p->endTime().toString(Qt::ISODate)));
+                    logInfo(p, nullptr, i18n("Scheduled: %1 - %2", p->startTime().toString(Qt::ISODate), p->endTime().toString(Qt::ISODate)));
                 } else {
-                    logError(p, nullptr, QString("Failed"));
+                    logError(p, nullptr, i18n("Scheduling failed"));
                 }
             }
         } else {
-            warnPlan<<"WARN:"<<Q_FUNC_INFO<<"Project scheduling failed";
-            logError(m_project, nullptr, "Project scheduling failed");
+            logError(m_project, nullptr, i18n("Project scheduling failed"));
         }
     }
-    logInfo(m_project, nullptr, "Scheduling finished");
+    logInfo(m_project, nullptr, i18n("Scheduling finished at %1, elapsed time: %2 seconds", QDateTime::currentDateTime().toString(Qt::ISODate), (double)timer.elapsed()/1000));
     context.log = takeLog();
     m_project = nullptr; // or else it is deleted
 }
@@ -1117,11 +1126,8 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
 
 void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority, KPlato::SchedulingContext &context)
 {
-    if (!context.calculateFrom.isValid()) {
+    if (!m_recalculate) {
         time_t time = project->constraintStartTime().toTime_t();
-        if (m_tjProject->getNow() == 0 || m_tjProject->getNow() > time) {
-            m_tjProject->setNow(time);
-        }
         if (m_tjProject->getStart() == 0 || m_tjProject->getStart() > time) {
             m_tjProject->setStart(time);
         }
@@ -1136,9 +1142,10 @@ void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority
     // FIXME: Plan has task specific calendars for this estimate type
     KPlato::Calendar *cal = project->defaultCalendar();
     if (! cal) {
-        project->calendars().value(0);
+        cal = project->calendars().value(0);
     }
     if (cal) {
+        // TJ: Sun = 0, Mon = 1 ... Sat = 6, ours: Mon = 1 ... Sun = 7 (as qt)
         int days[ 7 ] = { Qt::Sunday, Qt::Monday, Qt::Tuesday, Qt::Wednesday, Qt::Thursday, Qt::Friday, Qt::Saturday };
         for (int i = 0; i < 7; ++i) {
             CalendarDay *d = nullptr;

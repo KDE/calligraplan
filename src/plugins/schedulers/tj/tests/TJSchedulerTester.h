@@ -42,6 +42,7 @@ private Q_SLOTS:
     void testMultiple();
     void testMultipleWithBookings();
     void testRecalculate();
+    void testRecalculateMultiple();
 
 private:
     void populateSchedulingContext(SchedulingContext &context, const QString &name, const QList<Part*> &projects, const QList<Part*> &bookings = QList<Part*>()) const;
