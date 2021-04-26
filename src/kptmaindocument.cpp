@@ -1076,7 +1076,7 @@ void MainDocument::insertResourcesFileCompleted()
         m_project->setSharedResourcesLoaded(true);
         doc->documentPart()->deleteLater(); // also deletes document
         slotInsertSharedProject(); // insert shared bookings
-    } else {
+    } else if (!property(NOUI).toBool()){
         KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
     }
     m_isLoading = false;

@@ -53,6 +53,7 @@ class QDomDocument;
 #define SCHEDULINGCONTROL "scheduling-control"
 #define SCHEDULINGPRIORITY "scheduling-priority"
 #define BLOCKSHAREDPROJECTSLOADING "blocksharedprojectsloading"
+#define NOUI "noui"
 
 // MSVC seems to need to know the declaration of the classes
 // we pass references of in, when used by external modules
