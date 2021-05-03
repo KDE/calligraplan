@@ -676,7 +676,6 @@ void ViewListWidget::slotEditDocumentTitle()
     //QTreeWidgetItem *item = m_viewlist->currentItem();
     if (m_contextitem) {
         debugPlan<<m_contextitem<<":"<<m_contextitem->type();
-        QString title = m_contextitem->text(0);
         m_viewlist->editItem(m_contextitem);
     }
 }
@@ -779,7 +778,6 @@ void ViewListWidget::setupContextMenus()
 void ViewListWidget::renameCategory()
 {
     if (m_contextitem) {
-        QString title = m_contextitem->text(0);
         m_viewlist->editItem(m_contextitem, 0);
     }
 }

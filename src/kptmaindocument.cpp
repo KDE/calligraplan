@@ -329,7 +329,6 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             updater->setProgress(5);
         }
         m_xmlLoader.setMimetype(value);
-        QString message;
         Project *newProject = new Project(m_config, false);
         KPlatoXmlLoader loader(m_xmlLoader, newProject);
         bool ok = loader.load(plan);
