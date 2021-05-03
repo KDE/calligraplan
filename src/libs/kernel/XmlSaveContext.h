@@ -169,7 +169,7 @@ public:
                 if (!requiredList.isEmpty()) {
                     QDomElement e = projectElement.ownerDocument().createElement("required-resources");
                     projectElement.appendChild(e);
-                    for (const std::pair<QString, QString> pair : qAsConst(requiredList)) {
+                    for (const std::pair<QString, QString> &pair : qAsConst(requiredList)) {
                         QDomElement re = e.ownerDocument().createElement("required-resource");
                         e.appendChild(re);
                         re.setAttribute("resource-id", pair.first);
