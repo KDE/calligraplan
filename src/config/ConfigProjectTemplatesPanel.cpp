@@ -67,7 +67,7 @@ void ConfigProjectTemplatesPanel::slotInsertClicked()
 
 void ConfigProjectTemplatesPanel::slotRemoveClicked()
 {
-    QList<QModelIndex> lst = ui.projectTemplatesView->selectionModel()->selectedRows();
+    const QList<QModelIndex> lst = ui.projectTemplatesView->selectionModel()->selectedRows();
     for (const QModelIndex &idx : lst) {
         model.removeRow(idx.row(), idx.parent());
     }

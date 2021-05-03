@@ -587,16 +587,16 @@ Q_SIGNALS:
     /// This signal is emitted when a document is changed
     void documentChanged(KPlato::Node*, KPlato::Document*, int index);
 
-    void resourceGroupChanged(ResourceGroup *group);
-    void resourceGroupToBeAdded(Project *project, ResourceGroup *parent, int row);
+    void resourceGroupChanged(KPlato::ResourceGroup *group);
+    void resourceGroupToBeAdded(KPlato::Project *project, KPlato::ResourceGroup *parent, int row);
     void resourceGroupAdded(KPlato::ResourceGroup *group);
     void resourceGroupToBeRemoved(KPlato::Project *project, KPlato::ResourceGroup *parent, int row, KPlato::ResourceGroup *group);
     void resourceGroupRemoved();
 
-    void resourceChanged(Resource *resource);
-    void resourceToBeAdded(Project *project, int row);
-    void resourceAdded(Resource *resource);
-    void resourceToBeRemoved(Project *project, int row, KPlato::Resource *resource);
+    void resourceChanged(KPlato::Resource *resource);
+    void resourceToBeAdded(KPlato::Project *project, int row);
+    void resourceAdded(KPlato::Resource *resource);
+    void resourceToBeRemoved(KPlato::Project *project, int row, KPlato::Resource *resource);
     void resourceRemoved();
 
     void scheduleManagerChanged(KPlato::ScheduleManager *sch, int property = -1);

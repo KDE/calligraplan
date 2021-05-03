@@ -67,7 +67,7 @@ void ConfigTaskModulesPanel::slotInsertClicked()
 
 void ConfigTaskModulesPanel::slotRemoveClicked()
 {
-    QList<QModelIndex> lst = ui.taskModulesView->selectionModel()->selectedRows();
+    const QList<QModelIndex> lst = ui.taskModulesView->selectionModel()->selectedRows();
     for (const QModelIndex &idx : lst) {
         model.removeRow(idx.row(), idx.parent());
     }

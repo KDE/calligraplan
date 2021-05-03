@@ -428,7 +428,8 @@ void View::slotCreateTemplate()
         if (ok) {
             // strip unused data
             Project *project = doc->project();
-            for (ScheduleManager *sm : project->scheduleManagers()) {
+            const auto scheduleManagers = project->scheduleManagers();
+            for (ScheduleManager *sm : scheduleManagers) {
                 DeleteScheduleManagerCmd c(*project, sm);
                 c.redo();
             }

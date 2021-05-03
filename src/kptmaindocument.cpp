@@ -164,7 +164,8 @@ void MainDocument::slotScheduleManagerChanged(ScheduleManager *sm, int property)
 
 void MainDocument::setCalculationNeeded()
 {
-    for (ScheduleManager *sm : m_project->allScheduleManagers()) {
+    const auto allScheduleManagers = m_project->allScheduleManagers();
+    for (ScheduleManager *sm : allScheduleManagers) {
         if (sm->isBaselined()) {
             continue;
         }
@@ -285,7 +286,8 @@ void MainDocument::setTaskModulesWatch()
 {
     delete m_taskModulesWatch;
     m_taskModulesWatch = new KDirWatch(this);
-    for (const QUrl &url : m_project->taskModules()) {
+    const auto taskModules = m_project->taskModules();
+    for (const QUrl &url : taskModules) {
         m_taskModulesWatch->addDir(url.toLocalFile());
     }
     connect(m_taskModulesWatch, &KDirWatch::dirty, this, &MainDocument::taskModuleDirChanged);

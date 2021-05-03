@@ -79,7 +79,7 @@ public Q_SLOTS:
     /// Activate/deactivate the gui
     void setGuiActive(bool activate) override;
 
-    void setProject(Project *project) override;
+    void setProject(KPlato::Project *project) override;
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void slotEditCopy() override;
 

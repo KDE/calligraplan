@@ -86,7 +86,7 @@ public:
 Q_SIGNALS:
     void addResource(KPlato::Resource *resource);
     void deleteObjectList(const QObjectList&);
-    void resourceSelected(Resource *resource);
+    void resourceSelected(KPlato::Resource *resource);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui

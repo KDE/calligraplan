@@ -240,9 +240,9 @@ public:
     Duration duration(const QList<ResourceRequest*> &lst, const DateTime &time, const Duration &_effort, Schedule *ns, bool backward);
 
 Q_SIGNALS:
-    void alternativeRequestToBeAdded(ResourceRequest *request, int row);
-    void alternativeRequestAdded(ResourceRequest *alternative);
-    void alternativeRequestToBeRemoved(ResourceRequest *request, int row, ResourceRequest *alternative);
+    void alternativeRequestToBeAdded(KPlato::ResourceRequest *request, int row);
+    void alternativeRequestAdded(KPlato::ResourceRequest *alternative);
+    void alternativeRequestToBeRemoved(KPlato::ResourceRequest *request, int row, KPlato::ResourceRequest *alternative);
     void alternativeRequestRemoved();
 
 private:

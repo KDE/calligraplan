@@ -123,8 +123,9 @@ public:
             }
         }
         if (options & SaveResources) {
-            debugPlanXml<<"resource-groups:"<<m_project->resourceGroups().count();
-            if (!m_project->resourceGroups().isEmpty()) {
+            const auto resourceGroups = m_project->resourceGroups();
+            debugPlanXml<<"resource-groups:"<<resourceGroups.count();
+            if (!resourceGroups.isEmpty()) {
                 QDomElement ge = projectElement.ownerDocument().createElement("resource-groups");
                 projectElement.appendChild(ge);
                 QListIterator<ResourceGroup*> git(m_project->resourceGroups());
@@ -132,21 +133,23 @@ public:
                     git.next()->save(ge);
                 }
             }
-            debugPlanXml<<"resources:"<<m_project->resourceList().count();
-            if (!m_project->resourceList().isEmpty()) {
+            const auto resourceList = m_project->resourceList();
+            debugPlanXml<<"resources:"<<resourceList.count();
+            if (!resourceList.isEmpty()) {
                 QDomElement re = projectElement.ownerDocument().createElement("resources");
                 projectElement.appendChild(re);
-                QListIterator<Resource*> rit(m_project->resourceList());
+                QListIterator<Resource*> rit(resourceList);
                 while (rit.hasNext()) {
                     rit.next()->save(re);
                 }
             }
             debugPlanXml<<"resource-group-relations";
-            if (!m_project->resourceList().isEmpty() && !m_project->resourceGroups().isEmpty()) {
+            if (!resourceList.isEmpty() && !resourceGroups.isEmpty()) {
                 QDomElement e = projectElement.ownerDocument().createElement("resource-group-relations");
                 projectElement.appendChild(e);
-                for (ResourceGroup *g : m_project->resourceGroups()) {
-                    for (Resource *r : g->resources()) {
+                for (const ResourceGroup *g : resourceGroups) {
+                    const QList<Resource*> resources = g->resources();
+                    for (const Resource *r : resources) {
                         QDomElement re = e.ownerDocument().createElement("resource-group-relation");
                         e.appendChild(re);
                         re.setAttribute("group-id", g->id());
@@ -155,17 +158,18 @@ public:
                 }
             }
             debugPlanXml<<"required-resources";
-            if (m_project->resourceList().count() > 1) {
+            if (resourceList.count() > 1) {
                 QList<std::pair<QString, QString> > requiredList;
-                for (Resource *resource : m_project->resourceList()) {
-                    for (const QString &required : resource->requiredIds()) {
+                for (const Resource *resource : resourceList) {
+                    const QStringList requiredIds = resource->requiredIds();
+                    for (const QString &required : requiredIds) {
                         requiredList << std::pair<QString, QString>(resource->id(), required);
                     }
                 }
                 if (!requiredList.isEmpty()) {
                     QDomElement e = projectElement.ownerDocument().createElement("required-resources");
                     projectElement.appendChild(e);
-                    for (const std::pair<QString, QString> pair : requiredList) {
+                    for (const std::pair<QString, QString> pair : qAsConst(requiredList)) {
                         QDomElement re = e.ownerDocument().createElement("required-resource");
                         e.appendChild(re);
                         re.setAttribute("resource-id", pair.first);
@@ -177,8 +181,7 @@ public:
             debugPlanXml<<"resource-teams";
             QDomElement el = projectElement.ownerDocument().createElement("resource-teams");
             projectElement.appendChild(el);
-            const auto resources = m_project->resourceList();
-            for (Resource *r : resources) {
+            for (const Resource *r : resourceList) {
                 if (r->type() != Resource::Type_Team) {
                     continue;
                 }
@@ -194,9 +197,10 @@ public:
         if (options & SaveRequests) {
             // save resource requests
             QHash<Task*, ResourceRequest*> resources;
-            for (Task *task : m_project->allTasks()) {
-                const ResourceRequestCollection &requests = task->requests();
-                for (ResourceRequest *rr : requests.resourceRequests(false)) {
+            const auto allTasks = m_project->allTasks();
+            for (Task *task : allTasks) {
+                const auto requests = task->requests().resourceRequests(false);
+                for (ResourceRequest *rr : requests) {
                     resources.insert(task, rr);
                 }
             }
@@ -217,7 +221,8 @@ public:
                     re.setAttribute("resource-id", it.value()->resource()->id());
                     re.setAttribute("units", QString::number(it.value()->units()));
                     // collect required resources
-                    for (Resource *r : it.value()->requiredResources()) {
+                    const auto requiredResources = it.value()->requiredResources();
+                    for (Resource *r : requiredResources) {
                         required.insert(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
                     }
                 }

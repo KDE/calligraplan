@@ -402,13 +402,13 @@ bool PlanTJScheduler::kplatoFromTJ()
 
     adjustSummaryTasks(m_schedule->summaryTasks());
 
-    for (Node *task : m_taskmap) {
+    for (Node *task : qAsConst(m_taskmap)) {
         calcPertValues(task);
     }
 
     m_project->calcCriticalPathList(m_schedule);
     // calculate positive float
-    for (Node* t : m_taskmap) {
+    for (Node* t : qAsConst(m_taskmap)) {
         if (! t->inCriticalPath() && t->isStartNode()) {
             calcPositiveFloat(t);
         }
@@ -838,7 +838,7 @@ void PlanTJScheduler::addDependencies(KPlato::Node *task)
 
 void PlanTJScheduler::addDependencies()
 {
-    for (Node *t : m_taskmap) {
+    for (Node *t : qAsConst(m_taskmap)) {
         addDependencies(t);
     }
 }
@@ -1006,7 +1006,8 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
             a->setLimits(l);
         }
         a->addCandidate(tjr);
-        for (ResourceRequest *alt : rr->alternativeRequests()) {
+        const auto alternativeRequests = rr->alternativeRequests();
+        for (ResourceRequest *alt : alternativeRequests()) {
             TJ::Resource *atjr = addResource(alt->resource());
             if (alt->units() != 100) {
                 TJ::UsageLimits *l = new TJ::UsageLimits();

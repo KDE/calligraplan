@@ -55,8 +55,8 @@ public:
     QList<Resource*> selectedResources() const;
 
 public Q_SLOTS:
-    void setProject(Project *project) override;
-    void setScheduleManager(ScheduleManager *sm) override;
+    void setProject(KPlato::Project *project) override;
+    void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
     void selectionChanged();
 
