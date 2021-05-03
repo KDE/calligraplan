@@ -519,7 +519,7 @@ public:
     Project *loadProjectFromUrl(const QUrl &url) const;
 
 public Q_SLOTS:
-    void setProject(Project *project);
+    void setProject(KPlato::Project *project);
     void loadTaskModules(const QStringList &files);
     void slotTaskModulesChanged(const QList<QUrl> &modules);
 

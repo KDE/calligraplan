@@ -100,7 +100,7 @@ protected Q_SLOTS:
     void slotResourceChanged(KPlato::Resource*);
     void slotResourceToBeInserted(KPlato::Project *project, int row);
     void slotResourceInserted(KPlato::Resource *resource);
-    void slotResourceToBeRemoved(KPlato::Project *project, int row, Resource *resource);
+    void slotResourceToBeRemoved(KPlato::Project *project, int row, KPlato::Resource *resource);
     void slotResourceRemoved();
 
     void slotCalendarChanged(KPlato::Calendar* cal);
