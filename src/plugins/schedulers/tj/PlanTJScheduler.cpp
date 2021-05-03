@@ -1007,7 +1007,7 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
         }
         a->addCandidate(tjr);
         const auto alternativeRequests = rr->alternativeRequests();
-        for (ResourceRequest *alt : alternativeRequests()) {
+        for (ResourceRequest *alt : alternativeRequests) {
             TJ::Resource *atjr = addResource(alt->resource());
             if (alt->units() != 100) {
                 TJ::UsageLimits *l = new TJ::UsageLimits();
