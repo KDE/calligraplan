@@ -1366,7 +1366,7 @@ void Resource::addTeamMemberId(const QString &id)
         }
         m_teamMembers.append(id);
         if (m_project) {
-            Q_EMIT teamAdded(teamMembers().last());
+            Q_EMIT teamAdded(teamMembers().constLast());
         }
     }
 }

@@ -1053,7 +1053,6 @@ QRectF KDateTableCustomDateDelegate::paint(QPainter *painter, const StyleOptionV
 
     QRectF r;
     bool paintRect=true;
-    QBrush bg(option.palette.base());
 
     if((option.state & QStyle::State_Active) == 0)
     { // we are either

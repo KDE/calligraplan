@@ -776,7 +776,6 @@ QString CostBreakdownItemModel::formatMoney(double cost1, double cost2) const
 
 QVariant CostBreakdownItemModel::data(const QModelIndex &index, int role) const
 {
-    QVariant result;
     Account *a = account(index);
     if (a == nullptr) {
         return QVariant();

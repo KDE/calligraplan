@@ -690,7 +690,6 @@ void DependencyNodeItem::setSymbol()
 
 QPointF DependencyNodeItem::connectorPoint(DependencyNodeItem::ConnectorType type) const
 {
-    QRectF r;
     if (type == Start) {
         return m_start->connectorPoint();
     }

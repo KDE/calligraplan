@@ -119,9 +119,9 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     void slotResourceGroupChanged(KPlato::ResourceGroup *group);
-    void slotResourceGroupToBeAdded(Project *project, ResourceGroup *parent, int row);
+    void slotResourceGroupToBeAdded(KPlato::Project *project, KPlato::ResourceGroup *parent, int row);
     void slotResourceGroupAdded(KPlato::ResourceGroup *group);
-    void slotResourceGroupToBeRemoved(Project *project, ResourceGroup *parent, int row, KPlato::ResourceGroup *group);
+    void slotResourceGroupToBeRemoved(KPlato::Project *project, KPlato::ResourceGroup *parent, int row, KPlato::ResourceGroup *group);
     void slotResourceGroupRemoved();
 
     void slotResourceChanged(KPlato::Resource *resource);
@@ -186,8 +186,8 @@ public:
     bool resourcesEnabled() const;
 
 public Q_SLOTS:
-    void setProject(Project *project);
-    void setResource(Resource *resource);
+    void setProject(KPlato::Project *project);
+    void setResource(KPlato::Resource *resource);
 
 protected Q_SLOTS:
     void slotResourceAdded(KPlato::ResourceGroup *group);

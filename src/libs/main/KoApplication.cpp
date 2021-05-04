@@ -166,7 +166,6 @@ BOOL isWow64()
 
 bool KoApplication::openAutosaveFile(const QDir &autosaveDir, const QString &autosaveFile)
 {
-    QString errorMsg;
     const QStringList split = autosaveFile.split('-');
     // FIXME: more generic?
     QString mimetype = split.last().endsWith(".planp") ? QStringLiteral(PLANPORTFOLIO_MIME_TYPE) : QStringLiteral(PLAN_MIME_TYPE);
@@ -209,7 +208,6 @@ bool KoApplication::start(const KoComponentData &componentData)
 
     const QStringList fileUrls = parser.positionalArguments();
     if (fileUrls.isEmpty()) {
-        const QString extension = "plan";
         QStringList filters;
         filters << QString(".%1-%2-%3-autosave%4").arg("calligraplan").arg("*").arg("*").arg("plan");
         filters << QString(".%1-%2-%3-autosave%4").arg("calligraplanportfolio").arg("*").arg("*").arg("planp");

@@ -1718,7 +1718,6 @@ bool TreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &element
                 }
             }
             for (QMap<int, int>::const_iterator it = m.constBegin(); it != m.constEnd(); ++it) {
-                QString n = e.attribute(s.arg(it.key()));
                 int current = h->visualIndex(it.value());
                 header()->moveSection(current, it.key());
             }
@@ -2646,8 +2645,6 @@ void DoubleTreeViewBase::setStretchFactors()
 bool DoubleTreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &element)
 {
     //debugPlan;
-    QList<int> lst1;
-    QList<int> lst2;
     KoXmlElement slave = element.namedItem("slave").toElement();
     if (!slave.isNull()) {
         if (slave.attribute("hidden", "false") == "true") {

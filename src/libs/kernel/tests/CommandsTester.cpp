@@ -462,18 +462,18 @@ void CommandsTester::testCalendarModifyWeekdayCmd()
     calendar1->setWeekday(1, *day1);
     QVERIFY(m_project->calendarCount() == 1);
     QVERIFY(calendar1->weekday(1)->state() == day1->state());
-    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->startTime() == day1->timeIntervals().first()->startTime());
-    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->hours() == day1->timeIntervals().first()->hours());
+    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->startTime() == day1->timeIntervals().constFirst()->startTime());
+    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->hours() == day1->timeIntervals().constFirst()->hours());
 
     CalendarModifyWeekdayCmd *cmd1 = new CalendarModifyWeekdayCmd(calendar1, 1, day2);
     cmd1->execute();
     QVERIFY(calendar1->weekday(1)->state() == day2->state());
-    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->startTime() == day2->timeIntervals().first()->startTime());
-    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->hours() == day2->timeIntervals().first()->hours());
+    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->startTime() == day2->timeIntervals().constFirst()->startTime());
+    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->hours() == day2->timeIntervals().constFirst()->hours());
     cmd1->unexecute();
     QVERIFY(calendar1->weekday(1)->state() == day1->state());
-    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->startTime() == day1->timeIntervals().first()->startTime());
-    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->hours() == day1->timeIntervals().first()->hours());
+    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->startTime() == day1->timeIntervals().constFirst()->startTime());
+    QVERIFY(calendar1->weekday(1)->timeIntervals().first()->hours() == day1->timeIntervals().constFirst()->hours());
 
     m_project->takeCalendar(calendar1);
     day1->clearIntervals();

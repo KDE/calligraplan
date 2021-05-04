@@ -3182,7 +3182,6 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     QMultiHash<Node*, QPair<ResourceRequest*, Resource*> > rreqs;
     const auto nodes2 = fromProject.allNodes();
     for (Node *n : nodes2 ) {
-        QList<ResourceRequest*> resReq;
         if (n->type() != (int)Node::Type_Task || n->requests().isEmpty()) {
             continue;
         }

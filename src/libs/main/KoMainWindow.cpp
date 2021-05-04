@@ -595,7 +595,6 @@ void KoMainWindow::addRecentURL(const QString &projectName, const QUrl &url)
     // Add entry to recent documents list
     // (call coming from KoDocument because it must work with cmd line, template dlg, file/open, etc.)
     if (!url.isEmpty()) {
-        QMimeType mime = QMimeDatabase().mimeTypeForUrl(url);
         bool ok = true;
         if (url.isLocalFile()) {
             QString path = url.adjusted(QUrl::StripTrailingSlash).toLocalFile();

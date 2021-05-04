@@ -557,8 +557,6 @@ void ScheduleLogTreeView::currentChanged(const QModelIndex & current, const QMod
 void ScheduleLogTreeView::slotEditCopy()
 {
     QStringList lst;
-//    int row = 0;
-    QString s;
     QHeaderView *h = header();
     const auto indexes = selectionModel()->selectedIndexes();
     for (const QModelIndex &i : indexes) {

@@ -112,8 +112,8 @@ QDateTime GanttModel::projectRestartTime(const KPlato::Project *project, KPlato:
             if (intervals.isEmpty()) {
                 continue;
             }
-            auto time = intervals.values(intervals.keys().first()).last().startTime();
-            qInfo()<<Q_FUNC_INFO<<time<<intervals.values(intervals.keys().first());
+            auto time = intervals.values(intervals.keys().constFirst()).constLast().startTime();
+            qInfo()<<Q_FUNC_INFO<<time<<intervals.values(intervals.keys().constFirst());
             if (!restart.isValid() || restart < time) {
                 restart = time;
             }

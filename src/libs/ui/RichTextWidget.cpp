@@ -48,12 +48,12 @@ QList<QAction*> RichTextWidget::createActions()
 QMenu *RichTextWidget::mousePopupMenu() {
     QMenu *menu = KRichTextWidget::mousePopupMenu();
     if (!currentLinkUrl().isEmpty()) {
-        menu->insertSeparator(menu->actions().first());
+        menu->insertSeparator(menu->actions().constFirst());
         QAction *a = new QAction(QIcon::fromTheme("link"), xi18nc("@action:intoolbar", "Open Link"));
         if (openLink) {
             a->setShortcut(openLink->shortcut());
         }
-        menu->insertAction(menu->actions().first(), a);
+        menu->insertAction(menu->actions().constFirst(), a);
         connect(a, &QAction::triggered, this, &RichTextWidget::slotOpenLink);
     }
     return menu;

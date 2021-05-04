@@ -392,7 +392,6 @@ void SchedulingView::calculatePert(KPlato::SchedulingContext &context)
 void SchedulingView::schedule(KoDocument *doc, QList<KoDocument*> include)
 {
     MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
-    QList<QUrl> files;
     for (KoDocument *d : include) {
         KPlato::Project *project = d->project();
         project->setProperty(SCHEDULEMANAGERNAME, d->property(SCHEDULEMANAGERNAME));

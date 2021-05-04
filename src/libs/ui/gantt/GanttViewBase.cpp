@@ -425,7 +425,6 @@ qreal GanttPrintingDialog::rowLabelsWidth(const QPaintDevice *device) const
     sceneFont.setPixelSize( fm.height() );
 
     /* row labels */
-    QVector<QGraphicsTextItem*> textLabels;
     qreal charWidth = QFontMetricsF(sceneFont).boundingRect(QString::fromLatin1("X")).width();
     const auto *summaryHandlingModel = m_gantt->graphicsView()->summaryHandlingModel();
     const auto *rowController = m_gantt->graphicsView()->rowController();
