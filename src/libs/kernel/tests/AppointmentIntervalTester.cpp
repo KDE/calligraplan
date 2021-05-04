@@ -123,7 +123,8 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt5, dt6, load);
     qDebug()<<'\n'<<lst;
 {
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt2, i.value().endTime());
@@ -145,7 +146,8 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt7, dt8, load);
     qDebug()<<'\n'<<lst;
 {
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt7, i.value().startTime());
     QCOMPARE(dt1, i.value().endTime());
@@ -171,7 +173,8 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt9, dt10, load);
     qDebug()<<'\n'<<lst;
 {
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt7, i.value().startTime());
     QCOMPARE(dt9, i.value().endTime());
@@ -202,7 +205,8 @@ void AppointmentIntervalTester::addInterval()
     qDebug()<<'\n'<<lst;
 {
     QCOMPARE(lst.map().count(), 7);
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt7, i.value().startTime());
     QCOMPARE(dt9, i.value().endTime());
@@ -244,7 +248,8 @@ void AppointmentIntervalTester::addInterval()
     qDebug()<<'\n'<<lst;
 {
     QCOMPARE(lst.map().count(), 3);
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt2, i.value().endTime());
@@ -271,7 +276,8 @@ void AppointmentIntervalTester::addInterval()
     qDebug()<<'\n'<<lst;
 {
     QCOMPARE(lst.map().count(), 4);
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt5, i.value().startTime());
     QCOMPARE(dt1, i.value().endTime());
@@ -297,7 +303,8 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt3, dt4, load);
     lst.add(dt5, dt6, load);
 {
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt5, i.value().startTime());
     QCOMPARE(dt1, i.value().endTime());
@@ -327,7 +334,8 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt3, dt4, load);
     lst.add(dt5, dt6, load);
 {
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt5, i.value().startTime());
     QCOMPARE(dt1, i.value().endTime());
@@ -357,7 +365,8 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt3, dt4, load);
     lst.add(dt5, dt6, load);
 {
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt5, i.value().endTime());
@@ -387,7 +396,8 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt3, dt4, load);
     lst.add(dt5, dt6, load);
 {
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt5, i.value().endTime());
@@ -413,7 +423,8 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt3, dt4, load);
     lst.add(dt5, dt6, load);
 {
-    QMap<QDate, AppointmentInterval>::const_iterator i(lst.map().constBegin());
+    const auto map = lst.map();
+    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt5, i.value().endTime());
