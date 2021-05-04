@@ -46,7 +46,7 @@ TjMessageHandler::warningMessage(const QString& msg, const QString& file, int
             qWarning()<<file<<":"<<line<<":"<<msg;
     }
     else
-        printWarning(msg, file, line);
+        Q_EMIT printWarning(msg, file, line);
 }
 
 void
@@ -72,7 +72,7 @@ TjMessageHandler::errorMessage(const QString& msg, const QString& file, int
             qWarning()<<file<<":"<<line<<":"<<msg;
     }
     else
-        printError(msg, file, line);
+        Q_EMIT printError(msg, file, line);
 }
 
 void
@@ -87,7 +87,7 @@ TjMessageHandler::fatalMessage(const QString& msg, const QString& file, int
             qWarning()<<file<<":"<<line<<":"<<msg;
     }
     else
-        printFatal(msg, file, line);
+        Q_EMIT printFatal(msg, file, line);
 }
 
 void
