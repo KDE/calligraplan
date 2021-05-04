@@ -389,7 +389,7 @@ bool loadTasks(const QDomElement &el, Project &project, Node *parent = nullptr)
         t->estimate()->setExpectedEstimate(Duration(cel.attribute("work", "0").toDouble(), Duration::Unit_s).toDouble());
 
         project.addSubTask(t, parent);
-        long sid = project.scheduleManagers().first()->scheduleId();
+        long sid = project.scheduleManagers().constFirst()->scheduleId();
         NodeSchedule *sch = new NodeSchedule();
         sch->setId(sid);
         sch->setNode(t);

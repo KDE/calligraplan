@@ -463,7 +463,7 @@ void ProjectTester::schedule()
     m_project->calculate(*sm);
 
     Debug::print(m_project, t, s);
-    Debug::print(m_project->resourceList().first(), s);
+    Debug::print(m_project->resourceList().constFirst(), s);
 //     Debug::printSchedulingLog(*sm, s);
 
     QVERIFY(t->lateStart() >=  t->constraintStartTime());

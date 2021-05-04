@@ -203,7 +203,8 @@ void SchedulingView::loadProjects()
 {
     MainDocument *main = qobject_cast<MainDocument*>(koDocument());
     QList<QUrl> urls;
-    for (KoDocument *document : main->documents()) {
+    const auto documents = main->documents();
+    for (KoDocument *document : documents) {
         KPlato::Project *project = document->project();
         QUrl url = project->sharedProjectsUrl();
         if (!urls.contains(url)) {
