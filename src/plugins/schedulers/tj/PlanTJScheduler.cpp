@@ -671,11 +671,12 @@ TJ::Resource *PlanTJScheduler::addResource(KPlato::Resource *r)
         m_resourceIds.insert(r->id(), r);
         resource = r;
     }
-    if (m_resourcemap.values().contains(resource)) {
+    TJ::Resource *res = m_resourcemap.key(resource);
+    if (res) {
         debugPlan<<r->name()<<"already exist";
-        return m_resourcemap.key(resource);
+        return res;
     }
-    TJ::Resource *res = new TJ::Resource(m_tjProject, resource->id(), resource->name(), nullptr);
+    res = new TJ::Resource(m_tjProject, resource->id(), resource->name(), nullptr);
     if (resource->type() == Resource::Type_Material) {
         res->setEfficiency(0.0);
     } else {
