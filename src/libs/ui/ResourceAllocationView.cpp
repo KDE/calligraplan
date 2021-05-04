@@ -71,7 +71,7 @@ void ResourceAllocationView::setSelectedTasks(const QItemSelection &selected, co
             m_tasks.removeAt(m_tasks.indexOf(idx));
         }
     }
-    QModelIndexList tasks = selected.indexes();
+    const QModelIndexList tasks = selected.indexes();
     if (tasks.isEmpty()) {
         return;
     }
@@ -121,7 +121,7 @@ void ResourceAllocationView::slotAllocate()
     if (lst.isEmpty()) {
         return;
     }
-    QList<Resource*> resources = selectedResources();
+    const QList<Resource*> resources = selectedResources();
     if (resources.isEmpty()) {
         return;
     }

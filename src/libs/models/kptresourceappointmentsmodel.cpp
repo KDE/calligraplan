@@ -578,7 +578,7 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, const QDate &
                 }
             }
             if (m_showExternal) {
-                QList<Appointment*> lst = res->externalAppointmentList();
+                const QList<Appointment*> lst = res->externalAppointmentList();
                 for (Appointment *a : lst) {
                     if (m_externalEffortMap.contains(a)) {
                         d += m_externalEffortMap[ a ].effortOnDate(date);
@@ -1209,7 +1209,8 @@ void ResourceAppointmentsRowModel::setProject(Project *project)
         disconnect(m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceToBeRemoved);
         disconnect(m_project, &Project::resourceRemoved, this, &ResourceAppointmentsRowModel::slotResourceRemoved);
 
-        for (Resource *r : m_project->resourceList()) {
+        const auto resourceList = m_project->resourceList();
+        for (Resource *r : resourceList) {
             connectSignals(r, false);
         }
     }
@@ -1223,7 +1224,8 @@ void ResourceAppointmentsRowModel::setProject(Project *project)
         connect(m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsRowModel::slotResourceToBeRemoved);
         connect(m_project, &Project::resourceRemoved, this, &ResourceAppointmentsRowModel::slotResourceRemoved);
 
-        for (Resource *r : m_project->resourceList()) {
+        const auto resourceList = m_project->resourceList();
+        for (Resource *r : resourceList) {
             connectSignals(r, true);
         }
     }

@@ -962,7 +962,8 @@ void addInOrder(RNGItemList& undefined, RNGItemList& defined)
         for (int i = 0; i < undefined.size(); ++i) {
             const RNGItemPtr& ii = undefined[i];
             bool missingDependency = false;
-            for (const RNGItemPtr& j : list(ii->allowedItems)) {
+            const auto items = list(ii->allowedItems);
+            for (const RNGItemPtr& j : items) {
                 if (j->isDefine() && !defined.contains(j) && j != ii) {
                     if (undefined.contains(j)) {
                         missingDependency = true;
@@ -1005,7 +1006,8 @@ RequiredArgsList makeRequiredArgsList(const RNGItemPtr& item)
 {
     RequiredArgsList r;
     r.length = 0;
-    for (RNGItemPtr i : list(item->requiredItems)) {
+    const auto items = list(item->requiredItems);
+    for (RNGItemPtr i : items) {
         if (i->isAttribute() && i->singleConstant().isNull()) {
             QString name = makeCppName(i);
             QString type = i->singleType();
@@ -1074,7 +1076,8 @@ void setRequiredAttributes(QTextStream& out, const RNGItemPtr& item)
     if (!item->isElement()) {
         o = "xml.";
     }
-    for (RNGItemPtr i : list(item->requiredItems)) {
+    const auto items = list(item->requiredItems);
+    for (RNGItemPtr i : items) {
         if (i->isAttribute()) {
             out << "        " << o << "addAttribute(\"" + i->name() + "\", ";
             QString constant = i->singleConstant();
@@ -1132,7 +1135,8 @@ void defineElement(QTextStream& out, const RNGItemPtr& item)
     out << "    }\n";
     QSet<QString> doneA;
     QSet<QString> doneE;
-    for (RNGItemPtr i : list(item->allowedItems)) {
+    const auto items = list(item->allowedItems);
+    for (RNGItemPtr i : items) {
         QString name = makeCppName(i);
         if (i->isAttribute() && !item->requiredItems.contains(i) && !doneA.contains(name)) {
             QString type = i->singleType();
@@ -1203,7 +1207,8 @@ void defineGroup(QTextStream& out, const RNGItemPtr& item)
         out << "xml(x) {}\n";
     }
     QSet<QString> done;
-    for (RNGItemPtr i : list(item->allowedItems)) {
+    const auto items = list(item->allowedItems);
+    for (RNGItemPtr i : items) {
         QString name = makeCppName(i);
         // also allow setting of required elements, because the might need to be
         // set in elements where the group is optional
@@ -1265,7 +1270,8 @@ void writeAdderDefinition(const RNGItemPtr& item, const RNGItemPtr& i, QTextStre
 void writeAdderDefinitions(const RNGItemPtr& item, Files& files)
 {
     QSet<QString> done;
-    for (RNGItemPtr i : list(item->allowedItems)) {
+    const auto items = list(item->allowedItems);
+    for (RNGItemPtr i : items) {
         QString name = makeCppName(i);
         if (i->isElement() && !done.contains(name)) {
             QString tag1 = (item->isElement()) ?item->name() :QString();

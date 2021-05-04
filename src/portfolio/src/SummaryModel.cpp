@@ -64,7 +64,8 @@ void SummaryModel::slotUpdateChartModel()
 {
     Q_ASSERT(portfolio());
     beginResetModel();
-    for (KoDocument *doc : portfolio()->documents()) {
+    const auto documents = portfolio()->documents();
+    for (KoDocument *doc : documents) {
         KPlato::Project *project = doc->project();
         KPlato::ChartItemModel *m = m_performanceModels.value(doc);
         if (!m) {

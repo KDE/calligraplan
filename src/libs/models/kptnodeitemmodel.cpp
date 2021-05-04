@@ -3582,9 +3582,9 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
             KUndo2Command *cc = nullptr;
 
             QStringList res = m_project->resourceNameList();
-            QStringList req = node->requestNameList();
+            const QStringList req = node->requestNameList();
             QStringList alloc;
-            QStringList allocations = value.toString().split(QRegExp(" *, *"), Qt::SkipEmptyParts);
+            const QStringList allocations = value.toString().split(QRegExp(" *, *"), Qt::SkipEmptyParts);
             for (const QString &s : allocations) {
                 alloc << s.trimmed();
             }
@@ -3604,7 +3604,7 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
                 }
             }
             // Handle new requests
-            for (const QString &s : alloc) {
+            for (const QString &s : qAsConst(alloc)) {
                 // if an allocation is not in req, it must be added
                 if (!req.contains(s)) {
                     Resource *r = m_project->resourceByName(s);
@@ -3944,7 +3944,7 @@ bool NodeItemModel::dropAllowed(Node *on, const QMimeData *data)
             }
         }
         lst = removeChildNodes(lst);
-        for (Node *n : lst) {
+        for (Node *n : qAsConst(lst)) {
             if (! m_project->canMoveTask(n, on)) {
                 return false;
             }
@@ -4145,7 +4145,7 @@ bool NodeItemModel::importProjectFile(const QUrl &url, Qt::DropAction /*action*/
 KUndo2Command *NodeItemModel::createAllocationCommand(Task &task, const QList<Resource*> &lst)
 {
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Modify resource allocations"));
-    QList<Resource*> resources = task.requestedResources();
+    const QList<Resource*> resources = task.requestedResources();
     for (Resource *r : lst) {
         if (resources.contains(r)) {
             continue;
@@ -5287,7 +5287,7 @@ QMimeData* TaskModuleModel::mimeData(const QModelIndexList &lst) const
 
 void TaskModuleModel::stripProject(Project *project) const
 {
-    QList<ScheduleManager*> managers = project->scheduleManagers();
+    const QList<ScheduleManager*> managers = project->scheduleManagers();
     for (ScheduleManager *sm : managers) {
         DeleteScheduleManagerCmd c(*project, sm);
     }
@@ -5314,7 +5314,7 @@ void TaskModuleModel::slotTaskModulesChanged(const QList<QUrl> &modules)
     endResetModel();
     for (const QUrl &url : modules) {
         QDir dir(url.toLocalFile());
-        QStringList files = dir.entryList(QStringList() << "*.plan", QDir::Files);
+        const QStringList files = dir.entryList(QStringList() << "*.plan", QDir::Files);
         for (const QString &file : files) {
             QUrl u = QUrl::fromLocalFile(dir.path() + '/' + file);
             importProject(u, false);

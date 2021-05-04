@@ -99,7 +99,7 @@ Resource::~Resource() {
     if (cost.account) {
         cost.account->removeRunning(*this);
     }
-    for (ResourceGroup *g : m_parents) {
+    for (ResourceGroup *g : qAsConst(m_parents)) {
         g->takeResource(this);
     }
 }

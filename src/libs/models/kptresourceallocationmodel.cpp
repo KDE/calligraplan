@@ -486,7 +486,8 @@ QVariant ResourceAllocationModel::alternative(const Resource *res, int role) con
             if (m_task) {
                 ResourceRequest *rr = m_task->requests().find(res);
                 if (rr) {
-                    for (ResourceRequest *r : rr->alternativeRequests()) {
+                    const auto alternativeRequests = rr->alternativeRequests();
+                    for (ResourceRequest *r : alternativeRequests) {
                         lst << r->resource()->name();
                     }
                 }
@@ -661,7 +662,8 @@ void ResourceAllocationItemModel::filldata(Task *task)
     m_resourceCache.clear();
     m_requiredChecked.clear();
     if (m_project && task) {
-        for (ResourceRequest *rr : task->requests().resourceRequests()) {
+        const auto resourceRequests = task->requests().resourceRequests();
+        for (ResourceRequest *rr : resourceRequests) {
             const Resource *r = rr->resource();
             m_resourceCache[r] = new ResourceRequest(*rr);
             if (!m_resourceCache[r]->requiredResources().isEmpty()) {
@@ -956,7 +958,8 @@ QVariant ResourceAllocationItemModel::alternative(const QModelIndex &idx, int ro
             if (m_alternativeChecked[res] == Qt::Checked) {
                 ResourceRequest *rr = m_resourceCache.value(res);
                 if (rr) {
-                    for (ResourceRequest *r : rr->alternativeRequests()) {
+                        const auto alternativeRequests = rr->alternativeRequests();
+                        for (ResourceRequest *r : alternativeRequests) {
                         lst << r->resource()->name();
                     }
                 }
@@ -1007,7 +1010,8 @@ bool ResourceAllocationItemModel::removeAlternativeRequest(Resource *resource, R
     }
     ResourceRequest *request = m_resourceCache[resource];
     ResourceRequest *alt = nullptr;
-    for (ResourceRequest *rr : request->alternativeRequests()) {
+    const auto alternativeRequests = request->alternativeRequests();
+    for (ResourceRequest *rr : alternativeRequests) {
         if (rr->resource() == alternative) {
             alt = rr;
             break;
@@ -1026,7 +1030,8 @@ ResourceRequest *ResourceAllocationItemModel::alternativeRequest(Resource *resou
         return nullptr;
     }
     ResourceRequest *request = m_resourceCache[resource];
-    for (ResourceRequest *rr : request->alternativeRequests()) {
+    const auto alternativeRequests = request->alternativeRequests();
+    for (ResourceRequest *rr : alternativeRequests) {
         if (rr->resource() == alternative) {
             return rr;
         }

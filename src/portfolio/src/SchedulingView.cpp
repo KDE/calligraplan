@@ -113,8 +113,9 @@ void SchedulingView::updateSchedulingProperties()
     ui.schedulingProperties->setEnabled(true);
     ui.schedulersCombo->clear();
     const QMap<QString, KPlato::SchedulerPlugin*> plugins = portfolio->schedulerPlugins();
-    for (const QString &name : plugins.keys()) {
-        ui.schedulersCombo->addItem(name);
+    QMap<QString, KPlato::SchedulerPlugin*>::const_iterator it;
+    for (it = plugins.constBegin(); it != plugins.constEnd(); ++it) {
+        ui.schedulersCombo->addItem(it.key());
     }
 }
 

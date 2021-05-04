@@ -144,7 +144,7 @@ Project::~Project()
         g->blockChanged();
     }
     delete m_standardWorktime;
-    for (Resource *r : m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         delete r;
     }
     while (!m_resourceGroups.isEmpty())
@@ -1053,7 +1053,7 @@ void Project::initiateCalculation(MainSchedule &sch)
     while (git.hasNext()) {
         git.next() ->initiateCalculation(sch);
     }
-    for (Resource *r : m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         r->initiateCalculation(sch);
     }
 
@@ -1222,8 +1222,9 @@ bool Project::load(KoXmlElement &projectElement, XMLLoaderObject &status)
                 }
             }
         }
-        for (ResourceGroup *g : m_resourceGroups) {
-            for (Resource *r : g->resources()) {
+        for (ResourceGroup *g : qAsConst(m_resourceGroups)) {
+            const auto resources = g->resources();
+            for (Resource *r : resources) {
                 addResource(r);
             }
         }
@@ -1753,7 +1754,8 @@ void Project::saveSettings(QDomElement &element, const XmlSaveContext &context) 
     QDomElement tm = settingsElement.ownerDocument().createElement("task-modules");
     settingsElement.appendChild(tm);
     tm.setAttribute("use-local-task-modules", m_useLocalTaskModules);
-    for (const QUrl &url : taskModules(false/*no local*/)) {
+    const auto modules = taskModules(false/*no local*/);
+    for (const QUrl &url : modules) {
         QDomElement e = tm.ownerDocument().createElement("task-module");
         tm.appendChild(e);
         e.setAttribute("url", url.toString());
@@ -1822,8 +1824,9 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         if (!m_resources.isEmpty() && !m_resourceGroups.isEmpty()) {
             QDomElement e = me.ownerDocument().createElement("resource-group-relations");
             me.appendChild(e);
-            for (ResourceGroup *g : m_resourceGroups) {
-                for (Resource *r : g->resources()) {
+            for (ResourceGroup *g : qAsConst(m_resourceGroups)) {
+                const auto resources = g->resources();
+                for (Resource *r : resources) {
                     QDomElement re = e.ownerDocument().createElement("resource-group-relation");
                     e.appendChild(re);
                     re.setAttribute("group-id", g->id());
@@ -1834,15 +1837,16 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         debugPlanXml<<"required-resources";
         if (m_resources.count() > 1) {
             QList<std::pair<QString, QString> > requiredList;
-            for (Resource *resource : m_resources) {
-                for (const QString &required : resource->requiredIds()) {
+            for (Resource *resource : qAsConst(m_resources)) {
+                const auto requiredIds = resource->requiredIds();
+                for (const QString &required : requiredIds) {
                     requiredList << std::pair<QString, QString>(resource->id(), required);
                 }
             }
             if (!requiredList.isEmpty()) {
                 QDomElement e = me.ownerDocument().createElement("required-resources");
                 me.appendChild(e);
-                for (const std::pair<QString, QString> pair : requiredList) {
+                for (const std::pair<QString, QString> &pair : qAsConst(requiredList)) {
                     QDomElement re = e.ownerDocument().createElement("required-resource");
                     e.appendChild(re);
                     re.setAttribute("resource-id", pair.first);
@@ -1877,7 +1881,7 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         if (!externals.isEmpty()) {
             QDomElement e = me.ownerDocument().createElement("external-appointments");
             me.appendChild(e);
-            for (Resource *resource : externals) {
+            for (Resource *resource : qAsConst(externals)) {
                 const QMap<QString, QString> projects = resource->externalProjects();
                 QMap<QString, QString>::const_iterator it;
                 for (it = projects.constBegin(); it != projects.constEnd(); ++it) {
@@ -1920,9 +1924,10 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         }
         // save resource requests
         QMultiHash<Task*, ResourceRequest*> resources;
-        for (Task *task : allTasks()) {
-            const ResourceRequestCollection &requests = task->requests();
-            for (ResourceRequest *rr : requests.resourceRequests(false)) {
+        const auto tasks = allTasks();
+        for (Task *task : tasks) {
+            const auto requests = task->requests().resourceRequests(false);
+            for (ResourceRequest *rr : requests) {
                 resources.insert(task, rr);
             }
         }
@@ -1944,10 +1949,12 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
                 re.setAttribute("resource-id", it.value()->resource()->id());
                 re.setAttribute("units", QString::number(it.value()->units()));
                 // collect required resources and alternative requests
-                for (Resource *r : it.value()->requiredResources()) {
+                const auto requiredResources = it.value()->requiredResources();
+                for (Resource *r : requiredResources) {
                     required.insert(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
                 }
-                for (ResourceRequest *r : it.value()->alternativeRequests()) {
+                const auto altRequests = it.value()->alternativeRequests();
+                for (ResourceRequest *r : altRequests) {
                     alternativeRequests.insert(it.key(), std::pair<ResourceRequest*, ResourceRequest*>(it.value(), r));
                 }
             }
@@ -2054,7 +2061,8 @@ void Project::takeResourceGroup(ResourceGroup *group)
     if (parent) {
         removeResourceGroupId(group->id(), group);
         parent->removeChildGroup(group);
-        for (Resource *r : group->resources()) {
+        const auto resources = group->resources();
+        for (Resource *r : resources) {
             r->removeParentGroup(group);
         }
     } else {
@@ -2087,7 +2095,8 @@ void Project::removeResourceGroupId(const QString &id, ResourceGroup *group)
         resourceGroupIdDict.remove(id);
     }
     if (group) {
-        for (ResourceGroup *g : group->childGroups()) {
+        const auto  childGroups = group->childGroups();
+        for (ResourceGroup *g : childGroups) {
             removeResourceGroupId(g->id(), g);
         }
     }
@@ -2097,7 +2106,8 @@ void Project::removeResourceGroupId(const QString &id, ResourceGroup *group)
 void Project::insertResourceGroupId(const QString &id, ResourceGroup* group)
 {
     resourceGroupIdDict.insert(id, group);
-    for (ResourceGroup *g : group->childGroups()) {
+    const auto  childGroups = group->childGroups();
+    for (ResourceGroup *g : childGroups) {
         insertResourceGroupId(g->id(), g);
     }
 }
@@ -2124,7 +2134,8 @@ bool Project::takeResource(Resource *resource)
         warnPlan << "Could not remove resource with id" << resource->id();
     }
     resource->removeRequests(); // not valid anymore
-    for (ResourceGroup *g : resource->parentGroups()) {
+    const auto parentGroups = resource->parentGroups();
+    for (ResourceGroup *g : parentGroups) {
         g->takeResource(resource);
     }
     bool rem = m_resources.removeOne(resource);
@@ -3214,7 +3225,7 @@ void Project::setCurrentSchedule(long id)
     //debugPlan;
     setCurrentSchedulePtr(findSchedule(id));
     Node::setCurrentSchedule(id);
-    for (Resource *r : m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         r->setCurrentSchedule(id);
     }
     Q_EMIT currentScheduleChanged();

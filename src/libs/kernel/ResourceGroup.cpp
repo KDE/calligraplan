@@ -73,7 +73,7 @@ ResourceGroup::~ResourceGroup() {
     } else if (m_project) {
         m_project->takeResourceGroup(this); // also removes id
     }
-    for (Resource *r : m_resources) {
+    for (Resource *r : qAsConst(m_resources)) {
         r->removeParentGroup(this);
     }
     qDeleteAll(m_childGroups);

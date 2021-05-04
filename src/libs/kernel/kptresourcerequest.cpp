@@ -296,7 +296,8 @@ Duration ResourceRequest::effort(const DateTime &time, const Duration &duration,
 {
     Duration e;
     if (m_resource->type() == Resource::Type_Team) {
-        for (ResourceRequest *rr : teamMembers()) {
+        const auto members = teamMembers();
+        for (ResourceRequest *rr : members) {
             e += rr->effort(time, duration, ns, backward);
         }
     } else {
@@ -378,7 +379,7 @@ QList<ResourceRequest*> ResourceRequest::alternativeRequests() const
 
 void ResourceRequest::setAlternativeRequests(const QList<ResourceRequest*> requests)
 {
-    for (ResourceRequest *r : m_alternativeRequests) {
+    for (ResourceRequest *r : qAsConst(m_alternativeRequests)) {
         removeAlternativeRequest(r);
     }
     for (ResourceRequest *r : requests) {
@@ -442,7 +443,7 @@ ResourceRequestCollection::ResourceRequestCollection(Task *task)
 ResourceRequestCollection::~ResourceRequestCollection()
 {
     //debugPlan<<this;
-    for (ResourceRequest *r : m_resourceRequests) {
+    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
         r->setCollection(nullptr);
     }
     qDeleteAll(m_resourceRequests); // removes themselves from possible group
@@ -631,7 +632,7 @@ DateTime ResourceRequestCollection::workTimeBefore(const DateTime &time, Schedul
 DateTime ResourceRequestCollection::availableAfter(const DateTime &time, Schedule *ns) {
     DateTime start;
     // TODO: Alternatives
-    for (ResourceRequest *r : m_resourceRequests) {
+    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
         DateTime t = r->availableAfter(time, ns);
         if (t.isValid() && (!start.isValid() || t < start))
             start = t;
@@ -645,7 +646,7 @@ DateTime ResourceRequestCollection::availableAfter(const DateTime &time, Schedul
 DateTime ResourceRequestCollection::availableBefore(const DateTime &time, Schedule *ns) {
     DateTime end;
     // TODO: Alternatives
-    for (ResourceRequest *r : m_resourceRequests) {
+    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
         DateTime t = r->availableBefore(time, ns);
         if (t.isValid() && (!end.isValid() ||t > end))
             end = t;
@@ -658,7 +659,7 @@ DateTime ResourceRequestCollection::availableBefore(const DateTime &time, Schedu
 DateTime ResourceRequestCollection::workStartAfter(const DateTime &time, Schedule *ns) {
     DateTime start;
     // TODO: Alternatives
-    for (ResourceRequest *r : m_resourceRequests) {
+    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
         if (r->resource()->type() != Resource::Type_Work) {
             continue;
         }
@@ -675,7 +676,7 @@ DateTime ResourceRequestCollection::workStartAfter(const DateTime &time, Schedul
 DateTime ResourceRequestCollection::workFinishBefore(const DateTime &time, Schedule *ns) {
     DateTime end;
     // TODO: Alternatives
-    for (ResourceRequest *r : m_resourceRequests) {
+    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
         if (r->resource()->type() != Resource::Type_Work) {
             continue;
         }
@@ -692,7 +693,7 @@ DateTime ResourceRequestCollection::workFinishBefore(const DateTime &time, Sched
 void ResourceRequestCollection::makeAppointments(Schedule *schedule) {
     //debugPlan;
     // TODO: Alternatives
-    for (ResourceRequest *r : m_resourceRequests) {
+    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
         r->makeAppointment(schedule);
     }
 }
@@ -700,7 +701,7 @@ void ResourceRequestCollection::makeAppointments(Schedule *schedule) {
 void ResourceRequestCollection::reserve(const DateTime &start, const Duration &duration) {
     //debugPlan;
     // TODO: Alternatives
-    for (ResourceRequest *r : m_resourceRequests) {
+    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
 //         r->reserve(start, duration); //FIXME
     }
 }

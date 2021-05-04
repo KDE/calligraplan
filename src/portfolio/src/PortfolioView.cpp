@@ -97,7 +97,7 @@ void PortfolioView::selectionChanged(const QItemSelection &selected, const QItem
 
 void PortfolioView::slotAddProject()
 {
-    QList<QUrl> urls = QFileDialog::getOpenFileUrls(nullptr, i18n("Add Project"), QUrl(), "Plan (*.plan)");
+    const QList<QUrl> urls = QFileDialog::getOpenFileUrls(nullptr, i18n("Add Project"), QUrl(), "Plan (*.plan)");
     for (const QUrl &url : urls) {
         loadProject(url);
     }
@@ -116,7 +116,8 @@ void PortfolioView::slotRemoveSelected()
 {
     PortfolioModel *m = qobject_cast<PortfolioModel*>(m_view->model());
     QList<KoDocument*> docs;
-    for (const QModelIndex &idx : m_view->selectionModel()->selectedRows()) {
+    const auto selectedRows = m_view->selectionModel()->selectedRows();
+    for (const QModelIndex &idx : selectedRows) {
         KoDocument *doc = m->documentFromIndex(idx);
         if (doc) {
             docs << doc;

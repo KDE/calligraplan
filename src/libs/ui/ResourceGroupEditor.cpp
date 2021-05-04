@@ -110,7 +110,8 @@ QObject *ResourceGroupTreeView::currentObject() const
 QList<QObject*> ResourceGroupTreeView::selectedObjects() const
 {
     QList<QObject*> lst;
-    for (ResourceGroup *g : selectedGroups()) {
+    const auto groups = selectedGroups();
+    for (ResourceGroup *g : groups) {
         lst << g;
     }
     return lst;
@@ -120,7 +121,8 @@ QList<ResourceGroup*> ResourceGroupTreeView::selectedGroups() const
 {
     QList<ResourceGroup*> gl;
     const ResourceGroupItemModel *m = model();
-    for (const QModelIndex &i : selectionModel()->selectedRows()) {
+    const auto selectedRows = selectionModel()->selectedRows();
+    for (const QModelIndex &i : selectedRows) {
         ResourceGroup *g = m->group(i);
         if (g) {
             gl << g;
@@ -133,7 +135,8 @@ QList<Resource*> ResourceGroupTreeView::selectedResources() const
 {
     QList<Resource*> rl;
     const ResourceGroupItemModel *m = model();
-    for (const QModelIndex &i : selectionModel()->selectedRows()) {
+    const auto selectedRows = selectionModel()->selectedRows();
+    for (const QModelIndex &i : selectedRows) {
         Resource *r = m->resource(i);
         if (r) {
             rl << r;

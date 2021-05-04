@@ -319,7 +319,7 @@ KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFil
     //TODO: schedule selection dialog
     long id = ANYSCHEDULED;
     bool baselined = project.isBaselined(id);
-    QList<ScheduleManager*> lst = project.allScheduleManagers();
+    const QList<ScheduleManager*> lst = project.allScheduleManagers();
     for (const ScheduleManager *m : lst) {
         if (! baselined) {
             id = lst.last()->scheduleId();

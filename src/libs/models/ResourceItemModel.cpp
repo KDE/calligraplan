@@ -183,7 +183,8 @@ void ResourceItemModel::setProject(Project *project)
         disconnect(m_project, &Project::resourceToBeRemoved, this, &ResourceItemModel::slotResourceToBeRemoved);
         disconnect(m_project, &Project::resourceRemoved, this, &ResourceItemModel::slotResourceRemoved);
 
-        for (Resource *r : m_project->resourceList()) {
+        const auto resourceList =  m_project->resourceList();
+        for (Resource *r : resourceList) {
             connectSignals(r, false);
         }
     }
@@ -199,7 +200,8 @@ void ResourceItemModel::setProject(Project *project)
         connect(m_project, &Project::resourceToBeRemoved, this, &ResourceItemModel::slotResourceToBeRemoved);
         connect(m_project, &Project::resourceRemoved, this, &ResourceItemModel::slotResourceRemoved);
 
-        for (Resource *r : m_project->resourceList()) {
+        const auto resourceList = m_project->resourceList();
+        for (Resource *r : resourceList) {
             connectSignals(r, true);
         }
     }
@@ -230,7 +232,8 @@ void ResourceItemModel::connectSignals(Resource *resource, bool enable)
         disconnect(resource, &Resource::teamToBeRemoved, this, &ResourceItemModel::slotResourceTeamToBeRemoved);
         disconnect(resource, &Resource::teamRemoved, this, &ResourceItemModel::slotResourceTeamRemoved);
     }
-    for (ResourceGroup *g : resource->parentGroups()) {
+    const auto parentGroups = resource->parentGroups();
+    for (ResourceGroup *g : parentGroups) {
         connectSignals(g, enable);
     }
 }
@@ -735,7 +738,8 @@ void ResourceItemModel::slotResourceChanged(Resource *resource)
         if (m_groupsEnabled) {
             offset = resource->groupCount();
         }
-        for (Resource *r : m_project->resourceList()) {
+        const auto resourceList = m_project->resourceList();
+        for (Resource *r : resourceList) {
             if (r->type() == Resource::Type_Team && r->teamMembers().contains(resource)) {
                 int row = r->teamMembers().indexOf(resource) + offset;
                 Q_EMIT dataChanged(createIndex(row, 0, resource), createIndex(row, columnCount() - 1, resource));
@@ -746,7 +750,8 @@ void ResourceItemModel::slotResourceChanged(Resource *resource)
 
 void ResourceItemModel::slotResourceGroupChanged(ResourceGroup *group)
 {
-    for (Resource *r : group->resources()) {
+    const auto resourceList = group->resources();
+    for (Resource *r : resourceList) {
         int row = r->groupIndexOf(group);
         Q_EMIT dataChanged(createIndex(row, 0, r), createIndex(row, columnCount() - 1, r));
     }

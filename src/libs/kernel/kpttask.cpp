@@ -225,7 +225,8 @@ void Task::copyAppointments(const DateTime &start, const DateTime &end, qreal fa
             continue;
         }
         AppointmentIntervalList lst;
-        for (AppointmentInterval i : a->intervals(st, et).map()) {
+        const auto intervals = a->intervals(st, et).map();
+        for (AppointmentInterval i : intervals) {
             i.setLoad(i.load() * factor);
             lst.add(i);
         }
@@ -384,15 +385,17 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                 QList<ResourceRequest*> groupRequests;
                 int numRequests = e.attribute("units").toInt();
                 for (int i = 0; i < numRequests; ++i) {
-                    for (Resource *r : group->resources()) {
+                    const auto resources = group->resources();
+                    for (Resource *r : resources) {
                         if (!m_requests.find(r)) {
                             groupRequests << new ResourceRequest(r, 100);
                             m_requests.addResourceRequest(groupRequests.last());
                         }
                     }
                 }
-                for (ResourceRequest *rr : groupRequests) {
-                    for (Resource *r : group->resources()) {
+                for (ResourceRequest *rr : qAsConst(groupRequests)) {
+                    const auto resources = group->resources();
+                    for (Resource *r : resources) {
                         if (!m_requests.find(r)) {
                             rr->addAlternativeRequest(new ResourceRequest(r));
                         }

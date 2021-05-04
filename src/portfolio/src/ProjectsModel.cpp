@@ -230,14 +230,16 @@ QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
                     return QVariant();
                 case KPlato::Role::EnumList: {
                     QStringList lst;
-                    for (const KPlato::ScheduleManager *sm : project->allScheduleManagers()) {
+                    const auto allScheduleManagers = project->allScheduleManagers();
+                    for (const KPlato::ScheduleManager *sm : allScheduleManagers) {
                         lst << sm->name();
                     }
                     return lst;
                 }
                 case KPlato::Role::EnumListValue: {
                     QStringList lst;
-                    for (const KPlato::ScheduleManager *sm : project->allScheduleManagers()) {
+                    const auto allScheduleManagers = project->allScheduleManagers();
+                    for (const KPlato::ScheduleManager *sm : allScheduleManagers) {
                         lst << sm->name();
                     }
                     return lst.indexOf(doc->property(SCHEDULEMANAGERNAME).toString());
@@ -326,7 +328,7 @@ bool ProjectsModel::removeRows(int row, int count, const QModelIndex &parent)
         return false;
     }
     beginResetModel();
-    for (KoDocument *doc : docs) {
+    for (KoDocument *doc : qAsConst(docs)) {
         doc->setParent(nullptr);
     }
     endResetModel();

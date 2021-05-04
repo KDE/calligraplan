@@ -106,13 +106,15 @@ void print(ResourceGroup *group, bool full = true, const QString indent = QStrin
     qDebug()<<indent<<group->name()<<"id:"<<group->id()<<"parent:"<<group->parentGroup();
     qDebug()<<(indent+"  ")<<"Resources:"<<group->numResources();
     if (full) {
-        for (Resource *r : group->resources()) {
+        const auto resources = group->resources();
+        for (Resource *r : resources) {
             qDebug()<<(indent+"    ")<<r->name()<<r->id();
         }
     }
     qDebug()<<(indent+"  ")<<"Resource groups:"<<group->numChildGroups();
     if (full) {
-        for (ResourceGroup *g : group->childGroups()) {
+        const auto childGroups = group->childGroups();
+        for (ResourceGroup *g : childGroups) {
             print(g, true, indent + "   ");
         }
     }
@@ -127,7 +129,8 @@ static
 void print(Resource *r, const QString &str, bool full = true) {
     qDebug()<<"Debug info: Resource"<<r->name()<<"id:"<<r->id()<<(void*)r<<str;
     qDebug()<<"  Parent groups:"<<r->parentGroups().count();
-    for (ResourceGroup *g : r->parentGroups()) {
+    const auto parentGroups = r->parentGroups();
+    for (ResourceGroup *g : parentGroups) {
         qDebug()<<"    "<<g->name() + " Type: " + g->type() << "id:"<<g->id();
     }
     qDebug()<<"  Available:"
@@ -171,11 +174,12 @@ void print(Resource *r, const QString &str, bool full = true) {
             print(cal, "    Resource calendar");
         }
     }
-    if (r->requiredResources().isEmpty()) {
+    const auto reqs = r->requiredResources();
+    if (reqs.isEmpty()) {
         qDebug()<<"  No required resources";
     } else {
-        qDebug()<<"  Required resources:"<<r->requiredResources().count()<<'('<<r->requiredIds().count()<<')';
-        for (Resource *req : r->requiredResources()) {
+        qDebug()<<"  Required resources:"<<reqs.count()<<'('<<r->requiredIds().count()<<')';
+        for (Resource *req : reqs) {
             qDebug()<<"  "<<req->name()<<req->type()<<req->id()<<(void*)req<<req->requiredIds().contains(req->id());
         }
     }
@@ -206,13 +210,15 @@ void print(Project *p, const QString &str, bool all = false) {
         return;
     }
     qDebug()<<"  "<<"Resource groups:"<<p->resourceGroupCount();
-    for (ResourceGroup *g : p->resourceGroups()) {
+    const auto resourceGroups = p->resourceGroups();
+    for (ResourceGroup *g : resourceGroups) {
         print(g, true, "  ");
     }
-    if (p->resourceList().isEmpty()) {
+    const auto resourceList = p->resourceList();
+    if (resourceList.isEmpty()) {
         qDebug()<<"  No resources";
     } else {
-        for (Resource *r : p->resourceList()) {
+        for (Resource *r : resourceList) {
             qDebug();
             print(r, "", true);
         }
@@ -270,8 +276,9 @@ void print(Task *t, bool full = true) {
                 ? (t->estimate()->calendar()?t->estimate()->calendar()->name():"Fixed")
                 : QString("%1 h").arg(t->estimate()->expectedValue().toDouble(Duration::Unit_h)));
 
-    qDebug()<<pad<<"Requests:"<<"resources:"<<t->requests().resourceRequests().count();
-    for (ResourceRequest *rr : t->requests().resourceRequests()) {
+    const auto resourceRequests = t->requests().resourceRequests();
+    qDebug()<<pad<<"Requests:"<<"resources:"<<resourceRequests.count();
+    for (ResourceRequest *rr : resourceRequests) {
         qDebug()<<pad<<printAvailable(rr->resource(), "   " + rr->resource()->name())<<"id:"<<rr->resource()->id()<<(void*)rr->resource()<<':'<<(void*)rr;
     }
     if (t->isStartNode()) {

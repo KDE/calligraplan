@@ -1290,7 +1290,8 @@ ModifyEstimateCmd::ModifyEstimateCmd(Node &node, double oldvalue, double newvalu
 {
     if (newvalue == 0.0) {
         // Milestones can't have resources, so remove resource requests
-        for (ResourceRequest *r : node.requests().resourceRequests()) {
+        const auto resourceRequests = node.requests().resourceRequests();
+        for (ResourceRequest *r : resourceRequests) {
             if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
             m_cmd->addCommand(new RemoveResourceRequestCmd(r));
         }
@@ -1511,7 +1512,8 @@ ModifyResourceTypeCmd::ModifyResourceTypeCmd(Resource *resource, int value, cons
 {
     m_oldvalue = resource->type();
     if (m_oldvalue == Resource::Type_Team) {
-        for (const QString &id : resource->teamMemberIds()) {
+        const auto teamMemberIds = resource->teamMemberIds();
+        for (const QString &id : teamMemberIds) {
             m_cmd.addCommand(new RemoveResourceTeamCmd(resource, id));
         }
     }
@@ -1685,7 +1687,8 @@ RemoveResourceGroupCmd::RemoveResourceGroupCmd(Project *project, ResourceGroup *
 {
     m_index = m_parent ? m_parent->indexOf(group) : project->indexOf(group);
     m_mine = false;
-    for (Resource *r : group->resources()) {
+    const auto resources = group->resources();
+    for (Resource *r : resources) {
         cmd.addCommand(new RemoveParentGroupCmd(r, group));
     }
 }
@@ -1697,7 +1700,8 @@ RemoveResourceGroupCmd::RemoveResourceGroupCmd(Project *project, ResourceGroup *
 {
     m_index = m_parent ? m_parent->indexOf(group) : project->indexOf(group);
     m_mine = false;
-    for (Resource *r : group->resources()) {
+    const auto resources = group->resources();
+    for (Resource *r : resources) {
         cmd.addCommand(new RemoveParentGroupCmd(r, group));
     }
 }
@@ -2647,7 +2651,8 @@ ModifyScheduleManagerSchedulingModeCmd::ModifyScheduleManagerSchedulingModeCmd(S
 {
     if (value == ScheduleManager::AutoMode) {
         // Allow only one
-        for (ScheduleManager *m : sm.project().allScheduleManagers()) {
+        const auto allScheduleManagers = sm.project().allScheduleManagers();
+        for (ScheduleManager *m : allScheduleManagers) {
             if (m->schedulingMode() == ScheduleManager::AutoMode) {
                 m_cmd.addCommand(new ModifyScheduleManagerSchedulingModeCmd(*m, ScheduleManager::ManualMode));
                 break;
@@ -3223,15 +3228,16 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         }
     }
     // Add new resources
-    for (Resource *r : newResources) {
+    for (Resource *r : qAsConst(newResources)) {
         debugPlanInsertProject<<"AddResourceCmd:"<<r->name()<<r->parentGroups();
         addCommand(new AddResourceCmd(m_project, r, kundo2_noi18n("Resource")));
     }
     // Add new groups
-    for (ResourceGroup *g : newGroups) {
+    for (ResourceGroup *g : qAsConst(newGroups)) {
         debugPlanInsertProject<<"AddResourceGroupCmd:"<<g->name()<<g->resources();
         addCommand(new AddResourceGroupCmd(m_project, g, kundo2_noi18n("ResourceGroup")));
-        for (Resource *r : g->resources()) {
+        const auto resources = g->resources();
+        for (Resource *r : resources) {
             addCommand(new AddParentGroupCmd(r, g));
         }
     }

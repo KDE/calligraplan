@@ -113,7 +113,7 @@ void PredeccessorDelegate::setEditorData(QWidget *editor, const QModelIndex &ind
 {
     QComboBox *e = static_cast<QComboBox*>(editor);
     if (m_task && m_project) {
-        QList<Task*> tasks = sortedTasks(m_project, static_cast<Task*>(m_task), index);
+        const QList<Task*> tasks = sortedTasks(m_project, static_cast<Task*>(m_task), index);
         for (Task *t : tasks) {
             e->addItem(t->name(), t->id());
         }

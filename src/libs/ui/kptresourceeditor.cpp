@@ -116,7 +116,8 @@ QList<ResourceGroup*> ResourceTreeView::selectedGroups() const
 {
     QList<ResourceGroup*> gl;
     const ResourceItemModel *m = model();
-    for (const QModelIndex &i : selectionModel()->selectedRows()) {
+    const auto selectedRows = selectionModel()->selectedRows();
+    for (const QModelIndex &i : selectedRows) {
         ResourceGroup *g = m->group(i);
         if (g) {
             gl << g;
@@ -129,7 +130,8 @@ QList<Resource*> ResourceTreeView::selectedResources() const
 {
     QList<Resource*> rl;
     const ResourceItemModel *m = model();
-    for (const QModelIndex &i : selectionModel()->selectedRows()) {
+    const auto selectedRows = selectionModel()->selectedRows();
+    for (const QModelIndex &i : selectedRows) {
         Resource *r = m->resource(i);
         if (r) {
             rl << r;
@@ -351,7 +353,8 @@ void ResourceEditor::slotDeleteSelection()
 {
     QObjectList lst;
     // FIXME: Temporary to make the old code in kptview work
-    for (Resource *r : m_view->selectedResources()) {
+    const auto selectedResources = m_view->selectedResources();
+    for (Resource *r : selectedResources) {
         lst << r;
     }
     //debugPlan<<lst.count()<<" objects";

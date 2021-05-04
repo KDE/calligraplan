@@ -447,7 +447,8 @@ void WelcomeView::setProjectTemplatesModel()
             m->appendRow(parent);
         }
         QDir dir(path, "*.plant");
-        for (const QString &file : dir.entryList(QDir::Files)) {
+        const auto entryList = dir.entryList(QDir::Files);
+        for (const QString &file : entryList) {
             QStandardItem *item = new QStandardItem(file.left(file.lastIndexOf(".plant")));
             item->setData(QString(path + '/' + file));
             item->setToolTip(item->data().toString());

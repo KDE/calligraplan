@@ -52,11 +52,12 @@ RemoveResourceCmd::RemoveResourceCmd(Resource *resource, const KUndo2MagicString
     if (resource->account()) {
         m_postCmd.addCommand(new ResourceModifyAccountCmd(*resource, resource->account(), nullptr));
     }
-    for (ResourceRequest *r : m_requests) {
+    for (ResourceRequest *r : qAsConst(m_requests)) {
         m_preCmd.addCommand(new RemoveResourceRequestCmd(r));
         //debugPlan<<"Remove request for"<<r->resource()->name();
     }
-    for (ResourceGroup *g : resource->parentGroups()) {
+    const auto parentGroups = resource->parentGroups();
+    for (ResourceGroup *g : parentGroups) {
         m_preCmd.addCommand(new RemoveParentGroupCmd(resource, g));
     }
 }

@@ -116,7 +116,8 @@ MacroCommand *RequestResourcesPanel::buildCommand(Task *task, bool clear)
 
     // First remove all that should be removed
     if (clear) {
-        for (ResourceRequest *rr : task->requests().resourceRequests(false)) {
+        const auto resourceRequests = task->requests().resourceRequests(false);
+        for (ResourceRequest *rr : resourceRequests) {
             cmd->addCommand(new RemoveResourceRequestCmd(rr));
         }
     } else {

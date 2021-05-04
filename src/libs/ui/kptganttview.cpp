@@ -452,7 +452,8 @@ void GanttView::setupGui()
     addContextAction(actionShowUnscheduled);
 
     createOptionActions(ViewBase::OptionAll);
-    for (QAction *a : contextActionList()) {
+    const auto actionList = contextActionList();
+    for (QAction *a : actionList) {
         actionCollection()->addAction(a->objectName(), a);
     }
 
@@ -1017,7 +1018,8 @@ void MilestoneGanttView::setupGui()
 {
     createOptionActions(ViewBase::OptionAll & ~(ViewBase::OptionExpand|ViewBase::OptionCollapse));
 
-    for (QAction *a : contextActionList()) {
+    const auto actionList = contextActionList();
+    for (QAction *a : actionList) {
         actionCollection()->addAction(a->objectName(), a);
     }
 
@@ -1355,7 +1357,8 @@ void ResourceAppointmentsGanttView::setupGui()
 {
     createOptionActions(ViewBase::OptionAll);
 
-    for (QAction *a : contextActionList()) {
+    const auto actionList = contextActionList();
+    for (QAction *a : actionList) {
         actionCollection()->addAction(a->objectName(), a);
     }
 

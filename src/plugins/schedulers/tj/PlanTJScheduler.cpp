@@ -1078,7 +1078,8 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     } else {
         if (solve()) {
             populateProjects(context);
-            for (KPlato::Project *p : context.projects.values()) {
+            const auto &projects = context.projects.values();
+            for (KPlato::Project *p : projects) {
                 if (p->currentSchedule()->isScheduled()) {
                     logInfo(p, nullptr, i18n("Scheduled: %1 - %2", p->startTime().toString(Qt::ISODate), p->endTime().toString(Qt::ISODate)));
                 } else {
@@ -1099,8 +1100,9 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
     // Collect appointments from all resource in all projects and
     // map them to tj resources
     QHash<TJ::Resource*, KPlato::Appointment> apps;
-    for (const Project *project : context.resourceBookings) {
-        for (Resource *r : project->resourceList()) {
+    for (const Project *project : qAsConst(context.resourceBookings)) {
+        const auto resourceList = project->resourceList();
+        for (Resource *r : resourceList) {
             TJ::Resource *tjResource = m_resourcemap.key(m_resourceIds.value(r->id()));
             if (!tjResource) {
                 continue;

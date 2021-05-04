@@ -108,7 +108,8 @@ void ResourceGroupDocker::updateCheckableModel()
     if (m_group) {
         ResourceItemModel *m = qobject_cast<ResourceItemModel*>(m_checkable.sourceModel());
         Q_ASSERT(m);
-        for (Resource *r : m_group->resources()) {
+        const auto resources = m_group->resources();
+        for (Resource *r : resources) {
             const QModelIndex ridx = m_checkable.mapFromSource(m->index(r));
             m_checkable.setData(ridx, Qt::Checked, Qt::CheckStateRole);
         }
@@ -119,7 +120,8 @@ void ResourceGroupDocker::updateCheckableModel()
 QModelIndex ResourceGroupDocker::selectedGroupIndex() const
 {
     QModelIndexList lst;
-    for (const QModelIndex &idx : m_groupSelection->selectedIndexes()) {
+    const auto selectedIndexes = m_groupSelection->selectedIndexes();
+    for (const QModelIndex &idx : selectedIndexes) {
         if (idx.column() == 0) {
             lst << idx;
         }

@@ -152,7 +152,8 @@ void ResourceGroupItemModel::setProject(Project *project)
         disconnect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceGroupItemModel::slotResourceGroupToBeRemoved);
         disconnect(m_project, &Project::resourceGroupRemoved, this, &ResourceGroupItemModel::slotResourceGroupRemoved);
 
-        for (ResourceGroup *g : m_project->resourceGroups()) {
+        const auto resourceGroups = m_project->resourceGroups();
+        for (ResourceGroup *g : resourceGroups) {
             connectSignals(g, false);
         }
     }
@@ -167,7 +168,8 @@ void ResourceGroupItemModel::setProject(Project *project)
         connect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceGroupItemModel::slotResourceGroupToBeRemoved, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
         connect(m_project, &Project::resourceGroupRemoved, this, &ResourceGroupItemModel::slotResourceGroupRemoved, Qt::ConnectionType(Qt::AutoConnection | Qt::UniqueConnection));
 
-        for (ResourceGroup *g : m_project->resourceGroups()) {
+        const auto resourceGroups = m_project->resourceGroups();
+        for (ResourceGroup *g : resourceGroups) {
             connectSignals(g, true);
         }
     }
@@ -201,10 +203,12 @@ void ResourceGroupItemModel::connectSignals(ResourceGroup *group, bool enable)
         disconnect(group, &ResourceGroup::resourceToBeRemoved, this, &ResourceGroupItemModel::slotResourceToBeRemoved);
         disconnect(group, &ResourceGroup::resourceRemoved, this, &ResourceGroupItemModel::slotResourceRemoved);
     }
-    for (ResourceGroup *g : group->childGroups()) {
+    const auto childGroups = group->childGroups();
+    for (ResourceGroup *g : childGroups) {
         connectSignals(g, enable);
     }
-    for (Resource *r : group->resources()) {
+    const auto resources = group->resources();
+    for (Resource *r : resources) {
         connectSignals(r, enable);
     }
 }
@@ -519,7 +523,8 @@ Resource *ResourceGroupItemModel::resource(const QModelIndex &index) const
 
 void ResourceGroupItemModel::slotResourceChanged(Resource *res)
 {
-    for (ResourceGroup *g : res->parentGroups()) {
+    const auto resourceGroups = res->parentGroups();
+    for (ResourceGroup *g : resourceGroups) {
         int row = g->indexOf(res) + g->numChildGroups();
         Q_EMIT dataChanged(createIndex(row, 0, g), createIndex(row, columnCount() - 1, g));
     }
@@ -892,7 +897,8 @@ void ParentGroupItemModel::setResource(Resource *resource)
     if (m_resource) {
         connect(resource, &Resource::resourceGroupAdded, this, &ParentGroupItemModel::slotResourceAdded);
         connect(resource, &Resource::resourceGroupRemoved, this, &ParentGroupItemModel::slotResourceRemoved);
-        for (ResourceGroup *g : m_resource->parentGroups()) {
+        const auto parentGroups = m_resource->parentGroups();
+        for (ResourceGroup *g : parentGroups) {
             m_model->setData(m_model->index(g), Qt::Checked, Qt::CheckStateRole);
         }
     }
