@@ -168,7 +168,6 @@ public:
 
 Q_SIGNALS:
     void changed(const KPlato::PrintingOptions &opt);
-    void changed();
 
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt);

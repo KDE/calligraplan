@@ -308,7 +308,6 @@ void PrintingDialog::setPrintingOptions(const PrintingOptions &opt)
     debugPlan;
     m_view->setPrintingOptions(opt);
     Q_EMIT changed(opt);
-    Q_EMIT changed();
 }
 
 void PrintingDialog::setPrinterPageLayout(const KoPageLayout &pagelayout)
