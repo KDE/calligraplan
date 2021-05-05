@@ -23,13 +23,7 @@
 #include "kptaccountseditor.h"
 
 #include "kptcommand.h"
-#include "kptcalendar.h"
-#include "kptduration.h"
-#include "kptnode.h"
-#include "kptproject.h"
-#include "kpttask.h"
 #include "kptaccount.h"
-#include "kptdatetime.h"
 #include "Help.h"
 #include "kptdebug.h"
 
@@ -45,7 +39,7 @@
 #include <QHeaderView>
 
 #include <KLocalizedString>
-#include <kactioncollection.h>
+#include <KActionCollection>
 
 
 namespace KPlato
@@ -97,7 +91,7 @@ AccountTreeView::AccountTreeView(QWidget *parent)
     setSelectionMode(QAbstractItemView::ExtendedSelection);
 //     setSelectionBehavior(QAbstractItemView::SelectRows);
     
-    connect(header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderContextMenuRequested(QPoint)));
+    connect(header(), &QHeaderView::customContextMenuRequested, this, &AccountTreeView::slotHeaderContextMenuRequested);
 }
 
 void AccountTreeView::slotHeaderContextMenuRequested(const QPoint &pos)
@@ -108,7 +102,7 @@ void AccountTreeView::slotHeaderContextMenuRequested(const QPoint &pos)
 void AccountTreeView::contextMenuEvent (QContextMenuEvent *event)
 {
     debugPlan;
-    Q_EMIT contextMenuRequested(indexAt(event->pos()), event->globalPos());
+    Q_EMIT contextMenuRequested(indexAt(event->pos()), event->globalPos(), QModelIndexList());
 }
 
 void AccountTreeView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
@@ -119,14 +113,14 @@ void AccountTreeView::selectionChanged(const QItemSelection &sel, const QItemSel
         debugPlan<<i.row()<<","<<i.column();
     }
     QTreeView::selectionChanged(sel, desel);
-    Q_EMIT selectionChanged(selectionModel()->selectedIndexes());
+    Q_EMIT selectedIndexesChanged(selectionModel()->selectedIndexes());
 }
 
 void AccountTreeView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
 {
     debugPlan;
     QTreeView::currentChanged(current, previous);
-    Q_EMIT currentChanged(current);
+    Q_EMIT currentIndexChanged(current);
     // possible bug in qt: in QAbstractItemView::SingleSelection you can select multiple items/rows
     selectionModel()->select(current, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
 }
@@ -184,12 +178,12 @@ AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 
     connect(model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
     
-    connect(m_view, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex)));
+    connect(m_view, &AccountTreeView::currentIndexChanged, this, &AccountsEditor::slotCurrentChanged);
 
-    connect(m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)));
-    
-    connect(m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), this, SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
-    connect(m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)));
+    connect(m_view, &AccountTreeView::selectedIndexesChanged, this, &AccountsEditor::slotSelectionChanged);
+
+    connect(m_view, &AccountTreeView::contextMenuRequested, this, &AccountsEditor::slotContextMenuRequested);
+    connect(m_view, &AccountTreeView::headerContextMenuRequested, this, &AccountsEditor::slotHeaderContextMenuRequested);
 
     Help::add(this,
               xi18nc("@info:whatsthis",
@@ -308,7 +302,7 @@ void AccountsEditor::slotOptions()
 {
     debugPlan;
     AccountseditorConfigDialog *dlg = new AccountseditorConfigDialog(this, m_view, this);
-    connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
+    connect(dlg, &AccountseditorConfigDialog::finished, this, &AccountsEditor::slotOptionsFinished);
     dlg->open();
 }
 

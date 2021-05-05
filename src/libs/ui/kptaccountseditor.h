@@ -71,18 +71,16 @@ public:
     QList<Account*> selectedAccounts() const;
     
 Q_SIGNALS:
-    void currentChanged(const QModelIndex&);
+    void currentIndexChanged(const QModelIndex&);
     void currentColumnChanged(const QModelIndex&, const QModelIndex&);
-    void selectionChanged(const QModelIndexList&);
-
-    void contextMenuRequested(const QModelIndex&, const QPoint&);
+    void selectedIndexesChanged(const QModelIndexList&);
     
 protected Q_SLOTS:
     void slotHeaderContextMenuRequested(const QPoint &pos);
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
-    void currentChanged (const QModelIndex & current, const QModelIndex & previous) override;
 
 protected:
+    void currentChanged(const QModelIndex & current, const QModelIndex & previous) override;
     void contextMenuEvent (QContextMenuEvent * event) override;
     
 };
