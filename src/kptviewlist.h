@@ -104,7 +104,6 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 Q_SIGNALS:
-    void activated(QTreeWidgetItem*);
     void updateViewInfo(KPlato::ViewListItem *itm);
     void modified();
 
