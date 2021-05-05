@@ -183,26 +183,14 @@ protected:
 Q_SIGNALS:
     /**
      * The selected date changed.
-     */
-    void dateChanged(const QDate &date);
-    /**
-     * This function behaves essentially like the one above.
-     * The selected date changed.
      * @param cur The current date
      * @param old The date before the date was changed
      */
-    void dateChanged(const QDate& cur, const QDate& old);
+    void dateChanged(const QDate& cur, const QDate& old = QDate());
     /**
      * A date has been selected by clicking on the table.
      */
     void tableClicked();
-
-    /**
-     * A popup menu for a given date is about to be shown (as when the user
-     * right clicks on that date and the popup menu is enabled). Connect
-     * the slot where you fill the menu to this signal.
-     */
-    void aboutToShowContextMenu(QMenu * menu, const QDate &date);
 
     /**
      * A popup menu for selected dates is about to be shown.

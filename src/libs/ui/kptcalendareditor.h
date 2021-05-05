@@ -60,11 +60,10 @@ public:
     QList<Calendar*> selectedCalendars() const;
 
 Q_SIGNALS:
-    void currentChanged(const QModelIndex&);
+    void currentIndexChanged(const QModelIndex&);
     void currentColumnChanged(const QModelIndex&, const QModelIndex&);
-    void sigSelectionChanged(const QModelIndexList&);
+    void selectedIndexesChanged(const QModelIndexList&);
 
-    void contextMenuRequested(const QModelIndex&, const QPoint&);
     void focusChanged();
 
 protected Q_SLOTS:
@@ -100,9 +99,9 @@ public:
     bool isReadWrite() const { return m_readwrite; }
 
 Q_SIGNALS:
-    void currentChanged(const QModelIndex&);
+    void currentIndexChanged(const QModelIndex&);
     void currentColumnChanged(const QModelIndex&, const QModelIndex&);
-    void sigSelectionChanged(const QModelIndexList&);
+    void selectedIndexesChanged(const QModelIndexList&);
 
     void contextMenuRequested(const QModelIndex&, const QPoint&);
     void focusChanged();
@@ -176,7 +175,6 @@ protected Q_SLOTS:
 private Q_SLOTS:
     void slotContextMenuCalendar(const QModelIndex& index, const QPoint& pos);
     void slotContextMenuDay(const QModelIndex& index, const QPoint& pos);
-    void slotContextMenuDate(QMenu*, const QDate&);
     void slotContextMenuDate(QMenu*, const QList<QDate>&);
     
     void slotCalendarSelectionChanged(const QModelIndexList&);

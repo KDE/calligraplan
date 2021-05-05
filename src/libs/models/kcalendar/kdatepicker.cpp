@@ -328,7 +328,7 @@ void KDatePicker::initWidget(const QDate &date_)
         d->monthBackward->setIcon(koIcon("arrow-left"));
     }
 
-    connect(d->table, SIGNAL(dateChanged(QDate)), SLOT(dateChangedSlot(QDate)));
+    connect(d->table, &KDateTable::dateChanged, this, &KDatePicker::dateChangedSlot);
     connect(d->table, &KDateTable::tableClicked, this, &KDatePicker::tableClickedSlot);
     connect(d->monthForward, &QAbstractButton::clicked, this, &KDatePicker::monthForwardClicked);
     connect(d->monthBackward, &QAbstractButton::clicked, this, &KDatePicker::monthBackwardClicked);

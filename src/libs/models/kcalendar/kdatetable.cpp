@@ -577,7 +577,7 @@ void KDateTable::keyPressEvent(QKeyEvent *e)
                 Q_EMIT aboutToShowContextMenu(menu, d->m_selectedDates);
             } else {
                 menu->setTitle(QLocale().toString(d->m_date, QLocale::ShortFormat));
-                Q_EMIT aboutToShowContextMenu(menu, d->m_date);
+                Q_EMIT aboutToShowContextMenu(menu, QList<QDate>()<<d->m_date);
             }
             if (menu->isEmpty()) {
                 delete menu;
@@ -820,7 +820,7 @@ void KDateTable::mousePressEvent(QMouseEvent *e)
             Q_EMIT aboutToShowContextMenu(menu, d->m_selectedDates);
         } else {
             menu->setTitle(QLocale().toString(clickedDate, QLocale::ShortFormat));
-            Q_EMIT aboutToShowContextMenu(menu, clickedDate);
+            Q_EMIT aboutToShowContextMenu(menu, QList<QDate>()<<clickedDate);
         }
         menu->popup(e->globalPos());
   }
@@ -840,8 +840,7 @@ bool KDateTable::setDate(const QDate& date_)
             QDate dt(date_.year(), date_.month(), 1);
             d->m_weekDayFirstOfMonth = dt.dayOfWeek();
         }
-        Q_EMIT dateChanged(oldDate, date_);
-        Q_EMIT dateChanged(date_);
+        Q_EMIT dateChanged(date_, oldDate);
     }
 
     if (d->m_selectionmode == KDateTable::SingleSelection)
