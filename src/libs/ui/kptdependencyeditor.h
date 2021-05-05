@@ -390,9 +390,7 @@ Q_SIGNALS:
     void connectItems(KPlato::DependencyConnectorItem *pred, KPlato::DependencyConnectorItem *succ);
     void itemDoubleClicked(QGraphicsItem *);
     void contextMenuRequested(QGraphicsItem*, const QPoint&);
-    void contextMenuRequested(QGraphicsItem*);
     void dependencyContextMenuRequested(KPlato::DependencyLinkItem*, KPlato::DependencyConnectorItem*);
-    void focusItemChanged(QGraphicsItem*);
 
 protected Q_SLOTS:
     void update();
@@ -443,8 +441,6 @@ public:
     void setActive(bool activate);
 
 Q_SIGNALS:
-    void selectionChanged();
-    void selectionChanged(QGraphicsItem *);
     void selectionChanged(const QList<QGraphicsItem*>&);
     void makeConnection(KPlato::DependencyConnectorItem *pred, KPlato::DependencyConnectorItem *succ);
     void contextMenuRequested(QGraphicsItem*, const QPoint&);
@@ -468,7 +464,7 @@ protected Q_SLOTS:
 
     void slotSelectedItems(); // HACK due to tt bug 160653
     void slotConnectorClicked(KPlato::DependencyConnectorItem *item);
-    void slotContextMenuRequested(QGraphicsItem*);
+    void slotContextMenuRequested(QGraphicsItem *item, const QPoint &pos);
     void slotDependencyContextMenuRequested(KPlato::DependencyLinkItem *item, KPlato::DependencyConnectorItem *connector);
     void slotFocusItemChanged(QGraphicsItem*);
 

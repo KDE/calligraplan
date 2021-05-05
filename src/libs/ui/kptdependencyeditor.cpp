@@ -1438,7 +1438,7 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
         if (focusItem()) {
             focusItem()->update();
         }
-        Q_EMIT focusItemChanged(focusItem());
+        Q_EMIT focusItemChanged(focusItem(), nullptr, Qt::OtherFocusReason); // we do not use olditem and focus reason
         return;
     }
     switch (keyEvent->key()) {
@@ -1556,7 +1556,7 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
         focusItem()->parentItem() ? focusItem()->parentItem()->update() : focusItem()->update();
     }
     if (fitem != focusItem()) {
-        Q_EMIT focusItemChanged(focusItem());
+        Q_EMIT focusItemChanged(focusItem(), nullptr, Qt::OtherFocusReason); // we do not use olditem and focus reason
     }
 }
 
@@ -1642,7 +1642,7 @@ void DependencyScene::contextMenuEvent (QGraphicsSceneContextMenuEvent *event)
             }
         } else debugPlanDepEditor<<"Not connector type"<<focusItem();
     } else debugPlanDepEditor<<"No focusItem";
-    Q_EMIT contextMenuRequested(focusItem());
+    Q_EMIT contextMenuRequested(focusItem(), QPoint());
 }
 
 void DependencyScene::setReadWrite(bool on)
@@ -1677,24 +1677,26 @@ DependencyView::DependencyView(QWidget *parent)
     connect(scene(), &QGraphicsScene::selectionChanged, this, &DependencyView::slotSelectionChanged);
     connect(itemScene(), &DependencyScene::connectItems, this, &DependencyView::makeConnection);
 
-    connect(itemScene(), static_cast<void (DependencyScene::*)(QGraphicsItem*)>(&DependencyScene::contextMenuRequested), this, &DependencyView::slotContextMenuRequested);
-
     connect(itemScene(), &DependencyScene::dependencyContextMenuRequested, this, &DependencyView::slotDependencyContextMenuRequested);
 
-    connect(itemScene(), SIGNAL(contextMenuRequested(QGraphicsItem*,QPoint)), this, SIGNAL(contextMenuRequested(QGraphicsItem*,QPoint))); // clazy:exclude=old-style-connect
+    connect(itemScene(), &DependencyScene::contextMenuRequested, this, &DependencyView::slotContextMenuRequested); // clazy:exclude=old-style-connect
 
-    connect(itemScene(), static_cast<void (DependencyScene::*)(QGraphicsItem*)>(&DependencyScene::focusItemChanged), this, &DependencyView::slotFocusItemChanged);
+    connect(itemScene(), &DependencyScene::focusItemChanged, this, &DependencyView::slotFocusItemChanged);
 
     m_autoScrollTimer.start(100);
     connect(&m_autoScrollTimer, &QTimer::timeout, this, &DependencyView::slotAutoScroll);
 }
 
-void DependencyView::slotContextMenuRequested(QGraphicsItem *item)
+void DependencyView::slotContextMenuRequested(QGraphicsItem *item, const QPoint &pos)
 {
-    if (item) {
-        debugPlanDepEditor<<item<<item->boundingRect()<<(item->mapToScene(item->pos()).toPoint())<<(mapToGlobal(item->mapToParent(item->pos()).toPoint()));
-        Q_EMIT contextMenuRequested(item, mapToGlobal(item->mapToScene(item->boundingRect().topRight()).toPoint()));
+    QPoint position = pos;
+    if (item && position.isNull()) {
+        position = mapToGlobal(item->mapToScene(item->boundingRect().topRight()).toPoint());
+    } else if (!item && pos.isNull()) {
+        position = mapToGlobal(geometry().topLeft() + geometry().bottomRight() / 6);
     }
+    debugPlanDepEditor<<item<<pos<<':'<<position;
+    Q_EMIT contextMenuRequested(item, position);
 }
 
 void DependencyView::slotDependencyContextMenuRequested(DependencyLinkItem *item, DependencyConnectorItem *connector)
@@ -1729,7 +1731,10 @@ void DependencyView::slotSelectedItems()
 
 void DependencyView::slotFocusItemChanged(QGraphicsItem *item)
 {
-    ensureVisible(item, 10, 10);
+    debugPlanDepEditor<<item;
+    if (item) {
+        ensureVisible(item, 10, 10);
+    }
 }
 
 void DependencyView::setItemScene(DependencyScene *scene)
@@ -2044,10 +2049,8 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
     l->addWidget(m_view);
 
     connect(m_view, &DependencyView::makeConnection, this, &DependencyEditor::slotCreateRelation);
-    connect(m_view, SIGNAL(selectionChanged(QList<QGraphicsItem*>)), this, SLOT(slotSelectionChanged(QList<QGraphicsItem*>))); // clazy::exclude=old-style-connect
-
+    connect(m_view, &DependencyView::selectionChanged, this, &DependencyEditor::slotSelectionChanged);
     connect(m_view->itemScene(), &DependencyScene::itemDoubleClicked, this, &DependencyEditor::slotItemDoubleClicked);
-
     connect(m_view, &DependencyView::contextMenuRequested, this, &DependencyEditor::slotContextMenuRequested);
 
     Help::add(this,
