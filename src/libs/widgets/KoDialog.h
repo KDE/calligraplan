@@ -724,22 +724,6 @@ Q_SIGNALS:
     void hidden();
 
     /**
-     * The dialog has finished.
-     *
-     * A dialog emits finished after a user clicks a button that ends
-     * the dialog.
-     *
-     * This signal is also emitted when you call hide()
-     *
-     * If you have stored a pointer to the
-     * dialog do @em not try to delete the pointer in the slot that is
-     * connected to this signal.
-     *
-     * You should use deleteLater() instead.
-     */
-    void finished();
-
-    /**
      * The detailsWidget is about to get shown. This is your last chance
      * to call setDetailsWidget if you haven't done so yet.
      */

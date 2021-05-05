@@ -934,11 +934,8 @@ void KoDialog::updateGeometry()
 
 void KoDialog::hideEvent(QHideEvent *event)
 {
+    Q_UNUSED(event)
     Q_EMIT hidden();
-
-    if (!event->spontaneous()) {
-        Q_EMIT finished();
-    }
 }
 
 void KoDialog::closeEvent(QCloseEvent *event)
