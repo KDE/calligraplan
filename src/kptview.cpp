@@ -1309,12 +1309,6 @@ ViewBase *View::createGanttView(ViewListItem *cat, const QString &tag, const QSt
     ganttview->setScheduleManager(currentScheduleManager());
 
     connect(ganttview, &ViewBase::guiActivated, this, &View::slotGuiActivated);
-/*  TODO: Review these
-    connect(ganttview, SIGNAL(addRelation(KPlato::Node*,KPlato::Node*,int)), SLOT(slotAddRelation(KPlato::Node*,KPlato::Node*,int)));
-    connect(ganttview, SIGNAL(modifyRelation(KPlato::Relation*,int)), SLOT(slotModifyRelation(KPlato::Relation*,int)));
-    connect(ganttview, SIGNAL(modifyRelation(KPlato::Relation*)), SLOT(slotModifyRelation(KPlato::Relation*)));
-    connect(ganttview, SIGNAL(itemDoubleClicked()), SLOT(slotOpenNode()));
-    connect(ganttview, SIGNAL(itemRenamed(KPlato::Node*,QString)), this, SLOT(slotRenameNode(KPlato::Node*,QString)));*/
 
     connect(this, &View::currentScheduleManagerChanged, ganttview, &GanttView::setScheduleManager);
 

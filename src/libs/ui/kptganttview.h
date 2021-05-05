@@ -147,12 +147,6 @@ public:
     void setShowSpecialInfo(bool on) { m_gantt->model()->setShowSpecial(on); }
     bool showSpecialInfo() const { return m_gantt->model()->showSpecial(); }
 
-Q_SIGNALS:
-    void modifyRelation(KPlato::Relation *rel) ;
-    void addRelation(KPlato::Node *par, KPlato::Node *child);
-    void modifyRelation(KPlato::Relation *rel, int linkType) ;
-    void addRelation(KPlato::Node *par, KPlato::Node *child, int linkType);
-
 public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void setShowResources(bool on);
