@@ -71,7 +71,6 @@ PlanTJScheduler::PlanTJScheduler(Project *project, ScheduleManager *sm, ulong gr
     connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
 
     connect(this, &PlanTJScheduler::sigCalculationStarted, project, &KPlato::Project::sigCalculationStarted);
-    Q_EMIT sigCalculationStarted(project, sm);
 
     connect(this, &PlanTJScheduler::sigCalculationFinished, project, &KPlato::Project::sigCalculationFinished);
 }
@@ -125,6 +124,7 @@ void PlanTJScheduler::run()
     if (m_stopScheduling) {
         return;
     }
+    Q_EMIT sigCalculationStarted(m_mainproject, m_mainmanager);
     setMaxProgress(PROGRESS_MAX_VALUE);
     { // mutex -->
         m_projectMutex.lock();
