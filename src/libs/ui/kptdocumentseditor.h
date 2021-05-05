@@ -51,7 +51,7 @@ public:
     
     using QTreeView::selectionChanged;
 Q_SIGNALS:
-    void selectionChanged(const QModelIndexList&);
+    void selectedIndexesChanged(const QModelIndexList&);
     
 protected Q_SLOTS:
     void slotSelectionChanged(const QItemSelection &selected);

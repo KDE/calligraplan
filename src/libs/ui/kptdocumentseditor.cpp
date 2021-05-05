@@ -86,7 +86,7 @@ QModelIndexList DocumentTreeView::selectedRows() const
 
 void DocumentTreeView::slotSelectionChanged(const QItemSelection &selected)
 {
-    Q_EMIT selectionChanged(selected.indexes());
+    Q_EMIT selectedIndexesChanged(selected.indexes());
 }
 
 QList<Document*> DocumentTreeView::selectedDocuments() const
@@ -117,13 +117,9 @@ DocumentsEditor::DocumentsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 
     connect(model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
 
-    connect(m_view, SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex))); // clazy:exclude=old-style-connect
-
-    connect(m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList))); // clazy:exclude=old-style-connect
-
+    connect(m_view, &DocumentTreeView::selectedIndexesChanged, this, &DocumentsEditor::slotSelectionChanged);
     connect(m_view, &TreeViewBase::contextMenuRequested, this, &DocumentsEditor::slotContextMenuRequested);
-    
-    connect(m_view, SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint))); // clazy:exclude=old-style-connect
+    connect(m_view, &DocumentTreeView::headerContextMenuRequested, this, &DocumentsEditor::slotHeaderContextMenuRequested);
 
 }
 
