@@ -20,6 +20,7 @@
 // clazy:excludeall=qstring-arg
 #include "NamedCommand.h"
 #include "kptschedule.h"
+#include "kptappointment.h"
 #include "kptdebug.h"
 
 #include <QApplication>

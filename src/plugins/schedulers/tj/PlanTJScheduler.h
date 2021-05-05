@@ -26,6 +26,7 @@
 #include "kptschedulerplugin.h"
 
 #include "kptdatetime.h"
+#include "kptappointment.h"
 
 #include <QThread>
 #include <QObject>

@@ -26,7 +26,6 @@
 #include "kptglobal.h"
 #include "kptcalendar.h"
 #include "kpteffortcostmap.h"
-#include "kptresource.h"
 #include "kptdatetime.h"
 #include "kptduration.h"
 
@@ -47,6 +46,7 @@ class Appointment;
 class Node;
 class Project;
 class Task;
+class Resource;
 class ScheduleManager;
 class XMLLoaderObject;
 class SchedulerPlugin;
