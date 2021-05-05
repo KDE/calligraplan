@@ -80,14 +80,14 @@ void ScheduleTreeView::selectionChanged(const QItemSelection &sel, const QItemSe
         //debugPlan<<i.row()<<","<<i.column();
     }
     QTreeView::selectionChanged(sel, desel);
-    Q_EMIT selectionChanged(selectionModel()->selectedIndexes());
+    Q_EMIT selectedIndexesChanged(selectionModel()->selectedIndexes());
 }
 
 void ScheduleTreeView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
 {
     //debugPlan<<current.row()<<","<<current.column();
     QTreeView::currentChanged(current, previous);
-    Q_EMIT currentChanged(current);
+    Q_EMIT currentIndexChanged(current);
     // possible bug in qt: in QAbstractItemView::SingleSelection you can select multiple items/rows
     selectionModel()->select(current, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
 }
@@ -164,9 +164,9 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 
     connect(model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
 
-    connect(m_view, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex)));
+    connect(m_view, &ScheduleTreeView::currentIndexChanged, this, &ScheduleEditor::slotCurrentChanged);
 
-    connect(m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)));
+    connect(m_view, &ScheduleTreeView::selectedIndexesChanged, this, &ScheduleEditor::slotSelectionChanged);
 
     connect(model(), &QAbstractItemModel::dataChanged, this, &ScheduleEditor::updateActionsEnabled);
 
@@ -543,14 +543,14 @@ void ScheduleLogTreeView::selectionChanged(const QItemSelection &sel, const QIte
         //debugPlan<<i.row()<<","<<i.column();
     }
     QTreeView::selectionChanged(sel, desel);
-    Q_EMIT selectionChanged(selectionModel()->selectedIndexes());
+    Q_EMIT selectedIndexesChanged(selectionModel()->selectedIndexes());
 }
 
 void ScheduleLogTreeView::currentChanged(const QModelIndex & current, const QModelIndex & previous)
 {
     //debugPlan<<current.row()<<","<<current.column();
     QTreeView::currentChanged(current, previous);
-    Q_EMIT currentChanged(current);
+    Q_EMIT currentIndexChanged(current);
 //    selectionModel()->select(current, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
 }
 
@@ -593,9 +593,9 @@ ScheduleLogView::ScheduleLogView(KoPart *part, KoDocument *doc, QWidget *parent)
 //    m_view->setEditTriggers(m_view->editTriggers() | QAbstractItemView::EditKeyPressed);
 
 
-    connect(m_view, SIGNAL(currentChanged(QModelIndex)), this, SLOT(slotCurrentChanged(QModelIndex)));
+    connect(m_view, &ScheduleLogTreeView::currentIndexChanged, this, &ScheduleLogView::slotCurrentChanged);
 
-    connect(m_view, SIGNAL(selectionChanged(QModelIndexList)), this, SLOT(slotSelectionChanged(QModelIndexList)));
+    connect(m_view, &ScheduleLogTreeView::selectedIndexesChanged, this, &ScheduleLogView::slotSelectionChanged);
 
     connect(baseModel(), &QAbstractItemModel::dataChanged, this, &ScheduleLogView::updateActionsEnabled);
 

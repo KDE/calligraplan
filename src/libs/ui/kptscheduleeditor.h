@@ -61,9 +61,9 @@ public:
     QModelIndexList selectedRows() const;
 
 Q_SIGNALS:
-    void currentChanged(const QModelIndex&);
+    void currentIndexChanged(const QModelIndex&);
     void currentColumnChanged(const QModelIndex&, const QModelIndex&);
-    void selectionChanged(const QModelIndexList&);
+    void selectedIndexesChanged(const QModelIndexList&);
 
 protected Q_SLOTS:
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
@@ -162,9 +162,9 @@ public:
     QRegExp filterRegExp() const;
 
 Q_SIGNALS:
-    void currentChanged(const QModelIndex&);
+    void currentIndexChanged(const QModelIndex&);
     void currentColumnChanged(const QModelIndex&, const QModelIndex&);
-    void selectionChanged(const QModelIndexList&);
+    void selectedIndexesChanged(const QModelIndexList&);
 
     void contextMenuRequested(const QModelIndex&, const QPoint&);
 
