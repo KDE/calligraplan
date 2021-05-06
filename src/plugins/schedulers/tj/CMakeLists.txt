@@ -1,15 +1,13 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"calligraplan_scheduler_tj\")
 
 set(LIBTJ_INCLUDE_DIR taskjuggler)
-include_directories(${LIBTJ_INCLUDE_DIR} ${PLANODF_INCLUDES} ${PLANKERNEL_INCLUDES})
+include_directories(${LIBTJ_INCLUDE_DIR} ${PLANODF_INCLUDES} ${PLANKERNEL_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
-#add_subdirectory( taskjuggler )
 if(BUILD_TESTING)
     add_subdirectory( tests )
 endif()
 
-set ( TJScheduler_SRCS
-    PlanTJPlugin.cpp
+set ( TJScheduler_LIB_SRCS
     PlanTJScheduler.cpp
     taskjuggler/Allocation.cpp
     taskjuggler/CoreAttributes.cpp
@@ -37,25 +35,21 @@ set ( TJScheduler_SRCS
     taskjuggler/Interval.cpp
 )
 
-# TODO: plugin should not be SHARED, but MODULE. Needs to be SHARED because tests link to it -> fix with util lib/objects
-add_library(plantjscheduler SHARED ${TJScheduler_SRCS} )
+add_library(plantjscheduler SHARED ${TJScheduler_LIB_SRCS})
+generate_export_header(plantjscheduler BASE_NAME plantj)
+target_link_libraries(plantjscheduler PUBLIC plankernel)
+
+# plugin
+add_library(plantjplugin MODULE PlanTJPlugin.cpp )
 # calligraplan_scheduler_desktop_to_json(plantjscheduler plantjscheduler.desktop)
-if(${KF5_VERSION} VERSION_LESS "5.16.0")
-    kcoreaddons_desktop_to_json(plantjscheduler plantjscheduler.desktop)
-else()
-    kcoreaddons_desktop_to_json(plantjscheduler plantjscheduler.desktop
+kcoreaddons_desktop_to_json(plantjplugin plantjscheduler.desktop
         SERVICE_TYPES ${PLAN_SOURCE_DIR}/libs/kernel/plan_schedulerplugin.desktop
     )
-endif()
 
-# TODO: only export symbols for tests, not release
-generate_export_header(plantjscheduler BASE_NAME plantj)
-add_definitions(-Dplantjscheduler_EXPORTS)
-target_link_libraries(
-    plantjscheduler
-    plankernel
-)
+#add_definitions(-Dplantjscheduler_EXPORTS)
+target_link_libraries(plantjplugin PUBLIC plantjscheduler)
 
 set_target_properties( plantjscheduler PROPERTIES DEFINE_SYMBOL MAKE_PLANTJ_LIB )
 
-install( TARGETS plantjscheduler DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/schedulers )
+install(TARGETS plantjscheduler DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS plantjplugin DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/schedulers)

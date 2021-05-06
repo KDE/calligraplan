@@ -33,7 +33,6 @@ class SchedulerTester : public QObject
     Q_OBJECT
 private Q_SLOTS:
     void testSingle();
-    void testMultiple();
 
 private:
     QStringList data();

@@ -219,117 +219,7 @@ void SchedulerPlugin::updateLog(SchedulerThread *j)
 
 void SchedulerPlugin::updateProject(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm) const
 {
-    Q_CHECK_PTR(tp);
-    Q_CHECK_PTR(tm);
-    Q_CHECK_PTR(mp);
-    Q_CHECK_PTR(sm);
-    //debugPlan<<"SchedulerPlugin::updateProject:"<<tp<<tp->name()<<"->"<<mp<<mp->name()<<sm;
-    Q_ASSERT(tp != mp && tm != sm);
-    long sid = tm->scheduleId();
-    Q_ASSERT(sid == sm->scheduleId());
-
-    XMLLoaderObject status;
-    status.setVersion(PLAN_FILE_SYNTAX_VERSION);
-    status.setProject(mp);
-    status.setProjectTimeZone(mp->timeZone());
-
-    const auto nodes = tp->allNodes();
-    for (const Node *tn : nodes) {
-        Node *mn = mp->findNode(tn->id());
-        if (mn) {
-            updateNode(tn, mn, sid, status);
-        }
-    }
-    const auto resources = tp->resourceList();
-    for (const Resource *tr : resources) {
-        Resource *r = mp->findResource(tr->id());
-        if (r) {
-            updateResource(tr, r, status);
-        }
-    }
-    // update main schedule and appointments
-    updateAppointments(tp, tm, mp, sm, status);
-    sm->scheduleChanged(sm->expected());
-}
-
-void SchedulerPlugin::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderObject &status) const
-{
-    //debugPlan<<"SchedulerPlugin::updateNode:"<<tn<<tn->name()<<"->"<<mn<<mn->name();
-    NodeSchedule *s = static_cast<NodeSchedule*>(tn->schedule(sid));
-    if (s == nullptr) {
-        warnPlan<<"SchedulerPlugin::updateNode:"<<"Task:"<<tn->name()<<"could not find schedule with id:"<<sid;
-        return;
-    }
-    QDomDocument doc("tmp");
-    QDomElement e = doc.createElement("schedules");
-    doc.appendChild(e);
-    s->saveXML(e);
-
-    Q_ASSERT(! mn->findSchedule(sid));
-    s = static_cast<NodeSchedule*>(mn->schedule(sid));
-    Q_ASSERT(s == nullptr);
-    s = new NodeSchedule();
-
-    KoXmlDocument xd;
-    xd.setContent(doc.toString());
-    KoXmlElement se = xd.documentElement().namedItem("schedule").toElement();
-    Q_ASSERT(! se.isNull());
-
-    s->loadXML(se, status);
-    s->setDeleted(false);
-    s->setNode(mn);
-    mn->addSchedule(s);
-}
-
-void SchedulerPlugin::updateResource(const Resource *tr, Resource *r, XMLLoaderObject &status) const
-{
-    QDomDocument doc("tmp");
-    QDomElement e = doc.createElement("cache");
-    doc.appendChild(e);
-    tr->saveCalendarIntervalsCache(e);
-
-    KoXmlDocument xd;
-    QString err;
-    xd.setContent(doc.toString(), &err);
-    KoXmlElement se = xd.documentElement();
-    Q_ASSERT(! se.isNull());
-    r->loadCalendarIntervalsCache(se, status);
-
-    Calendar *cr = tr->calendar();
-    Calendar *c = r->calendar();
-    if (cr == nullptr || c == nullptr) {
-        return;
-    }
-    debugPlan<<"cr:"<<cr->cacheVersion()<<"c"<<c->cacheVersion();
-    c->setCacheVersion(cr->cacheVersion());
-}
-
-void SchedulerPlugin::updateAppointments(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm, XMLLoaderObject &status) const
-{
-    MainSchedule *sch = tm->expected();
-    Q_ASSERT(sch);
-    Q_ASSERT(sch != sm->expected());
-    Q_ASSERT(sch->id() == sm->expected()->id());
-
-    QDomDocument doc("tmp");
-    QDomElement e = doc.createElement("schedule");
-    doc.appendChild(e);
-    sch->saveXML(e);
-    tp->saveAppointments(e, sch->id());
-
-    KoXmlDocument xd;
-    xd.setContent(doc.toString());
-    KoXmlElement se = xd.namedItem("schedule").toElement();
-    Q_ASSERT(! se.isNull());
-
-    bool ret = sm->loadMainSchedule(sm->expected(), se, status); // also loads appointments
-    Q_ASSERT(ret);
-#ifdef NDEBUG
-    Q_UNUSED(ret)
-#endif
-    mp->setCurrentSchedule(sch->id());
-    sm->expected()->setPhaseNames(sch->phaseNames());
-    mp->changed(sm);
+    SchedulerThread::updateProject(tp, tm, mp, sm);
 }
 
 void SchedulerPlugin::schedule(SchedulingContext &context)
@@ -544,6 +434,127 @@ bool SchedulerThread::loadProject(Project *project, const KoXmlDocument &doc)
     status.setVersion(PLAN_FILE_SYNTAX_VERSION);
     status.setProject(project);
     return project->load(pel, status);
+}
+
+// static
+void SchedulerThread::updateProject(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm)
+{
+    Q_CHECK_PTR(tp);
+    Q_CHECK_PTR(tm);
+    Q_CHECK_PTR(mp);
+    Q_CHECK_PTR(sm);
+    debugPlan<<Q_FUNC_INFO<<tp<<tm<<tm->calculationResult()<<"->"<<mp<<sm;
+    Q_ASSERT(tp != mp && tm != sm);
+    long sid = tm->scheduleId();
+    Q_ASSERT(sid == sm->scheduleId());
+
+    sm->setCalculationResult(tm->calculationResult());
+
+    XMLLoaderObject status;
+    status.setVersion(PLAN_FILE_SYNTAX_VERSION);
+    status.setProject(mp);
+    status.setProjectTimeZone(mp->timeZone());
+
+    const auto nodes = tp->allNodes();
+    for (const Node *tn : nodes) {
+        Node *mn = mp->findNode(tn->id());
+        if (mn) {
+            updateNode(tn, mn, sid, status);
+        }
+    }
+    const auto resources = tp->resourceList();
+    for (const Resource *tr : resources) {
+        Resource *r = mp->findResource(tr->id());
+        if (r) {
+            updateResource(tr, r, status);
+        }
+    }
+    // update main schedule and appointments
+    updateAppointments(tp, tm, mp, sm, status);
+    sm->scheduleChanged(sm->expected());
+}
+
+// static
+void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderObject &status)
+{
+    debugPlan<<Q_FUNC_INFO<<tn<<"->"<<mn;
+    NodeSchedule *s = static_cast<NodeSchedule*>(tn->schedule(sid));
+    if (s == nullptr) {
+        warnPlan<<"SchedulerPlugin::updateNode:"<<"Task:"<<tn->name()<<"could not find schedule with id:"<<sid;
+        return;
+    }
+    QDomDocument doc("tmp");
+    QDomElement e = doc.createElement("schedules");
+    doc.appendChild(e);
+    s->saveXML(e);
+
+    Q_ASSERT(! mn->findSchedule(sid));
+    s = static_cast<NodeSchedule*>(mn->schedule(sid));
+    Q_ASSERT(s == nullptr);
+    s = new NodeSchedule();
+
+    KoXmlDocument xd;
+    xd.setContent(doc.toString());
+    KoXmlElement se = xd.documentElement().namedItem("schedule").toElement();
+    Q_ASSERT(! se.isNull());
+
+    s->loadXML(se, status);
+    s->setDeleted(false);
+    s->setNode(mn);
+    mn->addSchedule(s);
+}
+
+// static
+void SchedulerThread::updateResource(const Resource *tr, Resource *r, XMLLoaderObject &status)
+{
+    QDomDocument doc("tmp");
+    QDomElement e = doc.createElement("cache");
+    doc.appendChild(e);
+    tr->saveCalendarIntervalsCache(e);
+
+    KoXmlDocument xd;
+    QString err;
+    xd.setContent(doc.toString(), &err);
+    KoXmlElement se = xd.documentElement();
+    Q_ASSERT(! se.isNull());
+    r->loadCalendarIntervalsCache(se, status);
+
+    Calendar *cr = tr->calendar();
+    Calendar *c = r->calendar();
+    if (cr == nullptr || c == nullptr) {
+        return;
+    }
+    debugPlan<<"cr:"<<cr->cacheVersion()<<"c"<<c->cacheVersion();
+    c->setCacheVersion(cr->cacheVersion());
+}
+
+// static
+void SchedulerThread::updateAppointments(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm, XMLLoaderObject &status)
+{
+    MainSchedule *sch = tm->expected();
+    Q_ASSERT(sch);
+    Q_ASSERT(sch != sm->expected());
+    Q_ASSERT(sch->id() == sm->expected()->id());
+
+    QDomDocument doc("tmp");
+    QDomElement e = doc.createElement("schedule");
+    doc.appendChild(e);
+    sch->saveXML(e);
+    tp->saveAppointments(e, sch->id());
+
+    KoXmlDocument xd;
+    xd.setContent(doc.toString());
+    KoXmlElement se = xd.namedItem("schedule").toElement();
+    Q_ASSERT(! se.isNull());
+
+    bool ret = sm->loadMainSchedule(sm->expected(), se, status); // also loads appointments
+    Q_ASSERT(ret);
+#ifdef NDEBUG
+    Q_UNUSED(ret)
+#endif
+    mp->setCurrentSchedule(sch->id());
+    sm->expected()->setPhaseNames(sch->phaseNames());
+    mp->changed(sm);
 }
 
 void SchedulerThread::schedule(SchedulingContext &context)

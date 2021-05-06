@@ -1,4 +1,4 @@
-set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
+set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR}/.. )
 
 #TODO: Howto properly find plugins dir?
 add_definitions(-DSCHEDULERPLUGINS_DIR="${CMAKE_BINARY_DIR}/bin")
@@ -15,14 +15,21 @@ endmacro()
 
 ########### next target ###############
 
-planschedulers_tj_add_unit_test(TJTester
+planschedulers_tj_add_unit_test(TaskJugglerTester
     TaskJuggler.cpp
-    LINK_LIBRARIES plantjscheduler planprivate plankernel Qt5::Test
+    LINK_LIBRARIES plantjscheduler planprivate Qt5::Test
+)
+
+########### next target ###############
+
+planschedulers_tj_add_unit_test(TJTester
+    SchedulerTester.cpp
+    LINK_LIBRARIES plantjscheduler planprivate Qt5::Test
 )
 
 ########### next target ###############
 
 planschedulers_tj_add_unit_test(TJSchedulerTester
-    TJSchedulerTester.cpp TestSchedulerPluginLoader.cpp
-    LINK_LIBRARIES planprivate plankernel planmain planplugin Qt5::Test
+    TJSchedulerTester.cpp
+    LINK_LIBRARIES plantjscheduler planprivate planmain Qt5::Test
 )

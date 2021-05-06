@@ -19,7 +19,7 @@
 // clazy:excludeall=qstring-arg
 #include "SchedulerTester.h"
 
-#include "PlanTJPlugin.h"
+#include "PlanTJScheduler.h"
 
 #include "kptcommand.h"
 #include "kptcalendar.h"
@@ -79,7 +79,7 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
 {
     KoXmlElement pel = doc.documentElement().namedItem("project").toElement();
     if (pel.isNull()) {
-        QString s = QString("%1: Cannot find 'project' element").arg(fname);
+        const QString s = QString("%1: Cannot find 'project' element").arg(fname);
         QVERIFY2(!pel.isNull(), s.toLatin1());
     }
     Project project;
@@ -90,7 +90,7 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
     status.setVersion(doc.documentElement().attribute("version", PLAN_FILE_SYNTAX_VERSION));
     bool projectLoad = project.load(pel, status);
     if (! projectLoad) {
-        QString s = QString("%1: Failed to load project").arg(fname);
+        const QString s = QString("%1: Failed to load project").arg(fname);
         QVERIFY2(projectLoad, s.toLatin1());        
     }
     QString s = project.description();
@@ -99,7 +99,7 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
         qDebug()<<project.description();
         qDebug();
     }
-    Debug::print(&project, "Before calculation ------------", true);
+    //Debug::print(&project, "Before calculation ------------", true);
     ScheduleManager *manager = project.scheduleManagers().value(0);
     s = QString("%1: No schedule to compare with").arg(fname);
     QVERIFY2(manager, s.toLatin1());
@@ -107,11 +107,14 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
     ScheduleManager *sm = project.createScheduleManager("Test Plan");
     project.addScheduleManager(sm);
 
-    PlanTJPlugin tj(nullptr, QVariantList());
+    PlanTJScheduler tj(&project, sm, 5*60*1000);
     qDebug() << "+++++++++++++++++++++++++++calculate-start";
-    tj.calculate(project, sm, true/*nothread*/);
+    tj.doRun();
+    tj.updateProject(tj.project(), tj.manager(), &project, sm);
     qDebug() << "+++++++++++++++++++++++++++calculate-end";
+    //Debug::print(&project, "After calculation ------------", true);
     if (sm->calculationResult() != ScheduleManager::CalculationDone) {
+        qInfo()<<"Calculation result:"<<sm->calculationResult();
         Debug::printSchedulingLog(*sm, "----");
     }
     s = QString("%1: Scheduling failed").arg(fname);
@@ -147,21 +150,6 @@ void SchedulerTester::loadDocuments(QString &dir, QList<QString> files, QList<Ko
         loadDocument(dir, fname, doc);
         docs << doc;
     }
-}
-
-void SchedulerTester::testMultiple()
-{
-//     QString dir = QFINDTESTDATA("data");
-//     const auto projectFiles = QStringList() << "Test 1.plan" << "Test 2.plan"; 
-//     QList<KoXmlDocument> projects;
-//     loadDocuments(dir + "schedule/", projectFiles, projects);
-//     QCOMPARE(projects.count(), projectFiles.count());
-// 
-//     const auto bookingFiles = QStringList() << "Booking 1.plan" << "Booking 2.plan"; 
-//     QList<KoXmlDocument> bookings;
-//     loadDocuments(dir + "bookings/", bookingFiles, bookings);
-//     QCOMPARE(bookingFiles.count(), bookings.count());
-
 }
 
 } //namespace KPlato

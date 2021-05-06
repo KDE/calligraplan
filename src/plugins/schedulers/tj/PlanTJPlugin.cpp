@@ -166,7 +166,6 @@ void PlanTJPlugin::slotFinished(SchedulerThread *j)
 
 void PlanTJPlugin::schedule(SchedulingContext &context)
 {
-    qInfo()<<Q_FUNC_INFO<<m_projects<<m_bookings;
     PlanTJScheduler *job = new PlanTJScheduler();
     job->schedule(context);
     delete job;

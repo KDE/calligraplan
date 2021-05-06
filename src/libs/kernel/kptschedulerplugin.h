@@ -120,9 +120,6 @@ protected Q_SLOTS:
 
 protected:
     void updateProject(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm) const;
-    void updateNode(const Node *tn, Node *mn, long sid, XMLLoaderObject &status) const;
-    void updateResource(const KPlato::Resource *tr, Resource *r, XMLLoaderObject &status) const;
-    void updateAppointments(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm, XMLLoaderObject &status) const;
 
     void updateProgress();
     void updateLog();
@@ -138,9 +135,6 @@ protected:
 
     int m_granularity;
     QList<long unsigned int> m_granularities;
-
-    QList<const Project*> m_bookings; /// List of projects that shall have teir bookings added
-    QMultiMap<int, Project*> m_projects; /// QMultiMap<priority, project> of projects to be scheduled
 };
 
 /**
@@ -200,6 +194,11 @@ public:
     void logInfo(Node *n, Resource *r, const QString &msg, int phase = -1);
     ///Add a scheduling debug log message
     void logDebug(Node *n, Resource *r, const QString &msg, int phase = -1);
+
+    static void updateProject(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm);
+    static void updateNode(const Node *tn, Node *mn, long sid, XMLLoaderObject &status);
+    static void updateResource(const KPlato::Resource *tr, Resource *r, XMLLoaderObject &status);
+    static void updateAppointments(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm, XMLLoaderObject &status);
 
     /// Schedule all projects
     virtual void schedule(SchedulingContext &context);

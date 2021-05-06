@@ -22,6 +22,7 @@
 
 #include <QObject>
 
+class PlanTJScheduler;
 
 namespace KPlato
 {
@@ -35,8 +36,8 @@ class TJSchedulerTester : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
-    void initTestCase();
-    void cleanupTestCase();
+    void init();
+    void cleanup();
     void testSingleProject();
     void testSingleProjectWithBookings();
     void testMultiple();
@@ -52,7 +53,7 @@ private:
 //     void testProject(const QString &fname, const KoXmlDocument &doc);
 //     void compare(const QString &fname, Node *n, long id1, long id2);
 
-    SchedulerPlugin *m_scheduler;
+    PlanTJScheduler *m_scheduler;
 };
 
 } //namespace KPlato

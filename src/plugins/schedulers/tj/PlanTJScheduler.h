@@ -58,7 +58,7 @@ namespace KPlato
 }
 using namespace KPlato;
 
-class PlanTJScheduler : public KPlato::SchedulerThread
+class PLANTJ_EXPORT PlanTJScheduler : public KPlato::SchedulerThread
 {
     Q_OBJECT
 

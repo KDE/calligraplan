@@ -19,9 +19,8 @@
 
 // clazy:excludeall=qstring-arg
 #include "TJSchedulerTester.h"
-#include "TestSchedulerPluginLoader.h"
 
-// #include "PlanTJPlugin.h"
+#include "PlanTJScheduler.h"
 
 #include "kptmaindocument.h"
 #include "kptpart.h"
@@ -45,17 +44,14 @@
 
 using namespace KPlato;
 
-void TJSchedulerTester::initTestCase()
+void TJSchedulerTester::init()
 {
-    const QString name("TJ Scheduler");
-    TestSchedulerPluginLoader *loader = new TestSchedulerPluginLoader(this);
-    const QString dir = SCHEDULERPLUGINS_DIR;
-    m_scheduler = loader->loadPlugin(dir, name);
-    QVERIFY(m_scheduler);
+    m_scheduler = new PlanTJScheduler();
 }
 
-void TJSchedulerTester::cleanupTestCase()
+void TJSchedulerTester::cleanup()
 {
+    delete m_scheduler;
 }
 
 void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, const QString &name, const QList<Part*> &projects, const QList<Part*> &bookings) const
@@ -172,7 +168,6 @@ void TJSchedulerTester::testSingleProjectWithBookings()
 
     SchedulingContext context;
     populateSchedulingContext(context, "Test Single Project With Bookings", projects, bookings);
-
     m_scheduler->schedule(context);
     // Booking 1: R1 booked 2021-04-08, 2021-04-09
     auto project = context.projects.first();

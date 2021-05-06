@@ -181,6 +181,7 @@ void PlanTJScheduler::run()
     setProgress(2);
     if (! kplatoToTJ()) {
         result = 1;
+        m_manager->setCalculationResult(ScheduleManager::CalculationError);
         setProgress(PROGRESS_MAX_VALUE);
         return;
     }
@@ -193,12 +194,14 @@ void PlanTJScheduler::run()
     if (! r) {
         debugPlan<<"Scheduling failed";
         result = 2;
+        m_manager->setCalculationResult(ScheduleManager::CalculationError);
         logError(m_project, nullptr, xi18nc("@info/plain" , "Failed to schedule project"));
         setProgress(PROGRESS_MAX_VALUE);
         return;
     }
     if (m_haltScheduling) {
         debugPlan<<"Scheduling halted";
+        m_manager->setCalculationResult(ScheduleManager::CalculationStopped);
         logInfo(m_project, nullptr, "Scheduling halted");
         deleteLater();
         return;
@@ -206,8 +209,10 @@ void PlanTJScheduler::run()
     m_schedule->setPhaseName(2, xi18nc("@info/plain" , "Update"));
     logInfo(m_project, nullptr, "Scheduling finished, update project", 2);
     if (! kplatoFromTJ()) {
+        m_manager->setCalculationResult(ScheduleManager::CalculationError);
         logError(m_project, nullptr, "Project update failed");
     }
+    m_manager->setCalculationResult(ScheduleManager::CalculationDone);
     setProgress(PROGRESS_MAX_VALUE);
     m_schedule->setPhaseName(3, xi18nc("@info/plain" , "Finish"));
 }
