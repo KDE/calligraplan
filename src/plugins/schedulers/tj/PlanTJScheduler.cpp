@@ -466,7 +466,7 @@ bool PlanTJScheduler::taskFromTJ(Project *project_, TJ::Task *job, Node *task)
     task->setEndTime(fromTime_t(e + 1, tz));
     task->setDuration(task->endTime() - task->startTime());
 
-    debugPlan<<TJ::time2ISO(s)<<task->startTime()<<"-- "<<TJ::time2ISO(e+1)<<task->endTime();
+    //debugPlan<<TJ::time2ISO(s)<<task->startTime()<<"-- "<<TJ::time2ISO(e+1)<<task->endTime();
     if (! task->startTime().isValid()) {
         logError(task, nullptr, xi18nc("@info/plain", "Invalid start time"));
         return false;
@@ -627,7 +627,7 @@ void PlanTJScheduler::calcPertValues(Node *t)
         m_project->currentSchedule()->setSchedulingError(true);
         logError(t, nullptr, i18nc("1=type of constraint", "%1: Failed to meet constraint. Negative float=%2", t->constraintToString(true), static_cast<Task*>(t)->negativeFloat().toString(Duration::Format_i18nHour)));
     }
-    debugPlan<<t->name()<<t->startTime()<<t->endTime();
+    //debugPlan<<t->name()<<t->startTime()<<t->endTime();
     Duration negativefloat;
     const auto lst = t->dependParentNodes() + static_cast<Task*>(t)->parentProxyRelations();
     for (const Relation *r : lst) {
@@ -758,7 +758,7 @@ void PlanTJScheduler::addWorkingTime(const KPlato::Task *task, TJ::Task *job)
 
 void PlanTJScheduler::addTasks()
 {
-    debugPlan;
+    //debugPlan;
     QList<Node*> list = m_project->allNodes();
     for (int i = 0; i < list.count(); ++i) {
         Node *n = list.at(i);
@@ -929,7 +929,7 @@ TJ::Task *PlanTJScheduler::addStartNotEarlier(Node *task)
     TJ::Task *p = new TJ::Task(m_tjProject, QString("%1-sne").arg(m_tjProject->taskCount() + 1), task->name() + "-sne", nullptr, QString(), 0);
     p->setSpecifiedStart(0, toTJTime_t(time, tjGranularity()));
     p->setSpecifiedEnd(0, m_tjProject->getEnd() - 1);
-    qDebug()<<"PlanTJScheduler::addStartNotEarlier:"<<time<<TJ::time2ISO(toTJTime_t(time, tjGranularity()));
+    //debugPlan<<"PlanTJScheduler::addStartNotEarlier:"<<time<<TJ::time2ISO(toTJTime_t(time, tjGranularity()));
     return p;
 }
 
@@ -953,7 +953,7 @@ TJ::Task *PlanTJScheduler::addFinishNotLater(Node *task)
 
 void PlanTJScheduler::addRequests()
 {
-    debugPlan;
+    //debugPlan;
     QMap<TJ::Task*, Node*> ::const_iterator it = m_taskmap.constBegin();
     for (; it != m_taskmap.constEnd(); ++it) {
         addRequest(it.key(), it.value());
@@ -962,7 +962,7 @@ void PlanTJScheduler::addRequests()
 
 void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
 {
-    debugPlan;
+    //debugPlan;
     if (task->type() == Node::Type_Milestone || task->estimate() == nullptr || (m_recalculate && static_cast<Task*>(task)->completion().isFinished())) {
         job->setMilestone(true);
         job->setDuration(0, 0.0);
@@ -1184,7 +1184,7 @@ void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority
 
 void PlanTJScheduler::addTasks(const KPlato::Node *parent, TJ::Task *tjParent, int projectPriority)
 {
-    debugPlan;
+    //debugPlan;
     for (const KPlato::Node *n : parent->childNodeIterator()) {
         switch (n->type()) {
             case Node::Type_Project:

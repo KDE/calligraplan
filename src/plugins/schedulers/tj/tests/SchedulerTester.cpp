@@ -114,7 +114,6 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
     qDebug() << "+++++++++++++++++++++++++++calculate-end";
     //Debug::print(&project, "After calculation ------------", true);
     if (sm->calculationResult() != ScheduleManager::CalculationDone) {
-        qInfo()<<"Calculation result:"<<sm->calculationResult();
         Debug::printSchedulingLog(*sm, "----");
     }
     s = QString("%1: Scheduling failed").arg(fname);
@@ -122,7 +121,7 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
 
     long id1 = manager->scheduleId();
     long id2 = sm->scheduleId();
-    qDebug()<<project.startTime(id1)<<project.startTime(id2)<<project.timeZone();
+    qDebug()<<"Project start, finish:"<<project.startTime(id1)<<project.startTime(id2)<<project.timeZone();
     s = QString("%1: Compare project schedules:\n Expected: %2\n   Result: %3")
             .arg(fname)
             .arg(project.startTime(id1).toString(Qt::ISODate))

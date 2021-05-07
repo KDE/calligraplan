@@ -165,11 +165,11 @@ void initUtility(long dictSize)
 
 void exitUtility()
 {
-    qDebug()<<"exitUtility:"<<LtHashTab;
+    //qDebug()<<"exitUtility:"<<LtHashTab;
     if (!LtHashTab)
         return;
 
-    qDebug()<<"exitUtility:"<<LTHASHTABSIZE;
+    //qDebug()<<"exitUtility:"<<LTHASHTABSIZE;
     for (long i = 0; i < LTHASHTABSIZE; ++i)
         for (LtHashTabEntry* htep = LtHashTab[i]; htep;)
         {

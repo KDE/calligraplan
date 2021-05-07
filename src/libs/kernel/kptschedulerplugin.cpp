@@ -265,7 +265,7 @@ SchedulerThread::SchedulerThread(QObject *parent)
 
 SchedulerThread::~SchedulerThread()
 {
-    debugPlan<<"SchedulerThread::~SchedulerThread:"<<QThread::currentThreadId();
+    //debugPlan<<QThread::currentThreadId();
     delete m_project;
     m_project = nullptr;
     wait();
@@ -443,7 +443,7 @@ void SchedulerThread::updateProject(const Project *tp, const ScheduleManager *tm
     Q_CHECK_PTR(tm);
     Q_CHECK_PTR(mp);
     Q_CHECK_PTR(sm);
-    debugPlan<<Q_FUNC_INFO<<tp<<tm<<tm->calculationResult()<<"->"<<mp<<sm;
+    //debugPlan<<Q_FUNC_INFO<<tp<<tm<<tm->calculationResult()<<"->"<<mp<<sm;
     Q_ASSERT(tp != mp && tm != sm);
     long sid = tm->scheduleId();
     Q_ASSERT(sid == sm->scheduleId());
@@ -477,10 +477,10 @@ void SchedulerThread::updateProject(const Project *tp, const ScheduleManager *tm
 // static
 void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderObject &status)
 {
-    debugPlan<<Q_FUNC_INFO<<tn<<"->"<<mn;
+    //debugPlan<<Q_FUNC_INFO<<tn<<"->"<<mn;
     NodeSchedule *s = static_cast<NodeSchedule*>(tn->schedule(sid));
     if (s == nullptr) {
-        warnPlan<<"SchedulerPlugin::updateNode:"<<"Task:"<<tn->name()<<"could not find schedule with id:"<<sid;
+        warnPlan<<Q_FUNC_INFO<<"Task:"<<tn->name()<<"could not find schedule with id:"<<sid;
         return;
     }
     QDomDocument doc("tmp");
@@ -524,7 +524,7 @@ void SchedulerThread::updateResource(const Resource *tr, Resource *r, XMLLoaderO
     if (cr == nullptr || c == nullptr) {
         return;
     }
-    debugPlan<<"cr:"<<cr->cacheVersion()<<"c"<<c->cacheVersion();
+    //debugPlan<<"cr:"<<cr->cacheVersion()<<"c"<<c->cacheVersion();
     c->setCacheVersion(cr->cacheVersion());
 }
 

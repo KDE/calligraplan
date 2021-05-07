@@ -97,7 +97,7 @@ Project::Project() :
     sourceFiles(),
     breakFlag(false)
 {
-    qDebug()<<"Project:"<<this;
+    //qDebug()<<"Project:"<<this;
     /* Pick some reasonable initial number since we don't know the
      * project time frame yet. */
     initUtility(20000);
@@ -111,9 +111,9 @@ Project::Project() :
     new Scenario(this, "plan", "Plan", nullptr);
     scenarioList.createIndex(true);
     scenarioList.createIndex(false);
-    for (CoreAttributes *s : qAsConst(scenarioList)) {
-        qDebug()<<"Project:"<<static_cast<CoreAttributes*>(s)<<static_cast<CoreAttributes*>(s)->getName()<<static_cast<CoreAttributes*>(s)->getSequenceNo();
-    }
+//     for (CoreAttributes *s : qAsConst(scenarioList)) {
+//         qDebug()<<"Project:"<<static_cast<CoreAttributes*>(s)<<static_cast<CoreAttributes*>(s)->getName()<<static_cast<CoreAttributes*>(s)->getSequenceNo();
+//     }
     setNow(time(nullptr));
 
     /* Initialize working hours with default values that match the Monday -
@@ -138,7 +138,7 @@ Project::Project() :
 
 Project::~Project()
 {
-    qDebug()<<"~Project:"<<this<<">>>";
+    //qDebug()<<"~Project:"<<this<<">>>";
     taskList.deleteContents();
     resourceList.deleteContents();
     Resource::deleteStaticData();
@@ -160,7 +160,7 @@ Project::~Project()
     }
     exitUtility();
 
-    qDebug()<<"~Project:"<<this<<"<<<";
+    //qDebug()<<"~Project:"<<this<<"<<<";
 }
 
 // void
@@ -352,7 +352,7 @@ Project::deleteShift(Shift* s)
 void
 Project::addResource(Resource* r)
 {
-    qDebug()<<"Project::addResource:"<<r<<resourceList;
+    //qDebug()<<"Project::addResource:"<<r<<resourceList;
     resourceList.append(r);
 }
 
@@ -490,10 +490,10 @@ Project::pass2(bool noDepCheck)
         TJMH.errorMessage(xi18nc("@info/plain", "The project does not contain any tasks."));
         return false;
     }
-    qDebug()<<"pass2 task info:";
+    //qDebug()<<"pass2 task info:";
     for (CoreAttributes *a : qAsConst(taskList)) {
         Task *t = static_cast<Task*>(a);
-        qDebug()<<t->getName()<<t->getDuration(0)<<t->getPrecedes()<<t->getDepends();
+        //qDebug()<<t->getName()<<t->getDuration(0)<<t->getPrecedes()<<t->getDepends();
     }
     QMap<QString, Task*> idHash;
 

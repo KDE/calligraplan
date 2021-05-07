@@ -56,7 +56,7 @@ TaskScenario::TaskScenario() :
     bookedResources(),
     criticalLinks()
 {
-    qDebug()<<"TaskScenario:"<<this;
+    //qDebug()<<"TaskScenario:"<<this;
 }
 
 void

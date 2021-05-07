@@ -86,12 +86,12 @@ CoreAttributesList::sort()
     QList<CoreAttributes*> lst = *this;
     clear();
     QStringList s; for(int i = 0; i < lst.count(); ++i) s << lst.at(i)->getId();
-    qDebug()<<"CoreAttributesList::sort:"<<s;
+    //qDebug()<<"CoreAttributesList::sort:"<<s;
     while (!lst.isEmpty()) {
         inSort(lst.takeLast());
     }
     s.clear(); for(int i = 0; i < lst.count(); ++i) s << lst.at(i)->getId();
-    qDebug()<<"CoreAttributesList::sort: sorted"<<s;
+    //qDebug()<<"CoreAttributesList::sort: sorted"<<s;
 }
 
 void

@@ -50,7 +50,7 @@ CoreAttributes::CoreAttributes(Project* p, const QString& i,
 
 CoreAttributes::~CoreAttributes()
 {
-    qDebug()<<"~CoreAttributes:"<<this;
+    //qDebug()<<"~CoreAttributes:"<<this;
     while (!sub->isEmpty())
         delete sub->takeFirst();
     if (parent && parent->sub->contains(this))

@@ -488,7 +488,6 @@ void Project::finishCalculation(ScheduleManager &sm)
     calcFreeFloat();
     Q_EMIT scheduleChanged(cs);
     Q_EMIT projectChanged();
-    debugPlan<<cs->startTime<<cs->endTime<<"-------------------------";
 }
 
 void Project::setProgress(int progress, ScheduleManager *sm)
