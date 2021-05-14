@@ -136,6 +136,14 @@ QList<Part*> TJSchedulerTester::loadDocuments(QString &dir, QList<QString> files
     return parts;
 }
 
+void TJSchedulerTester::deleteAll(const QList<Part*> parts)
+{
+    for (auto part : parts) {
+        delete part->document();
+        delete part;
+    }
+}
+
 void TJSchedulerTester::testSingleProject()
 {
     const auto projectFiles = QStringList() << "Test 1.plan";
@@ -151,7 +159,8 @@ void TJSchedulerTester::testSingleProject()
     //Debug::print(project, "--", true);
     QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 8));
     QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 9));
-    qDeleteAll(projects);
+
+    deleteAll(projects);
 }
 
 void TJSchedulerTester::testSingleProjectWithBookings()
@@ -174,8 +183,9 @@ void TJSchedulerTester::testSingleProjectWithBookings()
     // Debug::print(project, "--", true);
     QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 10));
     QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 11));
-    qDeleteAll(projects);
 
+    deleteAll(projects);
+    deleteAll(bookings);
 }
 
 void TJSchedulerTester::testMultiple()
@@ -195,6 +205,8 @@ void TJSchedulerTester::testMultiple()
     project = projects.value(1)->document()->project();
     QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 10));
     QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 11));
+
+    deleteAll(projects);
 }
 
 void TJSchedulerTester::testMultipleWithBookings()
@@ -221,6 +233,9 @@ void TJSchedulerTester::testMultipleWithBookings()
     project = projects.value(1)->document()->project();
     QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 14));
     QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 15));
+
+    deleteAll(projects);
+    deleteAll(bookings);
 }
 
 void TJSchedulerTester::testRecalculate()
@@ -241,6 +256,8 @@ void TJSchedulerTester::testRecalculate()
     QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 19)); // as before
     QCOMPARE(project->childNode(0)->endTime().date(), QDate(2021, 4, 28));
     QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 29));
+
+    deleteAll(projects);
 }
 
 void TJSchedulerTester::testRecalculateMultiple()
@@ -269,6 +286,7 @@ void TJSchedulerTester::testRecalculateMultiple()
     QCOMPARE(project->childNode(0)->endTime().date(), QDate(2021, 4, 29));
     QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 5, 1));
 
+    deleteAll(projects);
 }
 
 QTEST_MAIN(KPlato::TJSchedulerTester)

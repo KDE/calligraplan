@@ -52,6 +52,7 @@ private:
     QList<Part*> loadDocuments(QString &dir, QList<QString> files);
 //     void testProject(const QString &fname, const KoXmlDocument &doc);
 //     void compare(const QString &fname, Node *n, long id1, long id2);
+    void deleteAll(const QList<Part*> parts);
 
     PlanTJScheduler *m_scheduler;
 };

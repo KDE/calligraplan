@@ -182,6 +182,7 @@ Resource::~Resource()
     delete [] specifiedBookings;
     delete [] scoreboards;
     delete [] scenarios;
+    qDeleteAll(shifts);
 
     delete limits;
 
