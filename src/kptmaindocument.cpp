@@ -1020,6 +1020,7 @@ void MainDocument::insertFile(const QUrl &url, Node *parent, Node *after)
     doc->m_insertFileInfo.url = url;
     doc->m_insertFileInfo.parent = parent;
     doc->m_insertFileInfo.after = after;
+    doc->setProperty(NOUI, property(NOUI));
     connect(doc, &KoDocument::completed, this, &MainDocument::insertFileCompleted);
     connect(doc, &KoDocument::canceled, this, &MainDocument::insertFileCancelled);
 
@@ -1066,6 +1067,7 @@ void MainDocument::insertResourcesFile(const QUrl &url_, const QUrl &projects)
     doc->disconnect(); // doc shall not handle feedback from openUrl()
     doc->setAutoSave(0); //disable
     doc->setCheckAutoSaveFile(false);
+    doc->setProperty(NOUI, property(NOUI));
     connect(doc, &KoDocument::completed, this, &MainDocument::insertResourcesFileCompleted);
     connect(doc, &KoDocument::canceled, this, &MainDocument::insertFileCancelled);
 
