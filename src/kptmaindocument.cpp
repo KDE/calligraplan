@@ -1049,11 +1049,13 @@ void MainDocument::setSkipSharedResourcesAndProjects(bool skip)
 void MainDocument::insertResourcesFile(const QUrl &url_, const QUrl &projects)
 {
     insertSharedProjects(projects); // prepare for insertion after shared resources
+    debugPlanShared<<"Loading project:"<<this->url()<<"shared resources:"<<url_;
     QUrl url = url_;
     // We only handle local files atm
     if (!QDir::isAbsolutePath(url.path())) {
         url.setScheme(QString()); // makes url relative
         url = this->url().resolved(url);
+        debugPlanShared<<"Shared resource url resoulved:"<<url;
     }
     m_sharedProjectsFiles.removeAll(url); // resource file is not a project
 
