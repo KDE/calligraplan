@@ -367,13 +367,15 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
     QString syntaxVersion = plan.attribute("version", PLAN_FILE_SYNTAX_VERSION);
     m_xmlLoader.setVersion(syntaxVersion);
     if (syntaxVersion > PLAN_FILE_SYNTAX_VERSION) {
-        KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
+        if (!property(NOUI).toBool()) {
+            KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
                       nullptr, i18n("This document was created with a newer version of Plan (syntax version: %1)\n"
                                "Opening it in this version of Plan will lose some information.", syntaxVersion),
                       i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
-        if (ret == KMessageBox::Cancel) {
-            setErrorMessage("USER_CANCELED");
-            return false;
+            if (ret == KMessageBox::Cancel) {
+                setErrorMessage("USER_CANCELED");
+                return false;
+            }
         }
     }
     Project *newProject = new Project(m_config, true);
@@ -605,13 +607,15 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
         QString syntaxVersion = plan.attribute("version", "0.0.0");
         m_xmlLoader.setWorkVersion(syntaxVersion);
         if (syntaxVersion > PLANWORK_FILE_SYNTAX_VERSION) {
-            KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
+            if (!property(NOUI).toBool()) {
+                KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
                     nullptr, i18n("This document was created with a newer version of PlanWork (syntax version: %1)\n"
                     "Opening it in this version of PlanWork will lose some information.", syntaxVersion),
                     i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
-            if (ret == KMessageBox::Cancel) {
-                setErrorMessage("USER_CANCELED");
-                return nullptr;
+                if (ret == KMessageBox::Cancel) {
+                    setErrorMessage("USER_CANCELED");
+                    return nullptr;
+                }
             }
         }
         m_xmlLoader.setVersion(plan.attribute("plan-version", PLAN_FILE_SYNTAX_VERSION));
@@ -1031,7 +1035,7 @@ void MainDocument::insertFileCompleted()
         Project &p = doc->getProject();
         insertProject(p, doc->m_insertFileInfo.parent, doc->m_insertFileInfo.after);
         doc->documentPart()->deleteLater(); // also deletes document
-    } else {
+    } else if (!property(NOUI).toBool()) {
         KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
     }
     m_isLoading = false;
@@ -1077,7 +1081,7 @@ void MainDocument::insertResourcesFileCompleted()
         m_project->setSharedResourcesLoaded(true);
         doc->documentPart()->deleteLater(); // also deletes document
         slotInsertSharedProject(); // insert shared bookings
-    } else if (!property(NOUI).toBool()){
+    } else if (!property(NOUI).toBool()) {
         KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
     }
     m_isLoading = false;
@@ -1086,7 +1090,7 @@ void MainDocument::insertResourcesFileCompleted()
 void MainDocument::insertFileCancelled(const QString &error)
 {
     debugPlan<<sender()<<"error="<<error;
-    if (! error.isEmpty()) {
+    if (!error.isEmpty() && !property(NOUI).toBool()) {
         KMessageBox::error(nullptr, error);
     }
     MainDocument *doc = qobject_cast<MainDocument*>(sender());
@@ -1224,7 +1228,9 @@ void MainDocument::insertSharedProjectCompleted()
         m_isLoading = false;
         Q_EMIT insertSharedProject(); // do next file
     } else {
-        KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
+        if (!property(NOUI).toBool()) {
+            KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
+        }
         m_isLoading = false;
     }
 }
@@ -1232,7 +1238,7 @@ void MainDocument::insertSharedProjectCompleted()
 void MainDocument::insertSharedProjectCancelled(const QString &error)
 {
     debugPlanShared<<sender()<<"error="<<error;
-    if (! error.isEmpty()) {
+    if (! error.isEmpty() && !property(NOUI).toBool()) {
         KMessageBox::error(nullptr, error);
     }
     MainDocument *doc = qobject_cast<MainDocument*>(sender());
@@ -1349,7 +1355,9 @@ bool MainDocument::mergeResources(Project &project)
         removed << i18n("Calendar: %1", c->name());
     }
     if (!removed.isEmpty()) {
-        KMessageBox::ButtonCode result = KMessageBox::warningYesNoCancelList(
+        KMessageBox::ButtonCode result = KMessageBox::Yes;
+        if (!property(NOUI).toBool()) {
+            result = KMessageBox::warningYesNoCancelList(
                     nullptr,
                     i18n("Shared resources has been removed from the shared resources file."
                          "\nSelect how they shall be treated in this project."),
@@ -1359,6 +1367,7 @@ bool MainDocument::mergeResources(Project &project)
                     KGuiItem(i18n("Convert")),
                     KGuiItem(i18n("Keep"))
                     );
+        }
         switch (result) {
         case KMessageBox::Yes: // Remove
             for (Resource *r : qAsConst(removedResources)) {
