@@ -115,6 +115,7 @@ Part *TJSchedulerTester::loadDocument(const QString &dir, const QString &fname)
     part->setDocument(doc);
     doc->setProgressEnabled(false);
     doc->setProperty(NOUI, true); // avoid possible error message
+    doc->setUrl(QUrl::fromUserInput(localFilePath));
     if (!doc->openLocalFile(localFilePath)) {
         delete part;
         return nullptr;
