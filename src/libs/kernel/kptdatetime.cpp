@@ -173,5 +173,5 @@ QDebug operator<<(QDebug dbg, const KPlato::DateTime &dt)
         case Qt::TimeZone: dbg << dt.timeZone(); break;
     }
     dbg.nospace() << "] ";
-    return dbg;
+    return dbg.space();
 }

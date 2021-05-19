@@ -1096,3 +1096,20 @@ Appointment Appointment::extractIntervals(const DateTimeInterval& interval) cons
 
 
 }  //KPlato namespace
+
+QDebug operator<<(QDebug dbg, const KPlato::Appointment *a)
+{
+    dbg << "Appointment("<<(void*)a<<')';
+    if (a) {
+        dbg<<'['<<a->node()<<a->resource()<<a->startTime()<<'-'<<a->endTime();
+        dbg<<a->intervals().map();
+        dbg<<']';
+    }
+    return dbg;
+}
+
+QDebug operator<<(QDebug dbg, const KPlato::Appointment &a)
+{
+    dbg << &a;
+    return dbg;
+}

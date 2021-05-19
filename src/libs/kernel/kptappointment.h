@@ -281,4 +281,7 @@ private:
 
 }  //KPlato namespace
 
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Appointment *a);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Appointment &a);
+
 #endif
