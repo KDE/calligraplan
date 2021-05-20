@@ -129,7 +129,7 @@ private:
     void insertProject(const KPlato::Project *project, int priority, KPlato::SchedulingContext &context);
     void insertBookings(KPlato::SchedulingContext &context);
     void addTasks(const KPlato::Node *parent, TJ::Task *tjParent = nullptr, int projectPriority = 0);
-    void addPastAppointments(Node *task, Resource *resource);
+    void addPastAppointments(Node *task);
 
 private:
     MainSchedule *m_schedule;

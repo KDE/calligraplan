@@ -158,19 +158,20 @@ void Task::copySchedule()
     if (m_currentSchedule == nullptr || type() != Node::Type_Task) {
         return;
     }
-    int id = m_currentSchedule->parentScheduleId();
-    NodeSchedule *ns = static_cast<NodeSchedule*>(findSchedule(id));
-    if (ns == nullptr) {
+    int parentId = m_currentSchedule->parentScheduleId();
+    NodeSchedule *parentSchedule = static_cast<NodeSchedule*>(findSchedule(parentId));
+    if (parentSchedule == nullptr) {
+        warnPlan<<Q_FUNC_INFO<<this<<"No parent schedule to copy from";
         return;
     }
     if (type() == Node::Type_Task) {
-        copyAppointments(ns->startTime, ns->endTime);
+        copyAppointmentsFromParentSchedule(parentSchedule->startTime, parentSchedule->endTime);
     }
-    m_currentSchedule->startTime = ns->startTime;
-    m_currentSchedule->earlyStart = ns->earlyStart;
-    m_currentSchedule->endTime = ns->endTime;
-    m_currentSchedule->lateFinish = ns->lateFinish;
-    m_currentSchedule->duration = ns->duration;
+    m_currentSchedule->startTime = parentSchedule->startTime;
+    m_currentSchedule->earlyStart = parentSchedule->earlyStart;
+    m_currentSchedule->endTime = parentSchedule->endTime;
+    m_currentSchedule->lateFinish = parentSchedule->lateFinish;
+    m_currentSchedule->duration = parentSchedule->duration;
     // TODO: status flags, etc
     //debugPlan;
 }
@@ -181,43 +182,101 @@ void Task::copyAppointments()
         return;
     }
     int id = m_currentSchedule->parentScheduleId();
-    NodeSchedule *ns = static_cast<NodeSchedule*>(findSchedule(id));
-    if (ns == nullptr) {
+    NodeSchedule *parentSchedule = static_cast<NodeSchedule*>(findSchedule(id));
+    if (parentSchedule == nullptr) {
         return;
     }
     DateTime time = m_currentSchedule->recalculateFrom();
-    qreal plannedEffort = ns->plannedEffortTo(time).toDouble();
+    qreal plannedEffort = parentSchedule->plannedEffortTo(time).toDouble();
     if (plannedEffort == 0.0) {
+        warnPlan<<Q_FUNC_INFO<<this<<"No planned effort up to recalculation date:"<<time;
         return; // nothing to do, should not happen but...
     }
-    // Problem is that actual effort is pr day so try to be smart...
-    QDate date = time.time() == QTime() ? time.date() : time.date().addDays(1); // hmmm, review
-    qreal actualEffort = actualEffortTo(date).toDouble();
-    qreal scale = actualEffort / plannedEffort;
-    if (scale == 0.0) {
-        // can happen if task is started but nobody has done any work yet
-        scale = 1.0;
-    }
-    // Copy and adjust for performance to get reasonable bcws/bcwp/acwp values.
-    // This means the historical *planned* values will not match parent schedule,
-    // but then this *is* a new schedule, so more important to get totals etc to work.
-    copyAppointments(ns->startTime, time, scale);
+    createAndMergeAppointmentsFromCompletion();
 }
 
-void Task::copyAppointments(const DateTime &start, const DateTime &end, qreal factor)
+void Task::createAndMergeAppointmentsFromCompletion()
 {
     if (m_currentSchedule == nullptr || type() != Node::Type_Task) {
         return;
     }
     int id = m_currentSchedule->parentScheduleId();
-    NodeSchedule *ns = static_cast<NodeSchedule*>(findSchedule(id));
-    if (ns == nullptr) {
+    NodeSchedule *parentSchedule = static_cast<NodeSchedule*>(findSchedule(id));
+    if (parentSchedule == nullptr) {
         return;
     }
-    DateTime st = start.isValid() ? start : ns->startTime;
-    DateTime et = end.isValid() ? end : ns->endTime;
+    const auto appointments = completion().createAppointments();
+    QHash<Resource*, Appointment>::const_iterator it;
+    for (it = appointments.constBegin(); it != appointments.constEnd(); ++it) {
+        auto resource = it.key();
+        auto appointment = it.value();
+        auto resourceSchedule = resource->findSchedule(currentSchedule()->id());
+        Q_ASSERT(resourceSchedule);
+        if (!resourceSchedule) {
+            resourceSchedule = resource->createSchedule(currentSchedule()->name(), currentSchedule()->type(), currentSchedule()->id());
+            resource->addSchedule(resourceSchedule);
+        }
+        appointment.setNode(currentSchedule());
+        appointment.setResource(resourceSchedule);
+        // find appointment to merge with
+        Appointment *curr = nullptr;
+        const auto currAppointments = m_currentSchedule->appointments();
+        for (Appointment *c : currAppointments ) {
+            if (c->resource() == appointment.resource()) {
+                //debugPlan<<"Found current appointment to"<<a->resource()->resource()<<c;
+                curr = c;
+                break;
+            }
+        }
+        if (curr == nullptr) {
+            // A resource that is not planned to work, has done work on this task
+            curr = new Appointment();
+            m_currentSchedule->add(curr);
+            curr->setNode(m_currentSchedule);
+            auto resource = appointment.resource()->resource();
+            ResourceSchedule *rs = static_cast<ResourceSchedule*>(resource->findSchedule(m_currentSchedule->id()));
+            if (rs == nullptr) {
+                rs = resource->createSchedule(m_currentSchedule->parent());
+                rs->setId(m_currentSchedule->id());
+                rs->setName(m_currentSchedule->name());
+                rs->setType(m_currentSchedule->type());
+                //debugPlan<<"Resource schedule not found, id="<<m_currentSchedule->id();
+            }
+            rs->setCalculationMode(m_currentSchedule->calculationMode());
+            if (!rs->appointments().contains(curr)) {
+                //debugPlan<<"add to resource"<<rs<<curr;
+                rs->add(curr);
+                curr->setResource(rs);
+            }
+            //debugPlan<<"Created new appointment"<<curr;
+        }
+        //for (AppointmentInterval *i, curr->intervals()) { debugPlan<<i->startTime().toString()<<i->endTime().toString(); }
+        curr->merge(appointment);
+        //debugPlan<<"Appointments added";
+    }
+    m_currentSchedule->startTime = DateTime();
+    for (const auto appointment : m_currentSchedule->appointments()) {
+        if (!m_currentSchedule->startTime.isValid() || m_currentSchedule->startTime > appointment->startTime()) {
+            m_currentSchedule->startTime = appointment->startTime();
+        }
+    }
+    m_currentSchedule->earlyStart = m_currentSchedule->startTime;
+}
+
+void Task::copyAppointmentsFromParentSchedule(const DateTime &start, const DateTime &end)
+{
+    if (m_currentSchedule == nullptr || type() != Node::Type_Task) {
+        return;
+    }
+    auto parentId = m_currentSchedule->parentScheduleId();
+    NodeSchedule *parentSchedule = static_cast<NodeSchedule*>(findSchedule(parentId));
+    if (parentSchedule == nullptr) {
+        return;
+    }
+    DateTime st = start.isValid() ? start : parentSchedule->startTime;
+    DateTime et = end.isValid() ? end : parentSchedule->endTime;
     //debugPlan<<m_name<<st.toString()<<et.toString()<<m_currentSchedule->calculationMode();
-    const auto appointments = ns->appointments();
+    const auto appointments = parentSchedule->appointments();
     for (const Appointment *a : appointments) {
         Resource *r = a->resource() == nullptr ? nullptr : a->resource()->resource();
         if (r == nullptr) {
@@ -227,7 +286,7 @@ void Task::copyAppointments(const DateTime &start, const DateTime &end, qreal fa
         AppointmentIntervalList lst;
         const auto intervals = a->intervals(st, et).map();
         for (AppointmentInterval i : intervals) {
-            i.setLoad(i.load() * factor);
+            i.setLoad(i.load());
             lst.add(i);
         }
         if (lst.isEmpty()) {
@@ -265,12 +324,12 @@ void Task::copyAppointments(const DateTime &start, const DateTime &end, qreal fa
         }
         Appointment app;
         app.setIntervals(lst);
-        //for (AppointmentInterval *i, curr->intervals()) { debugPlan<<i->startTime().toString()<<i->endTime().toString(); }
+        //debugPlan<<"Add appointments:"<<app;
         curr->merge(app);
         //debugPlan<<"Appointments added";
     }
-    m_currentSchedule->startTime = ns->startTime;
-    m_currentSchedule->earlyStart = ns->earlyStart;
+    m_currentSchedule->startTime = parentSchedule->startTime;
+    m_currentSchedule->earlyStart = parentSchedule->earlyStart;
 }
 
 void Task::calcResourceOverbooked() {
@@ -3757,6 +3816,108 @@ void Completion::UsedEffort::saveXML(QDomElement &element) const
         el.setAttribute(QStringLiteral("normal-effort"), i.value().normalEffort().toString());
         el.setAttribute(QStringLiteral("date"), i.key().toString(Qt::ISODate));
     }
+}
+
+QHash<Resource*, Appointment> Completion::createAppointments() const
+{
+    QHash<Resource*, Appointment> apps;
+
+    switch (m_entrymode) {
+        case FollowPlan:
+            break;
+        case EnterCompleted:
+            break;
+        case EnterEffortPerTask:
+            apps = createAppointmentsPerTask();
+            break;
+        case EnterEffortPerResource:
+            apps = createAppointmentsPerResource();
+            break;
+    }
+    return apps;
+}
+
+QHash<Resource*, Appointment> Completion::createAppointmentsPerTask() const
+{
+    QHash<Resource*, Appointment> apps;
+    if (!m_started || !m_startTime.isValid()) {
+        return apps;
+    }
+    if (m_node->type() != Node::Type_Task) {
+        errorPlan<<Q_FUNC_INFO<<m_node<<"is not a task";
+        return apps;
+    }
+    Project *project = qobject_cast<Project*>(m_node->projectNode());
+    if (!project) {
+        errorPlan<<Q_FUNC_INFO<<m_node<<"Cannot find project node";
+        return apps;
+    }
+    auto task = static_cast<Task*>(m_node);
+    QList<Resource*> resources;
+    for (const Appointment *a : task->currentSchedule()->appointments()) {
+        Q_ASSERT(a->resource());
+        Q_ASSERT(a->resource()->resource());
+        resources << a->resource()->resource();
+    }
+    if (resources.isEmpty()) {
+        errorPlan<<Q_FUNC_INFO<<m_node<<"No resources has been scheduled to work on this task";
+        return apps;
+    }
+    qreal workDay = project->standardWorktime()->durationDay().milliseconds();
+    for (const QDate &date : entries().keys()) {
+        if (date < m_startTime.date()) {
+            continue;
+        }
+        DateTime start = DateTime(date.startOfDay());
+        qreal day = 86400000;
+        if (date == m_startTime.date()) {
+            start = m_startTime;
+            day -= start.time().msecsSinceStartOfDay();
+        }
+        qreal factor = workDay / day;
+        for (Resource *r : resources) {
+            const qreal actualEffort = this->actualEffort(date).milliseconds() / resources.count();
+            const int load = 100 * factor * actualEffort / workDay;
+            apps[r].addInterval(start, date.addDays(1).startOfDay(), load);
+        }
+    }
+    return apps;
+}
+
+QHash<Resource*, Appointment> Completion::createAppointmentsPerResource() const
+{
+    Q_ASSERT(m_node);
+    QHash<Resource*, Appointment> apps;
+    if (!m_started || !m_startTime.isValid()) {
+        return apps;
+    }
+    Project *project = qobject_cast<Project*>(m_node->projectNode());
+    if (!project) {
+        errorPlan<<Q_FUNC_INFO<<m_node<<"Cannot find project node";
+        return apps;
+    }
+    //
+    qreal workDay = project->standardWorktime()->durationDay().milliseconds();
+    ResourceUsedEffortMap::const_iterator it;
+    for (it = usedEffortMap().constBegin(); it != usedEffortMap().constEnd(); ++it) {
+        auto r = const_cast<Resource*>(it.key());
+        const QMap<QDate, UsedEffort::ActualEffort> actualEffortMap = it.value()->actualEffortMap();
+        QMap<QDate, UsedEffort::ActualEffort>::const_iterator it2;
+        for (it2 = actualEffortMap.constBegin(); it2 != actualEffortMap.constEnd(); ++it2) {
+            const QDate date = it2.key();
+            DateTime start = DateTime(date.startOfDay());
+            qreal day = 86400000;
+            if (date == m_startTime.date()) {
+                start = m_startTime;
+                day -= start.time().msecsSinceStartOfDay();
+            }
+            qreal factor = workDay / day;
+            const qreal actualEffort = it2.value().effort().milliseconds();
+            const int load = 100 * factor * actualEffort / workDay;
+            apps[r].addInterval(start, date.addDays(1).startOfDay(), load);
+        }
+    }
+    return apps;
 }
 
 //----------------------------------

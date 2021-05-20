@@ -67,3 +67,7 @@ plankernel_add_unit_test(WorkInfoCacheTester WorkInfoCacheTester.cpp  LINK_LIBRA
 ########## next target ###############
 
 plankernel_add_unit_test(ResourceGroupTester ResourceGroupTester.cpp  LINK_LIBRARIES plankernel Qt5::Test)
+
+########## next target ###############
+
+plankernel_add_unit_test(ReScheduleTester ReScheduleTester  LINK_LIBRARIES plankernel Qt5::Test)

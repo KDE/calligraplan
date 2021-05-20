@@ -41,6 +41,7 @@ namespace KPlato
 
 class Completion;
 class XmlSaveContext;
+class Appointment;
 
 /**
  * The Completion class holds information about the tasks progress.
@@ -250,10 +251,16 @@ public:
     /// Returns the actual effort and cost pr day used by @p resource
     EffortCostMap effortCostPrDay(const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE) const;
 
+    // Convert completion data to appointments
+    QHash<Resource*, Appointment> createAppointments() const;
+
 protected:
     void copy(const Completion &copy);
     double averageCostPrHour(QDate date, long id) const;
     std::pair<QDate, QDate> actualStartEndDates() const;
+
+    QHash<Resource*, Appointment> createAppointmentsPerTask() const;
+    QHash<Resource*, Appointment> createAppointmentsPerResource() const;
 
 private:
     Node *m_node;
@@ -608,8 +615,9 @@ public:
     /// Copy intervals from parent schedule
     void copyAppointments();
     /// Copy intervals from parent schedule in the range @p start, @p end
-    /// All interval loads are scaled with @p factor
-    void copyAppointments(const DateTime &start, const DateTime &end = DateTime(), qreal factor = 1.0);
+    void copyAppointmentsFromParentSchedule(const DateTime &start, const DateTime &end = DateTime());
+    /// Creates appointments based on completion data and merges them to current schedule
+    void createAndMergeAppointmentsFromCompletion();
 
 Q_SIGNALS:
     void workPackageToBeAdded(KPlato::Node *node, int row);
