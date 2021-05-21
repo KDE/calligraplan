@@ -235,6 +235,51 @@ void print(Project *p, Task *t, const QString &str, bool full = true) {
     print(t);
 }
 static
+void print(Completion &c, const QString &pad, bool full = true) {
+    if (full) {
+        qDebug()<<pad<<"Completion info: Task"<<c.node()->name();
+    }
+    if (!c.isStarted()) {
+        qDebug()<<pad<<"Not started";
+        return;
+    }
+    QString pd = QString("%1  ").arg(pad);
+    if (c.isFinished()) {
+        qDebug()<<pd<<" Started:"<<QTest::toString(QDateTime(c.startTime()));
+        qDebug()<<pd<<"Finished:"<<QTest::toString(QDateTime(c.finishTime()));
+    } else if (c.isStarted()) {
+        qDebug()<<pd<<"Started:"<<QTest::toString(QDateTime(c.startTime()));
+        qDebug()<<pd<<"Completed:"<<c.percentFinished()<<'%'<<"Mode:"<<c.entryModeToString();
+        switch(c.entrymode()) {
+            case Completion::EnterEffortPerTask: {
+                const auto entries = c.entries();
+                Completion::EntryList::const_iterator it = entries.constBegin();
+                for (; it != entries.constEnd(); ++it) {
+                    qDebug()<<pd<<it.key()<<QTest::toString(it.value()->percentFinished)<<'%'<<"remaining effort:"<<it.value()->remainingEffort.toDouble(Duration::Unit_h)<<'h';
+                }
+                break;
+            }
+            case Completion::EnterEffortPerResource: {
+                const QString pd2 = QString("%1  ").arg(pd);
+                const auto resources = c.resources();
+                const auto entries = c.entries();
+                Completion::EntryList::const_iterator it = entries.constBegin();
+                for (; it != entries.constEnd(); ++it) {
+                    qDebug()<<pd<<it.key().toString(Qt::ISODate)<<it.value()->percentFinished<<'%'<<"remaining effort:"<<it.value()->remainingEffort.toDouble(Duration::Unit_h)<<'h';
+                    for (const auto r : resources) {
+                        qDebug()<<pd2<<r->name()<<':'<<c.getActualEffort(r, it.key()).effort().toDouble(Duration::Unit_h)<<'h';
+                    }
+                }
+                break;
+            }
+                break;
+            default:
+                qDebug()<<pd<<"Unused mode:"<<c.entryModeToString();
+                break;
+        }
+    }
+}
+static
 void print(Task *t, const QString &str, bool full = true) {
     qDebug()<<"Debug info: Task"<<t->name()<<str;
     print(t, full);
@@ -338,6 +383,7 @@ void print(Task *t, bool full = true) {
     if (t->shutdownAccount()) {
         qDebug()<<pad<<"Shutdown account:"<<t->shutdownAccount()->name()<<" cost:"<<t->shutdownCost();
     }
+    print(t->completion(), pad);
     if (full) {
         for (int i = 0; i < t->numChildren(); ++i) {
             qDebug()<<pad;
