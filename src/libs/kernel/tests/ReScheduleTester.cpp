@@ -186,8 +186,8 @@ void ReScheduleTester::completionPerResource()
         } else if (it2.key() == resource2) {
             QVERIFY(!it2.value().isEmpty());
             QCOMPARE(it2.value().count(), 1);
-            QString str = QString("Resource: %3: Appointment: %1, Expected: %2").arg(it2.value().startTime().toString(Qt::ISODate)).arg(DateTime(date.startOfDay()).toString(Qt::ISODate).arg(it2.key()->name()));
-            QVERIFY(it2.value().startTime() == DateTime(date.startOfDay()));
+            QString str = QString("Resource: %3: Appointment: %1, Expected: %2").arg(it2.value().startTime().toString(Qt::ISODate)).arg(DateTime(date, QTime()).toString(Qt::ISODate).arg(it2.key()->name()));
+            QVERIFY(it2.value().startTime() == DateTime(date, QTime()));
             QCOMPARE(it2.value().intervalAt(0).load(), 33); // 8 hours work in 24 hours
         } else {
             QVERIFY2(false, "Invalid resource");
