@@ -3431,10 +3431,10 @@ void Completion::setActualEffort(Resource *resource, const QDate &date, const Co
     changed(Node::CompletionActualEffortProperty);
 }
 
-Completion::UsedEffort::ActualEffort Completion::getActualEffort(Resource *resource, const QDate &date) const
+Completion::UsedEffort::ActualEffort Completion::getActualEffort(const Resource *resource, const QDate &date) const
 {
     UsedEffort::ActualEffort value;
-    UsedEffort *ue = m_usedEffort.value(resource);
+    UsedEffort *ue = m_usedEffort.value(const_cast<Resource*>(resource));
     if (ue) {
         value = ue->effort(date);
     }

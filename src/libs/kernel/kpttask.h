@@ -234,7 +234,7 @@ public:
 
     void setActualEffort(Resource *resource, const QDate &date, const UsedEffort::ActualEffort &value);
     // FIXME name clash
-    UsedEffort::ActualEffort getActualEffort(Resource *resource, const QDate &date) const;
+    Completion::UsedEffort::ActualEffort getActualEffort(const Resource *resource, const QDate &date) const;
 
     void changed(int property = -1);
     Node *node() const { return m_node; }
