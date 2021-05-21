@@ -184,6 +184,7 @@ void Task::copyAppointments()
     int id = m_currentSchedule->parentScheduleId();
     NodeSchedule *parentSchedule = static_cast<NodeSchedule*>(findSchedule(id));
     if (parentSchedule == nullptr) {
+        warnPlan<<Q_FUNC_INFO<<"no parent schedule to copy from";
         return;
     }
     DateTime time = m_currentSchedule->recalculateFrom();
