@@ -61,7 +61,7 @@
   <summary xml:lang="sv">Projekthantering</summary>
   <summary xml:lang="uk">Керування проєктами</summary>
   <summary xml:lang="x-test">xxProject Managementxx</summary>
-  <summary xml:lang="zh-CN">项目管理</summary>
+  <summary xml:lang="zh-CN">项目管理程序</summary>
   <description>
     <p>
       Plan is a project management application. It is intended for managing moderately large projects with multiple resources.
@@ -91,6 +91,7 @@
     <p xml:lang="sv">Plan är ett projekthanteringsprogram. Det är avsett för att hantera måttligt stora projekt med flera resurser.</p>
     <p xml:lang="uk">Plan — програма для керування проєктами. Її призначено для керування помірно великими проєктами з декількома ресурсами або виконавцями.</p>
     <p xml:lang="x-test">xxPlan is a project management application. It is intended for managing moderately large projects with multiple resources.xx</p>
+    <p xml:lang="zh-CN">Plan 是一款项目管理程序。它适用于管理具有多种资源的中大型项目。</p>
     <p>Features:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -119,7 +120,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
-    <p xml:lang="zh-CN">功能：</p>
+    <p xml:lang="zh-CN">程序功能：</p>
     <ul>
       <li>Multiple views: Gant Charts, Resource View, Accounts View</li>
       <li xml:lang="bs">Višestruki pogledi: Gantovi dijagrami, pogled resursa, pogled računa</li>
@@ -147,6 +148,7 @@
       <li xml:lang="sv">Flera vyer: Gant-diagram, resursvy, kontovy</li>
       <li xml:lang="uk">Декілька режимів перегляду: діаграми Ґанта, перегляд виконавців, перегляд рахунків.</li>
       <li xml:lang="x-test">xxMultiple views: Gant Charts, Resource View, Accounts Viewxx</li>
+      <li xml:lang="zh-CN">多种视图模式：甘特图、资源视图、账目视图</li>
       <li>Uses standard structures: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)</li>
       <li xml:lang="bs">Koristi standardne strukture: Struktura prekida rada (WBS), Struktura prekida resursa (RBS), Struktura prekida troška (CBS)</li>
       <li xml:lang="ca">Usa estructures estàndard: Estructura de descomposició de treballs (WBS), Estructura de descomposició de recursos (RBS), Estructura de descomposició de costos (CBS)</li>
@@ -172,6 +174,7 @@
       <li xml:lang="sv">Använder standardstrukturer: Arbetsfördelningsstruktur (WBS), resursfördelningsstruktur (RBS), kostnadsfördelningsstruktur (CBS)</li>
       <li xml:lang="uk">Використання стандартних структур: структури рознарядки робіт (СРР або WBS), структури розподілу вартості (СРВ або CBS) та структури розподілу ресурсів (СРР або RBS).</li>
       <li xml:lang="x-test">xxUses standard structures: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)xx</li>
+      <li xml:lang="zh-CN">使用标准结构：工作细分结构 (WBS)、资源细分结构 (RBS)、成本细分结构 (CBS)</li>
       <li>Configurable level of detail on Gantt Chart</li>
       <li xml:lang="bs">Konfigurabilan nivo detalja na Gantt Chart</li>
       <li xml:lang="ca">Es pot configurar el nivell de detall en el diagrama de Gantt</li>
@@ -198,6 +201,7 @@
       <li xml:lang="sv">Anpassningsbar detaljnivå för Gantt-diagram</li>
       <li xml:lang="uk">Налаштовуваний рівень деталізації у діаграмах Ґанта.</li>
       <li xml:lang="x-test">xxConfigurable level of detail on Gantt Chartxx</li>
+      <li xml:lang="zh-CN">甘特图可配置详情级别</li>
       <li>Supports Summarytasks, Tasks, and milestones</li>
       <li xml:lang="bs">Podržava rezime zadataka, zadatke i prekretnice</li>
       <li xml:lang="ca">Permet resums de tasques, tasques i fites</li>
@@ -224,6 +228,7 @@
       <li xml:lang="sv">Stöder sammanfattningsaktiviteter, aktiviteter och milstenar</li>
       <li xml:lang="uk">Підтримка підсумкових завдань, завдань та етапів.</li>
       <li xml:lang="x-test">xxSupports Summarytasks, Tasks, and milestonesxx</li>
+      <li xml:lang="zh-CN">支持汇总型任务、任务和里程碑</li>
       <li>Configurable Scheduling Constraints</li>
       <li xml:lang="bs">Konfigurabilna ograničenja rasporeda</li>
       <li xml:lang="ca">Es poden configurar restriccions de planificació</li>
@@ -250,6 +255,7 @@
       <li xml:lang="sv">Anpassningsbara tidplanebegränsning</li>
       <li xml:lang="uk">Налаштовувані обмеження щодо планування.</li>
       <li xml:lang="x-test">xxConfigurable Scheduling Constraintsxx</li>
+      <li xml:lang="zh-CN">可配置的调度约束条件</li>
     </ul>
   </description>
   <url type="homepage">https://www.calligra.org/plan/</url>
