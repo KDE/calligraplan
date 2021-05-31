@@ -1780,32 +1780,6 @@ DateTime Task::scheduleFromStartTime(int use) {
         case Node::ASAP:
             // cs->startTime calculated above
             //debugPlan<<m_name<<"ASAP:"<<cs->startTime<<"earliest:"<<cs->earlyStart;
-            if (false/*useCalculateForwardAppointments*/
-                    && m_estimate->type() == Estimate::Type_Effort
-                    && ! cs->allowOverbooking()
-                    && cs->hasAppointments(Schedule::CalculateForward)
-                ) {
-#ifndef PLAN_NLOGDEBUG
-                cs->logDebug("ASAP: " + cs->startTime.toString() + " earliest: " + cs->earlyStart.toString());
-#endif
-                cs->copyAppointments(Schedule::CalculateForward, Schedule::Scheduling);
-                if (cs->recalculate() && completion().isStarted()) {
-                    // copy start times + appointments from parent schedule
-                    copyAppointments();
-                }
-                cs->startTime = cs->appointmentStartTime();
-                cs->endTime = cs->appointmentEndTime();
-                Q_ASSERT(cs->startTime.isValid());
-                Q_ASSERT(cs->endTime.isValid());
-                cs->duration = cs->endTime - cs->startTime;
-                if (cs->lateFinish > cs->endTime) {
-                    cs->positiveFloat = workTimeBefore(cs->lateFinish) - cs->endTime;
-                } else {
-                    cs->positiveFloat = Duration::zeroDuration;
-                }
-                cs->logInfo(i18n("Scheduled: %1 to %2", locale.toString(cs->startTime, QLocale::ShortFormat), locale.toString(cs->endTime, QLocale::ShortFormat)));
-                return cs->endTime;
-            }
             cs->startTime = workTimeAfter(cs->startTime, cs);
 #ifndef PLAN_NLOGDEBUG
             cs->logDebug("ASAP: " + cs->startTime.toString() + " earliest: " + cs->earlyStart.toString());
