@@ -190,8 +190,12 @@ void Task::copyAppointments()
     DateTime time = m_currentSchedule->recalculateFrom();
     qreal plannedEffort = parentSchedule->plannedEffortTo(time).toDouble();
     if (plannedEffort == 0.0) {
+        // This *could* happen if work has been done on a task that is planned
+        // to start later than the recalculation date.
+        // This is probably not a situation that will happen in real life, so we do nothing for now.
+        // Possibly one could use the tasks recalculated start time as limit, but let's see...
         warnPlan<<Q_FUNC_INFO<<this<<"No planned effort up to recalculation date:"<<time;
-        return; // nothing to do, should not happen but...
+        return;
     }
     createAndMergeAppointmentsFromCompletion();
 }
@@ -251,9 +255,8 @@ void Task::createAndMergeAppointmentsFromCompletion()
             }
             //debugPlan<<"Created new appointment"<<curr;
         }
-        //for (AppointmentInterval *i, curr->intervals()) { debugPlan<<i->startTime().toString()<<i->endTime().toString(); }
         curr->merge(appointment);
-        //debugPlan<<"Appointments added";
+        //debugPlan<<"Appointments added:"<<curr;
     }
     m_currentSchedule->startTime = DateTime();
     for (const auto appointment : m_currentSchedule->appointments()) {
@@ -1811,10 +1814,11 @@ DateTime Task::scheduleFromStartTime(int use) {
             cs->endTime = cs->startTime + cs->duration;
             makeAppointments();
             if (cs->recalculate() && completion().isStarted()) {
-                // copy start times + appointments from parent schedule
+                // create appointments from completion
                 copyAppointments();
                 cs->duration = cs->endTime - cs->startTime;
             }
+
             if (cs->lateFinish > cs->endTime) {
                 cs->positiveFloat = workTimeBefore(cs->lateFinish) - cs->endTime;
             } else {
