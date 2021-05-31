@@ -38,6 +38,7 @@ private Q_SLOTS:
     void completionPerResource();
     void reschedulePerTask();
     void reschedulePerResource();
+    void rescheduleTaskLength();
 
 private:
     Project *m_project;

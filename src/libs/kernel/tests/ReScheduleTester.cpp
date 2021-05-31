@@ -48,7 +48,7 @@ void ReScheduleTester::init()
     m_project->setId(m_project->uniqueNodeId());
     m_project->registerNodeId(m_project);
     m_project->setConstraintStartTime(QDateTime::fromString("2012-02-01T00:00", Qt::ISODate).toTimeZone(QTimeZone::systemTimeZone()));
-    m_project->setConstraintEndTime(QDateTime::fromString("2012-03-01T00:00", Qt::ISODate).toTimeZone(QTimeZone::systemTimeZone()));
+    m_project->setConstraintEndTime(QDateTime::fromString("2012-04-01T00:00", Qt::ISODate).toTimeZone(QTimeZone::systemTimeZone()));
     // standard worktime defines 8 hour day as default
     QVERIFY(m_project->standardWorktime());
     QCOMPARE(m_project->standardWorktime()->day(), 8.0);
@@ -100,6 +100,29 @@ void ReScheduleTester::init()
     t = m_project->createTask();
     t->setName("T3");
     t->setPriority(6);
+    m_project->addTask(t, m_project);
+    t->completion().setEntrymode(Completion::EnterEffortPerResource);
+    t->estimate()->setUnit(Duration::Unit_d);
+    t->estimate()->setExpectedEstimate(6.0);
+    t->estimate()->setType(Estimate::Type_Effort);
+    request = new ResourceRequest(resource1, 100);
+    t->requests().addResourceRequest(request);
+
+    t = m_project->createTask();
+    t->setName("T4");
+    t->setPriority(5);
+    t->estimate()->setType(Estimate::Type_Duration);
+    t->estimate()->setCalendar(calendar);
+    t->estimate()->setUnit(Duration::Unit_d);
+    t->estimate()->setExpectedEstimate(6.0);
+    m_project->addTask(t, m_project);
+    t->completion().setEntrymode(Completion::EnterEffortPerTask);
+
+    t = m_project->createTask();
+    t->setName("T5");
+    t->setPriority(4);
+    t->estimate()->setType(Estimate::Type_Duration);
+    t->estimate()->setCalendar(calendar);
     m_project->addTask(t, m_project);
     t->completion().setEntrymode(Completion::EnterEffortPerResource);
     t->estimate()->setUnit(Duration::Unit_d);
@@ -206,7 +229,7 @@ void ReScheduleTester::reschedulePerTask()
     QDate date(2012, 2, 1);
     QDateTime start(date, QTime(9, 0, 0));
 
-    QCOMPARE(m_project->numChildren(), 3);
+    QVERIFY(m_project->numChildren() >= 3);
     auto t1 = static_cast<Task*>(m_project->childNode(0));
     auto t2 = static_cast<Task*>(m_project->childNode(1));
     auto t3 = static_cast<Task*>(m_project->childNode(2));
@@ -328,7 +351,7 @@ void ReScheduleTester::reschedulePerResource()
     QDate date(2012, 2, 1);
     QDateTime start(date, QTime(9, 0, 0));
 
-    QCOMPARE(m_project->numChildren(), 3);
+    QVERIFY(m_project->numChildren() >= 3);
     auto t1 = static_cast<Task*>(m_project->childNode(0));
     auto t2 = static_cast<Task*>(m_project->childNode(1));
     auto t3 = static_cast<Task*>(m_project->childNode(2));
@@ -532,6 +555,80 @@ void ReScheduleTester::reschedulePerResource()
     str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
     QVERIFY2(interval.endTime() == dt, str.toLatin1());
     QCOMPARE(interval.load(), 100);
+}
+
+void ReScheduleTester::rescheduleTaskLength()
+{
+    auto parentManager = m_project->scheduleManagers().value(0);
+    QVERIFY(parentManager);
+    auto parentId = parentManager->expected()->id();
+
+    QDate date(2012, 2, 1);
+    QDateTime start(date, QTime(9, 0, 0));
+
+    QVERIFY(m_project->numChildren() >= 4);
+    auto t1 = static_cast<Task*>(m_project->childNode(0));
+    auto t2 = static_cast<Task*>(m_project->childNode(1));
+    auto t3 = static_cast<Task*>(m_project->childNode(2));
+    auto t4 = static_cast<Task*>(m_project->childNode(3));
+
+    auto str = QString("Value: %1, Expected: %2").arg(t1->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t1->startTime(parentId) == start, str.toLatin1());
+    str = QString("Value: %1, Expected: %2").arg(t2->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(6).toString(Qt::ISODate));
+    QVERIFY2(t2->startTime(parentId) == start.addDays(6), str.toLatin1());
+    str = QString("Value: %1, Expected: %2").arg(t3->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(12).toString(Qt::ISODate));
+    QVERIFY2(t3->startTime(parentId) == start.addDays(12), str.toLatin1());
+
+    str = QString("Value: %1, Expected: %2").arg(t4->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t4->startTime(parentId) == start, str.toLatin1());
+
+    auto childManager = m_project->createScheduleManager(parentManager);
+    childManager->setRecalculate(true);
+    auto recalculateFrom = m_project->constraintStartTime().addMonths(1);  // 2012-03-01T00:00:00
+    childManager->setRecalculateFrom(recalculateFrom);
+    childManager->setParentManager(parentManager);
+    childManager->createSchedules();
+    m_project->calculate(*childManager);
+    auto childId = childManager->expected()->id();
+    //Debug::print(m_project, "", true);
+
+    // T1: 2012-03-01 -> 2012-03-06
+    // T2: 2012-03-07 -> 2012-02-12
+    // T3: 2012-03-13 -> 2012-03-18
+    // T4: 2012-03-01 -> 2012-02-06 (Length, no resource request)
+    start = recalculateFrom.addSecs(9*60*60);
+    QDateTime end = start.addDays(5).addSecs(8*60*60);
+
+    str = QString("Value: %1, Expected: %2").arg(t4->startTime(childId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t4->startTime(childId) == start, str.toLatin1());
+    str = QString("Value: %1, Expected: %2").arg(t4->endTime(childId).toString(Qt::ISODate)).arg(end.toString(Qt::ISODate));
+    QVERIFY2(t4->endTime(childId) == end, str.toLatin1());
+
+    // test with completion
+    t4->completion().setStarted(true);
+    t4->completion().setStartTime(t4->startTime().addDays(2));
+    t4->completion().setPercentFinished(t4->startTime().date(), 16);
+
+    childManager = m_project->createScheduleManager(parentManager);
+    childManager->setRecalculate(true);
+    recalculateFrom = m_project->constraintStartTime().addMonths(1);  // 2012-03-01T00:00:00
+    childManager->setRecalculateFrom(recalculateFrom);
+    childManager->setParentManager(parentManager);
+    childManager->createSchedules();
+    m_project->calculate(*childManager);
+    childId = childManager->expected()->id();
+    Debug::print(m_project, "", true);
+
+    // T4: 2012-02-03 -> 2012-02-08 (Length, no resource request)
+    start = t4->completion().startTime();
+    end = start.addDays(5).addSecs(17*60*60);
+
+    QEXPECT_FAIL("", "Rescheduling started Length tasks not yet implemented", Continue);
+    str = QString("Value: %1, Expected: %2").arg(t4->startTime(childId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t4->startTime(childId) == start, str.toLatin1());
+    QEXPECT_FAIL("", "Rescheduling started Length tasks not yet implemented", Continue);
+    str = QString("Value: %1, Expected: %2").arg(t4->endTime(childId).toString(Qt::ISODate)).arg(end.toString(Qt::ISODate));
+    QVERIFY2(t4->endTime(childId) == end, str.toLatin1());
 }
 
 } //namespace KPlato
