@@ -606,8 +606,8 @@ void ReScheduleTester::rescheduleTaskLength()
 
     // test with completion
     t4->completion().setStarted(true);
-    t4->completion().setStartTime(t4->startTime().addDays(2));
-    t4->completion().setPercentFinished(t4->startTime().date(), 16);
+    t4->completion().setStartTime(t4->startTime(parentId).addDays(2));
+    t4->completion().setPercentFinished(t4->completion().startTime().date(), 16);
 
     childManager = m_project->createScheduleManager(parentManager);
     childManager->setRecalculate(true);
@@ -621,12 +621,10 @@ void ReScheduleTester::rescheduleTaskLength()
 
     // T4: 2012-02-03 -> 2012-02-08 (Length, no resource request)
     start = t4->completion().startTime();
-    end = start.addDays(5).addSecs(17*60*60);
+    end = start.addDays(5).addSecs(8*60*60);
 
-    QEXPECT_FAIL("", "Rescheduling started Length tasks not yet implemented", Continue);
     str = QString("Value: %1, Expected: %2").arg(t4->startTime(childId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
     QVERIFY2(t4->startTime(childId) == start, str.toLatin1());
-    QEXPECT_FAIL("", "Rescheduling started Length tasks not yet implemented", Continue);
     str = QString("Value: %1, Expected: %2").arg(t4->endTime(childId).toString(Qt::ISODate)).arg(end.toString(Qt::ISODate));
     QVERIFY2(t4->endTime(childId) == end, str.toLatin1());
 }

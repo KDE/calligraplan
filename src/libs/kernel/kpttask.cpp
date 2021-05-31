@@ -1780,7 +1780,11 @@ DateTime Task::scheduleFromStartTime(int use) {
         case Node::ASAP:
             // cs->startTime calculated above
             //debugPlan<<m_name<<"ASAP:"<<cs->startTime<<"earliest:"<<cs->earlyStart;
-            cs->startTime = workTimeAfter(cs->startTime, cs);
+            if (estimate()->type() == Estimate::Type_Duration && cs->recalculate() && completion().isStarted()) {
+                cs->startTime = completion().startTime();
+            } else {
+                cs->startTime = workTimeAfter(cs->startTime, cs);
+            }
 #ifndef PLAN_NLOGDEBUG
             cs->logDebug("ASAP: " + cs->startTime.toString() + " earliest: " + cs->earlyStart.toString());
 #endif
@@ -2466,7 +2470,7 @@ Duration Task::duration(const DateTime &time, int use, bool backward) {
     }
     //debugPlan<<m_name<<": Use="<<use;
     Duration eff;
-    if (m_currentSchedule->recalculate() && completion().isStarted()) {
+    if (m_currentSchedule->recalculate() && completion().isStarted() && estimate()->type() == Estimate::Type_Effort) {
         eff = completion().remainingEffort();
         //debugPlan<<m_name<<": recalculate, effort="<<eff.toDouble(Duration::Unit_h);
         if (eff == 0 || completion().isFinished()) {
