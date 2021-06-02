@@ -517,35 +517,9 @@ void PlanTJScheduler::addPastAppointments(Node *task)
     if (static_cast<Task*>(task)->completion().isFinished()) {
         static_cast<Task*>(task)->copySchedule();
     } else {
-        qInfo()<<Q_FUNC_INFO<<task->projectNode()<<task;
         static_cast<Task*>(task)->createAndMergeAppointmentsFromCompletion();
     }
     return;
-//     const auto taskSchedule = dynamic_cast<NodeSchedule*>(task->schedule(task->schedule()->parentScheduleId()));
-//     if (!taskSchedule) {
-//         logWarning(task, nullptr, "No parent schedule found");
-//         return;
-//     }
-//     const auto resourceSchedule = resource->schedule(taskSchedule->id());
-//     if (!resourceSchedule) {
-//         logWarning(nullptr, resource, "No parent schedule found");
-//         return;
-//     }
-//     const auto app = taskSchedule->findAppointment(resourceSchedule, taskSchedule);
-//     if (!app) {
-//         logWarning(task, nullptr, QString("%1: No parent appointments found").arg(resource->name()));
-//         return;
-//     }
-//     if (app->isEmpty()) {
-//         logWarning(task, nullptr, QString("%1: Parent appointment is empty").arg(resource->name()));
-//         return;
-//     }
-//     const auto intervals = app->intervals(app->startTime(), DateTime(static_cast<Task*>(task)->completion().entryDate()).addDays(1)).map();
-//     task->setStartTime(app->startTime());
-//     for (const AppointmentInterval &interval : intervals) {
-//         resource->currentSchedule()->addAppointment(task->currentSchedule(), interval.startTime(), interval.endTime(), interval.load());
-//         logDebug(task, nullptr, '\'' + resource->name() + "' copied appointment: " +  interval.startTime().toString(Qt::ISODate) + " - " + interval.endTime().toString(Qt::ISODate));
-//     }
 }
 
 Resource *PlanTJScheduler::resource(Project *project, TJ::Resource *tjResource)
