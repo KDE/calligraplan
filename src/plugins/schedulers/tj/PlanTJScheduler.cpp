@@ -435,7 +435,7 @@ bool PlanTJScheduler::taskFromTJ(TJ::Task *job, Node *task)
     return taskFromTJ(m_project, job, task);
 }
 
-bool PlanTJScheduler::taskFromTJ(Project *project_, TJ::Task *job, Node *task)
+bool PlanTJScheduler::taskFromTJ(Project *project, TJ::Task *job, Node *task)
 {
     if (m_haltScheduling) {
         return true;
@@ -443,7 +443,7 @@ bool PlanTJScheduler::taskFromTJ(Project *project_, TJ::Task *job, Node *task)
     if (task->type() == KPlato::Node::Type_Summarytask || task->type() == KPlato::Node::Type_Project) {
         return true;
     }
-    Project *project = static_cast<Project*>(task->projectNode());
+    Q_ASSERT(project == task->projectNode());
     Schedule *cs = task->currentSchedule();
     Q_ASSERT(cs);
     QTimeZone tz = m_project->timeZone();
@@ -466,7 +466,7 @@ bool PlanTJScheduler::taskFromTJ(Project *project_, TJ::Task *job, Node *task)
     task->setEndTime(fromTime_t(e + 1, tz));
     task->setDuration(task->endTime() - task->startTime());
 
-    //debugPlan<<TJ::time2ISO(s)<<task->startTime()<<"-- "<<TJ::time2ISO(e+1)<<task->endTime();
+    //logDebug(task, nullptr, QString("%1, %2 - %3, %4").arg(TJ::time2ISO(s)).arg(task->startTime().toString(Qt::ISODate)).arg(TJ::time2ISO(e+1)).arg(task->endTime().toString(Qt::ISODate)));
     if (! task->startTime().isValid()) {
         logError(task, nullptr, xi18nc("@info/plain", "Invalid start time"));
         return false;
@@ -494,7 +494,7 @@ bool PlanTJScheduler::taskFromTJ(Project *project_, TJ::Task *job, Node *task)
             logDebug(task, nullptr, '\'' + res->name() + "' added appointment: " +  ai.startTime().toString(Qt::ISODate) + " - " + ai.endTime().toString(Qt::ISODate));
         }
     }
-    if (m_recalculate && static_cast<Task*>(task)->isStarted()) {
+    if (m_recalculate && static_cast<Task*>(task)->isStarted() && task->estimate()->type() == Estimate::Type_Effort) {
         addPastAppointments(task);
     }
 
@@ -795,6 +795,10 @@ void PlanTJScheduler::addTasks()
 void PlanTJScheduler::addDepends(const Relation *rel)
 {
     TJ::Task *child = m_tjProject->getTask(rel->child()->id());
+    if (!child) {
+        logWarning(rel->parent(), nullptr, xi18nc("@info/plain" , "Failed to add as predeccessor to task '%1'", rel->child()->name()));
+        return;
+    }
     TJ::TaskDependency *d = child->addDepends(rel->parent()->id());
     d->setGapDuration(0, rel->lag().seconds());
 }
@@ -802,6 +806,10 @@ void PlanTJScheduler::addDepends(const Relation *rel)
 void PlanTJScheduler::addPrecedes(const Relation *rel)
 {
     TJ::Task *parent = m_tjProject->getTask(rel->parent()->id());
+    if (!parent) {
+        logWarning(rel->child(), nullptr, xi18nc("@info/plain" , "Failed to add as successor to task '%1'", rel->parent()->name()));
+        return;
+    }
     TJ::TaskDependency *d = parent->addPrecedes(rel->child()->id());
     d->setGapDuration(0, rel->lag().seconds());
 }
@@ -985,11 +993,19 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
             job->setLength(0, task->estimate()->value(Estimate::Use_Expected, m_usePert).toDouble(Duration::Unit_d) * 24.0 / m_tjProject->getDailyWorkingHours());
             return;
         }
+        if (m_recalculate) {
+            auto tjTask = m_tjProject->getTask("TJ::RECALCULATE_FROM");
+            if (tjTask) {
+                job->addDepends(tjTask->getId());
+            }
+            job->setMinStart(0, toTJTime_t(m_recalculateFrom, tjGranularity()));
+            logInfo(task, nullptr, i18n("Recalculate, earliest start: %1", TJ::formatTime(job->getMinStart(0))));
+        }
         if (m_recalculate && static_cast<Task*>(task)->completion().isStarted()) {
             const Estimate *estimate = task->estimate();
             const double e = estimate->scale(static_cast<Task*>(task)->completion().remainingEffort(), Duration::Unit_d, estimate->scales());
             job->setEffort(0, e);
-            logDebug(task, nullptr, QString("Task has started. Remainig effort: %1d").arg(e));
+            logInfo(task, nullptr, i18n("Task has started. Remainig effort: %1d", e));
         } else {
             Estimate *estimate = task->estimate();
             double e = estimate->scale(estimate->value(Estimate::Use_Expected, m_usePert), Duration::Unit_d, estimate->scales());
@@ -1057,8 +1073,11 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     m_tjProject->setScheduleGranularity(m_granularity / 1000);
     m_tjProject->getScenario(0)->setMinSlackRate(0.0); // Do not calculate critical path
     if (context.calculateFrom.isValid()) {
-        m_tjProject->setStart(context.calculateFrom.toTime_t());
         m_recalculate = true;
+        m_recalculateFrom = context.calculateFrom;
+        auto t = new TJ::Task(m_tjProject, "TJ::RECALCULATE_FROM", "TJ::RECALCULATE_FROM", nullptr, QString(), 0);
+        t->setMilestone(true);
+        t->setSpecifiedStart(0, toTJTime_t(m_recalculateFrom, tjGranularity()));
     }
 
     connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
@@ -1142,15 +1161,14 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
 
 void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority, KPlato::SchedulingContext &context)
 {
-    if (!m_recalculate) {
-        time_t time = project->constraintStartTime().toTime_t();
-        if (m_tjProject->getStart() == 0 || m_tjProject->getStart() > time) {
-            m_tjProject->setStart(time);
-        }
-    } else {
+    if (m_recalculate) {
         project->currentScheduleManager()->setRecalculateFrom(context.calculateFrom);
     }
-    time_t time = project->constraintEndTime().toTime_t();
+    time_t time = project->constraintStartTime().toTime_t();
+    if (m_tjProject->getStart() == 0 || m_tjProject->getStart() > time) {
+        m_tjProject->setStart(time);
+    }
+    time = project->constraintEndTime().toTime_t();
     if (m_tjProject->getEnd() < time) {
         m_tjProject->setEnd(time);
     }

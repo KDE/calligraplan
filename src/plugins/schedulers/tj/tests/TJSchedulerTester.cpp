@@ -254,9 +254,15 @@ void TJSchedulerTester::testRecalculate()
     //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     // T1 Recalculate 1: Two first days has been completed, 3 last days moved
     auto project = projects.value(0)->document()->project();
-    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 19)); // as before
-    QCOMPARE(project->childNode(0)->endTime().date(), QDate(2021, 4, 28));
-    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 29));
+    auto T1 = static_cast<Task*>(project->childNode(0));
+    auto T2 = static_cast<Task*>(project->childNode(1));
+    auto Length = static_cast<Task*>(project->childNode(2));
+    QCOMPARE(T1->startTime().date(), QDate(2021, 4, 19)); // as before
+    QCOMPARE(T1->endTime().date(), QDate(2021, 4, 28));
+    QCOMPARE(T2->startTime().date(), QDate(2021, 4, 29));
+
+    QCOMPARE(Length->startTime().date(), QDate(2021, 4, 19));
+    QCOMPARE(Length->endTime().date(), QDate(2021, 4, 23));
 
     deleteAll(projects);
 }
@@ -266,26 +272,37 @@ void TJSchedulerTester::testRecalculateMultiple()
     const auto projectFiles = QStringList() << "Test 1.plan" << "Test Recalculate 1.plan";
     QString dir = QFINDTESTDATA("data/multi/schedule/");
     QList<Part*> projects = loadDocuments(dir, projectFiles);
-    QCOMPARE(projects.count(), 2);
+    QCOMPARE(projects.count(), projectFiles.count());
 
     SchedulingContext context;
     populateSchedulingContext(context, "Test Recalculate Multiple Projects", projects);
     QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
+
+    auto project = projects.value(0)->document()->project();
+    auto T1 = static_cast<Task*>(project->childNode(0));
+    auto T2 = static_cast<Task*>(project->childNode(1));
+
     context.calculateFrom = QDateTime(QDate(2021, 4, 26));
     m_scheduler->schedule(context);
-    for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
-    auto project = projects.value(0)->document()->project();
-    qDebug()<<"Check project"<<project;
-    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 26));
-    QCOMPARE(project->childNode(0)->endTime().date(), QDate(2021, 4, 26));
-    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 30));
+    //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    //qDebug()<<"Check project"<<project;
+    QCOMPARE(T1->startTime().date(), QDate(2021, 4, 26));
+    QCOMPARE(T1->endTime().date(), QDate(2021, 4, 26));
+    QCOMPARE(T2->startTime().date(), QDate(2021, 4, 30));
 
     project = projects.value(1)->document()->project();
-    qDebug()<<"Check project"<<project;
+    T1 = static_cast<Task*>(project->childNode(0));
+    T2 = static_cast<Task*>(project->childNode(1));
+    auto Length = static_cast<Task*>(project->childNode(2));
+
+    //qDebug()<<"Check project"<<project;
     // T1 Recalculate 1: Two first days has been completed, 3 last days moved
-    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 19)); // as before
-    QCOMPARE(project->childNode(0)->endTime().date(), QDate(2021, 4, 29));
-    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 5, 1));
+    QCOMPARE(T1->startTime().date(), QDate(2021, 4, 19)); // as before
+    QCOMPARE(T1->endTime().date(), QDate(2021, 4, 29));
+    QCOMPARE(T2->startTime().date(), QDate(2021, 5, 1));
+
+    QCOMPARE(Length->startTime().date(), QDate(2021, 4, 19));
+    QCOMPARE(Length->endTime().date(), QDate(2021, 4, 23));
 
     deleteAll(projects);
 }

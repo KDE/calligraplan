@@ -134,6 +134,7 @@ private:
 private:
     MainSchedule *m_schedule;
     bool m_recalculate;
+    DateTime m_recalculateFrom;
     bool m_usePert;
     bool m_backward;
     TJ::Project *m_tjProject;
@@ -142,6 +143,7 @@ private:
     QMap<TJ::Task*, Node*> m_taskmap;
     QMap<TJ::Resource*, Resource*> m_resourcemap;
     QMap<QString, Resource*> m_resourceIds;
+    QList<Task*> m_durationTasks;
 
     ulong m_granularity;
 };
