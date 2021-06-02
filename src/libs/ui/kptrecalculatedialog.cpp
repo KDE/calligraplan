@@ -29,8 +29,9 @@ RecalculateDialogImpl::RecalculateDialogImpl (QWidget *parent)
 {
     setupUi(this);
 
-    QDateTime ct = QDateTime::currentDateTime();
-    ct.setTime(QTime(ct.time().hour(), ct.time().minute(), 0)); // clear secs/msecs
+    // Set tomorrow as default
+    QDateTime ct = QDateTime::currentDateTime().addDays(1);
+    ct.setTime(QTime());
     dateTimeEdit->setDateTime(ct);
     btnCurrent->setChecked(true);
     dateTimeEdit->setEnabled(false);

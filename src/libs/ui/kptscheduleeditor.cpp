@@ -48,8 +48,8 @@
 #include <QMenu>
 
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <kactioncollection.h>
-
 #include <ktoggleaction.h>
 
 
@@ -359,7 +359,22 @@ void ScheduleEditor::slotCalculateSchedule()
     if (sm == nullptr) {
         return;
     }
-    if (sm->parentManager() || (sm->isScheduled() && project()->isStarted())) {
+    auto parentManager = sm->parentManager();
+    if (parentManager && !parentManager->isScheduled()) {
+        KMessageBox::information(this,
+                                i18n("This schedule cannot be calculated.\nThe parent schedule must be calculated first"),
+                                i18n("Project Scheduling"));
+        return;
+    }
+    if (!parentManager && sm->isScheduled() && project()->isStarted()) {
+        KMessageBox::ButtonCode reply = KMessageBox::questionYesNo (this,
+                                        i18n("The project has been started.\nDo you really want to calculate this schedule?"),
+                                        i18n("Project Scheduling"));
+        if (reply == KMessageBox::No) {
+            return;
+        }
+    }
+    if (parentManager && project()->isScheduled()) {
         RecalculateDialog dlg;
         if (dlg.exec() == QDialog::Rejected) {
             return;
