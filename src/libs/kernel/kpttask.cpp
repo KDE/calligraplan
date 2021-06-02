@@ -179,6 +179,7 @@ void Task::copySchedule()
 void Task::copyAppointments()
 {
     if (!isStarted() || completion().isFinished()) {
+        warnPlan<<Q_FUNC_INFO<<this<<"Not started or already finished";
         return;
     }
     int id = m_currentSchedule->parentScheduleId();
@@ -3851,7 +3852,7 @@ QHash<Resource*, Appointment> Completion::createAppointmentsPerTask() const
         if (date < m_startTime.date()) {
             continue;
         }
-        DateTime start = DateTime(date.startOfDay());
+        DateTime start = DateTime(date, QTime(), project->timeZone());
         qreal day = 86400000;
         if (date == m_startTime.date()) {
             start = m_startTime;
@@ -3861,7 +3862,7 @@ QHash<Resource*, Appointment> Completion::createAppointmentsPerTask() const
         for (Resource *r : resources) {
             const qreal actualEffort = this->actualEffort(date).milliseconds() / resources.count();
             const int load = 100 * factor * actualEffort / workDay;
-            apps[r].addInterval(start, date.addDays(1).startOfDay(), load);
+            apps[r].addInterval(start, DateTime(date.addDays(1), QTime(), project->timeZone()), load);
         }
     }
     return apps;
@@ -3888,7 +3889,7 @@ QHash<Resource*, Appointment> Completion::createAppointmentsPerResource() const
         QMap<QDate, UsedEffort::ActualEffort>::const_iterator it2;
         for (it2 = actualEffortMap.constBegin(); it2 != actualEffortMap.constEnd(); ++it2) {
             const QDate date = it2.key();
-            DateTime start = DateTime(date.startOfDay());
+            DateTime start = DateTime(date, QTime(), project->timeZone());
             qreal day = 86400000;
             if (date == m_startTime.date()) {
                 start = m_startTime;
@@ -3897,7 +3898,7 @@ QHash<Resource*, Appointment> Completion::createAppointmentsPerResource() const
             qreal factor = workDay / day;
             const qreal actualEffort = it2.value().effort().milliseconds();
             const int load = 100 * factor * actualEffort / workDay;
-            apps[r].addInterval(start, date.addDays(1).startOfDay(), load);
+            apps[r].addInterval(start, DateTime(date.addDays(1), QTime(), project->timeZone()), load);
         }
     }
     return apps;
