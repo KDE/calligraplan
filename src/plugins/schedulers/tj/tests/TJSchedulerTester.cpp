@@ -158,8 +158,8 @@ void TJSchedulerTester::testSingleProject()
     m_scheduler->schedule(context);
     auto project = context.projects.first();
     //Debug::print(project, "--", true);
-    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 8));
-    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 9));
+    QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 8));
+    QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 9));
 
     deleteAll(projects);
 }
@@ -182,8 +182,8 @@ void TJSchedulerTester::testSingleProjectWithBookings()
     // Booking 1: R1 booked 2021-04-08, 2021-04-09
     auto project = context.projects.first();
     // Debug::print(project, "--", true);
-    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 10));
-    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 11));
+    QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 10));
+    QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 11));
 
     deleteAll(projects);
     deleteAll(bookings);
@@ -201,11 +201,11 @@ void TJSchedulerTester::testMultiple()
     m_scheduler->schedule(context);
     // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     auto project = projects.value(0)->document()->project();
-    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 8));
-    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 9));
+    QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 8));
+    QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 9));
     project = projects.value(1)->document()->project();
-    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 10));
-    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 11));
+    QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 10));
+    QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 11));
 
     deleteAll(projects);
 }
@@ -257,12 +257,12 @@ void TJSchedulerTester::testRecalculate()
     auto T1 = static_cast<Task*>(project->childNode(0));
     auto T2 = static_cast<Task*>(project->childNode(1));
     auto Length = static_cast<Task*>(project->childNode(2));
-    QCOMPARE(T1->startTime().date(), QDate(2021, 4, 19)); // as before
-    QCOMPARE(T1->endTime().date(), QDate(2021, 4, 28));
-    QCOMPARE(T2->startTime().date(), QDate(2021, 4, 29));
+    QCOMPARE(T1->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 19)); // as before
+    QCOMPARE(T1->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 28));
+    QCOMPARE(T2->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 29));
 
-    QCOMPARE(Length->startTime().date(), QDate(2021, 4, 19));
-    QCOMPARE(Length->endTime().date(), QDate(2021, 4, 23));
+    QCOMPARE(Length->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 19));
+    QCOMPARE(Length->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 23));
 
     deleteAll(projects);
 }
@@ -286,9 +286,9 @@ void TJSchedulerTester::testRecalculateMultiple()
     m_scheduler->schedule(context);
     //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     //qDebug()<<"Check project"<<project;
-    QCOMPARE(T1->startTime().date(), QDate(2021, 4, 26));
-    QCOMPARE(T1->endTime().date(), QDate(2021, 4, 26));
-    QCOMPARE(T2->startTime().date(), QDate(2021, 4, 30));
+    QCOMPARE(T1->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));
+    QCOMPARE(T1->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));
+    QCOMPARE(T2->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 30));
 
     project = projects.value(1)->document()->project();
     T1 = static_cast<Task*>(project->childNode(0));
@@ -297,13 +297,13 @@ void TJSchedulerTester::testRecalculateMultiple()
 
     //qDebug()<<"Check project"<<project;
     // T1 Recalculate 1: Two first days has been completed, 3 last days moved
-    QCOMPARE(T1->startTime().date(), QDate(2021, 4, 19)); // as before
-    QCOMPARE(T1->endTime().date(), QDate(2021, 4, 29));
-    QCOMPARE(T2->startTime().date(), QDate(2021, 5, 1));
+    QCOMPARE(T1->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 19)); // as before
+    QCOMPARE(T1->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 29));
+    QCOMPARE(T2->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 5, 1));
 
-    qInfo()<<"Length:"<<Length->startTime();
-    QCOMPARE(Length->startTime().date(), QDate(2021, 4, 19));
-    QCOMPARE(Length->endTime().date(), QDate(2021, 4, 23));
+    qInfo()<<"Length:"<<Length->startTime().toTimeZone(project->timeZone());
+    QCOMPARE(Length->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 19));
+    QCOMPARE(Length->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 23));
 
     deleteAll(projects);
 }
