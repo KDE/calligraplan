@@ -301,6 +301,7 @@ void TJSchedulerTester::testRecalculateMultiple()
     QCOMPARE(T1->endTime().date(), QDate(2021, 4, 29));
     QCOMPARE(T2->startTime().date(), QDate(2021, 5, 1));
 
+    qInfo()<<"Length:"<<Length->startTime();
     QCOMPARE(Length->startTime().date(), QDate(2021, 4, 19));
     QCOMPARE(Length->endTime().date(), QDate(2021, 4, 23));
 
