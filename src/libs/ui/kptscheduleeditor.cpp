@@ -374,7 +374,7 @@ void ScheduleEditor::slotCalculateSchedule()
             return;
         }
     }
-    if (parentManager && project()->isScheduled()) {
+    if (parentManager && parentManager->isScheduled()) {
         RecalculateDialog dlg;
         if (dlg.exec() == QDialog::Rejected) {
             return;
