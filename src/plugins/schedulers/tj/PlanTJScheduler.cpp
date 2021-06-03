@@ -770,7 +770,7 @@ void PlanTJScheduler::addDepends(const Relation *rel)
 {
     TJ::Task *child = m_tjProject->getTask(rel->child()->id());
     if (!child) {
-        logWarning(rel->parent(), nullptr, xi18nc("@info/plain" , "Failed to add as predeccessor to task '%1'", rel->child()->name()));
+        logWarning(rel->parent(), nullptr, xi18nc("@info/plain" , "Failed to add as predecessor to task '%1'", rel->child()->name()));
         return;
     }
     TJ::TaskDependency *d = child->addDepends(rel->parent()->id());
@@ -979,7 +979,7 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
             const Estimate *estimate = task->estimate();
             const double e = estimate->scale(static_cast<Task*>(task)->completion().remainingEffort(), Duration::Unit_d, estimate->scales());
             job->setEffort(0, e);
-            logInfo(task, nullptr, i18n("Task has started. Remainig effort: %1d", e));
+            logInfo(task, nullptr, i18n("Task has started. Remaining effort: %1d", e));
         } else {
             Estimate *estimate = task->estimate();
             double e = estimate->scale(estimate->value(Estimate::Use_Expected, m_usePert), Duration::Unit_d, estimate->scales());
