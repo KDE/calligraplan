@@ -18,6 +18,7 @@ Name[sl]=CalligraPlanPortfolioPart
 Name[sv]=Calligra Plan-portföljprogramdel
 Name[uk]=Модуль портфоліо Calligra Plan
 Name[x-test]=xxCalligraPlanPortfolioPartxx
+Name[zh_CN]=CalligraPlanPortfolioPart
 Icon=calligraplanportfolio
 MimeType=application/x-vnd.kde.plan.portfolio;
 X-KDE-ServiceTypes=KParts/ReadOnlyPart,KParts/ReadWritePart
