@@ -126,6 +126,7 @@ void PlanTJScheduler::run()
     }
     Q_EMIT sigCalculationStarted(m_mainproject, m_mainmanager);
     setMaxProgress(PROGRESS_MAX_VALUE);
+    m_tjProject = new TJ::Project();
     { // mutex -->
         m_projectMutex.lock();
         m_managerMutex.lock();
@@ -165,7 +166,12 @@ void PlanTJScheduler::run()
         if (! m_backward) {
             logDebug(m_project, nullptr, QString("Schedule project using TJ Scheduler, starting at %1, granularity %2").arg(QDateTime::currentDateTime().toString()).arg(format.formatDuration(m_granularity)), 0);
             if (m_recalculate) {
-                logInfo(m_project, nullptr, xi18nc("@info/plain" , "Re-calculate project from start time: %1", locale.toString(m_project->constraintStartTime(), QLocale::ShortFormat)), 0);
+                m_recalculateFrom = m_manager->recalculateFrom();
+                logInfo(m_project, nullptr, xi18nc("@info/plain" , "Re-calculate project from start time: %1", locale.toString(m_recalculateFrom, QLocale::ShortFormat)), 0);
+                auto t = new TJ::Task(m_tjProject, "TJ::RECALCULATE_FROM", "TJ::RECALCULATE_FROM", nullptr, QString(), 0);
+                t->setMilestone(true);
+                t->setSpecifiedStart(0, toTJTime_t(m_recalculateFrom, tjGranularity()));
+                logDebug(m_project, nullptr, QString("Re-calculate milestone created at: %1").arg(TJ::formatTime(t->getSpecifiedStart(0))));
             } else {
                 logInfo(m_project, nullptr, xi18nc("@info/plain" , "Schedule project from start time: %1", locale.toString(m_project->constraintStartTime(), QLocale::ShortFormat)), 0);
             }
@@ -240,7 +246,6 @@ bool PlanTJScheduler::solve()
 
 bool PlanTJScheduler::kplatoToTJ()
 {
-    m_tjProject = new TJ::Project();
     m_tjProject->setPriority(m_project->priority());
     m_tjProject->setScheduleGranularity(m_granularity / 1000);
     m_tjProject->getScenario(0)->setMinSlackRate(0.0); // Do not calculate critical path
@@ -622,7 +627,7 @@ void PlanTJScheduler::calcPertValues(Node *t)
     if (negativefloat > 0) {
         t->currentSchedule()->setSchedulingError(true);
         m_project->currentSchedule()->setSchedulingError(true);
-        logError(t, nullptr, xi18nc("@info/plain", "Failed to meet dependency. Negative float=%1", negativefloat.toString(Duration::Format_i18nHour)));
+        logWarning(t, nullptr, xi18nc("@info/plain", "Failed to meet dependency. Negative float=%1", negativefloat.toString(Duration::Format_i18nHour)));
         if (static_cast<Task*>(t)->negativeFloat() < negativefloat) {
             static_cast<Task*>(t)->setNegativeFloat(negativefloat);
         }
@@ -949,14 +954,15 @@ void PlanTJScheduler::addRequests()
     }
 }
 
-void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
+void PlanTJScheduler::addRequest(TJ::Task *job, Node *task_)
 {
     //debugPlan;
-    if (task->type() == Node::Type_Milestone || task->estimate() == nullptr || (m_recalculate && static_cast<Task*>(task)->completion().isFinished())) {
+    if (task_->type() == Node::Type_Milestone || task_->estimate() == nullptr || (m_recalculate && static_cast<Task*>(task_)->completion().isFinished())) {
         job->setMilestone(true);
         job->setDuration(0, 0.0);
         return;
     }
+    auto task = static_cast<Task*>(task_);
     // Note: FI tasks can never have an estimate set (duration, length or effort)
     if (task->constraint() != Node::FixedInterval) {
         if (task->estimate()->type() == Estimate::Type_Duration && task->estimate()->calendar() == nullptr) {
@@ -965,19 +971,29 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task)
         }
         if (task->estimate()->type() == Estimate::Type_Duration && task->estimate()->calendar() != nullptr) {
             job->setLength(0, task->estimate()->value(Estimate::Use_Expected, m_usePert).toDouble(Duration::Unit_d) * 24.0 / m_tjProject->getDailyWorkingHours());
+            if (static_cast<Task*>(task)->isStarted()) {
+                job->setSpecifiedStart(0, toTJTime_t(task->completion().startTime(), tjGranularity()));
+            }
             return;
         }
         if (m_recalculate) {
             auto tjTask = m_tjProject->getTask("TJ::RECALCULATE_FROM");
             if (tjTask) {
                 job->addDepends(tjTask->getId());
+                tjTask->addPrecedes(job->getId());
+                logInfo(task, nullptr, i18n("Recalculate, earliest start: %1", QLocale().toString(m_recalculateFrom, QLocale::ShortFormat)));
             }
-            job->setMinStart(0, toTJTime_t(m_recalculateFrom, tjGranularity()));
-            logInfo(task, nullptr, i18n("Recalculate, earliest start: %1", TJ::formatTime(job->getMinStart(0))));
         }
-        if (m_recalculate && static_cast<Task*>(task)->completion().isStarted()) {
+        if (m_recalculate && task->completion().isStarted()) {
+            auto id = QString("TJ::%1").arg(task->id());
+            auto t = new TJ::Task(m_tjProject, id, id, nullptr, QString(), 0);
+            t->setMilestone(true);
+            t->setSpecifiedStart(0, toTJTime_t(task->completion().startTime(), tjGranularity()));
+            job->addDepends(t->getId());
+            t->addPrecedes(job->getId());
+
             const Estimate *estimate = task->estimate();
-            const double e = estimate->scale(static_cast<Task*>(task)->completion().remainingEffort(), Duration::Unit_d, estimate->scales());
+            const double e = estimate->scale(task->completion().remainingEffort(), Duration::Unit_d, estimate->scales());
             job->setEffort(0, e);
             logInfo(task, nullptr, i18n("Task has started. Remaining effort: %1d", e));
         } else {
