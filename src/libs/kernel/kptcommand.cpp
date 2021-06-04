@@ -2773,6 +2773,7 @@ CalculateScheduleCmd::CalculateScheduleCmd(Project &node, ScheduleManager *sm, c
     if (sm->recalculate() && sm->isScheduled()) {
         m_sm = new ScheduleManager(node);
         m_sm->setRecalculate(true);
+        m_sm->setRecalculateFrom(sm->recalculateFrom());
         m_sm->setGranularity(sm->granularity());
         m_sm->setUsePert(sm->usePert());
         m_sm->setSchedulerPluginId(sm->schedulerPluginId());
