@@ -1024,9 +1024,9 @@ Project::schedule(int sc)
                 {
                     if (!static_cast<Task*>(t)->isRunaway()) {
                         if (slot < start) {
-                            static_cast<Task*>(t)->warningMessage(i18n("Attempt to schedule task to start before project target time"));
+                            static_cast<Task*>(t)->warningMessage(i18n("Attempt to schedule task at %1 to start before project target start time: %2", formatTime(slot), formatTime(start)));
                         } else {
-                            static_cast<Task*>(t)->warningMessage(i18n("Attempt to schedule task to end after project target time"));
+                            static_cast<Task*>(t)->warningMessage(i18n("Attempt to schedule task at %1 to end after project target end time: %2", formatTime(slot), formatTime(end)));
                         }
                         static_cast<Task*>(t)->setRunaway();
                     }

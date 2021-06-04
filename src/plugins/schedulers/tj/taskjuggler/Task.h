@@ -166,6 +166,10 @@ public:
         scenarios[sc].specifiedStart = s;
         //qDebug()<<"Task::setSpecifiedStart:"<<id<<":"<<sc<<s<<scenarios[sc].specifiedStart;
     }
+    time_t getSpecifiedStart(int sc) const
+    {
+        return scenarios[sc].specifiedStart;
+    }
     void setStart(int sc, time_t s) { scenarios[sc].start = s; }
     time_t getStart(int sc) const { return scenarios[sc].start; }
 
