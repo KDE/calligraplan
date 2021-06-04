@@ -345,8 +345,9 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler, const
                 cmd.redo();
                 portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
             } else if (sm->isBaselined() || (sm->isScheduled() && project->isStarted())) {
+                auto parentManager = sm;
                 sm = project->createScheduleManager(sm);
-                KPlato::AddScheduleManagerCmd cmd(*project, sm);
+                KPlato::AddScheduleManagerCmd cmd(parentManager, sm);
                 cmd.redo();
                 portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
             }
