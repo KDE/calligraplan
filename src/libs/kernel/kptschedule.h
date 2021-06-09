@@ -753,4 +753,7 @@ PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Schedule &s);
 
 PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Schedule::Log &log);
 
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::ScheduleManager &sm);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::ScheduleManager *sm);
+
 #endif

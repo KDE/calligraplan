@@ -2173,3 +2173,25 @@ QDebug operator<<(QDebug dbg, const KPlato::Schedule::Log &log)
     dbg.nospace()<<"Schedule::Log: "<<log.formatMsg();
     return dbg.space();
 }
+
+QDebug operator<<(QDebug dbg, const KPlato::ScheduleManager *s)
+{
+    if (s) {
+        return dbg<<(*s);
+    }
+    return dbg<<"ScheduleManager(0x0)";
+}
+QDebug operator<<(QDebug dbg, const KPlato::ScheduleManager &s)
+{
+    dbg.nospace()<<"ScheduleManager["<<(void*)&s<<' '<<s.name();
+    if (s.isBaselined()) {
+        dbg.nospace()<<" B";
+    } else if (s.isScheduled()) {
+        dbg.nospace()<<" S";
+    }
+    if (s.recalculate()) {
+        dbg.nospace()<<" R: "<<s.recalculateFrom().toString(Qt::ISODate);
+    }
+    dbg.nospace()<<"]";
+    return dbg.space();
+}
