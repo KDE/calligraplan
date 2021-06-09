@@ -44,10 +44,9 @@ GanttModel::~GanttModel()
 
 QVariant GanttModel::data(const QModelIndex &idx, int role) const
 {
-    int rl = role;
     switch (idx.column()) {
         case 1: { // Type
-            switch (rl) {
+            switch (role) {
                 case Qt::DisplayRole:
                     return KGantt::TypeTask;
                 default:
@@ -56,7 +55,11 @@ QVariant GanttModel::data(const QModelIndex &idx, int role) const
             break;
         }
         case 2: { // Start
+            int rl = role;
             switch (rl) {
+                case Qt::DisplayRole:
+                    rl = Qt::EditRole;
+                    Q_FALLTHROUGH();
                 case Qt::EditRole: {
                     KoDocument *doc = ProjectsFilterModel::data(idx, DOCUMENT_ROLE).value<KoDocument*>();
                     if (!doc) {
@@ -73,7 +76,6 @@ QVariant GanttModel::data(const QModelIndex &idx, int role) const
                             start = projectRestartTime(doc->project(), sm);
                         }
                     }
-                    qInfo()<<Q_FUNC_INFO<<sm->recalculateFrom()<<start;
                     return start;
                 }
                 default:
@@ -85,7 +87,7 @@ QVariant GanttModel::data(const QModelIndex &idx, int role) const
             break;
         }
     }
-    QVariant v = ProjectsFilterModel::data(idx, rl);
+    QVariant v = ProjectsFilterModel::data(idx, role);
     return v;
 }
 
@@ -97,26 +99,26 @@ QDateTime GanttModel::projectRestartTime(const KPlato::Project *project, KPlato:
     if (id == NOTSCHEDULED) {
         return restart;
     }
+    // Get the projects actual re-start time.
+    // A re-calculated project may re-start earlier than re-calculation time
+    // because started started tasks will be scheduled from their actual start time.
+    // Finished tasks are disregarded.
     const auto tasks = project->allTasks();
     for (const KPlato::Task *t : tasks) {
         if (t->type() != KPlato::Node::Type_Task) {
+            continue;
+        }
+        if (t->completion().isFinished()) {
             continue;
         }
         KPlato::Schedule *s = t->schedule(id);
         if (!s) {
             continue;
         }
-        const auto apps = s->appointments();
-        for (const auto *a : apps) {
-            const auto intervals = a->intervals(sm->recalculateFrom(), project->endTime(id)).map();
-            if (intervals.isEmpty()) {
-                continue;
-            }
-            auto time = intervals.values(intervals.keys().constFirst()).constLast().startTime();
-            qInfo()<<Q_FUNC_INFO<<time<<intervals.values(intervals.keys().constFirst());
-            if (!restart.isValid() || restart < time) {
-                restart = time;
-            }
+        Q_ASSERT(s == t->currentSchedule());
+        const auto dt = t->startTime();
+        if (!restart.isValid() || (dt.isValid() &&  dt < restart)) {
+            restart = dt;
         }
     }
     return restart;
