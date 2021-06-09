@@ -387,7 +387,7 @@ void SchedulingView::calculatePert(KPlato::SchedulingContext &context)
         toInclude << doc;
     }
     qApp->restoreOverrideCursor();
-    m_schedulingContext.clear();
+    context.clear();
 }
 
 void SchedulingView::schedule(KoDocument *doc, QList<KoDocument*> include)
@@ -420,7 +420,10 @@ void SchedulingView::schedule(KoDocument *doc, QList<KoDocument*> include)
         portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
         sm->setRecalculate(true);
         sm->setRecalculateFrom(start);
-    } // else calculate the current schedule
+    } if (sm->parentManager()) {
+        sm->setRecalculate(true);
+        sm->setRecalculateFrom(start);
+    }
     Q_ASSERT(sm);
     if (!sm->expected()) {
         sm->createSchedules();
