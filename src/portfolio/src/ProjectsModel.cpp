@@ -159,7 +159,6 @@ QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
     switch (role) {
         case DOCUMENT_ROLE: {
             QVariant v = QVariant::fromValue<KoDocument*>(doc);
-            qInfo()<<Q_FUNC_INFO<<v;
             return v;
         }
         case PROJECT_ROLE:

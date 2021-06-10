@@ -19,7 +19,4 @@
         <Action name="load_projects"/>
         <Action name="calculate_schedule"/>
     </ToolBar>
-    <Menu name="context_menu">
-        <Action name="open_project"/>
-    </Menu>
 </gui>

@@ -45,8 +45,15 @@ public:
 
     QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
 
+Q_SIGNALS:
+    void openDocument(KoDocument *doc);
+
 protected:
     void updateReadWrite(bool readwrite) override;
+
+protected Q_SLOTS:
+    void openProject();
+    void slotCustomContextMenuRequested(const QPoint &pos);
 
 private:
     void setupGui();

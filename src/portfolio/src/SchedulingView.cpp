@@ -129,10 +129,6 @@ void SchedulingView::setupGui()
     a = new QAction(koIcon("view-time-schedule-calculus"), i18n("Calculate"), this);
     actionCollection()->addAction("calculate_schedule", a);
     connect(a, &QAction::triggered, this, &SchedulingView::calculate);
-
-    a = new QAction(koIcon("view-time-schedule-calculus"), i18n("Open Project"), this);
-    actionCollection()->addAction("open_project", a);
-    connect(a, &QAction::triggered, this, &SchedulingView::openProject);
 }
 
 void SchedulingView::updateReadWrite(bool readwrite)
@@ -150,7 +146,6 @@ void SchedulingView::updateActionsEnabled()
     bool enable = ui.schedulingView->selectionModel() && (ui.schedulingView->selectionModel()->selectedRows().count() == 1);
     actionCollection()->action("load_projects")->setEnabled(enable);
     actionCollection()->action("calculate_schedule")->setEnabled(enable);
-    actionCollection()->action("open_project")->setEnabled(enable);
 }
 
 void SchedulingView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
@@ -190,13 +185,6 @@ void SchedulingView::slotCustomContextMenuRequested(const QPoint &pos)
     if (menu && !menu->isEmpty()) {
         menu->exec(mapToGlobal(pos));
     }
-}
-
-void SchedulingView::openProject()
-{
-    QModelIndex idx = ui.schedulingView->selectionModel()->selectedRows().value(0);
-    KoDocument *doc = idx.data(DOCUMENT_ROLE).value<KoDocument*>();
-    Q_EMIT openDocument(doc);
 }
 
 void SchedulingView::loadProjects()

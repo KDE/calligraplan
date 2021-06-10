@@ -29,6 +29,7 @@
 #include "GanttView.h"
 
 #include <kptproject.h>
+#include <kptganttview.h>
 
 #include <KoApplication.h>
 #include <KoComponentData.h>
@@ -70,7 +71,6 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     item = m_views->addPage(sv, i18n("Scheduling"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("view-time-schedule-calculus"));
-    connect(sv, &SchedulingView::openDocument, this, &View::slotOpenDocument);
 
     item = m_views->addPage(new SummaryView(part, doc, m_views), i18n("Summary"));
     item->setHeaderVisible(false);
@@ -83,14 +83,21 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     item->setHeaderVisible(false);
     item->setIcon(koIcon("office-chart-bar"));
 
-    item = m_views->addPage(new DetailsView(part, doc, m_views), i18n("Details"));
+    item = m_views->addPage(new DetailsView(part, doc, m_views), i18n("Progress"));
+    item->setHeaderVisible(false);
+    item->setIcon(koIcon("view-time-schedule"));
+
+    auto gv = new GanttView(part, doc, m_views);
+    item = m_views->addPage(gv, i18n("Gantt Summary"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("calligraplan"));
+    connect(gv, &GanttView::openDocument, this, &View::slotOpenDocument);
 
-    item = m_views->addPage(new GanttView(part, doc, m_views), i18n("Gantt"));
-    item->setHeaderVisible(false);
-    item->setIcon(koIcon("calligraplan"));
-
+    // NOTE: Adding a new view to KPageWidget outside the c'tor gives problems with resize (shrinking),
+    // so atm we create everything now.
+    for (auto d : static_cast<MainDocument*>(doc)->documents()) {
+        openDocument(d);
+    }
     connect(m_views, &KPageWidget::currentPageChanged, this, &View::slotCurrentPageChanged);
 }
 
@@ -162,12 +169,28 @@ QPrintDialog *View::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
     return nullptr;
 }
 
+KPageWidgetItem *View::openDocument(KoDocument *doc)
+{
+    auto part = doc->documentPart();
+    Q_ASSERT(part);
+    auto project = doc->project();
+    auto item = m_ganttViews.value(project->name());
+    if (!item) {
+        auto v = new KPlato::GanttView(part, doc, m_views);
+        item = m_views->addPage(v, project->name());
+        m_ganttViews.insert(project->name(), item);
+        item->setHeaderVisible(false);
+        item->setIcon(koIcon("calligraplan"));
+
+        v->setProject(project);
+        v->setScheduleManager(doc->project()->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString()));
+        connect(doc, &KoDocument::scheduleManagerChanged, v, &KPlato::GanttView::setScheduleManager);
+    }
+    return item;
+}
+
 void View::slotOpenDocument(KoDocument *doc)
 {
-    KoPart *part = doc->documentPart();
-    Q_ASSERT(part);
-    KoMainWindow *mainWindow = part->createMainWindow();
-    mainWindow->setRootDocument(doc, part);
-    mainWindow->setNoCleanup(true);
-    mainWindow->show();
+    auto item = openDocument(doc);
+    m_views->setCurrentPage(item);
 }

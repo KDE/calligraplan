@@ -65,12 +65,8 @@ protected Q_SLOTS:
 
     void slotDoubleClicked(const QModelIndex &idx);
     void slotCustomContextMenuRequested(const QPoint &pos);
-    void openProject();
 
     void updateSchedulingProperties();
-
-Q_SIGNALS:
-    void openDocument(KoDocument *doc);
 
 protected:
     void updateReadWrite(bool readwrite) override;

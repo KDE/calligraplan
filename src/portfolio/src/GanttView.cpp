@@ -25,6 +25,7 @@
 
 #include <kptnodechartmodel.h>
 #include <KGanttProxyModel>
+#include <KGanttTreeViewRowController>
 
 #include <gantt/GanttViewBase.h>
 
@@ -37,11 +38,14 @@
 
 #include <KRecentFilesAction>
 #include <KActionCollection>
+#include <KXMLGUIFactory>
 
 #include <QTreeView>
 #include <QVBoxLayout>
 #include <QAbstractItemView>
 #include <QHeaderView>
+#include <QMenu>
+#include <QDomDocument>
 
 GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent)
@@ -49,15 +53,23 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("GanttViewUi.rc");
+        setXMLFile("PortfolioGanttViewUi.rc");
     } else {
-        setXMLFile("GanttViewUi_readonly.rc");
+        setXMLFile("PortfolioGanttViewUi_readonly.rc");
     }
     setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
     m_view = new KPlato::GanttViewBase(this);
+    auto tv = new KPlato::GanttTreeView(m_view);
+    tv->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    tv->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    tv->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // needed since qt 4.2
+    m_view->setLeftView(tv);
+    auto rowController = new KGantt::TreeViewRowController(tv, m_view->ganttProxyModel());
+    m_view->setRowController(rowController);
+    tv->header()->setStretchLastSection(true);
     layout->addWidget(m_view);
 
     KGantt::ProxyModel *gm = static_cast<KGantt::ProxyModel*>(m_view->ganttProxyModel());
@@ -71,9 +83,11 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
     GanttModel *m = new GanttModel(m_view);
     m->setPortfolio(qobject_cast<MainDocument*>(doc));
     m_view->setModel(m);
-    qInfo()<<Q_FUNC_INFO<<m_view->leftView();
-    QTreeView *v = qobject_cast<QTreeView*>(m_view->leftView());
-    v->header()->hideSection(1 /*Type*/);
+
+    tv->header()->hideSection(1 /*Type*/);
+    tv->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    connect(tv, &QTreeView::customContextMenuRequested, this, &GanttView::slotCustomContextMenuRequested);
 }
 
 GanttView::~GanttView()
@@ -82,6 +96,16 @@ GanttView::~GanttView()
 
 void GanttView::setupGui()
 {
+    auto a = new QAction(koIcon("view-time-schedule-calculus"), i18n("Open Project"), this);
+    actionCollection()->addAction("gantt_open_project", a);
+    connect(a, &QAction::triggered, this, &GanttView::openProject);
+}
+
+void GanttView::openProject()
+{
+    QModelIndex idx = m_view->leftView()->selectionModel()->selectedRows().value(0);
+    KoDocument *doc = idx.data(DOCUMENT_ROLE).value<KoDocument*>();
+    Q_EMIT openDocument(doc);
 }
 
 void GanttView::updateReadWrite(bool readwrite)
@@ -89,10 +113,19 @@ void GanttView::updateReadWrite(bool readwrite)
     m_readWrite = readwrite;
 }
 
-QMenu * GanttView::popupMenu(const QString& name)
+QMenu *GanttView::popupMenu(const QString& name)
 {
     return nullptr;
 }
+
+void GanttView::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    auto menu = qobject_cast<QMenu*>(factory()->container("gantt_context_menu", this));
+    if (menu && !menu->isEmpty()) {
+        menu->exec(m_view->leftView()->mapToGlobal(pos)); // FIXME: mapping incorrect
+    }
+}
+
 
 QPrintDialog *GanttView::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
 {

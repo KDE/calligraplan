@@ -47,6 +47,8 @@ public:
 
     QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
 
+    KPageWidgetItem *openDocument(KoDocument *doc);
+
 public Q_SLOTS:
     void slotOpenDocument(KoDocument *doc);
 
@@ -63,6 +65,7 @@ private Q_SLOTS:
 private:
     bool m_readWrite;
     KPageWidget *m_views;
+    QHash<QString, KPageWidgetItem*> m_ganttViews;
 };
 
 #endif
