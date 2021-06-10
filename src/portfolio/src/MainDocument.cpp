@@ -234,6 +234,9 @@ void MainDocument::setDocumentProperty(KoDocument *doc, const char *name, const 
             doc->setModified(true);
         }
         Q_EMIT documentChanged(doc, index);
+        if (name == SCHEDULEMANAGERNAME) {
+            Q_EMIT doc->scheduleManagerChanged(doc->project()->findScheduleManagerByName(value.toString()));
+        }
     }
 }
 

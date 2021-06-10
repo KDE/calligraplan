@@ -72,6 +72,7 @@ class QDomDocument;
 namespace KPlato {
     class Project;
     class SchedulerPlugin;
+    class ScheduleManager;
 }
 
 class KoVersionInfo
@@ -783,6 +784,8 @@ Q_SIGNALS:
 
     void completed();
     void canceled(const QString &);
+
+    void scheduleManagerChanged(KPlato::ScheduleManager *sm);
 
 private Q_SLOTS:
 
