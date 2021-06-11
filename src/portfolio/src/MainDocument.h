@@ -90,6 +90,7 @@ public:
     KPlato::ScheduleManager *findBestScheduleManager(const KoDocument *doc) const;
 
     QMap<QString, KPlato::SchedulerPlugin*> schedulerPlugins() const override;
+    KPlato::SchedulerPlugin *schedulerPlugin(const QString &key) const;
 
     using KoDocument::setModified;
 public Q_SLOTS:

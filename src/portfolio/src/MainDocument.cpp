@@ -314,6 +314,11 @@ KPlato::ScheduleManager *MainDocument::findBestScheduleManager(const KoDocument 
     return sm;
 }
 
+KPlato::SchedulerPlugin *MainDocument::schedulerPlugin(const QString &key) const
+{
+    return schedulerPlugins().value(key);
+}
+
 QMap<QString, KPlato::SchedulerPlugin*> MainDocument::schedulerPlugins() const
 {
     // FIXME
