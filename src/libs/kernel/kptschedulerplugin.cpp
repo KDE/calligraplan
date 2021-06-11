@@ -36,10 +36,11 @@ namespace KPlato
 class Q_DECL_HIDDEN SchedulerPlugin::Private
 {
 public:
-    Private() {}
+    Private() : scheduleInParallell(false) {}
 
     QString name;
     QString comment;
+    bool scheduleInParallell;
 };
 
 SchedulerPlugin::SchedulerPlugin(QObject *parent)
@@ -140,12 +141,23 @@ int SchedulerPlugin::granularity() const
 void SchedulerPlugin::setGranularity(int index)
 {
     m_granularity = qMin(index, m_granularities.count() - 1);
+    qInfo()<<Q_FUNC_INFO<<m_granularities.count()<<':'<<index<<':'<<m_granularity;
 }
 
 void SchedulerPlugin::slotSyncData()
 {
     updateProgress();
     updateLog();
+}
+
+void SchedulerPlugin::setScheduleInParallell(bool value)
+{
+    d->scheduleInParallell = value;
+}
+
+bool SchedulerPlugin::scheduleInParallell() const
+{
+    return (capabilities() & ScheduleInParallell) && d->scheduleInParallell;
 }
 
 void SchedulerPlugin::updateProgress()

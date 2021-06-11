@@ -83,7 +83,8 @@ public:
         AvoidOverbooking = 1,
         AllowOverbooking = 2,
         ScheduleForward = 4,
-        ScheduleBackward = 8
+        ScheduleBackward = 8,
+        ScheduleInParallell = 16
     };
     /// Return the schedulers capabilities.
     /// By default returns all capabilities
@@ -108,6 +109,12 @@ public:
     int granularity() const;
     /// Set current index of supported granularities
     void setGranularity(int index);
+
+    /// Set parallell scheduling option to @p value.
+    void setScheduleInParallell(bool value);
+    /// Return true if multiple projects shall be scheduled in paralell.
+    /// Returns false if the plugin does not support this option.
+    bool scheduleInParallell() const;
 
     /// Schedule all projects
     virtual void schedule(SchedulingContext &context);
