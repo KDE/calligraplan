@@ -99,12 +99,12 @@ bool SchedulingModel::setData(const QModelIndex &idx, const QVariant &value, int
             case 0: // Status
                 break;
             case 1: { // Control
-                doc->setProperty(SCHEDULINGCONTROL, m_controlKeys.value(value.toInt()));
+                portfolio()->setDocumentProperty(doc, SCHEDULINGCONTROL,  m_controlKeys.value(value.toInt()));
                 Q_EMIT dataChanged(idx, idx);
                 return true;
             }
             case 2: { // Priority
-                doc->setProperty(SCHEDULINGPRIORITY, value);
+                portfolio()->setDocumentProperty(doc, SCHEDULINGPRIORITY, value);
                 Q_EMIT dataChanged(idx, idx);
                 return true;
             }
