@@ -64,7 +64,7 @@ QString PlanTJPlugin::description() const
 
 int PlanTJPlugin::capabilities() const
 {
-    return SchedulerPlugin::AvoidOverbooking | SchedulerPlugin::ScheduleForward | SchedulerPlugin::ScheduleBackward;
+    return SchedulerPlugin::AvoidOverbooking | SchedulerPlugin::ScheduleForward | SchedulerPlugin::ScheduleBackward | SchedulerPlugin::ScheduleInParallell;
 }
 
 ulong PlanTJPlugin::currentGranularity() const
