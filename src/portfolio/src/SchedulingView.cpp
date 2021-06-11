@@ -49,6 +49,7 @@
 #include <QSplitter>
 #include <QAction>
 #include <QMenu>
+#include <QComboBox>
 
 SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent)
@@ -96,7 +97,12 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     updateActionsEnabled();
 
     updateSchedulingProperties();
-    connect(static_cast<MainDocument*>(doc), &MainDocument::changed, this, &SchedulingView::updateSchedulingProperties);
+
+    connect(model, &QAbstractItemModel::dataChanged, this, &SchedulingView::updateActionsEnabled);
+    connect(ui.schedulersCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSchedulersComboChanged(int)));
+    connect(ui.granularities, SIGNAL(currentIndexChanged(int)), this, SLOT(slotGranularitiesChanged(int)));
+    connect(ui.sequential, &QRadioButton::toggled, this, &SchedulingView::slotSequentialChanged);
+    connect(ui.calculate, &QPushButton::clicked, this, &SchedulingView::calculate);
 }
 
 SchedulingView::~SchedulingView()
@@ -115,7 +121,50 @@ void SchedulingView::updateSchedulingProperties()
     const QMap<QString, KPlato::SchedulerPlugin*> plugins = portfolio->schedulerPlugins();
     QMap<QString, KPlato::SchedulerPlugin*>::const_iterator it;
     for (it = plugins.constBegin(); it != plugins.constEnd(); ++it) {
-        ui.schedulersCombo->addItem(it.key());
+        ui.schedulersCombo->addItem(it.value()->name(), it.key());
+    }
+    slotSchedulersComboChanged(ui.schedulersCombo->currentIndex());
+}
+
+void SchedulingView::slotSchedulersComboChanged(int idx)
+{
+    ui.granularities->blockSignals(true);
+    ui.granularities->clear();
+    MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
+    const auto scheduler = portfolio->schedulerPlugin(ui.schedulersCombo->itemData(idx).toString());
+    if (scheduler) {
+        const auto lst = scheduler->granularities();
+        for (auto v : lst) {
+            ui.granularities->addItem(QString("%1 min").arg(v/(60*1000)), (qint64)v);
+        }
+        ui.granularities->setCurrentIndex(scheduler->granularity());
+        ui.sequential->setChecked(!scheduler->scheduleInParallell());
+        ui.parallell->setChecked(scheduler->scheduleInParallell());
+        ui.parallell->setEnabled(scheduler->capabilities() & KPlato::SchedulerPlugin::ScheduleInParallell);
+        ui.schedulersCombo->setWhatsThis(scheduler->comment());
+    } else {
+        ui.sequential->setEnabled(false);
+        ui.parallell->setEnabled(false);
+        ui.schedulersCombo->setWhatsThis(QString());
+    }
+    ui.granularities->blockSignals(false);
+}
+
+void SchedulingView::slotGranularitiesChanged(int idx)
+{
+    MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
+    const auto scheduler = portfolio->schedulerPlugin(ui.schedulersCombo->currentData().toString());
+    if (scheduler) {
+        scheduler->setGranularity(idx);
+    }
+}
+
+void SchedulingView::slotSequentialChanged(bool state)
+{
+    MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
+    const auto scheduler = portfolio->schedulerPlugin(ui.schedulersCombo->currentData().toString());
+    if (scheduler) {
+        scheduler->setScheduleInParallell(!state);
     }
 }
 
@@ -125,10 +174,6 @@ void SchedulingView::setupGui()
     actionCollection()->addAction("load_projects", a);
     actionCollection()->setDefaultShortcut(a, Qt::Key_F5);
     connect(a, &QAction::triggered, this, &SchedulingView::loadProjects);
-
-    a = new QAction(koIcon("view-time-schedule-calculus"), i18n("Calculate"), this);
-    actionCollection()->addAction("calculate_schedule", a);
-    connect(a, &QAction::triggered, this, &SchedulingView::calculate);
 }
 
 void SchedulingView::updateReadWrite(bool readwrite)
@@ -143,9 +188,19 @@ QPrintDialog *SchedulingView::createPrintDialog(KoPrintJob *printJob, QWidget *p
 
 void SchedulingView::updateActionsEnabled()
 {
+    qInfo()<<Q_FUNC_INFO;
     bool enable = ui.schedulingView->selectionModel() && (ui.schedulingView->selectionModel()->selectedRows().count() == 1);
     actionCollection()->action("load_projects")->setEnabled(enable);
-    actionCollection()->action("calculate_schedule")->setEnabled(enable);
+
+    ui.calculate->setEnabled(false);
+    const auto portfolio = static_cast<MainDocument*>(koDocument());
+    const auto docs = portfolio->documents();
+    for (auto doc : docs) {
+        if (doc->property(SCHEDULINGCONTROL).toString() == QStringLiteral("Schedule")) {
+            ui.calculate->setEnabled(true);
+            break;
+        }
+    }
 }
 
 void SchedulingView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)

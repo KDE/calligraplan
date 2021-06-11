@@ -67,6 +67,9 @@ protected Q_SLOTS:
     void slotCustomContextMenuRequested(const QPoint &pos);
 
     void updateSchedulingProperties();
+    void slotSchedulersComboChanged(int idx);
+    void slotGranularitiesChanged(int idx);
+    void slotSequentialChanged(bool state);
 
 protected:
     void updateReadWrite(bool readwrite) override;

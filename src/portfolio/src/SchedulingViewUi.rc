@@ -17,6 +17,5 @@
     </MenuBar>
     <ToolBar name="mainToolBar">
         <Action name="load_projects"/>
-        <Action name="calculate_schedule"/>
     </ToolBar>
 </gui>
