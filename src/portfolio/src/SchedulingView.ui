@@ -90,7 +90,7 @@
       <item row="3" column="0">
        <widget class="QRadioButton" name="parallell">
         <property name="text">
-         <string>Parallell</string>
+         <string>Parallel</string>
         </property>
        </widget>
       </item>
