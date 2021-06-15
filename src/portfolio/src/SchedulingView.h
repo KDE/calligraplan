@@ -69,6 +69,8 @@ protected Q_SLOTS:
     void slotGranularitiesChanged(int idx);
     void slotSequentialChanged(bool state);
 
+    void updateLogFilter();
+
 protected:
     void updateReadWrite(bool readwrite) override;
     void setupGui();

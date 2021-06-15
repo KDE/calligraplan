@@ -33,7 +33,9 @@ SchedulingLogFilterModel::SchedulingLogFilterModel(QObject *parent)
 
 void SchedulingLogFilterModel::setSeveritiesDenied(QList<int> values)
 {
+    beginResetModel();
     m_severities = values;
+    endResetModel();
 }
 
 bool SchedulingLogFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const

@@ -88,10 +88,17 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(ui.schedulingView, &QAbstractItemView::doubleClicked, this, &SchedulingView::slotDoubleClicked);
 
     m_logView = new QTreeView(sp);
+    m_logView->setContextMenuPolicy(Qt::ActionsContextMenu);
+    m_logView->header()->setContextMenuPolicy(Qt::ActionsContextMenu);
+    auto a = new QAction(QString("Debug"), m_logView);
+    a->setCheckable(true);
+    m_logView->insertAction(nullptr, a);
+    m_logView->header()->insertAction(nullptr, a);
+    connect(a, &QAction::toggled, this, &SchedulingView::updateLogFilter);
     m_logView->setRootIsDecorated(false);
     sp->addWidget(m_logView);
     SchedulingLogFilterModel *fm = new SchedulingLogFilterModel(m_logView);
-    fm->setSeveritiesDenied(QList<int>()<<KPlato::Schedule::Log::Type_Debug);
+    fm->setSeveritiesDenied(QList<int>() << KPlato::Schedule::Log::Type_Debug);
     fm->setSourceModel(&m_logModel);
     m_logView->setModel(fm);
     updateActionsEnabled();
@@ -107,6 +114,20 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
 
 SchedulingView::~SchedulingView()
 {
+}
+
+void SchedulingView::updateLogFilter()
+{
+    auto a = qobject_cast<QAction*>(sender());
+    if (!a) {
+        return;
+    }
+    auto fm = qobject_cast<SchedulingLogFilterModel*>(m_logView->model());
+    QList<int> filter;
+    if (!a->isChecked()) {
+        filter << KPlato::Schedule::Log::Type_Debug;
+    }
+    fm->setSeveritiesDenied(filter);
 }
 
 void SchedulingView::updateSchedulingProperties()
