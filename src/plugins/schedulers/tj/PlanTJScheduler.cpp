@@ -30,6 +30,8 @@
 #include "kptcalendar.h"
 #include "kptdebug.h"
 
+#include <KoDocument.h>
+
 #include "taskjuggler/taskjuggler.h"
 #include "taskjuggler/Project.h"
 #include "taskjuggler/Scenario.h"
@@ -1077,9 +1079,21 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
         logInfo(m_project, nullptr, i18n("Recalculating from: %1", context.calculateFrom.toString(Qt::ISODate)));
     }
 
-    QMultiMap<int, KPlato::Project*>::const_iterator it = context.projects.constBegin();
+    if (context.scheduleInParallel) {
+        calculateParallel(context);
+    } else {
+        calculateSequential(context);
+    }
+    logInfo(m_project, nullptr, i18n("Scheduling finished at %1, elapsed time: %2 seconds", QDateTime::currentDateTime().toString(Qt::ISODate), (double)timer.elapsed()/1000));
+    context.log = takeLog();
+    m_project = nullptr; // or else it is deleted
+}
+
+void PlanTJScheduler::calculateParallel(KPlato::SchedulingContext &context)
+{
+    QMultiMap<int, KoDocument*>::const_iterator it = context.projects.constBegin();
     for (; it != context.projects.constEnd(); ++it) {
-        logInfo(m_project, nullptr, QString("Inserting project: %1, priority %2").arg(it.value()->name()).arg(it.key()));
+        logInfo(m_project, nullptr, QString("Inserting project: %1, priority %2").arg(it.value()->projectName()).arg(it.key()));
         insertProject(it.value(), it.key(), context);
     }
     logInfo(m_project, nullptr, i18n("Scheduling interval: %1 - %2, granularity: %3 minutes",
@@ -1100,8 +1114,9 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     } else {
         if (solve()) {
             populateProjects(context);
-            const auto &projects = context.projects.values();
-            for (KPlato::Project *p : projects) {
+            const auto &docs = context.projects.values();
+            for (auto *doc : docs) {
+                auto p = doc->project();
                 if (p->currentSchedule()->isScheduled()) {
                     logInfo(p, nullptr, i18n("Scheduled: %1 - %2", p->startTime().toString(Qt::ISODate), p->endTime().toString(Qt::ISODate)));
                 } else {
@@ -1112,9 +1127,11 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
             logError(m_project, nullptr, i18n("Project scheduling failed"));
         }
     }
-    logInfo(m_project, nullptr, i18n("Scheduling finished at %1, elapsed time: %2 seconds", QDateTime::currentDateTime().toString(Qt::ISODate), (double)timer.elapsed()/1000));
-    context.log = takeLog();
-    m_project = nullptr; // or else it is deleted
+}
+
+void PlanTJScheduler::calculateSequential(KPlato::SchedulingContext &context)
+{
+    logError(m_project, nullptr, QString("Sequential scheduling not implemented"));
 }
 
 void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
@@ -1122,7 +1139,8 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
     // Collect appointments from all resource in all projects and
     // map them to tj resources
     QHash<TJ::Resource*, KPlato::Appointment> apps;
-    for (const Project *project : qAsConst(context.resourceBookings)) {
+    for (const auto doc : qAsConst(context.resourceBookings)) {
+        const auto project = doc->project();
         const auto resourceList = project->resourceList();
         for (Resource *r : resourceList) {
             TJ::Resource *tjResource = m_resourcemap.key(m_resourceIds.value(r->id()));
@@ -1149,10 +1167,17 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
     }
 }
 
-void PlanTJScheduler::insertProject(const KPlato::Project *project, int priority, KPlato::SchedulingContext &context)
+void PlanTJScheduler::insertProject(KoDocument *doc, int priority, KPlato::SchedulingContext &context)
 {
+    auto project = doc->project();
+    project->setProperty(SCHEDULEMANAGERNAME, doc->property(SCHEDULEMANAGERNAME));
+    auto sm = getScheduleManager(project);
+    Q_ASSERT(sm);
+    doc->setProperty(SCHEDULEMANAGERNAME, sm->name());
+
     if (m_recalculate) {
-        project->currentScheduleManager()->setRecalculateFrom(context.calculateFrom);
+        sm->setRecalculate(true);
+        sm->setRecalculateFrom(context.calculateFrom);
     }
     time_t time = project->constraintStartTime().toTime_t();
     if (m_tjProject->getStart() == 0 || m_tjProject->getStart() > time) {
@@ -1238,7 +1263,10 @@ void PlanTJScheduler::populateProjects(KPlato::SchedulingContext &context)
     for (it = m_taskmap.constBegin(); it != m_taskmap.constEnd(); ++it) {
         KPlato::Node *node = it.value();
         KPlato::Project *project = qobject_cast<KPlato::Project*>(node->projectNode());
-        Q_ASSERT(context.projects.values().contains(project));
+        Q_ASSERT(project);
+        if (!project) {
+            continue;
+        }
         if (!project->currentScheduleManager()->expected()) {
             project->currentScheduleManager()->createSchedules();
         }

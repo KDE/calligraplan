@@ -84,7 +84,7 @@ public:
         AllowOverbooking = 2,
         ScheduleForward = 4,
         ScheduleBackward = 8,
-        ScheduleInParallell = 16
+        ScheduleInParallel = 16
     };
     /// Return the schedulers capabilities.
     /// By default returns all capabilities
@@ -110,17 +110,14 @@ public:
     /// Set current index of supported granularities
     void setGranularity(int index);
 
-    /// Set parallell scheduling option to @p value.
-    void setScheduleInParallell(bool value);
-    /// Return true if multiple projects shall be scheduled in paralell.
+    /// Set parallel scheduling option to @p value.
+    void setScheduleInParallel(bool value);
+    /// Return true if multiple projects shall be scheduled in paralel.
     /// Returns false if the plugin does not support this option.
-    bool scheduleInParallell() const;
+    bool scheduleInParallel() const;
 
     /// Schedule all projects
     virtual void schedule(SchedulingContext &context);
-
-Q_SIGNALS:
-    void calculateSchedule(KPlato::SchedulingContext &context);
 
 protected Q_SLOTS:
     virtual void slotSyncData();
@@ -240,6 +237,10 @@ protected Q_SLOTS:
 protected:
     /// Re-implement to do the job
     void run() override {}
+
+    /// Get a schedulemanager that can be scheduled.
+    /// If an existing manager cannot be used, a new one is created.
+    ScheduleManager *getScheduleManager(Project *project);
 
 protected:
     /// The actual project to be calculated. Not accessed outside constructor.

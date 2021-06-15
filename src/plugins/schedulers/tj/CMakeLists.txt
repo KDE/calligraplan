@@ -1,7 +1,13 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"calligraplan_scheduler_tj\")
 
 set(LIBTJ_INCLUDE_DIR taskjuggler)
-include_directories(${LIBTJ_INCLUDE_DIR} ${PLANODF_INCLUDES} ${PLANKERNEL_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
+include_directories(
+    ${LIBTJ_INCLUDE_DIR}
+    ${PLANODF_INCLUDES}
+    ${PLANMAIN_INCLUDES}
+    ${PLANKERNEL_INCLUDES}
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
 
 if(BUILD_TESTING)
     add_subdirectory( tests )
@@ -37,7 +43,7 @@ set ( TJScheduler_LIB_SRCS
 
 add_library(plantjscheduler SHARED ${TJScheduler_LIB_SRCS})
 generate_export_header(plantjscheduler BASE_NAME plantj)
-target_link_libraries(plantjscheduler PUBLIC plankernel)
+target_link_libraries(plantjscheduler PUBLIC plankernel planmain)
 
 # plugin
 add_library(plantjplugin MODULE PlanTJPlugin.cpp )

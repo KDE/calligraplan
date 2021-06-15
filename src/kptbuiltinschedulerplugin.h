@@ -25,6 +25,7 @@
 
 #include "kptschedule.h"
 
+class KoDocument;
 
 namespace KPlato
 {
@@ -32,6 +33,7 @@ namespace KPlato
 class KPlatoScheduler;
 class Project;
 class ScheduleManager;
+class SchedulingContext;
 
 class PLAN_EXPORT BuiltinSchedulerPlugin : public SchedulerPlugin
 {
@@ -63,8 +65,11 @@ class KPlatoScheduler : public SchedulerThread
     Q_OBJECT
 
 public:
+    KPlatoScheduler(QObject *parent = nullptr);
     KPlatoScheduler(Project *project, ScheduleManager *sm, QObject *parent = nullptr);
     ~KPlatoScheduler() override;
+
+    void schedule(SchedulingContext &context) override;
 
 public Q_SLOTS:
     /// Stop scheduling.
@@ -74,6 +79,7 @@ public Q_SLOTS:
 
 protected:
     void run() override;
+    void calculateProject(SchedulingContext &context, KoDocument *project, QList<const KoDocument*> includes);
 
 };
 

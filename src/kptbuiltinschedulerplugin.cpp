@@ -23,6 +23,9 @@
 #include "kptproject.h"
 #include "kptschedule.h"
 #include "kptxmlloaderobject.h"
+#include <SchedulingContext.h>
+
+#include <KoDocument.h>
 
 #include <KLocalizedString>
 
@@ -114,10 +117,19 @@ void BuiltinSchedulerPlugin::slotFinished(SchedulerThread *job)
 
 void BuiltinSchedulerPlugin::schedule(SchedulingContext &context)
 {
-    Q_EMIT calculateSchedule(context);
+    KPlatoScheduler *job = new KPlatoScheduler();
+    context.scheduleInParallel = scheduleInParallel();
+    job->schedule(context);
+    delete job;
 }
 
 //--------------------
+KPlatoScheduler::KPlatoScheduler(QObject *parent)
+    : SchedulerThread(parent)
+{
+    qDebug()<<Q_FUNC_INFO;
+}
+
 KPlatoScheduler::KPlatoScheduler(Project *project, ScheduleManager *sm, QObject *parent)
     : SchedulerThread(project, sm, parent)
 {
@@ -177,6 +189,37 @@ void KPlatoScheduler::run()
     }
 }
 
+void KPlatoScheduler::schedule(SchedulingContext &context)
+{
+    auto includes = context.resourceBookings;
+    for (auto project : context.projects) {
+        calculateProject(context, project, includes);
+        includes << project;
+    }
+}
+
+void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *doc, QList<const KoDocument*> includes)
+{
+    for (auto d : includes) {
+        KPlato::Project *project = d->project();
+        project->setProperty(SCHEDULEMANAGERNAME, d->property(SCHEDULEMANAGERNAME));
+        bool ok = QMetaObject::invokeMethod(doc, "insertSharedResourceAssignments", Q_ARG(const KPlato::Project*, project));
+    }
+    KPlato::Project *project = doc->project();
+    KPlato::ScheduleManager *sm = getScheduleManager(project);
+    Q_ASSERT(sm);
+    doc->setProperty(SCHEDULEMANAGERNAME, sm->name());
+
+    KPlato::DateTime oldstart = project->constraintStartTime();
+    KPlato::DateTime start = context.calculateFrom;
+    if (oldstart > start) {
+        start = oldstart;
+    }
+    sm->setRecalculateFrom(start);
+
+    project->calculate(*sm);
+    project->setConstraintStartTime(oldstart);
+}
 
 } //namespace KPlato
 

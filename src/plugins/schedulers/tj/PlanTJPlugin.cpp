@@ -64,7 +64,7 @@ QString PlanTJPlugin::description() const
 
 int PlanTJPlugin::capabilities() const
 {
-    return SchedulerPlugin::AvoidOverbooking | SchedulerPlugin::ScheduleForward | SchedulerPlugin::ScheduleBackward | SchedulerPlugin::ScheduleInParallell;
+    return SchedulerPlugin::AvoidOverbooking | SchedulerPlugin::ScheduleForward | SchedulerPlugin::ScheduleBackward | SchedulerPlugin::ScheduleInParallel;
 }
 
 ulong PlanTJPlugin::currentGranularity() const
@@ -167,6 +167,7 @@ void PlanTJPlugin::slotFinished(SchedulerThread *j)
 void PlanTJPlugin::schedule(SchedulingContext &context)
 {
     PlanTJScheduler *job = new PlanTJScheduler();
+    context.scheduleInParallel = scheduleInParallel();
     job->schedule(context);
     delete job;
 }

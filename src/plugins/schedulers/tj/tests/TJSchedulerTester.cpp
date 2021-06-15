@@ -84,7 +84,7 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
         if (parentManager) {
             project->setParentSchedule(parentManager->expected());
         }
-        context.projects.insert(prio--, project);
+        context.projects.insert(prio--, doc);
 
         if (!context.project->constraintStartTime().isValid()) {
             context.project->setConstraintStartTime(project->constraintStartTime());
@@ -93,13 +93,15 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
             context.project->setConstraintStartTime(std::min(project->constraintStartTime(), context.project->constraintStartTime()));
             context.project->setConstraintEndTime(std::max(project->constraintEndTime(), context.project->constraintEndTime()));
         }
+        context.scheduleInParallel = true;
     }
     for (const auto part : bookings) {
-        auto project = part->document()->project();
+        auto doc = part->document();
+        auto project = doc->project();
         auto sm = project->scheduleManagers().value(0);
         project->setCurrentScheduleManager(sm);
         project->setCurrentSchedule(sm->expected()->id());
-        context.resourceBookings.append(project);
+        context.resourceBookings.append(doc);
     }
 }
 
@@ -156,7 +158,7 @@ void TJSchedulerTester::testSingleProject()
     populateSchedulingContext(context, "Test Single Project", projects);
 
     m_scheduler->schedule(context);
-    auto project = context.projects.first();
+    auto project = context.projects.first()->project();
     //Debug::print(project, "--", true);
     QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 8));
     QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 9));
@@ -180,7 +182,7 @@ void TJSchedulerTester::testSingleProjectWithBookings()
     populateSchedulingContext(context, "Test Single Project With Bookings", projects, bookings);
     m_scheduler->schedule(context);
     // Booking 1: R1 booked 2021-04-08, 2021-04-09
-    auto project = context.projects.first();
+    auto project = context.projects.first()->project();
     // Debug::print(project, "--", true);
     QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 10));
     QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 11));

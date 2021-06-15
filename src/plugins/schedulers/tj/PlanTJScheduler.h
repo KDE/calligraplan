@@ -126,10 +126,13 @@ protected:
     
 private:
     ulong tjGranularity() const;
-    void insertProject(const KPlato::Project *project, int priority, KPlato::SchedulingContext &context);
+    void insertProject(KoDocument *doc, int priority, KPlato::SchedulingContext &context);
     void insertBookings(KPlato::SchedulingContext &context);
     void addTasks(const KPlato::Node *parent, TJ::Task *tjParent = nullptr, int projectPriority = 0);
     void addPastAppointments(Node *task);
+
+    void calculateParallel(KPlato::SchedulingContext &context);
+    void calculateSequential(KPlato::SchedulingContext &context);
 
 private:
     MainSchedule *m_schedule;

@@ -51,7 +51,7 @@ public:
 
     QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
 
-    QString schedulerName() const;
+    QString schedulerKey() const;
 
 protected Q_SLOTS:
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
@@ -60,8 +60,6 @@ protected Q_SLOTS:
     void slotLoadCanceled();
 
     void calculate();
-    void calculateSchedule(KPlato::SchedulerPlugin *scheduler, const QList<KoDocument*> docs);
-    void calculatePert(KPlato::SchedulingContext &context);
 
     void slotDoubleClicked(const QModelIndex &idx);
     void slotCustomContextMenuRequested(const QPoint &pos);
@@ -80,9 +78,8 @@ protected:
     void loadProject(const QUrl &url);
 
     KPlato::ScheduleManager* scheduleManager(const KoDocument *doc) const;
-    void schedule(KoDocument *doc, QList<KoDocument*> include);
 
-    KPlato::DateTime targetStart() const;
+    void calculateSchedule(KPlato::SchedulerPlugin *scheduler);
 
 private:
     bool m_readWrite;

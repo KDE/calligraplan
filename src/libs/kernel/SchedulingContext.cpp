@@ -27,7 +27,7 @@ SchedulingContext::SchedulingContext(QObject *parent)
     : QObject(parent)
     , project(nullptr)
     , granularity(0)
-    , m_scheduleManager(nullptr)
+    , scheduleInParallel(false)
 {
 }
 
@@ -38,39 +38,27 @@ SchedulingContext::~SchedulingContext()
 
 void SchedulingContext::clear()
 {
-    m_scheduleManager = nullptr;
     log.clear();
     projects.clear();
     resourceBookings.clear();
     delete project;
     project = nullptr;
+    scheduleInParallel = false;
 }
 
-ScheduleManager *SchedulingContext::scheduleManager() const
-{
-    return m_scheduleManager;
-}
 
-void SchedulingContext::addResourceBookings(const Project *project)
+void SchedulingContext::addResourceBookings(const KoDocument *project)
 {
-    if (!project->currentScheduleManager()) {
-        errorPlan<<"ERROR"<<Q_FUNC_INFO<<"No current schedule manager";
-        return;
-    }
     if (!resourceBookings.contains(project)) {
         resourceBookings.append(project);
-        debugPlan<<project<<"Add resource bookings, using Schedule Manager"<<project->currentScheduleManager();
+        debugPlan<<project<<"Add resource bookings";
     } else {
         warnPlan<<"WARN"<<Q_FUNC_INFO<<project<<"Resource bookings already added";
     }
 }
 
-void SchedulingContext::addProject(Project *project, int priority)
+void SchedulingContext::addProject(KoDocument *project, int priority)
 {    
-    if (!project->currentScheduleManager()) {
-        errorPlan<<"ERROR"<<Q_FUNC_INFO<<"No current schedule manager";
-        return;
-    }
     if (projects.values().contains(project)) {
         int prio = projects.key(project);
         projects.remove(prio, project);

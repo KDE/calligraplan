@@ -29,6 +29,8 @@
 #include <QList>
 #include <QMultiMap>
 
+class KoDocument;
+
 namespace KPlato 
 {
 class Project;
@@ -41,22 +43,17 @@ public:
 
     void clear();
 
-    ScheduleManager *scheduleManager() const;
-    void setSchedulingManager(ScheduleManager *sm);
-
-    void addProject(Project *project, int priority = -1);
-    void addResourceBookings(const Project *project);
+    void addProject(KoDocument *project, int priority = -1);
+    void addResourceBookings(const KoDocument *project);
 
     Project *project;
-    QMultiMap<int, Project*> projects;
-    QList<const Project*> resourceBookings;
+    QMultiMap<int, KoDocument*> projects;
+    QList<const KoDocument*> resourceBookings;
     int granularity;
     QDateTime calculateFrom;
+    bool scheduleInParallel;
 
     QVector<KPlato::Schedule::Log> log;
-
-private:
-    ScheduleManager *m_scheduleManager;
 };
 
 } //namespace KPlato

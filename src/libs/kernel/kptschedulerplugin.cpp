@@ -27,6 +27,7 @@
 #include "kptdebug.h"
 
 #include "KoXmlReader.h"
+#include <KoDocument.h>
 
 #include <KLocalizedString>
 
@@ -36,11 +37,11 @@ namespace KPlato
 class Q_DECL_HIDDEN SchedulerPlugin::Private
 {
 public:
-    Private() : scheduleInParallell(false) {}
+    Private() : scheduleInParallel(false) {}
 
     QString name;
     QString comment;
-    bool scheduleInParallell;
+    bool scheduleInParallel;
 };
 
 SchedulerPlugin::SchedulerPlugin(QObject *parent)
@@ -150,14 +151,14 @@ void SchedulerPlugin::slotSyncData()
     updateLog();
 }
 
-void SchedulerPlugin::setScheduleInParallell(bool value)
+void SchedulerPlugin::setScheduleInParallel(bool value)
 {
-    d->scheduleInParallell = value;
+    d->scheduleInParallel = value;
 }
 
-bool SchedulerPlugin::scheduleInParallell() const
+bool SchedulerPlugin::scheduleInParallel() const
 {
-    return (capabilities() & ScheduleInParallell) && d->scheduleInParallell;
+    return (capabilities() & ScheduleInParallel) && d->scheduleInParallel;
 }
 
 void SchedulerPlugin::updateProgress()
@@ -574,6 +575,46 @@ void SchedulerThread::schedule(SchedulingContext &context)
     Q_UNUSED(context)
 }
 
+ScheduleManager *SchedulerThread::getScheduleManager(Project *project)
+{
+    auto sm = project->findScheduleManagerByName(project->property(SCHEDULEMANAGERNAME).toString());
+    if (!sm) {
+        sm = project->currentScheduleManager();
+    }
+    if (!sm) {
+        // create a new schedule top level schedule
+        sm = project->createScheduleManager(project->uniqueScheduleName());
+        project->addScheduleManager(sm);
+        project->setProperty(SCHEDULEMANAGERNAME, sm->name());
+        logDebug(project, nullptr, QString("Could not find suitable schedule, creating a new top level schedule: %1").arg(sm->name()));
+    } else if (sm->isBaselined() || (sm->isScheduled() && project->isStarted() && !sm->parentManager())) {
+        // create a subschedule
+        KPlato::ScheduleManager *parent = sm;
+        sm = project->createScheduleManager(parent);
+        project->addScheduleManager(sm, parent);
+        project->setProperty(SCHEDULEMANAGERNAME, sm->name());
+        sm->setRecalculate(true);
+        sm->setRecalculateFrom(QDateTime::currentDateTime());
+        if (parent->isBaselined()) {
+            logDebug(project, nullptr, QString("Selected schedule is baselined, a new sub-schedule is created: %1").arg(sm->name()));
+        } else {
+            logDebug(project, nullptr, QString("Project is started, a new sub-schedule is created: %1").arg(sm->name()));
+        }
+    } else if (sm->parentManager()) {
+        sm->setRecalculate(true);
+        sm->setRecalculateFrom(QDateTime::currentDateTime());
+        logDebug(project, nullptr, QString("Re-schedule selected schedule: %1").arg(sm->name()));
+    }
+    Q_ASSERT(sm);
+    if (!sm->expected()) {
+        sm->createSchedules();
+    }
+    Q_ASSERT(sm->expected());
+    Q_ASSERT(!project->schedules().isEmpty());
+    project->setCurrentScheduleManager(sm);
+    project->setCurrentSchedule(sm->scheduleId());
+    return sm;
+}
 
 } //namespace KPlato
 

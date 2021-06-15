@@ -88,7 +88,7 @@
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QRadioButton" name="parallell">
+       <widget class="QRadioButton" name="parallel">
         <property name="text">
          <string>Parallel</string>
         </property>
@@ -122,7 +122,8 @@
            <string>Calculate</string>
           </property>
           <property name="icon">
-           <iconset theme="view-time-schedule-calculus"/>
+           <iconset theme="view-time-schedule-calculus">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </widget>
         </item>

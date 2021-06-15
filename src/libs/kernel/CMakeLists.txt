@@ -3,6 +3,7 @@ include_directories(
     ${PLANKERNEL_INCLUDES}
     ${PLANKUNDO2_INCLUDES}
     ${PLANSTORE_INCLUDES}
+    ${PLANMAIN_INCLUDES}
 )
 
 
