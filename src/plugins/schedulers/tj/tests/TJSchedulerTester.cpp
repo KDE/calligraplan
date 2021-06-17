@@ -310,4 +310,46 @@ void TJSchedulerTester::testRecalculateMultiple()
     deleteAll(projects);
 }
 
+void TJSchedulerTester::testRecalculateMultipleSeq()
+{
+    const auto projectFiles = QStringList() << "Test 1.plan" << "Test Recalculate 1.plan";
+    QString dir = QFINDTESTDATA("data/multi/schedule/");
+    QList<Part*> projects = loadDocuments(dir, projectFiles);
+    QCOMPARE(projects.count(), projectFiles.count());
+
+    SchedulingContext context;
+    populateSchedulingContext(context, "Test Recalculate Multiple Projects", projects);
+    context.scheduleInParallel = false;
+    QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
+
+    auto project = projects.value(0)->document()->project();
+    auto T1 = static_cast<Task*>(project->childNode(0));
+    auto T2 = static_cast<Task*>(project->childNode(1));
+
+    context.calculateFrom = QDateTime(QDate(2021, 4, 26));
+    m_scheduler->schedule(context);
+    for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    //qDebug()<<"Check project"<<project;
+    QCOMPARE(T1->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));
+    QCOMPARE(T1->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));
+    QCOMPARE(T2->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 27));
+
+    project = projects.value(1)->document()->project();
+    T1 = static_cast<Task*>(project->childNode(0));
+    T2 = static_cast<Task*>(project->childNode(1));
+    auto Length = static_cast<Task*>(project->childNode(2));
+
+    //qDebug()<<"Check project"<<project;
+    // T1 Recalculate 1: Two first days has been completed, 3 last days moved
+    QCOMPARE(T1->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 19)); // as before
+    QCOMPARE(T1->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 30)); // continued 28/29/30
+    QCOMPARE(T2->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 5, 1));
+
+    qInfo()<<"Length:"<<Length->startTime().toTimeZone(project->timeZone());
+    QCOMPARE(Length->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 19));
+    QCOMPARE(Length->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 23));
+
+    deleteAll(projects);
+}
+
 QTEST_MAIN(KPlato::TJSchedulerTester)

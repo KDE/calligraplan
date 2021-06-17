@@ -45,6 +45,8 @@ private Q_SLOTS:
     void testRecalculate();
     void testRecalculateMultiple();
 
+    void testRecalculateMultipleSeq();
+
 private:
     void populateSchedulingContext(SchedulingContext &context, const QString &name, const QList<Part*> &projects, const QList<Part*> &bookings = QList<Part*>()) const;
     Part *loadDocument(const QString &dir, const QString &fname);

@@ -302,22 +302,38 @@ bool PlanTJScheduler::kplatoToTJ()
 
 void PlanTJScheduler::addStartEndJob()
 {
-    TJ::Task *start = new TJ::Task(m_tjProject, "TJ::StartJob", "TJ::StartJob", nullptr, QString(), 0);
+    const auto startId("TJ::StartJob");
+    const auto endId("TJ::EndJob");
+    bool newStart = false;
+    bool newEnd = false;
+
+    TJ::Task *start = m_tjProject->getTask(startId);
+    if (!start) {
+        start = new TJ::Task(m_tjProject, startId, startId, nullptr, QString(), 0);
+        newStart = true;
+    }
     start->setMilestone(true);
     if (! m_backward) {
         start->setSpecifiedStart(0, m_tjProject->getStart());
         start->setPriority(999);
     } else {
         // backwards: insert a new ms before start and make start an ALAP to push all other jobs ALAP
-        TJ::Task *bs = new TJ::Task(m_tjProject, "TJ::StartJob-B", "TJ::StartJob-B", nullptr, QString(), 0);
-        bs->setMilestone(true);
+        TJ::Task *bs = m_tjProject->getTask(startId);
+        if (!bs) {
+            bs = new TJ::Task(m_tjProject, "TJ::StartJob-B", "TJ::StartJob-B", nullptr, QString(), 0);
+            bs->setMilestone(true);
+            bs->addPrecedes(start->getId());
+            start->addDepends(bs->getId());
+            start->setScheduling(TJ::Task::ALAP);
+        }
         bs->setSpecifiedStart(0, m_tjProject->getStart());
         bs->setPriority(999);
-        bs->addPrecedes(start->getId());
-        start->addDepends(bs->getId());
-        start->setScheduling(TJ::Task::ALAP);
     }
-    TJ::Task *end = new TJ::Task(m_tjProject, "TJ::EndJob", "TJ::EndJob", nullptr, QString(), 0);
+    TJ::Task *end = m_tjProject->getTask(endId);
+    if (!end) {
+        end = new TJ::Task(m_tjProject, endId, endId, nullptr, QString(), 0);
+        newEnd = true;
+    }
     end->setMilestone(true);
     if (m_backward) {
         end->setSpecifiedEnd(0, m_tjProject->getEnd() - 1);
@@ -1131,7 +1147,57 @@ void PlanTJScheduler::calculateParallel(KPlato::SchedulingContext &context)
 
 void PlanTJScheduler::calculateSequential(KPlato::SchedulingContext &context)
 {
-    logError(m_project, nullptr, QString("Sequential scheduling not implemented"));
+    QMapIterator<int, KoDocument*> it(context.projects);
+    for (it.toBack(); it.hasPrevious();) {
+        it.previous();
+        auto project = it.value()->project();
+        logInfo(project, nullptr, QString("Inserting project"));
+        insertProject(it.value(), it.key(), context);
+        logInfo(project, nullptr, i18n("Scheduling interval: %1 - %2, granularity: %3 minutes",
+                                     QDateTime::fromTime_t(m_tjProject->getStart()).toString(Qt::ISODate),
+                                     QDateTime::fromTime_t(m_tjProject->getEnd()).toString(Qt::ISODate),
+                                     (double)m_tjProject->getScheduleGranularity()/60.));
+
+        if (m_tjProject->getStart() > m_tjProject->getEnd()) {
+            logError(project, nullptr, i18n("Invalid project, start > end"));
+            return;
+        }
+        addRequests();
+        insertBookings(context);
+        setConstraints();
+        addDependencies();
+        addStartEndJob();
+        if (!check()) {
+            logError(project, nullptr, i18n("Project check failed"));
+        } else {
+            if (solve()) {
+                populateProjects(context);
+                context.resourceBookings << it.value();
+            } else {
+                logError(project, nullptr, i18n("Project scheduling failed"));
+            }
+        }
+        if (it.hasPrevious()) {
+            delete m_tjProject;
+            m_taskmap.clear();
+            m_resourcemap.clear();
+            m_resourceIds.clear();
+            m_durationTasks.clear();
+
+            //m_granularity = std::max(context.granularity, 5*60*1000 /*5 minutes*/);
+            m_tjProject = new TJ::Project();
+            m_tjProject->setPriority(0);
+            m_tjProject->setScheduleGranularity(m_granularity / 1000);
+            m_tjProject->getScenario(0)->setMinSlackRate(0.0); // Do not calculate critical path
+            if (context.calculateFrom.isValid()) {
+                m_recalculate = true;
+                m_recalculateFrom = context.calculateFrom;
+                auto t = new TJ::Task(m_tjProject, "TJ::RECALCULATE_FROM", "TJ::RECALCULATE_FROM", nullptr, QString(), 0);
+                t->setMilestone(true);
+                t->setSpecifiedStart(0, toTJTime_t(m_recalculateFrom, tjGranularity()));
+            }
+        }
+    }
 }
 
 void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
@@ -1259,6 +1325,8 @@ void PlanTJScheduler::addTasks(const KPlato::Node *parent, TJ::Task *tjParent, i
 
 void PlanTJScheduler::populateProjects(KPlato::SchedulingContext &context)
 {
+    Q_UNUSED(context)
+
     QMap<TJ::Task*, Node*>::const_iterator it;
     for (it = m_taskmap.constBegin(); it != m_taskmap.constEnd(); ++it) {
         KPlato::Node *node = it.value();
