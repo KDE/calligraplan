@@ -1109,7 +1109,7 @@ void PlanTJScheduler::calculateParallel(KPlato::SchedulingContext &context)
 {
     QMultiMap<int, KoDocument*>::const_iterator it = context.projects.constBegin();
     for (; it != context.projects.constEnd(); ++it) {
-        logInfo(m_project, nullptr, QString("Inserting project: %1, priority %2").arg(it.value()->projectName()).arg(it.key()));
+        logInfo(m_project, nullptr, QString("Inserting project: %1, priority %2").arg(it.value()->projectName()).arg(it.key())); // TODO i18n
         insertProject(it.value(), it.key(), context);
     }
     logInfo(m_project, nullptr, i18n("Scheduling interval: %1 - %2, granularity: %3 minutes",
@@ -1151,7 +1151,7 @@ void PlanTJScheduler::calculateSequential(KPlato::SchedulingContext &context)
     for (it.toBack(); it.hasPrevious();) {
         it.previous();
         auto project = it.value()->project();
-        logInfo(project, nullptr, QString("Inserting project"));
+        logInfo(project, nullptr, QString("Inserting project")); // TODO i18n
         insertProject(it.value(), it.key(), context);
         logInfo(project, nullptr, i18n("Scheduling interval: %1 - %2, granularity: %3 minutes",
                                      QDateTime::fromTime_t(m_tjProject->getStart()).toString(Qt::ISODate),
