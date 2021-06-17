@@ -49,7 +49,6 @@ public:
     Project *project;
     QMultiMap<int, KoDocument*> projects;
     QList<const KoDocument*> resourceBookings;
-    int granularity;
     QDateTime calculateFrom;
     bool scheduleInParallel;
 

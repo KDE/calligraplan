@@ -77,7 +77,7 @@ PlanTJScheduler::PlanTJScheduler(Project *project, ScheduleManager *sm, ulong gr
     connect(this, &PlanTJScheduler::sigCalculationFinished, project, &KPlato::Project::sigCalculationFinished);
 }
 
-PlanTJScheduler::PlanTJScheduler(QObject *parent)
+PlanTJScheduler::PlanTJScheduler(ulong granularity, QObject *parent)
     : SchedulerThread(parent)
     , result(-1)
     , m_schedule(nullptr)
@@ -85,7 +85,7 @@ PlanTJScheduler::PlanTJScheduler(QObject *parent)
     , m_usePert(false)
     , m_backward(false)
     , m_tjProject(nullptr)
-    , m_granularity(0)
+    , m_granularity(granularity)
 {
     TJ::TJMH.reset();
     //connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
@@ -1075,7 +1075,6 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     timer.start();
 
     m_project = context.project;
-    m_granularity = std::max(context.granularity, 5*60*1000 /*5 minutes*/);
     m_tjProject = new TJ::Project();
     m_tjProject->setPriority(0);
     m_tjProject->setScheduleGranularity(m_granularity / 1000);

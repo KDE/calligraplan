@@ -66,7 +66,7 @@ private:
 
 public:
     PlanTJScheduler(Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = nullptr);
-    explicit PlanTJScheduler(QObject *parent = nullptr);
+    explicit PlanTJScheduler(ulong granularity, QObject *parent = nullptr);
     ~PlanTJScheduler() override;
 
     bool check();

@@ -109,6 +109,9 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(ui.schedulersCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSchedulersComboChanged(int)));
     connect(ui.granularities, SIGNAL(currentIndexChanged(int)), this, SLOT(slotGranularitiesChanged(int)));
     connect(ui.sequential, &QRadioButton::toggled, this, &SchedulingView::slotSequentialChanged);
+    connect(ui.todayRB, &QRadioButton::toggled, this, &SchedulingView::slotTodayToggled);
+    connect(ui.tomorrowRB, &QRadioButton::toggled, this, &SchedulingView::slotTomorrowToggled);
+    connect(ui.timeRB, &QRadioButton::toggled, this, &SchedulingView::slotTimeToggled);
     connect(ui.calculate, &QPushButton::clicked, this, &SchedulingView::calculate);
 }
 
@@ -145,6 +148,8 @@ void SchedulingView::updateSchedulingProperties()
         ui.schedulersCombo->addItem(it.value()->name(), it.key());
     }
     slotSchedulersComboChanged(ui.schedulersCombo->currentIndex());
+    ui.todayRB->setChecked(true);
+    slotTodayToggled(true);
 }
 
 void SchedulingView::slotSchedulersComboChanged(int idx)
@@ -187,6 +192,25 @@ void SchedulingView::slotSequentialChanged(bool state)
     if (scheduler) {
         scheduler->setScheduleInParallel(!state);
     }
+}
+
+void SchedulingView::slotTodayToggled(bool state)
+{
+    if (state) {
+        ui.calculationDateTime->setDateTime(QDateTime(QDate::currentDate(), QTime()));
+    }
+}
+
+void SchedulingView::slotTomorrowToggled(bool state)
+{
+    if (state) {
+        ui.calculationDateTime->setDateTime(QDateTime(QDate::currentDate().addDays(1), QTime()));
+    }
+}
+
+void SchedulingView::slotTimeToggled(bool state)
+{
+    ui.calculationDateTime->setEnabled(state);
 }
 
 void SchedulingView::setupGui()
@@ -369,6 +393,11 @@ QString SchedulingView::schedulerKey() const
     return ui.schedulersCombo->currentData().toString();
 }
 
+QDateTime SchedulingView::calculationTime() const
+{
+    return ui.calculationDateTime->dateTime();
+}
+
 void SchedulingView::calculate()
 {
     MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
@@ -394,6 +423,7 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     // Populate scheduling context
     m_schedulingContext.project = new KPlato::Project();
     m_schedulingContext.project->setName("Project Collection");
+    m_schedulingContext.calculateFrom = calculationTime();
     for (KoDocument *doc : docs) {
         int prio = doc->property(SCHEDULINGPRIORITY).isValid() ? doc->property(SCHEDULINGPRIORITY).toInt() : -1;
         if (doc->property(SCHEDULINGCONTROL).toString() == "Schedule") {

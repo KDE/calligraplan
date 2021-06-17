@@ -26,7 +26,6 @@ using namespace KPlato;
 SchedulingContext::SchedulingContext(QObject *parent)
     : QObject(parent)
     , project(nullptr)
-    , granularity(0)
     , scheduleInParallel(false)
 {
 }

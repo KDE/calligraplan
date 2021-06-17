@@ -46,7 +46,8 @@ using namespace KPlato;
 
 void TJSchedulerTester::init()
 {
-    m_scheduler = new PlanTJScheduler();
+    ulong granularity =  60*60*1000;
+    m_scheduler = new PlanTJScheduler(granularity);
 }
 
 void TJSchedulerTester::cleanup()
@@ -58,7 +59,6 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
 {
     context.project = new Project();
     context.project->setName(name);
-    context.granularity = 60*60*1000;
     context.project->setConstraintStartTime(DateTime());
     context.project->setConstraintEndTime(DateTime());
     int prio = projects.count();

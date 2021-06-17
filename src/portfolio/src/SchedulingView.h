@@ -68,6 +68,9 @@ protected Q_SLOTS:
     void slotSchedulersComboChanged(int idx);
     void slotGranularitiesChanged(int idx);
     void slotSequentialChanged(bool state);
+    void slotTodayToggled(bool state);
+    void slotTomorrowToggled(bool state);
+    void slotTimeToggled(bool state);
 
     void updateLogFilter();
 
@@ -81,6 +84,7 @@ protected:
 
     KPlato::ScheduleManager* scheduleManager(const KoDocument *doc) const;
 
+    QDateTime calculationTime() const;
     void calculateSchedule(KPlato::SchedulerPlugin *scheduler);
 
 private:
