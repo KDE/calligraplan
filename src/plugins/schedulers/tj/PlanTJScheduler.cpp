@@ -1253,6 +1253,8 @@ void PlanTJScheduler::insertProject(KoDocument *doc, int priority, KPlato::Sched
     if (m_tjProject->getEnd() < time) {
         m_tjProject->setEnd(time);
     }
+    m_project->setConstraintStartTime(QDateTime::fromTime_t(m_tjProject->getStart()));
+    m_project->setConstraintEndTime(QDateTime::fromTime_t(m_tjProject->getEnd()));
     m_tjProject->setDailyWorkingHours(const_cast<KPlato::Project*>(project)->standardWorktime()->day());
 
     // Set working days for the project, it is used for tasks with a length specification
