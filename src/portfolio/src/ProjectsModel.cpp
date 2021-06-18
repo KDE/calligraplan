@@ -130,24 +130,68 @@ Qt::ItemFlags ProjectsModel::flags(const QModelIndex &idx) const
     return f;
 }
 
-QVariant ProjectsModel::headerData(int section, Qt::Orientation o, int role) const
+QVariant ProjectsModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    int extraSection = section - m_nodeModel.propertyCount();
-    switch (extraSection) {
-        case ScheduleManagerColumn: {
-            switch (role) {
-                case Qt::DisplayRole:
-                    return i18n("Schedule");
-                case Qt::ToolTipRole:
-                    return i18nc("@info:tooltip", "Select schedule");
-                default:
-                    return QVariant();
-            }
-        }
-        default: break;
+    if (orientation == Qt::Vertical) {
+        return QVariant();
     }
-    QVariant v = m_nodeModel.headerData(section, role);
-    return v;
+    switch (section) {
+        case KPlato::NodeModel::NodeName: {
+            switch (role) {
+                case Qt::ToolTipRole: {
+                    return i18nc("@info:tooltip", "Project name");
+                }
+                default: break;
+            }
+            break;
+        }
+        case KPlato::NodeModel::NodeConstraintStart: {
+            switch (role) {
+                case Qt::DisplayRole: {
+                    return i18n("Target Start");
+                }
+                case Qt::ToolTipRole: {
+                    return i18nc("@info:tooltip", "Scheduling range: Earliest start time");
+                }
+                default: break;
+            }
+            break;
+        }
+        case KPlato::NodeModel::NodeConstraintEnd: {
+            switch (role) {
+                case Qt::DisplayRole: {
+                    return i18n("Target End");
+                }
+                case Qt::ToolTipRole: {
+                    return i18nc("@info:tooltip", "Scheduling range: Latest end time");
+                }
+                default: break;
+            }
+            break;
+        }
+        default: {
+            int extraSection = section - m_nodeModel.propertyCount();
+            switch (extraSection) {
+                case ScheduleManagerColumn: {
+                    switch (role) {
+                        case Qt::DisplayRole: {
+                            return i18n("Schedule");
+                        }
+                        case Qt::ToolTipRole: {
+                            return i18nc("@info:tooltip", "Select schedule");
+                        }
+                        default: {
+                            return QVariant();
+                        }
+                    }
+                    break;
+                }
+                default: break;
+            }
+            break;
+        }
+    }
+    return m_nodeModel.headerData(section, role);
 }
 
 QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
