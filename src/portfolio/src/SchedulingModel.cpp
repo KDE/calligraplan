@@ -87,29 +87,31 @@ QString SchedulingModel::keyString(const QString &value) const
     return m_controlKeys.value(m_controlDisplay.indexOf(value));
 }
 
-bool SchedulingModel::setData(const QModelIndex &idx, const QVariant &value, int role)
+bool SchedulingModel::setExtraColumnData(const QModelIndex &parent, int row, int extraColumn, const QVariant &value, int role)
 {
-    KoDocument *doc = portfolio()->documents().at(idx.row());
+    if (parent.isValid()) {
+        return false;
+    }
+    KoDocument *doc = portfolio()->documents().at(row);
     if (!doc) {
         return false;
     }
     if (role == Qt::EditRole) {
-        int extraColumn = extraColumnForProxyColumn(idx.column());
         switch (extraColumn) {
             case 0: // Status
                 break;
             case 1: { // Control
                 portfolio()->setDocumentProperty(doc, SCHEDULINGCONTROL,  m_controlKeys.value(value.toInt()));
-                Q_EMIT dataChanged(idx, idx);
+                extraColumnDataChanged(parent, row, extraColumn, QVector<int>());
                 return true;
             }
             case 2: { // Priority
                 portfolio()->setDocumentProperty(doc, SCHEDULINGPRIORITY, value);
-                Q_EMIT dataChanged(idx, idx);
+                extraColumnDataChanged(parent, row, extraColumn, QVector<int>());
                 return true;
             }
             default: {
-                return KExtraColumnsProxyModel::setData(idx, value, role);
+                break;
             }
         }
     }

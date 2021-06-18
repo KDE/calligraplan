@@ -39,7 +39,7 @@ public:
     ~SchedulingModel();
 
     Qt::ItemFlags flags(const QModelIndex &idx) const override;
-    bool setData(const QModelIndex &idx, const QVariant &value, int role = Qt::EditRole) override;
+    bool setExtraColumnData(const QModelIndex &parent, int row, int extraColumn, const QVariant &value, int role = Qt::EditRole) override;
 
     void setDelegates(QAbstractItemView *view);
     MainDocument *portfolio() const;
