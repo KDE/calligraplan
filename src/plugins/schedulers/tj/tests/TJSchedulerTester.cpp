@@ -284,7 +284,7 @@ void TJSchedulerTester::testRecalculateMultiple()
     auto T1 = static_cast<Task*>(project->childNode(0));
     auto T2 = static_cast<Task*>(project->childNode(1));
 
-    context.calculateFrom = QDateTime(QDate(2021, 4, 26));
+    context.calculateFrom = QDateTime(QDate(2021, 4, 26), QTime());
     m_scheduler->schedule(context);
     //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     //qDebug()<<"Check project"<<project;
@@ -326,9 +326,9 @@ void TJSchedulerTester::testRecalculateMultipleSeq()
     auto T1 = static_cast<Task*>(project->childNode(0));
     auto T2 = static_cast<Task*>(project->childNode(1));
 
-    context.calculateFrom = QDateTime(QDate(2021, 4, 26));
+    context.calculateFrom = QDateTime(QDate(2021, 4, 26), QTime());
     m_scheduler->schedule(context);
-    for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     //qDebug()<<"Check project"<<project;
     QCOMPARE(T1->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));
     QCOMPARE(T1->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));
