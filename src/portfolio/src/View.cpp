@@ -95,7 +95,8 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
 
     // NOTE: Adding a new view to KPageWidget outside the c'tor gives problems with resize (shrinking),
     // so atm we create everything now.
-    for (auto d : static_cast<MainDocument*>(doc)->documents()) {
+    const auto docs = static_cast<MainDocument*>(doc)->documents();
+    for (auto d : docs) {
         openDocument(d);
     }
     connect(m_views, &KPageWidget::currentPageChanged, this, &View::slotCurrentPageChanged);

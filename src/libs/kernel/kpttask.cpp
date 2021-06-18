@@ -260,7 +260,8 @@ void Task::createAndMergeAppointmentsFromCompletion()
         //debugPlan<<"Appointments added:"<<curr;
     }
     m_currentSchedule->startTime = DateTime();
-    for (const auto appointment : m_currentSchedule->appointments()) {
+    const auto apps = m_currentSchedule->appointments();
+    for (const auto appointment : apps) {
         if (!m_currentSchedule->startTime.isValid() || m_currentSchedule->startTime > appointment->startTime()) {
             m_currentSchedule->startTime = appointment->startTime();
         }
@@ -3838,7 +3839,8 @@ QHash<Resource*, Appointment> Completion::createAppointmentsPerTask() const
     }
     auto task = static_cast<Task*>(m_node);
     QList<Resource*> resources;
-    for (const Appointment *a : task->currentSchedule()->appointments()) {
+    const auto apps2 = task->currentSchedule()->appointments();
+    for (const auto a : apps2) {
         Q_ASSERT(a->resource());
         Q_ASSERT(a->resource()->resource());
         resources << a->resource()->resource();
@@ -3848,7 +3850,8 @@ QHash<Resource*, Appointment> Completion::createAppointmentsPerTask() const
         return apps;
     }
     qreal workDay = project->standardWorktime()->durationDay().milliseconds();
-    for (const QDate &date : entries().keys()) {
+    const auto dates = entries().keys();
+    for (const QDate &date : dates) {
         if (date < m_startTime.date()) {
             continue;
         }
@@ -3859,7 +3862,7 @@ QHash<Resource*, Appointment> Completion::createAppointmentsPerTask() const
             day -= start.time().msecsSinceStartOfDay();
         }
         qreal factor = workDay / day;
-        for (Resource *r : resources) {
+        for (Resource *r : qAsConst(resources)) {
             const qreal actualEffort = this->actualEffort(date).milliseconds() / resources.count();
             const int load = 100 * factor * actualEffort / workDay;
             apps[r].addInterval(start, DateTime(date.addDays(1), QTime(), project->timeZone()), load);

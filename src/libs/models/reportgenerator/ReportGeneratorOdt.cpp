@@ -112,8 +112,9 @@ ChartItemModel *findChartItemModel(QSortFilterProxyModel &model)
 
 bool startsWith(const QStringList &keys, const QString &key)
 {
+    const auto lowerKey = key.toLower();
     for (const QString &k : keys) {
-        if (key.toLower().startsWith(k)) {
+        if (lowerKey.startsWith(k)) {
             return true;
         }
     }

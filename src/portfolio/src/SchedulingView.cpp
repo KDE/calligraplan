@@ -424,7 +424,7 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     m_schedulingContext.project = new KPlato::Project();
     m_schedulingContext.project->setName("Project Collection");
     m_schedulingContext.calculateFrom = calculationTime();
-    for (KoDocument *doc : docs) {
+    for (KoDocument *doc : qAsConst(docs)) {
         int prio = doc->property(SCHEDULINGPRIORITY).isValid() ? doc->property(SCHEDULINGPRIORITY).toInt() : -1;
         if (doc->property(SCHEDULINGCONTROL).toString() == "Schedule") {
             m_schedulingContext.addProject(doc, prio);
