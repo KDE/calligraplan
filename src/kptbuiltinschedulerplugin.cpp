@@ -191,11 +191,28 @@ void KPlatoScheduler::run()
 
 void KPlatoScheduler::schedule(SchedulingContext &context)
 {
-    auto includes = context.resourceBookings;
-    for (auto project : context.projects) {
-        calculateProject(context, project, includes);
-        includes << project;
+    if (context.projects.isEmpty()) {
+        warnPlan<<"WARN:"<<Q_FUNC_INFO<<"No projects";
+        logError(context.project, nullptr, "No projects to schedule");
+        return;
     }
+    QElapsedTimer timer;
+    timer.start();
+
+    logInfo(context.project, nullptr, i18n("Scheduling started: %1", QDateTime::currentDateTime().toString(Qt::ISODate)));
+    if (context.calculateFrom.isValid()) {
+        logInfo(context.project, nullptr, i18n("Recalculating from: %1", context.calculateFrom.toString(Qt::ISODate)));
+    }
+
+    auto includes = context.resourceBookings;
+    QMapIterator<int, KoDocument*> it(context.projects);
+    for (it.toBack(); it.hasPrevious();) {
+        it.previous();
+        calculateProject(context, it.value(), includes);
+        includes << it.value();
+    }
+    logInfo(context.project, nullptr, i18n("Scheduling finished at %1, elapsed time: %2 seconds", QDateTime::currentDateTime().toString(Qt::ISODate), (double)timer.elapsed()/1000));
+    context.log = takeLog();
 }
 
 void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *doc, QList<const KoDocument*> includes)
@@ -204,12 +221,13 @@ void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *d
         KPlato::Project *project = d->project();
         project->setProperty(SCHEDULEMANAGERNAME, d->property(SCHEDULEMANAGERNAME));
         bool ok = QMetaObject::invokeMethod(doc, "insertSharedResourceAssignments", Q_ARG(const KPlato::Project*, project));
+        logInfo(doc->project(), nullptr, i18n("Inserting resource bookings from project: %1", project->name()));
     }
     KPlato::Project *project = doc->project();
     KPlato::ScheduleManager *sm = getScheduleManager(project);
     Q_ASSERT(sm);
     doc->setProperty(SCHEDULEMANAGERNAME, sm->name());
-
+    connect(sm, &KPlato::ScheduleManager::sigLogAdded, this, &KPlatoScheduler::slotAddLog);
     KPlato::DateTime oldstart = project->constraintStartTime();
     KPlato::DateTime start = context.calculateFrom;
     if (oldstart > start) {
@@ -219,6 +237,8 @@ void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *d
 
     project->calculate(*sm);
     project->setConstraintStartTime(oldstart);
+    disconnect(sm, &KPlato::ScheduleManager::logAdded, this, &KPlatoScheduler::slotAddLog);
+    project->currentSchedule()->clearLogs();
 }
 
 } //namespace KPlato
