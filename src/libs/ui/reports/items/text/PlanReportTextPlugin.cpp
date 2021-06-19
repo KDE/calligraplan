@@ -31,7 +31,7 @@
 
 #include <QDebug>
 
-KREPORT_PLUGIN_FACTORY(PlanReportTextPlugin, "text.json")
+K_PLUGIN_CLASS_WITH_JSON(PlanReportTextPlugin, "text.json")
 
 PlanReportTextPlugin::PlanReportTextPlugin(QObject *parent, const QVariantList &args)
     : KReportPluginInterface(parent, args)

@@ -27,6 +27,7 @@
 
 #include <KoPluginLoader.h>
 
+#include <KPluginFactory>
 #include <QPluginLoader>
 #include <QLocale>
 

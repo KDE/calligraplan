@@ -20,8 +20,6 @@
 // clazy:excludeall=qstring-arg
 #include "PlanTJPlugin.h"
 
-#include "kptschedulerplugin_macros.h"
-
 #include "PlanTJScheduler.h"
 
 #include "kptproject.h"
@@ -30,11 +28,12 @@
 #include "kptdebug.h"
 
 #include <KLocalizedString>
+#include <KPluginFactory>
 
 #include <QApplication>
 
 #ifndef PLAN_NOPLUGIN
-PLAN_SCHEDULERPLUGIN_EXPORT(PlanTJPlugin, "plantjscheduler.json")
+K_PLUGIN_CLASS_WITH_JSON(PlanTJPlugin, "plantjscheduler.json")
 #endif
 
 using namespace KPlato;

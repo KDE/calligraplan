@@ -22,9 +22,6 @@
 
 #include <QObject>
  
-#include "kptschedulerplugin_macros.h"
- 
-
 /// The main namespace.
 namespace KPlato
 {
