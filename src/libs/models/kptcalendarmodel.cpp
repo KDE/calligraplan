@@ -782,16 +782,16 @@ void CalendarDayItemModel::setCalendar(Calendar *calendar)
     beginResetModel();
     //debugPlan<<m_calendar<<" -->"<<calendar;
     if (m_calendar) {
-        disconnect(m_calendar, static_cast<void (Calendar::*)(CalendarDay*)>(&Calendar::changed), this, &CalendarDayItemModel::slotDayChanged);
-        disconnect(m_calendar, static_cast<void (Calendar::*)(TimeInterval*)>(&Calendar::changed), this, &CalendarDayItemModel::slotTimeIntervalChanged);
+        disconnect(m_calendar, static_cast<void (Calendar::*)(CalendarDay*)>(&Calendar::calendarDayChanged), this, &CalendarDayItemModel::slotDayChanged);
+        disconnect(m_calendar, static_cast<void (Calendar::*)(TimeInterval*)>(&Calendar::timeIntervalChanged), this, &CalendarDayItemModel::slotTimeIntervalChanged);
 
         disconnect(m_calendar, &Calendar::workIntervalAdded, this, &CalendarDayItemModel::slotWorkIntervalAdded);
         disconnect(m_calendar, &Calendar::workIntervalRemoved, this, &CalendarDayItemModel::slotWorkIntervalRemoved);
     }
     m_calendar = calendar;
     if (calendar) {
-        connect(m_calendar, static_cast<void (Calendar::*)(CalendarDay*)>(&Calendar::changed), this, &CalendarDayItemModel::slotDayChanged);
-        connect(m_calendar, static_cast<void (Calendar::*)(TimeInterval*)>(&Calendar::changed), this, &CalendarDayItemModel::slotTimeIntervalChanged);
+        connect(m_calendar, static_cast<void (Calendar::*)(CalendarDay*)>(&Calendar::calendarDayChanged), this, &CalendarDayItemModel::slotDayChanged);
+        connect(m_calendar, static_cast<void (Calendar::*)(TimeInterval*)>(&Calendar::timeIntervalChanged), this, &CalendarDayItemModel::slotTimeIntervalChanged);
 
         connect(m_calendar, &Calendar::workIntervalAdded, this, &CalendarDayItemModel::slotWorkIntervalAdded);
         connect(m_calendar, &Calendar::workIntervalRemoved, this, &CalendarDayItemModel::slotWorkIntervalRemoved);
@@ -1094,13 +1094,13 @@ void DateTableDataModel::setCalendar(Calendar *calendar)
     if (m_calendar) {
         disconnect(m_calendar, &Calendar::dayAdded, this, &KDateTableDataModel::reset);
         disconnect(m_calendar, &Calendar::dayRemoved, this, &KDateTableDataModel::reset);
-        disconnect(m_calendar, static_cast<void (Calendar::*)(KPlato::CalendarDay*)>(&Calendar::changed), this, &DateTableDataModel::reset);
+        disconnect(m_calendar, static_cast<void (Calendar::*)(KPlato::CalendarDay*)>(&Calendar::calendarDayChanged), this, &DateTableDataModel::reset);
     }
     m_calendar = calendar;
     if (m_calendar) {
         connect(m_calendar, &Calendar::dayAdded, this, &KDateTableDataModel::reset);
         connect(m_calendar, &Calendar::dayRemoved, this, &KDateTableDataModel::reset);
-        connect(m_calendar, static_cast<void (Calendar::*)(KPlato::CalendarDay*)>(&Calendar::changed), this, &DateTableDataModel::reset);
+        connect(m_calendar, static_cast<void (Calendar::*)(KPlato::CalendarDay*)>(&Calendar::calendarDayChanged), this, &DateTableDataModel::reset);
     }
     Q_EMIT reset();
 }

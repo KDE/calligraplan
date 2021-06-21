@@ -526,9 +526,9 @@ public:
 #endif
 
 Q_SIGNALS:
-    void changed(KPlato::Calendar*);
-    void changed(KPlato::CalendarDay*);
-    void changed(KPlato::TimeInterval*);
+    void calendarChanged(KPlato::Calendar*);
+    void calendarDayChanged(KPlato::CalendarDay*);
+    void timeIntervalChanged(KPlato::TimeInterval*);
     
     void weekdayToBeAdded(KPlato::CalendarDay *day, int index);
     void weekdayAdded(KPlato::CalendarDay *day);

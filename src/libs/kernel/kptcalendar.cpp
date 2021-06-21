@@ -1050,7 +1050,7 @@ CalendarDay *Calendar::findDay(QDate date, bool skipUndefined) const {
 void Calendar::setState(CalendarDay *day, CalendarDay::State state)
 {
     day->setState(state);
-    Q_EMIT changed(day);
+    Q_EMIT calendarDayChanged(day);
     incCacheVersion();
 }
 
@@ -1077,14 +1077,14 @@ void Calendar::takeWorkInterval(CalendarDay *day, TimeInterval *ti)
 void Calendar::setWorkInterval(TimeInterval *ti, const TimeInterval &value)
 {
     *ti = value;
-    Q_EMIT changed(ti);
+    Q_EMIT timeIntervalChanged(ti);
     incCacheVersion();
 }
 
 void Calendar::setDate(CalendarDay *day, QDate date)
 {
     day->setDate(date);
-    Q_EMIT changed(day);
+    Q_EMIT calendarDayChanged(day);
     incCacheVersion();
 }
 
@@ -1116,7 +1116,7 @@ void Calendar::setWeekday(int dayno, const CalendarDay &day)
         Q_EMIT workIntervalRemoved(wd, ti);
     }
     wd->setState(day.state());
-    Q_EMIT changed(wd);
+    Q_EMIT calendarDayChanged(wd);
     const auto intervals = day.timeIntervals();
     for (TimeInterval *ti : intervals) {
         TimeInterval *t = new TimeInterval(*ti);
@@ -1608,7 +1608,7 @@ void Calendar::setHolidayRegion(const QString &code)
         m_region = new KHolidays::HolidayRegion(code);
     }
     debugPlan<<code<<"->"<<m_regionCode<<m_region->isValid();
-    Q_EMIT changed(static_cast<CalendarDay*>(nullptr));
+    Q_EMIT calendarDayChanged(static_cast<CalendarDay*>(nullptr));
     if (m_project) {
         m_project->changed(this);
     }
