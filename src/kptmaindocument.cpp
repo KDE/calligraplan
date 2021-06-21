@@ -1013,7 +1013,7 @@ bool MainDocument::loadAndParse(KoStore *store, const QString &filename, KoXmlDo
 void MainDocument::insertFile(const QUrl &url, Node *parent, Node *after)
 {
     Part *part = new Part(this);
-    MainDocument *doc = new MainDocument(part);
+    MainDocument *doc = new MainDocument(part, false /*no plugins*/);
     part->setDocument(doc);
     doc->disconnect(); // doc shall not handle feedback from openUrl()
     doc->setAutoSave(0); //disable
@@ -1061,7 +1061,7 @@ void MainDocument::insertResourcesFile(const QUrl &url_, const QUrl &projects)
     m_sharedProjectsFiles.removeAll(url); // resource file is not a project
 
     Part *part = new Part(this);
-    MainDocument *doc = new MainDocument(part);
+    MainDocument *doc = new MainDocument(part, false /*no plugins*/);
     doc->m_skipSharedProjects = true; // should not have shared projects, but...
     part->setDocument(doc);
     doc->disconnect(); // doc shall not handle feedback from openUrl()
