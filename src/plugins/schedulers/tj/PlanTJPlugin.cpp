@@ -34,7 +34,7 @@
 #include <QApplication>
 
 #ifndef PLAN_NOPLUGIN
-PLAN_SCHEDULERPLUGIN_EXPORT(PlanTJPlugin, "plantjscheduler.json")
+K_PLUGIN_CLASS_WITH_JSON(PlanTJPlugin, "plantjscheduler.json")
 #endif
 
 using namespace KPlato;
