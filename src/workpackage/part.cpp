@@ -86,28 +86,6 @@ DocumentChild::DocumentChild(WorkPackage *parent)
 {
 }
 
-// DocumentChild::DocumentChild(KParts::ReadWritePart *editor, const QUrl &url, const KPlato::Document *doc, Part *parent)
-//     : KoDocumentChild(parent),
-//     m_doc(doc),
-//     m_type(Type_Unknown),
-//     m_copy(true),
-//     m_process(0),
-//     m_editor(editor),
-//     m_editormodified(false),
-//     m_filemodified(false)
-// {
-//     setFileInfo(url);
-//     if (dynamic_cast<KoDocument*>(editor)) {
-//         debugPlanWork<<"Creating Calligra doc";
-//         m_type = Type_Calligra;
-//         connect(static_cast<KoDocument*>(editor), SIGNAL(modified(bool)), this, SLOT(setModified(bool)));
-//     } else {
-//         debugPlanWork<<"Creating KParts doc";
-//         m_type = Type_KParts;
-//         slotUpdateModified();
-//     }
-// }
-
 DocumentChild::~DocumentChild()
 {
     debugPlanWork;

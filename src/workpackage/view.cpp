@@ -111,10 +111,6 @@ View::View(Part *part,  QWidget *parent, KActionCollection *collection)
     collection->addAction("view_gantt", actionViewGantt);
     connect(actionViewGantt, &QAction::triggered, this, &View::slotViewGantt);
 
-//     actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-//     collection->addAction("task_progress", actionTaskProgress);
-//     connect(actionTaskProgress, SIGNAL(triggered(bool)), SLOT(slotTaskProgress()));
-
     //------ Settings
     actionConfigure  = new QAction(koIcon("configure"), i18n("Configure PlanWork..."), this);
     collection->addAction("configure", actionConfigure);

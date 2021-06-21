@@ -70,7 +70,6 @@ public:
     enum DocType { Type_Unknown = 0, Type_Calligra, Type_KParts, Type_Other };
 
     explicit DocumentChild(WorkPackage *parent);
-//    DocumentChild(KParts::ReadWritePart *editor, const QUrl &url, const KPlato::Document *doc, Part *parent);
     
     ~DocumentChild() override;
     
