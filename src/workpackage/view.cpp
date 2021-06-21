@@ -123,7 +123,7 @@ View::View(Part *part,  QWidget *parent, KActionCollection *collection)
     //------ Popups
     actionEditDocument  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
     collection->addAction("edit_document", actionEditDocument);
-    connect(actionEditDocument, SIGNAL(triggered(bool)), SLOT(slotEditDocument()));
+    connect(actionEditDocument, &QAction::triggered, this, QOverload<>::of(&View::slotEditDocument));
 
     actionViewDocument  = new QAction(koIcon("document-preview"), i18nc("@verb", "View..."), this);
     collection->addAction("view_document", actionViewDocument);

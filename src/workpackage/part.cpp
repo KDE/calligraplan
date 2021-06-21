@@ -272,8 +272,8 @@ bool DocumentChild::startProcess(KService::Ptr service, const QUrl &url)
     debugPlanWork<<args;
     m_process = new KProcess();
     m_process->setProgram(args);
-    connect(m_process, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(slotEditFinished(int,QProcess::ExitStatus)));
-    connect(m_process, SIGNAL(error(QProcess::ProcessError)), SLOT(slotEditError(QProcess::ProcessError)));
+    connect(m_process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &DocumentChild::slotEditFinished);
+    connect(m_process, &KProcess::errorOccurred, this,  &DocumentChild::slotEditError);
     m_process->start();
     //debugPlanWork<<m_process->pid()<<m_process->program();
     return true;
@@ -402,8 +402,8 @@ bool Part::setWorkPackage(WorkPackage *wp, KoStore *store)
     if (! m_loadingFromProjectStore) {
         wp->saveToProjects(this);
     }
-    connect(wp->project(), SIGNAL(projectChanged()), wp, SLOT(projectChanged()));
-    connect (wp, SIGNAL(modified(bool)), this, SLOT(setModified(bool)));
+    connect(wp->project(), &KPlato::Project::projectChanged, wp, &KPlatoWork::WorkPackage::projectChanged);
+    connect (wp, &KPlatoWork::WorkPackage::modified, this, &KPlatoWork::Part::setModified);
     Q_EMIT workPackageAdded(wp, indexOf(wp));
     connect(wp, &WorkPackage::saveWorkPackage, this, &Part::saveWorkPackage);
     return true;

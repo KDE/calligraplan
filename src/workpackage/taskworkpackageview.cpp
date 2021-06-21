@@ -21,6 +21,7 @@
 #include "taskworkpackageview.h"
 #include "taskworkpackagemodel.h"
 #include "workpackage.h"
+#include "view.h"
 
 #include "part.h"
 #include "kptglobal.h"
@@ -337,7 +338,7 @@ TaskWorkPackageView::TaskWorkPackageView(Part *part, QWidget *parent)
 
     connect(itemModel(), &KPlato::ItemModelBase::executeCommand, part, &Part::addCommand);
 
-    connect(m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
+    connect(m_view, &KPlato::DoubleTreeViewBase::contextMenuRequested, this, QOverload<const QModelIndex&, const QPoint&>::of(&TaskWorkPackageView::slotContextMenuRequested));
 
     connect(m_view, &KPlato::DoubleTreeViewBase::headerContextMenuRequested, this, &TaskWorkPackageView::slotHeaderContextMenuRequested);
 
@@ -884,7 +885,6 @@ TaskWPGanttView::TaskWPGanttView(Part *part, QWidget *parent)
 
     connect(itemModel(), &KPlato::ItemModelBase::executeCommand, part, &Part::addCommand);
 
-    connect(m_view, SIGNAL(contextMenuRequested(QModelIndex,QPoint)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
     connect(m_view, &GanttView::headerContextMenuRequested, this, &TaskWPGanttView::slotHeaderContextMenuRequested);
 
     connect(m_view, &GanttView::selectionChanged, this, &TaskWPGanttView::slotSelectionChanged);

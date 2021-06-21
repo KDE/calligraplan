@@ -79,7 +79,7 @@ KPlatoWork_MainWindow::KPlatoWork_MainWindow()
     setCentralWidget(m_part->widget());
     setupGUI(KXmlGuiWindow::ToolBar | KXmlGuiWindow::Keys | KXmlGuiWindow::StatusBar | KXmlGuiWindow::Save);
     createGUI(m_part);
-    connect(m_part, SIGNAL(captionChanged(QString,bool)), SLOT(setCaption(QString,bool)));
+    connect(m_part, &KPlatoWork::Part::captionChanged, this, &KPlatoWork_MainWindow::setCaption);
 }
 
 
@@ -88,10 +88,6 @@ KPlatoWork_MainWindow::~KPlatoWork_MainWindow()
     debugPlanWork;
 }
 
-void KPlatoWork_MainWindow::setCaption(const QString &)
-{
-    KParts::MainWindow::setCaption(QString());
-}
 
 void KPlatoWork_MainWindow::setCaption(const QString &, bool modified)
 {

@@ -67,8 +67,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     virtual void slotFileClose();
-    void setCaption(const QString &text) override;
-    void setCaption(const QString &text, bool modified) override;
+    void setCaption(const QString &text, bool modified = false) override;
 
 protected Q_SLOTS:
     bool queryClose() override;

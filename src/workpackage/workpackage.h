@@ -141,9 +141,9 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setModified(bool on) { m_modified = on; }
+    void projectChanged();
 
 protected Q_SLOTS:
-    void projectChanged();
     void slotChildModified(bool mod);
 
 protected:
