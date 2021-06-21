@@ -115,8 +115,7 @@ QDateTime GanttModel::projectRestartTime(const KPlato::Project *project, KPlato:
         if (!s) {
             continue;
         }
-        Q_ASSERT(s == t->currentSchedule());
-        const auto dt = t->startTime();
+        const auto dt = t->startTime(id);
         if (!restart.isValid() || (dt.isValid() &&  dt < restart)) {
             restart = dt;
         }
