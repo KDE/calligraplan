@@ -233,16 +233,16 @@ void ResourceGroupEditor::slotContextMenuRequested(const QModelIndex &index, con
     if (index.isValid()) {
         ResourceGroup *g = m_view->model()->group(index);
         if (g) {
-            name = "resourcegroupeditor_group_popup";
+            // No menu atm
+            //name = "resourcegroupeditor_group_popup";
         }
     }
     m_view->setContextMenuIndex(index);
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
-        m_view->setContextMenuIndex(QModelIndex());
-        return;
+    } else {
+        Q_EMIT requestPopupMenu(name, pos);
     }
-    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
