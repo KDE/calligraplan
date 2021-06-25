@@ -74,9 +74,13 @@ ResourceDialogImpl::ResourceDialogImpl(const Project &project, Resource &resourc
         item->setCheckable(true);
         item->setCheckState(m_resource.teamMemberIds().contains(r->id()) ? Qt::Checked : Qt::Unchecked);
         items << item;
-        item = new QStandardItem(r->parentGroups().value(0)->name());
+        const auto groups = r->parentGroups();
+        QStringList names;
+        for (auto group : groups) {
+            names << group->name();
+        }
+        item = new QStandardItem(names.join(','));
         items << item;
-
         // Add id so we can find the resource
         item = new QStandardItem(r->id());
         items << item;
