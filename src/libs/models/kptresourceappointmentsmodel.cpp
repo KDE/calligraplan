@@ -292,7 +292,7 @@ QModelIndex ResourceAppointmentsItemModel::parent(const QModelIndex &idx) const
         Appointment *a = appointment(idx);
         if (a && a->resource() && a->resource()->resource()) {
             Resource *r = a->resource()->resource();
-            int row = r->parentGroups().value(0)->indexOf(r);
+            int row = m_project->indexOf(r);
             p = createResourceIndex(row, 0, r);
             //debugPlan<<"Parent:"<<p<<r->name();
             Q_ASSERT(p.isValid());
@@ -302,7 +302,7 @@ QModelIndex ResourceAppointmentsItemModel::parent(const QModelIndex &idx) const
         Appointment *a = externalAppointment(idx);
         Resource *r = parent(a);
         if (r) {
-            int row = r->parentGroups().value(0)->indexOf(r);
+            int row = m_project->indexOf(r);
             p = createResourceIndex(row, 0, r);
         }
     }
