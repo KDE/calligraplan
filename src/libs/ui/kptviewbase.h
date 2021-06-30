@@ -64,6 +64,7 @@ class ViewBase;
 class TreeViewBase;
 class DoubleTreeViewBase;
 
+class CommonActionsController;
 //------------------
 
 class PLANUI_EXPORT DockWidget : public QDockWidget
@@ -289,6 +290,8 @@ public:
 
     void openPopupMenu(const QString& name, const QPoint &pos);
     QMenu *popupMenu(const QString& name);
+
+    void openContextMenu(const QString& name, const QPoint &pos);
 
 public Q_SLOTS:
     void setPrintingOptions(const KPlato::PrintingOptions &opt) { m_printingOptions = opt; }

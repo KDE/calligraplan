@@ -110,6 +110,10 @@ private Q_SLOTS:
     void slotDeleteSelection();
 
 private:
+    void deleteResourceGroup(ResourceGroup *group);
+    void deleteResourceGroups(const QList<ResourceGroup*> &groups);
+
+private:
     ResourceGroupTreeView *m_view;
 
     QAction *actionAddGroup;

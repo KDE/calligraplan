@@ -40,6 +40,12 @@
 #include "Help.h"
 #include "kpttaskdescriptiondialog.h"
 #include "RelationEditorDialog.h"
+#include "kpttaskdialog.h"
+#include "kptsummarytaskdialog.h"
+#include "kpttaskdescriptiondialog.h"
+#include "kpttaskprogressdialog.h"
+#include "kptmilestoneprogressdialog.h"
+#include "kptdocumentsdialog.h"
 
 #include <KoXmlReader.h>
 #include <KoDocument.h>
@@ -60,7 +66,7 @@
 #include <KLocalizedString>
 #include <ktoggleaction.h>
 #include <kactioncollection.h>
-
+#include <KMessageBox>
 
 namespace KPlato
 {
@@ -393,7 +399,23 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 void TaskEditor::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        auto i = idx;
+        QAbstractProxyModel *pr = proxyModel();
+        while (pr) {
+            i = pr->mapToSource(i);
+            pr = qobject_cast<QAbstractProxyModel*>(pr->sourceModel());
+        }
+        Node *node = m_view->baseModel()->node(i);
+        if (node) {
+            auto action = actionCollection()->action("task_description");
+            if (action) {
+                if (node->type() == Node::Type_Project) {
+                    slotOpenProjectDescription();
+                } else {
+                    action->trigger();
+                }
+            }
+        }
     }
 }
 
@@ -581,7 +603,13 @@ QList<Node*> TaskEditor::selectedNodes() const {
     QList<Node*> lst;
     const QModelIndexList indexes = selectedRows();
     for (const QModelIndex &i : indexes) {
-        Node * n = m_view->baseModel()->node(i);
+        auto idx = i;
+        QAbstractProxyModel *pr = proxyModel();
+        while (pr) {
+            idx = pr->mapToSource(idx);
+            pr = qobject_cast<QAbstractProxyModel*>(pr->sourceModel());
+        }
+        Node * n = m_view->baseModel()->node(idx);
         if (n != nullptr && n->type() != Node::Type_Project) {
             lst.append(n);
         }
@@ -638,11 +666,11 @@ void TaskEditor::slotContextMenuRequested(const QModelIndex& index, const QPoint
     if (node == nullptr) {
         return;
     }
-    debugPlan<<node->name()<<" :"<<pos;
     switch (node->type()) {
     case Node::Type_Project:
-        name = "task_edit_popup";
-        break;
+        name = "project_edit_popup";
+        Q_EMIT requestPopupMenu(name, pos);
+        return;
     case Node::Type_Task:
         name = node->isScheduled(baseModel()->id()) ? "task_popup" : "task_edit_popup";
         break;
@@ -663,7 +691,8 @@ void TaskEditor::slotContextMenuRequested(const QModelIndex& index, const QPoint
         return;
     }
     debugPlan<<name;
-    Q_EMIT requestPopupMenu(name, pos);
+//     Q_EMIT requestPopupMenu(name, pos);
+    openContextMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -718,14 +747,21 @@ void TaskEditor::slotEnableActions()
     updateActionsEnabled(isReadWrite());
 }
 
-Node *newIndentParent(const QList<Node*> nodes)
+Node *TaskEditor::newIndentParent(const QList<Node*> nodes) const
 {
     Node *node = nullptr;
-    for (Node *n : nodes) {
-        Node *s = n->siblingBefore();
-        if (!nodes.contains(s)) {
-            node = s;
-            break;
+    if (!nodes.isEmpty()) {
+        int level = nodes.at(0)->level();
+        const auto parent = nodes.at(0)->parentNode();
+        int firstPos = parent->numChildren();
+        for (Node *n : nodes) {
+            if (n->level() != level || n->isBaselined()) {
+                return nullptr;
+            }
+            firstPos = std::min(firstPos, parent->indexOf(n));
+        }
+        if (firstPos < parent->numChildren()) {
+            node = parent->childNode(firstPos - 1);
         }
     }
     return node;
@@ -820,12 +856,10 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionAddSubMilestone->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
         actionDeleteTask->setEnabled(! baselined);
         actionLinkTask->setEnabled(! baselined);
-        Node *s = n->siblingBefore();
-        actionMoveTaskUp->setEnabled(s);
-        actionMoveTaskDown->setEnabled(n->siblingAfter());
-        s = n->siblingBefore();
-        actionIndentTask->setEnabled(project()->canIndentTask(n) && ! baselined && s && ! s->isBaselined());
-        actionUnindentTask->setEnabled(project()->canUnindentTask(n) && ! baselined && n->level() > 1);
+        actionMoveTaskUp->setEnabled(project()->canMoveTaskUp(n));
+        actionMoveTaskDown->setEnabled(project()->canMoveTaskDown(n));
+        actionIndentTask->setEnabled(project()->canIndentTask(n) && !baselined && !n->siblingBefore()->isBaselined());
+        actionUnindentTask->setEnabled(project()->canUnindentTask(n) && !baselined);
         return;
     }
     // selCount > 1
@@ -840,23 +874,21 @@ void TaskEditor::updateActionsEnabled(bool on)
     actionMoveTaskUp->setEnabled(false);
     actionMoveTaskDown->setEnabled(false);
 
-    actionIndentTask->setEnabled(true);
     const QList<Node*> nodes = selectedNodes();
-    Node *newparent = newIndentParent(nodes);
-    if (!newparent) {
-        actionIndentTask->setEnabled(false);
-    } else {
+    const auto indentParent = newIndentParent(nodes);
+    actionIndentTask->setEnabled(indentParent);
+    if (indentParent) {
         for (Node *n : nodes) {
-            if (!project()->canMoveTask(n, newparent, true)) {
+            if (!project()->canMoveTask(n, indentParent)) {
                 actionIndentTask->setEnabled(false);
                 break;
             }
         }
     }
     actionUnindentTask->setEnabled(true);
-    newparent = nodes.first()->parentNode()->parentNode();
     for (Node *n : nodes) {
-        if (!project()->canMoveTask(n, newparent) || n->isBaselined()) {
+        int level = nodes.at(0)->level();
+        if (n->isBaselined() || n->level() != level || !project()->canUnindentTask(n)) {
             actionUnindentTask->setEnabled(false);
             break;
         }
@@ -919,6 +951,22 @@ void TaskEditor::setupGui()
     actionMoveTaskDown  = new QAction(koIcon("arrow-down"), i18n("Move Down"), this);
     actionCollection()->addAction("move_task_down", actionMoveTaskDown);
     connect(actionMoveTaskDown, &QAction::triggered, this, &TaskEditor::slotMoveTaskDown);
+
+    auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
+    actionCollection()->addAction("node_properties", actionOpenNode);
+    connect(actionOpenNode, &QAction::triggered, this, &TaskEditor::slotOpenCurrentNode);
+
+    auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
+    actionCollection()->addAction("task_progress", actionTaskProgress);
+    connect(actionTaskProgress, &QAction::triggered, this, &TaskEditor::slotTaskProgress);
+
+    auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction("task_description", actionTaskDescription);
+    connect(actionTaskDescription, &QAction::triggered, this, &TaskEditor::slotTaskDescription);
+
+    auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments);
+    connect(actionDocuments, &QAction::triggered, this, &TaskEditor::slotDocuments);
 
     // Add the context menu actions for the view options
     actionShowProject = new KToggleAction(i18n("Show Project"), this);
@@ -1068,11 +1116,55 @@ void TaskEditor::slotDeleteTask()
         lst.removeAt(lst.indexOf(ch));
     }
     //foreach (Node* n, lst) { debugPlan<<n->name(); }
-    Q_EMIT deleteTaskList(lst);
+    deleteTaskList(lst);
     QModelIndex i = m_view->selectionModel()->currentIndex();
     if (i.isValid()) {
         m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
         m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+    }
+}
+
+void TaskEditor::deleteTaskList(QList<Node*> lst)
+{
+    //debugPlan;
+    for (Node *n : qAsConst(lst)) {
+        if (n->isScheduled()) {
+            KMessageBox::ButtonCode res = KMessageBox::warningContinueCancel(this, i18n("A task that has been scheduled will be deleted. This will invalidate the schedule."));
+            if (res == KMessageBox::Cancel) {
+                return;
+            }
+            break;
+        }
+    }
+    if (lst.count() == 1) {
+        koDocument()->addCommand(new NodeDeleteCmd(lst.takeFirst(), kundo2_i18nc("Delete one task", "Delete task")));
+        return;
+    }
+    int num = 0;
+    MacroCommand *cmd = new MacroCommand(kundo2_i18np("Delete task", "Delete tasks", lst.count()));
+    while (!lst.isEmpty()) {
+        Node *node = lst.takeFirst();
+        if (node == nullptr || node->parentNode() == nullptr) {
+            debugPlan << (node ?"Task is main project" :"No current task");
+            continue;
+        }
+        bool del = true;
+        for (Node *n : qAsConst(lst)) {
+            if (node->isChildOf(n)) {
+                del = false; // node is going to be deleted when we delete n
+                break;
+            }
+        }
+        if (del) {
+            //debugPlan<<num<<": delete:"<<node->name();
+            cmd->addCommand(new NodeDeleteCmd(node, kundo2_i18nc("@action", "Delete task")));
+            num++;
+        }
+    }
+    if (num > 0) {
+        koDocument()->addCommand(cmd);
+    } else {
+        delete cmd;
     }
 }
 
@@ -1101,8 +1193,7 @@ void TaskEditor::slotIndentTask()
     debugPlan;
     const QList<Node*> nodes = selectedNodes();
     if (nodes.count() > 0) {
-        Node *newparent = nodes.first()->siblingBefore();
-        Q_ASSERT(newparent);
+        Node *newparent = newIndentParent(nodes);
         if (newparent) {
             MacroCommand *cmd = new MacroCommand(kundo2_i18np("Indent task", "Indent %1 tasks", nodes.count()));
             for (Node *n : nodes) {
@@ -1118,10 +1209,13 @@ void TaskEditor::slotUnindentTask()
     debugPlan;
     const QList<Node*> nodes = selectedNodes();
     if (nodes.count() == 1) {
-        Q_EMIT unindentTask();
-        QModelIndex i = baseModel()->index(nodes.first());
-        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
-        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+        if (m_proj->canUnindentTask(nodes.at(0))) {
+            NodeUnindentCmd * cmd = new NodeUnindentCmd(*nodes.at(0), kundo2_i18n("Unindent task"));
+            koDocument()->addCommand(cmd);
+            QModelIndex i = baseModel()->index(nodes.first());
+            m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
+            m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+        }
     } else if (nodes.count() > 1) {
         MacroCommand *cmd = new MacroCommand(kundo2_i18np("Unindent task", "Unindent %1 tasks", nodes.count()));
         Node *newparent = nodes.first()->parentNode()->parentNode();
@@ -1138,10 +1232,13 @@ void TaskEditor::slotMoveTaskUp()
     debugPlan;
     Node *n = selectedNode();
     if (n) {
-        Q_EMIT moveTaskUp();
-        QModelIndex i = baseModel()->index(n);
-        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
-        m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+        if (m_proj->canMoveTaskUp(n)) {
+            NodeMoveUpCmd * cmd = new NodeMoveUpCmd(*n, kundo2_i18n("Move task up"));
+            koDocument()->addCommand(cmd);
+            QModelIndex i = baseModel()->index(n);
+            m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
+            m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+        }
     }
 }
 
@@ -1150,11 +1247,14 @@ void TaskEditor::slotMoveTaskDown()
     debugPlan;
     Node *n = selectedNode();
     if (n) {
-        Q_EMIT moveTaskDown();
-        QModelIndex i = baseModel()->index(n);
-        m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
-         m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
-   }
+        if (m_proj->canMoveTaskDown(n)) {
+            NodeMoveDownCmd * cmd = new NodeMoveDownCmd(*n, kundo2_i18n("Move task down"));
+            koDocument()->addCommand(cmd);
+            QModelIndex i = baseModel()->index(n);
+            m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
+            m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
+        }
+    }
 }
 
 bool TaskEditor::loadContext(const KoXmlElement &context)
@@ -1187,6 +1287,233 @@ void TaskEditor::slotEditCopy()
 void TaskEditor::slotEditPaste()
 {
     m_view->editPaste();
+}
+
+void TaskEditor::slotOpenCurrentNode()
+{
+    //debugPlan;
+    slotOpenNode(currentNode());
+}
+
+void TaskEditor::slotOpenNode(Node *node)
+{
+    //debugPlan;
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &TaskEditor::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                // Use the normal task dialog for now.
+                // Maybe milestone should have it's own dialog, but we need to be able to
+                // enter a duration in case we accidentally set a tasks duration to zero
+                // and hence, create a milestone
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &TaskEditor::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                SummaryTaskDialog *dia = new SummaryTaskDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &TaskEditor::slotSummaryTaskEditFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void TaskEditor::slotTaskEditFinished(int result)
+{
+    TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskEditor::slotSummaryTaskEditFinished(int result)
+{
+    SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskEditor::slotTaskProgress()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Project: {
+                break;
+            }
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Task: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                TaskProgressDialog *dia = new TaskProgressDialog(*task, scheduleManager(),  project()->standardWorktime(), this);
+                connect(dia, &QDialog::finished, this, &TaskEditor::slotTaskProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                MilestoneProgressDialog *dia = new MilestoneProgressDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &TaskEditor::slotMilestoneProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                // TODO
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void TaskEditor::slotTaskProgressFinished(int result)
+{
+    TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskEditor::slotMilestoneProgressFinished(int result)
+{
+    MilestoneProgressDialog *dia = qobject_cast<MilestoneProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskEditor::slotOpenProjectDescription()
+{
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(*project(), this, !isReadWrite());
+    connect(dia, &QDialog::finished, this, &TaskEditor::slotTaskDescriptionFinished);
+    dia->open();
+}
+
+void TaskEditor::slotTaskDescription()
+{
+    slotOpenTaskDescription(!isReadWrite());
+}
+
+void TaskEditor::slotOpenTaskDescription(bool ro)
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Task:
+        case Node::Type_Milestone:
+        case Node::Type_Summarytask: {
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog(*node, this, ro);
+                connect(dia, &QDialog::finished, this, &TaskEditor::slotTaskDescriptionFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void TaskEditor::slotTaskDescriptionFinished(int result)
+{
+    TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskEditor::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Summarytask:
+        case Node::Type_Task:
+        case Node::Type_Milestone: {
+            DocumentsDialog *dia = new DocumentsDialog(*node, this);
+            connect(dia, &QDialog::finished, this, &TaskEditor::slotDocumentsFinished);
+            dia->open();
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void TaskEditor::slotDocumentsFinished(int result)
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
 }
 
 //-----------------------------------
@@ -1289,7 +1616,17 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
 void TaskView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Node *node = m_view->baseModel()->node(proxyModel()->mapToSource(idx));
+        if (node) {
+            auto action = actionCollection()->action("task_description");
+            if (action) {
+                if (node->type() == Node::Type_Project) {
+                    slotOpenProjectDescription();
+                } else {
+                    action->trigger();
+                }
+            }
+        }
     }
 }
 
@@ -1376,8 +1713,9 @@ void TaskView::slotContextMenuRequested(const QModelIndex& index, const QPoint& 
     if (node) {
         switch (node->type()) {
             case Node::Type_Project:
-                name = "taskview_project_popup";
-                break;
+                name = "project_edit_popup";
+                Q_EMIT requestPopupMenu(name, pos);
+                return;
             case Node::Type_Task:
                 name = "taskview_popup";
                 break;
@@ -1391,14 +1729,14 @@ void TaskView::slotContextMenuRequested(const QModelIndex& index, const QPoint& 
                 break;
         }
     } else debugPlan<<"No node: "<<index;
+
     if (name.isEmpty()) {
-        debugPlan<<"No menu";
         slotHeaderContextMenuRequested(pos);
-        return;
+    } else {
+        m_view->setContextMenuIndex(index);
+        openContextMenu(name, pos);
+        m_view->setContextMenuIndex(QModelIndex());
     }
-    m_view->setContextMenuIndex(index);
-    Q_EMIT requestPopupMenu(name, pos);
-    m_view->setContextMenuIndex(QModelIndex());
 }
 
 void TaskView::setScheduleManager(ScheduleManager *sm)
@@ -1443,7 +1781,21 @@ void TaskView::updateActionsEnabled(bool /*on*/)
 
 void TaskView::setupGui()
 {
-//    KActionCollection *coll = actionCollection();
+    auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
+    actionCollection()->addAction("node_properties", actionOpenNode);
+    connect(actionOpenNode, &QAction::triggered, this, &TaskView::slotOpenCurrentNode);
+
+    auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
+    actionCollection()->addAction("task_progress", actionTaskProgress);
+    connect(actionTaskProgress, &QAction::triggered, this, &TaskView::slotTaskProgress);
+
+    auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction("task_description", actionTaskDescription);
+    connect(actionTaskDescription, &QAction::triggered, this, &TaskView::slotTaskDescription);
+
+    auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments);
+    connect(actionDocuments, &QAction::triggered, this, &TaskView::slotDocuments);
 
     // Add the context menu actions for the view options
     actionShowProject = new KToggleAction(i18n("Show Project"), this);
@@ -1498,6 +1850,233 @@ KoPrintJob *TaskView::createPrintJob()
 void TaskView::slotEditCopy()
 {
     m_view->editCopy();
+}
+
+void TaskView::slotOpenCurrentNode()
+{
+    //debugPlan;
+    slotOpenNode(currentNode());
+}
+
+void TaskView::slotOpenNode(Node *node)
+{
+    //debugPlan;
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &TaskView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                // Use the normal task dialog for now.
+                // Maybe milestone should have it's own dialog, but we need to be able to
+                // enter a duration in case we accidentally set a tasks duration to zero
+                // and hence, create a milestone
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &TaskView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                SummaryTaskDialog *dia = new SummaryTaskDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &TaskView::slotSummaryTaskEditFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void TaskView::slotTaskEditFinished(int result)
+{
+    TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskView::slotSummaryTaskEditFinished(int result)
+{
+    SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskView::slotTaskProgress()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Project: {
+                break;
+            }
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Task: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                TaskProgressDialog *dia = new TaskProgressDialog(*task, scheduleManager(),  project()->standardWorktime(), this);
+                connect(dia, &QDialog::finished, this, &TaskView::slotTaskProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                MilestoneProgressDialog *dia = new MilestoneProgressDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &TaskView::slotMilestoneProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                // TODO
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void TaskView::slotTaskProgressFinished(int result)
+{
+    TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskView::slotMilestoneProgressFinished(int result)
+{
+    MilestoneProgressDialog *dia = qobject_cast<MilestoneProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskView::slotOpenProjectDescription()
+{
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(*project(), this, !isReadWrite());
+    connect(dia, &QDialog::finished, this, &TaskView::slotTaskDescriptionFinished);
+    dia->open();
+}
+
+void TaskView::slotTaskDescription()
+{
+    slotOpenTaskDescription(!isReadWrite());
+}
+
+void TaskView::slotOpenTaskDescription(bool ro)
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Task:
+        case Node::Type_Milestone:
+        case Node::Type_Summarytask: {
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog(*node, this, ro);
+                connect(dia, &QDialog::finished, this, &TaskView::slotTaskDescriptionFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void TaskView::slotTaskDescriptionFinished(int result)
+{
+    TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskView::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Summarytask:
+        case Node::Type_Task:
+        case Node::Type_Milestone: {
+            DocumentsDialog *dia = new DocumentsDialog(*node, this);
+            connect(dia, &QDialog::finished, this, &TaskView::slotDocumentsFinished);
+            dia->open();
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void TaskView::slotDocumentsFinished(int result)
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
 }
 
 //---------------------------------
@@ -1631,7 +2210,13 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
 void TaskWorkPackageView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Node *node = proxyModel()->taskFromIndex(idx);
+        if (node) {
+            auto action = actionCollection()->action("task_description");
+            if (action) {
+                action->trigger();
+            }
+        }
     }
 }
 
@@ -1742,13 +2327,12 @@ void TaskWorkPackageView::slotContextMenuRequested(const QModelIndex& index, con
         }
     } else debugPlan<<"No node: "<<index;
     if (name.isEmpty()) {
-        debugPlan<<"No menu";
         slotHeaderContextMenuRequested(pos);
-        return;
+    } else {
+        m_view->setContextMenuIndex(index);
+        openContextMenu(name, pos);
+        m_view->setContextMenuIndex(QModelIndex());
     }
-    m_view->setContextMenuIndex(index);
-    Q_EMIT requestPopupMenu(name, pos);
-    m_view->setContextMenuIndex(QModelIndex());
 }
 
 void TaskWorkPackageView::setScheduleManager(ScheduleManager *sm)
@@ -1770,6 +2354,18 @@ void TaskWorkPackageView::updateActionsEnabled(bool on)
 
 void TaskWorkPackageView::setupGui()
 {
+    auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
+    actionCollection()->addAction("task_progress", actionTaskProgress);
+    connect(actionTaskProgress, &QAction::triggered, this, &TaskWorkPackageView::slotTaskProgress);
+
+    auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction("task_description", actionTaskDescription);
+    connect(actionTaskDescription, &QAction::triggered, this, &TaskWorkPackageView::slotTaskDescription);
+
+    auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments);
+    connect(actionDocuments, &QAction::triggered, this, &TaskWorkPackageView::slotDocuments);
+
     actionMailWorkpackage  = new QAction(koIcon("cloud-upload"), i18n("Publish..."), this);
     actionCollection()->addAction("send_workpackage", actionMailWorkpackage);
     connect(actionMailWorkpackage, &QAction::triggered, this, &TaskWorkPackageView::slotMailWorkpackage);
@@ -1874,6 +2470,159 @@ void TaskWorkPackageView::slotLoadWorkPackage(QList<QString> files)
         }
     }
     Q_EMIT loadWorkPackageUrl(m_view->project(), urls);
+}
+
+void TaskWorkPackageView::slotTaskProgress()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Project: {
+                break;
+            }
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Task: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                TaskProgressDialog *dia = new TaskProgressDialog(*task, scheduleManager(),  project()->standardWorktime(), this);
+                connect(dia, &QDialog::finished, this, &TaskWorkPackageView::slotTaskProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                MilestoneProgressDialog *dia = new MilestoneProgressDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &TaskWorkPackageView::slotMilestoneProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                // TODO
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void TaskWorkPackageView::slotTaskProgressFinished(int result)
+{
+    TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskWorkPackageView::slotMilestoneProgressFinished(int result)
+{
+    MilestoneProgressDialog *dia = qobject_cast<MilestoneProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskWorkPackageView::slotOpenProjectDescription()
+{
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(*project(), this, !isReadWrite());
+    connect(dia, &QDialog::finished, this, &TaskWorkPackageView::slotTaskDescriptionFinished);
+    dia->open();
+}
+
+void TaskWorkPackageView::slotTaskDescription()
+{
+    slotOpenTaskDescription(!isReadWrite());
+}
+
+void TaskWorkPackageView::slotOpenTaskDescription(bool ro)
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Task:
+        case Node::Type_Milestone:
+        case Node::Type_Summarytask: {
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog(*node, this, ro);
+                connect(dia, &QDialog::finished, this, &TaskWorkPackageView::slotTaskDescriptionFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void TaskWorkPackageView::slotTaskDescriptionFinished(int result)
+{
+    TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void TaskWorkPackageView::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Summarytask:
+        case Node::Type_Task:
+        case Node::Type_Milestone: {
+            DocumentsDialog *dia = new DocumentsDialog(*node, this);
+            connect(dia, &QDialog::finished, this, &TaskWorkPackageView::slotDocumentsFinished);
+            dia->open();
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void TaskWorkPackageView::slotDocumentsFinished(int result)
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
 }
 
 } // namespace KPlato

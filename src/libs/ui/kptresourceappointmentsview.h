@@ -162,6 +162,15 @@ private Q_SLOTS:
     void slotAddGroup();
     void slotDeleteSelection();
 
+    void slotTaskProgress();
+    void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
+    void slotDocuments();
+
+    void slotTaskProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
+
 private:
     ResourceAppointmentsTreeView *m_view;
 

@@ -81,7 +81,13 @@ protected Q_SLOTS:
     
     void slotSplitView();
     void slotOptions() override;
-    
+
+private Q_SLOTS:
+    void slotOpenCurrentNode();
+    void slotOpenNode(KPlato::Node *node);
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+
 private:
     Node * m_node;
     Project * m_project;

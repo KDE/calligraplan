@@ -26,8 +26,12 @@
 #include "kptschedule.h"
 #include "kptitemviewsettup.h"
 #include "kptdebug.h"
+#include <kptcommand.h>
+#include "kpttaskdialog.h"
+#include "kptsummarytaskdialog.h"
 
 #include <KoDocument.h>
+#include <KoIcon.h>
 
 #include <KActionCollection>
 
@@ -157,6 +161,10 @@ void PertResult::draw()
 
 void PertResult::setupGui()
 {
+    auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
+    actionCollection()->addAction("node_properties", actionOpenNode);
+    connect(actionOpenNode, &QAction::triggered, this, &PertResult::slotOpenCurrentNode);
+
     // Add the context menu actions for the view options
     actionCollection()->addAction(widget.treeWidgetTaskResult->actionSplitView()->objectName(), widget.treeWidgetTaskResult->actionSplitView());
     connect(widget.treeWidgetTaskResult->actionSplitView(), &QAction::triggered, this, &PertResult::slotSplitView);
@@ -189,26 +197,19 @@ void PertResult::slotContextMenuRequested(const QModelIndex& index, const QPoint
     QString name;
     switch (node->type()) {
         case Node::Type_Task:
-            name = "task_popup";
+            name = "task_edit_popup";
             break;
         case Node::Type_Milestone:
             name = "taskeditor_milestone_popup";
             break;
-        case Node::Type_Summarytask:
-            name = "summarytask_popup";
-            break;
-        case Node::Type_Project:
-            break;
         default:
-            name = "node_popup";
             break;
     }
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
-        return;
+    } else {
+        openPopupMenu(name, pos);
     }
-    debugPlan<<name;
-    Q_EMIT requestPopupMenu(name, pos);
 }
 
 void PertResult::slotHeaderContextMenuRequested(const QPoint &pos)
@@ -300,6 +301,72 @@ void PertResult::saveContext(QDomElement &context) const
 KoPrintJob *PertResult::createPrintJob()
 {
     return widget.treeWidgetTaskResult->createPrintJob(this);
+}
+
+void PertResult::slotOpenCurrentNode()
+{
+    //debugPlan;
+    slotOpenNode(currentNode());
+}
+
+void PertResult::slotOpenNode(Node *node)
+{
+    //debugPlan;
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &PertResult::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                // Use the normal task dialog for now.
+                // Maybe milestone should have it's own dialog, but we need to be able to
+                // enter a duration in case we accidentally set a tasks duration to zero
+                // and hence, create a milestone
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &PertResult::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void PertResult::slotTaskEditFinished(int result)
+{
+    TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void PertResult::slotSummaryTaskEditFinished(int result)
+{
+    SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
 }
 
 //--------------------

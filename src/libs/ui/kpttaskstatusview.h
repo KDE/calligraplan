@@ -133,7 +133,18 @@ private Q_SLOTS:
     void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     void slotContextMenuRequested(KPlato::Node *node, const QPoint& pos);
     void slotSplitView();
-    
+
+    void slotTaskProgress();
+    void slotOpenProjectDescription();
+    void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
+    void slotDocuments();
+
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
+
 private:
     Project *m_project;
     int m_id;

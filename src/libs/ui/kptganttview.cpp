@@ -40,6 +40,13 @@
 #include "DateTimeGrid.h"
 #include "kptganttitemdelegate.h"
 #include "config.h"
+#include "kptcommand.h"
+#include "kpttaskdialog.h"
+#include "kptsummarytaskdialog.h"
+#include "kpttaskdescriptiondialog.h"
+#include "kpttaskprogressdialog.h"
+#include "kptmilestoneprogressdialog.h"
+#include "kptdocumentsdialog.h"
 
 #include <KGanttProxyModel>
 #include <KGanttConstraintModel>
@@ -412,7 +419,13 @@ void GanttView::slotEditCopy()
 void GanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Node *node =  m_gantt->model()->node(m_gantt->sfModel()->mapToSource(idx));
+        if (node) {
+            auto action = actionCollection()->action("task_description");
+            if (action) {
+                action->trigger();
+            }
+        }
     }
 }
 
@@ -437,7 +450,6 @@ void GanttView::setZoom(double)
 
 void GanttView::setupGui()
 {
-    // create context menu actions
     actionShowProject = new KToggleAction(i18n("Show Project"), this);
     actionCollection()->addAction("show_project", actionShowProject);
     // FIXME: Dependencies depend on these methods being called in the correct order
@@ -498,6 +510,22 @@ void GanttView::setupGui()
     a->setIcon(koIcon("zoom-out"));
     actionCollection()->addAction("zoom_out", a);
     connect(a, &QAction::triggered, this, &GanttView::ganttActions);
+
+    auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
+    actionCollection()->addAction("node_properties", actionOpenNode);
+    connect(actionOpenNode, &QAction::triggered, this, &GanttView::slotOpenCurrentNode);
+
+    auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
+    actionCollection()->addAction("task_progress", actionTaskProgress);
+    connect(actionTaskProgress, &QAction::triggered, this, &GanttView::slotTaskProgress);
+
+    auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction("task_description", actionTaskDescription);
+    connect(actionTaskDescription, &QAction::triggered, this, &GanttView::slotTaskDescription);
+
+    auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments);
+    connect(actionDocuments, &QAction::triggered, this, &GanttView::slotDocuments);
 }
 
 void GanttView::slotDateTimeGridChanged()
@@ -694,16 +722,18 @@ void GanttView::slotContextMenuRequested(const QModelIndex &idx, const QPoint &p
     m_gantt->treeView()->selectionModel()->setCurrentIndex(sidx, QItemSelectionModel::ClearAndSelect);
 
     Node *node = m_gantt->model()->node(m_gantt->sfModel()->mapToSource(sidx));
+    auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
     if (node) {
         switch (node->type()) {
             case Node::Type_Project:
-                name = "taskview_project_popup";
-                break;
+                name = "project_edit_popup";
+                Q_EMIT requestPopupMenu(name, pos);
+                return;
             case Node::Type_Task:
-                name = "taskview_popup";
+                name = node->isScheduled(sid) ? "taskview_popup" : "task_unscheduled_popup";
                 break;
             case Node::Type_Milestone:
-                name = "taskview_milestone_popup";
+                name = node->isScheduled(sid) ? "taskview_milestone_popup" : "task_unscheduled_popup";
                 break;
             case Node::Type_Summarytask:
                 name = "taskview_summary_popup";
@@ -712,15 +742,12 @@ void GanttView::slotContextMenuRequested(const QModelIndex &idx, const QPoint &p
                 break;
         }
     } else debugPlan<<"No node";
-
     m_gantt->treeView()->setContextMenuIndex(sidx);
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
-        m_gantt->treeView()->setContextMenuIndex(QModelIndex());
-        debugPlan<<"No menu";
-        return;
+    } else {
+        openContextMenu(name, pos);
     }
-    Q_EMIT requestPopupMenu(name, pos);
     m_gantt->treeView()->setContextMenuIndex(QModelIndex());
 }
 
@@ -757,6 +784,233 @@ void GanttView::updateReadWrite(bool on)
     if (m_gantt->model()) {
         m_gantt->model()->setReadWrite(on);
     }
+}
+
+void GanttView::slotOpenCurrentNode()
+{
+    //debugPlan;
+    slotOpenNode(currentNode());
+}
+
+void GanttView::slotOpenNode(Node *node)
+{
+    //debugPlan;
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &GanttView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                // Use the normal task dialog for now.
+                // Maybe milestone should have it's own dialog, but we need to be able to
+                // enter a duration in case we accidentally set a tasks duration to zero
+                // and hence, create a milestone
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &GanttView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                SummaryTaskDialog *dia = new SummaryTaskDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &GanttView::slotSummaryTaskEditFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void GanttView::slotTaskEditFinished(int result)
+{
+    TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void GanttView::slotSummaryTaskEditFinished(int result)
+{
+    SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void GanttView::slotTaskProgress()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Project: {
+                break;
+            }
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Task: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                TaskProgressDialog *dia = new TaskProgressDialog(*task, scheduleManager(),  project()->standardWorktime(), this);
+                connect(dia, &QDialog::finished, this, &GanttView::slotTaskProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                MilestoneProgressDialog *dia = new MilestoneProgressDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &GanttView::slotMilestoneProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                // TODO
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void GanttView::slotTaskProgressFinished(int result)
+{
+    TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void GanttView::slotMilestoneProgressFinished(int result)
+{
+    MilestoneProgressDialog *dia = qobject_cast<MilestoneProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void GanttView::slotOpenProjectDescription()
+{
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(*project(), this, !isReadWrite());
+    connect(dia, &QDialog::finished, this, &GanttView::slotTaskDescriptionFinished);
+    dia->open();
+}
+
+void GanttView::slotTaskDescription()
+{
+    slotOpenTaskDescription(!isReadWrite());
+}
+
+void GanttView::slotOpenTaskDescription(bool ro)
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Task:
+        case Node::Type_Milestone:
+        case Node::Type_Summarytask: {
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog(*node, this, ro);
+                connect(dia, &QDialog::finished, this, &GanttView::slotTaskDescriptionFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void GanttView::slotTaskDescriptionFinished(int result)
+{
+    TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void GanttView::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Summarytask:
+        case Node::Type_Task:
+        case Node::Type_Milestone: {
+            DocumentsDialog *dia = new DocumentsDialog(*node, this);
+            connect(dia, &QDialog::finished, this, &GanttView::slotDocumentsFinished);
+            dia->open();
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void GanttView::slotDocumentsFinished(int result)
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
 }
 
 //----
@@ -959,7 +1213,13 @@ void MilestoneGanttView::slotEditCopy()
 void MilestoneGanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {
-        Q_EMIT openTaskDescription(isReadWrite() && (idx.flags() & Qt::ItemIsEditable));
+        Node *node =  m_gantt->model()->node(m_gantt->sfModel()->mapToSource(idx));
+        if (node) {
+            auto action = actionCollection()->action("task_description");
+            if (action) {
+                action->trigger();
+            }
+        }
     }
 }
 
@@ -1064,6 +1324,23 @@ void MilestoneGanttView::setupGui()
     a->setIcon(koIcon("zoom-out"));
     actionCollection()->addAction("zoom_out", a);
     connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
+
+    auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
+    actionCollection()->addAction("node_properties", actionOpenNode);
+    connect(actionOpenNode, &QAction::triggered, this, &MilestoneGanttView::slotOpenCurrentNode);
+
+    auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
+    actionCollection()->addAction("task_progress", actionTaskProgress);
+    connect(actionTaskProgress, &QAction::triggered, this, &MilestoneGanttView::slotTaskProgress);
+
+    auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction("task_description", actionTaskDescription);
+    connect(actionTaskDescription, &QAction::triggered, this, &MilestoneGanttView::slotTaskDescription);
+
+    auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments);
+    connect(actionDocuments, &QAction::triggered, this, &MilestoneGanttView::slotDocuments);
+
 }
 
 void MilestoneGanttView::slotDateTimeGridChanged()
@@ -1153,12 +1430,10 @@ void MilestoneGanttView::slotContextMenuRequested(const QModelIndex &idx, const 
     } else debugPlan<<"No node";
     m_gantt->treeView()->setContextMenuIndex(idx);
     if (name.isEmpty()) {
-        debugPlan<<"No menu";
         slotHeaderContextMenuRequested(pos);
-        m_gantt->treeView()->setContextMenuIndex(QModelIndex());
-        return;
+    } else {
+        openContextMenu(name, pos);
     }
-    Q_EMIT requestPopupMenu(name, pos);
     m_gantt->treeView()->setContextMenuIndex(QModelIndex());
 }
 
@@ -1196,6 +1471,233 @@ void MilestoneGanttView::updateReadWrite(bool on)
 KoPrintJob *MilestoneGanttView::createPrintJob()
 {
     return new GanttPrintingDialog(this, m_gantt);
+}
+
+void MilestoneGanttView::slotOpenCurrentNode()
+{
+    //debugPlan;
+    slotOpenNode(currentNode());
+}
+
+void MilestoneGanttView::slotOpenNode(Node *node)
+{
+    //debugPlan;
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &MilestoneGanttView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                // Use the normal task dialog for now.
+                // Maybe milestone should have it's own dialog, but we need to be able to
+                // enter a duration in case we accidentally set a tasks duration to zero
+                // and hence, create a milestone
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &MilestoneGanttView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                SummaryTaskDialog *dia = new SummaryTaskDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &MilestoneGanttView::slotSummaryTaskEditFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void MilestoneGanttView::slotTaskEditFinished(int result)
+{
+    TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void MilestoneGanttView::slotSummaryTaskEditFinished(int result)
+{
+    SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void MilestoneGanttView::slotTaskProgress()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Project: {
+                break;
+            }
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Task: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                TaskProgressDialog *dia = new TaskProgressDialog(*task, scheduleManager(),  project()->standardWorktime(), this);
+                connect(dia, &QDialog::finished, this, &MilestoneGanttView::slotTaskProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                MilestoneProgressDialog *dia = new MilestoneProgressDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &MilestoneGanttView::slotMilestoneProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                // TODO
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void MilestoneGanttView::slotTaskProgressFinished(int result)
+{
+    TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void MilestoneGanttView::slotMilestoneProgressFinished(int result)
+{
+    MilestoneProgressDialog *dia = qobject_cast<MilestoneProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void MilestoneGanttView::slotOpenProjectDescription()
+{
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(*project(), this, !isReadWrite());
+    connect(dia, &QDialog::finished, this, &MilestoneGanttView::slotTaskDescriptionFinished);
+    dia->open();
+}
+
+void MilestoneGanttView::slotTaskDescription()
+{
+    slotOpenTaskDescription(!isReadWrite());
+}
+
+void MilestoneGanttView::slotOpenTaskDescription(bool ro)
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Task:
+        case Node::Type_Milestone:
+        case Node::Type_Summarytask: {
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog(*node, this, ro);
+                connect(dia, &QDialog::finished, this, &MilestoneGanttView::slotTaskDescriptionFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void MilestoneGanttView::slotTaskDescriptionFinished(int result)
+{
+    TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void MilestoneGanttView::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Summarytask:
+        case Node::Type_Task:
+        case Node::Type_Milestone: {
+            DocumentsDialog *dia = new DocumentsDialog(*node, this);
+            connect(dia, &QDialog::finished, this, &MilestoneGanttView::slotDocumentsFinished);
+            dia->open();
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void MilestoneGanttView::slotDocumentsFinished(int result)
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
 }
 
 //--------------------
@@ -1403,6 +1905,22 @@ void ResourceAppointmentsGanttView::setupGui()
     a->setIcon(koIcon("zoom-out"));
     actionCollection()->addAction("zoom_out", a);
     connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
+
+    auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
+    actionCollection()->addAction("node_properties", actionOpenNode);
+    connect(actionOpenNode, &QAction::triggered, this, &ResourceAppointmentsGanttView::slotOpenCurrentNode);
+
+    auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
+    actionCollection()->addAction("task_progress", actionTaskProgress);
+    connect(actionTaskProgress, &QAction::triggered, this, &ResourceAppointmentsGanttView::slotTaskProgress);
+
+    auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction("task_description", actionTaskDescription);
+    connect(actionTaskDescription, &QAction::triggered, this, &ResourceAppointmentsGanttView::slotTaskDescription);
+
+    auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments);
+    connect(actionDocuments, &QAction::triggered, this, &ResourceAppointmentsGanttView::slotDocuments);
 }
 
 void ResourceAppointmentsGanttView::slotDateTimeGridChanged()
@@ -1497,10 +2015,9 @@ void ResourceAppointmentsGanttView::slotContextMenuRequested(const QModelIndex &
     m_gantt->treeView()->setContextMenuIndex(idx);
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
-        m_gantt->treeView()->setContextMenuIndex(QModelIndex());
-        return;
+    } else {
+        openContextMenu(name, pos);
     }
-    Q_EMIT requestPopupMenu(name, pos);
     m_gantt->treeView()->setContextMenuIndex(QModelIndex());
 }
 
@@ -1536,6 +2053,233 @@ void ResourceAppointmentsGanttView::updateReadWrite(bool on)
 KoPrintJob *ResourceAppointmentsGanttView::createPrintJob()
 {
     return new GanttPrintingDialog(this, m_gantt);
+}
+
+void ResourceAppointmentsGanttView::slotOpenCurrentNode()
+{
+    //debugPlan;
+    slotOpenNode(currentNode());
+}
+
+void ResourceAppointmentsGanttView::slotOpenNode(Node *node)
+{
+    //debugPlan;
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &ResourceAppointmentsGanttView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                // Use the normal task dialog for now.
+                // Maybe milestone should have it's own dialog, but we need to be able to
+                // enter a duration in case we accidentally set a tasks duration to zero
+                // and hence, create a milestone
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &ResourceAppointmentsGanttView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                SummaryTaskDialog *dia = new SummaryTaskDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &ResourceAppointmentsGanttView::slotSummaryTaskEditFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void ResourceAppointmentsGanttView::slotTaskEditFinished(int result)
+{
+    TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void ResourceAppointmentsGanttView::slotSummaryTaskEditFinished(int result)
+{
+    SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void ResourceAppointmentsGanttView::slotTaskProgress()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Project: {
+                break;
+            }
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Task: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                TaskProgressDialog *dia = new TaskProgressDialog(*task, scheduleManager(),  project()->standardWorktime(), this);
+                connect(dia, &QDialog::finished, this, &ResourceAppointmentsGanttView::slotTaskProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                MilestoneProgressDialog *dia = new MilestoneProgressDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &ResourceAppointmentsGanttView::slotMilestoneProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                // TODO
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void ResourceAppointmentsGanttView::slotTaskProgressFinished(int result)
+{
+    TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void ResourceAppointmentsGanttView::slotMilestoneProgressFinished(int result)
+{
+    MilestoneProgressDialog *dia = qobject_cast<MilestoneProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void ResourceAppointmentsGanttView::slotOpenProjectDescription()
+{
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(*project(), this, !isReadWrite());
+    connect(dia, &QDialog::finished, this, &ResourceAppointmentsGanttView::slotTaskDescriptionFinished);
+    dia->open();
+}
+
+void ResourceAppointmentsGanttView::slotTaskDescription()
+{
+    slotOpenTaskDescription(!isReadWrite());
+}
+
+void ResourceAppointmentsGanttView::slotOpenTaskDescription(bool ro)
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Task:
+        case Node::Type_Milestone:
+        case Node::Type_Summarytask: {
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog(*node, this, ro);
+                connect(dia, &QDialog::finished, this, &ResourceAppointmentsGanttView::slotTaskDescriptionFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void ResourceAppointmentsGanttView::slotTaskDescriptionFinished(int result)
+{
+    TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void ResourceAppointmentsGanttView::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Summarytask:
+        case Node::Type_Task:
+        case Node::Type_Milestone: {
+            DocumentsDialog *dia = new DocumentsDialog(*node, this);
+            connect(dia, &QDialog::finished, this, &ResourceAppointmentsGanttView::slotDocumentsFinished);
+            dia->open();
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void ResourceAppointmentsGanttView::slotDocumentsFinished(int result)
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
 }
 
 }  //KPlato namespace

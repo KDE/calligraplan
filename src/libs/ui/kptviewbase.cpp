@@ -607,7 +607,10 @@ QMenu *ViewBase::popupMenu(const QString& name)
 {
     //debugPlan;
     if (factory()) {
-        return dynamic_cast<QMenu*>(factory()->container(name, this));
+        auto menu = static_cast<QMenu*>(factory()->container(name, this));
+        return menu;
+    } else {
+        warnPlan<<Q_FUNC_INFO<<this<<"No factory!";
     }
     return nullptr;
 }
@@ -788,6 +791,28 @@ void ViewBase::slotOptionsFinished(int result)
     }
     if (sender()) {
         sender()->deleteLater();
+    }
+}
+
+void ViewBase::openContextMenu(const QString& menuname, const QPoint & pos)
+{
+    QMenu *menu = this->popupMenu(menuname);
+    if (menu) {
+        QList<QAction*> lst;
+        lst = contextActionList();
+        debugPlan<<lst;
+        if (!lst.isEmpty()) {
+            menu->addSeparator();
+            for (QAction *a : qAsConst(lst)) {
+                menu->addAction(a);
+            }
+        }
+        menu->exec(pos);
+        for (QAction *a : qAsConst(lst)) {
+            menu->removeAction(a);
+        }
+    } else {
+        warnPlan<<Q_FUNC_INFO<<"Could not find menu:"<<menuname<<xmlFile();
     }
 }
 

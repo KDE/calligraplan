@@ -92,7 +92,7 @@ public:
     void saveContext(QDomElement &/*context*/) const override;
     
     KoPrintJob *createPrintJob() override;
-    
+
 Q_SIGNALS:
     void calculateSchedule(KPlato::Project*, KPlato::ScheduleManager*);
     void baselineSchedule(KPlato::Project*, KPlato::ScheduleManager*);
@@ -239,8 +239,8 @@ class PLANUI_EXPORT ScheduleHandlerView : public SplitterView
     Q_OBJECT
 public:
     ScheduleHandlerView(KoPart *part, KoDocument *doc, QWidget *parent);
-    
-    Project *project() const override { return nullptr; }
+
+    Project *project() const override;
 
     ScheduleEditor *scheduleEditor() const { return m_scheduleEditor; }
     /// Always returns this (if we are called, we are hit)
@@ -248,8 +248,6 @@ public:
 
 Q_SIGNALS:
     void currentScheduleManagerChanged(KPlato::ScheduleManager*);
-    void editNode(KPlato::Node *node);
-    void editResource(KPlato::Resource *resource);
 
 public Q_SLOTS:
     /// Activate/deactivate the gui (also of subviews)
@@ -259,6 +257,15 @@ protected Q_SLOTS:
     /// Noop, we handle subviews ourselves
     void slotGuiActivated(KPlato::ViewBase *v, bool active) override;
     void currentTabChanged(int i) override;
+
+private Q_SLOTS:
+    void slotOpenNode(KPlato::Node *node);
+
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+
+    void slotEditResource(KPlato::Resource *resource);
+    void slotEditResourceFinished(int result);
 
 private:
     ScheduleEditor *m_scheduleEditor;

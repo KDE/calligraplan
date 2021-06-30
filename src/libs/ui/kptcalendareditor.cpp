@@ -515,30 +515,7 @@ void CalendarEditor::slotContextMenuDate(QMenu *menu, const QList<QDate> &dates)
 
 void CalendarEditor::slotContextMenuCalendar(const QModelIndex &index, const QPoint& pos)
 {
-    if (!index.isValid()) {
-        slotHeaderContextMenuRequested(pos);
-        return;
-    }
-    if (!currentCalendar()) {
-        return;
-    }
-    //debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
-    QString name;
-/*    if (index.isValid()) {
-        Calendar *a = m_calendarview->model()->calendar(index);
-        if (a) {
-            name = "calendareditor_calendar_popup";
-        }
-    }*/
-    //debugPlan<<name;
-    m_calendarview->setContextMenuIndex(index);
-    if (name.isEmpty()) {
-        slotHeaderContextMenuRequested(pos);
-        m_calendarview->setContextMenuIndex(QModelIndex());
-        return;
-    }
-    Q_EMIT requestPopupMenu(name, pos);
-    m_calendarview->setContextMenuIndex(QModelIndex());
+    slotHeaderContextMenuRequested(pos);
 }
 
 void CalendarEditor::slotContextMenuDay(const QModelIndex &index, const QPoint& pos)

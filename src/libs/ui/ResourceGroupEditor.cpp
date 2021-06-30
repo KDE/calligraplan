@@ -358,17 +358,38 @@ void ResourceGroupEditor::slotAddSubGroup()
 
 void ResourceGroupEditor::slotDeleteSelection()
 {
-    QObjectList lst = m_view->selectedObjects();
-    //debugPlan<<lst.count()<<" objects";
-    if (! lst.isEmpty()) {
-        Q_EMIT deleteObjectList(lst);
-        QModelIndex i = m_view->selectionModel()->currentIndex();
-        if (i.isValid()) {
-            m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
-            m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
-        }
+    deleteResourceGroups(m_view->selectedGroups());
+}
+
+void ResourceGroupEditor::deleteResourceGroup(ResourceGroup *group)
+{
+    koDocument()->addCommand(new RemoveResourceGroupCmd(group->project(), group, kundo2_i18nc("@action", "Delete resourcegroup")));
+}
+
+void ResourceGroupEditor::deleteResourceGroups(const QList<ResourceGroup*> &groups)
+{
+    //debugPlan;
+    if (groups.isEmpty()) {
+        return;
+    }
+    if (groups.count() == 1) {
+        deleteResourceGroup(groups.first());
+        return;
+    }
+    MacroCommand *cmd = new MacroCommand(KUndo2MagicString());
+    int num = 0;
+    for (auto *g : groups) {
+        cmd->addCommand(new RemoveResourceGroupCmd(project(), g));
+        ++num;
+    }
+    if (num == 0) {
+        delete cmd;
+    } else {
+        cmd->setText(kundo2_i18np("Delete resourcegroup", "Delete resourcegroups", num));
+        koDocument()->addCommand(cmd);
     }
 }
+
 
 bool ResourceGroupEditor::loadContext(const KoXmlElement &context)
 {

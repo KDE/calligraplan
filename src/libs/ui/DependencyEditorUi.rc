@@ -31,4 +31,22 @@
         <Separator/>
         <Action name="link_task"/>
     </ToolBar>
+    <Menu name="relation_popup">
+        <Action name="edit_dependency"/>
+        <Action name="delete_dependency"/>
+    </Menu>
+    <Menu name="task_edit_popup">
+        <Action name="node_properties"/>
+    </Menu>
+    <Menu name="task_popup">
+        <Action name="node_properties"/>
+        <Action name="task_progress"/>
+    </Menu>
+    <Menu name="summarytask_popup">
+        <Action name="node_properties"/>
+    </Menu>
+    <Menu name="taskeditor_milestone_popup">
+        <Action name="node_properties"/>
+        <Action name="task_progress"/>
+    </Menu>
 </gui>

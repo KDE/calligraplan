@@ -34,6 +34,9 @@
 #include "kptrecalculatedialog.h"
 #include "Help.h"
 #include "kptdebug.h"
+#include "kpttaskdialog.h"
+#include "kptsummarytaskdialog.h"
+#include "kptresourcedialog.h"
 
 #include <KoDocument.h>
 #include <KoIcon.h>
@@ -217,11 +220,10 @@ void ScheduleEditor::slotContextMenuRequested(const QModelIndex &index, const QP
     m_view->setContextMenuIndex(index);
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
-        m_view->setContextMenuIndex(QModelIndex());
-        return;
+    } else {
+        openPopupMenu(name, pos);
     }
     debugPlan<<name;
-    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -356,7 +358,7 @@ void ScheduleEditor::slotCalculateSchedule()
 {
     //debugPlan;
     ScheduleManager *sm = m_view->selectedManager();
-    if (sm == nullptr) {
+    if (project() == nullptr || sm == nullptr) {
         return;
     }
     auto parentManager = sm->parentManager();
@@ -382,7 +384,8 @@ void ScheduleEditor::slotCalculateSchedule()
         sm->setRecalculate(true);
         sm->setRecalculateFrom(DateTime(dlg.dateTime()));
     }
-    Q_EMIT calculateSchedule(m_view->project(), sm);
+    CalculateScheduleCmd *cmd =  new CalculateScheduleCmd(*project(), sm, kundo2_i18nc("@info:status 1=schedule name", "Calculate %1", sm->name()));
+    koDocument()->addCommand(cmd);
 }
 
 void ScheduleEditor::slotAddSchedule()
@@ -448,9 +451,29 @@ void ScheduleEditor::slotBaselineSchedule()
 {
     //debugPlan;
     ScheduleManager *sm = m_view->selectedManager();
-    if (sm) {
-        Q_EMIT baselineSchedule(m_view->project(), sm);
+    if (project() == nullptr || sm == nullptr) {
+        return;
     }
+    if (!sm->isBaselined() && project()->isBaselined()) {
+        KMessageBox::sorry(this, i18n("Cannot baseline. The project is already baselined."));
+        return;
+    }
+    MacroCommand *cmd = nullptr;
+    if (sm->isBaselined()) {
+        KMessageBox::ButtonCode res = KMessageBox::warningContinueCancel(this, i18n("This schedule is baselined. Do you want to remove the baseline?"));
+        if (res == KMessageBox::Cancel) {
+            return;
+        }
+        cmd = new MacroCommand(kundo2_i18n("Reset baseline %1", sm->name()));
+        cmd->addCommand(new ResetBaselineScheduleCmd(*sm));
+    } else {
+        cmd = new MacroCommand(kundo2_i18n("Baseline %1", sm->name()));
+        if (sm->schedulingMode() == ScheduleManager::AutoMode) {
+            cmd->addCommand(new ModifyScheduleManagerSchedulingModeCmd(*sm, ScheduleManager::ManualMode));
+        }
+        cmd->addCommand(new BaselineScheduleCmd(*sm, kundo2_i18n("Baseline %1", sm->name())));
+    }
+    koDocument()->addCommand(cmd);
 }
 
 void ScheduleEditor::slotDeleteSelection()
@@ -458,7 +481,8 @@ void ScheduleEditor::slotDeleteSelection()
     //debugPlan;
     ScheduleManager *sm = m_view->selectedManager();
     if (sm) {
-        Q_EMIT deleteScheduleManager(m_view->project(), sm);
+        DeleteScheduleManagerCmd *cmd =  new DeleteScheduleManagerCmd(*project(), sm, kundo2_i18n("Delete schedule %1", sm->name()));
+        koDocument()->addCommand(cmd);
     }
 }
 
@@ -473,7 +497,8 @@ void ScheduleEditor::slotMoveLeft()
             }
         }
         debugPlan<<sm->name()<<index;
-        Q_EMIT moveScheduleManager(sm, nullptr, index);
+        MoveScheduleManagerCmd *cmd =  new MoveScheduleManagerCmd(sm, nullptr, index, kundo2_i18n("Move schedule %1", sm->name()));
+        koDocument()->addCommand(cmd);
     }
 }
 
@@ -752,6 +777,7 @@ ScheduleHandlerView::ScheduleHandlerView(KoPart *part, KoDocument *doc, QWidget 
     PertResult *p = new PertResult(part, doc, tab);
     p->setObjectName("PertResult");
     addView(p, tab, i18n("Result"));
+
     connect(m_scheduleEditor, &ScheduleEditor::scheduleSelectionChanged, p, &PertResult::slotScheduleSelectionChanged);
 
     PertCpmView *c = new PertCpmView(part, doc, tab);
@@ -763,8 +789,13 @@ ScheduleHandlerView::ScheduleHandlerView(KoPart *part, KoDocument *doc, QWidget 
     v->setObjectName("ScheduleLogView");
     addView(v, tab, i18n("Scheduling Log"));
     connect(m_scheduleEditor, SIGNAL(scheduleSelectionChanged(KPlato::ScheduleManager*)), v, SLOT(slotScheduleSelectionChanged(KPlato::ScheduleManager*)));
-    connect(v, &ScheduleLogView::editNode, this, &ScheduleHandlerView::editNode);
-    connect(v, &ScheduleLogView::editResource, this, &ScheduleHandlerView::editResource);
+    connect(v, &ScheduleLogView::editNode, this, &ScheduleHandlerView::slotOpenNode);
+    connect(v, &ScheduleLogView::editResource, this, &ScheduleHandlerView::slotEditResource);
+}
+
+Project *ScheduleHandlerView::project() const
+{
+    return m_scheduleEditor->project();
 }
 
 void ScheduleHandlerView::currentTabChanged(int)
@@ -792,6 +823,104 @@ void ScheduleHandlerView::slotGuiActivated(ViewBase *, bool)
 {
 }
 
+void ScheduleHandlerView::slotOpenNode(Node *node)
+{
+    //debugPlan;
+    if (!node) {
+        return ;
+    }
+    if (!project()) {
+        warnPlan<<Q_FUNC_INFO<<"No project";
+        return;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &ScheduleHandlerView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                // Use the normal task dialog for now.
+                // Maybe milestone should have it's own dialog, but we need to be able to
+                // enter a duration in case we accidentally set a tasks duration to zero
+                // and hence, create a milestone
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &ScheduleHandlerView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                SummaryTaskDialog *dia = new SummaryTaskDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &ScheduleHandlerView::slotSummaryTaskEditFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void ScheduleHandlerView::slotTaskEditFinished(int result)
+{
+    TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void ScheduleHandlerView::slotSummaryTaskEditFinished(int result)
+{
+    SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void ScheduleHandlerView::slotEditResource(Resource *resource)
+{
+    if (resource == nullptr) {
+        return ;
+    }
+    ResourceDialog *dia = new ResourceDialog(*project(), resource, this);
+    connect(dia, &QDialog::finished, this, &ScheduleHandlerView::slotEditResourceFinished);
+    dia->open();
+}
+
+void ScheduleHandlerView::slotEditResourceFinished(int result)
+{
+    //debugPlan;
+    ResourceDialog *dia = qobject_cast<ResourceDialog*>(sender());
+    if (dia == nullptr) {
+        return ;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd)
+            koDocument()->addCommand(cmd);
+    }
+    dia->deleteLater();
+}
+
+//-------------------------------
 SchedulingRange::SchedulingRange(KoDocument *doc, QWidget *parent)
     : QWidget(parent)
     , m_doc(doc)

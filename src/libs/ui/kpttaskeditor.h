@@ -137,7 +137,7 @@ Q_SIGNALS:
     void addMilestone();
     void addSubtask();
     void addSubMilestone();
-    void deleteTaskList(const QList<KPlato::Node*>&);
+//     void deleteTaskList(const QList<KPlato::Node*>&);
     void moveTaskUp();
     void moveTaskDown();
     void indentTask();
@@ -189,8 +189,25 @@ private Q_SLOTS:
 
     void taskModuleDoubleClicked(QModelIndex idx);
 
+    void slotOpenCurrentNode();
+    void slotOpenNode(KPlato::Node *node);
+    void slotTaskProgress();
+    void slotOpenProjectDescription();
+    void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
+    void slotDocuments();
+
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
+
 private:
     void edit(const QModelIndex &index);
+    Node *newIndentParent(const QList<Node*> nodes) const;
+    void deleteTaskList(QList<Node*> lst);
 
 private:
     TaskEditorTreeView *m_view;
@@ -266,6 +283,21 @@ private Q_SLOTS:
 
     void slotSplitView();
 
+    void slotOpenCurrentNode();
+    void slotOpenNode(KPlato::Node *node);
+    void slotTaskProgress();
+    void slotOpenProjectDescription();
+    void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
+    void slotDocuments();
+
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
+
 private:
     NodeTreeView *m_view;
     QAction *actionShowProject;
@@ -325,7 +357,6 @@ public:
     KoPrintJob *createPrintJob() override;
 
 Q_SIGNALS:
-    void mailWorkpackage(KPlato::Node *n, KPlato::Resource *r = nullptr);
     void publishWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *r, bool mailTo);
     void openWorkpackages();
     void checkForWorkPackages(bool);
@@ -358,6 +389,17 @@ private Q_SLOTS:
     void slotEnableActions();
 
     void slotSplitView();
+
+    void slotTaskProgress();
+    void slotOpenProjectDescription();
+    void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
+    void slotDocuments();
+
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
 
 private:
     WorkPackageTreeView *m_view;

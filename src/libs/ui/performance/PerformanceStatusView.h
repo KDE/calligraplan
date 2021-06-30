@@ -137,6 +137,21 @@ private Q_SLOTS:
     void slotChartContextMenuRequested(const QPoint& pos);
     void slotTableContextMenuRequested(const QPoint& pos);
 
+    void slotOpenCurrentNode();
+    void slotOpenNode(KPlato::Node *node);
+    void slotTaskProgress();
+    void slotOpenProjectDescription();
+    void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
+    void slotDocuments();
+
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
+
 private:
     PerformanceStatusTreeView *m_view;
     QPoint m_dragStartPosition;

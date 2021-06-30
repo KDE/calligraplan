@@ -110,13 +110,20 @@ private Q_SLOTS:
 
     void slotAddResource();
     void slotDeleteSelection();
+    void slotEditCurrentResource();
+    void slotEditResource(Resource *resource);
+
+    void slotEditResourceFinished(int result);
+
+private:
+    void deleteResources(const QList<Resource*> &lst);
+    void deleteResource(Resource *resource);
 
 private:
     ResourceTreeView *m_view;
 
     QAction *actionAddResource;
     QAction *actionDeleteSelection;
-
 };
 
 }  //KPlato namespace

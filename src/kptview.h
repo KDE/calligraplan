@@ -160,30 +160,17 @@ Q_SIGNALS:
 public Q_SLOTS:
     void slotUpdate();
     void slotCreateNewProject();
-    void slotEditCurrentResource();
-    void slotEditResource(KPlato::Resource *resource);
     void slotEditCut();
     void slotEditCopy();
     void slotEditPaste();
     void slotRefreshView();
     void slotViewSelector(bool show);
 
-    void slotAddTask();
-    void slotAddSubTask();
-    void slotAddMilestone();
-    void slotAddSubMilestone();
     void slotProjectEdit();
     void slotDefineWBS();
     void slotCurrencyConfig();
 
     void slotCreateView();
-
-    void openRelationDialog(KPlato::Node *par, KPlato::Node *child);
-    void slotEditRelation(KPlato::Relation *rel);
-    void slotAddRelation(KPlato::Node *par, KPlato::Node *child, int linkType);
-    void slotModifyRelation(KPlato::Relation *rel, int linkType);
-    void slotModifyCurrentRelation();
-    void slotDeleteRelation();
 
     void slotRenameNode(KPlato::Node *node, const QString& name);
 
@@ -213,36 +200,13 @@ protected Q_SLOTS:
     void slotScheduleSwapped(KPlato::ScheduleManager *from, KPlato::ScheduleManager *to);
     void slotScheduleCalculated(KPlato::Project *project, KPlato::ScheduleManager *manager);
 
-    void slotAddScheduleManager(KPlato::Project *project);
-    void slotDeleteScheduleManager(KPlato::Project *project, KPlato::ScheduleManager *sm);
-    void slotMoveScheduleManager(KPlato::ScheduleManager *sm, KPlato::ScheduleManager *parent, int index);
-    void slotCalculateSchedule(KPlato::Project*, KPlato::ScheduleManager*);
-    void slotBaselineSchedule(KPlato::Project *project, KPlato::ScheduleManager *sm);
-
     void slotProjectWorktime();
 
     void slotOpenCurrentNode();
     void slotOpenNode(KPlato::Node *node);
-    void slotTaskProgress();
     void slotOpenProjectDescription();
-    void slotTaskDescription();
-    void slotOpenTaskDescription(bool);
-    void slotDocuments();
-    void slotDeleteTaskList(QList<KPlato::Node*> lst);
-    void slotDeleteTask(KPlato::Node *node);
-    void slotDeleteCurrentTask();
-    void slotIndentTask();
-    void slotUnindentTask();
-    void slotMoveTaskUp();
-    void slotMoveTaskDown();
 
     void slotConnectNode();
-
-    void slotDeleteResource(KPlato::Resource *resource);
-    void slotDeleteResourceGroup(KPlato::ResourceGroup *group);
-    void slotDeleteResourceObjects(const QObjectList);
-    void slotDeleteResourceGroups(const QObjectList lst);
-
     void slotCurrentChanged(int);
     void slotSelectDefaultView();
 
@@ -282,23 +246,12 @@ private Q_SLOTS:
     void slotViewListItemInserted(KPlato::ViewListItem *item, KPlato::ViewListItem *parent, int index);
 
     void slotProjectEditFinished(int result);
-    void slotTaskEditFinished(int result);
-    void slotSummaryTaskEditFinished(int result);
-    void slotEditResourceFinished(int result);
+    void slotProjectDescriptionFinished(int result);
     void slotProjectWorktimeFinished(int result);
     void slotDefineWBSFinished(int result);
     void slotCurrencyConfigFinished(int result);
     void slotInsertFileFinished(int result);
-    void slotAddSubTaskFinished(int result);
-    void slotAddTaskFinished(int result);
-    void slotAddSubMilestoneFinished(int result);
-    void slotAddMilestoneFinished(int result);
-    void slotTaskProgressFinished(int result);
-    void slotMilestoneProgressFinished(int result);
-    void slotTaskDescriptionFinished(int result);
-    void slotDocumentsFinished(int result);
-    void slotAddRelationFinished(int result);
-    void slotModifyRelationFinished(int result);
+
     void slotReportDesignFinished(int result);
     void slotOpenReportFileFinished(int result);
     void slotCreateViewFinished(int result);
@@ -361,7 +314,6 @@ private:
     // ------ View
     KToggleAction *actionViewSelector;
 
-    // ------ Insert
     // ------ Project
     QAction *actionEditMainProject;
 
@@ -375,21 +327,6 @@ private:
 
     // ------ Settings
     QAction *actionConfigure;
-
-    // ------ Popup
-    QAction *actionOpenNode;
-    QAction *actionTaskProgress;
-    QAction *actionTaskDescription;
-    QAction *actionDocuments;
-    QAction *actionDeleteTask;
-    QAction *actionIndentTask;
-    QAction *actionUnindentTask;
-    QAction *actionMoveTaskUp;
-    QAction *actionMoveTaskDown;
-
-    QAction *actionEditResource;
-    QAction *actionEditRelation;
-    QAction *actionDeleteRelation;
 
     //Test
     QAction *actNoInformation;

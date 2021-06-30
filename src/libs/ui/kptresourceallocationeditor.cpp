@@ -127,9 +127,9 @@ void ResourceAllocationEditor::slotContextMenuRequested(const QModelIndex &index
     }
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
-        return;
+    } else {
+        openPopupMenu(name, pos);
     }
-    Q_EMIT requestPopupMenu(name, pos);
 }
 
 Resource *ResourceAllocationEditor::currentResource() const

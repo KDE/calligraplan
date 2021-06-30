@@ -17,4 +17,10 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
+
+    <Menu name="taskview_popup">
+        <Action name="task_progress"/>
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
+    </Menu>
 </gui>

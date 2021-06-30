@@ -26,4 +26,7 @@
         <Action name="add_resource"/>
         <Action name="delete_selection"/>
     </ToolBar>
+    <Menu name="resourceeditor_resource_popup">
+        <Action name="edit_resource"/>
+    </Menu>
 </gui>

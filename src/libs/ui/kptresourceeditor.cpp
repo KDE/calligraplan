@@ -24,6 +24,7 @@
 #include "ResourceItemModel.h"
 #include "ResourceGroupItemModel.h"
 #include "kptcommand.h"
+#include <RemoveResourceCmd.h>
 #include "kptitemmodelbase.h"
 #include "kptcalendar.h"
 #include "kptduration.h"
@@ -35,6 +36,7 @@
 #include "kptitemviewsettup.h"
 #include "Help.h"
 #include "kptdebug.h"
+#include "kptresourcedialog.h"
 
 #include <KoDocument.h>
 #include <KoIcon.h>
@@ -48,6 +50,7 @@
 #include <KLocalizedString>
 #include <kactioncollection.h>
 #include <KDescendantsProxyModel>
+#include <KMessageBox>
 
 using namespace KPlato;
 
@@ -236,10 +239,9 @@ void ResourceEditor::slotContextMenuRequested(const QModelIndex &index, const QP
     m_view->setContextMenuIndex(index);
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
-        m_view->setContextMenuIndex(QModelIndex());
-        return;
+    } else {
+        openContextMenu(name, pos);
     }
-    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -311,7 +313,11 @@ void ResourceEditor::setupGui()
     actionCollection()->addAction("delete_selection", actionDeleteSelection);
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
     connect(actionDeleteSelection, &QAction::triggered, this, &ResourceEditor::slotDeleteSelection);
-    
+
+    auto actionEditResource  = new QAction(koIcon("document-edit"), i18n("Edit Resource..."), this);
+    actionCollection()->addAction("edit_resource", actionEditResource);
+    connect(actionEditResource, &QAction::triggered, this, &ResourceEditor::slotEditCurrentResource);
+
     // Add the context menu actions for the view options
     actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &ResourceEditor::slotSplitView);
@@ -351,21 +357,89 @@ void ResourceEditor::slotAddResource()
 
 void ResourceEditor::slotDeleteSelection()
 {
-    QObjectList lst;
+    QList<Resource*> lst;
     // FIXME: Temporary to make the old code in kptview work
     const auto selectedResources = m_view->selectedResources();
     for (Resource *r : selectedResources) {
         lst << r;
     }
-    //debugPlan<<lst.count()<<" objects";
     if (! lst.isEmpty()) {
-        Q_EMIT deleteObjectList(lst);
+        deleteResources(lst);
         QModelIndex i = m_view->selectionModel()->currentIndex();
         if (i.isValid()) {
             m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
             m_view->selectionModel()->setCurrentIndex(i, QItemSelectionModel::NoUpdate);
         }
     }
+}
+
+void ResourceEditor::deleteResources(const QList<Resource*> &resources)
+{
+    //debugPlan;
+    if (resources.isEmpty()) {
+        return;
+    }
+    for (auto r : resources) {
+        if (r->isScheduled()) {
+            KMessageBox::ButtonCode res = KMessageBox::warningContinueCancel(this, i18n("A resource that has been scheduled will be deleted. This will invalidate the schedule."));
+            if (res == KMessageBox::Cancel) {
+                return;
+            }
+            break;
+        }
+    }
+    if (resources.count() == 1) {
+        deleteResource(resources.first());
+        return;
+    }
+    MacroCommand *cmd = new MacroCommand(KUndo2MagicString());
+    int num = 0;
+    for (auto r : resources) {
+        cmd->addCommand(new RemoveResourceCmd(r));
+        ++num;
+    }
+    if (num == 0) {
+        delete cmd;
+    } else {
+        cmd->setText(kundo2_i18np("Delete resource", "Delete resources", num));
+        koDocument()->addCommand(cmd);
+    }
+}
+
+void ResourceEditor::deleteResource(Resource *resource)
+{
+    koDocument()->addCommand(new RemoveResourceCmd(resource, kundo2_i18nc("@action", "Delete resource")));
+}
+
+void ResourceEditor::slotEditCurrentResource()
+{
+    //debugPlan;
+    slotEditResource(currentResource());
+}
+
+void ResourceEditor::slotEditResource(Resource *resource)
+{
+    if (resource == nullptr) {
+        return ;
+    }
+    ResourceDialog *dia = new ResourceDialog(*project(), resource, m_view);
+    connect(dia, &QDialog::finished, this, &ResourceEditor::slotEditResourceFinished);
+    dia->open();
+}
+
+void ResourceEditor::slotEditResourceFinished(int result)
+{
+    //debugPlan;
+    ResourceDialog *dia = qobject_cast<ResourceDialog*>(sender());
+    if (dia == nullptr) {
+        return ;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd)
+            koDocument()->addCommand(cmd);
+    }
+    dia->deleteLater();
 }
 
 bool ResourceEditor::loadContext(const KoXmlElement &context)

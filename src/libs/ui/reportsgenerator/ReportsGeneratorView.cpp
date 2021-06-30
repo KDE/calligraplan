@@ -314,7 +314,7 @@ int ReportsGeneratorView::selectedRowCount() const
 void ReportsGeneratorView::slotContextMenuRequested(const QPoint& pos)
 {
     debugPlan;
-    Q_EMIT requestPopupMenu("reportsgeneratorview_popup", m_view->mapToGlobal(pos));
+    openPopupMenu("reportsgeneratorview_popup", pos);
 }
 
 void ReportsGeneratorView::slotEnableActions()
@@ -337,19 +337,16 @@ void ReportsGeneratorView::setupGui()
     coll->addAction("add_report", actionAddReport);
     coll->setDefaultShortcut(actionAddReport, Qt::CTRL + Qt::Key_I);
     connect(actionAddReport, &QAction::triggered, this, &ReportsGeneratorView::slotAddReport);
-    addContextAction(actionAddReport);
 
     actionRemoveReport = new QAction(koIcon("list-remove"), i18n("Remove Report"), this);
     coll->addAction("remove_report", actionRemoveReport);
     coll->setDefaultShortcut(actionRemoveReport, Qt::CTRL + Qt::Key_D);
     connect(actionRemoveReport, &QAction::triggered, this, &ReportsGeneratorView::slotRemoveReport);
-    addContextAction(actionRemoveReport);
 
     actionGenerateReport = new QAction(koIcon("document-export"), i18n("Generate Report"), this);
     coll->addAction("generate_report", actionGenerateReport);
     coll->setDefaultShortcut(actionGenerateReport, Qt::CTRL + Qt::Key_G);
     connect(actionGenerateReport, &QAction::triggered, this, &ReportsGeneratorView::slotGenerateReport);
-    addContextAction(actionGenerateReport);
 
 //     createOptionAction();
 }

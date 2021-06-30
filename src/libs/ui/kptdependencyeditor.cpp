@@ -33,7 +33,14 @@
 #include "kptdebug.h"
 #include "config.h"
 #include "Help.h"
+#include "kptrelationdialog.h"
 #include "RelationEditorDialog.h"
+#include "kpttaskdialog.h"
+#include "kptsummarytaskdialog.h"
+#include "kpttaskprogressdialog.h"
+#include "kptmilestoneprogressdialog.h"
+#include "kptdocumentsdialog.h"
+#include "kpttaskdescriptiondialog.h"
 
 #include "KoPageLayoutWidget.h"
 #include <KoIcon.h>
@@ -2080,15 +2087,24 @@ void DependencyEditor::slotItemDoubleClicked(QGraphicsItem *item)
         return;
     }
     if (item && item->type() == DependencyLinkItem::Type) {
-        Q_EMIT editRelation(static_cast<DependencyLinkItem*>(item)->relation);
+        auto a = actionCollection()->action("edit_dependency");
+        if (a) {
+            a->trigger();
+        }
         return;
     }
     if (item && item->type() == DependencyNodeItem::Type) {
-        Q_EMIT editNode(static_cast<DependencyNodeItem*>(item)->node());
+        auto a = actionCollection()->action("node_properties");
+        if (a) {
+            a->trigger();
+        }
         return;
     }
     if (item && item->type() == DependencyNodeSymbolItem::Type) {
-        Q_EMIT editNode(static_cast<DependencyNodeItem*>(item->parentItem())->node());
+        auto a = actionCollection()->action("node_properties");
+        if (a) {
+            a->trigger();
+        }
         return;
     }
 }
@@ -2116,10 +2132,10 @@ void DependencyEditor::slotCreateRelation(DependencyConnectorItem *pred, Depende
     Relation *rel = ch->findRelation(par);
     if (rel == nullptr) {
         //debugPlanDepEditor<<"New:"<<par->name()<<" ->"<<ch->name()<<","<<type;
-        Q_EMIT addRelation(par, ch, type);
+        slotAddRelation(par, ch, type);
     } else if (rel->type() != type) {
         //debugPlanDepEditor<<"Mod:"<<par->name()<<" ->"<<ch->name()<<","<<type;
-        Q_EMIT modifyRelation(rel, type);
+        slotModifyRelation(rel, type);
     }
 }
 
@@ -2266,7 +2282,7 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
     }
     //debugPlanDepEditor<<name;
     if (! name.isEmpty()) {
-        Q_EMIT requestPopupMenu(name, pos);
+        openContextMenu(name, pos);
     } else {
         QList<QAction*> lst = contextActionList();
         if (! lst.isEmpty()) {
@@ -2353,13 +2369,26 @@ void DependencyEditor::updateActionsEnabled(bool on)
     menuAddSubTask->setEnabled(false);
     actionAddSubtask->setEnabled(false);
     actionAddSubMilestone->setEnabled(false);
-    actionDeleteTask->setEnabled(! baselined);
+    actionDeleteTask->setEnabled(false);
     actionLinkTask->setEnabled(false);
 }
 
 void DependencyEditor::setupGui()
 {
     KActionCollection *coll = actionCollection();
+
+    auto actionEditRelation  = new QAction(koIcon("document-edit"), i18n("Edit Dependency..."), this);
+    actionCollection()->addAction("edit_dependency", actionEditRelation);
+    connect(actionEditRelation, &QAction::triggered, this, &DependencyEditor::slotModifyCurrentRelation);
+
+    auto actionDeleteRelation  = new QAction(koIcon("edit-delete"), i18n("Delete Dependency"), this);
+    actionCollection()->addAction("delete_dependency", actionDeleteRelation);
+    connect(actionDeleteRelation, &QAction::triggered, this, &DependencyEditor::slotDeleteRelation);
+
+    actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
+    actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL + Qt::Key_L);
+    actionCollection()->addAction("link_task", actionLinkTask);
+    connect(actionLinkTask, &QAction::triggered, this, &DependencyEditor::slotLinkTask);
 
     menuAddTask = new KActionMenu(koIcon("view-task-add"), i18n("Add Task"), this);
     coll->addAction("add_task", menuAddTask);
@@ -2395,10 +2424,21 @@ void DependencyEditor::setupGui()
     coll->setDefaultShortcut(actionDeleteTask, Qt::Key_Delete);
     connect(actionDeleteTask, &QAction::triggered, this, &DependencyEditor::slotDeleteTask);
 
-    actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
-    actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL + Qt::Key_L);
-    actionCollection()->addAction("link_task", actionLinkTask);
-    connect(actionLinkTask, &QAction::triggered, this, &DependencyEditor::slotLinkTask);
+    auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
+    actionCollection()->addAction("node_properties", actionOpenNode);
+    connect(actionOpenNode, &QAction::triggered, this, &DependencyEditor::slotOpenCurrentNode);
+
+    auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
+    actionCollection()->addAction("task_progress", actionTaskProgress);
+    connect(actionTaskProgress, &QAction::triggered, this, &DependencyEditor::slotTaskProgress);
+
+    auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction("task_description", actionTaskDescription);
+    connect(actionTaskDescription, &QAction::triggered, this, &DependencyEditor::slotTaskDescription);
+
+    auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments);
+    connect(actionDocuments, &QAction::triggered, this, &DependencyEditor::slotDocuments);
 
     createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);
 }
@@ -2411,42 +2451,183 @@ void DependencyEditor::slotOptions()
     dlg->open();
 }
 
+void DependencyEditor::openRelationDialog(Node *par, Node *child)
+{
+    //debugPlan;
+    Relation * rel = new Relation(par, child);
+    AddRelationDialog *dia = new AddRelationDialog(*project(), rel, m_view);
+    connect(dia, &QDialog::finished, this, &DependencyEditor::slotAddRelationFinished);
+    dia->open();
+}
+
+void DependencyEditor::slotAddRelation(Node *par, Node *child, int linkType)
+{
+    //debugPlan;
+    if (linkType == Relation::FinishStart ||
+            linkType == Relation::StartStart ||
+            linkType == Relation::FinishFinish) {
+        Relation * rel = new Relation(par, child, static_cast<Relation::Type>(linkType));
+        koDocument()->addCommand(new AddRelationCmd(*project(), rel, kundo2_i18n("Add task dependency")));
+    } else {
+        openRelationDialog(par, child);
+    }
+}
+
+void DependencyEditor::slotAddRelationFinished(int result)
+{
+    AddRelationDialog *dia = qobject_cast<AddRelationDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void DependencyEditor::editRelation(Relation *rel)
+{
+    //debugPlan;
+    ModifyRelationDialog *dia = new ModifyRelationDialog(*project(), rel, this);
+    connect(dia, &QDialog::finished, this, &DependencyEditor::slotModifyRelationFinished);
+    dia->open();
+}
+
+void DependencyEditor::slotModifyRelation(Relation *rel, int linkType)
+{
+    //debugPlan;
+    if (linkType == Relation::FinishStart ||
+            linkType == Relation::StartStart ||
+            linkType == Relation::FinishFinish) {
+        koDocument()->addCommand(new ModifyRelationTypeCmd(rel, static_cast<Relation::Type>(linkType)));
+    } else {
+        editRelation(rel);
+    }
+}
+
+void DependencyEditor::slotModifyCurrentRelation()
+{
+    Relation *rel = currentRelation();
+    if (rel) {
+        editRelation(rel);
+    }
+}
+
+void DependencyEditor::slotModifyRelationFinished(int result)
+{
+    ModifyRelationDialog *dia = qobject_cast<ModifyRelationDialog*>(sender());
+    if (dia == nullptr) {
+        return ;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+
+void DependencyEditor::slotDeleteRelation()
+{
+    Relation *rel = currentRelation();
+    if (rel) {
+        koDocument()->addCommand(new DeleteRelationCmd(*project(), rel, kundo2_i18n("Delete task dependency")));
+    }
+}
+
 void DependencyEditor::slotAddTask()
 {
-    //debugPlanDepEditor;
-    m_currentnode = selectedNode();
-    Q_EMIT addTask();
-    m_currentnode = nullptr;
+    Task * node = project()->createTask(project()->config().taskDefaults());
+    TaskAddDialog *dia = new TaskAddDialog(*project(), *node, currentNode(), project()->accounts(), this);
+    connect(dia, &QDialog::finished, this, &DependencyEditor::slotAddTaskFinished);
+    dia->open();
+}
+
+void DependencyEditor::slotAddTaskFinished(int result)
+{
+    TaskAddDialog *dia = qobject_cast<TaskAddDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *m = dia->buildCommand();
+        koDocument()->addCommand(m); // add task to project
+    }
+    dia->deleteLater();
 }
 
 void DependencyEditor::slotAddMilestone()
 {
-    //debugPlanDepEditor;
-    m_currentnode = selectedNode(); // sibling
-    Q_EMIT addMilestone();
-    m_currentnode = nullptr;
+    Task * node = project()->createTask();
+    node->estimate() ->clear();
+
+    TaskAddDialog *dia = new TaskAddDialog(*project(), *node, currentNode(), project()->accounts(), this);
+    connect(dia, &QDialog::finished, this, &DependencyEditor::slotAddMilestoneFinished);
+    dia->open();
+}
+
+void DependencyEditor::slotAddMilestoneFinished(int result)
+{
+    TaskAddDialog *dia = qobject_cast<TaskAddDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        MacroCommand *c = new MacroCommand(kundo2_i18n("Add milestone"));
+        c->addCommand(dia->buildCommand());
+        koDocument()->addCommand(c); // add task to project
+    }
+    dia->deleteLater();
 }
 
 void DependencyEditor::slotAddSubtask()
 {
-    //debugPlanDepEditor;
-    m_currentnode = selectedNode();
-    if (m_currentnode == nullptr) {
+    Task * node = project()->createTask(project()->config().taskDefaults());
+    SubTaskAddDialog *dia = new SubTaskAddDialog(*project(), *node, currentNode(), project()->accounts(), this);
+    connect(dia, &QDialog::finished, this, &DependencyEditor::slotAddSubTaskFinished);
+    dia->open();
+}
+
+void DependencyEditor::slotAddSubTaskFinished(int result)
+{
+    SubTaskAddDialog *dia = qobject_cast<SubTaskAddDialog*>(sender());
+    if (dia == nullptr) {
         return;
     }
-    Q_EMIT addSubtask();
-    m_currentnode = nullptr;
+    if (result  == QDialog::Accepted) {
+        KUndo2Command *m = dia->buildCommand();
+        koDocument()->addCommand(m); // add task to project
+    }
+    dia->deleteLater();
 }
 
 void DependencyEditor::slotAddSubMilestone()
 {
-    debugPlanDepEditor;
-    m_currentnode = selectedNode();
-    if (m_currentnode == nullptr) {
+    Task * node = project()->createTask();
+    node->estimate() ->clear();
+
+    SubTaskAddDialog *dia = new SubTaskAddDialog(*project(), *node, currentNode(), project()->accounts(), this);
+    connect(dia, &QDialog::finished, this, &DependencyEditor::slotAddSubMilestoneFinished);
+    dia->open();
+}
+
+void DependencyEditor::slotAddSubMilestoneFinished(int result)
+{
+    SubTaskAddDialog *dia = qobject_cast<SubTaskAddDialog*>(sender());
+    if (dia == nullptr) {
         return;
     }
-    Q_EMIT addSubMilestone();
-    m_currentnode = nullptr;
+    if (result == QDialog::Accepted) {
+        MacroCommand *c = new MacroCommand(kundo2_i18n("Add sub-milestone"));
+        c->addCommand(dia->buildCommand());
+        koDocument()->addCommand(c); // add task to project
+    }
+    dia->deleteLater();
 }
 
 void DependencyEditor::edit(const QModelIndex &i)
@@ -2463,27 +2644,246 @@ void DependencyEditor::slotDeleteTask()
 {
     //debugPlanDepEditor;
     QList<Node*> lst = selectedNodes();
-    while (true) {
-        // remove children of selected tasks, as parents delete their children
-        Node *ch = nullptr;
-        for (Node *n1 : qAsConst(lst)) {
-            for (Node *n2 : qAsConst(lst)) {
-                if (n2->isChildOf(n1)) {
-                    ch = n2;
-                    break;
-                }
-            }
-            if (ch != nullptr) {
+    if (lst.count() == 1) {
+        koDocument()->addCommand(new NodeDeleteCmd(lst.first(), kundo2_i18nc("Delete one task", "Delete task")));
+    }
+}
+
+void DependencyEditor::slotOpenCurrentNode()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    slotOpenNode(node);
+}
+
+void DependencyEditor::slotOpenNode(Node *node)
+{
+    //debugPlan;
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), m_view);
+                connect(dia, &QDialog::finished, this, &DependencyEditor::slotTaskEditFinished);
+                dia->open();
                 break;
             }
+        case Node::Type_Milestone: {
+                // Use the normal task dialog for now.
+                // Maybe milestone should have it's own dialog, but we need to be able to
+                // enter a duration in case we accidentally set a tasks duration to zero
+                // and hence, create a milestone
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), m_view);
+                connect(dia, &QDialog::finished, this, &DependencyEditor::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                SummaryTaskDialog *dia = new SummaryTaskDialog(*task, m_view);
+                connect(dia, &QDialog::finished, this, &DependencyEditor::slotSummaryTaskEditFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void DependencyEditor::slotTaskEditFinished(int result)
+{
+    TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
         }
-        if (ch == nullptr) {
+    }
+    dia->deleteLater();
+}
+
+void DependencyEditor::slotSummaryTaskEditFinished(int result)
+{
+    SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void DependencyEditor::slotTaskProgress()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Project: {
+                break;
+            }
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Task: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                TaskProgressDialog *dia = new TaskProgressDialog(*task, scheduleManager(),  project()->standardWorktime(), m_view);
+                connect(dia, &QDialog::finished, this, &DependencyEditor::slotTaskProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                MilestoneProgressDialog *dia = new MilestoneProgressDialog(*task, m_view);
+                connect(dia, &QDialog::finished, this, &DependencyEditor::slotMilestoneProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                // TODO
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void DependencyEditor::slotTaskProgressFinished(int result)
+{
+    TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void DependencyEditor::slotMilestoneProgressFinished(int result)
+{
+    MilestoneProgressDialog *dia = qobject_cast<MilestoneProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void DependencyEditor::slotOpenProjectDescription()
+{
+    debugPlan<<koDocument()->isReadWrite();
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(*project(), m_view, !isReadWrite());
+    connect(dia, &QDialog::finished, this, &DependencyEditor::slotTaskDescriptionFinished);
+    dia->open();
+}
+
+void DependencyEditor::slotTaskDescription()
+{
+    slotOpenTaskDescription(!isReadWrite());
+}
+
+void DependencyEditor::slotOpenTaskDescription(bool ro)
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Project:
+        case Node::Type_Task:
+        case Node::Type_Milestone:
+        case Node::Type_Summarytask: {
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog(*node, m_view, ro);
+                connect(dia, &QDialog::finished, this, &DependencyEditor::slotTaskDescriptionFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void DependencyEditor::slotTaskDescriptionFinished(int result)
+{
+    TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void DependencyEditor::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Project:
+        case Node::Type_Summarytask:
+        case Node::Type_Task:
+        case Node::Type_Milestone: {
+            DocumentsDialog *dia = new DocumentsDialog(*node, m_view);
+            connect(dia, &QDialog::finished, this, &DependencyEditor::slotDocumentsFinished);
+            dia->open();
             break;
         }
-        lst.removeAt(lst.indexOf(ch));
+        default:
+            break; // avoid warnings
     }
-    for (Node* n : qAsConst(lst)) { debugPlanDepEditor<<n->name(); }
-    Q_EMIT deleteTaskList(lst);
+}
+
+void DependencyEditor::slotDocumentsFinished(int result)
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
 }
 
 void DependencyEditor::slotLinkTask()

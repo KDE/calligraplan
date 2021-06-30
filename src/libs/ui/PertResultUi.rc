@@ -18,4 +18,11 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
+
+    <Menu name="task_edit_popup">
+        <Action name="node_properties"/>
+    </Menu>
+    <Menu name="summarytask_popup">
+        <Action name="node_properties"/>
+    </Menu>
 </gui>

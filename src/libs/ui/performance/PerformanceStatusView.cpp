@@ -32,10 +32,17 @@
 #include "Help.h"
 #include "kptnodeitemmodel.h"
 #include "kptdebug.h"
+#include "kpttaskdialog.h"
+#include "kptsummarytaskdialog.h"
+#include "kpttaskdescriptiondialog.h"
+#include "kpttaskprogressdialog.h"
+#include "kptmilestoneprogressdialog.h"
+#include "kptdocumentsdialog.h"
 
 #include <KoXmlReader.h>
 #include "KoDocument.h"
 #include "KoPageLayoutWidget.h"
+#include <KoIcon.h>
 
 #include <KActionCollection>
 
@@ -283,12 +290,13 @@ void PerformanceStatusView::slotContextMenuRequested(Node *node, const QPoint& p
 {
     debugPlan<<node->name()<<" :"<<pos;
     QString name;
+    auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
     switch (node->type()) {
         case Node::Type_Task:
-            name = "taskview_popup";
+            name = node->isScheduled(sid) ? "taskview_popup" : "task_unscheduled_popup";
             break;
         case Node::Type_Milestone:
-            name = "taskview_milestone_popup";
+            name = node->isScheduled(sid) ? "taskview_milestone_popup" : "task_unscheduled_popup";
             break;
         case Node::Type_Summarytask:
             name = "taskview_summary_popup";
@@ -299,9 +307,9 @@ void PerformanceStatusView::slotContextMenuRequested(Node *node, const QPoint& p
     //debugPlan<<name;
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
-        return;
+    } else {
+        openContextMenu(name, pos);
     }
-    Q_EMIT requestPopupMenu(name, pos);
 }
 
 
@@ -326,6 +334,22 @@ void PerformanceStatusView::setGuiActive(bool activate)
 
 void PerformanceStatusView::setupGui()
 {
+    auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
+    actionCollection()->addAction("node_properties", actionOpenNode);
+    connect(actionOpenNode, &QAction::triggered, this, &PerformanceStatusView::slotOpenCurrentNode);
+
+    auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
+    actionCollection()->addAction("task_progress", actionTaskProgress);
+    connect(actionTaskProgress, &QAction::triggered, this, &PerformanceStatusView::slotTaskProgress);
+
+    auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction("task_description", actionTaskDescription);
+    connect(actionTaskDescription, &QAction::triggered, this, &PerformanceStatusView::slotTaskDescription);
+
+    auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments);
+    connect(actionDocuments, &QAction::triggered, this, &PerformanceStatusView::slotDocuments);
+
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionAll);
 }
@@ -382,6 +406,233 @@ void PerformanceStatusView::mouseMoveEvent(QMouseEvent *event)
     mimeData->setImageData(pixmap);
     drag->setMimeData(mimeData);
     drag->exec(Qt::CopyAction);
+}
+
+void PerformanceStatusView::slotOpenCurrentNode()
+{
+    //debugPlan;
+    slotOpenNode(currentNode());
+}
+
+void PerformanceStatusView::slotOpenNode(Node *node)
+{
+    //debugPlan;
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &PerformanceStatusView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                // Use the normal task dialog for now.
+                // Maybe milestone should have it's own dialog, but we need to be able to
+                // enter a duration in case we accidentally set a tasks duration to zero
+                // and hence, create a milestone
+                Task *task = static_cast<Task *>(node);
+                TaskDialog *dia = new TaskDialog(*project(), *task, project()->accounts(), this);
+                connect(dia, &QDialog::finished, this, &PerformanceStatusView::slotTaskEditFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                SummaryTaskDialog *dia = new SummaryTaskDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &PerformanceStatusView::slotSummaryTaskEditFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void PerformanceStatusView::slotTaskEditFinished(int result)
+{
+    TaskDialog *dia = qobject_cast<TaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command *cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void PerformanceStatusView::slotSummaryTaskEditFinished(int result)
+{
+    SummaryTaskDialog *dia = qobject_cast<SummaryTaskDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * cmd = dia->buildCommand();
+        if (cmd) {
+            koDocument()->addCommand(cmd);
+        }
+    }
+    dia->deleteLater();
+}
+
+void PerformanceStatusView::slotTaskProgress()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Project: {
+                break;
+            }
+        case Node::Type_Subproject:
+            //TODO
+            break;
+        case Node::Type_Task: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                TaskProgressDialog *dia = new TaskProgressDialog(*task, scheduleManager(),  project()->standardWorktime(), this);
+                connect(dia, &QDialog::finished, this, &PerformanceStatusView::slotTaskProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Milestone: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                MilestoneProgressDialog *dia = new MilestoneProgressDialog(*task, this);
+                connect(dia, &QDialog::finished, this, &PerformanceStatusView::slotMilestoneProgressFinished);
+                dia->open();
+                break;
+            }
+        case Node::Type_Summarytask: {
+                // TODO
+                break;
+            }
+        default:
+            break; // avoid warnings
+    }
+}
+
+void PerformanceStatusView::slotTaskProgressFinished(int result)
+{
+    TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void PerformanceStatusView::slotMilestoneProgressFinished(int result)
+{
+    MilestoneProgressDialog *dia = qobject_cast<MilestoneProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void PerformanceStatusView::slotOpenProjectDescription()
+{
+    TaskDescriptionDialog *dia = new TaskDescriptionDialog(*project(), this, !isReadWrite());
+    connect(dia, &QDialog::finished, this, &PerformanceStatusView::slotTaskDescriptionFinished);
+    dia->open();
+}
+
+void PerformanceStatusView::slotTaskDescription()
+{
+    slotOpenTaskDescription(!isReadWrite());
+}
+
+void PerformanceStatusView::slotOpenTaskDescription(bool ro)
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Task:
+        case Node::Type_Milestone:
+        case Node::Type_Summarytask: {
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog(*node, this, ro);
+                connect(dia, &QDialog::finished, this, &PerformanceStatusView::slotTaskDescriptionFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void PerformanceStatusView::slotTaskDescriptionFinished(int result)
+{
+    TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void PerformanceStatusView::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Summarytask:
+        case Node::Type_Task:
+        case Node::Type_Milestone: {
+            DocumentsDialog *dia = new DocumentsDialog(*node, this);
+            connect(dia, &QDialog::finished, this, &PerformanceStatusView::slotDocumentsFinished);
+            dia->open();
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void PerformanceStatusView::slotDocumentsFinished(int result)
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
 }
 
 //-----------------

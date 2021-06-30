@@ -170,6 +170,22 @@ protected Q_SLOTS:
     void ganttActions();
     void itemDoubleClicked(const QPersistentModelIndex &idx);
 
+private Q_SLOTS:
+    void slotOpenCurrentNode();
+    void slotOpenNode(KPlato::Node *node);
+    void slotTaskProgress();
+    void slotOpenProjectDescription();
+    void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
+    void slotDocuments();
+
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
+
 private:
     bool m_readWrite;
     int m_defaultFontSize;
@@ -264,6 +280,22 @@ protected Q_SLOTS:
     void ganttActions();
     void itemDoubleClicked(const QPersistentModelIndex &idx);
 
+private Q_SLOTS:
+    void slotOpenCurrentNode();
+    void slotOpenNode(KPlato::Node *node);
+    void slotTaskProgress();
+    void slotOpenProjectDescription();
+    void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
+    void slotDocuments();
+
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
+
 private:
     bool m_readWrite;
     int m_defaultFontSize;
@@ -331,6 +363,22 @@ protected Q_SLOTS:
     void slotDateTimeGridChanged();
     void slotOptions() override;
     void ganttActions();
+
+private Q_SLOTS:
+    void slotOpenCurrentNode();
+    void slotOpenNode(KPlato::Node *node);
+    void slotTaskProgress();
+    void slotOpenProjectDescription();
+    void slotTaskDescription();
+    void slotOpenTaskDescription(bool);
+    void slotDocuments();
+
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
 
 private:
     GanttViewBase *m_gantt;

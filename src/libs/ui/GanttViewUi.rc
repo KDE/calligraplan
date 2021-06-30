@@ -28,7 +28,32 @@
             <Separator/>
             <Action name="configure_view"/>
         </Menu>
+       <Menu name="edit"><text>&amp;Edit</text>
+            <Action name="task_progress"/>
+            <Action name="task_description"/>
+            <Action name="task_documents"/>
+        </Menu>
     </MenuBar>
+
+    <Menu name="task_unscheduled_popup">
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
+    </Menu>
+    <Menu name="taskview_popup">
+        <Action name="task_progress"/>
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
+    </Menu>
+    <Menu name="taskview_milestone_popup">
+        <Action name="task_progress"/>
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
+    </Menu>
+    <Menu name="taskview_summary_popup">
+        <Action name="task_description"/>
+        <Action name="task_documents"/>
+    </Menu>
+
     <Menu name="gantt_datetimegrid_popup">
         <text>Gantt</text>
         <Action name="scale_auto"/>

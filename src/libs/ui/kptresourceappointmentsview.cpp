@@ -35,12 +35,20 @@
 #include "kptviewbase.h"
 #include "Help.h"
 #include "kptdebug.h"
+#include "kpttaskdialog.h"
+#include "kptsummarytaskdialog.h"
+#include "kpttaskdescriptiondialog.h"
+#include "kpttaskprogressdialog.h"
+#include "kptmilestoneprogressdialog.h"
+#include "kptdocumentsdialog.h"
 
 #include "KoPageLayoutWidget.h"
 #include <KoDocument.h>
 #include <KoXmlReader.h>
+#include <KoIcon.h>
 
 #include <KLocalizedString>
+#include <KActionCollection>
 
 #include <QList>
 #include <QVBoxLayout>
@@ -284,10 +292,9 @@ void ResourceAppointmentsView::slotContextMenuRequested(const QModelIndex &index
     m_view->setContextMenuIndex(index);
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
-        m_view->setContextMenuIndex(QModelIndex());
-        return;
+    } else {
+        openContextMenu(name, pos);
     }
-    Q_EMIT requestPopupMenu(name, pos);
     m_view->setContextMenuIndex(QModelIndex());
 }
 
@@ -347,6 +354,18 @@ void ResourceAppointmentsView::setupGui()
 {
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionAll);
+
+    auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
+    actionCollection()->addAction("task_progress", actionTaskProgress);
+    connect(actionTaskProgress, &QAction::triggered, this, &ResourceAppointmentsView::slotTaskProgress);
+
+    auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction("task_description", actionTaskDescription);
+    connect(actionTaskDescription, &QAction::triggered, this, &ResourceAppointmentsView::slotTaskDescription);
+
+    auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
+    actionCollection()->addAction("task_documents", actionDocuments);
+    connect(actionDocuments, &QAction::triggered, this, &ResourceAppointmentsView::slotDocuments);
 }
 
 void ResourceAppointmentsView::slotOptions()
@@ -422,6 +441,115 @@ void ResourceAppointmentsView::saveContext(QDomElement &context) const
 KoPrintJob *ResourceAppointmentsView::createPrintJob()
 {
     return m_view->createPrintJob(this);
+}
+
+void ResourceAppointmentsView::slotTaskProgress()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Task: {
+                Task *task = dynamic_cast<Task *>(node);
+                Q_ASSERT(task);
+                TaskProgressDialog *dia = new TaskProgressDialog(*task, scheduleManager(),  project()->standardWorktime(), this);
+                connect(dia, &QDialog::finished, this, &ResourceAppointmentsView::slotTaskProgressFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void ResourceAppointmentsView::slotTaskProgressFinished(int result)
+{
+    TaskProgressDialog *dia = qobject_cast<TaskProgressDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void ResourceAppointmentsView::slotTaskDescription()
+{
+    slotOpenTaskDescription(!isReadWrite());
+}
+
+void ResourceAppointmentsView::slotOpenTaskDescription(bool ro)
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node)
+        return ;
+
+    switch (node->type()) {
+        case Node::Type_Task: {
+                TaskDescriptionDialog *dia = new TaskDescriptionDialog(*node, this, ro);
+                connect(dia, &QDialog::finished, this, &ResourceAppointmentsView::slotTaskDescriptionFinished);
+                dia->open();
+                break;
+            }
+        default:
+            break;
+    }
+}
+
+void ResourceAppointmentsView::slotTaskDescriptionFinished(int result)
+{
+    TaskDescriptionDialog *dia = qobject_cast<TaskDescriptionDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
+}
+
+void ResourceAppointmentsView::slotDocuments()
+{
+    //debugPlan;
+    Node * node = currentNode();
+    if (!node) {
+        return ;
+    }
+    switch (node->type()) {
+        case Node::Type_Task: {
+            DocumentsDialog *dia = new DocumentsDialog(*node, this);
+            connect(dia, &QDialog::finished, this, &ResourceAppointmentsView::slotDocumentsFinished);
+            dia->open();
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void ResourceAppointmentsView::slotDocumentsFinished(int result)
+{
+    DocumentsDialog *dia = qobject_cast<DocumentsDialog*>(sender());
+    if (dia == nullptr) {
+        return;
+    }
+    if (result == QDialog::Accepted) {
+        KUndo2Command * m = dia->buildCommand();
+        if (m) {
+            koDocument()->addCommand(m);
+        }
+    }
+    dia->deleteLater();
 }
 
 } // namespace KPlato

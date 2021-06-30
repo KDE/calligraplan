@@ -519,19 +519,6 @@ public:
 
     DependencyView *view() const { return m_view; }
 
-Q_SIGNALS:
-    void openNode();
-    void editNode(KPlato::Node *node);
-    void addTask();
-    void addMilestone();
-    void addSubtask();
-    void addSubMilestone();
-    void deleteTaskList(const QList<KPlato::Node*>&);
-
-    void addRelation(KPlato::Node*, KPlato::Node*, int);
-    void modifyRelation(KPlato::Relation*, int);
-    void editRelation(KPlato::Relation*);
-
 public Q_SLOTS:
     /// Activate/deactivate the gui
     void setGuiActive(bool activate) override;
@@ -558,10 +545,36 @@ private Q_SLOTS:
     void slotAddMilestone();
     void slotAddSubMilestone();
     void slotDeleteTask();
+    void slotOpenCurrentNode();
+    void slotOpenNode(Node *node);
+    void slotTaskProgress();
+    void slotTaskDescription();
+    void slotOpenProjectDescription();
+    void slotOpenTaskDescription(bool ro);
+    void slotDocuments();
     void slotLinkTask();
+    void slotModifyCurrentRelation();
+    void slotDeleteRelation();
+    void slotAddRelation(Node *par, Node *child, int linkType);
+    void slotModifyRelation(Relation *rel, int linkType);
+
+    void slotAddTaskFinished(int result);
+    void slotAddMilestoneFinished(int result);
+    void slotAddSubMilestoneFinished(int result);
+    void slotAddSubTaskFinished(int result);
+    void slotTaskEditFinished(int result);
+    void slotSummaryTaskEditFinished(int result);
+    void slotTaskProgressFinished(int result);
+    void slotMilestoneProgressFinished(int result);
+    void slotTaskDescriptionFinished(int result);
+    void slotDocumentsFinished(int result);
+    void slotAddRelationFinished(int result);
+    void slotModifyRelationFinished(int result);
 
 private:
     void edit(const QModelIndex &index);
+    void editRelation(Relation *rel);
+    void openRelationDialog(Node *par, Node *child);
 
 private:
     DependencyView *m_view;
