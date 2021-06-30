@@ -2255,6 +2255,9 @@ void Project::takeTask(Node *node, bool emitSignal)
 bool Project::canMoveTask(Node* node, Node *newParent, bool checkBaselined)
 {
     //debugPlan<<node->name()<<" to"<<newParent->name();
+    if (node == nullptr || newParent == nullptr) {
+        return false;
+    }
     if (node == this) {
         return false;
     }
@@ -2307,8 +2310,6 @@ bool Project::moveTask(Node* node, Node *newParent, int newPos)
 bool Project::canIndentTask(Node* node)
 {
     if (nullptr == node) {
-        // should always be != 0. At least we would get the Project,
-        // but you never know who might change that, so better be careful
         return false;
     }
     if (node->type() == Node::Type_Project) {
@@ -2351,8 +2352,6 @@ bool Project::indentTask(Node* node, int index)
 bool Project::canUnindentTask(Node* node)
 {
     if (nullptr == node) {
-        // is always != 0. At least we would get the Project, but you
-        // never know who might change that, so better be careful
         return false;
     }
     if (Node::Type_Project == node->type()) {
