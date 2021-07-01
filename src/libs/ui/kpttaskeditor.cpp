@@ -1210,7 +1210,7 @@ void TaskEditor::slotUnindentTask()
     const QList<Node*> nodes = selectedNodes();
     if (nodes.count() == 1) {
         if (m_proj->canUnindentTask(nodes.at(0))) {
-            NodeUnindentCmd * cmd = new NodeUnindentCmd(*nodes.at(0), kundo2_i18n("Unindent task"));
+            NodeUnindentCmd * cmd = new NodeUnindentCmd(*nodes.at(0), kundo2_i18nc("For a single task", "Unindent task"));
             koDocument()->addCommand(cmd);
             QModelIndex i = baseModel()->index(nodes.first());
             m_view->selectionModel()->select(i, QItemSelectionModel::Rows | QItemSelectionModel::Current | QItemSelectionModel::ClearAndSelect);
