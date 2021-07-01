@@ -27,6 +27,8 @@
 #include "kptnodeitemmodel.h"
 #include "kptviewbase.h"
 
+#include <kptnode.h>
+
 class KoDocument;
 
 class KActionMenu;
@@ -36,6 +38,7 @@ namespace KPlato
 
 class Project;
 class Node;
+class Task;
 class NodeItemModel;
 class MacroCommand;
 
@@ -116,6 +119,7 @@ public:
     Node *currentNode() const override;
     QList<Node*> selectedNodes() const ;
     Node *selectedNode() const;
+    QList<Task*> selectedTasks(Node::NodeTypes type = Node::Type_Task) const;
 
     void updateReadWrite(bool readwrite) override;
 
@@ -189,7 +193,7 @@ private Q_SLOTS:
 
     void taskModuleDoubleClicked(QModelIndex idx);
 
-    void slotOpenCurrentNode();
+    void slotOpenCurrentSelection();
     void slotOpenNode(KPlato::Node *node);
     void slotTaskProgress();
     void slotOpenProjectDescription();

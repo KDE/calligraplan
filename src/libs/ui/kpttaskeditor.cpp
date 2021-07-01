@@ -26,6 +26,7 @@
 #include "kptnodeitemmodel.h"
 #include "kptcommand.h"
 #include "kptproject.h"
+#include <kpttask.h>
 #include "kptitemviewsettup.h"
 #include "kptworkpackagesenddialog.h"
 #include "kptworkpackagesendpanel.h"
@@ -46,6 +47,7 @@
 #include "kpttaskprogressdialog.h"
 #include "kptmilestoneprogressdialog.h"
 #include "kptdocumentsdialog.h"
+#include "TasksEditDialog.h"
 
 #include <KoXmlReader.h>
 #include <KoDocument.h>
@@ -617,6 +619,18 @@ QList<Node*> TaskEditor::selectedNodes() const {
     return lst;
 }
 
+QList<Task*> TaskEditor::selectedTasks(Node::NodeTypes type) const
+{
+    QList<Task*> tasks;
+    auto nodes = selectedNodes();
+    for (auto node : nodes) {
+        if (node->type() == type) {
+            tasks << static_cast<Task*>(node);
+        }
+    }
+    return tasks;
+}
+
 Node *TaskEditor::selectedNode() const
 {
     QList<Node*> lst = selectedNodes();
@@ -638,51 +652,38 @@ void TaskEditor::slotContextMenuRequested(const QModelIndex& index, const QPoint
 {
     QString name;
     if (rows.count() > 1) {
-        debugPlan<<rows;
-        QList<Task*> summarytasks;
-        QList<Task*> tasks;
-        QList<Task*> milestones;
-        for (const QModelIndex &idx : rows) {
-            Node *node = m_view->baseModel()->node(idx);
-            if (node) {
-                switch (node->type()) {
-                    case Node::Type_Task:
-                        tasks << static_cast<Task*>(node); break;
-                    case Node::Type_Milestone:
-                        milestones << static_cast<Task*>(node); break;
-                    case Node::Type_Summarytask:
-                        summarytasks << static_cast<Task*>(node); break;
-                    default: break;
-                }
-            }
+        const auto tasks = selectedTasks();
+        if (tasks.isEmpty()) {
+            return;
         }
-        if (!tasks.isEmpty()) {
+        if (tasks.count() > 1) {
             editTasks(tasks, pos);
             return;
         }
-        return;
-    }
-    Node *node = m_view->baseModel()->node(index);
-    if (node == nullptr) {
-        return;
-    }
-    switch (node->type()) {
-    case Node::Type_Project:
-        name = "project_edit_popup";
-        Q_EMIT requestPopupMenu(name, pos);
-        return;
-    case Node::Type_Task:
-        name = node->isScheduled(baseModel()->id()) ? "task_popup" : "task_edit_popup";
-        break;
-    case Node::Type_Milestone:
-        name = node->isScheduled(baseModel()->id()) ? "taskeditor_milestone_popup" : "task_edit_popup";
-        break;
-    case Node::Type_Summarytask:
-        name = "summarytask_popup";
-        break;
-    default:
-        name = "node_popup";
-        break;
+        name = tasks.at(0)->isScheduled(baseModel()->id()) ? "task_popup" : "task_edit_popup";
+    } else {
+        auto node = currentNode();
+        if (node == nullptr) {
+            return;
+        }
+        switch (node->type()) {
+        case Node::Type_Project:
+            name = "project_edit_popup";
+            Q_EMIT requestPopupMenu(name, pos);
+            return;
+        case Node::Type_Task:
+            name = node->isScheduled(baseModel()->id()) ? "task_popup" : "task_edit_popup";
+            break;
+        case Node::Type_Milestone:
+            name = node->isScheduled(baseModel()->id()) ? "taskeditor_milestone_popup" : "task_edit_popup";
+            break;
+        case Node::Type_Summarytask:
+            name = "summarytask_popup";
+            break;
+        default:
+            name = "node_popup";
+            break;
+        }
     }
     m_view->setContextMenuIndex(index);
     if (name.isEmpty()) {
@@ -783,6 +784,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionMoveTaskDown->setEnabled(false);
         actionIndentTask->setEnabled(false);
         actionUnindentTask->setEnabled(false);
+        if (auto a = actionCollection()->action("node_properties")) a->setEnabled(false);
         return;
     }
 
@@ -802,6 +804,7 @@ void TaskEditor::updateActionsEnabled(bool on)
             actionMoveTaskDown->setEnabled(false);
             actionIndentTask->setEnabled(false);
             actionUnindentTask->setEnabled(false);
+            if (auto a = actionCollection()->action("node_properties")) a->setEnabled(false);
         } else {
             // we need to be able to add the first task
             menuAddTask->setEnabled(true);
@@ -816,6 +819,7 @@ void TaskEditor::updateActionsEnabled(bool on)
             actionMoveTaskDown->setEnabled(false);
             actionIndentTask->setEnabled(false);
             actionUnindentTask->setEnabled(false);
+            if (auto a = actionCollection()->action("node_properties")) a->setEnabled(false);
         }
         return;
     }
@@ -834,6 +838,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionMoveTaskDown->setEnabled(false);
         actionIndentTask->setEnabled(false);
         actionUnindentTask->setEnabled(false);
+        if (auto a = actionCollection()->action("node_properties")) a->setEnabled(false);
         return;
     }
     bool baselined = false;
@@ -860,6 +865,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionMoveTaskDown->setEnabled(project()->canMoveTaskDown(n));
         actionIndentTask->setEnabled(project()->canIndentTask(n) && !baselined && !n->siblingBefore()->isBaselined());
         actionUnindentTask->setEnabled(project()->canUnindentTask(n) && !baselined);
+        if (auto a = actionCollection()->action("node_properties")) a->setEnabled(true);
         return;
     }
     // selCount > 1
@@ -873,6 +879,7 @@ void TaskEditor::updateActionsEnabled(bool on)
     actionLinkTask->setEnabled(false);
     actionMoveTaskUp->setEnabled(false);
     actionMoveTaskDown->setEnabled(false);
+    if (auto a = actionCollection()->action("node_properties")) a->setEnabled(!selectedTasks().isEmpty());
 
     const QList<Node*> nodes = selectedNodes();
     const auto indentParent = newIndentParent(nodes);
@@ -954,7 +961,7 @@ void TaskEditor::setupGui()
 
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
     actionCollection()->addAction("node_properties", actionOpenNode);
-    connect(actionOpenNode, &QAction::triggered, this, &TaskEditor::slotOpenCurrentNode);
+    connect(actionOpenNode, &QAction::triggered, this, &TaskEditor::slotOpenCurrentSelection);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
     actionCollection()->addAction("task_progress", actionTaskProgress);
@@ -1289,9 +1296,21 @@ void TaskEditor::slotEditPaste()
     m_view->editPaste();
 }
 
-void TaskEditor::slotOpenCurrentNode()
+void TaskEditor::slotOpenCurrentSelection()
 {
     //debugPlan;
+    auto tasks = selectedTasks();
+    if (tasks.count() > 1) {
+        auto dlg = new TasksEditDialog(*project(), tasks);
+        if (dlg->exec() == QDialog::Accepted) {
+            auto cmd = dlg->buildCommand();
+            if (cmd) {
+                koDocument()->addCommand(cmd);
+            }
+        }
+        dlg->deleteLater();
+        return;
+    }
     slotOpenNode(currentNode());
 }
 
