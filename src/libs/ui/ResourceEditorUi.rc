@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="resourceeditor" version="1" translationDomain="calligraplanlibs">
+<gui name="Resource Editor" version="2" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="edit">
             <Action name="add_resource"/>
@@ -22,10 +22,12 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="project">
+
+    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_resource"/>
         <Action name="delete_selection"/>
     </ToolBar>
+
     <Menu name="resourceeditor_resource_popup">
         <Action name="edit_resource"/>
     </Menu>

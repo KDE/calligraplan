@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="scheduleeditor" version="2" translationDomain="calligraplanlibs">
+<gui name="Schedule Editor" version="3" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="edit">
             <Action name="add_schedule"/>
@@ -22,7 +22,8 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="project">
+
+    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_schedule"/>
         <Action name="add_subschedule"/>
         <Action name="delete_selection"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui>
-<gui name="resourceappointmentsview" version="1" translationDomain="calligraplanlibs">
+<gui name="Resource Assignments" version="2" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
             <Separator/>
@@ -17,6 +17,9 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
+
+    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    </ToolBar>
 
     <Menu name="taskview_popup">
         <Action name="task_progress"/>

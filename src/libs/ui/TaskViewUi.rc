@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="taskview" version="1" translationDomain="calligraplanlibs">
+<gui name="Task Execution" version="4" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
             <Separator/>
@@ -18,6 +18,9 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
+
+    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    </ToolBar>
 
     <Menu name="taskview_popup">
         <Action name="task_progress"/>

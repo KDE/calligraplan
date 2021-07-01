@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui>
-<gui name="reportsgeneratorview" version="1" translationDomain="calligraplanlibs">
+<gui name="Generate Reports" version="1" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="edit">
             <Action name="add_report"/>
@@ -20,7 +20,8 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="project">
+
+    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_report"/>
         <Action name="remove_report"/>
         <Action name="generate_report"/>

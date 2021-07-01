@@ -1174,7 +1174,7 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
 {
     debugPlan <<" ---------------- Plan: Creating Milesone GanttView ----------------";
 
-    setXMLFile("GanttViewUi.rc");
+    setXMLFile("MilestoneGanttViewUi.rc");
 
     QVBoxLayout *l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -1735,7 +1735,7 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
 {
     debugPlan <<" ---------------- KPlato: Creating ResourceAppointmentsGanttView ----------------";
 
-    setXMLFile("GanttViewUi.rc");
+    setXMLFile("ResourceAppointmentsGanttViewUi.rc");
 
     m_gantt = new GanttViewBase(this);
     m_gantt->graphicsView()->setHeaderContextMenuPolicy(Qt::CustomContextMenu);

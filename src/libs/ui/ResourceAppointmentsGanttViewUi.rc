@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="Task Status" version="3" translationDomain="calligraplanlibs">
+<gui name="Resource Assignments Gantt" version="1" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
+            <Action name="show_project"/>
+            <Action name="show_unscheduled_tasks"/>
             <Separator/>
             <Action name="expand_all"/>
             <Action name="collapse_all"/>
             <Separator/>
-            <Action name="show_project"/>
-            <Action name="split_view"/>
+            <Menu name="gantt">
+                <text>Gantt</text>
+                <Action name="scale_auto"/>
+                <Action name="scale_month"/>
+                <Action name="scale_week"/>
+                <Action name="scale_day"/>
+                <Action name="scale_hour"/>
+                <Separator/>
+                <Action name="zoom_in"/>
+                <Action name="zoom_out"/>
+            </Menu>
             <Separator/>
             <Action name="print"/>
             <Action name="print_preview"/>
@@ -16,6 +27,11 @@
             <Action name="print_options"/>
             <Separator/>
             <Action name="configure_view"/>
+        </Menu>
+       <Menu name="edit"><text>&amp;Edit</text>
+            <Action name="task_progress"/>
+            <Action name="task_description"/>
+            <Action name="task_documents"/>
         </Menu>
     </MenuBar>
 
@@ -26,7 +42,7 @@
         <Action name="task_description"/>
         <Action name="task_documents"/>
     </Menu>
-    <Menu name="taskstatus_popup">
+    <Menu name="taskview_popup">
         <Action name="task_progress"/>
         <Action name="task_description"/>
         <Action name="task_documents"/>
@@ -39,5 +55,17 @@
     <Menu name="taskview_summary_popup">
         <Action name="task_description"/>
         <Action name="task_documents"/>
+    </Menu>
+
+    <Menu name="gantt_datetimegrid_popup">
+        <text>Gantt</text>
+        <Action name="scale_auto"/>
+        <Action name="scale_month"/>
+        <Action name="scale_week"/>
+        <Action name="scale_day"/>
+        <Action name="scale_hour"/>
+        <Separator/>
+        <Action name="zoom_in"/>
+        <Action name="zoom_out"/>
     </Menu>
 </gui>

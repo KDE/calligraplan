@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="accountseditor" version="1" translationDomain="calligraplanlibs">
+<gui name="CBS Editor" version="1" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="edit">
             <Action name="add_account"/>
@@ -20,7 +20,8 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="project">
+
+    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_account"/>
         <Action name="add_subaccount"/>
         <Action name="delete_selection"/>

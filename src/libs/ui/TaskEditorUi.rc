@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="taskeditor" version="1" translationDomain="calligraplanlibs">
+<gui name="Task Editor" version="3" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="edit">
             <Action name="add_task"/>
@@ -31,7 +31,8 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="project">
+
+    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_task"/>
         <Action name="add_subtask"/>
         <Action name="delete_task"/>
@@ -43,6 +44,7 @@
         <Action name="move_task_up"/>
         <Action name="move_task_down"/>
     </ToolBar>
+
     <Menu name="task_edit_popup">
         <Action name="node_properties"/>
     </Menu>

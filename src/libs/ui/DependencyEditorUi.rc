@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="dependencyeditor" version="1" translationDomain="calligraplanlibs">
+<gui name="Dependency Editor" version="2" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="edit">
             <Action name="add_task"/>
@@ -24,13 +24,15 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="project">
+
+    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Edit</Text>
         <Action name="add_task"/>
         <Action name="add_subtask"/>
         <Action name="delete_task"/>
         <Separator/>
         <Action name="link_task"/>
     </ToolBar>
+
     <Menu name="relation_popup">
         <Action name="edit_dependency"/>
         <Action name="delete_dependency"/>

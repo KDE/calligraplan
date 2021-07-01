@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="workpackageview" version="2" translationDomain="calligraplanlibs">
+<gui name="Work Package" version="3" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
             <Action name="split_view"/>
@@ -16,7 +16,7 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="project">
+    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="send_workpackage"/>
         <Action name="open_workpackages"/>
     </ToolBar>

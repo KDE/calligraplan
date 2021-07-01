@@ -197,8 +197,10 @@ install( FILES
         ResourceEditorUi.rc
         ResourceGroupEditorUi.rc
         ResourceAppointmentsViewUi.rc
+        ResourceAppointmentsGanttViewUi.rc
         ScheduleEditorUi.rc
         GanttViewUi.rc
+        MilestoneGanttViewUi.rc
         WorkPackageViewUi.rc
         WorkPackageViewUi_readonly.rc
         reportsgenerator/ReportsGeneratorViewUi.rc
