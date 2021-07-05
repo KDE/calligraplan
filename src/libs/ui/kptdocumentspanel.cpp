@@ -67,7 +67,7 @@ DocumentsPanel::DocumentsPanel(Node &node, QWidget *parent)
 
     connect(m_view->model(), &QAbstractItemModel::dataChanged, this, &DocumentsPanel::dataChanged);
 
-    connect(m_view, SIGNAL(selectionChanged(QModelIndexList)), SLOT(slotSelectionChanged(QModelIndexList))); // clazy:exclude=old-style-connect
+    connect(m_view, &DocumentTreeView::selectedIndexesChanged, this, &DocumentsPanel::slotSelectionChanged);
 
     if (model()->rowCount() > 0) {
         m_view->setCurrentIndex(model()->index(0, 0));
