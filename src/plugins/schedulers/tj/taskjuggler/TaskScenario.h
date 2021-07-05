@@ -1,7 +1,7 @@
 /*
  * TaskScenario.h - TaskJuggler
  *
- * Copyright (c) 2002 by Chris Schlaeger <cs@kde.org>
+ * SPDX-FileCopyrightText: 2002 Chris Schlaeger <cs@kde.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of version 2 of the GNU General Public License as

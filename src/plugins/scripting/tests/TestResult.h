@@ -1,8 +1,8 @@
 /*
  * This file is part of KPlato
  *
- * Copyright (c) 2006 Sebastian Sauer <mail@dipe.org>
- * Copyright (c) 2008 Dag Andersen <dag.andersen@kdemail.net>
+ * SPDX-FileCopyrightText: 2006 Sebastian Sauer <mail@dipe.org>
+ * SPDX-FileCopyrightText: 2008 Dag Andersen <dag.andersen@kdemail.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Library General Public License as published by

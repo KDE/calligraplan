@@ -1,8 +1,8 @@
 /*
 * KPlato Report Plugin
-* Copyright (C) 2007-2009 by Adam Pigg (adam@piggz.co.uk)
-* Copyright (C) 2010 by Dag Andersen <dag.andersen@kdemail.net>
-* Copyright (C) 2016 by Dag Andersen <dag.andersen@kdemail.net>
+* SPDX-FileCopyrightText: 2007-2009 Adam Pigg (adam@piggz.co.uk)
+* SPDX-FileCopyrightText: 2010 Dag Andersen <dag.andersen@kdemail.net>
+* SPDX-FileCopyrightText: 2016 Dag Andersen <dag.andersen@kdemail.net>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public

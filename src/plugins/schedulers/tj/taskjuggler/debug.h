@@ -1,8 +1,8 @@
 /*
  * debug.h - TaskJuggler
  *
- * Copyright (c) 2002 by Chris Schlaeger <cs@kde.org>
- * Copyright (c) 2011 by Dag Andersen <dag.andersen@kdemail.net>
+ * SPDX-FileCopyrightText: 2002 Chris Schlaeger <cs@kde.org>
+ * SPDX-FileCopyrightText: 2011 Dag Andersen <dag.andersen@kdemail.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of version 2 of the GNU General Public License as

@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
- * Copyright (C) 2010 by Adam Pigg (adam@piggz.co.uk)
- * Copyright (C) 2016 by Dag Andersen <dag.andersen@kdemail.net>
+ * SPDX-FileCopyrightText: 2010 Adam Pigg (adam@piggz.co.uk)
+ * SPDX-FileCopyrightText: 2016 Dag Andersen <dag.andersen@kdemail.net>
  *  
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
