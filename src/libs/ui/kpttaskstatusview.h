@@ -79,7 +79,7 @@ class PLANUI_EXPORT TaskStatusView : public ViewBase
     Q_OBJECT
 public:
     TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent);
-    
+
     void setupGui();
     void setProject(Project *project) override;
     Project *project() const override { return m_view->project(); }

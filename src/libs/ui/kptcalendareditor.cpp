@@ -50,11 +50,11 @@ CalendarTreeView::CalendarTreeView(QWidget *parent)
     : TreeViewBase(parent)
 {
     header()->setContextMenuPolicy(Qt::CustomContextMenu);
-    setModel(new CalendarItemModel());
+    setModel(new CalendarItemModel(this));
 
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setSelectionMode(QAbstractItemView::SingleSelection);
-    setSelectionModel(new QItemSelectionModel(model()));
+    setSelectionModel(new QItemSelectionModel(model(), this));
 
     setItemDelegateForColumn(CalendarItemModel::Origin, new EnumDelegate(this));
     setItemDelegateForColumn(CalendarItemModel::TimeZone, new EnumDelegate(this)); // timezone

@@ -461,6 +461,7 @@ KoDocument::~KoDocument()
     d->parentPart->deleteLater();
 
     delete d->filterManager;
+    delete d->progressProxy;
     delete d;
 }
 
