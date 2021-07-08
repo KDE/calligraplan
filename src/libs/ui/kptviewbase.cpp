@@ -2721,17 +2721,34 @@ void DoubleTreeViewBase::setViewSplitMode(bool split)
         }
         m_rightview->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         m_rightview->show();
-    } else {
-        m_rightview->hide();
-        if (model()) {
-            for (int c = 0; c < model()->columnCount(); ++c) {
-                if (! m_rightview->isColumnHidden(c)) {
-                    m_leftview->setColumnHidden(c, false);
-                    m_leftview->mapToSection(c, m_rightview->section(c));
-                    m_leftview->resizeColumnToContents(c);
+    } else if (model()) {
+        QMap<int, int> sections;
+        const int count = model()->columnCount();
+        for (int i = 0; i < count; ++i) {
+            if (!m_leftview->isColumnHidden(i)) {
+                auto vindex = m_leftview->header()->visualIndex(i);
+                Q_ASSERT(vindex >= 0);
+                sections.insert(vindex, i);
+            }
+        }
+        int offset = sections.count();
+        for (int i = 0; i < count; ++i) {
+            if (!m_rightview->isColumnHidden(i)) {
+                auto vindex = m_rightview->header()->visualIndex(i);
+                Q_ASSERT(vindex >= 0);
+                if (!sections.values().contains(i)) {
+                    sections.insert(vindex + offset, i);
                 }
             }
         }
+        for (int i = 0; i < count; ++i) {
+            m_leftview->setColumnHidden(i, !sections.values().contains(i));
+        }
+        // sort columns
+        for (QMap<int, int>::const_iterator it = sections.constBegin(); it != sections.constEnd(); ++it) {
+            m_leftview->mapToSection(it.value(), it.key());
+        }
+        m_rightview->hide();
         m_leftview->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         m_leftview->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     }
