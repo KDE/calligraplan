@@ -42,9 +42,6 @@ public:
 
 protected Q_SLOTS:
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
-    void loadProjects();
-    void slotLoadCompleted();
-    void slotLoadCanceled();
 
     void calculate();
 
@@ -65,9 +62,6 @@ protected:
     void updateReadWrite(bool readwrite) override;
     void setupGui();
     void updateActionsEnabled();
-
-    QList<QUrl> projectUrls(const QList<QUrl> &dirs);
-    void loadProject(const QUrl &url);
 
     KPlato::ScheduleManager* scheduleManager(const KoDocument *doc) const;
 

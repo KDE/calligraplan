@@ -3,7 +3,6 @@
 <gui name="schedulingview" version="1" translationDomain="calligraplangroup">
     <MenuBar>
         <Menu name="edit"><text>&amp;Edit</text>
-            <Action name="load_projects"/>
             <Action name="calculate_schedule"/>
         </Menu>
         <Menu name="view"><text>&amp;View</text>
@@ -15,7 +14,4 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="mainToolBar">
-        <Action name="load_projects"/>
-    </ToolBar>
 </gui>

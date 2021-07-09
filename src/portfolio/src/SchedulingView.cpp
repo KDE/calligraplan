@@ -202,10 +202,6 @@ void SchedulingView::slotTimeToggled(bool state)
 
 void SchedulingView::setupGui()
 {
-    QAction *a = new QAction(koIcon("refresh"), i18n("Update"), this);
-    actionCollection()->addAction("load_projects", a);
-    actionCollection()->setDefaultShortcut(a, Qt::Key_F5);
-    connect(a, &QAction::triggered, this, &SchedulingView::loadProjects);
 }
 
 void SchedulingView::updateReadWrite(bool readwrite)
@@ -220,10 +216,6 @@ QPrintDialog *SchedulingView::createPrintDialog(KoPrintJob *printJob, QWidget *p
 
 void SchedulingView::updateActionsEnabled()
 {
-    qInfo()<<Q_FUNC_INFO;
-    bool enable = ui.schedulingView->selectionModel() && (ui.schedulingView->selectionModel()->selectedRows().count() == 1);
-    actionCollection()->action("load_projects")->setEnabled(enable);
-
     ui.calculate->setEnabled(false);
     const auto portfolio = static_cast<MainDocument*>(koDocument());
     const auto docs = portfolio->documents();
@@ -272,102 +264,6 @@ void SchedulingView::slotCustomContextMenuRequested(const QPoint &pos)
     if (menu && !menu->isEmpty()) {
         menu->exec(mapToGlobal(pos));
     }
-}
-
-void SchedulingView::loadProjects()
-{
-    MainDocument *main = qobject_cast<MainDocument*>(koDocument());
-    QList<QUrl> urls;
-    const auto documents = main->documents();
-    for (KoDocument *document : documents) {
-        KPlato::Project *project = document->project();
-        QUrl url = project->sharedProjectsUrl();
-        if (!urls.contains(url)) {
-            urls << url;
-        }
-    }
-    const QList<QUrl> files = projectUrls(urls);
-    for (const QUrl &url : files) {
-        loadProject(url);
-    }
-}
-
-QList<QUrl> SchedulingView::projectUrls(const QList<QUrl> &dirs)
-{
-    QList<QUrl> urls;
-    for (const QUrl &url : dirs) {
-        QFileInfo fi(url.path());
-        if (!fi.exists()) {
-            warnPlanGroup<<"Url does not exist:"<<url;
-            KMessageBox::sorry(this, xi18nc("@info", "Cannot load projects.<nl/>The directory does not exist:<nl/>%1", url.toDisplayString()));
-        } else if (fi.isFile()) {
-            warnPlanGroup<<"Not supported: Get all projects in file:"<<url;
-        } else if (fi.isDir()) {
-            // Get all plan files in this directory
-            debugPlanGroup<<"Get all projects in dir:"<<url;
-            QDir dir = fi.dir();
-            const QList<QString> files = dir.entryList(QStringList()<<"*.plan");
-            for(const QString &f : files) {
-                QString path = dir.canonicalPath();
-                if (path.isEmpty()) {
-                    warnPlanGroup<<"No path to file:"<<url;
-                    continue;
-                }
-                path += '/' + f;
-                QUrl u(path);
-                u.setScheme("file");
-                urls << u;
-            }
-        } else {
-            warnPlanGroup<<"Unknown url:"<<url<<url.path()<<url.fileName();
-        }
-    }
-    return urls;
-}
-
-void SchedulingView::loadProject(const QUrl &url)
-{
-    KoPart *part = KoApplication::koApplication()->getPartFromUrl(url);
-    Q_ASSERT(part);
-    if (part) {
-        KoDocument *doc = part->createDocument(part);
-        doc->setAutoSave(0);
-        doc->setProperty(BLOCKSHAREDPROJECTSLOADING, true);
-        connect(doc, &KoDocument::sigProgress, mainWindow(), &KoMainWindow::slotProgress);
-        connect(doc, &KoDocument::completed, this, &SchedulingView::slotLoadCompleted);
-        connect(doc, &KoDocument::canceled, this, &SchedulingView::slotLoadCanceled);
-        doc->openUrl(url);
-    }
-}
-
-void SchedulingView::slotLoadCompleted()
-{
-    KoDocument *doc = qobject_cast<KoDocument*>(sender());
-    Q_ASSERT(doc);
-    MainDocument *main = qobject_cast<MainDocument*>(koDocument());
-    disconnect(doc, &KoDocument::sigProgress, mainWindow(), &KoMainWindow::slotProgress);
-    doc->setReadWrite(false);
-    if (main->addDocument(doc)) {
-        // select a usable schedule
-        const KPlato::ScheduleManager *manager = scheduleManager(doc);
-        if (manager) {
-            doc->setProperty(SCHEDULEMANAGERNAME, manager->name());
-            doc->setProperty(SCHEDULINGCONTROL, "Include");
-        } else {
-            doc->setProperty(SCHEDULINGCONTROL, "Exclude");
-        }
-        debugPlanGroup<<"Document loaded:"<<doc->url();
-    } else {
-        debugPlanGroup<<"Document already exists:"<<doc->url();
-        doc->deleteLater();
-    }
-}
-
-void SchedulingView::slotLoadCanceled()
-{
-    KoDocument *doc = qobject_cast<KoDocument*>(sender());
-    Q_ASSERT(doc);
-    doc->deleteLater();
 }
 
 KPlato::ScheduleManager* SchedulingView::scheduleManager(const KoDocument *doc) const
