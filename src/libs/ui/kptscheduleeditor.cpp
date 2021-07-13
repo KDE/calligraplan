@@ -116,7 +116,6 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     setXMLFile("ScheduleEditorUi.rc");
 
     setupGui();
-    slotEnableActions();
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -163,6 +162,8 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(m_view, &TreeViewBase::contextMenuRequested, this, &ScheduleEditor::slotContextMenuRequested);
 
     connect(m_view, &TreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
+
+    slotEnableActions();
 
     Help::add(this,
         xi18nc("@info:whatsthis", 
