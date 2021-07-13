@@ -500,6 +500,7 @@ GanttTreeView::GanttTreeView(QWidget* parent)
     setHeader(new HeaderView);
 
     setSelectionMode(QAbstractItemView::ExtendedSelection);
+    setSelectionBehavior(QAbstractItemView::SelectRows);
     setTreePosition(-1); // always visual index 0
 
     header()->setContextMenuPolicy(Qt::CustomContextMenu);

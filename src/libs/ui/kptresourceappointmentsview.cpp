@@ -319,7 +319,7 @@ void ResourceAppointmentsView::slotEnableActions(bool on)
     updateActionsEnabled(on);
 }
 
-void ResourceAppointmentsView::updateActionsEnabled(bool /*on*/)
+void ResourceAppointmentsView::updateActionsEnabled(bool on)
 {
 /*    bool o = on && m_view->project();
 
@@ -335,6 +335,27 @@ void ResourceAppointmentsView::updateActionsEnabled(bool /*on*/)
     actionAddResource->setEnabled(o && ((group  && noresource) || (resource && nogroup)));
     actionAddGroup->setEnabled(o);
     actionDeleteSelection->setEnabled(o && any);*/
+
+    const auto node  = currentNode();
+    bool enable = on && node && (m_view->selectionModel()->selectedRows().count() == 1);
+
+    const auto c = actionCollection();
+    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
+    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+
+    if (enable) {
+        auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
+        switch (node->type()) {
+            case Node::Type_Task:
+            case Node::Type_Milestone:
+                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                break;
+            default:
+                if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+                break;
+        }
+    }
 }
 
 void ResourceAppointmentsView::setupGui()

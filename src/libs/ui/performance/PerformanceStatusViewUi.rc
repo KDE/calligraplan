@@ -2,6 +2,12 @@
 <!DOCTYPE kpartgui>
 <gui name="Task Performance Chart" version="2" translationDomain="calligraplanlibs">
     <MenuBar>
+<!--        <Menu name="edit"><text>&amp;Edit</text>
+            <Separator/>
+            <Action name="task_progress"/>
+            <Action name="task_description"/>
+            <Action name="task_documents"/>
+        </Menu>-->
         <Menu name="view">
             <Separator/>
             <Action name="expand_all"/>

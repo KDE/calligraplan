@@ -384,6 +384,10 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
 
     connect(m_gantt, &MyKGanttView::contextMenuRequested, this, &GanttView::slotContextMenuRequested);
 
+    connect(m_gantt->selectionModel(), &QItemSelectionModel::selectionChanged, this, &GanttView::slotSelectionChanged);
+
+    updateActionsEnabled(false);
+
     Help::add(this,
               xi18nc("@info:whatsthis",
                      "<title>Gantt View</title>"
@@ -513,6 +517,38 @@ void GanttView::setupGui()
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
     actionCollection()->addAction("task_documents", actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &GanttView::slotDocuments);
+}
+
+void GanttView::slotSelectionChanged()
+{
+    updateActionsEnabled(true);
+}
+
+void GanttView::updateActionsEnabled(bool on)
+{
+    const auto node  = currentNode();
+    bool enable = on && node && (m_gantt->selectionModel()->selectedRows().count() < 2);
+
+    const auto c = actionCollection();
+    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
+    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+
+    if (enable) {
+        auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
+        switch (node->type()) {
+            case Node::Type_Task:
+            case Node::Type_Milestone:
+                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                break;
+            case Node::Type_Summarytask:
+                break;
+            default:
+                if (auto a = c->action("task_description")) { a->setEnabled(false); }
+                if (auto a = c->action("task_documents")) { a->setEnabled(false); }
+                break;
+        }
+    }
 }
 
 void GanttView::slotDateTimeGridChanged()
@@ -706,7 +742,7 @@ void GanttView::slotContextMenuRequested(const QModelIndex &idx, const QPoint &p
             return;
         }
     }
-    m_gantt->treeView()->selectionModel()->setCurrentIndex(sidx, QItemSelectionModel::ClearAndSelect);
+    //m_gantt->treeView()->selectionModel()->setCurrentIndex(sidx, QItemSelectionModel::ClearAndSelect);
 
     Node *node = m_gantt->model()->node(m_gantt->sfModel()->mapToSource(sidx));
     auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
@@ -1190,6 +1226,9 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     connect(qobject_cast<KGantt::DateTimeGrid*>(m_gantt->graphicsView()->grid()), &KGantt::DateTimeGrid::gridChanged, this, &MilestoneGanttView::slotDateTimeGridChanged);
 
     connect(m_gantt->treeView(), &GanttTreeView::doubleClicked, this, &MilestoneGanttView::itemDoubleClicked);
+
+    connect(m_gantt->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MilestoneGanttView::slotSelectionChanged);
+    updateActionsEnabled(false);
 }
 
 void MilestoneGanttView::slotEditCopy()
@@ -1328,6 +1367,38 @@ void MilestoneGanttView::setupGui()
     actionCollection()->addAction("task_documents", actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &MilestoneGanttView::slotDocuments);
 
+}
+
+void MilestoneGanttView::slotSelectionChanged()
+{
+    updateActionsEnabled(true);
+}
+
+void MilestoneGanttView::updateActionsEnabled(bool on)
+{
+    const auto node  = currentNode();
+    bool enable = on && node && (m_gantt->selectionModel()->selectedRows().count() < 2);
+
+    const auto c = actionCollection();
+    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
+    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+
+    if (enable) {
+        auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
+        switch (node->type()) {
+            case Node::Type_Task:
+            case Node::Type_Milestone:
+                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                break;
+            case Node::Type_Summarytask:
+                break;
+            default:
+                if (auto a = c->action("task_description")) { a->setEnabled(false); }
+                if (auto a = c->action("task_documents")) { a->setEnabled(false); }
+                break;
+        }
+    }
 }
 
 void MilestoneGanttView::slotDateTimeGridChanged()
@@ -1763,6 +1834,9 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
     connect(m_gantt->leftView(), SIGNAL(headerContextMenuRequested(QPoint)), SLOT(slotHeaderContextMenuRequested(QPoint)));
     connect(m_gantt->graphicsView(), &KGantt::GraphicsView::headerContextMenuRequested, this, &ResourceAppointmentsGanttView::slotGanttHeaderContextMenuRequested);
     connect(qobject_cast<KGantt::DateTimeGrid*>(m_gantt->graphicsView()->grid()), &KGantt::DateTimeGrid::gridChanged, this, &ResourceAppointmentsGanttView::slotDateTimeGridChanged);
+    connect(m_gantt->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ResourceAppointmentsGanttView::slotSelectionChanged);
+
+    updateActionsEnabled(false);
 
     Help::add(this,
               xi18nc("@info:whatsthis",
@@ -1908,6 +1982,38 @@ void ResourceAppointmentsGanttView::setupGui()
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
     actionCollection()->addAction("task_documents", actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &ResourceAppointmentsGanttView::slotDocuments);
+}
+
+void ResourceAppointmentsGanttView::slotSelectionChanged()
+{
+    updateActionsEnabled(true);
+}
+
+void ResourceAppointmentsGanttView::updateActionsEnabled(bool on)
+{
+    const auto node  = currentNode();
+    bool enable = on && node && (m_gantt->selectionModel()->selectedRows().count() < 2);
+
+    const auto c = actionCollection();
+    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
+    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+
+    if (enable) {
+        auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
+        switch (node->type()) {
+            case Node::Type_Task:
+            case Node::Type_Milestone:
+                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                break;
+            case Node::Type_Summarytask:
+                break;
+            default:
+                if (auto a = c->action("task_description")) { a->setEnabled(false); }
+                if (auto a = c->action("task_documents")) { a->setEnabled(false); }
+                break;
+        }
+    }
 }
 
 void ResourceAppointmentsGanttView::slotDateTimeGridChanged()

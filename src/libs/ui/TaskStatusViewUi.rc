@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="Task Status" version="3" translationDomain="calligraplanlibs">
+<gui name="Task Status" version="4" translationDomain="calligraplanlibs">
     <MenuBar>
+<!--        <Menu name="edit"><text>&amp;Edit</text>
+            <Separator/>
+            <Action name="task_progress"/>
+            <Action name="task_description"/>
+            <Action name="task_documents"/>
+        </Menu>-->
         <Menu name="view">
             <Separator/>
             <Action name="expand_all"/>

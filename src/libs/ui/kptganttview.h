@@ -173,6 +173,11 @@ private Q_SLOTS:
     void slotTaskDescriptionFinished(int result);
     void slotDocumentsFinished(int result);
 
+    void slotSelectionChanged();
+
+private:
+    void updateActionsEnabled(bool on);
+
 private:
     bool m_readWrite;
     int m_defaultFontSize;
@@ -283,6 +288,11 @@ private Q_SLOTS:
     void slotTaskDescriptionFinished(int result);
     void slotDocumentsFinished(int result);
 
+    void slotSelectionChanged();
+
+private:
+    void updateActionsEnabled(bool on);
+
 private:
     bool m_readWrite;
     int m_defaultFontSize;
@@ -366,6 +376,11 @@ private Q_SLOTS:
     void slotMilestoneProgressFinished(int result);
     void slotTaskDescriptionFinished(int result);
     void slotDocumentsFinished(int result);
+
+    void slotSelectionChanged();
+
+private:
+    void updateActionsEnabled(bool on);
 
 private:
     GanttViewBase *m_gantt;

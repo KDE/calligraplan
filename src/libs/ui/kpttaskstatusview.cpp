@@ -185,6 +185,7 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
     m_view->masterView()->setExpandsOnDoubleClick(false);
     connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskStatusView::itemDoubleClicked);
     connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskStatusView::itemDoubleClicked);
+    connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &TaskStatusView::slotSelectionChanged);
 
     Help::add(this,
               xi18nc("@info:whatsthis", 
@@ -278,7 +279,7 @@ void TaskStatusView::draw(Project &project)
 void TaskStatusView::setGuiActive(bool activate)
 {
     debugPlan<<activate;
-//    updateActionsEnabled(true);
+    slotSelectionChanged();
     ViewBase::setGuiActive(activate);
 }
 
@@ -395,9 +396,34 @@ KoPrintJob *TaskStatusView::createPrintJob()
     return m_view->createPrintJob(this);
 }
 
+void TaskStatusView::slotSelectionChanged()
+{
+    bool on = m_view->selectionModel()->selectedRows().count() == 1;
+    updateActionsEnabled(on);
+}
+
 void TaskStatusView::updateActionsEnabled(bool on)
 {
-    Q_UNUSED(on)
+    const auto node  = currentNode();
+    bool enable = on && node;
+
+    const auto c = actionCollection();
+    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
+    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+
+    if (enable) {
+        auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
+        switch (node->type()) {
+            case Node::Type_Task:
+            case Node::Type_Milestone:
+                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                break;
+            default:
+                if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+                break;
+        }
+    }
 }
 
 void TaskStatusView::slotTaskProgress()

@@ -132,6 +132,8 @@ private Q_SLOTS:
     void slotTaskDescriptionFinished(int result);
     void slotDocumentsFinished(int result);
 
+    void slotSelectionChanged();
+
 private:
     Project *m_project;
     int m_id;

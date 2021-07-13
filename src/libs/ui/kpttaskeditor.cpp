@@ -1780,9 +1780,28 @@ void TaskView::slotEnableActions()
     updateActionsEnabled(true);
 }
 
-void TaskView::updateActionsEnabled(bool /*on*/)
+void TaskView::updateActionsEnabled(bool on)
 {
+    const auto node  = currentNode();
+    bool enable = on && node && selectedNodeCount() < 2;
 
+    const auto c = actionCollection();
+    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
+    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+
+    if (enable) {
+        auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
+        switch (node->type()) {
+            case Node::Type_Task:
+            case Node::Type_Milestone:
+                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                break;
+            default:
+                if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+                break;
+        }
+    }
 }
 
 void TaskView::setupGui()
@@ -2211,6 +2230,10 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
     connect(m_view->proxyModel(), &WorkPackageProxyModel::loadWorkPackage, this, &TaskWorkPackageView::slotLoadWorkPackage);
     connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskWorkPackageView::itemDoubleClicked);
     connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskWorkPackageView::itemDoubleClicked);
+
+    connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &TaskWorkPackageView::slotEnableActions);
+    updateActionsEnabled(false);
+
 }
 
 void TaskWorkPackageView::itemDoubleClicked(const QPersistentModelIndex &idx)
@@ -2250,7 +2273,6 @@ void TaskWorkPackageView::updateReadWrite(bool rw)
 void TaskWorkPackageView::setGuiActive(bool activate)
 {
     debugPlan<<activate;
-    updateActionsEnabled(true);
     ViewBase::setGuiActive(activate);
     if (activate && !m_view->selectionModel()->currentIndex().isValid() && m_view->model()->rowCount() > 0) {
         m_view->selectionModel()->setCurrentIndex(m_view->model()->index(0, 0), QItemSelectionModel::NoUpdate);
@@ -2354,8 +2376,31 @@ void TaskWorkPackageView::slotEnableActions()
 
 void TaskWorkPackageView::updateActionsEnabled(bool on)
 {
-    bool o = ! selectedNodes().isEmpty();
+    const auto nodes = selectedNodes();
+    bool o = !nodes.isEmpty();
     actionMailWorkpackage->setEnabled(o && on);
+
+    const auto node  = currentNode();
+    bool enable = on && node && nodes.count() < 2;
+
+    const auto c = actionCollection();
+    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
+    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+
+    if (enable) {
+        auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
+        switch (node->type()) {
+            case Node::Type_Task:
+            case Node::Type_Milestone:
+                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                break;
+            default:
+                if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+                break;
+        }
+    }
+
 }
 
 void TaskWorkPackageView::setupGui()

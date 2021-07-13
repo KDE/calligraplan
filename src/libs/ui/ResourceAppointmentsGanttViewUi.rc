@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="Resource Assignments Gantt" version="1" translationDomain="calligraplanlibs">
+<gui name="Resource Assignments Gantt" version="2" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
             <Action name="show_project"/>
@@ -28,11 +28,11 @@
             <Separator/>
             <Action name="configure_view"/>
         </Menu>
-       <Menu name="edit"><text>&amp;Edit</text>
+<!--       <Menu name="edit"><text>&amp;Edit</text>
             <Action name="task_progress"/>
             <Action name="task_description"/>
             <Action name="task_documents"/>
-        </Menu>
+        </Menu>-->
     </MenuBar>
 
     <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
