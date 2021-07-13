@@ -569,6 +569,9 @@ ViewBase::ViewBase(KoPart *part, KoDocument *doc, QWidget *parent)
     m_singleTreeView(nullptr),
     m_doubleTreeView(nullptr)
 {
+    if (doc) {
+        m_readWrite = doc->isReadWrite();
+    }
 }
 
 ViewBase::~ViewBase()
