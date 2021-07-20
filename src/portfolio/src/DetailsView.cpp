@@ -61,6 +61,7 @@ DetailsView::DetailsView(KoPart *part, KoDocument *doc, QWidget *parent)
     << KPlato::NodeModel::NodeDescription;
     m_detailsView->showColumns(show);
     m_detailsView->setViewSplitMode(false);
+    insertChildClient(m_detailsView);
 
     connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &DetailsView::selectionChanged);
 

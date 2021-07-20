@@ -1,7 +1,7 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd" >
-<gui name="Calligra Plan" version="55" translationDomain="calligraplan">
+<gui name="Calligra Portfolio" version="56" translationDomain="calligraplangroup">
     <MenuBar>
-        <Menu name="file"><text>&amp;File</text>
+        <Menu name="file" NoMerge="1"><text>&amp;File</text>
             <Action name="file_new" />
             <Action name="activeauthor" />
             <Action name="file_open" />
@@ -28,7 +28,7 @@
             <Separator />
             <Action name="file_close" />
         </Menu>
-       <Menu name="edit"><text>&amp;Edit</text>
+       <Menu name="edit" NoMerge="1"><text>&amp;Edit</text>
             <Action name="edit_undo"/>
             <Action name="edit_redo"/>
             <Separator/>
@@ -37,24 +37,24 @@
             <Action name="edit_paste"/>
             <Separator/> 
         </Menu>
-        <Menu name="view"><text>&amp;View</text>
+        <Menu name="view" NoMerge="1"><text>&amp;View</text>
             <Action name="view_newview"/>
             <Separator/>
             <ActionList name="view_docker_list"/>
             <Separator/>
             <ActionList name="viewmenu"/>
         </Menu>
-        <Menu name="settings"><text>&amp;Settings</text>
-            <Action name="view_toggledockertitlebars" group="settings_configure"/>
-            <Action name="settings_dockers_menu" group="settings_configure"/>
+        <Menu name="settings" NoMerge="1"><text>&amp;Settings</text>
+<!--            <Action name="view_toggledockertitlebars" group="settings_configure"/>
+            <Action name="settings_dockers_menu" group="settings_configure"/>-->
             <Separator/>
             <Action name="configure" group="settings_configure"/>
         </Menu>
-        <Menu name="help"><text>&amp;Help</text>
+        <Menu name="help" NoMerge="1"><text>&amp;Help</text>
             <Action name="plan_introduction"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="mainToolBar" fullWidth="false" noMerge="1"><Text>File</Text>
+    <ToolBar name="mainToolBar" fullWidth="false"><text>Main Toolbar</text>
         <Action name="file_new" />
         <Action name="file_open" />
         <Action name="file_save" />
@@ -62,8 +62,7 @@
         <Action name="file_print" />
         <Action name="file_print_preview" />
         //-->
-    </ToolBar>
-    <ToolBar name="edit"><Text>Edit</Text>
+        <Separator/>
         <Action name="edit_undo"/>
         <Action name="edit_redo"/>
     </ToolBar>

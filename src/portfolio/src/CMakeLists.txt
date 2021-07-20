@@ -75,7 +75,7 @@ install( FILES
         ViewUi.rc
         SummaryViewUi.rc
         PortfolioViewUi.rc
-        #DetailsViewUi.rc
+        DetailsViewUi.rc
         SchedulingViewUi.rc
         PortfolioGanttViewUi.rc
     DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan
