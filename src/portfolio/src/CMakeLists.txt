@@ -72,12 +72,12 @@ target_link_libraries(calligraplanportfoliopart PUBLIC KF5::Parts KF5::CoreAddon
 install(TARGETS calligraplanportfoliopart DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/parts)
 
 install( FILES
-        ViewUi.rc
-        SummaryViewUi.rc
-        PortfolioViewUi.rc
-        DetailsViewUi.rc
-        SchedulingViewUi.rc
-        PortfolioGanttViewUi.rc
+        Portfolio_ViewUi.rc
+        Portfolio_SummaryViewUi.rc
+        Portfolio_PortfolioViewUi.rc
+        Portfolio_DetailsViewUi.rc
+        Portfolio_SchedulingViewUi.rc
+        Portfolio_GanttViewUi.rc
     DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan
 )
 

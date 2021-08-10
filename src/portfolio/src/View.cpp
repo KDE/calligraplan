@@ -96,9 +96,9 @@ View::~View()
 void View::setupActions(void)
 {
     if (koDocument()->isReadWrite()) {
-        setXMLFile("ViewUi.rc", true);
+        setXMLFile("Portfolio_ViewUi.rc", true);
     } else {
-        setXMLFile("ViewUi_readonly.rc");
+        setXMLFile("Portfolio_ViewUi_readonly.rc");
     }
     QAction *configureAction = new QAction(koIcon("configure"), i18n("Configure Portfolio..."), this);
     actionCollection()->addAction("configure", configureAction);

@@ -44,9 +44,9 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("SchedulingViewUi.rc");
+        setXMLFile("Portfolio_SchedulingViewUi.rc");
     } else {
-        setXMLFile("SchedulingViewUi_readonly.rc");
+        setXMLFile("Portfolio_SchedulingViewUi_readonly.rc");
     }
     setupGui();
 

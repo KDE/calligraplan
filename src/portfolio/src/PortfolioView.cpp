@@ -32,9 +32,9 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("PortfolioViewUi.rc");
+        setXMLFile("Portfolio_PortfolioViewUi.rc");
     } else {
-        setXMLFile("PortfolioViewUi_readonly.rc");
+        setXMLFile("Portfolio_PortfolioViewUi_readonly.rc");
     }
     setupGui();
 

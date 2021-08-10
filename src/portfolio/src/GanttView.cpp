@@ -40,9 +40,9 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("PortfolioGanttViewUi.rc");
+        setXMLFile("Portfolio_GanttViewUi.rc");
     } else {
-        setXMLFile("PortfolioGanttViewUi_readonly.rc");
+        setXMLFile("Portfolio_GanttViewUi_readonly.rc");
     }
     setupGui();
 
