@@ -25,7 +25,6 @@ class QUrl;
 class QItemSelecteion;
 
 class RecentProjectsModel;
-class RecentPortfoliosModel;
 
 class KOMAIN_EXPORT WelcomeView : public QWidget
 {
@@ -67,17 +66,12 @@ private Q_SLOTS:
 
     void slotCreateResourceFile();
 
-    void slotNewPortfolio();
-    void slotOpenPortfolio();
-    void slotRecentPortfolioSelected(const QModelIndex &idx);
-
 private:
     void setProjectTemplatesModel();
 
 private:
     Ui::WelcomeView ui;
     RecentProjectsModel *m_recentProjects;
-    RecentPortfoliosModel *m_recentPortfolios;
     QPointer<KoFileDialog> m_filedialog;
 };
 

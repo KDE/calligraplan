@@ -103,69 +103,6 @@ void RecentProjectsModel::populate(const QList<QAction*> actions)
     }
 }
 
-class RecentPortfoliosModel : public QStandardItemModel
-{
-public:
-    RecentPortfoliosModel(QObject *parent = nullptr);
-    Qt::ItemFlags flags(const QModelIndex &idx) const override;
-    QVariant data(const QModelIndex &idx, int role) const override;
-    void setRecentFiles(const KRecentFilesAction &recent);
-    void populate(const QList<QAction*> actions);
-};
-
-RecentPortfoliosModel::RecentPortfoliosModel(QObject *parent)
-: QStandardItemModel(parent)
-{
-}
-
-Qt::ItemFlags RecentPortfoliosModel::flags(const QModelIndex &idx) const
-{
-    Qt::ItemFlags f = (QStandardItemModel::flags(idx) & ~Qt::ItemIsEditable);
-    return f;
-}
-
-QVariant RecentPortfoliosModel::data(const QModelIndex &idx, int role) const
-{
-    switch(role) {
-        case Qt::DecorationRole:
-            return QIcon::fromTheme(QStringLiteral("document-open"));
-        case Qt::FontRole: {
-            break;
-        }
-        default: break;
-    }
-    return QStandardItemModel::data(idx, role);
-}
-
-void RecentPortfoliosModel::setRecentFiles(const KRecentFilesAction &recent)
-{
-    populate(recent.actions());
-}
-
-void RecentPortfoliosModel::populate(const QList<QAction*> actions)
-{
-    clear();
-    setColumnCount(1);
-    setRowCount(actions.count());
-    QModelIndex idx = index(rowCount()-1, 0);
-    for (const QAction *a : actions) {
-        // KRecentFilesAction format: <name> [<file path>]
-        // so we split it up and remove the []
-        QString s = a->text();
-        QString name = s.left(s.indexOf('[')).trimmed();
-        QString ext = QStringLiteral(".planp");
-        if (name.endsWith(ext)) {
-            name.remove(name.lastIndexOf(ext), ext.length());
-        }
-        QString file = s.mid(s.indexOf('[')+1);
-        file = file.left(file.lastIndexOf(']'));
-        QString t = QString("%1\n%2").arg(name, file);
-        setData(idx, t, Qt::EditRole);
-        setData(idx, file, Qt::UserRole+1);
-        idx = idx.sibling(idx.row()-1, idx.column());
-    }
-}
-
 //-----------------------------------
 WelcomeView::WelcomeView(KoMainWindow *parent)
     : QWidget(parent)
@@ -225,15 +162,6 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
                           "<nl/>This enables you to quickly open projects you have worked on recently."
                           "</para>"));
 
-    KPlato::Help::add(ui.recentPortfolios,
-                      xi18nc("@info:whatsthis",
-                             "<title>Recent Portfolios</title>"
-                             "<para>"
-                             "A list of the most recent portfolio files opened."
-                             "</para><para>"
-                             "<nl/>This enables you to quickly open portfolios you have worked on recently."
-                             "</para>"));
-
     KPlato::Help::add(ui.contextHelp,
                    xi18nc("@info:whatsthis",
                           "<title>Context help</title>"
@@ -250,9 +178,6 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
 
     m_recentProjects = new RecentProjectsModel(this);
     ui.recentProjects->setModel(m_recentProjects);
-
-    m_recentPortfolios = new RecentPortfoliosModel(this);
-    ui.recentPortfolios->setModel(m_recentPortfolios);
 
     setProjectTemplatesModel();
 
@@ -277,18 +202,12 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
 
     connect(ui.projectTemplates, &QAbstractItemView::activated, this, &WelcomeView::slotOpenProjectTemplate);
 
-    connect(ui.newPortfolioBtn, &QAbstractButton::clicked, this, &WelcomeView::slotNewPortfolio);
-    connect(ui.openPortfolioBtn, &QAbstractButton::clicked, this, &WelcomeView::slotOpenPortfolio);
-    connect(ui.recentPortfolios, &QAbstractItemView::activated, this, &WelcomeView::slotRecentPortfolioSelected);
-
     connect(mainWindow(), &KoMainWindow::loadCompleted, this, &WelcomeView::finished);
 
     KSharedConfigPtr configPtr = parent->componentData().config();
     KRecentFilesAction recent("x", nullptr);
     recent.loadEntries(configPtr->group("Recent Projects"));
     m_recentProjects->setRecentFiles(recent);
-    recent.loadEntries(configPtr->group("Recent Portfolios"));
-    m_recentPortfolios->setRecentFiles(recent);
 }
 
 WelcomeView::~WelcomeView()
@@ -309,19 +228,6 @@ void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
         debugWelcome<<file<<url;
         if (url.isValid()) {
             KoPart *part = this->part(QStringLiteral("calligraplan"), QStringLiteral(PLAN_MIME_TYPE));
-            mainWindow()->openDocument(part, url);
-        }
-    }
-}
-
-void WelcomeView::slotRecentPortfolioSelected(const QModelIndex &idx)
-{
-    if (idx.isValid()) {
-        QString file = idx.data(Qt::UserRole+1).toString();
-        QUrl url = QUrl::fromUserInput(file);
-        debugWelcome<<file<<url;
-        if (url.isValid()) {
-            KoPart *part = this->part(QStringLiteral("calligraplanportfolio"), QStringLiteral(PLANPORTFOLIO_MIME_TYPE));
             mainWindow()->openDocument(part, url);
         }
     }
@@ -455,31 +361,4 @@ void WelcomeView::setProjectTemplatesModel()
 KoPart *WelcomeView::part(const QString &appName, const QString &mimeType) const
 {
     return KoApplication::koApplication()->getPart(appName, mimeType);
-}
-
-void WelcomeView::slotNewPortfolio()
-{
-    KoPart *part = this->part(QStringLiteral("calligraplanportfolio"), QStringLiteral(PLANPORTFOLIO_MIME_TYPE));
-    if (part) {
-        part->addMainWindow(mainWindow());
-        mainWindow()->setRootDocument(part->document(), part);
-    }
-}
-
-void WelcomeView::slotOpenPortfolio()
-{
-    KoFileDialog filedialog(this, KoFileDialog::OpenFile, "OpenDocument");
-    filedialog.setCaption(i18n("Open Document"));
-    filedialog.setDefaultDir(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
-    filedialog.setMimeTypeFilters(QStringList()<<QString(PLANPORTFOLIO_MIME_TYPE));
-    filedialog.setHideNameFilterDetailsOption();
-    QUrl url = QUrl::fromUserInput(filedialog.filename());
-    if (!url.isEmpty()) {
-        KoPart *part = this->part(QStringLiteral("calligraplanportfolio"), QStringLiteral(PLANPORTFOLIO_MIME_TYPE));
-        part->addMainWindow(mainWindow());
-        if (!mainWindow()->openDocument(part, url)) {
-            part->removeMainWindow(mainWindow());
-            delete part;
-        }
-    }
 }
