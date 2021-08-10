@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Plan Portfolio
+Name[x-test]=xxPlan Portfolioxx
+GenericName=Project Portfolio Management
+GenericName[x-test]=xxProject Portfolio Managementxx
+Exec=calligraplan --portfolio %U
+MimeType=application/x-vnd.kde.plan.portfolio;
+Type=Application
+Icon=calligraplan
+DocPath=calligraplan/index.html
+X-KDE-NativeMimeType=application/x-vnd.kde.plan.portfolio
+Categories=Qt;KDE;Office;ProjectManagement;
+X-KDE-StartupNotify=true
+X-DBUS-StartupType=Multi
+X-DBUS-ServiceName=org.kde.calligraplanportfolio
