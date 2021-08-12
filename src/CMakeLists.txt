@@ -114,8 +114,6 @@ add_definitions(-DTRANSLATION_DOMAIN=\"calligraplan\")
 ########### KPlato private library ###############
 
 set(planprivate_LIB_SRCS
-    welcome/WelcomeView.cpp
-
     kptviewlistdocker.cpp
     kptviewlist.cpp
     kptviewlistdialog.cpp
@@ -154,8 +152,6 @@ set(planprivate_LIB_SRCS
 )
 
 ki18n_wrap_ui(planprivate_LIB_SRCS
-    welcome/WelcomeView.ui
-
     kptviewlistaddview.ui
     kptviewlisteditview.ui
     kptviewlisteditcategory.ui
@@ -249,9 +245,6 @@ install( PROGRAMS  org.kde.calligraplan.desktop  DESTINATION ${XDG_APPS_INSTALL_
 install( FILES  calligraplanrc DESTINATION ${CONFIG_INSTALL_DIR})
 install(FILES calligraplansettings.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install(FILES org.kde.calligraplan.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-
-# TODO: with the new embedded JSON data for plugins there is no schema ATM to define extended properties
-# plan_viewplugin.desktop
 
 
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )

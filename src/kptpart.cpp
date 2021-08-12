@@ -11,10 +11,10 @@
 #include "kptview.h"
 #include "kptmaindocument.h"
 #include "kptfactory.h"
-#include "welcome/WelcomeView.h"
 #include "Help.h"
 #include "calligraplansettings.h"
 #include "kptcommand.h"
+#include <kptmainprojectdialog.h>
 #include "kptdebug.h"
 
 #include <KoComponentData.h>
