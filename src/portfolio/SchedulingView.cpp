@@ -6,7 +6,6 @@
 
 // clazy:excludeall=qstring-arg
 #include "SchedulingView.h"
-#include "Factory.h"
 #include "SchedulingModel.h"
 #include "MainDocument.h"
 #include "PlanGroupDebug.h"

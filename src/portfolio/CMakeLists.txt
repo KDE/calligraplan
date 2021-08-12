@@ -24,10 +24,11 @@ set(planportfolioprivate_LIB_SRCS
     SchedulingLogModel.cpp
     SchedulingView.cpp
     GanttView.cpp
-    Factory.cpp
     Part.cpp
     MainDocument.cpp
     View.cpp
+
+    PortfolioFactory.cpp
 )
 
 ki18n_wrap_ui(planportfolioprivate_LIB_SRCS
@@ -59,8 +60,9 @@ set_target_properties(planportfolioprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB
 
 install(TARGETS planportfolioprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
 
-### Part ###
-set(planportfoliopart_PART_SRCS Factoryinit.cpp)
+########### Part ###############
+
+set(planportfoliopart_PART_SRCS PortfolioFactoryInit.cpp)
 
 add_library(calligraplanportfoliopart MODULE ${planportfoliopart_PART_SRCS})
 
@@ -71,6 +73,34 @@ target_link_libraries(calligraplanportfoliopart PUBLIC KF5::Parts KF5::CoreAddon
 
 install(TARGETS calligraplanportfoliopart DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/parts)
 
+########### Executable ###############
+
+set(calligraplanportfolio_KDEINIT_SRCS main.cpp )
+
+file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/src/pics/*-apps-calligraplan.png") # TODO
+ecm_add_app_icon(kdeinit_app_ICONS_SRCS ICONS ${ICONS_SRCS})
+if(WIN32)
+    set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/kdeinit_app_ICONS_SRCS.rc")
+endif()
+
+kf5_add_kdeinit_executable( calligraplanportfolio ${calligraplanportfolio_KDEINIT_SRCS})
+
+if (APPLE)
+   set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.template)
+   set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_GUI_IDENTIFIER "org.calligra.plan.portfolio")
+   set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "Plan Portfolio")
+   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_KDEINIT_SRCS.icns DESTINATION ${BUNDLE_INSTALL_DIR}/calligraplanportfolio.app/Contents/Resources)
+endif ()
+
+target_link_libraries(kdeinit_calligraplanportfolio planportfolioprivate)
+
+install(TARGETS kdeinit_calligraplanportfolio  ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+target_link_libraries(calligraplanportfolio kdeinit_calligraplanportfolio)
+install(TARGETS calligraplanportfolio  ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+########### Files ###############
+
 install( FILES
         Portfolio_ViewUi.rc
         Portfolio_SummaryViewUi.rc
@@ -78,7 +108,7 @@ install( FILES
         Portfolio_DetailsViewUi.rc
         Portfolio_SchedulingViewUi.rc
         Portfolio_GanttViewUi.rc
-    DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan
+    DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplanportfolio
 )
 
 if (SharedMimeInfo_FOUND)

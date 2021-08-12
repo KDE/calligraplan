@@ -183,7 +183,6 @@ bool KoApplication::start(const KoComponentData &componentData)
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
 
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("portfolio"), i18n("start in portfolio mode")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("benchmark-loading"), i18n("just load the file and then exit")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("benchmark-loading-show-window"), i18n("load the file, show the window and progressbar and then exit")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("profile-filename"), i18n("Filename to write profiling information into."), QStringLiteral("filename")));
@@ -268,9 +267,9 @@ bool KoApplication::start(const KoComponentData &componentData)
                 return true;
             }
         }
-        const bool portfolioMode = parser.isSet("portfolio");
+        const bool portfolioMode = d->nativeMimeType == PLANPORTFOLIO_MIME_TYPE;
         if (portfolioMode) {
-            KoPart *part = getPart(QStringLiteral("calligraplanportfolio"), QStringLiteral(PLANPORTFOLIO_MIME_TYPE));
+            KoPart *part = getPart(QStringLiteral("calligraplanportfolio"), d->nativeMimeType);
             if (part) {
                 KoMainWindow *mainWindow = part->createMainWindow();
                 part->addMainWindow(mainWindow);

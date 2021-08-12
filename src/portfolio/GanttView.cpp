@@ -6,7 +6,6 @@
 
 // clazy:excludeall=qstring-arg
 #include "GanttView.h"
-#include "Factory.h"
 #include "GanttModel.h"
 #include "MainDocument.h"
 

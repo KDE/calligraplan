@@ -6,7 +6,6 @@
 
 // clazy:excludeall=qstring-arg
 #include "PerformanceView.h"
-#include "Factory.h"
 #include "MainDocument.h"
 #include "ProjectsModel.h"
 

@@ -9,7 +9,7 @@
 
 #include "View.h"
 #include "MainDocument.h"
-#include "Factory.h"
+#include "PortfolioFactory.h"
 
 #include <KoMainWindow.h>
 #include <KoComponentData.h>
@@ -17,7 +17,7 @@
 #include <QAction>
 
 Part::Part(QObject *parent)
-    : KoPart(Factory::global(), parent)
+    : KoPart(PortfolioFactory::global(), parent)
 {
 }
 

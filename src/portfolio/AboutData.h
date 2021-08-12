@@ -1,6 +1,5 @@
 /* This file is part of the KDE project
-   SPDX-FileCopyrightText: 1998-2001 Reginald Stadlbauer <reggie@kde.org>
-   SPDX-FileCopyrightText: 2004-2011 Dag Andersen <dag.andersen@kdemail.net>
+   SPDX-FileCopyrightText: 2021 Dag Andersen <dag.andersen@kdemail.net>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -14,8 +13,6 @@
 #include <KLocalizedString>
 #include <kcoreaddons_version.h>
 
-namespace Portfolio
-{
 
 KAboutData * newAboutData()
 {
@@ -37,9 +34,9 @@ KAboutData * newAboutData()
 
     aboutData->setProductName("calligraplanportfolio"); // for bugs.kde.org
     aboutData->setOrganizationDomain("kde.org");
-    aboutData->setDesktopFileName(QStringLiteral("org.kde.calligraplan"));
+    aboutData->setDesktopFileName(QStringLiteral("org.kde.calligraplanportfolio"));
 
     return aboutData;
 }
-} // namespace Portfolio
+
 #endif

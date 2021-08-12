@@ -6,7 +6,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "View.h"
-#include "Factory.h"
+#include "PortfolioFactory.h"
 #include "SummaryView.h"
 #include "PortfolioView.h"
 #include "PerformanceView.h"
@@ -40,7 +40,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     , m_readWrite(false)
 {
     //debugPlanGroup;
-    setComponentName(Factory::global().componentName(), Factory::global().componentDisplayName());
+    setComponentName(PortfolioFactory::global().componentName(), PortfolioFactory::global().componentDisplayName());
     setupActions();
 
     QVBoxLayout *layout = new QVBoxLayout(this);

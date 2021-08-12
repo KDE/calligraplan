@@ -6,7 +6,6 @@
 
 // clazy:excludeall=qstring-arg
 #include "PortfolioView.h"
-#include "Factory.h"
 #include "PortfolioModel.h"
 #include "MainDocument.h"
 

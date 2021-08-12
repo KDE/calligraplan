@@ -12,7 +12,6 @@
 #include "MainDocument.h"
 #include "Part.h"
 #include "View.h"
-#include "Factory.h"
 
 #include <kptproject.h>
 #include <kptschedule.h>
