@@ -26,7 +26,7 @@ set(planworkprivate_LIB_SRCS
 
     debugarea.cpp
 
-    ../KPlatoXmlLoader.cpp #NB
+    ../plan/KPlatoXmlLoader.cpp #NB
 )
 
 ki18n_wrap_ui(planworkprivate_LIB_SRCS

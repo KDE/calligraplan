@@ -10,7 +10,7 @@
 #include "ICalExportDialog.h"
 #include "config.h"
 
-#include <kptmaindocument.h>
+#include <kptproject.h>
 #include <kpttask.h>
 #include <kptnode.h>
 #include <kptresource.h>

@@ -10,7 +10,7 @@ include_directories(
 )
 
 if(BUILD_TESTING)
-    add_subdirectory( tests )
+    #add_subdirectory( tests )
 endif()
 
 set ( TJScheduler_LIB_SRCS

@@ -8,7 +8,7 @@
 // clazy:excludeall=qstring-arg
 #include "workpackage.h"
 
-#include "KPlatoXmlLoader.h" //NOTE: this file should probably be moved
+#include "plan/KPlatoXmlLoader.h" //NOTE: this file should probably be moved
 
 #include "part.h"
 #include "kptglobal.h"

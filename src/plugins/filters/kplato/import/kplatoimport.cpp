@@ -7,7 +7,6 @@
 // clazy:excludeall=qstring-arg
 #include "kplatoimport.h"
 
-#include <kptmaindocument.h>
 #include <kpttask.h>
 #include <kptnode.h>
 #include <kptresource.h>

@@ -16,7 +16,7 @@
 #include "workpackage.h"
 #include "calligraplanworksettings.h"
 
-#include "KPlatoXmlLoader.h" //NB!
+#include "plan/KPlatoXmlLoader.h" //NB!
 
 #include "kptglobal.h"
 #include "kptnode.h"
