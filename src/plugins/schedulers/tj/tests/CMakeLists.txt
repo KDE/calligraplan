@@ -1,3 +1,8 @@
+include_directories(
+    ${PLAN_INCLUDES}
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
+message(STATUS "PLAN_INCLUDES: ${PLAN_INCLUDES}")
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR}/.. )
 
 #TODO: Howto properly find plugins dir?

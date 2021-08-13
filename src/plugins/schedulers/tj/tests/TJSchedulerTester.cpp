@@ -9,7 +9,7 @@
 
 #include "PlanTJScheduler.h"
 
-#include "kptmaindocument.h"
+#include "plan/kptmaindocument.h"
 #include "kptpart.h"
 #include "kptcommand.h"
 #include "kptcalendar.h"
