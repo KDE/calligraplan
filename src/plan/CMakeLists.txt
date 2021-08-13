@@ -1,20 +1,9 @@
 
-#add_subdirectory(interfaces)
-add_subdirectory(servicetypes)
-
 add_subdirectory( templates )
-add_subdirectory( pics )
-add_subdirectory( toolbar )
-add_subdirectory( plugins )
-
-add_subdirectory( libs )
 
 if(BUILD_TESTING)
     add_subdirectory( tests )
 endif()
-
-add_subdirectory( workpackage )
-add_subdirectory(portfolio)
 
 include_directories(${PLAN_INCLUDES})
 
@@ -125,7 +114,7 @@ install(TARGETS calligraplanpart DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/
 
 set(calligraplan_KDEINIT_SRCS main.cpp )
 
-file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-calligraplan.png")
+file(GLOB ICONS_SRCS "${PLAN_SOURCE_DIR}/pics/*-apps-calligraplan.png")
 ecm_add_app_icon(kdeinit_app_ICONS_SRCS ICONS ${ICONS_SRCS})
 if(WIN32)
     set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/kdeinit_app_ICONS_SRCS.rc")
