@@ -6,7 +6,7 @@
 # Release scripts rely on this.
 potfilename=calligraplan.pot
 
-source ../kundo2_aware_xgettext.sh
+source ../../kundo2_aware_xgettext.sh
 
 # Note: Don't extract sub-directories: specifically not libs, workpackage and plugins.
 # NB! This means subdirs must be explicitly extracted!
