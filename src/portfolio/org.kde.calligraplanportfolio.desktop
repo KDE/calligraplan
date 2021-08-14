@@ -1,8 +1,6 @@
 [Desktop Entry]
 Name=Plan Portfolio
-Name[x-test]=xxPlan Portfolioxx
 GenericName=Project Portfolio Management
-GenericName[x-test]=xxProject Portfolio Managementxx
 Exec=calligraplanportfolio %U
 MimeType=application/x-vnd.kde.plan.portfolio;
 Type=Application
