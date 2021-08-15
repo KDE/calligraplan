@@ -8,8 +8,7 @@ potfilename=calligraplan.pot
 
 source ../../kundo2_aware_xgettext.sh
 
-# Note: Don't extract sub-directories: specifically not libs, workpackage and plugins.
-# NB! This means subdirs must be explicitly extracted!
-$EXTRACTRC *.ui *.kcfg *.rc welcome/*.ui config/*.ui >> rc.cpp
-kundo2_aware_xgettext $potfilename *.cpp libs/main/kptaboutdata.h welcome/*.cpp config/*.cpp
+# Note: Make sure to extract the required subdirectories.
+$EXTRACTRC *.ui *.kcfg *.rc config/*.ui >> rc.cpp
+kundo2_aware_xgettext $potfilename *.cpp ../libs/main/kptaboutdata.h config/*.cpp
 rm -f rc.cpp
