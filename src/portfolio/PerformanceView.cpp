@@ -120,7 +120,7 @@ QMenu * PerformanceView::popupMenu(const QString& name)
     return nullptr;
 }
 
-KoPrintJob *PerformanceView::createPrintJob
+KoPrintJob *PerformanceView::createPrintJob()
 {
     return nullptr;
 }
