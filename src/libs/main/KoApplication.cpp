@@ -194,9 +194,15 @@ bool KoApplication::start(const KoComponentData &componentData)
 
     const QStringList fileUrls = parser.positionalArguments();
     if (fileUrls.isEmpty()) {
+        // get all possible autosave files in the home dir, this is for unsaved document autosave files
+        // Using the extension allows to avoid relying on the mime magic when opening
+        QMimeType mimeType = QMimeDatabase().mimeTypeForName(d->nativeMimeType);
+        if (!mimeType.isValid()) {
+            qFatal("It seems your installation is broken/incomplete because we failed to load the native mimetype \"%s\".", d->nativeMimeType.constData());
+        }
         QStringList filters;
-        filters << QString(".%1-%2-%3-autosave%4").arg("calligraplan").arg("*").arg("*").arg("plan");
-        filters << QString(".%1-%2-%3-autosave%4").arg("calligraplanportfolio").arg("*").arg("*").arg("planp");
+        filters << QString(".%1-%2-%3-autosave%4").arg(applicationName()).arg("*").arg("*").arg(mimeType.preferredSuffix());
+
 #ifdef Q_OS_WIN
         QDir autosaveDir = QDir::tempPath();
 #else
@@ -267,16 +273,16 @@ bool KoApplication::start(const KoComponentData &componentData)
                 return true;
             }
         }
-        const bool portfolioMode = d->nativeMimeType == PLANPORTFOLIO_MIME_TYPE;
-        if (portfolioMode) {
-            KoPart *part = getPart(QStringLiteral("calligraplanportfolio"), d->nativeMimeType);
-            if (part) {
-                KoMainWindow *mainWindow = part->createMainWindow();
-                part->addMainWindow(mainWindow);
-                mainWindow->setRootDocument(part->document(), part);
-                mainWindow->show();
-                return true;
+        if (applicationName() == QStringLiteral("calligraplanportfolio")) {
+            KoPart *part = getPart(applicationName(), d->nativeMimeType);
+            if (!part) {
+                return false;
             }
+            KoMainWindow *mainWindow = part->createMainWindow();
+            part->addMainWindow(mainWindow);
+            mainWindow->setRootDocument(part->document(), part);
+            mainWindow->show();
+            return true;
         }
         // show welcome view
         KoMainWindow *mainWindow = new KoMainWindow(d->nativeMimeType, componentData);
@@ -309,7 +315,7 @@ bool KoApplication::start(const KoComponentData &componentData)
             QUrl::fromUserInput(fileUrl) :
             QUrl::fromLocalFile(QDir::current().absoluteFilePath(fileUrl));
 
-            KoPart *part = getPartFromUrl(url);
+            KoPart *part = getPart(applicationName(), d->nativeMimeType);
             if (part) {
                 KoDocument *doc = part->document();
                 // show a mainWindow asap

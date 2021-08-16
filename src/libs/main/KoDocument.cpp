@@ -1314,68 +1314,16 @@ bool KoDocument::openFile()
     // for images, always check content.
     typeName = checkImageMimeTypes(typeName, u);
 
-    // Sometimes it seems that arguments().mimeType() contains a much
-    // too generic mime type.  In that case, let's try some educated
+    // Sometimes (autosave files) it seems that arguments().mimeType() contains a much
+    // too generic mime type. In that case, let's try some educated
     // guesses based on what we know about file extension.
-    //
-    // FIXME: Should we just ignore this and always call
-    //        KMimeType::findByUrl()? David Faure says that it's
-    //        impossible for findByUrl() to fail to initiate the
-    //        mimetype for "*.doc" to application/msword.  This hints
-    //        that we should do that.  But why does it happen like
-    //        this at all?
     if (typeName == "application/zip") {
-        QString filename = u.fileName();
-
-        // None of doc, xls or ppt are really zip files.  But docx,
-        // xlsx and pptx are.  This miscategorization seems to only
-        // crop up when there is a, say, docx file saved as doc.  The
-        // conversion to the docx mimetype will happen below.
-        if (filename.endsWith(".doc"))
-            typeName = "application/msword";
-        else if (filename.endsWith(".xls"))
-            typeName = "application/vnd.ms-excel";
-        else if (filename.endsWith(".ppt"))
-            typeName = "application/vnd.ms-powerpoint";
-
-        // Potentially more guesses here...
-    } else if (typeName == "application/x-ole-storage") {
-        QString filename = u.fileName();
-
-        // None of docx, xlsx or pptx are really OLE files.  But doc,
-        // xls and ppt are.  This miscategorization seems to only crop
-        // up when there is a, say, doc file saved as docx.  The
-        // conversion to the doc mimetype will happen below.
-        if (filename.endsWith(".docx"))
-            typeName = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-        else if (filename.endsWith(".xlsx"))
-            typeName = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-        else if (filename.endsWith(".pptx"))
-            typeName = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
-
-        // Potentially more guesses here...
-    }
-    //debugMain << "mimetypes 3:" << typeName;
-
-    // In some cases docx files are saved as doc and similar.  We have
-    // a small hardcoded table for those cases.  Check if this is
-    // applicable here.
-    for (uint i = 0; i < sizeof(replacementMimetypes) / sizeof(struct MimetypeReplacement); ++i) {
-        const MimetypeReplacement *replacement = &replacementMimetypes[i];
-
-        if (typeName == replacement->typeFromName) {
-            //debugMain << "found potential replacement target:" << typeName;
-            // QT5TODO: this needs a new look with the different behaviour of QMimeDatabase
-            QString typeFromContents = QMimeDatabase().mimeTypeForUrl(u).name();
-            //debugMain << "found potential replacement:" << typeFromContents;
-            if (typeFromContents == replacement->typeFromContents) {
-                typeName = replacement->useThisType;
-                //debugMain << "So really use this:" << typeName;
-                break;
-            }
+        const QString filename = u.fileName();
+        if (filename.endsWith("plan") || filename.endsWith("planp")) {
+            typeName = nativeFormatMimeType();
         }
     }
-    //debugMain << "mimetypes 4:" << typeName;
+    //debugMain << "mimetypes 3:" << typeName;
 
     // Allow to open backup files, don't keep the mimetype application/x-trash.
     if (typeName == "application/x-trash") {
