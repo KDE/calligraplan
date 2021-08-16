@@ -1,4 +1,6 @@
 
+add_definitions(-DTRANSLATION_DOMAIN=\"calligraplangroup\")
+
 ##
 ## Test SharedMimeInfo
 ##
@@ -8,7 +10,7 @@ set_package_properties(SharedMimeInfo PROPERTIES
     TYPE REQUIRED
 )
 
-include_directories(${PLAN_INCLUDES})
+include_directories(${PLAN_INCLUDES} config)
 
 set(planportfolioprivate_LIB_SRCS
     PlanGroupDebug.cpp
@@ -29,6 +31,7 @@ set(planportfolioprivate_LIB_SRCS
     View.cpp
 
     PortfolioFactory.cpp
+    config/ConfigSkeleton.cpp
 )
 
 ki18n_wrap_ui(planportfolioprivate_LIB_SRCS
@@ -36,7 +39,9 @@ ki18n_wrap_ui(planportfolioprivate_LIB_SRCS
     SchedulingView.ui
 )
 
-add_library(planportfolioprivate SHARED ${planportfolioprivate_LIB_SRCS})
+kconfig_add_kcfg_files(planportfoliosettings_SRCS config/portfoliosettings.kcfgc)
+
+add_library(planportfolioprivate SHARED ${planportfolioprivate_LIB_SRCS} ${planportfoliosettings_SRCS})
 generate_export_header(planportfolioprivate BASE_NAME planportfolio)
 
 target_link_libraries(planportfolioprivate

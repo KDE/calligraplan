@@ -1,0 +1,9 @@
+File=portfoliosettings.kcfg
+ClassName=PortfolioSettings
+Singleton=true
+Mutators=true
+Inherits=ConfigSkeleton
+IncludeFiles="ConfigSkeleton.h"
+TranslationSystem=kde
+TranslationDomain=calligraplangroup
+Visibility=PLANPORTFOLIO_EXPORT
