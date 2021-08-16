@@ -9,7 +9,7 @@
 
 #include "plan_export.h"
 
-#include <KoFactory.h>
+#include <KPluginFactory>
 
 class KAboutData;
 class KoComponentData;
@@ -17,7 +17,7 @@ class KoComponentData;
 namespace KPlato
 {
 
-class PLAN_EXPORT Factory : public KoFactory
+class PLAN_EXPORT Factory : public KPluginFactory
 {
     Q_OBJECT
 public:
@@ -25,6 +25,15 @@ public:
     ~Factory() override;
 
     QObject* create(const char* iface, QWidget* parentWidget, QObject *parent, const QVariantList& args, const QString& keyword) override;
+
+    static const KoComponentData &global();
+
+    static KAboutData* aboutData();
+
+private:
+    static KoComponentData* s_global;
+    static KAboutData* s_aboutData;
+
 };
 
 } // KPlato namespace

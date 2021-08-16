@@ -18,7 +18,6 @@ endif()
 
 set(komain_LIB_SRCS
     WelcomeView.cpp
-    KoFactory.cpp
 
     KoAutoSaveRecoveryDialog.cpp
     KoApplication.cpp

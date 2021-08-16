@@ -10,5 +10,5 @@ source ../../kundo2_aware_xgettext.sh
 
 # Note: Make sure to extract the required subdirectories.
 $EXTRACTRC *.ui *.kcfg *.rc config/*.ui >> rc.cpp
-kundo2_aware_xgettext $potfilename *.cpp ../libs/main/kptaboutdata.h config/*.cpp
+kundo2_aware_xgettext $potfilename *.cpp kptaboutdata.h config/*.cpp
 rm -f rc.cpp
