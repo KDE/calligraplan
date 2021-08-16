@@ -30,7 +30,7 @@ public:
 
     QMenu *popupMenu(const QString& name);
 
-    QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
+    KoPrintJob *createPrintJob() override;
 
 Q_SIGNALS:
     void openDocument(KoDocument *doc);

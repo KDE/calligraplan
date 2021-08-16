@@ -152,9 +152,13 @@ void View::setPageLayout(const KoPageLayout &pageLayout)
     KoView::setPageLayout(pageLayout);
 }
 
-QPrintDialog *View::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
+KoPrintJob * View::createPrintJob()
 {
-    return nullptr;
+    KoView *v = qobject_cast<KoView*>(m_views->currentPage()->widget());
+    if (v == nullptr) {
+        return nullptr;
+    }
+    return v->createPrintJob();
 }
 
 KPageWidgetItem *View::openDocument(KoDocument *doc)

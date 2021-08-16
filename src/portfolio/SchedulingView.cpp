@@ -208,7 +208,7 @@ void SchedulingView::updateReadWrite(bool readwrite)
     m_readWrite = readwrite;
 }
 
-QPrintDialog *SchedulingView::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
+KoPrintJob *SchedulingView::createPrintJob()
 {
     return nullptr;
 }

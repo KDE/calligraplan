@@ -37,7 +37,7 @@ public:
 
     QMenu *popupMenu(const QString& name);
 
-    QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
+    KoPrintJob *createPrintJob() override;
 
 public Q_SLOTS:
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);

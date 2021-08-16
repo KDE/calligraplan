@@ -124,7 +124,7 @@ QMenu * PortfolioView::popupMenu(const QString& name)
     return nullptr;
 }
 
-QPrintDialog *PortfolioView::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
+KoPrintJob *PortfolioView::createPrintJob()
 {
     return nullptr;
 }

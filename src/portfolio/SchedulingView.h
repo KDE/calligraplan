@@ -36,7 +36,7 @@ public:
     explicit SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent = nullptr);
     ~SchedulingView() override;
 
-    QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
+    KoPrintJob *createPrintJob() override;
 
     QString schedulerKey() const;
 

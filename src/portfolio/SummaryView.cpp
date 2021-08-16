@@ -79,7 +79,7 @@ QMenu * SummaryView::popupMenu(const QString& name)
     return nullptr;
 }
 
-QPrintDialog *SummaryView::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
+KoPrintJob *SummaryView::createPrintJob()
 {
     return nullptr;
 }

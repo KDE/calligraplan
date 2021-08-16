@@ -113,7 +113,7 @@ void GanttView::slotCustomContextMenuRequested(const QPoint &pos)
 }
 
 
-QPrintDialog *GanttView::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
+KoPrintJob *GanttView::createPrintJob()
 {
     return nullptr;
 }

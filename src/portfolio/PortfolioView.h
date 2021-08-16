@@ -27,7 +27,7 @@ public:
 
     QMenu *popupMenu(const QString& name);
 
-    QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
+    KoPrintJob *createPrintJob() override;
 
     void loadProject(const QUrl &url);
 

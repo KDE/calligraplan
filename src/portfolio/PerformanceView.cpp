@@ -120,7 +120,7 @@ QMenu * PerformanceView::popupMenu(const QString& name)
     return nullptr;
 }
 
-QPrintDialog *PerformanceView::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
+KoPrintJob *PerformanceView::createPrintJob
 {
     return nullptr;
 }

@@ -32,7 +32,7 @@ public:
     KoPageLayout pageLayout() const override;
     void setPageLayout(const KoPageLayout &pageLayout) override;
 
-    QPrintDialog* createPrintDialog(KoPrintJob*, QWidget*) override;
+    KoPrintJob *createPrintJob() override;
 
     KPageWidgetItem *openDocument(KoDocument *doc);
 

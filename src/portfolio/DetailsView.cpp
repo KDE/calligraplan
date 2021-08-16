@@ -81,9 +81,9 @@ QMenu * DetailsView::popupMenu(const QString& name)
     return nullptr;
 }
 
-QPrintDialog *DetailsView::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
+KoPrintJob *DetailsView::createPrintJob()
 {
-    return nullptr;
+    return m_detailsView->createPrintJob();
 }
 
 void DetailsView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
