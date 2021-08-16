@@ -8,7 +8,6 @@ potfilename=calligraplan.pot
 
 source ../../kundo2_aware_xgettext.sh
 
-# Note: Make sure to extract the required subdirectories.
-$EXTRACTRC *.ui *.kcfg *.rc config/*.ui >> rc.cpp
-kundo2_aware_xgettext $potfilename *.cpp kptaboutdata.h config/*.cpp
+$EXTRACTRC `find . -name \*.ui -o -name \*.kcfg -o \*.rc | grep -v '/tests/'` >> rc.cpp
+kundo2_aware_xgettext $potfilename `find . -name \*.cpp -o -name \*.h | grep -v '/tests/'`
 rm -f rc.cpp
