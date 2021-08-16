@@ -50,6 +50,8 @@ public:
 
     bool openTemplate(const QUrl& url) override;
 
+    bool showWelcomeView() const override { return true; }
+
 public Q_SLOTS:
     void openTaskModule(const QUrl& url);
     void finish();

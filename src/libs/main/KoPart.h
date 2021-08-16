@@ -131,6 +131,8 @@ public:
      */
     virtual bool openTemplate(const QUrl &url);
 
+    virtual bool showWelcomeView() const { return false; }
+
 public Q_SLOTS:
     /**
      * This slot loads an existing file and deletes the start up widget.

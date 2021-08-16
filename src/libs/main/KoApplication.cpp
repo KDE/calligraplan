@@ -273,20 +273,18 @@ bool KoApplication::start(const KoComponentData &componentData)
                 return true;
             }
         }
-        if (applicationName() == QStringLiteral("calligraplanportfolio")) {
-            KoPart *part = getPart(applicationName(), d->nativeMimeType);
-            if (!part) {
-                return false;
-            }
-            KoMainWindow *mainWindow = part->createMainWindow();
+        KoPart *part = getPart(applicationName(), d->nativeMimeType);
+        if (!part) {
+            return false;
+        }
+        KoMainWindow *mainWindow = part->createMainWindow();
+        if (part->showWelcomeView()) {
+            mainWindow->openWelcomeView();
+        } else {
             part->addMainWindow(mainWindow);
             mainWindow->setRootDocument(part->document(), part);
             mainWindow->show();
-            return true;
         }
-        // show welcome view
-        KoMainWindow *mainWindow = new KoMainWindow(d->nativeMimeType, componentData);
-        mainWindow->openWelcomeView();
         return true;
     } else {
         const bool benchmarkLoading = parser.isSet("benchmark-loading")
