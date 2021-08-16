@@ -113,6 +113,8 @@ install( FILES
         Portfolio_DetailsViewUi.rc
         Portfolio_SchedulingViewUi.rc
         Portfolio_GanttViewUi.rc
+        ../libs/ui/TaskStatusViewUi.rc
+        ../libs/ui/GanttViewUi.rc
     DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplanportfolio
 )
 
