@@ -9,7 +9,7 @@
 
 #include "planportfolio_export.h"
 
-#include <KoView.h>
+#include <kptviewbase.h>
 
 class KoDocument;
 class KoPrintJob;
@@ -20,7 +20,7 @@ namespace KPlato {
     class GanttViewBase;
 }
 
-class PLANPORTFOLIO_EXPORT GanttView : public KoView
+class PLANPORTFOLIO_EXPORT GanttView : public KPlato::ViewBase
 {
     Q_OBJECT
 

@@ -132,7 +132,7 @@ class GanttPrintingDialog : public PrintingDialog
 {
     Q_OBJECT
 public:
-    GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt);
+    PLANUI_EXPORT GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt);
 
     void startPrinting(RemovePolicy removePolicy) override;
     QList<QWidget*> createOptionWidgets() const override;

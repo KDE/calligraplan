@@ -34,7 +34,7 @@
 #include <QDomDocument>
 
 GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
-    : KoView(part, doc, parent)
+    : KPlato::ViewBase(part, doc, parent)
     , m_readWrite(false)
 {
     //debugPlan;
@@ -115,5 +115,5 @@ void GanttView::slotCustomContextMenuRequested(const QPoint &pos)
 
 KoPrintJob *GanttView::createPrintJob()
 {
-    return nullptr;
+    return new KPlato::GanttPrintingDialog(this, m_view);
 }
