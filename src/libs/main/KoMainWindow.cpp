@@ -465,7 +465,10 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
     d->rootViews.clear();
     KoDocument *oldRootDoc = d->rootDocument;
     KoPart *oldRootPart = d->rootPart;
-
+    // De-activate gui or else menus may be messed up
+    for (auto v : oldRootViews) {
+        v->guiActivateEvent(false);
+    }
     if (oldRootDoc) {
         oldRootDoc->disconnect(this);
         oldRootPart->removeMainWindow(this);
