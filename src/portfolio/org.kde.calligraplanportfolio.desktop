@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Plan Portfolio
 Name[ca]=Portafolis del Plan
+Name[cs]=Naplánovat portfolio
 Name[en_GB]=Plan Portfolio
 Name[es]=Plan Portafolio
 Name[fr]=Collections de planning
@@ -13,6 +14,7 @@ Name[uk]=Портфоліо Plan
 Name[x-test]=xxPlan Portfolioxx
 GenericName=Project Portfolio Management
 GenericName[ca]=Gestió del portafolis de projectes
+GenericName[cs]=Správa projektů portfolia
 GenericName[en_GB]=Project Portfolio Management
 GenericName[es]=Gestión de portafolios de proyectos
 GenericName[fr]=Gestion des plannings de projets
