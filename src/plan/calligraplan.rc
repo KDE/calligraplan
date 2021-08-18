@@ -18,10 +18,6 @@
             <Separator />
             <Merge/>
             <Separator />
-            <Action name="file_print" />
-            <Action name="file_print_preview" />
-            <Action name="file_export_pdf" />
-            <Separator/>
             <Action name="file_createtemplate"/>
             <Action name="file_createnewproject"/>
             <Separator/>
