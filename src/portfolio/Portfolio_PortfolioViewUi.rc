@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="portfolioview" version="1" translationDomain="calligraplangroup">
+<gui name="Configuration View" version="1" translationDomain="calligraplangroup">
     <MenuBar>
         <Menu name="edit"><text>&amp;Edit</text>
             <Action name="add_project"/>
@@ -15,7 +15,7 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="mainToolBar">
+    <ToolBar name="edit_toolbar"  fullWidth="false"><text>Tools</text>
         <Action name="add_project"/>
         <Action name="remove_selected"/>
     </ToolBar>

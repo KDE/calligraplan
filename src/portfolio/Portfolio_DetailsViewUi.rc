@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="Progress" version="1" translationDomain="calligraplangroup">
+<gui name="Progress View" version="1" translationDomain="calligraplangroup">
     <MenuBar>
-       <Menu name="edit"><text>&amp;Edit</text>
-       </Menu>
-        <Menu name="view"><text>&amp;View</text>
+       <Menu name="view"><text>&amp;View</text>
             <Action name="print"/>
             <Action name="print_preview"/>
             <Action name="print_pdf"/>

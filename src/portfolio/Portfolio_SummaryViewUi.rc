@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="summaryview" version="1" translationDomain="calligraplangroup">
+<gui name="Summary View" version="1" translationDomain="calligraplangroup">
     <MenuBar>
         <Menu name="view"><text>&amp;View</text>
             <Action name="print"/>

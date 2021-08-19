@@ -45,15 +45,13 @@
             <Action name="plan_introduction"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="mainToolBar" fullWidth="false"><text>Main Toolbar</text>
+    <ToolBar name="file_toolbar" fullWidth="false"><text>File</text>
         <Action name="file_new" />
         <Action name="file_open" />
         <Action name="file_save" />
-        <!--
-        <Action name="file_print" />
-        <Action name="file_print_preview" />
-        //-->
         <Separator/>
+    </ToolBar>
+    <ToolBar name="edit_toolbar" fullWidth="false"><text>Edit</text>
         <Action name="edit_undo"/>
         <Action name="edit_redo"/>
     </ToolBar>
