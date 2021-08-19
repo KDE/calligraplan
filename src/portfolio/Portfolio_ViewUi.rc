@@ -21,8 +21,7 @@
             <Separator/>
             <Action name="file_documentinfo" />
             <DefineGroup name="file_infos" />
-            <Separator />
-            <Action name="file_close" />
+            <Action name="file_close" group="file_close"/>
         </Menu>
        <Menu name="edit" NoMerge="1"><text>&amp;Edit</text>
             <Action name="edit_undo"/>
