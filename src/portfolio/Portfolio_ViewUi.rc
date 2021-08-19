@@ -35,13 +35,9 @@
         <Menu name="view" NoMerge="1"><text>&amp;View</text>
             <Action name="view_newview"/>
             <Separator/>
-            <ActionList name="view_docker_list"/>
-            <Separator/>
             <ActionList name="viewmenu"/>
         </Menu>
         <Menu name="settings" NoMerge="1"><text>&amp;Settings</text>
-<!--            <Action name="view_toggledockertitlebars" group="settings_configure"/>
-            <Action name="settings_dockers_menu" group="settings_configure"/>-->
             <Separator/>
             <Action name="configure" group="settings_configure"/>
         </Menu>
