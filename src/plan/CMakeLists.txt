@@ -44,7 +44,6 @@ set(planprivate_LIB_SRCS
     kptconfigskeleton.cpp
 
     kptinsertfiledlg.cpp
-    kptloadsharedprojectsdialog.cpp
 
     KPlatoXmlLoader.cpp
 )

@@ -58,7 +58,6 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
  //   useSharedResources->setEnabled(!project.isSharedResourcesLoaded());
     useSharedResources->setChecked(project.useSharedResources());
     resourcesFile->setText(project.sharedResourcesFile());
-    projectsPlace->setText(project.sharedProjectsUrl().toDisplayString());
 
     const Project::WorkPackageInfo wpi = p.workPackageInfo();
     ui_CheckForWorkPackages->setChecked(wpi.checkForWorkPackages);
@@ -110,20 +109,7 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
                                            " accessible by you."
                                            ));
     s = xi18nc("@info:tooltip", "File where shared resources are defined");
-    resourcesLabel->setToolTip(s);
-    resourcesType->setToolTip(s);
     resourcesFile->setToolTip(s);
-
-    s = xi18nc("@info:tooltip", "Directory where all the projects that share resources can be found");
-    projectsLabel->setToolTip(s);
-    projectsType->setToolTip(s);
-    projectsPlace->setToolTip(s);
-
-    projectsLoadAtStartup->setChecked(project.loadProjectsAtStartup());
-    projectsLoadAtStartup->setToolTip(xi18nc("@info:tooltip", "Load shared resource assignments at startup"));
-
-    projectsLoadBtn->setToolTip(xi18nc("@info:tooltip", "Load (or re-load) shared resource assignments"));
-    projectsClearBtn->setToolTip(xi18nc("@info:tooltip", "Clear shared resource assignments"));
 
     initTaskModules();
 
@@ -138,15 +124,9 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     connect(leaderfield, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
     connect(useSharedResources, &QGroupBox::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled);
     connect(resourcesFile, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
-    connect(projectsPlace, &QLineEdit::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
-    connect(projectsLoadAtStartup, &QAbstractButton::toggled, this, &MainProjectPanel::slotCheckAllFieldsFilled);
     connect(chooseLeader, &QAbstractButton::clicked, this, &MainProjectPanel::slotChooseLeader);
 
     connect(resourcesBrowseBtn, &QAbstractButton::clicked, this, &MainProjectPanel::openResourcesFile);
-    connect(projectsBrowseBtn, &QAbstractButton::clicked, this, &MainProjectPanel::openProjectsPlace);
-
-    connect(projectsLoadBtn, &QAbstractButton::clicked, this, &MainProjectPanel::loadProjects);
-    connect(projectsClearBtn, &QAbstractButton::clicked, this, &MainProjectPanel::clearProjects);
 
     connect(ui_CheckForWorkPackages, &QCheckBox::stateChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
     connect(ui_RetrieveUrl, &KUrlRequester::textEdited, this, &MainProjectPanel::slotCheckAllFieldsFilled);
@@ -212,19 +192,6 @@ MacroCommand *MainProjectPanel::buildCommand() {
         if (!m) m = new MacroCommand(c);
         m->addCommand(new SharedResourcesFileCmd(&project, resourcesFile->text()));
     }
-    QString place = projectsPlace->text();
-    if (projectsType->currentIndex() == 0 /*dir*/ && !place.isEmpty() && !place.endsWith('/')) {
-        place.append('/');
-    }
-    QUrl sharedProjectsUrl(place);
-    if (project.sharedProjectsUrl() != sharedProjectsUrl) {
-        if (!m) m = new MacroCommand(c);
-        m->addCommand(new SharedProjectsUrlCmd(&project, sharedProjectsUrl));
-    }
-    if (project.loadProjectsAtStartup() != projectsLoadAtStartup->isChecked()) {
-        if (!m) m = new MacroCommand(c);
-        m->addCommand(new LoadProjectsAtStartupCmd(&project, projectsLoadAtStartup->isChecked()));
-    }
     MacroCommand *cmd = m_description->buildCommand();
     if (cmd) {
         if (!m) m = new MacroCommand(c);
@@ -278,9 +245,6 @@ void MainProjectPanel::slotCheckAllFieldsFilled()
     bool state = !namefield->text().isEmpty();
     if (state && useSharedResources->isChecked()) {
         state = !resourcesFile->text().isEmpty();
-        if (state && projectsLoadAtStartup->isChecked()) {
-            state = !projectsPlace->text().isEmpty();
-        }
     }
     Q_EMIT obligatedFieldsFilled(state);
 }
@@ -356,40 +320,9 @@ void MainProjectPanel::openResourcesFile()
     resourcesFile->setText(fileName);
 }
 
-void MainProjectPanel::openProjectsPlace()
-{
-    if (projectsType->currentIndex() == 0 /*Directory*/) {
-        debugPlan<<"Directory";
-        QString dirName = QFileDialog::getExistingDirectory(this, tr("Projects Directory"));
-        projectsPlace->setText(dirName);
-        return;
-    }
-    if (projectsType->currentIndex() == 1 /*File*/) {
-        QString fileName = QFileDialog::getOpenFileName(this, tr("Open Projects"), "", tr("Projects file (*)"));
-        projectsPlace->setText(fileName);
-        return;
-    }
-    Q_ASSERT(false); // Unimplemented projects type
-}
-
 bool MainProjectPanel::loadSharedResources() const
 {
     return useSharedResources->isChecked();
-}
-
-void MainProjectPanel::loadProjects()
-{
-    QString place = projectsPlace->text();
-    if (projectsType->currentIndex() == 0 /*dir*/ && !place.isEmpty() && !place.endsWith('/')) {
-        place.append('/');
-    }
-    QUrl url(place);
-    Q_EMIT loadResourceAssignments(url);
-}
-
-void MainProjectPanel::clearProjects()
-{
-    Q_EMIT clearResourceAssignments();
 }
 
 void MainProjectPanel::insertTaskModuleClicked()

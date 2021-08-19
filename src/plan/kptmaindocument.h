@@ -161,7 +161,7 @@ public Q_SLOTS:
 
     void setSkipSharedResourcesAndProjects(bool skip);
 
-    void insertResourcesFile(const QUrl &url, const QUrl &projects = QUrl());
+    void insertResourcesFile(const QUrl &url);
     void slotProjectCreated();
 
     /// Prepare for insertion of resource assignments of shared resources from the project(s) in @p urls

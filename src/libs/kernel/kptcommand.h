@@ -1891,32 +1891,6 @@ private:
     bool m_newValue;
 };
 
-class  PLANKERNEL_EXPORT SharedProjectsUrlCmd : public NamedCommand
-{
-public:
-    explicit SharedProjectsUrlCmd(Project *project, const QUrl &newValue, const KUndo2MagicString& name = KUndo2MagicString());
-    void execute() override;
-    void unexecute() override;
-
-private:
-    Project *m_project;
-    QUrl m_oldValue;
-    QUrl m_newValue;
-};
-
-class  PLANKERNEL_EXPORT LoadProjectsAtStartupCmd : public NamedCommand
-{
-public:
-    explicit LoadProjectsAtStartupCmd(Project *project, bool newValue, const KUndo2MagicString& name = KUndo2MagicString());
-    void execute() override;
-    void unexecute() override;
-
-private:
-    Project *m_project;
-    bool m_oldValue;
-    bool m_newValue;
-};
-
 }  //KPlato namespace
 
 #endif //COMMAND_H

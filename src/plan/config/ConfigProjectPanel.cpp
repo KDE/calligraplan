@@ -32,7 +32,6 @@ ConfigProjectPanelImpl::ConfigProjectPanelImpl(QWidget *p)
     initDescription();
 
     connect(resourceFileBrowseBtn, &QAbstractButton::clicked, this, &ConfigProjectPanelImpl::resourceFileBrowseBtnClicked);
-    connect(projectsPlaceBrowseBtn, &QAbstractButton::clicked, this, &ConfigProjectPanelImpl::projectsPlaceBrowseBtnClicked);
 
     QString tooltip = xi18nc("@info:tooltip", "The project manager of this project.");
     kcfg_Manager->setToolTip(tooltip);
@@ -43,9 +42,6 @@ ConfigProjectPanelImpl::ConfigProjectPanelImpl(QWidget *p)
     tooltip = xi18nc("@info:tooltip", "The file where shared resources are defined");
     kcfg_SharedResourcesFile->setToolTip(tooltip);
     srflabel->setToolTip(tooltip);
-    tooltip = xi18nc("@info:tooltip", "The directory where projects sharing the resources are placed");
-    kcfg_SharedProjectsPlace->setToolTip(tooltip);
-    spplabel->setToolTip(tooltip);
 }
 
 void ConfigProjectPanelImpl::resourceFileBrowseBtnClicked()
@@ -55,15 +51,6 @@ void ConfigProjectPanelImpl::resourceFileBrowseBtnClicked()
     dialog.setNameFilters(QStringList()<<tr("Plan file (*.plan)"));
     if (dialog.exec()) {
         kcfg_SharedResourcesFile->setText(dialog.selectedFiles().value(0));
-    }
-}
-
-void ConfigProjectPanelImpl::projectsPlaceBrowseBtnClicked()
-{
-    QFileDialog dialog(this, tr("Shared projects place"));
-    dialog.setFileMode(QFileDialog::Directory);
-    if (dialog.exec()) {
-        kcfg_SharedProjectsPlace->setText(dialog.directory().absolutePath());
     }
 }
 

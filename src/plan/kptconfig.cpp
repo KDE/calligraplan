@@ -117,7 +117,6 @@ void Config::setDefaultValues(Project &project) const
     project.setLeader(KPlatoSettings::manager());
     project.setUseSharedResources(KPlatoSettings::useSharedResources());
     project.setSharedResourcesFile(KPlatoSettings::sharedResourcesFile());
-    project.setSharedProjectsUrl(QUrl(KPlatoSettings::sharedProjectsPlace()));
     project.setDescription(KPlatoSettings::projectDescription());
 
     StandardWorktime *v = project.standardWorktime();

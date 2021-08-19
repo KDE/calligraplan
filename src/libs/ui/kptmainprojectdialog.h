@@ -31,9 +31,6 @@ public:
 
 Q_SIGNALS:
     void dialogFinished(int);
-    void sigLoadSharedResources(const QString &file, const QUrl &projects, bool loadProjects=false);
-    void loadResourceAssignments(QUrl url);
-    void clearResourceAssignments();
 
 protected Q_SLOTS:
     void slotRejected();

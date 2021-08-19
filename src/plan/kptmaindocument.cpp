@@ -874,11 +874,7 @@ bool MainDocument::completeLoading(KoStore *store)
     if (m_project->useSharedResources() && !m_project->sharedResourcesFile().isEmpty() && !m_skipSharedProjects) {
         QUrl url = QUrl::fromLocalFile(m_project->sharedResourcesFile());
         if (url.isValid()) {
-            QUrl projectsUrl;
-            if (!property(BLOCKSHAREDPROJECTSLOADING).toBool() && m_project->loadProjectsAtStartup()) {
-                projectsUrl = m_project->sharedProjectsUrl();
-            }
-            insertResourcesFile(url, projectsUrl);
+            insertResourcesFile(url);
         }
     }
     if (store == nullptr) {
@@ -1034,9 +1030,8 @@ void MainDocument::setSkipSharedResourcesAndProjects(bool skip)
     m_skipSharedProjects = skip;
 }
 
-void MainDocument::insertResourcesFile(const QUrl &url_, const QUrl &projects)
+void MainDocument::insertResourcesFile(const QUrl &url_)
 {
-    insertSharedProjects(projects); // prepare for insertion after shared resources
     debugPlanShared<<"Loading project:"<<this->url()<<"shared resources:"<<url_;
     QUrl url = url_;
     // We only handle local files atm

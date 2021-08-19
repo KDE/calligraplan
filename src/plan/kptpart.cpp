@@ -158,7 +158,6 @@ bool Part::editProject()
     MainDocument *doc = qobject_cast<MainDocument*>(document());
     Q_ASSERT(doc);
     QPointer<MainProjectDialog> dia = new MainProjectDialog(*doc->project());
-    connect(dia.data(), &MainProjectDialog::sigLoadSharedResources, this, &Part::slotLoadSharedResources);
     int res = dia->exec();
     if (res == QDialog::Accepted) {
         MacroCommand *cmd = dia->buildCommand();
@@ -183,7 +182,7 @@ void Part::slotLoadSharedResources(const QString &file, const QUrl &projects, bo
         url.setScheme("file");
     }
     if (url.isValid()) {
-        doc->insertResourcesFile(url, loadProjectsAtStartup ? projects : QUrl());
+        doc->insertResourcesFile(url);
     }
 }
 

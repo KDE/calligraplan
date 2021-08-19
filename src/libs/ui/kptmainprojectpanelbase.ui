@@ -220,25 +220,9 @@
            <widget class="QWidget" name="resourcesWidget" native="true">
             <layout class="QGridLayout" name="gridLayout_3">
              <item row="0" column="0">
-              <widget class="QLabel" name="resourcesLabel">
-               <property name="text">
-                <string>Resources:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QComboBox" name="resourcesType">
-               <item>
-                <property name="text">
-                 <string>File</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="1" column="1">
               <widget class="QLineEdit" name="resourcesFile"/>
              </item>
-             <item row="1" column="2">
+             <item row="0" column="1">
               <widget class="QPushButton" name="resourcesBrowseBtn">
                <property name="text">
                 <string>Browse...</string>
@@ -248,69 +232,6 @@
                  <normaloff>.</normaloff>.</iconset>
                </property>
               </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="projectsLabel">
-               <property name="text">
-                <string>Projects:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QComboBox" name="projectsType">
-               <item>
-                <property name="text">
-                 <string>Directory</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="projectsPlace"/>
-             </item>
-             <item row="3" column="2">
-              <widget class="QPushButton" name="projectsBrowseBtn">
-               <property name="text">
-                <string>Browse...</string>
-               </property>
-               <property name="icon">
-                <iconset theme="document-open">
-                 <normaloff>.</normaloff>.</iconset>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0" colspan="3">
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
-               <item>
-                <widget class="QCheckBox" name="projectsLoadAtStartup">
-                 <property name="text">
-                  <string>Load resource assignments at startup</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="projectsLoadBtn">
-                 <property name="text">
-                  <string>Load</string>
-                 </property>
-                 <property name="icon">
-                  <iconset theme="document-import">
-                   <normaloff>.</normaloff>.</iconset>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="projectsClearBtn">
-                 <property name="text">
-                  <string>Clear</string>
-                 </property>
-                 <property name="icon">
-                  <iconset theme="edit-clear">
-                   <normaloff>.</normaloff>.</iconset>
-                 </property>
-                </widget>
-               </item>
-              </layout>
              </item>
             </layout>
            </widget>
@@ -580,15 +501,8 @@
   <tabstop>endTime</tabstop>
   <tabstop>tabWidget</tabstop>
   <tabstop>useSharedResources</tabstop>
-  <tabstop>resourcesType</tabstop>
   <tabstop>resourcesFile</tabstop>
   <tabstop>resourcesBrowseBtn</tabstop>
-  <tabstop>projectsType</tabstop>
-  <tabstop>projectsPlace</tabstop>
-  <tabstop>projectsBrowseBtn</tabstop>
-  <tabstop>projectsLoadAtStartup</tabstop>
-  <tabstop>projectsLoadBtn</tabstop>
-  <tabstop>projectsClearBtn</tabstop>
   <tabstop>ui_PublishUrl</tabstop>
   <tabstop>ui_CheckForWorkPackages</tabstop>
   <tabstop>ui_RetrieveUrl</tabstop>

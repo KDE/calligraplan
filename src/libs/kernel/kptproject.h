@@ -511,10 +511,6 @@ public:
     void setSharedResourcesLoaded(bool on);
     void setSharedResourcesFile(const QString &file);
     QString sharedResourcesFile() const;
-    void setSharedProjectsUrl(const QUrl &url);
-    QUrl sharedProjectsUrl() const;
-    void setLoadProjectsAtStartup(bool value);
-    bool loadProjectsAtStartup() const;
 
     QList<QUrl> taskModules(bool includeLocal = true) const;
     void setTaskModules(const QList<QUrl> modules, bool useLocalTaskModules);

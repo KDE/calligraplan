@@ -3663,40 +3663,4 @@ void UseSharedResourcesCmd::unexecute()
     m_project->setUseSharedResources(m_oldValue);
 }
 
-SharedProjectsUrlCmd::SharedProjectsUrlCmd(Project *project, const QUrl &newValue, const KUndo2MagicString& name)
-    : NamedCommand(name)
-    , m_project(project)
-    , m_oldValue(project->sharedProjectsUrl())
-    , m_newValue(newValue)
-{
-}
-
-void SharedProjectsUrlCmd::execute()
-{
-    m_project->setSharedProjectsUrl(m_newValue);
-}
-
-void SharedProjectsUrlCmd::unexecute()
-{
-    m_project->setSharedProjectsUrl(m_oldValue);
-}
-
-LoadProjectsAtStartupCmd::LoadProjectsAtStartupCmd(Project *project, bool newValue, const KUndo2MagicString& name)
-    : NamedCommand(name)
-    , m_project(project)
-    , m_oldValue(project->loadProjectsAtStartup())
-    , m_newValue(newValue)
-{
-}
-
-void LoadProjectsAtStartupCmd::execute()
-{
-    m_project->setLoadProjectsAtStartup(m_newValue);
-}
-
-void LoadProjectsAtStartupCmd::unexecute()
-{
-    m_project->setLoadProjectsAtStartup(m_oldValue);
-}
-
 }  //KPlato namespace

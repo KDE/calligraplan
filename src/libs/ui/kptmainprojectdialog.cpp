@@ -26,8 +26,6 @@ MainProjectDialog::MainProjectDialog(Project &p, QWidget *parent, bool edit)
     setDefaultButton(Ok);
     showButtonSeparator(true);
     panel = new MainProjectPanel(project, this);
-    panel->projectsLoadBtn->setVisible(edit);
-    panel->projectsClearBtn->setVisible(edit);
 
     setMainWidget(panel);
     enableButtonOk(false);
@@ -36,9 +34,6 @@ MainProjectDialog::MainProjectDialog(Project &p, QWidget *parent, bool edit)
     connect(this, &QDialog::rejected, this, &MainProjectDialog::slotRejected);
     connect(this, &QDialog::accepted, this, &MainProjectDialog::slotOk);
     connect(panel, &MainProjectPanel::obligatedFieldsFilled, this, &KoDialog::enableButtonOk);
-
-    connect(panel, &MainProjectPanel::loadResourceAssignments, this, &MainProjectDialog::loadResourceAssignments);
-    connect(panel, &MainProjectPanel::clearResourceAssignments, this, &MainProjectDialog::clearResourceAssignments);
 }
 
 void MainProjectDialog::slotRejected()
@@ -55,12 +50,6 @@ void MainProjectDialog::slotOk() {
         if (file.startsWith('/')) {
             file.prepend("file:/");
         }
-        QString place = panel->projectsPlace->text();
-        if (panel->projectsType->currentIndex() == 0 /*dir*/ && !place.isEmpty() && !place.endsWith('/')) {
-            place.append('/');
-        }
-        QUrl url(place);
-        Q_EMIT sigLoadSharedResources(file, url, panel->projectsLoadAtStartup->isChecked());
     }
     Q_EMIT dialogFinished(QDialog::Accepted);
 }

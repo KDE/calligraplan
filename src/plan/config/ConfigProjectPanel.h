@@ -27,7 +27,6 @@ public:
 
 public Q_SLOTS:
     void resourceFileBrowseBtnClicked();
-    void projectsPlaceBrowseBtnClicked();
 };
 
 class PLAN_EXPORT ConfigProjectPanel : public ConfigProjectPanelImpl

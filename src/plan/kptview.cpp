@@ -89,7 +89,6 @@
 #include "kptsplitterview.h"
 #include "kptpertresult.h"
 #include "kptinsertfiledlg.h"
-#include "kptloadsharedprojectsdialog.h"
 #include "kptlocaleconfigmoneydialog.h"
 #include "kptflatproxymodel.h"
 #include "kpttaskstatusmodel.h"
@@ -228,10 +227,6 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     actionInsertFile  = new QAction(koIcon("document-import"), i18n("Insert Project File..."), this);
     actionCollection()->addAction("insert_file", actionInsertFile);
     connect(actionInsertFile, &QAction::triggered, this, &View::slotInsertFile);
-
-    actionLoadSharedProjects  = new QAction(koIcon("document-import"), i18n("Load Shared Projects..."), this);
-    actionCollection()->addAction("load_shared_projects", actionLoadSharedProjects);
-    connect(actionLoadSharedProjects, &QAction::triggered, this, &View::slotLoadSharedProjects);
 
 #ifdef PLAN_USE_KREPORT
     actionOpenReportFile  = new QAction(koIcon("document-open"), i18n("Open Report Definition File..."), this);
@@ -1383,9 +1378,9 @@ void View::slotViewSelector(bool show)
     m_viewlist->setVisible(show);
 }
 
-void View::slotInsertResourcesFile(const QString &file, const QUrl &projects)
+void View::slotInsertResourcesFile(const QString &file)
 {
-    getPart()->insertResourcesFile(QUrl(file), projects);
+    getPart()->insertResourcesFile(QUrl(file));
 }
 
 void View::slotInsertFile()
@@ -1403,25 +1398,6 @@ void View::slotInsertFileFinished(int result)
     }
     if (result == QDialog::Accepted) {
         getPart()->insertFile(dlg->url(), dlg->parentNode(), dlg->afterNode());
-    }
-    dlg->deleteLater();
-}
-
-void View::slotLoadSharedProjects()
-{
-    LoadSharedProjectsDialog *dlg = new LoadSharedProjectsDialog(getProject(), getPart()->url(), this);
-    connect(dlg, &QDialog::finished, this, &View::slotLoadSharedProjectsFinished);
-    dlg->open();
-}
-
-void View::slotLoadSharedProjectsFinished(int result)
-{
-    LoadSharedProjectsDialog *dlg = qobject_cast<LoadSharedProjectsDialog*>(sender());
-    if (dlg == nullptr) {
-        return;
-    }
-    if (result == QDialog::Accepted) {
-        getPart()->insertSharedProjects(dlg->urls());
     }
     dlg->deleteLater();
 }
@@ -1713,9 +1689,6 @@ void View::slotOpenNode(Node *node)
                 Project * project = static_cast<Project *>(node);
                 MainProjectDialog *dia = new MainProjectDialog(*project, this);
                 connect(dia, &MainProjectDialog::dialogFinished, this, &View::slotProjectEditFinished);
-                connect(dia, &MainProjectDialog::sigLoadSharedResources, this, &View::slotInsertResourcesFile);
-                connect(dia, &MainProjectDialog::loadResourceAssignments, getPart(), &MainDocument::loadResourceAssignments);
-                connect(dia, &MainProjectDialog::clearResourceAssignments, getPart(), &MainDocument::clearResourceAssignments);
                 dia->open();
                 break;
             }

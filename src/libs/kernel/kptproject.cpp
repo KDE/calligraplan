@@ -3618,26 +3618,6 @@ QString Project::sharedResourcesFile() const
     return m_sharedResourcesFile;
 }
 
-void Project::setSharedProjectsUrl(const QUrl &url)
-{
-    m_sharedProjectsUrl = url;
-}
-
-QUrl Project::sharedProjectsUrl() const
-{
-    return m_sharedProjectsUrl;
-}
-
-void Project::setLoadProjectsAtStartup(bool value)
-{
-    m_loadProjectsAtStartup = value;
-}
-
-bool Project::loadProjectsAtStartup() const
-{
-    return m_loadProjectsAtStartup;
-}
-
 QList<QUrl> Project::taskModules(bool includeLocal) const
 {
     if (!includeLocal && m_useLocalTaskModules) {
