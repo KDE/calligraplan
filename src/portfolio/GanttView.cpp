@@ -100,7 +100,7 @@ void GanttView::openProject()
 {
     QModelIndex idx = m_view->leftView()->selectionModel()->selectedRows().value(0);
     KoDocument *doc = idx.data(DOCUMENT_ROLE).value<KoDocument*>();
-    Q_EMIT openDocument(doc);
+    Q_EMIT openKoDocument(doc);
 }
 
 void GanttView::updateReadWrite(bool readwrite)

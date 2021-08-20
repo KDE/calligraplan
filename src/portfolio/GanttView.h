@@ -33,7 +33,7 @@ public:
     KoPrintJob *createPrintJob() override;
 
 Q_SIGNALS:
-    void openDocument(KoDocument *doc);
+    void openKoDocument(KoDocument *doc);
 
 protected:
     void updateReadWrite(bool readwrite) override;

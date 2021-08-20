@@ -78,7 +78,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     item = m_views->addPage(gv, i18n("Gantt Summary"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("calligraplan"));
-    connect(gv, &GanttView::openDocument, this, &View::slotOpenDocument);
+    connect(gv, &GanttView::openKoDocument, this, &View::slotOpenDocument);
 
     // NOTE: Adding a new view to KPageWidget outside the c'tor gives problems with resize (shrinking),
     // so atm we create everything now.
