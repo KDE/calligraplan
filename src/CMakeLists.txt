@@ -57,7 +57,8 @@ set(PLANMODELS_INCLUDES
 set(PLANUI_INCLUDES
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/ui
     ${CMAKE_CURRENT_BINARY_DIR}/libs/ui
-)    
+    ${PLAN_SOURCE_DIR}/libs/ui/gantt
+)
 
 set(PLAN_INCLUDES
     ${CMAKE_CURRENT_BINARY_DIR}/plan

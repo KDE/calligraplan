@@ -13,7 +13,8 @@
 #include <KGanttProxyModel>
 #include <KGanttTreeViewRowController>
 
-#include <gantt/GanttViewBase.h>
+#include <GanttViewBase.h>
+#include <BasicGanttViewSettingsDialog.h>
 
 #include <KoApplication.h>
 #include <KoComponentData.h>
@@ -32,6 +33,8 @@
 #include <QHeaderView>
 #include <QMenu>
 #include <QDomDocument>
+
+#include <KGanttGraphicsView>
 
 GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KPlato::ViewBase(part, doc, parent)
@@ -85,6 +88,12 @@ void GanttView::setupGui()
     auto a = new QAction(koIcon("view-time-schedule-calculus"), i18n("Open Project"), this);
     actionCollection()->addAction("gantt_open_project", a);
     connect(a, &QAction::triggered, this, &GanttView::openProject);
+
+    createOptionActions(ViewBase::OptionAll);
+    const auto actionList = contextActionList();
+    for (QAction *a : actionList) {
+        actionCollection()->addAction(a->objectName(), a);
+    }
 }
 
 void GanttView::openProject()
@@ -112,6 +121,15 @@ void GanttView::slotCustomContextMenuRequested(const QPoint &pos)
     }
 }
 
+void GanttView::slotOptions()
+{
+    auto dlg = new KPlato::BasicGanttViewSettingsDialog(m_view, this, sender()->objectName() == "print_options");
+    int result = dlg->exec();
+    if (result == QDialog::Accepted) {
+        m_view->graphicsView()->updateScene();
+        Q_EMIT optionsModified();
+    }
+}
 
 KoPrintJob *GanttView::createPrintJob()
 {

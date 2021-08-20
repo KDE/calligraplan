@@ -10,7 +10,7 @@ set_package_properties(SharedMimeInfo PROPERTIES
     TYPE REQUIRED
 )
 
-include_directories(${PLAN_INCLUDES} config)
+include_directories(${PLANKERNEL_INCLUDES} ${PLANUI_INCLUDES} config)
 
 set(planportfolioprivate_LIB_SRCS
     PlanGroupDebug.cpp

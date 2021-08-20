@@ -49,6 +49,8 @@ set(planui_LIB_SRCS
     gantt/DateTimeTimeLine.cpp
     gantt/DateTimeGrid.cpp
     gantt/GanttViewBase.cpp
+    gantt/BasicGanttViewSettingsDialog.cpp
+
     kptganttview.cpp
 
     kptworkpackagesendpanel.cpp
