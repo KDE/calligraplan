@@ -36,8 +36,6 @@ class QUrl;
  * This class is used to represent a main window
  * of a Calligra component. Each main window contains
  * a menubar and some toolbars.
- *
- * @note This class does NOT need to be subclassed in your application.
  */
 class KOMAIN_EXPORT KoMainWindow : public KXmlGuiWindow//, public KoCanvasSupervisor
 {
@@ -308,6 +306,21 @@ public Q_SLOTS:
     void toggleDockersVisibility(bool visible);
 
     /**
+     * Saves the document by calling saveDocumentInternal()
+     *
+     * @see saveDocumentInternal()
+     */
+    bool saveDocument(bool saveas = false, bool silent = false, int specialOutputFlag = 0);
+
+    void slotConfigure();
+
+    void openWelcomeView();
+
+protected:
+    /**
+     * Re-implemnt if you need special handling.
+     *
+     * By default:
      * Saves the document, asking for a filename if necessary.
      *
      * @param saveas if set to TRUE the user is always prompted for a filename
@@ -320,11 +333,26 @@ public Q_SLOTS:
      *         (don't display anything in this case, the error dialog box is also implemented here
      *         but restore the original URL in slotFileSaveAs)
      */
-    bool saveDocument(bool saveas = false, bool silent = false, int specialOutputFlag = 0);
+    virtual bool saveDocumentInternal(bool saveas, bool silent, int specialOutputFlag);
 
-    void slotConfigure();
+public Q_SLOTS:
+    /**
+     * Save the list of recent files.
+     */
+    void saveRecentFiles();
 
-    void openWelcomeView();
+    void slotLoadCompleted();
+    void slotLoadCanceled(const QString &);
+    void slotSaveCompleted();
+    void slotSaveCanceled(const QString &);
+    void forceDockTabFonts();
+
+    /**
+     * Slot to create a new view for the currently activate @ref #koDocument.
+     */
+    virtual void newView();
+
+    void slotPrintPreviewPaintRequest(QPrinter *printer);
 
 private:
     void closeEvent(QCloseEvent * e) override;
@@ -358,25 +386,6 @@ private:
     bool isImporting() const;
 
     KRecentFilesAction *recentAction() const;
-
-private Q_SLOTS:
-    /**
-     * Save the list of recent files.
-     */
-    void saveRecentFiles();
-
-    void slotLoadCompleted();
-    void slotLoadCanceled(const QString &);
-    void slotSaveCompleted();
-    void slotSaveCanceled(const QString &);
-    void forceDockTabFonts();
-
-    /**
-     * Slot to create a new view for the currently activate @ref #koDocument.
-     */
-    virtual void newView();
-
-    void slotPrintPreviewPaintRequest(QPrinter *printer);
 
 // ---------------------  PartManager
 private:

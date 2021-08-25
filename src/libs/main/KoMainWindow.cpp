@@ -895,6 +895,11 @@ bool KoMainWindow::exportConfirmation(const QByteArray &outputFormat)
 
 bool KoMainWindow::saveDocument(bool saveas, bool silent, int specialOutputFlag)
 {
+    return saveDocumentInternal(saveas, silent, specialOutputFlag);
+}
+
+bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutputFlag)
+{
     if (!d->rootDocument || !d->rootPart) {
         return true;
     }
