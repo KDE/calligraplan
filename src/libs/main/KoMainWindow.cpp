@@ -1278,13 +1278,17 @@ bool KoMainWindow::queryClose()
 }
 
 // Helper method for slotFileNew and slotFileClose
-void KoMainWindow::openWelcomeView()
+bool KoMainWindow::openWelcomeView(KoPart *part)
 {
     KoDocument* doc = rootDocument();
     KoMainWindow *mainWindow = this;
+    KoPart *p = part ? QPointer<KoPart>(part) : d->activePart;
+    if (!p) {
+        return false;
+    }
     if (doc && !doc->isEmpty()) {
         // create a new main window
-        mainWindow = new KoMainWindow(d->nativeMimeType, d->componentData);
+        mainWindow = p->createMainWindow();
     } else if (doc) {
         // remove the empty doc
         setRootDocument(nullptr); // don't delete this main window when deleting the document
@@ -1292,11 +1296,14 @@ void KoMainWindow::openWelcomeView()
         d->rootDocument = nullptr;
     }
     if (!findChild<WelcomeView*>()) {
-        WelcomeView *v = new WelcomeView(mainWindow);
+        auto *v = p->createWelcomeView(mainWindow);
+        if (!v) {
+            return false;
+        }
         mainWindow->setCentralWidget(v);
     }
     mainWindow->show();
-    return;
+    return true;
 }
 
 void KoMainWindow::slotFileNew()

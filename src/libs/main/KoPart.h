@@ -131,7 +131,11 @@ public:
      */
     virtual bool openTemplate(const QUrl &url);
 
-    virtual bool showWelcomeView() const { return false; }
+    /**
+     * Re-implement to create welcome view.
+     * By default returns a nullptr.
+     */
+    virtual QWidget *createWelcomeView(KoMainWindow *) const { return nullptr; }
 
 public Q_SLOTS:
     /**

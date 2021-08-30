@@ -314,7 +314,7 @@ public Q_SLOTS:
 
     void slotConfigure();
 
-    void openWelcomeView();
+    bool openWelcomeView(KoPart *part = nullptr);
 
 protected:
     /**

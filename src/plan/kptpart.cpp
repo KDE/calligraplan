@@ -18,6 +18,7 @@
 #include "kptdebug.h"
 
 #include <KoComponentData.h>
+#include <WelcomeView.h>
 
 #include <KRecentFilesAction>
 #include <KXMLGUIFactory>
@@ -189,4 +190,9 @@ void Part::slotLoadSharedResources(const QString &file, const QUrl &projects, bo
 QString Part::recentFilesGroupName() const
 {
     return QStringLiteral("Recent Projects");
+}
+
+QWidget *Part::createWelcomeView(KoMainWindow *parent) const
+{
+    return new WelcomeView(parent);
 }

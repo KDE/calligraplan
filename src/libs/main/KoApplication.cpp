@@ -278,9 +278,7 @@ bool KoApplication::start(const KoComponentData &componentData)
             return false;
         }
         KoMainWindow *mainWindow = part->createMainWindow();
-        if (part->showWelcomeView()) {
-            mainWindow->openWelcomeView();
-        } else {
+        if (!mainWindow->openWelcomeView(part)) {
             part->addMainWindow(mainWindow);
             mainWindow->setRootDocument(part->document(), part);
             mainWindow->show();
