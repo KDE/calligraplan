@@ -41,6 +41,7 @@ class QDomDocument;
 #define SCHEDULINGPRIORITY "scheduling-priority"
 #define BLOCKSHAREDPROJECTSLOADING "blocksharedprojectsloading"
 #define NOUI "noui"
+#define SAVEEMBEDDED "save-embedded"
 
 // MSVC seems to need to know the declaration of the classes
 // we pass references of in, when used by external modules
