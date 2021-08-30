@@ -15,6 +15,8 @@ class KoDocument;
 
 class ProjectsFilterModel;
 
+class QAbstractItemView;
+
 class PortfolioModel : public KExtraColumnsProxyModel
 {
     Q_OBJECT
@@ -22,9 +24,11 @@ public:
     explicit PortfolioModel(QObject *parent = nullptr);
     ~PortfolioModel() override;
 
+    void setDelegates(QAbstractItemView *view);
+
     Qt::ItemFlags flags(const QModelIndex &idx) const override;
-    bool setData(const QModelIndex &idx, const QVariant &value, int role = Qt::EditRole) override;
     QVariant extraColumnData(const QModelIndex &parent, int row, int extraColumn, int role) const override;
+    bool setExtraColumnData(const QModelIndex &parent, int row, int extraColumn, const QVariant &value, int role = Qt::EditRole) override;
 
     void setPortfolio(MainDocument *doc);
     MainDocument *portfolio() const;

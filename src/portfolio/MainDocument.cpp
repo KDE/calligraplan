@@ -119,10 +119,11 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             KPlato::Project *proj = doc->project();
             Q_ASSERT(proj);
             proj->setName(name);
-            doc->setProperty(ISPORTFOLIO, p.attribute(QStringLiteral(ISPORTFOLIO)));
+            doc->setProperty(ISPORTFOLIO, p.attribute(QStringLiteral(ISPORTFOLIO)).toInt());
             doc->setProperty(SCHEDULEMANAGERNAME, p.attribute(QStringLiteral(SCHEDULEMANAGERNAME)));
             doc->setProperty(SCHEDULINGCONTROL, p.attribute(QStringLiteral(SCHEDULINGCONTROL)));
-            doc->setProperty(SCHEDULINGPRIORITY, p.attribute(QStringLiteral(SCHEDULINGPRIORITY)));
+            doc->setProperty(SCHEDULINGPRIORITY, p.attribute(QStringLiteral(SCHEDULINGPRIORITY)).toInt());
+            doc->setProperty(SAVEEMBEDDED, p.attribute(QStringLiteral(SAVEEMBEDDED)).toInt());
             addDocument(doc);
             doc->setProperty(BLOCKSHAREDPROJECTSLOADING, true);
             doc->openUrl(url);
@@ -151,6 +152,9 @@ void MainDocument::slotProjectDocumentLoaded()
 bool MainDocument::completeLoading(KoStore *store)
 {
     setModified(false);
+    for (auto doc : qAsConst(m_documents)) {
+        doc->setModified(false);
+    }
     Q_EMIT changed();
     return true;
 }
@@ -179,9 +183,10 @@ QDomDocument MainDocument::saveXML()
     for (KoDocument *doc : qAsConst(m_documents)) {
         QDomElement p = document.createElement("project");
         p.setAttribute(QStringLiteral(SCHEDULEMANAGERNAME), doc->property(SCHEDULEMANAGERNAME).toString());
-        p.setAttribute(QStringLiteral(ISPORTFOLIO), doc->property(ISPORTFOLIO).toBool());
+        p.setAttribute(QStringLiteral(ISPORTFOLIO), doc->property(ISPORTFOLIO).toBool() ? 1 : 0);
         p.setAttribute(QStringLiteral(SCHEDULINGCONTROL), doc->property(SCHEDULINGCONTROL).toString());
         p.setAttribute(QStringLiteral(SCHEDULINGPRIORITY), doc->property(SCHEDULINGPRIORITY).toString());
+        p.setAttribute(QStringLiteral(SAVEEMBEDDED), doc->property(SAVEEMBEDDED).toBool() ? 1 : 0);
         p.setAttribute(QStringLiteral("url"), QString(doc->url().toEncoded()));
         p.setAttribute(QStringLiteral("name"), doc->projectName());
         projects.appendChild(p);
@@ -210,20 +215,31 @@ void MainDocument::emitDocumentChanged(KoDocument *doc)
     Q_EMIT documentChanged(doc, m_documents.indexOf(doc));
 }
 
-void MainDocument::setDocumentProperty(KoDocument *doc, const char *name, const QVariant &value)
+bool MainDocument::isEqual(const char *s1, const char *s2) const
 {
-    int index = m_documents.indexOf(doc);
-    bool change = doc->property(name) != value;
-    if (change) {
+    return (strcmp(s1, s2) == 0);
+}
+
+bool MainDocument::setDocumentProperty(KoDocument *doc, const char *name, const QVariant &value)
+{
+    bool changed = doc->property(name) != value;
+    if (changed) {
         doc->setProperty(name, value);
-        if (!doc->isModified()) {
-            doc->setModified(true);
-        }
-        Q_EMIT documentChanged(doc, index);
-        if (name == SCHEDULEMANAGERNAME) {
+        Q_EMIT documentChanged(doc, m_documents.indexOf(doc));
+        if (isEqual(name, SCHEDULEMANAGERNAME)) {
             Q_EMIT doc->scheduleManagerChanged(doc->project()->findScheduleManagerByName(value.toString()));
         }
+        // These are actually properties of the main document
+        if (isEqual(name, ISPORTFOLIO)
+            || isEqual(name, SCHEDULEMANAGERNAME)
+            || isEqual(name, SCHEDULINGCONTROL)
+            || isEqual(name, SCHEDULINGPRIORITY)
+            || isEqual(name, SAVEEMBEDDED))
+        {
+            setModified(true);
+        }
     }
+    return changed;
 }
 
 bool MainDocument::addDocument(KoDocument *newdoc)
@@ -312,4 +328,14 @@ QMap<QString, KPlato::SchedulerPlugin*> MainDocument::schedulerPlugins() const
         return QMap<QString, KPlato::SchedulerPlugin*>();
     }
     return m_documents.first()->schedulerPlugins();
+}
+
+bool MainDocument::isChildrenModified() const
+{
+    for (const auto doc : qAsConst(m_documents)) {
+        if (doc->isModified()) {
+            return true;
+        }
+    }
+    return false;
 }

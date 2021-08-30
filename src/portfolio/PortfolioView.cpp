@@ -46,7 +46,7 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
     PortfolioModel *model = new PortfolioModel(m_view);
     model->setPortfolio(qobject_cast<MainDocument*>(doc));
     m_view->setModel(model);
-
+    model->setDelegates(m_view);
     connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PortfolioView::selectionChanged);
     updateActionsEnabled();
 }

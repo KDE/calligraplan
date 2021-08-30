@@ -8,10 +8,10 @@
 #include "Part.h"
 
 #include "View.h"
+#include "MainWindow.h"
 #include "MainDocument.h"
 #include "PortfolioFactory.h"
 
-#include <KoMainWindow.h>
 #include <KoComponentData.h>
 
 #include <QAction>
@@ -39,7 +39,7 @@ KoView *Part::createViewInstance(KoDocument *document, QWidget *parent)
 
 KoMainWindow *Part::createMainWindow()
 {
-    KoMainWindow *w = new KoMainWindow(PLANPORTFOLIO_MIME_TYPE, componentData());
+    MainWindow *w = new MainWindow(PLANPORTFOLIO_MIME_TYPE, componentData());
     QAction *handbookAction = w->action("help_contents");
     if (handbookAction) {
         disconnect(handbookAction, nullptr, nullptr, nullptr);

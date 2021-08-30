@@ -12,12 +12,14 @@
 
 #include <KoDocument.h>
 
+#include <QAbstractItemView>
 #include <QDebug>
 
 PortfolioModel::PortfolioModel(QObject *parent)
     : KExtraColumnsProxyModel(parent)
 {
     appendColumn(xi18nc("@title:column", "Portfolio"));
+    appendColumn(xi18nc("@title:column", "Storage"));
     appendColumn(xi18nc("@title:column", "File"));
 
     m_baseModel = new ProjectsFilterModel(this);
@@ -31,15 +33,21 @@ PortfolioModel::~PortfolioModel()
 {
 }
 
+void PortfolioModel::setDelegates(QAbstractItemView *view)
+{
+    view->setItemDelegateForColumn(1, new KPlato::EnumDelegate(view)); // Portfolio
+    view->setItemDelegateForColumn(2, new KPlato::EnumDelegate(view)); // Storage
+}
 
 Qt::ItemFlags PortfolioModel::flags(const QModelIndex &idx) const
 {
     Qt::ItemFlags flg = QAbstractItemModel::flags(idx);
     KoDocument *doc = documentFromIndex(idx);
     if (doc) {
-        int extraColumn = idx.column() - sourceModel()->columnCount();
+        int extraColumn = extraColumnForProxyColumn(idx.column());
         switch (extraColumn) {
-            case 0: {
+            case 0:
+            case 1: {
                 flg |= Qt::ItemIsEditable;
                 break;
             }
@@ -64,12 +72,35 @@ QVariant PortfolioModel::extraColumnData(const QModelIndex &parent, int row, int
                 case Qt::DisplayRole:
                     return doc->property(ISPORTFOLIO).toBool() ? i18n("Yes") : i18n("No");
                 case Qt::EditRole:
-                    return doc->property(ISPORTFOLIO).toBool();// ? i18n("Yes") : i18n("No");
+                    return doc->property(ISPORTFOLIO).toBool() ? 1 : 0;
+                case KPlato::Role::EnumList: {
+                    return  QStringList() << i18n("No") << i18n("Yes");
+                }
+                case KPlato::Role::EnumListValue: {
+                    return doc->property(ISPORTFOLIO).toBool() ? 1 : 0;
+                }
                 default: break;
             }
             break;
         }
         case 1: {
+            switch (role) {
+                case Qt::DisplayRole:
+                    return doc->property(SAVEEMBEDDED).toBool() ? i18n("Embedded") : i18n("External");
+                case Qt::EditRole: {
+                    return doc->property(SAVEEMBEDDED).toBool() ? 1 : 0;
+                }
+                case KPlato::Role::EnumList: {
+                    return  QStringList() << i18n("External") << i18n("Embedded");
+                }
+                case KPlato::Role::EnumListValue: {
+                    return doc->property(SAVEEMBEDDED).toBool() ? 1 : 0;
+                }
+                default: break;
+            }
+            break;
+        }
+        case 2: {
             switch (role) {
                 case Qt::DisplayRole:
                 case Qt::EditRole: {
@@ -84,20 +115,27 @@ QVariant PortfolioModel::extraColumnData(const QModelIndex &parent, int row, int
     return QVariant();
 }
 
-bool PortfolioModel::setData(const QModelIndex &idx, const QVariant &value, int role)
+bool PortfolioModel::setExtraColumnData(const QModelIndex &parent, int row, int extraColumn, const QVariant &value, int role)
 {
-    KoDocument *doc = documentFromIndex(idx);
-    if (!doc) {
-        return false;
-    }
     if (role == Qt::EditRole) {
-        int extraColumn = idx.column() - sourceModel()->columnCount();
+        auto doc = documentFromIndex(index(row, 0, parent));
+        if (!doc) {
+            return false;
+        }
         switch (extraColumn) {
             case 0: {
-                doc->setProperty(ISPORTFOLIO, value);
-                Q_EMIT dataChanged(idx, idx);
-                portfolio()->setModified(true);
-                return true;
+                if (portfolio()->setDocumentProperty(doc, ISPORTFOLIO, value)) {
+                    extraColumnDataChanged(parent, row, 0, QVector<int>()<<Qt::DisplayRole);
+                    return true;
+                }
+                break;
+            }
+            case 1: {
+                if (portfolio()->setDocumentProperty(doc, SAVEEMBEDDED, value)) {
+                    extraColumnDataChanged(parent, row, 0, QVector<int>()<<Qt::DisplayRole);
+                    return true;
+                }
+                break;
             }
             default: {
                 break;
@@ -119,5 +157,6 @@ MainDocument *PortfolioModel::portfolio() const
 
 KoDocument *PortfolioModel::documentFromIndex(const QModelIndex &idx) const
 {
-    return m_baseModel->documentFromIndex(mapToSource(idx));
+    const auto i = index(idx.row(), 0, idx.parent());
+    return m_baseModel->documentFromIndex(mapToSource(i));
 }

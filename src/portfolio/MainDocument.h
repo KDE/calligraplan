@@ -46,7 +46,9 @@ public:
     void setReadWrite(bool rw) override;
     void configChanged();
 
-    void setDocumentProperty(KoDocument *doc, const char *name, const QVariant &value);
+    /// Set property @p name in document p doc to @p value
+    /// If the property is changed, retun true, else false.
+    bool setDocumentProperty(KoDocument *doc, const char *name, const QVariant &value);
     bool addDocument(KoDocument *doc);
     void removeDocument(KoDocument *doc);
     QList<KoDocument*> documents() const;
@@ -79,6 +81,8 @@ public:
     QMap<QString, KPlato::SchedulerPlugin*> schedulerPlugins() const override;
     KPlato::SchedulerPlugin *schedulerPlugin(const QString &key) const;
 
+    bool isChildrenModified() const;
+
     using KoDocument::setModified;
 public Q_SLOTS:
     void setModified(bool mod) override;
@@ -100,6 +104,8 @@ protected:
     bool completeLoading(KoStore* store) override;
     /// Save kplato specific files
     bool completeSaving(KoStore* store) override;
+
+    bool isEqual(const char *s1, const char *s2) const;
 
 private:
     QList<KoDocument*> m_documents;

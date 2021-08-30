@@ -88,14 +88,18 @@ bool SchedulingModel::setExtraColumnData(const QModelIndex &parent, int row, int
             case 0: // Status
                 break;
             case 1: { // Control
-                portfolio()->setDocumentProperty(doc, SCHEDULINGCONTROL,  m_controlKeys.value(value.toInt()));
-                extraColumnDataChanged(parent, row, extraColumn, QVector<int>());
-                return true;
+                if (portfolio()->setDocumentProperty(doc, SCHEDULINGCONTROL,  m_controlKeys.value(value.toInt()))) {
+                    extraColumnDataChanged(parent, row, extraColumn, QVector<int>()<<Qt::DisplayRole);
+                    return true;
+                }
+                break;
             }
             case 2: { // Priority
-                portfolio()->setDocumentProperty(doc, SCHEDULINGPRIORITY, value);
-                extraColumnDataChanged(parent, row, extraColumn, QVector<int>());
-                return true;
+                if (portfolio()->setDocumentProperty(doc, SCHEDULINGPRIORITY, value)) {
+                    extraColumnDataChanged(parent, row, extraColumn, QVector<int>()<<Qt::DisplayRole);
+                    return true;
+                }
+                break;
             }
             default: {
                 break;

@@ -26,6 +26,8 @@ set(planportfolioprivate_LIB_SRCS
     SchedulingLogModel.cpp
     SchedulingView.cpp
     GanttView.cpp
+    DocumentsSaveDialog.cpp
+    MainWindow.cpp
     Part.cpp
     MainDocument.cpp
     View.cpp
@@ -37,6 +39,7 @@ set(planportfolioprivate_LIB_SRCS
 ki18n_wrap_ui(planportfolioprivate_LIB_SRCS
     PerformanceView.ui
     SchedulingView.ui
+    DocumentsSaveDialog.ui
 )
 
 kconfig_add_kcfg_files(planportfoliosettings_SRCS config/portfoliosettings.kcfgc)
