@@ -23,7 +23,6 @@ MainWindow::~MainWindow()
 
 bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutputFlag)
 {
-    qInfo()<<Q_FUNC_INFO<<saveas<<silent<<specialOutputFlag;
     Q_UNUSED(silent)
     Q_UNUSED(specialOutputFlag)
 
@@ -40,7 +39,6 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
                 children << doc;
             }
         }
-        qInfo()<<Q_FUNC_INFO<<"saveas"<<maindoc<<children;
         DocumentsSaveDialog dlg(maindoc, children);
         if (dlg.exec() == QDialog::Accepted) {
             if (dlg.saveMain()) {
@@ -57,7 +55,6 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
         }
         return ret;
     }
-    bool saveMaindoc = maindoc->isModified();
     QList<KoDocument*> externalDocs;
     const auto children = maindoc->documents();
     for (const auto child : children) {
@@ -66,7 +63,6 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
         }
     }
     if (!externalDocs.isEmpty()) {
-        qInfo()<<Q_FUNC_INFO<<"external"<<maindoc<<externalDocs;
         DocumentsSaveDialog dlg(maindoc, externalDocs);
         if (dlg.exec() == QDialog::Accepted) {
             if (dlg.saveMain()) {
@@ -82,6 +78,5 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
         }
         return ret;
     }
-    qInfo()<<Q_FUNC_INFO<<"save main"<<maindoc;
     return KoMainWindow::saveDocumentInternal(false, false, false);
 }
