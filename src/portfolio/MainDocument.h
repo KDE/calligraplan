@@ -62,6 +62,27 @@ public:
     bool loadOdf(KoOdfReadStore & odfStore) override;
 
     /**
+     * @brief Loads a document from a store.
+     *
+     * The url() is not changed
+     *
+     * @param store The store to load from
+     * @param url An internal url, like tar:/1/2
+     */
+    virtual bool loadFromStore(KoStore *store, const QString& url) override;
+
+    /**
+     * @brief Saves a sub-document to a store.
+     *
+     * The external url() is not changed
+     *
+     * @param store The store to save to
+     * @param doc The document to save
+     * @param path An internal url to load fram
+     */
+    bool saveDocumentToStore(KoStore *_store, KoDocument *doc);
+
+    /**
      * Returns true during loading (openUrl can be asynchronous)
      */
     bool isLoading() const override;
@@ -82,6 +103,8 @@ public:
     KPlato::SchedulerPlugin *schedulerPlugin(const QString &key) const;
 
     bool isChildrenModified() const;
+
+    bool isModified() const override;
 
     using KoDocument::setModified;
 public Q_SLOTS:

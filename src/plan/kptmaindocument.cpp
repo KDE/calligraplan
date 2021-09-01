@@ -377,6 +377,51 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
     return true;
 }
 
+QString MainDocument::uniqueTempFileName()
+{
+    auto tempFile = new QTemporaryFile(QString("%1/calligraplan-XXXXXX.plan").arg(QDir::tempPath()));
+    tempFile->open();
+    const auto tmpfile = tempFile->fileName();
+    delete tempFile;
+    return tmpfile;
+}
+
+bool MainDocument::loadEmbeddedDocument(KoStore *store, const QString &fileName)
+{
+    debugPlan<<store->currentPath()<<fileName;
+    const auto tmpfile = uniqueTempFileName();
+    bool result = store->extractFile(fileName, tmpfile);
+    if (!result) {
+        warnPlan<<"Failed to extract file from store"<<fileName<<tmpfile;
+        return false;
+    }
+    setLocalFilePath(tmpfile);
+    setProgressEnabled(false);
+    result = openFile();
+    if (!result) {
+        warnPlan<<"Failed to open/load file"<<localFilePath();
+    }
+    QFile::remove(tmpfile);
+    return result;
+}
+
+// Called for embedded documents
+bool MainDocument::saveToStore(KoStore *store, const QString &path)
+{
+    debugPlan<<"Saving document to store"<<path;
+    const auto tmpfile = uniqueTempFileName();
+    if (!saveNativeFormat(tmpfile)) {
+        warnPlan<<"Failed to save to temp file"<<path<<':'<<tmpfile;
+        return false;
+    }
+    bool ret = store->addLocalFile(tmpfile, path);
+    if (!ret) {
+        warnPlan<<"Failed to save to temp file"<<path<<':'<<tmpfile;
+    }
+    QFile::remove(tmpfile);
+    return ret;
+}
+
 QDomDocument MainDocument::saveXML()
 {
     debugPlan;

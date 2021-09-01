@@ -19,7 +19,7 @@ class KoDocument;
 class DocumentsSaveModel : public QStandardItemModel
 {
 public:
-    DocumentsSaveModel(MainDocument *doc, QObject *parent = nullptr);
+    DocumentsSaveModel(MainDocument *doc, const QList<KoDocument*> children, QObject *parent = nullptr);
 
     MainDocument *m_doc;
 };
@@ -29,12 +29,12 @@ class DocumentsSaveDialog : public KoDialog
     Q_OBJECT
 public:
 
-    explicit DocumentsSaveDialog(MainDocument *doc, QWidget *parent = nullptr);
+    explicit DocumentsSaveDialog(MainDocument *doc, const QList<KoDocument*> children, QWidget *parent = nullptr);
 
     bool saveMain() const;
     QUrl mainUrl() const;
 
-    QList<KoDocument*>modifiedDocuments() const;
+    QList<KoDocument*> documentsToSave() const;
 
 private:
     Ui::DocumentsSaveDialog ui;

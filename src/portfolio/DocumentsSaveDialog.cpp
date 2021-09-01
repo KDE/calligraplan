@@ -15,7 +15,7 @@
 #include <QStandardItemModel>
 #include <QUrl>
 
-DocumentsSaveModel::DocumentsSaveModel(MainDocument *doc, QObject *parent)
+DocumentsSaveModel::DocumentsSaveModel(MainDocument *doc, const QList<KoDocument*> children, QObject *parent)
     : QStandardItemModel(parent)
     , m_doc(doc)
 {
@@ -46,7 +46,7 @@ DocumentsSaveModel::DocumentsSaveModel(MainDocument *doc, QObject *parent)
 //         items << item;
 //         appendRow(items);
 //     }
-    for (auto subdoc : doc->documents()) {
+    for (auto subdoc : children) {
         QList<QStandardItem*> items;
         QStandardItem *item;
 
@@ -76,7 +76,7 @@ DocumentsSaveModel::DocumentsSaveModel(MainDocument *doc, QObject *parent)
     }
 }
 
-DocumentsSaveDialog::DocumentsSaveDialog(MainDocument *doc, QWidget *parent)
+DocumentsSaveDialog::DocumentsSaveDialog(MainDocument *doc, const QList<KoDocument*> children, QWidget *parent)
     : KoDialog(parent)
     , m_doc(doc)
 {
@@ -88,7 +88,7 @@ DocumentsSaveDialog::DocumentsSaveDialog(MainDocument *doc, QWidget *parent)
     ui.mainUrl->setText(doc->url().toDisplayString());
     ui.saveMain->setChecked(doc->isModified());
 
-    auto model = new DocumentsSaveModel(doc, this);
+    auto model = new DocumentsSaveModel(doc, children, this);
     ui.subdocsView->setModel(model);
     ui.subdocsView->setAcceptDrops(false);
     ui.subdocsView->setRootIsDecorated(false);
@@ -106,16 +106,18 @@ QUrl DocumentsSaveDialog::mainUrl() const
     return ui.mainUrl->url();
 }
 
-QList<KoDocument*> DocumentsSaveDialog::modifiedDocuments() const
+QList<KoDocument*> DocumentsSaveDialog::documentsToSave() const
 {
     QList<KoDocument*> docs;
     const auto model = qobject_cast<QStandardItemModel*>(ui.subdocsView->model());
     const int count = model->rowCount();
     for (int row = 0; row < count; ++row) {
-        const auto item = model->item(row);
-        const auto doc = qobject_cast<KoDocument*>(item->data().value<QObject*>());
-        if (doc) {
-            docs << doc;
+        if (model->item(row, 2)->checkState()) {
+            const auto item = model->item(row);
+            const auto doc = qobject_cast<KoDocument*>(item->data().value<QObject*>());
+            if (doc) {
+                docs << doc;
+            }
         }
     }
     return docs;

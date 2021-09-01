@@ -78,6 +78,9 @@ public:
      */
     int supportedSpecialFormats() const override { return SaveAsDirectoryStore; }
 
+    bool loadEmbeddedDocument(KoStore *store, const QString& dir) override;
+    bool saveToStore(KoStore *store, const QString &path) override;
+
     // The load and save functions. Look in the file kplato.dtd for info
     bool loadXML(const KoXmlDocument &document, KoStore *store) override;
     QDomDocument saveXML() override;
@@ -138,6 +141,8 @@ public:
     void setSchedulerPlugins(QMap<QString, KPlato::SchedulerPlugin*> &plugins);
 
     bool openLocalFile(const QString &localFileName);
+
+    static QString uniqueTempFileName();
 
     using KoDocument::setModified;
 public Q_SLOTS:

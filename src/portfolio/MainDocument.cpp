@@ -107,6 +107,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             progress += step;
             updater->setProgress(progress);
         }
+        bool embedded = p.attribute(QStringLiteral(SAVEEMBEDDED)).toInt();
         QString name = p.attribute("name");
         QUrl url = QUrl::fromUserInput(p.attribute("url"));
         if (url.isValid()) {
@@ -114,7 +115,6 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             Q_ASSERT(part);
             KoDocument *doc = part->createDocument(part);
             doc->setAutoSave(0);
-            connect(doc, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
             doc->setUrl(url);
             KPlato::Project *proj = doc->project();
             Q_ASSERT(proj);
@@ -123,10 +123,12 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             doc->setProperty(SCHEDULEMANAGERNAME, p.attribute(QStringLiteral(SCHEDULEMANAGERNAME)));
             doc->setProperty(SCHEDULINGCONTROL, p.attribute(QStringLiteral(SCHEDULINGCONTROL)));
             doc->setProperty(SCHEDULINGPRIORITY, p.attribute(QStringLiteral(SCHEDULINGPRIORITY)).toInt());
-            doc->setProperty(SAVEEMBEDDED, p.attribute(QStringLiteral(SAVEEMBEDDED)).toInt());
+            if (p.hasAttribute(SAVEEMBEDDED)) {
+                doc->setProperty(SAVEEMBEDDED, p.attribute(QStringLiteral(SAVEEMBEDDED)).toInt());
+                doc->setProperty(EMBEDDEDURL, p.attribute(QStringLiteral(EMBEDDEDURL)));
+            }
             addDocument(doc);
             doc->setProperty(BLOCKSHAREDPROJECTSLOADING, true);
-            doc->openUrl(url);
         }
     }
     if (updater) {
@@ -146,6 +148,7 @@ void MainDocument::slotProjectDocumentLoaded()
                 setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
             }
         }
+        doc->setModified(false);
     }
 }
 
@@ -153,7 +156,12 @@ bool MainDocument::completeLoading(KoStore *store)
 {
     setModified(false);
     for (auto doc : qAsConst(m_documents)) {
-        doc->setModified(false);
+        connect(doc, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
+        if (doc->property(SAVEEMBEDDED).toBool()) {
+            const auto url = doc->url();
+            doc->loadEmbeddedDocument(store, doc->property(EMBEDDEDURL).toString());
+            doc->setUrl(url); // restore external url
+        }
     }
     Q_EMIT changed();
     return true;
@@ -180,13 +188,19 @@ QDomDocument MainDocument::saveXML()
     QDomElement portfolio = document.documentElement();
     QDomElement projects = document.createElement("projects");
     portfolio.appendChild(projects);
+    int count = 1;
     for (KoDocument *doc : qAsConst(m_documents)) {
         QDomElement p = document.createElement("project");
         p.setAttribute(QStringLiteral(SCHEDULEMANAGERNAME), doc->property(SCHEDULEMANAGERNAME).toString());
         p.setAttribute(QStringLiteral(ISPORTFOLIO), doc->property(ISPORTFOLIO).toBool() ? 1 : 0);
         p.setAttribute(QStringLiteral(SCHEDULINGCONTROL), doc->property(SCHEDULINGCONTROL).toString());
         p.setAttribute(QStringLiteral(SCHEDULINGPRIORITY), doc->property(SCHEDULINGPRIORITY).toString());
-        p.setAttribute(QStringLiteral(SAVEEMBEDDED), doc->property(SAVEEMBEDDED).toBool() ? 1 : 0);
+        if (doc->property(SAVEEMBEDDED).toBool()) {
+            p.setAttribute(QStringLiteral(SAVEEMBEDDED), doc->property(SAVEEMBEDDED).toBool() ? 1 : 0);
+            const QString s = QString("Projects/Project_" + QString::number(count++));
+            doc->setProperty(EMBEDDEDURL, s);
+            p.setAttribute(QStringLiteral(EMBEDDEDURL), s);
+        }
         p.setAttribute(QStringLiteral("url"), QString(doc->url().toEncoded()));
         p.setAttribute(QStringLiteral("name"), doc->projectName());
         projects.appendChild(p);
@@ -196,12 +210,46 @@ QDomDocument MainDocument::saveXML()
 
 bool MainDocument::completeSaving(KoStore *store)
 {
+    for (KoDocument *doc : qAsConst(m_documents)) {
+        if (doc->property(SAVEEMBEDDED).toBool()) {
+            saveDocumentToStore(store, doc);
+        }
+    }
     return true;
 }
 
 bool MainDocument::isLoading() const
 {
     return KoDocument::isLoading();
+}
+
+bool MainDocument::isModified() const
+{
+    if (KoDocument::isModified()) {
+        return true;
+    }
+    for (const auto child : qAsConst(m_documents)) {
+        if (child->isModified() && child->property(SAVEEMBEDDED).toBool()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// For embedded documents
+bool MainDocument::loadFromStore(KoStore *_store, const QString& url)
+{
+    QUrl externUrl = this->url();
+    bool ret = KoDocument::loadFromStore(_store, url);
+    setUrl(externUrl);
+    return ret;
+}
+
+// Called for embedded documents
+bool MainDocument::saveDocumentToStore(KoStore *store, KoDocument *doc)
+{
+    const auto path = doc->property(EMBEDDEDURL).toString();
+    return doc->saveToStore(store, path);
 }
 
 void MainDocument::setModified(bool mod)

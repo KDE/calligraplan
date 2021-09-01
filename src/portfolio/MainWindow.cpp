@@ -32,21 +32,56 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
         return true;
     }
     bool ret = false;
-    if (saveas || maindoc->isChildrenModified()) {
-        DocumentsSaveDialog dlg(maindoc);
+    if (saveas) {
+        QList<KoDocument*> children;
+        const auto docs = maindoc->documents();
+        for (auto doc : docs) {
+            if (!doc->property(SAVEEMBEDDED).toBool()) {
+                children << doc;
+            }
+        }
+        qInfo()<<Q_FUNC_INFO<<"saveas"<<maindoc<<children;
+        DocumentsSaveDialog dlg(maindoc, children);
         if (dlg.exec() == QDialog::Accepted) {
             if (dlg.saveMain()) {
                 const auto url = dlg.mainUrl();
-                qInfo()<<Q_FUNC_INFO<<url;
+                maindoc->setUrl(url);
                 ret = KoMainWindow::saveDocumentInternal(false, false, false);
             }
-            const auto children = dlg.modifiedDocuments();
+            const auto children = dlg.documentsToSave();
             for (const auto child : children) {
+                if (!child->property(SAVEEMBEDDED).toBool()) {
+                    child->save();
+                }
+            }
+        }
+        return ret;
+    }
+    bool saveMaindoc = maindoc->isModified();
+    QList<KoDocument*> externalDocs;
+    const auto children = maindoc->documents();
+    for (const auto child : children) {
+        if (child->isModified() && !child->property(SAVEEMBEDDED).toBool()) {
+            externalDocs << child;
+        }
+    }
+    if (!externalDocs.isEmpty()) {
+        qInfo()<<Q_FUNC_INFO<<"external"<<maindoc<<externalDocs;
+        DocumentsSaveDialog dlg(maindoc, externalDocs);
+        if (dlg.exec() == QDialog::Accepted) {
+            if (dlg.saveMain()) {
+                const auto url = dlg.mainUrl();
+                maindoc->setUrl(url);
+                ret = KoMainWindow::saveDocumentInternal(false, false, false);
+            }
+            const auto children = dlg.documentsToSave();
+            for (const auto child : children) {
+                Q_ASSERT(!child->property(SAVEEMBEDDED).toBool());
                 child->save();
             }
         }
-    } else if (maindoc->isModified()) {
-        ret = KoMainWindow::saveDocumentInternal(false, false, false);
+        return ret;
     }
-    return ret;
+    qInfo()<<Q_FUNC_INFO<<"save main"<<maindoc;
+    return KoMainWindow::saveDocumentInternal(false, false, false);
 }

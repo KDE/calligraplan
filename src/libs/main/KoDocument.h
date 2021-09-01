@@ -42,6 +42,7 @@ class QDomDocument;
 #define BLOCKSHAREDPROJECTSLOADING "blocksharedprojectsloading"
 #define NOUI "noui"
 #define SAVEEMBEDDED "save-embedded"
+#define EMBEDDEDURL "embedded-url"
 
 // MSVC seems to need to know the declaration of the classes
 // we pass references of in, when used by external modules
@@ -299,7 +300,7 @@ public:
      *  @param url An internal url, like tar:/1/2
      */
     virtual bool loadFromStore(KoStore *store, const QString& url);
-
+    virtual bool loadEmbeddedDocument(KoStore */*store*/, const QString& /*dir*/) { return false; }
     /**
      *  @brief Loads an OASIS document from a store.
      *  This is used for both the main document and embedded objects.
@@ -784,6 +785,7 @@ private Q_SLOTS:
 
 protected:
     bool oldLoadAndParse(KoStore *store, const QString& filename, KoXmlDocument& doc);
+
 private:
     bool saveToStream(QIODevice *dev);
 
