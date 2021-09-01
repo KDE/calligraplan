@@ -152,6 +152,8 @@ void PortfolioView::slotLoadCompleted()
     Q_ASSERT(doc);
     MainDocument *portfolio = qobject_cast<MainDocument*>(koDocument());
     disconnect(doc, &KoDocument::sigProgress, mainWindow(), &KoMainWindow::slotProgress);
+    disconnect(doc, &KoDocument::completed, this, &PortfolioView::slotLoadCompleted);
+    disconnect(doc, &KoDocument::canceled, this, &PortfolioView::slotLoadCanceled);
     portfolio->setDocumentProperty(doc, ISPORTFOLIO, true);
     if (!portfolio->addDocument(doc)) {
         doc->deleteLater();
