@@ -28,6 +28,7 @@
 #include <KMessageBox>
 
 #include <QStringLiteral>
+#include <QtGlobal>
 
 MainDocument::MainDocument(KoPart *part)
     : KoDocument(part)
@@ -127,8 +128,12 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
                 doc->setProperty(SAVEEMBEDDED, p.attribute(QStringLiteral(SAVEEMBEDDED)).toInt());
                 doc->setProperty(EMBEDDEDURL, p.attribute(QStringLiteral(EMBEDDEDURL)));
             }
-            addDocument(doc);
             doc->setProperty(BLOCKSHAREDPROJECTSLOADING, true);
+            if (!addDocument(doc)) {
+                // should not happen
+                Q_ASSERT_X(false, Q_FUNC_INFO, "Document already exists.");
+                doc->deleteLater();
+            }
         } else {
             qWarning()<<Q_FUNC_INFO<<"Invalid url:"<<url;
         }
@@ -141,16 +146,31 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
 
 void MainDocument::slotProjectDocumentLoaded()
 {
-    KoDocument *doc = qobject_cast<KoDocument*>(sender());
-    if (doc) {
-        disconnect(doc, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
-        if (!doc->project()->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString())) {
-            KPlato::ScheduleManager *sm = findBestScheduleManager(doc);
-            if (sm) {
-                setDocumentProperty(doc, SCHEDULEMANAGERNAME, sm->name());
+    KoDocument *document = qobject_cast<KoDocument*>(sender());
+    if (document) {
+        disconnect(document, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
+        // remove if duplicate
+        for (const auto doc : m_documents) {
+            if (document == doc) {
+                continue;
+            }
+            if (document->project()->id() == doc->project()->id()) {
+                KMessageBox::sorry(nullptr,
+                                   xi18nc("@info", "The project already exists.<nl/>Project: %1<nl/> Document: %2", document->project()->name(), document->url().toDisplayString()),
+                                   i18nc("@title:window", "Could not add project"));
+
+                m_documents.removeOne(document);
+                document->deleteLater();;
+                return;
             }
         }
-        doc->setModified(false);
+        if (!document->project()->findScheduleManagerByName(document->property(SCHEDULEMANAGERNAME).toString())) {
+            KPlato::ScheduleManager *sm = findBestScheduleManager(document);
+            if (sm) {
+                setDocumentProperty(document, SCHEDULEMANAGERNAME, sm->name());
+            }
+        }
+        document->setModified(false);
     }
 }
 

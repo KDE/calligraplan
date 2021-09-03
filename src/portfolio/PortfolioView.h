@@ -17,6 +17,10 @@ class QTreeView;
 class QMenu;
 class QItemSelection;
 
+namespace KIO {
+    class UDSEntry;
+}
+
 class PLANPORTFOLIO_EXPORT PortfolioView : public KoView
 {
     Q_OBJECT
@@ -30,6 +34,8 @@ public:
     KoPrintJob *createPrintJob() override;
 
     void loadProject(const QUrl &url);
+
+    bool hasWriteAccess(KIO::UDSEntry &entry) const;
 
 protected:
     void updateReadWrite(bool readwrite) override;

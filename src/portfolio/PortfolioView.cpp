@@ -17,9 +17,12 @@
 #include <KoPart.h>
 #include <KoIcon.h>
 #include <KoFileDialog.h>
+#include <KoNetAccess.h>
 
 #include <KRecentFilesAction>
 #include <KActionCollection>
+#include <KUser>
+#include <KMessageBox>
 
 #include <QTreeView>
 #include <QVBoxLayout>
@@ -146,6 +149,29 @@ void PortfolioView::loadProject(const QUrl &url)
     }
 }
 
+bool PortfolioView::hasWriteAccess(KIO::UDSEntry& entry) const
+{
+    const auto access = entry.numberValue(KIO::UDSEntry::UDS_ACCESS);
+    const auto other = access & 07;
+    const auto group = access >> 3 & 07;
+    const auto user = access >> 6 & 07;
+    const auto more = access >> 9 & 07;
+
+    const auto fileOwner = entry.stringValue(KIO::UDSEntry::UDS_USER);
+    const auto fileGroup = entry.stringValue(KIO::UDSEntry::UDS_GROUP);
+
+    KUser ruser(KUser::UseRealUserID);
+    bool result = false;
+    if (fileOwner == ruser.loginName()) {
+        result = user & 02;
+    } else if (ruser.groupNames().contains(fileGroup)) {
+        result = group & 02;
+    } else {
+        result = other & 02;
+    }
+    return result;
+}
+
 void PortfolioView::slotLoadCompleted()
 {
     KoDocument *doc = qobject_cast<KoDocument*>(sender());
@@ -154,8 +180,23 @@ void PortfolioView::slotLoadCompleted()
     disconnect(doc, &KoDocument::sigProgress, mainWindow(), &KoMainWindow::slotProgress);
     disconnect(doc, &KoDocument::completed, this, &PortfolioView::slotLoadCompleted);
     disconnect(doc, &KoDocument::canceled, this, &PortfolioView::slotLoadCanceled);
-    portfolio->setDocumentProperty(doc, ISPORTFOLIO, true);
+
+    KIO::UDSEntry entry;
+    if (KIO::NetAccess::stat(doc->url(), entry, doc->documentPart()->currentMainwindow())) {
+        doc->setProperty(ORIGINALMODIFICATIONTIME, entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME));
+        bool writeaccess = hasWriteAccess(entry);
+        doc->setProperty(ISPORTFOLIO, writeaccess);
+        if (writeaccess) {
+            doc->setProperty(SCHEDULINGCONTROL, QStringLiteral("Schedule"));
+        } else {
+            doc->setProperty(SCHEDULINGCONTROL, QStringLiteral("Include"));
+        }
+        doc->setProperty(SCHEDULINGPRIORITY, 0);
+    }
+
     if (!portfolio->addDocument(doc)) {
+        KMessageBox::sorry(this, xi18nc("@info", "The project already exists.<nl/>Project: %1<nl/> Document: %2", doc->project()->name(), doc->url().toDisplayString()),
+                           i18nc("@title:window", "Could not add project"));
         doc->deleteLater();
     } else {
         auto manager = portfolio->findBestScheduleManager(doc);
