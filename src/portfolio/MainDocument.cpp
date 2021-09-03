@@ -129,6 +129,8 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             }
             addDocument(doc);
             doc->setProperty(BLOCKSHAREDPROJECTSLOADING, true);
+        } else {
+            qWarning()<<Q_FUNC_INFO<<"Invalid url:"<<url;
         }
     }
     if (updater) {
@@ -161,6 +163,9 @@ bool MainDocument::completeLoading(KoStore *store)
             const auto url = doc->url();
             doc->loadEmbeddedDocument(store, doc->property(EMBEDDEDURL).toString());
             doc->setUrl(url); // restore external url
+        } else {
+            qInfo()<<Q_FUNC_INFO<<"external:"<<doc->url();
+            doc->openUrl(doc->url());
         }
     }
     Q_EMIT changed();
@@ -295,6 +300,11 @@ bool MainDocument::addDocument(KoDocument *newdoc)
     Q_ASSERT(!m_documents.contains(newdoc));
     if (m_documents.contains(newdoc)) {
         return false;
+    }
+    for (const auto doc : qAsConst(m_documents)) {
+        if (doc->project()->id() == newdoc->project()->id()) {
+            return false;
+        }
     }
     Q_EMIT documentAboutToBeInserted(m_documents.count());
     m_documents << newdoc;
