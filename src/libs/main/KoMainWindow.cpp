@@ -1278,37 +1278,43 @@ bool KoMainWindow::queryClose()
 }
 
 // Helper method for slotFileNew and slotFileClose
-bool KoMainWindow::openWelcomeView(KoPart *part)
+KoPart *KoMainWindow::chooseNewDocument(InitDocFlags init)
 {
     KoDocument* doc = rootDocument();
-    KoMainWindow *mainWindow = this;
-    KoPart *p = part ? QPointer<KoPart>(part) : d->activePart;
-    if (!p) {
-        return false;
+    KoPart *newpart = koApp->getPart(koApp->applicationName(), d->nativeMimeType);
+    KoDocument *newdoc = newpart->document();
+    if (!newdoc) {
+        delete newpart;
+        return nullptr;
     }
-    if (doc && !doc->isEmpty()) {
-        // create a new main window
-        mainWindow = p->createMainWindow();
-    } else if (doc) {
-        // remove the empty doc
-        setRootDocument(nullptr); // don't delete this main window when deleting the document
-        delete d->rootDocument;
-        d->rootDocument = nullptr;
+    disconnect(newdoc, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
+
+    if ((!doc && init == InitOnFileNew) || (doc && !doc->isEmpty())) {
+        KoMainWindow *s = newpart->createMainWindow();
+        s->show();
+        newpart->addMainWindow(s);
+        return newpart;
     }
-    if (!findChild<WelcomeView*>()) {
-        auto *v = p->createWelcomeView(mainWindow);
-        if (!v) {
-            return false;
-        }
-        mainWindow->setCentralWidget(v);
+    // InitOnFileClose
+    if (doc) {
+        setRootDocument(nullptr);
     }
-    mainWindow->show();
-    return true;
+    newpart->addMainWindow(this);
+    return newpart;
 }
 
 void KoMainWindow::slotFileNew()
 {
-    openWelcomeView();
+    auto part = chooseNewDocument(InitOnFileNew);
+    auto mainWindow = part->mainWindows().last();
+    auto w = part->createWelcomeView(mainWindow);
+    if (w) {
+        mainWindow->setPartToOpen(part);
+        mainWindow->setCentralWidget(w);
+    } else {
+        mainWindow->setRootDocument(part->document(), part);
+    }
+    mainWindow->show();
 }
 
 void KoMainWindow::slotFileOpen()
@@ -1400,11 +1406,21 @@ void KoMainWindow::slotFileClose()
     if (queryClose()) {
         saveWindowSettings();
         setRootDocument(nullptr);   // don't delete this main window when deleting the document
-        if(d->rootDocument)
+        if(d->rootDocument) {
             d->rootDocument->clearUndoHistory();
+        }
         delete d->rootDocument;
         d->rootDocument = nullptr;
-        openWelcomeView();
+        auto part = chooseNewDocument(InitOnFileClose);
+        auto mainWindow = part->mainWindows().last();
+        auto w = part->createWelcomeView(mainWindow);
+        if (w) {
+            mainWindow->setPartToOpen(part);
+            mainWindow->setCentralWidget(w);
+        } else {
+            mainWindow->setRootDocument(part->document(), part);
+        }
+        mainWindow->show();
     }
 }
 

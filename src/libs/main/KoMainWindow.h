@@ -314,8 +314,6 @@ public Q_SLOTS:
 
     void slotConfigure();
 
-    bool openWelcomeView(KoPart *part = nullptr);
-
 protected:
     /**
      * Re-implemnt if you need special handling.
@@ -362,6 +360,9 @@ private:
      * Ask user about saving changes to the document upon exit.
      */
     bool queryClose() override;
+
+    enum InitDocFlags { InitOnFileNew, InitOnFileClose };
+    KoPart *chooseNewDocument(InitDocFlags init);
 
     bool openDocumentInternal(const QUrl &url, KoPart *newpart = nullptr, KoDocument *newdoc = nullptr);
 

@@ -277,12 +277,15 @@ bool KoApplication::start(const KoComponentData &componentData)
         if (!part) {
             return false;
         }
-        KoMainWindow *mainWindow = part->createMainWindow();
-        if (!mainWindow->openWelcomeView(part)) {
-            part->addMainWindow(mainWindow);
+        auto mainWindow = part->createMainWindow();
+        auto w = part->createWelcomeView(mainWindow);
+        if (w) {
+            mainWindow->setPartToOpen(part);
+            mainWindow->setCentralWidget(w);
+        } else {
             mainWindow->setRootDocument(part->document(), part);
-            mainWindow->show();
         }
+        mainWindow->show();
         return true;
     } else {
         const bool benchmarkLoading = parser.isSet("benchmark-loading")
