@@ -36,6 +36,9 @@ endif()
 set(planui_LIB_SRCS
     ${planreports_LIB_SRC}
 
+    ScrollableChartFilterModel.cpp
+    ScrollableChart.cpp
+
     RelationEditorDialog.cpp
     TasksEditController.cpp
 #     GroupAllocationPanel.cpp
@@ -117,6 +120,8 @@ set(planui_LIB_SRCS
 
 ki18n_wrap_ui(planui_LIB_SRCS
     ${planreports_ui_LIB_SRCS}
+
+    ScrollableChart.ui
 
     RelationEditorDialog.ui
 

@@ -44,4 +44,10 @@ extern const PLANKERNEL_EXPORT QLoggingCategory &PLANWP_LOG();
 #define warnPlanWp qCWarning(PLANWP_LOG)<<"WARN:"<<Q_FUNC_INFO
 #define errorPlanWp qCCritical(PLANWP_LOG)<<"ERROR:"<<Q_FUNC_INFO
 
+extern const PLANKERNEL_EXPORT QLoggingCategory &PLANCHART_LOG();
+
+#define debugPlanChart qCDebug(PLANCHART_LOG)<<Q_FUNC_INFO
+#define warnPlanChart qCWarning(PLANCHART_LOG)<<"WARN:"<<Q_FUNC_INFO
+#define errorPlanChart qCCritical(PLANCHART_LOG)<<"ERROR:"<<Q_FUNC_INFO
+
 #endif
