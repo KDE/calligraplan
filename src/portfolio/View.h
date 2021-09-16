@@ -36,11 +36,12 @@ public:
 
     KPageWidgetItem *openDocument(KoDocument *doc);
 
+    void guiActivateEvent(bool activate) override;
+
 public Q_SLOTS:
     void slotOpenDocument(KoDocument *doc);
 
 protected:
-    void guiActivateEvent(bool activate) override;
     void setupActions();
 
 protected:

@@ -11,6 +11,7 @@
 #include "PortfolioView.h"
 #include "PerformanceView.h"
 #include "DetailsView.h"
+#include "ResourceUsageView.h"
 #include "SchedulingView.h"
 #include "MainDocument.h"
 #include "GanttView.h"
@@ -50,7 +51,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     layout->addWidget(m_views);
 
     KPageWidgetItem *item;
-    item = m_views->addPage(new PortfolioView(part, doc, m_views), i18n("Configuration"));
+    item = m_views->addPage(new PortfolioView(part, doc, m_views), i18n("Portfolio Content"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("settings-configure"));
 
@@ -71,6 +72,10 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     item->setIcon(koIcon("office-chart-bar"));
 
     item = m_views->addPage(new DetailsView(part, doc, m_views), i18n("Progress"));
+    item->setHeaderVisible(false);
+    item->setIcon(koIcon("view-time-schedule"));
+
+    item = m_views->addPage(new ResourceUsageView(part, doc, m_views), i18n("Resource Usage"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("view-time-schedule"));
 
@@ -121,6 +126,7 @@ void View::slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *bef
     if (before) {
         KoView *v = qobject_cast<KoView*>(before->widget());
         if (v) {
+            v->guiActivateEvent(false);
             factory()->removeClient(v);
         }
     }
@@ -128,6 +134,7 @@ void View::slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *bef
         KoView *v = qobject_cast<KoView*>(current->widget());
         if (v) {
             factory()->addClient(v);
+            v->guiActivateEvent(true);
         }
     }
 }

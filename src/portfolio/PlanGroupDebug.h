@@ -14,8 +14,8 @@
 
 extern const QLoggingCategory &PLANPORTFOLIO_LOG();
 
-#define debugPlanGroup qCDebug(PLANPORTFOLIO_LOG)<<Q_FUNC_INFO
-#define warnPlanGroup qCWarning(PLANPORTFOLIO_LOG)<<Q_FUNC_INFO
-#define errorPlanGroup qCCritical(PLANPORTFOLIO_LOG)<<Q_FUNC_INFO
+#define debugPortfolio qCDebug(PLANPORTFOLIO_LOG)<<Q_FUNC_INFO
+#define warnPortfolio qCWarning(PLANPORTFOLIO_LOG)<<Q_FUNC_INFO
+#define errorPortfolio qCCritical(PLANPORTFOLIO_LOG)<<Q_FUNC_INFO
 
 #endif

@@ -290,7 +290,7 @@ void SchedulingView::calculate()
         calculateSchedule(scheduler);
         selectionChanged(QItemSelection(), QItemSelection());
     } else {
-        warnPlanGroup<<Q_FUNC_INFO<<"No scheduler plugin"<<key;
+        warnPortfolio<<Q_FUNC_INFO<<"No scheduler plugin"<<key;
     }
 }
 
@@ -299,7 +299,7 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     auto portfolio = static_cast<MainDocument*>(koDocument());
     auto docs = portfolio->documents();
     if (docs.isEmpty()) {
-        warnPlanGroup<<Q_FUNC_INFO<<"Nothing to shcedule";
+        warnPortfolio<<Q_FUNC_INFO<<"Nothing to shcedule";
         return;
     }
     // Populate scheduling context

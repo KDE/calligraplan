@@ -9,6 +9,6 @@
 
 const QLoggingCategory &PLANPORTFOLIO_LOG()
 {
-    static const QLoggingCategory category("calligra.plan.group");
+    static const QLoggingCategory category("calligra.plan.portfolio");
     return category;
 }

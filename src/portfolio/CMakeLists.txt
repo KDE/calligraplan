@@ -22,6 +22,9 @@ set(planportfolioprivate_LIB_SRCS
     PortfolioView.cpp
     PerformanceView.cpp
     DetailsView.cpp
+    ResourceModel.cpp
+    ResourceUsageModel.cpp
+    ResourceUsageView.cpp
     SchedulingModel.cpp
     SchedulingLogModel.cpp
     SchedulingView.cpp
@@ -39,6 +42,7 @@ set(planportfolioprivate_LIB_SRCS
 ki18n_wrap_ui(planportfolioprivate_LIB_SRCS
     PerformanceView.ui
     SchedulingView.ui
+    ResourceUsageView.ui
     DocumentsSaveDialog.ui
 )
 
@@ -116,6 +120,7 @@ install( FILES
         Portfolio_DetailsViewUi.rc
         Portfolio_SchedulingViewUi.rc
         Portfolio_GanttViewUi.rc
+        Portfolio_ResourceUsageViewUi.rc
         ../libs/ui/TaskStatusViewUi.rc
         ../libs/ui/GanttViewUi.rc
     DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplanportfolio
