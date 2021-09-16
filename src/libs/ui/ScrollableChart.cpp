@@ -33,6 +33,7 @@ ScrollableChart::ScrollableChart(QWidget *parent)
     ui.legend->setDiagram(bar);
 
     connect(ui.scrollBar, &QScrollBar::valueChanged, &m_model, &ScrollableChartFilterModel::setStart);
+    connect(&m_model, &QAbstractItemModel::modelReset, this, &ScrollableChart::updateAxisRange);
 }
 
 ScrollableChart::~ScrollableChart()
@@ -57,6 +58,7 @@ ScrollableChartFilterModel &ScrollableChart::filterModel()
 void ScrollableChart::setDataModel(QAbstractItemModel *model)
 {
     m_model.setSourceModel(model);
+    updateAxisRange();
 }
 
 void ScrollableChart::setScrollBarPolicy(Qt::ScrollBarPolicy policy)
@@ -75,7 +77,6 @@ void ScrollableChart::setScrollBarPolicy(Qt::ScrollBarPolicy policy)
     }
 }
 
-
 void ScrollableChart::setStart(int row)
 {
     debugPlanChart<<row;
@@ -93,4 +94,63 @@ void ScrollableChart::setNumRows(int numRows)
         ui.scrollBar->setVisible(ui.scrollBar->maximum() > 0);
     }
     m_model.setNumRows(numRows);
+}
+
+void KPlato::ScrollableChart::setDiagramFlavor(int flavor)
+{
+    auto bar = qobject_cast<KChart::BarDiagram*>(ui.chart->coordinatePlane()->diagram());
+    if (bar) {
+        switch(flavor) {
+            case 0: // Normal
+                bar->setType(KChart::BarDiagram::Normal);
+                m_diagramFlavor = flavor;
+                updateAxisRange();
+                break;
+            case 1: // Stacked
+                bar->setType(KChart::BarDiagram::Stacked);
+                m_diagramFlavor = flavor;
+                updateAxisRange();
+                break;
+            case 2: // Percent
+                bar->setType(KChart::BarDiagram::Percent);
+                m_diagramFlavor = flavor;
+                updateAxisRange();
+                break;
+            default:
+                m_diagramFlavor = -1;
+                break;
+        }
+        return;
+    }
+
+}
+
+void KPlato::ScrollableChart::updateAxisRange()
+{
+    auto plane = qobject_cast<KChart::CartesianCoordinatePlane*>(ui.chart->coordinatePlane());
+    if (!plane) {
+        warnPlanChart<<"Coordinate plane is not cartesian"<<ui.chart->coordinatePlane();
+        return;
+    }
+    QPair<qreal, qreal> range(0.0, 0.0);
+    auto v = m_model.headerData(0, Qt::Vertical, AXISRANGEROLE);
+    if (v.isValid()) {
+        auto lst = v.toList();
+        switch(m_diagramFlavor) {
+            case 0: // Normal
+                range.first = lst.value(0).toDouble();
+                range.second = lst.value(1).toDouble();
+                break;
+            case 1: // Stacked
+                range.first = lst.value(2).toDouble();
+                range.second = lst.value(3).toDouble();
+                break;
+            case 2: // Percent
+                break;
+            default:
+                break;
+        }
+    }
+    plane->setVerticalRange(range);
+    plane->layoutPlanes();
 }

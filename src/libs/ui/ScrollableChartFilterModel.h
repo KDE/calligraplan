@@ -11,6 +11,7 @@
 
 #include <QSortFilterProxyModel>
 
+#define AXISRANGEROLE 234587
 
 namespace KPlato
 {

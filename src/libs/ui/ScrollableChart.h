@@ -47,11 +47,17 @@ public Q_SLOTS:
     /// Set number of rows to be shown to @p numRows
     /// If @p numRows is 0, all rows are shown
     void setNumRows(int numRows);
+    /// Set diagram flavor to @p flavor (Normal = 0, Stacked = 0, Percent = 2)
+    void setDiagramFlavor(int flavor);
+
+private Q_SLOTS:
+    void updateAxisRange();
 
 private:
     Ui_ScrollableChart ui;
     ScrollableChartFilterModel m_model;
     Qt::ScrollBarPolicy m_scrollBarPolicy;
+    int m_diagramFlavor;
 };
 
 } // namespace KPlato
