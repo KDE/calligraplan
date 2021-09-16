@@ -167,7 +167,7 @@ void MainDocument::slotProjectDocumentLoaded()
         if (!document->project()->findScheduleManagerByName(document->property(SCHEDULEMANAGERNAME).toString())) {
             KPlato::ScheduleManager *sm = findBestScheduleManager(document);
             if (sm) {
-                setDocumentProperty(document, SCHEDULEMANAGERNAME, sm->name());
+                document->setProperty(SCHEDULEMANAGERNAME, sm->name());
             }
         }
         document->setModified(false);
