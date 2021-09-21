@@ -40,6 +40,12 @@ ScrollableChart::~ScrollableChart()
 {
 }
 
+void ScrollableChart::addDiagram(KChart::AbstractCartesianDiagram *diagram)
+{
+    ui.chart->coordinatePlane()->addDiagram(diagram);
+}
+
+
 KChart::Chart *ScrollableChart::chart() const
 {
     return ui.chart;

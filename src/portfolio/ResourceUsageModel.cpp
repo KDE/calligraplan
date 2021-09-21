@@ -16,7 +16,7 @@
 #include <KoIcon.h>
 
 #define RESOURCEID_ROLE 100501
-
+#define RESOURCEAVAILABEROLE 100502
 
 ResourceUsageModel::ResourceUsageModel(QObject *parent)
     : QAbstractTableModel(parent)
@@ -78,6 +78,12 @@ QVariant ResourceUsageModel::headerData(int section, Qt::Orientation orientation
 
 QVariant ResourceUsageModel::data(const QModelIndex &idx, int role) const
 {
+    if (role == RESOURCEAVAILABEROLE) {
+        const auto dates = m_available.keys();
+        const auto date = dates.value(idx.row());
+        auto v = m_available.value(date);
+        return v;
+    }
     if (role != Qt::DisplayRole) {
         return QVariant();
     }
@@ -125,7 +131,6 @@ void ResourceUsageModel::setPortfolio(MainDocument *portfolio)
 
 void ResourceUsageModel::reset()
 {
-    qInfo()<<Q_FUNC_INFO;
     Q_EMIT portfolioChanged();
 }
 
@@ -225,6 +230,7 @@ void ResourceUsageModel::updateData()
     }
     m_normalMax = 0.0;
     m_stackedMax = 0.0;
+    m_available.clear();
     if (m_portfolio) {
         QList<KPlato::Node*> tasks;
         QDate startDate;
@@ -262,6 +268,7 @@ void ResourceUsageModel::updateData()
                 m_usage[date].insert(t, 0.0);
             }
         }
+        KPlato::Resource *currentResource =nullptr;
         for (const auto doc : docs) {
             const auto project = doc->project();
             const auto resource = project->resource(m_currentResourceId);
@@ -278,6 +285,9 @@ void ResourceUsageModel::updateData()
             if (!schedule) {
                 debugPortfolio<<project<<"No resource schedule"<<sm->scheduleId();
                 continue;
+            }
+            if (!currentResource) {
+                currentResource = resource;
             }
             const auto appointments = schedule->appointments();
             for (const auto a : appointments) {
@@ -310,5 +320,82 @@ void ResourceUsageModel::updateData()
             }
             m_stackedMax = std::max(m_stackedMax, total);
         }
+        if (currentResource) {
+            const auto cal = currentResource->calendar();
+            if (!cal && currentResource->type() == KPlato::Resource::Type_Material) {
+                m_normalMax = std::max(m_normalMax, 24.0);
+                m_stackedMax = std::max(m_stackedMax, 24.0);
+                return;
+            }
+            if (!cal) {
+                return;
+            }
+            for (it = m_usage.begin(); it != m_usage.end(); ++it) {
+                const auto time = KPlato::DateTime(it.key(), QTime());
+                const KPlato::DateTime end = time.addDays(1);
+                auto effort = cal->effort(time, end).toDouble();
+                m_available.insert(it.key(), effort);
+                if (effort > 0) {
+                    //qInfo()<<Q_FUNC_INFO<<it.key()<<end<<effort<<m_available;
+                }
+                m_normalMax = std::max(m_normalMax, effort);
+                m_stackedMax = std::max(m_stackedMax, effort);
+            }
+        }
     }
+}
+
+ResourceAvailableModel::ResourceAvailableModel(QObject* parent)
+    : QSortFilterProxyModel(parent)
+{
+}
+#if 0
+QModelIndex ResourceAvailableModel::mapFromSource(const QModelIndex& sourceIndex) const
+{
+    return createIndex(sourceIndex.row(), sourceIndex.column());
+}
+
+QModelIndex ResourceAvailableModel::mapToSource(const QModelIndex& proxyIndex) const
+{
+    if (!sourceModel()) {
+        return QModelIndex();
+    }
+    return proxyIndex.isValid() ? sourceModel()->index(proxyIndex.row(), proxyIndex.column()) : proxyIndex;
+}
+
+QModelIndex ResourceAvailableModel::parent(const QModelIndex& idx) const
+{
+    Q_UNUSED(idx)
+    return QModelIndex();
+}
+
+QModelIndex ResourceAvailableModel::index(int row, int column, const QModelIndex& parent) const
+{
+    return parent.isValid() ? QModelIndex() : createIndex(row, column);
+}
+
+int ResourceAvailableModel::rowCount(const QModelIndex& parent) const
+{
+    return sourceModel() && !parent.isValid() ? sourceModel()->rowCount() : 0;
+}
+#endif
+int ResourceAvailableModel::columnCount(const QModelIndex& parent) const
+{
+    Q_UNUSED(parent)
+    return 1;
+}
+
+QVariant ResourceAvailableModel::data(const QModelIndex& index, int role) const
+{
+    if (role == Qt::DisplayRole) {
+        role = RESOURCEAVAILABEROLE;
+    }
+    const auto v = QSortFilterProxyModel::data(index, role);
+    return v;
+}
+
+void ResourceAvailableModel::sourceReset()
+{
+    beginResetModel();
+    endResetModel();
 }

@@ -47,7 +47,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
     m_views = new KPageWidget(this);
-    m_views->setFaceType (KPageView::Auto);
+    m_views->setFaceType (KPageView::Tree);
     layout->addWidget(m_views);
 
     KPageWidgetItem *item;
@@ -77,14 +77,13 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
 
     item = m_views->addPage(new ResourceUsageView(part, doc, m_views), i18n("Resource Usage"));
     item->setHeaderVisible(false);
-    item->setIcon(koIcon("view-time-schedule"));
+    item->setIcon(koIcon("system-users"));
 
     auto gv = new GanttView(part, doc, m_views);
-    item = m_views->addPage(gv, i18n("Gantt Summary"));
-    item->setHeaderVisible(false);
-    item->setIcon(koIcon("calligraplan"));
+    m_ganttSummary = m_views->addPage(gv, i18n("Gantt Summary"));
+    m_ganttSummary->setHeaderVisible(false);
+    m_ganttSummary->setIcon(koIcon("calligraplan"));
     connect(gv, &GanttView::openKoDocument, this, &View::slotOpenDocument);
-
     // NOTE: Adding a new view to KPageWidget outside the c'tor gives problems with resize (shrinking),
     // so atm we create everything now.
     const auto docs = static_cast<MainDocument*>(doc)->documents();
@@ -176,7 +175,11 @@ KPageWidgetItem *View::openDocument(KoDocument *doc)
     auto item = m_ganttViews.value(project->name());
     if (!item) {
         auto v = new KPlato::GanttView(part, doc, m_views);
-        item = m_views->addPage(v, project->name());
+        if (m_ganttSummary) {
+            item = m_views->addSubPage(m_ganttSummary, v, project->name());
+        } else {
+            item = m_views->addPage(v, project->name());
+        }
         m_ganttViews.insert(project->name(), item);
         item->setHeaderVisible(false);
         item->setIcon(koIcon("calligraplan"));

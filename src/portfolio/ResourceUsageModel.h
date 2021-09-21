@@ -7,7 +7,8 @@
 #ifndef PLANPORTFOLIO_RESOURCEUSAGEMODEL_H
 #define PLANPORTFOLIO_RESOURCEUSAGEMODEL_H
 
-#include <QAbstractItemModel>
+#include <QAbstractTableModel>
+#include <QSortFilterProxyModel>
 #include <QString>
 #include <QDate>
 #include <QPointF>
@@ -20,8 +21,6 @@ namespace KPlato {
     class Project;
     class Node;
 }
-
-class ResourceUsageModel;
 
 #define DOCUMENT_ROLE 100440
 #define PROJECT_ROLE 100441
@@ -71,6 +70,24 @@ protected:
     QMap<QDate, QMap<KPlato::Node*, double> > m_usage; // QMap<date, QMap<task, effort (hours)> >
     double m_normalMax;
     double m_stackedMax;
+    QMap<QDate, double> m_available;
 };
 
+class ResourceAvailableModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+    explicit ResourceAvailableModel(QObject *parent = nullptr);
+
+//     QModelIndex mapToSource(const QModelIndex & proxyIndex) const override;
+//     QModelIndex mapFromSource(const QModelIndex & sourceIndex) const override;
+//     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+//     QModelIndex parent(const QModelIndex &idx) const override;
+//     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
+
+public Q_SLOTS:
+    void sourceReset();
+};
 #endif

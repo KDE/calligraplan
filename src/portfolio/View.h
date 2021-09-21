@@ -53,6 +53,7 @@ private Q_SLOTS:
 private:
     bool m_readWrite;
     KPageWidget *m_views;
+    KPageWidgetItem *m_ganttSummary;
     QHash<QString, KPageWidgetItem*> m_ganttViews;
 };
 

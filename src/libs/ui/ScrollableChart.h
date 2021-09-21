@@ -19,6 +19,7 @@ class QAbstractItemModel;
 namespace KChart {
     class Chart;
     class Legend;
+    class AbstractCartesianDiagram;
 }
 
 namespace KPlato
@@ -34,6 +35,8 @@ public:
 
     KChart::Chart *chart() const;
     KChart::Legend *legend() const;
+
+    void addDiagram(KChart::AbstractCartesianDiagram *diagram);
 
     ScrollableChartFilterModel &filterModel();
 
