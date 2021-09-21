@@ -22,6 +22,7 @@ class QMenu;
 
 namespace KChart {
     class Chart;
+    class LineDiagram;
 }
 
 class ResourceUsageModel;
@@ -45,6 +46,8 @@ protected Q_SLOTS:
     void slotUpdateNumDays();
     void slotNumDaysChanged(int value);
 
+    void updateMarker();
+
 protected:
     void updateReadWrite(bool readwrite) override;
 
@@ -56,6 +59,7 @@ private:
     Ui::ResourceUsageView ui;
     ResourceUsageModel m_resourceUsageModel;
     QSpinBox m_numDays;
+    KChart::LineDiagram *m_available;
 };
 
 #endif

@@ -6,6 +6,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "ResourceUsageView.h"
+#include "ResourceUsageModel.h"
 #include "ResourceModel.h"
 #include "MainDocument.h"
 
@@ -17,7 +18,9 @@
 #include <KToolBar>
 
 #include <KChartBarDiagram>
+#include <KChartLineDiagram>
 #include <KChartLegend>
+#include <KChartDataValueAttributes>
 
 #include <QSpinBox>
 
@@ -46,6 +49,28 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
     auto bar = qobject_cast<KChart::BarDiagram*>(ui.chart->chart()->coordinatePlane()->diagram());
     bar->setType(KChart::BarDiagram::Stacked);
     ui.chart->legend()->setTitleText(i18n("Tasks"));
+
+    auto *m = new ResourceAvailableModel(this);
+    m->setSourceModel(&ui.chart->filterModel());
+    m_available = new KChart::LineDiagram();
+    m_available->setCenterDataPoints(true);
+    m_available->setPen(0,  Qt::NoPen);
+    KChart::DataValueAttributes dva(m_available->dataValueAttributes());
+    KChart::TextAttributes ta( dva.textAttributes() );
+    ta.setVisible(false);
+    dva.setTextAttributes(ta);
+    KChart::MarkerAttributes ma(dva.markerAttributes());
+    ma.setMarkerStyle(KChart::MarkerAttributes::MarkerSquare);
+    ma.setMarkerSize(QSize(10, 2));
+    ma.setVisible(true);
+    dva.setMarkerAttributes(ma);
+    dva.setVisible( true );
+    m_available->setDataValueAttributes(dva);
+    connect(m, &ResourceAvailableModel::modelReset, this, &ResourceUsageView::updateMarker);
+    connect(ui.chartWrapper, &ChartWrapper::sizeChanged, this, &ResourceUsageView::updateMarker);
+    m_available->setModel(m);
+    ui.chart->addDiagram(m_available);
+
     ui.chart->setDataModel(&m_resourceUsageModel);
 
     //ui.chart->chart()->coordinatePlane()->setRubberBandZoomingEnabled(true);
@@ -131,11 +156,22 @@ void ResourceUsageView::slotUpdateNumDays()
     if (spinBox) {
         spinBox->setMaximum(end);
     }
-
-    slotNumDaysChanged(m_numDays.value());
+   slotNumDaysChanged(m_numDays.value());
 }
 
 void ResourceUsageView::slotNumDaysChanged(int value)
 {
     ui.chart->setNumRows(value);
+    updateMarker();
+}
+
+void ResourceUsageView::updateMarker()
+{
+    const auto width = m_available->geometry().width() / std::max(m_available->model()->rowCount(), 1);
+    KChart::DataValueAttributes dva(m_available->dataValueAttributes());
+    KChart::MarkerAttributes ma(dva.markerAttributes());
+    ma.setMarkerSize(QSize(width, 1));
+    dva.setMarkerAttributes(ma);
+    m_available->setDataValueAttributes(dva);
+    ui.chart->chart()->update();
 }
