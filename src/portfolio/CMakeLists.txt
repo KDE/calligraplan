@@ -14,7 +14,6 @@ include_directories(${PLANKERNEL_INCLUDES} ${PLANUI_INCLUDES} config)
 
 set(planportfolioprivate_LIB_SRCS
     PlanGroupDebug.cpp
-    ChartWrapper.cpp
     SummaryModel.cpp
     SummaryView.cpp
     ProjectsModel.cpp

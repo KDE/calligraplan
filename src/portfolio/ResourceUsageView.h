@@ -16,6 +16,8 @@
 
 #include <QSpinBox>
 
+#include <KChartLineDiagram>
+#include <KChartCartesianCoordinatePlane>
 class KoDocument;
 class KoPrintJob;
 class QMenu;
@@ -26,6 +28,18 @@ namespace KChart {
 }
 
 class ResourceUsageModel;
+
+class LineDiagram : public KChart::LineDiagram
+{
+    Q_OBJECT
+public:
+    LineDiagram(QWidget *parent = nullptr, KChart::CartesianCoordinatePlane* plane = nullptr);
+
+    void resize(const QSizeF &size) override;
+
+Q_SIGNALS:
+    void sizeChanged(const QSizeF &size);
+};
 
 class PLANPORTFOLIO_EXPORT ResourceUsageView : public KoView
 {
@@ -59,7 +73,7 @@ private:
     Ui::ResourceUsageView ui;
     ResourceUsageModel m_resourceUsageModel;
     QSpinBox m_numDays;
-    KChart::LineDiagram *m_available;
+    LineDiagram *m_available;
 };
 
 #endif

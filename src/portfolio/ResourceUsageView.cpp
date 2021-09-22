@@ -52,7 +52,7 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
 
     auto *m = new ResourceAvailableModel(this);
     m->setSourceModel(&ui.chart->filterModel());
-    m_available = new KChart::LineDiagram();
+    m_available = new LineDiagram();
     m_available->setCenterDataPoints(true);
     m_available->setPen(0,  Qt::NoPen);
     KChart::DataValueAttributes dva(m_available->dataValueAttributes());
@@ -67,7 +67,7 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
     dva.setVisible( true );
     m_available->setDataValueAttributes(dva);
     connect(m, &ResourceAvailableModel::modelReset, this, &ResourceUsageView::updateMarker);
-    connect(ui.chartWrapper, &ChartWrapper::sizeChanged, this, &ResourceUsageView::updateMarker);
+    connect(m_available, &LineDiagram::sizeChanged, this, &ResourceUsageView::updateMarker);
     m_available->setModel(m);
     ui.chart->addDiagram(m_available);
 
@@ -174,4 +174,16 @@ void ResourceUsageView::updateMarker()
     dva.setMarkerAttributes(ma);
     m_available->setDataValueAttributes(dva);
     ui.chart->chart()->update();
+}
+
+//--------------------
+LineDiagram::LineDiagram(QWidget *parent, KChart::CartesianCoordinatePlane* plane)
+    : KChart::LineDiagram(parent, plane)
+{
+}
+
+void LineDiagram::resize(const QSizeF &size)
+{
+    KChart::LineDiagram::resize(size);
+    Q_EMIT sizeChanged(size);
 }
