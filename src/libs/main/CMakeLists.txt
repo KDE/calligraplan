@@ -17,6 +17,8 @@ if( Qca-qt5_FOUND )
 endif()
 
 set(komain_LIB_SRCS
+    ktoolbarhelper.cpp
+    kedittoolbar.cpp
     WelcomeView.cpp
 
     KoAutoSaveRecoveryDialog.cpp
