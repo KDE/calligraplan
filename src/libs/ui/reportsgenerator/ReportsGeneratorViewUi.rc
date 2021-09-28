@@ -21,7 +21,7 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    <ToolBar name="generatereportsToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_report"/>
         <Action name="remove_report"/>
         <Action name="generate_report"/>

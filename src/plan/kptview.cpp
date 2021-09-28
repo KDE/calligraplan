@@ -124,7 +124,7 @@
 using namespace KPlato;
 
 View::View(KoPart *part, MainDocument *doc, QWidget *parent)
-        : KoView(part, doc, parent),
+        : KoView(part, doc, true, parent),
         m_currentEstimateType(Estimate::Use_Expected),
         m_scheduleActionGroup(new QActionGroup(this)),
         m_readWrite(false),

@@ -114,6 +114,7 @@ install(TARGETS calligraplanportfolio  ${INSTALL_TARGETS_DEFAULT_ARGS})
 ########### Files ###############
 
 install( FILES
+        calligraplanportfolio_shell.rc
         Portfolio_ViewUi.rc
         Portfolio_SummaryViewUi.rc
         Portfolio_PortfolioViewUi.rc
@@ -121,6 +122,7 @@ install( FILES
         Portfolio_SchedulingViewUi.rc
         Portfolio_GanttViewUi.rc
         Portfolio_ResourceUsageViewUi.rc
+        Portfolio_PerformanceViewUi.rc
         ../libs/ui/TaskStatusViewUi.rc
         ../libs/ui/GanttViewUi.rc
     DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplanportfolio

@@ -35,9 +35,9 @@ PerformanceView::PerformanceView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("PerformanceViewUi.rc");
+        setXMLFile("Portfolio_PerformanceViewUi.rc");
     } else {
-        setXMLFile("PerformanceViewUi_readonly.rc");
+        setXMLFile("Portfolio_PerformanceViewUi_readonly.rc");
     }
     ui.setupUi(this);
 

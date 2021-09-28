@@ -257,12 +257,8 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     // PartManager
     // End
 
-    QString doc;
-    const QStringList allFiles = KoResourcePaths::findAllResources("data", "kxmlgui5/calligraplan/calligraplan_shell.rc");
-    const QString file = findMostRecentXMLFile(allFiles, doc);
-    setXMLFile(file);
-    const QString file2 = KoResourcePaths::locateLocal("data", "calligraplan/calligraplan_shell.rc");
-    setLocalXMLFile(file2);
+    QString xmlFileName = QString("%1_shell.rc").arg(qApp->applicationName());
+    setXMLFile(xmlFileName);
 
     actionCollection()->addAction(KStandardAction::New, "file_new", this, SLOT(slotFileNew()));
     actionCollection()->addAction(KStandardAction::Open, "file_open", this, SLOT(slotFileOpen()));
@@ -320,7 +316,8 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     connect(d->showDocumentInfo, &QAction::triggered, this, &KoMainWindow::slotDocumentInfo);
 
     KStandardAction::keyBindings(this, SLOT(slotConfigureKeys()), actionCollection());
-    KStandardAction::configureToolbars(this, SLOT(slotConfigureToolbars()), actionCollection());
+    auto a = KStandardAction::configureToolbars(this, SLOT(slotConfigureToolbars()), actionCollection());
+    a->setEnabled(false);
 
     actionCollection()->action("file_new")->setEnabled(false);
     d->showDocumentInfo->setEnabled(false);
@@ -778,8 +775,6 @@ bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocu
     if (w) {
         w->deleteLater();
     }
-    // restore toolbar
-    showToolbar("mainToolBar", d->tbIsVisible);
     return true;
 }
 
@@ -1599,8 +1594,8 @@ void KoMainWindow::slotConfigureToolbars()
         saveMainWindowSettings(componentConfigGroup);
     }
 
-    KEditToolBar edit(factory(), this);
-    connect(&edit, &KEditToolBar::newToolBarConfig, this, &KoMainWindow::slotNewToolbarConfig);
+    KoEditToolBar edit(factory(), this);
+    connect(&edit, &KoEditToolBar::newToolBarConfig, this, &KoMainWindow::slotNewToolbarConfig);
     (void) edit.exec();
 }
 
@@ -1619,6 +1614,8 @@ void KoMainWindow::slotNewToolbarConfig()
         return;
 
     plugActionList("toolbarlist", d->toolbarList);
+    actionCollection()->action("options_configure_toolbars")->setEnabled(!d->toolbarList.isEmpty());
+
 }
 
 void KoMainWindow::slotToolbarToggled(bool toggle)
@@ -1638,34 +1635,6 @@ void KoMainWindow::slotToolbarToggled(bool toggle)
         }
     } else
         warnMain << "slotToolbarToggled : Toolbar " << sender()->objectName() << " not found!";
-}
-
-bool KoMainWindow::toolbarIsVisible(const char *tbName)
-{
-    QWidget *tb = toolBar(tbName);
-    return !tb->isHidden();
-}
-
-void KoMainWindow::showToolbar(const char * tbName, bool shown)
-{
-    QWidget * tb = toolBar(tbName);
-    if (!tb) {
-        warnMain << "KoMainWindow: toolbar " << tbName << " not found.";
-        return;
-    }
-    if (shown)
-        tb->show();
-    else
-        tb->hide();
-
-    // Update the action appropriately
-    for (QAction* action : qAsConst(d->toolbarList)) {
-        if (action->objectName() != tbName) {
-            //debugMain <<"KoMainWindow::showToolbar setChecked" << shown;
-            static_cast<KToggleAction *>(action)->setChecked(shown);
-            break;
-        }
-    }
 }
 
 void KoMainWindow::viewFullscreen(bool fullScreen)
@@ -2152,7 +2121,7 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget)
                 warnMain << "Toolbar list contains a " << it->metaObject()->className() << " which is not a toolbar!";
         }
         plugActionList("toolbarlist", d->toolbarList);
-
+        actionCollection()->action("options_configure_toolbars")->setEnabled(!d->toolbarList.isEmpty());
     }
     else {
         d->activeView = nullptr;

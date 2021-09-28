@@ -19,6 +19,6 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    <ToolBar name="projectperformancechartToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
     </ToolBar>
 </gui>

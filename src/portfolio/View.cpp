@@ -37,7 +37,7 @@
 
 
 View::View(KoPart *part, KoDocument *doc, QWidget *parent)
-    : KoView(part, doc, parent)
+    : KoView(part, doc, true, parent)
     , m_readWrite(false)
 {
     //debugPlanGroup;

@@ -142,7 +142,7 @@ public:
     KSelectAction *actionAuthor; // Select action for author profile.
 };
 
-KoView::KoView(KoPart *part, KoDocument *document, QWidget *parent)
+KoView::KoView(KoPart *part, KoDocument *document, bool setupGlobalActions, QWidget *parent)
         : QWidget(parent)
         , d(new KoViewPrivate)
 {
@@ -161,7 +161,48 @@ KoView::KoView(KoPart *part, KoDocument *document, QWidget *parent)
 
     setFocusPolicy(Qt::StrongFocus);
 
-    setupGlobalActions();
+    if (setupGlobalActions) {
+        this->setupGlobalActions();
+    }
+
+    QStatusBar * sb = statusBar();
+    if (sb) { // No statusbar in e.g. konqueror
+        connect(d->document.data(), &KoDocument::statusBarMessage,
+                this, &KoView::slotActionStatusText);
+        connect(d->document.data(), &KoDocument::clearStatusBarMessage,
+                this, &KoView::slotClearStatusText);
+    }
+    actionCollection()->addAssociatedWidget(this);
+
+    /**
+     * WARNING: This code changes the context of global shortcuts
+     *          only. All actions added later will have the default
+     *          context, which is Qt::WindowShortcut!
+     */
+    const auto actions = actionCollection()->actions();
+    for (QAction* action : actions) {
+        action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+    }
+}
+
+KoView::KoView(KoPart *part, KoDocument *document, QWidget *parent)
+        : QWidget(parent)
+        , d(new KoViewPrivate)
+{
+    Q_ASSERT(document);
+    Q_ASSERT(part);
+
+    setObjectName(newObjectName());
+
+#ifndef QT_NO_DBUS
+    new KoViewAdaptor(this);
+    QDBusConnection::sessionBus().registerObject('/' + objectName(), this);
+#endif
+
+    d->document = document;
+    d->part = part;
+
+    setFocusPolicy(Qt::StrongFocus);
 
     QStatusBar * sb = statusBar();
     if (sb) { // No statusbar in e.g. konqueror

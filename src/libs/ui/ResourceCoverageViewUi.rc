@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="Summary View" version="1" translationDomain="calligraplangroup">
+<gui name="Resource Coverage View" version="1" translationDomain="calligraplanlibs">
     <MenuBar>
-        <Menu name="view"><text>&amp;View</text>
+        <Menu name="view">
+            <Separator/>
             <Action name="print"/>
             <Action name="print_preview"/>
             <Action name="print_pdf"/>
@@ -11,6 +12,6 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-<!--    <ToolBar name="viewToolBar"  fullWidth="false"><text>Tools</text>
-    </ToolBar>-->
+    <ToolBar name="resourcecoverageToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    </ToolBar>
 </gui>

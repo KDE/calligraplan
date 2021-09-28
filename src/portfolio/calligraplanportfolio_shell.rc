@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="Calligra" version="32" translationDomain="calligraplan">
+<gui name="Calligra Portfolio" version="1" translationDomain="calligraplangroup">
     <MenuBar>
         <Menu name="file" noMerge="1"><text>&amp;File</text>
             <Merge/>
@@ -10,11 +10,12 @@
         <Merge />
         <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
             <DefineGroup name="settings_top"/>
-            <Merge/>
             <DefineGroup name="settings_show"/>
             <Separator/>
-            <Action name="options_configure_keybinding"/>
+            <Merge/>
+<!--             <ActionList name="toolbarlist"/> -->
             <Action name="options_configure_toolbars"/>
+            <Action name="options_configure_keybinding"/>
             <Action name="theme_menu" />
             <Separator/>
             <DefineGroup name="settings_configure"/>
