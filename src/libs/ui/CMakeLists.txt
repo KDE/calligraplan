@@ -216,6 +216,7 @@ install( FILES
         PertResultUi.rc
         TaskViewUi.rc
         TaskStatusViewUi.rc
+        ResourceCoverageViewUi.rc
     DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan
 )
 

@@ -104,8 +104,6 @@ install(TARGETS planmain ${INSTALL_TARGETS_DEFAULT_ARGS} )
 # TODO: with the new embedded JSON data for plugins there is no schema ATM to define extended properties
 # calligradocker.desktop
 
-install(FILES calligraplan_shell.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan )
-
 if (APPLE)
     install(FILES osx.stylesheet DESTINATION ${DATA_INSTALL_DIR}/calligraplan )
 endif ()

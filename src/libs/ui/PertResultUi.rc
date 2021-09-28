@@ -19,7 +19,7 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    <ToolBar name="pertresultToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
     </ToolBar>
 
     <Menu name="task_edit_popup">

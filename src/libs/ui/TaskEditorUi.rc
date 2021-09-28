@@ -30,7 +30,7 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    <ToolBar name="taskeditorToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_task"/>
         <Action name="add_subtask"/>
         <Action name="delete_task"/>

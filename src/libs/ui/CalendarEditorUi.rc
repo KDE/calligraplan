@@ -21,7 +21,7 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    <ToolBar name="calendareditorToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_calendar"/>
         <Action name="add_subcalendar"/>
         <Action name="delete_selection"/>

@@ -43,12 +43,29 @@ public:
      *
      * The standard way to retrieve a KoView is to call KoPart::createView.
      *
+     * Note: Does not add global actions to this view.
+     *
      * @param part     KoPart
      * @param document is the document which should be displayed in this view. This pointer
      *                 must not be zero.
      * @param parent   parent widget for this view.
      */
     KoView(KoPart *part, KoDocument *document, QWidget *parent = nullptr);
+
+    /**
+     * Creates a new view for the document. Usually you don't create views yourself
+     * since the Calligra components come with their own view classes which inherit
+     * KoView.
+     *
+     * The standard way to retrieve a KoView is to call KoPart::createView.
+     *
+     * @param part     KoPart
+     * @param document is the document which should be displayed in this view. This pointer
+     *                 must not be zero.
+     * @param parent   parent widget for this view.
+     * @param setupGlobalActions If true global actions are added to this view.
+     */
+    KoView(KoPart *part, KoDocument *document, bool setupGlobalActions, QWidget *parent = nullptr);
 
     /**
      * Destroys the view and unregisters at the document.

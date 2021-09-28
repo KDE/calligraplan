@@ -24,7 +24,7 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    <ToolBar name="rbseditorToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_group"/>
         <Action name="add_subgroup"/>
         <Action name="delete_selection"/>

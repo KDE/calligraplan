@@ -23,7 +23,7 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    <ToolBar name="resourceeditorToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_resource"/>
         <Action name="delete_selection"/>
     </ToolBar>

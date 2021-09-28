@@ -35,7 +35,7 @@
         </Menu>-->
     </MenuBar>
 
-    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Edit</Text>
+    <ToolBar name="mailestineviewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
     </ToolBar>
 
     <Menu name="task_unscheduled_popup">

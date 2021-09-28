@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd" >
-<gui name="Calligra Plan" version="55" translationDomain="calligraplan">
+<gui name="Plan" version="55" translationDomain="calligraplan">
     <MenuBar>
         <Menu name="file"><text>&amp;File</text>
             <Action name="file_new" />
@@ -32,7 +32,7 @@
 <!--             <Action name="edit_cut"/> -->
             <Action name="edit_copy"/>
             <Action name="edit_paste"/>
-            <Separator/> 
+            <Separator/>
         </Menu>
         <Menu name="view"><text>&amp;View</text>
             <Action name="view_newview"/>
@@ -55,27 +55,24 @@
             <Action name="reportdesigner_open_file"/>
         </Menu>
         <Menu name="settings"><text>&amp;Settings</text>
-            <Action name="view_toggledockertitlebars" group="settings_configure"/>
-            <Action name="settings_dockers_menu" group="settings_configure"/>
-            <Separator/>
+            <Action name="view_toggledockertitlebars" group="settings_top"/>
+            <Action name="settings_dockers_menu" group="settings_top"/>
             <Action name="configure" group="settings_configure"/>
         </Menu>
         <Menu name="help"><text>&amp;Help</text>
             <Action name="plan_introduction"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="mainToolBar" fullWidth="false" noMerge="1"><Text>File</Text>
+    <ToolBar name="mainToolBar" fullWidth="false"><text>File</text>
         <Action name="file_new" />
         <Action name="file_open" />
         <Action name="file_save" />
-        <!--
-        <Action name="file_print" />
-        <Action name="file_print_preview" />
-        //-->
+        <Separator/>
     </ToolBar>
-    <ToolBar name="edit"><Text>Edit</Text>
+    <ToolBar name="edit_toolbar" fullWidth="false"><text>Edit</text>
         <Action name="edit_undo"/>
         <Action name="edit_redo"/>
+        <Separator/>
     </ToolBar>
     <Menu name="project_edit_popup">
         <Action name="project_properties"/>

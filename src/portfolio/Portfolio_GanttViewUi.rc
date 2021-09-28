@@ -11,6 +11,8 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
+    <ToolBar name="ganttsummaryviewToolBar"  fullWidth="false"><text>Tools</text>
+    </ToolBar>
     <Menu name="gantt_context_menu">
         <Action name="gantt_open_project"/>
     </Menu>

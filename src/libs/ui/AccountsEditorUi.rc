@@ -21,7 +21,7 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar name="viewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    <ToolBar name="cbseditorToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
         <Action name="add_account"/>
         <Action name="add_subaccount"/>
         <Action name="delete_selection"/>

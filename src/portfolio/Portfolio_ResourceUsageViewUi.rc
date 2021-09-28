@@ -11,7 +11,7 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-    <ToolBar name="resourceusageview_toolbar"  fullWidth="false"><text>Tools</text>
+    <ToolBar name="resourceusageviewToolBar"  fullWidth="false"><text>Tools</text>
         <Action name="diagramtypes"/>
 <!--            <Action name="charttype_normal"/>
             <Action name="charttype_stacked"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="accountsview" version="1" translationDomain="calligraplanlibs">
+<gui name="CBS View" version="1" translationDomain="calligraplanlibs">
     <MenuBar>
         <Menu name="view">
             <Separator/>
@@ -18,4 +18,6 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
+    <ToolBar name="cbsviewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    </ToolBar>
 </gui>

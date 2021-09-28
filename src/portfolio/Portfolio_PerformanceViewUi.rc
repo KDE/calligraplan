@@ -11,6 +11,6 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
-<!--    <ToolBar name="viewToolBar"  fullWidth="false"><text>Tools</text>
+<!--    <ToolBar name="summaryviewToolBar"  fullWidth="false"><text>Tools</text>
     </ToolBar>-->
 </gui>

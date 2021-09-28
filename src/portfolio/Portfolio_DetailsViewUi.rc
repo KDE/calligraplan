@@ -11,4 +11,6 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
+<!--    <ToolBar name="progressviewToolBar"  fullWidth="false"><text>Tools</text>
+    </ToolBar>-->
 </gui>
