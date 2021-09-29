@@ -1083,7 +1083,7 @@ void MainDocument::insertResourcesFile(const QUrl &url_)
     if (!QDir::isAbsolutePath(url.path())) {
         url.setScheme(QString()); // makes url relative
         url = this->url().resolved(url);
-        debugPlanShared<<"Shared resource url resoulved:"<<url;
+        debugPlanShared<<"Shared resource url resolved:"<<url;
     }
     m_sharedProjectsFiles.removeAll(url); // resource file is not a project
 
