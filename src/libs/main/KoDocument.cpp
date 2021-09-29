@@ -283,7 +283,7 @@ public:
         if (ret) {
             Q_EMIT document->completed();
         } else {
-            Q_EMIT document->canceled(QString());
+            Q_EMIT document->canceled(document->errorMessage());
         }
         return ret;
     }
@@ -1292,9 +1292,11 @@ bool KoDocument::openFile()
     //debugMain <<"for" << localFilePath();
     if (!QFile::exists(localFilePath())) {
         QApplication::restoreOverrideCursor();
-        if (d->autoErrorHandlingEnabled)
+        setErrorMessage(i18n("The file %1 does not exist.", localFilePath()));
+        if (d->autoErrorHandlingEnabled) {
             // Maybe offer to create a new document with that name ?
-            KMessageBox::error(nullptr, i18n("The file %1 does not exist.", localFilePath()));
+            KMessageBox::error(nullptr, errorMessage());
+        }
         d->isLoading = false;
         return false;
     }
