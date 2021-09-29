@@ -26,18 +26,6 @@
 
 #include <QApplication>
 
-
-const QLoggingCategory &PLANCMDINSPROJECT_LOG()
-{
-    static const QLoggingCategory category("calligra.plan.command.insertProject");
-    return category;
-}
-
-#define debugPlanInsertProject qCDebug(PLANCMDINSPROJECT_LOG)
-#define warnPlanInsertProject qCWarning(PLANCMDINSPROJECT_LOG)
-#define errorPlanInsertProject qCCritical(PLANCMDINSPROJECT_LOG)
-
-
 namespace KPlato
 {
 

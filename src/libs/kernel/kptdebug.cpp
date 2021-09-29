@@ -42,3 +42,9 @@ const QLoggingCategory &PLANCHART_LOG()
     static const QLoggingCategory category("calligra.plan.chart");
     return category;
 }
+
+const QLoggingCategory &PLANINSPROJECT_LOG()
+{
+    static const QLoggingCategory category("calligra.plan.insertProject");
+    return category;
+}

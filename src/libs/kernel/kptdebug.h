@@ -50,4 +50,10 @@ extern const PLANKERNEL_EXPORT QLoggingCategory &PLANCHART_LOG();
 #define warnPlanChart qCWarning(PLANCHART_LOG)<<"WARN:"<<Q_FUNC_INFO
 #define errorPlanChart qCCritical(PLANCHART_LOG)<<"ERROR:"<<Q_FUNC_INFO
 
+extern const PLANKERNEL_EXPORT QLoggingCategory &PLANINSPROJECT_LOG();
+
+#define debugPlanInsertProject qCDebug(PLANINSPROJECT_LOG)
+#define warnPlanInsertProject qCWarning(PLANINSPROJECT_LOG)
+#define errorPlanInsertProject qCCritical(PLANINSPROJECT_LOG)
+
 #endif
