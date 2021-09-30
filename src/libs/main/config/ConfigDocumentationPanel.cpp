@@ -7,7 +7,6 @@
 // clazy:excludeall=qstring-arg
 #include "ConfigDocumentationPanel.h"
 
-#include "calligraplansettings.h"
 
 #include <QDebug>
 

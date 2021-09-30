@@ -58,7 +58,6 @@ ki18n_wrap_ui(planprivate_LIB_SRCS
     config/kptconfigtaskpanelbase.ui
     config/kptworkpackageconfigpanel.ui
     config/kptcolorsconfigpanel.ui
-    config/ConfigDocumentationPanel.ui
     config/ConfigTaskModulesPanel.ui
     config/ConfigProjectTemplatesPanel.ui
 

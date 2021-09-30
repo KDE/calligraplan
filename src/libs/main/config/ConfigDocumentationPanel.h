@@ -7,7 +7,7 @@
 #ifndef CONFIGDOCUMENTATIONPANEL_H
 #define CONFIGDOCUMENTATIONPANEL_H
 
-#include "plan_export.h"
+#include "komain_export.h"
 
 #include "ui_ConfigDocumentationPanel.h"
 
@@ -24,7 +24,7 @@ public:
     explicit ConfigDocumentationPanelImpl(QWidget *parent);
 };
 
-class PLAN_EXPORT ConfigDocumentationPanel : public ConfigDocumentationPanelImpl
+class KOMAIN_EXPORT ConfigDocumentationPanel : public ConfigDocumentationPanelImpl
 {
     Q_OBJECT
 public:
