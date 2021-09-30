@@ -43,7 +43,7 @@ set(komain_LIB_SRCS
     KoFilterChainLink.cpp
     KoFilterChainLinkList.cpp
     KoUndoStackAction.cpp
-
+    config/KoConfigDocumentPage.cpp
 #     KoFindBase.cpp
 #     KoFindMatch.cpp
 #     KoFindOption.cpp
@@ -65,6 +65,7 @@ endif()
 
 ki18n_wrap_ui(komain_LIB_SRCS
     WelcomeView.ui
+    config/KoConfigDocumentPage.ui
 )
 
 add_library(planmain SHARED  ${komain_LIB_SRCS})
