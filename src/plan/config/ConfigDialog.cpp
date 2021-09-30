@@ -11,7 +11,6 @@
 #include "kpttaskdefaultpanel.h"
 #include "kptworkpackageconfigpanel.h"
 #include "kptcolorsconfigpanel.h"
-#include "ConfigDocumentationPanel.h"
 #include "ConfigTaskModulesPanel.h"
 #include "ConfigProjectTemplatesPanel.h"
 
@@ -20,6 +19,7 @@
 #include <KoIcon.h>
 #include <KoMainWindow.h>
 #include <config/KoConfigDocumentPage.h>
+#include "config/ConfigDocumentationPanel.h"
 
 #include <KConfigSkeleton>
 #include <KLocalizedString>

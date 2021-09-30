@@ -25,7 +25,6 @@ set(planprivate_LIB_SRCS
     config/kpttaskdefaultpanel.cpp
     config/kptworkpackageconfigpanel.cpp
     config/kptcolorsconfigpanel.cpp
-    config/ConfigDocumentationPanel.cpp
     config/ConfigTaskModulesPanel.cpp
     config/ConfigProjectTemplatesPanel.cpp
     config/ConfigDialog.cpp
