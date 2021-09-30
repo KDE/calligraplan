@@ -15,6 +15,7 @@
 #include "SchedulingView.h"
 #include "MainDocument.h"
 #include "GanttView.h"
+#include "portfoliosettings.h"
 
 #include <kptproject.h>
 #include <kptganttview.h>
@@ -25,6 +26,7 @@
 #include <KoPart.h>
 #include <KoIcon.h>
 #include <performance/ProjectStatusView.h>
+#include <Help.h>
 
 #include <KRecentFilesAction>
 #include <KActionCollection>
@@ -42,6 +44,9 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlanGroup;
     setComponentName(PortfolioFactory::global().componentName(), PortfolioFactory::global().componentDisplayName());
+
+    new KPlato::Help(PortfolioSettings::contextPath(), PortfolioSettings::contextLanguage());
+
     setupActions();
 
     QVBoxLayout *layout = new QVBoxLayout(this);

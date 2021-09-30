@@ -4,6 +4,21 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile/> <!-- name="calligraplanportfoliorc"/> Don't, Factory::componentData().config() is used -->
+
+  <group name="Documentation">
+      <entry name="DocumentationPath" type="String">
+          <label>Path to the documentation</label>
+          <default>help:</default>
+      </entry>
+      <entry name="ContextPath" type="String">
+          <label>Path to the context help documentation</label>
+          <default>help:</default>
+      </entry>
+      <entry name="ContextLanguage" type="String">
+          <label>The context help documentation must have been translated to the language</label>
+      </entry>
+  </group>
+
   <group name="Interface">
       <entry name="AutoSave" type="int">
           <label>Autosave interval</label>

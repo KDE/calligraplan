@@ -11,6 +11,8 @@
 #include <KoIcon.h>
 #include <KoMainWindow.h>
 #include <config/KoConfigDocumentPage.h>
+#include <config/ConfigDocumentationPanel.h>
+#include <Help.h>
 
 #include <KConfigSkeleton>
 #include <KLocalizedString>
@@ -24,6 +26,8 @@ ConfigDialog::ConfigDialog(KoMainWindow *parent, const QString& name, KConfigSke
     auto docPage = new KoConfigDocumentPage(parent->rootDocument());
     m_pages << addPage(docPage, i18nc("@title:tab Document settings page", "Document"));
     m_pages.last()->setIcon(koIcon("document-properties"));
+
+    m_pages << addPage(new KPlato::ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents"));
 }
 
 void ConfigDialog::updateSettings()
@@ -46,6 +50,6 @@ bool ConfigDialog::hasChanged()
 
 void ConfigDialog::showHelp()
 {
-    //Help::invoke("Configure_Plan_Dialog");
+    KPlato::Help::invoke("Configure_Dialog");
 }
 
