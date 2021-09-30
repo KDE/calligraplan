@@ -184,7 +184,6 @@ bool MainDocument::completeLoading(KoStore *store)
             doc->loadEmbeddedDocument(store, doc->property(EMBEDDEDURL).toString());
             doc->setUrl(url); // restore external url
         } else {
-            qInfo()<<Q_FUNC_INFO<<"external:"<<doc->url();
             doc->openUrl(doc->url());
         }
     }

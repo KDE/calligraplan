@@ -218,8 +218,9 @@ protected Q_SLOTS:
     void checkForWorkPackage();
 
     void insertFileCompleted();
-    void insertResourcesFileCompleted();
     void insertFileCancelled(const QString&);
+    void insertResourcesFileCompleted();
+    void insertResourcesFileCancelled(const QString&);
 
     void slotNodeChanged(KPlato::Node*, int);
     void slotScheduleManagerChanged(KPlato::ScheduleManager *sm, int property);

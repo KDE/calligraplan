@@ -1049,6 +1049,7 @@ void MainDocument::insertFile(const QUrl &url, Node *parent, Node *after)
     doc->m_insertFileInfo.parent = parent;
     doc->m_insertFileInfo.after = after;
     doc->setProperty(NOUI, property(NOUI));
+    doc->setAutoErrorHandlingEnabled(false); // doc returns error message on nonexisting file
     connect(doc, &KoDocument::completed, this, &MainDocument::insertFileCompleted);
     connect(doc, &KoDocument::canceled, this, &MainDocument::insertFileCancelled);
 
@@ -1058,7 +1059,7 @@ void MainDocument::insertFile(const QUrl &url, Node *parent, Node *after)
 
 void MainDocument::insertFileCompleted()
 {
-    debugPlan<<sender();
+    debugPlanInsertProject<<sender();
     MainDocument *doc = qobject_cast<MainDocument*>(sender());
     if (doc) {
         Project &p = doc->getProject();
@@ -1066,6 +1067,19 @@ void MainDocument::insertFileCompleted()
         doc->documentPart()->deleteLater(); // also deletes document
     } else if (!property(NOUI).toBool()) {
         KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
+    }
+    m_isLoading = false;
+}
+
+void MainDocument::insertFileCancelled(const QString &error)
+{
+    debugPlanInsertProject<<sender()<<"error="<<error;
+    if (!error.isEmpty() && !property(NOUI).toBool()) {
+        KMessageBox::error(nullptr, error);
+    }
+    MainDocument *doc = qobject_cast<MainDocument*>(sender());
+    if (doc) {
+        doc->documentPart()->deleteLater(); // also deletes document
     }
     m_isLoading = false;
 }
@@ -1094,9 +1108,10 @@ void MainDocument::insertResourcesFile(const QUrl &url_)
     doc->disconnect(); // doc shall not handle feedback from openUrl()
     doc->setAutoSave(0); //disable
     doc->setCheckAutoSaveFile(false);
-    doc->setProperty(NOUI, property(NOUI));
+    doc->setProperty(NOUI, property(NOUI).toBool());
+    doc->setAutoErrorHandlingEnabled(false); // doc returns error message on nonexisting file
     connect(doc, &KoDocument::completed, this, &MainDocument::insertResourcesFileCompleted);
-    connect(doc, &KoDocument::canceled, this, &MainDocument::insertFileCancelled);
+    connect(doc, &KoDocument::canceled, this, &MainDocument::insertResourcesFileCancelled);
 
     m_isLoading = true;
     doc->openUrl(url);
@@ -1113,16 +1128,18 @@ void MainDocument::insertResourcesFileCompleted()
         doc->documentPart()->deleteLater(); // also deletes document
         slotInsertSharedProject(); // insert shared bookings
     } else if (!property(NOUI).toBool()) {
-        KMessageBox::error(nullptr, i18n("Internal error, failed to insert file."));
+        auto msg = xi18nc("@info", "Failed to load shared resources into project %1:<nl/>Internal error, failed to insert file.", projectName());
+        KMessageBox::error(nullptr, msg);
     }
     m_isLoading = false;
 }
 
-void MainDocument::insertFileCancelled(const QString &error)
+void MainDocument::insertResourcesFileCancelled(const QString &error)
 {
-    debugPlan<<sender()<<"error="<<error;
+    debugPlanShared<<sender()<<"error="<<error;
     if (!error.isEmpty() && !property(NOUI).toBool()) {
-        KMessageBox::error(nullptr, error);
+        auto msg = xi18nc("@info", "Failed to load shared resources into project %1:<nl/>%2", projectName(), error);
+        KMessageBox::sorry(nullptr, msg);
     }
     MainDocument *doc = qobject_cast<MainDocument*>(sender());
     if (doc) {
@@ -1281,7 +1298,7 @@ void MainDocument::insertSharedProjectCancelled(const QString &error)
 
 bool MainDocument::insertProject(Project &project, Node *parent, Node *after)
 {
-    debugPlan<<&project;
+    debugPlanInsertProject<<&project;
     // make sure node ids in new project is unique also in old project
     QList<QString> existingIds = m_project->nodeDict().keys();
     const QList<Node*> nodes = project.allNodes();
