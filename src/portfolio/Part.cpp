@@ -11,6 +11,8 @@
 #include "MainWindow.h"
 #include "MainDocument.h"
 #include "PortfolioFactory.h"
+#include "config/ConfigDialog.h"
+#include "portfoliosettings.h"
 
 #include <KoComponentData.h>
 
@@ -56,12 +58,12 @@ QString Part::recentFilesGroupName() const
 void Part::configure(KoMainWindow *mw)
 {
     qInfo()<<Q_FUNC_INFO;
-//     if (KConfigDialog::showDialog(xi18nc("@info:title", "Portfolio Settings"))) {
-//         return;
-//     }
-//     ConfigDialog *dialog = new ConfigDialog(mw, xi18nc("@info:title", "Portfolio Settings"), KPlatoSettings::self());
-//     connect(dialog, &ConfigDialog::settingsUpdated, this, &Part::slotSettingsUpdated, Qt::QueuedConnection);
-//     dialog->open();
+    if (KConfigDialog::showDialog(xi18nc("@info:title", "Portfolio Settings"))) {
+        return;
+    }
+    ConfigDialog *dialog = new ConfigDialog(mw, xi18nc("@info:title", "Portfolio Settings"), PortfolioSettings::self());
+    connect(dialog, &ConfigDialog::settingsUpdated, this, &Part::slotSettingsUpdated, Qt::QueuedConnection);
+    dialog->open();
 }
 
 void Part::slotSettingsUpdated()

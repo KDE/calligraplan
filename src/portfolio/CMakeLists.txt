@@ -37,6 +37,7 @@ set(planportfolioprivate_LIB_SRCS
 
     PortfolioFactory.cpp
     config/ConfigSkeleton.cpp
+    config/ConfigDialog.cpp
 )
 
 ki18n_wrap_ui(planportfolioprivate_LIB_SRCS

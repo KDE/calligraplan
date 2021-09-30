@@ -3,5 +3,15 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-  <kcfgfile/> <!-- name="planrc"/> Don't, Factory::componentData().config() is used -->
+  <kcfgfile/> <!-- name="calligraplanportfoliorc"/> Don't, Factory::componentData().config() is used -->
+  <group name="Interface">
+      <entry name="AutoSave" type="int">
+          <label>Autosave interval</label>
+          <default>5</default>
+      </entry>
+      <entry name="CreateBackupFile" type="bool">
+          <label>Create a backup file</label>
+          <default>true</default>
+      </entry>
+  </group>
 </kcfg>
