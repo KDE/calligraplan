@@ -18,6 +18,8 @@
 #include <calligraplansettings.h>
 #include <Help.h>
 #include <KoIcon.h>
+#include <KoMainWindow.h>
+#include <config/KoConfigDocumentPage.h>
 
 #include <KConfigSkeleton>
 #include <KLocalizedString>
@@ -28,7 +30,7 @@
 
 using namespace KPlato;
 
-ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton *config)
+ConfigDialog::ConfigDialog(KoMainWindow *parent, const QString& name, KConfigSkeleton *config)
 : KConfigDialog(parent, name, config)
 {
     m_pages << addPage(new ConfigProjectPanel(), i18n("Project Defaults"), koIconName("calligraplan"));
@@ -41,13 +43,19 @@ ConfigDialog::ConfigDialog(QWidget *parent, const QString& name, KConfigSkeleton
     connect(this, &ConfigDialog::updateWidgetsSettings, page, &ConfigTaskModulesPanel::updateSettings);
     connect(this, &ConfigDialog::updateWidgetsData, page, &ConfigTaskModulesPanel::updateWidgets);
     m_pages << addPage(new WorkPackageConfigPanel(), i18n("Work Package"), koIconName("calligraplanwork"));
-    m_pages << addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents"));
 
     ConfigProjectTemplatesPanel *p = new ConfigProjectTemplatesPanel();
     m_pages << addPage(p, i18n("Project Templates"), koIconName("calligraplan"));
     connect(p, &ConfigProjectTemplatesPanel::settingsChanged, this, &ConfigDialog::updateButtons);
     connect(this, &ConfigDialog::updateWidgetsSettings, p, &ConfigProjectTemplatesPanel::updateSettings);
     connect(this, &ConfigDialog::updateWidgetsData, p, &ConfigProjectTemplatesPanel::updateWidgets);
+
+    auto docPage = new KoConfigDocumentPage(parent->rootDocument());
+    m_pages << addPage(docPage, i18nc("@title:tab Document settings page", "Document"));
+    m_pages.last()->setIcon(koIcon("document-properties"));
+//     connect(this, &ConfigDialog::updateWidgetsSettings, docPage, &KoConfigDocumentPage::apply);
+
+    m_pages << addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents"));
 }
 
 void ConfigDialog::updateSettings()

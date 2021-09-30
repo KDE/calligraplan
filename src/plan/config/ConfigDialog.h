@@ -12,7 +12,7 @@
 
 #include <KConfigDialog>
 
-
+class KoMainWindow;
 class KConfigSkeleton;
 
 namespace KPlato
@@ -23,7 +23,7 @@ class PLAN_EXPORT ConfigDialog : public KConfigDialog
 {
     Q_OBJECT
 public:
-    ConfigDialog(QWidget *parent, const QString &name, KConfigSkeleton *config);
+    ConfigDialog(KoMainWindow *parent, const QString &name, KConfigSkeleton *config);
     
 Q_SIGNALS:
     void updateWidgetsData();

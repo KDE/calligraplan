@@ -381,4 +381,15 @@
           <label>List of paths to project templates</label>
       </entry>
   </group>
+
+  <group name="Interface">
+      <entry name="AutoSave" type="int">
+          <label>Autosave interval</label>
+          <default>5</default>
+      </entry>
+      <entry name="CreateBackupFile" type="bool">
+          <label>Create a backup file</label>
+          <default>true</default>
+      </entry>
+  </group>
 </kcfg>
