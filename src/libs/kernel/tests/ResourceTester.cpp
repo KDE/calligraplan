@@ -266,8 +266,7 @@ void ResourceTester::team()
         Project p3;
         sts.setProject(&p3);
         sts.setVersion(PLAN_FILE_SYNTAX_VERSION);
-        KoXmlElement xe = xdoc.documentElement().firstChildElement();
-        p3.load(xe, sts);
+        sts.loadProject(&p3, xdoc);
 
         QCOMPARE(p3.numResourceGroups(), 1);
         ResourceGroup *g3 = p3.resourceGroupAt(0);
@@ -393,8 +392,7 @@ void ResourceTester::team()
         Project p3;
         sts.setProject(&p3);
         sts.setVersion(PLAN_FILE_SYNTAX_VERSION);
-        KoXmlElement xe = xdoc.documentElement().firstChildElement();
-        p3.load(xe, sts);
+        sts.loadProject(&p3, xdoc);
 
         QCOMPARE(p3.numResourceGroups(), 2);
         ResourceGroup *g3 = p3.resourceGroupAt(0);
@@ -545,7 +543,7 @@ void ResourceTester::required()
 
         Project p3;
         KoXmlElement xe = xdoc.documentElement().firstChildElement();
-        p3.load(xe, sts);
+        sts.loadProject(&p3, xdoc);
 
         ResourceGroup *g2 = p3.resourceGroupAt(0);
         QVERIFY(g2);
@@ -630,13 +628,12 @@ void ResourceTester::required()
 
         KoXmlDocument xdoc;
         xdoc.setContent(qdoc.toString());
-        XMLLoaderObject sts;
-        sts.setProject(&p4);
-        sts.setVersion(PLAN_FILE_SYNTAX_VERSION);
 
         Project p5;
-        KoXmlElement xe = xdoc.documentElement().firstChildElement();
-        p5.load(xe, sts);
+        XMLLoaderObject sts;
+        sts.setProject(&p5);
+        sts.setVersion(PLAN_FILE_SYNTAX_VERSION);
+        sts.loadProject(&p5, xdoc);
 
         ResourceGroup *g4 = p5.resourceGroupAt(0);
         QVERIFY(g4);

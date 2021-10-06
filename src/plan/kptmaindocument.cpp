@@ -294,6 +294,7 @@ bool MainDocument::loadOdf(KoOdfReadStore &odfStore)
 
 bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
 {
+    debugPlanXml<<"--->";
     QPointer<KoUpdater> updater;
     if (progressUpdater()) {
         updater = progressUpdater()->startSubtask(1, "Plan::Part::loadXML");
@@ -344,10 +345,11 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             updater->setProgress(100); // the rest is only processing, not loading
         }
         Q_EMIT changed();
+        debugPlanXml<<ok<<"<---";
         return ok;
     }
     if (value != "application/x-vnd.kde.plan") {
-        errorPlan << "Unknown mime type " << value;
+        errorPlanXml << "Unknown mime type " << value;
         setErrorMessage(i18n("Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1", value));
         return false;
     }
@@ -361,6 +363,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
                       i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
             if (ret == KMessageBox::Cancel) {
                 setErrorMessage("USER_CANCELED");
+                debugPlanXml<<"Canceled"<<"<---";
                 return false;
             }
         }
@@ -373,6 +376,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
     }
 
     setModified(false);
+    debugPlanXml<<"<---";
     Q_EMIT changed();
     return true;
 }
@@ -663,8 +667,8 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
             KoXmlElement e = n.toElement();
             if (e.tagName() == "project") {
                 m_xmlLoader.setProject(proj);
-                ok = proj->load(e, m_xmlLoader);
-                if (! ok) {
+                ok = m_xmlLoader.loadProject(proj, document);
+                if (!ok) {
                     m_xmlLoader.addMsg(XMLLoaderObject::Errors, "Loading of work package failed");
                     warnPlanWp<<"Skip workpackage:"<<"Loading project failed";
                     //TODO add some ui here

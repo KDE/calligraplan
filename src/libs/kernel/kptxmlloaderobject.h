@@ -11,6 +11,8 @@
 
 #include "kptproject.h"
 #include "kptdatetime.h"
+#include "ProjectLoaderBase.h"
+#include "ProjectLoader_v0.h"
 
 #include <KoUpdater.h>
 #include <KoXmlReader.h>
@@ -111,6 +113,7 @@ public:
     /// Load a project from xml
     bool loadProject(Project *project, const KoXmlDocument &document)
     {
+        debugPlanXml<<project;
         m_project = project;
         bool result = false;
 
@@ -119,6 +122,21 @@ public:
 
         KoXmlElement plan = document.documentElement();
         m_version = plan.attribute("version", PLAN_FILE_SYNTAX_VERSION);
+#if 1
+        ProjectLoaderBase *loader = nullptr;
+        if (m_version.split('.').value(0).toInt() == 0) {
+            loader = new ProjectLoader_v0();
+        }
+        if (loader) {
+            result = loader->load(*this, document);
+        } else {
+            errorPlanXml<<"Failed to create loader for version:"<<m_version;
+            result = false;
+        }
+        if (!result) {
+            addMsg(Errors, "Loading of project failed");
+        }
+#else
         KoXmlNode n = plan.firstChild();
         for (; ! n.isNull(); n = n.nextSibling()) {
             if (! n.isElement()) {
@@ -138,7 +156,7 @@ public:
                         const QList<Schedule*> schedules = n->schedules().values();
                         for (Schedule *s : schedules) {
                             if (s->isDeleted()) { // true also if parent == 0
-                                errorPlan<<n->name()<<s;
+                                errorPlanXml<<n->name()<<s;
                                 n->takeSchedule(s);
                                 delete s;
                             }
@@ -150,9 +168,11 @@ public:
                 }
             }
         }
+#endif
         stopLoad();
         if (m_updater) m_updater->setProgress(100); // the rest is only processing, not loading
 
+        debugPlanXml<<project<<result;
         return result;
     }
 

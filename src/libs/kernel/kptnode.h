@@ -626,6 +626,7 @@ public Q_SLOTS:
 
 protected:
     friend class KPlatoXmlLoaderBase;
+    friend class ProjectLoaderBase;
     /**
      * Calculates and returns the duration of the node.
      * Reimplement.

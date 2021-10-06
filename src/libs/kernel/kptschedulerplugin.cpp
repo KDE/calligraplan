@@ -433,7 +433,7 @@ bool SchedulerThread::loadProject(Project *project, const KoXmlDocument &doc)
     XMLLoaderObject status;
     status.setVersion(PLAN_FILE_SYNTAX_VERSION);
     status.setProject(project);
-    return project->load(pel, status);
+    return status.loadProject(project, doc);
 }
 
 // static

@@ -139,10 +139,10 @@ public:
     /// check if overbooked within the interval start, end.
     bool isOverbooked(const DateTime &start, const DateTime &end) const;
 
-    double normalRate() const { return cost.normalRate; }
-    void setNormalRate(double rate) { cost.normalRate = rate; changed(); }
-    double overtimeRate() const { return cost.overtimeRate; }
-    void setOvertimeRate(double rate) { cost.overtimeRate = rate; changed(); }
+    double normalRate() const { return m_cost.normalRate; }
+    void setNormalRate(double rate) { m_cost.normalRate = rate; changed(); }
+    double overtimeRate() const { return m_cost.overtimeRate; }
+    void setOvertimeRate(double rate) { m_cost.overtimeRate = rate; changed(); }
 
     /**
      * Return available units in percent
@@ -332,7 +332,7 @@ public:
     void setTeamMemberIds(const QStringList &ids);
 
     /// Return the account
-    Account *account() const { return cost.account; }
+    Account *account() const { return m_cost.account; }
     /// Set the @p account
     void setAccount(Account *account);
 
@@ -414,8 +414,11 @@ private:
         double fixed ;
         Account *account;
     }
-    cost;
+    m_cost;
+public:
+    Cost &cost() { return m_cost; }
 
+private:
     Calendar *m_calendar;
     QList<ResourceRequest*> m_requests;
     QStringList m_requiredIds;

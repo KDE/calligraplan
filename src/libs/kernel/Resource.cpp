@@ -47,10 +47,10 @@ Resource::Resource()
 //     m_availableFrom = DateTime(QDate::currentDate(), QTime(0, 0, 0));
 //     m_availableUntil = m_availableFrom.addYears(2);
 
-    cost.normalRate = 100;
-    cost.overtimeRate = 0;
-    cost.fixed = 0;
-    cost.account = nullptr;
+    m_cost.normalRate = 100;
+    m_cost.overtimeRate = 0;
+    m_cost.fixed = 0;
+    m_cost.account = nullptr;
     m_calendar = nullptr;
     m_currentSchedule = nullptr;
     //debugPlan<<"("<<this<<")";
@@ -83,8 +83,8 @@ Resource::~Resource() {
         delete s;
     }
     clearExternalAppointments();
-    if (cost.account) {
-        cost.account->removeRunning(*this);
+    if (m_cost.account) {
+        m_cost.account->removeRunning(*this);
     }
     for (ResourceGroup *g : qAsConst(m_parents)) {
         g->takeResource(this);
@@ -136,9 +136,9 @@ void Resource::copy(Resource *resource) {
 
     m_type = resource->type();
 
-    cost.normalRate = resource->normalRate();
-    cost.overtimeRate = resource->overtimeRate();
-    cost.account = resource->account();
+    m_cost.normalRate = resource->normalRate();
+    m_cost.overtimeRate = resource->overtimeRate();
+    m_cost.account = resource->account();
     m_calendar = resource->m_calendar;
 
     m_requiredIds = resource->requiredIds();
@@ -342,18 +342,18 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
     // NOTE: money was earlier (2.x) saved with symbol so we need to handle that
     QString money = element.attribute("normal-rate");
     bool ok = false;
-    cost.normalRate = money.toDouble(&ok);
+    m_cost.normalRate = money.toDouble(&ok);
     if (!ok) {
-        cost.normalRate = locale->readMoney(money);
-        debugPlan<<"normal-rate failed, tried readMoney()"<<money<<"->"<<cost.normalRate;;
+        m_cost.normalRate = locale->readMoney(money);
+        debugPlan<<"normal-rate failed, tried readMoney()"<<money<<"->"<<m_cost.normalRate;;
     }
     money = element.attribute("overtime-rate");
-    cost.overtimeRate = money.toDouble(&ok);
+    m_cost.overtimeRate = money.toDouble(&ok);
     if (!ok) {
-        cost.overtimeRate = locale->readMoney(money);
-        debugPlan<<"overtime-rate failed, tried readMoney()"<<money<<"->"<<cost.overtimeRate;;
+        m_cost.overtimeRate = locale->readMoney(money);
+        debugPlan<<"overtime-rate failed, tried readMoney()"<<money<<"->"<<m_cost.overtimeRate;;
     }
-    cost.account = status.project().accounts().findAccount(element.attribute("account"));
+    m_cost.account = status.project().accounts().findAccount(element.attribute("account"));
 
     if (status.version() < "0.7.0") {
         KoXmlElement e;
@@ -417,10 +417,10 @@ void Resource::addRequiredId(const QString &id)
 
 void Resource::setAccount(Account *account)
 {
-    if (cost.account) {
-        cost.account->removeRunning(*this);
+    if (m_cost.account) {
+        m_cost.account->removeRunning(*this);
     }
-    cost.account = account;
+    m_cost.account = account;
     changed();
 }
 
@@ -446,10 +446,10 @@ void Resource::save(QDomElement &element) const {
         me.setAttribute("available-until", m_availableUntil.toString(Qt::ISODate));
     }
     QString money;
-    me.setAttribute("normal-rate", money.setNum(cost.normalRate));
-    me.setAttribute("overtime-rate", money.setNum(cost.overtimeRate));
-    if (cost.account) {
-        me.setAttribute("account", cost.account->name());
+    me.setAttribute("normal-rate", money.setNum(m_cost.normalRate));
+    me.setAttribute("overtime-rate", money.setNum(m_cost.overtimeRate));
+    if (m_cost.account) {
+        me.setAttribute("account", m_cost.account->name());
     }
 }
 

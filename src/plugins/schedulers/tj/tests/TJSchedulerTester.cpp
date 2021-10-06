@@ -146,7 +146,7 @@ void TJSchedulerTester::testSingleProject()
 
     m_scheduler->schedule(context);
     auto project = context.projects.first()->project();
-    //Debug::print(project, "--", true);
+    Debug::print(project, "--", true);
     QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 8));
     QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 9));
 
@@ -171,6 +171,9 @@ void TJSchedulerTester::testSingleProjectWithBookings()
     // Booking 1: R1 booked 2021-04-08, 2021-04-09
     auto project = context.projects.first()->project();
     // Debug::print(project, "--", true);
+    for (auto log : qAsConst(context.log)) {
+        qInfo()<<log.formatMsg();
+    }
     QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 10));
     QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 11));
 

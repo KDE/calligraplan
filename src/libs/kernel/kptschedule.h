@@ -38,6 +38,7 @@ class ScheduleManager;
 class XMLLoaderObject;
 class SchedulerPlugin;
 class KPlatoXmlLoaderBase;
+class ProjectLoader_v0;
 
 /// Caches effortcost data (bcws, bcwp, acwp)
 class EffortCostCache {
@@ -278,6 +279,7 @@ protected:
     friend class RecalculateProjectCmd;
     friend class ScheduleManager;
     friend class KPlatoXmlLoaderBase;
+    friend class ProjectLoader_v0;
     /**
       * earlyStart is calculated by PERT/CPM.
       * A task may be scheduled to start later because of constraints

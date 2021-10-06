@@ -4114,7 +4114,7 @@ bool NodeItemModel::importProjectFile(const QUrl &url, Qt::DropAction /*action*/
     XMLLoaderObject status;
     status.setVersion(doc.documentElement().attribute("version", PLAN_FILE_SYNTAX_VERSION));
     status.setProject(&project);
-    if (! project.load(element, status)) {
+    if (!status.loadProject(&project, doc)) {
         debugPlan<<"Failed to load project from:"<<url;
         return false;
     }
@@ -5243,7 +5243,7 @@ Project *TaskModuleModel::loadProjectFromUrl(const QUrl &url) const
     XMLLoaderObject status;
     status.setVersion(doc.documentElement().attribute("version", PLAN_FILE_SYNTAX_VERSION));
     status.setProject(project);
-    if (project->load(element, status)) {
+    if (status.loadProject(project, doc)) {
         stripProject(project);
     } else {
         warnPlan<<Q_FUNC_INFO<<"Failed to load project from:"<<url;

@@ -165,7 +165,7 @@ bool WorkPackage::loadXML(const KoXmlElement &element, KPlato::XMLLoaderObject &
         if (e.tagName() == "project") {
             status.setProject(m_project);
             debugPlanWork<<"loading new project";
-            if (! (ok = m_project->load(e, status))) {
+            if (!(ok = status.loadProject(m_project, element.ownerDocument()))) {
                 status.addMsg(KPlato::XMLLoaderObject::Errors, "Loading of work package failed");
                 KMessageBox::error(nullptr, i18n("Failed to load project: %1" , m_project->name()));
             } else {

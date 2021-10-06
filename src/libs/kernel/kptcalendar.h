@@ -512,6 +512,8 @@ public:
     QStringList holidayRegionCodes() const;
 #endif
 
+    void setBlockVersion(bool block) { m_blockversion = block; }
+
 Q_SIGNALS:
     void calendarChanged(KPlato::Calendar*);
     void calendarDayChanged(KPlato::CalendarDay*);

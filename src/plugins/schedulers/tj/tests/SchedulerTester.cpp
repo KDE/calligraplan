@@ -75,7 +75,7 @@ void SchedulerTester::testProject(const QString &fname, const KoXmlDocument &doc
     XMLLoaderObject status;
     status.setProject(&project);
     status.setVersion(doc.documentElement().attribute("version", PLAN_FILE_SYNTAX_VERSION));
-    bool projectLoad = project.load(pel, status);
+    bool projectLoad = status.loadProject(&project, doc);
     if (! projectLoad) {
         const QString s = QString("%1: Failed to load project").arg(fname);
         QVERIFY2(projectLoad, s.toLatin1());        
