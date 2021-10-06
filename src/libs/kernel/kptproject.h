@@ -714,8 +714,6 @@ private:
     bool m_useSharedResources;
     bool m_sharedResourcesLoaded;
     QString m_sharedResourcesFile;
-    QUrl m_sharedProjectsUrl;
-    bool m_loadProjectsAtStartup;
 
 public:
     class WorkPackageInfo {

@@ -49,7 +49,6 @@ Project::Project(Node *parent)
         m_schedulerPlugins(),
         m_useSharedResources(false),
         m_sharedResourcesLoaded(false),
-        m_loadProjectsAtStartup(false),
         m_useLocalTaskModules(true),
         m_currentScheduleManager(nullptr)
 {
@@ -65,7 +64,6 @@ Project::Project(ConfigBase &config, Node *parent)
         m_schedulerPlugins(),
         m_useSharedResources(false),
         m_sharedResourcesLoaded(false),
-        m_loadProjectsAtStartup(false),
         m_useLocalTaskModules(true),
         m_currentScheduleManager(nullptr)
 {
@@ -82,7 +80,6 @@ Project::Project(ConfigBase &config, bool useDefaultValues, Node *parent)
         m_schedulerPlugins(),
         m_useSharedResources(false),
         m_sharedResourcesLoaded(false),
-        m_loadProjectsAtStartup(false),
         m_useLocalTaskModules(true),
         m_currentScheduleManager(nullptr)
 {
@@ -1651,8 +1648,6 @@ bool Project::loadSettings(KoXmlElement &element, XMLLoaderObject &status)
         } else if (e.tagName() == "shared-resources") {
             m_useSharedResources = e.attribute("use", "0").toInt();
             m_sharedResourcesFile = e.attribute("file");
-            m_sharedProjectsUrl = QUrl(e.attribute("projects-url"));
-            m_loadProjectsAtStartup = (bool)e.attribute("projects-loadatstartup", "0").toInt();
         } else if (e.tagName() == QLatin1String("workpackageinfo")) {
             if (e.hasAttribute("check-for-workpackages")) {
                 m_workPackageInfo.checkForWorkPackages = e.attribute("check-for-workpackages").toInt();
@@ -1725,8 +1720,6 @@ void Project::saveSettings(QDomElement &element, const XmlSaveContext &context) 
     settingsElement.appendChild(share);
     share.setAttribute("use", m_useSharedResources);
     share.setAttribute("file", m_sharedResourcesFile);
-    share.setAttribute("projects-url", QString(m_sharedProjectsUrl.toEncoded()));
-    share.setAttribute("projects-loadatstartup", m_loadProjectsAtStartup);
 
     QDomElement wpi = settingsElement.ownerDocument().createElement("workpackageinfo");
     settingsElement.appendChild(wpi);
