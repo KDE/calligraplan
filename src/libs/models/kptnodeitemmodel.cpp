@@ -69,13 +69,13 @@ const QMetaEnum NodeModel::columnMap() const
 
 void NodeModel::setProject(Project *project)
 {
-    debugPlan<<m_project<<"->"<<project;
+    //debugPlan<<m_project<<"->"<<project;
     m_project = project;
 }
 
 void NodeModel::setManager(ScheduleManager *sm)
 {
-    debugPlan<<m_manager<<"->"<<sm;
+    //debugPlan<<m_manager<<"->"<<sm;
     m_manager = sm;
 }
 
@@ -3284,7 +3284,7 @@ void NodeItemModel::setProject(Project *project)
         disconnect(m_project, &Project::projectCalculated, this, &NodeItemModel::slotProjectCalculated);
     }
     m_project = project;
-    debugPlan<<this<<m_project<<"->"<<project;
+    //debugPlan<<this<<m_project<<"->"<<project;
     m_nodemodel.setProject(project);
     if (project) {
         connect(m_project, &Project::aboutToBeDeleted, this, &NodeItemModel::projectDeleted);
@@ -3306,18 +3306,17 @@ void NodeItemModel::setProject(Project *project)
 
 void NodeItemModel::setScheduleManager(ScheduleManager *sm)
 {
-    beginResetModel();
     if (sm == m_nodemodel.manager()) {
-        endResetModel();
         return;
     }
+    beginResetModel();
     if (m_nodemodel.manager()) {
     }
     m_nodemodel.setManager(sm);
     ItemModelBase::setScheduleManager(sm);
     if (sm) {
     }
-    debugPlan<<this<<sm;
+    //debugPlan<<this<<sm;
     endResetModel();
 }
 
