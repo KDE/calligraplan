@@ -97,7 +97,6 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
             project->setConstraint(Node::MustStartOn);
         }
     }
-    qInfo()<<Q_FUNC_INFO<<project<<"start-time"<<projectElement.hasAttribute("start-time")<<projectElement.attribute("start-time");
     if (projectElement.hasAttribute("start-time")) {
         s = projectElement.attribute("start-time");
         if (!s.isEmpty()) {
@@ -160,25 +159,27 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
             QList<Calendar*> lst;
             while (!cals.isEmpty()) {
                 Calendar *c = cals.takeFirst();
-                c->setBlockVersion(true);
+                BlockCalendarVersion b(c);
                 if (c->parentId().isEmpty()) {
-                    project->addCalendar(c, status.baseCalendar()); // handle pre 0.6 version
+                    if (status.version() < QStringLiteral("0.6")) {
+                        // base calendar was stored in standard-worktime and is set as status.baseCalendar()
+                        // In later versions status.baseCalendar() == nullptr
+                        warnPlanXml<<"Pre 0.6 version: calendar added to project:"<<c->name()<<"parent:"<<status.baseCalendar();
+                    }
+                    project->addCalendar(c, status.baseCalendar());
                     added = true;
-                    warnPlanXml<<"Pre 0.6 version: calendar added to project:"<<c->name();
                 } else {
                     Calendar *par = project->calendar(c->parentId());
                     if (par) {
-                        par->setBlockVersion( true);
+                        BlockCalendarVersion b(par);
                         project->addCalendar(c, par);
                         added = true;
                         //debugPlanXml<<"added:"<<c->name()<<" to parent:"<<par->name();
-                        par->setBlockVersion(false);
                     } else {
                         lst.append(c); // treat later
                         //debugPlanXml<<"treat later:"<<c->name();
                     }
                 }
-                c->setBlockVersion(false);
             }
             cals = lst;
         } while (added);
@@ -909,14 +910,15 @@ bool ProjectLoader_v0::load(Calendar *calendar, const KoXmlElement &element, XML
 
 bool ProjectLoader_v0::load(CalendarDay *day, const KoXmlElement &element, XMLLoaderObject &status)
 {
-    //debugPlanXml<<"day";
+    debugPlanXml<<element.tagName()<<element.attributeNames()<<element.attribute("state");
     bool ok=false;
-    day->setState(QString(element.attribute("state", "-1")).toInt(&ok));
-    if (day->state() < 0) {
+    day->setState(QString(element.attribute("state", QString::number(CalendarDay::Undefined))).toInt(&ok));
+    if (day->state() < CalendarDay::Undefined || day->state() > CalendarDay::Working) {
         errorPlanXml<<"Failed to load calendar day - invalid state:"<<day->state();
         return false;
     }
     QString s = element.attribute("date");
+    // A weekday has no date
     if (!s.isEmpty()) {
         day->setDate(QDate::fromString(s, Qt::ISODate));
         if (! day->date().isValid()) {
@@ -924,12 +926,8 @@ bool ProjectLoader_v0::load(CalendarDay *day, const KoXmlElement &element, XMLLo
         }
     }
     day->clearIntervals();
-    KoXmlNode n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
+    KoXmlElement e;
+    forEachElement(e, element) {
         if (e.tagName() == QLatin1String("time-interval") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("interval"))) {
             //debugPlanXml<<"Interval start="<<e.attribute("start")<<" end="<<e.attribute("end");
             QString st = e.attribute("start");
@@ -942,7 +940,8 @@ bool ProjectLoader_v0::load(CalendarDay *day, const KoXmlElement &element, XMLLo
             if (status.version() <= "0.6.1") {
                 QString en = e.attribute("end");
                 if (en.isEmpty()) {
-                    errorPlanXml<<"Invalid interval end";
+                    // Be lenient when loading old format
+                    warnPlanXml<<"Invalid interval end";
                     continue;
                 }
                 QTime end = QTime::fromString(en);
@@ -952,7 +951,7 @@ bool ProjectLoader_v0::load(CalendarDay *day, const KoXmlElement &element, XMLLo
             }
             if (length <= 0) {
                 errorPlanXml<<"Invalid interval length";
-                continue;
+                return false;
             }
             day->addInterval(new TimeInterval(start, length));
         } else {
@@ -969,7 +968,7 @@ bool ProjectLoader_v0::load(CalendarWeekdays *weekdays, const KoXmlElement& elem
     int dayNo = QString(element.attribute("day","-1")).toInt(&ok);
     //debugPlanXml<<"weekday:"<<dayNo;
     if (dayNo < 0 || dayNo > 6) {
-        errorPlanXml<<"Illegal weekday: "<<dayNo;
+        warnPlanXml<<"Illegal weekday: "<<dayNo;
         return true; // we continue anyway
     }
     CalendarDay *day = weekdays->weekday(dayNo + 1);
@@ -978,8 +977,8 @@ bool ProjectLoader_v0::load(CalendarWeekdays *weekdays, const KoXmlElement& elem
         return false;
     }
     if (!load(day, element, status)) {
-        day->setState(CalendarDay::None);
-        warnPlanXml<<"Failed to load weekday: "<<dayNo<<"Day set to state None";
+        errorPlanXml<<"Failed to load weekday: "<<dayNo;
+        return false;
     }
     return true;
 
@@ -993,19 +992,14 @@ bool ProjectLoader_v0::load(StandardWorktime *swt, const KoXmlElement &element, 
     swt->setWeek(Duration::fromString(element.attribute("week"), Duration::Format_Hour));
     swt->setDay(Duration::fromString(element.attribute("day"), Duration::Format_Hour));
 
-    KoXmlNode n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
+    KoXmlElement e;
+    forEachElement (e, element) {
         if (e.tagName() == "calendar") {
             // pre 0.6 version stored base calendar in standard worktime
             if (status.version() >= "0.6") {
                 warnPlanXml<<"Old format, calendar in standard worktime";
                 warnPlanXml<<"Tries to load anyway";
             }
-            // try to load anyway
             Calendar *calendar = new Calendar;
             if (load(calendar, e, status)) {
                 status.project().addCalendar(calendar);
@@ -1014,7 +1008,7 @@ bool ProjectLoader_v0::load(StandardWorktime *swt, const KoXmlElement &element, 
                 status.setBaseCalendar(calendar);
             } else {
                 delete calendar;
-                errorPlanXml<<"Failed to load calendar";
+                warnPlanXml<<"Failed to load calendar";
             }
         }
     }
