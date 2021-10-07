@@ -224,7 +224,7 @@ void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *d
 
     project->calculate(*sm);
     project->setConstraintStartTime(oldstart);
-    disconnect(sm, &KPlato::ScheduleManager::logAdded, this, &KPlatoScheduler::slotAddLog);
+    disconnect(sm, &KPlato::ScheduleManager::sigLogAdded, this, &KPlatoScheduler::slotAddLog);
     project->currentSchedule()->clearLogs();
 }
 
