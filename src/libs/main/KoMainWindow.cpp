@@ -638,6 +638,11 @@ void KoMainWindow::reloadRecentFileList()
     d->recent->loadEntries(config->group(group));
 }
 
+bool KoMainWindow::isDocumentModified()
+{
+    return d->rootDocument ? d->rootDocument->isModified() : false;
+}
+
 void KoMainWindow::updateCaption()
 {
     debugMain;
@@ -650,7 +655,7 @@ void KoMainWindow::updateCaption()
             caption += ' ' + i18n("(write protected)");
         }
 
-        updateCaption(caption, d->rootDocument->isModified());
+        updateCaption(caption, isDocumentModified());
         if (!rootDocument()->url().fileName().isEmpty())
             d->saveAction->setToolTip(i18n("Save as %1", d->rootDocument->url().fileName()));
         else
@@ -1236,7 +1241,7 @@ bool KoMainWindow::queryClose()
         return true;
 
     // main doc + internally stored child documents
-    if (d->rootDocument->isModified()) {
+    if (isDocumentModified()) {
         QString name;
         if (rootDocument()->documentInfo()) {
             name = rootDocument()->documentInfo()->aboutInfo("title");

@@ -62,19 +62,13 @@ public:
      * Called when a document is assigned to this mainwindow.
      * This creates a view for this document, makes it the active part, etc.
      */
-    void setRootDocument(KoDocument *doc, KoPart *part = nullptr, bool deletePrevious = true);
+    virtual void setRootDocument(KoDocument *doc, KoPart *part = nullptr, bool deletePrevious = true);
 
     /**
      * This is used to handle the document used at start up before it actually
      * added as root document.
      */
     void setPartToOpen(KoPart *part);
-
-    /**
-     * Update caption from document info - call when document info
-     * (title in the about page) changes.
-     */
-    void updateCaption();
 
     KoComponentData componentData() const;
     void setComponentData(const KoComponentData &componentData);
@@ -114,6 +108,9 @@ public:
      * Reloads the recent documents list.
      */
     void reloadRecentFileList();
+
+
+    virtual bool isDocumentModified();
 
     /**
      * Updates the window caption based on the document info and path.
@@ -165,6 +162,10 @@ Q_SIGNALS:
     void configure(KoMainWindow *mw);
 
 public Q_SLOTS:
+    /**
+     * Update caption from document info.
+     */
+    void updateCaption();
 
     /**
      * Slot for eMailing the document using KMail
