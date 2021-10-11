@@ -153,8 +153,9 @@ void TaskStatusTreeView::setProject(Project *project)
 
 //-----------------------------------
 TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
-    : ViewBase(part, doc, parent),
-    m_id(-1)
+    : ViewBase(part, doc, parent)
+    , m_id(-1)
+    , m_commandDocument(doc)
 {
     debugPlan<<"-------------------- creating TaskStatusView -------------------";
     setXMLFile("TaskStatusViewUi.rc");
@@ -263,6 +264,17 @@ void TaskStatusView::setScheduleManager(ScheduleManager *sm)
 Node *TaskStatusView::currentNode() const
 {
     return m_view->model()->node(m_view->selectionModel()->currentIndex());
+}
+
+void KPlato::TaskStatusView::setCommandDocument(KoDocument* doc)
+{
+    if (m_commandDocument) {
+        auto p = disconnect(model(), &ItemModelBase::executeCommand, m_commandDocument, &KoDocument::addCommand);
+    }
+    m_commandDocument = doc;
+    if (doc) {
+        auto p = connect(model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
+    }
 }
 
 void TaskStatusView::setProject(Project *project)
@@ -474,7 +486,7 @@ void TaskStatusView::slotTaskProgressFinished(int result)
     if (result == QDialog::Accepted) {
         KUndo2Command * m = dia->buildCommand();
         if (m) {
-            koDocument()->addCommand(m);
+            m_commandDocument->addCommand(m);
         }
     }
     dia->deleteLater();
@@ -489,7 +501,7 @@ void TaskStatusView::slotMilestoneProgressFinished(int result)
     if (result == QDialog::Accepted) {
         KUndo2Command * m = dia->buildCommand();
         if (m) {
-            koDocument()->addCommand(m);
+            m_commandDocument->addCommand(m);
         }
     }
     dia->deleteLater();
@@ -537,7 +549,7 @@ void TaskStatusView::slotTaskDescriptionFinished(int result)
     if (result == QDialog::Accepted) {
         KUndo2Command * m = dia->buildCommand();
         if (m) {
-            koDocument()->addCommand(m);
+            m_commandDocument->addCommand(m);
         }
     }
     dia->deleteLater();
@@ -573,7 +585,7 @@ void TaskStatusView::slotDocumentsFinished(int result)
     if (result == QDialog::Accepted) {
         KUndo2Command * m = dia->buildCommand();
         if (m) {
-            koDocument()->addCommand(m);
+            m_commandDocument->addCommand(m);
         }
     }
     dia->deleteLater();

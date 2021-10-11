@@ -81,6 +81,8 @@ public:
     TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent);
 
     void setupGui();
+    /// Use the document @p doc for command execution
+    void setCommandDocument(KoDocument *doc);
     void setProject(Project *project) override;
     Project *project() const override { return m_view->project(); }
     using ViewBase::draw;
@@ -139,6 +141,7 @@ private:
     int m_id;
     TaskStatusTreeView *m_view;
     QDomDocument m_domdoc;
+    KoDocument *m_commandDocument;
 
 };
 
