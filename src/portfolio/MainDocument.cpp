@@ -328,7 +328,8 @@ bool MainDocument::addDocument(KoDocument *newdoc)
     Q_EMIT documentAboutToBeInserted(m_documents.count());
     m_documents << newdoc;
     newdoc->setAutoSave(0);
-    connect(newdoc->project(), &KPlato::Project::projectCalculated, this, &MainDocument::slotProjectChanged);
+    connect(newdoc, &KoDocument::modified, this, &MainDocument::slotDocumentModified);
+    connect(newdoc->project(), &KPlato::Project::projectChanged, this, &MainDocument::slotProjectChanged);
     Q_EMIT documentInserted();
     setModified(true);
     return true;
@@ -338,10 +339,17 @@ void MainDocument::removeDocument(KoDocument *doc)
 {
     if (m_documents.contains(doc)) {
         Q_EMIT documentAboutToBeRemoved(m_documents.indexOf(doc));
-        disconnect(doc->project(), &KPlato::Project::projectCalculated, this, &MainDocument::slotProjectChanged);
+        disconnect(doc->project(), &KPlato::Project::projectChanged, this, &MainDocument::slotProjectChanged);
         m_documents.removeOne(doc);
         Q_EMIT documentRemoved();
         setModified(true);
+    }
+}
+
+void MainDocument::slotDocumentModified(bool mod)
+{
+    if (mod) {
+        Q_EMIT documentModified();
     }
 }
 
@@ -352,6 +360,7 @@ void MainDocument::slotProjectChanged()
         for (KoDocument *doc : qAsConst(m_documents)) {
             if (doc->project() == project) {
                 Q_EMIT projectChanged(doc);
+                doc->setModified(true);
                 return;
             }
         }

@@ -118,10 +118,12 @@ Q_SIGNALS:
     void documentInserted();
     void documentAboutToBeRemoved(int row);
     void documentRemoved();
+    void documentModified();
 
 protected Q_SLOTS:
     void slotProjectChanged();
     void slotProjectDocumentLoaded();
+    void slotDocumentModified(bool mod);
 
 protected:
     bool completeLoading(KoStore* store) override;

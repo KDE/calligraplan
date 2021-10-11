@@ -33,6 +33,14 @@ public:
      */
     ~MainWindow() override;
 
+    void setRootDocument(KoDocument *doc, KoPart *part = nullptr, bool deletePrevious = true) override;
+
+    bool isDocumentModified() override;
+
+protected Q_SLOTS:
+    void slotDocumentInserted();
+    void slotDocumentRemoved();
+
 protected:
     /**
      * Handles saving of both main document *and* sub-documents

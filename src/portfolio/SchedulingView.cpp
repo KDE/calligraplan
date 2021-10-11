@@ -283,6 +283,10 @@ QDateTime SchedulingView::calculationTime() const
 void SchedulingView::calculate()
 {
     MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
+    QVariantList managerNames;
+    for (auto doc : portfolio->documents()) {
+        managerNames << doc->property(SCHEDULEMANAGERNAME);
+    }
     m_schedulingContext.clear();
     const auto key = schedulerKey();
     auto scheduler = portfolio->schedulerPlugin(key);
@@ -291,6 +295,14 @@ void SchedulingView::calculate()
         selectionChanged(QItemSelection(), QItemSelection());
     } else {
         warnPortfolio<<Q_FUNC_INFO<<"No scheduler plugin"<<key;
+    }
+    const auto docs = portfolio->documents();
+    Q_ASSERT(managerNames.count() == docs.count());
+    for (int i = 1; i < docs.count(); ++i) {
+        if (docs.at(i)->property(SCHEDULEMANAGERNAME) != managerNames.value(i)) {
+            portfolio->setModified(true);
+            break;
+        }
     }
 }
 

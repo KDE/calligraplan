@@ -9,7 +9,9 @@
 
 #include "DocumentsSaveDialog.h"
 
-#include <MainDocument.h>
+#include "MainDocument.h"
+
+#include <QtGlobal>
 
 MainWindow::MainWindow(const QByteArray &nativeMimeType, const KoComponentData &componentData)
     : KoMainWindow(nativeMimeType, componentData)
@@ -20,6 +22,47 @@ MainWindow::MainWindow(const QByteArray &nativeMimeType, const KoComponentData &
 MainWindow::~MainWindow()
 {
 }
+
+void MainWindow::setRootDocument(KoDocument* doc, KoPart* part, bool deletePrevious)
+{
+    KoMainWindow::setRootDocument(doc, part, deletePrevious);
+    auto document = qobject_cast<MainDocument*>(rootDocument());
+    if (document) {
+        connect(document, &MainDocument::documentInserted, this, &MainWindow::slotDocumentInserted, Qt::UniqueConnection);
+        connect(document, &MainDocument::documentRemoved, this, &MainWindow::slotDocumentInserted, Qt::UniqueConnection);
+        connect(document, &MainDocument::documentModified, this, QOverload<>::of(&KoMainWindow::updateCaption));
+        updateCaption();
+    }
+}
+
+void MainWindow::slotDocumentInserted()
+{
+    updateCaption();
+}
+
+void MainWindow::slotDocumentRemoved()
+{
+    updateCaption();
+}
+
+bool MainWindow::isDocumentModified()
+{
+    auto document = qobject_cast<MainDocument*>(rootDocument());
+    if (!document) {
+        return false;
+    }
+    bool mod = document->isModified();
+    if (!mod) {
+        for (const auto doc : document->documents()) {
+            if (doc->isModified()) {
+                mod = true;
+                break;
+            }
+        }
+    }
+    return mod;
+}
+
 
 bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutputFlag)
 {
