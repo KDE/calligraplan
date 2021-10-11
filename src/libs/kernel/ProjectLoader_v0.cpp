@@ -1146,7 +1146,6 @@ bool ProjectLoader_v0::load(Resource *resource, const KoXmlElement &element, XML
                     warnPlanXml<<"Missing resource id";
                     continue;
                 }
-                qInfo()<<"========"<<resource<<resource->id()<<"add required id"<<id;
                 resource->addRequiredId(id);
             }
         }
