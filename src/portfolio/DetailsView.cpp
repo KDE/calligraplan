@@ -88,13 +88,15 @@ KoPrintJob *DetailsView::createPrintJob()
 
 void DetailsView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
-    Q_UNUSED(selected)
     Q_UNUSED(deselected)
-    QModelIndexList indexes = m_view->selectionModel()->selectedRows();
+    auto selectedIndex = selected.indexes().value(0);
     const ProjectsFilterModel *m = qobject_cast<ProjectsFilterModel*>(m_view->model());
     Q_ASSERT(m);
-    KoDocument *doc = m->documentFromIndex(indexes.value(0));
-    m_detailsView->setProject(doc->project());
-    m_detailsView->setScheduleManager(m->portfolio()->scheduleManager(doc));
+    KoDocument *doc = m->documentFromIndex(selectedIndex);
+    if (doc) {
+        m_detailsView->setProject(doc->project());
+        m_detailsView->setScheduleManager(m->portfolio()->scheduleManager(doc));
+        m_detailsView->setCommandDocument(doc);
+    }
 }
 
