@@ -72,7 +72,7 @@ private:
     bool m_readWrite;
     Ui::ResourceUsageView ui;
     ResourceUsageModel m_resourceUsageModel;
-    QSpinBox m_numDays;
+    QSpinBox *m_numDays;
     LineDiagram *m_available;
 };
 

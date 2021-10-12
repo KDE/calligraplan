@@ -13,6 +13,7 @@
     </MenuBar>
     <ToolBar name="resourceusageviewToolBar"  fullWidth="false"><text>Tools</text>
         <Action name="diagramtypes"/>
+        <Action name="diagramrange"/>
 <!--            <Action name="charttype_normal"/>
             <Action name="charttype_stacked"/>
         </Menu>-->

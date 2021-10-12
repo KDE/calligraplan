@@ -10,6 +10,8 @@
 #include "ResourceModel.h"
 #include "MainDocument.h"
 
+#include <KoIcon.h>
+
 #include <ScrollableChart.h>
 
 #include <KActionCollection>
@@ -22,11 +24,13 @@
 #include <KChartLegend>
 #include <KChartDataValueAttributes>
 
+#include <QWidgetAction>
 #include <QSpinBox>
 
 ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent)
     , m_readWrite(false)
+    , m_numDays(nullptr)
 {
     //debugPlan;
     ui.setupUi(this);
@@ -37,8 +41,6 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
         setXMLFile("Portfolio_ResourceUsageViewUi_readonly.rc");
     }
     setupGui();
-
-    m_numDays.setSpecialValueText(i18n("All"));
 
     auto resourceModel = new ResourceModel(this);
     resourceModel->setPortfolio(qobject_cast<MainDocument*>(doc));
@@ -78,7 +80,6 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
     connect(ui.resourceView->selectionModel(), &QItemSelectionModel::currentChanged, this, &ResourceUsageView::slotCurrentIndexChanged);
 
     connect(&m_resourceUsageModel, &ResourceUsageModel::modelReset, this, &ResourceUsageView::slotUpdateNumDays);
-    connect(&m_numDays, QOverload<int>::of(&QSpinBox::valueChanged), this, &ResourceUsageView::slotNumDaysChanged);
     slotUpdateNumDays();
 }
 
@@ -88,43 +89,38 @@ ResourceUsageView::~ResourceUsageView()
 
 void ResourceUsageView::setupGui()
 {
-    auto s = new KSelectAction(this);
+    auto s = new KSelectAction(koIcon("office-chart-bar-stacked"), i18n("Diagram Types"), this);
     actionCollection()->addAction("diagramtypes", s);
     connect(s, &KSelectAction::indexTriggered, ui.chart, &KPlato::ScrollableChart::setDiagramFlavor);
 
-    auto a = new QAction(i18n("Normal"), this);
+    auto a = new QAction(koIcon("office-chart-bar-normal"), i18n("Normal"), this);
     a->setObjectName("charttype_normal");
     a->setCheckable(true);
     s->addAction(a);
-    a = new QAction(i18n("Stacked"), this);
+    a = new QAction(koIcon("office-chart-bar-stacked"), i18n("Stacked"), this);
     a->setObjectName("charttype_stacked");
     a->setCheckable(true);
     s->addAction(a);
     s->setCurrentAction(a);
+
+    auto numDays = new QWidgetAction(this);
+    numDays->setObjectName("diagramrange");
+    numDays->setText(i18n("Range"));
+
+    m_numDays = new QSpinBox();
+    m_numDays->setObjectName(("diagramrange"));
+    m_numDays->setToolTip(numDays->text());
+    m_numDays->setSpecialValueText(i18n("All"));
+    m_numDays->setSpecialValueText(m_numDays->specialValueText());
+    connect(m_numDays, QOverload<int>::of(&QSpinBox::valueChanged), this, &ResourceUsageView::slotUpdateNumDays);
+
+    numDays->setDefaultWidget(m_numDays);
+    actionCollection()->addAction(numDays->objectName(), numDays);
 }
 
 void ResourceUsageView::guiActivateEvent(bool activated)
 {
-    auto toolBar = qobject_cast<KToolBar*>(factory()->container("resourceusageview_toolbar", this));
-    if (!toolBar) {
-        return;
-    }
-    if (activated) {
-        if (!toolBar->findChildren<QSpinBox*>("resourceusageview_numDays").value(0)) {
-            auto spinBox = new QSpinBox();
-            spinBox->setObjectName(("resourceusageview_numDays"));
-            spinBox->setValue(m_numDays.value());
-            spinBox->setSpecialValueText(m_numDays.specialValueText());
-            spinBox->setRange(m_numDays.minimum(), m_numDays.maximum());
-            toolBar->addWidget(spinBox);
-            connect(spinBox, QOverload<int>::of(&QSpinBox::valueChanged), &m_numDays, &QSpinBox::setValue);
-        }
-    } else {
-        auto spinBox = toolBar->findChildren<QSpinBox*>("resourceusageview_numDays").value(0);
-        if (spinBox) {
-            m_numDays.setRange(spinBox->minimum(), spinBox->maximum());
-        }
-    }
+    Q_UNUSED(activated);
 }
 
 void ResourceUsageView::updateReadWrite(bool readwrite)
@@ -151,12 +147,16 @@ void ResourceUsageView::slotCurrentIndexChanged(const QModelIndex &current, cons
 void ResourceUsageView::slotUpdateNumDays()
 {
     int end = m_resourceUsageModel.rowCount();
-    m_numDays.setMaximum(end);
-    auto spinBox = findChild<QSpinBox*>("resourceusageview_numDays");
+    m_numDays->setMaximum(end);
+    auto a = qobject_cast<QWidgetAction*>(actionCollection()->action("diagramrange"));
+    if (!a) {
+        return;
+    }
+    auto spinBox = qobject_cast<QSpinBox*>(a->defaultWidget());
     if (spinBox) {
         spinBox->setMaximum(end);
     }
-   slotNumDaysChanged(m_numDays.value());
+    slotNumDaysChanged(m_numDays->value());
 }
 
 void ResourceUsageView::slotNumDaysChanged(int value)
