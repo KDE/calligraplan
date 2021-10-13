@@ -367,9 +367,9 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
                 delete child;
             }
         }
-    }
-    if (project->numChildren() == 0) {
-        warnPlanXml<<"No tasks added from"<<e.tagName();
+        if (project->numChildren() == 0) {
+            debugPlanXml<<"No tasks added from"<<e.tagName();
+        }
     }
 
     status.setProgress(70);
