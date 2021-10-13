@@ -1,7 +1,7 @@
 
 project(calligraplan)
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.16)
 if (POLICY CMP0002)
     cmake_policy(SET CMP0002 NEW)
 endif ()
