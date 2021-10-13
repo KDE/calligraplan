@@ -1,4 +1,3 @@
-set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 
 ## Some tests do not work on freeBSD, so disable these tests until we found out why
 STRING (REGEX MATCH "BSD" OS_BSD ${CMAKE_SYSTEM_NAME})

@@ -1,4 +1,3 @@
-set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 include_directories( .. ../commands ../../kernel ${KOODF_INCLUDES} ${KUNDO2_INCLUDES})
 
 # call: planmodels_add_unit_test(<test-name> <sources> LINK_LIBRARIES <library> [<library> [...]] [GUI])
