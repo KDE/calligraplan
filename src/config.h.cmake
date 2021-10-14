@@ -34,7 +34,7 @@
 /* Defines if the old plugin metadata for mimetypes is used */
 #cmakedefine CALLIGRA_OLD_PLUGIN_METADATA 1
 
-/* Defines Plan version */
+/* Defines project version */
 #cmakedefine PLAN_VERSION_STRING "${PLAN_VERSION_STRING}"
 
 /* Defines Plan year */
@@ -43,7 +43,6 @@
 /* Defines Plan release status */
 #cmakedefine PLAN_ALPHA "${PLAN_ALPHA}"
 #cmakedefine PLAN_BETA "${PLAN_BETA}"
-#cmakedefine PLAN_RC "${PLAN_RC}"
 
 /* Defines use of KReport */
 #cmakedefine PLAN_USE_KREPORT 1

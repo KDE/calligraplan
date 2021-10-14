@@ -1,5 +1,14 @@
+if (POLICY CMP0048)
+    cmake_policy(SET CMP0048 NEW)
+endif ()
 
-project(calligraplan)
+# define the version of Plan
+# update these version for every release:
+# Alpha x.x.89
+# Beta: x.x.90 upwards. (Beta 1 = 90, Beta 2 = 91 ...)
+# Stable x.x.0 upwards
+project(calligraplan VERSION 3.3.89)
+set(PLAN_YEAR 2021) # update every year
 
 cmake_minimum_required(VERSION 3.16)
 if (POLICY CMP0002)
@@ -27,32 +36,35 @@ if (POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
-# define the version of Plan
-# update these version for every release:
-set(PLAN_YEAR 2021) # update every year
-set(PLAN_VERSION_STRING "3.3.89")
-set(PLAN_STABLE_VERSION_MAJOR 3) # 3 for 3.x, 4 for 4.x, etc.
-set(PLAN_STABLE_VERSION_MINOR 3) # 0 for 3.0, 1 for 3.1, etc.
-set(PLAN_VERSION_RELEASE 89)     # 89 for Alpha, increase for next test releases, set 0 for first Stable, etc.
-set(PLAN_ALPHA 1) # uncomment only for Alpha
-#set(PLAN_BETA 1) # uncomment only for Beta
-#set(PLAN_RC 1) # uncomment only for RC
+set(PLAN_VERSION_STRING ${PROJECT_VERSION})
+set(PLAN_STABLE_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
+set(PLAN_STABLE_VERSION_MINOR ${PROJECT_VERSION_MINOR})
+set(PLAN_VERSION_RELEASE ${PROJECT_VERSION_PATCH})
+set(PLAN_RELEASE_TYPE "Stable")
+if (PROJECT_VERSION_PATCH EQUAL 89)
+    set(PLAN_ALPHA 1)
+    set(PLAN_RELEASE_TYPE "Alpha")
+elseif (PROJECT_VERSION_PATCH GREATER 89)
+    set(PLAN_BETA 1)
+    math(EXPR PLAN_BETA_VERSION "${PLAN_VERSION_RELEASE} - 89")
+    set(PLAN_RELEASE_TYPE "Beta ${PLAN_BETA_VERSION}")
+endif()
 
 # Define the generic version of the Calligra Plan libraries here
 # This makes it easy to advance it when the next release comes.
 # 14 was the last GENERIC_CALLIGRA_LIB_VERSION_MAJOR of the previous Calligra series
 # (2.x) so we're starting with 15 in 3.x series.
-if(PLAN_STABLE_VERSION_MAJOR EQUAL 3)
-    math(EXPR GENERIC_PLAN_LIB_VERSION_MAJOR "${PLAN_STABLE_VERSION_MINOR} + 15")
-else()
-    # let's make sure we won't forget to update the "15"
-    message(FATAL_ERROR "Reminder: please update offset == 15 used to compute GENERIC_PLAN_LIB_VERSION_MAJOR to something bigger")
-endif()
+#if(PLAN_STABLE_VERSION_MAJOR EQUAL 3)
+    math(EXPR GENERIC_PLAN_LIB_VERSION_MAJOR "${PLAN_STABLE_VERSION_MAJOR} + 15")
+#else()
+    ## let's make sure we won't forget to update the "15"
+    #message(FATAL_ERROR "Reminder: please update offset == 15 used to compute GENERIC_PLAN_LIB_VERSION_MAJOR to something bigger")
+#endif()
 set(GENERIC_PLAN_LIB_VERSION "${GENERIC_PLAN_LIB_VERSION_MAJOR}.0.0")
 set(GENERIC_PLAN_LIB_SOVERSION "${GENERIC_PLAN_LIB_VERSION_MAJOR}")
 
 message(STATUS "")
-message(STATUS "Build Calligra Plan ${PLAN_VERSION_STRING} with cmake version: ${CMAKE_VERSION}, required version: ${CMAKE_MINIMUM_REQUIRED_VERSION}")
+message(STATUS "Build Calligra Plan ${PLAN_VERSION_STRING} (${PLAN_RELEASE_TYPE}) with cmake version: ${CMAKE_VERSION}, required version: ${CMAKE_MINIMUM_REQUIRED_VERSION}")
 message(STATUS "")
 
 
@@ -231,6 +243,7 @@ set_package_properties(KGantt PROPERTIES
     URL "https://www.kde.org/"
     TYPE REQUIRED
 )
+message(STATUS "KGantt_FOUND: ${KGantt_FOUND} KGantt_VERSION : ${KGantt_VERSION_MAJOR}-${KGantt_VERSION_MINOR}-${KGantt_VERSION_PATCH}")
 if(KGantt_FOUND)
     set(KGANTT_VERSION_MAJOR "${KGantt_VERSION_MAJOR}")
     set(KGANTT_VERSION_MINOR "${KGantt_VERSION_MINOR}")
