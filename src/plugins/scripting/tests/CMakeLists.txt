@@ -11,9 +11,9 @@ ecm_add_test(
     TEST_NAME ScriptingTester
     NAME_PREFIX "plan-"
     LINK_LIBRARIES
-        krossmoduleplan
-        planprivate
-        plankernel
-        plankross
+        krossmodulecalligraplan
+        calligraplanprivate
+        calligraplankernel
+        calligraplankross
         Qt5::Test
 )

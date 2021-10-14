@@ -17,7 +17,7 @@ endif ()
 
 ########### KPlato data models library ###############
 
-set(planmodels_LIB_SRCS
+set(calligraplanmodels_LIB_SRCS
     reportgenerator/ReportGenerator.cpp
     reportgenerator/ReportGeneratorOdt.cpp
 
@@ -62,13 +62,13 @@ set(planmodels_LIB_SRCS
     kpttaskcompletedelegate.cpp
 )
 
-add_library(planmodels SHARED ${planmodels_LIB_SRCS})
-generate_export_header(planmodels)
+add_library(calligraplanmodels SHARED ${calligraplanmodels_LIB_SRCS})
+generate_export_header(calligraplanmodels BASE_NAME planmodels)
 
-target_link_libraries(planmodels
+target_link_libraries(calligraplanmodels
     PUBLIC
-        plankernel
-        planodf
+        calligraplankernel
+        calligraplanodf
         KChart
         KGantt
         KF5::KIOWidgets
@@ -77,13 +77,13 @@ target_link_libraries(planmodels
         Qt5::Gui
         KF5::Notifications
         KF5::TextWidgets
-        planwidgets
+        calligraplanwidgets
 )
 if(KF5Contacts_FOUND)
-    target_link_libraries(planmodels  PRIVATE KF5::Contacts)
+    target_link_libraries(calligraplanmodels  PRIVATE KF5::Contacts)
 endif()
 
-set_target_properties(planmodels PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
+set_target_properties(calligraplanmodels PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS planmodels ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanmodels ${INSTALL_TARGETS_DEFAULT_ARGS})
 

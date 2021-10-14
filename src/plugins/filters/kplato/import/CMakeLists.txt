@@ -10,16 +10,16 @@ set(kplatoimport_PART_SRCS
 )
 
 
-add_library(plankplatoimport MODULE ${kplatoimport_PART_SRCS})
+add_library(calligraplankplatoimport MODULE ${kplatoimport_PART_SRCS})
 # calligraplan_filter_desktop_to_json(plankplatoimport plan_kplato_import.desktop)
 if(${KF5_VERSION} VERSION_LESS "5.16.0")
-    kcoreaddons_desktop_to_json(plankplatoimport plan_kplato_import.desktop)
+    kcoreaddons_desktop_to_json(calligraplankplatoimport plan_kplato_import.desktop)
 else()
-    kcoreaddons_desktop_to_json(plankplatoimport plan_kplato_import.desktop
+    kcoreaddons_desktop_to_json(calligraplankplatoimport plan_kplato_import.desktop
         SERVICE_TYPES ${PLAN_SOURCE_DIR}/servicetypes/calligraplan_filter.desktop
     )
 endif()
 
-target_link_libraries(plankplatoimport planprivate plankernel planmain)
+target_link_libraries(calligraplankplatoimport calligraplanprivate calligraplankernel calligraplanmain)
 
-install(TARGETS plankplatoimport  DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/formatfilters)
+install(TARGETS calligraplankplatoimport  DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/formatfilters)

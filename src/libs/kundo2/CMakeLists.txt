@@ -9,10 +9,10 @@ set(kundo2_LIB_SRCS
 	kundo2commandextradata.cpp
 )
 
-add_library(plankundo2 SHARED ${kundo2_LIB_SRCS})
-generate_export_header(plankundo2 BASE_NAME kundo2)
+add_library(calligraplankundo2 SHARED ${kundo2_LIB_SRCS})
+generate_export_header(calligraplankundo2 BASE_NAME kundo2)
 
-target_link_libraries(plankundo2
+target_link_libraries(calligraplankundo2
     PUBLIC
         KF5::I18n
         KF5::XmlGui
@@ -22,7 +22,7 @@ target_link_libraries(plankundo2
         KF5::ConfigWidgets
 )
 
-set_target_properties(plankundo2 PROPERTIES
+set_target_properties(calligraplankundo2 PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS plankundo2 ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplankundo2 ${INSTALL_TARGETS_DEFAULT_ARGS})

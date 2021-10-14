@@ -31,13 +31,13 @@ ki18n_wrap_ui( kowidgets_LIB_SRCS
 )
 
 
-add_library(planwidgets SHARED ${kowidgets_LIB_SRCS})
-generate_export_header(planwidgets BASE_NAME kowidgets)
+add_library(calligraplanwidgets SHARED ${kowidgets_LIB_SRCS})
+generate_export_header(calligraplanwidgets BASE_NAME kowidgets)
 
-target_link_libraries(planwidgets
+target_link_libraries(calligraplanwidgets
     PUBLIC
-        planodf
-        planwidgetutils
+        calligraplanodf
+        calligraplanwidgetutils
         KF5::KIOWidgets
         KF5::ConfigWidgets
         Qt5::PrintSupport
@@ -53,16 +53,16 @@ target_link_libraries(planwidgets
 )
 
 if(GHNS)
-    target_link_libraries(planwidgets PRIVATE KF5::NewStuff)
+    target_link_libraries(calligraplanwidgets PRIVATE KF5::NewStuff)
 endif ()
 
 if(X11_FOUND)
-    target_link_libraries(planwidgets PRIVATE Qt5::X11Extras ${X11_LIBRARIES})
+    target_link_libraries(calligraplanwidgets PRIVATE Qt5::X11Extras ${X11_LIBRARIES})
 endif()
 
-set_target_properties(planwidgets PROPERTIES
+set_target_properties(calligraplanwidgets PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
 
-install(TARGETS planwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})
 

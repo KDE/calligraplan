@@ -23,6 +23,6 @@ planstore_add_unit_test(TestKoXmlVector ${xmlvectortest_SRCS}  LINK_LIBRARIES Qt
 set(storedroptest_SRCS storedroptest.cpp )
 add_executable(Planstoredroptest ${storedroptest_SRCS})
 ecm_mark_as_test(Planstoredroptest)
-target_link_libraries(Planstoredroptest planstore KF5::I18n Qt5::Widgets)
+target_link_libraries(Planstoredroptest calligraplanstore KF5::I18n Qt5::Widgets)
 
 

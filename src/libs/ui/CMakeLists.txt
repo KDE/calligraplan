@@ -17,13 +17,13 @@ if (PLAN_USE_KREPORT)
     message(STATUS "-- Building plan with reports capability")
     add_subdirectory(reports/items)
 
-    set(planreports_LIB_SRC
+    set(calligraplanreports_LIB_SRC
         reports/reportview.cpp
         reports/reportdata.cpp
         reports/reportsourceeditor.cpp
         reports/reportscripts.cpp
     )
-    set(planreports_ui_LIB_SRCS
+    set(calligraplanreports_ui_LIB_SRCS
         reports/reportsourceeditor.ui
         reports/reportnavigator.ui
         reports/reportsectionswidget.ui
@@ -33,8 +33,8 @@ if (PLAN_USE_KREPORT)
 
 endif()
 
-set(planui_LIB_SRCS
-    ${planreports_LIB_SRC}
+set(calligraplanui_LIB_SRCS
+    ${calligraplanreports_LIB_SRC}
 
     ScrollableChartFilterModel.cpp
     ScrollableChart.cpp
@@ -118,8 +118,8 @@ set(planui_LIB_SRCS
     ResourceCoverageView.cpp
 )
 
-ki18n_wrap_ui(planui_LIB_SRCS
-    ${planreports_ui_LIB_SRCS}
+ki18n_wrap_ui(calligraplanui_LIB_SRCS
+    ${calligraplanreports_ui_LIB_SRCS}
 
     ScrollableChart.ui
 
@@ -165,13 +165,13 @@ ki18n_wrap_ui(planui_LIB_SRCS
     locale/localemon.ui
 )
 
-add_library(planui SHARED ${planui_LIB_SRCS})
-generate_export_header(planui)
+add_library(calligraplanui SHARED ${calligraplanui_LIB_SRCS})
+generate_export_header(calligraplanui BASE_NAME planui)
 
-target_link_libraries(planui
+target_link_libraries(calligraplanui
     PUBLIC
-        planmain
-        planmodels
+        calligraplanmain
+        calligraplanmodels
         KF5::TextWidgets
     PRIVATE
         KChart
@@ -184,16 +184,16 @@ target_link_libraries(planui
         KF5::KIONTLM
 )
 if (PLAN_USE_KREPORT)
-    target_link_libraries(planui PUBLIC KReport PRIVATE KPropertyWidgets)
+    target_link_libraries(calligraplanui PUBLIC KReport PRIVATE KPropertyWidgets)
 endif()
 
 if(KF5AkonadiContact_FOUND)
-    target_link_libraries(planui  PRIVATE KF5::AkonadiContact)
+    target_link_libraries(calligraplanui  PRIVATE KF5::AkonadiContact)
 endif()
 
-set_target_properties(planui PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
+set_target_properties(calligraplanui PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS planui ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanui ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install( FILES
         AccountsEditorUi.rc

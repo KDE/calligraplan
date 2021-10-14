@@ -11,7 +11,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"calligraplan\")
 
 ########### KPlato private library ###############
 
-set(planprivate_LIB_SRCS
+set(calligraplanprivate_LIB_SRCS
     kptviewlistdocker.cpp
     kptviewlist.cpp
     kptviewlistdialog.cpp
@@ -47,7 +47,7 @@ set(planprivate_LIB_SRCS
     KPlatoXmlLoader.cpp
 )
 
-ki18n_wrap_ui(planprivate_LIB_SRCS
+ki18n_wrap_ui(calligraplanprivate_LIB_SRCS
     kptviewlistaddview.ui
     kptviewlisteditview.ui
     kptviewlisteditcategory.ui
@@ -63,34 +63,31 @@ ki18n_wrap_ui(planprivate_LIB_SRCS
     kptinsertfilepanel.ui
 )
 
-kconfig_add_kcfg_files(plansettings_SRCS calligraplansettings.kcfgc)
+kconfig_add_kcfg_files(calligraplansettings_SRCS calligraplansettings.kcfgc)
 
-add_library(planprivate SHARED ${planprivate_LIB_SRCS} ${plansettings_SRCS} )
-generate_export_header(planprivate BASE_NAME plan)
+add_library(calligraplanprivate SHARED ${calligraplanprivate_LIB_SRCS} ${calligraplansettings_SRCS} )
+generate_export_header(calligraplanprivate BASE_NAME plan)
 
-target_link_libraries(planprivate
+target_link_libraries(calligraplanprivate
     PUBLIC
-        plankernel
-        planmodels
-        planui
-        planmain
+        calligraplanui
     PRIVATE
-        planplugin
+        calligraplanplugin
         KF5::IconThemes
         #KF5::KHtml
 )
 if(KF5AkonadiContact_FOUND)
-    target_link_libraries(planprivate  PRIVATE KF5::AkonadiContact)
+    target_link_libraries(calligraplanprivate  PRIVATE KF5::AkonadiContact)
 endif()
-set_target_properties(planprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
+set_target_properties(calligraplanprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS planprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### KPlato part ###############
 
-set(planpart_PART_SRCS kptfactoryinit.cpp )
+set(calligraplanpart_PART_SRCS kptfactoryinit.cpp )
 
-add_library(calligraplanpart MODULE ${planpart_PART_SRCS})
+add_library(calligraplanpart MODULE ${calligraplanpart_PART_SRCS})
 
 #calligraplan_part_desktop_to_json(calligraplanpart planpart.desktop)
 if(${KF5_VERSION} VERSION_LESS "5.16.0")
@@ -102,7 +99,7 @@ else()
 endif()
 
 
-target_link_libraries(calligraplanpart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE planprivate)
+target_link_libraries(calligraplanpart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE calligraplanprivate)
 
 install(TARGETS calligraplanpart DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/parts)
 
@@ -126,11 +123,11 @@ if (APPLE)
    install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplan_KDEINIT_SRCS.icns DESTINATION ${BUNDLE_INSTALL_DIR}/calligraplan.app/Contents/Resources)
 endif ()
 
-target_link_libraries(kdeinit_calligraplan planmain planprivate)
+target_link_libraries(kdeinit_calligraplan calligraplanmain calligraplanprivate)
 
 install(TARGETS kdeinit_calligraplan  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
-target_link_libraries(calligraplan kdeinit_calligraplan planmain)
+target_link_libraries(calligraplan kdeinit_calligraplan calligraplanmain)
 install(TARGETS calligraplan  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############

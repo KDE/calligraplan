@@ -9,7 +9,7 @@ include_directories(
 
 ########### KPlato kernel library ###############
 
-set(plankernel_LIB_SRCS
+set(calligraplankernel_LIB_SRCS
     kptglobal.cpp
     kptlocale.cpp
     kpteffortcostmap.cpp
@@ -53,24 +53,24 @@ set(plankernel_LIB_SRCS
     KPlatoXmlLoaderBase.cpp
 )
 
-add_library(plankernel SHARED ${plankernel_LIB_SRCS})
-generate_export_header(plankernel)
+add_library(calligraplankernel SHARED ${calligraplankernel_LIB_SRCS})
+generate_export_header(calligraplankernel BASE_NAME plankernel)
 
-target_link_libraries(plankernel
+target_link_libraries(calligraplankernel
     PUBLIC
-        plankundo2
-        planstore
-        planwidgetutils
+        calligraplankundo2
+        calligraplanstore
+        calligraplanwidgetutils
 #         KF5::I18n
 #         KF5::CoreAddons
 )
 if(KF5Holidays_FOUND)
-    target_link_libraries(plankernel PUBLIC KF5::Holidays)
+    target_link_libraries(calligraplankernel PUBLIC KF5::Holidays)
 endif()
 
-set_target_properties(plankernel PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
+set_target_properties(calligraplankernel PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS plankernel ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplankernel ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 # TODO: with the new embedded JSON data for plugins there is no schema ATM to define extended properties
 # plan_schedulerplugin.desktop

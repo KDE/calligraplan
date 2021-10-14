@@ -10,20 +10,20 @@ endmacro()
 
 ########### next target ###############
 
-planmodels_add_unit_test(ResourceGroupModelTester ResourceGroupModelTester.cpp  LINK_LIBRARIES planmodels Qt5::Test)
+planmodels_add_unit_test(ResourceGroupModelTester ResourceGroupModelTester.cpp  LINK_LIBRARIES calligraplanmodels Qt5::Test)
 
 ########### next target ###############
 
-planmodels_add_unit_test(ResourceModelTester ResourceModelTester.cpp  LINK_LIBRARIES planmodels Qt5::Test)
+planmodels_add_unit_test(ResourceModelTester ResourceModelTester.cpp  LINK_LIBRARIES calligraplanmodels Qt5::Test)
 
 ########## next target ###############
 
-planmodels_add_unit_test(FlatProxyModelTester FlatProxyModelTester.cpp  LINK_LIBRARIES planmodels Qt5::Test)
+planmodels_add_unit_test(FlatProxyModelTester FlatProxyModelTester.cpp  LINK_LIBRARIES calligraplanmodels Qt5::Test)
 
 ########## next target ###############
 
-planmodels_add_unit_test(WorkPackageProxyModelTester WorkPackageProxyModelTester.cpp  LINK_LIBRARIES planmodels Qt5::Test)
+planmodels_add_unit_test(WorkPackageProxyModelTester WorkPackageProxyModelTester.cpp  LINK_LIBRARIES calligraplanmodels Qt5::Test)
 
 ########## next target ###############
 
-planmodels_add_unit_test(InsertProjectXmlCommandTester InsertProjectXmlCommandTester.cpp  LINK_LIBRARIES planmodels plankernel Qt5::Test)
+planmodels_add_unit_test(InsertProjectXmlCommandTester InsertProjectXmlCommandTester.cpp  LINK_LIBRARIES calligraplanmodels Qt5::Test)

@@ -1,12 +1,13 @@
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(koplugin_LIB_SRCS
     KoPluginLoader.cpp
 )
 
-add_library(planplugin SHARED ${koplugin_LIB_SRCS})
-generate_export_header(planplugin BASE_NAME koplugin)
+add_library(calligraplanplugin SHARED ${koplugin_LIB_SRCS})
+generate_export_header(calligraplanplugin BASE_NAME koplugin)
 
-target_link_libraries(planplugin
+target_link_libraries(calligraplanplugin
     PUBLIC
         Qt5::Core
     PRIVATE
@@ -14,8 +15,8 @@ target_link_libraries(planplugin
         KF5::CoreAddons
 )
 
-set_target_properties(planplugin PROPERTIES
+set_target_properties(calligraplanplugin PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS planplugin ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS calligraplanplugin ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

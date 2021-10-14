@@ -8,7 +8,7 @@ if (APPLE)
     find_library(FOUNDATION_LIBRARY Foundation)
 endif ()
 
-include_directories( ${PLANMAIN_INCLUDES})
+include_directories(${PLANMAIN_INCLUDES} ${PLANPLUGIN_INCLUDES})
 
 ########### next target ###############
 
@@ -70,18 +70,17 @@ ki18n_wrap_ui(komain_LIB_SRCS
     config/ConfigDocumentationPanel.ui
 )
 
-add_library(planmain SHARED  ${komain_LIB_SRCS})
-generate_export_header(planmain
-    EXPORT_FILE_NAME komain_generated_export.h BASE_NAME komain
+add_library(calligraplanmain SHARED  ${komain_LIB_SRCS})
+generate_export_header(calligraplanmain BASE_NAME komain
 )
 
-target_link_libraries(planmain
+target_link_libraries(calligraplanmain
     PUBLIC
-        planwidgets
-        plankundo2
+        calligraplanwidgets
+        calligraplankundo2
         KF5::CoreAddons
     PRIVATE
-        planplugin
+        calligraplanplugin
         KF5::Notifications
         KF5::ItemViews
         KF5::KIOFileWidgets
@@ -90,17 +89,17 @@ target_link_libraries(planmain
 )
 
 if( KF5Activities_FOUND )
-    target_link_libraries(planmain PRIVATE KF5::Activities)
+    target_link_libraries(calligraplanmain PRIVATE KF5::Activities)
 endif()
 
 if (APPLE)
-    target_link_libraries(planmain PRIVATE ${FOUNDATION_LIBRARY})
+    target_link_libraries(calligraplanmain PRIVATE ${FOUNDATION_LIBRARY})
 endif ()
 
-set_target_properties(planmain PROPERTIES
+set_target_properties(calligraplanmain PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS planmain ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS calligraplanmain ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 

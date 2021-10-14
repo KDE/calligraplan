@@ -4,7 +4,7 @@ endif()
 
 ########### libkostore ###############
 
-set(kostore_LIB_SRCS
+set(calligraplanstore_LIB_SRCS
     KoDirectoryStore.cpp
     KoLZF.cpp
     KoStore.cpp
@@ -18,16 +18,16 @@ set(kostore_LIB_SRCS
     KoNetAccess.cpp # temporary while porting
 )
 if( Qca-qt5_FOUND )
-    set(kostore_LIB_SRCS ${kostore_LIB_SRCS}
+    set(calligraplanstore_LIB_SRCS ${calligraplanstore_LIB_SRCS}
         KoEncryptedStore.cpp
         KoEncryptionChecker.cpp
     )
 endif()
 
-add_library(planstore SHARED ${kostore_LIB_SRCS})
-generate_export_header(planstore BASE_NAME kostore)
+add_library(calligraplanstore SHARED ${calligraplanstore_LIB_SRCS})
+generate_export_header(calligraplanstore BASE_NAME kostore)
 
-target_link_libraries(planstore
+target_link_libraries(calligraplanstore
     PUBLIC
         Qt5::Xml
         Qt5::Core
@@ -39,10 +39,10 @@ target_link_libraries(planstore
         KF5::I18n
 )
 if( Qca-qt5_FOUND )
-    target_link_libraries(planstore PRIVATE qca-qt5 KF5::Wallet)
+    target_link_libraries(calligraplanstore PRIVATE qca-qt5 KF5::Wallet)
 endif()
 
-set_target_properties(planstore PROPERTIES
+set_target_properties(calligraplanstore PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS planstore ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS calligraplanstore ${INSTALL_TARGETS_DEFAULT_ARGS} )

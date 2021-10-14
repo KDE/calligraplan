@@ -17,10 +17,10 @@ planmain_add_unit_test(priorityQueueTest ${priorityqueue_test_SRCS}  LINK_LIBRAR
 
 ########### next target ###############
 
-planmain_add_unit_test(filterchainTest filterchain_test.cpp  LINK_LIBRARIES planmain)
+planmain_add_unit_test(filterchainTest filterchain_test.cpp  LINK_LIBRARIES calligraplanmain)
 
 ########### next target ###############
 
-planmain_add_unit_test(filterGraphTest filter_graph.cpp  LINK_LIBRARIES planmain)
+planmain_add_unit_test(filterGraphTest filter_graph.cpp  LINK_LIBRARIES calligraplanmain)
 
 

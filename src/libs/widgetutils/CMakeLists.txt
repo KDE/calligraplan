@@ -9,10 +9,10 @@ set(kowidgetutils_LIB_SRCS
 )
 
 
-add_library(planwidgetutils SHARED ${kowidgetutils_LIB_SRCS})
-generate_export_header(planwidgetutils BASE_NAME kowidgetutils)
+add_library(calligraplanwidgetutils SHARED ${kowidgetutils_LIB_SRCS})
+generate_export_header(calligraplanwidgetutils BASE_NAME kowidgetutils)
 
-target_link_libraries(planwidgetutils
+target_link_libraries(calligraplanwidgetutils
     PUBLIC
         Qt5::Widgets
         Qt5::Gui
@@ -24,8 +24,8 @@ target_link_libraries(planwidgetutils
         KF5::ConfigWidgets
 )
 
-set_target_properties(planwidgetutils
+set_target_properties(calligraplanwidgetutils
     PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
 
-install(TARGETS planwidgetutils ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanwidgetutils ${INSTALL_TARGETS_DEFAULT_ARGS})

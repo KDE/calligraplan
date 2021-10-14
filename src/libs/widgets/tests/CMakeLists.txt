@@ -15,6 +15,6 @@ endmacro()
 
 ########### next target ###############
 
-planwidgets_add_unit_test(KoProgressUpdaterTest KoProgressUpdater_test.cpp  LINK_LIBRARIES planwidgets KF5::ThreadWeaver Qt5::Test)
+planwidgets_add_unit_test(KoProgressUpdaterTest KoProgressUpdater_test.cpp  LINK_LIBRARIES calligraplanwidgets KF5::ThreadWeaver Qt5::Test)
 
 ########### end ###############

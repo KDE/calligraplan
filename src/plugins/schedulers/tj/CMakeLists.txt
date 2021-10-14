@@ -41,21 +41,21 @@ set ( TJScheduler_LIB_SRCS
     taskjuggler/Interval.cpp
 )
 
-add_library(plantjscheduler SHARED ${TJScheduler_LIB_SRCS})
-generate_export_header(plantjscheduler BASE_NAME plantj)
-target_link_libraries(plantjscheduler PUBLIC plankernel planmain)
+add_library(calligraplantjscheduler SHARED ${TJScheduler_LIB_SRCS})
+generate_export_header(calligraplantjscheduler BASE_NAME plantj)
+target_link_libraries(calligraplantjscheduler PUBLIC calligraplankernel calligraplanmain)
 
 # plugin
-add_library(plantjplugin MODULE PlanTJPlugin.cpp )
-# calligraplan_scheduler_desktop_to_json(plantjscheduler plantjscheduler.desktop)
-kcoreaddons_desktop_to_json(plantjplugin plantjscheduler.desktop
+add_library(calligraplantjplugin MODULE PlanTJPlugin.cpp )
+# calligraplan_scheduler_desktop_to_json(calligraplantjscheduler plantjscheduler.desktop)
+kcoreaddons_desktop_to_json(calligraplantjplugin plantjscheduler.desktop
         SERVICE_TYPES ${PLAN_SOURCE_DIR}/libs/kernel/plan_schedulerplugin.desktop
     )
 
 #add_definitions(-Dplantjscheduler_EXPORTS)
-target_link_libraries(plantjplugin PUBLIC plantjscheduler)
+target_link_libraries(calligraplantjplugin PUBLIC calligraplantjscheduler)
 
-set_target_properties( plantjscheduler PROPERTIES DEFINE_SYMBOL MAKE_PLANTJ_LIB )
+set_target_properties( calligraplantjscheduler PROPERTIES DEFINE_SYMBOL MAKE_PLANTJ_LIB )
 
-install(TARGETS plantjscheduler DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(TARGETS plantjplugin DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/schedulers)
+install(TARGETS calligraplantjscheduler DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplantjplugin DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/schedulers)

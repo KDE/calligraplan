@@ -60,8 +60,8 @@ endif()
     ## let's make sure we won't forget to update the "15"
     #message(FATAL_ERROR "Reminder: please update offset == 15 used to compute GENERIC_PLAN_LIB_VERSION_MAJOR to something bigger")
 #endif()
-set(GENERIC_PLAN_LIB_VERSION "${GENERIC_PLAN_LIB_VERSION_MAJOR}.0.0")
-set(GENERIC_PLAN_LIB_SOVERSION "${GENERIC_PLAN_LIB_VERSION_MAJOR}")
+set(GENERIC_PLAN_LIB_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
+set(GENERIC_PLAN_LIB_SOVERSION "${PROJECT_VERSION_MAJOR}")
 
 message(STATUS "")
 message(STATUS "Build Calligra Plan ${PLAN_VERSION_STRING} (${PLAN_RELEASE_TYPE}) with cmake version: ${CMAKE_VERSION}, required version: ${CMAKE_MINIMUM_REQUIRED_VERSION}")
@@ -232,7 +232,7 @@ endif()
 ############################
 ###########################
 
-set(REQUIRED_KDIAGRAM_VERSION 2.8.0)
+set(REQUIRED_KDIAGRAM_VERSION 2.7)
 
 ##
 ## Test for KGantt
@@ -243,7 +243,6 @@ set_package_properties(KGantt PROPERTIES
     URL "https://www.kde.org/"
     TYPE REQUIRED
 )
-message(STATUS "KGantt_FOUND: ${KGantt_FOUND} KGantt_VERSION : ${KGantt_VERSION_MAJOR}-${KGantt_VERSION_MINOR}-${KGantt_VERSION_PATCH}")
 if(KGantt_FOUND)
     set(KGANTT_VERSION_MAJOR "${KGantt_VERSION_MAJOR}")
     set(KGANTT_VERSION_MINOR "${KGantt_VERSION_MINOR}")

@@ -1,4 +1,4 @@
-#project(planwork)
+#project(calligraplanwork)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"calligraplanwork\")
 
@@ -12,7 +12,7 @@ include_directories(${PLAN_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURR
 
 ########### PlanWork private library ###############
 
-set(planworkprivate_LIB_SRCS
+set(calligraplanworkprivate_LIB_SRCS
     factory.cpp
     mainwindow.cpp
     part.cpp
@@ -29,31 +29,29 @@ set(planworkprivate_LIB_SRCS
     ../plan/KPlatoXmlLoader.cpp #NB
 )
 
-ki18n_wrap_ui(planworkprivate_LIB_SRCS
+ki18n_wrap_ui(calligraplanworkprivate_LIB_SRCS
     taskcompletionpanel.ui
 )
 
-kconfig_add_kcfg_files(planworksettings_SRCS calligraplanworksettings.kcfgc)
+kconfig_add_kcfg_files(calligraplanworksettings_SRCS calligraplanworksettings.kcfgc)
 
-add_library(planworkprivate SHARED ${planworkprivate_LIB_SRCS} ${planworksettings_SRCS})
-generate_export_header(planworkprivate BASE_NAME planwork)
+add_library(calligraplanworkprivate SHARED ${calligraplanworkprivate_LIB_SRCS} ${calligraplanworksettings_SRCS})
+generate_export_header(calligraplanworkprivate BASE_NAME planwork)
 
-target_link_libraries(planworkprivate
+target_link_libraries(calligraplanworkprivate
     PUBLIC
-        plankernel
-        planmodels
-        planui
-        planprivate
-        planmain
+        calligraplanui
+        calligraplanprivate
+        calligraplanmain
         KGantt
         KF5::Parts
     PRIVATE
         KF5::IconThemes
 )
 
-set_target_properties(planworkprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
+set_target_properties(calligraplanworkprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS planworkprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanworkprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES calligraplanworksettings.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 
 
@@ -78,9 +76,8 @@ endif ()
 target_link_libraries(
     kdeinit_calligraplanwork
 
-    planworkprivate
-    plankernel
-    planmain
+    calligraplanworkprivate
+
     KF5::Parts
     KF5::IconThemes
     KF5::WindowSystem

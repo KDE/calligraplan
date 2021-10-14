@@ -12,7 +12,7 @@ set_package_properties(SharedMimeInfo PROPERTIES
 
 include_directories(${PLANKERNEL_INCLUDES} ${PLANUI_INCLUDES} config)
 
-set(planportfolioprivate_LIB_SRCS
+set(calligraplanportfolioprivate_LIB_SRCS
     PlanGroupDebug.cpp
     SummaryModel.cpp
     SummaryView.cpp
@@ -40,28 +40,24 @@ set(planportfolioprivate_LIB_SRCS
     config/ConfigDialog.cpp
 )
 
-ki18n_wrap_ui(planportfolioprivate_LIB_SRCS
+ki18n_wrap_ui(calligraplanportfolioprivate_LIB_SRCS
     PerformanceView.ui
     SchedulingView.ui
     ResourceUsageView.ui
     DocumentsSaveDialog.ui
 )
 
-kconfig_add_kcfg_files(planportfoliosettings_SRCS config/portfoliosettings.kcfgc)
+kconfig_add_kcfg_files(calligraplanportfoliosettings_SRCS config/portfoliosettings.kcfgc)
 
-add_library(planportfolioprivate SHARED ${planportfolioprivate_LIB_SRCS} ${planportfoliosettings_SRCS})
-generate_export_header(planportfolioprivate BASE_NAME planportfolio)
+add_library(calligraplanportfolioprivate SHARED ${calligraplanportfolioprivate_LIB_SRCS} ${calligraplanportfoliosettings_SRCS})
+generate_export_header(calligraplanportfolioprivate BASE_NAME planportfolio)
 
-target_link_libraries(planportfolioprivate
+target_link_libraries(calligraplanportfolioprivate
     PUBLIC
-        plankernel
-        planmodels
-        planui
-        planmain
-        planstore
-        planwidgets
+        calligraplanui
+        calligraplanstore
     PRIVATE
-        planplugin
+        calligraplanplugin
         KF5::ItemModels
         KF5::ItemViews
         KChart
@@ -69,20 +65,20 @@ target_link_libraries(planportfolioprivate
         #KF5::KHtml
 )
 
-set_target_properties(planportfolioprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION})
+set_target_properties(calligraplanportfolioprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION})
 
-install(TARGETS planportfolioprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanportfolioprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### Part ###############
 
-set(planportfoliopart_PART_SRCS PortfolioFactoryInit.cpp)
+set(calligraplanportfoliopart_PART_SRCS PortfolioFactoryInit.cpp)
 
 add_library(calligraplanportfoliopart MODULE ${planportfoliopart_PART_SRCS})
 
 kcoreaddons_desktop_to_json(calligraplanportfoliopart calligraplanportfoliopart.desktop)
 
 
-target_link_libraries(calligraplanportfoliopart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE planportfolioprivate)
+target_link_libraries(calligraplanportfoliopart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE calligraplanportfolioprivate)
 
 install(TARGETS calligraplanportfoliopart DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/parts)
 
@@ -105,7 +101,7 @@ if (APPLE)
    install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_KDEINIT_SRCS.icns DESTINATION ${BUNDLE_INSTALL_DIR}/calligraplanportfolio.app/Contents/Resources)
 endif ()
 
-target_link_libraries(kdeinit_calligraplanportfolio planportfolioprivate)
+target_link_libraries(kdeinit_calligraplanportfolio calligraplanportfolioprivate)
 
 install(TARGETS kdeinit_calligraplanportfolio  ${INSTALL_TARGETS_DEFAULT_ARGS})
 

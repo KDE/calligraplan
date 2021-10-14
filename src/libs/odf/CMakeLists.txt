@@ -5,9 +5,9 @@ add_subdirectory( writeodf )
 
 include_directories( ${PLANODF_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR}/writeodf )
 
-########### libkoodf ###############
+########### libcalligraplanodf ###############
 
-set(koodf_LIB_SRCS
+set(calligraplanodf_LIB_SRCS
     KoOdf.cpp
     KoOdfManifestEntry.cpp
     KoDocumentInfo.cpp
@@ -44,21 +44,23 @@ set(koodf_LIB_SRCS
     OdfDebug.cpp
 )
 
-add_library(planodf SHARED ${koodf_LIB_SRCS})
-add_dependencies(planodf plan_writeodf.h-target)
-generate_export_header(planodf BASE_NAME koodf)
+add_library(calligraplanodf SHARED ${calligraplanodf_LIB_SRCS})
+add_dependencies(calligraplanodf plan_writeodf.h-target)
+generate_export_header(calligraplanodf BASE_NAME koodf)
 
-target_link_libraries(planodf
+target_link_libraries(calligraplanodf
     PUBLIC
-        planstore
+        calligraplanstore
+        KF5::ConfigCore
+        KF5::CoreAddons
         Qt5::PrintSupport
         Qt5::Xml
     PRIVATE
         KF5::I18n
 )
 
-set_target_properties(planodf PROPERTIES
+set_target_properties(calligraplanodf PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS planodf ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS calligraplanodf ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
