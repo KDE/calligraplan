@@ -71,7 +71,7 @@ ki18n_wrap_ui(komain_LIB_SRCS
 )
 
 add_library(calligraplanmain SHARED  ${komain_LIB_SRCS})
-generate_export_header(calligraplanmain BASE_NAME komain
+generate_export_header(calligraplanmain EXPORT_FILE_NAME komain_generated_export.h BASE_NAME komain
 )
 
 target_link_libraries(calligraplanmain
