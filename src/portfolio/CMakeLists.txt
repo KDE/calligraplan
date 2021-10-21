@@ -73,7 +73,7 @@ install(TARGETS calligraplanportfolioprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 set(calligraplanportfoliopart_PART_SRCS PortfolioFactoryInit.cpp)
 
-add_library(calligraplanportfoliopart MODULE ${planportfoliopart_PART_SRCS})
+add_library(calligraplanportfoliopart MODULE ${calligraplanportfoliopart_PART_SRCS})
 
 kcoreaddons_desktop_to_json(calligraplanportfoliopart calligraplanportfoliopart.desktop)
 
