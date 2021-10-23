@@ -18,7 +18,7 @@ class KoPrintJob;
 
 class QMenu;
 class QItemSelection;
-
+class QResizeEvent;
 
 namespace KPlato {
     class ChartItemModel;
@@ -46,6 +46,8 @@ protected:
     void updateReadWrite(bool readwrite) override;
 
     void setupCharts();
+
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
     bool m_readWrite;

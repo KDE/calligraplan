@@ -103,10 +103,23 @@ void PerformanceView::setupCharts()
         m_yAxes << yAxis;
         charts.at(i)->coordinatePlane()->replaceDiagram(dia);
         KChart::Legend *legend = new KChart::Legend(dia);
-        legend->setPosition(KChart::Position::South);
+        legend->setPosition(KChart::Position::North);
         legend->setOrientation(Qt::Horizontal);
-        legend->setTitleText(QString());
+        legend->setTitleText("Test");
         charts.at(i)->addLegend(legend);
+    }
+}
+
+void PerformanceView::resizeEvent(QResizeEvent* event)
+{
+    QWidget::resizeEvent(event);
+    // HACK: Workaround for misbehaving KChart legend resize
+    const QList<KChart::Chart*> charts = QList<KChart::Chart*>() << ui.costChartPi << ui.costChartWork << ui.effortChartPi << ui.effortChartWork;
+    for (auto chart : charts) {
+        auto legend = chart->legend();
+        if (legend && legend->orientation() == Qt::Horizontal) {
+            legend->forceRebuild();
+        }
     }
 }
 
