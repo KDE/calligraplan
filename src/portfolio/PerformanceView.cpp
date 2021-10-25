@@ -105,7 +105,7 @@ void PerformanceView::setupCharts()
         KChart::Legend *legend = new KChart::Legend(dia);
         legend->setPosition(KChart::Position::North);
         legend->setOrientation(Qt::Horizontal);
-        legend->setTitleText("Test");
+        legend->setTitleText(QString());
         charts.at(i)->addLegend(legend);
     }
 }
