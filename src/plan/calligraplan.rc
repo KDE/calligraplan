@@ -50,7 +50,7 @@
             <Action name="project_edit"/>
         </Menu>
         <Menu name="tools"><text>&amp;Tools</text>
-            <Action name="load_shared_projects"/>
+            <Action name="load_shared_resources"/>
             <Action name="insert_file"/>
             <Action name="reportdesigner_open_file"/>
         </Menu>

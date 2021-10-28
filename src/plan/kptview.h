@@ -199,6 +199,7 @@ protected Q_SLOTS:
 
     void slotInsertResourcesFile(const QString &file);
     void slotInsertFile();
+    void slotUpdateSharedResources();
 
     void slotWorkPackageLoaded();
     void slotMailWorkpackage(KPlato::Node *node, KPlato::Resource *resource = nullptr);

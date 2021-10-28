@@ -228,6 +228,10 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     actionCollection()->addAction("insert_file", actionInsertFile);
     connect(actionInsertFile, &QAction::triggered, this, &View::slotInsertFile);
 
+    auto a = new QAction(koIcon("view-refresh"), i18n("Update Shared Resources"), this);
+    actionCollection()->addAction("load_shared_resources", a);
+    connect(a, &QAction::triggered, this, &View::slotUpdateSharedResources);
+
 #ifdef PLAN_USE_KREPORT
     actionOpenReportFile  = new QAction(koIcon("document-open"), i18n("Open Report Definition File..."), this);
     actionCollection()->addAction("reportdesigner_open_file", actionOpenReportFile);
@@ -1400,6 +1404,15 @@ void View::slotInsertFileFinished(int result)
         getPart()->insertFile(dlg->url(), dlg->parentNode(), dlg->afterNode());
     }
     dlg->deleteLater();
+}
+
+void KPlato::View::slotUpdateSharedResources()
+{
+    auto doc = getPart();
+    auto project = doc->project();
+    if (project->useSharedResources() && !project->sharedResourcesFile().isEmpty()) {
+        doc->insertResourcesFile(QUrl::fromUserInput(project->sharedResourcesFile()));
+    }
 }
 
 void View::slotProjectEdit()
