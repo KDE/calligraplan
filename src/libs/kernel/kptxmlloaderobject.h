@@ -133,7 +133,7 @@ public:
         startLoad();
 
         KoXmlElement plan = document.documentElement();
-        m_version = plan.attribute("version", PLAN_FILE_SYNTAX_VERSION);
+        setVersion(plan.attribute("version", PLAN_FILE_SYNTAX_VERSION));
 #if 1
         if (m_loader) {
             result = m_loader->load(*this, document);
