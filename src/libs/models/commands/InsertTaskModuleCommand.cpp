@@ -16,6 +16,8 @@
 #include "kptresource.h"
 #include "kptdocuments.h"
 #include "kptlocale.h"
+#include "kptcommand.h"
+#include "AddResourceCmd.h"
 #include "kptdebug.h"
 
 #include <QApplication>
@@ -104,7 +106,9 @@ void InsertTaskModuleCommand::execute()
         KoXmlDocument doc;
         doc.setContent(m_data);
         m_context.setVersion(doc.documentElement().attribute("plan-version", PLAN_FILE_SYNTAX_VERSION));
-        KoXmlElement projectElement = doc.documentElement().namedItem("project").toElement();
+        debugPlanXml<<"Start loading task module, xml version:"<<m_context.version();
+
+        const KoXmlElement projectElement = doc.documentElement().namedItem("project").toElement();
 
         createCmdAccounts(projectElement);
         createCmdCalendars(projectElement);
@@ -114,6 +118,7 @@ void InsertTaskModuleCommand::execute()
         createCmdRequests(projectElement);
         m_first = false;
         m_data.clear();
+        debugPlanXml<<"Finished loading task module, xml version:"<<m_context.version();
     } else {
         MacroCommand::execute();
     }
@@ -136,12 +141,67 @@ void InsertTaskModuleCommand::createCmdCalendars(const KoXmlElement &projectElem
     if (projectElement.isNull()) {
         return;
     }
+    KoXmlElement parentElement = projectElement.namedItem("calendars").toElement();
+    if (parentElement.isNull()) {
+        debugPlanXml<<"Could not find 'calendars'";
+        return;
+    }
+    KoXmlElement ce;
+    forEachElement(ce, parentElement) {
+        if (ce.tagName() != "calendar") {
+            continue;
+        }
+        if (!m_project->findCalendar(ce.attribute("id"))) {
+            warnPlanXml<<"Could not find calendar. Adding:"<<ce.attribute("name");
+            if (!m_context.loader()) {
+                warnPlanXml<<"No loader, cannot add calendar";
+                continue;
+            }
+            auto calendar = new Calendar();
+            auto parent = m_context.project().findCalendar(ce.attribute("parent"));
+            if (m_context.loader()->load(calendar, ce, m_context)) {
+                auto cmd = new CalendarAddCmd(&m_context.project(), calendar, -1, parent);
+                cmd->redo();
+                addCommand(cmd);
+            } else {
+                warnPlanXml<<"Failed to load calendar";
+                delete calendar;
+            }
+        }
+    }
 }
 
 void InsertTaskModuleCommand::createCmdResources(const KoXmlElement &projectElement)
 {
     if (projectElement.isNull()) {
         return;
+    }
+    KoXmlElement parentElement = projectElement.namedItem("resources").toElement();
+    if (parentElement.isNull()) {
+        debugPlanXml<<"Could not find 'resources'";
+        return;
+    }
+    KoXmlElement re;
+    forEachElement(re, parentElement) {
+        if (re.tagName() != "resource") {
+            continue;
+        }
+        if (!m_project->findResource(re.attribute("id"))) {
+            warnPlanXml<<"Could not find resource. Adding:"<<re.attribute("name");
+            if (!m_context.loader()) {
+                warnPlanXml<<"No loader, cannot add resource";
+                continue;
+            }
+            Resource *resource = new Resource();
+            if (m_context.loader()->load(resource, re, m_context)) {
+                auto cmd = new AddResourceCmd(&m_context.project(), resource);
+                cmd->redo();
+                addCommand(cmd);
+            } else {
+                warnPlanXml<<"Failed to load resource";
+                delete resource;
+            }
+        }
     }
 }
 
@@ -166,6 +226,10 @@ void InsertTaskModuleCommand::createCmdRequests(const KoXmlElement &projectEleme
             continue;
         }
         Resource *resource = m_project->findResource(re.attribute("resource-id"));
+        if (!resource) {
+            warnPlanXml<<re.tagName()<<"Failed to find resource, request will not be added. Id="<<re.attribute("resource-id");
+            continue;
+        }
         Q_ASSERT(resource);
         Q_ASSERT(task);
         if (resource && task) {
