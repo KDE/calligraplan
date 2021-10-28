@@ -52,17 +52,16 @@ public:
 
     bool load(XMLLoaderObject &context, const KoXmlDocument &document = KoXmlDocument()) override;
 
-private:
     bool load(Project *project, const KoXmlElement &element, XMLLoaderObject &status);
     bool loadSettings(const KoXmlElement &element, XMLLoaderObject &status);
     bool load(Task *task, const KoXmlElement &element, XMLLoaderObject &status);
-    bool load(Calendar *Calendar, const KoXmlElement &element, XMLLoaderObject &status);
+    bool load(Calendar *calendar, const KoXmlElement &element, XMLLoaderObject &status) override;
     bool load(CalendarDay *day, const KoXmlElement &element, XMLLoaderObject &status);
     bool load(CalendarWeekdays *weekdays, const KoXmlElement& element, XMLLoaderObject& status);
     bool load(StandardWorktime *swt, const KoXmlElement &element, XMLLoaderObject &status);
     bool load(Relation *relation, const KoXmlElement &element, XMLLoaderObject &status);
     bool load(ResourceGroup *rg, const KoXmlElement &element, XMLLoaderObject &status);
-    bool load(Resource *resource, const KoXmlElement &element, XMLLoaderObject &status);
+    bool load(Resource *resource, const KoXmlElement &element, XMLLoaderObject &status) override;
     bool load(Accounts &accounts, const KoXmlElement &element, XMLLoaderObject &status);
     bool load(Account *account, const KoXmlElement &element, XMLLoaderObject &status);
     bool load(Account::CostPlace *cp, const KoXmlElement &element, XMLLoaderObject &status);

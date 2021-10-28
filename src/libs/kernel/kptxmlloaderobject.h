@@ -30,7 +30,8 @@ class PLANKERNEL_EXPORT XMLLoaderObject {
 public:
     enum Severity { None=0, Errors=1, Warnings=2, Diagnostics=3, Debug=4 };
     XMLLoaderObject()
-    : m_project(nullptr),
+    : m_loader(nullptr),
+      m_project(nullptr),
       m_errors(0),
       m_warnings(0),
       m_logLevel(Diagnostics),
@@ -38,13 +39,22 @@ public:
       m_baseCalendar(nullptr),
       m_loadTaskChildren(true)
     {}
-    ~XMLLoaderObject() {}
+    ~XMLLoaderObject() { delete m_loader; }
 
     void setProject(Project *proj) { m_project = proj; }
     Project &project() const { return *m_project; }
     
     QString version() const { return m_version; }
-    void setVersion(const QString &ver) { m_version = ver; }
+    void setVersion(const QString &ver) {
+        m_version = ver;
+        delete m_loader;
+        m_loader = nullptr;
+        if (m_version.split('.').value(0).toInt() == 0) {
+            m_loader = new ProjectLoader_v0();
+        } else {
+            warnPlanXml<<"Unknown version:"<<ver<<"Failed to create a loader";
+        }
+    }
 
     QString workVersion() const { return m_workversion; }
     void setWorkVersion(const QString &ver) { m_workversion = ver; }
@@ -54,6 +64,8 @@ public:
 
     const QTimeZone &projectTimeZone() const { return m_projectTimeZone; }
     void setProjectTimeZone(const QTimeZone &timeZone) { m_projectTimeZone = timeZone; }
+
+    ProjectLoaderBase *loader() { return m_loader; }
 
     void startLoad() {
         m_timer.start();
@@ -123,14 +135,10 @@ public:
         KoXmlElement plan = document.documentElement();
         m_version = plan.attribute("version", PLAN_FILE_SYNTAX_VERSION);
 #if 1
-        ProjectLoaderBase *loader = nullptr;
-        if (m_version.split('.').value(0).toInt() == 0) {
-            loader = new ProjectLoader_v0();
-        }
-        if (loader) {
-            result = loader->load(*this, document);
+        if (m_loader) {
+            result = m_loader->load(*this, document);
         } else {
-            errorPlanXml<<"Failed to create loader for version:"<<m_version;
+            errorPlanXml<<"There is no loader for version:"<<m_version;
             result = false;
         }
         if (!result) {
@@ -196,6 +204,7 @@ public:
     }
 
 protected:
+    ProjectLoaderBase *m_loader;
     Project *m_project;
     int m_errors;
     int m_warnings;

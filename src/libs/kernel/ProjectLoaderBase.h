@@ -17,6 +17,8 @@
 namespace KPlato
 {
 class XMLLoaderObject;
+class Calendar;
+class Resource;
 
 class PLANKERNEL_EXPORT ProjectLoaderBase : public QObject
 {
@@ -28,6 +30,10 @@ public:
         Q_UNUSED(document)
         return false;
     }
+
+    virtual bool load(Calendar *calendar, const KoXmlElement &element, XMLLoaderObject &status) = 0;
+    virtual bool load(Resource *resource, const KoXmlElement &element, XMLLoaderObject &status) = 0;
+
 };
 
 } // namespace KPlato
