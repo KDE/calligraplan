@@ -22,7 +22,6 @@
 #include "kptxmlloaderobject.h"
 #include "XmlSaveContext.h"
 #include "InsertProjectXmlCommand.h"
-#include "InsertTaskModuleCommand.h"
 #include "kptdebug.h"
 
 #include <KoXmlReader.h>
@@ -1424,6 +1423,7 @@ QVariant NodeModel::status(const Node *node, int role) const
             break;
         }
         case Qt::EditRole:
+            qInfo()<<Q_FUNC_INFO<<m_project<<node<<m_manager<<id();
             return t->state(id());
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
@@ -4046,14 +4046,35 @@ bool NodeItemModel::dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction
         n = m_project;
     }
     debugPlan<<n<<action<<row<<parent;
-    QRegularExpression reg("\\[\\[[^ ]*\\]\\]");
-    QRegularExpressionMatchIterator it = reg.globalMatch(data->data("application/x-vnd.kde.plan.taskmodule"));
+
+    XMLLoaderObject context;
+    KoXmlDocument doc;
+    doc.setContent(data->data("application/x-vnd.kde.plan.taskmodule"));
+    Project moduleProject;
+    context.loadProject(&moduleProject, doc);
+
+    moduleProject.generateUniqueNodeIds();
+
     QStringList substitute;
-    while (it.hasNext()) {
-        QRegularExpressionMatch match = it.next();
-        QString param = match.captured().remove("[[").remove("]]");
-        if (!substitute.contains(param)) {
-            substitute << param;
+    QRegularExpression reg("\\[\\[[^ ]*\\]\\]");
+    const auto nodes = moduleProject.allNodes();
+    for (auto n : nodes) {
+        QRegularExpressionMatchIterator it = reg.globalMatch(n->name());
+        while (it.hasNext()) {
+            QRegularExpressionMatch match = it.next();
+            QString param = match.captured().remove("[[").remove("]]");
+            if (!substitute.contains(param)) {
+                substitute << param;
+            }
+        }
+        QTextEdit e(n->description());
+        it = reg.globalMatch(e.toPlainText());
+        while (it.hasNext()) {
+            QRegularExpressionMatch match = it.next();
+            QString param = match.captured().remove("[[").remove("]]");
+            if (!substitute.contains(param)) {
+                substitute << param;
+            }
         }
     }
     QMap<QString, QString> params;
@@ -4065,10 +4086,37 @@ bool NodeItemModel::dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction
         }
         params = dlg.parameters();
     }
-    KUndo2Command *cmd = new InsertTaskModuleCommand(project(), data->data("application/x-vnd.kde.plan.taskmodule"), n, n->childNode(row), params, kundo2_i18n("Insert task module"));
+    if (!params.isEmpty()) {
+        for (auto n : nodes) {
+            auto name = n->name();
+            QMap<QString, QString>::const_iterator it = params.constBegin();
+            for (QMap<QString, QString>::const_iterator it = params.constBegin(); it != params.constEnd(); ++it) {
+                name.replace("[[" + it.key() + "]]", it.value());
+            }
+            n->setName(name);
+
+            bool changed = false;
+            QTextEdit e(n->description());
+            for (QMap<QString, QString>::const_iterator it = params.constBegin(); it != params.constEnd(); ++it) {
+                QString param = QString("[[%1]]").arg(it.key());
+                while (e.find(param, QTextDocument::FindCaseSensitively)) {
+                    e.textCursor().insertText(it.value());
+                    changed = true;
+                }
+                e.moveCursor(QTextCursor::Start);
+            }
+            if (changed) {
+                n->setDescription(e.toHtml());
+            }
+        }
+    }
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    KUndo2Command *cmd = new InsertProjectCmd(moduleProject, n, n->childNode(row), kundo2_i18n("Insert task module"));
     Q_EMIT executeCommand(cmd);
+    QApplication::restoreOverrideCursor();
     return true;
 }
+
 
 bool NodeItemModel::dropUrlMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
