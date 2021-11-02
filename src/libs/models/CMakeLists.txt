@@ -25,7 +25,6 @@ set(calligraplanmodels_LIB_SRCS
     kpttreecombobox.cpp
 
     commands/InsertProjectXmlCommand.cpp
-    commands/InsertTaskModuleCommand.cpp
 
     kcalendar/kdatetable.cpp
     kcalendar/kdatepicker.cpp
