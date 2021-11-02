@@ -1401,7 +1401,9 @@ void View::slotInsertFileFinished(int result)
         return;
     }
     if (result == QDialog::Accepted) {
+        QApplication::setOverrideCursor(Qt::WaitCursor);
         getPart()->insertFile(dlg->url(), dlg->parentNode(), dlg->afterNode());
+        QApplication::restoreOverrideCursor();
     }
     dlg->deleteLater();
 }
