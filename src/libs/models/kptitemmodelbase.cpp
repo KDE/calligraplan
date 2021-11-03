@@ -741,7 +741,7 @@ void ItemModelBase::writeText(QMimeData *m, const QModelIndexList &indexes) cons
 
 QStringList ItemModelBase::mimeTypes() const
 {
-    return QStringList() << "text/html" << "text/plain";
+    return QStringList();
 }
 
 QMimeData *ItemModelBase::mimeData(const QModelIndexList &indexes) const
