@@ -3820,20 +3820,22 @@ QMimeData *NodeItemModel::mimeData(const QModelIndexList & indexes) const
         if (index.isValid() && !rows.contains(index.row())) {
             //debugPlan<<index.row();
             Node *n = node(index);
-            if (n) {
+            if (n && n->type() != Node::Type_Project) {
                 rows << index.row();
                 stream << n->id();
             }
         }
     }
-    m->setData("application/x-vnd.kde.plan.nodeitemmodel.internal", encodedData);
+    if (!rows.isEmpty()) {
+        m->setData("application/x-vnd.kde.plan.nodeitemmodel.internal", encodedData);
+    }
 
     QList<const Node*> nodes;
     for (const QModelIndex &index : indexes) {
         if (index.isValid()) {
             //debugPlan<<index.row();
             Node *n = node(index);
-            if (n && !nodes.contains(n)) {
+            if (n && n->type() != Node::Type_Project && !nodes.contains(n)) {
                 nodes << n;
             }
         }
