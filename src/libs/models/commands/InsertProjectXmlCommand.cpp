@@ -150,9 +150,12 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
             continue;
         }
         Resource *resource = m_project->findResource(re.attribute("resource-id"));
-        Q_ASSERT(resource);
+        if (!resource) {
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to add allocation, resource does not exist";
+            continue;
+        }
         Q_ASSERT(task);
-        if (resource && task) {
+        if (task) {
             int units = re.attribute("units", "100").toInt();
             ResourceRequest *request = new ResourceRequest(resource, units);
             int requestId = re.attribute("request-id").toInt();
@@ -163,7 +166,7 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
             addCommand(cmd);
             debugPlanInsertProjectXml<<"added resourcerequest:"<<task<<request;
         } else {
-            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find resource";
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find task";
         }
     }
     re = projectElement.namedItem("required-resource-requests").toElement();
@@ -179,8 +182,12 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
         }
         ResourceRequest *request = task->requests().resourceRequest(re.attribute("request-id").toInt());
         Resource *required = m_project->findResource(re.attribute("required-id"));
+        if (!required) {
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to add required resource, resource does not exist";
+            continue;
+        }
         QList<Resource*> lst;
-        if (required && request->resource() != required) {
+        if (request->resource() != required) {
             lst << required;
         }
         KUndo2Command *cmd = new ModifyResourceRequestRequiredCmd(request, lst);
