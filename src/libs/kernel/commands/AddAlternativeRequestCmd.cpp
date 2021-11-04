@@ -5,18 +5,17 @@
  */
 
 // clazy:excludeall=qstring-arg
-#include "AddAlternativeResourceCmd.h"
+#include "AddAlternativeRequestCmd.h"
 
-#include "Resource.h"
-#include "ResourceGroup.h"
+#include "kptresourcerequest.h"
 
 using namespace KPlato;
 
 
-AddAlternativeResourceCmd::AddAlternativeResourceCmd(ResourceRequest *request, Resource *m_resource, const KUndo2MagicString& name);
+AddAlternativeResourceCmd::AddAlternativeResourceCmd(ResourceRequest *request, ResourceRequest *alternative, const KUndo2MagicString& name)
     : NamedCommand(name)
     , m_request(request)
-    , m_resource(resource)
+    , m_alternative(alternative)
 {
 }
 
@@ -26,10 +25,10 @@ AddAlternativeResourceCmd::~AddAlternativeResourceCmd()
 
 void AddAlternativeResourceCmd::execute()
 {
-    m_request->addAlternativeResource(m_resource);
+    m_request->addAlternativeRequest(m_alternative);
 }
 
 void AddAlternativeResourceCmd::unexecute()
 {
-    m_request->removeAlternativeResource(m_resource);
+    m_request->removeAlternativeRequest(m_alternative);
 }

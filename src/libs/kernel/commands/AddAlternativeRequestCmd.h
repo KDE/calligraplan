@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef KPTADDALTERNATIVERESOURCECMD_H
-#define KPTADDALTERNATIVERESOURCECMD_H
+#ifndef KPTADDALTERNATIVEREQUESTCMD_H
+#define KPTADDALTERNATIVEREQUESTCMD_H
 
 #include "plankernel_export.h"
 
@@ -16,20 +16,19 @@
 namespace KPlato
 {
 
-class Resource;
-class ResourceGroup;
+class ResourceRequest;
 
 class PLANKERNEL_EXPORT AddAlternativeResourceCmd : public NamedCommand
 {
 public:
-    AddAlternativeResourceCmd(ResourceRequest *request, Resource *resource, const KUndo2MagicString& name = KUndo2MagicString());
+    AddAlternativeResourceCmd(ResourceRequest *request, ResourceRequest *alternative, const KUndo2MagicString& name = KUndo2MagicString());
     ~AddAlternativeResourceCmd() override;
     void execute() override;
     void unexecute() override;
 
 protected:
     ResourceRequest *m_request;
-    Resource *m_resource;
+    ResourceRequest *m_alternative;
 };
 
 }

@@ -43,6 +43,7 @@ set(calligraplankernel_LIB_SRCS
     commands/RemoveParentGroupCmd.cpp
     commands/ModifyResourceRequestAlternativeCmd.cpp
     commands/ResourceGroupModifyCoordinatorCmd.cpp
+    commands/AddAlternativeRequestCmd.cpp
 
     kptschedulerplugin.cpp
 
