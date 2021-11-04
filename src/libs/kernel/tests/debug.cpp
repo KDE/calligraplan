@@ -312,6 +312,20 @@ void print(Task *t, bool full = true) {
     qDebug()<<pad<<"Requests:"<<"resources:"<<resourceRequests.count();
     for (ResourceRequest *rr : resourceRequests) {
         qDebug()<<pad<<printAvailable(rr->resource(), "   " + rr->resource()->name())<<"id:"<<rr->resource()->id()<<(void*)rr->resource()<<':'<<(void*)rr;
+        const auto requierds = rr->requiredResources();
+        if (!requierds.isEmpty()) {
+            qDebug()<<pad<<"   Required resources:";
+            for (const auto r : requierds) {
+                qDebug()<<pad<<printAvailable(r, pad+"   " + r->name());
+            }
+        }
+        const auto alts = rr->alternativeRequests();
+        if (!alts.isEmpty()) {
+            qDebug()<<pad<<"   Alternavives:";
+            for (const auto alt : alts) {
+                qDebug()<<pad<<printAvailable(alt->resource(), pad+"   " + alt->resource()->name());
+            }
+        }
     }
     if (t->isStartNode()) {
         qDebug()<<pad<<"Start node";
