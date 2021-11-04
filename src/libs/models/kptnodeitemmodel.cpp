@@ -15,6 +15,7 @@
 #include "kptcommand.h"
 #include <AddResourceCmd.h>
 #include <AddParentGroupCmd.h>
+#include <InsertProjectCmd.h>
 #include "kptduration.h"
 #include "kptproject.h"
 #include "kptnode.h"

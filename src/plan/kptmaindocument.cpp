@@ -23,6 +23,7 @@
 #include "kptschedule.h"
 #include "kptcommand.h"
 #include <RemoveResourceCmd.h>
+#include <InsertProjectCmd.h>
 #include "calligraplansettings.h"
 #include "kpttask.h"
 #include "KPlatoXmlLoader.h"

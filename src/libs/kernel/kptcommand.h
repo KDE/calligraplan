@@ -1752,26 +1752,6 @@ private:
     WBSDefinition m_newvalue, m_oldvalue;
 };
 
-class PLANKERNEL_EXPORT InsertProjectCmd : public MacroCommand
-{
-public:
-    InsertProjectCmd(Project &project, Node *parent, Node *after, const KUndo2MagicString& name = KUndo2MagicString());
-
-    void execute() override;
-    void unexecute() override;
-
-protected:
-    void addAccounts(Account *account, Account *parent, QList<Account*> &unused, QMap<QString, Account*> &all);
-    void addCalendars(Calendar *calendar, Calendar *parent, QList<Calendar*> &unused, QMap<QString, Calendar*> &all);
-    void addChildNodes(Node *node);
-
-private:
-    Project *m_project;
-    Node *m_parent;
-    Node *m_after;
-
-};
-
 class PLANKERNEL_EXPORT WorkPackageAddCmd : public NamedCommand
 {
 public:
