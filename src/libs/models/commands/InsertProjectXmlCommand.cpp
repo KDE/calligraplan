@@ -169,7 +169,7 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
             warnPlanInsertProjectXml<<re.tagName()<<"Failed to find task";
         }
     }
-    re = projectElement.namedItem("required-resource-requests").toElement();
+    parentElement = projectElement.namedItem("required-resource-requests").toElement();
     forEachElement(re, parentElement) {
         if (re.tagName() != "required-resource-request") {
             continue;
@@ -195,7 +195,30 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
         addCommand(cmd);
         debugPlanInsertProjectXml<<"added requiredrequest:"<<task<<request<<lst;
     }
-    // TODO alternatives
+    parentElement = projectElement.namedItem("alternative-requests").toElement();
+    forEachElement(re, parentElement) {
+        if (re.tagName() != "alternative-request") {
+            continue;
+        }
+        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute("task-id")));
+        if (!task) {
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find task";
+            continue;
+        }
+        Resource *resource = m_project->findResource(re.attribute("resource-id"));
+        if (!resource) {
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find resource";
+            continue;
+        }
+        ResourceRequest *request = task->requests().resourceRequest(re.attribute("request-id").toInt());
+        if (!request) {
+            warnPlanInsertProjectXml<<re.tagName()<<"Failed to find request";
+            continue;
+        }
+        ResourceRequest *alternative = new ResourceRequest(resource, re.attribute("units", "100").toInt());
+        request->addAlternativeRequest(alternative);
+        debugPlanInsertProjectXml<<"added alternative-request:"<<task<<request<<alternative;
+    }
 }
 
 void InsertProjectXmlCommand::createCmdTasks(const KoXmlElement &projectElement)
