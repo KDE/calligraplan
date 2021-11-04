@@ -62,6 +62,17 @@ void addResources(Project *project)
     resource->setCalendar(project->calendars().value(0));
     project->addResource(resource);
     g->addResource(resource);
+
+    resource = new Resource();
+    resource->setName("A1");
+    resource->setCalendar(project->calendars().value(0));
+    project->addResource(resource);
+
+    resource = new Resource();
+    resource->setName("M1");
+    resource->setType(Resource::Type_Material);
+    resource->setCalendar(project->calendars().value(0));
+    project->addResource(resource);
 }
 
 void addTask(Project *project, const QString &name, Task *parent = nullptr)
@@ -74,10 +85,17 @@ void addTask(Project *project, const QString &name, Task *parent = nullptr)
     task->estimate()->setType(Estimate::Type_Effort);
 }
 
-void addRequests(Node *task, Resource *r)
+void addRequests(Node *task, Resource *r, Resource *alternative, Resource *required)
 {
     ResourceRequest *rr = new ResourceRequest(r, 100);
     task->requests().addResourceRequest(rr);
+
+    if (alternative) {
+        rr->addAlternativeRequest(new ResourceRequest(alternative));
+    }
+    if (required) {
+        rr->addRequiredResource(required);
+    }
 }
 
 void addDependency(Node *t1, Node *t2)
@@ -124,9 +142,9 @@ void InsertProjectXmlCommandTester::copyRequests()
 
     Node *org1 = m_project->childNode(0);
     Node *org2 = m_project->childNode(1);
-    addRequests(org1, m_project->resourceGroupAt(0)->resourceAt(0));
-    addRequests(org2, m_project->resourceGroupAt(0)->resourceAt(0));
-    Debug::print(m_project, "--------------------", true);
+    addRequests(org1, m_project->resourceGroupAt(0)->resourceAt(0), m_project->resourceList().at(1), m_project->resourceList().at(2));
+    addRequests(org2, m_project->resourceGroupAt(0)->resourceAt(0), nullptr, nullptr);
+    Debug::print(m_project, "Before copy: --------------------", true);
 
     XmlSaveContext context(m_project);
     context.options = XmlSaveContext::SaveSelectedNodes|XmlSaveContext::SaveRequests;
@@ -135,7 +153,7 @@ void InsertProjectXmlCommandTester::copyRequests()
 
     InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, nullptr /*last*/);
     cmd.redo();
-    Debug::print(m_project, "--------------------", true);
+    Debug::print(m_project, "After copy: --------------------", true);
     QCOMPARE(m_project->allTasks().count(), 4);
 
     Node *copy1 = m_project->childNode(2);
@@ -146,6 +164,13 @@ void InsertProjectXmlCommandTester::copyRequests()
     ResourceRequest *cprr = copy1->requests().resourceRequests().at(0);
     QCOMPARE(rr->resource(), cprr->resource());
     QCOMPARE(rr->units(), cprr->units());
+
+    QCOMPARE(rr->alternativeRequests().count(), 1);
+    QCOMPARE(cprr->alternativeRequests().count(), 1);
+    QCOMPARE(rr->alternativeRequests().at(0)->resource(), cprr->alternativeRequests().at(0)->resource());
+    QCOMPARE(rr->requiredResources().count(), 1);
+    QCOMPARE(cprr->requiredResources().count(), 1);
+    QCOMPARE(rr->requiredResources().at(0), cprr->requiredResources().at(0));
 }
 
 void InsertProjectXmlCommandTester::copyDependency()
