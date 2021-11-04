@@ -192,7 +192,8 @@ public:
                 }
             }
             debugPlanXml<<"resource-requests:"<<resources.count();
-            QHash<Task*, std::pair<ResourceRequest*, Resource*> > required; // QHash<Task*, std::pair<ResourceRequest*, Required*>>
+            QMultiHash<Task*, std::pair<ResourceRequest*, Resource*> > required; // QHash<Task*, std::pair<ResourceRequest*, Required*>>
+            QMultiHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> > alternativeRequests; // QHash<Task*, std::pair<ResourceRequest*, Alternative*>>
             if (!resources.isEmpty()) {
                 QDomElement el = projectElement.ownerDocument().createElement("resource-requests");
                 projectElement.appendChild(el);
@@ -207,14 +208,43 @@ public:
                     re.setAttribute("task-id", it.key()->id());
                     re.setAttribute("resource-id", it.value()->resource()->id());
                     re.setAttribute("units", QString::number(it.value()->units()));
-                    // collect required resources
+                    // collect required resources and alternative requests
                     const auto requiredResources = it.value()->requiredResources();
                     for (Resource *r : requiredResources) {
                         required.insert(it.key(), std::pair<ResourceRequest*, Resource*>(it.value(), r));
                     }
+                    const auto altRequests = it.value()->alternativeRequests();
+                    for (ResourceRequest *r : altRequests) {
+                        alternativeRequests.insert(it.key(), std::pair<ResourceRequest*, ResourceRequest*>(it.value(), r));
+                    }
                 }
-                //FIXME: save required?
-                // TODO altarnatives
+            }
+            debugPlanXml<<"required-resource-requests:"<<required.count();
+            if (!required.isEmpty()) {
+                QDomElement reqs = projectElement.ownerDocument().createElement("required-resource-requests");
+                projectElement.appendChild(reqs);
+                QHash<Task*, std::pair<ResourceRequest*, Resource*> >::const_iterator it;
+                for (it = required.constBegin(); it != required.constEnd(); ++it) {
+                    QDomElement req = reqs.ownerDocument().createElement("required-resource-request");
+                    reqs.appendChild(req);
+                    req.setAttribute("task-id", it.key()->id());
+                    req.setAttribute("request-id", it.value().first->id());
+                    req.setAttribute("required-id", it.value().second->id());
+                }
+            }
+            debugPlanXml<<"alternative-requests:"<<alternativeRequests.count();
+            if (!alternativeRequests.isEmpty()) {
+                QDomElement reqs = projectElement.ownerDocument().createElement("alternative-requests");
+                projectElement.appendChild(reqs);
+                QHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> >::const_iterator it;
+                for (it = alternativeRequests.constBegin(); it != alternativeRequests.constEnd(); ++it) {
+                    QDomElement req = reqs.ownerDocument().createElement("alternative-request");
+                    reqs.appendChild(req);
+                    req.setAttribute("task-id", it.key()->id());
+                    req.setAttribute("request-id", it.value().first->id());
+                    req.setAttribute("resource-id", it.value().second->resource()->id());
+                    req.setAttribute("units", it.value().second->units());
+                }
             }
         }
     }
