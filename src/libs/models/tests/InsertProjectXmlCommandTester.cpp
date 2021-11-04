@@ -110,7 +110,7 @@ void InsertProjectXmlCommandTester::init()
 
 void InsertProjectXmlCommandTester::cleanup()
 {
-    Debug::print(m_project, "--------------------", true);
+//     Debug::print(m_project, "--------------------", true);
     delete m_project;
 }
 
@@ -144,7 +144,7 @@ void InsertProjectXmlCommandTester::copyRequests()
     Node *org2 = m_project->childNode(1);
     addRequests(org1, m_project->resourceGroupAt(0)->resourceAt(0), m_project->resourceList().at(1), m_project->resourceList().at(2));
     addRequests(org2, m_project->resourceGroupAt(0)->resourceAt(0), nullptr, nullptr);
-    Debug::print(m_project, "Before copy: --------------------", true);
+//     Debug::print(m_project, "Before copy: --------------------", true);
 
     XmlSaveContext context(m_project);
     context.options = XmlSaveContext::SaveSelectedNodes|XmlSaveContext::SaveRequests;
@@ -153,7 +153,7 @@ void InsertProjectXmlCommandTester::copyRequests()
 
     InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, nullptr /*last*/);
     cmd.redo();
-    Debug::print(m_project, "After copy: --------------------", true);
+//     Debug::print(m_project, "After copy: --------------------", true);
     QCOMPARE(m_project->allTasks().count(), 4);
 
     Node *copy1 = m_project->childNode(2);
@@ -182,7 +182,7 @@ void InsertProjectXmlCommandTester::copyDependency()
 
     addDependency(m_project->childNode(0), m_project->childNode(1));
 
-    Debug::print(m_project, "--------------------", true);
+//     Debug::print(m_project, "--------------------", true);
 
     XmlSaveContext context(m_project);
     context.options = XmlSaveContext::SaveSelectedNodes | XmlSaveContext::SaveRelations;
@@ -190,7 +190,7 @@ void InsertProjectXmlCommandTester::copyDependency()
     context.save();
     InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, nullptr /*last*/);
     cmd.redo();
-    Debug::print(m_project, "--------------------", true);
+//     Debug::print(m_project, "--------------------", true);
     QCOMPARE(m_project->allTasks().count(), 4);
 
     Node *copy1 = m_project->childNode(2);
