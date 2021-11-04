@@ -16,11 +16,26 @@
     email  CDATA #IMPLIED
     editor CDATA #IMPLIED
     mime   CDATA "application/x-vnd.kde.plan"
-    version CDATA #IMPLIED
+    version CDATA #IMPLIED>
 
 <!-- One project node -->
-<!ELEMENT project (settings?|accounts?|calendars?|resource-groups?|resources?|task?|relations?|project-schedules?|resource-teams?|external-appointments?|resource-group-requests?|resource-requests?)>
-<!ATTLIST project	id CDATA #REQUIRED
+<!ELEMENT project (
+    settings?|
+    accounts?|
+    calendars?|
+    resource-groups?|
+    resources?|
+    task?|
+    relations?|
+    project-schedules?|
+    resource-teams?|
+    external-appointments?|
+    resource-requests?|
+    required-resource-requests?|
+    alternative-requests?)
+>
+
+<!ATTLIST project id CDATA #REQUIRED
     name CDATA #IMPLIED
     leader CDATA #IMPLIED
     description CDATA #IMPLIED
@@ -29,8 +44,13 @@
     end-time CDATA #IMPLIED
     timezone CDATA #IMPLIED>
 
-<!-- settings -->
-<!ELEMENT settings (shared-resources?|wbs-definition?|locale?|workpackageinfo?|standard-worktime?)>
+<!-- project-settings -->
+<!ELEMENT project-settings (task-modules?|shared-resources?|wbs-definition?|locale?|workpackageinfo?|standard-worktime?)>
+
+<!ELEMENT task-modules EMPTY>
+<!ATTLIST task-modules
+    use-local-task-modules CDATA #IMPLIED>
+
 <!-- WBS code generation format -->
 <!ELEMENT wbs-definition (default|levels?)>
 <!ATTLIST wbs-definition
@@ -63,9 +83,7 @@
 <!ELEMENT shared-resources EMPTY>
 <!ATTLIST shared-resources
     use  CDATA #IMPLIED
-    file  CDATA #IMPLIED
-    projects-url  CDATA #IMPLIED
-    projects-loadatstartup  CDATA #IMPLIED
+    file  CDATA #IMPLIED>
 
 <!-- The workpackageinfo settings used in this project -->
 <!ELEMENT workpackageinfo EMPTY>
@@ -100,7 +118,8 @@
     object-id CDATA #REQUIRED
     startup-cost CDATA "0"
     shutdown-cost CDATA "0"
-    running-cost CDATA "0">
+    running-cost CDATA "0"
+>
 
 <!-- A calendar defines working hours for resource(s) or modifies duration for task(s) -->
 <!ELEMENT calendars (calendar*)>
@@ -111,7 +130,7 @@
     name CDATA #IMPLIED
     default CDATA "0"
     timezone  CDATA #IMPLIED
-    origin (local|shared) CDATA "local">
+    origin (local|shared) "local">
 
 <!-- 7 weekdays (0=monday - 6=sunday) -->
 <!ELEMENT weekday (day*)>
@@ -141,11 +160,12 @@
 <!-- Resource groups -->
 <!ELEMENT resource-groups (resource-group*)>
 <!ELEMENT resource-group (resource-group*)>
-<!ATTLIST resource-group id CDATA #REQUIRED
+<!ATTLIST resource-group
+    id CDATA #REQUIRED
     name CDATA #IMPLIED
     type CDATA #IMPLIED
     coordinator CDATA #IMPLIED
-    origin (local|shared) CDATA "local">
+    origin (local|shared) "local">
 
 <!-- Resource, used by both resources and used effort -->
 <!ELEMENT resources (resource*)>
@@ -161,7 +181,7 @@
     units CDATA "100"
     calendar-id CDATA #IMPLIED
     account CDATA #IMPLIED
-    origin (Local|Shared) CDATA "Local">
+    origin (local|shared) "Local">
 
 <!-- Used both by resource -->
 <!ELEMENT required-resources (required-resource*)>
@@ -325,17 +345,6 @@
     time CDATA #IMPLIED>
 -->
 
-<!--
-    Resource requests are made by tasks and referes to
-    the resources needed from a resource group
--->
-<!ELEMENT resource-group-requests (resource-group-request?)>
-<!ELEMENT resource-group-request EMPTY>
-<!ATTLIST resource-group-request
-    task-id CDATA #REQUIRED
-    group-id CDATA #REQUIRED
-    units CDATA "0">
-
 <!ELEMENT resource-requests (resource-request?)>
 <!ELEMENT resource-request (required-resources?|alternative-requests?)>
 <!ATTLIST resource-request
@@ -369,7 +378,7 @@
 <!ATTLIST relation
 	parent-id CDATA #REQUIRED
     child-id CDATA #REQUIRED
-    type (Finish-Start|Finish-Finish|Start-Start) "Start-Start"
+    type (Finish-Start|Finish-Finish|Start-Start) "Finish-Start"
     lag CDATA #IMPLIED>
 
 
@@ -383,7 +392,7 @@
 <!-- external appointments -->
 <!ELEMENT external-appointments (external-appointment*)>
 <!ELEMENT external-appointment (appointment-interval*)>
-<!ATTLIST
+<!ATTLIST external-appointment
     resource-id CDATA #REQUIRED
     project-id CDATA #REQUIRED
     project-name CDATA #REQUIRED>
