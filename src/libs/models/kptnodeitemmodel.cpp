@@ -1424,7 +1424,6 @@ QVariant NodeModel::status(const Node *node, int role) const
             break;
         }
         case Qt::EditRole:
-            qInfo()<<Q_FUNC_INFO<<m_project<<node<<m_manager<<id();
             return t->state(id());
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
