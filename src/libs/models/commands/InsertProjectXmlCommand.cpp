@@ -27,9 +27,9 @@ const QLoggingCategory &PLANCMDINSPROJECT_LOG()
     return category;
 }
 
-#define debugPlanInsertProjectXml qCDebug(PLANCMDINSPROJECT_LOG)
-#define warnPlanInsertProjectXml qCWarning(PLANCMDINSPROJECT_LOG)
-#define errorPlanInsertProjectXml qCCritical(PLANCMDINSPROJECT_LOG)
+#define debugPlanInsertProjectXml qCDebug(PLANCMDINSPROJECT_LOG)<<Q_FUNC_INFO
+#define warnPlanInsertProjectXml qCWarning(PLANCMDINSPROJECT_LOG)<<Q_FUNC_INFO
+#define errorPlanInsertProjectXml qCCritical(PLANCMDINSPROJECT_LOG)<<Q_FUNC_INFO
 
 using namespace KPlato;
 
@@ -238,7 +238,7 @@ void InsertProjectXmlCommand::createCmdTask(const KoXmlElement &parentElement, N
         }
         Task *task = m_project->createTask();
         QString id = task->id();
-        task->load(taskElement, m_context);
+        m_context.loader()->load(task, taskElement, m_context);
         m_oldIds.insert(task->id(), task);
         task->setId(id);
         NamedCommand *cmd = new AddTaskCommand(m_project, parent, task, position);
@@ -254,8 +254,13 @@ void InsertProjectXmlCommand::createCmdRelations(const KoXmlElement &projectElem
     if (projectElement.isNull()) {
         return;
     }
+    auto relations = projectElement.namedItem("relations");
+    if (relations.isNull()) {
+        debugPlanInsertProjectXml<<"No relations";
+        return;
+    }
     KoXmlElement relationElement;
-    forEachElement(relationElement, projectElement) {
+    forEachElement(relationElement, relations) {
         if (relationElement.tagName() != "relation") {
             continue;
         }
