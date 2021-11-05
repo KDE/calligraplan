@@ -104,9 +104,11 @@ public:
             }
         }
         if (options & SaveRelations) {
+            QDomElement e = projectElement.ownerDocument().createElement("relations");
+            projectElement.appendChild(e);
             QListIterator<const Node*> it(nodes);
             while (it.hasNext()) {
-                it.next()->saveRelations(projectElement, *this);
+                it.next()->saveRelations(e, *this);
             }
         }
         if (options & SaveResources) {
