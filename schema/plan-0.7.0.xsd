@@ -25,6 +25,7 @@
   <xs:element name="project">
     <xs:complexType>
       <xs:choice minOccurs="0">
+        <xs:element minOccurs="0" ref="project-settings"/>
         <xs:element minOccurs="0" ref="accounts"/>
         <xs:element minOccurs="0" ref="calendars"/>
         <xs:element minOccurs="0" ref="resource-groups"/>
@@ -206,7 +207,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="day"/>
       </xs:sequence>
-      <xs:attribute name="day" default="0">
+      <xs:attribute name="day-number" default="0">
         <xs:simpleType>
           <xs:restriction base="xs:token">
             <xs:enumeration value="0"/>

@@ -20,7 +20,7 @@
 
 <!-- One project node -->
 <!ELEMENT project (
-    settings?|
+    project-settings?|
     accounts?|
     calendars?|
     resource-groups?|
@@ -135,7 +135,7 @@
 <!-- 7 weekdays (0=monday - 6=sunday) -->
 <!ELEMENT weekday (day*)>
 <!ATTLIST weekday
-    day (0|1|2|3|4|5|6) "0">
+    day-number (0|1|2|3|4|5|6) "0">
 
 <!--
     interval as used by calendar:
