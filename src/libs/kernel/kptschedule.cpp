@@ -304,7 +304,7 @@ bool Schedule::loadXML(const KoXmlElement &sch, XMLLoaderObject &)
 
 void Schedule::saveXML(QDomElement &element) const
 {
-    QDomElement sch = element.ownerDocument().createElement("schedule");
+    QDomElement sch = element.ownerDocument().createElement("task-schedule");
     element.appendChild(sch);
     saveCommonXML(sch);
 }
@@ -833,7 +833,7 @@ bool NodeSchedule::loadXML(const KoXmlElement &sch, XMLLoaderObject &status)
 void NodeSchedule::saveXML(QDomElement &element) const
 {
     //debugPlan;
-    QDomElement sch = element.ownerDocument().createElement("schedule");
+    QDomElement sch = element.ownerDocument().createElement("task-schedule");
     element.appendChild(sch);
     saveCommonXML(sch);
 
@@ -2029,7 +2029,7 @@ bool ScheduleManager::loadXML(KoXmlElement &element, XMLLoaderObject &status)
         }
         KoXmlElement e = n.toElement();
         //debugPlan<<e.tagName();
-        if (e.tagName() == "schedule") {
+        if (e.tagName() == "project-schedule" || e.tagName() == "schedule") {
             sch = loadMainSchedule(e, status);
             if (sch) {
                 sch->setManager(this);
@@ -2100,7 +2100,7 @@ void ScheduleManager::saveXML(QDomElement &element) const
     el.setAttribute("recalculate-from", m_recalculateFrom.toString(Qt::ISODate));
     el.setAttribute("scheduling-mode", m_schedulingMode);
     if (m_expected && ! m_expected->isDeleted()) {
-        QDomElement schs = el.ownerDocument().createElement("schedule");
+        QDomElement schs = el.ownerDocument().createElement("project-schedule");
         el.appendChild(schs);
         m_expected->saveXML(schs);
         m_project.saveAppointments(schs, m_expected->id());

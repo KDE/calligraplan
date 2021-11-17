@@ -260,7 +260,7 @@
 <!-- schedules used by project -->
 <!ELEMENT project-schedules (schedule-management*)>
 <!-- schedule-management holds common scheduling parameters for a schedule -->
-<!ELEMENT schedule-management (schedule-management*|schedule*)>
+<!ELEMENT schedule-management (schedule-management*|project-schedule*)>
 <!ATTLIST schedule-management
     id CDATA #IMPLIED
     name CDATA #IMPLIED
@@ -273,31 +273,17 @@
     overbooking CDATA "0"
     scheduler-plugin-id CDATA #IMPLIED>
 
-
-<!-- schedules used by task -->
-<!ELEMENT task-schedules (schedule*)>
-
-<!ELEMENT schedule (criticalpath-list?|appointment*)>
-<!ATTLIST schedule id CDATA #REQUIRED
+<!ELEMENT project-schedule (criticalpath-list?|appointment*)>
+<!ATTLIST project-schedule
+    id CDATA #REQUIRED
     name CDATA #IMPLIED
     type CDATA "Expected"
     start CDATA #IMPLIED
     end CDATA #IMPLIED
     duration CDATA #IMPLIED
-    earlystart CDATA #IMPLIED
-    earlyfinish CDATA #IMPLIED
-    latestart CDATA #IMPLIED
-    latefinish CDATA #IMPLIED
-    positive-float CDATA #IMPLIED
-    free-float CDATA #IMPLIED
-    negative-float CDATA #IMPLIED
-    in-critical-path CDATA "0"
     not-scheduled CDATA "0"
     scheduling-conflict CDATA "0"
-    scheduling-error CDATA "0"
-    resource-error CDATA "0"
-    resource-overbooked CDATA "0"
-    resource-not-available CDATA "0">
+    scheduling-error CDATA "0">
 
 <!-- A list of critical paths used by project -->
 <!ELEMENT criticalpath-list (criticalpath*)>
@@ -322,6 +308,34 @@
     end CDATA #IMPLIED
     load CDATA "0">
 
+<!-- schedules used by task -->
+<!ELEMENT task-schedules (task-schedule*)>
+
+<!ELEMENT task-schedule EMPTY>
+<!ATTLIST task-schedule
+    id CDATA #REQUIRED
+    name CDATA #IMPLIED
+    type CDATA "Expected"
+    start CDATA #IMPLIED
+    end CDATA #IMPLIED
+    start-work CDATA #IMPLIED
+    end-work CDATA #IMPLIED
+    duration CDATA #IMPLIED
+    earlystart CDATA #IMPLIED
+    earlyfinish CDATA #IMPLIED
+    latestart CDATA #IMPLIED
+    latefinish CDATA #IMPLIED
+    positive-float CDATA #IMPLIED
+    free-float CDATA #IMPLIED
+    negative-float CDATA #IMPLIED
+    in-critical-path CDATA "0"
+    not-scheduled CDATA "0"
+    scheduling-conflict CDATA "0"
+    scheduling-error CDATA "0"
+    resource-error CDATA "0"
+    resource-overbooked CDATA "0"
+    resource-not-available CDATA "0">
+
 
 <!-- documents used by task -->
 <!ELEMENT documents (document*)>
@@ -345,8 +359,8 @@
     time CDATA #IMPLIED>
 -->
 
-<!ELEMENT resource-requests (resource-request?)>
-<!ELEMENT resource-request (required-resources?|alternative-requests?)>
+<!ELEMENT resource-requests (resource-request*)>
+<!ELEMENT resource-request EMPTY>
 <!ATTLIST resource-request
     task-id CDATA #REQUIRED
     group-id CDATA #IMPLIED

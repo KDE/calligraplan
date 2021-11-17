@@ -405,13 +405,13 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                     continue;
                 }
                 KoXmlElement el = n.toElement();
-                if (el.tagName() == QLatin1String("schedule")) {
+                if (el.tagName() == QLatin1String("task-schedule") || el.tagName() == QLatin1String("schedule")) {
                     NodeSchedule *sch = new NodeSchedule();
                     if (sch->loadXML(el, status)) {
                         sch->setNode(this);
                         addSchedule(sch);
                     } else {
-                        errorPlan<<"Failed to load schedule";
+                        errorPlan<<"Failed to load task-schedule";
                         delete sch;
                     }
                 }

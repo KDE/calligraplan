@@ -106,3 +106,5 @@ add_subdirectory( libs )
 add_subdirectory( plan )
 add_subdirectory( workpackage )
 add_subdirectory(portfolio)
+
+add_subdirectory(convert)

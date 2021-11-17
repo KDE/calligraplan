@@ -546,7 +546,7 @@ void CalendarWeekdays::save(QDomElement &element) const {
         i.next();
         QDomElement me = element.ownerDocument().createElement(QStringLiteral("weekday"));
         element.appendChild(me);
-        me.setAttribute(QStringLiteral("day"), QString::number(i.key() - 1)); // 0 (monday) .. 6 (sunday)
+        me.setAttribute(QStringLiteral("day-number"), QString::number(i.key() - 1)); // 0 (monday) .. 6 (sunday)
         i.value()->save(me);
     }
 }

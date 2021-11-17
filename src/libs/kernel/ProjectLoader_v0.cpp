@@ -965,7 +965,11 @@ bool ProjectLoader_v0::load(CalendarDay *day, const KoXmlElement &element, XMLLo
 bool ProjectLoader_v0::load(CalendarWeekdays *weekdays, const KoXmlElement& element, XMLLoaderObject& status)
 {
     bool ok;
-    int dayNo = QString(element.attribute("day","-1")).toInt(&ok);
+    auto attrname = QLatin1String("day-number");
+    if (element.hasAttribute(QLatin1String("day"))) {
+        attrname = QLatin1String("day");
+    }
+    int dayNo = QString(element.attribute(attrname, "-1")).toInt(&ok);
     //debugPlanXml<<"weekday:"<<dayNo;
     if (dayNo < 0 || dayNo > 6) {
         warnPlanXml<<"Illegal weekday: "<<dayNo;
