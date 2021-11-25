@@ -75,7 +75,7 @@
         <mkdir dir="${jar.dir}"/>
         <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
             <zipgroupfileset dir="${mpxj.dir}" includes="mpxj.jar"/>
-            <zipgroupfileset dir="${mpxj.dir}/lib" includes="*.jar" excludes="junit*,jsoup*"/><!--,stax-ex*,jakarta*,jgoodies*,Fast*,hamcrest*,istack*,jcl-over*,slf*,SpareBits*"/>-->
+            <zipgroupfileset dir="${mpxj.dir}/lib" includes="*.jar" excludes="junit*"/><!--,jsoup*,stax-ex*,jakarta*,jgoodies*,Fast*,hamcrest*,istack*,jcl-over*,slf*,SpareBits*"/>-->
             <manifest>
                 <attribute name="Main-Class" value="${main-class}"/>
                 <attribute name="Class-Path" value= "${cp}"/>
@@ -95,5 +95,22 @@
     </target>
 
     <target name="all" depends="get-mpxj,xjc,jar"/>
+
+    <property name="test-class" value="TestConvert"/>
+    <property name="test.data.dir" value="${mpxj.dir}/junit/data"/>
+    <property name="test.dir" value="${basedir}/test"/>
+    <property name="result.dir" value="${test.dir}/result"/>
+    <target name="clean-test">
+        <delete dir="${result.dir}"/>
+        <mkdir dir="${result.dir}"/>
+    </target>
+    <target name="run-test" depends="clean-test">
+        <exec executable="java">
+            <arg line="-cp ${jar.dir}/${ant.project.name}.jar ${test-class}"/>
+            <arg value="${test.data.dir}"/>
+            <arg value="${result.dir}"/>
+            <arg value="${test.dir}/test.log"/>
+        </exec>
+    </target>
 
 </project>

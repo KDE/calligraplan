@@ -1,37 +1,39 @@
-PlanConvert
------------
+Basics
+------
 
-PlanConvert converts some project file formats into Calligra Plan file format.
+planconvert converts some project file formats into Calligra Plan file format.
 It is written in Java and uses MPXJ for reading other file formats, see:
-http://mpxj.sourceforge.net
+https://www.mpxj.org
 
-This means that PlanConvert *should* be able to convert from all the file formats MPXJ supports.
-However, so far (April, 2012) only Planner (*.planner) and MS project file formats *.mpx and *.mpp has been tested.
+This means that planconvert *should* be able to convert from all the file formats MPXJ supports.
+However, so far only Planner (*.planner) and MS project file formats *.mpx and *.mpp has been tested.
 
-PlanConverts classes is generated from the plan.dtd file using the script: generatedtdclasses
-There is a copy in subdirectory ./dtd.
-The original is found in the main plan project.
+Schema classes are generated from the plan-<version>.dtd file.
+See property 'plan.dtd.dir' in build.xml.
 
+Everything is done using 'ant' and the different jobs are defined in build.xml.
 
-Making changes to PlanConvert
-----------------------------
+Making changes
+--------------
 
-If changes are done to the original dtd that impacts PlanConvert, the following must be done:
-1) Copy original to ./dtd
-2) Generate new PlanConvert schema classes using the bash script generatedtdclasses
-3) Update the PlanWriter class to correctly call the new schema classes
-4) Install mpxj and modify build.xml to point to it, or make a link (mpxj) to it.
-5) Compile the modifications using ant (ant jar)
-6) Install (from your cmake build directory)
+1) New mpxj version:
+    a) In build.xml: Change property 'mpxj.version' to the new version.
+    b) Execute: 'ant get-mpxj'
+       This will download and unsip mpxj into 'mpxj.dir'.
 
+2) New plan dtd version:
+    a) In build.xml: Change property 'plan.version' to the new version
+    b) If mpxj is not present, execute 'ant get-mpxj'
+    c) Execute: 'ant xjc'
+       This will create new schema classes.
+    d) Update PlanWriter to deal with changes
+    e) Execute 'ant jar'
+    f) Commit when everything works ;)
+
+Regenerate everything
+---------------------
+Execute: 'ant all'
 
 Running
 -------
-When run as an import filter, java needs to know how to locate the mpxj and Apache POI jar files.
-If theses are not installed in a place where Java finds them, you will have to point to them using
-the PLAN_CLASSPATH environment variable, e.g:
-
-$ PLAN_CLASSPATH=/path/to/mpxj/mpxj.jar:/path/to/poi/poi.jar calligraplan&
-
-
-
+Execute: 'ant run'
