@@ -24,13 +24,13 @@
   <!-- One project node -->
   <xs:element name="project">
     <xs:complexType>
-      <xs:choice minOccurs="0">
+      <xs:choice>
         <xs:element minOccurs="0" ref="project-settings"/>
         <xs:element minOccurs="0" ref="accounts"/>
         <xs:element minOccurs="0" ref="calendars"/>
         <xs:element minOccurs="0" ref="resource-groups"/>
         <xs:element minOccurs="0" ref="resources"/>
-        <xs:element minOccurs="0" ref="task"/>
+        <xs:element minOccurs="0" ref="tasks"/>
         <xs:element minOccurs="0" ref="relations"/>
         <xs:element minOccurs="0" ref="project-schedules"/>
         <xs:element minOccurs="0" ref="resource-teams"/>
@@ -205,7 +205,7 @@
   <xs:element name="weekday">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="day"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="time-interval"/>
       </xs:sequence>
       <xs:attribute name="day-number" default="0">
         <xs:simpleType>
@@ -217,6 +217,15 @@
             <xs:enumeration value="4"/>
             <xs:enumeration value="5"/>
             <xs:enumeration value="6"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="state" default="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -242,7 +251,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="time-interval"/>
       </xs:sequence>
-      <xs:attribute name="date" use="required"/>
+      <xs:attribute name="date"/>
       <xs:attribute name="state" default="0">
         <xs:simpleType>
           <xs:restriction base="xs:token">
@@ -477,7 +486,7 @@
     <xs:complexType>
       <xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="schedule-management"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="schedule"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="project-schedule"/>
       </xs:choice>
       <xs:attribute name="id"/>
       <xs:attribute name="name"/>
@@ -491,15 +500,7 @@
       <xs:attribute name="scheduler-plugin-id"/>
     </xs:complexType>
   </xs:element>
-  <!-- schedules used by task -->
-  <xs:element name="task-schedules">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="schedule"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="schedule">
+  <xs:element name="project-schedule">
     <xs:complexType>
       <xs:choice>
         <xs:element minOccurs="0" ref="criticalpath-list"/>
@@ -511,20 +512,9 @@
       <xs:attribute name="start"/>
       <xs:attribute name="end"/>
       <xs:attribute name="duration"/>
-      <xs:attribute name="earlystart"/>
-      <xs:attribute name="earlyfinish"/>
-      <xs:attribute name="latestart"/>
-      <xs:attribute name="latefinish"/>
-      <xs:attribute name="positive-float"/>
-      <xs:attribute name="free-float"/>
-      <xs:attribute name="negative-float"/>
-      <xs:attribute name="in-critical-path" default="0"/>
       <xs:attribute name="not-scheduled" default="0"/>
       <xs:attribute name="scheduling-conflict" default="0"/>
       <xs:attribute name="scheduling-error" default="0"/>
-      <xs:attribute name="resource-error" default="0"/>
-      <xs:attribute name="resource-overbooked" default="0"/>
-      <xs:attribute name="resource-not-available" default="0"/>
     </xs:complexType>
   </xs:element>
   <!-- A list of critical paths used by project -->
@@ -568,6 +558,40 @@
       <xs:attribute name="load" default="0"/>
     </xs:complexType>
   </xs:element>
+  <!-- schedules used by task -->
+  <xs:element name="task-schedules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="task-schedule"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="task-schedule">
+    <xs:complexType>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="name"/>
+      <xs:attribute name="type" default="Expected"/>
+      <xs:attribute name="start"/>
+      <xs:attribute name="end"/>
+      <xs:attribute name="start-work"/>
+      <xs:attribute name="end-work"/>
+      <xs:attribute name="duration"/>
+      <xs:attribute name="earlystart"/>
+      <xs:attribute name="earlyfinish"/>
+      <xs:attribute name="latestart"/>
+      <xs:attribute name="latefinish"/>
+      <xs:attribute name="positive-float"/>
+      <xs:attribute name="free-float"/>
+      <xs:attribute name="negative-float"/>
+      <xs:attribute name="in-critical-path" default="0"/>
+      <xs:attribute name="not-scheduled" default="0"/>
+      <xs:attribute name="scheduling-conflict" default="0"/>
+      <xs:attribute name="scheduling-error" default="0"/>
+      <xs:attribute name="resource-error" default="0"/>
+      <xs:attribute name="resource-overbooked" default="0"/>
+      <xs:attribute name="resource-not-available" default="0"/>
+    </xs:complexType>
+  </xs:element>
   <!-- documents used by task -->
   <xs:element name="documents">
     <xs:complexType>
@@ -599,16 +623,13 @@
   <xs:element name="resource-requests">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" ref="resource-request"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="resource-request"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="resource-request">
     <xs:complexType>
-      <xs:choice>
-        <xs:element minOccurs="0" ref="required-resources"/>
-        <xs:element minOccurs="0" ref="alternative-requests"/>
-      </xs:choice>
+      <xs:attribute name="request-id" use="required"/>
       <xs:attribute name="task-id" use="required"/>
       <xs:attribute name="group-id"/>
       <xs:attribute name="resource-id" use="required"/>
