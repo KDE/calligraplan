@@ -601,7 +601,7 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
     //debugPlanXml<<"<---";
 
     status.setProgress(90);
-
+    //printProjectStatistics(status);
     return true;
 }
 
@@ -767,7 +767,7 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
                     continue;
                 }
                 KoXmlElement el = n.toElement();
-                if (el.tagName() == QLatin1String("schedule")) {
+                if (el.tagName() == QLatin1String("task-schedule") || el.tagName() ==  QLatin1String("schedule")) {
                     NodeSchedule *sch = new NodeSchedule();
                     if (loadNodeSchedule(sch, el, status)) {
                         sch->setNode(task);
@@ -1266,7 +1266,7 @@ bool ProjectLoader_v0::load(Account::CostPlace* cp, const KoXmlElement& element,
 
 bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &element, XMLLoaderObject &status)
 {
-    debugPlanXml<<"schedule-manager";
+    debugPlanXml<<"schedule-manager"<<"element:"<<element.tagName();
     MainSchedule *sch = nullptr;
     if (status.version() <= "0.5") {
         manager->setUsePert(false);
@@ -1300,7 +1300,7 @@ bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &elemen
         }
         KoXmlElement e = n.toElement();
         //debugPlanXml<<e.tagName();
-        if (e.tagName() == "schedule") {
+        if (e.tagName() == "project-schedule" || e.tagName() == "schedule") {
             sch = loadMainSchedule(manager, e, status);
             if (sch) {
                 sch->setManager(manager);
@@ -1808,4 +1808,20 @@ bool ProjectLoader_v0::load(AppointmentInterval& interval, const KoXmlElement& e
     }
     debugPlanXml<<"interval:"<<interval;
     return interval.isValid();
+}
+
+void KPlato::ProjectLoader_v0::printProjectStatistics(const XMLLoaderObject& status)
+{
+    qDebug()<<Q_FUNC_INFO<<status.version();
+    Project *p = &status.project();
+    qDebug()<<p;
+    //qDebug()<<p->accounts();
+    qDebug()<<p->allCalendars();
+    qDebug()<<p->resourceGroups();
+    qDebug()<<p->resourceList();
+    qDebug()<<p->allScheduleManagers();
+    qDebug()<<"project-schedules:"<<p->schedules();
+    for (auto t : p->allTasks()) {
+        qDebug()<<t<<'s'<<t->isScheduled(ANYSCHEDULED)<<t->startTime(ANYSCHEDULED)<<'-'<<t->endTime(ANYSCHEDULED)<<t->schedules();
+    }
 }

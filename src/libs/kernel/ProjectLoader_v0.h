@@ -83,6 +83,8 @@ public:
     bool load(Appointment *appointment, const KoXmlElement& element, XMLLoaderObject& status, Schedule &sch) override;
     bool load(AppointmentIntervalList &lst, const KoXmlElement& element, XMLLoaderObject &status) override;
     bool load(AppointmentInterval &interval, const KoXmlElement& element, XMLLoaderObject &status) override;
+
+    void printProjectStatistics(const XMLLoaderObject& status);
 };
 
 } // namespace KPlato
