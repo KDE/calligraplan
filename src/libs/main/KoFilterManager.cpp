@@ -76,9 +76,25 @@ QString KoFilterManager::importDocument(const QString& url,
             typeName = t.name();
         }
     }
-    m_graph.setSourceMimeType(typeName.toLatin1()); // .latin1() is okay here (Werner)
-
-    if (!m_graph.isValid()) {
+    m_graph.setSourceMimeType(typeName.toLatin1());
+    bool validMimetype = m_graph.isValid();
+    if (!validMimetype) {
+        // Sometimes QMimeDatabase returns multiple mimetypes for the same file type.
+        // In case the default mimetype is not one we can handle,
+        // see if there is one in the list we *can* handle.
+        const auto mimetypes = QMimeDatabase().mimeTypesForFileName(u.path());
+        for (auto mt : mimetypes) {
+            if (mt.name() != typeName) {
+                m_graph.setSourceMimeType(mt.name().toLatin1()); // .latin1() is okay here (Werner)
+                validMimetype = m_graph.isValid();
+                if (validMimetype) {
+                    typeName = mt.name();
+                    break;
+                }
+            }
+        }
+    }
+    if (!validMimetype) {
         bool userCancelled = false;
 
         warnFilter << "Can't open " << typeName << ", trying filter chooser";
