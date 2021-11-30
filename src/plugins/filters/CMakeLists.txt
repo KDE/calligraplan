@@ -4,6 +4,7 @@ if(KF5CalendarCore_FOUND)
 endif()
 
 add_subdirectory( planner )
+add_subdirectory(mpxj)
 
 if(WIN32)
     #disable for now

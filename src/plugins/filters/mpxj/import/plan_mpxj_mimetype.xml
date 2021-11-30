@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-projectlibre">
+    <comment>ProjectLibre</comment>
+    <magic priority="50">
+      <match value="com.projectlibre.server.data.ProjectData" type="string" offset="16:50"/>
+    </magic>
+    <glob pattern="*.pod"/>
+  </mime-type>
+  <mime-type type="application/vnd.ms-project">
+    <comment>MS Project Database</comment>
+    <glob pattern="*.mpp"/>
+  </mime-type>
+  <mime-type type="application/vnd.ms-project">
+    <comment>MS Project</comment>
+    <glob pattern="*.mpd"/>
+  </mime-type>
+  <mime-type type="application/x-project">
+    <comment>MS Project Exchange</comment>
+    <glob pattern="*.mpx"/>
+  </mime-type>
+  <mime-type type="application/x-project">
+    <comment>MS Project Template</comment>
+    <glob pattern="*.mpt"/>
+  </mime-type>
+  <mime-type type="application/x-mspdi">
+    <comment>MS Project mspdi</comment>
+    <root-XML namespaceURI="http://schemas.microsoft.com/project" localName="Project">
+    </root-XML>
+    <glob pattern="*.xml"/>
+  </mime-type>
+  <mime-type type="application/x-ganttproject">
+    <comment>Gantt Project</comment>
+    <glob pattern="*.gan"/>
+  </mime-type>
+  <mime-type type="application/x-primavera-xer">
+    <comment>Primavera XER</comment>
+    <glob pattern="*.xer"/>
+  </mime-type>
+  <mime-type type="application/x-primavera-pmxml">
+    <comment>Primavera PMXML</comment>
+    <glob pattern="*.pmxml"/>
+  </mime-type>
+  <mime-type type="application/x-asta">
+    <comment>Asta</comment>
+    <glob pattern="*.pp"/>
+  </mime-type>
+  <mime-type type="application/x-phoenix">
+    <comment>Phoenix</comment>
+    <glob pattern="*.ppx"/>
+  </mime-type>
+  <mime-type type="application/x-fasttrack">
+    <comment>FastTrack</comment>
+    <glob pattern="*.fts"/>
+  </mime-type>
+</mime-info>
