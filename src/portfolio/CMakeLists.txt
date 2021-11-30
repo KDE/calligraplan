@@ -1,15 +1,6 @@
 
 add_definitions(-DTRANSLATION_DOMAIN=\"calligraplangroup\")
 
-##
-## Test SharedMimeInfo
-##
-macro_optional_find_package(SharedMimeInfo 1.3)
-set_package_properties(SharedMimeInfo PROPERTIES
-    PURPOSE "Required by Calligra Plan Portfolio Manager."
-    TYPE REQUIRED
-)
-
 include_directories(${PLANKERNEL_INCLUDES} ${PLANUI_INCLUDES} config)
 
 set(calligraplanportfolioprivate_LIB_SRCS

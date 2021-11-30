@@ -205,6 +205,15 @@ else()
     set(HAVE_X11 FALSE)
 endif()
 
+##
+## Test SharedMimeInfo
+##
+macro_optional_find_package(SharedMimeInfo 1.3)
+set_package_properties(SharedMimeInfo PROPERTIES
+    PURPOSE "Required by Calligra Plan Portfolio Manager and Import/Export filters."
+    TYPE REQUIRED
+)
+
 # use sane compile flags
 add_definitions(
 -DQT_USE_QSTRINGBUILDER
