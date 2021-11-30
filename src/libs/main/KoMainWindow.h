@@ -343,6 +343,11 @@ public Q_SLOTS:
     void slotPrintPreviewPaintRequest(QPrinter *printer);
 
 private:
+    /**
+     * Create a new empty document.
+     */
+    KoPart* createPart() const;
+
     void closeEvent(QCloseEvent * e) override;
     void resizeEvent(QResizeEvent * e) override;
 

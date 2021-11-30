@@ -643,6 +643,18 @@ bool KoMainWindow::isDocumentModified()
     return d->rootDocument ? d->rootDocument->isModified() : false;
 }
 
+KoPart* KoMainWindow::createPart() const
+{
+    KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(d->nativeMimeType);
+    QString errorMsg;
+    KoPart *part = entry.createKoPart(&errorMsg);
+
+    if (!part || !errorMsg.isEmpty()) {
+        return 0;
+    }
+    return part;
+}
+
 void KoMainWindow::updateCaption()
 {
     debugMain;
@@ -742,7 +754,7 @@ bool KoMainWindow::openDocumentInternal(const QUrl &url, KoPart *newpart, KoDocu
     debugMain << newpart << newdoc << url.url();
     bool keepPart = true;
     if (!newpart) {
-        newpart = koApp->getPartFromUrl(url);
+        newpart = createPart();
         keepPart = false;
     }
     if (!newpart)
