@@ -484,7 +484,7 @@ void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
         return;
     }
     QDomDocument doc("tmp");
-    QDomElement e = doc.createElement("schedules");
+    QDomElement e = doc.createElement("task-schedules");
     doc.appendChild(e);
     s->saveXML(e);
 
@@ -495,7 +495,7 @@ void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
 
     KoXmlDocument xd;
     xd.setContent(doc.toString());
-    KoXmlElement se = xd.documentElement().namedItem("schedule").toElement();
+    KoXmlElement se = xd.documentElement().namedItem("task-schedule").toElement();
     Q_ASSERT(! se.isNull());
 
     s->loadXML(se, status);
@@ -537,14 +537,14 @@ void SchedulerThread::updateAppointments(const Project *tp, const ScheduleManage
     Q_ASSERT(sch->id() == sm->expected()->id());
 
     QDomDocument doc("tmp");
-    QDomElement e = doc.createElement("schedule");
+    QDomElement e = doc.createElement("schedule"); // name does not matter
     doc.appendChild(e);
     sch->saveXML(e);
     tp->saveAppointments(e, sch->id());
 
     KoXmlDocument xd;
     xd.setContent(doc.toString());
-    KoXmlElement se = xd.namedItem("schedule").toElement();
+    KoXmlElement se = xd.namedItem("schedule").toElement(); // same as above
     Q_ASSERT(! se.isNull());
 
     bool ret = sm->loadMainSchedule(sm->expected(), se, status); // also loads appointments
