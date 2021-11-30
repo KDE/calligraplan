@@ -26,11 +26,11 @@ KoFilterEntry::KoFilterEntry(QPluginLoader *loader)
 {
     QJsonObject metadata = loader->metaData().value("MetaData").toObject();
 #ifdef CALLIGRA_OLD_PLUGIN_METADATA
-    import = metadata.value("X-KDE-Import").toString().split(',');
+    import_ = metadata.value("X-KDE-Import").toString().split(',');
     export_ = metadata.value("X-KDE-Export").toString().split(',');
     int w = metadata.value("X-KDE-Weight").toString().toInt();
 #else
-    import = metadata.value("X-KDE-Import").toVariant().toStringList();
+    import_ = metadata.value("X-KDE-Import").toVariant().toStringList();
     export_ = metadata.value("X-KDE-Export").toVariant().toStringList();
     int w = metadata.value("X-KDE-Weight").toInt();
 #endif

@@ -57,10 +57,10 @@ int main(int /*argc*/, char ** /*argv*/)
     QList<KoFilterEntry::Ptr>::ConstIterator end = filters.end();
 
     for (; it != end; ++it) {
-        qDebug() << "import" << (*it)->import << " export" << (*it)->export_;
+        qDebug() << "import" << (*it)->import_ << " export" << (*it)->export_;
         // First add the "starting points"
-        QStringList::ConstIterator importIt = (*it)->import.constBegin();
-        QStringList::ConstIterator importEnd = (*it)->import.constEnd();
+        QStringList::ConstIterator importIt = (*it)->import_.constBegin();
+        QStringList::ConstIterator importEnd = (*it)->import_.constEnd();
         for (; importIt != importEnd; ++importIt) {
             // already there?
             if (! vertices.contains(*importIt)) {
@@ -83,7 +83,7 @@ int main(int /*argc*/, char ** /*argv*/)
                 vertices.append(*exportIt);
             }
             // Then create the appropriate edges
-            importIt = (*it)->import.constBegin();
+            importIt = (*it)->import_.constBegin();
             for (; importIt != importEnd; ++importIt) {
                 output += "    \"";
                 output += (*importIt).toLatin1();

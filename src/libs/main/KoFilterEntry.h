@@ -38,7 +38,7 @@ public:
     /**
      *  The imported mimetype(s).
      */
-    QStringList import;
+    QStringList import_;
 
     /**
      *  The exported mimetype(s).
@@ -59,7 +59,7 @@ public:
      *  @return TRUE if the filter can import the requested mimetype.
      */
     bool imports(const QString& _mimetype) const {
-        return (import.contains(_mimetype));
+        return (import_.contains(_mimetype));
     }
 
     /**

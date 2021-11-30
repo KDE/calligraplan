@@ -296,75 +296,79 @@ void buildGraph(QHash<QByteArray, Vertex*>& vertices, KoFilterManager::Direction
             }
         ++partIt;
     }
-
     const QList<KoFilterEntry::Ptr> filters = KoFilterEntry::query(); // no constraint here - we want *all* :)
     QList<KoFilterEntry::Ptr>::ConstIterator it = filters.constBegin();
     QList<KoFilterEntry::Ptr>::ConstIterator end = filters.constEnd();
-    for (KoFilterEntry::Ptr filterEntry : filters)
-    for (; it != end; ++it) {
-        QStringList impList; // Import list
-        QStringList expList; // Export list
+    for (KoFilterEntry::Ptr filterEntry : filters) {
+        for (; it != end; ++it) {
+            QStringList impList; // Import list
+            QStringList expList; // Export list
 
-        // Now we have to exclude the "stop" mimetypes (in the right direction!)
-        if (direction == KoFilterManager::Import) {
-            // Import: "stop" mime type should not appear in export
-            for (const QString & testIt : qAsConst((*it)->export_)) {
-                if (!stopList.contains(testIt))
-                    expList.append(testIt);
-            }
-            impList = (*it)->import;
-        } else {
-            // Export: "stop" mime type should not appear in import
-            for (const QString & testIt : qAsConst((*it)->import)) {
-                if (!stopList.contains(testIt))
-                    impList.append(testIt);
-            }
-            expList = (*it)->export_;
-        }
-
-        if (impList.empty() || expList.empty()) {
-            // This filter cannot be used under these conditions
-            debugFilter << "Filter:" << (*it)->fileName() << " ruled out";
-            continue;
-        }
-
-        // First add the "starting points" to the dict
-        QStringList::ConstIterator importIt = impList.constBegin();
-        const QStringList::ConstIterator importEnd = impList.constEnd();
-        for (; importIt != importEnd; ++importIt) {
-            const QByteArray key = (*importIt).toLatin1();    // latin1 is okay here (werner)
-            // already there?
-            if (!vertices[ key ])
-                vertices.insert(key, new Vertex(key));
-        }
-
-        // Are we allowed to use this filter at all?
-        if (KoFilterManager::filterAvailable(*it)) {
-            QStringList::ConstIterator exportIt = expList.constBegin();
-            const QStringList::ConstIterator exportEnd = expList.constEnd();
-            for (; exportIt != exportEnd; ++exportIt) {
-                // First make sure the export vertex is in place
-                const QByteArray key = (*exportIt).toLatin1();    // latin1 is okay here
-                Vertex* exp = vertices[ key ];
-                if (!exp) {
-                    exp = new Vertex(key);
-                    vertices.insert(key, exp);
+            // Now we have to exclude the "stop" mimetypes (in the right direction!)
+            if (direction == KoFilterManager::Import) {
+                // Import: "stop" mime type should not appear in export
+                for (const QString & testIt : qAsConst((*it)->export_)) {
+                    if (!stopList.contains(testIt))
+                        expList.append(testIt);
                 }
-                // Then create the appropriate edges depending on the
-                // direction (import/export)
-                // This is the chunk of code which actually differs from the
-                // graph stuff (apart from the different vertex class)
-                importIt = impList.constBegin(); // ### TODO: why only the first one?
-                if (direction == KoFilterManager::Import) {
-                    for (; importIt != importEnd; ++importIt)
-                        exp->addEdge(vertices[(*importIt).toLatin1()]);
-                } else {
-                    for (; importIt != importEnd; ++importIt)
-                        vertices[(*importIt).toLatin1()]->addEdge(exp);
+                impList = (*it)->import_;
+            } else {
+                // Export: "stop" mime type should not appear in import
+                for (const QString & testIt : qAsConst((*it)->import_)) {
+                    if (!stopList.contains(testIt))
+                        impList.append(testIt);
+                }
+                expList = (*it)->export_;
+            }
+
+            if (impList.empty() || expList.empty()) {
+                // This filter cannot be used under these conditions
+                debugFilter << "Filter:" << (*it)->fileName() << " ruled out";
+                continue;
+            }
+
+            // First add the "starting points" to the dict
+            QStringList::ConstIterator importIt = impList.constBegin();
+            const QStringList::ConstIterator importEnd = impList.constEnd();
+            for (; importIt != importEnd; ++importIt) {
+                const QByteArray key = (*importIt).toLatin1();    // latin1 is okay here (werner)
+                // already there?
+                if (!vertices[ key ]) {
+                    debugFilter << "Filter: add start" <<key;
+                    vertices.insert(key, new Vertex(key));
                 }
             }
-        } else {
-            debugFilter << "Filter:" << (*it)->fileName() << " does not apply.";
+
+            // Are we allowed to use this filter at all?
+            if (KoFilterManager::filterAvailable(*it)) {
+                QStringList::ConstIterator exportIt = expList.constBegin();
+                const QStringList::ConstIterator exportEnd = expList.constEnd();
+                for (; exportIt != exportEnd; ++exportIt) {
+                    // First make sure the export vertex is in place
+                    const QByteArray key = (*exportIt).toLatin1();    // latin1 is okay here
+                    Vertex* exp = vertices[ key ];
+                    if (!exp) {
+                        exp = new Vertex(key);
+                        vertices.insert(key, exp);
+                    }
+                    // Then create the appropriate edges depending on the
+                    // direction (import/export)
+                    // This is the chunk of code which actually differs from the
+                    // graph stuff (apart from the different vertex class)
+                    importIt = impList.constBegin(); // ### TODO: why only the first one?
+                    if (direction == KoFilterManager::Import) {
+                        for (; importIt != importEnd; ++importIt) {
+                            debugFilter << "Filter: add edge" <<(*importIt);
+                            exp->addEdge(vertices[(*importIt).toLatin1()]);
+                        }
+                    } else {
+                        for (; importIt != importEnd; ++importIt)
+                            vertices[(*importIt).toLatin1()]->addEdge(exp);
+                    }
+                }
+            } else {
+                debugFilter << "Filter:" << (*it)->fileName() << " does not apply.";
+            }
         }
     }
 }
@@ -409,7 +413,6 @@ QStringList KoFilterManager::mimeFilter(const QByteArray &mimetype, Direction di
     //debugFilter <<"mimetype=" << mimetype <<" extraNativeMimeTypes=" << extraNativeMimeTypes;
     QHash<QByteArray, Vertex*> vertices;
     buildGraph(vertices, direction);
-
     // TODO maybe use the fake vertex trick from the method below, to make the search faster?
 
     QStringList nativeMimeTypes;
@@ -424,7 +427,7 @@ QStringList KoFilterManager::mimeFilter(const QByteArray &mimetype, Direction di
     // Now look for filters which output each of those natives mimetypes
     for (const QString &natit : qAsConst(nativeMimeTypes)) {
         const QStringList outMimes = connected(vertices, natit.toLatin1());
-        //debugFilter <<"output formats connected to mime" << natit <<" :" << outMimes;
+        debugFilter <<"output formats connected to mime" << natit <<" :" << outMimes;
         for (const QString &mit : outMimes) {
             if (!lst.contains(mit))     // append only if not there already. Qt4: QSet<QString>?
                 lst.append(mit);

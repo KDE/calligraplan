@@ -129,8 +129,8 @@ void Graph::buildGraph()
     for (KoFilterEntry::Ptr filter : filters) {
 
         // First add the "starting points" to the dict
-        for (const QString& import : qAsConst(filter->import)) {
-            const QByteArray key = import.toLatin1();    // latin1 is okay here (werner)
+        for (const QString& import_ : qAsConst(filter->import_)) {
+            const QByteArray key = import_.toLatin1();    // latin1 is okay here (werner)
             // already there?
             if (!m_vertices.contains(key))
                 m_vertices.insert(key, new Vertex(key));
@@ -149,8 +149,8 @@ void Graph::buildGraph()
                     m_vertices.insert(key, exp);
                 }
                 // Then create the appropriate edges
-                for (const QString& import : qAsConst(filter->import)) {
-                    m_vertices[import.toLatin1()]->addEdge(new Edge(exp, filter));
+                for (const QString& import_ : qAsConst(filter->import_)) {
+                    m_vertices[import_.toLatin1()]->addEdge(new Edge(exp, filter));
                 }
             }
         } else
