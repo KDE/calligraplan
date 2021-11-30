@@ -397,13 +397,9 @@ QStringList KoApplication::mimeFilter(KoFilterManager::Direction direction) cons
 {
     KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(d->nativeMimeType);
     QJsonObject json = entry.metaData();
-#ifdef CALLIGRA_OLD_PLUGIN_METADATA
-    QStringList mimeTypes = json.value("X-KDE-ExtraNativeMimeTypes").toString().split(',');
-#else
     QStringList mimeTypes = json.value("X-KDE-ExtraNativeMimeTypes").toVariant().toStringList();
-#endif
-    mimeTypes << PLANPORTFOLIO_MIME_TYPE << PLAN_MIME_TYPE;
-    return KoFilterManager::mimeFilter(QByteArray(), direction, mimeTypes);
+    QStringList lst = KoFilterManager::mimeFilter(d->nativeMimeType, direction, mimeTypes);
+    return lst;
 }
 
 
