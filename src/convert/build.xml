@@ -97,8 +97,8 @@
     <target name="all" depends="get-mpxj,xjc,jar"/>
 
     <property name="test-class" value="TestConvert"/>
-    <property name="test.data.dir" value="${mpxj.dir}/junit/data"/>
     <property name="test.dir" value="${basedir}/test"/>
+    <property name="test.data.dir" value="${test.dir}/data"/>
     <property name="result.dir" value="${test.dir}/result"/>
     <target name="clean-test">
         <delete dir="${result.dir}"/>

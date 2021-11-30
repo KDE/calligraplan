@@ -15,6 +15,7 @@ Everything is done using 'ant' and the different jobs are defined in build.xml.
 
 Making changes
 --------------
+You need to update build.xml file:
 
 1) New mpxj version:
     a) In build.xml: Change property 'mpxj.version' to the new version.
@@ -34,6 +35,19 @@ Regenerate everything
 ---------------------
 Execute: 'ant all'
 
+Run tests
+---------
+Note: These are not auto tests, you must run them manually AND check results manually!
+
+Execute: 'ant run-test'
+
+The test is run on files found in: ${test.data.dir}
+
+Mpxj has a lot of test files in: ${mpxj.dir}/junit/data
+You can have all theese files converted if you change ${test.data.dir} to point there.
+
+
+The test writes result files to ${result.dir} and a log file to ${test.dir}
 Running
 -------
 Execute: 'ant run'
