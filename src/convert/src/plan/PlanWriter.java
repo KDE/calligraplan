@@ -451,10 +451,8 @@ public final class PlanWriter extends AbstractProjectWriter
         */
     private void writeTask(Task mpxjTask, plan.schema.Task planTask)
     {
-        System.out.println("writeTask: " + mpxjTask);
-        if (mpxjTask.getName() == null) {
-            System.out.println("writeTask: Task is probably a bogus task for internal use: " + mpxjTask);
-            return;
+        if (mpxjTask.getName() == null && ! mpxjTask.hasChildTasks()) {
+            System.out.println("writeTask: Task is probably a bogus task for internal use, add anyways: " + mpxjTask);
         }
         planTask.setId(getTaskId(mpxjTask));
         planTask.setWbs(mpxjTask.getWBS());
