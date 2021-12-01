@@ -25,6 +25,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -125,6 +126,7 @@ public final class PlanWriter extends AbstractProjectWriter
         writeProjectSettings();
         writeCalendars();
         writeResources();
+        writeResourceGroupRelations();
         writeTasks();
         writeRelations();
         writeRequests();
@@ -183,7 +185,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeProjectSettings()
     {
         ProjectSettings projectSettings = m_factory.createProjectSettings();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(projectSettings);
+        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(projectSettings);
 
         writeStandardWorktime(projectSettings);
         writeLocale(projectSettings);
@@ -226,7 +228,7 @@ public final class PlanWriter extends AbstractProjectWriter
     {
         System.out.println("writeCalendars:");
         Calendars planCalendars = m_factory.createCalendars();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planCalendars);
+        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planCalendars);
         ProjectCalendarContainer mpxjCalendars = m_projectFile.getCalendars();
         for (int i = 0; i < mpxjCalendars.size(); ++i)
         {
@@ -336,53 +338,17 @@ public final class PlanWriter extends AbstractProjectWriter
         }
     }
 
-//     /**
-//     * This method writes resource group data to a Plan file.
-//     */
-//     private void writeResourceGroups()
-//     {
-//         ResourceGroup workresourcegroup = m_factory.createResourceGroup();
-//         m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(workresourcegroup);
-//
-//         workresourcegroup.setId("UniqueWorkResourceGroupId");
-//         workresourcegroup.setName("Resources");
-//         workresourcegroup.setType("Work");
-//
-//         ResourceGroup materialresourcegroup = m_factory.createResourceGroup();
-//         m_planProject.getWbsDefinitionOrLocaleOrAccountsOrCalendarOrStandardWorktimeOrResourceGroupOrTaskOrRelationOrSchedulesOrResourceTeams().add(materialresourcegroup);
-//         materialresourcegroup.setId("UniqueMaterialResourceGroupId");
-//         materialresourcegroup.setName("Materials");
-//         materialresourcegroup.setType("Material");
-//
-//         ResourceGroup costresourcegroup = m_factory.createResourceGroup();
-//         m_planProject.getWbsDefinitionOrLocaleOrAccountsOrCalendarOrStandardWorktimeOrResourceGroupOrTaskOrRelationOrSchedulesOrResourceTeams().add(costresourcegroup);
-//         costresourcegroup.setId("UniqueCostResourceGroupId");
-//         costresourcegroup.setName("Cost");
-//         costresourcegroup.setType("Material");
-//
-//         for (Resource mpxjResource : m_projectFile.getAllResources())
-//         {
-//             if (mpxjResource.getType() == ResourceType.WORK)
-//             {
-//                 writeResource(mpxjResource, workresourcegroup);
-//             }
-//             else if (mpxjResource.getType() == ResourceType.MATERIAL)
-//             {
-//                 writeResource(mpxjResource, materialresourcegroup);
-//             }
-//             else
-//             {
-//                 writeResource(mpxjResource, costresourcegroup);
-//             }
-//         }
-//     }
-   /**
+    /**
     * This method writes data for a all resources to a Plan file.
     */
     private void writeResources()
     {
+        // prepare for possible resource groups
+        m_resourcegroups = m_factory.createResourceGroups();
+        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(m_resourcegroups);
+
         Resources planResources = m_factory.createResources();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planResources);
+        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planResources);
 
         ResourceContainer mpxjResources = m_projectFile.getResources();
         for (int i = 0; i < mpxjResources.size(); ++i)
@@ -423,6 +389,34 @@ public final class PlanWriter extends AbstractProjectWriter
         if (rate != null) {
             planResource.setOvertimeRate(Double.toString(rate.getAmount()));
         }
+        if (mpxjResource.getGroup() != null) {
+            if (!m_groups.containsKey(mpxjResource.getGroup())) {
+                m_groups.put(mpxjResource.getGroup(), planResource.getId());
+                ResourceGroup resourcegroup = m_factory.createResourceGroup();
+                m_resourcegroups.getResourceGroup().add(resourcegroup);
+                resourcegroup.setId(mpxjResource.getGroup());
+                resourcegroup.setName(mpxjResource.getGroup());
+            }
+            System.out.println("writeResource: " + mpxjResource + " group: " + mpxjResource.getGroup());
+        }
+    }
+
+    /**
+    * This method writes data for a all resourcesgroup-resource-relations to a Plan file.
+    * Note: Must be called after writeResources()
+    */
+    private void writeResourceGroupRelations()
+    {
+        ResourceGroupRelations planRelations = m_factory.createResourceGroupRelations();
+        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planRelations);
+
+        for (Map.Entry<String,String> entry : m_groups.entrySet()) {
+            ResourceGroupRelation planRelation = m_factory.createResourceGroupRelation();
+            planRelations.getResourceGroupRelation().add(planRelation);
+            planRelation.setGroupId(entry.getKey());
+            planRelation.setResourceId(entry.getValue());
+            System.out.println("writeResourceGroupRelations: " + entry);
+        }
     }
 
    /**
@@ -433,7 +427,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeTasks()
     {
         Tasks planTasks = m_factory.createTasks();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planTasks);
+        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planTasks);
 
         for (Task mpxjTask : m_projectFile.getChildTasks())
         {
@@ -487,7 +481,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeRequests()
     {
         ResourceRequests planRequests = m_factory.createResourceRequests();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planRequests);
+        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planRequests);
 
         for (Task mpxjTask : m_projectFile.getTasks()) {
             if (mpxjTask.getMilestone() || mpxjTask.getSummary())
@@ -883,7 +877,7 @@ public final class PlanWriter extends AbstractProjectWriter
     {
         //System.out.println("writeRelations:");
         Relations planRelations = m_factory.createRelations();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planRelations);
+        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planRelations);
 
         for(Task mpxjTask : m_projectFile.getTasks())
         {
@@ -920,7 +914,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeProjectSchedules()
     {
         ProjectSchedules planProjectSchedules = m_factory.createProjectSchedules();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planProjectSchedules);
+        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planProjectSchedules);
 
         writeScheduleManagement(planProjectSchedules);
 
@@ -1668,6 +1662,8 @@ public final class PlanWriter extends AbstractProjectWriter
     private ObjectFactory m_factory;
     private Plan m_plan;
     private Project m_planProject;
+    private ResourceGroups m_resourcegroups;
+    private Map<String, String> m_groups = new HashMap<String, String>(); // <group id, resource id>
 
     private NumberFormat m_twoDigitFormat = new DecimalFormat("00");
     private NumberFormat m_fourDigitFormat = new DecimalFormat("0000");
