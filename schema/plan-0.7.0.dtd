@@ -25,6 +25,7 @@
     calendars?|
     resource-groups?|
     resources?|
+    resource-group-relations?|
     tasks?|
     relations?|
     project-schedules?|

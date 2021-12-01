@@ -30,6 +30,7 @@
         <xs:element minOccurs="0" ref="calendars"/>
         <xs:element minOccurs="0" ref="resource-groups"/>
         <xs:element minOccurs="0" ref="resources"/>
+        <xs:element minOccurs="0" ref="resource-group-relations"/>
         <xs:element minOccurs="0" ref="tasks"/>
         <xs:element minOccurs="0" ref="relations"/>
         <xs:element minOccurs="0" ref="project-schedules"/>
