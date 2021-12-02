@@ -1,6 +1,12 @@
 [Desktop Entry]
 Type=Service
 Name=Plan MS Project Import Filter
+Name[ca]=Filtre d'importació del MS Project per al Plan
+Name[es]=Filtro de importación MS Project de Plan
+Name[nl]=Plan importfilter voor MS Project
+Name[sv]=Plan MS Project-importfilter
+Name[uk]=Фільтр імпортування даних MS Project для Plan
+Name[x-test]=xxPlan MS Project Import Filterxx
 X-KDE-Export=application/x-vnd.kde.plan
 X-KDE-Import=application/x-fasttrack,application/x-phoenix,application/x-asta,application/x-primavera-pmxml,application/x-primavera-xer,application/x-ganttproject,application/x-mspdi,application/x-projectlibre,application/x-project,application/vnd.ms-project
 X-KDE-Weight=1
