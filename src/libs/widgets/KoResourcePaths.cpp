@@ -235,7 +235,7 @@ QStringList KoResourcePathsImpl::findAllResourcesInternal(const QString &type,
     for (const QString &relative : relatives) {
         //qDebug() << "\t\relative:" << relative;
         const QStringList dirs = QStandardPaths::locateAll(location, relative + prefix, QStandardPaths::LocateDirectory);
-        const QSet<QString> s = QSet<QString>::fromList(dirs);
+        const QSet<QString> s = QSet<QString>(dirs.begin(), dirs.end());
 
         //qDebug() << "\t\tdirs:" << dirs;
         for (const QString &dir : s) {
@@ -251,8 +251,8 @@ QStringList KoResourcePathsImpl::findAllResourcesInternal(const QString &type,
     }
 
     if (noDuplicates) {
-        QSet<QString> s = QSet<QString>::fromList(resources);
-        resources = s.toList();
+        QSet<QString> s = QSet<QString>(resources.begin(), resources.end());
+        resources = s.values();
     }
 
     //qDebug() << "\tresources also from aliases:" << resources.size();
