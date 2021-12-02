@@ -816,7 +816,7 @@ void Accounts::save(QDomElement &element) const {
 
 QStringList Accounts::costElements() const {
     QStringList l;
-    const auto keys = m_idDict.uniqueKeys();
+    const auto keys = m_idDict.keys();
     for (const QString &key : keys) {
         if (m_idDict[key]->isElement())
             l << key;
@@ -826,7 +826,7 @@ QStringList Accounts::costElements() const {
     
 
 QStringList Accounts::nameList() const {
-    return m_idDict.uniqueKeys();
+    return m_idDict.keys();
 }
 
 Account *Accounts::findRunningAccount(const Resource &resource) const {
