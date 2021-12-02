@@ -59,6 +59,11 @@ public:
                             UnexpectedOpcode, UserCancelled, OutOfMemory,
                             PasswordProtected, InvalidFormat, FilterEntryNull,
                             NoDocumentCreated, DownloadFailed, FilterCreationError,
+                            ReadTimeout,
+                            UnknownError,
+                            JavaJarNotFound,
+                            JavaJarFailed,
+                            JavaExecutionError,
                             JustInCaseSomeBrokenCompilerUsesLessThanAByte = 255
                           };
 

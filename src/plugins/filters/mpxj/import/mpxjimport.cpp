@@ -22,6 +22,11 @@
 #include <QDebug>
 
 
+#define MPXJIMPORT_LOG "calligra.plan.filter.mpxj.import"
+#define debugMpxjImport qCDebug(QLoggingCategory(MPXJIMPORT_LOG))<<Q_FUNC_INFO
+#define warnMpxjImport qCWarning(QLoggingCategory(MPXJIMPORT_LOG))<<Q_FUNC_INFO
+#define errorMpxjImport qCCritical(QLoggingCategory(MPXJIMPORT_LOG))<<Q_FUNC_INFO
+
 K_PLUGIN_FACTORY_WITH_JSON(MpxjImportFactory, "plan_mpxj_import.json", registerPlugin<MpxjImport>();)
 
 /**
@@ -45,6 +50,7 @@ K_PLUGIN_FACTORY_WITH_JSON(MpxjImportFactory, "plan_mpxj_import.json", registerP
 
 MpxjImport::MpxjImport(QObject* parent, const QVariantList &)
     : KoFilter(parent)
+    , m_status(KoFilter::OK)
 {
 }
 
@@ -66,9 +72,8 @@ QStringList MpxjImport::mimeTypes()
 
 KoFilter::ConversionStatus MpxjImport::convert(const QByteArray& from, const QByteArray& to)
 {
-    qInfo()<<Q_FUNC_INFO<<from<<to;
     if ( to != "application/x-vnd.kde.plan" || !mimeTypes().contains( from ) ) {
-        qInfo()<<Q_FUNC_INFO<<"Bad mime types:"<<from<<"->"<<to;
+        errorMpxjImport<<"Bad mime types:"<<from<<"->"<<to;
         return KoFilter::BadMimeType;
     }
     bool batch = false;
@@ -77,11 +82,12 @@ KoFilter::ConversionStatus MpxjImport::convert(const QByteArray& from, const QBy
     }
     if (batch) {
         //TODO
-        qInfo()<<Q_FUNC_INFO<<"batch mode not implemented";
+        errorMpxjImport<<"batch mode not implemented";
         return KoFilter::NotImplemented;
     }
     KoDocument *part = m_chain->outputDocument();
-    if (! part) {
+    if (!part) {
+        errorMpxjImport<<"Internal error, no document";
         return KoFilter::InternalError;
     }
     QString inputFile = m_chain->inputFile();
@@ -90,11 +96,18 @@ KoFilter::ConversionStatus MpxjImport::convert(const QByteArray& from, const QBy
     KoFilter::ConversionStatus sts = doImport(inputFile.toUtf8(), outFile.toUtf8());
     if (sts == KoFilter::OK) {
         QFile file(outFile);
-        KoXmlDocument doc;
-        if (!doc.setContent(&file)) {
-            sts = KoFilter::InternalError;
-        } else if (!part->loadXML(doc, 0)) {
-            sts = KoFilter::InternalError;
+        if (!file.exists()) {
+            errorMpxjImport<<"Temporary plan file has not been created";
+            sts = KoFilter::CreationError;
+        } else {
+            KoXmlDocument doc;
+            if (!doc.setContent(&file)) {
+                errorMpxjImport<<"Content of temporary plan file is invalid";
+                sts = KoFilter::InvalidFormat;
+            } else if (!part->loadXML(doc, 0)) {
+                errorMpxjImport<<"Failed to load temporary plan file";
+                sts = KoFilter::InternalError;
+            }
         }
     }
     delete tmp;
@@ -109,7 +122,7 @@ KoFilter::ConversionStatus MpxjImport::doImport(QByteArray inFile, QByteArray ou
 
     QString planConvert = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("calligraplan/java/planconvert.jar"), QStandardPaths::LocateFile).value(0);
     if (planConvert.isEmpty()) {
-        return KoFilter::InternalError;
+        return KoFilter::JavaJarNotFound;
     }
     QString exe = "java";
     QStringList args;
@@ -117,9 +130,52 @@ KoFilter::ConversionStatus MpxjImport::doImport(QByteArray inFile, QByteArray ou
     args << planConvert;
     args << normalizedInFile;
     args << normalizedOutFile;
-    int res = QProcess::execute(exe, args);
-    qInfo()<<Q_FUNC_INFO<<res;
-    return res == 0 ? KoFilter::OK : KoFilter::InternalError;
+    QProcess java;
+    connect(&java,  QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &MpxjImport::slotFinished);
+    connect(&java,  &QProcess::errorOccurred, this, &MpxjImport::slotError);
+    java.start(exe, args);
+    java.waitForFinished(60000); // filters cannot run in the background
+    return m_status;
+}
+
+void MpxjImport::slotFinished(int exitCode, QProcess::ExitStatus exitStatus)
+{
+    auto java = qobject_cast<QProcess*>(sender());
+    Q_ASSERT(java);
+    debugMpxjImport<<exitCode<<exitStatus;
+    auto s = java->readAllStandardOutput();
+    if (s.contains("Exception")) {
+        m_status = KoFilter::ParsingError;
+        if (s.contains("Invalid file format")) {
+            errorMpxjImport<<"MPXJ failed to read the file";
+            m_status = KoFilter::InvalidFormat;
+        } else if (s.contains("assword")) {
+            errorMpxjImport<<"Reading passsword protected files are not implemented";
+            m_status = KoFilter::PasswordProtected;
+        }
+    }
+}
+
+void MpxjImport::slotError(QProcess::ProcessError error)
+{
+    switch(error) {
+        case QProcess::FailedToStart:
+        case QProcess::Crashed:
+            errorMpxjImport<<error;
+            m_status = KoFilter::JavaExecutionError;
+            break;
+        case QProcess::Timedout:
+            errorMpxjImport<<error;
+            m_status = KoFilter::ReadTimeout;
+            break;
+        case QProcess::UnknownError:
+            errorMpxjImport<<error;
+            m_status = KoFilter::UnknownError;
+            break;
+        default:
+            debugMpxjImport<<"Unhandled error:"<<error;
+            break;
+    }
 }
 
 #include "mpxjimport.moc"

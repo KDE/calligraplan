@@ -13,6 +13,7 @@
 
 #include <QObject>
 #include <QVariantList>
+#include <QProcess>
 
 class QFile;
 class QByteArray;
@@ -32,6 +33,13 @@ public:
 
 protected:
     KoFilter::ConversionStatus doImport( const QByteArray inFile, const QByteArray outFile );
+
+private Q_SLOTS:
+    void slotFinished(int exitCode, QProcess::ExitStatus exitStatus = QProcess::NormalExit);
+    void slotError(QProcess::ProcessError error);
+
+private:
+    KoFilter::ConversionStatus m_status;
 };
 
 #endif // MPXJIMPORT_H

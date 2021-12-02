@@ -1442,6 +1442,18 @@ bool KoDocument::openFile()
                 // intentionally we do not prompt the error message here
                 break;
 
+            case KoFilter::ReadTimeout:
+                msg = i18n("Reading file timed out"); break;
+
+            case KoFilter::UnknownError:
+                msg = i18n("Unknown error"); break;
+
+            case KoFilter::JavaJarNotFound:
+                msg = i18n("Filter planconvert.jar not found, check your installation"); break;
+
+            case KoFilter::JavaExecutionError:
+                msg = i18n("Execution failed. Check your installation"); break;
+
             default: msg = i18n("Unknown error"); break;
             }
 
