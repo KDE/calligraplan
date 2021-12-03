@@ -1089,7 +1089,8 @@ QDebug operator<<(QDebug dbg, const KPlato::Appointment *a)
     dbg << "Appointment("<<(void*)a<<')';
     if (a) {
         dbg<<'['<<a->node()<<a->resource()<<a->startTime()<<'-'<<a->endTime();
-        for (const auto i : a->intervals().map()) {
+        const auto lst = a->intervals().map();
+        for (const auto i : lst) {
             dbg<<'\n'<<'\t'<<i;
         }
         dbg<<']';
