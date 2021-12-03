@@ -50,7 +50,7 @@ add_library(calligraplantjplugin MODULE PlanTJPlugin.cpp )
 # calligraplan_scheduler_desktop_to_json(calligraplantjscheduler plantjscheduler.desktop)
 kcoreaddons_desktop_to_json(calligraplantjplugin plantjscheduler.desktop
         SERVICE_TYPES ${PLAN_SOURCE_DIR}/libs/kernel/plan_schedulerplugin.desktop
-    )
+)
 
 #add_definitions(-Dplantjscheduler_EXPORTS)
 target_link_libraries(calligraplantjplugin PUBLIC calligraplantjscheduler)

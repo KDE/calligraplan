@@ -90,13 +90,9 @@ set(calligraplanpart_PART_SRCS kptfactoryinit.cpp )
 add_library(calligraplanpart MODULE ${calligraplanpart_PART_SRCS})
 
 #calligraplan_part_desktop_to_json(calligraplanpart planpart.desktop)
-if(${KF5_VERSION} VERSION_LESS "5.16.0")
-    kcoreaddons_desktop_to_json(calligraplanpart planpart.desktop)
-else()
-    kcoreaddons_desktop_to_json(calligraplanpart planpart.desktop
+kcoreaddons_desktop_to_json(calligraplanpart planpart.desktop
 #         SERVICE_TYPES ${PLAN_SOURCE_DIR}/servicetypes/calligraplan_part.desktop
-    )
-endif()
+)
 
 
 target_link_libraries(calligraplanpart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE calligraplanprivate)

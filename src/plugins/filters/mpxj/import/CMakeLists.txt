@@ -14,38 +14,6 @@ kcoreaddons_desktop_to_json(planmpxjimport plan_mpxj_import.desktop
 target_link_libraries(planmpxjimport calligraplanmain)
 install(TARGETS planmpxjimport DESTINATION ${PLAN_FILTER_INSTALL_DIR})
 
-#add_library(planmpximport MODULE plan_msprojectexchange_import.cpp)
-#kcoreaddons_desktop_to_json(planmpximport plan_msprojectexchange_import.desktop
-    #SERVICE_TYPES ${PLAN_SOURCE_DIR}/servicetypes/calligraplan_filter.desktop
-#)
-#target_link_libraries(planmpximport calligraplanmain)
-#install(TARGETS planmpximport DESTINATION ${PLAN_FILTER_INSTALL_DIR})
-#if (SharedMimeInfo_FOUND)
-    #install(FILES plan_msprojectexchange_mimetype.xml DESTINATION ${XDG_MIME_INSTALL_DIR})
-#endif ()
-
-
-#add_library(planmppimport MODULE plan_msproject_import.cpp)
-#kcoreaddons_desktop_to_json(planmppimport plan_msproject_import.desktop
-    #SERVICE_TYPES ${PLAN_SOURCE_DIR}/servicetypes/calligraplan_filter.desktop
-#)
-#target_link_libraries(planmppimport calligraplanmain)
-#install(TARGETS planmppimport DESTINATION ${PLAN_FILTER_INSTALL_DIR})
-#if (SharedMimeInfo_FOUND)
-    #install(FILES plan_msproject_mimetype.xml DESTINATION ${XDG_MIME_INSTALL_DIR})
-#endif ()
-
-
-#add_library(planprojectlibreimport MODULE plan_projectlibre_import.cpp)
-#kcoreaddons_desktop_to_json(planprojectlibreimport plan_projectlibre_import.desktop
-    #SERVICE_TYPES ${PLAN_SOURCE_DIR}/servicetypes/calligraplan_filter.desktop
-#)
-#target_link_libraries(planprojectlibreimport calligraplanmain)
-#install(TARGETS planprojectlibreimport DESTINATION ${PLAN_FILTER_INSTALL_DIR})
-#if (SharedMimeInfo_FOUND)
-    #install(FILES plan_projectlibre_mimetype.xml DESTINATION ${XDG_MIME_INSTALL_DIR})
-#endif ()
-
 if (SharedMimeInfo_FOUND)
     install(FILES plan_mpxj_mimetype.xml DESTINATION ${XDG_MIME_INSTALL_DIR})
     update_xdg_mimetypes(${XDG_MIME_INSTALL_DIR})
