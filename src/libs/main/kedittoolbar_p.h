@@ -41,7 +41,7 @@ public:
     }
 
 Q_SIGNALS:
-    void dropped(ToolBarListWidget *list, int index, ToolBarItem *item, bool sourceIsActiveList);
+    void dropped(KDEPrivate::ToolBarListWidget *list, int index, KDEPrivate::ToolBarItem *item, bool sourceIsActiveList);
 
 protected:
     Qt::DropActions supportedDropActions() const override
