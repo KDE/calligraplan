@@ -1089,8 +1089,9 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     logInfo(m_project, nullptr, i18n("Scheduling finished at %1, elapsed time: %2 seconds", QDateTime::currentDateTime().toString(Qt::ISODate), (double)timer.elapsed()/1000));
     context.log = takeLog();
     m_project = nullptr; // or else it is deleted
-    for (auto doc : context.projects) {
-        doc->setModified(true);
+    QMultiMap<int, KoDocument*>::const_iterator it = context.projects.constBegin();
+    for (; it != context.projects.constEnd(); ++it) {
+        it.value()->setModified(true);
     }
 }
 
