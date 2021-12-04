@@ -11,6 +11,7 @@
 
 #include <QTableView>
 #include <QAbstractItemModel>
+#include <QMultiMap>
 
 #include "kpttask.h"
 
@@ -46,7 +47,7 @@ public:
     void setCurrentMonday(const QDate &date);
 
     QModelIndex addRow();
-    QMap<QString, const Resource*> freeResources() const;
+    QMultiMap<QString, const Resource*> freeResources() const;
 
     void setReadOnly(bool ro) { m_readonly = ro; }
     bool readOnly() const { return m_readonly; }

@@ -320,13 +320,13 @@ void UsedEffortItemModel::addResource(const QString &name)
     setData(createIndex(row, 0, const_cast<Resource*>(resource)), 0, Qt::EditRole);
 }
 
-QMap<QString, const Resource*> UsedEffortItemModel::freeResources() const
+QMultiMap<QString, const Resource*> UsedEffortItemModel::freeResources() const
 {
-    QMap<QString, const Resource*> map;
+    QMultiMap<QString, const Resource*> map;
     const QList<Resource*> resources = m_project->resourceList();
     for (Resource *r : resources) {
         if (! m_resourcelist.contains(r)) {
-            map.insertMulti(r->name(), r);
+            map.insert(r->name(), r);
         }
     }
     return map;
@@ -625,10 +625,24 @@ bool CompletionEntryItemModel::setData (const QModelIndex &idx, const QVariant &
         case Qt::EditRole: {
             if (idx.column() == Property_Date) {
                 QDate od = date(idx.row()).toDate();
-                removeEntry(od);
-                addEntry(value.toDate());
-                // Q_EMIT dataChanged(idx, idx);
-                return true;
+                QDate nd = value.toDate();
+                if (od == nd) {
+                    // new unedited entry
+                    addEntry(nd);
+                    // Q_EMIT dataChanged(idx, idx);
+                    return true;
+                }
+                if (!m_datelist.contains(nd)) {
+                    // date is edited so remove original
+                    removeEntry(od);
+                    // add new edited entry
+                    addEntry(nd);
+                    // Q_EMIT dataChanged(idx, idx);
+                    return true;
+                }
+                // probably a duplicate of an existing date
+                removeEntry(od); // just remove the new entry date to avoid duplicates for now
+                return false;
             }
             if (idx.column() == Property_Completion) {
                 Completion::Entry *e = m_completion->entry(date(idx.row()).toDate());
@@ -788,7 +802,7 @@ void CompletionEntryItemModel::removeEntry(const QDate& date)
 void CompletionEntryItemModel::removeRow(int row)
 {
     debugPlan<<row;
-    if (row < 0 && row >= rowCount()) {
+    if (row < 0 || row >= rowCount()) {
         return;
     }
     QDate date = m_datelist.value(row);

@@ -3151,6 +3151,7 @@ void Completion::setActualEffort(QDate date, KPlato::Duration value)
 
 void Completion::addEntry(QDate date, Entry *entry)
 {
+    Q_ASSERT(!m_entries.contains(date));
      m_entries.insert(date, entry);
      //debugPlan<<m_entries.count()<<" added:"<<date;
      changed(Node::CompletionEntryProperty);
