@@ -166,7 +166,7 @@ void KoProgressUpdater::updateUi()
 
     if (d->updated) {
         int totalProgress = 0;
-        for (QPointer<KoUpdaterPrivate> updater : qAsConst(d->subtasks)) {
+        for (QPointer<KoUpdaterPrivate> updater : qAsConst(d->subtasks)) { // clazy:exclude=range-loop-reference
             if (updater->interrupted()) {
                 d->currentProgress = -1;
                 return;
@@ -212,7 +212,7 @@ void KoProgressUpdater::Private::logEvents(QTextStream& out,
                                            const QTime& startTime,
                                            const QString& prefix) {
     // initial implementation: write out the names of all events
-    for (QPointer<KoUpdaterPrivate> p : qAsConst(updater->subtasks)) {
+    for (QPointer<KoUpdaterPrivate> p : qAsConst(updater->subtasks)) { // clazy:exclude=range-loop-reference
         if (!p) continue;
         const QVector<KoUpdaterPrivate::TimePoint> points = p->getPoints();
         for  (const KoUpdaterPrivate::TimePoint &tp : points) {
