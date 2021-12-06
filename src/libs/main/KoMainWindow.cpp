@@ -1062,6 +1062,8 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
                 newURL = newURL.adjusted(QUrl::RemoveFilename);
                 newURL.setPath(newURL.path() + fileName);
             }
+#else
+            Q_UNUSED(fileName)
 #endif
         }
 

@@ -404,7 +404,7 @@ void ResourceEditor::slotEditCurrentResource()
     slotEditResource(currentResource());
 }
 
-void ResourceEditor::slotEditResource(Resource *resource)
+void ResourceEditor::slotEditResource(KPlato::Resource *resource)
 {
     if (resource == nullptr) {
         return ;

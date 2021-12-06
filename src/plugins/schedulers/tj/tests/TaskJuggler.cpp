@@ -29,6 +29,9 @@
 
 #include "tests/debug.cpp"
 
+// clazy misses variables used in macros?
+// clazy:excludeall=unused-non-trivial-variable
+
 namespace KPlato
 {
 

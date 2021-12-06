@@ -113,7 +113,7 @@ public:
 
     QVariant headerData(int section, Qt::Orientation o, int role = Qt::DisplayRole) const override {
         if (o == Qt::Horizontal) {
-            return QAbstractProxyModel::headerData(section, o, role);
+            return QAbstractProxyModel::headerData(section, o, role); // on purpose, clazy:exclude=skipped-base-method
         } else { // Qt::Vertical
             QModelIndex idx;
             if (sourceModel()) {

@@ -67,7 +67,7 @@ protected:
 protected:
     MainDocument *m_portfolio;
     QString m_currentResourceId;
-    QMap<QDate, QMap<KPlato::Node*, double> > m_usage; // QMap<date, QMap<task, effort (hours)> >
+    QMap<QDate, QHash<KPlato::Node*, double> > m_usage; // QMap<date, QMap<task, effort (hours)> >
     double m_normalMax;
     double m_stackedMax;
     QMap<QDate, double> m_available;

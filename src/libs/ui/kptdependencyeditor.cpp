@@ -2261,7 +2261,7 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
             if (! actions.isEmpty()) {
                 QAction *action = menu.exec(pos);
                 if (action && actions.contains(action)) {
-                    Q_EMIT editRelation(items[ actions.indexOf(action) ]->relation);
+                    editRelation(items[ actions.indexOf(action) ]->relation);
                     return;
                 }
             }
@@ -2447,7 +2447,7 @@ void DependencyEditor::openRelationDialog(Node *par, Node *child)
     dia->open();
 }
 
-void DependencyEditor::slotAddRelation(Node *par, Node *child, int linkType)
+void DependencyEditor::slotAddRelation(KPlato::Node *par, KPlato::Node *child, int linkType)
 {
     //debugPlan;
     if (linkType == Relation::FinishStart ||
@@ -2483,7 +2483,7 @@ void DependencyEditor::editRelation(Relation *rel)
     dia->open();
 }
 
-void DependencyEditor::slotModifyRelation(Relation *rel, int linkType)
+void DependencyEditor::slotModifyRelation(KPlato::Relation *rel, int linkType)
 {
     //debugPlan;
     if (linkType == Relation::FinishStart ||
@@ -2643,7 +2643,7 @@ void DependencyEditor::slotOpenCurrentNode()
     slotOpenNode(node);
 }
 
-void DependencyEditor::slotOpenNode(Node *node)
+void DependencyEditor::slotOpenNode(KPlato::Node *node)
 {
     //debugPlan;
     if (!node) {

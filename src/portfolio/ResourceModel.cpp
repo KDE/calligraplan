@@ -145,7 +145,8 @@ void ResourceModel::updateData()
 //             continue;
 //         }
 //         const auto sid = sm->expected()->id();
-        for (const auto r : project->resourceList()) {
+        const auto rlist = project->resourceList();
+        for (const auto r : rlist) {
             if (!m_resourceIds.contains(r->id())) {
                 m_resourceIds.insert(r->id(), r->name());
             }

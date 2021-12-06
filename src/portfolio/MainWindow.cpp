@@ -53,7 +53,8 @@ bool MainWindow::isDocumentModified()
     }
     bool mod = document->isModified();
     if (!mod) {
-        for (const auto doc : document->documents()) {
+        const auto docs = document->documents();
+        for (const auto doc : docs) {
             if (doc->isModified()) {
                 mod = true;
                 break;

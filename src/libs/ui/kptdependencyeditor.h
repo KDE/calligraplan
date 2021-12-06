@@ -533,7 +533,7 @@ private Q_SLOTS:
     void slotAddSubMilestone();
     void slotDeleteTask();
     void slotOpenCurrentNode();
-    void slotOpenNode(Node *node);
+    void slotOpenNode(KPlato::Node *node);
     void slotTaskProgress();
     void slotTaskDescription();
     void slotOpenProjectDescription();
@@ -542,8 +542,8 @@ private Q_SLOTS:
     void slotLinkTask();
     void slotModifyCurrentRelation();
     void slotDeleteRelation();
-    void slotAddRelation(Node *par, Node *child, int linkType);
-    void slotModifyRelation(Relation *rel, int linkType);
+    void slotAddRelation(KPlato::Node *par, KPlato::Node *child, int linkType);
+    void slotModifyRelation(KPlato::Relation *rel, int linkType);
 
     void slotAddTaskFinished(int result);
     void slotAddMilestoneFinished(int result);

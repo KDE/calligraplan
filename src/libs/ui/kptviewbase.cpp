@@ -2739,13 +2739,13 @@ void DoubleTreeViewBase::setViewSplitMode(bool split)
             if (!m_rightview->isColumnHidden(i)) {
                 auto vindex = m_rightview->header()->visualIndex(i);
                 Q_ASSERT(vindex >= 0);
-                if (!sections.values().contains(i)) {
+                if (sections.key(i, -1) == -1) {
                     sections.insert(vindex + offset, i);
                 }
             }
         }
         for (int i = 0; i < count; ++i) {
-            m_leftview->setColumnHidden(i, !sections.values().contains(i));
+            m_leftview->setColumnHidden(i, (sections.key(i, -1) == -1));
         }
         // sort columns
         for (QMap<int, int>::const_iterator it = sections.constBegin(); it != sections.constEnd(); ++it) {

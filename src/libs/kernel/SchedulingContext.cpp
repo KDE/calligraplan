@@ -44,9 +44,9 @@ void SchedulingContext::addResourceBookings(const KoDocument *project)
 }
 
 void SchedulingContext::addProject(KoDocument *project, int priority)
-{    
-    if (projects.values().contains(project)) {
-        int prio = projects.key(project);
+{
+    int prio = projects.key(project, -1);
+    if (prio != -1) {
         projects.remove(prio, project);
     }
     projects.insert(priority, project);

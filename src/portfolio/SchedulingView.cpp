@@ -237,7 +237,7 @@ void SchedulingView::selectionChanged(const QItemSelection &selected, const QIte
         project = doc->project();
     }
     SchedulingLogModel *m = &m_logModel;
-    if (m_schedulingContext.projects.values().contains(doc)) {
+    if (m_schedulingContext.projects.key(doc, -1) == -1) {
         m_logModel.setLog(m_schedulingContext.log);
     } else if (project) {
         KPlato::ScheduleManager *sm = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
@@ -284,9 +284,10 @@ void SchedulingView::calculate()
 {
     MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
     QVariantList managerNames;
-    for (auto doc : portfolio->documents()) {
+    {const auto docs = portfolio->documents();
+    for (auto doc : docs) {
         managerNames << doc->property(SCHEDULEMANAGERNAME);
-    }
+    }}
     m_schedulingContext.clear();
     const auto key = schedulerKey();
     auto scheduler = portfolio->schedulerPlugin(key);
@@ -296,14 +297,14 @@ void SchedulingView::calculate()
     } else {
         warnPortfolio<<Q_FUNC_INFO<<"No scheduler plugin"<<key;
     }
-    const auto docs = portfolio->documents();
+    {const auto docs = portfolio->documents();
     Q_ASSERT(managerNames.count() == docs.count());
     for (int i = 1; i < docs.count(); ++i) {
         if (docs.at(i)->property(SCHEDULEMANAGERNAME) != managerNames.value(i)) {
             portfolio->setModified(true);
             break;
         }
-    }
+    }}
 }
 
 void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)

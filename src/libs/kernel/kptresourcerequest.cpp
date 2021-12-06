@@ -481,10 +481,10 @@ void ResourceRequestCollection::addResourceRequest(ResourceRequest *request)
 void ResourceRequestCollection::removeResourceRequest(ResourceRequest *request)
 {
     Q_ASSERT(m_resourceRequests.contains(request->id()));
-    Q_ASSERT(m_resourceRequests.values().contains(request));
+    Q_ASSERT(m_resourceRequests.values().contains(request)); // clazy:exclude=container-anti-pattern
     m_resourceRequests.remove(request->id());
     request->unregisterRequest();
-    Q_ASSERT(!m_resourceRequests.values().contains(request));
+    Q_ASSERT(!m_resourceRequests.values().contains(request)); // clazy:exclude=container-anti-pattern
     if (m_task) {
         m_task->changed(Node::ResourceRequestProperty);
     }
@@ -688,9 +688,9 @@ void ResourceRequestCollection::makeAppointments(Schedule *schedule) {
 void ResourceRequestCollection::reserve(const DateTime &start, const Duration &duration) {
     //debugPlan;
     // TODO: Alternatives
-    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
+//     for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
 //         r->reserve(start, duration); //FIXME
-    }
+//     }
 }
 
 bool ResourceRequestCollection::isEmpty() const {

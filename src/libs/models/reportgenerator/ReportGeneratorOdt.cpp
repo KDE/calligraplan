@@ -286,7 +286,7 @@ ReportGeneratorOdt::ReportGeneratorOdt()
 
 ReportGeneratorOdt::~ReportGeneratorOdt()
 {
-    for (QAbstractItemModel *m : m_datamodels) { // clazy:exclude=range-loop
+    for (QAbstractItemModel *m : qAsConst(m_datamodels)) {
         if (!m_basemodels.contains(qobject_cast<ItemModelBase*>(m))) {
             delete m;
         }
@@ -327,7 +327,7 @@ bool ReportGeneratorOdt::open()
         m_lastError = i18n("Failed to open template file: %1", m_templateFile);
         return false;
     }
-    for (ItemModelBase *m : m_basemodels) { // clazy:exclude=range-loop
+    for (ItemModelBase *m : qAsConst(m_basemodels)) {
         m->setProject(m_project);
         m->setScheduleManager(m_manager);
         if (qobject_cast<ChartItemModel*>(m)) {
@@ -693,7 +693,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
             field->setModel(dataModel(field->dataName), m_headerrole[field->dataName]);
             dbgRGVariable<<"    added variable"<<field->name<<field->columns<<field->properties;
         } else {
-            for (const QString &k : m_keys) { // clazy:exclude=range-loop
+            for (const QString &k : qAsConst(m_keys)) {
                 const QString vname = tags.first();
                 if (!vname.startsWith(k)) {
                     continue;
@@ -739,7 +739,8 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
 
 void ReportGeneratorOdt::writeElementAttributes(KoXmlWriter &writer, const KoXmlElement &element, const QStringList &exclude)
 {
-    for (const QPair<QString, QString> &a : element.attributeFullNames()) { // clazy:exclude=range-loop
+    const auto elements = element.attributeFullNames();
+    for (const QPair<QString, QString> &a : elements) {
         QString prefix = KoXmlNS::nsURI2NS(a.first);
         if (prefix.isEmpty()) {
             dbgRG<<"  Skipping unknown namespace:"<<a.first<<a.second;
@@ -979,17 +980,18 @@ void ReportGeneratorOdt::treatChart(KoOdfReadStore &reader, KoStore &outStore, c
         }
         if (field->properties.isEmpty()) {
             // default: take all
-            for (const QString &c : field->headerNames) { // clazy:exclude=range-loop
+            for (const QString &c : qAsConst(field->headerNames)) {
                 field->columns << c;
             }
         } else {
             QStringList values;
-            for (const QString &p : field->properties) { // clazy:exclude=range-loop
+            for (const QString &p : qAsConst(field->properties)) {
                 if (p.startsWith("values")) {
                     QStringList vl = p.split("=");
                     Q_ASSERT(vl.count() > 1);
                     Q_ASSERT(vl.at(0) == "values");
-                    for (const QString &v : vl.at(1).split(',')) {  // clazy:exclude=range-loop
+                    const auto strings = vl.at(1).split(',');
+                    for (const auto &v : strings) {
                         values << v.toLower().trimmed();
                     }
                 }
@@ -1129,7 +1131,7 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
             writer.endElement();
             // write legends
             UserField *field = m_userfields[m_activefields.last()];
-            for (const QString &name : field->columns) { // clazy:exclude=range-loop
+            for (const QString &name : qAsConst(field->columns)) {
                 QString value = field->headerData(name);
                 writer.startElement("table:table-cell");
                 writer.addAttribute("office:value-type", "string");
@@ -1160,7 +1162,7 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
                     writer.endElement();
                     writer.endElement();
                     // then the data
-                    for (const QString &name : field->columns) { // clazy:exclude=range-loop
+                    for (const QString &name : qAsConst(field->columns)) {
                         QVariant value = field->model.index(r, field->column(name)).data();
                         writer.startElement("table:table-cell");
                         writer.addAttribute("office:value-type", "float");

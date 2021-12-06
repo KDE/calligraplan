@@ -56,7 +56,7 @@ CoreAttributes::~CoreAttributes()
     if (parent && parent->sub->contains(this))
         parent->sub->removeAt(parent->sub->indexOf(this));
     delete sub;
-    while (!customAttributes.isEmpty()) delete customAttributes.values().takeFirst();
+    qDeleteAll(customAttributes);
 }
 
 uint

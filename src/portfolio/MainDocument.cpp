@@ -150,7 +150,7 @@ void MainDocument::slotProjectDocumentLoaded()
     if (document) {
         disconnect(document, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
         // remove if duplicate
-        for (const auto doc : m_documents) {
+        for (const auto doc : qAsConst(m_documents)) {
             if (document == doc) {
                 continue;
             }

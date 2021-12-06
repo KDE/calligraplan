@@ -2139,7 +2139,7 @@ void ProjectTester::inWBSOrder()
     sm->createSchedules();
     p.calculate(*sm);
     
-    QString s = "Schedule 4 tasks forward in wbs order -------";
+//     QString s = "Schedule 4 tasks forward in wbs order -------";
     // NOTE: It's not *mandatory* to schedule in wbs order but users expect it, so we'll try
     //       This test can be removed if for some important reason this isn't possible.
 

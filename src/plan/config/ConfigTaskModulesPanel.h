@@ -21,7 +21,7 @@ namespace KPlato
 class PLAN_EXPORT ConfigTaskModulesPanel : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasChanged READ hasChanged)
+    Q_PROPERTY(bool hasChanged READ hasChanged) // clazy:exclude=qproperty-without-notify
 
 public:
     explicit ConfigTaskModulesPanel(QWidget *parent=nullptr);

@@ -2548,7 +2548,7 @@ Task::preScheduleOk(int sc)
 bool
 Task::scheduleOk(int sc) const
 {
-    const QString scenario = project->getScenarioId(sc);
+//     const QString scenario = project->getScenarioId(sc);
 
     /* It is of little use to report errors of container tasks, if any of
      * their sub tasks has errors. */

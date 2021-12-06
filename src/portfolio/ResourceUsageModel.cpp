@@ -202,7 +202,7 @@ void ResourceUsageModel::initiateEmptyData()
     }
     for (int i = 0; i < size; ++i) {
         const auto date(startDate.addDays(i));
-        m_usage.insert(date, QMap<KPlato::Node*, double>());
+        m_usage.insert(date, QHash<KPlato::Node*, double>());
     }
 }
 
@@ -264,7 +264,7 @@ void ResourceUsageModel::updateData()
         // initiate m_usage
         for (int i = 0; i < size; ++i) {
             const auto date(startDate.addDays(i));
-            for (auto t : tasks) {
+            for (auto t : qAsConst(tasks)) {
                 m_usage[date].insert(t, 0.0);
             }
         }
@@ -304,16 +304,16 @@ void ResourceUsageModel::updateData()
             }
         }
         // Remove tasks not used by this resource
-        QMap<QDate, QMap<KPlato::Node*, double> >::iterator it;
+        QMap<QDate, QHash<KPlato::Node*, double> >::iterator it;
         for (it = m_usage.begin(); it != m_usage.end(); ++it) {
-            for (auto task : tasks) {
+            for (auto task : qAsConst(tasks)) {
                 it.value().remove(task);
             }
         }
         for (it = m_usage.begin(); it != m_usage.end(); ++it) {
             double total = 0.0;
             const auto tasks = it.value();
-            QMap<KPlato::Node*, double>::const_iterator taskIt = tasks.constBegin();
+            QHash<KPlato::Node*, double>::const_iterator taskIt = tasks.constBegin();
             for (; taskIt != tasks.constEnd(); ++taskIt) {
                 total += taskIt.value();
                 m_normalMax = std::max(m_normalMax, taskIt.value());

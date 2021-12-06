@@ -42,10 +42,10 @@ int unsetenv (const char *var);
 namespace TJ
 {
 
-static QMap<QString, const char*> TZDict;
+static QMap<QString, const char*> TZDict; // clazy:exclude=non-pod-global-static
 static bool TZDictReady = false;
 
-static QString UtilityError;
+static QString UtilityError; // clazy:exclude=non-pod-global-static
 
 /* localtime() calls are fairly expensive, so we implement a hashtable based
  * cache to avoid redundant calls for the same value. Changing the timezone

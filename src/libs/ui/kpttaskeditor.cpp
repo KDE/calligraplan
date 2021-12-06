@@ -609,7 +609,7 @@ QList<Node*> TaskEditor::selectedNodes() const {
 QList<Task*> TaskEditor::selectedTasks(Node::NodeTypes type) const
 {
     QList<Task*> tasks;
-    auto nodes = selectedNodes();
+    auto const nodes = selectedNodes();
     for (auto node : nodes) {
         if (node->type() == type) {
             tasks << static_cast<Task*>(node);

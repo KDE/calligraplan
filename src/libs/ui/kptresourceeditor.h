@@ -98,7 +98,7 @@ private Q_SLOTS:
     void slotAddResource();
     void slotDeleteSelection();
     void slotEditCurrentResource();
-    void slotEditResource(Resource *resource);
+    void slotEditResource(KPlato::Resource *resource);
 
     void slotEditResourceFinished(int result);
 
