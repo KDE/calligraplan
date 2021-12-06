@@ -108,7 +108,7 @@ public:
         palette.setColor(QPalette::Window, Qt::white);
         palette.setColor(QPalette::WindowText, Qt::black);
         palette.setColor(QPalette::Base, Qt::white);
-        palette.setColor(QPalette::AlternateBase, VeryLightGray);
+        palette.setColor(QPalette::AlternateBase, VeryLightGray); // clazy:exclude=qcolor-from-literal
         palette.setColor(QPalette::ToolTipBase, Qt::white);
         palette.setColor(QPalette::ToolTipText, Qt::black);
         palette.setColor(QPalette::Text, Qt::black);
@@ -118,10 +118,10 @@ public:
         palette.setColor(QPalette::Link, Qt::blue);
         palette.setColor(QPalette::Highlight, Qt::blue);
         palette.setColor(QPalette::HighlightedText, Qt::white);
-        palette.setColor(QPalette::Light, QColor(VeryLightGray));
-        palette.setColor(QPalette::Midlight, QColor(LightLightGray)); // used for freeDays in gantt chart
-        palette.setColor(QPalette::Dark, QColor(DarkDarkGray));
-        palette.setColor(QPalette::Mid, QColor(VeryDarkGray));
+        palette.setColor(QPalette::Light, QColor(VeryLightGray)); // clazy:exclude=qcolor-from-literal
+        palette.setColor(QPalette::Midlight, QColor(LightLightGray)); // used for freeDays in gantt chart // clazy:exclude=qcolor-from-literal
+        palette.setColor(QPalette::Dark, QColor(DarkDarkGray)); // clazy:exclude=qcolor-from-literal
+        palette.setColor(QPalette::Mid, QColor(VeryDarkGray)); // clazy:exclude=qcolor-from-literal
         palette.setColor(QPalette::Shadow, Qt::black);
         QApplication::setPalette(palette);
     }
