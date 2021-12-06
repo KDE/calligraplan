@@ -1821,7 +1821,8 @@ void KPlato::ProjectLoader_v0::printProjectStatistics(const XMLLoaderObject& sta
     qDebug()<<p->resourceList();
     qDebug()<<p->allScheduleManagers();
     qDebug()<<"project-schedules:"<<p->schedules();
-    for (auto t : p->allTasks()) {
+    const auto tasks = p->allTasks();
+    for (const auto t : tasks) {
         qDebug()<<t<<'s'<<t->isScheduled(ANYSCHEDULED)<<t->startTime(ANYSCHEDULED)<<'-'<<t->endTime(ANYSCHEDULED)<<t->schedules();
     }
 }
