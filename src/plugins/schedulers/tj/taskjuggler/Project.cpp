@@ -490,11 +490,11 @@ Project::pass2(bool noDepCheck)
         TJMH.errorMessage(xi18nc("@info/plain", "The project does not contain any tasks."));
         return false;
     }
-    //qDebug()<<"pass2 task info:";
-    for (CoreAttributes *a : qAsConst(taskList)) {
-        Task *t = static_cast<Task*>(a);
-        //qDebug()<<t->getName()<<t->getDuration(0)<<t->getPrecedes()<<t->getDepends();
-    }
+//     qDebug()<<"pass2 task info:";
+//     for (CoreAttributes *a : qAsConst(taskList)) {
+//         Task *t = static_cast<Task*>(a);
+//         qDebug()<<t->getName()<<t->getDuration(0)<<t->getPrecedes()<<t->getDepends();
+//     }
     QMap<QString, Task*> idHash;
 
     /* The optimum size for the localtime hash is twice the number of time
