@@ -156,7 +156,7 @@ void MainDocument::slotProjectDocumentLoaded()
             }
             if (document->project()->id() == doc->project()->id()) {
                 KMessageBox::sorry(nullptr,
-                                   xi18nc("@info", "The project already exists.<nl/>Project: %1<nl/> Document: %2", document->project()->name(), document->url().toDisplayString()),
+                                   xi18nc("@info", "The project already exists.<nl/>Project: %1<nl/>Document: %2", document->project()->name(), document->url().toDisplayString()),
                                    i18nc("@title:window", "Could not add project"));
 
                 m_documents.removeOne(document);
