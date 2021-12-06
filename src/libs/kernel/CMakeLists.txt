@@ -11,6 +11,8 @@ include_directories(
 
 set(calligraplankernel_LIB_SRCS
     kptglobal.cpp
+    Completion.cpp
+    WorkPackage.cpp
     kptlocale.cpp
     kpteffortcostmap.cpp
     kptdocuments.cpp
