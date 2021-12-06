@@ -83,7 +83,7 @@ QString KoFilterManager::importDocument(const QString& url,
         // In case the default mimetype is not one we can handle,
         // see if there is one in the list we *can* handle.
         const auto mimetypes = QMimeDatabase().mimeTypesForFileName(u.path());
-        for (auto mt : mimetypes) {
+        for (auto mt : mimetypes) { // clazy:exclude=range-loop-reference
             if (mt.name() != typeName) {
                 m_graph.setSourceMimeType(mt.name().toLatin1()); // .latin1() is okay here (Werner)
                 validMimetype = m_graph.isValid();
@@ -315,7 +315,7 @@ void buildGraph(QHash<QByteArray, Vertex*>& vertices, KoFilterManager::Direction
     const QList<KoFilterEntry::Ptr> filters = KoFilterEntry::query(); // no constraint here - we want *all* :)
     QList<KoFilterEntry::Ptr>::ConstIterator it = filters.constBegin();
     QList<KoFilterEntry::Ptr>::ConstIterator end = filters.constEnd();
-    for (KoFilterEntry::Ptr filterEntry : filters) {
+    for (KoFilterEntry::Ptr filterEntry : filters) { // clazy:exclude=range-loop-reference
         for (; it != end; ++it) {
             QStringList impList; // Import list
             QStringList expList; // Export list
