@@ -13,7 +13,7 @@
 
 KoUpdater::KoUpdater(KoUpdaterPrivate *p)
     : QObject(p),
-      m_progressPercent(0)
+    m_progressPercent(0)
 {
     d = p;
     Q_ASSERT(p);
@@ -23,7 +23,10 @@ KoUpdater::KoUpdater(KoUpdaterPrivate *p)
     connect(this, &KoUpdater::sigProgress, d.data(), &KoUpdaterPrivate::setProgress);
     connect(d.data(), &KoUpdaterPrivate::sigInterrupted, this, &KoUpdater::interrupt);
 
-    setRange(0, 100);
+    // do not use setRange()!
+    min = 0;
+    max = 100;
+    range = max - min;
     m_interrupted = false;
 }
 
