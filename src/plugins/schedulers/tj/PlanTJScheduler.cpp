@@ -256,7 +256,7 @@ bool PlanTJScheduler::kplatoToTJ()
         for (int i = 0; i < 7; ++i) {
             CalendarDay *d = nullptr;
             for (Calendar *c = cal; c; c = c->parentCal()) {
-                QTime t; t.start();
+                QElapsedTimer t; t.start();
                 d = c->weekday(days[ i ]);
                 Q_ASSERT(d);
                 if (d == nullptr || d->state() != CalendarDay::Undefined) {
@@ -1259,7 +1259,7 @@ void PlanTJScheduler::insertProject(KoDocument *doc, int priority, KPlato::Sched
         for (int i = 0; i < 7; ++i) {
             CalendarDay *d = nullptr;
             for (Calendar *c = cal; c; c = c->parentCal()) {
-                QTime t; t.start();
+                QElapsedTimer t; t.start();
                 d = c->weekday(days[ i ]);
                 Q_ASSERT(d);
                 if (d == nullptr || d->state() != CalendarDay::Undefined) {
