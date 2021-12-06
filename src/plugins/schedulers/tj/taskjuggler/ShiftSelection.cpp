@@ -39,6 +39,6 @@ QDebug operator<<(QDebug dbg, const TJ::ShiftSelection *s)
 {
     dbg << "ShiftSelection[";
     if (s) dbg << s->getPeriod() << s->getShift();
-    else (void*)s;
+    else dbg << (void*)s;
     return dbg << ']';
 }
