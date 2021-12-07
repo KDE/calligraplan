@@ -157,14 +157,6 @@ public:
     virtual void setReadWrite(bool readwrite = true);
 
     /**
-     * To be preferred when a document exists. It is fast when calling
-     * it multiple times since it caches the result that readNativeFormatMimeType()
-     * delivers.
-     * This comes from the X-KDE-NativeMimeType key in the .desktop file.
-     */
-    virtual QByteArray nativeFormatMimeType() const = 0;
-
-    /**
      * Returns the OASIS OpenDocument mimetype of the document, if supported
      * This comes from the X-KDE-NativeOasisMimeType key in the
      * desktop file

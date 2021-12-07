@@ -349,7 +349,6 @@ void KoDocumentInfoDlg::saveEncryption()
         return;
 
     KMainWindow* mainWindow = dynamic_cast< KMainWindow* >(parent());
-
     if (doc->specialOutputFlag() == KoDocumentBase::SaveEncrypted) {
         // Decrypt
         if (KMessageBox::warningContinueCancel(
@@ -385,10 +384,10 @@ void KoDocumentInfoDlg::saveEncryption()
                     ) != KMessageBox::Yes) {
             return;
         }
-    } else {
-        // Encrypt
+    } else if (doc->mimeType().startsWith("application/vnd.oasis.opendocument.")) {
+        // Encrypt oasis document
         bool modified = doc->isModified();
-        if (!doc->url().isEmpty() && !(doc->mimeType().startsWith("application/vnd.oasis.opendocument.") && doc->specialOutputFlag() == 0)) {
+        if (!doc->url().isEmpty() && doc->specialOutputFlag() == 0) {
             QMimeDatabase db;
             QMimeType mime = db.mimeTypeForName(doc->mimeType());
             QString comment = mime.isValid() ? mime.comment() : i18n("%1 (unknown file type)", QString::fromLatin1(doc->mimeType()));
@@ -427,9 +426,54 @@ void KoDocumentInfoDlg::saveEncryption()
                     ) != KMessageBox::Yes) {
             return;
         }
+    } else {
+        // Encrypt non-oasis document
+        bool modified = doc->isModified();
+        if (!doc->url().isEmpty() && doc->specialOutputFlag() == 0) {
+            QMimeDatabase db;
+            QMimeType mime = db.mimeTypeForName(doc->mimeType());
+            if (doc->mimeType() != doc->nativeFormatMimeType()) {
+                QString comment = mime.isValid() ? mime.comment() : i18n("%1 (unknown file type)", QString::fromLatin1(doc->mimeType()));
+                QString native = db.mimeTypeForName(doc->nativeFormatMimeType()).comment();
+                if (KMessageBox::warningContinueCancel(
+                            this,
+                            i18n("<qt>The document is currently saved as %1. The document needs to be changed to <b>%2</b> to be encrypted."
+                                "<p>Do you want to change the file to %2?</qt>", QString("<b>%1</b>").arg(comment), native),
+                            i18n("Change Filetype"),
+                            KGuiItem(i18n("Change")),
+                            KStandardGuiItem::cancel(),
+                            "EncryptChangeFiletypeConfirmation"
+                            ) != KMessageBox::Continue) {
+                    return;
+                }
+                doc->resetURL();
+            }
+        }
+        doc->setMimeType(doc->nativeFormatMimeType());
+        doc->setOutputMimeType(doc->nativeFormatMimeType(), KoDocumentBase::SaveEncrypted);
+        if (!mainWindow) {
+            KMessageBox::information(
+                        this,
+                        i18n("<qt>Your document could not be saved automatically."
+                            "<p>To complete the encryption, please save the document.</qt>"),
+                        i18n("Save Document"),
+                        "EncryptSaveMessage");
+            return;
+        }
+        if (modified && KMessageBox::questionYesNo(
+                    this,
+                    i18n("<qt>The document has been changed since it was opened. To complete the encryption the document needs to be saved."
+                        "<p>Do you want to save the document now?</qt>"),
+                    i18n("Save Document"),
+                    KStandardGuiItem::save(),
+                    KStandardGuiItem::dontSave(),
+                    "EncryptSaveConfirmation"
+                    ) != KMessageBox::Yes) {
+            return;
+        }
     }
     // Why do the dirty work ourselves?
-    Q_EMIT saveRequested();
+    Q_EMIT saveRequested(doc->url().isEmpty(), false, doc->specialOutputFlag());
     d->toggleEncryption = false;
     d->applyToggleEncryption = false;
     // Detects when the user cancelled saving

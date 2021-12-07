@@ -30,6 +30,8 @@
 #include <QTemporaryFile>
 #include <StoreDebug.h>
 
+#include <QApplication>
+
 struct KoEncryptedStore_EncryptionData {
     // Needed for Key Derivation
     QCA::SecureArray salt;
@@ -549,6 +551,7 @@ bool KoEncryptedStore::openRead(const QString& name)
                     keepPass = false;
                 KPasswordDialog dlg(d->window , keepPass ? KPasswordDialog::ShowKeepPassword : KPasswordDialog::NoFlags);
                 dlg.setPrompt(i18n("Please enter the password to open this file."));
+                QApplication::restoreOverrideCursor();
                 if (! dlg.exec()) {
                     m_bPasswordDeclined = true;
                     d->stream = new QBuffer();
@@ -556,6 +559,7 @@ bool KoEncryptedStore::openRead(const QString& name)
                     d->size = 0;
                     return true;
                 }
+                QApplication::setOverrideCursor(Qt::WaitCursor);
                 password = QCA::SecureArray(dlg.password().toUtf8());
                 if (keepPass)
                     keepPass = dlg.keepPassword();
@@ -724,6 +728,7 @@ bool KoEncryptedStore::closeWrite()
     while (m_password.isEmpty()) {
         KNewPasswordDialog dlg(d->window);
         dlg.setPrompt(i18n("Please enter the password to encrypt the document with."));
+        QApplication::restoreOverrideCursor();
         if (! dlg.exec()) {
             // Without the first password, prevent asking again by deadsimply refusing to continue functioning
             // TODO: This feels rather hackish. There should be a better way to do this.
@@ -732,13 +737,18 @@ bool KoEncryptedStore::closeWrite()
             d->good = false;
             return false;
         }
+        QApplication::setOverrideCursor(Qt::WaitCursor);
         m_password = QCA::SecureArray(dlg.password().toUtf8());
         passWasAsked = true;
     }
 
     // Ask the user to save the password
-    if (passWasAsked && KMessageBox::questionYesNo(d->window, i18n("Do you want to save the password?")) == KMessageBox::Yes) {
-        savePasswordInKWallet();
+    if (passWasAsked) {
+        QApplication::restoreOverrideCursor();
+        if (KMessageBox::questionYesNo(d->window, i18n("Do you want to save the password?")) == KMessageBox::Yes) {
+            savePasswordInKWallet();
+        }
+        QApplication::setOverrideCursor(Qt::WaitCursor);
     }
 
     QByteArray resultData;

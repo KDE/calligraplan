@@ -105,11 +105,9 @@ public:
         reloadFile = nullptr;
         importFile = nullptr;
         exportFile = nullptr;
-#if 0
         encryptDocument = 0;
 #ifndef NDEBUG
         uncompressToDir = 0;
-#endif
 #endif
         isImporting = false;
         isExporting = false;
@@ -199,11 +197,9 @@ public:
     QAction *reloadFile;
     QAction *importFile;
     QAction *exportFile;
-#if 0
     QAction *encryptDocument;
 #ifndef NDEBUG
     QAction *uncompressToDir;
-#endif
 #endif
     KToggleAction *toggleDockers;
     KToggleAction *toggleDockerTitleBars;
@@ -291,8 +287,6 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     actionCollection()->addAction("file_export_file", d->exportFile);
     connect(d->exportFile, &QAction::triggered, this, &KoMainWindow::slotExportFile);
 
-#if 0
-    // encryption not supported
     d->encryptDocument = new QAction(i18n("En&crypt Document"), this);
     actionCollection()->addAction("file_encrypt_doc", d->encryptDocument);
     connect(d->encryptDocument, SIGNAL(triggered(bool)), this, SLOT(slotEncryptDocument()));
@@ -301,7 +295,6 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     d->uncompressToDir = new QAction(i18n("&Uncompress to Directory"), this);
     actionCollection()->addAction("file_uncompress_doc", d->uncompressToDir);
     connect(d->uncompressToDir, SIGNAL(triggered(bool)), this, SLOT(slotUncompressToDir()));
-#endif
 #endif
 
     QAction *actionNewView  = new QAction(koIcon("window-new"), i18n("&New View"), this);
@@ -1042,29 +1035,31 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
         if (newURL.isEmpty()) {
             bOk = false;
         }
-
         // adjust URL before doing checks on whether the file exists.
         if (specialOutputFlag) {
             QString fileName = newURL.fileName();
-            if (specialOutputFlag== KoDocument::SaveAsDirectoryStore) {
+            if (specialOutputFlag == KoDocument::SaveAsDirectoryStore) {
                 // Do nothing
-            }
-#if 0
-            else if (specialOutputFlag == KoDocument::SaveEncrypted) {
+            } else if (specialOutputFlag == KoDocument::SaveEncrypted) {
                 int dot = fileName.lastIndexOf('.');
                 QString ext = mime.preferredSuffix();
                 if (!ext.isEmpty()) {
-                    if (dot < 0) fileName += ext;
-                    else fileName = fileName.left(dot) + ext;
-                } else { // current filename extension wrong anyway
-                    if (dot > 0) fileName = fileName.left(dot);
+                    if (dot < 0) {
+                        fileName += '.' + ext;
+                    } else {
+                        fileName = fileName.left(dot) + '.' + ext;
+                    }
+                } else {
+                    // There is no preferred suffix, why?
+                    errorMain<<"No preferred suffix for mimetype:"<<mime.name();
+                    // current filename extension wrong anyway
+                    if (dot > 0) {
+                        fileName = fileName.left(dot);
+                    }
                 }
                 newURL = newURL.adjusted(QUrl::RemoveFilename);
                 newURL.setPath(newURL.path() + fileName);
             }
-#else
-            Q_UNUSED(fileName)
-#endif
         }
 
         if (bOk) {

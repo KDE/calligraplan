@@ -64,6 +64,12 @@ public:
     virtual void setUrl(const QUrl &url) = 0;
 
     /**
+     * Returns the non OASIS mimetype of the document, if OASIS is not supported
+     * This comes from the X-KDE-NativeMimeType key in the .desktop file
+     */
+    virtual QByteArray nativeFormatMimeType() const = 0;
+
+    /**
      * Returns the OASIS OpenDocument mimetype of the document, if supported
      * This comes from the X-KDE-NativeOasisMimeType key in the .desktop file
      */

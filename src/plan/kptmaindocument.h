@@ -76,7 +76,7 @@ public:
      * offer in the "Save" file dialog.
      * Note: SaveEncrypted is not supported.
      */
-    int supportedSpecialFormats() const override { return SaveAsDirectoryStore; }
+    int supportedSpecialFormats() const override { return SaveAsDirectoryStore | SaveEncrypted; }
 
     bool loadEmbeddedDocument(KoStore *store, const QString& dir) override;
     bool saveToStore(KoStore *store, const QString &path) override;

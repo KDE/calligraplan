@@ -521,7 +521,7 @@ bool KoDocument::exportDocument(const QUrl &_url)
 
 bool KoDocument::saveFile()
 {
-    debugMain << "doc=" << url().url();
+    debugMain <<this<< "doc=" << url().url() << d->specialOutputFlag;
 
     // Save it to be able to restore it after a failed save
     const bool wasModified = isModified();
@@ -2336,7 +2336,7 @@ KoDocumentInfoDlg *KoDocument::createDocumentInfoDialog(QWidget *parent, KoDocum
     KoDocumentInfoDlg *dlg = new KoDocumentInfoDlg(parent, docInfo);
     KoMainWindow *mainwin = dynamic_cast<KoMainWindow*>(parent);
     if (mainwin) {
-        connect(dlg, &KoDocumentInfoDlg::saveRequested, mainwin, &KoMainWindow::slotFileSave);
+        connect(dlg, &KoDocumentInfoDlg::saveRequested, mainwin, &KoMainWindow::saveDocument);
     }
     return dlg;
 }
@@ -2387,6 +2387,7 @@ bool KoDocument::saveAs(const QUrl &kurl)
     d->m_originalFilePath = d->m_file;
     d->m_url = kurl; // Store where to upload in saveToURL
     d->prepareSaving();
+
     bool result = save(); // Save local file and upload local file
     if (!result) {
         d->m_url = d->m_originalURL;
