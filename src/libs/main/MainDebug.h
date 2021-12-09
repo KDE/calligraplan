@@ -13,13 +13,13 @@
 extern const KOMAIN_EXPORT QLoggingCategory &MAIN_LOG();
 
 #define debugMain qCDebug(MAIN_LOG)<<Q_FUNC_INFO
-#define warnMain qCWarning(MAIN_LOG)
-#define errorMain qCCritical(MAIN_LOG)
+#define warnMain qCWarning(MAIN_LOG)<<Q_FUNC_INFO
+#define errorMain qCCritical(MAIN_LOG)<<Q_FUNC_INFO
 
 extern const KOMAIN_EXPORT QLoggingCategory &FILTER_LOG();
 
 #define debugFilter qCDebug(FILTER_LOG)<<Q_FUNC_INFO
-#define warnFilter qCWarning(FILTER_LOG)
-#define errorFilter qCCritical(FILTER_LOG)
+#define warnFilter qCWarning(FILTER_LOG)<<Q_FUNC_INFO
+#define errorFilter qCCritical(FILTER_LOG)<<Q_FUNC_INFO
 
 #endif
