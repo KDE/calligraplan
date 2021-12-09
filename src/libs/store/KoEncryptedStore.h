@@ -48,6 +48,7 @@ public:
      * @return  True if the password was set
      */
     bool setPassword(const QString &password) override;
+    bool passwordDeclined() const override;
 
     /*
      * Returns whether a store opened for reading is actually encrypted.

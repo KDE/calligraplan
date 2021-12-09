@@ -1699,8 +1699,12 @@ bool KoDocument::loadNativeFormatFromStore(const QString& file)
     const bool success = loadNativeFormatFromStoreInternal(store);
 
     // Retrieve the password after loading the file, only then is it guaranteed to exist
-    if (success && store->isEncrypted() && !d->isImporting)
+    if (success && store->isEncrypted() && !d->isImporting) {
         d->password = store->password();
+    }
+    if (!success && store->isEncrypted()) {
+        setErrorMessage(i18n("Invalid password"));
+    }
 
     delete store;
 
@@ -1709,7 +1713,7 @@ bool KoDocument::loadNativeFormatFromStore(const QString& file)
 
 bool KoDocument::loadNativeFormatFromStore(QByteArray &data)
 {
-    bool succes;
+    bool success;
     KoStore::Backend backend = (d->specialOutputFlag == SaveAsDirectoryStore) ? KoStore::Directory : KoStore::Auto;
     QBuffer buffer(&data);
     KoStore *store = KoStore::createStore(&buffer, KoStore::Read, "", backend);
@@ -1723,15 +1727,18 @@ bool KoDocument::loadNativeFormatFromStore(QByteArray &data)
     if (d->specialOutputFlag == 0 && store->isEncrypted() && !d->isImporting)
         d->specialOutputFlag = SaveEncrypted;
 
-    succes = loadNativeFormatFromStoreInternal(store);
+    success = loadNativeFormatFromStoreInternal(store);
 
     // Retrieve the password after loading the file, only then is it guaranteed to exist
-    if (succes && store->isEncrypted() && !d->isImporting)
+    if (success && store->isEncrypted() && !d->isImporting) {
         d->password = store->password();
-
+    }
+    if (!success && store->isEncrypted()) {
+        setErrorMessage(i18n("Invalid password"));
+    }
     delete store;
 
-    return succes;
+    return success;
 }
 
 bool KoDocument::loadNativeFormatFromStoreInternal(KoStore *store)
@@ -2119,12 +2126,15 @@ QString KoDocument::errorMessage() const
 
 void KoDocument::showLoadingErrorDialog()
 {
+    QApplication::setOverrideCursor(Qt::ArrowCursor);
     if (errorMessage().isEmpty()) {
         KMessageBox::error(nullptr, i18n("Could not open\n%1", localFilePath()));
     }
     else if (errorMessage() != "USER_CANCELED") {
         KMessageBox::error(nullptr, i18n("Could not open %1\nReason: %2", localFilePath(), errorMessage()));
     }
+    QApplication::restoreOverrideCursor();
+    setErrorMessage(QString()); // avoid another messagebox from KoMainWindow
 }
 
 bool KoDocument::isAutosaving() const

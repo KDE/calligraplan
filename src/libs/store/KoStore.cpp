@@ -580,6 +580,11 @@ QString KoStore::password()
     return QString();
 }
 
+bool KoStore::passwordDeclined() const
+{
+    return false;
+}
+
 bool KoStore::bad() const
 {
     Q_D(const KoStore);

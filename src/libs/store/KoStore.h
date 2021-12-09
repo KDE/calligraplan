@@ -285,6 +285,7 @@ public:
      * @return  The password this store is encrypted with.
      */
     virtual QString password();
+    virtual bool passwordDeclined() const;
 
     /**
      * Returns whether a store opened for reading is encrypted or a store opened

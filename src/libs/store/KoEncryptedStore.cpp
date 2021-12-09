@@ -554,11 +554,8 @@ bool KoEncryptedStore::openRead(const QString& name)
                 QApplication::setOverrideCursor(Qt::ArrowCursor);
                 if (! dlg.exec()) {
                     m_bPasswordDeclined = true;
-                    d->stream = new QBuffer();
-                    d->stream->open(QIODevice::ReadOnly);
-                    d->size = 0;
                     QApplication::restoreOverrideCursor();
-                    return true;
+                    return false;
                 }
                 QApplication::restoreOverrideCursor();
                 password = QCA::SecureArray(dlg.password().toUtf8());
@@ -692,6 +689,11 @@ QString KoEncryptedStore::password()
         return QString();
     }
     return QString(m_password.toByteArray());
+}
+
+bool KoEncryptedStore::passwordDeclined() const
+{
+    return m_bPasswordDeclined;
 }
 
 bool KoEncryptedStore::openWrite(const QString& name)
