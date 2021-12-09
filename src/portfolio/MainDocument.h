@@ -123,6 +123,7 @@ Q_SIGNALS:
 protected Q_SLOTS:
     void slotProjectChanged();
     void slotProjectDocumentLoaded();
+    void slotProjectDocumentCanceled();
     void slotDocumentModified(bool mod);
 
 protected:

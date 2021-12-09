@@ -149,6 +149,7 @@ void MainDocument::slotProjectDocumentLoaded()
     KoDocument *document = qobject_cast<KoDocument*>(sender());
     if (document) {
         disconnect(document, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
+        disconnect(document, &KoDocument::canceled, this, &MainDocument::slotProjectDocumentCanceled);
         // remove if duplicate
         for (const auto doc : qAsConst(m_documents)) {
             if (document == doc) {
@@ -174,11 +175,22 @@ void MainDocument::slotProjectDocumentLoaded()
     }
 }
 
+void MainDocument::slotProjectDocumentCanceled()
+{
+    KoDocument *document = qobject_cast<KoDocument*>(sender());
+    if (document) {
+        disconnect(document, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
+        disconnect(document, &KoDocument::canceled, this, &MainDocument::slotProjectDocumentCanceled);
+        document->setProperty(STATUS, QStringLiteral("loading-error"));
+    }
+}
+
 bool MainDocument::completeLoading(KoStore *store)
 {
     setModified(false);
     for (auto doc : qAsConst(m_documents)) {
         connect(doc, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
+        connect(doc, &KoDocument::canceled, this, &MainDocument::slotProjectDocumentCanceled);
         if (doc->property(SAVEEMBEDDED).toBool()) {
             const auto url = doc->url();
             doc->loadEmbeddedDocument(store, doc->property(EMBEDDEDURL).toString());

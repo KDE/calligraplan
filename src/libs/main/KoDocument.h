@@ -44,6 +44,7 @@ class QDomDocument;
 #define SAVEEMBEDDED "save-embedded"
 #define EMBEDDEDURL "embedded-url"
 #define ORIGINALMODIFICATIONTIME "original-modiication-time"
+#define STATUS "status"
 
 // MSVC seems to need to know the declaration of the classes
 // we pass references of in, when used by external modules
