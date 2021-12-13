@@ -111,6 +111,9 @@ public:
      */
     ~KoDocument() override;
 
+    void setPassword(const QString password);
+    QString password() const;
+
     virtual KPlato::Project *project() const { return nullptr; }
     virtual QString projectName() const { return QString(); }
     virtual QMap<QString, KPlato::SchedulerPlugin*> schedulerPlugins() const { return QMap<QString, KPlato::SchedulerPlugin*>(); }

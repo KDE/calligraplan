@@ -465,6 +465,15 @@ KoDocument::~KoDocument()
     delete d;
 }
 
+void KoDocument::setPassword(const QString password)
+{
+    d->password = password;
+}
+
+QString KoDocument::password() const
+{
+    return d->password;
+}
 
 KoPart *KoDocument::documentPart() const
 {
@@ -1037,6 +1046,7 @@ bool KoDocument::saveToStore(KoStore *_store, const QString & _path)
 
     // In the current directory we're the king :-)
     if (_store->open("root")) {
+        debugMain << this << _store->currentPath();
         KoStoreDevice dev(_store);
         if (!saveToStream(&dev)) {
             _store->close();
