@@ -11,6 +11,8 @@
 
 #include "MainDocument.h"
 
+#include <KoStore.h>
+
 #include <QtGlobal>
 
 MainWindow::MainWindow(const QByteArray &nativeMimeType, const KoComponentData &componentData)
@@ -68,12 +70,16 @@ bool MainWindow::isDocumentModified()
 bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutputFlag)
 {
     Q_UNUSED(silent)
-    Q_UNUSED(specialOutputFlag)
 
     MainDocument *maindoc = qobject_cast<MainDocument*>(rootDocument());
     if (!maindoc || !maindoc->documentPart()) {
         return true;
     }
+    int outputFlag = maindoc->specialOutputFlag();
+    if (specialOutputFlag != 0) {
+        outputFlag = specialOutputFlag;
+    }
+    //qInfo()<<Q_FUNC_INFO<<maindoc<<maindoc->specialOutputFlag()<<specialOutputFlag<<outputFlag;
     bool ret = false;
     if (saveas) {
         QList<KoDocument*> children;
@@ -88,10 +94,14 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
             if (dlg.saveMain()) {
                 const auto url = dlg.mainUrl();
                 maindoc->setUrl(url);
-                ret = KoMainWindow::saveDocumentInternal(false, false, false);
+                ret = KoMainWindow::saveDocumentInternal(false, false, outputFlag);
             }
             const auto children = dlg.documentsToSave();
             for (const auto child : children) {
+                child->setAlwaysAllowSaving(true);
+                if (outputFlag == KoStore::Encrypted) {
+                    child->setPassword(maindoc->password());
+                }
                 if (!child->property(SAVEEMBEDDED).toBool()) {
                     child->save();
                 }
@@ -103,6 +113,7 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
     const auto children = maindoc->documents();
     for (const auto child : children) {
         if (child->isModified() && !child->property(SAVEEMBEDDED).toBool()) {
+            child->setAlwaysAllowSaving(false);
             externalDocs << child;
         }
     }
@@ -112,7 +123,7 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
             if (dlg.saveMain()) {
                 const auto url = dlg.mainUrl();
                 maindoc->setUrl(url);
-                ret = KoMainWindow::saveDocumentInternal(false, false, false);
+                ret = KoMainWindow::saveDocumentInternal(false, false, outputFlag);
             }
             const auto children = dlg.documentsToSave();
             for (const auto child : children) {
@@ -122,5 +133,5 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
         }
         return ret;
     }
-    return KoMainWindow::saveDocumentInternal(false, false, false);
+    return KoMainWindow::saveDocumentInternal(false, false, outputFlag);
 }

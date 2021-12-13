@@ -34,6 +34,7 @@ MainDocument::MainDocument(KoPart *part)
     : KoDocument(part)
 {
     Q_ASSERT(part);
+    setAlwaysAllowSaving(true);
 }
 
 MainDocument::~MainDocument()
@@ -248,6 +249,7 @@ bool MainDocument::completeSaving(KoStore *store)
 {
     for (KoDocument *doc : qAsConst(m_documents)) {
         if (doc->property(SAVEEMBEDDED).toBool()) {
+            doc->setAlwaysAllowSaving(true);
             saveDocumentToStore(store, doc);
         }
     }
@@ -284,8 +286,44 @@ bool MainDocument::loadFromStore(KoStore *_store, const QString& url)
 // Called for embedded documents
 bool MainDocument::saveDocumentToStore(KoStore *store, KoDocument *doc)
 {
-    const auto path = doc->property(EMBEDDEDURL).toString();
-    return doc->saveToStore(store, path);
+    auto path = doc->property(EMBEDDEDURL).toString();
+    //qInfo()<<Q_FUNC_INFO<<doc<<path;
+    path.prepend("tar:/");
+    // In the current directory we're the king :-)
+    store->pushDirectory();
+    if (store->open(path)) {
+        KoStoreDevice dev(store);
+
+        QDomDocument qdoc = doc->saveXML();
+        // Save to buffer
+        QByteArray s = qdoc.toByteArray(); // utf8 already
+        if (!dev.open(QIODevice::WriteOnly)) {
+            //qInfo()<<Q_FUNC_INFO << "Failed to open device";
+        }
+        int nwritten = dev.write(s.data(), s.size());
+        if (nwritten != (int)s.size()) {
+            //qInfo()<<Q_FUNC_INFO << "Failed: wrote " << nwritten << "- expected" <<  s.size();
+            store->close();
+            return false;
+        }
+        if (!store->close()) {
+            //qInfo() << Q_FUNC_INFO << "Failed to close store";
+            return false;
+        }
+    } else {
+        //qInfo() << Q_FUNC_INFO << "Failed to save document to store";
+        return false;
+    }
+/*
+    if (!completeSaving(_store))
+        return false;*/
+
+    // Now that we're done leave the directory again
+    store->popDirectory();
+
+    //qInfo() << Q_FUNC_INFO << "Saved document to store";
+
+    return true;
 }
 
 void MainDocument::setModified(bool mod)

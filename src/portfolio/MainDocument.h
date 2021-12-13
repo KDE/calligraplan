@@ -53,8 +53,6 @@ public:
     void removeDocument(KoDocument *doc);
     QList<KoDocument*> documents() const;
 
-    int supportedSpecialFormats() const override { return SaveAsDirectoryStore; }
-
     bool loadXML(const KoXmlDocument &document, KoStore *store) override;
     QDomDocument saveXML() override;
 
