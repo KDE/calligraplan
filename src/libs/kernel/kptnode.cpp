@@ -712,7 +712,7 @@ QString Node::constraintToString(bool trans) const {
 }
 
 QStringList Node::constraintList(bool trans) {
-    // keep theses in the same order as the enum!
+    // keep these in the same order as the enum!
     return QStringList() 
             << (trans ? i18n("As Soon As Possible") : QString("ASAP"))
             << (trans ? i18n("As Late As Possible") : QString("ALAP"))

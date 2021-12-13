@@ -1082,7 +1082,7 @@ bool ProjectLoader_v0::load(ResourceGroup *rg, const KoXmlElement &element, XMLL
             if (child->load(e, status)) {
                 rg->addChildGroup(child);
             } else {
-                errorPlanXml<<"Faild to load ResourceGroup";
+                errorPlanXml<<"Failed to load ResourceGroup";
                 delete child;
             }
         } else if (status.version() < "0.7.0" && e.tagName() == "resource") {
@@ -1092,7 +1092,7 @@ bool ProjectLoader_v0::load(ResourceGroup *rg, const KoXmlElement &element, XMLL
                 child->addParentGroup(rg);
             } else {
                 // TODO: Complain about this
-                errorPlanXml<<"Faild to load resource";
+                errorPlanXml<<"Failed to load resource";
                 delete child;
             }
         }

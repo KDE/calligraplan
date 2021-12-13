@@ -120,7 +120,7 @@ private:
     /// Amount that is credited to the account at the end date.
     double endCredit;
 
-    /** Measure for the likelyhood that the tasks gets the allocated
+    /** Measure for the likelihood that the tasks gets the allocated
      * resources. */
     double criticalness;
 

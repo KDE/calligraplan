@@ -53,7 +53,7 @@ namespace Scripting {
             /// Return the data
             QObject *parentNode();
 
-            /// Return a map of planed effort and cost pr day
+            /// Return a map of planned effort and cost pr day
             QVariant plannedEffortCostPrDay(const QVariant &start, const QVariant &end, const QVariant &schedule);
 
             /// Return a map of Budgeted Cost of Work Scheduled pr day

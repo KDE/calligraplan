@@ -99,7 +99,7 @@ public:
 
     /// Set parallel scheduling option to @p value.
     void setScheduleInParallel(bool value);
-    /// Return true if multiple projects shall be scheduled in paralel.
+    /// Return true if multiple projects shall be scheduled in parallel.
     /// Returns false if the plugin does not support this option.
     bool scheduleInParallel() const;
 

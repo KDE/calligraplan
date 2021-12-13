@@ -67,7 +67,7 @@ public:
     * and the start of the child.
     */
     const Duration &lag() const { return m_lag; }
-    /// Set relaion time lag
+    /// Set relation time lag
     void setLag(Duration lag) { m_lag = lag; }
 
     /**

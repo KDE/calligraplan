@@ -215,7 +215,7 @@ public:
 };
 
 /**
- * Specialization of RNGItem that is a a define.
+ * Specialization of RNGItem that is a define.
  */
 class Start : public RNGItem
 {
@@ -226,7 +226,7 @@ public:
 };
 
 /**
- * Specialization of RNGItem that is a a define.
+ * Specialization of RNGItem that is a define.
  */
 class Define : public RNGItem
 {

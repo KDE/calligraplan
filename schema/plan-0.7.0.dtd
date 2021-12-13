@@ -113,7 +113,7 @@
    name CDATA #REQUIRED
    description CDATA #IMPLIED>
 
-<!-- A cost place is info on where the cost is generated (object-id referes to a task or a resource) -->
+<!-- A cost place is info on where the cost is generated (object-id refers to a task or a resource) -->
 <!ELEMENT costplace EMPTY>
 <!ATTLIST costplace
     object-id CDATA #REQUIRED

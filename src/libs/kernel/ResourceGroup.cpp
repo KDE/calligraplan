@@ -280,7 +280,7 @@ bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
             if (child->load(e, status)) {
                 addChildGroup(child);
             } else {
-                errorPlanXml<<"Faild to load ResourceGroup";
+                errorPlanXml<<"Failed to load ResourceGroup";
                 delete child;
             }
         } else if (status.version() < "0.7.0" && e.tagName() == "resource") {

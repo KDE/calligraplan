@@ -986,7 +986,7 @@ Project::schedule(int sc)
         double pathCriticalness = 0.0;
         Task::SchedulingInfo schedulingInfo = Task::ASAP;
 
-        // helpers to avoid updateing workItems list inside loop
+        // helpers to avoid updating workItems list inside loop
         bool updateList = false;
         TaskList temp;
 

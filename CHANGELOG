@@ -38,7 +38,7 @@ Release 2.6
 
 * Performance charts:
   Show both effort- and cost based performance index values.
-  Add charting of perfomance indices
+  Add charting of performance indices
 
 * Enable dropping Plan project files into the Task Editor.
 
@@ -128,7 +128,7 @@ Release 2.4:
   Allow opening task- and resource dialog
   Color log entries in accordance with severity
 
-* Report chart item: Add posibility to limit amount of data to display
+* Report chart item: Add possibility to limit amount of data to display
 
 * Add drag&drop resources from akonadi address book
 

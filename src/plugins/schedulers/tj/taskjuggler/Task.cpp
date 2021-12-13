@@ -1048,7 +1048,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
              * algorithm can make things worse in certain plan setups. */
             while (!candidates.isEmpty())
             {
-                /* Find canidate with smallest allocationProbability and
+                /* Find candidate with smallest allocationProbability and
                  * append it to the candidate list. */
                 double minProbability = 0;
                 Resource* minProbResource = nullptr;
@@ -2958,7 +2958,7 @@ Task::prepareScenario(int sc)
      * To determine the criticalness of an effort based task, we need to
      * determine the allocation probability of all of the resources. The more
      * the resources that are allocated to a task are allocated the smaller is
-     * the likelyhood that the task will get it's allocation, the more
+     * the likelihood that the task will get it's allocation, the more
      * critical it is.
      *
      * The allocation probability of a resource for this task is basically
@@ -3874,7 +3874,7 @@ QDomElement Task::xmlElement(QDomDocument& doc, bool /* absId */)
 
    ** Allocations and Booked Resources
     *  With the following code, the task in XML contains simply a list of all Allocations
-    *  wiht the ResourceID for which resource the allocation is. After that, there comes
+    *  with the ResourceID for which resource the allocation is. After that, there comes
     *  a list of all Resources, again having the Resource Id as key. That could be put
     *  in a hierarchy like
     *  <Resource Id="dev2" >Larry Bono

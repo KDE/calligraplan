@@ -47,7 +47,7 @@ public:
     void configChanged();
 
     /// Set property @p name in document p doc to @p value
-    /// If the property is changed, retun true, else false.
+    /// If the property is changed, return true, else false.
     bool setDocumentProperty(KoDocument *doc, const char *name, const QVariant &value);
     bool addDocument(KoDocument *doc);
     void removeDocument(KoDocument *doc);

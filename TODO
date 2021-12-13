@@ -38,7 +38,7 @@ In no particular order or priority:
 	Time now
 	Context menu on tasks in chart
 	When selected in list, show selection in chart and vs (?)
-	Remove the position diffrence of items in list and chart
+	Remove the position difference of items in list and chart
 	Position correctly on start/end datetime (small offset now)
 
 * Add time period config to cost breakdown view

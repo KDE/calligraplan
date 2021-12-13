@@ -122,7 +122,7 @@ public:
 
         m_helpMenu = nullptr;
 
-        // PartManger
+        // PartManager
         m_activeWidget = nullptr;
         m_activePart = nullptr;
 

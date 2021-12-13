@@ -1164,7 +1164,7 @@ void ProjectTester::scheduleFulldayDstSpring()
 
     project.setConstraintStartTime(DateTime(QDate::fromString("2011-03-25", Qt::ISODate)));
 
-    sm = project.createScheduleManager("Test Foreward");
+    sm = project.createScheduleManager("Test Foreword");
     project.addScheduleManager(sm);
     sm->createSchedules();
     project.calculate(*sm);
@@ -1314,7 +1314,7 @@ void ProjectTester::scheduleFulldayDstFall()
     t->requests().addResourceRequest(new ResourceRequest(r, 100));
 
 
-    sm = project.createScheduleManager("Test Foreward");
+    sm = project.createScheduleManager("Test Foreword");
     project.addScheduleManager(sm);
     sm->createSchedules();
     project.calculate(*sm);
@@ -1328,7 +1328,7 @@ void ProjectTester::scheduleFulldayDstFall()
     s = "Daylight saving time - Fall, Backward: 8 hour shifts, 3 resources ---------------";
     qDebug()<<'\n'<<"Testing:"<<s;
 
-    sm = project.createScheduleManager("Test Foreward");
+    sm = project.createScheduleManager("Test Foreword");
     project.addScheduleManager(sm);
     sm->setSchedulingDirection(true);
     sm->createSchedules();

@@ -40,7 +40,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     Q_ASSERT(&fromProject != m_project);
 
     if (m_project->defaultCalendar()) {
-        fromProject.setDefaultCalendar(nullptr); // or else m_project default calendar may be overwitten
+        fromProject.setDefaultCalendar(nullptr); // or else m_project default calendar may be overwritten
     }
     QString defaultAccount;
     if (! m_project->accounts().defaultAccount() && fromProject.accounts().defaultAccount()) {

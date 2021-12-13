@@ -52,7 +52,7 @@ class Node;
  *  !- :
  *  !- ResourceGroup
  * 
- * QModelIndex: internalPointer() pionts to parent group, nullptr if top level group.
+ * QModelIndex: internalPointer() points to parent group, nullptr if top level group.
  */
 
 class PLANMODELS_EXPORT ResourceGroupItemModel : public ItemModelBase

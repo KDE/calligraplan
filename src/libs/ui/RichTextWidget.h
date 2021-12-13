@@ -19,7 +19,7 @@ namespace KPlato
  * Extends KRichTextWidget with capability to open links.
  * 
  * If SupportHyperlinks is enabled, an action with object name 'open_link'
- * is ceated that can be used in a tool bar, and an action is also
+ * is created that can be used in a tool bar, and an action is also
  * added to the context menu when the caret is on a link.
  */ 
 class RichTextWidget : public KRichTextWidget

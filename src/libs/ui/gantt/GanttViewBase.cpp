@@ -310,7 +310,7 @@ GanttPrintingDialog::GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt)
     m_gantt(gantt),
     m_options(0)
 {
-    m_headerHeight = gantt->treeView()->header()->height(); // same header hight
+    m_headerHeight = gantt->treeView()->header()->height(); // same header height
     m_sceneRect = gantt->graphicsView()->sceneRect();
     const GanttPrintingOptions opt = m_gantt->m_printOptions;
     if (opt.useStartTime) {

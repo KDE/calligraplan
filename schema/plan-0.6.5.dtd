@@ -11,7 +11,7 @@
 
 <!--
     plan is used both as the top level element (holding a project)
-    and for other things below (holding shedule data etc)
+    and for other things below (holding schedule data etc)
 -->
 <!ELEMENT plan (project?|plan*|schedule*)>
 <!ATTLIST plan
@@ -50,7 +50,7 @@
     project-code  CDATA #IMPLIED
     project-separator  CDATA #IMPLIED>
 
-<!-- WBS code generation deafault format -->
+<!-- WBS code generation default format -->
 <!ELEMENT default EMPTY>
 <!ATTLIST default
     separator CDATA "."
@@ -82,7 +82,7 @@
    name CDATA #REQUIRED
    description CDATA #IMPLIED>
 
-<!-- A cost place is info on where the cost is generated (object-id referes to a task or a resource) -->
+<!-- A cost place is info on where the cost is generated (object-id refers to a task or a resource) -->
 <!ELEMENT costplace EMPTY>
 <!ATTLIST costplace
     object-id CDATA #REQUIRED
@@ -284,7 +284,7 @@
 -->
 
 <!--
-	Resource requests are made by tasks and referes to
+	Resource requests are made by tasks and refers to
     the resources needed from a resource group
 -->
 <!ELEMENT resourcegroup-request (resource-request*)>

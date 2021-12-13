@@ -89,7 +89,7 @@ public:
     //!Return the total number of records
     virtual qint64 recordCount() const;
 
-    //!Return the index number of the field given by nane field
+    //!Return the index number of the field given by name field
     virtual int fieldNumber(const QString &field) const;
 
     //!Return the list of field names

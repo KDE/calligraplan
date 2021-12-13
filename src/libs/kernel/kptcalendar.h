@@ -354,7 +354,7 @@ public:
  *  4. Definitions for individual resources.
  *
  * A calendar can define a timezone different from the projects.
- * This enables planning with resources that does not recide in the same place.
+ * This enables planning with resources that does not reside in the same place.
  *
  */
 class PLANKERNEL_EXPORT Calendar : public QObject

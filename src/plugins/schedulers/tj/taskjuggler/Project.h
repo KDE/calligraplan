@@ -137,7 +137,7 @@ public:
      */
     int getScenarioIndex(const QString& id) const;
     /**
-     * Returns an interator for the list of defined scenarios.
+     * Returns an iterator for the list of defined scenarios.
      */
     ScenarioListIterator getScenarioIterator() const
     {
@@ -279,7 +279,7 @@ public:
         return workingHours[day];
     }
     /**
-     * Returns an interator for the list of working intervals for the
+     * Returns an iterator for the list of working intervals for the
      * specified weekday.
      * @param day Day of the week. 0 for Sunday, 1 for Monday and so on.
      */
@@ -313,7 +313,7 @@ public:
 
     /**
      * The daily working hours value is used to convert working hours into
-     * working days. It should be an avarage value of the specified
+     * working days. It should be an average value of the specified
      * workingHours for each week day. With this function you can set the
      * value for the project.
      */

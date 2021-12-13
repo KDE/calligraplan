@@ -43,7 +43,7 @@ public:
     explicit Task(const Task &task, Node *parent = nullptr);
     ~Task() override;
 
-    /// Return task type. Can be Type_Task, Type_Summarytask ot Type_Milestone.
+    /// Return task type. Can be Type_Task, Type_Summarytask, or Type_Milestone.
     int type() const override;
 
     /**

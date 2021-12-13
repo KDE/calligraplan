@@ -55,7 +55,7 @@ void TestXmlReaderWithoutSpaces::testNode()
     xmlstream   << "<europe/>";
     xmlstream   << "<america/>";
     xmlstream   << "<australia/>";
-    xmlstream   << "<antartic/>";
+    xmlstream   << "<antarctic/>";
     xmlstream  << "</continents>";
     xmlstream  << "<oceans>";
     xmlstream   << "<pacific/>";
@@ -1067,7 +1067,7 @@ void TestXmlReaderWithoutSpaces::testUnload()
     xmlstream << "<europe/>";
     xmlstream << "<america/>";
     xmlstream << "<australia/>";
-    xmlstream << "<antartic/>";
+    xmlstream << "<antarctic/>";
     xmlstream << "</continents>";
     xmlstream << "<oceans>";
     xmlstream << "<pacific/>";

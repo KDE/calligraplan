@@ -163,7 +163,7 @@
       <xs:attribute name="description"/>
     </xs:complexType>
   </xs:element>
-  <!-- A cost place is info on where the cost is generated (object-id referes to a task or a resource) -->
+  <!-- A cost place is info on where the cost is generated (object-id refers to a task or a resource) -->
   <xs:element name="costplace">
     <xs:complexType>
       <xs:attribute name="object-id" use="required"/>

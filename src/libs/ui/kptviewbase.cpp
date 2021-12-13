@@ -1054,7 +1054,7 @@ void TreeViewPrintingDialog::printPage(int page, QPainter &painter)
                 rightpos = r.right();
             }
             painter.drawRect(r);
-            // FIXME There is a bug somewhere, the text somehow overwites the rect outline for the first column!
+            // FIXME There is a bug somewhere, the text somehow overwrites the rect outline for the first column!
             painter.save();
             painter.setBrush(QBrush());
             painter.drawText(r.adjusted(3, 1, -3, -1), align, text);
@@ -1867,8 +1867,8 @@ void TreeViewBase::loadExpanded(const KoXmlElement &element)
     KoXml::asQDomElement(m_loadContextDoc, expanded);
 
     // FIXME:
-    // if data is dependent on schedule manger
-    // we cannot do anything until schedulemanger is set,
+    // if data is dependent on schedule manager
+    // we cannot do anything until schedulemanager is set,
     // so we wait a bit and hope everything is ok
     QTimer::singleShot(500, this, &TreeViewBase::doContextExpanded);
 }
@@ -2183,7 +2183,7 @@ void DoubleTreeViewPrintingDialog::printPage(int page, QPainter &painter)
                 rightpos = r.right();
             }
             painter.drawRect(r);
-            // FIXME There is a bug somewhere, the text somehow overwites the rect outline for the first column!
+            // FIXME There is a bug somewhere, the text somehow overwrites the rect outline for the first column!
             painter.save();
             painter.setBrush(QBrush());
             painter.drawText(r.adjusted(3, 1, -3, -1), align, text);

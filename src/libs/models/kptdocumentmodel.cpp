@@ -277,7 +277,7 @@ Qt::ItemFlags DocumentItemModel::flags(const QModelIndex &index) const
         flags |= Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
         switch (index.column()) {
             case DocumentModel::Property_Url: // url
-                flags &= ~Qt::ItemIsEditable; // wee need a full path
+                flags &= ~Qt::ItemIsEditable; // we need a full path
                 break;
             case DocumentModel::Property_Name: // name
                 flags |= Qt::ItemIsEditable;

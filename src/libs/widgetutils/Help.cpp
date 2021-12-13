@@ -83,7 +83,7 @@ void Help::invoke(const QUrl &xurl)
         // 1) Pages are accessed as a .html page
         // 2) Page- and fragment ids are lower case
         // 3) Spaces (or '_') in names and fragments are converted to '-'
-        // 4) Parantheses are removed
+        // 4) Parentheses are removed
         QString path = url.path();
         QString fileName = url.fileName();
         if (fileName.isEmpty()) {
