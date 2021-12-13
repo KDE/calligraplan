@@ -969,8 +969,9 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
         if (!suggestedFilename.isEmpty()) {  // ".kra" looks strange for a name
             int c = suggestedFilename.lastIndexOf('.');
 
-            const QString ext = mime.preferredSuffix();
+            QString ext = mime.preferredSuffix();
             if (!ext.isEmpty()) {
+                ext.prepend('.');
                 if (c < 0)
                     suggestedFilename += ext;
                 else
@@ -1146,7 +1147,7 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
             }
 
             if (!ret) {
-                debugMain << "Failed Save!";
+                debugMain << d->rootDocument << "Failed Save!";
                 d->rootDocument->setUrl(oldURL);
                 d->rootDocument->setLocalFilePath(oldFile);
             }
