@@ -25,6 +25,21 @@ extern const KOWIDGETUTILS_EXPORT QLoggingCategory &PLANHELP_LOG();
 namespace KPlato
 {
 
+/**
+ * Typical usage:
+ * <code>
+ * Help::add(this, xi18nc("@info:whatsthis",
+ *     "<title>Task Editor</title>"
+ *     "<para>"
+ *     "The Task Editor is used to create, edit, and delete tasks. "
+ *     "Tasks are organized into a Work Breakdown Structure (WBS) to any depth."
+ *     "</para><para>"
+ *     "This view supports configuration and printing using the context menu."
+ *     "<nl/><link url='%1'>More...</link>"
+ *    "</para>", Help::page("Task_Editor")));
+ * </code>
+ */
+
 class KOWIDGETUTILS_EXPORT Help
 {
 public:
