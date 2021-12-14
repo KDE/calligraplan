@@ -58,10 +58,10 @@ QString Part::recentFilesGroupName() const
 void Part::configure(KoMainWindow *mw)
 {
     qInfo()<<Q_FUNC_INFO;
-    if (KConfigDialog::showDialog(xi18nc("@info:title", "Portfolio Settings"))) {
+    if (KConfigDialog::showDialog(xi18nc("title:window", "Portfolio Settings"))) {
         return;
     }
-    ConfigDialog *dialog = new ConfigDialog(mw, xi18nc("@info:title", "Portfolio Settings"), PortfolioSettings::self());
+    ConfigDialog *dialog = new ConfigDialog(mw, xi18nc("@title:window", "Portfolio Settings"), PortfolioSettings::self());
     connect(dialog, &ConfigDialog::settingsUpdated, this, &Part::slotSettingsUpdated, Qt::QueuedConnection);
     dialog->open();
 }

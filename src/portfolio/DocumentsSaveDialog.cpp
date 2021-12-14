@@ -20,11 +20,11 @@ DocumentsSaveModel::DocumentsSaveModel(MainDocument *doc, const QList<KoDocument
     , m_doc(doc)
 {
     const auto labels = QStringList()
-        << i18nc("@info:title", "Portfolio")
-        << i18nc("@info:title", "Modified")
-        << i18nc("@info:title", "Save")
-        << i18nc("@info:title", "Internal")
-        << i18nc("@info:title", "Url");
+        << i18nc("@title:column", "Portfolio")
+        << i18nc("@title:column", "Modified")
+        << i18nc("@title:column", "Save")
+        << i18nc("@title:column", "Internal")
+        << i18nc("@title:column", "Url");
     setHorizontalHeaderLabels(labels);
 //     if (true/*doc->isModified()*/) {
 //         QList<QStandardItem*> items;
