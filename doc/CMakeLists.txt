@@ -11,4 +11,5 @@ macro_optional_find_package(KF5 ${REQUIRED_KF5_VERSION} QUIET COMPONENTS DocTool
 
 if(KF5_FOUND)
   add_subdirectory(plan)
+  add_subdirectory(portfolio)
 endif()

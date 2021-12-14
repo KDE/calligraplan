@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY portfolio-introduction-chapter SYSTEM "portfoliointroduction.docbook">
+<!ENTITY introduction-section SYSTEM "introduction.docbook">
+<!ENTITY context-help-section SYSTEM "contexthelp.docbook">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE"><!-- change language only here -->
+]>
+<book lang="&language;">
+  <bookinfo>
+    <title>The Plan Portfolio Handbook</title>
+    <authorgroup>
+      <author>
+        <personname>
+          <firstname>Dag</firstname><surname>Andersen</surname>
+        </personname>
+      </author>
+      <!-- TRANS:ROLES_OF_TRANSLATORS -->
+    </authorgroup>
+    <legalnotice>&FDLNotice;</legalnotice>
+    <date>2021-12-14</date>
+    <releaseinfo>WIP</releaseinfo>
+    <abstract>
+      <para></para>
+    </abstract>
+    <keywordset>
+      <keyword>KDE</keyword>
+      <keyword>Office</keyword>
+      <keyword>Project Management</keyword>
+    </keywordset>
+  </bookinfo>
+
+  &portfolio-introduction-chapter;
+  
+  <!--userbase-content-->
+  <chapter id="credits">
+    <title>Credits and License</title>
+    <para>
+    </para>
+    <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+    &underFDL;
+  </chapter>
+  &documentation.index;
+</book>
