@@ -19,6 +19,7 @@
 
 #include <KoComponentData.h>
 #include <WelcomeView.h>
+#include <KoDocumentEntry.h>
 
 #include <KRecentFilesAction>
 #include <KXMLGUIFactory>
@@ -39,8 +40,6 @@ Part::Part(QObject *parent)
     : KoPart(Factory::global(), parent)
 {
     setTemplatesResourcePath(QLatin1String("calligraplan/templates/"));
-
-    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 }
 
 Part::~Part()
@@ -77,12 +76,15 @@ KoView *Part::createViewInstance(KoDocument *document, QWidget *parent)
 KoMainWindow *Part::createMainWindow()
 {
     KoMainWindow *w = new KoMainWindow(PLAN_MIME_TYPE, componentData());
-    QAction *handbookAction = w->action("help_contents");
-    if (handbookAction) {
-        // we do not want to use khelpcenter as we do not install docs
-        disconnect(handbookAction, nullptr, nullptr, nullptr);
-        connect(handbookAction, &QAction::triggered, this, &Part::slotHelpContents);
-    }
+    KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(PLAN_MIME_TYPE);
+    QJsonObject json = entry.metaData();
+    auto docs = json.value("X-PLAN-Documentation").toVariant().toString().split(';', Qt::SkipEmptyParts);
+    auto help = KPlato::Help::instance();
+    help->setDocs(docs);
+//     help->setContentsUrl(QUrl(KPlatoSettings::documentationPath()));
+//     help->setContextUrl(QUrl(KPlatoSettings::contextPath()));
+    qApp->installEventFilter(help); // this must go after filter installed by KMainWindow, so it will be called before
+
     return w;
 }
 
@@ -151,7 +153,7 @@ void Part::configure(KoMainWindow *mw)
 
 void Part::slotSettingsUpdated()
 {
-    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
+//     new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 }
 
 bool Part::editProject()

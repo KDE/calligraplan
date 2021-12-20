@@ -22,7 +22,6 @@
 #include "kptdatetime.h"
 #include "kptintervaledit.h"
 #include "kptitemviewsettup.h"
-#include "Help.h"
 #include "kptdebug.h"
 
 #include <KoIcon.h>
@@ -373,7 +372,7 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     setXMLFile("CalendarEditorUi.rc");
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                       "<title>Work & Vacation Editor</title>"
                       "<para>"
@@ -388,7 +387,7 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                       "A calendar can be defined as the <emphasis>Default calendar</emphasis>. "
                       "The default calendar is used by a working resource, when the resources calendar is not explicitly set."
                       "<nl/><link url='%1'>More...</link>"
-                      "</para>", Help::page("Work_and_Vacation_Editor")));
+                      "</para>", QStringLiteral("plan:work-and-vacation-editor")));
 
     setupGui();
 

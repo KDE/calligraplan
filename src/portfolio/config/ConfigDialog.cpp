@@ -27,7 +27,7 @@ ConfigDialog::ConfigDialog(KoMainWindow *parent, const QString& name, KConfigSke
     m_pages << addPage(docPage, i18nc("@title:tab Document settings page", "Document"));
     m_pages.last()->setIcon(koIcon("document-properties"));
 
-    m_pages << addPage(new KPlato::ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents"));
+//     m_pages << addPage(new KPlato::ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents"));
 }
 
 void ConfigDialog::updateSettings()
@@ -50,6 +50,6 @@ bool ConfigDialog::hasChanged()
 
 void ConfigDialog::showHelp()
 {
-    KPlato::Help::invoke("Configure_Dialog");
+    KPlato::Help::instance()->invokeContext(QUrl("portfolio:configure-dialog"));
 }
 

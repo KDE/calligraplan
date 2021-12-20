@@ -19,7 +19,6 @@
 #include "kptschedule.h"
 #include "kptdebug.h"
 #include "config.h"
-#include "Help.h"
 #include "kptrelationdialog.h"
 #include "RelationEditorDialog.h"
 #include "kpttaskdialog.h"
@@ -2047,7 +2046,7 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
     connect(m_view->itemScene(), &DependencyScene::itemDoubleClicked, this, &DependencyEditor::slotItemDoubleClicked);
     connect(m_view, &DependencyView::contextMenuRequested, this, &DependencyEditor::slotContextMenuRequested);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Task Dependency Editor</title>"
                      "<para>"
@@ -2058,7 +2057,7 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
                      "</para><para>"
                      "This view supports printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Task_Dependency_Editor_(Graphical)")));
+                     "</para>", QStringLiteral("plan:task-dependency-editor-(graphical)")));
 }
 
 void DependencyEditor::updateReadWrite(bool on)

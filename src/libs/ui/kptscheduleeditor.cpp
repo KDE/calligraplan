@@ -19,7 +19,6 @@
 #include "kptpertresult.h"
 #include "kptitemviewsettup.h"
 #include "kptrecalculatedialog.h"
-#include "Help.h"
 #include "kptdebug.h"
 #include "kpttaskdialog.h"
 #include "kptsummarytaskdialog.h"
@@ -165,7 +164,7 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 
     slotEnableActions();
 
-    Help::add(this,
+    setWhatsThis(
         xi18nc("@info:whatsthis", 
                "<title>Schedule Editor</title>"
                "<para>"
@@ -179,7 +178,7 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                " in order to reschedule only tasks that are not yet finished."
                " Rescheduling will then use e.g. actual start and remaining effort for the tasks."
                "<nl/><link url='%1'>More...</link>"
-               "</para>", Help::page("Schedules_Editor")));
+               "</para>", QStringLiteral("plan:schedules-editor")));
 }
 
 void ScheduleEditor::draw(Project &project)

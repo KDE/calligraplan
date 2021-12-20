@@ -16,7 +16,6 @@
 #include "kptproject.h"
 #include "kptschedule.h"
 #include "kpteffortcostmap.h"
-#include "Help.h"
 #include "kptnodeitemmodel.h"
 #include "kptdebug.h"
 #include "kpttaskdialog.h"
@@ -211,7 +210,7 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
 
     connect(m_view->treeView(), SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis", 
                      "<title>Task Performance View</title>"
                      "<para>"
@@ -219,7 +218,7 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Task_Performance_View")));
+                     "</para>", QStringLiteral("plan:task-performance-view")));
 }
 
 void PerformanceStatusView::slotEditCopy()

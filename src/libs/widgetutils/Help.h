@@ -12,6 +12,8 @@
 #include <QObject>
 #include <QDebug>
 #include <QLoggingCategory>
+#include <QMap>
+#include <QUrl>
 
 class QEvent;
 
@@ -27,8 +29,20 @@ namespace KPlato
 
 /**
  * Typical usage:
+ * In your application:
  * <code>
- * Help::add(this, xi18nc("@info:whatsthis",
+ * KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(PLAN_MIME_TYPE);
+ * QJsonObject json = entry.metaData();
+ * auto docs = json.value("X-PLAN-Documentation").toVariant().toString().split(';', Qt::SkipEmptyParts);
+ * auto help = KPlato::Help::instance();
+ * help->setDocs(docs);
+ * help->setContentsUrl(QUrl(KPlatoSettings::documentationPath()));
+ * help->setContextUrl(QUrl(KPlatoSettings::contextPath()));
+ * qApp->installEventFilter(help); // this must go after filter installed by KMainWindow, so it will be called before
+ * </code>
+ * In your widget:
+ * <code>
+ * setWhatsThis(xi18nc("@info:whatsthis",
  *     "<title>Task Editor</title>"
  *     "<para>"
  *     "The Task Editor is used to create, edit, and delete tasks. "
@@ -36,38 +50,36 @@ namespace KPlato
  *     "</para><para>"
  *     "This view supports configuration and printing using the context menu."
  *     "<nl/><link url='%1'>More...</link>"
- *    "</para>", Help::page("Task_Editor")));
+ *    "</para>", QStringLiteral("plan:task-editor")));
  * </code>
+ * Note the "plan" keyword in the link. Allowed keywords are defined by the
+ * X-PLAN-Documentation entry in the parts desktop file
  */
 
-class KOWIDGETUTILS_EXPORT Help
-{
-public:
-    Help(const QString &docpath, const QString &language = QString());
-    static void add(QWidget *widget, const QString &text);
-    static QString page(const QString &page = QString());
-    static void invoke(const QString &page);
-    static void invoke(const QUrl &url);
-
-protected:
-    ~Help();
-
-private:
-    static Help* self;
-    QString m_docpath;
-};
-
-
-class KOWIDGETUTILS_EXPORT WhatsThisClickedEventHandler : public QObject
+class KOWIDGETUTILS_EXPORT Help : public QObject
 {
     Q_OBJECT
 public:
-    WhatsThisClickedEventHandler(QObject *parent=nullptr);
+    static Help *instance();
+    void setContentsUrl(const QUrl &url);
+    void setContextUrl(const QUrl &url);
+    void setDocs(const QStringList &docs);
+    QString doc(const QString &key) const;
+
+    bool invokeContent(QUrl url);
+    bool invokeContext(QUrl url);
 
     bool eventFilter(QObject *object, QEvent *event) override;
 
-};
+private:
+    Help();
+    ~Help() override;
 
+    static Help* self;
+    QUrl m_contentsUrl;
+    QUrl m_contextUrl;
+    QMap<QString, QString> m_docs;
+};
 
 } // namespace KPlato
 

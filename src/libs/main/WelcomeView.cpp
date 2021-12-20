@@ -17,7 +17,6 @@
 #include <KoDocument.h>
 #include <KoFileDialog.h>
 #include <KoComponentData.h>
-#include <Help.h>
 
 #include <KConfigGroup>
 #include <KRecentFilesAction>
@@ -126,7 +125,7 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
 
     ui.onlineLabel->setText(xi18nc("@info", "<subtitle>Online Resources</subtitle>"));
 
-    KPlato::Help::add(ui.newProjectBtn,
+    ui.newProjectBtn->setWhatsThis(
                    xi18nc("@info",
                           "<title>Create a new project</title>"
                           "<para>"
@@ -138,9 +137,9 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
                           " <resource>Target Start</resource>"
                           " and <resource>- End</resource> times."
                           "<nl/><link url='%1'>More...</link>"
-                          "</para>", KPlato::Help::page("Creating_a_Project")));
+                          "</para>", QStringLiteral("plan:creating-a-project#creating-a-project-section")));
 
-    KPlato::Help::add(ui.createResourceFileBtn,
+    ui.createResourceFileBtn->setWhatsThis(
                    xi18nc("@info:whatsthis",
                           "<title>Shared resources</title>"
                           "<para>"
@@ -151,9 +150,9 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
                           " to avoid overbooking resources across projects."
                           "<nl/>Shared resources must be defined in a separate file."
                           "<nl/><link url='%1'>More...</link>"
-                          "</para>", KPlato::Help::page("Managing_Resources")));
+                          "</para>", QStringLiteral("plan:managing-resources")));
 
-    KPlato::Help::add(ui.recentProjects,
+    ui.recentProjects->setWhatsThis(
                    xi18nc("@info:whatsthis",
                           "<title>Recent Projects</title>"
                           "<para>"
@@ -162,7 +161,7 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
                           "<nl/>This enables you to quickly open projects you have worked on recently."
                           "</para>"));
 
-    KPlato::Help::add(ui.contextHelp,
+    ui.contextHelp->setWhatsThis(
                    xi18nc("@info:whatsthis",
                           "<title>Context help</title>"
                           "<para>"
@@ -174,14 +173,14 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
                           "</para><para>"
                           "If you see <link url='%1'>More...</link> in the text,"
                           " pressing it will display more information from the documentation."
-                          "</para>", KPlato::Help::page("Context_Help")));
+                          "</para>", QStringLiteral("plan:context-help")));
 
     m_recentProjects = new RecentProjectsModel(this);
     ui.recentProjects->setModel(m_recentProjects);
 
     setProjectTemplatesModel();
 
-    KPlato::Help::add(ui.projectTemplates, xi18nc("@info:whatsthis",
+    ui.projectTemplates->setWhatsThis(xi18nc("@info:whatsthis",
         "<title>Project Templates</title>"
         "<para>"
         "Select a template to create a new project based on the selected template."
@@ -190,7 +189,7 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
         "</para><para>"
         "You can create new templates from a project using the <interface>File->Create Project Template</interface> menu entry."
         "<nl/><link url='%1'>More...</link>"
-        "</para>", KPlato::Help::page("Creating_a_Project")));
+        "</para>", QStringLiteral("plan:creating-a-project#creating-a-project-section")));
 
     setupGui();
 

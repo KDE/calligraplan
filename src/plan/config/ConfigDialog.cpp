@@ -15,11 +15,11 @@
 #include "ConfigProjectTemplatesPanel.h"
 
 #include <calligraplansettings.h>
-#include <Help.h>
 #include <KoIcon.h>
 #include <KoMainWindow.h>
 #include <config/KoConfigDocumentPage.h>
-#include "config/ConfigDocumentationPanel.h"
+// #include <config/ConfigDocumentationPanel.h>
+#include <Help.h>
 
 #include <KConfigSkeleton>
 #include <KLocalizedString>
@@ -55,7 +55,7 @@ ConfigDialog::ConfigDialog(KoMainWindow *parent, const QString& name, KConfigSke
     m_pages.last()->setIcon(koIcon("document-properties"));
 //     connect(this, &ConfigDialog::updateWidgetsSettings, docPage, &KoConfigDocumentPage::apply);
 
-    m_pages << addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents"));
+//     m_pages << addPage(new ConfigDocumentationPanel(), i18n("Documentation"), koIconName("documents"));
 }
 
 void ConfigDialog::updateSettings()
@@ -64,6 +64,8 @@ void ConfigDialog::updateSettings()
 
     KPlatoSettings::self()->save();
     Q_EMIT settingsUpdated();
+//     Help::instance()->setContentsUrl(QUrl(KPlatoSettings::self()->documentationPath()));
+//     Help::instance()->setContextUrl(QUrl(KPlatoSettings::self()->contextPath()));
 }
 
 void ConfigDialog::updateWidgets()
@@ -79,6 +81,6 @@ bool ConfigDialog::hasChanged()
 
 void ConfigDialog::showHelp()
 {
-    Help::invoke("Configure_Plan_Dialog");
+    Help::instance()->invokeContext(QUrl("plan:configure-plan-dialog"));
 }
 

@@ -20,7 +20,6 @@
 #include "kptdatetime.h"
 #include "kptitemviewsettup.h"
 #include "kptviewbase.h"
-#include "Help.h"
 #include "kptdebug.h"
 #include "kpttaskdialog.h"
 #include "kptsummarytaskdialog.h"
@@ -203,7 +202,7 @@ ResourceAppointmentsView::ResourceAppointmentsView(KoPart *part, KoDocument *doc
 
     connect(m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Resource Assignments View</title>"
                      "<para>"
@@ -211,7 +210,7 @@ ResourceAppointmentsView::ResourceAppointmentsView(KoPart *part, KoDocument *doc
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Resource_Assignment_View")));
+                     "</para>", QStringLiteral("plan:resource-assignment-view")));
 }
 
 void ResourceAppointmentsView::draw(Project &project)

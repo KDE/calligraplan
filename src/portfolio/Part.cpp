@@ -15,6 +15,8 @@
 #include "portfoliosettings.h"
 
 #include <KoComponentData.h>
+#include <KoDocumentEntry.h>
+#include <Help.h>
 
 #include <QAction>
 
@@ -42,11 +44,14 @@ KoView *Part::createViewInstance(KoDocument *document, QWidget *parent)
 KoMainWindow *Part::createMainWindow()
 {
     MainWindow *w = new MainWindow(PLANPORTFOLIO_MIME_TYPE, componentData());
-    QAction *handbookAction = w->action("help_contents");
-    if (handbookAction) {
-        disconnect(handbookAction, nullptr, nullptr, nullptr);
-        connect(handbookAction, &QAction::triggered, this, &Part::slotHelpContents);
-    }
+    KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(PLANPORTFOLIO_MIME_TYPE);
+    QJsonObject json = entry.metaData();
+    auto docs = json.value("X-PLAN-Documentation").toVariant().toString().split(';', Qt::SkipEmptyParts);
+    auto help = KPlato::Help::instance();
+    help->setDocs(docs);
+//     help->setContentsUrl(QUrl(KPlatoSettings::documentationPath()));
+//     help->setContextUrl(QUrl(KPlatoSettings::contextPath()));
+    qApp->installEventFilter(help); // this must go after filter installed by KMainWindow, so it will be called before
     return w;
 }
 

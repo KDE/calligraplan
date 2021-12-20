@@ -10,7 +10,6 @@
 #include "kptviewlist.h"
 
 #include "kptview.h"
-#include "Help.h"
 #include "kptdebug.h"
 
 #include <KLocalizedString>

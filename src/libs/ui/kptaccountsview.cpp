@@ -12,7 +12,6 @@
 #include "kptproject.h"
 #include "kpteffortcostmap.h"
 #include "kptaccountsmodel.h"
-#include "Help.h"
 #include "kptdebug.h"
 
 #include <KoDocument.h>
@@ -54,7 +53,7 @@ AccountsTreeView::AccountsTreeView(QWidget *parent)
     
     connect(m, &QAbstractItemModel::modelReset, this, &AccountsTreeView::slotModelReset);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Cost Breakdown View</title>"
                      "<para>"
@@ -62,7 +61,7 @@ AccountsTreeView::AccountsTreeView(QWidget *parent)
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Cost_Breakdown_View")));
+                     "</para>", QStringLiteral("plan:cost-breakdown-view")));
 }
 
 void AccountsTreeView::slotModelReset()

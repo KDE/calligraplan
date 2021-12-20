@@ -11,7 +11,6 @@
 
 #include <MimeTypes.h>
 #include <KoApplication.h>
-#include <Help.h>
 
 #include <QApplication>
 #include <QLoggingCategory>
@@ -32,8 +31,6 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 
     QApplication::setAttribute(Qt::AA_ShareOpenGLContexts, true);
     KoApplication app(PLANPORTFOLIO_MIME_TYPE, QStringLiteral("calligraplanportfolio"), newAboutData, argc, argv);
-
-//     new KPlato::Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 
     if (!app.start(PortfolioFactory::global())) {
         return 1;

@@ -45,7 +45,6 @@
 #include <ktoggleaction.h>
 #include <ktoolinvocation.h>
 #include <krun.h>
-#include <khelpclient.h>
 
 #include <KoPart.h>
 #include <KoComponentData.h>
@@ -93,8 +92,6 @@
 #include "kptflatproxymodel.h"
 #include "kpttaskstatusmodel.h"
 #include "kptworkpackagemergedialog.h"
-#include "Help.h"
-
 #include "ResourceCoverageView.h"
 
 #include "performance/PerformanceStatusView.h"
@@ -132,7 +129,6 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
         m_partpart (part)
 {
     //debugPlan;
-    new Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
 
     doc->registerView(this);
 

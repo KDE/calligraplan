@@ -39,3 +39,6 @@ Type=QString
 [PropertyDef::X-KDE-ExtraNativeMimeTypes]
 Type=QStringList
 
+# Name of documentation
+[PropertyDef::X-PLAN-Documentation]
+Type=QStringList

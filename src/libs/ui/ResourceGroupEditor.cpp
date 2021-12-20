@@ -22,7 +22,6 @@
 #include "kptresource.h"
 #include "kptdatetime.h"
 #include "kptitemviewsettup.h"
-#include "Help.h"
 #include "kptdebug.h"
 
 #include <KoDocument.h>
@@ -138,14 +137,14 @@ ResourceGroupEditor::ResourceGroupEditor(KoPart *part, KoDocument *doc, QWidget 
 {
     setXMLFile("ResourceGroupEditorUi.rc");
 
-    Help::add(this,
+    setWhatsThis(
         xi18nc("@info:whatsthis", 
                "<title>Resource Breakdown Structure</title>"
                "<para>"
                "Resources can be organized in a Resource Breakdown Structure. "
                "The structure is purely organizational and has no impact on resource allocations."
                "<nl/><link url='%1'>More...</link>"
-               "</para>", Help::page("Resource_Breakdown_Structure")));
+               "</para>", QStringLiteral("plan:resource-breakdown-structure")));
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);

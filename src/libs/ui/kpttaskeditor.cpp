@@ -25,7 +25,6 @@
 #include "ResourceAllocationView.h"
 #include "kpttaskdialog.h"
 #include "TasksEditController.h"
-#include "Help.h"
 #include "kpttaskdescriptiondialog.h"
 #include "RelationEditorDialog.h"
 #include "kpttaskdialog.h"
@@ -373,7 +372,7 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(baseModel(), &NodeItemModel::projectShownChanged, this, &TaskEditor::slotProjectShown);
     connect(model(), &QAbstractItemModel::rowsMoved, this, &TaskEditor::slotEnableActions);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Task Editor</title>"
                      "<para>"
@@ -382,7 +381,7 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Task_Editor")));
+                     "</para>", QStringLiteral("plan:task-editor")));
 }
 
 void TaskEditor::itemDoubleClicked(const QPersistentModelIndex &idx)
@@ -522,7 +521,7 @@ void TaskEditor::createDockers()
         connect(m, &TaskModuleModel::saveTaskModule, this, &TaskEditor::saveTaskModule);
         connect(m, &TaskModuleModel::removeTaskModule, this, &TaskEditor::removeTaskModule);
         addDocker(ds);
-        Help::add(ds, xi18nc("@info:whatsthis",
+        ds->setWhatsThis(xi18nc("@info:whatsthis",
                             "<title>Task Modules</title>"
                            "<para>"
                            "Task Modules are a group of tasks that can be reused across projects."
@@ -531,7 +530,7 @@ void TaskEditor::createDockers()
                            "A task module is a regular plan file and typically includes tasks, estimates and dependencies."
                            "</para><para>"
                            "<link url='%1'>More...</link>"
-                           "</para>", Help::page("Task_Editor#Task_Modules_Docker")));
+                           "</para>", QStringLiteral("plan:task-editor#task-modules-docker")));
     }
 }
 
@@ -1608,7 +1607,7 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(m_view->masterView(), &TreeViewBase::doubleClicked, this, &TaskView::itemDoubleClicked);
     connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskView::itemDoubleClicked);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Task Execution View</title>"
                      "<para>"
@@ -1616,7 +1615,7 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Task_Execution_View")));
+                     "</para>", QStringLiteral("plan:task-execution-view")));
 }
 
 void TaskView::itemDoubleClicked(const QPersistentModelIndex &idx)

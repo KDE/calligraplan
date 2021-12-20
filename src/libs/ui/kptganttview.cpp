@@ -21,7 +21,6 @@
 #include "kptduration.h"
 #include "kptdatetime.h"
 #include "kptresourceappointmentsmodel.h"
-#include "Help.h"
 #include "kptdebug.h"
 #include "DateTimeTimeLine.h"
 #include "DateTimeGrid.h"
@@ -388,7 +387,7 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
 
     updateActionsEnabled(false);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Gantt View</title>"
                      "<para>"
@@ -399,7 +398,7 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
                      "</para><para>"
                      "This view supports configuration and printing using the context menu of the tree view."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Task_Gantt_View")));
+                     "</para>", QStringLiteral("plan:task-gantt-view")));
 }
 
 void GanttView::slotEditCopy()
@@ -1118,7 +1117,7 @@ MilestoneKGanttView::MilestoneKGanttView(QWidget *parent)
     treeView()->sortByColumn(NodeModel::NodeWBSCode, Qt::AscendingOrder);
     treeView()->setSortingEnabled(true);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Milestone Gantt View</title>"
                      "<para>"
@@ -1129,7 +1128,7 @@ MilestoneKGanttView::MilestoneKGanttView(QWidget *parent)
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Milestone_Gantt_View")));
+                     "</para>", QStringLiteral("plan:milestone-gantt-view")));
 }
 
 MilestoneItemModel *MilestoneKGanttView::model() const
@@ -1838,7 +1837,7 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
 
     updateActionsEnabled(false);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Resource Assignments (Gantt)</title>"
                      "<para>"
@@ -1849,7 +1848,7 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Resource_Assignment_Gantt_View")));
+                     "</para>", QStringLiteral("plan:resource-assignment-gantt-view")));
 }
 
 ResourceAppointmentsGanttView::~ResourceAppointmentsGanttView()

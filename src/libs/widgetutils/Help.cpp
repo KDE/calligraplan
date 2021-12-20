@@ -28,18 +28,16 @@ const QLoggingCategory &PLANHELP_LOG()
 }
 
 
-Help* Help::self = nullptr;
+KPlato::Help* KPlato::Help::self = nullptr;
 
-Help::Help(const QString &docpath, const QString &language)
+Help::Help()
 {
     if (self) {
         delete self;
     }
     self = this;
-    m_docpath = docpath;
-    if (!language.isEmpty()) {
-        m_docpath += '/' + language;
-    }
+    m_contentsUrl.setScheme("help");
+    m_contextUrl.setScheme("help");
 }
 
 Help::~Help()
@@ -47,90 +45,102 @@ Help::~Help()
     self = nullptr;
 }
 
-void Help::add(QWidget *widget, const QString &text)
-{
-    widget->installEventFilter(new WhatsThisClickedEventHandler(widget));
-    widget->setWhatsThis(text);
-}
-
-QString Help::page(const QString &page)
+KPlato::Help *KPlato::Help::instance()
 {
     if (!self) {
-        new Help(QString());
+        self = new Help();
     }
-    QString url = self->m_docpath;
-    if (!page.isEmpty()) {
-        if (url.endsWith(':') || url.endsWith('/')) {
-            url = QString("%1%2").arg(url, page);
-        } else {
-            url = QString("%1/%2").arg(url, page);
+    return self;
+}
+
+void KPlato::Help::setContentsUrl(const QUrl& url)
+{
+    m_contentsUrl = url;
+}
+
+void KPlato::Help::setContextUrl(const QUrl& url)
+{
+    m_contextUrl = url;
+}
+
+
+void Help::setDocs(const QStringList &docs)
+{
+    m_docs.clear();
+    qInfo()<<Q_FUNC_INFO<<docs;
+    for (auto s : docs) {
+        int last = s.length() - 1;
+        int pos = s.indexOf(':');
+        if (pos > 0 && pos < last) {
+            m_docs.insert(s.left(pos), s.right(last - pos));
         }
+        qInfo()<<Q_FUNC_INFO<<s<<pos<<last<<m_docs;
     }
-    return url;
+    qInfo()<<Q_FUNC_INFO<<m_docs;
 }
 
-void Help::invoke(const QString &page)
+QString Help::doc(const QString &key) const
 {
-    invoke(QUrl(Help::page(page)));
+    return m_docs.value(key);
 }
 
-void Help::invoke(const QUrl &xurl)
-{
-    debugPlanHelp<<"treat:"<<xurl;
-    QUrl url = xurl;
-    if (url.scheme() == QStringLiteral("help") || url.host() == QStringLiteral("docs.kde.org")) {
-        // The doc is converted from wiki to docbook, using the following rules:
-        // 1) Pages are accessed as a .html page
-        // 2) Page- and fragment ids are lower case
-        // 3) Spaces (or '_') in names and fragments are converted to '-'
-        // 4) Parentheses are removed
-        QString path = url.path();
-        QString fileName = url.fileName();
-        if (fileName.isEmpty()) {
-            fileName = QStringLiteral("index.html");
-        } else {
-            path = path.left(path.lastIndexOf('/')+1);
-            fileName.replace('_', '-');
-            fileName.remove('(');
-            fileName.remove(')');
-            fileName = fileName.toLower();
-            if (!fileName.endsWith(QStringLiteral(".html"))) {
-                fileName.append(QStringLiteral(".html"));
-            }
-        }
-        url.setPath(path + fileName);
-        QString fragment = url.fragment();
-        if (!fragment.isEmpty()) {
-            fragment.replace('_', '-');
-            fileName.remove('(');
-            fileName.remove(')');
-            fragment = fragment.toLower();
-            url.setFragment(fragment);
-        }
-        if (url.scheme() == QStringLiteral("help") && !QDir::isAbsolutePath(url.path())) {
-            url.setPath(url.path().prepend(QString("/%1/").arg(qApp->applicationName())));
-        }
-    }
-    debugPlanHelp<<"open:"<<url;
-    QDesktopServices::openUrl(url);
-}
-
-WhatsThisClickedEventHandler::WhatsThisClickedEventHandler(QObject *parent)
-    : QObject(parent)
-{
-
-}
-
-bool WhatsThisClickedEventHandler::eventFilter(QObject *object, QEvent *event)
+bool Help::eventFilter(QObject *object, QEvent *event)
 {
     Q_UNUSED(object);
     if (event->type() == QEvent::WhatsThisClicked) {
         QWhatsThisClickedEvent *e = static_cast<QWhatsThisClickedEvent*>(event);
         QUrl url(e->href());
         if (url.isValid()) {
-            Help::invoke(url);
+            return Help::instance()->invokeContext(url);
         }
-        return true;
     }
     return false;
+}
+
+bool KPlato::Help::invokeContent(QUrl url)
+{
+    QDesktopServices::openUrl(url);
+    return true;
+}
+
+bool KPlato::Help::invokeContext(QUrl url)
+{
+    debugPlanHelp<<"treat:"<<url.scheme()<<url.path()<<url.fragment()<<m_contextUrl.scheme()<<m_contextUrl.host()<<m_contextUrl.path();
+    QString document = doc(url.scheme());
+    if (document.isEmpty()) {
+        return false;
+    }
+    QString s = m_contextUrl.scheme();
+    if (!s.isEmpty()) {
+        s += ':';
+    }
+    if (!m_contextUrl.host().isEmpty()) {
+        s += m_contextUrl.host() + '/';
+        if (m_contextUrl.host() == "docs.kde.org") {
+            auto path = m_contextUrl.path();
+            if (path.isEmpty()) {
+                s += "trunk5/en/" + document;
+            } else {
+                if (path.startsWith('/')) {
+                    path.remove(0, 1);
+                }
+                s += path;
+            }
+            if (!s.endsWith('/')) {
+                s += '/';
+            }
+        }
+    }
+    s += document + '/';
+    s += url.path();
+    if (!s.endsWith(".html")) {
+        s += ".html";
+    }
+    if (url.hasFragment()) {
+        s += '#' + url.fragment();
+    }
+    url = QUrl::fromUserInput(s);
+    debugPlanHelp<<"open:"<<url;
+    QDesktopServices::openUrl(url);
+    return true;
 }

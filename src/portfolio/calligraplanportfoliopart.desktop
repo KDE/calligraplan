@@ -24,3 +24,4 @@ MimeType=application/x-vnd.kde.plan.portfolio;
 X-KDE-ServiceTypes=KParts/ReadOnlyPart,KParts/ReadWritePart
 X-KDE-Library=calligraplanportfoliopart
 X-KDE-NativeMimeType=application/x-vnd.kde.plan.portfolio
+X-PLAN-Documentation=plan:calligraplan;portfolio:calligraplanportfolio;work:calligraplanwork;

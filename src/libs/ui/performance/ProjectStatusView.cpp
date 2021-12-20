@@ -16,7 +16,6 @@
 #include "kptproject.h"
 #include "kptschedule.h"
 #include "kpteffortcostmap.h"
-#include "Help.h"
 #include "kptdebug.h"
 
 #include <KoXmlReader.h>
@@ -49,7 +48,7 @@ ProjectStatusView::ProjectStatusView(KoPart *part, KoDocument *doc, QWidget *par
 
     connect(m_view, &QWidget::customContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis", 
                      "<title>Project Performance View</title>"
                      "<para>"
@@ -57,7 +56,7 @@ ProjectStatusView::ProjectStatusView(KoPart *part, KoDocument *doc, QWidget *par
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Project_Performance_View")));
+                     "</para>", QStringLiteral("plan:project-performance-view")));
 }
 
 void ProjectStatusView::setScheduleManager(ScheduleManager *sm)

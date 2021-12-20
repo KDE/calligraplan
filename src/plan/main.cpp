@@ -40,8 +40,6 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
     m.setUiFiles(QStringList() << QStringLiteral("plan.rc") << QStringLiteral("plan_readonly.rc"));
     m.migrate();
 
-    new KPlato::Help(KPlatoSettings::contextPath(), KPlatoSettings::contextLanguage());
-
     if (!app.start(KPlato::Factory::global())) {
         return 1;
     }

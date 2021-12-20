@@ -30,3 +30,4 @@ Type=Service
 X-KDE-ServiceTypes=Calligra/Part
 X-KDE-NativeMimeType=application/x-vnd.kde.plan
 Icon=calligraplan
+X-PLAN-Documentation=plan:calligraplan;portfolio:calligraplanportfolio;work:calligraplanwork;

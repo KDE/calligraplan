@@ -52,6 +52,19 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
     model->setDelegates(m_view);
     connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PortfolioView::selectionChanged);
     updateActionsEnabled();
+
+    setWhatsThis(xi18nc("@info:whatsthis",
+                                   "<title>The Portfolio Content Editor</title>"
+                                   "<para>"
+                                   "This editor enables you to configure the content of your portfolio. "
+                                   "</para><para>"
+                                   "Select <interface>Edit|Add</interface> or press <interface>Add...</interface> to add projects to your portfolio.<nl/>"
+                                   "Select <interface>Edit|Remove</interface> or press <interface>Remove</interface> to remove selected projects. "
+                                   "</para><para>"
+                                   "<nl/><link url='%1'>More...</link>"
+                                   "</para>", QStringLiteral("portfolio:content-editor")
+                                   )
+                      );
 }
 
 PortfolioView::~PortfolioView()

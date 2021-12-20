@@ -8,7 +8,6 @@
 #include "ReportsGeneratorView.h"
 
 #include "reportgenerator/ReportGenerator.h"
-#include "Help.h"
 #include "kptdebug.h"
 
 #include <KoIcon.h>
@@ -243,7 +242,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ReportsGeneratorView::slotSelectionChanged);
     setupGui();
 
-    Help::add(this,
+    setWhatsThis(
                    xi18nc("@info:whatsthis",
                           "<title>Add and generate reports</title>"
                           "<para>"
@@ -251,7 +250,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
                           "</para><para>"
                           "You can create a report template using any Open Document text editor."
                           "<nl/><link url='%1'>More...</link>"
-                          "</para>", Help::page("Reports_Generator_View")));
+                          "</para>", QStringLiteral("plan:reports-generator-view")));
 }
 
 void ReportsGeneratorView::updateReadWrite(bool rw)

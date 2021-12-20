@@ -11,7 +11,6 @@
 
 #include "kptcommand.h"
 #include "kptaccount.h"
-#include "Help.h"
 #include "kptdebug.h"
 
 #include <KoDocument.h>
@@ -172,7 +171,7 @@ AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(m_view, &AccountTreeView::contextMenuRequested, this, &AccountsEditor::slotContextMenuRequested);
     connect(m_view, &AccountTreeView::headerContextMenuRequested, this, &AccountsEditor::slotHeaderContextMenuRequested);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Cost Breakdown Structure Editor</title>"
                      "<para>"
@@ -184,7 +183,7 @@ AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                      "</para><para>"
                      "This view supports printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Cost_Breakdown_Structure_Editor")));
+                     "</para>", QStringLiteral("plan:cost-breakdown-structure-editor")));
 }
 
 void AccountsEditor::updateReadWrite(bool readwrite)

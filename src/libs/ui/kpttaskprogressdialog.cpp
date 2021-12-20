@@ -11,7 +11,6 @@
 #include "kptproject.h"
 #include "kpttask.h"
 #include "kptnode.h"
-#include "Help.h"
 
 #include <KLocalizedString>
 
@@ -37,7 +36,7 @@ TaskProgressDialog::TaskProgressDialog(Task &task, ScheduleManager *sm, Standard
     if (proj) {
         connect(proj, &Project::nodeRemoved, this, &TaskProgressDialog::slotNodeRemoved);
     }
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Edit Task Progress</title>"
                      "<para>"
@@ -57,7 +56,7 @@ TaskProgressDialog::TaskProgressDialog(Task &task, ScheduleManager *sm, Standard
                      "</list>"
                      "<note>You should select the desired edit mode when starting the task.</note>"
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Task_Progress_Dialog")));
+                     "</para>", QStringLiteral("plan:task-progress-dialog")));
 
 }
 

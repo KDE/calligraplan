@@ -16,7 +16,6 @@
 #include "kptproject.h"
 #include "kptschedule.h"
 #include "kpteffortcostmap.h"
-#include "Help.h"
 #include "kpttaskdescriptiondialog.h"
 #include "kpttaskprogressdialog.h"
 #include "kptmilestoneprogressdialog.h"
@@ -188,7 +187,7 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(m_view->slaveView(), &TreeViewBase::doubleClicked, this, &TaskStatusView::itemDoubleClicked);
     connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &TaskStatusView::slotSelectionChanged);
 
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis", 
                      "<title>Task Status View</title>"
                      "<para>"
@@ -204,7 +203,7 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
                      "</para><para>"
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Task_Status_View")));
+                     "</para>", QStringLiteral("plan:task-status-view")));
     
 }
 

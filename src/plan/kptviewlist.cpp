@@ -330,7 +330,7 @@ ViewListWidget::ViewListWidget(MainDocument *part, QWidget *parent)//QString nam
     m_temp(nullptr)
 {
     setObjectName("ViewListWidget");
-    Help::add(this,
+    setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>View Selector</title>"
                      "<para>This is the list of views and editors.</para>"
@@ -341,7 +341,7 @@ ViewListWidget::ViewListWidget(MainDocument *part, QWidget *parent)//QString nam
                      "<item>Insert categories and views</item>"
                      "</list>"
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("The_View_Selector")));
+                     "</para>", QStringLiteral("plan:the-view-selector")));
     
     m_viewlist = new ViewListTreeWidget(this);
     m_viewlist->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -352,14 +352,14 @@ ViewListWidget::ViewListWidget(MainDocument *part, QWidget *parent)//QString nam
 
     m_sfModel.setSourceModel(&m_model);
     m_currentSchedule->setModel(&m_sfModel);
-    Help::add(m_currentSchedule,
+    m_currentSchedule->setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>Schedule selector</title>"
                      "<para>"
                      "Selects the schedule to be used when displaying schedule dependent data."
                      "<nl/><note>Unscheduled tasks are only shown in editors.</note>"
                      "<nl/><link url='%1'>More...</link>"
-                     "</para>", Help::page("Main_Work_Space#Schedule_Selector")));
+                     "</para>", QStringLiteral("plan:main-work-space#schedule-selector")));
     
 
     QVBoxLayout *l = new QVBoxLayout(this);

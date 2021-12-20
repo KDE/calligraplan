@@ -17,7 +17,6 @@
 #include "KoView.h"
 #include "KoFilterManager.h"
 #include <KoComponentData.h>
-#include "Help.h"
 
 //#include <KoCanvasController.h>
 //#include <KoCanvasControllerWidget.h>
@@ -119,11 +118,6 @@ KoDocument *KoPart::createDocument(KoPart *part) const
 {
     Q_UNUSED(part)
     return nullptr;
-}
-
-void KoPart::slotHelpContents()
-{
-//     KPlato::Help::invoke(QUrl::fromUserInput(KPlatoSettings::documentationPath()));
 }
 
 KoView *KoPart::createView(KoDocument *document, QWidget *parent)

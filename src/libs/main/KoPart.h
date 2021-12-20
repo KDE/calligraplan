@@ -146,9 +146,6 @@ public Q_SLOTS:
 
     virtual void configure(KoMainWindow *mw) { Q_UNUSED(mw); }
 
-protected Q_SLOTS:
-    void slotHelpContents();
-
 public:
 
     /**
