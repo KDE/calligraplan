@@ -234,9 +234,6 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     connect(actionOpenReportFile, QAction::triggered, this, &View::slotOpenReportFile);
 #endif
     // Settings
-    QAction *configureAction = new QAction(koIcon("configure"), i18n("Configure Plan..."), this);
-    actionCollection()->addAction("configure", configureAction);
-    connect(configureAction, &QAction::triggered, mainWindow(), &KoMainWindow::slotConfigure);
 
     // ------ Popup
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);

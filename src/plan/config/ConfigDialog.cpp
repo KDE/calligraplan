@@ -6,6 +6,7 @@
 
 #include "ConfigDialog.h"
 
+#include "kptpart.h"
 #include "ConfigProjectPanel.h"
 #include "ConfigWorkVacationPanel.h"
 #include "kpttaskdefaultpanel.h"
@@ -30,8 +31,8 @@
 
 using namespace KPlato;
 
-ConfigDialog::ConfigDialog(KoMainWindow *parent, const QString& name, KConfigSkeleton *config)
-: KConfigDialog(parent, name, config)
+ConfigDialog::ConfigDialog(Part *part, const QString& name, KConfigSkeleton *config)
+    : KConfigDialog(part->currentMainwindow(), name, config)
 {
     m_pages << addPage(new ConfigProjectPanel(), i18n("Project Defaults"), koIconName("calligraplan"));
     m_pages << addPage(new ConfigWorkVacationPanel(), i18n("Work & Vacation"), koIconName("view-calendar"));
@@ -50,7 +51,7 @@ ConfigDialog::ConfigDialog(KoMainWindow *parent, const QString& name, KConfigSke
     connect(this, &ConfigDialog::updateWidgetsSettings, p, &ConfigProjectTemplatesPanel::updateSettings);
     connect(this, &ConfigDialog::updateWidgetsData, p, &ConfigProjectTemplatesPanel::updateWidgets);
 
-    auto docPage = new KoConfigDocumentPage(parent->rootDocument());
+    auto docPage = new KoConfigDocumentPage(part);
     m_pages << addPage(docPage, i18nc("@title:tab Document settings page", "Document"));
     m_pages.last()->setIcon(koIcon("document-properties"));
 //     connect(this, &ConfigDialog::updateWidgetsSettings, docPage, &KoConfigDocumentPage::apply);

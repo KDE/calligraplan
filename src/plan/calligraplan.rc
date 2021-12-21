@@ -57,7 +57,6 @@
         <Menu name="settings"><text>&amp;Settings</text>
             <Action name="view_toggledockertitlebars" group="settings_top"/>
             <Action name="settings_dockers_menu" group="settings_top"/>
-            <Action name="configure" group="settings_configure"/>
         </Menu>
         <Menu name="help"><text>&amp;Help</text>
             <Action name="plan_introduction"/>

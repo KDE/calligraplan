@@ -12,14 +12,14 @@
 
 #include "komain_export.h"
 
-class KoDocument;
+class KoPart;
 
 class KOMAIN_EXPORT KoConfigDocumentPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit KoConfigDocumentPage(KoDocument* doc);
+    explicit KoConfigDocumentPage(KoPart *part);
     ~KoConfigDocumentPage() override;
 
 private:

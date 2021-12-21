@@ -17,13 +17,13 @@ class KConfigSkeleton;
 
 namespace KPlato
 {
-
+class Part;
 
 class PLAN_EXPORT ConfigDialog : public KConfigDialog
 {
     Q_OBJECT
 public:
-    ConfigDialog(KoMainWindow *parent, const QString &name, KConfigSkeleton *config);
+    ConfigDialog(Part *part, const QString &name, KConfigSkeleton *config);
     
 Q_SIGNALS:
     void updateWidgetsData();

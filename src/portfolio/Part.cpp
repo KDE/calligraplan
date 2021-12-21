@@ -16,6 +16,7 @@
 
 #include <KoComponentData.h>
 #include <KoDocumentEntry.h>
+#include <KActionCollection>
 #include <Help.h>
 
 #include <QAction>
@@ -52,6 +53,11 @@ KoMainWindow *Part::createMainWindow()
 //     help->setContentsUrl(QUrl(KPlatoSettings::documentationPath()));
 //     help->setContextUrl(QUrl(KPlatoSettings::contextPath()));
     qApp->installEventFilter(help); // this must go after filter installed by KMainWindow, so it will be called before
+
+    auto a = w->actionCollection()->action("configure");
+    if (a) {
+        a->setText(i18n("Configure Portfolio..."));
+    }
     return w;
 }
 
@@ -62,11 +68,11 @@ QString Part::recentFilesGroupName() const
 
 void Part::configure(KoMainWindow *mw)
 {
-    qInfo()<<Q_FUNC_INFO;
+    Q_ASSERT(mw == currentMainwindow());
     if (KConfigDialog::showDialog(xi18nc("title:window", "Portfolio Settings"))) {
         return;
     }
-    ConfigDialog *dialog = new ConfigDialog(mw, xi18nc("@title:window", "Portfolio Settings"), PortfolioSettings::self());
+    ConfigDialog *dialog = new ConfigDialog(this, xi18nc("@title:window", "Portfolio Settings"), PortfolioSettings::self());
     connect(dialog, &ConfigDialog::settingsUpdated, this, &Part::slotSettingsUpdated, Qt::QueuedConnection);
     dialog->open();
 }

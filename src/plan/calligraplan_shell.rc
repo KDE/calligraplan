@@ -18,6 +18,7 @@
             <Action name="theme_menu" />
             <Separator/>
             <DefineGroup name="settings_configure"/>
+            <Action name="configure"/>
         </Menu>
         <Menu name="help" NoMerge="1"><text>&amp;Help</text>
             <Action name="help_contents"/>

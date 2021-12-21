@@ -108,9 +108,6 @@ void View::setupActions(void)
     } else {
         setXMLFile("Portfolio_ViewUi_readonly.rc");
     }
-    QAction *configureAction = new QAction(koIcon("configure"), i18n("Configure Portfolio..."), this);
-    actionCollection()->addAction("configure", configureAction);
-    connect(configureAction, &QAction::triggered, mainWindow(), &KoMainWindow::slotConfigure);
 }
 
 void View::guiActivateEvent(bool activate)

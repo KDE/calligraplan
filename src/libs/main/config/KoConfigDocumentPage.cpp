@@ -26,28 +26,28 @@ SPDX-License-Identifier: LGPL-2.0-or-later
 class Q_DECL_HIDDEN KoConfigDocumentPage::Private
 {
 public:
-    Private(KoDocument* doc)
-    : doc(doc)
+    Private(KoPart* part)
+    : part(part)
     {}
 
     Ui::KoConfigDocumentPage ui;
 
-    KoDocument* doc;
+    KoPart *part;
     KSharedConfigPtr config;
 
     int oldAutoSave;
     bool oldBackupFile;
 };
 
-KoConfigDocumentPage::KoConfigDocumentPage(KoDocument* doc)
+KoConfigDocumentPage::KoConfigDocumentPage(KoPart *part)
     : QWidget()
-    , d(new Private(doc))
+    , d(new Private(part))
 {
     d->ui.setupUi(this);
 
-    d->config = d->doc->documentPart()->componentData().config();
+    d->config = part->componentData().config();
 
-    d->oldAutoSave = doc->defaultAutoSave() / 60;
+    d->oldAutoSave = part->document() ? part->document()->defaultAutoSave() / 60 : 5;
     d->oldBackupFile = true;
 
     if(d->config->hasGroup("Interface")) {

@@ -2025,6 +2025,11 @@ void KoMainWindow::createMainwindowGUI()
             actions->addAction(aboutKdeAction->objectName(), aboutKdeAction);
         }
     }
+    QAction *configureAction = new QAction(this);
+    configureAction->setIcon(koIcon("configure"));
+    actionCollection()->addAction("configure", configureAction);
+    connect(configureAction, &QAction::triggered, this, &KoMainWindow::slotConfigure);
+
     guiFactory()->addClient(this);
 }
 

@@ -7,9 +7,10 @@
 #include "ConfigDialog.h"
 
 #include <portfoliosettings.h>
+#include "Part.h"
+
 #include <Help.h>
 #include <KoIcon.h>
-#include <KoMainWindow.h>
 #include <config/KoConfigDocumentPage.h>
 #include <config/ConfigDocumentationPanel.h>
 #include <Help.h>
@@ -20,10 +21,10 @@
 #include <QDebug>
 
 
-ConfigDialog::ConfigDialog(KoMainWindow *parent, const QString& name, KConfigSkeleton *config)
-: KConfigDialog(parent, name, config)
+ConfigDialog::ConfigDialog(Part *part, const QString& name, KConfigSkeleton *config)
+    : KConfigDialog(part->currentMainwindow(), name, config)
 {
-    auto docPage = new KoConfigDocumentPage(parent->rootDocument());
+    auto docPage = new KoConfigDocumentPage(part);
     m_pages << addPage(docPage, i18nc("@title:tab Document settings page", "Document"));
     m_pages.last()->setIcon(koIcon("document-properties"));
 

@@ -20,6 +20,7 @@
 #include <KoComponentData.h>
 #include <WelcomeView.h>
 #include <KoDocumentEntry.h>
+#include <KoIcon.h>
 
 #include <KRecentFilesAction>
 #include <KXMLGUIFactory>
@@ -28,6 +29,7 @@
 #include <KRun>
 #include <KDesktopFile>
 #include <KAboutData>
+#include <KActionCollection>
 
 #include <QStackedWidget>
 #include <QDesktopServices>
@@ -85,6 +87,11 @@ KoMainWindow *Part::createMainWindow()
 //     help->setContextUrl(QUrl(KPlatoSettings::contextPath()));
     qApp->installEventFilter(help); // this must go after filter installed by KMainWindow, so it will be called before
 
+    auto a = w->actionCollection()->action("configure");
+    if (a) {
+        a->setText(i18n("Configure Plan..."));
+    }
+    connect(w, &KoMainWindow::configure, this, &Part::configure);
     return w;
 }
 
@@ -142,11 +149,11 @@ void Part::finish()
 
 void Part::configure(KoMainWindow *mw)
 {
-    //debugPlan;
+    Q_ASSERT(mw == currentMainwindow());
     if(KConfigDialog::showDialog("Plan Settings")) {
         return;
     }
-    ConfigDialog *dialog = new ConfigDialog(mw, "Plan Settings", KPlatoSettings::self());
+    ConfigDialog *dialog = new ConfigDialog(this, "Plan Settings", KPlatoSettings::self());
     connect(dialog, &ConfigDialog::settingsUpdated, this, &Part::slotSettingsUpdated, Qt::QueuedConnection);
     dialog->open();
 }
