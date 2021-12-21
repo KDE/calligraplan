@@ -67,16 +67,15 @@ void KPlato::Help::setContextUrl(const QUrl& url)
 void Help::setDocs(const QStringList &docs)
 {
     m_docs.clear();
-    qInfo()<<Q_FUNC_INFO<<docs;
+    debugPlanHelp<<docs;
     for (auto s : docs) {
         int last = s.length() - 1;
         int pos = s.indexOf(':');
         if (pos > 0 && pos < last) {
             m_docs.insert(s.left(pos), s.right(last - pos));
         }
-        qInfo()<<Q_FUNC_INFO<<s<<pos<<last<<m_docs;
     }
-    qInfo()<<Q_FUNC_INFO<<m_docs;
+    debugPlanHelp<<m_docs;
 }
 
 QString Help::doc(const QString &key) const
