@@ -51,6 +51,6 @@ bool ConfigDialog::hasChanged()
 
 void ConfigDialog::showHelp()
 {
-    KPlato::Help::instance()->invokeContext(QUrl("portfolio:configure-dialog"));
+    KPlato::Help::instance()->invokeContext(QUrl("portfolio:configure-portfolio-dialog"));
 }
 
