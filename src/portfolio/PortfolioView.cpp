@@ -56,11 +56,14 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
     setWhatsThis(xi18nc("@info:whatsthis",
                                    "<title>The Portfolio Content Editor</title>"
                                    "<para>"
-                                   "This editor enables you to configure the content of your portfolio. "
+                                   "This editor enables you to configure the content of your portfolio."
                                    "</para><para>"
                                    "Select <interface>Edit|Add</interface> or press <interface>Add...</interface> to add projects to your portfolio.<nl/>"
-                                   "Select <interface>Edit|Remove</interface> or press <interface>Remove</interface> to remove selected projects. "
+                                   "Select <interface>Edit|Remove</interface> or press <interface>Remove</interface> to remove selected projects."
                                    "</para><para>"
+                                   "Add the projects you are managing and set Portfolio = Yes."
+                                   " If you have resources that is shared between multiple projects and you want to re-schedule, you need to add all relevant projects"
+                                   " and then set Portfolio = No for these projects."
                                    "<nl/><link url='%1'>More...</link>"
                                    "</para>", QStringLiteral("portfolio:content-editor")
                                    )

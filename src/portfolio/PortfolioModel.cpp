@@ -59,6 +59,23 @@ Qt::ItemFlags PortfolioModel::flags(const QModelIndex &idx) const
     return flg;
 }
 
+QVariant PortfolioModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (orientation == Qt::Horizontal && role == Qt::ToolTipRole) {
+        switch (extraColumnForProxyColumn(section)) {
+            case 0:
+                return i18nc("@into:tooltip", "Defines if the project is part of the portfolio");
+            case 1:
+                return i18nc("@into:tooltip", "Defines if the project is stored embedded in the portfolio file or in the external file");
+            case 2:
+                return i18nc("@into:tooltip", "The external url of the project file");
+            default:
+                break;
+        }
+    }
+    return KExtraColumnsProxyModel::headerData(section, orientation, role);
+}
+
 QVariant PortfolioModel::extraColumnData(const QModelIndex &parent, int row, int extraColumn, int role) const
 {
     Q_UNUSED(parent)

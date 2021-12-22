@@ -27,6 +27,7 @@ public:
     void setDelegates(QAbstractItemView *view);
 
     Qt::ItemFlags flags(const QModelIndex &idx) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     QVariant extraColumnData(const QModelIndex &parent, int row, int extraColumn, int role) const override;
     bool setExtraColumnData(const QModelIndex &parent, int row, int extraColumn, const QVariant &value, int role = Qt::EditRole) override;
 
