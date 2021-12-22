@@ -3,8 +3,13 @@
 <!ENTITY portfolio-introduction-chapter SYSTEM "portfoliointroduction.docbook">
 <!ENTITY introduction-section SYSTEM "introduction.docbook">
 <!ENTITY context-help-section SYSTEM "contexthelp.docbook">
+<!ENTITY content-editor-chapter SYSTEM "contenteditor.docbook">
+<!ENTITY portfolio-configuration-dialog SYSTEM "portfolioconfiguration.docbook">
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE"><!-- change language only here -->
+
+<!ENTITY WIP "<para>WIP: Work In Progress. Do not translate!</para>">
+
 ]>
 <book lang="&language;">
   <bookinfo>
@@ -31,6 +36,8 @@
   </bookinfo>
 
   &portfolio-introduction-chapter;
+  &content-editor-chapter;
+  &portfolio-configuration-dialog;
   
   <!--userbase-content-->
   <chapter id="credits">

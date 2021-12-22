@@ -30,8 +30,13 @@
 <!ENTITY resource-assignment-view-section SYSTEM "resourceassignmentview.docbook">
 <!ENTITY resource-assignment-gantt-view-section SYSTEM "resourceassignmentganttview.docbook">
 <!ENTITY reports-generator-view-section SYSTEM "reportsgeneratorview.docbook">
+<!ENTITY cost-breakdown-view-section SYSTEM "costbreakdownview.docbook">
+<!ENTITY plan-configuration-chapter SYSTEM "planconfiguration.docbook">
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE"><!-- change language only here -->
+
+<!ENTITY WIP "<para>WIP: Work In Progress. Do not translate!</para>">
+
 ]>
 <book lang="&language;">
   <bookinfo>
@@ -59,7 +64,8 @@
   &guidelines-chapter;
   &views-and-editors-chapter;
   &reports-chapter;
-  
+  &plan-configuration-chapter;
+
   <!--userbase-content-->
   <chapter id="credits">
     <title>Credits and License</title>

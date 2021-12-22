@@ -47,4 +47,7 @@
   <sect1 id="resource-assignment-view"><title>Resource Assignment View</title>
     &resource-assignment-view-section;
   </sect1>
+  <sect1 id="cost-breakdown-view"><title>Cost Breakdown View</title>
+    &cost-breakdown-view-section;
+  </sect1>
 </chapter>

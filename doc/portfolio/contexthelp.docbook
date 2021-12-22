@@ -1,4 +1,5 @@
 <sect2><title/>
+  &WIP;
 <para>Many functions and views have help and hints that can be displayed with the <emphasis>What's This</emphasis> function.
 </para>
 <para>You can activate it with the menu entry <menuchoice><guimenu>Help</guimenu><guimenuitem>WhatsThis</guimenuitem></menuchoice> or keyboard shortcut <keycombo>&Shift;<keycap>F1</keycap></keycombo>.
