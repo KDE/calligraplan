@@ -89,7 +89,7 @@
                 <path refid="classpath"/>
                 <path location="${jar.dir}/${ant.project.name}.jar"/>
             </classpath>
-            <arg value="${basedir}/test/New Product.mpp"/>
+            <arg value="${basedir}/test/data/Commercial construction project plan.mpp"/>
             <arg value="${basedir}/test/t.plan"/>
         </java>
     </target>
