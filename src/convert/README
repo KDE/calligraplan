@@ -8,14 +8,31 @@ https://www.mpxj.org
 This means that planconvert *should* be able to convert from all the file formats MPXJ supports.
 However, so far only Planner (*.planner) and MS project file formats *.mpx and *.mpp has been tested.
 
+Also password proteced files cannot be read.
+
+The MS .mpd files (database files) need a java-odbc bridge which I don't think is available on linux.
+
+Dependecies
+-----------
+To run anything you need a  jave runtime environment,
+e.g: openjdk-17-jre for ubuntu systems.
+
+This is also needed to run filters.
+
+To run tests, build new stuff etc you need ant.
+
+Schema classes
+--------------
 Schema classes are generated from the plan-<version>.dtd file.
 See property 'plan.dtd.dir' in build.xml.
 
+Jobs execution
+--------------
 Everything is done using 'ant' and the different jobs are defined in build.xml.
 
 Making changes
 --------------
-You need to update build.xml file:
+You need to update the build.xml file:
 
 1) New mpxj version:
     a) In build.xml: Change property 'mpxj.version' to the new version.
@@ -48,6 +65,7 @@ You can have all these files converted if you change ${test.data.dir} to point t
 
 
 The test writes result files to ${result.dir} and a log file to ${test.dir}
+
 Running
 -------
 Execute: 'ant run'
