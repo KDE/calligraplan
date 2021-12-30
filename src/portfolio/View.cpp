@@ -44,8 +44,6 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     //debugPlanGroup;
     setComponentName(PortfolioFactory::global().componentName(), PortfolioFactory::global().componentDisplayName());
 
-//     new KPlato::Help(PortfolioSettings::contextPath(), PortfolioSettings::contextLanguage());
-
     setupActions();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
