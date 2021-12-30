@@ -2,5 +2,5 @@ build
 mpxj
 download
 src/plan/schema
-test/result
-test/*.log
+test
+*.kate-swp
