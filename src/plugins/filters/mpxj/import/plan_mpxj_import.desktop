@@ -3,6 +3,7 @@ Type=Service
 Name=Plan MS Project Import Filter
 Name[ca]=Filtre d'importació del MS Project per al Plan
 Name[ca@valencia]=Filtre d'importació del MS Project per al Plan
+Name[en_GB]=Plan MS Project Import Filter
 Name[es]=Filtro de importación MS Project de Plan
 Name[fr]=Filtre d'importation pour le logiciel de planning de « Microsoft »
 Name[it]=Filtro di importazione da MS Project di Plan
