@@ -832,13 +832,13 @@ void ReportDesigner::createDockers()
     << QLatin1String("org.kde.kreport.web"); // can be used for fixed sized rich text
 // TODO: proper tooltips
 //     const QStringList itemTooltips = QStringList()
-//     << xi18nc("@into:tooltip", "Label")
-//     << xi18nc("@into:tooltip", "Text element with variable height")
-//     << xi18nc("@into:tooltip", "Text element")
-//     << xi18nc("@into:tooltip", "Line")
-//     << xi18nc("@into:tooltip", "Checkbox")
-//     << xi18nc("@into:tooltip", "Chart")
-//     << xi18nc("@into:tooltip", "Text element with fixed size");
+//     << xi18nc("@info:tooltip", "Label")
+//     << xi18nc("@info:tooltip", "Text element with variable height")
+//     << xi18nc("@info:tooltip", "Text element")
+//     << xi18nc("@info:tooltip", "Line")
+//     << xi18nc("@info:tooltip", "Checkbox")
+//     << xi18nc("@info:tooltip", "Chart")
+//     << xi18nc("@info:tooltip", "Text element with fixed size");
 
     QActionGroup *ag = new QActionGroup(this);
     QMap<int, QToolButton*> tblst;

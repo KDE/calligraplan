@@ -64,11 +64,11 @@ QVariant PortfolioModel::headerData(int section, Qt::Orientation orientation, in
     if (orientation == Qt::Horizontal && role == Qt::ToolTipRole) {
         switch (extraColumnForProxyColumn(section)) {
             case 0:
-                return i18nc("@into:tooltip", "Defines if the project is part of the portfolio");
+                return i18nc("@info:tooltip", "Defines if the project is part of the portfolio");
             case 1:
-                return i18nc("@into:tooltip", "Defines if the project is stored embedded in the portfolio file or in the external file");
+                return i18nc("@info:tooltip", "Defines if the project is stored embedded in the portfolio file or in the external file");
             case 2:
-                return i18nc("@into:tooltip", "The external url of the project file");
+                return i18nc("@info:tooltip", "The external url of the project file");
             default:
                 break;
         }
