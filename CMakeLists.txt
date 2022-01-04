@@ -8,7 +8,7 @@ endif ()
 # Beta: x.x.90 upwards. (Beta 1 = 90, Beta 2 = 91 ...)
 # Stable x.x.0 upwards
 project(calligraplan VERSION 3.3.89)
-set(PLAN_YEAR 2021) # update every year
+set(PLAN_YEAR 2022) # update every year
 
 cmake_minimum_required(VERSION 3.16)
 if (POLICY CMP0002)
