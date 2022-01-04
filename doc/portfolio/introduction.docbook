@@ -1,5 +1,35 @@
 <sect2><title/>
   &WIP;
-<para>Features include:
+<para>The Portfolio Manager lets you manage multiple projects from a single application.
+</para>
+<para>Two use cases:
+<itemizedlist>
+  <listitem>
+    <para>Managing multiple projects, giving an overview of where to focus attention.</para>
+  </listitem>
+  <listitem>
+    <para>Inspecting and planning projects enterprise wide. Assisting with handling delays, changing priorities or incorporating new projects.</para>
+  </listitem>
+</itemizedlist>
+</para>
+
+<para>Features:
+<itemizedlist>
+  <listitem>
+    <para>Schedule or re-schedule multiple projects.</para>
+  </listitem>
+  <listitem>
+    <para>Resource levelling across projects.</para>
+  </listitem>
+  <listitem>
+    <para>Inspect planned resource usage across projects.</para>
+  </listitem>
+  <listitem>
+    <para>Inspect and update progress information in table form as well as in charts.</para>
+  </listitem>
+  <listitem>
+    <para>Inspect project gantt charts.</para>
+  </listitem>
+</itemizedlist>
 </para>
 </sect2>
