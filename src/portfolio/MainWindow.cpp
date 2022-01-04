@@ -10,8 +10,13 @@
 #include "DocumentsSaveDialog.h"
 
 #include "MainDocument.h"
+#include "PlanGroupDebug.h"
 
 #include <KoStore.h>
+#include <KoNetAccess.h>
+
+#include <KMessageBox>
+#include <KLocalizedString>
 
 #include <QtGlobal>
 
@@ -128,10 +133,48 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
             const auto children = dlg.documentsToSave();
             for (const auto child : children) {
                 Q_ASSERT(!child->property(SAVEEMBEDDED).toBool());
+                KIO::UDSEntry entry;
+                if (KIO::NetAccess::stat(child->url(), entry, this)) {
+                    if (entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) != child->property(ORIGINALMODIFICATIONTIME).toLongLong()) {
+                        int res = KMessageBox::warningYesNo(this,
+                                                  xi18nc("@info", "<p>The external project file <filename>%1</filename> has been modified.</p><p>Do you want to save it?</p>", child->url().toDisplayString()));
+                        if (res == KMessageBox::No) {
+                            continue;
+                        }
+                    }
+                } else {
+                    debugPortfolio<<"Project file does not exist:"<<child->url();
+                }
+                connect(child, &KoDocument::completed, this, &MainWindow::documentSaved);
+                connect(child, &KoDocument::canceled, this, &MainWindow::slotDocumentSaveCanceled);
                 child->save();
             }
         }
         return ret;
     }
     return KoMainWindow::saveDocumentInternal(false, false, outputFlag);
+}
+
+void MainWindow::slotDocumentSaved()
+{
+    auto doc = qobject_cast<KoDocument*>(sender());
+    Q_ASSERT(doc);
+    if (doc) {
+        disconnect(doc, &KoDocument::completed, this, &MainWindow::documentSaved);
+        disconnect(doc, &KoDocument::canceled, this, &MainWindow::slotDocumentSaveCanceled);
+        KIO::UDSEntry entry;
+        if (KIO::NetAccess::stat(doc->url(), entry, this)) {
+            doc->setProperty(ORIGINALMODIFICATIONTIME, entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME));
+        }
+    }
+}
+
+void MainWindow::slotDocumentSaveCanceled()
+{
+    auto doc = qobject_cast<KoDocument*>(sender());
+    Q_ASSERT(doc);
+    if (doc) {
+        disconnect(doc, &KoDocument::completed, this, &MainWindow::documentSaved);
+        disconnect(doc, &KoDocument::canceled, this, &MainWindow::slotDocumentSaveCanceled);
+    }
 }

@@ -40,6 +40,8 @@ public:
 protected Q_SLOTS:
     void slotDocumentInserted();
     void slotDocumentRemoved();
+    void slotDocumentSaved();
+    void slotDocumentSaveCanceled();
 
 protected:
     /**
