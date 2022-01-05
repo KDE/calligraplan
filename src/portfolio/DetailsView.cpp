@@ -97,6 +97,7 @@ void DetailsView::selectionChanged(const QItemSelection &selected, const QItemSe
         m_detailsView->setProject(doc->project());
         m_detailsView->setScheduleManager(m->portfolio()->scheduleManager(doc));
         m_detailsView->setCommandDocument(doc);
+        m_detailsView->updateReadWrite(doc->isReadWrite());
     }
 }
 
