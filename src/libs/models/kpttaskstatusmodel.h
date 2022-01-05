@@ -81,6 +81,9 @@ public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
     void refresh() override;
 
+Q_SIGNALS:
+    void stateChanged(Node *node);
+
 protected Q_SLOTS:
     void slotAboutToBeReset();
     void slotReset();

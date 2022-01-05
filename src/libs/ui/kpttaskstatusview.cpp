@@ -62,11 +62,10 @@ TaskStatusTreeView::TaskStatusTreeView(QWidget *parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
     TaskStatusItemModel *m = new TaskStatusItemModel(this);
     setModel(m);
-    //setSelectionBehavior(QAbstractItemView::SelectItems);
-    setSelectionMode(QAbstractItemView::ExtendedSelection);
-    setSelectionBehavior(QAbstractItemView::SelectRows);
-    setStretchLastSection(false);
 
+    setSelectionMode(QAbstractItemView::SingleSelection);
+    setSelectionBehavior(QAbstractItemView::SelectItems);
+    setStretchLastSection(false);
     createItemDelegates(m);
 
     QList<int> lst1; lst1 << 1 << -1; // only display column 0 (NodeName) in left view
@@ -94,6 +93,21 @@ TaskStatusTreeView::TaskStatusTreeView(QWidget *parent)
     for (int i = 0; i < show.count(); ++i) {
         slaveView()->mapToSection(show.at(i), i);
     }
+
+    connect(masterView()->selectionModel(), &QItemSelectionModel::currentChanged, this, &TaskStatusTreeView::slotCurrentItemChanged);
+    connect(m, &TaskStatusItemModel::stateChanged, this, &TaskStatusTreeView::slotStateChanged);
+}
+
+void KPlato::TaskStatusTreeView::slotCurrentItemChanged(const QModelIndex& idx)
+{
+    masterView()->selectionModel()->select(idx, QItemSelectionModel::ClearAndSelect);
+}
+
+void KPlato::TaskStatusTreeView::slotStateChanged(KPlato::Node* node)
+{
+    const auto idx = model()->index(node).siblingAtColumn(NodeModel::NodeCompleted);
+    masterView()->expand(idx.parent());
+    masterView()->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::ClearAndSelect);
 }
 
 int TaskStatusTreeView::weekday() const
@@ -204,7 +218,7 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
                      "This view supports configuration and printing using the context menu."
                      "<nl/><link url='%1'>More...</link>"
                      "</para>", QStringLiteral("plan:task-status-view")));
-    
+
 }
 
 void TaskStatusView::itemDoubleClicked(const QPersistentModelIndex &idx)
@@ -409,8 +423,7 @@ KoPrintJob *TaskStatusView::createPrintJob()
 
 void TaskStatusView::slotSelectionChanged()
 {
-    bool on = m_view->selectionModel()->selectedRows().count() == 1;
-    updateActionsEnabled(on);
+    updateActionsEnabled(m_view->selectionModel()->currentIndex().isValid());
 }
 
 void TaskStatusView::updateActionsEnabled(bool on)

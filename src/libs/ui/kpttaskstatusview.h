@@ -71,6 +71,10 @@ public:
     int defaultPeriodType() const;
     int periodType() const;
     void setPeriodType(int type);
+
+protected Q_SLOTS:
+    void slotStateChanged(Node *node);
+    void slotCurrentItemChanged(const QModelIndex &idx);
 };
 
 

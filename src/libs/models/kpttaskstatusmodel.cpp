@@ -386,16 +386,19 @@ bool TaskStatusItemModel::setCompletion(Node *node, const QVariant &value, int r
         Completion &c = static_cast<Task*>(node)->completion();
         QDateTime dt = QDateTime::currentDateTime();
         QDate date = dt.date();
+        bool stateChanged = false;
         // xgettext: no-c-format
         MacroCommand *m = new MacroCommand(kundo2_i18n("Modify completion"));
         if (! c.isStarted()) {
             m->addCommand(new ModifyCompletionStartedCmd(c, true));
             m->addCommand(new ModifyCompletionStartTimeCmd(c, dt));
+            stateChanged = true;
         }
         m->addCommand(new ModifyCompletionPercentFinishedCmd(c, date, value.toInt()));
         if (value.toInt() == 100) {
             m->addCommand(new ModifyCompletionFinishedCmd(c, true));
             m->addCommand(new ModifyCompletionFinishTimeCmd(c, dt));
+            stateChanged = true;
         }
         Q_EMIT executeCommand(m); // also adds a new entry if necessary
         if (c.entrymode() != Completion::EnterEffortPerResource) {
@@ -408,6 +411,9 @@ bool TaskStatusItemModel::setCompletion(Node *node, const QVariant &value, int r
             cmd = new ModifyCompletionRemainingEffortCmd(c, date, planned - actual);
             cmd->execute();
             m->addCommand(cmd);
+        }
+        if (stateChanged) {
+            Q_EMIT this->stateChanged(node);
         }
         return true;
     }
@@ -423,6 +429,7 @@ bool TaskStatusItemModel::setCompletion(Node *node, const QVariant &value, int r
             m->addCommand(new ModifyCompletionFinishTimeCmd(c, dt));
             m->addCommand(new ModifyCompletionPercentFinishedCmd(c, date, 100));
             Q_EMIT executeCommand(m); // also adds a new entry if necessary
+            Q_EMIT stateChanged(node);
             return true;
         }
         return false;
