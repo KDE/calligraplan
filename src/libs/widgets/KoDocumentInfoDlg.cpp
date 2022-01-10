@@ -7,6 +7,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "KoDocumentInfoDlg.h"
+#include "WidgetsDebug.h"
 
 #include "ui_koDocumentInfoAboutWidget.h"
 #include "ui_koDocumentInfoAuthorWidget.h"
@@ -349,6 +350,7 @@ void KoDocumentInfoDlg::saveEncryption()
         return;
 
     KMainWindow* mainWindow = dynamic_cast< KMainWindow* >(parent());
+    bool saveas = false;
     if (doc->specialOutputFlag() == KoDocumentBase::SaveEncrypted) {
         // Decrypt
         if (KMessageBox::warningContinueCancel(
@@ -429,10 +431,11 @@ void KoDocumentInfoDlg::saveEncryption()
     } else {
         // Encrypt non-oasis document
         bool modified = doc->isModified();
+        saveas = doc->outputMimeType().isEmpty();
         if (!doc->url().isEmpty() && doc->specialOutputFlag() == 0) {
             QMimeDatabase db;
             QMimeType mime = db.mimeTypeForName(doc->mimeType());
-            if (doc->mimeType() != doc->nativeFormatMimeType()) {
+            if (!doc->mimeType().isEmpty() && doc->mimeType() != doc->nativeFormatMimeType()) {
                 QString comment = mime.isValid() ? mime.comment() : i18n("%1 (unknown file type)", QString::fromLatin1(doc->mimeType()));
                 QString native = db.mimeTypeForName(doc->nativeFormatMimeType()).comment();
                 if (KMessageBox::warningContinueCancel(
@@ -446,7 +449,26 @@ void KoDocumentInfoDlg::saveEncryption()
                             ) != KMessageBox::Continue) {
                     return;
                 }
-                doc->resetURL();
+                // Replace the current extension with our native one.
+                // If the current extension is an unknown mimetype,
+                // we just add our native extension. Maybe not ideal
+                // but should not happen in normal cases,
+                // and the user can always correct it in the save dialog.
+                auto patterns = mime.globPatterns();
+                auto url = doc->url().url();
+                for (auto p : patterns) {
+                    p.remove('*');
+                    if (url.endsWith(p)) {
+                        url = url.left(url.lastIndexOf(p));
+                    }
+                }
+                if (!url.isEmpty()) {
+                    const auto nativePattern = db.mimeTypeForName(doc->nativeFormatMimeType()).globPatterns().value(0).remove('*');
+                    url.append(nativePattern);
+                }
+                doc->setUrl(QUrl(url));
+                saveas = true;
+                debugWidgets<<"document mimetype changed:"<<doc->url()<<patterns;
             }
         }
         doc->setMimeType(doc->nativeFormatMimeType());
@@ -472,12 +494,13 @@ void KoDocumentInfoDlg::saveEncryption()
             return;
         }
     }
-    // Why do the dirty work ourselves?
-    Q_EMIT saveRequested(doc->url().isEmpty(), false, doc->specialOutputFlag());
+    // Let KoMainWindow handle save
+    Q_EMIT saveRequested(saveas, false, doc->specialOutputFlag());
     d->toggleEncryption = false;
     d->applyToggleEncryption = false;
-    // Detects when the user cancelled saving
-    d->documentSaved = !doc->url().isEmpty();
+    // Detects when the user cancelled saving of an unsaved document
+    // FIXME: Should this be tracked in the document?
+    d->documentSaved = !doc->url().scheme().isEmpty();
 }
 
 QList<KPageWidgetItem*> KoDocumentInfoDlg::pages() const

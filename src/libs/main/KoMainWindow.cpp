@@ -938,14 +938,16 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
     if (!mime.isValid())
         // QT5TODO: find if there is no better way to get an object for the default type
         mime = QMimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream"));
-    if (specialOutputFlag)
+    if (specialOutputFlag == 0) {
+        mimeFilter = KoFilterManager::mimeFilter(_native_format, KoFilterManager::Export, d->rootDocument->extraNativeMimeTypes());
+    } else if (specialOutputFlag & KoDocumentBase::SaveEncrypted) {
+        // we don't support exporting encrypted files
+        mimeFilter << _native_format;
+    } else {
+        // FIXME: This should be mimetypes not patterns, or?
         mimeFilter = mime.globPatterns();
-    else
-        mimeFilter = KoFilterManager::mimeFilter(_native_format,
-                                                 KoFilterManager::Export,
-                                                 d->rootDocument->extraNativeMimeTypes());
-
-
+    }
+    debugMain << d->rootDocument->url() << "old format" << oldOutputFormat<< "special output flag" << specialOutputFlag << "mime filter" << mimeFilter<< "saveas" << saveas;
     if (oldOutputFormat.isEmpty() && !d->rootDocument->url().isEmpty()) {
         // Not been saved yet, but there is a default url so open dialog with this url
         if (suggestedURL.path() == suggestedURL.fileName()) {
@@ -993,83 +995,50 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
 
     bool ret = false;
 
-    if (d->rootDocument->url().isEmpty() || saveas) {
-        // if you're just File/Save As'ing to change filter options you
-        // don't want to be reminded about overwriting files etc.
-        bool justChangingFilterOptions = false;
+    if (saveas || d->rootDocument->url().isEmpty()) {
+        debugMain<<"save as:"<<"doc:"<<d->rootDocument->url()<<"suggested:"<<suggestedURL<<"export:"<<isExporting()<<d->lastExportUrl;
 
+        if (isExporting() && !d->lastExportUrl.isEmpty()) {
+            suggestedURL = d->lastExportUrl;
+        }
+
+        const auto localfile = suggestedURL.toLocalFile();
+        const bool overrideDefaultDir = !suggestedURL.adjusted(QUrl::RemoveFilename).isEmpty();
+        debugMain<<localfile<<overrideDefaultDir;
         KoFileDialog dialog(this, KoFileDialog::SaveFile, "SaveDocument");
         dialog.setCaption(i18n("untitled"));
-        dialog.setDefaultDir((isExporting() && !d->lastExportUrl.isEmpty()) ?
-                                d->lastExportUrl.toLocalFile() : suggestedURL.toLocalFile());
+        dialog.setDefaultDir(localfile, overrideDefaultDir);
         dialog.setMimeTypeFilters(mimeFilter);
         QUrl newURL = QUrl::fromUserInput(dialog.filename());
+        debugMain<<newURL;
+        ret = !newURL.isEmpty();
+        if (ret) {
+            QByteArray outputFormat = _native_format;
 
-        if (newURL.isLocalFile()) {
-            QString fn = newURL.toLocalFile();
-            if (QFileInfo(fn).completeSuffix().isEmpty()) {
-                QMimeType mime = QMimeDatabase().mimeTypeForName(_native_format);
-                fn.append(mime.preferredSuffix());
-                newURL = QUrl::fromLocalFile(fn);
+            if (!specialOutputFlag) {
+                QMimeType mime = QMimeDatabase().mimeTypeForUrl(newURL);
+                outputFormat = mime.name().toLatin1();
             }
-        }
 
-        QByteArray outputFormat = _native_format;
-
-        if (!specialOutputFlag) {
-            QMimeType mime = QMimeDatabase().mimeTypeForUrl(newURL);
-            outputFormat = mime.name().toLatin1();
-        }
-
-
-        if (!isExporting())
-            justChangingFilterOptions = (newURL == d->rootDocument->url()) &&
-                    (outputFormat == d->rootDocument->mimeType()) &&
-                    (specialOutputFlag == oldSpecialOutputFlag);
-        else
-            justChangingFilterOptions = (newURL == d->lastExportUrl) &&
-                    (outputFormat == d->lastExportedFormat) &&
-                    (specialOutputFlag == d->lastExportSpecialOutputFlag);
-
-
-        bool bOk = true;
-        if (newURL.isEmpty()) {
-            bOk = false;
-        }
-        // adjust URL before doing checks on whether the file exists.
-        if (specialOutputFlag) {
-            QString fileName = newURL.fileName();
-            if (specialOutputFlag == KoDocument::SaveAsDirectoryStore) {
-                // Do nothing
-            } else if (specialOutputFlag == KoDocument::SaveEncrypted) {
-                int dot = fileName.lastIndexOf('.');
-                QString ext = mime.preferredSuffix();
-                if (!ext.isEmpty()) {
-                    if (dot < 0) {
-                        fileName += '.' + ext;
-                    } else {
-                        fileName = fileName.left(dot) + '.' + ext;
-                    }
-                } else {
-                    // There is no preferred suffix, why?
-                    errorMain<<"No preferred suffix for mimetype:"<<mime.name();
-                    // current filename extension wrong anyway
-                    if (dot > 0) {
-                        fileName = fileName.left(dot);
-                    }
-                }
-                newURL = newURL.adjusted(QUrl::RemoveFilename);
-                newURL.setPath(newURL.path() + fileName);
+            // if just File/Save As'ing to change filter options you
+            // don't want to be reminded about overwriting files etc.
+            bool justChangingFilterOptions = false;
+            if (!isExporting()) {
+                justChangingFilterOptions = (newURL == d->rootDocument->url()) &&
+                        (outputFormat == d->rootDocument->mimeType()) &&
+                        (specialOutputFlag == oldSpecialOutputFlag);
+            } else {
+                justChangingFilterOptions = (newURL == d->lastExportUrl) &&
+                        (outputFormat == d->lastExportedFormat) &&
+                        (specialOutputFlag == d->lastExportSpecialOutputFlag);
             }
-        }
-
-        if (bOk) {
             bool wantToSave = true;
 
             // don't change this line unless you know what you're doing :)
             if (!justChangingFilterOptions || d->rootDocument->confirmNonNativeSave(isExporting())) {
-                if (!d->rootDocument->isNativeFormat(outputFormat))
+                if (!d->rootDocument->isNativeFormat(outputFormat)) {
                     wantToSave = exportConfirmation(outputFormat);
+                }
             }
 
             if (wantToSave) {
@@ -1107,7 +1076,7 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
                         addRecentURL(d->rootDocument->projectName(), newURL);
                         setReadWrite(true);
                     } else {
-                        debugMain << "Failed Save As!";
+                        warnMain << "Failed Save As!";
                         d->rootDocument->setUrl(oldURL);
                         d->rootDocument->setLocalFilePath(oldFile);
                         d->rootDocument->setOutputMimeType(oldOutputFormat, oldSpecialOutputFlag);
@@ -1129,36 +1098,33 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
                 if (silent) // don't let the document change the window caption
                     d->rootDocument->setTitleModified();
             }   // if (wantToSave)  {
-            else
+            else {
                 ret = false;
-        }   // if (bOk) {
-        else
-            ret = false;
+            }
+        }
     } else { // saving
 
         bool needConfirm = d->rootDocument->confirmNonNativeSave(false) && !d->rootDocument->isNativeFormat(oldOutputFormat);
 
-        if (!needConfirm ||
-                (needConfirm && exportConfirmation(oldOutputFormat /* not so old :) */))
-                ) {
+        if (!needConfirm || (needConfirm && exportConfirmation(oldOutputFormat /* not so old :) */))) {
             // be sure d->rootDocument has the correct outputMimeType!
             if (isExporting() || d->rootDocument->isModified() || d->rootDocument->alwaysAllowSaving()) {
                 ret = d->rootDocument->save();
             }
 
             if (!ret) {
-                debugMain << d->rootDocument << "Failed Save!";
+                warnMain << d->rootDocument << "Failed Save!";
                 d->rootDocument->setUrl(oldURL);
                 d->rootDocument->setLocalFilePath(oldFile);
             }
-        } else
+        } else {
             ret = false;
+        }
     }
 
-
-    if (!ret && reset_url)
+    if (!ret && reset_url) {
         d->rootDocument->resetURL(); //clean the suggested filename as the save dialog was rejected
-
+    }
     updateReloadFileAction(d->rootDocument);
     updateCaption();
 
@@ -1371,8 +1337,10 @@ void KoMainWindow::slotFileSave()
 
 void KoMainWindow::slotFileSaveAs()
 {
-    if (saveDocument(true))
+    int specialOutputFlag = d->rootDocument->specialOutputFlag() == KoDocumentBase::SaveEncrypted ? KoDocumentBase::SaveEncrypted : 0;
+    if (saveDocument(true, false, specialOutputFlag)) {
         Q_EMIT documentSaved();
+    }
 }
 
 void KoMainWindow::slotEncryptDocument()
