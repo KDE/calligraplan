@@ -38,7 +38,6 @@
 #include "ktoolbar.h"
 #include "kxmlguifactory.h"
 
-#include "../kxmlgui_version.h"
 #include "ktoolbarhelper_p.h"
 
 static const char separatorstring[] = I18N_NOOP("--- separator ---");
