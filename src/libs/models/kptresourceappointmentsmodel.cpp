@@ -117,7 +117,10 @@ void ResourceAppointmentsItemModel::slotAppointmentChanged(Resource *r, Appointm
 void ResourceAppointmentsItemModel::slotProjectCalculated(ScheduleManager *sm)
 {
     if (sm == m_manager) {
-        setScheduleManager(sm);
+        beginResetModel();
+        refreshData();
+        endResetModel();
+        Q_EMIT refreshed();
     }
 }
 

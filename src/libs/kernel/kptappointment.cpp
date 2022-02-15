@@ -409,13 +409,18 @@ AppointmentIntervalList AppointmentIntervalList::extractIntervals(const DateTime
     if (isEmpty()) {
         return AppointmentIntervalList();
     }
-    QMultiMap<QDate, AppointmentInterval> lst;
+    QList<AppointmentInterval> ilst;
     QMultiMap<QDate, AppointmentInterval>::const_iterator it = m_map.lowerBound(start.date());
     for (; it != m_map.constEnd() && it.key() <= end.date(); ++it) {
         AppointmentInterval i = it.value().interval(start, end);
         if (i.isValid()) {
-            lst.insert(it.key(), it.value().interval(start, end));
+            ilst.append(i);
         }
+    }
+    QMultiMap<QDate, AppointmentInterval> lst;
+    while (!ilst.isEmpty()) {
+        auto i = ilst.takeLast();
+        lst.insert(i.startTime().date(), i);
     }
     return AppointmentIntervalList(lst);
 }

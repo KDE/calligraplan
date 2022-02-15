@@ -57,7 +57,8 @@ private Q_SLOTS:
     void startStart();
 
     void scheduleTimeZone();
-    
+    void resourceTimezoneSpansMidnight();
+
 private:
     Project *m_project;
     Calendar *m_calendar;

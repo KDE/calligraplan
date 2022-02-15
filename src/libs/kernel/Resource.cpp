@@ -849,8 +849,8 @@ DateTime Resource::WorkInfoCache::firstAvailableAfter(const DateTime &time, cons
         }
     }
     if (it == intervals.map().constEnd()) {
-        // ran out of cache, check the old way
         DateTime t = cal ? cal->firstAvailableAfter(time, limit, sch) : DateTime();
+        warnPlan<<"ran out of cache, check the old way"<<time<<limit<<':'<<t;
         return t;
     }
     return DateTime();
@@ -932,9 +932,10 @@ Duration Resource::effort(const DateTime& start, const Duration& duration, int u
 // the amount of effort we can do within the duration
 Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &duration, int units, bool backward, const QList<Resource*> &required) const
 {
-    //debugPlan<<m_name<<": ("<<(backward?"B)":"F)")<<start<<" for duration"<<duration.toString(Duration::Format_Day);
+    const DateTime startTime = m_project ? DateTime(start.toTimeZone(m_project->timeZone())) : start;
+    //debugPlan<<m_name<<": ("<<(backward?"B)":"F)")<<startTime<<" for duration"<<duration.toString(Duration::Format_Day);
 #if 0
-    if (sch) sch->logDebug(QString("Check effort in interval %1: %2, %3").arg(backward?"backward":"forward").arg(start.toString()).arg((backward?start-duration:start+duration).toString()));
+    if (sch) sch->logDebug(QString("Check effort in interval %1: %2, %3").arg(backward?"backward":"forward").arg(startTime.toString()).arg((backward?startTime-duration:startTime+duration).toString()));
 #endif
     Duration e;
     if (duration == 0 || m_units == 0 || units == 0) {
@@ -953,15 +954,15 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
     DateTime from;
     DateTime until;
     if (backward) {
-        from = availableAfter(start - duration, start, sch);
-        until = availableBefore(start, start - duration, sch);
+        from = availableAfter(startTime - duration, startTime, sch);
+        until = availableBefore(startTime, startTime - duration, sch);
     } else {
-        from = availableAfter(start, start + duration, sch);
-        until = availableBefore(start + duration, start, sch);
+        from = availableAfter(startTime, startTime + duration, sch);
+        until = availableBefore(startTime + duration, startTime, sch);
     }
     if (! (from.isValid() && until.isValid())) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("Resource not available in interval:" + start.toString() + ',' + (start+duration).toString());
+        if (sch) sch->logDebug("Resource not available in interval:" + startTime.toString() + ',' + (startTime+duration).toString());
 #endif
     } else {
         for (Resource *r : required) {
@@ -969,7 +970,7 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
             until = r->availableBefore(until, from);
             if (! (from.isValid() && until.isValid())) {
 #ifndef PLAN_NLOGDEBUG
-                if (sch) sch->logDebug("The required resource '" + r->name() + "'is not available in interval:" + start.toString() + ',' + (start+duration).toString());
+                if (sch) sch->logDebug("The required resource '" + r->name() + "'is not available in interval:" + startTime.toString() + ',' + (startTime+duration).toString());
 #endif
                     break;
             }
@@ -981,16 +982,18 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
 #endif
         e = workIntervals(from, until).effort(from, until) * units / 100;
         if (sch && (! sch->allowOverbooking() || sch->allowOverbookingState() == Schedule::OBS_Deny)) {
-            Duration avail = workIntervals(from, until, sch).effort(from, until);
+            auto s = m_project ? from.toTimeZone(m_project->timeZone()) : from;
+            auto u = m_project ? until.toTimeZone(m_project->timeZone()) : until;
+            Duration avail = workIntervals(s, u, sch).effort(s, u);
             if (avail < e) {
                 e = avail;
             }
         }
 //        e = (cal->effort(from, until, sch)) * m_units / 100;
     }
-    //debugPlan<<m_name<<start<<" e="<<e.toString(Duration::Format_Day)<<" ("<<m_units<<")";
+    //debugPlan<<m_name<<startTime<<" e="<<e.toString(Duration::Format_Day)<<" ("<<m_units<<")";
 #ifndef PLAN_NLOGDEBUG
-    if (sch) sch->logDebug(QString("effort: %1 for %2 hours = %3").arg(start.toString()).arg(duration.toString(Duration::Format_HourFraction)).arg(e.toString(Duration::Format_HourFraction)));
+    if (sch) sch->logDebug(QString("effort: %1 for %2 effort = %3").arg(startTime.toString()).arg(duration.toString()).arg(e.toString()));
 #endif
     return e;
 }
@@ -1030,11 +1033,10 @@ DateTime Resource::availableAfter(const DateTime &time, const DateTime &limit, S
         debugPlan<<this<<t<<lmt;
         return DateTime();
     }
-    QTimeZone tz = cal->timeZone();
-    t = t.toTimeZone(tz);
-    lmt = lmt.toTimeZone(tz);
     t = m_workinfocache.firstAvailableAfter(t, lmt, cal, sch);
-//    t = cal->firstAvailableAfter(t, lmt, sch);
+    if (m_project) {
+        t = t.toTimeZone(m_project->timeZone());
+    }
     //if (sch) debugPlan<<sch<<""<<m_name<<" id="<<sch->id()<<" mode="<<sch->calculationMode()<<" returns:"<<time.toString()<<"="<<t.toString()<<""<<lmt.toString();
     return t;
 }
@@ -1067,11 +1069,10 @@ DateTime Resource::availableBefore(const DateTime &time, const DateTime &limit, 
 #ifndef PLAN_NLOGDEBUG
     if (sch && t < lmt) sch->logDebug("t < lmt: " + t.toString() + " < " + lmt.toString());
 #endif
-    QTimeZone tz = cal->timeZone();
-    t = t.toTimeZone(tz);
-    lmt = lmt.toTimeZone(tz);
     t = m_workinfocache.firstAvailableBefore(t, lmt, cal, sch);
-//    t = cal->firstAvailableBefore(t, lmt, sch);
+    if (m_project) {
+        t = t.toTimeZone(m_project->timeZone());
+    }
 #ifndef PLAN_NLOGDEBUG
     if (sch && t.isValid() && t < lmt) sch->logDebug(" t < lmt: t=" + t.toString() + " lmt=" + lmt.toString());
 #endif

@@ -3193,8 +3193,90 @@ void ProjectTester::scheduleTimeZone()
     QCOMPARE(t2->endTime(), t2->startTime() + Duration(0, 8, 0));
     QCOMPARE(t2->plannedEffort().toHours(), 8.0);
     QVERIFY(t2->schedulingError() == false);
+}
 
-    unsetenv("TZ");
+void ProjectTester::resourceTimezoneSpansMidnight()
+{
+    QByteArray tz("TZ=Europe/Berlin");
+    putenv(tz.data());
+    qDebug()<<"Local timezone: "<<QTimeZone::systemTimeZone();
+
+    Calendar cal("LocalTime/Berlin");
+    QCOMPARE(cal.timeZone(),  QTimeZone::systemTimeZone());
+
+    Project project;
+    project.setName("P1");
+    project.setId(project.uniqueNodeId());
+    project.registerNodeId(&project);
+    project.setConstraintStartTime(QDateTime::fromString("2022-02-01T08:00", Qt::ISODate));
+    project.setConstraintEndTime(QDateTime::fromString("2022-05-01T00:00", Qt::ISODate));
+    // standard worktime defines 8 hour day as default
+    QVERIFY(project.standardWorktime());
+    QCOMPARE(project.standardWorktime()->day(), 8.0);
+
+    Calendar *calendar = new Calendar();
+    calendar->setName("LocalTime, Berlin");
+    calendar->setDefault(true);
+    QCOMPARE(calendar->timeZone(),  QTimeZone::systemTimeZone());
+
+    QTime time1(8, 0, 0);
+    QTime time2 (16, 0, 0);
+    int length = time1.msecsTo(time2);
+    for (int i=1; i <= 7; ++i) {
+        CalendarDay *d = calendar->weekday(i);
+        d->setState(CalendarDay::Working);
+        d->addInterval(time1, length);
+    }
+    project.addCalendar(calendar);
+
+    Calendar *cal2 = new Calendar();
+    cal2->setName("Sydney");
+    cal2->setTimeZone(QTimeZone("Australia/Sydney"));
+    QVERIFY(cal2->timeZone().isValid());
+
+    for (int i=1; i <= 7; ++i) {
+        CalendarDay *d = cal2->weekday(i);
+        d->setState(CalendarDay::Working);
+        d->addInterval(time1, length);
+    }
+    project.addCalendar(cal2);
+
+    QDate today = project.constraintStartTime().date();
+
+    Task *t = project.createTask();
+    t->setName("T1");
+    project.addTask(t, &project);
+    t->estimate()->setUnit(Duration::Unit_h);
+    t->estimate()->setExpectedEstimate(10.0);
+    t->estimate()->setType(Estimate::Type_Effort);
+
+    ResourceGroup *g = new ResourceGroup();
+    Resource *r2 = new Resource();
+    r2->setName("R2");
+    r2->setCalendar(cal2);
+    project.addResource(r2);
+    r2->addParentGroup(g);
+
+    ResourceRequest *rr2 = new ResourceRequest(r2, 20);
+    t->requests().addResourceRequest(rr2);
+
+    QString s = "Ref Bug 449786 -----------------------------------";
+    qDebug()<<'\n'<<"Testing:"<<s;
+
+    ScheduleManager *sm = project.createScheduleManager("Test Plan");
+    project.addScheduleManager(sm);
+    sm->createSchedules();
+    project.calculate(*sm);
+
+    Debug::print(&project, t, s);
+//     Debug::printSchedulingLog(*sm, s);
+    QVERIFY(t->schedulingError() == false);
+
+    const auto a2 = r2->appointmentIntervals();
+    QCOMPARE(a2.startTime().toString(Qt::ISODate), QString("2022-02-01T22:00:00"));
+    QCOMPARE(t->startTime(), a2.startTime());
+    QCOMPARE(t->plannedEffort().toHours(), t->estimate()->expectedEstimate());
+    QCOMPARE(t->endTime(), t->startTime() + Duration(6, 2, 0));
 }
 
 } //namespace KPlato
