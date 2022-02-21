@@ -3197,8 +3197,6 @@ void ProjectTester::scheduleTimeZone()
 
 void ProjectTester::resourceTimezoneSpansMidnight()
 {
-    QByteArray tz("TZ=Europe/Berlin");
-    putenv(tz.data());
     qDebug()<<"Local timezone: "<<QTimeZone::systemTimeZone();
 
     Calendar cal("LocalTime/Berlin");
@@ -3241,8 +3239,6 @@ void ProjectTester::resourceTimezoneSpansMidnight()
     }
     project.addCalendar(cal2);
 
-    QDate today = project.constraintStartTime().date();
-
     Task *t = project.createTask();
     t->setName("T1");
     project.addTask(t, &project);
@@ -3256,6 +3252,7 @@ void ProjectTester::resourceTimezoneSpansMidnight()
     r2->setCalendar(cal2);
     project.addResource(r2);
     r2->addParentGroup(g);
+    QVERIFY(!r2->availableFrom().isValid());
 
     ResourceRequest *rr2 = new ResourceRequest(r2, 20);
     t->requests().addResourceRequest(rr2);
@@ -3268,12 +3265,57 @@ void ProjectTester::resourceTimezoneSpansMidnight()
     sm->createSchedules();
     project.calculate(*sm);
 
-    Debug::print(&project, t, s);
+//     Debug::print(&project, t, s);
 //     Debug::printSchedulingLog(*sm, s);
     QVERIFY(t->schedulingError() == false);
 
-    const auto a2 = r2->appointmentIntervals();
-    QCOMPARE(a2.startTime().toString(Qt::ISODate), QString("2022-02-01T22:00:00"));
+    auto a2 = r2->appointmentIntervals();
+    QCOMPARE(a2.startTime().timeZone(), QTimeZone::systemTimeZone());
+    QCOMPARE(a2.startTime().toString(Qt::ISODate), QString("2022-02-01T22:00:00+01:00"));
+    QCOMPARE(t->startTime(), a2.startTime());
+    QCOMPARE(t->plannedEffort().toHours(), t->estimate()->expectedEstimate());
+    QCOMPARE(t->endTime(), t->startTime() + Duration(6, 2, 0));
+
+    s = "Resource timezone later than project timezone -----";
+    qDebug()<<'\n'<<"Testing:"<<s;
+
+    cal2->setTimeZone(QTimeZone("America/Ensenada"));
+
+    ScheduleManager *sm2 = project.createScheduleManager("Test Plan");
+    project.addScheduleManager(sm2);
+    sm2->createSchedules();
+    project.calculate(*sm2);
+
+//     Debug::print(&project, t, s);
+//     Debug::printSchedulingLog(*sm, s);
+    QVERIFY(t->schedulingError() == false);
+
+    a2 = r2->appointmentIntervals();
+    QCOMPARE(a2.startTime().timeZone(), QTimeZone::systemTimeZone());
+    QCOMPARE(a2.startTime().toString(Qt::ISODate), QString("2022-02-01T17:00:00+01:00"));
+    QCOMPARE(t->startTime(), a2.startTime());
+    QCOMPARE(t->plannedEffort().toHours(), t->estimate()->expectedEstimate());
+    QCOMPARE(t->endTime(), t->startTime() + Duration(6, 2, 0));
+
+    s = "Project timezone different from system timezone -----";
+    qDebug()<<"Testing:"<<s;
+    project.setTimeZone(QTimeZone("Europe/London"));
+    qDebug()<<"Project timezone:"<<project.constraintStartTime().timeZone()<<"System:"<<tz;
+
+    cal2->setTimeZone(QTimeZone("Australia/Sydney"));
+    auto dt = cal2->firstAvailableAfter(project.constraintStartTime(), project.constraintEndTime());
+
+    ScheduleManager *sm3 = project.createScheduleManager("Test Plan");
+    project.addScheduleManager(sm3);
+    sm3->createSchedules();
+    project.calculate(*sm3);
+
+//     Debug::print(&project, t, s);
+//     Debug::printSchedulingLog(*sm, s);
+    QVERIFY(t->schedulingError() == false);
+
+    a2 = r2->appointmentIntervals();
+    QCOMPARE(a2.startTime(), DateTime::fromString("2022-02-01T21:00:00", project.timeZone()));
     QCOMPARE(t->startTime(), a2.startTime());
     QCOMPARE(t->plannedEffort().toHours(), t->estimate()->expectedEstimate());
     QCOMPARE(t->endTime(), t->startTime() + Duration(6, 2, 0));

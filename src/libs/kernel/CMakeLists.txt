@@ -47,6 +47,7 @@ set(calligraplankernel_LIB_SRCS
     commands/ResourceGroupModifyCoordinatorCmd.cpp
     commands/AddAlternativeRequestCmd.cpp
     commands/InsertProjectCmd.cpp
+    commands/ProjectModifyTimeZoneCmd.cpp
 
     kptschedulerplugin.cpp
 

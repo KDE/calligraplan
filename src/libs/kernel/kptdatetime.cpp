@@ -10,6 +10,8 @@
 #include "kptdatetime.h"
 #include "kptdebug.h"
 
+#include <QTimeZone>
+
 namespace KPlato
 {
 
@@ -19,29 +21,31 @@ DateTime::DateTime()
 }
 
 DateTime::DateTime(QDate date)
-    : QDateTime(date)
+    : QDateTime(date, QTime(0,0,0), QTimeZone::systemTimeZone())
 {
 }
 
 DateTime::DateTime(QDate date, QTime time)
-    : QDateTime(date, time, Qt::LocalTime)
+    : QDateTime(date, time, QTimeZone::systemTimeZone())
 {
     if (!isValid() && this->date().isValid() && this->time().isValid()) {
         QTime t = this->time();
+        t = t.addSecs(timeZone().daylightTimeOffset(*this));
         warnPlan<<"Invalid DateTime, try to compensate for DST"<<this->date()<<t;
-        setTime(QTime(t.hour() + 1, 0, 0));
+        setTime(t);
         Q_ASSERT(isValid());
     }
 }
 
 DateTime::DateTime(QDate date, QTime time, const QTimeZone &timeZone)
-    : QDateTime(timeZone.isValid() ? QDateTime(date, time, timeZone) : QDateTime(date, time, Qt::LocalTime))
+    : QDateTime(timeZone.isValid() ? QDateTime(date, time, timeZone) : QDateTime(date, time, QTimeZone::systemTimeZone()))
 {
     // If we ended inside DST, DateTime is not valid, but date(), time() and timeSpec() should be valid
     if (!isValid() && this->date().isValid() && this->time().isValid()) {
         QTime t = this->time();
-        warnPlan<<"Invalid DateTime, try to compensate for DST"<<this->date()<<t<<timeSpec();
-        setTime(QTime(t.hour() + 1, 0, 0));
+        t = t.addSecs(timeZone.daylightTimeOffset(*this));
+        warnPlan<<"Invalid DateTime, try to compensate for DST"<<this->date()<<t;
+        setTime(t);
         Q_ASSERT(isValid());
     }
 }
@@ -60,18 +64,6 @@ static QDateTime fromTimeZone(const QDateTime &dt, const QTimeZone &timeZone)
     }
     return result;
 }
-
-DateTime::DateTime(const QDateTime &dt, const QTimeZone &timeZone)
-    : QDateTime(fromTimeZone(dt, timeZone))
-{
-    // may come from a TZ wo DST, into one with
-    if (!isValid() && dt.isValid()) {
-        warnPlan<<"Invalid DateTime, try to compensate for DST"<<dt;
-        setTime(QTime(dt.time().hour() + 1, 0, 0));
-        Q_ASSERT(isValid());
-    }
-}
-
 
 void DateTime::add(const Duration &duration) {
     if (isValid() && duration.m_ms) {

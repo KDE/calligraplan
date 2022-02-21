@@ -40,14 +40,12 @@ AppointmentInterval::AppointmentInterval(const AppointmentInterval &interval)
 AppointmentInterval::AppointmentInterval(const DateTime &start, const DateTime &end, double load)
     : d(new AppointmentIntervalData())
 {
+    if (start.isValid() && end.isValid()) {
+        Q_ASSERT_X(start.timeZone() == end.timeZone(), "Create interval:", QString(QString("Timezones not equal %1, %2").arg(QString(start.timeZone().id())).arg(QString(end.timeZone().id()))).toLatin1());
+    }
     setStartTime(start);
     setEndTime(end);
     setLoad(load);
-#ifndef NDEBUG
-    if (start.isValid() && end.isValid() && start.timeZone() != end.timeZone()) {
-        warnPlan<<"Timezones not equal:"<<start.timeZone()<<end.timeZone();
-    }
-#endif
 }
 
 AppointmentInterval::AppointmentInterval(QDate date, const TimeInterval& timeInterval, double load)
@@ -107,6 +105,22 @@ void AppointmentInterval::setLoad(double load)
     if (d->load != load) {
         d->load = load;
     }
+}
+
+QTimeZone AppointmentInterval::timeZone() const
+{
+    return d->start.timeZone();
+}
+
+AppointmentInterval &AppointmentInterval::toTimeZone(const QTimeZone &tz)
+{
+    if (d->start.timeZone() != tz) {
+        d->start = d->start.toTimeZone(tz);
+    }
+    if (d->end.timeZone() != tz) {
+        d->end = d->end.toTimeZone(tz);
+    }
+    return *this;
 }
 
 Duration AppointmentInterval::effort() const
@@ -237,6 +251,11 @@ bool AppointmentInterval::operator==(const AppointmentInterval &interval) const
     return d->start == interval.d->start && d->end == interval.d->end && d->load == interval.d->load;
 }
 
+bool AppointmentInterval::operator!=(const AppointmentInterval &interval) const
+{
+    return !operator==(interval);
+}
+
 bool AppointmentInterval::operator<(const AppointmentInterval &other) const
 {
     if (d->start < other.d->start) {
@@ -258,13 +277,34 @@ bool AppointmentInterval::intersects(const AppointmentInterval &other) const
 
 AppointmentInterval AppointmentInterval::interval(const DateTime &start, const DateTime &end) const
 {
-    // TODO: Find and fix those that call with "wrong" timezone (should be local zone atm)
+    // TODO: Find and fix those that call with "wrong" timezone
     const DateTime s = start.toTimeZone(d->start.timeZone());
     const DateTime e = end.toTimeZone(d->end.timeZone());
     if (s <= d->start && e >= d->end) {
         return *this;
     }
     return AppointmentInterval(qMax(s, d->start), qMin(e, d->end), d->load);
+}
+
+bool AppointmentInterval::merge(const AppointmentInterval &interval)
+{
+    if (isConticuousTo(interval)) {
+        const DateTime s = interval.d->start.toTimeZone(d->start.timeZone());
+        const DateTime e = interval.d->end.toTimeZone(d->end.timeZone());
+        if (s < d->start) {
+            d->start = s;
+        }
+        if (e > d->end) {
+            d->end = e;
+        }
+        return true;
+    }
+    return false;
+}
+
+bool AppointmentInterval::isConticuousTo(const AppointmentInterval &other) const
+{
+    return operator!=(other) && !intersects(other) && (d->end == other.d->start || d->start == other.d->end);
 }
 
 QString AppointmentInterval::toString() const
@@ -293,6 +333,22 @@ AppointmentIntervalList::AppointmentIntervalList(const QMultiMap<QDate, Appointm
     : m_map(other)
 {
 
+}
+
+QTimeZone AppointmentIntervalList::timeZone() const
+{
+    return m_map.isEmpty() ? QTimeZone::systemTimeZone() : m_map.first().timeZone();
+}
+
+AppointmentIntervalList &AppointmentIntervalList::toTimeZone(const QTimeZone &tz)
+{
+    AppointmentIntervalList m;
+    for (auto interval : m_map) {
+        const AppointmentInterval i(interval.startTime().toTimeZone(tz), interval.endTime().toTimeZone(tz), interval.load());
+        m.add(i);
+    }
+    m_map = m.m_map;
+    return *this;
 }
 
 QMultiMap< QDate, AppointmentInterval > AppointmentIntervalList::map()
@@ -437,25 +493,30 @@ void AppointmentIntervalList::add(const AppointmentInterval &ai)
         Q_ASSERT(ai.isValid());
         return;
     }
-    QDate date = ai.startTime().date();
-    QDate ed =  ai.endTime().date();
-    int load = ai.load();
+    auto interval = ai;
+    if (!isEmpty()) {
+        interval.toTimeZone(m_map.first().timeZone());
+    }
+    QDate date = interval.startTime().date();
+    QDate ed =  interval.endTime().date();
+    int load = interval.load();
 
     QList<AppointmentInterval> lst;
     if (date == ed) {
-        lst << ai;
+        lst << interval;
     } else {
         // split intervals into separate dates
-        QTime t1 = ai.startTime().time();
+        const auto tz = interval.timeZone();
+        QTime t1 = interval.startTime().time();
         while (date < ed) {
-            lst << AppointmentInterval(DateTime(date, t1), DateTime(date.addDays(1)), load);
+            lst << AppointmentInterval(DateTime(date, t1, tz), DateTime(date.addDays(1), QTime(0, 0), tz), load);
             //debugPlan<<"split:"<<date<<lst.last();
             Q_ASSERT_X(lst.last().isValid(), "Split", "Invalid interval");
             date = date.addDays(1);
             t1 = QTime();
         }
-        if (ai.endTime().time() != QTime(0, 0, 0)) {
-            lst << AppointmentInterval(DateTime(ed), ai.endTime(), load);
+        if (interval.endTime().time() != QTime(0, 0, 0)) {
+            lst << AppointmentInterval(DateTime(ed, QTime(0, 0), tz), interval.endTime(), load);
             Q_ASSERT_X(lst.last().isValid(), "Split", "Invalid interval");
         }
     }
@@ -475,7 +536,11 @@ void AppointmentIntervalList::add(const AppointmentInterval &ai)
                 Q_ASSERT_X(l.at(0).isValid(), "Original", "Invalid interval");
                 continue;
             }
-            if (! li.intersects(vi)) {
+            if (li.isConticuousTo(vi)) {
+                li.merge(vi);
+                continue;
+            }
+            if (!li.intersects(vi)) {
                 //debugPlan<<"not intersects:"<<li<<vi;
                 if (li < vi) {
                     if (! l.contains(li)) {
@@ -492,43 +557,43 @@ void AppointmentIntervalList::add(const AppointmentInterval &ai)
                     l.insert(0, vi);
                     Q_ASSERT_X(l.at(0).isValid(), "No intersects", "Add Invalid interval");
                 } else { Q_ASSERT(false); }
-            } else {
-                //debugPlan<<"intersects, merge"<<li<<vi;
-                if (li < vi) {
-                    //debugPlan<<"li < vi:";
-                    if (li.startTime() < vi.startTime()) {
-                        l.insert(0, AppointmentInterval(li.startTime(), vi.startTime(), li.load()));
-                        Q_ASSERT_X(l.at(0).isValid(), "Intersects, start", "Add Invalid interval");
-                    }
-                    l.insert(0, AppointmentInterval(vi.startTime(), qMin(vi.endTime(), li.endTime()), vi.load() + li.load()));
-                    Q_ASSERT_X(l.at(0).isValid(), "Intersects, middle", "Add Invalid interval");
-                    li.setStartTime(l.at(0).endTime()); // if more of li, it may overlap with next vi
-                    if (l.at(0).endTime() < vi.endTime()) {
-                        l.insert(0, AppointmentInterval(l.at(0).endTime(), vi.endTime(), vi.load()));
-                        //debugPlan<<"li < vi: vi rest:"<<l.at(0);
-                        Q_ASSERT_X(l.at(0).isValid(), "Intersects, end", "Add Invalid interval");
-                    }
-                } else if (vi < li) {
-                    //debugPlan<<"vi < li:";
-                    if (vi.startTime() < li.startTime()) {
-                        l.insert(0, AppointmentInterval(vi.startTime(), li.startTime(), vi.load()));
-                        Q_ASSERT_X(l.at(0).isValid(), "Intersects, start", "Add Invalid interval");
-                    }
-                    l.insert(0, AppointmentInterval(li.startTime(), qMin(vi.endTime(), li.endTime()), vi.load() + li.load()));
-                    Q_ASSERT_X(l.at(0).isValid(), "Intersects, middle", "Add Invalid interval");
-                    li.setStartTime(l.at(0).endTime()); // if more of li, it may overlap with next vi
-                    if (l.at(0).endTime() < vi.endTime()) {
-                        l.insert(0, AppointmentInterval(l.at(0).endTime(), vi.endTime(), vi.load()));
-                        //debugPlan<<"vi < li: vi rest:"<<l.at(0);
-                        Q_ASSERT_X(l.at(0).isValid(), "Intersects, end", "Add Invalid interval");
-                    }
-                } else {
-                    //debugPlan<<"vi == li:";
-                    li.setLoad(vi.load() + li.load());
-                    l.insert(0, li);
-                    Q_ASSERT_X(l.at(0).isValid(), "Equal", "Add Invalid interval");
-                    li = AppointmentInterval();
+                continue;
+            }
+            //debugPlan<<"intersects, merge"<<li<<vi;
+            if (li < vi) {
+                //debugPlan<<"li < vi:";
+                if (li.startTime() < vi.startTime()) {
+                    l.insert(0, AppointmentInterval(li.startTime(), vi.startTime(), li.load()));
+                    Q_ASSERT_X(l.at(0).isValid(), "Intersects, start", "Add Invalid interval");
                 }
+                l.insert(0, AppointmentInterval(vi.startTime(), qMin(vi.endTime(), li.endTime()), vi.load() + li.load()));
+                Q_ASSERT_X(l.at(0).isValid(), "Intersects, middle", "Add Invalid interval");
+                li.setStartTime(l.at(0).endTime()); // if more of li, it may overlap with next vi
+                if (l.at(0).endTime() < vi.endTime()) {
+                    l.insert(0, AppointmentInterval(l.at(0).endTime(), vi.endTime(), vi.load()));
+                    //debugPlan<<"li < vi: vi rest:"<<l.at(0);
+                    Q_ASSERT_X(l.at(0).isValid(), "Intersects, end", "Add Invalid interval");
+                }
+            } else if (vi < li) {
+                //debugPlan<<"vi < li:";
+                if (vi.startTime() < li.startTime()) {
+                    l.insert(0, AppointmentInterval(vi.startTime(), li.startTime(), vi.load()));
+                    Q_ASSERT_X(l.at(0).isValid(), "Intersects, start", "Add Invalid interval");
+                }
+                l.insert(0, AppointmentInterval(li.startTime(), qMin(vi.endTime(), li.endTime()), vi.load() + li.load()));
+                Q_ASSERT_X(l.at(0).isValid(), "Intersects, middle", "Add Invalid interval");
+                li.setStartTime(l.at(0).endTime()); // if more of li, it may overlap with next vi
+                if (l.at(0).endTime() < vi.endTime()) {
+                    l.insert(0, AppointmentInterval(l.at(0).endTime(), vi.endTime(), vi.load()));
+                    //debugPlan<<"vi < li: vi rest:"<<l.at(0);
+                    Q_ASSERT_X(l.at(0).isValid(), "Intersects, end", "Add Invalid interval");
+                }
+            } else {
+                //debugPlan<<"vi == li:";
+                li.setLoad(vi.load() + li.load());
+                l.insert(0, li);
+                Q_ASSERT_X(l.at(0).isValid(), "Equal", "Add Invalid interval");
+                li = AppointmentInterval();
             }
         }
         // If there is a rest of li, it must be inserted
@@ -653,6 +718,12 @@ Appointment::~Appointment() {
     detach();
 }
 
+Appointment &Appointment::toTimeZone(const QTimeZone &tz)
+{
+    m_intervals.toTimeZone(tz);
+    return *this;
+}
+
 void Appointment::clear()
 {
     m_intervals.clear();
@@ -683,8 +754,9 @@ void Appointment::setIntervals(const AppointmentIntervalList &lst) {
 
 void Appointment::addInterval(const AppointmentInterval &a) {
     Q_ASSERT(a.isValid());
+    Q_ASSERT(a.startTime().timeZone() == a.endTime().timeZone());
     m_intervals.add(a);
-    //if (m_resource && m_resource->resource() && m_node && m_node->node()) debugPlan<<"Mode="<<m_calculationMode<<":"<<m_resource->resource()->name()<<" to"<<m_node->node()->name()<<""<<a.startTime()<<a.endTime();
+//     if (m_resource && m_resource->resource() && m_node && m_node->node()) debugPlan<<"Mode="<<m_calculationMode<<":"<<m_resource->resource()->name()<<" to"<<m_node->node()->name()<<""<<a.startTime()<<a.endTime();
 }
 void Appointment::addInterval(const DateTime &start, const DateTime &end, double load) {
     Q_ASSERT(start < end);

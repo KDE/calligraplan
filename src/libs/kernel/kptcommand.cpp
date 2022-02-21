@@ -808,11 +808,13 @@ NodeModifyConstraintStartTimeCmd::NodeModifyConstraintStartTimeCmd(Node &node, c
 {
     if (node.projectNode()) {
         m_timeZone = static_cast<Project*>(node.projectNode())->timeZone();
+    } else {
+        m_timeZone = QTimeZone::systemTimeZone();
     }
 }
 void NodeModifyConstraintStartTimeCmd::execute()
 {
-    m_node.setConstraintStartTime(DateTime(newTime, m_timeZone));
+    m_node.setConstraintStartTime(DateTime(newTime.date(), newTime.time(), m_timeZone));
 
 }
 void NodeModifyConstraintStartTimeCmd::unexecute()
@@ -829,11 +831,13 @@ NodeModifyConstraintEndTimeCmd::NodeModifyConstraintEndTimeCmd(Node &node, const
 {
     if (node.projectNode()) {
         m_timeZone = static_cast<Project*>(node.projectNode())->timeZone();
+    } else {
+        m_timeZone = QTimeZone::systemTimeZone();
     }
 }
 void NodeModifyConstraintEndTimeCmd::execute()
 {
-    m_node.setConstraintEndTime(DateTime(newTime, m_timeZone));
+    m_node.setConstraintEndTime(DateTime(newTime.date(), newTime.time(), m_timeZone));
 }
 void NodeModifyConstraintEndTimeCmd::unexecute()
 {
@@ -850,7 +854,7 @@ NodeModifyStartTimeCmd::NodeModifyStartTimeCmd(Node &node, const QDateTime& dt, 
 }
 void NodeModifyStartTimeCmd::execute()
 {
-    m_node.setStartTime(DateTime(newTime, m_timeZone));
+    m_node.setStartTime(DateTime(newTime.date(), newTime.time(), m_timeZone));
 
 
 }
@@ -871,7 +875,7 @@ NodeModifyEndTimeCmd::NodeModifyEndTimeCmd(Node &node, const QDateTime& dt, cons
 }
 void NodeModifyEndTimeCmd::execute()
 {
-    m_node.setEndTime(DateTime(newTime, m_timeZone));
+    m_node.setEndTime(DateTime(newTime.date(), newTime.time(), m_timeZone));
 
 
 }
@@ -1529,7 +1533,7 @@ ModifyResourceAvailableFromCmd::ModifyResourceAvailableFromCmd(Resource *resourc
 }
 void ModifyResourceAvailableFromCmd::execute()
 {
-    m_resource->setAvailableFrom(DateTime(m_newvalue, m_timeZone));
+    m_resource->setAvailableFrom(DateTime(m_newvalue.date(), m_newvalue.time(), m_timeZone));
 }
 void ModifyResourceAvailableFromCmd::unexecute()
 {
@@ -1546,7 +1550,7 @@ ModifyResourceAvailableUntilCmd::ModifyResourceAvailableUntilCmd(Resource *resou
 }
 void ModifyResourceAvailableUntilCmd::execute()
 {
-    m_resource->setAvailableUntil(DateTime(m_newvalue, m_timeZone));
+    m_resource->setAvailableUntil(DateTime(m_newvalue.date(), m_newvalue.time(), m_timeZone));
 }
 void ModifyResourceAvailableUntilCmd::unexecute()
 {
@@ -1913,7 +1917,7 @@ ModifyCompletionStartTimeCmd::ModifyCompletionStartTimeCmd(Completion &completio
 }
 void ModifyCompletionStartTimeCmd::execute()
 {
-    m_completion.setStartTime(DateTime(newvalue, m_timeZone));
+    m_completion.setStartTime(DateTime(newvalue.date(), newvalue.time(), m_timeZone));
 
 
 }
@@ -1934,7 +1938,7 @@ ModifyCompletionFinishTimeCmd::ModifyCompletionFinishTimeCmd(Completion &complet
 }
 void ModifyCompletionFinishTimeCmd::execute()
 {
-    m_completion.setFinishTime(DateTime(newvalue, m_timeZone));
+    m_completion.setFinishTime(DateTime(newvalue.date(), newvalue.time(), m_timeZone));
 
 
 }
@@ -2444,7 +2448,7 @@ ProjectModifyStartTimeCmd::ProjectModifyStartTimeCmd(Project &node, const QDateT
 
 void ProjectModifyStartTimeCmd::execute()
 {
-    m_node.setConstraintStartTime(DateTime(newTime, m_timeZone));
+    m_node.setConstraintStartTime(DateTime(newTime.date(), newTime.time(), m_timeZone));
 }
 void ProjectModifyStartTimeCmd::unexecute()
 {
@@ -2461,8 +2465,8 @@ ProjectModifyEndTimeCmd::ProjectModifyEndTimeCmd(Project &node, const QDateTime&
 }
 void ProjectModifyEndTimeCmd::execute()
 {
-    m_node.setEndTime(DateTime(newTime, m_timeZone));
-    m_node.setConstraintEndTime(DateTime(newTime, m_timeZone));
+    m_node.setEndTime(DateTime(newTime.date(), newTime.time(), m_timeZone)); // FIXME why is this set? And not in unexecute?
+    m_node.setConstraintEndTime(DateTime(newTime.date(), newTime.time(), m_timeZone));
 }
 void ProjectModifyEndTimeCmd::unexecute()
 {

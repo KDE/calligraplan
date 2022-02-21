@@ -1948,7 +1948,10 @@ DateTime Task::scheduleFromStartTime(int use) {
         }
         if (m_estimate->type() == Estimate::Type_Effort) {
             // HACK scheduling may accept deviation less than 5 mins to improve performance
-            cs->effortNotMet = (m_estimate->value(use, cs->usePert()) - cs->plannedEffort()) > (5 * 60000);
+            if (m_estimate->value(use, cs->usePert()) != cs->plannedEffort()) {
+                warnPlan<<"Estimated effort not met:"<<m_estimate->value(use, cs->usePert()).toString()<<cs->plannedEffort().toString();
+            }
+            cs->effortNotMet = (m_estimate->value(use, cs->usePert()) - cs->plannedEffort()) > (60000);
             if (cs->effortNotMet) {
                 cs->logError(i18n("Effort not met. Estimate: %1, planned: %2", estimate()->value(use, cs->usePert()).toHours(), cs->plannedEffort().toHours()));
             }

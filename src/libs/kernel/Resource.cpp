@@ -650,7 +650,8 @@ void Resource::makeAppointment(Schedule *node, const DateTime &from, const DateT
         m_currentSchedule->logDebug(QString("Make appointments from %1 to %2 load=%4, required: %3").arg(from.toString()).arg(end.toString()).arg(lst.join(",")).arg(load));
     }
 #endif
-    AppointmentIntervalList lst = workIntervals(from, end, m_currentSchedule);
+    QTimeZone tz = m_project ? m_project->timeZone() : timeZone();
+    AppointmentIntervalList lst = workIntervals(from, end, m_currentSchedule).toTimeZone(tz);
     const auto intervals = lst.map().values();
     for (const AppointmentInterval &i : intervals) {
         m_currentSchedule->addAppointment(node, i.startTime(), i.endTime(), load);
@@ -776,19 +777,20 @@ void Resource::calendarIntervals(const DateTime &dtFrom, const DateTime &dtUntil
         m_workinfocache.clear();
         m_workinfocache.version = cal->cacheVersion();
     }
-    const DateTime from = dtFrom.toTimeZone(timeZone());
-    const DateTime until = dtUntil.toTimeZone(timeZone());
+    QTimeZone tz = m_project ? m_project->timeZone() : timeZone();
+    const DateTime from = dtFrom.toTimeZone(tz);
+    const DateTime until = dtUntil.toTimeZone(tz);
     if (! m_workinfocache.isValid()) {
         // First time
 //         debugPlan<<"First time:"<<from<<until;
         m_workinfocache.start = from;
         m_workinfocache.end = until;
-        m_workinfocache.intervals = cal->workIntervals(from, until, m_units);
+        m_workinfocache.intervals = cal->workIntervals(from, until, m_units).toTimeZone(tz);
 //         debugPlan<<"calendarIntervals (first):"<<m_workinfocache.intervals;
     } else {
         if (from < m_workinfocache.start) {
 //             debugPlan<<"Add to start:"<<from<<m_workinfocache.start;
-            m_workinfocache.intervals += cal->workIntervals(from, m_workinfocache.start, m_units);
+            m_workinfocache.intervals += cal->workIntervals(from, m_workinfocache.start, m_units).toTimeZone(tz);
             m_workinfocache.start = from;
 //             debugPlan<<"calendarIntervals (start):"<<m_workinfocache.intervals;
         }
@@ -822,6 +824,7 @@ void Resource::saveCalendarIntervalsCache(QDomElement &element) const
 
 DateTime Resource::WorkInfoCache::firstAvailableAfter(const DateTime &time, const DateTime &limit, Calendar *cal, Schedule *sch) const
 {
+    const DateTime end = limit.toTimeZone(time.timeZone());
     QMultiMap<QDate, AppointmentInterval>::const_iterator it = intervals.map().constEnd();
     if (start.isValid() && start <= time) {
         // possibly useful cache
@@ -829,17 +832,17 @@ DateTime Resource::WorkInfoCache::firstAvailableAfter(const DateTime &time, cons
     }
     if (it == intervals.map().constEnd()) {
         // nothing cached, check the old way
-        DateTime t = cal ? cal->firstAvailableAfter(time, limit, sch) : DateTime();
+        DateTime t = cal ? cal->firstAvailableAfter(time, end, sch) : DateTime();
         return t;
     }
-    AppointmentInterval inp(time, limit);
-    for (; it != intervals.map().constEnd() && it.key() <= limit.date(); ++it) {
+    AppointmentInterval inp(time, end);
+    for (; it != intervals.map().constEnd() && it.key() <= end.date(); ++it) {
         if (! it.value().intersects(inp) && it.value() < inp) {
             continue;
         }
         if (sch) {
             DateTimeInterval ti = sch->available(DateTimeInterval(it.value().startTime(), it.value().endTime()));
-            if (ti.isValid() && ti.second > time && ti.first < limit) {
+            if (ti.isValid() && ti.second > time && ti.first < end) {
                 ti.first = qMax(ti.first, time);
                 return ti.first;
             }
@@ -849,36 +852,36 @@ DateTime Resource::WorkInfoCache::firstAvailableAfter(const DateTime &time, cons
         }
     }
     if (it == intervals.map().constEnd()) {
-        DateTime t = cal ? cal->firstAvailableAfter(time, limit, sch) : DateTime();
-        warnPlan<<"ran out of cache, check the old way"<<time<<limit<<':'<<t;
-        return t;
+        DateTime t = cal ? cal->firstAvailableAfter(time, end, sch) : DateTime();
+        return t.toTimeZone(time.timeZone());
     }
     return DateTime();
 }
 
 DateTime Resource::WorkInfoCache::firstAvailableBefore(const DateTime &time, const DateTime &limit, Calendar *cal, Schedule *sch) const
 {
-    if (time <= limit) {
+    const DateTime end = limit.toTimeZone(time.timeZone());
+    if (time <= end) {
         return DateTime();
     }
     QMultiMap<QDate, AppointmentInterval>::const_iterator it = intervals.map().constBegin();
-    if (time.isValid() && limit.isValid() && end.isValid() && end >= time && ! intervals.isEmpty()) {
+    if (time.isValid() && end.isValid() && end.isValid() && end >= time && ! intervals.isEmpty()) {
         // possibly useful cache
         it = intervals.map().upperBound(time.date());
     }
     if (it == intervals.map().constBegin()) {
         // nothing cached, check the old way
-        DateTime t = cal ? cal->firstAvailableBefore(time, limit, sch) : DateTime();
+        DateTime t = cal ? cal->firstAvailableBefore(time, end, sch) : DateTime();
         return t;
     }
-    AppointmentInterval inp(limit, time);
-    for (--it; it != intervals.map().constBegin() && it.key() >= limit.date(); --it) {
+    AppointmentInterval inp(end, time);
+    for (--it; it != intervals.map().constBegin() && it.key() >= end.date(); --it) {
         if (! it.value().intersects(inp) && inp < it.value()) {
             continue;
         }
         if (sch) {
             DateTimeInterval ti = sch->available(DateTimeInterval(it.value().startTime(), it.value().endTime()));
-            if (ti.isValid() && ti.second > limit) {
+            if (ti.isValid() && ti.second > end) {
                 ti.second = qMin(ti.second, time);
                 return ti.second;
             }
@@ -889,8 +892,8 @@ DateTime Resource::WorkInfoCache::firstAvailableBefore(const DateTime &time, con
     }
     if (it == intervals.map().constBegin()) {
         // ran out of cache, check the old way
-        DateTime t = cal ? cal->firstAvailableBefore(time, limit, sch) : DateTime();
-        return t;
+        DateTime t = cal ? cal->firstAvailableBefore(time, end, sch) : DateTime();
+        return t.toTimeZone(time.timeZone());
     }
     return DateTime();
 }

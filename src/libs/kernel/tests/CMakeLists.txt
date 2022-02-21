@@ -37,6 +37,10 @@ plankernel_add_unit_test(ResourceTester ResourceTester.cpp  LINK_LIBRARIES calli
 
 ########### next target ###############
 
+plankernel_add_unit_test(WorkInfoCacheTester WorkInfoCacheTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
+
+########### next target ###############
+
 plankernel_add_unit_test(ScheduleTester ScheduleTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
 
 ########### next target ###############
@@ -58,10 +62,6 @@ plankernel_add_unit_test(PerformanceTester PerformanceTester.cpp  LINK_LIBRARIES
 ########### next target ###############
 
 plankernel_add_unit_test(CommandsTester CommandsTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
-
-########### next target ###############
-
-plankernel_add_unit_test(WorkInfoCacheTester WorkInfoCacheTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
 
 ########## next target ###############
 

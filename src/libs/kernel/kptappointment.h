@@ -72,14 +72,22 @@ public:
     void setEndTime(const DateTime &time);
     double load() const;
     void setLoad(double load);
-    
+    QTimeZone timeZone() const;
+    AppointmentInterval &toTimeZone(const QTimeZone &tz);
+
     bool isValid() const;
+
     AppointmentInterval firstInterval(const AppointmentInterval &interval, const DateTime &from) const;
 
+    /// Merge this interval with @p interval if it is conticuous to this.
+    /// @return true if merged
+    bool merge(const AppointmentInterval &interval);
     AppointmentInterval &operator=(const AppointmentInterval &interval);
     bool operator==(const AppointmentInterval &interval) const;
+    bool operator!=(const AppointmentInterval &interval) const;
     bool operator<(const AppointmentInterval &interval) const;
 
+    bool isConticuousTo(const AppointmentInterval &other) const;
     bool intersects(const AppointmentInterval &other) const;
     AppointmentInterval interval(const DateTime &start, const DateTime &end) const;
 
@@ -104,6 +112,10 @@ public:
 
     AppointmentIntervalList(const QMultiMap<QDate, AppointmentInterval> &other);
 
+    QTimeZone timeZone() const;
+    /// Convert intervals to timezone @p tz
+    AppointmentIntervalList &toTimeZone(const QTimeZone &tz);
+
     /// Add @p interval to the list. Handle overlapping with existing intervals.
     void add(const AppointmentInterval &interval);
     /// Add an interval to the list. Handle overlapping with existing intervals.
@@ -119,7 +131,7 @@ public:
 
     /// Returns the intervals in the range @p start, @p end
     AppointmentIntervalList extractIntervals(const DateTime &start, const DateTime &end) const;
-    
+
     /// Return the total effort
     Duration effort() const;
     /// Return the effort limited to the interval @p start, @p end
@@ -157,6 +169,9 @@ public:
     Appointment(Schedule *resource, Schedule *node, const DateTime &start, Duration duration, double load);
     Appointment(const Appointment &app);
     ~Appointment();
+
+    /// Convert appointment to timezone @p tz
+    Appointment &toTimeZone(const QTimeZone &tz);
 
     bool isEmpty() const { return m_intervals.isEmpty(); }
     void clear();

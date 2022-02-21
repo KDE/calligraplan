@@ -273,15 +273,15 @@ void WorkInfoCacheTester::timeZone()
     cal.setTimeZone(la);
 
     QDate wdate(2012,1,2);
-    DateTime before = DateTime(wdate.addDays(-1), QTime());
-    DateTime after = DateTime(wdate.addDays(2), QTime());
+    DateTime before = DateTime(wdate.addDays(-1), QTime(), la);
+    DateTime after = DateTime(wdate.addDays(2), QTime(), la);
 //    qDebug() << "before, after" << before << after;
     QTime t1(14,0,0); // 23 LA
     QTime t2(16,0,0); // 01 LA next day
     DateTime wdt1(wdate, t1);
     DateTime wdt2(wdate, t2);
-    int length = t1.msecsTo(t2);
-    qDebug() << "wdt1, wdt2" << wdt1 << wdt2 << wdt1.toTimeZone(la) << wdt2.toTimeZone(la);
+    qint64 length = t1.msecsTo(t2);
+    qDebug() << "length:" << Duration(length).toString() << "wdt1, wdt2" << wdt1 << wdt2 << wdt1.toTimeZone(la) << wdt2.toTimeZone(la);
     CalendarDay *day = new CalendarDay(wdate, CalendarDay::Working);
     day->addInterval(TimeInterval(t1, length));
     cal.addDay(day);
@@ -294,20 +294,26 @@ void WorkInfoCacheTester::timeZone()
     QVERIFY(! wic.isValid());
 
     r.calendarIntervals(before, after);
-    qDebug()<<wic.intervals.map();
-    QCOMPARE(wic.intervals.map().count(), 2);
+    QVERIFY(wic.isValid());
 
-    wdate = wdate.addDays(-laShiftDays);
-qDebug() << wdate;
-qDebug() << wic.intervals.map().value(wdate);
-qDebug() << wic.intervals.map().value(wdate).startTime();
-qDebug() << DateTime(wdate, QTime(23, 0, 0));
-    QCOMPARE(wic.intervals.map().value(wdate).startTime(), DateTime(wdate, QTime(23, 0, 0)));
-    QCOMPARE(wic.intervals.map().value(wdate).endTime(), DateTime(wdate.addDays(1), QTime(0, 0, 0)));
+    QCOMPARE(wic.intervals.map().count(), 1);
+    QCOMPARE(wic.intervals.map().values(wdate).count(), 1);
+    QMultiMap<QDate, AppointmentInterval>::const_iterator it = wic.intervals.map().constBegin();
+    QCOMPARE(it.value().startTime(), DateTime(wdate, QTime(14, 0, 0), la));
+    QCOMPARE(it.value().endTime(), DateTime(wdate, QTime(16, 0, 0), la));
+
+    // convert to localtime, moves the interval to around midnite (splits it into two)
+    auto localIntervals = wic.intervals;
+    localIntervals.toTimeZone(QTimeZone::systemTimeZone());
+    QCOMPARE(localIntervals.map().count(), 2);
+    QCOMPARE(localIntervals.map().values(wdate).count(), 1);
+    QCOMPARE(localIntervals.map().value(wdate).startTime(), DateTime(wdate, QTime(23, 0, 0)));
+    QCOMPARE(localIntervals.map().value(wdate).endTime(), DateTime(wdate.addDays(1), QTime(0, 0, 0)));
 
     wdate = wdate.addDays(1);
-    QCOMPARE(wic.intervals.map().value(wdate).startTime(), DateTime(wdate, QTime(0, 0, 0)));
-    QCOMPARE(wic.intervals.map().value(wdate).endTime(), DateTime(wdate, QTime(1, 0, 0)));
+    QCOMPARE(localIntervals.map().values(wdate).count(), 1);
+    QCOMPARE(localIntervals.map().value(wdate).startTime(), DateTime(wdate, QTime(0, 0, 0)));
+    QCOMPARE(localIntervals.map().value(wdate).endTime(), DateTime(wdate, QTime(1, 0, 0)));
 
     unsetenv("TZ");
 }

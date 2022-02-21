@@ -782,7 +782,6 @@ void Calendar::incCacheVersion()
         m_parent->incCacheVersion();
     } else {
         ++m_cacheversion;
-        debugPlan<<m_name<<m_cacheversion;
     }
 }
 
@@ -1125,14 +1124,16 @@ bool Calendar::hasParent(Calendar *cal) {
 
 AppointmentIntervalList Calendar::workIntervals(const QDateTime &start, const QDateTime &end, double load) const
 {
-    //debugPlan<<start<<end<<load;
+    const auto tz = start.timeZone();
+    const auto limit = end.toTimeZone(start.timeZone());
+    debugPlan<<tz<<start<<end<<load;
     AppointmentIntervalList lst;
     TimeInterval res;
     QTime startTime = start.time();
     int length = 0;
-    if (start.date() == end.date()) {
+    if (start.date() == limit.date()) {
         // Handle single day
-        length = startTime.msecsTo(end.time());
+        length = startTime.msecsTo(limit.time());
         if (length <= 0) {
             warnPlan<<"Invalid length"<<length;
             return lst;
@@ -1140,8 +1141,9 @@ AppointmentIntervalList Calendar::workIntervals(const QDateTime &start, const QD
         //debugPlan<<"Check single day:"<<s.date()<<s.time()<<length;
         res = firstInterval(start.date(), startTime, length, nullptr);
         while (res.isValid()) {
-            DateTime dt(start.date(), res.startTime(), m_timeZone);
-            lst.add(AppointmentInterval(dt.toTimeZone(projectTimeZone()), dt.addMSecs(res.second).toTimeZone(projectTimeZone()), load));
+            const DateTime dt1 = DateTime(start.date(), res.startTime(), m_timeZone).toTimeZone(tz);
+            const DateTime dt2 = dt1.addMSecs(res.second).toTimeZone(tz);
+            lst.add(AppointmentInterval(dt1, dt2, load));
             length -= res.second;
             if (length <= 0 || res.endsMidnight()) {
                 break;
@@ -1173,9 +1175,9 @@ AppointmentIntervalList Calendar::workIntervals(const QDateTime &start, const QD
             if (res.endsMidnight()) {
                 dt2 = dt2.addDays(1);
             }
-            AppointmentInterval i(dt1.toTimeZone(projectTimeZone()), dt2.toTimeZone(projectTimeZone()), load);
+            AppointmentInterval i(dt1.toTimeZone(tz), dt2.toTimeZone(tz), load);
             lst.add(i);
-//             debugPlan<<dt1<<dt2<<lst;
+            debugPlan<<res<<dt1<<dt2<<lst;
             length -= startTime.msecsTo(res.endTime());
             if (length <= 0 || res.endsMidnight()) {
                 break;
@@ -1208,6 +1210,8 @@ AppointmentIntervalList Calendar::workIntervals(const DateTime &start, const Dat
     QDateTime zonedStart = start.toTimeZone(m_timeZone);
     QDateTime zonedEnd = end.toTimeZone(m_timeZone);
     Q_ASSERT(zonedStart.isValid() && zonedEnd.isValid());
+    // convert to starts timezone
+
     return workIntervals(zonedStart, zonedEnd, load);
 }
 
@@ -1345,6 +1349,7 @@ DateTimeInterval Calendar::firstInterval(const QDateTime &start, const QDateTime
         }
         DateTime dt1(start.date(), res.first, m_timeZone);
         DateTimeInterval dti(dt1, DateTime(dt1.addMSecs(res.second)).toTimeZone(m_timeZone));
+//         debugPlan<<"Result firstInterval:"<<dti;
         return dti;
     }
     //debugPlan<<"tospec:"<<s.toString()<<" -"<<e.toString();
@@ -1369,7 +1374,7 @@ DateTimeInterval Calendar::firstInterval(const QDateTime &start, const QDateTime
             // return result in callers timezone
             DateTime dt1(date, res.first, m_timeZone);
             DateTimeInterval dti(DateTime(dt1), dt1.addMSecs(res.second).toTimeZone(m_timeZone));
-            //debugPlan<<"Result firstInterval:"<<dti.first.toString()<<","<<dti.second.toString();
+//             debugPlan<<"Result firstInterval:"<<dti;
             return dti;
         }
     }

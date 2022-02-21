@@ -428,7 +428,7 @@ public:
     /// Return the time zone used in this project
     QTimeZone timeZone() const { return m_timeZone; }
     /// Set the time zone to be used in this project
-    void setTimeZone(const QTimeZone &tz) { m_timeZone = tz; }
+    void setTimeZone(const QTimeZone &tz);
 
     /**
      * Add a relation between the nodes specified in the relation rel.

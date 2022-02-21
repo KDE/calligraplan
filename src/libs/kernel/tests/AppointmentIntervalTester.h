@@ -22,6 +22,7 @@ private Q_SLOTS:
     void addTangentIntervals();
     void subtractList();
     void subtractListMidnight();
+    void timeZones();
 
 };
 

@@ -441,27 +441,45 @@ void AppointmentIntervalTester::addTangentIntervals()
     // Add an interval overlapping 2 intervals at start > start.1, end > end.2
     AppointmentIntervalList lst;
 
-    DateTime dt1(QDate(2010, 1, 1), QTime(0, 0, 0));
-    DateTime dt2(QDate(2010, 1, 1), QTime(12, 0, 0));
+    DateTime dt1(QDate(2010, 1, 1), QTime(4, 0, 0));
+    DateTime dt2(QDate(2010, 1, 1), QTime(8, 0, 0));
+    DateTime dt3(QDate(2010, 1, 1), QTime(8, 0, 0));
+    DateTime dt4(QDate(2010, 1, 1), QTime(12, 0, 0));
+    DateTime dt5(QDate(2010, 1, 1), QTime(12, 0, 0));
+    DateTime dt6(QDate(2010, 1, 1), QTime(16, 0, 0));
     double load = 1.;
 
     qDebug()<<'\n'<<lst;
-    lst.add(dt2, dt1.addDays(1), load);
+    lst.add(dt1, dt2, load);
     qDebug()<<'\n'<<lst;
     QCOMPARE(lst.map().count(), 1);
+    QCOMPARE(lst.map().values().at(0).startTime(), dt1);
+    QCOMPARE(lst.map().values().at(0).endTime(), dt2);
 
-    lst.add(dt1, dt2, load);
+    lst.add(dt5, dt6, load);
+    qDebug()<<lst;
     QCOMPARE(lst.map().count(), 2);
     QCOMPARE(lst.map().values().at(0).startTime(), dt1);
-    QCOMPARE(lst.map().values().at(1).endTime(), DateTime(dt1.addDays(1)));
-    
-    // add with a 12 hours hole
-    lst.add(dt2.addDays(1), dt1.addDays(2), load);
+    QCOMPARE(lst.map().values().at(0).endTime(), dt2);
+    QCOMPARE(lst.map().values().at(1).startTime(), dt5);
+    QCOMPARE(lst.map().values().at(1).endTime(), dt6);
+
+    lst.add(dt3, dt4, load);
+    qDebug()<<lst;
+    QCOMPARE(lst.map().count(), 1);
+    QCOMPARE(lst.map().values().at(0).startTime(), dt1);
+    QCOMPARE(lst.map().values().at(0).endTime(), dt6);
+
+    lst.add(dt3, dt4, load*2);
     QCOMPARE(lst.map().count(), 3);
-    
-    // fill the hole
-    lst.add(dt1.addDays(1), dt2.addDays(1), load);
-    QCOMPARE(lst.map().count(), 4);
+    QCOMPARE(lst.map().values().at(0).startTime(), dt1);
+    QCOMPARE(lst.map().values().at(0).endTime(), dt2);
+    QCOMPARE(lst.map().values().at(1).startTime(), dt3);
+    QCOMPARE(lst.map().values().at(1).endTime(), dt4);
+    QCOMPARE(lst.map().values().at(2).startTime(), dt5);
+    QCOMPARE(lst.map().values().at(2).endTime(), dt6);
+
+
 }
 
 void AppointmentIntervalTester::addAppointment()
@@ -858,6 +876,83 @@ void AppointmentIntervalTester::subtractListMidnight()
     QCOMPARE(dt4, lst2.map().values().at(1).endTime());
     QCOMPARE(load, lst2.map().values().at(0).load());
     QCOMPARE(load, lst2.map().values().at(1).load());
+
+}
+
+void AppointmentIntervalTester::timeZones()
+{
+    QString s;
+
+    QTimeZone tzCopenhagen("Europe/Copenhagen");
+    AppointmentIntervalList lst1;
+    DateTime dt1 = DateTime(QDate(2011, 02, 01), QTime(0, 0, 0), tzCopenhagen);
+    DateTime dt2 = dt1 + Duration(0, 3, 0);
+    double load = 100;
+    lst1.add(dt1, dt2, load);
+    QCOMPARE(lst1.map().count(), 1);
+    QCOMPARE(dt1, lst1.map().values().first().startTime());
+    QCOMPARE(dt2, lst1.map().values().last().endTime());
+
+    QTimeZone tzLondon("Europe/London");
+    lst1.toTimeZone(tzLondon);
+    Debug::print(lst1);
+    DateTime dt3 = dt1.toTimeZone(tzLondon);
+    DateTime dt4 = dt3.addSecs(3600);
+    DateTime dt5 = dt4.addSecs(2*3600);
+    QCOMPARE(lst1.map().count(), 2);
+    QCOMPARE(lst1.map().values().at(0).startTime(), dt3);
+    QCOMPARE(lst1.map().values().at(0).endTime(), dt4);
+    QCOMPARE(lst1.map().values().at(1).startTime(), dt4);
+    QCOMPARE(lst1.map().values().at(1).endTime(), dt5);
+
+    lst1.toTimeZone(tzCopenhagen);
+    Debug::print(lst1);
+    QCOMPARE(lst1.map().count(), 1);
+    QCOMPARE(lst1.map().values().first().startTime(), dt1);
+    QCOMPARE(lst1.map().values().last().endTime(), dt2);
+
+    DateTime dt10 = DateTime(QDate(2011, 01, 31), QTime(23, 0, 0), tzLondon);
+    DateTime dt11 = dt10 + Duration(0, 1, 0);
+    lst1.add(dt10, dt11, 100);
+    Debug::print(lst1);
+    QCOMPARE(lst1.map().count(), 2);
+    QCOMPARE(lst1.map().values().first().startTime(), dt10);
+    QCOMPARE(lst1.map().values().first().load(), 200);
+    QCOMPARE(lst1.map().values().first().endTime(), dt11);
+    QCOMPARE(lst1.map().values().last().endTime(), dt2);
+
+    DateTime dt20 = DateTime(QDate(2011, 01, 31), QTime(22, 0, 0), tzLondon);
+    DateTime dt21 = dt20 + Duration(0, 1, 0);
+    lst1.add(dt20, dt21, 100);
+    Debug::print(lst1);
+    auto date = dt20.toTimeZone(tzCopenhagen).date();
+    QCOMPARE(lst1.timeZone(), tzCopenhagen);
+    QCOMPARE(lst1.map().values(date).count(), 1);
+    QCOMPARE(lst1.map().values(date).first().startTime(), dt20.toTimeZone(tzCopenhagen));
+    QCOMPARE(lst1.map().values(date).first().load(), 100);
+    QCOMPARE(lst1.map().values(date).first().endTime(), DateTime(dt21.toTimeZone(tzCopenhagen)));
+
+    date = dt1.date();
+    QCOMPARE(lst1.map().values(date).count(), 2);
+    QCOMPARE(lst1.map().values(date).first().startTime(), dt1);
+    QCOMPARE(lst1.map().values(date).first().load(), 200);
+    QCOMPARE(lst1.map().values(date).first().endTime(), dt11);
+    QCOMPARE(lst1.map().values(date).last().startTime(), dt2 - Duration(0, 2, 0));
+    QCOMPARE(lst1.map().values(date).last().load(), 100);
+    QCOMPARE(lst1.map().values(date).last().endTime(), dt2);
+
+    QTimeZone tz2("Atlantic/South_Georgia");
+    DateTime dt30 = DateTime(QDate(2011, 02, 1), QTime(0, 0, 0), tz2);
+    DateTime dt31 = dt30 + Duration(0, 1, 0);
+    lst1.add(dt30, dt31, 100); // should be merged with last interval
+    Debug::print(lst1);
+    QCOMPARE(lst1.map().values(date).count(), 2);
+    QCOMPARE(lst1.map().values(date).first().startTime(), dt1);
+    QCOMPARE(lst1.map().values(date).first().load(), 200);
+    QCOMPARE(lst1.map().values(date).first().endTime(), dt11);
+    QCOMPARE(lst1.map().values(date).last().startTime(), dt2 - Duration(0, 2, 0));
+    QCOMPARE(lst1.map().values(date).last().load(), 100);
+    QCOMPARE(lst1.map().values(date).last().endTime(), DateTime(dt31.toTimeZone(tzCopenhagen)));
 
 }
 

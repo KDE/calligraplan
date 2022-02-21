@@ -24,6 +24,7 @@ private Q_SLOTS:
     void workIntervals();
     void workIntervalsFullDays();
     void dstSpring();
+    void timeZones();
 };
 
 } //namespace KPlato

@@ -143,6 +143,17 @@ Project::~Project()
 
 int Project::type() const { return Node::Type_Project; }
 
+void Project::setTimeZone(const QTimeZone &tz)
+{
+    m_timeZone = tz;
+    if (m_constraintStartTime.isValid()) {
+        m_constraintStartTime.setTimeZone(tz);
+    }
+    if (m_constraintEndTime.isValid()) {
+        m_constraintEndTime.setTimeZone(tz);
+    }
+}
+
 uint Project::status(const ScheduleManager *sm) const
 {
     if (m_managerIdMap.isEmpty()) {

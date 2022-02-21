@@ -333,19 +333,47 @@ void CalendarTester::dstSpring()
     wd1->addInterval(TimeInterval(QTime(2,0,0), Duration(2., Duration::Unit_h).milliseconds()));
     
     lst = t.workIntervals(before, after, 100.);
-    qDebug()<<"DST?"<<DateTime(wdate, QTime(2,0,0))<<'\n'<<lst;
-    QCOMPARE(lst.map().count(), 2);
-
+    qDebug()<<"DST?"<<DateTime(wdate, QTime(2,0,0))<<lst;
+    QCOMPARE(lst.map().count(), 1);
     AppointmentInterval ai = lst.map().values().value(0);
     QCOMPARE(ai.startTime(),  DateTime(wdate, QTime()));
-    QCOMPARE(ai.endTime(),  DateTime(wdate, QTime(2,0,0)));
-    QCOMPARE(ai.effort().toHours(),  2.);
-
-    Debug::print(lst);
-    ai = lst.map().values().value(1);
-    QCOMPARE(ai.startTime(),  DateTime(wdate, QTime(2,0,0)));
     QCOMPARE(ai.endTime(),  DateTime(wdate, QTime(4,0,0)));
-    QCOMPARE(ai.effort().toHours(),  1.); // Missing DST hour is skipped
+    QCOMPARE(ai.effort().toHours(),  3.);
+
+    unsetenv("TZ");
+}
+
+void CalendarTester::timeZones()
+{
+    QByteArray tz("TZ=Europe/Copenhagen");
+    putenv(tz.data());
+
+    QTimeZone tzSydney("Australia/Sydney");
+    int length = 8*60*60*1000;
+    Calendar sydney("Sydney");
+    sydney.setTimeZone(tzSydney);
+    CalendarDay day(CalendarDay::Working);
+    TimeInterval ti(QTime(8, 0, 0), length);
+    day.addInterval(ti);
+    for (int i = 0; i < 7; ++i) {
+        sydney.setWeekday(i, day);
+    }
+    QDate wdate(2016,2,1);
+    DateTime before = DateTime(wdate.addDays(-1), QTime());
+    DateTime after = DateTime(wdate.addDays(1), QTime());
+    qInfo()<<before<<after;
+    auto lst = sydney.workIntervals(before, after, 100);
+    Debug::print(lst);
+
+    DateTime beforeSydney(before); beforeSydney = beforeSydney.toTimeZone(tzSydney);
+    DateTime afterSydney(after); afterSydney = afterSydney.toTimeZone(tzSydney);
+    lst = sydney.workIntervals(beforeSydney, afterSydney, 100);
+    Debug::print(lst);
+
+//     ai = lst.map().values().value(1);
+//     QCOMPARE(ai.startTime(),  DateTime(wdate, QTime(2,0,0)));
+//     QCOMPARE(ai.endTime(),  DateTime(wdate, QTime(4,0,0)));
+//     QCOMPARE(ai.effort().toHours(),  1.); // Missing DST hour is skipped
 
     unsetenv("TZ");
 }
