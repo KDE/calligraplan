@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>501</width>
-    <height>520</height>
+    <width>495</width>
+    <height>523</height>
    </rect>
   </property>
   <property name="locale">
@@ -24,7 +24,7 @@
       <attribute name="title">
        <string>General</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_7">
        <item>
         <layout class="QGridLayout" name="gridLayout">
          <item row="0" column="0">
@@ -146,6 +146,20 @@
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="1">
+             <widget class="QDateEdit" name="startDate">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QDateEdit" name="endDate">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
             <item row="0" column="0">
              <widget class="QLabel" name="label">
               <property name="text">
@@ -156,15 +170,8 @@
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
-             <widget class="QDateEdit" name="startDate">
-              <property name="calendarPopup">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2">
-             <widget class="QTimeEdit" name="startTime"/>
+            <item row="1" column="2">
+             <widget class="QTimeEdit" name="endTime"/>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_2">
@@ -176,15 +183,18 @@
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QDateEdit" name="endDate">
-              <property name="calendarPopup">
-               <bool>true</bool>
+            <item row="0" column="2">
+             <widget class="QTimeEdit" name="startTime"/>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Time zone:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="2">
-             <widget class="QTimeEdit" name="endTime"/>
+            <item row="3" column="1" colspan="2">
+             <widget class="QComboBox" name="ui_timezone"/>
             </item>
            </layout>
           </item>
@@ -500,7 +510,6 @@
   <tabstop>endDate</tabstop>
   <tabstop>endTime</tabstop>
   <tabstop>tabWidget</tabstop>
-  <tabstop>useSharedResources</tabstop>
   <tabstop>resourcesFile</tabstop>
   <tabstop>resourcesBrowseBtn</tabstop>
   <tabstop>ui_PublishUrl</tabstop>

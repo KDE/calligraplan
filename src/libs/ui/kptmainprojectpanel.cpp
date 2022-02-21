@@ -19,6 +19,7 @@
 
 #include "kptproject.h"
 #include "kptcommand.h"
+#include <ProjectModifyTimeZoneCmd.h>
 #include "kptschedule.h"
 #include "kpttaskdescriptiondialog.h"
 #include "kptdocumentspanel.h"
@@ -58,6 +59,11 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
  //   useSharedResources->setEnabled(!project.isSharedResourcesLoaded());
     useSharedResources->setChecked(project.useSharedResources());
     resourcesFile->setText(project.sharedResourcesFile());
+    const auto timezones = QTimeZone::availableTimeZoneIds();
+    for (const QString id : timezones) {
+        ui_timezone->addItem(id);
+    }
+    ui_timezone->setCurrentText(p.timeZone().id());
 
     const Project::WorkPackageInfo wpi = p.workPackageInfo();
     ui_CheckForWorkPackages->setChecked(wpi.checkForWorkPackages);
@@ -183,6 +189,10 @@ MacroCommand *MainProjectPanel::buildCommand() {
     if (endDateTime() != project.constraintEndTime()) {
         if (!m) m = new MacroCommand(c);
         m->addCommand(new ProjectModifyEndTimeCmd(project, endDateTime()));
+    }
+    if (project.timeZone().id() != ui_timezone->currentText()) {
+        if (!m) m = new MacroCommand(c);
+        m->addCommand(new ProjectModifyTimeZoneCmd(project, QTimeZone(ui_timezone->currentText().toLatin1())));
     }
     if (project.useSharedResources() != useSharedResources->isChecked()) {
         if (!m) m = new MacroCommand(c);
