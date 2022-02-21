@@ -614,7 +614,16 @@ QVariant ResourceAppointmentsItemModel::total(const Appointment *a, int role) co
         }
         case Qt::ToolTipRole: {
             if (m_effortMap.contains(a)) {
-                return i18n("Total booking by this task");
+                Node *n = a->node()->node();
+                const auto start = a->startTime();
+                return xi18nc("@info:tooltip", "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Available: %6",
+                            n->wbsCode(),
+                            n->name(),
+                            QLocale().toString(a->startTime(), QLocale::ShortFormat),
+                            KFormat().formatSpelloutDuration((a->endTime() - a->startTime()).milliseconds()),
+                            QString(start.timeZone().id()),
+                            a->resource()->resource()->units()
+                );
             } else if (m_externalEffortMap.contains(a)) {
                 return i18n("Total booking by the external project");
             }
@@ -1031,12 +1040,14 @@ QVariant ResourceAppointmentsRowModel::Private::appointmentData(int column, int 
             case ResourceAppointmentsRowModel::Load: return " ";
         }
     } else if (role == Qt::ToolTipRole) {
-        Node *n = a->node()->node();
-        return xi18nc("@info:tooltip", "%1: %2<nl/>%3: %4",
+        const auto n = a->node()->node();
+        const auto start = a->startTime();
+        return xi18nc("@info:tooltip", "%1: %2<nl/>%3: %4<nl/>Timezone: %5",
                                 n->wbsCode(),
                                 n->name(),
-                                QLocale().toString(a->startTime(), QLocale::ShortFormat),
-                                KFormat().formatSpelloutDuration((a->endTime() - a->startTime()).milliseconds())
+                                QLocale().toString(start, QLocale::ShortFormat),
+                                KFormat().formatSpelloutDuration((a->endTime() - start).milliseconds()),
+                                QString(start.timeZone().id())
                             );
     } else if (role == Role::Maximum) {
         return a->resource()->resource()->units(); //TODO: Maximum Load
@@ -1093,12 +1104,15 @@ QVariant ResourceAppointmentsRowModel::Private::intervalData(int column, int rol
     } else if (role == Qt::ToolTipRole) {
         Appointment *a = static_cast<Appointment*>(parent->ptr);
         if (a && a->node() && a->node()->node()) {
-            Node *n = a->node()->node();
-            return xi18nc("@info:tooltip", "%1: %2<nl/>%3: %4<nl/>Assigned: %5<nl/>Available: %6",
+            const auto n = a->node()->node();
+            const auto start = interval.startTime();
+            const auto end = interval.endTime();
+            return xi18nc("@info:tooltip", "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Assigned: %6<nl/>Available: %7",
                            n->wbsCode(),
                            n->name(),
-                           QLocale().toString(a->startTime(), QLocale::ShortFormat),
-                           KFormat().formatSpelloutDuration((a->endTime() - a->startTime()).milliseconds()),
+                           QLocale().toString(start, QLocale::ShortFormat),
+                           KFormat().formatSpelloutDuration((end - start).milliseconds()),
+                           QString(start.timeZone().id()),
                            interval.load(),
                            a->resource()->resource()->units()
             );
