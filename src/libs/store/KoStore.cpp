@@ -601,3 +601,15 @@ QStringList KoStore::directoryList() const
 {
     return QStringList();
 }
+
+void KoStore::setErrorMessage(const QString &msg)
+{
+    Q_D(KoStore);
+    d->errorMessage = msg;
+}
+
+QString KoStore::errorMessage() const
+{
+    Q_D(const KoStore);
+    return d->errorMessage;
+}

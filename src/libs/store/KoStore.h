@@ -12,6 +12,8 @@
 #include <QIODevice>
 #include "kostore_export.h"
 
+#define KOSTORE_CANCELED_MESSAGE "KOSTORE_CANCELED_MESSAGE"
+
 class QWidget;
 class QUrl;
 class KoStorePrivate;
@@ -300,6 +302,9 @@ public:
      * ZIP backend.
      */
     virtual void setCompressionEnabled(bool e);
+
+    void setErrorMessage(const QString &msg);
+    QString errorMessage() const;
 
 protected:
     KoStore(Mode mode, bool writeMimetype = true);

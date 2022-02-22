@@ -517,6 +517,7 @@ bool KoEncryptedStore::openRead(const QString& name)
             d->stream = new QBuffer();
             d->stream->open(QIODevice::ReadOnly);
             d->size = 0;
+            setErrorMessage(QStringLiteral(KOSTORE_CANCELED_MESSAGE));
             return true;
         }
         QCA::SecureArray encryptedFile(d->stream->readAll());
@@ -526,6 +527,7 @@ bool KoEncryptedStore::openRead(const QString& name)
             delete d->stream;
             d->stream = nullptr;
             warnStore << "read error";
+            setErrorMessage(i18n("Read error"));
             return false;
         }
         d->stream->close();
@@ -555,6 +557,7 @@ bool KoEncryptedStore::openRead(const QString& name)
                 if (! dlg.exec()) {
                     m_bPasswordDeclined = true;
                     QApplication::restoreOverrideCursor();
+                    setErrorMessage(QStringLiteral(KOSTORE_CANCELED_MESSAGE));
                     return false;
                 }
                 QApplication::restoreOverrideCursor();
@@ -569,6 +572,7 @@ bool KoEncryptedStore::openRead(const QString& name)
             decrypted = decryptFile(encryptedFile, encData, password);
             if (decrypted.isEmpty()) {
                 errorStore << "empty decrypted file" << '\n';
+                setErrorMessage(i18n("Empty decrypted file"));
                 return false;
             }
 

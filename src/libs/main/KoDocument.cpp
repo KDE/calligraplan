@@ -1585,6 +1585,10 @@ bool KoDocument::oldLoadAndParse(KoStore *store, const QString& filename, KoXmlD
     //debugMain <<"Trying to open" << filename;
 
     if (!store->open(filename)) {
+        if (store->errorMessage() == KOSTORE_CANCELED_MESSAGE) {
+            setErrorMessage("USER_CANCELED");
+            return false;
+        }
         warnMain << "Entry " << filename << " not found!";
         d->lastErrorMessage = i18n("Could not find %1", filename);
         return false;
@@ -1712,7 +1716,7 @@ bool KoDocument::loadNativeFormatFromStore(const QString& file)
     if (success && store->isEncrypted() && !d->isImporting) {
         d->password = store->password();
     }
-    if (!success && store->isEncrypted()) {
+    if (!success && store->isEncrypted() && store->errorMessage() != KOSTORE_CANCELED_MESSAGE) {
         setErrorMessage(i18n("Invalid password"));
     }
 

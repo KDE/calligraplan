@@ -96,7 +96,11 @@ bool KoOdfReadStore::loadAndParse(const QString &fileName, KoXmlDocument &doc, Q
     if (!d->store->isOpen()) {
         if (!d->store->open(fileName)) {
             debugOdf << "Entry " << fileName << " not found!"; // not a warning as embedded stores don't have to have all files
-            errorMessage = i18n("Could not find %1", fileName);
+            if (d->store->errorMessage() == KOSTORE_CANCELED_MESSAGE) {
+                errorMessage = QStringLiteral("USER_CANCELED");
+            } else {
+                errorMessage = i18n("Could not find %1", fileName);
+            }
             return false;
         }
     }
