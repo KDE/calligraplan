@@ -143,7 +143,7 @@ QList<Account*> AccountTreeView::selectedAccounts() const
 AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
-    setXMLFile("AccountsEditorUi.rc");
+    setXMLFile(QStringLiteral("AccountsEditorUi.rc"));
 
     setupGui();
 
@@ -267,17 +267,17 @@ void AccountsEditor::updateActionsEnabled(bool on)
 void AccountsEditor::setupGui()
 {
     actionAddAccount  = new QAction(koIcon("document-new"), xi18nc("@action:inmenu", "Add Account"), this);
-    actionCollection()->addAction("add_account", actionAddAccount);
+    actionCollection()->addAction(QStringLiteral("add_account"), actionAddAccount);
     actionCollection()->setDefaultShortcut(actionAddAccount, Qt::CTRL + Qt::Key_I);
     connect(actionAddAccount, &QAction::triggered, this, &AccountsEditor::slotAddAccount);
 
     actionAddSubAccount  = new QAction(koIcon("document-new"), xi18nc("@action:inmenu", "Add Subaccount"), this);
-    actionCollection()->addAction("add_subaccount", actionAddSubAccount);
+    actionCollection()->addAction(QStringLiteral("add_subaccount"), actionAddSubAccount);
     actionCollection()->setDefaultShortcut(actionAddSubAccount, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
     connect(actionAddSubAccount, &QAction::triggered, this, &AccountsEditor::slotAddSubAccount);
 
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action:inmenu", "Delete"), this);
-    actionCollection()->addAction("delete_selection", actionDeleteSelection);
+    actionCollection()->addAction(QStringLiteral("delete_selection"), actionDeleteSelection);
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
     connect(actionDeleteSelection, &QAction::triggered, this, &AccountsEditor::slotDeleteSelection);
 

@@ -21,6 +21,8 @@
 #include "kptconfigbase.h"
 #include "kptcommonstrings.h"
 
+#include <MimeTypes.h>
+
 #include <KoStore.h>
 #include <KoXmlReader.h>
 #include <KoStoreDevice.h>
@@ -154,7 +156,7 @@ DocumentChild *WorkPackage::findChild(const KPlato::Document *doc) const
 bool WorkPackage::loadXML(const KoXmlElement &element, KPlato::XMLLoaderObject &status)
 {
     bool ok = false;
-    QString wbsCode = "Unknown";
+    QString wbsCode = QStringLiteral("Unknown");
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
         if (! n.isElement()) {
@@ -162,16 +164,16 @@ bool WorkPackage::loadXML(const KoXmlElement &element, KPlato::XMLLoaderObject &
         }
         KoXmlElement e = n.toElement();
         debugPlanWork<<e.tagName();
-        if (e.tagName() == "project") {
+        if (e.tagName() == QStringLiteral("project")) {
             status.setProject(m_project);
             debugPlanWork<<"loading new project";
             if (!(ok = status.loadProject(m_project, element.ownerDocument()))) {
-                status.addMsg(KPlato::XMLLoaderObject::Errors, "Loading of work package failed");
+                status.addMsg(KPlato::XMLLoaderObject::Errors, QStringLiteral("Loading of work package failed"));
                 KMessageBox::error(nullptr, i18n("Failed to load project: %1" , m_project->name()));
             } else {
                 KoXmlElement te = e.namedItem("task").toElement();
                 if (!te.isNull()) {
-                    wbsCode = te.attribute("wbs", "empty");
+                    wbsCode = te.attribute("wbs", QStringLiteral("empty"));
                 }
             }
         }
@@ -184,7 +186,7 @@ bool WorkPackage::loadXML(const KoXmlElement &element, KPlato::XMLLoaderObject &
             }
             KoXmlElement e = n.toElement();
             debugPlanWork<<e.tagName();
-            if (e.tagName() == "workpackage") {
+            if (e.tagName() == QStringLiteral("workpackage")) {
                 KPlato::Task *t = static_cast<KPlato::Task*>(m_project->childNode(0));
                 t->workPackage().setOwnerName(e.attribute("owner"));
                 t->workPackage().setOwnerId(e.attribute("owner-id"));
@@ -204,7 +206,7 @@ bool WorkPackage::loadXML(const KoXmlElement &element, KPlato::XMLLoaderObject &
                     }
                     KoXmlElement el = ch.toElement();
                     debugPlanWork<<el.tagName();
-                    if (el.tagName() == "settings") {
+                    if (el.tagName() == QStringLiteral("settings")) {
                         m_settings.loadXML(el);
                     }
                 }
@@ -229,12 +231,12 @@ bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, KPlato::XMLLoaderOb
         }
         KoXmlElement e = n.toElement();
         debugPlanWork<<e.tagName();
-        if (e.tagName() == "project") {
+        if (e.tagName() == QStringLiteral("project")) {
             status.setProject(m_project);
             KPlato::KPlatoXmlLoader loader(status, m_project);
             debugPlanWork<<"loading new project";
             if (! (ok = loader.load(m_project, e, status))) {
-                status.addMsg(KPlato::XMLLoaderObject::Errors, "Loading of work package failed");
+                status.addMsg(KPlato::XMLLoaderObject::Errors, QStringLiteral("Loading of work package failed"));
                 KMessageBox::error(nullptr, i18n("Failed to load project: %1" , m_project->name()));
             }
         }
@@ -247,7 +249,7 @@ bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, KPlato::XMLLoaderOb
             }
             KoXmlElement e = n.toElement();
             debugPlanWork<<e.tagName();
-            if (e.tagName() == "workpackage") {
+            if (e.tagName() == QStringLiteral("workpackage")) {
                 KPlato::Task *t = static_cast<KPlato::Task*>(m_project->childNode(0));
                 t->workPackage().setOwnerName(e.attribute("owner"));
                 t->workPackage().setOwnerId(e.attribute("owner-id"));
@@ -264,7 +266,7 @@ bool WorkPackage::loadKPlatoXML(const KoXmlElement &element, KPlato::XMLLoaderOb
                     }
                     KoXmlElement el = ch.toElement();
                     debugPlanWork<<el.tagName();
-                    if (el.tagName() == "settings") {
+                    if (el.tagName() == QStringLiteral("settings")) {
                         m_settings.loadXML(el);
                     }
                 }
@@ -313,7 +315,7 @@ bool WorkPackage::saveNativeFormat(Part *part, const QString &path)
             return false;
         }
     } else {
-        KMessageBox::error(nullptr, i18n("Not able to write '%1'. Partition full?", QString("maindoc.xml")));
+        KMessageBox::error(nullptr, i18n("Not able to write '%1'. Partition full?", QStringLiteral("maindoc.xml")));
         delete store;
         return false;
     }
@@ -335,16 +337,16 @@ bool WorkPackage::saveNativeFormat(Part *part, const QString &path)
 bool WorkPackage::completeSaving(KoStore *store)
 {
     debugPlanWork;
-    KoStore *oldstore = KoStore::createStore(filePath(), KoStore::Read, "", KoStore::Zip);
+    KoStore *oldstore = KoStore::createStore(filePath(), KoStore::Read, QByteArray(""), KoStore::Zip);
     if (oldstore->bad()) {
         KMessageBox::error(nullptr, i18n("Failed to open store:\n %1", filePath()));
         return false;
     }
     if (oldstore->hasFile("documentinfo.xml")) {
-        copyFile(oldstore, store, "documentinfo.xml");
+        copyFile(oldstore, store, QStringLiteral("documentinfo.xml"));
     }
     if (oldstore->hasFile("preview.png")) {
-        copyFile(oldstore, store, "preview.png");
+        copyFile(oldstore, store, QStringLiteral("preview.png"));
     }
 
     // First get all open documents
@@ -386,11 +388,11 @@ QString WorkPackage::fileName(const Part *part) const
         warnPlanWork<<"No node in this project";
         return QString();
     }
-    QString projectName = m_project->name().remove(' ');
-    // FIXME: workaround: KoResourcePaths::saveLocation("projects", projectName + '/');
-    const QString path = KoResourcePaths::saveLocation("appdata", "projects/" + projectName + '/');
+    QString projectName = m_project->name().remove(QLatin1Char(' '));
+    // FIXME: workaround: KoResourcePaths::saveLocation("projects", QStringLiteral(projectName) + QLatin1Char('/'));
+    const QString path = KoResourcePaths::saveLocation("appdata", QStringLiteral("projects/") + projectName + QLatin1Char('/'));
     QString wpName = n->name();
-    wpName = QString(wpName.remove(' ').replace('/', '_') + '_' + n->id() + ".planwork");
+    wpName = QString(wpName.remove(QLatin1Char(' ')).replace(QLatin1Char('/'), QLatin1Char('_')) + QLatin1Char('_') + n->id() + QStringLiteral(".planwork"));
     return path + wpName;
 }
 
@@ -477,27 +479,27 @@ bool WorkPackage::copyFile(KoStore *from, KoStore *to, const QString &filename)
 QDomDocument WorkPackage::saveXML()
 {
     debugPlanWork;
-    QDomDocument document("plan-workpackage");
+    QDomDocument document(QStringLiteral("plan-workpackage"));
 
     document.appendChild(document.createProcessingInstruction(
-                              "xml",
-                              "version=\"1.0\" encoding=\"UTF-8\""));
+                              QStringLiteral("xml"),
+                              QStringLiteral("version=\"1.0\" encoding=\"UTF-8\"")));
 
-    QDomElement doc = document.createElement("planwork");
-    doc.setAttribute("editor", "PlanWork");
-    doc.setAttribute("mime", "application/x-vnd.kde.plan.work");
-    doc.setAttribute("version", PLANWORK_FILE_SYNTAX_VERSION);
-    doc.setAttribute("plan-version", PLAN_FILE_SYNTAX_VERSION);
+    QDomElement doc = document.createElement(QStringLiteral("planwork"));
+    doc.setAttribute(QStringLiteral("editor"), QStringLiteral("PlanWork"));
+    doc.setAttribute(QStringLiteral("mime"), PLANWORK_MIME_TYPE);
+    doc.setAttribute(QStringLiteral("version"), PLANWORK_FILE_SYNTAX_VERSION);
+    doc.setAttribute(QStringLiteral("plan-version"), PLAN_FILE_SYNTAX_VERSION);
     document.appendChild(doc);
 
     // Work package info
-    QDomElement wp = document.createElement("workpackage");
-    wp.setAttribute("time-tag", QDateTime::currentDateTime().toString(Qt::ISODate));
+    QDomElement wp = document.createElement(QStringLiteral("workpackage"));
+    wp.setAttribute(QStringLiteral("time-tag"), QDateTime::currentDateTime().toString(Qt::ISODate));
     m_settings.saveXML(wp);
     KPlato::Task *t = qobject_cast<KPlato::Task*>(node());
     if (t) {
-        wp.setAttribute("owner", t->workPackage().ownerName());
-        wp.setAttribute("owner-id", t->workPackage().ownerId());
+        wp.setAttribute(QStringLiteral("owner"), t->workPackage().ownerName());
+        wp.setAttribute(QStringLiteral("owner-id"), t->workPackage().ownerId());
     }
     doc.appendChild(wp);
     m_project->save(doc, KPlato::XmlSaveContext());
@@ -730,13 +732,13 @@ CopySchedulesCmd::CopySchedulesCmd(const KPlato::Project &fromProject, KPlato::P
       m_project(toProject)
 {
     QDomDocument olddoc;
-    QDomElement e = olddoc.createElement("old");
+    QDomElement e = olddoc.createElement(QStringLiteral("old"));
     olddoc.appendChild(e);
     toProject.save(e, KPlato::XmlSaveContext());
     m_olddoc = olddoc.toString();
 
     QDomDocument newdoc;
-    e = newdoc.createElement("new");
+    e = newdoc.createElement(QStringLiteral("new"));
     newdoc.appendChild(e);
     fromProject.save(e, KPlato::XmlSaveContext());
     m_newdoc = newdoc.toString();

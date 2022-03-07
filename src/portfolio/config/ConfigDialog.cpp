@@ -45,12 +45,12 @@ void ConfigDialog::updateWidgets()
 
 bool ConfigDialog::hasChanged()
 {
-    QWidget *w = currentPage()->widget()->findChild<QWidget*>("ConfigWidget");
+    QWidget *w = currentPage()->widget()->findChild<QWidget*>(QStringLiteral("ConfigWidget"));
     return w ? w->property("hasChanged").toBool() : false;
 }
 
 void ConfigDialog::showHelp()
 {
-    KPlato::Help::instance()->invokeContext(QUrl("portfolio:configure-portfolio-dialog"));
+    KPlato::Help::instance()->invokeContext(QUrl(QStringLiteral("portfolio:configure-portfolio-dialog")));
 }
 

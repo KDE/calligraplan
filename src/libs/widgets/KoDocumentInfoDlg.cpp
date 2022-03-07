@@ -115,7 +115,7 @@ KoDocumentInfoDlg::KoDocumentInfoDlg(QWidget* parent, KoDocumentInfo* docInfo)
     KoDocumentBase* doc = dynamic_cast< KoDocumentBase* >(d->info->parent());
     if (doc) {
         QMimeDatabase db;
-        QMimeType mime = db.mimeTypeForName(doc->mimeType());
+        QMimeType mime = db.mimeTypeForName(QString::fromLatin1(doc->mimeType()));
         if (mime.isValid()) {
             page->setIcon(QIcon::fromTheme(mime.iconName()));
         }
@@ -200,7 +200,7 @@ void KoDocumentInfoDlg::initAboutTab()
     d->aboutUi->meComments->setPlainText(d->info->aboutInfo("description"));
     if (doc && !doc->mimeType().isEmpty()) {
         QMimeDatabase db;
-        QMimeType docmime = db.mimeTypeForName(doc->mimeType());
+        QMimeType docmime = db.mimeTypeForName(QLatin1String(doc->mimeType()));
         if (docmime.isValid())
             d->aboutUi->lblType->setText(docmime.comment());
     }
@@ -208,14 +208,14 @@ void KoDocumentInfoDlg::initAboutTab()
         QDateTime t = QDateTime::fromString(d->info->aboutInfo("creation-date"),
                                             Qt::ISODate);
         QString s = QLocale().toString(t);
-        d->aboutUi->lblCreated->setText(s + ", " +
+        d->aboutUi->lblCreated->setText(s + QStringLiteral(", ") +
                                         d->info->aboutInfo("initial-creator"));
     }
 
     if (!d->info->aboutInfo("date").isEmpty()) {
         QDateTime t = QDateTime::fromString(d->info->aboutInfo("date"), Qt::ISODate);
         QString s = QLocale().toString(t);
-        d->aboutUi->lblModified->setText(s + ", " + d->info->authorInfo("creator"));
+        d->aboutUi->lblModified->setText(s + QStringLiteral(", ") + d->info->authorInfo("creator"));
     }
 
     d->aboutUi->lblRevision->setText(d->info->aboutInfo("editing-cycles"));
@@ -296,14 +296,14 @@ void KoDocumentInfoDlg::slotResetMetaData()
         QDateTime t = QDateTime::fromString(d->info->aboutInfo("creation-date"),
                                             Qt::ISODate);
         QString s = QLocale().toString(t);
-        d->aboutUi->lblCreated->setText(s + ", " +
+        d->aboutUi->lblCreated->setText(s + QStringLiteral(", ") +
                                         d->info->aboutInfo("initial-creator"));
     }
 
     if (!d->info->aboutInfo("date").isEmpty()) {
         QDateTime t = QDateTime::fromString(d->info->aboutInfo("date"), Qt::ISODate);
         QString s = QLocale().toString(t);
-        d->aboutUi->lblModified->setText(s + ", " + d->info->authorInfo("creator"));
+        d->aboutUi->lblModified->setText(s + QStringLiteral(", ") + d->info->authorInfo("creator"));
     }
 
     d->aboutUi->lblRevision->setText(d->info->aboutInfo("editing-cycles"));
@@ -360,7 +360,7 @@ void KoDocumentInfoDlg::saveEncryption()
                     i18n("Confirm Decrypt"),
                     KGuiItem(i18n("Decrypt")),
                     KStandardGuiItem::cancel(),
-                    "DecryptConfirmation"
+                    QStringLiteral("DecryptConfirmation")
                     ) != KMessageBox::Continue) {
             return;
         }
@@ -372,7 +372,7 @@ void KoDocumentInfoDlg::saveEncryption()
                         i18n("<qt>Your document could not be saved automatically."
                              "<p>To complete the decryption, please save the document.</qt>"),
                         i18n("Save Document"),
-                        "DecryptSaveMessage");
+                        QStringLiteral("DecryptSaveMessage"));
             return;
         }
         if (modified && KMessageBox::questionYesNo(
@@ -382,7 +382,7 @@ void KoDocumentInfoDlg::saveEncryption()
                     i18n("Save Document"),
                     KStandardGuiItem::save(),
                     KStandardGuiItem::dontSave(),
-                    "DecryptSaveConfirmation"
+                    QStringLiteral("DecryptSaveConfirmation")
                     ) != KMessageBox::Yes) {
             return;
         }
@@ -391,16 +391,16 @@ void KoDocumentInfoDlg::saveEncryption()
         bool modified = doc->isModified();
         if (!doc->url().isEmpty() && doc->specialOutputFlag() == 0) {
             QMimeDatabase db;
-            QMimeType mime = db.mimeTypeForName(doc->mimeType());
+            QMimeType mime = db.mimeTypeForName(QString::fromLatin1(doc->mimeType()));
             QString comment = mime.isValid() ? mime.comment() : i18n("%1 (unknown file type)", QString::fromLatin1(doc->mimeType()));
             if (KMessageBox::warningContinueCancel(
                         this,
                         i18n("<qt>The document is currently saved as %1. The document needs to be changed to <b>OASIS OpenDocument</b> to be encrypted."
-                             "<p>Do you want to change the file to OASIS OpenDocument?</qt>", QString("<b>%1</b>").arg(comment)),
+                             "<p>Do you want to change the file to OASIS OpenDocument?</qt>", QStringLiteral("<b>%1</b>").arg(comment)),
                         i18n("Change Filetype"),
                         KGuiItem(i18n("Change")),
                         KStandardGuiItem::cancel(),
-                        "EncryptChangeFiletypeConfirmation"
+                        QStringLiteral("EncryptChangeFiletypeConfirmation")
                         ) != KMessageBox::Continue) {
                 return;
             }
@@ -414,7 +414,7 @@ void KoDocumentInfoDlg::saveEncryption()
                         i18n("<qt>Your document could not be saved automatically."
                              "<p>To complete the encryption, please save the document.</qt>"),
                         i18n("Save Document"),
-                        "EncryptSaveMessage");
+                        QStringLiteral("EncryptSaveMessage"));
             return;
         }
         if (modified && KMessageBox::questionYesNo(
@@ -424,7 +424,7 @@ void KoDocumentInfoDlg::saveEncryption()
                     i18n("Save Document"),
                     KStandardGuiItem::save(),
                     KStandardGuiItem::dontSave(),
-                    "EncryptSaveConfirmation"
+                    QStringLiteral("EncryptSaveConfirmation")
                     ) != KMessageBox::Yes) {
             return;
         }
@@ -434,18 +434,18 @@ void KoDocumentInfoDlg::saveEncryption()
         saveas = doc->outputMimeType().isEmpty();
         if (!doc->url().isEmpty() && doc->specialOutputFlag() == 0) {
             QMimeDatabase db;
-            QMimeType mime = db.mimeTypeForName(doc->mimeType());
+            QMimeType mime = db.mimeTypeForName(QString::fromLatin1(doc->mimeType()));
             if (!doc->mimeType().isEmpty() && doc->mimeType() != doc->nativeFormatMimeType()) {
                 QString comment = mime.isValid() ? mime.comment() : i18n("%1 (unknown file type)", QString::fromLatin1(doc->mimeType()));
-                QString native = db.mimeTypeForName(doc->nativeFormatMimeType()).comment();
+                QString native = db.mimeTypeForName(QString::fromLatin1(doc->nativeFormatMimeType())).comment();
                 if (KMessageBox::warningContinueCancel(
                             this,
                             i18n("<qt>The document is currently saved as %1. The document needs to be changed to <b>%2</b> to be encrypted."
-                                "<p>Do you want to change the file to %2?</qt>", QString("<b>%1</b>").arg(comment), native),
+                                "<p>Do you want to change the file to %2?</qt>", QStringLiteral("<b>%1</b>").arg(comment), native),
                             i18n("Change Filetype"),
                             KGuiItem(i18n("Change")),
                             KStandardGuiItem::cancel(),
-                            "EncryptChangeFiletypeConfirmation"
+                            QStringLiteral("EncryptChangeFiletypeConfirmation")
                             ) != KMessageBox::Continue) {
                     return;
                 }
@@ -457,13 +457,13 @@ void KoDocumentInfoDlg::saveEncryption()
                 auto patterns = mime.globPatterns();
                 auto url = doc->url().url();
                 for (auto p : patterns) {
-                    p.remove('*');
+                    p.remove(QLatin1Char('*'));
                     if (url.endsWith(p)) {
                         url = url.left(url.lastIndexOf(p));
                     }
                 }
                 if (!url.isEmpty()) {
-                    const auto nativePattern = db.mimeTypeForName(doc->nativeFormatMimeType()).globPatterns().value(0).remove('*');
+                    const auto nativePattern = db.mimeTypeForName(QString::fromLatin1(doc->nativeFormatMimeType())).globPatterns().value(0).remove(QLatin1Char('*'));
                     url.append(nativePattern);
                 }
                 doc->setUrl(QUrl(url));
@@ -479,7 +479,7 @@ void KoDocumentInfoDlg::saveEncryption()
                         i18n("<qt>Your document could not be saved automatically."
                             "<p>To complete the encryption, please save the document.</qt>"),
                         i18n("Save Document"),
-                        "EncryptSaveMessage");
+                        QStringLiteral("EncryptSaveMessage"));
             return;
         }
         if (modified && KMessageBox::questionYesNo(
@@ -489,7 +489,7 @@ void KoDocumentInfoDlg::saveEncryption()
                     i18n("Save Document"),
                     KStandardGuiItem::save(),
                     KStandardGuiItem::dontSave(),
-                    "EncryptSaveConfirmation"
+                    QStringLiteral("EncryptSaveConfirmation")
                     ) != KMessageBox::Yes) {
             return;
         }

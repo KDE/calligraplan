@@ -22,7 +22,7 @@ KoFilterChooser::KoFilterChooser(QWidget *parent, const QStringList &mimeTypes, 
         : KoDialog(parent),
         m_mimeTypes(mimeTypes)
 {
-    setObjectName("kofilterchooser");
+    setObjectName(QStringLiteral("kofilterchooser"));
     setInitialSize(QSize(300, 350));
     setButtons(KoDialog::Ok|KoDialog::Cancel);
     setDefaultButton(KoDialog::Ok);

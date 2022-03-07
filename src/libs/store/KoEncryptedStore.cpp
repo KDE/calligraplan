@@ -143,7 +143,7 @@ void KoEncryptedStore::init(const QByteArray & appIdentification)
             // Write identification
             if (d->writeMimetype) {
                 m_pZip->setCompression(KZip::NoCompression);
-                (void)m_pZip->writeFile(QLatin1String("mimetype"), appIdentification);
+                (void)m_pZip->writeFile(QStringLiteral("mimetype"), appIdentification);
             }
             // FIXME: Hmm, seems to be a bug here since this is
             //        inconsistent with the code in openWrite():
@@ -158,7 +158,7 @@ void KoEncryptedStore::init(const QByteArray & appIdentification)
         }
 
         // Read the manifest-file, so we can get the data we'll need to decrypt the other files in the store
-        const KArchiveEntry* manifestArchiveEntry = m_pZip->directory()->entry(MANIFEST_FILE);
+        const KArchiveEntry* manifestArchiveEntry = m_pZip->directory()->entry(QLatin1String(MANIFEST_FILE));
         if (!manifestArchiveEntry || !manifestArchiveEntry->isFile()) {
             // No manifest file? OK, *I* won't complain
             return;
@@ -167,7 +167,7 @@ void KoEncryptedStore::init(const QByteArray & appIdentification)
 
         KoXmlDocument xmldoc;
         bool namespaceProcessing = true; // for the manifest ignore the namespace (bug #260515)
-        if (!xmldoc.setContent(dev, namespaceProcessing) || xmldoc.documentElement().localName() != "manifest" || xmldoc.documentElement().namespaceURI() != KoXmlNS::manifest) {
+        if (!xmldoc.setContent(dev, namespaceProcessing) || xmldoc.documentElement().localName() != QStringLiteral("manifest") || xmldoc.documentElement().namespaceURI() != KoXmlNS::manifest) {
             //KMessage::message(KMessage::Warning, i18n("The manifest file seems to be corrupted. The document could not be opened."));
             /// FIXME this message is not something we actually want to not mention, but it makes thumbnails noisy at times, so... let's not
             dev->close();
@@ -182,7 +182,7 @@ void KoEncryptedStore::init(const QByteArray & appIdentification)
             KoXmlNode xmlnode = xmlroot.firstChild();
             while (!xmlnode.isNull()) {
                 // Search for files
-                if (!xmlnode.isElement() || xmlroot.namespaceURI() != KoXmlNS::manifest || xmlnode.toElement().localName() != "file-entry" || !xmlnode.toElement().hasAttribute("full-path") || !xmlnode.hasChildNodes()) {
+                if (!xmlnode.isElement() || xmlroot.namespaceURI() != KoXmlNS::manifest || xmlnode.toElement().localName() != QStringLiteral("file-entry") || !xmlnode.toElement().hasAttribute(QStringLiteral("full-path")) || !xmlnode.hasChildNodes()) {
                     xmlnode = xmlnode.nextSibling();
                     continue;
                 }
@@ -197,15 +197,15 @@ void KoEncryptedStore::init(const QByteArray & appIdentification)
                 encData.initVector = QCA::SecureArray();
 
                 // Get some info about the file
-                QString fullpath = xmlnode.toElement().attribute("full-path");
+                QString fullpath = xmlnode.toElement().attribute(QStringLiteral("full-path"));
 
-                if (xmlnode.toElement().hasAttribute("size")) {
-                    encData.filesize = xmlnode.toElement().attribute("size").toUInt();
+                if (xmlnode.toElement().hasAttribute(QStringLiteral("size"))) {
+                    encData.filesize = xmlnode.toElement().attribute(QStringLiteral("size")).toUInt();
                 }
 
                 // Find the embedded encryption-data block
                 KoXmlNode xmlencnode = xmlnode.firstChild();
-                while (!xmlencnode.isNull() && (!xmlencnode.isElement() || xmlencnode.toElement().localName() != "encryption-data" || !xmlencnode.hasChildNodes())) {
+                while (!xmlencnode.isNull() && (!xmlencnode.isElement() || xmlencnode.toElement().localName() != QStringLiteral("encryption-data") || !xmlencnode.hasChildNodes())) {
                     xmlencnode = xmlencnode.nextSibling();
                 }
                 if (xmlencnode.isNull()) {
@@ -214,16 +214,16 @@ void KoEncryptedStore::init(const QByteArray & appIdentification)
                 }
 
                 // Find some things about the checksum
-                if (xmlencnode.toElement().hasAttribute("checksum")) {
+                if (xmlencnode.toElement().hasAttribute(QStringLiteral("checksum"))) {
                     base64decoder.clear();
-                    encData.checksum = base64decoder.decode(QCA::SecureArray(xmlencnode.toElement().attribute("checksum").toLatin1()));
-                    if (xmlencnode.toElement().hasAttribute("checksum-type")) {
-                        QString checksumType = xmlencnode.toElement().attribute("checksum-type");
-                        if (checksumType == "SHA1") {
+                    encData.checksum = base64decoder.decode(QCA::SecureArray(xmlencnode.toElement().attribute(QStringLiteral("checksum")).toLatin1()));
+                    if (xmlencnode.toElement().hasAttribute(QStringLiteral("checksum-type"))) {
+                        QString checksumType = xmlencnode.toElement().attribute(QStringLiteral("checksum-type"));
+                        if (checksumType == QStringLiteral("SHA1")) {
                             encData.checksumShort = false;
                         }
                         // For this particular hash-type: check KoEncryptedStore_encryptionData.checksumShort
-                        else if (checksumType == "SHA1/1K") {
+                        else if (checksumType == QStringLiteral("SHA1/1K")) {
                             encData.checksumShort = true;
                         } else {
                             // Checksum type unknown
@@ -249,10 +249,10 @@ void KoEncryptedStore::init(const QByteArray & appIdentification)
                     }
 
                     // Find some things about the encryption algorithm
-                    if (xmlencattr.toElement().localName() == "algorithm" && xmlencattr.toElement().hasAttribute("initialisation-vector")) {
+                    if (xmlencattr.toElement().localName() == QStringLiteral("algorithm") && xmlencattr.toElement().hasAttribute(QStringLiteral("initialisation-vector"))) {
                         algorithmFound = true;
-                        encData.initVector = base64decoder.decode(QCA::SecureArray(xmlencattr.toElement().attribute("initialisation-vector").toLatin1()));
-                        if (xmlencattr.toElement().hasAttribute("algorithm-name") && xmlencattr.toElement().attribute("algorithm-name") != "Blowfish CFB") {
+                        encData.initVector = base64decoder.decode(QCA::SecureArray(xmlencattr.toElement().attribute(QStringLiteral("initialisation-vector")).toLatin1()));
+                        if (xmlencattr.toElement().hasAttribute(QStringLiteral("algorithm-name")) && xmlencattr.toElement().attribute(QStringLiteral("algorithm-name")) != QStringLiteral("Blowfish CFB")) {
                             if (!unreadableErrorShown) {
                                 KMessage::message(KMessage::Warning, i18n("This document contains an unknown encryption method. Some parts may be unreadable."));
                                 unreadableErrorShown = true;
@@ -262,14 +262,14 @@ void KoEncryptedStore::init(const QByteArray & appIdentification)
                     }
 
                     // Find some things about the key derivation
-                    if (xmlencattr.toElement().localName() == "key-derivation" && xmlencattr.toElement().hasAttribute("salt")) {
+                    if (xmlencattr.toElement().localName() == QStringLiteral("key-derivation") && xmlencattr.toElement().hasAttribute(QStringLiteral("salt"))) {
                         keyDerivationFound = true;
-                        encData.salt = base64decoder.decode(QCA::SecureArray(xmlencattr.toElement().attribute("salt").toLatin1()));
+                        encData.salt = base64decoder.decode(QCA::SecureArray(xmlencattr.toElement().attribute(QStringLiteral("salt")).toLatin1()));
                         encData.iterationCount = 1024;
-                        if (xmlencattr.toElement().hasAttribute("iteration-count")) {
-                            encData.iterationCount = xmlencattr.toElement().attribute("iteration-count").toUInt();
+                        if (xmlencattr.toElement().hasAttribute(QStringLiteral("iteration-count"))) {
+                            encData.iterationCount = xmlencattr.toElement().attribute(QStringLiteral("iteration-count")).toUInt();
                         }
-                        if (xmlencattr.toElement().hasAttribute("key-derivation-name") && xmlencattr.toElement().attribute("key-derivation-name") != "PBKDF2") {
+                        if (xmlencattr.toElement().hasAttribute(QStringLiteral("key-derivation-name")) && xmlencattr.toElement().attribute(QStringLiteral("key-derivation-name")) != QStringLiteral("PBKDF2")) {
                             if (!unreadableErrorShown) {
                                 KMessage::message(KMessage::Warning, i18n("This document contains an unknown encryption method. Some parts may be unreadable."));
                                 unreadableErrorShown = true;
@@ -323,8 +323,8 @@ bool KoEncryptedStore::doFinalize()
             if (m_manifestBuffer.isEmpty()) {
                 // No manifest? Better create one
                 document = QDomDocument();
-                QDomElement rootElement = document.createElement("manifest:manifest");
-                rootElement.setAttribute("xmlns:manifest", "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0");
+                QDomElement rootElement = document.createElement(QStringLiteral("manifest:manifest"));
+                rootElement.setAttribute(QStringLiteral("xmlns:manifest"), QStringLiteral("urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"));
                 document.appendChild(rootElement);
             }
             if (!m_manifestBuffer.isEmpty() && !document.setContent(m_manifestBuffer)) {
@@ -335,12 +335,12 @@ bool KoEncryptedStore::doFinalize()
                 return false;
             }
             QDomElement documentElement = document.documentElement();
-            QDomNodeList fileElements = documentElement.elementsByTagName("manifest:file-entry");
+            QDomNodeList fileElements = documentElement.elementsByTagName(QStringLiteral("manifest:file-entry"));
             // Search all files in the manifest
             QStringList foundFiles;
             for (int i = 0; i < fileElements.size(); i++) {
                 QDomElement fileElement = fileElements.item(i).toElement();
-                QString fullpath = fileElement.toElement().attribute("manifest:full-path");
+                QString fullpath = fileElement.toElement().attribute(QStringLiteral("manifest:full-path"));
                 // See if it's encrypted
                 if (fullpath.isEmpty() || !m_encryptionData.contains(fullpath)) {
                     continue;
@@ -348,28 +348,28 @@ bool KoEncryptedStore::doFinalize()
                 foundFiles += fullpath;
                 KoEncryptedStore_EncryptionData encData = m_encryptionData.value(fullpath);
                 // Set the unencrypted size of the file
-                fileElement.setAttribute("manifest:size", encData.filesize);
+                fileElement.setAttribute(QStringLiteral("manifest:size"), encData.filesize);
                 // See if the user of this store has already provided (old) encryption data
-                QDomNodeList childElements = fileElement.elementsByTagName("manifest:encryption-data");
+                QDomNodeList childElements = fileElement.elementsByTagName(QStringLiteral("manifest:encryption-data"));
                 QDomElement encryptionElement;
                 QDomElement algorithmElement;
                 QDomElement keyDerivationElement;
                 if (childElements.isEmpty()) {
-                    encryptionElement = document.createElement("manifest:encryption-data");
+                    encryptionElement = document.createElement(QStringLiteral("manifest:encryption-data"));
                     fileElement.appendChild(encryptionElement);
                 } else {
                     encryptionElement = childElements.item(0).toElement();
                 }
-                childElements = encryptionElement.elementsByTagName("manifest:algorithm");
+                childElements = encryptionElement.elementsByTagName(QStringLiteral("manifest:algorithm"));
                 if (childElements.isEmpty()) {
-                    algorithmElement = document.createElement("manifest:algorithm");
+                    algorithmElement = document.createElement(QStringLiteral("manifest:algorithm"));
                     encryptionElement.appendChild(algorithmElement);
                 } else {
                     algorithmElement = childElements.item(0).toElement();
                 }
-                childElements = encryptionElement.elementsByTagName("manifest:key-derivation");
+                childElements = encryptionElement.elementsByTagName(QStringLiteral("manifest:key-derivation"));
                 if (childElements.isEmpty()) {
-                    keyDerivationElement = document.createElement("manifest:key-derivation");
+                    keyDerivationElement = document.createElement(QStringLiteral("manifest:key-derivation"));
                     encryptionElement.appendChild(keyDerivationElement);
                 } else {
                     keyDerivationElement = childElements.item(0).toElement();
@@ -378,49 +378,49 @@ bool KoEncryptedStore::doFinalize()
                 QCA::Base64 encoder;
                 QCA::SecureArray checksum = encoder.encode(encData.checksum);
                 if (encData.checksumShort) {
-                    encryptionElement.setAttribute("manifest:checksum-type", "SHA1/1K");
+                    encryptionElement.setAttribute(QStringLiteral("manifest:checksum-type"), QStringLiteral("SHA1/1K"));
                 } else {
-                    encryptionElement.setAttribute("manifest:checksum-type", "SHA1");
+                    encryptionElement.setAttribute(QStringLiteral("manifest:checksum-type"), QStringLiteral("SHA1"));
                 }
-                encryptionElement.setAttribute("manifest:checksum", QString(checksum.toByteArray()));
+                encryptionElement.setAttribute(QStringLiteral("manifest:checksum"), QString::fromUtf8(checksum.toByteArray()));
                 QCA::SecureArray initVector = encoder.encode(encData.initVector);
-                algorithmElement.setAttribute("manifest:algorithm-name", "Blowfish CFB");
-                algorithmElement.setAttribute("manifest:initialisation-vector", QString(initVector.toByteArray()));
+                algorithmElement.setAttribute(QStringLiteral("manifest:algorithm-name"), QStringLiteral("Blowfish CFB"));
+                algorithmElement.setAttribute(QStringLiteral("manifest:initialisation-vector"), QString::fromUtf8(initVector.toByteArray()));
                 QCA::SecureArray salt = encoder.encode(encData.salt);
-                keyDerivationElement.setAttribute("manifest:key-derivation-name", "PBKDF2");
-                keyDerivationElement.setAttribute("manifest:iteration-count", QString::number(encData.iterationCount));
-                keyDerivationElement.setAttribute("manifest:salt", QString(salt.toByteArray()));
+                keyDerivationElement.setAttribute(QStringLiteral("manifest:key-derivation-name"), QStringLiteral("PBKDF2"));
+                keyDerivationElement.setAttribute(QStringLiteral("manifest:iteration-count"), QString::number(encData.iterationCount));
+                keyDerivationElement.setAttribute(QStringLiteral("manifest:salt"), QString::fromUtf8(salt.toByteArray()));
             }
             if (foundFiles.size() < m_encryptionData.size()) {
                 QList<QString> keys = m_encryptionData.keys();
                 for (int i = 0; i < keys.size(); i++) {
                     if (!foundFiles.contains(keys.value(i))) {
                         KoEncryptedStore_EncryptionData encData = m_encryptionData.value(keys.value(i));
-                        QDomElement fileElement = document.createElement("manifest:file-entry");
-                        fileElement.setAttribute("manifest:full-path", keys.value(i));
-                        fileElement.setAttribute("manifest:size", encData.filesize);
-                        fileElement.setAttribute("manifest:media-type", "");
+                        QDomElement fileElement = document.createElement(QStringLiteral("manifest:file-entry"));
+                        fileElement.setAttribute(QStringLiteral("manifest:full-path"), keys.value(i));
+                        fileElement.setAttribute(QStringLiteral("manifest:size"), encData.filesize);
+                        fileElement.setAttribute(QStringLiteral("manifest:media-type"), QString());
                         documentElement.appendChild(fileElement);
-                        QDomElement encryptionElement = document.createElement("manifest:encryption-data");
+                        QDomElement encryptionElement = document.createElement(QStringLiteral("manifest:encryption-data"));
                         QCA::Base64 encoder;
                         QCA::SecureArray checksum = encoder.encode(encData.checksum);
                         QCA::SecureArray initVector = encoder.encode(encData.initVector);
                         QCA::SecureArray salt = encoder.encode(encData.salt);
                         if (encData.checksumShort) {
-                            encryptionElement.setAttribute("manifest:checksum-type", "SHA1/1K");
+                            encryptionElement.setAttribute(QStringLiteral("manifest:checksum-type"), QStringLiteral("SHA1/1K"));
                         } else {
-                            encryptionElement.setAttribute("manifest:checksum-type", "SHA1");
+                            encryptionElement.setAttribute(QStringLiteral("manifest:checksum-type"), QStringLiteral("SHA1"));
                         }
-                        encryptionElement.setAttribute("manifest:checksum", QString(checksum.toByteArray()));
+                        encryptionElement.setAttribute(QStringLiteral("manifest:checksum"), QString::fromUtf8(checksum.toByteArray()));
                         fileElement.appendChild(encryptionElement);
-                        QDomElement algorithmElement = document.createElement("manifest:algorithm");
-                        algorithmElement.setAttribute("manifest:algorithm-name", "Blowfish CFB");
-                        algorithmElement.setAttribute("manifest:initialisation-vector", QString(initVector.toByteArray()));
+                        QDomElement algorithmElement = document.createElement(QStringLiteral("manifest:algorithm"));
+                        algorithmElement.setAttribute(QStringLiteral("manifest:algorithm-name"), QStringLiteral("Blowfish CFB"));
+                        algorithmElement.setAttribute(QStringLiteral("manifest:initialisation-vector"), QString::fromUtf8(initVector.toByteArray()));
                         encryptionElement.appendChild(algorithmElement);
-                        QDomElement keyDerivationElement = document.createElement("manifest:key-derivation");
-                        keyDerivationElement.setAttribute("manifest:key-derivation-name", "PBKDF2");
-                        keyDerivationElement.setAttribute("manifest:iteration-count", QString::number(encData.iterationCount));
-                        keyDerivationElement.setAttribute("manifest:salt", QString(salt.toByteArray()));
+                        QDomElement keyDerivationElement = document.createElement(QStringLiteral("manifest:key-derivation"));
+                        keyDerivationElement.setAttribute(QStringLiteral("manifest:key-derivation-name"), QStringLiteral("PBKDF2"));
+                        keyDerivationElement.setAttribute(QStringLiteral("manifest:iteration-count"), QString::number(encData.iterationCount));
+                        keyDerivationElement.setAttribute(QStringLiteral("manifest:salt"), QString::fromUtf8(salt.toByteArray()));
                         encryptionElement.appendChild(keyDerivationElement);
                     }
                 }
@@ -485,7 +485,7 @@ QStringList KoEncryptedStore::directoryList() const
 
 bool KoEncryptedStore::isToBeEncrypted(const QString& name)
 {
-    return !(name == META_FILE || name == MANIFEST_FILE || name == THUMBNAIL_FILE);
+    return !(name == QLatin1String(META_FILE) || name == QLatin1String(MANIFEST_FILE) || name == QLatin1String(THUMBNAIL_FILE));
 }
 
 bool KoEncryptedStore::openRead(const QString& name)
@@ -517,7 +517,7 @@ bool KoEncryptedStore::openRead(const QString& name)
             d->stream = new QBuffer();
             d->stream->open(QIODevice::ReadOnly);
             d->size = 0;
-            setErrorMessage(QStringLiteral(KOSTORE_CANCELED_MESSAGE));
+            setErrorMessage(KOSTORE_CANCELED_MESSAGE);
             return true;
         }
         QCA::SecureArray encryptedFile(d->stream->readAll());
@@ -557,7 +557,7 @@ bool KoEncryptedStore::openRead(const QString& name)
                 if (! dlg.exec()) {
                     m_bPasswordDeclined = true;
                     QApplication::restoreOverrideCursor();
-                    setErrorMessage(QStringLiteral(KOSTORE_CANCELED_MESSAGE));
+                    setErrorMessage(KOSTORE_CANCELED_MESSAGE);
                     return false;
                 }
                 QApplication::restoreOverrideCursor();
@@ -580,9 +580,9 @@ bool KoEncryptedStore::openRead(const QString& name)
                 QCA::SecureArray checksum;
                 if (encData.checksumShort && decrypted.size() > 1024) {
                     // TODO: Eww!!!! I don't want to convert via insecure arrays to get the first 1K characters of a secure array <- fix QCA?
-                    checksum = QCA::Hash("sha1").hash(QCA::SecureArray(decrypted.toByteArray().left(1024)));
+                    checksum = QCA::Hash(QStringLiteral("sha1")).hash(QCA::SecureArray(decrypted.toByteArray().left(1024)));
                 } else {
-                    checksum = QCA::Hash("sha1").hash(decrypted);
+                    checksum = QCA::Hash(QStringLiteral("sha1")).hash(decrypted);
                 }
                 if (checksum != encData.checksum) {
                     continue;
@@ -601,7 +601,7 @@ bool KoEncryptedStore::openRead(const QString& name)
         }
 
         QByteArray *resultArray = new QByteArray(decrypted.toByteArray());
-        KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType("application/x-gzip");
+        KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
         QIODevice *resultDevice = new KCompressionDevice(new QBuffer(resultArray, nullptr), false, type);
 
         if (!resultDevice) {
@@ -637,12 +637,12 @@ void KoEncryptedStore::findPasswordInKWallet()
      * considering remote files might be both protected by a secured web-area (konqueror makes an entry) and a password (we make an
      * entry), it seems a good thing to make sure it won't happen.
      */
-    if (!m_filename.isNull() && !KWallet::Wallet::folderDoesNotExist(KWallet::Wallet::LocalWallet(), KWallet::Wallet::PasswordFolder()) && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::LocalWallet(), KWallet::Wallet::PasswordFolder(), m_filename + "/opendocument")) {
+    if (!m_filename.isNull() && !KWallet::Wallet::folderDoesNotExist(KWallet::Wallet::LocalWallet(), KWallet::Wallet::PasswordFolder()) && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::LocalWallet(), KWallet::Wallet::PasswordFolder(), m_filename + QStringLiteral("/opendocument"))) {
         KWallet::Wallet *wallet = KWallet::Wallet::openWallet(KWallet::Wallet::LocalWallet(), d->window ? d->window->winId() : 0);
         if (wallet) {
             if (wallet->setFolder(KWallet::Wallet::PasswordFolder())) {
                 QString pass;
-                wallet->readPassword(m_filename + "/opendocument", pass);
+                wallet->readPassword(m_filename + QStringLiteral("/opendocument"), pass);
                 m_password = QCA::SecureArray(pass.toUtf8());
             }
             delete wallet;
@@ -659,10 +659,10 @@ void KoEncryptedStore::savePasswordInKWallet()
             wallet->createFolder(KWallet::Wallet::PasswordFolder());
         }
         if (wallet->setFolder(KWallet::Wallet::PasswordFolder())) {
-            if (wallet->hasEntry(m_filename + "/opendocument")) {
-                wallet->removeEntry(m_filename + "/opendocument");
+            if (wallet->hasEntry(m_filename + QStringLiteral("/opendocument"))) {
+                wallet->removeEntry(m_filename + QStringLiteral("/opendocument"));
             }
-            wallet->writePassword(m_filename + "/opendocument", m_password.toByteArray().constData());
+            wallet->writePassword(m_filename + QStringLiteral("/opendocument"), QString::fromUtf8(m_password.toByteArray()));
         }
         delete wallet;
     }
@@ -670,9 +670,9 @@ void KoEncryptedStore::savePasswordInKWallet()
 
 QCA::SecureArray KoEncryptedStore::decryptFile(QCA::SecureArray & encryptedFile, KoEncryptedStore_EncryptionData & encData, QCA::SecureArray & password)
 {
-    QCA::SecureArray keyhash = QCA::Hash("sha1").hash(password);
-    QCA::SymmetricKey key = QCA::PBKDF2("sha1").makeKey(keyhash, QCA::InitializationVector(encData.salt), 16, encData.iterationCount);
-    QCA::Cipher decrypter("blowfish", QCA::Cipher::CFB, QCA::Cipher::DefaultPadding, QCA::Decode, key, QCA::InitializationVector(encData.initVector));
+    QCA::SecureArray keyhash = QCA::Hash(QStringLiteral("sha1")).hash(password);
+    QCA::SymmetricKey key = QCA::PBKDF2(QStringLiteral("sha1")).makeKey(keyhash, QCA::InitializationVector(encData.salt), 16, encData.iterationCount);
+    QCA::Cipher decrypter(QStringLiteral("blowfish"), QCA::Cipher::CFB, QCA::Cipher::DefaultPadding, QCA::Decode, key, QCA::InitializationVector(encData.initVector));
     QCA::SecureArray result = decrypter.update(encryptedFile);
     result += decrypter.final();
     return result;
@@ -692,7 +692,7 @@ QString KoEncryptedStore::password()
     if (m_password.isEmpty()) {
         return QString();
     }
-    return QString(m_password.toByteArray());
+    return QString::fromUtf8(m_password.toByteArray());
 }
 
 bool KoEncryptedStore::passwordDeclined() const
@@ -713,16 +713,16 @@ bool KoEncryptedStore::openWrite(const QString& name)
     }
     d->stream = new QBuffer();
     (static_cast< QBuffer* >(d->stream))->open(QIODevice::WriteOnly);
-    if (name == MANIFEST_FILE)
+    if (name == QLatin1String(MANIFEST_FILE))
         return true;
-    return m_pZip->prepareWriting(name, "", "", 0);
+    return m_pZip->prepareWriting(name, QString(), QString(), 0);
 }
 
 bool KoEncryptedStore::closeWrite()
 {
     Q_D(KoStore);
     bool passWasAsked = false;
-    if (d->fileName == MANIFEST_FILE) {
+    if (d->fileName == QLatin1String(MANIFEST_FILE)) {
         m_manifestBuffer = static_cast<QBuffer*>(d->stream)->buffer();
         return true;
     }
@@ -760,7 +760,7 @@ bool KoEncryptedStore::closeWrite()
     }
 
     QByteArray resultData;
-    if (d->fileName == THUMBNAIL_FILE) {
+    if (d->fileName == QLatin1String(THUMBNAIL_FILE)) {
         // TODO: Replace with a generic 'encrypted'-thumbnail
         resultData = static_cast<QBuffer*>(d->stream)->buffer();
     } else if (!isToBeEncrypted(d->fileName)) {
@@ -768,14 +768,14 @@ bool KoEncryptedStore::closeWrite()
     } else {
         m_bPasswordUsed = true;
         // Build all cryptographic data
-        QCA::SecureArray passwordHash = QCA::Hash("sha1").hash(m_password);
+        QCA::SecureArray passwordHash = QCA::Hash(QStringLiteral("sha1")).hash(m_password);
         QCA::Random random;
         KoEncryptedStore_EncryptionData encData;
         encData.initVector = random.randomArray(8);
         encData.salt = random.randomArray(16);
         encData.iterationCount = 1024;
-        QCA::SymmetricKey key = QCA::PBKDF2("sha1").makeKey(passwordHash, QCA::InitializationVector(encData.salt), 16, encData.iterationCount);
-        QCA::Cipher encrypter("blowfish", QCA::Cipher::CFB, QCA::Cipher::DefaultPadding, QCA::Encode, key, QCA::InitializationVector(encData.initVector));
+        QCA::SymmetricKey key = QCA::PBKDF2(QStringLiteral("sha1")).makeKey(passwordHash, QCA::InitializationVector(encData.salt), 16, encData.iterationCount);
+        QCA::Cipher encrypter(QStringLiteral("blowfish"), QCA::Cipher::CFB, QCA::Cipher::DefaultPadding, QCA::Encode, key, QCA::InitializationVector(encData.initVector));
 
         // Get the written data
         QByteArray data = static_cast<QBuffer*>(d->stream)->buffer();
@@ -783,7 +783,7 @@ bool KoEncryptedStore::closeWrite()
 
         // Compress the data
         QBuffer compressedData;
-        KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType("application/x-gzip");
+        KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
         QIODevice *compressDevice = new KCompressionDevice(&compressedData, false, type);
 
         if (!compressDevice) {
@@ -801,7 +801,7 @@ bool KoEncryptedStore::closeWrite()
         compressDevice->close();
         delete compressDevice;
 
-        encData.checksum = QCA::Hash("sha1").hash(QCA::SecureArray(compressedData.buffer()));
+        encData.checksum = QCA::Hash(QStringLiteral("sha1")).hash(QCA::SecureArray(compressedData.buffer()));
         encData.checksumShort = false;
 
         // Encrypt the data
@@ -851,7 +851,7 @@ bool KoEncryptedStore::enterAbsoluteDirectory(const QString& path)
 bool KoEncryptedStore::fileExists(const QString& absPath) const
 {
     const KArchiveEntry *entry = m_pZip->directory()->entry(absPath);
-    return (entry && entry->isFile()) || (absPath == MANIFEST_FILE && !m_manifestBuffer.isNull());
+    return (entry && entry->isFile()) || (absPath == QLatin1String(MANIFEST_FILE) && !m_manifestBuffer.isNull());
 }
 
 #endif // QCA2

@@ -12,7 +12,7 @@
 #include <QIODevice>
 #include "kostore_export.h"
 
-#define KOSTORE_CANCELED_MESSAGE "KOSTORE_CANCELED_MESSAGE"
+const QLatin1String KOSTORE_CANCELED_MESSAGE("KOSTORE_CANCELED_MESSAGE");
 
 class QWidget;
 class QUrl;
@@ -109,6 +109,7 @@ public:
      * @return true on success.
      */
     bool open(const QString &name);
+    bool open(const char *name);
 
     /**
      * Check whether a file inside the store is currently opened with open(),
@@ -220,6 +221,7 @@ public:
      * i.e. if open(fileName) will work.
      */
     bool hasFile(const QString &fileName) const;
+    bool hasFile(const char *fileName) const;
 
     /**
      * Imports a local file into a store

@@ -70,24 +70,24 @@ void TaskDescriptionPanel::initDescription(bool readOnly)
 
     collection->addActions(descriptionfield->createActions());
 
-    toolbar->addAction(collection->action("format_text_bold"));
-    toolbar->addAction(collection->action("format_text_italic"));
-    toolbar->addAction(collection->action("format_text_underline"));
-    toolbar->addAction(collection->action("format_text_strikeout"));
+    toolbar->addAction(collection->action(QStringLiteral("format_text_bold")));
+    toolbar->addAction(collection->action(QStringLiteral("format_text_italic")));
+    toolbar->addAction(collection->action(QStringLiteral("format_text_underline")));
+    toolbar->addAction(collection->action(QStringLiteral("format_text_strikeout")));
     toolbar->addSeparator();
 
-    toolbar->addAction(collection->action("format_list_style"));
+    toolbar->addAction(collection->action(QStringLiteral("format_list_style")));
     toolbar->addSeparator();
 
-    toolbar->addAction(collection->action("format_align_left"));
-    toolbar->addAction(collection->action("format_align_center"));
-    toolbar->addAction(collection->action("format_align_right"));
-    toolbar->addAction(collection->action("format_align_justify"));
+    toolbar->addAction(collection->action(QStringLiteral("format_align_left")));
+    toolbar->addAction(collection->action(QStringLiteral("format_align_center")));
+    toolbar->addAction(collection->action(QStringLiteral("format_align_right")));
+    toolbar->addAction(collection->action(QStringLiteral("format_align_justify")));
     toolbar->addSeparator();
-    toolbar->addAction(collection->action("manage_link"));
-    toolbar->addAction(collection->action("open_link"));
+    toolbar->addAction(collection->action(QStringLiteral("manage_link")));
+    toolbar->addAction(collection->action(QStringLiteral("open_link")));
 
-    descriptionfield->append("");
+    descriptionfield->append(QStringLiteral(""));
     descriptionfield->setReadOnly(readOnly);
     descriptionfield->setOverwriteMode(false);
     descriptionfield->setLineWrapMode(KTextEdit::WidgetWidth);

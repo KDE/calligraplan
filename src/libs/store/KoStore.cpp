@@ -199,6 +199,11 @@ QUrl KoStore::urlOfStore() const
     }
 }
 
+bool KoStore::open(const char *name)
+{
+    return open(QLatin1String(name));
+
+}
 bool KoStore::open(const QString & _name)
 {
     Q_D(KoStore);
@@ -352,7 +357,7 @@ bool KoStore::enterDirectory(const QString &directory)
     bool success = true;
     QString tmp(directory);
 
-    while ((pos = tmp.indexOf('/')) != -1 &&
+    while ((pos = tmp.indexOf(QLatin1Char('/'))) != -1 &&
             (success = d->enterDirectoryInternal(tmp.left(pos))))
         tmp.remove(0, pos + 1);
 
@@ -380,7 +385,7 @@ QString KoStore::currentPath() const
     QStringList::ConstIterator end = d->currentPath.end();
     for (; it != end; ++it) {
         path += *it;
-        path += '/';
+        path += QLatin1Char('/');
     }
     return path;
 }
@@ -525,11 +530,11 @@ bool KoStore::atEnd() const
 // See the specification for details of what this function does.
 QString KoStorePrivate::toExternalNaming(const QString & _internalNaming) const
 {
-    if (_internalNaming == ROOTPART)
-        return q->currentPath() + MAINNAME;
+    if (_internalNaming == QLatin1String(ROOTPART))
+        return q->currentPath() + QLatin1String(MAINNAME);
 
     QString intern;
-    if (_internalNaming.startsWith("tar:/"))     // absolute reference
+    if (_internalNaming.startsWith(QStringLiteral("tar:/")))     // absolute reference
         intern = _internalNaming.mid(5);   // remove protocol
     else
         intern = q->currentPath() + _internalNaming;
@@ -551,6 +556,11 @@ bool KoStore::hasFile(const QString& fileName) const
 {
     Q_D(const KoStore);
     return fileExists(d->toExternalNaming(fileName));
+}
+
+bool KoStore::hasFile(const char *fileName) const
+{
+    return hasFile(QLatin1String(fileName));
 }
 
 bool KoStore::finalize()

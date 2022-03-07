@@ -12,25 +12,25 @@
 
 #include <QList>
 
-const QList<QString> KoOdfBibliographyConfiguration::bibTypes = QList<QString>() << "article" << "book" << "booklet" << "conference"
-                                                                     << "email" << "inbook" << "incollection"
-                                                                     << "inproceedings" << "journal" << "manual"
-                                                                     << "mastersthesis" << "misc" << "phdthesis"
-                                                                     << "proceedings" << "techreport" << "unpublished"
-                                                                     << "www" << "custom1" << "custom2"
-                                                                     << "custom3" << "custom4" << "custom5";
+const QList<QString> KoOdfBibliographyConfiguration::bibTypes = QList<QString>() << QStringLiteral("article") << QStringLiteral("book") << QStringLiteral("booklet") << QStringLiteral("conference")
+                                                                     << QStringLiteral("email") << QStringLiteral("inbook") << QStringLiteral("incollection")
+                                                                     << QStringLiteral("inproceedings") << QStringLiteral("journal") << QStringLiteral("manual")
+                                                                     << QStringLiteral("mastersthesis") << QStringLiteral("misc") << QStringLiteral("phdthesis")
+                                                                     << QStringLiteral("proceedings") << QStringLiteral("techreport") << QStringLiteral("unpublished")
+                                                                     << QStringLiteral("www") << QStringLiteral("custom1") << QStringLiteral("custom2")
+                                                                     << QStringLiteral("custom3") << QStringLiteral("custom4") << QStringLiteral("custom5");
 
-const QList<QString> KoOdfBibliographyConfiguration::bibDataFields = QList<QString>() << "address" << "annote" << "author"
-                                                                          << "bibliography-type" << "booktitle"
-                                                                          << "chapter" << "custom1" << "custom2"
-                                                                          << "custom3" << "custom4" << "custom5"
-                                                                          << "edition" << "editor" << "howpublished"
-                                                                          << "identifier" << "institution" << "isbn"
-                                                                          << "issn" << "journal" << "month" << "note"
-                                                                          << "number" << "organizations" << "pages"
-                                                                          << "publisher" << "report-type" << "school"
-                                                                          << "series" << "title" << "url" << "volume"
-                                                                          << "year";
+const QList<QString> KoOdfBibliographyConfiguration::bibDataFields = QList<QString>() << QStringLiteral("address") << QStringLiteral("annote") << QStringLiteral("author")
+                                                                          << QStringLiteral("bibliography-type") << QStringLiteral("booktitle")
+                                                                          << QStringLiteral("chapter") << QStringLiteral("custom1") << QStringLiteral("custom2")
+                                                                          << QStringLiteral("custom3") << QStringLiteral("custom4") << QStringLiteral("custom5")
+                                                                          << QStringLiteral("edition") << QStringLiteral("editor") << QStringLiteral("howpublished")
+                                                                          << QStringLiteral("identifier") << QStringLiteral("institution") << QStringLiteral("isbn")
+                                                                          << QStringLiteral("issn") << QStringLiteral("journal") << QStringLiteral("month") << QStringLiteral("note")
+                                                                          << QStringLiteral("number") << QStringLiteral("organizations") << QStringLiteral("pages")
+                                                                          << QStringLiteral("publisher") << QStringLiteral("report-type") << QStringLiteral("school")
+                                                                          << QStringLiteral("series") << QStringLiteral("title") << QStringLiteral("url") << QStringLiteral("volume")
+                                                                          << QStringLiteral("year");
 
 class Q_DECL_HIDDEN KoOdfBibliographyConfiguration::Private
 {
@@ -46,8 +46,8 @@ public:
 KoOdfBibliographyConfiguration::KoOdfBibliographyConfiguration()
     : d(new Private())
 {
-    d->prefix = "[";
-    d->suffix = "]";
+    d->prefix = QStringLiteral("[");
+    d->suffix = QStringLiteral("]");
     d->numberedEntries = false;
     d->sortByPosition = true;
 }
@@ -80,9 +80,9 @@ void KoOdfBibliographyConfiguration::loadOdf(const KoXmlElement &element)
 {
     d->prefix = element.attributeNS(KoXmlNS::text, "prefix", QString());
     d->suffix = element.attributeNS(KoXmlNS::text, "suffix", QString());
-    d->numberedEntries = (element.attributeNS(KoXmlNS::text, "numbered-entries", QString("false")) == "true")
+    d->numberedEntries = (element.attributeNS(KoXmlNS::text, "numbered-entries", QStringLiteral("false")) == QStringLiteral("true"))
                          ? true : false;
-    d->sortByPosition = (element.attributeNS(KoXmlNS::text, "sort-by-position", QString("true")) == "true")
+    d->sortByPosition = (element.attributeNS(KoXmlNS::text, "sort-by-position", QStringLiteral("true")) == QStringLiteral("true"))
                         ? true : false;
     d->sortAlgorithm = element.attributeNS(KoXmlNS::text, "sort-algorithm", QString());
 
@@ -90,9 +90,9 @@ void KoOdfBibliographyConfiguration::loadOdf(const KoXmlElement &element)
     {
         KoXmlElement child = node.toElement();
 
-        if (child.namespaceURI() == KoXmlNS::text && child.localName() == "sort-key") {
+        if (child.namespaceURI() == KoXmlNS::text && child.localName() == QStringLiteral("sort-key")) {
             QString key = child.attributeNS(KoXmlNS::text, "key", QString());
-            Qt::SortOrder order = (child.attributeNS(KoXmlNS::text, "sort-ascending", "true") == "true")
+            Qt::SortOrder order = (child.attributeNS(KoXmlNS::text, "sort-ascending", "true") == QStringLiteral("true"))
                     ? (Qt::AscendingOrder): (Qt::DescendingOrder);
             if(!key.isNull() && KoOdfBibliographyConfiguration::bibDataFields.contains(key)) {
                 d->sortKeys << QPair<QString, Qt::SortOrder>(key,order);

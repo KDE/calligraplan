@@ -70,10 +70,10 @@ void SchedulingLogModel::addLogEntry(const KPlato::Schedule::Log &log)
     } else if (log.node) {
         lst.append(new QStandardItem(log.node->name()));
     } else {
-        lst.append( new QStandardItem(""));
+        lst.append( new QStandardItem(QStringLiteral("")));
     }
 //     lst.append(new QStandardItem(m_schedule->logPhase(log.phase)));
-    lst.append(new QStandardItem("??"));
+    lst.append(new QStandardItem(QStringLiteral("??")));
     QStandardItem *item = new QStandardItem(KPlato::MainSchedule::logSeverity(log.severity));
     item->setData(log.severity, SeverityRole);
     lst.append(item);

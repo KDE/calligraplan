@@ -132,16 +132,16 @@ bool NodeGanttViewBase::loadContext(const KoXmlElement &settings)
 
     KoXmlElement e = settings.namedItem("ganttchart").toElement();
     if (! e.isNull()) {
-        m_ganttdelegate->showTaskLinks = (bool)(e.attribute("show-dependencies", "0").toInt());
-        m_ganttdelegate->showTaskName = (bool)(e.attribute("show-taskname", "0").toInt());
-        m_ganttdelegate->showResources = (bool)(e.attribute("show-resourcenames", "0").toInt());
-        m_ganttdelegate->showProgress = (bool)(e.attribute("show-completion", "0").toInt());
-        m_ganttdelegate->showCriticalPath = (bool)(e.attribute("show-criticalpath", "0").toInt());
-        m_ganttdelegate->showCriticalTasks = (bool)(e.attribute("show-criticaltasks", "0").toInt());
-        m_ganttdelegate->showPositiveFloat = (bool)(e.attribute("show-positivefloat", "0").toInt());
-        m_ganttdelegate->showSchedulingError = (bool)(e.attribute("show-schedulingerror", "0").toInt());
-        m_ganttdelegate->showTimeConstraint = (bool)(e.attribute("show-timeconstraint", "0").toInt());
-        m_ganttdelegate->showNegativeFloat = (bool)(e.attribute("show-negativefloat", "0").toInt());
+        m_ganttdelegate->showTaskLinks = (bool)(e.attribute("show-dependencies", QString::number(0)).toInt());
+        m_ganttdelegate->showTaskName = (bool)(e.attribute("show-taskname", QString::number(0)).toInt());
+        m_ganttdelegate->showResources = (bool)(e.attribute("show-resourcenames", QString::number(0)).toInt());
+        m_ganttdelegate->showProgress = (bool)(e.attribute("show-completion", QString::number(0)).toInt());
+        m_ganttdelegate->showCriticalPath = (bool)(e.attribute("show-criticalpath", QString::number(0)).toInt());
+        m_ganttdelegate->showCriticalTasks = (bool)(e.attribute("show-criticaltasks", QString::number(0)).toInt());
+        m_ganttdelegate->showPositiveFloat = (bool)(e.attribute("show-positivefloat", QString::number(0)).toInt());
+        m_ganttdelegate->showSchedulingError = (bool)(e.attribute("show-schedulingerror", QString::number(0)).toInt());
+        m_ganttdelegate->showTimeConstraint = (bool)(e.attribute("show-timeconstraint", QString::number(0)).toInt());
+        m_ganttdelegate->showNegativeFloat = (bool)(e.attribute("show-negativefloat", QString::number(0)).toInt());
 
         GanttViewBase::loadContext(e);
 
@@ -155,18 +155,18 @@ void NodeGanttViewBase::saveContext(QDomElement &settings) const
     debugPlan;
     treeView()->saveContext(model()->columnMap(), settings);
 
-    QDomElement e = settings.ownerDocument().createElement("ganttchart");
+    QDomElement e = settings.ownerDocument().createElement(QStringLiteral("ganttchart"));
     settings.appendChild(e);
-    e.setAttribute("show-dependencies", QString::number(m_ganttdelegate->showTaskLinks));
-    e.setAttribute("show-taskname", QString::number(m_ganttdelegate->showTaskName));
-    e.setAttribute("show-resourcenames", QString::number(m_ganttdelegate->showResources));
-    e.setAttribute("show-completion", QString::number(m_ganttdelegate->showProgress));
-    e.setAttribute("show-criticalpath", QString::number(m_ganttdelegate->showCriticalPath));
-    e.setAttribute("show-criticaltasks",QString::number(m_ganttdelegate->showCriticalTasks));
-    e.setAttribute("show-positivefloat", QString::number(m_ganttdelegate->showPositiveFloat));
-    e.setAttribute("show-schedulingerror", QString::number(m_ganttdelegate->showSchedulingError));
-    e.setAttribute("show-timeconstraint", QString::number(m_ganttdelegate->showTimeConstraint));
-    e.setAttribute("show-negativefloat", QString::number(m_ganttdelegate->showNegativeFloat));
+    e.setAttribute(QStringLiteral("show-dependencies"), QString::number(m_ganttdelegate->showTaskLinks));
+    e.setAttribute(QStringLiteral("show-taskname"), QString::number(m_ganttdelegate->showTaskName));
+    e.setAttribute(QStringLiteral("show-resourcenames"), QString::number(m_ganttdelegate->showResources));
+    e.setAttribute(QStringLiteral("show-completion"), QString::number(m_ganttdelegate->showProgress));
+    e.setAttribute(QStringLiteral("show-criticalpath"), QString::number(m_ganttdelegate->showCriticalPath));
+    e.setAttribute(QStringLiteral("show-criticaltasks"),QString::number(m_ganttdelegate->showCriticalTasks));
+    e.setAttribute(QStringLiteral("show-positivefloat"), QString::number(m_ganttdelegate->showPositiveFloat));
+    e.setAttribute(QStringLiteral("show-schedulingerror"), QString::number(m_ganttdelegate->showSchedulingError));
+    e.setAttribute(QStringLiteral("show-timeconstraint"), QString::number(m_ganttdelegate->showTimeConstraint));
+    e.setAttribute(QStringLiteral("show-negativefloat"), QString::number(m_ganttdelegate->showNegativeFloat));
 
     GanttViewBase::saveContext(e);
 
@@ -352,7 +352,7 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
 {
     debugPlan <<" ---------------- KPlato: Creating GanttView ----------------";
 
-    setXMLFile("GanttViewUi.rc");
+    setXMLFile(QStringLiteral("GanttViewUi.rc"));
 
     QVBoxLayout *l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -411,7 +411,7 @@ void GanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
     if (idx.column() == NodeModel::NodeDescription) {
         Node *node =  m_gantt->model()->node(m_gantt->sfModel()->mapToSource(idx));
         if (node) {
-            auto action = actionCollection()->action("task_description");
+            auto action = actionCollection()->action(QStringLiteral("task_description"));
             if (action) {
                 action->trigger();
             }
@@ -421,7 +421,7 @@ void GanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
 
 void GanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
 {
-    QMenu *menu = popupMenu("gantt_datetimegrid_popup");
+    QMenu *menu = popupMenu(QStringLiteral("gantt_datetimegrid_popup"));
     if (menu) {
         menu->exec(pt);
     }
@@ -441,7 +441,7 @@ void GanttView::setZoom(double)
 void GanttView::setupGui()
 {
     actionShowProject = new KToggleAction(i18n("Show Project"), this);
-    actionCollection()->addAction("show_project", actionShowProject);
+    actionCollection()->addAction(QStringLiteral("show_project"), actionShowProject);
     // FIXME: Dependencies depend on these methods being called in the correct order
     connect(actionShowProject, &QAction::triggered, m_gantt, &MyKGanttView::clearDependencies);
     connect(actionShowProject, &QAction::triggered, m_gantt->model(), &NodeItemModel::setShowProject);
@@ -449,7 +449,7 @@ void GanttView::setupGui()
     addContextAction(actionShowProject);
 
     actionShowUnscheduled = new KToggleAction(i18n("Show Unscheduled Tasks"), this);
-    actionCollection()->addAction("show_unscheduled_tasks", actionShowUnscheduled);
+    actionCollection()->addAction(QStringLiteral("show_unscheduled_tasks"), actionShowUnscheduled);
     connect(actionShowUnscheduled, &QAction::triggered, m_gantt, &MyKGanttView::setShowUnscheduledTasks);
     addContextAction(actionShowUnscheduled);
 
@@ -463,58 +463,58 @@ void GanttView::setupGui()
     QAction *a = new QAction(i18nc("@action:inmenu", "Auto"), this);
     a->setCheckable(true);
     a->setChecked(true);
-    actionCollection()->addAction("scale_auto", a);
+    actionCollection()->addAction(QStringLiteral("scale_auto"), a);
     connect(a, &QAction::triggered, this, &GanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Month"), this);
-    actionCollection()->addAction("scale_month", a);
+    actionCollection()->addAction(QStringLiteral("scale_month"), a);
     a->setCheckable(true);
     connect(a, &QAction::triggered, this, &GanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Week"), this);
-    actionCollection()->addAction("scale_week", a);
+    actionCollection()->addAction(QStringLiteral("scale_week"), a);
     a->setCheckable(true);
     connect(a, &QAction::triggered, this, &GanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Day"), this);
     a->setCheckable(true);
-    actionCollection()->addAction("scale_day", a);
+    actionCollection()->addAction(QStringLiteral("scale_day"), a);
     connect(a, &QAction::triggered, this, &GanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Hour"), this);
     a->setCheckable(true);
-    actionCollection()->addAction("scale_hour", a);
+    actionCollection()->addAction(QStringLiteral("scale_hour"), a);
     connect(a, &QAction::triggered, this, &GanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Zoom In"), this);
     a->setIcon(koIcon("zoom-in"));
-    actionCollection()->addAction("zoom_in", a);
+    actionCollection()->addAction(QStringLiteral("zoom_in"), a);
     connect(a, &QAction::triggered, this, &GanttView::ganttActions);
 
     a = new QAction(i18nc("@action:inmenu", "Zoom Out"), this);
     a->setIcon(koIcon("zoom-out"));
-    actionCollection()->addAction("zoom_out", a);
+    actionCollection()->addAction(QStringLiteral("zoom_out"), a);
     connect(a, &QAction::triggered, this, &GanttView::ganttActions);
 
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("node_properties", actionOpenNode);
+    actionCollection()->addAction(QStringLiteral("node_properties"), actionOpenNode);
     connect(actionOpenNode, &QAction::triggered, this, &GanttView::slotOpenCurrentNode);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &GanttView::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &GanttView::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &GanttView::slotDocuments);
 }
 
@@ -529,22 +529,22 @@ void GanttView::updateActionsEnabled(bool on)
     bool enable = on && node && (m_gantt->selectionModel()->selectedRows().count() < 2);
 
     const auto c = actionCollection();
-    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
-    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
-    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
+    if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(enable); }
 
     if (enable) {
         auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
         switch (node->type()) {
             case Node::Type_Task:
             case Node::Type_Milestone:
-                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(enable && node->isScheduled(sid)); }
                 break;
             case Node::Type_Summarytask:
                 break;
             default:
-                if (auto a = c->action("task_description")) { a->setEnabled(false); }
-                if (auto a = c->action("task_documents")) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(false); }
                 break;
         }
     }
@@ -559,11 +559,11 @@ void GanttView::slotDateTimeGridChanged()
     }
     QAction *a = m_scalegroup->checkedAction();
     switch (grid->scale()) {
-        case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action("scale_auto")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action("scale_hour")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleDay: actionCollection()->action("scale_day")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleWeek: actionCollection()->action("scale_week")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleMonth: actionCollection()->action("scale_month")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action(QStringLiteral("scale_auto"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action(QStringLiteral("scale_hour"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleDay: actionCollection()->action(QStringLiteral("scale_day"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleWeek: actionCollection()->action(QStringLiteral("scale_week"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleMonth: actionCollection()->action(QStringLiteral("scale_month"))->setChecked(true); break;
         default:
             warnPlan<<"Unused scale:"<<grid->scale();
             break;
@@ -581,19 +581,19 @@ void GanttView::ganttActions()
     if (!grid) {
         return;
     }
-    if (action->objectName() == "scale_auto") {
+    if (action->objectName() == QStringLiteral("scale_auto")) {
         grid->setScale(DateTimeGrid::ScaleAuto);
-    } else if (action->objectName() == "scale_month") {
+    } else if (action->objectName() == QStringLiteral("scale_month")) {
         grid->setScale(DateTimeGrid::ScaleMonth);
-    } else if (action->objectName() == "scale_week") {
+    } else if (action->objectName() == QStringLiteral("scale_week")) {
         grid->setScale(DateTimeGrid::ScaleWeek);
-    } else if (action->objectName() == "scale_day") {
+    } else if (action->objectName() == QStringLiteral("scale_day")) {
         grid->setScale(DateTimeGrid::ScaleDay);
-    } else if (action->objectName() == "scale_hour") {
+    } else if (action->objectName() == QStringLiteral("scale_hour")) {
         grid->setScale(DateTimeGrid::ScaleHour);
-    } else if (action->objectName() == "zoom_in") {
+    } else if (action->objectName() == QStringLiteral("zoom_in")) {
         grid->setDayWidth(grid->dayWidth() * 1.25);
-    } else if (action->objectName() == "zoom_out") {
+    } else if (action->objectName() == QStringLiteral("zoom_out")) {
         // daywidth *MUST NOT* go below 1.0, it is used as an integer later on
         grid->setDayWidth(qMax<qreal>(1.0, grid->dayWidth() * 0.8));
     } else {
@@ -604,7 +604,7 @@ void GanttView::ganttActions()
 void GanttView::slotOptions()
 {
     debugPlan;
-    GanttViewSettingsDialog *dlg = new GanttViewSettingsDialog(m_gantt, m_gantt->delegate(), this, sender()->objectName() == "print_options");
+    GanttViewSettingsDialog *dlg = new GanttViewSettingsDialog(m_gantt, m_gantt->delegate(), this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
@@ -685,7 +685,7 @@ void GanttView::setScheduleManager(ScheduleManager *sm)
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted
         m_domdoc.clear();
-        QDomElement element = m_domdoc.createElement("expanded");
+        QDomElement element = m_domdoc.createElement(QStringLiteral("expanded"));
         m_domdoc.appendChild(element);
         m_gantt->treeView()->saveExpanded(element);
     }
@@ -693,7 +693,7 @@ void GanttView::setScheduleManager(ScheduleManager *sm)
     bool expand = sm && scheduleManager() && sm != scheduleManager();
     QDomDocument doc;
     if (expand) {
-        QDomElement element = doc.createElement("expanded");
+        QDomElement element = doc.createElement(QStringLiteral("expanded"));
         doc.appendChild(element);
         m_gantt->treeView()->saveExpanded(element);
     }
@@ -748,17 +748,17 @@ void GanttView::slotContextMenuRequested(const QModelIndex &idx, const QPoint &p
     if (node) {
         switch (node->type()) {
             case Node::Type_Project:
-                name = "project_edit_popup";
+                name = QStringLiteral("project_edit_popup");
                 Q_EMIT requestPopupMenu(name, pos);
                 return;
             case Node::Type_Task:
-                name = node->isScheduled(sid) ? "taskview_popup" : "task_unscheduled_popup";
+                name = node->isScheduled(sid) ? QStringLiteral("taskview_popup") : QStringLiteral("task_unscheduled_popup");
                 break;
             case Node::Type_Milestone:
-                name = node->isScheduled(sid) ? "taskview_milestone_popup" : "task_unscheduled_popup";
+                name = node->isScheduled(sid) ? QStringLiteral("taskview_milestone_popup") : QStringLiteral("task_unscheduled_popup");
                 break;
             case Node::Type_Summarytask:
-                name = "taskview_summary_popup";
+                name = QStringLiteral("taskview_summary_popup");
                 break;
             default:
                 break;
@@ -777,10 +777,10 @@ bool GanttView::loadContext(const KoXmlElement &settings)
 {
     debugPlan;
     ViewBase::loadContext(settings);
-    bool show = (bool)(settings.attribute("show-project", "0").toInt());
+    bool show = (bool)(settings.attribute("show-project", QString::number(0)).toInt());
     actionShowProject->setChecked(show);
     m_gantt->model()->setShowProject(show); // why is this not called by the action?
-    show = (bool)(settings.attribute("show-unscheduled", "1").toInt());
+    show = (bool)(settings.attribute(QStringLiteral("show-unscheduled"), QString::number(1)).toInt());
     actionShowUnscheduled->setChecked(show);
     m_gantt->setShowUnscheduledTasks(show);
 
@@ -791,8 +791,8 @@ void GanttView::saveContext(QDomElement &settings) const
 {
     debugPlan;
     ViewBase::saveContext(settings);
-    settings.setAttribute("show-project", QString::number(actionShowProject->isChecked()));
-    settings.setAttribute("show-unscheduled", QString::number(actionShowUnscheduled->isChecked()));
+    settings.setAttribute(QStringLiteral("show-project"), QString::number(actionShowProject->isChecked()));
+    settings.setAttribute(QStringLiteral("show-unscheduled"), QString::number(actionShowUnscheduled->isChecked()));
 
     m_gantt->saveContext(settings);
 
@@ -1196,7 +1196,7 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
 {
     debugPlan <<" ---------------- Plan: Creating Milesone GanttView ----------------";
 
-    setXMLFile("MilestoneGanttViewUi.rc");
+    setXMLFile(QStringLiteral("MilestoneGanttViewUi.rc"));
 
     QVBoxLayout *l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -1240,7 +1240,7 @@ void MilestoneGanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
     if (idx.column() == NodeModel::NodeDescription) {
         Node *node =  m_gantt->model()->node(m_gantt->sfModel()->mapToSource(idx));
         if (node) {
-            auto action = actionCollection()->action("task_description");
+            auto action = actionCollection()->action(QStringLiteral("task_description"));
             if (action) {
                 action->trigger();
             }
@@ -1250,7 +1250,7 @@ void MilestoneGanttView::itemDoubleClicked(const QPersistentModelIndex &idx)
 
 void MilestoneGanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
 {
-    QMenu *menu = popupMenu("gantt_datetimegrid_popup");
+    QMenu *menu = popupMenu(QStringLiteral("gantt_datetimegrid_popup"));
     if (menu) {
         menu->exec(pt);
     }
@@ -1312,58 +1312,58 @@ void MilestoneGanttView::setupGui()
     QAction *a = new QAction(i18nc("@action:inmenu", "Auto"), this);
     a->setCheckable(true);
     a->setChecked(true);
-    actionCollection()->addAction("scale_auto", a);
+    actionCollection()->addAction(QStringLiteral("scale_auto"), a);
     connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Month"), this);
-    actionCollection()->addAction("scale_month", a);
+    actionCollection()->addAction(QStringLiteral("scale_month"), a);
     a->setCheckable(true);
     connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Week"), this);
-    actionCollection()->addAction("scale_week", a);
+    actionCollection()->addAction(QStringLiteral("scale_week"), a);
     a->setCheckable(true);
     connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Day"), this);
     a->setCheckable(true);
-    actionCollection()->addAction("scale_day", a);
+    actionCollection()->addAction(QStringLiteral("scale_day"), a);
     connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Hour"), this);
     a->setCheckable(true);
-    actionCollection()->addAction("scale_hour", a);
+    actionCollection()->addAction(QStringLiteral("scale_hour"), a);
     connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Zoom In"), this);
     a->setIcon(koIcon("zoom-in"));
-    actionCollection()->addAction("zoom_in", a);
+    actionCollection()->addAction(QStringLiteral("zoom_in"), a);
     connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
 
     a = new QAction(i18nc("@action:inmenu", "Zoom Out"), this);
     a->setIcon(koIcon("zoom-out"));
-    actionCollection()->addAction("zoom_out", a);
+    actionCollection()->addAction(QStringLiteral("zoom_out"), a);
     connect(a, &QAction::triggered, this, &MilestoneGanttView::ganttActions);
 
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("node_properties", actionOpenNode);
+    actionCollection()->addAction(QStringLiteral("node_properties"), actionOpenNode);
     connect(actionOpenNode, &QAction::triggered, this, &MilestoneGanttView::slotOpenCurrentNode);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &MilestoneGanttView::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &MilestoneGanttView::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &MilestoneGanttView::slotDocuments);
 
 }
@@ -1379,22 +1379,22 @@ void MilestoneGanttView::updateActionsEnabled(bool on)
     bool enable = on && node && (m_gantt->selectionModel()->selectedRows().count() < 2);
 
     const auto c = actionCollection();
-    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
-    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
-    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
+    if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(enable); }
 
     if (enable) {
         auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
         switch (node->type()) {
             case Node::Type_Task:
             case Node::Type_Milestone:
-                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(enable && node->isScheduled(sid)); }
                 break;
             case Node::Type_Summarytask:
                 break;
             default:
-                if (auto a = c->action("task_description")) { a->setEnabled(false); }
-                if (auto a = c->action("task_documents")) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(false); }
                 break;
         }
     }
@@ -1409,11 +1409,11 @@ void MilestoneGanttView::slotDateTimeGridChanged()
     }
     QAction *a = m_scalegroup->checkedAction();
     switch (grid->scale()) {
-        case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action("scale_auto")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action("scale_hour")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleDay: actionCollection()->action("scale_day")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleWeek: actionCollection()->action("scale_week")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleMonth: actionCollection()->action("scale_month")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action(QStringLiteral("scale_auto"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action(QStringLiteral("scale_hour"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleDay: actionCollection()->action(QStringLiteral("scale_day"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleWeek: actionCollection()->action(QStringLiteral("scale_week"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleMonth: actionCollection()->action(QStringLiteral("scale_month"))->setChecked(true); break;
         default:
             warnPlan<<"Unused scale:"<<grid->scale();
             break;
@@ -1431,19 +1431,19 @@ void MilestoneGanttView::ganttActions()
     if (!grid) {
         return;
     }
-    if (action->objectName() == "scale_auto") {
+    if (action->objectName() == QStringLiteral("scale_auto")) {
         grid->setScale(DateTimeGrid::ScaleAuto);
-    } else if (action->objectName() == "scale_month") {
+    } else if (action->objectName() == QStringLiteral("scale_month")) {
         grid->setScale(DateTimeGrid::ScaleMonth);
-    } else if (action->objectName() == "scale_week") {
+    } else if (action->objectName() == QStringLiteral("scale_week")) {
         grid->setScale(DateTimeGrid::ScaleWeek);
-    } else if (action->objectName() == "scale_day") {
+    } else if (action->objectName() == QStringLiteral("scale_day")) {
         grid->setScale(DateTimeGrid::ScaleDay);
-    } else if (action->objectName() == "scale_hour") {
+    } else if (action->objectName() == QStringLiteral("scale_hour")) {
         grid->setScale(DateTimeGrid::ScaleHour);
-    } else if (action->objectName() == "zoom_in") {
+    } else if (action->objectName() == QStringLiteral("zoom_in")) {
         grid->setDayWidth(grid->dayWidth() * 1.25);
-    } else if (action->objectName() == "zoom_out") {
+    } else if (action->objectName() == QStringLiteral("zoom_out")) {
         // daywidth *MUST NOT* go below 1.0, it is used as an integer later on
         grid->setDayWidth(qMax<qreal>(1.0, grid->dayWidth() * 0.8));
     } else {
@@ -1473,13 +1473,13 @@ void MilestoneGanttView::slotContextMenuRequested(const QModelIndex &idx, const 
     if (node) {
         switch (node->type()) {
             case Node::Type_Task:
-                name = "taskview_popup";
+                name = QStringLiteral("taskview_popup");
                 break;
             case Node::Type_Milestone:
-                name = "taskview_milestone_popup";
+                name = QStringLiteral("taskview_milestone_popup");
                 break;
             case Node::Type_Summarytask:
-                name = "taskview_summary_popup";
+                name = QStringLiteral("taskview_summary_popup");
                 break;
             default:
                 break;
@@ -1497,7 +1497,7 @@ void MilestoneGanttView::slotContextMenuRequested(const QModelIndex &idx, const 
 void MilestoneGanttView::slotOptions()
 {
     debugPlan;
-    MilestoneGanttViewSettingsDialog *dlg =  new MilestoneGanttViewSettingsDialog(m_gantt, this, sender()->objectName() == "print_options");
+    MilestoneGanttViewSettingsDialog *dlg =  new MilestoneGanttViewSettingsDialog(m_gantt, this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
@@ -1792,7 +1792,7 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
 {
     debugPlan <<" ---------------- KPlato: Creating ResourceAppointmentsGanttView ----------------";
 
-    setXMLFile("ResourceAppointmentsGanttViewUi.rc");
+    setXMLFile(QStringLiteral("ResourceAppointmentsGanttViewUi.rc"));
 
     m_gantt = new GanttViewBase(this);
     m_gantt->graphicsView()->setHeaderContextMenuPolicy(Qt::CustomContextMenu);
@@ -1863,7 +1863,7 @@ void ResourceAppointmentsGanttView::slotEditCopy()
 
 void ResourceAppointmentsGanttView::slotGanttHeaderContextMenuRequested(const QPoint &pt)
 {
-    QMenu *menu = popupMenu("gantt_datetimegrid_popup");
+    QMenu *menu = popupMenu(QStringLiteral("gantt_datetimegrid_popup"));
     if (menu) {
         menu->exec(pt);
     }
@@ -1892,7 +1892,7 @@ void ResourceAppointmentsGanttView::setScheduleManager(ScheduleManager *sm)
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted
         m_domdoc.clear();
-        QDomElement element = m_domdoc.createElement("expanded");
+        QDomElement element = m_domdoc.createElement(QStringLiteral("expanded"));
         m_domdoc.appendChild(element);
         treeView()->saveExpanded(element);
     }
@@ -1900,7 +1900,7 @@ void ResourceAppointmentsGanttView::setScheduleManager(ScheduleManager *sm)
     bool expand = sm && scheduleManager() && sm != scheduleManager();
     QDomDocument doc;
     if (expand) {
-        QDomElement element = doc.createElement("expanded");
+        QDomElement element = doc.createElement(QStringLiteral("expanded"));
         doc.appendChild(element);
         treeView()->saveExpanded(element);
     }
@@ -1928,58 +1928,58 @@ void ResourceAppointmentsGanttView::setupGui()
     QAction *a = new QAction(i18nc("@action:inmenu", "Auto"), this);
     a->setCheckable(true);
     a->setChecked(true);
-    actionCollection()->addAction("scale_auto", a);
+    actionCollection()->addAction(QStringLiteral("scale_auto"), a);
     connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Month"), this);
-    actionCollection()->addAction("scale_month", a);
+    actionCollection()->addAction(QStringLiteral("scale_month"), a);
     a->setCheckable(true);
     connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Week"), this);
-    actionCollection()->addAction("scale_week", a);
+    actionCollection()->addAction(QStringLiteral("scale_week"), a);
     a->setCheckable(true);
     connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Day"), this);
     a->setCheckable(true);
-    actionCollection()->addAction("scale_day", a);
+    actionCollection()->addAction(QStringLiteral("scale_day"), a);
     connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Hour"), this);
     a->setCheckable(true);
-    actionCollection()->addAction("scale_hour", a);
+    actionCollection()->addAction(QStringLiteral("scale_hour"), a);
     connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
     m_scalegroup->addAction(a);
 
     a = new QAction(i18nc("@action:inmenu", "Zoom In"), this);
     a->setIcon(koIcon("zoom-in"));
-    actionCollection()->addAction("zoom_in", a);
+    actionCollection()->addAction(QStringLiteral("zoom_in"), a);
     connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
 
     a = new QAction(i18nc("@action:inmenu", "Zoom Out"), this);
     a->setIcon(koIcon("zoom-out"));
-    actionCollection()->addAction("zoom_out", a);
+    actionCollection()->addAction(QStringLiteral("zoom_out"), a);
     connect(a, &QAction::triggered, this, &ResourceAppointmentsGanttView::ganttActions);
 
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("node_properties", actionOpenNode);
+    actionCollection()->addAction(QStringLiteral("node_properties"), actionOpenNode);
     connect(actionOpenNode, &QAction::triggered, this, &ResourceAppointmentsGanttView::slotOpenCurrentNode);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &ResourceAppointmentsGanttView::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &ResourceAppointmentsGanttView::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &ResourceAppointmentsGanttView::slotDocuments);
 }
 
@@ -1994,22 +1994,22 @@ void ResourceAppointmentsGanttView::updateActionsEnabled(bool on)
     bool enable = on && node && (m_gantt->selectionModel()->selectedRows().count() < 2);
 
     const auto c = actionCollection();
-    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
-    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
-    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
+    if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(enable); }
 
     if (enable) {
         auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
         switch (node->type()) {
             case Node::Type_Task:
             case Node::Type_Milestone:
-                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(enable && node->isScheduled(sid)); }
                 break;
             case Node::Type_Summarytask:
                 break;
             default:
-                if (auto a = c->action("task_description")) { a->setEnabled(false); }
-                if (auto a = c->action("task_documents")) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(false); }
                 break;
         }
     }
@@ -2024,11 +2024,11 @@ void ResourceAppointmentsGanttView::slotDateTimeGridChanged()
     }
     QAction *a = m_scalegroup->checkedAction();
     switch (grid->scale()) {
-        case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action("scale_auto")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action("scale_hour")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleDay: actionCollection()->action("scale_day")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleWeek: actionCollection()->action("scale_week")->setChecked(true); break;
-        case KGantt::DateTimeGrid::ScaleMonth: actionCollection()->action("scale_month")->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action(QStringLiteral("scale_auto"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action(QStringLiteral("scale_hour"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleDay: actionCollection()->action(QStringLiteral("scale_day"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleWeek: actionCollection()->action(QStringLiteral("scale_week"))->setChecked(true); break;
+        case KGantt::DateTimeGrid::ScaleMonth: actionCollection()->action(QStringLiteral("scale_month"))->setChecked(true); break;
         default:
             warnPlan<<"Unused scale:"<<grid->scale();
             break;
@@ -2046,19 +2046,19 @@ void ResourceAppointmentsGanttView::ganttActions()
     if (!grid) {
         return;
     }
-    if (action->objectName() == "scale_auto") {
+    if (action->objectName() == QStringLiteral("scale_auto")) {
         grid->setScale(DateTimeGrid::ScaleAuto);
-    } else if (action->objectName() == "scale_month") {
+    } else if (action->objectName() == QStringLiteral("scale_month")) {
         grid->setScale(DateTimeGrid::ScaleMonth);
-    } else if (action->objectName() == "scale_week") {
+    } else if (action->objectName() == QStringLiteral("scale_week")) {
         grid->setScale(DateTimeGrid::ScaleWeek);
-    } else if (action->objectName() == "scale_day") {
+    } else if (action->objectName() == QStringLiteral("scale_day")) {
         grid->setScale(DateTimeGrid::ScaleDay);
-    } else if (action->objectName() == "scale_hour") {
+    } else if (action->objectName() == QStringLiteral("scale_hour")) {
         grid->setScale(DateTimeGrid::ScaleHour);
-    } else if (action->objectName() == "zoom_in") {
+    } else if (action->objectName() == QStringLiteral("zoom_in")) {
         grid->setDayWidth(grid->dayWidth() * 1.25);
-    } else if (action->objectName() == "zoom_out") {
+    } else if (action->objectName() == QStringLiteral("zoom_out")) {
         // daywidth *MUST NOT* go below 1.0, it is used as an integer later on
         grid->setDayWidth(qMax<qreal>(1.0, grid->dayWidth() * 0.8));
     } else {
@@ -2101,7 +2101,7 @@ void ResourceAppointmentsGanttView::slotContextMenuRequested(const QModelIndex &
     if (idx.isValid()) {
         Node *n = m_model->node(idx);
         if (n) {
-            name = "taskview_popup";
+            name = QStringLiteral("taskview_popup");
         }
     }
     m_gantt->treeView()->setContextMenuIndex(idx);
@@ -2116,7 +2116,7 @@ void ResourceAppointmentsGanttView::slotContextMenuRequested(const QModelIndex &
 void ResourceAppointmentsGanttView::slotOptions()
 {
     debugPlan;
-    ItemViewSettupDialog *dlg = new ResourceAppointmentsGanttViewSettingsDialog(m_gantt, this, sender()->objectName() == "print_options");
+    ItemViewSettupDialog *dlg = new ResourceAppointmentsGanttViewSettingsDialog(m_gantt, this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }

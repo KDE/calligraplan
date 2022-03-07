@@ -238,9 +238,9 @@ QString GanttItemDelegate::itemText(const QModelIndex& idx, int type) const
     }
     if (type == KGantt::TypeTask && showResources) {
         if (! txt.isEmpty()) {
-            txt += ' ';
+            txt += QLatin1Char(' ');
         }
-        txt += '(' + data(idx, NodeModel::NodeAssignments, Qt::DisplayRole).toString() + ')';
+        txt += QLatin1Char('(') + data(idx, NodeModel::NodeAssignments, Qt::DisplayRole).toString() + QLatin1Char(')');
     }
     //debugPlan<<txt;
     return txt;

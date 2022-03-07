@@ -14,19 +14,19 @@
 KoElementReference::KoElementReference()
     : d(new KoElementReferenceData())
 {
-    d->xmlid = "id-" + d->xmlid;
+    d->xmlid = QStringLiteral("id-") + d->xmlid;
 }
 
 KoElementReference::KoElementReference(const QString &prefix)
     : d(new KoElementReferenceData)
 {
-    d->xmlid = prefix + "-" + d->xmlid;
+    d->xmlid = prefix + QLatin1Char('-') + d->xmlid;
 }
 
 KoElementReference::KoElementReference(const QString &prefix, int counter)
     : d(new KoElementReferenceData)
 {
-    d->xmlid = QString("%1-%2").arg(prefix).arg(counter);
+    d->xmlid = QStringLiteral("%1-%2").arg(prefix).arg(counter);
 }
 
 KoElementReference::KoElementReference(const KoElementReference &other)

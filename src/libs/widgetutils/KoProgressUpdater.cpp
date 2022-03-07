@@ -70,7 +70,7 @@ KoProgressUpdater::KoProgressUpdater(KoProgressProxy *progressBar,
 KoProgressUpdater::~KoProgressUpdater()
 {
     if (d->output) {
-        Private::logEvents(*d->output, d, referenceTime(), "");
+        Private::logEvents(*d->output, d, referenceTime(), QString());
     }
     d->progressBar->setValue(d->progressBar->maximum());
 

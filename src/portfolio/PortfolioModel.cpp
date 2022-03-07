@@ -87,7 +87,7 @@ QVariant PortfolioModel::extraColumnData(const QModelIndex &parent, int row, int
         case 0: {
             switch (role) {
                 case Qt::DisplayRole:
-                    if (doc->property(STATUS).toString() == "loading-error") {
+                    if (doc->property(STATUS).toString() == QStringLiteral("loading-error")) {
                         return i18n("Error");
                     }
                     return doc->property(ISPORTFOLIO).toBool() ? i18n("Yes") : i18n("No");
@@ -95,7 +95,7 @@ QVariant PortfolioModel::extraColumnData(const QModelIndex &parent, int row, int
                     return doc->property(ISPORTFOLIO).toBool() ? 1 : 0;
                 case Qt::ToolTipRole: {
                     const auto s = doc->property(STATUS).toString();
-                    if (s == "loading-error") {
+                    if (s == QStringLiteral("loading-error")) {
                         return i18nc("@info:tooltip", "Failed to load the document");
                     }
                     break;

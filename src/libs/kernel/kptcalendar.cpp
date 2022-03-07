@@ -62,7 +62,7 @@ static TzTimeZoneHash loadTzTimeZones()
     while (!ts.atEnd()) {
         const QString line = ts.readLine();
         // Comment lines are prefixed with a #
-        if (!line.isEmpty() && line.at(0) != '#') {
+        if (!line.isEmpty() && line.at(0) != QLatin1Char('#')) {
             // Data rows are tab-separated columns Region, Coordinates, ID, Optional Comments
             QStringList parts = line.split(QLatin1Char('\t'));
             TzTimeZone zone;
@@ -172,7 +172,7 @@ bool CalendarDay::load(KoXmlElement &element, XMLLoaderObject &status) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == QLatin1String("time-interval") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("interval"))) {
+        if (e.tagName() == QStringLiteral("time-interval") || (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("interval"))) {
             //debugPlan<<"Interval start="<<e.attribute("start")<<" end="<<e.attribute("end");
             QString st = e.attribute(QStringLiteral("start"));
             if (st.isEmpty()) {
@@ -181,7 +181,7 @@ bool CalendarDay::load(KoXmlElement &element, XMLLoaderObject &status) {
             }
             QTime start = QTime::fromString(st);
             int length = 0;
-            if (status.version() <= QLatin1String("0.6.1")) {
+            if (status.version() <= QStringLiteral("0.6.1")) {
                 QString en = e.attribute(QStringLiteral("end"));
                 if (en.isEmpty()) {
                     errorPlan<<"Invalid interval end";
@@ -841,7 +841,7 @@ void Calendar::setTimeZone(const QTimeZone &tz)
     //debugPlan<<tz->name();
     m_timeZone = tz;
 #ifdef HAVE_KHOLIDAYS
-    if (m_regionCode == QLatin1String("Default")) {
+    if (m_regionCode == QStringLiteral("Default")) {
         setHolidayRegion(QStringLiteral("Default"));
     }
 #endif
@@ -893,7 +893,7 @@ int Calendar::indexOf(const Calendar *calendar) const
 bool Calendar::loadCacheVersion(KoXmlElement &element, XMLLoaderObject &status)
 {
     Q_UNUSED(status);
-    m_cacheversion = element.attribute(QStringLiteral("version"), nullptr).toInt();
+    m_cacheversion = element.attribute(QStringLiteral("version")).toInt();
     debugPlan<<m_name<<m_cacheversion;
     return true;
 }
@@ -910,7 +910,7 @@ bool Calendar::load(KoXmlElement &element, XMLLoaderObject &status) {
     m_blockversion = true;
     setId(element.attribute(QStringLiteral("id")));
     m_parentId = element.attribute(QStringLiteral("parent"));
-    m_name = element.attribute(QStringLiteral("name"),QLatin1String(""));
+    m_name = element.attribute(QStringLiteral("name"),QStringLiteral(""));
     QTimeZone tz(element.attribute(QStringLiteral("timezone")).toLatin1());
     if (tz.isValid()) {
         setTimeZone(tz);
@@ -919,7 +919,7 @@ bool Calendar::load(KoXmlElement &element, XMLLoaderObject &status) {
     if (m_default) {
         status.project().setDefaultCalendar(this);
     }
-    if (status.version() < "0.7.0") {
+    if (status.version() < QStringLiteral("0.7.0")) {
         m_shared = element.attribute(QStringLiteral("shared"), QStringLiteral("0")).toInt();
     } else {
         m_shared = element.attribute(QStringLiteral("origin"), QStringLiteral("local")) != QStringLiteral("local");
@@ -935,11 +935,11 @@ bool Calendar::load(KoXmlElement &element, XMLLoaderObject &status) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == QLatin1String("weekday")) {
+        if (e.tagName() == QStringLiteral("weekday")) {
             if (!m_weekdays->load(e, status))
                 return false;
         }
-        if (e.tagName() == QLatin1String("day")) {
+        if (e.tagName() == QStringLiteral("day")) {
             CalendarDay *day = new CalendarDay();
             if (day->load(e, status)) {
                 if (!day->date().isValid()) {
@@ -1589,7 +1589,7 @@ void Calendar::setHolidayRegion(const QString &code)
 {
     delete m_region;
     m_regionCode = code;
-    if (code == QLatin1String("Default")) {
+    if (code == QStringLiteral("Default")) {
         QString country;
         if (m_timeZone.isValid()) {
             // TODO be more accurate when country has multiple timezones/regions
@@ -1675,9 +1675,9 @@ bool StandardWorktime::load(KoXmlElement &element, XMLLoaderObject &status) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == QLatin1String("calendar")) {
+        if (e.tagName() == QStringLiteral("calendar")) {
             // pre 0.6 version stored base calendar in standard worktime
-            if (status.version() >= QLatin1String("0.6")) {
+            if (status.version() >= QStringLiteral("0.6")) {
                 warnPlan<<"Old format, calendar in standard worktime";
                 warnPlan<<"Tries to load anyway";
             }
@@ -1713,7 +1713,7 @@ void StandardWorktime::save(QDomElement &element) const {
 
 QString stateToString(int state)
 {
-    const QStringList lst = QStringList() << "U" << "N" << "W";
+    const QStringList lst = QStringList() << QStringLiteral("U") << QStringLiteral("N") << QStringLiteral("W");
     return lst.value(state);
 }
 QDebug operator<<(QDebug dbg, KPlato::Calendar *c)

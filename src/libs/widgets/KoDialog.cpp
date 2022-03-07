@@ -263,7 +263,7 @@ void KoDialog::setButtons(ButtonCodes buttonMask)
         d->appendButton(No, KStandardGuiItem::no());
     }
     if (buttonMask & Details) {
-        d->appendButton(Details, KGuiItem(QString(), "help-about"));
+        d->appendButton(Details, KGuiItem(QString(), QStringLiteral("help-about")));
         setDetailsWidgetVisible(false);
     }
 
@@ -761,7 +761,7 @@ void KoDialog::setDetailsWidgetVisible(bool visible)
     d->mDetailsVisible = visible;
     if (d->mDetailsVisible) {
         Q_EMIT aboutToShowDetails();
-        setButtonText(Details, d->mDetailsButtonText + " <<");
+        setButtonText(Details, d->mDetailsButtonText + QStringLiteral(" <<"));
         if (d->mDetailsWidget) {
             if (layout()) {
                 layout()->setEnabled(false);
@@ -777,7 +777,7 @@ void KoDialog::setDetailsWidgetVisible(bool visible)
             }
         }
     } else {
-        setButtonText(Details, d->mDetailsButtonText + " >>");
+        setButtonText(Details, d->mDetailsButtonText + QStringLiteral(" >>"));
         if (d->mDetailsWidget) {
             d->mDetailsWidget->hide();
         }

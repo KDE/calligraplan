@@ -27,7 +27,7 @@ ComboBoxDelegate::ComboBoxDelegate(QStringList &list, QObject *parent)
     : QStyledItemDelegate(parent)
 {
     debugPlan;
-    setObjectName("ComboBoxDelegate");
+    setObjectName(QStringLiteral("ComboBoxDelegate"));
     m_list = list;
 }
 
@@ -63,13 +63,12 @@ void ComboBoxDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionV
 
 //----------------------
 
-WBSDefinitionPanel::WBSDefinitionPanel(Project &project, WBSDefinition &def, QWidget *p, const char *n)
+WBSDefinitionPanel::WBSDefinitionPanel(Project &project, WBSDefinition &def, QWidget *p)
     : QWidget(p),
       m_project(project),
       m_def(def),
       selectedRow(-1)
 {
-    setObjectName(n);
     setupUi(this);
     
     projectCode->setText(m_def.projectCode());
@@ -89,7 +88,7 @@ WBSDefinitionPanel::WBSDefinitionPanel(Project &project, WBSDefinition &def, QWi
     debugPlan<<"Map size="<<lev.count();
     QMap<int, WBSDefinition::CodeDef>::const_iterator it;
     for (it = lev.begin(); it != lev.end(); ++it) {
-        sl << QString("%1").arg(it.key());
+        sl << QStringLiteral("%1").arg(it.key());
         QTableWidgetItem *item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, it.value().code);
         levelsTable->setItem(i, 0, item);
@@ -151,9 +150,9 @@ void WBSDefinitionPanel::slotSelectionChanged() {
     QList<QTableWidgetItem *> items = levelsTable->selectedItems();
     if (items.count() == 2 && items[0]->row() == items[1]->row()) {
         selectedRow = items[0]->row();
-        s = QString("Row[%1]=selected ").arg(selectedRow);
+        s = QStringLiteral("Row[%1]=selected ").arg(selectedRow);
     } else {
-        s = "None selected";
+        s = QStringLiteral("None selected");
     }
     removeBtn->setEnabled(selectedRow != -1);
     debugPlan<<s;
@@ -180,7 +179,7 @@ void WBSDefinitionPanel::slotAddBtnClicked() {
     }
     i++;
     levelsTable->insertRow(i);
-    levelsTable->setVerticalHeaderItem(i, new QTableWidgetItem(QString("%1").arg(level->value())));
+    levelsTable->setVerticalHeaderItem(i, new QTableWidgetItem(QStringLiteral("%1").arg(level->value())));
     QTableWidgetItem *item = new QTableWidgetItem();
     item->setData(Qt::DisplayRole, (m_def.codeList().value(m_def.defaultCodeIndex())));
     levelsTable->setItem(i, 0, item);

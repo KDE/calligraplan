@@ -36,9 +36,9 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
     ui.setupUi(this);
 
     if (doc && doc->isReadWrite()) {
-        setXMLFile("Portfolio_ResourceUsageViewUi.rc");
+        setXMLFile(QStringLiteral("Portfolio_ResourceUsageViewUi.rc"));
     } else {
-        setXMLFile("Portfolio_ResourceUsageViewUi_readonly.rc");
+        setXMLFile(QStringLiteral("Portfolio_ResourceUsageViewUi_readonly.rc"));
     }
     setupGui();
 
@@ -90,25 +90,25 @@ ResourceUsageView::~ResourceUsageView()
 void ResourceUsageView::setupGui()
 {
     auto s = new KSelectAction(koIcon("office-chart-bar-stacked"), i18n("Diagram Types"), this);
-    actionCollection()->addAction("diagramtypes", s);
+    actionCollection()->addAction(QStringLiteral("diagramtypes"), s);
     connect(s, &KSelectAction::indexTriggered, ui.chart, &KPlato::ScrollableChart::setDiagramFlavor);
 
     auto a = new QAction(koIcon("office-chart-bar-normal"), i18n("Normal"), this);
-    a->setObjectName("charttype_normal");
+    a->setObjectName(QStringLiteral("charttype_normal"));
     a->setCheckable(true);
     s->addAction(a);
     a = new QAction(koIcon("office-chart-bar-stacked"), i18n("Stacked"), this);
-    a->setObjectName("charttype_stacked");
+    a->setObjectName(QStringLiteral("charttype_stacked"));
     a->setCheckable(true);
     s->addAction(a);
     s->setCurrentAction(a);
 
     auto numDays = new QWidgetAction(this);
-    numDays->setObjectName("diagramrange");
+    numDays->setObjectName(QStringLiteral("diagramrange"));
     numDays->setText(i18n("Range"));
 
     m_numDays = new QSpinBox();
-    m_numDays->setObjectName(("diagramrange"));
+    m_numDays->setObjectName(QStringLiteral("diagramrange"));
     m_numDays->setToolTip(numDays->text());
     m_numDays->setSpecialValueText(i18n("All"));
     m_numDays->setSpecialValueText(m_numDays->specialValueText());
@@ -148,7 +148,7 @@ void ResourceUsageView::slotUpdateNumDays()
 {
     int end = m_resourceUsageModel.rowCount();
     m_numDays->setMaximum(end);
-    auto a = qobject_cast<QWidgetAction*>(actionCollection()->action("diagramrange"));
+    auto a = qobject_cast<QWidgetAction*>(actionCollection()->action(QStringLiteral("diagramrange")));
     if (!a) {
         return;
     }

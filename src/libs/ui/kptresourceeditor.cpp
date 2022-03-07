@@ -133,7 +133,7 @@ QList<Resource*> ResourceTreeView::selectedResources() const
 ResourceEditor::ResourceEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
-    setXMLFile("ResourceEditorUi.rc");
+    setXMLFile(QStringLiteral("ResourceEditorUi.rc"));
 
     setWhatsThis(
         xi18nc("@info:whatsthis", 
@@ -219,7 +219,7 @@ void ResourceEditor::slotContextMenuRequested(const QModelIndex &index, const QP
     if (index.isValid()) {
         Resource *r = m_view->model()->resource(index);
         if (r && !r->isShared()) {
-            name = "resourceeditor_resource_popup";
+            name = QStringLiteral("resourceeditor_resource_popup");
         }
     }
     m_view->setContextMenuIndex(index);
@@ -291,17 +291,17 @@ void ResourceEditor::updateActionsEnabled(bool on)
 void ResourceEditor::setupGui()
 {
     actionAddResource  = new QAction(koIcon("list-add-user"), i18n("Add Resource"), this);
-    actionCollection()->addAction("add_resource", actionAddResource);
+    actionCollection()->addAction(QStringLiteral("add_resource"), actionAddResource);
     actionCollection()->setDefaultShortcut(actionAddResource, Qt::CTRL + Qt::Key_I);
     connect(actionAddResource, &QAction::triggered, this, &ResourceEditor::slotAddResource);
     
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
-    actionCollection()->addAction("delete_selection", actionDeleteSelection);
+    actionCollection()->addAction(QStringLiteral("delete_selection"), actionDeleteSelection);
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
     connect(actionDeleteSelection, &QAction::triggered, this, &ResourceEditor::slotDeleteSelection);
 
     auto actionEditResource  = new QAction(koIcon("document-edit"), i18n("Edit Resource..."), this);
-    actionCollection()->addAction("edit_resource", actionEditResource);
+    actionCollection()->addAction(QStringLiteral("edit_resource"), actionEditResource);
     connect(actionEditResource, &QAction::triggered, this, &ResourceEditor::slotEditCurrentResource);
 
     // Add the context menu actions for the view options
@@ -323,7 +323,7 @@ void ResourceEditor::slotOptions()
 {
     debugPlan;
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
-    dlg->addPrintingOptions(sender()->objectName() == "print_options");
+    dlg->addPrintingOptions(sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
@@ -457,7 +457,7 @@ void ResourceEditor::createDockers()
     // Add dockers
     DockWidget *ds = nullptr;
     {
-        ds = new DockWidget(this, "Resource Groups", xi18nc("@title", "Resource Groups"));
+        ds = new DockWidget(this, QStringLiteral("Resource Groups"), xi18nc("@title", "Resource Groups"));
         QTreeView *x = new QTreeView(ds);
         ParentGroupItemModel *m1 = new ParentGroupItemModel(x);
         m1->setGroupIsCheckable(true);

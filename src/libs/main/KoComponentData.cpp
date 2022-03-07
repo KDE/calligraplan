@@ -54,7 +54,7 @@ QString KoComponentData::componentDisplayName() const
 const KSharedConfig::Ptr& KoComponentData::config() const
 {
     if (!d->sharedConfig) {
-        d->sharedConfig = KSharedConfig::openConfig(d->aboutData.componentName() + QLatin1String("rc"));
+        d->sharedConfig = KSharedConfig::openConfig(d->aboutData.componentName() + QStringLiteral("rc"));
     }
 
     return d->sharedConfig;

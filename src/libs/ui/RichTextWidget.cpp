@@ -23,9 +23,9 @@ QList<QAction*> RichTextWidget::createActions()
 {
     QList<QAction*> lst = KRichTextWidget::createActions();
     if (richTextSupport() & RichTextWidget::SupportHyperlinks) {
-        openLink = new QAction(QIcon::fromTheme("link"), xi18nc("@action:intoolbar", "Open Link"));
+        openLink = new QAction(QIcon::fromTheme(QStringLiteral("link")), xi18nc("@action:intoolbar", "Open Link"));
         openLink->setShortcut(Qt::CTRL + Qt::Key_O);
-        openLink->setObjectName("open_link");
+        openLink->setObjectName(QStringLiteral("open_link"));
         connect(openLink, &QAction::triggered, this, &RichTextWidget::slotOpenLink);
         lst.append(openLink);
     }
@@ -36,7 +36,7 @@ QMenu *RichTextWidget::mousePopupMenu() {
     QMenu *menu = KRichTextWidget::mousePopupMenu();
     if (!currentLinkUrl().isEmpty()) {
         menu->insertSeparator(menu->actions().constFirst());
-        QAction *a = new QAction(QIcon::fromTheme("link"), xi18nc("@action:intoolbar", "Open Link"));
+        QAction *a = new QAction(QIcon::fromTheme(QStringLiteral("link")), xi18nc("@action:intoolbar", "Open Link"));
         if (openLink) {
             a->setShortcut(openLink->shortcut());
         }

@@ -31,9 +31,9 @@ QVariant WorkPackageModel::nodeName(const WorkPackage *wp, int role) const
     switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
-            return wp->parentTask() ? wp->parentTask()->name() : "";
+            return wp->parentTask() ? wp->parentTask()->name() : QStringLiteral("");
         case Qt::EditRole:
-            return wp->parentTask() ? wp->parentTask()->name() : "";
+            return wp->parentTask() ? wp->parentTask()->name() : QStringLiteral("");
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
@@ -197,10 +197,10 @@ bool WorkPackageProxyModel::canDropMimeData(const QMimeData *data, Qt::DropActio
     Q_UNUSED(row);
     Q_UNUSED(parent);
 
-    if (data->hasFormat("text/uri-list")) {
-        const auto files = QString(data->data("text/uri-list")).split("\r\n", Qt::SkipEmptyParts);
+    if (data->hasFormat(QStringLiteral("text/uri-list"))) {
+        const auto files = QString(QLatin1String(data->data(QStringLiteral("text/uri-list")))).split(QStringLiteral("\r\n"), Qt::SkipEmptyParts);
         for (const QString &f : files) {
-            if (f.endsWith(".planwork")) {
+            if (f.endsWith(QStringLiteral(".planwork"))) {
                 return true;
             }
         }
@@ -216,11 +216,11 @@ bool WorkPackageProxyModel::dropMimeData(const QMimeData *data, Qt::DropAction a
     if (action == Qt::IgnoreAction) {
         return true;
     }
-    if (data->hasFormat("text/uri-list")) {
+    if (data->hasFormat(QStringLiteral("text/uri-list"))) {
         QStringList files;
-        const auto uris = QString(data->data("text/uri-list")).split("\r\n", Qt::SkipEmptyParts);
+        const auto uris = QString(QLatin1String(data->data(QStringLiteral("text/uri-list")))).split(QStringLiteral("\r\n"), Qt::SkipEmptyParts);
         for (const QString &f : uris) {
-            if (f.endsWith(".planwork")) {
+            if (f.endsWith(QStringLiteral(".planwork"))) {
                 files << f;
             }
             Q_EMIT loadWorkPackage(files);
@@ -232,7 +232,7 @@ bool WorkPackageProxyModel::dropMimeData(const QMimeData *data, Qt::DropAction a
 
 QStringList WorkPackageProxyModel::mimeTypes () const
 {
-    return QStringList() << "application/x-vnd.kde.plan.work";
+    return QStringList() << QStringLiteral("application/x-vnd.kde.plan.work");
 }
 
 void WorkPackageProxyModel::setSourceModel(QAbstractItemModel *model)

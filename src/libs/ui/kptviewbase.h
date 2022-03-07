@@ -222,7 +222,7 @@ public:
     KoPageLayout pageLayout() const override;
 
     /// Return the type of view this is (class name)
-    QString viewType() const { return metaObject()->className(); }
+    QString viewType() const { return QLatin1String(metaObject()->className()); }
 
     /// Returns true if this view or any child widget has focus
     bool isActive() const;

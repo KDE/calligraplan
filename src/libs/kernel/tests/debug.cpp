@@ -28,12 +28,12 @@ namespace QTest
     {
         QString s;
         switch (dt.timeSpec()) {
-            case Qt::LocalTime: s = " LocalTime"; break;
-            case Qt::UTC: s = " UTC"; break;
-            case Qt::OffsetFromUTC: s = " OffsetFromUTC"; break;
-            case Qt::TimeZone: s = " TimeZone (" + dt.timeZone().id() + ')'; break;
+            case Qt::LocalTime: s = QStringLiteral(" LocalTime"); break;
+            case Qt::UTC: s = QStringLiteral(" UTC"); break;
+            case Qt::OffsetFromUTC: s = QStringLiteral(" OffsetFromUTC"); break;
+            case Qt::TimeZone: s = QStringLiteral(" TimeZone (%1)").arg(QLatin1String(dt.timeZone().id())); break;
         }
-        return toString(QString("%1T%2 %3").arg(dt.date().toString(Qt::ISODate), dt.time().toString("hh:mm:ss.zzz"), s));
+        return toString(QStringLiteral("%1T%2 %3").arg(dt.date().toString(Qt::ISODate), dt.time().toString(QStringLiteral("hh:mm:ss.zzz")), s));
     }
 
     template<>
@@ -59,7 +59,7 @@ void print(Calendar *c, const QString &str, bool full = true) {
     qDebug()<<"Debug info: Calendar"<<c->name()<<s<<str;
     for (int wd = 1; wd <= 7; ++wd) {
         CalendarDay *d = c->weekday(wd);
-        qDebug()<<"   "<<wd<<':'<<d->stateToString(d->state());
+        qDebug()<<QStringLiteral("    ")<<wd<<':'<<d->stateToString(d->state());
         const auto intervals = d->timeIntervals();
         for (TimeInterval *t : intervals) {
             qDebug()<<"      interval:"<<t->first<<t->second<<'('<<Duration(qint64(t->second)).toString()<<')';
@@ -67,7 +67,7 @@ void print(Calendar *c, const QString &str, bool full = true) {
     }
     const auto days = c->days();
     for (const CalendarDay *d : days) {
-        qDebug()<<"   "<<d->date()<<':';
+        qDebug()<<QStringLiteral("    ")<<d->date()<<':';
         const auto intervals = d->timeIntervals();
         for (TimeInterval *t : intervals) {
             qDebug()<<"      interval:"<<t->first<<t->second;
@@ -77,39 +77,42 @@ void print(Calendar *c, const QString &str, bool full = true) {
 static
 QString printAvailable(Resource *r, const QString &lead = QString()) {
     QStringList sl;
-    sl<<lead<<"Available:"
+    sl<<lead<<QStringLiteral("Available:")
         <<(r->availableFrom().isValid()
                 ? r->availableFrom().toString()
-                : (r->project() ? ('('+r->project()->constraintStartTime().toString()+')') : QString()))
+                : (r->project() ? (QStringLiteral("(%1)").arg(r->project()->constraintStartTime().toString())) : QString()))
         <<(r->availableUntil().isValid()
                 ? r->availableUntil().toString()
-                : (r->project() ? ('('+r->project()->constraintEndTime().toString()+')') : QString()))
-        <<QString::number(r->units())<<"%"
-        <<"cost: normal"<<QString::number(r->normalRate())<<" overtime"<<QString::number(r->overtimeRate());
-    return sl.join(" ");
+                : (r->project() ? (QStringLiteral("(%1)").arg(r->project()->constraintEndTime().toString())) : QString()))
+        <<(QString::number(r->units())+QStringLiteral("%"))
+        <<QStringLiteral("cost: normal")<<QString::number(r->normalRate())<<QStringLiteral(" overtime")<<QString::number(r->overtimeRate());
+    return sl.join(QLatin1Char(' '));
 }
 static
-void print(ResourceGroup *group, bool full = true, const QString indent = QString()) {
+void print(ResourceGroup *group, bool full = true, QString indent = QString()) {
     qDebug()<<indent<<group->name()<<"id:"<<group->id()<<"parent:"<<group->parentGroup();
-    qDebug()<<(indent+"  ")<<"Resources:"<<group->numResources();
+    auto in = indent;// +  QStringLiteral("  ");
+    qDebug()<<in<<"Resources:"<<group->numResources();
     if (full) {
+        in = indent +  QStringLiteral("    ");
         const auto resources = group->resources();
         for (Resource *r : resources) {
-            qDebug()<<(indent+"    ")<<r->name()<<r->id();
+            qDebug()<<in<<r->name()<<r->id();
         }
     }
-    qDebug()<<(indent+"  ")<<"Resource groups:"<<group->numChildGroups();
+    qDebug()<<(indent+QStringLiteral("  "))<<"Resource groups:"<<group->numChildGroups();
     if (full) {
+        in = indent +  QStringLiteral("    ");
         const auto childGroups = group->childGroups();
         for (ResourceGroup *g : childGroups) {
-            print(g, true, indent + "   ");
+            print(g, true, in);
         }
     }
 }
 static
 void print(ResourceGroup *group, const QString &str, bool full = true) {
     qDebug()<<"Debug info: Group"<<str;
-    print(group, full, "  ");
+    print(group, full, QStringLiteral("  "));
 }
 
 static
@@ -118,22 +121,22 @@ void print(Resource *r, const QString &str, bool full = true) {
     qDebug()<<"  Parent groups:"<<r->parentGroups().count();
     const auto parentGroups = r->parentGroups();
     for (ResourceGroup *g : parentGroups) {
-        qDebug()<<"    "<<g->name() + " Type: " + g->type() << "id:"<<g->id();
+        qDebug()<<QStringLiteral("    ")<<g->name() + QStringLiteral(" Type: ") + g->type() << "id:"<<g->id();
     }
     qDebug()<<"  Available:"
         <<(r->availableFrom().isValid()
                 ? r->availableFrom().toString()
-                : (r->project() ? ('('+r->project()->constraintStartTime().toString()+')') : QString()))
+                : (r->project() ? (QLatin1Char('(')+r->project()->constraintStartTime().toString()+QLatin1Char(')')) : QString()))
         <<(r->availableUntil().isValid()
                 ? r->availableUntil().toString()
-                : (r->project() ? ('('+r->project()->constraintEndTime().toString()+')') : QString()))
+                : (r->project() ? (QLatin1Char('(')+r->project()->constraintEndTime().toString()+QLatin1Char(')')) : QString()))
         <<r->units()<<'%';
     qDebug()<<"  Type:"<<r->typeToString();
     if (r->type() == Resource::Type_Team) {
         qDebug()<<"  Team members:"<<r->teamMembers().count();
         const auto resources = r->teamMembers();
         for (Resource *tm : resources) {
-            print(tm, "");
+            print(tm, QStringLiteral());
 //             qDebug()<<"     "<<tm->name()<<"Available:"
 //                     <<(r->availableFrom().isValid()
 //                             ? r->availableFrom().toString()
@@ -151,14 +154,14 @@ void print(Resource *r, const QString &str, bool full = true) {
         } else {
             cal = r->calendar(false);
             if (cal) {
-                s = cal->name() + " (Default)";
+                s = cal->name() + QStringLiteral(" (Default)");
             } else {
-                s = "  No calendar";
+                s = QStringLiteral("  No calendar");
             }
         }
         qDebug()<<"  Calendar:"<<s;
         if (cal) {
-            print(cal, "    Resource calendar");
+            print(cal, QStringLiteral("    Resource calendar"));
         }
     }
     const auto reqs = r->requiredResources();
@@ -167,7 +170,7 @@ void print(Resource *r, const QString &str, bool full = true) {
     } else {
         qDebug()<<"  Required resources:"<<reqs.count()<<'('<<r->requiredIds().count()<<')';
         for (Resource *req : reqs) {
-            qDebug()<<"  "<<req->name()<<req->type()<<req->id()<<(void*)req<<req->requiredIds().contains(req->id());
+            qDebug()<<QStringLiteral("  ")<<req->name()<<req->type()<<req->id()<<(void*)req<<req->requiredIds().contains(req->id());
         }
     }
     if (! full) return;
@@ -192,14 +195,14 @@ void print(Project *p, const QString &str, bool all = false) {
     } else {
         qDebug()<<"  Not scheduled";
     }
-    qDebug()<<"  Default calendar:"<<(p->defaultCalendar()?p->defaultCalendar()->name():QString("None"));
+    qDebug()<<"  Default calendar:"<<(p->defaultCalendar()?p->defaultCalendar()->name():QStringLiteral("None"));
     if (! all) {
         return;
     }
-    qDebug()<<"  "<<"Resource groups:"<<p->resourceGroupCount();
+    qDebug()<<QStringLiteral("  ")<<"Resource groups:"<<p->resourceGroupCount();
     const auto resourceGroups = p->resourceGroups();
     for (ResourceGroup *g : resourceGroups) {
-        print(g, true, "  ");
+        print(g, true, QStringLiteral("  "));
     }
     const auto resourceList = p->resourceList();
     if (resourceList.isEmpty()) {
@@ -207,7 +210,7 @@ void print(Project *p, const QString &str, bool all = false) {
     } else {
         for (Resource *r : resourceList) {
             qDebug();
-            print(r, "", true);
+            print(r, QStringLiteral(), true);
         }
     }
     for (int i = 0; i < p->numChildren(); ++i) {
@@ -222,6 +225,11 @@ void print(Project *p, Task *t, const QString &str, bool full = true) {
     print(t);
 }
 static
+void print(Project *p, const char *str, bool all = false) {
+    print(p, QLatin1String(str), all);
+}
+
+static
 void print(Completion &c, const QString &pad, bool full = true) {
     if (full) {
         qDebug()<<pad<<"Completion info: Task"<<c.node()->name();
@@ -230,7 +238,7 @@ void print(Completion &c, const QString &pad, bool full = true) {
         qDebug()<<pad<<"Not started";
         return;
     }
-    QString pd = QString("%1  ").arg(pad);
+    QString pd = QStringLiteral("%1  ").arg(pad);
     if (c.isFinished()) {
         qDebug()<<pd<<" Started:"<<QTest::toString(QDateTime(c.startTime()));
         qDebug()<<pd<<"Finished:"<<QTest::toString(QDateTime(c.finishTime()));
@@ -247,7 +255,7 @@ void print(Completion &c, const QString &pad, bool full = true) {
                 break;
             }
             case Completion::EnterEffortPerResource: {
-                const QString pd2 = QString("%1  ").arg(pd);
+                const QString pd2 = QStringLiteral("%1  ").arg(pd);
                 const auto resources = c.resources();
                 const auto entries = c.entries();
                 Completion::EntryList::const_iterator it = entries.constBegin();
@@ -272,10 +280,14 @@ void print(Task *t, const QString &str, bool full = true) {
     print(t, full);
 }
 static
+void print(Task *t, const char *str, bool full = true) {
+    print(t, QLatin1String(str), full);
+}
+static
 void print(Task *t, bool full = true) {
     QString pad;
     if (t->level() > 0) {
-        pad = QString("%1").arg("", t->level()*2, ' ');
+        pad = QStringLiteral("%1").arg(QString(), t->level()*2, QLatin1Char(' '));
     }
     qDebug()<<pad<<"Task"<<t->wbsCode()<<t->name()<<t->typeToString()<<"Priority:"<<t->priority()<<t->constraintToString()<<(void*)t;
     if (t->isScheduled()) {
@@ -296,6 +308,7 @@ void print(Task *t, bool full = true) {
             break;
         case Node::FixedInterval:
             qDebug()<<pad<<"startConstraint:"<<QTest::toString(QDateTime(t->constraintStartTime()));
+            break;
         case Node::MustFinishOn:
         case Node::FinishNotLater:
             qDebug()<<pad<<"  endConstraint:"<<QTest::toString(QDateTime(t->constraintEndTime()));
@@ -305,25 +318,25 @@ void print(Task *t, bool full = true) {
     qDebug()<<pad<<"Estimate   :"<<t->estimate()->expectedEstimate()<<Duration::unitToString(t->estimate()->unit())
             <<t->estimate()->typeToString()
             <<(t->estimate()->type() == Estimate::Type_Duration
-                ? (t->estimate()->calendar()?t->estimate()->calendar()->name():"Fixed")
-                : QString("%1 h").arg(t->estimate()->expectedValue().toDouble(Duration::Unit_h)));
+                ? (t->estimate()->calendar()?t->estimate()->calendar()->name():QStringLiteral("Fixed"))
+                : QStringLiteral("%1 h").arg(t->estimate()->expectedValue().toDouble(Duration::Unit_h)));
 
     const auto resourceRequests = t->requests().resourceRequests();
     qDebug()<<pad<<"Requests:"<<"resources:"<<resourceRequests.count();
     for (ResourceRequest *rr : resourceRequests) {
-        qDebug()<<pad<<printAvailable(rr->resource(), "   " + rr->resource()->name())<<"id:"<<rr->resource()->id()<<(void*)rr->resource()<<':'<<(void*)rr;
+        qDebug()<<pad<<printAvailable(rr->resource(), QStringLiteral("   ") + rr->resource()->name())<<"id:"<<rr->resource()->id()<<(void*)rr->resource()<<':'<<(void*)rr;
         const auto requierds = rr->requiredResources();
         if (!requierds.isEmpty()) {
             qDebug()<<pad<<"   Required resources:";
             for (const auto r : requierds) {
-                qDebug()<<pad<<printAvailable(r, pad+"   " + r->name());
+                qDebug()<<pad<<printAvailable(r, pad+QStringLiteral("   ") + r->name());
             }
         }
         const auto alts = rr->alternativeRequests();
         if (!alts.isEmpty()) {
             qDebug()<<pad<<"   Alternavives:";
             for (const auto alt : alts) {
-                qDebug()<<pad<<printAvailable(alt->resource(), pad+"   " + alt->resource()->name());
+                qDebug()<<pad<<printAvailable(alt->resource(), pad+QStringLiteral("   ") + alt->resource()->name());
             }
         }
     }
@@ -335,14 +348,14 @@ void print(Task *t, bool full = true) {
     for (Relation *r : relations) {
         QString type;
         switch(r->type()) {
-        case Relation::StartStart: type = "SS"; break;
-        case Relation::FinishFinish: type = "FF"; break;
-        default: type = "FS"; break;
+        case Relation::StartStart: type = QStringLiteral("SS"); break;
+        case Relation::FinishFinish: type = QStringLiteral("FF"); break;
+        default: type = QStringLiteral("FS"); break;
         }
-        rel << QString("(%1) -> %2, %3 %4").arg(r->parent()->name()).arg(r->child()->name()).arg(type).arg(r->lag() == 0?QString():r->lag().toString(Duration::Format_HourFraction));
+        rel << QStringLiteral("(%1) -> %2, %3 %4").arg(r->parent()->name()).arg(r->child()->name()).arg(type).arg(r->lag() == 0?QString():r->lag().toString(Duration::Format_HourFraction));
     }
     if (!rel.isEmpty()) {
-        qDebug()<<pad<<"Successors:"<<rel.join(" : ");
+        qDebug()<<pad<<"Successors:"<<rel.join(QStringLiteral(" : "));
     }
     if (t->isEndNode()) {
         qDebug()<<pad<<"End node";
@@ -352,14 +365,14 @@ void print(Task *t, bool full = true) {
     for (Relation *r : relations2) {
         QString type;
         switch(r->type()) {
-        case Relation::StartStart: type = "SS"; break;
-        case Relation::FinishFinish: type = "FF"; break;
-        default: type = "FS"; break;
+        case Relation::StartStart: type = QStringLiteral("SS"); break;
+        case Relation::FinishFinish: type = QStringLiteral("FF"); break;
+        default: type = QStringLiteral("FS"); break;
         }
-        rel << QString("%1 -> (%2), %3 %4").arg(r->parent()->name()).arg(r->child()->name()).arg(type).arg(r->lag() == 0?QString():r->lag().toString(Duration::Format_HourFraction));
+        rel << QStringLiteral("%1 -> (%2), %3 %4").arg(r->parent()->name()).arg(r->child()->name()).arg(type).arg(r->lag() == 0?QString():r->lag().toString(Duration::Format_HourFraction));
     }
     if (!rel.isEmpty()) {
-        qDebug()<<pad<<"Predeccessors:"<<rel.join(" : ");
+        qDebug()<<pad<<"Predeccessors:"<<rel.join(QStringLiteral(" : "));
     }
     qDebug()<<pad;
     Schedule *s = t->currentSchedule();
@@ -371,7 +384,7 @@ void print(Task *t, bool full = true) {
             if (! full) { continue; }
             const auto intervals = a->intervals().map().values();
             for(const AppointmentInterval &i : intervals ) {
-                qDebug()<<pad<<"    "<<QTest::toString(QDateTime(i.startTime()))<<QTest::toString(QDateTime(i.endTime()))<<i.load()<<"effort:"<<i.effort(i.startTime(), i.endTime()).toDouble(Duration::Unit_h)<<'h';
+                qDebug()<<pad<<QStringLiteral("    ")<<QTest::toString(QDateTime(i.startTime()))<<QTest::toString(QDateTime(i.endTime()))<<i.load()<<"effort:"<<i.effort(i.startTime(), i.endTime()).toDouble(Duration::Unit_h)<<'h';
             }
         }
     }
@@ -432,16 +445,20 @@ void print(const EffortCostMap &m, const QString &s = QString()) {
     if (! m.days().isEmpty()) {
         const auto dates = m.days().keys();
         for (const QDate &d : dates ) { // clazy:exclude=container-anti-pattern
-            qDebug()<<"   "<<d.toString(Qt::ISODate)<<':'<<m.hoursOnDate(d)<<'h'<<m.costOnDate(d)
+            qDebug()<<QStringLiteral("    ")<<d.toString(Qt::ISODate)<<':'<<m.hoursOnDate(d)<<'h'<<m.costOnDate(d)
                                                     <<'('<<m.bcwpEffortOnDate(d)<<'h'<<m.bcwpCostOnDate(d)<<')';
         }
     }
 }
 static
+void print(const EffortCostMap &m, const char *s) {
+    print(m, QLatin1String(s));
+}
+static
 void printSchedulingLog(const ScheduleManager &sm, const QString &s)
 {
     qDebug()<<"Scheduling log"<<s;
-    qDebug()<<"Scheduling:"<<sm.name()<<(sm.recalculate()?QString("recalculate from %1").arg(sm.recalculateFrom().toString()):"");
+    qDebug()<<"Scheduling:"<<sm.name()<<(sm.recalculate()?QStringLiteral("recalculate from %1").arg(sm.recalculateFrom().toString()):QStringLiteral(""));
     const auto logs = sm.expected()->logMessages();
     for (const QString &s : logs) {
         qDebug()<<s;
@@ -464,7 +481,7 @@ void print(Account *a, long id = -1, const QString &s = QString())
     qDebug()<<"Cost places:";
     const auto costs = a->costPlaces();
     for (Account::CostPlace *cp : costs) {
-        qDebug()<<"     Node:"<<(cp->node() ? cp->node()->name() : "");
+        qDebug()<<"     Node:"<<(cp->node() ? cp->node()->name() : QString());
         qDebug()<<"  running:"<<cp->running();
         qDebug()<<"  startup:"<<cp->startup();
         qDebug()<<" shutdown:"<<cp->shutdown();
@@ -474,7 +491,7 @@ void print(Account *a, long id = -1, const QString &s = QString())
 static
 void print(const AppointmentInterval &i, const QString &indent = QString())
 {
-    QString s = indent + "Interval:";
+    QString s = indent + QStringLiteral("Interval:");
     if (! i.isValid()) {
         qDebug()<<s<<"Not valid";
     } else {
@@ -488,8 +505,14 @@ void print(const AppointmentIntervalList &lst, const QString &s = QString())
     qDebug()<<"Interval list:"<<lst.map().count()<<s;
     const auto intervals = lst.map().values();
     for (const AppointmentInterval &i : intervals) {
-        print(i, "  ");
+        print(i, QStringLiteral("  "));
     }
+}
+
+static
+void print(const AppointmentIntervalList &lst, const char *s)
+{
+    print(lst, QLatin1String(s));
 }
 
 };

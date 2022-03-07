@@ -101,8 +101,8 @@ bool Ko3dScene::Lightsource::loadOdf(const KoXmlElement &lightElement)
     m_diffuseColor = QColor(lightElement.attributeNS(KoXmlNS::dr3d, "diffuse-color", "#ffffff"));
     QString direction = lightElement.attributeNS(KoXmlNS::dr3d, "direction");
     m_direction = odfToVector3D(direction);
-    m_enabled = (lightElement.attributeNS(KoXmlNS::dr3d, "enabled") == "true");
-    m_specular = (lightElement.attributeNS(KoXmlNS::dr3d, "specular") == "true");
+    m_enabled = (lightElement.attributeNS(KoXmlNS::dr3d, "enabled") == QStringLiteral("true"));
+    m_specular = (lightElement.attributeNS(KoXmlNS::dr3d, "specular") == QStringLiteral("true"));
 
     return true;
 }
@@ -112,7 +112,7 @@ void Ko3dScene::Lightsource::saveOdf(KoXmlWriter &writer) const
     writer.startElement("dr3d:light");
 
     writer.addAttribute("dr3d:diffuse-color", m_diffuseColor.name());
-    writer.addAttribute("dr3d:direction", (QString("(%1 %2 %3)")
+    writer.addAttribute("dr3d:direction", (QStringLiteral("(%1 %2 %3)")
                                            .arg(m_direction.x(), 0, 'f', 11)
                                            .arg(m_direction.y(), 0, 'f', 11)
                                            .arg(m_direction.z(), 0, 'f', 11)));
@@ -189,7 +189,7 @@ bool Ko3dScene::loadOdf(const KoXmlElement &sceneElement)
     d->vup = odfToVector3D(dummy);
 
     dummy = sceneElement.attributeNS(KoXmlNS::dr3d, "projection", "perspective");
-    if (dummy == "parallel") {
+    if (dummy == QStringLiteral("parallel")) {
         d->projection = Parallel;
     }
     else {
@@ -203,20 +203,20 @@ bool Ko3dScene::loadOdf(const KoXmlElement &sceneElement)
 
     // Rendering attributes
     dummy = sceneElement.attributeNS(KoXmlNS::dr3d, "shade-mode", "gouraud");
-    if (dummy == "flat") {
+    if (dummy == QStringLiteral("flat")) {
         d->shadeMode = Flat;
     }
-    else if (dummy == "phong") {
+    else if (dummy == QStringLiteral("phong")) {
         d->shadeMode = Phong;
     }
-    else if (dummy == "draft") {
+    else if (dummy == QStringLiteral("draft")) {
         d->shadeMode = Draft;
     }
     else {
         d->shadeMode = Gouraud;
     }
 
-    d->lightingMode = (sceneElement.attributeNS(KoXmlNS::dr3d, "lighting-mode") == "true");
+    d->lightingMode = (sceneElement.attributeNS(KoXmlNS::dr3d, "lighting-mode") == QStringLiteral("true"));
     d->transform = sceneElement.attributeNS(KoXmlNS::dr3d, "transform");
 
     // 2. Load the light sources.
@@ -224,7 +224,7 @@ bool Ko3dScene::loadOdf(const KoXmlElement &sceneElement)
     // From the ODF 1.1 spec section 9.4.1:
     KoXmlElement elem;
     forEachElement(elem, sceneElement) {
-        if (elem.localName() == "light" && elem.namespaceURI() == KoXmlNS::dr3d) {
+        if (elem.localName() == QStringLiteral("light") && elem.namespaceURI() == KoXmlNS::dr3d) {
             Lightsource  light;
             light.loadOdf(elem);
             d->lights.append(light);
@@ -240,15 +240,15 @@ void Ko3dScene::saveOdfAttributes(KoXmlWriter &writer) const
 {
     // 1. Write scene attributes
     // Camera attributes
-    writer.addAttribute("dr3d:vrp", (QString("(%1 %2 %3)")
+    writer.addAttribute("dr3d:vrp", (QStringLiteral("(%1 %2 %3)")
                                      .arg(d->vrp.x(), 0, 'f', 11)
                                      .arg(d->vrp.y(), 0, 'f', 11)
                                      .arg(d->vrp.z(), 0, 'f', 11)));
-    writer.addAttribute("dr3d:vpn", (QString("(%1 %2 %3)")
+    writer.addAttribute("dr3d:vpn", (QStringLiteral("(%1 %2 %3)")
                                      .arg(d->vpn.x(), 0, 'f', 11)
                                      .arg(d->vpn.y(), 0, 'f', 11)
                                      .arg(d->vpn.z(), 0, 'f', 11)));
-    writer.addAttribute("dr3d:vup", (QString("(%1 %2 %3)")
+    writer.addAttribute("dr3d:vup", (QStringLiteral("(%1 %2 %3)")
                                      .arg(d->vup.x(), 0, 'f', 11)
                                      .arg(d->vup.y(), 0, 'f', 11)
                                      .arg(d->vup.z(), 0, 'f', 11)));
@@ -315,7 +315,7 @@ KOODF_EXPORT Ko3dScene *load3dScene(const KoXmlElement &element)
 QVector3D odfToVector3D(const QString &string)
 {
     // The string comes into this function in the form "(0 3.5 0.3)".
-    QStringList elements = string.mid(1, string.size() - 2).split(' ', Qt::SkipEmptyParts);
+    QStringList elements = string.mid(1, string.size() - 2).split(QLatin1Char(' '), Qt::SkipEmptyParts);
     if (elements.size() == 3) {
         return QVector3D(elements[0].toDouble(), elements[1].toDouble(), elements[2].toDouble());
     }

@@ -62,6 +62,7 @@ protected:
     void writeElementAttributes(KoXmlWriter &writer, const KoXmlElement &element, const QStringList &exclude = QStringList());
     void writeChildElements(KoXmlWriter &writer, const KoXmlElement &parent);
     bool copyFile(KoStore &from, KoStore &to, const QString &file);
+    bool copyFile(KoStore &from, KoStore &to, const char *file);
     KoStore *copyStore(KoOdfReadStore &reader, const QString &outfile);
     KoXmlWriter *createOasisXmlWriter(KoOdfReadStore &reader, QBuffer *buffer, const QString fileName, const char *rootElementName);
 

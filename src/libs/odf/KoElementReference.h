@@ -24,8 +24,8 @@ public:
     KoElementReferenceData()
     {
         xmlid = QUuid::createUuid().toString();
-        xmlid.remove('{');
-        xmlid.remove('}');
+        xmlid.remove(QLatin1Char('{'));
+        xmlid.remove(QLatin1Char('}'));
     }
 
     KoElementReferenceData(const KoElementReferenceData &other)

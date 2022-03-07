@@ -145,22 +145,22 @@ bool Account::isBaselined(long id) const
 }
 
 bool Account::load(KoXmlElement &element, Project &project) {
-    m_name = element.attribute("name");
-    m_description = element.attribute("description");
+    m_name = element.attribute(QStringLiteral("name"));
+    m_description = element.attribute(QStringLiteral("description"));
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
         if (! n.isElement()) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "costplace") {
+        if (e.tagName() == QStringLiteral("costplace")) {
             Account::CostPlace *child = new Account::CostPlace(this);
             if (child->load(e, project)) {
                 append(child);
             } else {
                 delete child;
             }
-        } else if (e.tagName() == "account") {
+        } else if (e.tagName() == QStringLiteral("account")) {
             Account *child = new Account();
             if (child->load(e, project)) {
                 m_accountList.append(child);
@@ -175,10 +175,10 @@ bool Account::load(KoXmlElement &element, Project &project) {
 }
 
 void Account::save(QDomElement &element) const {
-    QDomElement me = element.ownerDocument().createElement("account");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("account"));
     element.appendChild(me);
-    me.setAttribute("name", m_name);
-    me.setAttribute("description", m_description);
+    me.setAttribute(QStringLiteral("name"), m_name);
+    me.setAttribute(QStringLiteral("description"), m_description);
     for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
         cp->save(me);
     }
@@ -651,10 +651,10 @@ void Account::CostPlace::setShutdown(bool on)
 //TODO
 bool Account::CostPlace::load(KoXmlElement &element, Project &project) {
     //debugPlan;
-    m_objectId = element.attribute("object-id");
+    m_objectId = element.attribute(QStringLiteral("object-id"));
     if (m_objectId.isEmpty()) {
         // check old format
-        m_objectId = element.attribute("node-id");
+        m_objectId = element.attribute(QStringLiteral("node-id"));
         if (m_objectId.isEmpty()) {
             errorPlan<<"No object id";
             return false;
@@ -668,23 +668,23 @@ bool Account::CostPlace::load(KoXmlElement &element, Project &project) {
             return false;
         }
     }
-    bool on = (bool)(element.attribute("running-cost").toInt());
+    bool on = (bool)(element.attribute(QStringLiteral("running-cost")).toInt());
     if (on) setRunning(on);
-    on = (bool)(element.attribute("startup-cost").toInt());
+    on = (bool)(element.attribute(QStringLiteral("startup-cost")).toInt());
     if (on) setStartup(on);
-    on = (bool)(element.attribute("shutdown-cost").toInt());
+    on = (bool)(element.attribute(QStringLiteral("shutdown-cost")).toInt());
     if (on) setShutdown(on);
     return true;
 }
 
 void Account::CostPlace::save(QDomElement &element) const {
     //debugPlan;
-    QDomElement me = element.ownerDocument().createElement("costplace");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("costplace"));
     element.appendChild(me);
-    me.setAttribute("object-id", m_objectId);
-    me.setAttribute("running-cost", QString::number(m_running));
-    me.setAttribute("startup-cost", QString::number(m_startup));
-    me.setAttribute("shutdown-cost", QString::number(m_shutdown));
+    me.setAttribute(QStringLiteral("object-id"), m_objectId);
+    me.setAttribute(QStringLiteral("running-cost"), QString::number(m_running));
+    me.setAttribute(QStringLiteral("startup-cost"), QString::number(m_startup));
+    me.setAttribute(QStringLiteral("shutdown-cost"), QString::number(m_shutdown));
     
 }
 
@@ -783,7 +783,7 @@ bool Accounts::load(KoXmlElement &element, Project &project) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "account") {
+        if (e.tagName() == QStringLiteral("account")) {
             Account *child = new Account();
             if (child->load(e, project)) {
                 insert(child);
@@ -794,8 +794,8 @@ bool Accounts::load(KoXmlElement &element, Project &project) {
             }
         }
     }
-    if (element.hasAttribute("default-account")) {
-        m_defaultAccount = findAccount(element.attribute("default-account"));
+    if (element.hasAttribute(QStringLiteral("default-account"))) {
+        m_defaultAccount = findAccount(element.attribute(QStringLiteral("default-account")));
         if (m_defaultAccount == nullptr) {
             warnPlan<<"Could not find default account.";
         }
@@ -804,10 +804,10 @@ bool Accounts::load(KoXmlElement &element, Project &project) {
 }
 
 void Accounts::save(QDomElement &element) const {
-    QDomElement me = element.ownerDocument().createElement("accounts");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("accounts"));
     element.appendChild(me);
     if (m_defaultAccount) {
-        me.setAttribute("default-account", m_defaultAccount->name());
+        me.setAttribute(QStringLiteral("default-account"), m_defaultAccount->name());
     }
     for (Account *a : qAsConst(m_accountList)) {
         a->save(me);
@@ -896,7 +896,7 @@ bool Accounts::removeId(const QString &id) {
 
 QString Accounts::uniqueId(const QString &seed) const
 {
-    QString s = seed.isEmpty() ? i18n("Account") + ".%1" : seed + ".%1";
+    QString s = seed.isEmpty() ? i18n("Account") + QStringLiteral(".%1") : seed + QStringLiteral(".%1");
     int i = 1;
     QString n = s.arg(i);
     while (findAccount(n)) {
@@ -941,13 +941,13 @@ QList<Node*> Accounts::allNodes() const
 void Accounts::printDebug(const QString& indent) {
     debugPlan<<indent<<"Accounts:"<<this<<m_accountList.count()<<" children";
     for(Account *a : qAsConst(m_accountList)) {
-        a->printDebug(indent + "    !");
+        a->printDebug(indent + QStringLiteral("    !"));
     }
 }
 void Account::printDebug(const QString& indent) {
     debugPlan<<indent<<"--- Account:"<<this<<m_name<<":"<<m_accountList.count()<<" children";
     for(Account *a : qAsConst(m_accountList)) {
-        a->printDebug(indent + "    !");
+        a->printDebug(indent + QStringLiteral("    !"));
     }
 }
 #endif

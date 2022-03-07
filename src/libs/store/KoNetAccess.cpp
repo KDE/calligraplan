@@ -357,7 +357,7 @@ bool NetAccess::mkdirInternal(const QUrl &url, int permissions,
 QString NetAccess::mimetypeInternal(const QUrl &url, QWidget *window)
 {
     d->bJobOK = true; // success unless further error occurs
-    d->m_mimetype = QLatin1String("unknown");
+    d->m_mimetype = QStringLiteral("unknown");
     KIO::Job *job = KIO::mimetype(url);
     KJobWidgets::setWindow(job, window);
     connect(job, &KJob::result,
@@ -379,13 +379,13 @@ QString NetAccess::fish_executeInternal(const QUrl &url, const QString &command,
     QTemporaryFile tmpFile;
     tmpFile.open();
 
-    if (url.scheme() == "fish") {
+    if (url.scheme() == QStringLiteral("fish")) {
         // construct remote temp filename
         QUrl tempPathUrl = url;
         remoteTempFileName = tmpFile.fileName();
         // We only need the filename. The directory might not exist on the remote side.
-        int pos = remoteTempFileName.lastIndexOf('/');
-        remoteTempFileName = "/tmp/fishexec_" + remoteTempFileName.mid(pos + 1);
+        int pos = remoteTempFileName.lastIndexOf(QLatin1Char('/'));
+        remoteTempFileName = QStringLiteral("/tmp/fishexec_") + remoteTempFileName.mid(pos + 1);
         tempPathUrl.setPath(remoteTempFileName);
         d->bJobOK = true; // success unless further error occurs
         QByteArray packedArgs;

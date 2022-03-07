@@ -151,7 +151,7 @@ void KPlatoScheduler::run()
 
         m_project = new Project();
         loadProject(m_project, m_pdoc);
-        m_project->setName("Schedule: " + m_project->name()); //Debug
+        m_project->setName(QStringLiteral("Schedule: ") + m_project->name()); //Debug
 
         m_manager = m_project->scheduleManager(m_mainmanagerId);
         Q_ASSERT(m_manager);
@@ -159,7 +159,7 @@ void KPlatoScheduler::run()
         Q_ASSERT(m_manager != m_mainmanager);
         Q_ASSERT(m_manager->scheduleId() == m_mainmanager->scheduleId());
         Q_ASSERT(m_manager->expected() != m_mainmanager->expected());
-        m_manager->setName("Schedule: " + m_manager->name()); //Debug
+        m_manager->setName(QStringLiteral("Schedule: ") + m_manager->name()); //Debug
 
         m_managerMutex.unlock();
         m_projectMutex.unlock();
@@ -180,7 +180,7 @@ void KPlatoScheduler::schedule(SchedulingContext &context)
 {
     if (context.projects.isEmpty()) {
         warnPlan<<"WARN:"<<Q_FUNC_INFO<<"No projects";
-        logError(context.project, nullptr, "No projects to schedule");
+        logError(context.project, nullptr, QStringLiteral("No projects to schedule"));
         return;
     }
     QElapsedTimer timer;

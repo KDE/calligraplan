@@ -82,36 +82,36 @@ KoOdfLineNumberingConfiguration &KoOdfLineNumberingConfiguration::operator=(cons
 
 void KoOdfLineNumberingConfiguration::loadOdf(const KoXmlElement &element)
 {
-    d->lineNumberingEnabled = element.attributeNS(KoXmlNS::text, "number-lines", "true") == "true";
+    d->lineNumberingEnabled = element.attributeNS(KoXmlNS::text, "number-lines", "true") == QStringLiteral("true");
     d->numberFormat.loadOdf(element);
     d->textStyle = element.attributeNS(KoXmlNS::text, "style-name", QString());
     d->increment = KoUnit::parseValue(element.attributeNS(KoXmlNS::text, "increment", "1"));
 
     QString position = element.attributeNS(KoXmlNS::text, "position", "left");
-    if (position == "left") {
+    if (position == QStringLiteral("left")) {
         d->position = Left;
     }
-    else if (position == "right") {
+    else if (position == QStringLiteral("right")) {
         d->position = Right;
     }
-    else if (position == "inner") {
+    else if (position == QStringLiteral("inner")) {
         d->position = Inner;
     }
-    else if (position == "outer") {
+    else if (position == QStringLiteral("outer")) {
         d->position = Outer;
     }
 
     d->offset = KoUnit::parseValue(element.attributeNS(KoXmlNS::text, "offset", "10"));
-    d->countEmptyLines = element.attributeNS(KoXmlNS::text, "count-empty-lines", "false") == "true";
-    d->countLinesInTextBoxes = element.attributeNS(KoXmlNS::text, "count-in-text-boxes", "false") == "true";
-    d->restartNumberingOnEveryPage = element.attributeNS(KoXmlNS::text, "restart-on-page", "false") == "true";
+    d->countEmptyLines = element.attributeNS(KoXmlNS::text, "count-empty-lines", "false") == QStringLiteral("true");
+    d->countLinesInTextBoxes = element.attributeNS(KoXmlNS::text, "count-in-text-boxes", "false") == QStringLiteral("true");
+    d->restartNumberingOnEveryPage = element.attributeNS(KoXmlNS::text, "restart-on-page", "false") == QStringLiteral("true");
 
     if(element.hasChildNodes()) {
         KoXmlNode node = element.firstChild();
         while(!node.isNull()) {
             if(node.isElement()) {
                 KoXmlElement nodeElement = node.toElement();
-                if(nodeElement.localName() == "linenumber-separator") {
+                if(nodeElement.localName() == QStringLiteral("linenumber-separator")) {
                     d->separator = nodeElement.text();
                     d->separatorIncrement = KoUnit::parseValue(element.attributeNS(KoXmlNS::text, "increment", "10"));
                     break;

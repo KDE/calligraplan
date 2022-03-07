@@ -76,7 +76,7 @@ void KoPageLayout::loadOdf(const KoXmlElement &style)
                                     standard.height);
 
         // Page orientation
-        if (properties.attributeNS(KoXmlNS::style, "print-orientation", QString()) == "portrait")
+        if (properties.attributeNS(KoXmlNS::style, "print-orientation", QString()) == QStringLiteral("portrait"))
             orientation = KoPageFormat::Portrait;
         else
             orientation = KoPageFormat::Landscape;

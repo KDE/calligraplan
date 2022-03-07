@@ -51,14 +51,14 @@ KoDockWidgetTitleBar::KoDockWidgetTitleBar(QDockWidget* dockWidget)
     connect(d->floatButton, SIGNAL(clicked()), SLOT(toggleFloating())); // clazy:exclude=old-style-connect
     d->floatButton->setVisible(true);
     d->floatButton->setToolTip(i18nc("@info:tooltip", "Float Docker"));
-    d->floatButton->setStyleSheet("border: 0");
+    d->floatButton->setStyleSheet(QStringLiteral("border: 0"));
 
     d->closeButton = new KoDockWidgetTitleBarButton(this);
     d->closeButton->setIcon(q->style()->standardIcon(QStyle::SP_TitleBarCloseButton, nullptr, q));
     connect(d->closeButton, &QAbstractButton::clicked, q, &QWidget::close);
     d->closeButton->setVisible(true);
     d->closeButton->setToolTip(i18nc("@info:tooltip", "Close Docker"));
-    d->closeButton->setStyleSheet("border: 0"); // border makes the header busy looking (appears on some OSs)
+    d->closeButton->setStyleSheet(QStringLiteral("border: 0")); // border makes the header busy looking (appears on some OSs)
 
     d->collapseButton = new KoDockWidgetTitleBarButton(this);
     d->collapseButton->setIcon(openIcon(q));
@@ -66,7 +66,7 @@ KoDockWidgetTitleBar::KoDockWidgetTitleBar(QDockWidget* dockWidget)
     d->collapseButton->setVisible(true);
     d->collapsable = true;
     d->collapseButton->setToolTip(i18nc("@info:tooltip", "Collapse Docker"));
-    d->collapseButton->setStyleSheet("border: 0");
+    d->collapseButton->setStyleSheet(QStringLiteral("border: 0"));
 
     d->lockButton = new KoDockWidgetTitleBarButton(this);
     d->lockButton->setCheckable(true);
@@ -75,7 +75,7 @@ KoDockWidgetTitleBar::KoDockWidgetTitleBar(QDockWidget* dockWidget)
     d->lockButton->setVisible(true);
     d->lockable = true;
     d->lockButton->setToolTip(i18nc("@info:tooltip", "Lock Docker"));
-    d->lockButton->setStyleSheet("border: 0");
+    d->lockButton->setStyleSheet(QStringLiteral("border: 0"));
 
     connect(dockWidget, SIGNAL(featuresChanged(QDockWidget::DockWidgetFeatures)), SLOT(featuresChanged(QDockWidget::DockWidgetFeatures))); // clazy:exclude=old-style-connect
     connect(dockWidget, SIGNAL(topLevelChanged(bool)), SLOT(topLevelChanged(bool))); // clazy:exclude=old-style-connect

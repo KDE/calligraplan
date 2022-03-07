@@ -31,9 +31,9 @@ SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("Portfolio_SummaryViewUi.rc");
+        setXMLFile(QStringLiteral("Portfolio_SummaryViewUi.rc"));
     } else {
-        setXMLFile("Portfolio_SummaryViewUi_readonly.rc");
+        setXMLFile(QStringLiteral("Portfolio_SummaryViewUi_readonly.rc"));
     }
     setupGui();
 

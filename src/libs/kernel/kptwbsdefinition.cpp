@@ -22,14 +22,14 @@ namespace KPlato
 WBSDefinition::WBSDefinition() {
     m_levelsEnabled = false;
 
-    m_defaultDef.code = "Number";
-    m_defaultDef.separator = '.';
+    m_defaultDef.code = QStringLiteral("Number");
+    m_defaultDef.separator = QLatin1Char('.');
 
-    m_codeLists.append(qMakePair(QString("Number"), i18n("Number")));
-    m_codeLists.append(qMakePair(QString("Roman, upper case"), i18n("Roman, upper case")));
-    m_codeLists.append(qMakePair(QString("Roman, lower case"), i18n("Roman, lower case")));
-    m_codeLists.append(qMakePair(QString("Letter, upper case"), i18n("Letter, upper case")));
-    m_codeLists.append(qMakePair(QString("Letter, lower case"), i18n("Letter, lower case")));
+    m_codeLists.append(qMakePair(QStringLiteral("Number"), i18n("Number")));
+    m_codeLists.append(qMakePair(QStringLiteral("Roman, upper case"), i18n("Roman, upper case")));
+    m_codeLists.append(qMakePair(QStringLiteral("Roman, lower case"), i18n("Roman, lower case")));
+    m_codeLists.append(qMakePair(QStringLiteral("Letter, upper case"), i18n("Letter, upper case")));
+    m_codeLists.append(qMakePair(QStringLiteral("Letter, lower case"), i18n("Letter, lower case")));
 }
 
 WBSDefinition::WBSDefinition(const WBSDefinition &def) {
@@ -107,29 +107,29 @@ bool WBSDefinition::level0Enabled() const {
     return m_levelsEnabled && !levelsDef(0).isEmpty();
 }
 
-const QChar Letters[] = { '?','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
+const char Letters[] = { '?','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
 
 QString WBSDefinition::code(const CodeDef &def, uint index) const {
-    if (def.code == "Number") {
-        return QString("%1").arg(index);
+    if (def.code == QStringLiteral("Number")) {
+        return QStringLiteral("%1").arg(index);
     }
-    if (def.code == "Roman, lower case") {
-        return QString("%1").arg(toRoman(index));
+    if (def.code == QStringLiteral("Roman, lower case")) {
+        return QStringLiteral("%1").arg(toRoman(index));
     }
-    if (def.code == "Roman, upper case") {
-        return QString("%1").arg(toRoman(index, true));
+    if (def.code == QStringLiteral("Roman, upper case")) {
+        return QStringLiteral("%1").arg(toRoman(index, true));
     }
-    if (def.code == "Letter, lower case") {
+    if (def.code == QStringLiteral("Letter, lower case")) {
         if (index > 26) {
             index = 0;
         }
-        return QString("%1").arg(Letters[index]);
+        return QStringLiteral("%1").arg(QLatin1Char(Letters[index]));
     }
-    if (def.code == "Letter, upper case") {
+    if (def.code == QStringLiteral("Letter, upper case")) {
         if (index > 26) {
             index = 0;
         }
-        return QString("%1").arg(Letters[index].toUpper());
+        return QStringLiteral("%1").arg(QChar(QLatin1Char(Letters[index])).toUpper());
     }
     return QString();
 }
@@ -137,10 +137,10 @@ QString WBSDefinition::code(const CodeDef &def, uint index) const {
 // Nicked from koparagcounter.cc
 QString WBSDefinition::toRoman(int n, bool upper) const
 {
-    static const QString RNUnits[] = {"", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"};
-    static const QString RNTens[] = {"", "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc"};
-    static const QString RNHundreds[] = {"", "c", "cc", "ccc", "cd", "d", "dc", "dcc", "dccc", "cm"};
-    static const QString RNThousands[] = {"", "m", "mm", "mmm"};
+    static const QString RNUnits[] = {QStringLiteral(""), QStringLiteral("i"), QStringLiteral("ii"), QStringLiteral("iii"), QStringLiteral("iv"), QStringLiteral("v"), QStringLiteral("vi"), QStringLiteral("vii"), QStringLiteral("viii"), QStringLiteral("ix")};
+    static const QString RNTens[] = {QStringLiteral(""), QStringLiteral("x"), QStringLiteral("xx"), QStringLiteral("xxx"), QStringLiteral("xl"), QStringLiteral("l"), QStringLiteral("lx"), QStringLiteral("lxx"), QStringLiteral("lxxx"), QStringLiteral("xc")};
+    static const QString RNHundreds[] = {QStringLiteral(""), QStringLiteral("c"), QStringLiteral("cc"), QStringLiteral("ccc"), QStringLiteral("cd"), QStringLiteral("d"), QStringLiteral("dc"), QStringLiteral("dcc"), QStringLiteral("dccc"), QStringLiteral("cm")};
+    static const QString RNThousands[] = {QStringLiteral(""), QStringLiteral("m"), QStringLiteral("mm"), QStringLiteral("mmm")};
 
     if (n < 0) { // should never happen, but better not crash if it does
         warnPlan << "intToRoman called with negative number: n=" << n;
@@ -187,19 +187,19 @@ void WBSDefinition::setDefaultSeparator(const QString& s) {
 }
 
 bool WBSDefinition::loadXML(KoXmlElement &element, XMLLoaderObject &) {
-    m_projectCode = element.attribute("project-code");
-    m_projectSeparator = element.attribute("project-separator");
-    m_levelsEnabled = (bool)element.attribute("levels-enabled", "0").toInt();
+    m_projectCode = element.attribute(QStringLiteral("project-code"));
+    m_projectSeparator = element.attribute(QStringLiteral("project-separator"));
+    m_levelsEnabled = (bool)element.attribute(QStringLiteral("levels-enabled")).toInt();
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
         if (! n.isElement()) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "default") {
-            m_defaultDef.code = e.attribute("code", "Number");
-            m_defaultDef.separator = e.attribute("separator", ".");
-        } else if (e.tagName() == "levels") {
+        if (e.tagName() == QStringLiteral("default")) {
+            m_defaultDef.code = e.attribute(QStringLiteral("code"), QStringLiteral("Number"));
+            m_defaultDef.separator = e.attribute(QStringLiteral("separator"), QStringLiteral("."));
+        } else if (e.tagName() == QStringLiteral("levels")) {
             KoXmlNode n = e.firstChild();
             for (; ! n.isNull(); n = n.nextSibling()) {
                 if (! n.isElement()) {
@@ -207,9 +207,9 @@ bool WBSDefinition::loadXML(KoXmlElement &element, XMLLoaderObject &) {
                 }
                 KoXmlElement el = n.toElement();
                 CodeDef d;
-                d.code = el.attribute("code");
-                d.separator = el.attribute("separator");
-                int lvl = el.attribute("level", "-1").toInt();
+                d.code = el.attribute(QStringLiteral("code"));
+                d.separator = el.attribute(QStringLiteral("separator"));
+                int lvl = el.attribute(QStringLiteral("level"), QStringLiteral("-1")).toInt();
                 if (lvl >= 0) {
                     setLevelsDef(lvl, d);
                 } else errorPlan<<"Invalid levels definition";
@@ -220,28 +220,28 @@ bool WBSDefinition::loadXML(KoXmlElement &element, XMLLoaderObject &) {
 }
 
 void WBSDefinition::saveXML(QDomElement &element)  const {
-    QDomElement me = element.ownerDocument().createElement("wbs-definition");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("wbs-definition"));
     element.appendChild(me);
 
-    me.setAttribute("project-code", m_projectCode);
-    me.setAttribute("project-separator", m_projectSeparator);
-    me.setAttribute("levels-enabled", QString::number(m_levelsEnabled));
+    me.setAttribute(QStringLiteral("project-code"), m_projectCode);
+    me.setAttribute(QStringLiteral("project-separator"), m_projectSeparator);
+    me.setAttribute(QStringLiteral("levels-enabled"), QString::number(m_levelsEnabled));
     if (! m_levelsDef.isEmpty()) {
-        QDomElement ld = element.ownerDocument().createElement("levels");
+        QDomElement ld = element.ownerDocument().createElement(QStringLiteral("levels"));
         me.appendChild(ld);
         QMap<int, CodeDef>::ConstIterator it;
         for (it = m_levelsDef.constBegin(); it != m_levelsDef.constEnd(); ++it) {
-            QDomElement l = element.ownerDocument().createElement("level");
+            QDomElement l = element.ownerDocument().createElement(QStringLiteral("level"));
             ld.appendChild(l);
-            l.setAttribute("level", QString::number(it.key()));
-            l.setAttribute("code", it.value().code);
-            l.setAttribute("separator", it.value().separator);
+            l.setAttribute(QStringLiteral("level"), QString::number(it.key()));
+            l.setAttribute(QStringLiteral("code"), it.value().code);
+            l.setAttribute(QStringLiteral("separator"), it.value().separator);
         }
     }
-    QDomElement cd = element.ownerDocument().createElement("default");
+    QDomElement cd = element.ownerDocument().createElement(QStringLiteral("default"));
     me.appendChild(cd);
-    cd.setAttribute("code", m_defaultDef.code);
-    cd.setAttribute("separator", m_defaultDef.separator);
+    cd.setAttribute(QStringLiteral("code"), m_defaultDef.code);
+    cd.setAttribute(QStringLiteral("separator"), m_defaultDef.separator);
 }
 
 } //namespace KPlato

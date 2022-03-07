@@ -119,14 +119,15 @@ void InsertProjectXmlCommandTester::copyBasics()
     addTask(m_project, "T1");
 
     QList<Node*> old = m_project->childNodeIterator();
-
+//    Debug::print(m_project, "original---", true);
     XmlSaveContext context(m_project);
     context.options = XmlSaveContext::SaveSelectedNodes;
     context.nodes << m_project->childNode(0);
     context.save();
-    qInfo()<<context.document.toString();
+
     InsertProjectXmlCommand cmd(m_project, context.document.toByteArray(), m_project, m_project->childNode(0));
     cmd.redo();
+//    Debug::print(m_project, "new---", true);
 
     QCOMPARE(m_project->allTasks().count(), 2);
     QVERIFY(!old.contains(m_project->childNode(0)));

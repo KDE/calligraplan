@@ -162,7 +162,7 @@ QStringList KoPageFormat::pageFormatNames()
 {
     QStringList lst;
     for (int i = 0; pageFormatInfo[i].format != -1 ;i++) {
-        lst << pageFormatInfo[ i ].shortName;
+        lst << QLatin1String(pageFormatInfo[ i ].shortName);
     }
     return lst;
 }

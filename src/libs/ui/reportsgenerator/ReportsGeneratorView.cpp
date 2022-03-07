@@ -190,7 +190,7 @@ QStringList ReportsGeneratorView::addOptions()
 
 QStringList ReportsGeneratorView::addTags()
 {
-    return QStringList() << "Nothing" << "Date" << "Number";
+    return QStringList() << QStringLiteral("Nothing") << QStringLiteral("Date") << QStringLiteral("Number");
 
 }
 
@@ -198,7 +198,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"----------------- Create ReportsGeneratorView ----------------------";
-    setXMLFile("ReportsGeneratorViewUi.rc");
+    setXMLFile(QStringLiteral("ReportsGeneratorViewUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -218,7 +218,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     l->addWidget(m_view);
 
     TemplateFileDelegate *del = new TemplateFileDelegate(m_view);
-    QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, "reports", QStandardPaths::LocateDirectory);
+    QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("reports"), QStandardPaths::LocateDirectory);
     debugPlan<<"standardpath:"<<path;
     if (!path.isEmpty()) {
         QDir dir(path);
@@ -226,7 +226,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
         const QStringList entries = dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
         for(const QString &file : entries) {
             QUrl url;
-            url.setUrl(path + '/' + file);
+            url.setUrl(path + QLatin1Char('/') + file);
             debugPlan<<"templates:"<<url<<path<<file;
             del->files.insert(url.fileName(), url);
         }
@@ -300,7 +300,7 @@ int ReportsGeneratorView::selectedRowCount() const
 void ReportsGeneratorView::slotContextMenuRequested(const QPoint& pos)
 {
     debugPlan;
-    openPopupMenu("reportsgeneratorview_popup", pos);
+    openPopupMenu(QStringLiteral("reportsgeneratorview_popup"), pos);
 }
 
 void ReportsGeneratorView::slotEnableActions()
@@ -320,17 +320,17 @@ void ReportsGeneratorView::setupGui()
     KActionCollection *coll = actionCollection();
 
     actionAddReport = new QAction(koIcon("list-add"), i18n("Add Report"), this);
-    coll->addAction("add_report", actionAddReport);
+    coll->addAction(QStringLiteral("add_report"), actionAddReport);
     coll->setDefaultShortcut(actionAddReport, Qt::CTRL + Qt::Key_I);
     connect(actionAddReport, &QAction::triggered, this, &ReportsGeneratorView::slotAddReport);
 
     actionRemoveReport = new QAction(koIcon("list-remove"), i18n("Remove Report"), this);
-    coll->addAction("remove_report", actionRemoveReport);
+    coll->addAction(QStringLiteral("remove_report"), actionRemoveReport);
     coll->setDefaultShortcut(actionRemoveReport, Qt::CTRL + Qt::Key_D);
     connect(actionRemoveReport, &QAction::triggered, this, &ReportsGeneratorView::slotRemoveReport);
 
     actionGenerateReport = new QAction(koIcon("document-export"), i18n("Generate Report"), this);
-    coll->addAction("generate_report", actionGenerateReport);
+    coll->addAction(QStringLiteral("generate_report"), actionGenerateReport);
     coll->setDefaultShortcut(actionGenerateReport, Qt::CTRL + Qt::Key_G);
     connect(actionGenerateReport, &QAction::triggered, this, &ReportsGeneratorView::slotGenerateReport);
 
@@ -410,15 +410,15 @@ void ReportsGeneratorView::slotGenerateReport()
             continue;
         }
         QString addition = model->index(idx.row(), 3).data(Qt::UserRole).toString();
-        if (addition == "Date") {
-            int dotpos = file.lastIndexOf('.');
+        if (addition == QStringLiteral("Date")) {
+            int dotpos = file.lastIndexOf(QLatin1Char('.'));
             QString date = QDate::currentDate().toString();
-            file = file.insert(dotpos, date.prepend('-'));
-        } else if (addition == "Number") {
-            int dotpos = file.lastIndexOf('.');
+            file = file.insert(dotpos, date.prepend(QLatin1Char('-')));
+        } else if (addition == QStringLiteral("Number")) {
+            int dotpos = file.lastIndexOf(QLatin1Char('.'));
             QString fn = file;
             for (int i = 1; QFile::exists(fn); ++i) {
-                fn = file.insert(dotpos, QString::number(i).prepend('-'));
+                fn = file.insert(dotpos, QString::number(i).prepend(QLatin1Char('-')));
             }
             file = fn;
         }
@@ -435,7 +435,7 @@ void ReportsGeneratorView::slotGenerateReport()
 bool ReportsGeneratorView::generateReport(const QString &templateFile, const QString &file)
 {
     ReportGenerator rg;
-    rg.setReportType("odt"); // TODO: handle different report types
+    rg.setReportType(QStringLiteral("odt")); // TODO: handle different report types
     rg.setTemplateFile(templateFile);
     rg.setReportFile(file);
     rg.setProject(project());
@@ -450,7 +450,7 @@ bool ReportsGeneratorView::generateReport(const QString &templateFile, const QSt
         return false;
     }
     if (QMessageBox::question(this, xi18nc("@title:window", "Report Generation"), xi18nc("@info", "Report file generated:<nl/><filename>%1</filename>", file), QMessageBox::Open|QMessageBox::Close, QMessageBox::Close) == QMessageBox::Open) {
-        return KRun::runUrl(QUrl(file), "application/vnd.oasis.opendocument.text", window(), (KRun::RunFlags)nullptr);
+        return KRun::runUrl(QUrl(file), QStringLiteral("application/vnd.oasis.opendocument.text"), window(), (KRun::RunFlags)nullptr);
     }
     return true;
 }
@@ -458,14 +458,14 @@ bool ReportsGeneratorView::generateReport(const QString &templateFile, const QSt
 bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
 {
     debugPlan;
-    m_view->header()->setStretchLastSection((bool)(context.attribute("stretch-last-column", "1").toInt()));
+    m_view->header()->setStretchLastSection((bool)(context.attribute(QStringLiteral("stretch-last-column"), QString::number(1)).toInt()));
     KoXmlElement e = context.namedItem("sections").toElement();
     if (!e.isNull()) {
         QHeaderView *h = m_view->header();
-        QString s("section-%1");
+        QLatin1String s("section-%1");
         for (int i = 0; i < h->count(); ++i) {
             if (e.hasAttribute(s.arg(i))) {
-                int index = e.attribute(s.arg(i), "-1").toInt();
+                int index = e.attribute(s.arg(i), QString::number(-1)).toInt();
                 if (index >= 0 && index < h->count()) {
                     h->moveSection(h->visualIndex(index), i);
                 }
@@ -478,7 +478,7 @@ bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
         int row = 0;
         QAbstractItemModel *model = m_view->model();
         forEachElement(e, parent) {
-            if (e.tagName() != "row") {
+            if (e.tagName() != QStringLiteral("row")) {
                 continue;
             }
             model->insertRow(row);
@@ -511,27 +511,27 @@ bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
 void ReportsGeneratorView::saveContext(QDomElement &context) const
 {
     debugPlan;
-    context.setAttribute("stretch-last-column", QString::number(m_view->header()->stretchLastSection()));
-    QDomElement e = context.ownerDocument().createElement("sections");
+    context.setAttribute(QStringLiteral("stretch-last-column"), QString::number(m_view->header()->stretchLastSection()));
+    QDomElement e = context.ownerDocument().createElement(QStringLiteral("sections"));
     context.appendChild(e);
     QHeaderView *h = m_view->header();
     for (int i = 0; i < h->count(); ++i) {
-        e.setAttribute(QString("section-%1").arg(i), h->logicalIndex(i));
+        e.setAttribute(QStringLiteral("section-%1").arg(i), h->logicalIndex(i));
     }
-    QDomElement data = context.ownerDocument().createElement("data");
+    QDomElement data = context.ownerDocument().createElement(QStringLiteral("data"));
     context.appendChild(data);
     const QAbstractItemModel *model = m_view->model();
     for (int row = 0; row < model->rowCount(); ++row) {
-        e = data.ownerDocument().createElement("row");
+        e = data.ownerDocument().createElement(QStringLiteral("row"));
         data.appendChild(e);
         QModelIndex idx = model->index(row, 0);
-        e.setAttribute("name", idx.data().toString());
+        e.setAttribute(QStringLiteral("name"), idx.data().toString());
         idx = model->index(row, 1);
-        e.setAttribute("template", idx.data(FULLPATHROLE).toString());
+        e.setAttribute(QStringLiteral("template"), idx.data(FULLPATHROLE).toString());
         idx = model->index(row, 2);
-        e.setAttribute("file", idx.data().toString());
+        e.setAttribute(QStringLiteral("file"), idx.data().toString());
         idx = model->index(row, 3);
-        e.setAttribute("add", idx.data(Qt::UserRole).toString());
+        e.setAttribute(QStringLiteral("add"), idx.data(Qt::UserRole).toString());
     }
     ViewBase::saveContext(context);
 }

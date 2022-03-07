@@ -107,7 +107,7 @@ void TreeComboBox::paintEvent(QPaintEvent *event)
             lst << idx.data().toString();
         }
     }
-    opt.currentText = lst.isEmpty() ? i18n("None") : lst.join(",");
+    opt.currentText = lst.isEmpty() ? i18n("None") : lst.join(QStringLiteral(","));
     painter.drawComplexControl(QStyle::CC_ComboBox, opt);
 
     // draw the icon and text

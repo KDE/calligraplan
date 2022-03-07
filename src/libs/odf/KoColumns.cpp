@@ -66,9 +66,9 @@ KoColumns::SeparatorVerticalAlignment KoColumns::parseSeparatorVerticalAlignment
 
     if (! value.isEmpty()) {
         // skip "top", is default
-        if (value == QLatin1String("middle")) {
+        if (value == QStringLiteral("middle")) {
             result = AlignVCenter;
-        } else if (value == QLatin1String("bottom")) {
+        } else if (value == QStringLiteral("bottom")) {
             result = AlignBottom;
         }
     }
@@ -111,13 +111,13 @@ KoColumns::SeparatorStyle KoColumns::parseSeparatorStyle(const QString &value)
     SeparatorStyle result = None;
     if (! value.isEmpty()) {
         //  skip "none", is default
-        if (value == QLatin1String("solid")) {
+        if (value == QStringLiteral("solid")) {
             result = Solid;
-        } else if (value == QLatin1String("dotted")) {
+        } else if (value == QStringLiteral("dotted")) {
             result = Dotted;
-        } else if (value == QLatin1String("dashed")) {
+        } else if (value == QStringLiteral("dashed")) {
             result = Dashed;
-        } else if (value == QLatin1String("dot-dashed")) {
+        } else if (value == QStringLiteral("dot-dashed")) {
             result = DotDashed;
         }
     }
@@ -199,7 +199,7 @@ void KoColumns::loadOdf(const KoXmlElement &style)
 
         KoXmlElement columnElement;
         forEachElement(columnElement, columnsElement) {
-            if(columnElement.localName() != QLatin1String("column") ||
+            if(columnElement.localName() != QStringLiteral("column") ||
                columnElement.namespaceURI() != KoXmlNS::style)
                 continue;
 
@@ -262,7 +262,7 @@ void KoColumns::saveOdf(KoGenStyle &style) const
 
         writer.endElement(); // style:columns
 
-        QString contentElement = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
+        QString contentElement = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
         style.addChildElement("style:columns", contentElement);
     }
 }

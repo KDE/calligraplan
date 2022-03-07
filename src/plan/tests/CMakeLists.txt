@@ -1,3 +1,5 @@
+remove_definitions(-DQT_NO_CAST_TO_ASCII -DQT_NO_CAST_FROM_ASCII -DQT_RESTRICTED_CAST_FROM_ASCII -DQT_NO_CAST_FROM_BYTEARRAY)
+
 include_directories( .. ${PLAN_INCLUDES})
 
 # call: plan_add_unit_test(<test-name> <sources> LINK_LIBRARIES <library> [<library> [...]] [GUI])

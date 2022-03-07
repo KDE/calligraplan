@@ -1,9 +1,8 @@
 if(BUILD_TESTING)
     add_subdirectory( tests )
 endif()
+include_directories( ${PLANODF_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR}/writeodf ${CMAKE_CURRENT_SOURCE_DIR/writeodf})
 add_subdirectory( writeodf )
-
-include_directories( ${PLANODF_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR}/writeodf )
 
 ########### libcalligraplanodf ###############
 

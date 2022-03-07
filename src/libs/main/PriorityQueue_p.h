@@ -151,6 +151,7 @@ T* PriorityQueue<T>::extractMinimum()
     return min;
 }
 
+#if 0
 template<class T>
 void PriorityQueue<T>::dump() const
 {
@@ -164,10 +165,11 @@ void PriorityQueue<T>::dump() const
         out += QString::number(m_vector[ i ]->key()) + ", ";
     }
     if (out.isEmpty())
-        out = "(empty)";
+        out = QStringLiteral("(empty)");
     debugFilter << out;
     debugFilter << "++++++++++ PriorityQueue::dump (done) ++++++++++";
 }
+#endif
 
 template<class T>
 void PriorityQueue<T>::heapify(int i)

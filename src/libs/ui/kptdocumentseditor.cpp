@@ -144,7 +144,7 @@ void DocumentsEditor::slotContextMenuRequested(const QModelIndex &index, const Q
     if (index.isValid()) {
         Document *obj = m_view->model()->document(index);
         if (obj) {
-            name = "documentseditor_popup";
+            name = QStringLiteral("documentseditor_popup");
         }
     }
     m_view->setContextMenuIndex(index);

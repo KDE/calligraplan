@@ -89,8 +89,8 @@ QVariant NodeModel::name(const Node *node, int role) const
             QTextEdit w(node->description(), nullptr);
             QString description = w.toPlainText();
             if (description.length() > 200) {
-                description = description.left(200) + " ...";
-                description.replace('\n', "<br/>");
+                description = description.left(200) + QStringLiteral(" ...");
+                description.replace(QLatin1Char('\n'), QStringLiteral("<br/>"));
             } else {
                 description = node->description();
             }
@@ -151,7 +151,7 @@ QVariant NodeModel::allocation(const Node *node, int role) const
         switch (role) {
             case Qt::DisplayRole:
             case Qt::EditRole:
-                return node->requests().requestNameList().join(",");
+                return node->requests().requestNameList().join(QStringLiteral(","));
             case Qt::ToolTipRole: {
                 QMap<QString, std::pair<QStringList, QStringList> > lst;
                 const QList<ResourceRequest*> requests = node->requests().resourceRequests(false);
@@ -178,10 +178,10 @@ QVariant NodeModel::allocation(const Node *node, int role) const
                     QString alts;
                     QString reqs;
                     if (!alternatives.isEmpty()) {
-                        alts = i18nc("list of alternative resources", " [%1]", alternatives.join(", "));
+                        alts = i18nc("list of alternative resources", " [%1]", alternatives.join(QStringLiteral(", ")));
                     }
                     if (!required.isEmpty()) {
-                        reqs = i18nc("list of required resources", " (%1)", required.join(", "));
+                        reqs = i18nc("list of required resources", " (%1)", required.join(QStringLiteral(", ")));
                     }
                     sl << i18nc("1=resource name 2=list of alternatives 3=list of required", "%1%2%3", name, alts, reqs);
                 }
@@ -190,8 +190,8 @@ QVariant NodeModel::allocation(const Node *node, int role) const
                 }
                 KLocalizedString ks = kxi18nc("@info:tooltip 1=list of resources", "Allocated resources:<nl/>%1");
                 // Hack to get around ks escaping '<' and '>'
-                QString s = ks.subs(sl.join("#¤#")).toString();
-                return s.replace("#¤#", "<br/>");
+                QString s = ks.subs(sl.join(QStringLiteral("#¤#"))).toString();
+                return s.replace(QStringLiteral("#¤#"), QStringLiteral("<br/>"));
             }
             case Qt::StatusTipRole:
             case Qt::WhatsThisRole:
@@ -208,8 +208,8 @@ QVariant NodeModel::description(const Node *node, int role) const
             KRichTextWidget w(node->description(), nullptr);
             w.switchToPlainText();
             QString s = w.textOrHtml();
-            s.remove('\r');
-            return s.replace('\n', ' ');
+            s.remove(QLatin1Char('\r'));
+            return s.replace(QLatin1Char('\n'), QLatin1Char(' '));
         }
         case Qt::ToolTipRole: {
             KRichTextWidget w(node->description(), nullptr);
@@ -314,7 +314,7 @@ QVariant NodeModel::constraintStartTime(const Node *node, int role) const
                     default:
                         break;
                 }
-                return QString("(%1)").arg(s);
+                return QStringLiteral("(%1)").arg(s);
         }
             case Qt::ToolTipRole: {
                 int c = node->constraint();
@@ -362,7 +362,7 @@ QVariant NodeModel::constraintEndTime(const Node *node, int role) const
                     default:
                         break;
                 }
-                return QString("(%1)").arg(s);
+                return QStringLiteral("(%1)").arg(s);
             }
             case Qt::ToolTipRole: {
                 int c = node->constraint();
@@ -481,7 +481,7 @@ QVariant NodeModel::estimate(const Node *node, int role) const
                 Duration::Unit unit = node->estimate()->unit();
                 QString s = QLocale().toString(node->estimate()->expectedEstimate(), 'f', m_prec) +  Duration::unitToString(unit, true);
                 if (node->constraint() == Node::FixedInterval && node->estimate()->type() == Estimate::Type_Duration) {
-                    s = '(' + s + ')';
+                    s = QLatin1Char('(') + s + QLatin1Char(')');
                 }
                 return s;
             }
@@ -525,7 +525,7 @@ QVariant NodeModel::optimisticRatio(const Node *node, int role) const
         case Qt::DisplayRole:
             if (node->type() == Node::Type_Task && node->constraint() == Node::FixedInterval && node->estimate()->type() == Estimate::Type_Duration) {
                 QString s = QString::number(node->estimate()->optimisticRatio());
-                s = '(' + s + ')';
+                s = QLatin1Char('(') + s + QLatin1Char(')');
                 return s;
             }
             if (node->estimate()) {
@@ -572,7 +572,7 @@ QVariant NodeModel::pessimisticRatio(const Node *node, int role) const
         case Qt::DisplayRole:
             if (node->type() == Node::Type_Task && node->constraint() == Node::FixedInterval && node->estimate()->type() == Estimate::Type_Duration) {
                 QString s = QString::number(node->estimate()->pessimisticRatio());
-                s = '(' + s + ')';
+                s = QLatin1Char('(') + s + QLatin1Char(')');
                 return s;
             }
             if (node->estimate()) {
@@ -1294,11 +1294,11 @@ QVariant NodeModel::assignedResources(const Node *node, int role) const
     switch (role) {
         case Qt::DisplayRole:
         case Qt::EditRole:
-            return node->assignedNameList(id()).join(",");
+            return node->assignedNameList(id()).join(QStringLiteral(","));
         case Qt::ToolTipRole: {
             QStringList lst = node->assignedNameList(id());
             if (! lst.isEmpty()) {
-                return xi18nc("@info:tooltip 1=list of resources", "Assigned resources:<nl/>%1", node->assignedNameList(id()).join(", "));
+                return xi18nc("@info:tooltip 1=list of resources", "Assigned resources:<nl/>%1", node->assignedNameList(id()).join(QStringLiteral(", ")));
             }
             break;
         }
@@ -1664,7 +1664,7 @@ QVariant NodeModel::nodeSchedulingStatus(const Node *node, int role) const
         case Qt::EditRole:
             return node->schedulingStatus(id(), false).value(0);
         case Qt::ToolTipRole:
-            return node->schedulingStatus(id(), true).join("\n");
+            return node->schedulingStatus(id(), true).join(QStringLiteral("\n"));
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
@@ -2386,93 +2386,93 @@ QVariant NodeModel::headerData(int section, int role)
     }
     if (role == Qt::EditRole) {
         switch (section) {
-            case NodeName: return "Name";
-            case NodeType: return "Type";
-            case NodeResponsible: return "Responsible";
-            case NodeAllocation: return "Allocation";
-            case NodeEstimateType: return "Estimate Type";
-            case NodeEstimateCalendar: return "Calendar";
-            case NodeEstimate: return "Estimate";
-            case NodeOptimisticRatio: return "Optimistic"; // Ratio
-            case NodePessimisticRatio: return "Pessimistic"; // Ratio
-            case NodeRisk: return "Risk";
-            case NodePriority: return "Priority";
-            case NodeConstraint: return "Constraint";
-            case NodeConstraintStart: return "Constraint Start";
-            case NodeConstraintEnd: return "Constraint End";
-            case NodeRunningAccount: return "Running Account";
-            case NodeStartupAccount: return "Startup Account";
-            case NodeStartupCost: return "Startup Cost";
-            case NodeShutdownAccount: return "Shutdown Account";
-            case NodeShutdownCost: return "Shutdown Cost";
-            case NodeDescription: return "Description";
+            case NodeName: return QStringLiteral("Name");
+            case NodeType: return QStringLiteral("Type");
+            case NodeResponsible: return QStringLiteral("Responsible");
+            case NodeAllocation: return QStringLiteral("Allocation");
+            case NodeEstimateType: return QStringLiteral("Estimate Type");
+            case NodeEstimateCalendar: return QStringLiteral("Calendar");
+            case NodeEstimate: return QStringLiteral("Estimate");
+            case NodeOptimisticRatio: return QStringLiteral("Optimistic"); // Ratio
+            case NodePessimisticRatio: return QStringLiteral("Pessimistic"); // Ratio
+            case NodeRisk: return QStringLiteral("Risk");
+            case NodePriority: return QStringLiteral("Priority");
+            case NodeConstraint: return QStringLiteral("Constraint");
+            case NodeConstraintStart: return QStringLiteral("Constraint Start");
+            case NodeConstraintEnd: return QStringLiteral("Constraint End");
+            case NodeRunningAccount: return QStringLiteral("Running Account");
+            case NodeStartupAccount: return QStringLiteral("Startup Account");
+            case NodeStartupCost: return QStringLiteral("Startup Cost");
+            case NodeShutdownAccount: return QStringLiteral("Shutdown Account");
+            case NodeShutdownCost: return QStringLiteral("Shutdown Cost");
+            case NodeDescription: return QStringLiteral("Description");
 
             // Based on edited values
-            case NodeExpected: return "Expected";
-            case NodeVarianceEstimate: return "Variance (Est)";
-            case NodeOptimistic: return "Optimistic";
-            case NodePessimistic: return "Pessimistic";
+            case NodeExpected: return QStringLiteral("Expected");
+            case NodeVarianceEstimate: return QStringLiteral("Variance (Est)");
+            case NodeOptimistic: return QStringLiteral("Optimistic");
+            case NodePessimistic: return QStringLiteral("Pessimistic");
 
             // After scheduling
-            case NodeStartTime: return "Start Time";
-            case NodeEndTime: return "End Time";
-            case NodeEarlyStart: return "Early Start";
-            case NodeEarlyFinish: return "Early Finish";
-            case NodeLateStart: return "Late Start";
-            case NodeLateFinish: return "Late Finish";
-            case NodePositiveFloat: return "Positive Float";
-            case NodeFreeFloat: return "Free Float";
-            case NodeNegativeFloat: return "Negative Float";
-            case NodeStartFloat: return "Start Float";
-            case NodeFinishFloat: return "Finish Float";
-            case NodeAssignments: return "Assignments";
+            case NodeStartTime: return QStringLiteral("Start Time");
+            case NodeEndTime: return QStringLiteral("End Time");
+            case NodeEarlyStart: return QStringLiteral("Early Start");
+            case NodeEarlyFinish: return QStringLiteral("Early Finish");
+            case NodeLateStart: return QStringLiteral("Late Start");
+            case NodeLateFinish: return QStringLiteral("Late Finish");
+            case NodePositiveFloat: return QStringLiteral("Positive Float");
+            case NodeFreeFloat: return QStringLiteral("Free Float");
+            case NodeNegativeFloat: return QStringLiteral("Negative Float");
+            case NodeStartFloat: return QStringLiteral("Start Float");
+            case NodeFinishFloat: return QStringLiteral("Finish Float");
+            case NodeAssignments: return QStringLiteral("Assignments");
 
             // Based on scheduled values
-            case NodeDuration: return "Duration";
-            case NodeVarianceDuration: return "Variance (Dur)";
-            case NodeOptimisticDuration: return "Optimistic (Dur)";
-            case NodePessimisticDuration: return "Pessimistic (Dur)";
+            case NodeDuration: return QStringLiteral("Duration");
+            case NodeVarianceDuration: return QStringLiteral("Variance (Dur)");
+            case NodeOptimisticDuration: return QStringLiteral("Optimistic (Dur)");
+            case NodePessimisticDuration: return QStringLiteral("Pessimistic (Dur)");
 
             // Completion
-            case NodeStatus: return "Status";
+            case NodeStatus: return QStringLiteral("Status");
             // xgettext: no-c-format
-            case NodeCompleted: return "% Completed";
-            case NodePlannedEffort: return "Planned Effort";
-            case NodeActualEffort: return "Actual Effort";
-            case NodeRemainingEffort: return "Remaining Effort";
-            case NodePlannedCost: return "Planned Cost";
-            case NodeActualCost: return "Actual Cost";
-            case NodeActualStart: return "Actual Start";
-            case NodeStarted: return "Started";
-            case NodeActualFinish: return "Actual Finish";
-            case NodeFinished: return "Finished";
-            case NodeStatusNote: return "Status Note";
+            case NodeCompleted: return QStringLiteral("% Completed");
+            case NodePlannedEffort: return QStringLiteral("Planned Effort");
+            case NodeActualEffort: return QStringLiteral("Actual Effort");
+            case NodeRemainingEffort: return QStringLiteral("Remaining Effort");
+            case NodePlannedCost: return QStringLiteral("Planned Cost");
+            case NodeActualCost: return QStringLiteral("Actual Cost");
+            case NodeActualStart: return QStringLiteral("Actual Start");
+            case NodeStarted: return QStringLiteral("Started");
+            case NodeActualFinish: return QStringLiteral("Actual Finish");
+            case NodeFinished: return QStringLiteral("Finished");
+            case NodeStatusNote: return QStringLiteral("Status Note");
 
             // Scheduling errors
-            case NodeSchedulingStatus: return "Scheduling Status";
-            case NodeNotScheduled: return "Not Scheduled";
-            case NodeAssignmentMissing: return "Assignment Missing";
-            case NodeResourceOverbooked: return "Resource Overbooked";
-            case NodeResourceUnavailable: return "Resource Unavailable";
-            case NodeConstraintsError: return "Constraints Error";
-            case NodeEffortNotMet: return "Effort Not Met";
-            case NodeSchedulingError: return "Scheduling Error";
+            case NodeSchedulingStatus: return QStringLiteral("Scheduling Status");
+            case NodeNotScheduled: return QStringLiteral("Not Scheduled");
+            case NodeAssignmentMissing: return QStringLiteral("Assignment Missing");
+            case NodeResourceOverbooked: return QStringLiteral("Resource Overbooked");
+            case NodeResourceUnavailable: return QStringLiteral("Resource Unavailable");
+            case NodeConstraintsError: return QStringLiteral("Constraints Error");
+            case NodeEffortNotMet: return QStringLiteral("Effort Not Met");
+            case NodeSchedulingError: return QStringLiteral("Scheduling Error");
 
-            case NodeWBSCode: return "WBS Code";
-            case NodeLevel: return "Level";
+            case NodeWBSCode: return QStringLiteral("WBS Code");
+            case NodeLevel: return QStringLiteral("Level");
 
             // Performance
-            case NodeBCWS: return "BCWS";
-            case NodeBCWP: return "BCWP";
-            case NodeACWP: return "ACWP";
-            case NodePerformanceIndex: return "SPI";
-            case NodeCritical: return "Critical";
-            case NodeCriticalPath: return "Critical Path";
+            case NodeBCWS: return QStringLiteral("BCWS");
+            case NodeBCWP: return QStringLiteral("BCWP");
+            case NodeACWP: return QStringLiteral("ACWP");
+            case NodePerformanceIndex: return QStringLiteral("SPI");
+            case NodeCritical: return QStringLiteral("Critical");
+            case NodeCriticalPath: return QStringLiteral("Critical Path");
 
             // Work package handling
-            case WPOwnerName: return "Owner";
-            case WPTransmitionStatus: return "Status";
-            case WPTransmitionTime: return "Time";
+            case WPOwnerName: return QStringLiteral("Owner");
+            case WPTransmitionStatus: return QStringLiteral("Status");
+            case WPTransmitionTime: return QStringLiteral("Time");
 
             default: return QVariant();
         }
@@ -3570,7 +3570,7 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
             QStringList res = m_project->resourceNameList();
             const QStringList req = node->requestNameList();
             QStringList alloc;
-            const QStringList allocations = value.toString().split(QRegExp(" *, *"), Qt::SkipEmptyParts);
+            const QStringList allocations = value.toString().split(QRegExp(QStringLiteral(" *, *")), Qt::SkipEmptyParts);
             for (const QString &s : allocations) {
                 alloc << s.trimmed();
             }
@@ -3803,11 +3803,11 @@ Qt::DropActions NodeItemModel::supportedDropActions() const
 QStringList NodeItemModel::mimeTypes() const
 {
     return ItemModelBase::mimeTypes()
-            << "application/x-vnd.kde.plan.nodeitemmodel.internal"
-            << "application/x-vnd.kde.plan.resourceitemmodel.internal"
-            << "application/x-vnd.kde.plan.project"
-            << "application/x-vnd.kde.plan.taskmodule"
-            << "text/uri-list";
+            << QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal")
+            << QStringLiteral("application/x-vnd.kde.plan.resourceitemmodel.internal")
+            << QStringLiteral("application/x-vnd.kde.plan.project")
+            << QStringLiteral("application/x-vnd.kde.plan.taskmodule")
+            << QStringLiteral("text/uri-list");
 }
 
 QMimeData *NodeItemModel::mimeData(const QModelIndexList & indexes) const
@@ -3827,7 +3827,7 @@ QMimeData *NodeItemModel::mimeData(const QModelIndexList & indexes) const
         }
     }
     if (!rows.isEmpty()) {
-        m->setData("application/x-vnd.kde.plan.nodeitemmodel.internal", encodedData);
+        m->setData(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"), encodedData);
     }
 
     QList<const Node*> nodes;
@@ -3845,7 +3845,7 @@ QMimeData *NodeItemModel::mimeData(const QModelIndexList & indexes) const
         context.nodes = nodes;
         context.options = XmlSaveContext::SaveSelectedNodes|XmlSaveContext::SaveRequests|XmlSaveContext::SaveRelations;
         context.save();
-        m->setData("application/x-vnd.kde.plan.project", context.document.toByteArray());
+        m->setData(QStringLiteral("application/x-vnd.kde.plan.project"), context.document.toByteArray());
     }
     return m;
 }
@@ -3861,7 +3861,7 @@ bool NodeItemModel::dropAllowed(const QModelIndex &index, int dropIndicatorPosit
         errorPlan<<"no node (or project) to drop on!";
         return false; // hmmm
     }
-    if (data->hasFormat("application/x-vnd.kde.plan.resourceitemmodel.internal")) {
+    if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.resourceitemmodel.internal"))) {
         switch (dropIndicatorPosition) {
             case ItemModelBase::OnItem:
                 if (index.column() == NodeModel::NodeAllocation) {
@@ -3875,9 +3875,9 @@ bool NodeItemModel::dropAllowed(const QModelIndex &index, int dropIndicatorPosit
             default:
                 break;
         }
-    } else if (data->hasFormat("application/x-vnd.kde.plan.nodeitemmodel.internal")
-                || data->hasFormat("application/x-vnd.kde.plan.project")
-                || data->hasFormat("application/x-vnd.kde.plan.taskmodule")
+    } else if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"))
+                || data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.project"))
+                || data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.taskmodule"))
                 || data->hasUrls())
     {
         switch (dropIndicatorPosition) {
@@ -3922,8 +3922,8 @@ bool NodeItemModel::dropAllowed(Node *on, const QMimeData *data)
     if (on->isBaselined() && on->type() != Node::Type_Summarytask && on->type() != Node::Type_Project) {
         return false;
     }
-    if (data->hasFormat("application/x-vnd.kde.plan.nodeitemmodel.internal")) {
-        QByteArray encodedData = data->data("application/x-vnd.kde.plan.nodeitemmodel.internal");
+    if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"))) {
+        QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"));
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
         QList<Node*> lst = nodeList(stream);
         for (Node *n : qAsConst(lst)) {
@@ -3988,7 +3988,7 @@ QList<Node*> NodeItemModel::removeChildNodes(const QList<Node*> &nodes)
 
 bool NodeItemModel::dropResourceMimeData(const QMimeData *data, Qt::DropAction action, int /*row*/, int /*column*/, const QModelIndex &parent)
 {
-    QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourceitemmodel.internal");
+    QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.resourceitemmodel.internal"));
     QDataStream stream(&encodedData, QIODevice::ReadOnly);
     Node *n = node(parent);
     debugPlan<<n<<parent;
@@ -4004,7 +4004,7 @@ bool NodeItemModel::dropResourceMimeData(const QMimeData *data, Qt::DropAction a
         }
         if (! s.isEmpty()) {
             if (action == Qt::CopyAction && ! n->leader().isEmpty()) {
-                s += ',' + n->leader();
+                s += QLatin1Char(',') + n->leader();
             }
             KUndo2Command *cmd = m_nodemodel.setLeader(n, s, Qt::EditRole);
             if (cmd) {
@@ -4036,7 +4036,7 @@ bool NodeItemModel::dropProjectMimeData(const QMimeData *data, Qt::DropAction ac
     }
     debugPlan<<n<<action<<row<<parent;
 
-    KUndo2Command *cmd = new InsertProjectXmlCommand(project(), data->data("application/x-vnd.kde.plan.project"), n, n->childNode(row), kundo2_i18n("Insert tasks"));
+    KUndo2Command *cmd = new InsertProjectXmlCommand(project(), data->data(QStringLiteral("application/x-vnd.kde.plan.project")), n, n->childNode(row), kundo2_i18n("Insert tasks"));
     Q_EMIT executeCommand(cmd);
     return true;
 }
@@ -4051,20 +4051,20 @@ bool NodeItemModel::dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction
 
     XMLLoaderObject context;
     KoXmlDocument doc;
-    doc.setContent(data->data("application/x-vnd.kde.plan.taskmodule"));
+    doc.setContent(QLatin1String(data->data(QStringLiteral("application/x-vnd.kde.plan.taskmodule")).constData()));
     Project moduleProject;
     context.loadProject(&moduleProject, doc);
 
     moduleProject.generateUniqueNodeIds();
 
     QStringList substitute;
-    QRegularExpression reg("\\[\\[[^ ]*\\]\\]");
+    QRegularExpression reg(QStringLiteral("\\[\\[[^ ]*\\]\\]"));
     const auto nodes = moduleProject.allNodes();
     for (auto n : nodes) {
         QRegularExpressionMatchIterator it = reg.globalMatch(n->name());
         while (it.hasNext()) {
             QRegularExpressionMatch match = it.next();
-            QString param = match.captured().remove("[[").remove("]]");
+            QString param = match.captured().remove(QStringLiteral("[[")).remove(QStringLiteral("]]"));
             if (!substitute.contains(param)) {
                 substitute << param;
             }
@@ -4073,7 +4073,7 @@ bool NodeItemModel::dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction
         it = reg.globalMatch(e.toPlainText());
         while (it.hasNext()) {
             QRegularExpressionMatch match = it.next();
-            QString param = match.captured().remove("[[").remove("]]");
+            QString param = match.captured().remove(QStringLiteral("[[")).remove(QStringLiteral("]]"));
             if (!substitute.contains(param)) {
                 substitute << param;
             }
@@ -4093,14 +4093,14 @@ bool NodeItemModel::dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction
             auto name = n->name();
             QMap<QString, QString>::const_iterator it = params.constBegin();
             for (QMap<QString, QString>::const_iterator it = params.constBegin(); it != params.constEnd(); ++it) {
-                name.replace("[[" + it.key() + "]]", it.value());
+                name.replace(QStringLiteral("[[") + it.key() + QStringLiteral("]]"), it.value());
             }
             n->setName(name);
 
             bool changed = false;
             QTextEdit e(n->description());
             for (QMap<QString, QString>::const_iterator it = params.constBegin(); it != params.constEnd(); ++it) {
-                QString param = QString("[[%1]]").arg(it.key());
+                QString param = QStringLiteral("[[%1]]").arg(it.key());
                 while (e.find(param, QTextDocument::FindCaseSensitively)) {
                     e.textCursor().insertText(it.value());
                     changed = true;
@@ -4128,7 +4128,7 @@ bool NodeItemModel::dropUrlMimeData(const QMimeData *data, Qt::DropAction action
         for (const QUrl &url : urls) {
             const QMimeType mime = QMimeDatabase().mimeTypeForUrl(url);
             debugPlan<<url<<mime.name();
-            if (mime.inherits("application/x-vnd.kde.plan")) {
+            if (mime.inherits(QStringLiteral("application/x-vnd.kde.plan"))) {
                 importProjectFile(url, action, row, column, parent);
             }
         }
@@ -4161,7 +4161,7 @@ bool NodeItemModel::importProjectFile(const QUrl &url, Qt::DropAction /*action*/
     KoXmlElement element = doc.documentElement().namedItem("project").toElement();
     Project project;
     XMLLoaderObject status;
-    status.setVersion(doc.documentElement().attribute("version", PLAN_FILE_SYNTAX_VERSION));
+    status.setVersion(doc.documentElement().attribute(QStringLiteral("version"), PLAN_FILE_SYNTAX_VERSION));
     status.setProject(&project);
     if (!status.loadProject(&project, doc)) {
         debugPlan<<"Failed to load project from:"<<url;
@@ -4210,14 +4210,14 @@ bool NodeItemModel::dropMimeData(const QMimeData *data, Qt::DropAction action, i
     if (action == Qt::IgnoreAction) {
         return true;
     }
-    if (data->hasFormat("application/x-vnd.kde.plan.resourceitemmodel.internal")) {
+    if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.resourceitemmodel.internal"))) {
         return dropResourceMimeData(data, action, row, column, parent);
     }
-    if (data->hasFormat("application/x-vnd.kde.plan.nodeitemmodel.internal")) {
+    if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"))) {
         if (action == Qt::MoveAction) {
             //debugPlan<<"MoveAction";
 
-            QByteArray encodedData = data->data("application/x-vnd.kde.plan.nodeitemmodel.internal");
+            QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"));
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             Node *par = nullptr;
             if (parent.isValid()) {
@@ -4261,12 +4261,12 @@ bool NodeItemModel::dropMimeData(const QMimeData *data, Qt::DropAction action, i
             return true;
         }
     }
-    if (data->hasFormat("application/x-vnd.kde.plan.project")) {
+    if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.project"))) {
         debugPlan;
         return dropProjectMimeData(data, action, row, column, parent);
 
     }
-    if (data->hasFormat("application/x-vnd.kde.plan.taskmodule")) {
+    if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.taskmodule"))) {
         debugPlan;
         return dropTaskModuleMimeData(data, action, row, column, parent);
 
@@ -4455,7 +4455,7 @@ QVariant GanttItemModel::data(const QModelIndex &index, int role) const
                     return QVariant();
                 }
                 switch (idx.column()) {
-                    case NodeModel::NodeName: return "Early Start";
+                    case NodeModel::NodeName: return QStringLiteral("Early Start");
                     case NodeModel::NodeType: return KGantt::TypeEvent;
                     case NodeModel::NodeStartTime:
                     case NodeModel::NodeEndTime: return n->earlyStart(id());
@@ -4468,7 +4468,7 @@ QVariant GanttItemModel::data(const QModelIndex &index, int role) const
                     return QVariant();
                 }
                 switch (idx.column()) {
-                    case NodeModel::NodeName: return "Late Finish";
+                    case NodeModel::NodeName: return QStringLiteral("Late Finish");
                     case NodeModel::NodeType: return KGantt::TypeEvent;
                     case NodeModel::NodeStartTime:
                     case NodeModel::NodeEndTime: return n->lateFinish(id());
@@ -4481,7 +4481,7 @@ QVariant GanttItemModel::data(const QModelIndex &index, int role) const
                     return QVariant();
                 }
                 switch (idx.column()) {
-                    case NodeModel::NodeName: return "Late Start";
+                    case NodeModel::NodeName: return QStringLiteral("Late Start");
                     case NodeModel::NodeType: return KGantt::TypeEvent;
                     case NodeModel::NodeStartTime:
                     case NodeModel::NodeEndTime: return n->lateStart(id());
@@ -4494,7 +4494,7 @@ QVariant GanttItemModel::data(const QModelIndex &index, int role) const
                     return QVariant();
                 }
                 switch (idx.column()) {
-                    case NodeModel::NodeName: return "Early Finish";
+                    case NodeModel::NodeName: return QStringLiteral("Early Finish");
                     case NodeModel::NodeType: return KGantt::TypeEvent;
                     case NodeModel::NodeStartTime:
                     case NodeModel::NodeEndTime: return n->earlyFinish(id());
@@ -4893,7 +4893,7 @@ QMimeData *MilestoneItemModel::mimeData(const QModelIndexList & indexes) const
             }
         }
     }
-    m->setData("application/x-vnd.kde.plan.nodeitemmodel.internal", encodedData);
+    m->setData(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"), encodedData);
     return m;
 }
 
@@ -4921,13 +4921,13 @@ bool MilestoneItemModel::dropAllowed(const QModelIndex &index, int dropIndicator
 
 bool MilestoneItemModel::dropAllowed(Node *on, const QMimeData *data)
 {
-    if (!data->hasFormat("application/x-vnd.kde.plan.nodeitemmodel.internal")) {
+    if (!data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"))) {
         return false;
     }
     if (on == m_project) {
         return true;
     }
-    QByteArray encodedData = data->data("application/x-vnd.kde.plan.nodeitemmodel.internal");
+    QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"));
     QDataStream stream(&encodedData, QIODevice::ReadOnly);
     QList<Node*> lst = nodeList(stream);
     for (Node *n : qAsConst(lst)) {
@@ -4995,13 +4995,13 @@ bool MilestoneItemModel::dropMimeData(const QMimeData *data, Qt::DropAction acti
     if (action == Qt::IgnoreAction) {
         return true;
     }
-    if (!data->hasFormat("application/x-vnd.kde.plan.nodeitemmodel.internal")) {
+    if (!data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"))) {
         return false;
     }
     if (action == Qt::MoveAction) {
         //debugPlan<<"MoveAction";
 
-        QByteArray encodedData = data->data("application/x-vnd.kde.plan.nodeitemmodel.internal");
+        QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"));
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
         Node *par = nullptr;
         if (parent.isValid()) {
@@ -5122,7 +5122,7 @@ bool NodeSortFilterProxyModel::filterAcceptsRow (int row, const QModelIndex & pa
     }
     if (m_filterUnscheduled) {
         QString s = sourceModel()->data(sourceModel()->index(row, NodeModel::NodeNotScheduled, parent), Qt::EditRole).toString();
-        if (s == "true") {
+        if (s == QStringLiteral("true")) {
             //debugPlan<<"Filtered unscheduled:"<<sourceModel()->index(row, 0, parent);
             return false;
         }
@@ -5230,7 +5230,7 @@ QModelIndex TaskModuleModel::index(int row, int column, const QModelIndex &paren
 
 QStringList TaskModuleModel::mimeTypes() const
 {
-    return QStringList() << "application/x-vnd.kde.plan" << "text/uri-list";
+    return QStringList() << QStringLiteral("application/x-vnd.kde.plan") << QStringLiteral("text/uri-list");
 }
 
 bool TaskModuleModel::dropMimeData(const QMimeData *data, Qt::DropAction /*action*/, int /*row*/, int /*column*/, const QModelIndex &/*parent*/)
@@ -5290,7 +5290,7 @@ Project *TaskModuleModel::loadProjectFromUrl(const QUrl &url) const
     KoXmlElement element = doc.documentElement().namedItem("project").toElement();
     Project *project = new Project();
     XMLLoaderObject status;
-    status.setVersion(doc.documentElement().attribute("version", PLAN_FILE_SYNTAX_VERSION));
+    status.setVersion(doc.documentElement().attribute(QStringLiteral("version"), PLAN_FILE_SYNTAX_VERSION));
     status.setProject(project);
     if (status.loadProject(project, doc)) {
         stripProject(project);
@@ -5313,7 +5313,7 @@ QMimeData* TaskModuleModel::mimeData(const QModelIndexList &lst) const
             if (project) {
                 XmlSaveContext context(project);
                 context.save();
-                mime->setData("application/x-vnd.kde.plan.taskmodule", context.document.toByteArray());
+                mime->setData(QStringLiteral("application/x-vnd.kde.plan.taskmodule"), context.document.toByteArray());
                 delete project;
             }
         }
@@ -5350,9 +5350,9 @@ void TaskModuleModel::slotTaskModulesChanged(const QList<QUrl> &modules)
     endResetModel();
     for (const QUrl &url : modules) {
         QDir dir(url.toLocalFile());
-        const QStringList files = dir.entryList(QStringList() << "*.plan", QDir::Files);
+        const QStringList files = dir.entryList(QStringList() << QStringLiteral("*.plan"), QDir::Files);
         for (const QString &file : files) {
-            QUrl u = QUrl::fromLocalFile(dir.path() + '/' + file);
+            QUrl u = QUrl::fromLocalFile(dir.path() + QLatin1Char('/') + file);
             importProject(u, false);
         }
     }

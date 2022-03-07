@@ -15,6 +15,7 @@
 #include "mainwindow.h"
 #include "workpackage.h"
 #include "calligraplanworksettings.h"
+#include <MimeTypes.h>
 
 #include "plan/KPlatoXmlLoader.h" //NB!
 
@@ -314,9 +315,9 @@ Part::Part(QWidget *parentWidget, QObject *parent, const QVariantList & /*args*/
     debugPlanWork;
     setComponentName(Factory::global().componentName(), Factory::global().componentDisplayName());
     if (isReadWrite()) {
-        setXMLFile("calligraplanwork.rc");
+        setXMLFile(QStringLiteral("calligraplanwork.rc"));
     } else {
-        setXMLFile("calligraplanwork_readonly.rc");
+        setXMLFile(QStringLiteral("calligraplanwork_readonly.rc"));
     }
 
     m_view = new View(this, parentWidget, actionCollection());
@@ -428,7 +429,7 @@ void Part::addWorkPackage(WorkPackage *wp)
 bool Part::loadWorkPackages()
 {
     m_loadingFromProjectStore = true;
-    const QStringList lst = KoResourcePaths::findAllResources("projects", "*.planwork", KoResourcePaths::Recursive | KoResourcePaths::NoDuplicates);
+    const QStringList lst = KoResourcePaths::findAllResources("projects", QStringLiteral("*.planwork"), KoResourcePaths::Recursive | KoResourcePaths::NoDuplicates);
     debugPlanWork<<lst;
     for (const QString &file : lst) {
         if (! loadNativeFormatFromStore(file)) {
@@ -463,7 +464,7 @@ bool Part::loadNativeFormatFromStoreInternal(KoStore * store)
 {
     if (store->hasFile("root")) {
         KoXmlDocument doc;
-        bool ok = loadAndParse(store, "root", doc);
+        bool ok = loadAndParse(store, QStringLiteral("root"), doc);
         if (ok) {
             ok = loadXML(doc, store);
         }
@@ -513,7 +514,7 @@ bool Part::loadAndParse(KoStore* store, const QString& filename, KoXmlDocument& 
         << " In line: " << errorLine << ", column: " << errorColumn << '\n'
         << " Error message: " << errorMsg;
         KMessageBox::error(nullptr, i18n("Parsing error in file '%1' at line %2, column %3<br>Error message: %4", filename  , errorLine, errorColumn ,
-                                   QCoreApplication::translate("QXml", errorMsg.toUtf8(), nullptr)));
+                                   QCoreApplication::translate("QXml", errorMsg.toUtf8().constData(), nullptr)));
         return false;
     }
     return true;
@@ -531,9 +532,9 @@ bool Part::loadXML(const KoXmlDocument &document, KoStore* store)
         errorPlanWork << "No mime type specified!" << '\n';
         KMessageBox::error(nullptr, i18n("Invalid document. No mimetype specified."));
         return false;
-    } else if (value == "application/x-vnd.kde.kplato.work") {
+    } else if (value == KPLATO_MIME_TYPE) {
         return loadKPlatoXML(document, store);
-    } else if (value != "application/x-vnd.kde.plan.work") {
+    } else if (value != PLANWORK_MIME_TYPE) {
         errorPlanWork << "Unknown mime type " << value;
         KMessageBox::error(nullptr, i18n("Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1", value));
         return false;
@@ -574,9 +575,9 @@ bool Part::loadKPlatoXML(const KoXmlDocument &document, KoStore*)
         errorPlanWork << "No mime type specified!" << '\n';
         KMessageBox::error(nullptr, i18n("Invalid document. No mimetype specified."));
         return false;
-    } else if (value != "application/x-vnd.kde.kplato.work") {
+    } else if (value != PLANWORK_MIME_TYPE) {
         errorPlanWork << "Unknown mime type " << value;
-        KMessageBox::error(nullptr, i18n("Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, got %1", value));
+        KMessageBox::error(nullptr, i18n("Invalid document. Expected mimetype %2, got %1", value, PLANWORK_MIME_TYPE));
         return false;
     }
     QString syntaxVersion = plan.attribute("version", KPLATOWORK_MAX_FILE_SYNTAX_VERSION);

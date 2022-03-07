@@ -130,7 +130,7 @@ ResourceAppointmentsTreeView::ResourceAppointmentsTreeView(QWidget *parent)
     m_leftview->resizeColumnToContents (1);
     connect(m, &QAbstractItemModel::modelReset, this, &ResourceAppointmentsTreeView::slotRefreshed);
 
-    m_rightview->setObjectName("ResourceAppointments");
+    m_rightview->setObjectName(QStringLiteral("ResourceAppointments"));
 }
 
 bool ResourceAppointmentsTreeView::loadContext(const KoXmlElement &context)
@@ -138,8 +138,8 @@ bool ResourceAppointmentsTreeView::loadContext(const KoXmlElement &context)
     debugPlan;
     KoXmlElement e = context.namedItem("common").toElement();
     if (! e.isNull()) {
-        model()->setShowInternalAppointments((bool)(e.attribute("show-internal-appointments", "0").toInt()));
-        model()->setShowExternalAppointments((bool)(e.attribute("show-external-appointments", "0").toInt()));
+        model()->setShowInternalAppointments((bool)(e.attribute(QStringLiteral("show-internal-appointments"), QString::number(0)).toInt()));
+        model()->setShowExternalAppointments((bool)(e.attribute(QStringLiteral("show-external-appointments"), QString::number(0)).toInt()));
     }
     DoubleTreeViewBase::loadContext(QMetaEnum(), context);
     return true;
@@ -148,10 +148,10 @@ bool ResourceAppointmentsTreeView::loadContext(const KoXmlElement &context)
 void ResourceAppointmentsTreeView::saveContext(QDomElement &settings) const
 {
     debugPlan;
-    QDomElement e = settings.ownerDocument().createElement("common");
+    QDomElement e = settings.ownerDocument().createElement(QStringLiteral("common"));
     settings.appendChild(e);
-    e.setAttribute("show-internal-appointments", QString::number(model()->showInternalAppointments()));
-    e.setAttribute("show-external-appointments", QString::number(model()->showExternalAppointments()));
+    e.setAttribute(QStringLiteral("show-internal-appointments"), QString::number(model()->showInternalAppointments()));
+    e.setAttribute(QStringLiteral("show-external-appointments"), QString::number(model()->showExternalAppointments()));
 
     DoubleTreeViewBase::saveContext(QMetaEnum(), settings);
 }
@@ -179,7 +179,7 @@ ResourceAppointmentsView::ResourceAppointmentsView(KoPart *part, KoDocument *doc
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"------------------- ResourceAppointmentsView -----------------------";
-    setXMLFile("ResourceAppointmentsViewUi.rc");
+    setXMLFile(QStringLiteral("ResourceAppointmentsViewUi.rc"));
     setupGui();
 
     QVBoxLayout * l = new QVBoxLayout(this);
@@ -229,7 +229,7 @@ void ResourceAppointmentsView::setScheduleManager(ScheduleManager *sm)
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted
         m_domdoc.clear();
-        QDomElement element = m_domdoc.createElement("expanded");
+        QDomElement element = m_domdoc.createElement(QStringLiteral("expanded"));
         m_domdoc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -237,7 +237,7 @@ void ResourceAppointmentsView::setScheduleManager(ScheduleManager *sm)
     bool expand = sm && scheduleManager() && sm != scheduleManager();
     QDomDocument doc;
     if (expand) {
-        QDomElement element = doc.createElement("expanded");
+        QDomElement element = doc.createElement(QStringLiteral("expanded"));
         doc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -272,7 +272,7 @@ void ResourceAppointmentsView::slotContextMenuRequested(const QModelIndex &index
     if (index.isValid()) {
         Node *n = m_view->model()->node(index);
         if (n) {
-            name = "taskview_popup";
+            name = QStringLiteral("taskview_popup");
         }
     }
     m_view->setContextMenuIndex(index);
@@ -339,19 +339,19 @@ void ResourceAppointmentsView::updateActionsEnabled(bool on)
     bool enable = on && node && (m_view->selectionModel()->selectedRows().count() == 1);
 
     const auto c = actionCollection();
-    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
-    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
-    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
+    if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(enable); }
 
     if (enable) {
         auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
         switch (node->type()) {
             case Node::Type_Task:
             case Node::Type_Milestone:
-                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(enable && node->isScheduled(sid)); }
                 break;
             default:
-                if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
                 break;
         }
     }
@@ -363,22 +363,22 @@ void ResourceAppointmentsView::setupGui()
     createOptionActions(ViewBase::OptionAll);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &ResourceAppointmentsView::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &ResourceAppointmentsView::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &ResourceAppointmentsView::slotDocuments);
 }
 
 void ResourceAppointmentsView::slotOptions()
 {
     debugPlan;
-    ResourceAppointmentsSettingsDialog *dlg = new ResourceAppointmentsSettingsDialog(this, m_view->model(), this, sender()->objectName() == "print_options");
+    ResourceAppointmentsSettingsDialog *dlg = new ResourceAppointmentsSettingsDialog(this, m_view->model(), this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }

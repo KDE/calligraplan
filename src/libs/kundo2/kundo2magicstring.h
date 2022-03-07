@@ -152,7 +152,8 @@ inline KUndo2MagicString kundo2_noi18n(const QString &text)
 template <typename A1>
 inline KUndo2MagicString kundo2_noi18n(const char *text, const A1 &a1)
 {
-    return KUndo2MagicString(QString(text).arg(a1));
+    const QLatin1String t(text);
+    return KUndo2MagicString(QString(t).arg(a1));
 }
 
 template <typename A1, typename A2>
@@ -209,7 +210,7 @@ inline KUndo2MagicString kundo2_i18n(const char *text, const A1 &a1, const A2 &a
 
 inline QString prependContext(const char *ctxt)
 {
-    return QString("(qtundo-format) %1").arg(ctxt);
+    return QString::fromLatin1("(qtundo-format) %1").arg((QLatin1String(ctxt)));
 }
 
 /**

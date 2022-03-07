@@ -93,7 +93,7 @@ public:
      * @param mode Whether we want to read or write from/to the stream
      * @return The storage device to access the stream. May be 0!
      */
-    KoStoreDevice* storageFile(const QString& name = "root", KoStore::Mode mode = KoStore::Read);
+    KoStoreDevice* storageFile(const QString& name = QStringLiteral("root"), KoStore::Mode mode = KoStore::Read);
 
     /**
      * This method allows your filter to work directly on the

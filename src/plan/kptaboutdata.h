@@ -29,10 +29,10 @@ KAboutData * newAboutData()
         QString(),
         QStringLiteral("https://www.calligra.org/plan/"));
 
-    aboutData->addAuthor(i18n("Dag Andersen"), QString(), "dag.andersen@kdemail.net");
+    aboutData->addAuthor(i18n("Dag Andersen"), QString(), QStringLiteral("dag.andersen@kdemail.net"));
     aboutData->addAuthor(i18n("Thomas Zander")); // please don't re-add, I don't like getting personal emails :)
-    aboutData->addAuthor(i18n("Bo Thorsen"), QString(), "bo@sonofthor.dk");
-    aboutData->addAuthor(i18n("Raphael Langerhorst"),QString(),"raphael.langerhorst@kdemail.net");
+    aboutData->addAuthor(i18n("Bo Thorsen"), QString(), QStringLiteral("bo@sonofthor.dk"));
+    aboutData->addAuthor(i18n("Raphael Langerhorst"),QString(),QStringLiteral("raphael.langerhorst@kdemail.net"));
 
     // standard ki18n translator strings
     aboutData->setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"),

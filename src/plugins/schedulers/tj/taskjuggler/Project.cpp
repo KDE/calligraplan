@@ -191,7 +191,7 @@ Project::setProgressBar(int i, int of)
 bool
 Project::setTimeZone(const QString& tz)
 {
-    if (!setTimezone(tz.toLocal8Bit()))
+    if (!setTimezone(tz.toLocal8Bit().constData()))
         return false;
 
     timeZone = tz;

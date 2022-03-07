@@ -286,10 +286,10 @@ void SplitterView::saveContext(QDomElement &context) const
     if (lst.isEmpty()) {
         return;
     }
-    QDomElement e = context.ownerDocument().createElement("views");
+    QDomElement e = context.ownerDocument().createElement(QStringLiteral("views"));
     context.appendChild(e);
     for (ViewBase *v : lst) {
-        e.setAttribute(v->objectName(), "");
+        e.setAttribute(v->objectName(), QString());
     }
     for (ViewBase *v : lst) {
         QDomElement e1 = e.ownerDocument().createElement(v->objectName());

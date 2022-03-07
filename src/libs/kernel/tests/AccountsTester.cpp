@@ -33,12 +33,12 @@ void AccountsTester::init()
     length = t1.msecsTo(t2);
 
     t = project->createTask();
-    t->setName("T1");
+    t->setName(QStringLiteral("T1"));
     project->addTask(t, project);
     t->estimate()->setUnit(Duration::Unit_d);
     t->estimate()->setExpectedEstimate(1.0);
     
-    sm = project->createScheduleManager("Test Plan");
+    sm = project->createScheduleManager(QStringLiteral("Test Plan"));
     project->addScheduleManager(sm);
 
     // standard worktime defines 8 hour day as default
@@ -94,7 +94,7 @@ void AccountsTester::cleanup()
 }
 
 void AccountsTester::defaultAccount() {
-    Account *a = new Account("Default Account");
+    Account *a = new Account(QStringLiteral("Default Account"));
     project->accounts().insert(a);
     project->accounts().setDefaultAccount(a);
     
@@ -145,17 +145,17 @@ void AccountsTester::defaultAccount() {
 
 void AccountsTester::costPlaces() {
     EffortCostMap ec;
-    Account *top = new Account("Top account");
+    Account *top = new Account(QStringLiteral("Top account"));
     project->accounts().insert(top);
 
-    Account *a = new Account("Running account");
+    Account *a = new Account(QStringLiteral("Running account"));
     project->accounts().insert(a, top);
     a->addRunning(*t);
     ec = a->plannedCost(sm->scheduleId());
     QCOMPARE(ec.totalEffort().toDouble(Duration::Unit_h), 8.0);
     QCOMPARE(ec.totalCost(), 800.0);
 
-    a = new Account("Startup account");
+    a = new Account(QStringLiteral("Startup account"));
     project->accounts().insert(a, top);
     a->addStartup(*t);
     t->setStartupCost(200.0);
@@ -163,7 +163,7 @@ void AccountsTester::costPlaces() {
     QCOMPARE(ec.totalEffort().toDouble(Duration::Unit_h), 0.0);
     QCOMPARE(ec.totalCost(), 200.0);
 
-    a = new Account("Shutdown cost");
+    a = new Account(QStringLiteral("Shutdown cost"));
     project->accounts().insert(a, top);
     a->addShutdown(*t);
     t->setShutdownCost(300.0);
@@ -177,7 +177,7 @@ void AccountsTester::costPlaces() {
     QCOMPARE(ec.totalEffort().toDouble(Duration::Unit_h), 8.0);
     QCOMPARE(ec.totalCost(), 1300.0);
     
-    a = new Account("All cost in one account");
+    a = new Account(QStringLiteral("All cost in one account"));
     project->accounts().insert(a);
     a->addRunning(*t);
     a->addStartup(*t);
@@ -190,7 +190,7 @@ void AccountsTester::costPlaces() {
 }
 
 void AccountsTester::startupDefault() {
-    Account *a = new Account("Default Account");
+    Account *a = new Account(QStringLiteral("Default Account"));
     project->accounts().insert(a);
     project->accounts().setDefaultAccount(a);
     
@@ -244,7 +244,7 @@ void AccountsTester::startupDefault() {
 }
 
 void AccountsTester::startupAccount() {
-    Account *a = new Account("Account");
+    Account *a = new Account(QStringLiteral("Account"));
     project->accounts().insert(a);
     a->addStartup(*t);
     
@@ -349,7 +349,7 @@ void AccountsTester::startupAccount() {
 
 
 void AccountsTester::shutdownAccount() {
-    Account *a = new Account("Account");
+    Account *a = new Account(QStringLiteral("Account"));
     project->accounts().insert(a);
     a->addShutdown(*t);
     t->completion().setStarted(true);
@@ -452,10 +452,10 @@ void AccountsTester::shutdownAccount() {
 
 void AccountsTester::subaccounts()
 {
-    Account *a1 = new Account("Account");
+    Account *a1 = new Account(QStringLiteral("Account"));
     project->accounts().insert(a1);
     
-    Account *a2 = new Account("Sub-Account");
+    Account *a2 = new Account(QStringLiteral("Sub-Account"));
     project->accounts().insert(a2, a1);
 
     project->accounts().setDefaultAccount(a2);
@@ -566,7 +566,7 @@ void AccountsTester::deleteAccount()
     QVERIFY(project->accounts().allAccounts().isEmpty());
 
     qInfo()<<"Add/delete one account";
-    Account *a1 = new Account("Account");
+    Account *a1 = new Account(QStringLiteral("Account"));
     project->accounts().insert(a1);
 
     QCOMPARE(project->accounts().allAccounts().count(), 1);
@@ -576,9 +576,9 @@ void AccountsTester::deleteAccount()
     QVERIFY(project->accounts().allAccounts().isEmpty());
 
     qInfo()<<"Add/delete one account with one sub-account";
-    a1 = new Account("Account 1");
+    a1 = new Account(QStringLiteral("Account 1"));
     project->accounts().insert(a1);
-    Account *a2 = new Account("Account 1.1");
+    Account *a2 = new Account(QStringLiteral("Account 1.1"));
     project->accounts().insert(a2, a1);
     QCOMPARE(project->accounts().allAccounts().count(), 2);
 
@@ -587,9 +587,9 @@ void AccountsTester::deleteAccount()
     QVERIFY(project->accounts().allAccounts().isEmpty());
 
     qInfo()<<"Add/delete one account with one sub-account";
-    a1 = new Account("Account 1");
+    a1 = new Account(QStringLiteral("Account 1"));
     project->accounts().insert(a1);
-    a2 = new Account("Account 1.1");
+    a2 = new Account(QStringLiteral("Account 1.1"));
     project->accounts().insert(a2, a1);
     project->accounts().setDefaultAccount(a2);
     QCOMPARE(project->accounts().allAccounts().count(), 2);

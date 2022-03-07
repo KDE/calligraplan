@@ -644,7 +644,7 @@ bool ItemModelBase::dropAllowed(const QModelIndex &index, int, const QMimeData *
 QVariant ItemModelBase::data(const QModelIndex &index, int role) const
 {
     if (index.isValid() && role == Role::ColumnTag) {
-        return columnMap().key(index.column());
+        return QLatin1String(columnMap().key(index.column()));
     }
     return QVariant();
 }
@@ -653,7 +653,7 @@ QVariant ItemModelBase::headerData(int section, Qt::Orientation orientation, int
 {
     Q_UNUSED(orientation);
     if (role == Role::ColumnTag) {
-        return columnMap().key(section);
+        return QLatin1String(columnMap().key(section));
     }
     return QVariant();
 }
@@ -705,7 +705,7 @@ int numRows(const QModelIndexList &indexes)
 
 void ItemModelBase::writeText(QMimeData *m, const QModelIndexList &indexes) const
 {
-    if (!mimeTypes().contains("text/html") && !mimeTypes().contains("text/plain")) {
+    if (!mimeTypes().contains(QStringLiteral("text/html")) && !mimeTypes().contains(QStringLiteral("text/plain"))) {
         return;
     }
     int cols = numColumns(indexes);
@@ -731,11 +731,11 @@ void ItemModelBase::writeText(QMimeData *m, const QModelIndexList &indexes) cons
         cursor.insertText(indexes.at(i).data().toString());
         cursor.movePosition(QTextCursor::NextCell);
     }
-    if (mimeTypes().contains("text/html")) {
-        m->setData("text/html", doc.toHtml("utf-8").toUtf8());
+    if (mimeTypes().contains(QStringLiteral("text/html"))) {
+        m->setData(QStringLiteral("text/html"), doc.toHtml("utf-8").toUtf8());
     }
-    if (mimeTypes().contains("text/plain")) {
-        m->setData("text/plain", doc.toPlainText().toUtf8());
+    if (mimeTypes().contains(QStringLiteral("text/plain"))) {
+        m->setData(QStringLiteral("text/plain"), doc.toPlainText().toUtf8());
     }
 }
 

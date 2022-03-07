@@ -36,8 +36,8 @@ Help::Help()
         delete self;
     }
     self = this;
-    m_contentsUrl.setScheme("help");
-    m_contextUrl.setScheme("help");
+    m_contentsUrl.setScheme(QStringLiteral("help"));
+    m_contextUrl.setScheme(QStringLiteral("help"));
 }
 
 Help::~Help()
@@ -70,7 +70,7 @@ void Help::setDocs(const QStringList &docs)
     debugPlanHelp<<docs;
     for (auto s : docs) {
         int last = s.length() - 1;
-        int pos = s.indexOf(':');
+        int pos = s.indexOf(QLatin1Char(':'));
         if (pos > 0 && pos < last) {
             m_docs.insert(s.left(pos), s.right(last - pos));
         }
@@ -111,32 +111,32 @@ bool KPlato::Help::invokeContext(QUrl url)
     }
     QString s = m_contextUrl.scheme();
     if (!s.isEmpty()) {
-        s += ':';
+        s += QLatin1Char(':');
     }
     if (!m_contextUrl.host().isEmpty()) {
-        s += m_contextUrl.host() + '/';
-        if (m_contextUrl.host() == "docs.kde.org") {
+        s += m_contextUrl.host() + QLatin1Char('/');
+        if (m_contextUrl.host() == QStringLiteral("docs.kde.org")) {
             auto path = m_contextUrl.path();
             if (path.isEmpty()) {
-                s += "trunk5/en/" + document;
+                s += QStringLiteral("trunk5/en/") + document;
             } else {
-                if (path.startsWith('/')) {
+                if (path.startsWith(QLatin1Char('/'))) {
                     path.remove(0, 1);
                 }
                 s += path;
             }
-            if (!s.endsWith('/')) {
-                s += '/';
+            if (!s.endsWith(QLatin1Char('/'))) {
+                s += QLatin1Char('/');
             }
         }
     }
-    s += document + '/';
+    s += document + QLatin1Char('/');
     s += url.path();
-    if (!s.endsWith(".html")) {
-        s += ".html";
+    if (!s.endsWith(QStringLiteral(".html"))) {
+        s += QStringLiteral(".html");
     }
     if (url.hasFragment()) {
-        s += '#' + url.fragment();
+        s += QLatin1Char('#') + url.fragment();
     }
     url = QUrl::fromUserInput(s);
     debugPlanHelp<<"open:"<<url;

@@ -29,7 +29,7 @@ KoOdfPaste::~KoOdfPaste()
 
 bool KoOdfPaste::paste(KoOdf::DocumentType documentType, const QMimeData *data)
 {
-    QByteArray arr = data->data(KoOdf::mimeType(documentType));
+    QByteArray arr = data->data(QLatin1String(KoOdf::mimeType(documentType)));
     return paste(documentType, arr);
 }
 

@@ -37,11 +37,11 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
      *
      * See: https://doc.qt.io/qt-5/qloggingcategory.html
      */
-    QLoggingCategory::setFilterRules("calligra.plan*.debug=false\n"
-                                     "calligra.plan*.warning=true");
+    QLoggingCategory::setFilterRules(QStringLiteral("calligra.plan*.debug=false\n"
+                                     "calligra.plan*.warning=true"));
 
     // Migrate data from kde4 to kf5 locations
-    Calligra2Migration m("calligraplanwork", "planwork");
+    Calligra2Migration m(QStringLiteral("calligraplanwork"), QStringLiteral("planwork"));
     m.setConfigFiles(QStringList() << QStringLiteral("planworkrc"));
     m.setUiFiles(QStringList() << QStringLiteral("planwork.rc") << QStringLiteral("planwork_readonly.rc") << QStringLiteral("planworkui.rc"));
     m.migrate();

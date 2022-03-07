@@ -1,5 +1,7 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"calligraplan_scheduler_tj\")
 
+remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII)
+
 set(LIBTJ_INCLUDE_DIR taskjuggler)
 include_directories(
     ${LIBTJ_INCLUDE_DIR}

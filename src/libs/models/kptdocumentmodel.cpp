@@ -485,7 +485,7 @@ Qt::DropActions DocumentItemModel::supportedDropActions() const
 
 QStringList DocumentItemModel::mimeTypes() const
 {
-    return QStringList() << "application/x-vnd.kde.plan.documentitemmodel.internal";
+    return QStringList() << QStringLiteral("application/x-vnd.kde.plan.documentitemmodel.internal");
 }
 
 QMimeData *DocumentItemModel::mimeData(const QModelIndexList & indexes) const
@@ -496,7 +496,7 @@ QMimeData *DocumentItemModel::mimeData(const QModelIndexList & indexes) const
     //QList<int> rows;
     for (const QModelIndex &index : indexes) {
         Q_UNUSED(index);
-        m->setData("application/x-vnd.kde.plan.documentitemmodel.internal", encodedData);
+        m->setData(QStringLiteral("application/x-vnd.kde.plan.documentitemmodel.internal"), encodedData);
     }
     return m;
 }
@@ -513,7 +513,7 @@ bool DocumentItemModel::dropAllowed(const QModelIndex &index, int dropIndicatorP
 bool DocumentItemModel::dropAllowed(Document *on, const QMimeData *data)
 {
     Q_UNUSED(on)
-    if (!data->hasFormat("application/x-vnd.kde.plan.documentitemmodel.internal")) {
+    if (!data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.documentitemmodel.internal"))) {
         return false;
     }
     return true;
@@ -527,7 +527,7 @@ bool DocumentItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
     if (action == Qt::IgnoreAction) {
         return true;
     }
-    if (!data->hasFormat("application/x-vnd.kde.plan.documentitemmodel.internal")) {
+    if (!data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.documentitemmodel.internal"))) {
         return false;
     }
     return false;

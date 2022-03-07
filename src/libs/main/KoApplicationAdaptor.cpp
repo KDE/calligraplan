@@ -54,7 +54,7 @@ QStringList KoApplicationAdaptor::getDocuments()
     QStringList lst;
     const QList<KoPart*> parts = m_application->partList();
     for (KoPart *part : parts) {
-        lst.append('/' + part->document()->objectName());
+        lst.append(QLatin1Char('/') + part->document()->objectName());
     }
     return lst;
 }
@@ -66,7 +66,7 @@ QStringList KoApplicationAdaptor::getViews()
     for (KoPart *part : parts) {
         const auto views = part->views();
         for (KoView* view : views) {
-            lst.append('/' + view->objectName());
+            lst.append(QLatin1Char('/') + view->objectName());
         }
     }
 

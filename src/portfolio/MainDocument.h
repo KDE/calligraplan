@@ -19,7 +19,7 @@
 #include <QDomDocument>
 
 
-#define PLANPORTFOLIO_FILE_SYNTAX_VERSION "1.0.0"
+static const QLatin1String PLANPORTFOLIO_FILE_SYNTAX_VERSION("1.0.0");
 
 
 namespace KPlato {
@@ -37,7 +37,7 @@ public:
     void initEmpty() override;
 
     /// reimplemented from KoDocument
-    QByteArray nativeFormatMimeType() const override { return PLANPORTFOLIO_MIME_TYPE; }
+    QByteArray nativeFormatMimeType() const override { return PLANPORTFOLIO_MIME_TYPE.latin1(); }
     /// reimplemented from KoDocument
     QByteArray nativeOasisMimeType() const override { return QByteArray(); }
     /// reimplemented from KoDocument

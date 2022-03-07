@@ -46,10 +46,10 @@ void TestKoGenStyles::testLookup()
     KoGenStyles coll;
 
     QMap<QString, QString> map1;
-    map1.insert("map1key", "map1value");
+    map1.insert(QStringLiteral("map1key"), QStringLiteral("map1value"));
     QMap<QString, QString> map2;
-    map2.insert("map2key1", "map2value1");
-    map2.insert("map2key2", "map2value2");
+    map2.insert(QStringLiteral("map2key1"), QStringLiteral("map2value1"));
+    map2.insert(QStringLiteral("map2key2"), QStringLiteral("map2value2"));
 
     QBuffer buffer;
     buffer.open(QIODevice::WriteOnly);
@@ -57,7 +57,7 @@ void TestKoGenStyles::testLookup()
     childWriter.startElement("child");
     childWriter.addAttribute("test:foo", "bar");
     childWriter.endElement();
-    QString childContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
+    QString childContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
 
     QBuffer buffer2;
     buffer2.open(QIODevice::WriteOnly);
@@ -65,7 +65,7 @@ void TestKoGenStyles::testLookup()
     childWriter2.startElement("child2");
     childWriter2.addAttribute("test:foo", "bar");
     childWriter2.endElement();
-    QString childContents2 = QString::fromUtf8(buffer2.buffer(), buffer2.buffer().size());
+    QString childContents2 = QString::fromUtf8(buffer2.buffer().constData(), buffer2.buffer().size());
 
     KoGenStyle first(KoGenStyle::ParagraphAutoStyle, "paragraph");
     first.addAttribute("style:master-page-name", "Standard");
@@ -99,7 +99,7 @@ void TestKoGenStyles::testLookup()
     const KoGenStyle* s = coll.style(firstName, "paragraph");   // check insert of existing style
     QVERIFY(s != nullptr);
     QCOMPARE(*s, first);
-    s = coll.style("foobarblah", "paragraph");   // check insert of non-existing style
+    s = coll.style(QStringLiteral("foobarblah"), "paragraph");   // check insert of non-existing style
     QVERIFY(s == nullptr);
 
     KoGenStyle third(KoGenStyle::ParagraphAutoStyle, "paragraph", secondName);   // inherited style
@@ -108,7 +108,7 @@ void TestKoGenStyles::testLookup()
     third.addProperty("style:foobar", "3", KoGenStyle::TextType);   // different from parent
     QCOMPARE(third.parentName(), secondName);
 
-    QString thirdName = coll.insert(third, "P");
+    QString thirdName = coll.insert(third, QStringLiteral("P"));
     debugOdf << "The third style got assigned the name" << thirdName;
     QVERIFY(thirdName != firstName);
     QVERIFY(!thirdName.isEmpty());
@@ -116,9 +116,9 @@ void TestKoGenStyles::testLookup()
     KoGenStyle user(KoGenStyle::ParagraphStyle, "paragraph");   // differs from third since it doesn't inherit second, and has a different type
     user.addProperty("style:margin-left", "1.249cm");
 
-    QString userStyleName = coll.insert(user, "User", KoGenStyles::DontAddNumberToName);
+    QString userStyleName = coll.insert(user, QStringLiteral("User"), KoGenStyles::DontAddNumberToName);
     debugOdf << "The user style got assigned the name" << userStyleName;
-    QCOMPARE(userStyleName, QString("User"));
+    QCOMPARE(userStyleName, QStringLiteral("User"));
 
     KoGenStyle sameAsParent(KoGenStyle::ParagraphAutoStyle, "paragraph", secondName);   // inherited style
     sameAsParent.addAttribute("style:master-page-name", "Standard");
@@ -128,7 +128,7 @@ void TestKoGenStyles::testLookup()
     sameAsParent.addStyleMap(map2);
     sameAsParent.addChildElement("test", childContents);
     sameAsParent.addChildElement("test", childContents2, KoGenStyle::TextType);
-    QString sapName = coll.insert(sameAsParent, "foobar");
+    QString sapName = coll.insert(sameAsParent, QStringLiteral("foobar"));
     debugOdf << "The 'same as parent' style got assigned the name" << sapName;
 
     QCOMPARE(sapName, secondName);
@@ -143,7 +143,7 @@ void TestKoGenStyles::testLookup()
     headerStyle.addStyleMap(map1);
     headerStyle.addStyleMap(map2);
     headerStyle.setAutoStyleInStylesDotXml(true);
-    coll.insert(headerStyle, "foobar");
+    coll.insert(headerStyle, QStringLiteral("foobar"));
 
     QCOMPARE(coll.styles().count(), 4);
     //QCOMPARE(coll.styles(KoGenStyle::ParagraphAutoStyle).count(), 2);
@@ -154,20 +154,20 @@ void TestKoGenStyles::testLookup()
     first.writeStyle(&writer, coll, "style:style", firstName, "style:paragraph-properties");
 
 
-    TEST_END_QTTEST("<r>\n <style:style style:name=\"" + firstName + "\" style:family=\"paragraph\" "
+    TEST_END_QTTEST(QStringLiteral("<r>\n <style:style style:name=\"") + firstName + QStringLiteral("\" style:family=\"paragraph\" "
         "style:master-page-name=\"Standard\">\n  <style:paragraph-properties style:page-number=\"0\">\n"
         "   <child test:foo=\"bar\"/>\n  </style:paragraph-properties>\n  <style:text-properties style:foobar=\"2\">\n"
         "   <child2 test:foo=\"bar\"/>\n  </style:text-properties>\n"
         "  <style:map map1key=\"map1value\"/>\n  <style:map map2key1=\"map2value1\" map2key2=\"map2value2\"/>\n"
-        " </style:style>\n</r>\n");
+        " </style:style>\n</r>\n"));
 
     // XML for third style
     TEST_BEGIN(nullptr, nullptr);
     third.writeStyle(&writer, coll, "style:style", thirdName, "style:paragraph-properties");
-    TEST_END_QTTEST("<r>\n <style:style style:name=\"" + thirdName + "\""
-        " style:parent-style-name=\"" + firstName + "\" style:family=\"paragraph\">\n"
+    TEST_END_QTTEST(QStringLiteral("<r>\n <style:style style:name=\"") + thirdName + QStringLiteral("\""
+        " style:parent-style-name=\"") + firstName + QStringLiteral("\" style:family=\"paragraph\">\n"
         "  <style:paragraph-properties style:margin-left=\"1.249cm\"/>\n"
-        "  <style:text-properties style:foobar=\"3\"/>\n </style:style>\n</r>\n");
+        "  <style:text-properties style:foobar=\"3\"/>\n </style:style>\n</r>\n"));
 }
 
 void TestKoGenStyles::testLookupFlags()
@@ -178,26 +178,26 @@ void TestKoGenStyles::testLookupFlags()
     first.addAttribute("style:master-page-name", "Standard");
     first.addProperty("style:page-number", "0");
 
-    QString styleName = coll.insert(first, "P", KoGenStyles::DontAddNumberToName);
-    QCOMPARE(styleName, QString("P"));
+    QString styleName = coll.insert(first, QStringLiteral("P"), KoGenStyles::DontAddNumberToName);
+    QCOMPARE(styleName, QStringLiteral("P"));
 
-    styleName = coll.insert(first, "P");
-    QCOMPARE(styleName, QString("P"));
+    styleName = coll.insert(first, QStringLiteral("P"));
+    QCOMPARE(styleName, QStringLiteral("P"));
 
     KoGenStyle second(KoGenStyle::ParagraphAutoStyle, "paragraph");
     second.addProperty("fo:text-align", "left");
 
-    styleName = coll.insert(second, "P");
-    QCOMPARE(styleName, QString("P1"));
+    styleName = coll.insert(second, QStringLiteral("P"));
+    QCOMPARE(styleName, QStringLiteral("P1"));
 
-    styleName = coll.insert(second, "P", KoGenStyles::AllowDuplicates);
-    QCOMPARE(styleName, QString("P2"));
+    styleName = coll.insert(second, QStringLiteral("P"), KoGenStyles::AllowDuplicates);
+    QCOMPARE(styleName, QStringLiteral("P2"));
 
-    styleName = coll.insert(second, "P", KoGenStyles::AllowDuplicates);
-    QCOMPARE(styleName, QString("P3"));
+    styleName = coll.insert(second, QStringLiteral("P"), KoGenStyles::AllowDuplicates);
+    QCOMPARE(styleName, QStringLiteral("P3"));
 
-    styleName = coll.insert(second, "P", KoGenStyles::AllowDuplicates | KoGenStyles::DontAddNumberToName);
-    QCOMPARE(styleName, QString("P4"));
+    styleName = coll.insert(second, QStringLiteral("P"), KoGenStyles::AllowDuplicates | KoGenStyles::DontAddNumberToName);
+    QCOMPARE(styleName, QStringLiteral("P4"));
 }
 
 void TestKoGenStyles::testWriteStyle()
@@ -211,35 +211,35 @@ void TestKoGenStyles::testWriteStyle()
     styleChildWriter.startElement("styleChild");
     styleChildWriter.addAttribute("foo", "bar");
     styleChildWriter.endElement();
-    QString styleChildContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
+    QString styleChildContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
 
     KoGenStyle style(KoGenStyle::ParagraphStyle, "paragraph");
     style.addProperty("style:foo", "bar");
     style.addProperty("style:paragraph", "property", KoGenStyle::ParagraphType);
     style.addProperty("style:graphic", "property", KoGenStyle::GraphicType);
     style.addProperty("styleChild", styleChildContents, KoGenStyle::StyleChildElement);
-    QString styleName = coll.insert(style, "P");
+    QString styleName = coll.insert(style, QStringLiteral("P"));
 
     // XML for style
     TEST_BEGIN(nullptr, nullptr);
     style.writeStyle(&writer, coll, "style:style", styleName, "style:paragraph-properties");
-    TEST_END_QTTEST("<r>\n <style:style style:name=\"P1\" style:family=\"paragraph\">\n  <style:paragraph-properties style:foo=\"bar\" style:paragraph=\"property\"/>\n  <style:graphic-properties style:graphic=\"property\"/>\n  <styleChild foo=\"bar\"/>\n </style:style>\n</r>\n");
+    TEST_END_QTTEST(QStringLiteral("<r>\n <style:style style:name=\"P1\" style:family=\"paragraph\">\n  <style:paragraph-properties style:foo=\"bar\" style:paragraph=\"property\"/>\n  <style:graphic-properties style:graphic=\"property\"/>\n  <styleChild foo=\"bar\"/>\n </style:style>\n</r>\n"));
 
     KoGenStyle pageLayoutStyle(KoGenStyle::PageLayoutStyle);
     pageLayoutStyle.addProperty("style:print-orientation", "portrait");
-    QString pageLayoutStyleName = coll.insert(pageLayoutStyle, "pm");
+    QString pageLayoutStyleName = coll.insert(pageLayoutStyle, QStringLiteral("pm"));
 
     // XML for page layout style
     TEST_BEGIN(nullptr, nullptr);
     pageLayoutStyle.writeStyle(&writer, coll, "style:page-layout", pageLayoutStyleName, "style:page-layout-properties");
-    TEST_END_QTTEST("<r>\n <style:page-layout style:name=\"pm1\">\n  <style:page-layout-properties style:print-orientation=\"portrait\"/>\n </style:page-layout>\n</r>\n");
+    TEST_END_QTTEST(QStringLiteral("<r>\n <style:page-layout style:name=\"pm1\">\n  <style:page-layout-properties style:print-orientation=\"portrait\"/>\n </style:page-layout>\n</r>\n"));
 
     KoGenStyle listStyle(KoGenStyle::ListStyle);
     QString listStyleName = coll.insert(listStyle, "L");
     // XML for list layout style
     TEST_BEGIN(nullptr, nullptr);
     listStyle.writeStyle(&writer, coll, "text:list-style", listStyleName, nullptr);
-    TEST_END_QTTEST("<r>\n <text:list-style style:name=\"L1\"/>\n</r>\n");
+    TEST_END_QTTEST(QStringLiteral("<r>\n <text:list-style style:name=\"L1\"/>\n</r>\n"));
 }
 
 void TestKoGenStyles::testDefaultStyle()
@@ -274,7 +274,7 @@ void TestKoGenStyles::testDefaultStyle()
     // XML for default style
     TEST_BEGIN(nullptr, nullptr);
     defaultStyle.writeStyle(&writer, coll, "style:default-style", defaultStyleName, "style:paragraph-properties");
-    TEST_END_QTTEST("<r>\n <style:default-style style:family=\"paragraph\" style:master-page-name=\"Standard\">\n  <style:paragraph-properties myfont=\"isBold\"/>\n </style:default-style>\n</r>\n");
+    TEST_END_QTTEST(QStringLiteral("<r>\n <style:default-style style:family=\"paragraph\" style:master-page-name=\"Standard\">\n  <style:paragraph-properties myfont=\"isBold\"/>\n </style:default-style>\n</r>\n"));
 
     // The Calligra Sheets case: not writing out all properties, only if they differ
     // from the default style.
@@ -297,17 +297,17 @@ void TestKoGenStyles:: testUserStyles()
     user1.addAttribute("style:display-name", "User 1");
     user1.addProperty("myfont", "isBold");
 
-    QString user1StyleName = coll.insert(user1, "User1", KoGenStyles::DontAddNumberToName);
+    QString user1StyleName = coll.insert(user1, QStringLiteral("User1"), KoGenStyles::DontAddNumberToName);
     debugOdf << "The user style got assigned the name" << user1StyleName;
-    QCOMPARE(user1StyleName, QString("User1"));
+    QCOMPARE(user1StyleName, QStringLiteral("User1"));
 
     KoGenStyle user2(KoGenStyle::ParagraphStyle, "paragraph");
     user2.addAttribute("style:display-name", "User 2");
     user2.addProperty("myfont", "isBold");
 
-    QString user2StyleName = coll.insert(user2, "User2", KoGenStyles::DontAddNumberToName);
+    QString user2StyleName = coll.insert(user2, QStringLiteral("User2"), KoGenStyles::DontAddNumberToName);
     debugOdf << "The user style got assigned the name" << user2StyleName;
-    QCOMPARE(user2StyleName, QString("User2"));
+    QCOMPARE(user2StyleName, QStringLiteral("User2"));
 
     // And now, what if the data uses that style?
     // This is like sameAsParent in the other test, but this time the
@@ -315,29 +315,29 @@ void TestKoGenStyles:: testUserStyles()
     KoGenStyle dataStyle(KoGenStyle::ParagraphAutoStyle, "paragraph", user2StyleName);
     dataStyle.addProperty("myfont", "isBold");
 
-    QString dataStyleName = coll.insert(dataStyle, "DataStyle");
+    QString dataStyleName = coll.insert(dataStyle, QStringLiteral("DataStyle"));
     debugOdf << "The auto style got assigned the name" << dataStyleName;
-    QCOMPARE(dataStyleName, QString("User2"));     // it found the parent as equal
+    QCOMPARE(dataStyleName, QStringLiteral("User2"));     // it found the parent as equal
 
     // Let's do the opposite test, just to make sure
     KoGenStyle dataStyle2(KoGenStyle::ParagraphAutoStyle, "paragraph", user2StyleName);
     dataStyle2.addProperty("myfont", "isNotBold");
 
-    QString dataStyle2Name = coll.insert(dataStyle2, "DataStyle");
+    QString dataStyle2Name = coll.insert(dataStyle2, QStringLiteral("DataStyle"));
     debugOdf << "The different auto style got assigned the name" << dataStyle2Name;
-    QCOMPARE(dataStyle2Name, QString("DataStyle1"));
+    QCOMPARE(dataStyle2Name, QStringLiteral("DataStyle1"));
 
     QCOMPARE(coll.styles().count(), 3);
 
     // XML for user style 1
     TEST_BEGIN(nullptr, nullptr);
     user1.writeStyle(&writer, coll, "style:style", user1StyleName, "style:paragraph-properties");
-    TEST_END_QTTEST("<r>\n <style:style style:name=\"User1\" style:display-name=\"User 1\" style:family=\"paragraph\">\n  <style:paragraph-properties myfont=\"isBold\"/>\n </style:style>\n</r>\n");
+    TEST_END_QTTEST(QStringLiteral("<r>\n <style:style style:name=\"User1\" style:display-name=\"User 1\" style:family=\"paragraph\">\n  <style:paragraph-properties myfont=\"isBold\"/>\n </style:style>\n</r>\n"));
 
     // XML for user style 2
     TEST_BEGIN(nullptr, nullptr);
     user2.writeStyle(&writer, coll, "style:style", user2StyleName, "style:paragraph-properties");
-    TEST_END_QTTEST("<r>\n <style:style style:name=\"User2\" style:display-name=\"User 2\" style:family=\"paragraph\">\n  <style:paragraph-properties myfont=\"isBold\"/>\n </style:style>\n</r>\n");
+    TEST_END_QTTEST(QStringLiteral("<r>\n <style:style style:name=\"User2\" style:display-name=\"User 2\" style:family=\"paragraph\">\n  <style:paragraph-properties myfont=\"isBold\"/>\n </style:style>\n</r>\n"));
 }
 
 void TestKoGenStyles::testStylesDotXml()
@@ -351,16 +351,16 @@ void TestKoGenStyles::testStylesDotXml()
     headerStyle.addAttribute("style:master-page-name", "Standard");
     headerStyle.addProperty("style:page-number", "0");
     headerStyle.setAutoStyleInStylesDotXml(true);
-    QString headerStyleName = coll.insert(headerStyle, "P");
-    QCOMPARE(headerStyleName, QString("P1"));
+    QString headerStyleName = coll.insert(headerStyle, QStringLiteral("P"));
+    QCOMPARE(headerStyleName, QStringLiteral("P1"));
 
     //debugOdf << coll;
 
     KoGenStyle first(KoGenStyle::ParagraphAutoStyle, "paragraph");
     first.addAttribute("style:master-page-name", "Standard");
-    QString firstName = coll.insert(first, "P");
+    QString firstName = coll.insert(first, QStringLiteral("P"));
     debugOdf << "The auto style got assigned the name" << firstName;
-    QCOMPARE(firstName, QString("P2"));     // anything but not P1.
+    QCOMPARE(firstName, QStringLiteral("P2"));     // anything but not P1.
 }
 
 QTEST_MAIN(TestKoGenStyles)

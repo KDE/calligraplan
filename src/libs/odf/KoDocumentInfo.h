@@ -85,6 +85,7 @@ public:
      * @param data the data to set for this information
      */
     void setAuthorInfo(const QString& info, const QString& data);
+    void setAuthorInfo(const char *info, const QString& data);
 
     /**
      * Obtain information about the author
@@ -92,6 +93,7 @@ public:
      * @return a QString with the information
      */
     QString authorInfo(const QString& info) const;
+    QString authorInfo(const char *info) const;
 
     /**
      * Set information about the document
@@ -99,6 +101,7 @@ public:
      * @param data the data to set for this information
      */
     void setAboutInfo(const QString& info, const QString& data);
+    void setAboutInfo(const char *info, const QString& data);
 
     /**
      * Obtain information about the document
@@ -106,6 +109,7 @@ public:
      * @return a QString with the information
      */
     QString aboutInfo(const QString& info) const;
+    QString aboutInfo(const char *info) const;
 
     /**
      * Obtain the generator of the document, as it was loaded from the document
@@ -138,6 +142,7 @@ private:
      * @param data the data to set for this information
      */
     void setActiveAuthorInfo(const QString& info, const QString& data);
+    void setActiveAuthorInfo(const char *info, const QString& data);
 
     /**
      * Load the information about the document from an OASIS file

@@ -115,9 +115,11 @@ public:
      * @return draw styles of the specified type, hashed by name
      */
     QHash<QString, KoXmlElement*> drawStyles(const QString &drawType) const;
+    QHash<QString, KoXmlElement*> drawStyles(const char *drawType) const;
 
     /// @return all custom styles ("style:style" elements) for a given family, hashed by name
     QHash<QString, KoXmlElement*> customStyles(const QString& family) const;
+    QHash<QString, KoXmlElement*> customStyles(const char *family) const;
 
     /**
      * Returns all auto-styles defined in styles.xml, if \p stylesDotXml is \c true ,

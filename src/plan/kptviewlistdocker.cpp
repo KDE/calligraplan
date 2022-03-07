@@ -71,7 +71,7 @@ ViewListDockerFactory::ViewListDockerFactory(View *view)
 
 QString ViewListDockerFactory::id() const
 {
-    return QString("KPlatoViewList");
+    return QStringLiteral("KPlatoViewList");
 }
 
 QDockWidget* ViewListDockerFactory::createDockWidget()

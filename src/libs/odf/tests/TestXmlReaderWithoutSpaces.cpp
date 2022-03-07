@@ -93,7 +93,7 @@ void TestXmlReaderWithoutSpaces::testNode()
 
     // a node which is a document
     KoXmlNode node3 = doc;
-    QCOMPARE(node3.nodeName(), QString("#document"));
+    QCOMPARE(node3.nodeName(),  QStringLiteral("#document"));
     QCOMPARE(node3.isNull(), false);
     QCOMPARE(node3.isElement(), false);
     QCOMPARE(node3.isText(), false);
@@ -105,7 +105,7 @@ void TestXmlReaderWithoutSpaces::testNode()
 
     // convert to document and the compare
     KoXmlDocument doc2 = node3.toDocument();
-    QCOMPARE(doc2.nodeName(), QString("#document"));
+    QCOMPARE(doc2.nodeName(),  QStringLiteral("#document"));
     QCOMPARE(doc2.isNull(), false);
     QCOMPARE(doc2.isDocument(), true);
     QCOMPARE(node3 == doc2, true);
@@ -153,7 +153,7 @@ void TestXmlReaderWithoutSpaces::testNode()
 
     // a node which is an element for <continents>
     KoXmlNode node5 = doc.firstChild().firstChild();
-    QCOMPARE(node5.nodeName(), QString("continents"));
+    QCOMPARE(node5.nodeName(),  QStringLiteral("continents"));
     QCOMPARE(node5.isNull(), false);
     QCOMPARE(node5.isElement(), true);
     QCOMPARE(node5.isText(), false);
@@ -180,8 +180,8 @@ void TestXmlReaderWithoutSpaces::testNode()
     QCOMPARE(invalidDoc.isDocument(), false);
 
     // node for <europe> using namedItem() function
-    KoXmlNode europeNode = continentsElement.namedItem(QString("europe"));
-    QCOMPARE(europeNode.nodeName(), QString("europe"));
+    KoXmlNode europeNode = continentsElement.namedItem( QStringLiteral("europe"));
+    QCOMPARE(europeNode.nodeName(),  QStringLiteral("europe"));
     QCOMPARE(europeNode.isNull(), false);
     QCOMPARE(europeNode.isElement(), true);
     QCOMPARE(europeNode.isText(), false);
@@ -190,7 +190,7 @@ void TestXmlReaderWithoutSpaces::testNode()
     QCOMPARE(europeNode.ownerDocument() == doc, true);
 
     // search non-existing node
-    KoXmlNode fooNode = continentsElement.namedItem(QString("foobar"));
+    KoXmlNode fooNode = continentsElement.namedItem( QStringLiteral("foobar"));
     QCOMPARE(fooNode.isNull(), true);
     QCOMPARE(fooNode.isElement(), false);
     QCOMPARE(fooNode.isText(), false);
@@ -225,7 +225,7 @@ void TestXmlReaderWithoutSpaces::testElement()
     // element for <html>
     KoXmlElement rootElement;
     rootElement = doc.documentElement();
-    QCOMPARE(rootElement.nodeName(), QString("html"));
+    QCOMPARE(rootElement.nodeName(),  QStringLiteral("html"));
     QCOMPARE(rootElement.isNull(), false);
     QCOMPARE(rootElement.isElement(), true);
     QCOMPARE(rootElement.isDocument(), false);
@@ -235,13 +235,13 @@ void TestXmlReaderWithoutSpaces::testElement()
     QCOMPARE(rootElement.parentNode().toDocument() == doc, true);
     QCOMPARE(rootElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(rootElement), 1);
-    QCOMPARE(rootElement.tagName(), QString("html"));
+    QCOMPARE(rootElement.tagName(),  QStringLiteral("html"));
     QCOMPARE(rootElement.prefix().isNull(), true);
 
     // element for <body>
     KoXmlElement bodyElement;
     bodyElement = rootElement.firstChild().toElement();
-    QCOMPARE(bodyElement.nodeName(), QString("body"));
+    QCOMPARE(bodyElement.nodeName(),  QStringLiteral("body"));
     QCOMPARE(bodyElement.isNull(), false);
     QCOMPARE(bodyElement.isElement(), true);
     QCOMPARE(bodyElement.isDocument(), false);
@@ -251,15 +251,15 @@ void TestXmlReaderWithoutSpaces::testElement()
     QCOMPARE(bodyElement.parentNode() == rootElement, true);
     QCOMPARE(bodyElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(bodyElement), 1);
-    QCOMPARE(bodyElement.tagName(), QString("body"));
+    QCOMPARE(bodyElement.tagName(),  QStringLiteral("body"));
     QCOMPARE(bodyElement.prefix().isNull(), true);
     QCOMPARE(bodyElement.hasAttribute("bgcolor"), true);
-    QCOMPARE(bodyElement.attribute("bgcolor"), QString("#000"));
+    QCOMPARE(bodyElement.attribute("bgcolor"),  QStringLiteral("#000"));
 
     // a shared copy of <body>, will still have access to attribute bgcolor
     KoXmlElement body2Element;
     body2Element = bodyElement;
-    QCOMPARE(body2Element.nodeName(), QString("body"));
+    QCOMPARE(body2Element.nodeName(),  QStringLiteral("body"));
     QCOMPARE(body2Element.isNull(), false);
     QCOMPARE(body2Element.isElement(), true);
     QCOMPARE(body2Element.isDocument(), false);
@@ -269,10 +269,10 @@ void TestXmlReaderWithoutSpaces::testElement()
     QCOMPARE(body2Element != bodyElement, false);
     QCOMPARE(body2Element.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(body2Element), 1);
-    QCOMPARE(body2Element.tagName(), QString("body"));
+    QCOMPARE(body2Element.tagName(),  QStringLiteral("body"));
     QCOMPARE(body2Element.prefix().isNull(), true);
     QCOMPARE(body2Element.hasAttribute("bgcolor"), true);
-    QCOMPARE(body2Element.attribute("bgcolor"), QString("#000"));
+    QCOMPARE(body2Element.attribute("bgcolor"),  QStringLiteral("#000"));
 
     // empty element, by default constructor
     KoXmlElement testElement;
@@ -290,7 +290,7 @@ void TestXmlReaderWithoutSpaces::testElement()
 
     // check assignment operator
     testElement = rootElement;
-    QCOMPARE(testElement.nodeName(), QString("html"));
+    QCOMPARE(testElement.nodeName(),  QStringLiteral("html"));
     QCOMPARE(testElement.isNull(), false);
     QCOMPARE(testElement.isElement(), true);
     QCOMPARE(testElement.isDocument(), false);
@@ -298,7 +298,7 @@ void TestXmlReaderWithoutSpaces::testElement()
     QCOMPARE(testElement != rootElement, false);
     QCOMPARE(testElement.parentNode().isNull(), false);
     QCOMPARE(testElement.parentNode().toDocument() == doc, true);
-    QCOMPARE(testElement.tagName(), QString("html"));
+    QCOMPARE(testElement.tagName(),  QStringLiteral("html"));
     QCOMPARE(testElement.prefix().isNull(), true);
     QCOMPARE(KoXml::childNodesCount(testElement), 1);
 
@@ -316,7 +316,7 @@ void TestXmlReaderWithoutSpaces::testElement()
     QCOMPARE(testElement.ownerDocument() == doc, true);
     QCOMPARE(testElement == bodyElement, true);
     QCOMPARE(testElement.parentNode().isNull(), false);
-    QCOMPARE(testElement.tagName(), QString("body"));
+    QCOMPARE(testElement.tagName(),  QStringLiteral("body"));
     QCOMPARE(testElement.prefix().isNull(), true);
     QCOMPARE(testElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(testElement), 1);
@@ -332,7 +332,7 @@ void TestXmlReaderWithoutSpaces::testElement()
     QCOMPARE(dummyElement.parentNode().isNull(), false);
     QCOMPARE(dummyElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(dummyElement), 1);
-    QCOMPARE(dummyElement.tagName(), QString("html"));
+    QCOMPARE(dummyElement.tagName(),  QStringLiteral("html"));
     QCOMPARE(dummyElement.prefix().isNull(), true);
 
     // clear() turns element to null node
@@ -385,7 +385,7 @@ void TestXmlReaderWithoutSpaces::testAttributes()
     QCOMPARE(rootElement.isElement(), true);
     QCOMPARE(rootElement.parentNode().isNull(), false);
     QCOMPARE(rootElement.parentNode().toDocument() == doc, true);
-    QCOMPARE(rootElement.tagName(), QString("p"));
+    QCOMPARE(rootElement.tagName(),  QStringLiteral("p"));
     QCOMPARE(rootElement.prefix().isNull(), true);
     QCOMPARE(KoXml::childNodesCount(rootElement), 1);
 
@@ -393,7 +393,7 @@ void TestXmlReaderWithoutSpaces::testAttributes()
     imgElement = rootElement.firstChild().toElement();
     QCOMPARE(imgElement.isNull(), false);
     QCOMPARE(imgElement.isElement(), true);
-    QCOMPARE(imgElement.tagName(), QString("img"));
+    QCOMPARE(imgElement.tagName(),  QStringLiteral("img"));
     QCOMPARE(imgElement.prefix().isNull(), true);
     QCOMPARE(KoXml::childNodesCount(imgElement), 0);
     QCOMPARE(imgElement.hasAttribute("src"), true);
@@ -401,10 +401,10 @@ void TestXmlReaderWithoutSpaces::testAttributes()
     QCOMPARE(imgElement.hasAttribute("height"), true);
     QCOMPARE(imgElement.hasAttribute("non-exist"), false);
     QCOMPARE(imgElement.hasAttribute("SRC"), false);
-    QCOMPARE(imgElement.attribute("src"), QString("foo.png"));
-    QCOMPARE(imgElement.attribute("width"), QString("300"));
+    QCOMPARE(imgElement.attribute("src"),  QStringLiteral("foo.png"));
+    QCOMPARE(imgElement.attribute("width"),  QStringLiteral("300"));
     QCOMPARE(imgElement.attribute("width").toInt(), 300);
-    QCOMPARE(imgElement.attribute("height"), QString("150"));
+    QCOMPARE(imgElement.attribute("height"),  QStringLiteral("150"));
     QCOMPARE(imgElement.attribute("height").toInt(), 150);
     QCOMPARE(imgElement.attribute("border").isEmpty(), true);
     QCOMPARE(imgElement.attribute("border", "0").toInt(), 0);
@@ -456,14 +456,14 @@ void TestXmlReaderWithoutSpaces::testText()
     QCOMPARE(parElement.parentNode().toDocument() == doc, true);
     QCOMPARE(parElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(parElement), 2);   // <b> and text node "Hello "
-    QCOMPARE(parElement.tagName(), QString("p"));
+    QCOMPARE(parElement.tagName(),  QStringLiteral("p"));
     QCOMPARE(parElement.prefix().isNull(), true);
-    QCOMPARE(parElement.text(), QString("Hello world"));
+    QCOMPARE(parElement.text(),  QStringLiteral("Hello world"));
 
     // node for "Hello"
     KoXmlNode helloNode;
     helloNode = parElement.firstChild();
-    QCOMPARE(helloNode.nodeName(), QString("#text"));
+    QCOMPARE(helloNode.nodeName(),  QStringLiteral("#text"));
     QCOMPARE(helloNode.isNull(), false);
     QCOMPARE(helloNode.isElement(), false);
     QCOMPARE(helloNode.isText(), true);
@@ -474,12 +474,12 @@ void TestXmlReaderWithoutSpaces::testText()
     // "Hello" text
     KoXmlText helloText;
     helloText = helloNode.toText();
-    QCOMPARE(helloText.nodeName(), QString("#text"));
+    QCOMPARE(helloText.nodeName(),  QStringLiteral("#text"));
     QCOMPARE(helloText.isNull(), false);
     QCOMPARE(helloText.isElement(), false);
     QCOMPARE(helloText.isText(), true);
     QCOMPARE(helloText.isDocument(), false);
-    QCOMPARE(helloText.data(), QString("Hello "));
+    QCOMPARE(helloText.data(),  QStringLiteral("Hello "));
     QCOMPARE(KoXml::childNodesCount(helloText), 0);
 
     // shared copy of the text
@@ -489,7 +489,7 @@ void TestXmlReaderWithoutSpaces::testText()
     QCOMPARE(hello2Text.isElement(), false);
     QCOMPARE(hello2Text.isText(), true);
     QCOMPARE(hello2Text.isDocument(), false);
-    QCOMPARE(hello2Text.data(), QString("Hello "));
+    QCOMPARE(hello2Text.data(),  QStringLiteral("Hello "));
     QCOMPARE(KoXml::childNodesCount(hello2Text), 0);
 
     // element for <b>
@@ -504,7 +504,7 @@ void TestXmlReaderWithoutSpaces::testText()
     QCOMPARE(boldElement.parentNode().isNull(), false);
     QCOMPARE(boldElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(boldElement), 1);   // text node "world"
-    QCOMPARE(boldElement.tagName(), QString("b"));
+    QCOMPARE(boldElement.tagName(),  QStringLiteral("b"));
     QCOMPARE(boldElement.prefix().isNull(), true);
 
     // "world" text
@@ -514,7 +514,7 @@ void TestXmlReaderWithoutSpaces::testText()
     QCOMPARE(worldText.isElement(), false);
     QCOMPARE(worldText.isText(), true);
     QCOMPARE(worldText.isDocument(), false);
-    QCOMPARE(worldText.data(), QString("world"));
+    QCOMPARE(worldText.data(),  QStringLiteral("world"));
     QCOMPARE(KoXml::childNodesCount(worldText), 0);
 }
 
@@ -552,9 +552,9 @@ void TestXmlReaderWithoutSpaces::testCDATA()
     QCOMPARE(parElement.parentNode().toDocument() == doc, true);
     QCOMPARE(parElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(parElement), 2);
-    QCOMPARE(parElement.tagName(), QString("p"));
+    QCOMPARE(parElement.tagName(),  QStringLiteral("p"));
     QCOMPARE(parElement.prefix().isNull(), true);
-    QCOMPARE(parElement.text(), QString("Hello world"));
+    QCOMPARE(parElement.text(),  QStringLiteral("Hello world"));
 
     // node for "Hello"
     KoXmlNode helloNode;
@@ -571,13 +571,13 @@ void TestXmlReaderWithoutSpaces::testCDATA()
     QCOMPARE(helloText.isElement(), false);
     QCOMPARE(helloText.isText(), true);
     QCOMPARE(helloText.isDocument(), false);
-    QCOMPARE(helloText.data(), QString("Hello "));
+    QCOMPARE(helloText.data(),  QStringLiteral("Hello "));
 
     // node for CDATA "world!"
     // Note: isText() is also true for CDATA
     KoXmlNode worldNode;
     worldNode = helloNode.nextSibling();
-    QCOMPARE(worldNode.nodeName(), QString("#cdata-section"));
+    QCOMPARE(worldNode.nodeName(),  QStringLiteral("#cdata-section"));
     QCOMPARE(worldNode.isNull(), false);
     QCOMPARE(worldNode.isElement(), false);
     QCOMPARE(worldNode.isText(), true);
@@ -588,13 +588,13 @@ void TestXmlReaderWithoutSpaces::testCDATA()
     // Note: isText() is also true for CDATA
     KoXmlCDATASection worldCDATA;
     worldCDATA = worldNode.toCDATASection();
-    QCOMPARE(worldCDATA.nodeName(), QString("#cdata-section"));
+    QCOMPARE(worldCDATA.nodeName(),  QStringLiteral("#cdata-section"));
     QCOMPARE(worldCDATA.isNull(), false);
     QCOMPARE(worldCDATA.isElement(), false);
     QCOMPARE(worldCDATA.isText(), true);
     QCOMPARE(worldCDATA.isCDATASection(), true);
     QCOMPARE(worldCDATA.isDocument(), false);
-    QCOMPARE(worldCDATA.data(), QString("world"));
+    QCOMPARE(worldCDATA.data(),  QStringLiteral("world"));
 }
 
 void TestXmlReaderWithoutSpaces::testDocument()
@@ -632,7 +632,7 @@ void TestXmlReaderWithoutSpaces::testDocument()
     QCOMPARE(errorColumn, 0);
 
     // this document has something already
-    QCOMPARE(doc.nodeName(), QString("#document"));
+    QCOMPARE(doc.nodeName(),  QStringLiteral("#document"));
     QCOMPARE(doc.isNull(), false);
     QCOMPARE(doc.isElement(), false);
     QCOMPARE(doc.isDocument(), true);
@@ -728,7 +728,7 @@ void TestXmlReaderWithoutSpaces::testDocumentType()
     QCOMPARE(errorColumn, 0);
 
     // this document has something already
-    QCOMPARE(doc.nodeName(), QString("#document"));
+    QCOMPARE(doc.nodeName(),  QStringLiteral("#document"));
     QCOMPARE(doc.isNull(), false);
     QCOMPARE(doc.isElement(), false);
     QCOMPARE(doc.isDocument(), true);
@@ -740,8 +740,8 @@ void TestXmlReaderWithoutSpaces::testDocumentType()
 
     // the doctype becomes a valid one
     doctype = doc.doctype();
-    QCOMPARE(doctype.nodeName(), QString("html"));
-    QCOMPARE(doctype.name(), QString("html"));
+    QCOMPARE(doctype.nodeName(),  QStringLiteral("html"));
+    QCOMPARE(doctype.name(),  QStringLiteral("html"));
     QCOMPARE(doctype.isNull(), false);
     QCOMPARE(doctype.isElement(), false);
     QCOMPARE(doctype.isDocument(), false);
@@ -795,31 +795,31 @@ void TestXmlReaderWithoutSpaces::testNamespace()
     rootElement = doc.documentElement();
     QCOMPARE(rootElement.isNull(), false);
     QCOMPARE(rootElement.isElement(), true);
-    QCOMPARE(rootElement.tagName(), QString("document"));
+    QCOMPARE(rootElement.tagName(),  QStringLiteral("document"));
     QCOMPARE(rootElement.prefix().isNull(), true);
 
     bookElement = rootElement.firstChild().toElement();
     QCOMPARE(bookElement.isNull(), false);
     QCOMPARE(bookElement.isElement(), true);
-    QCOMPARE(bookElement.tagName(), QString("book"));
+    QCOMPARE(bookElement.tagName(),  QStringLiteral("book"));
     QCOMPARE(bookElement.prefix().isNull(), true);
     QCOMPARE(bookElement.localName(), QString());
 
     bookTitleElement = bookElement.firstChild().toElement();
     QCOMPARE(bookTitleElement.isNull(), false);
     QCOMPARE(bookTitleElement.isElement(), true);
-    QCOMPARE(bookTitleElement.tagName(), QString("book:title"));
+    QCOMPARE(bookTitleElement.tagName(),  QStringLiteral("book:title"));
     QCOMPARE(bookTitleElement.prefix().isNull(), true);
     QCOMPARE(bookTitleElement.localName(), QString());
 
     bookAuthorElement = bookTitleElement.nextSibling().toElement();
     QCOMPARE(bookAuthorElement.isNull(), false);
     QCOMPARE(bookAuthorElement.isElement(), true);
-    QCOMPARE(bookAuthorElement.tagName(), QString("book:author"));
+    QCOMPARE(bookAuthorElement.tagName(),  QStringLiteral("book:author"));
     QCOMPARE(bookAuthorElement.prefix().isNull(), true);
-    QCOMPARE(bookAuthorElement.attribute("title"), QString("Ms"));
-    QCOMPARE(bookAuthorElement.attribute("fnord:title"), QString("Goddess"));
-    QCOMPARE(bookAuthorElement.attribute("name"), QString("Eris Kallisti"));
+    QCOMPARE(bookAuthorElement.attribute("title"),  QStringLiteral("Ms"));
+    QCOMPARE(bookAuthorElement.attribute("fnord:title"),  QStringLiteral("Goddess"));
+    QCOMPARE(bookAuthorElement.attribute("name"),  QStringLiteral("Eris Kallisti"));
 
     // ------------- now with namespace processing -----------
     xmldevice.seek(0); // just to rewind
@@ -837,28 +837,28 @@ void TestXmlReaderWithoutSpaces::testNamespace()
     rootElement = doc.documentElement();
     QCOMPARE(rootElement.isNull(), false);
     QCOMPARE(rootElement.isElement(), true);
-    QCOMPARE(rootElement.tagName(), QString("document"));
+    QCOMPARE(rootElement.tagName(),  QStringLiteral("document"));
     QCOMPARE(rootElement.prefix().isEmpty(), true);
     QCOMPARE(rootElement.namespaceURI(), QString(defaultNS));
-    QCOMPARE(rootElement.localName(), QString("document"));
+    QCOMPARE(rootElement.localName(),  QStringLiteral("document"));
 
     // <book>
     bookElement = rootElement.firstChild().toElement();
     QCOMPARE(bookElement.isNull(), false);
     QCOMPARE(bookElement.isElement(), true);
-    QCOMPARE(bookElement.tagName(), QString("book"));
+    QCOMPARE(bookElement.tagName(),  QStringLiteral("book"));
     QCOMPARE(bookElement.prefix().isEmpty(), true);
     QCOMPARE(bookElement.namespaceURI(), QString(defaultNS));
-    QCOMPARE(bookElement.localName(), QString("book"));
+    QCOMPARE(bookElement.localName(),  QStringLiteral("book"));
 
     // <book:title>
     bookTitleElement = bookElement.firstChild().toElement();
     QCOMPARE(bookTitleElement.isNull(), false);
     QCOMPARE(bookTitleElement.isElement(), true);
-    QCOMPARE(bookTitleElement.tagName(), QString("title"));
-    QCOMPARE(bookTitleElement.prefix(), QString("book"));
+    QCOMPARE(bookTitleElement.tagName(),  QStringLiteral("title"));
+    QCOMPARE(bookTitleElement.prefix(),  QStringLiteral("book"));
     QCOMPARE(bookTitleElement.namespaceURI(), QString(bookNS));
-    QCOMPARE(bookTitleElement.localName(), QString("title"));
+    QCOMPARE(bookTitleElement.localName(),  QStringLiteral("title"));
 
     // another way, find it using namedItemNS()
     KoXmlElement book2TitleElement;
@@ -867,16 +867,16 @@ void TestXmlReaderWithoutSpaces::testNamespace()
     QCOMPARE(book2TitleElement == bookTitleElement, true);
     QCOMPARE(book2TitleElement.isNull(), false);
     QCOMPARE(book2TitleElement.isElement(), true);
-    QCOMPARE(book2TitleElement.tagName(), QString("title"));
+    QCOMPARE(book2TitleElement.tagName(),  QStringLiteral("title"));
 
     // <book:author>
     bookAuthorElement = bookTitleElement.nextSibling().toElement();
     QCOMPARE(bookAuthorElement.isNull(), false);
     QCOMPARE(bookAuthorElement.isElement(), true);
-    QCOMPARE(bookAuthorElement.tagName(), QString("author"));
-    QCOMPARE(bookAuthorElement.prefix(), QString("book"));
+    QCOMPARE(bookAuthorElement.tagName(),  QStringLiteral("author"));
+    QCOMPARE(bookAuthorElement.prefix(),  QStringLiteral("book"));
     QCOMPARE(bookAuthorElement.namespaceURI(), QString(bookNS));
-    QCOMPARE(bookAuthorElement.localName(), QString("author"));
+    QCOMPARE(bookAuthorElement.localName(),  QStringLiteral("author"));
 
     // another way, find it using namedItemNS()
     KoXmlElement book2AuthorElement;
@@ -885,7 +885,7 @@ void TestXmlReaderWithoutSpaces::testNamespace()
     QCOMPARE(book2AuthorElement == bookAuthorElement, true);
     QCOMPARE(book2AuthorElement.isNull(), false);
     QCOMPARE(book2AuthorElement.isElement(), true);
-    QCOMPARE(book2AuthorElement.tagName(), QString("author"));
+    QCOMPARE(book2AuthorElement.tagName(),  QStringLiteral("author"));
 
     // attributes in <book:author>
     // Note: with namespace processing, attribute's prefix is taken out and
@@ -894,9 +894,9 @@ void TestXmlReaderWithoutSpaces::testNamespace()
     QCOMPARE(bookAuthorElement.hasAttribute("title"), true);
     QCOMPARE(bookAuthorElement.hasAttribute("fnord:title"), false);
     QCOMPARE(bookAuthorElement.hasAttribute("name"), true);
-    QCOMPARE(bookAuthorElement.attribute("title"), QString("Goddess"));
+    QCOMPARE(bookAuthorElement.attribute("title"),  QStringLiteral("Goddess"));
     QCOMPARE(bookAuthorElement.attribute("fnord:title").isEmpty(), true);
-    QCOMPARE(bookAuthorElement.attribute("name"), QString("Eris Kallisti"));
+    QCOMPARE(bookAuthorElement.attribute("name"),  QStringLiteral("Eris Kallisti"));
 
     // attributes in <book:author>, with NS family of functions
     // those without prefix are not accessible at all, because they do not belong
@@ -906,9 +906,9 @@ void TestXmlReaderWithoutSpaces::testNamespace()
     QCOMPARE(bookAuthorElement.hasAttributeNS(bookNS, "title"), false);
     QCOMPARE(bookAuthorElement.hasAttributeNS(fnordNS, "title"), true);
 
-    QCOMPARE(bookAuthorElement.attributeNS(defaultNS, "title", ""), QString("Goddess"));
-    QCOMPARE(bookAuthorElement.attributeNS(bookNS, "title", ""), QString(""));
-    QCOMPARE(bookAuthorElement.attributeNS(fnordNS, "title", ""), QString("Goddess"));
+    QCOMPARE(bookAuthorElement.attributeNS(defaultNS, "title", ""),  QStringLiteral("Goddess"));
+    QCOMPARE(bookAuthorElement.attributeNS(bookNS, "title", ""),  QStringLiteral(""));
+    QCOMPARE(bookAuthorElement.attributeNS(fnordNS, "title", ""),  QStringLiteral("Goddess"));
 
     QCOMPARE(bookAuthorElement.hasAttributeNS(defaultNS, "fnord:title"), false);
     QCOMPARE(bookAuthorElement.hasAttributeNS(bookNS, "fnord:title"), false);
@@ -964,28 +964,28 @@ void TestXmlReaderWithoutSpaces::testParseQString()
     rootElement = doc.documentElement();
     QCOMPARE(rootElement.isNull(), false);
     QCOMPARE(rootElement.isElement(), true);
-    QCOMPARE(rootElement.tagName(), QString("document"));
+    QCOMPARE(rootElement.tagName(),  QStringLiteral("document"));
     QCOMPARE(rootElement.prefix().isEmpty(), true);
     QCOMPARE(rootElement.namespaceURI(), QString(defaultNS));
-    QCOMPARE(rootElement.localName(), QString("document"));
+    QCOMPARE(rootElement.localName(),  QStringLiteral("document"));
 
     // <book>
     bookElement = rootElement.firstChild().toElement();
     QCOMPARE(bookElement.isNull(), false);
     QCOMPARE(bookElement.isElement(), true);
-    QCOMPARE(bookElement.tagName(), QString("book"));
+    QCOMPARE(bookElement.tagName(),  QStringLiteral("book"));
     QCOMPARE(bookElement.prefix().isEmpty(), true);
     QCOMPARE(bookElement.namespaceURI(), QString(defaultNS));
-    QCOMPARE(bookElement.localName(), QString("book"));
+    QCOMPARE(bookElement.localName(),  QStringLiteral("book"));
 
     // <book:title>
     bookTitleElement = bookElement.firstChild().toElement();
     QCOMPARE(bookTitleElement.isNull(), false);
     QCOMPARE(bookTitleElement.isElement(), true);
-    QCOMPARE(bookTitleElement.tagName(), QString("title"));
-    QCOMPARE(bookTitleElement.prefix(), QString("book"));
+    QCOMPARE(bookTitleElement.tagName(),  QStringLiteral("title"));
+    QCOMPARE(bookTitleElement.prefix(),  QStringLiteral("book"));
     QCOMPARE(bookTitleElement.namespaceURI(), QString(bookNS));
-    QCOMPARE(bookTitleElement.localName(), QString("title"));
+    QCOMPARE(bookTitleElement.localName(),  QStringLiteral("title"));
 
     // another way, find it using namedItemNS()
     KoXmlElement book2TitleElement;
@@ -994,16 +994,16 @@ void TestXmlReaderWithoutSpaces::testParseQString()
     QCOMPARE(book2TitleElement == bookTitleElement, true);
     QCOMPARE(book2TitleElement.isNull(), false);
     QCOMPARE(book2TitleElement.isElement(), true);
-    QCOMPARE(book2TitleElement.tagName(), QString("title"));
+    QCOMPARE(book2TitleElement.tagName(),  QStringLiteral("title"));
 
     // <book:author>
     bookAuthorElement = bookTitleElement.nextSibling().toElement();
     QCOMPARE(bookAuthorElement.isNull(), false);
     QCOMPARE(bookAuthorElement.isElement(), true);
-    QCOMPARE(bookAuthorElement.tagName(), QString("author"));
-    QCOMPARE(bookAuthorElement.prefix(), QString("book"));
+    QCOMPARE(bookAuthorElement.tagName(),  QStringLiteral("author"));
+    QCOMPARE(bookAuthorElement.prefix(),  QStringLiteral("book"));
     QCOMPARE(bookAuthorElement.namespaceURI(), QString(bookNS));
-    QCOMPARE(bookAuthorElement.localName(), QString("author"));
+    QCOMPARE(bookAuthorElement.localName(),  QStringLiteral("author"));
 
     // another way, find it using namedItemNS()
     KoXmlElement book2AuthorElement;
@@ -1012,7 +1012,7 @@ void TestXmlReaderWithoutSpaces::testParseQString()
     QCOMPARE(book2AuthorElement == bookAuthorElement, true);
     QCOMPARE(book2AuthorElement.isNull(), false);
     QCOMPARE(book2AuthorElement.isElement(), true);
-    QCOMPARE(book2AuthorElement.tagName(), QString("author"));
+    QCOMPARE(book2AuthorElement.tagName(),  QStringLiteral("author"));
 
     // attributes in <book:author>
     // Note: with namespace processing, attribute's prefix is taken out and
@@ -1021,9 +1021,9 @@ void TestXmlReaderWithoutSpaces::testParseQString()
     QCOMPARE(bookAuthorElement.hasAttribute("title"), true);
     QCOMPARE(bookAuthorElement.hasAttribute("fnord:title"), false);
     QCOMPARE(bookAuthorElement.hasAttribute("name"), true);
-    QCOMPARE(bookAuthorElement.attribute("title"), QString("Goddess"));
+    QCOMPARE(bookAuthorElement.attribute("title"),  QStringLiteral("Goddess"));
     QCOMPARE(bookAuthorElement.attribute("fnord:title").isEmpty(), true);
-    QCOMPARE(bookAuthorElement.attribute("name"), QString("Eris Kallisti"));
+    QCOMPARE(bookAuthorElement.attribute("name"),  QStringLiteral("Eris Kallisti"));
 
     // attributes in <book:author>, with NS family of functions
     // those without prefix are not accessible at all, because they do not belong
@@ -1033,9 +1033,9 @@ void TestXmlReaderWithoutSpaces::testParseQString()
     QCOMPARE(bookAuthorElement.hasAttributeNS(bookNS, "title"), false);
     QCOMPARE(bookAuthorElement.hasAttributeNS(fnordNS, "title"), true);
 
-    QCOMPARE(bookAuthorElement.attributeNS(defaultNS, "title", ""), QString("Goddess"));
-    QCOMPARE(bookAuthorElement.attributeNS(bookNS, "title", ""), QString(""));
-    QCOMPARE(bookAuthorElement.attributeNS(fnordNS, "title", ""), QString("Goddess"));
+    QCOMPARE(bookAuthorElement.attributeNS(defaultNS, "title", ""),  QStringLiteral("Goddess"));
+    QCOMPARE(bookAuthorElement.attributeNS(bookNS, "title", ""),  QStringLiteral(""));
+    QCOMPARE(bookAuthorElement.attributeNS(fnordNS, "title", ""),  QStringLiteral("Goddess"));
 
     QCOMPARE(bookAuthorElement.hasAttributeNS(defaultNS, "fnord:title"), false);
     QCOMPARE(bookAuthorElement.hasAttributeNS(bookNS, "fnord:title"), false);
@@ -1089,7 +1089,7 @@ void TestXmlReaderWithoutSpaces::testUnload()
     QCOMPARE(earthElement.parentNode().isNull(), false);
     QCOMPARE(earthElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(earthElement), 2);
-    QCOMPARE(earthElement.tagName(), QString("earth"));
+    QCOMPARE(earthElement.tagName(),  QStringLiteral("earth"));
     QCOMPARE(earthElement.prefix().isNull(), true);
 
     // this ensures that all child nodes of <earth> are loaded
@@ -1100,7 +1100,7 @@ void TestXmlReaderWithoutSpaces::testUnload()
 
     // we should get the correct first child
     KoXmlElement continentsElement = earthElement.firstChild().toElement();
-    QCOMPARE(continentsElement.nodeName(), QString("continents"));
+    QCOMPARE(continentsElement.nodeName(),  QStringLiteral("continents"));
     QCOMPARE(continentsElement.isNull(), false);
     QCOMPARE(continentsElement.isElement(), true);
     QCOMPARE(continentsElement.isText(), false);
@@ -1113,7 +1113,7 @@ void TestXmlReaderWithoutSpaces::testUnload()
 
     // we should get the correct last child
     KoXmlElement oceansElement = earthElement.lastChild().toElement();
-    QCOMPARE(oceansElement.nodeName(), QString("oceans"));
+    QCOMPARE(oceansElement.nodeName(),  QStringLiteral("oceans"));
     QCOMPARE(oceansElement.isNull(), false);
     QCOMPARE(oceansElement.isElement(), true);
     QCOMPARE(oceansElement.isText(), false);
@@ -1156,7 +1156,7 @@ void TestXmlReaderWithoutSpaces::testSimpleXML()
     QCOMPARE(rootElement.parentNode().isNull(), false);
     QCOMPARE(rootElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(rootElement), 5);
-    QCOMPARE(rootElement.tagName(), QString("solarsystem"));
+    QCOMPARE(rootElement.tagName(),  QStringLiteral("solarsystem"));
     QCOMPARE(rootElement.prefix().isNull(), true);
 
     // node <mercurius>
@@ -1185,7 +1185,7 @@ void TestXmlReaderWithoutSpaces::testSimpleXML()
     QCOMPARE(KoXml::childNodesCount(firstPlanetNode), 0);
     QCOMPARE(firstPlanetElement.firstChild().isNull(), true);
     QCOMPARE(firstPlanetElement.lastChild().isNull(), true);
-    QCOMPARE(firstPlanetElement.tagName(), QString("mercurius"));
+    QCOMPARE(firstPlanetElement.tagName(),  QStringLiteral("mercurius"));
     QCOMPARE(firstPlanetElement.prefix().isNull(), true);
 
     // node <venus>
@@ -1221,7 +1221,7 @@ void TestXmlReaderWithoutSpaces::testSimpleXML()
     QCOMPARE(KoXml::childNodesCount(secondPlanetNode), 0);
     QCOMPARE(secondPlanetElement.firstChild().isNull(), true);
     QCOMPARE(secondPlanetElement.lastChild().isNull(), true);
-    QCOMPARE(secondPlanetElement.tagName(), QString("venus"));
+    QCOMPARE(secondPlanetElement.tagName(),  QStringLiteral("venus"));
     QCOMPARE(secondPlanetElement.prefix().isNull(), true);
 }
 
@@ -1268,7 +1268,7 @@ void TestXmlReaderWithoutSpaces::testMismatchedTag()
 
 static void dumpNodes(const KoXmlNode &node, int level=0)
 {
-    QString indent = QString("%1").arg("", level*3);
+    QString indent =  QStringLiteral("%1").arg("", level*3);
     if (node.isNull()) {
         qDebug()<<indent<<"null";
     }
@@ -1280,7 +1280,7 @@ static void dumpNodes(const KoXmlNode &node, int level=0)
 }
 static void dumpNodes(const QDomNode &node, int level=0)
 {
-    QString indent = QString("%1").arg("", level*3);
+    QString indent =  QStringLiteral("%1").arg("", level*3);
     if (node.isNull()) {
         qDebug()<<indent<<"null";
     }
@@ -1325,7 +1325,7 @@ void TestXmlReaderWithoutSpaces::testConvertQDomDocument()
     QCOMPARE(rootElement.parentNode().isNull(), false);
     QCOMPARE(rootElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(rootElement), 5);
-    QCOMPARE(rootElement.tagName(), QString("solarsystem"));
+    QCOMPARE(rootElement.tagName(),  QStringLiteral("solarsystem"));
     QCOMPARE(rootElement.prefix().isNull(), true);
 
     // now test converting KoXmlDocument to QDomDocument
@@ -1337,7 +1337,7 @@ void TestXmlReaderWithoutSpaces::testConvertQDomDocument()
     QCOMPARE(solarSystemElement.isElement(), true);
     QCOMPARE(solarSystemElement.parentNode().isNull(), false);
     QCOMPARE(solarSystemElement.hasChildNodes(), true);
-    QCOMPARE(solarSystemElement.tagName(), QString("solarsystem"));
+    QCOMPARE(solarSystemElement.tagName(),  QStringLiteral("solarsystem"));
     QCOMPARE(solarSystemElement.prefix().isNull(), true);
 
     // <earth>
@@ -1347,7 +1347,7 @@ void TestXmlReaderWithoutSpaces::testConvertQDomDocument()
     QCOMPARE(earthElement.parentNode().isNull(), false);
     QCOMPARE(earthElement.hasAttribute("habitable"), true);
     QCOMPARE(earthElement.hasChildNodes(), true);
-    QCOMPARE(earthElement.tagName(), QString("earth"));
+    QCOMPARE(earthElement.tagName(),  QStringLiteral("earth"));
     QCOMPARE(earthElement.prefix().isNull(), true);
 
     // <p> in <earth>
@@ -1356,7 +1356,7 @@ void TestXmlReaderWithoutSpaces::testConvertQDomDocument()
     dumpNodes(placeNode);
     QCOMPARE(placeNode.isNull(), false);
     QCOMPARE(placeNode.isElement(), true);
-    QCOMPARE(placeNode.toElement().text(), QString("The best place"));
+    QCOMPARE(placeNode.toElement().text(),  QStringLiteral("The best place"));
     QCOMPARE(placeNode.nextSibling().isNull(), false);
     QCOMPARE(placeNode.previousSibling().isNull(), true);
     QCOMPARE(placeNode.parentNode().isNull(), false);
@@ -1403,7 +1403,7 @@ void TestXmlReaderWithoutSpaces::testConvertQDomElement()
     QCOMPARE(rootElement.parentNode().isNull(), false);
     QCOMPARE(rootElement.hasChildNodes(), true);
     QCOMPARE(KoXml::childNodesCount(rootElement), 1);
-    QCOMPARE(rootElement.tagName(), QString("universe"));
+    QCOMPARE(rootElement.tagName(),  QStringLiteral("universe"));
     QCOMPARE(rootElement.prefix().isNull(), true);
 
     // now test converting KoXmlElement to QDomElement
@@ -1416,7 +1416,7 @@ void TestXmlReaderWithoutSpaces::testConvertQDomElement()
     QCOMPARE(solarSystemElement.isElement(), true);
     QCOMPARE(solarSystemElement.parentNode().isNull(), false);
     QCOMPARE(solarSystemElement.hasChildNodes(), true);
-    QCOMPARE(solarSystemElement.tagName(), QString("solarsystem"));
+    QCOMPARE(solarSystemElement.tagName(),  QStringLiteral("solarsystem"));
     QCOMPARE(solarSystemElement.prefix().isNull(), true);
 
     // <earth>
@@ -1426,14 +1426,14 @@ void TestXmlReaderWithoutSpaces::testConvertQDomElement()
     QCOMPARE(earthElement.parentNode().isNull(), false);
     QCOMPARE(earthElement.hasAttribute("habitable"), true);
     QCOMPARE(earthElement.hasChildNodes(), true);
-    QCOMPARE(earthElement.tagName(), QString("earth"));
+    QCOMPARE(earthElement.tagName(),  QStringLiteral("earth"));
     QCOMPARE(earthElement.prefix().isNull(), true);
 
     // <p> in <earth>
     QDomNode placeNode = earthElement.firstChild();
     QCOMPARE(placeNode.isNull(), false);
     QCOMPARE(placeNode.isElement(), true);
-    QCOMPARE(placeNode.toElement().text(), QString("The best place"));
+    QCOMPARE(placeNode.toElement().text(),  QStringLiteral("The best place"));
     QCOMPARE(placeNode.nextSibling().isNull(), false);
     QCOMPARE(placeNode.previousSibling().isNull(), true);
     QCOMPARE(placeNode.parentNode().isNull(), false);
@@ -1494,9 +1494,9 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentText()
     QCOMPARE(contentElement.lastChild().isNull(), false);
     QCOMPARE(contentElement.previousSibling().isNull(), false);
     QCOMPARE(contentElement.nextSibling().isNull(), true);
-    QCOMPARE(contentElement.localName(), QString("document-content"));
+    QCOMPARE(contentElement.localName(),  QStringLiteral("document-content"));
     QCOMPARE(contentElement.hasAttributeNS(officeNS, "version"), true);
-    QCOMPARE(contentElement.attributeNS(officeNS, "version", ""), QString("1.0"));
+    QCOMPARE(contentElement.attributeNS(officeNS, "version", ""),  QStringLiteral("1.0"));
 
     // <office:automatic-styles>
     KoXmlElement stylesElement;
@@ -1510,7 +1510,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentText()
     QCOMPARE(stylesElement.lastChild().isNull(), true);
     QCOMPARE(stylesElement.previousSibling().isNull(), true);
     QCOMPARE(stylesElement.nextSibling().isNull(), false);
-    QCOMPARE(stylesElement.localName(), QString("automatic-styles"));
+    QCOMPARE(stylesElement.localName(),  QStringLiteral("automatic-styles"));
 
     // also same <office:automatic-styles>, but without namedItemNS
     KoXmlNode styles2Element;
@@ -1524,7 +1524,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentText()
     QCOMPARE(styles2Element.lastChild().isNull(), true);
     QCOMPARE(styles2Element.previousSibling().isNull(), true);
     QCOMPARE(styles2Element.nextSibling().isNull(), false);
-    QCOMPARE(styles2Element.localName(), QString("automatic-styles"));
+    QCOMPARE(styles2Element.localName(),  QStringLiteral("automatic-styles"));
 
     // <office:body>
     KoXmlElement bodyElement;
@@ -1538,7 +1538,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentText()
     QCOMPARE(bodyElement.lastChild().isNull(), false);
     QCOMPARE(bodyElement.previousSibling().isNull(), false);
     QCOMPARE(bodyElement.nextSibling().isNull(), true);
-    QCOMPARE(bodyElement.localName(), QString("body"));
+    QCOMPARE(bodyElement.localName(),  QStringLiteral("body"));
 
     // also same <office:body>, but without namedItemNS
     KoXmlElement body2Element;
@@ -1552,7 +1552,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentText()
     QCOMPARE(body2Element.lastChild().isNull(), false);
     QCOMPARE(body2Element.previousSibling().isNull(), false);
     QCOMPARE(body2Element.nextSibling().isNull(), true);
-    QCOMPARE(body2Element.localName(), QString("body"));
+    QCOMPARE(body2Element.localName(),  QStringLiteral("body"));
 
     // <office:text>
     KoXmlElement textElement;
@@ -1566,7 +1566,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentText()
     QCOMPARE(textElement.lastChild().isNull(), false);
     QCOMPARE(textElement.previousSibling().isNull(), true);
     QCOMPARE(textElement.nextSibling().isNull(), true);
-    QCOMPARE(textElement.localName(), QString("text"));
+    QCOMPARE(textElement.localName(),  QStringLiteral("text"));
 
     // the same <office:text>, but without namedItemNS
     KoXmlElement text2Element;
@@ -1580,7 +1580,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentText()
     QCOMPARE(text2Element.lastChild().isNull(), false);
     QCOMPARE(text2Element.previousSibling().isNull(), true);
     QCOMPARE(text2Element.nextSibling().isNull(), true);
-    QCOMPARE(text2Element.localName(), QString("text"));
+    QCOMPARE(text2Element.localName(),  QStringLiteral("text"));
 
     // <text:p>
     KoXmlElement parElement;
@@ -1594,9 +1594,9 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentText()
     QCOMPARE(parElement.lastChild().isNull(), false);
     QCOMPARE(parElement.previousSibling().isNull(), true);
     QCOMPARE(parElement.nextSibling().isNull(), true);
-    QCOMPARE(parElement.tagName(), QString("p"));
-    QCOMPARE(parElement.text(), QString("Hello, world!"));
-    QCOMPARE(parElement.attributeNS(QString(textNS), "style-name", ""), QString("Standard"));
+    QCOMPARE(parElement.tagName(),  QStringLiteral("p"));
+    QCOMPARE(parElement.text(),  QStringLiteral("Hello, world!"));
+    QCOMPARE(parElement.attributeNS(QString(textNS), "style-name", ""),  QStringLiteral("Standard"));
 }
 
 void TestXmlReaderWithoutSpaces::testWhitespace()
@@ -1717,7 +1717,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(contentElement.lastChild().isNull(), false);
     QCOMPARE(contentElement.previousSibling().isNull(), false);
     QCOMPARE(contentElement.nextSibling().isNull(), true);
-    QCOMPARE(contentElement.localName(), QString("document-content"));
+    QCOMPARE(contentElement.localName(),  QStringLiteral("document-content"));
 
     // <office:body>
     KoXmlElement bodyElement;
@@ -1731,7 +1731,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(bodyElement.lastChild().isNull(), false);
     QCOMPARE(bodyElement.previousSibling().isNull(), true);
     QCOMPARE(bodyElement.nextSibling().isNull(), true);
-    QCOMPARE(bodyElement.localName(), QString("body"));
+    QCOMPARE(bodyElement.localName(),  QStringLiteral("body"));
 
     // <office:spreadsheet>
     KoXmlElement spreadsheetElement;
@@ -1745,7 +1745,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(spreadsheetElement.lastChild().isNull(), false);
     QCOMPARE(spreadsheetElement.previousSibling().isNull(), true);
     QCOMPARE(spreadsheetElement.nextSibling().isNull(), true);
-    QCOMPARE(spreadsheetElement.localName(), QString("spreadsheet"));
+    QCOMPARE(spreadsheetElement.localName(),  QStringLiteral("spreadsheet"));
 
     // <table:table> for Sheet1
     KoXmlElement sheet1Element;
@@ -1759,11 +1759,11 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(sheet1Element.lastChild().isNull(), false);
     QCOMPARE(sheet1Element.previousSibling().isNull(), true);
     QCOMPARE(sheet1Element.nextSibling().isNull(), false);
-    QCOMPARE(sheet1Element.tagName(), QString("table"));
+    QCOMPARE(sheet1Element.tagName(),  QStringLiteral("table"));
     QCOMPARE(sheet1Element.hasAttributeNS(tableNS, "name"), true);
-    QCOMPARE(sheet1Element.attributeNS(tableNS, "name", ""), QString("Sheet1"));
-    QCOMPARE(sheet1Element.attributeNS(tableNS, "style-name", ""), QString("ta1"));
-    QCOMPARE(sheet1Element.attributeNS(tableNS, "print", ""), QString("false"));
+    QCOMPARE(sheet1Element.attributeNS(tableNS, "name", ""),  QStringLiteral("Sheet1"));
+    QCOMPARE(sheet1Element.attributeNS(tableNS, "style-name", ""),  QStringLiteral("ta1"));
+    QCOMPARE(sheet1Element.attributeNS(tableNS, "print", ""),  QStringLiteral("false"));
 
     //  KoXml::load(sheet1Element, 100);
 
@@ -1779,9 +1779,9 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(columnElement.lastChild().isNull(), true);
     QCOMPARE(columnElement.previousSibling().isNull(), true);
     QCOMPARE(columnElement.nextSibling().isNull(), false);
-    QCOMPARE(columnElement.tagName(), QString("table-column"));
-    QCOMPARE(columnElement.attributeNS(tableNS, "style-name", ""), QString("co1"));
-    QCOMPARE(columnElement.attributeNS(tableNS, "default-cell-style-name", ""), QString("Default"));
+    QCOMPARE(columnElement.tagName(),  QStringLiteral("table-column"));
+    QCOMPARE(columnElement.attributeNS(tableNS, "style-name", ""),  QStringLiteral("co1"));
+    QCOMPARE(columnElement.attributeNS(tableNS, "default-cell-style-name", ""),  QStringLiteral("Default"));
 
     // <table:table-row>
     KoXmlElement rowElement;
@@ -1795,8 +1795,8 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(rowElement.lastChild().isNull(), false);
     QCOMPARE(rowElement.previousSibling().isNull(), false);
     QCOMPARE(rowElement.nextSibling().isNull(), true);
-    QCOMPARE(rowElement.tagName(), QString("table-row"));
-    QCOMPARE(rowElement.attributeNS(tableNS, "style-name", ""), QString("ro1"));
+    QCOMPARE(rowElement.tagName(),  QStringLiteral("table-row"));
+    QCOMPARE(rowElement.attributeNS(tableNS, "style-name", ""),  QStringLiteral("ro1"));
 
     // <table:table-cell>
     KoXmlElement cellElement;
@@ -1810,8 +1810,8 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(cellElement.lastChild().isNull(), false);
     QCOMPARE(cellElement.previousSibling().isNull(), true);
     QCOMPARE(cellElement.nextSibling().isNull(), true);
-    QCOMPARE(cellElement.tagName(), QString("table-cell"));
-    QCOMPARE(cellElement.attributeNS(officeNS, "value-type", ""), QString("string"));
+    QCOMPARE(cellElement.tagName(),  QStringLiteral("table-cell"));
+    QCOMPARE(cellElement.attributeNS(officeNS, "value-type", ""),  QStringLiteral("string"));
 
     // <text:p>
     KoXmlElement parElement;
@@ -1825,8 +1825,8 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(parElement.lastChild().isNull(), false);
     QCOMPARE(parElement.previousSibling().isNull(), true);
     QCOMPARE(parElement.nextSibling().isNull(), true);
-    QCOMPARE(parElement.tagName(), QString("p"));
-    QCOMPARE(parElement.text(), QString("Hello, world"));
+    QCOMPARE(parElement.tagName(),  QStringLiteral("p"));
+    QCOMPARE(parElement.text(),  QStringLiteral("Hello, world"));
 
     // <table:table> for Sheet2
     KoXmlElement sheet2Element;
@@ -1840,7 +1840,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(sheet2Element.lastChild().isNull(), false);
     QCOMPARE(sheet2Element.previousSibling().isNull(), false);
     QCOMPARE(sheet2Element.nextSibling().isNull(), false);
-    QCOMPARE(sheet2Element.tagName(), QString("table"));
+    QCOMPARE(sheet2Element.tagName(),  QStringLiteral("table"));
 
     // </table:table> for Sheet3
     KoXmlElement sheet3Element;
@@ -1854,7 +1854,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentSpreadsheet()
     QCOMPARE(sheet3Element.lastChild().isNull(), false);
     QCOMPARE(sheet3Element.previousSibling().isNull(), false);
     QCOMPARE(sheet3Element.nextSibling().isNull(), true);
-    QCOMPARE(sheet3Element.tagName(), QString("table"));
+    QCOMPARE(sheet3Element.tagName(),  QStringLiteral("table"));
 }
 
 void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
@@ -1944,9 +1944,9 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(contentElement.lastChild().isNull(), false);
     QCOMPARE(contentElement.previousSibling().isNull(), false);
     QCOMPARE(contentElement.nextSibling().isNull(), true);
-    QCOMPARE(contentElement.localName(), QString("document-content"));
+    QCOMPARE(contentElement.localName(),  QStringLiteral("document-content"));
     QCOMPARE(contentElement.hasAttributeNS(officeNS, "version"), true);
-    QCOMPARE(contentElement.attributeNS(officeNS, "version", ""), QString("1.0"));
+    QCOMPARE(contentElement.attributeNS(officeNS, "version", ""),  QStringLiteral("1.0"));
 
     // <office:scripts>
     KoXmlElement scriptsElement;
@@ -1960,7 +1960,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(scriptsElement.lastChild().isNull(), true);
     QCOMPARE(scriptsElement.previousSibling().isNull(), true);
     QCOMPARE(scriptsElement.nextSibling().isNull(), false);
-    QCOMPARE(scriptsElement.localName(), QString("scripts"));
+    QCOMPARE(scriptsElement.localName(),  QStringLiteral("scripts"));
 
     // <office:automatic-styles>
     KoXmlElement stylesElement;
@@ -1974,7 +1974,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(stylesElement.lastChild().isNull(), true);
     QCOMPARE(stylesElement.previousSibling().isNull(), false);
     QCOMPARE(stylesElement.nextSibling().isNull(), false);
-    QCOMPARE(stylesElement.localName(), QString("automatic-styles"));
+    QCOMPARE(stylesElement.localName(),  QStringLiteral("automatic-styles"));
 
     // also same <office:automatic-styles>, but without namedItemNS
     KoXmlNode styles2Element;
@@ -1988,7 +1988,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(styles2Element.lastChild().isNull(), true);
     QCOMPARE(styles2Element.previousSibling().isNull(), false);
     QCOMPARE(styles2Element.nextSibling().isNull(), false);
-    QCOMPARE(styles2Element.localName(), QString("automatic-styles"));
+    QCOMPARE(styles2Element.localName(),  QStringLiteral("automatic-styles"));
 
     // <office:body>
     KoXmlElement bodyElement;
@@ -2002,7 +2002,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(bodyElement.lastChild().isNull(), false);
     QCOMPARE(bodyElement.previousSibling().isNull(), false);
     QCOMPARE(bodyElement.nextSibling().isNull(), true);
-    QCOMPARE(bodyElement.localName(), QString("body"));
+    QCOMPARE(bodyElement.localName(),  QStringLiteral("body"));
 
     // also same <office:body>, but without namedItemNS
     KoXmlElement body2Element;
@@ -2016,7 +2016,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(body2Element.lastChild().isNull(), false);
     QCOMPARE(body2Element.previousSibling().isNull(), false);
     QCOMPARE(body2Element.nextSibling().isNull(), true);
-    QCOMPARE(body2Element.localName(), QString("body"));
+    QCOMPARE(body2Element.localName(),  QStringLiteral("body"));
 
     // <office:presentation>
     KoXmlElement presentationElement;
@@ -2030,7 +2030,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(presentationElement.lastChild().isNull(), false);
     QCOMPARE(presentationElement.previousSibling().isNull(), true);
     QCOMPARE(presentationElement.nextSibling().isNull(), true);
-    QCOMPARE(presentationElement.localName(), QString("presentation"));
+    QCOMPARE(presentationElement.localName(),  QStringLiteral("presentation"));
 
     // the same <office:presentation>, but without namedItemNS
     KoXmlElement presentation2Element;
@@ -2044,7 +2044,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(presentation2Element.lastChild().isNull(), false);
     QCOMPARE(presentation2Element.previousSibling().isNull(), true);
     QCOMPARE(presentation2Element.nextSibling().isNull(), true);
-    QCOMPARE(presentation2Element.localName(), QString("presentation"));
+    QCOMPARE(presentation2Element.localName(),  QStringLiteral("presentation"));
 
     // <draw:page> for "Title"
     KoXmlElement titlePageElement;
@@ -2058,12 +2058,12 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(titlePageElement.lastChild().isNull(), false);
     QCOMPARE(titlePageElement.previousSibling().isNull(), true);
     QCOMPARE(titlePageElement.nextSibling().isNull(), false);
-    QCOMPARE(titlePageElement.localName(), QString("page"));
-    QCOMPARE(titlePageElement.attributeNS(drawNS, "name", ""), QString("Title"));
-    QCOMPARE(titlePageElement.attributeNS(drawNS, "style-name", ""), QString("dp1"));
-    QCOMPARE(titlePageElement.attributeNS(drawNS, "master-page-name", ""), QString("lyt-cool"));
+    QCOMPARE(titlePageElement.localName(),  QStringLiteral("page"));
+    QCOMPARE(titlePageElement.attributeNS(drawNS, "name", ""),  QStringLiteral("Title"));
+    QCOMPARE(titlePageElement.attributeNS(drawNS, "style-name", ""),  QStringLiteral("dp1"));
+    QCOMPARE(titlePageElement.attributeNS(drawNS, "master-page-name", ""),  QStringLiteral("lyt-cool"));
     QCOMPARE(titlePageElement.attributeNS(presentationNS,
-                                       "presentation-page-layout-name", ""), QString("AL1T0"));
+                                       "presentation-page-layout-name", ""),  QStringLiteral("AL1T0"));
 
     // <draw:frame> for the title frame
     KoXmlElement titleFrameElement;
@@ -2077,16 +2077,16 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(titleFrameElement.lastChild().isNull(), false);
     QCOMPARE(titleFrameElement.previousSibling().isNull(), true);
     QCOMPARE(titleFrameElement.nextSibling().isNull(), false);
-    QCOMPARE(titleFrameElement.localName(), QString("frame"));
-    QCOMPARE(titleFrameElement.attributeNS(presentationNS, "style-name", ""), QString("pr1"));
-    QCOMPARE(titleFrameElement.attributeNS(presentationNS, "class", ""), QString("title"));
-    QCOMPARE(titleFrameElement.attributeNS(presentationNS, "user-transformed", ""), QString("true"));
-    QCOMPARE(titleFrameElement.attributeNS(drawNS, "text-style-name", ""), QString("P2"));
-    QCOMPARE(titleFrameElement.attributeNS(drawNS, "layer", ""), QString("layout"));
-    QCOMPARE(titleFrameElement.attributeNS(svgNS, "width", ""), QString("23.912cm"));
-    QCOMPARE(titleFrameElement.attributeNS(svgNS, "height", ""), QString("3.508cm"));
-    QCOMPARE(titleFrameElement.attributeNS(svgNS, "x", ""), QString("2.058cm"));
-    QCOMPARE(titleFrameElement.attributeNS(svgNS, "y", ""), QString("1.543cm"));
+    QCOMPARE(titleFrameElement.localName(),  QStringLiteral("frame"));
+    QCOMPARE(titleFrameElement.attributeNS(presentationNS, "style-name", ""),  QStringLiteral("pr1"));
+    QCOMPARE(titleFrameElement.attributeNS(presentationNS, "class", ""),  QStringLiteral("title"));
+    QCOMPARE(titleFrameElement.attributeNS(presentationNS, "user-transformed", ""),  QStringLiteral("true"));
+    QCOMPARE(titleFrameElement.attributeNS(drawNS, "text-style-name", ""),  QStringLiteral("P2"));
+    QCOMPARE(titleFrameElement.attributeNS(drawNS, "layer", ""),  QStringLiteral("layout"));
+    QCOMPARE(titleFrameElement.attributeNS(svgNS, "width", ""),  QStringLiteral("23.912cm"));
+    QCOMPARE(titleFrameElement.attributeNS(svgNS, "height", ""),  QStringLiteral("3.508cm"));
+    QCOMPARE(titleFrameElement.attributeNS(svgNS, "x", ""),  QStringLiteral("2.058cm"));
+    QCOMPARE(titleFrameElement.attributeNS(svgNS, "y", ""),  QStringLiteral("1.543cm"));
 
     // <draw:text-box> of the title frame
     KoXmlElement titleBoxElement;
@@ -2100,7 +2100,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(titleBoxElement.lastChild().isNull(), false);
     QCOMPARE(titleBoxElement.previousSibling().isNull(), true);
     QCOMPARE(titleBoxElement.nextSibling().isNull(), true);
-    QCOMPARE(titleBoxElement.localName(), QString("text-box"));
+    QCOMPARE(titleBoxElement.localName(),  QStringLiteral("text-box"));
 
     // <text:p> for the title text-box
     KoXmlElement titleParElement;
@@ -2114,9 +2114,9 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(titleParElement.lastChild().isNull(), false);
     QCOMPARE(titleParElement.previousSibling().isNull(), true);
     QCOMPARE(titleParElement.nextSibling().isNull(), true);
-    QCOMPARE(titleParElement.localName(), QString("p"));
-    QCOMPARE(titleParElement.attributeNS(textNS, "style-name", ""), QString("P1"));
-    QCOMPARE(titleParElement.text(), QString("Foobar"));
+    QCOMPARE(titleParElement.localName(),  QStringLiteral("p"));
+    QCOMPARE(titleParElement.attributeNS(textNS, "style-name", ""),  QStringLiteral("P1"));
+    QCOMPARE(titleParElement.text(),  QStringLiteral("Foobar"));
 
     // <draw:frame> for the subtitle frame
     KoXmlElement subtitleFrameElement;
@@ -2130,16 +2130,16 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(subtitleFrameElement.lastChild().isNull(), false);
     QCOMPARE(subtitleFrameElement.previousSibling().isNull(), false);
     QCOMPARE(subtitleFrameElement.nextSibling().isNull(), false);
-    QCOMPARE(subtitleFrameElement.localName(), QString("frame"));
-    QCOMPARE(subtitleFrameElement.attributeNS(presentationNS, "style-name", ""), QString("pr2"));
-    QCOMPARE(subtitleFrameElement.attributeNS(presentationNS, "class", ""), QString("subtitle"));
+    QCOMPARE(subtitleFrameElement.localName(),  QStringLiteral("frame"));
+    QCOMPARE(subtitleFrameElement.attributeNS(presentationNS, "style-name", ""),  QStringLiteral("pr2"));
+    QCOMPARE(subtitleFrameElement.attributeNS(presentationNS, "class", ""),  QStringLiteral("subtitle"));
     QCOMPARE(subtitleFrameElement.hasAttributeNS(presentationNS, "user-transformed"), false);
-    QCOMPARE(subtitleFrameElement.attributeNS(drawNS, "text-style-name", ""), QString("P3"));
-    QCOMPARE(subtitleFrameElement.attributeNS(drawNS, "layer", ""), QString("layout"));
-    QCOMPARE(subtitleFrameElement.attributeNS(svgNS, "width", ""), QString("23.912cm"));
-    QCOMPARE(subtitleFrameElement.attributeNS(svgNS, "height", ""), QString("13.231cm"));
-    QCOMPARE(subtitleFrameElement.attributeNS(svgNS, "x", ""), QString("2.058cm"));
-    QCOMPARE(subtitleFrameElement.attributeNS(svgNS, "y", ""), QString("5.838cm"));
+    QCOMPARE(subtitleFrameElement.attributeNS(drawNS, "text-style-name", ""),  QStringLiteral("P3"));
+    QCOMPARE(subtitleFrameElement.attributeNS(drawNS, "layer", ""),  QStringLiteral("layout"));
+    QCOMPARE(subtitleFrameElement.attributeNS(svgNS, "width", ""),  QStringLiteral("23.912cm"));
+    QCOMPARE(subtitleFrameElement.attributeNS(svgNS, "height", ""),  QStringLiteral("13.231cm"));
+    QCOMPARE(subtitleFrameElement.attributeNS(svgNS, "x", ""),  QStringLiteral("2.058cm"));
+    QCOMPARE(subtitleFrameElement.attributeNS(svgNS, "y", ""),  QStringLiteral("5.838cm"));
 
     // <draw:text-box> of the subtitle frame
     KoXmlElement subtitleBoxElement;
@@ -2153,7 +2153,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(subtitleBoxElement.lastChild().isNull(), false);
     QCOMPARE(subtitleBoxElement.previousSibling().isNull(), true);
     QCOMPARE(subtitleBoxElement.nextSibling().isNull(), true);
-    QCOMPARE(subtitleBoxElement.localName(), QString("text-box"));
+    QCOMPARE(subtitleBoxElement.localName(),  QStringLiteral("text-box"));
 
     // <text:p> for the subtitle text-box
     KoXmlElement subtitleParElement;
@@ -2167,9 +2167,9 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentPresentation()
     QCOMPARE(subtitleParElement.lastChild().isNull(), false);
     QCOMPARE(subtitleParElement.previousSibling().isNull(), true);
     QCOMPARE(subtitleParElement.nextSibling().isNull(), true);
-    QCOMPARE(subtitleParElement.localName(), QString("p"));
-    QCOMPARE(subtitleParElement.attributeNS(textNS, "style-name", ""), QString("P3"));
-    QCOMPARE(subtitleParElement.text(), QString("Foo"));
+    QCOMPARE(subtitleParElement.localName(),  QStringLiteral("p"));
+    QCOMPARE(subtitleParElement.attributeNS(textNS, "style-name", ""),  QStringLiteral("P3"));
+    QCOMPARE(subtitleParElement.text(),  QStringLiteral("Foo"));
 }
 
 void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
@@ -2220,7 +2220,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(mathElement.lastChild().isNull(), false);
     QCOMPARE(mathElement.previousSibling().isNull(), false);
     QCOMPARE(mathElement.nextSibling().isNull(), true);
-    QCOMPARE(mathElement.localName(), QString("math"));
+    QCOMPARE(mathElement.localName(),  QStringLiteral("math"));
 
     // <math:semantics>
     KoXmlElement semanticsElement;
@@ -2233,7 +2233,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(semanticsElement.lastChild().isNull(), false);
     QCOMPARE(semanticsElement.previousSibling().isNull(), true);
     QCOMPARE(semanticsElement.nextSibling().isNull(), true);
-    QCOMPARE(semanticsElement.localName(), QString("semantics"));
+    QCOMPARE(semanticsElement.localName(),  QStringLiteral("semantics"));
 
     // the same <math:semantics> but without namedItemNS
     KoXmlElement semantics2Element;
@@ -2246,7 +2246,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(semantics2Element.lastChild().isNull(), false);
     QCOMPARE(semantics2Element.previousSibling().isNull(), true);
     QCOMPARE(semantics2Element.nextSibling().isNull(), true);
-    QCOMPARE(semantics2Element.localName(), QString("semantics"));
+    QCOMPARE(semantics2Element.localName(),  QStringLiteral("semantics"));
 
     // <math:mrow>
     KoXmlElement mrowElement;
@@ -2259,7 +2259,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(mrowElement.lastChild().isNull(), false);
     QCOMPARE(mrowElement.previousSibling().isNull(), true);
     QCOMPARE(mrowElement.nextSibling().isNull(), false);
-    QCOMPARE(mrowElement.localName(), QString("mrow"));
+    QCOMPARE(mrowElement.localName(),  QStringLiteral("mrow"));
 
     // <math:mi> for "E"
     KoXmlElement miElement;
@@ -2272,7 +2272,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(miElement.lastChild().isNull(), false);
     QCOMPARE(miElement.previousSibling().isNull(), true);
     QCOMPARE(miElement.nextSibling().isNull(), false);
-    QCOMPARE(miElement.localName(), QString("mi"));
+    QCOMPARE(miElement.localName(),  QStringLiteral("mi"));
 
     // <math:mo> for "="
     KoXmlElement moElement;
@@ -2285,8 +2285,8 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(moElement.lastChild().isNull(), false);
     QCOMPARE(moElement.previousSibling().isNull(), false);
     QCOMPARE(moElement.nextSibling().isNull(), false);
-    QCOMPARE(moElement.localName(), QString("mo"));
-    QCOMPARE(moElement.attributeNS(mathNS, "stretchy", ""), QString("false"));
+    QCOMPARE(moElement.localName(),  QStringLiteral("mo"));
+    QCOMPARE(moElement.attributeNS(mathNS, "stretchy", ""),  QStringLiteral("false"));
 
     // <math:msup> for "mc" and superscripted "2"
     KoXmlElement msupElement;
@@ -2299,7 +2299,7 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(msupElement.lastChild().isNull(), false);
     QCOMPARE(msupElement.previousSibling().isNull(), false);
     QCOMPARE(msupElement.nextSibling().isNull(), true);
-    QCOMPARE(msupElement.localName(), QString("msup"));
+    QCOMPARE(msupElement.localName(),  QStringLiteral("msup"));
 
     // <math:mi> inside the <math:msup> for "mc"
     KoXmlElement mcElement;
@@ -2312,9 +2312,9 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(mcElement.lastChild().isNull(), false);
     QCOMPARE(mcElement.previousSibling().isNull(), true);
     QCOMPARE(mcElement.nextSibling().isNull(), false);
-    QCOMPARE(mcElement.localName(), QString("mi"));
-    QCOMPARE(mcElement.text(), QString("mc"));
-    QCOMPARE(mcElement.attributeNS(mathNS, "fontstyle", ""), QString("italic"));
+    QCOMPARE(mcElement.localName(),  QStringLiteral("mi"));
+    QCOMPARE(mcElement.text(),  QStringLiteral("mc"));
+    QCOMPARE(mcElement.attributeNS(mathNS, "fontstyle", ""),  QStringLiteral("italic"));
 
     // <math:mn> inside the <math:msup> for "2" (superscript)
     KoXmlElement mnElement;
@@ -2327,8 +2327,8 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(mnElement.lastChild().isNull(), false);
     QCOMPARE(mnElement.previousSibling().isNull(), false);
     QCOMPARE(mnElement.nextSibling().isNull(), true);
-    QCOMPARE(mnElement.localName(), QString("mn"));
-    QCOMPARE(mnElement.text(), QString("2"));
+    QCOMPARE(mnElement.localName(),  QStringLiteral("mn"));
+    QCOMPARE(mnElement.text(),  QStringLiteral("2"));
 
     // <math:annotation>
     KoXmlElement annotationElement;
@@ -2341,9 +2341,9 @@ void TestXmlReaderWithoutSpaces::testSimpleOpenDocumentFormula()
     QCOMPARE(annotationElement.lastChild().isNull(), false);
     QCOMPARE(annotationElement.previousSibling().isNull(), false);
     QCOMPARE(annotationElement.nextSibling().isNull(), true);
-    QCOMPARE(annotationElement.localName(), QString("annotation"));
-    QCOMPARE(annotationElement.text(), QString("E  =  mc^2 "));
-    QCOMPARE(annotationElement.attributeNS(mathNS, "encoding", ""), QString("StarMath 5.0"));
+    QCOMPARE(annotationElement.localName(),  QStringLiteral("annotation"));
+    QCOMPARE(annotationElement.text(),  QStringLiteral("E  =  mc^2 "));
+    QCOMPARE(annotationElement.attributeNS(mathNS, "encoding", ""),  QStringLiteral("StarMath 5.0"));
 }
 
 void TestXmlReaderWithoutSpaces::testLargeOpenDocumentSpreadsheet()
@@ -2369,7 +2369,7 @@ void TestXmlReaderWithoutSpaces::testLargeOpenDocumentSpreadsheet()
     xmlstream << "<office:body>";
     xmlstream << "<office:spreadsheet>";
     for (int i = 0; i < sheetCount; i++) {
-        QString sheetName = QString("Sheet%1").arg(i + 1);
+        QString sheetName =  QStringLiteral("Sheet%1").arg(i + 1);
         xmlstream << "<table:table table:name=\"" << sheetName;
         xmlstream << "\" table:print=\"false\">";
         for (int j = 0; j < rowCount; j++) {
@@ -2431,34 +2431,34 @@ void TestXmlReaderWithoutSpaces::testLargeOpenDocumentSpreadsheet()
     contentElement = doc.documentElement();
     QCOMPARE(contentElement.isNull(), false);
     QCOMPARE(contentElement.isElement(), true);
-    QCOMPARE(contentElement.localName(), QString("document-content"));
+    QCOMPARE(contentElement.localName(),  QStringLiteral("document-content"));
 
     // <office:body>
     KoXmlElement bodyElement;
     bodyElement = contentElement.firstChild().toElement();
     QCOMPARE(bodyElement.isNull(), false);
     QCOMPARE(bodyElement.isElement(), true);
-    QCOMPARE(bodyElement.localName(), QString("body"));
+    QCOMPARE(bodyElement.localName(),  QStringLiteral("body"));
 
     // <office:spreadsheet>
     KoXmlElement spreadsheetElement;
     spreadsheetElement = bodyElement.firstChild().toElement();
     QCOMPARE(spreadsheetElement.isNull(), false);
     QCOMPARE(spreadsheetElement.isElement(), true);
-    QCOMPARE(spreadsheetElement.localName(), QString("spreadsheet"));
+    QCOMPARE(spreadsheetElement.localName(),  QStringLiteral("spreadsheet"));
 
     // now we visit every sheet, every row, every cell
     timer.start();
     KoXmlElement tableElement;
     tableElement = spreadsheetElement.firstChild().toElement();
     for (int table = 0; table < sheetCount; table++) {
-        QString tableName = QString("Sheet%1").arg(table + 1);
+        QString tableName =  QStringLiteral("Sheet%1").arg(table + 1);
         QCOMPARE(tableElement.isNull(), false);
         QCOMPARE(tableElement.isElement(), true);
-        QCOMPARE(tableElement.localName(), QString("table"));
+        QCOMPARE(tableElement.localName(),  QStringLiteral("table"));
         QCOMPARE(tableElement.hasAttributeNS(tableNS, "name"), true);
         QCOMPARE(tableElement.attributeNS(tableNS, "name", ""), tableName);
-        QCOMPARE(tableElement.attributeNS(tableNS, "print", ""), QString("false"));
+        QCOMPARE(tableElement.attributeNS(tableNS, "print", ""),  QStringLiteral("false"));
 
         // load everything for this table
         //KoXml::load(tableElement, 99);
@@ -2473,7 +2473,7 @@ void TestXmlReaderWithoutSpaces::testLargeOpenDocumentSpreadsheet()
         for (int row = 0; row < rowCount; row++) {
             QCOMPARE(rowElement.isNull(), false);
             QCOMPARE(rowElement.isElement(), true);
-            QCOMPARE(rowElement.localName(), QString("table-row"));
+            QCOMPARE(rowElement.localName(),  QStringLiteral("table-row"));
             QCOMPARE(rowElement.parentNode().isNull(), false);
             QCOMPARE(rowElement.parentNode() == tableElement, true);
             QCOMPARE(rowElement.firstChild().isNull(), false);
@@ -2484,10 +2484,10 @@ void TestXmlReaderWithoutSpaces::testLargeOpenDocumentSpreadsheet()
             for (int col = 0; col < colCount; col++) {
                 QCOMPARE(cellElement.isNull(), false);
                 QCOMPARE(cellElement.isElement(), true);
-                QCOMPARE(cellElement.localName(), QString("table-cell"));
-                QCOMPARE(cellElement.text(), QString("Hello, world"));
+                QCOMPARE(cellElement.localName(),  QStringLiteral("table-cell"));
+                QCOMPARE(cellElement.text(),  QStringLiteral("Hello, world"));
                 QCOMPARE(cellElement.hasAttributeNS(officeNS, "value-type"), true);
-                QCOMPARE(cellElement.attributeNS(officeNS, "value-type", ""), QString("string"));
+                QCOMPARE(cellElement.attributeNS(officeNS, "value-type", ""),  QStringLiteral("string"));
                 QCOMPARE(cellElement.parentNode().isNull(), false);
                 QCOMPARE(cellElement.parentNode() == rowElement, true);
                 QCOMPARE(cellElement.firstChild().isNull(), false);
@@ -2560,14 +2560,14 @@ void TestXmlReaderWithoutSpaces::testExternalOpenDocumentSpreadsheet(const QStri
     contentElement = doc.documentElement();
     QCOMPARE(contentElement.isNull(), false);
     QCOMPARE(contentElement.isElement(), true);
-    QCOMPARE(contentElement.localName(), QString("document-content"));
+    QCOMPARE(contentElement.localName(),  QStringLiteral("document-content"));
 
     long totalCellCount = 0;
 
     KoXmlElement bodyElement;
     forEachElement(bodyElement, contentElement) {
         // <office:body>
-        if (bodyElement.localName() != QString("body"))
+        if (bodyElement.localName() !=  QStringLiteral("body"))
             continue;
 
         // now we iterate inside the body
@@ -2578,7 +2578,7 @@ void TestXmlReaderWithoutSpaces::testExternalOpenDocumentSpreadsheet(const QStri
         spreadsheetElement = bodyElement.firstChild().toElement();
         QCOMPARE(spreadsheetElement.isNull(), false);
         QCOMPARE(spreadsheetElement.isElement(), true);
-        QCOMPARE(spreadsheetElement.localName(), QString("spreadsheet"));
+        QCOMPARE(spreadsheetElement.localName(),  QStringLiteral("spreadsheet"));
 
         // now we visit every sheet
         long tableCount = -1;
@@ -2588,7 +2588,7 @@ void TestXmlReaderWithoutSpaces::testExternalOpenDocumentSpreadsheet(const QStri
             if (tableElement.isNull())
                 break;
 
-            if (tableElement.localName() != QString("table")) {
+            if (tableElement.localName() !=  QStringLiteral("table")) {
                 tableElement = tableElement.nextSibling().toElement();
                 continue;
             }
@@ -2610,7 +2610,7 @@ void TestXmlReaderWithoutSpaces::testExternalOpenDocumentSpreadsheet(const QStri
                 if (rowElement.isNull())
                     break;
 
-                if (rowElement.localName() != QString("table-row")) {
+                if (rowElement.localName() !=  QStringLiteral("table-row")) {
                     rowElement = rowElement.nextSibling().toElement();
                     continue;
                 }
@@ -2619,7 +2619,7 @@ void TestXmlReaderWithoutSpaces::testExternalOpenDocumentSpreadsheet(const QStri
                 KoXml::load(rowElement, 4);
 
                 QCOMPARE(rowElement.isElement(), true);
-                QCOMPARE(rowElement.localName(), QString("table-row"));
+                QCOMPARE(rowElement.localName(),  QStringLiteral("table-row"));
                 QCOMPARE(rowElement.parentNode().isNull(), false);
                 QCOMPARE(rowElement.parentNode() == tableElement, true);
 
@@ -2629,7 +2629,7 @@ void TestXmlReaderWithoutSpaces::testExternalOpenDocumentSpreadsheet(const QStri
                     if (cellElement.isNull())
                         break;
 
-                    if (cellElement.localName() != QString("table-cell")) {
+                    if (cellElement.localName() !=  QStringLiteral("table-cell")) {
                         cellElement = cellElement.nextSibling().toElement();
                         continue;
                     }
@@ -2638,7 +2638,7 @@ void TestXmlReaderWithoutSpaces::testExternalOpenDocumentSpreadsheet(const QStri
 
                     QCOMPARE(cellElement.isNull(), false);
                     QCOMPARE(cellElement.isElement(), true);
-                    QCOMPARE(cellElement.localName(), QString("table-cell"));
+                    QCOMPARE(cellElement.localName(),  QStringLiteral("table-cell"));
                     QString text1 = cellElement.text();
                     QString text2 = cellElement.text();
                     QCOMPARE(text1, text2);

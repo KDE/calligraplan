@@ -29,7 +29,7 @@ SchedulesDocker::SchedulesDocker()
     m_view->setModel(&m_sfModel);
     m_sfModel.setFilterKeyColumn (ScheduleModel::ScheduleScheduled);
     m_sfModel.setFilterRole(Qt::EditRole);
-    m_sfModel.setFilterFixedString("true");
+    m_sfModel.setFilterFixedString(QStringLiteral("true"));
     m_sfModel.setDynamicSortFilter (true);
 
     for(int c = 1; c <  m_model.columnCount(); ++c) {
@@ -88,7 +88,7 @@ SchedulesDockerFactory::SchedulesDockerFactory()
 
 QString SchedulesDockerFactory::id() const
 {
-    return QString("KPlatoSchedulesDocker");
+    return QStringLiteral("KPlatoSchedulesDocker");
 }
 
 QDockWidget* SchedulesDockerFactory::createDockWidget()

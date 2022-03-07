@@ -555,7 +555,7 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, const QDate &
             QString ds = QLocale().toString(d.toDouble(Duration::Unit_h), 'f', 1);
             Duration avail = res->effort(nullptr, DateTime(date, QTime(0,0,0)), Duration(1.0, Duration::Unit_d));
             QString avails = QLocale().toString(avail.toDouble(Duration::Unit_h), 'f', 1);
-            return QString("%1(%2)").arg(ds).arg(avails);
+            return QStringLiteral("%1(%2)").arg(ds).arg(avails);
         }
         case Qt::EditRole: {
             Duration d;
@@ -621,7 +621,7 @@ QVariant ResourceAppointmentsItemModel::total(const Appointment *a, int role) co
                             n->name(),
                             QLocale().toString(a->startTime(), QLocale::ShortFormat),
                             KFormat().formatSpelloutDuration((a->endTime() - a->startTime()).milliseconds()),
-                            QString(start.timeZone().id()),
+                            QLatin1String(start.timeZone().id()),
                             a->resource()->resource()->units()
                 );
             } else if (m_externalEffortMap.contains(a)) {
@@ -994,9 +994,9 @@ QVariant ResourceAppointmentsRowModel::Private::resourceData(int column, long id
         switch (column) {
             case ResourceAppointmentsRowModel::Name: return r->name();
             case ResourceAppointmentsRowModel::Type: return r->typeToString(true);
-            case ResourceAppointmentsRowModel::StartTime: return " ";
-            case ResourceAppointmentsRowModel::EndTime: return " ";
-            case ResourceAppointmentsRowModel::Load: return " ";
+            case ResourceAppointmentsRowModel::StartTime: return QStringLiteral(" ");
+            case ResourceAppointmentsRowModel::EndTime: return QStringLiteral(" ");
+            case ResourceAppointmentsRowModel::Load: return QStringLiteral(" ");
         }
     } else if (role == Role::Maximum) {
         return r->units(); //TODO: Maximum Load
@@ -1037,7 +1037,7 @@ QVariant ResourceAppointmentsRowModel::Private::appointmentData(int column, int 
             case ResourceAppointmentsRowModel::Type: return a->node()->node()->typeToString(true);
             case ResourceAppointmentsRowModel::StartTime: return QLocale().toString(a->startTime(), QLocale::ShortFormat);
             case ResourceAppointmentsRowModel::EndTime: return QLocale().toString(a->endTime(), QLocale::ShortFormat);
-            case ResourceAppointmentsRowModel::Load: return " ";
+            case ResourceAppointmentsRowModel::Load: return QStringLiteral(" ");
         }
     } else if (role == Qt::ToolTipRole) {
         const auto n = a->node()->node();
@@ -1047,7 +1047,7 @@ QVariant ResourceAppointmentsRowModel::Private::appointmentData(int column, int 
                                 n->name(),
                                 QLocale().toString(start, QLocale::ShortFormat),
                                 KFormat().formatSpelloutDuration((a->endTime() - start).milliseconds()),
-                                QString(start.timeZone().id())
+                                QLatin1String(start.timeZone().id())
                             );
     } else if (role == Role::Maximum) {
         return a->resource()->resource()->units(); //TODO: Maximum Load
@@ -1064,7 +1064,7 @@ QVariant ResourceAppointmentsRowModel::Private::externalData(int column, int rol
             case ResourceAppointmentsRowModel::Type: return i18n("Project");
             case ResourceAppointmentsRowModel::StartTime: return QLocale().toString(a->startTime(), QLocale::ShortFormat);
             case ResourceAppointmentsRowModel::EndTime: return QLocale().toString(a->endTime(), QLocale::ShortFormat);
-            case ResourceAppointmentsRowModel::Load: return " ";
+            case ResourceAppointmentsRowModel::Load: return QStringLiteral(" ");
         }
     } else if (role == Qt::ForegroundRole) {
         return QColor(Qt::blue);
@@ -1112,7 +1112,7 @@ QVariant ResourceAppointmentsRowModel::Private::intervalData(int column, int rol
                            n->name(),
                            QLocale().toString(start, QLocale::ShortFormat),
                            KFormat().formatSpelloutDuration((end - start).milliseconds()),
-                           QString(start.timeZone().id()),
+                           QLatin1String(start.timeZone().id()),
                            interval.load(),
                            a->resource()->resource()->units()
             );

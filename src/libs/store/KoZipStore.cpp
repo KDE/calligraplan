@@ -61,7 +61,7 @@ KoZipStore::KoZipStore(QWidget* window, const QUrl &_url, const QString & _filen
 
     } else {
         d->fileMode = KoStorePrivate::RemoteWrite;
-        d->localFileName = QLatin1String("/tmp/kozip"); // ### FIXME with KTempFile
+        d->localFileName = QStringLiteral("/tmp/kozip"); // ### FIXME with KTempFile
     }
 
     m_pZip = new KZip(d->localFileName);
@@ -103,7 +103,7 @@ void KoZipStore::init(const QByteArray& appIdentification)
 
         // Write identification
         if (d->writeMimetype) {
-            (void)m_pZip->writeFile(QLatin1String("mimetype"), appIdentification);
+            (void)m_pZip->writeFile(QStringLiteral("mimetype"), appIdentification);
         }
 
         m_pZip->setCompression(KZip::DeflateCompression);
@@ -131,7 +131,7 @@ bool KoZipStore::openWrite(const QString& name)
 {
     Q_D(KoStore);
     d->stream = nullptr; // Don't use!
-    return m_pZip->prepareWriting(name, "", "" /*m_pZip->rootDir()->user(), m_pZip->rootDir()->group()*/, 0);
+    return m_pZip->prepareWriting(name, QString(), QString() /*m_pZip->rootDir()->user(), m_pZip->rootDir()->group()*/, 0);
 }
 
 bool KoZipStore::openRead(const QString& name)

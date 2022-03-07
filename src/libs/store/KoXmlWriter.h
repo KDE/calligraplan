@@ -13,6 +13,8 @@
 #include <QIODevice>
 #include "kostore_export.h"
 
+#include <QDebug>
+
 /**
  * A class for writing out XML (to any QIODevice), with a special attention on performance.
  * The XML is being written out along the way, which avoids requiring the entire
@@ -175,6 +177,8 @@ public:
      * @note OASIS-specific
      */
     void addManifestEntry(const QString& fullPath, const QString& mediaType);
+    void addManifestEntry(const QString& fullPath, const QByteArray &mediaType);
+    void addManifestEntry(const char *fullPath, const char *mediaType);
 
     /**
      * Special helper for writing config item into settings.xml
@@ -263,7 +267,7 @@ private:
         device()->write(cstr, qstrlen(cstr));
     }
     inline void writeChar(char c) {
-        device()->putChar(c);
+        !device()->putChar(c);
     }
     inline void closeStartElement(Tag& tag) {
         if (!tag.openingTagClosed) {

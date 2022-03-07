@@ -35,9 +35,9 @@ PerformanceView::PerformanceView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("Portfolio_PerformanceViewUi.rc");
+        setXMLFile(QStringLiteral("Portfolio_PerformanceViewUi.rc"));
     } else {
-        setXMLFile("Portfolio_PerformanceViewUi_readonly.rc");
+        setXMLFile(QStringLiteral("Portfolio_PerformanceViewUi_readonly.rc"));
     }
     ui.setupUi(this);
 
@@ -172,43 +172,43 @@ void PerformanceView::selectionChanged(const QItemSelection &selected, const QIt
     m_yAxes.at(3)->setTitleText(effortTitle);
 
     double value =  m_chartModel->index(row, KPlato::ChartItemModel::SPICost).data(Qt::EditRole).toDouble();
-    text = i18n("SPI: %1", QString("%1").arg(value, 0, 'f', 2));
+    text = i18n("SPI: %1", QStringLiteral("%1").arg(value, 0, 'f', 2));
     ui.costSPI->setText(text);
 
     value =  m_chartModel->index(row, KPlato::ChartItemModel::CPICost).data(Qt::EditRole).toDouble();
-    text = i18n("CPI: %1", QString("%1").arg(value, 0, 'f', 2));
+    text = i18n("CPI: %1", QStringLiteral("%1").arg(value, 0, 'f', 2));
     ui.costCPI->setText(text);
 
     value =  m_chartModel->index(row, KPlato::ChartItemModel::BCWSCost).data(Qt::EditRole).toDouble();
-    text = i18n("BCWS: %1", QString("%1").arg(value, 0, 'f', 0));
+    text = i18n("BCWS: %1", QStringLiteral("%1").arg(value, 0, 'f', 0));
     ui.costBCWS->setText(text);
 
     value =  m_chartModel->index(row, KPlato::ChartItemModel::BCWPCost).data(Qt::EditRole).toDouble();
-    text = i18n("BCWP: %1", QString("%1").arg(value, 0, 'f', 0));
+    text = i18n("BCWP: %1", QStringLiteral("%1").arg(value, 0, 'f', 0));
     ui.costBCWP->setText(text);
 
     value =  m_chartModel->index(row, KPlato::ChartItemModel::ACWPCost).data(Qt::EditRole).toDouble();
-    text = i18n("ACWP: %1", QString("%1").arg(value, 0, 'f', 0));
+    text = i18n("ACWP: %1", QStringLiteral("%1").arg(value, 0, 'f', 0));
     ui.costACWP->setText(text);
 
     value =  m_chartModel->index(row, KPlato::ChartItemModel::SPIEffort).data(Qt::EditRole).toDouble();
-    text = i18n("SPI: %1", QString("%1").arg(value, 0, 'f', 2));
+    text = i18n("SPI: %1", QStringLiteral("%1").arg(value, 0, 'f', 2));
     ui.effortSPI->setText(text);
 
     value =  m_chartModel->index(row, KPlato::ChartItemModel::CPIEffort).data(Qt::EditRole).toDouble();
-    text = i18n("CPI: %1", QString("%1").arg(value, 0, 'f', 2));
+    text = i18n("CPI: %1", QStringLiteral("%1").arg(value, 0, 'f', 2));
     ui.effortCPI->setText(text);
 
     value =  m_chartModel->index(row, KPlato::ChartItemModel::BCWSEffort).data(Qt::EditRole).toDouble();
-    text = i18n("BCWS: %1", QString("%1").arg(value, 0, 'f', 1));
+    text = i18n("BCWS: %1", QStringLiteral("%1").arg(value, 0, 'f', 1));
     ui.effortBCWS->setText(text);
 
     value =  m_chartModel->index(row, KPlato::ChartItemModel::BCWPEffort).data(Qt::EditRole).toDouble();
-    text = i18n("BCWP: %1", QString("%1").arg(value, 0, 'f', 1));
+    text = i18n("BCWP: %1", QStringLiteral("%1").arg(value, 0, 'f', 1));
     ui.effortBCWP->setText(text);
 
     value =  m_chartModel->index(row, KPlato::ChartItemModel::ACWPEffort).data(Qt::EditRole).toDouble();
-    text = i18n("ACWP: %1", QString("%1").arg(value, 0, 'f', 1));
+    text = i18n("ACWP: %1", QStringLiteral("%1").arg(value, 0, 'f', 1));
     ui.effortACWP->setText(text);
 
 }

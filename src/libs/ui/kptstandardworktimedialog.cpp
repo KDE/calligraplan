@@ -40,7 +40,7 @@ public:
         delete day;
     }
     void setHours() {
-        setText(1, "-");
+        setText(1, QStringLiteral("-"));
         day->clearIntervals();
     }
     void setIntervals(QList<TimeInterval*> intervals) {

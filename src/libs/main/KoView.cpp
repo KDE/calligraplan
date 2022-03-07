@@ -54,7 +54,7 @@
 QString KoView::newObjectName()
 {
     static int s_viewIFNumber = 0;
-    QString name; name.setNum(s_viewIFNumber++); name.prepend("view_");
+    QString name; name.setNum(s_viewIFNumber++); name.prepend(QStringLiteral("view_"));
     return name;
 }
 
@@ -153,7 +153,7 @@ KoView::KoView(KoPart *part, KoDocument *document, bool setupGlobalActions, QWid
 
 #ifndef QT_NO_DBUS
     new KoViewAdaptor(this);
-    QDBusConnection::sessionBus().registerObject('/' + objectName(), this);
+    QDBusConnection::sessionBus().registerObject(QLatin1Char('/') + objectName(), this);
 #endif
 
     d->document = document;
@@ -196,7 +196,7 @@ KoView::KoView(KoPart *part, KoDocument *document, QWidget *parent)
 
 #ifndef QT_NO_DBUS
     new KoViewAdaptor(this);
-    QDBusConnection::sessionBus().registerObject('/' + objectName(), this);
+    QDBusConnection::sessionBus().registerObject(QLatin1Char('/') + objectName(), this);
 #endif
 
     d->document = document;
@@ -362,14 +362,14 @@ QPrintDialog *KoView::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
 
 void KoView::setupGlobalActions()
 {
-    QAction *undo = actionCollection()->addAction("edit_undo", new KoUndoStackAction(d->document->undoStack(), KoUndoStackAction::UNDO));
-    QAction *redo = actionCollection()->addAction("edit_redo", new KoUndoStackAction(d->document->undoStack(), KoUndoStackAction::RED0));
+    QAction *undo = actionCollection()->addAction(QStringLiteral("edit_undo"), new KoUndoStackAction(d->document->undoStack(), KoUndoStackAction::UNDO));
+    QAction *redo = actionCollection()->addAction(QStringLiteral("edit_redo"), new KoUndoStackAction(d->document->undoStack(), KoUndoStackAction::RED0));
 
     actionCollection()->setDefaultShortcut(undo, QKeySequence::Undo);
     actionCollection()->setDefaultShortcut(redo, QKeySequence::Redo);
     d->actionAuthor  = new KSelectAction(koIcon("user-identity"), i18n("Active Author Profile"), this);
     connect(d->actionAuthor, static_cast<void (KSelectAction::*)(const QString&)> (&KSelectAction::triggered), this, &KoView::changeAuthorProfile);
-    actionCollection()->addAction("settings_active_author", d->actionAuthor);
+    actionCollection()->addAction(QStringLiteral("settings_active_author"), d->actionAuthor);
 
     slotUpdateAuthorProfileActions();
 
@@ -377,29 +377,29 @@ void KoView::setupGlobalActions()
     Q_ASSERT(mw);
     auto *mainColl = mw->actionCollection();
     // File
-    actionCollection()->addAction("file_new", mainColl->action("file_new"));
-    actionCollection()->addAction("file_open", mainColl->action("file_open"));
-    actionCollection()->addAction("file_open_recent", mainColl->action("file_open_recent"));
-    actionCollection()->addAction("file_save", mainColl->action("file_save"));
-    actionCollection()->addAction("file_save_as", mainColl->action("file_save_as"));
-    actionCollection()->addAction("file_open_recent", mainColl->action("file_open_recent"));
-    //actionCollection()->addAction("file_reload_file", mainColl->action("file_reload_file"));
-    actionCollection()->addAction("file_import_file", mainColl->action("file_import_file"));
-    actionCollection()->addAction("file_export_file", mainColl->action("file_export_file"));
-    actionCollection()->addAction("file_send_file", mainColl->action("file_send_file"));
-    actionCollection()->addAction("file_print", mainColl->action("file_print"));
-    actionCollection()->addAction("file_print_preview", mainColl->action("file_print_preview"));
-    actionCollection()->addAction("file_export_pdf", mainColl->action("file_export_pdf"));
-    actionCollection()->addAction("file_print_preview", mainColl->action("file_print_preview"));
-    actionCollection()->addAction("file_documentinfo", mainColl->action("file_documentinfo"));
-    actionCollection()->addAction("file_close", mainColl->action("file_close"));
+    actionCollection()->addAction(QStringLiteral("file_new"), mainColl->action(QStringLiteral("file_new")));
+    actionCollection()->addAction(QStringLiteral("file_open"), mainColl->action(QStringLiteral("file_open")));
+    actionCollection()->addAction(QStringLiteral("file_open_recent"), mainColl->action(QStringLiteral("file_open_recent")));
+    actionCollection()->addAction(QStringLiteral("file_save"), mainColl->action(QStringLiteral("file_save")));
+    actionCollection()->addAction(QStringLiteral("file_save_as"), mainColl->action(QStringLiteral("file_save_as")));
+    actionCollection()->addAction(QStringLiteral("file_open_recent"), mainColl->action(QStringLiteral("file_open_recent")));
+    //actionCollection()->addAction(QStringLiteral("file_reload_file"), mainColl->action(QStringLiteral("file_reload_file")));
+    actionCollection()->addAction(QStringLiteral("file_import_file"), mainColl->action(QStringLiteral("file_import_file")));
+    actionCollection()->addAction(QStringLiteral("file_export_file"), mainColl->action(QStringLiteral("file_export_file")));
+    actionCollection()->addAction(QStringLiteral("file_send_file"), mainColl->action(QStringLiteral("file_send_file")));
+    actionCollection()->addAction(QStringLiteral("file_print"), mainColl->action(QStringLiteral("file_print")));
+    actionCollection()->addAction(QStringLiteral("file_print_preview"), mainColl->action(QStringLiteral("file_print_preview")));
+    actionCollection()->addAction(QStringLiteral("file_export_pdf"), mainColl->action(QStringLiteral("file_export_pdf")));
+    actionCollection()->addAction(QStringLiteral("file_print_preview"), mainColl->action(QStringLiteral("file_print_preview")));
+    actionCollection()->addAction(QStringLiteral("file_documentinfo"), mainColl->action(QStringLiteral("file_documentinfo")));
+    actionCollection()->addAction(QStringLiteral("file_close"), mainColl->action(QStringLiteral("file_close")));
 
     // View
-    actionCollection()->addAction("view_newview", mainColl->action("view_newview"));
+    actionCollection()->addAction(QStringLiteral("view_newview"), mainColl->action(QStringLiteral("view_newview")));
 
     // Settings
-    actionCollection()->addAction("view_toggledockertitlebars", mainColl->action("view_toggledockertitlebars"));
-    actionCollection()->addAction("settings_dockers_menu", mainColl->action("settings_dockers_menu"));
+    actionCollection()->addAction(QStringLiteral("view_toggledockertitlebars"), mainColl->action(QStringLiteral("view_toggledockertitlebars")));
+    actionCollection()->addAction(QStringLiteral("settings_dockers_menu"), mainColl->action(QStringLiteral("settings_dockers_menu")));
 }
 
 void KoView::changeAuthorProfile(const QString &profileName)
@@ -471,7 +471,7 @@ void KoView::slotUpdateAuthorProfileActions()
 
     KConfigGroup appAuthorGroup(KSharedConfig::openConfig(), "Author");
     QString profileName = appAuthorGroup.readEntry("active-profile", "");
-    if (profileName == "anonymous") {
+    if (profileName == QStringLiteral("anonymous")) {
         d->actionAuthor->setCurrentItem(1);
     } else if (profiles.contains(profileName)) {
         d->actionAuthor->setCurrentAction(profileName);

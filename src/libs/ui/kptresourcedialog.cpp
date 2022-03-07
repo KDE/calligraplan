@@ -66,7 +66,7 @@ ResourceDialogImpl::ResourceDialogImpl(const Project &project, Resource &resourc
         for (auto group : groups) {
             names << group->name();
         }
-        item = new QStandardItem(names.join(','));
+        item = new QStandardItem(names.join(QLatin1Char(',')));
         items << item;
         // Add id so we can find the resource
         item = new QStandardItem(r->id());
@@ -228,15 +228,13 @@ void ResourceDialogImpl::slotChooseResource()
 
 //////////////////  ResourceDialog  ////////////////////////
 
-ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *parent, const char *name)
+ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *parent)
     : KoDialog(parent),
       m_project(project),
       m_original(resource),
       m_resource(resource),
       m_calculationNeeded(false)
 {
-    setObjectName(name);
-    
     setCaption(i18n("Resource Settings"));
     setButtons(Ok|Cancel);
     setDefaultButton(Ok);

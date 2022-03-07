@@ -6,6 +6,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "kptschedulerplugin.h"
+#include <MimeTypes.h>
 
 #include "kptproject.h"
 #include "kptschedule.h"
@@ -241,7 +242,7 @@ SchedulerThread::SchedulerThread(Project *project, ScheduleManager *manager, QOb
 {
     manager->createSchedules(); // creates expected() to get log messages during calculation
 
-    QDomDocument document("kplato");
+    QDomDocument document(QStringLiteral("plan"));
     saveProject(project, document);
 
     m_pdoc.setContent(document.toString());
@@ -413,12 +414,12 @@ void SchedulerThread::logDebug(Node *n, Resource *r, const QString &msg, int pha
 //static
 void SchedulerThread::saveProject(Project *project, QDomDocument &document)
 {
-    document.appendChild(document.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"UTF-8\""));
+    document.appendChild(document.createProcessingInstruction(QStringLiteral("xml"), QStringLiteral("version=\"1.0\" encoding=\"UTF-8\"")));
 
-    QDomElement doc = document.createElement("kplato");
-    doc.setAttribute("editor", "Plan");
-    doc.setAttribute("mime", "application/x-vnd.kde.plan");
-    doc.setAttribute("version", PLAN_FILE_SYNTAX_VERSION);
+    QDomElement doc = document.createElement(QStringLiteral("plan"));
+    doc.setAttribute(QStringLiteral("editor"), QStringLiteral("Plan"));
+    doc.setAttribute(QStringLiteral("mime"), PLAN_MIME_TYPE);
+    doc.setAttribute(QStringLiteral("version"), PLAN_FILE_SYNTAX_VERSION);
     document.appendChild(doc);
     project->save(doc, XmlSaveContext());
 }
@@ -483,8 +484,8 @@ void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
         warnPlan<<Q_FUNC_INFO<<"Task:"<<tn->name()<<"could not find schedule with id:"<<sid;
         return;
     }
-    QDomDocument doc("tmp");
-    QDomElement e = doc.createElement("task-schedules");
+    QDomDocument doc(QStringLiteral("tmp"));
+    QDomElement e = doc.createElement(QStringLiteral("task-schedules"));
     doc.appendChild(e);
     s->saveXML(e);
 
@@ -495,7 +496,7 @@ void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
 
     KoXmlDocument xd;
     xd.setContent(doc.toString());
-    KoXmlElement se = xd.documentElement().namedItem("task-schedule").toElement();
+    KoXmlElement se = xd.documentElement().namedItem(QStringLiteral("task-schedule")).toElement();
     Q_ASSERT(! se.isNull());
 
     s->loadXML(se, status);
@@ -507,8 +508,8 @@ void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
 // static
 void SchedulerThread::updateResource(const Resource *tr, Resource *r, XMLLoaderObject &status)
 {
-    QDomDocument doc("tmp");
-    QDomElement e = doc.createElement("cache");
+    QDomDocument doc(QStringLiteral("tmp"));
+    QDomElement e = doc.createElement(QStringLiteral("cache"));
     doc.appendChild(e);
     tr->saveCalendarIntervalsCache(e);
 
@@ -536,15 +537,15 @@ void SchedulerThread::updateAppointments(const Project *tp, const ScheduleManage
     Q_ASSERT(sch != sm->expected());
     Q_ASSERT(sch->id() == sm->expected()->id());
 
-    QDomDocument doc("tmp");
-    QDomElement e = doc.createElement("schedule"); // name does not matter
+    QDomDocument doc(QStringLiteral("tmp"));
+    QDomElement e = doc.createElement(QStringLiteral("schedule")); // name does not matter
     doc.appendChild(e);
     sch->saveXML(e);
     tp->saveAppointments(e, sch->id());
 
     KoXmlDocument xd;
     xd.setContent(doc.toString());
-    KoXmlElement se = xd.namedItem("schedule").toElement(); // same as above
+    KoXmlElement se = xd.namedItem(QStringLiteral("schedule")).toElement(); // same as above
     Q_ASSERT(! se.isNull());
 
     bool ret = sm->loadMainSchedule(sm->expected(), se, status); // also loads appointments
@@ -573,7 +574,7 @@ ScheduleManager *SchedulerThread::getScheduleManager(Project *project)
         sm = project->createScheduleManager(project->uniqueScheduleName());
         project->addScheduleManager(sm);
         project->setProperty(SCHEDULEMANAGERNAME, sm->name());
-        logDebug(project, nullptr, QString("Could not find suitable schedule, creating a new top level schedule: %1").arg(sm->name()));
+        logDebug(project, nullptr, QStringLiteral("Could not find suitable schedule, creating a new top level schedule: %1").arg(sm->name()));
     } else if (sm->isBaselined() || (sm->isScheduled() && project->isStarted() && !sm->parentManager())) {
         // create a subschedule
         KPlato::ScheduleManager *parent = sm;
@@ -583,14 +584,14 @@ ScheduleManager *SchedulerThread::getScheduleManager(Project *project)
         sm->setRecalculate(true);
         sm->setRecalculateFrom(QDateTime::currentDateTime());
         if (parent->isBaselined()) {
-            logDebug(project, nullptr, QString("Selected schedule is baselined, a new sub-schedule is created: %1").arg(sm->name()));
+            logDebug(project, nullptr, QStringLiteral("Selected schedule is baselined, a new sub-schedule is created: %1").arg(sm->name()));
         } else {
-            logDebug(project, nullptr, QString("Project is started, a new sub-schedule is created: %1").arg(sm->name()));
+            logDebug(project, nullptr, QStringLiteral("Project is started, a new sub-schedule is created: %1").arg(sm->name()));
         }
     } else if (sm->parentManager()) {
         sm->setRecalculate(true);
         sm->setRecalculateFrom(QDateTime::currentDateTime());
-        logDebug(project, nullptr, QString("Re-schedule selected schedule: %1").arg(sm->name()));
+        logDebug(project, nullptr, QStringLiteral("Re-schedule selected schedule: %1").arg(sm->name()));
     }
     Q_ASSERT(sm);
     if (!sm->expected()) {

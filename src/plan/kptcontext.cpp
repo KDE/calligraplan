@@ -7,6 +7,7 @@
 // clazy:excludeall=qstring-arg
 #include "kptcontext.h"
 #include "kptview.h"
+#include <MimeTypes.h>
 #include "kptdebug.h"
 
 #include <QDomDocument>
@@ -47,11 +48,11 @@ bool Context::setContent(const QString &str)
 
 QDomDocument Context::document() const
 {
-    QDomDocument document("plan.context");
+    QDomDocument document(QStringLiteral("plan.context"));
 
     document.appendChild(document.createProcessingInstruction(
-        "xml",
-        "version=\"1.0\" encoding=\"UTF-8\""));
+        QStringLiteral("xml"),
+        QStringLiteral("version=\"1.0\" encoding=\"UTF-8\"")));
 
     KoXml::asQDomElement(document, m_document.documentElement());
     return document;
@@ -67,12 +68,12 @@ bool Context::load(const KoXmlDocument &document) {
         errorPlan << "No mime type specified!";
 //        setErrorMessage(i18n("Invalid document. No mimetype specified."));
         return false;
-    } else if (value != "application/x-vnd.kde.plan") {
-        if (value == "application/x-vnd.kde.kplato") {
+    } else if (value != PLAN_MIME_TYPE) {
+        if (value == KPLATO_MIME_TYPE) {
             // accept, since we forgot to change kplato to plan for so long...
         } else {
             errorPlan << "Unknown mime type " << value;
-//        setErrorMessage(i18n("Invalid document. Expected mimetype application/x-vnd.kde.kplato, got %1", value));
+//        setErrorMessage(i18n("Invalid document. Expected mimetype %2, got %1", value, KPLATO_MIME_TYPE));
             return false;
         }
     }
@@ -101,7 +102,7 @@ bool Context::load(const KoXmlDocument &document) {
             continue;
         }
         KoXmlElement element = n.toElement();
-        if (element.tagName() == "context") {
+        if (element.tagName() == QStringLiteral("context")) {
             m_context = element;
             m_contextLoaded = true;
         }
@@ -110,19 +111,19 @@ bool Context::load(const KoXmlDocument &document) {
 }
 
 QDomDocument Context::save(const View *view) const {
-    QDomDocument document("plan.context");
+    QDomDocument document(QStringLiteral("plan.context"));
 
     document.appendChild(document.createProcessingInstruction(
-                              "xml",
-                              "version=\"1.0\" encoding=\"UTF-8\""));
+                              QStringLiteral("xml"),
+                              QStringLiteral("version=\"1.0\" encoding=\"UTF-8\"")));
 
-    QDomElement doc = document.createElement("context");
-    doc.setAttribute("editor", "Plan");
-    doc.setAttribute("mime", "application/x-vnd.kde.plan");
-    doc.setAttribute("version", QString::number(0.0));
+    QDomElement doc = document.createElement(QStringLiteral("context"));
+    doc.setAttribute(QStringLiteral("editor"), QStringLiteral("Plan"));
+    doc.setAttribute(QStringLiteral("mime"), QStringLiteral("application/x-vnd.kde.plan"));
+    doc.setAttribute(QStringLiteral("version"), QString::number(0.0));
     document.appendChild(doc);
 
-    QDomElement e = doc.ownerDocument().createElement("context");
+    QDomElement e = doc.ownerDocument().createElement(QStringLiteral("context"));
     doc.appendChild(e);
     view->saveContext(e);
 

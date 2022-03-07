@@ -34,8 +34,8 @@ void KoDirectoryStore::init()
 {
     Q_D(KoStore);
 
-    if (!m_basePath.endsWith('/'))
-        m_basePath += '/';
+    if (!m_basePath.endsWith(QLatin1Char('/')))
+        m_basePath += QLatin1Char('/');
     m_currentPath = m_basePath;
 
     QDir dir(m_basePath);
@@ -54,7 +54,7 @@ bool KoDirectoryStore::openReadOrWrite(const QString& name, QIODevice::OpenModeF
 {
     Q_D(KoStore);
     //debugStore <<"KoDirectoryStore::openReadOrWrite m_currentPath=" << m_currentPath <<" name=" << name;
-    int pos = name.lastIndexOf('/');
+    int pos = name.lastIndexOf(QLatin1Char('/'));
     if (pos != -1) { // there are subdirs in the name -> maybe need to create them, when writing
         pushDirectory(); // remember where we were
         enterAbsoluteDirectory(QString());
@@ -79,8 +79,8 @@ bool KoDirectoryStore::enterRelativeDirectory(const QString& dirName)
 {
     QDir origDir(m_currentPath);
     m_currentPath += dirName;
-    if (!m_currentPath.endsWith('/'))
-        m_currentPath += '/';
+    if (!m_currentPath.endsWith(QLatin1Char('/')))
+        m_currentPath += QLatin1Char('/');
     //debugStore <<"KoDirectoryStore::enterRelativeDirectory m_currentPath now" << m_currentPath;
     QDir newDir(m_currentPath);
     if (newDir.exists())

@@ -66,7 +66,7 @@ const KoComponentData &Factory::global()
         s_global = new KoComponentData(*aboutData());
 
         // Add any application-specific resource directories here
-        KoResourcePaths::addResourceType("calligraplan_taskmodules", "data", "calligraplan/taskmodules/");
+        KoResourcePaths::addResourceType("calligraplan_taskmodules", "data", QStringLiteral("calligraplan/taskmodules/"));
     }
     return *s_global;
 }

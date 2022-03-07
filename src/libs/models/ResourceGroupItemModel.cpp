@@ -531,8 +531,8 @@ Qt::DropActions ResourceGroupItemModel::supportedDropActions() const
 
 bool ResourceGroupItemModel::dropAllowed(const QModelIndex &index, int dropIndicatorPosition, const QMimeData *data)
 {
-    if (data->hasFormat("application/x-vnd.kde.plan.resourcegroupitemmodel.internal")) {
-        QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
+    if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.resourcegroupitemmodel.internal"))) {
+        QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.resourcegroupitemmodel.internal"));
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
         int i = 0;
         const QList<Resource*> resources = resourceList(stream);
@@ -558,11 +558,11 @@ QStringList ResourceGroupItemModel::mimeTypes() const
 {
     return ItemModelBase::mimeTypes()
 #ifdef PLAN_KDEPIMLIBS_FOUND
-            << "text/x-vcard"
-            << "text/directory"
-            << "text/uri-list"
+            <<QStringLiteral("text/x-vcard")
+            <<QStringLiteral("text/directory")
+            <<QStringLiteral("text/uri-list")
 #endif
-            << "application/x-vnd.kde.plan.resourcegroupitemmodel.internal";
+            <<QStringLiteral("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
 }
 
 void ResourceGroupItemModel::slotDataArrived(KIO::Job *job, const QByteArray &data)
@@ -645,11 +645,11 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
         return false;
     }
     debugPlan<<data->formats()<<g->name();
-    if (data->hasFormat("application/x-vnd.kde.plan.resourcegroupitemmodel.internal")) {
+    if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.resourcegroupitemmodel.internal"))) {
         debugPlan<<action<<Qt::MoveAction;
         if (action == Qt::MoveAction) {
             MacroCommand *m = nullptr;
-            QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
+            QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.resourcegroupitemmodel.internal"));
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
             const QList<Resource*> resources = resourceList(stream);
@@ -671,7 +671,7 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
         }
         if (action == Qt::CopyAction) {
             MacroCommand *m = nullptr;
-            QByteArray encodedData = data->data("application/x-vnd.kde.plan.resourcegroupitemmodel.internal");
+            QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.resourcegroupitemmodel.internal"));
             QDataStream stream(&encodedData, QIODevice::ReadOnly);
             int i = 0;
             const QList<Resource*> resources = resourceList(stream);
@@ -691,21 +691,21 @@ bool ResourceGroupItemModel::dropMimeData(const QMimeData *data, Qt::DropAction 
         }
         return true;
     }
-    if (data->hasFormat("text/x-vcard") || data->hasFormat("text/directory")) {
+    if (data->hasFormat(QStringLiteral("text/x-vcard")) || data->hasFormat(QStringLiteral("text/directory"))) {
         if (action != Qt::CopyAction) {
             return false;
         }
-        QString f = data->hasFormat("text/x-vcard") ? "text/x-vcard" : "text/directory";
+        QString f = data->hasFormat(QStringLiteral("text/x-vcard")) ? QStringLiteral("text/x-vcard") : QStringLiteral("text/directory");
         return createResources(g, data->data(f));
     }
-    if (data->hasFormat("text/uri-list")) {
+    if (data->hasFormat(QStringLiteral("text/uri-list"))) {
         const QList<QUrl> urls = data->urls();
         if (urls.isEmpty()) {
             return false;
         }
         bool result = false;
         for (const QUrl &url : urls) {
-            if (url.scheme() != "akonadi") {
+            if (url.scheme() != QStringLiteral("akonadi")) {
                 debugPlan<<url<<"is not 'akonadi'";
                 continue;
             }
@@ -774,7 +774,7 @@ QMimeData *ResourceGroupItemModel::mimeData(const QModelIndexList & indexes) con
         }
     }
     if (!rows.isEmpty()) {
-        m->setData("application/x-vnd.kde.plan.resourcegroupitemmodel.internal", encodedData);
+        m->setData(QStringLiteral("application/x-vnd.kde.plan.resourcegroupitemmodel.internal"), encodedData);
     }
     return m;
 }

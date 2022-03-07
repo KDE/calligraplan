@@ -46,7 +46,7 @@ void PlanReportDesignerItemText::init(QGraphicsScene *scene, KReportDesigner *d)
     setZValue(Z);
 
     updateRenderText(m_controlSource->value().toString(), m_itemValue->value().toString(),
-                     QLatin1String("textarea"));
+                     QStringLiteral("textarea"));
 }
 
 PlanReportDesignerItemText::PlanReportDesignerItemText(KReportDesigner * rw, QGraphicsScene * scene, const QPointF &pos)
@@ -68,7 +68,7 @@ PlanReportDesignerItemText::PlanReportDesignerItemText(const QDomNode & element,
 PlanReportDesignerItemText* PlanReportDesignerItemText::clone()
 {
     QDomDocument d;
-    QDomElement e = d.createElement(QLatin1String("clone"));
+    QDomElement e = d.createElement(QStringLiteral("clone"));
     QDomNode n;
     buildXML(&d, &e);
     n = e.firstChild();
@@ -122,15 +122,15 @@ void PlanReportDesignerItemText::paint(QPainter* painter, const QStyleOptionGrap
 void PlanReportDesignerItemText::buildXML(QDomDocument *doc, QDomElement *parent)
 {
     //kreportpluginDebug();
-    QDomElement entity = doc->createElement(QLatin1String("report:") + typeName());
+    QDomElement entity = doc->createElement(QStringLiteral("report:") + typeName());
 
     // properties
     addPropertyAsAttribute(&entity, m_name);
     addPropertyAsAttribute(&entity, m_controlSource);
     addPropertyAsAttribute(&entity, m_verticalAlignment);
     addPropertyAsAttribute(&entity, m_horizontalAlignment);
-    entity.setAttribute(QLatin1String("report:bottom-padding"), m_bottomPadding);
-    entity.setAttribute(QLatin1String("report:z-index"), zValue());
+    entity.setAttribute(QStringLiteral("report:bottom-padding"), m_bottomPadding);
+    entity.setAttribute(QStringLiteral("report:z-index"), zValue());
     addPropertyAsAttribute(&entity, m_itemValue);
 
     // bounding rect
@@ -176,5 +176,5 @@ void PlanReportDesignerItemText::slotPropertyChanged(KPropertySet &s, KProperty 
         scene()->update();
 
     updateRenderText(m_controlSource->value().toString(), m_itemValue->value().toString(),
-                     QLatin1String("textarea"));
+                     QStringLiteral("textarea"));
 }

@@ -25,7 +25,7 @@ class MacroCommand;
 class TaskCostPanelImpl : public QWidget, public Ui_TaskCostPanelBase {
     Q_OBJECT
 public:
-    explicit TaskCostPanelImpl(QWidget *parent=nullptr, const char *name=nullptr);
+    explicit TaskCostPanelImpl(QWidget *parent=nullptr);
 
 Q_SIGNALS:
     void changed();
@@ -37,7 +37,7 @@ public Q_SLOTS:
 class TaskCostPanel : public TaskCostPanelImpl {
     Q_OBJECT
 public:
-    TaskCostPanel(Task &task, Accounts &accounts, QWidget *parent=nullptr, const char *name=nullptr);
+    TaskCostPanel(Task &task, Accounts &accounts, QWidget *parent=nullptr);
     ~TaskCostPanel() override;
 
     MacroCommand *buildCommand();

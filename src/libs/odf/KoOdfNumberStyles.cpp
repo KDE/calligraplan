@@ -87,7 +87,7 @@ QString formatNumber(qreal value, const QString &format, int precision)
 {
     QString result;
     int start = 0;
-    bool showNegative = format.startsWith('-');
+    bool showNegative = format.startsWith(QLatin1Char('-'));
     if (showNegative)
         start = 1;
     for (int i = start; i < format.length(); ++i) {
@@ -159,19 +159,19 @@ QString formatNumber(qreal value, const QString &format, int precision)
                 }
 
                 QString v(QString::number(qAbs(value), 'f', precision >= 0 ? precision : (optionalDecimalPlaces + decimalPlaces)));
-                int p = v.indexOf('.');
+                int p = v.indexOf(QLatin1Char('.'));
                 QString integerValue = p >= 0 ? v.left(p) : v;
                 if (integerValue.length() < integerDigits)
-                    integerValue.prepend(QString().fill('0', integerDigits - integerValue.length()));
+                    integerValue.prepend(QString().fill(QLatin1Char('0'), integerDigits - integerValue.length()));
                 QString decimalValue =  p >= 0 ? v.mid(p + 1) : QString();
                 if (decimalValue.length() < decimalPlaces)
-                    decimalValue.append(QString().fill('0', decimalPlaces - decimalValue.length()));
+                    decimalValue.append(QString().fill(QLatin1Char('0'), decimalPlaces - decimalValue.length()));
 
                 if (showNegative && value < 0)
-                    result.append('-');
+                    result.append(QLatin1Char('-'));
                 result.append(integerValue);
                 if (!decimalValue.isEmpty())
-                    result.append('.' + decimalValue);
+                    result.append(QLatin1Char('.') + decimalValue);
             } break;
             case '\\': { // backslash escapes the next char
                 if (i < format.length() - 1) {
@@ -192,7 +192,7 @@ QString formatBoolean(const QString &value, const QString &format)
     Q_UNUSED(format);
     bool ok = false;
     int v = value.toInt(&ok);
-    return ok && v != 0 ? "TRUE" : "FALSE";
+    return ok && v != 0 ? QStringLiteral("TRUE") : QStringLiteral("FALSE");
 }
 
 QString formatDate(int value, const QString &format)
@@ -211,8 +211,8 @@ QString formatTime(qreal value, const QString &format)
 
 QString formatCurrency(qreal value, const QString &format, const QString& currencySymbol, int precision)
 {
-    if (currencySymbol == "CCC") // undocumented hack, see doc attached to comment 6 at bug 282972
-        return QLocale().toCurrencyString(value, "USD");
+    if (currencySymbol == QStringLiteral("CCC")) // undocumented hack, see doc attached to comment 6 at bug 282972
+        return QLocale().toCurrencyString(value, QStringLiteral("USD"));
     if (format.isEmpty()) // no format means use locale format
         return QLocale().toCurrencyString(value, currencySymbol.isEmpty() ? QLocale().currencySymbol(QLocale::CurrencySymbol)
                                                                           : currencySymbol);
@@ -223,7 +223,7 @@ QString formatScientific(qreal value, const QString &format, int precision)
 {
     Q_UNUSED(format);
     QString v(QString::number(value, 'E', precision));
-    int pos = v.indexOf('.');
+    int pos = v.indexOf(QLatin1Char('.'));
     if (pos != -1) {
         v.replace(pos, 1, QLocale().decimalPoint());
     }
@@ -232,7 +232,7 @@ QString formatScientific(qreal value, const QString &format, int precision)
 
 QString formatFraction(qreal value, const QString &format)
 {
-    QString prefix = value < 0 ? "-" : "";
+    QString prefix = value < 0 ? QStringLiteral("-") : QStringLiteral();
     value = fabs(value);
     qreal result = value - floor(value);
 
@@ -241,25 +241,25 @@ QString formatFraction(qreal value, const QString &format)
 
     int index = 0;
     int limit = 0;
-    if (format.endsWith(QLatin1String("/2"))) {
+    if (format.endsWith(QStringLiteral("/2"))) {
         index = 2;
-    } else if (format.endsWith(QLatin1String("/4"))) {
+    } else if (format.endsWith(QStringLiteral("/4"))) {
         index = 4;
-    } else if (format.endsWith(QLatin1String("/8"))) {
+    } else if (format.endsWith(QStringLiteral("/8"))) {
         index = 8;
-    } else if (format.endsWith(QLatin1String("/16"))) {
+    } else if (format.endsWith(QStringLiteral("/16"))) {
         index = 16;
-    } else if (format.endsWith(QLatin1String("/10"))) {
+    } else if (format.endsWith(QStringLiteral("/10"))) {
         index = 10;
-    } else if (format.endsWith(QLatin1String("/100"))) {
+    } else if (format.endsWith(QStringLiteral("/100"))) {
         index = 100;
-    } else if (format.endsWith(QLatin1String("/?"))) {
+    } else if (format.endsWith(QStringLiteral("/?"))) {
         index = 3;
         limit = 9;
-    } else if (format.endsWith(QLatin1String("/??"))) {
+    } else if (format.endsWith(QStringLiteral("/??"))) {
         index = 4;
         limit = 99;
-    } else if (format.endsWith(QLatin1String("/???"))) {
+    } else if (format.endsWith(QStringLiteral("/???"))) {
         index = 5;
         limit = 999;
     } else { // fallback
@@ -267,9 +267,9 @@ QString formatFraction(qreal value, const QString &format)
     }
 
     // handle halves, quarters, tenths, ...
-    if (!format.endsWith(QLatin1String("/?")) &&
-        !format.endsWith(QLatin1String("/??")) &&
-        !format.endsWith(QLatin1String("/???"))) {
+    if (!format.endsWith(QStringLiteral("/?")) &&
+        !format.endsWith(QStringLiteral("/??")) &&
+        !format.endsWith(QStringLiteral("/???"))) {
         qreal calc = 0;
         int index1 = 0;
         qreal diff = result;
@@ -281,12 +281,12 @@ QString formatFraction(qreal value, const QString &format)
             }
         }
         if (index1 == 0)
-            return prefix + QString("%1").arg(floor(value));
+            return prefix + QStringLiteral("%1").arg(floor(value));
         if (index1 == index)
-            return prefix + QString("%1").arg(floor(value) + 1);
+            return prefix + QStringLiteral("%1").arg(floor(value) + 1);
         if (floor(value) == 0)
-            return prefix + QString("%1/%2").arg(index1).arg(index);
-        return prefix + QString("%1 %2/%3").arg(floor(value)).arg(index1).arg(index);
+            return prefix + QStringLiteral("%1/%2").arg(index1).arg(index);
+        return prefix + QStringLiteral("%1 %2/%3").arg(floor(value)).arg(index1).arg(index);
     }
 
     // handle Format::fraction_one_digit, Format::fraction_two_digit and Format::fraction_three_digit style
@@ -317,18 +317,18 @@ QString formatFraction(qreal value, const QString &format)
     if (bestDenominator == bestNumerator)
         return prefix + QString().setNum(floor(value + 1));
     if (floor(value) == 0)
-        return prefix + QString("%1/%2").arg(bestNumerator).arg(bestDenominator);
-    return prefix + QString("%1 %2/%3").arg(floor(value)).arg(bestNumerator).arg(bestDenominator);
+        return prefix + QStringLiteral("%1/%2").arg(bestNumerator).arg(bestDenominator);
+    return prefix + QStringLiteral("%1 %2/%3").arg(floor(value)).arg(bestNumerator).arg(bestDenominator);
 
 }
 
 QString formatPercent(const QString &value, const QString &/*format*/, int precision)
 {
-    if (value.contains('.')) {
+    if (value.contains(QLatin1Char('.'))) {
         bool ok;
         qreal v = value.toDouble(&ok);
         if (ok)
-            return QString::number(v * 100., 'f', precision) + QLatin1String("%");
+            return QString::number(v * 100., 'f', precision) + QStringLiteral("%");
     }
     return value;
 }
@@ -341,19 +341,19 @@ QPair<QString, NumericStyleFormat> loadOdfNumberStyle(const KoXmlElement &parent
     NumericStyleFormat dataStyle;
 
     const QString localName = parent.localName();
-    if (localName == "number-style")
+    if (localName == QStringLiteral("number-style"))
         dataStyle.type = Number;
-    else if (localName == "currency-style")
+    else if (localName == QStringLiteral("currency-style"))
         dataStyle.type = Currency;
-    else if (localName == "percentage-style")
+    else if (localName == QStringLiteral("percentage-style"))
         dataStyle.type = Percentage;
-    else if (localName == "boolean-style")
+    else if (localName == QStringLiteral("boolean-style"))
         dataStyle.type = Boolean;
-    else if (localName == "text-style")
+    else if (localName == QStringLiteral("text-style"))
         dataStyle.type = Text;
-    else if (localName == "date-style")
+    else if (localName == QStringLiteral("date-style"))
         dataStyle.type = Date;
-    else if (localName == "time-style")
+    else if (localName == QStringLiteral("time-style"))
         dataStyle.type = Time;
 
     QString format;
@@ -373,62 +373,62 @@ QPair<QString, NumericStyleFormat> loadOdfNumberStyle(const KoXmlElement &parent
             continue;
         QString localName = e.localName();
         const QString numberStyle = e.attributeNS(KoXmlNS::number, "style", QString());
-        const bool shortForm = numberStyle == "short" || numberStyle.isEmpty();
-        if (localName == "day") {
-            format += shortForm ? "d" : "dd";
-        } else if (localName == "day-of-week") {
-            format += shortForm ? "ddd" : "dddd";
-        } else if (localName == "month") {
-            if (e.attributeNS(KoXmlNS::number, "possessive-form", QString()) == "true") {
-                format += shortForm ? "PPP" : "PPPP";
+        const bool shortForm = numberStyle == QStringLiteral("short") || numberStyle.isEmpty();
+        if (localName == QStringLiteral("day")) {
+            format += shortForm ? QStringLiteral("d") : QStringLiteral("dd");
+        } else if (localName == QStringLiteral("day-of-week")) {
+            format += shortForm ? QStringLiteral("ddd") : QStringLiteral("dddd");
+        } else if (localName == QStringLiteral("month")) {
+            if (e.attributeNS(KoXmlNS::number, "possessive-form", QString()) == QStringLiteral("true")) {
+                format += shortForm ? QStringLiteral("PPP") : QStringLiteral("PPPP");
             }
             // TODO the spec has a strange mention of number:format-source
-            else if (e.attributeNS(KoXmlNS::number, "textual", QString()) == "true") {
+            else if (e.attributeNS(KoXmlNS::number, "textual", QString()) == QStringLiteral("true")) {
                 bool isExtraShort = false;      // find out if we have to use the extra-short month name (just 1st letter)
-                if (e.attributeNS(KoXmlNS::calligra, "number-length", QString()) == "extra-short") {
+                if (e.attributeNS(KoXmlNS::calligra, "number-length", QString()) == QStringLiteral("extra-short")) {
                     isExtraShort = true;
                 }
 
                 if (!isExtraShort) {            // for normal month format (first 3 letters or complete name)
-                    format += shortForm ? "MMM" : "MMMM";
+                    format += shortForm ? QStringLiteral("MMM") : QStringLiteral("MMMM");
                 } else {                        // for the extra-short month name use 'X' as a special mark
-                    format += "X";
+                    format += QStringLiteral("X");
                 }
             } else { // month number
-                format += shortForm ? "M" : "MM";
+                format += shortForm ? QStringLiteral("M") : QStringLiteral("MM");
             }
-        } else if (localName == "year") {
-            format += shortForm ? "yy" : "yyyy";
-        } else if (localName == "era") {
+        } else if (localName == QStringLiteral("year")) {
+            format += shortForm ? QStringLiteral("yy") : QStringLiteral("yyyy");
+        } else if (localName == QStringLiteral("era")) {
             //TODO I don't know what is it... (define into oo spec)
-        } else if (localName == "week-of-year" || localName == "quarter") {
+        } else if (localName == QStringLiteral("week-of-year") || localName == QStringLiteral("quarter")) {
             // ### not supported in Qt
-        } else if (localName == "hours") {
-            format += shortForm ? "h" : "hh";
-        } else if (localName == "minutes") {
-            format += shortForm ? "m" : "mm";
-        } else if (localName == "seconds") {
-            format += shortForm ? "s" : "ss";
-        } else if (localName == "am-pm") {
-            format += "ap";
-        } else if (localName == "text") {   // literal
+        } else if (localName == QStringLiteral("hours")) {
+            format += shortForm ? QStringLiteral("h") : QStringLiteral("hh");
+        } else if (localName == QStringLiteral("minutes")) {
+            format += shortForm ? QStringLiteral("m") : QStringLiteral("mm");
+        } else if (localName == QStringLiteral("seconds")) {
+            format += shortForm ? QStringLiteral("s") : QStringLiteral("ss");
+        } else if (localName == QStringLiteral("am-pm")) {
+            format += QStringLiteral("ap");
+        } else if (localName == QStringLiteral("text")) {   // literal
             format += e.text();
-        } else if (localName == "suffix") {
+        } else if (localName == QStringLiteral("suffix")) {
             suffix = e.text();
             debugOdf << " suffix :" << suffix;
-        } else if (localName == "prefix") {
+        } else if (localName == QStringLiteral("prefix")) {
             prefix = e.text();
             debugOdf << " prefix :" << prefix;
-        } else if (localName == "currency-symbol") {
+        } else if (localName == QStringLiteral("currency-symbol")) {
             dataStyle.currencySymbol = e.text();
             debugOdf << " currency-symbol:" << dataStyle.currencySymbol;
             format += e.text();
             //TODO
             // number:language="de" number:country="DE">€</number:currency-symbol>
             // Stefan: localization of the symbol?
-        } else if (localName == "number") {
+        } else if (localName == QStringLiteral("number")) {
             if (e.hasAttributeNS(KoXmlNS::number, "grouping")) {
-                thousandsSep = e.attributeNS(KoXmlNS::number, "grouping", QString()).toLower() == "true";
+                thousandsSep = e.attributeNS(KoXmlNS::number, "grouping", QString()).toLower() == QStringLiteral("true");
             }
             if (e.hasAttributeNS(KoXmlNS::number, "decimal-places")) {
                 int d = e.attributeNS(KoXmlNS::number, "decimal-places", QString()).toInt(&ok);
@@ -441,21 +441,21 @@ QPair<QString, NumericStyleFormat> loadOdfNumberStyle(const KoXmlElement &parent
                     leadingZ = d;
             }
             if (thousandsSep && leadingZ <= 3) {
-                format += "#,";
+                format += QStringLiteral("#,");
                 for (i = leadingZ; i <= 3; ++i)
-                    format += '#';
+                    format += QLatin1Char('#');
             }
             for (i = 1; i <= leadingZ; ++i) {
-                format +=  '0';
+                format +=  QLatin1Char('0');
                 if ((i % 3 == 0) && thousandsSep)
                     format = + ',' ;
             }
             if (precision > -1) {
-                format += '.';
+                format += QLatin1Char('.');
                 for (i = 0; i < precision; ++i)
-                    format += '0';
+                    format += QLatin1Char('0');
             }
-        } else if (localName == "scientific-number") {
+        } else if (localName == QStringLiteral("scientific-number")) {
             if (dataStyle.type == Number)
                 dataStyle.type = Scientific;
             int exp = 2;
@@ -481,31 +481,31 @@ QPair<QString, NumericStyleFormat> loadOdfNumberStyle(const KoXmlElement &parent
             }
 
             if (e.hasAttributeNS(KoXmlNS::number, "grouping")) {
-                thousandsSep = e.attributeNS(KoXmlNS::number, "grouping", QString()).toLower() == "true";
+                thousandsSep = e.attributeNS(KoXmlNS::number, "grouping", QString()).toLower() == QStringLiteral("true");
             }
 
             if (thousandsSep && leadingZ <= 3) {
-                format += "#,";
+                format += QStringLiteral("#,");
                 for (i = leadingZ; i <= 3; ++i)
-                    format += '#';
+                    format += QLatin1Char('#');
             }
 
             for (i = 1; i <= leadingZ; ++i) {
-                format += '0';
+                format += QLatin1Char('0');
                 if ((i % 3 == 0) && thousandsSep)
-                    format += ',';
+                    format += QLatin1Char(',');
             }
 
             if (precision > -1) {
-                format += '.';
+                format += QLatin1Char('.');
                 for (i = 0; i < precision; ++i)
-                    format += '0';
+                    format += QLatin1Char('0');
             }
 
-            format += "E+";
+            format += QStringLiteral("E+");
             for (i = 0; i < exp; ++i)
-                format += '0';
-        } else if (localName == "fraction") {
+                format += QLatin1Char('0');
+        } else if (localName == QStringLiteral("fraction")) {
             if (dataStyle.type == Number)
                 dataStyle.type = Fraction;
             int integer = 0;
@@ -533,24 +533,24 @@ QPair<QString, NumericStyleFormat> loadOdfNumberStyle(const KoXmlElement &parent
                     denominatorValue = d;
             }
             if (e.hasAttributeNS(KoXmlNS::number, "grouping")) {
-                thousandsSep = e.attributeNS(KoXmlNS::number, "grouping", QString()).toLower() == "true";
+                thousandsSep = e.attributeNS(KoXmlNS::number, "grouping", QString()).toLower() == QStringLiteral("true");
             }
 
             for (i = 0; i < integer; ++i)
-                format += '#';
+                format += QLatin1Char('#');
 
-            format += ' ';
+            format += QLatin1Char(' ');
 
             for (i = 0; i < numerator; ++i)
-                format += '?';
+                format += QLatin1Char('?');
 
-            format += '/';
+            format += QLatin1Char('/');
 
             if (denominatorValue != 0)
                 format += QString::number(denominatorValue);
             else {
                 for (i = 0; i < denominator; ++i)
-                    format += '?';
+                    format += QLatin1Char('?');
             }
         }
 
@@ -566,7 +566,7 @@ QPair<QString, NumericStyleFormat> loadOdfNumberStyle(const KoXmlElement &parent
         // </number:text-style>
         for (KoXmlNode node(e); !node.isNull(); node = node.nextSibling()) {
             KoXmlElement elem = node.toElement();
-            if (elem.namespaceURI() == KoXmlNS::style && elem.localName() == "map") {
+            if (elem.namespaceURI() == KoXmlNS::style && elem.localName() == QStringLiteral("map")) {
                 QString condition, applyStyleName;
                 if (elem.hasAttributeNS(KoXmlNS::style, "condition"))
                     condition = elem.attributeNS(KoXmlNS::style, "condition");
@@ -666,39 +666,39 @@ void parseOdfTimelocale(KoXmlWriter &elementWriter, QString &format, QString &te
 bool saveOdflocaleTimeFormat(KoXmlWriter &elementWriter, QString &format, QString &text)
 {
     bool changed = false;
-    if (format.startsWith("%H")) {   //hh
+    if (format.startsWith(QStringLiteral("%H"))) {   //hh
         //hour in 24h
         addTextNumber(text, elementWriter);
 
         number_hours(&elementWriter).set_number_style("long");
         format.remove(0, 2);
         changed = true;
-    } else if (format.startsWith("%k")) { //h
+    } else if (format.startsWith(QStringLiteral("%k"))) { //h
         addTextNumber(text, elementWriter);
 
         number_hours(&elementWriter).set_number_style("short");
         format.remove(0, 2);
         changed = true;
-    } else if (format.startsWith("%I")) { // ?????
+    } else if (format.startsWith(QStringLiteral("%I"))) { // ?????
         //TODO hour in 12h
         changed = true;
-    } else if (format.startsWith("%l")) {
+    } else if (format.startsWith(QStringLiteral("%l"))) {
         //TODO hour in 12h with 1 digit
         changed = true;
-    } else if (format.startsWith("%M")) { // mm
+    } else if (format.startsWith(QStringLiteral("%M"))) { // mm
         addTextNumber(text, elementWriter);
 
         number_minutes(&elementWriter).set_number_style("long");
         format.remove(0, 2);
         changed = true;
 
-    } else if (format.startsWith("%S")) {  //ss
+    } else if (format.startsWith(QStringLiteral("%S"))) {  //ss
         addTextNumber(text, elementWriter);
 
         number_seconds(&elementWriter).set_number_style("long");
         format.remove(0, 2);
         changed = true;
-    } else if (format.startsWith("%p")) {
+    } else if (format.startsWith(QStringLiteral("%p"))) {
         //TODO am or pm
         addTextNumber(text, elementWriter);
 
@@ -719,43 +719,43 @@ bool saveOdfTimeFormat(KoXmlWriter &elementWriter, QString &format, QString &tex
         format.remove(0, 1);
         antislash = false;
         changed = true;
-    } else if (format.startsWith("hh")) {
+    } else if (format.startsWith(QStringLiteral("hh"))) {
         addTextNumber(text, elementWriter);
 
         number_hours(&elementWriter).set_number_style("long");
         format.remove(0, 2);
         changed = true;
-    } else if (format.startsWith('h')) {
+    } else if (format.startsWith(QLatin1Char('h'))) {
         addTextNumber(text, elementWriter);
 
         number_hours(&elementWriter).set_number_style("short");
         format.remove(0, 1);
         changed = true;
-    } else if (format.startsWith("mm")) {
+    } else if (format.startsWith(QStringLiteral("mm"))) {
         addTextNumber(text, elementWriter);
 
         number_minutes(&elementWriter).set_number_style("long");
         format.remove(0, 2);
         changed = true;
-    } else if (format.startsWith('m')) {
+    } else if (format.startsWith(QLatin1Char('m'))) {
         addTextNumber(text, elementWriter);
 
         number_minutes(&elementWriter).set_number_style("short");
         format.remove(0, 1);
         changed = true;
-    } else if (format.startsWith("ss")) {
+    } else if (format.startsWith(QStringLiteral("ss"))) {
         addTextNumber(text, elementWriter);
 
         number_seconds(&elementWriter).set_number_style("long");
         format.remove(0, 2);
         changed = true;
-    } else if (format.startsWith('s')) {
+    } else if (format.startsWith(QLatin1Char('s'))) {
         addTextNumber(text, elementWriter);
 
         number_seconds(&elementWriter).set_number_style("short");
         format.remove(0, 1);
         changed = true;
-    } else if (format.startsWith("ap")) {
+    } else if (format.startsWith(QStringLiteral("ap"))) {
         addTextNumber(text, elementWriter);
 
         number_am_pm(&elementWriter).end();
@@ -785,7 +785,7 @@ QString saveOdfTimeStyle(KoGenStyles &mainStyles, const QString &_format, bool l
             if (!saveOdfTimeFormat(elementWriter, format, text, antislash)) {
                 QString elem(format[0]);
                 format.remove(0, 1);
-                if (elem == "\\") {
+                if (elem == QStringLiteral("\\")) {
                     antislash = true;
                 } else {
                     text += elem;
@@ -795,9 +795,9 @@ QString saveOdfTimeStyle(KoGenStyles &mainStyles, const QString &_format, bool l
         } while (format.length() > 0);
         addTextNumber(text, elementWriter);
     }
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    currentStyle.addChildElement("number", elementContents);
-    return mainStyles.insert(currentStyle, "N");
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    currentStyle.addChildElement(QStringLiteral("number"), elementContents);
+    return mainStyles.insert(currentStyle, QStringLiteral("N"));
 }
 
 //convert locale string to good format
@@ -805,49 +805,49 @@ void parseOdfDatelocale(KoXmlWriter &elementWriter, QString &format, QString &te
 {
     debugOdf << format;
     do {
-        if (format.startsWith("%Y")) {
+        if (format.startsWith(QStringLiteral("%Y"))) {
             addTextNumber(text, elementWriter);
 
             number_year(&elementWriter).set_number_style("long");
             format.remove(0, 2);
-        } else if (format.startsWith("%y")) {
+        } else if (format.startsWith(QStringLiteral("%y"))) {
 
             addTextNumber(text, elementWriter);
 
             number_year(&elementWriter).set_number_style("short");
             format.remove(0, 2);
-        } else if (format.startsWith("%n")) {
+        } else if (format.startsWith(QStringLiteral("%n"))) {
             addTextNumber(text, elementWriter);
 
             number_month month(&elementWriter);
             month.set_number_style("short");
             month.set_number_textual("false");
             format.remove(0, 2);
-        } else if (format.startsWith("%m")) {
+        } else if (format.startsWith(QStringLiteral("%m"))) {
             addTextNumber(text, elementWriter);
 
             number_month month(&elementWriter);
             month.set_number_style("long");
             month.set_number_textual("false");  //not necessary remove it
             format.remove(0, 2);
-        } else if (format.startsWith("%e")) {
+        } else if (format.startsWith(QStringLiteral("%e"))) {
             addTextNumber(text, elementWriter);
 
             number_day(&elementWriter).set_number_style("short");
             format.remove(0, 2);
-        } else if (format.startsWith("%d")) {
+        } else if (format.startsWith(QStringLiteral("%d"))) {
             addTextNumber(text, elementWriter);
 
             number_day(&elementWriter).set_number_style("long");
             format.remove(0, 2);
-        } else if (format.startsWith("%b")) {
+        } else if (format.startsWith(QStringLiteral("%b"))) {
             addTextNumber(text, elementWriter);
 
             number_month month(&elementWriter);
             month.set_number_style("short");
             month.set_number_textual("true");
             format.remove(0, 2);
-        } else if (format.startsWith("%B")) {
+        } else if (format.startsWith(QStringLiteral("%B"))) {
             addTextNumber(text, elementWriter);
 
             number_month month(&elementWriter);
@@ -855,13 +855,13 @@ void parseOdfDatelocale(KoXmlWriter &elementWriter, QString &format, QString &te
             month.set_number_textual("true");
             elementWriter.endElement();
             format.remove(0, 2);
-        } else if (format.startsWith("%a")) {
+        } else if (format.startsWith(QStringLiteral("%a"))) {
             addTextNumber(text, elementWriter);
 
             number_day_of_week(&elementWriter).set_number_style("short");
 
             format.remove(0, 2);
-        } else if (format.startsWith("%A")) {
+        } else if (format.startsWith(QStringLiteral("%A"))) {
             addTextNumber(text, elementWriter);
 
             number_day_of_week(&elementWriter).set_number_style("long");
@@ -901,42 +901,42 @@ QString saveOdfDateStyle(KoGenStyles &mainStyles, const QString &_format, bool l
                 format.remove(0, 1);
             }
             //TODO implement loading ! What is it ?
-            else if (format.startsWith("MMMMM")) {        // MMMMM is extra-short month name (only 1st character)
+            else if (format.startsWith(QStringLiteral("MMMMM"))) {        // MMMMM is extra-short month name (only 1st character)
                 addTextNumber(text, elementWriter);
 
                 number_month month(&elementWriter);
                 month.set_number_textual("true");
                 month.set_calligra_number_length("extra-short");
                 format.remove(0, 5);
-            } else if (format.startsWith("MMMM")) {
+            } else if (format.startsWith(QStringLiteral("MMMM"))) {
                 addTextNumber(text, elementWriter);
 
                 number_month month(&elementWriter);
                 month.set_number_style("long");
                 month.set_number_textual("true");
                 format.remove(0, 4);
-            } else if (format.startsWith("MMM")) {
+            } else if (format.startsWith(QStringLiteral("MMM"))) {
                 addTextNumber(text, elementWriter);
 
                 number_month month(&elementWriter);
                 month.set_number_style("short");
                 month.set_number_textual("true");
                 format.remove(0, 3);
-            } else if (format.startsWith("MM")) {
+            } else if (format.startsWith(QStringLiteral("MM"))) {
                 addTextNumber(text, elementWriter);
 
                 number_month month(&elementWriter);
                 month.set_number_style("long");
                 month.set_number_textual("false"); //not necessary remove it
                 format.remove(0, 2);
-            } else if (format.startsWith('M')) {
+            } else if (format.startsWith(QLatin1Char('M'))) {
                 addTextNumber(text, elementWriter);
 
                 number_month month(&elementWriter);
                 month.set_number_style("short");
                 month.set_number_textual("false");
                 format.remove(0, 1);
-            } else if (format.startsWith("PPPP")) {
+            } else if (format.startsWith(QStringLiteral("PPPP"))) {
                 addTextNumber(text, elementWriter);
                 //<number:month number:possessive-form="true" number:textual="true" number:style="long"/>
 
@@ -945,7 +945,7 @@ QString saveOdfDateStyle(KoGenStyles &mainStyles, const QString &_format, bool l
                 month.set_number_textual("false");
                 month.set_number_possessive_form("true");
                 format.remove(0, 4);
-            } else if (format.startsWith("PPP")) {
+            } else if (format.startsWith(QStringLiteral("PPP"))) {
                 addTextNumber(text, elementWriter);
                 //<number:month number:possessive-form="true" number:textual="true" number:style="short"/>
                 number_month month(&elementWriter);
@@ -953,32 +953,32 @@ QString saveOdfDateStyle(KoGenStyles &mainStyles, const QString &_format, bool l
                 month.set_number_style("short");
                 month.set_number_textual("false");
                 format.remove(0, 3);
-            } else if (format.startsWith("dddd")) {
+            } else if (format.startsWith(QStringLiteral("dddd"))) {
                 addTextNumber(text, elementWriter);
 
                 number_day_of_week(&elementWriter).set_number_style("long");
                 format.remove(0, 4);
-            } else if (format.startsWith("ddd")) {
+            } else if (format.startsWith(QStringLiteral("ddd"))) {
                 addTextNumber(text, elementWriter);
 
                 number_day_of_week(&elementWriter).set_number_style("short");
                 format.remove(0, 3);
-            } else if (format.startsWith("dd")) {
+            } else if (format.startsWith(QStringLiteral("dd"))) {
                 addTextNumber(text, elementWriter);
 
                 number_day(&elementWriter).set_number_style("long");
                 format.remove(0, 2);
-            } else if (format.startsWith('d')) {
+            } else if (format.startsWith(QLatin1Char('d'))) {
                 addTextNumber(text, elementWriter);
 
                 number_day(&elementWriter).set_number_style("short");
                 format.remove(0, 1);
-            } else if (format.startsWith("yyyy")) {
+            } else if (format.startsWith(QStringLiteral("yyyy"))) {
                 addTextNumber(text, elementWriter);
 
                 number_year(&elementWriter).set_number_style("long");
                 format.remove(0, 4);
-            } else if (format.startsWith("yy")) {
+            } else if (format.startsWith(QStringLiteral("yy"))) {
                 addTextNumber(text, elementWriter);
 
                 number_year(&elementWriter).set_number_style("short");
@@ -987,7 +987,7 @@ QString saveOdfDateStyle(KoGenStyles &mainStyles, const QString &_format, bool l
                 if (!saveOdfTimeFormat(elementWriter, format, text, antislash)) {
                     QString elem(format[0]);
                     format.remove(0, 1);
-                    if (elem == "\\") {
+                    if (elem == QStringLiteral("\\")) {
                         antislash = true;
                     } else {
                         text += elem;
@@ -999,9 +999,9 @@ QString saveOdfDateStyle(KoGenStyles &mainStyles, const QString &_format, bool l
         addTextNumber(text, elementWriter);
     }
 
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    currentStyle.addChildElement("number", elementContents);
-    return mainStyles.insert(currentStyle, "N");
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    currentStyle.addChildElement(QStringLiteral("number"), elementContents);
+    return mainStyles.insert(currentStyle, QStringLiteral("N"));
 }
 
 
@@ -1022,11 +1022,11 @@ QString saveOdfFractionStyle(KoGenStyles &mainStyles, const QString &_format,
     int denominatorValue = 0;
     bool beforeSlash = true;
     do {
-        if (format[0] == '#')
+        if (format[0] == QLatin1Char('#'))
             integer++;
-        else if (format[0] == '/')
+        else if (format[0] == QLatin1Char('/'))
             beforeSlash = false;
-        else if (format[0] == '?') {
+        else if (format[0] == QLatin1Char('?')) {
             if (beforeSlash)
                 numerator++;
             else
@@ -1059,9 +1059,9 @@ QString saveOdfFractionStyle(KoGenStyles &mainStyles, const QString &_format,
     text = _suffix;
     addTextNumber(text, elementWriter);
 
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    currentStyle.addChildElement("number", elementContents);
-    return mainStyles.insert(currentStyle, "N");
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    currentStyle.addChildElement(QStringLiteral("number"), elementContents);
+    return mainStyles.insert(currentStyle, QStringLiteral("N"));
 }
 
 
@@ -1080,11 +1080,11 @@ QString saveOdfNumberStyle(KoGenStyles &mainStyles, const QString &_format,
     int integerdigits = 0;
     bool beforeSeparator = true;
     do {
-        if (format[0] == '.' || format[0] == ',')
+        if (format[0] == QLatin1Char('.') || format[0] == QLatin1Char(','))
             beforeSeparator = false;
-        else if (format[0] == '0' && beforeSeparator)
+        else if (format[0] == QLatin1Char('0') && beforeSeparator)
             integerdigits++;
-        else if (format[0] == '0' && !beforeSeparator)
+        else if (format[0] == QLatin1Char('0') && !beforeSeparator)
             decimalplaces++;
         else
             debugOdf << " error format 0";
@@ -1107,9 +1107,9 @@ QString saveOdfNumberStyle(KoGenStyles &mainStyles, const QString &_format,
     addTextNumber(text, elementWriter);
     addCalligraNumericStyleExtension(elementWriter, _suffix, _prefix);
 
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    currentStyle.addChildElement("number", elementContents);
-    return mainStyles.insert(currentStyle, "N");
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    currentStyle.addChildElement(QStringLiteral("number"), elementContents);
+    return mainStyles.insert(currentStyle, QStringLiteral("N"));
 }
 
 QString saveOdfBooleanStyle(KoGenStyles &mainStyles, const QString &format, const QString &prefix, const QString &suffix)
@@ -1127,9 +1127,9 @@ QString saveOdfBooleanStyle(KoGenStyles &mainStyles, const QString &format, cons
     text = suffix;
     addTextNumber(text, elementWriter);
 
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    currentStyle.addChildElement("number", elementContents);
-    return mainStyles.insert(currentStyle, "N");
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    currentStyle.addChildElement(QStringLiteral("number"), elementContents);
+    return mainStyles.insert(currentStyle, QStringLiteral("N"));
 }
 
 QString saveOdfPercentageStyle(KoGenStyles &mainStyles, const QString &_format,
@@ -1152,11 +1152,11 @@ QString saveOdfPercentageStyle(KoGenStyles &mainStyles, const QString &_format,
     int integerdigits = 0;
     bool beforeSeparator = true;
     do {
-        if (format[0] == '.' || format[0] == ',')
+        if (format[0] == QLatin1Char('.') || format[0] == QLatin1Char(','))
             beforeSeparator = false;
-        else if (format[0] == '0' && beforeSeparator)
+        else if (format[0] == QLatin1Char('0') && beforeSeparator)
             integerdigits++;
-        else if (format[0] == '0' && !beforeSeparator)
+        else if (format[0] == QLatin1Char('0') && !beforeSeparator)
             decimalplaces++;
         else
             debugOdf << " error format 0";
@@ -1171,16 +1171,16 @@ QString saveOdfPercentageStyle(KoGenStyles &mainStyles, const QString &_format,
     number.set_number_min_integer_digits(integerdigits);
     number.end();
 
-    QString percent(QChar('%'));
+    QString percent(QLatin1Char('%'));
     addTextNumber(percent, elementWriter);
 
     text = _suffix ;
     addTextNumber(text, elementWriter);
     addCalligraNumericStyleExtension(elementWriter, _suffix, _prefix);
 
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    currentStyle.addChildElement("number", elementContents);
-    return mainStyles.insert(currentStyle, "N");
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    currentStyle.addChildElement(QStringLiteral("number"), elementContents);
+    return mainStyles.insert(currentStyle, QStringLiteral("N"));
 
 }
 
@@ -1208,26 +1208,26 @@ QString saveOdfScientificStyle(KoGenStyles &mainStyles, const QString &_format,
     bool positive = true;
     do {
         if (!exponential) {
-            if (format[0] == '0' && beforeSeparator)
+            if (format[0] == QLatin1Char('0') && beforeSeparator)
                 integerdigits++;
-            else if (format[0] == ',' || format[0] == '.')
+            else if (format[0] == QLatin1Char(',') || format[0] == QLatin1Char('.'))
                 beforeSeparator = false;
-            else if (format[0] == '0' && !beforeSeparator)
+            else if (format[0] == QLatin1Char('0') && !beforeSeparator)
                 decimalplace++;
-            else if (format[0].toLower() == 'e') {
+            else if (format[0].toLower() == QLatin1Char('e')) {
                 format.remove(0, 1);
-                if (format[0] == '+')
+                if (format[0] == QLatin1Char('+'))
                     positive = true;
-                else if (format[0] == '-')
+                else if (format[0] == QLatin1Char('-'))
                     positive = false;
                 else
                     debugOdf << "Error into scientific number";
                 exponential = true;
             }
         } else {
-            if (format[0] == '0' && positive)
+            if (format[0] == QLatin1Char('0') && positive)
                 exponentdigits++;
-            else if (format[0] == '0' && !positive)
+            else if (format[0] == QLatin1Char('0') && !positive)
                 exponentdigits--;
             else
                 debugOdf << " error into scientific number exponential value";
@@ -1253,9 +1253,9 @@ QString saveOdfScientificStyle(KoGenStyles &mainStyles, const QString &_format,
     addTextNumber(text, elementWriter);
     addCalligraNumericStyleExtension(elementWriter, _suffix, _prefix);
 
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    currentStyle.addChildElement("number", elementContents);
-    return mainStyles.insert(currentStyle, "N");
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    currentStyle.addChildElement(QStringLiteral("number"), elementContents);
+    return mainStyles.insert(currentStyle, QStringLiteral("N"));
 }
 
 QString saveOdfCurrencyStyle(KoGenStyles &mainStyles,
@@ -1281,11 +1281,11 @@ QString saveOdfCurrencyStyle(KoGenStyles &mainStyles,
     int integerdigits = 0;
     bool beforeSeparator = true;
     do {
-        if (format[0] == '.' || format[0] == ',')
+        if (format[0] == QLatin1Char('.') || format[0] == QLatin1Char(','))
             beforeSeparator = false;
-        else if (format[0] == '0' && beforeSeparator)
+        else if (format[0] == QLatin1Char('0') && beforeSeparator)
             integerdigits++;
-        else if (format[0] == '0' && !beforeSeparator)
+        else if (format[0] == QLatin1Char('0') && !beforeSeparator)
             decimalplaces++;
         else
             debugOdf << " error format 0";
@@ -1309,12 +1309,12 @@ QString saveOdfCurrencyStyle(KoGenStyles &mainStyles,
 
     number_currency_symbol sym(&elementWriter);
     //debugOdf << " currency-symbol:" << symbol;
-    sym.addTextNode(symbol.toUtf8());
+    sym.addTextNode(symbol);
     sym.end();
 
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    currentStyle.addChildElement("number", elementContents);
-    return mainStyles.insert(currentStyle, "N");
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    currentStyle.addChildElement(QStringLiteral("number"), elementContents);
+    return mainStyles.insert(currentStyle, QStringLiteral("N"));
 }
 
 QString saveOdfTextStyle(KoGenStyles &mainStyles, const QString &_format, const QString &_prefix, const QString &_suffix)
@@ -1340,9 +1340,9 @@ QString saveOdfTextStyle(KoGenStyles &mainStyles, const QString &_format, const 
     addTextNumber(text, elementWriter);
     addCalligraNumericStyleExtension(elementWriter, _suffix, _prefix);
 
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    currentStyle.addChildElement("number", elementContents);
-    return mainStyles.insert(currentStyle, "N");
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    currentStyle.addChildElement(QStringLiteral("number"), elementContents);
+    return mainStyles.insert(currentStyle, QStringLiteral("N"));
 }
 
 //This is an extension of numeric style. For the moment we used namespace of

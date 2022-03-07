@@ -20,8 +20,8 @@
 namespace KPlato
 {
 
-MilestoneProgressPanel::MilestoneProgressPanel(Task &task, QWidget *parent, const char *name)
-    : MilestoneProgressPanelImpl(parent, name),
+MilestoneProgressPanel::MilestoneProgressPanel(Task &task, QWidget *parent)
+    : MilestoneProgressPanelImpl(parent),
       m_task(task),
       m_completion(task.completion())
 
@@ -65,10 +65,9 @@ MacroCommand *MilestoneProgressPanel::buildCommand() {
 
 //-------------------------------------
 
-MilestoneProgressPanelImpl::MilestoneProgressPanelImpl(QWidget *parent, const char *name)
-    : QWidget(parent) {
-    
-    setObjectName(name);
+MilestoneProgressPanelImpl::MilestoneProgressPanelImpl(QWidget *parent)
+    : QWidget(parent)
+{
     setupUi(this);
     
     connect(finished, &QAbstractButton::toggled, this, &MilestoneProgressPanelImpl::slotFinishedChanged);

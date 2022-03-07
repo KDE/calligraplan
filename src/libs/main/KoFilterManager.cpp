@@ -108,7 +108,7 @@ QString KoFilterManager::importDocument(const QString& url,
             QApplication::setOverrideCursor(Qt::ArrowCursor);
             KoFilterChooser chooser(nullptr,
                     KoFilterManager::mimeFilter(nativeFormat, KoFilterManager::Import,
-                    m_document->extraNativeMimeTypes()), nativeFormat, u);
+                    m_document->extraNativeMimeTypes()), QString::fromLatin1(nativeFormat), u);
             if (chooser.exec()) {
                 QByteArray f = chooser.filterSelected().toLatin1();
                 if (f == nativeFormat) {
@@ -191,7 +191,7 @@ KoFilter::ConversionStatus KoFilterManager::exportDocument(const QString& url, Q
     if (m_document) {
         // We have to pick the right native mimetype as source.
         QStringList nativeMimeTypes;
-        nativeMimeTypes.append(m_document->nativeFormatMimeType());
+        nativeMimeTypes.append(QString::fromLatin1(m_document->nativeFormatMimeType()));
         nativeMimeTypes += m_document->extraNativeMimeTypes();
         QStringList::ConstIterator it = nativeMimeTypes.constBegin();
         const QStringList::ConstIterator end = nativeMimeTypes.constEnd();
@@ -283,10 +283,10 @@ private:
 void buildGraph(QHash<QByteArray, Vertex*>& vertices, KoFilterManager::Direction direction)
 {
     QStringList stopList; // Lists of mimetypes that are considered end of chains
-    stopList << "text/plain";
-    stopList << "text/csv";
-    stopList << "text/x-tex";
-    stopList << "text/html";
+    stopList << QStringLiteral("text/plain");
+    stopList << QStringLiteral("text/csv");
+    stopList << QStringLiteral("text/x-tex");
+    stopList << QStringLiteral("text/html");
 
     // partly copied from build graph, but I don't see any other
     // way without crude hacks, as we have to obey the direction here
@@ -297,11 +297,11 @@ void buildGraph(QHash<QByteArray, Vertex*>& vertices, KoFilterManager::Direction
     while (partIt != partEnd) {
         QJsonObject metaData = (*partIt).metaData();
 #ifdef CALLIGRA_OLD_PLUGIN_METADATA
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toString().split(',');
+        QStringList nativeMimeTypes = metaData.value(QStringLiteral("X-KDE-ExtraNativeMimeTypes")).toString().split(',');
 #else
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toVariant().toStringList();
+        QStringList nativeMimeTypes = metaData.value(QStringLiteral("X-KDE-ExtraNativeMimeTypes")).toVariant().toStringList();
 #endif
-        nativeMimeTypes += metaData.value("X-KDE-NativeMimeType").toString();
+        nativeMimeTypes += metaData.value(QStringLiteral("X-KDE-NativeMimeType")).toString();
         QStringList::ConstIterator it = nativeMimeTypes.constBegin();
         const QStringList::ConstIterator end = nativeMimeTypes.constEnd();
         for (; it != end; ++it)
@@ -416,7 +416,7 @@ QStringList connected(const QHash<QByteArray, Vertex*>& vertices, const QByteArr
             }
         }
         v->setColor(Vertex::Black);
-        connected.append(v->mimeType());
+        connected.append(QString::fromLatin1(v->mimeType()));
     }
     return connected;
 }
@@ -479,11 +479,11 @@ QStringList KoFilterManager::mimeFilter()
     while (partIt != partEnd) {
         QJsonObject metaData = (*partIt).metaData();
 #ifdef CALLIGRA_OLD_PLUGIN_METADATA
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toString().split(',');
+        QStringList nativeMimeTypes = metaData.value(QStringLiteral("X-KDE-ExtraNativeMimeTypes")).toString().split(',');
 #else
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toVariant().toStringList();
+        QStringList nativeMimeTypes = metaData.value(QStringLiteral("X-KDE-ExtraNativeMimeTypes")).toVariant().toStringList();
 #endif
-        nativeMimeTypes += metaData.value("X-KDE-NativeMimeType").toString();
+        nativeMimeTypes += metaData.value(QStringLiteral("X-KDE-NativeMimeType")).toString();
         QStringList::ConstIterator it = nativeMimeTypes.constBegin();
         const QStringList::ConstIterator end = nativeMimeTypes.constEnd();
         for (; it != end; ++it)
@@ -494,7 +494,7 @@ QStringList KoFilterManager::mimeFilter()
     QStringList result = connected(vertices, "supercalifragilistic/x-pialadocious");
 
     // Finally we have to get rid of our fake mimetype again
-    result.removeAll("supercalifragilistic/x-pialadocious");
+    result.removeAll(QStringLiteral("supercalifragilistic/x-pialadocious"));
     return result;
 }
 
@@ -504,7 +504,7 @@ bool KoFilterManager::filterAvailable(KoFilterEntry::Ptr entry)
 {
     if (!entry)
         return false;
-    if (entry->available != "check")
+    if (entry->available != QStringLiteral("check"))
         return true;
 
 // QT5TODO

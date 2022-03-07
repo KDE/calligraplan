@@ -99,7 +99,6 @@ void Node::init() {
     m_priority = 0;
     m_documents.node = this;
     m_currentSchedule = nullptr;
-    m_name="";
     m_constraint = Node::ASAP;
     m_estimate = nullptr;
     m_visitedForward = false;
@@ -138,13 +137,13 @@ QString Node::typeToString(Node::NodeTypes typ, bool trans)
 QStringList Node::typeToStringList(bool trans)
 {
     return QStringList() 
-            << (trans ? i18n("None") : QString("None"))
-            << (trans ? i18n("Project") : QString("Project"))
-            << (trans ? i18n("Sub-Project") : QString("Sub-Project"))
-            << (trans ? i18n("Task") : QString("Task"))
-            << (trans ? i18n("Milestone") : QString("Milestone"))
-            << (trans ? i18n("Periodic") : QString("Periodic"))
-            << (trans ? i18n("Summary") : QString("Summary-Task"));
+            << (trans ? i18n("None") : QStringLiteral("None"))
+            << (trans ? i18n("Project") : QStringLiteral("Project"))
+            << (trans ? i18n("Sub-Project") : QStringLiteral("Sub-Project"))
+            << (trans ? i18n("Task") : QStringLiteral("Task"))
+            << (trans ? i18n("Milestone") : QStringLiteral("Milestone"))
+            << (trans ? i18n("Periodic") : QStringLiteral("Periodic"))
+            << (trans ? i18n("Summary") : QStringLiteral("Summary-Task"));
 }
 
 void Node::setName(const QString &n) 
@@ -605,7 +604,7 @@ QStringList Node::schedulingStatus(long id, bool trans) const
         lst = s->state();
     }
     if (lst.isEmpty()) {
-        lst.append(trans ? i18n("Not scheduled") : QString("Not scheduled"));
+        lst.append(trans ? i18n("Not scheduled") : QStringLiteral("Not scheduled"));
     }
     return lst;
 }
@@ -689,19 +688,19 @@ void Node::setConstraint(Node::ConstraintType type)
 
 void Node::setConstraint(const QString &type) {
     // Do not i18n these, they are used in load()
-    if (type == "ASAP")
+    if (type == QStringLiteral("ASAP"))
         setConstraint(ASAP);
-    else if (type == "ALAP")
+    else if (type == QStringLiteral("ALAP"))
         setConstraint(ALAP);
-    else if (type == "MustStartOn")
+    else if (type == QStringLiteral("MustStartOn"))
         setConstraint(MustStartOn);
-    else if (type == "MustFinishOn")
+    else if (type == QStringLiteral("MustFinishOn"))
         setConstraint(MustFinishOn);
-    else if (type == "StartNotEarlier")
+    else if (type == QStringLiteral("StartNotEarlier"))
         setConstraint(StartNotEarlier);
-    else if (type == "FinishNotLater")
+    else if (type == QStringLiteral("FinishNotLater"))
         setConstraint(FinishNotLater);
-    else if (type == "FixedInterval")
+    else if (type == QStringLiteral("FixedInterval"))
         setConstraint(FixedInterval);
     else
         setConstraint(ASAP);  // default
@@ -714,13 +713,13 @@ QString Node::constraintToString(bool trans) const {
 QStringList Node::constraintList(bool trans) {
     // keep these in the same order as the enum!
     return QStringList() 
-            << (trans ? i18n("As Soon As Possible") : QString("ASAP"))
-            << (trans ? i18n("As Late As Possible") : QString("ALAP"))
-            << (trans ? i18n("Must Start On") : QString("MustStartOn"))
-            << (trans ? i18n("Must Finish On") : QString("MustFinishOn"))
-            << (trans ? i18n("Start Not Earlier") : QString("StartNotEarlier"))
-            << (trans ? i18n("Finish Not Later") : QString("FinishNotLater"))
-            << (trans ? i18n("Fixed Interval") : QString("FixedInterval"));
+            << (trans ? i18n("As Soon As Possible") : QStringLiteral("ASAP"))
+            << (trans ? i18n("As Late As Possible") : QStringLiteral("ALAP"))
+            << (trans ? i18n("Must Start On") : QStringLiteral("MustStartOn"))
+            << (trans ? i18n("Must Finish On") : QStringLiteral("MustFinishOn"))
+            << (trans ? i18n("Start Not Earlier") : QStringLiteral("StartNotEarlier"))
+            << (trans ? i18n("Finish Not Later") : QStringLiteral("FinishNotLater"))
+            << (trans ? i18n("Fixed Interval") : QStringLiteral("FixedInterval"));
 }
 
 void Node::propagateEarliestStart(DateTime &time) {
@@ -737,18 +736,18 @@ void Node::propagateEarliestStart(DateTime &time) {
             case FinishNotLater:
             case MustFinishOn:
                 if (m_constraintEndTime < time) {
-                    m_currentSchedule->logWarning("Task constraint outside project constraint");
+                    m_currentSchedule->logWarning(i18n("Task constraint outside project constraint"));
 #ifndef PLAN_NLOGDEBUG
-                    m_currentSchedule->logDebug(QString("%1: end constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
+                    m_currentSchedule->logDebug(QStringLiteral("%1: end constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
 #endif
                 }
                 break;
             case MustStartOn:
             case FixedInterval:
                 if (m_constraintStartTime < time) {
-                    m_currentSchedule->logWarning("Task constraint outside project constraint");
+                    m_currentSchedule->logWarning(i18n("Task constraint outside project constraint"));
 #ifndef PLAN_NLOGDEBUG
-                    m_currentSchedule->logDebug(QString("%1: start constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
+                    m_currentSchedule->logDebug(QStringLiteral("%1: start constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
 #endif
                 }
                 break;
@@ -776,18 +775,18 @@ void Node::propagateLatestFinish(DateTime &time) {
             case StartNotEarlier:
             case MustStartOn:
                 if (m_constraintStartTime > time) {
-                    m_currentSchedule->logWarning("Task constraint outside project constraint");
+                    m_currentSchedule->logWarning(i18n("Task constraint outside project constraint"));
 #ifndef PLAN_NLOGDEBUG
-                    m_currentSchedule->logDebug(QString("%1: start constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
+                    m_currentSchedule->logDebug(QStringLiteral("%1: start constraint %2 < %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
 #endif
                 }
                 break;
             case MustFinishOn:
             case FixedInterval:
                 if (m_constraintEndTime > time) {
-                    m_currentSchedule->logWarning("Task constraint outside project constraint");
+                    m_currentSchedule->logWarning(i18n("Task constraint outside project constraint"));
 #ifndef PLAN_NLOGDEBUG
-                    m_currentSchedule->logDebug(QString("%1: end constraint %2 > %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
+                    m_currentSchedule->logDebug(QStringLiteral("%1: end constraint %2 > %3").arg(constraintToString(true), m_constraintEndTime.toString(), time.toString()));
 #endif
                 }
                 break;
@@ -1561,42 +1560,42 @@ void Estimate::setUnit(Duration::Unit unit)
 }
 
 bool Estimate::load(KoXmlElement &element, XMLLoaderObject &status) {
-    setType(element.attribute("type"));
-    setRisktype(element.attribute("risk"));
-    if (status.version() <= "0.6") {
-        m_unit = (Duration::Unit)(element.attribute("display-unit", QString().number(Duration::Unit_h)).toInt());
+    setType(element.attribute(QStringLiteral("type")));
+    setRisktype(element.attribute(QStringLiteral("risk")));
+    if (status.version() <= QStringLiteral("0.6")) {
+        m_unit = (Duration::Unit)(element.attribute(QStringLiteral("display-unit"), QString().number(Duration::Unit_h)).toInt());
         QList<qint64> s = status.project().standardWorktime()->scales();
-        m_expectedEstimate = scale(Duration::fromString(element.attribute("expected")), m_unit, s);
-        m_optimisticEstimate = scale(Duration::fromString(element.attribute("optimistic")), m_unit, s);
-        m_pessimisticEstimate = scale(Duration::fromString(element.attribute("pessimistic")), m_unit, s);
+        m_expectedEstimate = scale(Duration::fromString(element.attribute(QStringLiteral("expected"))), m_unit, s);
+        m_optimisticEstimate = scale(Duration::fromString(element.attribute(QStringLiteral("optimistic"))), m_unit, s);
+        m_pessimisticEstimate = scale(Duration::fromString(element.attribute(QStringLiteral("pessimistic"))), m_unit, s);
     } else {
-        if (status.version() <= "0.6.2") {
+        if (status.version() <= QStringLiteral("0.6.2")) {
             // 0 pos in unit is now Unit_Y, so add 3 to get the correct new unit
-            m_unit = (Duration::Unit)(element.attribute("unit", QString().number(Duration::Unit_ms - 3)).toInt() + 3);
+            m_unit = (Duration::Unit)(element.attribute(QStringLiteral("unit"), QString().number(Duration::Unit_ms - 3)).toInt() + 3);
         } else {
-            m_unit = Duration::unitFromString(element.attribute("unit"));
+            m_unit = Duration::unitFromString(element.attribute(QStringLiteral("unit")));
         }
-        m_expectedEstimate = element.attribute("expected", "0.0").toDouble();
-        m_optimisticEstimate = element.attribute("optimistic", "0.0").toDouble();
-        m_pessimisticEstimate = element.attribute("pessimistic", "0.0").toDouble();
+        m_expectedEstimate = element.attribute(QStringLiteral("expected"), QStringLiteral("0.0")).toDouble();
+        m_optimisticEstimate = element.attribute(QStringLiteral("optimistic"), QStringLiteral("0.0")).toDouble();
+        m_pessimisticEstimate = element.attribute(QStringLiteral("pessimistic"), QStringLiteral("0.0")).toDouble();
         
-        m_calendar = status.project().findCalendar(element.attribute("calendar-id"));
+        m_calendar = status.project().findCalendar(element.attribute(QStringLiteral("calendar-id")));
     }
     return true;
 }
 
 void Estimate::save(QDomElement &element) const {
-    QDomElement me = element.ownerDocument().createElement("estimate");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("estimate"));
     element.appendChild(me);
-    me.setAttribute("expected", QString::number(m_expectedEstimate));
-    me.setAttribute("optimistic", QString::number(m_optimisticEstimate));
-    me.setAttribute("pessimistic", QString::number(m_pessimisticEstimate));
-    me.setAttribute("type", typeToString());
+    me.setAttribute(QStringLiteral("expected"), QString::number(m_expectedEstimate));
+    me.setAttribute(QStringLiteral("optimistic"), QString::number(m_optimisticEstimate));
+    me.setAttribute(QStringLiteral("pessimistic"), QString::number(m_pessimisticEstimate));
+    me.setAttribute(QStringLiteral("type"), typeToString());
     if (m_calendar) {
-        me.setAttribute("calendar-id", m_calendar->id());
+        me.setAttribute(QStringLiteral("calendar-id"), m_calendar->id());
     }
-    me.setAttribute("risk", risktypeToString());
-    me.setAttribute("unit", Duration::unitToString(m_unit));
+    me.setAttribute(QStringLiteral("risk"), risktypeToString());
+    me.setAttribute(QStringLiteral("unit"), Duration::unitToString(m_unit));
 }
 
 QString Estimate::typeToString(bool trans) const {
@@ -1610,8 +1609,8 @@ QString Estimate::typeToString(Estimate::Type typ, bool trans)
 
 QStringList Estimate::typeToStringList(bool trans) {
     return QStringList() 
-            << (trans ? i18n("Effort") : QString("Effort"))
-            << (trans ? i18n("Duration") : QString("Duration"));
+            << (trans ? i18n("Effort") : QStringLiteral("Effort"))
+            << (trans ? i18n("Duration") : QStringLiteral("Duration"));
 }
 
 void Estimate::setType(Type type)
@@ -1625,13 +1624,13 @@ void Estimate::setType(Type type)
 }
 
 void Estimate::setType(const QString& type) {
-    if (type == "Effort")
+    if (type == QStringLiteral("Effort"))
         setType(Type_Effort);
-    else if (type == "Duration" || /*old format*/ type == "FixedDuration")
+    else if (type == QStringLiteral("Duration") || /*old format*/ type == QStringLiteral("FixedDuration"))
         setType(Type_Duration);
-    else if (/*old format*/type == "Length")
+    else if (/*old format*/type == QStringLiteral("Length"))
         setType(Type_Duration);
-    else if (type == "Type_FixedDuration") // Typo, keep old xml files working
+    else if (type == QStringLiteral("Type_FixedDuration")) // Typo, keep old xml files working
         setType(Type_Duration);
     else
         setType(Type_Effort); // default
@@ -1643,15 +1642,15 @@ QString Estimate::risktypeToString(bool trans) const {
 
 QStringList Estimate::risktypeToStringList(bool trans) {
     return QStringList() 
-            << (trans ? i18n("None") : QString("None"))
-            << (trans ? i18n("Low") : QString("Low"))
-            << (trans ? i18n("High") : QString("High"));
+            << (trans ? i18n("None") : QStringLiteral("None"))
+            << (trans ? i18n("Low") : QStringLiteral("Low"))
+            << (trans ? i18n("High") : QStringLiteral("High"));
 }
 
 void Estimate::setRisktype(const QString& type) {
-    if (type == "High")
+    if (type == QStringLiteral("High"))
         setRisktype(Risk_High);
-    else if (type == "Low")
+    else if (type == QStringLiteral("Low"))
         setRisktype(Risk_Low);
     else
         setRisktype(Risk_None); // default

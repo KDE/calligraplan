@@ -59,7 +59,7 @@ void PriorityQueue_test::testQueue()
     }
 
     qDebug() << "##### Queue 1:";
-    queue.dump();
+    // queue.dump(); TODO
     QCOMPARE((int) queue.count(), list.count());
     QCOMPARE(queue.isEmpty(), false);
     QCOMPARE(queue.extractMinimum()->index(), 0);
@@ -73,17 +73,17 @@ void PriorityQueue_test::testQueue()
     qDebug() << "##### Decreasing node:" << n->key() << " at" << n->index();
     n->setKey(2);
     queue.keyDecreased(n);
-    queue.dump();
+    // queue.dump(); TODO
 
     n = list.at(2);
     qDebug() << "##### Decreasing node:" << n->key() << " at" << n->index();
     n->setKey(0);
     queue.keyDecreased(n);
-    queue.dump();
+    // queue.dump(); TODO
 
     n = queue.extractMinimum();
     while (n) {
-        queue.dump();
+        // queue.dump(); TODO
         n = queue.extractMinimum();
     }
 }

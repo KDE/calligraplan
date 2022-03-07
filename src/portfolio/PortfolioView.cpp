@@ -34,9 +34,9 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("Portfolio_PortfolioViewUi.rc");
+        setXMLFile(QStringLiteral("Portfolio_PortfolioViewUi.rc"));
     } else {
-        setXMLFile("Portfolio_PortfolioViewUi_readonly.rc");
+        setXMLFile(QStringLiteral("Portfolio_PortfolioViewUi_readonly.rc"));
     }
     setupGui();
 
@@ -77,12 +77,12 @@ PortfolioView::~PortfolioView()
 void PortfolioView::setupGui()
 {
     QAction *a = new QAction(koIcon("list-add"), i18n("Add"), this);
-    actionCollection()->addAction("add_project", a);
+    actionCollection()->addAction(QStringLiteral("add_project"), a);
     actionCollection()->setDefaultShortcut(a, Qt::Key_Insert);
     connect(a, &QAction::triggered, this, &PortfolioView::slotAddProject);
 
     a = new QAction(koIcon("list-remove"), i18n("Remove"), this);
-    actionCollection()->addAction("remove_selected", a);
+    actionCollection()->addAction(QStringLiteral("remove_selected"), a);
     actionCollection()->setDefaultShortcut(a, Qt::Key_Delete);
     connect(a, &QAction::triggered, this, &PortfolioView::slotRemoveSelected);
 }
@@ -90,7 +90,7 @@ void PortfolioView::setupGui()
 void PortfolioView::updateActionsEnabled()
 {
     bool enable = m_view->selectionModel() && (m_view->selectionModel()->selectedRows().count() == 1);
-    actionCollection()->action("remove_selected")->setEnabled(enable);
+    actionCollection()->action(QStringLiteral("remove_selected"))->setEnabled(enable);
 }
 
 void PortfolioView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
@@ -102,7 +102,7 @@ void PortfolioView::selectionChanged(const QItemSelection &selected, const QItem
 
 void PortfolioView::slotAddProject()
 {
-    const QList<QUrl> urls = QFileDialog::getOpenFileUrls(nullptr, i18n("Add Project"), QUrl(), "Plan (*.plan)");
+    const QList<QUrl> urls = QFileDialog::getOpenFileUrls(nullptr, i18n("Add Project"), QUrl(), QStringLiteral("Plan (*.plan)"));
     for (const QUrl &url : urls) {
         loadProject(url);
     }

@@ -22,11 +22,10 @@
 namespace KPlato
 {
 
-SummaryTaskGeneralPanel::SummaryTaskGeneralPanel(Task &task, QWidget *p, const char *n)
+SummaryTaskGeneralPanel::SummaryTaskGeneralPanel(Task &task, QWidget *p)
     : QWidget(p),
       m_task(task)
 {
-    setObjectName(n);
     setupUi(this);
 
 #ifndef PLAN_KDEPIMLIBS_FOUND

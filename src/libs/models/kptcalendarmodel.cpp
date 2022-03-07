@@ -305,7 +305,7 @@ QVariant CalendarItemModel::origin(const Calendar *a, int role) const
         case Qt::DisplayRole:
             return a->isShared() ? i18n("Shared") : i18n("Local");
         case Qt::EditRole:
-            return a->isShared() ? "Shared" : "Local";
+            return a->isShared() ? QStringLiteral("Shared") : QStringLiteral("Local");
         case Qt::ToolTipRole:
             if (!a->isShared()) {
                 return xi18nc("@info:tooltip 1=calendar name", "%1 is a <emphasis>Local</emphasis> calendar", a->name());
@@ -360,19 +360,19 @@ QVariant CalendarItemModel::timeZone(const Calendar *a, int role) const
         case Qt::DisplayRole:
         case Qt::EditRole:
         case Qt::ToolTipRole:
-            return i18n(a->timeZone().id());
+            return i18n(a->timeZone().id().constData());
         case Role::EnumList: {
             QStringList lst;
             const QList<QByteArray> zones = QTimeZone::availableTimeZoneIds();
             for (const QByteArray &id : zones) {
-                lst << i18n(id);
+                lst << i18n(id.constData());
             }
             lst.sort();
             return lst;
         }
         case Role::EnumListValue: {
             QStringList lst = timeZone(a, Role::EnumList).toStringList();
-            return lst.indexOf(i18n (a->timeZone().id()));
+            return lst.indexOf(i18n(a->timeZone().id().constData()));
         }
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
@@ -393,7 +393,7 @@ bool CalendarItemModel::setTimeZone(Calendar *a, const QVariant &value, int role
             QTimeZone tz;
             const QList<QByteArray> zones = QTimeZone::availableTimeZoneIds();
             for (const QByteArray &id : zones) {
-                if (name == i18n(id)) {
+                if (name == i18n(id.constData())) {
                     tz = QTimeZone(id);
                     break;
                 }
@@ -417,19 +417,19 @@ QVariant CalendarItemModel::holidayRegion(const Calendar *a, int role) const
             if (a->holidayRegionCode().isEmpty() || !a->holidayRegion()->isValid()) {
                 return i18n("None");
             }
-            if (a->holidayRegionCode() == "Default") {
+            if (a->holidayRegionCode() == QStringLiteral("Default")) {
                 return i18n("Default");
             }
             return a->holidayRegion()->name();
         case Qt::EditRole:
             if (a->holidayRegionCode().isEmpty()) {
-                return "None";
+                return QStringLiteral("None");
             }
             return a->holidayRegionCode();
         case Qt::ToolTipRole:
             if (!a->holidayRegion()->isValid()) {
                 return xi18nc("@info:tooltip", "No holidays");
-            } else if (a->holidayRegionCode() == "Default") {
+            } else if (a->holidayRegionCode() == QStringLiteral("Default")) {
                 return xi18nc("@info:tooltip", "Default region: <emphasis>%1</emphasis>", a->holidayRegion()->name());
             }
             return a->holidayRegion()->description();
@@ -446,7 +446,7 @@ QVariant CalendarItemModel::holidayRegion(const Calendar *a, int role) const
             if (!a->holidayRegion()->isValid()) {
                 return 0; // None
             }
-            if (a->holidayRegionCode() == "Default") {
+            if (a->holidayRegionCode() == QStringLiteral("Default")) {
                 return 1;
             }
             return a->holidayRegionCodes().indexOf(a->holidayRegionCode()) + 2;
@@ -462,13 +462,13 @@ bool CalendarItemModel::setHolidayRegion(Calendar *a, const QVariant &value, int
 {
     switch (role) {
         case Qt::EditRole: {
-            QString code = "None";
+            QString code = QStringLiteral("None");
             if (value.toInt() == 1) {
-                code = "Default";
+                code = QStringLiteral("Default");
             } else if (value.toInt() > 1) {
                 code = a->holidayRegionCodes().value(value.toInt() - 2);
             }
-            if (a->holidayRegionCode() == code || (code == "None" && a->holidayRegionCode().isEmpty())) {
+            if (a->holidayRegionCode() == code || (code == QStringLiteral("None") && a->holidayRegionCode().isEmpty())) {
                 return false;
             }
             Q_EMIT executeCommand(new CalendarModifyHolidayRegionCmd(a, code, kundo2_i18n("Modify calendar holiday region")));
@@ -582,7 +582,7 @@ Qt::DropActions CalendarItemModel::supportedDropActions() const
 
 QStringList CalendarItemModel::mimeTypes() const
 {
-    return QStringList() << "application/x-vnd.kde.plan.calendarid.internal";
+    return QStringList() << QStringLiteral("application/x-vnd.kde.plan.calendarid.internal");
 }
 
 QMimeData *CalendarItemModel::mimeData(const QModelIndexList & indexes) const
@@ -600,7 +600,7 @@ QMimeData *CalendarItemModel::mimeData(const QModelIndexList & indexes) const
             }
         }
     }
-    m->setData("application/x-vnd.kde.plan.calendarid.internal", encodedData);
+    m->setData(QStringLiteral("application/x-vnd.kde.plan.calendarid.internal"), encodedData);
     return m;
 }
 
@@ -610,13 +610,13 @@ bool CalendarItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
     if (action == Qt::IgnoreAction) {
         return true;
     }
-    if (!data->hasFormat("application/x-vnd.kde.plan.calendarid.internal")) {
+    if (!data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.calendarid.internal"))) {
         return false;
     }
     if (action == Qt::MoveAction) {
         debugPlan<<"MoveAction";
 
-        QByteArray encodedData = data->data("application/x-vnd.kde.plan.calendarid.internal");
+        QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.calendarid.internal"));
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
         Calendar *par = nullptr;
         if (parent.isValid()) {
@@ -658,14 +658,14 @@ QList<Calendar*> CalendarItemModel::calendarList(QDataStream &stream) const
 
 bool CalendarItemModel::dropAllowed(Calendar *on, const QMimeData *data)
 {
-    debugPlan<<on<<data->hasFormat("application/x-vnd.kde.plan.calendarid.internal");
-    if (!data->hasFormat("application/x-vnd.kde.plan.calendarid.internal")) {
+    debugPlan<<on<<data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.calendarid.internal"));
+    if (!data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.calendarid.internal"))) {
         return false;
     }
     if (on == nullptr && ! (flags(QModelIndex()) & (int)Qt::ItemIsDropEnabled)) {
         return false;
     }
-    QByteArray encodedData = data->data("application/x-vnd.kde.plan.calendarid.internal");
+    QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.calendarid.internal"));
     QDataStream stream(&encodedData, QIODevice::ReadOnly);
     const QList<Calendar*> lst = calendarList(stream);
     for (Calendar *c : lst) {
@@ -932,7 +932,7 @@ QVariant CalendarDayItemModel::workDuration(const CalendarDay *day, int role) co
                 for (TimeInterval *i : intervals) {
                     tip <<  i18nc("1=time 2=The number of hours of work duration (non integer)", "%1, %2 hours", locale.toString(i->startTime(), QLocale::ShortFormat), locale.toString(i->hours(), 'f', 2));
                 }
-                return tip.join("\n");
+                return tip.join(QStringLiteral("\n"));
             }
             return QVariant();
         }
@@ -997,7 +997,7 @@ QVariant CalendarDayItemModel::data(const QModelIndex &index, int role) const
                 for (TimeInterval *i : intervals) {
                 tip <<  xi18nc("@info:tooltip 1=time 2=The work duration (non integer)", "%1, %2", locale.toString(i->startTime(), QLocale::ShortFormat), format.formatDuration(i->second));
             }
-            return tip.join("<nl/>");
+            return tip.join(QStringLiteral("<nl/>"));
         }
         case Qt::FontRole: {
             if (d->state() != CalendarDay::Undefined) {
@@ -1106,7 +1106,7 @@ QVariant DateTableDataModel::data(const Calendar &cal, const QDate &date, int ro
                 if (cal.parentCal()) {
                     return data(*(cal.parentCal()), date, role);
                 }
-                return "";
+                return QStringLiteral("");
             }
             if (day->state() == CalendarDay::NonWorking) {
                 return i18nc("NonWorking", "NW");
@@ -1164,7 +1164,7 @@ QVariant DateTableDataModel::data(const QDate &date, int role, int dataType) con
         for (TimeInterval *i : intervals) {
             tip <<  xi18nc("@info:tooltip 1=time 2=The work duration (non integer)", "%1, %2", locale.toString(i->startTime(), QLocale::ShortFormat), format.formatDuration(i->second));
         }
-        return tip.join("\n");
+        return tip.join(QStringLiteral("\n"));
     }
 
     switch (dataType) {
@@ -1186,7 +1186,7 @@ QVariant DateTableDataModel::data(const QDate &date, int role, int dataType) con
         }
         case 0: {
             if (m_calendar == nullptr) {
-                return "";
+                return QStringLiteral("");
             }
             return data(*m_calendar, date, role);
         }
@@ -1338,9 +1338,9 @@ bool CalendarExtendedItemModel::setData(const QModelIndex &index, const QVariant
             CalendarDay *day = new CalendarDay();
             if (lst.count() == 2) {
                 QString state = lst.at(1).toString();
-                if (state == "NonWorking") {
+                if (state == QStringLiteral("NonWorking")) {
                     day->setState(CalendarDay::NonWorking);
-                } else if (state == "Undefined") {
+                } else if (state == QStringLiteral("Undefined")) {
                     day->setState(CalendarDay::Undefined);
                 } else {
                     delete day;
@@ -1390,9 +1390,9 @@ bool CalendarExtendedItemModel::setData(const QModelIndex &index, const QVariant
             }
             if (lst.count() == 2) {
                 QString state = lst.at(1).toString();
-                if (state == "NonWorking") {
+                if (state == QStringLiteral("NonWorking")) {
                     day->setState(CalendarDay::NonWorking);
-                } else if (state == "Undefined") {
+                } else if (state == QStringLiteral("Undefined")) {
                     day->setState(CalendarDay::Undefined);
                 } else {
                     delete day;
@@ -1460,12 +1460,12 @@ QVariant CalendarExtendedItemModel::headerData(int section, Qt::Orientation orie
 int CalendarExtendedItemModel::columnNumber(const QString& name) const
 {
     QStringList lst;
-    lst << "Weekday"
-        << "Date";
+    lst << QStringLiteral("Weekday")
+        << QStringLiteral("Date");
     if (lst.contains(name)) {
         return lst.indexOf(name) + CalendarItemModel::columnCount();
     }
-    return CalendarItemModel::columnMap().keyToValue(name.toUtf8());
+    return CalendarItemModel::columnMap().keyToValue(name.toUtf8().constData());
 }
 
 } // namespace KPlato

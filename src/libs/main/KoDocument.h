@@ -341,6 +341,7 @@ public:
      *  @param version the DTD version (usually the application's version).
      */
     static QDomDocument createDomDocument(const QString& appName, const QString& tagName, const QString& version);
+    static QDomDocument createDomDocument(const char *appName, const QString& tagName, const QString& version);
 
     /**
      *  The first thing to do in loadOasis is get hold of the office:body tag, then its child.
@@ -782,6 +783,7 @@ private Q_SLOTS:
 
 protected:
     bool oldLoadAndParse(KoStore *store, const QString& filename, KoXmlDocument& doc);
+    bool oldLoadAndParse(KoStore *store, const char *filename, KoXmlDocument& doc);
 
 private:
     bool saveToStream(QIODevice *dev);

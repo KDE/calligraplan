@@ -20,7 +20,7 @@ using namespace KPlato;
 
 QString XmlLoaderTester::data_v0_6() const
 {
-    return QString(
+    return QStringLiteral(
         "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
         "<!DOCTYPE plan>"
         "<plan version=\"0.6.7\" editor=\"Plan\" mime=\"application/x-vnd.kde.plan\">"
@@ -277,7 +277,7 @@ QString XmlLoaderTester::data_v0_6() const
 
 QString XmlLoaderTester::data_v0_7() const
 {
-    return QString(
+    return QStringLiteral(
         "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
         "<!DOCTYPE plan>"
         "<plan editor=\"Plan\" mime=\"application/x-vnd.kde.plan\" version=\"0.7.0\">"
@@ -585,15 +585,15 @@ void XmlLoaderTester::test(const KoXmlDocument &doc)
     auto intervals = appointments.at(0)->intervals().map();
     QCOMPARE(intervals.count(), 1);
     auto interval = intervals.values().at(0); // clazy:exclude=container-anti-pattern
-    QCOMPARE(interval.startTime(), DateTime::fromString("2021-10-06T08:00:00+02:00", interval.startTime().timeZone()));
-    QCOMPARE(interval.endTime(), DateTime::fromString("2021-10-06T16:00:00+02:00", interval.endTime().timeZone()));
+    QCOMPARE(interval.startTime(), DateTime::fromString(QStringLiteral("2021-10-06T08:00:00+02:00"), interval.startTime().timeZone()));
+    QCOMPARE(interval.endTime(), DateTime::fromString(QStringLiteral("2021-10-06T16:00:00+02:00"), interval.endTime().timeZone()));
     QCOMPARE(interval.load(), 100);
 
     intervals = appointments.at(1)->intervals().map();
     QCOMPARE(intervals.count(), 1);
     interval = intervals.values().at(0); // clazy:exclude=container-anti-pattern
-    QCOMPARE(interval.startTime(), DateTime::fromString("2021-10-06T08:00:00+02:00", interval.startTime().timeZone()));
-    QCOMPARE(interval.endTime(), DateTime::fromString("2021-10-06T16:00:00+02:00", interval.endTime().timeZone()));
+    QCOMPARE(interval.startTime(), DateTime::fromString(QStringLiteral("2021-10-06T08:00:00+02:00"), interval.startTime().timeZone()));
+    QCOMPARE(interval.endTime(), DateTime::fromString(QStringLiteral("2021-10-06T16:00:00+02:00"), interval.endTime().timeZone()));
     QCOMPARE(interval.load(), 100);
 
     // TODO: Rest of tasks
@@ -636,26 +636,26 @@ void XmlLoaderTester::test(const KoXmlDocument &doc)
     QCOMPARE(intervals.count(), 2);
 
     interval = intervals.values().at(0); // clazy:exclude=container-anti-pattern
-    QCOMPARE(interval.startTime(), DateTime::fromString("2021-10-06T08:25:24+02:00", interval.startTime().timeZone()));
-    QCOMPARE(interval.endTime(), DateTime::fromString("2021-10-06T16:00:00+02:00", interval.endTime().timeZone()));
+    QCOMPARE(interval.startTime(), DateTime::fromString(QStringLiteral("2021-10-06T08:25:24+02:00"), interval.startTime().timeZone()));
+    QCOMPARE(interval.endTime(), DateTime::fromString(QStringLiteral("2021-10-06T16:00:00+02:00"), interval.endTime().timeZone()));
     QCOMPARE(interval.load(), 100);
 
     interval = intervals.values().at(1); // clazy:exclude=container-anti-pattern
-    QCOMPARE(interval.startTime(), DateTime::fromString("2021-10-07T08:00:00+02:00", interval.startTime().timeZone()));
-    QCOMPARE(interval.endTime(), DateTime::fromString("2021-10-07T08:25:24+02:00", interval.endTime().timeZone()));
+    QCOMPARE(interval.startTime(), DateTime::fromString(QStringLiteral("2021-10-07T08:00:00+02:00"), interval.startTime().timeZone()));
+    QCOMPARE(interval.endTime(), DateTime::fromString(QStringLiteral("2021-10-07T08:25:24+02:00"), interval.endTime().timeZone()));
     QCOMPARE(interval.load(), 100);
 
     intervals = appointments.at(1)->intervals().map();
     QCOMPARE(intervals.count(), 2);
 
     interval = intervals.values().at(0); // clazy:exclude=container-anti-pattern
-    QCOMPARE(interval.startTime(), DateTime::fromString("2021-10-06T08:25:24+02:00", interval.startTime().timeZone()));
-    QCOMPARE(interval.endTime(), DateTime::fromString("2021-10-06T16:00:00+02:00", interval.endTime().timeZone()));
+    QCOMPARE(interval.startTime(), DateTime::fromString(QStringLiteral("2021-10-06T08:25:24+02:00"), interval.startTime().timeZone()));
+    QCOMPARE(interval.endTime(), DateTime::fromString(QStringLiteral("2021-10-06T16:00:00+02:00"), interval.endTime().timeZone()));
     QCOMPARE(interval.load(), 100);
 
     interval = intervals.values().at(1); // clazy:exclude=container-anti-pattern
-    QCOMPARE(interval.startTime(), DateTime::fromString("2021-10-07T08:00:00+02:00", interval.startTime().timeZone()));
-    QCOMPARE(interval.endTime(), DateTime::fromString("2021-10-07T08:25:24+02:00", interval.endTime().timeZone()));
+    QCOMPARE(interval.startTime(), DateTime::fromString(QStringLiteral("2021-10-07T08:00:00+02:00"), interval.startTime().timeZone()));
+    QCOMPARE(interval.endTime(), DateTime::fromString(QStringLiteral("2021-10-07T08:25:24+02:00"), interval.endTime().timeZone()));
     QCOMPARE(interval.load(), 100);
 
     // TODO: Rest of tasks

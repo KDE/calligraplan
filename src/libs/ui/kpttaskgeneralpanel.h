@@ -28,7 +28,7 @@ class TaskGeneralPanelImpl : public QWidget, public Ui_TaskGeneralPanelBase
 {
     Q_OBJECT
 public:
-    TaskGeneralPanelImpl(QWidget *parent, const char *name);
+    TaskGeneralPanelImpl(QWidget *parent);
     
     virtual int schedulingType() const;
     virtual int estimationType() const;
@@ -83,7 +83,7 @@ protected:
 class TaskGeneralPanel : public TaskGeneralPanelImpl {
     Q_OBJECT
 public:
-    explicit TaskGeneralPanel(Project &project, Task &task, QWidget *parent=nullptr, const char *name=nullptr);
+    explicit TaskGeneralPanel(Project &project, Task &task, QWidget *parent=nullptr);
 
     MacroCommand *buildCommand();
 

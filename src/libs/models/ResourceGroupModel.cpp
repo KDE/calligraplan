@@ -96,7 +96,7 @@ QVariant ResourceGroupModel::origin(const ResourceGroup *group, int role) const
             }
             return xi18nc("@info:tooltip", "%1 is a <emphasis>Shared</emphasis> resource group and can thus be shared with other projects", group->name());
         case Qt::EditRole:
-            return group->isShared() ? "Shared" : "Local";
+            return group->isShared() ? QStringLiteral("Shared") : QStringLiteral("Local");
         case Role::EnumList:
             return QStringList() << i18n("Local") << i18n("Shared");
         case Role::EnumListValue:

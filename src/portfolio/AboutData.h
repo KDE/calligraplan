@@ -26,7 +26,7 @@ KAboutData * newAboutData()
         QString(),
         QStringLiteral("https://www.calligra.org/plan/"));
 
-    aboutData->addAuthor(i18n("Dag Andersen"), QString(), "dag.andersen@kdemail.net");
+    aboutData->addAuthor(i18n("Dag Andersen"), QString(), QStringLiteral("dag.andersen@kdemail.net"));
 
     // standard ki18n translator strings
     aboutData->setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"),

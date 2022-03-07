@@ -735,7 +735,7 @@ protected:
 } //namespace KPlato
 
 Q_DECLARE_TYPEINFO(KPlato::Schedule::Log, Q_MOVABLE_TYPE);
-Q_DECLARE_METATYPE(KPlato::Schedule::Log);
+Q_DECLARE_METATYPE(KPlato::Schedule::Log)
 
 PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Schedule *s);
 PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Schedule &s);

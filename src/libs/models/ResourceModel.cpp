@@ -110,7 +110,7 @@ QVariant ResourceModel::origin(const Resource *res, int role) const
             }
             return xi18nc("@info:tooltip", "%1 is a <emphasis>Shared</emphasis> resource and can thus be shared with other projects", res->name());
         case Qt::EditRole:
-            return res->isShared() ? "Shared" : "Local";
+            return res->isShared() ? QStringLiteral("Shared") : QStringLiteral("Local");
         case Role::EnumList:
             return QStringList() << i18n("Local") << i18n("Shared");
         case Role::EnumListValue:
@@ -182,7 +182,7 @@ QVariant ResourceModel::calendar(const Resource *res, int role) const
     switch (role) {
         case Qt::DisplayRole: {
             if (res->type() == Resource::Type_Team) {
-                return " ";
+                return QStringLiteral(" ");
             }
             QString s = i18n("None");
             Calendar *cal = res->calendar(true); // don't check for default calendar

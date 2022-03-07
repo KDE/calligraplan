@@ -1,3 +1,6 @@
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+
+
 include_directories( ${PLANODF_INCLUDES} )
 
 # call: planodf_add_unit_test(<test-name> <sources> LINK_LIBRARIES <library> [<library> [...]] [GUI])

@@ -28,7 +28,7 @@ void TestKoOdfLoadingContext::testFillStyleStack()
     QBuffer buffer(&byteArray);
 #endif
     const char * mimeType = "application/vnd.oasis.opendocument.text";
-    KoStore * store(KoStore::createStore("test.odt", KoStore::Write, mimeType));
+    KoStore * store(KoStore::createStore(QStringLiteral("test.odt"), KoStore::Write, mimeType));
     KoOdfWriteStore odfStore(store);
     KoXmlWriter* manifestWriter = odfStore.manifestWriter(mimeType);
 
@@ -101,7 +101,7 @@ void TestKoOdfLoadingContext::testFillStyleStack()
 
     delete store;
 
-    store = KoStore::createStore("test.odt", KoStore::Read, mimeType);
+    store = KoStore::createStore(QStringLiteral("test.odt"), KoStore::Read, mimeType);
     KoOdfReadStore readStore(store);
     QString errorMessage;
     QVERIFY(readStore.loadAndParse(errorMessage) == true);
@@ -118,15 +118,15 @@ void TestKoOdfLoadingContext::testFillStyleStack()
     KoXmlElement tag;
     forEachElement(tag, body) {
         //tz: So now that I have a test the fails I can go on implementing the solution
-        QCOMPARE(tag.localName(), QString("rect"));
+        QCOMPARE(tag.localName(), QStringLiteral("rect"));
         KoStyleStack & styleStack = context.styleStack();
         styleStack.save();
         context.fillStyleStack(tag, KoXmlNS::draw, "style-name", "graphic");
         styleStack.setTypeProperties("graphic");
         QVERIFY(styleStack.hasProperty(KoXmlNS::draw, "fill"));
-        QCOMPARE(styleStack.property(KoXmlNS::draw, "fill"), QString("solid"));
+        QCOMPARE(styleStack.property(KoXmlNS::draw, "fill"), QStringLiteral("solid"));
         QVERIFY(styleStack.hasProperty(KoXmlNS::draw, "stroke"));
-        QCOMPARE(styleStack.property(KoXmlNS::draw, "stroke"), QString("solid"));
+        QCOMPARE(styleStack.property(KoXmlNS::draw, "stroke"), QStringLiteral("solid"));
         styleStack.restore();
     }
     delete store;

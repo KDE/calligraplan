@@ -336,7 +336,7 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
     todo->setUid(node->id());
     todo->setSummary(node->name());
     todo->setDescription(node->description());
-    todo->setCategories(QLatin1String("Plan"));
+    todo->setCategories(QStringLiteral("Plan"));
     if (! node->projectNode()->leader().isEmpty()) {
         todo->setOrganizer(node->projectNode()->leader());
     }

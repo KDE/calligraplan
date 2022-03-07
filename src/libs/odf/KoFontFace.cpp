@@ -103,9 +103,9 @@ QString KoFontFace::familyGeneric() const
 
 void KoFontFace::setFamilyGeneric(const QString &familyGeneric)
 {
-    if (familyGeneric == "decorative" || familyGeneric == "modern"
-            || familyGeneric == "roman" || familyGeneric == "script"
-            || familyGeneric == "swiss" || familyGeneric == "system") {
+    if (familyGeneric == QStringLiteral("decorative") || familyGeneric == QStringLiteral("modern")
+            || familyGeneric == QStringLiteral("roman") || familyGeneric == QStringLiteral("script")
+            || familyGeneric == QStringLiteral("swiss") || familyGeneric == QStringLiteral("system")) {
         d->familyGeneric = familyGeneric;
     }
 }

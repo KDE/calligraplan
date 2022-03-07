@@ -259,15 +259,15 @@ void ResourceGroup::deleteRequiredResource(int) {
 
 bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
     //debugPlan;
-    setId(element.attribute("id"));
-    m_name = element.attribute("name");
-    setType(element.attribute("type"));
-    if (status.version() < "07.0") {
-        m_shared = element.attribute("shared", "0").toInt();
+    setId(element.attribute(QStringLiteral("id")));
+    m_name = element.attribute(QStringLiteral("name"));
+    setType(element.attribute(QStringLiteral("type")));
+    if (status.version() < QStringLiteral("0.7.0")) {
+        m_shared = element.attribute(QStringLiteral("shared"), QStringLiteral("0")).toInt();
     } else {
-        m_shared = element.attribute("origin", "local") != "local";
+        m_shared = element.attribute(QStringLiteral("origin"), QStringLiteral("local")) != QStringLiteral("local");
     }
-    m_coordinator = element.attribute("coordinator");
+    m_coordinator = element.attribute(QStringLiteral("coordinator"));
 
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
@@ -275,7 +275,7 @@ bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "resource-group") {
+        if (e.tagName() == QStringLiteral("resource-group")) {
             ResourceGroup *child = new ResourceGroup();
             if (child->load(e, status)) {
                 addChildGroup(child);
@@ -283,7 +283,7 @@ bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
                 errorPlanXml<<"Failed to load ResourceGroup";
                 delete child;
             }
-        } else if (status.version() < "0.7.0" && e.tagName() == "resource") {
+        } else if (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("resource")) {
             // Load the resource
             Resource *child = new Resource();
             if (child->load(e, status)) {
@@ -300,14 +300,14 @@ bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
 void ResourceGroup::save(QDomElement &element)  const {
     //debugPlan;
 
-    QDomElement me = element.ownerDocument().createElement("resource-group");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("resource-group"));
     element.appendChild(me);
 
-    me.setAttribute("id", m_id);
-    me.setAttribute("name", m_name);
-    me.setAttribute("type", m_type);
-    me.setAttribute("shared", m_shared ? "shared" : "local");
-    me.setAttribute("coordinator", m_coordinator);
+    me.setAttribute(QStringLiteral("id"), m_id);
+    me.setAttribute(QStringLiteral("name"), m_name);
+    me.setAttribute(QStringLiteral("type"), m_type);
+    me.setAttribute(QStringLiteral("shared"), m_shared ? QStringLiteral("shared") : QStringLiteral("local"));
+    me.setAttribute(QStringLiteral("coordinator"), m_coordinator);
 
     for (ResourceGroup *g : m_childGroups) {
         g->save(me);
@@ -316,11 +316,11 @@ void ResourceGroup::save(QDomElement &element)  const {
 
 void ResourceGroup::saveWorkPackageXML(QDomElement &element, const QList<Resource*> &lst) const
 {
-    QDomElement me = element.ownerDocument().createElement("resource-group");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("resource-group"));
     element.appendChild(me);
 
-    me.setAttribute("id", m_id);
-    me.setAttribute("name", m_name);
+    me.setAttribute(QStringLiteral("id"), m_id);
+    me.setAttribute(QStringLiteral("name"), m_name);
 
     for (Resource *r : qAsConst(m_resources)) {
         if (lst.contains(r)) {

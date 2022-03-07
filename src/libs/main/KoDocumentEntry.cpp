@@ -40,7 +40,7 @@ KoDocumentEntry::~KoDocumentEntry()
 
 QJsonObject KoDocumentEntry::metaData() const
 {
-    return m_loader ? m_loader->metaData().value("MetaData").toObject() : QJsonObject();
+    return m_loader ? m_loader->metaData().value(QStringLiteral("MetaData")).toObject() : QJsonObject();
 }
 
 QString KoDocumentEntry::fileName() const
@@ -60,8 +60,8 @@ bool KoDocumentEntry::isEmpty() const {
  */
 QString KoDocumentEntry::name() const {
     QJsonObject json = metaData();
-    json = json.value("KPlugin").toObject();
-    return json.value("Name").toString();
+    json = json.value(QStringLiteral("KPlugin")).toObject();
+    return json.value(QStringLiteral("Name")).toString();
 }
 
 /**
@@ -70,10 +70,10 @@ QString KoDocumentEntry::name() const {
 QStringList KoDocumentEntry::mimeTypes() const {
     QJsonObject json = metaData();
 #ifdef CALLIGRA_OLD_PLUGIN_METADATA
-    return json.value("MimeType").toString().split(';', Qt::SkipEmptyParts);
+    return json.value(QStringLiteral("MimeType")).toString().split(';', Qt::SkipEmptyParts);
 #else
-    QJsonObject pluginData = json.value("KPlugin").toObject();
-    return pluginData.value("MimeTypes").toVariant().toStringList();
+    QJsonObject pluginData = json.value(QStringLiteral("KPlugin")).toObject();
+    return pluginData.value(QStringLiteral("MimeTypes")).toVariant().toStringList();
 #endif
 }
 

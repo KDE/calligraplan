@@ -69,24 +69,24 @@ void ConfigProjectPanelImpl::initDescription()
 
     collection->addActions(kcfg_ProjectDescription->createActions());
 
-    toolbar->addAction(collection->action("format_text_bold"));
-    toolbar->addAction(collection->action("format_text_italic"));
-    toolbar->addAction(collection->action("format_text_underline"));
-    toolbar->addAction(collection->action("format_text_strikeout"));
+    toolbar->addAction(collection->action(QStringLiteral("format_text_bold")));
+    toolbar->addAction(collection->action(QStringLiteral("format_text_italic")));
+    toolbar->addAction(collection->action(QStringLiteral("format_text_underline")));
+    toolbar->addAction(collection->action(QStringLiteral("format_text_strikeout")));
     toolbar->addSeparator();
 
-    toolbar->addAction(collection->action("format_list_style"));
+    toolbar->addAction(collection->action(QStringLiteral("format_list_style")));
     toolbar->addSeparator();
 
-    toolbar->addAction(collection->action("format_align_left"));
-    toolbar->addAction(collection->action("format_align_center"));
-    toolbar->addAction(collection->action("format_align_right"));
-    toolbar->addAction(collection->action("format_align_justify"));
+    toolbar->addAction(collection->action(QStringLiteral("format_align_left")));
+    toolbar->addAction(collection->action(QStringLiteral("format_align_center")));
+    toolbar->addAction(collection->action(QStringLiteral("format_align_right")));
+    toolbar->addAction(collection->action(QStringLiteral("format_align_justify")));
     toolbar->addSeparator();
 
-//    toolbar->addAction(collection->action("format_painter"));
+//    toolbar->addAction(collection->action(QStringLiteral("format_painter")));
 
-    kcfg_ProjectDescription->append("");
+    kcfg_ProjectDescription->append(QStringLiteral(""));
     kcfg_ProjectDescription->setReadOnly(false);
     kcfg_ProjectDescription->setOverwriteMode(false);
     kcfg_ProjectDescription->setLineWrapMode(KTextEdit::WidgetWidth);

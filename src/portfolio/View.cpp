@@ -102,9 +102,9 @@ View::~View()
 void View::setupActions(void)
 {
     if (koDocument()->isReadWrite()) {
-        setXMLFile("Portfolio_ViewUi.rc", true);
+        setXMLFile(QStringLiteral("Portfolio_ViewUi.rc"), true);
     } else {
-        setXMLFile("Portfolio_ViewUi_readonly.rc");
+        setXMLFile(QStringLiteral("Portfolio_ViewUi_readonly.rc"));
     }
 }
 

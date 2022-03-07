@@ -37,7 +37,7 @@ ProjectStatusView::ProjectStatusView(KoPart *part, KoDocument *doc, QWidget *par
     m_project(nullptr)
 {
     debugPlan<<"-------------------- creating ProjectStatusView -------------------";
-    setXMLFile("ProjectStatusViewUi.rc");
+    setXMLFile(QStringLiteral("ProjectStatusViewUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -91,7 +91,7 @@ void ProjectStatusView::setupGui()
 
 void ProjectStatusView::slotOptions()
 {
-    ProjectStatusViewSettingsDialog *dlg = new ProjectStatusViewSettingsDialog(this, m_view, this, sender()->objectName() == "print_options");
+    ProjectStatusViewSettingsDialog *dlg = new ProjectStatusViewSettingsDialog(this, m_view, this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }

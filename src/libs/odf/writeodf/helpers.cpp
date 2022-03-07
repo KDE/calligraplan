@@ -33,7 +33,7 @@ void writeodf::addTextSpan(group_paragraph_content& content, const QString& text
     for (int i = 0; i < len ; ++i) {
         const QChar ch = text[i];
         ushort unicode = ch.unicode();
-        if (unicode == ' ') {
+        if (unicode == QLatin1Char(' ')) {
             if (i == 0) {
                 leadingSpace = true;
             }
@@ -47,7 +47,7 @@ void writeodf::addTextSpan(group_paragraph_content& content, const QString& text
                 // white space immediately after a start tag or immediately before an end tag"
                 // (and both we and OO.o ignore leading spaces in <text:p> or <text:h> elements...)
                 if (!leadingSpace) {
-                    str += ' ';
+                    str += QLatin1Char(' ');
                     --nrSpaces;
                 }
                 if (nrSpaces > 0) {   // there are more spaces

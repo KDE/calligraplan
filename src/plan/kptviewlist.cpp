@@ -157,26 +157,26 @@ QString ViewListItem::viewType() const
     if (type() != ItemType_SubView) {
         return QString();
     }
-    QString name = view()->metaObject()->className();
-    if (name.contains(':')) {
-        name = name.remove(0, name.lastIndexOf(':') + 1);
+    QString name = QLatin1String(view()->metaObject()->className());
+    if (name.contains(QLatin1Char(':'))) {
+        name = name.remove(0, name.lastIndexOf(QLatin1Char(':')) + 1);
     }
     return name;
 }
 
 void ViewListItem::save(QDomElement &element) const
 {
-    element.setAttribute("itemtype", QString::number(type()));
-    element.setAttribute("tag", tag());
+    element.setAttribute(QStringLiteral("itemtype"), QString::number(type()));
+    element.setAttribute(QStringLiteral("tag"), tag());
 
     if (type() == ItemType_SubView) {
-        element.setAttribute("viewtype", viewType());
-        element.setAttribute("name", m_viewinfo.name == text(0) ? "" : text(0));
-        element.setAttribute("tooltip", m_viewinfo.tip == toolTip(0) ? TIP_USE_DEFAULT_TEXT : toolTip(0));
+        element.setAttribute(QStringLiteral("viewtype"), viewType());
+        element.setAttribute(QStringLiteral("name"), m_viewinfo.name == text(0) ? QStringLiteral("") : text(0));
+        element.setAttribute(QStringLiteral("tooltip"), m_viewinfo.tip == toolTip(0) ? QStringLiteral(TIP_USE_DEFAULT_TEXT) : toolTip(0));
     } else if (type() == ItemType_Category) {
         debugPlan<<text(0)<<m_viewinfo.name;
-        element.setAttribute("name", text(0) == m_viewinfo.name ? "" : text(0));
-        element.setAttribute("tooltip", toolTip(0).isEmpty() ? TIP_USE_DEFAULT_TEXT : toolTip(0));
+        element.setAttribute(QStringLiteral("name"), text(0) == m_viewinfo.name ? QStringLiteral("") : text(0));
+        element.setAttribute(QStringLiteral("tooltip"), toolTip(0).isEmpty() ? QStringLiteral(TIP_USE_DEFAULT_TEXT) : toolTip(0));
     }
 }
 
@@ -232,14 +232,14 @@ void ViewListTreeWidget::save(QDomElement &element) const
     if (cnt == 0) {
         return;
     }
-    QDomElement cs = element.ownerDocument().createElement("categories");
+    QDomElement cs = element.ownerDocument().createElement(QStringLiteral("categories"));
     element.appendChild(cs);
     for (int i = 0; i < cnt; ++i) {
         ViewListItem *itm = static_cast<ViewListItem*>(topLevelItem(i));
         if (itm->type() != ViewListItem::ItemType_Category) {
             continue;
         }
-        QDomElement c = cs.ownerDocument().createElement("category");
+        QDomElement c = cs.ownerDocument().createElement(QStringLiteral("category"));
         cs.appendChild(c);
         Q_EMIT const_cast<ViewListTreeWidget*>(this)->updateViewInfo(itm);
         itm->save(c);
@@ -248,11 +248,11 @@ void ViewListTreeWidget::save(QDomElement &element) const
             if (vi->type() != ViewListItem::ItemType_SubView) {
                 continue;
             }
-            QDomElement el = c.ownerDocument().createElement("view");
+            QDomElement el = c.ownerDocument().createElement(QStringLiteral("view"));
             c.appendChild(el);
             Q_EMIT const_cast<ViewListTreeWidget*>(this)->updateViewInfo(vi);
             vi->save(el);
-            QDomElement elm = el.ownerDocument().createElement("settings");
+            QDomElement elm = el.ownerDocument().createElement(QStringLiteral("settings"));
             el.appendChild(elm);
             static_cast<ViewBase*>(vi->view())->saveContext(elm);
         }
@@ -329,7 +329,7 @@ ViewListWidget::ViewListWidget(MainDocument *part, QWidget *parent)//QString nam
     m_prev(nullptr),
     m_temp(nullptr)
 {
-    setObjectName("ViewListWidget");
+    setObjectName(QStringLiteral("ViewListWidget"));
     setWhatsThis(
               xi18nc("@info:whatsthis",
                      "<title>View Selector</title>"
@@ -456,7 +456,7 @@ QString ViewListWidget::uniqueTag(const QString &seed) const
 {
     QString tag = seed;
     for (int i = 1; findItem(tag); ++i) {
-        tag = QString("%1-%2").arg(seed).arg(i);
+        tag = QStringLiteral("%1-%2").arg(seed).arg(i);
     }
     return tag;
 }

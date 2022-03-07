@@ -823,13 +823,13 @@ void ReportDesigner::createDockers()
 
     // allow only the following item types, there is not appropriate data for others
     const QStringList itemtypes = QStringList()
-    << QLatin1String("org.kde.kreport.label")
-    << QLatin1String("org.kde.kreport.plan.text") // replaces text
-    << QLatin1String("org.kde.kreport.field")
-    << QLatin1String("org.kde.kreport.line")
-    << QLatin1String("org.kde.kreport.checkbox")
-    << QLatin1String("org.kde.kreport.chart")
-    << QLatin1String("org.kde.kreport.web"); // can be used for fixed sized rich text
+    << QStringLiteral("org.kde.kreport.label")
+    << QStringLiteral("org.kde.kreport.plan.text") // replaces text
+    << QStringLiteral("org.kde.kreport.field")
+    << QStringLiteral("org.kde.kreport.line")
+    << QStringLiteral("org.kde.kreport.checkbox")
+    << QStringLiteral("org.kde.kreport.chart")
+    << QStringLiteral("org.kde.kreport.web"); // can be used for fixed sized rich text
 // TODO: proper tooltips
 //     const QStringList itemTooltips = QStringList()
 //     << xi18nc("@info:tooltip", "Label")

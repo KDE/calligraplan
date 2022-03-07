@@ -186,12 +186,12 @@ KoAutoSaveRecoveryDialog::KoAutoSaveRecoveryDialog(const QStringList &filenames,
         FileItem *file = new FileItem();
         file->name = filename;
 
-        QString path = QDir::homePath() + "/" + filename;
+        QString path = QDir::homePath() + QStringLiteral("/") + filename;
         // get thumbnail -- all calligra apps save a thumbnail
         KoStore* store = KoStore::createStore(path, KoStore::Read);
 
-        if (store && (store->open(QString("Thumbnails/thumbnail.png"))
-                          || store->open(QString("preview.png")))) {
+        if (store && (store->open("Thumbnails/thumbnail.png")
+                          || store->open("preview.png"))) {
             // Hooray! No long delay for the user...
             QByteArray bytes = store->read(store->size());
             store->close();
@@ -203,7 +203,7 @@ KoAutoSaveRecoveryDialog::KoAutoSaveRecoveryDialog(const QStringList &filenames,
 
         // get the date
         QDateTime date = QFileInfo(path).lastModified();
-        file->date = "(" + date.toString(Qt::LocalDate) + ")";
+        file->date = QStringLiteral("(") + date.toString(Qt::LocalDate) + QStringLiteral(")");
 
         fileItems.append(file);
     }

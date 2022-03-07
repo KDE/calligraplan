@@ -66,26 +66,26 @@ AddViewPanel::AddViewPanel(View *view, ViewListWidget &viewlist, QWidget *parent
 
     // NOTE: these lists must match switch in ok() FIXME: refactor
     m_viewtypes
-            << "ResourceGroupEditor"
-            << "ResourceEditor"
-            << "TaskEditor"
-            << "CalendarEditor"
-            << "AccountsEditor"
-            << "DependencyEditor"
-            << "PertEditor"
-            << "ScheduleHandlerView"
-            << "TaskStatusView"
-            << "TaskView"
-            << "TaskWorkPackageView"
-            << "GanttView"
-            << "MilestoneGanttView"
-            << "ResourceAppointmentsView"
-            << "ResourceAppointmentsGanttView"
-            << "ResourceCoverageView"
-            << "AccountsView"
-            << "ProjectStatusView"
-            << "PerformanceStatusView"
-            << "ReportsGeneratorView";
+            << QStringLiteral("ResourceGroupEditor")
+            << QStringLiteral("ResourceEditor")
+            << QStringLiteral("TaskEditor")
+            << QStringLiteral("CalendarEditor")
+            << QStringLiteral("AccountsEditor")
+            << QStringLiteral("DependencyEditor")
+            << QStringLiteral("PertEditor")
+            << QStringLiteral("ScheduleHandlerView")
+            << QStringLiteral("TaskStatusView")
+            << QStringLiteral("TaskView")
+            << QStringLiteral("TaskWorkPackageView")
+            << QStringLiteral("GanttView")
+            << QStringLiteral("MilestoneGanttView")
+            << QStringLiteral("ResourceAppointmentsView")
+            << QStringLiteral("ResourceAppointmentsGanttView")
+            << QStringLiteral("ResourceCoverageView")
+            << QStringLiteral("AccountsView")
+            << QStringLiteral("ProjectStatusView")
+            << QStringLiteral("PerformanceStatusView")
+            << QStringLiteral("ReportsGeneratorView");
 #ifdef PLAN_USE_KREPORT
     m_viewtypes << "ReportView";
 #endif

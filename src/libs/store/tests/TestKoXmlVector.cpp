@@ -81,7 +81,7 @@ void TestKoXmlVector::writeAndRead_data()
 {
     QTest::addColumn<unsigned int>("itemCount");
     for(unsigned int i = 0; i < writeAndReadUncompressedCount*3+1; ++i) {
-        QTest::newRow(QByteArray::number(i)) << i;
+        QTest::newRow(QByteArray::number(i).data()) << i;
     }
 }
 

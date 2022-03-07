@@ -48,7 +48,7 @@ void Calligra2Migration::migrate()
     }
 
     // do common calligra in case not yet migrated
-    Kdelibs4ConfigMigrator m("calligra");
+    Kdelibs4ConfigMigrator m(QStringLiteral("calligra"));
     m.setConfigFiles(QStringList() << QStringLiteral("calligrarc"));
     m.setUiFiles(QStringList() << QStringLiteral("calligra_shell.rc") << QStringLiteral("osx.stylesheet"));
     m.migrate();
@@ -71,7 +71,7 @@ void Calligra2Migration::migrate()
                 qCDebug(CALLIGRA2MIGRATION)<<"config rename:"<<oldfile;
                 QFile f(oldfile);
                 QFileInfo fi(f);
-                f.rename(fi.absolutePath() + '/' + newname);
+                f.rename(fi.absolutePath() + QLatin1Char('/') + newname);
                 didSomething = true;
                 qCDebug(CALLIGRA2MIGRATION)<<"config renamed:"<<f.fileName();
             }

@@ -370,7 +370,7 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
     m_model(new DateTableDataModel(this))
 {
-    setXMLFile("CalendarEditorUi.rc");
+    setXMLFile(QStringLiteral("CalendarEditorUi.rc"));
 
     setWhatsThis(
               xi18nc("@info:whatsthis",
@@ -581,17 +581,17 @@ void CalendarEditor::setupGui()
     KActionCollection *coll = actionCollection();
 
     actionAddCalendar = new QAction(koIcon("resource-calendar-insert"), i18n("Add Calendar"), this);
-    coll->addAction("add_calendar", actionAddCalendar);
+    coll->addAction(QStringLiteral("add_calendar"), actionAddCalendar);
     coll->setDefaultShortcut(actionAddCalendar, Qt::CTRL + Qt::Key_I);
     connect(actionAddCalendar , &QAction::triggered, this, &CalendarEditor::slotAddCalendar);
 
     actionAddSubCalendar = new QAction(koIcon("resource-calendar-child-insert"), i18n("Add Subcalendar"), this);
-    coll->addAction("add_subcalendar", actionAddSubCalendar);
+    coll->addAction(QStringLiteral("add_subcalendar"), actionAddSubCalendar);
     coll->setDefaultShortcut(actionAddSubCalendar, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
     connect(actionAddSubCalendar , &QAction::triggered, this, &CalendarEditor::slotAddSubCalendar);
 
     actionDeleteSelection = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
-    coll->addAction("delete_selection", actionDeleteSelection);
+    coll->addAction(QStringLiteral("delete_selection"), actionDeleteSelection);
     coll->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
     connect(actionDeleteSelection, &QAction::triggered, this, &CalendarEditor::slotDeleteCalendar);
 

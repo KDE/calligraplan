@@ -65,10 +65,10 @@
 // Define the protocol used here for embedded documents' URL
 // This used to "store" but QUrl didn't like it,
 // so let's simply make it "tar" !
-#define STORE_PROTOCOL "tar"
+const QLatin1String STORE_PROTOCOL("tar");
 // The internal path is a hack to make QUrl happy and for document children
-#define INTERNAL_PROTOCOL "intern"
-#define INTERNAL_PREFIX "intern:/"
+const QLatin1String INTERNAL_PROTOCOL("intern");
+const QLatin1String INTERNAL_PREFIX("intern:/");
 // Warning, keep it sync in koStore.cc
 #include <kactioncollection.h>
 #include "KoUndoStackAction.h"
@@ -121,7 +121,7 @@ public:
 QString KoDocument::newObjectName()
 {
     static int s_docIFNumber = 0;
-    QString name; name.setNum(s_docIFNumber++); name.prepend("document_");
+    QString name; name.setNum(s_docIFNumber++); name.prepend(QStringLiteral("document_"));
     return name;
 }
 
@@ -297,8 +297,8 @@ public:
         QString ext = fileInfo.completeSuffix();
         QString extension;
         if (!ext.isEmpty() && m_url.query().isNull()) // not if the URL has a query, e.g. cgi.pl?something
-            extension = '.'+ext; // keep the '.'
-        QTemporaryFile tempFile(QDir::tempPath() + "/" + qAppName() + QLatin1String("_XXXXXX") + extension);
+            extension = QLatin1Char('.')+ext; // keep the QLatin1Char('.')
+        QTemporaryFile tempFile(QDir::tempPath() + QStringLiteral("/") + qAppName() + QStringLiteral("_XXXXXX") + extension);
         tempFile.setAutoRemove(false);
         tempFile.open();
         m_file = tempFile.fileName();
@@ -557,7 +557,7 @@ bool KoDocument::saveFile()
                 if (d->backupPath.isEmpty())
                     backup = url();
                 else
-                    backup = QUrl::fromLocalFile(d->backupPath + '/' + url().fileName());
+                    backup = QUrl::fromLocalFile(d->backupPath + QLatin1Char('/') + url().fileName());
                 backup.setPath(backup.path() + QString::fromLatin1("~"));
                 KFileItem item(entry, url());
                 Q_ASSERT(item.name() == url().fileName());
@@ -596,7 +596,7 @@ bool KoDocument::saveFile()
         if (!suppressErrorDialog) {
             if (errorMessage().isEmpty()) {
                 KMessageBox::error(nullptr, i18n("Could not save\n%1", localFilePath()));
-            } else if (errorMessage() != "USER_CANCELED") {
+            } else if (errorMessage() != QStringLiteral("USER_CANCELED")) {
                 KMessageBox::error(nullptr, i18n("Could not save %1\nReason: %2", localFilePath(), errorMessage()));
             }
 
@@ -625,9 +625,9 @@ bool KoDocument::saveFile()
     Q_EMIT clearStatusBarMessage();
 
     if (ret) {
-        KNotification *notify = new KNotification("DocumentSaved");
+        KNotification *notify = new KNotification(QStringLiteral("DocumentSaved"));
         notify->setText(i18n("Document <i>%1</i> saved", url().url()));
-        notify->addContext("url", url().url());
+        notify->addContext(QStringLiteral("url"), url().url());
         QTimer::singleShot(0, notify, &KNotification::sendEvent);
     }
 
@@ -840,7 +840,7 @@ bool KoDocument::saveNativeFormatODF(KoStore *store, const QByteArray &mimeType)
     // Tell KoStore not to touch the file names
 
     KoOdfWriteStore odfStore(store);
-    KoXmlWriter *manifestWriter = odfStore.manifestWriter(mimeType);
+    KoXmlWriter *manifestWriter = odfStore.manifestWriter(mimeType.constData());
     KoEmbeddedDocumentSaver embeddedSaver;
     SavingContext documentContext(odfStore, embeddedSaver);
 
@@ -867,7 +867,7 @@ bool KoDocument::saveNativeFormatODF(KoStore *store, const QByteArray &mimeType)
         }
         manifestWriter->addManifestEntry("meta.xml", "text/xml");
     } else {
-        d->lastErrorMessage = i18n("Not able to write '%1'. Partition full?", QString("meta.xml"));
+        d->lastErrorMessage = i18n("Not able to write '%1'. Partition full?", QStringLiteral("meta.xml"));
         odfStore.closeManifestWriter(false);
         delete store;
         return false;
@@ -882,14 +882,14 @@ bool KoDocument::saveNativeFormatODF(KoStore *store, const QByteArray &mimeType)
 */
     if (store->open("Thumbnails/thumbnail.png")) {
         if (!saveOasisPreview(store, manifestWriter) || !store->close()) {
-            d->lastErrorMessage = i18n("Error while trying to write '%1'. Partition full?", QString("Thumbnails/thumbnail.png"));
+            d->lastErrorMessage = i18n("Error while trying to write '%1'. Partition full?", QStringLiteral("Thumbnails/thumbnail.png"));
             odfStore.closeManifestWriter(false);
             delete store;
             return false;
         }
         // No manifest entry!
     } else {
-        d->lastErrorMessage = i18n("Not able to write '%1'. Partition full?", QString("Thumbnails/thumbnail.png"));
+        d->lastErrorMessage = i18n("Not able to write '%1'. Partition full?", QStringLiteral("Thumbnails/thumbnail.png"));
         odfStore.closeManifestWriter(false);
         delete store;
         return false;
@@ -917,10 +917,10 @@ bool KoDocument::saveNativeFormatODF(KoStore *store, const QByteArray &mimeType)
 
             for (int i = 0; i < d->versionInfo.size(); ++i) {
                 KoVersionInfo *version = &d->versionInfo[i];
-                store->addDataToFile(version->data, "Versions/" + version->title);
+                store->addDataToFile(version->data, QStringLiteral("Versions/") + version->title);
             }
         } else {
-            d->lastErrorMessage = i18n("Not able to write '%1'. Partition full?", QString("VersionList.xml"));
+            d->lastErrorMessage = i18n("Not able to write '%1'. Partition full?", QStringLiteral("VersionList.xml"));
             odfStore.closeManifestWriter(false);
             delete store;
             return false;
@@ -929,7 +929,7 @@ bool KoDocument::saveNativeFormatODF(KoStore *store, const QByteArray &mimeType)
 
     // Write out manifest file
     if (!odfStore.closeManifestWriter()) {
-        d->lastErrorMessage = i18n("Error while trying to write '%1'. Partition full?", QString("META-INF/manifest.xml"));
+        d->lastErrorMessage = i18n("Error while trying to write '%1'. Partition full?", QStringLiteral("META-INF/manifest.xml"));
         delete store;
         return false;
     }
@@ -954,13 +954,13 @@ bool KoDocument::saveNativeFormatCalligra(KoStore *store)
             return false;
         }
     } else {
-        d->lastErrorMessage = i18n("Not able to write '%1'. Partition full?", QString("maindoc.xml"));
+        d->lastErrorMessage = i18n("Not able to write '%1'. Partition full?", QStringLiteral("maindoc.xml"));
         delete store;
         return false;
     }
     if (store->open("documentinfo.xml")) {
         QDomDocument doc = KoDocument::createDomDocument("document-info"
-                           /*DTD name*/, "document-info" /*tag name*/, "1.1");
+                           /*DTD name*/, QStringLiteral("document-info") /*tag name*/, QStringLiteral("1.1"));
 
         doc = d->docInfo->save(doc);
         KoStoreDevice dev(store);
@@ -1006,20 +1006,20 @@ QString KoDocument::checkImageMimeTypes(const QString &mimeType, const QUrl &url
 {
     if (!url.isLocalFile()) return mimeType;
 
-    if (url.toLocalFile().endsWith(".kpp")) return "image/png";
+    if (url.toLocalFile().endsWith(QStringLiteral(".kpp"))) return QStringLiteral("image/png");
 
     QStringList imageMimeTypes;
-    imageMimeTypes << "image/jpeg"
-                   << "image/x-psd" << "image/photoshop" << "image/x-photoshop" << "image/x-vnd.adobe.photoshop" << "image/vnd.adobe.photoshop"
-                   << "image/x-portable-pixmap" << "image/x-portable-graymap" << "image/x-portable-bitmap"
-                   << "application/pdf"
-                   << "image/x-exr"
-                   << "image/x-xcf"
-                   << "image/x-eps"
-                   << "image/png"
-                   << "image/bmp" << "image/x-xpixmap" << "image/gif" << "image/x-xbitmap"
-                   << "image/tiff"
-                   << "image/jp2";
+    imageMimeTypes << QStringLiteral("image/jpeg")
+                   << QStringLiteral("image/x-psd") << QStringLiteral("image/photoshop") << QStringLiteral("image/x-photoshop") << QStringLiteral("image/x-vnd.adobe.photoshop") << QStringLiteral("image/vnd.adobe.photoshop")
+                   << QStringLiteral("image/x-portable-pixmap") << QStringLiteral("image/x-portable-graymap") << QStringLiteral("image/x-portable-bitmap")
+                   << QStringLiteral("application/pdf")
+                   << QStringLiteral("image/x-exr")
+                   << QStringLiteral("image/x-xcf")
+                   << QStringLiteral("image/x-eps")
+                   << QStringLiteral("image/png")
+                   << QStringLiteral("image/bmp") << QStringLiteral("image/x-xpixmap") << QStringLiteral("image/gif") << QStringLiteral("image/x-xbitmap")
+                   << QStringLiteral("image/tiff")
+                   << QStringLiteral("image/jp2");
 
     if (!imageMimeTypes.contains(mimeType)) return mimeType;
 
@@ -1112,7 +1112,7 @@ QString KoDocument::autoSaveFile(const QString & path) const
     QString retval;
 
     // Using the extension allows to avoid relying on the mime magic when opening
-    QMimeType mime = QMimeDatabase().mimeTypeForName(nativeFormatMimeType());
+    QMimeType mime = QMimeDatabase().mimeTypeForName(QString::fromLatin1(nativeFormatMimeType()));
     if (! mime.isValid()) {
         qFatal("It seems your installation is broken/incomplete because we failed to load the native mimetype \"%s\".", nativeFormatMimeType().constData());
     }
@@ -1122,17 +1122,17 @@ QString KoDocument::autoSaveFile(const QString & path) const
         // Never saved?
 #ifdef Q_OS_WIN
         // On Windows, use the temp location (https://bugs.kde.org/show_bug.cgi?id=314921)
-        retval = QString("%1/.%2-%3-%4-autosave%5").arg(QDir::tempPath()).arg(d->parentPart->componentData().componentName()).arg(QApplication::applicationPid()).arg(objectName()).arg(extension);
+        retval = QStringLiteral("%1/.%2-%3-%4-autosave%5").arg(QDir::tempPath()).arg(d->parentPart->componentData().componentName()).arg(QApplication::applicationPid()).arg(objectName()).arg(extension);
 #else
         // On Linux, use a temp file in $HOME then. Mark it with the pid so two instances don't overwrite each other's autosave file
-        retval = QString("%1/.%2-%3-%4-autosave%5").arg(QDir::homePath()).arg(d->parentPart->componentData().componentName()).arg(QApplication::applicationPid()).arg(objectName()).arg(extension);
+        retval = QStringLiteral("%1/.%2-%3-%4-autosave%5").arg(QDir::homePath()).arg(d->parentPart->componentData().componentName()).arg(QApplication::applicationPid()).arg(objectName()).arg(extension);
 #endif
     } else {
         QUrl url = QUrl::fromLocalFile(path);
         Q_ASSERT(url.isLocalFile());
         QString dir = QFileInfo(url.toLocalFile()).absolutePath();
         QString filename = url.fileName();
-        retval = QString("%1/.%2-autosave%3").arg(dir).arg(filename).arg(extension);
+        retval = QStringLiteral("%1/.%2-autosave%3").arg(dir).arg(filename).arg(extension);
     }
     return retval;
 }
@@ -1216,7 +1216,7 @@ bool KoDocument::openUrl(const QUrl &_url)
         d->parentPart->addRecentURLToAllMainWindows(projectName(), _url);
 
         // Detect readonly local-files; remote files are assumed to be writable, unless we add a KIO::stat here (async).
-        KFileItem file(url, mimeType(), KFileItem::Unknown);
+        KFileItem file(url, QString::fromLatin1(mimeType()), KFileItem::Unknown);
         setReadWrite(file.isWritable());
     }
     return ret;
@@ -1317,7 +1317,7 @@ bool KoDocument::openFile()
     QByteArray _native_format = nativeFormatMimeType();
 
     QUrl u = QUrl::fromLocalFile(localFilePath());
-    QString typeName = mimeType();
+    QString typeName = QString::fromLatin1(mimeType());
 
     if (typeName.isEmpty()) {
         typeName = QMimeDatabase().mimeTypeForUrl(u).name();
@@ -1329,16 +1329,16 @@ bool KoDocument::openFile()
     // Sometimes (autosave files) it seems that arguments().mimeType() contains a much
     // too generic mime type. In that case, let's try some educated
     // guesses based on what we know about file extension.
-    if (typeName == "application/zip") {
+    if (typeName == QStringLiteral("application/zip")) {
         const QString filename = u.fileName();
-        if (filename.endsWith("plan") || filename.endsWith("planp")) {
-            typeName = nativeFormatMimeType();
+        if (filename.endsWith(QStringLiteral("plan")) || filename.endsWith(QStringLiteral("planp"))) {
+            typeName = QString::fromLatin1(nativeFormatMimeType());
         }
     }
     //debugMain << "mimetypes 3:" << typeName;
 
     // Allow to open backup files, don't keep the mimetype application/x-trash.
-    if (typeName == "application/x-trash") {
+    if (typeName == QStringLiteral("application/x-trash")) {
         QString path = u.path();
         QMimeDatabase db;
         QMimeType mime = db.mimeTypeForName(typeName);
@@ -1346,7 +1346,7 @@ bool KoDocument::openFile()
         // Find the extension that makes it a backup file, and remove it
         for (QStringList::ConstIterator it = patterns.begin(); it != patterns.end(); ++it) {
             QString ext = *it;
-            if (!ext.isEmpty() && ext[0] == '*') {
+            if (!ext.isEmpty() && ext[0] == QLatin1Char('*')) {
                 ext.remove(0, 1);
                 if (path.endsWith(ext)) {
                     path.chop(ext.length());
@@ -1358,8 +1358,8 @@ bool KoDocument::openFile()
     }
 
     // Special case for flat XML files (e.g. using directory store)
-    if (u.fileName() == "maindoc.xml" || u.fileName() == "content.xml" || typeName == "inode/directory") {
-        typeName = _native_format; // Hmm, what if it's from another app? ### Check mimetype
+    if (u.fileName() == QStringLiteral("maindoc.xml") || u.fileName() == QStringLiteral("content.xml") || typeName == QStringLiteral("inode/directory")) {
+        typeName = QString::fromLatin1(_native_format); // Hmm, what if it's from another app? ### Check mimetype
         d->specialOutputFlag = SaveAsDirectoryStore;
         debugMain << "loading" << u.fileName() << ", using directory store for" << localFilePath() << "; typeName=" << typeName;
     }
@@ -1524,15 +1524,15 @@ bool KoDocument::openFile()
     if (ok) {
         setMimeTypeAfterLoading(typeName);
 
-        KNotification *notify = new KNotification("DocumentLoaded");
+        KNotification *notify = new KNotification(QStringLiteral("DocumentLoaded"));
         notify->setText(i18n("Document <i>%1</i> loaded", url().url()));
-        notify->addContext("url", url().url());
+        notify->addContext(QStringLiteral("url"), url().url());
         QTimer::singleShot(0, notify, &KNotification::sendEvent);
     }
 
     if (progressUpdater()) {
         QPointer<KoUpdater> updater
-                = progressUpdater()->startSubtask(1, "clear undo stack");
+                = progressUpdater()->startSubtask(1, QStringLiteral("clear undo stack"));
         updater->setProgress(0);
         undoStack()->clear();
         updater->setProgress(100);
@@ -1579,6 +1579,10 @@ void KoDocument::setMimeTypeAfterLoading(const QString& mimeType)
     setConfirmNonNativeSave(true, needConfirm);
 }
 
+bool KoDocument::oldLoadAndParse(KoStore *store, const char *filename, KoXmlDocument& doc)
+{
+    return oldLoadAndParse(store, QLatin1String(filename), doc);
+}
 // The caller must call store->close() if loadAndParse returns true.
 bool KoDocument::oldLoadAndParse(KoStore *store, const QString& filename, KoXmlDocument& doc)
 {
@@ -1586,7 +1590,7 @@ bool KoDocument::oldLoadAndParse(KoStore *store, const QString& filename, KoXmlD
 
     if (!store->open(filename)) {
         if (store->errorMessage() == KOSTORE_CANCELED_MESSAGE) {
-            setErrorMessage("USER_CANCELED");
+            setErrorMessage(QStringLiteral("USER_CANCELED"));
             return false;
         }
         warnMain << "Entry " << filename << " not found!";
@@ -1604,7 +1608,7 @@ bool KoDocument::oldLoadAndParse(KoStore *store, const QString& filename, KoXmlD
         << " Error message: " << errorMsg << '\n';
         d->lastErrorMessage = i18n("Parsing error in %1 at line %2, column %3\nError message: %4"
                                    , filename  , errorLine, errorColumn ,
-                                   QCoreApplication::translate("QXml", errorMsg.toUtf8(), nullptr));
+                                   QCoreApplication::translate("QXml", errorMsg.toUtf8().constData(), nullptr));
         return false;
     }
     debugMain << "File" << filename << " loaded and parsed";
@@ -1620,7 +1624,7 @@ bool KoDocument::loadNativeFormat(const QString & file_)
         return false;
     }
     if (!fileInfo.isFile()) {
-        file += "/content.xml";
+        file += QStringLiteral("/content.xml");
         QFileInfo fileInfo2(file);
         if (!fileInfo2.exists() || !fileInfo2.isFile()) {
             d->lastErrorMessage = i18n("%1 is not a file." , file_);
@@ -1653,7 +1657,7 @@ bool KoDocument::loadNativeFormat(const QString & file_)
                 return false;
             }
 
-            if (QChar(buf[pos]).isSpace())
+            if (QChar(QLatin1Char(buf[pos])).isSpace())
                 continue;
             pos++;
         } while (pos < 5);
@@ -1679,7 +1683,7 @@ bool KoDocument::loadNativeFormat(const QString & file_)
             errorMain << "Parsing Error! Aborting! (in KoDocument::loadNativeFormat (QFile))" << '\n'
             << "  Line: " << errorLine << " Column: " << errorColumn << '\n'
             << "  Message: " << errorMsg << '\n';
-            d->lastErrorMessage = i18n("parsing error in the main document at line %1, column %2\nError message: %3", errorLine, errorColumn, i18n(errorMsg.toUtf8()));
+            d->lastErrorMessage = i18n("parsing error in the main document at line %1, column %2\nError message: %3", errorLine, errorColumn, i18n(errorMsg.toUtf8().constData()));
             res = false;
         }
 
@@ -1815,9 +1819,9 @@ bool KoDocument::loadNativeFormatFromStoreInternal(KoStore *store)
     }
 
     if (oasis && store->hasFile("VersionList.xml")) {
-        KNotification *notify = new KNotification("DocumentHasVersions");
+        KNotification *notify = new KNotification(QStringLiteral("DocumentHasVersions"));
         notify->setText(i18n("Document <i>%1</i> contains several versions. Go to File->Versions to open an old version.", store->urlOfStore().url()));
-        notify->addContext("url", store->urlOfStore().url());
+        notify->addContext(QStringLiteral("url"), store->urlOfStore().url());
         QTimer::singleShot(0, notify, &KNotification::sendEvent);
 
         KoXmlDocument versionInfo;
@@ -1826,13 +1830,13 @@ bool KoDocument::loadNativeFormatFromStoreInternal(KoStore *store)
             KoXmlNode list = KoXml::namedItemNS(versionInfo, KoXmlNS::VL, "version-list");
             KoXmlElement e;
             forEachElement(e, list) {
-                if (e.localName() == "version-entry" && e.namespaceURI() == KoXmlNS::VL) {
+                if (e.localName() == QStringLiteral("version-entry") && e.namespaceURI() == KoXmlNS::VL) {
                     KoVersionInfo version;
-                    version.comment = e.attribute("comment");
-                    version.title = e.attribute("title");
-                    version.saved_by = e.attribute("creator");
-                    version.date = QDateTime::fromString(e.attribute("date-time"), Qt::ISODate);
-                    store->extractFile("Versions/" + version.title, version.data);
+                    version.comment = e.attribute(QStringLiteral("comment"));
+                    version.title = e.attribute(QStringLiteral("title"));
+                    version.saved_by = e.attribute(QStringLiteral("creator"));
+                    version.date = QDateTime::fromString(e.attribute(QStringLiteral("date-time")), Qt::ISODate);
+                    store->extractFile(QStringLiteral("Versions/") + version.title, version.data);
                     d->versionInfo.append(version);
                 }
             }
@@ -1914,7 +1918,7 @@ bool KoDocument::addVersion(const QString& comment)
     debugMain << "Saving to OASIS format";
     KoOdfWriteStore odfStore(store);
 
-    KoXmlWriter *manifestWriter = odfStore.manifestWriter(mimeType);
+    KoXmlWriter *manifestWriter = odfStore.manifestWriter(mimeType.constData());
     Q_UNUSED(manifestWriter); // XXX why?
 
     KoEmbeddedDocumentSaver embeddedSaver;
@@ -1935,7 +1939,7 @@ bool KoDocument::addVersion(const QString& comment)
 
     // Write out manifest file
     if (!odfStore.closeManifestWriter()) {
-        d->lastErrorMessage = i18n("Error while trying to write '%1'. Partition full?", QString("META-INF/manifest.xml"));
+        d->lastErrorMessage = i18n("Error while trying to write '%1'. Partition full?", QStringLiteral("META-INF/manifest.xml"));
         delete store;
         return false;
     }
@@ -1948,7 +1952,7 @@ bool KoDocument::addVersion(const QString& comment)
 
     KoVersionInfo version;
     version.comment = comment;
-    version.title = "Version" + QString::number(d->versionInfo.count() + 1);
+    version.title = QStringLiteral("Version") + QString::number(d->versionInfo.count() + 1);
     version.saved_by = documentInfo()->authorInfo("creator");
     version.date = QDateTime::currentDateTime();
     version.data = data;
@@ -2060,8 +2064,8 @@ QString KoDocument::prettyPathOrUrl() const
 QString KoDocument::caption() const
 {
     QString c  = url().fileName();
-    if (!c.isEmpty() && c.endsWith(".plan")) {
-        c.remove(c.lastIndexOf(".plan"), 5);
+    if (!c.isEmpty() && c.endsWith(QStringLiteral(".plan"))) {
+        c.remove(c.lastIndexOf(QStringLiteral(".plan")), 5);
     }
     return c;
 }
@@ -2087,17 +2091,23 @@ QDomDocument KoDocument::createDomDocument(const QString& tagName, const QString
 }
 
 //static
+QDomDocument KoDocument::createDomDocument(const char *appName, const QString& tagName, const QString& version)
+{
+    return createDomDocument(QLatin1String(appName), tagName, version);
+}
+
+//static
 QDomDocument KoDocument::createDomDocument(const QString& appName, const QString& tagName, const QString& version)
 {
     QDomImplementation impl;
-    QString url = QString("http://www.calligra.org/DTD/%1-%2.dtd").arg(appName).arg(version);
+    QString url = QStringLiteral("http://www.calligra.org/DTD/%1-%2.dtd").arg(appName).arg(version);
     QDomDocumentType dtype = impl.createDocumentType(tagName,
-                             QString("-//KDE//DTD %1 %2//EN").arg(appName).arg(version),
+                             QStringLiteral("-//KDE//DTD %1 %2//EN").arg(appName).arg(version),
                              url);
     // The namespace URN doesn't need to include the version number.
-    QString namespaceURN = QString("http://www.calligra.org/DTD/%1").arg(appName);
+    QString namespaceURN = QStringLiteral("http://www.calligra.org/DTD/%1").arg(appName);
     QDomDocument doc = impl.createDocument(namespaceURN, tagName, dtype);
-    doc.insertBefore(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"UTF-8\""), doc.documentElement());
+    doc.insertBefore(doc.createProcessingInstruction(QStringLiteral("xml"), QStringLiteral("version=\"1.0\" encoding=\"UTF-8\"")), doc.documentElement());
     return doc;
 }
 
@@ -2112,7 +2122,7 @@ bool KoDocument::isNativeFormat(const QByteArray& mimetype) const
 {
     if (mimetype == nativeFormatMimeType())
         return true;
-    return extraNativeMimeTypes().contains(mimetype);
+    return extraNativeMimeTypes().contains(QLatin1String(mimetype));
 }
 
 int KoDocument::supportedSpecialFormats() const
@@ -2144,7 +2154,7 @@ void KoDocument::showLoadingErrorDialog()
     if (errorMessage().isEmpty()) {
         KMessageBox::error(nullptr, i18n("Could not open\n%1", localFilePath()));
     }
-    else if (errorMessage() != "USER_CANCELED") {
+    else if (errorMessage() != QStringLiteral("USER_CANCELED")) {
         KMessageBox::error(nullptr, i18n("Could not open %1\nReason: %2", localFilePath(), errorMessage()));
     }
     QApplication::restoreOverrideCursor();
@@ -2230,7 +2240,7 @@ static const unsigned int numTN2DT = sizeof(TN2DTArray) / sizeof(*TN2DTArray);
 QString KoDocument::tagNameToDocumentType(const QString& localName)
 {
     for (unsigned int i = 0 ; i < numTN2DT ; ++i)
-        if (localName == TN2DTArray[i].localName)
+        if (localName == QString::fromLatin1(TN2DTArray[i].localName))
             return i18n(TN2DTArray[i].documentType);
     return localName;
 }
@@ -2260,7 +2270,7 @@ void KoDocument::setUnit(const KoUnit &unit)
 
 void KoDocument::saveUnitOdf(KoXmlWriter *settingsWriter) const
 {
-    settingsWriter->addConfigItem("unit", unit().symbol());
+    settingsWriter->addConfigItem(QStringLiteral("unit"), unit().symbol());
 }
 
 
@@ -2533,7 +2543,7 @@ bool KoDocument::queryClose()
                 if (d->parentPart->mainWindows().count() > 0) {
                     mainWindow = d->parentPart->mainWindows()[0];
                 }
-                KoFileDialog dialog(mainWindow, KoFileDialog::SaveFile, "SaveDocument");
+                KoFileDialog dialog(mainWindow, KoFileDialog::SaveFile, QStringLiteral("SaveDocument"));
                 QUrl url = QUrl::fromLocalFile(dialog.filename());
                 if (url.isEmpty())
                     return false;
@@ -2581,7 +2591,7 @@ bool KoDocument::saveToUrl()
         QUrl uploadUrl;
         uploadUrl.setPath(uploadFile);
         // Create hardlink
-        if (::link(QFile::encodeName(d->m_file), QFile::encodeName(uploadFile)) != 0) {
+        if (::link(QFile::encodeName(d->m_file).constData(), QFile::encodeName(uploadFile).constData()) != 0) {
             // Uh oh, some error happened.
             return false;
         }

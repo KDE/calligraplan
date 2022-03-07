@@ -78,7 +78,7 @@ public:
 
     /// Overloaded version of addProperty that takes a char*, usually for "..."
     void addChangeMetaData(const QString &propName, const char *propValue) {
-        m_changeMetaData.insert(propName, propValue);
+        m_changeMetaData.insert(propName, QLatin1String(propValue));
     }
     /// Overloaded version of addProperty that converts an int to a string
     void addChangeMetaData(const QString &propName, int propValue) {
@@ -86,7 +86,7 @@ public:
     }
     /// Overloaded version of addProperty that converts a bool to a string (false/true)
     void addChangeMetaData(const QString &propName, bool propValue) {
-        m_changeMetaData.insert(propName, propValue ? "true" : "false");
+        m_changeMetaData.insert(propName, propValue ? QStringLiteral("true") : QStringLiteral("false"));
     }
 
     /**

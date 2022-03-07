@@ -123,6 +123,7 @@ public:
     QList< QPair<QString, QString> > attributeFullNames() const;
 
     KoXmlNode namedItem(const QString& name) const;
+    KoXmlNode namedItem(const char *name) const;
     KoXmlNode namedItemNS(const QString& nsURI, const QString& name) const;
     KoXmlNode namedItemNS(const QString& nsURI, const QString& name, KoXmlNamedItemType type) const;
 
@@ -172,11 +173,19 @@ public:
     QString text() const;
 
     QString attribute(const QString& name) const;
+    QString attribute(const char *name) const;
     QString attribute(const QString& name, const QString& defaultValue) const;
+    QString attribute(const char *name, const QString& defaultValue) const;
     QString attributeNS(const QString& namespaceURI, const QString& localName,
                         const QString& defaultValue = QString()) const;
+    QString attributeNS(const QString& namespaceURI, const char *localName,
+                        const QString& defaultValue = QString()) const;
+    QString attributeNS(const QString& namespaceURI, const char *localName,
+                        const char *defaultValue) const;
     bool hasAttribute(const QString& name) const;
+    bool hasAttribute(const char *name) const;
     bool hasAttributeNS(const QString& namespaceURI, const QString& localName) const;
+    bool hasAttributeNS(const QString& namespaceURI, const char *localName) const;
 
 private:
     friend class KoXmlNode;
@@ -351,6 +360,12 @@ namespace KoXml
  */
 KOSTORE_EXPORT KoXmlElement namedItemNS(const KoXmlNode& node,
                                         const QString& nsURI, const QString& localName);
+
+KOSTORE_EXPORT KoXmlElement namedItemNS(const KoXmlNode& node,
+                                        const QString& nsURI, const char *localName);
+
+KOSTORE_EXPORT KoXmlElement namedItemNS(const KoXmlNode& node,
+                                        const char *nsURI, const char *localName);
 
 /**
  * A namespace-aware version of QDomNode::namedItem().

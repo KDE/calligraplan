@@ -30,8 +30,8 @@ void PrintingControlPrivate::slotChanged()
     if (! m_job || ! m_dia) {
         return;
     }
-    QSpinBox *to = m_dia->findChild<QSpinBox*>("to");
-    QSpinBox *from = m_dia->findChild<QSpinBox*>("from");
+    QSpinBox *to = m_dia->findChild<QSpinBox*>(QStringLiteral("to"));
+    QSpinBox *from = m_dia->findChild<QSpinBox*>(QStringLiteral("from"));
     if (to && from) {
         from->setMinimum(m_job->documentFirstPage());
         from->setMaximum(m_job->documentLastPage());

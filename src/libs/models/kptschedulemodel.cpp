@@ -472,7 +472,7 @@ QVariant ScheduleItemModel::state(const QModelIndex &index, int role) const
             }
             QStringList l = sm->state();
             if (l.isEmpty()) {
-                return "";
+                return QStringLiteral("");
             }
             return l.first();
         }
@@ -480,12 +480,12 @@ QVariant ScheduleItemModel::state(const QModelIndex &index, int role) const
         {
             QStringList l = sm->state();
             if (l.isEmpty()) {
-                return "";
+                return QStringLiteral("");
             }
             return l.first();
         }
         case Qt::ToolTipRole:
-            return sm->state().join(", ");
+            return sm->state().join(QStringLiteral(", "));
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
         case Qt::StatusTipRole:
@@ -500,7 +500,7 @@ QVariant ScheduleItemModel::state(const QModelIndex &index, int role) const
             if (!sm->isScheduled()) {
                 st = sm->state().value(0);
                 if (sm->progress() > 0) {
-                    st = QString("%1 %2%").arg(st).arg(sm->progress());
+                    st = QStringLiteral("%1 %2%").arg(st).arg(sm->progress());
                 }
             }
             return st;
@@ -991,18 +991,18 @@ QVariant ScheduleItemModel::headerData(int section, Qt::Orientation orientation,
             }
         } else if (role == Qt::EditRole) {
             switch (section) {
-                case ScheduleModel::ScheduleName: return "Name";
-                case ScheduleModel::ScheduleState: return "State";
-                case ScheduleModel::ScheduleMode: return "Mode";
-                case ScheduleModel::ScheduleDirection: return "Direction";
-                case ScheduleModel::ScheduleOverbooking: return "Overbooking";
-                case ScheduleModel::ScheduleDistribution: return "Distribution";
+                case ScheduleModel::ScheduleName: return QStringLiteral("Name");
+                case ScheduleModel::ScheduleState: return QStringLiteral("State");
+                case ScheduleModel::ScheduleMode: return QStringLiteral("Mode");
+                case ScheduleModel::ScheduleDirection: return QStringLiteral("Direction");
+                case ScheduleModel::ScheduleOverbooking: return QStringLiteral("Overbooking");
+                case ScheduleModel::ScheduleDistribution: return QStringLiteral("Distribution");
                 //                case ScheduleModel::ScheduleCalculate: return i18n("Calculate");
-                case ScheduleModel::SchedulePlannedStart: return "Planned Start";
-                case ScheduleModel::SchedulePlannedFinish: return "Planned Finish";
-                case ScheduleModel::ScheduleScheduler: return "Scheduler";
-                case ScheduleModel::ScheduleGranularity: return "Granularity";
-                case ScheduleModel::ScheduleScheduled: return "Scheduled";
+                case ScheduleModel::SchedulePlannedStart: return QStringLiteral("Planned Start");
+                case ScheduleModel::SchedulePlannedFinish: return QStringLiteral("Planned Finish");
+                case ScheduleModel::ScheduleScheduler: return QStringLiteral("Scheduler");
+                case ScheduleModel::ScheduleGranularity: return QStringLiteral("Granularity");
+                case ScheduleModel::ScheduleScheduled: return QStringLiteral("Scheduled");
                 default: return QVariant();
             }
         } else if (role == Qt::TextAlignmentRole) {
@@ -1110,10 +1110,10 @@ QVariant ScheduleSortFilterModel::data(const QModelIndex &index, int role) const
     QVariant v = QSortFilterProxyModel::data(index, role);
     if (role == Qt::DisplayRole && index.column() == ScheduleModel::ScheduleName) {
         QModelIndex state = index.sibling(index.row(), ScheduleModel::ScheduleState);
-        if (state.data(Qt::EditRole).toString() != "Scheduled") {
+        if (state.data(Qt::EditRole).toString() != QStringLiteral("Scheduled")) {
             QString s = state.data(SpecialScheduleDisplayRole).toString();
             if (!s.isEmpty()) {
-                return QString("%1 (%2)").arg(v.toString(), s); // TODO i18n
+                return QStringLiteral("%1 (%2)").arg(v.toString(), s); // TODO i18n
             }
         }
     }
@@ -1261,7 +1261,7 @@ void ScheduleLogItemModel::addLogEntry(const Schedule::Log &log, int /*row*/)
     } else if (log.node) {
         lst.append(new QStandardItem(log.node->name()));
     } else {
-        lst.append( new QStandardItem(""));
+        lst.append(new QStandardItem());
     }
     lst.append(new QStandardItem(m_schedule->logPhase(log.phase)));
     QStandardItem *item = new QStandardItem(m_schedule->logSeverity(log.severity));

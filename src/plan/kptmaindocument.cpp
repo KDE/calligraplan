@@ -201,7 +201,7 @@ void MainDocument::setReadWrite(bool rw)
 void MainDocument::loadSchedulerPlugins()
 {
     // Add built-in scheduler
-    addSchedulerPlugin("Built-in", new BuiltinSchedulerPlugin(this));
+    addSchedulerPlugin(QStringLiteral("Built-in"), new BuiltinSchedulerPlugin(this));
 
     // Add all real scheduler plugins
     SchedulerPluginLoader *loader = new SchedulerPluginLoader(this);
@@ -261,7 +261,7 @@ void MainDocument::setProject(Project *project)
 
     QString dir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     if (!dir.isEmpty()) {
-        dir += "/taskmodules";
+        dir += QStringLiteral("/taskmodules");
         m_project->setLocalTaskModulesPath(QUrl::fromLocalFile(dir));
     }
     setTaskModulesWatch();
@@ -298,7 +298,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
     debugPlanXml<<"--->";
     QPointer<KoUpdater> updater;
     if (progressUpdater()) {
-        updater = progressUpdater()->startSubtask(1, "Plan::Part::loadXML");
+        updater = progressUpdater()->startSubtask(1, QStringLiteral("Plan::Part::loadXML"));
         updater->setProgress(0);
         m_xmlLoader.setUpdater(updater);
     }
@@ -313,7 +313,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
         setErrorMessage(i18n("Invalid document. No mimetype specified."));
         return false;
     }
-    if (value == "application/x-vnd.kde.kplato") {
+    if (value == KPLATO_MIME_TYPE) {
         if (updater) {
             updater->setProgress(5);
         }
@@ -349,7 +349,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
         debugPlanXml<<ok<<"<---";
         return ok;
     }
-    if (value != "application/x-vnd.kde.plan") {
+    if (value != PLAN_MIME_TYPE) {
         errorPlanXml << "Unknown mime type " << value;
         setErrorMessage(i18n("Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1", value));
         return false;
@@ -363,7 +363,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
                                "Opening it in this version of Plan will lose some information.", syntaxVersion),
                       i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
             if (ret == KMessageBox::Cancel) {
-                setErrorMessage("USER_CANCELED");
+                setErrorMessage(QStringLiteral("USER_CANCELED"));
                 debugPlanXml<<"Canceled"<<"<---";
                 return false;
             }
@@ -384,7 +384,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
 
 QString MainDocument::uniqueTempFileName()
 {
-    auto tempFile = new QTemporaryFile(QString("%1/calligraplan-XXXXXX.plan").arg(QDir::tempPath()));
+    auto tempFile = new QTemporaryFile(QStringLiteral("%1/calligraplan-XXXXXX.plan").arg(QDir::tempPath()));
     tempFile->open();
     const auto tmpfile = tempFile->fileName();
     delete tempFile;
@@ -440,28 +440,28 @@ QDomDocument MainDocument::saveXML()
 QDomDocument MainDocument::saveWorkPackageXML(const Node *node, long id, Resource *resource)
 {
     debugPlanWp<<resource<<node;
-    QDomDocument document("plan");
+    QDomDocument document(QStringLiteral("plan"));
 
     document.appendChild(document.createProcessingInstruction(
-                "xml",
-    "version=\"1.0\" encoding=\"UTF-8\""));
+                QStringLiteral("xml"),
+                QStringLiteral("version=\"1.0\" encoding=\"UTF-8\"")));
 
-    QDomElement doc = document.createElement("planwork");
-    doc.setAttribute("editor", "Plan");
-    doc.setAttribute("mime", "application/x-vnd.kde.plan.work");
-    doc.setAttribute("version", PLANWORK_FILE_SYNTAX_VERSION);
-    doc.setAttribute("plan-version", PLAN_FILE_SYNTAX_VERSION);
+    QDomElement doc = document.createElement(QStringLiteral("planwork"));
+    doc.setAttribute(QStringLiteral("editor"), QStringLiteral("Plan"));
+    doc.setAttribute(QStringLiteral("mime"), PLANWORK_MIME_TYPE);
+    doc.setAttribute(QStringLiteral("version"), PLANWORK_FILE_SYNTAX_VERSION);
+    doc.setAttribute(QStringLiteral("plan-version"), PLAN_FILE_SYNTAX_VERSION);
     document.appendChild(doc);
 
     // Work package info
-    QDomElement wp = document.createElement("workpackage");
+    QDomElement wp = document.createElement(QStringLiteral("workpackage"));
     if (resource) {
-        wp.setAttribute("owner", resource->name());
-        wp.setAttribute("owner-id", resource->id());
+        wp.setAttribute(QStringLiteral("owner"), resource->name());
+        wp.setAttribute(QStringLiteral("owner-id"), resource->id());
     }
-    wp.setAttribute("time-tag", QDateTime::currentDateTime().toString(Qt::ISODate));
-    wp.setAttribute("save-url", m_project->workPackageInfo().retrieveUrl.toString(QUrl::None));
-    wp.setAttribute("load-url", m_project->workPackageInfo().publishUrl.toString(QUrl::None));
+    wp.setAttribute(QStringLiteral("time-tag"), QDateTime::currentDateTime().toString(Qt::ISODate));
+    wp.setAttribute(QStringLiteral("save-url"), m_project->workPackageInfo().retrieveUrl.toString(QUrl::None));
+    wp.setAttribute(QStringLiteral("load-url"), m_project->workPackageInfo().publishUrl.toString(QUrl::None));
     debugPlanWp<<"publish:"<<m_project->workPackageInfo().publishUrl.toString(QUrl::None);
     debugPlanWp<<"retrieve:"<<m_project->workPackageInfo().retrieveUrl.toString(QUrl::None);
     doc.appendChild(wp);
@@ -513,7 +513,7 @@ bool MainDocument::saveWorkPackageFormat(const QString &file, const Node *node, 
 
 
     if (! store->open("root")) {
-        setErrorMessage(i18n("Not able to write '%1'. Partition full?", QString("maindoc.xml")));
+        setErrorMessage(i18n("Not able to write '%1'. Partition full?", QStringLiteral("maindoc.xml")));
         delete store;
         return false;
     }
@@ -619,9 +619,9 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
         errorPlanWp<<Q_FUNC_INFO<<"No mime type specified!";
         setErrorMessage(i18n("Invalid document. No mimetype specified."));
         return nullptr;
-    } else if (value == "application/x-vnd.kde.kplato.work") {
+    } else if (value == PLANWORK_MIME_TYPE) {
         m_xmlLoader.setMimetype(value);
-        m_xmlLoader.setWorkVersion(plan.attribute("version", "0.0.0"));
+        m_xmlLoader.setWorkVersion(plan.attribute("version", QStringLiteral("0.0.0")));
         proj = new Project();
         KPlatoXmlLoader loader(m_xmlLoader, proj);
         ok = loader.loadWorkpackage(plan);
@@ -632,16 +632,16 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
         }
         package = loader.package();
         package->timeTag = QDateTime::fromString(loader.timeTag(), Qt::ISODate);
-    } else if (value != "application/x-vnd.kde.plan.work") {
+    } else if (value != PLANWORK_MIME_TYPE) {
         errorPlanWp << "Unknown mime type " << value;
-        setErrorMessage(i18n("Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1", value));
+        setErrorMessage(i18n("Invalid document. Expected mimetype %2, got %1", value, PLANWORK_MIME_TYPE));
         return nullptr;
     } else {
         if (plan.attribute("editor") != QStringLiteral("PlanWork")) {
             warnPlanWp<<"Skipped work package file not generated with PlanWork:"<<plan.attribute("editor")<<url;
             return nullptr;
         }
-        QString syntaxVersion = plan.attribute("version", "0.0.0");
+        QString syntaxVersion = plan.attribute("version", QStringLiteral("0.0.0"));
         m_xmlLoader.setWorkVersion(syntaxVersion);
         if (syntaxVersion > PLANWORK_FILE_SYNTAX_VERSION) {
             if (!property(NOUI).toBool()) {
@@ -650,7 +650,7 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
                     "Opening it in this version of PlanWork will lose some information.", syntaxVersion),
                     i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
                 if (ret == KMessageBox::Cancel) {
-                    setErrorMessage("USER_CANCELED");
+                    setErrorMessage(QStringLiteral("USER_CANCELED"));
                     return nullptr;
                 }
             }
@@ -666,22 +666,22 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
                 continue;
             }
             KoXmlElement e = n.toElement();
-            if (e.tagName() == "project") {
+            if (e.tagName() == QStringLiteral("project")) {
                 m_xmlLoader.setProject(proj);
                 ok = m_xmlLoader.loadProject(proj, document);
                 if (!ok) {
-                    m_xmlLoader.addMsg(XMLLoaderObject::Errors, "Loading of work package failed");
+                    m_xmlLoader.addMsg(XMLLoaderObject::Errors, QStringLiteral("Loading of work package failed"));
                     warnPlanWp<<"Skip workpackage:"<<"Loading project failed";
                     //TODO add some ui here
                 }
-            } else if (e.tagName() == "workpackage") {
+            } else if (e.tagName() == QStringLiteral("workpackage")) {
                 package->timeTag = QDateTime::fromString(e.attribute("time-tag"), Qt::ISODate);
                 package->ownerId = e.attribute("owner-id");
                 package->ownerName = e.attribute("owner");
                 debugPlan<<"workpackage:"<<package->timeTag<<package->ownerId<<package->ownerName;
                 KoXmlElement elem;
                 forEachElement(elem, e) {
-                    if (elem.tagName() != "settings") {
+                    if (elem.tagName() != QStringLiteral("settings")) {
                         continue;
                     }
                     package->settings.usedEffort = (bool)elem.attribute("used-effort").toInt();
@@ -790,7 +790,7 @@ void MainDocument::checkForWorkPackages(bool keep)
         qDeleteAll(m_mergedPackages);
         m_mergedPackages.clear();
     }
-    QDir dir(m_project->workPackageInfo().retrieveUrl.path(), "*.planwork");
+    QDir dir(m_project->workPackageInfo().retrieveUrl.path(), QStringLiteral("*.planwork"));
     m_infoList = dir.entryInfoList(QDir::Files | QDir::Readable, QDir::Time);
     checkForWorkPackage();
     return;
@@ -841,15 +841,15 @@ void MainDocument::terminateWorkPackage(const Package *package)
             }
         }
         QFileInfo from(file);
-        QString name = dir.absolutePath() + '/' + from.fileName();
+        QString name = dir.absolutePath() + QLatin1Char('/') + from.fileName();
         debugPlanWp<<"rename:"<<rename;
         if (rename ? !file.rename(name) : !file.copy(name)) {
             // try to create a unique name in case name already existed
             debugPlanWp<<"Archive exists, create unique file name";
-            name = dir.absolutePath() + '/';
-            name += from.completeBaseName() + "-%1";
+            name = dir.absolutePath() + QLatin1Char('/');
+            name += from.completeBaseName() + QStringLiteral("-%1");
             if (! from.suffix().isEmpty()) {
-                name += '.' + from.suffix();
+                name += QLatin1Char('.') + from.suffix();
             }
             int i = 0;
             bool ok = false;
@@ -934,7 +934,7 @@ bool MainDocument::completeLoading(KoStore *store)
     }
     if (!m_loadingTemplate) {
         KoXmlDocument doc;
-        if (loadAndParse(store, "workintervalscache.xml", doc)) {
+        if (loadAndParse(store, QStringLiteral("workintervalscache.xml"), doc)) {
             store->close();
             XMLLoaderObject loader;
             if (!loader.loadWorkIntervalsCache(m_project, doc.documentElement())) {
@@ -947,7 +947,7 @@ bool MainDocument::completeLoading(KoStore *store)
     delete m_context;
     m_context = new Context();
     KoXmlDocument doc;
-    if (loadAndParse(store, "context.xml", doc)) {
+    if (loadAndParse(store, QStringLiteral("context.xml"), doc)) {
         store->close();
         m_context->load(doc);
     } else {
@@ -1188,15 +1188,15 @@ void MainDocument::insertSharedProjects(const QUrl &url)
         // Get all plan files in this directory
         debugPlan<<"Get all projects in dir:"<<url;
         QDir dir = fi.dir();
-        const QList<QString> files = dir.entryList(QStringList()<<"*.plan");
+        const QList<QString> files = dir.entryList(QStringList()<<QStringLiteral("*.plan"));
         for(const QString &f : files) {
             QString path = dir.canonicalPath();
             if (path.isEmpty()) {
                 continue;
             }
-            path += '/' + f;
+            path += QLatin1Char('/') + f;
             QUrl u(path);
-            u.setScheme("file");
+            u.setScheme(QStringLiteral("file"));
             m_sharedProjectsFiles << u;
         }
     } else {
@@ -1639,7 +1639,7 @@ void MainDocument::slotViewlistModified()
 void MainDocument::slotProjectCreated()
 {
     if (url().isEmpty() && !m_project->name().isEmpty()) {
-        setUrl(QUrl(m_project->name() + ".plan"));
+        setUrl(QUrl(m_project->name() + QStringLiteral(".plan")));
     }
     if (m_project->scheduleManagers().isEmpty()) {
         ScheduleManager *sm = m_project->createScheduleManager();
@@ -1712,7 +1712,7 @@ void MainDocument::createNewProject()
     resetURL();
     KoDocumentInfo *info = documentInfo();
     info->resetMetaData();
-    info->setProperty("title", "");
+    info->setProperty("title", QStringLiteral(""));
     setTitleModified();
 
     m_project->generateUniqueNodeIds();

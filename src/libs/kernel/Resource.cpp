@@ -174,11 +174,11 @@ void Resource::setType(Type type)
 
 void Resource::setType(const QString &type)
 {
-    if (type == "Work")
+    if (type == QStringLiteral("Work"))
         setType(Type_Work);
-    else if (type == "Material")
+    else if (type == QStringLiteral("Material"))
         setType(Type_Material);
-    else if (type == "Team")
+    else if (type == QStringLiteral("Team"))
         setType(Type_Team);
     else
         setType(Type_Work);
@@ -191,9 +191,9 @@ QString Resource::typeToString(bool trans) const {
 QStringList Resource::typeToStringList(bool trans) {
     // keep these in the same order as the enum!
     return QStringList() 
-            << (trans ? xi18nc("@item:inlistbox resource type", "Work") : QString("Work"))
-            << (trans ? xi18nc("@item:inlistbox resource type", "Material") : QString("Material"))
-            << (trans ? xi18nc("@item:inlistbox resource type", "Team") : QString("Team"));
+            << (trans ? xi18nc("@item:inlistbox resource type", "Work") : QStringLiteral("Work"))
+            << (trans ? xi18nc("@item:inlistbox resource type", "Material") : QStringLiteral("Material"))
+            << (trans ? xi18nc("@item:inlistbox resource type", "Team") : QStringLiteral("Team"));
 }
 
 void Resource::setName(const QString &n)
@@ -319,48 +319,48 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
     //debugPlan;
     const Locale *locale = status.project().locale();
     QString s;
-    setId(element.attribute("id"));
-    m_name = element.attribute("name");
-    m_initials = element.attribute("initials");
-    m_email = element.attribute("email");
-    m_autoAllocate = (bool)(element.attribute("auto-allocate", "0").toInt());
-    setType(element.attribute("type"));
-    if (status.version() < "0.7.0") {
-        m_shared = element.attribute("shared").toInt();
+    setId(element.attribute(QStringLiteral("id")));
+    m_name = element.attribute(QStringLiteral("name"));
+    m_initials = element.attribute(QStringLiteral("initials"));
+    m_email = element.attribute(QStringLiteral("email"));
+    m_autoAllocate = (bool)(element.attribute(QStringLiteral("auto-allocate"), QStringLiteral("0")).toInt());
+    setType(element.attribute(QStringLiteral("type")));
+    if (status.version() < QStringLiteral("0.7.0")) {
+        m_shared = element.attribute(QStringLiteral("shared")).toInt();
     } else {
-        m_shared = element.attribute("origin", "local") != "local";
+        m_shared = element.attribute(QStringLiteral("origin"), QStringLiteral("local")) != QStringLiteral("local");
     }
-    m_calendar = status.project().findCalendar(element.attribute("calendar-id"));
-    m_units = element.attribute("units", "100").toInt();
-    s = element.attribute("available-from");
+    m_calendar = status.project().findCalendar(element.attribute(QStringLiteral("calendar-id")));
+    m_units = element.attribute(QStringLiteral("units"), QStringLiteral("100")).toInt();
+    s = element.attribute(QStringLiteral("available-from"));
     if (!s.isEmpty())
         m_availableFrom = DateTime::fromString(s, status.projectTimeZone());
-    s = element.attribute("available-until");
+    s = element.attribute(QStringLiteral("available-until"));
     if (!s.isEmpty())
         m_availableUntil = DateTime::fromString(s, status.projectTimeZone());
 
     // NOTE: money was earlier (2.x) saved with symbol so we need to handle that
-    QString money = element.attribute("normal-rate");
+    QString money = element.attribute(QStringLiteral("normal-rate"));
     bool ok = false;
     m_cost.normalRate = money.toDouble(&ok);
     if (!ok) {
         m_cost.normalRate = locale->readMoney(money);
         debugPlan<<"normal-rate failed, tried readMoney()"<<money<<"->"<<m_cost.normalRate;;
     }
-    money = element.attribute("overtime-rate");
+    money = element.attribute(QStringLiteral("overtime-rate"));
     m_cost.overtimeRate = money.toDouble(&ok);
     if (!ok) {
         m_cost.overtimeRate = locale->readMoney(money);
         debugPlan<<"overtime-rate failed, tried readMoney()"<<money<<"->"<<m_cost.overtimeRate;;
     }
-    m_cost.account = status.project().accounts().findAccount(element.attribute("account"));
+    m_cost.account = status.project().accounts().findAccount(element.attribute(QStringLiteral("account")));
 
-    if (status.version() < "0.7.0") {
+    if (status.version() < QStringLiteral("0.7.0")) {
         KoXmlElement e;
-        KoXmlElement parent = element.namedItem("required-resources").toElement();
+        KoXmlElement parent = element.namedItem(QStringLiteral("required-resources")).toElement();
         forEachElement(e, parent) {
-            if (e.nodeName() == "resource") {
-                QString id = e.attribute("id");
+            if (e.nodeName() == QStringLiteral("resource")) {
+                QString id = e.attribute(QStringLiteral("id"));
                 if (id.isEmpty()) {
                     warnPlan<<"Missing resource id";
                     continue;
@@ -368,10 +368,10 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
                 addRequiredId(id);
             }
         }
-        parent = element.namedItem("external-appointments").toElement();
+        parent = element.namedItem(QStringLiteral("external-appointments")).toElement();
         forEachElement(e, parent) {
-            if (e.nodeName() == "project") {
-                QString id = e.attribute("id");
+            if (e.nodeName() == QStringLiteral("project")) {
+                QString id = e.attribute(QStringLiteral("id"));
                 if (id.isEmpty()) {
                     errorPlan<<"Missing project id";
                     continue;
@@ -381,7 +381,7 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
                 lst.loadXML(e, status);
                 Appointment *a = new Appointment();
                 a->setIntervals(lst);
-                a->setAuxcilliaryInfo(e.attribute("name", "Unknown"));
+                a->setAuxcilliaryInfo(e.attribute(QStringLiteral("name"), QStringLiteral("Unknown")));
                 m_externalAppointments[ id ] = a;
             }
         }
@@ -426,30 +426,30 @@ void Resource::setAccount(Account *account)
 
 void Resource::save(QDomElement &element) const {
     //debugPlan;
-    QDomElement me = element.ownerDocument().createElement("resource");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("resource"));
     element.appendChild(me);
 
     if (calendar(true))
-        me.setAttribute("calendar-id", m_calendar->id());
-    me.setAttribute("id", m_id);
-    me.setAttribute("name", m_name);
-    me.setAttribute("initials", m_initials);
-    me.setAttribute("email", m_email);
-    me.setAttribute("auto-allocate", m_autoAllocate);
-    me.setAttribute("type", typeToString());
-    me.setAttribute("origin", m_shared ? "shared" : "local");
-    me.setAttribute("units", QString::number(m_units));
+        me.setAttribute(QStringLiteral("calendar-id"), m_calendar->id());
+    me.setAttribute(QStringLiteral("id"), m_id);
+    me.setAttribute(QStringLiteral("name"), m_name);
+    me.setAttribute(QStringLiteral("initials"), m_initials);
+    me.setAttribute(QStringLiteral("email"), m_email);
+    me.setAttribute(QStringLiteral("auto-allocate"), m_autoAllocate);
+    me.setAttribute(QStringLiteral("type"), typeToString());
+    me.setAttribute(QStringLiteral("origin"), m_shared ? QStringLiteral("shared") : QStringLiteral("local"));
+    me.setAttribute(QStringLiteral("units"), QString::number(m_units));
     if (m_availableFrom.isValid()) {
-        me.setAttribute("available-from", m_availableFrom.toString(Qt::ISODate));
+        me.setAttribute(QStringLiteral("available-from"), m_availableFrom.toString(Qt::ISODate));
     }
     if (m_availableUntil.isValid()) {
-        me.setAttribute("available-until", m_availableUntil.toString(Qt::ISODate));
+        me.setAttribute(QStringLiteral("available-until"), m_availableUntil.toString(Qt::ISODate));
     }
     QString money;
-    me.setAttribute("normal-rate", money.setNum(m_cost.normalRate));
-    me.setAttribute("overtime-rate", money.setNum(m_cost.overtimeRate));
+    me.setAttribute(QStringLiteral("normal-rate"), money.setNum(m_cost.normalRate));
+    me.setAttribute(QStringLiteral("overtime-rate"), money.setNum(m_cost.overtimeRate));
     if (m_cost.account) {
-        me.setAttribute("account", m_cost.account->name());
+        me.setAttribute(QStringLiteral("account"), m_cost.account->name());
     }
 }
 
@@ -608,27 +608,27 @@ DateTimeInterval Resource::requiredAvailable(Schedule *node, const DateTime &sta
     Q_ASSERT(m_currentSchedule);
     DateTimeInterval interval(start, end);
 #ifndef PLAN_NLOGDEBUG
-    if (m_currentSchedule) m_currentSchedule->logDebug(QString("Required available in interval: %1").arg(interval.toString()));
+    if (m_currentSchedule) m_currentSchedule->logDebug(QStringLiteral("Required available in interval: %1").arg(interval.toString()));
 #endif
     DateTime availableFrom = m_availableFrom.isValid() ? m_availableFrom : (m_project ? m_project->constraintStartTime() : DateTime());
     DateTime availableUntil = m_availableUntil.isValid() ? m_availableUntil : (m_project ? m_project->constraintEndTime() : DateTime());
     DateTimeInterval x = interval.limitedTo(availableFrom, availableUntil);
     if (calendar() == nullptr) {
 #ifndef PLAN_NLOGDEBUG
-        if (m_currentSchedule) m_currentSchedule->logDebug(QString("Required available: no calendar, %1").arg(x.toString()));
+        if (m_currentSchedule) m_currentSchedule->logDebug(QStringLiteral("Required available: no calendar, %1").arg(x.toString()));
 #endif
         return x;
     }
     DateTimeInterval i = m_currentSchedule->firstBookedInterval(x, node);
     if (i.isValid()) {
 #ifndef PLAN_NLOGDEBUG
-        if (m_currentSchedule) m_currentSchedule->logDebug(QString("Required available: booked, %1").arg(i.toString()));
+        if (m_currentSchedule) m_currentSchedule->logDebug(QStringLiteral("Required available: booked, %1").arg(i.toString()));
 #endif
         return i; 
     }
     i = calendar()->firstInterval(x.first, x.second, m_currentSchedule);
 #ifndef PLAN_NLOGDEBUG
-    if (m_currentSchedule) m_currentSchedule->logDebug(QString("Required first available in %1:  %2").arg(x.toString()).arg(i.toString()));
+    if (m_currentSchedule) m_currentSchedule->logDebug(QStringLiteral("Required first available in %1:  %2").arg(x.toString()).arg(i.toString()));
 #endif
     return i;
 }
@@ -647,7 +647,7 @@ void Resource::makeAppointment(Schedule *node, const DateTime &from, const DateT
 #ifndef PLAN_NLOGDEBUG
     if (m_currentSchedule) {
         QStringList lst; for (Resource *r : required) { lst << r->name(); }
-        m_currentSchedule->logDebug(QString("Make appointments from %1 to %2 load=%4, required: %3").arg(from.toString()).arg(end.toString()).arg(lst.join(",")).arg(load));
+        m_currentSchedule->logDebug(QStringLiteral("Make appointments from %1 to %2 load=%4, required: %3").arg(from.toString()).arg(end.toString()).arg(lst.join(QLatin1Char(','))).arg(load));
     }
 #endif
     QTimeZone tz = m_project ? m_project->timeZone() : timeZone();
@@ -674,7 +674,7 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
     }
     if (m_type == Type_Team) {
 #ifndef PLAN_NLOGDEBUG
-        m_currentSchedule->logDebug("Make appointments to team " + m_name);
+        m_currentSchedule->logDebug(QStringLiteral("Make appointments to team ") + m_name);
 #endif
         Duration e;
         const auto resources = teamMembers();
@@ -709,7 +709,7 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
     DateTime end = node->endTime;
     if (time == end) {
 #ifndef PLAN_NLOGDEBUG
-        m_currentSchedule->logDebug(QString("Task '%1' start time == end time: %2").arg(node->node()->name(), time.toString(Qt::ISODate)));
+        m_currentSchedule->logDebug(QStringLiteral("Task '%1' start time == end time: %2").arg(node->node()->name(), time.toString(Qt::ISODate)));
 #endif
         node->resourceNotAvailable = true;
         return;
@@ -726,7 +726,8 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
         end = r->availableBefore(end, time);
         if (! (time.isValid() && end.isValid())) {
 #ifndef PLAN_NLOGDEBUG
-            if (m_currentSchedule) m_currentSchedule->logDebug("The required resource '" + r->name() + "'is not available in interval:" + node->startTime.toString() + ',' + node->endTime.toString());
+            if (m_currentSchedule)
+                m_currentSchedule->logDebug(QStringLiteral("The required resource '") + r->name() + QStringLiteral("'is not available in interval:") + node->startTime.toString() + QLatin1Char(',') + node->endTime.toString());
 #endif
             break;
         }
@@ -805,7 +806,7 @@ void Resource::calendarIntervals(const DateTime &dtFrom, const DateTime &dtUntil
 
 bool Resource::loadCalendarIntervalsCache(const KoXmlElement &element, XMLLoaderObject &status)
 {
-    KoXmlElement e = element.namedItem("work-intervals-cache").toElement();
+    KoXmlElement e = element.namedItem(QStringLiteral("work-intervals-cache")).toElement();
     if (e.isNull()) {
         errorPlan<<"No 'work-intervals-cache' element";
         return true;
@@ -817,7 +818,7 @@ bool Resource::loadCalendarIntervalsCache(const KoXmlElement &element, XMLLoader
 
 void Resource::saveCalendarIntervalsCache(QDomElement &element) const
 {
-    QDomElement me = element.ownerDocument().createElement("work-intervals-cache");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("work-intervals-cache"));
     element.appendChild(me);
     m_workinfocache.save(me);
 }
@@ -901,13 +902,13 @@ DateTime Resource::WorkInfoCache::firstAvailableBefore(const DateTime &time, con
 bool Resource::WorkInfoCache::load(const KoXmlElement &element, XMLLoaderObject &status)
 {
     clear();
-    version = element.attribute("version").toInt();
-    effort = Duration::fromString(element.attribute("effort"));
+    version = element.attribute(QStringLiteral("version")).toInt();
+    effort = Duration::fromString(element.attribute(QStringLiteral("effort")));
     // DateTime should always be saved in the projects timezone,
     // but due to a bug (fixed) this did not always happen.
     // This code takes care of this situation.
-    start = QDateTime::fromString(element.attribute("start"), Qt::ISODate).toTimeZone(status.projectTimeZone());
-    end = QDateTime::fromString(element.attribute("end"), Qt::ISODate).toTimeZone(status.projectTimeZone());
+    start = QDateTime::fromString(element.attribute(QStringLiteral("start")), Qt::ISODate).toTimeZone(status.projectTimeZone());
+    end = QDateTime::fromString(element.attribute(QStringLiteral("end")), Qt::ISODate).toTimeZone(status.projectTimeZone());
     KoXmlElement e = element.namedItem("intervals").toElement();
     if (! e.isNull()) {
         intervals.loadXML(e, status);
@@ -917,11 +918,11 @@ bool Resource::WorkInfoCache::load(const KoXmlElement &element, XMLLoaderObject 
 
 void Resource::WorkInfoCache::save(QDomElement &element) const
 {
-    element.setAttribute("version", QString::number(version));
-    element.setAttribute("effort", effort.toString());
-    element.setAttribute("start", start.toString(Qt::ISODate));
-    element.setAttribute("end", end.toString(Qt::ISODate));
-    QDomElement me = element.ownerDocument().createElement("intervals");
+    element.setAttribute(QStringLiteral("version"), QString::number(version));
+    element.setAttribute(QStringLiteral("effort"), effort.toString());
+    element.setAttribute(QStringLiteral("start"), start.toString(Qt::ISODate));
+    element.setAttribute(QStringLiteral("end"), end.toString(Qt::ISODate));
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("intervals"));
     element.appendChild(me);
 
     intervals.saveXML(me);
@@ -938,7 +939,7 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
     const DateTime startTime = m_project ? DateTime(start.toTimeZone(m_project->timeZone())) : start;
     //debugPlan<<m_name<<": ("<<(backward?"B)":"F)")<<startTime<<" for duration"<<duration.toString(Duration::Format_Day);
 #if 0
-    if (sch) sch->logDebug(QString("Check effort in interval %1: %2, %3").arg(backward?"backward":"forward").arg(startTime.toString()).arg((backward?startTime-duration:startTime+duration).toString()));
+    if (sch) sch->logDebug(QStringLiteral("Check effort in interval %1: %2, %3").arg(backward?"backward":"forward").arg(startTime.toString()).arg((backward?startTime-duration:startTime+duration).toString()));
 #endif
     Duration e;
     if (duration == 0 || m_units == 0 || units == 0) {
@@ -965,7 +966,7 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
     }
     if (! (from.isValid() && until.isValid())) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("Resource not available in interval:" + startTime.toString() + ',' + (startTime+duration).toString());
+        if (sch) sch->logDebug(QStringLiteral("Resource not available in interval:") + startTime.toString() + QLatin1Char(',') + (startTime+duration).toString());
 #endif
     } else {
         for (Resource *r : required) {
@@ -973,7 +974,7 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
             until = r->availableBefore(until, from);
             if (! (from.isValid() && until.isValid())) {
 #ifndef PLAN_NLOGDEBUG
-                if (sch) sch->logDebug("The required resource '" + r->name() + "'is not available in interval:" + startTime.toString() + ',' + (startTime+duration).toString());
+                if (sch) sch->logDebug(QStringLiteral("The required resource '") + r->name() + QStringLiteral("' is not available in interval: ") + startTime.toString() + QLatin1Char(',') + (startTime+duration).toString());
 #endif
                     break;
             }
@@ -981,7 +982,7 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
     }
     if (from.isValid() && until.isValid()) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch && until < from) sch->logDebug(" until < from: until=" + until.toString() + " from=" + from.toString());
+        if (sch && until < from) sch->logDebug(QStringLiteral(" until < from: until=") + until.toString() + QStringLiteral(" from=") + from.toString());
 #endif
         e = workIntervals(from, until).effort(from, until) * units / 100;
         if (sch && (! sch->allowOverbooking() || sch->allowOverbookingState() == Schedule::OBS_Deny)) {
@@ -996,7 +997,7 @@ Duration Resource::effort(Schedule *sch, const DateTime &start, const Duration &
     }
     //debugPlan<<m_name<<startTime<<" e="<<e.toString(Duration::Format_Day)<<" ("<<m_units<<")";
 #ifndef PLAN_NLOGDEBUG
-    if (sch) sch->logDebug(QString("effort: %1 for %2 effort = %3").arg(startTime.toString()).arg(duration.toString()).arg(e.toString()));
+    if (sch) sch->logDebug(QStringLiteral("effort: %1 for %2 effort = %3").arg(startTime.toString()).arg(duration.toString()).arg(e.toString()));
 #endif
     return e;
 }
@@ -1063,21 +1064,21 @@ DateTime Resource::availableBefore(const DateTime &time, const DateTime &limit, 
     DateTime availableUntil = m_availableUntil.isValid() ? m_availableUntil : (m_project ? m_project->constraintEndTime() : DateTime());
     if (! availableUntil.isValid()) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("availableUntil is invalid");
+        if (sch) sch->logDebug(QStringLiteral("availableUntil is invalid"));
 #endif
         t = time;
     } else {
         t = availableUntil < time ? availableUntil : time;
     }
 #ifndef PLAN_NLOGDEBUG
-    if (sch && t < lmt) sch->logDebug("t < lmt: " + t.toString() + " < " + lmt.toString());
+    if (sch && t < lmt) sch->logDebug(QStringLiteral("t < lmt: ") + t.toString() + QStringLiteral(" < ") + lmt.toString());
 #endif
     t = m_workinfocache.firstAvailableBefore(t, lmt, cal, sch);
     if (m_project) {
         t = t.toTimeZone(m_project->timeZone());
     }
 #ifndef PLAN_NLOGDEBUG
-    if (sch && t.isValid() && t < lmt) sch->logDebug(" t < lmt: t=" + t.toString() + " lmt=" + lmt.toString());
+    if (sch && t.isValid() && t < lmt) sch->logDebug(QStringLiteral(" t < lmt: t=") + t.toString() + QStringLiteral(" lmt=") + lmt.toString());
 #endif
     return t;
 }

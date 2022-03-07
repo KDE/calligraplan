@@ -755,7 +755,7 @@ time2user(time_t t, const QString& timeFormat, bool localtime)
 
     static char buf[128];
 
-    strftime(buf, 127, timeFormat.toLocal8Bit(), tms);
+    strftime(buf, 127, timeFormat.toLocal8Bit().constData(), tms);
     return QString::fromLocal8Bit(buf);
 }
 
@@ -815,10 +815,10 @@ date2time(const QString& date)
     char tZone[64] = "";
     std::string savedTZ;
     bool restoreTZ = false;
-    if (sscanf(date.toLocal8Bit(), "%d-%d-%d-%d:%d:%d-%s",
+    if (sscanf(date.toLocal8Bit().constData(), "%d-%d-%d-%d:%d:%d-%s",
                &y, &m, &d, &hour, &min, &sec, tZone) == 7 ||
         (sec = 0) ||    // set sec to 0
-        sscanf(date.toLocal8Bit(), "%d-%d-%d-%d:%d-%s",
+        sscanf(date.toLocal8Bit().constData(), "%d-%d-%d-%d:%d-%s",
                &y, &m, &d, &hour, &min, tZone) == 6)
     {
         const char* tz;
@@ -838,15 +838,15 @@ date2time(const QString& date)
             restoreTZ = true;
         }
     }
-    else if (sscanf(date.toLocal8Bit(), "%d-%d-%d-%d:%d:%d",
+    else if (sscanf(date.toLocal8Bit().constData(), "%d-%d-%d-%d:%d:%d",
                     &y, &m, &d, &hour, &min, &sec) == 6)
         tZone[0] = '\0';
-    else if (sscanf(date.toLocal8Bit(), "%d-%d-%d-%d:%d", &y, &m, &d, &hour, &min) == 5)
+    else if (sscanf(date.toLocal8Bit().constData(), "%d-%d-%d-%d:%d", &y, &m, &d, &hour, &min) == 5)
     {
         sec = 0;
         tZone[0] = '\0';
     }
-    else if (sscanf(date.toLocal8Bit(), "%d-%d-%d", &y, &m, &d) == 3)
+    else if (sscanf(date.toLocal8Bit().constData(), "%d-%d-%d", &y, &m, &d) == 3)
     {
         tZone[0] = '\0';
         hour = min = sec = 0;

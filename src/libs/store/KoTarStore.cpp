@@ -29,7 +29,7 @@ KoTarStore::KoTarStore(const QString & _filename, Mode mode, const QByteArray & 
 
     d->localFileName = _filename;
 
-    m_pTar = new KTar(_filename, "application/x-gzip");
+    m_pTar = new KTar(_filename, QStringLiteral("application/x-gzip"));
 
     init(appIdentification);   // open the targz file and init some vars
 }
@@ -61,10 +61,10 @@ KoTarStore::KoTarStore(QWidget* window, const QUrl &_url, const QString & _filen
 
     } else {
         d->fileMode = KoStorePrivate::RemoteWrite;
-        d->localFileName = "/tmp/kozip"; // ### FIXME with KTempFile
+        d->localFileName = QStringLiteral("/tmp/kozip"); // ### FIXME with KTempFile
     }
 
-    m_pTar = new KTar(d->localFileName, "application/x-gzip");
+    m_pTar = new KTar(d->localFileName, QStringLiteral("application/x-gzip"));
 
     init(appIdentification);   // open the targz file and init some vars
 }
@@ -172,7 +172,7 @@ bool KoTarStore::closeWrite()
 
     debugStore << "Writing file" << d->fileName << " into TAR archive. size" << d->size;
     m_byteArray.resize(d->size); // TODO: check if really needed
-    if (!m_pTar->writeFile(d->fileName, m_byteArray, 0100644, QLatin1String("user"), QLatin1String("group")))
+    if (!m_pTar->writeFile(d->fileName, m_byteArray, 0100644, QStringLiteral("user"), QStringLiteral("group")))
         warnStore << "Failed to write " << d->fileName;
     m_byteArray.resize(0);   // save memory
     return true;

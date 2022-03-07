@@ -156,14 +156,14 @@ bool addDataToFile(QByteArray &buffer, const QString &destName, KoStore &to)
 QAbstractItemModel *translationModel()
 {
     QList<QPair<QString, QString> > names;
-    names << QPair<QString, QString>("Project", i18n("Project"))
-    << QPair<QString, QString>("Manager", i18n("Manager"))
-    << QPair<QString, QString>("Schedule", i18n("Schedule"))
-    << QPair<QString, QString>("BCWS", xi18nc("@title:column Budgeted Cost of Work Scheduled", "BCWS"))
-    << QPair<QString, QString>("BCWP", xi18nc("@title:column Budgeted Cost of Work Performed", "BCWP"))
-    << QPair<QString, QString>("ACWP", xi18nc("@title:column Actual Cost of Work Performed", "ACWP"))
-    << QPair<QString, QString>("SPI", xi18nc("@title:column Schedule Performance Index", "SPI"))
-    << QPair<QString, QString>("CPI", xi18nc("@title:column Cost Performance Index", "CPI"));
+    names << QPair<QString, QString>(QStringLiteral("Project"), i18n("Project"))
+    << QPair<QString, QString>(QStringLiteral("Manager"), i18n("Manager"))
+    << QPair<QString, QString>(QStringLiteral("Schedule"), i18n("Schedule"))
+    << QPair<QString, QString>(QStringLiteral("BCWS"), xi18nc("@title:column Budgeted Cost of Work Scheduled", "BCWS"))
+    << QPair<QString, QString>(QStringLiteral("BCWP"), xi18nc("@title:column Budgeted Cost of Work Performed", "BCWP"))
+    << QPair<QString, QString>(QStringLiteral("ACWP"), xi18nc("@title:column Actual Cost of Work Performed", "ACWP"))
+    << QPair<QString, QString>(QStringLiteral("SPI"), xi18nc("@title:column Schedule Performance Index", "SPI"))
+    << QPair<QString, QString>(QStringLiteral("CPI"), xi18nc("@title:column Cost Performance Index", "CPI"));
 
     QStandardItemModel *model = new QStandardItemModel(0, names.count());
     for (int column = 0; column < names.count(); ++column) {
@@ -176,18 +176,18 @@ QAbstractItemModel *translationModel()
 QAbstractItemModel *projectModel()
 {
     QList<QPair<QString, QString> > names;
-    names << QPair<QString, QString>("Name", i18n("Name"))
-    << QPair<QString, QString>("Manager", i18n("Manager"))
-    << QPair<QString, QString>("BCWS Cost", i18nc("Cost based Budgeted Cost of Work Scheduled", "BCWS Cost"))
-    << QPair<QString, QString>("BCWP Cost", i18nc("Cost based Budgeted Cost of Work Performed", "BCWP Cost"))
-    << QPair<QString, QString>("ACWP Cost", i18nc("Cost based Actual Cost of Work Performed", "ACWP Cost"))
-    << QPair<QString, QString>("SPI Cost", i18nc("Cost based Schedule Performance Index", "SPI Cost"))
-    << QPair<QString, QString>("CPI Cost", i18nc("Cost based Cost Performance Index", "CPI Cost"))
-    << QPair<QString, QString>("BCWS Effort", i18nc("Effort based Budgeted Cost of Work Scheduled", "BCWS Effort"))
-    << QPair<QString, QString>("BCWP Effort", i18nc("Effort based Budgeted Cost of Work Performed", "BCWP Effort"))
-    << QPair<QString, QString>("ACWP Effort", i18nc("Effort based Actual Cost of Work Performed", "ACWP Effort"))
-    << QPair<QString, QString>("SPI Effort", i18nc("Effort based Schedule Performance Index", "SPI Effort"))
-    << QPair<QString, QString>("CPI Effort", i18nc("Effort based Cost Performance Index", "CPI Effort"));
+    names << QPair<QString, QString>(QStringLiteral("Name"), i18n("Name"))
+    << QPair<QString, QString>(QStringLiteral("Manager"), i18n("Manager"))
+    << QPair<QString, QString>(QStringLiteral("BCWS Cost"), i18nc("Cost based Budgeted Cost of Work Scheduled", "BCWS Cost"))
+    << QPair<QString, QString>(QStringLiteral("BCWP Cost"), i18nc("Cost based Budgeted Cost of Work Performed", "BCWP Cost"))
+    << QPair<QString, QString>(QStringLiteral("ACWP Cost"), i18nc("Cost based Actual Cost of Work Performed", "ACWP Cost"))
+    << QPair<QString, QString>(QStringLiteral("SPI Cost"), i18nc("Cost based Schedule Performance Index", "SPI Cost"))
+    << QPair<QString, QString>(QStringLiteral("CPI Cost"), i18nc("Cost based Cost Performance Index", "CPI Cost"))
+    << QPair<QString, QString>(QStringLiteral("BCWS Effort"), i18nc("Effort based Budgeted Cost of Work Scheduled", "BCWS Effort"))
+    << QPair<QString, QString>(QStringLiteral("BCWP Effort"), i18nc("Effort based Budgeted Cost of Work Performed", "BCWP Effort"))
+    << QPair<QString, QString>(QStringLiteral("ACWP Effort"), i18nc("Effort based Actual Cost of Work Performed", "ACWP Effort"))
+    << QPair<QString, QString>(QStringLiteral("SPI Effort"), i18nc("Effort based Schedule Performance Index", "SPI Effort"))
+    << QPair<QString, QString>(QStringLiteral("CPI Effort"), i18nc("Effort based Cost Performance Index", "CPI Effort"));
 
     QStandardItemModel *model = new QStandardItemModel(0, names.count());
     for (int column = 0; column < names.count(); ++column) {
@@ -256,8 +256,8 @@ ReportGeneratorOdt::ReportGeneratorOdt()
     : ReportGenerator()
     , m_templateStore(nullptr)
 {
-    m_keys = QStringList() << "table" << "chart";
-    m_variables = QStringList() << "project" << "schedule";
+    m_keys = QStringList() << QStringLiteral("table") << QStringLiteral("chart");
+    m_variables = QStringList() << QStringLiteral("project") << QStringLiteral("schedule");
 
     m_basemodels
     << new NodeItemModel()
@@ -265,14 +265,14 @@ ReportGeneratorOdt::ReportGeneratorOdt()
     << new ChartItemModel()
     << new ScheduleItemModel();
 
-    addDataModel("tasks", m_basemodels.at(0), Qt::EditRole);
-    addDataModel("taskstatus", m_basemodels.at(1), Qt::EditRole);
-    addDataModel("chart.project", m_basemodels.at(2), Qt::EditRole);
-    addDataModel("projects", projectModel(), HeaderRole);
-    addDataModel("schedules", m_basemodels.at(3), Qt::EditRole);
-    addDataModel("project", projectModel(), HeaderRole);
-    addDataModel("schedule", scheduleModel(), HeaderRole);
-    addDataModel("tr", translationModel(), HeaderRole);
+    addDataModel(QStringLiteral("tasks"), m_basemodels.at(0), Qt::EditRole);
+    addDataModel(QStringLiteral("taskstatus"), m_basemodels.at(1), Qt::EditRole);
+    addDataModel(QStringLiteral("chart.project"), m_basemodels.at(2), Qt::EditRole);
+    addDataModel(QStringLiteral("projects"), projectModel(), HeaderRole);
+    addDataModel(QStringLiteral("schedules"), m_basemodels.at(3), Qt::EditRole);
+    addDataModel(QStringLiteral("project"), projectModel(), HeaderRole);
+    addDataModel(QStringLiteral("schedule"), scheduleModel(), HeaderRole);
+    addDataModel(QStringLiteral("tr"), translationModel(), HeaderRole);
 
 //     for (QAbstractItemModel *m : m_datamodels) {
 //         const QString key = m_datamodels.key(m);
@@ -335,10 +335,10 @@ bool ReportGeneratorOdt::open()
             dbgRGChart<<"chart:"<<m_project<<m_manager<<"set nodes"<<m_project;
         }
     }
-    initProjectModel(m_datamodels["projects"], m_project, m_manager);
-    initProjectModel(m_datamodels["project"], m_project, m_manager);
-    initScheduleModel(m_datamodels["schedule"], m_project, m_manager);
-    static_cast<ScheduleItemModel*>(m_datamodels["schedules"])->setProject(m_project);
+    initProjectModel(m_datamodels[QStringLiteral("projects")], m_project, m_manager);
+    initProjectModel(m_datamodels[QStringLiteral("project")], m_project, m_manager);
+    initScheduleModel(m_datamodels[QStringLiteral("schedule")], m_project, m_manager);
+    static_cast<ScheduleItemModel*>(m_datamodels[QStringLiteral("schedules")])->setProject(m_project);
     return true;
 }
 
@@ -376,7 +376,7 @@ bool ReportGeneratorOdt::createReportOdt()
     }
     dbgRG << '\n' << "---- treat main content.xml ----" << '\n';
     QBuffer buffer;
-    KoXmlWriter *writer = createOasisXmlWriter(reader, &buffer, "content.xml", "office:document-content");
+    KoXmlWriter *writer = createOasisXmlWriter(reader, &buffer, QStringLiteral("content.xml"), "office:document-content");
 
     if (!writer) {
         dbgRG<<"Failed to create content.xml writer";
@@ -389,19 +389,19 @@ bool ReportGeneratorOdt::createReportOdt()
     writer->endElement(); // office:document-content
     writer->endDocument();
 
-    if (!outStore->addDataToFile(buffer.buffer(), "content.xml")) {
+    if (!outStore->addDataToFile(buffer.buffer(), QStringLiteral("content.xml"))) {
         dbgRG<<"Failed to open 'content.xml' for writing";
-        m_lastError = i18n("Failed to write to store: %1", QString("content.xml"));
+        m_lastError = i18n("Failed to write to store: %1", QStringLiteral("content.xml"));
         delete writer;
         delete outStore;
         return false;
     }
     buffer.close();
 
-    if (m_manifestfiles.contains("styles.xml")) {
+    if (m_manifestfiles.contains(QStringLiteral("styles.xml"))) {
         dbgRG << '\n' << "---- treat styles.xml (for master-page headers/footers) ----" << '\n';
         QBuffer buffer2;
-        KoXmlWriter *styles = createOasisXmlWriter(reader, &buffer2, "styles.xml", "office:document-styles");
+        KoXmlWriter *styles = createOasisXmlWriter(reader, &buffer2, QStringLiteral("styles.xml"), "office:document-styles");
         if (!styles) {
             dbgRG<<"Failed to create styles.xml writer";
             return false;
@@ -416,13 +416,13 @@ bool ReportGeneratorOdt::createReportOdt()
         writeChildElements(*styles, stylesDoc.documentElement());
         styles->endElement(); // office:document-styles
         styles->endDocument();
-        if (!outStore->addDataToFile(buffer2.buffer(), "styles.xml")) {
+        if (!outStore->addDataToFile(buffer2.buffer(), QStringLiteral("styles.xml"))) {
             dbgRG<<"Failed to open 'styles.xml' for writing";
-            m_lastError = i18n("Failed to write to store: %1", QString("styles.xml"));
+            m_lastError = i18n("Failed to write to store: %1", QStringLiteral("styles.xml"));
             delete writer;
             delete outStore;
         }
-        m_manifestfiles.removeAt(m_manifestfiles.indexOf("styles.xml"));
+        m_manifestfiles.removeAt(m_manifestfiles.indexOf(QStringLiteral("styles.xml")));
     }
 
     dbgRG << '\n' << "---- treat the embedded files ----" << '\n';
@@ -451,9 +451,9 @@ bool ReportGeneratorOdt::handleTextP(KoXmlWriter &writer, const KoXmlElement &te
     // search for user fields
     KoXmlElement e;
     forEachElement(e, textp) {
-        QString tag = e.prefix() + ':' + e.localName();
+        QString tag = e.prefix() + QLatin1Char(',') + e.localName();
         dbgRG<<"Tag:"<<tag;
-        if (tag == "text:user-field-get") {
+        if (tag == QStringLiteral("text:user-field-get")) {
             QString field = e.attributeNS(KoXmlNS::text, "name");
             dbgRG<<"Check:"<<field<<m_userfields;
             if (m_userfields.contains(field) && startsWith(m_keys, field)) {
@@ -479,7 +479,7 @@ void ReportGeneratorOdt::handleDrawFrame(KoXmlWriter &writer, const KoXmlElement
         dbgRGChart<<"No fields";
         return;
     }
-    KoXmlElement e = frame.namedItemNS(KoXmlNS::draw, "object").toElement();
+    KoXmlElement e = frame.namedItemNS(KoXmlNS::draw, QStringLiteral("object")).toElement();
     if (e.isNull()) {
         dbgRGChart<<"No 'object'";
         return;
@@ -489,16 +489,16 @@ void ReportGeneratorOdt::handleDrawFrame(KoXmlWriter &writer, const KoXmlElement
         dbgRGChart<<"No dir";
         return;
     }
-    if (m_sortedfields.first().startsWith("chart")) {
+    if (m_sortedfields.first().startsWith(QStringLiteral("chart"))) {
         QString name = m_sortedfields.takeFirst();
         m_embededcharts[name] = dir;
         UserField *field = m_userfields[name];
-        QString modelName = field->type + '.' + field->dataName;
+        QString modelName = field->type + QLatin1Char('.') + field->dataName;
         field->setModel(dataModel(modelName), m_headerrole[modelName]);
         dbgRGChart<<"Found chart:"<<field;
         return;
     }
-    if (m_sortedfields.first().startsWith("gantt")) {
+    if (m_sortedfields.first().startsWith(QStringLiteral("gantt"))) {
         m_embededgantts[m_sortedfields.takeFirst()] = dir;
         dbgRGChart<<"Found gantt";
         return;
@@ -516,7 +516,7 @@ void ReportGeneratorOdt::treatText(KoXmlWriter &writer, const KoXmlText &text)
 void ReportGeneratorOdt::treatTable(KoXmlWriter &writer, const KoXmlElement &tableElement)
 {
     const QString name = m_sortedfields.value(0);
-    if (name.startsWith("table")) {
+    if (name.startsWith(QStringLiteral("table"))) {
         dbgRGTable<<"   treat table expansion:"<<name;
         m_sortedfields.takeFirst();
         m_activefields << name;
@@ -542,7 +542,7 @@ bool ReportGeneratorOdt::treatTableHeaderRows(KoXmlWriter &writer, const KoXmlEl
     Q_UNUSED(writer);
     Q_UNUSED(headerRowElement);
 
-    if (m_activefields.isEmpty() || m_userfields[m_activefields.last()]->type != "table") {
+    if (m_activefields.isEmpty() || m_userfields[m_activefields.last()]->type != QStringLiteral("table")) {
         return false;
     }
     dbgRGTable;
@@ -553,7 +553,7 @@ bool ReportGeneratorOdt::treatTableHeaderRows(KoXmlWriter &writer, const KoXmlEl
 
 bool ReportGeneratorOdt::treatTableRow(KoXmlWriter &writer, const KoXmlElement &rowElement)
 {
-    if (m_activefields.isEmpty() || m_userfields[m_activefields.last()]->type != "table") {
+    if (m_activefields.isEmpty() || m_userfields[m_activefields.last()]->type != QStringLiteral("table")) {
         return false;
     }
     UserField *field = m_userfields[m_activefields.last()];
@@ -589,7 +589,7 @@ ReportGeneratorOdt::UserField *ReportGeneratorOdt::findUserField(const KoXmlElem
 
     field = m_userfields.value(name); // if Variable or Translation
     if (!field) {
-        QStringList lst = name.split('.');
+        QStringList lst = name.split(QLatin1Char('.'));
         QMap<QString, UserField*>::const_iterator it;
         for (it = m_userfields.constBegin(); it != m_userfields.constEnd(); ++it) {
             if (lst.first().startsWith(it.key())) {
@@ -625,7 +625,7 @@ void ReportGeneratorOdt::treatUserFieldGet(KoXmlWriter &writer, const KoXmlEleme
             writer.addTextNode(field->data(field->columns.value(0))); // a variable has only one column
         } else if (field->variant() == UserField::Translation) {
             QString name = e.attributeNS(KoXmlNS::text, "name"); // eg: tr.bcws
-            QString data = i18n(field->dataName.toLatin1());
+            QString data = i18n(field->dataName.toLatin1().constData());
             if (field->headerNames.contains(field->dataName)) {
                 data = field->data(field->dataName);
             }
@@ -650,7 +650,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
             continue;
         }
         KoXmlElement e = node.toElement();
-        QByteArray tag = QString(e.prefix() + ':' + e.localName()).toUtf8();
+        QByteArray tag = (QString(e.prefix() + QLatin1Char(',')) + e.localName()).toUtf8();
         if (tag != "text:user-field-decl") {
             continue;
         }
@@ -663,9 +663,9 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
         if (value.isEmpty()) {
             dbgRG<<"  User field value is empty:"<<name;
         }
-        QStringList tags = name.split('.');
+        QStringList tags = name.split(QLatin1Char('.'));
         dbgRG<<"  decl="<<name<<tags;
-        if (tags.first() == "tr") {
+        if (tags.first() == QStringLiteral("tr")) {
             UserField *field = new UserField();
             field->name = name;
             m_userfields[field->name] = field;
@@ -673,7 +673,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
             field->dataName = value;
             field->seqNr = USERFIELD_TRANSLATION;
             field->columns << value;
-            field->setModel(dataModel("tr"), m_headerrole["tr"]);
+            field->setModel(dataModel(QStringLiteral("tr")), m_headerrole[QStringLiteral("tr")]);
             dbgRGTr<<"    added translation"<<field->name<<field->dataName;
         } else if (m_variables.contains(tags.first())) {
             Q_ASSERT(tags.count() >= 2);
@@ -685,7 +685,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
 
             field->dataName = tags.first();
             field->seqNr = USERFIELD_VARIABLE;
-            QStringList vl = value.split(';');
+            QStringList vl = value.split(QLatin1Char(';'));
             if (!vl.isEmpty()) {
                 field->columns << vl.takeFirst();
                 field->properties = vl;
@@ -706,11 +706,11 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
                     UserField *field = m_userfields[vname];
                     field->name = vname;
                     field->type = k;
-                    QStringList vl = trimmed(value.toLower().split(';', Qt::SkipEmptyParts));
+                    QStringList vl = trimmed(value.toLower().split(QLatin1Char(';'), Qt::SkipEmptyParts));
                     field->dataName = vl.takeFirst();
                     field->properties += vl;
                     field->setModel(dataModel(field->dataName), m_headerrole[field->dataName]);
-                    if (k == "chart") {
+                    if (k == QStringLiteral("chart")) {
                         dbgRGChart<<"  "<<"added tag:"<<field<<field->properties;
                     } else {
                         dbgRG<<"  "<<"added tag:"<<field<<field->properties;
@@ -741,12 +741,12 @@ void ReportGeneratorOdt::writeElementAttributes(KoXmlWriter &writer, const KoXml
 {
     const auto elements = element.attributeFullNames();
     for (const QPair<QString, QString> &a : elements) {
-        QString prefix = KoXmlNS::nsURI2NS(a.first);
+        QString prefix = QLatin1String(KoXmlNS::nsURI2NS(a.first));
         if (prefix.isEmpty()) {
             dbgRG<<"  Skipping unknown namespace:"<<a.first<<a.second;
             continue;
         }
-        QString attr = QString(prefix + ':' + a.second);
+        QString attr = QString(prefix + QLatin1Char(',')) + a.second;
         if (exclude.contains(attr)) {
             continue;
         }
@@ -759,7 +759,7 @@ void ReportGeneratorOdt::writeElementAttributes(KoXmlWriter &writer, const KoXml
 
 void ReportGeneratorOdt::writeChildElements(KoXmlWriter &writer, const KoXmlElement &parent)
 {
-    //dbgRGparent.prefix()<<':'<<parent.localName();
+    //dbgRGparent.prefix()<<QLatin1Char(','))<<parent.localName();
     for (KoXmlNode node = parent.firstChild(); !node.isNull(); node = node.nextSibling()) {
         if (node.isText()) {
             writer.addTextNode(node.toText().data());
@@ -771,7 +771,7 @@ void ReportGeneratorOdt::writeChildElements(KoXmlWriter &writer, const KoXmlElem
             continue;
         }
 //         dbgRG<<"  "<<e.prefix()<<e.localName() << e.attributeFullNames();
-        QByteArray tag = QString(e.prefix() + ':' + e.localName()).toUtf8();
+        QByteArray tag = (QString(e.prefix() + QLatin1Char(',')) + e.localName()).toUtf8();
         m_tags << tag; // make sure tags survives until we are finished
         if (tag == "text:user-field-decls") {
             handleUserFieldDecls(writer, e);
@@ -816,6 +816,10 @@ void ReportGeneratorOdt::writeChildElements(KoXmlWriter &writer, const KoXmlElem
     }
 }
 
+bool ReportGeneratorOdt::copyFile(KoStore &from, KoStore &to, const char *file)
+{
+    return copyFile(from, to, QString::fromLatin1(file));
+}
 bool ReportGeneratorOdt::copyFile(KoStore &from, KoStore &to, const QString &file)
 {
     QByteArray data;
@@ -879,7 +883,7 @@ KoStore *ReportGeneratorOdt::copyStore(KoOdfReadStore &reader, const QString &ou
         QString file;
         if (e.hasAttribute("full-path")) {
             file = e.attribute("full-path");
-            if (file.isEmpty() || file == "content.xml" || file.endsWith("/")) {
+            if (file.isEmpty() || file == QStringLiteral("content.xml") || file.endsWith(QStringLiteral("/"))) {
                 file.clear();
                 continue;
             }
@@ -924,13 +928,13 @@ KoXmlWriter *ReportGeneratorOdt::createOasisXmlWriter(KoOdfReadStore &reader, QB
             // Note: windows needs this type of iteration
             QXmlStreamNamespaceDeclarations dcl = xml.namespaceDeclarations();
             for (int ns = 0; ns < dcl.count(); ++ns) {
-                dbgRGTmp<<"add namespace:"<<("xmlns:" + dcl[ns].prefix())<<dcl[ns].namespaceUri();
-                writer->addAttribute(("xmlns:" + dcl[ns].prefix()).toLatin1(), dcl[ns].namespaceUri().toUtf8());
+                dbgRGTmp<<"add namespace:"<<(QStringLiteral("xmlns:") + dcl[ns].prefix())<<dcl[ns].namespaceUri();
+                writer->addAttribute((QStringLiteral("xmlns:") + dcl[ns].prefix()).toLatin1().constData(), dcl[ns].namespaceUri().toUtf8());
             }
             QXmlStreamAttributes attr = xml.attributes();
             for (int a = 0; a < attr.count(); ++a) {
                 dbgRGTmp<<"add attribute:"<<attr[a].qualifiedName().toString()<<attr[a].value().toString();
-                writer->addAttribute(attr[a].qualifiedName().toLatin1(), attr[a].value().toUtf8());
+                writer->addAttribute(attr[a].qualifiedName().toLatin1().constData(), attr[a].value().toUtf8());
             }
         }
     }
@@ -962,8 +966,8 @@ void ReportGeneratorOdt::treatChart(KoOdfReadStore &reader, KoStore &outStore, c
         dbgRGChart<<"No user field with name:"<<name;
         return;
     }
-    QString file = dir + "/content.xml";
-    file = file.remove("./");
+    QString file = dir + QStringLiteral("/content.xml");
+    file = file.remove(QStringLiteral("./"));
     dbgRGChart<<file<<m_manifestfiles;
     QString err;
     KoXmlDocument doc;
@@ -973,7 +977,7 @@ void ReportGeneratorOdt::treatChart(KoOdfReadStore &reader, KoStore &outStore, c
     }
     m_activefields << name;
     UserField *field = m_userfields[name];
-    if (field->dataName == "project") {
+    if (field->dataName == QStringLiteral("project")) {
         ChartItemModel *m = findChartItemModel(field->model);
         if (m) {
             m->setNodes(QList<Node*>() << m_project);
@@ -986,11 +990,11 @@ void ReportGeneratorOdt::treatChart(KoOdfReadStore &reader, KoStore &outStore, c
         } else {
             QStringList values;
             for (const QString &p : qAsConst(field->properties)) {
-                if (p.startsWith("values")) {
-                    QStringList vl = p.split("=");
+                if (p.startsWith(QStringLiteral("values"))) {
+                    QStringList vl = p.split(QStringLiteral("="));
                     Q_ASSERT(vl.count() > 1);
-                    Q_ASSERT(vl.at(0) == "values");
-                    const auto strings = vl.at(1).split(',');
+                    Q_ASSERT(vl.at(0) == QStringLiteral("values"));
+                    const auto strings = vl.at(1).split(QLatin1Char(','));
                     for (const auto &v : strings) {
                         values << v.toLower().trimmed();
                     }
@@ -1030,7 +1034,7 @@ void ReportGeneratorOdt::treatGantt(KoOdfReadStore &reader, KoStore &outStore, c
 
 void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElement &parent)
 {
-    dbgRGChart<<"writeChartElements: parent="<<parent.prefix()<<':'<<parent.localName();
+    dbgRGChart<<"writeChartElements: parent="<<parent.prefix()<<','<<parent.localName();
     for (KoXmlNode node = parent.firstChild(); !node.isNull(); node = node.nextSibling()) {
         if (node.isText()) {
             writer.addTextNode(node.toText().data());
@@ -1041,10 +1045,10 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
             continue;
         }
         //dbgRGChart<<"  "<<e.namespaceURI()<<e.prefix()<<e.localName() << e.attributeFullNames();
-        if (QString(KoXmlNS::nsURI2NS(e.namespaceURI())).isEmpty()) {
+        if (QLatin1String(KoXmlNS::nsURI2NS(e.namespaceURI())).isEmpty()) {
             continue; // skip unknown namespace
         }
-        QByteArray tag = QString(e.prefix() + ':' + e.localName()).toUtf8();
+        QByteArray tag = (e.prefix() + QLatin1Char(',') + e.localName()).toUtf8();
         m_tags << tag; // make sure tags survives until we are finished
         //dbgRGChart<<"  handle element:"<<tag;
 
@@ -1062,13 +1066,13 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
             int columns = field->columnCount();
             if (columns > 0) {
                 writer.startElement(tag.constData());
-                writeElementAttributes(writer, e, QStringList() << "table:cell-range-address");
+                writeElementAttributes(writer, e, QStringList() << QStringLiteral("table:cell-range-address"));
 
                 int startRow = 1;
-                if (field->hasLabels == "both" || field->hasLabels == "primary-x") {
+                if (field->hasLabels == QStringLiteral("both") || field->hasLabels == QStringLiteral("primary-x")) {
                     ++startRow;
                 }
-                QString end = QString("local-table.$A$%1:$A$%2").arg(startRow).arg(startRow+field->rowCount()-1);
+                QString end = QStringLiteral("local-table.$A$%1:$A$%2").arg(startRow).arg(startRow+field->rowCount()-1);
                 writer.addAttribute("table:cell-range-address", end);
 
                 writeChartElements(writer, e);
@@ -1079,22 +1083,22 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
             int columns = field->columnCount();
             if (columns > 0 && field->serieNr < columns) {
                 int startRow = 1;
-                if (field->hasLabels == "both" || field->hasLabels == "primary-x") {
+                if (field->hasLabels == QStringLiteral("both") || field->hasLabels == QStringLiteral("primary-x")) {
                     ++startRow;
                 }
                 char startColumn = 'A';
-                if (field->hasLabels == "both" || field->hasLabels == "primary-y") {
+                if (field->hasLabels == QStringLiteral("both") || field->hasLabels == QStringLiteral("primary-y")) {
                     ++startColumn;
                 }
                 writer.startElement(tag.constData());
-                writeElementAttributes(writer, e, QStringList() << "chart:values-cell-range-address"<<"chart:label-cell-address");
+                writeElementAttributes(writer, e, QStringList() << QStringLiteral("chart:values-cell-range-address")<<QStringLiteral("chart:label-cell-address"));
 
                 QChar c(startColumn + field->serieNr);
 
-                QString lab = QString("local-table.$%1$1").arg(c);
+                QString lab = QStringLiteral("local-table.$%1$1").arg(c);
                 writer.addAttribute("chart:values-cell-address", lab);
 
-                QString end = QString("local-table.$%1$%2:$%1$%3").arg(c).arg(startRow).arg(startRow+field->rowCount()-1);
+                QString end = QStringLiteral("local-table.$%1$%2:$%1$%3").arg(c).arg(startRow).arg(startRow+field->rowCount()-1);
                 writer.addAttribute("chart:values-cell-range-address", end);
 
                 writer.startElement("chart:data-point");
@@ -1183,7 +1187,7 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
                 // If legend-position is start, end, top or bottom
                 // we need to have legend-align == center so that words
                 // repositions the legend correctly
-                QStringList lst = QStringList() << "start" << "end" << "top" << "bottom";
+                QStringList lst = QStringList() << QStringLiteral("start") << QStringLiteral("end") << QStringLiteral("top") << QStringLiteral("bottom");
                 if (lst.contains(e.attributeNS(KoXmlNS::chart, "legend-position"))) {
                     writer.addAttribute("chart:legend-align", "center");
                     dbgRGChart<<"adding legend-align";
@@ -1239,7 +1243,7 @@ void ReportGeneratorOdt::UserField::setModel(QAbstractItemModel *model, int role
 
 int ReportGeneratorOdt::UserField::column(const QString &columnName) const
 {
-    QStringList l = columnName.split('.');
+    QStringList l = columnName.split(QLatin1Char('.'));
     int c = l.isEmpty() ? -1 : headerNames.indexOf(l.last().toLower());
     dbgRGTable<<"  column:"<<columnName<<'='<<c;
     return c;
@@ -1283,7 +1287,7 @@ QString ReportGeneratorOdt::UserField::data(const QString &column) const
     } else {
         idx = model.index(0, this->column(column));
     }
-    QString s = "No data";
+    QString s = QStringLiteral("No data");
     if (idx.isValid()) {
         s = model.data(idx).toString();
     }
@@ -1328,11 +1332,11 @@ QDebug operator<<(QDebug dbg, ReportGeneratorOdt::UserField &f)
 {
     dbg.nospace() << "UserField[";
     switch (f.variant()) {
-        case ReportGeneratorOdt::UserField::Header: dbg << "H: " + f.name + '.' + f.dataName; break;
-        case ReportGeneratorOdt::UserField::Rows: dbg << "R: " + f.name + '.' + f.dataName << "seqNr: " << f.seqNr; break;
-        case ReportGeneratorOdt::UserField::Variable: dbg << "V: " + f.name; break;
-        case ReportGeneratorOdt::UserField::Translation: dbg << "T: " + f.name; break;
-        default: dbg << "U: " + f.name; break;
+        case ReportGeneratorOdt::UserField::Header: dbg << QStringLiteral("H: ") + f.name + QLatin1Char('.') + f.dataName; break;
+        case ReportGeneratorOdt::UserField::Rows: dbg << QStringLiteral("R: ") + f.name + QLatin1Char('.') + f.dataName << "seqNr: " << f.seqNr; break;
+        case ReportGeneratorOdt::UserField::Variable: dbg << QStringLiteral("V: ") + f.name; break;
+        case ReportGeneratorOdt::UserField::Translation: dbg << QStringLiteral("T: ") + f.name; break;
+        default: dbg << QStringLiteral("U: ") + f.name; break;
     }
 //     if (!f.columns.isEmpty()) {
 //         dbg << '\n' <<"Columns: " << f.columns;

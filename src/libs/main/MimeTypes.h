@@ -4,5 +4,14 @@
  *  SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#define PLAN_MIME_TYPE "application/x-vnd.kde.plan"
-#define PLANPORTFOLIO_MIME_TYPE "application/x-vnd.kde.plan.portfolio"
+#ifndef PLAN_MIMETYPES_H
+#define PLAN_MIMETYPES_H
+
+#include <QLatin1String>
+
+static const QLatin1String PLAN_MIME_TYPE("application/x-vnd.kde.plan");
+static const QLatin1String PLANPORTFOLIO_MIME_TYPE("application/x-vnd.kde.plan.portfolio");
+static const QLatin1String KPLATO_MIME_TYPE("application/x-vnd.kde.kplato");
+static const QLatin1String PLANWORK_MIME_TYPE("application/x-vnd.kde.plan.work");
+
+#endif

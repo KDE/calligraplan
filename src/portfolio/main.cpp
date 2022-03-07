@@ -26,11 +26,11 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
      *
      * See: https://doc.qt.io/qt-5/qloggingcategory.html
      */
-    QLoggingCategory::setFilterRules("calligra.*.debug=false\n"
-                                     "calligra.*.warning=true");
+    QLoggingCategory::setFilterRules(QStringLiteral("calligra.*.debug=false\n"
+                                     "calligra.*.warning=true"));
 
     QApplication::setAttribute(Qt::AA_ShareOpenGLContexts, true);
-    KoApplication app(PLANPORTFOLIO_MIME_TYPE, QStringLiteral("calligraplanportfolio"), newAboutData, argc, argv);
+    KoApplication app(PLANPORTFOLIO_MIME_TYPE.latin1(), QStringLiteral("calligraplanportfolio"), newAboutData, argc, argv);
 
     if (!app.start(PortfolioFactory::global())) {
         return 1;

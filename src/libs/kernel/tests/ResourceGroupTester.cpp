@@ -30,7 +30,7 @@ ResourceGroup *ResourceGroupTester::createResourceGroup(Project &project, const 
 void ResourceGroupTester::topLevelGroups()
 {
     Project project;
-    QString name = "Group 1";
+    QString name = QStringLiteral("Group 1");
     ResourceGroup *g = createResourceGroup(project, name);
     QString id = g->id();
     QCOMPARE(project.resourceGroupAt(0), g);
@@ -49,12 +49,12 @@ void ResourceGroupTester::topLevelGroups()
 void ResourceGroupTester::childGroups()
 {
     Project project;
-    QString name = "Group 1";
+    QString name = QStringLiteral("Group 1");
     ResourceGroup *g1 = createResourceGroup(project, name);
     QCOMPARE(project.resourceGroupAt(0), g1);
     QCOMPARE(project.findResourceGroup(g1->id()), g1);
 
-    name = "Child 1";
+    name = QStringLiteral("Child 1");
     ResourceGroup *c1 = createResourceGroup(project, name, g1);
     QString id = c1->id();
     QCOMPARE(project.findResourceGroup(id), c1);

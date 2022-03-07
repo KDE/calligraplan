@@ -75,7 +75,7 @@ KoPart::KoPart(const KoComponentData &componentData, QObject *parent)
 {
 #ifndef QT_NO_DBUS
     new KoPartAdaptor(this);
-    QDBusConnection::sessionBus().registerObject('/' + objectName(), this);
+    QDBusConnection::sessionBus().registerObject(QLatin1Char('/') + objectName(), this);
 #endif
 }
 
@@ -147,7 +147,7 @@ void KoPart::addView(KoView *view, KoDocument *document)
     if (d->views.size() == 1) {
         KoApplication *app = qobject_cast<KoApplication*>(qApp);
         if (nullptr != app) {
-            Q_EMIT app->documentOpened('/'+objectName());
+            Q_EMIT app->documentOpened(QLatin1Char('/')+objectName());
         }
     }
 }
@@ -159,7 +159,7 @@ void KoPart::removeView(KoView *view)
     if (d->views.isEmpty()) {
         KoApplication *app = qobject_cast<KoApplication*>(qApp);
         if (nullptr != app) {
-            Q_EMIT app->documentClosed('/'+objectName());
+            Q_EMIT app->documentClosed(QLatin1Char('/')+objectName());
         }
     }
 }
@@ -248,7 +248,7 @@ bool KoPart::openTemplate(const QUrl &url)
     if (ok) {
         QString mimeType = QMimeDatabase().mimeTypeForUrl(url).name();
         // in case this is a open document template remove the -template from the end
-        mimeType.remove(QRegExp("-template$"));
+        mimeType.remove(QRegExp(QStringLiteral("-template$")));
         d->document->setMimeTypeAfterLoading(mimeType);
         d->document->resetURL();
         d->document->setEmpty();

@@ -41,7 +41,7 @@ using namespace KPlato;
 Part::Part(QObject *parent)
     : KoPart(Factory::global(), parent)
 {
-    setTemplatesResourcePath(QLatin1String("calligraplan/templates/"));
+    setTemplatesResourcePath(QStringLiteral("calligraplan/templates/"));
 }
 
 Part::~Part()
@@ -77,17 +77,17 @@ KoView *Part::createViewInstance(KoDocument *document, QWidget *parent)
 
 KoMainWindow *Part::createMainWindow()
 {
-    KoMainWindow *w = new KoMainWindow(PLAN_MIME_TYPE, componentData());
+    KoMainWindow *w = new KoMainWindow(PLAN_MIME_TYPE.latin1(), componentData());
     KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(PLAN_MIME_TYPE);
     QJsonObject json = entry.metaData();
-    auto docs = json.value("X-PLAN-Documentation").toVariant().toString().split(';', Qt::SkipEmptyParts);
+    auto docs = json.value(QStringLiteral("X-PLAN-Documentation")).toVariant().toString().split(QLatin1Char(';'), Qt::SkipEmptyParts);
     auto help = KPlato::Help::instance();
     help->setDocs(docs);
 //     help->setContentsUrl(QUrl(KPlatoSettings::documentationPath()));
 //     help->setContextUrl(QUrl(KPlatoSettings::contextPath()));
     qApp->installEventFilter(help); // this must go after filter installed by KMainWindow, so it will be called before
 
-    auto a = w->actionCollection()->action("configure");
+    auto a = w->actionCollection()->action(QStringLiteral("configure"));
     if (a) {
         a->setText(i18n("Configure Plan..."));
     }
@@ -104,7 +104,7 @@ bool Part::openTemplate(const QUrl &url)
 {
     debugPlan<<"Open shared resources template:"<<url;
     m_document->setLoadingTemplate(true);
-    m_document->setLoadingSharedResourcesTemplate(url.fileName() == "SharedResources.plant");
+    m_document->setLoadingSharedResourcesTemplate(url.fileName() == QStringLiteral("SharedResources.plant"));
     bool res = KoPart::openTemplate(url);
     m_document->setLoadingTemplate(false);
     if (res) {
@@ -150,10 +150,10 @@ void Part::finish()
 void Part::configure(KoMainWindow *mw)
 {
     Q_ASSERT(mw == currentMainwindow());
-    if(KConfigDialog::showDialog("Plan Settings")) {
+    if(KConfigDialog::showDialog(QStringLiteral("Plan Settings"))) {
         return;
     }
-    ConfigDialog *dialog = new ConfigDialog(this, "Plan Settings", KPlatoSettings::self());
+    ConfigDialog *dialog = new ConfigDialog(this, QStringLiteral("Plan Settings"), KPlatoSettings::self());
     connect(dialog, &ConfigDialog::settingsUpdated, this, &Part::slotSettingsUpdated, Qt::QueuedConnection);
     dialog->open();
 }
@@ -189,7 +189,7 @@ void Part::slotLoadSharedResources(const QString &file, const QUrl &projects, bo
     Q_ASSERT(doc);
     QUrl url(file);
     if (url.scheme().isEmpty()) {
-        url.setScheme("file");
+        url.setScheme(QStringLiteral("file"));
     }
     if (url.isValid()) {
         doc->insertResourcesFile(url);

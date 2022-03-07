@@ -34,13 +34,13 @@ void ReScheduleTester::init()
     m_project = new Project();
     m_project->setId(m_project->uniqueNodeId());
     m_project->registerNodeId(m_project);
-    m_project->setConstraintStartTime(QDateTime::fromString("2012-02-01T00:00", Qt::ISODate).toTimeZone(QTimeZone::systemTimeZone()));
-    m_project->setConstraintEndTime(QDateTime::fromString("2012-04-01T00:00", Qt::ISODate).toTimeZone(QTimeZone::systemTimeZone()));
+    m_project->setConstraintStartTime(QDateTime::fromString(QStringLiteral("2012-02-01T00:00"), Qt::ISODate).toTimeZone(QTimeZone::systemTimeZone()));
+    m_project->setConstraintEndTime(QDateTime::fromString(QStringLiteral("2012-04-01T00:00"), Qt::ISODate).toTimeZone(QTimeZone::systemTimeZone()));
     // standard worktime defines 8 hour day as default
     QVERIFY(m_project->standardWorktime());
     QCOMPARE(m_project->standardWorktime()->day(), 8.0);
     auto calendar = new Calendar();
-    calendar->setName("C1");
+    calendar->setName(QStringLiteral("C1"));
     calendar->setDefault(true);
     QTime t1(9, 0, 0);
     QTime t2 (17, 0, 0);
@@ -53,17 +53,17 @@ void ReScheduleTester::init()
     m_project->addCalendar(calendar);
 
     resource1 = new Resource();
-    resource1->setName("R1");
+    resource1->setName(QStringLiteral("R1"));
     resource1->setCalendar(calendar);
     m_project->addResource(resource1);
 
     resource2 = new Resource();
-    resource2->setName("R2");
+    resource2->setName(QStringLiteral("R2"));
     resource2->setCalendar(calendar);
     m_project->addResource(resource2);
 
     Task *t = m_project->createTask();
-    t->setName("T1");
+    t->setName(QStringLiteral("T1"));
     t->setPriority(10);
     m_project->addTask(t, m_project);
     t->completion().setEntrymode(Completion::EnterEffortPerResource);
@@ -74,7 +74,7 @@ void ReScheduleTester::init()
     t->requests().addResourceRequest(request);
 
     t = m_project->createTask();
-    t->setName("T2");
+    t->setName(QStringLiteral("T2"));
     t->setPriority(8);
     m_project->addTask(t, m_project);
     t->completion().setEntrymode(Completion::EnterEffortPerResource);
@@ -85,7 +85,7 @@ void ReScheduleTester::init()
     t->requests().addResourceRequest(request);
 
     t = m_project->createTask();
-    t->setName("T3");
+    t->setName(QStringLiteral("T3"));
     t->setPriority(6);
     m_project->addTask(t, m_project);
     t->completion().setEntrymode(Completion::EnterEffortPerResource);
@@ -96,7 +96,7 @@ void ReScheduleTester::init()
     t->requests().addResourceRequest(request);
 
     t = m_project->createTask();
-    t->setName("T4");
+    t->setName(QStringLiteral("T4"));
     t->setPriority(5);
     t->estimate()->setType(Estimate::Type_Duration);
     t->estimate()->setCalendar(calendar);
@@ -106,7 +106,7 @@ void ReScheduleTester::init()
     t->completion().setEntrymode(Completion::EnterEffortPerTask);
 
     t = m_project->createTask();
-    t->setName("T5");
+    t->setName(QStringLiteral("T5"));
     t->setPriority(4);
     t->estimate()->setType(Estimate::Type_Duration);
     t->estimate()->setCalendar(calendar);
@@ -118,12 +118,12 @@ void ReScheduleTester::init()
     request = new ResourceRequest(resource1, 100);
     t->requests().addResourceRequest(request);
 
-    ScheduleManager *sm = m_project->createScheduleManager("Test Plan");
+    ScheduleManager *sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     m_project->addScheduleManager(sm);
     sm->createSchedules();
     m_project->calculate(*sm);
 
-//     Debug::print(m_project, "", true);
+//     Debug::print(m_project, QString(), true);
 }
 
 void ReScheduleTester::cleanup()
@@ -190,14 +190,14 @@ void ReScheduleTester::completionPerResource()
         if (it2.key() == resource1) {
             QVERIFY(!it2.value().isEmpty());
             QCOMPARE(it2.value().count(), 1);
-            QString str = QString("Resource: %3: Appointment: %1, Expected: %2").arg(it2.value().startTime().toString(Qt::ISODate)).arg(t->completion().startTime().toString(Qt::ISODate).arg(it2.key()->name()));
-            QVERIFY2(it2.value().startTime() == t->completion().startTime(), str.toLatin1());
+            QString str = QStringLiteral("Resource: %3: Appointment: %1, Expected: %2").arg(it2.value().startTime().toString(Qt::ISODate)).arg(t->completion().startTime().toString(Qt::ISODate).arg(it2.key()->name()));
+            QVERIFY2(it2.value().startTime() == t->completion().startTime(), str.toLatin1().constData());
             QCOMPARE(it2.value().intervalAt(0).load(), 53); // 8 hours work in 15 hours
         } else if (it2.key() == resource2) {
             QVERIFY(!it2.value().isEmpty());
             QCOMPARE(it2.value().count(), 1);
-            QString str = QString("Resource: %3: Appointment: %1, Expected: %2").arg(it2.value().startTime().toString(Qt::ISODate)).arg(DateTime(date, QTime()).toString(Qt::ISODate).arg(it2.key()->name()));
-            QVERIFY2(it2.value().startTime() == DateTime(date, QTime()), str.toLatin1());
+            QString str = QStringLiteral("Resource: %3: Appointment: %1, Expected: %2").arg(it2.value().startTime().toString(Qt::ISODate)).arg(DateTime(date, QTime()).toString(Qt::ISODate).arg(it2.key()->name()));
+            QVERIFY2(it2.value().startTime() == DateTime(date, QTime()), str.toLatin1().constData());
             QCOMPARE(it2.value().intervalAt(0).load(), 33); // 8 hours work in 24 hours
         } else {
             QVERIFY2(false, "Invalid resource");
@@ -207,7 +207,7 @@ void ReScheduleTester::completionPerResource()
 
 void ReScheduleTester::reschedulePerTask()
 {
-    auto parentManager = m_project->createScheduleManager("Test Plan");
+    auto parentManager = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     m_project->addScheduleManager(parentManager);
     parentManager->createSchedules();
     m_project->calculate(*parentManager);
@@ -221,12 +221,12 @@ void ReScheduleTester::reschedulePerTask()
     auto t2 = static_cast<Task*>(m_project->childNode(1));
     auto t3 = static_cast<Task*>(m_project->childNode(2));
 
-    auto str = QString("Value: %1, Expected: %2").arg(t1->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
-    QVERIFY2(t1->startTime(parentId) == start, str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t2->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(6).toString(Qt::ISODate));
-    QVERIFY2(t2->startTime(parentId) == start.addDays(6), str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t3->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(12).toString(Qt::ISODate));
-    QVERIFY2(t3->startTime(parentId) == start.addDays(12), str.toLatin1());
+    auto str = QStringLiteral("Value: %1, Expected: %2").arg(t1->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t1->startTime(parentId) == start, str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t2->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(6).toString(Qt::ISODate));
+    QVERIFY2(t2->startTime(parentId) == start.addDays(6), str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t3->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(12).toString(Qt::ISODate));
+    QVERIFY2(t3->startTime(parentId) == start.addDays(12), str.toLatin1().constData());
 
     t1->completion().setStarted(true);
     t1->completion().setStartTime(t1->startTime(parentId));
@@ -251,85 +251,85 @@ void ReScheduleTester::reschedulePerTask()
     auto childId = childManager->expected()->id();
 
     // t1: not moved
-    str = QString("Value: %1, Expected: %2").arg(t1->startTime(childId).toString(Qt::ISODate)).arg(t1->startTime(parentId).toString(Qt::ISODate));
-    QVERIFY2(t1->startTime(childId) == t1->startTime(parentId), str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t1->endTime(childId).toString(Qt::ISODate)).arg(t1->endTime(parentId).toString(Qt::ISODate));
-    QVERIFY2(t1->endTime(childId).date() == t1->endTime(parentId).date(), str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t1->startTime(childId).toString(Qt::ISODate)).arg(t1->startTime(parentId).toString(Qt::ISODate));
+    QVERIFY2(t1->startTime(childId) == t1->startTime(parentId), str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t1->endTime(childId).toString(Qt::ISODate)).arg(t1->endTime(parentId).toString(Qt::ISODate));
+    QVERIFY2(t1->endTime(childId).date() == t1->endTime(parentId).date(), str.toLatin1().constData());
     // t2: same start, end at 2012-02-12T17:00:00
-    str = QString("Value: %1, Expected: %2").arg(t2->startTime(childId).toString(Qt::ISODate)).arg(t2->startTime(parentId).toString(Qt::ISODate));
-    QVERIFY2(t2->startTime(childId).date() == t2->startTime(parentId).date(), str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t2->startTime(childId).toString(Qt::ISODate)).arg(t2->startTime(parentId).toString(Qt::ISODate));
+    QVERIFY2(t2->startTime(childId).date() == t2->startTime(parentId).date(), str.toLatin1().constData());
     auto t2End = recalculateFrom.addDays(4);
     t2End.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(t2->endTime(childId).toString(Qt::ISODate)).arg(t2End.toString(Qt::ISODate));
-    QVERIFY2(t2->endTime(childId) == t2End, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t2->endTime(childId).toString(Qt::ISODate)).arg(t2End.toString(Qt::ISODate));
+    QVERIFY2(t2->endTime(childId) == t2End, str.toLatin1().constData());
 
     // check appoinments
     QCOMPARE(t2->currentSchedule()->appointments().count(), 1);
     QCOMPARE(t2->currentSchedule()->appointments().at(0)->count(), 6);
 
     auto interval = t2->currentSchedule()->appointments().at(0)->intervalAt(0);
-    DateTime dt = QDateTime::fromString("2012-02-07T09:00:00", Qt::ISODate);
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
-    dt = QDateTime::fromString("2012-02-08T00:00:00", Qt::ISODate); // rest of the day
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    DateTime dt = QDateTime::fromString(QStringLiteral("2012-02-07T09:00:00"), Qt::ISODate);
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
+    dt = QDateTime::fromString(QStringLiteral("2012-02-08T00:00:00"), Qt::ISODate); // rest of the day
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 53);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(1);
     dt = recalculateFrom;
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(2);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(3);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(4);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(5);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 }
 
 void ReScheduleTester::reschedulePerResource()
 {
-    auto parentManager = m_project->createScheduleManager("Test Plan");
+    auto parentManager = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     m_project->addScheduleManager(parentManager);
     parentManager->createSchedules();
     m_project->calculate(*parentManager);
@@ -343,12 +343,12 @@ void ReScheduleTester::reschedulePerResource()
     auto t2 = static_cast<Task*>(m_project->childNode(1));
     auto t3 = static_cast<Task*>(m_project->childNode(2));
 
-    auto str = QString("Value: %1, Expected: %2").arg(t1->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
-    QVERIFY2(t1->startTime(parentId) == start, str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t2->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(6).toString(Qt::ISODate));
-    QVERIFY2(t2->startTime(parentId) == start.addDays(6), str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t3->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(12).toString(Qt::ISODate));
-    QVERIFY2(t3->startTime(parentId) == start.addDays(12), str.toLatin1());
+    auto str = QStringLiteral("Value: %1, Expected: %2").arg(t1->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t1->startTime(parentId) == start, str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t2->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(6).toString(Qt::ISODate));
+    QVERIFY2(t2->startTime(parentId) == start.addDays(6), str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t3->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(12).toString(Qt::ISODate));
+    QVERIFY2(t3->startTime(parentId) == start.addDays(12), str.toLatin1().constData());
 
     t1->completion().setStarted(true);
     t1->completion().setStartTime(t1->startTime(parentId));
@@ -372,79 +372,79 @@ void ReScheduleTester::reschedulePerResource()
     auto childId = childManager->expected()->id();
 
     // t1: not moved
-    str = QString("Value: %1, Expected: %2").arg(t1->startTime(childId).toString(Qt::ISODate)).arg(t1->startTime(parentId).toString(Qt::ISODate));
-    QVERIFY2(t1->startTime(childId) == t1->startTime(parentId), str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t1->endTime(childId).toString(Qt::ISODate)).arg(t1->endTime(parentId).toString(Qt::ISODate));
-    QVERIFY2(t1->endTime(childId).date() == t1->endTime(parentId).date(), str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t1->startTime(childId).toString(Qt::ISODate)).arg(t1->startTime(parentId).toString(Qt::ISODate));
+    QVERIFY2(t1->startTime(childId) == t1->startTime(parentId), str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t1->endTime(childId).toString(Qt::ISODate)).arg(t1->endTime(parentId).toString(Qt::ISODate));
+    QVERIFY2(t1->endTime(childId).date() == t1->endTime(parentId).date(), str.toLatin1().constData());
     // t2: same start, end at recalculateFrom + 4 days, 8 hours
-    str = QString("Value: %1, Expected: %2").arg(t2->startTime(childId).toString(Qt::ISODate)).arg(t2->startTime(parentId).toString(Qt::ISODate));
-    QVERIFY2(t2->startTime(childId).date() == t2->startTime(parentId).date(), str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t2->startTime(childId).toString(Qt::ISODate)).arg(t2->startTime(parentId).toString(Qt::ISODate));
+    QVERIFY2(t2->startTime(childId).date() == t2->startTime(parentId).date(), str.toLatin1().constData());
     auto t2End = recalculateFrom.addDays(4);
     t2End.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(t2->endTime(childId).toString(Qt::ISODate)).arg(t2End.toString(Qt::ISODate));
-    QVERIFY2(t2->endTime(childId) == t2End, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t2->endTime(childId).toString(Qt::ISODate)).arg(t2End.toString(Qt::ISODate));
+    QVERIFY2(t2->endTime(childId) == t2End, str.toLatin1().constData());
 
     // check appoinments
     QCOMPARE(t2->currentSchedule()->appointments().count(), 1);
     QCOMPARE(t2->currentSchedule()->appointments().at(0)->count(), 6);
 
     auto interval = t2->currentSchedule()->appointments().at(0)->intervalAt(0);
-    DateTime dt = QDateTime::fromString("2012-02-07T09:00:00", Qt::ISODate);
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
-    dt = QDateTime::fromString("2012-02-08T00:00:00", Qt::ISODate); // rest of the day
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    DateTime dt = QDateTime::fromString(QStringLiteral("2012-02-07T09:00:00"), Qt::ISODate);
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
+    dt = QDateTime::fromString(QStringLiteral("2012-02-08T00:00:00"), Qt::ISODate); // rest of the day
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 53);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(1);
     dt = recalculateFrom;
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(2);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(3);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(4);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(0)->intervalAt(5);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
 
@@ -463,17 +463,17 @@ void ReScheduleTester::reschedulePerResource()
     childId = childManager->expected()->id();
 
     // t1: not moved
-    str = QString("Value: %1, Expected: %2").arg(t1->startTime(childId).toString(Qt::ISODate)).arg(t1->startTime(parentId).toString(Qt::ISODate));
-    QVERIFY2(t1->startTime(childId) == t1->startTime(parentId), str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t1->endTime(childId).toString(Qt::ISODate)).arg(t1->endTime(parentId).toString(Qt::ISODate));
-    QVERIFY2(t1->endTime(childId).date() == t1->endTime(parentId).date(), str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t1->startTime(childId).toString(Qt::ISODate)).arg(t1->startTime(parentId).toString(Qt::ISODate));
+    QVERIFY2(t1->startTime(childId) == t1->startTime(parentId), str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t1->endTime(childId).toString(Qt::ISODate)).arg(t1->endTime(parentId).toString(Qt::ISODate));
+    QVERIFY2(t1->endTime(childId).date() == t1->endTime(parentId).date(), str.toLatin1().constData());
     // t2: same start, end at recalculateFrom + 3 days, 8 hours
-    str = QString("Value: %1, Expected: %2").arg(t2->startTime(childId).toString(Qt::ISODate)).arg(t2->startTime(parentId).toString(Qt::ISODate));
-    QVERIFY2(t2->startTime(childId).date() == t2->startTime(parentId).date(), str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t2->startTime(childId).toString(Qt::ISODate)).arg(t2->startTime(parentId).toString(Qt::ISODate));
+    QVERIFY2(t2->startTime(childId).date() == t2->startTime(parentId).date(), str.toLatin1().constData());
     t2End = recalculateFrom.addDays(3);
     t2End.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(t2->endTime(childId).toString(Qt::ISODate)).arg(t2End.toString(Qt::ISODate));
-    QVERIFY2(t2->endTime(childId) == t2End, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t2->endTime(childId).toString(Qt::ISODate)).arg(t2End.toString(Qt::ISODate));
+    QVERIFY2(t2->endTime(childId) == t2End, str.toLatin1().constData());
 
     QCOMPARE(t2->currentSchedule()->appointments().count(), 2);
     int posR1 = 0;
@@ -486,61 +486,61 @@ void ReScheduleTester::reschedulePerResource()
     QCOMPARE(t2->currentSchedule()->appointments().at(posR2)->count(), 1);
 
     interval = t2->currentSchedule()->appointments().at(posR1)->intervalAt(0);
-    dt = QDateTime::fromString("2012-02-07T09:00:00", Qt::ISODate);
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
-    dt = QDateTime::fromString("2012-02-08T00:00:00", Qt::ISODate); // rest of the day
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    dt = QDateTime::fromString(QStringLiteral("2012-02-07T09:00:00"), Qt::ISODate);
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
+    dt = QDateTime::fromString(QStringLiteral("2012-02-08T00:00:00"), Qt::ISODate); // rest of the day
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 53);
 
     interval = t2->currentSchedule()->appointments().at(posR2)->intervalAt(0);
-    dt = QDateTime::fromString("2012-02-08T00:00:00", Qt::ISODate);
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    dt = QDateTime::fromString(QStringLiteral("2012-02-08T00:00:00"), Qt::ISODate);
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt = dt.addDays(1); // rest of the day
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 33);
 
     interval = t2->currentSchedule()->appointments().at(posR1)->intervalAt(1);
     dt = recalculateFrom;
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(posR1)->intervalAt(2);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(posR1)->intervalAt(3);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 
     interval = t2->currentSchedule()->appointments().at(posR1)->intervalAt(4);
     dt = dt.addDays(1);
     dt.setTime(QTime(9, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.startTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.startTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.startTime() == dt, str.toLatin1().constData());
     dt.setTime(QTime(17, 0, 0));
-    str = QString("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
-    QVERIFY2(interval.endTime() == dt, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(interval.endTime().toString(Qt::ISODate)).arg(dt.toString(Qt::ISODate));
+    QVERIFY2(interval.endTime() == dt, str.toLatin1().constData());
     QCOMPARE(interval.load(), 100);
 }
 
@@ -559,15 +559,15 @@ void ReScheduleTester::rescheduleTaskLength()
     auto t3 = static_cast<Task*>(m_project->childNode(2));
     auto t4 = static_cast<Task*>(m_project->childNode(3));
 
-    auto str = QString("Value: %1, Expected: %2").arg(t1->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
-    QVERIFY2(t1->startTime(parentId) == start, str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t2->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(6).toString(Qt::ISODate));
-    QVERIFY2(t2->startTime(parentId) == start.addDays(6), str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t3->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(12).toString(Qt::ISODate));
-    QVERIFY2(t3->startTime(parentId) == start.addDays(12), str.toLatin1());
+    auto str = QStringLiteral("Value: %1, Expected: %2").arg(t1->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t1->startTime(parentId) == start, str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t2->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(6).toString(Qt::ISODate));
+    QVERIFY2(t2->startTime(parentId) == start.addDays(6), str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t3->startTime(parentId).toString(Qt::ISODate)).arg(start.addDays(12).toString(Qt::ISODate));
+    QVERIFY2(t3->startTime(parentId) == start.addDays(12), str.toLatin1().constData());
 
-    str = QString("Value: %1, Expected: %2").arg(t4->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
-    QVERIFY2(t4->startTime(parentId) == start, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t4->startTime(parentId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t4->startTime(parentId) == start, str.toLatin1().constData());
 
     auto childManager = m_project->createScheduleManager(parentManager);
     childManager->setRecalculate(true);
@@ -577,7 +577,7 @@ void ReScheduleTester::rescheduleTaskLength()
     childManager->createSchedules();
     m_project->calculate(*childManager);
     auto childId = childManager->expected()->id();
-    //Debug::print(m_project, "", true);
+    //Debug::print(m_project, QString(), true);
 
     // T1: 2012-03-01 -> 2012-03-06
     // T2: 2012-03-07 -> 2012-02-12
@@ -586,10 +586,10 @@ void ReScheduleTester::rescheduleTaskLength()
     start = recalculateFrom.addSecs(9*60*60);
     QDateTime end = start.addDays(5).addSecs(8*60*60);
 
-    str = QString("Value: %1, Expected: %2").arg(t4->startTime(childId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
-    QVERIFY2(t4->startTime(childId) == start, str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t4->endTime(childId).toString(Qt::ISODate)).arg(end.toString(Qt::ISODate));
-    QVERIFY2(t4->endTime(childId) == end, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t4->startTime(childId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t4->startTime(childId) == start, str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t4->endTime(childId).toString(Qt::ISODate)).arg(end.toString(Qt::ISODate));
+    QVERIFY2(t4->endTime(childId) == end, str.toLatin1().constData());
 
     // test with completion
     t4->completion().setStarted(true);
@@ -604,16 +604,16 @@ void ReScheduleTester::rescheduleTaskLength()
     childManager->createSchedules();
     m_project->calculate(*childManager);
     childId = childManager->expected()->id();
-    Debug::print(m_project, "", true);
+    Debug::print(m_project, QString(), true);
 
     // T4: 2012-02-03 -> 2012-02-08 (Length, no resource request)
     start = t4->completion().startTime();
     end = start.addDays(5).addSecs(8*60*60);
 
-    str = QString("Value: %1, Expected: %2").arg(t4->startTime(childId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
-    QVERIFY2(t4->startTime(childId) == start, str.toLatin1());
-    str = QString("Value: %1, Expected: %2").arg(t4->endTime(childId).toString(Qt::ISODate)).arg(end.toString(Qt::ISODate));
-    QVERIFY2(t4->endTime(childId) == end, str.toLatin1());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t4->startTime(childId).toString(Qt::ISODate)).arg(start.toString(Qt::ISODate));
+    QVERIFY2(t4->startTime(childId) == start, str.toLatin1().constData());
+    str = QStringLiteral("Value: %1, Expected: %2").arg(t4->endTime(childId).toString(Qt::ISODate)).arg(end.toString(Qt::ISODate));
+    QVERIFY2(t4->endTime(childId) == end, str.toLatin1().constData());
 }
 
 } //namespace KPlato

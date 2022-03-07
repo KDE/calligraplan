@@ -44,7 +44,7 @@ QTimeZone createTimeZoneWithOffsetFromSystem(int hours, const QString & name, in
 }
 
 void CalendarTester::testSingleDay() {
-    Calendar t("Test");
+    Calendar t(QStringLiteral("Test"));
     QDate wdate(2006,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(1), QTime());
@@ -75,7 +75,7 @@ void CalendarTester::testSingleDay() {
 }
 
 void CalendarTester::testWeekdays() {
-    Calendar t("Test");
+    Calendar t(QStringLiteral("Test"));
     QDate wdate(2006,1,4); // wednesday
     DateTime before = DateTime(wdate.addDays(-2), QTime());
     DateTime after = DateTime(wdate.addDays(2), QTime());
@@ -97,8 +97,8 @@ void CalendarTester::testWeekdays() {
 }
 
 void CalendarTester::testCalendarWithParent() {
-    Calendar p("Test 3 parent");
-    Calendar t("Test 3");
+    Calendar p(QStringLiteral("Test 3 parent"));
+    Calendar t(QStringLiteral("Test 3"));
     t.setParentCal(&p);
     QDate wdate(2006,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
@@ -136,7 +136,7 @@ void CalendarTester::testCalendarWithParent() {
 
 void CalendarTester::testTimezone()
 {
-    Calendar t("Test");
+    Calendar t(QStringLiteral("Test"));
     QDate wdate(2006,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(1), QTime());
@@ -148,12 +148,12 @@ void CalendarTester::testTimezone()
     CalendarDay *day = new CalendarDay(wdate, CalendarDay::Working);
     day->addInterval(TimeInterval(t1, length));
     t.addDay(day);
-    Debug::print(&t, "Time zone testing");
+    Debug::print(&t, QStringLiteral("Time zone testing"));
     QVERIFY(t.findDay(wdate) == day);
 
     // local zone: Europe/Berlin (1 hours from London)
     int loShiftDays;
-    QTimeZone lo = createTimeZoneWithOffsetFromSystem(-1, "DummyLondon", &loShiftDays);
+    QTimeZone lo = createTimeZoneWithOffsetFromSystem(-1, QStringLiteral("DummyLondon"), &loShiftDays);
     QVERIFY(lo.isValid());
     QDateTime dt1 = QDateTime(wdate, t1, lo).addDays(loShiftDays).addSecs(-2 * 3600);
     QDateTime dt2 = QDateTime(wdate, t2, lo).addDays(loShiftDays).addSecs(0 * 3600);
@@ -168,7 +168,7 @@ void CalendarTester::testTimezone()
 
     // local zone: Europe/Berlin (9 hours from America/Los_Angeles)
     int laShiftDays;
-    QTimeZone la = createTimeZoneWithOffsetFromSystem(-9, "DummyLos_Angeles", &laShiftDays);
+    QTimeZone la = createTimeZoneWithOffsetFromSystem(-9, QStringLiteral("DummyLos_Angeles"), &laShiftDays);
     QVERIFY(la.isValid());
     QDateTime dt3 = QDateTime(wdate, t1, la).addDays(laShiftDays).addSecs(-10 * 3600);
     QDateTime dt4 = QDateTime(wdate, t2, la).addDays(laShiftDays).addSecs(-8 * 3600);
@@ -180,11 +180,11 @@ void CalendarTester::testTimezone()
 
     QCOMPARE(t.effort(DateTime(dt3), DateTime(dt4)), e);
 
-    QString s = "Test Cairo:";
+    QString s = QStringLiteral("Test Cairo:");
     qDebug()<<s;
     // local zone: Europe/Berlin (1 hour from cairo)
     int caShiftDays;
-    QTimeZone ca = createTimeZoneWithOffsetFromSystem(1, "DummyCairo", &caShiftDays);
+    QTimeZone ca = createTimeZoneWithOffsetFromSystem(1, QStringLiteral("DummyCairo"), &caShiftDays);
     QDateTime dt5 = QDateTime(wdate, t1, ca).addDays(caShiftDays).addSecs(0 * 3600);
     QDateTime dt6 = QDateTime(wdate, t2, ca).addDays(caShiftDays).addSecs(2 * 3600);
 
@@ -198,7 +198,7 @@ void CalendarTester::testTimezone()
 
 void CalendarTester::workIntervals()
 {
-    Calendar t("Test");
+    Calendar t(QStringLiteral("Test"));
     QDate wdate(2006,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(1), QTime());
@@ -266,7 +266,7 @@ void CalendarTester::workIntervals()
 
 void CalendarTester::workIntervalsFullDays()
 {
-    Calendar t("Test");
+    Calendar t(QStringLiteral("Test"));
     QDate wdate(2006,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(10), QTime());
@@ -309,7 +309,7 @@ void CalendarTester::dstSpring()
     QByteArray tz("TZ=Europe/Copenhagen");
     putenv(tz.data());
 
-    Calendar t("DST");
+    Calendar t(QStringLiteral("DST"));
     QDate wdate(2016,3,27);
 
     DateTime before = DateTime(wdate.addDays(-1), QTime());
@@ -350,7 +350,7 @@ void CalendarTester::timeZones()
 
     QTimeZone tzSydney("Australia/Sydney");
     int length = 8*60*60*1000;
-    Calendar sydney("Sydney");
+    Calendar sydney(QStringLiteral("Sydney"));
     sydney.setTimeZone(tzSydney);
     CalendarDay day(CalendarDay::Working);
     TimeInterval ti(QTime(8, 0, 0), length);

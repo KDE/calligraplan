@@ -57,7 +57,7 @@ bool KPlatoXmlLoader::load(const KoXmlElement& plan)
                                "Opening it in Plan may lose information."),
                       i18n("File-Format Error"), KGuiItem(i18n("Continue")));
         if (ret == KMessageBox::Cancel) {
-            m_message = "USER_CANCELED";
+            m_message = QStringLiteral("USER_CANCELED");
             return false;
         }
         // set to max version and hope for the best
@@ -69,7 +69,7 @@ bool KPlatoXmlLoader::load(const KoXmlElement& plan)
                                "Opening it in this version of Plan may lose some information.", syntaxVersion),
                       i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
         if (ret == KMessageBox::Cancel) {
-            m_message = "USER_CANCELED";
+            m_message = QStringLiteral("USER_CANCELED");
             return false;
         }
     }
@@ -81,7 +81,7 @@ bool KPlatoXmlLoader::load(const KoXmlElement& plan)
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "project") {
+        if (e.tagName() == QStringLiteral("project")) {
             m_loader.setProject(m_project);
             result = load(m_project, e, m_loader);
             if (result) {
@@ -90,7 +90,7 @@ bool KPlatoXmlLoader::load(const KoXmlElement& plan)
                     m_project->registerNodeId(m_project);
                 }
             } else {
-                m_loader.addMsg(XMLLoaderObject::Errors, "Loading of project failed");
+                m_loader.addMsg(XMLLoaderObject::Errors, QStringLiteral("Loading of project failed"));
                 errorPlanXml <<"Loading of project failed";
                 //TODO add some ui here
             }
@@ -111,7 +111,7 @@ bool KPlatoXmlLoader::loadWorkpackage(const KoXmlElement& plan)
                 "Opening it in this version of PlanWork will lose some information.", m_loader.workVersion()),
                 i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
         if (ret == KMessageBox::Cancel) {
-            m_message = "USER_CANCELED";
+            m_message = QStringLiteral("USER_CANCELED");
             return false;
         }
     }
@@ -125,20 +125,20 @@ bool KPlatoXmlLoader::loadWorkpackage(const KoXmlElement& plan)
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "project") {
+        if (e.tagName() == QStringLiteral("project")) {
             m_loader.setProject(proj);
             ok = load(proj, e, m_loader);
             if (! ok) {
-                m_loader.addMsg(XMLLoaderObject::Errors, "Loading of work package failed");
+                m_loader.addMsg(XMLLoaderObject::Errors, QStringLiteral("Loading of work package failed"));
                 //TODO add some ui here
             }
-        } else if (e.tagName() == "workpackage") {
+        } else if (e.tagName() == QStringLiteral("workpackage")) {
             m_timeTag = e.attribute("time-tag");
             package->ownerId = e.attribute("owner-id");
             package->ownerName = e.attribute("owner");
             KoXmlElement elem;
             forEachElement(elem, e) {
-                if (elem.tagName() != "settings") {
+                if (elem.tagName() != QStringLiteral("settings")) {
                     continue;
                 }
                 package->settings.usedEffort = (bool)elem.attribute("used-effort").toInt();

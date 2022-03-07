@@ -171,7 +171,7 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
     , m_commandDocument(doc)
 {
     debugPlan<<"-------------------- creating TaskStatusView -------------------";
-    setXMLFile("TaskStatusViewUi.rc");
+    setXMLFile(QStringLiteral("TaskStatusViewUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -226,7 +226,7 @@ void TaskStatusView::itemDoubleClicked(const QPersistentModelIndex &idx)
     if (idx.column() == NodeModel::NodeDescription) {
         Node *node = m_view->model()->node(idx);
         if (node) {
-            auto action = actionCollection()->action("task_description");
+            auto action = actionCollection()->action(QStringLiteral("task_description"));
             if (action) {
                 if (node->type() == Node::Type_Project) {
                     slotOpenProjectDescription();
@@ -252,7 +252,7 @@ void TaskStatusView::setScheduleManager(ScheduleManager *sm)
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted
         m_domdoc.clear();
-        QDomElement element = m_domdoc.createElement("expanded");
+        QDomElement element = m_domdoc.createElement(QStringLiteral("expanded"));
         m_domdoc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -260,7 +260,7 @@ void TaskStatusView::setScheduleManager(ScheduleManager *sm)
     bool expand = sm && scheduleManager() && sm != scheduleManager();
     QDomDocument doc;
     if (expand) {
-        QDomElement element = doc.createElement("expanded");
+        QDomElement element = doc.createElement(QStringLiteral("expanded"));
         doc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -333,13 +333,13 @@ void TaskStatusView::slotContextMenuRequested(Node *node, const QPoint& pos)
     auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
     switch (node->type()) {
         case Node::Type_Task:
-            name = node->isScheduled(sid) ? "taskstatus_popup" : "task_unscheduled_popup";
+            name = node->isScheduled(sid) ? QStringLiteral("taskstatus_popup") : QStringLiteral("task_unscheduled_popup");
             break;
         case Node::Type_Milestone:
-            name = node->isScheduled(sid) ? "taskview_milestone_popup" : "task_unscheduled_popup";
+            name = node->isScheduled(sid) ? QStringLiteral("taskview_milestone_popup") : QStringLiteral("task_unscheduled_popup");
             break;
         case Node::Type_Summarytask:
-            name = "taskview_summary_popup";
+            name = QStringLiteral("taskview_summary_popup");
             break;
         default:
             break;
@@ -355,15 +355,15 @@ void TaskStatusView::slotContextMenuRequested(Node *node, const QPoint& pos)
 void TaskStatusView::setupGui()
 {
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &TaskStatusView::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &TaskStatusView::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &TaskStatusView::slotDocuments);
 
     // Add the context menu actions for the view options
@@ -390,7 +390,7 @@ void TaskStatusView::slotOptions()
 {
     debugPlan;
     TaskStatusViewSettingsDialog *dlg = new TaskStatusViewSettingsDialog(this, m_view, this);
-    dlg->addPrintingOptions(sender()->objectName() == "print_options");
+    dlg->addPrintingOptions(sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
@@ -399,20 +399,20 @@ bool TaskStatusView::loadContext(const KoXmlElement &context)
 {
     debugPlan;
     ViewBase::loadContext(context);
-    m_view->setPeriod(context.attribute("period", QString("%1").arg(m_view->defaultPeriod())).toInt());
+    m_view->setPeriod(context.attribute("period", QStringLiteral("%1").arg(m_view->defaultPeriod())).toInt());
 
-    m_view->setPeriodType(context.attribute("periodtype", QString("%1").arg(m_view->defaultPeriodType())).toInt());
+    m_view->setPeriodType(context.attribute("periodtype", QStringLiteral("%1").arg(m_view->defaultPeriodType())).toInt());
 
-    m_view->setWeekday(context.attribute("weekday", QString("%1").arg(m_view->defaultWeekday())).toInt());
+    m_view->setWeekday(context.attribute("weekday", QStringLiteral("%1").arg(m_view->defaultWeekday())).toInt());
     return m_view->loadContext(model()->columnMap(), context);
 }
 
 void TaskStatusView::saveContext(QDomElement &context) const
 {
     ViewBase::saveContext(context);
-    context.setAttribute("period", QString::number(m_view->period()));
-    context.setAttribute("periodtype", QString::number(m_view->periodType()));
-    context.setAttribute("weekday", QString::number(m_view->weekday()));
+    context.setAttribute(QStringLiteral("period"), QString::number(m_view->period()));
+    context.setAttribute(QStringLiteral("periodtype"), QString::number(m_view->periodType()));
+    context.setAttribute(QStringLiteral("weekday"), QString::number(m_view->weekday()));
     m_view->saveContext(model()->columnMap(), context);
 }
 
@@ -432,19 +432,19 @@ void TaskStatusView::updateActionsEnabled(bool on)
     bool enable = on && node;
 
     const auto c = actionCollection();
-    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
-    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
-    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
+    if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(enable); }
 
     if (enable) {
         auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
         switch (node->type()) {
             case Node::Type_Task:
             case Node::Type_Milestone:
-                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(enable && node->isScheduled(sid)); }
                 break;
             default:
-                if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
                 break;
         }
     }

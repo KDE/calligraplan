@@ -21,7 +21,7 @@ class MacroCommand;
 class MilestoneProgressPanelImpl : public QWidget, public Ui_MilestoneProgressPanelBase {
     Q_OBJECT
 public:
-    explicit MilestoneProgressPanelImpl(QWidget *parent=nullptr, const char *name=nullptr);
+    explicit MilestoneProgressPanelImpl(QWidget *parent=nullptr);
     
     void enableWidgets();
 
@@ -36,7 +36,7 @@ public Q_SLOTS:
 class MilestoneProgressPanel : public MilestoneProgressPanelImpl {
     Q_OBJECT
 public:
-    explicit MilestoneProgressPanel(Task &task, QWidget *parent=nullptr, const char *name=nullptr);
+    explicit MilestoneProgressPanel(Task &task, QWidget *parent=nullptr);
 
     MacroCommand *buildCommand();
 

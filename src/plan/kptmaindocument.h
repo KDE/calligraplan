@@ -53,7 +53,7 @@ public:
     void initEmpty() override;
 
     /// reimplemented from KoDocument
-    QByteArray nativeFormatMimeType() const override { return PLAN_MIME_TYPE; }
+    QByteArray nativeFormatMimeType() const override { return PLAN_MIME_TYPE.latin1(); }
     /// reimplemented from KoDocument
     QByteArray nativeOasisMimeType() const override { return ""; }
     /// reimplemented from KoDocument

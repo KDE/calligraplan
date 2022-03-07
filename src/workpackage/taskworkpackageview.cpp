@@ -255,13 +255,13 @@ void AbstractView::slotContextMenuRequested(KPlato::Node *node, const QPoint& po
     QString name;
     switch (node->type()) {
         case KPlato::Node::Type_Task:
-            name = "taskstatus_popup";
+            name = QStringLiteral("taskstatus_popup");
             break;
         case KPlato::Node::Type_Milestone:
-            name = "taskview_milestone_popup";
+            name = QStringLiteral("taskview_milestone_popup");
             break;
         case KPlato::Node::Type_Summarytask:
-            name = "taskview_summary_popup";
+            name = QStringLiteral("taskview_summary_popup");
             break;
         default:
             break;
@@ -280,10 +280,10 @@ void AbstractView::slotContextMenuRequested(KPlato::Document *doc, const QPoint&
     QString name;
     switch (doc->type()) {
         case KPlato::Document::Type_Product:
-            name = "editdocument_popup";
+            name = QStringLiteral("editdocument_popup");
             break;
         default:
-            name = "viewdocument_popup";
+            name = QStringLiteral("viewdocument_popup");
             break;
     }
     debugPlanWork<<name;
@@ -436,8 +436,8 @@ bool TaskWorkPackageView::loadContext()
 
 void TaskWorkPackageView::saveContext()
 {
-    QDomDocument doc ("TaskWorkPackageView");
-    QDomElement context = doc.createElement("TaskWorkPackageViewSettings");
+    QDomDocument doc(QStringLiteral("TaskWorkPackageView"));
+    QDomElement context = doc.createElement(QStringLiteral("TaskWorkPackageViewSettings"));
     doc.appendChild(context);
     m_view->saveContext(itemModel()->columnMap(), context);
     PlanWorkSettings::self()->setTaskWorkPackageView(doc.toString());
@@ -685,7 +685,7 @@ GanttView::GanttView(Part *part, QWidget *parent)
       m_itemmodel(new TaskWorkPackageModel(part, this))
 {
     debugPlanWork<<"------------------- create GanttView -----------------------";
-    m_itemmodel->setObjectName("Gantt model");
+    m_itemmodel->setObjectName(QStringLiteral("Gantt model"));
     graphicsView()->setItemDelegate(m_ganttdelegate);
     KPlato::GanttTreeView *tv = new KPlato::GanttTreeView(this);
     tv->setSortingEnabled(true);
@@ -850,10 +850,10 @@ bool GanttView::loadContext(const KoXmlElement &context)
 
 void GanttView::saveContext(QDomElement &context) const
 {
-    QDomElement e = context.ownerDocument().createElement("itemview");
+    QDomElement e = context.ownerDocument().createElement(QStringLiteral("itemview"));
     context.appendChild(e);
     treeView()->saveContext(itemModel()->columnMap(), e);
-    e = context.ownerDocument().createElement("ganttview");
+    e = context.ownerDocument().createElement(QStringLiteral("ganttview"));
     context.appendChild(e);
     KPlato::GanttViewBase::saveContext(e);
 }
@@ -951,8 +951,8 @@ bool TaskWPGanttView::loadContext()
 
 void TaskWPGanttView::saveContext()
 {
-    QDomDocument doc ("TaskWPGanttView");
-    QDomElement context = doc.createElement("TaskWPGanttViewSettings");
+    QDomDocument doc (QStringLiteral("TaskWPGanttView"));
+    QDomElement context = doc.createElement(QStringLiteral("TaskWPGanttViewSettings"));
     doc.appendChild(context);
     m_view->saveContext(context);
     PlanWorkSettings::self()->setTaskWPGanttView(doc.toString());

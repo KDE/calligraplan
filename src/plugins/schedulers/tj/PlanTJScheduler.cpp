@@ -521,7 +521,7 @@ bool PlanTJScheduler::taskFromTJ(Project *project, TJ::Task *job, Node *task)
 void PlanTJScheduler::addPastAppointments(Node *task)
 {
     if (!static_cast<Task*>(task)->isStarted()) {
-        logDebug(task, nullptr, "Task is not started, no appointments to copy");
+        logDebug(task, nullptr, QStringLiteral("Task is not started, no appointments to copy"));
         return;
     }
     if (static_cast<Task*>(task)->completion().isFinished()) {

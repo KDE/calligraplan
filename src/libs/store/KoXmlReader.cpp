@@ -322,7 +322,7 @@ private:
 
     QString cacheValue(const QString& value) {
         if (value.isEmpty())
-            return nullptr;
+            return QString();
 
         const unsigned& ii = valueHash[value];
         if (ii > 0)
@@ -896,14 +896,14 @@ QString KoXmlNodeData::nodeName() const
     case KoXmlNode::ElementNode: {
         QString n(tagName);
         if (!prefix.isEmpty())
-            n.prepend(':').prepend(prefix);
+            n.prepend(QLatin1Char(':')).prepend(prefix);
         return n;
     }
     break;
 
-    case KoXmlNode::TextNode:         return QLatin1String("#text");
-    case KoXmlNode::CDATASectionNode: return QLatin1String("#cdata-section");
-    case KoXmlNode::DocumentNode:     return QLatin1String("#document");
+    case KoXmlNode::TextNode:         return QStringLiteral("#text");
+    case KoXmlNode::CDATASectionNode: return QStringLiteral("#cdata-section");
+    case KoXmlNode::DocumentNode:     return QStringLiteral("#document");
     case KoXmlNode::DocumentTypeNode: return tagName;
 
     default: return QString(); break;
@@ -931,7 +931,7 @@ bool KoXmlNodeData::hasAttribute(const QString& name) const
 void KoXmlNodeData::setAttributeNS(const QString& nsURI,
                                    const QString& name, const QString& value)
 {
-    int i = name.indexOf(':');
+    int i = name.indexOf(QLatin1Char(':'));
     if (i != -1) {
         QString localName(name.mid(i + 1));
         KoXmlStringPair key(nsURI, localName);
@@ -1023,7 +1023,7 @@ void KoXmlNodeData::loadChildren(int depth)
             QString localName;  // without prefix, i.e. local name
 
             localName = qName = qname.name;
-            int i = qName.indexOf(':');
+            int i = qName.indexOf(QLatin1Char(':'));
             if (i != -1) prefix = qName.left(i);
             if (i != -1) localName = qName.mid(i + 1);
 
@@ -1042,7 +1042,7 @@ void KoXmlNodeData::loadChildren(int depth)
 
             if (packedDoc->processNamespace) {
                 localName = qname.name;
-                int di = qname.name.indexOf(':');
+                int di = qname.name.indexOf(QLatin1Char(':'));
                 if (di != -1) {
                     localName = qname.name.mid(di + 1);
                     prefix = qname.name.left(di);
@@ -1272,7 +1272,7 @@ static void itemAsQDomNode(QDomDocument& ownerDoc, KoXmlPackedDocument* packedDo
                 QString localName;  // without prefix, i.e. local name
 
                 localName = qName = qname.name;
-                int i = qName.indexOf(':');
+                int i = qName.indexOf(QLatin1Char(':'));
                 if (i != -1) prefix = qName.left(i);
                 if (i != -1) localName = qName.mid(i + 1);
 
@@ -1723,6 +1723,11 @@ KoXmlNode KoXmlNode::previousSibling() const
     return d->prev ? KoXmlNode(d->prev) : KoXmlNode();
 }
 
+KoXmlNode KoXmlNode::namedItem(const char *name) const
+{
+    return namedItem(QLatin1String(name));
+}
+
 KoXmlNode KoXmlNode::namedItem(const QString& name) const
 {
     if (!d->loaded)
@@ -1770,15 +1775,15 @@ KoXmlNode KoXmlNode::namedItemNS(const QString& nsURI, const QString& name, KoXm
         switch (type) {
             case KoXmlTextContentPrelude:
                 isPrelude =
-                    (node->localName == "tracked-changes" && node->namespaceURI == KoXmlNS::text) ||
-                    (node->localName == "variable-decls" && node->namespaceURI == KoXmlNS::text) ||
-                    (node->localName == "user-field-decls" && node->namespaceURI == KoXmlNS::text) ||
-                    (node->localName == "user-field-decl" && node->namespaceURI == KoXmlNS::text) ||
-                    (node->localName == "sequence-decls" && node->namespaceURI == KoXmlNS::text) ||
-                    (node->localName == "sequence-decl" && node->namespaceURI == KoXmlNS::text) ||
-                    (node->localName == "dde-connection-decls" && node->namespaceURI == KoXmlNS::text) ||
-                    (node->localName == "alphabetical-index-auto-mark-file" && node->namespaceURI == KoXmlNS::text) ||
-                    (node->localName == "forms" && node->namespaceURI == KoXmlNS::office);
+                    (node->localName == QStringLiteral("tracked-changes") && node->namespaceURI == KoXmlNS::text) ||
+                    (node->localName == QStringLiteral("variable-decls") && node->namespaceURI == KoXmlNS::text) ||
+                    (node->localName == QStringLiteral("user-field-decls") && node->namespaceURI == KoXmlNS::text) ||
+                    (node->localName == QStringLiteral("user-field-decl") && node->namespaceURI == KoXmlNS::text) ||
+                    (node->localName == QStringLiteral("sequence-decls") && node->namespaceURI == KoXmlNS::text) ||
+                    (node->localName == QStringLiteral("sequence-decl") && node->namespaceURI == KoXmlNS::text) ||
+                    (node->localName == QStringLiteral("dde-connection-decls") && node->namespaceURI == KoXmlNS::text) ||
+                    (node->localName == QStringLiteral("alphabetical-index-auto-mark-file") && node->namespaceURI == KoXmlNS::text) ||
+                    (node->localName == QStringLiteral("forms") && node->namespaceURI == KoXmlNS::office);
                 break;
         }
         if (!isPrelude) {
@@ -1883,6 +1888,10 @@ QString KoXmlElement::text() const
     return d->text();
 }
 
+QString KoXmlElement::attribute(const char *name) const
+{
+    return attribute(QString::fromLatin1(name));
+}
 QString KoXmlElement::attribute(const QString& name) const
 {
     if (!isElement())
@@ -1892,6 +1901,12 @@ QString KoXmlElement::attribute(const QString& name) const
         d->loadChildren();
 
     return d->attribute(name, QString());
+}
+
+QString KoXmlElement::attribute(const char *name,
+                                const QString& defaultValue) const
+{
+    return attribute(QLatin1String(name), defaultValue);
 }
 
 QString KoXmlElement::attribute(const QString& name,
@@ -1921,6 +1936,22 @@ QString KoXmlElement::attributeNS(const QString& namespaceURI,
 //  return d->attributeNS(namespaceURI, localName, defaultValue);
 }
 
+QString KoXmlElement::attributeNS(const QString& namespaceURI,
+                                  const char *localName, const QString& defaultValue) const
+{
+    return attributeNS(namespaceURI, QLatin1String(localName), defaultValue);
+}
+
+QString KoXmlElement::attributeNS(const QString& namespaceURI,
+                                  const char *localName, const char *defaultValue) const
+{
+    return attributeNS(namespaceURI, QLatin1String(localName), QLatin1String(defaultValue));
+}
+
+bool KoXmlElement::hasAttribute(const char *name) const
+{
+    return hasAttribute(QString::fromLatin1(name));
+}
 bool KoXmlElement::hasAttribute(const QString& name) const
 {
     if (!d->loaded)
@@ -1936,6 +1967,12 @@ bool KoXmlElement::hasAttributeNS(const QString& namespaceURI,
         d->loadChildren();
 
     return isElement() ? d->hasAttributeNS(namespaceURI, localName) : false;
+}
+
+bool KoXmlElement::hasAttributeNS(const QString& namespaceURI,
+                                  const char* localName) const
+{
+    return hasAttributeNS(namespaceURI, QLatin1String(localName));
 }
 
 // ==================================================================
@@ -2128,7 +2165,7 @@ namespace {
        */
     class DumbEntityResolver : public QXmlStreamEntityResolver {
     public:
-        QString resolveUndeclaredEntity (const QString &) override { return ""; }
+        QString resolveUndeclaredEntity (const QString &) override { return QString(); }
     };
 
 }
@@ -2245,6 +2282,18 @@ KoXmlElement KoXml::namedItemNS(const KoXmlNode& node, const QString& nsURI,
 #else
     return node.namedItemNS(nsURI, localName).toElement();
 #endif
+}
+
+KoXmlElement KoXml::namedItemNS(const KoXmlNode& node, const QString& nsURI,
+                                const char *localName)
+{
+    return KoXml::namedItemNS(node, nsURI, QLatin1String(localName));
+}
+
+KoXmlElement KoXml::namedItemNS(const KoXmlNode& node, const char *nsURI,
+                                const char *localName)
+{
+    return KoXml::namedItemNS(node, QLatin1String(nsURI), QLatin1String(localName));
 }
 
 KoXmlElement KoXml::namedItemNS(const KoXmlNode& node, const QString& nsURI,

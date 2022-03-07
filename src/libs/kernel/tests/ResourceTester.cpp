@@ -44,19 +44,19 @@ void ResourceTester::testAvailable()
     qDebug()<<"dt"<<dt;
     
     r.setAvailableFrom(qt);
-    Debug::print(&r, "Test setAvailableFrom with QDateTime");
+    Debug::print(&r, QStringLiteral("Test setAvailableFrom with QDateTime"));
     DateTime x = r.availableFrom();
     qDebug()<<"------"<<x;
     QCOMPARE(x, dt);
     qDebug()<<"----------------";
     r.setAvailableUntil(qt.addDays(1));
-    Debug::print(&r, "Test setAvailableUntil with QDateTime");
+    Debug::print(&r, QStringLiteral("Test setAvailableUntil with QDateTime"));
     QCOMPARE(r.availableUntil(), DateTime(dt.addDays(1)));
     qDebug()<<"----------------";
 }
 
 void ResourceTester::testSingleDay() {
-    Calendar t("Test");
+    Calendar t(QStringLiteral("Test"));
     QDate wdate(2006,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(1), QTime());
@@ -75,7 +75,7 @@ void ResourceTester::testSingleDay() {
     r.setAvailableUntil(after);
     r.setCalendar(&t);
     
-    Debug::print(&r, "Test single resource, no group, no project", true);
+    Debug::print(&r, QStringLiteral("Test single resource, no group, no project"), true);
 
     QVERIFY(r.availableAfter(after, DateTime(after.addDays(1))).isValid() == false);
     QVERIFY(r.availableBefore(before, DateTime(before.addDays(-1))).isValid() == false);
@@ -159,7 +159,7 @@ void ResourceTester::team()
 
     {
         Project p1;
-        p1.setId("p1");
+        p1.setId(QStringLiteral("p1"));
 
         AddResourceGroupCmd *c1 = new AddResourceGroupCmd(&p1, new ResourceGroup());
         c1->redo();
@@ -255,7 +255,7 @@ void ResourceTester::team()
 
         // xml
         QDomDocument qdoc;
-        QDomElement e = qdoc.createElement("plan");
+        QDomElement e = qdoc.createElement(QStringLiteral("plan"));
         qdoc.appendChild(e);
         p1.save(e, XmlSaveContext());
 
@@ -281,7 +281,7 @@ void ResourceTester::team()
     {
         // team members in different group
         Project p1;
-        p1.setId("p1");
+        p1.setId(QStringLiteral("p1"));
 
         AddResourceGroupCmd *c1 = new AddResourceGroupCmd(&p1, new ResourceGroup());
         c1->redo();
@@ -381,7 +381,7 @@ void ResourceTester::team()
 
         // xml
         QDomDocument qdoc;
-        QDomElement e = qdoc.createElement("plan");
+        QDomElement e = qdoc.createElement(QStringLiteral("plan"));
         qdoc.appendChild(e);
         p1.save(e, XmlSaveContext());
 
@@ -453,7 +453,7 @@ void ResourceTester::required()
     QVERIFY(r1->requiredIds().isEmpty());
     QVERIFY(r1->requiredResources().isEmpty());
 
-    r1->addRequiredId(""); // not allowed to add empty id
+    r1->addRequiredId(QString()); // not allowed to add empty id
     QVERIFY(r1->requiredIds().isEmpty());
 
     r1->addRequiredId(r2->id());
@@ -531,7 +531,7 @@ void ResourceTester::required()
 
     // using xml
     {
-        p2.setId("p2");
+        p2.setId(QStringLiteral("p2"));
         XmlSaveContext context(&p2);
         context.save();
 
@@ -564,14 +564,14 @@ void ResourceTester::required()
     {
         // required in different group
         Project p4;
-        p4.setId("p4");
+        p4.setId(QStringLiteral("p4"));
 
         c1 = new AddResourceGroupCmd(&p4, new ResourceGroup());
         c1->redo();
         delete c1;
 
         ResourceGroup *m = new ResourceGroup();
-        m->setType("Material");
+        m->setType(QStringLiteral("Material"));
         c1 = new AddResourceGroupCmd(&p4, m);
         c1->redo();
         delete c1;
@@ -622,7 +622,7 @@ void ResourceTester::required()
 
         // using xml
         QDomDocument qdoc;
-        QDomElement e = qdoc.createElement("plan");
+        QDomElement e = qdoc.createElement(QStringLiteral("plan"));
         qdoc.appendChild(e);
         p4.save(e, XmlSaveContext());
 

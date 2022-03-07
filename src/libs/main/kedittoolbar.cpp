@@ -60,12 +60,12 @@ static ToolBarList findToolBars(const QDomElement &start)
     ToolBarList list;
 
     for (QDomElement elem = start; !elem.isNull(); elem = elem.nextSiblingElement()) {
-        if (elem.tagName() == QLatin1String("ToolBar")) {
-            if (elem.attribute(QStringLiteral("noEdit")) != QLatin1String("true")) {
+        if (elem.tagName() == QStringLiteral("ToolBar")) {
+            if (elem.attribute(QStringLiteral("noEdit")) != QStringLiteral("true")) {
                 list.append(elem);
             }
         } else {
-            if (elem.tagName() != QLatin1String("MenuBar")) { // there are no toolbars inside the menubar :)
+            if (elem.tagName() != QStringLiteral("MenuBar")) { // there are no toolbars inside the menubar :)
                 list += findToolBars(elem.firstChildElement()); // recursive
             }
         }
@@ -158,7 +158,7 @@ QString XmlData::toolBarText(const QDomElement &it) const
     // it is in kparts
     if ((m_type == XmlData::Shell) || (m_type == XmlData::Part)) {
         QString doc_name(m_document.documentElement().attribute(QStringLiteral("name")));
-        name += QLatin1String(" <") + doc_name + QLatin1Char('>');
+        name += QStringLiteral(" <") + doc_name + QLatin1Char('>');
     }
     return name;
 }
@@ -448,7 +448,7 @@ public:
 
     QString xmlFile(const QString &xml_file) const
     {
-        return xml_file.isEmpty() ? m_componentName + QLatin1String("ui.rc") : xml_file;
+        return xml_file.isEmpty() ? m_componentName + QStringLiteral("ui.rc") : xml_file;
     }
 
     /**
@@ -698,7 +698,7 @@ void KEditToolBarPrivate::defaultClicked()
         if (slash) {
             m_file.remove(0, slash);
         }
-        const QString xml_file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kxmlgui5/")
+        const QString xml_file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kxmlgui5/")
             + QCoreApplication::instance()->applicationName() + QLatin1Char('/') + m_file;
 
         if (QFile::exists(xml_file)) {
@@ -1390,9 +1390,9 @@ void KEditToolBarWidgetPrivate::slotActiveSelectionChanged()
 
     m_removeAction->setEnabled(toolitem);
 
-    m_changeIcon->setEnabled(toolitem && toolitem->internalTag() == QLatin1String("Action"));
+    m_changeIcon->setEnabled(toolitem && toolitem->internalTag() == QStringLiteral("Action"));
 
-    m_changeIconText->setEnabled(toolitem && toolitem->internalTag() == QLatin1String("Action"));
+    m_changeIconText->setEnabled(toolitem && toolitem->internalTag() == QStringLiteral("Action"));
 
     if (toolitem) {
         m_upAction->setEnabled(toolitem->index() != 0);

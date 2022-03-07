@@ -70,7 +70,7 @@ void AccountsCommandTester::printSchedulingLog(const ScheduleManager &sm) const
 void AccountsCommandTester::init()
 {
     m_project = new Project();
-    m_project->setName("P1");
+    m_project->setName(QStringLiteral("P1"));
     m_project->setId(m_project->uniqueNodeId());
     m_project->registerNodeId(m_project);
     DateTime targetstart = DateTime(QDate::currentDate(), QTime(0,0,0));
@@ -81,7 +81,7 @@ void AccountsCommandTester::init()
     // standard worktime defines 8 hour day as default
     QVERIFY(m_project->standardWorktime());
     QCOMPARE(m_project->standardWorktime()->day(), 8.0);
-    m_calendar = new Calendar("Test");
+    m_calendar = new Calendar(QStringLiteral("Test"));
     m_calendar->setDefault(true);
     QTime t1(9, 0, 0);
     QTime t2 (17, 0, 0);
@@ -95,16 +95,16 @@ void AccountsCommandTester::init()
 
 
     ResourceGroup *g = new ResourceGroup();
-    g->setName("G1");
+    g->setName(QStringLiteral("G1"));
     m_project->addResourceGroup(g);
     m_resource = new Resource();
-    m_resource->setName("R1");
+    m_resource->setName(QStringLiteral("R1"));
     m_resource->setCalendar(m_calendar);
     m_project->addResource(m_resource);
     m_resource->addParentGroup(g);
 
     m_task = m_project->createTask();
-    m_task->setName("T1");
+    m_task->setName(QStringLiteral("T1"));
     m_project->addTask(m_task, m_project);
     m_task->estimate()->setUnit(Duration::Unit_h);
     m_task->estimate()->setExpectedEstimate(8.0);
@@ -119,7 +119,7 @@ void AccountsCommandTester::cleanup()
 void AccountsCommandTester::addAccount()
 {
     Account *a1 = new Account();
-    a1->setName("a1");
+    a1->setName(QStringLiteral("a1"));
     AddAccountCmd *cmd1 = new AddAccountCmd(*m_project, a1);
     cmd1->redo();
 
@@ -131,14 +131,14 @@ void AccountsCommandTester::addAccount()
     delete cmd1;
 
     a1 = new Account();
-    a1->setName("a1");
+    a1->setName(QStringLiteral("a1"));
     cmd1 = new AddAccountCmd(*m_project, a1);
     cmd1->redo();
 
     QCOMPARE(m_project->accounts().allAccounts().count(), 1);
 
     Account *a2 = new Account();
-    a2->setName("a2");
+    a2->setName(QStringLiteral("a2"));
     AddAccountCmd *cmd2 = new AddAccountCmd(*m_project, a2, a1);
     cmd2->redo();
 
@@ -156,7 +156,7 @@ void AccountsCommandTester::addAccount()
 void AccountsCommandTester::removeAccount()
 {
     Account *a1 = new Account();
-    a1->setName("a1");
+    a1->setName(QStringLiteral("a1"));
     m_project->accounts().insert(a1);
     QCOMPARE(m_project->accounts().allAccounts().count(), 1);
 
@@ -174,10 +174,10 @@ void AccountsCommandTester::removeAccount()
     QCOMPARE(m_project->accounts().allAccounts().count(), 0);
 
     a1 = new Account();
-    a1->setName("a1");
+    a1->setName(QStringLiteral("a1"));
     m_project->accounts().insert(a1);
     Account *a2 = new Account();
-    a2->setName("a2");
+    a2->setName(QStringLiteral("a2"));
     m_project->accounts().insert(a2, a1);
     QCOMPARE(m_project->accounts().allAccounts().count(), 2);
 
@@ -206,17 +206,17 @@ void AccountsCommandTester::costPlace()
 {
     KUndo2QStack cmds;
     Account *a1 = new Account();
-    a1->setName("a1");
+    a1->setName(QStringLiteral("a1"));
     cmds.push(new AddAccountCmd(*m_project, a1));
     QCOMPARE(m_project->accounts().allAccounts().count(), 1);
 
     Account *a2 = new Account();
-    a2->setName("a2");
+    a2->setName(QStringLiteral("a2"));
     cmds.push(new AddAccountCmd(*m_project, a2));
     QCOMPARE(m_project->accounts().allAccounts().count(), 2);
 
     Account *a3 = new Account();
-    a3->setName("a3");
+    a3->setName(QStringLiteral("a3"));
     cmds.push(new AddAccountCmd(*m_project, a3));
     QCOMPARE(m_project->accounts().allAccounts().count(), 3);
 
@@ -269,7 +269,7 @@ void AccountsCommandTester::costPlace()
         cmds.undo();
     }
     a1 = new Account();
-    a1->setName("a1");
+    a1->setName(QStringLiteral("a1"));
     cmds.push(new AddAccountCmd(*m_project, a1));
     QCOMPARE(m_project->accounts().allAccounts().count(), 1);
 

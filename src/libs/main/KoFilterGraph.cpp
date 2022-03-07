@@ -110,11 +110,11 @@ void Graph::buildGraph()
 
         QJsonObject metaData = part.metaData();
 #ifdef CALLIGRA_OLD_PLUGIN_METADATA
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toString().split(',');
+        QStringList nativeMimeTypes = metaData.value(QString::fromLatin1("X-KDE-ExtraNativeMimeTypes")).toString().split(',');
 #else
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toVariant().toStringList();
+        QStringList nativeMimeTypes = metaData.value(QString::fromLatin1("X-KDE-ExtraNativeMimeTypes")).toVariant().toStringList();
 #endif
-        nativeMimeTypes += metaData.value("X-KDE-NativeMimeType").toString();
+        nativeMimeTypes += metaData.value(QString::fromLatin1("X-KDE-NativeMimeType")).toString();
 
         for (const QString& nativeMimeType : qAsConst(nativeMimeTypes)) {
             const QByteArray key = nativeMimeType.toLatin1();
@@ -202,11 +202,11 @@ QByteArray Graph::findCalligraPart() const
     while (!v && partIt != partEnd) {
         QJsonObject metaData = (*partIt).metaData();
 #ifdef CALLIGRA_OLD_PLUGIN_METADATA
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toString().split(',');
+        QStringList nativeMimeTypes = metaData.value(QString::fromLatin1("X-KDE-ExtraNativeMimeTypes")).toString().split(',');
 #else
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toVariant().toStringList();
+        QStringList nativeMimeTypes = metaData.value(QString::fromLatin1("X-KDE-ExtraNativeMimeTypes")).toVariant().toStringList();
 #endif
-        nativeMimeTypes += metaData.value("X-KDE-NativeMimeType").toString();
+        nativeMimeTypes += metaData.value(QString::fromLatin1("X-KDE-NativeMimeType")).toString();
         QStringList::ConstIterator it = nativeMimeTypes.constBegin();
         QStringList::ConstIterator end = nativeMimeTypes.constEnd();
         for (; !v && it != end; ++it)
@@ -221,11 +221,11 @@ QByteArray Graph::findCalligraPart() const
     while (partIt != partEnd) {
         QJsonObject metaData = (*partIt).metaData();
 #ifdef CALLIGRA_OLD_PLUGIN_METADATA
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toString().split(',');
+        QStringList nativeMimeTypes = metaData.value(QString::fromLatin1("X-KDE-ExtraNativeMimeTypes")).toString().split(',');
 #else
-        QStringList nativeMimeTypes = metaData.value("X-KDE-ExtraNativeMimeTypes").toVariant().toStringList();
+        QStringList nativeMimeTypes = metaData.value(QString::fromLatin1("X-KDE-ExtraNativeMimeTypes")).toVariant().toStringList();
 #endif
-        nativeMimeTypes += metaData.value("X-KDE-NativeMimeType").toString();
+        nativeMimeTypes += metaData.value(QString::fromLatin1("X-KDE-NativeMimeType")).toString();
         QStringList::ConstIterator it = nativeMimeTypes.constBegin();
         QStringList::ConstIterator end = nativeMimeTypes.constEnd();
         for (; !v && it != end; ++it) {

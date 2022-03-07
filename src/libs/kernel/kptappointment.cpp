@@ -41,7 +41,7 @@ AppointmentInterval::AppointmentInterval(const DateTime &start, const DateTime &
     : d(new AppointmentIntervalData())
 {
     if (start.isValid() && end.isValid()) {
-        Q_ASSERT_X(start.timeZone() == end.timeZone(), "Create interval:", QString(QString("Timezones not equal %1, %2").arg(QString(start.timeZone().id())).arg(QString(end.timeZone().id()))).toLatin1());
+        Q_ASSERT(start.timeZone() == end.timeZone());
     }
     setStartTime(start);
     setEndTime(end);
@@ -648,7 +648,7 @@ bool AppointmentIntervalList::loadXML(KoXmlElement &element, XMLLoaderObject &st
 {
     KoXmlElement e;
     forEachElement(e, element) {
-        if (e.tagName() == QLatin1String("appointment-interval") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("interval"))) {
+        if (e.tagName() == QStringLiteral("appointment-interval") || (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("interval"))) {
             AppointmentInterval a;
             if (a.loadXML(e, status)) {
                 add(a);

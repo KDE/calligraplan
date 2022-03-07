@@ -46,7 +46,7 @@ QTimeZone createTimeZoneWithOffsetFromSystem(int hours, const QString & name, in
 
 void WorkInfoCacheTester::basics()
 {
-    Calendar cal("Test");
+    Calendar cal(QStringLiteral("Test"));
     QDate wdate(2012,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(1), QTime());
@@ -87,7 +87,7 @@ void WorkInfoCacheTester::basics()
 
 void WorkInfoCacheTester::addAfter()
 {
-    Calendar cal("Test");
+    Calendar cal(QStringLiteral("Test"));
     QDate wdate(2012,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(1), QTime());
@@ -135,7 +135,7 @@ void WorkInfoCacheTester::addAfter()
 
 void WorkInfoCacheTester::addBefore()
 {
-    Calendar cal("Test");
+    Calendar cal(QStringLiteral("Test"));
     QDate wdate(2012,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(1), QTime());
@@ -183,7 +183,7 @@ void WorkInfoCacheTester::addBefore()
 
 void WorkInfoCacheTester::addMiddle()
 {
-    Calendar cal("Test");
+    Calendar cal(QStringLiteral("Test"));
     QDate wdate(2012,1,2);
     DateTime before = DateTime(wdate.addDays(-1), QTime());
     DateTime after = DateTime(wdate.addDays(1), QTime());
@@ -229,7 +229,7 @@ void WorkInfoCacheTester::addMiddle()
 
 void WorkInfoCacheTester::fullDay()
 {
-    Calendar cal("Test");
+    Calendar cal(QStringLiteral("Test"));
     QDate wdate(2012,1,2);
 
     QTime t1(0,0,0);
@@ -265,10 +265,10 @@ void WorkInfoCacheTester::timeZone()
     putenv(tz.data());
     qDebug()<<"Local timezone: "<<QTimeZone::systemTimeZone();
     
-    Calendar cal("Test");
+    Calendar cal(QStringLiteral("Test"));
     // local zone: Europe/Berlin (9 hours from America/Los_Angeles)
     int laShiftDays;
-    QTimeZone la = createTimeZoneWithOffsetFromSystem(-9, "DummyLos_Angeles", &laShiftDays);
+    QTimeZone la = createTimeZoneWithOffsetFromSystem(-9, QStringLiteral("DummyLos_Angeles"), &laShiftDays);
     QVERIFY(la.isValid());
     cal.setTimeZone(la);
 
@@ -287,7 +287,7 @@ void WorkInfoCacheTester::timeZone()
     cal.addDay(day);
     QVERIFY(cal.findDay(wdate) == day);
 
-    Debug::print(&cal, "DummyLos_Angeles");
+    Debug::print(&cal, QStringLiteral("DummyLos_Angeles"));
     Resource r;
     r.setCalendar(&cal);
     const Resource::WorkInfoCache &wic = r.workInfoCache();
@@ -324,10 +324,10 @@ void WorkInfoCacheTester::doubleTimeZones()
     putenv(tz.data());
     qDebug()<<"Local timezone: "<<QTimeZone::systemTimeZone();
     
-    Calendar cal("LocalTime/Copenhagen");
+    Calendar cal(QStringLiteral("LocalTime/Copenhagen"));
     QCOMPARE(cal.timeZone(),  QTimeZone::systemTimeZone());
     
-    Calendar cal2("Helsinki");
+    Calendar cal2(QStringLiteral("Helsinki"));
     cal2.setTimeZone(QTimeZone("Europe/Helsinki"));
     QVERIFY(cal2.timeZone().isValid());
     
@@ -346,7 +346,7 @@ void WorkInfoCacheTester::doubleTimeZones()
     cal.addDay(day);
     QVERIFY(cal.findDay(wdate) == day);
     
-    Debug::print(&cal, "");
+    Debug::print(&cal, QString());
     Resource r1;
     r1.setCalendar(&cal);
     const Resource::WorkInfoCache &wic = r1.workInfoCache();
@@ -364,7 +364,7 @@ void WorkInfoCacheTester::doubleTimeZones()
     cal2.addDay(day);
     QVERIFY(cal2.findDay(wdate) == day);
     
-    Debug::print(&cal2, "");
+    Debug::print(&cal2, QString());
     Resource r2;
     r2.setCalendar(&cal2);
     const Resource::WorkInfoCache &wic2 = r2.workInfoCache();

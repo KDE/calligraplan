@@ -241,27 +241,27 @@ void KDateTable::initAccels()
   KActionCollection* localCollection = new KActionCollection(this);
   localCollection->addAssociatedWidget(this);
 
-  QAction* next = localCollection->addAction(QLatin1String("next"));
+  QAction* next = localCollection->addAction(QStringLiteral("next"));
   next->setShortcuts(KStandardShortcut::next());
   connect(next, SIGNAL(triggered(bool)), SLOT(nextMonth()));
 
-  QAction* prior = localCollection->addAction(QLatin1String("prior"));
+  QAction* prior = localCollection->addAction(QStringLiteral("prior"));
   prior->setShortcuts(KStandardShortcut::prior());
   connect(prior, SIGNAL(triggered(bool)), SLOT(previousMonth()));
 
-  QAction* beginMonth = localCollection->addAction(QLatin1String("beginMonth"));
+  QAction* beginMonth = localCollection->addAction(QStringLiteral("beginMonth"));
   beginMonth->setShortcuts(KStandardShortcut::home());
   connect(beginMonth, SIGNAL(triggered(bool)), SLOT(beginningOfMonth()));
 
-  QAction* endMonth = localCollection->addAction(QLatin1String("endMonth"));
+  QAction* endMonth = localCollection->addAction(QStringLiteral("endMonth"));
   endMonth->setShortcuts(KStandardShortcut::end());
   connect(endMonth, SIGNAL(triggered(bool)), SLOT(endOfMonth()));
 
-  QAction* beginWeek = localCollection->addAction(QLatin1String("beginWeek"));
+  QAction* beginWeek = localCollection->addAction(QStringLiteral("beginWeek"));
   beginWeek->setShortcuts(KStandardShortcut::beginningOfLine());
   connect(beginWeek, SIGNAL(triggered(bool)), SLOT(beginningOfWeek()));
 
-  QAction* endWeek = localCollection->addAction("endWeek");
+  QAction* endWeek = localCollection->addAction(QStringLiteral("endWeek"));
   endWeek->setShortcuts(KStandardShortcut::endOfLine());
   connect(endWeek, SIGNAL(triggered(bool)), SLOT(endOfWeek()));
 
@@ -1207,7 +1207,7 @@ QRectF KDateTableWeekNumberDelegate::paint(QPainter *painter, const StyleOptionH
     painter->drawRect(option.rectF);
     painter->setPen(textColor);
 
-    QString value = QString("%1").arg(week);
+    QString value = QStringLiteral("%1").arg(week);
     if (model) {
         QVariant v = model->weekNumberData(week, Qt::DisplayRole);
         if (v.isValid()) {

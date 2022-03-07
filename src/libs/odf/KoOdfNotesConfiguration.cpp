@@ -46,14 +46,14 @@ KoOdfNotesConfiguration::KoOdfNotesConfiguration(NoteClass noteClass)
 
     if (noteClass == KoOdfNotesConfiguration::Footnote) {
         d->numberFormat.setFormatSpecification(KoOdfNumberDefinition::Numeric);
-        d->defaultNoteParagraphStyleName = "Footnote";
-        d->citationTextStyleName = "Footnote_20_Symbol";
-        d->citationBodyTextStyleName = "Footnote_20_anchor";
+        d->defaultNoteParagraphStyleName = QStringLiteral("Footnote");
+        d->citationTextStyleName = QStringLiteral("Footnote_20_Symbol");
+        d->citationBodyTextStyleName = QStringLiteral("Footnote_20_anchor");
     } else {
         d->numberFormat.setFormatSpecification(KoOdfNumberDefinition::RomanLowerCase);
-        d->defaultNoteParagraphStyleName = "Endnote";
-        d->citationTextStyleName = "Endnote_20_Symbol";
-        d->citationBodyTextStyleName = "Endnote_20_anchor";
+        d->defaultNoteParagraphStyleName = QStringLiteral("Endnote");
+        d->citationTextStyleName = QStringLiteral("Endnote_20_Symbol");
+        d->citationBodyTextStyleName = QStringLiteral("Endnote_20_anchor");
     }
 }
 
@@ -114,36 +114,36 @@ void KoOdfNotesConfiguration::loadOdf(const KoXmlElement &element)
     d->numberFormat.loadOdf(element);
 
     QString numberingScheme = element.attributeNS(KoXmlNS::text, "start-numbering-at", "document");
-    if (numberingScheme == "document") {
+    if (numberingScheme == QStringLiteral("document")) {
         d->numberingScheme = BeginAtDocument;
     }
-    else if (numberingScheme == "chapter") {
+    else if (numberingScheme == QStringLiteral("chapter")) {
         d->numberingScheme = BeginAtChapter;
     }
-    else if (numberingScheme == "page") {
+    else if (numberingScheme == QStringLiteral("page")) {
         d->numberingScheme = BeginAtPage;
     }
 
     QString footnotesPosition  = element.attributeNS(KoXmlNS::text, "footnotes-position", "page");
-    if (footnotesPosition == "text") {
+    if (footnotesPosition == QStringLiteral("text")) {
         d->footnotesPosition = Text;
     }
-    else if (footnotesPosition == "page") {
+    else if (footnotesPosition == QStringLiteral("page")) {
         d->footnotesPosition = Page;
     }
-    else if (footnotesPosition == "section") {
+    else if (footnotesPosition == QStringLiteral("section")) {
         d->footnotesPosition = Section;
     }
-    else if (footnotesPosition == "document") {
+    else if (footnotesPosition == QStringLiteral("document")) {
         d->footnotesPosition = Document;
     }
 
     for (KoXmlNode node = element.firstChild(); !node.isNull(); node = node.nextSibling()) {
         KoXmlElement child = node.toElement();
         if (child.namespaceURI() == KoXmlNS::text) {
-            if (child.localName() == "note-continuation-notice-forward") {
+            if (child.localName() == QStringLiteral("note-continuation-notice-forward")) {
                 d->footnotesContinuationForward = child.text();
-            } else if (child.localName() == "note-continuation-notice-backward") {
+            } else if (child.localName() == QStringLiteral("note-continuation-notice-backward")) {
                 d->footnotesContinuationBackward = child.text();
             }
         }

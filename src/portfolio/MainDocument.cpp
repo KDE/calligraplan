@@ -73,7 +73,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
 {
     QPointer<KoUpdater> updater;
     if (progressUpdater()) {
-        updater = progressUpdater()->startSubtask(1, "Plan::Portfolio::loadXML");
+        updater = progressUpdater()->startSubtask(1, QStringLiteral("Plan::Portfolio::loadXML"));
         updater->setProgress(0);
     }
     KoXmlElement portfolio = document.documentElement();
@@ -86,7 +86,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
     }
     if (value != PLANPORTFOLIO_MIME_TYPE) {
 //         errorPlan << "Unknown mime type " << value;
-        setErrorMessage(i18n("Invalid document. Expected mimetype %1, got %2", QStringLiteral(PLANPORTFOLIO_MIME_TYPE), value));
+        setErrorMessage(i18n("Invalid document. Expected mimetype %1, got %2", PLANPORTFOLIO_MIME_TYPE, value));
         return false;
     }
     QString syntaxVersion = portfolio.attribute("version", PLANPORTFOLIO_FILE_SYNTAX_VERSION);
@@ -96,7 +96,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             "Opening it in this version of Plan will lose some information.", syntaxVersion),
             i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
         if (ret == KMessageBox::Cancel) {
-            setErrorMessage("USER_CANCELED");
+            setErrorMessage(QStringLiteral("USER_CANCELED"));
             return false;
         }
     }
@@ -205,15 +205,15 @@ bool MainDocument::completeLoading(KoStore *store)
 }
 
 QDomDocument createDocument() {
-    QDomDocument document("portfolio");
+    QDomDocument document(QStringLiteral("portfolio"));
     document.appendChild(document.createProcessingInstruction(
-        "xml",
-        "version=\"1.0\" encoding=\"UTF-8\"") );
+        QStringLiteral("xml"),
+        QStringLiteral("version=\"1.0\" encoding=\"UTF-8\"")));
 
-    QDomElement doc = document.createElement("portfolio");
-    doc.setAttribute("editor", "PlanPortfolio");
-    doc.setAttribute("mime", PLANPORTFOLIO_MIME_TYPE);
-    doc.setAttribute("version", PLANPORTFOLIO_FILE_SYNTAX_VERSION);
+    QDomElement doc = document.createElement(QStringLiteral("portfolio"));
+    doc.setAttribute(QStringLiteral("editor"), QStringLiteral("PlanPortfolio"));
+    doc.setAttribute(QStringLiteral("mime"), PLANPORTFOLIO_MIME_TYPE);
+    doc.setAttribute(QStringLiteral("version"), PLANPORTFOLIO_FILE_SYNTAX_VERSION);
     document.appendChild(doc);
     return document;
 }
@@ -223,22 +223,22 @@ QDomDocument MainDocument::saveXML()
     //debugPlan;
     QDomDocument document = createDocument();
     QDomElement portfolio = document.documentElement();
-    QDomElement projects = document.createElement("projects");
+    QDomElement projects = document.createElement(QStringLiteral("projects"));
     portfolio.appendChild(projects);
     int count = 1;
     for (KoDocument *doc : qAsConst(m_documents)) {
-        QDomElement p = document.createElement("project");
+        QDomElement p = document.createElement(QStringLiteral("project"));
         p.setAttribute(QStringLiteral(SCHEDULEMANAGERNAME), doc->property(SCHEDULEMANAGERNAME).toString());
         p.setAttribute(QStringLiteral(ISPORTFOLIO), doc->property(ISPORTFOLIO).toBool() ? 1 : 0);
         p.setAttribute(QStringLiteral(SCHEDULINGCONTROL), doc->property(SCHEDULINGCONTROL).toString());
         p.setAttribute(QStringLiteral(SCHEDULINGPRIORITY), doc->property(SCHEDULINGPRIORITY).toString());
         if (doc->property(SAVEEMBEDDED).toBool()) {
             p.setAttribute(QStringLiteral(SAVEEMBEDDED), doc->property(SAVEEMBEDDED).toBool() ? 1 : 0);
-            const QString s = QString("Projects/Project_" + QString::number(count++));
+            const QString s = QStringLiteral("Projects/Project_") + QString::number(count++);
             doc->setProperty(EMBEDDEDURL, s);
             p.setAttribute(QStringLiteral(EMBEDDEDURL), s);
         }
-        p.setAttribute(QStringLiteral("url"), QString(doc->url().toEncoded()));
+        p.setAttribute(QStringLiteral("url"), QLatin1String(doc->url().toEncoded()));
         p.setAttribute(QStringLiteral("name"), doc->projectName());
         projects.appendChild(p);
     }
@@ -288,7 +288,7 @@ bool MainDocument::saveDocumentToStore(KoStore *store, KoDocument *doc)
 {
     auto path = doc->property(EMBEDDEDURL).toString();
     //qInfo()<<Q_FUNC_INFO<<doc<<path;
-    path.prepend("tar:/");
+    path.prepend(QStringLiteral("tar:/"));
     // In the current directory we're the king :-)
     store->pushDirectory();
     if (store->open(path)) {

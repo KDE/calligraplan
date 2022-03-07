@@ -65,13 +65,13 @@ KoOdfLoadingContext::KoOdfLoadingContext(KoOdfStylesReader &stylesReader, KoStor
     // Ideally this should be done by KoDocument and passed as argument here...
     KoOdfReadStore oasisStore(store);
     QString dummy;
-    (void)oasisStore.loadAndParse("tar:/META-INF/manifest.xml", d->manifestDoc, dummy);
+    (void)oasisStore.loadAndParse(QStringLiteral("tar:/META-INF/manifest.xml"), d->manifestDoc, dummy);
 
     if (!defaultStylesResourcePath.isEmpty()) {
         Q_ASSERT(defaultStylesResourcePath.endsWith(QLatin1Char('/')));
         const QString fileName =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                   defaultStylesResourcePath + "defaultstyles.xml");
+                                   defaultStylesResourcePath + QStringLiteral("defaultstyles.xml"));
         if (! fileName.isEmpty()) {
             QFile file(fileName);
             QString errorMessage;
@@ -104,6 +104,11 @@ void KoOdfLoadingContext::setManifestFile(const QString& fileName) {
     if (!parseManifest(d->manifestDoc)) {
         debugOdf << "could not parse manifest document";
     }
+}
+
+void KoOdfLoadingContext::fillStyleStack(const KoXmlElement& object, const QString &nsURI, const char *attrName, const char *family)
+{
+    fillStyleStack(object, nsURI, QLatin1String(attrName), QLatin1String(family));
 }
 
 void KoOdfLoadingContext::fillStyleStack(const KoXmlElement& object, const QString &nsURI, const QString &attrName, const QString &family)
@@ -176,18 +181,18 @@ void KoOdfLoadingContext::parseGenerator() const
             KoXmlElement generator = KoXml::namedItemNS(office, KoXmlNS::meta, "generator");
             if (!generator.isNull()) {
                 d->generator = generator.text();
-                if (d->generator.startsWith(QLatin1String("Calligra"))) {
+                if (d->generator.startsWith(QStringLiteral("Calligra"))) {
                     d->generatorType = Calligra;
                 }
                 // NeoOffice is a port of OpenOffice to Mac OS X
-                else if (d->generator.startsWith(QLatin1String("OpenOffice.org")) ||
-                         d->generator.startsWith(QLatin1String("NeoOffice")) ||
-                         d->generator.startsWith(QLatin1String("LibreOffice")) ||
-                         d->generator.startsWith(QLatin1String("StarOffice")) ||
-                         d->generator.startsWith(QLatin1String("Lotus Symphony"))) {
+                else if (d->generator.startsWith(QStringLiteral("OpenOffice.org")) ||
+                         d->generator.startsWith(QStringLiteral("NeoOffice")) ||
+                         d->generator.startsWith(QStringLiteral("LibreOffice")) ||
+                         d->generator.startsWith(QStringLiteral("StarOffice")) ||
+                         d->generator.startsWith(QStringLiteral("Lotus Symphony"))) {
                     d->generatorType = OpenOffice;
                 }
-                else if (d->generator.startsWith(QLatin1String("MicrosoftOffice"))) {
+                else if (d->generator.startsWith(QStringLiteral("MicrosoftOffice"))) {
                     d->generatorType = MicrosoftOffice;
                 }
             }
@@ -252,7 +257,7 @@ QString KoOdfLoadingContext::mimeTypeForPath(const QString& path, bool guess) co
     QHash<QString, KoOdfManifestEntry *>::ConstIterator it(d->manifestEntries.constFind(path));
     if (it == d->manifestEntries.constEnd()) {
         // try to find it with an added / at the end
-        QString dirPath = path + '/';
+        QString dirPath = path + QLatin1Char('/');
         it = d->manifestEntries.constFind(dirPath);
     }
     if (it != d->manifestEntries.constEnd()) {
@@ -302,7 +307,7 @@ bool KoOdfLoadingContext::parseManifest(const KoXmlDocument &manifestDocument)
         debugOdf << "name:" << n.toElement().localName()
                       << "namespace:" << n.toElement().namespaceURI();
 
-        if (n.toElement().localName() == "manifest"
+        if (n.toElement().localName() == QStringLiteral("manifest")
             && n.toElement().namespaceURI() == KoXmlNS::manifest)
         {
             debugOdf << "found manifest:manifest";
@@ -323,11 +328,11 @@ bool KoOdfLoadingContext::parseManifest(const KoXmlDocument &manifestDocument)
             continue;
 
         KoXmlElement el = n.toElement();
-        if (!(el.localName() == "file-entry" && el.namespaceURI() == KoXmlNS::manifest))
+        if (!(el.localName() == QStringLiteral("file-entry") && el.namespaceURI() == KoXmlNS::manifest))
             continue;
 
         QString fullPath  = el.attributeNS(KoXmlNS::manifest, "full-path", QString());
-        QString mediaType = el.attributeNS(KoXmlNS::manifest, "media-type", QString(""));
+        QString mediaType = el.attributeNS(KoXmlNS::manifest, "media-type", QString());
         QString version   = el.attributeNS(KoXmlNS::manifest, "version", QString());
 
         // Only if fullPath is valid, should we store this entry.

@@ -57,7 +57,7 @@ void ReportGenerator::setScheduleManager(ScheduleManager *manager)
 bool ReportGenerator::open()
 {
     m_lastError.clear();
-    if (m_reportType == "odt") {
+    if (m_reportType == QStringLiteral("odt")) {
         m_reportGenerator = new ReportGeneratorOdt();
         m_reportGenerator->setTemplateFile(m_templateFile);
         m_reportGenerator->setReportFile(m_reportFile);

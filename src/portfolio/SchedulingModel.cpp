@@ -21,7 +21,7 @@ SchedulingModel::SchedulingModel(QObject *parent)
     appendColumn(xi18nc("@title:column", "Control"));
     appendColumn(xi18nc("@title:column", "Priority"));
 
-    m_controlKeys << "Schedule" << "Include" << "Exclude";
+    m_controlKeys << QStringLiteral("Schedule") << QStringLiteral("Include") << QStringLiteral("Exclude");
     m_controlDisplay << i18n("Schedule") << i18n("Include") << i18n("Exclude");
 
     m_baseModel = new ProjectsFilterModel(this);
@@ -157,13 +157,13 @@ QVariant SchedulingModel::extraColumnData(const QModelIndex &parent, int row, in
                 }
                 case Qt::ToolTipRole: {
                     QString value = doc->property(SCHEDULINGCONTROL).toString();
-                    if (value == "Schedule") {
+                    if (value == QStringLiteral("Schedule")) {
                         return xi18nc("@info:tooltip", "Schedule this project");
                     }
-                    if (value == "Include") {
+                    if (value == QStringLiteral("Include")) {
                         return xi18nc("@info:tooltip", "Include resource bookings from this project");
                     }
-                    if (value == "Exclude") {
+                    if (value == QStringLiteral("Exclude")) {
                         return xi18nc("@info:tooltip", "Exclude this project");
                     }
                     if (value.isEmpty()) {

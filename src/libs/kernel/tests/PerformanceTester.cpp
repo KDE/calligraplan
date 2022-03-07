@@ -34,9 +34,9 @@ void PerformanceTester::init()
     p1 = new Project();
     p1->setId(p1->uniqueNodeId());
     p1->registerNodeId(p1);
-    p1->setName("PerformanceTester");
-    p1->setConstraintStartTime(DateTime(QDateTime::fromString("2010-11-19T08:00:00", Qt::ISODate)));
-    p1->setConstraintEndTime(DateTime(QDateTime::fromString("2010-11-29T16:00:00", Qt::ISODate)));
+    p1->setName(QStringLiteral("PerformanceTester"));
+    p1->setConstraintStartTime(DateTime(QDateTime::fromString(QStringLiteral("2010-11-19T08:00:00"), Qt::ISODate)));
+    p1->setConstraintEndTime(DateTime(QDateTime::fromString(QStringLiteral("2010-11-29T16:00:00"), Qt::ISODate)));
 
     Calendar *c = new Calendar();
     c->setDefault(true);
@@ -51,30 +51,30 @@ void PerformanceTester::init()
     p1->addCalendar(c);
 
     s1 = p1->createTask();
-    s1->setName("S1");
+    s1->setName(QStringLiteral("S1"));
     p1->addTask(s1, p1);
 
     t1 = p1->createTask();
-    t1->setName("T1");
+    t1->setName(QStringLiteral("T1"));
     t1->estimate()->setUnit(Duration::Unit_d);
     t1->estimate()->setExpectedEstimate(5.0);
     t1->estimate()->setType(Estimate::Type_Effort);
     p1->addSubTask(t1, s1);
     
     s2 = p1->createTask();
-    s2->setName("S2");
+    s2->setName(QStringLiteral("S2"));
     p1->addTask(s2, p1);
 
     m1 = p1->createTask();
     m1->estimate()->setExpectedEstimate(0);
-    m1->setName("M1");
+    m1->setName(QStringLiteral("M1"));
     p1->addSubTask(m1, s2);
     
     ResourceGroup *g = new ResourceGroup();
-    g->setName("G1");
+    g->setName(QStringLiteral("G1"));
     p1->addResourceGroup(g);
     r1 = new Resource();
-    r1->setName("R1");
+    r1->setName(QStringLiteral("R1"));
     r1->setNormalRate(1.0);
     p1->addResource(r1);
     r1->addParentGroup(g);
@@ -84,11 +84,11 @@ void PerformanceTester::init()
 
     // material resource
     ResourceGroup *m = new ResourceGroup();
-    m->setName("M1");
-    m->setType("Material");
+    m->setName(QStringLiteral("M1"));
+    m->setType(QStringLiteral("Material"));
     p1->addResourceGroup(m);
     r2 = new Resource();
-    r2->setName("Material");
+    r2->setName(QStringLiteral("Material"));
     r2->setType(Resource::Type_Material);
     r2->setCalendar(c); // limit availability to working hours
     r2->setNormalRate(0.0); // NOTE
@@ -96,7 +96,7 @@ void PerformanceTester::init()
     r2->addParentGroup(m);
     
     r3 = new Resource();
-    r3->setName("Material 2");
+    r3->setName(QStringLiteral("Material 2"));
     r3->setType(Resource::Type_Material);
     r3->setNormalRate(6.0);
     p1->addResource(r3);
@@ -105,7 +105,7 @@ void PerformanceTester::init()
     rr = new ResourceRequest(r2, 100);
     t1->requests().addResourceRequest(rr);
 
-    ScheduleManager *sm = p1->createScheduleManager("S1");
+    ScheduleManager *sm = p1->createScheduleManager(QStringLiteral("S1"));
     p1->addScheduleManager(sm);
     sm->createSchedules();
     p1->calculate(*sm);
@@ -966,7 +966,7 @@ void PerformanceTester::bcwpPrDayProject()
 
     // add a new task with a material resource
     Task *tt = p1->createTask();
-    tt->setName("TT");
+    tt->setName(QStringLiteral("TT"));
     p1->addTask(tt, p1);
     tt->estimate()->setUnit(Duration::Unit_d);
     tt->estimate()->setExpectedEstimate(5.0);
@@ -978,17 +978,17 @@ void PerformanceTester::bcwpPrDayProject()
     ResourceRequest *rr = new ResourceRequest(r3, 100);
     tt->requests().addResourceRequest(rr);
 
-    ScheduleManager *sm = p1->createScheduleManager("");
+    ScheduleManager *sm = p1->createScheduleManager(QString());
     p1->addScheduleManager(sm);
     sm->createSchedules();
     p1->calculate(*sm);
 
-    QString s = " Material resource, no progress ";
+    QString s = QStringLiteral(" Material resource, no progress ");
     Debug::print(tt, s, true);
 
     d = tt->endTime().date();
     ecm = tt->bcwpPrDay(sm->scheduleId(), ECCT_EffortWork);
-    Debug::print(ecm, "BCWP: " + tt->name() + s);
+    Debug::print(ecm, QStringLiteral("BCWP: ") + tt->name() + s);
 
     QCOMPARE(ecm.hoursOnDate(d), 0.0);
     QCOMPARE(ecm.costOnDate(d), 16.0);
@@ -998,7 +998,7 @@ void PerformanceTester::bcwpPrDayProject()
     d = p1->endTime().date();
     ecm = p1->bcwpPrDay(sm->scheduleId(), ECCT_EffortWork);
     Debug::print(p1, s, true);
-    Debug::print(ecm, "BCWP Project: " + p1->name() + s);
+    Debug::print(ecm, QStringLiteral("BCWP Project: ") + p1->name() + s);
     QCOMPARE(ecm.bcwpEffortOnDate(d), 40.0); // hours from r1
     QCOMPARE(ecm.bcwpCostOnDate(d), 40.0 + 0.5 + 0.25);
 }

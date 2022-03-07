@@ -463,7 +463,7 @@ CostBreakdownItemModel::CostBreakdownItemModel(QObject *parent)
     m_endmode(EndMode_Project),
     m_showmode(ShowMode_Both)
 {
-    m_format = QString("%1 [%2]");
+    m_format = QStringLiteral("%1 [%2]");
 }
 
 CostBreakdownItemModel::~CostBreakdownItemModel()
@@ -747,18 +747,18 @@ int CostBreakdownItemModel::rowCount(const QModelIndex &parent) const
 QString CostBreakdownItemModel::formatMoney(double cost1, double cost2) const
 {
     if (m_showmode == ShowMode_Planned) {
-        return m_project->locale()->formatMoney(cost1, "", 0);
+        return m_project->locale()->formatMoney(cost1, QString(), 0);
     }
     if (m_showmode == ShowMode_Actual) {
-        return m_project->locale()->formatMoney(cost2, "", 0);
+        return m_project->locale()->formatMoney(cost2, QString(), 0);
     }
     if (m_showmode == ShowMode_Both) {
-        return QString(m_format).arg(m_project->locale()->formatMoney(cost2, "", 0), m_project->locale()->formatMoney(cost1, "", 0));
+        return QString(m_format).arg(m_project->locale()->formatMoney(cost2, QString(), 0), m_project->locale()->formatMoney(cost1, QString(), 0));
     }
     if (m_showmode == ShowMode_Deviation) {
-        return m_project->locale()->formatMoney(cost1 - cost2, "", 0);
+        return m_project->locale()->formatMoney(cost1 - cost2, QString(), 0);
     }
-    return "";
+    return QStringLiteral("");
 }
 
 QVariant CostBreakdownItemModel::data(const QModelIndex &index, int role) const
@@ -775,9 +775,9 @@ QVariant CostBreakdownItemModel::data(const QModelIndex &index, int role) const
                 return formatMoney(m_plannedCostMap.value(a).totalCost(), m_actualCostMap.value(a).totalCost());
             }
             case Planned:
-                return m_project->locale()->formatMoney(m_plannedCostMap.value(a).totalCost(), "", 0);
+                return m_project->locale()->formatMoney(m_plannedCostMap.value(a).totalCost(), QString(), 0);
             case Actual:
-                return m_project->locale()->formatMoney(m_actualCostMap.value(a).totalCost(), "", 0);
+                return m_project->locale()->formatMoney(m_actualCostMap.value(a).totalCost(), QString(), 0);
             default: {
                 int col = index.column() - propertyCount();
                 EffortCostMap pc = m_plannedCostMap.value(a);
@@ -853,7 +853,7 @@ QVariant CostBreakdownItemModel::data(const QModelIndex &index, int role) const
             case Total: {
                 double act = m_actualCostMap.value(a).totalCost();
                 double pl = m_plannedCostMap.value(a).totalCost();
-                return i18n("Actual total cost: %1, planned total cost: %2", m_project->locale()->formatMoney(act, "", 0), m_project->locale()->formatMoney(pl, "", 0));
+                return i18n("Actual total cost: %1, planned total cost: %2", m_project->locale()->formatMoney(act, QString(), 0), m_project->locale()->formatMoney(pl, QString(), 0));
             }
             case Planned:
             case Actual:

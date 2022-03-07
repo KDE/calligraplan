@@ -45,12 +45,12 @@ void KoGenChange::writeChangeMetaData(KoXmlWriter* writer) const
     //FIXME: if the propName is passed directly as it.key().toUtf8(), the opening tag is correct but the closing tag becomes undefined
     //FIXME: example: <dc-creator>.......</`ok>
 
-        if (it.key() == "dc-creator") {
+        if (it.key() == QStringLiteral("dc-creator")) {
             writer->startElement("dc:creator");
             writer->addTextNode(it.value());
             writer->endElement();
         }
-        if (it.key() == "dc-date") {
+        if (it.key() == QStringLiteral("dc-date")) {
             writer->startElement("dc:date");
             writer->addTextNode(it.value());
             writer->endElement();
@@ -91,12 +91,12 @@ void KoGenChange::writeODF12Change(KoXmlWriter *writer, const QString &name) con
     if (!m_changeMetaData.isEmpty()) {
         writer->startElement("office:change-info");
         writeChangeMetaData(writer);
-        if (m_literalData.contains("changeMetaData"))
-            writer->addCompleteElement(m_literalData.value("changeMetaData").toUtf8());
+        if (m_literalData.contains(QStringLiteral("changeMetaData")))
+            writer->addCompleteElement(m_literalData.value(QStringLiteral("changeMetaData")).toUtf8().constData());
         writer->endElement(); // office:change-info
     }
-    if ((m_type == KoGenChange::DeleteChange) && m_literalData.contains("deleteChangeXml"))
-        writer->addCompleteElement(m_literalData.value("deleteChangeXml").toUtf8());
+    if ((m_type == KoGenChange::DeleteChange) && m_literalData.contains(QStringLiteral("deleteChangeXml")))
+        writer->addCompleteElement(m_literalData.value(QStringLiteral("deleteChangeXml")).toUtf8().constData());
 
     writer->endElement(); // text:insertion/format/deletion
     writer->endElement(); // text:change

@@ -172,16 +172,16 @@ void CommandsTester::testCalendarMoveCmd()
 
 void CommandsTester::testCalendarModifyNameCmd()
 {
-    Calendar *calendar1 = new Calendar(QString("test1"));
+    Calendar *calendar1 = new Calendar(QStringLiteral("test1"));
     m_project->addCalendar(calendar1);
     QVERIFY(m_project->calendars().contains(calendar1));
-    QVERIFY(calendar1->name() == "test1");
+    QVERIFY(calendar1->name() == QStringLiteral("test1"));
 
-    CalendarModifyNameCmd *cmd1 = new CalendarModifyNameCmd(calendar1, QString("test2"));
+    CalendarModifyNameCmd *cmd1 = new CalendarModifyNameCmd(calendar1, QStringLiteral("test2"));
     cmd1->execute();
-    QVERIFY(calendar1->name() == "test2");
+    QVERIFY(calendar1->name() == QStringLiteral("test2"));
     cmd1->unexecute();
-    QVERIFY(calendar1->name() == "test1");
+    QVERIFY(calendar1->name() == QStringLiteral("test1"));
 
     m_project->takeCalendar(calendar1);
 

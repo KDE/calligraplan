@@ -106,30 +106,30 @@ DateTime toDateTime(const QString &dts)
 {
     // NOTE: time ends in Z, so should be UTC, but it seems it is in local time anyway.
     //       Atm, just ignore timezone
-    const QString format = QString("yyyyMMddThhmmssZ");
+    const QString format = QStringLiteral("yyyyMMddThhmmssZ");
     return DateTime(QDateTime::fromString(dts, format));
 }
 
 //<project name="Test Planner project" company="HEJ" manager="P.Manager" phase="" project-start="20190503T000000Z" mrproject-version="2" calendar="1">
 bool loadProject(const QDomElement &el, Project &project)
 {
-    ScheduleManager *sm = project.createScheduleManager("Planner");
+    ScheduleManager *sm = project.createScheduleManager(QStringLiteral("Planner"));
     project.addScheduleManager(sm);
     sm->createSchedules();
     sm->setAllowOverbooking(true);
     sm->expected()->setScheduled(true);
     project.setCurrentSchedule(sm->scheduleId());
     
-    project.setName(el.attribute("name"));
-    project.setLeader(el.attribute("manager"));
-    DateTime dt = toDateTime(el.attribute("project-start"));
+    project.setName(el.attribute(QStringLiteral("name")));
+    project.setLeader(el.attribute(QStringLiteral("manager")));
+    DateTime dt = toDateTime(el.attribute(QStringLiteral("project-start")));
     if (dt.isValid()) {
         project.setConstraintStartTime(dt);
         project.setStartTime(dt);
     }
-    if (el.hasAttribute("calendar")) {
+    if (el.hasAttribute(QStringLiteral("calendar"))) {
         Calendar *c = new Calendar();
-        c->setId(el.attribute("calendar"));
+        c->setId(el.attribute(QStringLiteral("calendar")));
         project.addCalendar(c);
         project.setDefaultCalendar(c);
         debugPlannerImport<<"Added default calendar:"<<c;
@@ -190,25 +190,25 @@ bool loadWeek(const QDomElement &el, Calendar *calendar)
     debugPlannerImport<<calendar->name();
     QList<int> defaultWeek = QList<int>() << 2 << 2 << 2 << 2 << 2 << 2 << 2;
     QDomElement wel;
-    forEachChildElementWithTag(wel, el, "default-week") {
-        defaultWeek[0] = wel.attribute("mon", "2").toInt();
-        defaultWeek[1] = wel.attribute("tue", "2").toInt();
-        defaultWeek[2] = wel.attribute("wed", "2").toInt();
-        defaultWeek[3] = wel.attribute("thu", "2").toInt();
-        defaultWeek[4] = wel.attribute("fri", "2").toInt();
-        defaultWeek[5] = wel.attribute("sat", "2").toInt();
-        defaultWeek[6] = wel.attribute("sun", "2").toInt();
+    forEachChildElementWithTag(wel, el, QStringLiteral("default-week")) {
+        defaultWeek[0] = wel.attribute(QStringLiteral("mon"), QString::number(2)).toInt();
+        defaultWeek[1] = wel.attribute(QStringLiteral("tue"), QString::number(2)).toInt();
+        defaultWeek[2] = wel.attribute(QStringLiteral("wed"), QString::number(2)).toInt();
+        defaultWeek[3] = wel.attribute(QStringLiteral("thu"), QString::number(2)).toInt();
+        defaultWeek[4] = wel.attribute(QStringLiteral("fri"), QString::number(2)).toInt();
+        defaultWeek[5] = wel.attribute(QStringLiteral("sat"), QString::number(2)).toInt();
+        defaultWeek[6] = wel.attribute(QStringLiteral("sun"), QString::number(2)).toInt();
     }
     debugPlannerImport<<defaultWeek;
     for (int i = 0; i < defaultWeek.count(); ++i) {
         CalendarDay *day = calendar->weekday(i+1);
         day->setState(toDayState(defaultWeek.at(i)));
     }
-    forEachChildElementWithTag(wel, el, "overridden-day-types") {
+    forEachChildElementWithTag(wel, el, QStringLiteral("overridden-day-types")) {
         QDomElement oel;
-        forEachChildElementWithTag(oel, wel, "overridden-day-type") {
-            if (oel.hasAttribute("id")) {
-                int id = oel.attribute("id").toInt();
+        forEachChildElementWithTag(oel, wel, QStringLiteral("overridden-day-type")) {
+            if (oel.hasAttribute(QStringLiteral("id"))) {
+                int id = oel.attribute(QStringLiteral("id")).toInt();
                 if (!defaultWeek.contains(id)) {
                     continue;
                 }
@@ -219,11 +219,11 @@ bool loadWeek(const QDomElement &el, Calendar *calendar)
                     CalendarDay *day = calendar->weekday(i+1);
                     day->setState(CalendarDay::Working);
                     QDomElement iel;
-                    forEachChildElementWithTag(iel, oel, "interval") {
-                        QTime start = QTime::fromString(iel.attribute("start"), "hhmm");
-                        QTime end = QTime::fromString(iel.attribute("end"), "hhmm");
+                    forEachChildElementWithTag(iel, oel, QStringLiteral("interval")) {
+                        QTime start = QTime::fromString(iel.attribute(QStringLiteral("start")), QStringLiteral("hhmm"));
+                        QTime end = QTime::fromString(iel.attribute(QStringLiteral("end")), QStringLiteral("hhmm"));
                         day->addInterval(TimeInterval(start, start.msecsTo(end)));
-                        debugPlannerImport<<"Overridden:"<<id<<"weekday="<<i+1<<iel.attribute("start")<<"->"<<start<<':'<<iel.attribute("end")<<end;
+                        debugPlannerImport<<"Overridden:"<<id<<"weekday="<<i+1<<iel.attribute(QStringLiteral("start"))<<"->"<<start<<':'<<iel.attribute(QStringLiteral("end"))<<end;
                     }
                 }
             }
@@ -234,20 +234,20 @@ bool loadWeek(const QDomElement &el, Calendar *calendar)
 }
 bool loadDays(const QDomElement &el, Calendar *calendar)
 {
-    QDomNodeList lst = el.elementsByTagName("day");
+    QDomNodeList lst = el.elementsByTagName(QStringLiteral("day"));
     QDomElement cel;
     forEachElementInList(cel, lst) {
-        QDate date = QDate::fromString(cel.attribute("date"), "yyyyMMdd");
+        QDate date = QDate::fromString(cel.attribute(QStringLiteral("date")), QStringLiteral("yyyyMMdd"));
         if (!date.isValid()) {
             continue;
         }
-        int type = cel.attribute("day-type", "2").toInt();
+        int type = cel.attribute(QStringLiteral("day-type"), QString::number(2)).toInt();
         CalendarDay *day = new CalendarDay(date, toDayState(type));
-        QDomNodeList lst = cel.elementsByTagName("interval");
+        QDomNodeList lst = cel.elementsByTagName(QStringLiteral("interval"));
         QDomElement iel;
         forEachElementInList(iel, lst) {
-            QTime start = QTime::fromString(iel.attribute("start"), "hh:mm");
-            QTime end = QTime::fromString(iel.attribute("end"), "hh:mm");
+            QTime start = QTime::fromString(iel.attribute(QStringLiteral("start")), QStringLiteral("hh:mm"));
+            QTime end = QTime::fromString(iel.attribute(QStringLiteral("end")), QStringLiteral("hh:mm"));
             day->addInterval(TimeInterval(start, start.msecsTo(end)));
         }
         calendar->addDay(day);
@@ -257,16 +257,16 @@ bool loadDays(const QDomElement &el, Calendar *calendar)
 bool loadCalendars(const QDomElement &el, Project &project, Calendar *parent = nullptr)
 {
     QDomElement cel;
-    forEachChildElementWithTag(cel, el, "calendar") {
-        QString id = cel.attribute("id");
+    forEachChildElementWithTag(cel, el, QStringLiteral("calendar")) {
+        QString id = cel.attribute(QStringLiteral("id"));
         Calendar *calendar = project.findCalendar(id);
         if (!calendar) {
             calendar = new Calendar();
-            calendar->setId(cel.attribute("id"));
+            calendar->setId(cel.attribute(QStringLiteral("id")));
             project.addCalendar(calendar, parent);
             debugPlannerImport<<"Loading new calendar"<<calendar->id();
         } else debugPlannerImport<<"Loading default calendar"<<calendar->id();
-        calendar->setName(cel.attribute("name"));
+        calendar->setName(cel.attribute(QStringLiteral("name")));
         loadWeek(cel, calendar);
         loadDays(cel, calendar);
 
@@ -280,13 +280,13 @@ bool loadCalendars(const QDomElement &el, Project &project, Calendar *parent = n
 // </resource-groups>
 bool loadResourceGroups(const QDomElement &el, Project &project)
 {
-    QDomNodeList lst = el.elementsByTagName("group");
+    QDomNodeList lst = el.elementsByTagName(QStringLiteral("group"));
     QDomElement gel;
     forEachElementInList(gel, lst) {
         ResourceGroup *g = new ResourceGroup();
-        g->setId(gel.attribute("id"));
-        g->setName(gel.attribute("name"));
-        g->setCoordinator(gel.attribute("admin-name"));
+        g->setId(gel.attribute(QStringLiteral("id")));
+        g->setName(gel.attribute(QStringLiteral("name")));
+        g->setCoordinator(gel.attribute(QStringLiteral("admin-name")));
         project.addResourceGroup(g);
     }
     return true;
@@ -298,32 +298,32 @@ bool loadResourceGroups(const QDomElement &el, Project &project)
 Resource::Type toResourceType(const QString &type)
 {
     QMap<QString, Resource::Type> types;
-    types["0"] = Resource::Type_Material;
-    types["1"] = Resource::Type_Work;
+    types[QStringLiteral("0")] = Resource::Type_Material;
+    types[QStringLiteral("1")] = Resource::Type_Work;
     return types.contains(type) ? types[type] : Resource::Type_Work;
 }
 
 bool loadResources(const QDomElement &el, Project &project)
 {
-    QDomNodeList lst = el.elementsByTagName("resource");
+    QDomNodeList lst = el.elementsByTagName(QStringLiteral("resource"));
     QDomElement rel;
     forEachElementInList(rel, lst) {
         Resource *r = new Resource();
-        r->setId(rel.attribute("id"));
-        r->setName(rel.attribute("name"));
-        r->setInitials(rel.attribute("short-name"));
-        r->setEmail(rel.attribute("email"));
-        r->setType(toResourceType(rel.attribute("type")));
-        int units = rel.attribute("units", "0").toInt();
+        r->setId(rel.attribute(QStringLiteral("id")));
+        r->setName(rel.attribute(QStringLiteral("name")));
+        r->setInitials(rel.attribute(QStringLiteral("short-name")));
+        r->setEmail(rel.attribute(QStringLiteral("email")));
+        r->setType(toResourceType(rel.attribute(QStringLiteral("type"))));
+        int units = rel.attribute(QStringLiteral("units"), QString::number(0)).toInt();
         if (units == 0) {
             // atm. planner saves 0 but assumes 100%
             units = 100;
         }
         r->setUnits(units);
-        r->setNormalRate(rel.attribute("std-rate").toDouble());
-        r->setCalendar(project.findCalendar(rel.attribute("calendar")));
+        r->setNormalRate(rel.attribute(QStringLiteral("std-rate")).toDouble());
+        r->setCalendar(project.findCalendar(rel.attribute(QStringLiteral("calendar"))));
         project.addResource(r);
-        QString gid = rel.attribute("group");
+        QString gid = rel.attribute(QStringLiteral("group"));
         ResourceGroup *g = project.group(gid);
         if (g) {
             g->addResource(-1, r, nullptr);
@@ -335,9 +335,9 @@ bool loadResources(const QDomElement &el, Project &project)
 Estimate::Type toEstimateType(const QString type)
 {
     Estimate::Type res = Estimate::Type_Effort;
-    if (type == "fixed-work") {
+    if (type == QStringLiteral("fixed-work")) {
         res = Estimate::Type_Effort;
-    } else if (type == "fixed-duration") {
+    } else if (type == QStringLiteral("fixed-duration")) {
         res = Estimate::Type_Duration;
     }
     return res;
@@ -346,9 +346,9 @@ Estimate::Type toEstimateType(const QString type)
 Node::ConstraintType toConstraintType(const QString &type)
 {
     Node::ConstraintType res = Node::ASAP;
-    if (type == "must-start-on") {
+    if (type == QStringLiteral("must-start-on")) {
         res = Node::MustStartOn;
-    } else if (type == "start-no-earlier-than") {
+    } else if (type == QStringLiteral("start-no-earlier-than")) {
         res = Node::StartNotEarlier;
     }
     return res;
@@ -356,9 +356,9 @@ Node::ConstraintType toConstraintType(const QString &type)
 bool loadConstraint(const QDomElement &el, Task *t)
 {
     QDomElement cel;
-    forEachChildElementWithTag(cel, el, "constraint") {
-        t->setConstraint(toConstraintType(cel.attribute("type")));
-        t->setConstraintStartTime(toDateTime(cel.attribute("time")));
+    forEachChildElementWithTag(cel, el, QStringLiteral("constraint")) {
+        t->setConstraint(toConstraintType(cel.attribute(QStringLiteral("type"))));
+        t->setConstraintStartTime(toDateTime(cel.attribute(QStringLiteral("time"))));
     }
     return true;
 }
@@ -366,14 +366,14 @@ bool loadConstraint(const QDomElement &el, Task *t)
 bool loadTasks(const QDomElement &el, Project &project, Node *parent = nullptr)
 {
     QDomElement cel;
-    forEachChildElementWithTag(cel, el, "task") {
+    forEachChildElementWithTag(cel, el, QStringLiteral("task")) {
         Task *t = project.createTask();
-        t->setId(cel.attribute("id", t->id()));
-        t->setName(cel.attribute("name"));
-        t->setDescription(cel.attribute("note"));
+        t->setId(cel.attribute(QStringLiteral("id"), t->id()));
+        t->setName(cel.attribute(QStringLiteral("name")));
+        t->setDescription(cel.attribute(QStringLiteral("note")));
         loadConstraint(cel, t);
-        t->estimate()->setType(toEstimateType(cel.attribute("scheduling")));
-        t->estimate()->setExpectedEstimate(Duration(cel.attribute("work", "0").toDouble(), Duration::Unit_s).toDouble());
+        t->estimate()->setType(toEstimateType(cel.attribute(QStringLiteral("scheduling"))));
+        t->estimate()->setExpectedEstimate(Duration(cel.attribute(QStringLiteral("work"), QString::number(0)).toDouble(), Duration::Unit_s).toDouble());
 
         project.addSubTask(t, parent);
         long sid = project.scheduleManagers().constFirst()->scheduleId();
@@ -384,14 +384,14 @@ bool loadTasks(const QDomElement &el, Project &project, Node *parent = nullptr)
         sch->setParent(t->parentNode()->currentSchedule());
         t->setCurrentSchedule(sid);
 
-        const QString format = QString("yyyyMMddThhmmssZ");
+        const QString format = QStringLiteral("yyyyMMddThhmmssZ");
         QDateTime start;
-        if (cel.hasAttribute("work-start")) {
-            start = QDateTime::fromString(cel.attribute("work-start"), format);
+        if (cel.hasAttribute(QStringLiteral("work-start"))) {
+            start = QDateTime::fromString(cel.attribute(QStringLiteral("work-start")), format);
         } else {
-            start = QDateTime::fromString(cel.attribute("start"), format);
+            start = QDateTime::fromString(cel.attribute(QStringLiteral("start")), format);
         }
-        QDateTime end = QDateTime::fromString(cel.attribute("end"), format);
+        QDateTime end = QDateTime::fromString(cel.attribute(QStringLiteral("end")), format);
         t->setStartTime(DateTime(start));
         t->setEndTime(DateTime(end));
         sch->setScheduled(true);
@@ -406,10 +406,10 @@ bool loadTasks(const QDomElement &el, Project &project, Node *parent = nullptr)
 Relation::Type toRelation(const QString &type)
 {
     QMap<QString, Relation::Type> types;
-    types["FS"] = Relation::FinishStart;
-    types["FF"] = Relation::FinishFinish;
-    types["SS"] = Relation::StartStart;
-    types["SF"] = Relation::FinishStart; // not supported, use default
+    types[QStringLiteral("FS")] = Relation::FinishStart;
+    types[QStringLiteral("FF")] = Relation::FinishFinish;
+    types[QStringLiteral("SS")] = Relation::StartStart;
+    types[QStringLiteral("SF")] = Relation::FinishStart; // not supported, use default
 
     return types.value(type);
 }
@@ -420,24 +420,24 @@ Relation::Type toRelation(const QString &type)
 bool loadDependencies(const QDomElement &el, Project &project)
 {
     QDomElement cel;
-    forEachChildElementWithTag(cel, el, "task") {
-        QString succid = cel.attribute("id");
+    forEachChildElementWithTag(cel, el, QStringLiteral("task")) {
+        QString succid = cel.attribute(QStringLiteral("id"));
         Node *child = project.findNode(succid);
         if (!child) {
             warnPlannerImport<<"Task"<<succid<<"not found";
             continue;
         }
         QDomElement pels;
-        forEachChildElementWithTag(pels, cel, "predecessors") {
+        forEachChildElementWithTag(pels, cel, QStringLiteral("predecessors")) {
             QDomElement pel;
-            forEachChildElementWithTag(pel, pels, "predecessor") {
-                QString predid = pel.attribute("predecessor-id");
+            forEachChildElementWithTag(pel, pels, QStringLiteral("predecessor")) {
+                QString predid = pel.attribute(QStringLiteral("predecessor-id"));
                 Node *parent = project.findNode(predid);
                 if (!parent) {
                     continue;
                 }
-                Duration lag(pel.attribute("lag", "0").toDouble(), Duration::Unit_s);
-                Relation *rel = new Relation(parent, child, toRelation(pel.attribute("type")), lag);
+                Duration lag(pel.attribute(QStringLiteral("lag"), QString::number(0)).toDouble(), Duration::Unit_s);
+                Relation *rel = new Relation(parent, child, toRelation(pel.attribute(QStringLiteral("type"))), lag);
                 if (!project.addRelation(rel)) {
                     warnPlannerImport<<"Could not add relation:"<<rel;
                     delete rel;
@@ -452,17 +452,17 @@ bool loadDependencies(const QDomElement &el, Project &project)
 //<allocation task-id="3" resource-id="1" units="100"/>
 bool loadAllocations(const QDomElement &el, Project &project)
 {
-    QDomNodeList lst = el.elementsByTagName("allocation");
+    QDomNodeList lst = el.elementsByTagName(QStringLiteral("allocation"));
     QDomElement pel;
     forEachElementInList(pel, lst) {
-        Task *t = dynamic_cast<Task*>(project.findNode(pel.attribute("task-id")));
-        Resource *r = project.findResource(pel.attribute("resource-id"));
+        Task *t = dynamic_cast<Task*>(project.findNode(pel.attribute(QStringLiteral("task-id"))));
+        Resource *r = project.findResource(pel.attribute(QStringLiteral("resource-id")));
         if (!t || !r) {
             warnPlannerImport<<"Could not find task/resource:"<<t<<r;
             continue;
         }
         ResourceRequest *rr = new ResourceRequest(r);
-        rr->setUnits(pel.attribute("units").toInt());
+        rr->setUnits(pel.attribute(QStringLiteral("units")).toInt());
         t->requests().addResourceRequest(rr);
 
         // do assignments
@@ -491,7 +491,7 @@ bool loadAllocations(const QDomElement &el, Project &project)
 bool PlannerImport::loadPlanner(const QDomDocument &in, KoDocument *doc) const
 {
     QDomElement pel = in.documentElement();
-    if (pel.tagName() != "project") {
+    if (pel.tagName() != QStringLiteral("project")) {
         errorPlannerImport << "Missing project element";
         return false;
     }
@@ -499,25 +499,25 @@ bool PlannerImport::loadPlanner(const QDomDocument &in, KoDocument *doc) const
     if (!loadProject(pel, project)) {
         return false;
     }
-    QDomElement el = pel.elementsByTagName("calendars").item(0).toElement();
+    QDomElement el = pel.elementsByTagName(QStringLiteral("calendars")).item(0).toElement();
     if (el.isNull()) {
         debugPlannerImport << "No calendars element";
     }
     loadCalendars(el, project);
 
-    el = pel.elementsByTagName("resource-groups").item(0).toElement();
+    el = pel.elementsByTagName(QStringLiteral("resource-groups")).item(0).toElement();
     if (el.isNull()) {
         debugPlannerImport << "No resource-groups element";
     }
     loadResourceGroups(el, project);
 
-    el = pel.elementsByTagName("resources").item(0).toElement();
+    el = pel.elementsByTagName(QStringLiteral("resources")).item(0).toElement();
     if (el.isNull()) {
         debugPlannerImport << "No resources element";
     }
     loadResources(el, project);
 
-    el = pel.elementsByTagName("tasks").item(0).toElement();
+    el = pel.elementsByTagName(QStringLiteral("tasks")).item(0).toElement();
     if (el.isNull()) {
         debugPlannerImport << "No tasks element";
     } else {

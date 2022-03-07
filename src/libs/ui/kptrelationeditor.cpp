@@ -117,7 +117,7 @@ void RelationEditor::slotContextMenuRequested(const QModelIndex& index, const QP
         slotHeaderContextMenuRequested(pos);
         return;
     }
-    QString name = "relation_popup";
+    QString name = QStringLiteral("relation_popup");
     Q_EMIT requestPopupMenu(name, pos);
 }
 

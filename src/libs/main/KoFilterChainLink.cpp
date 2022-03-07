@@ -27,7 +27,7 @@ namespace
         Q_ASSERT(chain->manager());
         KoProgressUpdater *pu = chain->manager()->progressUpdater();
         if (pu) {
-            updater = pu->startSubtask(1, "filter");
+            updater = pu->startSubtask(1, QStringLiteral("filter"));
             updater->setProgress(0);
         }
 
@@ -115,7 +115,7 @@ namespace CalligraFilter {
             if (metaMethodSignal.methodType() != QMetaMethod::Signal)
                 continue;
             // ### untested (QMetaMethod::signature())
-            if (strncmp(metaMethodSignal.methodSignature(), SIGNAL_PREFIX, SIGNAL_PREFIX_LEN) == 0) {
+            if (strncmp(metaMethodSignal.methodSignature().constData(), SIGNAL_PREFIX, SIGNAL_PREFIX_LEN) == 0) {
                 int receiverMethodCount = child->methodCount();
                 for (int j = 0; j < receiverMethodCount; ++j) {
                     QMetaMethod metaMethodSlot = child->method(j);
@@ -129,7 +129,7 @@ namespace CalligraFilter {
                             QByteArray slotString;
                             slotString.setNum(QSLOT_CODE);
                             slotString += metaMethodSlot.methodSignature();
-                            QObject::connect(sender, signalString, receiver, slotString);
+                            QObject::connect(sender, signalString.constData(), receiver, slotString.constData());
                         }
                     }
                 }

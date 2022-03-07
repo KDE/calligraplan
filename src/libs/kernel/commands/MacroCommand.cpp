@@ -27,7 +27,7 @@ void MacroCommand::addCommand(KUndo2Command *cmd)
 
 void MacroCommand::execute()
 {
-    foreach (KUndo2Command *c, cmds) {
+    for (KUndo2Command *c : cmds) {
         c->redo();
     }
 }

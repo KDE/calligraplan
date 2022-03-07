@@ -83,6 +83,7 @@ public:
      * Load a file from an odf store
      */
     bool loadAndParse(const QString &fileName, KoXmlDocument &doc, QString &errorMessage);
+    bool loadAndParse(const char *fileName, KoXmlDocument &doc, QString &errorMessage);
 
     /**
      * Load a file and parse from a QIODevice

@@ -668,7 +668,7 @@ DependencyNodeItem::~DependencyNodeItem()
 
 void DependencyNodeItem::setText()
 {
-    m_text->setPlainText(m_node == nullptr ? QString() : QString("%1  %2").arg(m_node->wbsCode()).arg(m_node->name()));
+    m_text->setPlainText(m_node == nullptr ? QString() : QStringLiteral("%1  %2").arg(m_node->wbsCode()).arg(m_node->name()));
 }
 
 DependencyScene *DependencyNodeItem::itemScene() const
@@ -2032,7 +2032,7 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
     m_currentnode(nullptr),
     m_manager(nullptr)
 {
-    setXMLFile("DependencyEditorUi.rc");
+    setXMLFile(QStringLiteral("DependencyEditorUi.rc"));
 
     setupGui();
 
@@ -2073,21 +2073,21 @@ void DependencyEditor::slotItemDoubleClicked(QGraphicsItem *item)
         return;
     }
     if (item && item->type() == DependencyLinkItem::Type) {
-        auto a = actionCollection()->action("edit_dependency");
+        auto a = actionCollection()->action(QStringLiteral("edit_dependency"));
         if (a) {
             a->trigger();
         }
         return;
     }
     if (item && item->type() == DependencyNodeItem::Type) {
-        auto a = actionCollection()->action("node_properties");
+        auto a = actionCollection()->action(QStringLiteral("node_properties"));
         if (a) {
             a->trigger();
         }
         return;
     }
     if (item && item->type() == DependencyNodeSymbolItem::Type) {
-        auto a = actionCollection()->action("node_properties");
+        auto a = actionCollection()->action(QStringLiteral("node_properties"));
         if (a) {
             a->trigger();
         }
@@ -2224,13 +2224,13 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
             bool scheduled = m_manager != nullptr && m_currentnode->isScheduled(m_manager->scheduleId());
             switch (m_currentnode->type()) {
                 case Node::Type_Task:
-                    name = scheduled ? "task_popup" : "task_edit_popup";
+                    name = scheduled ? QStringLiteral("task_popup") : QStringLiteral("task_edit_popup");
                     break;
                 case Node::Type_Milestone:
-                    name = scheduled ? "taskeditor_milestone_popup" : "task_edit_popup";
+                    name = scheduled ? QStringLiteral("taskeditor_milestone_popup") : QStringLiteral("task_edit_popup");
                     break;
                 case Node::Type_Summarytask:
-                    name = "summarytask_popup";
+                    name = QStringLiteral("summarytask_popup");
                     break;
                 default:
                     break;
@@ -2239,7 +2239,7 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
         } else if (item->type() == DependencyLinkItem::Type) {
             m_currentrelation = static_cast<DependencyLinkItem*>(item)->relation;
             if (m_currentrelation) {
-                name = "relation_popup";
+                name = QStringLiteral("relation_popup");
             }
         } else if (item->type() == DependencyConnectorItem::Type) {
             DependencyConnectorItem *c = static_cast<DependencyConnectorItem*>(item);
@@ -2364,20 +2364,20 @@ void DependencyEditor::setupGui()
     KActionCollection *coll = actionCollection();
 
     auto actionEditRelation  = new QAction(koIcon("document-edit"), i18n("Edit Dependency..."), this);
-    actionCollection()->addAction("edit_dependency", actionEditRelation);
+    actionCollection()->addAction(QStringLiteral("edit_dependency"), actionEditRelation);
     connect(actionEditRelation, &QAction::triggered, this, &DependencyEditor::slotModifyCurrentRelation);
 
     auto actionDeleteRelation  = new QAction(koIcon("edit-delete"), i18n("Delete Dependency"), this);
-    actionCollection()->addAction("delete_dependency", actionDeleteRelation);
+    actionCollection()->addAction(QStringLiteral("delete_dependency"), actionDeleteRelation);
     connect(actionDeleteRelation, &QAction::triggered, this, &DependencyEditor::slotDeleteRelation);
 
     actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
     actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL + Qt::Key_L);
-    actionCollection()->addAction("link_task", actionLinkTask);
+    actionCollection()->addAction(QStringLiteral("link_task"), actionLinkTask);
     connect(actionLinkTask, &QAction::triggered, this, &DependencyEditor::slotLinkTask);
 
     menuAddTask = new KActionMenu(koIcon("view-task-add"), i18n("Add Task"), this);
-    coll->addAction("add_task", menuAddTask);
+    coll->addAction(QStringLiteral("add_task"), menuAddTask);
     connect(menuAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask);
 
     actionAddTask  = new QAction(i18n("Add Task..."), this);
@@ -2392,7 +2392,7 @@ void DependencyEditor::setupGui()
 
 
     menuAddSubTask = new KActionMenu(koIcon("view-task-child-add"), i18n("Add Sub-Task"), this);
-    coll->addAction("add_subtask", menuAddSubTask);
+    coll->addAction(QStringLiteral("add_subtask"), menuAddSubTask);
     connect(menuAddSubTask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask);
 
     actionAddSubtask  = new QAction(i18n("Add Sub-Task..."), this);
@@ -2406,24 +2406,24 @@ void DependencyEditor::setupGui()
     menuAddSubTask->addAction(actionAddSubMilestone);
 
     actionDeleteTask  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
-    coll->addAction("delete_task", actionDeleteTask);
+    coll->addAction(QStringLiteral("delete_task"), actionDeleteTask);
     coll->setDefaultShortcut(actionDeleteTask, Qt::Key_Delete);
     connect(actionDeleteTask, &QAction::triggered, this, &DependencyEditor::slotDeleteTask);
 
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("node_properties", actionOpenNode);
+    actionCollection()->addAction(QStringLiteral("node_properties"), actionOpenNode);
     connect(actionOpenNode, &QAction::triggered, this, &DependencyEditor::slotOpenCurrentNode);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &DependencyEditor::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &DependencyEditor::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &DependencyEditor::slotDocuments);
 
     createOptionActions(ViewBase::OptionPrint | ViewBase::OptionPrintPreview | ViewBase::OptionPrintPdf | ViewBase::OptionPrintConfig);
@@ -2432,7 +2432,7 @@ void DependencyEditor::setupGui()
 void DependencyEditor::slotOptions()
 {
     debugPlan;
-    DependencyeditorConfigDialog *dlg = new DependencyeditorConfigDialog(this, this, sender()->objectName() == "print_options");
+    DependencyeditorConfigDialog *dlg = new DependencyeditorConfigDialog(this, this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, &QDialog::finished, this, &DependencyEditor::slotOptionsFinished);
     dlg->open();
 }
@@ -2890,7 +2890,7 @@ void DependencyEditor::slotLinkTask()
 KoPrintJob *DependencyEditor::createPrintJob()
 {
     DependecyViewPrintingDialog *dia = new DependecyViewPrintingDialog(this, m_view);
-    dia->printer().setCreator(QString("Plan %1").arg(PLAN_VERSION_STRING));
+    dia->printer().setCreator(QStringLiteral("Plan %1").arg(QStringLiteral(PLAN_VERSION_STRING)));
 //    dia->printer().setFullPage(true); // ignore printer margins
     return dia;
 }

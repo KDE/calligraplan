@@ -84,7 +84,7 @@ public:
      * @see KoProgressProxy::setRange()
      * @see KoProgressProxy::setFormat()
      */
-    void start(int range = 100, const QString &text = QLatin1String("%p%"));
+    void start(int range = 100, const QString &text = QStringLiteral("%p%"));
 
     /**
      * After calling start() you can create any number of Updaters,

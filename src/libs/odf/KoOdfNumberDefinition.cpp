@@ -54,20 +54,20 @@ KoOdfNumberDefinition::~KoOdfNumberDefinition()
 QStringList KoOdfNumberDefinition::userFormatDescriptions()
 {
     QStringList list;
-    list << "1, 2, 3, ..."
-    << "a, b, c, ..."
-    << "A, B, C, ..."
-    << "i, ii, iii, ..."
-    << "I, II, III, ..." << "أ, ب, ت, ..."
-    << "ก, ข, ค, ..."
-    << "౧, ౨, ౩, ..."
-    << "௧, ௨, ௪, ..."
-    << "୧, ୨, ୩, ..."
-    << "൧, ൨, ൩, ..."
-    << "೧, ೨, ೩, ..."
-    << "੧, ੨, ੩, ..."
-    << "૧, ૨, ૩, ..."
-    << "১, ২, ৩, ...";
+    list << QStringLiteral("1, 2, 3, ...")
+    << QStringLiteral("a, b, c, ...")
+    << QStringLiteral("A, B, C, ...")
+    << QStringLiteral("i, ii, iii, ...")
+    << QStringLiteral("I, II, III, ...") << QStringLiteral("أ, ب, ت, ...")
+    << QStringLiteral("ก, ข, ค, ...")
+    << QStringLiteral("౧, ౨, ౩, ...")
+    << QStringLiteral("௧, ௨, ௪, ...")
+    << QStringLiteral("୧, ୨, ୩, ...")
+    << QStringLiteral("൧, ൨, ൩, ...")
+    << QStringLiteral("೧, ೨, ೩, ...")
+    << QStringLiteral("੧, ੨, ੩, ...")
+    << QStringLiteral("૧, ૨, ૩, ...")
+    << QStringLiteral("১, ২, ৩, ...");
 
     return list;
 }
@@ -78,19 +78,19 @@ void KoOdfNumberDefinition::loadOdf(const KoXmlElement &element)
     if (format.isEmpty()) {
         //do nothing fall back to what we had.
     }
-    else if (format[0] == '1') {
+    else if (format[0] == QLatin1Char('1')) {
         d->formatSpecification = Numeric;
     }
-    else if (format[0] == 'a') {
+    else if (format[0] == QLatin1Char('a')) {
         d->formatSpecification = AlphabeticLowerCase;
     }
-    else if (format[0] == 'A') {
+    else if (format[0] == QLatin1Char('A')) {
         d->formatSpecification = AlphabeticUpperCase;
     }
-    else if (format[0] == 'i') {
+    else if (format[0] == QLatin1Char('i')) {
         d->formatSpecification = RomanLowerCase;
     }
-    else if (format[0] == 'I') {
+    else if (format[0] == QLatin1Char('I')) {
         d->formatSpecification = RomanUpperCase;
     }
     else if (format == QString::fromUtf8("أ, ب, ت, ...")){
@@ -137,7 +137,7 @@ void KoOdfNumberDefinition::loadOdf(const KoXmlElement &element)
     d->prefix = element.attributeNS(KoXmlNS::style, "num-prefix", d->prefix);
     d->suffix = element.attributeNS(KoXmlNS::style, "num-suffix", d->suffix);
 
-    d->letterSynchronization = (element.attributeNS(KoXmlNS::style, "num-letter-sync", d->letterSynchronization ? "true" : "false") == "true");
+    d->letterSynchronization = (element.attributeNS(KoXmlNS::style, "num-letter-sync", d->letterSynchronization ? "true" : "false") == QStringLiteral("true"));
 }
 
 void KoOdfNumberDefinition::saveOdf(KoXmlWriter *writer) const
@@ -211,10 +211,10 @@ void KoOdfNumberDefinition::saveOdf(KoXmlWriter *writer) const
 
 static QString intToRoman(int n)
 {
-    static const QString RNUnits[] = {"", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"};
-    static const QString RNTens[] = {"", "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc"};
-    static const QString RNHundreds[] = {"", "c", "cc", "ccc", "cd", "d", "dc", "dcc", "dccc", "cm"};
-    static const QString RNThousands[] = {"", "m", "mm", "mmm", "mmmm", "mmmmm", "mmmmmm", "mmmmmmm", "mmmmmmmm", "mmmmmmmmm"};
+    static const QString RNUnits[] = {QString(), QStringLiteral("i"), QStringLiteral("ii"), QStringLiteral("iii"), QStringLiteral("iv"), QStringLiteral("v"), QStringLiteral("vi"), QStringLiteral("vii"), QStringLiteral("viii"), QStringLiteral("ix")};
+    static const QString RNTens[] = {QString(), QStringLiteral("x"), QStringLiteral("xx"), QStringLiteral("xxx"), QStringLiteral("xl"), QStringLiteral("l"), QStringLiteral("lx"), QStringLiteral("lxx"), QStringLiteral("lxxx"), QStringLiteral("xc")};
+    static const QString RNHundreds[] = {QString(), QStringLiteral("c"), QStringLiteral("cc"), QStringLiteral("ccc"), QStringLiteral("cd"), QStringLiteral("d"), QStringLiteral("dc"), QStringLiteral("dcc"), QStringLiteral("dccc"), QStringLiteral("cm")};
+    static const QString RNThousands[] = {QString(), QStringLiteral("m"), QStringLiteral("mm"), QStringLiteral("mmm"), QStringLiteral("mmmm"), QStringLiteral("mmmmm"), QStringLiteral("mmmmmm"), QStringLiteral("mmmmmmm"), QStringLiteral("mmmmmmmm"), QStringLiteral("mmmmmmmmm")};
 
     if (n <= 0) {
         return QString::number(n);
@@ -291,13 +291,13 @@ static QString intToScriptList(int n, KoOdfNumberDefinition::FormatSpecification
 
     switch (formatSpecification) {
     case KoOdfNumberDefinition::Abjad:
-        if (n > 22) return "*";
+        if (n > 22) return QStringLiteral("*");
         return QString::fromUtf8(Abjad[n-1]);
     case KoOdfNumberDefinition::AbjadMinor:
-        if (n > 22) return "*";
+        if (n > 22) return QStringLiteral("*");
         return QString::fromUtf8(Abjad2[n-1]);
     case KoOdfNumberDefinition::ArabicAlphabet:
-        if (n > 28) return "*";
+        if (n > 28) return QStringLiteral("*");
         return QString::fromUtf8(ArabicAlphabet[n-1]);
     default:
         return QString::number(n);
@@ -357,7 +357,7 @@ QString KoOdfNumberDefinition::formattedNumber(int number, KoOdfNumberDefinition
         ;
     };
 
-    return "";
+    return QString();
 }
 
 

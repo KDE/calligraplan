@@ -100,7 +100,7 @@ PerformanceStatusBase::PerformanceStatusBase(QWidget *parent)
 
     m_legend = new Legend(ui_chart);
     ui_chart->replaceLegend(m_legend);
-    m_legend->setObjectName("Chart legend");
+    m_legend->setObjectName(QStringLiteral("Chart legend"));
 
     backgroundAttrs = m_legend->backgroundAttributes();
     m_legend->setBackgroundAttributes(backgroundAttrs);
@@ -110,7 +110,7 @@ PerformanceStatusBase::PerformanceStatusBase(QWidget *parent)
     m_legend->setPosition(Position::East);
     //m_legend->setAlignment((Qt::Alignment)(Qt::AlignTop | Qt::AlignCenter));
     m_legenddiagram.setModel(&m_chartmodel);
-    m_legenddiagram.setObjectName("Legend diagram");
+    m_legenddiagram.setObjectName(QStringLiteral("Legend diagram"));
     m_legend->setDiagram(&m_legenddiagram);
 
     // get rid of the default coordinate plane
@@ -167,13 +167,13 @@ void PerformanceStatusBase::createBarChart()
 {
     m_barchart.effortplane = new CartesianCoordinatePlane(ui_chart);
     m_barchart.effortplane->setRubberBandZoomingEnabled(true);
-    m_barchart.effortplane->setObjectName("Bar chart, Effort");
+    m_barchart.effortplane->setObjectName(QStringLiteral("Bar chart, Effort"));
     m_barchart.costplane = new CartesianCoordinatePlane(ui_chart);
     m_barchart.costplane->setRubberBandZoomingEnabled(true);
-    m_barchart.costplane->setObjectName("Bar chart, Cost");
+    m_barchart.costplane->setObjectName(QStringLiteral("Bar chart, Cost"));
 
     BarDiagram *effortdiagram = new BarDiagram(ui_chart, m_barchart.effortplane);
-    effortdiagram->setObjectName("Effort diagram");
+    effortdiagram->setObjectName(QStringLiteral("Effort diagram"));
 
     m_barchart.dateaxis = new CartesianAxis();
     m_barchart.dateaxis->setPosition(CartesianAxis::Bottom);
@@ -193,7 +193,7 @@ void PerformanceStatusBase::createBarChart()
     effortdiagram->setModel(&(m_barchart.effortproxy));
 
     BarDiagram *costdiagram = new BarDiagram(ui_chart, m_barchart.costplane);
-    costdiagram->setObjectName("Cost diagram");
+    costdiagram->setObjectName(QStringLiteral("Cost diagram"));
 
     m_barchart.costaxis = new CartesianAxis(costdiagram);
     m_barchart.costaxis->setPosition(CartesianAxis::Left);
@@ -206,7 +206,7 @@ void PerformanceStatusBase::createBarChart()
     costdiagram->setHidden(5, true);
     m_barchart.costproxy.setZeroColumns(QList<int>() << 3 << 4 << 5);
 
-    m_barchart.costproxy.setObjectName("Bar: Cost");
+    m_barchart.costproxy.setObjectName(QStringLiteral("Bar: Cost"));
     m_barchart.costproxy.setSourceModel(&m_chartmodel);
     costdiagram->setModel(&(m_barchart.costproxy));
 
@@ -214,9 +214,9 @@ void PerformanceStatusBase::createBarChart()
     m_barchart.costdiagram = costdiagram;
 
     m_barchart.piplane = new CartesianCoordinatePlane(ui_chart);
-    m_barchart.piplane->setObjectName("Performance Indices");
+    m_barchart.piplane->setObjectName(QStringLiteral("Performance Indices"));
     BarDiagram *pidiagram = new BarDiagram(ui_chart, m_barchart.piplane);
-    pidiagram->setObjectName("PI diagram");
+    pidiagram->setObjectName(QStringLiteral("PI diagram"));
     m_barchart.piaxis = new CartesianAxis(pidiagram);
     pidiagram->addAxis(m_barchart.piaxis);
     m_barchart.piplane->addDiagram(pidiagram);
@@ -227,14 +227,14 @@ void PerformanceStatusBase::createBarChart()
 void PerformanceStatusBase::createLineChart()
 {
     m_linechart.effortplane = new CartesianCoordinatePlane(ui_chart);
-    m_linechart.effortplane->setObjectName("Line chart, Effort");
+    m_linechart.effortplane->setObjectName(QStringLiteral("Line chart, Effort"));
     m_linechart.effortplane->setRubberBandZoomingEnabled(true);
     m_linechart.costplane = new CartesianCoordinatePlane(ui_chart);
-    m_linechart.costplane->setObjectName("Line chart, Cost");
+    m_linechart.costplane->setObjectName(QStringLiteral("Line chart, Cost"));
     m_linechart.costplane->setRubberBandZoomingEnabled(true);
 
     LineDiagram *effortdiagram = new LineDiagram(ui_chart, m_linechart.effortplane);
-    effortdiagram->setObjectName("Effort diagram");
+    effortdiagram->setObjectName(QStringLiteral("Effort diagram"));
 
     m_linechart.dateaxis = new CartesianAxis();
     m_linechart.dateaxis->setPosition(CartesianAxis::Bottom);
@@ -250,12 +250,12 @@ void PerformanceStatusBase::createLineChart()
     effortdiagram->setHidden(2, true);
     m_linechart.effortproxy.setZeroColumns(QList<int>() << 0 << 1 << 2);
 
-    m_linechart.effortproxy.setObjectName("Line: Effort");
+    m_linechart.effortproxy.setObjectName(QStringLiteral("Line: Effort"));
     m_linechart.effortproxy.setSourceModel(&m_chartmodel);
     effortdiagram->setModel(&(m_linechart.effortproxy));
 
     LineDiagram *costdiagram = new LineDiagram(ui_chart, m_linechart.costplane);
-    costdiagram->setObjectName("Cost diagram");
+    costdiagram->setObjectName(QStringLiteral("Cost diagram"));
 
     m_linechart.costaxis = new CartesianAxis(costdiagram);
     m_linechart.costaxis->setPosition(CartesianAxis::Left);
@@ -266,7 +266,7 @@ void PerformanceStatusBase::createLineChart()
     costdiagram->setHidden(4, true);
     costdiagram->setHidden(5, true);
 
-    m_linechart.costproxy.setObjectName("Line: Cost");
+    m_linechart.costproxy.setObjectName(QStringLiteral("Line: Cost"));
     m_linechart.costproxy.setZeroColumns(QList<int>() << 3 << 4 << 5);
     m_linechart.costproxy.setSourceModel(&m_chartmodel);
     costdiagram->setModel(&(m_linechart.costproxy));
@@ -275,10 +275,10 @@ void PerformanceStatusBase::createLineChart()
     m_linechart.costdiagram = costdiagram;
 
     m_linechart.piplane = new CartesianCoordinatePlane(ui_chart);
-    m_linechart.piplane->setObjectName("Performance Indices");
+    m_linechart.piplane->setObjectName(QStringLiteral("Performance Indices"));
     m_linechart.piplane->setRubberBandZoomingEnabled(true);
     LineDiagram *pidiagram = new LineDiagram(ui_chart, m_linechart.piplane);
-    pidiagram->setObjectName("PI diagram");
+    pidiagram->setObjectName(QStringLiteral("PI diagram"));
     m_linechart.piaxis = new CartesianAxis(pidiagram);
     pidiagram->addAxis(m_linechart.piaxis);
     m_linechart.piplane->addDiagram(pidiagram);
@@ -530,27 +530,27 @@ void PerformanceStatusBase::slotLocaleChanged()
 bool PerformanceStatusBase::loadContext(const KoXmlElement &context)
 {
     debugPlan;
-    m_chartinfo.showBarChart = context.attribute("show-bar-chart", "0").toInt();
-    m_chartinfo.showLineChart = context.attribute("show-line-chart", "1").toInt();
-    m_chartinfo.showTableView = context.attribute("show-table-view", "0").toInt();
+    m_chartinfo.showBarChart = context.attribute("show-bar-chart", QString::number(0)).toInt();
+    m_chartinfo.showLineChart = context.attribute("show-line-chart", QString::number(1)).toInt();
+    m_chartinfo.showTableView = context.attribute("show-table-view", QString::number(0)).toInt();
 
-    m_chartinfo.showBaseValues = context.attribute("show-base-values", "1").toInt();
-    m_chartinfo.showIndices = context.attribute("show-indeces", "0").toInt();
+    m_chartinfo.showBaseValues = context.attribute("show-base-values", QString::number(1)).toInt();
+    m_chartinfo.showIndices = context.attribute("show-indeces", QString::number(0)).toInt();
 
-    m_chartinfo.showCost = context.attribute("show-cost", "1").toInt();
-    m_chartinfo.showBCWSCost = context.attribute("show-bcws-cost", "1").toInt();
-    m_chartinfo.showBCWPCost = context.attribute("show-bcwp-cost", "1").toInt();
-    m_chartinfo.showACWPCost = context.attribute("show-acwp-cost", "1").toInt();
+    m_chartinfo.showCost = context.attribute("show-cost", QString::number(1)).toInt();
+    m_chartinfo.showBCWSCost = context.attribute("show-bcws-cost", QString::number(1)).toInt();
+    m_chartinfo.showBCWPCost = context.attribute("show-bcwp-cost", QString::number(1)).toInt();
+    m_chartinfo.showACWPCost = context.attribute("show-acwp-cost", QString::number(1)).toInt();
 
-    m_chartinfo.showEffort = context.attribute("show-effort", "1").toInt();
-    m_chartinfo.showBCWSEffort = context.attribute("show-bcws-effort", "1").toInt();
-    m_chartinfo.showBCWPEffort = context.attribute("show-bcwp-effort", "1").toInt();
-    m_chartinfo.showACWPEffort = context.attribute("show-acwp-effort", "1").toInt();
+    m_chartinfo.showEffort = context.attribute("show-effort", QString::number(1)).toInt();
+    m_chartinfo.showBCWSEffort = context.attribute("show-bcws-effort", QString::number(1)).toInt();
+    m_chartinfo.showBCWPEffort = context.attribute("show-bcwp-effort", QString::number(1)).toInt();
+    m_chartinfo.showACWPEffort = context.attribute("show-acwp-effort", QString::number(1)).toInt();
 
-    m_chartinfo.showSpiCost = context.attribute("show-spi-cost", "1").toInt();
-    m_chartinfo.showCpiCost = context.attribute("show-cpi-cost", "1").toInt();
-    m_chartinfo.showSpiEffort = context.attribute("show-spi-effort", "1").toInt();
-    m_chartinfo.showCpiEffort = context.attribute("show-cpi-effort", "1").toInt();
+    m_chartinfo.showSpiCost = context.attribute("show-spi-cost", QString::number(1)).toInt();
+    m_chartinfo.showCpiCost = context.attribute("show-cpi-cost", QString::number(1)).toInt();
+    m_chartinfo.showSpiEffort = context.attribute("show-spi-effort", QString::number(1)).toInt();
+    m_chartinfo.showCpiEffort = context.attribute("show-cpi-effort", QString::number(1)).toInt();
 
     debugPlan<<"Cost:"<<m_chartinfo.showCost<<"bcws="<<m_chartinfo.showBCWSCost<<"bcwp="<<m_chartinfo.showBCWPCost<<"acwp="<<m_chartinfo.showACWPCost;
     debugPlan<<"Effort:"<<m_chartinfo.showCost<<"bcws="<<m_chartinfo.showBCWSCost<<"bcwp="<<m_chartinfo.showBCWPCost<<"acwp="<<m_chartinfo.showACWPCost;
@@ -560,33 +560,33 @@ bool PerformanceStatusBase::loadContext(const KoXmlElement &context)
 
 void PerformanceStatusBase::saveContext(QDomElement &context) const
 {
-    context.setAttribute("show-bar-chart", QString::number(m_chartinfo.showBarChart));
-    context.setAttribute("show-line-chart", QString::number(m_chartinfo.showLineChart));
-    context.setAttribute("show-table-view", QString::number(m_chartinfo.showTableView));
+    context.setAttribute(QStringLiteral("show-bar-chart"), QString::number(m_chartinfo.showBarChart));
+    context.setAttribute(QStringLiteral("show-line-chart"), QString::number(m_chartinfo.showLineChart));
+    context.setAttribute(QStringLiteral("show-table-view"), QString::number(m_chartinfo.showTableView));
 
-    context.setAttribute("show-base-values", QString::number(m_chartinfo.showBaseValues));
-    context.setAttribute("show-indeces", QString::number(m_chartinfo.showIndices));
+    context.setAttribute(QStringLiteral("show-base-values"), QString::number(m_chartinfo.showBaseValues));
+    context.setAttribute(QStringLiteral("show-indeces"), QString::number(m_chartinfo.showIndices));
 
-    context.setAttribute("show-cost", QString::number(m_chartinfo.showCost));
-    context.setAttribute("show-bcws-cost", QString::number(m_chartinfo.showBCWSCost));
-    context.setAttribute("show-bcwp-cost", QString::number(m_chartinfo.showBCWPCost));
-    context.setAttribute("show-acwp-cost", QString::number(m_chartinfo.showACWPCost));
+    context.setAttribute(QStringLiteral("show-cost"), QString::number(m_chartinfo.showCost));
+    context.setAttribute(QStringLiteral("show-bcws-cost"), QString::number(m_chartinfo.showBCWSCost));
+    context.setAttribute(QStringLiteral("show-bcwp-cost"), QString::number(m_chartinfo.showBCWPCost));
+    context.setAttribute(QStringLiteral("show-acwp-cost"), QString::number(m_chartinfo.showACWPCost));
 
-    context.setAttribute("show-effort",  QString::number(m_chartinfo.showEffort));
-    context.setAttribute("show-bcws-effort", QString::number(m_chartinfo.showBCWSEffort));
-    context.setAttribute("show-bcwp-effort", QString::number(m_chartinfo.showBCWPEffort));
-    context.setAttribute("show-acwp-effort", QString::number(m_chartinfo.showACWPEffort));
+    context.setAttribute(QStringLiteral("show-effort"),  QString::number(m_chartinfo.showEffort));
+    context.setAttribute(QStringLiteral("show-bcws-effort"), QString::number(m_chartinfo.showBCWSEffort));
+    context.setAttribute(QStringLiteral("show-bcwp-effort"), QString::number(m_chartinfo.showBCWPEffort));
+    context.setAttribute(QStringLiteral("show-acwp-effort"), QString::number(m_chartinfo.showACWPEffort));
 
-    context.setAttribute("show-spi-cost", QString::number(m_chartinfo.showSpiCost));
-    context.setAttribute("show-cpi-cost", QString::number(m_chartinfo.showCpiCost));
-    context.setAttribute("show-spi-effort", QString::number(m_chartinfo.showSpiEffort));
-    context.setAttribute("show-cpi-effort", QString::number(m_chartinfo.showCpiEffort));
+    context.setAttribute(QStringLiteral("show-spi-cost"), QString::number(m_chartinfo.showSpiCost));
+    context.setAttribute(QStringLiteral("show-cpi-cost"), QString::number(m_chartinfo.showCpiCost));
+    context.setAttribute(QStringLiteral("show-spi-effort"), QString::number(m_chartinfo.showSpiEffort));
+    context.setAttribute(QStringLiteral("show-cpi-effort"), QString::number(m_chartinfo.showCpiEffort));
 }
 
 KoPrintJob *PerformanceStatusBase::createPrintJob(ViewBase *parent)
 {
     PerformanceStatusPrintingDialog *dia = new PerformanceStatusPrintingDialog(parent, this, parent->project());
-    dia->printer().setCreator("Plan");
+    dia->printer().setCreator(QStringLiteral("Plan"));
     return dia;
 }
 

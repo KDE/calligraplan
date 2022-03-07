@@ -23,7 +23,7 @@
 #include <KoOdfManifestEntry.h>
 
 
-#define INTERNAL_PROTOCOL "intern"
+const QLatin1String INTERNAL_PROTOCOL("intern");
 
 struct FileEntry {
     QString path;
@@ -69,7 +69,7 @@ QString KoEmbeddedDocumentSaver::getFilename(const QString &prefix)
     d->prefixes[prefix] = index + 1;
 
     //return prefix + QString("%1").arg(index, 4, 10, QChar('0'));
-    return prefix + QString("%1").arg(index);
+    return prefix + QStringLiteral("%1").arg(index);
 }
 
 void KoEmbeddedDocumentSaver::embedDocument(KoXmlWriter &writer, KoDocumentBase * doc)
@@ -79,7 +79,7 @@ void KoEmbeddedDocumentSaver::embedDocument(KoXmlWriter &writer, KoDocumentBase 
 
     QString ref;
     if (!doc->isStoredExtern()) {
-        const QString name = getFilename("Object ");
+        const QString name = getFilename(QStringLiteral("Object "));
 
         // set URL in document so that saveEmbeddedDocuments will save
         // the actual embedded object with the right name in the store.
@@ -88,7 +88,7 @@ void KoEmbeddedDocumentSaver::embedDocument(KoXmlWriter &writer, KoDocumentBase 
         u.setPath(name);
         debugOdf << u;
         doc->setUrl(u);
-        ref = "./" + name;
+        ref = QStringLiteral("./") + name;
     } else {
         ref = doc->url().url();
     }
@@ -204,17 +204,17 @@ bool KoEmbeddedDocumentSaver::saveEmbeddedDocuments(KoDocumentBase::SavingContex
             Q_ASSERT(doc->url().scheme() == INTERNAL_PROTOCOL);
             path = store->currentPath();
             if (!path.isEmpty()) {
-                path += '/';
+                path += QLatin1Char('/');
             }
             path += doc->url().path();
-            if (path.startsWith(QLatin1Char('/'))) {
+            if (path.startsWith(QLatin1Char(QLatin1Char('/')))) {
                 path.remove(0, 1);   // remove leading '/', no wanted in manifest
             }
         }
 
         // OOo uses a trailing slash for the path to embedded objects (== directories)
-        if (!path.endsWith('/')) {
-            path += '/';
+        if (!path.endsWith(QLatin1Char('/'))) {
+            path += QLatin1Char('/');
         }
         QByteArray mimetype = doc->nativeOasisMimeType();
         documentContext.odfStore.manifestWriter()->addManifestEntry(path, mimetype);
@@ -228,7 +228,7 @@ bool KoEmbeddedDocumentSaver::saveEmbeddedDocuments(KoDocumentBase::SavingContex
         // To make the children happy cd to the correct directory
         store->pushDirectory();
 
-        int index = path.lastIndexOf('/');
+        int index = path.lastIndexOf(QLatin1Char('/'));
         const QString dirPath = path.left(index);
         const QString fileName = path.right(path.size() - index - 1);
         store->enterDirectory(dirPath);
@@ -243,7 +243,7 @@ bool KoEmbeddedDocumentSaver::saveEmbeddedDocuments(KoDocumentBase::SavingContex
         store->popDirectory();
 
         // Create the manifest entry.
-        if (path.startsWith(QLatin1String("./"))) {
+        if (path.startsWith(QStringLiteral("./"))) {
             path.remove(0, 2);   // remove leading './', not wanted in manifest
         }
         documentContext.odfStore.manifestWriter()->addManifestEntry(path, entry->mimeType);

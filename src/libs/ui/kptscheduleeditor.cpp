@@ -112,7 +112,7 @@ ScheduleManager *ScheduleTreeView::selectedManager() const
 ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
-    setXMLFile("ScheduleEditorUi.rc");
+    setXMLFile(QStringLiteral("ScheduleEditorUi.rc"));
 
     setupGui();
 
@@ -293,31 +293,31 @@ void ScheduleEditor::setupGui()
 {
     actionAddSchedule  = new QAction(koIcon("view-time-schedule-insert"), i18n("Add Schedule"), this);
     actionCollection()->setDefaultShortcut(actionAddSchedule, Qt::CTRL + Qt::Key_I);
-    actionCollection()->addAction("add_schedule", actionAddSchedule);
+    actionCollection()->addAction(QStringLiteral("add_schedule"), actionAddSchedule);
     connect(actionAddSchedule, &QAction::triggered, this, &ScheduleEditor::slotAddSchedule);
 
     actionAddSubSchedule  = new QAction(koIcon("view-time-schedule-child-insert"), i18n("Add Sub-schedule"), this);
     actionCollection()->setDefaultShortcut(actionAddSubSchedule, Qt::CTRL + Qt::SHIFT + Qt::Key_I);
-    actionCollection()->addAction("add_subschedule", actionAddSubSchedule);
+    actionCollection()->addAction(QStringLiteral("add_subschedule"), actionAddSubSchedule);
     connect(actionAddSubSchedule, &QAction::triggered, this, &ScheduleEditor::slotAddSubSchedule);
 
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
     actionCollection()->setDefaultShortcut(actionDeleteSelection, Qt::Key_Delete);
-    actionCollection()->addAction("delete_selection", actionDeleteSelection);
+    actionCollection()->addAction(QStringLiteral("delete_selection"), actionDeleteSelection);
     connect(actionDeleteSelection, &QAction::triggered, this, &ScheduleEditor::slotDeleteSelection);
 
     actionCalculateSchedule  = new QAction(koIcon("view-time-schedule-calculus"), i18n("Calculate"), this);
 //    actionCollection()->setDefaultShortcut(actionCalculateSchedule, Qt::CTRL + Qt::Key_C);
-    actionCollection()->addAction("calculate_schedule", actionCalculateSchedule);
+    actionCollection()->addAction(QStringLiteral("calculate_schedule"), actionCalculateSchedule);
     connect(actionCalculateSchedule, &QAction::triggered, this, &ScheduleEditor::slotCalculateSchedule);
 
     actionBaselineSchedule  = new QAction(koIcon("view-time-schedule-baselined-add"), i18n("Baseline"), this);
 //    actionCollection()->setDefaultShortcut(actionBaselineSchedule, Qt::CTRL + Qt::Key_B);
-    actionCollection()->addAction("schedule_baseline", actionBaselineSchedule);
+    actionCollection()->addAction(QStringLiteral("schedule_baseline"), actionBaselineSchedule);
     connect(actionBaselineSchedule, &QAction::triggered, this, &ScheduleEditor::slotBaselineSchedule);
 
     actionMoveLeft  = new QAction(koIcon("go-first"), xi18nc("@action", "Detach"), this);
-    actionCollection()->addAction("schedule_move_left", actionMoveLeft);
+    actionCollection()->addAction(QStringLiteral("schedule_move_left"), actionMoveLeft);
     connect(actionMoveLeft, &QAction::triggered, this, &ScheduleEditor::slotMoveLeft);
 
     // Add the context menu actions for the view options
@@ -388,7 +388,7 @@ void ScheduleEditor::slotAddSchedule()
     }
     if (sm && sm->parentManager()) {
         sm = sm->parentManager();
-        ScheduleManager *m = m_view->project()->createScheduleManager(sm->name() + QString(".%1").arg(sm->children().count() + 1));
+        ScheduleManager *m = m_view->project()->createScheduleManager(sm->name() + QStringLiteral(".%1").arg(sm->children().count() + 1));
         part()->addCommand(new AddScheduleManagerCmd(sm, m, idx, kundo2_i18n("Create sub-schedule")));
         QModelIndex idx = model()->index(m);
         if (idx.isValid()) {
@@ -421,7 +421,7 @@ void ScheduleEditor::slotAddSubSchedule()
         if (row >= 0) {
             ++row;
         }
-        ScheduleManager *m = m_view->project()->createScheduleManager(sm->name() + QString(".%1").arg(sm->children().count() + 1));
+        ScheduleManager *m = m_view->project()->createScheduleManager(sm->name() + QStringLiteral(".%1").arg(sm->children().count() + 1));
         part()->addCommand(new AddScheduleManagerCmd(sm, m, row, kundo2_i18n("Create sub-schedule")));
         m_view->expand(model()->index(sm));
         QModelIndex idx = model()->index(m);
@@ -515,7 +515,7 @@ ScheduleLogTreeView::ScheduleLogTreeView(QWidget *parent)
     m_model = new QSortFilterProxyModel(this);
     m_model->setFilterRole(Qt::UserRole+1);
     m_model->setFilterKeyColumn (2); // severity
-    m_model->setFilterWildcard("[^0]"); // Filter out Debug
+    m_model->setFilterWildcard(QStringLiteral("[^0]")); // Filter out Debug
 
     m_model->setSourceModel(new ScheduleLogItemModel(this));
     setModel(m_model);
@@ -543,7 +543,7 @@ QRegExp ScheduleLogTreeView::filterRegExp() const
 
 void ScheduleLogTreeView::slotShowDebug(bool on)
 {
-    on ? setFilterWildcard(QString()) : setFilterWildcard("[^0]");
+    on ? setFilterWildcard(QString()) : setFilterWildcard(QStringLiteral("[^0]"));
 }
 
 void ScheduleLogTreeView::contextMenuEvent (QContextMenuEvent *e)
@@ -594,16 +594,16 @@ void ScheduleLogTreeView::slotEditCopy()
                 continue;
             }
             if (! s.isEmpty()) {
-                s += ' ';
+                s += QLatin1Char(' ');
             }
-            s = QString("%1%2").arg(s).arg(idx.data().toString(), -10);
+            s = QStringLiteral("%1%2").arg(s).arg(idx.data().toString(), -10);
         }
         if (! s.isEmpty()) {
             lst << s;
         }
     }
     if (! lst.isEmpty()) {
-        QApplication::clipboard()->setText(lst.join("\n"));
+        QApplication::clipboard()->setText(lst.join(QStringLiteral("\n")));
     }
 }
 
@@ -755,25 +755,25 @@ ScheduleHandlerView::ScheduleHandlerView(KoPart *part, KoDocument *doc, QWidget 
 {
     debugPlan<<"---------------- Create ScheduleHandlerView ------------------";
     m_scheduleEditor = new ScheduleEditor(part, doc, this);
-    m_scheduleEditor->setObjectName("ScheduleEditor");
+    m_scheduleEditor->setObjectName(QStringLiteral("ScheduleEditor"));
     addView(m_scheduleEditor);
     insertChildClient(m_scheduleEditor);
 
     QTabWidget *tab = addTabWidget();
 
     PertResult *p = new PertResult(part, doc, tab);
-    p->setObjectName("PertResult");
+    p->setObjectName(QStringLiteral("PertResult"));
     addView(p, tab, i18n("Result"));
 
     connect(m_scheduleEditor, &ScheduleEditor::scheduleSelectionChanged, p, &PertResult::slotScheduleSelectionChanged);
 
     PertCpmView *c = new PertCpmView(part, doc, tab);
-    c->setObjectName("PertCpmView");
+    c->setObjectName(QStringLiteral("PertCpmView"));
     addView(c, tab, i18n("Critical Path"));
     connect(m_scheduleEditor, &ScheduleEditor::scheduleSelectionChanged, c, &PertCpmView::slotScheduleSelectionChanged);
 
     ScheduleLogView *v = new ScheduleLogView(part, doc, tab);
-    v->setObjectName("ScheduleLogView");
+    v->setObjectName(QStringLiteral("ScheduleLogView"));
     addView(v, tab, i18n("Scheduling Log"));
     connect(m_scheduleEditor, SIGNAL(scheduleSelectionChanged(KPlato::ScheduleManager*)), v, SLOT(slotScheduleSelectionChanged(KPlato::ScheduleManager*)));
     connect(v, &ScheduleLogView::editNode, this, &ScheduleHandlerView::slotOpenNode);

@@ -92,10 +92,10 @@ void RecentProjectsModel::populate(const QList<QAction*> actions)
         // KRecentFilesAction format: <name> [<file path>]
         // so we split it up and remove the []
         QString s = a->text();
-        QString name = s.left(s.indexOf('[')).trimmed();
-        QString file = s.mid(s.indexOf('[')+1);
-        file = file.left(file.lastIndexOf(']'));
-        QString t = QString("%1\n%2").arg(name, file);
+        QString name = s.left(s.indexOf(QLatin1Char('['))).trimmed();
+        QString file = s.mid(s.indexOf(QLatin1Char('['))+1);
+        file = file.left(file.lastIndexOf(QLatin1Char(']')));
+        QString t = QStringLiteral("%1\n%2").arg(name, file);
         setData(idx, t, Qt::EditRole);
         setData(idx, file, Qt::UserRole+1);
         idx = idx.sibling(idx.row()-1, idx.column());
@@ -204,7 +204,7 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
     connect(mainWindow(), &KoMainWindow::loadCompleted, this, &WelcomeView::finished);
 
     KSharedConfigPtr configPtr = parent->componentData().config();
-    KRecentFilesAction recent("x", nullptr);
+    KRecentFilesAction recent(QStringLiteral("x"), nullptr);
     recent.loadEntries(configPtr->group("Recent Projects"));
     m_recentProjects->setRecentFiles(recent);
 }
@@ -226,7 +226,7 @@ void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
         QUrl url = QUrl::fromUserInput(file);
         debugWelcome<<file<<url;
         if (url.isValid()) {
-            KoPart *part = this->part(QStringLiteral("calligraplan"), QStringLiteral(PLAN_MIME_TYPE));
+            KoPart *part = this->part(QStringLiteral("calligraplan"), PLAN_MIME_TYPE);
             mainWindow()->openDocument(part, url);
         }
     }
@@ -248,7 +248,7 @@ void WelcomeView::setupGui()
 
 void WelcomeView::slotNewProject()
 {
-    KoPart *part = this->part(QStringLiteral("calligraplan"), QStringLiteral(PLAN_MIME_TYPE));
+    KoPart *part = this->part(QStringLiteral("calligraplan"), PLAN_MIME_TYPE);
     part->addMainWindow(mainWindow());
     if (!part->editProject()) {
         part->removeMainWindow(mainWindow());
@@ -258,8 +258,8 @@ void WelcomeView::slotNewProject()
 
 void WelcomeView::slotCreateResourceFile()
 {
-    QString file = QStandardPaths::locate(QStandardPaths::AppDataLocation, "templates/.source/SharedResources.plant");
-    KoPart *part = this->part(QStringLiteral("calligraplan"), QStringLiteral(PLAN_MIME_TYPE));
+    QString file = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("templates/.source/SharedResources.plant"));
+    KoPart *part = this->part(QStringLiteral("calligraplan"), PLAN_MIME_TYPE);
     part->addMainWindow(mainWindow());
     if (!part->openTemplate(QUrl::fromUserInput(file))) {
         part->removeMainWindow(mainWindow());
@@ -269,14 +269,14 @@ void WelcomeView::slotCreateResourceFile()
 
 void WelcomeView::slotOpenProject()
 {
-    KoFileDialog filedialog(this, KoFileDialog::OpenFile, "OpenDocument");
+    KoFileDialog filedialog(this, KoFileDialog::OpenFile, QStringLiteral("OpenDocument"));
     filedialog.setCaption(i18n("Open Document"));
     filedialog.setDefaultDir(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
     filedialog.setMimeTypeFilters(koApp->mimeFilter(KoFilterManager::Import));
     filedialog.setHideNameFilterDetailsOption();
     QUrl url = QUrl::fromUserInput(filedialog.filename());
     if (!url.isEmpty()) {
-        KoPart *part = this->part(QStringLiteral("calligraplan"), QStringLiteral(PLAN_MIME_TYPE));
+        KoPart *part = this->part(QStringLiteral("calligraplan"), PLAN_MIME_TYPE);
         part->addMainWindow(mainWindow());
         if (!mainWindow()->openDocument(part, url)) {
             part->removeMainWindow(mainWindow());
@@ -291,7 +291,7 @@ void WelcomeView::slotOpenProjectTemplate(const QModelIndex &idx)
         QString file = idx.data(Qt::UserRole+1).toString();
         QUrl url = QUrl::fromUserInput(file);
         debugWelcome<<file<<url;
-        KoPart *part = this->part(QStringLiteral("calligraplan"), QStringLiteral(PLAN_MIME_TYPE));
+        KoPart *part = this->part(QStringLiteral("calligraplan"), PLAN_MIME_TYPE);
         bool ok = false;
         if (part && url.isValid()) {
             ok = part->openProjectTemplate(url);
@@ -313,7 +313,7 @@ void WelcomeView::slotLoadSharedResources(const QString &file, const QUrl &proje
 {
     QUrl url(file);
     if (url.scheme().isEmpty()) {
-        url.setScheme("file");
+        url.setScheme(QStringLiteral("file"));
     }
     if (url.isValid()) {
         Q_EMIT loadSharedResources(url, loadProjectsAtStartup ? projects :QUrl());
@@ -331,18 +331,18 @@ void WelcomeView::setProjectTemplatesModel()
         QStandardItem *parent = nullptr;
         if (addgroups) {
             QString p = path;
-            if (p.endsWith('/')) {
+            if (p.endsWith(QLatin1Char('/'))) {
                 p.remove(p.length()-1, 1);
             }
-            p = p.mid(p.lastIndexOf('/')+1);
+            p = p.mid(p.lastIndexOf(QLatin1Char('/'))+1);
             parent = new QStandardItem(p);
             m->appendRow(parent);
         }
-        QDir dir(path, "*.plant");
+        QDir dir(path, QStringLiteral("*.plant"));
         const auto entryList = dir.entryList(QDir::Files);
         for (const QString &file : entryList) {
-            QStandardItem *item = new QStandardItem(file.left(file.lastIndexOf(".plant")));
-            item->setData(QString(path + '/' + file));
+            QStandardItem *item = new QStandardItem(file.left(file.lastIndexOf(QString::fromLatin1(".plant"))));
+            item->setData(QString(path + QStringLiteral("/") + file));
             item->setToolTip(item->data().toString());
             item->setIcon(koIcon("document-new-from-template"));
             if (parent) {

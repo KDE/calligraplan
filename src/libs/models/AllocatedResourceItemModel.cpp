@@ -100,7 +100,7 @@ Task *AllocatedResourceItemModel::task() const
 
 void AllocatedResourceItemModel::setTask(Task *task)
 {
-    debugPlan<<m_task<<"="<<task<<(task?task->name():"");
+    debugPlan<<m_task<<"="<<task<<(task?task->name():QString());
     m_task = task;
     reset();
     debugPlan<<rowCount()<<":"<<sourceModel()->rowCount();

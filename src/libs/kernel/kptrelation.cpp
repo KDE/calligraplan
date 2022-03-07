@@ -77,9 +77,9 @@ QStringList Relation::typeList(bool trans)
 {
     //NOTE: must match enum
     QStringList lst;
-    lst << (trans ? i18n("Finish-Start") : "Finish-Start");
-    lst << (trans ? i18n("Finish-Finish") : "Finish-Finish");
-    lst << (trans ? i18n("Start-Start") : "Start-Start");
+    lst << (trans ? i18n("Finish-Start") : QStringLiteral("Finish-Start"));
+    lst << (trans ? i18n("Finish-Finish") : QStringLiteral("Finish-Finish"));
+    lst << (trans ? i18n("Start-Start") : QStringLiteral("Start-Start"));
     return lst;
 }
 
@@ -96,11 +96,11 @@ void Relation::setChild(Node* node)
 
 bool Relation::load(KoXmlElement &element, XMLLoaderObject &status) {
     const Project &project = status.project();
-    m_parent = project.findNode(element.attribute("parent-id"));
+    m_parent = project.findNode(element.attribute(QStringLiteral("parent-id")));
     if (m_parent == nullptr) {
         return false;
     }
-    m_child = project.findNode(element.attribute("child-id"));
+    m_child = project.findNode(element.attribute(QStringLiteral("child-id")));
     if (m_child == nullptr) {
         return false;
     }
@@ -115,9 +115,9 @@ bool Relation::load(KoXmlElement &element, XMLLoaderObject &status) {
     if (!m_parent->legalToLink(m_child))
         return false;
         
-    setType(element.attribute("type"));
+    setType(element.attribute(QStringLiteral("type")));
 
-    m_lag = Duration::fromString(element.attribute("lag"));
+    m_lag = Duration::fromString(element.attribute(QStringLiteral("lag")));
 
     if (!m_parent->addDependChildNode(this)) {
         errorPlan<<"Failed to add relation: Child="<<m_child->name()<<" parent="<<m_parent->name()<<'\n';
@@ -139,32 +139,32 @@ void Relation::save(QDomElement &element, const XmlSaveContext &context) const
     if (!context.saveRelation(this)) {
         return;
     }
-    QDomElement me = element.ownerDocument().createElement("relation");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("relation"));
     element.appendChild(me);
 
-    me.setAttribute("parent-id", m_parent->id());
-    me.setAttribute("child-id", m_child->id());
-    QString type = "Finish-Start";
+    me.setAttribute(QStringLiteral("parent-id"), m_parent->id());
+    me.setAttribute(QStringLiteral("child-id"), m_child->id());
+    QString type = QStringLiteral("Finish-Start");
     switch (m_type) {
         case FinishStart:
-            type = "Finish-Start";
+            type = QStringLiteral("Finish-Start");
             break;
         case FinishFinish:
-            type = "Finish-Finish";
+            type = QStringLiteral("Finish-Finish");
             break;
         case StartStart:
-            type = "Start-Start";
+            type = QStringLiteral("Start-Start");
             break;
         default:
             break;
     }
-    me.setAttribute("type", type);
-    me.setAttribute("lag", m_lag.toString());
+    me.setAttribute(QStringLiteral("type"), type);
+    me.setAttribute(QStringLiteral("lag"), m_lag.toString());
 }
 
 #ifndef NDEBUG
 void Relation::printDebug(const QByteArray& _indent) { 
-    QString indent = _indent;
+    QByteArray indent = _indent;
     indent += "  ";
     debugPlan<<indent<<"  Parent:"<<m_parent->name();
     debugPlan<<indent<<"  Child:"<<m_child->name();
@@ -184,10 +184,10 @@ QDebug operator<<(QDebug dbg, const KPlato::Relation &r)
 {
     KPlato::Node *parent = r.parent();
     KPlato::Node *child = r.child();
-    QString type = "FS";
+    QString type = QStringLiteral("FS");
     switch (r.type()) {
-    case KPlato::Relation::StartStart: type = "SS"; break;
-    case KPlato::Relation::FinishFinish: type = "FF"; break;
+    case KPlato::Relation::StartStart: type = QStringLiteral("SS"); break;
+    case KPlato::Relation::FinishFinish: type = QStringLiteral("FF"); break;
     default: break;
     }
 

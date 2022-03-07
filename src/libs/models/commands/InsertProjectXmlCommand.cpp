@@ -86,8 +86,12 @@ void InsertProjectXmlCommand::execute()
     if (m_first) {
         // create and execute commands
         KoXmlDocument doc;
-        doc.setContent(m_data);
-        m_context.setVersion(doc.documentElement().attribute("plan-version", PLAN_FILE_SYNTAX_VERSION));
+        QString err;
+        int line = 0;
+        int col = 0;
+        doc.setContent(QString::fromLatin1(m_data), &err, &line, &col);
+        if (!err.isEmpty()) debugPlanXml<<Q_FUNC_INFO<<err<<line<<col;
+        m_context.setVersion(doc.documentElement().attribute(QStringLiteral("plan-version"), PLAN_FILE_SYNTAX_VERSION));
         KoXmlElement projectElement = doc.documentElement().namedItem("project").toElement();
 
         createCmdAccounts(projectElement);
@@ -135,30 +139,30 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
         return;
     }
     debugPlanInsertProjectXml<<m_context.version();
-    if (m_context.version() < "0.7.0") {
+    if (m_context.version() < QStringLiteral("0.7.0")) {
         return; // Requests loaded by tasks
     }
     KoXmlElement parentElement = projectElement.namedItem("resource-requests").toElement();
     KoXmlElement re;
     forEachElement(re, parentElement) {
-        if (re.tagName() != "resource-request") {
+        if (re.tagName() != QStringLiteral("resource-request")) {
             continue;
         }
-        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute("task-id")));
+        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute(QStringLiteral("task-id"))));
         if (!task) {
             warnPlanInsertProjectXml<<re.tagName()<<"Failed to find task";
             continue;
         }
-        Resource *resource = m_project->findResource(re.attribute("resource-id"));
+        Resource *resource = m_project->findResource(re.attribute(QStringLiteral("resource-id")));
         if (!resource) {
             warnPlanInsertProjectXml<<re.tagName()<<"Failed to add allocation, resource does not exist";
             continue;
         }
         Q_ASSERT(task);
         if (task) {
-            int units = re.attribute("units", "100").toInt();
+            int units = re.attribute(QStringLiteral("units"), QString::number(100)).toInt();
             ResourceRequest *request = new ResourceRequest(resource, units);
-            int requestId = re.attribute("request-id").toInt();
+            int requestId = re.attribute(QStringLiteral("request-id")).toInt();
             Q_ASSERT(requestId > 0);
             request->setId(requestId);
             KUndo2Command *cmd = new AddResourceRequestCmd(&task->requests(), request);
@@ -171,17 +175,17 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
     }
     parentElement = projectElement.namedItem("required-resource-requests").toElement();
     forEachElement(re, parentElement) {
-        if (re.tagName() != "required-resource-request") {
+        if (re.tagName() != QStringLiteral("required-resource-request")) {
             continue;
         }
-        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute("task-id")));
+        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute(QStringLiteral("task-id"))));
         Q_ASSERT(task);
         if (!task) {
             warnPlanInsertProjectXml<<re.tagName()<<"Failed to find task";
             continue;
         }
-        ResourceRequest *request = task->requests().resourceRequest(re.attribute("request-id").toInt());
-        Resource *required = m_project->findResource(re.attribute("required-id"));
+        ResourceRequest *request = task->requests().resourceRequest(re.attribute(QStringLiteral("request-id")).toInt());
+        Resource *required = m_project->findResource(re.attribute(QStringLiteral("required-id")));
         if (!required) {
             warnPlanInsertProjectXml<<re.tagName()<<"Failed to add required resource, resource does not exist";
             continue;
@@ -197,25 +201,25 @@ void InsertProjectXmlCommand::createCmdRequests(const KoXmlElement &projectEleme
     }
     parentElement = projectElement.namedItem("alternative-requests").toElement();
     forEachElement(re, parentElement) {
-        if (re.tagName() != "alternative-request") {
+        if (re.tagName() != QStringLiteral("alternative-request")) {
             continue;
         }
-        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute("task-id")));
+        Task *task = qobject_cast<Task*>(m_oldIds.value(re.attribute(QStringLiteral("task-id"))));
         if (!task) {
             warnPlanInsertProjectXml<<re.tagName()<<"Failed to find task";
             continue;
         }
-        Resource *resource = m_project->findResource(re.attribute("resource-id"));
+        Resource *resource = m_project->findResource(re.attribute(QStringLiteral("resource-id")));
         if (!resource) {
             warnPlanInsertProjectXml<<re.tagName()<<"Failed to find resource";
             continue;
         }
-        ResourceRequest *request = task->requests().resourceRequest(re.attribute("request-id").toInt());
+        ResourceRequest *request = task->requests().resourceRequest(re.attribute(QStringLiteral("request-id")).toInt());
         if (!request) {
             warnPlanInsertProjectXml<<re.tagName()<<"Failed to find request";
             continue;
         }
-        ResourceRequest *alternative = new ResourceRequest(resource, re.attribute("units", "100").toInt());
+        ResourceRequest *alternative = new ResourceRequest(resource, re.attribute(QStringLiteral("units"), QString::number(100)).toInt());
         request->addAlternativeRequest(alternative);
         debugPlanInsertProjectXml<<"added alternative-request:"<<task<<request<<alternative;
     }
@@ -233,7 +237,7 @@ void InsertProjectXmlCommand::createCmdTask(const KoXmlElement &parentElement, N
 {
     KoXmlElement taskElement;
     forEachElement(taskElement, parentElement) {
-        if (taskElement.tagName() != "task") {
+        if (taskElement.tagName() != QStringLiteral("task")) {
             continue;
         }
         Task *task = m_project->createTask();
@@ -261,15 +265,15 @@ void InsertProjectXmlCommand::createCmdRelations(const KoXmlElement &projectElem
     }
     KoXmlElement relationElement;
     forEachElement(relationElement, relations) {
-        if (relationElement.tagName() != "relation") {
+        if (relationElement.tagName() != QStringLiteral("relation")) {
             continue;
         }
-        Node *parent = m_oldIds.value(relationElement.attribute("parent-id"));
-        Node *child = m_oldIds.value(relationElement.attribute("child-id"));
+        Node *parent = m_oldIds.value(relationElement.attribute(QStringLiteral("parent-id")));
+        Node *child = m_oldIds.value(relationElement.attribute(QStringLiteral("child-id")));
         if (parent && child) {
             Relation *relation = new Relation(parent, child);
-            relation->setType(relationElement.attribute("type"));
-            relation->setLag(Duration::fromString(relationElement.attribute("lag")));
+            relation->setType(relationElement.attribute(QStringLiteral("type")));
+            relation->setLag(Duration::fromString(relationElement.attribute(QStringLiteral("lag"))));
             AddRelationCmd *cmd = new AddRelationCmd(*m_project, relation);
             cmd->execute();
             addCommand(cmd);

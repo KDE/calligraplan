@@ -187,7 +187,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
             lst.last()->setToolTip(xi18nc("@info:tooltip", "New entry"));
         }
 
-        lst << new QStandardItem(QString("%1% (%2%)").arg(it.value()->percentFinished).arg(currCompletion.percentFinished(it.key())));
+        lst << new QStandardItem(QStringLiteral("%1% (%2%)").arg(it.value()->percentFinished).arg(currCompletion.percentFinished(it.key())));
         lst.last()->setData(it.value()->percentFinished);
         lst.last()->setToolTip(xi18nc("@info:tooltip", "New value: %1%<nl/>Current value: %2%", it.value()->percentFinished, currCompletion.percentFinished(it.key())));
         lst.last()->setCheckable(true);
@@ -200,7 +200,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
         Duration oe = currCompletion.actualEffort(resource2, it.key());
         QString nv = ne.toString(Duration::Format_Hour);
         QString ov = oe.toString(Duration::Format_Hour);
-        lst << new QStandardItem(QString("%1 (%2)").arg(nv, ov));
+        lst << new QStandardItem(QStringLiteral("%1 (%2)").arg(nv, ov));
         lst.last()->setData(ne.toDouble());
         lst.last()->setToolTip(xi18nc("@info:tooltip", "New value: %1<nl/>Current value: %2", nv, ov));
         lst.last()->setCheckable(true);
@@ -211,7 +211,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
         
         nv = it.value()->remainingEffort.toString(Duration::Format_Hour);
         ov = currCompletion.remainingEffort(it.key()).toString(Duration::Format_Hour);
-        lst << new QStandardItem(QString("%1 (%2)").arg(nv, ov));
+        lst << new QStandardItem(QStringLiteral("%1 (%2)").arg(nv, ov));
         lst.last()->setData(it.value()->remainingEffort.toDouble());
         lst.last()->setToolTip(xi18nc("@info:tooltip", "New value: %1<nl/>Current value: %2", nv, ov));
         lst.last()->setCheckable(true);
@@ -342,7 +342,7 @@ void WorkPackageMergeDialog::acceptPackage(const Package *package)
         return;
     }
 
-    m_cmd = new MacroCommand(kundo2_noi18n("Merge workpackage"));
+    m_cmd = new MacroCommand(kundo2_noi18n(QStringLiteral("Merge workpackage")));
     Completion &org = to->completion();
     const Completion &curr = from->completion();
 

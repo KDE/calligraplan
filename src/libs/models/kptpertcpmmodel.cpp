@@ -202,7 +202,7 @@ QVariant CriticalPathItemModel::notUsed(int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
-            return "";
+            return QStringLiteral("");
         default:
             return QVariant();
     }

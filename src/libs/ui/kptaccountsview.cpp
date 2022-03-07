@@ -158,7 +158,7 @@ AccountsView::AccountsView(KoPart *part, Project *project, KoDocument *doc, QWid
         m_project(project),
         m_manager(nullptr)
 {
-    setXMLFile("AccountsViewUi.rc");
+    setXMLFile(QStringLiteral("AccountsViewUi.rc"));
     init();
 
     setupGui();
@@ -223,7 +223,7 @@ void AccountsView::slotEditCopy()
 void AccountsView::slotOptions()
 {
     debugPlan;
-    AccountsviewConfigDialog *dlg = new AccountsviewConfigDialog(this, m_view, this, sender()->objectName() == "print_options");
+    AccountsviewConfigDialog *dlg = new AccountsviewConfigDialog(this, m_view, this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
@@ -240,7 +240,7 @@ void AccountsView::setScheduleManager(ScheduleManager *sm)
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted
         m_domdoc.clear();
-        QDomElement element = m_domdoc.createElement("expanded");
+        QDomElement element = m_domdoc.createElement(QStringLiteral("expanded"));
         m_domdoc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -248,7 +248,7 @@ void AccountsView::setScheduleManager(ScheduleManager *sm)
     bool expand = sm && m_manager && sm != m_manager;
     QDomDocument doc;
     if (expand) {
-        QDomElement element = doc.createElement("expanded");
+        QDomElement element = doc.createElement(QStringLiteral("expanded"));
         doc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -302,11 +302,11 @@ bool AccountsView::loadContext(const KoXmlElement &context)
 
     m_view->setShowMode(context.attribute("show-mode").toInt());
     m_view->setCumulative((bool)(context.attribute("cumulative").toInt()));
-    m_view->setPeriodType(context.attribute("period-type", "0").toInt());
-    m_view->setStartDate(QDate::fromString(context.attribute("start-date", ""), Qt::ISODate));
-    m_view->setStartMode(context.attribute("start-mode", "0").toInt());
-    m_view->setEndDate(QDate::fromString(context.attribute("end-date", ""), Qt::ISODate));
-    m_view->setEndMode(context.attribute("end-mode", "0").toInt());
+    m_view->setPeriodType(context.attribute("period-type", QString::number(0)).toInt());
+    m_view->setStartDate(QDate::fromString(context.attribute("start-date", QStringLiteral("")), Qt::ISODate));
+    m_view->setStartMode(context.attribute("start-mode", QString::number(0)).toInt());
+    m_view->setEndDate(QDate::fromString(context.attribute("end-date", QStringLiteral("")), Qt::ISODate));
+    m_view->setEndMode(context.attribute("end-mode", QString::number(0)).toInt());
     
     //debugPlan<<m_view->startMode()<<m_view->startDate()<<m_view->endMode()<<m_view->endDate();
     // Skip context loading, it doea not work for this type of view
@@ -320,13 +320,13 @@ void AccountsView::saveContext(QDomElement &context) const
     //debugPlan;
     ViewBase::saveContext(context);
 
-    context.setAttribute("show-mode", QString::number(m_view->showMode()));
-    context.setAttribute("cumulative", QString::number(m_view->cumulative()));
-    context.setAttribute("period-type", QString::number(m_view->periodType()));
-    context.setAttribute("start-mode", QString::number(m_view->startMode()));
-    context.setAttribute("start-date", m_view->startDate().toString(Qt::ISODate));
-    context.setAttribute("end-mode", QString::number(m_view->endMode()));
-    context.setAttribute("end-date", m_view->endDate().toString(Qt::ISODate));
+    context.setAttribute(QStringLiteral("show-mode"), QString::number(m_view->showMode()));
+    context.setAttribute(QStringLiteral("cumulative"), QString::number(m_view->cumulative()));
+    context.setAttribute(QStringLiteral("period-type"), QString::number(m_view->periodType()));
+    context.setAttribute(QStringLiteral("start-mode"), QString::number(m_view->startMode()));
+    context.setAttribute(QStringLiteral("start-date"), m_view->startDate().toString(Qt::ISODate));
+    context.setAttribute(QStringLiteral("end-mode"), QString::number(m_view->endMode()));
+    context.setAttribute(QStringLiteral("end-date"), m_view->endDate().toString(Qt::ISODate));
 
     m_view->saveContext(model()->columnMap(), context);
 }

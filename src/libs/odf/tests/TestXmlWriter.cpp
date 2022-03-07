@@ -52,12 +52,12 @@ QString TestXmlWriter::content()
 {
     writer->endElement();
     writer->endDocument();
-    buffer->putChar('\0'); /*null-terminate*/
+    Q_ASSERT(buffer->putChar('\0')); /*null-terminate*/
     buffer->close();
     QString stringContent = QString::fromUtf8(buffer->data());
-    int index = stringContent.indexOf("<dummy");
+    int index = stringContent.indexOf(QStringLiteral("<dummy"));
     Q_ASSERT(index);
-    index = stringContent.indexOf('>', index);
+    index = stringContent.indexOf(QLatin1Char('>'), index);
     stringContent = stringContent.mid(index+1, stringContent.length() - index - 11).trimmed();
     return stringContent;
 }
@@ -67,7 +67,7 @@ void TestXmlWriter::testDocytype()
     setup("foo", "bar");
     QCOMPARE(content(), QString());
     QString stringContent = QString::fromUtf8(buffer->data());
-    QCOMPARE(stringContent, QString("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+    QCOMPARE(stringContent,  QStringLiteral("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
         "<!DOCTYPE dummy PUBLIC \"foo\" \"bar\">\n<dummy/>\n"));
 }
 
@@ -84,7 +84,7 @@ void TestXmlWriter::testAttributes()
     writer->addAttribute("f", false);
     writer->addAttribute("g", true);
     writer->endElement();
-    QCOMPARE(content(), QString("<test a=\"val\" b=\"&lt;&quot;&gt;\" c=\"-42\" d=\"1234.56789012345\" e=\"1234.56789012345pt\" f=\"false\" g=\"true\"/>"));
+    QCOMPARE(content(),  QStringLiteral("<test a=\"val\" b=\"&lt;&quot;&gt;\" c=\"-42\" d=\"1234.56789012345\" e=\"1234.56789012345pt\" f=\"false\" g=\"true\"/>"));
 }
 
 void TestXmlWriter::testEmtpyElement()
@@ -92,7 +92,7 @@ void TestXmlWriter::testEmtpyElement()
     setup();
     writer->startElement("m");
     writer->endElement();
-    QCOMPARE(content(), QString("<m/>"));
+    QCOMPARE(content(),  QStringLiteral("<m/>"));
 }
 
 void TestXmlWriter::testIndent()
@@ -104,7 +104,7 @@ void TestXmlWriter::testIndent()
     writer->endElement();
     writer->endElement();
     writer->endElement();
-    QCOMPARE(content(), QString("<a>\n  <b>\n   <c/>\n  </b>\n </a>"));
+    QCOMPARE(content(),  QStringLiteral("<a>\n  <b>\n   <c/>\n  </b>\n </a>"));
 }
 
 void TestXmlWriter::testTextNode()
@@ -118,7 +118,7 @@ void TestXmlWriter::testTextNode()
     writer->addTextNode("xt");
     writer->endElement();
     writer->endElement();
-    QCOMPARE(content(), QString("<a>\n  <b><c/>text</b>\n </a>"));
+    QCOMPARE(content(),  QStringLiteral("<a>\n  <b><c/>text</b>\n </a>"));
 }
 
 void TestXmlWriter::testTextSpan()
@@ -127,7 +127,7 @@ void TestXmlWriter::testTextSpan()
     writer->startElement("p", false /*no indent*/);
     writer->addTextSpan(QString::fromLatin1("   \t\n foo  "));
     writer->endElement();
-    QCOMPARE(content(), QString("<p><text:s text:c=\"3\"/><text:tab/><text:line-break/> foo<text:s text:c=\"2\"/></p>"));
+    QCOMPARE(content(),  QStringLiteral("<p><text:s text:c=\"3\"/><text:tab/><text:line-break/> foo<text:s text:c=\"2\"/></p>"));
 }
 
 void TestXmlWriter::testTextSpanWithTabCache()
@@ -149,14 +149,14 @@ void TestXmlWriter::testProcessingInstruction()
     writer->addProcessingInstruction("opendocument foobar");
     writer->addTextSpan(QString::fromLatin1("foo"));
     writer->endElement();
-    QCOMPARE(content(), QString("<p><?opendocument foobar?>foo</p>"));
+    QCOMPARE(content(),  QStringLiteral("<p><?opendocument foobar?>foo</p>"));
 }
 
 void TestXmlWriter::testAddManifestEntry()
 {
     setup();
     writer->addManifestEntry(QString::fromLatin1("foo/bar/blah"), QString::fromLatin1("mime/type"));
-    QCOMPARE(content(), QString("<manifest:file-entry manifest:media-type=\"mime/type\" "
+    QCOMPARE(content(), QStringLiteral("<manifest:file-entry manifest:media-type=\"mime/type\" "
                 "manifest:full-path=\"foo/bar/blah\"/>"));
 }
 
@@ -165,16 +165,16 @@ void TestXmlWriter::testEscapingLongString()
 {
     int sz = 15000;  // must be more than KoXmlWriter::s_escapeBufferLen
     QString x(sz);
-    x.fill('x', sz);
-    x += '&';
+    x.fill(QLatin1Char('x'), sz);
+    x += QLatin1Char('&');
     setup();
 
     writer->startElement("test");
     writer->addAttribute("a", x);
     writer->endElement();
 
-    QString expected = "<test a=\"";
-    expected += x + "amp;\"/>";
+    QString expected = QStringLiteral(u"<test a=\"");
+    expected += x + QStringLiteral(u"amp;\"/>");
     QCOMPARE(content(), QString(expected));
 }
 
@@ -187,8 +187,8 @@ void TestXmlWriter::testEscalingLongString2()
     writer->startElement("test");
     writer->addAttribute("a", longPath);
     writer->endElement();
-    QString expected = "<test a=\"";
-    expected += longPath.toUtf8() + "\"/>";
+    QString expected = QStringLiteral(u"<test a=\"");
+    expected += longPath + QStringLiteral(u"\"/>");
     QCOMPARE(content(), expected);
 
 }
@@ -202,7 +202,7 @@ void TestXmlWriter::testConfig()
     writer->addConfigItem(QString::fromLatin1("TestConfigBool"), val);
     writer->addConfigItem(QString::fromLatin1("TestConfigInt"), num);
     writer->addConfigItem(QString::fromLatin1("TestConfigDouble"), numdouble);
-    QCOMPARE(content(), QString("<config:config-item config:name=\"TestConfigBool\""
+    QCOMPARE(content(),  QStringLiteral("<config:config-item config:name=\"TestConfigBool\""
             " config:type=\"boolean\">true</config:config-item>\n"
             " <config:config-item config:name=\"TestConfigInt\" config:type=\"int\">1</config:config-item>\n"
             " <config:config-item config:name=\"TestConfigDouble\" config:type=\"double\">5</config:config-item>"));

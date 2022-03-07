@@ -81,51 +81,51 @@ View::View(Part *part,  QWidget *parent, KActionCollection *collection)
     // The menu items
     // ------ Edit
     actionRemoveSelectedPackages  = new QAction(koIcon("edit-delete"), i18n("Remove Packages"), this);
-    collection->addAction("package_remove_selected", actionRemoveSelectedPackages);
+    collection->addAction(QStringLiteral("package_remove_selected"), actionRemoveSelectedPackages);
     connect(actionRemoveSelectedPackages, &QAction::triggered, this, &View::slotRemoveSelectedPackages);
 
     actionRemoveCurrentPackage  = new QAction(koIcon("edit-delete"), i18n("Remove Package"), this);
-    collection->addAction("package_remove_current", actionRemoveCurrentPackage);
+    collection->addAction(QStringLiteral("package_remove_current"), actionRemoveCurrentPackage);
     connect(actionRemoveCurrentPackage, &QAction::triggered, this, &View::slotRemoveCurrentPackage);
 
     actionViewList  = new QAction(koIcon("view-list-tree"), i18n("List"), this);
     actionViewList->setToolTip(i18nc("@info:tooltip", "Select task list"));
-    collection->addAction("view_list", actionViewList);
+    collection->addAction(QStringLiteral("view_list"), actionViewList);
     connect(actionViewList, &QAction::triggered, this, &View::slotViewList);
 
     actionViewGantt  = new QAction(koIcon("view-time-schedule"), i18n("Gantt"), this);
     actionViewGantt->setToolTip(i18nc("@info:tooltip", "Select timeline"));
-    collection->addAction("view_gantt", actionViewGantt);
+    collection->addAction(QStringLiteral("view_gantt"), actionViewGantt);
     connect(actionViewGantt, &QAction::triggered, this, &View::slotViewGantt);
 
     //------ Settings
     actionConfigure  = new QAction(koIcon("configure"), i18n("Configure PlanWork..."), this);
-    collection->addAction("configure", actionConfigure);
+    collection->addAction(QStringLiteral("configure"), actionConfigure);
     connect(actionConfigure, &QAction::triggered, this, &View::slotConfigure);
 
     //------ Popups
     actionEditDocument  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    collection->addAction("edit_document", actionEditDocument);
+    collection->addAction(QStringLiteral("edit_document"), actionEditDocument);
     connect(actionEditDocument, &QAction::triggered, this, QOverload<>::of(&View::slotEditDocument));
 
     actionViewDocument  = new QAction(koIcon("document-preview"), i18nc("@verb", "View..."), this);
-    collection->addAction("view_document", actionViewDocument);
+    collection->addAction(QStringLiteral("view_document"), actionViewDocument);
     connect(actionViewDocument, &QAction::triggered, this, &View::slotViewDocument);
 
     actionRemoveDocument = new QAction(koIcon("list-remove"), i18n("Remove document"), this);
-    collection->addAction("remove_document", actionRemoveDocument);
+    collection->addAction(QStringLiteral("remove_document"), actionRemoveDocument);
     connect(actionRemoveDocument, &QAction::triggered, this, &View::slotRemoveDocument);
 
     actionSendPackage  = new QAction(koIcon("mail-send"), i18n("Send Package..."), this);
-    collection->addAction("edit_sendpackage", actionSendPackage);
+    collection->addAction(QStringLiteral("edit_sendpackage"), actionSendPackage);
     connect(actionSendPackage, &QAction::triggered, this, &View::slotSendPackage);
 
     actionTaskCompletion  = new QAction(koIcon("document-edit"), i18n("Edit Progress..."), this);
-    collection->addAction("task_progress", actionTaskCompletion);
+    collection->addAction(QStringLiteral("task_progress"), actionTaskCompletion);
     connect(actionTaskCompletion, &QAction::triggered, this, &View::slotTaskCompletion);
 
     actionViewDescription  = new QAction(/*koIcon("document_view"),*/ i18n("View Description..."), this);
-    collection->addAction("task_description", actionViewDescription);
+    collection->addAction(QStringLiteral("task_description"), actionViewDescription);
     connect(actionViewDescription, &QAction::triggered, this, &View::slotTaskDescription);
 
 
@@ -351,7 +351,7 @@ void View::slotSendPackage()
 
     bool wasmodified = wp->isModified();
     if (wp->sendUrl().isValid()) {
-        QTemporaryFile temp(wp->sendUrl().toLocalFile() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String(".planwork"));
+        QTemporaryFile temp(wp->sendUrl().toLocalFile() + QStringLiteral("/calligraplanwork_XXXXXX") + QStringLiteral(".planwork"));
         temp.setAutoRemove(false);
         if (! temp.open()) {
             KMessageBox::error(nullptr, i18n("Could not open file. Sending is aborted."));
@@ -359,7 +359,7 @@ void View::slotSendPackage()
         }
         wp->saveNativeFormat(part(), temp.fileName());
     } else {
-        QTemporaryFile temp(QDir::tempPath() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String(".planwork"));
+        QTemporaryFile temp(QDir::tempPath() + QStringLiteral("/calligraplanwork_XXXXXX") + QStringLiteral(".planwork"));
         temp.setAutoRemove(false);
         if (! temp.open()) {
             KMessageBox::error(nullptr, i18n("Could not open temporary file. Sending is aborted."));

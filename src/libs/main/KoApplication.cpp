@@ -104,7 +104,7 @@ KoApplication::KoApplication(const QByteArray &nativeMimeType,
     KDBusService service(KDBusService::Multiple);
 
     new KoApplicationAdaptor(this);
-    QDBusConnection::sessionBus().registerObject("/application", this);
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/application"), this);
 #endif
 
 #ifdef Q_OS_MACX
@@ -153,10 +153,10 @@ BOOL isWow64()
 
 bool KoApplication::openAutosaveFile(const QDir &autosaveDir, const QString &autosaveFile)
 {
-    const QStringList split = autosaveFile.split('-');
+    const QStringList split = autosaveFile.split(QLatin1Char('-'));
     // FIXME: more generic?
-    QString mimetype = split.last().endsWith(".planp") ? QStringLiteral(PLANPORTFOLIO_MIME_TYPE) : QStringLiteral(PLAN_MIME_TYPE);
-    KoPart *part = getPart(split.value(0).remove('.'), mimetype);
+    QString mimetype = split.last().endsWith(QString::fromLatin1(".planp")) ? PLANPORTFOLIO_MIME_TYPE : PLAN_MIME_TYPE;
+    KoPart *part = getPart(split.value(0).remove(QLatin1Char('.')), mimetype);
     if (!part) {
         return false;
     }
@@ -196,12 +196,12 @@ bool KoApplication::start(const KoComponentData &componentData)
     if (fileUrls.isEmpty()) {
         // get all possible autosave files in the home dir, this is for unsaved document autosave files
         // Using the extension allows to avoid relying on the mime magic when opening
-        QMimeType mimeType = QMimeDatabase().mimeTypeForName(d->nativeMimeType);
+        QMimeType mimeType = QMimeDatabase().mimeTypeForName(QString::fromLatin1(d->nativeMimeType));
         if (!mimeType.isValid()) {
             qFatal("It seems your installation is broken/incomplete because we failed to load the native mimetype \"%s\".", d->nativeMimeType.constData());
         }
         QStringList filters;
-        filters << QString(".%1-%2-%3-autosave%4").arg(applicationName()).arg("*").arg("*").arg(mimeType.preferredSuffix());
+        filters << QStringLiteral(".%1-%2-%3-autosave%4").arg(applicationName()).arg(QLatin1Char('*')).arg(QLatin1Char('*')).arg(mimeType.preferredSuffix());
 
 #ifdef Q_OS_WIN
         QDir autosaveDir = QDir::tempPath();
@@ -217,9 +217,9 @@ bool KoApplication::start(const KoComponentData &componentData)
         QDBusReply<QStringList> reply = QDBusConnection::sessionBus().interface()->registeredServiceNames();
         const auto names = reply.value();
         for (const QString &name : names) {
-            if (name.contains("calligraplan")) {
+            if (name.contains(QStringLiteral("calligraplan"))) {
                 // we got another instance of ourselves running, let's get the pid
-                QString pid = name.split('-').last();
+                QString pid = name.split(QLatin1Char('-')).last();
                 if (pid != ourPid) {
                     pids << pid;
                 }
@@ -236,7 +236,7 @@ bool KoApplication::start(const KoComponentData &componentData)
                 autosaveFiles.removeAll(autosaveFileName);
                 continue;
             }
-            QStringList split = autosaveFileName.split('-');
+            QStringList split = autosaveFileName.split(QLatin1Char('-'));
             if (split.size() == 4) {
                 if (pids.contains(split[1])) {
                     // We've got an active, owned autosave file. Remove.
@@ -273,7 +273,7 @@ bool KoApplication::start(const KoComponentData &componentData)
                 return true;
             }
         }
-        KoPart *part = getPart(applicationName(), d->nativeMimeType);
+        KoPart *part = getPart(applicationName(), QString::fromLatin1(d->nativeMimeType));
         if (!part) {
             return false;
         }
@@ -288,12 +288,12 @@ bool KoApplication::start(const KoComponentData &componentData)
         mainWindow->show();
         return true;
     } else {
-        const bool benchmarkLoading = parser.isSet("benchmark-loading")
-        || parser.isSet("benchmark-loading-show-window");
+        const bool benchmarkLoading = parser.isSet(QStringLiteral("benchmark-loading"))
+        || parser.isSet(QStringLiteral("benchmark-loading-show-window"));
         // only show the mainWindow when no command-line mode option is passed
-        const bool showmainWindow = parser.isSet("benchmark-loading-show-window")
-        || !parser.isSet("benchmark-loading");
-        const QString profileFileName = parser.value("profile-filename");
+        const bool showmainWindow = parser.isSet(QStringLiteral("benchmark-loading-show-window"))
+        || !parser.isSet(QStringLiteral("benchmark-loading"));
+        const QString profileFileName = parser.value(QStringLiteral("profile-filename"));
 
         QTextStream profileoutput;
         QFile profileFile(profileFileName);
@@ -314,7 +314,7 @@ bool KoApplication::start(const KoComponentData &componentData)
             QUrl::fromUserInput(fileUrl) :
             QUrl::fromLocalFile(QDir::current().absoluteFilePath(fileUrl));
 
-            KoPart *part = getPart(applicationName(), d->nativeMimeType);
+            KoPart *part = getPart(applicationName(), QString::fromLatin1(d->nativeMimeType));
             if (part) {
                 KoDocument *doc = part->document();
                 // show a mainWindow asap
@@ -395,9 +395,9 @@ QList<KoPart*> KoApplication::partList() const
 
 QStringList KoApplication::mimeFilter(KoFilterManager::Direction direction) const
 {
-    KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(d->nativeMimeType);
+    KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(QString::fromLatin1(d->nativeMimeType));
     QJsonObject json = entry.metaData();
-    QStringList mimeTypes = json.value("X-KDE-ExtraNativeMimeTypes").toVariant().toStringList();
+    QStringList mimeTypes = json.value(QStringLiteral("X-KDE-ExtraNativeMimeTypes")).toVariant().toStringList();
     QStringList lst = KoFilterManager::mimeFilter(d->nativeMimeType, direction, mimeTypes);
     return lst;
 }

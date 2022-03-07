@@ -255,6 +255,22 @@ public:
         }
         m_properties[type].insert(propName, QString::fromUtf8(propValue));
     }
+    /// Overloaded version of addProperty that takes a char*, usually for "..."
+    void addProperty(const char *propName, const char *propValue, PropertyType type = DefaultType) {
+        const auto name = QLatin1String(propName);
+        if (type == DefaultType) {
+            type = m_propertyType;
+        }
+        m_properties[type].insert(name, QString::fromUtf8(propValue));
+    }
+    /// Overloaded version of addProperty that takes a char*, usually for "..."
+    void addProperty(const char *propName, const QString &propValue, PropertyType type = DefaultType) {
+        const auto name = QLatin1String(propName);
+        if (type == DefaultType) {
+            type = m_propertyType;
+        }
+        m_properties[type].insert(name, propValue);
+    }
     /// Overloaded version of addProperty that converts an int to a string
     void addProperty(const QString &propName, int propValue, PropertyType type = DefaultType) {
         if (type == DefaultType) {
@@ -267,7 +283,7 @@ public:
         if (type == DefaultType) {
             type = m_propertyType;
         }
-        m_properties[type].insert(propName, propValue ? "true" : "false");
+        m_properties[type].insert(propName, propValue ? QStringLiteral("true") : QStringLiteral("false"));
     }
 
     /**
@@ -277,7 +293,8 @@ public:
      *  and the unit name ("pt") is appended to it.
      */
     void addPropertyPt(const QString &propName, qreal propValue, PropertyType type = DefaultType);
-    
+    void addPropertyPt(const char *propName, qreal propValue, PropertyType type = DefaultType);
+
     /**
      *  Add a property which represents a length, measured in pt, or in percent
      *  The number is written out with the highest possible precision
@@ -320,14 +337,30 @@ public:
     void addAttribute(const QString &attrName, const char* attrValue) {
         m_attributes.insert(attrName, QString::fromUtf8(attrValue));
     }
+    /// Overloaded version of addAttribute that takes a char*, usually for "..."
+    void addAttribute(const char *attrName, const char* attrValue) {
+        m_attributes.insert(QLatin1String(attrName), QString::fromUtf8(attrValue));
+    }
+    /// Overloaded version of addAttribute that takes a char*, usually for "..."
+    void addAttribute(const char *attrName, const QString &attrValue) {
+        m_attributes.insert(QLatin1String(attrName), attrValue);
+    }
     /// Overloaded version of addAttribute that converts an int to a string
     void addAttribute(const QString &attrName, int attrValue) {
         m_attributes.insert(attrName, QString::number(attrValue));
     }
+    /// Overloaded version of addAttribute that converts an int to a string
+    void addAttribute(const char *attrName, int attrValue) {
+        m_attributes.insert(QLatin1String(attrName), QString::number(attrValue));
+    }
 
     /// Overloaded version of addAttribute that converts a bool to a string
     void addAttribute(const QString &attrName, bool attrValue) {
-        m_attributes.insert(attrName, attrValue ? "true" : "false");
+        m_attributes.insert(attrName, attrValue ? QStringLiteral("true") : QStringLiteral("false"));
+    }
+    /// Overloaded version of addAttribute that converts a bool to a string
+    void addAttribute(const char *attrName, bool attrValue) {
+        addAttribute(attrName, attrValue ? "true" : "false");
     }
 
     /**
@@ -337,22 +370,28 @@ public:
      *  and the unit name ("pt") is appended to it.
      */
     void addAttributePt(const QString &attrName, qreal attrValue);
+    void addAttributePt(const char *attrName, qreal attrValue);
 
     /**
      * Add an attribute that represents a percentage value as defined in ODF
      */
     void addAttributePercent(const QString &attrName, qreal value);
+    void addAttributePercent(const char *attrName, qreal value);
 
     /**
      * Add an attribute that represents a percentage value as defined in ODF
      */
     void addAttributePercent(const QString &attrName, int value);
+    void addAttributePercent(const char* attrName, int value);
 
     /**
      *  Remove an attribute from the style.
      */
     void removeAttribute(const QString &attrName) {
         m_attributes.remove(attrName);
+    }
+    void removeAttribute(const char *attrName) {
+        m_attributes.remove(QLatin1String(attrName));
     }
 
 
@@ -380,6 +419,9 @@ public:
             type = m_propertyType;
         }
         m_childProperties[type].insert(elementName, elementContents);
+    }
+    void addChildElement(const char *elementName, const QString& elementContents, PropertyType type = DefaultType) {
+        addChildElement(QLatin1String(elementName), elementContents, type);
     }
 
     /**
@@ -439,6 +481,9 @@ public:
     void writeStyle(KoXmlWriter *writer, const KoGenStyles &styles, const char *elementName, const QString &name,
                     const char *propertiesElementName, bool closeElement = true, bool drawElement = false) const;
 
+    void writeStyle(KoXmlWriter *writer, const KoGenStyles &styles, const char *elementName, const char *name,
+                    const char *propertiesElementName, bool closeElement = true, bool drawElement = false) const;
+
     /**
      *  Write the definition of these style properties to @p writer, using the OASIS format.
      *  @param writer the KoXmlWriter in which @p elementName will be created and filled in
@@ -496,6 +541,10 @@ public:
         if (it != m_attributes.constEnd())
             return it.value();
         return QString();
+    }
+    /// Returns an attribute of this style. In principal this class is meant to be write-only, but some exceptional cases having read-support as well is very useful.
+    QString attribute(const char *propName) const {
+        return attribute(QLatin1String(propName));
     }
 
     /**

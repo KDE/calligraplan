@@ -217,22 +217,22 @@ bool GanttPrintingOptions::loadContext(const KoXmlElement &settings)
 {
     KoXmlElement e = settings.namedItem("print-options").toElement();
     if (! e.isNull()) {
-        context.setDrawRowLabels((bool)(e.attribute("print-rowlabels", "1").toInt()));
-        context.setDrawColumnLabels((bool)(e.attribute("print-columnlabels", "1").toInt()));
-        if ((e.attribute("print-singlepage", "0").toInt())) {
+        context.setDrawRowLabels((bool)(e.attribute(QStringLiteral("print-rowlabels"), QString::number(1)).toInt()));
+        context.setDrawColumnLabels((bool)(e.attribute(QStringLiteral("print-columnlabels"), QString::number(1)).toInt()));
+        if ((e.attribute(QStringLiteral("print-singlepage"), QString::number(0)).toInt())) {
             context.setFitting(KGantt::PrintingContext::FitSinglePage);
-        } else if ((bool)(e.attribute("print-pageheight", "0").toInt())) {
+        } else if ((bool)(e.attribute(QStringLiteral("print-pageheight"), QString::number(0)).toInt())) {
             context.setFitting(KGantt::PrintingContext::FitPageHeight);
-        } else if ((bool)(e.attribute("print-nofitting", "1").toInt())) {
+        } else if ((bool)(e.attribute(QStringLiteral("print-nofitting"), QString::number(1)).toInt())) {
             context.setFitting(KGantt::PrintingContext::NoFitting);
         }
-        useStartTime = (bool)(e.attribute("print-use-starttime", "0").toInt());
-        if (e.hasAttribute("print-starttime")) {
-            diagramStart = QDateTime::fromString(e.attribute("print-starttime"), Qt::ISODate);
+        useStartTime = (bool)(e.attribute(QStringLiteral("print-use-starttime"), QString::number(0)).toInt());
+        if (e.hasAttribute(QStringLiteral("print-starttime"))) {
+            diagramStart = QDateTime::fromString(e.attribute(QStringLiteral("print-starttime")), Qt::ISODate);
         }
-        useEndTime = (bool)(e.attribute("print-use-endtime", "0").toInt());
-        if (e.hasAttribute("print-endtime")) {
-            diagramEnd = QDateTime::fromString(e.attribute("print-endtime"), Qt::ISODate);
+        useEndTime = (bool)(e.attribute(QStringLiteral("print-use-endtime"), QString::number(0)).toInt());
+        if (e.hasAttribute(QStringLiteral("print-endtime"))) {
+            diagramEnd = QDateTime::fromString(e.attribute(QStringLiteral("print-endtime")), Qt::ISODate);
         }
     }
     return true;
@@ -240,21 +240,21 @@ bool GanttPrintingOptions::loadContext(const KoXmlElement &settings)
 
 void GanttPrintingOptions::saveContext(QDomElement &settings) const
 {
-    QDomElement e = settings.ownerDocument().createElement("print-options");
+    QDomElement e = settings.ownerDocument().createElement(QStringLiteral("print-options"));
     settings.appendChild(e);
-    e.setAttribute("print-rowlabels", QString::number(context.drawRowLabels()));
-    e.setAttribute("print-columnlabels", QString::number(context.drawColumnLabels()));
+    e.setAttribute(QStringLiteral("print-rowlabels"), QString::number(context.drawRowLabels()));
+    e.setAttribute(QStringLiteral("print-columnlabels"), QString::number(context.drawColumnLabels()));
     if (context.fitting() & KGantt::PrintingContext::FitSinglePage) {
-        e.setAttribute("print-singlepage", QString::number(1));
+        e.setAttribute(QStringLiteral("print-singlepage"), QString::number(1));
     } else if (context.fitting() & KGantt::PrintingContext::FitPageHeight) {
-        e.setAttribute("print-pageheight", QString::number(1));
+        e.setAttribute(QStringLiteral("print-pageheight"), QString::number(1));
     } else {
-        e.setAttribute("print-nofitting", QString::number(1));
+        e.setAttribute(QStringLiteral("print-nofitting"), QString::number(1));
     }
-    e.setAttribute("print-use-starttime", QString::number(useStartTime));
-    e.setAttribute("print-starttime", diagramStart.toString(Qt::ISODate));
-    e.setAttribute("print-use-endtime", QString::number(useEndTime));
-    e.setAttribute("print-endtime", diagramEnd.toString(Qt::ISODate));
+    e.setAttribute(QStringLiteral("print-use-starttime"), QString::number(useStartTime));
+    e.setAttribute(QStringLiteral("print-starttime"), diagramStart.toString(Qt::ISODate));
+    e.setAttribute(QStringLiteral("print-use-endtime"), QString::number(useEndTime));
+    e.setAttribute(QStringLiteral("print-endtime"), diagramEnd.toString(Qt::ISODate));
 }
 
 
@@ -406,7 +406,7 @@ qreal GanttPrintingDialog::rowLabelsWidth(const QPaintDevice *device) const
 {
     qreal labelsWidth = 0.0;
     QFont sceneFont(m_gantt->graphicsView()->font(), device);
-    QGraphicsTextItem dummyTextItem( QLatin1String("X") );
+    QGraphicsTextItem dummyTextItem( QStringLiteral("X") );
     dummyTextItem.adjustSize();
     QFontMetricsF fm(dummyTextItem.font());
     sceneFont.setPixelSize( fm.height() );
@@ -603,23 +603,23 @@ GanttTreeView *GanttViewBase::treeView() const
 bool GanttViewBase::loadContext(const KoXmlElement &settings)
 {
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
-    g->setScale(static_cast<KGantt::DateTimeGrid::Scale>(settings.attribute("chart-scale", "0").toInt()));
-    g->setDayWidth(settings.attribute("chart-daywidth", "30").toDouble());
+    g->setScale(static_cast<KGantt::DateTimeGrid::Scale>(settings.attribute(QStringLiteral("chart-scale"), QString::number(0)).toInt()));
+    g->setDayWidth(settings.attribute(QStringLiteral("chart-daywidth"), QString::number(30)).toDouble());
 
     DateTimeTimeLine::Options opt;
-    opt.setFlag(DateTimeTimeLine::Foreground, settings.attribute("timeline-foreground").toInt());
-    opt.setFlag(DateTimeTimeLine::Background, settings.attribute("timeline-background").toInt());
-    opt.setFlag(DateTimeTimeLine::UseCustomPen, settings.attribute("timeline-custom").toInt());
+    opt.setFlag(DateTimeTimeLine::Foreground, settings.attribute(QStringLiteral("timeline-foreground")).toInt());
+    opt.setFlag(DateTimeTimeLine::Background, settings.attribute(QStringLiteral("timeline-background")).toInt());
+    opt.setFlag(DateTimeTimeLine::UseCustomPen, settings.attribute(QStringLiteral("timeline-custom")).toInt());
     timeLine()->setOptions(opt);
 
-    timeLine()->setInterval(settings.attribute("timeline-interval", nullptr).toInt() * 60000);
+    timeLine()->setInterval(settings.attribute(QStringLiteral("timeline-interval")).toInt() * 60000);
 
     QPen pen;
-    pen.setWidth(settings.attribute("timeline-width").toInt());
-    pen.setColor(QColor(settings.attribute("timeline-color")));
+    pen.setWidth(settings.attribute(QStringLiteral("timeline-width")).toInt());
+    pen.setColor(QColor(settings.attribute(QStringLiteral("timeline-color"))));
     timeLine()->setPen(pen);
 
-    setShowRowSeparators(settings.attribute("show-rowseparators", "0").toInt());
+    setShowRowSeparators(settings.attribute(QStringLiteral("show-rowseparators"), QString::number(0)).toInt());
 
     return true;
 }
@@ -627,17 +627,17 @@ bool GanttViewBase::loadContext(const KoXmlElement &settings)
 void GanttViewBase::saveContext(QDomElement &settings) const
 {
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
-    settings.setAttribute("chart-scale", QString::number(g->scale()));
-    settings.setAttribute("chart-daywidth", QString::number(g->dayWidth()));
+    settings.setAttribute(QStringLiteral("chart-scale"), QString::number(g->scale()));
+    settings.setAttribute(QStringLiteral("chart-daywidth"), QString::number(g->dayWidth()));
 
-    settings.setAttribute("timeline-foreground", timeLine()->options() & DateTimeTimeLine::Foreground);
-    settings.setAttribute("timeline-background", timeLine()->options() & DateTimeTimeLine::Background);
-    settings.setAttribute("timeline-interval", timeLine()->interval() / 60000);
-    settings.setAttribute("timeline-custom", timeLine()->options() & DateTimeTimeLine::UseCustomPen);
-    settings.setAttribute("timeline-width", timeLine()->pen().width());
-    settings.setAttribute("timeline-color", timeLine()->pen().color().name());
+    settings.setAttribute(QStringLiteral("timeline-foreground"), timeLine()->options() & DateTimeTimeLine::Foreground);
+    settings.setAttribute(QStringLiteral("timeline-background"), timeLine()->options() & DateTimeTimeLine::Background);
+    settings.setAttribute(QStringLiteral("timeline-interval"), timeLine()->interval() / 60000);
+    settings.setAttribute(QStringLiteral("timeline-custom"), timeLine()->options() & DateTimeTimeLine::UseCustomPen);
+    settings.setAttribute(QStringLiteral("timeline-width"), timeLine()->pen().width());
+    settings.setAttribute(QStringLiteral("timeline-color"), timeLine()->pen().color().name());
 
-    settings.setAttribute("show-rowseparators", showRowSeparators());
+    settings.setAttribute(QStringLiteral("show-rowseparators"), showRowSeparators());
 }
 
 void GanttViewBase::mousePressEvent(QMouseEvent *event)

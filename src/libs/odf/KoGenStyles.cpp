@@ -198,7 +198,7 @@ void KoGenStyles::Private::saveOdfDocumentStyles(KoXmlWriter* xmlWriter) const
     for (uint i = 0; i < numStyleData; ++i) {
         const QMap<int, KoGenStyle>::const_iterator it(defaultStyles.constFind(styleData[i].m_type));
         if (it != defaultStyles.constEnd()) {
-            it.value().writeStyle(xmlWriter, *q, "style:default-style", "",
+            it.value().writeStyle(xmlWriter, *q, "style:default-style", QString(),
                                   styleData[i].m_propertiesElementName, true, styleData[i].m_drawElement);
         }
     }
@@ -345,9 +345,9 @@ QString KoGenStyles::insert(const KoGenStyle& style, const QString& baseName, In
                 testStyle.m_type = parentStyle->m_type;
                 // Also it's ok to not have the display name of the parent style
                 // in the auto style
-                QMap<QString, QString>::const_iterator it = parentStyle->m_attributes.find("style:display-name");
+                QMap<QString, QString>::const_iterator it = parentStyle->m_attributes.find(QStringLiteral("style:display-name"));
                 if (it != parentStyle->m_attributes.end())
-                    testStyle.addAttribute("style:display-name", *it);
+                    testStyle.addAttribute(QStringLiteral("style:display-name"), *it);
 
                 if (*parentStyle == testStyle)
                     return style.parentName();
@@ -365,11 +365,11 @@ KoGenStyles::StyleMap::iterator KoGenStyles::Private::insertStyle(const KoGenSty
     QString styleName(baseName);
     if (styleName.isEmpty()) {
         switch (style.type()) {
-        case KoGenStyle::ParagraphAutoStyle: styleName = 'P'; break;
-        case KoGenStyle::ListAutoStyle: styleName = 'L'; break;
-        case KoGenStyle::TextAutoStyle: styleName = 'T'; break;
+        case KoGenStyle::ParagraphAutoStyle: styleName = QLatin1Char('P'); break;
+        case KoGenStyle::ListAutoStyle: styleName = QLatin1Char('L'); break;
+        case KoGenStyle::TextAutoStyle: styleName = QLatin1Char('T'); break;
         default:
-            styleName = 'A'; // for "auto".
+            styleName = QLatin1Char('A'); // for "auto".
         }
         flags &= ~DontAddNumberToName; // i.e. force numbering
     }
@@ -438,7 +438,7 @@ KoFontFace KoGenStyles::fontFace(const QString& name) const
 
 bool KoGenStyles::saveOdfStylesDotXml(KoStore* store, KoXmlWriter* manifestWriter) const
 {
-    if (!store->open("styles.xml"))
+    if (!store->open(QStringLiteral("styles.xml")))
         return false;
 
     manifestWriter->addManifestEntry("styles.xml",  "text/xml");
@@ -507,7 +507,7 @@ void KoGenStyles::insertStyleRelation(const QString &source, const QString &targ
 {
     KoGenStyles::Private::RelationTarget relation;
     relation.target = target;
-    relation.attribute = QString(tagName);
+    relation.attribute = QLatin1String(tagName);
     d->relations.insert(source, relation);
 }
 

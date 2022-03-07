@@ -165,7 +165,7 @@ void ResourceAllocationEditor::slotOptions()
 {
     debugPlan;
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
-    dlg->addPrintingOptions(sender()->objectName() == "print_options");
+    dlg->addPrintingOptions(sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }

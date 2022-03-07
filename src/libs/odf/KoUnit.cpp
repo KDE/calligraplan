@@ -227,7 +227,7 @@ qreal KoUnit::parseValue(const QString& _value, qreal defaultVal)
     value.truncate(firstLetter);
     const qreal val = value.toDouble();
 
-    if (symbol == QLatin1String("pt"))
+    if (symbol == QStringLiteral("pt"))
         return val;
 
     bool ok;
@@ -235,9 +235,9 @@ qreal KoUnit::parseValue(const QString& _value, qreal defaultVal)
     if (ok)
         return u.fromUserValue(val);
 
-    if (symbol == QLatin1String("m"))
+    if (symbol == QStringLiteral("m"))
         return DM_TO_POINT(val * 10.0);
-    else if (symbol == QLatin1String("km"))
+    else if (symbol == QStringLiteral("km"))
         return DM_TO_POINT(val * 10000.0);
     warnOdf << "KoUnit::parseValue: Unit " << symbol << " is not supported, please report.";
 
@@ -249,7 +249,7 @@ KoUnit KoUnit::fromSymbol(const QString &symbol, bool *ok)
 {
     Type result = Point;
 
-    if (symbol == QLatin1String("inch") /*compat*/) {
+    if (symbol == QStringLiteral("inch") /*compat*/) {
         result = Inch;
         if (ok)
             *ok = true;
@@ -351,11 +351,11 @@ qreal KoUnit::parseAngle(const QString& _value, qreal defaultVal)
     value.truncate(firstLetter);
     const qreal val = value.toDouble();
 
-    if (type == QLatin1String("deg"))
+    if (type == QStringLiteral("deg"))
         return val;
-    else if (type == QLatin1String("rad"))
+    else if (type == QStringLiteral("rad"))
         return val * 180 / M_PI;
-    else if (type == QLatin1String("grad"))
+    else if (type == QStringLiteral("grad"))
         return val * 0.9;
 
     return defaultVal;

@@ -82,7 +82,7 @@ DockWidget::DockWidget(ViewBase *v, const QString &identity,  const QString &tit
     m_shown(true)
 {
     setWindowTitle(title);
-    setObjectName(v->objectName() + '-' + identity);
+    setObjectName(v->objectName() + QLatin1Char('-') + identity);
     toggleViewAction()->setObjectName(objectName());
     connect(this, &QDockWidget::dockLocationChanged, this, &DockWidget::setLocation);
 }
@@ -94,7 +94,7 @@ void DockWidget::activate(KoMainWindow *mainWindow)
     mainWindow->addDockWidget(location, this);
 
     const KActionCollection *c = mainWindow->actionCollection();
-    KActionMenu *a = qobject_cast<KActionMenu*>(c->action("settings_dockers_menu"));
+    KActionMenu *a = qobject_cast<KActionMenu*>(c->action(QStringLiteral("settings_dockers_menu")));
     if (a) {
         a->addAction(toggleViewAction());
     }
@@ -107,7 +107,7 @@ void DockWidget::deactivate(KoMainWindow *mainWindow)
      // activation re-parents to QMainWindow, so re-parent back to view
     setParent(const_cast<ViewBase*>(view));
     const KActionCollection *c = mainWindow->actionCollection();
-    KActionMenu *a = qobject_cast<KActionMenu*>(c->action("settings_dockers_menu"));
+    KActionMenu *a = qobject_cast<KActionMenu*>(c->action(QStringLiteral("settings_dockers_menu")));
     if (a) {
         a->removeAction(toggleViewAction());
     }
@@ -131,20 +131,20 @@ void DockWidget::setLocation(Qt::DockWidgetArea area)
 
 bool DockWidget::saveXml(QDomElement &context) const
 {
-    QDomElement e = context.ownerDocument().createElement("docker");
+    QDomElement e = context.ownerDocument().createElement(QStringLiteral("docker"));
     context.appendChild(e);
-    e.setAttribute("id", id);
-    e.setAttribute("location", QString::number(location));
-    e.setAttribute("floating", QString::number(isFloating()));
-    e.setAttribute("visible", QString::number(m_shown));
+    e.setAttribute(QStringLiteral("id"), id);
+    e.setAttribute(QStringLiteral("location"), QString::number(location));
+    e.setAttribute(QStringLiteral("floating"), QString::number(isFloating()));
+    e.setAttribute(QStringLiteral("visible"), QString::number(m_shown));
     return true;
 }
 
 void DockWidget::loadXml(const KoXmlElement& context)
 {
-    location = static_cast<Qt::DockWidgetArea>(context.attribute("location", "0").toInt());
-    setFloating((bool) context.attribute("floating", "0").toInt());
-    m_shown = context.attribute("visible", "1").toInt();
+    location = static_cast<Qt::DockWidgetArea>(context.attribute("location", QString::number(0)).toInt());
+    setFloating((bool) context.attribute("floating", QString::number(0)).toInt());
+    m_shown = context.attribute(QStringLiteral("visible"), QString::number(1)).toInt();
 }
 
 //------------------------
@@ -152,18 +152,18 @@ bool PrintingOptions::loadXml(KoXmlElement &element)
 {
     KoXmlElement e;
     forEachElement(e, element) {
-        if (e.tagName() == "header") {
-            headerOptions.group = e.attribute("group", "0").toInt();
-            headerOptions.project = static_cast<Qt::CheckState>(e.attribute("project", "0").toInt());
-            headerOptions.date = static_cast<Qt::CheckState>(e.attribute("date", "0").toInt());
-            headerOptions.manager = static_cast<Qt::CheckState>(e.attribute("manager", "0").toInt());
-            headerOptions.page = static_cast<Qt::CheckState>(e.attribute("page", "0").toInt());
-        } else if (e.tagName() == "footer") {
-            footerOptions.group = e.attribute("group", "0").toInt();
-            footerOptions.project = static_cast<Qt::CheckState>(e.attribute("project", "0").toInt());
-            footerOptions.date = static_cast<Qt::CheckState>(e.attribute("date", "0").toInt());
-            footerOptions.manager = static_cast<Qt::CheckState>(e.attribute("manager", "0").toInt());
-            footerOptions.page = static_cast<Qt::CheckState>(e.attribute("page", "0").toInt());
+        if (e.tagName() == QStringLiteral("header")) {
+            headerOptions.group = e.attribute("group", QString::number(0)).toInt();
+            headerOptions.project = static_cast<Qt::CheckState>(e.attribute("project", QString::number(0)).toInt());
+            headerOptions.date = static_cast<Qt::CheckState>(e.attribute("date", QString::number(0)).toInt());
+            headerOptions.manager = static_cast<Qt::CheckState>(e.attribute("manager", QString::number(0)).toInt());
+            headerOptions.page = static_cast<Qt::CheckState>(e.attribute("page", QString::number(0)).toInt());
+        } else if (e.tagName() == QStringLiteral("footer")) {
+            footerOptions.group = e.attribute("group", QString::number(0)).toInt();
+            footerOptions.project = static_cast<Qt::CheckState>(e.attribute("project", QString::number(0)).toInt());
+            footerOptions.date = static_cast<Qt::CheckState>(e.attribute("date", QString::number(0)).toInt());
+            footerOptions.manager = static_cast<Qt::CheckState>(e.attribute("manager", QString::number(0)).toInt());
+            footerOptions.page = static_cast<Qt::CheckState>(e.attribute("page", QString::number(0)).toInt());
         }
     }
     return true;
@@ -171,24 +171,24 @@ bool PrintingOptions::loadXml(KoXmlElement &element)
 
 void PrintingOptions::saveXml(QDomElement &element) const
 {
-    QDomElement me = element.ownerDocument().createElement("printing-options");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("printing-options"));
     element.appendChild(me);
 
-    QDomElement h = me.ownerDocument().createElement("header");
+    QDomElement h = me.ownerDocument().createElement(QStringLiteral("header"));
     me.appendChild(h);
-    h.setAttribute("group", QString::number(headerOptions.group));
-    h.setAttribute("project", QString::number(headerOptions.project));
-    h.setAttribute("date", QString::number(headerOptions.date));
-    h.setAttribute("manager", QString::number(headerOptions.manager));
-    h.setAttribute("page", QString::number(headerOptions.page));
+    h.setAttribute(QStringLiteral("group"), QString::number(headerOptions.group));
+    h.setAttribute(QStringLiteral("project"), QString::number(headerOptions.project));
+    h.setAttribute(QStringLiteral("date"), QString::number(headerOptions.date));
+    h.setAttribute(QStringLiteral("manager"), QString::number(headerOptions.manager));
+    h.setAttribute(QStringLiteral("page"), QString::number(headerOptions.page));
 
-    QDomElement f = me.ownerDocument().createElement("footer");
+    QDomElement f = me.ownerDocument().createElement(QStringLiteral("footer"));
     me.appendChild(f);
-    f.setAttribute("group", QString::number(footerOptions.group));
-    f.setAttribute("project", QString::number(footerOptions.project));
-    f.setAttribute("date", QString::number(footerOptions.date));
-    f.setAttribute("manager", QString::number(footerOptions.manager));
-    f.setAttribute("page", QString::number(footerOptions.page));
+    f.setAttribute(QStringLiteral("group"), QString::number(footerOptions.group));
+    f.setAttribute(QStringLiteral("project"), QString::number(footerOptions.project));
+    f.setAttribute(QStringLiteral("date"), QString::number(footerOptions.date));
+    f.setAttribute(QStringLiteral("manager"), QString::number(footerOptions.manager));
+    f.setAttribute(QStringLiteral("page"), QString::number(footerOptions.page));
 }
 
 //----------------------
@@ -269,7 +269,7 @@ PrintingDialog::PrintingDialog(ViewBase *view, QPrinter::PrinterMode mode)
     px.setDotsPerMeterX(dpm);
     px.setDotsPerMeterY(dpm);
     QPainter p(&px);
-    m_textheight = p.boundingRect(QRectF(), Qt::AlignTop, "Aj").height();
+    m_textheight = p.boundingRect(QRectF(), Qt::AlignTop, QStringLiteral("Aj")).height();
     debugPlan<<"textheight:"<<m_textheight;
 }
 
@@ -720,13 +720,13 @@ void ViewBase::createOptionActions(int actions, const QString &prefix)
 
     if (actions & OptionExpand) {
         action = new QAction(koIcon("arrow-down"), i18n("Expand All"), this);
-        actionCollection()->addAction("expand_all", action);
+        actionCollection()->addAction(QStringLiteral("expand_all"), action);
         connect(action, &QAction::triggered, this, &ViewBase::expandAll);
         addContextAction(action, pos++);
     }
     if (actions & OptionCollapse) {
         action = new QAction(koIcon("arrow-up"), i18n("Collapse All"), this);
-        actionCollection()->addAction("collapse_all", action);
+        actionCollection()->addAction(QStringLiteral("collapse_all"), action);
         connect(action, &QAction::triggered, this, &ViewBase::collapseAll);
         addContextAction(action, pos++);
     }
@@ -741,23 +741,23 @@ void ViewBase::createOptionActions(int actions, const QString &prefix)
 
     if (actions & OptionPrint) {
         action = KStandardAction::create(KStandardAction::Print, mainWindow(), SLOT(slotFilePrint()), this);
-        actionCollection()->addAction("print", action);
+        actionCollection()->addAction(QStringLiteral("print"), action);
         addContextAction(action);
     }
     if (actions & OptionPrintPreview) {
         action = KStandardAction::create(KStandardAction::PrintPreview, mainWindow(), SLOT(slotFilePrintPreview()), this);
-        actionCollection()->addAction("print_preview", action);
+        actionCollection()->addAction(QStringLiteral("print_preview"), action);
         addContextAction(action);
     }
     if (actions & OptionPrintPdf) {
         action = new QAction(koIcon("application-pdf"), i18n("Print to PDF..."), this);
-        actionCollection()->addAction("print_pdf", action);
+        actionCollection()->addAction(QStringLiteral("print_pdf"), action);
         connect(action, SIGNAL(triggered()), mainWindow(), SLOT(exportToPdf()));
         addContextAction(action);
     }
     if (actions & OptionPrintConfig) {
         action = new QAction(koIcon("configure"), i18n("Print Options..."), this);
-        actionCollection()->addAction("print_options", action);
+        actionCollection()->addAction(QStringLiteral("print_options"), action);
         connect(action, &QAction::triggered, this, &ViewBase::slotOptions);
         addContextAction(action);
     }
@@ -768,7 +768,7 @@ void ViewBase::createOptionActions(int actions, const QString &prefix)
 
     if (actions & OptionViewConfig) {
         action = new QAction(koIcon("configure"), i18n("Configure View..."), this);
-        actionCollection()->addAction("configure_view", action);
+        actionCollection()->addAction(QStringLiteral("configure_view"), action);
         connect(action, &QAction::triggered, this, &ViewBase::slotOptions);
         addContextAction(action);
     }
@@ -810,18 +810,18 @@ bool ViewBase::loadContext(const KoXmlElement &context)
 {
     KoXmlElement me;
     forEachElement(me, context) {
-        if (me.tagName() == "page-layout") {
+        if (me.tagName() == QStringLiteral("page-layout")) {
             m_pagelayout.format = KoPageFormat::formatFromString(me.attribute("format"));
-            m_pagelayout.orientation = me.attribute("orientation") == "landscape" ? KoPageFormat::Landscape : KoPageFormat::Portrait;
-            m_pagelayout.width = me.attribute("width", "0.0").toDouble();
-            m_pagelayout.height = me.attribute("height", "0.0").toDouble();
+            m_pagelayout.orientation = me.attribute("orientation") == QStringLiteral("landscape") ? KoPageFormat::Landscape : KoPageFormat::Portrait;
+            m_pagelayout.width = me.attribute("width", QString::number(0)).toDouble();
+            m_pagelayout.height = me.attribute("height", QString::number(0.0)).toDouble();
             m_pagelayout.leftMargin = me.attribute("left-margin", QString::number(MM_TO_POINT(20.0))).toDouble();
             m_pagelayout.rightMargin = me.attribute("right-margin", QString::number(MM_TO_POINT(20.0))).toDouble();
             m_pagelayout.topMargin = me.attribute("top-margin", QString::number(MM_TO_POINT(20.0))).toDouble();
             m_pagelayout.bottomMargin = me.attribute("bottom-margin", QString::number(MM_TO_POINT(20.0))).toDouble();
-        } else if (me.tagName() == "printing-options") {
+        } else if (me.tagName() == QStringLiteral("printing-options")) {
             m_printingOptions.loadXml(me);
-        } else if (me.tagName() == "dockers") {
+        } else if (me.tagName() == QStringLiteral("dockers")) {
             KoXmlElement e;
             forEachElement (e, me) {
                 DockWidget *ds = findDocker(e.attribute("id"));
@@ -836,21 +836,21 @@ bool ViewBase::loadContext(const KoXmlElement &context)
 
 void ViewBase::saveContext(QDomElement &context) const
 {
-    QDomElement me = context.ownerDocument().createElement("page-layout");
+    QDomElement me = context.ownerDocument().createElement(QStringLiteral("page-layout"));
     context.appendChild(me);
-    me.setAttribute("format", KoPageFormat::formatString(m_pagelayout.format));
-    me.setAttribute("orientation", m_pagelayout.orientation == KoPageFormat::Portrait ? "portrait" : "landscape");
-    me.setAttribute("width", QString::number(m_pagelayout.width));
-    me.setAttribute("height",QString::number(m_pagelayout. height));
-    me.setAttribute("left-margin", QString::number(m_pagelayout.leftMargin));
-    me.setAttribute("right-margin", QString::number(m_pagelayout.rightMargin));
-    me.setAttribute("top-margin", QString::number(m_pagelayout.topMargin));
-    me.setAttribute("bottom-margin",QString::number(m_pagelayout.bottomMargin));
+    me.setAttribute(QStringLiteral("format"), KoPageFormat::formatString(m_pagelayout.format));
+    me.setAttribute(QStringLiteral("orientation"), m_pagelayout.orientation == KoPageFormat::Portrait ? QStringLiteral("portrait") : QStringLiteral("landscape"));
+    me.setAttribute(QStringLiteral("width"), QString::number(m_pagelayout.width));
+    me.setAttribute(QStringLiteral("height"),QString::number(m_pagelayout. height));
+    me.setAttribute(QStringLiteral("left-margin"), QString::number(m_pagelayout.leftMargin));
+    me.setAttribute(QStringLiteral("right-margin"), QString::number(m_pagelayout.rightMargin));
+    me.setAttribute(QStringLiteral("top-margin"), QString::number(m_pagelayout.topMargin));
+    me.setAttribute(QStringLiteral("bottom-margin"),QString::number(m_pagelayout.bottomMargin));
 
     m_printingOptions.saveXml(context);
 
     if (! m_dockers.isEmpty()) {
-        QDomElement e = context.ownerDocument().createElement("dockers");
+        QDomElement e = context.ownerDocument().createElement(QStringLiteral("dockers"));
         context.appendChild(e);
         for (const DockWidget *ds : qAsConst(m_dockers)) {
             ds->saveXml(e);
@@ -860,7 +860,7 @@ void ViewBase::saveContext(QDomElement &context) const
 
 void ViewBase::addDocker(DockWidget *ds)
 {
-    //addAction("view_docker_list", ds->toggleViewAction());
+    //addAction(QStringLiteral("view_docker_list"), ds->toggleViewAction());
     m_dockers << ds;
 }
 
@@ -1131,7 +1131,7 @@ void TreeViewBase::dropEvent(QDropEvent *e)
 KoPrintJob * TreeViewBase::createPrintJob(ViewBase *parent)
 {
     TreeViewPrintingDialog *dia = new TreeViewPrintingDialog(parent, this, parent->project());
-    dia->printer().setCreator(QString("Plan %1").arg(PLAN_VERSION_STRING));
+    dia->printer().setCreator(QStringLiteral("Plan %1").arg(QStringLiteral(PLAN_VERSION_STRING)));
 //    dia->printer().setFullPage(true); // ignore printer margins
     return dia;
 }
@@ -1676,29 +1676,29 @@ QModelIndex TreeViewBase::firstVisibleIndex(const QModelIndex &idx) const
 bool TreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &element, bool expand)
 {
     debugPlan<<this;
-    header()->setStretchLastSection((bool)(element.attribute("stretch-last-column", "1").toInt()));
+    header()->setStretchLastSection((bool)(element.attribute(QStringLiteral("stretch-last-column"), QString::number(1)).toInt()));
     KoXmlElement e = element.namedItem("columns").toElement();
     if (! e.isNull()) {
         if (! map.isValid()) {
             // try numbers
             debugPlan<<"invalid map";
             for (int i = model()->columnCount() - 1; i >= 0; --i) {
-                QString s = e.attribute(QString("column-%1").arg(i), "");
-                if (s == "hidden") {
+                QString s = e.attribute(QStringLiteral("column-%1").arg(i), QStringLiteral(""));
+                if (s == QStringLiteral("hidden")) {
                     hideColumn(i);
-                } else if (s == "shown") {
+                } else if (s == QStringLiteral("shown")) {
                     showColumn(i);
                 } else debugPlan<<objectName()<<"Unknown column:"<<s;
             }
         } else {
             for (int i = model()->columnCount() - 1; i >= 0; --i) {
-                QString n = map.key(i);
+                QString n = QLatin1String(map.key(i));
                 //debugPlan<<i<<"="<<n;
                 if (! n.isEmpty()) {
-                    QString s = e.attribute(n, "");
-                    if (s == "hidden") {
+                    QString s = e.attribute(n, QStringLiteral(""));
+                    if (s == QStringLiteral("hidden")) {
                         hideColumn(i);
-                    } else if (s == "shown") {
+                    } else if (s == QStringLiteral("shown")) {
                         showColumn(i);
                     } else debugPlan<<objectName()<<"Unknown column:"<<s;
                 } else debugPlan<<"Column not in enum:"<<i<<map.name()<<map.keyCount();
@@ -1708,25 +1708,25 @@ bool TreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &element
     e = element.namedItem("sections").toElement();
     if (! e.isNull()) {
         QHeaderView *h = header();
-        QString s("section-%1");
+        QString s = QStringLiteral("section-%1");
         if (! map.isValid()) {
             // try numbers
             for (int i = 0; i < h->count(); ++i) {
                 if (e.hasAttribute(s.arg(i))) {
-                    int index = e.attribute(s.arg(i), "-1").toInt();
+                    int index = e.attribute(s.arg(i), QString::number(-1)).toInt();
                     if (index >= 0 && index < h->count()) {
                         header()->moveSection(h->visualIndex(index), i);
                     }
                 }
             }
         } else {
-            QMap<int, int > m; // QMap<destination, column>
+            QMap<int, int > m; // QMap<destination, column>85
             for (int i = 0; i < h->count(); ++i) {
                 QString n = e.attribute(s.arg(i));
                 if (n.isEmpty()) {
                     continue;
                 }
-                int col = map.keyToValue(n.toUtf8());
+                int col = map.keyToValue(n.toUtf8().constData());
                 if (col >= 0 && col < h->count()) {
                     m.insert(i, col);
                 }
@@ -1743,7 +1743,7 @@ bool TreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &element
     if (!e.isNull()) {
         // FIXME: This only works for column 0
         QHeaderView *h = header();
-        QString s("size-%1");
+        QString s = QStringLiteral("size-%1");
         for (int i = 0; i < model()->columnCount(); ++i) {
             if (!h->isSectionHidden(i) && e.hasAttribute(s.arg(i))) {
                 int size = e.attribute(s.arg(i)).toInt();
@@ -1759,40 +1759,40 @@ bool TreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &element
 void TreeViewBase::saveContext(const QMetaEnum &map, QDomElement &element, bool expand) const
 {
     //debugPlan<<objectName();
-    element.setAttribute("stretch-last-column", QString::number(header()->stretchLastSection()));
-    QDomElement e = element.ownerDocument().createElement("columns");
+    element.setAttribute(QStringLiteral("stretch-last-column"), QString::number(header()->stretchLastSection()));
+    QDomElement e = element.ownerDocument().createElement(QStringLiteral("columns"));
     element.appendChild(e);
     for (int i = 0; i < model()->columnCount(); ++i) {
         bool h = isColumnHidden(i);
         if (! map.isValid()) {
             debugPlan<<"invalid map";
-            e.setAttribute(QString("column-%1").arg(i), h ? "hidden" : "shown");
+            e.setAttribute(QStringLiteral("column-%1").arg(i), h ? QStringLiteral("hidden") : QStringLiteral("shown"));
         } else {
-            QString n = map.key(i);
+            QString n = QLatin1String(map.key(i));
             //debugPlan<<i<<"="<<n;
             if (! n.isEmpty()) {
-                e.setAttribute(n, h ? "hidden" : "shown");
+                e.setAttribute(n, h ? QStringLiteral("hidden") : QStringLiteral("shown"));
             }
         }
     }
-    e = element.ownerDocument().createElement("sections");
+    e = element.ownerDocument().createElement(QStringLiteral("sections"));
     element.appendChild(e);
     QHeaderView *h = header();
     for (int i = 0; i < h->count(); ++i) {
         if (! isColumnHidden(h->logicalIndex(i))) {
             if (! map.isValid()) {
-                e.setAttribute(QString("section-%1").arg(i), h->logicalIndex(i));
+                e.setAttribute(QStringLiteral("section-%1").arg(i), h->logicalIndex(i));
             } else {
-                QString n = map.key(h->logicalIndex(i));
+                QString n = QLatin1String(map.key(h->logicalIndex(i)));
                 if (! n.isEmpty()) {
-                    e.setAttribute(QString("section-%1").arg(i), n);
-                    e.setAttribute(QString("size-%1").arg(i), h->sectionSize(h->logicalIndex(i)));
+                    e.setAttribute(QStringLiteral("section-%1").arg(i), n);
+                    e.setAttribute(QStringLiteral("size-%1").arg(i), h->sectionSize(h->logicalIndex(i)));
                 }
             }
         }
     }
     if (expand) {
-        QDomElement expanded = element.ownerDocument().createElement("expanded");
+        QDomElement expanded = element.ownerDocument().createElement(QStringLiteral("expanded"));
         element.appendChild(expanded);
         saveExpanded(expanded);
     }
@@ -1880,10 +1880,10 @@ void TreeViewBase::expandRecursivly(QDomElement element, const QModelIndex &pare
     }
     for(QDomNode n = element.firstChild(); !n.isNull(); n = n.nextSibling()) {
         QDomElement e = n.toElement();
-        if (e.tagName() != "item") {
+        if (e.tagName() != QStringLiteral("item")) {
             continue;
         }
-        int childRow = e.attribute("row", "-1").toInt();
+        int childRow = e.attribute(QStringLiteral("row"), QString::number(-1)).toInt();
         if (childRow > -1) {
             QModelIndex idx = model()->index(childRow, 0, parent);
             if (idx.isValid()) {
@@ -1916,8 +1916,8 @@ void TreeViewBase::saveExpanded(QDomElement &element, const QModelIndex &parent)
     for (int r = 0; r < model()->rowCount(parent); ++r) {
         QModelIndex idx = model()->index(r, 0, parent);
         if (isExpanded(idx)) {
-            QDomElement e = element.ownerDocument().createElement("item");
-            e.setAttribute("row", r);
+            QDomElement e = element.ownerDocument().createElement(QStringLiteral("item"));
+            e.setAttribute(QStringLiteral("row"), r);
             element.appendChild(e);
             saveExpanded(e, idx);
         }
@@ -2284,7 +2284,7 @@ DoubleTreeViewBase::~DoubleTreeViewBase()
 KoPrintJob *DoubleTreeViewBase::createPrintJob(ViewBase *parent)
 {
     DoubleTreeViewPrintingDialog *dia = new DoubleTreeViewPrintingDialog(parent, this, parent->project());
-    dia->printer().setCreator(QString("Plan %1").arg(PLAN_VERSION_STRING));
+    dia->printer().setCreator(QStringLiteral("Plan %1").arg(QStringLiteral(PLAN_VERSION_STRING)));
 //    dia->printer().setFullPage(true); // ignore printer margins
     return dia;
 }
@@ -2321,12 +2321,12 @@ void DoubleTreeViewBase::init()
     setOrientation(Qt::Horizontal);
     setHandleWidth(3);
     m_leftview = new TreeViewBase(this);
-    m_leftview->setObjectName("Left view");
+    m_leftview->setObjectName(QStringLiteral("Left view"));
     m_leftview->setHandleDrag(false);
     addWidget(m_leftview);
     setStretchFactor(0, 1);
     m_rightview = new TreeViewBase(this);
-    m_rightview->setObjectName("Right view");
+    m_rightview->setObjectName(QStringLiteral("Right view"));
     m_rightview->setHandleDrag(false);
     addWidget(m_rightview);
     setStretchFactor(1, 1);
@@ -2359,7 +2359,7 @@ void DoubleTreeViewBase::init()
     connect(m_rightview, &TreeViewBase::dropAllowed, this, &DoubleTreeViewBase::dropAllowed);
 
     m_actionSplitView = new QAction(koIcon("view-split-left-right"), QString(), this);
-    m_actionSplitView->setObjectName("split_view");
+    m_actionSplitView->setObjectName(QStringLiteral("split_view"));
     setViewSplitMode(true);
 
     connect(m_leftview->header(), &QHeaderView::sortIndicatorChanged, this, &DoubleTreeViewBase::slotLeftSortIndicatorChanged);
@@ -2661,7 +2661,7 @@ bool DoubleTreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &e
     //debugPlan;
     KoXmlElement slave = element.namedItem("slave").toElement();
     if (!slave.isNull()) {
-        if (slave.attribute("hidden", "false") == "true") {
+        if (slave.attribute(QStringLiteral("hidden"), QStringLiteral("false")) == QStringLiteral("true")) {
             setViewSplitMode(false);
         } else {
             setViewSplitMode(true);
@@ -2678,14 +2678,14 @@ bool DoubleTreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &e
 
 void DoubleTreeViewBase::saveContext(const QMetaEnum &map, QDomElement &element) const
 {
-    QDomElement master = element.ownerDocument().createElement("master");
+    QDomElement master = element.ownerDocument().createElement(QStringLiteral("master"));
     element.appendChild(master);
     m_leftview->saveContext(map, master);
 
-    QDomElement slave = element.ownerDocument().createElement("slave");
+    QDomElement slave = element.ownerDocument().createElement(QStringLiteral("slave"));
     element.appendChild(slave);
     if (m_rightview->isHidden()) {
-        slave.setAttribute("hidden", "true");
+        slave.setAttribute(QStringLiteral("hidden"), QStringLiteral("true"));
     }
     m_rightview->saveContext(map, slave, false);
 }

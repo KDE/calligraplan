@@ -45,7 +45,7 @@ QVariant FlatProxyModel::headerData(int section, Qt::Orientation orientation, in
         if (orientation == Qt::Vertical) {
             return QVariant();
         }
-        return role == Role::ColumnTag ? "Parent" : i18n("Parent");
+        return role == Role::ColumnTag ? QStringLiteral("Parent") : i18n("Parent");
     }
     return KDescendantsProxyModel::headerData(section, orientation, role);
 }

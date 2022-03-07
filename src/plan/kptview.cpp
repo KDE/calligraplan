@@ -133,7 +133,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     doc->registerView(this);
 
     setComponentName(Factory::global().componentName(), Factory::global().componentDisplayName());
-    setXMLFile("calligraplan.rc");
+    setXMLFile(QStringLiteral("calligraplan.rc"));
 
 //     new ViewAdaptor(this);
 
@@ -177,67 +177,67 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     // The menu items
     // ------ File
     actionCreateTemplate = new QAction(koIcon("document-save-as-template"), i18n("Create Project Template..."), this);
-    actionCollection()->addAction("file_createtemplate", actionCreateTemplate);
+    actionCollection()->addAction(QStringLiteral("file_createtemplate"), actionCreateTemplate);
     connect(actionCreateTemplate, SIGNAL(triggered(bool)), SLOT(slotCreateTemplate()));
 
     actionCreateNewProject = new QAction(i18n("Create New Project..."), this);
-    actionCollection()->addAction("file_createnewproject", actionCreateNewProject);
+    actionCollection()->addAction(QStringLiteral("file_createnewproject"), actionCreateNewProject);
     connect(actionCreateNewProject, &QAction::triggered, this, &View::slotCreateNewProject);
 
     // ------ Edit
-    actionCut = actionCollection()->addAction(KStandardAction::Cut,  "edit_cut", this, SLOT(slotEditCut()));
-    actionCopy = actionCollection()->addAction(KStandardAction::Copy,  "edit_copy", this, SLOT(slotEditCopy()));
-    actionPaste = actionCollection()->addAction(KStandardAction::Paste,  "edit_paste", this, SLOT(slotEditPaste()));
+    actionCut = actionCollection()->addAction(KStandardAction::Cut,  QStringLiteral("edit_cut"), this, SLOT(slotEditCut()));
+    actionCopy = actionCollection()->addAction(KStandardAction::Copy,  QStringLiteral("edit_copy"), this, SLOT(slotEditCopy()));
+    actionPaste = actionCollection()->addAction(KStandardAction::Paste,  QStringLiteral("edit_paste"), this, SLOT(slotEditPaste()));
 
     // ------ View
-    actionCollection()->addAction(KStandardAction::Redisplay, "view_refresh" , this, SLOT(slotRefreshView()));
+    actionCollection()->addAction(KStandardAction::Redisplay, QStringLiteral("view_refresh") , this, SLOT(slotRefreshView()));
 
     actionViewSelector  = new KToggleAction(i18n("Show Selector"), this);
-    actionCollection()->addAction("view_show_selector", actionViewSelector);
+    actionCollection()->addAction(QStringLiteral("view_show_selector"), actionViewSelector);
     connect(actionViewSelector, &QAction::triggered, this, &View::slotViewSelector);
 
     // ------ Insert
 
     // ------ Project
     actionEditMainProject  = new QAction(koIcon("view-time-schedule-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("project_edit", actionEditMainProject);
+    actionCollection()->addAction(QStringLiteral("project_edit"), actionEditMainProject);
     connect(actionEditMainProject, &QAction::triggered, this, &View::slotProjectEdit);
 
     actionEditStandardWorktime  = new QAction(koIcon("configure"), i18n("Define Estimate Conversions..."), this);
-    actionCollection()->addAction("project_worktime", actionEditStandardWorktime);
+    actionCollection()->addAction(QStringLiteral("project_worktime"), actionEditStandardWorktime);
     connect(actionEditStandardWorktime, &QAction::triggered, this, &View::slotProjectWorktime);
 
     actionDefineWBS  = new QAction(koIcon("configure"), i18n("Define WBS Pattern..."), this);
-    actionCollection()->addAction("tools_define_wbs", actionDefineWBS);
+    actionCollection()->addAction(QStringLiteral("tools_define_wbs"), actionDefineWBS);
     connect(actionDefineWBS, &QAction::triggered, this, &View::slotDefineWBS);
 
     actionCurrencyConfig  = new QAction(koIcon("configure"), i18n("Define Currency..."), this);
-    actionCollection()->addAction("config_currency", actionCurrencyConfig);
+    actionCollection()->addAction(QStringLiteral("config_currency"), actionCurrencyConfig);
     connect(actionCurrencyConfig, &QAction::triggered, this, &View::slotCurrencyConfig);
 
     QAction *actionProjectDescription = new QAction(koIcon("document-edit"), i18n("Edit Description..."), this);
-    actionCollection()->addAction("edit_project_description", actionProjectDescription);
+    actionCollection()->addAction(QStringLiteral("edit_project_description"), actionProjectDescription);
     connect(actionProjectDescription, &QAction::triggered, this, &View::slotOpenProjectDescription);
 
     // ------ Tools
     actionInsertFile  = new QAction(koIcon("document-import"), i18n("Insert Project File..."), this);
-    actionCollection()->addAction("insert_file", actionInsertFile);
+    actionCollection()->addAction(QStringLiteral("insert_file"), actionInsertFile);
     connect(actionInsertFile, &QAction::triggered, this, &View::slotInsertFile);
 
     auto a = new QAction(koIcon("view-refresh"), i18n("Update Shared Resources"), this);
-    actionCollection()->addAction("load_shared_resources", a);
+    actionCollection()->addAction(QStringLiteral("load_shared_resources"), a);
     connect(a, &QAction::triggered, this, &View::slotUpdateSharedResources);
 
 #ifdef PLAN_USE_KREPORT
     actionOpenReportFile  = new QAction(koIcon("document-open"), i18n("Open Report Definition File..."), this);
-    actionCollection()->addAction("reportdesigner_open_file", actionOpenReportFile);
+    actionCollection()->addAction(QStringLiteral("reportdesigner_open_file"), actionOpenReportFile);
     connect(actionOpenReportFile, QAction::triggered, this, &View::slotOpenReportFile);
 #endif
     // Settings
 
     // ------ Popup
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("project_properties", actionOpenNode);
+    actionCollection()->addAction(QStringLiteral("project_properties"), actionOpenNode);
     connect(actionOpenNode, &QAction::triggered, this, &View::slotOpenCurrentNode);
 
     // Viewlist popup
@@ -250,7 +250,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     m_workPackageButton->setToolTip(i18nc("@info:tooltip", "Work packages available"));
     m_workPackageButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     connect(m_workPackageButton, &QToolButton::clicked, this, &View::openWorkPackageMergeDialog);
-    m_estlabel = new QLabel("", nullptr);
+    m_estlabel = new QLabel(QStringLiteral(""), nullptr);
     if (statusBar()) {
         addStatusBarItem(m_estlabel, 0, true);
     }
@@ -354,20 +354,20 @@ void View::slotCreateNewProject()
 void View::slotCreateTemplate()
 {
     debugPlan;
-    KoFileDialog dlg(nullptr, KoFileDialog::SaveFile, "Create Template");
-    dlg.setNameFilters(QStringList()<<"Plan Template (*.plant)");
+    KoFileDialog dlg(nullptr, KoFileDialog::SaveFile, QStringLiteral("Create Template"));
+    dlg.setNameFilters(QStringList()<<QStringLiteral("Plan Template (*.plant)"));
     QString file = dlg.filename();
     if (!file.isEmpty()) {
         QTemporaryDir dir;
         dir.setAutoRemove(false);
-        QString tmpfile = dir.path() + '/' + QUrl(file).fileName();
-        tmpfile.replace(".plant", ".plan");
+        QString tmpfile = dir.path() + QLatin1Char('/') + QUrl(file).fileName();
+        tmpfile.replace(QStringLiteral(".plant"), QStringLiteral(".plan"));
         Part *part = new Part(this);
         MainDocument *doc = new MainDocument(part);
         part->setDocument(doc);
         doc->disconnect(); // doc shall not handle feedback from openUrl()
         doc->setAutoSave(0); //disable
-        bool ok = koDocument()->exportDocument(QUrl::fromUserInput("file:/" + tmpfile));
+        bool ok = koDocument()->exportDocument(QUrl::fromUserInput(QStringLiteral("file:/") + tmpfile));
         ok &= doc->loadNativeFormat(tmpfile);
         if (ok) {
             // strip unused data
@@ -400,7 +400,7 @@ void View::createViews()
                     continue;
                 }
                 KoXmlElement e = n.toElement();
-                if (e.tagName() != "category") {
+                if (e.tagName() != QStringLiteral("category")) {
                     continue;
                 }
                 debugPlan<<"category: "<<e.attribute("tag");
@@ -417,7 +417,7 @@ void View::createViews()
                         continue;
                     }
                     KoXmlElement e1 = n1.toElement();
-                    if (e1.tagName() != "view") {
+                    if (e1.tagName() != QStringLiteral("view")) {
                         continue;
                     }
                     ViewBase *v = nullptr;
@@ -429,7 +429,7 @@ void View::createViews()
                     //KoXmlNode settings = e1.namedItem("settings "); ????
                     KoXmlNode settings = e1.firstChild();
                     for (; ! settings.isNull(); settings = settings.nextSibling()) {
-                        if (settings.nodeName() == "settings") {
+                        if (settings.nodeName() == QStringLiteral("settings")) {
                             break;
                         }
                     }
@@ -444,18 +444,18 @@ void View::createViews()
         debugPlan<<"Default";
         ViewBase *v = nullptr;
         ViewListItem *cat;
-        QString ct = "Editors";
+        QString ct = QStringLiteral("Editors");
         cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name);
 
-        createCalendarEditor(cat, "CalendarEditor", QString(), TIP_USE_DEFAULT_TEXT);
+        createCalendarEditor(cat, QStringLiteral("CalendarEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        createAccountsEditor(cat, "AccountsEditor", QString(), TIP_USE_DEFAULT_TEXT);
+        createAccountsEditor(cat, QStringLiteral("AccountsEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createResourceGroupEditor(cat, "ResourceGroupEditor", QString(), TIP_USE_DEFAULT_TEXT);
+        v = createResourceGroupEditor(cat, QStringLiteral("ResourceGroupEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createResourceEditor(cat, "ResourceEditor", QString(), TIP_USE_DEFAULT_TEXT);
+        v = createResourceEditor(cat, QStringLiteral("ResourceEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createTaskEditor(cat, "TaskEditor", QString(), TIP_USE_DEFAULT_TEXT);
+        v = createTaskEditor(cat, QStringLiteral("TaskEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
         m_defaultView = m_tab->count() - 1;
         v->showColumns(QList<int>() << NodeModel::NodeName
                                     << NodeModel::NodeType
@@ -469,7 +469,7 @@ void View::createViews()
                                     << NodeModel::NodeDescription
                     );
 
-        v = createTaskEditor(cat, "TaskConstraintEditor", i18n("Task Constraints"), i18n("Edit task scheduling constraints"));
+        v = createTaskEditor(cat, QStringLiteral("TaskConstraintEditor"), i18n("Task Constraints"), i18n("Edit task scheduling constraints"));
         v->showColumns(QList<int>() << NodeModel::NodeName
                                     << NodeModel::NodeType
                                     << NodeModel::NodePriority
@@ -479,7 +479,7 @@ void View::createViews()
                                     << NodeModel::NodeDescription
                       );
 
-        v = createTaskEditor(cat, "TaskCostEditor", i18n("Task Cost"), i18n("Edit task cost"));
+        v = createTaskEditor(cat, QStringLiteral("TaskCostEditor"), i18n("Task Cost"), i18n("Edit task cost"));
         v->showColumns(QList<int>() << NodeModel::NodeName
                                     << NodeModel::NodeType
                                     << NodeModel::NodeRunningAccount
@@ -490,51 +490,51 @@ void View::createViews()
                                     << NodeModel::NodeDescription
                       );
 
-        createDependencyEditor(cat, "DependencyEditor", QString(), TIP_USE_DEFAULT_TEXT);
+        createDependencyEditor(cat, QStringLiteral("DependencyEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
         // Do not show by default
-        // createPertEditor(cat, "PertEditor", QString(), TIP_USE_DEFAULT_TEXT);
+        // createPertEditor(cat, QStringLiteral("PertEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        createScheduleHandler(cat, "ScheduleHandlerView", QString(), TIP_USE_DEFAULT_TEXT);
+        createScheduleHandler(cat, QStringLiteral("ScheduleHandlerView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        ct = "Views";
+        ct = QStringLiteral("Views");
         cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name);
 
-        createGanttView(cat, "GanttView", QString(), TIP_USE_DEFAULT_TEXT);
+        createGanttView(cat, QStringLiteral("GanttView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        createMilestoneGanttView(cat, "MilestoneGanttView", QString(), TIP_USE_DEFAULT_TEXT);
+        createMilestoneGanttView(cat, QStringLiteral("MilestoneGanttView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        createResourceAppointmentsView(cat, "ResourceAppointmentsView", QString(), TIP_USE_DEFAULT_TEXT);
+        createResourceAppointmentsView(cat, QStringLiteral("ResourceAppointmentsView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        createResourceAppointmentsGanttView(cat, "ResourceAppointmentsGanttView", QString(), TIP_USE_DEFAULT_TEXT);
+        createResourceAppointmentsGanttView(cat, QStringLiteral("ResourceAppointmentsGanttView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        createAccountsView(cat, "AccountsView", QString(), TIP_USE_DEFAULT_TEXT);
+        createAccountsView(cat, QStringLiteral("AccountsView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        createResourceCoverageView(cat, "ResourceCoverageView", QString(), TIP_USE_DEFAULT_TEXT);
+        createResourceCoverageView(cat, QStringLiteral("ResourceCoverageView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        ct = "Execution";
+        ct = QStringLiteral("Execution");
         cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name);
 
-        createProjectStatusView(cat, "ProjectStatusView", QString(), TIP_USE_DEFAULT_TEXT);
+        createProjectStatusView(cat, QStringLiteral("ProjectStatusView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        createPerformanceStatusView(cat, "PerformanceStatusView", QString(), TIP_USE_DEFAULT_TEXT);
+        createPerformanceStatusView(cat, QStringLiteral("PerformanceStatusView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createTaskStatusView(cat, "TaskStatusView", QString(), TIP_USE_DEFAULT_TEXT);
+        v = createTaskStatusView(cat, QStringLiteral("TaskStatusView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createTaskView(cat, "TaskView", QString(), TIP_USE_DEFAULT_TEXT);
+        v = createTaskView(cat, QStringLiteral("TaskView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createTaskWorkPackageView(cat, "TaskWorkPackageView", QString(), TIP_USE_DEFAULT_TEXT);
+        v = createTaskWorkPackageView(cat, QStringLiteral("TaskWorkPackageView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        ct = "Reports";
+        ct = QStringLiteral("Reports");
         cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name);
 
-        createReportsGeneratorView(cat, "ReportsGeneratorView", i18n("Generate reports"), TIP_USE_DEFAULT_TEXT);
+        createReportsGeneratorView(cat, QStringLiteral("ReportsGeneratorView"), i18n("Generate reports"), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
 #ifdef PLAN_USE_KREPORT
         // Let user add reports explicitly, we prefer reportsgenerator now
         // A little hack to get the user started...
 #if 0
-        ReportView *rv = qobject_cast<ReportView*>(createReportView(cat, "ReportView", i18n("Task Status Report"), TIP_USE_DEFAULT_TEXT));
+        ReportView *rv = qobject_cast<ReportView*>(createReportView(cat, QStringLiteral("ReportView"), i18n("Task Status Report"), QLatin1String(TIP_USE_DEFAULT_TEXT)));
         if (rv) {
             QDomDocument doc;
             doc.setContent(standardTaskStatusReport());
@@ -549,49 +549,49 @@ ViewBase *View::createView(ViewListItem *cat, const QString &type, const QString
 {
     ViewBase *v = nullptr;
     //NOTE: type is the same as classname (so if it is changed...)
-    if (type == "CalendarEditor") {
+    if (type == QStringLiteral("CalendarEditor")) {
         v = createCalendarEditor(cat, tag, name, tip, index);
-    } else if (type == "AccountsEditor") {
+    } else if (type == QStringLiteral("AccountsEditor")) {
         v = createAccountsEditor(cat, tag, name, tip, index);
-    } else if (type == "ResourceGroupEditor") {
+    } else if (type == QStringLiteral("ResourceGroupEditor")) {
         v = createResourceGroupEditor(cat, tag, name, tip, index);
-    } else if (type == "ResourceEditor") {
+    } else if (type == QStringLiteral("ResourceEditor")) {
         v = createResourceEditor(cat, tag, name, tip, index);
-    } else if (type == "TaskEditor") {
+    } else if (type == QStringLiteral("TaskEditor")) {
         v = createTaskEditor(cat, tag, name, tip, index);
-    } else if (type == "DependencyEditor") {
+    } else if (type == QStringLiteral("DependencyEditor")) {
         v = createDependencyEditor(cat, tag, name, tip, index);
-    } else if (type == "PertEditor") {
+    } else if (type == QStringLiteral("PertEditor")) {
         v = createPertEditor(cat, tag, name, tip, index);
-    } else if (type == "ScheduleEditor") {
+    } else if (type == QStringLiteral("ScheduleEditor")) {
         v = createScheduleEditor(cat, tag, name, tip, index);
-    } else if (type == "ScheduleHandlerView") {
+    } else if (type == QStringLiteral("ScheduleHandlerView")) {
         v = createScheduleHandler(cat, tag, name, tip, index);
-    } else if (type == "ProjectStatusView") {
+    } else if (type == QStringLiteral("ProjectStatusView")) {
         v = createProjectStatusView(cat, tag, name, tip, index);
-    } else if (type == "TaskStatusView") {
+    } else if (type == QStringLiteral("TaskStatusView")) {
         v = createTaskStatusView(cat, tag, name, tip, index);
-    } else if (type == "TaskView") {
+    } else if (type == QStringLiteral("TaskView")) {
         v = createTaskView(cat, tag, name, tip, index);
-    } else if (type == "TaskWorkPackageView") {
+    } else if (type == QStringLiteral("TaskWorkPackageView")) {
         v = createTaskWorkPackageView(cat, tag, name, tip, index);
-    } else if (type == "GanttView") {
+    } else if (type == QStringLiteral("GanttView")) {
         v = createGanttView(cat, tag, name, tip, index);
-    } else if (type == "MilestoneGanttView") {
+    } else if (type == QStringLiteral("MilestoneGanttView")) {
         v = createMilestoneGanttView(cat, tag, name, tip, index);
-    } else if (type == "ResourceAppointmentsView") {
+    } else if (type == QStringLiteral("ResourceAppointmentsView")) {
         v = createResourceAppointmentsView(cat, tag, name, tip, index);
-    } else if (type == "ResourceAppointmentsGanttView") {
+    } else if (type == QStringLiteral("ResourceAppointmentsGanttView")) {
         v = createResourceAppointmentsGanttView(cat, tag, name, tip, index);
-    } else if (type == "ResourceCoverageView") {
+    } else if (type == QStringLiteral("ResourceCoverageView")) {
         v = createResourceCoverageView(cat, tag, name, tip, index);
-    } else if (type == "AccountsView") {
+    } else if (type == QStringLiteral("AccountsView")) {
         v = createAccountsView(cat, tag, name, tip, index);
-    } else if (type == "PerformanceStatusView") {
+    } else if (type == QStringLiteral("PerformanceStatusView")) {
         v = createPerformanceStatusView(cat, tag, name, tip, index);
-    } else if (type == "ReportsGeneratorView") {
+    } else if (type == QStringLiteral("ReportsGeneratorView")) {
         v = createReportsGeneratorView(cat, tag, name, tip, index);
-    } else if (type == "ReportView") {
+    } else if (type == QStringLiteral("ReportView")) {
 #ifdef PLAN_USE_KREPORT
         v = createReportView(cat, tag, name, tip, index);
 #endif
@@ -614,70 +614,70 @@ void View::slotUpdateViewInfo(ViewListItem *itm)
 ViewInfo View::defaultViewInfo(const QString &type) const
 {
     ViewInfo vi;
-    if (type == "CalendarEditor") {
+    if (type == QStringLiteral("CalendarEditor")) {
         vi.name = i18n("Work & Vacation");
         vi.tip = xi18nc("@info:tooltip", "Edit working- and vacation days for resources");
-    } else if (type == "AccountsEditor") {
+    } else if (type == QStringLiteral("AccountsEditor")) {
         vi.name = i18n("Cost Breakdown Structure");
         vi.tip = xi18nc("@info:tooltip", "Edit cost breakdown structure.");
-    } else if (type == "ResourceGroupEditor") {
+    } else if (type == QStringLiteral("ResourceGroupEditor")) {
         vi.name = i18n("Resource Breakdown Structure");
         vi.tip = xi18nc("@info:tooltip", "Edit resource breakdown structure");
-    } else if (type == "ResourceEditor") {
+    } else if (type == QStringLiteral("ResourceEditor")) {
         vi.name = i18n("Resources");
         vi.tip = xi18nc("@info:tooltip", "Edit resources");
-    } else if (type == "TaskEditor") {
+    } else if (type == QStringLiteral("TaskEditor")) {
         vi.name = i18n("Tasks");
         vi.tip = xi18nc("@info:tooltip", "Edit work breakdown structure");
-    } else if (type == "DependencyEditor") {
+    } else if (type == QStringLiteral("DependencyEditor")) {
         vi.name = i18n("Dependencies (Graphic)");
         vi.tip = xi18nc("@info:tooltip", "Edit task dependencies");
-    } else if (type == "PertEditor") {
+    } else if (type == QStringLiteral("PertEditor")) {
         vi.name = i18n("Dependencies (List)");
         vi.tip = xi18nc("@info:tooltip", "Edit task dependencies");
-    } else if (type == "ScheduleEditor") {
+    } else if (type == QStringLiteral("ScheduleEditor")) {
         // This view is not used stand-alone atm
         vi.name = i18n("Schedules");
-    } else if (type == "ScheduleHandlerView") {
+    } else if (type == QStringLiteral("ScheduleHandlerView")) {
         vi.name = i18n("Schedules");
         vi.tip = xi18nc("@info:tooltip", "Calculate and analyze project schedules");
-    } else if (type == "ProjectStatusView") {
+    } else if (type == QStringLiteral("ProjectStatusView")) {
         vi.name = i18n("Project Performance Chart");
         vi.tip = xi18nc("@info:tooltip", "View project status information");
-    } else if (type == "TaskStatusView") {
+    } else if (type == QStringLiteral("TaskStatusView")) {
         vi.name = i18n("Task Status");
         vi.tip = xi18nc("@info:tooltip", "View task progress information");
-    } else if (type == "TaskView") {
+    } else if (type == QStringLiteral("TaskView")) {
         vi.name = i18n("Task Execution");
         vi.tip = xi18nc("@info:tooltip", "View task execution information");
-    } else if (type == "TaskWorkPackageView") {
+    } else if (type == QStringLiteral("TaskWorkPackageView")) {
         vi.name = i18n("Work Package View");
         vi.tip = xi18nc("@info:tooltip", "View task work package information");
-    } else if (type == "GanttView") {
+    } else if (type == QStringLiteral("GanttView")) {
         vi.name = i18n("Gantt");
         vi.tip = xi18nc("@info:tooltip", "View Gantt chart");
-    } else if (type == "MilestoneGanttView") {
+    } else if (type == QStringLiteral("MilestoneGanttView")) {
         vi.name = i18n("Milestone Gantt");
         vi.tip = xi18nc("@info:tooltip", "View milestone Gantt chart");
-    } else if (type == "ResourceAppointmentsView") {
+    } else if (type == QStringLiteral("ResourceAppointmentsView")) {
         vi.name = i18n("Resource Assignments");
         vi.tip = xi18nc("@info:tooltip", "View resource assignments in a table");
-    } else if (type == "ResourceAppointmentsGanttView") {
+    } else if (type == QStringLiteral("ResourceAppointmentsGanttView")) {
         vi.name = i18n("Resource Assignments (Gantt)");
         vi.tip = xi18nc("@info:tooltip", "View resource assignments in Gantt chart");
-    } else if (type == "ResourceCoverageView") {
+    } else if (type == QStringLiteral("ResourceCoverageView")) {
         vi.name = i18n("Resource Coverage");
         vi.tip = xi18nc("@info:tooltip", "Inspect resource coverage");
-    } else if (type == "AccountsView") {
+    } else if (type == QStringLiteral("AccountsView")) {
         vi.name = i18n("Cost Breakdown");
         vi.tip = xi18nc("@info:tooltip", "View planned and actual cost");
-    } else if (type == "PerformanceStatusView") {
+    } else if (type == QStringLiteral("PerformanceStatusView")) {
         vi.name = i18n("Tasks Performance Chart");
         vi.tip = xi18nc("@info:tooltip", "View tasks performance status information");
-    } else if (type == "ReportsGeneratorView") {
+    } else if (type == QStringLiteral("ReportsGeneratorView")) {
         vi.name = i18n("Reports Generator");
         vi.tip = xi18nc("@info:tooltip", "Generate reports");
-    } else if (type == "ReportView") {
+    } else if (type == QStringLiteral("ReportView")) {
         vi.name = i18n("Report");
         vi.tip = xi18nc("@info:tooltip", "View report");
     } else  {
@@ -689,13 +689,13 @@ ViewInfo View::defaultViewInfo(const QString &type) const
 ViewInfo View::defaultCategoryInfo(const QString &type) const
 {
     ViewInfo vi;
-    if (type == "Editors") {
+    if (type == QStringLiteral("Editors")) {
         vi.name = i18n("Editors");
-    } else if (type == "Views") {
+    } else if (type == QStringLiteral("Views")) {
         vi.name = i18n("Views");
-    } else if (type == "Execution") {
+    } else if (type == QStringLiteral("Execution")) {
         vi.name = i18nc("Project execution views", "Execution");
-    } else if (type == "Reports") {
+    } else if (type == QStringLiteral("Reports")) {
         vi.name = i18n("Reports");
     }
     return vi;
@@ -706,12 +706,12 @@ ViewBase *View::createResourceAppointmentsGanttView(ViewListItem *cat, const QSt
     ResourceAppointmentsGanttView *v = new ResourceAppointmentsGanttView(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ResourceAppointmentsGanttView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceAppointmentsGanttView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -731,12 +731,12 @@ ViewBase *View::createResourceCoverageView(ViewListItem *cat, const QString &tag
     ResourceCoverageView *v = new ResourceCoverageView(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ResourceCoverageView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceCoverageView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -756,12 +756,12 @@ ViewBase *View::createResourceAppointmentsView(ViewListItem *cat, const QString 
     ResourceAppointmentsView *v = new ResourceAppointmentsView(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ResourceAppointmentsView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceAppointmentsView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -783,12 +783,12 @@ ViewBase *View::createResourceGroupEditor(ViewListItem *cat, const QString &tag,
     m_tab->addWidget(e);
     e->setProject(&(getProject()));
     
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, e, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ResourceGroupEditor");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, e, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceGroupEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -807,12 +807,12 @@ ViewBase *View::createResourceEditor(ViewListItem *cat, const QString &tag, cons
     m_tab->addWidget(resourceeditor);
     resourceeditor->setProject(&(getProject()));
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, resourceeditor, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ResourceEditor");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, resourceeditor, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -830,12 +830,12 @@ ViewBase *View::createTaskEditor(ViewListItem *cat, const QString &tag, const QS
     taskeditor->setViewSplitMode(false);
     m_tab->addWidget(taskeditor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, taskeditor, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("TaskEditor");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, taskeditor, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("TaskEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -863,12 +863,12 @@ ViewBase *View::createAccountsEditor(ViewListItem *cat, const QString &tag, cons
     AccountsEditor *ae = new AccountsEditor(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(ae);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, ae, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("AccountsEditor");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, ae, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("AccountsEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -888,12 +888,12 @@ ViewBase *View::createCalendarEditor(ViewListItem *cat, const QString &tag, cons
     CalendarEditor *calendareditor = new CalendarEditor(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(calendareditor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, calendareditor, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("CalendarEditor");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, calendareditor, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("CalendarEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -913,12 +913,12 @@ ViewBase *View::createScheduleHandler(ViewListItem *cat, const QString &tag, con
     ScheduleHandlerView *handler = new ScheduleHandlerView(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(handler);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, handler, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ScheduleHandlerView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, handler, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ScheduleHandlerView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -947,12 +947,12 @@ ViewBase *View::createScheduleEditor(ViewListItem *cat, const QString &tag, cons
     ScheduleEditor *scheduleeditor = new ScheduleEditor(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(scheduleeditor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, scheduleeditor, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ScheduleEditor");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, scheduleeditor, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ScheduleEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -973,12 +973,12 @@ ViewBase *View::createDependencyEditor(ViewListItem *cat, const QString &tag, co
     DependencyEditor *editor = new DependencyEditor(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(editor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, editor, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("DependencyEditor");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, editor, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("DependencyEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1001,12 +1001,12 @@ ViewBase *View::createPertEditor(ViewListItem *cat, const QString &tag, const QS
     PertEditor *perteditor = new PertEditor(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(perteditor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, perteditor, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("PertEditor");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, perteditor, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("PertEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1027,12 +1027,12 @@ ViewBase *View::createProjectStatusView(ViewListItem *cat, const QString &tag, c
     ProjectStatusView *v = new ProjectStatusView(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ProjectStatusView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ProjectStatusView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1053,12 +1053,12 @@ ViewBase *View::createPerformanceStatusView(ViewListItem *cat, const QString &ta
     PerformanceStatusView *v = new PerformanceStatusView(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("PerformanceStatusView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("PerformanceStatusView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1081,12 +1081,12 @@ ViewBase *View::createTaskStatusView(ViewListItem *cat, const QString &tag, cons
     taskstatusview->setViewSplitMode(false);
     m_tab->addWidget(taskstatusview);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, taskstatusview, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("TaskStatusView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, taskstatusview, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("TaskStatusView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1108,12 +1108,12 @@ ViewBase *View::createTaskView(ViewListItem *cat, const QString &tag, const QStr
     v->setViewSplitMode(false);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("TaskView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("TaskView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1137,12 +1137,12 @@ ViewBase *View::createTaskWorkPackageView(ViewListItem *cat, const QString &tag,
     v->setViewSplitMode(false);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("TaskWorkPackageView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("TaskWorkPackageView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1171,12 +1171,12 @@ ViewBase *View::createGanttView(ViewListItem *cat, const QString &tag, const QSt
     GanttView *ganttview = new GanttView(getKoPart(), getPart(), m_tab, true); // always allow editing
     m_tab->addWidget(ganttview);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("GanttView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("GanttView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1200,12 +1200,12 @@ ViewBase *View::createMilestoneGanttView(ViewListItem *cat, const QString &tag, 
     MilestoneGanttView *ganttview = new MilestoneGanttView(getKoPart(), getPart(), m_tab, true); // always allow editing
     m_tab->addWidget(ganttview);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("MilestoneGanttView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("MilestoneGanttView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1230,12 +1230,12 @@ ViewBase *View::createAccountsView(ViewListItem *cat, const QString &tag, const 
     AccountsView *accountsview = new AccountsView(getKoPart(), &getProject(), getPart(), m_tab);
     m_tab->addWidget(accountsview);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, accountsview, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("AccountsView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, accountsview, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("AccountsView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1257,12 +1257,12 @@ ViewBase *View::createReportsGeneratorView(ViewListItem *cat, const QString &tag
     ReportsGeneratorView *v = new ReportsGeneratorView(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ReportsGeneratorView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ReportsGeneratorView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1287,12 +1287,12 @@ ViewBase *View::createReportView(ViewListItem *cat, const QString &tag, const QS
     ReportView *v = new ReportView(getKoPart(), getPart(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), "", index);
-    ViewInfo vi = defaultViewInfo("ReportView");
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QStringLiteral(""), index);
+    ViewInfo vi = defaultViewInfo(QStringLiteral("ReportView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
     }
-    if (tip == TIP_USE_DEFAULT_TEXT) {
+    if (tip == QLatin1String(TIP_USE_DEFAULT_TEXT)) {
         i->setToolTip(0, vi.tip);
     } else {
         i->setToolTip(0, tip);
@@ -1487,9 +1487,9 @@ void View::slotScheduleRemoved(const ScheduleManager *sch)
         }
     }
     if (a) {
-        unplugActionList("view_schedule_list");
+        unplugActionList(QStringLiteral("view_schedule_list"));
         delete a;
-        plugActionList("view_schedule_list", sortedActionList());
+        plugActionList(QStringLiteral("view_schedule_list"), sortedActionList());
         if (checked && checked != a) {
             checked->setChecked(true);
         } else if (! m_scheduleActions.isEmpty()) {
@@ -1503,9 +1503,9 @@ void View::slotScheduleAdded(const ScheduleManager *sch)
 {
     ScheduleManager *s = const_cast<ScheduleManager*>(sch);
     QAction *checked = m_scheduleActionGroup->checkedAction();
-    unplugActionList("view_schedule_list");
+    unplugActionList(QStringLiteral("view_schedule_list"));
     QAction *act = addScheduleAction(s);
-    plugActionList("view_schedule_list", sortedActionList());
+    plugActionList(QStringLiteral("view_schedule_list"), sortedActionList());
     if (!currentScheduleManager()) {
         if (act) {
             act->setChecked(true);
@@ -1566,7 +1566,7 @@ void View::slotActionDestroyed(QObject *o)
 void View::slotPlugScheduleActions()
 {
     ScheduleManager *current = currentScheduleManager();
-    unplugActionList("view_schedule_list");
+    unplugActionList(QStringLiteral("view_schedule_list"));
     const QMap<QAction*, ScheduleManager*> map = m_scheduleActions; // clazy:exclude=qmap-with-pointer-key
     QMap<QAction*, ScheduleManager*>::const_iterator it;
     for (it = map.constBegin(); it != map.constEnd(); ++it) {
@@ -1582,7 +1582,7 @@ void View::slotPlugScheduleActions()
             ca = act;
         }
     }
-    plugActionList("view_schedule_list", sortedActionList());
+    plugActionList(QStringLiteral("view_schedule_list"), sortedActionList());
     if (ca == nullptr && m_scheduleActionGroup->actions().count() > 0) {
         ca = m_scheduleActionGroup->actions().constFirst();
     }
@@ -2094,7 +2094,7 @@ bool View::loadContext()
         m_viewlist->setSelected(m_viewlist->findItem(cv));
     } else debugPlan<<"No current view";
 
-    long id = n.attribute("current-schedule", "-1").toLong();
+    long id = n.attribute("current-schedule", QString::number(-1)).toLong();
     if (id != -1) {
         setActiveSchedule(id);
     } else debugPlan<<"No current schedule";
@@ -2107,11 +2107,11 @@ void View::saveContext(QDomElement &me) const
     //debugPlan;
     long id = activeScheduleId();
     if (id != -1) {
-        me.setAttribute("current-schedule", QString::number((qlonglong)id));
+        me.setAttribute(QStringLiteral("current-schedule"), QString::number((qlonglong)id));
     }
     ViewListItem *item = m_viewlist->findItem(qobject_cast<ViewBase*>(m_tab->currentWidget()));
     if (item) {
-        me.setAttribute("current-view", item->tag());
+        me.setAttribute(QStringLiteral("current-view"), item->tag());
     }
     m_viewlist->save(me);
 }
@@ -2173,7 +2173,7 @@ void View::workPackageMergeDialogFinished(int result)
 void View::slotMailWorkpackage(Node *node, Resource *resource)
 {
     debugPlan;
-    QTemporaryFile tmpfile(QDir::tempPath() + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String(".planwork"));
+    QTemporaryFile tmpfile(QDir::tempPath() + QStringLiteral("/calligraplanwork_XXXXXX") + QStringLiteral(".planwork"));
     tmpfile.setAutoRemove(false);
     if (! tmpfile.open()) {
         debugPlan<<"Failed to open file";
@@ -2188,7 +2188,7 @@ void View::slotMailWorkpackage(Node *node, Resource *resource)
     }
     QStringList attachURLs;
     attachURLs << url.url();
-    QString to = resource == nullptr ? node->leader() : (resource->name() + " <" + resource->email() + '>');
+    QString to = resource == nullptr ? node->leader() : (resource->name() + QStringLiteral(" <") + resource->email() + QLatin1Char('>'));
     QString cc;
     QString bcc;
     QString subject = i18n("Work Package: %1", node->name());
@@ -2218,7 +2218,7 @@ void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource
         mail = true;
     }
     for (Node *n : nodes) {
-        QTemporaryFile tmpfile(path + QLatin1String("/calligraplanwork_XXXXXX") + QLatin1String(".planwork"));
+        QTemporaryFile tmpfile(path + QStringLiteral("/calligraplanwork_XXXXXX") + QStringLiteral(".planwork"));
         tmpfile.setAutoRemove(false);
         if (! tmpfile.open()) {
             debugPlanWp<<"Failed to open file";
@@ -2233,11 +2233,11 @@ void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource
             return;
         }
         attachURLs << url.url();
-        body += n->name() + '\n';
+        body += n->name() + QLatin1Char('\n');
     }
     if (mail) {
         debugPlanWp<<attachURLs;
-        QString to = resource->name() + " <" + resource->email() + '>';
+        QString to = resource->name() + QStringLiteral(" <") + resource->email() + QLatin1Char('>');
         QString subject = i18n("Work Package for project: %1", getProject().name());
         QString cc;
         QString bcc;
@@ -2271,8 +2271,8 @@ void View::slotCurrencyConfigFinished(int result)
 
 void View::saveTaskModule(const QUrl &url, Project *project)
 {
-    // NOTE: workaround: KoResourcePaths::saveLocation("calligraplan_taskmodules"); does not work
-    const QString dir = KoResourcePaths::saveLocation("appdata", "taskmodules/");
+    // NOTE: workaround: KoResourcePaths::saveLocation(QStringLiteral("calligraplan_taskmodules"); does not work
+    const QString dir = KoResourcePaths::saveLocation("appdata", QStringLiteral("taskmodules/"));
     debugPlan<<"dir="<<dir;
     if (! dir.isEmpty()) {
         Part *part = new Part(this);

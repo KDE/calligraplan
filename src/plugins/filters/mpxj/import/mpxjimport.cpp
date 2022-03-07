@@ -57,22 +57,22 @@ MpxjImport::MpxjImport(QObject* parent, const QVariantList &)
 QStringList MpxjImport::mimeTypes()
 {
     return QStringList()
-        << QLatin1String("application/vnd.ms-project")
-        << QLatin1String("application/x-project")
-        << QLatin1String("application/x-projectlibre")
-        << QLatin1String("application/x-mspdi")
-        << QLatin1String("application/x-ganttproject")
-        << QLatin1String("application/x-primavera-xer")
-        << QLatin1String("application/x-primavera-pmxml")
-        << QLatin1String("application/x-asta")
-        << QLatin1String("application/x-phoenix")
-        << QLatin1String("application/x-fasttrack")
+        << QStringLiteral("application/vnd.ms-project")
+        << QStringLiteral("application/x-project")
+        << QStringLiteral("application/x-projectlibre")
+        << QStringLiteral("application/x-mspdi")
+        << QStringLiteral("application/x-ganttproject")
+        << QStringLiteral("application/x-primavera-xer")
+        << QStringLiteral("application/x-primavera-pmxml")
+        << QStringLiteral("application/x-asta")
+        << QStringLiteral("application/x-phoenix")
+        << QStringLiteral("application/x-fasttrack")
         ;
 }
 
 KoFilter::ConversionStatus MpxjImport::convert(const QByteArray& from, const QByteArray& to)
 {
-    if ( to != "application/x-vnd.kde.plan" || !mimeTypes().contains( from ) ) {
+    if ( to != "application/x-vnd.kde.plan" || !mimeTypes().contains(QLatin1String(from))) {
         errorMpxjImport<<"Bad mime types:"<<from<<"->"<<to;
         return KoFilter::BadMimeType;
     }
@@ -92,7 +92,7 @@ KoFilter::ConversionStatus MpxjImport::convert(const QByteArray& from, const QBy
     }
     QString inputFile = m_chain->inputFile();
     QTemporaryDir *tmp = new QTemporaryDir();
-    QString outFile(tmp->path() + "/maindoc.plan");
+    QString outFile(tmp->path() + QStringLiteral("/maindoc.plan"));
     KoFilter::ConversionStatus sts = doImport(inputFile.toUtf8(), outFile.toUtf8());
     if (sts == KoFilter::OK) {
         QFile file(outFile);
@@ -104,7 +104,7 @@ KoFilter::ConversionStatus MpxjImport::convert(const QByteArray& from, const QBy
             if (!doc.setContent(&file)) {
                 errorMpxjImport<<"Content of temporary plan file is invalid";
                 sts = KoFilter::InvalidFormat;
-            } else if (!part->loadXML(doc, 0)) {
+            } else if (!part->loadXML(doc, nullptr)) {
                 errorMpxjImport<<"Failed to load temporary plan file";
                 sts = KoFilter::InternalError;
             }
@@ -117,16 +117,16 @@ KoFilter::ConversionStatus MpxjImport::convert(const QByteArray& from, const QBy
 KoFilter::ConversionStatus MpxjImport::doImport(QByteArray inFile, QByteArray outFile)
 {
     // Need to convert to "\" on Windows
-    QString normalizedInFile = QDir::toNativeSeparators(inFile);
-    QString normalizedOutFile = QDir::toNativeSeparators(outFile);
+    QString normalizedInFile = QDir::toNativeSeparators(QLatin1String(inFile));
+    QString normalizedOutFile = QDir::toNativeSeparators(QLatin1String(outFile));
 
     QString planConvert = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("calligraplan/java/planconvert.jar"), QStandardPaths::LocateFile).value(0);
     if (planConvert.isEmpty()) {
         return KoFilter::JavaJarNotFound;
     }
-    QString exe = "java";
+    QString exe = QStringLiteral("java");
     QStringList args;
-    args << "-jar";
+    args << QStringLiteral("-jar");
     args << planConvert;
     args << normalizedInFile;
     args << normalizedOutFile;

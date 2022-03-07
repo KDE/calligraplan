@@ -19,8 +19,8 @@
 namespace KPlato
 {
 
-TaskCostPanel::TaskCostPanel(Task &task, Accounts &accounts, QWidget *p, const char *n)
-    : TaskCostPanelImpl(p, n),
+TaskCostPanel::TaskCostPanel(Task &task, Accounts &accounts, QWidget *p)
+    : TaskCostPanelImpl(p),
       m_task(task),
       m_accounts(accounts)
 {
@@ -140,10 +140,9 @@ bool TaskCostPanel::ok() {
 }
 
 
-TaskCostPanelImpl::TaskCostPanelImpl(QWidget *p, const char *n)
+TaskCostPanelImpl::TaskCostPanelImpl(QWidget *p)
     : QWidget(p)
 {
-    setObjectName(n);
     setupUi(this);
     
     connect(runningAccount, SIGNAL(activated(int)), SLOT(slotChanged()));

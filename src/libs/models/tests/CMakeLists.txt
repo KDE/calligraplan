@@ -1,5 +1,7 @@
 include_directories( .. ../commands ../../kernel ${KOODF_INCLUDES} ${KUNDO2_INCLUDES})
 
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+
 # call: planmodels_add_unit_test(<test-name> <sources> LINK_LIBRARIES <library> [<library> [...]] [GUI])
 macro(PLANMODELS_ADD_UNIT_TEST _TEST_NAME)
     ecm_add_test( ${ARGN}

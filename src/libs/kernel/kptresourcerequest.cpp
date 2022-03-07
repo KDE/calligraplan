@@ -101,25 +101,25 @@ void ResourceRequest::unregisterRequest()
 
 bool ResourceRequest::load(KoXmlElement &element, Project &project) {
     debugPlanXml<<this;
-    m_resource = project.resource(element.attribute("resource-id"));
+    m_resource = project.resource(element.attribute(QStringLiteral("resource-id")));
     if (m_resource == nullptr) {
-        warnPlan<<"The referenced resource does not exist: resource id="<<element.attribute("resource-id");
+        warnPlan<<"The referenced resource does not exist: resource id="<<element.attribute(QStringLiteral("resource-id"));
         return false;
     }
-    m_units  = element.attribute("units").toInt();
+    m_units  = element.attribute(QStringLiteral("units")).toInt();
 
-    KoXmlElement parent = element.namedItem("required-resources").toElement();
+    KoXmlElement parent = element.namedItem(QStringLiteral("required-resources")).toElement();
     KoXmlElement e;
     forEachElement(e, parent) {
-        if (e.nodeName() == "resource") {
-            QString id = e.attribute("id");
+        if (e.nodeName() == QStringLiteral("resource")) {
+            QString id = e.attribute(QStringLiteral("id"));
             if (id.isEmpty()) {
                 errorPlan<<"Missing project id";
                 continue;
             }
             Resource *r = project.resource(id);
             if (r == nullptr) {
-                warnPlan<<"The referenced resource does not exist: resource id="<<element.attribute("resource-id");
+                warnPlan<<"The referenced resource does not exist: resource id="<<element.attribute(QStringLiteral("resource-id"));
             } else {
                 if (r != m_resource) {
                     m_required << r;
@@ -132,10 +132,10 @@ bool ResourceRequest::load(KoXmlElement &element, Project &project) {
 }
 
 void ResourceRequest::save(QDomElement &element) const {
-    QDomElement me = element.ownerDocument().createElement("resource-request");
+    QDomElement me = element.ownerDocument().createElement(QStringLiteral("resource-request"));
     element.appendChild(me);
-    me.setAttribute("resource-id", m_resource->id());
-    me.setAttribute("units", QString::number(m_units));
+    me.setAttribute(QStringLiteral("resource-id"), m_resource->id());
+    me.setAttribute(QStringLiteral("units"), QString::number(m_units));
 }
 
 int ResourceRequest::units() const {
@@ -746,8 +746,8 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
     if (ns) {
         QStringList nl;
         foreach (ResourceRequest *r, lst) { nl << r->resource()->name(); }
-        ns->logDebug("Match effort:" + time.toString() + "," + _effort.toString());
-        ns->logDebug("Resources: " + (nl.isEmpty() ? QString("None") : nl.join(", ")));
+        ns->logDebug(QStringLiteral("Match effort:" + time.toString() + "," + _effort.toString());
+        ns->logDebug(QStringLiteral("Resources: " + (nl.isEmpty() ? QString("None") : nl.join(", ")));
     }
 #endif
     QLocale locale;
@@ -781,7 +781,7 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
     }
     if (! match && day <= nDays) {
 #ifndef PLAN_NLOGDEBUG
-        if (ns) ns->logDebug("Days: duration " + logtime.toString() + " - " + end.toString() + " e=" + e.toString() + " (" + (_effort - e).toString() + ')');
+        if (ns) ns->logDebug(QStringLiteral("Days: duration ") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" e=") + e.toString() + QStringLiteral(" (") + (_effort - e).toString() + QLatin1Char(')'));
 #endif
         logtime = start;
         for (int i=0; !match && i < 24; ++i) {
@@ -809,7 +809,7 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
     }
     if (! match && day <= nDays) {
 #ifndef PLAN_NLOGDEBUG
-        if (ns) ns->logDebug("Hours: duration " + logtime.toString() + " - " + end.toString() + " e=" + e.toString() + " (" + (_effort - e).toString() + ')');
+        if (ns) ns->logDebug(QStringLiteral("Hours: duration ") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" e=") + e.toString() + QStringLiteral(" (") + (_effort - e).toString() + QLatin1Char(')'));
 #endif
         logtime = start;
         for (int i=0; !match && i < 60; ++i) {
@@ -836,13 +836,13 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
         if ((_effort - e) <= 60000){
             match = true;
 #ifndef PLAN_NLOGDEBUG
-            if (ns) ns->logDebug("Deviation match:" + logtime.toString() + " - " + end.toString() + " e=" + e.toString() + " (" + (_effort - e).toString() + ')');
+            if (ns) ns->logDebug(QStringLiteral("Deviation match:") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" e=") + e.toString() + QStringLiteral(" (") + (_effort - e).toString() + QLatin1Char(')'));
 #endif
         }
     }
     if (! match && day <= nDays) {
 #ifndef PLAN_NLOGDEBUG
-        if (ns) ns->logDebug("Minutes: duration " + logtime.toString() + " - " + end.toString() + " e=" + e.toString() + " (" + (_effort - e).toString() + ')');
+        if (ns) ns->logDebug(QStringLiteral("Minutes: duration ") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" e=") + e.toString() + QStringLiteral(" (") + (_effort - e).toString() + QLatin1Char(')'));
 #endif
         logtime = start;
         for (int i=0; !match && i < 60; ++i) {
@@ -864,7 +864,7 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
     }
     if (! match && day <= nDays) {
 #ifndef PLAN_NLOGDEBUG
-        if (ns) ns->logDebug("Seconds: duration " + logtime.toString() + " - " + end.toString() + " e=" + e.toString() + " (" + (_effort - e).toString() + ')');
+        if (ns) ns->logDebug(QStringLiteral("Seconds: duration ") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" e=") + e.toString() + QStringLiteral(" (") + (_effort - e).toString() +QLatin1Char(')'));
 #endif
         for (int i=0; !match && i < 1000; ++i) {
             //milliseconds
@@ -924,7 +924,7 @@ QDebug operator<<(QDebug dbg, const KPlato::ResourceRequest *rr)
 QDebug operator<<(QDebug dbg, const KPlato::ResourceRequest &rr)
 {
     if (rr.resource()) {
-        dbg<<"ResourceRequest["<<rr.id()<<':'<<rr.resource()->name()<<QString("%1%").arg(rr.units())<<']';
+        dbg<<"ResourceRequest["<<rr.id()<<':'<<rr.resource()->name()<<QStringLiteral("%1%").arg(rr.units())<<']';
     } else {
         dbg<<"ResourceRequest["<<rr.id()<<':'<<"No resource]";
     }

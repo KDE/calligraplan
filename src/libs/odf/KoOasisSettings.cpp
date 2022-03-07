@@ -25,7 +25,7 @@ KoOasisSettings::KoOasisSettings(const KoXmlDocument& doc)
 
 KoOasisSettings::KoOasisSettings(const KoXmlDocument& doc, const char* officeNSURI, const char* configNSURI)
         : m_settingsElement(KoXml::namedItemNS(doc.documentElement(), officeNSURI, "settings")),
-        m_configNsUri(configNSURI)
+        m_configNsUri(QLatin1String(configNSURI))
         , d(nullptr)
 {
     const KoXmlElement contents = doc.documentElement();
@@ -42,7 +42,7 @@ KoOasisSettings::Items KoOasisSettings::itemSet(const QString& itemSetName) cons
 {
     KoXmlElement e;
     forEachElement(e, m_settingsElement) {
-        if (e.localName() == "config-item-set" &&
+        if (e.localName() == QStringLiteral("config-item-set") &&
                 e.namespaceURI() == m_configNsUri &&
                 e.attributeNS(m_configNsUri, "name", QString()) == itemSetName) {
             return Items(e, this);
@@ -56,7 +56,7 @@ KoOasisSettings::IndexedMap KoOasisSettings::Items::indexedMap(const QString& it
 {
     KoXmlElement configItem;
     forEachElement(configItem, m_element) {
-        if (configItem.localName() == "config-item-map-indexed" &&
+        if (configItem.localName() == QStringLiteral("config-item-map-indexed") &&
                 configItem.namespaceURI() == m_settings->m_configNsUri &&
                 configItem.attributeNS(m_settings->m_configNsUri, "name", QString()) == itemMapName) {
             return IndexedMap(configItem, m_settings);
@@ -69,7 +69,7 @@ KoOasisSettings::NamedMap KoOasisSettings::Items::namedMap(const QString& itemMa
 {
     KoXmlElement configItem;
     forEachElement(configItem, m_element) {
-        if (configItem.localName() == "config-item-map-named" &&
+        if (configItem.localName() == QStringLiteral("config-item-map-named") &&
                 configItem.namespaceURI() == m_settings->m_configNsUri &&
                 configItem.attributeNS(m_settings->m_configNsUri, "name", QString()) == itemMapName) {
             return NamedMap(configItem, m_settings);
@@ -83,7 +83,7 @@ KoOasisSettings::Items KoOasisSettings::IndexedMap::entry(int entryIndex) const
     int i = 0;
     KoXmlElement entry;
     forEachElement(entry, m_element) {
-        if (entry.localName() == "config-item-map-entry" &&
+        if (entry.localName() == QStringLiteral("config-item-map-entry") &&
                 entry.namespaceURI() == m_settings->m_configNsUri) {
             if (i == entryIndex)
                 return Items(entry, m_settings);
@@ -98,7 +98,7 @@ KoOasisSettings::Items KoOasisSettings::NamedMap::entry(const QString& entryName
 {
     KoXmlElement entry;
     forEachElement(entry, m_element) {
-        if (entry.localName() == "config-item-map-entry" &&
+        if (entry.localName() == QStringLiteral("config-item-map-entry") &&
                 entry.namespaceURI() == m_settings->m_configNsUri &&
                 entry.attributeNS(m_settings->m_configNsUri, "name", QString()) == entryName) {
             return Items(entry, m_settings);
@@ -113,7 +113,7 @@ QString KoOasisSettings::Items::findConfigItem(const KoXmlElement& element,
 {
     KoXmlElement it;
     forEachElement(it, element) {
-        if (it.localName() == "config-item" &&
+        if (it.localName() == QStringLiteral("config-item") &&
                 it.namespaceURI() == m_settings->m_configNsUri &&
                 it.attributeNS(m_settings->m_configNsUri, "name", QString()) == item) {
             *ok = true;
@@ -178,9 +178,9 @@ bool KoOasisSettings::Items::parseConfigItemBool(const QString& configName, bool
     const QString str = findConfigItem(configName, &ok);
     if (! ok)
         return defValue;
-    if (str == "true")
+    if (str == QStringLiteral("true"))
         return true;
-    else if (str == "false")
+    else if (str == QStringLiteral("false"))
         return false;
     return defValue;
 }

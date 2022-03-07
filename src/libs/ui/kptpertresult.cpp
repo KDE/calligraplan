@@ -79,7 +79,7 @@ PertResult::PertResult(KoPart *part, KoDocument *doc, QWidget *parent)
     current_schedule(nullptr)
 {
     debugPlan << " ---------------- KPlato: Creating PertResult ----------------";
-    setXMLFile("PertResultUi.rc");
+    setXMLFile(QStringLiteral("PertResultUi.rc"));
     widget.setupUi(this);
     PertResultItemModel *m = new PertResultItemModel(widget.treeWidgetTaskResult);
     widget.treeWidgetTaskResult->setModel(m);
@@ -149,7 +149,7 @@ void PertResult::draw()
 void PertResult::setupGui()
 {
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("node_properties", actionOpenNode);
+    actionCollection()->addAction(QStringLiteral("node_properties"), actionOpenNode);
     connect(actionOpenNode, &QAction::triggered, this, &PertResult::slotOpenCurrentNode);
 
     // Add the context menu actions for the view options
@@ -184,10 +184,10 @@ void PertResult::slotContextMenuRequested(const QModelIndex& index, const QPoint
     QString name;
     switch (node->type()) {
         case Node::Type_Task:
-            name = "task_edit_popup";
+            name = QStringLiteral("task_edit_popup");
             break;
         case Node::Type_Milestone:
-            name = "taskeditor_milestone_popup";
+            name = QStringLiteral("taskeditor_milestone_popup");
             break;
         default:
             break;
@@ -443,18 +443,18 @@ void PertCpmView::slotContextMenuRequested(const QModelIndex& index, const QPoin
     QString name;
     switch (node->type()) {
         case Node::Type_Task:
-            name = "task_popup";
+            name = QStringLiteral("task_popup");
             break;
         case Node::Type_Milestone:
-            name = "taskeditor_milestone_popup";
+            name = QStringLiteral("taskeditor_milestone_popup");
             break;
         case Node::Type_Summarytask:
-            name = "summarytask_popup";
+            name = QStringLiteral("summarytask_popup");
             break;
         case Node::Type_Project:
             break;
         default:
-            name = "node_popup";
+            name = QStringLiteral("node_popup");
             break;
     }
     if (name.isEmpty()) {

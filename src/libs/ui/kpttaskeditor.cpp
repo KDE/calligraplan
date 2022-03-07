@@ -298,7 +298,7 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"----------------- Create TaskEditor ----------------------";
-    setXMLFile("TaskEditorUi.rc");
+    setXMLFile(QStringLiteral("TaskEditorUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -395,7 +395,7 @@ void TaskEditor::itemDoubleClicked(const QPersistentModelIndex &idx)
         }
         Node *node = m_view->baseModel()->node(i);
         if (node) {
-            auto action = actionCollection()->action("task_description");
+            auto action = actionCollection()->action(QStringLiteral("task_description"));
             if (action) {
                 if (node->type() == Node::Type_Project) {
                     slotOpenProjectDescription();
@@ -445,7 +445,7 @@ void TaskEditor::createDockers()
     // Add dockers
     DockWidget *ds = nullptr;
     {
-        ds = new DockWidget(this, "Allocations", xi18nc("@title resource allocations", "Allocations"));
+        ds = new DockWidget(this, QStringLiteral("Allocations"), xi18nc("@title resource allocations", "Allocations"));
         QTreeView *x = new QTreeView(ds);
         AllocatedResourceItemModel *m1 = new AllocatedResourceItemModel(x);
         x->setModel(m1);
@@ -466,7 +466,7 @@ void TaskEditor::createDockers()
     }
 
     {
-        ds = new DockWidget(this, "Resources", xi18nc("@title", "Resources"));
+        ds = new DockWidget(this, QStringLiteral("Resources"), xi18nc("@title", "Resources"));
         ds->setToolTip(xi18nc("@info:tooltip",
                             "Drag resources into the Task Editor"
                             " and drop into the allocations- or responsible column"));
@@ -496,7 +496,7 @@ void TaskEditor::createDockers()
     }
 
     {
-        ds = new DockWidget(this, "Taskmodules", xi18nc("@title", "Task Modules"));
+        ds = new DockWidget(this, QStringLiteral("Taskmodules"), xi18nc("@title", "Task Modules"));
         ds->setToolTip(xi18nc("@info:tooltip", "Drag a task module into the <emphasis>Task Editor</emphasis> to add it to the project"));
         ds->setLocation(Qt::LeftDockWidgetArea);
         ds->setShown(false); // hide by default
@@ -646,7 +646,7 @@ void TaskEditor::slotContextMenuRequested(const QModelIndex& index, const QPoint
             editTasks(tasks, pos);
             return;
         }
-        name = tasks.at(0)->isScheduled(baseModel()->id()) ? "task_popup" : "task_edit_popup";
+        name = tasks.at(0)->isScheduled(baseModel()->id()) ? QStringLiteral("task_popup") : QStringLiteral("task_edit_popup");
     } else {
         auto node = currentNode();
         if (node == nullptr) {
@@ -654,20 +654,20 @@ void TaskEditor::slotContextMenuRequested(const QModelIndex& index, const QPoint
         }
         switch (node->type()) {
         case Node::Type_Project:
-            name = "project_edit_popup";
+            name = QStringLiteral("project_edit_popup");
             Q_EMIT requestPopupMenu(name, pos);
             return;
         case Node::Type_Task:
-            name = node->isScheduled(baseModel()->id()) ? "task_popup" : "task_edit_popup";
+            name = node->isScheduled(baseModel()->id()) ? QStringLiteral("task_popup") : QStringLiteral("task_edit_popup");
             break;
         case Node::Type_Milestone:
-            name = node->isScheduled(baseModel()->id()) ? "taskeditor_milestone_popup" : "task_edit_popup";
+            name = node->isScheduled(baseModel()->id()) ? QStringLiteral("taskeditor_milestone_popup") : QStringLiteral("task_edit_popup");
             break;
         case Node::Type_Summarytask:
-            name = "summarytask_popup";
+            name = QStringLiteral("summarytask_popup");
             break;
         default:
-            name = "node_popup";
+            name = QStringLiteral("node_popup");
             break;
         }
     }
@@ -706,7 +706,7 @@ void TaskEditor::setScheduleManager(ScheduleManager *sm)
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted
         m_domdoc.clear();
-        QDomElement element = m_domdoc.createElement("expanded");
+        QDomElement element = m_domdoc.createElement(QStringLiteral("expanded"));
         m_domdoc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -714,8 +714,8 @@ void TaskEditor::setScheduleManager(ScheduleManager *sm)
     QDomDocument doc;
     bool expand = sm && scheduleManager();
     if (expand) {
-        m_view->masterView()->setObjectName("TaskEditor");
-        QDomElement element = doc.createElement("expanded");
+        m_view->masterView()->setObjectName(QStringLiteral("TaskEditor"));
+        QDomElement element = doc.createElement(QStringLiteral("expanded"));
         doc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -770,7 +770,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionMoveTaskDown->setEnabled(false);
         actionIndentTask->setEnabled(false);
         actionUnindentTask->setEnabled(false);
-        if (auto a = actionCollection()->action("node_properties")) a->setEnabled(false);
+        if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(false);
         return;
     }
 
@@ -790,7 +790,7 @@ void TaskEditor::updateActionsEnabled(bool on)
             actionMoveTaskDown->setEnabled(false);
             actionIndentTask->setEnabled(false);
             actionUnindentTask->setEnabled(false);
-            if (auto a = actionCollection()->action("node_properties")) a->setEnabled(false);
+            if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(false);
         } else {
             // we need to be able to add the first task
             menuAddTask->setEnabled(true);
@@ -805,7 +805,7 @@ void TaskEditor::updateActionsEnabled(bool on)
             actionMoveTaskDown->setEnabled(false);
             actionIndentTask->setEnabled(false);
             actionUnindentTask->setEnabled(false);
-            if (auto a = actionCollection()->action("node_properties")) a->setEnabled(false);
+            if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(false);
         }
         return;
     }
@@ -824,7 +824,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionMoveTaskDown->setEnabled(false);
         actionIndentTask->setEnabled(false);
         actionUnindentTask->setEnabled(false);
-        if (auto a = actionCollection()->action("node_properties")) a->setEnabled(false);
+        if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(false);
         return;
     }
     bool baselined = false;
@@ -851,7 +851,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionMoveTaskDown->setEnabled(project()->canMoveTaskDown(n));
         actionIndentTask->setEnabled(project()->canIndentTask(n) && !baselined && !n->siblingBefore()->isBaselined());
         actionUnindentTask->setEnabled(project()->canUnindentTask(n) && !baselined);
-        if (auto a = actionCollection()->action("node_properties")) a->setEnabled(true);
+        if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(true);
         return;
     }
     // selCount > 1
@@ -865,7 +865,7 @@ void TaskEditor::updateActionsEnabled(bool on)
     actionLinkTask->setEnabled(false);
     actionMoveTaskUp->setEnabled(false);
     actionMoveTaskDown->setEnabled(false);
-    if (auto a = actionCollection()->action("node_properties")) a->setEnabled(!selectedTasks().isEmpty());
+    if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(!selectedTasks().isEmpty());
 
     const QList<Node*> nodes = selectedNodes();
     const auto indentParent = newIndentParent(nodes);
@@ -891,7 +891,7 @@ void TaskEditor::updateActionsEnabled(bool on)
 void TaskEditor::setupGui()
 {
     menuAddTask = new KActionMenu(koIcon("view-task-add"), i18n("Add Task"), this);
-    actionCollection()->addAction("add_task", menuAddTask);
+    actionCollection()->addAction(QStringLiteral("add_task"), menuAddTask);
     connect(menuAddTask, &QAction::triggered, this, &TaskEditor::slotAddTask);
 
     actionAddTask  = new QAction(i18n("Add Task"), this);
@@ -906,7 +906,7 @@ void TaskEditor::setupGui()
 
 
     menuAddSubTask = new KActionMenu(koIcon("view-task-child-add"), i18n("Add Sub-Task"), this);
-    actionCollection()->addAction("add_subtask", menuAddSubTask);
+    actionCollection()->addAction(QStringLiteral("add_subtask"), menuAddSubTask);
     connect(menuAddSubTask, &QAction::triggered, this, &TaskEditor::slotAddSubtask);
 
     actionAddSubtask  = new QAction(i18n("Add Sub-Task"), this);
@@ -921,49 +921,49 @@ void TaskEditor::setupGui()
 
     actionDeleteTask  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
     actionCollection()->setDefaultShortcut(actionDeleteTask, Qt::Key_Delete);
-    actionCollection()->addAction("delete_task", actionDeleteTask);
+    actionCollection()->addAction(QStringLiteral("delete_task"), actionDeleteTask);
     connect(actionDeleteTask, &QAction::triggered, this, &TaskEditor::slotDeleteTask);
 
     actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
     actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL + Qt::Key_L);
-    actionCollection()->addAction("link_task", actionLinkTask);
+    actionCollection()->addAction(QStringLiteral("link_task"), actionLinkTask);
     connect(actionLinkTask, &QAction::triggered, this, &TaskEditor::slotLinkTask);
 
     actionIndentTask  = new QAction(koIcon("format-indent-more"), i18n("Indent Task"), this);
-    actionCollection()->addAction("indent_task", actionIndentTask);
+    actionCollection()->addAction(QStringLiteral("indent_task"), actionIndentTask);
     connect(actionIndentTask, &QAction::triggered, this, &TaskEditor::slotIndentTask);
 
     actionUnindentTask  = new QAction(koIcon("format-indent-less"), i18n("Unindent Task"), this);
-    actionCollection()->addAction("unindent_task", actionUnindentTask);
+    actionCollection()->addAction(QStringLiteral("unindent_task"), actionUnindentTask);
     connect(actionUnindentTask, &QAction::triggered, this, &TaskEditor::slotUnindentTask);
 
     actionMoveTaskUp  = new QAction(koIcon("arrow-up"), i18n("Move Up"), this);
-    actionCollection()->addAction("move_task_up", actionMoveTaskUp);
+    actionCollection()->addAction(QStringLiteral("move_task_up"), actionMoveTaskUp);
     connect(actionMoveTaskUp, &QAction::triggered, this, &TaskEditor::slotMoveTaskUp);
 
     actionMoveTaskDown  = new QAction(koIcon("arrow-down"), i18n("Move Down"), this);
-    actionCollection()->addAction("move_task_down", actionMoveTaskDown);
+    actionCollection()->addAction(QStringLiteral("move_task_down"), actionMoveTaskDown);
     connect(actionMoveTaskDown, &QAction::triggered, this, &TaskEditor::slotMoveTaskDown);
 
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("node_properties", actionOpenNode);
+    actionCollection()->addAction(QStringLiteral("node_properties"), actionOpenNode);
     connect(actionOpenNode, &QAction::triggered, this, &TaskEditor::slotOpenCurrentSelection);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &TaskEditor::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &TaskEditor::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &TaskEditor::slotDocuments);
 
     // Add the context menu actions for the view options
     actionShowProject = new KToggleAction(i18n("Show Project"), this);
-    actionCollection()->addAction("show_project", actionShowProject);
+    actionCollection()->addAction(QStringLiteral("show_project"), actionShowProject);
     connect(actionShowProject, &QAction::triggered, baseModel(), &NodeItemModel::setShowProject);
     addContextAction(actionShowProject);
 
@@ -988,7 +988,7 @@ void TaskEditor::slotOptions()
 {
     debugPlan;
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
-    dlg->addPrintingOptions(sender()->objectName() == "print_options");
+    dlg->addPrintingOptions(sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
@@ -1253,7 +1253,7 @@ void TaskEditor::slotMoveTaskDown()
 bool TaskEditor::loadContext(const KoXmlElement &context)
 {
     ViewBase::loadContext(context);
-    bool show = (bool)(context.attribute("show-project", "0").toInt());
+    bool show = (bool)(context.attribute(QStringLiteral("show-project"), QString::number(0)).toInt());
     actionShowProject->setChecked(show);
     baseModel()->setShowProject(show); // why is this not called by the action?
     bool res = m_view->loadContext(baseModel()->columnMap(), context);
@@ -1263,7 +1263,7 @@ bool TaskEditor::loadContext(const KoXmlElement &context)
 void TaskEditor::saveContext(QDomElement &context) const
 {
     ViewBase::saveContext(context);
-    context.setAttribute("show-project", QString::number(baseModel()->projectShown()));
+    context.setAttribute(QStringLiteral("show-project"), QString::number(baseModel()->projectShown()));
     m_view->saveContext(baseModel()->columnMap(), context);
 }
 
@@ -1525,7 +1525,7 @@ void TaskEditor::slotDocumentsFinished(int result)
 TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
-    setXMLFile("TaskViewUi.rc");
+    setXMLFile(QStringLiteral("TaskViewUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -1623,7 +1623,7 @@ void TaskView::itemDoubleClicked(const QPersistentModelIndex &idx)
     if (idx.column() == NodeModel::NodeDescription) {
         Node *node = m_view->baseModel()->node(proxyModel()->mapToSource(idx));
         if (node) {
-            auto action = actionCollection()->action("task_description");
+            auto action = actionCollection()->action(QStringLiteral("task_description"));
             if (action) {
                 if (node->type() == Node::Type_Project) {
                     slotOpenProjectDescription();
@@ -1718,17 +1718,17 @@ void TaskView::slotContextMenuRequested(const QModelIndex& index, const QPoint& 
     if (node) {
         switch (node->type()) {
             case Node::Type_Project:
-                name = "project_edit_popup";
+                name = QStringLiteral("project_edit_popup");
                 Q_EMIT requestPopupMenu(name, pos);
                 return;
             case Node::Type_Task:
-                name = "taskview_popup";
+                name = QStringLiteral("taskview_popup");
                 break;
             case Node::Type_Milestone:
-                name = "taskview_milestone_popup";
+                name = QStringLiteral("taskview_milestone_popup");
                 break;
             case Node::Type_Summarytask:
-                name = "taskview_summary_popup";
+                name = QStringLiteral("taskview_summary_popup");
                 break;
             default:
                 break;
@@ -1751,7 +1751,7 @@ void TaskView::setScheduleManager(ScheduleManager *sm)
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted
         m_domdoc.clear();
-        QDomElement element = m_domdoc.createElement("expanded");
+        QDomElement element = m_domdoc.createElement(QStringLiteral("expanded"));
         m_domdoc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -1759,8 +1759,8 @@ void TaskView::setScheduleManager(ScheduleManager *sm)
     QDomDocument doc;
     bool expand = sm && scheduleManager() && sm != scheduleManager();
     if (expand) {
-        m_view->masterView()->setObjectName("TaskEditor");
-        QDomElement element = doc.createElement("expanded");
+        m_view->masterView()->setObjectName(QStringLiteral("TaskEditor"));
+        QDomElement element = doc.createElement(QStringLiteral("expanded"));
         doc.appendChild(element);
         m_view->masterView()->saveExpanded(element);
     }
@@ -1785,19 +1785,19 @@ void TaskView::updateActionsEnabled(bool on)
     bool enable = on && node && selectedNodeCount() < 2;
 
     const auto c = actionCollection();
-    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
-    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
-    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
+    if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(enable); }
 
     if (enable) {
         auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
         switch (node->type()) {
             case Node::Type_Task:
             case Node::Type_Milestone:
-                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(enable && node->isScheduled(sid)); }
                 break;
             default:
-                if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
                 break;
         }
     }
@@ -1806,24 +1806,24 @@ void TaskView::updateActionsEnabled(bool on)
 void TaskView::setupGui()
 {
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("node_properties", actionOpenNode);
+    actionCollection()->addAction(QStringLiteral("node_properties"), actionOpenNode);
     connect(actionOpenNode, &QAction::triggered, this, &TaskView::slotOpenCurrentNode);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &TaskView::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &TaskView::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &TaskView::slotDocuments);
 
     // Add the context menu actions for the view options
     actionShowProject = new KToggleAction(i18n("Show Project"), this);
-    actionCollection()->addAction("show_project", actionShowProject);
+    actionCollection()->addAction(QStringLiteral("show_project"), actionShowProject);
     connect(actionShowProject, &QAction::triggered, baseModel(), &NodeItemModel::setShowProject);
     addContextAction(actionShowProject);
 
@@ -1845,7 +1845,7 @@ void TaskView::slotOptions()
 {
     debugPlan;
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
-    dlg->addPrintingOptions(sender()->objectName() == "print_options");
+    dlg->addPrintingOptions(sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }
@@ -1853,7 +1853,7 @@ void TaskView::slotOptions()
 bool TaskView::loadContext(const KoXmlElement &context)
 {
     ViewBase::loadContext(context);
-    bool show = (bool)(context.attribute("show-project", "0").toInt());
+    bool show = (bool)(context.attribute(QStringLiteral("show-project"), QString::number(0)).toInt());
     actionShowProject->setChecked(show);
     baseModel()->setShowProject(show); // why is this not called by the action?
     return m_view->loadContext(m_view->baseModel()->columnMap(), context);
@@ -1862,7 +1862,7 @@ bool TaskView::loadContext(const KoXmlElement &context)
 void TaskView::saveContext(QDomElement &context) const
 {
     ViewBase::saveContext(context);
-    context.setAttribute("show-project", QString::number(baseModel()->projectShown()));
+    context.setAttribute(QStringLiteral("show-project"), QString::number(baseModel()->projectShown()));
     m_view->saveContext(m_view->baseModel()->columnMap(), context);
 }
 
@@ -2149,9 +2149,9 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
     m_cmd(nullptr)
 {
     if (doc && doc->isReadWrite()) {
-        setXMLFile("WorkPackageViewUi.rc");
+        setXMLFile(QStringLiteral("WorkPackageViewUi.rc"));
     } else {
-        setXMLFile("WorkPackageViewUi_readonly.rc");
+        setXMLFile(QStringLiteral("WorkPackageViewUi_readonly.rc"));
     }
 
     QVBoxLayout * l = new QVBoxLayout(this);
@@ -2240,7 +2240,7 @@ void TaskWorkPackageView::itemDoubleClicked(const QPersistentModelIndex &idx)
     if (idx.column() == NodeModel::NodeDescription) {
         Node *node = proxyModel()->taskFromIndex(idx);
         if (node) {
-            auto action = actionCollection()->action("task_description");
+            auto action = actionCollection()->action(QStringLiteral("task_description"));
             if (action) {
                 action->trigger();
             }
@@ -2341,13 +2341,13 @@ void TaskWorkPackageView::slotContextMenuRequested(const QModelIndex& index, con
     if (node) {
         switch (node->type()) {
             case Node::Type_Task:
-                name = "workpackage_popup";
+                name = QStringLiteral("workpackage_popup");
                 break;
             case Node::Type_Milestone:
-                name = "taskview_milestone_popup";
+                name = QStringLiteral("taskview_milestone_popup");
                 break;
             case Node::Type_Summarytask:
-                name = "taskview_summary_popup";
+                name = QStringLiteral("taskview_summary_popup");
                 break;
             default:
                 break;
@@ -2383,19 +2383,19 @@ void TaskWorkPackageView::updateActionsEnabled(bool on)
     bool enable = on && node && nodes.count() < 2;
 
     const auto c = actionCollection();
-    if (auto a = c->action("task_progress")) { a->setEnabled(false); }
-    if (auto a = c->action("task_description")) { a->setEnabled(enable); }
-    if (auto a = c->action("task_documents")) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
+    if (auto a = c->action(QStringLiteral("task_description"))) { a->setEnabled(enable); }
+    if (auto a = c->action(QStringLiteral("task_documents"))) { a->setEnabled(enable); }
 
     if (enable) {
         auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
         switch (node->type()) {
             case Node::Type_Task:
             case Node::Type_Milestone:
-                if (auto a = c->action("task_progress")) { a->setEnabled(enable && node->isScheduled(sid)); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(enable && node->isScheduled(sid)); }
                 break;
             default:
-                if (auto a = c->action("task_progress")) { a->setEnabled(false); }
+                if (auto a = c->action(QStringLiteral("task_progress"))) { a->setEnabled(false); }
                 break;
         }
     }
@@ -2405,23 +2405,23 @@ void TaskWorkPackageView::updateActionsEnabled(bool on)
 void TaskWorkPackageView::setupGui()
 {
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &TaskWorkPackageView::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &TaskWorkPackageView::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &TaskWorkPackageView::slotDocuments);
 
     actionMailWorkpackage  = new QAction(koIcon("cloud-upload"), i18n("Publish..."), this);
-    actionCollection()->addAction("send_workpackage", actionMailWorkpackage);
+    actionCollection()->addAction(QStringLiteral("send_workpackage"), actionMailWorkpackage);
     connect(actionMailWorkpackage, &QAction::triggered, this, &TaskWorkPackageView::slotMailWorkpackage);
 
     actionOpenWorkpackages = new QAction(koIcon("view-task"), i18n("Work Packages..."), this);
-    actionCollection()->addAction("open_workpackages", actionOpenWorkpackages);
+    actionCollection()->addAction(QStringLiteral("open_workpackages"), actionOpenWorkpackages);
     actionOpenWorkpackages->setEnabled(false);
     connect(actionOpenWorkpackages, &QAction::triggered, this, &TaskWorkPackageView::openWorkpackages);
 
@@ -2477,7 +2477,7 @@ void TaskWorkPackageView::slotOptions()
 {
     debugPlan;
     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
-    dlg->addPrintingOptions(sender()->objectName() == "print_options");
+    dlg->addPrintingOptions(sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }

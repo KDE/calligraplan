@@ -138,7 +138,7 @@ void KPlatoWork_MainWindow::slotFileSave()
 
 void KPlatoWork_MainWindow::slotFileOpen()
 {
-    const QUrl file = QFileDialog::getOpenFileUrl(nullptr, QString(), QUrl(), "*.planwork");
+    const QUrl file = QFileDialog::getOpenFileUrl(nullptr, QString(), QUrl(), QStringLiteral("*.planwork"));
     if (! file.isEmpty()) {
         openDocument(file);
     }

@@ -15,23 +15,23 @@ namespace KPlato
 // namespace SchedulingState
 // {
     QString SchedulingState::deleted(bool trans)
-        { return trans ? i18n("Deleted") : QString("Deleted"); }
+        { return trans ? i18n("Deleted") : QStringLiteral("Deleted"); }
     QString SchedulingState::notScheduled(bool trans)
-        { return trans ? i18n("Not scheduled") : QString("Not scheduled"); }
+        { return trans ? i18n("Not scheduled") : QStringLiteral("Not scheduled"); }
     QString SchedulingState::scheduled(bool trans)
-        { return trans ? i18n("Scheduled") : QString("Scheduled"); }
+        { return trans ? i18n("Scheduled") : QStringLiteral("Scheduled"); }
     QString SchedulingState::resourceOverbooked(bool trans)
-        { return trans ? i18n("Resource overbooked") : QString("Resource overbooked"); }
+        { return trans ? i18n("Resource overbooked") : QStringLiteral("Resource overbooked"); }
     QString SchedulingState::resourceNotAvailable(bool trans)
-        { return trans ? i18n("Resource not available") : QString("Resource not available"); }
+        { return trans ? i18n("Resource not available") : QStringLiteral("Resource not available"); }
     QString SchedulingState::resourceNotAllocated(bool trans)
-        { return trans ? i18n("No resource allocated") : QString("No resource allocated"); }
+        { return trans ? i18n("No resource allocated") : QStringLiteral("No resource allocated"); }
     QString SchedulingState::constraintsNotMet(bool trans)
-        { return trans ? i18n("Cannot fulfill constraints") : QString("Cannot fulfill constraints"); }
+        { return trans ? i18n("Cannot fulfill constraints") : QStringLiteral("Cannot fulfill constraints"); }
     QString SchedulingState::effortNotMet(bool trans)
-        { return trans ? i18n("Effort not met") : QString("Effort not met"); }
+        { return trans ? i18n("Effort not met") : QStringLiteral("Effort not met"); }
     QString SchedulingState::schedulingError(bool trans)
-        { return trans ? i18n("Scheduling error") : QString("Scheduling error"); }
+        { return trans ? i18n("Scheduling error") : QStringLiteral("Scheduling error"); }
 
 //} namespace SchedulingState
 

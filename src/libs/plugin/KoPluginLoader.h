@@ -109,6 +109,7 @@ namespace KoPluginLoader
      * @return a list of plugin loaders from the found plugins matching the mimetype, ownership is transferred to the caller
      */
     KOPLUGIN_EXPORT QList<QPluginLoader *> pluginLoaders(const QString &directory, const QString &mimeType = QString());
+    KOPLUGIN_EXPORT QList<QPluginLoader *> pluginLoaders(const char *directory, const QString &mimeType = QString());
 }
 
 #endif // KO_PLUGIN_LOADER_H

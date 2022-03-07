@@ -49,7 +49,7 @@ public:
         m_version = ver;
         delete m_loader;
         m_loader = nullptr;
-        if (m_version.split('.').value(0).toInt() == 0) {
+        if (m_version.split(QLatin1Char('.')).value(0).toInt() == 0) {
             m_loader = new ProjectLoader_v0();
         } else {
             warnPlanXml<<"Unknown version:"<<ver<<"Failed to create a loader";
@@ -93,11 +93,11 @@ public:
         increment(sev);
         if (m_logLevel < sev) return;
         QString s;
-        if (sev == Errors) s = QLatin1String("ERROR");
-        else if (sev == Warnings) s = QLatin1String("WARNING");
-        else if (sev == Diagnostics) s = QLatin1String("Diagnostic");
-        else if (sev == Debug) s = QLatin1String("Debug");
-        else s = QLatin1String("Message");
+        if (sev == Errors) s = QStringLiteral("ERROR");
+        else if (sev == Warnings) s = QStringLiteral("WARNING");
+        else if (sev == Diagnostics) s = QStringLiteral("Diagnostic");
+        else if (sev == Debug) s = QStringLiteral("Debug");
+        else s = QStringLiteral("Message");
         m_log<<QStringLiteral("%1: %2").arg(s, 13).arg(msg);
     }
     void addMsg(const QString &msg) { m_log<<msg; }
@@ -133,7 +133,7 @@ public:
         startLoad();
 
         KoXmlElement plan = document.documentElement();
-        setVersion(plan.attribute("version", PLAN_FILE_SYNTAX_VERSION));
+        setVersion(plan.attribute(QStringLiteral("version"), PLAN_FILE_SYNTAX_VERSION));
 #if 1
         if (m_loader) {
             result = m_loader->load(*this, document);
@@ -142,7 +142,7 @@ public:
             result = false;
         }
         if (!result) {
-            addMsg(Errors, "Loading of project failed");
+            addMsg(Errors, QStringLiteral("Loading of project failed"));
         }
 #else
         KoXmlNode n = plan.firstChild();
@@ -191,12 +191,12 @@ public:
         m_project = project;
         KoXmlElement re;
         forEachElement(re, plan) {
-            if (re.localName() == "resource") {
-                Resource *r = project->resource(re.attribute("id"));
+            if (re.localName() == QStringLiteral("resource")) {
+                Resource *r = project->resource(re.attribute(QStringLiteral("id")));
                 if (r) {
                     r->loadCalendarIntervalsCache(re, *this);
                 } else {
-                    warnPlanXml<<"Resource not found:"<<"id:"<<re.attribute("id")<<"name:"<<re.attribute("name");
+                    warnPlanXml<<"Resource not found:"<<"id:"<<re.attribute(QStringLiteral("id"))<<"name:"<<re.attribute(QStringLiteral("name"));
                 }
             }
         }

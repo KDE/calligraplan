@@ -12,8 +12,8 @@
 
 #include <QObject>
 
-#define KPLATO_MAX_FILE_SYNTAX_VERSION "0.6.5"
-#define KPLATOWORK_MAX_FILE_SYNTAX_VERSION "0.6.5"
+static const QLatin1String KPLATO_MAX_FILE_SYNTAX_VERSION("0.6.5");
+static const QLatin1String KPLATOWORK_MAX_FILE_SYNTAX_VERSION("0.6.5");
 
 class KoXmlElement;
 

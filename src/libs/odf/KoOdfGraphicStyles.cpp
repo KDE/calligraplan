@@ -32,37 +32,37 @@ void KoOdfGraphicStyles::saveOdfFillStyle(KoGenStyle &styleFill, KoGenStyles& ma
                                             ? KoGenStyle::DefaultType : KoGenStyle::GraphicType;
     switch (brush.style()) {
     case Qt::Dense1Pattern:
-        styleFill.addProperty("draw:opacity", "6%", propertyType);
+        styleFill.addProperty("draw:opacity", QStringLiteral("6%"), propertyType);
         styleFill.addProperty("draw:fill", "solid", propertyType);
         styleFill.addProperty("draw:fill-color", brush.color().name(), propertyType);
         break;
     case Qt::Dense2Pattern:
-        styleFill.addProperty("draw:opacity", "12%", propertyType);
+        styleFill.addProperty("draw:opacity", QStringLiteral("12%"), propertyType);
         styleFill.addProperty("draw:fill", "solid", propertyType);
         styleFill.addProperty("draw:fill-color", brush.color().name(), propertyType);
         break;
     case Qt::Dense3Pattern:
-        styleFill.addProperty("draw:opacity", "37%", propertyType);
+        styleFill.addProperty("draw:opacity", QStringLiteral("37%"), propertyType);
         styleFill.addProperty("draw:fill", "solid", propertyType);
         styleFill.addProperty("draw:fill-color", brush.color().name(), propertyType);
         break;
     case Qt::Dense4Pattern:
-        styleFill.addProperty("draw:opacity", "50%", propertyType);
+        styleFill.addProperty("draw:opacity", QStringLiteral("50%"), propertyType);
         styleFill.addProperty("draw:fill", "solid", propertyType);
         styleFill.addProperty("draw:fill-color", brush.color().name(), propertyType);
         break;
     case Qt::Dense5Pattern:
-        styleFill.addProperty("draw:opacity", "63%", propertyType);
+        styleFill.addProperty("draw:opacity", QStringLiteral("63%"), propertyType);
         styleFill.addProperty("draw:fill", "solid", propertyType);
         styleFill.addProperty("draw:fill-color", brush.color().name(), propertyType);
         break;
     case Qt::Dense6Pattern:
-        styleFill.addProperty("draw:opacity", "88%", propertyType);
+        styleFill.addProperty("draw:opacity", QStringLiteral("88%"), propertyType);
         styleFill.addProperty("draw:fill", "solid", propertyType);
         styleFill.addProperty("draw:fill-color", brush.color().name(), propertyType);
         break;
     case Qt::Dense7Pattern:
-        styleFill.addProperty("draw:opacity", "94%", propertyType);
+        styleFill.addProperty("draw:opacity", QStringLiteral("94%"), propertyType);
         styleFill.addProperty("draw:fill", "solid", propertyType);
         styleFill.addProperty("draw:fill-color", brush.color().name(), propertyType);
         break;
@@ -85,7 +85,7 @@ void KoOdfGraphicStyles::saveOdfFillStyle(KoGenStyle &styleFill, KoGenStyles& ma
         styleFill.addProperty("draw:fill", "solid", propertyType);
         styleFill.addProperty("draw:fill-color", brush.color().name(), propertyType);
         if (! brush.isOpaque())
-            styleFill.addProperty("draw:opacity", QString("%1%").arg(brush.color().alphaF() * 100.0), propertyType);
+            styleFill.addProperty("draw:opacity", QStringLiteral("%1%").arg(brush.color().alphaF() * 100.0), propertyType);
         break;
     case Qt::NoBrush:
     default:
@@ -117,7 +117,7 @@ void KoOdfGraphicStyles::saveOdfStrokeStyle(KoGenStyle &styleStroke, KoGenStyles
             dashStyle.addAttribute("draw:dots2", static_cast<int>(1));
             dashStyle.addAttributePt("draw:dots2-length", dashes[2]*pen.widthF());
         }
-        QString dashStyleName = mainStyles.insert(dashStyle, "dash");
+        QString dashStyleName = mainStyles.insert(dashStyle, QStringLiteral("dash"));
         styleStroke.addProperty("draw:stroke-dash", dashStyleName, KoGenStyle::GraphicType);
         break;
     }
@@ -128,7 +128,7 @@ void KoOdfGraphicStyles::saveOdfStrokeStyle(KoGenStyle &styleStroke, KoGenStyles
     }
     else {
         styleStroke.addProperty("svg:stroke-color", pen.color().name(), KoGenStyle::GraphicType);
-        styleStroke.addProperty("svg:stroke-opacity", QString("%1").arg(pen.color().alphaF()), KoGenStyle::GraphicType);
+        styleStroke.addProperty("svg:stroke-opacity", QStringLiteral("%1").arg(pen.color().alphaF()), KoGenStyle::GraphicType);
     }
     styleStroke.addPropertyPt("svg:stroke-width", pen.widthF(), KoGenStyle::GraphicType);
 
@@ -144,7 +144,7 @@ void KoOdfGraphicStyles::saveOdfStrokeStyle(KoGenStyle &styleStroke, KoGenStyles
         break;
     default:
         styleStroke.addProperty("draw:stroke-linejoin", "miter", KoGenStyle::GraphicType);
-        styleStroke.addProperty("calligra:stroke-miterlimit", QString("%1").arg(pen.miterLimit()), KoGenStyle::GraphicType);
+        styleStroke.addProperty("calligra:stroke-miterlimit", QStringLiteral("%1").arg(pen.miterLimit()), KoGenStyle::GraphicType);
         break;
     }
     switch (pen.capStyle()) {
@@ -194,7 +194,7 @@ QString KoOdfGraphicStyles::saveOdfHatchStyle(KoGenStyles& mainStyles, const QBr
         break;
     }
 
-    return mainStyles.insert(hatchStyle, "hatch");
+    return mainStyles.insert(hatchStyle, QStringLiteral("hatch"));
 }
 
 QString KoOdfGraphicStyles::saveOdfGradientStyle(KoGenStyles &mainStyles, const QBrush &brush)
@@ -220,7 +220,7 @@ QString KoOdfGraphicStyles::saveOdfGradientStyle(KoGenStyles &mainStyles, const 
         gradientStyle = KoGenStyle(KoGenStyle::ConicalGradientStyle /*no family name*/);
         gradientStyle.addAttributePercent("svg:cx", gradient->center().x() * 100);
         gradientStyle.addAttributePercent("svg:cy", gradient->center().y() * 100);
-        gradientStyle.addAttribute("draw:angle", QString("%1").arg(gradient->angle()));
+        gradientStyle.addAttribute("draw:angle", QStringLiteral("%1").arg(gradient->angle()));
     }
     const QGradient * gradient = brush.gradient();
     if (gradient->spread() == QGradient::RepeatSpread)
@@ -242,17 +242,17 @@ QString KoOdfGraphicStyles::saveOdfGradientStyle(KoGenStyles &mainStyles, const 
     const QGradientStops stops = gradient->stops();
     for (const QGradientStop & stop : stops) {
         elementWriter.startElement("svg:stop");
-        elementWriter.addAttribute("svg:offset", QString("%1").arg(stop.first));
+        elementWriter.addAttribute("svg:offset", QStringLiteral("%1").arg(stop.first));
         elementWriter.addAttribute("svg:stop-color", stop.second.name());
         if (stop.second.alphaF() < 1.0)
-            elementWriter.addAttribute("svg:stop-opacity", QString("%1").arg(stop.second.alphaF()));
+            elementWriter.addAttribute("svg:stop-opacity", QStringLiteral("%1").arg(stop.second.alphaF()));
         elementWriter.endElement();
     }
 
-    QString elementContents = QString::fromUtf8(buffer.buffer(), buffer.buffer().size());
-    gradientStyle.addChildElement("svg:stop", elementContents);
+    QString elementContents = QString::fromUtf8(buffer.buffer().constData(), buffer.buffer().size());
+    gradientStyle.addChildElement(QStringLiteral("svg:stop"), elementContents);
 
-    return mainStyles.insert(gradientStyle, "gradient");
+    return mainStyles.insert(gradientStyle, QStringLiteral("gradient"));
 }
 
 QBrush KoOdfGraphicStyles::loadOdfGradientStyle(const KoStyleStack &styleStack, const KoOdfStylesReader & stylesReader, const QSizeF &size)
@@ -261,19 +261,19 @@ QBrush KoOdfGraphicStyles::loadOdfGradientStyle(const KoStyleStack &styleStack, 
     return loadOdfGradientStyleByName(stylesReader, styleName, size);
 }
 
-qreal percent(const KoXmlElement &element, const QString &ns, const QString &type, const QString &defaultValue, qreal absolute)
+qreal percent(const KoXmlElement &element, const QString &ns, const char *type, const char *defaultValue, qreal absolute)
 {
     qreal tmp = 0.0;
     QString value = element.attributeNS(ns, type, defaultValue);
-    if (value.indexOf('%') > -1) { // percent value
-        tmp = value.remove('%').toDouble() / 100.0;
+    if (value.indexOf(QLatin1Char('%')) > -1) { // percent value
+        tmp = (qreal)(value.remove(QLatin1Char('%')).toDouble()) / 100.0;
     }
     else { // fixed value
         tmp = KoUnit::parseValue(value) / absolute;
         // The following is done so that we get the same data as when we save/load.
         // This is needed that we get the same values due to rounding differences
         // of absolute and relative values.
-        QString value = QString("%1").arg(tmp * 100.0);
+        QString value = QStringLiteral("%1").arg(tmp * 100.0);
         tmp = value.toDouble() / 100;
     }
 
@@ -289,29 +289,29 @@ QBrush KoOdfGraphicStyles::loadOdfGradientStyleByName(const KoOdfStylesReader &s
     QGradient * gradient = nullptr;
     QTransform transform;
 
-    if (e->namespaceURI() == KoXmlNS::draw && e->localName() == "gradient") {
+    if (e->namespaceURI() == KoXmlNS::draw && e->localName() == QStringLiteral("gradient")) {
         // FIXME seems like oo renders the gradient start stop color at the center of the
         // radial gradient, and the start color at the radius of the radial gradient
         // whereas it is not mentioned in the spec how it should be rendered
         // note that svg defines that exactly as the opposite as oo does
         // so what should we do?
         QString type = e->attributeNS(KoXmlNS::draw, "style", QString());
-        if (type == "radial") {
+        if (type == QStringLiteral("radial")) {
             // Zagge: at the moment the only objectBoundingBox is supported:
             // 18.539 svg:gradientUnits
             // See §13.2.2 and §13.2.3 of [SVG].
             // The default value for this attribute is objectBoundingBox.
             // The only value of the svg:gradientUnits attribute is objectBoundingBox.
 
-            qreal cx = KoUnit::parseValue(e->attributeNS(KoXmlNS::draw, "cx", QString()).remove('%'));
-            qreal cy = KoUnit::parseValue(e->attributeNS(KoXmlNS::draw, "cy", QString()).remove('%'));
+            qreal cx = KoUnit::parseValue(e->attributeNS(KoXmlNS::draw, "cx", QString()).remove(QLatin1Char('%')));
+            qreal cy = KoUnit::parseValue(e->attributeNS(KoXmlNS::draw, "cy", QString()).remove(QLatin1Char('%')));
             gradient = new QRadialGradient(QPointF(cx * 0.01, cy * 0.01), sqrt(0.5));
             gradient->setCoordinateMode(QGradient::ObjectBoundingMode);
-        } else if (type == "linear" || type == "axial") {
+        } else if (type == QStringLiteral("linear") || type == QStringLiteral("axial")) {
             QLinearGradient * lg = new QLinearGradient();
             lg->setCoordinateMode(QGradient::ObjectBoundingMode);
             // Dividing by 10 here because OOo saves as degree * 10
-            qreal angle = 90 + e->attributeNS(KoXmlNS::draw, "angle", "0").toDouble() / 10;
+            qreal angle = 90 + e->attributeNS(KoXmlNS::draw, "angle", QString::number(0.0)).toDouble() / 10;
             qreal radius = sqrt(0.5);
 
             qreal sx = cos(angle * M_PI / 180) * radius;
@@ -322,57 +322,57 @@ QBrush KoOdfGraphicStyles::loadOdfGradientStyleByName(const KoOdfStylesReader &s
         } else
             return QBrush();
 
-        qreal border = 0.01 * e->attributeNS(KoXmlNS::draw, "border", "0").remove('%').toDouble();
+        qreal border = 0.01 * e->attributeNS(KoXmlNS::draw, "border", QString::number(0.0)).remove(QLatin1Char('%')).toDouble();
         QGradientStops stops;
-        if (type != "axial") {
+        if (type != QStringLiteral("axial")) {
             // In case of radial gradients the colors are reversed, because OOo saves them as the opposite of the SVG direction
             // see bug 137639
             QGradientStop start;
-            start.first = (type != "radial") ? border : 1.0 - border;
+            start.first = (type != QStringLiteral("radial")) ? border : 1.0 - border;
             start.second = QColor(e->attributeNS(KoXmlNS::draw, "start-color", QString()));
-            start.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "start-intensity", "100").remove('%').toDouble());
+            start.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "start-intensity", QString::number(100.0)).remove(QLatin1Char('%')).toDouble());
 
             QGradientStop end;
-            end.first = (type != "radial") ? 1.0 : 0.0;
+            end.first = (type != QStringLiteral("radial")) ? 1.0 : 0.0;
             end.second = QColor(e->attributeNS(KoXmlNS::draw, "end-color", QString()));
-            end.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "end-intensity", "100").remove('%').toDouble());
+            end.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "end-intensity", QString::number(100.0)).remove(QLatin1Char('%')).toDouble());
 
             stops << start << end;
         } else {
             QGradientStop start;
             start.first = 0.5 * border;
             start.second = QColor(e->attributeNS(KoXmlNS::draw, "end-color", QString()));
-            start.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "end-intensity", "100").remove('%').toDouble());
+            start.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "end-intensity", QString::number(100.0)).remove(QLatin1Char('%')).toDouble());
 
             QGradientStop middle;
             middle.first = 0.5;
             middle.second = QColor(e->attributeNS(KoXmlNS::draw, "start-color", QString()));
-            middle.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "start-intensity", "100").remove('%').toDouble());
+            middle.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "start-intensity", QString::number(100.0)).remove(QLatin1Char('%')).toDouble());
 
             QGradientStop end;
             end.first = 1.0 - 0.5 * border;
             end.second = QColor(e->attributeNS(KoXmlNS::draw, "end-color", QString()));
-            end.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "end-intensity", "100").remove('%').toDouble());
+            end.second.setAlphaF(0.01 * e->attributeNS(KoXmlNS::draw, "end-intensity", QString::number(100.0)).remove(QLatin1Char('%')).toDouble());
 
             stops << start << middle << end;
         }
 
         gradient->setStops(stops);
     } else if (e->namespaceURI() == KoXmlNS::svg) {
-        if (e->localName() == "linearGradient") {
+        if (e->localName() == QStringLiteral("linearGradient")) {
             QPointF start, stop;
             start.setX(percent(*e, KoXmlNS::svg, "x1", "0%", size.width()));
             start.setY(percent(*e, KoXmlNS::svg, "y1", "0%", size.height()));
             stop.setX(percent(*e, KoXmlNS::svg, "x2", "100%", size.width()));
             stop.setY(percent(*e, KoXmlNS::svg, "y2", "100%", size.height()));
             gradient = new QLinearGradient(start, stop);
-        } else if (e->localName() == "radialGradient") {
+        } else if (e->localName() == QStringLiteral("radialGradient")) {
             QPointF center, focalPoint;
             center.setX(percent(*e, KoXmlNS::svg, "cx", "50%", size.width()));
             center.setY(percent(*e, KoXmlNS::svg, "cy", "50%", size.height()));
             qreal r = percent(*e, KoXmlNS::svg, "r", "50%", sqrt(size.width() * size.width() + size.height() * size.height()));
-            focalPoint.setX(percent(*e, KoXmlNS::svg, "fx", QString(), size.width()));
-            focalPoint.setY(percent(*e, KoXmlNS::svg, "fy", QString(), size.height()));
+            focalPoint.setX(percent(*e, KoXmlNS::svg, "fx", nullptr, size.width()));
+            focalPoint.setY(percent(*e, KoXmlNS::svg, "fy", nullptr, size.height()));
             gradient = new QRadialGradient(center, r, focalPoint);
         }
         if (! gradient)
@@ -381,9 +381,9 @@ QBrush KoOdfGraphicStyles::loadOdfGradientStyleByName(const KoOdfStylesReader &s
         gradient->setCoordinateMode(QGradient::ObjectBoundingMode);
 
         QString strSpread(e->attributeNS(KoXmlNS::svg, "spreadMethod", "pad"));
-        if (strSpread == "repeat")
+        if (strSpread == QStringLiteral("repeat"))
             gradient->setSpread(QGradient::RepeatSpread);
-        else if (strSpread == "reflect")
+        else if (strSpread == QStringLiteral("reflect"))
             gradient->setSpread(QGradient::ReflectSpread);
         else
             gradient->setSpread(QGradient::PadSpread);
@@ -396,7 +396,7 @@ QBrush KoOdfGraphicStyles::loadOdfGradientStyleByName(const KoOdfStylesReader &s
         // load stops
         KoXmlElement colorstop;
         forEachElement(colorstop, (*e)) {
-            if (colorstop.namespaceURI() == KoXmlNS::svg && colorstop.localName() == "stop") {
+            if (colorstop.namespaceURI() == KoXmlNS::svg && colorstop.localName() == QStringLiteral("stop")) {
                 QGradientStop stop;
                 stop.second = QColor(colorstop.attributeNS(KoXmlNS::svg, "stop-color", QString()));
                 stop.second.setAlphaF(colorstop.attributeNS(KoXmlNS::svg, "stop-opacity", "1.0").toDouble());
@@ -406,7 +406,7 @@ QBrush KoOdfGraphicStyles::loadOdfGradientStyleByName(const KoOdfStylesReader &s
         }
         gradient->setStops(stops);
     } else if (e->namespaceURI() == KoXmlNS::calligra) {
-        if (e->localName() == "conicalGradient") {
+        if (e->localName() == QStringLiteral("conicalGradient")) {
             QPointF center;
             center.setX(percent(*e, KoXmlNS::svg, "cx", "50%", size.width()));
             center.setY(percent(*e, KoXmlNS::svg, "cy", "50%", size.height()));
@@ -415,9 +415,9 @@ QBrush KoOdfGraphicStyles::loadOdfGradientStyleByName(const KoOdfStylesReader &s
             gradient->setCoordinateMode(QGradient::ObjectBoundingMode);
 
             QString strSpread(e->attributeNS(KoXmlNS::svg, "spreadMethod", "pad"));
-            if (strSpread == "repeat")
+            if (strSpread == QStringLiteral("repeat"))
                 gradient->setSpread(QGradient::RepeatSpread);
-            else if (strSpread == "reflect")
+            else if (strSpread == QStringLiteral("reflect"))
                 gradient->setSpread(QGradient::ReflectSpread);
             else
                 gradient->setSpread(QGradient::PadSpread);
@@ -430,7 +430,7 @@ QBrush KoOdfGraphicStyles::loadOdfGradientStyleByName(const KoOdfStylesReader &s
             // load stops
             KoXmlElement colorstop;
             forEachElement(colorstop, (*e)) {
-                if (colorstop.namespaceURI() == KoXmlNS::svg && colorstop.localName() == "stop") {
+                if (colorstop.namespaceURI() == KoXmlNS::svg && colorstop.localName() == QStringLiteral("stop")) {
                     QGradientStop stop;
                     stop.second = QColor(colorstop.attributeNS(KoXmlNS::svg, "stop-color", QString()));
                     stop.second.setAlphaF(colorstop.attributeNS(KoXmlNS::svg, "stop-opacity", "1.0").toDouble());
@@ -456,13 +456,13 @@ QBrush KoOdfGraphicStyles::loadOdfFillStyle(const KoStyleStack &styleStack, cons
 {
     QBrush tmpBrush; // default brush for "none" is a Qt::NoBrush
 
-    if (fill == "solid") {
+    if (fill == QStringLiteral("solid")) {
         tmpBrush.setStyle(Qt::SolidPattern);
         if (styleStack.hasProperty(KoXmlNS::draw, "fill-color"))
             tmpBrush.setColor(styleStack.property(KoXmlNS::draw, "fill-color"));
         if (styleStack.hasProperty(KoXmlNS::draw, "opacity")) {
             QString opacity = styleStack.property(KoXmlNS::draw, "opacity");
-            if (! opacity.isEmpty() && opacity.right(1) == "%") {
+            if (! opacity.isEmpty() && opacity.right(1) == QLatin1Char('%')) {
                 float percent = opacity.leftRef(opacity.length() - 1).toFloat();
                 QColor color = tmpBrush.color();
                 color.setAlphaF(percent / 100.0);
@@ -472,29 +472,29 @@ QBrush KoOdfGraphicStyles::loadOdfFillStyle(const KoStyleStack &styleStack, cons
         //TODO
         if (styleStack.hasProperty(KoXmlNS::draw, "transparency")) {
             QString transparency = styleStack.property(KoXmlNS::draw, "transparency");
-            if (transparency == "94%") {
+            if (transparency == QStringLiteral("94%")) {
                 tmpBrush.setStyle(Qt::Dense1Pattern);
-            } else if (transparency == "88%") {
+            } else if (transparency == QStringLiteral("88%")) {
                 tmpBrush.setStyle(Qt::Dense2Pattern);
-            } else if (transparency == "63%") {
+            } else if (transparency == QStringLiteral("63%")) {
                 tmpBrush.setStyle(Qt::Dense3Pattern);
 
-            } else if (transparency == "50%") {
+            } else if (transparency == QStringLiteral("50%")) {
                 tmpBrush.setStyle(Qt::Dense4Pattern);
 
-            } else if (transparency == "37%") {
+            } else if (transparency == QStringLiteral("37%")) {
                 tmpBrush.setStyle(Qt::Dense5Pattern);
 
-            } else if (transparency == "12%") {
+            } else if (transparency == QStringLiteral("12%")) {
                 tmpBrush.setStyle(Qt::Dense6Pattern);
 
-            } else if (transparency == "6%") {
+            } else if (transparency == QStringLiteral("6%")) {
                 tmpBrush.setStyle(Qt::Dense7Pattern);
 
             } else
                 debugOdf << " transparency is not defined into Stage :" << transparency;
         }
-    } else if (fill == "hatch") {
+    } else if (fill == QStringLiteral("hatch")) {
         QString style = styleStack.property(KoXmlNS::draw, "fill-hatch-name");
         debugOdf << " hatch style is  :" << style;
 
@@ -521,7 +521,7 @@ QBrush KoOdfGraphicStyles::loadOdfFillStyle(const KoStyleStack &styleStack, cons
             if (draw->hasAttributeNS(KoXmlNS::draw, "style")) {
                 //todo implement it into Stage
                 QString styleHash = draw->attributeNS(KoXmlNS::draw, "style", QString());
-                if (styleHash == "single") {
+                if (styleHash == QStringLiteral("single")) {
                     switch (angle) {
                     case 0:
                     case 180:
@@ -544,7 +544,7 @@ QBrush KoOdfGraphicStyles::loadOdfFillStyle(const KoStyleStack &styleStack, cons
                         debugOdf << " draw:rotation 'angle' :" << angle;
                         break;
                     }
-                } else if (styleHash == "double") {
+                } else if (styleHash == QStringLiteral("double")) {
                     switch (angle) {
                     case 0:
                     case 180:
@@ -564,7 +564,7 @@ QBrush KoOdfGraphicStyles::loadOdfFillStyle(const KoStyleStack &styleStack, cons
                         break;
                     }
 
-                } else if (styleHash == "triple") {
+                } else if (styleHash == QStringLiteral("triple")) {
                     debugOdf << " it is not implemented :(";
                 }
             }
@@ -576,9 +576,9 @@ QBrush KoOdfGraphicStyles::loadOdfFillStyle(const KoStyleStack &styleStack, cons
 
 static qreal parseDashEntrySize(QString& attr, qreal penWidth, qreal defaultValue = 0.0){
     qreal result = defaultValue;
-    if (attr.endsWith('%')) {
+    if (attr.endsWith(QLatin1Char('%'))) {
         bool ok;
-        const int percent = attr.remove('%').toInt(&ok);
+        const int percent = attr.remove(QLatin1Char('%')).toInt(&ok);
         if (ok && percent >= 0) {
             result = percent / 100.0;
         }
@@ -592,7 +592,7 @@ QPen KoOdfGraphicStyles::loadOdfStrokeStyle(const KoStyleStack &styleStack, cons
 {
     QPen tmpPen(Qt::NoPen); // default pen for "none" is a Qt::NoPen
 
-    if (stroke == "solid" || stroke == "dash") {
+    if (stroke == QStringLiteral("solid") || stroke == QStringLiteral("dash")) {
         // If solid or dash is set then we assume that the color is black and the penWidth
         // is zero till defined otherwise with the following attributes.
         tmpPen = QPen();
@@ -602,8 +602,8 @@ QPen KoOdfGraphicStyles::loadOdfStrokeStyle(const KoStyleStack &styleStack, cons
         if (styleStack.hasProperty(KoXmlNS::svg, "stroke-opacity")) {
             QColor color = tmpPen.color();
             QString opacity = styleStack.property(KoXmlNS::svg, "stroke-opacity");
-            if (opacity.endsWith('%'))
-                color.setAlphaF(0.01 * opacity.remove('%').toDouble());
+            if (opacity.endsWith(QLatin1Char('%')))
+                color.setAlphaF(0.01 * opacity.remove(QLatin1Char('%')).toDouble());
             else
                 color.setAlphaF(opacity.toDouble());
             tmpPen.setColor(color);
@@ -612,9 +612,9 @@ QPen KoOdfGraphicStyles::loadOdfStrokeStyle(const KoStyleStack &styleStack, cons
             tmpPen.setWidthF(KoUnit::parseValue(styleStack.property(KoXmlNS::svg, "stroke-width")));
         if (styleStack.hasProperty(KoXmlNS::draw, "stroke-linejoin")) {
             QString join = styleStack.property(KoXmlNS::draw, "stroke-linejoin");
-            if (join == "bevel")
+            if (join == QStringLiteral("bevel"))
                 tmpPen.setJoinStyle(Qt::BevelJoin);
-            else if (join == "round")
+            else if (join == QStringLiteral("round"))
                 tmpPen.setJoinStyle(Qt::RoundJoin);
             else {
                 tmpPen.setJoinStyle(Qt::MiterJoin);
@@ -626,9 +626,9 @@ QPen KoOdfGraphicStyles::loadOdfStrokeStyle(const KoStyleStack &styleStack, cons
         }
         if (styleStack.hasProperty(KoXmlNS::svg, "stroke-linecap")) {
             const QString cap = styleStack.property(KoXmlNS::svg, "stroke-linecap");
-            if (cap == "round")
+            if (cap == QStringLiteral("round"))
                 tmpPen.setCapStyle(Qt::RoundCap);
-            else if (cap == "square")
+            else if (cap == QStringLiteral("square"))
                 tmpPen.setCapStyle(Qt::SquareCap);
             else
                 tmpPen.setCapStyle(Qt::FlatCap);
@@ -637,7 +637,7 @@ QPen KoOdfGraphicStyles::loadOdfStrokeStyle(const KoStyleStack &styleStack, cons
             tmpPen.setCapStyle(Qt::FlatCap);
         }
 
-        if (stroke == "dash" && styleStack.hasProperty(KoXmlNS::draw, "stroke-dash")) {
+        if (stroke == QStringLiteral("dash") && styleStack.hasProperty(KoXmlNS::draw, "stroke-dash")) {
             QString dashStyleName = styleStack.property(KoXmlNS::draw, "stroke-dash");
 
             // set width to 1 in case it is 0 as dividing by 0 gives infinity
@@ -695,21 +695,21 @@ QTransform KoOdfGraphicStyles::loadTransformation(const QString &transformation)
     QTransform transform;
 
     // Split string for handling 1 transform statement at a time
-    QStringList subtransforms = transformation.split(')', Qt::SkipEmptyParts);
+    QStringList subtransforms = transformation.split(QLatin1Char(')'), Qt::SkipEmptyParts);
     QStringList::ConstIterator it = subtransforms.constBegin();
     QStringList::ConstIterator end = subtransforms.constEnd();
     for (; it != end; ++it) {
-        QStringList subtransform = (*it).split('(', Qt::SkipEmptyParts);
+        QStringList subtransform = (*it).split(QLatin1Char('('), Qt::SkipEmptyParts);
 
         subtransform[0] = subtransform[0].trimmed().toLower();
         subtransform[1] = subtransform[1].simplified();
-        QRegExp reg("[,(]");
+        QRegExp reg(QStringLiteral("[,(]"));
         QStringList params = subtransform[1].split(reg, Qt::SkipEmptyParts);
 
-        if (subtransform[0].startsWith(';') || subtransform[0].startsWith(','))
+        if (subtransform[0].startsWith(QLatin1Char(';')) || subtransform[0].startsWith(QLatin1Char(',')))
             subtransform[0] = subtransform[0].right(subtransform[0].length() - 1);
 
-        if (subtransform[0] == "rotate") {
+        if (subtransform[0] == QStringLiteral("rotate")) {
             // TODO find out what oo2 really does when rotating, it seems severely broken
             if (params.count() == 3) {
                 qreal x = KoUnit::parseValue(params[1]);
@@ -723,23 +723,23 @@ QTransform KoOdfGraphicStyles::loadTransformation(const QString &transformation)
                 // oo2 rotates by radians
                 transform.rotate(params[0].toDouble()*180.0 / M_PI);
             }
-        } else if (subtransform[0] == "translate") {
+        } else if (subtransform[0] == QStringLiteral("translate")) {
             if (params.count() == 2) {
                 qreal x = KoUnit::parseValue(params[0]);
                 qreal y = KoUnit::parseValue(params[1]);
                 transform.translate(x, y);
             } else   // Spec : if only one param given, assume 2nd param to be 0
                 transform.translate(KoUnit::parseValue(params[0]) , 0);
-        } else if (subtransform[0] == "scale") {
+        } else if (subtransform[0] == QStringLiteral("scale")) {
             if (params.count() == 2)
                 transform.scale(params[0].toDouble(), params[1].toDouble());
             else    // Spec : if only one param given, assume uniform scaling
                 transform.scale(params[0].toDouble(), params[0].toDouble());
-        } else if (subtransform[0] == "skewx")
+        } else if (subtransform[0] == QStringLiteral("skewx"))
             transform.shear(tan(params[0].toDouble()), 0.0F);
-        else if (subtransform[0] == "skewy")
+        else if (subtransform[0] == QStringLiteral("skewy"))
             transform.shear(tan(params[0].toDouble()), 0.0F);
-        else if (subtransform[0] == "matrix") {
+        else if (subtransform[0] == QStringLiteral("matrix")) {
             if (params.count() >= 6) {
                 transform.setMatrix(params[0].toDouble(), params[1].toDouble(), 0,
                     params[2].toDouble(), params[3].toDouble(), 0,
@@ -755,12 +755,12 @@ QString KoOdfGraphicStyles::saveTransformation(const QTransform &transformation,
 {
     QString transform;
     if (appendTranslateUnit)
-        transform = QString("matrix(%1 %2 %3 %4 %5pt %6pt)")
+        transform = QStringLiteral("matrix(%1 %2 %3 %4 %5pt %6pt)")
                     .arg(transformation.m11()).arg(transformation.m12())
                     .arg(transformation.m21()).arg(transformation.m22())
                     .arg(transformation.dx()) .arg(transformation.dy());
     else
-        transform = QString("matrix(%1 %2 %3 %4 %5 %6)")
+        transform = QStringLiteral("matrix(%1 %2 %3 %4 %5 %6)")
                     .arg(transformation.m11()).arg(transformation.m12())
                     .arg(transformation.m21()).arg(transformation.m22())
                     .arg(transformation.dx()) .arg(transformation.dy());

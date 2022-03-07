@@ -76,12 +76,12 @@ void ConfigDialog::updateWidgets()
 
 bool ConfigDialog::hasChanged()
 {
-    QWidget *w = currentPage()->widget()->findChild<QWidget*>("ConfigWidget");
+    QWidget *w = currentPage()->widget()->findChild<QWidget*>(QStringLiteral("ConfigWidget"));
     return w ? w->property("hasChanged").toBool() : false;
 }
 
 void ConfigDialog::showHelp()
 {
-    Help::instance()->invokeContext(QUrl("plan:configure-plan-dialog"));
+    Help::instance()->invokeContext(QUrl(QStringLiteral("plan:configure-plan-dialog")));
 }
 

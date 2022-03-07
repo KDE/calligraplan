@@ -29,9 +29,9 @@ DetailsView::DetailsView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("Portfolio_DetailsViewUi.rc");
+        setXMLFile(QStringLiteral("Portfolio_DetailsViewUi.rc"));
     } else {
-        setXMLFile("Portfolio_DetailsViewUi_readonly.rc");
+        setXMLFile(QStringLiteral("Portfolio_DetailsViewUi_readonly.rc"));
     }
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);

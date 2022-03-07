@@ -450,7 +450,7 @@ QVariant ResourceAllocationModel::required(const Resource *res, int role) const
             for (Resource *r : resources) {
                 lst << r->name();
             }
-            return lst.join(",");
+            return lst.join(QStringLiteral(","));
         }
         case Qt::EditRole:
             return QVariant();//Not used
@@ -479,7 +479,7 @@ QVariant ResourceAllocationModel::alternative(const Resource *res, int role) con
                     }
                 }
             }
-            return lst.join(",");
+            return lst.join(QStringLiteral(","));
         }
         case Qt::EditRole:
             return QVariant();//Not used
@@ -875,7 +875,7 @@ QVariant ResourceAllocationItemModel::required(const QModelIndex &idx, int role)
                         lst << r->name();
                     }
                 }
-                return lst.isEmpty() ? i18n("None") : lst.join(",");
+                return lst.isEmpty() ? i18n("None") : lst.join(QStringLiteral(","));
             }
             break;
         }
@@ -893,7 +893,7 @@ QVariant ResourceAllocationItemModel::required(const QModelIndex &idx, int role)
                             lst << r->name();
                         }
                     }
-                    return lst.isEmpty() ? xi18nc("@info:tooltip", "No required resources") : lst.join("\n");
+                    return lst.isEmpty() ? xi18nc("@info:tooltip", "No required resources") : lst.join(QStringLiteral("\n"));
                 }
                 case Resource::Type_Material:
                     return xi18nc("@info:tooltip", "Material resources cannot have required resources");
@@ -951,7 +951,7 @@ QVariant ResourceAllocationItemModel::alternative(const QModelIndex &idx, int ro
                     }
                 }
             }
-            return lst.isEmpty() ? i18n("None") : lst.join(",");
+            return lst.isEmpty() ? i18n("None") : lst.join(QStringLiteral(","));
         }
         case Qt::EditRole: break; // not used
         case Qt::CheckStateRole:

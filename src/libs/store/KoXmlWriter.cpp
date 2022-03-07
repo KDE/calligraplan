@@ -13,6 +13,8 @@
 #include <QStack>
 #include <float.h>
 
+#include <QDebug>
+
 static const int s_indentBufferLength = 100;
 static const int s_escapeBufferLen = 10000;
 
@@ -359,6 +361,22 @@ void KoXmlWriter::addManifestEntry(const QString& fullPath, const QString& media
     endElement();
 }
 
+void KoXmlWriter::addManifestEntry(const QString &fullPath, const QByteArray &mediaType)
+{
+    startElement("manifest:file-entry");
+    addAttribute("manifest:media-type", mediaType.constData());
+    addAttribute("manifest:full-path", fullPath);
+    endElement();
+}
+
+void KoXmlWriter::addManifestEntry(const char *fullPath, const char *mediaType)
+{
+    startElement("manifest:file-entry");
+    addAttribute("manifest:media-type", mediaType);
+    addAttribute("manifest:full-path", fullPath);
+    endElement();
+}
+
 void KoXmlWriter::addConfigItem(const QString & configName, const QString& value)
 {
     startElement("config:config-item");
@@ -455,7 +473,7 @@ void KoXmlWriter::addTextSpan(const QString& text, const QMap<int, int>& tabCach
                 // white space immediately after a start tag or immediately before an end tag"
                 // (and both we and OO.o ignore leading spaces in <text:p> or <text:h> elements...)
                 if (!leadingSpace) {
-                    str += ' ';
+                    str += QLatin1Char(' ');
                     --nrSpaces;
                 }
                 if (nrSpaces > 0) {   // there are more spaces

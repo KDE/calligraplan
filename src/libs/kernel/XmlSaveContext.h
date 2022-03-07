@@ -29,15 +29,15 @@ public:
     {}
 
     static QDomDocument createDocument() {
-        QDomDocument document("plan");
+        QDomDocument document(QStringLiteral("plan"));
         document.appendChild(document.createProcessingInstruction(
-            "xml",
-            "version=\"1.0\" encoding=\"UTF-8\"") );
+            QStringLiteral("xml"),
+            QStringLiteral("version=\"1.0\" encoding=\"UTF-8\"")));
         
-        QDomElement doc = document.createElement("plan");
-        doc.setAttribute("editor", "Plan");
-        doc.setAttribute("mime", "application/x-vnd.kde.plan");
-        doc.setAttribute("version", PLAN_FILE_SYNTAX_VERSION);
+        QDomElement doc = document.createElement(QStringLiteral("plan"));
+        doc.setAttribute(QStringLiteral("editor"), QStringLiteral("Plan"));
+        doc.setAttribute(QStringLiteral("mime"), QStringLiteral("application/x-vnd.kde.plan"));
+        doc.setAttribute(QStringLiteral("version"), PLAN_FILE_SYNTAX_VERSION);
         document.appendChild(doc);
         return document;
     }
@@ -92,9 +92,9 @@ public:
                 return;
             }
         } else {
-            doc.appendChild(doc.ownerDocument().createElement("project"));
+            doc.appendChild(doc.ownerDocument().createElement(QStringLiteral("project")));
         }
-        QDomElement projectElement = doc.elementsByTagName("project").item(0).toElement();
+        QDomElement projectElement = doc.elementsByTagName(QStringLiteral("project")).item(0).toElement();
         Q_ASSERT(!projectElement.isNull());
         if (options & SaveSelectedNodes) {
             debugPlanXml<<"tasks:"<<nodes.count();
@@ -104,7 +104,7 @@ public:
             }
         }
         if (options & SaveRelations) {
-            QDomElement e = projectElement.ownerDocument().createElement("relations");
+            QDomElement e = projectElement.ownerDocument().createElement(QStringLiteral("relations"));
             projectElement.appendChild(e);
             QListIterator<const Node*> it(nodes);
             while (it.hasNext()) {
@@ -115,7 +115,7 @@ public:
             const auto resourceGroups = m_project->resourceGroups();
             debugPlanXml<<"resource-groups:"<<resourceGroups.count();
             if (!resourceGroups.isEmpty()) {
-                QDomElement ge = projectElement.ownerDocument().createElement("resource-groups");
+                QDomElement ge = projectElement.ownerDocument().createElement(QStringLiteral("resource-groups"));
                 projectElement.appendChild(ge);
                 QListIterator<ResourceGroup*> git(m_project->resourceGroups());
                 while (git.hasNext()) {
@@ -125,7 +125,7 @@ public:
             const auto resourceList = m_project->resourceList();
             debugPlanXml<<"resources:"<<resourceList.count();
             if (!resourceList.isEmpty()) {
-                QDomElement re = projectElement.ownerDocument().createElement("resources");
+                QDomElement re = projectElement.ownerDocument().createElement(QStringLiteral("resources"));
                 projectElement.appendChild(re);
                 QListIterator<Resource*> rit(resourceList);
                 while (rit.hasNext()) {
@@ -134,15 +134,15 @@ public:
             }
             debugPlanXml<<"resource-group-relations";
             if (!resourceList.isEmpty() && !resourceGroups.isEmpty()) {
-                QDomElement e = projectElement.ownerDocument().createElement("resource-group-relations");
+                QDomElement e = projectElement.ownerDocument().createElement(QStringLiteral("resource-group-relations"));
                 projectElement.appendChild(e);
                 for (const ResourceGroup *g : resourceGroups) {
                     const QList<Resource*> resources = g->resources();
                     for (const Resource *r : resources) {
-                        QDomElement re = e.ownerDocument().createElement("resource-group-relation");
+                        QDomElement re = e.ownerDocument().createElement(QStringLiteral("resource-group-relation"));
                         e.appendChild(re);
-                        re.setAttribute("group-id", g->id());
-                        re.setAttribute("resource-id", r->id());
+                        re.setAttribute(QStringLiteral("group-id"), g->id());
+                        re.setAttribute(QStringLiteral("resource-id"), r->id());
                     }
                 }
             }
@@ -156,19 +156,19 @@ public:
                     }
                 }
                 if (!requiredList.isEmpty()) {
-                    QDomElement e = projectElement.ownerDocument().createElement("required-resources");
+                    QDomElement e = projectElement.ownerDocument().createElement(QStringLiteral("required-resources"));
                     projectElement.appendChild(e);
                     for (const std::pair<QString, QString> &pair : qAsConst(requiredList)) {
-                        QDomElement re = e.ownerDocument().createElement("required-resource");
+                        QDomElement re = e.ownerDocument().createElement(QStringLiteral("required-resource"));
                         e.appendChild(re);
-                        re.setAttribute("resource-id", pair.first);
-                        re.setAttribute("required-id", pair.second);
+                        re.setAttribute(QStringLiteral("resource-id"), pair.first);
+                        re.setAttribute(QStringLiteral("required-id"), pair.second);
                     }
                 }
             }
             // save resource teams
             debugPlanXml<<"resource-teams";
-            QDomElement el = projectElement.ownerDocument().createElement("resource-teams");
+            QDomElement el = projectElement.ownerDocument().createElement(QStringLiteral("resource-teams"));
             projectElement.appendChild(el);
             for (const Resource *r : resourceList) {
                 if (r->type() != Resource::Type_Team) {
@@ -176,10 +176,10 @@ public:
                 }
                 const auto ids = r->teamMemberIds();
                 for (const QString &id : ids) {
-                    QDomElement e = el.ownerDocument().createElement("team");
+                    QDomElement e = el.ownerDocument().createElement(QStringLiteral("team"));
                     el.appendChild(e);
-                    e.setAttribute("team-id", r->id());
-                    e.setAttribute("member-id", id);
+                    e.setAttribute(QStringLiteral("team-id"), r->id());
+                    e.setAttribute(QStringLiteral("member-id"), id);
                 }
             }
         }
@@ -197,19 +197,19 @@ public:
             QMultiHash<Task*, std::pair<ResourceRequest*, Resource*> > required; // QHash<Task*, std::pair<ResourceRequest*, Required*>>
             QMultiHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> > alternativeRequests; // QHash<Task*, std::pair<ResourceRequest*, Alternative*>>
             if (!resources.isEmpty()) {
-                QDomElement el = projectElement.ownerDocument().createElement("resource-requests");
+                QDomElement el = projectElement.ownerDocument().createElement(QStringLiteral("resource-requests"));
                 projectElement.appendChild(el);
                 QHash<Task*, ResourceRequest*>::const_iterator it;
                 for (it = resources.constBegin(); it != resources.constEnd(); ++it) {
                     if (!it.value()->resource()) {
                         continue;
                     }
-                    QDomElement re = el.ownerDocument().createElement("resource-request");
+                    QDomElement re = el.ownerDocument().createElement(QStringLiteral("resource-request"));
                     el.appendChild(re);
-                    re.setAttribute("request-id", it.value()->id());
-                    re.setAttribute("task-id", it.key()->id());
-                    re.setAttribute("resource-id", it.value()->resource()->id());
-                    re.setAttribute("units", QString::number(it.value()->units()));
+                    re.setAttribute(QStringLiteral("request-id"), it.value()->id());
+                    re.setAttribute(QStringLiteral("task-id"), it.key()->id());
+                    re.setAttribute(QStringLiteral("resource-id"), it.value()->resource()->id());
+                    re.setAttribute(QStringLiteral("units"), QString::number(it.value()->units()));
                     // collect required resources and alternative requests
                     const auto requiredResources = it.value()->requiredResources();
                     for (Resource *r : requiredResources) {
@@ -223,29 +223,29 @@ public:
             }
             debugPlanXml<<"required-resource-requests:"<<required.count();
             if (!required.isEmpty()) {
-                QDomElement reqs = projectElement.ownerDocument().createElement("required-resource-requests");
+                QDomElement reqs = projectElement.ownerDocument().createElement(QStringLiteral("required-resource-requests"));
                 projectElement.appendChild(reqs);
                 QHash<Task*, std::pair<ResourceRequest*, Resource*> >::const_iterator it;
                 for (it = required.constBegin(); it != required.constEnd(); ++it) {
-                    QDomElement req = reqs.ownerDocument().createElement("required-resource-request");
+                    QDomElement req = reqs.ownerDocument().createElement(QStringLiteral("required-resource-request"));
                     reqs.appendChild(req);
-                    req.setAttribute("task-id", it.key()->id());
-                    req.setAttribute("request-id", it.value().first->id());
-                    req.setAttribute("required-id", it.value().second->id());
+                    req.setAttribute(QStringLiteral("task-id"), it.key()->id());
+                    req.setAttribute(QStringLiteral("request-id"), it.value().first->id());
+                    req.setAttribute(QStringLiteral("required-id"), it.value().second->id());
                 }
             }
             debugPlanXml<<"alternative-requests:"<<alternativeRequests.count();
             if (!alternativeRequests.isEmpty()) {
-                QDomElement reqs = projectElement.ownerDocument().createElement("alternative-requests");
+                QDomElement reqs = projectElement.ownerDocument().createElement(QStringLiteral("alternative-requests"));
                 projectElement.appendChild(reqs);
                 QHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> >::const_iterator it;
                 for (it = alternativeRequests.constBegin(); it != alternativeRequests.constEnd(); ++it) {
-                    QDomElement req = reqs.ownerDocument().createElement("alternative-request");
+                    QDomElement req = reqs.ownerDocument().createElement(QStringLiteral("alternative-request"));
                     reqs.appendChild(req);
-                    req.setAttribute("task-id", it.key()->id());
-                    req.setAttribute("request-id", it.value().first->id());
-                    req.setAttribute("resource-id", it.value().second->resource()->id());
-                    req.setAttribute("units", it.value().second->units());
+                    req.setAttribute(QStringLiteral("task-id"), it.key()->id());
+                    req.setAttribute(QStringLiteral("request-id"), it.value().first->id());
+                    req.setAttribute(QStringLiteral("resource-id"), it.value().second->resource()->id());
+                    req.setAttribute(QStringLiteral("units"), it.value().second->units());
                 }
             }
         }
@@ -262,10 +262,10 @@ public:
         document = createDocument();
         for (const Resource *r : resources) {
             QDomElement doc = document.documentElement();
-            QDomElement me = document.createElement("resource");
+            QDomElement me = document.createElement(QStringLiteral("resource"));
             doc.appendChild(me);
-            me.setAttribute("id", r->id());
-            me.setAttribute("name", r->name());
+            me.setAttribute(QStringLiteral("id"), r->id());
+            me.setAttribute(QStringLiteral("name"), r->name());
             r->saveCalendarIntervalsCache(me);
         }
         return true;

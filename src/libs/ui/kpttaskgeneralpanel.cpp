@@ -30,8 +30,8 @@
 namespace KPlato
 {
 
-TaskGeneralPanel::TaskGeneralPanel(Project &project, Task &task, QWidget *p, const char *n)
-    : TaskGeneralPanelImpl(p, n),
+TaskGeneralPanel::TaskGeneralPanel(Project &project, Task &task, QWidget *p)
+    : TaskGeneralPanelImpl(p),
       m_task(task),
       m_project(project)
 {
@@ -211,10 +211,9 @@ void TaskGeneralPanel::scheduleTypeChanged(int value)
 }
 
 //-----------------------------
-TaskGeneralPanelImpl::TaskGeneralPanelImpl(QWidget *p, const char *n)
-    : QWidget(p) {
-
-    setObjectName(n);
+TaskGeneralPanelImpl::TaskGeneralPanelImpl(QWidget *p)
+    : QWidget(p)
+{
     setupUi(this);
 
 #ifndef PLAN_KDEPIMLIBS_FOUND

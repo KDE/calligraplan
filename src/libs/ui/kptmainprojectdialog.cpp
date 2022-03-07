@@ -47,8 +47,8 @@ void MainProjectDialog::slotOk() {
     }
     if (panel->loadSharedResources()) {
         QString file = panel->resourcesFile->text();
-        if (file.startsWith('/')) {
-            file.prepend("file:/");
+        if (file.startsWith(QLatin1Char('/'))) {
+            file.prepend(QStringLiteral("file:/"));
         }
     }
     Q_EMIT dialogFinished(QDialog::Accepted);

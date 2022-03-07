@@ -120,7 +120,7 @@ KoStore* KoOdfWriteStore::store() const
 KoXmlWriter* KoOdfWriteStore::contentWriter()
 {
     if (!d->contentWriter) {
-        if (!d->store->open("content.xml")) {
+        if (!d->store->open(QStringLiteral("content.xml"))) {
             return nullptr;
         }
         d->storeDevice = new KoStoreDevice(d->store);
@@ -204,7 +204,7 @@ bool KoOdfWriteStore::closeManifestWriter(bool writeMainfest)
         d->manifestWriter->endElement();
         d->manifestWriter->endDocument();
         QBuffer* buffer = static_cast<QBuffer *>(d->manifestWriter->device());
-        if (d->store->open("META-INF/manifest.xml")) {
+        if (d->store->open(QStringLiteral("META-INF/manifest.xml"))) {
             qint64 written = d->store->write(buffer->buffer());
             ok = (written == (qint64) buffer->buffer().size() && d->store->close());
         } else {

@@ -43,9 +43,9 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("Portfolio_SchedulingViewUi.rc");
+        setXMLFile(QStringLiteral("Portfolio_SchedulingViewUi.rc"));
     } else {
-        setXMLFile("Portfolio_SchedulingViewUi_readonly.rc");
+        setXMLFile(QStringLiteral("Portfolio_SchedulingViewUi_readonly.rc"));
     }
     setupGui();
 
@@ -76,7 +76,7 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     m_logView = new QTreeView(sp);
     m_logView->setContextMenuPolicy(Qt::ActionsContextMenu);
     m_logView->header()->setContextMenuPolicy(Qt::ActionsContextMenu);
-    auto a = new QAction(QString("Debug"), m_logView);
+    auto a = new QAction(QStringLiteral("Debug"), m_logView);
     a->setCheckable(true);
     m_logView->insertAction(nullptr, a);
     m_logView->header()->insertAction(nullptr, a);
@@ -147,7 +147,7 @@ void SchedulingView::slotSchedulersComboChanged(int idx)
     if (scheduler) {
         const auto lst = scheduler->granularities();
         for (auto v : lst) {
-            ui.granularities->addItem(QString("%1 min").arg(v/(60*1000)), (qint64)v);
+            ui.granularities->addItem(QStringLiteral("%1 min").arg(v/(60*1000)), (qint64)v);
         }
         ui.granularities->setCurrentIndex(scheduler->granularity());
         ui.sequential->setChecked(!scheduler->scheduleInParallel());
@@ -259,7 +259,7 @@ void SchedulingView::slotDoubleClicked(const QModelIndex &idx)
 
 void SchedulingView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    QMenu *menu = qobject_cast<QMenu*>(factory()->container("context_menu", this));
+    QMenu *menu = qobject_cast<QMenu*>(factory()->container(QStringLiteral("context_menu"), this));
     if (menu && !menu->isEmpty()) {
         menu->exec(mapToGlobal(pos));
     }
@@ -317,13 +317,13 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     }
     // Populate scheduling context
     m_schedulingContext.project = new KPlato::Project();
-    m_schedulingContext.project->setName("Project Collection");
+    m_schedulingContext.project->setName(QStringLiteral("Project Collection"));
     m_schedulingContext.calculateFrom = calculationTime();
     for (KoDocument *doc : qAsConst(docs)) {
         int prio = doc->property(SCHEDULINGPRIORITY).isValid() ? doc->property(SCHEDULINGPRIORITY).toInt() : -1;
-        if (doc->property(SCHEDULINGCONTROL).toString() == "Schedule") {
+        if (doc->property(SCHEDULINGCONTROL).toString() == QStringLiteral("Schedule")) {
             m_schedulingContext.addProject(doc, prio);
-        } else if (doc->property(SCHEDULINGCONTROL).toString() == "Include") {
+        } else if (doc->property(SCHEDULINGCONTROL).toString() == QStringLiteral("Include")) {
             m_schedulingContext.addResourceBookings(doc);
         }
     }

@@ -622,7 +622,7 @@ bool Completion::loadXML(KoXmlElement &element, XMLLoaderObject &status)
         m_finishTime = DateTime::fromString(s, status.projectTimeZone());
     }
     setEntrymode(element.attribute(QStringLiteral("entrymode")));
-    if (status.version() < QLatin1String("0.6")) {
+    if (status.version() < QStringLiteral("0.6")) {
         if (m_started) {
             Entry *entry = new Entry(element.attribute(QStringLiteral("percent-finished"), QStringLiteral("0")).toInt(), Duration::fromString(element.attribute(QStringLiteral("remaining-effort"))),  Duration::fromString(element.attribute(QStringLiteral("performed-effort"))));
             entry->note = element.attribute(QStringLiteral("note"));
@@ -636,7 +636,7 @@ bool Completion::loadXML(KoXmlElement &element, XMLLoaderObject &status)
     } else {
         KoXmlElement e;
         forEachElement(e, element) {
-                if (e.tagName() == QLatin1String("completion-entry")) {
+                if (e.tagName() == QStringLiteral("completion-entry")) {
                     QDate date;
                     s = e.attribute(QStringLiteral("date"));
                     if (!s.isEmpty()) {
@@ -648,10 +648,10 @@ bool Completion::loadXML(KoXmlElement &element, XMLLoaderObject &status)
                     }
                     Entry *entry = new Entry(e.attribute(QStringLiteral("percent-finished"), QStringLiteral("0")).toInt(), Duration::fromString(e.attribute(QStringLiteral("remaining-effort"))),  Duration::fromString(e.attribute(QStringLiteral("performed-effort"))));
                     addEntry(date, entry);
-                } else if (e.tagName() == QLatin1String("used-effort")) {
+                } else if (e.tagName() == QStringLiteral("used-effort")) {
                     KoXmlElement el;
                     forEachElement(el, e) {
-                            if (el.tagName() == QLatin1String("resource")) {
+                            if (el.tagName() == QStringLiteral("resource")) {
                                 QString id = el.attribute(QStringLiteral("id"));
                                 Resource *r = status.project().resource(id);
                                 if (r == nullptr) {
@@ -762,7 +762,7 @@ bool Completion::UsedEffort::loadXML(KoXmlElement &element, XMLLoaderObject &)
     //debugPlan;
     KoXmlElement e;
     forEachElement(e, element) {
-            if (e.tagName() == QLatin1String("actual-effort")) {
+            if (e.tagName() == QStringLiteral("actual-effort")) {
                 QDate date = QDate::fromString(e.attribute(QStringLiteral("date")), Qt::ISODate);
                 if (date.isValid()) {
                     ActualEffort a;

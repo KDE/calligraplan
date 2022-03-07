@@ -59,9 +59,9 @@ bool Document::isValid() const
 QStringList Document::typeList(bool trans)
 {
     return QStringList()
-            << (trans ? xi18nc("@item", "Unknown") : "Unknown")
-            << (trans ? xi18nc("@item The produced document", "Product") : "Product")
-            << (trans ? xi18nc("@item Document is used for reference", "Reference") : "Reference");
+            << (trans ? xi18nc("@item", "Unknown") : QStringLiteral("Unknown"))
+            << (trans ? xi18nc("@item The produced document", "Product") : QStringLiteral("Product"))
+            << (trans ? xi18nc("@item Document is used for reference", "Reference") : QStringLiteral("Reference"));
 }
 
 QString Document::typeToString(Document::Type type, bool trans)
@@ -72,9 +72,9 @@ QString Document::typeToString(Document::Type type, bool trans)
 QStringList Document::sendAsList(bool trans)
 {
     return QStringList()
-            << (trans ? xi18nc("@item", "Unknown") : "Unknown")
-            << (trans ? xi18nc("@item Send a copy of the document", "Copy") : "Copy")
-            << (trans ? xi18nc("@item Send the reference (url) of the document", "Reference") : "Reference");
+            << (trans ? xi18nc("@item", "Unknown") : QStringLiteral("Unknown"))
+            << (trans ? xi18nc("@item Send a copy of the document", "Copy") : QStringLiteral("Copy"))
+            << (trans ? xi18nc("@item Send the reference (url) of the document", "Reference") : QStringLiteral("Reference"));
 }
 
 QString Document::sendAsToString(Document::SendAs snd, bool trans)
@@ -138,21 +138,21 @@ void Document::setStatus(const QString &sts)
 bool Document::load(KoXmlElement &element, XMLLoaderObject &status)
 {
     Q_UNUSED(status);
-    m_url = QUrl(element.attribute("url"));
-    m_name = element.attribute("name", m_url.fileName());
-    m_type = (Type)(element.attribute("type").toInt());
-    m_status = element.attribute("status");
-    m_sendAs = (SendAs)(element.attribute("sendas").toInt());
+    m_url = QUrl(element.attribute(QStringLiteral("url")));
+    m_name = element.attribute(QStringLiteral("name"), m_url.fileName());
+    m_type = (Type)(element.attribute(QStringLiteral("type")).toInt());
+    m_status = element.attribute(QStringLiteral("status"));
+    m_sendAs = (SendAs)(element.attribute(QStringLiteral("sendas")).toInt());
     return true;
 }
 
 void Document::save(QDomElement &element) const
 {
-    element.setAttribute("url", m_url.url());
-    element.setAttribute("name", m_name);
-    element.setAttribute("type", QString::number(m_type));
-    element.setAttribute("status", m_status);
-    element.setAttribute("sendas", QString::number(m_sendAs));
+    element.setAttribute(QStringLiteral("url"), m_url.url());
+    element.setAttribute(QStringLiteral("name"), m_name);
+    element.setAttribute(QStringLiteral("type"), QString::number(m_type));
+    element.setAttribute(QStringLiteral("status"), m_status);
+    element.setAttribute(QStringLiteral("sendas"), QString::number(m_sendAs));
 }
 
 //----------------
@@ -268,11 +268,11 @@ bool Documents::load(KoXmlElement &element, XMLLoaderObject &status)
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "document") {
+        if (e.tagName() == QStringLiteral("document")) {
             Document *doc = new Document();
             if (!doc->load(e, status)) {
                 warnPlan<<"Failed to load document";
-                status.addMsg(XMLLoaderObject::Errors, "Failed to load document");
+                status.addMsg(XMLLoaderObject::Errors, QStringLiteral("Failed to load document"));
                 delete doc;
             } else {
                 addDocument(doc);
@@ -288,10 +288,10 @@ void Documents::save(QDomElement &element) const
     if (m_docs.isEmpty()) {
         return;
     }
-    QDomElement e = element.ownerDocument().createElement("documents");
+    QDomElement e = element.ownerDocument().createElement(QStringLiteral("documents"));
     element.appendChild(e);
     for (Document *d : qAsConst(m_docs)) {
-        QDomElement me = element.ownerDocument().createElement("document");
+        QDomElement me = element.ownerDocument().createElement(QStringLiteral("document"));
         e.appendChild(me);
         d->save(me);
     }

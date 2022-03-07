@@ -274,7 +274,7 @@ using namespace KPlato;
 ResourceCoverageView::ResourceCoverageView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
-    setXMLFile("ResourceCoverageViewUi.rc");
+    setXMLFile(QStringLiteral("ResourceCoverageViewUi.rc"));
 
     QSplitter *splitter = new QSplitter(this);
     QVBoxLayout *l = new QVBoxLayout(this);

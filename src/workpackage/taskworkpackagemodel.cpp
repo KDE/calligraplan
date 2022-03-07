@@ -281,8 +281,8 @@ QVariant TaskWorkPackageModel::data(const QModelIndex &index, int role) const
             QTextEdit w(n->description(), nullptr);
             QString description = w.toPlainText();
             if (description.length() > 200) {
-                description = description.left(200) + " ...";
-                description.replace('\n', "<br/>");
+                description = description.left(200) + QStringLiteral(" ...");
+                description.replace(QLatin1Char('\n'), QStringLiteral("<br/>"));
             } else {
                 description = n->description();
             }
@@ -391,7 +391,7 @@ QVariant TaskWorkPackageModel::nodeData(KPlato::Node *n, int column, int role) c
             //debugPlanWork<<"Invalid column number: "<<index.column()<<'\n';
             break;
     }
-    return "";
+    return QStringLiteral("");
 }
 
 QVariant TaskWorkPackageModel::documentData(KPlato::Document *doc, int column, int role) const
@@ -403,7 +403,7 @@ QVariant TaskWorkPackageModel::documentData(KPlato::Document *doc, int column, i
             case NodeType: return doc->typeToString(doc->type(), true);
             case NodeStatusNote: return doc->status();
             default:
-                return "";
+                return QStringLiteral("");
         }
     } else if (role == Qt::ToolTipRole) {
         switch (column) {

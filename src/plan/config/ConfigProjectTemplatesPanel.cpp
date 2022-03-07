@@ -16,7 +16,7 @@ using namespace KPlato;
 
 ConfigProjectTemplatesPanel::ConfigProjectTemplatesPanel(QWidget *parent)
 {
-    setObjectName("ConfigWidget");
+    setObjectName(QStringLiteral("ConfigWidget"));
     ui.setupUi(this);
     model.setStringList(KPlatoSettings::projectTemplatePaths());
     ui.projectTemplatesView->setModel(&model);

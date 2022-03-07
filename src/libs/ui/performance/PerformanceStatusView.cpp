@@ -100,7 +100,7 @@ void PerformanceStatusTreeView::setScheduleManager(ScheduleManager *sm)
         // we should only get here if the only schedule manager is scheduled,
         // or when last schedule manager is deleted
         m_domdoc.clear();
-        QDomElement element = m_domdoc.createElement("expanded");
+        QDomElement element = m_domdoc.createElement(QStringLiteral("expanded"));
         m_domdoc.appendChild(element);
         treeView()->saveExpanded(element);
     }
@@ -108,7 +108,7 @@ void PerformanceStatusTreeView::setScheduleManager(ScheduleManager *sm)
     bool expand = sm && m_manager && sm != m_manager;
     QDomDocument doc;
     if (expand) {
-        QDomElement element = doc.createElement("expanded");
+        QDomElement element = doc.createElement(QStringLiteral("expanded"));
         doc.appendChild(element);
         treeView()->saveExpanded(element);
     }
@@ -147,11 +147,11 @@ bool PerformanceStatusTreeView::loadContext(const KoXmlElement &context)
 
 void PerformanceStatusTreeView::saveContext(QDomElement &context) const
 {
-    QDomElement c = context.ownerDocument().createElement("chart");
+    QDomElement c = context.ownerDocument().createElement(QStringLiteral("chart"));
     context.appendChild(c);
     m_chart->saveContext(c);
 
-    QDomElement t = context.ownerDocument().createElement("tree");
+    QDomElement t = context.ownerDocument().createElement(QStringLiteral("tree"));
     context.appendChild(t);
     m_tree->saveContext(nodeModel()->columnMap(), t);
 }
@@ -194,7 +194,7 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
     : ViewBase(part, doc, parent)
 {
     debugPlan<<"-------------------- creating PerformanceStatusView -------------------";
-    setXMLFile("PerformanceStatusViewUi.rc");
+    setXMLFile(QStringLiteral("PerformanceStatusViewUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
     l->setMargin(0);
@@ -232,13 +232,13 @@ void PerformanceStatusView::slotChartContextMenuRequested(const QPoint& pos)
     debugPlan<<pos;
     QList<QAction*> lst;
     const KActionCollection *c = actionCollection();
-    lst << c->action("print");
-    lst << c->action("print_preview");
-    lst << c->action("print_pdf");
-    lst << c->action("print_options");
+    lst << c->action(QStringLiteral("print"));
+    lst << c->action(QStringLiteral("print_preview"));
+    lst << c->action(QStringLiteral("print_pdf"));
+    lst << c->action(QStringLiteral("print_options"));
     lst << new QAction();
     lst.last()->setSeparator(true);
-    lst << c->action("configure_view");
+    lst << c->action(QStringLiteral("configure_view"));
     if (!lst.isEmpty()) {
         QMenu::exec(lst, pos, lst.first());
     }
@@ -279,13 +279,13 @@ void PerformanceStatusView::slotContextMenuRequested(Node *node, const QPoint& p
     auto sid = scheduleManager() ? scheduleManager()->scheduleId() : -1;
     switch (node->type()) {
         case Node::Type_Task:
-            name = node->isScheduled(sid) ? "taskview_popup" : "task_unscheduled_popup";
+            name = node->isScheduled(sid) ? QStringLiteral("taskview_popup") : QStringLiteral("task_unscheduled_popup");
             break;
         case Node::Type_Milestone:
-            name = node->isScheduled(sid) ? "taskview_milestone_popup" : "task_unscheduled_popup";
+            name = node->isScheduled(sid) ? QStringLiteral("taskview_milestone_popup") : QStringLiteral("task_unscheduled_popup");
             break;
         case Node::Type_Summarytask:
-            name = "taskview_summary_popup";
+            name = QStringLiteral("taskview_summary_popup");
             break;
         default:
             break;
@@ -321,19 +321,19 @@ void PerformanceStatusView::setGuiActive(bool activate)
 void PerformanceStatusView::setupGui()
 {
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
-    actionCollection()->addAction("node_properties", actionOpenNode);
+    actionCollection()->addAction(QStringLiteral("node_properties"), actionOpenNode);
     connect(actionOpenNode, &QAction::triggered, this, &PerformanceStatusView::slotOpenCurrentNode);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
-    actionCollection()->addAction("task_progress", actionTaskProgress);
+    actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
     connect(actionTaskProgress, &QAction::triggered, this, &PerformanceStatusView::slotTaskProgress);
 
     auto actionTaskDescription  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
-    actionCollection()->addAction("task_description", actionTaskDescription);
+    actionCollection()->addAction(QStringLiteral("task_description"), actionTaskDescription);
     connect(actionTaskDescription, &QAction::triggered, this, &PerformanceStatusView::slotTaskDescription);
 
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
-    actionCollection()->addAction("task_documents", actionDocuments);
+    actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &PerformanceStatusView::slotDocuments);
 
     // Add the context menu actions for the view options
@@ -343,7 +343,7 @@ void PerformanceStatusView::setupGui()
 void PerformanceStatusView::slotOptions()
 {
     debugPlan;
-    PerformanceStatusViewSettingsDialog *dlg = new PerformanceStatusViewSettingsDialog(this, m_view, this, sender()->objectName() == "print_options");
+    PerformanceStatusViewSettingsDialog *dlg = new PerformanceStatusViewSettingsDialog(this, m_view, this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
 }

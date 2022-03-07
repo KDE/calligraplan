@@ -265,16 +265,16 @@ QVariant ChartItemModel::headerData(int section, Qt::Orientation orientation, in
     } else if (role == Qt::EditRole) {
         if (orientation == Qt::Horizontal) {
             switch (section) {
-                case BCWSCost: return "BCWS Cost";
-                case BCWPCost: return "BCWP Cost";
-                case ACWPCost: return "ACWP Cost";
-                case BCWSEffort: return "BCWS Effort";
-                case BCWPEffort: return "BCWP Effort";
-                case ACWPEffort: return "ACWP Effort";
-                case SPICost: return "SPI Cost";
-                case CPICost: return "CPI Cost";
-                case SPIEffort: return "SPI Effort";
-                case CPIEffort: return "CPI Effort";
+                case BCWSCost: return QStringLiteral("BCWS Cost");
+                case BCWPCost: return QStringLiteral("BCWP Cost");
+                case ACWPCost: return QStringLiteral("ACWP Cost");
+                case BCWSEffort: return QStringLiteral("BCWS Effort");
+                case BCWPEffort: return QStringLiteral("BCWP Effort");
+                case ACWPEffort: return QStringLiteral("ACWP Effort");
+                case SPICost: return QStringLiteral("SPI Cost");
+                case CPICost: return QStringLiteral("CPI Cost");
+                case SPIEffort: return QStringLiteral("SPI Effort");
+                case CPIEffort: return QStringLiteral("CPI Effort");
                 default: return QVariant();
             }
         } else {

@@ -50,14 +50,14 @@ PlanReportItemText::PlanReportItemText(const QDomNode & element) : m_bottomPaddi
     QDomNode node;
 
     createProperties();
-    m_name->setValue(element.toElement().attribute(QLatin1String("report:name")));
-    m_controlSource->setValue(element.toElement().attribute(QLatin1String("report:item-data-source")));
-    m_controlSource->setOption("extraValueAllowed", QLatin1String("true"));
-    m_itemValue->setValue(element.toElement().attribute(QLatin1String("report:value")));
-    Z = element.toElement().attribute(QLatin1String("report:z-index")).toDouble();
-    m_horizontalAlignment->setValue(element.toElement().attribute(QLatin1String("report:horizontal-align")));
-    m_verticalAlignment->setValue(element.toElement().attribute(QLatin1String("report:vertical-align")));
-    m_bottomPadding = element.toElement().attribute(QLatin1String("report:bottom-padding")).toDouble();
+    m_name->setValue(element.toElement().attribute(QStringLiteral("report:name")));
+    m_controlSource->setValue(element.toElement().attribute(QStringLiteral("report:item-data-source")));
+    m_controlSource->setOption("extraValueAllowed", QStringLiteral("true"));
+    m_itemValue->setValue(element.toElement().attribute(QStringLiteral("report:value")));
+    Z = element.toElement().attribute(QStringLiteral("report:z-index")).toDouble();
+    m_horizontalAlignment->setValue(element.toElement().attribute(QStringLiteral("report:horizontal-align")));
+    m_verticalAlignment->setValue(element.toElement().attribute(QStringLiteral("report:vertical-align")));
+    m_bottomPadding = element.toElement().attribute(QStringLiteral("report:bottom-padding")).toDouble();
 
     parseReportRect(element.toElement(), &m_pos, &m_size);
 
@@ -65,7 +65,7 @@ PlanReportItemText::PlanReportItemText(const QDomNode & element) : m_bottomPaddi
         node = nl.item(i);
         n = node.nodeName();
 
-        if (n == QLatin1String("report:text-style")) {
+        if (n == QStringLiteral("report:text-style")) {
             KRTextStyleData ts;
             if (parseReportTextStyleData(node.toElement(), &ts)) {
                 m_backgroundColor->setValue(ts.backgroundColor);
@@ -74,7 +74,7 @@ PlanReportItemText::PlanReportItemText(const QDomNode & element) : m_bottomPaddi
                 m_font->setValue(ts.font);
 
             }
-        } else if (n == QLatin1String("report:line-style")) {
+        } else if (n == QStringLiteral("report:line-style")) {
             KReportLineStyle ls;
             if (parseReportLineStyleData(node.toElement(), &ls)) {
                 m_lineWeight->setValue(ls.width());
@@ -98,17 +98,17 @@ Qt::Alignment PlanReportItemText::textFlags() const
     Qt::Alignment align;
     QString t;
     t = m_horizontalAlignment->value().toString();
-    if (t == QLatin1String("center"))
+    if (t == QStringLiteral("center"))
         align = Qt::AlignHCenter;
-    else if (t == QLatin1String("right"))
+    else if (t == QStringLiteral("right"))
         align = Qt::AlignRight;
     else
         align = Qt::AlignLeft;
 
     t = m_verticalAlignment->value().toString();
-    if (t == QLatin1String("center"))
+    if (t == QStringLiteral("center"))
         align |= Qt::AlignVCenter;
-    else if (t == QLatin1String("bottom"))
+    else if (t == QStringLiteral("bottom"))
         align |= Qt::AlignBottom;
     else
         align |= Qt::AlignTop;
@@ -129,15 +129,15 @@ void PlanReportItemText::createProperties()
 
     m_itemValue = new KProperty("value", QString(), tr("Value"), tr("Value used if not bound to a field"));
 
-    keys << QLatin1String("left") << QLatin1String("center") << QLatin1String("right");
+    keys << QStringLiteral("left") << QStringLiteral("center") << QStringLiteral("right");
     strings << tr("Left") << tr("Center") << tr("Right");
-    m_horizontalAlignment = new KProperty("horizontal-align", keys, strings, QLatin1String("left"), tr("Horizontal Alignment"));
+    m_horizontalAlignment = new KProperty("horizontal-align", keys, strings, QStringLiteral("left"), tr("Horizontal Alignment"));
 
     keys.clear();
     strings.clear();
-    keys << QLatin1String("top") << QLatin1String("center") << QLatin1String("bottom");
+    keys << QStringLiteral("top") << QStringLiteral("center") << QStringLiteral("bottom");
     strings << tr("Top") << tr("Center") << tr("Bottom");
-    m_verticalAlignment = new KProperty("vertical-align", keys, strings, QLatin1String("center"), tr("Vertical Alignment"));
+    m_verticalAlignment = new KProperty("vertical-align", keys, strings, QStringLiteral("center"), tr("Vertical Alignment"));
 
     m_font = new KProperty("font", QApplication::font(), tr("Font"));
 
@@ -150,7 +150,7 @@ void PlanReportItemText::createProperties()
     m_backgroundOpacity = new KProperty("background-opacity", QVariant(0), tr("Background Opacity"));
     m_backgroundOpacity->setOption("max", 100);
     m_backgroundOpacity->setOption("min", 0);
-    m_backgroundOpacity->setOption("unit", QLatin1String("%"));
+    m_backgroundOpacity->setOption("unit", QStringLiteral("%"));
 
     addDefaultProperties();
     m_set->addProperty(m_controlSource);
@@ -206,7 +206,7 @@ KReportLineStyle PlanReportItemText::lineStyle() const
 // RTTI
 QString PlanReportItemText::typeName() const
 {
-    return QLatin1String("plan.text");
+    return QStringLiteral("plan.text");
 }
 
 int PlanReportItemText::renderSimpleData(OROPage *page, OROSection *section, const QPointF &offset,
@@ -242,7 +242,7 @@ int PlanReportItemText::renderSimpleData(OROPage *page, OROSection *section, con
 
         int pos = 0;
         QChar separator;
-        QRegExp re(QLatin1String("\\s"));
+        QRegExp re(QStringLiteral("\\s"));
         QPrinter prnt(QPrinter::HighResolution);
         QFontMetrics fm(font(), &prnt);
 

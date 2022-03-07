@@ -194,7 +194,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     // Add new groups
     for (ResourceGroup *g : qAsConst(newGroups)) {
         debugPlanInsertProject<<"AddResourceGroupCmd:"<<g->name()<<g->resources();
-        addCommand(new AddResourceGroupCmd(m_project, g, kundo2_noi18n("ResourceGroup")));
+        addCommand(new AddResourceGroupCmd(m_project, g, kundo2_noi18n(QStringLiteral("ResourceGroup"))));
         const auto resources = g->resources();
         for (Resource *r : resources) {
             addCommand(new AddParentGroupCmd(r, g));
@@ -202,7 +202,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     }
     // Add new resources
     for (Resource *r : qAsConst(newResources)) {
-        addCommand(new AddResourceCmd(m_project, r, kundo2_noi18n("Resource")));
+        addCommand(new AddResourceCmd(m_project, r, kundo2_noi18n(QStringLiteral("Resource"))));
         // add any moved parent groups
         auto cmds = resparentgroupcmds.take(r);
         while (!cmds.isEmpty()) {
@@ -285,7 +285,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         Q_ASSERT(allResources.contains(newRes));
         // all resource requests shall be reinserted
         rr->setResource(newRes);
-        addCommand(new AddResourceRequestCmd(&n->requests(), rr, kundo2_noi18n("Resource %1", ++ri)));
+        addCommand(new AddResourceRequestCmd(&n->requests(), rr));
     }
     // Add nodes (ids are unique, no need to check)
     Node *node_after = after;
@@ -298,10 +298,10 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         }
         n->setParentNode(nullptr);
         if (node_after) {
-            addCommand(new TaskAddCmd(m_project, n, node_after, kundo2_noi18n("Task")));
+            addCommand(new TaskAddCmd(m_project, n, node_after, kundo2_noi18n(QStringLiteral("Task"))));
             node_after = n;
         } else {
-            addCommand(new SubtaskAddCmd(m_project, n, parent, kundo2_noi18n("Subtask")));
+            addCommand(new SubtaskAddCmd(m_project, n, parent, kundo2_noi18n(QStringLiteral("Subtask"))));
         }
         addChildNodes(n);
     }
@@ -440,7 +440,7 @@ void InsertProjectCmd::addChildNodes(Node *node) {
     const auto nodes = node->childNodeIterator();
     for (Node *n : nodes ) {
         n->setParentNode(nullptr);
-        addCommand(new SubtaskAddCmd(m_project, n, node, kundo2_noi18n("Subtask")));
+        addCommand(new SubtaskAddCmd(m_project, n, node));
         addChildNodes(n);
     }
     // Remove child nodes so they are not added twice

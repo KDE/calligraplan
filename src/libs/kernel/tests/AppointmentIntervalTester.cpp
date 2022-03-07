@@ -561,15 +561,15 @@ void AppointmentIntervalTester::subtractList()
     QCOMPARE(load, lst2.map().values().first().load());
     QCOMPARE(lst2.map().count(), 1);
 
-    s = "Subtract tangent intervals";
+    s = QStringLiteral("Subtract tangent intervals");
     qDebug()<<s;
     lst1.clear();
     lst1.add(dt1.addDays(-1), dt1, load); // before
-    Debug::print(lst2, "List2: " + s);
-    Debug::print(lst1, "List1: " + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
 
     lst2 -= lst1;
-    Debug::print(lst2, "Result: " + s);
+    Debug::print(lst2, QStringLiteral("Result: ") + s);
     
     QCOMPARE(dt1, lst2.map().values().first().startTime());
     QCOMPARE(dt2, lst2.map().values().first().endTime());
@@ -591,10 +591,10 @@ void AppointmentIntervalTester::subtractList()
     // starts at start, end in the middle
     lst1.add(dt1, dt3, load / 2.);
 
-    s = "Subtract half the load of the first hour of the interval";
+    s = QStringLiteral("Subtract half the load of the first hour of the interval");
     qDebug()<<s;
-    Debug::print(lst2, "List2: " + s);
-    Debug::print(lst1, "List1: " + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
 
     lst2 -= lst1;
     Debug::print(lst2, s);
@@ -608,7 +608,7 @@ void AppointmentIntervalTester::subtractList()
     QCOMPARE(dt2, lst2.map().values().at(1).endTime());
     QCOMPARE(load, lst2.map().values().at(1).load());
 
-    s = "Subtract all load from first interval";
+    s = QStringLiteral("Subtract all load from first interval");
     qDebug()<<s;
     lst2 -= lst1; // remove first interval
     QCOMPARE(lst2.map().count(), 1);
@@ -616,14 +616,14 @@ void AppointmentIntervalTester::subtractList()
     QCOMPARE(dt2, lst2.map().values().at(0).endTime());
     QCOMPARE(load, lst2.map().values().at(0).load());
 
-    s = "Subtract half the load from last hour of the interval";
+    s = QStringLiteral("Subtract half the load from last hour of the interval");
     qDebug()<<s;
     lst1.clear();
     dt4 = dt2 - Duration(0, 1, 0);
     lst1.add(dt4, dt2, 50.);
     
-    Debug::print(lst1, "List1: " + s);
-    Debug::print(lst2, "List2: " + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
     lst2 -= lst1;
     
     QCOMPARE(lst2.map().count(), 2);
@@ -635,14 +635,14 @@ void AppointmentIntervalTester::subtractList()
     QCOMPARE(dt2, lst2.map().values().at(1).endTime());
     QCOMPARE(50., lst2.map().values().at(1).load());
 
-    s = "Subtract all load from last interval";
+    s = QStringLiteral("Subtract all load from last interval");
     qDebug()<<s;
-    Debug::print(lst1, "List1: " + s);
-    Debug::print(lst2, "List2: " + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
 
     AppointmentInterval i = lst2.map().values().at(0);
     lst2 -= lst1;
-    Debug::print(lst2, "Result: " + s);
+    Debug::print(lst2, QStringLiteral("Result: ") + s);
 
     QCOMPARE(lst2.map().count(), 1);
     QCOMPARE(i.startTime(), lst2.map().values().at(0).startTime());
@@ -658,10 +658,10 @@ void AppointmentIntervalTester::subtractList()
     // starts before start, end in the middle
     lst1.add(dt1.addSecs(-10), dt3, load / 2.);
 
-    s = "Subtract half the load of the first hour of the interval";
+    s = QStringLiteral("Subtract half the load of the first hour of the interval");
     qDebug()<<s;
-    Debug::print(lst2, "List2: " + s);
-    Debug::print(lst1, "List1: " + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
 
     lst2 -= lst1;
     Debug::print(lst2, s);
@@ -675,7 +675,7 @@ void AppointmentIntervalTester::subtractList()
     QCOMPARE(dt2, lst2.map().values().at(1).endTime());
     QCOMPARE(load, lst2.map().values().at(1).load());
 
-    s = "Subtract all load from first interval";
+    s = QStringLiteral("Subtract all load from first interval");
     qDebug()<<s;
     lst2 -= lst1; // remove first interval
     QCOMPARE(lst2.map().count(), 1);
@@ -683,17 +683,17 @@ void AppointmentIntervalTester::subtractList()
     QCOMPARE(dt2, lst2.map().values().at(0).endTime());
     QCOMPARE(load, lst2.map().values().at(0).load());
 
-    s = "Subtract half the load from last hour of the interval";
+    s = QStringLiteral("Subtract half the load from last hour of the interval");
     qDebug()<<s;
     lst1.clear();
     dt4 = dt2 - Duration(0, 1, 0);
     lst1.add(dt4, dt2.addSecs(10), 50.);
     
-    Debug::print(lst2, "List2: " + s);
-    Debug::print(lst1, "List1: " + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
     lst2 -= lst1;
     
-    Debug::print(lst2, "Result: " + s);
+    Debug::print(lst2, QStringLiteral("Result: ") + s);
 
     QCOMPARE(lst2.map().count(), 2);
     QCOMPARE(dt3, lst2.map().values().at(0).startTime());
@@ -704,15 +704,15 @@ void AppointmentIntervalTester::subtractList()
     QCOMPARE(dt2, lst2.map().values().at(1).endTime());
     QCOMPARE(50., lst2.map().values().at(1).load());
 
-    s = "Subtract all load from last interval";
+    s = QStringLiteral("Subtract all load from last interval");
     qDebug()<<s;
-    Debug::print(lst1, "List1: " + s);
-    Debug::print(lst2, "List2: " + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
 
     i = lst2.map().values().at(0);
     qDebug()<<"i:"<<i;
     lst2 -= lst1;
-    Debug::print(lst2, "Result: " + s);
+    Debug::print(lst2, QStringLiteral("Result: ") + s);
 
     QCOMPARE(lst2.map().count(), 1);
     QCOMPARE(i.startTime(), lst2.map().values().at(0).startTime());
@@ -784,15 +784,15 @@ void AppointmentIntervalTester::subtractListMidnight()
     QCOMPARE(load, lst2.map().values().first().load());
     QCOMPARE(load, lst2.map().values().last().load());
 
-    s = "Subtract tangent intervals";
+    s = QStringLiteral("Subtract tangent intervals");
     qDebug()<<s;
     lst1.clear();
     lst1.add(dt1.addDays(-1), dt1, load); // before
-    Debug::print(lst2, "List2: " + s);
-    Debug::print(lst1, "List1: " + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
 
     lst2 -= lst1;
-    Debug::print(lst2, "Result: " + s);
+    Debug::print(lst2, QStringLiteral("Result: ") + s);
     
     QCOMPARE(lst2.map().count(), 2);
     QCOMPARE(dt1, lst2.map().values().first().startTime());
@@ -816,10 +816,10 @@ void AppointmentIntervalTester::subtractListMidnight()
     // starts at start, end in the middle (at 23:00)
     lst1.add(dt1, dt3, load / 2.);
 
-    s = "Subtract half the load of the first hour of the interval";
+    s = QStringLiteral("Subtract half the load of the first hour of the interval");
     qDebug()<<s;
-    Debug::print(lst2, "List2: " + s);
-    Debug::print(lst1, "List1: " + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
 
     lst2 -= lst1;
     Debug::print(lst2, s);
@@ -834,7 +834,7 @@ void AppointmentIntervalTester::subtractListMidnight()
     QCOMPARE(load, lst2.map().values().at(1).load());
     QCOMPARE(load, lst2.map().values().at(2).load());
 
-    s = "Subtract all load from first interval";
+    s = QStringLiteral("Subtract all load from first interval");
     qDebug()<<s;
     lst2 -= lst1; // remove first interval
     QCOMPARE(lst2.map().count(), 2);
@@ -843,14 +843,14 @@ void AppointmentIntervalTester::subtractListMidnight()
     QCOMPARE(load, lst2.map().values().at(0).load());
     QCOMPARE(load, lst2.map().values().at(1).load());
 
-    s = "Subtract half the load from last 30 min of the last interval";
+    s = QStringLiteral("Subtract half the load from last 30 min of the last interval");
     qDebug()<<s;
     lst1.clear();
     dt4 = dt2 - Duration(0, 0, 30);
     lst1.add(dt4, dt2, 50.);
     
-    Debug::print(lst1, "List1: " + s);
-    Debug::print(lst2, "List2: " + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
     lst2 -= lst1;
     
     QCOMPARE(lst2.map().count(), 3);
@@ -863,13 +863,13 @@ void AppointmentIntervalTester::subtractListMidnight()
     QCOMPARE(dt2, lst2.map().values().at(2).endTime());
     QCOMPARE(50., lst2.map().values().at(2).load());
 
-    s = "Subtract all load from last interval";
+    s = QStringLiteral("Subtract all load from last interval");
     qDebug()<<s;
-    Debug::print(lst1, "List1: " + s);
-    Debug::print(lst2, "List2: " + s);
+    Debug::print(lst1, QStringLiteral("List1: ") + s);
+    Debug::print(lst2, QStringLiteral("List2: ") + s);
 
     lst2 -= lst1;
-    Debug::print(lst2, "Result: " + s);
+    Debug::print(lst2, QStringLiteral("Result: ") + s);
 
     QCOMPARE(lst2.map().count(), 2);
     QCOMPARE(dt3, lst2.map().values().at(0).startTime());

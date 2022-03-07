@@ -86,6 +86,11 @@ bool KoOdfReadStore::loadAndParse(QString &errorMessage)
     return true;
 }
 
+bool KoOdfReadStore::loadAndParse(const char *fileName, KoXmlDocument &doc, QString &errorMessage)
+{
+    return loadAndParse(QLatin1String(fileName), doc, errorMessage);
+}
+
 bool KoOdfReadStore::loadAndParse(const QString &fileName, KoXmlDocument &doc, QString &errorMessage)
 {
     if (!d->store) {

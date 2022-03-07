@@ -60,10 +60,10 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
     useSharedResources->setChecked(project.useSharedResources());
     resourcesFile->setText(project.sharedResourcesFile());
     const auto timezones = QTimeZone::availableTimeZoneIds();
-    for (const QString id : timezones) {
-        ui_timezone->addItem(id);
+    for (const auto &id : timezones) {
+        ui_timezone->addItem(QString::fromUtf8(id));
     }
-    ui_timezone->setCurrentText(p.timeZone().id());
+    ui_timezone->setCurrentText(QString::fromUtf8(p.timeZone().id()));
 
     const Project::WorkPackageInfo wpi = p.workPackageInfo();
     ui_CheckForWorkPackages->setChecked(wpi.checkForWorkPackages);
@@ -190,7 +190,7 @@ MacroCommand *MainProjectPanel::buildCommand() {
         if (!m) m = new MacroCommand(c);
         m->addCommand(new ProjectModifyEndTimeCmd(project, endDateTime()));
     }
-    if (project.timeZone().id() != ui_timezone->currentText()) {
+    if (QLatin1String(project.timeZone().id()) != ui_timezone->currentText()) {
         if (!m) m = new MacroCommand(c);
         m->addCommand(new ProjectModifyTimeZoneCmd(project, QTimeZone(ui_timezone->currentText().toLatin1())));
     }
@@ -326,7 +326,7 @@ QDateTime MainProjectPanel::endDateTime()
 
 void MainProjectPanel::openResourcesFile()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Resources"), "", tr("Resources file (*.plan)"));
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Resources"), QStringLiteral(""), tr("Resources file (*.plan)"));
     resourcesFile->setText(fileName);
 }
 

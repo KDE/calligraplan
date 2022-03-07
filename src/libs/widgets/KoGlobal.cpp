@@ -77,7 +77,7 @@ QStringList KoGlobal::_listOfLanguages()
 
 void KoGlobal::createListOfLanguages()
 {
-    KConfig config("all_languages", KConfig::NoGlobals);
+    KConfig config(QStringLiteral("all_languages"), KConfig::NoGlobals);
 
     QMap<QString, bool> seenLanguages;
     const QStringList langlist = config.groupList();
@@ -104,9 +104,9 @@ void KoGlobal::createListOfLanguages()
             it != translationList.end(); ++it) {
         // Extract the language tag from the directory name
         QString tag = *it;
-        int index = tag.lastIndexOf('/');
+        int index = tag.lastIndexOf(QLatin1Char('/'));
         tag = tag.left(index);
-        index = tag.lastIndexOf('/');
+        index = tag.lastIndexOf(QLatin1Char('/'));
         tag = tag.mid(index + 1);
 
         if (seenLanguages.find(tag) == seenLanguages.end()) {
@@ -152,7 +152,7 @@ QString KoGlobal::languageFromTag(const QString &langTag)
 KConfig* KoGlobal::_planConfig()
 {
     if (!m_planConfig) {
-        m_planConfig = new KConfig("calligraplanrc");
+        m_planConfig = new KConfig(QStringLiteral("calligraplanrc"));
     }
     return m_planConfig;
 }

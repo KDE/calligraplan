@@ -42,9 +42,9 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile("Portfolio_GanttViewUi.rc");
+        setXMLFile(QStringLiteral("Portfolio_GanttViewUi.rc"));
     } else {
-        setXMLFile("Portfolio_GanttViewUi_readonly.rc");
+        setXMLFile(QStringLiteral("Portfolio_GanttViewUi_readonly.rc"));
     }
     setupGui();
 
@@ -86,7 +86,7 @@ GanttView::~GanttView()
 void GanttView::setupGui()
 {
     auto a = new QAction(koIcon("view-time-schedule-calculus"), i18n("Open Project"), this);
-    actionCollection()->addAction("gantt_open_project", a);
+    actionCollection()->addAction(QStringLiteral("gantt_open_project"), a);
     connect(a, &QAction::triggered, this, &GanttView::openProject);
 
     createOptionActions(ViewBase::OptionAll);
@@ -115,7 +115,7 @@ QMenu *GanttView::popupMenu(const QString& name)
 
 void GanttView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    auto menu = qobject_cast<QMenu*>(factory()->container("gantt_context_menu", this));
+    auto menu = qobject_cast<QMenu*>(factory()->container(QStringLiteral("gantt_context_menu"), this));
     if (menu && !menu->isEmpty()) {
         menu->exec(m_view->leftView()->mapToGlobal(pos)); // FIXME: mapping incorrect
     }
@@ -123,7 +123,7 @@ void GanttView::slotCustomContextMenuRequested(const QPoint &pos)
 
 void GanttView::slotOptions()
 {
-    auto dlg = new KPlato::BasicGanttViewSettingsDialog(m_view, this, sender()->objectName() == "print_options");
+    auto dlg = new KPlato::BasicGanttViewSettingsDialog(m_view, this, sender()->objectName() == QStringLiteral("print_options"));
     int result = dlg->exec();
     if (result == QDialog::Accepted) {
         m_view->graphicsView()->updateScene();

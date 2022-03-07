@@ -85,6 +85,7 @@ public:
      * Check if any of the styles on the stack has an attribute called 'localName'
      */
     bool hasProperty(const QString &nsURI, const QString &localName) const;
+    bool hasProperty(const QString &nsURI, const char *localName) const;
 
     /**
      * Check if any of the styles on the stack has an attribute called 'localname'-'detail'
@@ -92,19 +93,23 @@ public:
      * This allows to also find 'name' alone (e.g. padding implies padding-left, padding-right etc.)
      */
     bool hasProperty(const QString &nsURI, const QString &localName, const QString &detail) const;
+    bool hasProperty(const QString &nsURI, const char *localName, const QString &detail) const;
 
     /**
      * Search for the attribute called 'localName', starting on top of the stack,
      * and return it.
      */
     QString property(const QString &nsURI, const QString &localName) const;
+    QString property(const QString &nsURI, const char *localName) const;
 
     /**
      * Search for the attribute called 'localName'-'detail', starting on top of the stack,
      * and return it, where detail is e.g. left, right, top or bottom.
      * This allows to also find 'name' alone (e.g. padding implies padding-left, padding-right etc.)
      */
-    QString property(const QString &nsURI, const QString &localName, const  QString &detail) const;
+    QString property(const QString &nsURI, const QString &localName, const QString &detail) const;
+    QString property(const QString &nsURI, const char *localName, const QString &detail) const;
+    QString property(const QString &nsURI, const char *localName, const char *detail) const;
 
     /**
      * Check if any of the styles on the stack has a child element called 'localName' in the namespace 'nsURI'.

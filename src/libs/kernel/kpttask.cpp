@@ -334,7 +334,7 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
     QString s;
     bool ok = false;
     m_id = element.attribute(QStringLiteral("id"));
-    m_priority = element.attribute(QStringLiteral("priority"), "0").toInt();
+    m_priority = element.attribute(QStringLiteral("priority")).toInt();
 
     setName(element.attribute(QStringLiteral("name")));
     m_leader = element.attribute(QStringLiteral("leader"));
@@ -364,7 +364,7 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == QLatin1String("project")) {
+        if (e.tagName() == QStringLiteral("project")) {
             // Load the subproject
 /*              Project *child = new Project(this, status);
             if (child->load(e)) {
@@ -375,7 +375,7 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                 // TODO: Complain about this
                 delete child;
             }*/
-        } else if (e.tagName() == QLatin1String("task")) {
+        } else if (e.tagName() == QStringLiteral("task")) {
             if (status.loadTaskChildren()) {
                 // Load the task
                 Task *child = new Task(this);
@@ -388,24 +388,24 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                     delete child;
                 }
             }
-        } else if (e.tagName() == QLatin1String("resource")) {
+        } else if (e.tagName() == QStringLiteral("resource")) {
             // TODO: Load the resource (projects don't have resources yet)
-        } else if (e.tagName() == QLatin1String("estimate") ||
-                   (/*status.version() < "0.6" &&*/ e.tagName() == QLatin1String("effort"))) {
+        } else if (e.tagName() == QStringLiteral("estimate") ||
+                   (/*status.version() < "0.6" &&*/ e.tagName() == QStringLiteral("effort"))) {
             //  Load the estimate
             m_estimate->load(e, status);
-        } else if (e.tagName() == QLatin1String("workpackage")) {
+        } else if (e.tagName() == QStringLiteral("workpackage")) {
             m_workPackage.loadXML(e, status);
-        } else if (e.tagName() == QLatin1String("progress")) {
+        } else if (e.tagName() == QStringLiteral("progress")) {
             completion().loadXML(e, status);
-        } else if (e.tagName() == QLatin1String("task-schedules") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("schedules"))) {
+        } else if (e.tagName() == QStringLiteral("task-schedules") || (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("schedules"))) {
             KoXmlNode n = e.firstChild();
             for (; ! n.isNull(); n = n.nextSibling()) {
                 if (! n.isElement()) {
                     continue;
                 }
                 KoXmlElement el = n.toElement();
-                if (el.tagName() == QLatin1String("task-schedule") || el.tagName() == QLatin1String("schedule")) {
+                if (el.tagName() == QStringLiteral("task-schedule") || el.tagName() == QStringLiteral("schedule")) {
                     NodeSchedule *sch = new NodeSchedule();
                     if (sch->loadXML(el, status)) {
                         sch->setNode(this);
@@ -416,11 +416,11 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                     }
                 }
             }
-        } else if (e.tagName() == QLatin1String("resourcegroup-request")) {
-            Q_ASSERT(status.version() < "0.7.0");
+        } else if (e.tagName() == QStringLiteral("resourcegroup-request")) {
+            Q_ASSERT(status.version() < QStringLiteral("0.7.0"));
             KoXmlElement re;
             forEachElement(re, e) {
-                if (re.tagName() == "resource-request") {
+                if (re.tagName() == QStringLiteral("resource-request")) {
                     ResourceRequest *r = new ResourceRequest();
                     if (r->load(re, status.project())) {
                         m_requests.addResourceRequest(r);
@@ -430,12 +430,12 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                     }
                 }
             }
-            ResourceGroup *group = status.project().group(e.attribute("group-id"));
+            ResourceGroup *group = status.project().group(e.attribute(QStringLiteral("group-id")));
             if (!group) {
-                errorPlanXml<<"Could not find resourcegroup"<<e.attribute("group-id");
+                errorPlanXml<<"Could not find resourcegroup"<<e.attribute(QStringLiteral("group-id"));
             } else {
                 QList<ResourceRequest*> groupRequests;
-                int numRequests = e.attribute("units").toInt();
+                int numRequests = e.attribute(QStringLiteral("units")).toInt();
                 for (int i = 0; i < numRequests; ++i) {
                     const auto resources = group->resources();
                     for (Resource *r : resources) {
@@ -454,16 +454,16 @@ bool Task::load(KoXmlElement &element, XMLLoaderObject &status) {
                     }
                 }
             }
-        } else if (e.tagName() == QLatin1String("documents")) {
+        } else if (e.tagName() == QStringLiteral("documents")) {
             m_documents.load(e, status);
-        } else if (e.tagName() == QLatin1String("workpackage-log")) {
+        } else if (e.tagName() == QStringLiteral("workpackage-log")) {
             KoXmlNode n = e.firstChild();
             for (; ! n.isNull(); n = n.nextSibling()) {
                 if (! n.isElement()) {
                     continue;
                 }
                 KoXmlElement el = n.toElement();
-                if (el.tagName() == QLatin1String("workpackage")) {
+                if (el.tagName() == QStringLiteral("workpackage")) {
                     WorkPackage *wp = new WorkPackage(this);
                     if (wp->loadLoggedXML(el, status)) {
                         m_packageLog << wp;
@@ -488,7 +488,7 @@ void Task::save(QDomElement &element, const XmlSaveContext &context)  const
     element.appendChild(me);
 
     me.setAttribute(QStringLiteral("id"), m_id);
-    me.setAttribute("priority", QString::number(m_priority));
+    me.setAttribute(QStringLiteral("priority"), QString::number(m_priority));
     me.setAttribute(QStringLiteral("name"), m_name);
     me.setAttribute(QStringLiteral("leader"), m_leader);
     me.setAttribute(QStringLiteral("description"), m_description);
@@ -1197,7 +1197,7 @@ DateTime Task::calculateForward(int use)
     }
     Schedule *cs = m_currentSchedule;
     cs->setCalculationMode(Schedule::CalculateForward);
-    //cs->logDebug("calculateForward: earlyStart=" + cs->earlyStart.toString());
+    //cs->logDebug(QStringLiteral("calculateForward: earlyStart=") + cs->earlyStart.toString());
     // calculate all predecessors
     if (!dependParentNodes().isEmpty()) {
         DateTime time = calculatePredeccessors(dependParentNodes(), use);
@@ -1214,7 +1214,7 @@ DateTime Task::calculateForward(int use)
         }
     }
     m_calculateForwardRun = true;
-    //cs->logDebug("calculateForward: earlyStart=" + cs->earlyStart.toString());
+    //cs->logDebug(QStringLiteral("calculateForward: earlyStart=") + cs->earlyStart.toString());
     return calculateEarlyFinish(use);
 }
 
@@ -1249,7 +1249,7 @@ DateTime Task::calculateEarlyFinish(int use) {
                 m_durationForward = duration(cs->earlyStart, use, false);
                 m_earlyFinish = cs->earlyStart + m_durationForward;
 #ifndef PLAN_NLOGDEBUG
-                cs->logDebug("ASAP/ALAP: " + cs->earlyStart.toString() + '+' + m_durationForward.toString() + '=' + m_earlyFinish.toString());
+                cs->logDebug(QStringLiteral("ASAP/ALAP: ") + cs->earlyStart.toString() + QLatin1Char('+') + m_durationForward.toString() + QLatin1Char('=') + m_earlyFinish.toString());
 #endif
                 if (!cs->allowOverbooking()) {
                     cs->startTime = cs->earlyStart;
@@ -1262,7 +1262,7 @@ DateTime Task::calculateEarlyFinish(int use) {
                     m_durationForward = duration(cs->earlyStart, use, false);
                     cs->setAllowOverbookingState(obs);
 #ifndef PLAN_NLOGDEBUG
-                    cs->logDebug("ASAP/ALAP earliest possible: " + cs->earlyStart.toString() + '+' + m_durationForward.toString() + '=' + (cs->earlyStart+m_durationForward).toString());
+                    cs->logDebug(QStringLiteral("ASAP/ALAP earliest possible: ") + cs->earlyStart.toString() + QLatin1Char('+') + m_durationForward.toString() + QLatin1Char('=') + (cs->earlyStart+m_durationForward).toString());
 #endif
                 }
                 break;
@@ -1306,7 +1306,7 @@ DateTime Task::calculateEarlyFinish(int use) {
             case Node::StartNotEarlier:
             {
                 //debugPlan<<"MSO/SNE:"<<m_constraintStartTime<<cs->earlyStart;
-                cs->logDebug(constraintToString() + ": " + m_constraintStartTime.toString() + ' ' + cs->earlyStart.toString());
+                cs->logDebug(constraintToString() + QStringLiteral(": ") + m_constraintStartTime.toString() + QLatin1Char(' ') + cs->earlyStart.toString());
                 cs->earlyStart = workTimeAfter(qMax(cs->earlyStart, m_constraintStartTime));
                 if (cs->earlyStart < m_constraintStartTime) {
                     cs->logWarning(i18nc("1=type of constraint", "%1: Failed to meet constraint", constraintToString(true)));
@@ -1325,7 +1325,7 @@ DateTime Task::calculateEarlyFinish(int use) {
                     cs->setAllowOverbookingState(obs);
                     m_earlyFinish = cs->earlyStart + m_durationForward;
 #ifndef PLAN_NLOGDEBUG
-                    cs->logDebug("MSO/SNE earliest possible: " + cs->earlyStart.toString() + '+' + m_durationForward.toString() + '=' + (cs->earlyStart+m_durationForward).toString());
+                    cs->logDebug(QStringLiteral("MSO/SNE earliest possible: ") + cs->earlyStart.toString() + QLatin1Char('+') + m_durationForward.toString() + QLatin1Char('=') + (cs->earlyStart+m_durationForward).toString());
 #endif
                 }
                 break;
@@ -1520,7 +1520,7 @@ DateTime Task::calculateLateStart(int use) {
                 m_durationBackward = duration(cs->lateFinish, use, true);
                 cs->lateStart = cs->lateFinish - m_durationBackward;
 #ifndef PLAN_NLOGDEBUG
-                cs->logDebug("ASAP/ALAP: " + cs->lateFinish.toString() + '-' + m_durationBackward.toString() + '=' + cs->lateStart.toString());
+                cs->logDebug(QStringLiteral("ASAP/ALAP: ") + cs->lateFinish.toString() + QLatin1Char('-') + m_durationBackward.toString() + QLatin1Char('=') + cs->lateStart.toString());
 #endif
                 if (!cs->allowOverbooking()) {
                     cs->startTime = cs->lateStart;
@@ -1533,7 +1533,7 @@ DateTime Task::calculateLateStart(int use) {
                     m_durationBackward = duration(cs->lateFinish, use, true);
                     cs->setAllowOverbookingState(obs);
 #ifndef PLAN_NLOGDEBUG
-                    cs->logDebug("ASAP/ALAP latest start possible: " + cs->lateFinish.toString() + '-' + m_durationBackward.toString() + '=' + (cs->lateFinish-m_durationBackward).toString());
+                    cs->logDebug(QStringLiteral("ASAP/ALAP latest start possible: ") + cs->lateFinish.toString() + QLatin1Char('-') + m_durationBackward.toString() + QLatin1Char('=') + (cs->lateFinish-m_durationBackward).toString());
 #endif
                 }
                 break;
@@ -1775,7 +1775,7 @@ DateTime Task::scheduleFromStartTime(int use) {
                 cs->startTime = workTimeAfter(cs->startTime, cs);
             }
 #ifndef PLAN_NLOGDEBUG
-            cs->logDebug("ASAP: " + cs->startTime.toString() + " earliest: " + cs->earlyStart.toString());
+            cs->logDebug(QStringLiteral("ASAP: ") + cs->startTime.toString() + QStringLiteral(" earliest: ") + cs->earlyStart.toString());
 #endif
             cs->duration = duration(cs->startTime, use, false);
             cs->endTime = cs->startTime + cs->duration;
@@ -2173,13 +2173,13 @@ DateTime Task::scheduleFromEndTime(int use) {
                 cs->schedulingError = true;
                 cs->logError(i18nc("1=type of constraint", "%1: Failed to schedule within late finish.", constraintToString()));
 #ifndef PLAN_NLOGDEBUG
-                cs->logDebug("ASAP: late finish=" + cs->lateFinish.toString() + " end time=" + e.toString());
+                cs->logDebug(QStringLiteral("ASAP: late finish=") + cs->lateFinish.toString() + QStringLiteral(" end time=") + e.toString());
 #endif
             } else if (e > cs->endTime) {
                 cs->schedulingError = true;
                 cs->logWarning(i18nc("1=type of constraint", "%1: Failed to schedule within successors start time",  constraintToString()));
 #ifndef PLAN_NLOGDEBUG
-                cs->logDebug("ASAP: succ. start=" + cs->endTime.toString() + " end time=" + e.toString());
+                cs->logDebug(QStringLiteral("ASAP: succ. start=") + cs->endTime.toString() + QStringLiteral(" end time=") + e.toString());
 #endif
             }
             if (cs->lateFinish > e) {
@@ -2188,7 +2188,7 @@ DateTime Task::scheduleFromEndTime(int use) {
                     cs->positiveFloat = w - e;
                 }
 #ifndef PLAN_NLOGDEBUG
-                cs->logDebug("ASAP: positiveFloat=" + cs->positiveFloat.toString());
+                cs->logDebug(QStringLiteral("ASAP: positiveFloat=") + cs->positiveFloat.toString());
 #endif
             }
             cs->endTime = e;
@@ -2206,12 +2206,12 @@ DateTime Task::scheduleFromEndTime(int use) {
                 cs->schedulingError = true;
                 cs->logError(i18nc("1=type of constraint", "%1: Failed to schedule after early start.", constraintToString()));
 #ifndef PLAN_NLOGDEBUG
-                cs->logDebug("ALAP: earlyStart=" + cs->earlyStart.toString() + " cs->startTime=" + cs->startTime.toString());
+                cs->logDebug(QStringLiteral("ALAP: earlyStart=") + cs->earlyStart.toString() + QStringLiteral(" cs->startTime=") + cs->startTime.toString());
 #endif
             } else if (cs->lateFinish > cs->endTime) {
                 cs->positiveFloat = workTimeBefore(cs->lateFinish) - cs->endTime;
 #ifndef PLAN_NLOGDEBUG
-                cs->logDebug("ALAP: positiveFloat=" + cs->positiveFloat.toString());
+                cs->logDebug(QStringLiteral("ALAP: positiveFloat=") + cs->positiveFloat.toString());
 #endif
             }
             //debugPlan<<m_name<<": lateStart="<<cs->startTime;
@@ -2521,12 +2521,12 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
     Calendar *cal = m_estimate->calendar();
     if (cal == nullptr) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("Calculate length: No calendar, return estimate " + duration.toString());
+        if (sch) sch->logDebug(QStringLiteral("Calculate length: No calendar, return estimate ") + duration.toString());
 #endif
         return duration;
     }
 #ifndef PLAN_NLOGDEBUG
-    if (sch) sch->logDebug("Calculate length from: " + time.toString());
+    if (sch) sch->logDebug(QStringLiteral("Calculate length from: ") + time.toString());
 #endif
     DateTime logtime = time;
     bool sts=true;
@@ -2554,7 +2554,7 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
     }
     if (! match) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("Days: duration " + logtime.toString() + " - " + end.toString() + " = " + l.toString() + " (" + (duration - l).toString() + ')');
+        if (sch) sch->logDebug(QStringLiteral("Days: duration ") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" = ") + l.toString() + QStringLiteral(" (") + (duration - l).toString() + QLatin1Char(')'));
 #endif
         logtime = start;
         for (int i=0; !match && i < 24; ++i) {
@@ -2577,7 +2577,7 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
     }
     if (! match) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("Hours: duration " + logtime.toString() + " - " + end.toString() + " = " + l.toString() + " (" + (duration - l).toString() + ')');
+        if (sch) sch->logDebug(QStringLiteral("Hours: duration ") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" = ") + l.toString() + QStringLiteral(" (") + (duration - l).toString() + QLatin1Char(')'));
 #endif
         logtime = start;
         for (int i=0; !match && i < 60; ++i) {
@@ -2594,13 +2594,13 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
                 end = start;
                 break;
             }
-            //debugPlan<<"duration(m)"<<(backward?"backward":"forward:")<<"  time="<<start.time().toString()<<" l="<<l.toString()<<" ("<<l.milliseconds()<<')';
+            //debugPlan<<"duration(m)"<<(backward?"backward":"forward:")<<"  time="<<start.time().toString()<<" l="<<l.toString()<<" ("<<l.milliseconds()<<QLatin1Char(')');
         }
         //debugPlan<<"duration"<<(backward?"backward":"forward:")<<"  start="<<start.toString()<<" l="<<l.toString()<<" match="<<match<<" sts="<<sts;
     }
     if (! match) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("Minutes: duration " + logtime.toString() + " - " + end.toString() + " = " + l.toString() + " (" + (duration - l).toString() + ')');
+        if (sch) sch->logDebug(QStringLiteral("Minutes: duration ") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" = ") + l.toString() + QStringLiteral(" (") + (duration - l).toString() + QLatin1Char(')'));
 #endif
         logtime = start;
         for (int i=0; !match && i < 60 && sts; ++i) {
@@ -2617,12 +2617,12 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
                 end = start;
                 break;
             }
-            //debugPlan<<"duration(s)["<<i<<"]"<<(backward?"backward":"forward:")<<" time="<<start.time().toString()<<" l="<<l.toString()<<" ("<<l.milliseconds()<<')';
+            //debugPlan<<"duration(s)["<<i<<"]"<<(backward?"backward":"forward:")<<" time="<<start.time().toString()<<" l="<<l.toString()<<" ("<<l.milliseconds()<<QLatin1Char(')');
         }
     }
     if (! match) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("Seconds: duration " + logtime.toString() + " - " + end.toString() + " l " + l.toString() + " (" + (duration - l).toString() + ')');
+        if (sch) sch->logDebug(QStringLiteral("Seconds: duration ") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" l ") + l.toString() + QStringLiteral(" (") + (duration - l).toString() + QLatin1Char(')'));
 #endif
         for (int i=0; !match && i < 1000; ++i) {
             //milliseconds
@@ -2636,11 +2636,11 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
                 match = true;
             } else {
 #ifndef PLAN_NLOGDEBUG
-                if (sch) sch->logDebug("Got more than asked for, should not happen! Want: " + duration.toString(Duration::Format_Hour) + " got: " + l.toString(Duration::Format_Hour));
+                if (sch) sch->logDebug(QStringLiteral("Got more than asked for, should not happen! Want: ") + duration.toString(Duration::Format_Hour) + QStringLiteral(" got: ") + l.toString(Duration::Format_Hour));
 #endif
                 break;
             }
-            //debugPlan<<"duration(ms)["<<i<<"]"<<(backward?"backward":"forward:")<<" time="<<start.time().toString()<<" l="<<l.toString()<<" ("<<l.milliseconds()<<')';
+            //debugPlan<<"duration(ms)["<<i<<"]"<<(backward?"backward":"forward:")<<" time="<<start.time().toString()<<" l="<<l.toString()<<" ("<<l.milliseconds()<<QLatin1Char(')');
         }
     }
     if (!match) {
@@ -2658,7 +2658,7 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
             }
         }
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("Moved end to work: " + end.toString() + " -> " + t.toString());
+        if (sch) sch->logDebug(QStringLiteral("Moved end to work: ") + end.toString() + QStringLiteral(" -> ") + t.toString());
 #endif
     }
     end = t.isValid() ? t : time;
@@ -2666,7 +2666,7 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
     l = end>time ? end-time : time-end;
     if (match) {
 #ifndef PLAN_NLOGDEBUG
-        if (sch) sch->logDebug("Calculated length: " + time.toString() + " - " + end.toString() + " = " + l.toString());
+        if (sch) sch->logDebug(QStringLiteral("Calculated length: ") + time.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" = ") + l.toString());
 #endif
     }
     return l;

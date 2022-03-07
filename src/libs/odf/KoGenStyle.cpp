@@ -161,13 +161,13 @@ void KoGenStyle::writeStyleProperties(KoXmlWriter* writer, PropertyType type,
         const QMap<QString, QString>::const_iterator end = map.constEnd();
         for (; it != end; ++it) {
             if (!parentStyle || parentStyle->property(it.key(), type) != it.value())
-                writer->addAttribute(it.key().toUtf8(), it.value().toUtf8());
+                writer->addAttribute(it.key().toUtf8().constData(), it.value().toUtf8());
         }
         QMap<QString, QString>::const_iterator itChild = mapChild.constBegin();
         const QMap<QString, QString>::const_iterator endChild = mapChild.constEnd();
         for (; itChild != endChild; ++itChild) {
             if (!parentStyle || parentStyle->childProperty(itChild.key(), type) != itChild.value())
-                writer->addCompleteElement(itChild.value().toUtf8());
+                writer->addCompleteElement(itChild.value().toUtf8().constData());
         }
         writer->endElement();
     }
@@ -202,7 +202,7 @@ void KoGenStyle::writeStyle(KoXmlWriter* writer, const KoGenStyles& styles, cons
     }
     if (!m_familyName.isEmpty())
         const_cast<KoGenStyle *>(this)->
-        addAttribute("style:family", QString::fromLatin1(m_familyName));
+        addAttribute(QStringLiteral("style:family"), QString::fromLatin1(m_familyName));
     else {
         if (qstrcmp(elementName, "style:style") == 0)
             warnOdf << "User style " << name << " is without family - invalid. m_type=" << m_type;
@@ -224,11 +224,11 @@ void KoGenStyle::writeStyle(KoXmlWriter* writer, const KoGenStyles& styles, cons
     QMap<QString, QString>::const_iterator it = m_attributes.constBegin();
     for (; it != m_attributes.constEnd(); ++it) {
         bool writeit = true;
-        if (parentStyle && it.key() != "style:family"  // always write the family out
+        if (parentStyle && it.key() != QStringLiteral("style:family")  // always write the family out
                 && parentStyle->attribute(it.key()) == it.value())
             writeit = false;
         if (writeit)
-            writer->addAttribute(it.key().toUtf8(), it.value().toUtf8());
+            writer->addAttribute(it.key().toUtf8().constData(), it.value().toUtf8());
     }
     bool createPropertiesTag = propertiesElementName && propertiesElementName[0] != '\0';
     KoGenStyle::PropertyType i = KoGenStyle::DefaultType;
@@ -243,7 +243,7 @@ void KoGenStyle::writeStyle(KoXmlWriter* writer, const KoGenStyles& styles, cons
         it = m_properties[i].constBegin();
         for (; it != m_properties[i].constEnd(); ++it) {
             if (!parentStyle || parentStyle->property(it.key(), i) != it.value())
-                writer->addAttribute(it.key().toUtf8(), it.value().toUtf8());
+                writer->addAttribute(it.key().toUtf8().constData(), it.value().toUtf8());
         }
         //write the explicitly-defined properties that are the same type as the default,
         //but only if defaultPropertyType is Text, Paragraph, or GraphicType
@@ -251,14 +251,14 @@ void KoGenStyle::writeStyle(KoXmlWriter* writer, const KoGenStyles& styles, cons
             it = m_properties[defaultPropertyType].constBegin();
             for (; it != m_properties[defaultPropertyType].constEnd(); ++it) {
                 if (!parentStyle || parentStyle->property(it .key(), defaultPropertyType) != it.value())
-                    writer->addAttribute(it.key().toUtf8(), it.value().toUtf8());
+                    writer->addAttribute(it.key().toUtf8().constData(), it.value().toUtf8());
             }
         }
         //write child elements of the properties elements
         it = m_childProperties[defaultPropertyType].constBegin();
         for (; it != m_childProperties[defaultPropertyType].constEnd(); ++it) {
             if (!parentStyle || parentStyle->childProperty(it.key(), defaultPropertyType) != it.value()) {
-                writer->addCompleteElement(it.value().toUtf8());
+                writer->addCompleteElement(it.value().toUtf8().constData());
             }
         }
         if (createPropertiesTag)
@@ -279,7 +279,7 @@ void KoGenStyle::writeStyle(KoXmlWriter* writer, const KoGenStyles& styles, cons
     it = m_properties[i].constBegin();
     for (; it != m_properties[i].constEnd(); ++it) {
         if (!parentStyle || parentStyle->property(it.key(), i) != it.value()) {
-            writer->addCompleteElement(it.value().toUtf8());
+            writer->addCompleteElement(it.value().toUtf8().constData());
         }
     }
 
@@ -292,13 +292,18 @@ void KoGenStyle::writeStyle(KoXmlWriter* writer, const KoGenStyles& styles, cons
             writer->startElement("style:map");
             QMap<QString, QString>::const_iterator it = m_maps[i].constBegin();
             for (; it != m_maps[i].constEnd(); ++it) {
-                writer->addAttribute(it.key().toUtf8(), it.value().toUtf8());
+                writer->addAttribute(it.key().toUtf8().constData(), it.value().toUtf8());
             }
             writer->endElement(); // style:map
         }
     }
     if (closeElement)
         writer->endElement();
+}
+
+void KoGenStyle::addPropertyPt(const char *propName, qreal propValue, PropertyType type)
+{
+    addPropertyPt(QLatin1String(propName), propValue, type);
 }
 
 void KoGenStyle::addPropertyPt(const QString& propName, qreal propValue, PropertyType type)
@@ -308,7 +313,7 @@ void KoGenStyle::addPropertyPt(const QString& propName, qreal propValue, Propert
     }
     QString str;
     str.setNum(propValue, 'f', DBL_DIG);
-    str += "pt";
+    str += QStringLiteral("pt");
     m_properties[type].insert(propName, str);
 }
 
@@ -322,7 +327,7 @@ void KoGenStyle::addPropertyLength(const QString& propName, const QTextLength &p
     } else {
         QString str;
         str.setNum((int) propValue.rawValue());
-        str += '%';
+        str += QLatin1Char('%');
         m_properties[type].insert(propName, str);
     }
 }
@@ -331,8 +336,18 @@ void KoGenStyle::addAttributePt(const QString& attrName, qreal attrValue)
 {
     QString str;
     str.setNum(attrValue, 'f', DBL_DIG);
-    str += "pt";
+    str += QStringLiteral("pt");
     m_attributes.insert(attrName, str);
+}
+
+void KoGenStyle::addAttributePt(const char *attrName, qreal attrValue)
+{
+    addAttributePt(QLatin1String(attrName), attrValue);
+}
+
+void KoGenStyle::addAttributePercent(const char *attrName, qreal value)
+{
+    addAttributePercent(QLatin1String(attrName), value);
 }
 
 void KoGenStyle::addAttributePercent(const QString &attrName, qreal value)
@@ -341,6 +356,11 @@ void KoGenStyle::addAttributePercent(const QString &attrName, qreal value)
     str.setNum(value, 'f', FLT_DIG);
     str += '%';
     addAttribute(attrName, str.data());
+}
+
+void KoGenStyle::addAttributePercent(const char *attrName, int value)
+{
+    addAttributePercent(QLatin1String(attrName), value);
 }
 
 void KoGenStyle::addAttributePercent(const QString &attrName, int value)

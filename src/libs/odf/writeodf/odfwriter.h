@@ -9,6 +9,7 @@
 #include <KoXmlWriter.h>
 #include <QUrl>
 #include <QDate>
+#include <QString>
 #include <QStringList>
 
 class Duration {
@@ -17,7 +18,7 @@ private:
 public:
     explicit Duration(const QTime& t) :m_time(t) {}
     QString toString() const {
-        return m_time.toString("'PT'hh'H'mm'M'ss'S'");
+        return m_time.toString(QStringLiteral("'PT'hh'H'mm'M'ss'S'"));
     }
 };
 
@@ -97,7 +98,7 @@ public:
     }
     void addAttribute(const char* name, const QStringList& value) {
         Q_ASSERT(!child);
-        xml->addAttribute(name, value.join(QChar(' ')));
+        xml->addAttribute(name, value.join(QLatin1Char(' ')));
     }
     void addAttribute(const char* name, const Duration& value) {
         Q_ASSERT(!child);

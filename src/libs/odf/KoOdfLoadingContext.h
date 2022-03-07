@@ -74,6 +74,7 @@ public:
      * @param family the style family used for this object
      */
     void fillStyleStack(const KoXmlElement &element, const QString &nsURI, const QString &attrName, const QString &family);
+    void fillStyleStack(const KoXmlElement &element, const QString &nsURI, const char *attrName, const char *family);
 
     /**
      * Add @p style to the stack, as well as all its parent styles

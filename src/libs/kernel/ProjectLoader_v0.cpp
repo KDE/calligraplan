@@ -42,7 +42,7 @@ ProjectLoader_v0::ProjectLoader_v0()
 bool KPlato::ProjectLoader_v0::load(KPlato::XMLLoaderObject& context, const KoXmlDocument &document)
 {
 //     debugPlanXml<<KoXml::asQDomDocument(document).toString();
-    auto projectElement = document.documentElement().namedItem("project").toElement();
+    auto projectElement = document.documentElement().namedItem(QStringLiteral("project")).toElement();
     if (projectElement.isNull()) {
         errorPlanXml<<"Could not find a project element";
         return false;
@@ -60,33 +60,33 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
     //debugPlanXml<<"--->";
     QString s;
     bool ok = false;
-    if (projectElement.hasAttribute("name")) {
-        project->setName(projectElement.attribute("name"));
+    if (projectElement.hasAttribute(QStringLiteral("name"))) {
+        project->setName(projectElement.attribute(QStringLiteral("name")));
     }
-    if (projectElement.hasAttribute("id")) {
+    if (projectElement.hasAttribute(QStringLiteral("id"))) {
         project->removeId(project->id());
-        project->setId(projectElement.attribute("id"));
+        project->setId(projectElement.attribute(QStringLiteral("id")));
         project->registerNodeId(project);
     }
-    if (projectElement.hasAttribute("priority")) {
-        project->setPriority(projectElement.attribute(QStringLiteral("priority"), "0").toInt());
+    if (projectElement.hasAttribute(QStringLiteral("priority"))) {
+        project->setPriority(projectElement.attribute(QStringLiteral("priority")).toInt());
     }
-    if (projectElement.hasAttribute("leader")) {
-        project->setLeader(projectElement.attribute("leader"));
+    if (projectElement.hasAttribute(QStringLiteral("leader"))) {
+        project->setLeader(projectElement.attribute(QStringLiteral("leader")));
     }
-    if (projectElement.hasAttribute("description")) {
-        project->setDescription(projectElement.attribute("description"));
+    if (projectElement.hasAttribute(QStringLiteral("description"))) {
+        project->setDescription(projectElement.attribute(QStringLiteral("description")));
     }
-    if (projectElement.hasAttribute("timezone")) {
-        QTimeZone tz(projectElement.attribute("timezone").toLatin1());
+    if (projectElement.hasAttribute(QStringLiteral("timezone"))) {
+        QTimeZone tz(projectElement.attribute(QStringLiteral("timezone")).toLatin1());
         if (tz.isValid()) {
             project->setTimeZone(tz);
         } else warnPlanXml<<"No timezone specified, using default (local)";
         status.setProjectTimeZone(project->timeZone());
     }
-    if (projectElement.hasAttribute("scheduling")) {
+    if (projectElement.hasAttribute(QStringLiteral("scheduling"))) {
         // Allow for both numeric and text
-        s = projectElement.attribute("scheduling", "0");
+        s = projectElement.attribute(QStringLiteral("scheduling"), QString::number(0));
         int constraint = s.toInt(&ok);
         if (!ok) {
             project->setConstraint(s);
@@ -97,14 +97,14 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
             project->setConstraint(Node::MustStartOn);
         }
     }
-    if (projectElement.hasAttribute("start-time")) {
-        s = projectElement.attribute("start-time");
+    if (projectElement.hasAttribute(QStringLiteral("start-time"))) {
+        s = projectElement.attribute(QStringLiteral("start-time"));
         if (!s.isEmpty()) {
             project->setConstraintStartTime(DateTime::fromString(s, project->timeZone()));
         }
     }
-    if (projectElement.hasAttribute("end-time")) {
-        s = projectElement.attribute("end-time");
+    if (projectElement.hasAttribute(QStringLiteral("end-time"))) {
+        s = projectElement.attribute(QStringLiteral("end-time"));
         if (!s.isEmpty()) {
             project->setConstraintEndTime(DateTime::fromString(s, project->timeZone()));
         }
@@ -113,31 +113,31 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
 
     // Load the project children
     KoXmlElement e = projectElement;
-    if (status.version() < "0.7.0") {
+    if (status.version() < QStringLiteral("0.7.0")) {
         e = projectElement;
     } else {
-        e = projectElement.namedItem("project-settings").toElement();
+        e = projectElement.namedItem(QStringLiteral("project-settings")).toElement();
     }
     if (!e.isNull()) {
         loadSettings(e, status);
     }
-    e = projectElement.namedItem("documents").toElement();
+    e = projectElement.namedItem(QStringLiteral("documents")).toElement();
     if (!e.isNull()) {
         load(project->documents(), e, status);
     }
     // Do calendars first, they only reference other calendars
     //debugPlanXml<<"Calendars--->";
-    if (status.version() < "0.7.0") {
+    if (status.version() < QStringLiteral("0.7.0")) {
         e = projectElement;
     } else {
-        e = projectElement.namedItem("calendars").toElement();
+        e = projectElement.namedItem(QStringLiteral("calendars")).toElement();
     }
     if (!e.isNull()) {
         debugPlanXml<<status.version()<<e.tagName();
         QList<Calendar*> cals;
         KoXmlElement ce;
         forEachElement(ce, e) {
-            if (ce.tagName() != "calendar") {
+            if (ce.tagName() != QStringLiteral("calendar")) {
                 continue;
             }
             // Load the calendar.
@@ -192,9 +192,9 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
 
     KoXmlNode n;
     // Resource groups and resources, can reference calendars
-    if (status.version() < "0.7.0") {
+    if (status.version() < QStringLiteral("0.7.0")) {
         forEachElement(e, projectElement) {
-            if (e.tagName() == "resource-group") {
+            if (e.tagName() == QStringLiteral("resource-group")) {
                 debugPlanXml<<status.version()<<e.tagName();
                 // Load the resource group
                 ResourceGroup *child = new ResourceGroup();
@@ -215,12 +215,12 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
             }
         }
     } else {
-        e = projectElement.namedItem("resource-groups").toElement();
+        e = projectElement.namedItem(QStringLiteral("resource-groups")).toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
             KoXmlElement ge;
             forEachElement(ge, e) {
-                if (ge.nodeName() != "resource-group") {
+                if (ge.nodeName() != QStringLiteral("resource-group")) {
                     continue;
                 }
                 ResourceGroup *child = new ResourceGroup();
@@ -233,12 +233,12 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
                 }
             }
         }
-        e = projectElement.namedItem("resources").toElement();
+        e = projectElement.namedItem(QStringLiteral("resources")).toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
             KoXmlElement re;
             forEachElement(re, e) {
-                if (re.nodeName() != "resource") {
+                if (re.nodeName() != QStringLiteral("resource")) {
                     continue;
                 }
                 Resource *r = new Resource();
@@ -251,16 +251,16 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
             }
         }
         // resource-group relations
-        e = projectElement.namedItem("resource-group-relations").toElement();
+        e = projectElement.namedItem(QStringLiteral("resource-group-relations")).toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
             KoXmlElement re;
             forEachElement(re, e) {
-                if (re.nodeName() != "resource-group-relation") {
+                if (re.nodeName() != QStringLiteral("resource-group-relation")) {
                     continue;
                 }
-                ResourceGroup *g = project->group(re.attribute("group-id"));
-                Resource *r = project->resource(re.attribute("resource-id"));
+                ResourceGroup *g = project->group(re.attribute(QStringLiteral("group-id")));
+                Resource *r = project->resource(re.attribute(QStringLiteral("resource-id")));
                 if (r && g) {
                     r->addParentGroup(g);
                 } else {
@@ -268,14 +268,14 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
                 }
             }
         }
-        e = projectElement.namedItem("resource-teams").toElement();
+        e = projectElement.namedItem(QStringLiteral("resource-teams")).toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
             KoXmlElement el;
             forEachElement(el, e) {
-                if (el.tagName() == "team") {
-                    Resource *r = project->findResource(el.attribute("team-id"));
-                    Resource *tm = project->findResource(el.attribute("member-id"));
+                if (el.tagName() == QStringLiteral("team")) {
+                    Resource *r = project->findResource(el.attribute(QStringLiteral("team-id")));
+                    Resource *tm = project->findResource(el.attribute(QStringLiteral("member-id")));
                     if (r == nullptr || tm == nullptr) {
                         errorPlanXml<<"resource-teams: cannot find resources";
                         continue;
@@ -290,16 +290,16 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
                 }
             }
         }
-        e = projectElement.namedItem("required-resources").toElement();
+        e = projectElement.namedItem(QStringLiteral("required-resources")).toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
             KoXmlElement re;
             forEachElement(re, e) {
-                if (re.nodeName() != "required-resource") {
+                if (re.nodeName() != QStringLiteral("required-resource")) {
                     continue;
                 }
-                Resource *required = project->resource(re.attribute("required-id"));
-                Resource *resource = project->resource(re.attribute("resource-id"));
+                Resource *required = project->resource(re.attribute(QStringLiteral("required-id")));
+                Resource *resource = project->resource(re.attribute(QStringLiteral("resource-id")));
                 if (required && resource) {
                     resource->addRequiredId(required->id());
                 } else {
@@ -307,20 +307,20 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
                 }
             }
         }
-        e = projectElement.namedItem("external-appointments").toElement();
+        e = projectElement.namedItem(QStringLiteral("external-appointments")).toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
             KoXmlElement ext;
             forEachElement(ext, e) {
-                if (e.nodeName() != "external-appointment") {
+                if (e.nodeName() != QStringLiteral("external-appointment")) {
                     continue;
                 }
-                Resource *resource = project->resource(e.attribute("resource-id"));
+                Resource *resource = project->resource(e.attribute(QStringLiteral("resource-id")));
                 if (!resource) {
-                    errorPlanXml<<"Cannot find resource:"<<e.attribute("resource-id");
+                    errorPlanXml<<"Cannot find resource:"<<e.attribute(QStringLiteral("resource-id"));
                     continue;
                 }
-                QString projectId = e.attribute("project-id");
+                QString projectId = e.attribute(QStringLiteral("project-id"));
                 if (projectId.isEmpty()) {
                     errorPlanXml<<"Missing project id";
                     continue;
@@ -330,7 +330,7 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
                 lst.loadXML(e, status);
                 Appointment *a = new Appointment();
                 a->setIntervals(lst);
-                a->setAuxcilliaryInfo(e.attribute("project-name", "Unknown"));
+                a->setAuxcilliaryInfo(e.attribute(QStringLiteral("project-name"), QStringLiteral("Unknown")));
                 resource->addExternalAppointment(projectId, a);
             }
         }
@@ -339,16 +339,16 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
     status.setProgress(20);
 
     // The main stuff
-    if (status.version() < "0.7.0") {
+    if (status.version() < QStringLiteral("0.7.0")) {
         e = projectElement;
     } else {
-        e = projectElement.namedItem("tasks").toElement();
+        e = projectElement.namedItem(QStringLiteral("tasks")).toElement();
     }
     if (!e.isNull()) {
         debugPlanXml<<status.version()<<"tasks:"<<e.tagName();
         KoXmlElement te;
         forEachElement(te, e) {
-            if (te.tagName() != "task") {
+            if (te.tagName() != QStringLiteral("task")) {
                 continue;
             }
             //debugPlanXml<<"Task--->";
@@ -375,7 +375,7 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
     status.setProgress(70);
 
     // These go last
-    e = projectElement.namedItem("accounts").toElement();
+    e = projectElement.namedItem(QStringLiteral("accounts")).toElement();
     if (!load(project->accounts(), e, status)) {
         errorPlanXml << "Failed to load accounts";
     }
@@ -386,7 +386,7 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
         if (! n.isElement()) {
             continue;
         }
-        if (status.version() < "0.7.0" && e.tagName() == "relation") {
+        if (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("relation")) {
             debugPlanXml<<status.version()<<e.tagName();
             // Load the relation
             // References tasks
@@ -397,41 +397,41 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
                 delete child;
             }
             //debugPlanXml<<"Relation<---";
-        } else if (status.version() < "0.7.0" && e.tagName() == "resource-requests") {
+        } else if (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("resource-requests")) {
             // NOTE: Not supported: request to project (or sub-project)
             Q_ASSERT(false);
-        } else if (status.version() < "0.7.0" && e.tagName() == "wbs-definition") {
+        } else if (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("wbs-definition")) {
             load(project->wbsDefinition(), e, status);
-        } else if (e.tagName() == "locale") {
+        } else if (e.tagName() == QStringLiteral("locale")) {
             // handled earlier
-        } else if (e.tagName() == "resource-group") {
+        } else if (e.tagName() == QStringLiteral("resource-group")) {
             // handled earlier
-        } else if (e.tagName() == "calendar") {
+        } else if (e.tagName() == QStringLiteral("calendar")) {
             // handled earlier
-        } else if (e.tagName() == "standard-worktime") {
+        } else if (e.tagName() == QStringLiteral("standard-worktime")) {
             // handled earlier
-        } else if (e.tagName() == "project") {
+        } else if (e.tagName() == QStringLiteral("project")) {
             // handled earlier
-        } else if (e.tagName() == "task") {
+        } else if (e.tagName() == QStringLiteral("task")) {
             // handled earlier
-        } else if (e.tagName() == "shared-resources") {
+        } else if (e.tagName() == QStringLiteral("shared-resources")) {
             // handled earlier
-        } else if (e.tagName() == "documents") {
+        } else if (e.tagName() == QStringLiteral("documents")) {
             // handled earlier
-        } else if (e.tagName() == "workpackageinfo") {
+        } else if (e.tagName() == QStringLiteral("workpackageinfo")) {
             // handled earlier
-        } else if (e.tagName() == "task-modules") {
+        } else if (e.tagName() == QStringLiteral("task-modules")) {
             // handled earlier
-        } else if (e.tagName() == "accounts") {
+        } else if (e.tagName() == QStringLiteral("accounts")) {
             // handled earlier
         } else {
             warnPlanXml<<"Unhandled tag:"<<e.tagName();
         }
     }
-    if (status.version() < "0.7.0") {
-        e = projectElement.namedItem("schedules").toElement();
+    if (status.version() < QStringLiteral("0.7.0")) {
+        e = projectElement.namedItem(QStringLiteral("schedules")).toElement();
     } else {
-        e = projectElement.namedItem("project-schedules").toElement();
+        e = projectElement.namedItem(QStringLiteral("project-schedules")).toElement();
     }
     if (!e.isNull()) {
         debugPlanXml<<status.version()<<e.tagName();
@@ -441,15 +441,15 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
             //debugPlanXml<<sn.tagName()<<" Version="<<status.version();
             ScheduleManager *sm = nullptr;
             bool add = false;
-            if (status.version() <= "0.5") {
-                if (sn.tagName() == "schedule") {
-                    sm = project->findScheduleManagerByName(sn.attribute("name"));
+            if (status.version() <= QStringLiteral("0.5")) {
+                if (sn.tagName() == QStringLiteral("schedule")) {
+                    sm = project->findScheduleManagerByName(sn.attribute(QStringLiteral("name")));
                     if (sm == nullptr) {
-                        sm = new ScheduleManager(*project, sn.attribute("name"));
+                        sm = new ScheduleManager(*project, sn.attribute(QStringLiteral("name")));
                         add = true;
                     }
                 }
-            } else if (sn.tagName() == "schedule-management" || (status.version() < "0.7.0" && sn.tagName() == "plan")) {
+            } else if (sn.tagName() == QStringLiteral("schedule-management") || (status.version() < QStringLiteral("0.7.0") && sn.tagName() == QStringLiteral("plan"))) {
                 sm = new ScheduleManager(*project);
                 add = true;
             } else {
@@ -470,17 +470,17 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
         }
         //debugPlanXml<<"Node schedules<---";
     }
-    e = projectElement.namedItem("resource-teams").toElement();
+    e = projectElement.namedItem(QStringLiteral("resource-teams")).toElement();
     if (!e.isNull()) {
         debugPlanXml<<status.version()<<e.tagName();
         // References other resources
         KoXmlElement re;
         forEachElement(re, e) {
-            if (re.tagName() != "team") {
+            if (re.tagName() != QStringLiteral("team")) {
                 continue;
             }
-            Resource *r = project->findResource(re.attribute("team-id"));
-            Resource *tm = project->findResource(re.attribute("member-id"));
+            Resource *r = project->findResource(re.attribute(QStringLiteral("team-id")));
+            Resource *tm = project->findResource(re.attribute(QStringLiteral("member-id")));
             if (r == nullptr || tm == nullptr) {
                 errorPlanXml<<"resource-teams: cannot find resources";
                 continue;
@@ -493,14 +493,14 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
         }
     }
     e = projectElement;
-    if (status.version() >= "0.7.0") {
-        e = projectElement.namedItem("relations").toElement();
+    if (status.version() >= QStringLiteral("0.7.0")) {
+        e = projectElement.namedItem(QStringLiteral("relations")).toElement();
     }
     debugPlanXml<<status.version()<<e.tagName();
     if (!e.isNull()) {
         KoXmlElement de;
         forEachElement(de, e) {
-            if (de.tagName() != "relation") {
+            if (de.tagName() != QStringLiteral("relation")) {
                 continue;
             }
             Relation *child = new Relation();
@@ -511,27 +511,27 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
             }
         }
     }
-    if (status.version() >= "0.7.0") {
-        e = projectElement.namedItem("resource-requests").toElement();
+    if (status.version() >= QStringLiteral("0.7.0")) {
+        e = projectElement.namedItem(QStringLiteral("resource-requests")).toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
             KoXmlElement re;
             forEachElement(re, e) {
-                if (re.tagName() != "resource-request") {
+                if (re.tagName() != QStringLiteral("resource-request")) {
                     continue;
                 }
-                Node *task = project->findNode(re.attribute("task-id"));
+                Node *task = project->findNode(re.attribute(QStringLiteral("task-id")));
                 if (!task) {
                     warnPlanXml<<re.tagName()<<"Failed to find task";
                     continue;
                 }
-                Resource *resource = project->findResource(re.attribute("resource-id"));
+                Resource *resource = project->findResource(re.attribute(QStringLiteral("resource-id")));
                 Q_ASSERT(resource);
                 Q_ASSERT(task);
                 if (resource && task) {
-                    int units = re.attribute("units", "100").toInt();
+                    int units = re.attribute(QStringLiteral("units"), QString::number(100)).toInt();
                     ResourceRequest *request = new ResourceRequest(resource, units);
-                    int requestId = re.attribute("request-id").toInt();
+                    int requestId = re.attribute(QStringLiteral("request-id")).toInt();
                     Q_ASSERT(requestId > 0);
                     request->setId(requestId);
                     task->requests().addResourceRequest(request);
@@ -540,21 +540,21 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
                 }
             }
         }
-        e = projectElement.namedItem("required-resource-requests").toElement();
+        e = projectElement.namedItem(QStringLiteral("required-resource-requests")).toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
             KoXmlElement re;
             forEachElement(re, e) {
-                if (re.tagName() != "required-resource-request") {
+                if (re.tagName() != QStringLiteral("required-resource-request")) {
                     continue;
                 }
-                Node *task = project->findNode(re.attribute("task-id"));
+                Node *task = project->findNode(re.attribute(QStringLiteral("task-id")));
                 Q_ASSERT(task);
                 if (!task) {
                     continue;
                 }
-                ResourceRequest *request = task->requests().resourceRequest(re.attribute("request-id").toInt());
-                Resource *required = project->findResource(re.attribute("required-id"));
+                ResourceRequest *request = task->requests().resourceRequest(re.attribute(QStringLiteral("request-id")).toInt());
+                Resource *required = project->findResource(re.attribute(QStringLiteral("required-id")));
                 Q_ASSERT(required);
                 if (required && request->resource() != required) {
                     if (request->requiredResources().contains(required)) {
@@ -567,33 +567,33 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
                 }
             }
         }
-        e = projectElement.namedItem("alternative-requests").toElement();
+        e = projectElement.namedItem(QStringLiteral("alternative-requests")).toElement();
         if (!e.isNull()) {
             debugPlanXml<<status.version()<<e.tagName();
             KoXmlElement re;
             forEachElement(re, e) {
-                if (re.tagName() != "alternative-request") {
+                if (re.tagName() != QStringLiteral("alternative-request")) {
                     continue;
                 }
-                Node *task = project->findNode(re.attribute("task-id"));
+                Node *task = project->findNode(re.attribute(QStringLiteral("task-id")));
                 if (!task) {
                     warnPlanXml<<re.tagName()<<"Failed to find task";
                     continue;
                 }
                 const ResourceRequestCollection &collection = task->requests();
-                ResourceRequest *rr = collection.resourceRequest(re.attribute("request-id").toInt());
+                ResourceRequest *rr = collection.resourceRequest(re.attribute(QStringLiteral("request-id")).toInt());
                 Q_ASSERT(rr);
                 if (!rr) {
                     errorPlanXml<<"Failed to find request to add lternatives to";
                     continue;
                 }
-                Resource *resource = project->findResource(re.attribute("resource-id"));
+                Resource *resource = project->findResource(re.attribute(QStringLiteral("resource-id")));
                 //Q_ASSERT(resource);
                 if (!resource) {
-                    errorPlanXml<<"Alternative request: Failed to find resource:"<<re.attribute("resource-id");
+                    errorPlanXml<<"Alternative request: Failed to find resource:"<<re.attribute(QStringLiteral("resource-id"));
                     continue;
                 }
-                ResourceRequest *alternative = new ResourceRequest(resource, re.attribute("units", "100").toInt());
+                ResourceRequest *alternative = new ResourceRequest(resource, re.attribute(QStringLiteral("units"), QString::number(100)).toInt());
                 rr->addAlternativeRequest(alternative);
             }
         }
@@ -615,46 +615,46 @@ bool KPlato::ProjectLoader_v0::loadSettings(const KoXmlElement& element, KPlato:
     KoXmlElement e;
     forEachElement(e, element) {
         debugPlanXml<<status.version()<<e.tagName();
-        if (e.tagName() == "locale") {
+        if (e.tagName() == QStringLiteral("locale")) {
             Locale *l = project.locale();
-            l->setCurrencySymbol(e.attribute("currency-symbol", ""));
-            if (e.hasAttribute("currency-digits")) {
-                l->setMonetaryDecimalPlaces(e.attribute("currency-digits").toInt());
+            l->setCurrencySymbol(e.attribute(QStringLiteral("currency-symbol")));
+            if (e.hasAttribute(QStringLiteral("currency-digits"))) {
+                l->setMonetaryDecimalPlaces(e.attribute(QStringLiteral("currency-digits")).toInt());
             }
             QLocale::Language language = QLocale::AnyLanguage;
             QLocale::Country country = QLocale::AnyCountry;
-            if (e.hasAttribute("language")) {
-                language = static_cast<QLocale::Language>(e.attribute("language").toInt());
+            if (e.hasAttribute(QStringLiteral("language"))) {
+                language = static_cast<QLocale::Language>(e.attribute(QStringLiteral("language")).toInt());
             }
-            if (e.hasAttribute("country")) {
-                country = static_cast<QLocale::Country>(e.attribute("country").toInt());
+            if (e.hasAttribute(QStringLiteral("country"))) {
+                country = static_cast<QLocale::Country>(e.attribute(QStringLiteral("country")).toInt());
             }
             l->setCurrencyLocale(language, country);
-        } else if (e.tagName() == "shared-resources") {
-            project.setUseSharedResources(e.attribute("use", "0").toInt());
-            project.setSharedResourcesFile(e.attribute("file"));
-        } else if (e.tagName() == QLatin1String("workpackageinfo")) {
+        } else if (e.tagName() == QStringLiteral("shared-resources")) {
+            project.setUseSharedResources(e.attribute(QStringLiteral("use")).toInt());
+            project.setSharedResourcesFile(e.attribute(QStringLiteral("file")));
+        } else if (e.tagName() == QStringLiteral("workpackageinfo")) {
             auto workPackageInfo = project.workPackageInfo();
-            if (e.hasAttribute("check-for-workpackages")) {
-                workPackageInfo.checkForWorkPackages = e.attribute("check-for-workpackages").toInt();
+            if (e.hasAttribute(QStringLiteral("check-for-workpackages"))) {
+                workPackageInfo.checkForWorkPackages = e.attribute(QStringLiteral("check-for-workpackages")).toInt();
             }
-            if (e.hasAttribute("retrieve-url")) {
-                workPackageInfo.retrieveUrl = QUrl(e.attribute("retrieve-url"));
+            if (e.hasAttribute(QStringLiteral("retrieve-url"))) {
+                workPackageInfo.retrieveUrl = QUrl(e.attribute(QStringLiteral("retrieve-url")));
             }
-            if (e.hasAttribute("delete-after-retrieval")) {
-                workPackageInfo.deleteAfterRetrieval = e.attribute("delete-after-retrieval").toInt();
+            if (e.hasAttribute(QStringLiteral("delete-after-retrieval"))) {
+                workPackageInfo.deleteAfterRetrieval = e.attribute(QStringLiteral("delete-after-retrieval")).toInt();
             }
-            if (e.hasAttribute("archive-after-retrieval")) {
-                workPackageInfo.archiveAfterRetrieval = e.attribute("archive-after-retrieval").toInt();
+            if (e.hasAttribute(QStringLiteral("archive-after-retrieval"))) {
+                workPackageInfo.archiveAfterRetrieval = e.attribute(QStringLiteral("archive-after-retrieval")).toInt();
             }
-            if (e.hasAttribute("archive-url")) {
-                workPackageInfo.archiveUrl = QUrl(e.attribute("archive-url"));
+            if (e.hasAttribute(QStringLiteral("archive-url"))) {
+                workPackageInfo.archiveUrl = QUrl(e.attribute(QStringLiteral("archive-url")));
             }
-            if (e.hasAttribute("publish-url")) {
-                workPackageInfo.publishUrl = QUrl(e.attribute("publish-url"));
+            if (e.hasAttribute(QStringLiteral("publish-url"))) {
+                workPackageInfo.publishUrl = QUrl(e.attribute(QStringLiteral("publish-url")));
             }
             project.setWorkPackageInfo(workPackageInfo);
-        } else if (e.tagName() == QLatin1String("task-modules")) {
+        } else if (e.tagName() == QStringLiteral("task-modules")) {
             project.setUseLocalTaskModules(false);
             QList<QUrl> urls;
             for (KoXmlNode child = e.firstChild(); !child.isNull(); child = child.nextSibling()) {
@@ -662,7 +662,7 @@ bool KPlato::ProjectLoader_v0::loadSettings(const KoXmlElement& element, KPlato:
                 if (path.isNull()) {
                     continue;
                 }
-                QString s = path.attribute("url");
+                QString s = path.attribute(QStringLiteral("url"));
                 if (!s.isEmpty()) {
                     QUrl url = QUrl::fromUserInput(s);
                     if (!urls.contains(url)) {
@@ -670,9 +670,9 @@ bool KPlato::ProjectLoader_v0::loadSettings(const KoXmlElement& element, KPlato:
                     }
                 }
             }
-            bool useLocal = e.attribute("use-local-task-modules").toInt();
+            bool useLocal = e.attribute(QStringLiteral("use-local-task-modules")).toInt();
             project.setTaskModules(urls, useLocal);
-        } else if (e.tagName() == "standard-worktime") {
+        } else if (e.tagName() == QStringLiteral("standard-worktime")) {
             // Load standard worktime
             StandardWorktime *child = new StandardWorktime();
             if (load(child, e, status)) {
@@ -691,7 +691,7 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
     QString s;
     bool ok = false;
     task->setId(element.attribute(QStringLiteral("id")));
-    task->setPriority(element.attribute(QStringLiteral("priority"), "0").toInt());
+    task->setPriority(element.attribute(QStringLiteral("priority"), QString::number(0)).toInt());
 
     task->setName(element.attribute(QStringLiteral("name")));
     task->setLeader(element.attribute(QStringLiteral("leader")));
@@ -699,7 +699,7 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
     //debugPlanXml<<m_name<<": id="<<task->id();
 
     // Allow for both numeric and text
-    QString constraint = element.attribute(QStringLiteral("scheduling"),QStringLiteral("0"));
+    QString constraint = element.attribute(QStringLiteral("scheduling"),QString::number(0));
     auto c = (Node::ConstraintType)constraint.toInt(&ok);
     if (!ok) {
         task->setConstraint(constraint);
@@ -714,8 +714,8 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
     if (!s.isEmpty()) {
         task->setConstraintEndTime(DateTime::fromString(s, status.projectTimeZone()));
     }
-    task->setStartupCost(element.attribute(QStringLiteral("startup-cost"), QStringLiteral("0.0")).toDouble());
-    task->setShutdownCost(element.attribute(QStringLiteral("shutdown-cost"), QStringLiteral("0.0")).toDouble());
+    task->setStartupCost(element.attribute(QStringLiteral("startup-cost"), QString::number(0.0)).toDouble());
+    task->setShutdownCost(element.attribute(QStringLiteral("shutdown-cost"), QString::number(0.0)).toDouble());
 
     // Load the task children
     KoXmlNode n = element.firstChild();
@@ -724,7 +724,7 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == QLatin1String("project")) {
+        if (e.tagName() == QStringLiteral("project")) {
             // Load the subproject
 /*              Project *child = new Project(this, status);
             if (child->load(e)) {
@@ -735,7 +735,7 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
                 // TODO: Complain about this
                 delete child;
             }*/
-        } else if (e.tagName() == QLatin1String("task")) {
+        } else if (e.tagName() == QStringLiteral("task")) {
             if (status.loadTaskChildren()) {
                 // Load the task
                 Task *child = new Task(task);
@@ -750,24 +750,24 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
                     delete child;
                 }
             }
-        } else if (e.tagName() == QLatin1String("resource")) {
+        } else if (e.tagName() == QStringLiteral("resource")) {
             // TODO: Load the resource (projects don't have resources yet)
-        } else if (e.tagName() == QLatin1String("estimate") ||
-                   (/*status.version() < "0.6" &&*/ e.tagName() == QLatin1String("effort"))) {
+        } else if (e.tagName() == QStringLiteral("estimate") ||
+                   (/*status.version() < QStringLiteral("0.6") &&*/ e.tagName() == QStringLiteral("effort"))) {
             //  Load the estimate
             load(task->estimate(), e, status);
-        } else if (e.tagName() == QLatin1String("workpackage")) {
+        } else if (e.tagName() == QStringLiteral("workpackage")) {
             load(task->workPackage(), e, status);
-        } else if (e.tagName() == QLatin1String("progress")) {
+        } else if (e.tagName() == QStringLiteral("progress")) {
             load(task->completion(), e, status);
-        } else if (e.tagName() == QLatin1String("task-schedules") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("schedules"))) {
+        } else if (e.tagName() == QStringLiteral("task-schedules") || (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("schedules"))) {
             KoXmlNode n = e.firstChild();
             for (; ! n.isNull(); n = n.nextSibling()) {
                 if (! n.isElement()) {
                     continue;
                 }
                 KoXmlElement el = n.toElement();
-                if (el.tagName() == QLatin1String("task-schedule") || el.tagName() ==  QLatin1String("schedule")) {
+                if (el.tagName() == QStringLiteral("task-schedule") || el.tagName() ==  QStringLiteral("schedule")) {
                     NodeSchedule *sch = new NodeSchedule();
                     if (loadNodeSchedule(sch, el, status)) {
                         sch->setNode(task);
@@ -778,11 +778,11 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
                     }
                 }
             }
-        } else if (e.tagName() == QLatin1String("resourcegroup-request")) {
-            Q_ASSERT(status.version() < "0.7.0");
+        } else if (e.tagName() == QStringLiteral("resourcegroup-request")) {
+            Q_ASSERT(status.version() < QStringLiteral("0.7.0"));
             KoXmlElement re;
             forEachElement(re, e) {
-                if (re.tagName() == "resource-request") {
+                if (re.tagName() == QStringLiteral("resource-request")) {
                     ResourceRequest *r = new ResourceRequest();
                     if (load(r, re, status)) {
                         task->requests().addResourceRequest(r);
@@ -792,12 +792,12 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
                     }
                 }
             }
-            ResourceGroup *group = status.project().group(e.attribute("group-id"));
+            ResourceGroup *group = status.project().group(e.attribute(QStringLiteral("group-id")));
             if (!group) {
-                errorPlanXml<<"Could not find resourcegroup"<<e.attribute("group-id");
+                errorPlanXml<<"Could not find resourcegroup"<<e.attribute(QStringLiteral("group-id"));
             } else {
                 QList<ResourceRequest*> groupRequests;
-                int numRequests = e.attribute("units").toInt();
+                int numRequests = e.attribute(QStringLiteral("units")).toInt();
                 for (int i = 0; i < numRequests; ++i) {
                     const auto resources = group->resources();
                     for (Resource *r : resources) {
@@ -816,16 +816,16 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
                     }
                 }
             }
-        } else if (e.tagName() == QLatin1String("documents")) {
+        } else if (e.tagName() == QStringLiteral("documents")) {
             load(task->documents(), e, status);
-        } else if (e.tagName() == QLatin1String("workpackage-log")) {
+        } else if (e.tagName() == QStringLiteral("workpackage-log")) {
             KoXmlNode n = e.firstChild();
             for (; ! n.isNull(); n = n.nextSibling()) {
                 if (! n.isElement()) {
                     continue;
                 }
                 KoXmlElement el = n.toElement();
-                if (el.tagName() == QLatin1String("workpackage")) {
+                if (el.tagName() == QStringLiteral("workpackage")) {
                     WorkPackage *wp = new WorkPackage(task);
                     if (loadWpLog(wp, el, status)) {
                         task->addWorkPackage(wp);
@@ -848,19 +848,19 @@ bool ProjectLoader_v0::load(Calendar *calendar, const KoXmlElement &element, XML
 
     calendar->setId(element.attribute(QStringLiteral("id")));
     calendar->setParentId(element.attribute(QStringLiteral("parent")));
-    calendar->setName(element.attribute(QStringLiteral("name"),QLatin1String("")));
+    calendar->setName(element.attribute(QStringLiteral("name"),QStringLiteral("")));
     QTimeZone tz(element.attribute(QStringLiteral("timezone")).toLatin1());
     if (tz.isValid()) {
         calendar->setTimeZone(tz);
     } else {
         warnPlanXml<<"No timezone specified, use default (local)";
     }
-    calendar->setDefault((bool)element.attribute(QStringLiteral("default"),QStringLiteral("0")).toInt());
+    calendar->setDefault((bool)element.attribute(QStringLiteral("default"),QString::number(0)).toInt());
     if (calendar->isDefault()) {
         status.project().setDefaultCalendar(calendar);
     }
-    if (status.version() < "0.7.0") {
-        calendar->setShared(element.attribute(QStringLiteral("shared"), QStringLiteral("0")).toInt());
+    if (status.version() < QStringLiteral("0.7.0")) {
+        calendar->setShared(element.attribute(QStringLiteral("shared"), QString::number(0)).toInt());
     } else {
         calendar->setShared(element.attribute(QStringLiteral("origin"), QStringLiteral("local")) != QStringLiteral("local"));
     }
@@ -872,12 +872,12 @@ bool ProjectLoader_v0::load(Calendar *calendar, const KoXmlElement &element, XML
     //debugPlanXml<<KoXml::childNodesCount(element);
     {KoXmlElement e;
     forEachElement(e, element) {
-        if (e.tagName() == QLatin1String("weekday")) {
+        if (e.tagName() == QStringLiteral("weekday")) {
             if (!load(calendar->weekdays(), e, status)) {
                 errorPlanXml<<calendar->name()<<": Failed to load calendar weekday";
                 return false;
             }
-        } else if (e.tagName() == QLatin1String("day")) {
+        } else if (e.tagName() == QStringLiteral("day")) {
             CalendarDay *day = new CalendarDay();
             if (load(day, e, status)) {
                 if (!day->date().isValid()) {
@@ -910,14 +910,14 @@ bool ProjectLoader_v0::load(Calendar *calendar, const KoXmlElement &element, XML
 
 bool ProjectLoader_v0::load(CalendarDay *day, const KoXmlElement &element, XMLLoaderObject &status)
 {
-    debugPlanXml<<element.tagName()<<element.attributeNames()<<element.attribute("state");
+    debugPlanXml<<element.tagName()<<element.attributeNames()<<element.attribute(QStringLiteral("state"));
     bool ok=false;
-    day->setState(QString(element.attribute("state", QString::number(CalendarDay::Undefined))).toInt(&ok));
+    day->setState(QString(element.attribute(QStringLiteral("state"), QString::number(CalendarDay::Undefined))).toInt(&ok));
     if (day->state() < CalendarDay::Undefined || day->state() > CalendarDay::Working) {
         errorPlanXml<<"Failed to load calendar day - invalid state:"<<day->state();
         return false;
     }
-    QString s = element.attribute("date");
+    QString s = element.attribute(QStringLiteral("date"));
     // A weekday has no date
     if (!s.isEmpty()) {
         day->setDate(QDate::fromString(s, Qt::ISODate));
@@ -928,17 +928,17 @@ bool ProjectLoader_v0::load(CalendarDay *day, const KoXmlElement &element, XMLLo
     day->clearIntervals();
     KoXmlElement e;
     forEachElement(e, element) {
-        if (e.tagName() == QLatin1String("time-interval") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("interval"))) {
-            //debugPlanXml<<"Interval start="<<e.attribute("start")<<" end="<<e.attribute("end");
-            QString st = e.attribute("start");
+        if (e.tagName() == QStringLiteral("time-interval") || (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("interval"))) {
+            //debugPlanXml<<"Interval start="<<e.attribute(QStringLiteral("start")<<" end="<<e.attribute(QStringLiteral("end");
+            QString st = e.attribute(QStringLiteral("start"));
             if (st.isEmpty()) {
                 errorPlanXml<<"Empty interval";
                 continue;
             }
             QTime start = QTime::fromString(st);
             int length = 0;
-            if (status.version() <= "0.6.1") {
-                QString en = e.attribute("end");
+            if (status.version() <= QStringLiteral("0.6.1")) {
+                QString en = e.attribute(QStringLiteral("end"));
                 if (en.isEmpty()) {
                     // Be lenient when loading old format
                     warnPlanXml<<"Invalid interval end";
@@ -947,7 +947,7 @@ bool ProjectLoader_v0::load(CalendarDay *day, const KoXmlElement &element, XMLLo
                 QTime end = QTime::fromString(en);
                 length = start.msecsTo(end);
             } else {
-                length = e.attribute("length", "0").toInt();
+                length = e.attribute(QStringLiteral("length"), QString::number(0)).toInt();
             }
             if (length <= 0) {
                 errorPlanXml<<"Invalid interval length";
@@ -965,11 +965,11 @@ bool ProjectLoader_v0::load(CalendarDay *day, const KoXmlElement &element, XMLLo
 bool ProjectLoader_v0::load(CalendarWeekdays *weekdays, const KoXmlElement& element, XMLLoaderObject& status)
 {
     bool ok;
-    auto attrname = QLatin1String("day-number");
-    if (element.hasAttribute(QLatin1String("day"))) {
-        attrname = QLatin1String("day");
+    auto attrname = QStringLiteral("day-number");
+    if (element.hasAttribute(QStringLiteral("day"))) {
+        attrname = QStringLiteral("day");
     }
-    int dayNo = QString(element.attribute(attrname, "-1")).toInt(&ok);
+    int dayNo = QString(element.attribute(attrname, QString::number(-1))).toInt(&ok);
     //debugPlanXml<<"weekday:"<<dayNo;
     if (dayNo < 0 || dayNo > 6) {
         warnPlanXml<<"Illegal weekday: "<<dayNo;
@@ -991,16 +991,16 @@ bool ProjectLoader_v0::load(CalendarWeekdays *weekdays, const KoXmlElement& elem
 bool ProjectLoader_v0::load(StandardWorktime *swt, const KoXmlElement &element, XMLLoaderObject &status)
 {
     debugPlanXml<<"swt";
-    swt->setYear(Duration::fromString(element.attribute("year"), Duration::Format_Hour));
-    swt->setMonth(Duration::fromString(element.attribute("month"), Duration::Format_Hour));
-    swt->setWeek(Duration::fromString(element.attribute("week"), Duration::Format_Hour));
-    swt->setDay(Duration::fromString(element.attribute("day"), Duration::Format_Hour));
+    swt->setYear(Duration::fromString(element.attribute(QStringLiteral("year")), Duration::Format_Hour));
+    swt->setMonth(Duration::fromString(element.attribute(QStringLiteral("month")), Duration::Format_Hour));
+    swt->setWeek(Duration::fromString(element.attribute(QStringLiteral("week")), Duration::Format_Hour));
+    swt->setDay(Duration::fromString(element.attribute(QStringLiteral("day")), Duration::Format_Hour));
 
     KoXmlElement e;
     forEachElement (e, element) {
-        if (e.tagName() == "calendar") {
+        if (e.tagName() == QStringLiteral("calendar")) {
             // pre 0.6 version stored base calendar in standard worktime
-            if (status.version() >= "0.6") {
+            if (status.version() >= QStringLiteral("0.6")) {
                 warnPlanXml<<"Old format, calendar in standard worktime";
                 warnPlanXml<<"Tries to load anyway";
             }
@@ -1022,14 +1022,14 @@ bool ProjectLoader_v0::load(StandardWorktime *swt, const KoXmlElement &element, 
 bool ProjectLoader_v0::load(Relation *relation, const KoXmlElement &element, XMLLoaderObject &status)
 {
     debugPlanXml<<"relation";
-    relation->setParent(status.project().findNode(element.attribute("parent-id")));
+    relation->setParent(status.project().findNode(element.attribute(QStringLiteral("parent-id"))));
     if (relation->parent() == nullptr) {
-        warnPlanXml<<"Parent node == 0, cannot find id:"<<element.attribute("parent-id");
+        warnPlanXml<<"Parent node == 0, cannot find id:"<<element.attribute(QStringLiteral("parent-id"));
         return false;
     }
-    relation->setChild(status.project().findNode(element.attribute("child-id")));
+    relation->setChild(status.project().findNode(element.attribute(QStringLiteral("child-id"))));
     if (relation->child() == nullptr) {
-        warnPlanXml<<"Child node == 0, cannot find id:"<<element.attribute("child-id");
+        warnPlanXml<<"Child node == 0, cannot find id:"<<element.attribute(QStringLiteral("child-id"));
         return false;
     }
     if (relation->child() == relation->parent()) {
@@ -1040,9 +1040,9 @@ bool ProjectLoader_v0::load(Relation *relation, const KoXmlElement &element, XML
         warnPlanXml<<"Realation is not legal:"<<relation->parent()->name()<<"->"<<relation->child()->name();
         return false;
     }
-    relation->setType(element.attribute("type"));
+    relation->setType(element.attribute(QStringLiteral("type")));
 
-    relation->setLag(Duration::fromString(element.attribute("lag")));
+    relation->setLag(Duration::fromString(element.attribute(QStringLiteral("lag"))));
 
     if (!relation->parent()->addDependChildNode(relation)) {
         errorPlanXml<<"Failed to add relation: Child="<<relation->child()->name()<<" parent="<<relation->parent()->name();
@@ -1060,16 +1060,16 @@ bool ProjectLoader_v0::load(Relation *relation, const KoXmlElement &element, XML
 bool ProjectLoader_v0::load(ResourceGroup *rg, const KoXmlElement &element, XMLLoaderObject &status)
 {
     debugPlanXml<<"resource-group";
-    rg->setId(element.attribute("id"));
-    rg->setName(element.attribute("name"));
-    rg->setType(element.attribute("type"));
+    rg->setId(element.attribute(QStringLiteral("id")));
+    rg->setName(element.attribute(QStringLiteral("name")));
+    rg->setType(element.attribute(QStringLiteral("type")));
 
-    if (status.version() < "0.7.0") {
-        rg->setShared(element.attribute("shared", "0").toInt());
+    if (status.version() < QStringLiteral("0.7.0")) {
+        rg->setShared(element.attribute(QStringLiteral("shared")).toInt());
     } else {
-        rg->setShared(element.attribute("origin", "local") != "local");
+        rg->setShared(element.attribute(QStringLiteral("origin"), QStringLiteral("local")) != QStringLiteral("local"));
     }
-    rg->setCoordinator(element.attribute("coordinator"));
+    rg->setCoordinator(element.attribute(QStringLiteral("coordinator")));
 
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
@@ -1077,7 +1077,7 @@ bool ProjectLoader_v0::load(ResourceGroup *rg, const KoXmlElement &element, XMLL
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "resource-group") {
+        if (e.tagName() == QStringLiteral("resource-group")) {
             ResourceGroup *child = new ResourceGroup();
             if (child->load(e, status)) {
                 rg->addChildGroup(child);
@@ -1085,7 +1085,7 @@ bool ProjectLoader_v0::load(ResourceGroup *rg, const KoXmlElement &element, XMLL
                 errorPlanXml<<"Failed to load ResourceGroup";
                 delete child;
             }
-        } else if (status.version() < "0.7.0" && e.tagName() == "resource") {
+        } else if (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("resource")) {
             // Load the resource
             Resource *child = new Resource();
             if (load(child, e, status)) {
@@ -1104,48 +1104,48 @@ bool ProjectLoader_v0::load(Resource *resource, const KoXmlElement &element, XML
 {
     const Locale *locale = status.project().locale();
     QString s;
-    resource->setId(element.attribute("id"));
-    resource->setName(element.attribute("name"));
-    resource->setInitials( element.attribute("initials"));
-    resource->setEmail(element.attribute("email"));
-    resource->setAutoAllocate((bool)(element.attribute("auto-allocate", "0").toInt()));
-    resource->setType(element.attribute("type"));
-    if (status.version() < "0.7.0") {
-        resource->setShared(element.attribute("shared").toInt());
+    resource->setId(element.attribute(QStringLiteral("id")));
+    resource->setName(element.attribute(QStringLiteral("name")));
+    resource->setInitials( element.attribute(QStringLiteral("initials")));
+    resource->setEmail(element.attribute(QStringLiteral("email")));
+    resource->setAutoAllocate((bool)(element.attribute(QStringLiteral("auto-allocate")).toInt()));
+    resource->setType(element.attribute(QStringLiteral("type")));
+    if (status.version() < QStringLiteral("0.7.0")) {
+        resource->setShared(element.attribute(QStringLiteral("shared")).toInt());
     } else {
-        resource->setShared(element.attribute("origin", "local") != "local");
+        resource->setShared(element.attribute(QStringLiteral("origin"), QStringLiteral("local")) != QStringLiteral("local"));
     }
-    resource->setCalendar(status.project().findCalendar(element.attribute("calendar-id")));
-    resource->setUnits(element.attribute("units", "100").toInt());
-    s = element.attribute("available-from");
+    resource->setCalendar(status.project().findCalendar(element.attribute(QStringLiteral("calendar-id"))));
+    resource->setUnits(element.attribute(QStringLiteral("units"), QString::number(100)).toInt());
+    s = element.attribute(QStringLiteral("available-from"));
     if (!s.isEmpty())
         resource->setAvailableFrom(DateTime::fromString(s, status.projectTimeZone()));
-    s = element.attribute("available-until");
+    s = element.attribute(QStringLiteral("available-until"));
     if (!s.isEmpty())
         resource->setAvailableUntil(DateTime::fromString(s, status.projectTimeZone()));
 
     // NOTE: money was earlier (2.x) saved with symbol so we need to handle that
-    QString money = element.attribute("normal-rate");
+    QString money = element.attribute(QStringLiteral("normal-rate"));
     bool ok = false;
     resource->cost().normalRate = money.toDouble(&ok);
     if (!ok) {
         resource->cost().normalRate = locale->readMoney(money);
         debugPlanXml<<"normal-rate failed, tried readMoney()"<<money<<"->"<<resource->cost().normalRate;;
     }
-    money = element.attribute("overtime-rate");
+    money = element.attribute(QStringLiteral("overtime-rate"));
     resource->cost().overtimeRate = money.toDouble(&ok);
     if (!ok) {
         resource->cost().overtimeRate = locale->readMoney(money);
         debugPlanXml<<"overtime-rate failed, tried readMoney()"<<money<<"->"<<resource->cost().overtimeRate;;
     }
-    resource->cost().account = status.project().accounts().findAccount(element.attribute("account"));
+    resource->cost().account = status.project().accounts().findAccount(element.attribute(QStringLiteral("account")));
 
-    if (status.version() < "0.7.0") {
+    if (status.version() < QStringLiteral("0.7.0")) {
         KoXmlElement e;
-        KoXmlElement parent = element.namedItem("required-resources").toElement();
+        KoXmlElement parent = element.namedItem(QStringLiteral("required-resources")).toElement();
         forEachElement(e, parent) {
-            if (e.nodeName() == "resource") {
-                QString id = e.attribute("id");
+            if (e.nodeName() == QStringLiteral("resource")) {
+                QString id = e.attribute(QStringLiteral("id"));
                 if (id.isEmpty()) {
                     warnPlanXml<<"Missing resource id";
                     continue;
@@ -1153,10 +1153,10 @@ bool ProjectLoader_v0::load(Resource *resource, const KoXmlElement &element, XML
                 resource->addRequiredId(id);
             }
         }
-        parent = element.namedItem("external-appointments").toElement();
+        parent = element.namedItem(QStringLiteral("external-appointments")).toElement();
         forEachElement(e, parent) {
-            if (e.nodeName() == "project") {
-                QString id = e.attribute("id");
+            if (e.nodeName() == QStringLiteral("project")) {
+                QString id = e.attribute(QStringLiteral("id"));
                 if (id.isEmpty()) {
                     errorPlanXml<<"Missing project id";
                     continue;
@@ -1166,7 +1166,7 @@ bool ProjectLoader_v0::load(Resource *resource, const KoXmlElement &element, XML
                 lst.loadXML(e, status);
                 Appointment *a = new Appointment();
                 a->setIntervals(lst);
-                a->setAuxcilliaryInfo(e.attribute("name", "Unknown"));
+                a->setAuxcilliaryInfo(e.attribute(QStringLiteral("name"), QStringLiteral("Unknown")));
                 resource->addExternalAppointment(id, a);
             }
         }
@@ -1183,7 +1183,7 @@ bool ProjectLoader_v0::load(Accounts &accounts, const KoXmlElement &element, XML
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "account") {
+        if (e.tagName() == QStringLiteral("account")) {
             Account *child = new Account();
             if (load(child, e, status)) {
                 accounts.insert(child);
@@ -1194,8 +1194,8 @@ bool ProjectLoader_v0::load(Accounts &accounts, const KoXmlElement &element, XML
             }
         }
     }
-    if (element.hasAttribute("default-account")) {
-        accounts.setDefaultAccount(accounts.findAccount(element.attribute("default-account")));
+    if (element.hasAttribute(QStringLiteral("default-account"))) {
+        accounts.setDefaultAccount(accounts.findAccount(element.attribute(QStringLiteral("default-account"))));
         if (accounts.defaultAccount() == nullptr) {
             warnPlanXml<<"Could not find default account.";
         }
@@ -1206,22 +1206,22 @@ bool ProjectLoader_v0::load(Accounts &accounts, const KoXmlElement &element, XML
 bool ProjectLoader_v0::load(Account* account, const KoXmlElement& element, XMLLoaderObject& status)
 {
     debugPlanXml<<"account";
-    account->setName(element.attribute("name"));
-    account->setDescription(element.attribute("description"));
+    account->setName(element.attribute(QStringLiteral("name")));
+    account->setDescription(element.attribute(QStringLiteral("description")));
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
         if (! n.isElement()) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "costplace") {
+        if (e.tagName() == QStringLiteral("costplace")) {
             Account::CostPlace *child = new Account::CostPlace(account);
             if (load(child, e, status)) {
                 account->append(child);
             } else {
                 delete child;
             }
-        } else if (e.tagName() == "account") {
+        } else if (e.tagName() == QStringLiteral("account")) {
             Account *child = new Account();
             if (load(child, e, status)) {
                 account->insert(child);
@@ -1238,10 +1238,10 @@ bool ProjectLoader_v0::load(Account* account, const KoXmlElement& element, XMLLo
 bool ProjectLoader_v0::load(Account::CostPlace* cp, const KoXmlElement& element, XMLLoaderObject& status)
 {
     debugPlanXml<<"cost-place";
-    cp->setObjectId(element.attribute("object-id"));
+    cp->setObjectId(element.attribute(QStringLiteral("object-id")));
     if (cp->objectId().isEmpty()) {
         // check old format
-        cp->setObjectId(element.attribute("node-id"));
+        cp->setObjectId(element.attribute(QStringLiteral("node-id")));
         if (cp->objectId().isEmpty()) {
             errorPlanXml<<"No object id";
             return false;
@@ -1255,11 +1255,11 @@ bool ProjectLoader_v0::load(Account::CostPlace* cp, const KoXmlElement& element,
             return false;
         }
     }
-    bool on = (bool)(element.attribute("running-cost").toInt());
+    bool on = (bool)(element.attribute(QStringLiteral("running-cost")).toInt());
     if (on) cp->setRunning(on);
-    on = (bool)(element.attribute("startup-cost").toInt());
+    on = (bool)(element.attribute(QStringLiteral("startup-cost")).toInt());
     if (on) cp->setStartup(on);
-    on = (bool)(element.attribute("shutdown-cost").toInt());
+    on = (bool)(element.attribute(QStringLiteral("shutdown-cost")).toInt());
     if (on) cp->setShutdown(on);
     return true;
 }
@@ -1268,7 +1268,7 @@ bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &elemen
 {
     debugPlanXml<<"schedule-manager"<<"element:"<<element.tagName();
     MainSchedule *sch = nullptr;
-    if (status.version() <= "0.5") {
+    if (status.version() <= QStringLiteral("0.5")) {
         manager->setUsePert(false);
         MainSchedule *sch = loadMainSchedule(manager, element, status);
         if (sch && sch->type() == Schedule::Expected) {
@@ -1279,18 +1279,18 @@ bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &elemen
         }
         return true;
     }
-    manager->setName(element.attribute("name"));
-    manager->setManagerId(element.attribute("id"));
-    manager->setUsePert(element.attribute("distribution").toInt() == 1);
-    manager->setAllowOverbooking((bool)(element.attribute("overbooking").toInt()));
-    manager->setCheckExternalAppointments((bool)(element.attribute("check-external-appointments").toInt()));
-    manager->setSchedulingDirection((bool)(element.attribute("scheduling-direction").toInt()));
-    manager->setBaselined((bool)(element.attribute("baselined").toInt()));
-    manager->setSchedulerPluginId(element.attribute("scheduler-plugin-id"));
-    manager->setRecalculate((bool)(element.attribute("recalculate").toInt()));
-    manager->setRecalculateFrom(DateTime::fromString(element.attribute("recalculate-from"), status.projectTimeZone()));
-    if (element.hasAttribute("scheduling-mode")) {
-        manager->setSchedulingMode(element.attribute("scheduling-mode").toInt());
+    manager->setName(element.attribute(QStringLiteral("name")));
+    manager->setManagerId(element.attribute(QStringLiteral("id")));
+    manager->setUsePert(element.attribute(QStringLiteral("distribution")).toInt() == 1);
+    manager->setAllowOverbooking((bool)(element.attribute(QStringLiteral("overbooking")).toInt()));
+    manager->setCheckExternalAppointments((bool)(element.attribute(QStringLiteral("check-external-appointments")).toInt()));
+    manager->setSchedulingDirection((bool)(element.attribute(QStringLiteral("scheduling-direction")).toInt()));
+    manager->setBaselined((bool)(element.attribute(QStringLiteral("baselined")).toInt()));
+    manager->setSchedulerPluginId(element.attribute(QStringLiteral("scheduler-plugin-id")));
+    manager->setRecalculate((bool)(element.attribute(QStringLiteral("recalculate")).toInt()));
+    manager->setRecalculateFrom(DateTime::fromString(element.attribute(QStringLiteral("recalculate-from")), status.projectTimeZone()));
+    if (element.hasAttribute(QStringLiteral("scheduling-mode"))) {
+        manager->setSchedulingMode(element.attribute(QStringLiteral("scheduling-mode")).toInt());
     }
 
     KoXmlNode n = element.firstChild();
@@ -1300,7 +1300,7 @@ bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &elemen
         }
         KoXmlElement e = n.toElement();
         //debugPlanXml<<e.tagName();
-        if (e.tagName() == "project-schedule" || e.tagName() == "schedule") {
+        if (e.tagName() == QStringLiteral("project-schedule") || e.tagName() == QStringLiteral("schedule")) {
             sch = loadMainSchedule(manager, e, status);
             if (sch) {
                 sch->setManager(manager);
@@ -1308,7 +1308,7 @@ bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &elemen
                     case Schedule::Expected: manager->setExpected(sch); break;
                 }
             }
-        } else if (e.tagName() == "schedule-management" || (status.version() < "0.7.0" && e.tagName() == "plan")) {
+        } else if (e.tagName() == QStringLiteral("schedule-management") || (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("plan"))) {
             ScheduleManager *sm = new ScheduleManager(status.project());
             if (load(sm, e, status)) {
                 status.project().addScheduleManager(sm, manager);
@@ -1324,9 +1324,9 @@ bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &elemen
 bool ProjectLoader_v0::load(Schedule *schedule, const KoXmlElement& element, XMLLoaderObject& /*status*/)
 {
     debugPlanXml<<"schedule";
-    schedule->setName(element.attribute("name"));
-    schedule->setType(element.attribute("type"));
-    schedule->setId(element.attribute("id").toLong());
+    schedule->setName(element.attribute(QStringLiteral("name")));
+    schedule->setType(element.attribute(QStringLiteral("type")));
+    schedule->setId(element.attribute(QStringLiteral("id")).toLong());
 
     return true;
 }
@@ -1355,16 +1355,16 @@ bool ProjectLoader_v0::loadMainSchedule(MainSchedule *ms, const KoXmlElement &el
     QString s;
     load(ms, element, status);
 
-    s = element.attribute("start");
+    s = element.attribute(QStringLiteral("start"));
     if (!s.isEmpty()) {
         ms->startTime = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = element.attribute("end");
+    s = element.attribute(QStringLiteral("end"));
     if (!s.isEmpty()) {
         ms->endTime = DateTime::fromString(s, status.projectTimeZone());
     }
-    ms->duration = Duration::fromString(element.attribute("duration"));
-    ms->constraintError = element.attribute("scheduling-conflict", "0").toInt();
+    ms->duration = Duration::fromString(element.attribute(QStringLiteral("duration")));
+    ms->constraintError = element.attribute(QStringLiteral("scheduling-conflict")).toInt();
 
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
@@ -1372,7 +1372,7 @@ bool ProjectLoader_v0::loadMainSchedule(MainSchedule *ms, const KoXmlElement &el
             continue;
         }
         KoXmlElement el = n.toElement();
-        if (el.tagName() == "appointment") {
+        if (el.tagName() == QStringLiteral("appointment")) {
             // Load the appointments.
             // Resources and tasks must already be loaded
             Appointment * child = new Appointment();
@@ -1381,14 +1381,14 @@ bool ProjectLoader_v0::loadMainSchedule(MainSchedule *ms, const KoXmlElement &el
                 errorPlanXml << "Failed to load appointment" << '\n';
                 delete child;
             }
-        } else if (el.tagName() == "criticalpath-list") {
+        } else if (el.tagName() == QStringLiteral("criticalpath-list")) {
             // Tasks must already be loaded
             for (KoXmlNode n1 = el.firstChild(); ! n1.isNull(); n1 = n1.nextSibling()) {
                 if (! n1.isElement()) {
                     continue;
                 }
                 KoXmlElement e1 = n1.toElement();
-                if (e1.tagName() != "criticalpath") {
+                if (e1.tagName() != QStringLiteral("criticalpath")) {
                     continue;
                 }
                 QList<Node*> lst;
@@ -1397,10 +1397,10 @@ bool ProjectLoader_v0::loadMainSchedule(MainSchedule *ms, const KoXmlElement &el
                         continue;
                     }
                     KoXmlElement e2 = n2.toElement();
-                    if (e2.tagName() != "node") {
+                    if (e2.tagName() != QStringLiteral("node")) {
                         continue;
                     }
-                    QString s = e2.attribute("id");
+                    QString s = e2.attribute(QStringLiteral("id"));
                     Node *node = status.project().findNode(s);
                     if (node) {
                         lst.append(node);
@@ -1421,56 +1421,56 @@ bool ProjectLoader_v0::loadNodeSchedule(NodeSchedule* schedule, const KoXmlEleme
     debugPlanXml<<"node-schedule";
     QString s;
     load(schedule, element, status);
-    s = element.attribute("earlystart");
+    s = element.attribute(QStringLiteral("earlystart"));
     if (s.isEmpty()) { // try version < 0.6
-        s = element.attribute("earlieststart");
+        s = element.attribute(QStringLiteral("earlieststart"));
     }
     if (!s.isEmpty()) {
         schedule->earlyStart = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = element.attribute("latefinish");
+    s = element.attribute(QStringLiteral("latefinish"));
     if (s.isEmpty()) { // try version < 0.6
-        s = element.attribute("latestfinish");
+        s = element.attribute(QStringLiteral("latestfinish"));
     }
     if (!s.isEmpty()) {
         schedule->lateFinish = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = element.attribute("latestart");
+    s = element.attribute(QStringLiteral("latestart"));
     if (!s.isEmpty()) {
         schedule->lateStart = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = element.attribute("earlyfinish");
+    s = element.attribute(QStringLiteral("earlyfinish"));
     if (!s.isEmpty()) {
         schedule->earlyFinish = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = element.attribute("start");
+    s = element.attribute(QStringLiteral("start"));
     if (!s.isEmpty()) {
         schedule->startTime = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = element.attribute("end");
+    s = element.attribute(QStringLiteral("end"));
     if (!s.isEmpty()) {
         schedule->endTime = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = element.attribute("start-work");
+    s = element.attribute(QStringLiteral("start-work"));
     if (!s.isEmpty()) {
         schedule->workStartTime = DateTime::fromString(s, status.projectTimeZone());
     }
-    s = element.attribute("end-work");
+    s = element.attribute(QStringLiteral("end-work"));
     if (!s.isEmpty()) {
         schedule->workEndTime = DateTime::fromString(s, status.projectTimeZone());
     }
-    schedule->duration = Duration::fromString(element.attribute("duration"));
+    schedule->duration = Duration::fromString(element.attribute(QStringLiteral("duration")));
 
-    schedule->inCriticalPath = element.attribute("in-critical-path", "0").toInt();
-    schedule->resourceError = element.attribute("resource-error", "0").toInt();
-    schedule->resourceOverbooked = element.attribute("resource-overbooked", "0").toInt();
-    schedule->resourceNotAvailable = element.attribute("resource-not-available", "0").toInt();
-    schedule->constraintError = element.attribute("scheduling-conflict", "0").toInt();
-    schedule->notScheduled = element.attribute("not-scheduled", "1").toInt();
+    schedule->inCriticalPath = element.attribute(QStringLiteral("in-critical-path"), QString::number(0)).toInt();
+    schedule->resourceError = element.attribute(QStringLiteral("resource-error"), QString::number(0)).toInt();
+    schedule->resourceOverbooked = element.attribute(QStringLiteral("resource-overbooked"), QString::number(0)).toInt();
+    schedule->resourceNotAvailable = element.attribute(QStringLiteral("resource-not-available"), QString::number(0)).toInt();
+    schedule->constraintError = element.attribute(QStringLiteral("scheduling-conflict"), QString::number(0)).toInt();
+    schedule->notScheduled = element.attribute(QStringLiteral("not-scheduled"), QString::number(1)).toInt();
 
-    schedule->positiveFloat = Duration::fromString(element.attribute("positive-float"));
-    schedule->negativeFloat = Duration::fromString(element.attribute("negative-float"));
-    schedule->freeFloat = Duration::fromString(element.attribute("free-float"));
+    schedule->positiveFloat = Duration::fromString(element.attribute(QStringLiteral("positive-float")));
+    schedule->negativeFloat = Duration::fromString(element.attribute(QStringLiteral("negative-float")));
+    schedule->freeFloat = Duration::fromString(element.attribute(QStringLiteral("free-float")));
 
     return true;
 }
@@ -1478,19 +1478,19 @@ bool ProjectLoader_v0::loadNodeSchedule(NodeSchedule* schedule, const KoXmlEleme
 bool ProjectLoader_v0::load(WBSDefinition &def, const KoXmlElement &element, XMLLoaderObject &/*status*/)
 {
     debugPlanXml<<"wbs-def";
-    def.setProjectCode(element.attribute("project-code"));
-    def.setProjectSeparator(element.attribute("project-separator"));
-    def.setLevelsDefEnabled((bool)element.attribute("levels-enabled", "0").toInt());
+    def.setProjectCode(element.attribute(QStringLiteral("project-code")));
+    def.setProjectSeparator(element.attribute(QStringLiteral("project-separator")));
+    def.setLevelsDefEnabled((bool)element.attribute(QStringLiteral("levels-enabled"), QString::number(0)).toInt());
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
         if (! n.isElement()) {
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "default") {
-            def.defaultDef().code = e.attribute("code", "Number");
-            def.defaultDef().separator = e.attribute("separator", ".");
-        } else if (e.tagName() == "levels") {
+        if (e.tagName() == QStringLiteral("default")) {
+            def.defaultDef().code = e.attribute(QStringLiteral("code"), QStringLiteral("Number"));
+            def.defaultDef().separator = e.attribute(QStringLiteral("separator"), QStringLiteral("."));
+        } else if (e.tagName() == QStringLiteral("levels")) {
             KoXmlNode n = e.firstChild();
             for (; ! n.isNull(); n = n.nextSibling()) {
                 if (! n.isElement()) {
@@ -1498,9 +1498,9 @@ bool ProjectLoader_v0::load(WBSDefinition &def, const KoXmlElement &element, XML
                 }
                 KoXmlElement el = n.toElement();
                 WBSDefinition::CodeDef d;
-                d.code = el.attribute("code");
-                d.separator = el.attribute("separator");
-                int lvl = el.attribute("level", "-1").toInt();
+                d.code = el.attribute(QStringLiteral("code"));
+                d.separator = el.attribute(QStringLiteral("separator"));
+                int lvl = el.attribute(QStringLiteral("level"), QString::number(-1)).toInt();
                 if (lvl >= 0) {
                     def.setLevelsDef(lvl, d);
                 } else errorPlanXml<<"Invalid levels definition";
@@ -1519,11 +1519,11 @@ bool ProjectLoader_v0::load(Documents &documents, const KoXmlElement &element, X
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "document") {
+        if (e.tagName() == QStringLiteral("document")) {
             Document *doc = new Document();
             if (!load(doc, e, status)) {
                 warnPlanXml<<"Failed to load document";
-                status.addMsg(XMLLoaderObject::Errors, "Failed to load document");
+                status.addMsg(XMLLoaderObject::Errors, QStringLiteral("Failed to load document"));
                 delete doc;
             } else {
                 documents.addDocument(doc);
@@ -1538,36 +1538,36 @@ bool ProjectLoader_v0::load(Document *document, const KoXmlElement &element, XML
 {
     debugPlanXml<<"document";
     Q_UNUSED(status);
-    document->setUrl(QUrl(element.attribute("url")));
-    document->setType((Document::Type)(element.attribute("type").toInt()));
-    document->setStatus(element.attribute("status"));
-    document->setSendAs((Document::SendAs)(element.attribute("sendas").toInt()));
+    document->setUrl(QUrl(element.attribute(QStringLiteral("url"))));
+    document->setType((Document::Type)(element.attribute(QStringLiteral("type")).toInt()));
+    document->setStatus(element.attribute(QStringLiteral("status")));
+    document->setSendAs((Document::SendAs)(element.attribute(QStringLiteral("sendas")).toInt()));
     return true;
 }
 
 bool ProjectLoader_v0::load(Estimate* estimate, const KoXmlElement& element, XMLLoaderObject& status)
 {
     debugPlanXml<<"estimate";
-    estimate->setType(element.attribute("type"));
-    estimate->setRisktype(element.attribute("risk"));
-    if (status.version() <= "0.6") {
-        estimate->setUnit((Duration::Unit)(element.attribute("display-unit", QString().number(Duration::Unit_h)).toInt()));
+    estimate->setType(element.attribute(QStringLiteral("type")));
+    estimate->setRisktype(element.attribute(QStringLiteral("risk")));
+    if (status.version() <= QStringLiteral("0.6")) {
+        estimate->setUnit((Duration::Unit)(element.attribute(QStringLiteral("display-unit"), QString().number(Duration::Unit_h)).toInt()));
         QList<qint64> s = status.project().standardWorktime()->scales();
-        estimate->setExpectedEstimate(Estimate::scale(Duration::fromString(element.attribute("expected")), estimate->unit(), s));
-        estimate->setOptimisticEstimate(Estimate::scale(Duration::fromString(element.attribute("optimistic")), estimate->unit(), s));
-        estimate->setPessimisticEstimate(Estimate::scale(Duration::fromString(element.attribute("pessimistic")), estimate->unit(), s));
+        estimate->setExpectedEstimate(Estimate::scale(Duration::fromString(element.attribute(QStringLiteral("expected"))), estimate->unit(), s));
+        estimate->setOptimisticEstimate(Estimate::scale(Duration::fromString(element.attribute(QStringLiteral("optimistic"))), estimate->unit(), s));
+        estimate->setPessimisticEstimate(Estimate::scale(Duration::fromString(element.attribute(QStringLiteral("pessimistic"))), estimate->unit(), s));
     } else {
-        if (status.version() <= "0.6.2") {
+        if (status.version() <= QStringLiteral("0.6.2")) {
             // 0 pos in unit is now Unit_Y, so add 3 to get the correct new unit
-            estimate->setUnit((Duration::Unit)(element.attribute("unit", QString().number(Duration::Unit_ms - 3)).toInt() + 3));
+            estimate->setUnit((Duration::Unit)(element.attribute(QStringLiteral("unit"), QString().number(Duration::Unit_ms - 3)).toInt() + 3));
         } else {
-            estimate->setUnit(Duration::unitFromString(element.attribute("unit")));
+            estimate->setUnit(Duration::unitFromString(element.attribute(QStringLiteral("unit"))));
         }
-        estimate->setExpectedEstimate(element.attribute("expected", "0.0").toDouble());
-        estimate->setOptimisticEstimate(element.attribute("optimistic", "0.0").toDouble());
-        estimate->setPessimisticEstimate(element.attribute("pessimistic", "0.0").toDouble());
+        estimate->setExpectedEstimate(element.attribute(QStringLiteral("expected"), QString::number(0.0)).toDouble());
+        estimate->setOptimisticEstimate(element.attribute(QStringLiteral("optimistic"), QString::number(0.0)).toDouble());
+        estimate->setPessimisticEstimate(element.attribute(QStringLiteral("pessimistic"), QString::number(0.0)).toDouble());
 
-        estimate->setCalendar(status.project().findCalendar(element.attribute("calendar-id")));
+        estimate->setCalendar(status.project().findCalendar(element.attribute(QStringLiteral("calendar-id"))));
     }
     return true;
 }
@@ -1576,9 +1576,9 @@ bool ProjectLoader_v0::load(Estimate* estimate, const KoXmlElement& element, XML
 bool ProjectLoader_v0::load(ResourceGroupRequest* gr, const KoXmlElement& element, XMLLoaderObject& status)
 {
     debugPlanXml<<"resourcegroup-request";
-    gr->setGroup(status.project().findResourceGroup(element.attribute("group-id")));
+    gr->setGroup(status.project().findResourceGroup(element.attribute(QStringLiteral("group-id")));
     if (gr->group() == 0) {
-        errorPlanXml<<"The referenced resource group does not exist: group id="<<element.attribute("group-id");
+        errorPlanXml<<"The referenced resource group does not exist: group id="<<element.attribute(QStringLiteral("group-id");
         return false;
     }
     gr->group()->registerRequest(gr);
@@ -1590,7 +1590,7 @@ bool ProjectLoader_v0::load(ResourceGroupRequest* gr, const KoXmlElement& elemen
             continue;
         }
         KoXmlElement e = n.toElement();
-        if (e.tagName() == "resource-request") {
+        if (e.tagName() == QStringLiteral("resource-request") {
             ResourceRequest *r = new ResourceRequest();
             if (load(r, e, status)) {
                 gr->parent()->addResourceRequest(r, gr);
@@ -1601,7 +1601,7 @@ bool ProjectLoader_v0::load(ResourceGroupRequest* gr, const KoXmlElement& elemen
         }
     }
     // meaning of m_units changed
-    int x = element.attribute("units").toInt() -gr->count();
+    int x = element.attribute(QStringLiteral("units").toInt() -gr->count();
     gr->setUnits(x > 0 ? x : 0);
 
     return true;
@@ -1610,26 +1610,26 @@ bool ProjectLoader_v0::load(ResourceGroupRequest* gr, const KoXmlElement& elemen
 bool ProjectLoader_v0::load(ResourceRequest *rr, const KoXmlElement& element, XMLLoaderObject& status)
 {
     debugPlanXml<<"resource-request";
-    rr->setResource(status.project().resource(element.attribute("resource-id")));
+    rr->setResource(status.project().resource(element.attribute(QStringLiteral("resource-id"))));
     if (rr->resource() == nullptr) {
-        warnPlanXml<<"The referenced resource does not exist: resource id="<<element.attribute("resource-id");
+        warnPlanXml<<"The referenced resource does not exist: resource id="<<element.attribute(QStringLiteral("resource-id"));
         return false;
     }
-    rr->setUnits(element.attribute("units").toInt());
+    rr->setUnits(element.attribute(QStringLiteral("units")).toInt());
 
-    KoXmlElement parent = element.namedItem("required-resources").toElement();
+    KoXmlElement parent = element.namedItem(QStringLiteral("required-resources")).toElement();
     KoXmlElement e;
     QList<Resource*> required;
     forEachElement(e, parent) {
-        if (e.nodeName() == "resource") {
-            QString id = e.attribute("id");
+        if (e.nodeName() == QStringLiteral("resource")) {
+            QString id = e.attribute(QStringLiteral("id"));
             if (id.isEmpty()) {
                 errorPlanXml<<"Missing resource id";
                 continue;
             }
             Resource *r = status.project().resource(id);
             if (r == nullptr) {
-                errorPlanXml<<"The referenced resource does not exist: resource id="<<element.attribute("resource-id");
+                errorPlanXml<<"The referenced resource does not exist: resource id="<<element.attribute(QStringLiteral("resource-id"));
             } else {
                 if (r != rr->resource()) {
                     required << r;
@@ -1646,18 +1646,18 @@ bool ProjectLoader_v0::load(WorkPackage &wp, const KoXmlElement& element, XMLLoa
 {
     debugPlanXml<<"workpackage";
     Q_UNUSED(status);
-    wp.setOwnerName(element.attribute("owner"));
-    wp.setOwnerId(element.attribute("owner-id"));
+    wp.setOwnerName(element.attribute(QStringLiteral("owner")));
+    wp.setOwnerId(element.attribute(QStringLiteral("owner-id")));
     return true;
 }
 
 bool ProjectLoader_v0::loadWpLog(WorkPackage *wp, KoXmlElement& element, XMLLoaderObject& status)
 {
     debugPlanXml<<"wplog";
-    wp->setOwnerName(element.attribute("owner"));
-    wp->setOwnerId(element.attribute("owner-id"));
-    wp->setTransmitionStatus(wp->transmitionStatusFromString(element.attribute("status")));
-    wp->setTransmitionTime(DateTime(QDateTime::fromString(element.attribute("time"), Qt::ISODate)));
+    wp->setOwnerName(element.attribute(QStringLiteral("owner")));
+    wp->setOwnerId(element.attribute(QStringLiteral("owner-id")));
+    wp->setTransmitionStatus(wp->transmitionStatusFromString(element.attribute(QStringLiteral("status"))));
+    wp->setTransmitionTime(DateTime(QDateTime::fromString(element.attribute(QStringLiteral("time")), Qt::ISODate)));
     return load(wp->completion(), element, status);
 }
 
@@ -1665,21 +1665,23 @@ bool ProjectLoader_v0::load(Completion &completion, const KoXmlElement& element,
 {
     debugPlanXml<<"completion";
     QString s;
-    completion.setStarted((bool)element.attribute("started", "0").toInt());
-    completion.setFinished((bool)element.attribute("finished", "0").toInt());
-    s = element.attribute("startTime");
+    completion.setStarted((bool)element.attribute(QStringLiteral("started"), QString::number(0)).toInt());
+    completion.setFinished((bool)element.attribute(QStringLiteral("finished"), QString::number(0)).toInt());
+    s = element.attribute(QStringLiteral("startTime"));
     if (!s.isEmpty()) {
         completion.setStartTime(DateTime::fromString(s, status.projectTimeZone()));
     }
-    s = element.attribute("finishTime");
+    s = element.attribute(QStringLiteral("finishTime"));
     if (!s.isEmpty()) {
         completion.setFinishTime(DateTime::fromString(s, status.projectTimeZone()));
     }
-    completion.setEntrymode(element.attribute("entrymode"));
-    if (status.version() < "0.6") {
+    completion.setEntrymode(element.attribute(QStringLiteral("entrymode")));
+    if (status.version() < QStringLiteral("0.6")) {
         if (completion.isStarted()) {
-            Completion::Entry *entry = new Completion::Entry(element.attribute("percent-finished", "0").toInt(), Duration::fromString(element.attribute("remaining-effort")),  Duration::fromString(element.attribute("performed-effort")));
-            entry->note = element.attribute("note");
+            const auto remaining = Duration::fromString(element.attribute(QStringLiteral("remaining-effort")));
+            const auto performed = Duration::fromString(element.attribute(QStringLiteral("performed-effort")));
+            Completion::Entry *entry = new Completion::Entry(element.attribute(QStringLiteral("percent-finished"), QString::number(0)).toInt(), remaining, performed);
+            entry->note = element.attribute(QStringLiteral("note"));
             QDate date = completion.startTime().date();
             if (completion.isFinished()) {
                 date = completion.finishTime().date();
@@ -1690,9 +1692,9 @@ bool ProjectLoader_v0::load(Completion &completion, const KoXmlElement& element,
     } else {
         KoXmlElement e;
         forEachElement(e, element) {
-                if (e.tagName() == "completion-entry") {
+                if (e.tagName() == QStringLiteral("completion-entry")) {
                     QDate date;
-                    s = e.attribute("date");
+                    s = e.attribute(QStringLiteral("date"));
                     if (!s.isEmpty()) {
                         date = QDate::fromString(s, Qt::ISODate);
                     }
@@ -1700,13 +1702,15 @@ bool ProjectLoader_v0::load(Completion &completion, const KoXmlElement& element,
                         warnPlanXml<<"Invalid date: "<<date<<s;
                         continue;
                     }
-                    Completion::Entry *entry = new Completion::Entry(e.attribute("percent-finished", "0").toInt(), Duration::fromString(e.attribute("remaining-effort")),  Duration::fromString(e.attribute("performed-effort")));
+                    const auto remaining = Duration::fromString(e.attribute(QStringLiteral("remaining-effort")));
+                    const auto performed = Duration::fromString(e.attribute(QStringLiteral("performed-effort")));
+                    Completion::Entry *entry = new Completion::Entry(e.attribute(QStringLiteral("percent-finished"), QString::number(0)).toInt(), remaining, performed);
                     completion.addEntry(date, entry);
-                } else if (e.tagName() == "used-effort") {
+                } else if (e.tagName() == QStringLiteral("used-effort")) {
                     KoXmlElement el;
                     forEachElement(el, e) {
-                            if (el.tagName() == "resource") {
-                                QString id = el.attribute("id");
+                            if (el.tagName() == QStringLiteral("resource")) {
+                                QString id = el.attribute(QStringLiteral("id"));
                                 Resource *r = status.project().resource(id);
                                 if (r == nullptr) {
                                     warnPlanXml<<"Cannot find resource, id="<<id;
@@ -1728,12 +1732,12 @@ bool ProjectLoader_v0::load(Completion::UsedEffort* ue, const KoXmlElement& elem
     debugPlanXml<<"used-effort";
     KoXmlElement e;
     forEachElement(e, element) {
-        if (e.tagName() == "actual-effort") {
-            QDate date = QDate::fromString(e.attribute("date"), Qt::ISODate);
+        if (e.tagName() == QStringLiteral("actual-effort")) {
+            QDate date = QDate::fromString(e.attribute(QStringLiteral("date")), Qt::ISODate);
             if (date.isValid()) {
                 Completion::UsedEffort::ActualEffort a;
-                a.setNormalEffort(Duration::fromString(e.attribute("normal-effort")));
-                a.setOvertimeEffort(Duration::fromString(e.attribute("overtime-effort")));
+                a.setNormalEffort(Duration::fromString(e.attribute(QStringLiteral("normal-effort"))));
+                a.setOvertimeEffort(Duration::fromString(e.attribute(QStringLiteral("overtime-effort"))));
                 ue->setEffort(date, a);
             }
         }
@@ -1744,14 +1748,14 @@ bool ProjectLoader_v0::load(Completion::UsedEffort* ue, const KoXmlElement& elem
 bool ProjectLoader_v0::load(Appointment *appointment, const KoXmlElement& element, XMLLoaderObject& status, Schedule &sch)
 {
     debugPlanXml<<"appointment";
-    Node *node = status.project().findNode(element.attribute("task-id"));
+    Node *node = status.project().findNode(element.attribute(QStringLiteral("task-id")));
     if (node == nullptr) {
-        errorPlanXml<<"The referenced task does not exists: "<<element.attribute("task-id");
+        errorPlanXml<<"The referenced task does not exists: "<<element.attribute(QStringLiteral("task-id"));
         return false;
     }
-    Resource *res = status.project().resource(element.attribute("resource-id"));
+    Resource *res = status.project().resource(element.attribute(QStringLiteral("resource-id")));
     if (res == nullptr) {
-        errorPlanXml<<"The referenced resource does not exists: resource id="<<element.attribute("resource-id");
+        errorPlanXml<<"The referenced resource does not exists: resource id="<<element.attribute(QStringLiteral("resource-id"));
         return false;
     }
     if (!res->addAppointment(appointment, sch)) {
@@ -1779,7 +1783,7 @@ bool ProjectLoader_v0::load(AppointmentIntervalList& lst, const KoXmlElement& el
     debugPlanXml<<"appointment-interval-list";
     KoXmlElement e;
     forEachElement(e, element) {
-        if (e.tagName() == QLatin1String("appointment-interval") || (status.version() < "0.7.0" && e.tagName() == QLatin1String("interval"))) {
+        if (e.tagName() == QStringLiteral("appointment-interval") || (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("interval"))) {
             AppointmentInterval a;
             if (load(a, e, status)) {
                 lst.add(a);
@@ -1794,15 +1798,15 @@ bool ProjectLoader_v0::load(AppointmentIntervalList& lst, const KoXmlElement& el
 bool ProjectLoader_v0::load(AppointmentInterval& interval, const KoXmlElement& element, XMLLoaderObject& status)
 {
     bool ok;
-    QString s = element.attribute("start");
+    QString s = element.attribute(QStringLiteral("start"));
     if (!s.isEmpty()) {
         interval.setStartTime(DateTime::fromString(s, status.projectTimeZone()));
     }
-    s = element.attribute("end");
+    s = element.attribute(QStringLiteral("end"));
     if (!s.isEmpty()) {
         interval.setEndTime(DateTime::fromString(s, status.projectTimeZone()));
     }
-    double l = element.attribute("load", "100").toDouble(&ok);
+    double l = element.attribute(QStringLiteral("load"), QString::number(100)).toDouble(&ok);
     if (ok) {
         interval.setLoad(l);
     }

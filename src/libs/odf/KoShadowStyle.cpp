@@ -79,7 +79,7 @@ bool KoShadowStyle::operator!=(const KoShadowStyle &other) const
 // load value string as specified by CSS2 §7.16.5 "text-shadow"
 bool KoShadowStyle::loadOdf (const QString &data)
 {
-    if (data == QLatin1String("none"))
+    if (data == QStringLiteral("none"))
         return true;
 
     const QStringList sub_shadows = data.split(QLatin1Char(','));
@@ -132,10 +132,10 @@ int KoShadowStyle::shadowCount() const
 QString KoShadowStyle::saveOdf() const
 {
     if (d->shadows.isEmpty())
-        return QLatin1String("none");
+        return QStringLiteral("none");
 
     QStringList parts;
-    const QString pt = QLatin1String("%1pt");
+    const QString pt = QStringLiteral("%1pt");
     for (const ShadowData &data : qAsConst(d->shadows)) {
         QStringList elements;
         if (data.color.isValid()) {
@@ -145,8 +145,8 @@ QString KoShadowStyle::saveOdf() const
         if (data.radius != 0)
             elements << pt.arg(data.radius);
 
-        parts << elements.join(QLatin1String(" "));
+        parts << elements.join(QStringLiteral(" "));
     }
-    return parts.join(QLatin1String(","));
+    return parts.join(QStringLiteral(","));
 }
 

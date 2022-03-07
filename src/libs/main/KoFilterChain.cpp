@@ -510,7 +510,7 @@ KoDocument* KoFilterChain::createDocument(const QString& file)
 
 KoDocument* KoFilterChain::createDocument(const QByteArray& mimeType)
 {
-    KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(mimeType);
+    KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(QString::fromLatin1(mimeType));
 
     if (entry.isEmpty()) {
         errorFilter << "Couldn't find a part that can handle mimetype " << mimeType << '\n';
