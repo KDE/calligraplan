@@ -18,7 +18,8 @@ namespace KPlato
 Context::Context()
     : currentEstimateType(0),
       currentSchedule(0),
-      m_contextLoaded(false)
+      m_contextLoaded(false),
+      m_version(0)
 {
     ganttview.ganttviewsize = -1;
     ganttview.taskviewsize = -1;
@@ -37,6 +38,10 @@ const KoXmlElement &Context::context() const
     return m_context;
 }
 
+int Context::version() const
+{
+    return m_version;
+}
 bool Context::setContent(const QString &str)
 {
     KoXmlDocument doc;
@@ -77,18 +82,8 @@ bool Context::load(const KoXmlDocument &document) {
             return false;
         }
     }
-/*    QString m_syntaxVersion = elm.attribute("version", "0.0");
-    if (m_syntaxVersion > "0.0") {
-        KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
-                      0, i18n("This document was created with a newer version of Plan (syntax version: %1)\n"
-                               "Opening it in this version of Plan will lose some information.", m_syntaxVersion),
-                      i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
-        if (ret == KMessageBox::Cancel) {
-            setErrorMessage("USER_CANCELED");
-            return false;
-        }
-    }
-*/
+    m_version = elm.attribute("version", QString::number(0)).toInt();
+
 /*
 #ifdef KOXML_USE_QDOM
     int numNodes = elm.childNodes().count();
@@ -120,7 +115,7 @@ QDomDocument Context::save(const View *view) const {
     QDomElement doc = document.createElement(QStringLiteral("context"));
     doc.setAttribute(QStringLiteral("editor"), QStringLiteral("Plan"));
     doc.setAttribute(QStringLiteral("mime"), QStringLiteral("application/x-vnd.kde.plan"));
-    doc.setAttribute(QStringLiteral("version"), QString::number(0.0));
+    doc.setAttribute(QStringLiteral("version"), QString::number(PLAN_CONTEXT_VERSION));
     document.appendChild(doc);
 
     QDomElement e = doc.ownerDocument().createElement(QStringLiteral("context"));

@@ -13,6 +13,8 @@
 
 #include <KoXmlReader.h>
 
+#define PLAN_CONTEXT_VERSION 1
+
 namespace KPlato
 {
 
@@ -27,6 +29,7 @@ public:
     virtual QDomDocument save(const View *view) const;
     const KoXmlElement &context() const;
     bool isLoaded() const { return m_contextLoaded; }
+    int version() const;
 
     bool setContent(const QString &str);
 
@@ -78,6 +81,7 @@ private:
     KoXmlElement m_context;
     KoXmlDocument m_document;
     QDomDocument m_qDomDocument;
+    int m_version;
 };
 
 }  //KPlato namespace

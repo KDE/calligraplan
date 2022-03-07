@@ -440,6 +440,15 @@ void View::createViews()
                 }
             }
         }
+        if (ctx->version() == 0) {
+            // when opening a file created with an earlier version, new views are not shown by default
+            const auto ct = QStringLiteral("Editors");
+            if (!m_viewlist->findView(QStringLiteral("ResourceGroupEditor"))) {
+                const auto cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name); // make sure category exists
+                const int idx = m_viewlist->indexOf(ct, QStringLiteral("ResourceEditor")); // insert before resource editor
+                createResourceGroupEditor(cat, QStringLiteral("ResourceGroupEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT), idx);
+            }
+        }
     } else {
         debugPlan<<"Default";
         ViewBase *v = nullptr;

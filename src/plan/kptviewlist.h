@@ -130,6 +130,7 @@ public:
     ViewListItem *findItem(const QString &tag) const;
     ViewListItem *findItem(const QString &tag, QTreeWidgetItem* parent) const;
     ViewListItem *findItem(const ViewBase *view, QTreeWidgetItem* parent = nullptr) const;
+    int indexOf(const QString &catecory, const QString &tag) const;
 
     /// Remove @p item, don't Q_EMIT signal
     int removeViewListItem(ViewListItem *item);

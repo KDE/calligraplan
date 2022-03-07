@@ -575,6 +575,19 @@ ViewListItem *ViewListWidget::findItem(const ViewBase *view, QTreeWidgetItem *pa
     return nullptr;
 }
 
+int ViewListWidget::indexOf(const QString &catName, const QString &tag) const
+{
+    const auto cat = findCategory(catName);
+    if (!cat) {
+        return -1;
+    }
+    const auto view = findItem(tag, cat);
+    if (!view) {
+        return -1;
+    }
+    return cat->indexOfChild(view);
+}
+
 void ViewListWidget::slotAddView()
 {
     Q_EMIT createView();
