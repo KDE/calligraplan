@@ -413,9 +413,6 @@ private:
     
 private:
     QList<ResourceGroup*> m_resource;
-
-    QList<Relation*> m_parentProxyRelations;
-    QList<Relation*> m_childProxyRelations;
     
     // This list store pointers to linked task
     QList<Node*> m_requiredTasks;

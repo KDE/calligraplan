@@ -1095,7 +1095,7 @@ double Task::costPerformanceIndex(long int id, QDate date, bool *error) const
 }
 
 void Task::initiateCalculation(MainSchedule &sch) {
-    //debugPlan<<m_name<<" schedule:"<<sch.name()<<" id="<<sch.id();
+    debugPlan<<this<<" schedule:"<<sch.name()<<" id="<<sch.id();
     m_currentSchedule = createSchedule(&sch);
     m_currentSchedule->initiateCalculation();
     clearProxyRelations();
@@ -1108,7 +1108,7 @@ void Task::initiateCalculation(MainSchedule &sch) {
 
 
 void Task::initiateCalculationLists(MainSchedule &sch) {
-    //debugPlan<<m_name;
+    //debugPlan<<this<<type();
     if (type() == Node::Type_Summarytask) {
         sch.insertSummaryTask(this);
         // propagate my relations to my children and dependent nodes
@@ -2672,14 +2672,15 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule 
     return l;
 }
 
-void Task::clearProxyRelations() {
+void Task::clearProxyRelations()
+{
     m_parentProxyRelations.clear();
     m_childProxyRelations.clear();
 }
 
 void Task::addParentProxyRelations(const QList<Relation*> &list)
 {
-    //debugPlan<<m_name;
+    //debugPlan<<this<<list;
     if (type() == Type_Summarytask) {
         // propagate to my children
         //debugPlan<<m_name<<" is summary task";
@@ -2699,7 +2700,7 @@ void Task::addParentProxyRelations(const QList<Relation*> &list)
 }
 
 void Task::addChildProxyRelations(const QList<Relation*> &list) {
-    //debugPlan<<m_name;
+    //debugPlan<<this<<list;
     if (type() == Type_Summarytask) {
         // propagate to my children
         //debugPlan<<m_name<<" is summary task";
@@ -2726,9 +2727,10 @@ void Task::addParentProxyRelation(Node *node, const Relation *rel) {
                 n->addParentProxyRelation(node, rel);
             }
         } else {
-            //debugPlan<<"Add parent proxy from"<<node->name()<<" to (me)"<<m_name;
+            //debugPlan<<"Add parent proxy from"<<node<<" to (me)"<<this;
             m_parentProxyRelations.append(new ProxyRelation(node, this, rel->type(), rel->lag()));
         }
+        //debugPlan<<this<<rel<<parentProxyRelations();
     }
 }
 
@@ -2740,9 +2742,10 @@ void Task::addChildProxyRelation(Node *node, const Relation *rel) {
                 n->addChildProxyRelation(node, rel);
             }
         } else {
-            //debugPlan<<"Add child proxy from (me)"<<m_name<<" to"<<node->name();
+            //debugPlan<<"Add child proxy from (me)"<<this<<" to"<<node;
             m_childProxyRelations.append(new ProxyRelation(this, node, rel->type(), rel->lag()));
         }
+        //debugPlan<<this<<rel<<childProxyRelations();
     }
 }
 

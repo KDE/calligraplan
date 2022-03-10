@@ -515,6 +515,34 @@ void print(const AppointmentIntervalList &lst, const char *s)
     print(lst, QLatin1String(s));
 }
 
+static
+void printRelations(const Task *t)
+{
+    qDebug()<<"Relations"<<t<<"preds:"<<(t->dependParentNodes().count()+t->parentProxyRelations().count())<<"succs:"<<(t->dependChildNodes().count()+t->childProxyRelations().count());
+
+    for (const auto r : t->dependParentNodes()) {
+        qDebug()<<"parent depend:\t"<<r->parent()->name()<<"<-"<<r->child()->name();
+    }
+    for (const auto r : t->parentProxyRelations()) {
+        qDebug()<<"parent proxy:\t"<<r->parent()->name()<<"<-"<<r->child()->name();
+    }
+    for (const auto r : t->dependChildNodes()) {
+        qDebug()<<"child depend:\t"<<r->parent()->name()<<"->"<<r->child()->name();
+    }
+    for (const auto r : t->childProxyRelations()) {
+        qDebug()<<"child proxy:\t"<<r->parent()->name()<<"->"<<r->child()->name();
+    }
+}
+
+static
+void printRelations(const Project *p)
+{
+    const auto tasks = p->allTasks();
+    for (const auto t : tasks) {
+        printRelations(t);
+    }
+}
+
 };
 
 }

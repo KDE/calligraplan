@@ -403,14 +403,73 @@ Relation *Node::findRelation(const Node *node) const
 
 bool Node::isDependChildOf(const Node *node) const
 {
-    //debugPlan<<" '"<<m_name<<"' checking against '"<<node->name()<<"'";
-    for (int i=0; i<numDependParentNodes(); i++) {
-        Relation *rel = getDependParentNode(i);
-        if (rel->parent() == node)
-            return true;
-        if (rel->parent()->isDependChildOf(node))
-            return true;
+    return isSuccessorof(node, false, true);
+}
+
+bool Node::isSuccessorof(const Node *node, bool checkProxies, bool checkSummarytasks) const
+{
+    //debugPlan<<this<<"checking against"<<node;
+    if (!checkSummarytasks && (type() == Type_Summarytask || node->type() == Type_Summarytask)) {
+        //debugPlan<<this<<type()<<"skip check"<<node<<node->type();
+        return false;
     }
+    //debugPlan<<this<<type()<<"checking against"<<node<<node->type();
+    for (const auto r : qAsConst(m_dependParentNodes)) {
+        if (r->parent() == node) {
+            //debugPlan<<"deps"<<r<<true;
+            return true;
+        }
+        if (r->parent()->isSuccessorof(node, checkProxies, checkSummarytasks)) {
+            //debugPlan<<"deps"<<true;
+            return true;
+        }
+    }
+    if (checkProxies) {
+        for (const auto r : qAsConst(m_parentProxyRelations)) {
+            if (r->parent() == node) {
+                //debugPlan<<"proxy"<<true<<r;
+                return true;
+            }
+            if (r->parent()->isSuccessorof(node, checkProxies, checkSummarytasks)) {
+                //debugPlan<<"proxy"<<true;
+                return true;
+            }
+        }
+    }
+    //debugPlan<<this<<"->"<<node<<false<<m_dependParentNodes<<"proxy"<<m_parentProxyRelations;;
+    return false;
+}
+
+bool Node::isPredecessorof(const Node *node, bool checkProxies, bool checkSummarytasks) const
+{
+    if (!checkSummarytasks && (type() == Type_Summarytask || node->type() == Type_Summarytask)) {
+        //debugPlan<<this<<type()<<"skip check"<<node<<node->type();
+        return false;
+    }
+    //debugPlan<<this<<type()<<"checking against"<<node<<node->type();
+    for (const auto r : m_dependChildNodes) {
+        if (r->child() == node) {
+            //debugPlan<<"deps"<<true<<r;
+            return true;
+        }
+        if (r->child()->isPredecessorof(node, checkProxies, checkSummarytasks)) {
+            //debugPlan<<"deps"<<true;
+            return true;
+        }
+    }
+    if (checkProxies) {
+        for (const auto r : qAsConst(m_childProxyRelations)) {
+            if (r->child() == node) {
+                //debugPlan<<"proxy"<<true<<r;
+                return true;
+            }
+            if (r->child()->isPredecessorof(node, checkProxies, checkSummarytasks)) {
+                //debugPlan<<"proxy"<<true;
+                return true;
+            }
+        }
+    }
+    //debugPlan<<this<<"->"<<node<<false<<"dep:"<<m_dependChildNodes<<"proxy"<<m_childProxyRelations;
     return false;
 }
 

@@ -213,7 +213,17 @@ public:
     QList<Relation*> dependParentNodes() const { return m_dependParentNodes; }
     QList<Node*> getParentNodes();
     bool isParentOf(const Node *node) const;
+    /// Checks if @p node is our predecessor.
+    /// Same as isSuccessorof(node, false, true).
     bool isDependChildOf(const Node *node) const;
+    /// Checks if @p node is our predecessor.
+    /// If @p checkProxis is true, proxy relations are also checked.
+    /// If @ checkSummarytasks is true, relations to summarytasks are included.
+    bool isSuccessorof(const Node *node, bool checkProxies = true, bool checkSummarytasks = false) const;
+    /// If @p checkProxis is true, proxy relations are also checked.
+    /// If @ checkSummarytasks is true, relations to summarytasks are included.
+    /// Checks if @p node is our successor
+    bool isPredecessorof(const Node *node, bool checkProxies = false, bool checkSummarytasks = false) const;
     virtual bool canMoveTo(const Node *newParent) const;
     
     Relation *findParentRelation(const Node *node) const;
@@ -616,7 +626,9 @@ public:
     virtual void addChildProxyRelations(const QList<Relation*> &) {}
     virtual void addParentProxyRelation(Node *, const Relation *) {}
     virtual void addChildProxyRelation(Node *, const Relation *) {}
-    
+    const QList<Relation*> &parentProxyRelations() const { return m_parentProxyRelations; }
+    const QList<Relation*> &childProxyRelations() const { return m_childProxyRelations; }
+
     virtual void changed(int property = -1) { changed(this, property); }
     Duration getmDurationForward(){ return this->m_durationForward;}
 
@@ -688,6 +700,9 @@ protected:
     ResourceRequestCollection m_requests;
 
     int m_priority;
+
+    QList<Relation*> m_parentProxyRelations;
+    QList<Relation*> m_childProxyRelations;
 
 private:
     void init();

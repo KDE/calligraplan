@@ -1056,7 +1056,7 @@ void Project::initiateCalculation(MainSchedule &sch)
 
 void Project::initiateCalculationLists(MainSchedule &sch)
 {
-    //debugPlan<<m_name;
+    //debugPlan<<this;
     sch.clearNodes();
     if (type() == Node::Type_Project) {
         QListIterator<Node*> it = childNodeIterator();
