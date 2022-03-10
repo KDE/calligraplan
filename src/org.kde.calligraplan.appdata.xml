@@ -87,6 +87,7 @@
     <p xml:lang="pl">Plan jest programem do zarządzania projektem. Jest przeznaczony do zarządzania umiarkowanie dużymi projektami zawierającymi wiele zasobów.</p>
     <p xml:lang="pt">O Plan é uma aplicação de gestão de projectos. Pretende ser usada para gerir projectos relativamente grandes com vários recursos.</p>
     <p xml:lang="pt-BR">Plan é um aplicativo para gerenciamento de projetos. Destina-se ao gerenciamento de projetos relativamente grandes com vários recursos.</p>
+    <p xml:lang="ru">Plan — это приложение по управлению проектами. Оно предназначено для работы с умеренно крупными проектами, использующими несколько ресурсов.</p>
     <p xml:lang="sk">Plan je aplikácia na správu projektov. Je určená na správu stredne veľkých projektov s viacerými zdrojmi.</p>
     <p xml:lang="sl">Plan je aplikacija za upravljanje projektov. Namenjen je upravljanju srednje velikih projektov z več viri.</p>
     <p xml:lang="sv">Plan är ett projekthanteringsprogram. Det är avsett för att hantera måttligt stora projekt med flera resurser.</p>
@@ -144,6 +145,7 @@
       <li xml:lang="pl">Wiele widoków: wykresy Ganta, widok zasobów, widok kont</li>
       <li xml:lang="pt">Diversas áreas: Diagramas de Gantt, Área de Recursos, Área de Contas</li>
       <li xml:lang="pt-BR">Diversos modos de exibição: Diagramas de Gantt, Área de Recursos, Área de Contas</li>
+      <li xml:lang="ru">Множество режимов просмотра: диаграмма Ганта, режим просмотра ресурсов, режим просмотра счетов</li>
       <li xml:lang="sk">Mnoho pohľadov: Ganttove grafy, pohľad zdrojov, pohľad účtov</li>
       <li xml:lang="sl">Več pogledov: Gantogrami, pogledi virov, pogled računov</li>
       <li xml:lang="sv">Flera vyer: Gant-diagram, resursvy, kontovy</li>
@@ -170,6 +172,7 @@
       <li xml:lang="pl">Używa standardowych struktur: Struktura podziału pracy (WBS),  Struktura podziału zasobów (RBS), Struktura podziału kosztów (CBS)</li>
       <li xml:lang="pt">Usa estruturas padrão: estruturas de divisão de trabalho (WBS), estruturas de divisão de recursos (RBS), estruturas de divisão de custos (CBS)</li>
       <li xml:lang="pt-BR">Usa estruturas padrão: Estruturas de divisão de trabalho (WBS), estruturas de divisão de recursos (RBS), estruturas de divisão de custos (CBS)</li>
+      <li xml:lang="ru">Использование стандартных структур: Структурная декомпозиция работ (СДР), иерархическая структура ресурсов (RBS), структура распредения затрат (CBS)</li>
       <li xml:lang="sk">Používa štandardné štruktúry: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)</li>
       <li xml:lang="sl">Uporablja standardne strukture: razčlenitev dela (WBS), razčlenitev virov (RBS), razčlenitev stroškov (CBS)</li>
       <li xml:lang="sv">Använder standardstrukturer: Arbetsfördelningsstruktur (WBS), resursfördelningsstruktur (RBS), kostnadsfördelningsstruktur (CBS)</li>
@@ -198,6 +201,7 @@
       <li xml:lang="pl">Ustawialny poziom szczegółów na wykresach Gantta</li>
       <li xml:lang="pt">Nível de detalhe configurável no Diagrama de Gantt</li>
       <li xml:lang="pt-BR">Nível de detalhe configurável no Diagrama de Gantt</li>
+      <li xml:lang="ru">Настраиваемый уровень детализации на диаграмме Ганта</li>
       <li xml:lang="sk">Nastaviteľná úroveň detailu Ganttovho grafu</li>
       <li xml:lang="sl">Nastavljiva raven podrobnosti na Gantogramih</li>
       <li xml:lang="sv">Anpassningsbar detaljnivå för Gantt-diagram</li>
@@ -225,6 +229,7 @@
       <li xml:lang="pl">Obsługa dla zadań podsumowujących, zadań oraz kamieni milowych</li>
       <li xml:lang="pt">Suporta tarefas-resumo, tarefas e marcos</li>
       <li xml:lang="pt-BR">Suporte a tarefas-resumo, tarefas e metas</li>
+      <li xml:lang="ru">Поддержка итоговых задач, задач и этапов</li>
       <li xml:lang="sk">Podporuje sumárne úlohy, úlohy a míľniky</li>
       <li xml:lang="sl">Podpora zaključnim nalogam, nalogam in mejnikom</li>
       <li xml:lang="sv">Stöder sammanfattningsaktiviteter, aktiviteter och milstenar</li>
@@ -253,6 +258,7 @@
       <li xml:lang="pl">Ustawialne ograniczenia w planowaniu</li>
       <li xml:lang="pt">Restrições de Escalonamento Configuráveis</li>
       <li xml:lang="pt-BR">Restrições de agendamento configuráveis</li>
+      <li xml:lang="ru">Настраиваемые ограничения планирования</li>
       <li xml:lang="sk">Nastaviteľné plánovacie obmedzenia</li>
       <li xml:lang="sl">Nastavljive omejitve razporejanja</li>
       <li xml:lang="sv">Anpassningsbara tidplanebegränsning</li>
