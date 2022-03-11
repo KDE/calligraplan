@@ -461,11 +461,20 @@ QWidget *SpinBoxDelegate::createEditor(QWidget *parent, const QStyleOptionViewIt
 void SpinBoxDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
     int value = index.model()->data(index, Qt::EditRole).toInt();
-    int min = index.model()->data(index, Role::Minimum).toInt();
-    int max = index.model()->data(index, Role::Maximum).toInt();
+    auto min = index.model()->data(index, Role::Minimum);
+    auto max = index.model()->data(index, Role::Maximum);
 
     QSpinBox *box = static_cast<QSpinBox*>(editor);
-    box->setRange(min, max);
+    if (min.isValid()) {
+        box->setMinimum(min.toInt());
+    } else {
+        box->setMinimum(std::numeric_limits<int>::min());
+    }
+    if (max.isValid()) {
+        box->setMaximum(max.toInt());
+    } else {
+        box->setMaximum(std::numeric_limits<int>::max());
+    }
     box->setValue(value);
 }
 

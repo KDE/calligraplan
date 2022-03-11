@@ -678,6 +678,8 @@ protected:
     bool legalParents(const Node *par, const Node *child) const;
     bool legalChildren(const Node *par, const Node *child) const;
 
+    bool priorityUsed() const;
+
 #ifndef PLAN_NLOGDEBUG
 private:
     static bool checkParent(Node *n, const QList<Node*> &list, QList<Relation*> &checked);
@@ -710,6 +712,7 @@ private:
     QList<Task*> m_hardConstraints;
     QList<Task*> m_softConstraints;
     QMultiMap<int, Task*> m_terminalNodes;
+    QMultiMap<int, Task*> m_priorityNodes;
 
     bool m_useSharedResources;
     bool m_sharedResourcesLoaded;

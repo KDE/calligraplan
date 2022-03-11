@@ -643,12 +643,22 @@ QVariant NodeModel::priority(const Node *node, int role) const
     switch (role) {
         case Qt::DisplayRole:
         case Qt::EditRole:
-            return node->priority();
-        case Qt::ToolTipRole:
+            if (node->type() == Node::Type_Task || node->type() == Node::Type_Milestone) {
+                return node->priority();
+            }
+            break;
+    case Qt::ToolTipRole:
             break;
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
+        case Role::Minimum:
+            return 0;
+        case Role::Maximum:
+            return QVariant(); // No limit
+        default:
+            break;
+
     }
     return QVariant();
 }
@@ -3390,7 +3400,7 @@ Qt::ItemFlags NodeItemModel::flags(const QModelIndex &index) const
             }
             case NodeModel::NodePriority:
             {
-                if (!baselined) {
+                if (!baselined && (n->type() == Node::Type_Task || n->type() == Node::Type_Milestone)) {
                     flags |= Qt::ItemIsEditable;
                 }
                 break;
@@ -3757,7 +3767,7 @@ QAbstractItemDelegate *NodeItemModel::createDelegate(int column, QWidget *parent
         case NodeModel::NodeOptimisticRatio: return new SpinBoxDelegate(parent);
         case NodeModel::NodePessimisticRatio: return new SpinBoxDelegate(parent);
         case NodeModel::NodeRisk: return new EnumDelegate(parent);
-        //case NodeModel::NodePriority: return new EnumDelegate(parent);
+        case NodeModel::NodePriority: return new SpinBoxDelegate(parent);
         case NodeModel::NodeConstraint: return new EnumDelegate(parent);
         case NodeModel::NodeConstraintStart: return new DateTimeCalendarDelegate(parent);
         case NodeModel::NodeConstraintEnd: return new DateTimeCalendarDelegate(parent);

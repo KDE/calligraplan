@@ -742,15 +742,26 @@ bool Project::checkChildren(Node *n, const QList<Node*> &list, QList<Relation*> 
     return true;
 }
 #endif
+
 void Project::tasksForward()
 {
     m_hardConstraints.clear();
     m_softConstraints.clear();
     m_terminalNodes.clear();
+    m_priorityNodes.clear();
+    int prio = 0;
+    bool priorityUsed = false;
+
     // Do these in reverse order to get tasks with same prio in wbs order
     const QList<Task*> tasks = allTasks();
     for (int i = tasks.count() -1; i >= 0; --i) {
         Task *t = tasks.at(i);
+        if (i == tasks.count() -1) {
+            prio = t->priority();
+        } else if (!priorityUsed && t->priority() != prio) {
+            priorityUsed = true;
+        }
+        m_priorityNodes.insert(-t->priority(), t);
         switch (t->constraint()) {
             case Node::MustStartOn:
             case Node::MustFinishOn:
@@ -768,6 +779,9 @@ void Project::tasksForward()
                 break;
         }
     }
+    if (!priorityUsed) {
+        m_priorityNodes.clear();
+    }
 #ifndef PLAN_NLOGDEBUG
     debugPlan<<"End nodes:"<<m_terminalNodes;
     for (Node* n : qAsConst(m_terminalNodes)) {
@@ -783,10 +797,20 @@ void Project::tasksBackward()
     m_hardConstraints.clear();
     m_softConstraints.clear();
     m_terminalNodes.clear();
+    m_priorityNodes.clear();
+    int prio = 0;
+    bool priorityUsed = false;
+
     // Do these in reverse order to get tasks with same prio in wbs order
     const QList<Task*> tasks = allTasks();
     for (int i = tasks.count() -1; i >= 0; --i) {
         Task *t = tasks.at(i);
+        if (i == tasks.count() -1) {
+            prio = t->priority();
+        } else if (!priorityUsed && t->priority() != prio) {
+            priorityUsed = true;
+        }
+        m_priorityNodes.insert(-t->priority(), t);
         switch (t->constraint()) {
             case Node::MustStartOn:
             case Node::MustFinishOn:
@@ -803,6 +827,9 @@ void Project::tasksBackward()
                 }
                 break;
         }
+    }
+    if (!priorityUsed) {
+        m_priorityNodes.clear();
     }
 #ifndef PLAN_NLOGDEBUG
     debugPlan<<"Start nodes:"<<m_terminalNodes;
@@ -830,9 +857,20 @@ DateTime Project::calculateForward(int use)
         if (! m_visitedBackward) {
             // setup tasks
             tasksForward();
+            if (!m_priorityNodes.isEmpty()) {
+                for (Node *n : qAsConst(m_priorityNodes)) {
+                    cs->logDebug(QStringLiteral("Calculate task '%1' by priority: %2").arg(n->name()).arg(n->priority()));
+                    DateTime time = n->calculateForward(use);
+                    if (time > finish) {
+                        finish = time;
+                        cs->setLatestFinish(time);
+                    }
+                }
+                return finish;
+            }
             // Do all hard constrained first
             for (Node *n : qAsConst(m_hardConstraints)) {
-                cs->logDebug(QStringLiteral("Calculate task with hard constraint:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+                cs->logDebug(QStringLiteral("Calculate task with hard constraint: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
                 DateTime time = n->calculateEarlyFinish(use); // do not do predeccessors
                 if (time > finish) {
                     finish = time;
@@ -840,7 +878,7 @@ DateTime Project::calculateForward(int use)
             }
             // do the predeccessors
             for (Node *n : qAsConst(m_hardConstraints)) {
-                cs->logDebug(QStringLiteral("Calculate predeccessors to hard constrained task:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+                cs->logDebug(QStringLiteral("Calculate predeccessors to hard constrained task: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
                 DateTime time = n->calculateForward(use);
                 if (time > finish) {
                     finish = time;
@@ -848,7 +886,7 @@ DateTime Project::calculateForward(int use)
             }
             // now try to schedule soft constrained *with* predeccessors
             for (Node *n : qAsConst(m_softConstraints)) {
-                cs->logDebug(QStringLiteral("Calculate task with soft constraint:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+                cs->logDebug(QStringLiteral("Calculate task with soft constraint: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
                 DateTime time = n->calculateForward(use);
                 if (time > finish) {
                     finish = time;
@@ -856,19 +894,22 @@ DateTime Project::calculateForward(int use)
             }
             // and then the rest using the end nodes to calculate everything (remaining)
             for (Task *n : qAsConst(m_terminalNodes)) {
-                cs->logDebug(QStringLiteral("Calculate using end task:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+                cs->logDebug(QStringLiteral("Calculate using end task: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
                 DateTime time = n->calculateForward(use);
                 if (time > finish) {
                     finish = time;
                 }
             }
         } else {
-            // tasks have been calculated backwards in this order
-            const auto nodes =  cs->backwardNodes();
-            for (Node *n : nodes) {
-                DateTime time = n->calculateForward(use);
-                if (time > finish) {
-                    finish = time;
+            // Tasks have been calculated backwards in this order
+            // Do backwords if priority is not used
+            if (m_priorityNodes.isEmpty()) {
+                const auto nodes =  cs->backwardNodes();
+                for (Node *n : nodes) {
+                    DateTime time = n->calculateForward(use);
+                    if (time > finish) {
+                        finish = time;
+                    }
                 }
             }
         }
@@ -895,9 +936,19 @@ DateTime Project::calculateBackward(int use)
         if (! m_visitedForward) {
             // setup tasks
             tasksBackward();
+            if (!m_priorityNodes.isEmpty()) {
+                for (Node *n : qAsConst(m_priorityNodes)) {
+                    cs->logDebug(QStringLiteral("Calculate task '%1' by priority: %2").arg(n->name()).arg(n->priority()));
+                    DateTime time = n->calculateBackward(use);
+                    if (! start.isValid() || time < start) {
+                        start = time;
+                    }
+                }
+                return start;
+            }
             // Do all hard constrained first
             for (Task *n : qAsConst(m_hardConstraints)) {
-                cs->logDebug(QStringLiteral("Calculate task with hard constraint:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+                cs->logDebug(QStringLiteral("Calculate task with hard constraint: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
                 DateTime time = n->calculateLateStart(use); // do not do predeccessors
                 if (! start.isValid() || time < start) {
                     start = time;
@@ -905,7 +956,7 @@ DateTime Project::calculateBackward(int use)
             }
             // then do the predeccessors
             for (Task *n : qAsConst(m_hardConstraints)) {
-                cs->logDebug(QStringLiteral("Calculate predeccessors to hard constrained task:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+                cs->logDebug(QStringLiteral("Calculate predeccessors to hard constrained task:" ) + n->name() + QStringLiteral(" : ") + n->constraintToString());
                 DateTime time = n->calculateBackward(use);
                 if (! start.isValid() || time < start) {
                     start = time;
@@ -913,7 +964,7 @@ DateTime Project::calculateBackward(int use)
             }
             // now try to schedule soft constrained *with* predeccessors
             for (Task *n : qAsConst(m_softConstraints)) {
-                cs->logDebug(QStringLiteral("Calculate task with soft constraint:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+                cs->logDebug(QStringLiteral("Calculate task with soft constraint: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
                 DateTime time = n->calculateBackward(use);
                 if (! start.isValid() || time < start) {
                     start = time;
@@ -921,7 +972,7 @@ DateTime Project::calculateBackward(int use)
             }
             // and then the rest using the start nodes to calculate everything (remaining)
             for (Task *n : qAsConst(m_terminalNodes)) {
-                cs->logDebug(QStringLiteral("Calculate using start task:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+                cs->logDebug(QStringLiteral("Calculate using start task: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
                 DateTime time = n->calculateBackward(use);
                 if (! start.isValid() || time < start) {
                     start = time;
@@ -955,10 +1006,23 @@ DateTime Project::scheduleForward(const DateTime &earliest, int use)
     timer.start();
     cs->logInfo(i18n("Start scheduling forward"));
     resetVisited();
+
+    if (!m_priorityNodes.isEmpty()) {
+        for (Node *n : qAsConst(m_priorityNodes)) {
+            cs->logDebug(QStringLiteral("Schedule task '%1' by priority: %2").arg(n->name()).arg(n->priority()));
+            DateTime time = n->scheduleFromStartTime(use); // do not do predeccessors
+            if (time > end) {
+                end = time;
+                cs->setLatestFinish(time);
+            }
+        }
+        return end;
+    }
+
     // Schedule in the same order as calculated forward
     // Do all hard constrained first
     for (Node *n : qAsConst(m_hardConstraints)) {
-        cs->logDebug(QStringLiteral("Schedule task with hard constraint:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+        cs->logDebug(QStringLiteral("Schedule task with hard constraint: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
         DateTime time = n->scheduleFromStartTime(use); // do not do predeccessors
         if (time > end) {
             end = time;
@@ -966,7 +1030,7 @@ DateTime Project::scheduleForward(const DateTime &earliest, int use)
     }
     const auto nodes = cs->forwardNodes();
     for (Node *n : nodes) {
-        cs->logDebug(QStringLiteral("Schedule task:") + n->name() + QStringLiteral(" : ") + n->constraintToString());
+        cs->logDebug(QStringLiteral("Schedule task: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
         DateTime time = n->scheduleForward(earliest, use);
         if (time > end) {
             end = time;

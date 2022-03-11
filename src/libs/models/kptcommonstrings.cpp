@@ -23,7 +23,7 @@ namespace KPlato
     QString ToolTip::nodeWBS() { return xi18nc("@info:tooltip", "Work Breakdown Structure Code"); }
     QString ToolTip::nodeLevel() { return xi18nc("@info:tooltip", "Node level"); }
     QString ToolTip::nodeRisk() { return xi18nc("@info:tooltip", "Risk controls the PERT distribution used when calculating the actual estimate for this task"); }
-    QString ToolTip::nodePriority() { return xi18nc("@info:tooltip", "Scheduling priority.<nl/><note>Atm. only the <emphasis>TJ Scheduler</emphasis> supports priority.</note>"); }
+    QString ToolTip::nodePriority() { return xi18nc("@info:tooltip", "Scheduling priority.<nl/>A higher number means higher priority."); }
     QString ToolTip::nodeRunningAccount() { return xi18nc("@info:tooltip", "Account for running costs"); }
     QString ToolTip::nodeStartupAccount() { return xi18nc("@info:tooltip", "Account for cost incurred at startup of the task"); }
     QString ToolTip::nodeStartupCost() { return xi18nc("@info:tooltip", "The cost incurred at startup of the task"); }
