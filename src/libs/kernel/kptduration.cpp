@@ -138,7 +138,7 @@ QString Duration::toString(Format format) const {
     unsigned minutes;
     unsigned seconds;
     QString result;
-
+    QLocale locale;
     switch (format) {
         case Format_Hour:
             ms = m_ms;
@@ -179,9 +179,9 @@ QString Duration::toString(Format format) const {
             ms -= (qint64)hours * (1000 * 60 * 60);
             minutes = ms / (1000 * 60);
             if (minutes > 0) {
-                result = i18nc("<hours>h:<minutes>m", "%1h:%2m", hours, minutes);
+                result = i18nc("<hours>h:<minutes>m", "%1h:%2m", locale.toString(hours), locale.toString(minutes));
             } else {
-                result = i18nc("<hours>h:<minutes>m", "%1h", hours);
+                result = i18nc("<hours>h:<minutes>m", "%1h", locale.toString(hours));
             }
             break;
         case Format_i18nDay:
@@ -206,31 +206,30 @@ QString Duration::toString(Format format) const {
             ms -= minutes * (1000 * 60);
             seconds = ms / (1000);
             ms -= seconds * (1000);
-            qInfo()<<Q_FUNC_INFO<<days<<hours<<minutes<<seconds<<ms;
             if (days > 0) {
-                result = i18nc("<days>d <hours>h:<minutes>m", "%1d %2h:%3m", days, hours, minutes);
+                result = i18nc("<days>d <hours>h:<minutes>m", "%1d %2h:%3m", locale.toString(days), locale.toString(hours), locale.toString(minutes));
             } else if (hours > 0) {
                 result = toString(Format_i18nHour);
             } else if (minutes > 0) {
                 if (ms > 0 ) {
-                    result = i18nc("<minutes>m:<seconds>s.<milliseconds>", "%1m:%2s.%3", minutes, seconds, ms);
+                    result = i18nc("<minutes>m:<seconds>s.<milliseconds>", "%1m:%2s.%3", locale.toString(minutes), locale.toString(seconds), locale.toString(ms));
                 } else if (seconds > 0) {
-                    result = i18nc("<minutes>m:<seconds>s", "%1m:%2s", minutes, seconds);
+                    result = i18nc("<minutes>m:<seconds>s", "%1m:%2s", locale.toString(minutes), locale.toString(seconds));
                 } else {
-                    result = i18nc("<minutes>m", "%1m", minutes);
+                    result = i18nc("<minutes>m", "%1m", locale.toString(minutes));
                 }
             } else if (seconds > 0) {
                 if (ms == 0 ) {
-                    result = i18nc("<seconds>s", "%1s", seconds);
+                    result = i18nc("<seconds>s", "%1s", locale.toString(seconds));
                 } else {
-                    result = i18nc("<seconds>s.<milliseconds>", "%1s.%2", seconds, ms);
+                    result = i18nc("<seconds>s.<milliseconds>", "%1s.%2", locale.toString(seconds), locale.toString(ms));
                 }
             } else if (ms > 0) {
-                result = i18nc("<milliseconds>ms", "%1ms", ms);
+                result = i18nc("<milliseconds>ms", "%1ms", locale.toString(ms));
             }
             break;
         case Format_i18nHourFraction:
-            result = QLocale().toString(toDouble(Unit_h), 'f', 2);
+            result = locale.toString(toDouble(Unit_h), 'f', 2);
             break;
         default:
             qFatal("Unknown format");
