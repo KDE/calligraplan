@@ -206,14 +206,27 @@ QString Duration::toString(Format format) const {
             ms -= minutes * (1000 * 60);
             seconds = ms / (1000);
             ms -= seconds * (1000);
-            if (days == 0) {
-                result = toString(Format_i18nHour);
-            } else if (minutes > 0) {
+            qInfo()<<Q_FUNC_INFO<<days<<hours<<minutes<<seconds<<ms;
+            if (days > 0) {
                 result = i18nc("<days>d <hours>h:<minutes>m", "%1d %2h:%3m", days, hours, minutes);
             } else if (hours > 0) {
-                result = i18nc("<days>d <hours>h:<minutes>m", "%1d %2h", days, hours);
-            } else {
-                result = i18nc("<days>d <hours>h:<minutes>m", "%1d", days);
+                result = toString(Format_i18nHour);
+            } else if (minutes > 0) {
+                if (ms > 0 ) {
+                    result = i18nc("<minutes>m:<seconds>s.<milliseconds>", "%1m:%2s.%3", minutes, seconds, ms);
+                } else if (seconds > 0) {
+                    result = i18nc("<minutes>m:<seconds>s", "%1m:%2s", minutes, seconds);
+                } else {
+                    result = i18nc("<minutes>m", "%1m", minutes);
+                }
+            } else if (seconds > 0) {
+                if (ms == 0 ) {
+                    result = i18nc("<seconds>s", "%1s", seconds);
+                } else {
+                    result = i18nc("<seconds>s.<milliseconds>", "%1s.%2", seconds, ms);
+                }
+            } else if (ms > 0) {
+                result = i18nc("<milliseconds>ms", "%1ms", ms);
             }
             break;
         case Format_i18nHourFraction:
