@@ -24,6 +24,13 @@ BuiltinSchedulerPlugin::BuiltinSchedulerPlugin(QObject *parent)
 {
     setName(i18nc("Network = task dependency network", "Network Scheduler"));
     setComment(xi18nc("@info:tooltip", "Built-in network (PERT) based scheduler"));
+
+    m_granularityIndex = 1;
+    m_granularities << 0
+                    << (long unsigned int) 1 * 60 * 1000
+                    << (long unsigned int) 15 * 60 * 1000
+                    << (long unsigned int) 30 * 60 * 1000
+                    << (long unsigned int) 60 * 60 * 1000;
 }
  
 BuiltinSchedulerPlugin::~BuiltinSchedulerPlugin()
@@ -111,14 +118,14 @@ void BuiltinSchedulerPlugin::schedule(SchedulingContext &context)
 }
 
 //--------------------
-KPlatoScheduler::KPlatoScheduler(QObject *parent)
-    : SchedulerThread(parent)
+KPlatoScheduler::KPlatoScheduler(ulong granularityIndex, QObject *parent)
+    : SchedulerThread(granularityIndex, parent)
 {
     qDebug()<<Q_FUNC_INFO;
 }
 
-KPlatoScheduler::KPlatoScheduler(Project *project, ScheduleManager *sm, QObject *parent)
-    : SchedulerThread(project, sm, parent)
+KPlatoScheduler::KPlatoScheduler(Project *project, ScheduleManager *sm, ulong granularityIndex, QObject *parent)
+    : SchedulerThread(project, sm, granularityIndex, parent)
 {
     qDebug()<<"KPlatoScheduler::KPlatoScheduler:"<<m_mainmanager<<m_mainmanager->name()<<m_mainmanagerId;
 }
@@ -150,10 +157,12 @@ void KPlatoScheduler::run()
         m_managerMutex.lock();
 
         m_project = new Project();
+        m_project->setSchedulerPlugins(mainProject()->schedulerPlugins());
         loadProject(m_project, m_pdoc);
         m_project->setName(QStringLiteral("Schedule: ") + m_project->name()); //Debug
 
         m_manager = m_project->scheduleManager(m_mainmanagerId);
+        m_manager->setSchedulerPluginId(mainManager()->schedulerPluginId());
         Q_ASSERT(m_manager);
         Q_ASSERT(m_manager->expected());
         Q_ASSERT(m_manager != m_mainmanager);

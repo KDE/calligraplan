@@ -149,7 +149,7 @@ void SchedulingView::slotSchedulersComboChanged(int idx)
         for (auto v : lst) {
             ui.granularities->addItem(QStringLiteral("%1 min").arg(v/(60*1000)), (qint64)v);
         }
-        ui.granularities->setCurrentIndex(scheduler->granularity());
+        ui.granularities->setCurrentIndex(scheduler->granularityIndex());
         ui.sequential->setChecked(!scheduler->scheduleInParallel());
         ui.parallel->setChecked(scheduler->scheduleInParallel());
         ui.parallel->setEnabled(scheduler->capabilities() & KPlato::SchedulerPlugin::ScheduleInParallel);
@@ -167,7 +167,7 @@ void SchedulingView::slotGranularitiesChanged(int idx)
     MainDocument *portfolio = static_cast<MainDocument*>(koDocument());
     const auto scheduler = portfolio->schedulerPlugin(ui.schedulersCombo->currentData().toString());
     if (scheduler) {
-        scheduler->setGranularity(idx);
+        scheduler->setGranularityIndex(idx);
     }
 }
 

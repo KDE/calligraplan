@@ -563,7 +563,7 @@ public:
         OverbookProperty,
         DistributionProperty,
         SchedulingModeProperty,
-        GranularityProperty
+        GranularityIndexProperty
     };
     Q_ENUM(Properties);
 
@@ -678,9 +678,12 @@ public:
     /// Return a list of the supported granularities of the current scheduler
     QList<long unsigned int> supportedGranularities() const;
     /// Return current index of supported granularities of the selected scheduler
-    int granularity() const;
+    int granularityIndex() const;
     /// Set current index of supported granularities of the selected scheduler
-    void setGranularity(int duration);
+    void setGranularityIndex(int duration);
+
+    /// Return the granularity in millesconds
+    ulong granularity() const;
 
     bool schedulingMode() const;
     void setSchedulingMode(int mode);

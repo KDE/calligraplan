@@ -858,22 +858,22 @@ QVariant ScheduleItemModel::granularity(const QModelIndex &index, int role) cons
     switch (role) {
         case Qt::EditRole:
         case Role::EnumListValue:
-            return qMin(sm->granularity(), sm->supportedGranularities().count() - 1);
+            return qMin(sm->granularityIndex(), sm->supportedGranularities().count() - 1);
         case Qt::DisplayRole: {
             QList<long unsigned int> lst = sm->supportedGranularities();
             if (lst.isEmpty()) {
                 return i18nc("Scheduling granularity not supported", "None");
             }
-            int idx = sm->granularity();
+            int idx = sm->granularityIndex();
             qulonglong g = idx < lst.count() ? lst[ idx ] : lst.last();
             return KFormat().formatDuration(g);
         }
         case Qt::ToolTipRole: {
             QList<long unsigned int> lst = sm->supportedGranularities();
             if (lst.isEmpty()) {
-                return xi18nc("@info:tooltip", "Scheduling granularity not supported");
+                return xi18nc("@info:tooltip", "Scheduling granularityIndex not supported");
             }
-            int idx = sm->granularity();
+            int idx = sm->granularityIndex();
             qulonglong g = idx < lst.count() ? lst[ idx ] : lst.last();
             return xi18nc("@info:tooltip", "Selected scheduling granularity: %1", KFormat().formatDuration(g));
         }
@@ -901,7 +901,7 @@ bool ScheduleItemModel::setGranularity(const QModelIndex &index, const QVariant 
     if (sm != nullptr) {
         switch (role) {
             case Qt::EditRole: {
-                Q_EMIT executeCommand(new ModifyScheduleManagerSchedulingGranularityCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduling granularity")));
+                Q_EMIT executeCommand(new ModifyScheduleManagerSchedulingGranularityIndexCmd(*sm, value.toInt(), kundo2_i18n("Modify scheduling granularity")));
                 return true;
             }
         }

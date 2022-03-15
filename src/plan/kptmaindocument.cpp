@@ -141,7 +141,7 @@ void MainDocument::slotScheduleManagerChanged(ScheduleManager *sm, int property)
             case ScheduleManager::OverbookProperty:
             case ScheduleManager::DistributionProperty:
             case ScheduleManager::SchedulingModeProperty:
-            case ScheduleManager::GranularityProperty:
+            case ScheduleManager::GranularityIndexProperty:
                 setCalculationNeeded();
                 break;
             default:
@@ -319,6 +319,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
         }
         m_xmlLoader.setMimetype(value);
         Project *newProject = new Project(m_config, false);
+        newProject->setSchedulerPlugins(m_schedulerPlugins);
         KPlatoXmlLoader loader(m_xmlLoader, newProject);
         bool ok = loader.load(plan);
         if (ok) {
@@ -370,6 +371,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
         }
     }
     Project *newProject = new Project(m_config, true);
+    newProject->setSchedulerPlugins(m_schedulerPlugins);
     if (!m_xmlLoader.loadProject(newProject, document)) {
         delete newProject;
     } else {

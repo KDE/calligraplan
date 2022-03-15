@@ -551,6 +551,9 @@ public:
     /// @return priority
     int priority() const;
 
+    /// @return scheduling granularity
+    virtual ulong granularity() const;
+
 public:
     // These shouldn't be available to other than those who inherits
     /// Calculate the critical path

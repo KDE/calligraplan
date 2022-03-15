@@ -18,6 +18,7 @@
 #include "kptresource.h"
 #include "kptaccount.h"
 #include "kptappointment.h"
+#include "kptschedulerplugin.h"
 
 #include <KoXmlReader.h>
 
@@ -1287,6 +1288,16 @@ bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &elemen
     manager->setSchedulingDirection((bool)(element.attribute(QStringLiteral("scheduling-direction")).toInt()));
     manager->setBaselined((bool)(element.attribute(QStringLiteral("baselined")).toInt()));
     manager->setSchedulerPluginId(element.attribute(QStringLiteral("scheduler-plugin-id")));
+    if (manager->schedulerPluginId().isEmpty()) {
+        manager->setSchedulerPluginId(QStringLiteral("Built-in"));
+    }
+    auto plugin = status.project().schedulerPlugins().value(manager->schedulerPluginId());
+    if (plugin) {
+        // atm we only load for current plugin
+        int g = element.attribute(QStringLiteral("granularity")).toInt();
+        plugin->setGranularityIndex(g);
+    }
+    qInfo()<<Q_FUNC_INFO<<manager<<manager->schedulerPluginId()<<manager->schedulerPlugin()<<status.project().schedulerPlugins();
     manager->setRecalculate((bool)(element.attribute(QStringLiteral("recalculate")).toInt()));
     manager->setRecalculateFrom(DateTime::fromString(element.attribute(QStringLiteral("recalculate-from")), status.projectTimeZone()));
     if (element.hasAttribute(QStringLiteral("scheduling-mode"))) {

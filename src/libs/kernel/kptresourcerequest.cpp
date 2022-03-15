@@ -27,6 +27,7 @@
 #include <KoXmlReader.h>
 
 #include <KLocalizedString>
+#include <KFormat>
 
 #include <QLocale>
 #include <QDomElement>
@@ -740,6 +741,34 @@ int ResourceRequestCollection::numDays(const QList<ResourceRequest*> &lst, const
     return time.daysTo(t2);
 }
 
+ulong ResourceRequestCollection::granularity() const
+{
+    return m_task ? m_task->granularity() : 60000;
+}
+
+bool ResourceRequestCollection::accepted(const Duration &estimate, const Duration &result, Schedule *ns) const
+{
+    const auto deviation = estimate.milliseconds() - result.milliseconds();
+    if (ns) {
+        ns->logDebug(QStringLiteral("Deviation: %1").arg(KFormat().formatDuration(deviation, KFormat::FoldHours)));
+    }
+    if (deviation == 0) {
+        return true;
+    }
+    const qlonglong limit = granularity();
+    if (std::abs(deviation) <= limit) {
+#if 0
+        if (ns) {
+            ns->logWarning(i18n("Deviation match: granularity: %1, deviation: %2",
+                                Duration(limit).toString(Duration::Format_i18nDay),
+                                Duration(deviation).toString(Duration::Format_i18nDay)));
+        }
+#endif
+        return true;
+    }
+    return false;
+}
+
 Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst, const DateTime &time, const Duration &_effort, Schedule *ns, bool backward) {
     //debugPlan<<"--->"<<(backward?"(B)":"(F)")<<time.toString()<<": effort:"<<_effort.toString(Duration::Format_Day)<<" ("<<_effort.milliseconds()<<")";
 #if 0
@@ -779,6 +808,8 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
             break;
         }
     }
+    match = accepted(_effort, e, ns);
+    if (ns) ns->logDebug(QStringLiteral("days done: %1").arg(match?QStringLiteral("match"):QStringLiteral("nomatch")));
     if (! match && day <= nDays) {
 #ifndef PLAN_NLOGDEBUG
         if (ns) ns->logDebug(QStringLiteral("Days: duration ") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" e=") + e.toString() + QStringLiteral(" (") + (_effort - e).toString() + QLatin1Char(')'));
@@ -806,6 +837,8 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
             //debugPlan<<"duration(h)["<<i<<"]"<<(backward?"backward":"forward:")<<" time="<<start.time()<<" e="<<e.toString()<<" ("<<e.milliseconds()<<")";
         }
         //debugPlan<<"duration"<<(backward?"backward":"forward:")<<start.toString()<<" e="<<e.toString()<<" ("<<e.milliseconds()<<")  match="<<match<<" sts="<<sts;
+        match = accepted(_effort, e, ns);
+        if (ns) ns->logDebug(QStringLiteral("hours done: %1").arg(match?QStringLiteral("match"):QStringLiteral("nomatch")));
     }
     if (! match && day <= nDays) {
 #ifndef PLAN_NLOGDEBUG
@@ -829,16 +862,8 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
             //debugPlan<<"duration(m)"<<(backward?"backward":"forward:")<<"  time="<<start.time().toString()<<" e="<<e.toString()<<" ("<<e.milliseconds()<<")";
         }
         //debugPlan<<"duration"<<(backward?"backward":"forward:")<<"  start="<<start.toString()<<" e="<<e.toString()<<" match="<<match<<" sts="<<sts;
-    }
-    // FIXME: better solution
-    // If effort to match is reasonably large, accept a match if deviation <= 1 min
-    if (! match && _effort > 5 * 60000) {
-        if ((_effort - e) <= 60000){
-            match = true;
-#ifndef PLAN_NLOGDEBUG
-            if (ns) ns->logDebug(QStringLiteral("Deviation match:") + logtime.toString() + QStringLiteral(" - ") + end.toString() + QStringLiteral(" e=") + e.toString() + QStringLiteral(" (") + (_effort - e).toString() + QLatin1Char(')'));
-#endif
-        }
+        match = accepted(_effort, e, ns);
+        if (ns) ns->logDebug(QStringLiteral("minutes done: %1").arg(match?QStringLiteral("match"):QStringLiteral("nomatch")));
     }
     if (! match && day <= nDays) {
 #ifndef PLAN_NLOGDEBUG
@@ -861,6 +886,8 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
             }
             //debugPlan<<"duration(s)["<<i<<"]"<<(backward?"backward":"forward:")<<" time="<<start.time().toString()<<" e="<<e.toString()<<" ("<<e.milliseconds()<<")";
         }
+        match = accepted(_effort, e, ns);
+        if (ns) ns->logDebug(QStringLiteral("seconds done: %1").arg(match?QStringLiteral("match"):QStringLiteral("nomatch")));
     }
     if (! match && day <= nDays) {
 #ifndef PLAN_NLOGDEBUG
@@ -881,9 +908,11 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
             }
             //debugPlan<<"duration(ms)["<<i<<"]"<<(backward?"backward":"forward:")<<" time="<<start.time().toString()<<" e="<<e.toString()<<" ("<<e.milliseconds()<<")";
         }
+        if (ns) ns->logDebug(QStringLiteral("milliseconds done: %1").arg(match?QStringLiteral("match"):QStringLiteral("nomatch")));
+        match = accepted(_effort, e, ns);
     }
     if (!match && ns) {
-        ns->logError(i18n("Could not match effort. Want: %1 got: %2", _effort.toString(Duration::Format_Hour), e.toString(Duration::Format_Hour)));
+        ns->logError(i18n("Could not match effort. Want: %1 got: %2 (%3)", _effort.toString(Duration::Format_Hour), e.toString(Duration::Format_Hour), e.milliseconds()));
         for (ResourceRequest *r : lst) {
             Resource *res = r->resource();
             ns->logInfo(i18n("Resource %1 available from %2 to %3", res->name(), locale.toString(r->availableFrom(), QLocale::ShortFormat), locale.toString(r->availableUntil(), QLocale::ShortFormat)));

@@ -47,14 +47,13 @@
 
 
 PlanTJScheduler::PlanTJScheduler(Project *project, ScheduleManager *sm, ulong granularity, QObject *parent)
-    : SchedulerThread(project, sm, parent),
+    : SchedulerThread(project, sm, granularity, parent),
     result(-1),
     m_schedule(nullptr),
     m_recalculate(false),
     m_usePert(false),
     m_backward(false),
-    m_tjProject(nullptr),
-    m_granularity(granularity)
+    m_tjProject(nullptr)
 {
     TJ::TJMH.reset();
     connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);
@@ -65,14 +64,13 @@ PlanTJScheduler::PlanTJScheduler(Project *project, ScheduleManager *sm, ulong gr
 }
 
 PlanTJScheduler::PlanTJScheduler(ulong granularity, QObject *parent)
-    : SchedulerThread(parent)
+    : SchedulerThread(granularity, parent)
     , result(-1)
     , m_schedule(nullptr)
     , m_recalculate(false)
     , m_usePert(false)
     , m_backward(false)
     , m_tjProject(nullptr)
-    , m_granularity(granularity)
 {
     TJ::TJMH.reset();
     //connect(&TJ::TJMH, &TJ::TjMessageHandler::message, this, &PlanTJScheduler::slotMessage);

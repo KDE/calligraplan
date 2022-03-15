@@ -1104,6 +1104,7 @@ void Project::adjustSummarytask()
 void Project::initiateCalculation(MainSchedule &sch)
 {
     //debugPlan<<m_name;
+    qInfo()<<Q_FUNC_INFO<<"----"<<this<<sch.manager()->schedulerPluginId()<<m_schedulerPlugins<<&sch.manager()->project();
     // clear all resource appointments
     m_visitedForward = false;
     m_visitedBackward = false;
@@ -3734,6 +3735,14 @@ void Project::setLocalTaskModulesPath(const QUrl &url)
         m_taskModules.prepend(url);
     }
     Q_EMIT taskModulesChanged(m_taskModules);
+}
+
+ulong Project::granularity() const
+{
+    auto sm = m_currentSchedule ? m_currentSchedule->manager() : nullptr;
+    auto g = sm ? sm->granularity() : 0;
+    qInfo()<<Q_FUNC_INFO<<sm<<m_currentSchedule<<g;
+    return g;
 }
 
 }  //KPlato namespace

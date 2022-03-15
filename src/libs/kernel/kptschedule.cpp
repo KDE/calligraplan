@@ -1922,20 +1922,26 @@ QList<long unsigned int> ScheduleManager::supportedGranularities() const
     return lst;
 }
 
-int ScheduleManager::granularity() const
+int ScheduleManager::granularityIndex() const
 {
     if (schedulerPlugin()) {
-        return schedulerPlugin()->granularity();
+        return schedulerPlugin()->granularityIndex();
     }
     return 0;
 }
 
-void ScheduleManager::setGranularity(int duration)
+void ScheduleManager::setGranularityIndex(int duration)
 {
     if (schedulerPlugin()) {
-        schedulerPlugin()->setGranularity(duration);
+        schedulerPlugin()->setGranularityIndex(duration);
     }
-    m_project.changed(this, GranularityProperty);
+    m_project.changed(this, GranularityIndexProperty);
+}
+
+ulong ScheduleManager::granularity() const
+{
+    qInfo()<<Q_FUNC_INFO<<schedulerPlugin();
+    return schedulerPlugin() ? schedulerPlugin()->granularity() : 0;
 }
 
 bool ScheduleManager::schedulingMode() const
@@ -2011,10 +2017,12 @@ bool ScheduleManager::loadXML(KoXmlElement &element, XMLLoaderObject &status)
     m_schedulingDirection = (bool)(element.attribute(QStringLiteral("scheduling-direction")).toInt());
     m_baselined = (bool)(element.attribute(QStringLiteral("baselined")).toInt());
     m_schedulerPluginId = element.attribute(QStringLiteral("scheduler-plugin-id"));
+    qInfo()<<Q_FUNC_INFO<<m_schedulerPluginId;
     if (status.project().schedulerPlugins().contains(m_schedulerPluginId)) {
         // atm we only load for current plugin
         int g = element.attribute(QStringLiteral("granularity")).toInt();
-        status.project().schedulerPlugins().value(m_schedulerPluginId)->setGranularity(g);
+        status.project().schedulerPlugins().value(m_schedulerPluginId)->setGranularityIndex(g);
+        qInfo()<<Q_FUNC_INFO<<m_schedulerPluginId<<g;
     }
     m_recalculate = (bool)(element.attribute(QStringLiteral("recalculate")).toInt());
     m_recalculateFrom = DateTime::fromString(element.attribute(QStringLiteral("recalculate-from")), status.projectTimeZone());
@@ -2092,10 +2100,7 @@ void ScheduleManager::saveXML(QDomElement &element) const
     el.setAttribute(QStringLiteral("scheduling-direction"), QString::number(m_schedulingDirection));
     el.setAttribute(QStringLiteral("baselined"), QString::number(m_baselined));
     el.setAttribute(QStringLiteral("scheduler-plugin-id"), m_schedulerPluginId);
-    if (schedulerPlugin()) {
-        // atm we only save for current plugin
-        el.setAttribute(QStringLiteral("granularity"), QString::number(schedulerPlugin()->granularity()));
-    }
+    el.setAttribute(QStringLiteral("granularity"), QString::number(granularityIndex()));
     el.setAttribute(QStringLiteral("recalculate"), QString::number(m_recalculate));
     el.setAttribute(QStringLiteral("recalculate-from"), m_recalculateFrom.toString(Qt::ISODate));
     el.setAttribute(QStringLiteral("scheduling-mode"), m_schedulingMode);

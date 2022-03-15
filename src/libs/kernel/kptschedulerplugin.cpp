@@ -35,7 +35,7 @@ public:
 SchedulerPlugin::SchedulerPlugin(QObject *parent)
     : QObject(parent),
       d(new SchedulerPlugin::Private()),
-      m_granularity(0)
+      m_granularityIndex(0)
 {
     // register Schedule::Log so it can be used in queued connections
     qRegisterMetaType<Schedule::Log>("Schedule::Log");
@@ -122,15 +122,19 @@ QList<long unsigned int> SchedulerPlugin::granularities() const
     return m_granularities;
 }
 
-int SchedulerPlugin::granularity() const
+int SchedulerPlugin::granularityIndex() const
 {
-    return m_granularity;
+    return m_granularityIndex;
 }
 
-void SchedulerPlugin::setGranularity(int index)
+void SchedulerPlugin::setGranularityIndex(int index)
 {
-    m_granularity = qMin(index, m_granularities.count() - 1);
-    qInfo()<<Q_FUNC_INFO<<m_granularities.count()<<':'<<index<<':'<<m_granularity;
+    m_granularityIndex = qMin(index, m_granularities.count() - 1);
+}
+
+ulong SchedulerPlugin::granularity() const
+{
+    return m_granularities.value(m_granularityIndex);
 }
 
 void SchedulerPlugin::slotSyncData()
@@ -229,11 +233,12 @@ void SchedulerPlugin::schedule(SchedulingContext &context)
 }
 
 //----------------------
-SchedulerThread::SchedulerThread(Project *project, ScheduleManager *manager, QObject *parent)
+SchedulerThread::SchedulerThread(Project *project, ScheduleManager *manager, ulong granularity, QObject *parent)
     : QThread(parent),
     m_mainproject(project),
     m_mainmanager(manager),
     m_mainmanagerId(manager->managerId()),
+    m_granularity(granularity),
     m_project(nullptr),
     m_manager(nullptr),
     m_stopScheduling(false),
@@ -252,11 +257,11 @@ SchedulerThread::SchedulerThread(Project *project, ScheduleManager *manager, QOb
     connect(this, &QThread::finished, this, &SchedulerThread::slotFinished);
 }
 
-SchedulerThread::SchedulerThread(QObject *parent)
+SchedulerThread::SchedulerThread(ulong granularity, QObject *parent)
     : QThread(parent)
     , m_mainproject(nullptr)
     , m_mainmanager(nullptr)
-    , m_project(nullptr)
+    , m_granularity(granularity)
     , m_manager(nullptr)
     , m_stopScheduling(false)
     , m_haltScheduling(false)

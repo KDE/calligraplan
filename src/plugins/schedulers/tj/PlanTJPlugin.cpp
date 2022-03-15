@@ -55,7 +55,7 @@ int PlanTJPlugin::capabilities() const
 
 ulong PlanTJPlugin::currentGranularity() const
 {
-    ulong v = m_granularities.value(m_granularity);
+    ulong v = m_granularities.value(m_granularityIndex);
     return qMax(v, (ulong)300000); // minimum 5 min
 }
 

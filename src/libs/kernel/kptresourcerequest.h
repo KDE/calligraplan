@@ -226,6 +226,9 @@ public:
     int numDays(const QList<ResourceRequest*> &lst, const DateTime &time, bool backward) const;
     Duration duration(const QList<ResourceRequest*> &lst, const DateTime &time, const Duration &_effort, Schedule *ns, bool backward);
 
+    ulong granularity() const;
+    bool accepted(const Duration &estimate, const Duration &result, Schedule *ns = nullptr) const;
+
 Q_SIGNALS:
     void alternativeRequestToBeAdded(KPlato::ResourceRequest *request, int row);
     void alternativeRequestAdded(KPlato::ResourceRequest *alternative);

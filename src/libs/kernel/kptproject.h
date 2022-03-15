@@ -518,6 +518,8 @@ public:
     void setUseLocalTaskModules(bool value, bool emitChanged = true);
     void setLocalTaskModulesPath(const QUrl &url);
 
+    ulong granularity() const override;
+
 public Q_SLOTS:
     /// Sets m_progress to @p progress and emits signal sigProgress()
     /// If @p sm is not 0, progress is also set for the schedule manager

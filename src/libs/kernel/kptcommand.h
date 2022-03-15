@@ -1595,10 +1595,10 @@ private:
     int oldvalue, newvalue;
 };
 
-class PLANKERNEL_EXPORT ModifyScheduleManagerSchedulingGranularityCmd : public NamedCommand
+class PLANKERNEL_EXPORT ModifyScheduleManagerSchedulingGranularityIndexCmd : public NamedCommand
 {
 public:
-    ModifyScheduleManagerSchedulingGranularityCmd(ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString());
+    ModifyScheduleManagerSchedulingGranularityIndexCmd(ScheduleManager &sm, int value, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
 

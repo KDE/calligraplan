@@ -53,7 +53,7 @@ private:
 
 public:
     PlanTJScheduler(Project *project, ScheduleManager *sm, ulong granularity, QObject *parent = nullptr);
-    explicit PlanTJScheduler(ulong granularity, QObject *parent = nullptr);
+    explicit PlanTJScheduler(ulong granularity = 0, QObject *parent = nullptr);
     ~PlanTJScheduler() override;
 
     bool check();
@@ -134,8 +134,6 @@ private:
     QMap<TJ::Resource*, Resource*> m_resourcemap;
     QMap<QString, Resource*> m_resourceIds;
     QList<Task*> m_durationTasks;
-
-    ulong m_granularity;
 };
 
 #endif // PLANTJSCHEDULER_H

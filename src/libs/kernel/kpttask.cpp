@@ -25,6 +25,7 @@
 #include <KoXmlReader.h>
 
 #include <KLocalizedString>
+#include <KFormat>
 
 #include <QElapsedTimer>
 
@@ -1947,13 +1948,22 @@ DateTime Task::scheduleFromStartTime(int use) {
             break;
         }
         if (m_estimate->type() == Estimate::Type_Effort) {
-            // HACK scheduling may accept deviation less than 5 mins to improve performance
-            if (m_estimate->value(use, cs->usePert()) != cs->plannedEffort()) {
-                warnPlan<<"Estimated effort not met:"<<m_estimate->value(use, cs->usePert()).toString()<<cs->plannedEffort().toString();
+            const qint64 granularity = this->granularity();
+            const auto estimate = m_estimate->value(use, cs->usePert());
+            const auto planned = cs->plannedEffort();
+            const auto deviation = estimate - planned;
+            if (deviation != 0) {
+                warnPlan<<"Estimated effort not met:"<<estimate.toString()<<planned.toString();
+                if (deviation <= granularity) {
+                    cs->logInfo(i18n("Effort deviation. Estimate: %1, scheduled: %2, granularity: %3",
+                                     estimate.toString(Duration::Format_i18nDayTime),
+                                     planned.toString(Duration::Format_i18nDayTime),
+                                     Duration(granularity).toString(Duration::Format_i18nDay)));
+                }
             }
-            cs->effortNotMet = (m_estimate->value(use, cs->usePert()) - cs->plannedEffort()) > (60000);
+            cs->effortNotMet = deviation > granularity;
             if (cs->effortNotMet) {
-                cs->logError(i18n("Effort not met. Estimate: %1, planned: %2", estimate()->value(use, cs->usePert()).toHours(), cs->plannedEffort().toHours()));
+                cs->logError(i18n("Effort not met. Estimate: %1, scheduled: %2", estimate.toHours(), planned.toHours()));
             }
         }
     } else if (type() == Node::Type_Milestone) {
@@ -2319,10 +2329,22 @@ DateTime Task::scheduleFromEndTime(int use) {
         }
         m_requests.reserve(cs->startTime, cs->duration);
         if (m_estimate->type() == Estimate::Type_Effort) {
-            // HACK scheduling may accept deviation less than 5 mins to improve performance
-            cs->effortNotMet = (m_estimate->value(use, cs->usePert()) - cs->plannedEffort()) > (5 * 60000);
+            const qint64 granularity = this->granularity();
+            const auto estimate = m_estimate->value(use, cs->usePert());
+            const auto planned = cs->plannedEffort();
+            const auto deviation = estimate - planned;
+            if (deviation != 0) {
+                warnPlan<<"Estimated effort not met:"<<estimate.toString()<<planned.toString();
+                if (deviation <= granularity) {
+                    cs->logInfo(i18n("Effort deviation. Estimate: %1, scheduled: %2, granularity: %3",
+                                     estimate.toString(Duration::Format_i18nDayTime),
+                                     planned.toString(Duration::Format_i18nDayTime),
+                                     Duration(granularity).toString(Duration::Format_i18nDay)));
+                }
+            }
+            cs->effortNotMet = deviation > granularity;
             if (cs->effortNotMet) {
-                cs->logError(i18n("Effort not met. Estimate: %1, planned: %2", estimate()->value(use, cs->usePert()).toHours(), cs->plannedEffort().toHours()));
+                cs->logError(i18n("Effort not met. Estimate: %1, scheduled: %2", estimate.toHours(), planned.toHours()));
             }
         }
     } else if (type() == Node::Type_Milestone) {

@@ -90,12 +90,15 @@ public:
     virtual void calculate(Project &project, ScheduleManager *sm, bool nothread = false) {};
 
     /// Return the list of supported granularities
-    /// An empty list means granularity is not supported (the default)
+    /// An empty list means granularityIndex is not supported (the default)
     QList<long unsigned int> granularities() const;
     /// Return current index of supported granularities
-    int granularity() const;
+    int granularityIndex() const;
     /// Set current index of supported granularities
-    void setGranularity(int index);
+    void setGranularityIndex(int index);
+
+    /// return the current granularity in millesonds
+    ulong granularity() const;
 
     /// Set parallel scheduling option to @p value.
     void setScheduleInParallel(bool value);
@@ -124,7 +127,7 @@ protected:
     QTimer m_synctimer;
     QList<SchedulerThread*> m_jobs;
 
-    int m_granularity;
+    int m_granularityIndex;
     QList<long unsigned int> m_granularities;
 };
 
@@ -148,8 +151,10 @@ class PLANKERNEL_EXPORT SchedulerThread : public QThread
 {
     Q_OBJECT
 public:
-    SchedulerThread(Project *project, ScheduleManager *manager, QObject *parent);
-    explicit SchedulerThread(QObject *parent = nullptr);
+    /// Create a scheduler with scheduling @p granularity in milliseconds
+    SchedulerThread(Project *project, ScheduleManager *manager, ulong granularity, QObject *parent = nullptr);
+    /// Create a scheduler with scheduling @p granularity in milliseconds
+    explicit SchedulerThread(ulong granularity = 0, QObject *parent = nullptr);
     ~SchedulerThread() override;
 
     Project *mainProject() const { return m_mainproject; }
@@ -236,7 +241,9 @@ protected:
     ScheduleManager *m_mainmanager;
     /// The schedule manager identity
     QString m_mainmanagerId;
-    
+
+    ulong m_granularity; /// The granularity if supported
+
     /// The temporary project
     Project *m_project;
     mutable QMutex m_projectMutex;

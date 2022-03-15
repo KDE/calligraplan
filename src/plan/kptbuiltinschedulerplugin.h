@@ -52,8 +52,8 @@ class KPlatoScheduler : public SchedulerThread
     Q_OBJECT
 
 public:
-    KPlatoScheduler(QObject *parent = nullptr);
-    KPlatoScheduler(Project *project, ScheduleManager *sm, QObject *parent = nullptr);
+    explicit KPlatoScheduler(ulong granularityIndex = 0, QObject *parent = nullptr);
+    explicit KPlatoScheduler(Project *project, ScheduleManager *sm, ulong granularityIndex = 0, QObject *parent = nullptr);
     ~KPlatoScheduler() override;
 
     void schedule(SchedulingContext &context) override;

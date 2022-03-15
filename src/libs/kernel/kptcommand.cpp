@@ -2724,22 +2724,22 @@ void ModifyScheduleManagerSchedulerCmd::unexecute()
     m_sm.setSchedulerPlugin(oldvalue);
 }
 
-ModifyScheduleManagerSchedulingGranularityCmd::ModifyScheduleManagerSchedulingGranularityCmd(ScheduleManager &sm, int value, const KUndo2MagicString& name)
+ModifyScheduleManagerSchedulingGranularityIndexCmd::ModifyScheduleManagerSchedulingGranularityIndexCmd(ScheduleManager &sm, int value, const KUndo2MagicString& name)
     : NamedCommand(name),
     m_sm(sm),
-    oldvalue(sm.granularity()),
+    oldvalue(sm.granularityIndex()),
     newvalue(value)
 {
 }
 
-void ModifyScheduleManagerSchedulingGranularityCmd::execute()
+void ModifyScheduleManagerSchedulingGranularityIndexCmd::execute()
 {
-    m_sm.setGranularity(newvalue);
+    m_sm.setGranularityIndex(newvalue);
 }
 
-void ModifyScheduleManagerSchedulingGranularityCmd::unexecute()
+void ModifyScheduleManagerSchedulingGranularityIndexCmd::unexecute()
 {
-    m_sm.setGranularity(oldvalue);
+    m_sm.setGranularityIndex(oldvalue);
 }
 
 CalculateScheduleCmd::CalculateScheduleCmd(Project &node, ScheduleManager *sm, const KUndo2MagicString& name)
@@ -2753,7 +2753,7 @@ CalculateScheduleCmd::CalculateScheduleCmd(Project &node, ScheduleManager *sm, c
         m_sm = new ScheduleManager(node);
         m_sm->setRecalculate(true);
         m_sm->setRecalculateFrom(sm->recalculateFrom());
-        m_sm->setGranularity(sm->granularity());
+        m_sm->setGranularityIndex(sm->granularityIndex());
         m_sm->setUsePert(sm->usePert());
         m_sm->setSchedulerPluginId(sm->schedulerPluginId());
         m_sm->setAllowOverbooking(sm->allowOverbooking());

@@ -122,6 +122,11 @@ int Node::priority() const
     return m_priority;
 }
 
+ulong Node::granularity() const
+{
+    return parentNode() ? parentNode()->granularity() : 0;
+}
+
 QString Node::typeToString(bool trans) const
 {
     return typeToString((Node::NodeTypes)type(), trans);
@@ -892,7 +897,7 @@ void Node::initiateCalculation(MainSchedule &sch) {
     m_earlyStart = DateTime();
     m_earlyFinish = DateTime();
     m_lateFinish = DateTime();
-
+    qInfo()<<Q_FUNC_INFO<<this<<sch.manager()->schedulerPluginId()<<sch.manager()->schedulerPluginNames();
     QListIterator<Node*> it = m_nodes;
     while (it.hasNext()) {
         it.next()->initiateCalculation(sch);
