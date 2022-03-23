@@ -334,7 +334,7 @@ GanttPrintingDialog::GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt)
         c -= printer().pageRect().height();
     }
     debugPlan<<m_sceneRect<<printer().pageRect()<<m_horPages<<m_vertPages;
-    printer().setFromTo(documentFirstPage(), documentLastPage());
+    printer().setFromTo(documentFirstPage(), lastPageNumber());
 }
 
 QRectF GanttPrintingDialog::calcSceneRect(const QDateTime &startDateTime, const QDateTime &endDateTime) const
@@ -418,17 +418,19 @@ qreal GanttPrintingDialog::rowLabelsWidth(const QPaintDevice *device) const
     QModelIndex sidx = summaryHandlingModel->mapToSource(summaryHandlingModel->index(0, 0));
     do {
         QModelIndex idx = summaryHandlingModel->mapFromSource(sidx);
-        const KGantt::Span rg=rowController->rowGeometry(sidx);
+        //const KGantt::Span rg=rowController->rowGeometry(sidx);
         const QString txt = idx.data(Qt::DisplayRole).toString();
         qreal textWidth = QFontMetricsF(sceneFont).boundingRect(txt).width() + charWidth;
         labelsWidth = std::max(labelsWidth, textWidth);
     } while ((sidx = rowController->indexBelow(sidx)).isValid());
-    //qInfo()<<Q_FUNC_INFO<<labelsWidth;
+
     return labelsWidth;
 }
 
 void GanttPrintingDialog::startPrinting(RemovePolicy removePolicy)
 {
+    Q_UNUSED(removePolicy)
+
     if (printer().fromPage() <= 0) {
         return;
     }
@@ -471,6 +473,11 @@ void GanttPrintingDialog::slotSinglePageToogled(bool on)
 }
 
 int GanttPrintingDialog::documentLastPage() const
+{
+    return lastPageNumber();
+}
+
+int GanttPrintingDialog::lastPageNumber() const
 {
     //debugPlan<<m_gantt->m_printOptions.singlePage<<m_horPages<<m_vertPages;
     return (m_gantt->m_printOptions.context.fitting() & KGantt::PrintingContext::FitSinglePage) ? documentFirstPage() : m_horPages * m_vertPages;

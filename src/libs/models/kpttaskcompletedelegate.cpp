@@ -31,6 +31,9 @@ TaskCompleteDelegate::~TaskCompleteDelegate()
 
 void TaskCompleteDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    if (!index.isValid()) {
+        return;
+    }
     QModelIndex typeidx = index.model()->index(index.row(), NodeModel::NodeType, index.parent());
     if (! typeidx.isValid()) {
         errorPlan<<"Cannot find nodetype for index:"<<index;

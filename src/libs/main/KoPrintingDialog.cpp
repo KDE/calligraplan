@@ -210,7 +210,6 @@ void KoPrintingDialog::startPrinting(RemovePolicy removePolicy)
             }
             
         }
-        d->painter->end();
         if (blocking) {
             printingDone();
         }

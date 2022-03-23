@@ -71,10 +71,7 @@ Node::~Node() {
     delete m_estimate;
     while (!m_nodes.isEmpty())
         delete m_nodes.takeFirst();
-    
-    if (findNode() == this) {
-        removeId(); // only remove myself (I may be just a working copy)
-    }
+
     while (!m_dependParentNodes.isEmpty()) {
         delete m_dependParentNodes.value(0);
     }

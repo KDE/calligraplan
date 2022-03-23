@@ -68,7 +68,7 @@ void Help::setDocs(const QStringList &docs)
 {
     m_docs.clear();
     debugPlanHelp<<docs;
-    for (auto s : docs) {
+    for (const auto &s : docs) {
         int last = s.length() - 1;
         int pos = s.indexOf(QLatin1Char(':'));
         if (pos > 0 && pos < last) {

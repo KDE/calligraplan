@@ -687,6 +687,10 @@ private:
     static bool checkParent(Node *n, const QList<Node*> &list, QList<Relation*> &checked);
     static bool checkChildren(Node *n, const QList<Node*> &list, QList<Relation*> &checked);
 #endif
+
+private Q_SLOTS:
+   void nodeDestroyed(QObject *obj);
+
 private:
     void init();
 
@@ -751,7 +755,6 @@ private:
     QUrl m_localTaskModulesPath;
     QPointer<ScheduleManager> m_currentScheduleManager;
 };
-
 
 }  //KPlato namespace
 

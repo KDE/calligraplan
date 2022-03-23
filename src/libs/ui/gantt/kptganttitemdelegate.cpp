@@ -223,8 +223,12 @@ QString GanttItemDelegate::toolTip(const QModelIndex &idx) const
 QVariant GanttItemDelegate::data(const QModelIndex& idx, int column, int role) const
 {
     //debugPlan<<idx<<column<<role;
-    QModelIndex i = idx.model()->index(idx.row(), column, idx.parent());
-    return i.data(role);
+    if (idx.isValid()) {
+        QModelIndex i;
+        i = idx.model()->index(idx.row(), column, idx.parent());
+        return i.data(role);
+    }
+    return QVariant();
 }
 
 QString GanttItemDelegate::itemText(const QModelIndex& idx, int type) const
@@ -455,14 +459,16 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
 
     QPen pen(QGuiApplication::palette().text().color(), 1.);
     QPen textPen = pen;
-    if (opt.state & QStyle::State_Selected) pen.setWidth(2*pen.width());
+    if (opt.state & QStyle::State_Selected) {
+        pen.setWidth(2*pen.width());
+    }
     painter->setPen(pen);
 
     qreal pw = painter->pen().width()/2.;
     switch(typ) {
     case KGantt::TypeTask:
         if (itemRect.isValid()) {
-            pw-=1;
+            //pw-=1;
             QRectF r = itemRect;
             r.translate(0., r.height()/6.);
             r.setHeight(2.*r.height()/3.);
@@ -596,7 +602,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
     case KGantt::TypeEvent:
         //debugPlan << opt.boundingRect << opt.itemRect;
         if (opt.boundingRect.isValid()) {
-            pw-=1;
+            //pw-=1;
             painter->save();
             QRectF ir = itemRect;
             // do the same as for TypeTask
@@ -735,7 +741,7 @@ void GanttItemDelegate::paintSpecialItem(QPainter* painter, const KGantt::StyleO
     case 1: // early start
         if (boundingRect.isValid()) {
             painter->setBrush(QBrush("red"));
-            pw-=1;
+            //pw-=1;
             QRectF r = boundingRect;
             r.setHeight(r.height()/3.);
             painter->setBrushOrigin(boundingRect.topLeft());
@@ -751,7 +757,7 @@ void GanttItemDelegate::paintSpecialItem(QPainter* painter, const KGantt::StyleO
     case 2: // late finish
         if (boundingRect.isValid()) {
             painter->setBrush(QBrush("blue"));
-            pw-=1;
+            //pw-=1;
             QRectF r = boundingRect;
             r.setTop(r.bottom() - r.height()/2.8);
             painter->setBrushOrigin(boundingRect.topLeft());
@@ -768,7 +774,7 @@ void GanttItemDelegate::paintSpecialItem(QPainter* painter, const KGantt::StyleO
     case 3: // late start
         if (boundingRect.isValid()) {
             painter->setBrush(QBrush("red"));
-            pw-=1;
+            //pw-=1;
             QRectF r = boundingRect;
             r.setTop(r.bottom() - r.height()/2.8);
             painter->setBrushOrigin(boundingRect.topLeft());
@@ -785,7 +791,7 @@ void GanttItemDelegate::paintSpecialItem(QPainter* painter, const KGantt::StyleO
     case 4: // early finish
         if (boundingRect.isValid()) {
             painter->setBrush(QBrush("blue"));
-            pw-=1;
+            //pw-=1;
             QRectF r = boundingRect;
             r.setHeight(r.height()/3.);
             painter->setBrushOrigin(boundingRect.topLeft());
@@ -864,8 +870,11 @@ ResourceGanttItemDelegate::ResourceGanttItemDelegate(QObject *parent)
 
 QVariant ResourceGanttItemDelegate::data(const QModelIndex& idx, int column, int role) const
 {
-    QModelIndex i = idx.model()->index(idx.row(), column, idx.parent());
-    return i.data(role);
+    if (idx.isValid()) {
+        QModelIndex i = idx.model()->index(idx.row(), column, idx.parent());
+        return i.data(role);
+    }
+    return QVariant();
 }
 
 
@@ -884,7 +893,9 @@ void ResourceGanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::
     painter->save();
 
     QPen pen = defaultPen(typ);
-    if (opt.state & QStyle::State_Selected) pen.setWidth(2*pen.width());
+    if (opt.state & QStyle::State_Selected) {
+        pen.setWidth(2*pen.width());
+    }
     painter->setPen(pen);
     painter->setBrush(defaultBrush(typ));
 
@@ -892,8 +903,8 @@ void ResourceGanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::
     switch(typ) {
     case KGantt::TypeTask:
         if (itemRect.isValid()) {
-            qreal pw = painter->pen().width()/2.;
-            pw-=1;
+            //qreal pw = painter->pen().width()/2.;
+            //pw-=1;
             QRectF r = itemRect;
             r.translate(0., r.height()/12.);
             r.setHeight(5.*r.height()/6.);
@@ -971,8 +982,8 @@ void ResourceGanttItemDelegate::paintResourceItem(QPainter* painter, const KGant
     if (! opt.itemRect.isValid()) {
         return;
     }
-    qreal pw = painter->pen().width()/2.;
-    pw-=1;
+    //qreal pw = painter->pen().width()/2.;
+    //pw-=1;
     QRectF r = opt.itemRect;
     QRectF boundingRect = opt.boundingRect;
     boundingRect.setY(r.y());

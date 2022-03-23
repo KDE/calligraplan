@@ -343,7 +343,7 @@ QTimeZone AppointmentIntervalList::timeZone() const
 AppointmentIntervalList &AppointmentIntervalList::toTimeZone(const QTimeZone &tz)
 {
     AppointmentIntervalList m;
-    for (auto interval : m_map) {
+    for (const auto &interval : qAsConst(m_map)) {
         const AppointmentInterval i(interval.startTime().toTimeZone(tz), interval.endTime().toTimeZone(tz), interval.load());
         m.add(i);
     }

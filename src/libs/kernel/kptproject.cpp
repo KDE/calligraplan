@@ -2584,6 +2584,7 @@ bool Project::registerNodeId(Node *node)
     if (rn == nullptr) {
         //debugPlan <<"id=" << node->id() << node->name();
         nodeIdDict.insert(node->id(), node);
+        connect(node, &QObject::destroyed, this, &Project::nodeDestroyed);
         return true;
     }
     if (rn != node) {
@@ -3743,6 +3744,14 @@ ulong Project::granularity() const
     auto g = sm ? sm->granularity() : 0;
     qInfo()<<Q_FUNC_INFO<<sm<<m_currentSchedule<<g;
     return g;
+}
+
+void Project::nodeDestroyed(QObject *obj)
+{
+    auto node = qobject_cast<Node*>(obj);
+    if (node) {
+        removeId(node->id());
+    }
 }
 
 }  //KPlato namespace

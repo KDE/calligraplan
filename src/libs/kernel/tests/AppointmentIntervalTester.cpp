@@ -881,8 +881,6 @@ void AppointmentIntervalTester::subtractListMidnight()
 
 void AppointmentIntervalTester::timeZones()
 {
-    QString s;
-
     QTimeZone tzCopenhagen("Europe/Copenhagen");
     AppointmentIntervalList lst1;
     DateTime dt1 = DateTime(QDate(2011, 02, 01), QTime(0, 0, 0), tzCopenhagen);

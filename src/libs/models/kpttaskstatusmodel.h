@@ -82,7 +82,7 @@ public Q_SLOTS:
     void refresh() override;
 
 Q_SIGNALS:
-    void stateChanged(Node *node);
+    void stateChanged(KPlato::Node *node);
 
 protected Q_SLOTS:
     void slotAboutToBeReset();

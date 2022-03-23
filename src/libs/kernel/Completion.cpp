@@ -374,7 +374,9 @@ void Completion::addUsedEffort(const Resource *resource, Completion::UsedEffort 
     UsedEffort *v = value == nullptr ? new UsedEffort() : value;
     if (m_usedEffort.contains(resource)) {
         m_usedEffort[ resource ]->mergeEffort(*v);
-        delete v;
+        if (v != value) {
+            delete v;
+        }
     } else {
         m_usedEffort.insert(resource, v);
     }

@@ -142,6 +142,8 @@ public:
     qreal rowLabelsWidth(const QPaintDevice *device) const;
     QRectF calcSceneRect(const QDateTime &startDateTime, const QDateTime &endDateTime) const;
 
+    int lastPageNumber() const;
+
 protected Q_SLOTS:
     void slotPrintRowLabelsToogled(bool on);
     void slotSinglePageToogled(bool on);

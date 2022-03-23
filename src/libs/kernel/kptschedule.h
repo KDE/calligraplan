@@ -191,7 +191,7 @@ public:
     void setEarliestStart(DateTime &dt) { earlyStart = dt; }
     void setLatestFinish(DateTime &dt) { lateFinish = dt; }
 
-    virtual void initiateCalculation();
+    void initiateCalculation();
     virtual void calcResourceOverbooked();
     
     virtual void insertHardConstraint(Node *) {}

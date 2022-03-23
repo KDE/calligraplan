@@ -636,12 +636,12 @@ DateTimeInterval Resource::requiredAvailable(Schedule *node, const DateTime &sta
 void Resource::makeAppointment(Schedule *node, const DateTime &from, const DateTime &end, int load, const QList<Resource*> &required) {
     //debugPlan<<"node id="<<node->id()<<" mode="<<node->calculationMode()<<""<<from<<" -"<<end;
     if (!from.isValid() || !end.isValid()) {
-        m_currentSchedule->logWarning(i18n("Make appointments: Invalid time"));
+        if (m_currentSchedule) m_currentSchedule->logWarning(i18n("Make appointments: Invalid time"));
         return;
     }
     Calendar *cal = calendar();
     if (cal == nullptr) {
-        m_currentSchedule->logWarning(i18n("Resource %1 has no calendar defined", m_name));
+        if (m_currentSchedule) m_currentSchedule->logWarning(i18n("Resource %1 has no calendar defined", m_name));
         return;
     }
 #ifndef PLAN_NLOGDEBUG
@@ -665,16 +665,16 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
     //debugPlan<<m_name<<": id="<<m_currentSchedule->id()<<" mode="<<m_currentSchedule->calculationMode()<<node->node()->name()<<": id="<<node->id()<<" mode="<<node->calculationMode()<<""<<node->startTime;
     QLocale locale;
     if (!node->startTime.isValid()) {
-        m_currentSchedule->logWarning(i18n("Make appointments: Node start time is not valid"));
+        if (m_currentSchedule) m_currentSchedule->logWarning(i18n("Make appointments: Node start time is not valid"));
         return;
     }
     if (!node->endTime.isValid()) {
-        m_currentSchedule->logWarning(i18n("Make appointments: Node end time is not valid"));
+        if (m_currentSchedule) m_currentSchedule->logWarning(i18n("Make appointments: Node end time is not valid"));
         return;
     }
     if (m_type == Type_Team) {
 #ifndef PLAN_NLOGDEBUG
-        m_currentSchedule->logDebug(QStringLiteral("Make appointments to team ") + m_name);
+        if (m_currentSchedule) m_currentSchedule->logDebug(QStringLiteral("Make appointments to team ") + m_name);
 #endif
         Duration e;
         const auto resources = teamMembers();
@@ -702,21 +702,21 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
         return;
     }
     if (!cal) {
-        m_currentSchedule->logWarning(i18n("Resource %1 has no calendar defined", m_name));
+        if (m_currentSchedule) m_currentSchedule->logWarning(i18n("Resource %1 has no calendar defined", m_name));
         return; 
     }
     DateTime time = node->startTime;
     DateTime end = node->endTime;
     if (time == end) {
 #ifndef PLAN_NLOGDEBUG
-        m_currentSchedule->logDebug(QStringLiteral("Task '%1' start time == end time: %2").arg(node->node()->name(), time.toString(Qt::ISODate)));
+       if (m_currentSchedule)  m_currentSchedule->logDebug(QStringLiteral("Task '%1' start time == end time: %2").arg(node->node()->name(), time.toString(Qt::ISODate)));
 #endif
         node->resourceNotAvailable = true;
         return;
     }
     time = availableAfter(time, end);
     if (!time.isValid()) {
-        m_currentSchedule->logWarning(i18n("Resource %1 not available in interval: %2 to %3", m_name, locale.toString(node->startTime, QLocale::ShortFormat), locale.toString(end, QLocale::ShortFormat)));
+        if (m_currentSchedule) m_currentSchedule->logWarning(i18n("Resource %1 not available in interval: %2 to %3", m_name, locale.toString(node->startTime, QLocale::ShortFormat), locale.toString(end, QLocale::ShortFormat)));
         node->resourceNotAvailable = true;
         return;
     }
@@ -733,7 +733,7 @@ void Resource::makeAppointment(Schedule *node, int load, const QList<Resource*> 
         }
     }
     if (!end.isValid()) {
-        m_currentSchedule->logWarning(i18n("Resource %1 not available in interval: %2 to %3", m_name, locale.toString(time, QLocale::ShortFormat), locale.toString(node->endTime, QLocale::ShortFormat)));
+        if (m_currentSchedule) m_currentSchedule->logWarning(i18n("Resource %1 not available in interval: %2 to %3", m_name, locale.toString(time, QLocale::ShortFormat), locale.toString(node->endTime, QLocale::ShortFormat)));
         node->resourceNotAvailable = true;
         return;
     }

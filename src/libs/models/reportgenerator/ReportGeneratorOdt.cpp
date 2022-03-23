@@ -292,7 +292,7 @@ ReportGeneratorOdt::~ReportGeneratorOdt()
         }
     }
     qDeleteAll(m_basemodels);
-    close();
+    delete m_templateStore;
 }
 
 void ReportGeneratorOdt::addDataModel(const QString &name, QAbstractItemModel *model, int role)

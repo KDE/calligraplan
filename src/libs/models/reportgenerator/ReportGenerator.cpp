@@ -26,7 +26,7 @@ ReportGenerator::ReportGenerator()
 
 ReportGenerator::~ReportGenerator()
 {
-    close();
+    delete m_reportGenerator;
 }
 
 void ReportGenerator::setReportType(const QString &type)

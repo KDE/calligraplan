@@ -3103,7 +3103,7 @@ ModifyProjectLocaleCmd::ModifyProjectLocaleCmd(Project &project, const KUndo2Mag
     : MacroCommand(name),
     m_project(project)
 {
-};
+}
 void ModifyProjectLocaleCmd::execute()
 {
     MacroCommand::execute();
@@ -3121,7 +3121,7 @@ ModifyCurrencySymolCmd::ModifyCurrencySymolCmd(Locale *locale, const QString &va
     m_newvalue(value),
     m_oldvalue(locale->currencySymbol())
 {
-};
+}
 void ModifyCurrencySymolCmd::execute()
 {
     m_locale->setCurrencySymbol(m_newvalue);
@@ -3137,7 +3137,7 @@ ModifyCurrencyFractionalDigitsCmd::ModifyCurrencyFractionalDigitsCmd(Locale *loc
     m_newvalue(value),
     m_oldvalue(locale->monetaryDecimalPlaces())
 {
-};
+}
 void ModifyCurrencyFractionalDigitsCmd::execute()
 {
     m_locale->setMonetaryDecimalPlaces(m_newvalue);

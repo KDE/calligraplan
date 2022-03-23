@@ -195,10 +195,11 @@ bool WorkPackageProxyModel::canDropMimeData(const QMimeData *data, Qt::DropActio
 {
     Q_UNUSED(action);
     Q_UNUSED(row);
+    Q_UNUSED(column)
     Q_UNUSED(parent);
 
     if (data->hasFormat(QStringLiteral("text/uri-list"))) {
-        const auto files = QString(QLatin1String(data->data(QStringLiteral("text/uri-list")))).split(QStringLiteral("\r\n"), Qt::SkipEmptyParts);
+        const auto files = QString::fromUtf8(data->data(QStringLiteral("text/uri-list"))).split(QStringLiteral("\r\n"), Qt::SkipEmptyParts);
         for (const QString &f : files) {
             if (f.endsWith(QStringLiteral(".planwork"))) {
                 return true;
@@ -218,7 +219,7 @@ bool WorkPackageProxyModel::dropMimeData(const QMimeData *data, Qt::DropAction a
     }
     if (data->hasFormat(QStringLiteral("text/uri-list"))) {
         QStringList files;
-        const auto uris = QString(QLatin1String(data->data(QStringLiteral("text/uri-list")))).split(QStringLiteral("\r\n"), Qt::SkipEmptyParts);
+        const auto uris = QString::fromUtf8(data->data(QStringLiteral("text/uri-list"))).split(QStringLiteral("\r\n"), Qt::SkipEmptyParts);
         for (const QString &f : uris) {
             if (f.endsWith(QStringLiteral(".planwork"))) {
                 files << f;

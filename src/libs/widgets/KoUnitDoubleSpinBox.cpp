@@ -41,7 +41,7 @@ KoUnitDoubleSpinBox::KoUnitDoubleSpinBox(QWidget *parent)
 {
     QDoubleSpinBox::setDecimals(2);
     //setAcceptLocalizedNumbers(true);
-    setUnit(KoUnit(KoUnit::Point));
+    KoUnitDoubleSpinBox::setUnit(KoUnit(KoUnit::Point));
     setAlignment(Qt::AlignRight);
 
     connect(this, SIGNAL(valueChanged(double)), SLOT(privateValueChanged()));
@@ -102,7 +102,7 @@ QValidator::State KoUnitDoubleSpinBox::validate(QString &input, int &pos) const
         return QValidator::Invalid;
     }
     newVal = KoUnit::ptToUnit(newVal, d->unit);
-    //input = textFromValue(newVal); // don't overwrite for now; the effect is not exactly what I expect...
+    //input = textFromValue(newVal); // FIXME: don't overwrite for now; the effect is not exactly what I expect...
 
     return QValidator::Acceptable;
 }

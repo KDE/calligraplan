@@ -89,7 +89,9 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
         // Allow for both numeric and text
         s = projectElement.attribute(QStringLiteral("scheduling"), QString::number(0));
         int constraint = s.toInt(&ok);
-        if (!ok) {
+        if (ok) {
+            project->setConstraint(static_cast<Node::ConstraintType>(constraint));
+        } else {
             project->setConstraint(s);
         }
         constraint = project->constraint();

@@ -132,7 +132,9 @@ public:
     void printingDone() {
 
         // printing done!
-        painter->end();
+        if (painter) {
+            painter->end();
+        }
         progress->cancel();
         parent->printingDone();
         pageNumber->setText(i18n("Printing done"));

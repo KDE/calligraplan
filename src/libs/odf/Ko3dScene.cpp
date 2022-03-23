@@ -56,6 +56,8 @@ public:
 
 
 Ko3dScene::Lightsource::Lightsource()
+    : m_enabled(false)
+    , m_specular(false)
 {
 }
 

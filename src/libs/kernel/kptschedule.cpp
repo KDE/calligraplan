@@ -1110,7 +1110,7 @@ DateTimeInterval ResourceSchedule::available(const DateTimeInterval &interval) c
     }
     DateTimeInterval ci(interval.first.toTimeZone(projectTimeZone), interval.second.toTimeZone(projectTimeZone));
     Appointment a;
-    if (checkExternalAppointments()) {
+    if (checkExternalAppointments() && m_resource) {
         a.setIntervals(m_resource->externalAppointments(ci));
     }
     a.merge(appointmentIntervals(m_calculationMode, ci));
