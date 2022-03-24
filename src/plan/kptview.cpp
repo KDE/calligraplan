@@ -43,8 +43,9 @@
 #include <ktoolbar.h>
 #include <kxmlguifactory.h>
 #include <ktoggleaction.h>
-#include <ktoolinvocation.h>
-#include <krun.h>
+
+#include <KEMailClientLauncherJob>
+#include <KDialogJobUiDelegate>
 
 #include <KoPart.h>
 #include <KoComponentData.h>
@@ -2178,35 +2179,6 @@ void View::workPackageMergeDialogFinished(int result)
     }
 }
 
-
-void View::slotMailWorkpackage(Node *node, Resource *resource)
-{
-    debugPlan;
-    QTemporaryFile tmpfile(QDir::tempPath() + QStringLiteral("/calligraplanwork_XXXXXX") + QStringLiteral(".planwork"));
-    tmpfile.setAutoRemove(false);
-    if (! tmpfile.open()) {
-        debugPlan<<"Failed to open file";
-        KMessageBox::error(nullptr, i18n("Failed to open temporary file"));
-        return;
-    }
-    QUrl url = QUrl::fromLocalFile(tmpfile.fileName());
-    if (! getPart()->saveWorkPackageUrl(url, node, activeScheduleId(), resource)) {
-        debugPlan<<"Failed to save to file";
-        KMessageBox::error(nullptr, xi18nc("@info", "Failed to save to temporary file:<br/> <filename>%1</filename>", url.url()));
-        return;
-    }
-    QStringList attachURLs;
-    attachURLs << url.url();
-    QString to = resource == nullptr ? node->leader() : (resource->name() + QStringLiteral(" <") + resource->email() + QLatin1Char('>'));
-    QString cc;
-    QString bcc;
-    QString subject = i18n("Work Package: %1", node->name());
-    QString body = i18nc("1=project name, 2=task name", "%1\n%2", getProject().name(), node->name());
-    QString messageFile;
-
-    KToolInvocation::invokeMailer(to, cc, bcc, subject, body, messageFile, attachURLs);
-}
-
 void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource, bool mailTo)
 {
     debugPlanWp<<resource<<nodes;
@@ -2216,7 +2188,7 @@ void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource
     }
     bool mail = mailTo;
     QString body;
-    QStringList attachURLs;
+    QList<QUrl> attachURLs;
 
     QString path;
     if (getProject().workPackageInfo().publishUrl.isValid()) {
@@ -2241,18 +2213,21 @@ void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource
             KMessageBox::error(nullptr, xi18nc("@info", "Failed to save to temporary file:<br/><filename>%1</filename>", url.url()));
             return;
         }
-        attachURLs << url.url();
+        attachURLs << url;
         body += n->name() + QLatin1Char('\n');
     }
     if (mail) {
         debugPlanWp<<attachURLs;
         QString to = resource->name() + QStringLiteral(" <") + resource->email() + QLatin1Char('>');
         QString subject = i18n("Work Package for project: %1", getProject().name());
-        QString cc;
-        QString bcc;
-        QString messageFile;
 
-        KToolInvocation::invokeMailer(to, cc, bcc, subject, body, messageFile, attachURLs);
+        auto job = new KEMailClientLauncherJob();
+        job->setTo(QStringList()<<to);
+        job->setSubject(subject);
+        job->setBody(body);
+        job->setAttachments(attachURLs);
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+        job->start();
     }
 }
 

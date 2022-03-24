@@ -202,7 +202,6 @@ protected Q_SLOTS:
     void slotUpdateSharedResources();
 
     void slotWorkPackageLoaded();
-    void slotMailWorkpackage(KPlato::Node *node, KPlato::Resource *resource = nullptr);
     void slotPublishWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource, bool mailTo);
 
     void createReportView(const QDomDocument &doc);
