@@ -254,18 +254,14 @@ void ResourceTester::team()
         QCOMPARE(r11->teamMembers().at(1), r13);
 
         // xml
-        QDomDocument qdoc;
-        QDomElement e = qdoc.createElement(QStringLiteral("plan"));
-        qdoc.appendChild(e);
-        p1.save(e, XmlSaveContext());
+        XmlSaveContext context(&p1);
+        context.save();
 
         KoXmlDocument xdoc;
-        xdoc.setContent(qdoc.toString());
+        xdoc.setContent(context.document.toByteArray());
         XMLLoaderObject sts;
 
         Project p3;
-        sts.setProject(&p3);
-        sts.setVersion(PLAN_FILE_SYNTAX_VERSION);
         sts.loadProject(&p3, xdoc);
 
         QCOMPARE(p3.numResourceGroups(), 1);
@@ -380,21 +376,17 @@ void ResourceTester::team()
         QCOMPARE(r11->teamMembers().at(1), r13);
 
         // xml
-        QDomDocument qdoc;
-        QDomElement e = qdoc.createElement(QStringLiteral("plan"));
-        qdoc.appendChild(e);
-        p1.save(e, XmlSaveContext());
+        XmlSaveContext context(&p1);
+        context.save();
 
         KoXmlDocument xdoc;
-        xdoc.setContent(qdoc.toString());
-        XMLLoaderObject sts;
+        xdoc.setContent(context.document.toByteArray());
 
+        XMLLoaderObject sts;
         Project p3;
-        sts.setProject(&p3);
-        sts.setVersion(PLAN_FILE_SYNTAX_VERSION);
         sts.loadProject(&p3, xdoc);
 
-        QCOMPARE(p3.numResourceGroups(), 2);
+        QCOMPARE(p3.numResourceGroups(), p1.numResourceGroups());
         ResourceGroup *g3 = p3.resourceGroupAt(0);
         QCOMPARE(g3->numResources(), 1);
         ResourceGroup *mg3 = p3.resourceGroupAt(1);
@@ -577,6 +569,7 @@ void ResourceTester::required()
         delete c1;
 
         ResourceGroup *g3 = p4.resourceGroupAt(0);
+        QVERIFY(g3);
 
         c2 = new AddResourceCmd(&p4, new Resource());
         c2->redo();
@@ -621,20 +614,18 @@ void ResourceTester::required()
         QCOMPARE(r10->requiredResources().at(1), r12);
 
         // using xml
-        QDomDocument qdoc;
-        QDomElement e = qdoc.createElement(QStringLiteral("plan"));
-        qdoc.appendChild(e);
-        p4.save(e, XmlSaveContext());
+        XmlSaveContext context(&p4);
+        context.save();
 
         KoXmlDocument xdoc;
-        xdoc.setContent(qdoc.toString());
+        xdoc.setContent(context.document.toByteArray());
 
         Project p5;
         XMLLoaderObject sts;
         sts.setProject(&p5);
-        sts.setVersion(PLAN_FILE_SYNTAX_VERSION);
         sts.loadProject(&p5, xdoc);
 
+        QCOMPARE(p5.numResourceGroups(), p4.numResourceGroups());
         ResourceGroup *g4 = p5.resourceGroupAt(0);
         QVERIFY(g4);
         QCOMPARE(g4->numResources(), 1);

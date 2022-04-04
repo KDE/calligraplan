@@ -4,6 +4,7 @@ include_directories(
     ${PLANWIDGETS_INCLUDES}
     ${PLANODF_INCLUDES}
     ${PLANKUNDO2_INCLUDES}
+    ${PLANMAIN_INCLUDES}
     ${CMAKE_CURRENT_SOURCE_DIR}/commands
 )
 

@@ -7,6 +7,8 @@
 // clazy:excludeall=qstring-arg
 #include "InsertProjectXmlCommand.h"
 
+#include <MimeTypes.h>
+#include "ProjectLoaderBase.h"
 #include "kptaccount.h"
 #include "kptappointment.h"
 #include "kptproject.h"
@@ -91,7 +93,8 @@ void InsertProjectXmlCommand::execute()
         int col = 0;
         doc.setContent(QString::fromLatin1(m_data), &err, &line, &col);
         if (!err.isEmpty()) debugPlanXml<<Q_FUNC_INFO<<err<<line<<col;
-        m_context.setVersion(doc.documentElement().attribute(QStringLiteral("plan-version"), PLAN_FILE_SYNTAX_VERSION));
+        m_context.setMimetype(doc.documentElement().attribute(QStringLiteral("mime"), PLAN_MIME_TYPE));
+        m_context.setVersion(doc.documentElement().attribute(QStringLiteral("version"), PLAN_FILE_SYNTAX_VERSION));
         KoXmlElement projectElement = doc.documentElement().namedItem("project").toElement();
 
         createCmdAccounts(projectElement);

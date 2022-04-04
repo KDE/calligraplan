@@ -58,7 +58,7 @@ bool KPlato::ProjectLoader_v0::load(KPlato::XMLLoaderObject& context, const KoXm
 
 bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement, XMLLoaderObject &status)
 {
-    //debugPlanXml<<"--->";
+    debugPlanXml<<"--->";
     QString s;
     bool ok = false;
     if (projectElement.hasAttribute(QStringLiteral("name"))) {
@@ -129,7 +129,7 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
         load(project->documents(), e, status);
     }
     // Do calendars first, they only reference other calendars
-    //debugPlanXml<<"Calendars--->";
+    debugPlanXml<<"Calendars--->";
     if (status.version() < QStringLiteral("0.7.0")) {
         e = projectElement;
     } else {
@@ -346,6 +346,9 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
         e = projectElement;
     } else {
         e = projectElement.namedItem(QStringLiteral("tasks")).toElement();
+        if (e.isNull()) {
+            warnPlanXml<<status.version()<<"No tasks";
+        }
     }
     if (!e.isNull()) {
         debugPlanXml<<status.version()<<"tasks:"<<e.tagName();
@@ -380,56 +383,7 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
     // These go last
     e = projectElement.namedItem(QStringLiteral("accounts")).toElement();
     if (!load(project->accounts(), e, status)) {
-        errorPlanXml << "Failed to load accounts";
-    }
-
-    n = projectElement.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        //debugPlanXml<<n.isElement();
-        if (! n.isElement()) {
-            continue;
-        }
-        if (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("relation")) {
-            debugPlanXml<<status.version()<<e.tagName();
-            // Load the relation
-            // References tasks
-            Relation *child = new Relation();
-            if (!load(child, e, status)) {
-                // TODO: Complain about this
-                errorPlanXml << "Failed to load relation";
-                delete child;
-            }
-            //debugPlanXml<<"Relation<---";
-        } else if (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("resource-requests")) {
-            // NOTE: Not supported: request to project (or sub-project)
-            Q_ASSERT(false);
-        } else if (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("wbs-definition")) {
-            load(project->wbsDefinition(), e, status);
-        } else if (e.tagName() == QStringLiteral("locale")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("resource-group")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("calendar")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("standard-worktime")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("project")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("task")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("shared-resources")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("documents")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("workpackageinfo")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("task-modules")) {
-            // handled earlier
-        } else if (e.tagName() == QStringLiteral("accounts")) {
-            // handled earlier
-        } else {
-            warnPlanXml<<"Unhandled tag:"<<e.tagName();
-        }
+        warnPlanXml << "Failed to load accounts";
     }
     if (status.version() < QStringLiteral("0.7.0")) {
         e = projectElement.namedItem(QStringLiteral("schedules")).toElement();
@@ -499,7 +453,7 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
     if (status.version() >= QStringLiteral("0.7.0")) {
         e = projectElement.namedItem(QStringLiteral("relations")).toElement();
     }
-    debugPlanXml<<status.version()<<e.tagName();
+    debugPlanXml<<status.version()<<"relations:"<<e.tagName();
     if (!e.isNull()) {
         KoXmlElement de;
         forEachElement(de, e) {
@@ -601,7 +555,7 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
             }
         }
     }
-    //debugPlanXml<<"<---";
+    debugPlanXml<<"<---";
 
     status.setProgress(90);
     //printProjectStatistics(status);
@@ -1299,7 +1253,6 @@ bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &elemen
         int g = element.attribute(QStringLiteral("granularity")).toInt();
         plugin->setGranularityIndex(g);
     }
-    qInfo()<<Q_FUNC_INFO<<manager<<manager->schedulerPluginId()<<manager->schedulerPlugin()<<status.project().schedulerPlugins();
     manager->setRecalculate((bool)(element.attribute(QStringLiteral("recalculate")).toInt()));
     manager->setRecalculateFrom(DateTime::fromString(element.attribute(QStringLiteral("recalculate-from")), status.projectTimeZone()));
     if (element.hasAttribute(QStringLiteral("scheduling-mode"))) {
@@ -1676,7 +1629,7 @@ bool ProjectLoader_v0::loadWpLog(WorkPackage *wp, KoXmlElement& element, XMLLoad
 
 bool ProjectLoader_v0::load(Completion &completion, const KoXmlElement& element, XMLLoaderObject& status)
 {
-    debugPlanXml<<"completion";
+    debugPlanXml<<element.tagName();
     QString s;
     completion.setStarted((bool)element.attribute(QStringLiteral("started"), QString::number(0)).toInt());
     completion.setFinished((bool)element.attribute(QStringLiteral("finished"), QString::number(0)).toInt());
@@ -1705,36 +1658,38 @@ bool ProjectLoader_v0::load(Completion &completion, const KoXmlElement& element,
     } else {
         KoXmlElement e;
         forEachElement(e, element) {
-                if (e.tagName() == QStringLiteral("completion-entry")) {
-                    QDate date;
-                    s = e.attribute(QStringLiteral("date"));
-                    if (!s.isEmpty()) {
-                        date = QDate::fromString(s, Qt::ISODate);
-                    }
-                    if (!date.isValid()) {
-                        warnPlanXml<<"Invalid date: "<<date<<s;
-                        continue;
-                    }
-                    const auto remaining = Duration::fromString(e.attribute(QStringLiteral("remaining-effort")));
-                    const auto performed = Duration::fromString(e.attribute(QStringLiteral("performed-effort")));
-                    Completion::Entry *entry = new Completion::Entry(e.attribute(QStringLiteral("percent-finished"), QString::number(0)).toInt(), remaining, performed);
-                    completion.addEntry(date, entry);
-                } else if (e.tagName() == QStringLiteral("used-effort")) {
-                    KoXmlElement el;
-                    forEachElement(el, e) {
-                            if (el.tagName() == QStringLiteral("resource")) {
-                                QString id = el.attribute(QStringLiteral("id"));
-                                Resource *r = status.project().resource(id);
-                                if (r == nullptr) {
-                                    warnPlanXml<<"Cannot find resource, id="<<id;
-                                    continue;
-                                }
-                                Completion::UsedEffort *ue = new Completion::UsedEffort();
-                                completion.addUsedEffort(r, ue);
-                                load(ue, el, status);
-                            }
+            if (e.tagName() == QStringLiteral("completion-entry")) {
+                QDate date;
+                s = e.attribute(QStringLiteral("date"));
+                if (!s.isEmpty()) {
+                    date = QDate::fromString(s, Qt::ISODate);
+                }
+                if (!date.isValid()) {
+                    warnPlanXml<<"Invalid date: "<<date<<s;
+                    continue;
+                }
+                const auto remaining = Duration::fromString(e.attribute(QStringLiteral("remaining-effort")));
+                const auto performed = Duration::fromString(e.attribute(QStringLiteral("performed-effort")));
+                Completion::Entry *entry = new Completion::Entry(e.attribute(QStringLiteral("percent-finished"), QString::number(0)).toInt(), remaining, performed);
+                completion.addEntry(date, entry);
+                debugPlanXml<<e.tagName()<<date<<entry;
+            } else if (e.tagName() == QStringLiteral("used-effort")) {
+                KoXmlElement el;
+                forEachElement(el, e) {
+                    if (el.tagName() == QStringLiteral("resource")) {
+                        QString id = el.attribute(QStringLiteral("id"));
+                        Resource *r = status.project().resource(id);
+                        if (r == nullptr) {
+                           warnPlanXml<<"Cannot find resource, id="<<id;
+                           continue;
+                        }
+                        Completion::UsedEffort *ue = new Completion::UsedEffort();
+                        completion.addUsedEffort(r, ue);
+                        load(ue, el, status);
+                        debugPlanXml<<e.tagName()<<r<<ue->actualEffortMap();
                     }
                 }
+            }
         }
     }
     return true;
@@ -1829,17 +1784,18 @@ bool ProjectLoader_v0::load(AppointmentInterval& interval, const KoXmlElement& e
 
 void KPlato::ProjectLoader_v0::printProjectStatistics(const XMLLoaderObject& status)
 {
-    qDebug()<<Q_FUNC_INFO<<status.version();
+    qDebug()<<Q_FUNC_INFO<<status.version()<<"-----";
     Project *p = &status.project();
     qDebug()<<p;
     //qDebug()<<p->accounts();
-    qDebug()<<p->allCalendars();
-    qDebug()<<p->resourceGroups();
-    qDebug()<<p->resourceList();
-    qDebug()<<p->allScheduleManagers();
-    qDebug()<<"project-schedules:"<<p->schedules();
+    qDebug()<<"calendars:\t"<<p->allCalendars();
+    qDebug()<<"resourcegroups:\t"<<p->resourceGroups();
+    qDebug()<<"resources:\t"<<p->resourceList();
+    qDebug()<<"managers:\t"<<p->allScheduleManagers();
+    qDebug()<<"schedules:\t"<<p->schedules();
     const auto tasks = p->allTasks();
     for (const auto t : tasks) {
         qDebug()<<t<<'s'<<t->isScheduled(ANYSCHEDULED)<<t->startTime(ANYSCHEDULED)<<'-'<<t->endTime(ANYSCHEDULED)<<t->schedules();
     }
+    qDebug()<<"-----";
 }
