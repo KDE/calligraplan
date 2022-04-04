@@ -2059,20 +2059,29 @@ void Project::saveWorkPackageXML(QDomElement &element, const Node *node, long id
     me.setAttribute(QStringLiteral("start-time"), m_constraintStartTime.toString(Qt::ISODate));
     me.setAttribute(QStringLiteral("end-time"), m_constraintEndTime.toString(Qt::ISODate));
 
-    QListIterator<ResourceGroup*> git(m_resourceGroups);
-    while (git.hasNext()) {
-        git.next() ->saveWorkPackageXML(me, node->assignedResources(id));
-    }
-
     if (node == nullptr) {
         return;
     }
-    node->saveWorkPackageXML(me, id);
+    const auto assignedResources = node->assignedResources(id);
+    debugPlanWp<<"save resources"<<assignedResources;
+    if (!assignedResources.isEmpty()) {
+        auto resourcesElemente = me.ownerDocument().createElement(QStringLiteral("resources"));
+        me.appendChild(resourcesElemente);
+        for (const auto r : qAsConst(m_resources)) {
+            if (assignedResources.contains(r)) {
+                r->save(resourcesElemente);
+            }
+        }
+    }
+    auto tasksElement = element.ownerDocument().createElement(QStringLiteral("tasks"));
+    me.appendChild(tasksElement);
+
+    node->saveWorkPackageXML(tasksElement, id);
 
     const auto managers = m_managerIdMap.values();
     for (ScheduleManager *sm : managers) {
         if (sm->scheduleId() == id) {
-            QDomElement el = me.ownerDocument().createElement(QStringLiteral("schedules"));
+            QDomElement el = me.ownerDocument().createElement(QStringLiteral("project-schedules"));
             me.appendChild(el);
             sm->saveWorkPackageXML(el, *node);
             break;

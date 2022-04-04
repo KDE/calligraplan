@@ -2186,37 +2186,17 @@ void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource
         warnPlan<<"No resource, we don't handle node->leader() yet";
         return;
     }
-    bool mail = mailTo;
-    QString body;
-    QList<QUrl> attachURLs;
+    QList<QUrl> attachURLs = getPart()->publishWorkpackages(nodes, resource, activeScheduleId());
+    if (!getPart()->errorMessage().isEmpty()) {
+         KMessageBox::sorry(nullptr, getPart()->errorMessage());
+         return;
+    }
+    if (mailTo) {
+        QString body;
+        for (const auto n : nodes) {
+            body += n->name() + QLatin1Char('\n');
+        }
 
-    QString path;
-    if (getProject().workPackageInfo().publishUrl.isValid()) {
-        path = getProject().workPackageInfo().publishUrl.path();
-        debugPlanWp<<"publish:"<<path;
-    } else {
-        path = QDir::tempPath();
-        mail = true;
-    }
-    for (Node *n : nodes) {
-        QTemporaryFile tmpfile(path + QStringLiteral("/calligraplanwork_XXXXXX") + QStringLiteral(".planwork"));
-        tmpfile.setAutoRemove(false);
-        if (! tmpfile.open()) {
-            debugPlanWp<<"Failed to open file";
-            KMessageBox::error(nullptr, i18n("Failed to open work package file"));
-            return;
-        }
-        QUrl url = QUrl::fromLocalFile(tmpfile.fileName());
-        debugPlanWp<<url;
-        if (! getPart()->saveWorkPackageUrl(url, n, activeScheduleId(), resource)) {
-            debugPlan<<"Failed to save to file";
-            KMessageBox::error(nullptr, xi18nc("@info", "Failed to save to temporary file:<br/><filename>%1</filename>", url.url()));
-            return;
-        }
-        attachURLs << url;
-        body += n->name() + QLatin1Char('\n');
-    }
-    if (mail) {
         debugPlanWp<<attachURLs;
         QString to = resource->name() + QStringLiteral(" <") + resource->email() + QLatin1Char('>');
         QString subject = i18n("Work Package for project: %1", getProject().name());

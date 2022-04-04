@@ -14,5 +14,10 @@ Package::Package()
     : task(nullptr)
     , toTask(nullptr)
 {
+    qInfo()<<Q_FUNC_INFO<<this;
 }
 
+Package::~Package()
+{
+    qInfo()<<Q_FUNC_INFO<<this;
+}

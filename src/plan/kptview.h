@@ -174,6 +174,8 @@ public Q_SLOTS:
 
     /// Load the workpackages from @p urls into @p project.
     void loadWorkPackage(KPlato::Project *project, const QList<QUrl> &urls);
+    /// Publish workpackages
+    void slotPublishWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource, bool mailTo);
 
     void slotCreateTemplate();
 
@@ -202,7 +204,6 @@ protected Q_SLOTS:
     void slotUpdateSharedResources();
 
     void slotWorkPackageLoaded();
-    void slotPublishWorkpackages(const QList<KPlato::Node*> &nodes, KPlato::Resource *resource, bool mailTo);
 
     void createReportView(const QDomDocument &doc);
 

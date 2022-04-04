@@ -314,21 +314,6 @@ void ResourceGroup::save(QDomElement &element)  const {
     }
 }
 
-void ResourceGroup::saveWorkPackageXML(QDomElement &element, const QList<Resource*> &lst) const
-{
-    QDomElement me = element.ownerDocument().createElement(QStringLiteral("resource-group"));
-    element.appendChild(me);
-
-    me.setAttribute(QStringLiteral("id"), m_id);
-    me.setAttribute(QStringLiteral("name"), m_name);
-
-    for (Resource *r : qAsConst(m_resources)) {
-        if (lst.contains(r)) {
-            r->save(me);
-        }
-    }
-}
-
 void ResourceGroup::initiateCalculation(Schedule &sch) {
     clearNodes();
 }

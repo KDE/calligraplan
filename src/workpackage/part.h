@@ -13,7 +13,8 @@
 
 #include "planwork_export.h"
 
-#include "kptxmlloaderobject.h"
+#include <kptxmlloaderobject.h>
+#include <kptnode.h>
 
 #include <KoDocument.h>
 
@@ -123,12 +124,17 @@ class PLANWORK_EXPORT Part : public KParts::ReadWritePart
     Q_OBJECT
 
 public:
+    /// Create a part with a view, the view will have @p parentWidget as parent
     explicit Part(QWidget *parentWidget, QObject *parent, const QVariantList & /*args*/ = QVariantList());
+    /// Create a view less part, with no gui messageboxes,
+    /// unless you setNoGui(false)
+    explicit Part(QObject *parent = nullptr);
     ~Part() override;
 
     int docType(const KPlato::Document *doc) const;
-    
+
     bool loadWorkPackages();
+    bool loadWorkPackage(const QString &fileName);
     virtual bool loadXML(const KoXmlDocument &document, KoStore *store);
     virtual QDomDocument saveXML();
     
@@ -199,6 +205,8 @@ public:
     KUndo2QStack *undoStack() const { return m_undostack; }
     int commandIndex() const { return m_undostack->index(); }
 
+    void setNoGui(bool nogui);
+
 public Q_SLOTS:
     /**
      * Called by the undo stack when the document is saved or all changes has been undone
@@ -244,8 +252,7 @@ private:
     bool m_loadingFromProjectStore;
 
     KUndo2QStack *m_undostack;
-
-
+    bool m_nogui;
 };
 
 

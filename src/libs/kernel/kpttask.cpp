@@ -569,7 +569,13 @@ void Task::saveWorkPackageXML(QDomElement &element, long id)  const
     m_estimate->save(me);
 
     completion().saveXML(me);
-
+    if (id == ANYSCHEDULED) {
+        for (const auto s : m_schedules) {
+            if (!s->isDeleted()) {
+                id = s->id();
+            }
+        }
+    }
     if (m_schedules.contains(id) && ! m_schedules[ id ]->isDeleted()) {
         QDomElement schs = me.ownerDocument().createElement(QStringLiteral("task-schedules"));
         me.appendChild(schs);

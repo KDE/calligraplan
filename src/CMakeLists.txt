@@ -108,3 +108,5 @@ add_subdirectory( workpackage )
 add_subdirectory(portfolio)
 
 add_subdirectory(convert)
+
+add_subdirectory(tests)

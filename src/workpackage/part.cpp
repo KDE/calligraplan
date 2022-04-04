@@ -44,7 +44,7 @@
 #include <QApplication>
 
 #include <KLocalizedString>
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <kparts/partmanager.h>
 #include <kopenwithdialog.h>
 #include <kmimetypetrader.h>
@@ -310,7 +310,8 @@ Part::Part(QWidget *parentWidget, QObject *parent, const QVariantList & /*args*/
     m_xmlLoader(),
     m_modified(false),
     m_loadingFromProjectStore(false),
-    m_undostack(new KUndo2QStack(this))
+    m_undostack(new KUndo2QStack(this)),
+    m_nogui(false)
 {
     debugPlanWork;
     setComponentName(Factory::global().componentName(), Factory::global().componentDisplayName());
@@ -325,6 +326,27 @@ Part::Part(QWidget *parentWidget, QObject *parent, const QVariantList & /*args*/
     connect(m_view, &View::viewDocument, this, &Part::viewWorkpackageDocument);
 
     loadWorkPackages();
+
+    connect(m_undostack, &KUndo2QStack::cleanChanged, this, &Part::setDocumentClean);
+
+}
+
+Part::Part(QObject *parent)
+    : KParts::ReadWritePart(parent),
+    m_view(nullptr),
+    m_xmlLoader(),
+    m_modified(false),
+    m_loadingFromProjectStore(false),
+    m_undostack(new KUndo2QStack(this)),
+    m_nogui(true)
+{
+    debugPlanWork;
+    setComponentName(Factory::global().componentName(), Factory::global().componentDisplayName());
+    if (isReadWrite()) {
+        setXMLFile(QStringLiteral("calligraplanwork.rc"));
+    } else {
+        setXMLFile(QStringLiteral("calligraplanwork_readonly.rc"));
+    }
 
     connect(m_undostack, &KUndo2QStack::cleanChanged, this, &Part::setDocumentClean);
 
@@ -349,20 +371,23 @@ void Part::addCommand(KUndo2Command *cmd)
 
 bool Part::setWorkPackage(WorkPackage *wp, KoStore *store)
 {
-    //debugPlanWork;
     QString id = wp->id();
+    debugPlanWork<<wp->name()<<"exists"<<m_packageMap.contains(id);
     if (m_packageMap.contains(id)) {
-        if (KMessageBox::warningYesNo(nullptr, i18n("<p>The work package already exists in the projects store.</p>"
-                "<p>Project: %1<br>Task: %2</p>"
-                "<p>Do you want to update the existing package with data from the new?</p>",
-                wp->project()->name(), wp->node()->name())) == KMessageBox::No) {
-            delete wp;
-            return false;
+        if (!m_nogui) {
+            if (KMessageBox::warningYesNo(nullptr, i18n("<p>The work package already exists in the projects store.</p>"
+                                                        "<p>Project: %1<br>Task: %2</p>"
+                                                        "<p>Do you want to update the existing package with data from the new?</p>",
+                                                        wp->project()->name(), wp->node()->name())) == KMessageBox::No) {
+                delete wp;
+                return false;
+            }
         }
         m_packageMap[ id ]->merge(this, wp, store);
         delete wp;
         return true;
     }
+    wp->setNoGui(m_nogui);
     wp->setFilePath(m_loadingFromProjectStore ? wp->fileName(this) : localFilePath());
     m_packageMap[ id ] = wp;
     if (! m_loadingFromProjectStore) {
@@ -380,7 +405,9 @@ void Part::removeWorkPackage(KPlato::Node *node, KPlato::MacroCommand *m)
     debugPlanWork<<node->name();
     WorkPackage *wp = findWorkPackage(node);
     if (wp == nullptr) {
-        KMessageBox::error(nullptr, i18n("Remove failed. Cannot find work package"));
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Remove failed. Cannot find work package"));
+        }
         return;
     }
     PackageRemoveCmd *cmd = new PackageRemoveCmd(this, wp, kundo2_i18nc("@action", "Remove work package"));
@@ -422,6 +449,7 @@ void Part::addWorkPackage(WorkPackage *wp)
     //debugPlanWork;
     QString id = wp->id();
     Q_ASSERT(! m_packageMap.contains(id));
+    wp->setNoGui(m_nogui);
     m_packageMap[ id ] = wp;
     Q_EMIT workPackageAdded(wp, indexOf(wp));
 }
@@ -433,12 +461,20 @@ bool Part::loadWorkPackages()
     debugPlanWork<<lst;
     for (const QString &file : lst) {
         if (! loadNativeFormatFromStore(file)) {
-            KMessageBox::information(nullptr, i18n("Failed to load file:<br>%1" , file));
+            if (!m_nogui) {
+                KMessageBox::information(nullptr, i18n("Failed to load file:<br>%1" , file));
+            }
         }
     }
     m_loadingFromProjectStore = false;
     return true;
 
+}
+
+bool Part::loadWorkPackage(const QString& fileName)
+{
+    m_loadingFromProjectStore = true;
+    return loadNativeFormatFromStore(fileName);
 }
 
 bool Part::loadNativeFormatFromStore(const QString& file)
@@ -447,7 +483,9 @@ bool Part::loadNativeFormatFromStore(const QString& file)
     KoStore * store = KoStore::createStore(file, KoStore::Read, "", KoStore::Auto);
 
     if (store->bad()) {
-        KMessageBox::error(nullptr, i18n("Not a valid work package file:<br>%1", file));
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Not a valid work package file:<br>%1", file));
+        }
         delete store;
         QApplication::restoreOverrideCursor();
         return false;
@@ -475,7 +513,9 @@ bool Part::loadNativeFormatFromStoreInternal(KoStore * store)
 
     } else {
         errorPlanWork << "ERROR: No maindoc.xml" << '\n';
-        KMessageBox::error(nullptr, i18n("Invalid document. The document does not contain 'maindoc.xml'."));
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Invalid document. The document does not contain 'maindoc.xml'."));
+        }
         QApplication::restoreOverrideCursor();
         return false;
     }
@@ -501,7 +541,9 @@ bool Part::loadAndParse(KoStore* store, const QString& filename, KoXmlDocument& 
 
     if (!store->open(filename)) {
         warnPlanWork << "Entry " << filename << " not found!";
-        KMessageBox::error(nullptr, i18n("Failed to open file: %1", filename));
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Failed to open file: %1", filename));
+        }
         return false;
     }
     // Error variables for QDomDocument::setContent
@@ -513,8 +555,10 @@ bool Part::loadAndParse(KoStore* store, const QString& filename, KoXmlDocument& 
         errorPlanWork << "Parsing error in " << filename << "! Aborting!" << '\n'
         << " In line: " << errorLine << ", column: " << errorColumn << '\n'
         << " Error message: " << errorMsg;
-        KMessageBox::error(nullptr, i18n("Parsing error in file '%1' at line %2, column %3<br>Error message: %4", filename  , errorLine, errorColumn ,
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Parsing error in file '%1' at line %2, column %3<br>Error message: %4", filename  , errorLine, errorColumn ,
                                    QCoreApplication::translate("QXml", errorMsg.toUtf8().constData(), nullptr)));
+        }
         return false;
     }
     return true;
@@ -522,7 +566,7 @@ bool Part::loadAndParse(KoStore* store, const QString& filename, KoXmlDocument& 
 
 bool Part::loadXML(const KoXmlDocument &document, KoStore* store)
 {
-    debugPlanWork;
+    debugPlanXml;
     QString value;
     KoXmlElement plan = document.documentElement();
 
@@ -530,22 +574,30 @@ bool Part::loadXML(const KoXmlDocument &document, KoStore* store)
     value = plan.attribute("mime", QString());
     if (value.isEmpty()) {
         errorPlanWork << "No mime type specified!" << '\n';
-        KMessageBox::error(nullptr, i18n("Invalid document. No mimetype specified."));
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Invalid document. No mimetype specified."));
+        }
         return false;
     } else if (value == KPLATO_MIME_TYPE) {
         return loadKPlatoXML(document, store);
     } else if (value != PLANWORK_MIME_TYPE) {
         errorPlanWork << "Unknown mime type " << value;
-        KMessageBox::error(nullptr, i18n("Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1", value));
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1", value));
+        }
         return false;
     }
-    QString syntaxVersion = plan.attribute("version", PLANWORK_FILE_SYNTAX_VERSION);
-    m_xmlLoader.setWorkVersion(syntaxVersion);
-    if (syntaxVersion > PLANWORK_FILE_SYNTAX_VERSION) {
-        KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
+    m_xmlLoader.setMimetype(plan.attribute("mime"));
+    QString syntaxVersion = plan.attribute("version", PLAN_FILE_SYNTAX_VERSION);
+    m_xmlLoader.setVersion(syntaxVersion);
+    if (syntaxVersion > PLAN_FILE_SYNTAX_VERSION) {
+        KMessageBox::ButtonCode ret = KMessageBox::Cancel;
+        if (!m_nogui) {
+            ret = KMessageBox::warningContinueCancel(
                       nullptr, i18n("This document is a newer version than supported by PlanWork (syntax version: %1)<br>"
                                "Opening it in this version of PlanWork will lose some information.", syntaxVersion),
                       i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
+        }
         if (ret == KMessageBox::Cancel) {
             return false;
         }
@@ -555,7 +607,7 @@ bool Part::loadXML(const KoXmlDocument &document, KoStore* store)
     WorkPackage *wp = new WorkPackage(m_loadingFromProjectStore);
     wp->loadXML(plan, m_xmlLoader);
     m_xmlLoader.stopLoad();
-    if (! setWorkPackage(wp, store)) {
+    if (!setWorkPackage(wp, store)) {
         // rejected, so nothing changed...
         return true;
     }
@@ -573,20 +625,27 @@ bool Part::loadKPlatoXML(const KoXmlDocument &document, KoStore*)
     value = plan.attribute("mime", QString());
     if (value.isEmpty()) {
         errorPlanWork << "No mime type specified!" << '\n';
-        KMessageBox::error(nullptr, i18n("Invalid document. No mimetype specified."));
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Invalid document. No mimetype specified."));
+        }
         return false;
-    } else if (value != PLANWORK_MIME_TYPE) {
+    } else if (value != KPLATOWORK_MIME_TYPE) {
         errorPlanWork << "Unknown mime type " << value;
-        KMessageBox::error(nullptr, i18n("Invalid document. Expected mimetype %2, got %1", value, PLANWORK_MIME_TYPE));
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Invalid document. Expected mimetype %2, got %1", value, KPLATOWORK_MIME_TYPE));
+        }
         return false;
     }
     QString syntaxVersion = plan.attribute("version", KPLATOWORK_MAX_FILE_SYNTAX_VERSION);
-    m_xmlLoader.setWorkVersion(syntaxVersion);
+    m_xmlLoader.setVersion(syntaxVersion);
     if (syntaxVersion > KPLATOWORK_MAX_FILE_SYNTAX_VERSION) {
-        KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
+        KMessageBox::ButtonCode ret = KMessageBox::Cancel;
+        if (!m_nogui) {
+            ret = KMessageBox::warningContinueCancel(
                       nullptr, i18n("This document is a newer version than supported by PlanWork (syntax version: %1)<br>"
                                "Opening it in this version of PlanWork will lose some information.", syntaxVersion),
                       i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
+        }
         if (ret == KMessageBox::Cancel) {
             return false;
         }
@@ -674,7 +733,9 @@ bool Part::editOtherDocument(const KPlato::Document *doc)
     //debugPlanWork<<doc->url();
     WorkPackage *wp = findWorkPackage(doc);
     if (wp == nullptr) {
-        KMessageBox::error(nullptr, i18n("Edit failed. Cannot find a work package."));
+        if (!m_nogui) {
+            KMessageBox::error(nullptr, i18n("Edit failed. Cannot find a work package."));
+        }
         return false;
     }
     return wp->addChild(this, doc);
@@ -809,6 +870,14 @@ bool Part::openFile()
 bool Part::saveFile()
 {
     return false;
+}
+
+void Part::setNoGui(bool nogui)
+{
+    m_nogui = nogui;
+    for (auto wp : m_packageMap) {
+        wp->setNoGui(nogui);
+    }
 }
 
 }  //KPlatoWork namespace

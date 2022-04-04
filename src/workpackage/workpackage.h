@@ -8,6 +8,8 @@
 #ifndef KPLATOWORK_WORKPACKAGE_H
 #define KPLATOWORK_WORKPACKAGE_H
 
+#include "planwork_export.h"
+
 #include "kptxmlloaderobject.h"
 #include "kptcommand.h"
 #include "kpttask.h"
@@ -34,14 +36,13 @@ namespace KPlatoWork
 {
 
 class Part;
-class WorkPackage;
 class DocumentChild;
 
 /**
  A work package consists of a Project node and one Task node
  along with scheduling information and assigned resources.
 */
-class WorkPackage : public QObject
+class PLANWORK_EXPORT WorkPackage : public QObject
 {
     Q_OBJECT
 public:
@@ -61,7 +62,7 @@ public:
     bool contains(const DocumentChild* child) const { 
         return m_childdocs.contains(const_cast<DocumentChild*>(child) );
     }
-    QList<DocumentChild*> childDocs() { return m_childdocs; }
+    QList<DocumentChild*> childDocs() const { return m_childdocs; }
     bool addChild(Part *part, const KPlato::Document *doc);
     void removeChild(DocumentChild *child);
     
@@ -122,6 +123,8 @@ public:
     QString wbsCode() const { return m_wbsCode; }
     void setWbsCode(const QString &wbsCode) { m_wbsCode = wbsCode; }
 
+    void setNoGui(bool nogui);
+
 Q_SIGNALS:
     void modified(bool);
     void saveWorkPackage(KPlatoWork::WorkPackage*);
@@ -155,6 +158,7 @@ protected:
     KPlato::WorkPackageSettings m_settings;
 
     KPlato::ConfigBase m_config;
+    bool m_nogui;
 
 };
 
@@ -210,7 +214,7 @@ private:
 
 }  //KPlatoWork namespace
 
-QDebug operator<<(QDebug dbg, const KPlatoWork::WorkPackage *wp);
-QDebug operator<<(QDebug dbg, const KPlatoWork::WorkPackage &wp);
+PLANWORK_EXPORT QDebug operator<<(QDebug dbg, const KPlatoWork::WorkPackage *wp);
+PLANWORK_EXPORT QDebug operator<<(QDebug dbg, const KPlatoWork::WorkPackage &wp);
 
 #endif

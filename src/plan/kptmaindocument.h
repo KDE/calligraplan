@@ -14,6 +14,7 @@
 #include "plan_export.h"
 
 #include "kptpackage.h"
+#include "kptproject.h"
 #include "kpttask.h"
 #include "kptconfig.h"
 #include "kptwbsdefinition.h"
@@ -96,6 +97,8 @@ public:
     bool saveWorkPackageFormat(const QString &file, const Node *node, long id, Resource *resource = nullptr);
     bool saveWorkPackageUrl(const QUrl & _url, const Node *node, long id, Resource *resource = nullptr  );
 
+
+    QList<QUrl> publishWorkpackages(const QList<Node*> &nodes, Resource *resource, long scheduleId);
     /// Load the workpackage from @p url into @p project. Return true if successful, else false.
     bool loadWorkPackage(Project &project, const QUrl &url);
     Package *loadWorkPackageXML(Project& project, QIODevice*, const KoXmlDocument& document, const QUrl& url);

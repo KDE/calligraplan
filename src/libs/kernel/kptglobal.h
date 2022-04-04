@@ -12,11 +12,7 @@
 #include <Qt> // for things in Qt namespace
 #include <QLatin1String>
 
-// The Plan file syntax is used in parts of the KPlatoWork file, so:
-// * If you change PLAN_FILE_SYNTAX_VERSION, change PLANWORK_FILE_SYNTAX_VERSION too!
-// * You don't need to change PLAN_FILE_SYNTAX_VERSION when you change KPLATOWORK_FILE_SYNTAX_VERSION
 static const QLatin1String PLAN_FILE_SYNTAX_VERSION("0.7.0");
-static const QLatin1String PLANWORK_FILE_SYNTAX_VERSION("0.7.0");
 
 #define CURRENTSCHEDULE     -1
 #define NOTSCHEDULED        -2

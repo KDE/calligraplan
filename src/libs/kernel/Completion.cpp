@@ -902,4 +902,17 @@ QDebug operator<<(QDebug dbg, const KPlato::Completion::UsedEffort::ActualEffort
     dbg << QStringLiteral("%1").arg(ae.normalEffort().toDouble(KPlato::Duration::Unit_h), 1);
     return dbg;
 }
+QDebug operator<<(QDebug dbg, const KPlato::Completion::Entry *e)
+{
+    return operator<<(dbg, *e);
+}
+QDebug operator<<(QDebug dbg, const KPlato::Completion::Entry &e)
+{
+    dbg.noquote().nospace() << "Completion::Entry[";
+    dbg << e.percentFinished << '%';
+    dbg << " r: " << e.remainingEffort.toDouble(Duration::Unit_h) << 'h';
+    dbg << " t: " << e.totalPerformed.toDouble(Duration::Unit_h) << 'h';
+    dbg << ']';
+    return dbg;
+}
 #endif

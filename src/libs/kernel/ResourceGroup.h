@@ -133,9 +133,6 @@ public:
     bool load(KoXmlElement &element, XMLLoaderObject &status);
     void save(QDomElement &element) const;
 
-    /// Save workpackage document. Include only resources listed in @p lst
-    void saveWorkPackageXML(QDomElement &element, const QList<Resource*> &lst) const;
-
     void initiateCalculation(Schedule &sch);
 
     void addNode(Node *node) { m_nodes.append(node); }

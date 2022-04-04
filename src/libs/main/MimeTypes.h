@@ -12,6 +12,7 @@
 static const QLatin1String PLAN_MIME_TYPE("application/x-vnd.kde.plan");
 static const QLatin1String PLANPORTFOLIO_MIME_TYPE("application/x-vnd.kde.plan.portfolio");
 static const QLatin1String KPLATO_MIME_TYPE("application/x-vnd.kde.kplato");
+static const QLatin1String KPLATOWORK_MIME_TYPE("application/x-vnd.kde.kplato.work");
 static const QLatin1String PLANWORK_MIME_TYPE("application/x-vnd.kde.plan.work");
 
 #endif

@@ -32,6 +32,7 @@ set(calligraplankernel_LIB_SRCS
     kptwbsdefinition.cpp
     kptcommand.cpp
     kptpackage.cpp
+    kptxmlloaderobject.cpp
     kptdebug.cpp
 
     commands/NamedCommand.cpp

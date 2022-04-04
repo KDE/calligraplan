@@ -105,10 +105,10 @@ bool KPlatoXmlLoader::loadWorkpackage(const KoXmlElement& plan)
 {
     debugPlanXml;
     bool ok = false;
-    if (m_loader.workVersion() > KPLATOWORK_MAX_FILE_SYNTAX_VERSION) {
+    if (m_loader.version() > KPLATOWORK_MAX_FILE_SYNTAX_VERSION) {
         KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
                 nullptr, i18n("This document was created with a newer version of KPlatoWork (syntax version: %1)\n"
-                "Opening it in this version of PlanWork will lose some information.", m_loader.workVersion()),
+                "Opening it in this version of PlanWork will lose some information.", m_loader.version()),
                 i18n("File-Format Mismatch"), KGuiItem(i18n("Continue")));
         if (ret == KMessageBox::Cancel) {
             m_message = QStringLiteral("USER_CANCELED");
@@ -147,12 +147,17 @@ bool KPlatoXmlLoader::loadWorkpackage(const KoXmlElement& plan)
             }
         }
     }
-    if (proj->numChildren() > 0) {
-        WorkPackage &wp = static_cast<Task*>(proj->childNode(0))->workPackage();
-        if (wp.ownerId().isEmpty()) {
-            wp.setOwnerId(package->ownerId);
-            wp.setOwnerName(package->ownerName);
+    if (ok) {
+        m_package = package;
+        if (proj->numChildren() > 0) {
+            WorkPackage &wp = static_cast<Task*>(proj->childNode(0))->workPackage();
+            if (wp.ownerId().isEmpty()) {
+                wp.setOwnerId(package->ownerId);
+                wp.setOwnerName(package->ownerName);
+            }
         }
+    } else {
+        delete package;
     }
     return ok;
 }

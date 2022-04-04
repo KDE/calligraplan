@@ -24,6 +24,7 @@ class PLANKERNEL_EXPORT Package
 {
 public:
     Package();
+    ~Package();
     QUrl url;
     Project *project;
     QDateTime timeTag;

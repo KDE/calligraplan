@@ -355,6 +355,7 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
         setErrorMessage(i18n("Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1", value));
         return false;
     }
+    m_xmlLoader.setMimetype(value);
     QString syntaxVersion = plan.attribute("version", PLAN_FILE_SYNTAX_VERSION);
     m_xmlLoader.setVersion(syntaxVersion);
     if (syntaxVersion > PLAN_FILE_SYNTAX_VERSION) {
@@ -439,6 +440,43 @@ QDomDocument MainDocument::saveXML()
     return context.document;
 }
 
+QList<QUrl> MainDocument::publishWorkpackages(const QList<Node*> &nodes, Resource *resource, long scheduleId)
+{
+    debugPlanWp<<resource<<nodes;
+    setErrorMessage(QString());
+    QList<QUrl> attachURLs;
+    if (resource == nullptr) {
+        warnPlan<<"No resource, we don't handle node->leader() yet";
+        setErrorMessage(i18n("Failed to save to temporary file. No resource has been specified"));
+        return attachURLs;
+    }
+    QString path;
+    if (m_project->workPackageInfo().publishUrl.isValid()) {
+        path = m_project->workPackageInfo().publishUrl.path();
+        debugPlanWp<<"publish:"<<path;
+    } else {
+        path = QDir::tempPath();
+    }
+    for (Node *n : nodes) {
+        QTemporaryFile tmpfile(path + QStringLiteral("/calligraplanwork_XXXXXX") + QStringLiteral(".planwork"));
+        tmpfile.setAutoRemove(false);
+        if (!tmpfile.open()) {
+            debugPlanWp<<"Failed to open file";
+            setErrorMessage(i18n("Failed to open work package file"));
+            return QList<QUrl>();
+        }
+        QUrl url = QUrl::fromLocalFile(tmpfile.fileName());
+        debugPlanWp<<url;
+        if (!saveWorkPackageUrl(url, n, scheduleId, resource)) {
+            debugPlan<<"Failed to save to file";
+            setErrorMessage(xi18nc("@info", "Failed to save to temporary file:<br/><filename>%1</filename>", url.url()));
+            return QList<QUrl>();
+        }
+        attachURLs << url;
+    }
+    return attachURLs;
+}
+
 QDomDocument MainDocument::saveWorkPackageXML(const Node *node, long id, Resource *resource)
 {
     debugPlanWp<<resource<<node;
@@ -451,7 +489,7 @@ QDomDocument MainDocument::saveWorkPackageXML(const Node *node, long id, Resourc
     QDomElement doc = document.createElement(QStringLiteral("planwork"));
     doc.setAttribute(QStringLiteral("editor"), QStringLiteral("Plan"));
     doc.setAttribute(QStringLiteral("mime"), PLANWORK_MIME_TYPE);
-    doc.setAttribute(QStringLiteral("version"), PLANWORK_FILE_SYNTAX_VERSION);
+    doc.setAttribute(QStringLiteral("version"), PLAN_FILE_SYNTAX_VERSION);
     doc.setAttribute(QStringLiteral("plan-version"), PLAN_FILE_SYNTAX_VERSION);
     document.appendChild(doc);
 
@@ -617,13 +655,14 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
 
     // Check if this is the right app
     value = plan.attribute("mime", QString());
+    qInfo()<<Q_FUNC_INFO<<value;
     if (value.isEmpty()) {
         errorPlanWp<<Q_FUNC_INFO<<"No mime type specified!";
         setErrorMessage(i18n("Invalid document. No mimetype specified."));
         return nullptr;
-    } else if (value == PLANWORK_MIME_TYPE) {
+    } else if (value == KPLATOWORK_MIME_TYPE) {
         m_xmlLoader.setMimetype(value);
-        m_xmlLoader.setWorkVersion(plan.attribute("version", QStringLiteral("0.0.0")));
+        m_xmlLoader.setVersion(plan.attribute("version", QStringLiteral("0.0.0")));
         proj = new Project();
         KPlatoXmlLoader loader(m_xmlLoader, proj);
         ok = loader.loadWorkpackage(plan);
@@ -644,8 +683,7 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
             return nullptr;
         }
         QString syntaxVersion = plan.attribute("version", QStringLiteral("0.0.0"));
-        m_xmlLoader.setWorkVersion(syntaxVersion);
-        if (syntaxVersion > PLANWORK_FILE_SYNTAX_VERSION) {
+        if (syntaxVersion > PLAN_FILE_SYNTAX_VERSION) {
             if (!property(NOUI).toBool()) {
                 KMessageBox::ButtonCode ret = KMessageBox::warningContinueCancel(
                     nullptr, i18n("This document was created with a newer version of PlanWork (syntax version: %1)\n"
@@ -657,42 +695,33 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
                 }
             }
         }
-        m_xmlLoader.setVersion(plan.attribute("plan-version", PLAN_FILE_SYNTAX_VERSION));
         m_xmlLoader.startLoad();
         proj = new Project();
         package = new Package();
         package->project = proj;
-        KoXmlNode n = plan.firstChild();
-        for (; ! n.isNull(); n = n.nextSibling()) {
-            if (! n.isElement()) {
-                continue;
-            }
-            KoXmlElement e = n.toElement();
-            if (e.tagName() == QStringLiteral("project")) {
-                m_xmlLoader.setProject(proj);
-                ok = m_xmlLoader.loadProject(proj, document);
-                if (!ok) {
-                    m_xmlLoader.addMsg(XMLLoaderObject::Errors, QStringLiteral("Loading of work package failed"));
-                    warnPlanWp<<"Skip workpackage:"<<"Loading project failed";
-                    //TODO add some ui here
-                }
-            } else if (e.tagName() == QStringLiteral("workpackage")) {
+
+        ok = m_xmlLoader.loadProject(proj, document);
+        if (!ok) {
+            m_xmlLoader.addMsg(XMLLoaderObject::Errors, QStringLiteral("Loading of work package failed"));
+            warnPlanWp<<"Skip workpackage:"<<"Loading project failed";
+            //TODO add some ui here
+        } else {
+            KoXmlElement e = plan.namedItem("workpackage").toElement();
+            ok = !e.isNull();
+            if (ok) {
                 package->timeTag = QDateTime::fromString(e.attribute("time-tag"), Qt::ISODate);
                 package->ownerId = e.attribute("owner-id");
                 package->ownerName = e.attribute("owner");
                 debugPlan<<"workpackage:"<<package->timeTag<<package->ownerId<<package->ownerName;
-                KoXmlElement elem;
-                forEachElement(elem, e) {
-                    if (elem.tagName() != QStringLiteral("settings")) {
-                        continue;
-                    }
+                KoXmlElement elem = e.namedItem("settings").toElement();
+                if (!elem.isNull()) {
                     package->settings.usedEffort = (bool)elem.attribute("used-effort").toInt();
                     package->settings.progress = (bool)elem.attribute("progress").toInt();
                     package->settings.documents = (bool)elem.attribute("documents").toInt();
                 }
             }
         }
-        if (proj->numChildren() > 0) {
+        if (ok && proj->numChildren() > 0) {
             package->task = static_cast<Task*>(proj->childNode(0));
             package->toTask = qobject_cast<Task*>(m_project->findNode(package->task->id()));
             WorkPackage &wp = package->task->workPackage();
