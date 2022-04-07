@@ -27,7 +27,7 @@ public:
     explicit BasicGanttViewSettingsDialog(GanttViewBase *gantt, ViewBase *view, bool selectPrint = false);
 
 protected Q_SLOTS:
-    void slotOk();
+    void slotOk() override;
 
 private:
     GanttViewBase *m_gantt;
