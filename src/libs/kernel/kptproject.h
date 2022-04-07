@@ -160,6 +160,7 @@ public:
 
     int resourceGroupCount() const { return m_resourceGroups.count(); }
     QList<ResourceGroup*> &resourceGroups();
+    QList<ResourceGroup*> allResourceGroups() const;
     /// Adds the resource group to the project.
     virtual void addResourceGroup(ResourceGroup *resource, ResourceGroup *parent = nullptr,  int index = -1);
     /**

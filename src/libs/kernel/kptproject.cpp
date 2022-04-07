@@ -2153,6 +2153,11 @@ QList<ResourceGroup*> &Project::resourceGroups()
     return m_resourceGroups;
 }
 
+QList<ResourceGroup *> Project::allResourceGroups() const
+{
+    return resourceGroupIdDict.values();
+}
+
 void Project::removeResourceGroupId(const QString &id, ResourceGroup *group)
 {
     if (resourceGroupIdDict.contains(id)) {
