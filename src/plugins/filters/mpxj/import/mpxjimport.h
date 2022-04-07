@@ -27,7 +27,7 @@ public:
     MpxjImport(QObject* parent, const QVariantList &);
     virtual ~MpxjImport() {}
 
-    virtual KoFilter::ConversionStatus convert(const QByteArray& from, const QByteArray& to);
+    KoFilter::ConversionStatus convert(const QByteArray& from, const QByteArray& to) override;
 
     static QStringList mimeTypes();
 
