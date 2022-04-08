@@ -35,8 +35,52 @@
 namespace KPlato
 {
 
+class ItemData
+{
+public:
+    explicit ItemData(const QString &name = QString()) : parent(nullptr), resource(nullptr), group(nullptr), appointment(nullptr), m_name(name) {}
+    explicit ItemData(Resource *resource) : parent(nullptr), resource(resource), group(nullptr), appointment(nullptr) {}
+    explicit ItemData(ResourceGroup *group) : parent(nullptr), resource(nullptr), group(group), appointment(nullptr) {}
+    explicit ItemData(Appointment *a) : parent(nullptr), resource(nullptr), group(nullptr), appointment(a) {}
+    ~ItemData() { qDeleteAll(children); }
+
+    QString name() const {
+        if (resource) {
+            return resource->name();
+        }
+        if (group) {
+            return group->name();
+        }
+        if (appointment) {
+            return appointment->node()->node()->name();
+        }
+        return m_name;
+    }
+    int row() const { return parent ? parent->children.indexOf(this) : -1; }
+
+    void setParent(ItemData *parent) {
+        if (this->parent) {
+            this->parent->children.removeAll(this);
+        }
+        this->parent = parent;
+        if (parent && !parent->children.contains(this)) {
+            parent->children.append(this);
+        }
+    }
+    ItemData *parent;
+    QList<const ItemData*> children;
+    Resource *resource;
+    ResourceGroup *group;
+    Appointment *appointment;
+
+private:
+    QString m_name;
+
+};
+
 ResourceAppointmentsItemModel::ResourceAppointmentsItemModel(QObject *parent)
     : ItemModelBase(parent),
+      m_rootItem(new ItemData()),
     m_group(nullptr),
     m_resource(nullptr),
     m_showInternal(true),
@@ -46,36 +90,44 @@ ResourceAppointmentsItemModel::ResourceAppointmentsItemModel(QObject *parent)
 
 ResourceAppointmentsItemModel::~ResourceAppointmentsItemModel()
 {
+    delete m_rootItem;
+}
+
+void ResourceAppointmentsItemModel::slotResourceGroupInserted(KPlato::ResourceGroup *group)
+{
+    connectSignals(group, true);
+    refresh();
+}
+
+void ResourceAppointmentsItemModel::slotResourceGroupToBeRemoved(KPlato::Project *project, KPlato::ResourceGroup *parent, int row, KPlato::ResourceGroup *group)
+{
+    Q_UNUSED(project)
+    Q_UNUSED(parent)
+    Q_UNUSED(row)
+    connectSignals(group, false);
 }
 
 void ResourceAppointmentsItemModel::slotResourceToBeInserted(Project *project, int row)
 {
     Q_UNUSED(project)
-    beginInsertRows(QModelIndex(), row, row);
+    Q_UNUSED(row)
 }
 
 void ResourceAppointmentsItemModel::slotResourceInserted(Resource *resource)
 {
     connectSignals(resource, true);
-    endInsertRows();
-    beginResetModel();
     refresh();
-    endResetModel();
 }
 
 void ResourceAppointmentsItemModel::slotResourceToBeRemoved(Project *project, int row, Resource *resource)
 {
     Q_UNUSED(project)
     connectSignals(resource, false);
-    beginRemoveRows(QModelIndex(), row, row);
 }
 
 void ResourceAppointmentsItemModel::slotResourceRemoved()
 {
-    endRemoveRows();
-    beginResetModel();
     refresh();
-    endResetModel();
 }
 
 void ResourceAppointmentsItemModel::slotAppointmentToBeInserted(Resource *r, int row)
@@ -88,9 +140,7 @@ void ResourceAppointmentsItemModel::slotAppointmentInserted(Resource *r, Appoint
 {
     Q_UNUSED(r);
     Q_UNUSED(a);
-    beginResetModel();
-    refreshData();
-    endResetModel();
+    refresh();
 }
 
 void ResourceAppointmentsItemModel::slotAppointmentToBeRemoved(Resource *r, int row)
@@ -101,46 +151,21 @@ void ResourceAppointmentsItemModel::slotAppointmentToBeRemoved(Resource *r, int 
 
 void ResourceAppointmentsItemModel::slotAppointmentRemoved()
 {
-    beginResetModel();
-    refreshData();
-    endResetModel();
+    refresh();
 }
 
 void ResourceAppointmentsItemModel::slotAppointmentChanged(Resource *r, Appointment *a)
 {
-    int row = rowNumber(r, a);
-    Q_ASSERT(row >= 0);
-    refreshData();
-    Q_EMIT dataChanged(createExternalAppointmentIndex(row, 0, a), createExternalAppointmentIndex(row, columnCount() - 1, a));
+    Q_UNUSED(r)
+    Q_UNUSED(a)
+    refresh();
 }
 
 void ResourceAppointmentsItemModel::slotProjectCalculated(ScheduleManager *sm)
 {
     if (sm == m_manager) {
-        beginResetModel();
-        refreshData();
-        endResetModel();
-        Q_EMIT refreshed();
+        refresh();
     }
-}
-
-int ResourceAppointmentsItemModel::rowNumber(Resource *res, Appointment *a) const
-{
-    int r = 0;
-    if (m_showInternal) {
-        r = res->appointments(id()).indexOf(a);
-        if (r > -1) {
-            return r;
-        }
-        r = res->numAppointments();
-    }
-    if (m_showExternal) {
-        int rr = res->externalAppointmentList().indexOf(a);
-        if (rr > -1) {
-            return r + rr;
-        }
-    }
-    return -1;
 }
 
 void ResourceAppointmentsItemModel::setShowInternalAppointments(bool show)
@@ -148,10 +173,8 @@ void ResourceAppointmentsItemModel::setShowInternalAppointments(bool show)
     if (m_showInternal == show) {
         return;
     }
-    beginResetModel();
     m_showInternal = show;
-    refreshData();
-    endResetModel();
+    refresh();
 }
 
 void ResourceAppointmentsItemModel::setShowExternalAppointments(bool show)
@@ -159,16 +182,13 @@ void ResourceAppointmentsItemModel::setShowExternalAppointments(bool show)
     if (m_showExternal == show) {
         return;
     }
-    beginResetModel();
     m_showExternal = show;
-    refreshData();
-    endResetModel();
+    refresh();
 }
 
 void ResourceAppointmentsItemModel::setProject(Project *project)
 {
     Q_UNUSED(project)
-    beginResetModel();
     debugPlan;
     if (m_project) {
         disconnect(m_project, &Project::aboutToBeDeleted, this, &ResourceAppointmentsItemModel::projectDeleted);
@@ -176,6 +196,9 @@ void ResourceAppointmentsItemModel::setProject(Project *project)
         disconnect(m_project, &Project::projectCalculated, this, &ResourceAppointmentsItemModel::slotProjectCalculated);
         disconnect(m_project, &Project::scheduleManagerChanged, this, &ResourceAppointmentsItemModel::slotProjectCalculated);
 
+        connect(m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupInserted);
+        disconnect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeRemoved);
+        disconnect(m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsItemModel::refresh);
         disconnect(m_project, &Project::resourceChanged, this, &ResourceAppointmentsItemModel::slotResourceChanged);
         disconnect(m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsItemModel::slotResourceToBeInserted);
         disconnect(m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceToBeRemoved);
@@ -186,6 +209,10 @@ void ResourceAppointmentsItemModel::setProject(Project *project)
         for (Resource *r : resources) {
             connectSignals(r, false);
         }
+        const QList<ResourceGroup*> groups = m_project->resourceGroups();
+        for (auto g : groups) {
+            connectSignals(g, false);
+        }
     }
     m_project = project;
     if (m_project) {
@@ -194,6 +221,9 @@ void ResourceAppointmentsItemModel::setProject(Project *project)
         connect(m_project, &Project::projectCalculated, this, &ResourceAppointmentsItemModel::slotProjectCalculated);
         connect(m_project, &Project::scheduleManagerChanged, this, &ResourceAppointmentsItemModel::slotProjectCalculated);
 
+        connect(m_project, &Project::resourceGroupAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupInserted);
+        connect(m_project, &Project::resourceGroupToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeRemoved);
+        connect(m_project, &Project::resourceGroupRemoved, this, &ResourceAppointmentsItemModel::refresh);
         connect(m_project, &Project::resourceChanged, this, &ResourceAppointmentsItemModel::slotResourceChanged);
         connect(m_project, &Project::resourceToBeAdded, this, &ResourceAppointmentsItemModel::slotResourceToBeInserted);
         connect(m_project, &Project::resourceToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceToBeRemoved);
@@ -204,10 +234,36 @@ void ResourceAppointmentsItemModel::setProject(Project *project)
         for (Resource *r : resources) {
             connectSignals(r, true);
         }
+        const QList<ResourceGroup*> groups = m_project->resourceGroups();
+        for (auto g : groups) {
+            connectSignals(g, true);
+        }
     }
-    refreshData();
-    endResetModel();
-    Q_EMIT refreshed();
+    refresh();
+}
+
+void ResourceAppointmentsItemModel::connectSignals(ResourceGroup *group, bool enable)
+{
+    if (enable) {
+        connect(group, &ResourceGroup::dataChanged, this, &ResourceAppointmentsItemModel::refresh);
+        connect(group, &ResourceGroup::groupAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupInserted);
+        connect(group, &ResourceGroup::groupToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeRemoved);
+        connect(group, &ResourceGroup::groupRemoved, this, &ResourceAppointmentsItemModel::refresh);
+        connect(group, &ResourceGroup::resourceAdded, this, &ResourceAppointmentsItemModel::refresh);
+        connect(group, &ResourceGroup::resourceRemoved, this, &ResourceAppointmentsItemModel::refresh);
+    } else {
+        disconnect(group, &ResourceGroup::dataChanged, this, &ResourceAppointmentsItemModel::refresh);
+        disconnect(group, &ResourceGroup::groupAdded, this, &ResourceAppointmentsItemModel::slotResourceGroupInserted);
+        disconnect(group, &ResourceGroup::groupToBeRemoved, this, &ResourceAppointmentsItemModel::slotResourceGroupToBeRemoved);
+        disconnect(group, &ResourceGroup::groupRemoved, this, &ResourceAppointmentsItemModel::refresh);
+        disconnect(group, &ResourceGroup::resourceAdded, this, &ResourceAppointmentsItemModel::refresh);
+        disconnect(group, &ResourceGroup::resourceRemoved, this, &ResourceAppointmentsItemModel::refresh);
+    }
+    const QList<ResourceGroup*> groups = group->childGroups();
+    for (auto g : groups) {
+        connectSignals(g, enable);
+    }
+
 }
 
 void ResourceAppointmentsItemModel::connectSignals(Resource *resource, bool enable)
@@ -248,12 +304,9 @@ void ResourceAppointmentsItemModel::setScheduleManager(ScheduleManager *sm)
     if (sm == m_manager) {
         return;
     }
-    beginResetModel();
     debugPlan<<sm;
     m_manager = sm;
-    refreshData();
-    endResetModel();
-    Q_EMIT refreshed();
+    refresh();
 }
 
 long ResourceAppointmentsItemModel::id() const
@@ -271,36 +324,13 @@ Qt::ItemFlags ResourceAppointmentsItemModel::flags(const QModelIndex &index) con
 QModelIndex ResourceAppointmentsItemModel::parent(const QModelIndex &idx) const
 {
     if (!idx.isValid() || m_project == nullptr || m_manager == nullptr) {
-        warnPlan<<"No data "<<idx;
         return QModelIndex();
     }
     if (idx.internalPointer() == nullptr) {
-        return QModelIndex(); // resources is top level
+        return QModelIndex();
     }
-    QModelIndex p;
-    if (! p.isValid() && m_showInternal) {
-        Appointment *a = appointment(idx);
-        if (a && a->resource() && a->resource()->resource()) {
-            Resource *r = a->resource()->resource();
-            int row = m_project->indexOf(r);
-            p = createResourceIndex(row, 0, r);
-            //debugPlan<<"Parent:"<<p<<r->name();
-            Q_ASSERT(p.isValid());
-        }
-    }
-    if (! p.isValid() && m_showExternal) {
-        Appointment *a = externalAppointment(idx);
-        Resource *r = parent(a);
-        if (r) {
-            int row = m_project->indexOf(r);
-            p = createResourceIndex(row, 0, r);
-        }
-    }
-    if (! p.isValid()) {
-        //debugPlan<<"Parent:"<<p;
-    }
-    //debugPlan<<"Child :"<<idx;
-    return p;
+    const auto item = static_cast<ItemData*>(idx.internalPointer());
+    return createIndex(item->parent->row(), 0, item->parent);
 }
 
 Resource *ResourceAppointmentsItemModel::parent(const Appointment *a) const
@@ -325,42 +355,57 @@ QModelIndex ResourceAppointmentsItemModel::index(int row, int column, const QMod
     if (m_project == nullptr) {
         return QModelIndex();
     }
-    if (!parent.isValid()) {
-        if (row < m_project->resourceCount()) {
-            return createResourceIndex(row, column, m_project->resourceAt(row));
-        }
-        return QModelIndex();
-    }
-    if (m_manager == nullptr) {
-        return QModelIndex();
-    }
-    Resource *r = resource(parent);
-    if (r && (m_showInternal || m_showExternal)) {
-        int num = m_showInternal ? r->numAppointments(id()) : 0;
-        if (row < num) {
-            //debugPlan<<"Appointment: "<<r->appointmentAt(row, id);
-            return createAppointmentIndex(row, column, r->appointmentAt(row, id()));
-        }
-        int extRow = row - num;
-        //debugPlan<<"Appointment: "<<r->externalAppointmentList().value(extRow);
-        Q_ASSERT(extRow >= 0 && extRow < r->externalAppointmentList().count());
-        return createExternalAppointmentIndex(row, column, r->externalAppointmentList().value(extRow));
-    }
-    return QModelIndex();
+    const auto item = parent.isValid() ? static_cast<ItemData*>(parent.internalPointer()) : m_rootItem;
+    return createIndex(row, column, (void*)item->children.value(row));
 }
 
-QModelIndex ResourceAppointmentsItemModel::index(Resource *resource) const
+void ResourceAppointmentsItemModel::addResource(Resource *resource, ItemData *parentItem)
 {
-    if (m_project == nullptr || resource == nullptr) {
-        return QModelIndex();
+    if (resource->type() == Resource::Type_Team) {
+        return;
     }
-    int row = m_project->indexOf(resource);
-    return row < 0 ? QModelIndex() : createIndex(row, 0, resource);
+    auto ritem = new ItemData(resource);
+    ritem->setParent(parentItem);
+    const auto appointments = resource->appointments(id());
+    for (int row = 0; row < appointments.count(); ++row) {
+        const auto a = appointments.at(row);
+        auto aitem = new ItemData(a);
+        aitem->setParent(ritem);
+    }
+}
+
+void ResourceAppointmentsItemModel::addGroup(ResourceGroup *group, ItemData *parentItem)
+{
+    auto gitem = new ItemData(group);
+    gitem->setParent(parentItem);
+    const auto resources = group->resources();
+    for (auto r : resources) {
+        addResource(r, gitem);
+    }
+    const auto groups = group->childGroups();
+    for (auto g : groups) {
+        addGroup(g, gitem);
+    }
 }
 
 void ResourceAppointmentsItemModel::refresh()
 {
+    beginResetModel();
     refreshData();
+    delete m_rootItem;
+    m_rootItem = new ItemData();
+    auto projectItem = new ItemData(i18n("Project"));
+    projectItem->setParent(m_rootItem);
+    const auto resources = m_project->resourceList();
+    for (int i = 0; i < resources.count(); ++i) {
+        const auto r = resources.at(i);
+        addResource(r, projectItem);
+    }
+    const auto groups = m_project->resourceGroups();
+    for (auto g : groups) {
+        addGroup(g, m_rootItem);
+    }
+    endResetModel();
     Q_EMIT refreshed();
 }
 
@@ -390,8 +435,6 @@ void ResourceAppointmentsItemModel::refreshData()
         const QList<Appointment*> appointments2 = r->externalAppointmentList();
         for (Appointment* a : appointments2) {
             extEff[ a ] = a->plannedPrDay(startDate(), endDate());
-            //debugPlan<<r->name()<<a->auxcilliaryInfo()<<": "<<extEff[ a ].totalEffort().toDouble(Duration::Unit_h);
-            //debugPlan<<r->name()<<a->auxcilliaryInfo()<<": "<<extEff[ a ].startDate()<<extEff[ a ].endDate();
         }
     }
     m_effortMap.clear();
@@ -411,72 +454,107 @@ int ResourceAppointmentsItemModel::rowCount(const QModelIndex &parent) const
     if (m_project == nullptr) {
         return 0;
     }
-    if (!parent.isValid()) {
-        return m_project->resourceCount();
-    }
-    if (m_manager == nullptr) {
-        return 0;
-    }
-    Resource *r = resource(parent);
-    if (r) {
-        int rows = m_showInternal ? r->numAppointments(id()) : 0;
-        rows += m_showExternal ? r->numExternalAppointments() : 0;
-        return rows;
-    }
-    return 0;
+    const auto item = parent.isValid() ? static_cast<const ItemData*>(parent.internalPointer()) : m_rootItem;
+    return item->children.count();
 }
 
-QVariant ResourceAppointmentsItemModel::name(const Resource *res, int role) const
+QVariant ResourceAppointmentsItemModel::total(const ItemData *item, int role) const
 {
-    switch (role) {
-        case Qt::DisplayRole:
-        case Qt::EditRole:
-        case Qt::ToolTipRole: {
-            QVariant value = res->name();
-            return value;
-        }
-        case Qt::StatusTipRole:
-        case Qt::WhatsThisRole:
-            return QVariant();
+    if (!m_project) {
+        return QVariant();
     }
-    return QVariant();
-}
-
-QVariant ResourceAppointmentsItemModel::name(const Node *node, int role) const
-{
-    switch (role) {
-        case Qt::DisplayRole:
-        case Qt::EditRole:
-        case Qt::ToolTipRole:
-            return node->name();
-            break;
-        case Qt::StatusTipRole:
-        case Qt::WhatsThisRole:
-            return QVariant();
+    if (item->resource) {
+        return total(item->resource, role);
     }
-    return QVariant();
-}
-
-QVariant ResourceAppointmentsItemModel::name(const Appointment *app, int role) const
-{
-    switch (role) {
-        case Qt::DisplayRole:
-        case Qt::EditRole:
-            return app->auxcilliaryInfo();
-        case Qt::ToolTipRole:
-            return i18n("External project: %1", app->auxcilliaryInfo());
-        case Qt::StatusTipRole:
-        case Qt::WhatsThisRole:
-            return QVariant();
-        case Qt::ForegroundRole:
-            if (m_externalEffortMap.contains(app)) {
-                return QColor(Qt::blue);
+    if (item->group) {
+        return total(item->group, role);
+    }
+    if (item->appointment) {
+        return total(item->appointment, role);
+    }
+    if (role == Qt::DisplayRole) {
+        double tot = 0.0;
+        const auto resources = m_project->resourceList();
+        for (const auto r : resources) {
+            if (r->type() != Resource::Type_Team) {
+                tot += total(r, Qt::EditRole).toDouble();
             }
-            break;
+        }
+        return QLocale().toString(tot, 'f', 1);
     }
     return QVariant();
 }
 
+QVariant ResourceAppointmentsItemModel::total(const ItemData *item, const QDate &date, int role) const
+{
+    if (!m_project) {
+        return QVariant();
+    }
+    if (item->resource) {
+        return total(item->resource, date, role);
+    }
+    if (item->group) {
+        return total(item->group, date, role);
+    }
+    if (item->appointment) {
+        return assignment(item->appointment, date, role);
+    }
+    if (role == Qt::DisplayRole) {
+        double tot = 0.0;
+        const auto resources = m_project->resourceList();
+        for (const auto r : resources) {
+            if (r->type() != Resource::Type_Team) {
+                tot += total(r, date, Qt::EditRole).toDouble();
+            }
+        }
+        return QLocale().toString(tot, 'f', 1);
+    }
+    return QVariant();
+}
+
+QVariant ResourceAppointmentsItemModel::total(const ResourceGroup *group, int role) const
+{
+    switch (role) {
+        case Qt::DisplayRole: {
+            const double tot = total(group, Qt::EditRole).toDouble();
+            return QLocale().toString(tot, 'f', 1);
+        }
+    case Qt::EditRole: {
+        double tot = 0.0;
+        const auto groups = group->childGroups();
+        for (const auto g : groups) {
+            tot += total(g, Qt::EditRole).toDouble();
+        }
+        const auto resources = group->resources();
+        for (const auto r : resources) {
+            tot += total(r, Qt::EditRole).toDouble();
+        }
+        return tot;
+    }
+    case Qt::TextAlignmentRole:
+        return (int)(Qt::AlignRight|Qt::AlignVCenter);
+    }
+    return QVariant();
+}
+
+QVariant ResourceAppointmentsItemModel::total(const ResourceGroup *group, const QDate &date, int role) const
+{
+    switch (role) {
+        case Qt::DisplayRole: {
+            double tot = 0.0;
+            const auto resources = group->resources();
+            for (const auto r : resources) {
+                tot += total(r, date, Qt::EditRole).toDouble();
+            }
+            return QLocale().toString(tot, 'f', 1);
+        }
+        case Qt::TextAlignmentRole:
+            return (int)(Qt::AlignRight|Qt::AlignVCenter);
+        default:
+            break;
+    }
+    return QVariant();
+}
 
 QVariant ResourceAppointmentsItemModel::total(const Resource *res, int role) const
 {
@@ -575,8 +653,6 @@ QVariant ResourceAppointmentsItemModel::total(const Resource *res, const QDate &
                     }
                 }
             }
-//             QString ds = QLocale().toString(d.toDouble(Duration::Unit_h), 'f', 1);
-//             Duration avail = res->effort(nullptr, DateTime(date, QTime(0,0,0)), Duration(1.0, Duration::Unit_d));
             return d.toDouble(Duration::Unit_h);
         }
         case Qt::ToolTipRole:
@@ -730,50 +806,17 @@ QVariant ResourceAppointmentsItemModel::data(const QModelIndex &index, int role)
     if (role == Qt::TextAlignmentRole) {
         return headerData(index.column(), Qt::Horizontal, role);
     }
-    Resource *r = resource(index);
-    if (r) {
-        switch (index.column()) {
-            case 0: result = name(r, role); break;
-            case 1: result = total(r, role); break;
-            default:
-                QDate d = startDate().addDays(index.column() - 2);
-                result = total(r, d, role);
-                break;
+    if (index.column() == 0) {
+        if (role == Qt::DisplayRole) {
+            return static_cast<const ItemData*>(index.internalPointer())->name();
         }
-        return result;
-    }
-    if (m_manager == nullptr) {
         return QVariant();
     }
-    Appointment *a = appointment(index);
-    if (a) {
-        switch (index.column()) {
-            case 0: result = name(a->node()->node(), role); break;
-            case 1: result = total(a, role); break;
-            default: {
-                QDate d = startDate().addDays(index.column()-2);
-                result = assignment(a, d, role);
-                break;
-            }
-        }
-        return result;
+    if (index.column() == 1) {
+        return total(static_cast<const ItemData*>(index.internalPointer()), role);
     }
-    a = externalAppointment(index);
-    if (a) {
-        //debugPlan<<"external"<<a->auxcilliaryInfo()<<index;
-        switch (index.column()) {
-            case 0: result = name(a, role); break;
-            case 1: result = total(a, role); break;
-            default: {
-                QDate d = startDate().addDays(index.column()-2);
-                result = assignment(a, d, role);
-                break;
-            }
-        }
-        return result;
-    }
-    debugPlan<<"Could not find ptr:"<<index;
-    return QVariant();
+    QDate d = startDate().addDays(index.column() - 2);
+    return total(static_cast<const ItemData*>(index.internalPointer()), d, role);
 }
 
 bool ResourceAppointmentsItemModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -851,19 +894,10 @@ Node *ResourceAppointmentsItemModel::node(const QModelIndex &index) const
 
 Appointment *ResourceAppointmentsItemModel::appointment(const QModelIndex &index) const
 {
-    if (m_project == nullptr || m_manager == nullptr) {
+    if (m_project == nullptr || m_manager == nullptr || !index.isValid()) {
         return nullptr;
     }
-    const QList<Resource*> resources = m_project->resourceList();
-    for (Resource *r : resources) {
-        const QList<Appointment*> appointments = r->appointments(id());
-        for (Appointment *a : appointments) {
-            if (a == index.internalPointer()) {
-                return a;
-            }
-        }
-    }
-    return nullptr;
+    return static_cast<const ItemData*>(index.internalPointer())->appointment;
 }
 
 Appointment *ResourceAppointmentsItemModel::externalAppointment(const QModelIndex &index) const
@@ -900,16 +934,10 @@ QModelIndex ResourceAppointmentsItemModel::createExternalAppointmentIndex(int ro
 
 Resource *ResourceAppointmentsItemModel::resource(const QModelIndex &index) const
 {
-    if (m_project == nullptr) {
+    if (m_project == nullptr || !index.isValid()) {
         return nullptr;
     }
-    const QList<Resource*> resources = m_project->resourceList();
-    for (Resource *r : resources) {
-        if (r == index.internalPointer()) {
-            return r;
-        }
-    }
-    return nullptr;
+    return static_cast<const ItemData*>(index.internalPointer())->resource;
 }
 
 QModelIndex ResourceAppointmentsItemModel::createResourceIndex(int row, int col, Resource *ptr) const

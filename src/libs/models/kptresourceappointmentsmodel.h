@@ -26,10 +26,18 @@ class ScheduleManager;
 class MainSchedule;
 class Calendar;
 
+class ItemData;
+
 /**
-    The ResourceAppointmentsItemModel organizes appointments
-    as hours booked per day (or week, month).
-    It handles both internal and external appointments.
+    The ResourceAppointmentsItemModel organizes appointments as hours booked per day.
+
+    All resources are listed under a 'Project' group.
+
+    Resources belonging to resourcegroup(s) are also listed under these group(s).
+
+    Team resources are not included.
+
+    The model handles both internal and external appointments.
 */
 class PLANMODELS_EXPORT ResourceAppointmentsItemModel : public ItemModelBase
 {
@@ -45,7 +53,6 @@ public:
 
     QModelIndex parent(const QModelIndex & index) const override;
     QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
-    QModelIndex index(Resource *resource) const;
 
     int columnCount(const QModelIndex & parent = QModelIndex()) const override; 
     int rowCount(const QModelIndex & parent = QModelIndex()) const override; 
@@ -63,14 +70,10 @@ public:
     Resource *resource(const QModelIndex &index) const;
     QModelIndex createResourceIndex(int row, int col, Resource *ptr) const;
 
-    void refresh() override;
-    void refreshData();
-
     QDate startDate() const;
     QDate endDate() const;
 
     Resource *parent(const Appointment *a) const;
-    int rowNumber(Resource *res, Appointment *a) const;
     void setShowInternalAppointments(bool show);
     bool showInternalAppointments() const { return m_showInternal; }
     void setShowExternalAppointments(bool show);
@@ -84,6 +87,11 @@ public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
 
 protected Q_SLOTS:
+    void refresh() override;
+
+    void slotResourceGroupInserted(KPlato::ResourceGroup *group);
+    void slotResourceGroupToBeRemoved(KPlato::Project *project, KPlato::ResourceGroup *parent, int row, KPlato::ResourceGroup *group);
+
     void slotResourceChanged(KPlato::Resource*);
     void slotResourceToBeInserted(KPlato::Project *project, int row);
     void slotResourceInserted(KPlato::Resource *resource);
@@ -100,12 +108,13 @@ protected Q_SLOTS:
     void slotAppointmentChanged(KPlato::Resource *r, KPlato::Appointment *a);
     
 protected:
-    QVariant notUsed(const ResourceGroup *res, int role) const;
+    void refreshData();
 
-    QVariant name(const Resource *res, int role) const;
-    QVariant name(const Node *node, int role) const;
-    QVariant name(const Appointment *appointment, int role) const;
+    QVariant total(const ItemData *item, int role) const;
+    QVariant total(const ItemData *item, const QDate &date, int role) const;
 
+    QVariant total(const ResourceGroup *group, int role) const;
+    QVariant total(const ResourceGroup *group, const QDate &date, int role) const;
     QVariant total(const Resource *res, int role) const;
     QVariant total(const Resource *res, const QDate &date, int role) const;
     QVariant total(const Appointment *a, int role) const;
@@ -115,7 +124,11 @@ protected:
     void connectSignals(ResourceGroup *group, bool connect);
     void connectSignals(Resource *resource, bool connect);
 
+    void addResource(Resource *resource, ItemData *parentItem);
+    void addGroup(ResourceGroup *group, ItemData *parentItem);
+
 private:
+    ItemData *m_rootItem;
     int m_columnCount;
     QHash<const Appointment*, EffortCostMap> m_effortMap;
     QHash<const Appointment*, EffortCostMap> m_externalEffortMap;
