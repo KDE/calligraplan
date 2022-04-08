@@ -103,6 +103,7 @@ void Project::init()
         m_constraintStartTime = DateTime(QDate::currentDate());
         m_constraintEndTime = m_constraintStartTime.addYears(2);
     }
+    connect(this, &Project::sigCalculationFinished, this, &Project::emitProjectCalculated);
 }
 
 void Project::deref()
@@ -344,7 +345,6 @@ void Project::calculate(ScheduleManager &sm)
     Q_EMIT sigProgress(maxprogress);
     Q_EMIT sigCalculationFinished(this, &sm);
     Q_EMIT scheduleManagerChanged(&sm);
-    Q_EMIT projectCalculated(&sm);
     Q_EMIT projectChanged();
     sm.setScheduling(false);
 }
@@ -3766,6 +3766,12 @@ void Project::nodeDestroyed(QObject *obj)
     if (node) {
         removeId(node->id());
     }
+}
+
+void Project::emitProjectCalculated(KPlato::Project *project, KPlato::ScheduleManager *sm)
+{
+    Q_UNUSED(project)
+    Q_EMIT(projectCalculated(sm));
 }
 
 }  //KPlato namespace

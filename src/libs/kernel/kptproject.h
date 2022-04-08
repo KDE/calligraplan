@@ -691,6 +691,9 @@ private:
 
 private Q_SLOTS:
    void nodeDestroyed(QObject *obj);
+   // TODO: cleanup signals projectCalculated/sigCalculationFinished.
+   //       Problem is projectCalculated is not emitted when calculation is threaded.
+   void emitProjectCalculated(Project *project, KPlato::ScheduleManager *sm);
 
 private:
     void init();
