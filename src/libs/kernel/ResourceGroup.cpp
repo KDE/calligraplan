@@ -315,6 +315,7 @@ void ResourceGroup::save(QDomElement &element)  const {
 }
 
 void ResourceGroup::initiateCalculation(Schedule &sch) {
+    Q_UNUSED(sch)
     clearNodes();
 }
 

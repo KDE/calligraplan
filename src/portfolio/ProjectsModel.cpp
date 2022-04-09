@@ -84,6 +84,7 @@ int ProjectsModel::rowCount(const QModelIndex &parent) const
 
 int ProjectsModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return m_nodeModel.propertyCount() + 1;
 }
 

@@ -141,6 +141,7 @@ void ResourceItemModel::slotResourceTeamAdded(Resource* resource)
 
 void ResourceItemModel::slotResourceTeamToBeRemoved(KPlato::Resource *resource, int row, KPlato::Resource *team)
 {
+    Q_UNUSED(team)
     //debugPlan<<group->name();
     QModelIndex idx = createIndex(m_project->indexOf(resource), 0);
     int r = row;
@@ -784,7 +785,7 @@ bool ResourceItemModel::dropAllowed(const QModelIndex &index, int dropIndicatorP
     if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.resourceitemmodel.internal"))) {
         QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.resourceitemmodel.internal"));
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
-        int i = 0;
+
         const QList<Resource*> resources = resourceList(stream);
         for (const Resource *r : resources) {
             if (r->isShared()) {

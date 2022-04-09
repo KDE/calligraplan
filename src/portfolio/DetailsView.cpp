@@ -78,6 +78,7 @@ void DetailsView::updateReadWrite(bool readwrite)
 
 QMenu * DetailsView::popupMenu(const QString& name)
 {
+    Q_UNUSED(name)
     return nullptr;
 }
 

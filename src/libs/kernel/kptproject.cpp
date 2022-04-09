@@ -3545,8 +3545,8 @@ void Project::changed(Node *node, int property)
 
 void Project::changed(ResourceGroup *group)
 {
+    Q_UNUSED(group)
     //debugPlan;
-//     Q_EMIT resourceGroupChanged(group);
     Q_EMIT projectChanged();
 }
 
@@ -3590,7 +3590,7 @@ void Project::sendScheduleRemoved(const MainSchedule *sch)
 
 void Project::changed(Resource *resource)
 {
-//     Q_EMIT resourceChanged(resource);
+    Q_UNUSED(resource)
     Q_EMIT projectChanged();
 }
 
@@ -3771,7 +3771,7 @@ void Project::nodeDestroyed(QObject *obj)
 void Project::emitProjectCalculated(KPlato::Project *project, KPlato::ScheduleManager *sm)
 {
     Q_UNUSED(project)
-    Q_EMIT(projectCalculated(sm));
+    Q_EMIT projectCalculated(sm);
 }
 
 }  //KPlato namespace

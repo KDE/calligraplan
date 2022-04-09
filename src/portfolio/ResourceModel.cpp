@@ -24,11 +24,13 @@ ResourceModel::~ResourceModel()
 
 int ResourceModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return m_resourceIds.count();
 }
 
 int ResourceModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return 1;
 }
 

@@ -239,7 +239,6 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     debugPlanInsertProject<<"Existing resources:"<<existingResources;
     debugPlanInsertProject<<"Resource requests:"<<rreqs;
 
-    int ri = 0;
     QHash<Node*, QPair<ResourceRequest*, Resource*> >::const_iterator i;
     for (i = rreqs.constBegin(); i != rreqs.constEnd(); ++i) {
         Node *n = i.key();

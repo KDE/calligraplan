@@ -262,6 +262,7 @@ bool KoPart::openTemplate(const QUrl &url)
 
 bool KoPart::openProjectTemplate(const QUrl &url)
 {
+    Q_UNUSED(url)
     return false;
 }
 

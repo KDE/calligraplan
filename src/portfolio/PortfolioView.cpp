@@ -140,6 +140,7 @@ void PortfolioView::updateReadWrite(bool readwrite)
 
 QMenu * PortfolioView::popupMenu(const QString& name)
 {
+    Q_UNUSED(name)
     return nullptr;
 }
 
@@ -171,7 +172,7 @@ bool PortfolioView::hasWriteAccess(KIO::UDSEntry& entry) const
     const auto other = access & 07;
     const auto group = access >> 3 & 07;
     const auto user = access >> 6 & 07;
-    const auto more = access >> 9 & 07;
+    //const auto more = access >> 9 & 07;
 
     const auto fileOwner = entry.stringValue(KIO::UDSEntry::UDS_USER);
     const auto fileGroup = entry.stringValue(KIO::UDSEntry::UDS_GROUP);

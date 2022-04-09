@@ -388,6 +388,9 @@ bool ResourceGroupItemModel::setType(ResourceGroup *res, const QVariant &value, 
 
 bool ResourceGroupItemModel::setUnits(ResourceGroup *res, const QVariant &value, int role)
 {
+    Q_UNUSED(res)
+    Q_UNUSED(value)
+    Q_UNUSED(role)
     return false;
 }
 
@@ -519,7 +522,6 @@ void ResourceGroupItemModel::slotResourceChanged(Resource *res)
 
 void ResourceGroupItemModel::slotResourceGroupChanged(ResourceGroup *group)
 {
-    ResourceGroup *parent = group->parentGroup();
     QModelIndex idx = index(group);
     Q_EMIT dataChanged(idx, idx.sibling(idx.row(), columnCount() - 1));
 }
@@ -534,7 +536,6 @@ bool ResourceGroupItemModel::dropAllowed(const QModelIndex &index, int dropIndic
     if (data->hasFormat(QStringLiteral("application/x-vnd.kde.plan.resourcegroupitemmodel.internal"))) {
         QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.resourcegroupitemmodel.internal"));
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
-        int i = 0;
         const QList<Resource*> resources = resourceList(stream);
         for (Resource *r : resources) {
             if (r->isShared()) {
@@ -804,6 +805,7 @@ QModelIndex ResourceGroupItemModel::insertResource(ResourceGroup *parent, Resour
 
 int ResourceGroupItemModel::sortRole(int column) const
 {
+    Q_UNUSED(column)
     return Qt::DisplayRole;
 }
 

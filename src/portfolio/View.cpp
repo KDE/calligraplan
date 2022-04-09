@@ -144,6 +144,7 @@ void View::updateReadWrite(bool readwrite)
 
 QMenu *View::popupMenu(const QString& name)
 {
+    Q_UNUSED(name)
     return nullptr;
 }
 

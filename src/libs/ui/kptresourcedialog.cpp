@@ -270,7 +270,7 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
 
     int cal = 0;
     dia->calendarList->addItem(i18n("None"));
-    m_calendars.insert(0, 0);
+    m_calendars.insert(0, nullptr);
     const QList<Calendar*> list = project.allCalendars();
     int i=1;
     for (Calendar *c : list) {

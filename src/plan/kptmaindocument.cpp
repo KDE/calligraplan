@@ -180,6 +180,7 @@ void MainDocument::slotStartCalculation()
 
 void MainDocument::slotCalculationFinished(Project *p, ScheduleManager *sm)
 {
+    Q_UNUSED(p)
     if (sm != m_currentCalculationManager) {
         return;
     }

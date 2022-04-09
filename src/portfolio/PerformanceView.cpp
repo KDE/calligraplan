@@ -130,6 +130,7 @@ void PerformanceView::updateReadWrite(bool readwrite)
 
 QMenu * PerformanceView::popupMenu(const QString& name)
 {
+    Q_UNUSED(name)
     return nullptr;
 }
 

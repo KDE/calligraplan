@@ -282,11 +282,11 @@ Node *TaskStatusView::currentNode() const
 void KPlato::TaskStatusView::setCommandDocument(KoDocument* doc)
 {
     if (m_commandDocument) {
-        auto p = disconnect(model(), &ItemModelBase::executeCommand, m_commandDocument, &KoDocument::addCommand);
+        disconnect(model(), &ItemModelBase::executeCommand, m_commandDocument, &KoDocument::addCommand);
     }
     m_commandDocument = doc;
     if (doc) {
-        auto p = connect(model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
+        connect(model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
     }
 }
 

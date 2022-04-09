@@ -501,6 +501,8 @@ void CalendarEditor::slotContextMenuDate(QMenu *menu, const QList<QDate> &dates)
 
 void CalendarEditor::slotContextMenuCalendar(const QModelIndex &index, const QPoint& pos)
 {
+    Q_UNUSED(index)
+    Q_UNUSED(pos)
     slotHeaderContextMenuRequested(pos);
 }
 

@@ -110,6 +110,7 @@ void GanttView::updateReadWrite(bool readwrite)
 
 QMenu *GanttView::popupMenu(const QString& name)
 {
+    Q_UNUSED(name)
     return nullptr;
 }
 

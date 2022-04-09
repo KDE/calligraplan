@@ -557,7 +557,6 @@ void GanttView::slotDateTimeGridChanged()
     if (!grid) {
         return;
     }
-    QAction *a = m_scalegroup->checkedAction();
     switch (grid->scale()) {
         case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action(QStringLiteral("scale_auto"))->setChecked(true); break;
         case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action(QStringLiteral("scale_hour"))->setChecked(true); break;
@@ -1407,7 +1406,6 @@ void MilestoneGanttView::slotDateTimeGridChanged()
     if (!grid) {
         return;
     }
-    QAction *a = m_scalegroup->checkedAction();
     switch (grid->scale()) {
         case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action(QStringLiteral("scale_auto"))->setChecked(true); break;
         case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action(QStringLiteral("scale_hour"))->setChecked(true); break;
@@ -2022,7 +2020,6 @@ void ResourceAppointmentsGanttView::slotDateTimeGridChanged()
     if (!grid) {
         return;
     }
-    QAction *a = m_scalegroup->checkedAction();
     switch (grid->scale()) {
         case KGantt::DateTimeGrid::ScaleAuto: actionCollection()->action(QStringLiteral("scale_auto"))->setChecked(true); break;
         case KGantt::DateTimeGrid::ScaleHour: actionCollection()->action(QStringLiteral("scale_hour"))->setChecked(true); break;

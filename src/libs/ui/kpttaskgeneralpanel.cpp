@@ -57,7 +57,7 @@ void TaskGeneralPanel::setStartValues(Task &task) {
     int cal = 0;
     m_calendars.clear();
     calendarCombo->addItem(i18n("None"));
-    m_calendars.insert(0, 0);
+    m_calendars.insert(0, nullptr);
     const QList<Calendar*> list = m_project.allCalendars();
     int i=1;
     for (Calendar *c : list) {

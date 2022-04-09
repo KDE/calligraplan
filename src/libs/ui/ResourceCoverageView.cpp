@@ -79,6 +79,7 @@ public:
         return v;
     }
     bool filterAcceptsRow(int source_column, const QModelIndex &source_parent) const override {
+        Q_UNUSED(source_column)
         return !source_parent.isValid();
     }
     bool filterAcceptsColumn(int source_column, const QModelIndex &/*source_parent*/) const override {
@@ -156,6 +157,7 @@ public:
     ~SwapModel() {}
 
     QModelIndex parent(const QModelIndex &idx) const override {
+        Q_UNUSED(idx)
         return QModelIndex();
     }
     bool hasChildren(const QModelIndex &idx) const override {
@@ -181,6 +183,7 @@ public:
         return v;
     }
     QModelIndex index(int r, int c, const QModelIndex &p = QModelIndex()) const override {
+        Q_UNUSED(p)
         return createIndex(r, c, nullptr);
     }
     QModelIndex mapToSource(const QModelIndex &idx) const override {
@@ -201,6 +204,7 @@ public:
     ~AvailableModel() {}
 
     QModelIndex parent(const QModelIndex &idx) const override {
+        Q_UNUSED(idx)
         return QModelIndex();
     }
     bool hasChildren(const QModelIndex &idx) const override {
@@ -254,6 +258,7 @@ public:
         return v;
     }
     QModelIndex index(int r, int c, const QModelIndex &p = QModelIndex()) const override {
+        Q_UNUSED(p)
         return createIndex(r, c, nullptr);
     }
     QModelIndex mapToSource(const QModelIndex &idx) const override {
@@ -369,5 +374,5 @@ QList<Resource*> ResourceCoverageView::selectedResources() const
 
 void ResourceCoverageView::contextMenuEvent(QContextMenuEvent *event)
 {
-
+    Q_UNUSED(event)
 }

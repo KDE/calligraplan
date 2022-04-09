@@ -736,7 +736,7 @@ void GanttItemDelegate::paintSpecialItem(QPainter* painter, const KGantt::StyleO
     if (opt.state & QStyle::State_Selected) pen.setWidth(2*pen.width());
     painter->setPen(pen);
 
-    qreal pw = painter->pen().width()/2.;
+    //qreal pw = painter->pen().width()/2.;
     switch(typ) {
     case 1: // early start
         if (boundingRect.isValid()) {

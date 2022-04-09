@@ -308,7 +308,7 @@ void GanttPrintingOptionsWidget::setOptions(const GanttPrintingOptions &opt)
 GanttPrintingDialog::GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt)
     : PrintingDialog(view, QPrinter::HighResolution),
     m_gantt(gantt),
-    m_options(0)
+    m_options(nullptr)
 {
     m_headerHeight = gantt->treeView()->header()->height(); // same header height
     m_sceneRect = gantt->graphicsView()->sceneRect();

@@ -740,7 +740,7 @@ bool TaskWorkPackageModel::isNode(const QModelIndex &indx) const
     QModelIndex idx = mapToModel(this, indx);
     Q_ASSERT(idx.model() == this);
     // a node index: ptr is WorkPackage*
-    return qobject_cast<WorkPackage*>(static_cast<QObject*>(idx.internalPointer())) != 0;
+    return qobject_cast<WorkPackage*>(static_cast<QObject*>(idx.internalPointer())) != nullptr;
 }
 
 bool TaskWorkPackageModel::isDocument(const QModelIndex &indx) const
@@ -748,7 +748,7 @@ bool TaskWorkPackageModel::isDocument(const QModelIndex &indx) const
     QModelIndex idx = mapToModel(this, indx);
     Q_ASSERT(idx.model() == this);
     // a document index: ptr is Node*
-    return qobject_cast<KPlato::Node*>(static_cast<QObject*>(idx.internalPointer())) != 0;
+    return qobject_cast<KPlato::Node*>(static_cast<QObject*>(idx.internalPointer())) != nullptr;
 }
 
 

@@ -243,6 +243,7 @@ Resource *ResourceEditor::resource(const QModelIndex &idx) const
 
 void ResourceEditor::slotCurrentChanged(const QModelIndex &idx)
 {
+    Q_UNUSED(idx)
 }
 
 void ResourceEditor::slotSelectionChanged(const QModelIndexList &lst)
@@ -273,7 +274,6 @@ void ResourceEditor::updateActionsEnabled(bool on)
     bool o = on && m_view->project();
 
     const QList<Resource*> resourceList = m_view->selectedResources();
-    bool resource = resourceList.count() == 1;
 
     actionAddResource->setEnabled(o);
 

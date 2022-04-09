@@ -109,7 +109,6 @@ bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
             progress += step;
             updater->setProgress(progress);
         }
-        bool embedded = p.attribute(QStringLiteral(SAVEEMBEDDED)).toInt();
         QString name = p.attribute("name");
         QUrl url = QUrl::fromUserInput(p.attribute("url"));
         if (url.isValid()) {

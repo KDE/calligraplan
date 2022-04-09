@@ -537,7 +537,7 @@ public:
     const ResourceRequestCollection &requests() const { return m_requests; }
     ResourceRequestCollection &requests() { return m_requests; }
     
-    virtual uint state(long id = ANYSCHEDULED) const { return State_None; }
+    virtual uint state(long id = ANYSCHEDULED) const { Q_UNUSED(id) return State_None; }
     
     const Documents &documents() const { return m_documents; }
     Documents &documents() { return m_documents; }

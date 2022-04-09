@@ -87,7 +87,7 @@ public:
     virtual void haltCalculation(SchedulerThread *job);
     
     /// Calculate the project
-    virtual void calculate(Project &project, ScheduleManager *sm, bool nothread = false) {};
+    virtual void calculate(Project &project, ScheduleManager *sm, bool nothread = false) { Q_UNUSED(project) Q_UNUSED(sm) Q_UNUSED(nothread)  };
 
     /// Return the list of supported granularities
     /// An empty list means granularityIndex is not supported (the default)

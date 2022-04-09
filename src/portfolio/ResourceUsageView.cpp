@@ -130,6 +130,7 @@ void ResourceUsageView::updateReadWrite(bool readwrite)
 
 QMenu * ResourceUsageView::popupMenu(const QString& name)
 {
+    Q_UNUSED(name)
     return nullptr;
 }
 

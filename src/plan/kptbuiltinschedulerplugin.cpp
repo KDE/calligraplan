@@ -216,7 +216,7 @@ void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *d
     for (auto d : includes) {
         KPlato::Project *project = d->project();
         project->setProperty(SCHEDULEMANAGERNAME, d->property(SCHEDULEMANAGERNAME));
-        bool ok = QMetaObject::invokeMethod(doc, "insertSharedResourceAssignments", Q_ARG(const KPlato::Project*, project));
+        QMetaObject::invokeMethod(doc, "insertSharedResourceAssignments", Q_ARG(const KPlato::Project*, project));
         logInfo(doc->project(), nullptr, i18n("Inserting resource bookings from project: %1", project->name()));
     }
     KPlato::Project *project = doc->project();

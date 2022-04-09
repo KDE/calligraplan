@@ -76,6 +76,7 @@ void SummaryView::updateReadWrite(bool readwrite)
 
 QMenu * SummaryView::popupMenu(const QString& name)
 {
+    Q_UNUSED(name)
     return nullptr;
 }
 

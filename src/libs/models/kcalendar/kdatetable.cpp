@@ -1088,8 +1088,8 @@ QRectF KDateTableCustomDateDelegate::paint(QPainter *painter, const StyleOptionV
       }
       else
       {
-        painter->setBrush(option.palette.color(QPalette::Background));
-        painter->setPen(option.palette.color(QPalette::Background));
+        painter->setBrush(option.palette.color(QPalette::Window));
+        painter->setPen(option.palette.color(QPalette::Window));
       }
 
       if (date == QDate::currentDate())

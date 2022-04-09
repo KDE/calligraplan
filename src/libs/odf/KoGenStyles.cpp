@@ -23,8 +23,8 @@
 
 static const struct {
     KoGenStyle::Type m_type;
-    const char * m_elementName;
-    const char * m_propertiesElementName;
+    const char *m_elementName;
+    const char *m_propertiesElementName;
     bool m_drawElement;
 } styleData[] = {
     { KoGenStyle::TextStyle,            "style:style", "style:text-properties",         false  },
@@ -56,8 +56,8 @@ static const unsigned int numStyleData = sizeof(styleData) / sizeof(*styleData);
 
 static const struct {
     KoGenStyle::Type m_type;
-    const char * m_elementName;
-    const char * m_propertiesElementName;
+    const char *m_elementName;
+    const char *m_propertiesElementName;
     bool m_drawElement;
 } autoStyleData[] = {
     { KoGenStyle::TextAutoStyle,         "style:style", "style:text-properties",         false  },

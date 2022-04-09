@@ -136,6 +136,7 @@ void ResourceUsageModel::reset()
 
 void ResourceUsageModel::documentAboutToBeInserted(int row)
 {
+    Q_UNUSED(row)
     beginResetModel();
 }
 
@@ -147,6 +148,7 @@ void ResourceUsageModel::documentInserted()
 
 void ResourceUsageModel::documentAboutToBeRemoved(int row)
 {
+    Q_UNUSED(row)
     beginResetModel();
 }
 

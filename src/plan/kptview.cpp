@@ -1512,7 +1512,6 @@ void View::slotScheduleRemoved(const ScheduleManager *sch)
 void View::slotScheduleAdded(const ScheduleManager *sch)
 {
     ScheduleManager *s = const_cast<ScheduleManager*>(sch);
-    QAction *checked = m_scheduleActionGroup->checkedAction();
     unplugActionList(QStringLiteral("view_schedule_list"));
     QAction *act = addScheduleAction(s);
     plugActionList(QStringLiteral("view_schedule_list"), sortedActionList());

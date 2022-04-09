@@ -236,7 +236,6 @@ void SchedulingView::selectionChanged(const QItemSelection &selected, const QIte
     if (doc) {
         project = doc->project();
     }
-    SchedulingLogModel *m = &m_logModel;
     if (m_schedulingContext.projects.key(doc, -1) == -1) {
         m_logModel.setLog(m_schedulingContext.log);
     } else if (project) {

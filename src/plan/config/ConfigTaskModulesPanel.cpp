@@ -15,6 +15,7 @@
 using namespace KPlato;
 
 ConfigTaskModulesPanel::ConfigTaskModulesPanel(QWidget *parent)
+    : QWidget(parent)
 {
     setObjectName(QStringLiteral("ConfigWidget"));
     ui.setupUi(this);

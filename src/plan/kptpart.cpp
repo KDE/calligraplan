@@ -185,6 +185,8 @@ bool Part::editProject()
 
 void Part::slotLoadSharedResources(const QString &file, const QUrl &projects, bool loadProjectsAtStartup)
 {
+    Q_UNUSED(projects)
+    Q_UNUSED(loadProjectsAtStartup)
     MainDocument *doc = qobject_cast<MainDocument*>(document());
     Q_ASSERT(doc);
     QUrl url(file);
