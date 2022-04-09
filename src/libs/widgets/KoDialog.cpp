@@ -575,7 +575,7 @@ void KoDialog::incrementInitialSize(const QSize &size)
 QPushButton *KoDialog::button(ButtonCode id) const
 {
     Q_D(const KoDialog);
-    return d->mButtonList.value(id, 0);
+    return d->mButtonList.value(id, nullptr);
 }
 
 void KoDialog::enableButton(ButtonCode id, bool state)

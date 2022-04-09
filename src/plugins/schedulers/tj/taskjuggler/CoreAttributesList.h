@@ -102,7 +102,7 @@ public:
         QListIterator<CoreAttributes*>(l) { }
     virtual ~CoreAttributesListIterator() { }
     void operator++() { if (hasNext()) next(); }
-    CoreAttributes *operator*() { return hasNext() ? peekNext() : 0; }
+    CoreAttributes *operator*() { return hasNext() ? peekNext() : nullptr; }
 } ;
 
 template<class TL, class T> int compareTreeItemsT(TL* list, T* c1, T* c2)

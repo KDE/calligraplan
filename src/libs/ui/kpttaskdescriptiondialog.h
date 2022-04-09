@@ -39,7 +39,7 @@ protected:
     Node &m_node;
 
 private:
-    OBJECTCONNECTIONS;
+    OBJECTCONNECTIONS
 };
 
 class TaskDescriptionPanel : public TaskDescriptionPanelImpl

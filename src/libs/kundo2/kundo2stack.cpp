@@ -1030,7 +1030,7 @@ QString KUndo2QStack::undoText() const
 {
     if (!m_macro_stack.isEmpty())
         return QString();
-    if (m_index > 0 && m_command_list.at(m_index-1)!=0)
+    if (m_index > 0 && m_command_list.at(m_index-1)!=nullptr)
 
         return m_command_list.at(m_index - 1)->actionText();
     return QString();

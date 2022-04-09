@@ -696,7 +696,7 @@ void Completion::saveXML(QDomElement &element)  const
         el.appendChild(elm);
         ResourceUsedEffortMap::ConstIterator i = m_usedEffort.constBegin();
         for (; i != m_usedEffort.constEnd(); ++i) {
-            if (i.value() == 0) {
+            if (i.value() == nullptr) {
                 continue;
             }
             QDomElement e = elm.ownerDocument().createElement(QStringLiteral("resource"));

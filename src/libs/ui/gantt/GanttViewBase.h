@@ -41,7 +41,7 @@ class GanttChartDisplayOptionsPanel : public QWidget, public Ui::GanttChartDispl
 {
     Q_OBJECT
 public:
-    explicit GanttChartDisplayOptionsPanel(GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent = 0);
+    explicit GanttChartDisplayOptionsPanel(GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent = nullptr);
 
     void setValues(const GanttItemDelegate &del);
 

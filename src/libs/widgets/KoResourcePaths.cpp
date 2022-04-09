@@ -303,7 +303,7 @@ QString KoResourcePathsImpl::locateLocalInternal(const QString &type, const QStr
     return path + QLatin1Char('/') + filename;
 }
 
-Q_GLOBAL_STATIC(KoResourcePathsImpl, s_instance);
+Q_GLOBAL_STATIC(KoResourcePathsImpl, s_instance)
 
 
 void KoResourcePaths::addResourceType(const char *type, const char *basetype,

@@ -1560,8 +1560,7 @@ void View::slotViewSchedule(QAction *act)
     //debugPlan<<act;
     ScheduleManager *sm = nullptr;
     if (act != nullptr) {
-        ScheduleManager *sch = m_scheduleActions.value(act, 0);
-        sm = m_scheduleActions.value(act, 0);
+        sm = m_scheduleActions.value(act, nullptr);
     }
     setLabel(nullptr);
     slotViewScheduleManager(sm);

@@ -102,7 +102,7 @@ void DocumentsPanel::currentChanged(const QModelIndex &index)
 Document *DocumentsPanel::selectedDocument() const
 {
     QList<Document*> lst = m_view->selectedDocuments();
-    return lst.isEmpty() ? 0 : lst.first();
+    return lst.isEmpty() ? nullptr : lst.first();
 }
 
 void DocumentsPanel::slotAddUrl()

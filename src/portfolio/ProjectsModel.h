@@ -30,7 +30,7 @@ class ProjectsModel;
 class ProjectsFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged);
+    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged)
 
 public:
     explicit ProjectsFilterModel(QObject *parent = nullptr);
@@ -61,7 +61,7 @@ private:
 class ProjectsModel : public QAbstractItemModel
 {
     Q_OBJECT
-    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged);
+    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged)
 public:
     enum ExtraColumns { ScheduleManagerColumn = 0 };
 

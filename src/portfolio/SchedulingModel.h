@@ -19,7 +19,7 @@ class QAbstractItemView;
 class SchedulingModel : public KExtraColumnsProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged);
+    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged)
 
 public:
     explicit SchedulingModel(QObject *parent = nullptr);

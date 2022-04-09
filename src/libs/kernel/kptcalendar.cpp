@@ -75,7 +75,7 @@ static TzTimeZoneHash loadTzTimeZones()
     return zonesHash;
 }
 // Hash of available system tz files as loaded by loadTzTimeZones()
-Q_GLOBAL_STATIC_WITH_ARGS(const TzTimeZoneHash, tzZones, (loadTzTimeZones()));
+Q_GLOBAL_STATIC_WITH_ARGS(const TzTimeZoneHash, tzZones, (loadTzTimeZones()))
 // end qt-copy
 #endif
 
@@ -1530,18 +1530,18 @@ CalendarDay *Calendar::takeDay(CalendarDay *day)
 QList<std::pair<CalendarDay*, CalendarDay*> > Calendar::consecutiveVacationDays() const
 {
     QList<std::pair<CalendarDay*, CalendarDay*> > lst;
-    std::pair<CalendarDay*, CalendarDay*> interval(0, 0);
+    std::pair<CalendarDay*, CalendarDay*> interval(nullptr, nullptr);
     for (CalendarDay* day : qAsConst(m_days)) {
         if (day->state() == CalendarDay::NonWorking) {
-            if (interval.first == 0) {
+            if (interval.first == nullptr) {
                 interval.first = day;
             }
             interval.second = day;
         } else {
-            if (interval.first != 0) {
+            if (interval.first != nullptr) {
                 lst << std::pair<CalendarDay*, CalendarDay*>(interval);
             }
-            interval.first = interval.second = 0;
+            interval.first = interval.second = nullptr;
         }
     }
     return lst;

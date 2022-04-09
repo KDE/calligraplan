@@ -105,9 +105,9 @@ public:
         reloadFile = nullptr;
         importFile = nullptr;
         exportFile = nullptr;
-        encryptDocument = 0;
+        encryptDocument = nullptr;
 #ifndef NDEBUG
-        uncompressToDir = 0;
+        uncompressToDir = nullptr;
 #endif
         isImporting = false;
         isExporting = false;
@@ -523,7 +523,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
     d->closeFile->setEnabled(enable);
     updateCaption();
 
-    setActivePart(d->rootPart, doc ? d->rootViews.first() : 0);
+    setActivePart(d->rootPart, doc ? d->rootViews.first() : nullptr);
     if (d->rootPart) {
         reloadRecentFileList();
     }

@@ -34,7 +34,7 @@ namespace KChart
     class CartesianCoordinatePlane;
     class CartesianAxis;
     class Legend;
-};
+}
 
 namespace KPlato
 {

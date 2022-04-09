@@ -30,7 +30,7 @@ namespace KPlato {
 class SummaryModel : public KExtraColumnsProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged);
+    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged)
 
 public:
     explicit SummaryModel(QObject *parent = nullptr);
@@ -59,7 +59,7 @@ private:
 class SummaryFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged);
+    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged)
 
 public:
     explicit SummaryFilterModel(QObject *parent = nullptr);

@@ -25,7 +25,7 @@ namespace KPlato {
 class ResourceModel : public QAbstractTableModel
 {
     Q_OBJECT
-    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged);
+    Q_PROPERTY(MainDocument* portfolio READ portfolio WRITE setPortfolio NOTIFY portfolioChanged)
 public:
 
     explicit ResourceModel(QObject *parent = nullptr);
