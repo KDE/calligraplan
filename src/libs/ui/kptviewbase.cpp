@@ -1830,11 +1830,13 @@ void TreeViewBase::slotExpand()
 //         expandAll();
 //         return;
 //     }
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     QModelIndex idx = m_contextMenuIndex;
     if (idx.column() > 0) {
         idx = idx.model()->index(idx.row(), idx.column(), idx.parent());
     }
     expandRecursive(idx, true);
+    QApplication::restoreOverrideCursor();
 }
 
 void TreeViewBase::slotCollapse()
@@ -1844,11 +1846,13 @@ void TreeViewBase::slotCollapse()
 //         collapseAll();
 //         return;
 //     }
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     QModelIndex idx = m_contextMenuIndex;
     if (idx.column() > 0) {
         idx = idx.model()->index(idx.row(), 0, idx.parent());
     }
     expandRecursive(idx, false);
+    QApplication::restoreOverrideCursor();
 }
 
 void TreeViewBase::setContextMenuIndex(const QModelIndex &idx)
