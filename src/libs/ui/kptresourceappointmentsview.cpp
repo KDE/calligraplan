@@ -45,75 +45,6 @@ namespace KPlato
 {
 
 
-//--------------------
-
-ResourceAppointmentsDisplayOptionsPanel::ResourceAppointmentsDisplayOptionsPanel(ResourceAppointmentsItemModel *model, QWidget *parent)
-    : QWidget(parent),
-    m_model(model)
-{
-    setupUi(this);
-    setValues(*model);
-
-    connect(ui_internalAppointments, &QCheckBox::stateChanged, this, &ResourceAppointmentsDisplayOptionsPanel::changed);
-    connect(ui_externalAppointments, &QCheckBox::stateChanged, this, &ResourceAppointmentsDisplayOptionsPanel::changed);
-}
-
-void ResourceAppointmentsDisplayOptionsPanel::slotOk()
-{
-    m_model->setShowInternalAppointments(ui_internalAppointments->checkState() == Qt::Checked);
-    m_model->setShowExternalAppointments(ui_externalAppointments->checkState() == Qt::Checked);
-}
-
-void ResourceAppointmentsDisplayOptionsPanel::setValues(const ResourceAppointmentsItemModel &m)
-{
-    ui_internalAppointments->setCheckState(m.showInternalAppointments() ? Qt::Checked : Qt::Unchecked);
-    ui_externalAppointments->setCheckState(m.showExternalAppointments() ? Qt::Checked : Qt::Unchecked);
-}
-
-void ResourceAppointmentsDisplayOptionsPanel::setDefault()
-{
-    ResourceAppointmentsItemModel m;
-    setValues(m);
-}
-
-//----
-ResourceAppointmentsSettingsDialog::ResourceAppointmentsSettingsDialog(ViewBase *view, ResourceAppointmentsItemModel *model, QWidget *parent, bool selectPrint)
-    : KPageDialog(parent),
-    m_view(view)
-{
-    ResourceAppointmentsDisplayOptionsPanel *panel = new ResourceAppointmentsDisplayOptionsPanel(model);
-    KPageWidgetItem *page = addPage(panel, i18n("General"));
-    page->setHeader(i18n("Resource Assignments View Settings"));
-
-    QTabWidget *tab = new QTabWidget();
-
-    QWidget *w = ViewBase::createPageLayoutWidget(view);
-    tab->addTab(w, w->windowTitle());
-    m_pagelayout = w->findChild<KoPageLayoutWidget*>();
-    Q_ASSERT(m_pagelayout);
-
-    m_headerfooter = ViewBase::createHeaderFooterWidget(view);
-    m_headerfooter->setOptions(view->printingOptions());
-    tab->addTab(m_headerfooter, m_headerfooter->windowTitle());
-
-    page = addPage(tab, i18n("Printing"));
-    page->setHeader(i18n("Printing Options"));
-    if (selectPrint) {
-        setCurrentPage(page);
-    }
-    connect(this, &QDialog::accepted, this, &ResourceAppointmentsSettingsDialog::slotOk);
-    connect(this, &QDialog::accepted, panel, &ResourceAppointmentsDisplayOptionsPanel::slotOk);
-    //TODO: there was no default button configured, should there?
-//     connect(button(QDialogButtonBox::RestoreDefaults), SIGNAL(clicked(bool)), panel, SLOT(setDefault()));
-}
-
-void ResourceAppointmentsSettingsDialog::slotOk()
-{
-    m_view->setPageLayout(m_pagelayout->pageLayout());
-    m_view->setPrintingOptions(m_headerfooter->options());
-}
-
-//---------------------------------------
 ResourceAppointmentsTreeView::ResourceAppointmentsTreeView(QWidget *parent)
     : DoubleTreeViewBase(true, parent)
 {
@@ -136,11 +67,6 @@ ResourceAppointmentsTreeView::ResourceAppointmentsTreeView(QWidget *parent)
 bool ResourceAppointmentsTreeView::loadContext(const KoXmlElement &context)
 {
     debugPlan;
-    KoXmlElement e = context.namedItem("common").toElement();
-    if (! e.isNull()) {
-        model()->setShowInternalAppointments((bool)(e.attribute(QStringLiteral("show-internal-appointments"), QString::number(0)).toInt()));
-        model()->setShowExternalAppointments((bool)(e.attribute(QStringLiteral("show-external-appointments"), QString::number(0)).toInt()));
-    }
     DoubleTreeViewBase::loadContext(QMetaEnum(), context);
     return true;
 }
@@ -148,11 +74,6 @@ bool ResourceAppointmentsTreeView::loadContext(const KoXmlElement &context)
 void ResourceAppointmentsTreeView::saveContext(QDomElement &settings) const
 {
     debugPlan;
-    QDomElement e = settings.ownerDocument().createElement(QStringLiteral("common"));
-    settings.appendChild(e);
-    e.setAttribute(QStringLiteral("show-internal-appointments"), QString::number(model()->showInternalAppointments()));
-    e.setAttribute(QStringLiteral("show-external-appointments"), QString::number(model()->showExternalAppointments()));
-
     DoubleTreeViewBase::saveContext(QMetaEnum(), settings);
 }
 
@@ -360,7 +281,7 @@ void ResourceAppointmentsView::updateActionsEnabled(bool on)
 void ResourceAppointmentsView::setupGui()
 {
     // Add the context menu actions for the view options
-    createOptionActions(ViewBase::OptionAll);
+    createOptionActions(ViewBase::OptionAll & ~OptionViewConfig);
 
     auto actionTaskProgress  = new QAction(koIcon("document-edit"), i18n("Progress..."), this);
     actionCollection()->addAction(QStringLiteral("task_progress"), actionTaskProgress);
@@ -378,9 +299,6 @@ void ResourceAppointmentsView::setupGui()
 void ResourceAppointmentsView::slotOptions()
 {
     debugPlan;
-    ResourceAppointmentsSettingsDialog *dlg = new ResourceAppointmentsSettingsDialog(this, m_view->model(), this, sender()->objectName() == QStringLiteral("print_options"));
-    connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
-    dlg->open();
 }
 
 

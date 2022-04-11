@@ -36,8 +36,6 @@ class ItemData;
     Resources belonging to resourcegroup(s) are also listed under these group(s).
 
     Team resources are not included.
-
-    The model handles both internal and external appointments.
 */
 class PLANMODELS_EXPORT ResourceAppointmentsItemModel : public ItemModelBase
 {
@@ -65,8 +63,6 @@ public:
     Node *node(const QModelIndex &index) const;
     Appointment *appointment(const QModelIndex &index) const;
     QModelIndex createAppointmentIndex(int row, int col, void *ptr) const;
-    Appointment *externalAppointment(const QModelIndex &index) const;
-    QModelIndex createExternalAppointmentIndex(int row, int col, void *ptr) const;
     Resource *resource(const QModelIndex &index) const;
     QModelIndex createResourceIndex(int row, int col, Resource *ptr) const;
 
@@ -74,10 +70,6 @@ public:
     QDate endDate() const;
 
     Resource *parent(const Appointment *a) const;
-    void setShowInternalAppointments(bool show);
-    bool showInternalAppointments() const { return m_showInternal; }
-    void setShowExternalAppointments(bool show);
-    bool showExternalAppointments() const { return m_showExternal; }
 
 Q_SIGNALS:
     void refreshed();
@@ -131,15 +123,8 @@ private:
     ItemData *m_rootItem;
     int m_columnCount;
     QHash<const Appointment*, EffortCostMap> m_effortMap;
-    QHash<const Appointment*, EffortCostMap> m_externalEffortMap;
     QDate m_start;
     QDate m_end;
-    
-    ResourceGroup *m_group; // Used for sanity checks
-    Resource *m_resource; // Used for sanity checks
-    
-    bool m_showInternal;
-    bool m_showExternal;
 };
 
 /**

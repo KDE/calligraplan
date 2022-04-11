@@ -125,8 +125,6 @@ ki18n_wrap_ui(calligraplanui_LIB_SRCS
 
     RelationEditorDialog.ui
 
-    kptresourceappointmentsdisplayoptions.ui
-
     gantt/kptganttchartdisplayoptions.ui
     gantt/kptganttprintingoptions.ui
 

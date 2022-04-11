@@ -911,9 +911,6 @@ void ResourceGanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::
             painter->setBrushOrigin(itemRect.topLeft());
 
             painter->save();
-            if (idx.data(Role::ObjectType).toInt() == OT_External) {
-                painter->setBrush(Qt::blue);
-            }
             painter->translate(0.5, 0.5);
             painter->drawRect(r);
             painter->restore();
@@ -998,14 +995,13 @@ void ResourceGanttItemDelegate::paintResourceItem(QPainter* painter, const KGant
     pen.setColor(textColor);
     painter->setPen(pen);
 
-    Appointment *external = static_cast<Appointment*>(idx.data(Role::ExternalAppointments).value<void*>());
-    Appointment *internal = static_cast<Appointment*>(idx.data(Role::InternalAppointments).value<void*>());
+    Appointment *tot = static_cast<Appointment*>(idx.data(Role::InternalAppointments).value<void*>());
+    Q_ASSERT(tot);
     int rl = idx.data(Role::Maximum).toInt(); //TODO check calendar
-    Appointment tot = *external + *internal;
     painter->save();
     // TODO check load vs units properly, it's not as simple as below!
     QLocale locale;
-    const QList<AppointmentInterval> intervals = tot.intervals().map().values();
+    const QList<AppointmentInterval> intervals = tot->intervals().map().values();
     for (const AppointmentInterval &i : intervals) {
         int il = i.load();
         QString txt = locale.toString((double)il / (double)rl, 'f', 1);

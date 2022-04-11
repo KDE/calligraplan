@@ -9,8 +9,6 @@
 
 #include "planui_export.h"
 
-#include "ui_kptresourceappointmentsdisplayoptions.h"
-
 #include "kptviewbase.h"
 #include "kptresourceappointmentsmodel.h"
 
@@ -33,42 +31,6 @@ class ResourceGroup;
 class ScheduleManager;
 class ResourceAppointmentsItemModel;
 
-//-------------------------------------------------
-class ResourceAppointmentsDisplayOptionsPanel : public QWidget, public Ui::ResourceAppointmentsDisplayOptions
-{
-    Q_OBJECT
-public:
-    explicit ResourceAppointmentsDisplayOptionsPanel(ResourceAppointmentsItemModel *model, QWidget *parent = nullptr);
-
-    void setValues(const ResourceAppointmentsItemModel &del);
-
-public Q_SLOTS:
-    void slotOk();
-    void setDefault();
-
-Q_SIGNALS:
-    void changed();
-
-private:
-    ResourceAppointmentsItemModel *m_model;
-};
-
-class ResourceAppointmentsSettingsDialog : public KPageDialog
-{
-    Q_OBJECT
-public:
-    explicit ResourceAppointmentsSettingsDialog(ViewBase *view, ResourceAppointmentsItemModel *model, QWidget *parent = nullptr, bool selectPrint = false);
-
-public Q_SLOTS:
-    void slotOk();
-
-private:
-    ViewBase *m_view;
-    KoPageLayoutWidget *m_pagelayout;
-    PrintingHeaderFooter *m_headerfooter;
-};
-
-//------------------------
 class PLANUI_EXPORT ResourceAppointmentsTreeView : public DoubleTreeViewBase
 {
     Q_OBJECT
