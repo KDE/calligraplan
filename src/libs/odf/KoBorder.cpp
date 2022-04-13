@@ -248,7 +248,6 @@ void KoBorder::setBorderStyle(BorderSide side, BorderStyle style)
     BorderData &edge = d->data[side];
     qreal width = edge.outerPen.widthF();
     qreal innerWidth = 0;
-    qreal middleWidth = 0;
     qreal space = 0;
     QVector<qreal> dashes;
     switch (style) {
@@ -274,7 +273,7 @@ void KoBorder::setBorderStyle(BorderSide side, BorderStyle style)
         break;
     }
     case KoBorder::BorderTriple:
-        innerWidth = middleWidth = space = width/6;
+        innerWidth = space = width/6;
         width -= (space + innerWidth);
         edge.outerPen.setStyle(Qt::SolidLine);
         break;

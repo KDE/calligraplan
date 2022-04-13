@@ -81,13 +81,11 @@ QValidator::State KoUnitDoubleSpinBox::validate(QString &input, int &pos) const
 #endif
 
     const double value = valueFromText(number);
-    double newVal = 0.0;
-    if (!qIsNaN(value)) {
+    if (!qIsNaN(value))
+    {
         bool ok;
-        const KoUnit unit = KoUnit::fromSymbol(unitName, &ok);
-        if (ok)
-            newVal = unit.fromUserValue(value);
-        else
+        KoUnit::fromSymbol(unitName, &ok);
+        if (!ok)
         {
             // Probably the user is trying to edit the unit
 #ifdef DEBUG_VALIDATOR
@@ -101,7 +99,7 @@ QValidator::State KoUnitDoubleSpinBox::validate(QString &input, int &pos) const
         warnWidgets << "Not a number: " << number;
         return QValidator::Invalid;
     }
-    newVal = KoUnit::ptToUnit(newVal, d->unit);
+    //newVal = KoUnit::ptToUnit(newVal, d->unit);
     //input = textFromValue(newVal); // FIXME: don't overwrite for now; the effect is not exactly what I expect...
 
     return QValidator::Acceptable;

@@ -202,7 +202,7 @@ QVariant CriticalPathItemModel::notUsed(int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
-            return QStringLiteral("");
+            return QLatin1String("");
         default:
             return QVariant();
     }
@@ -484,7 +484,7 @@ QModelIndex PertResultItemModel::parent(const QModelIndex &index) const
     if (row < 0) {
         return QModelIndex(); // top level has no parent
     }
-    if (m_top.value(row) == 0) {
+    if (m_top.value(row) == nullptr) {
         return QModelIndex();
     }
     return createIndex(row, 0, ListItemId);

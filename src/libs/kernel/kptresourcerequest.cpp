@@ -686,7 +686,10 @@ void ResourceRequestCollection::makeAppointments(Schedule *schedule) {
     }
 }
 
-void ResourceRequestCollection::reserve(const DateTime &start, const Duration &duration) {
+void ResourceRequestCollection::reserve(const DateTime &start, const Duration &duration)
+{
+    Q_UNUSED(start)
+    Q_UNUSED(duration)
     //debugPlan;
     // TODO: Alternatives
 //     for (ResourceRequest *r : qAsConst(m_resourceRequests)) {

@@ -289,13 +289,10 @@ void PlanTJScheduler::addStartEndJob()
 {
     const auto startId("TJ::StartJob");
     const auto endId("TJ::EndJob");
-    bool newStart = false;
-    bool newEnd = false;
 
     TJ::Task *start = m_tjProject->getTask(startId);
     if (!start) {
         start = new TJ::Task(m_tjProject, startId, startId, nullptr, QString(), 0);
-        newStart = true;
     }
     start->setMilestone(true);
     if (! m_backward) {
@@ -317,7 +314,6 @@ void PlanTJScheduler::addStartEndJob()
     TJ::Task *end = m_tjProject->getTask(endId);
     if (!end) {
         end = new TJ::Task(m_tjProject, endId, endId, nullptr, QString(), 0);
-        newEnd = true;
     }
     end->setMilestone(true);
     if (m_backward) {

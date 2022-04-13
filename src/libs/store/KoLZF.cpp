@@ -118,7 +118,6 @@ int compress(const void* input, int length, void* output, int maxout)
         /* if we have copied something, adjust the copy count */
         if (copy) {
             /* copy is biased, '0' means 1 byte copy */
-            anchor = anchor - copy - 1;
             *(op - copy - 1) = copy - 1;
             copy = 0;
         } else {

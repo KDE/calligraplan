@@ -805,7 +805,7 @@ bool ProjectLoader_v0::load(Calendar *calendar, const KoXmlElement &element, XML
 
     calendar->setId(element.attribute(QStringLiteral("id")));
     calendar->setParentId(element.attribute(QStringLiteral("parent")));
-    calendar->setName(element.attribute(QStringLiteral("name"),QStringLiteral("")));
+    calendar->setName(element.attribute(QStringLiteral("name")));
     QTimeZone tz(element.attribute(QStringLiteral("timezone")).toLatin1());
     if (tz.isValid()) {
         calendar->setTimeZone(tz);
