@@ -245,12 +245,10 @@ Duration Completion::actualEffortTo(QDate date) const
             eff += ue->effortTo(date);
         }
     } else {
-        QListIterator<QDate> it(m_entries.uniqueKeys());
-        it.toBack();
-        while (it.hasPrevious()) {
-            QDate d = it.previous();
-            if (d <= date) {
-                eff = m_entries[ d ]->totalPerformed;
+        QMap<QDate, Completion::Entry*>::const_iterator it = m_entries.constEnd();
+        for (--it; it != m_entries.constBegin(); --it) {
+            if (it.key() <= date) {
+                eff = it.value()->totalPerformed;
                 break;
             }
         }
@@ -573,7 +571,7 @@ EffortCostMap Completion::actualEffortCost(long int id, KPlato::EffortCostCalcul
                 map.insert(it.key(), e - last, eff * averageCostPrHour(it.key(), id)); // try to guess cost
                 last = e;
             }
-            if (et.isValid() && d > et) {
+            if (et.isValid() && it.key() > et) {
                 break;
             }
         }
