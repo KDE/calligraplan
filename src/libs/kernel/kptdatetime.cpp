@@ -55,16 +55,6 @@ DateTime::DateTime(const QDateTime& other)
 {
 }
 
-static QDateTime fromTimeZone(const QDateTime &dt, const QTimeZone &timeZone)
-{
-    QDateTime result(dt);
-    if (timeZone.isValid()) {
-        result.setTimeZone(timeZone);
-        result = result.toLocalTime();
-    }
-    return result;
-}
-
 void DateTime::add(const Duration &duration) {
     if (isValid() && duration.m_ms) {
         if (timeSpec() == Qt::TimeZone) {
