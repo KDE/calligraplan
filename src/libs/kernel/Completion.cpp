@@ -302,18 +302,18 @@ EffortCostMap Completion::effortCostPrDay(QDate start, QDate end, long id) const
             QDate st = start.isValid() ? start : m_startTime.date();
             QDate et = end.isValid() ? end : m_finishTime.date();
             Duration last;
-            const auto dates = m_entries.uniqueKeys();
-            for (const QDate &d : dates) {
-                if (d < st) {
+            QMap<QDate, Completion::Entry*>::const_iterator it = m_entries.constBegin();
+            for (; it != m_entries.constEnd(); ++it) {
+                if (it.key() < st) {
                     continue;
                 }
-                if (et.isValid() && d > et) {
+                if (et.isValid() && it.key() > et) {
                     break;
                 }
-                Duration e = m_entries[ d ]->totalPerformed;
+                Duration e = it.value()->totalPerformed;
                 if (e != Duration::zeroDuration && e != last) {
                     Duration eff = e - last;
-                    ec.insert(d, eff, eff.toDouble(Duration::Unit_h) * averageCostPrHour(d, id));
+                    ec.insert(it.key(), eff, eff.toDouble(Duration::Unit_h) * averageCostPrHour(it.key(), id));
                     last = e;
                 }
             }
@@ -332,6 +332,8 @@ EffortCostMap Completion::effortCostPrDay(QDate start, QDate end, long id) const
             }
             break;
         }
+        default:
+            break;
     }
     return ec;
 }
@@ -559,16 +561,16 @@ EffortCostMap Completion::actualEffortCost(long int id, KPlato::EffortCostCalcul
         QDate st = start.isValid() ? start : m_startTime.date();
         QDate et = end.isValid() ? end : m_finishTime.date();
         Duration last;
-        const auto dates = m_entries.uniqueKeys();
-        for (const QDate &d : dates) {
-            if (d < st) {
+        QMap<QDate, Completion::Entry*>::const_iterator it = m_entries.constBegin();
+        for (; it != m_entries.constEnd(); ++it) {
+            if (it.key() < st) {
                 continue;
             }
-            Duration e = m_entries[ d ]->totalPerformed;
+            Duration e = it.value()->totalPerformed;
             if (e != Duration::zeroDuration && e != last) {
                 //debugPlan<<m_node->name()<<d<<(e - last).toDouble(Duration::Unit_h);
                 double eff = (e - last).toDouble(Duration::Unit_h);
-                map.insert(d, e - last, eff * averageCostPrHour(d, id)); // try to guess cost
+                map.insert(it.key(), e - last, eff * averageCostPrHour(it.key(), id)); // try to guess cost
                 last = e;
             }
             if (et.isValid() && d > et) {
@@ -680,12 +682,12 @@ void Completion::saveXML(QDomElement &element)  const
     el.setAttribute(QStringLiteral("startTime"), m_startTime.toString(Qt::ISODate));
     el.setAttribute(QStringLiteral("finishTime"), m_finishTime.toString(Qt::ISODate));
     el.setAttribute(QStringLiteral("entrymode"), entryModeToString());
-    const auto dates = m_entries.uniqueKeys();
-    for (const QDate &date : dates) {
+    QMap<QDate, Completion::Entry*>::const_iterator it = m_entries.constBegin();
+    for (; it != m_entries.constEnd(); ++it) {
         QDomElement elm = el.ownerDocument().createElement(QStringLiteral("completion-entry"));
         el.appendChild(elm);
-        Entry *e = m_entries[ date ];
-        elm.setAttribute(QStringLiteral("date"), date.toString(Qt::ISODate));
+        const auto e = m_entries[it.key()];
+        elm.setAttribute(QStringLiteral("date"), it.key().toString(Qt::ISODate));
         elm.setAttribute(QStringLiteral("percent-finished"), e->percentFinished);
         elm.setAttribute(QStringLiteral("remaining-effort"), e->remainingEffort.toString());
         elm.setAttribute(QStringLiteral("performed-effort"), e->totalPerformed.toString());
