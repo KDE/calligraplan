@@ -601,7 +601,7 @@ bool KoEncryptedStore::openRead(const QString& name)
         }
 
         QByteArray *resultArray = new QByteArray(decrypted.toByteArray());
-        KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
+        KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
         QIODevice *resultDevice = new KCompressionDevice(new QBuffer(resultArray, nullptr), false, type);
 
         if (!resultDevice) {
@@ -783,7 +783,7 @@ bool KoEncryptedStore::closeWrite()
 
         // Compress the data
         QBuffer compressedData;
-        KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
+        KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
         QIODevice *compressDevice = new KCompressionDevice(&compressedData, false, type);
 
         if (!compressDevice) {
