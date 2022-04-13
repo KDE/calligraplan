@@ -179,7 +179,7 @@ bool NetAccess::exists(const QUrl &url, bool source, QWidget *window)
         return QFile::exists(url.toLocalFile());
     }
     NetAccess kioNet;
-    return kioNet.statInternal(url, 0 /*no details*/,
+    return kioNet.statInternal(url, KIO::StatNoDetails,
                                source ? SourceSide : DestinationSide, window);
 }
 
@@ -190,13 +190,13 @@ bool NetAccess::exists(const QUrl &url, StatSide side, QWidget *window)
         return QFile::exists(url.toLocalFile());
     }
     NetAccess kioNet;
-    return kioNet.statInternal(url, 0 /*no details*/, side, window);
+    return kioNet.statInternal(url, KIO::StatNoDetails, side, window);
 }
 
 bool NetAccess::stat(const QUrl &url, KIO::UDSEntry &entry, QWidget *window)
 {
     NetAccess kioNet;
-    bool ret = kioNet.statInternal(url, 2 /*all details*/, SourceSide, window);
+    bool ret = kioNet.statInternal(url, KIO::StatDefaultDetails /*all details*/, SourceSide, window);
     if (ret) {
         entry = kioNet.d->m_entry;
     }
@@ -288,7 +288,6 @@ bool NetAccess::filecopyInternal(const QUrl &src, const QUrl &target, int permis
 {
     d->bJobOK = true; // success unless further error occurs
 
-    KIO::Scheduler::checkSlaveOnHold(true);
     KIO::Job *job = move
                     ? KIO::file_move(src, target, permissions, flags)
                     : KIO::file_copy(src, target, permissions, flags);
@@ -316,7 +315,7 @@ bool NetAccess::dircopyInternal(const QList<QUrl> &src, const QUrl &target,
     return d->bJobOK;
 }
 
-bool NetAccess::statInternal(const QUrl &url, int details, StatSide side,
+bool NetAccess::statInternal(const QUrl &url, KIO::StatDetails details, StatSide side,
                              QWidget *window)
 {
     d->bJobOK = true; // success unless further error occurs

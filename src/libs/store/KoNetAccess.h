@@ -447,7 +447,7 @@ private:
                           KIO::JobFlags flags, QWidget *window, bool move);
     bool dircopyInternal(const QList<QUrl> &src, const QUrl &target,
                          QWidget *window, bool move);
-    bool statInternal(const QUrl &url, int details, StatSide side, QWidget *window = nullptr);
+    bool statInternal(const QUrl &url, KIO::StatDetails details, StatSide side, QWidget *window = nullptr);
 
     bool delInternal(const QUrl &url, QWidget *window = nullptr);
     bool mkdirInternal(const QUrl &url, int permissions, QWidget *window = nullptr);
