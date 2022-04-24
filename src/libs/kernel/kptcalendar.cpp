@@ -1762,6 +1762,16 @@ QDebug operator<<(QDebug dbg, KPlato::CalendarDay *day)
 
 QDebug operator<<(QDebug dbg, KPlato::StandardWorktime *wt)
 {
-    dbg << "Standard";
+    return operator<<(dbg, *wt);
+}
+
+QDebug operator<<(QDebug dbg, KPlato::StandardWorktime &wt)
+{
+    dbg.noquote().nospace() << "Standard["
+    << "y:" <<wt.year()
+    << " m:" << wt.month()
+    << " w:" << wt.week()
+    << " d:" << wt.day()
+    << ']';
     return dbg;
 }
