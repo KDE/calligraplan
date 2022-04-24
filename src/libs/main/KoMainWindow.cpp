@@ -42,13 +42,14 @@
 #include <QTemporaryFile>
 #include <krecentdocument.h>
 #include <klocalizedstring.h>
-#include <ktoolinvocation.h>
 #include <kxmlguifactory.h>
 #include <kfileitem.h>
 #include <ktoolbar.h>
 #include <kactionmenu.h>
 #include <kactioncollection.h>
 #include <KWindowConfig>
+#include <KEMailClientLauncherJob>
+#include <KDialogJobUiDelegate>
 
 #ifdef HAVE_KACTIVITIES
 #include <KActivities/ResourceInstance>
@@ -350,7 +351,7 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     d->dockWidgetMenu  = new KActionMenu(i18n("Dockers"), this);
     actionCollection()->addAction(QStringLiteral("settings_dockers_menu"), d->dockWidgetMenu);
     d->dockWidgetMenu->setVisible(false);
-    d->dockWidgetMenu->setDelayed(false);
+    d->dockWidgetMenu->setPopupMode(QToolButton::MenuButtonPopup);
 
     createMainwindowGUI();
     d->mainWindowGuiIsBuilt = true;
@@ -1560,7 +1561,7 @@ void KoMainWindow::slotConfigureKeys()
         redoAction->setText(i18n("Redo"));
     }
 
-    guiFactory()->configureShortcuts();
+    guiFactory()->showConfigureShortcutsDialog();
 
     if(currentView()) {
         undoAction->setText(oldUndoText);
@@ -1685,7 +1686,7 @@ void KoMainWindow::slotEmailFile()
     // Attachment = The current file
     // Message Body = The current document in HTML export? <-- This may be an option.
     QString theSubject;
-    QStringList urls;
+    QList<QUrl> urls;
     QString fileURL;
     if (rootDocument()->url().isEmpty() ||
             rootDocument()->isModified()) {
@@ -1711,7 +1712,7 @@ void KoMainWindow::slotEmailFile()
 
         fileURL = fileName;
         theSubject = i18n("Document");
-        urls.append(fileURL);
+        urls.append(QUrl::fromUserInput(fileURL));
 
         rootDocument()->setUrl(tmp_url);
         rootDocument()->setModified(tmp_modified);
@@ -1719,16 +1720,16 @@ void KoMainWindow::slotEmailFile()
     } else {
         fileURL = rootDocument()->url().url();
         theSubject = i18n("Document - %1", rootDocument()->url().fileName());
-        urls.append(fileURL);
+        urls.append(QUrl::fromUserInput(fileURL));
     }
 
     debugMain << "(" << fileURL << ")";
 
     if (!fileURL.isEmpty()) {
-        KToolInvocation::invokeMailer(QString(), QString(), QString(), theSubject,
-                                      QString(), //body
-                                      QString(),
-                                      urls); // attachments
+        auto job = new KEMailClientLauncherJob();
+        job->setAttachments(urls);
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+        job->start();
     }
 }
 

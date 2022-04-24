@@ -177,6 +177,8 @@ bool KoApplication::openAutosaveFile(const QDir &autosaveDir, const QString &aut
 
 bool KoApplication::start(const KoComponentData &componentData)
 {
+    Q_UNUSED(componentData)
+
     KAboutData aboutData = KAboutData::applicationData();
 
     // process commandline parameters
