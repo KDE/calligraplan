@@ -37,7 +37,8 @@
 #include <ktoolbar.h>
 
 #include <kxmlguifactory.h>
-#include <ktoolinvocation.h>
+#include <KEMailClientLauncherJob>
+#include <KDialogJobUiDelegate>
 #include <kactioncollection.h>
 #include <QTemporaryFile>
 
@@ -367,17 +368,20 @@ void View::slotSendPackage()
         }
         wp->saveNativeFormat(part(), temp.fileName());
 
-        QStringList attachURLs;
-        attachURLs << temp.fileName();
+        QList<QUrl> attachURLs;
+        attachURLs << QUrl::fromUserInput(temp.fileName());
 
         QString to = node->projectNode()->leader();
-        QString cc;
-        QString bcc;
         QString subject = i18n("Work Package: %1", node->name());
         QString body = node->projectNode()->name();
-        QString messageFile;
 
-        KToolInvocation::invokeMailer(to, cc, bcc, subject, body, messageFile, attachURLs);
+        auto job = new KEMailClientLauncherJob();
+        job->setTo(QStringList()<<to);
+        job->setSubject(subject);
+        job->setBody(body);
+        job->setAttachments(attachURLs);
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+        job->start();
     }
     wp->setModified(wasmodified);
 }
