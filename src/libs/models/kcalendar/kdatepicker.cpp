@@ -237,7 +237,7 @@ KDatePicker::KDatePicker(const QDate &date_, QWidget *parent)
 
 void KDatePicker::initWidget(const QDate &date_)
 {
-    const int spacingHint = style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+    const int spacingHint = style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing);
 
     QBoxLayout *topLayout = new QVBoxLayout(this);
     topLayout->setSpacing(0);
@@ -612,7 +612,7 @@ void KDatePicker::setFontSize(int s)
 
     // stolen from QToolButton
     QSize textSize = metrics.size(Qt::TextShowMnemonic, longestMonth);
-    textSize.setWidth(textSize.width() + metrics.width(QLatin1Char(' ')) * 2);
+    textSize.setWidth(textSize.width() + metrics.horizontalAdvance(QLatin1Char(' ')) * 2);
     int w = textSize.width();
     int h = textSize.height();
     opt.rect.setHeight(h);   // PM_MenuButtonIndicator depends on the height
@@ -638,7 +638,7 @@ void KDatePicker::setCloseButton(bool enable)
     if (enable) {
         d->closeButton = new QToolButton(this);
         d->closeButton->setAutoRaise(true);
-        const int spacingHint = style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+        const int spacingHint = style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing);
         d->navigationLayout->addSpacing(spacingHint);
         d->navigationLayout->addWidget(d->closeButton);
         d->closeButton->setToolTip(i18n("Close"));
