@@ -203,7 +203,7 @@ KoAutoSaveRecoveryDialog::KoAutoSaveRecoveryDialog(const QStringList &filenames,
 
         // get the date
         QDateTime date = QFileInfo(path).lastModified();
-        file->date = QStringLiteral("(") + date.toString(Qt::LocalDate) + QStringLiteral(")");
+        file->date = QStringLiteral("(") + QLocale().toString(date, QLocale::LongFormat) + QStringLiteral(")");
 
         fileItems.append(file);
     }

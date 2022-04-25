@@ -1073,7 +1073,7 @@ QVariant CostBreakdownItemModel::headerData(int section, Qt::Orientation orienta
                         start = start.addDays(days);
                         days = start.daysInMonth();
                     }
-                    return QDate::shortMonthName(start.month());
+                    return QLocale().monthName(start.month(), QLocale::ShortFormat);
                 }
                 default:
                     return section;

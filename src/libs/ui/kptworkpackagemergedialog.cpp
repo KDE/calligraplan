@@ -107,7 +107,7 @@ void WorkPackageMergeDialog::nextPackage()
     if (package) {
         panel.ui_taskName->setText(package->task->name());
         panel.ui_ownerName->setText(package->ownerName);
-        panel.ui_packageTime->setText(package->timeTag.toString(Qt::SystemLocaleShortDate));
+        panel.ui_packageTime->setText(QLocale().toString(package->timeTag, QLocale::ShortFormat));
         fillCompletionModel(package);
         setPage(panel.ui_packagePage);
     } else {
@@ -160,7 +160,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
     bool started = !currCompletion.isStarted() && newCompletion.isStarted();
     panel.ui_updateStarted->setChecked(started);
     if (newCompletion.isStarted()) {
-        panel.ui_started->setText(newCompletion.startTime().toString(Qt::DefaultLocaleShortDate));
+        panel.ui_started->setText(QLocale().toString(newCompletion.startTime(), QLocale::ShortFormat));
     } else {
         panel.ui_started->setText(xi18nc("@info", "Task is not started"));
     }
@@ -168,7 +168,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
     bool finished = !currCompletion.isFinished() && newCompletion.isFinished();
     panel.ui_updateFinished->setChecked(finished);
     if (newCompletion.isFinished()) {
-        panel.ui_finished->setText(newCompletion.finishTime().toString(Qt::DefaultLocaleShortDate));
+        panel.ui_finished->setText(QLocale().toString(newCompletion.finishTime(), QLocale::ShortFormat));
     } else {
         panel.ui_finished->setText(xi18nc("@info", "Task is not finished"));
     }
@@ -178,7 +178,7 @@ void WorkPackageMergeDialog::fillCompletionModel(Package *package)
     for (it = fromEntries.constBegin(); it != fromEntries.constEnd(); ++it) {
         QList<QStandardItem*> lst;
 
-        lst << new QStandardItem(it.key().toString(Qt::DefaultLocaleShortDate));
+        lst << new QStandardItem(QLocale().toString(it.key(), QLocale::ShortFormat));
         lst.last()->setData(it.key().toString(Qt::ISODate));
         lst.last()->setEditable(false);
         if (currCompletion.entries().contains(it.key())) {
