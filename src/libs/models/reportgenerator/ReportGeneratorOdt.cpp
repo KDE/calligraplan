@@ -451,7 +451,7 @@ bool ReportGeneratorOdt::handleTextP(KoXmlWriter &writer, const KoXmlElement &te
     // search for user fields
     KoXmlElement e;
     forEachElement(e, textp) {
-        QString tag = e.prefix() + QLatin1Char(',') + e.localName();
+        QString tag = e.prefix() + QLatin1Char(':') + e.localName();
         dbgRG<<"Tag:"<<tag;
         if (tag == QStringLiteral("text:user-field-get")) {
             QString field = e.attributeNS(KoXmlNS::text, "name");
@@ -650,7 +650,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
             continue;
         }
         KoXmlElement e = node.toElement();
-        QByteArray tag = (QString(e.prefix() + QLatin1Char(',')) + e.localName()).toUtf8();
+        QByteArray tag = (QString(e.prefix() + QLatin1Char(':')) + e.localName()).toUtf8();
         if (tag != "text:user-field-decl") {
             continue;
         }
@@ -746,7 +746,7 @@ void ReportGeneratorOdt::writeElementAttributes(KoXmlWriter &writer, const KoXml
             dbgRG<<"  Skipping unknown namespace:"<<a.first<<a.second;
             continue;
         }
-        QString attr = QString(prefix + QLatin1Char(',')) + a.second;
+        QString attr = QString(prefix + QLatin1Char(':')) + a.second;
         if (exclude.contains(attr)) {
             continue;
         }
@@ -759,19 +759,19 @@ void ReportGeneratorOdt::writeElementAttributes(KoXmlWriter &writer, const KoXml
 
 void ReportGeneratorOdt::writeChildElements(KoXmlWriter &writer, const KoXmlElement &parent)
 {
-    //dbgRGparent.prefix()<<QLatin1Char(','))<<parent.localName();
+    //dbgRG<<parent.prefix()<<QLatin1Char(':')<<parent.localName();
     for (KoXmlNode node = parent.firstChild(); !node.isNull(); node = node.nextSibling()) {
         if (node.isText()) {
             writer.addTextNode(node.toText().data());
             continue;
         }
-//         dbgRGnode.prefix()<<node.localName()<<node.nodeType();
+//         dbgRG<<node.prefix()<<node.localName()<<node.nodeType();
         KoXmlElement e = node.toElement();
         if (e.isNull()) {
             continue;
         }
 //         dbgRG<<"  "<<e.prefix()<<e.localName() << e.attributeFullNames();
-        QByteArray tag = (QString(e.prefix() + QLatin1Char(',')) + e.localName()).toUtf8();
+        QByteArray tag = (QString(e.prefix() + QLatin1Char(':')) + e.localName()).toUtf8();
         m_tags << tag; // make sure tags survives until we are finished
         if (tag == "text:user-field-decls") {
             handleUserFieldDecls(writer, e);
@@ -1048,7 +1048,7 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
         if (QLatin1String(KoXmlNS::nsURI2NS(e.namespaceURI())).isEmpty()) {
             continue; // skip unknown namespace
         }
-        QByteArray tag = (e.prefix() + QLatin1Char(',') + e.localName()).toUtf8();
+        QByteArray tag = (e.prefix() + QLatin1Char(':') + e.localName()).toUtf8();
         m_tags << tag; // make sure tags survives until we are finished
         //dbgRGChart<<"  handle element:"<<tag;
 
