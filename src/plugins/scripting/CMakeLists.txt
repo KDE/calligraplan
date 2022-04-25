@@ -44,5 +44,5 @@ target_link_libraries(krossmodulecalligraplan
     calligraplankross
 )
 
-install(TARGETS krossmodulecalligraplan DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/extensions)
-install(FILES scripting.rc DESTINATION ${DATA_INSTALL_DIR}/calligraplan/viewplugins)
+install(TARGETS krossmodulecalligraplan DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligraplan/extensions)
+install(FILES scripting.rc DESTINATION ${KDE_INSTALL_DATADIR}/calligraplan/viewplugins)

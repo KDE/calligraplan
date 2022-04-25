@@ -99,7 +99,7 @@ endif ()
 set_target_properties(calligraplanmain PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS calligraplanmain ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS calligraplanmain ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
@@ -107,6 +107,6 @@ install(TARGETS calligraplanmain ${INSTALL_TARGETS_DEFAULT_ARGS} )
 # calligradocker.desktop
 
 if (APPLE)
-    install(FILES osx.stylesheet DESTINATION ${DATA_INSTALL_DIR}/calligraplan )
+    install(FILES osx.stylesheet DESTINATION ${KDE_INSTALL_DATADIR}/calligraplan )
 endif ()
 

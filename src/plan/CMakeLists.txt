@@ -81,7 +81,7 @@ if(KF5AkonadiContact_FOUND)
 endif()
 set_target_properties(calligraplanprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS calligraplanprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### KPlato part ###############
 
@@ -97,7 +97,7 @@ kcoreaddons_desktop_to_json(calligraplanpart planpart.desktop
 
 target_link_libraries(calligraplanpart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE calligraplanprivate)
 
-install(TARGETS calligraplanpart DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/parts)
+install(TARGETS calligraplanpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligraplan/parts)
 
 
 ########### KPlato executable ###############
@@ -116,22 +116,22 @@ if (APPLE)
    set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.template)
    set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_GUI_IDENTIFIER "org.calligra.plan")
    set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "Plan")
-   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplan_KDEINIT_SRCS.icns DESTINATION ${BUNDLE_INSTALL_DIR}/calligraplan.app/Contents/Resources)
+   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplan_KDEINIT_SRCS.icns DESTINATION ${KDE_INSTALL_BUNDLEDIR}/calligraplan.app/Contents/Resources)
 endif ()
 
 target_link_libraries(kdeinit_calligraplan calligraplanmain calligraplanprivate)
 
-install(TARGETS kdeinit_calligraplan  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kdeinit_calligraplan  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 target_link_libraries(calligraplan kdeinit_calligraplan calligraplanmain)
-install(TARGETS calligraplan  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplan  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( FILES calligraplan_shell.rc calligraplan.rc calligraplan_readonly.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan)
-install( PROGRAMS  org.kde.calligraplan.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
-install( FILES  calligraplanrc DESTINATION ${CONFIG_INSTALL_DIR})
-install(FILES calligraplansettings.kcfg DESTINATION ${KCFG_INSTALL_DIR})
+install( FILES calligraplan_shell.rc calligraplan.rc calligraplan_readonly.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/calligraplan)
+install( PROGRAMS  org.kde.calligraplan.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
+install( FILES  calligraplanrc DESTINATION ${KDE_INSTALL_CONFDIR})
+install(FILES calligraplansettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 install(FILES org.kde.calligraplan.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 

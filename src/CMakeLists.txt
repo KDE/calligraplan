@@ -78,7 +78,7 @@ if(KF5Holidays_FOUND)
 endif()
 
 # Define plugin install prefix
-set (PLAN_PLUGIN_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${PLUGIN_INSTALL_DIR}")
+set (PLAN_PLUGIN_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_PLUGINDIR}")
 
 
 if (KF5AkonadiContact_FOUND)

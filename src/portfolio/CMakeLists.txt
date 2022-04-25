@@ -58,7 +58,7 @@ target_link_libraries(calligraplanportfolioprivate
 
 set_target_properties(calligraplanportfolioprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION})
 
-install(TARGETS calligraplanportfolioprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanportfolioprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### Part ###############
 
@@ -71,7 +71,7 @@ kcoreaddons_desktop_to_json(calligraplanportfoliopart calligraplanportfoliopart.
 
 target_link_libraries(calligraplanportfoliopart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE calligraplanportfolioprivate)
 
-install(TARGETS calligraplanportfoliopart DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/parts)
+install(TARGETS calligraplanportfoliopart DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligraplan/parts)
 
 ########### Executable ###############
 
@@ -89,15 +89,15 @@ if (APPLE)
    set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.template)
    set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_GUI_IDENTIFIER "org.calligra.plan.portfolio")
    set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "Plan Portfolio")
-   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_KDEINIT_SRCS.icns DESTINATION ${BUNDLE_INSTALL_DIR}/calligraplanportfolio.app/Contents/Resources)
+   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_KDEINIT_SRCS.icns DESTINATION ${KDE_INSTALL_BUNDLEDIR}/calligraplanportfolio.app/Contents/Resources)
 endif ()
 
 target_link_libraries(kdeinit_calligraplanportfolio calligraplanportfolioprivate)
 
-install(TARGETS kdeinit_calligraplanportfolio  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kdeinit_calligraplanportfolio  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 target_link_libraries(calligraplanportfolio kdeinit_calligraplanportfolio)
-install(TARGETS calligraplanportfolio  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanportfolio  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### Files ###############
 
@@ -113,12 +113,12 @@ install( FILES
         Portfolio_PerformanceViewUi.rc
         ../libs/ui/TaskStatusViewUi.rc
         ../libs/ui/GanttViewUi.rc
-    DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplanportfolio
+    DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/calligraplanportfolio
 )
 
 if (SharedMimeInfo_FOUND)
-    install(FILES calligraplanportfolio_mimetype.xml DESTINATION ${XDG_MIME_INSTALL_DIR})
-    update_xdg_mimetypes(${XDG_MIME_INSTALL_DIR})
+    install(FILES calligraplanportfolio_mimetype.xml DESTINATION ${KDE_INSTALL_MIMEDIR})
+    update_xdg_mimetypes(${KDE_INSTALL_MIMEDIR})
 endif ()
 
-install( PROGRAMS  org.kde.calligraplanportfolio.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
+install( PROGRAMS  org.kde.calligraplanportfolio.desktop  DESTINATION ${KDE_INSTALL_APPDIR})

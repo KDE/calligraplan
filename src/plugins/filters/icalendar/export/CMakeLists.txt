@@ -29,4 +29,4 @@ if (KF5CalendarCore_FOUND)
     target_link_libraries(calligraplanicalexport KF5::CalendarCore)
 endif()
 
-install(TARGETS calligraplanicalexport  DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/formatfilters)
+install(TARGETS calligraplanicalexport  DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligraplan/formatfilters)

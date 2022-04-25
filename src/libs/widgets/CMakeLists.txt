@@ -64,5 +64,5 @@ set_target_properties(calligraplanwidgets PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
 
-install(TARGETS calligraplanwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanwidgets  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

@@ -76,7 +76,7 @@ endif()
 
 set_target_properties(calligraplankernel PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS calligraplankernel ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplankernel ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 # TODO: with the new embedded JSON data for plugins there is no schema ATM to define extended properties
 # plan_schedulerplugin.desktop

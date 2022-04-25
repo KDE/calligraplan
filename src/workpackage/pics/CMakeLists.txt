@@ -23,7 +23,7 @@ ecm_install_icons( ICONS
     128-mimetypes-application-x-vnd.kde.plan.work.png
     sc-mimetypes-application-x-vnd.kde.plan.work.svgz
 
-    DESTINATION ${ICON_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )
 

@@ -18,4 +18,4 @@ kcoreaddons_desktop_to_json(calligraplankplatoimport plan_kplato_import.desktop
 
 target_link_libraries(calligraplankplatoimport calligraplanprivate calligraplankernel calligraplanmain)
 
-install(TARGETS calligraplankplatoimport  DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/formatfilters)
+install(TARGETS calligraplankplatoimport  DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligraplan/formatfilters)

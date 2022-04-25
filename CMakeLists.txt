@@ -322,10 +322,10 @@ set_package_properties(KF5CalendarCore PROPERTIES
     )
 
 if(WIN32)
-    set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}
-                        RUNTIME DESTINATION ${BIN_INSTALL_DIR}
-                        LIBRARY ${INSTALL_TARGETS_DEFAULT_ARGS}
-                        ARCHIVE ${INSTALL_TARGETS_DEFAULT_ARGS} )
+    set(LIB_INSTALL_DIR ${KDE_INSTALL_LIBDIR}
+                        RUNTIME DESTINATION ${KDE_INSTALL_BINDIR}
+                        LIBRARY ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
+                        ARCHIVE ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 endif()
 
 #### Disable kreport for now, reconsider when it is stable ####

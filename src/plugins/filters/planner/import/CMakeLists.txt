@@ -17,4 +17,4 @@ kcoreaddons_desktop_to_json(calligraplanplannerimport plan_planner_import.deskto
 
 target_link_libraries(calligraplanplannerimport calligraplanprivate calligraplankernel calligraplanmain)
 
-install(TARGETS calligraplanplannerimport  DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/formatfilters)
+install(TARGETS calligraplanplannerimport  DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligraplan/formatfilters)

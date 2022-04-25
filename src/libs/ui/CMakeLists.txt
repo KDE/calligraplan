@@ -191,7 +191,7 @@ endif()
 
 set_target_properties(calligraplanui PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS calligraplanui ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install( FILES
         AccountsEditorUi.rc
@@ -215,7 +215,7 @@ install( FILES
         TaskViewUi.rc
         TaskStatusViewUi.rc
         ResourceCoverageViewUi.rc
-    DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplan
+    DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/calligraplan
 )
 
 # reports files
@@ -224,5 +224,5 @@ install(FILES
         reportsgenerator/templates/ProjectPerformanceCost.odt
         reportsgenerator/templates/ProjectPerformanceEffort.odt
         reportsgenerator/templates/TaskStatus.odt
-    DESTINATION ${DATA_INSTALL_DIR}/calligraplan/reports
+    DESTINATION ${KDE_INSTALL_DATADIR}/calligraplan/reports
 )

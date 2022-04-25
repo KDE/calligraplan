@@ -45,4 +45,4 @@ endif()
 set_target_properties(calligraplanstore PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS calligraplanstore ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS calligraplanstore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )

@@ -61,5 +61,5 @@ target_link_libraries(calligraplanodf
 set_target_properties(calligraplanodf PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS calligraplanodf ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS calligraplanodf ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 

@@ -85,5 +85,5 @@ endif()
 
 set_target_properties(calligraplanmodels PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS calligraplanmodels ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanmodels ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

@@ -25,4 +25,4 @@ target_link_libraries(calligraplankundo2
 set_target_properties(calligraplankundo2 PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS calligraplankundo2 ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplankundo2 ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

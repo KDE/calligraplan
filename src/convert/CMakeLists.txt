@@ -1,2 +1,2 @@
 
-install(FILES jar/planconvert.jar  DESTINATION ${CMAKE_INSTALL_DATADIR}/calligraplan/java)
+install(FILES jar/planconvert.jar  DESTINATION ${KDE_INSTALL_DATADIR}/calligraplan/java)

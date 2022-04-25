@@ -51,8 +51,8 @@ target_link_libraries(calligraplanworkprivate
 
 set_target_properties(calligraplanworkprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
-install(TARGETS calligraplanworkprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES calligraplanworksettings.kcfg DESTINATION ${KCFG_INSTALL_DIR})
+install(TARGETS calligraplanworkprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES calligraplanworksettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 
 ########### Calligra PlanWork executable ###############
@@ -84,15 +84,15 @@ target_link_libraries(
     KF5::DBusAddons
 )
 
-install(TARGETS kdeinit_calligraplanwork  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kdeinit_calligraplanwork  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 target_link_libraries( calligraplanwork kdeinit_calligraplanwork )
 
-install(TARGETS calligraplanwork  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplanwork  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( FILES  calligraplanwork.rc calligraplanwork_readonly.rc calligraplanworkui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/calligraplanwork)
-install( FILES  calligraplanworkrc DESTINATION ${CONFIG_INSTALL_DIR})
-install( PROGRAMS  org.kde.calligraplanwork.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
+install( FILES  calligraplanwork.rc calligraplanwork_readonly.rc calligraplanworkui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/calligraplanwork)
+install( FILES  calligraplanworkrc DESTINATION ${KDE_INSTALL_CONFDIR})
+install( PROGRAMS  org.kde.calligraplanwork.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 

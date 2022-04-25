@@ -59,5 +59,5 @@ target_link_libraries(calligraplantjplugin PUBLIC calligraplantjscheduler)
 
 set_target_properties( calligraplantjscheduler PROPERTIES DEFINE_SYMBOL MAKE_PLANTJ_LIB )
 
-install(TARGETS calligraplantjscheduler DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(TARGETS calligraplantjplugin DESTINATION ${PLUGIN_INSTALL_DIR}/calligraplan/schedulers)
+install(TARGETS calligraplantjscheduler DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calligraplantjplugin DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligraplan/schedulers)

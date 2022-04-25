@@ -5,7 +5,7 @@ include_directories(
     ${PLANMAIN_INCLUDES}
 )
 
-set(PLAN_FILTER_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/calligraplan/formatfilters)
+set(PLAN_FILTER_INSTALL_DIR ${KDE_INSTALL_PLUGINDIR}/calligraplan/formatfilters)
 
 add_library(planmpxjimport MODULE mpxjimport.cpp)
 kcoreaddons_desktop_to_json(planmpxjimport plan_mpxj_import.desktop
@@ -15,6 +15,6 @@ target_link_libraries(planmpxjimport calligraplanmain)
 install(TARGETS planmpxjimport DESTINATION ${PLAN_FILTER_INSTALL_DIR})
 
 if (SharedMimeInfo_FOUND)
-    install(FILES plan_mpxj_mimetype.xml DESTINATION ${XDG_MIME_INSTALL_DIR})
-    update_xdg_mimetypes(${XDG_MIME_INSTALL_DIR})
+    install(FILES plan_mpxj_mimetype.xml DESTINATION ${KDE_INSTALL_MIMEDIR})
+    update_xdg_mimetypes(${KDE_INSTALL_MIMEDIR})
 endif ()

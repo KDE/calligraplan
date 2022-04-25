@@ -18,5 +18,5 @@ target_link_libraries(calligraplanplugin
 set_target_properties(calligraplanplugin PROPERTIES
     VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION}
 )
-install(TARGETS calligraplanplugin ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS calligraplanplugin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
