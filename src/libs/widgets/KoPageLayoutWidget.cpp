@@ -57,8 +57,8 @@ KoPageLayoutWidget::KoPageLayoutWidget(QWidget *parent, const KoPageLayout &layo
 
     connect(d->widget.sizes, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &KoPageLayoutWidget::sizeChanged);
     connect(d->widget.units, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &KoPageLayoutWidget::slotUnitChanged);
-    connect(group2, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KoPageLayoutWidget::facingPagesChanged);
-    connect(d->orientationGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KoPageLayoutWidget::orientationChanged);
+    connect(group2, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &KoPageLayoutWidget::facingPagesChanged);
+    connect(d->orientationGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &KoPageLayoutWidget::orientationChanged);
     connect(d->widget.width, &KoUnitDoubleSpinBox::valueChangedPt, this, &KoPageLayoutWidget::optionsChanged);
     connect(d->widget.height, &KoUnitDoubleSpinBox::valueChangedPt, this, &KoPageLayoutWidget::optionsChanged);
     connect(d->widget.topMargin, &KoUnitDoubleSpinBox::valueChangedPt, this, &KoPageLayoutWidget::marginsChanged);
