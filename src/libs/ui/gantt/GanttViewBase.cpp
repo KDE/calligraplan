@@ -310,6 +310,8 @@ GanttPrintingDialog::GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt)
     m_gantt(gantt),
     m_options(nullptr)
 {
+    const auto resolution = printer().resolution();
+    const auto pageRect = printer().pageLayout().paintRectPixels(resolution);
     m_headerHeight = gantt->treeView()->header()->height(); // same header height
     m_sceneRect = gantt->graphicsView()->sceneRect();
     const GanttPrintingOptions opt = m_gantt->m_printOptions;
@@ -322,18 +324,18 @@ GanttPrintingDialog::GanttPrintingDialog(ViewBase *view, GanttViewBase *gantt)
         m_sceneRect.setRight(x);
     }
     m_horPages = 1;
-    qreal c = m_sceneRect.width() - printer().pageRect().width();
+    qreal c = m_sceneRect.width() - pageRect.width();
     while (c > 0) {
         ++m_horPages;
-        c -= printer().pageRect().width();
+        c -= pageRect.width();
     }
     m_vertPages = 1;
-    c = m_sceneRect.height() - printer().pageRect().height() - m_headerHeight;
+    c = m_sceneRect.height() - pageRect.height() - m_headerHeight;
     while (c > 0) {
         ++m_vertPages;
-        c -= printer().pageRect().height();
+        c -= pageRect.height();
     }
-    debugPlan<<m_sceneRect<<printer().pageRect()<<m_horPages<<m_vertPages;
+    debugPlan<<m_sceneRect<<pageRect<<m_horPages<<m_vertPages;
     printer().setFromTo(documentFirstPage(), lastPageNumber());
 }
 
@@ -468,6 +470,7 @@ void GanttPrintingDialog::slotPrintRowLabelsToogled(bool on)
 
 void GanttPrintingDialog::slotSinglePageToogled(bool on)
 {
+    Q_UNUSED(on)
     //     m_gantt->m_printOptions.singlePage = on;
     //     printer().setFromTo(documentFirstPage(), documentLastPage());
 }
