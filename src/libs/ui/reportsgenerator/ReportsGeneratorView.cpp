@@ -17,7 +17,8 @@
 #include <KActionCollection>
 #include <KUrlRequester>
 #include <KFile>
-#include <KRun>
+#include <KIO/OpenUrlJob>
+#include <KIO/JobUiDelegate>
 
 #include <QAction>
 #include <QHeaderView>
@@ -450,7 +451,8 @@ bool ReportsGeneratorView::generateReport(const QString &templateFile, const QSt
         return false;
     }
     if (QMessageBox::question(this, xi18nc("@title:window", "Report Generation"), xi18nc("@info", "Report file generated:<nl/><filename>%1</filename>", file), QMessageBox::Open|QMessageBox::Close, QMessageBox::Close) == QMessageBox::Open) {
-        return KRun::runUrl(QUrl(file), QStringLiteral("application/vnd.oasis.opendocument.text"), window(), (KRun::RunFlags)nullptr);
+        auto job = new KIO::OpenUrlJob(QUrl(file), QStringLiteral("application/vnd.oasis.opendocument.text"));
+        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
     }
     return true;
 }
