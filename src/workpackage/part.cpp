@@ -53,6 +53,7 @@
 #include <krun.h>
 #include <kprocess.h>
 #include <kactioncollection.h>
+#include <KApplicationTrader>
 
 #include "debugarea.h"
 
@@ -203,7 +204,7 @@ bool DocumentChild::editDoc()
     }
     QUrl filename = QUrl::fromLocalFile(filePath());
     const QMimeType mimetype = QMimeDatabase().mimeTypeForUrl(filename);
-    KService::Ptr service = KMimeTypeTrader::self()->preferredService(mimetype.name());
+    KService::Ptr service = KApplicationTrader::preferredService(mimetype.name());
     bool editing = startProcess(service, filename);
     if (editing) {
         m_type = Type_Other; // FIXME: try to be more specific
