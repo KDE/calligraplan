@@ -281,8 +281,7 @@ QAbstractPrintDialog::PrintDialogOptions PrintingDialog::printDialogOptions() co
 {
     return QAbstractPrintDialog::PrintToFile |
            QAbstractPrintDialog::PrintPageRange |
-           QAbstractPrintDialog::PrintCollateCopies |
-           QAbstractPrintDialog::DontUseSheet;
+           QAbstractPrintDialog::PrintCollateCopies;
 }
 
 PrintingOptions PrintingDialog::printingOptions() const
@@ -300,13 +299,13 @@ void PrintingDialog::setPrintingOptions(const PrintingOptions &opt)
 void PrintingDialog::setPrinterPageLayout(const KoPageLayout &pagelayout)
 {
     QPrinter &p = printer();
-    QPrinter::Orientation o;
+    QPageLayout::Orientation o = QPageLayout::Portrait;
     switch (pagelayout.orientation) {
-        case KoPageFormat::Portrait: o = QPrinter::Portrait; break;
-        case KoPageFormat::Landscape: o = QPrinter::Landscape; break;
-        default: o = QPrinter::Portrait; break;
+        case KoPageFormat::Portrait: o = QPageLayout::Portrait; break;
+        case KoPageFormat::Landscape: o = QPageLayout::Landscape; break;
+        default: break;
     }
-    p.setOrientation(o);
+    p.setPageOrientation(o);
     p.setPageSize(KoPageFormat::qPageSize(pagelayout.format));
     p.setPageMargins(QMarginsF(pagelayout.leftMargin, pagelayout.topMargin, pagelayout.rightMargin, pagelayout.bottomMargin), QPageLayout::Point);
 }
@@ -370,7 +369,9 @@ QRect PrintingDialog::headerRect() const
         return QRect();
     }
     int height = headerFooterHeight(options.headerOptions);
-    return QRect(0, 0, const_cast<PrintingDialog*>(this)->printer().pageRect().width(), height);
+    const auto resolution = const_cast<PrintingDialog*>(this)->printer().resolution();
+    const auto width = const_cast<PrintingDialog*>(this)->printer().pageLayout().paintRectPixels(resolution).width();
+    return QRect(0, 0, width, height);
 }
 
 QRect PrintingDialog::footerRect() const
@@ -380,7 +381,8 @@ QRect PrintingDialog::footerRect() const
         return QRect();
     }
     int height = headerFooterHeight(options.footerOptions);
-    QRect r = const_cast<PrintingDialog*>(this)->printer().pageRect();
+    const auto resolution = const_cast<PrintingDialog*>(this)->printer().resolution();
+    QRect r = const_cast<PrintingDialog*>(this)->printer().pageLayout().paintRectPixels(resolution);
     return QRect(0, r.height() - height, r.width(), height);
 }
 
@@ -711,6 +713,7 @@ void ViewBase::slotHeaderContextMenuRequested(const QPoint &pos)
 
 void ViewBase::createOptionActions(int actions, const QString &prefix)
 {
+    Q_UNUSED(prefix)
     QAction *action;
     // These goes at the top
     action = new QAction(this);
@@ -948,7 +951,8 @@ int TreeViewPrintingDialog::firstRow(int page) const
     int height = mh->height();
     int hHeight = headerRect().height();
     int fHeight = footerRect().height();
-    QRect pageRect = const_cast<TreeViewPrintingDialog*>(this)->printer().pageRect();
+    const auto resolution = const_cast<TreeViewPrintingDialog*>(this)->printer().resolution();
+    auto pageRect = const_cast<TreeViewPrintingDialog*>(this)->printer().pageLayout().paintRectPixels(resolution);
 
     int gap = 8;
     int pageHeight = pageRect.height() - height;
@@ -1004,13 +1008,13 @@ void TreeViewPrintingDialog::printPage(int page, QPainter &painter)
     int height = mh->height();
     QRect hRect = headerRect();
     QRect fRect = footerRect();
-    QRect pageRect = printer().pageRect();
+    const auto resolution = printer().resolution();
+    QRect pageRect = printer().pageLayout().paintRectPixels(resolution);
     pageRect.moveTo(0, 0);
-    QRect paperRect = printer().paperRect();
 
     QAbstractItemModel *model = m_tree->model();
 
-    debugPlan<<pageRect<<paperRect;
+    debugPlan<<pageRect;
 
     painter.translate(pageRect.topLeft());
 
@@ -2072,7 +2076,8 @@ int DoubleTreeViewPrintingDialog::firstRow(int page) const
     int height = mh->height() > sh->height() ? mh->height() : sh->height();
     int hHeight = headerRect().height();
     int fHeight = footerRect().height();
-    QRect pageRect = const_cast<DoubleTreeViewPrintingDialog*>(this)->printer().pageRect();
+    const auto resolution = const_cast<DoubleTreeViewPrintingDialog*>(this)->printer().resolution();
+    QRect pageRect = const_cast<DoubleTreeViewPrintingDialog*>(this)->printer().pageLayout().paintRectPixels(resolution);
 
     int gap = 8;
     int pageHeight = pageRect.height() - height;
@@ -2124,10 +2129,11 @@ QList<QWidget*> DoubleTreeViewPrintingDialog::createOptionWidgets() const
 
 void DoubleTreeViewPrintingDialog::printPage(int page, QPainter &painter)
 {
-    debugPlan<<page<<"paper size:"<<printer().paperSize()<<"---------------------------";
+    debugPlan<<page<<"paper size:"<<printer().pageLayout().pageSize().id()<<"---------------------------";
     setPrinterPageLayout(m_view->pageLayout());
-    qreal t, l, b, r; printer().getPageMargins(&l, &t, &r, &b, QPrinter::Point);
-    debugPlan<<page<<"paper size:"<<printer().paperSize()<<printer().pageRect()<<l<<t<<r<<b;
+    const auto resolution = printer().resolution();
+    auto pageRect = printer().pageLayout().paintRectPixels(resolution);
+    debugPlan<<page<<"page size:"<<pageRect;
     painter.save();
 
     m_firstRow = firstRow(page);
@@ -2138,13 +2144,11 @@ void DoubleTreeViewPrintingDialog::printPage(int page, QPainter &painter)
     int height = mh->height() > sh->height() ? mh->height() : sh->height();
     QRect hRect = headerRect();
     QRect fRect = footerRect();
-    QRect pageRect = printer().pageRect();
     pageRect.moveTo(0, 0);
-    QRect paperRect = printer().paperRect();
 
     QAbstractItemModel *model = m_tree->model();
     Q_ASSERT(model != nullptr);
-    debugPlan<<pageRect<<paperRect;
+    debugPlan<<pageRect;
 
     painter.translate(pageRect.topLeft());
 
@@ -2813,7 +2817,7 @@ void DoubleTreeViewBase::handleDrag(Qt::DropActions supportedActions, Qt::DropAc
     QDrag *drag = new QDrag(this);
     drag->setPixmap(m_leftview->dragPixmap());
     drag->setMimeData(data);
-    Qt::DropAction a = drag->exec(supportedActions, defaultDropAction);
+    drag->exec(supportedActions, defaultDropAction);
 }
 
 void DoubleTreeViewBase::setDragPixmap(const QPixmap &pixmap)
