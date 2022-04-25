@@ -355,32 +355,6 @@ public:
     QPushButton *button(ButtonCode id) const;
 
     /**
-     * Returns the number of pixels that should be used between a
-     * dialog edge and the outermost widget(s) according to the KDE standard.
-     *
-     * @deprecated Use the style's pixelMetric() function to query individual margins.
-     * Different platforms may use different values for the four margins.
-     */
-    static int marginHint();
-
-    /**
-     * Returns the number of pixels that should be used between
-     * widgets inside a dialog according to the KDE standard.
-     *
-     * @deprecated Use the style's layoutSpacing() function to query individual spacings.
-     * Different platforms may use different values depending on widget types and pairs.
-     */
-    static int spacingHint();
-
-    /**
-     * Returns the number of pixels that should be used to visually
-     * separate groups of related options in a dialog according to
-     * the KDE standard.
-     * @since 4.2
-     */
-    static int groupSpacingHint();
-
-    /**
      * @enum CaptionFlag
      * Used to specify how to construct a window caption
      *

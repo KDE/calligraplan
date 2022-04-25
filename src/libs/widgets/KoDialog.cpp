@@ -436,21 +436,6 @@ void KoDialog::keyPressEvent(QKeyEvent *event)
     QDialog::keyPressEvent(event);
 }
 
-int KoDialog::marginHint()
-{
-    return QApplication::style()->pixelMetric(QStyle::PM_DefaultChildMargin);
-}
-
-int KoDialog::spacingHint()
-{
-    return QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
-}
-
-int KoDialog::groupSpacingHint()
-{
-    return QApplication::fontMetrics().lineSpacing();
-}
-
 QString KoDialog::makeStandardCaption(const QString &userCaption,
                                      QWidget *window,
                                      CaptionFlags flags)
@@ -881,7 +866,7 @@ void KoDialog::enableLinkedHelp(bool state)
         d->mUrlHelp->setText(helpLinkText());
         d->mUrlHelp->setFloatEnabled(true);
         d->mUrlHelp->setUnderline(true);
-        d->mUrlHelp->setMinimumHeight(fontMetrics().height() + marginHint());
+        d->mUrlHelp->setMinimumHeight(fontMetrics().height() + QApplication::style()->pixelMetric(QStyle::PM_LayoutTopMargin));
         connect(d->mUrlHelp, SIGNAL(leftClickedUrl()), SLOT(helpLinkClicked()));
 
         d->mUrlHelp->show();
