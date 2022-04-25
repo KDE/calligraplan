@@ -171,34 +171,19 @@ QList<QPluginLoader *> KoPluginLoader::pluginLoaders(const char *directory, cons
 QList<QPluginLoader *> KoPluginLoader::pluginLoaders(const QString &directory, const QString &mimeType)
 {
     QList<QPluginLoader *>list;
-    KPluginLoader::forEachPlugin(directory, [&](const QString &pluginPath) {
-        debugPlugin << "Trying to load" << pluginPath;
-        QPluginLoader *loader = new QPluginLoader(pluginPath);
-        QJsonObject metaData = loader->metaData().value(QStringLiteral("MetaData")).toObject();
-
-        if (metaData.isEmpty()) {
-            debugPlugin << pluginPath << "has no MetaData!";
-            return;
-        }
-
+    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(directory);
+    for (const auto &metaData : plugins) {
+        debugPlugin << "Trying to load" << metaData.fileName();
         if (!mimeType.isEmpty()) {
-#ifdef CALLIGRA_OLD_PLUGIN_METADATA
-            QStringList mimeTypes = metaData.value(QStringLiteral("MimeType")).toString().split(';');
-            mimeTypes += metaData.value(QStringLiteral("X-KDE-ExtraNativeMimeTypes")).toString().split(QLatin1Char(','));
-#else
-            QJsonObject pluginData = metaData.value(QStringLiteral("KPlugin")).toObject();
-            QStringList mimeTypes = pluginData.value(QStringLiteral("MimeTypes")).toVariant().toStringList();
-            mimeTypes += metaData.value(QStringLiteral("X-KDE-ExtraNativeMimeTypes")).toVariant().toStringList();
-#endif
-            mimeTypes += metaData.value(QStringLiteral("X-KDE-NativeMimeType")).toString();
-            if (! mimeTypes.contains(mimeType)) {
-                return;
+            QStringList mimeTypes = metaData.mimeTypes();
+            mimeTypes += metaData.value(QStringLiteral("X-KDE-ExtraNativeMimeTypes")).split(QLatin1Char(':'));
+            mimeTypes += metaData.value(QStringLiteral("X-KDE-NativeMimeType"));
+            if (!mimeTypes.contains(mimeType)) {
+                continue;
             }
         }
-
-        list.append(loader);
-    });
-
+        list.append(new QPluginLoader(metaData.fileName()));
+    }
     return list;
 }
 #include "KoPluginLoader.moc"
