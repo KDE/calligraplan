@@ -94,6 +94,7 @@ void DocumentsPanel::slotSelectionChanged(const QModelIndexList &)
 
 void DocumentsPanel::currentChanged(const QModelIndex &index)
 {
+    Q_UNUSED(index)
 //     widget.pbChange->setEnabled(index.isValid());
 //     widget.pbRemove->setEnabled(index.isValid());
 //     widget.pbView->setEnabled(index.isValid());

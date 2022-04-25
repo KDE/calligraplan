@@ -485,6 +485,7 @@ int PerformanceDataCurrentDateModel::columnCount(const QModelIndex &/*parent*/) 
 
 QModelIndex PerformanceDataCurrentDateModel::parent(const QModelIndex &idx) const
 {
+    Q_UNUSED(idx)
     return QModelIndex();
 }
 

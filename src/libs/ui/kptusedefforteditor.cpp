@@ -920,9 +920,14 @@ void CompletionEntryEditor::removeEntry()
         QModelIndex idx = lst.takeFirst();
         rows[ idx.row() ] = 0;
     }
-    QList<int> r = rows.uniqueKeys();
+    const auto r = rows.keys();
+    QList<int> removed;
     debugPlan<<rows<<r;
     for (int i = r.count() - 1; i >= 0; --i) {
+        if (removed.contains(r.at(i))) {
+            continue;
+        }
+        removed << r.at(i);
         model()->removeRow(r.at(i));
     }
 }

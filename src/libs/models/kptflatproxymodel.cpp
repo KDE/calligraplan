@@ -73,7 +73,7 @@ QStringList FlatProxyModel::mimeTypes() const
 Qt::DropActions FlatProxyModel::supportedDropActions() const
 {
     if (sourceModel() == nullptr) {
-        return nullptr;
+        return {};
     }
     return sourceModel()->supportedDropActions();
 }

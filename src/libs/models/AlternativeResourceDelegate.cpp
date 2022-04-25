@@ -27,6 +27,8 @@ AlternativeResourceDelegate::AlternativeResourceDelegate(QObject *parent)
 
 QWidget *AlternativeResourceDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */, const QModelIndex &index) const
 {
+    Q_UNUSED(index)
+
     TreeComboBox *editor = new TreeComboBox(parent);
     editor->installEventFilter(const_cast<AlternativeResourceDelegate*>(this));
     ResourceItemSFModel *m = new ResourceItemSFModel(editor);

@@ -80,7 +80,7 @@ KoDockWidgetTitleBar::KoDockWidgetTitleBar(QDockWidget* dockWidget)
     connect(dockWidget, SIGNAL(featuresChanged(QDockWidget::DockWidgetFeatures)), SLOT(featuresChanged(QDockWidget::DockWidgetFeatures))); // clazy:exclude=old-style-connect
     connect(dockWidget, SIGNAL(topLevelChanged(bool)), SLOT(topLevelChanged(bool))); // clazy:exclude=old-style-connect
 
-    d->featuresChanged(nullptr);
+    d->featuresChanged({});
 }
 
 KoDockWidgetTitleBar::~KoDockWidgetTitleBar()
@@ -141,7 +141,7 @@ QSize KoDockWidgetTitleBar::sizeHint() const
      * Calculate the width of title and add to the total width of the docker window when collapsed.
      */
     const int titleWidth =
-        (d->textVisibilityMode == FullTextAlwaysVisible) ? (q->fontMetrics().width(q->windowTitle()) + 2*mw) :
+        (d->textVisibilityMode == FullTextAlwaysVisible) ? (q->fontMetrics().horizontalAdvance(q->windowTitle()) + 2*mw) :
                                                            0;
 
     if (d->preCollapsedWidth > 0) {

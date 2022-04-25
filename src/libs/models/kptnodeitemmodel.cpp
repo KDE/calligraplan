@@ -4101,7 +4101,6 @@ bool NodeItemModel::dropTaskModuleMimeData(const QMimeData *data, Qt::DropAction
     if (!params.isEmpty()) {
         for (auto n : nodes) {
             auto name = n->name();
-            QMap<QString, QString>::const_iterator it = params.constBegin();
             for (QMap<QString, QString>::const_iterator it = params.constBegin(); it != params.constEnd(); ++it) {
                 name.replace(QStringLiteral("[[") + it.key() + QStringLiteral("]]"), it.value());
             }
@@ -4300,6 +4299,7 @@ Node *NodeItemModel::node(const QModelIndex &index) const
 
 void NodeItemModel::slotNodeChanged(Node *node, int property)
 {
+    Q_UNUSED(property)
     if (node == nullptr || (! m_projectshown && node->type() == Node::Type_Project)) {
         return;
     }

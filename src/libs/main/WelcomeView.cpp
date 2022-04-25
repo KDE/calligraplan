@@ -239,6 +239,7 @@ void WelcomeView::slotContextMenuRequested(const QModelIndex &/*index*/, const Q
 
 void WelcomeView::slotEnableActions(bool on)
 {
+    Q_UNUSED(on)
 }
 
 void WelcomeView::setupGui()
