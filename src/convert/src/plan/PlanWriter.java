@@ -139,8 +139,7 @@ public final class PlanWriter extends AbstractProjectWriter
     {
         m_planProject = m_factory.createProject();
         m_plan.setProject(m_planProject);
-
-        m_planProject.setId("1");
+        m_planProject.setId(getProjectId());
         m_planProject.setName(m_projectFile.getProjectProperties().getProjectTitle());
         m_planProject.setLeader(m_projectFile.getProjectProperties().getManager());
         m_planProject.setScheduling(getScheduleFromString(m_projectFile.getProjectProperties().getScheduleFrom()));
@@ -1510,6 +1509,25 @@ public final class PlanWriter extends AbstractProjectWriter
     private String getString(String value)
     {
         return (value == null ? "" : value);
+    }
+
+    /**
+    * Gets the project id, using GUID if available else unique id
+    */
+    private String getProjectId()
+    {
+        String id;
+        ProjectProperties properties = m_projectFile.getProjectProperties();
+        if (properties.getGUID() != null) {
+            id = properties.getGUID().toString();
+        } else {
+            id = getIntegerString(properties.getUniqueID());
+        }
+        if (id == null) {
+            // Fallback to title
+            id = properties.getProjectTitle();
+        }
+        return id;
     }
 
     /**

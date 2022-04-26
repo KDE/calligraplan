@@ -2602,7 +2602,7 @@ bool Project::registerNodeId(Node *node)
         return true;
     }
     if (rn != node) {
-        errorPlan << "Id already exists for different task: " << node->id();
+        errorPlan << node << node->id()<<"id already exists for different task: " << rn;
         return false;
     }
     //debugPlan<<"Already exists" <<"id=" << node->id() << node->name();
