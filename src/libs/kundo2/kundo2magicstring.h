@@ -159,19 +159,22 @@ inline KUndo2MagicString kundo2_noi18n(const char *text, const A1 &a1)
 template <typename A1, typename A2>
 inline KUndo2MagicString kundo2_noi18n(const char *text, const A1 &a1, const A2 &a2)
 {
-    return KUndo2MagicString(QString(text).arg(a1).arg(a2));
+    const QLatin1String t(text);
+    return KUndo2MagicString(QString(t).arg(a1).arg(a2));
 }
 
 template <typename A1, typename A2, typename A3>
 inline KUndo2MagicString kundo2_noi18n(const char *text, const A1 &a1, const A2 &a2, const A3 &a3)
 {
-    return KUndo2MagicString(QString(text).arg(a1).arg(a2).arg(a3));
+    const QLatin1String t(text);
+    return KUndo2MagicString(QString(t).arg(a1).arg(a2).arg(a3));
 }
 
 template <typename A1, typename A2, typename A3, typename A4>
 inline KUndo2MagicString kundo2_noi18n(const char *text, const A1 &a1, const A2 &a2, const A3 &a3, const A4 &a4)
 {
-    return KUndo2MagicString(QString(text).arg(a1).arg(a2).arg(a3).arg(a4));
+    const QLatin1String t(text);
+    return KUndo2MagicString(QString(t).arg(a1).arg(a2).arg(a3).arg(a4));
 }
 
 /**

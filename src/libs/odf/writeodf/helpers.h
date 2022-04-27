@@ -24,7 +24,7 @@ template <class T>
 void addConfigItem(T& config, const QString & configName, bool value)
 {
     config_config_item item(config.add_config_config_item(configName, "boolean"));
-    item.addTextNode(value ? "true" : "false");
+    item.addTextNode(value ? QLatin1String("true") : QLatin1String("false"));
 }
 
 template <class T>

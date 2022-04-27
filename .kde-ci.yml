@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: None
+# SPDX-License-Identifier: CC0-1.0
+
+Dependencies:
+- 'on': ['Linux', 'FreeBSD']
+  'require':
+    'frameworks/extra-cmake-modules': '@latest'
+    'frameworks/karchive': '@latest'
+    'frameworks/kconfig': '@latest'
+    'frameworks/kconfigwidgets': '@latest'
+    'frameworks/kcoreaddons': '@latest'
+    'frameworks/kdbusaddons': '@latest'
+    'frameworks/kguiaddons': '@latest'
+    'frameworks/ki18n': '@latest'
+    'frameworks/kiconthemes': '@latest'
+    'frameworks/kinit': '@latest'
+    'frameworks/kitemviews': '@latest'
+    'frameworks/kitemmodels': '@latest'
+    'frameworks/kjobwidgets': '@latest'
+    'frameworks/kcmutils': '@latest'
+    'frameworks/kio': '@latest'
+    'frameworks/knotifications': '@latest'
+    'frameworks/kparts': '@latest'
+    'frameworks/ktextwidgets': '@latest'
+    'frameworks/kwidgetsaddons': '@latest'
+    'frameworks/kwindowsystem': '@latest'
+    'frameworks/kxmlgui': '@latest'
+    'frameworks/kactivities': '@latest'
+    'frameworks/threadweaver': '@latest'
+    'frameworks/kholidays': '@latest'
+    'graphics/kdiagram': '@latest'
