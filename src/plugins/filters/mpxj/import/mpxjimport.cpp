@@ -146,12 +146,12 @@ void MpxjImport::slotFinished(int exitCode, QProcess::ExitStatus exitStatus)
     auto s = java->readAllStandardOutput();
     if (s.contains("Exception")) {
         m_status = KoFilter::ParsingError;
-        if (s.contains("Invalid file format")) {
-            errorMpxjImport<<"MPXJ failed to read the file";
-            m_status = KoFilter::InvalidFormat;
-        } else if (s.contains("assword")) {
+        if (s.contains("assword")) {
             errorMpxjImport<<"Reading passsword protected files are not implemented";
             m_status = KoFilter::PasswordProtected;
+        } else if (s.contains("Invalid file format")) {
+            errorMpxjImport<<"MPXJ failed to read the file";
+            m_status = KoFilter::InvalidFormat;
         }
     }
 }
