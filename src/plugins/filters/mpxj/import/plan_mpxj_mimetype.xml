@@ -8,11 +8,11 @@
     <glob pattern="*.pod"/>
   </mime-type>
   <mime-type type="application/vnd.ms-project">
-    <comment>MS Project Database</comment>
+    <comment>MS Project</comment>
     <glob pattern="*.mpp"/>
   </mime-type>
   <mime-type type="application/vnd.ms-project">
-    <comment>MS Project</comment>
+    <comment>MS Project Database</comment>
     <glob pattern="*.mpd"/>
   </mime-type>
   <mime-type type="application/x-project">
