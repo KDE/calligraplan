@@ -24,11 +24,13 @@ import java.util.List;
 import java.io.PrintStream;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
+import java.lang.Throwable;
 
 import net.sf.mpxj.MPXJException;
 import net.sf.mpxj.ProjectFile;
 import net.sf.mpxj.reader.ProjectReader;
 import net.sf.mpxj.reader.UniversalProjectReader;
+import net.sf.mpxj.mpp.MPPReader;
 import net.sf.mpxj.Task;
 import net.sf.mpxj.Resource;
 import net.sf.mpxj.ProjectCalendar;
@@ -37,6 +39,7 @@ import net.sf.mpxj.TimephasedWork;
 import net.sf.mpxj.SubProject;
 
 import plan.PlanWriter;
+import plan.Convert;
 
 public class TestConvert {
 
@@ -53,14 +56,21 @@ public class TestConvert {
             {
                 if (args.length == 3)
                 {
-                    System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[2]))));
+                    System.out.println("Redirect to file " + args[2]);
+                    System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[2])), true));
                 }
-                File dir = new File(args[0]);
-                test(dir, args[1]);
+                File dirOrFile = new File(args[0]);
+                if (dirOrFile.isDirectory()) {
+                    test(dirOrFile, args[1]);
+                }
+                else
+                {
+                    testFile(args[0], args[1]);
+                }
             }
         }
 
-        catch (Exception ex)
+        catch (Throwable ex)
         {
             System.out.println("Exception");
             ex.printStackTrace(System.out);
@@ -71,7 +81,7 @@ public class TestConvert {
     {
         String[] paths = datadir.list();
 
-        System.out.println("Directory: " + datadir.getCanonicalPath());
+        System.out.println("Data Directory: " + datadir.getCanonicalPath());
         for (String fname : paths)
         {
             try
@@ -88,50 +98,55 @@ public class TestConvert {
                     continue;
                 }
                 String infile = datadir.getCanonicalPath() + '/' + fname;
-                System.out.println("Testing input file: " + infile);
-                int i = fname.lastIndexOf​('.');
-                if (i < 0)
-                {
-                    System.out.println("File must have an extension: " + fname);
-                    continue;
-                }
-                String filename = fname.substring(0, i);
-                String outfile = resultdir + '/' + filename + ".plan";
-                System.out.println("File name: " + filename);
-
-                ProjectFile projectFile = TestConvert.readFile(infile);
-
-                printStatistics(projectFile);
-
-                System.out.println("Writing Plan output file: " +  outfile);
-                PlanWriter w = new PlanWriter();
-                w.write(projectFile, outfile);
-                System.out.println("Test completed.");
+                testFile(infile, resultdir);
             }
-            catch (Exception ex)
+            catch (MPXJException ex)
             {
-                System.out.println("FAIL: TestConvert");
+                System.out.println("FAIL: TestConvert, file: " + fname);
                 ex.printStackTrace(System.out);
             }
         }
     }
 
-    /**
-    * Use the universal project reader to open the file.
-    * Throw an exception if we can't determine the file type.
-    *
-    * @param inputFile file name
-    * @return ProjectFile instance
-    */
-    public static ProjectFile readFile(String inputFile) throws MPXJException
+    private static void testFile(String infile, String resultdir)
     {
-        ProjectReader reader = new UniversalProjectReader();
-        ProjectFile projectFile = reader.read(inputFile);
-        if (projectFile == null)
+        try
         {
-            throw new IllegalArgumentException("Unsupported file type");
+            System.out.println("Testing input file: " + infile);
+            String fname = infile;
+            int i = fname.lastIndexOf​('/');
+            if (i > 0)
+            {
+                // remove directory
+                fname = fname.substring(i+1, fname.length());
+            }
+            i = fname.lastIndexOf​('.');
+            if (i < 0)
+            {
+                System.out.println("File must have an extension: " + infile);
+                return;
+            }
+            String type = fname.substring(i+1, fname.length()); // get extension
+            String filename = fname.substring(0, i);
+
+            System.out.println("File name: " + fname);
+            ProjectFile projectFile = plan.Convert.readFile(infile, type, "password");
+
+            printStatistics(projectFile);
+
+            String dir = resultdir.isEmpty() ? "./" : resultdir + '/';
+            String outfile = dir + fname + ".plan";
+            System.out.println("Writing Plan output file: " +  outfile);
+            PlanWriter w = new PlanWriter();
+            w.write(projectFile, outfile);
+
+            System.out.println("Test completed, file: " + fname);
         }
-        return projectFile;
+        catch (Exception ex)
+        {
+            System.out.println("FAIL: TestConvert, file: " + infile);
+            ex.printStackTrace(System.out);
+        }
     }
 
     private static void printStatistics(ProjectFile file)

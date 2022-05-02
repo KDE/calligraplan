@@ -60,6 +60,9 @@ Execute: 'ant run-test'
 
 The test is run on files found in: ${test.data.dir}
 
+You can also test any single file using this command:
+java -cp jar/planconvert.jar TestConvert <test file> <result file>
+
 Mpxj has a lot of test files in: ${mpxj.dir}/junit/data
 You can have all these files converted if you change ${test.data.dir} to point there.
 

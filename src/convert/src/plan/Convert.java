@@ -21,11 +21,14 @@ import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import net.sf.mpxj.MPXJException;
 import net.sf.mpxj.ProjectFile;
 import net.sf.mpxj.reader.ProjectReader;
 import net.sf.mpxj.reader.UniversalProjectReader;
+import net.sf.mpxj.mpp.MPPReader;
 
 import plan.PlanWriter;
 
@@ -36,35 +39,74 @@ public class Convert {
         try
         {
             System.out.println("Convert args: " + args.length);
-            if (args.length < 1 || args.length > 2)
+            Convert convert = new Convert();
+            if (args.length < 1 || args.length > 6)
             {
-                System.out.println("Usage: Convert <input file name> [<plan file name>]");
+                convert.usage();
             }
             else
             {
-                System.out.println("Reading input file started: " + args[0]);
-                long start = System.currentTimeMillis();
 
-                Convert convert = new Convert();
-
-                ProjectFile projectFile = convert.readFile(args[0]);
-                long elapsed = System.currentTimeMillis() - start;
-                System.out.println("Reading input file completed in " + elapsed + "ms.");
-
-                if (args.length == 2)
+                List<String> options = convert.extractOptions(args);
+                System.out.println("Convert args: options = " + options);
+                if (!options.isEmpty() && (options.size() != 2 || args.length < (options.size() * 2 + 1)))
                 {
-                    System.out.println("Writing Plan output file started: " +  args[1]);
-                    PlanWriter w = new PlanWriter();
-                    w.write(projectFile, args[1]);
-                    System.out.println("Writing Plan output file completed.");
+                    convert.usage();
+                }
+                else
+                {
+                    Integer idxIn = options.size() * 2;
+                    String type = new String();
+                    String password = new String();
+                    if (!options.isEmpty()) {
+                        type = options.get(0);
+                        password = options.get(1);
+                    }
+                    System.out.println("Reading input file started: " + args[idxIn]);
+                    long start = System.currentTimeMillis();
+                    ProjectFile projectFile = convert.readFile(args[idxIn], type, password);
+                    long elapsed = System.currentTimeMillis() - start;
+                    System.out.println("Reading input file completed in " + elapsed + "ms.");
+
+                    if (args.length == idxIn + 2)
+                    {
+                        System.out.println("Writing Plan output file started: " +  args[idxIn + 1]);
+                        PlanWriter w = new PlanWriter();
+                        w.write(projectFile, args[idxIn + 1]);
+                        System.out.println("Writing Plan output file completed.");
+                    }
                 }
             }
         }
-        catch (Exception ex)
+        catch (Throwable ex)
         {
-            System.out.println("Exception");
+            System.out.println("Convert Exception");
             ex.printStackTrace(System.out);
         }
+    }
+
+    public void usage()
+    {
+        // Note: No option or both options must be present.
+        // options: --type <file type> --password <password>
+        // arg 0: <input file>
+        // arg 1: [<plan file name>]
+        System.out.println("Usage: Convert [--type <file type> --password <password>] <input file name> [<plan file name>]");
+    }
+
+    public List<String> extractOptions(String[] args)
+    {
+        List<String> options = new ArrayList<String>();
+        if (args.length < 4) {
+            return options;
+        }
+        if (!args[0].startsWith("--type") || !args[2].startsWith("--password")) {
+            System.out.println("extractOptions: failed: args[0] = " + args[0] + ", args[2] = " + args[2]);
+            return options;
+        }
+        options.add(args[1]);
+        options.add(args[3]);
+        return options;
     }
 
     /**
@@ -74,10 +116,21 @@ public class Convert {
     * @param inputFile file name
     * @return ProjectFile instance
     */
-    public ProjectFile readFile(String inputFile) throws MPXJException
+    static public ProjectFile readFile(String inputFile, String type, String password) throws MPXJException
     {
-        ProjectReader reader = new UniversalProjectReader();
-        ProjectFile projectFile = reader.read(inputFile);
+        ProjectFile projectFile;
+        if (type.contentEquals("mpp"))
+        {
+            MPPReader mppreader = new MPPReader();
+            mppreader.setReadPassword(password);
+            projectFile = mppreader.read(inputFile);
+        }
+        else
+        {
+            System.out.println("readFile: read any project type");
+            ProjectReader reader = new UniversalProjectReader();
+            projectFile = reader.read(inputFile);
+        }
         if (projectFile == null)
         {
             throw new IllegalArgumentException("Unsupported file type");

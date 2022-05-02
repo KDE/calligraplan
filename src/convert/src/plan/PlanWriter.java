@@ -131,6 +131,8 @@ public final class PlanWriter extends AbstractProjectWriter
         writeRelations();
         writeRequests();
         writeProjectSchedules();
+        System.out.println("writePlan: finished");
+
     }
     /**
     * This method writes project data to a Plan file.
@@ -231,8 +233,9 @@ public final class PlanWriter extends AbstractProjectWriter
         ProjectCalendarContainer mpxjCalendars = m_projectFile.getCalendars();
         for (int i = 0; i < mpxjCalendars.size(); ++i)
         {
+            ProjectCalendar mpxjCalendar = mpxjCalendars.get(i);
             plan.schema.Calendar planCalendar = m_factory.createCalendar();
-            writeCalendar(mpxjCalendars.get(i), planCalendar);
+            writeCalendar(mpxjCalendar, planCalendar);
             planCalendars.getCalendar().add(planCalendar);
         }
     }
@@ -245,7 +248,9 @@ public final class PlanWriter extends AbstractProjectWriter
     */
     private void writeCalendar(ProjectCalendar mpxjCalendar, plan.schema.Calendar planCalendar)
     {
-        System.out.println("writeCalendar: " + mpxjCalendar.getName());
+        try
+        {
+        System.out.println("writeCalendar: " + mpxjCalendar.getName() + ", id " + mpxjCalendar.getUniqueID());
 
         planCalendar.setId(getIntegerString(mpxjCalendar.getUniqueID()));
         planCalendar.setName(getString(mpxjCalendar.getName()));
@@ -305,12 +310,21 @@ public final class PlanWriter extends AbstractProjectWriter
         //
         for (ProjectCalendar mpxjDerivedCalendar : mpxjCalendar.getDerivedCalendars())
         {
-            //System.out.println("writeCalendar: derived: " + mpxjDerivedCalendar);
-            plan.schema.Calendar planDerivedCalendar = m_factory.createCalendar();
-            planCalendar.getCalendarOrWeekdayOrDay().add(planDerivedCalendar);
-            writeCalendar(mpxjDerivedCalendar, planDerivedCalendar);
+            if (mpxjDerivedCalendar != null)
+            {
+                //System.out.println("writeCalendar: derived: " + mpxjDerivedCalendar);
+                plan.schema.Calendar planDerivedCalendar = m_factory.createCalendar();
+                planCalendar.getCalendarOrWeekdayOrDay().add(planDerivedCalendar);
+                writeCalendar(mpxjDerivedCalendar, planDerivedCalendar);
+            }
         }
-        //System.out.println("writeCalendar: end");
+        System.out.println("writeCalendar: end " + mpxjCalendar.getUniqueID());
+        }
+        catch (Exception ex)
+        {
+            System.out.println("Calendar Exception");
+            ex.printStackTrace(System.out);
+        }
     }
 
     /**
