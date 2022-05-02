@@ -33,6 +33,9 @@ public:
 
 protected:
     KoFilter::ConversionStatus doImport( const QByteArray inFile, const QByteArray outFile );
+    void run(const QStringList &args);
+
+    static const QHash<QString, QString> fileTypeMap();
 
 private Q_SLOTS:
     void slotFinished(int exitCode, QProcess::ExitStatus exitStatus = QProcess::NormalExit);
@@ -40,6 +43,7 @@ private Q_SLOTS:
 
 private:
     KoFilter::ConversionStatus m_status;
+    int m_passwordTries;
 };
 
 #endif // MPXJIMPORT_H

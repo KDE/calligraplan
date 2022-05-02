@@ -14,7 +14,10 @@
 
 #include <KMessageBox>
 #include <KPluginFactory>
+#include <KPasswordDialog>
+#include <KLocalizedString>
 
+#include <QApplication>
 #include <QProcess>
 #include <QString>
 #include <QStandardPaths>
@@ -37,7 +40,7 @@ K_PLUGIN_FACTORY_WITH_JSON(MpxjImportFactory, "plan_mpxj_import.json", registerP
  * "XML"    MSPDI              application/...
  * "MPD"    MPDDatabase        application/...
  * "XER"    PrimaveraXERFile   application/...
- * "PMXML"  PrimaveraPMFiler   application/...
+ * "PMXML"  PrimaveraPMFile    application/...
  * "PP"     AstaFile           application/...
  * "PPX"    Phoenix            application/...
  * "FTS"    FastTrack          application/...
@@ -51,6 +54,7 @@ K_PLUGIN_FACTORY_WITH_JSON(MpxjImportFactory, "plan_mpxj_import.json", registerP
 MpxjImport::MpxjImport(QObject* parent, const QVariantList &)
     : KoFilter(parent)
     , m_status(KoFilter::OK)
+    , m_passwordTries(0)
 {
 }
 
@@ -124,18 +128,57 @@ KoFilter::ConversionStatus MpxjImport::doImport(QByteArray inFile, QByteArray ou
     if (planConvert.isEmpty()) {
         return KoFilter::JavaJarNotFound;
     }
-    QString exe = QStringLiteral("java");
     QStringList args;
     args << QStringLiteral("-jar");
     args << planConvert;
     args << normalizedInFile;
     args << normalizedOutFile;
+    run(args);
+    while (m_status == KoFilter::PasswordProtected) {
+        const QString fileName = normalizedInFile.right(normalizedInFile.length() - normalizedInFile.lastIndexOf(QLatin1Char('/')) - 1);
+        QApplication::setOverrideCursor(Qt::ArrowCursor);
+        if (m_passwordTries > 0) {
+            if (KMessageBox::questionYesNo(nullptr, xi18nc("@info", "Invalid password. Try again?")) == KMessageBox::No) {
+                m_status = KoFilter::UserCancelled;
+                QApplication::restoreOverrideCursor();
+                break;
+            }
+        }
+        KPasswordDialog dlg(nullptr, KPasswordDialog::NoFlags);
+        dlg.setPrompt(xi18nc("@info", "Please enter the password to open this file:<nl/>%1", fileName));
+        if (!dlg.exec()) {
+            m_status = KoFilter::UserCancelled;
+            QApplication::restoreOverrideCursor();
+            break;
+        }
+        QApplication::restoreOverrideCursor();
+        ++m_passwordTries;
+        // TODO: Make this more robust
+        const QString type = fileName.right(fileName.length() - fileName.lastIndexOf(QLatin1Char('.')) - 1).toLower();
+        QStringList args;
+        args << QStringLiteral("-jar");
+        args << planConvert;
+        args << QLatin1String("--type");
+        args << type;
+        args << QLatin1String("--password");
+        args << QLatin1String(dlg.password().toUtf8());
+        args << normalizedInFile;
+        args << normalizedOutFile;
+        run(args);
+    }
+    return m_status;
+}
+
+void MpxjImport::run(const QStringList &args)
+{
+    debugMpxjImport<<args;
     QProcess java;
     connect(&java,  QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &MpxjImport::slotFinished);
     connect(&java,  &QProcess::errorOccurred, this, &MpxjImport::slotError);
-    java.start(exe, args);
-    java.waitForFinished(60000); // filters cannot run in the background
-    return m_status;
+    java.start(QStringLiteral("java"), args);
+    if (!java.waitForFinished(60000)) {
+        m_status = KoFilter::JavaExecutionError;
+    }
 }
 
 void MpxjImport::slotFinished(int exitCode, QProcess::ExitStatus exitStatus)
@@ -144,14 +187,15 @@ void MpxjImport::slotFinished(int exitCode, QProcess::ExitStatus exitStatus)
     Q_ASSERT(java);
     debugMpxjImport<<exitCode<<exitStatus;
     auto s = java->readAllStandardOutput();
+    qInfo()<<Q_FUNC_INFO<<s;
     if (s.contains("Exception")) {
-        m_status = KoFilter::ParsingError;
         if (s.contains("assword")) {
-            errorMpxjImport<<"Reading passsword protected files are not implemented";
             m_status = KoFilter::PasswordProtected;
         } else if (s.contains("Invalid file format")) {
             errorMpxjImport<<"MPXJ failed to read the file";
             m_status = KoFilter::InvalidFormat;
+        } else {
+            m_status = KoFilter::ParsingError;
         }
     }
 }
