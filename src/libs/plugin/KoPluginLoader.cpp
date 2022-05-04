@@ -9,8 +9,6 @@
 // clazy:excludeall=qstring-arg
 #include "KoPluginLoader.h"
 
-#include <config.h> // CALLIGRA_OLD_PLUGIN_METADATA
-
 #include <KConfig>
 #include <KSharedConfig>
 #include <KConfigGroup>

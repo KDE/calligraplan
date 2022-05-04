@@ -13,7 +13,6 @@ SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include <MainDebug.h>
 #include <KoPluginLoader.h>
-#include <config.h> // CALLIGRA_OLD_PLUGIN_METADATA
 
 #include <kpluginfactory.h>
 #include <QFile>
@@ -25,15 +24,9 @@ KoFilterEntry::KoFilterEntry(QPluginLoader *loader)
         : m_loader(loader)
 {
     QJsonObject metadata = loader->metaData().value(QStringLiteral("MetaData")).toObject();
-#ifdef CALLIGRA_OLD_PLUGIN_METADATA
-    import_ = metadata.value(QStringLiteral("X-KDE-Import")).toString().split(',');
-    export_ = metadata.value(QStringLiteral("X-KDE-Export")).toString().split(',');
-    int w = metadata.value(QStringLiteral("X-KDE-Weight")).toString().toInt();
-#else
     import_ = metadata.value(QStringLiteral("X-KDE-Import")).toVariant().toStringList();
     export_ = metadata.value(QStringLiteral("X-KDE-Export")).toVariant().toStringList();
     int w = metadata.value(QStringLiteral("X-KDE-Weight")).toInt();
-#endif
     weight = w < 0 ? UINT_MAX : static_cast<unsigned int>(w);
     available = metadata.value(QStringLiteral("X-KDE-Available")).toString();
 }
