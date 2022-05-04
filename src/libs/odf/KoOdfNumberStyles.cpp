@@ -232,7 +232,7 @@ QString formatScientific(qreal value, const QString &format, int precision)
 
 QString formatFraction(qreal value, const QString &format)
 {
-    QString prefix = value < 0 ? QStringLiteral("-") : QStringLiteral();
+    QString prefix = value < 0 ? QLatin1String("-") : QLatin1String();
     value = fabs(value);
     qreal result = value - floor(value);
 

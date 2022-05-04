@@ -136,7 +136,7 @@ void print(Resource *r, const QString &str, bool full = true) {
         qDebug()<<"  Team members:"<<r->teamMembers().count();
         const auto resources = r->teamMembers();
         for (Resource *tm : resources) {
-            print(tm, QStringLiteral());
+            print(tm, QLatin1String());
 //             qDebug()<<"     "<<tm->name()<<"Available:"
 //                     <<(r->availableFrom().isValid()
 //                             ? r->availableFrom().toString()
@@ -210,7 +210,7 @@ void print(Project *p, const QString &str, bool all = false) {
     } else {
         for (Resource *r : resourceList) {
             qDebug();
-            print(r, QStringLiteral(), true);
+            print(r, QLatin1String(), true);
         }
     }
     for (int i = 0; i < p->numChildren(); ++i) {
