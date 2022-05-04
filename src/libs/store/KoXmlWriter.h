@@ -267,7 +267,7 @@ private:
         device()->write(cstr, qstrlen(cstr));
     }
     inline void writeChar(char c) {
-        !device()->putChar(c);
+        device()->putChar(c);
     }
     inline void closeStartElement(Tag& tag) {
         if (!tag.openingTagClosed) {
