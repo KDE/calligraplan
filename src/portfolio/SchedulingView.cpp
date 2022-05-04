@@ -92,6 +92,9 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     updateSchedulingProperties();
 
     connect(model, &QAbstractItemModel::dataChanged, this, &SchedulingView::updateActionsEnabled);
+    connect(model, &QAbstractItemModel::rowsInserted, this, &SchedulingView::updateSchedulingProperties);
+    connect(model, &QAbstractItemModel::rowsRemoved, this, &SchedulingView::updateSchedulingProperties);
+    connect(model, &QAbstractItemModel::modelReset, this, &SchedulingView::updateSchedulingProperties);
     connect(ui.schedulersCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSchedulersComboChanged(int)));
     connect(ui.granularities, SIGNAL(currentIndexChanged(int)), this, SLOT(slotGranularitiesChanged(int)));
     connect(ui.sequential, &QRadioButton::toggled, this, &SchedulingView::slotSequentialChanged);
