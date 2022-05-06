@@ -15,8 +15,8 @@
 
 #include <KoDocument.h>
 
-#include <part.h>
 #include <workpackage.h>
+#include <part.h>
 
 #include <QTest>
 

@@ -129,14 +129,10 @@ void DateTimeTester::addMillisecond()
 
 void DateTimeTester::timeZones()
 {
-    QByteArray tz("TZ=Europe/Copenhagen");
-    putenv(tz.data());
+    DateTime dt0(QDate(2006, 1, 1), QTime(8, 0, 0, 0));
+    QCOMPARE(dt0.timeZone(), QTimeZone::systemTimeZone());
 
     QTimeZone testZone("Europe/London");
-
-    DateTime dt0(QDate(2006, 1, 1), QTime(8, 0, 0, 0));
-    QCOMPARE(dt0.timeZone(), QTimeZone("Europe/Copenhagen"));
-
     DateTime dt1(QDate(2006, 1, 1), QTime(8, 0, 0, 0), testZone);
     
     DateTime dt2 = dt1;
@@ -171,36 +167,35 @@ void DateTimeTester::timeZones()
     qDebug()<<dt4<<dt4.timeZone();
     QCOMPARE(dt4.timeSpec(), Qt::UTC);
 
-    DateTime dst1(QDate(2006, 3, 26), QTime(2, 30, 0, 0)); // invalid due to dst
-    DateTime dst2(QDate(2006, 3, 26), QTime(3, 30, 0, 0));
+    QTimeZone tz("Europe/Copenhagen");
+    DateTime dst1(QDate(2006, 3, 26), QTime(2, 30, 0, 0), tz); // invalid due to dst
+    DateTime dst2(QDate(2006, 3, 26), QTime(3, 30, 0, 0), tz);
     qDebug()<<"dst:"<<dst1<<dst2<<(dst2-dst1).toString();
     QCOMPARE(dst1, dst2);
 
-    DateTime dst3(QDate(2006, 3, 26), QTime(1, 30, 0, 0));
+    DateTime dst3(QDate(2006, 3, 26), QTime(1, 30, 0, 0), tz);
     DateTime dst4 = dst3 + Duration(0, 1, 0);
     QCOMPARE(dst4, dst2);
     dst4 -= Duration(0, 1, 0);
     QCOMPARE(dst4, dst3);
 
-    DateTime dst5(QDate(2022, 10, 30), QTime(1, 0, 0, 0));
-    DateTime dst6(QDate(2022, 10, 30), QTime(4, 0, 0, 0));
+    DateTime dst5(QDate(2022, 10, 30), QTime(1, 0, 0, 0), tz);
+    DateTime dst6(QDate(2022, 10, 30), QTime(4, 0, 0, 0), tz);
     auto dst7 = dst5 + Duration(0, 4, 0);
     qDebug()<<"dst:"<<dst5<<dst6<<dst7;
     QCOMPARE(dst7, dst6);
     dst7 = dst6 - Duration(0, 1, 0);
-    DateTime dst8(QDate(2022, 10, 30), QTime(3, 0, 0, 0));
+    DateTime dst8(QDate(2022, 10, 30), QTime(3, 0, 0, 0), tz);
     QCOMPARE(dst7, dst8);
 
     dst7 = dst7 - Duration(0, 1, 0);
-    dst8 = DateTime(QDate(2022, 10, 30), QTime(2, 0, 0, 0));
+    dst8 = DateTime(QDate(2022, 10, 30), QTime(2, 0, 0, 0), tz);
     qDebug()<<"dst:"<<dst7<<dst8;
     QCOMPARE(dst7, dst8);
 
     dst7 = dst7 - Duration(0, 1, 0); // no change due to dst
     qDebug()<<"dst:"<<dst7<<dst8;
     QCOMPARE(dst7, dst8);
-
-    unsetenv("TZ");
 }
 
 } //namespace KPlato

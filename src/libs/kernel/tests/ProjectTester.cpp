@@ -25,19 +25,21 @@ namespace KPlato
 
 void ProjectTester::initTestCase()
 {
-    tz = "TZ=Europe/Copenhagen";
-    putenv(tz.data());
-    
+    QTimeZone tz("Europe/Copenhagen");
+
     m_project = new Project();
     m_project->setId(m_project->uniqueNodeId());
     m_project->registerNodeId(m_project);
-    m_project->setConstraintStartTime(QDateTime::fromString(QStringLiteral("2012-02-01T00:00"), Qt::ISODate));
-    m_project->setConstraintEndTime(QDateTime::fromString(QStringLiteral("2013-02-01T00:00"), Qt::ISODate));
+    m_project->setTimeZone(tz);
+    const DateTime dt(QDate(2012, 02, 01), QTime(00, 00), tz);
+    m_project->setConstraintStartTime(dt);
+    m_project->setConstraintEndTime(dt.addYears(1));
     // standard worktime defines 8 hour day as default
     QVERIFY(m_project->standardWorktime());
     QCOMPARE(m_project->standardWorktime()->day(), 8.0);
     m_calendar = new Calendar();
     m_calendar->setName(QStringLiteral("C1"));
+    m_calendar->setTimeZone(tz);
     m_calendar->setDefault(true);
     QTime t1(9, 0, 0);
     QTime t2 (17, 0, 0);
@@ -54,7 +56,6 @@ void ProjectTester::initTestCase()
 
 void ProjectTester::cleanupTestCase()
 {
-    unsetenv("TZ");
     delete m_project;
 }
 
@@ -158,7 +159,7 @@ void ProjectTester::schedule()
     m_project->addResourceGroup(g);
     Resource *r = new Resource();
     r->setName(QStringLiteral("R1"));
-    r->setAvailableFrom(QDateTime(yesterday, QTime(), Qt::LocalTime));
+    r->setAvailableFrom(QDateTime(yesterday, QTime(), m_project->timeZone()));
     r->setCalendar(m_calendar);
     m_project->addResource(r);
     r->addParentGroup(g);
@@ -169,7 +170,7 @@ void ProjectTester::schedule()
 
     s = QStringLiteral("Calculate forward, Task: ASAP -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     m_project->addScheduleManager(sm);
     sm->createSchedules();
@@ -183,7 +184,7 @@ void ProjectTester::schedule()
     QVERIFY(t->earlyFinish() <= t->endTime());
     QVERIFY(t->lateFinish() >= t->endTime());
 
-    QCOMPARE(t->startTime(), DateTime(today, t1));
+    QCOMPARE(t->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 8, 0));
     QCOMPARE(t->plannedEffort().toHours(), 8.0);
     QVERIFY(t->schedulingError() == false);
@@ -204,7 +205,7 @@ void ProjectTester::schedule()
     QVERIFY(t->earlyFinish() <= t->endTime());
     QVERIFY(t->lateFinish() >= t->endTime());
 
-    QCOMPARE(t->startTime(), DateTime(today, t1));
+    QCOMPARE(t->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(1, 8, 0));
     QCOMPARE(t->plannedEffort().toHours(), 8.0);
     QVERIFY(t->schedulingError() == false);
@@ -226,7 +227,7 @@ void ProjectTester::schedule()
     QVERIFY(t->earlyFinish() <= t->endTime());
     QVERIFY(t->lateFinish() >= t->endTime());
 
-    QCOMPARE(t->startTime(), DateTime(today, t1));
+    QCOMPARE(t->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(3, 8, 0));
     QCOMPARE(t->plannedEffort().toHours(), 8.0);
     QVERIFY(t->schedulingError() == false);
@@ -248,7 +249,7 @@ void ProjectTester::schedule()
     QVERIFY(t->earlyFinish() <= t->endTime());
     QVERIFY(t->lateFinish() >= t->endTime());
 
-    QCOMPARE(t->startTime(), DateTime(today, t1));
+    QCOMPARE(t->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 8, 0));
     QCOMPARE(t->plannedEffort().toHours(), 8.0);
     QVERIFY(t->schedulingError() == false);
@@ -270,7 +271,7 @@ void ProjectTester::schedule()
     QVERIFY(t->earlyFinish() <= t->endTime());
     QVERIFY(t->lateFinish() >= t->endTime());
 
-    QCOMPARE(t->startTime(), DateTime(today, t1));
+    QCOMPARE(t->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 4, 0));
     QCOMPARE(t->plannedEffort().toHours(), 8.0);
     QVERIFY(t->schedulingError() == false);
@@ -295,11 +296,11 @@ void ProjectTester::schedule()
     Debug::print(m_project, s, true);
 //     Debug::printSchedulingLog(*sm, s);
 
-    QCOMPARE(t->startTime(), DateTime(today, t1));
+    QCOMPARE(t->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 8, 0));
     QCOMPARE(t->plannedEffort().toHours(), 8.0);
 
-    QCOMPARE(task2->startTime(), DateTime(today, t1));
+    QCOMPARE(task2->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(task2->endTime(), task2->startTime() + Duration(0, 8, 0));
     QCOMPARE(task2->plannedEffort().toHours(), 8.0);
     QVERIFY(task2->schedulingError() == false);
@@ -309,8 +310,8 @@ void ProjectTester::schedule()
 
     s = QStringLiteral("Calculate forward, Task: ASAP, Resource available tomorrow --------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    r->setAvailableFrom(QDateTime(tomorrow, QTime(), Qt::LocalTime));
-    qDebug()<<"Tomorrow:"<<QDateTime(tomorrow, QTime(), Qt::LocalTime)<<r->availableFrom();
+    r->setAvailableFrom(QDateTime(tomorrow, QTime(), m_project->timeZone()));
+    qDebug()<<"Tomorrow:"<<QDateTime(tomorrow, QTime(), m_project->timeZone())<<r->availableFrom();
     r->setUnits(100);
     rr->setUnits(100);
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
@@ -326,15 +327,15 @@ void ProjectTester::schedule()
     QVERIFY(t->earlyFinish() <= t->endTime());
     QVERIFY(t->lateFinish() >= t->endTime());
 
-    QCOMPARE(t->startTime(), DateTime(r->availableFrom().date(), t1));
+    QCOMPARE(t->startTime(), DateTime(r->availableFrom().date(), t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 8, 0));
     QVERIFY(t->schedulingError() == false);
 
     s = QStringLiteral("Calculate forward, Task: ALAP -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime(0,0,0)));
+    m_project->setConstraintStartTime(DateTime(today, QTime(0,0,0), m_project->timeZone()));
     t->setConstraint(Node::ALAP);
-    r->setAvailableFrom(QDateTime(yesterday, QTime(), Qt::LocalTime));
+    r->setAvailableFrom(QDateTime(yesterday, QTime(), m_project->timeZone()));
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     m_project->addScheduleManager(sm);
     sm->createSchedules();
@@ -348,28 +349,28 @@ void ProjectTester::schedule()
     QVERIFY(t->earlyFinish() <= t->endTime());
     QVERIFY(t->lateFinish() >= t->endTime());
 
-    QCOMPARE(t->startTime(), DateTime(today, t1));
+    QCOMPARE(t->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 8, 0));
     QVERIFY(t->schedulingError() == false);
 
     s = QStringLiteral("Calculate forward, Task: MustStartOn -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    r->setAvailableFrom(QDateTime(yesterday, QTime(), Qt::LocalTime));
+    r->setAvailableFrom(QDateTime(yesterday, QTime(), m_project->timeZone()));
     t->setConstraint(Node::MustStartOn);
-    t->setConstraintStartTime(DateTime(nextweek, t1));
+    t->setConstraintStartTime(DateTime(nextweek, t1, m_project->timeZone()));
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     m_project->addScheduleManager(sm);
     sm->createSchedules();
     m_project->calculate(*sm);
 
-    QCOMPARE(t->startTime(), DateTime(t->constraintStartTime().date(), t1));
+    QCOMPARE(t->startTime(), DateTime(t->constraintStartTime().date(), t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 8, 0));
     QVERIFY(t->schedulingError() == false);
 
     // Calculate backwards
     s = QStringLiteral("Calculate backward, Task: MustStartOn -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintEndTime(DateTime(nextweek.addDays(1), QTime()));
+    m_project->setConstraintEndTime(DateTime(nextweek.addDays(1), QTime(), m_project->timeZone()));
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(true);
     m_project->addScheduleManager(sm);
@@ -379,17 +380,17 @@ void ProjectTester::schedule()
     Debug::print(m_project, t, s);
 //     Debug::printSchedulingLog(*sm, s);
     
-    QCOMPARE(t->startTime(), DateTime(t->constraintStartTime().date(), t1));
+    QCOMPARE(t->startTime(), DateTime(t->constraintStartTime().date(), t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 8, 0));
     QVERIFY(t->schedulingError() == false);
 
     // Calculate bacwords
     s = QStringLiteral("Calculate backwards, Task: MustFinishOn -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime(0,0,0)));
-    m_project->setConstraintEndTime(DateTime(nextweek.addDays(1), QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(0,0,0), m_project->timeZone()));
+    m_project->setConstraintEndTime(DateTime(nextweek.addDays(1), QTime(), m_project->timeZone()));
     t->setConstraint(Node::MustFinishOn);
-    t->setConstraintEndTime(DateTime(nextweek.addDays(-2), t2));
+    t->setConstraintEndTime(DateTime(nextweek.addDays(-2), t2, m_project->timeZone()));
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(true);
     m_project->addScheduleManager(sm);
@@ -403,9 +404,9 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: MustFinishOn -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::MustFinishOn);
-    t->setConstraintEndTime(DateTime(tomorrow, t2));
+    t->setConstraintEndTime(DateTime(tomorrow, t2, m_project->timeZone()));
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(false);
     m_project->addScheduleManager(sm);
@@ -421,9 +422,9 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: StartNotEarlier -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::StartNotEarlier);
-    t->setConstraintStartTime(DateTime(today, t2));
+    t->setConstraintStartTime(DateTime(today, t2, m_project->timeZone()));
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(false);
     m_project->addScheduleManager(sm);
@@ -433,16 +434,16 @@ void ProjectTester::schedule()
     Debug::print(m_project, s, true);
 //     Debug::printSchedulingLog(*sm, s);
 
-    QCOMPARE(t->startTime(), DateTime(tomorrow, t1));
+    QCOMPARE(t->startTime(), DateTime(tomorrow, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 8, 0));
     QVERIFY(t->schedulingError() == false);
 
     // Calculate backward
     s = QStringLiteral("Calculate backwards, Task: StartNotEarlier -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintEndTime(DateTime(nextweek, QTime()));
+    m_project->setConstraintEndTime(DateTime(nextweek, QTime(), m_project->timeZone()));
     t->setConstraint(Node::StartNotEarlier);
-    t->setConstraintStartTime(DateTime(today, t2));
+    t->setConstraintStartTime(DateTime(today, t2, m_project->timeZone()));
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(true);
     m_project->addScheduleManager(sm);
@@ -464,9 +465,9 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: FinishNotLater -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::FinishNotLater);
-    t->setConstraintEndTime(DateTime(tomorrow.addDays(1), t2));
+    t->setConstraintEndTime(DateTime(tomorrow.addDays(1), t2, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(false);
@@ -488,9 +489,9 @@ void ProjectTester::schedule()
     // Calculate backward
     s = QStringLiteral("Calculate backwards, Task: FinishNotLater -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(nextweek, QTime()));
+    m_project->setConstraintStartTime(DateTime(nextweek, QTime(), m_project->timeZone()));
     t->setConstraint(Node::FinishNotLater);
-    t->setConstraintEndTime(DateTime(tomorrow, t2));
+    t->setConstraintEndTime(DateTime(tomorrow, t2, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(true);
@@ -512,10 +513,10 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forward, Task: FixedInterval -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::FixedInterval);
-    t->setConstraintStartTime(DateTime(tomorrow, t1));
-    t->setConstraintEndTime(DateTime(tomorrow, t2));
+    t->setConstraintStartTime(DateTime(tomorrow, t1, m_project->timeZone()));
+    t->setConstraintEndTime(DateTime(tomorrow, t2, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(false);
@@ -537,10 +538,10 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: FixedInterval -----------------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::FixedInterval);
-    t->setConstraintStartTime(DateTime(tomorrow, QTime())); // outside working hours
-    t->setConstraintEndTime(DateTime(tomorrow, t2));
+    t->setConstraintStartTime(DateTime(tomorrow, QTime(), m_project->timeZone())); // outside working hours
+    t->setConstraintEndTime(DateTime(tomorrow, t2, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(false);
@@ -560,7 +561,7 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: Milestone, ASAP-------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::ASAP);
     t->estimate()->clear();
 
@@ -584,7 +585,7 @@ void ProjectTester::schedule()
     // Calculate backward
     s = QStringLiteral("Calculate backwards, Task: Milestone, ASAP-------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintEndTime(DateTime(today, QTime()));
+    m_project->setConstraintEndTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::ASAP);
     t->estimate()->clear();
 
@@ -606,7 +607,7 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: Milestone, ALAP-------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::ALAP);
     t->estimate()->clear();
 
@@ -628,7 +629,7 @@ void ProjectTester::schedule()
     // Calculate backward
     s = QStringLiteral("Calculate backwards, Task: Milestone, ALAP-------------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintEndTime(DateTime(today, QTime()));
+    m_project->setConstraintEndTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::ALAP);
     t->estimate()->clear();
 
@@ -650,9 +651,9 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: Milestone, MustStartOn ------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::MustStartOn);
-    t->setConstraintStartTime(DateTime(tomorrow, t1));
+    t->setConstraintStartTime(DateTime(tomorrow, t1, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(false);
@@ -672,9 +673,9 @@ void ProjectTester::schedule()
     // Calculate backward
     s = QStringLiteral("Calculate backwards, Task: Milestone, MustStartOn ------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintEndTime(DateTime(tomorrow, QTime()));
+    m_project->setConstraintEndTime(DateTime(tomorrow, QTime(), m_project->timeZone()));
     t->setConstraint(Node::MustStartOn);
-    t->setConstraintStartTime(DateTime(today, t1));
+    t->setConstraintStartTime(DateTime(today, t1, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(true);
@@ -694,9 +695,9 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: Milestone, MustFinishOn ------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::MustFinishOn);
-    t->setConstraintEndTime(DateTime(tomorrow, t1));
+    t->setConstraintEndTime(DateTime(tomorrow, t1, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(false);
@@ -718,9 +719,9 @@ void ProjectTester::schedule()
     // Calculate backward
     s = QStringLiteral("Calculate backwards, Task: Milestone, MustFinishOn ------------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintEndTime(DateTime(tomorrow, QTime()));
+    m_project->setConstraintEndTime(DateTime(tomorrow, QTime(), m_project->timeZone()));
     t->setConstraint(Node::MustFinishOn);
-    t->setConstraintEndTime(DateTime(today, t1));
+    t->setConstraintEndTime(DateTime(today, t1, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(true);
@@ -742,9 +743,9 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: Milestone, StartNotEarlier ---------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::StartNotEarlier);
-    t->setConstraintEndTime(DateTime(tomorrow, t1));
+    t->setConstraintEndTime(DateTime(tomorrow, t1, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(false);
@@ -766,9 +767,9 @@ void ProjectTester::schedule()
     // Calculate backward
     s = QStringLiteral("Calculate backwards, Task: Milestone, StartNotEarlier ---------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintEndTime(DateTime(tomorrow, QTime()));
+    m_project->setConstraintEndTime(DateTime(tomorrow, QTime(), m_project->timeZone()));
     t->setConstraint(Node::StartNotEarlier);
-    t->setConstraintStartTime(DateTime(today, t1));
+    t->setConstraintStartTime(DateTime(today, t1, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(true);
@@ -792,9 +793,9 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forwards, Task: Milestone, FinishNotLater ---------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::FinishNotLater);
-    t->setConstraintEndTime(DateTime(tomorrow, t1));
+    t->setConstraintEndTime(DateTime(tomorrow, t1, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(false);
@@ -816,9 +817,9 @@ void ProjectTester::schedule()
     // Calculate backward
     s = QStringLiteral("Calculate backwards, Task: Milestone, FinishNotLater ---------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintEndTime(DateTime(tomorrow, QTime()));
+    m_project->setConstraintEndTime(DateTime(tomorrow, QTime(), m_project->timeZone()));
     t->setConstraint(Node::FinishNotLater);
-    t->setConstraintEndTime(DateTime(today, t1));
+    t->setConstraintEndTime(DateTime(today, t1, m_project->timeZone()));
 
     sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     sm->setSchedulingDirection(true);
@@ -840,8 +841,8 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forward, 2 Tasks, no overbooking ----------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
-    m_project->setConstraintEndTime(DateTime(today, QTime()).addDays(4));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
+    m_project->setConstraintEndTime(DateTime(today, QTime(), m_project->timeZone()).addDays(4));
     t->setConstraint(Node::ASAP);
     t->estimate()->setUnit(Duration::Unit_d);
     t->estimate()->setExpectedEstimate(2.0);
@@ -866,19 +867,19 @@ void ProjectTester::schedule()
 
     QCOMPARE(t->earlyStart(), t->requests().workTimeAfter(m_project->constraintStartTime()));
     QCOMPARE(t->lateStart(), tsk2->startTime());
-    QCOMPARE(t->earlyFinish(), DateTime(tomorrow, t2));
+    QCOMPARE(t->earlyFinish(), DateTime(tomorrow, t2, m_project->timeZone()));
     QCOMPARE(t->lateFinish(), t->lateFinish());
 
-    QCOMPARE(t->startTime(), DateTime(today, t1));
+    QCOMPARE(t->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->earlyFinish());
     QVERIFY(t->schedulingError() == false);
 
     QCOMPARE(tsk2->earlyStart(), t->earlyStart());
     QCOMPARE(tsk2->lateStart(), t->earlyFinish() + Duration(0, 16, 0));
-    QCOMPARE(tsk2->earlyFinish(), DateTime(tomorrow, t2));
+    QCOMPARE(tsk2->earlyFinish(), DateTime(tomorrow, t2, m_project->timeZone()));
     QCOMPARE(tsk2->lateFinish(), t->lateFinish());
 
-    QCOMPARE(tsk2->startTime(), DateTime(tomorrow.addDays(1), t1));
+    QCOMPARE(tsk2->startTime(), DateTime(tomorrow.addDays(1), t1, m_project->timeZone()));
     QCOMPARE(tsk2->endTime(), tsk2->lateFinish());
     QVERIFY(tsk2->schedulingError() == false);
 
@@ -887,7 +888,7 @@ void ProjectTester::schedule()
     // Calculate forward
     s = QStringLiteral("Calculate forward, 2 Tasks, relation ---------------");
     qDebug()<<'\n'<<"Testing:"<<s;
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     t->setConstraint(Node::ASAP);
     t->estimate()->setUnit(Duration::Unit_d);
     t->estimate()->setExpectedEstimate(2.0);
@@ -908,20 +909,20 @@ void ProjectTester::schedule()
 //    Debug::printSchedulingLog(*sm, s);
 
     QCOMPARE(t->earlyStart(), t->requests().workTimeAfter(m_project->constraintStartTime()));
-    QCOMPARE(t->lateStart(), DateTime(today, t1));
-    QCOMPARE(t->earlyFinish(), DateTime(tomorrow, t2));
+    QCOMPARE(t->lateStart(), DateTime(today, t1, m_project->timeZone()));
+    QCOMPARE(t->earlyFinish(), DateTime(tomorrow, t2, m_project->timeZone()));
     QCOMPARE(t->lateFinish(), t->lateFinish());
 
-    QCOMPARE(t->startTime(), DateTime(today, t1));
+    QCOMPARE(t->startTime(), DateTime(today, t1, m_project->timeZone()));
     QCOMPARE(t->endTime(), t->earlyFinish());
     QVERIFY(t->schedulingError() == false);
 
     QCOMPARE(tsk2->earlyStart(), tsk2->requests().workTimeAfter(t->earlyFinish()));
-    QCOMPARE(tsk2->lateStart(), DateTime(tomorrow.addDays(1), t1));
-    QCOMPARE(tsk2->earlyFinish(), DateTime(tomorrow.addDays(2), t2));
+    QCOMPARE(tsk2->lateStart(), DateTime(tomorrow.addDays(1), t1, m_project->timeZone()));
+    QCOMPARE(tsk2->earlyFinish(), DateTime(tomorrow.addDays(2), t2, m_project->timeZone()));
     QCOMPARE(tsk2->lateFinish(), tsk2->earlyFinish());
 
-    QCOMPARE(tsk2->startTime(), DateTime(tomorrow.addDays(1), t1));
+    QCOMPARE(tsk2->startTime(), DateTime(tomorrow.addDays(1), t1, m_project->timeZone()));
     QCOMPARE(tsk2->endTime(), tsk2->earlyFinish());
     QVERIFY(tsk2->schedulingError() == false);
 
@@ -934,8 +935,9 @@ void ProjectTester::scheduleFullday()
     QString s = QStringLiteral("Full day, 1 resource works 24 hours a day -------------");
     qDebug()<<'\n'<<"Testing:"<<s;
 
-    m_project->setConstraintStartTime(QDateTime::fromString(QStringLiteral("2011-09-01T00:00:00"), Qt::ISODate));
-    m_project->setConstraintEndTime(QDateTime::fromString(QStringLiteral("2011-09-16T00:00:00"), Qt::ISODate));
+    const DateTime dt(QDate(2011, 9, 1), QTime(0, 0, 0), m_project->timeZone());
+    m_project->setConstraintStartTime(dt);
+    m_project->setConstraintEndTime(dt.addDays(7));
     qDebug()<<m_project->constraintStartTime()<<m_project->constraintEndTime();
     Calendar *c = new Calendar(QStringLiteral("Test"));
     QTime t1(0,0,0);
@@ -1047,8 +1049,8 @@ void ProjectTester::scheduleFulldayDstSpring()
     project.setName(QStringLiteral("DST"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2011-03-25"), Qt::ISODate)));
-    project.setConstraintEndTime(DateTime(QDate::fromString(QStringLiteral("2011-03-29"), Qt::ISODate)));
+    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2011-03-25"), Qt::ISODate), QTime(), project.timeZone()));
+    project.setConstraintEndTime(DateTime(QDate::fromString(QStringLiteral("2011-03-29"), Qt::ISODate), QTime(), project.timeZone()));
     qDebug()<<project.constraintStartTime()<<project.constraintEndTime();
     Calendar *c = new Calendar(QStringLiteral("Test"));
     QTime t1(0,0,0);
@@ -1099,7 +1101,7 @@ void ProjectTester::scheduleFulldayDstSpring()
     qDebug()<<'\n'<<"Testing:"<<s;
 
     // make room for the task
-    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2011-03-24"), Qt::ISODate)));
+    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2011-03-24"), Qt::ISODate), QTime(), project.timeZone()));
 
     sm = project.createScheduleManager(QStringLiteral("Test Backward"));
     project.addScheduleManager(sm);
@@ -1162,7 +1164,7 @@ void ProjectTester::scheduleFulldayDstSpring()
     r->addParentGroup(g);
     t->requests().addResourceRequest(new ResourceRequest(r, 100));
 
-    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2011-03-25"), Qt::ISODate)));
+    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2011-03-25"), Qt::ISODate), QTime(), project.timeZone()));
 
     sm = project.createScheduleManager(QStringLiteral("Test Foreword"));
     project.addScheduleManager(sm);
@@ -1178,7 +1180,7 @@ void ProjectTester::scheduleFulldayDstSpring()
     s = QStringLiteral("Daylight saving time - Spring, Backward: 8 hour shifts, 3 resources ---------------");
     qDebug()<<'\n'<<"Testing:"<<s;
 
-    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2011-03-24"), Qt::ISODate)));
+    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2011-03-24"), Qt::ISODate), QTime(), project.timeZone()));
 
     sm = project.createScheduleManager(QStringLiteral("Test Backward"));
     project.addScheduleManager(sm);
@@ -1202,8 +1204,8 @@ void ProjectTester::scheduleFulldayDstFall()
     project.setName(QStringLiteral("DST"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    project.setConstraintStartTime(QDateTime::fromString(QStringLiteral("2011-10-28T00:00:00"), Qt::ISODate));
-    project.setConstraintEndTime(QDateTime::fromString(QStringLiteral("2011-11-01T00:00:00"), Qt::ISODate));
+    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2011-10-28"), Qt::ISODate), QTime(), project.timeZone()));
+    project.setConstraintEndTime(DateTime(QDate::fromString(QStringLiteral("2011-11-01"), Qt::ISODate), QTime(), project.timeZone()));
     qDebug()<<project.constraintStartTime()<<project.constraintEndTime();
     Calendar *c = new Calendar(QStringLiteral("Test"));
     QTime t1(0,0,0);
@@ -1340,11 +1342,12 @@ void ProjectTester::scheduleFulldayDstFall()
 
 void ProjectTester::scheduleWithExternalAppointments()
 {
+    qputenv("TZ", QByteArray("America/Los_Angeles"));
     Project project;
     project.setName(QStringLiteral("P1"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    DateTime targetstart = DateTime(QDate::fromString(QStringLiteral("2012-02-01"), Qt::ISODate), QTime(0,0,0));
+    DateTime targetstart = DateTime(QDate::fromString(QStringLiteral("2012-02-01"), Qt::ISODate), QTime(0,0,0), project.timeZone());
     DateTime targetend = DateTime(targetstart.addDays(3));
     project.setConstraintStartTime(targetstart);
     project.setConstraintEndTime(targetend);
@@ -1433,7 +1436,7 @@ void ProjectTester::scheduleWithExternalAppointments()
 
     QCOMPARE(t->endTime(), targetend);
     QCOMPARE(t->startTime(),  t->endTime() - Duration(0, 8, 0));
-
+    qunsetenv("TZ");
 }
 
 void ProjectTester::reschedule()
@@ -1442,7 +1445,7 @@ void ProjectTester::reschedule()
     project.setName(QStringLiteral("P1"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    DateTime targetstart = DateTime(QDate::fromString(QStringLiteral("2012-02-01"), Qt::ISODate), QTime(0,0,0));
+    DateTime targetstart = DateTime(QDate::fromString(QStringLiteral("2012-02-01"), Qt::ISODate), QTime(0,0,0), project.timeZone());
     DateTime targetend = DateTime(targetstart.addDays(7));
     project.setConstraintStartTime(targetstart);
     project.setConstraintEndTime(targetend);
@@ -1570,7 +1573,7 @@ void ProjectTester::materialResource()
     project.setName(QStringLiteral("P1"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    DateTime targetstart = DateTime(QDate::fromString(QStringLiteral("2012-02-01"), Qt::ISODate), QTime(0,0,0));
+    DateTime targetstart = DateTime(QDate::fromString(QStringLiteral("2012-02-01"), Qt::ISODate), QTime(0,0,0), project.timeZone());
     DateTime targetend = DateTime(targetstart.addDays(7));
     project.setConstraintStartTime(targetstart);
     project.setConstraintEndTime(targetend);
@@ -1637,7 +1640,7 @@ void ProjectTester::materialResource()
     QVERIFY(task1->earlyFinish() <= task1->endTime());
     QVERIFY(task1->lateFinish() >= task1->endTime());
 
-    QCOMPARE(task1->startTime(), DateTime(r->availableFrom().date(), t1));
+    QCOMPARE(task1->startTime(), DateTime(r->availableFrom().date(), t1, project.timeZone()));
     QCOMPARE(task1->endTime(), task1->startTime() + Duration(0, 8, 0));
     QVERIFY(task1->schedulingError() == false);
 }
@@ -1648,7 +1651,7 @@ void ProjectTester::requiredResource()
     project.setName(QStringLiteral("P1"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    DateTime targetstart = DateTime(QDate::fromString(QStringLiteral("2012-02-01"), Qt::ISODate), QTime(0,0,0));
+    DateTime targetstart = DateTime(QDate::fromString(QStringLiteral("2012-02-01"), Qt::ISODate), QTime(0,0,0), project.timeZone());
     DateTime targetend = DateTime(targetstart.addDays(7));
     project.setConstraintStartTime(targetstart);
     project.setConstraintEndTime(targetend);
@@ -1715,7 +1718,7 @@ void ProjectTester::requiredResource()
     QVERIFY(task1->earlyFinish() <= task1->endTime());
     QVERIFY(task1->lateFinish() >= task1->endTime());
 
-    QCOMPARE(task1->startTime(), DateTime(r->availableFrom().date(), t1));
+    QCOMPARE(task1->startTime(), DateTime(r->availableFrom().date(), t1, project.timeZone()));
     QCOMPARE(task1->endTime(), task1->startTime() + Duration(0, 8, 0));
     QVERIFY(task1->schedulingError() == false);
 
@@ -1746,7 +1749,7 @@ void ProjectTester::requiredResource()
     QVERIFY(task1->earlyFinish() <= task1->endTime());
     QVERIFY(task1->lateFinish() >= task1->endTime());
 
-    QCOMPARE(task1->startTime(), DateTime(mr->availableFrom().date(), t1));
+    QCOMPARE(task1->startTime(), DateTime(mr->availableFrom().date(), t1, project.timeZone()));
     QCOMPARE(task1->endTime(), task1->startTime() + Duration(0, 8, 0));
     QVERIFY(task1->schedulingError() == false);
 
@@ -1767,12 +1770,12 @@ void ProjectTester::resourceWithLimitedAvailability()
     project.setName(QStringLiteral("P1"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    DateTime targetstart = DateTime(QDate(2010, 5, 1), QTime(0,0,0));
+    DateTime targetstart = DateTime(QDate(2010, 5, 1), QTime(0,0,0), project.timeZone());
     DateTime targetend = DateTime(targetstart.addDays(7));
     project.setConstraintStartTime(targetstart);
     project.setConstraintEndTime(targetend);
 
-    DateTime expectedEndTime(QDate(2010, 5, 3), QTime(16, 0, 0));
+    DateTime expectedEndTime(QDate(2010, 5, 3), QTime(16, 0, 0), project.timeZone());
 
     Calendar *c = new Calendar(QStringLiteral("Test"));
     QTime t1(8,0,0);
@@ -1835,7 +1838,7 @@ void ProjectTester::unavailableResource()
     project.setName(QStringLiteral("P1"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    DateTime targetstart = DateTime(QDate(2010, 5, 1), QTime(0,0,0));
+    DateTime targetstart = DateTime(QDate(2010, 5, 1), QTime(0,0,0), project.timeZone());
     DateTime targetend = DateTime(targetstart.addDays(7));
     project.setConstraintStartTime(targetstart);
     project.setConstraintEndTime(targetend);
@@ -1917,7 +1920,7 @@ void ProjectTester::team()
     project.setName(QStringLiteral("P1"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    DateTime targetstart = DateTime(QDate(2010, 5, 1), QTime(0,0,0));
+    DateTime targetstart = DateTime(QDate(2010, 5, 1), QTime(0,0,0), project.timeZone());
     DateTime targetend = DateTime(targetstart.addDays(7));
     project.setConstraintStartTime(targetstart);
     project.setConstraintEndTime(targetend);
@@ -2070,6 +2073,7 @@ void ProjectTester::inWBSOrder()
     p.setId(p.uniqueNodeId());
     p.registerNodeId(&p);
     DateTime st = QDateTime::fromString(QStringLiteral("2012-02-01"), Qt::ISODate);
+    st.setTimeZone(p.timeZone());
     st = DateTime(st.addDays(1));
     st.setTime(QTime (0, 0, 0));
     p.setConstraintStartTime(st);
@@ -2162,6 +2166,7 @@ void ProjectTester::resourceConflictALAP()
     p.setId(p.uniqueNodeId());
     p.registerNodeId(&p);
     DateTime st = QDateTime::fromString(QStringLiteral("2012-02-01"), Qt::ISODate);
+    st.setTimeZone(p.timeZone());
     st = DateTime(st.addDays(1));
     st.setTime(QTime (0, 0, 0));
     p.setConstraintStartTime(st);
@@ -2329,6 +2334,7 @@ void ProjectTester::resourceConflictMustStartOn()
     p.setId(p.uniqueNodeId());
     p.registerNodeId(&p);
     DateTime st = QDateTime::fromString(QStringLiteral("2012-02-01T00:00:00"), Qt::ISODate);
+    st.setTimeZone(p.timeZone());
     st = DateTime(st.addDays(1));
     st.setTime(QTime (0, 0, 0));
     p.setConstraintStartTime(st);
@@ -2538,6 +2544,7 @@ void ProjectTester::resourceConflictMustFinishOn()
     p.setId(p.uniqueNodeId());
     p.registerNodeId(&p);
     DateTime st = QDateTime::fromString(QStringLiteral("2012-02-01"), Qt::ISODate);
+    st.setTimeZone(p.timeZone());
     st = DateTime(st.addDays(1));
     st.setTime(QTime (0, 0, 0));
     p.setConstraintStartTime(st);
@@ -2740,6 +2747,7 @@ void ProjectTester::fixedInterval()
     p.setId(p.uniqueNodeId());
     p.registerNodeId(&p);
     DateTime st = QDateTime::fromString(QStringLiteral("2010-10-20T08:00"), Qt::ISODate);
+    st.setTimeZone(p.timeZone());
     p.setConstraintStartTime(st);
     p.setConstraintEndTime(st.addDays(5));
 
@@ -2803,6 +2811,7 @@ void ProjectTester::estimateDuration()
     p.setId(p.uniqueNodeId());
     p.registerNodeId(&p);
     DateTime st = QDateTime::fromString(QStringLiteral("2010-10-20 08:00"), Qt::TextDate);
+    st.setTimeZone(p.timeZone());
     p.setConstraintStartTime(st);
     p.setConstraintEndTime(st.addDays(5));
 
@@ -2867,6 +2876,7 @@ void ProjectTester::startStart()
     p.setId(p.uniqueNodeId());
     p.registerNodeId(&p);
     DateTime st = QDateTime::fromString(QStringLiteral("2010-10-20T00:00:00"), Qt::ISODate);
+    st.setTimeZone(p.timeZone());
     p.setConstraintStartTime(st);
     p.setConstraintEndTime(st.addDays(5));
 
@@ -3092,28 +3102,23 @@ void ProjectTester::startStart()
 
 void ProjectTester::scheduleTimeZone()
 {
-    QByteArray tz("TZ=Europe/Copenhagen");
-    putenv(tz.data());
-    qDebug()<<"Local timezone: "<<QTimeZone::systemTimeZone();
-    
-    Calendar cal(QStringLiteral("LocalTime/Copenhagen"));
-    QCOMPARE(cal.timeZone(),  QTimeZone::systemTimeZone());
-    
+    qDebug()<<"System timezone: "<<QTimeZone::systemTimeZone();
 
     Project project;
     project.setName(QStringLiteral("P1"));
     project.setId(project.uniqueNodeId());
     project.registerNodeId(&project);
-    project.setConstraintStartTime(QDateTime::fromString(QStringLiteral("2016-07-04T00:00"), Qt::ISODate));
-    project.setConstraintEndTime(QDateTime::fromString(QStringLiteral("2016-07-10T00:00"), Qt::ISODate));
+    project.setTimeZone(QTimeZone("Europe/Copenhagen"));
+    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2016-07-04"), Qt::ISODate), QTime(), project.timeZone()));
+    project.setConstraintEndTime(DateTime(QDate::fromString(QStringLiteral("2016-07-10"), Qt::ISODate), QTime(), project.timeZone()));
     // standard worktime defines 8 hour day as default
     QVERIFY(project.standardWorktime());
     QCOMPARE(project.standardWorktime()->day(), 8.0);
     
     Calendar *calendar = new Calendar();
-    calendar->setName(QStringLiteral("LocalTime, Copenhagen"));
+    calendar->setName(QStringLiteral("LocalTime 2"));
+    calendar->setTimeZone(project.timeZone());
     calendar->setDefault(true);
-    QCOMPARE(calendar->timeZone(),  QTimeZone::systemTimeZone());
 
     QTime time1(9, 0, 0);
     QTime time2 (17, 0, 0);
@@ -3184,12 +3189,12 @@ void ProjectTester::scheduleTimeZone()
     Debug::print(&project, t, s);
 //     Debug::printSchedulingLog(*sm, s);
     
-    QCOMPARE(t->startTime(), DateTime(today, time1));
+    QCOMPARE(t->startTime(), DateTime(today, time1, project.timeZone()));
     QCOMPARE(t->endTime(), t->startTime() + Duration(0, 8, 0));
     QCOMPARE(t->plannedEffort().toHours(), 8.0);
     QVERIFY(t->schedulingError() == false);
 
-    QCOMPARE(t2->startTime(), DateTime(today, time1.addSecs(-3600)));
+    QCOMPARE(t2->startTime(), DateTime(today, time1.addSecs(-3600), project.timeZone()));
     QCOMPARE(t2->endTime(), t2->startTime() + Duration(0, 8, 0));
     QCOMPARE(t2->plannedEffort().toHours(), 8.0);
     QVERIFY(t2->schedulingError() == false);
@@ -3199,21 +3204,22 @@ void ProjectTester::resourceTimezoneSpansMidnight()
 {
     qDebug()<<"Local timezone: "<<QTimeZone::systemTimeZone();
 
-    Calendar cal(QStringLiteral("LocalTime/Berlin"));
+    Calendar cal(QStringLiteral("LocalTime"));
     QCOMPARE(cal.timeZone(),  QTimeZone::systemTimeZone());
 
     Project project;
     project.setName(QStringLiteral("P1"));
     project.setId(project.uniqueNodeId());
+    project.setTimeZone(QTimeZone("Europe/Copenhagen"));
     project.registerNodeId(&project);
-    project.setConstraintStartTime(QDateTime::fromString(QStringLiteral("2022-02-01T08:00"), Qt::ISODate));
-    project.setConstraintEndTime(QDateTime::fromString(QStringLiteral("2022-05-01T00:00"), Qt::ISODate));
+    project.setConstraintStartTime(DateTime(QDate::fromString(QStringLiteral("2022-02-01"), Qt::ISODate), QTime(8, 0), project.timeZone()));
+    project.setConstraintEndTime(DateTime(QDate::fromString(QStringLiteral("2022-05-01"), Qt::ISODate), QTime(), project.timeZone()));
     // standard worktime defines 8 hour day as default
     QVERIFY(project.standardWorktime());
     QCOMPARE(project.standardWorktime()->day(), 8.0);
 
     Calendar *calendar = new Calendar();
-    calendar->setName(QStringLiteral("LocalTime, Berlin"));
+    calendar->setName(QStringLiteral("LocalTime 2"));
     calendar->setDefault(true);
     QCOMPARE(calendar->timeZone(),  QTimeZone::systemTimeZone());
 
@@ -3270,8 +3276,8 @@ void ProjectTester::resourceTimezoneSpansMidnight()
     QVERIFY(t->schedulingError() == false);
 
     auto a2 = r2->appointmentIntervals();
-    QCOMPARE(a2.startTime().timeZone(), QTimeZone::systemTimeZone());
-    QCOMPARE(a2.startTime().toString(Qt::ISODate), QStringLiteral("2022-02-01T22:00:00+01:00"));
+    QCOMPARE(a2.startTime().timeZone(), project.timeZone());
+    QCOMPARE(a2.startTime(), DateTime(QDate(2022, 2, 1), QTime(22, 0), project.timeZone()));
     QCOMPARE(t->startTime(), a2.startTime());
     QCOMPARE(t->plannedEffort().toHours(), t->estimate()->expectedEstimate());
     QCOMPARE(t->endTime(), t->startTime() + Duration(6, 2, 0));
@@ -3291,7 +3297,7 @@ void ProjectTester::resourceTimezoneSpansMidnight()
     QVERIFY(t->schedulingError() == false);
 
     a2 = r2->appointmentIntervals();
-    QCOMPARE(a2.startTime().timeZone(), QTimeZone::systemTimeZone());
+    QCOMPARE(a2.startTime().timeZone(), project.timeZone());
     QCOMPARE(a2.startTime().toString(Qt::ISODate), QStringLiteral("2022-02-01T17:00:00+01:00"));
     QCOMPARE(t->startTime(), a2.startTime());
     QCOMPARE(t->plannedEffort().toHours(), t->estimate()->expectedEstimate());
@@ -3300,7 +3306,7 @@ void ProjectTester::resourceTimezoneSpansMidnight()
     s = QStringLiteral("Project timezone different from system timezone -----");
     qDebug()<<"Testing:"<<s;
     project.setTimeZone(QTimeZone("Europe/London"));
-    qDebug()<<"Project timezone:"<<project.constraintStartTime().timeZone()<<"System:"<<tz;
+    qDebug()<<"Project timezone:"<<project.constraintStartTime().timeZone()<<"System:"<<QTimeZone::systemTimeZone();
 
     cal2->setTimeZone(QTimeZone("Australia/Sydney"));
     auto dt = cal2->firstAvailableAfter(project.constraintStartTime(), project.constraintEndTime());

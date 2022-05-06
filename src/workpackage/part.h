@@ -42,7 +42,6 @@ namespace KPlato
 namespace KPlatoWork
 {
 
-class Part;
 class WorkPackage;
 class View;
 

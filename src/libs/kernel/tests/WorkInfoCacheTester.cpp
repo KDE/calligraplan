@@ -31,11 +31,11 @@ QTimeZone createTimeZoneWithOffsetFromSystem(int hours, const QString & name, in
     if (offsetSeconds >= (12*3600)) {
         qDebug() << "reducing offset by 24h";
         offsetSeconds -= (24*3600);
-        *shiftDays = -1;
+        *shiftDays = 1;
     } else if (offsetSeconds <= -(12*3600)) {
         qDebug() << "increasing offset by 24h";
         offsetSeconds += (24*3600);
-        *shiftDays = 1;
+        *shiftDays = -1;
     } else {
         *shiftDays = 0;
     }
@@ -261,33 +261,32 @@ void WorkInfoCacheTester::fullDay()
 
 void WorkInfoCacheTester::timeZone()
 {
-    QByteArray tz("TZ=Europe/Berlin");
-    putenv(tz.data());
+    //qputenv("TZ", QByteArray("America/Los_Angeles"));
     qDebug()<<"Local timezone: "<<QTimeZone::systemTimeZone();
     
     Calendar cal(QStringLiteral("Test"));
-    // local zone: Europe/Berlin (9 hours from America/Los_Angeles)
+    // Create a dummy timezone 9 hours from system timezone
     int laShiftDays;
-    QTimeZone la = createTimeZoneWithOffsetFromSystem(-9, QStringLiteral("DummyLos_Angeles"), &laShiftDays);
-    QVERIFY(la.isValid());
-    cal.setTimeZone(la);
+    QTimeZone dummytz = createTimeZoneWithOffsetFromSystem(-9, QStringLiteral("DummyTimeZone"), &laShiftDays);
+    QVERIFY(dummytz.isValid());
+    cal.setTimeZone(dummytz);
 
     QDate wdate(2012,1,2);
-    DateTime before = DateTime(wdate.addDays(-1), QTime(), la);
-    DateTime after = DateTime(wdate.addDays(2), QTime(), la);
+    DateTime before = DateTime(wdate.addDays(-1), QTime(), dummytz);
+    DateTime after = DateTime(wdate.addDays(2), QTime(), dummytz);
 //    qDebug() << "before, after" << before << after;
-    QTime t1(14,0,0); // 23 LA
-    QTime t2(16,0,0); // 01 LA next day
+    QTime t1(14,0,0); // 23 dummytz
+    QTime t2(16,0,0); // 01 dummytz next day
     DateTime wdt1(wdate, t1);
     DateTime wdt2(wdate, t2);
     qint64 length = t1.msecsTo(t2);
-    qDebug() << "length:" << Duration(length).toString() << "wdt1, wdt2" << wdt1 << wdt2 << wdt1.toTimeZone(la) << wdt2.toTimeZone(la);
+    qDebug() << "length:" << Duration(length).toString() << "wdt1, wdt2" << wdt1 << wdt2 << wdt1.toTimeZone(dummytz) << wdt2.toTimeZone(dummytz);
     CalendarDay *day = new CalendarDay(wdate, CalendarDay::Working);
     day->addInterval(TimeInterval(t1, length));
     cal.addDay(day);
     QVERIFY(cal.findDay(wdate) == day);
 
-    Debug::print(&cal, QStringLiteral("DummyLos_Angeles"));
+    Debug::print(&cal, QStringLiteral("DummyTimeZone"));
     Resource r;
     r.setCalendar(&cal);
     const Resource::WorkInfoCache &wic = r.workInfoCache();
@@ -299,44 +298,47 @@ void WorkInfoCacheTester::timeZone()
     QCOMPARE(wic.intervals.map().count(), 1);
     QCOMPARE(wic.intervals.map().values(wdate).count(), 1);
     QMultiMap<QDate, AppointmentInterval>::const_iterator it = wic.intervals.map().constBegin();
-    QCOMPARE(it.value().startTime(), DateTime(wdate, QTime(14, 0, 0), la));
-    QCOMPARE(it.value().endTime(), DateTime(wdate, QTime(16, 0, 0), la));
+    QCOMPARE(it.value().startTime(), DateTime(wdate, QTime(14, 0, 0), dummytz));
+    QCOMPARE(it.value().endTime(), DateTime(wdate, QTime(16, 0, 0), dummytz));
 
     // convert to localtime, moves the interval to around midnite (splits it into two)
     auto localIntervals = wic.intervals;
+    qDebug()<<"before"<<localIntervals;
     localIntervals.toTimeZone(QTimeZone::systemTimeZone());
+    qDebug()<<"after"<<localIntervals;
+    wdate = wdate.addDays(laShiftDays);
     QCOMPARE(localIntervals.map().count(), 2);
     QCOMPARE(localIntervals.map().values(wdate).count(), 1);
-    QCOMPARE(localIntervals.map().value(wdate).startTime(), DateTime(wdate, QTime(23, 0, 0)));
-    QCOMPARE(localIntervals.map().value(wdate).endTime(), DateTime(wdate.addDays(1), QTime(0, 0, 0)));
+    QCOMPARE(localIntervals.map().value(wdate).startTime(), DateTime(wdate, QTime(23, 0, 0), QTimeZone::systemTimeZone()));
+    QCOMPARE(localIntervals.map().value(wdate).endTime(), DateTime(wdate.addDays(1), QTime(0, 0, 0), QTimeZone::systemTimeZone()));
 
     wdate = wdate.addDays(1);
     QCOMPARE(localIntervals.map().values(wdate).count(), 1);
     QCOMPARE(localIntervals.map().value(wdate).startTime(), DateTime(wdate, QTime(0, 0, 0)));
     QCOMPARE(localIntervals.map().value(wdate).endTime(), DateTime(wdate, QTime(1, 0, 0)));
-
-    unsetenv("TZ");
+    //qunsetenv("TZ");
 }
 
 void WorkInfoCacheTester::doubleTimeZones()
 {
-    QByteArray tz("TZ=Europe/Copenhagen");
-    putenv(tz.data());
-    qDebug()<<"Local timezone: "<<QTimeZone::systemTimeZone();
+    QTimeZone tz("Europe/Copenhagen");
+    qDebug()<<"Local timezone: "<<QTimeZone::systemTimeZone()<<"tz:"<<tz;
     
     Calendar cal(QStringLiteral("LocalTime/Copenhagen"));
-    QCOMPARE(cal.timeZone(),  QTimeZone::systemTimeZone());
-    
+    cal.setTimeZone(tz);
+    QCOMPARE(cal.timeZone(),  tz);
+
+    QTimeZone htz("Europe/Helsinki");
     Calendar cal2(QStringLiteral("Helsinki"));
-    cal2.setTimeZone(QTimeZone("Europe/Helsinki"));
+    cal2.setTimeZone(htz);
     QVERIFY(cal2.timeZone().isValid());
     
     QDate wdate(2012,1,2);
-    DateTime before = DateTime(wdate, QTime());
-    DateTime after = DateTime(wdate.addDays(1), QTime());
+    DateTime before = DateTime(wdate, QTime(), tz);
+    DateTime after = DateTime(wdate.addDays(1), QTime(), tz);
     //    qDebug() << "before, after" << before << after;
-    QTime t1(14,0,0); // 23 LA
-    QTime t2(16,0,0); // 01 LA next day
+    QTime t1(14,0,0);
+    QTime t2(16,0,0);
     DateTime wdt1(wdate, t1);
     DateTime wdt2(wdate, t2);
     int length = t1.msecsTo(t2);
@@ -356,8 +358,8 @@ void WorkInfoCacheTester::doubleTimeZones()
     Debug::print(wic.intervals);
     QCOMPARE(wic.intervals.map().count(), 1);
     
-    QCOMPARE(wic.intervals.map().value(wdate).startTime(), DateTime(wdate, QTime(14, 0, 0)));
-    QCOMPARE(wic.intervals.map().value(wdate).endTime(), DateTime(wdate, QTime(16, 0, 0)));
+    QCOMPARE(wic.intervals.map().value(wdate).startTime(), DateTime(wdate, QTime(14, 0, 0), tz));
+    QCOMPARE(wic.intervals.map().value(wdate).endTime(), DateTime(wdate, QTime(16, 0, 0), tz));
 
     day = new CalendarDay(wdate, CalendarDay::Working);
     day->addInterval(TimeInterval(t1, length));
@@ -374,10 +376,8 @@ void WorkInfoCacheTester::doubleTimeZones()
     Debug::print(wic2.intervals);
     QCOMPARE(wic2.intervals.map().count(), 1);
     
-    QCOMPARE(wic2.intervals.map().value(wdate).startTime(), DateTime(wdate, QTime(13, 0, 0)));
-    QCOMPARE(wic2.intervals.map().value(wdate).endTime(), DateTime(wdate, QTime(15, 0, 0)));
-    
-    unsetenv("TZ");
+    QCOMPARE(wic2.intervals.map().value(wdate).startTime(), DateTime(wdate, QTime(13, 0, 0), tz));
+    QCOMPARE(wic2.intervals.map().value(wdate).endTime(), DateTime(wdate, QTime(15, 0, 0), tz));
 }
 
 } //namespace KPlato

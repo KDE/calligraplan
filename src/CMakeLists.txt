@@ -109,4 +109,7 @@ add_subdirectory(portfolio)
 
 add_subdirectory(convert)
 
-add_subdirectory(tests)
+# FIXME Fix tests on Windows
+if (NOT CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    add_subdirectory(tests)
+endif()

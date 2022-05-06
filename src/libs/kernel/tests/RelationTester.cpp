@@ -24,19 +24,21 @@ namespace KPlato
 
 void RelationTester::initTestCase()
 {
-    tz = "TZ=Europe/Copenhagen";
-    putenv(tz.data());
+    QTimeZone tz("Europe/Copenhagen");
     
     m_project = new Project();
     m_project->setId(m_project->uniqueNodeId());
     m_project->registerNodeId(m_project);
-    m_project->setConstraintStartTime(QDateTime::fromString(QStringLiteral("2012-02-01T00:00"), Qt::ISODate));
-    m_project->setConstraintEndTime(QDateTime::fromString(QStringLiteral("2013-02-01T00:00"), Qt::ISODate));
+    m_project->setTimeZone(tz);
+    const DateTime dt(QDate(2012, 02, 01), QTime(00, 00), tz);
+    m_project->setConstraintStartTime(dt);
+    m_project->setConstraintEndTime(dt.addYears(1));
     // standard worktime defines 8 hour day as default
     QVERIFY(m_project->standardWorktime());
     QCOMPARE(m_project->standardWorktime()->day(), 8.0);
     m_calendar = new Calendar();
     m_calendar->setName(QStringLiteral("C1"));
+    m_calendar->setTimeZone(tz);
     m_calendar->setDefault(true);
     QTime t1(9, 0, 0);
     QTime t2 (17, 0, 0);
@@ -51,7 +53,6 @@ void RelationTester::initTestCase()
 
 void RelationTester::cleanupTestCase()
 {
-    unsetenv("TZ");
     delete m_project;
 }
 
@@ -184,7 +185,7 @@ void RelationTester::proxyRelations()
     bool checkProxy = true;
     bool checkSummarytasks = true;
 
-    m_project->setConstraintStartTime(DateTime(today, QTime()));
+    m_project->setConstraintStartTime(DateTime(today, QTime(), m_project->timeZone()));
     auto sm = m_project->createScheduleManager(QStringLiteral("Test Plan"));
     m_project->addScheduleManager(sm);
     sm->createSchedules();

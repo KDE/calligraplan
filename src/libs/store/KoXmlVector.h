@@ -7,8 +7,11 @@
 #ifndef KO_XMLVECTOR_H
 #define KO_XMLVECTOR_H
 
+// Do not compress on windows
+#ifndef Q_OS_WIN
 // comment it to test this class without the compression
 #define KOXMLVECTOR_USE_LZF
+#endif
 
 #ifdef KOXMLVECTOR_USE_LZF
 #include "KoLZF.h"

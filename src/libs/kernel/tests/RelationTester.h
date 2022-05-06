@@ -29,7 +29,6 @@ private Q_SLOTS:
 private:
     Project *m_project;
     Calendar *m_calendar;
-    QByteArray tz;
 };
 
 } //namespace KPlato

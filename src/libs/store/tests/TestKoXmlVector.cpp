@@ -26,7 +26,7 @@ class TestStruct
 {
 public:
     bool attr: 1;
-    TestEnum type: 3;
+    TestEnum type: 4; // seems msvc needs an extra bit
     unsigned int number: 28;
     QString string;
 };

@@ -63,7 +63,6 @@ private:
     Project *m_project;
     Calendar *m_calendar;
     Task *m_task;
-    QByteArray tz;
 };
 
 } //namespace KPlato

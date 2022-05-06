@@ -75,6 +75,7 @@
 #include <QStringList>
 #include <QVector>
 
+#ifndef Q_OS_WIN
 /*
  Use more compact representation of in-memory nodes.
 
@@ -88,7 +89,7 @@
  above because otherwise the non-compact layout will slow down everything.
 */
 #define KOXML_COMPRESS
-
+#endif
 
 // prevent mistake, see above
 #ifdef KOXML_COMPRESS
@@ -1097,7 +1098,7 @@ void KoXmlNodeData::loadChildren(int depth)
     // cause we don't know how deep this node's children already loaded are
     unloadChildren();
 
-    KoXmlNodeData* lastDat = 0;
+    KoXmlNodeData* lastDat = nullptr;
     int nodeDepth = packedDoc->items[nodeIndex].depth;
 
     for (int i = nodeIndex + 1; i < packedDoc->items.count(); ++i) {
@@ -1121,7 +1122,7 @@ void KoXmlNodeData::loadChildren(int depth)
             QString localName;  // without prefix, i.e. local name
 
             localName = qName = qname.name;
-            int i = qName.indexOf(':');
+            int i = qName.indexOf(QLatin1Char(':'));
             if (i != -1) prefix = qName.left(i);
             if (i != -1) localName = qName.mid(i + 1);
 
@@ -1149,7 +1150,7 @@ void KoXmlNodeData::loadChildren(int depth)
 
                 if (packedDoc->processNamespace) {
                     localName = qname.name;
-                    int di = qname.name.indexOf(':');
+                    int di = qname.name.indexOf(QLatin1Char(':'));
                     if (di != -1) {
                         localName = qname.name.mid(di + 1);
                         prefix = qname.name.left(di);
@@ -1166,12 +1167,11 @@ void KoXmlNodeData::loadChildren(int depth)
                 dat->localName = localName;
                 dat->prefix = prefix;
                 dat->namespaceURI = qname.nsURI;
-                dat->count = 1;
                 dat->parent = this;
                 dat->prev = lastDat;
-                dat->next = 0;
-                dat->first = 0;
-                dat->last = 0;
+                dat->next = nullptr;
+                dat->first = nullptr;
+                dat->last = nullptr;
                 dat->loaded = false;
                 dat->textData = (textItem) ? value : QString();
 
@@ -1365,7 +1365,7 @@ static void itemAsQDomNode(QDomDocument& ownerDoc, KoXmlPackedDocument* packedDo
                 QString localName;  // without prefix, i.e. local name
 
                 localName = qName = qname.name;
-                int i = qName.indexOf(':');
+                int i = qName.indexOf(QLatin1Char(':'));
                 if (i != -1) prefix = qName.left(i);
                 if (i != -1) localName = qName.mid(i + 1);
 

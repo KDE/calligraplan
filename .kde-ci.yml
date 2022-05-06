@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['Linux', 'FreeBSD']
+- 'on': ['@all']
   'require':
     'frameworks/extra-cmake-modules': '@latest'
     'frameworks/karchive': '@latest'
@@ -28,4 +28,5 @@ Dependencies:
     'frameworks/kactivities': '@latest'
     'frameworks/threadweaver': '@latest'
     'frameworks/kholidays': '@latest'
+    'frameworks/kwallet': '@latest'
     'graphics/kdiagram': '@latest'
