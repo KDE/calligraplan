@@ -826,11 +826,13 @@ bool ReportGeneratorOdt::copyFile(KoStore &from, KoStore &to, const QString &fil
     bool ok = from.extractFile(file, data);
     if (!ok) {
         dbgRG<<"Failed to extract:"<<file;
+        m_lastError = i18n("Failed to extract file: %1", file);
     }
     if (ok) {
         ok = addDataToFile(data, file, to);
         if (!ok) {
             dbgRG<<"Failed to add file:"<<file;
+            m_lastError = i18n("Failed to add file to store: %1", file);
         }
     }
     if (ok) {
@@ -866,13 +868,19 @@ KoStore *ReportGeneratorOdt::copyStore(KoOdfReadStore &reader, const QString &ou
     // This should go first, see OpenDocument v1.2 part 3: Packages
     if (reader.store()->hasFile("mimetype")) {
         if (!copyFile(*reader.store(), *out, "mimetype")) {
-            m_lastError = i18n("Failed to load manifest file");
+            if (!m_lastError.isEmpty()) {
+                m_lastError.prepend(QLatin1String("\n\n"));
+            }
+            m_lastError.prepend(i18n("Failed to load mimetype file"));
             delete out;
             return nullptr;
         }
     }
     if (!copyFile(*reader.store(), *out, "META-INF/manifest.xml")) {
-        m_lastError = i18n("Failed to write manifest file");
+        if (!m_lastError.isEmpty()) {
+            m_lastError.prepend(QLatin1String("\n\n"));
+        }
+        m_lastError.prepend(i18n("Failed to write manifest file"));
         delete out;
         return nullptr;
     }
