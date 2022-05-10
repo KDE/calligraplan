@@ -112,7 +112,7 @@ KoApplication::KoApplication(const QByteArray &nativeMimeType,
     {
         // fix Mac OS X 10.9 (mavericks) font issue
         // https://bugreports.qt-project.org/browse/QTBUG-32789
-        QFont::insertSubstitution(".Lucida Grande UI", "Lucida Grande");
+        QFont::insertSubstitution(QLatin1String(".Lucida Grande UI"), QLatin1String("Lucida Grande"));
     }
 
     setAttribute(Qt::AA_DontShowIconsInMenus, true);
