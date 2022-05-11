@@ -23,7 +23,7 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
         // app.applicationName() will return "Plan Work" because of the nice name
         // set in the Info.plist. DBus doesn't like the resulting space in the 
         // service name, so reset the application name:
-        app.setApplicationName("calligraplanwork");
+        app.setApplicationName(QLatin1String("calligraplanwork"));
 #endif
     KDBusService service(KDBusService::Unique);
     // we come here only once...
