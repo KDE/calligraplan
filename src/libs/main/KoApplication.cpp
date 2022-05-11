@@ -107,7 +107,10 @@ KoApplication::KoApplication(const QByteArray &nativeMimeType,
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/application"), this);
 #endif
 
-#ifdef Q_OS_MACX
+#if 0
+Note: This issue seems to be fixed in qt 5.2.
+      Keep the code until it is verified.
+#ifdef Q_OS_MACOS
     if (QSysInfo::MacintoshVersion > QSysInfo::MV_10_8)
     {
         // fix Mac OS X 10.9 (mavericks) font issue
@@ -116,6 +119,7 @@ KoApplication::KoApplication(const QByteArray &nativeMimeType,
     }
 
     setAttribute(Qt::AA_DontShowIconsInMenus, true);
+#endif
 #endif
 }
 
