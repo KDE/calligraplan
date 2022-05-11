@@ -242,7 +242,7 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     : KXmlGuiWindow()
     , d(new KoMainWindowPrivate(nativeMimeType, componentData, this))
 {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_DARWIN
     setUnifiedTitleAndToolBarOnMac(true);
 #endif
     setStandardToolBarMenuEnabled(true);
@@ -550,7 +550,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
         statusBar()->setVisible(false);
     }
     else {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_DARWIN
         statusBar()->setMaximumHeight(28);
 #endif
         connect(d->rootDocument, &KoDocument::titleModified, this, &KoMainWindow::slotDocumentTitleModified);
@@ -1878,7 +1878,7 @@ QDockWidget* KoMainWindow::createDockWidget(KoDockFactoryBase* factory)
         dockWidget = d->dockWidgetsMap[ factory->id()];
     }
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_DARWIN
     dockWidget->setAttribute(Qt::WA_MacSmallSize, true);
 #endif
     dockWidget->setFont(KoDockRegistry::dockFont());
