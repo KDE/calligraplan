@@ -75,21 +75,22 @@ install(TARGETS calligraplanportfoliopart DESTINATION ${KDE_INSTALL_PLUGINDIR}/c
 
 ########### Executable ###############
 
-set(calligraplanportfolio_KDEINIT_SRCS main.cpp )
+set(calligraplanportfolio_SRCS main.cpp )
 
-file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/src/pics/*-apps-calligraplan.png") # TODO
-ecm_add_app_icon(kdeinit_app_ICONS_SRCS ICONS ${ICONS_SRCS})
+file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/src/pics/*-apps-calligraplan.png") # TODO icon for portfolio
+ecm_add_app_icon(calligraplanportfolio_SRCS ICONS ${ICONS_SRCS})
 if(WIN32)
-    set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/kdeinit_app_ICONS_SRCS.rc")
+    set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_SRCS.rc")
 endif()
 
-kf5_add_kdeinit_executable( calligraplanportfolio ${calligraplanportfolio_KDEINIT_SRCS})
+kf5_add_kdeinit_executable( calligraplanportfolio ${calligraplanportfolio_SRCS})
 
 if (APPLE)
    set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.template)
    set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_GUI_IDENTIFIER "org.calligra.plan.portfolio")
    set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "Plan Portfolio")
-   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_KDEINIT_SRCS.icns DESTINATION ${KDE_INSTALL_BUNDLEDIR}/calligraplanportfolio.app/Contents/Resources)
+   set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_ICON_FILE "calligraplanportfolio_SRCS.icns")
+   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_SRCS.icns DESTINATION ${KDE_INSTALL_BUNDLEDIR}/calligraplanportfolio.app/Contents/Resources)
 endif ()
 
 target_link_libraries(kdeinit_calligraplanportfolio calligraplanportfolioprivate)

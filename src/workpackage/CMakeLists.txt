@@ -57,20 +57,22 @@ install(FILES calligraplanworksettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 ########### Calligra PlanWork executable ###############
 
-set(calligraplanwork_KDEINIT_SRCS main.cpp commandlineparser.cpp)
+set(calligraplanwork_SRCS main.cpp commandlineparser.cpp)
 
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-calligraplanwork.png")
-ecm_add_app_icon(kdeinit_app_ICONS_SRCS ICONS ${ICONS_SRCS})
+ecm_add_app_icon(calligraplanwork_SRCS ICONS ${ICONS_SRCS})
 if(WIN32)
-    set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/kdeinit_app_ICONS_SRCS.rc")
+    set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/calligraplanwork_SRCS.rc")
 endif()
 
-kf5_add_kdeinit_executable(calligraplanwork ${calligraplanwork_KDEINIT_SRCS})
+kf5_add_kdeinit_executable(calligraplanwork ${calligraplanwork_SRCS})
 
 if (APPLE)
    set_target_properties(calligraplanwork PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.template)
    set_target_properties(calligraplanwork PROPERTIES MACOSX_BUNDLE_GUI_IDENTIFIER "org.calligra.plan.work")
    set_target_properties(calligraplanwork PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "Plan Work")
+   set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_ICON_FILE "calligraplanwork_SRCS.icns")
+   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplanwork_SRCS.icns DESTINATION ${KDE_INSTALL_BUNDLEDIR}/calligraplanwork.app/Contents/Resources)
 endif ()
 
 target_link_libraries(

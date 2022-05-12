@@ -102,21 +102,22 @@ install(TARGETS calligraplanpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligrapl
 
 ########### KPlato executable ###############
 
-set(calligraplan_KDEINIT_SRCS main.cpp )
+set(calligraplan_SRCS main.cpp )
 
 file(GLOB ICONS_SRCS "${PLAN_SOURCE_DIR}/pics/*-apps-calligraplan.png")
-ecm_add_app_icon(kdeinit_app_ICONS_SRCS ICONS ${ICONS_SRCS})
+ecm_add_app_icon(calligraplan_SRCS ICONS ${ICONS_SRCS})
 if(WIN32)
-    set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/kdeinit_app_ICONS_SRCS.rc")
+    set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/calligraplan_SRCS.rc")
 endif()
 
-kf5_add_kdeinit_executable( calligraplan ${calligraplan_KDEINIT_SRCS})
+kf5_add_kdeinit_executable( calligraplan ${calligraplan_SRCS})
 
 if (APPLE)
    set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.template)
    set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_GUI_IDENTIFIER "org.calligra.plan")
    set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "Plan")
-   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplan_KDEINIT_SRCS.icns DESTINATION ${KDE_INSTALL_BUNDLEDIR}/calligraplan.app/Contents/Resources)
+   set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_ICON_FILE "calligraplan_SRCS.icns")
+   install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplan_SRCS.icns DESTINATION ${KDE_INSTALL_BUNDLEDIR}/calligraplan.app/Contents/Resources)
 endif ()
 
 target_link_libraries(kdeinit_calligraplan calligraplanmain calligraplanprivate)
