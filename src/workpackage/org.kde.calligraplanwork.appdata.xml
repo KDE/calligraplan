@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.calligraplan.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Plan Work</name>
+  <name xml:lang="x-test">xxPlan Portfolioxx</name>
+  <summary>Work Package Handler</summary>
+  <description>
+    <p>
+      Plan Work enables project members to handle all tasks they shall work on across projects.
+    </p>
+  </description>
+  <url type="homepage">https://www.calligra.org/plan/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=calligraplan</url>
+  <url type="help">https://docs.kde.org/index.php?application=calligraplanwork</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://cdn.kde.org/screenshots/calligra/calligraplanwork.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>calligraplanportfolio</binary>
+  </provides>
+</component>

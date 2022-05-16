@@ -97,4 +97,4 @@ install(TARGETS calligraplanwork  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install( FILES  calligraplanwork.rc calligraplanwork_readonly.rc calligraplanworkui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/calligraplanwork)
 install( FILES  calligraplanworkrc DESTINATION ${KDE_INSTALL_CONFDIR})
 install( PROGRAMS  org.kde.calligraplanwork.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
-
+install(FILES org.kde.calligraplanwork.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
