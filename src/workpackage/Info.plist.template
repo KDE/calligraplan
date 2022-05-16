@@ -23,7 +23,7 @@
     <key>CFBundleShortVersionString</key>
     <string>${MACOSX_BUNDLE_SHORT_VERSION_STRING}</string>
     <key>CFBundleSignature</key>
-    <string>KPWK</string>
+    <string>CPLW</string>
     <key>CFBundleVersion</key>
     <string>${MACOSX_BUNDLE_BUNDLE_VERSION}</string>
     <key>CSResourcesFileMapped</key>
@@ -37,21 +37,26 @@
     <key>CFBundleDocumentTypes</key>
     <array>
         <dict>
-            <key>CFBundleTypeExtensions</key>
-            <array>
-                <string>planwork</string>
-            </array>
-            <key>CFBundleTypeMIMETypes</key>
-            <array>
-                <string>application/x-vnd.kde.plan.work</string>
-            </array>
-            <key>CFBundleTypeOSTypes</key>
-            <array>
-            </array>
-            <key>CFBundleTypeName</key>
-            <string>Plan Work Project File</string>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
+          <key>CFBundleTypeIconFile</key>
+          <string>calligraplanwork_SRCS</string>
+          <key>CFBundleTypeExtensions</key>
+          <array>
+            <string>planwork</string>
+            <string>PLANWORK</string>
+          </array>
+          <key>CFBundleTypeMIMETypes</key>
+          <array>
+              <string>application/x-vnd.kde.plan.work</string>
+          </array>
+          <key>CFBundleTypeOSTypes</key>
+          <array>
+          </array>
+          <key>CFBundleTypeName</key>
+          <string>Plan Work Project File</string>
+          <key>CFBundleTypeRole</key>
+          <string>Editor</string>
+          <key>LSHandlerRank</key>
+          <string>Owner</string>
         </dict>
     </array>
 </dict>

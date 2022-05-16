@@ -23,7 +23,7 @@
     <key>CFBundleShortVersionString</key>
     <string>${MACOSX_BUNDLE_SHORT_VERSION_STRING}</string>
     <key>CFBundleSignature</key>
-    <string>KPLP</string>
+    <string>CPLP</string>
     <key>CFBundleVersion</key>
     <string>${MACOSX_BUNDLE_BUNDLE_VERSION}</string>
     <key>CSResourcesFileMapped</key>
@@ -37,21 +37,26 @@
     <key>CFBundleDocumentTypes</key>
     <array>
         <dict>
-            <key>CFBundleTypeExtensions</key>
-            <array>
-                <string>planp</string>
-            </array>
-            <key>CFBundleTypeMIMETypes</key>
-            <array>
-                <string>application/x-vnd.kde.plan.portfolio</string>
-            </array>
-            <key>CFBundleTypeOSTypes</key>
-            <array>
-            </array>
-            <key>CFBundleTypeName</key>
-            <string>Plan Project Portfolio File</string>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
+          <key>CFBundleTypeIconFile</key>
+          <string>calligraplanportfolio_SRCS</string>
+          <key>CFBundleTypeExtensions</key>
+          <array>
+            <string>planp</string>
+            <string>PLANP</string>
+          </array>
+          <key>CFBundleTypeMIMETypes</key>
+          <array>
+              <string>application/x-vnd.kde.plan.portfolio</string>
+          </array>
+          <key>CFBundleTypeOSTypes</key>
+          <array>
+          </array>
+          <key>CFBundleTypeName</key>
+          <string>Plan Project Portfolio File</string>
+          <key>CFBundleTypeRole</key>
+          <string>Editor</string>
+          <key>LSHandlerRank</key>
+          <string>Owner</string>
         </dict>
     </array>
 </dict>
