@@ -53,7 +53,8 @@ set(PLANMODELS_INCLUDES
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/models
     ${CMAKE_CURRENT_BINARY_DIR}/libs/models
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/models/commands
-)    
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/models/reportgenerator
+)
 
 set(PLANUI_INCLUDES
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/ui

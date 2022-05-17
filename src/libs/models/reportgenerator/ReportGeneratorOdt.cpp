@@ -852,10 +852,10 @@ KoStore *ReportGeneratorOdt::copyStore(KoOdfReadStore &reader, const QString &ou
         dbgRG<<"Failed to read manifest:"<<m_lastError;
         return nullptr;
     }
-    QUrl url(outfile);
+    QUrl url = QUrl::fromUserInput(outfile);
     if (!url.isLocalFile()) {
         // FIXME: KoStore only handles local files
-        dbgRG<<"KoStore only handles local files";
+        dbgRG<<"KoStore only handles local files:"<<url;
         m_lastError = i18n("Report generator can only generate local files");
         return nullptr;
     }

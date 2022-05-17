@@ -7,6 +7,8 @@
 #ifndef REPORTGENERATOR_H
 #define REPORTGENERATOR_H
 
+#include "planmodels_export.h"
+
 #include <QModelIndexList>
 
 #include <KoXmlReaderForward.h>
