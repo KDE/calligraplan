@@ -107,6 +107,8 @@ void MainDocument::initEmpty()
 {
     KoDocument::initEmpty();
     setProject(new Project(m_config));
+    m_project->setId(m_project->uniqueNodeId());
+    m_project->registerNodeId(m_project); // register myself
 }
 
 void MainDocument::slotNodeChanged(Node *node, int property)
