@@ -4,12 +4,32 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Plan Work</name>
-  <name xml:lang="x-test">xxPlan Portfolioxx</name>
+  <name xml:lang="ca">Plan Work</name>
+  <name xml:lang="ca-valencia">Plan Work</name>
+  <name xml:lang="es">Plan Work</name>
+  <name xml:lang="nl">Plan Work</name>
+  <name xml:lang="pt">Plan Work</name>
+  <name xml:lang="uk">Робота Plan</name>
+  <name xml:lang="x-test">xxPlan Workxx</name>
   <summary>Work Package Handler</summary>
+  <summary xml:lang="ca">Gestor de paquets de feina</summary>
+  <summary xml:lang="ca-valencia">Gestor de paquets de faena</summary>
+  <summary xml:lang="es">Gestor de paquetes de Work</summary>
+  <summary xml:lang="nl">Verwerker van werkpakketten</summary>
+  <summary xml:lang="pt">Gestão de Pacotes de Trabalho</summary>
+  <summary xml:lang="uk">Обробник робочих пакунків</summary>
+  <summary xml:lang="x-test">xxWork Package Handlerxx</summary>
   <description>
     <p>
       Plan Work enables project members to handle all tasks they shall work on across projects.
     </p>
+    <p xml:lang="ca">El Plan Work permet que els membres del projecte gestionin totes les tasques que han de dur a terme a través dels projectes.</p>
+    <p xml:lang="ca-valencia">Plan Work permet que els membres del projecte gestionen totes les tasques que han de dur a terme a través dels projectes.</p>
+    <p xml:lang="es">Plan Work permite que los miembros de un proyecto gestionen todas las tareas en las que deben trabajar en proyectos cruzados.</p>
+    <p xml:lang="nl">Plan Work stelt projectleden in staat om alle taken te doen waaraan ze moeten werken over projecten.</p>
+    <p xml:lang="pt">O Plan Work permite aos membros do projecto lidarem com todas as tarefas nas quais irão trabalhar entre projectos.</p>
+    <p xml:lang="uk">«Робота Plan» уможливлює для учасників проєктів обробляти всі завдання, над якими вони працюють на міжпроєктному рівні.</p>
+    <p xml:lang="x-test">xxPlan Work enables project members to handle all tasks they shall work on across projects.xx</p>
   </description>
   <url type="homepage">https://www.calligra.org/plan/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=calligraplan</url>

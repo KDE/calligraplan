@@ -4,12 +4,32 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Plan Portfolio</name>
+  <name xml:lang="ca">Plan Portfolio</name>
+  <name xml:lang="ca-valencia">Plan Portfolio</name>
+  <name xml:lang="es">Plan Portafolio</name>
+  <name xml:lang="nl">Plan Portfolio</name>
+  <name xml:lang="pt">Plan Portfolio</name>
+  <name xml:lang="uk">Портфоліо Plan</name>
   <name xml:lang="x-test">xxPlan Portfolioxx</name>
   <summary>Project Portfolio Management</summary>
+  <summary xml:lang="ca">Gestió de carteres de projectes</summary>
+  <summary xml:lang="ca-valencia">Gestió de carteres de projectes</summary>
+  <summary xml:lang="es">Gestión de portafolios de proyectos</summary>
+  <summary xml:lang="nl">Beheer van portfolio met projecten</summary>
+  <summary xml:lang="pt">Gestão de Portfólios de Projectos</summary>
+  <summary xml:lang="uk">Керування портфоліо проєктів</summary>
+  <summary xml:lang="x-test">xxProject Portfolio Managementxx</summary>
   <description>
     <p>
       Plan Portfolio is a project portfolio management application. It is intended for managing a collection of projects.
     </p>
+    <p xml:lang="ca">El Plan Portfolio és una aplicació de gestió d'una cartera de projectes. Està pensada per a gestionar una col·lecció de projectes.</p>
+    <p xml:lang="ca-valencia">Plan Portfolio és una aplicació de gestió d'una cartera de projectes. Està pensada per a gestionar una col·lecció de projectes.</p>
+    <p xml:lang="es">Plan Portfolio es una aplicación de gestión de portafolios de proyecto. Está pensada para la gestión de una colección de proyectos.</p>
+    <p xml:lang="nl">Plan Portfolio is een beheertoepassing van projectportfolio's. Het is bedoeld voor het beheren van een verzameling projecten.</p>
+    <p xml:lang="pt">O Plan Portfolio é uma aplicação de gestão de portfólios de projectos. Pretende servir para gerir uma colecção de projectos.</p>
+    <p xml:lang="uk">«Портфоліо Plan» є програмою для керування портфоліо проєктів. Її призначено для керування збірками проєктів.</p>
+    <p xml:lang="x-test">xxPlan Portfolio is a project portfolio management application. It is intended for managing a collection of projects.xx</p>
   </description>
   <url type="homepage">https://www.calligra.org/plan/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=calligraplan</url>
