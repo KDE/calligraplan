@@ -131,6 +131,7 @@ bool KoZipStore::openWrite(const QString& name)
 {
     Q_D(KoStore);
     d->stream = nullptr; // Don't use!
+    qDebug()<<Q_FUNC_INFO<<m_pZip->isOpen()<<name;
     return m_pZip->prepareWriting(name, QString(), QString() /*m_pZip->rootDir()->user(), m_pZip->rootDir()->group()*/, 0);
 }
 
