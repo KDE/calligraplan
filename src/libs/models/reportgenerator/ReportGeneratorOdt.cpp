@@ -859,7 +859,8 @@ KoStore *ReportGeneratorOdt::copyStore(KoOdfReadStore &reader, const QString &ou
         m_lastError = i18n("Report generator can only generate local files");
         return nullptr;
     }
-    KoStore *out = KoStore::createStore(url.path(), KoStore::Write);
+    const auto path = url.toLocalFile();
+    KoStore *out = KoStore::createStore(path, KoStore::Write);
     if (!out) {
         dbgRG<<"Failed to create store";
         m_lastError = i18n("Failed to open report file: %1", url.path());
