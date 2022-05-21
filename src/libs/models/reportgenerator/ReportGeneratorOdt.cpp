@@ -868,7 +868,6 @@ KoStore *ReportGeneratorOdt::copyStore(KoOdfReadStore &reader, const QString &ou
     }
     // This should go first, see OpenDocument v1.2 part 3: Packages
     if (reader.store()->hasFile("mimetype")) {
-        qDebug()<<Q_FUNC_INFO<<"copy mimeype file";
         if (!copyFile(*reader.store(), *out, "mimetype")) {
             if (!m_lastError.isEmpty()) {
                 m_lastError.prepend(QLatin1String("\n\n"));
