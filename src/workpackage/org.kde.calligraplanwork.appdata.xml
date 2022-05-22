@@ -12,6 +12,7 @@
   <name xml:lang="nl">Plan Work</name>
   <name xml:lang="pt">Plan Work</name>
   <name xml:lang="sl">Plan Work</name>
+  <name xml:lang="sv">Plan Arbete</name>
   <name xml:lang="uk">Робота Plan</name>
   <name xml:lang="x-test">xxPlan Workxx</name>
   <summary>Work Package Handler</summary>
@@ -22,6 +23,7 @@
   <summary xml:lang="nl">Verwerker van werkpakketten</summary>
   <summary xml:lang="pt">Gestão de Pacotes de Trabalho</summary>
   <summary xml:lang="sl">Upravljalnik paketov dela</summary>
+  <summary xml:lang="sv">Hantering av arbetspaket</summary>
   <summary xml:lang="uk">Обробник робочих пакунків</summary>
   <summary xml:lang="x-test">xxWork Package Handlerxx</summary>
   <description>
@@ -35,6 +37,7 @@
     <p xml:lang="nl">Plan Work stelt projectleden in staat om alle taken te doen waaraan ze moeten werken over projecten.</p>
     <p xml:lang="pt">O Plan Work permite aos membros do projecto lidarem com todas as tarefas nas quais irão trabalhar entre projectos.</p>
     <p xml:lang="sl">Plan Work omogoča članom projekta upravljanje z vsemi opravili na katerih bodo delali v projektih.</p>
+    <p xml:lang="sv">Plan Arbete gör det möjligt för projektmedlemmar att hantera alla uppgifter de kommer att arbeta med i olika projekt.</p>
     <p xml:lang="uk">«Робота Plan» уможливлює для учасників проєктів обробляти всі завдання, над якими вони працюють на міжпроєктному рівні.</p>
     <p xml:lang="x-test">xxPlan Work enables project members to handle all tasks they shall work on across projects.xx</p>
   </description>

@@ -106,7 +106,7 @@
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Ezaugarriak:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
-    <p xml:lang="fr">Fonctionnalités :</p>
+    <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
@@ -135,7 +135,7 @@
       <li xml:lang="et">Mitmed vaated: Gantti diagramm, ressursivaade, kontovaade</li>
       <li xml:lang="eu">Ikuspegi anizkoitzak: Gantt diagramak, Baliabideen ikuspegia, Kontuen ikuspegia</li>
       <li xml:lang="fi">Erilaiset näkymät: Gantt-kaaviot, resurssinäkymä, tilinäkymä</li>
-      <li xml:lang="fr">Vues multiples : diagrammes de Gantt, vue des ressources, vue des comptes</li>
+      <li xml:lang="fr">Vues multiples : diagrammes de Gantt, vue des ressources, vue des comptes</li>
       <li xml:lang="gl">Varias vistas: gráficos de Gant, vista de recursos, vista de contas.</li>
       <li xml:lang="ia">Vistas multiple: Diagrammas de Gantt, Vista de ressource, vista de contos</li>
       <li xml:lang="id">Tampilan multipel: Bagan Gant, Tampilan Sumberdaya, Tampilan Akun</li>
@@ -163,7 +163,7 @@
       <li xml:lang="et">Standardstruktuuride kasutamine: tegevuse liigendamine (WBS), ressursside liigendamine (RBS), maksumuse liigendamine (CBS)</li>
       <li xml:lang="eu">Egitura estandarrak erabiltzen ditu: Lana deskonponsatzeko egitura (WBS) Baliabideak deskonposatzeko egitura (RBS), Kostua deskonposatzeko egitura (CBS)</li>
       <li xml:lang="fi">Vakiorakenteet käytettävissä: töiden (WBS), resurssien (RBS) ja kustannusten (CBS) jakautumisrakenteet</li>
-      <li xml:lang="fr">Utilise les structures standard : décomposition des tâches (WBS), décomposition des ressources (RBS), décomposition des coûts (CBS)</li>
+      <li xml:lang="fr">Utilise les structures standard : décomposition des tâches (WBS), décomposition des ressources (RBS), décomposition des coûts (CBS)</li>
       <li xml:lang="gl">Usa estruturas estándar: estrutura de división do traballo (WBS), estrutura de división dos recursos (RBS), estrutura de división dos custos (CBS).</li>
       <li xml:lang="id">Penggunaan struktur standar: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)</li>
       <li xml:lang="it">Utilizza strutture standard: strutture di scomposizione del lavoro (WBS), strutture di scomposizione delle risorse (RBS), strutture di scomposizione dei costi (CBS)</li>

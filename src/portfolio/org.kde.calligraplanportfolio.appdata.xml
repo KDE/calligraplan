@@ -12,6 +12,7 @@
   <name xml:lang="nl">Plan Portfolio</name>
   <name xml:lang="pt">Plan Portfolio</name>
   <name xml:lang="sl">Plan Portfolio</name>
+  <name xml:lang="sv">Plan Portfölj</name>
   <name xml:lang="uk">Портфоліо Plan</name>
   <name xml:lang="x-test">xxPlan Portfolioxx</name>
   <summary>Project Portfolio Management</summary>
@@ -22,6 +23,7 @@
   <summary xml:lang="nl">Beheer van portfolio met projecten</summary>
   <summary xml:lang="pt">Gestão de Portfólios de Projectos</summary>
   <summary xml:lang="sl">Upravljanje portfelja projektov</summary>
+  <summary xml:lang="sv">Hantering av projektportfölj</summary>
   <summary xml:lang="uk">Керування портфоліо проєктів</summary>
   <summary xml:lang="x-test">xxProject Portfolio Managementxx</summary>
   <description>
@@ -35,6 +37,7 @@
     <p xml:lang="nl">Plan Portfolio is een beheertoepassing van projectportfolio's. Het is bedoeld voor het beheren van een verzameling projecten.</p>
     <p xml:lang="pt">O Plan Portfolio é uma aplicação de gestão de portfólios de projectos. Pretende servir para gerir uma colecção de projectos.</p>
     <p xml:lang="sl">Plan Portfolio je aplikacija za upravljanje portfelja projektov. Namenjena je za upravljanje zbirke projektov.</p>
+    <p xml:lang="sv">Plan Portfölj är ett program för hantering av projektportföljer. Det är avsett för att hantera en projektsamling.</p>
     <p xml:lang="uk">«Портфоліо Plan» є програмою для керування портфоліо проєктів. Її призначено для керування збірками проєктів.</p>
     <p xml:lang="x-test">xxPlan Portfolio is a project portfolio management application. It is intended for managing a collection of projects.xx</p>
   </description>
