@@ -396,7 +396,7 @@ void ReportsGeneratorView::slotGenerateReport()
     for (const QModelIndex &idx : indexes) {
         QString name = model->index(idx.row(), 0).data().toString();
         QString tmp = model->index(idx.row(), 1).data(FULLPATHROLE).toString();
-        QString file = model->index(idx.row(), 2).data().toString();
+        QString file = QUrl::fromUserInput(model->index(idx.row(), 2).data().toString()).toLocalFile(); // get rid of possible scheme
         if (tmp.isEmpty()) {
             QMessageBox::information(this, xi18nc("@title:window", "Generate Report"),
                                      i18n("Failed to generate %1."
@@ -419,9 +419,13 @@ void ReportsGeneratorView::slotGenerateReport()
             int dotpos = file.lastIndexOf(QLatin1Char('.'));
             QString fn = file;
             for (int i = 1; QFile::exists(fn); ++i) {
-                fn = file.insert(dotpos, QString::number(i).prepend(QLatin1Char('-')));
+                fn.insert(dotpos, QString::number(i).prepend(QLatin1Char('-')));
+                if (!QFile::exists(fn)) {
+                    file = fn;
+                    break;
+                }
+                fn = file;
             }
-            file = fn;
         }
         // warn if file exists
         if (QFile::exists(QUrl(file).path())) {
