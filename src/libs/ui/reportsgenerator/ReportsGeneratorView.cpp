@@ -19,6 +19,7 @@
 #include <KFile>
 #include <KIO/OpenUrlJob>
 #include <KIO/JobUiDelegate>
+#include <KMessageBox>
 
 #include <QAction>
 #include <QHeaderView>
@@ -33,7 +34,6 @@
 #include <QDir>
 #include <QUrl>
 #include <QMap>
-#include <QMessageBox>
 
 namespace KPlato
 {
@@ -399,15 +399,15 @@ void ReportsGeneratorView::slotGenerateReport()
         QString file = QUrl::fromUserInput(model->index(idx.row(), 2).data().toString()).toLocalFile(); // get rid of possible scheme
         if (tmp.isEmpty()) {
             QMessageBox::information(this, xi18nc("@title:window", "Generate Report"),
-                                     i18n("Failed to generate %1."
-                                          "\nTemplate file name is empty.", name));
+                                     xi18n("Failed to generate %1."
+                                          "<nl/>Template file name is empty.", name));
             continue;
         }
         if (file.isEmpty()) {
             debugPlan<<"No files for report:"<<name<<tmp<<file;
             QMessageBox::information(this, xi18nc("@title:window", "Generate Report"),
-                                     i18n("Failed to generate %1."
-                                          "\nReport file name is empty.", name));
+                                     xi18n("Failed to generate %1."
+                                          "<nl/>Report file name is empty.", name));
             continue;
         }
         QString addition = model->index(idx.row(), 3).data(Qt::UserRole).toString();
@@ -428,8 +428,9 @@ void ReportsGeneratorView::slotGenerateReport()
             }
         }
         // warn if file exists
-        if (QFile::exists(QUrl(file).path())) {
-            if (QMessageBox::question(this, i18n("Report Generation"), i18n("File exists. Continue?")) == QMessageBox::No) {
+        if (QFile::exists(file)) {
+            auto ret = KMessageBox::warningContinueCancel(this, xi18nc("@info", "File exists:<nl/>%1", file), i18nc("@title:window", "Report Generation"));
+            if (ret != KMessageBox::Continue) {
                 return;
             }
         }
