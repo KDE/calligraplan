@@ -21,7 +21,7 @@
 #include <QProcess>
 #include <QString>
 #include <QStandardPaths>
-#include <QTemporaryDir>
+#include <QTemporaryFile>
 #include <QDebug>
 
 
@@ -62,6 +62,7 @@ QStringList MpxjImport::mimeTypes()
 {
     return QStringList()
         << QStringLiteral("application/vnd.ms-project")
+        << QStringLiteral("application/vnd.ms-project-db")
         << QStringLiteral("application/x-project")
         << QStringLiteral("application/x-projectlibre")
         << QStringLiteral("application/x-mspdi")
@@ -94,10 +95,14 @@ KoFilter::ConversionStatus MpxjImport::convert(const QByteArray& from, const QBy
         errorMpxjImport<<"Internal error, no document";
         return KoFilter::InternalError;
     }
-    QString inputFile = m_chain->inputFile();
-    QTemporaryDir *tmp = new QTemporaryDir();
-    QString outFile(tmp->path() + QStringLiteral("/maindoc.plan"));
-    KoFilter::ConversionStatus sts = doImport(inputFile.toUtf8(), outFile.toUtf8());
+    QTemporaryFile tmp;
+    if (!tmp.open()) {
+        errorMpxjImport<<"Temporary plan file has not been created";
+        return KoFilter::CreationError;
+    }
+    const auto outFile = tmp.fileName();
+    const auto inputFile = m_chain->inputFile();
+    KoFilter::ConversionStatus sts = doImport(inputFile, outFile);
     if (sts == KoFilter::OK) {
         QFile file(outFile);
         if (!file.exists()) {
@@ -114,16 +119,18 @@ KoFilter::ConversionStatus MpxjImport::convert(const QByteArray& from, const QBy
             }
         }
     }
-    delete tmp;
     return sts;
 }
 
-KoFilter::ConversionStatus MpxjImport::doImport(QByteArray inFile, QByteArray outFile)
+KoFilter::ConversionStatus MpxjImport::doImport(const QString &inFile, const QString &outFile)
 {
+    auto normalizedInFile = inFile;
+    auto normalizedOutFile = outFile;
+#ifdef Q_OS_WIN
     // Need to convert to "\" on Windows
-    QString normalizedInFile = QDir::toNativeSeparators(QLatin1String(inFile));
-    QString normalizedOutFile = QDir::toNativeSeparators(QLatin1String(outFile));
-
+    normalizedOutFile = QDir::toNativeSeparators(inFile);
+    normalizedOutFile = QDir::toNativeSeparators(outFile);
+#endif
     QString planConvert = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("calligraplan/java/planconvert.jar"), QStandardPaths::LocateFile).value(0);
     if (planConvert.isEmpty()) {
         return KoFilter::JavaJarNotFound;

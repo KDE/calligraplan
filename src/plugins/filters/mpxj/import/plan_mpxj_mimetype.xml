@@ -11,7 +11,7 @@
     <comment>MS Project</comment>
     <glob pattern="*.mpp"/>
   </mime-type>
-  <mime-type type="application/vnd.ms-project">
+  <mime-type type="application/vnd.ms-project-db">
     <comment>MS Project Database</comment>
     <glob pattern="*.mpd"/>
   </mime-type>

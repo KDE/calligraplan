@@ -32,7 +32,7 @@ public:
     static QStringList mimeTypes();
 
 protected:
-    KoFilter::ConversionStatus doImport( const QByteArray inFile, const QByteArray outFile );
+    KoFilter::ConversionStatus doImport( const QString &inFile, const QString &outFile );
     void run(const QStringList &args);
 
     static const QHash<QString, QString> fileTypeMap();
