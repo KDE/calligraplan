@@ -2052,9 +2052,9 @@ int KoDocument::queryCloseDia()
 QString KoDocument::prettyPathOrUrl() const
 {
     QString _url(url().toDisplayString());
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (url().isLocalFile()) {
-        _url = QDir::convertSeparators(_url);
+        _url = QDir::toNativeSeparators(url().toLocalFile());
     }
 #endif
     return _url;
