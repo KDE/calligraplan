@@ -11,15 +11,19 @@
     <comment>MS Project</comment>
     <glob pattern="*.mpp"/>
   </mime-type>
-  <mime-type type="application/vnd.ms-project-db">
+  <mime-type type="application/x-ms-project-db">
     <comment>MS Project Database</comment>
     <glob pattern="*.mpd"/>
+  </mime-type>
+  <mime-type type="application/x-project">
+    <comment>MS Project (mspdi)</comment>
+    <glob pattern="*.mspdi"/>
   </mime-type>
   <mime-type type="application/x-project">
     <comment>MS Project Exchange</comment>
     <glob pattern="*.mpx"/>
   </mime-type>
-  <mime-type type="application/x-project">
+  <mime-type type="application/x-project-template">
     <comment>MS Project Template</comment>
     <glob pattern="*.mpt"/>
   </mime-type>
@@ -45,12 +49,44 @@
     <comment>Asta</comment>
     <glob pattern="*.pp"/>
   </mime-type>
+  <mime-type type="application/x-fasttrack">
+    <comment>FastTrack</comment>
+    <glob pattern="*.fts"/>
+  </mime-type>
   <mime-type type="application/x-phoenix">
     <comment>Phoenix</comment>
     <glob pattern="*.ppx"/>
   </mime-type>
-  <mime-type type="application/x-fasttrack">
-    <comment>FastTrack</comment>
-    <glob pattern="*.fts"/>
+  <mime-type type="application/x-conceptdraw-cdpx">
+    <comment>Concept Draw (cdpx)</comment>
+    <glob pattern="*.cdpx"/>
+  </mime-type>
+  <mime-type type="application/x-conceptdraw-cdpz">
+    <comment>Concept Draw (cdpz)</comment>
+    <glob pattern="*.cdpz"/>
+  </mime-type>
+  <mime-type type="application/x-conceptdraw-cdptz">
+    <comment>Concept Draw (cdptz)</comment>
+    <glob pattern="*.cdptz"/>
+  </mime-type>
+  <mime-type type="application/x-syncroscheduler">
+    <comment>Synchro Scheduler</comment>
+    <glob pattern="*.sp"/>
+  </mime-type>
+  <mime-type type="application/x-ganttdesigner">
+    <comment>Gantt Designer</comment>
+    <glob pattern="*.gnt"/>
+  </mime-type>
+  <mime-type type="application/x-projectcommander">
+    <comment>Project Commander</comment>
+    <glob pattern="*.pc"/>
+  </mime-type>
+  <mime-type type="application/x-turboproject">
+    <comment>Turbo Project</comment>
+    <glob pattern="*.pep"/>
+  </mime-type>
+  <mime-type type="application/x-sdef">
+    <comment>Standard Data Exchange Format</comment>
+    <glob pattern="*.sdef"/>
   </mime-type>
 </mime-info>

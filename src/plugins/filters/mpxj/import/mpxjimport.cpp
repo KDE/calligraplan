@@ -34,18 +34,30 @@ K_PLUGIN_FACTORY_WITH_JSON(MpxjImportFactory, "plan_mpxj_import.json", registerP
 
 /**
  * Imports the following filetypes:
- * "MPP"    MPP                application/vnd.ms-project
- * "MPT"    MPP                application/x-project
- * "MPX"    MPX                application/x-project
- * "XML"    MSPDI              application/...
- * "MPD"    MPDDatabase        application/...
- * "XER"    PrimaveraXERFile   application/...
- * "PMXML"  PrimaveraPMFile    application/...
- * "PP"     AstaFile           application/...
- * "PPX"    Phoenix            application/...
- * "FTS"    FastTrack          application/...
- * "POD"    ProjectLibre       application/x-projectlibre
- * "GAN"    GanttProject       application/...
+ * "MPP"    application/vnd.ms-project      MS Project
+ * "MPT"    application/x-project-template  MS Project
+ * "MPX"    application/x-project           MS Project
+ * "XML"    application/x-mspdi             MS Project mspdi
+ * "MPD"    application/x-project-db        MS Project Database
+ * "XER"    application/x-primavera-xer     PrimaveraXERFile
+ * "PMXML"  application/x-primavera-pmxml   PrimaveraPMFile
+ * "PP"     application/x-asta              AstaFile
+ * "PPX"    application/x-phoenix           Phoenix
+ * "FTS"    application/x-fasttrack         FastTrack
+ * "POD"    application/x-projectlibre      ProjectLibre
+ * "GAN"    application/x-ganttproject      GanttProject
+ * "CDPX"   application/x-conceptdraw-cdpx  Concept Draw
+ * "CDPZ"   application/x-conceptdraw-cdpz  Concept Draw
+ * "CDPTZ"  application/x-conceptdraw-cdptz Concept Draw
+ * "SP"     application/x-syncroscheduler   Synchro Scheduler
+ * "GNT"    application/x-ganttdesigner     Gantt Designer
+ * "PC"     application/x-projectcommander  Project Commander
+ * "PEP"    application/x-turboproject      Turbo Project
+ * "SDEF"   application/x-sdef              Standard Data Exchange Format
+ *
+ * Unknown extension, not handled:
+ *  Primavera suretrack
+ *  Sage 100 Contractor
  *
  * Handled in separate import plugin:
  * "PLANNER", Planner        application/x-planner
@@ -62,16 +74,25 @@ QStringList MpxjImport::mimeTypes()
 {
     return QStringList()
         << QStringLiteral("application/vnd.ms-project")
-        << QStringLiteral("application/vnd.ms-project-db")
+        << QStringLiteral("application/x-project-template")
         << QStringLiteral("application/x-project")
-        << QStringLiteral("application/x-projectlibre")
         << QStringLiteral("application/x-mspdi")
-        << QStringLiteral("application/x-ganttproject")
+        << QStringLiteral("application/x-project-db")
         << QStringLiteral("application/x-primavera-xer")
         << QStringLiteral("application/x-primavera-pmxml")
         << QStringLiteral("application/x-asta")
         << QStringLiteral("application/x-phoenix")
         << QStringLiteral("application/x-fasttrack")
+        << QStringLiteral("application/x-projectlibre")
+        << QStringLiteral("application/x-ganttproject")
+        << QStringLiteral("application/x-conceptdraw-cdpx")
+        << QStringLiteral("application/x-conceptdraw-cdpz")
+        << QStringLiteral("application/x-conceptdraw-cdptz")
+        << QStringLiteral("application/x-syncroscheduler")
+        << QStringLiteral("application/x-ganttdesigner")
+        << QStringLiteral("application/x-projectcommander")
+        << QStringLiteral("application/x-turboproject")
+        << QStringLiteral("application/x-sdef")
         ;
 }
 
