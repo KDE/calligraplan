@@ -38,7 +38,7 @@ K_PLUGIN_FACTORY_WITH_JSON(MpxjImportFactory, "plan_mpxj_import.json", registerP
  * "MPT"    application/x-project-template  MS Project
  * "MPX"    application/x-project           MS Project
  * "XML"    application/x-mspdi             MS Project mspdi
- * "MPD"    application/x-project-db        MS Project Database
+ * "MPD"    application/x-ms-project-db        MS Project Database
  * "XER"    application/x-primavera-xer     PrimaveraXERFile
  * "PMXML"  application/x-primavera-pmxml   PrimaveraPMFile
  * "PP"     application/x-asta              AstaFile
@@ -77,7 +77,7 @@ QStringList MpxjImport::mimeTypes()
         << QStringLiteral("application/x-project-template")
         << QStringLiteral("application/x-project")
         << QStringLiteral("application/x-mspdi")
-        << QStringLiteral("application/x-project-db")
+        << QStringLiteral("application/x-ms-project-db")
         << QStringLiteral("application/x-primavera-xer")
         << QStringLiteral("application/x-primavera-pmxml")
         << QStringLiteral("application/x-asta")
