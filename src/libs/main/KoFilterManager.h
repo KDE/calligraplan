@@ -129,7 +129,7 @@ public:
 
     /**
      * Get if the filter manager is batch mode (true)
-     * or in interactive mode (true)
+     * or in interactive mode (false)
      */
     bool getBatchMode(void) const;
 
