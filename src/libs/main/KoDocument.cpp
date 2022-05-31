@@ -1464,6 +1464,9 @@ bool KoDocument::openFile()
             case KoFilter::JavaExecutionError:
                 msg = i18n("Execution failed. Check your installation"); break;
 
+            case KoFilter::JdbcOdbcDriverException:
+                msg = i18n("Execution failed. ODBC Driver not found"); break;
+
             default: msg = i18n("Unknown error"); break;
             }
 

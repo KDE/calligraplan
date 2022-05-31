@@ -64,6 +64,7 @@ public:
                             JavaJarNotFound,
                             JavaJarFailed,
                             JavaExecutionError,
+                            JdbcOdbcDriverException,
                             JustInCaseSomeBrokenCompilerUsesLessThanAByte = 255
                           };
 

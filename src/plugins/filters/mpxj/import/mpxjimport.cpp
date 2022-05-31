@@ -217,13 +217,14 @@ void MpxjImport::slotFinished(int exitCode, QProcess::ExitStatus exitStatus)
     auto s = java->readAllStandardOutput();
     qInfo()<<Q_FUNC_INFO<<s;
     if (s.contains("Exception")) {
+        m_status = KoFilter::ParsingError;
         if (s.contains("assword")) {
             m_status = KoFilter::PasswordProtected;
+        } else if (s.contains("ClassNotFoundException: sun.jdbc.odbc.JdbcOdbcDriver")) {
+            m_status = KoFilter::JdbcOdbcDriverException;
         } else if (s.contains("Invalid file format")) {
             errorMpxjImport<<"MPXJ failed to read the file";
             m_status = KoFilter::InvalidFormat;
-        } else {
-            m_status = KoFilter::ParsingError;
         }
     }
 }
