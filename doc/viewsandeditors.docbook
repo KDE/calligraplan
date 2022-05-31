@@ -42,9 +42,9 @@
     &milestone-gantt-view-section;
   </sect1>
   <sect1 id="resource-assignment-gantt-view"><title>Resource Assignment Gantt View</title>
-    &resource-assignment-view-section;
+    &resource-assignment-gantt-view-section;
   </sect1>
   <sect1 id="resource-assignment-view"><title>Resource Assignment View</title>
-    &resource-assignment-gantt-view-section;
+    &resource-assignment-view-section;
   </sect1>
 </chapter>
