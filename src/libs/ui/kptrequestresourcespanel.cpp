@@ -60,6 +60,7 @@ RequestResourcesPanel::RequestResourcesPanel(QWidget *parent, Project &project, 
 
     connect(ui.resourcesView->selectionModel(), &QItemSelectionModel::currentChanged, this, &RequestResourcesPanel::slotCurrentChanged);
     connect(&m_model, &ResourceAllocationItemModel::dataChanged, this, &RequestResourcesPanel::changed);
+    connect(alts, &ResourceAlternativesModel::dataChanged, this, &RequestResourcesPanel::changed);
 }
 
 void RequestResourcesPanel::slotCurrentChanged(const QModelIndex &current, const QModelIndex &previous)
