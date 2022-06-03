@@ -47,3 +47,5 @@ plankernel_add_unit_test(ProjectTester ProjectTester.cpp  LINK_LIBRARIES calligr
 plankernel_add_unit_test(PerformanceTester PerformanceTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
 
 plankernel_add_unit_test(ReScheduleTester ReScheduleTester  LINK_LIBRARIES calligraplankernel Qt5::Test)
+
+plankernel_add_unit_test(AlternativeRequestTester AlternativeRequestTester  LINK_LIBRARIES calligraplankernel Qt5::Test)

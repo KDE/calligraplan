@@ -272,6 +272,8 @@ public:
     /// Creates appointments based on completion data and merges them to current schedule
     void createAndMergeAppointmentsFromCompletion();
 
+    QList<Resource*> usedResources(Schedule *ns) const;
+
 Q_SIGNALS:
     void workPackageToBeAdded(KPlato::Node *node, int row);
     void workPackageAdded(KPlato::Node *node);

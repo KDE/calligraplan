@@ -166,10 +166,8 @@ public:
     ResourceRequest *resourceRequest(const QString &name) const;
     /// The ResourceRequestCollection has no requests
     bool isEmpty() const;
-    /// Empty the ResourceRequestCollection of all requets
-//     void clear() { m_groupRequests.clear(); }
-    /// Reset dynamic resource allocations
-    void resetDynamicAllocations();
+    /// Reset used resource requests
+    void reset();
 
     bool contains(const QString &identity) const;
     /// Return a list of names of allocated resources.
@@ -236,9 +234,15 @@ Q_SIGNALS:
     void alternativeRequestRemoved();
 
 private:
+    /// Return a list of best requests.
+    /// If ns is not nullptr, bookings are checked and the list is stored for later use.
+    QList<ResourceRequest*> initUsedResourceRequests(const DateTime &time, Schedule *ns, bool backward) const;
+
+private:
     Task *m_task;
     int m_lastResourceId;
     QMap<int, ResourceRequest*> m_resourceRequests;
+    QList<ResourceRequest*> m_usedResourceRequests;
 };
 
 }  //KPlato namespace

@@ -1940,7 +1940,6 @@ void ScheduleManager::setGranularityIndex(int duration)
 
 ulong ScheduleManager::granularity() const
 {
-    qInfo()<<Q_FUNC_INFO<<schedulerPlugin();
     return schedulerPlugin() ? schedulerPlugin()->granularity() : 0;
 }
 
@@ -2017,12 +2016,10 @@ bool ScheduleManager::loadXML(KoXmlElement &element, XMLLoaderObject &status)
     m_schedulingDirection = (bool)(element.attribute(QStringLiteral("scheduling-direction")).toInt());
     m_baselined = (bool)(element.attribute(QStringLiteral("baselined")).toInt());
     m_schedulerPluginId = element.attribute(QStringLiteral("scheduler-plugin-id"));
-    qInfo()<<Q_FUNC_INFO<<m_schedulerPluginId;
     if (status.project().schedulerPlugins().contains(m_schedulerPluginId)) {
         // atm we only load for current plugin
         int g = element.attribute(QStringLiteral("granularity")).toInt();
         status.project().schedulerPlugins().value(m_schedulerPluginId)->setGranularityIndex(g);
-        qInfo()<<Q_FUNC_INFO<<m_schedulerPluginId<<g;
     }
     m_recalculate = (bool)(element.attribute(QStringLiteral("recalculate")).toInt());
     m_recalculateFrom = DateTime::fromString(element.attribute(QStringLiteral("recalculate-from")), status.projectTimeZone());

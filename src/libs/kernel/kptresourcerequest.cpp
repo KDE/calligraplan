@@ -502,6 +502,12 @@ ResourceRequest *ResourceRequestCollection::find(const Resource *resource) const
         if (r->resource() == resource) {
             return r;
         }
+        const auto alts = r->alternativeRequests();
+        for (const auto rr : alts) {
+            if (rr->resource() == resource) {
+                return rr;
+            }
+        }
     }
     return nullptr;
 }
@@ -575,13 +581,12 @@ Duration ResourceRequestCollection::duration(const DateTime &time, const Duratio
     if (isEmpty()) {
         return effort;
     }
+    initUsedResourceRequests(time, ns, backward);
     Duration dur = effort;
-    // TODO: alternatives
     QList<ResourceRequest*> lst;
-    QMap<int, ResourceRequest*>::const_iterator it; 
-    for (it = m_resourceRequests.constBegin(); it != m_resourceRequests.constEnd(); ++it) {
-        if (it.value()->resource()->type() != Resource::Type_Material) {
-            lst << it.value();
+    for (const auto rr : qAsConst(m_usedResourceRequests)) {
+        if (rr->resource()->type() != Resource::Type_Material) {
+            lst << rr;
         }
     }
     if (!lst.isEmpty()) {
@@ -590,64 +595,77 @@ Duration ResourceRequestCollection::duration(const DateTime &time, const Duratio
     return dur;
 }
 
-DateTime ResourceRequestCollection::workTimeAfter(const DateTime &time, Schedule *ns) const {
+DateTime ResourceRequestCollection::workTimeAfter(const DateTime &time, Schedule *ns) const
+{
     DateTime start;
-    // TODO: Alternatives
-    for (ResourceRequest *r : m_resourceRequests) {
+    const auto requests = initUsedResourceRequests(time, ns, false);
+    for (ResourceRequest *r : requests) {
         DateTime t = r->workTimeAfter(time, ns);
         if (t.isValid() && (!start.isValid() || t < start))
             start = t;
     }
-    if (start.isValid() && start < time)
+    if (start.isValid() && start < time) {
         start = time;
+    }
     //debugPlan<<time.toString()<<"="<<start.toString();
+    const_cast<ResourceRequestCollection*>(this)->reset();
     return start;
 }
 
-DateTime ResourceRequestCollection::workTimeBefore(const DateTime &time, Schedule *ns) const {
+DateTime ResourceRequestCollection::workTimeBefore(const DateTime &time, Schedule *ns) const
+{
     DateTime end;
-    // TODO: Alternatives
-    for (ResourceRequest *r : m_resourceRequests) {
+    const auto requests = initUsedResourceRequests(time, ns, true);
+    for (ResourceRequest *r : requests) {
         DateTime t = r->workTimeBefore(time, ns);
         if (t.isValid() && (!end.isValid() ||t > end))
             end = t;
     }
-    if (!end.isValid() || end > time)
+    if (!end.isValid() || end > time) {
         end = time;
+    }
+    const_cast<ResourceRequestCollection*>(this)->reset();
     return end;
 }
 
-DateTime ResourceRequestCollection::availableAfter(const DateTime &time, Schedule *ns) {
+DateTime ResourceRequestCollection::availableAfter(const DateTime &time, Schedule *ns)
+{
     DateTime start;
-    // TODO: Alternatives
-    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
+    const auto requests = initUsedResourceRequests(time, ns, false);
+    for (ResourceRequest *r : requests) {
         DateTime t = r->availableAfter(time, ns);
         if (t.isValid() && (!start.isValid() || t < start))
             start = t;
     }
-    if (start.isValid() && start < time)
+    if (start.isValid() && start < time) {
         start = time;
+    }
     //debugPlan<<time.toString()<<"="<<start.toString();
+    const_cast<ResourceRequestCollection*>(this)->reset();
     return start;
 }
 
-DateTime ResourceRequestCollection::availableBefore(const DateTime &time, Schedule *ns) {
+DateTime ResourceRequestCollection::availableBefore(const DateTime &time, Schedule *ns)
+{
     DateTime end;
-    // TODO: Alternatives
-    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
+    const auto requests = initUsedResourceRequests(time, ns, true);
+    for (ResourceRequest *r : requests) {
         DateTime t = r->availableBefore(time, ns);
         if (t.isValid() && (!end.isValid() ||t > end))
             end = t;
     }
-    if (!end.isValid() || end > time)
+    if (!end.isValid() || end > time) {
         end = time;
+    }
+    const_cast<ResourceRequestCollection*>(this)->reset();
     return end;
 }
 
-DateTime ResourceRequestCollection::workStartAfter(const DateTime &time, Schedule *ns) {
+DateTime ResourceRequestCollection::workStartAfter(const DateTime &time, Schedule *ns)
+{
     DateTime start;
-    // TODO: Alternatives
-    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
+    const auto requests = initUsedResourceRequests(time, ns, false);
+    for (ResourceRequest *r : requests) {
         if (r->resource()->type() != Resource::Type_Work) {
             continue;
         }
@@ -655,16 +673,19 @@ DateTime ResourceRequestCollection::workStartAfter(const DateTime &time, Schedul
         if (t.isValid() && (!start.isValid() || t < start))
             start = t;
     }
-    if (start.isValid() && start < time)
+    if (start.isValid() && start < time) {
         start = time;
+    }
     //debugPlan<<time.toString()<<"="<<start.toString();
+    const_cast<ResourceRequestCollection*>(this)->reset();
     return start;
 }
 
-DateTime ResourceRequestCollection::workFinishBefore(const DateTime &time, Schedule *ns) {
+DateTime ResourceRequestCollection::workFinishBefore(const DateTime &time, Schedule *ns)
+{
     DateTime end;
-    // TODO: Alternatives
-    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
+    const auto requests = initUsedResourceRequests(time, ns, true);
+    for (ResourceRequest *r : requests) {
         if (r->resource()->type() != Resource::Type_Work) {
             continue;
         }
@@ -672,16 +693,20 @@ DateTime ResourceRequestCollection::workFinishBefore(const DateTime &time, Sched
         if (t.isValid() && (!end.isValid() ||t > end))
             end = t;
     }
-    if (!end.isValid() || end > time)
+    if (!end.isValid() || end > time) {
         end = time;
+    }
+    const_cast<ResourceRequestCollection*>(this)->reset();
     return end;
 }
 
 
-void ResourceRequestCollection::makeAppointments(Schedule *schedule) {
+void ResourceRequestCollection::makeAppointments(Schedule *schedule)
+{
     //debugPlan;
-    // TODO: Alternatives
-    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
+    // TODO: ALAP ?
+    const auto requests = initUsedResourceRequests(schedule->startTime, schedule, false);
+    for (ResourceRequest *r : qAsConst(requests)) {
         r->makeAppointment(schedule);
     }
 }
@@ -709,9 +734,70 @@ void ResourceRequestCollection::changed()
     }
 }
 
-void ResourceRequestCollection::resetDynamicAllocations()
+QList<ResourceRequest*> ResourceRequestCollection::initUsedResourceRequests(const DateTime &time, Schedule *ns, bool backward) const
 {
-    //TODO
+    if (ns && !m_usedResourceRequests.isEmpty()) {
+        return m_usedResourceRequests;
+    }
+    QList<ResourceRequest*> requests;
+    if (ns && ns->parent() && ns->parent()->manager() && m_task->isStarted()) {
+        // Try to reuse the same resources to avoid switching resources in the middle of a task
+        // TODO: Make it configurable?
+        const auto resources = m_task->usedResources(ns);
+        for (const auto r : resources) {
+            auto request = find(r);
+            if (request) {
+                requests << request;
+            }
+        }
+        if (requests.isEmpty()) {
+            ns->logWarning(i18n("Re-scheduling but no used resources was found"));
+        }
+    }
+    if (requests.isEmpty()) {
+        for (auto rr : qAsConst(m_resourceRequests)) {
+            const auto dt = backward ? rr->availableBefore(time, ns) : rr->availableAfter(time, ns);
+            if (!dt.isValid()) {
+                continue;
+            }
+            auto request = rr;
+            qint64 best = std::abs(dt.toMSecsSinceEpoch() - time.toMSecsSinceEpoch());
+            const auto alts = rr->alternativeRequests();
+            for (auto ar : alts) {
+                if (requests.contains(ar)) {
+                    continue;
+                }
+                const auto dt = backward ? ar->availableBefore(time, ns) : ar->availableAfter(time, ns);
+                if (!dt.isValid()) {
+                    continue;
+                }
+                auto best2 = std::abs(dt.toMSecsSinceEpoch() - time.toMSecsSinceEpoch());
+                if (best > best2) {
+                    best = best2;
+                    request = ar;
+                }
+            }
+            requests.append(request);
+        }
+    }
+    if (ns) {
+        const_cast<ResourceRequestCollection*>(this)->m_usedResourceRequests = requests;
+
+        QStringList resources;
+        for (const auto rr : m_usedResourceRequests) {
+            resources << rr->resource()->name();
+        }
+        if (resources.isEmpty()) {
+            resources << QLatin1String("None");
+        }
+        ns->logDebug(QStringLiteral("Schedule with resources: %1").arg(resources.join(QLatin1String(", "))));
+    }
+    return requests;
+}
+
+void ResourceRequestCollection::reset()
+{
+    m_usedResourceRequests.clear();
 }
 
 Duration ResourceRequestCollection::effort(const QList<ResourceRequest*> &lst, const DateTime &time, const Duration &duration, Schedule *ns, bool backward) const {

@@ -2283,6 +2283,9 @@ bool Project::addSubTask(Node* task, int index, Node* parent, bool emitSignal)
     if (nullptr == p) {
         p = this;
     }
+    if (task->id().isEmpty()) {
+        task->setId(uniqueNodeId());
+    }
     if (!registerNodeId(task)) {
         errorPlan << "Failed to register node id, can not add subtask: " << task->name();
         return false;

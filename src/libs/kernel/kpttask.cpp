@@ -1111,6 +1111,7 @@ void Task::initiateCalculation(MainSchedule &sch) {
     m_calculateBackwardRun = false;
     m_scheduleForwardRun = false;
     m_scheduleBackwardRun = false;
+    m_requests.reset();
 }
 
 
@@ -2072,7 +2073,6 @@ DateTime Task::scheduleFromStartTime(int use) {
     cs->logInfo(i18n("Scheduled: %1 to %2", locale.toString(cs->startTime, QLocale::ShortFormat), locale.toString(cs->endTime, QLocale::ShortFormat)));
     m_visitedForward = true;
     cs->incProgress();
-    m_requests.resetDynamicAllocations();
     cs->logInfo(i18n("Finished schedule forward: %1 ms", timer.elapsed()));
     return cs->endTime;
 }
@@ -2447,7 +2447,6 @@ DateTime Task::scheduleFromEndTime(int use) {
     cs->logInfo(i18n("Scheduled: %1 to %2", locale.toString(cs->startTime, QLocale::ShortFormat), locale.toString(cs->endTime, QLocale::ShortFormat)));
     m_visitedBackward = true;
     cs->incProgress();
-    m_requests.resetDynamicAllocations();
 #ifndef PLAN_NLOGDEBUG
     cs->logDebug(QStringLiteral("Finished schedule backward: %1 ms").arg(timer.elapsed()));
 #endif
@@ -3093,6 +3092,24 @@ DateTime Task::wpTransmitionTime() const
         return m_workPackage.transmitionTime();
     }
     return m_packageLog.last()->transmitionTime();
+}
+
+QList<Resource*> Task::usedResources(Schedule *ns) const
+{
+    QList<Resource*> resources;
+    if (ns && ns->parent() && ns->parent()->manager() && ns->parent()->manager()->parentManager()  && isStarted()) {
+        const auto parentManager = ns->parent()->manager()->parentManager();
+        const auto id = parentManager->expected()->id();
+        const auto schedule = m_schedules.value(id);
+        Q_ASSERT(schedule);
+        ns->logDebug(QStringLiteral("Search for resource in manager: %1").arg(parentManager->name()));
+        const auto apps = schedule->appointments();
+        for (const auto a : apps) {
+            ns->logDebug(QStringLiteral("Resource '%1': Appointment empty: %2").arg(a->resource()->resource()->name()).arg(a->isEmpty()));
+            resources << a->resource()->resource();
+        }
+    }
+    return resources;
 }
 
 }  //KPlato namespace

@@ -455,7 +455,7 @@ void print(const EffortCostMap &m, const char *s) {
     print(m, QLatin1String(s));
 }
 static
-void printSchedulingLog(const ScheduleManager &sm, const QString &s)
+void printSchedulingLog(const ScheduleManager &sm, const QString &s = QString())
 {
     qDebug()<<"Scheduling log"<<s;
     qDebug()<<"Scheduling:"<<sm.name()<<(sm.recalculate()?QStringLiteral("recalculate from %1").arg(sm.recalculateFrom().toString()):QStringLiteral(""));
