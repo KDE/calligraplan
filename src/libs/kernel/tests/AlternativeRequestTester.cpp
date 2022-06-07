@@ -111,6 +111,46 @@ void AlternativeRequestTester::scheduleForwardBooked()
     QCOMPARE(t2->startTime(), DateTime::fromString(QStringLiteral("2022-11-01T08:00:00"), project->timeZone()));
 }
 
+void AlternativeRequestTester::rescheduleStarted()
+{
+    // make resource R1 booked by t1
+    auto rr1 = new ResourceRequest(r1, 100);
+    AddResourceRequestCmd c(&t1->requests(), rr1);
+    c.execute();
+
+    project->calculate(*manager);
+    QCOMPARE(t2->currentSchedule(), t2->schedule()); // sanety
+    QVERIFY(t2->isScheduled());
+    QVERIFY(!t2->schedule()->appointments().isEmpty());
+    QCOMPARE(t2->schedule()->appointments().value(0)->resource()->resource(), r2);
+    QCOMPARE(t2->startTime(), DateTime::fromString(QStringLiteral("2022-11-01T08:00:00"), project->timeZone()));
+
+    // start t2
+    MacroCommand cmd;
+    cmd.addCommand(new ModifyCompletionStartedCmd(t2->completion(), true));
+    cmd.addCommand(new ModifyCompletionStartTimeCmd(t2->completion(), DateTime::fromString(QStringLiteral("2022-11-01T08:00:00"), project->timeZone())));
+    cmd.addCommand(new AddCompletionActualEffortCmd(t2, r2, QDate(2022, 11, 1), Completion::UsedEffort::ActualEffort(Duration(2.0))));
+    cmd.addCommand(new AddCompletionEntryCmd(t2->completion(), QDate(2022, 11, 1), new Completion::Entry(25, Duration(6.0), Duration(2.0))));
+    cmd.execute();
+
+    auto m = new ScheduleManager(*project);
+    m->setRecalculate(true);
+    m->setRecalculateFrom(DateTime::fromString(QStringLiteral("2022-11-03T08:00:00"), project->timeZone()));
+    AddScheduleManagerCmd cm(manager, m);
+    cm.execute();
+    m->createSchedules();
+
+    project->calculate(*m);
+    //Debug::print(project, "Re-scheduled started, R2 Booked", true);
+    //Debug::printSchedulingLog(*m);
+    QCOMPARE(t2->currentSchedule(), t2->schedule()); // sanety
+    QVERIFY(t2->isScheduled());
+    QVERIFY(!t2->schedule()->appointments().isEmpty());
+    QCOMPARE(t2->schedule()->appointments().value(0)->resource()->resource(), r2);
+    QCOMPARE(t2->startTime(), DateTime::fromString(QStringLiteral("2022-11-01T08:00:00"), project->timeZone()));
+    QCOMPARE(t2->endTime(), DateTime::fromString(QStringLiteral("2022-11-03T14:00:00"), project->timeZone()));
+}
+
 } //namespace KPlato
 
 QTEST_GUILESS_MAIN(KPlato::AlternativeRequestTester)

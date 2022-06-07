@@ -25,6 +25,7 @@ private Q_SLOTS:
     void cleanupTestCase();
     void scheduleForwardUnavailable();
     void scheduleForwardBooked();
+    void rescheduleStarted();
 
 private:
     Project *project;

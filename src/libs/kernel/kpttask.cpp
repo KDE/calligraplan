@@ -174,6 +174,7 @@ void Task::copyAppointments()
     NodeSchedule *parentSchedule = static_cast<NodeSchedule*>(findSchedule(id));
     if (parentSchedule == nullptr) {
         warnPlan<<Q_FUNC_INFO<<"no parent schedule to copy from";
+        m_currentSchedule->logDebug(QStringLiteral("No parent schedule found"));
         return;
     }
     DateTime time = m_currentSchedule->recalculateFrom();
@@ -184,6 +185,7 @@ void Task::copyAppointments()
         // This is probably not a situation that will happen in real life, so we do nothing for now.
         // Possibly one could use the tasks recalculated start time as limit, but let's see...
         warnPlan<<Q_FUNC_INFO<<this<<"No planned effort up to recalculation date:"<<time;
+        m_currentSchedule->logDebug(QStringLiteral("No planned effort at this time: %1").arg(time.toString()));
         return;
     }
     createAndMergeAppointmentsFromCompletion();
@@ -197,6 +199,7 @@ void Task::createAndMergeAppointmentsFromCompletion()
     int id = m_currentSchedule->parentScheduleId();
     NodeSchedule *parentSchedule = static_cast<NodeSchedule*>(findSchedule(id));
     if (parentSchedule == nullptr) {
+        m_currentSchedule->logDebug(QStringLiteral("AppointmentsFromCompletion: No parent schedule found"));
         return;
     }
     const auto appointments = completion().createAppointments();
@@ -224,6 +227,7 @@ void Task::createAndMergeAppointmentsFromCompletion()
         }
         if (curr == nullptr) {
             // A resource that is not planned to work, has done work on this task
+            m_currentSchedule->logDebug(QStringLiteral("%1: Worked on task, but not planned to, so create appointment"));
             curr = new Appointment();
             m_currentSchedule->add(curr);
             curr->setNode(m_currentSchedule);
@@ -242,8 +246,10 @@ void Task::createAndMergeAppointmentsFromCompletion()
                 rs->add(curr);
                 curr->setResource(rs);
             }
+            m_currentSchedule->logDebug(QStringLiteral("%1: Created appointment").arg(curr->resource()->name()));
             //debugPlan<<"Created new appointment"<<curr;
         }
+        m_currentSchedule->logDebug(QStringLiteral("%1: Merging appointment: %2 - %3").arg(resource->name()).arg(appointment.startTime().toString(Qt::ISODate)).arg(appointment.endTime().toString(Qt::ISODate)));
         curr->merge(appointment);
         //debugPlan<<"Appointments added:"<<curr;
     }
@@ -265,6 +271,7 @@ void Task::copyAppointmentsFromParentSchedule(const DateTime &start, const DateT
     auto parentId = m_currentSchedule->parentScheduleId();
     NodeSchedule *parentSchedule = static_cast<NodeSchedule*>(findSchedule(parentId));
     if (parentSchedule == nullptr) {
+        m_currentSchedule->logDebug(QStringLiteral("Cannot copy appointments, no parent schedule found"));
         return;
     }
     DateTime st = start.isValid() ? start : parentSchedule->startTime;
@@ -285,6 +292,7 @@ void Task::copyAppointmentsFromParentSchedule(const DateTime &start, const DateT
         }
         if (lst.isEmpty()) {
             //debugPlan<<"No intervals to copy from"<<a;
+            m_currentSchedule->logDebug(QStringLiteral("%1: No appointment intervals to copy").arg(r->name()));
             continue;
         }
         Appointment *curr = nullptr;
@@ -301,6 +309,7 @@ void Task::copyAppointmentsFromParentSchedule(const DateTime &start, const DateT
             m_currentSchedule->add(curr);
             curr->setNode(m_currentSchedule);
             //debugPlan<<"Created new appointment"<<curr;
+            m_currentSchedule->logDebug(QStringLiteral("%1: Created new appointment").arg(r->name()));
         }
         ResourceSchedule *rs = static_cast<ResourceSchedule*>(r->findSchedule(m_currentSchedule->id()));
         if (rs == nullptr) {
@@ -309,15 +318,17 @@ void Task::copyAppointmentsFromParentSchedule(const DateTime &start, const DateT
             rs->setName(m_currentSchedule->name());
             rs->setType(m_currentSchedule->type());
             //debugPlan<<"Resource schedule not found, id="<<m_currentSchedule->id();
+            m_currentSchedule->logDebug(QStringLiteral("%1: Created new resource schedule").arg(r->name()));
         }
         rs->setCalculationMode(m_currentSchedule->calculationMode());
-        if (! rs->appointments().contains(curr)) {
+        if (!rs->appointments().contains(curr)) {
             //debugPlan<<"add to resource"<<rs<<curr;
             rs->add(curr);
             curr->setResource(rs);
         }
         Appointment app;
         app.setIntervals(lst);
+        m_currentSchedule->logDebug(QStringLiteral("%1: Appontments to be added: %2 - %3").arg(r->name()).arg(app.startTime().toString()).arg(app.endTime().toString()));
         //debugPlan<<"Add appointments:"<<app;
         curr->merge(app);
         //debugPlan<<"Appointments added";
@@ -1789,7 +1800,7 @@ DateTime Task::scheduleFromStartTime(int use) {
             cs->endTime = cs->startTime + cs->duration;
             makeAppointments();
             if (cs->recalculate() && completion().isStarted()) {
-                // create appointments from completion
+                cs->logDebug(QStringLiteral("Create appointments from completion"));
                 copyAppointments();
                 cs->duration = cs->endTime - cs->startTime;
             }
