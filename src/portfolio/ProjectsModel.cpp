@@ -259,22 +259,6 @@ QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
                         return koIcon("list-remove");
                     }
                     return QVariant();
-                case KPlato::Role::EnumList: {
-                    QStringList lst;
-                    const auto allScheduleManagers = project->allScheduleManagers();
-                    for (const KPlato::ScheduleManager *sm : allScheduleManagers) {
-                        lst << sm->name();
-                    }
-                    return lst;
-                }
-                case KPlato::Role::EnumListValue: {
-                    QStringList lst;
-                    const auto allScheduleManagers = project->allScheduleManagers();
-                    for (const KPlato::ScheduleManager *sm : allScheduleManagers) {
-                        lst << sm->name();
-                    }
-                    return lst.indexOf(doc->property(SCHEDULEMANAGERNAME).toString());
-                }
                 default:
                     return QVariant();
             }
@@ -312,9 +296,7 @@ bool ProjectsModel::setData(const QModelIndex &idx, const QVariant &value, int r
                 int extraColumn = idx.column() - m_nodeModel.propertyCount();
                 switch (extraColumn) {
                     case ScheduleManagerColumn: {
-                        KPlato::Project *project = doc->project();
-                        KPlato::ScheduleManager *sm = project->allScheduleManagers().value(value.toInt());
-                        doc->setProperty(SCHEDULEMANAGERNAME, sm ? QVariant(sm->name()) : QVariant());
+                        m_portfolio->setDocumentProperty(doc, SCHEDULEMANAGERNAME, value.toString());
                         Q_EMIT dataChanged(idx, idx);
                         m_portfolio->setModified(true);
                         return true;

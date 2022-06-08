@@ -6,6 +6,7 @@
 
 #include "GanttModel.h"
 #include <MainDocument.h>
+#include <PlanGroupDebug.h>
 
 #include <kptproject.h>
 #include <kpttask.h>
@@ -50,7 +51,7 @@ QVariant GanttModel::data(const QModelIndex &idx, int role) const
                 case Qt::EditRole: {
                     KoDocument *doc = ProjectsFilterModel::data(idx, DOCUMENT_ROLE).value<KoDocument*>();
                     if (!doc) {
-                        qInfo()<<Q_FUNC_INFO<<idx<<"No document"<<portfolio()->documents();
+                        debugPortfolio<<idx<<"No document"<<portfolio()->documents();
                         return QVariant();
                     }
                     KPlato::ScheduleManager *sm = portfolio()->scheduleManager(doc);

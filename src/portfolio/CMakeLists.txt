@@ -5,6 +5,9 @@ include_directories(${PLANKERNEL_INCLUDES} ${PLANUI_INCLUDES} config)
 
 set(calligraplanportfolioprivate_LIB_SRCS
     PlanGroupDebug.cpp
+
+    ScheduleManagerDelegate.cpp
+
     SummaryModel.cpp
     SummaryView.cpp
     ProjectsModel.cpp

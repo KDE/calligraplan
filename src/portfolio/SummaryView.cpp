@@ -8,6 +8,7 @@
 #include "SummaryView.h"
 #include "SummaryModel.h"
 #include "MainDocument.h"
+#include "ScheduleManagerDelegate.h"
 
 #include <kptnodechartmodel.h>
 
@@ -58,7 +59,7 @@ SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
     for (int c : hide) {
         m_view->header()->setSectionHidden(model->proxyColumnForExtraColumn(c), true);
     }
-    m_view->setItemDelegateForColumn(2, new KPlato::EnumDelegate(m_view)); // Schedule
+    m_view->setItemDelegateForColumn(2, new KPlato::ScheduleManagerDelegate(m_view)); // Schedule
 }
 
 SummaryView::~SummaryView()

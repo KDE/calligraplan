@@ -10,6 +10,7 @@
 #include <kptproject.h>
 #include <kptschedule.h>
 #include <kptnode.h>
+#include <ScheduleManagerDelegate.h>
 
 #include <QAbstractItemView>
 #include <QDebug>
@@ -198,7 +199,7 @@ QVariant SchedulingModel::extraColumnData(const QModelIndex &parent, int row, in
 
 void SchedulingModel::setDelegates(QAbstractItemView *view) {
     int offset = sourceModel()->columnCount() - 1;
-    view->setItemDelegateForColumn(offset, new KPlato::EnumDelegate(view)); // ScheduleManagerColumn
+    view->setItemDelegateForColumn(offset, new KPlato::ScheduleManagerDelegate(view)); // ScheduleManagerColumn
     view->setItemDelegateForColumn(2 + offset, new KPlato::EnumDelegate(view)); // Control
     view->setItemDelegateForColumn(3 + offset, new KPlato::SpinBoxDelegate(view)); // Priority
 }
