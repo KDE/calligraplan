@@ -118,7 +118,7 @@ void GanttView::slotCustomContextMenuRequested(const QPoint &pos)
 {
     auto menu = qobject_cast<QMenu*>(factory()->container(QStringLiteral("gantt_context_menu"), this));
     if (menu && !menu->isEmpty()) {
-        menu->exec(m_view->leftView()->mapToGlobal(pos)); // FIXME: mapping incorrect
+        menu->exec(m_view->leftView()->viewport()->mapToGlobal(pos));
     }
 }
 
