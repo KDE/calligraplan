@@ -7,8 +7,6 @@
 #ifndef ScheduleManagerDelegate_H
 #define ScheduleManagerDelegate_H
 
-#include "planmodels_export.h"
-
 #include "kptitemmodelbase.h"
 
 #include "QSortFilterProxyModel"
@@ -16,6 +14,7 @@
 
 class ScheduleManagerSFModel : public QSortFilterProxyModel
 {
+    Q_OBJECT
 public:
     ScheduleManagerSFModel(QObject *parent);
 
@@ -23,7 +22,7 @@ public:
 };
 
 //------------------------------------
-class PLANMODELS_EXPORT ScheduleManagerDelegate : public KPlato::ItemDelegate
+class ScheduleManagerDelegate : public KPlato::ItemDelegate
 {
     Q_OBJECT
 public:

@@ -6,6 +6,7 @@
 
 #include "ScheduleManagerDelegate.h"
 #include "SchedulingModel.h"
+#include "PlanGroupDebug.h"
 
 #include "kptschedulemodel.h"
 #include <kptproject.h>
@@ -69,8 +70,8 @@ void ScheduleManagerDelegate::setModelData(QWidget *editor, QAbstractItemModel *
 
 void ScheduleManagerDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &/* index */) const
 {
-    debugPlan<<editor<<":"<<option.rect<<","<<editor->sizeHint();
+    debugPortfolio<<editor<<":"<<option.rect<<","<<editor->sizeHint();
     QRect r = option.rect;
-    r.setWidth(qMax(100, r.width()));
+    r.setWidth(std::max(100, r.width()));
     editor->setGeometry(r);
 }
