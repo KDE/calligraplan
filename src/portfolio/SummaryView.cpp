@@ -70,7 +70,7 @@ SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
     for (int c : hide) {
         m_view->header()->setSectionHidden(model->proxyColumnForExtraColumn(c), true);
     }
-    m_view->setItemDelegateForColumn(2, new KPlato::ScheduleManagerDelegate(m_view)); // Schedule
+    m_view->setItemDelegateForColumn(2/*Schedule*/, new ScheduleManagerDelegate(m_view));
 }
 
 SummaryView::~SummaryView()

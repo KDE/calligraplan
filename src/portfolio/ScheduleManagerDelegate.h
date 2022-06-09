@@ -14,10 +14,6 @@
 #include "QSortFilterProxyModel"
 
 
-/// The main namespace
-namespace KPlato
-{
-
 class ScheduleManagerSFModel : public QSortFilterProxyModel
 {
 public:
@@ -27,7 +23,7 @@ public:
 };
 
 //------------------------------------
-class PLANMODELS_EXPORT ScheduleManagerDelegate : public ItemDelegate
+class PLANMODELS_EXPORT ScheduleManagerDelegate : public KPlato::ItemDelegate
 {
     Q_OBJECT
 public:
@@ -40,7 +36,5 @@ public:
 
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
-
-} // namespace KPlato
 
 #endif
