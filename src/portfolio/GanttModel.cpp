@@ -55,7 +55,7 @@ QVariant GanttModel::data(const QModelIndex &idx, int role) const
                         return QVariant();
                     }
                     KPlato::ScheduleManager *sm = portfolio()->scheduleManager(doc);
-                    if (!sm) {
+                    if (!sm || !sm->isScheduled()) {
                         return QVariant();
                     }
                     QDateTime start = ProjectsFilterModel::data(idx, rl).toDateTime();
