@@ -34,6 +34,11 @@ protected:
 private:
     void setupGui();
 
+private Q_SLOTS:
+    void itemDoubleClicked(const QPersistentModelIndex &idx);
+    void slotContextMenuRequested(const QPoint &pos);
+    void slotDescription();
+
 private:
     bool m_readWrite;
     QTreeView *m_view;

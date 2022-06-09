@@ -11,6 +11,11 @@
             <Action name="configure_view"/>
         </Menu>
     </MenuBar>
+
 <!--    <ToolBar name="viewToolBar"  fullWidth="false"><text>Tools</text>
     </ToolBar>-->
+
+    <Menu name="summaryview_popup">
+        <Action name="project_description"/>
+    </Menu>
 </gui>
