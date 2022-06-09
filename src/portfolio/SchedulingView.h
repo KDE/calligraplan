@@ -45,9 +45,6 @@ protected Q_SLOTS:
 
     void calculate();
 
-    void slotDoubleClicked(const QModelIndex &idx);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-
     void updateSchedulingProperties();
     void slotSchedulersComboChanged(int idx);
     void slotGranularitiesChanged(int idx);
@@ -57,6 +54,10 @@ protected Q_SLOTS:
     void slotTimeToggled(bool state);
 
     void updateLogFilter();
+
+    void itemDoubleClicked(const QPersistentModelIndex &idx);
+    void slotContextMenuRequested(const QPoint &pos);
+    void slotDescription();
 
 protected:
     void updateReadWrite(bool readwrite) override;

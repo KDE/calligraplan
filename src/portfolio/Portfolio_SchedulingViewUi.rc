@@ -16,4 +16,8 @@
     </MenuBar>
 <!--    <ToolBar name="schedulingviewToolBar" fullWidth="false"><text>Tools</text>
     </ToolBar>-->
+
+    <Menu name="schedulingview_popup">
+        <Action name="project_description"/>
+    </Menu>
 </gui>

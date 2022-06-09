@@ -16,11 +16,14 @@
 #include <KoPart.h>
 #include <KoIcon.h>
 
+#include <kptproject.h>
 #include <kptitemmodelbase.h>
 #include <kptproject.h>
 #include <kptscheduleeditor.h>
 #include <kptdatetime.h>
 #include <kptschedulerplugin.h>
+#include <kptcommand.h>
+#include <kpttaskdescriptiondialog.h>
 #include <kptcommand.h>
 
 #include <KActionCollection>
@@ -70,8 +73,8 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     ui.schedulingView->header()->moveSection(1, model->columnCount()-1); // target finish
     ui.schedulingView->header()->moveSection(1, model->columnCount()-1); // description
     connect(ui.schedulingView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SchedulingView::selectionChanged);
-    connect(ui.schedulingView, &QTreeView::customContextMenuRequested, this, &SchedulingView::slotCustomContextMenuRequested);
-    connect(ui.schedulingView, &QAbstractItemView::doubleClicked, this, &SchedulingView::slotDoubleClicked);
+    connect(ui.schedulingView, &QTreeView::customContextMenuRequested, this, &SchedulingView::slotContextMenuRequested);
+    connect(ui.schedulingView, &QAbstractItemView::doubleClicked, this, &SchedulingView::itemDoubleClicked);
 
     m_logView = new QTreeView(sp);
     m_logView->setContextMenuPolicy(Qt::ActionsContextMenu);
@@ -204,6 +207,56 @@ void SchedulingView::slotTimeToggled(bool state)
 
 void SchedulingView::setupGui()
 {
+    auto a  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
+    actionCollection()->addAction(QStringLiteral("project_description"), a);
+    connect(a, &QAction::triggered, this, &SchedulingView::slotDescription);
+
+}
+
+void SchedulingView::itemDoubleClicked(const QPersistentModelIndex &idx)
+{
+    debugPortfolio<<idx;
+    if (idx.column() == 3 /*Description*/) {
+        slotDescription();
+    }
+}
+
+void SchedulingView::slotContextMenuRequested(const QPoint &pos)
+{
+    debugPortfolio<<"Context menu"<<pos;
+    if (!factory()) {
+        debugPortfolio<<"No factory";
+        return;
+    }
+    if (!ui.schedulingView->indexAt(pos).isValid()) {
+        debugPortfolio<<"Nothing selected";
+        return;
+    }
+    auto menu = static_cast<QMenu*>(factory()->container(QStringLiteral("schedulingview_popup"), this));
+    Q_ASSERT(menu);
+    if (menu->isEmpty()) {
+        debugPortfolio<<"Menu is empty";
+        return;
+    }
+    menu->exec(ui.schedulingView->viewport()->mapToGlobal(pos));
+}
+
+void SchedulingView::slotDescription()
+{
+    auto idx = ui.schedulingView->selectionModel()->currentIndex();
+    if (!idx.isValid()) {
+        debugPortfolio<<"No current project";
+        return;
+    }
+    auto doc = ui.schedulingView->model()->data(idx, DOCUMENT_ROLE).value<KoDocument*>();
+    auto project = doc->project();
+    KPlato::TaskDescriptionDialog dia(*project, this, m_readWrite);
+    if (dia.exec() == QDialog::Accepted) {
+        auto m = dia.buildCommand();
+        if (m) {
+            doc->addCommand(m);
+        }
+    }
 }
 
 void SchedulingView::updateReadWrite(bool readwrite)
@@ -252,19 +305,6 @@ void SchedulingView::selectionChanged(const QItemSelection &selected, const QIte
         m_logModel.setLog(QVector<KPlato::Schedule::Log>());
     }
     updateActionsEnabled();
-}
-
-void SchedulingView::slotDoubleClicked(const QModelIndex &idx)
-{
-    Q_UNUSED(idx)
-}
-
-void SchedulingView::slotCustomContextMenuRequested(const QPoint &pos)
-{
-    QMenu *menu = qobject_cast<QMenu*>(factory()->container(QStringLiteral("context_menu"), this));
-    if (menu && !menu->isEmpty()) {
-        menu->exec(mapToGlobal(pos));
-    }
 }
 
 KPlato::ScheduleManager* SchedulingView::scheduleManager(const KoDocument *doc) const
