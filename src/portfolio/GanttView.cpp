@@ -87,7 +87,7 @@ void GanttView::setupGui()
 {
     auto a = new QAction(koIcon("view-time-schedule-calculus"), i18n("Open Project"), this);
     actionCollection()->addAction(QStringLiteral("gantt_open_project"), a);
-    connect(a, &QAction::triggered, this, &GanttView::openProject);
+    connect(a, &QAction::triggered, this, &GanttView::openProject, Qt::QueuedConnection);
 
     createOptionActions(ViewBase::OptionAll);
     const auto actionList = contextActionList();
@@ -99,8 +99,10 @@ void GanttView::setupGui()
 void GanttView::openProject()
 {
     QModelIndex idx = m_view->leftView()->selectionModel()->selectedRows().value(0);
-    KoDocument *doc = idx.data(DOCUMENT_ROLE).value<KoDocument*>();
-    Q_EMIT openKoDocument(doc);
+    if (idx.isValid()) {
+        KoDocument *doc = idx.data(DOCUMENT_ROLE).value<KoDocument*>();
+        Q_EMIT openKoDocument(doc);
+    }
 }
 
 void GanttView::updateReadWrite(bool readwrite)
@@ -116,6 +118,10 @@ QMenu *GanttView::popupMenu(const QString& name)
 
 void GanttView::slotCustomContextMenuRequested(const QPoint &pos)
 {
+    const auto idx = m_view->leftView()->indexAt(pos);
+    if (!idx.isValid()) {
+        return;
+    }
     auto menu = qobject_cast<QMenu*>(factory()->container(QStringLiteral("gantt_context_menu"), this));
     if (menu && !menu->isEmpty()) {
         menu->exec(m_view->leftView()->viewport()->mapToGlobal(pos));
