@@ -144,7 +144,7 @@ void PerformanceView::selectionChanged(const QItemSelection &selected, const QIt
     Q_UNUSED(selected)
     Q_UNUSED(deselected)
     QModelIndexList indexes = ui.treeView->selectionModel()->selectedRows();
-    KPlato::Project *project = static_cast<KPlato::Project*>(indexes.value(0).data(PROJECT_ROLE).value<void*>());
+    KPlato::Project *project = indexes.value(0).data(PROJECT_ROLE).value<KPlato::Project*>();
     Q_ASSERT(project);
     m_chartModel->setProject(project);
     KoDocument *doc = indexes.value(0).data(DOCUMENT_ROLE).value<KoDocument*>();

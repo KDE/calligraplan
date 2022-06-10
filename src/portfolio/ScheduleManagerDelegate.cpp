@@ -53,7 +53,7 @@ void ScheduleManagerDelegate::setEditorData(QWidget *editor, const QModelIndex &
     auto pm = static_cast<ScheduleManagerSFModel*>(box->model());
     auto sim = static_cast<ScheduleItemModel*>(pm->sourceModel());
 
-    auto project = static_cast<KPlato::Project*>(index.data(PROJECT_ROLE).value<void*>());
+    auto project = index.data(PROJECT_ROLE).value<KPlato::Project*>();
     sim->setProject(project);
 
     QItemSelectionModel *sm = box->view()->selectionModel();

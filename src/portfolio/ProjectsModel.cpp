@@ -194,7 +194,7 @@ QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
             return v;
         }
         case PROJECT_ROLE:
-            return QVariant::fromValue<void*>(doc->project());
+            return QVariant::fromValue<KPlato::Project*>(doc->project());
         case ISPORTFOLIO_ROLE:
             return doc->property(ISPORTFOLIO);
         default: break;
