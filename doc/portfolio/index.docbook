@@ -45,8 +45,8 @@
   &content-editor-chapter;
   &scheduling-view-chapter;
   &summary-view-chapter;
-  &performance-view-chapter;
   &progress-view-chapter;
+  &performance-view-chapter;
   &resourceusage-view-chapter;
   &ganttsummary-view-chapter;
   &portfolio-configuration-dialog;

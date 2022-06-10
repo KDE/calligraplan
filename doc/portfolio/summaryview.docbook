@@ -1,6 +1,25 @@
 <chapter id="summary-view"><title>Summary</title>
   &WORK-IN-PROGRESS;
   <para>
-  Shows an overview of all project in your portfoilio.
+  Summarizes performance data for all projects in your portfolio.
+  </para><para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead>
+        <row>
+          <entry><guilabel>Name</guilabel></entry>
+          <entry><guilabel>Description</guilabel></entry>
+        </row>
+      </thead>
+      <tbody>
+      <row><entry>Name</entry><entry>Project name</entry></row>
+      <row><entry>Schedule</entry><entry>Schedule name</entry></row>
+      <row><entry>SPI Cost</entry><entry>Schedule Performance Index (Cost based)</entry></row>
+      <row><entry>CPI Cost</entry><entry>Schedule Performance Index (Cost based)</entry></row>
+      <row><entry>SPI Effort</entry><entry>Schedule Performance Index (Effort based)</entry></row>
+      <row><entry>CPI Effort</entry><entry>Schedule Performance Index (effort based)</entry></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
   </para>
 </chapter>
