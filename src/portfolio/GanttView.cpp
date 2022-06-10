@@ -90,10 +90,6 @@ void GanttView::setupGui()
     connect(a, &QAction::triggered, this, &GanttView::openProject, Qt::QueuedConnection);
 
     createOptionActions(ViewBase::OptionAll);
-    const auto actionList = contextActionList();
-    for (QAction *a : actionList) {
-        actionCollection()->addAction(a->objectName(), a);
-    }
 }
 
 void GanttView::openProject()
