@@ -4,6 +4,12 @@
 <!ENTITY introduction-section SYSTEM "introduction.docbook">
 <!ENTITY context-help-section SYSTEM "contexthelp.docbook">
 <!ENTITY content-editor-chapter SYSTEM "contenteditor.docbook">
+<!ENTITY scheduling-view-chapter SYSTEM "schedulingview.docbook">
+<!ENTITY summary-view-chapter SYSTEM "summaryview.docbook">
+<!ENTITY performance-view-chapter SYSTEM "performanceview.docbook">
+<!ENTITY progress-view-chapter SYSTEM "progressview.docbook">
+<!ENTITY resourceusage-view-chapter SYSTEM "resourceusageview.docbook">
+<!ENTITY ganttsummary-view-chapter SYSTEM "ganttsummaryview.docbook">
 <!ENTITY portfolio-configuration-dialog SYSTEM "portfolioconfiguration.docbook">
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE"><!-- change language only here -->
@@ -37,6 +43,12 @@
 
   &portfolio-introduction-chapter;
   &content-editor-chapter;
+  &scheduling-view-chapter;
+  &summary-view-chapter;
+  &performance-view-chapter;
+  &progress-view-chapter;
+  &resourceusage-view-chapter;
+  &ganttsummary-view-chapter;
   &portfolio-configuration-dialog;
   
   <!--userbase-content-->
