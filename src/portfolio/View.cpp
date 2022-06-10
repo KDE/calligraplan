@@ -69,13 +69,13 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
         m_views->setCurrentPage(item);
     }
 
-    item = m_views->addPage(new PerformanceView(part, doc, m_views), i18n("Performance"));
-    item->setHeaderVisible(false);
-    item->setIcon(koIcon("office-chart-bar"));
-
     item = m_views->addPage(new DetailsView(part, doc, m_views), i18n("Progress"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("view-time-schedule"));
+
+    item = m_views->addPage(new PerformanceView(part, doc, m_views), i18n("Performance"));
+    item->setHeaderVisible(false);
+    item->setIcon(koIcon("office-chart-bar"));
 
     item = m_views->addPage(new ResourceUsageView(part, doc, m_views), i18n("Resource Usage"));
     item->setHeaderVisible(false);
