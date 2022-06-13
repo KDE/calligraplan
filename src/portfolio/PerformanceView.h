@@ -22,6 +22,8 @@ class QResizeEvent;
 
 namespace KPlato {
     class ChartItemModel;
+    class Project;
+    class ScheduleManager;
 }
 namespace KChart {
     class CartesianAxis;
@@ -40,7 +42,8 @@ public:
     KoPrintJob *createPrintJob() override;
 
 public Q_SLOTS:
-    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
+    void currentChanged(const QModelIndex &current);
+    void updateCharts(KPlato::Project *project, KPlato::ScheduleManager *sm);
 
 protected:
     void updateReadWrite(bool readwrite) override;

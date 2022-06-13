@@ -48,7 +48,7 @@ PerformanceView::PerformanceView(KoPart *part, KoDocument *doc, QWidget *parent)
 
     setupCharts();
 
-    connect(ui.treeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PerformanceView::selectionChanged);
+    connect(ui.treeView->selectionModel(), &QItemSelectionModel::currentChanged, this, &PerformanceView::currentChanged);
 }
 
 PerformanceView::~PerformanceView()
@@ -139,18 +139,23 @@ KoPrintJob *PerformanceView::createPrintJob()
     return nullptr;
 }
 
-void PerformanceView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+void PerformanceView::currentChanged(const QModelIndex &current)
 {
-    Q_UNUSED(selected)
-    Q_UNUSED(deselected)
-    QModelIndexList indexes = ui.treeView->selectionModel()->selectedRows();
-    KPlato::Project *project = indexes.value(0).data(PROJECT_ROLE).value<KPlato::Project*>();
-    Q_ASSERT(project);
+    KPlato::Project *project = nullptr;
+    KPlato::ScheduleManager *sm = nullptr;
+    auto doc = current.data(DOCUMENT_ROLE).value<KoDocument*>();
+    if (doc) {
+        project = doc->project();
+        sm = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
+    }
+    updateCharts(project, sm);
+}
+
+void PerformanceView::updateCharts(KPlato::Project *project, KPlato::ScheduleManager *sm)
+{
     m_chartModel->setProject(project);
-    KoDocument *doc = indexes.value(0).data(DOCUMENT_ROLE).value<KoDocument*>();
-    Q_ASSERT(doc);
-    m_chartModel->setScheduleManager(project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString()));
-    m_chartModel->setNodes(QList<KPlato::Node*>() << project);
+    m_chartModel->setNodes(project ? QList<KPlato::Node*>() << project : QList<KPlato::Node*>());
+    m_chartModel->setScheduleManager(sm);
 
     int row = m_chartModel->rowForDate(QDate::currentDate());
     QString text = i18n("No data");
