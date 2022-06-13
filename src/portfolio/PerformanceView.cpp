@@ -48,6 +48,7 @@ PerformanceView::PerformanceView(KoPart *part, KoDocument *doc, QWidget *parent)
 
     setupCharts();
 
+    connect(static_cast<MainDocument*>(doc), &MainDocument::documentChanged, this, &PerformanceView::slotDocumentChanged);
     connect(ui.treeView->selectionModel(), &QItemSelectionModel::currentChanged, this, &PerformanceView::currentChanged);
 }
 
@@ -137,6 +138,16 @@ QMenu * PerformanceView::popupMenu(const QString& name)
 KoPrintJob *PerformanceView::createPrintJob()
 {
     return nullptr;
+}
+
+void PerformanceView::slotDocumentChanged(KoDocument *doc)
+{
+    const auto idx = ui.treeView->currentIndex();
+    auto project = idx.data(PROJECT_ROLE).value<KPlato::Project*>();
+    if (project && project == doc->project()) {
+        currentChanged(idx);
+    }
+
 }
 
 void PerformanceView::currentChanged(const QModelIndex &current)

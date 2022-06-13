@@ -52,6 +52,9 @@ protected:
 
     void resizeEvent(QResizeEvent *event) override;
 
+private Q_SLOTS:
+    void slotDocumentChanged(KoDocument *doc);
+
 private:
     bool m_readWrite;
     Ui::PerformanceView ui;
