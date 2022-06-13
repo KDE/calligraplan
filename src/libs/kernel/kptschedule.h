@@ -689,6 +689,9 @@ public:
     bool schedulingMode() const;
     void setSchedulingMode(int mode);
 
+    DateTime scheduledStartTime() const;
+    DateTime scheduledEndTime() const;
+
 public Q_SLOTS:
     /// Set maximum progress. Emits signal maxProgressChanged
     void setMaxProgress(int value);

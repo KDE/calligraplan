@@ -1954,6 +1954,16 @@ void ScheduleManager::setSchedulingMode(int mode)
     m_project.changed(this, SchedulingModeProperty);
 }
 
+DateTime ScheduleManager::scheduledStartTime() const
+{
+    return m_expected ? m_expected->startTime : DateTime();
+}
+
+DateTime ScheduleManager::scheduledEndTime() const
+{
+    return m_expected ? m_expected->endTime : DateTime();
+}
+
 void ScheduleManager::incProgress()
 {
     m_project.incProgress();
