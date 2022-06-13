@@ -35,7 +35,7 @@
 #include <QMenu>
 
 SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
-    : KoView(part, doc, parent)
+    : KPlato::ViewBase(part, doc, parent)
     , m_readWrite(false)
 {
     //debugPlan;
@@ -83,6 +83,7 @@ void SummaryView::setupGui()
     actionCollection()->addAction(QStringLiteral("project_description"), a);
     connect(a, &QAction::triggered, this, &SummaryView::slotDescription);
 
+    createOptionActions(ViewBase::OptionAll);
 }
 
 void SummaryView::itemDoubleClicked(const QPersistentModelIndex &idx)
@@ -143,5 +144,5 @@ QMenu * SummaryView::popupMenu(const QString& name)
 
 KoPrintJob *SummaryView::createPrintJob()
 {
-    return nullptr;
+    return new KPlato::PrintingDialog(this);
 }

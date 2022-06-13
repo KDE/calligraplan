@@ -22,9 +22,11 @@ public:
     explicit GanttModel(QObject *parent = nullptr);
     ~GanttModel();
 
+    KPlato::ScheduleManager *scheduleManager(const QModelIndex &idx) const;
+
     QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
 
-    QDateTime projectRestartTime(const KPlato::Project *project, KPlato::ScheduleManager *sm) const;
+    QDateTime projectRestartTime(KPlato::ScheduleManager *sm) const;
 };
 
 #endif

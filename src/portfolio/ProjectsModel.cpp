@@ -204,28 +204,97 @@ QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
         case KPlato::NodeModel::NodeName: {
             switch (role) {
                 case Qt::ToolTipRole: {
-                    auto id = sm ? sm->scheduleId() : NOTSCHEDULED;
-                    KPlato::Project *project = doc->project();
+                    auto project = doc->project();
+                    if (!sm) {
+                        QString s = xi18nc("@info:tooltip",
+                                        "<title>Project: %1</title>"
+                                        "<para>Schedule: Not scheduled</para>"
+                                        "<para><list>"
+                                        "<item>Target start:\t%2</item>"
+                                        "<item>Target finish:\t%3</item>"
+                                        "</list></para>",
+                                            project->name(),
+                                            project->constraintStartTime().toString(),
+                                            project->constraintEndTime().toString()
+                                    );
+                        return s;
+                    }
+                    if (!sm->isScheduled()) {
+                        QString s = xi18nc("@info:tooltip",
+                                        "<title>Project: %1</title>"
+                                        "<para>Schedule: %4 Not scheduled</para>"
+                                        "<para><list>"
+                                        "<item>Target start:\t%2</item>"
+                                        "<item>Target finish:\t%3</item>"
+                                        "</list></para>",
+                                            project->name(),
+                                            project->constraintStartTime().toString(),
+                                            project->constraintEndTime().toString(),
+                                            sm->name()
+                                    );
+                        return s;
+                    }
                     QString s = xi18nc("@info:tooltip",
-                                       "<title>Project: %1</title>"
-                                       "<para>Schedule: %6</para>"
-                                       "<para><list>"
-                                       "<item>Planned start:\t%2</item>"
-                                       "<item>Planned finish:\t%3</item>"
-                                       "<item>Target start:\t%4</item>"
-                                       "<item>Target finish:\t%5</item>"
-                                       "</list></para>",
-                                       project->name(),
-                                       project->startTime(id).toString(),
-                                       project->endTime(id).toString(),
-                                       project->constraintStartTime().toString(),
-                                       project->constraintEndTime().toString(),
-                                       (sm ? sm->name() : i18n("No schedule"))
-                    );
+                                    "<title>Project: %1</title>"
+                                    "<para>Schedule: %6</para>"
+                                    "<para><list>"
+                                    "<item>Planned start:\t%2</item>"
+                                    "<item>Planned finish:\t%3</item>"
+                                    "<item>Target start:\t%4</item>"
+                                    "<item>Target finish:\t%5</item>"
+                                    "</list></para>",
+                                        project->name(),
+                                        sm->scheduledStartTime().toString(),
+                                        sm->scheduledEndTime().toString(),
+                                        project->constraintStartTime().toString(),
+                                        project->constraintEndTime().toString(),
+                                        sm->name()
+                                );
                     return s;
                 }
                 default:
                     break;
+            }
+            break;
+        }
+        case KPlato::NodeModel::NodeStartTime: {
+            switch (role) {
+                case Qt::DisplayRole:
+                case Qt::EditRole: {
+                    if (!sm || !sm->isScheduled()) {
+                        return QVariant();
+                    }
+                    break;
+                }
+                case Qt::ToolTipRole: {
+                    if (!sm) {
+                        return i18nc("@info:tooltip", "Not scheduled");
+                    }
+                    if (!sm->isScheduled()) {
+                        return i18nc("@info:tooltip", "Schedule: %1 is not scheduled", sm->name());
+                    }
+                    return i18nc("@info:tooltip", "Schedule %1: Scheduled to start: %1", sm->scheduledStartTime().toString());
+                }
+            }
+        }
+        case KPlato::NodeModel::NodeEndTime: {
+            switch (role) {
+                case Qt::DisplayRole:
+                case Qt::EditRole: {
+                    if (!sm || !sm->isScheduled()) {
+                        return QVariant();
+                    }
+                    break;
+                }
+                case Qt::ToolTipRole: {
+                    if (!sm) {
+                        return i18nc("@info:tooltip", "Not scheduled");
+                    }
+                    if (!sm->isScheduled()) {
+                        return i18nc("@info:tooltip", "Schedule: %1 is not scheduled", sm->name());
+                    }
+                    return i18nc("@info:tooltip", "Schedule %1: Scheduled to finish: %1", sm->scheduledEndTime().toString());
+                }
             }
         }
     }

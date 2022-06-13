@@ -9,14 +9,14 @@
 
 #include "planportfolio_export.h"
 
-#include <KoView.h>
+#include <kptviewbase.h>
 
 class KoDocument;
 class KoPrintJob;
 class QTreeView;
 class QMenu;
 
-class PLANPORTFOLIO_EXPORT SummaryView : public KoView
+class PLANPORTFOLIO_EXPORT SummaryView : public KPlato::ViewBase
 {
     Q_OBJECT
 
