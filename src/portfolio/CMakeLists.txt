@@ -15,7 +15,7 @@ set(calligraplanportfolioprivate_LIB_SRCS
     PortfolioModel.cpp
     PortfolioView.cpp
     PerformanceView.cpp
-    DetailsView.cpp
+    ProgressView.cpp
     ResourceModel.cpp
     ResourceUsageModel.cpp
     ResourceUsageView.cpp
@@ -110,7 +110,7 @@ install( FILES
         Portfolio_ViewUi.rc
         Portfolio_SummaryViewUi.rc
         Portfolio_PortfolioViewUi.rc
-        Portfolio_DetailsViewUi.rc
+        Portfolio_ProgressViewUi.rc
         Portfolio_SchedulingViewUi.rc
         Portfolio_GanttViewUi.rc
         Portfolio_ResourceUsageViewUi.rc

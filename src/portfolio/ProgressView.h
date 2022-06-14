@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef PLANPORTFOLIO_DETAILSVIEW_H
-#define PLANPORTFOLIO_DETAILSVIEW_H
+#ifndef PLANPORTFOLIO_PROGRESSVIEW_H
+#define PLANPORTFOLIO_PROGRESSVIEW_H
 
 #include "planportfolio_export.h"
 
@@ -22,13 +22,13 @@ namespace KPlato {
     class TaskStatusView;
 }
 
-class PLANPORTFOLIO_EXPORT DetailsView : public KoView
+class PLANPORTFOLIO_EXPORT ProgressView : public KoView
 {
     Q_OBJECT
 
 public:
-    explicit DetailsView(KoPart *part, KoDocument *doc, QWidget *parent = nullptr);
-    ~DetailsView() override;
+    explicit ProgressView(KoPart *part, KoDocument *doc, QWidget *parent = nullptr);
+    ~ProgressView() override;
 
     QMenu *popupMenu(const QString& name);
 

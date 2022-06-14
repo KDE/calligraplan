@@ -10,7 +10,7 @@
 #include "SummaryView.h"
 #include "PortfolioView.h"
 #include "PerformanceView.h"
-#include "DetailsView.h"
+#include "ProgressView.h"
 #include "ResourceUsageView.h"
 #include "SchedulingView.h"
 #include "MainDocument.h"
@@ -69,7 +69,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
         m_views->setCurrentPage(item);
     }
 
-    item = m_views->addPage(new DetailsView(part, doc, m_views), i18n("Progress"));
+    item = m_views->addPage(new ProgressView(part, doc, m_views), i18n("Progress"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("view-time-schedule"));
 
@@ -189,6 +189,7 @@ KPageWidgetItem *View::openDocument(KoDocument *doc)
         v->setProject(project);
         v->setScheduleManager(doc->project()->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString()));
         connect(doc, &KoDocument::scheduleManagerChanged, v, &KPlato::GanttView::setScheduleManager);
+
     }
     return item;
 }

@@ -5,7 +5,7 @@
  */
 
 // clazy:excludeall=qstring-arg
-#include "DetailsView.h"
+#include "ProgressView.h"
 #include "MainDocument.h"
 #include "ProjectsModel.h"
 
@@ -23,15 +23,13 @@
 #include <QItemSelectionModel>
 #include <QSplitter>
 
-DetailsView::DetailsView(KoPart *part, KoDocument *doc, QWidget *parent)
+ProgressView::ProgressView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent)
     , m_readWrite(false)
 {
     //debugPlan;
     if (doc && doc->isReadWrite()) {
-        setXMLFile(QStringLiteral("Portfolio_DetailsViewUi.rc"));
-    } else {
-        setXMLFile(QStringLiteral("Portfolio_DetailsViewUi_readonly.rc"));
+        setXMLFile(QStringLiteral("Portfolio_ProgressViewUi.rc"));
     }
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
@@ -62,32 +60,32 @@ DetailsView::DetailsView(KoPart *part, KoDocument *doc, QWidget *parent)
     m_detailsView->setViewSplitMode(false);
     insertChildClient(m_detailsView);
 
-    connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &DetailsView::selectionChanged);
+    connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ProgressView::selectionChanged);
 
     sp->setStretchFactor(1, 10);
 }
 
-DetailsView::~DetailsView()
+ProgressView::~ProgressView()
 {
 }
 
-void DetailsView::updateReadWrite(bool readwrite)
+void ProgressView::updateReadWrite(bool readwrite)
 {
     m_readWrite = readwrite;
 }
 
-QMenu * DetailsView::popupMenu(const QString& name)
+QMenu * ProgressView::popupMenu(const QString& name)
 {
     Q_UNUSED(name)
     return nullptr;
 }
 
-KoPrintJob *DetailsView::createPrintJob()
+KoPrintJob *ProgressView::createPrintJob()
 {
     return m_detailsView->createPrintJob();
 }
 
-void DetailsView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+void ProgressView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
     Q_UNUSED(deselected)
     auto selectedIndex = selected.indexes().value(0);
