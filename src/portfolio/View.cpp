@@ -77,7 +77,9 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     item->setHeaderVisible(false);
     item->setIcon(koIcon("office-chart-bar"));
 
-    item = m_views->addPage(new ResourceUsageView(part, doc, m_views), i18n("Resource Usage"));
+    auto rv = new ResourceUsageView(part, doc, m_views);
+    rv->setNumDays(7);
+    item = m_views->addPage(rv, i18n("Resource Usage"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("system-users"));
 

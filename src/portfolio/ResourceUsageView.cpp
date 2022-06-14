@@ -145,6 +145,11 @@ void ResourceUsageView::slotCurrentIndexChanged(const QModelIndex &current, cons
     m_resourceUsageModel.setCurrentResource(current.data(RESOURCEID_ROLE).toString());
 }
 
+void ResourceUsageView::setNumDays(int days)
+{
+    m_numDays->setValue(days);
+}
+
 void ResourceUsageView::slotUpdateNumDays()
 {
     int end = m_resourceUsageModel.rowCount();

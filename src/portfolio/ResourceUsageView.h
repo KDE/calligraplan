@@ -55,6 +55,9 @@ public:
 
     void guiActivateEvent(bool activated) override;
 
+public Q_SLOTS:
+    void setNumDays(int days);
+
 protected Q_SLOTS:
     void slotCurrentIndexChanged(const QModelIndex &current, const QModelIndex &previous);
     void slotUpdateNumDays();
