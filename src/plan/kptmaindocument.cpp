@@ -1680,6 +1680,14 @@ void MainDocument::slotProjectCreated()
         sm->setAllowOverbooking(false);
         sm->setSchedulingMode(ScheduleManager::AutoMode);
     }
+    if (m_project->useSharedResources() && !m_project->sharedResourcesFile().isEmpty()) {
+        QUrl url = QUrl::fromLocalFile(m_project->sharedResourcesFile());
+        if (url.isValid()) {
+            insertResourcesFile(url);
+            return;
+        }
+        // TODO: Message to user
+    }
     Calendar *week = nullptr;
     if (KPlatoSettings::generateWeek()) {
         bool always = KPlatoSettings::generateWeekChoice() == KPlatoSettings::EnumGenerateWeekChoice::Always;
