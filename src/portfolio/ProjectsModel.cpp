@@ -157,6 +157,14 @@ QVariant ProjectsModel::headerData(int section, Qt::Orientation orientation, int
             }
             break;
         }
+        case KPlato::NodeModel::NodeDescription: {
+            switch (role) {
+                case Qt::ToolTipRole:
+                    return i18nc("@info:tooltip", "Project description");
+                default:
+                    break;
+            }
+        }
         default: {
             int extraSection = section - m_nodeModel.propertyCount();
             switch (extraSection) {
@@ -297,6 +305,8 @@ QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
                 }
             }
         }
+        default:
+            break;
     }
     int extraColumn = idx.column() - m_nodeModel.propertyCount();
     switch (extraColumn) {
