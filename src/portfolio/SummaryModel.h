@@ -49,6 +49,7 @@ Q_SIGNALS:
 protected Q_SLOTS:
     void slotModelReset();
     void slotUpdateChartModel();
+    void slotChartReset();
 
 protected:
     QVariant extraColumnData(const QModelIndex &parent, int row, int extraColumn, int role = Qt::DisplayRole) const override;

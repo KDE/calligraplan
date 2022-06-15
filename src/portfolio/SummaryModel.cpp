@@ -65,6 +65,7 @@ void SummaryModel::slotUpdateChartModel()
             KPlato::ScheduleManager *sm = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
             m->setScheduleManager(sm);
             m->setNodes(QList<KPlato::Node*>() << project);
+            connect(m, &KPlato::ChartItemModel::modelReset, this, &SummaryModel::slotChartReset);
         }
     }
     endResetModel();
@@ -109,6 +110,24 @@ QVariant SummaryModel::extraColumnData(const QModelIndex &parent, int row, int e
     }
     QVariant v = m->data(idx, role);
     return v;
+}
+
+void SummaryModel::slotChartReset()
+{
+    auto m = qobject_cast<KPlato::ChartItemModel*>(sender());
+    if (!m) {
+        return;
+    }
+    auto doc = m_performanceModels.key(m);
+    if (!doc) {
+        return;
+    }
+    int row = portfolio()->documents().indexOf(doc);
+    if (row < 0) {
+        return;
+    }
+    const auto idx = index(row, 0);
+    Q_EMIT dataChanged(idx, idx.siblingAtColumn(columnCount()-1));
 }
 
 //-------------------
