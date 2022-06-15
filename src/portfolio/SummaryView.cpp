@@ -74,6 +74,18 @@ SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
         header->setSectionHidden(model->proxyColumnForExtraColumn(c), true);
     }
     m_view->setItemDelegateForColumn(2/*Schedule*/, new ScheduleManagerDelegate(m_view));
+
+    setWhatsThis(xi18nc("@info:whatsthis",
+                        "<title>Projects Summary View</title>"
+                        "<para>"
+                        "This view summarizes performance data for the projects in your portfolio."
+                        "</para><para>"
+                        "Performance indexes are shown for both cost based and effort based calculations."
+                        "</para><para>"
+                        "<nl/><link url='%1'>More...</link>"
+                        "</para>", QStringLiteral("portfolio:summary-view")
+                    )
+                );
 }
 
 SummaryView::~SummaryView()
