@@ -38,6 +38,8 @@ public:
 
     MainDocument *portfolio() const;
 
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+
 public Q_SLOTS:
     void setPortfolio(MainDocument *portfolio);
 

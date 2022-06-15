@@ -59,16 +59,19 @@ SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
     model->setPortfolio(qobject_cast<MainDocument*>(doc));
     m_view->setModel(model);
 
-    m_view->header()->moveSection(1, model->columnCount()-1); // Description
+    const auto header = m_view->header();
+    header->moveSection(10, 12); // CPI Cost
+    header->moveSection(1, model->columnCount()-1); // Description
     const QList<int> hide = QList<int>()
     << KPlato::ChartItemModel::BCWSCost
     << KPlato::ChartItemModel::BCWPCost
     << KPlato::ChartItemModel::ACWPCost
     << KPlato::ChartItemModel::BCWSEffort
     << KPlato::ChartItemModel::BCWPEffort
-    << KPlato::ChartItemModel::ACWPEffort;
+    << KPlato::ChartItemModel::ACWPEffort
+    << KPlato::ChartItemModel::SPICost;
     for (int c : hide) {
-        m_view->header()->setSectionHidden(model->proxyColumnForExtraColumn(c), true);
+        header->setSectionHidden(model->proxyColumnForExtraColumn(c), true);
     }
     m_view->setItemDelegateForColumn(2/*Schedule*/, new ScheduleManagerDelegate(m_view));
 }

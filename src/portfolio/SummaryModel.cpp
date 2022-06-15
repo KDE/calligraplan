@@ -70,6 +70,28 @@ void SummaryModel::slotUpdateChartModel()
     endResetModel();
 }
 
+QVariant SummaryModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (orientation == Qt::Horizontal) {
+        if (role == Qt::DisplayRole) {
+            int s = extraColumnForProxyColumn(section);
+            if (s == KPlato::ChartItemModel::SPIEffort) {
+                return i18nc("@title:column Schedule Performance Index", "SPI");
+            }
+        } else if (role == Qt::ToolTipRole) {
+            int s = extraColumnForProxyColumn(section);
+            if (s == KPlato::ChartItemModel::SPIEffort) {
+                return i18nc("@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work Performed", "Schedule Perfomance Index (BCWS/BCWP)");
+            } else if (s >= 0) {
+                const KPlato::ChartItemModel m;
+                QVariant v = m.headerData(s, orientation, role);
+                return v;
+            }
+        }
+    }
+    return KExtraColumnsProxyModel::headerData(section, orientation, role);
+}
+
 QVariant SummaryModel::extraColumnData(const QModelIndex &parent, int row, int extraColumn, int role) const
 {
     if (parent.isValid()) {
@@ -80,8 +102,11 @@ QVariant SummaryModel::extraColumnData(const QModelIndex &parent, int row, int e
         return QVariant();
     }
     const KPlato::ChartItemModel *m = m_performanceModels[doc];
-    int r = std::min((int)(m->startDate().daysTo(QDate::currentDate()))+1, m->rowCount()-1);
+    int r = std::min((int)(m->startDate().daysTo(QDate::currentDate())), m->rowCount()-1);
     const QModelIndex idx = m->index(r, extraColumn, parent);
+    if (!idx.isValid()) {
+        return QVariant();
+    }
     QVariant v = m->data(idx, role);
     return v;
 }
