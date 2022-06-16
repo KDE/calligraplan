@@ -39,7 +39,6 @@ MainDocument::MainDocument(KoPart *part)
 
 MainDocument::~MainDocument()
 {
-    
     for (KoDocument *doc : qAsConst(m_documents)) {
         if (doc->documentPart()->mainwindowCount() > 0) {
             // The doc has been opened in a separate window
@@ -390,6 +389,7 @@ void MainDocument::removeDocument(KoDocument *doc)
         Q_EMIT documentAboutToBeRemoved(m_documents.indexOf(doc));
         disconnect(doc->project(), &KPlato::Project::projectChanged, this, &MainDocument::slotProjectChanged);
         m_documents.removeOne(doc);
+        delete doc;
         Q_EMIT documentRemoved();
         setModified(true);
     }
