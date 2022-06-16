@@ -11,11 +11,13 @@
 
 #include <KoView.h>
 
+class RecentFilesModel;
 class KoDocument;
 class KoPrintJob;
 class QTreeView;
 class QMenu;
 class QItemSelection;
+class QStackedWidget;
 
 namespace KIO {
     class UDSEntry;
@@ -37,6 +39,9 @@ public:
 
     bool hasWriteAccess(KIO::UDSEntry &entry) const;
 
+Q_SIGNALS:
+    void openUrl(const QUrl &url);
+
 protected:
     void updateReadWrite(bool readwrite) override;
     void updateActionsEnabled();
@@ -45,6 +50,7 @@ private:
     void setupGui();
 
 private Q_SLOTS:
+    void slotRecentFileActivated(const QModelIndex &idx);
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void slotAddProject();
     void slotRemoveSelected();
@@ -52,9 +58,13 @@ private Q_SLOTS:
     void slotLoadCompleted();
     void slotLoadCanceled();
 
+    void slotUpdateView();
 private:
     bool m_readWrite;
+    QStackedWidget *m_stackedWidget;
+    QTreeView *m_welcome;
     QTreeView *m_view;
+    RecentFilesModel *m_recentProjects;
 };
 
 #endif

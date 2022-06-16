@@ -23,10 +23,70 @@
 #include <KActionCollection>
 #include <KUser>
 #include <KMessageBox>
+#include <KConfigGroup>
 
 #include <QTreeView>
 #include <QVBoxLayout>
 #include <QDir>
+#include <QStackedWidget>
+#include <QStandardItemModel>
+
+class RecentFilesModel : public QStandardItemModel
+{
+public:
+    RecentFilesModel(QObject *parent = nullptr);
+    Qt::ItemFlags flags(const QModelIndex &idx) const override;
+    QVariant data(const QModelIndex &idx, int role) const override;
+    void setRecentFiles(const KRecentFilesAction &recent);
+    void populate(const QList<QAction*> actions);
+};
+
+RecentFilesModel::RecentFilesModel(QObject *parent)
+    : QStandardItemModel(parent)
+{
+}
+
+Qt::ItemFlags RecentFilesModel::flags(const QModelIndex &idx) const
+{
+    Qt::ItemFlags f = (QStandardItemModel::flags(idx) & ~Qt::ItemIsEditable);
+    return f;
+}
+
+QVariant RecentFilesModel::data(const QModelIndex &idx, int role) const
+{
+    switch(role) {
+        case Qt::DecorationRole:
+            return QIcon::fromTheme(QStringLiteral("document-open"));
+        case Qt::FontRole: {
+            break;
+        }
+        default: break;
+    }
+    return QStandardItemModel::data(idx, role);
+}
+
+void RecentFilesModel::setRecentFiles(const KRecentFilesAction &recent)
+{
+    populate(recent.actions());
+}
+
+void RecentFilesModel::populate(const QList<QAction*> actions)
+{
+    clear();
+    setColumnCount(1);
+    setRowCount(actions.count());
+    setHeaderData(0, Qt::Horizontal, i18nc("@title:column", "Recent Portfolios"));
+    QModelIndex idx = index(rowCount()-1, 0);
+    for (const QAction *a : actions) {
+        // KRecentFilesAction format: <name> [<file path>]
+        QString s = a->text();
+        QString file = s.mid(s.indexOf(QLatin1Char('['))+1);
+        file = file.left(file.lastIndexOf(QLatin1Char(']')));
+        setData(idx, s, Qt::EditRole);
+        setData(idx, file, Qt::UserRole+1);
+        idx = idx.sibling(idx.row()-1, idx.column());
+    }
+}
 
 PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent)
@@ -40,18 +100,44 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
     }
     setupGui();
 
+    auto portfolio = qobject_cast<MainDocument*>(doc);
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
+    m_stackedWidget = new QStackedWidget(this);
+    layout->addWidget(m_stackedWidget);
+
+    m_welcome = new QTreeView();
+    m_welcome->setRootIsDecorated(false);
+    m_welcome->setSelectionMode(QAbstractItemView::SingleSelection);
+    auto mw = mainWindow();
+    m_recentProjects = new RecentFilesModel(this);
+    m_welcome->setModel(m_recentProjects);
+    if (mw) {
+        KSharedConfigPtr configPtr = mw->componentData().config();
+        KRecentFilesAction recent(QStringLiteral("x"), nullptr);
+        recent.loadEntries(configPtr->group("Recent Portfolios"));
+        m_recentProjects->setRecentFiles(recent);
+    }
+    m_stackedWidget->addWidget(m_welcome);
+    connect(m_welcome, &QAbstractItemView::activated, this, &PortfolioView::slotRecentFileActivated);
+
     m_view = new QTreeView(this);
     m_view->setRootIsDecorated(false);
-    layout->addWidget(m_view);
+    m_stackedWidget->addWidget(m_view);
 
     PortfolioModel *model = new PortfolioModel(m_view);
-    model->setPortfolio(qobject_cast<MainDocument*>(doc));
+    model->setPortfolio(portfolio);
     m_view->setModel(model);
     model->setDelegates(m_view);
     connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PortfolioView::selectionChanged);
     updateActionsEnabled();
+
+    m_stackedWidget->setCurrentWidget(portfolio->documents().isEmpty() ? m_welcome : m_view);
+
+    connect(model, &PortfolioModel::modelReset, this, &PortfolioView::slotUpdateView);
+    connect(model, &PortfolioModel::rowsInserted, this, &PortfolioView::slotUpdateView);
+    connect(model, &PortfolioModel::rowsRemoved, this, &PortfolioView::slotUpdateView);
 
     setWhatsThis(xi18nc("@info:whatsthis",
                                    "<title>The Portfolio Content Editor</title>"
@@ -228,4 +314,25 @@ void PortfolioView::slotLoadCanceled()
     KoDocument *doc = qobject_cast<KoDocument*>(sender());
     Q_ASSERT(doc);
     doc->deleteLater();
+}
+
+void PortfolioView::slotUpdateView()
+{
+    qInfo()<<Q_FUNC_INFO<<sender();
+    if (m_view->model()->rowCount() == 0) {
+        m_stackedWidget->setCurrentWidget(m_welcome);
+    } else {
+        m_stackedWidget->setCurrentWidget(m_view);
+    }
+}
+
+void PortfolioView::slotRecentFileActivated(const QModelIndex &idx)
+{
+    QUrl url = QUrl::fromUserInput(idx.data(Qt::UserRole+1).toString());
+    if (url.isValid()) {
+        auto mw = mainWindow();
+        if (mw) {
+            mw->slotFileOpenRecent(url);
+        }
+    }
 }
