@@ -318,12 +318,12 @@ void PortfolioView::slotLoadCanceled()
 
 void PortfolioView::slotUpdateView()
 {
-    qInfo()<<Q_FUNC_INFO<<sender();
     if (m_view->model()->rowCount() == 0) {
         m_stackedWidget->setCurrentWidget(m_welcome);
     } else {
         m_stackedWidget->setCurrentWidget(m_view);
     }
+    updateActionsEnabled();
 }
 
 void PortfolioView::slotRecentFileActivated(const QModelIndex &idx)
