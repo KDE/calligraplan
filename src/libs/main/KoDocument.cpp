@@ -85,7 +85,9 @@ namespace {
 
 class DocumentProgressProxy : public KoProgressProxy {
 public:
-    KoMainWindow *m_mainWindow;
+    // TODO: Handle the case where doc is created by one mainwindow
+    // and then moved to a different mainwindow and the first mainwindow is deleted.
+    QPointer<KoMainWindow> m_mainWindow;
     DocumentProgressProxy(KoMainWindow *mainWindow)
         : m_mainWindow(mainWindow)
     {
