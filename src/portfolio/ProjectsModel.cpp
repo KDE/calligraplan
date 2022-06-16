@@ -460,7 +460,6 @@ void ProjectsModel::setPortfolio(MainDocument *portfolio)
 
 void ProjectsModel::reset()
 {
-    qInfo()<<Q_FUNC_INFO;
     beginResetModel();
     endResetModel();
     Q_EMIT portfolioChanged();
@@ -476,14 +475,18 @@ void ProjectsModel::documentInserted()
     endInsertRows();
 }
 
+// FIXME: beginRemoveRows/endRemoveRows crashes
 void ProjectsModel::documentAboutToBeRemoved(int row)
 {
-    beginRemoveRows(QModelIndex(), row, row);
+    //beginRemoveRows(QModelIndex(), row, row);
+    Q_UNUSED(row)
+    beginResetModel();
 }
 
 void ProjectsModel::documentRemoved()
 {
-    endRemoveRows();
+    //endRemoveRows();
+    endResetModel();
 }
 
 void ProjectsModel::documentChanged(KoDocument *doc, int row)
@@ -495,7 +498,6 @@ void ProjectsModel::documentChanged(KoDocument *doc, int row)
 
 void ProjectsModel::projectChanged(KoDocument *doc)
 {
-    qInfo()<<Q_FUNC_INFO<<doc;
     documentChanged(doc, m_portfolio->documents().indexOf(doc));
 }
 
