@@ -28,7 +28,6 @@
 #include <QTreeView>
 #include <QVBoxLayout>
 #include <QDir>
-#include <QStackedWidget>
 #include <QStandardItemModel>
 
 class RecentFilesModel : public QStandardItemModel
@@ -101,39 +100,29 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
 
     auto portfolio = qobject_cast<MainDocument*>(doc);
+    connect(portfolio, &MainDocument::documentInserted, this, &PortfolioView::slotUpdateView);
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
-    m_stackedWidget = new QStackedWidget(this);
-    layout->addWidget(m_stackedWidget);
+    ui.setupUi(this);
 
-    m_welcome = new QTreeView();
-    m_welcome->setRootIsDecorated(false);
-    m_welcome->setSelectionMode(QAbstractItemView::SingleSelection);
-    auto mw = mainWindow();
     m_recentProjects = new RecentFilesModel(this);
-    m_welcome->setModel(m_recentProjects);
+    ui.recentPortfolios->setModel(m_recentProjects);
+    auto mw = mainWindow();
     if (mw) {
         KSharedConfigPtr configPtr = mw->componentData().config();
         KRecentFilesAction recent(QStringLiteral("x"), nullptr);
         recent.loadEntries(configPtr->group("Recent Portfolios"));
         m_recentProjects->setRecentFiles(recent);
     }
-    m_stackedWidget->addWidget(m_welcome);
-    connect(m_welcome, &QAbstractItemView::activated, this, &PortfolioView::slotRecentFileActivated);
+    connect(ui.recentPortfolios, &QAbstractItemView::activated, this, &PortfolioView::slotRecentFileActivated);
 
-    m_view = new QTreeView(this);
-    m_view->setRootIsDecorated(false);
-    m_stackedWidget->addWidget(m_view);
-
-    PortfolioModel *model = new PortfolioModel(m_view);
+    PortfolioModel *model = new PortfolioModel(ui.treeView);
     model->setPortfolio(portfolio);
-    m_view->setModel(model);
-    model->setDelegates(m_view);
-    connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PortfolioView::selectionChanged);
+    ui.treeView->setModel(model);
+    model->setDelegates(ui.treeView);
+    connect(ui.treeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PortfolioView::selectionChanged);
     updateActionsEnabled();
 
-    m_stackedWidget->setCurrentWidget(portfolio->documents().isEmpty() ? m_welcome : m_view);
+    ui.stackedWidget->setCurrentIndex(portfolio->documents().isEmpty() ? 0 : 1);
 
     connect(model, &PortfolioModel::modelReset, this, &PortfolioView::slotUpdateView);
     connect(model, &PortfolioModel::rowsInserted, this, &PortfolioView::slotUpdateView);
@@ -154,6 +143,33 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
                                    "</para>", QStringLiteral("portfolio:content-editor")
                                    )
                       );
+
+    ui.contextHelp->setText(
+        xi18nc("@info",
+               "<subtitle>Context Help</subtitle>"
+               "<para>"
+               "Many functions have help and hints that can be displayed with <emphasis>What's this</emphasis>."
+               "</para><para>"
+               "Activate it by selecting the menu item <interface>Help|What's this</interface> or by pressing <shortcut>Shift+F1</shortcut>."
+               "</para><para>"
+               "Try it on this text!"
+               "</para>"));
+
+    ui.onlineLabel->setText(xi18nc("@info", "<subtitle>Online Resources</subtitle>"));
+
+    ui.contextHelp->setWhatsThis(
+                   xi18nc("@info:whatsthis",
+                          "<title>Context help</title>"
+                          "<para>"
+                          "Help is available many places using <emphasis>What's This</emphasis>."
+                          "<nl/>It is activated using the menu entry <interface>Help->What's this?</interface>"
+                          " or the keyboard shortcut <shortcut>Shift+F1</shortcut>."
+                          "</para><para>"
+                          "In dialogs it is available via the <interface>?</interface> in the dialog title bar."
+                          "</para><para>"
+                          "If you see <link url='%1'>More...</link> in the text,"
+                          " pressing it will display more information from the documentation."
+                          "</para>", QStringLiteral("portfolio:context-help")));
 }
 
 PortfolioView::~PortfolioView()
@@ -175,7 +191,7 @@ void PortfolioView::setupGui()
 
 void PortfolioView::updateActionsEnabled()
 {
-    bool enable = m_view->selectionModel() && (m_view->selectionModel()->selectedRows().count() == 1);
+    bool enable = ui.treeView->selectionModel() && (ui.treeView->selectionModel()->selectedRows().count() == 1);
     actionCollection()->action(QStringLiteral("remove_selected"))->setEnabled(enable);
 }
 
@@ -205,9 +221,9 @@ void PortfolioView::slotAddProject()
 
 void PortfolioView::slotRemoveSelected()
 {
-    PortfolioModel *m = qobject_cast<PortfolioModel*>(m_view->model());
+    PortfolioModel *m = qobject_cast<PortfolioModel*>(ui.treeView->model());
     QList<KoDocument*> docs;
-    const auto selectedRows = m_view->selectionModel()->selectedRows();
+    const auto selectedRows = ui.treeView->selectionModel()->selectedRows();
     for (const QModelIndex &idx : selectedRows) {
         KoDocument *doc = m->documentFromIndex(idx);
         if (doc) {
@@ -318,10 +334,12 @@ void PortfolioView::slotLoadCanceled()
 
 void PortfolioView::slotUpdateView()
 {
-    if (koDocument()->isEmpty()) {
-        m_stackedWidget->setCurrentWidget(m_welcome);
+    MainDocument *portfolio = qobject_cast<MainDocument*>(koDocument());
+    Q_ASSERT(portfolio);
+    if (portfolio->isEmpty() && portfolio->documents().isEmpty()) {
+        ui.stackedWidget->setCurrentIndex(0);
     } else {
-        m_stackedWidget->setCurrentWidget(m_view);
+        ui.stackedWidget->setCurrentIndex(1);
     }
     updateActionsEnabled();
 }

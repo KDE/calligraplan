@@ -8,16 +8,14 @@
 #define PLANPORTFOLIO_PORTFOLIOVIEW_H
 
 #include "planportfolio_export.h"
+#include "ui_PortfolioView.h"
 
 #include <KoView.h>
 
 class RecentFilesModel;
 class KoDocument;
 class KoPrintJob;
-class QTreeView;
-class QMenu;
 class QItemSelection;
-class QStackedWidget;
 
 namespace KIO {
     class UDSEntry;
@@ -61,9 +59,7 @@ private Q_SLOTS:
     void slotUpdateView();
 private:
     bool m_readWrite;
-    QStackedWidget *m_stackedWidget;
-    QTreeView *m_welcome;
-    QTreeView *m_view;
+    Ui::PortfolioView ui;
     RecentFilesModel *m_recentProjects;
 };
 

@@ -35,6 +35,7 @@ set(calligraplanportfolioprivate_LIB_SRCS
 )
 
 ki18n_wrap_ui(calligraplanportfolioprivate_LIB_SRCS
+    PortfolioView.ui
     PerformanceView.ui
     SchedulingView.ui
     ResourceUsageView.ui
