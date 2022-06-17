@@ -82,7 +82,7 @@ QVariant SummaryModel::headerData(int section, Qt::Orientation orientation, int 
         } else if (role == Qt::ToolTipRole) {
             int s = extraColumnForProxyColumn(section);
             if (s == KPlato::ChartItemModel::SPIEffort) {
-                return i18nc("@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work Performed", "Schedule Perfomance Index (BCWS/BCWP)");
+                return i18nc("@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work Performed", "Schedule Performance Index (BCWS/BCWP)");
             } else if (s >= 0) {
                 const KPlato::ChartItemModel m;
                 QVariant v = m.headerData(s, orientation, role);
