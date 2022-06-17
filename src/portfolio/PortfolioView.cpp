@@ -312,8 +312,11 @@ void PortfolioView::slotLoadCompleted()
         }
         doc->setProperty(SCHEDULINGPRIORITY, 0);
     }
-
-    if (!portfolio->addDocument(doc)) {
+    if (!doc->project()) {
+        KMessageBox::sorry(this, xi18nc("@info", "Failed to load the project. Is this a valid Plan file?<nl/>%1", doc->url().toDisplayString()),
+                           i18nc("@title:window", "Could not add project"));
+        doc->deleteLater();
+    } else if (!portfolio->addDocument(doc)) {
         KMessageBox::sorry(this, xi18nc("@info", "The project already exists.<nl/>Project: %1<nl/> Document: %2", doc->project()->name(), doc->url().toDisplayString()),
                            i18nc("@title:window", "Could not add project"));
         doc->deleteLater();
