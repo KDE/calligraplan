@@ -318,7 +318,7 @@ void PortfolioView::slotLoadCanceled()
 
 void PortfolioView::slotUpdateView()
 {
-    if (m_view->model()->rowCount() == 0) {
+    if (koDocument()->isEmpty()) {
         m_stackedWidget->setCurrentWidget(m_welcome);
     } else {
         m_stackedWidget->setCurrentWidget(m_view);
