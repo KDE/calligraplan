@@ -8,6 +8,7 @@
 #include "PortfolioView.h"
 #include "PortfolioModel.h"
 #include "MainDocument.h"
+#include "Part.h"
 
 #include <kptproject.h>
 
@@ -204,19 +205,12 @@ void PortfolioView::selectionChanged(const QItemSelection &selected, const QItem
 
 void PortfolioView::slotAddProject()
 {
-    const QList<QUrl> urls = QFileDialog::getOpenFileUrls(nullptr, i18n("Add Project"), QUrl(), QStringLiteral("Plan (*.plan)"));
-    for (const QUrl &url : urls) {
-        loadProject(url);
-    }
-//     KoFileDialog dlg(nullptr, KoFileDialog::OpenFiles, "Add Project");
-//     dlg.setNameFilters(QStringList()<<"Plan (*.plan)");
-//     QStringList files = dlg.filenames();
-//     if (!files.isEmpty()) {
-//         for (const QString &file : files) {
-//             loadProject(file);
-//         }
-//     }
-
+     KoFileDialog dlg(nullptr, KoFileDialog::OpenFiles, i18n("Add Project"));
+     dlg.setMimeTypeFilters(QStringList()<<PLAN_MIME_TYPE);
+     const auto files = dlg.filenames();
+     for (const auto &file : files) {
+         loadProject(QUrl::fromUserInput(file));
+     }
 }
 
 void PortfolioView::slotRemoveSelected()
@@ -256,16 +250,24 @@ void PortfolioView::loadProject(const QUrl &url)
     MainDocument *portfolio = qobject_cast<MainDocument*>(koDocument());
     Q_ASSERT(portfolio);
     KoPart *part = KoApplication::koApplication()->getPartFromUrl(url);
-    Q_ASSERT(part);
-    if (part) {
-        KoDocument *doc = part->createDocument(part);
-        doc->setAutoSave(0);
-        doc->setProperty(BLOCKSHAREDPROJECTSLOADING, true);
-        connect(doc, &KoDocument::sigProgress, mainWindow(), &KoMainWindow::slotProgress);
-        connect(doc, &KoDocument::completed, this, &PortfolioView::slotLoadCompleted);
-        connect(doc, &KoDocument::canceled, this, &PortfolioView::slotLoadCanceled);
-        doc->openUrl(url);
+    if (!part) {
+        KMessageBox::sorry(this, xi18nc("@info", "Failed to load the project. Not a valid Plan file:<nl/>%1", url.toDisplayString()),
+                           i18nc("@title:window", "Could not add project"));
+        return;
     }
+    if (qobject_cast<Part*>(part)) {
+        KMessageBox::sorry(this, xi18nc("@info", "Failed to open the project. This seems to be a portfolio file:<nl/>%1", url.toDisplayString()),
+                           i18nc("@title:window", "Could not add project"));
+        delete part;
+        return;
+    }
+    KoDocument *doc = part->createDocument(part);
+    doc->setAutoSave(0);
+    doc->setProperty(BLOCKSHAREDPROJECTSLOADING, true);
+    connect(doc, &KoDocument::sigProgress, mainWindow(), &KoMainWindow::slotProgress);
+    connect(doc, &KoDocument::completed, this, &PortfolioView::slotLoadCompleted);
+    connect(doc, &KoDocument::canceled, this, &PortfolioView::slotLoadCanceled);
+    doc->openUrl(url);
 }
 
 bool PortfolioView::hasWriteAccess(KIO::UDSEntry& entry) const
@@ -313,11 +315,11 @@ void PortfolioView::slotLoadCompleted()
         doc->setProperty(SCHEDULINGPRIORITY, 0);
     }
     if (!doc->project()) {
-        KMessageBox::sorry(this, xi18nc("@info", "Failed to load the project. Is this a valid Plan file?<nl/>%1", doc->url().toDisplayString()),
+        KMessageBox::sorry(this, xi18nc("@info", "Failed to load the project. Not a valid Plan file:<nl/>%1", doc->url().toDisplayString()),
                            i18nc("@title:window", "Could not add project"));
         doc->deleteLater();
     } else if (!portfolio->addDocument(doc)) {
-        KMessageBox::sorry(this, xi18nc("@info", "The project already exists.<nl/>Project: %1<nl/> Document: %2", doc->project()->name(), doc->url().toDisplayString()),
+        KMessageBox::sorry(this, xi18nc("@info", "The project already exists, the project will not be added.<nl/>Project: %1<nl/> Document: %2", doc->project()->name(), doc->url().toDisplayString()),
                            i18nc("@title:window", "Could not add project"));
         doc->deleteLater();
     } else {
