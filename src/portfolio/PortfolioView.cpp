@@ -74,17 +74,19 @@ void RecentFilesModel::populate(const QList<QAction*> actions)
 {
     clear();
     setColumnCount(1);
-    setRowCount(actions.count());
     setHeaderData(0, Qt::Horizontal, i18nc("@title:column", "Recent Portfolios"));
-    QModelIndex idx = index(rowCount()-1, 0);
     for (const QAction *a : actions) {
         // KRecentFilesAction format: <name> [<file path>]
         QString s = a->text();
         QString file = s.mid(s.indexOf(QLatin1Char('['))+1);
         file = file.left(file.lastIndexOf(QLatin1Char(']')));
+        if (!file.endsWith(QStringLiteral(".planp"))) {
+            continue;
+        }
+        setRowCount(rowCount()+1);
+        const auto idx = index(rowCount()-1, 0);
         setData(idx, s, Qt::EditRole);
         setData(idx, file, Qt::UserRole+1);
-        idx = idx.sibling(idx.row()-1, idx.column());
     }
 }
 
