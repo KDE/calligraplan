@@ -78,13 +78,14 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
 
     MainDocument *maindoc = qobject_cast<MainDocument*>(rootDocument());
     if (!maindoc || !maindoc->documentPart()) {
+        errorPortfolio<<"Failed to save, no main document";
         return true;
     }
     int outputFlag = maindoc->specialOutputFlag();
     if (specialOutputFlag != 0) {
         outputFlag = specialOutputFlag;
     }
-    //qInfo()<<Q_FUNC_INFO<<maindoc<<maindoc->specialOutputFlag()<<specialOutputFlag<<outputFlag;
+    debugPortfolio<<maindoc<<maindoc->specialOutputFlag()<<specialOutputFlag<<outputFlag;
     bool ret = false;
     if (saveas) {
         QList<KoDocument*> children;
@@ -95,11 +96,17 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
             }
         }
         DocumentsSaveDialog dlg(maindoc, children);
-        if (dlg.exec() == QDialog::Accepted) {
-            if (dlg.saveMain()) {
-                const auto url = dlg.mainUrl();
-                maindoc->setUrl(url);
-                ret = KoMainWindow::saveDocumentInternal(false, false, outputFlag);
+        if (dlg.exec() != QDialog::Accepted) {
+            return false;
+        }
+        if (dlg.saveMain()) {
+            const auto url = dlg.mainUrl();
+            maindoc->setUrl(url);
+            maindoc->setLocalFilePath(url.path());
+            ret = KoMainWindow::saveDocumentInternal(false, false, outputFlag);
+            debugPortfolio<<"saved?"<<ret<<url<<maindoc->localFilePath();
+            if (ret) {
+                addRecentURL(QLatin1String(), url);
             }
             const auto children = dlg.documentsToSave();
             for (const auto child : children) {
