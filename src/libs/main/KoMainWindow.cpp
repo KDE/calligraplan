@@ -714,6 +714,17 @@ bool KoMainWindow::openDocument(const QUrl &url)
         saveRecentFiles();
         return false;
     }
+    if (d->rootDocument && !d->rootDocument->isEmpty()) {
+        // newdoc must be opened in a new mainwindow
+        auto newpart = createPart();
+        if (!newpart) {
+            return false;
+        }
+        KoMainWindow *s = newpart->createMainWindow();
+        newpart->addMainWindow(s);
+        s->show();
+        return s->openDocument(newpart, url);
+    }
     return openDocumentInternal(url);
 }
 
@@ -907,6 +918,7 @@ bool KoMainWindow::saveDocument(bool saveas, bool silent, int specialOutputFlag)
 bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutputFlag)
 {
     if (!d->rootDocument || !d->rootPart) {
+        warnMain<<"Failed to save, no root document";
         return true;
     }
 
