@@ -36,6 +36,9 @@ public:
 
     QList<KoDocument*> documentsToSave() const;
 
+private Q_SLOTS:
+    void dialogAccepted();
+
 private:
     Ui::DocumentsSaveDialog ui;
     MainDocument *m_doc;

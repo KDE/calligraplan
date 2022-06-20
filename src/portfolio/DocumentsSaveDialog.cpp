@@ -10,6 +10,9 @@
 #include <MainDocument.h>
 
 #include <KoDocument.h>
+#include <KoNetAccess.h>
+
+#include <KMessageBox>
 
 #include <QTreeView>
 #include <QStandardItemModel>
@@ -94,6 +97,7 @@ DocumentsSaveDialog::DocumentsSaveDialog(MainDocument *doc, const QList<KoDocume
     ui.subdocsView->setRootIsDecorated(false);
 
     setMainWidget(ui.mainWidget);
+    connect(this, &QDialog::accepted, this, &DocumentsSaveDialog::dialogAccepted);
 }
 
 bool DocumentsSaveDialog::saveMain() const
@@ -121,4 +125,15 @@ QList<KoDocument*> DocumentsSaveDialog::documentsToSave() const
         }
     }
     return docs;
+}
+
+void DocumentsSaveDialog::dialogAccepted()
+{
+    if (saveMain()) {
+        if (KIO::NetAccess::exists(mainUrl(), KIO::NetAccess::SourceSide, nullptr)) {
+            if (KMessageBox::warningYesNo(this, i18n("The file already exists. Do you want to overwite?"), i18nc("@title:window", "TEST")) == KMessageBox::No) {
+                done(QDialog::Rejected);
+            }
+        }
+    }
 }
