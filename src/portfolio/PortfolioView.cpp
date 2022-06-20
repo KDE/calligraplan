@@ -83,8 +83,8 @@ void RecentFilesModel::populate(const QList<QAction*> actions)
         if (!file.endsWith(QStringLiteral(".planp"))) {
             continue;
         }
-        setRowCount(rowCount()+1);
-        const auto idx = index(rowCount()-1, 0);
+        insertRow(0);
+        const auto idx = index(0, 0);
         setData(idx, s, Qt::EditRole);
         setData(idx, file, Qt::UserRole+1);
     }
