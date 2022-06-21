@@ -52,11 +52,14 @@ QVariant ResourceModel::data(const QModelIndex &idx, int role) const
         const auto ids = m_resourceIds.keys();
         return ids.value(idx.row());
     }
-    if (role != Qt::DisplayRole) {
-        return QVariant();
+    switch (role) {
+        case Qt::DisplayRole: {
+            const auto names = m_resourceIds.values();
+            return names.value(idx.row());
+        }
+        default: break;
     }
-    const auto names = m_resourceIds.values();
-    return names.value(idx.row());
+    return QVariant();
 }
 
 MainDocument *ResourceModel::portfolio() const
@@ -129,7 +132,6 @@ void ResourceModel::documentChanged(KoDocument *doc, int row)
 
 void ResourceModel::projectChanged(KoDocument *doc)
 {
-    qInfo()<<Q_FUNC_INFO<<doc;
     documentChanged(doc, m_portfolio->documents().indexOf(doc));
 }
 

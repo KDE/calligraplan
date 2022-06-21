@@ -21,11 +21,25 @@
 ResourceUsageModel::ResourceUsageModel(QObject *parent)
     : QAbstractTableModel(parent)
     , m_portfolio(nullptr)
+    , m_minimumStartDate(QDate::currentDate())
 {
 }
 
 ResourceUsageModel::~ResourceUsageModel()
 {
+}
+
+void ResourceUsageModel::setDateRange(const QDate &min, const QDate &max)
+{
+    beginResetModel();
+    m_minimumStartDate = min;
+    if (max.isValid() && max < min) {
+        m_maximumEndDate = min;
+    } else {
+        m_maximumEndDate = max;
+    }
+    updateData();
+    endResetModel();
 }
 
 int ResourceUsageModel::rowCount(const QModelIndex &parent) const
@@ -53,25 +67,40 @@ QVariant ResourceUsageModel::headerData(int section, Qt::Orientation orientation
     if (role == AXISRANGEROLE) {
         return QList<QVariant>() << 0.0 << m_normalMax << 0.0 << m_stackedMax;
     }
-    if (role != Qt::DisplayRole) {
-        return QVariant();
-    }
     if (m_usage.isEmpty()) {
         return QVariant();
     }
-    if (orientation == Qt::Vertical) {
-        // x-axis labels (dates)
-        const auto dates = m_usage.keys();
-        return QLocale().toString(dates.value(section), QLocale::ShortFormat);
-    } else if (orientation == Qt::Horizontal) {
-        // legends (task names)
-        const auto dates = m_usage.keys();
-        const auto tasks = m_usage.value(dates.at(0)).keys();
-        if (section >= tasks.count()) {
-            return i18n("No task");
+    if (orientation == Qt::Horizontal) {
+        switch (role) {
+            case Qt::DisplayRole: {
+                // legends (task names)
+                const auto dates = m_usage.keys();
+                const auto tasks = m_usage.value(dates.at(0)).keys();
+                const auto taskName = tasks.value(section);
+                return taskName;
+            }
+            case Qt::TextAlignmentRole:
+                return Qt::AlignLeft;
+            default:
+                return QVariant();
         }
-        const auto task = tasks.value(section);
-        return task->name();
+    } else if (orientation == Qt::Vertical) {
+        switch (role) {
+            case Qt::DisplayRole: {
+                // x-axis labels (dates)
+                const auto dates = m_usage.keys();
+                return QLocale().toString(dates.value(section), QLocale::ShortFormat);
+            }
+            case Qt::ForegroundRole: {
+                const auto dates = m_usage.keys();
+                const auto date = dates.value(section);
+                if (date == QDate::currentDate()) {
+                    return QColor::fromRgb(0xFF, 0, 0);
+                }
+            }
+            default:
+                return QVariant();
+        }
     }
     return QVariant();
 }
@@ -84,17 +113,31 @@ QVariant ResourceUsageModel::data(const QModelIndex &idx, int role) const
         auto v = m_available.value(date);
         return v;
     }
-    if (role != Qt::DisplayRole) {
+    if (role != Qt::DisplayRole && role != Qt::ToolTipRole) {
         return QVariant();
     }
-    const auto dates = m_usage.keys();
-    const auto date = dates.at(idx.row());
-    const auto map = m_usage.value(date);
-    const auto values = map.values();
-    if (values.isEmpty()) {
-        return 0.0;
+    switch (role) {
+        case Qt::DisplayRole: {
+            const auto dates = m_usage.keys();
+            const auto date = dates.at(idx.row());
+            const auto map = m_usage.value(date);
+            const auto values = map.values();
+            return values.isEmpty() ? 0.0 : values.at(idx.column()).second;
+        }
+        case Qt::ToolTipRole: {
+            const auto dates = m_usage.keys();
+            const auto date = dates.at(idx.row());
+            const auto map = m_usage.value(date);
+            const auto tasks = map.values();
+            const auto task = tasks.value(idx.column()).first;
+            if (!task) {
+                return i18n("No task");
+            }
+            return xi18nc("@info:tooltip", "WBS: %1<nl/>Task: %2<nl/>Project: %3", task->wbsCode(), task->name(), task->projectNode()->name());
+        }
+        default: break;
     }
-    return values.at(idx.column());
+    return QVariant();
 }
 
 MainDocument *ResourceUsageModel::portfolio() const
@@ -172,6 +215,8 @@ void ResourceUsageModel::projectChanged(KoDocument *doc)
 
 void ResourceUsageModel::initiateEmptyData()
 {
+    m_usage.clear();
+    m_available.clear();
     m_normalMax = 0.0;
     m_stackedMax = 0.0;
     int size = 0;
@@ -186,11 +231,25 @@ void ResourceUsageModel::initiateEmptyData()
                 continue;
             }
             const auto sid = sm->scheduleId();
-            const auto s = project->startTime(sid).date();
-            if (!startDate.isValid() || (s.isValid() && startDate > s)) {
-                startDate = project->startTime(sid).date();
+            auto e = project->endTime(sid).date();
+            if (!e.isValid()) {
+                continue;
             }
-            endDate = std::max<QDate>(endDate, project->endTime(sid).date());
+            if (m_maximumEndDate.isValid()) {
+                e = std::min<QDate>(e, m_maximumEndDate);
+            }
+            if (e < m_minimumStartDate) {
+                continue;
+            }
+            endDate = std::max<QDate>(endDate, e);
+            auto s = project->startTime(sid).date();
+            if (!s.isValid()) {
+                continue;
+            }
+            s = std::max(s, m_minimumStartDate);
+            if (!startDate.isValid() || s < startDate) {
+                startDate = s;
+            }
         }
         if (startDate.isValid() && endDate.isValid()) {
             size = startDate.daysTo(endDate) + 1;
@@ -200,31 +259,26 @@ void ResourceUsageModel::initiateEmptyData()
         size = 5;
     }
     if (!startDate.isValid()) {
-        startDate = QDate::currentDate();
+        startDate = m_minimumStartDate;
     }
     for (int i = 0; i < size; ++i) {
         const auto date(startDate.addDays(i));
-        m_usage.insert(date, QHash<KPlato::Node*, double>());
+        m_usage.insert(date, QMap<QString, std::pair<KPlato::Node*, double>>());
     }
 }
 
 void ResourceUsageModel::setCurrentResource(const QString &id)
 {
-    m_currentResourceId = id;
-    if (id.isEmpty()) {
-        // no resource, just use default data
-        beginResetModel();
-        initiateEmptyData();
-        endResetModel();
-        return;
-    }
     beginResetModel();
+    m_currentResourceId = id;
     updateData();
     endResetModel();
 }
 
 void ResourceUsageModel::updateData()
 {
+    m_usage.clear();
+    m_available.clear();
     if (m_currentResourceId.isEmpty()) {
         // no resource, just use default data
         initiateEmptyData();
@@ -232,9 +286,8 @@ void ResourceUsageModel::updateData()
     }
     m_normalMax = 0.0;
     m_stackedMax = 0.0;
-    m_available.clear();
     if (m_portfolio) {
-        QList<KPlato::Node*> tasks;
+        QList<KPlato::Task*> tasks;
         QDate startDate;
         QDate endDate;
         // get a list of all tasks in all projects
@@ -247,17 +300,33 @@ void ResourceUsageModel::updateData()
                 continue;
             }
             const auto sid = sm->scheduleId();
-            const auto tasklist = project->allTasks();
-            for (const auto t : tasklist) {
+            auto e = project->endTime(sid).date();
+            if (!e.isValid()) {
+                continue;
+            }
+            if (m_maximumEndDate.isValid()) {
+                e = std::min<QDate>(e, m_maximumEndDate);
+            }
+            if (e < m_minimumStartDate) {
+                continue;
+            }
+            endDate = std::max<QDate>(endDate, e);
+            auto s = project->startTime(sid).date();
+            if (!s.isValid()) {
+                continue;
+            }
+            s = std::max(s, m_minimumStartDate);
+            if (!startDate.isValid() || s < startDate) {
+                startDate = s;
+            }
+            QMap<QString, KPlato::Task*> taskList;
+            const auto lst = project->allTasks();
+            for (const auto t : lst) {
                 if (t->type() == KPlato::Node::Type_Task && t->isScheduled(sid)) {
-                    tasks << t;
+                    taskList.insert(t->name(), t);
                 }
             }
-            const auto s = project->startTime(sid).date();
-            if (!startDate.isValid() || (s.isValid() && startDate > s)) {
-                startDate = project->startTime(sid).date();
-            }
-            endDate = std::max<QDate>(endDate, project->endTime(sid).date());
+            tasks = taskList.values();
         }
         if (!startDate.isValid() || !endDate.isValid()) {
             return;
@@ -267,7 +336,7 @@ void ResourceUsageModel::updateData()
         for (int i = 0; i < size; ++i) {
             const auto date(startDate.addDays(i));
             for (auto t : qAsConst(tasks)) {
-                m_usage[date].insert(t, 0.0);
+                m_usage[date].insert(t->name(), std::pair<KPlato::Node*, double>(t, (double)0.0));
             }
         }
         KPlato::Resource *currentResource =nullptr;
@@ -293,12 +362,13 @@ void ResourceUsageModel::updateData()
             }
             const auto appointments = schedule->appointments();
             for (const auto a : appointments) {
-                auto task = a->node()->node();
+                auto task = static_cast<KPlato::Task*>(a->node()->node());
                 const auto intervalList = a->intervals();
                 for (int i = 0; i < size; ++i) {
-                    KPlato::DateTime date(startDate.addDays(i));
+                    const KPlato::DateTime date(startDate.addDays(i));
                     double effort = intervalList.effort(date, date.addDays(1)).toDouble();
-                    m_usage[date.date()].insert(task, effort);
+                    auto te = std::pair<KPlato::Node*, double>(task, effort);
+                    m_usage[date.date()].insert(task->name(), te);
                     if (effort > 0.0  && tasks.contains(task)) {
                         tasks.removeOne(task);
                     }
@@ -306,19 +376,19 @@ void ResourceUsageModel::updateData()
             }
         }
         // Remove tasks not used by this resource
-        QMap<QDate, QHash<KPlato::Node*, double> >::iterator it;
+        QMap<QDate, QMap<QString, std::pair<KPlato::Node*, double>>>::iterator it;
         for (it = m_usage.begin(); it != m_usage.end(); ++it) {
             for (auto task : qAsConst(tasks)) {
-                it.value().remove(task);
+                it.value().remove(task->name());
             }
         }
         for (it = m_usage.begin(); it != m_usage.end(); ++it) {
             double total = 0.0;
             const auto tasks = it.value();
-            QHash<KPlato::Node*, double>::const_iterator taskIt = tasks.constBegin();
+            QMap<QString, std::pair<KPlato::Node*, double>>::const_iterator taskIt = tasks.constBegin();
             for (; taskIt != tasks.constEnd(); ++taskIt) {
-                total += taskIt.value();
-                m_normalMax = std::max(m_normalMax, taskIt.value());
+                total += taskIt.value().second;
+                m_normalMax = std::max(m_normalMax, taskIt.value().second);
             }
             m_stackedMax = std::max(m_stackedMax, total);
         }

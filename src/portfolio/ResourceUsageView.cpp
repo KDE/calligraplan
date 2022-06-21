@@ -51,6 +51,7 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
     auto bar = qobject_cast<KChart::BarDiagram*>(ui.chart->chart()->coordinatePlane()->diagram());
     bar->setType(KChart::BarDiagram::Stacked);
     ui.chart->legend()->setTitleText(i18n("Tasks"));
+    ui.chart->legend()->setTextAlignment(Qt::AlignLeft|Qt::AlignVCenter);
 
     auto *m = new ResourceAvailableModel(this);
     m->setSourceModel(&ui.chart->filterModel());
@@ -167,8 +168,10 @@ void ResourceUsageView::slotUpdateNumDays()
 
 void ResourceUsageView::slotNumDaysChanged(int value)
 {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     ui.chart->setNumRows(value);
     updateMarker();
+    QApplication::restoreOverrideCursor();
 }
 
 void ResourceUsageView::updateMarker()

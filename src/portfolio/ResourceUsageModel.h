@@ -47,6 +47,7 @@ public:
 
 public Q_SLOTS:
     void setPortfolio(MainDocument *portfolio);
+    void setDateRange(const QDate &min, const QDate &max = QDate());
 
 Q_SIGNALS:
     void portfolioChanged();
@@ -67,10 +68,13 @@ protected:
 protected:
     MainDocument *m_portfolio;
     QString m_currentResourceId;
-    QMap<QDate, QHash<KPlato::Node*, double> > m_usage; // QMap<date, QMap<task, effort (hours)> >
+    // using a qmap within a qmap to get tasks sorted by name in legend
+    QMap<QDate, QMap<QString, std::pair<KPlato::Node*, double>>> m_usage; // QMap<date, QMap<taskname, std:pair<Node*, effort (hours)> >
     double m_normalMax;
     double m_stackedMax;
     QMap<QDate, double> m_available;
+    QDate m_minimumStartDate;
+    QDate m_maximumEndDate;
 };
 
 class ResourceAvailableModel : public QSortFilterProxyModel
