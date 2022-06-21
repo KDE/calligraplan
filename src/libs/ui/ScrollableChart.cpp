@@ -27,7 +27,7 @@ ScrollableChart::ScrollableChart(QWidget *parent)
     axis = new KChart::CartesianAxis();
     axis->setPosition(KChart::CartesianAxis::Left);
     bar->addAxis(axis);
-
+    bar->useSubduedColors();
     bar->setModel(&m_model);
     ui.chart->coordinatePlane()->addDiagram(bar);
     ui.legend->setDiagram(bar);
