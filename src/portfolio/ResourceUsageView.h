@@ -70,6 +70,8 @@ protected:
 
 private:
     void setupGui();
+private Q_SLOTS:
+    void slotDrawingFinished();
 
 private:
     bool m_readWrite;
@@ -77,6 +79,7 @@ private:
     ResourceUsageModel m_resourceUsageModel;
     QSpinBox *m_numDays;
     LineDiagram *m_available;
+    unsigned int m_restoreOverrideCursor = 0;
 };
 
 #endif

@@ -26,6 +26,7 @@
 
 #include <QWidgetAction>
 #include <QSpinBox>
+#include <QTimer>
 
 ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent)
@@ -77,11 +78,15 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
     ui.chart->setDataModel(&m_resourceUsageModel);
 
     //ui.chart->chart()->coordinatePlane()->setRubberBandZoomingEnabled(true);
+    connect(ui.chart->chart(), &KChart::Chart::finishedDrawing, this, &ResourceUsageView::slotDrawingFinished);
 
     connect(ui.resourceView->selectionModel(), &QItemSelectionModel::currentChanged, this, &ResourceUsageView::slotCurrentIndexChanged);
 
     connect(&m_resourceUsageModel, &ResourceUsageModel::modelReset, this, &ResourceUsageView::slotUpdateNumDays);
     slotUpdateNumDays();
+
+    // turn off waitcursor
+    QTimer::singleShot(0, this, &ResourceUsageView::slotDrawingFinished);
 }
 
 ResourceUsageView::~ResourceUsageView()
@@ -111,8 +116,12 @@ void ResourceUsageView::setupGui()
     m_numDays = new QSpinBox();
     m_numDays->setObjectName(QStringLiteral("diagramrange"));
     m_numDays->setToolTip(numDays->text());
-    m_numDays->setSpecialValueText(i18n("All"));
-    m_numDays->setSpecialValueText(m_numDays->specialValueText());
+    // FIXME: Setting 'All' (0) does not work for large charts
+    // as redrawing may take way too much time rendering the view useless.
+    //m_numDays->setSpecialValueText(i18n("All"));
+    //m_numDays->setSpecialValueText(m_numDays->specialValueText());
+    m_numDays->setMinimum(1);
+
     connect(m_numDays, QOverload<int>::of(&QSpinBox::valueChanged), this, &ResourceUsageView::slotUpdateNumDays);
 
     numDays->setDefaultWidget(m_numDays);
@@ -143,6 +152,8 @@ KoPrintJob *ResourceUsageView::createPrintJob()
 void ResourceUsageView::slotCurrentIndexChanged(const QModelIndex &current, const QModelIndex &previous)
 {
     Q_UNUSED(previous);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    ++m_restoreOverrideCursor;
     m_resourceUsageModel.setCurrentResource(current.data(RESOURCEID_ROLE).toString());
 }
 
@@ -169,9 +180,9 @@ void ResourceUsageView::slotUpdateNumDays()
 void ResourceUsageView::slotNumDaysChanged(int value)
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
+    ++m_restoreOverrideCursor;
     ui.chart->setNumRows(value);
     updateMarker();
-    QApplication::restoreOverrideCursor();
 }
 
 void ResourceUsageView::updateMarker()
@@ -183,6 +194,14 @@ void ResourceUsageView::updateMarker()
     dva.setMarkerAttributes(ma);
     m_available->setDataValueAttributes(dva);
     ui.chart->chart()->update();
+}
+
+void ResourceUsageView::slotDrawingFinished()
+{
+    while (m_restoreOverrideCursor > 0) {
+        QApplication::restoreOverrideCursor();
+        --m_restoreOverrideCursor;
+    }
 }
 
 //--------------------
