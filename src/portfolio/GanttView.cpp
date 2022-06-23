@@ -77,6 +77,17 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
     tv->setContextMenuPolicy(Qt::CustomContextMenu);
 
     connect(tv, &QTreeView::customContextMenuRequested, this, &GanttView::slotCustomContextMenuRequested);
+
+    setWhatsThis(xi18nc("@info:whatsthis",
+        "<title>Gantt Summary</title>"
+        "<para>"
+        "Shows a gantt chart of all projects in your portfolio."
+        "</para><para>"
+        "A gantt view for a project can be shown by selecting <interface>Context Menu->Open Project</interface>."
+        "<nl/><link url='%1'>More...</link>"
+        "</para>", QStringLiteral("portfolio:ganttsummary")
+        ));
+
 }
 
 GanttView::~GanttView()

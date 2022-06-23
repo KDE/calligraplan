@@ -105,6 +105,20 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(ui.tomorrowRB, &QRadioButton::toggled, this, &SchedulingView::slotTomorrowToggled);
     connect(ui.timeRB, &QRadioButton::toggled, this, &SchedulingView::slotTimeToggled);
     connect(ui.calculate, &QPushButton::clicked, this, &SchedulingView::calculate);
+
+    setWhatsThis(xi18nc("@info:whatsthis",
+        "<title>Scheduling</title>"
+        "<para>"
+        "The Scheduling view lets you schedule the projects in your portfolio. The projects are scheduled according to their priority."
+        "</para><para>"
+        "Set <emphasis>Control</emphasis> to <emphasis>Schedule</emphasis> for the project or projects you want to schedule."
+        "<nl/>Set <emphasis>Control</emphasis> to <emphasis>Include</emphasis> to have resource assignments included in resource leveling."
+        "<nl/>Set <emphasis>Control</emphasis> to <emphasis>Exclude</emphasis> if you want to exclude the project."
+        "</para><para>"
+        "<note>If your projects share resources with projects that are not part of your portfolio, these projects needs to be included for resource leveling to work properly.</note>"
+        "</para><para>"
+        "<link url='%1'>More...</link>"
+        "</para>", QStringLiteral("portfolio:scheduling")));
 }
 
 SchedulingView::~SchedulingView()

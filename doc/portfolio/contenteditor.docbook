@@ -1,4 +1,4 @@
-<chapter id="content-editor"><title>Portfolio Content Editor</title>
+<chapter id="content-editor"><title>Portfolio Content</title>
   &WORK-IN-PROGRESS;
   <para>
   This editor enables you to configure the content of your portfolio.
@@ -6,14 +6,19 @@
   Select <interface>Edit|Add</interface> or press <interface>Add...</interface> to add projects to your portfolio.
   Select <interface>Edit|Remove</interface> or press <interface>Remove</interface> to remove selected projects.
   </para><para>
-  Add the projects you are managing and set Portfolio = Yes.
-  If you have resources that is shared between multiple projects and you want to re-schedule, you need to add all relevant projects
-  and then set Portfolio = No. 
+  Add the projects you are managing and set <emphasis>Portfolio</emphasis> = <emphasis>Yes</emphasis>.
   </para><para>
-  Project changes can be stored to the original project file or it can be embedded into the portfolio file.
-  If you are managing projects, they should normally be saved to their original files. Set Store = External in this case.
+  If you have resources that is used by projects not part of your portfolio  and you want to re-schedule or inspect resource usage,
+  you need to add all relevant projects and set <emphasis>Portfolio</emphasis> = <emphasis>No</emphasis> for these projects.
+  </para>
+  <formalpara><title>Storage</title>
+  <para></para>
+  </formalpara>
+  <para>
+  Project changes can be saved to the original project file or it can be embedded into the portfolio file.
+  If you are managing projects, they should normally be saved to their original files. Set <emphasis>Store</emphasis> = <emphasis>External</emphasis> in this case.
   However, if you just want to see what impact changes might have, you may want to store projects
-  embedded while you are working on different scenarios. Set Store = Embedded in this case.
-  The projects external url is preserved if you later want to save the changes.
+  embedded while you are working on different scenarios. Set <emphasis>Store</emphasis> = <emphasis>Embedded</emphasis> in this case.
+  The projects external url is preserved if you later want to save the changes to the original file.
   </para>
 </chapter>

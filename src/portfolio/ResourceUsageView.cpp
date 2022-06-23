@@ -11,6 +11,7 @@
 #include "MainDocument.h"
 
 #include <KoIcon.h>
+#include <Help.h>
 
 #include <ScrollableChart.h>
 
@@ -87,6 +88,14 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
 
     // turn off waitcursor
     QTimer::singleShot(0, this, &ResourceUsageView::slotDrawingFinished);
+
+    setWhatsThis(xi18nc("@info:whatsthis",
+        "<title>Resource Usage</title>"
+        "<para>"
+        "This view shows the resources task assignments for each day."
+        "</para><para>"
+        "<nl/><link url='%1'>More...</link>"
+        "</para>", QStringLiteral("portfolio:resourceusage")));
 }
 
 ResourceUsageView::~ResourceUsageView()

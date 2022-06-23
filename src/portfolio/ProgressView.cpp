@@ -58,11 +58,30 @@ ProgressView::ProgressView(KoPart *part, KoDocument *doc, QWidget *parent)
     << KPlato::NodeModel::NodeDescription;
     m_detailsView->showColumns(show);
     m_detailsView->setViewSplitMode(false);
+    m_detailsView->setWhatsThis(QLatin1String()); // remove default text
     insertChildClient(m_detailsView);
 
     connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ProgressView::selectionChanged);
 
     sp->setStretchFactor(1, 10);
+
+    setWhatsThis(xi18nc("@info:whatsthis",
+        "<title>Progress</title>"
+        "<para>"
+        "This view is used to inspect and edit task progress information for the selected project."
+        "<nl/>The tasks are divided into groups dependent on the task status:"
+        "<list>"
+        "<item><emphasis>Not Started:</emphasis> Tasks that should have been started by now.</item>"
+        "<item><emphasis>Running:</emphasis> Tasks that has been started, but not yet finished.</item>"
+        "<item><emphasis>Finished:</emphasis> Tasks that where finished in this period.</item>"
+        "<item><emphasis>Next Period:</emphasis> Tasks that is scheduled to be started in the next period.</item>"
+        "</list>"
+        "The time period is configurable."
+        "</para><para>"
+        "This view supports configuration and printing using the context menu."
+        "<nl/><link url='%1'>More...</link>"
+        "</para>", QStringLiteral("portfolio:progress")
+        ));
 }
 
 ProgressView::~ProgressView()

@@ -139,10 +139,12 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
                                    "Select <interface>Edit|Add</interface> or press <interface>Add...</interface> to add projects to your portfolio.<nl/>"
                                    "Select <interface>Edit|Remove</interface> or press <interface>Remove</interface> to remove selected projects."
                                    "</para><para>"
-                                   "Add the projects you are managing and set Portfolio = Yes."
-                                   " If you have resources that is shared between multiple projects and you want to re-schedule, you need to add all relevant projects"
-                                   " and then set Portfolio = No for these projects."
-                                   "<nl/><link url='%1'>More...</link>"
+                                   "Add the projects you are managing and set <emphasis>Portfolio</emphasis> = <emphasis>Yes</emphasis>."
+                                   "</para><para>"
+                                   "<note>If you have resources that are shared between multiple projects and you want to re-schedule or inspect resource usage, you need to add all relevant projects"
+                                   " and then set <emphasis>Portfolio</emphasis> = <emphasis>No</emphasis> for these projects.</note>"
+                                   "</para><para>"
+                                   "<link url='%1'>More...</link>"
                                    "</para>", QStringLiteral("portfolio:content-editor")
                                    )
                       );

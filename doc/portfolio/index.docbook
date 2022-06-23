@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY portfolio-introduction-chapter SYSTEM "portfoliointroduction.docbook">
-<!ENTITY introduction-section SYSTEM "introduction.docbook">
-<!ENTITY context-help-section SYSTEM "contexthelp.docbook">
-<!ENTITY content-editor-chapter SYSTEM "contenteditor.docbook">
-<!ENTITY scheduling-view-chapter SYSTEM "schedulingview.docbook">
-<!ENTITY summary-view-chapter SYSTEM "summaryview.docbook">
-<!ENTITY performance-view-chapter SYSTEM "performanceview.docbook">
-<!ENTITY progress-view-chapter SYSTEM "progressview.docbook">
-<!ENTITY resourceusage-view-chapter SYSTEM "resourceusageview.docbook">
-<!ENTITY ganttsummary-view-chapter SYSTEM "ganttsummaryview.docbook">
+<!ENTITY introduction-chapter SYSTEM "portfoliointroduction.docbook">
+<!ENTITY introduction SYSTEM "introduction.docbook">
+<!ENTITY context-help SYSTEM "contexthelp.docbook">
+<!ENTITY content-editor SYSTEM "contenteditor.docbook">
+<!ENTITY scheduling SYSTEM "schedulingview.docbook">
+<!ENTITY summary SYSTEM "summaryview.docbook">
+<!ENTITY performance SYSTEM "performanceview.docbook">
+<!ENTITY progress SYSTEM "progressview.docbook">
+<!ENTITY resourceusage SYSTEM "resourceusageview.docbook">
+<!ENTITY ganttsummary SYSTEM "ganttsummaryview.docbook">
 <!ENTITY portfolio-configuration-dialog SYSTEM "portfolioconfiguration.docbook">
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE"><!-- change language only here -->
@@ -41,16 +41,16 @@
     </keywordset>
   </bookinfo>
 
-  &portfolio-introduction-chapter;
-  &content-editor-chapter;
-  &scheduling-view-chapter;
-  &summary-view-chapter;
-  &progress-view-chapter;
-  &performance-view-chapter;
-  &resourceusage-view-chapter;
-  &ganttsummary-view-chapter;
+  &introduction-chapter;
+  &content-editor;
+  &scheduling;
+  &summary;
+  &progress;
+  &performance;
+  &resourceusage;
+  &ganttsummary;
   &portfolio-configuration-dialog;
-  
+
   <!--userbase-content-->
   <chapter id="credits">
     <title>Credits and License</title>

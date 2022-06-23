@@ -83,7 +83,7 @@ SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
                         "Performance indexes are shown for both cost based and effort based calculations."
                         "</para><para>"
                         "<nl/><link url='%1'>More...</link>"
-                        "</para>", QStringLiteral("portfolio:summary-view")
+                        "</para>", QStringLiteral("portfolio:summary")
                     )
                 );
 }

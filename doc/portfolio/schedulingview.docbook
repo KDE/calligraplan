@@ -1,6 +1,66 @@
-<chapter id="scheduling-view"><title>Scheduling</title>
+<chapter id="scheduling"><title>Scheduling</title>
+<sect1 id="scheduling-description"><title>Description</title>
+
   &WORK-IN-PROGRESS;
   <para>
-  Schedule projects.
+  The Scheduling view lets you schedule the projects in your portfolio. The projects are scheduled according to their priority.
+  </para><para>
+  Set <emphasis>Control</emphasis> to <emphasis>Schedule</emphasis> for the project or projects you want to schedule.
+  Set <emphasis>Control</emphasis> to <emphasis>Include</emphasis> to have resource assignments included in resource leveling.
+  Set <emphasis>Control</emphasis> to <emphasis>Exclude</emphasis> if you want to exclude the project.
   </para>
+  <tip><para>
+  If your projects share resources with projects that are not part of your portfolio,
+  these projects needs to be included for resource leveling to work properly.
+  See <xref linkend="content-editor"/>.
+  </para></tip>
+  <para>
+  </para><para>
+  The view has tree sections:
+  <itemizedlist>
+    <listitem><para><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para></listitem>
+    <listitem><para><xref linkend="scheduling-control" xrefstyle="select:title"/>.</para></listitem>
+    <listitem><para><xref linkend="scheduling-log" xrefstyle="select:title"/>.</para></listitem>
+  </itemizedlist>
+  </para>
+</sect1>
+<sect1 id="scheduling-projecttable"><title>Table of Projects</title>
+  <para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead><row>
+          <entry><guilabel>Name</guilabel></entry>
+          <entry><guilabel>Description</guilabel></entry>
+        </row></thead>
+      <tbody>
+      <row><entry>Name</entry><entry>Project name</entry></row>
+      <row><entry>Schedule</entry><entry>Schedule name</entry></row>
+      <row><entry>Status</entry><entry>Scheduling status</entry></row>
+      <row><entry>Control</entry>
+        <entry>
+          Scheduling control can have the following values:
+          <itemizedlist>
+            <listitem><para><emphasis>Schedule:</emphasis> The project will be scheduled.</para></listitem>
+            <listitem><para><emphasis>Include:</emphasis> Resource bookings will be included in resource levelling.</para></listitem>
+            <listitem><para><emphasis>Exclude:</emphasis> The project will not be included.</para></listitem>
+          </itemizedlist>
+        </entry>
+      </row>
+      <row><entry>Priority</entry><entry>Project priority. A higer number means higher priority.</entry></row>
+      <row><entry>Target Start</entry><entry>The earliest project start time</entry></row>
+      <row><entry>Target End</entry><entry>The latest project finish time</entry></row>
+      <row><entry>Description</entry><entry>Project description</entry></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</sect1>
+<sect1 id="scheduling-control"><title>Scheduling Control</title>
+  <para>
+  </para>
+</sect1>
+<sect1 id="scheduling-log"><title>Scheduling Log</title>
+  <para>
+  </para>
+</sect1>
 </chapter>
