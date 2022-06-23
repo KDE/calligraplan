@@ -117,6 +117,9 @@ QVariant SchedulingModel::extraColumnData(const QModelIndex &parent, int row, in
     if (!doc) {
         return QVariant();
     }
+    if (role >= Qt::UserRole) {
+        return index(row, 0, parent).data(role);
+    }
     switch (extraColumn) {
         case 0: { // Status
             switch (role) {
