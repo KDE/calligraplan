@@ -37,7 +37,16 @@ Help::Help()
     }
     self = this;
     m_contentsUrl.setScheme(QStringLiteral("help"));
+#ifdef Q_OS_WIN
+    // Url looks like this:
+    // https://docs.kde.org/trunk5/en/calligraplan/calligraplan/portfolio/index.html
+    // https://docs.kde.org/trunk5/en/calligraplan/calligraplan/plan/index.html
+    m_contextUrl.setScheme(QStringLiteral("https"));
+    m_contextUrl.setHost(QStringLiteral("docs.kde.org"));
+    m_contextUrl.setPath(QStringLiteral("/trunk5/en/calligraplan/calligraplan/")); // FIXME: language + trunk/stable
+#else
     m_contextUrl.setScheme(QStringLiteral("help"));
+#endif
 }
 
 Help::~Help()
@@ -104,42 +113,22 @@ bool KPlato::Help::invokeContent(QUrl url)
 
 bool KPlato::Help::invokeContext(QUrl url)
 {
-    debugPlanHelp<<"treat:"<<url.scheme()<<url.path()<<url.fragment()<<m_contextUrl.scheme()<<m_contextUrl.host()<<m_contextUrl.path();
-    QString document = doc(url.scheme());
-    if (document.isEmpty()) {
+    debugPlanHelp<<"treat:"<<url.scheme()<<url.path()<<url.fragment()<<':'<<m_contextUrl;
+    if (url.scheme().isEmpty()) {
+        warnPlanHelp<<"Empty dcument type, cannot open document";
         return false;
     }
-    QString s = m_contextUrl.scheme();
-    if (!s.isEmpty()) {
-        s += QLatin1Char(':');
+    QUrl helpUrl;
+    helpUrl.setScheme(m_contextUrl.scheme());
+    debugPlanHelp<<"open:"<<helpUrl<<helpUrl.scheme()<<helpUrl.host()<<helpUrl.path();
+    if (helpUrl.scheme() == QStringLiteral("help")) {
+        helpUrl.setPath(doc(url.scheme()) + QLatin1Char('/') + url.path() + QStringLiteral(".html"));
+    } else {
+        helpUrl.setHost(m_contextUrl.host());
+        helpUrl.setPath(QLatin1Char('/') + m_contextUrl.path() + url.scheme() + QLatin1Char('/') + url.path() + QStringLiteral(".html"));
     }
-    if (!m_contextUrl.host().isEmpty()) {
-        s += m_contextUrl.host() + QLatin1Char('/');
-        if (m_contextUrl.host() == QStringLiteral("docs.kde.org")) {
-            auto path = m_contextUrl.path();
-            if (path.isEmpty()) {
-                s += QStringLiteral("trunk5/en/") + document;
-            } else {
-                if (path.startsWith(QLatin1Char('/'))) {
-                    path.remove(0, 1);
-                }
-                s += path;
-            }
-            if (!s.endsWith(QLatin1Char('/'))) {
-                s += QLatin1Char('/');
-            }
-        }
-    }
-    s += document + QLatin1Char('/');
-    s += url.path();
-    if (!s.endsWith(QStringLiteral(".html"))) {
-        s += QStringLiteral(".html");
-    }
-    if (url.hasFragment()) {
-        s += QLatin1Char('#') + url.fragment();
-    }
-    url = QUrl::fromUserInput(s);
-    debugPlanHelp<<"open:"<<url;
-    QDesktopServices::openUrl(url);
+    helpUrl.setFragment(url.fragment());
+    debugPlanHelp<<"open:"<<helpUrl;
+    QDesktopServices::openUrl(helpUrl);
     return true;
 }
