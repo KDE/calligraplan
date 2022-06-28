@@ -11,6 +11,7 @@
   <name xml:lang="fr">Plan Work</name>
   <name xml:lang="it">Plan Work</name>
   <name xml:lang="nl">Plan Work</name>
+  <name xml:lang="pl">Plan Praca</name>
   <name xml:lang="pt">Plan Work</name>
   <name xml:lang="sk">Plan Work</name>
   <name xml:lang="sl">Plan Work</name>
@@ -24,6 +25,7 @@
   <summary xml:lang="fr">Gestionnaire de lots de travaux</summary>
   <summary xml:lang="it">Gestore dei pacchetti di lavoro</summary>
   <summary xml:lang="nl">Verwerker van werkpakketten</summary>
+  <summary xml:lang="pl">Obsługa pakietów pracy</summary>
   <summary xml:lang="pt">Gestão de Pacotes de Trabalho</summary>
   <summary xml:lang="sk">Spracovač pracovných balíkov</summary>
   <summary xml:lang="sl">Upravljalnik paketov dela</summary>
@@ -40,6 +42,7 @@
     <p xml:lang="fr">Plan Work permet aux membres de projets de gérer toutes les tâches sur lesquelles ils doivent travailler au sein des projets.</p>
     <p xml:lang="it">Plan Work consente ai membri del progetto di gestire tutte le attività su cui devono lavorare nei progetti.</p>
     <p xml:lang="nl">Plan Work stelt projectleden in staat om alle taken te doen waaraan ze moeten werken over projecten.</p>
+    <p xml:lang="pl">Plan Praca umożliwia członkom zespołu obsługę wszystkich zadań, na których powinni pracować na przestrzeni projektów.</p>
     <p xml:lang="pt">O Plan Work permite aos membros do projecto lidarem com todas as tarefas nas quais irão trabalhar entre projectos.</p>
     <p xml:lang="sl">Plan Work omogoča članom projekta upravljanje z vsemi opravili na katerih bodo delali v projektih.</p>
     <p xml:lang="sv">Plan Arbete gör det möjligt för projektmedlemmar att hantera alla uppgifter de kommer att arbeta med i olika projekt.</p>
