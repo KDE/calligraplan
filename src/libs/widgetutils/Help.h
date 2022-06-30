@@ -33,12 +33,13 @@ namespace KPlato
  * <code>
  * KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(PLAN_MIME_TYPE);
  * QJsonObject json = entry.metaData();
- * auto docs = json.value("X-PLAN-Documentation").toVariant().toString().split(';', Qt::SkipEmptyParts);
+ * auto docs = json.value(QStringLiteral("X-PLAN-Documentation")).toVariant().toString().split(QLatin1Char(';'), Qt::SkipEmptyParts);
  * auto help = KPlato::Help::instance();
  * help->setDocs(docs);
- * help->setContentsUrl(QUrl(KPlatoSettings::documentationPath()));
- * help->setContextUrl(QUrl(KPlatoSettings::contextPath()));
- * qApp->installEventFilter(help); // this must go after filter installed by KMainWindow, so it will be called before
+ * help->setOnlineBaseUrl()); // If the docs are not in the default place
+ * help->setOnline(true); // If you want the online docs, else khelpcenter will use installed docs
+ * help->initiate();
+ * qApp->installEventFilter(help); // This must go after filter installed by KMainWindow, so it will be called before
  * </code>
  * In your widget:
  * <code>
@@ -61,10 +62,33 @@ class KOWIDGETUTILS_EXPORT Help : public QObject
     Q_OBJECT
 public:
     static Help *instance();
-    void setContentsUrl(const QUrl &url);
-    void setContextUrl(const QUrl &url);
+
+    // initiates help system
+    // Checks for khelpcenter and online documentation if online is set
+    void initiate();
+
+    // Set @p b to true if you want to get the online documentation
+    void setOnline(bool b);
+    // Set the base url to for the online documentation
+    void setOnlineBaseUrl(const QString &url);
+    QString onlineBaseUrl() const;
+
+    /// Used when protocol is help:
+    /// The doc name will normally then be the application name.
     void setDocs(const QStringList &docs);
-    QString doc(const QString &key) const;
+    void setDoc(const QString &id, const QString &doc);
+    QString doc(const QString &id) const;
+
+    /// Used when getting docs form docs.kde.org
+    /// We try to find the correct language but unfortunately
+    /// the docs are not stored excactly under a locale name.
+    void setDocLanguage(const QString &doc, const QString &language);
+    QString language(const QString &doc) const;
+
+    /// Set the language to be used.
+    /// Set an empty language to let the help search for documentation in your language.
+    /// The language must be equal to a language listed on https://docs.kde.org.
+    void setLanguage(const QString &language);
 
     bool invokeContent(QUrl url);
     bool invokeContext(QUrl url);
@@ -75,10 +99,15 @@ private:
     Help();
     ~Help() override;
 
+private:
     static Help* self;
-    QUrl m_contentsUrl;
-    QUrl m_contextUrl;
-    QMap<QString, QString> m_docs;
+    bool m_initiated = false;
+    bool m_khelpcenter = true;
+    bool m_online = false;
+    QString m_onlineBaseUrl;
+    QMap<QString, QString> m_docs; // QMap<id, doc> eg: QMap<plan, calligraplan>
+    QString m_language;
+    QMap<QString, QString> m_languages;
 };
 
 } // namespace KPlato

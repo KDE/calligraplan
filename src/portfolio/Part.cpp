@@ -45,14 +45,16 @@ KoView *Part::createViewInstance(KoDocument *document, QWidget *parent)
 KoMainWindow *Part::createMainWindow()
 {
     MainWindow *w = new MainWindow(PLANPORTFOLIO_MIME_TYPE.latin1(), componentData());
+
     KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(PLANPORTFOLIO_MIME_TYPE);
     QJsonObject json = entry.metaData();
     auto docs = json.value(QStringLiteral("X-PLAN-Documentation")).toVariant().toString().split(QLatin1Char(';'), Qt::SkipEmptyParts);
+
     auto help = KPlato::Help::instance();
     help->setDocs(docs);
-//     help->setContentsUrl(QUrl(KPlatoSettings::documentationPath()));
-//     help->setContextUrl(QUrl(KPlatoSettings::contextPath()));
-    qApp->installEventFilter(help); // this must go after filter installed by KMainWindow, so it will be called before
+    help->setOnline(true);
+    help->initiate();
+    qApp->installEventFilter(help);
 
     auto a = w->actionCollection()->action(QStringLiteral("configure"));
     if (a) {
