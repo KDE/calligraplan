@@ -1,5 +1,8 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY plan "<application>Plan</application>">
+<!ENTITY portfolio "<application>Plan Portfolio Manager</application>">
+<!ENTITY work "<application>Plan Work</application>">
 <!ENTITY plan-introduction-chapter SYSTEM "planintroduction.docbook">
 <!ENTITY guidelines-chapter SYSTEM "guidelines.docbook">
 <!ENTITY common-user-interface-chapter SYSTEM "commonuserinterface.docbook">

@@ -1,13 +1,17 @@
 <sect2><title/>
-<para>A new project can be created by pressing the <emphasis>New Project</emphasis> button or selecting a <emphasis>project template</emphasis> in the <link linkend="startup-view">Startup View</link>.
+<para>A new project can be created by pressing the <guibutton>New Project</guibutton> button
+    or selecting a <emphasis>project template</emphasis> in the <link linkend="startup-view">Startup View</link>.
 </para>
-<para>This will create a new project with default values defined in <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>  or from values defined in the template. The Project Settings Dialog will open to enable you to define project specific properties like <emphasis>project name</emphasis>, <emphasis>manager</emphasis> and <emphasis>target times</emphasis>.
+<para>This will create a new project with default values defined in <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>
+    or from values defined in the template. The Project Settings Dialog will open to enable you to define project specific properties
+    like <emphasis>project name</emphasis>, <emphasis>manager</emphasis> and <emphasis>target times</emphasis>.
 </para>
-<para>When you create your first project, consider creating resources in a separate file. When you refer to this file in your project(s), you do not need to define your resources again, and you can coordinate resource usage across projects.
+<para>When you create your first project, consider creating resources in a separate file.
+    When you refer to this file in your project(s), you do not need to define your resources again, and you can coordinate resource usage across projects.
 </para>
 <para>See <xref linkend="managing-resources" xrefstyle="select:title"/>.
 </para>
-<para>To coordinate resource usage across projects you can use the Portfolio Manager.
+<para>To coordinate resource usage across projects you can use the &portfolio;.
 </para>
 <para>A useful structure could be something like this:
 </para>

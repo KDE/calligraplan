@@ -1,7 +1,7 @@
 <sect2 id="description"><title>Description</title>
   <para>You can create resources for a project using the <link linkend="resource-editor">Resource Editor</link> and <link linkend="work-and-vacation-editor">Work and Vacation Editor</link>.
   </para>
-  <para>However, if you are going to use the same resources in many projects (which is often the case) it is more convenient to maintain resources in a separate file. The best way to do this is to create your resources file first and then set up Plan to always load this file when creating a new project.
+  <para>However, if you are going to use the same resources in many projects (which is often the case) it is more convenient to maintain resources in a separate file. The best way to do this is to create your resources file first and then set up &plan; to always load this file when creating a new project.
   </para>
   <para>If you are managing projects that use totally different resource pools you can create multiple resource files, but one project can only refer to one resource file.
   </para>

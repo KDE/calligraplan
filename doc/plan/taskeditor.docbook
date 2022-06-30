@@ -313,7 +313,7 @@
   </para>
   <para>A task module is inserted into your project by dragging it from the docker and dropping it into your project.
   </para>
-  <para>A task module is a regular plan file, and is designed using <guilabel>Plan</guilabel> in the same way as designing a regular project.
+  <para>A task module is a regular plan file, and is designed using &plan; in the same way as designing a regular project.
   </para>
   <para>A task module, however, typically includes only tasks, estimates, and dependencies.
   </para>
@@ -323,7 +323,7 @@
   </para>
   <para>The modules can be grouped by storing them in different directories. Where to search for them is configured using the Project Settings Dialog.
   </para>
-  <para>Default values for new projects can be defined using the Plan Configuration Dialog.
+  <para>Default values for new projects can be defined using the configuration dialog, see <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>.
   </para>
 </sect3>
 <sect3 id="resources-docker"><title>Resources Docker</title>
