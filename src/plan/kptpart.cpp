@@ -87,7 +87,6 @@ KoMainWindow *Part::createMainWindow()
 
     auto help = Help::instance();
     help->setDocs(docs);
-    help->setOnline(true);
     help->initiate();
     qApp->installEventFilter(help);
 

@@ -138,7 +138,7 @@ bool KPlato::Help::invokeContext(QUrl url)
         warnPlanHelp<<"Empty document type, cannot open document";
         return false;
     }
-    qInfo()<<Q_FUNC_INFO<<m_languages;
+    qInfo()<<Q_FUNC_INFO<<"helpcenter:"<<m_khelpcenter<<"online:"<<m_online<<"languages:"<<m_languages;
     QUrl helpUrl;
     if (m_online || !m_khelpcenter) {
         const auto c = m_onlineBaseUrl.arg(language(url.scheme()));
@@ -170,6 +170,7 @@ void Help::initiate()
         process.setArguments(QStringList()<<QStringLiteral("--version"));
         process.start();
         m_khelpcenter = process.waitForFinished(3000);
+        debugPlanHelp<<"khelpcenter found?"<<m_khelpcenter;
     }
     if (m_khelpcenter && !m_online) {
         return;
