@@ -67,6 +67,17 @@ public:
             parent->children.append(this);
         }
     }
+    QList<const ItemData*> findItems(void *ptr) const {
+        QList<const ItemData*> items;
+        if (ptr == resource || ptr == group || ptr == appointment) {
+            items << this;
+        } else {
+            for (const auto item : children) {
+                items += item->findItems(ptr);
+            }
+        }
+        return items;
+    }
     ItemData *parent;
     QList<const ItemData*> children;
     Resource *resource;
@@ -300,7 +311,7 @@ QModelIndex ResourceAppointmentsItemModel::parent(const QModelIndex &idx) const
         return QModelIndex();
     }
     const auto item = static_cast<ItemData*>(idx.internalPointer());
-    return createIndex(item->parent->row(), 0, item->parent);
+    return item->parent ? createIndex(item->parent->row(), 0, item->parent) : QModelIndex();
 }
 
 Resource *ResourceAppointmentsItemModel::parent(const Appointment *a) const
@@ -795,11 +806,6 @@ Appointment *ResourceAppointmentsItemModel::appointment(const QModelIndex &index
     return static_cast<const ItemData*>(index.internalPointer())->appointment;
 }
 
-QModelIndex ResourceAppointmentsItemModel::createAppointmentIndex(int row, int col, void *ptr) const
-{
-    return createIndex(row, col, ptr);
-}
-
 Resource *ResourceAppointmentsItemModel::resource(const QModelIndex &index) const
 {
     if (m_project == nullptr || !index.isValid()) {
@@ -808,25 +814,15 @@ Resource *ResourceAppointmentsItemModel::resource(const QModelIndex &index) cons
     return static_cast<const ItemData*>(index.internalPointer())->resource;
 }
 
-QModelIndex ResourceAppointmentsItemModel::createResourceIndex(int row, int col, Resource *ptr) const
-{
-    return createIndex(row, col, ptr);
-}
-
 void ResourceAppointmentsItemModel::slotCalendarChanged(Calendar*)
 {
-    const QList<Resource*> resources = m_project->resourceList();
-    for (Resource *r : resources) {
-        if (r->calendar(true) == nullptr) {
-            slotResourceChanged(r);
-        }
-    }
+    refresh(); // not much else to do, it can influense aggregates
 }
 
 void ResourceAppointmentsItemModel::slotResourceChanged(Resource *res)
 {
-    int row = m_project->indexOf(res);
-    Q_EMIT dataChanged(createResourceIndex(row, 0, res), createResourceIndex(row, columnCount() - 1, res));
+    Q_UNUSED(res)
+    refresh(); // not much else to do, it can influense aggregates
 }
 
 //-------------------------------------------------------
