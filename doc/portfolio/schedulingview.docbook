@@ -46,7 +46,7 @@
           </itemizedlist>
         </entry>
       </row>
-      <row><entry>Priority</entry><entry>Project priority. A higer number means higher priority.</entry></row>
+      <row><entry>Priority</entry><entry>Project priority. A higher number means higher priority.</entry></row>
       <row><entry>Target Start</entry><entry>The earliest project start time</entry></row>
       <row><entry>Target End</entry><entry>The latest project finish time</entry></row>
       <row><entry>Description</entry><entry>Project description</entry></row>
