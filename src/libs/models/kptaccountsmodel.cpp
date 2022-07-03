@@ -1064,7 +1064,10 @@ QVariant CostBreakdownItemModel::headerData(int section, Qt::Orientation orienta
                     return startDate().addDays(col).toString(Qt::ISODate);
                 }
                 case Period_Week: {
-                    return startDate().addDays((col) * 7).weekNumber();
+                    const auto date = startDate().addDays((col) * 7);
+                    int week = date.weekNumber();
+                    const auto y = date.toString(QStringLiteral("yyyy"));
+                    return i18nc("@title:column week-year", "%1-%2", week, y);
                 }
                 case Period_Month: {
                     int days = startDate().daysInMonth() - startDate().day() + 1;
@@ -1073,7 +1076,7 @@ QVariant CostBreakdownItemModel::headerData(int section, Qt::Orientation orienta
                         start = start.addDays(days);
                         days = start.daysInMonth();
                     }
-                    return QLocale().monthName(start.month(), QLocale::ShortFormat);
+                    return start.toString(QStringLiteral("MMM-yyyy"));
                 }
                 default:
                     return section;
@@ -1120,7 +1123,33 @@ QVariant CostBreakdownItemModel::headerData(int section, Qt::Orientation orienta
                 case Total: return i18n("The total cost for the account shown as: Actual cost [ Planned cost ]");
                 case Planned:
                 case Actual:
-                default: return QVariant();
+                default: {
+                    int col = section - propertyCount();
+                    switch (m_periodtype) {
+                        case Period_Day: {
+                            return startDate().addDays(col).toString();
+                        }
+                        case Period_Week: {
+                            const auto date = startDate().addDays((col) * 7);
+                            int week = date.weekNumber();
+                            const auto y = date.toString(QStringLiteral("yyyy"));
+                            return i18nc("@info:tooltip week-year", "Week %1-%2", week, y);
+                        }
+                        case Period_Month: {
+                            int days = startDate().daysInMonth() - startDate().day() + 1;
+                            QDate start = startDate();
+                            for (int i = 0; i < col; ++i) {
+                                start = start.addDays(days);
+                                days = start.daysInMonth();
+                            }
+                            return start.toString(QStringLiteral("MMMM-yyyy"));
+                        }
+                        default:
+                            return section;
+                            break;
+                    }
+                    return QVariant();
+                }
             }
         }
         if (role == Qt::TextAlignmentRole) {
