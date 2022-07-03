@@ -16,7 +16,6 @@
 #include <KHolidays/HolidayRegion>
 #endif
 
-#include <QFileDialog>
 
 namespace KPlato
 {

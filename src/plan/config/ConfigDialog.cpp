@@ -26,8 +26,6 @@
 #include <KLocalizedString>
 
 #include <QStandardItem>
-#include <QStandardItemModel>
-#include <QDebug>
 
 using namespace KPlato;
 

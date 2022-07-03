@@ -10,7 +10,6 @@
 #include "calligraplansettings.h"
 
 #include <QFileDialog>
-#include <QDebug>
 
 using namespace KPlato;
 
