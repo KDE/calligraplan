@@ -258,6 +258,10 @@ Qt::ItemFlags ResourceItemModel::flags(const QModelIndex &index) const
                 if (m_isCheckable) {
                     flags |= Qt::ItemIsUserCheckable;
                 }
+            } else if (index.column() == ResourceModel::ResourceAccount) {
+                if (!r->isBaselined()) {
+                    flags |= Qt::ItemIsEditable;
+                }
             }
             return flags;
         }
