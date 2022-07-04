@@ -164,6 +164,7 @@ QVariant ProjectsModel::headerData(int section, Qt::Orientation orientation, int
                 default:
                     break;
             }
+            break;
         }
         default: {
             int extraSection = section - m_nodeModel.propertyCount();
@@ -284,6 +285,7 @@ QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
                     return i18nc("@info:tooltip", "Schedule %1: Scheduled to start: %1", sm->scheduledStartTime().toString());
                 }
             }
+            break;
         }
         case KPlato::NodeModel::NodeEndTime: {
             switch (role) {

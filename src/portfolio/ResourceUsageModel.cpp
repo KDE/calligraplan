@@ -98,6 +98,7 @@ QVariant ResourceUsageModel::headerData(int section, Qt::Orientation orientation
                     return QColor::fromRgb(0xFF, 0, 0);
                 }
             }
+                break;
             default:
                 return QVariant();
         }
