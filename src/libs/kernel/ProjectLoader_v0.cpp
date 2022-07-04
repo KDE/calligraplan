@@ -427,28 +427,6 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
         }
         //debugPlanXml<<"Node schedules<---";
     }
-    e = projectElement.namedItem(QStringLiteral("resource-teams")).toElement();
-    if (!e.isNull()) {
-        debugPlanXml<<status.version()<<e.tagName();
-        // References other resources
-        KoXmlElement re;
-        forEachElement(re, e) {
-            if (re.tagName() != QStringLiteral("team")) {
-                continue;
-            }
-            Resource *r = project->findResource(re.attribute(QStringLiteral("team-id")));
-            Resource *tm = project->findResource(re.attribute(QStringLiteral("member-id")));
-            if (r == nullptr || tm == nullptr) {
-                errorPlanXml<<"resource-teams: cannot find resources";
-                continue;
-            }
-            if (r == tm) {
-                errorPlanXml<<"resource-teams: a team cannot be a member of itself";
-                continue;
-            }
-            r->addTeamMemberId(tm->id());
-        }
-    }
     e = projectElement;
     if (status.version() >= QStringLiteral("0.7.0")) {
         e = projectElement.namedItem(QStringLiteral("relations")).toElement();
