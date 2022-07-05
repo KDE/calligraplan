@@ -37,12 +37,14 @@ class Node;
 /**
  * The ResourceItemModel is organized as follows:
  * . Resource are the top level index
- * . Resources can be members of multiple groups which are shown as children to the top level resource
+ * . Resources can be members of multiple groups which can be shown as children to the top level resource
  * . A Team resource can also have the team member resources as children
- * 
+ * . A resource with required resources can have these as children
+ *
  * The top level resource has an index with internalPointer == nullptr.
  * A group has an index with internalPointer == parent resource.
  * A team member resource has an index with internalPointer == parent resource.
+ * A required resource has an index with internalPointer == parent resource.
  */
 
 class PLANMODELS_EXPORT ResourceItemModel : public ItemModelBase
@@ -86,14 +88,16 @@ public:
     ResourceGroup *group(const QModelIndex &idx) const;
 
     bool groupsEnabled() const;
-    void setGroupsEnabled(bool enable);
     bool teamsEnabled() const;
-    void setTeamsEnabled(bool enable);
     bool requiredEnabled() const;
-    void setRequiredEnabled(bool enable);
 
     void setIsCheckable(bool enable);
     bool isCheckable() const;
+
+public Q_SLOTS:
+    void setGroupsEnabled(bool enable);
+    void setTeamsEnabled(bool enable);
+    void setRequiredEnabled(bool enable);
 
 protected Q_SLOTS:
     void slotResourceChanged(KPlato::Resource*);

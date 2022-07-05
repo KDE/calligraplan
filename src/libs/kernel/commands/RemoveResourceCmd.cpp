@@ -35,6 +35,18 @@ RemoveResourceCmd::RemoveResourceCmd(Resource *resource, const KUndo2MagicString
                 addSchScheduled(s);
             }
         }
+        const auto resources = m_project->resourceList();
+        for (auto r : resources) {
+            auto required = r->requiredIds();
+            if (required.contains(resource->id())) {
+                required.removeAll(resource->id());
+                m_preCmd.addCommand(new ModifyRequiredResourcesCmd(r, required));
+            }
+            auto teams = r->teamMemberIds();
+            if (teams.contains(resource->id())) {
+                m_preCmd.addCommand(new RemoveResourceTeamCmd(r, resource->id()));
+            }
+        }
     }
     if (resource->account()) {
         m_postCmd.addCommand(new ResourceModifyAccountCmd(*resource, resource->account(), nullptr));

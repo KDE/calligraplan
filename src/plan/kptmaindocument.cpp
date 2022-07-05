@@ -1482,9 +1482,20 @@ bool MainDocument::mergeResources(Project &project)
         case KMessageBox::No: // Convert
             for (Resource *r : qAsConst(removedResources)) {
                 r->setShared(false);
-                m_project->removeResourceId(r->id());
-                r->setId(m_project->uniqueResourceId());
+                auto oldid = r->id();
+                auto newid = m_project->uniqueResourceId();
+                m_project->removeResourceId(oldid);
+                r->setId(newid);
                 m_project->insertResourceId(r->id(), r);
+                // update required resources
+                for (auto res : m_project->resourceList()) {
+                    auto required = res->requiredIds();
+                    if (required.contains(oldid)) {
+                        required.removeAll(oldid);
+                        required.append(newid);
+                        res->setRequiredIds(required);
+                    }
+                }
             }
             for (ResourceGroup *g : qAsConst(removedGroups)) {
                 g->setShared(false);

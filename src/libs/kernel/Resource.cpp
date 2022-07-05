@@ -401,7 +401,7 @@ QList<Resource*> Resource::requiredResources() const
         }
     }
     if (m_requiredResources.count() != m_requiredIds.count()) {
-        warnPlan<<"Resolving required faile: em_requiredResources != m_requiredIds"<<m_requiredResources.count()<<m_requiredIds.count();
+        warnPlan<<this<<"Resolving required failed: m_requiredResources != m_requiredIds"<<m_requiredResources.count()<<m_requiredIds.count();
     }
     return m_requiredResources;
 }
@@ -1466,5 +1466,5 @@ QDebug operator<<(QDebug dbg, const KPlato::Resource *r)
         dbg.noquote().nospace() << r->teamMembers();
     }
     dbg.nospace() << ']';
-    return dbg;
+    return dbg.space().quote();
 }

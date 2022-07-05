@@ -48,7 +48,6 @@ ResourceTreeView::ResourceTreeView(QWidget *parent)
 //    header()->setContextMenuPolicy(Qt::CustomContextMenu);
     setStretchLastSection(false);
     ResourceItemModel *m = new ResourceItemModel(this);
-    m->setTeamsEnabled(true);
     setModel(m);
     
     setSelectionMode(QAbstractItemView::ExtendedSelection);
@@ -185,7 +184,7 @@ ResourceEditor::ResourceEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 
     connect(m_view, &DoubleTreeViewBase::contextMenuRequested, this, &ResourceEditor::slotContextMenuRequested);
     
-    connect(m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ViewBase::slotHeaderContextMenuRequested);
+    connect(m_view, &DoubleTreeViewBase::headerContextMenuRequested, this, &ResourceEditor::slotHeaderContextMenuRequested);
 
     createDockers();
 }
@@ -212,10 +211,15 @@ void ResourceEditor::setGuiActive(bool activate)
     }
 }
 
+void ResourceEditor::slotHeaderContextMenuRequested(const QPoint& pos)
+{
+    slotContextMenuRequested(QModelIndex(), pos);
+}
+
 void ResourceEditor::slotContextMenuRequested(const QModelIndex &index, const QPoint& pos)
 {
     //debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
-    QString name;
+    QString name = QStringLiteral("resourceeditor_context_popup");
     if (index.isValid()) {
         Resource *r = m_view->model()->resource(index);
         if (r && !r->isShared()) {
@@ -304,11 +308,33 @@ void ResourceEditor::setupGui()
     actionCollection()->addAction(QStringLiteral("edit_resource"), actionEditResource);
     connect(actionEditResource, &QAction::triggered, this, &ResourceEditor::slotEditCurrentResource);
 
+    auto a = new QAction(i18nc("@action:inmenu", "Show Resource Groups"));
+    a->setObjectName(QStringLiteral("resourceeditor_show_groups"));
+    a->setCheckable(true);
+    connect(a, &QAction::triggered, m_view->model(), &ResourceItemModel::setGroupsEnabled);
+    actionCollection()->addAction(a->objectName(), a);
+
+    a = new QAction(i18nc("@action:inmenu", "Show Team Members"));
+    a->setObjectName(QStringLiteral("resourceeditor_show_teams"));
+    a->setCheckable(true);
+    connect(a, &QAction::triggered, m_view->model(), &ResourceItemModel::setTeamsEnabled);
+    actionCollection()->addAction(a->objectName(), a);
+    a->setChecked(true);
+    m_view->model()->setTeamsEnabled(true);
+
+    a = new QAction(i18nc("@action:inmenu", "Show Required Resources"));
+    a->setObjectName(QStringLiteral("resourceeditor_show_required"));
+    a->setCheckable(true);
+    connect(a, &QAction::triggered, m_view->model(), &ResourceItemModel::setRequiredEnabled);
+    actionCollection()->addAction(a->objectName(), a);
+    a->setChecked(true);
+    m_view->model()->setRequiredEnabled(true);
+
     // Add the context menu actions for the view options
     actionCollection()->addAction(m_view->actionSplitView()->objectName(), m_view->actionSplitView());
     connect(m_view->actionSplitView(), &QAction::triggered, this, &ResourceEditor::slotSplitView);
     addContextAction(m_view->actionSplitView());
-    
+
     createOptionActions(ViewBase::OptionAll);
 }
 

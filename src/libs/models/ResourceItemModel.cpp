@@ -378,7 +378,18 @@ int ResourceItemModel::rowCount(const QModelIndex &parent) const
                 if (m_teamsEnabled) {
                     rows += r->teamCount();
                 }
+                if (m_requiredEnabled) {
+                    rows += r->requiredResources().count();
+                }
             }
+        } else {
+#if 0
+            // FIXME: Model needs further modifications to handle this
+            if (m_requiredEnabled) {
+                auto resource = static_cast<Resource*>(parent.internalPointer());
+                rows = resource->requiredResources().count();
+            }
+#endif
         }
     } else {
         rows = m_project->resourceCount();
@@ -610,6 +621,16 @@ QVariant ResourceItemModel::data(const QModelIndex &index, int role) const
             return m_resourceModel.data(r->teamMembers().value(row), index.column(), role);
         }
     }
+    if (m_requiredEnabled) {
+        Resource *r = static_cast<Resource*>(index.internalPointer());
+        if (r->type() == Resource::Type_Work) {
+            int row = index.row();
+            if (m_groupsEnabled) {
+                row -= r->groupCount();
+            }
+            return m_resourceModel.data(r->requiredResources().value(row), index.column(), role);
+        }
+    }
     return QVariant();
 }
 
@@ -756,7 +777,9 @@ bool ResourceItemModel::groupsEnabled() const
 
 void ResourceItemModel::setGroupsEnabled(bool enable)
 {
+    beginResetModel();
     m_groupsEnabled = enable;
+    endResetModel();
 }
 
 bool ResourceItemModel::teamsEnabled() const
@@ -766,7 +789,9 @@ bool ResourceItemModel::teamsEnabled() const
 
 void ResourceItemModel::setTeamsEnabled(bool enable)
 {
+    beginResetModel();
     m_teamsEnabled = enable;
+    endResetModel();
 }
 
 bool ResourceItemModel::requiredEnabled() const
@@ -776,7 +801,9 @@ bool ResourceItemModel::requiredEnabled() const
 
 void ResourceItemModel::setRequiredEnabled(bool enable)
 {
+    beginResetModel();
     m_requiredEnabled = enable;
+    endResetModel();
 }
 
 Qt::DropActions ResourceItemModel::supportedDropActions() const
