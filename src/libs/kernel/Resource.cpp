@@ -142,7 +142,7 @@ void Resource::copy(Resource *resource) {
     m_calendar = resource->m_calendar;
 
     m_requiredIds = resource->requiredIds();
-    m_teamMembers = resource->m_teamMembers;
+    m_teamMemberIds = resource->m_teamMemberIds;
 
     // No: m_parents = resource->m_parents;
 
@@ -391,14 +391,19 @@ bool Resource::load(KoXmlElement &element, XMLLoaderObject &status) {
 
 QList<Resource*> Resource::requiredResources() const
 {
-    QList<Resource*> lst;
-    for (const QString &s : qAsConst(m_requiredIds)) {
-        Resource *r = findId(s);
-        if (r) {
-            lst << r;
+    if (m_requiredResources.count() != m_requiredIds.count()) {
+        const_cast<Resource*>(this)->m_requiredResources.clear();
+        for (const QString &s : qAsConst(m_requiredIds)) {
+            Resource *r = findId(s);
+            if (r) {
+                const_cast<Resource*>(this)->m_requiredResources << r;
+            }
         }
     }
-    return lst;
+    if (m_requiredResources.count() != m_requiredIds.count()) {
+        warnPlan<<"Resolving required faile: em_requiredResources != m_requiredIds"<<m_requiredResources.count()<<m_requiredIds.count();
+    }
+    return m_requiredResources;
 }
 
 void Resource::setRequiredIds(const QStringList &ids)
@@ -1327,57 +1332,80 @@ DateTime Resource::endTime(long id) const
     return dt;
 }
 
+void Resource::updateCache() const
+{
+    if (m_teamMembers.count() != m_teamMemberIds.count()) {
+        const_cast<Resource*>(this)->m_teamMembers.clear();
+        for (const QString &s : qAsConst(m_teamMemberIds)) {
+            Resource *r = findId(s);
+            if (r) {
+                const_cast<Resource*>(this)->m_teamMembers << r;
+            }
+        }
+    }
+}
+
 int Resource::teamCount() const
 {
+    updateCache();
     return m_teamMembers.count();
 }
 
 QList<Resource*> Resource::teamMembers() const
 {
-    QList<Resource*> lst;
-    for (const QString &s : qAsConst(m_teamMembers)) {
-        Resource *r = findId(s);
-        if (r) {
-            lst << r;
-        }
-    }
-    return lst;
-
+    updateCache();
+    return m_teamMembers;
 }
 
 QStringList Resource::teamMemberIds() const
 {
-    return m_teamMembers;
+    return m_teamMemberIds;
 }
 
 void Resource::addTeamMemberId(const QString &id)
 {
-    if (!id.isEmpty() && !m_teamMembers.contains(id)) {
-        if (m_project) {
-            Q_EMIT teamToBeAdded(this, m_teamMembers.count());
-        }
-        m_teamMembers.append(id);
-        if (m_project) {
-            Q_EMIT teamAdded(teamMembers().constLast());
+    if (!id.isEmpty() && !m_teamMemberIds.contains(id)) {
+        auto resource = findId(id);
+        // only emit signals if everything is ok
+        if (resource && m_teamMemberIds.count() == m_teamMembers.count()) {
+            if (m_project) {
+                Q_EMIT teamToBeAdded(this, m_teamMemberIds.count());
+            }
+            m_teamMemberIds.append(id);
+            m_teamMembers << resource;
+            if (m_project) {
+                Q_EMIT teamAdded(resource);
+            }
+        } else {
+            m_teamMemberIds.append(id);
         }
     }
 }
 
 void Resource::removeTeamMemberId(const QString &id)
 {
-    if (m_teamMembers.contains(id)) {
-        int row = m_teamMembers.indexOf(id);
-        Resource *team = teamMembers().value(row);
+    if (m_teamMemberIds.contains(id)) {
+        int row = m_teamMemberIds.indexOf(id);
+        Resource *team = m_teamMembers.value(row);
+        if (!team) {
+            // something wrong, try to clean up
+            warnPlan<<"Resource not found:"<<id;
+            m_teamMemberIds.removeAt(row);
+            m_teamMembers.clear();
+            updateCache();
+            return;
+        }
         Q_EMIT teamToBeRemoved(this, row, team);
-        m_teamMembers.removeAt(row);
+        m_teamMemberIds.removeAt(row);
+        m_teamMembers.removeAll(team);
         Q_EMIT teamRemoved();
     }
 }
 
 void Resource::setTeamMemberIds(const QStringList &ids)
 {
-    while (!m_teamMembers.isEmpty()) {
-        removeTeamMemberId(m_teamMembers.last());
+    while (!m_teamMemberIds.isEmpty()) {
+        removeTeamMemberId(m_teamMemberIds.last());
     }
     for (const QString &id : ids) {
         addTeamMemberId(id);
@@ -1417,11 +1445,26 @@ Risk::Risk(Node *n, Resource *r, RiskType rt) {
 Risk::~Risk() {
 }
 
-QDebug operator<<(QDebug dbg, KPlato::Resource *r)
+QDebug operator<<(QDebug dbg, const KPlato::Resource &r)
+{
+    return dbg << &r;
+}
+
+QDebug operator<<(QDebug dbg, const KPlato::Resource *r)
 {
     if (!r) { return dbg << "Resource[0x0]"; }
-    dbg << "Resource[(" << (void*)r << ") " << r->typeToString();
-    dbg << (r->name().isEmpty() ? r->id() : r->name());
-    dbg << ']';
+    dbg.noquote().nospace() << "Resource[(" << (void*)r << ") ";
+    dbg << '"' << (r->name().isEmpty() ? r->id() : r->name()) << '"' << ' ';
+    dbg.nospace() << (r->isShared() ? 'S' : 'L');
+    switch (r->type()) {
+        case Resource::Type_Work: dbg << 'W'; break;
+        case Resource::Type_Material: dbg << 'M'; break;
+        case Resource::Type_Team: dbg << 'T'; break;
+    }
+    if (r->type() == Resource::Type_Team) {
+        dbg << ':';
+        dbg.noquote().nospace() << r->teamMembers();
+    }
+    dbg.nospace() << ']';
     return dbg;
 }

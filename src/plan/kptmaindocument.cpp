@@ -1625,7 +1625,7 @@ bool MainDocument::mergeResources(Project &project)
 //             existingResource->setCalendar(nullptr);
 //         }
 //     }
-    // insert new objects
+    debugPlanShared<<"insert new objects:\n"<<"Groups:"<<project.resourceGroups()<<"\nResources:"<<project.resourceList()<<"\nCalendars:"<<project.calendars();
     Q_ASSERT(project.childNodeIterator().isEmpty());
     InsertProjectCmd cmd(project, m_project, nullptr);
     cmd.execute();

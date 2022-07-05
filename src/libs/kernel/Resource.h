@@ -323,7 +323,7 @@ public:
     /// Return the list of team members.
     QStringList teamMemberIds() const;
     /// Clear the list of team members.
-    void clearTeamMembers() { m_teamMembers.clear(); }
+    void clearTeamMembers() { m_teamMemberIds.clear(); }
     /// Add resource @p id to the list of team members.
     void addTeamMemberId(const QString &id);
     /// Remove resource @p id from the list of team members.
@@ -391,6 +391,9 @@ protected:
     virtual void changed();
 
 private:
+    inline void updateCache() const;
+
+private:
     Project *m_project;
     QList<ResourceGroup*> m_parents;
     QHash<long, Schedule*> m_schedules;
@@ -422,8 +425,10 @@ private:
     Calendar *m_calendar;
     QList<ResourceRequest*> m_requests;
     QStringList m_requiredIds;
+    QList<Resource*> m_requiredResources; // cache
 
-    QStringList m_teamMembers;
+    QStringList m_teamMemberIds;
+    QList<Resource*> m_teamMembers; // cache
 
     Schedule *m_currentSchedule;
 
@@ -473,6 +478,7 @@ private:
 
 } // namespace KPlato
 
-PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, KPlato::Resource *r);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Resource &r);
+PLANKERNEL_EXPORT QDebug operator<<(QDebug dbg, const KPlato::Resource *r);
 
 #endif
