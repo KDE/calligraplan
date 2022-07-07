@@ -117,7 +117,7 @@ void print(ResourceGroup *group, const QString &str, bool full = true) {
 
 static
 void print(Resource *r, const QString &str, bool full = true) {
-    qDebug()<<"Debug info: Resource"<<r->name()<<"id:"<<r->id()<<(void*)r<<str;
+    qDebug()<<"Debug info: Resource"<<r->name()<<(r->isShared()?"Shared":"Local")<<"id:"<<r->id()<<(void*)r<<str;
     qDebug()<<"  Parent groups:"<<r->parentGroups().count();
     const auto parentGroups = r->parentGroups();
     for (ResourceGroup *g : parentGroups) {
