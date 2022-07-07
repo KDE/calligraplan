@@ -419,6 +419,13 @@ void Resource::addRequiredId(const QString &id)
     }
 }
 
+void Resource::refreshRequiredIds()
+{
+    m_requiredIds.clear();
+    for (const auto r : qAsConst(m_requiredResources)) {
+        m_requiredIds << r->id();
+    }
+}
 
 void Resource::setAccount(Account *account)
 {
@@ -1398,7 +1405,20 @@ void Resource::removeTeamMemberId(const QString &id)
         Q_EMIT teamToBeRemoved(this, row, team);
         m_teamMemberIds.removeAt(row);
         m_teamMembers.removeAll(team);
+#ifndef NDEBUG
+        Q_ASSERT(m_teamMemberIds.count() == m_teamMembers.count());
+        QStringList ids;
+        for (const auto r : qAsConst(m_teamMembers)) {
+            ids << r->id();
+        }
+        Q_ASSERT(ids == m_teamMemberIds);
+        for (const auto r : qAsConst(m_teamMembers)) {
+            Q_ASSERT(r == findId(r->id()));
+        }
+#endif
         Q_EMIT teamRemoved();
+    } else {
+        warnPlan<<"Tried to remove nonexisting id:"<<id;
     }
 }
 
@@ -1409,6 +1429,14 @@ void Resource::setTeamMemberIds(const QStringList &ids)
     }
     for (const QString &id : ids) {
         addTeamMemberId(id);
+    }
+}
+
+void Resource::refreshTeamMemberIds()
+{
+    m_teamMemberIds.clear();
+    for (const auto r : qAsConst(m_teamMembers)) {
+        m_teamMemberIds << r->id();
     }
 }
 

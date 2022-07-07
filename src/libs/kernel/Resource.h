@@ -315,6 +315,8 @@ public:
     void addRequiredId(const QString &id);
     /// Returns the list of required resource ids.
     QStringList requiredIds() const { return m_requiredIds; }
+    /// Update the ids from the resources
+    void refreshRequiredIds();
 
     /// Number of team members
     int teamCount() const;
@@ -330,6 +332,8 @@ public:
     void removeTeamMemberId(const QString &id);
     /// Set the list of team members to @p ids
     void setTeamMemberIds(const QStringList &ids);
+    /// Update the ids from the resources
+    void refreshTeamMemberIds();
 
     /// Return the account
     Account *account() const { return m_cost.account; }
