@@ -20,3 +20,8 @@ plan_add_unit_test(ReportsTester
     ReportsTester.cpp
     LINK_LIBRARIES calligraplanprivate Qt5::Test
 )
+
+plan_add_unit_test(SharedResourcesTester
+    SharedResourcesTester.cpp
+    LINK_LIBRARIES calligraplanprivate Qt5::Test
+)
