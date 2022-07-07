@@ -46,6 +46,11 @@ class QDomDocument;
 #define ORIGINALMODIFICATIONTIME "original-modiication-time"
 #define STATUS "status"
 
+#define SHAREDRESOURCEREMOVE 3
+#define SHAREDRESOURCECONVERT 4
+#define SHAREDRESOURCEKEEP 2
+#define DEFAULTSHAREDRESOURCESRESULT "default-sharedresourcesresult"
+
 // MSVC seems to need to know the declaration of the classes
 // we pass references of in, when used by external modules
 // e.g.
