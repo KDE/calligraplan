@@ -658,7 +658,6 @@ Package *MainDocument::loadWorkPackageXML(Project &project, QIODevice *, const K
 
     // Check if this is the right app
     value = plan.attribute("mime", QString());
-    qInfo()<<Q_FUNC_INFO<<value;
     if (value.isEmpty()) {
         errorPlanWp<<Q_FUNC_INFO<<"No mime type specified!";
         setErrorMessage(i18n("Invalid document. No mimetype specified."));
@@ -1443,17 +1442,25 @@ bool MainDocument::mergeResources(Project &project)
     }
     if (!removed.isEmpty()) {
         KMessageBox::ButtonCode result = KMessageBox::Yes;
-        if (!property(NOUI).toBool()) {
+        if (property(NOUI).toBool()) {
+            result = property(DEFAULTSHAREDRESOURCESRESULT).isValid()
+                     ? (KMessageBox::ButtonCode)property(DEFAULTSHAREDRESOURCESRESULT).toInt()
+                     : KMessageBox::Cancel /*keep*/;
+        } else {
+            QApplication::setOverrideCursor(Qt::ArrowCursor);
+            KGuiItem removeItem = KStandardGuiItem::remove();
+            removeItem.setToolTip(i18nc("@info:tooltip", "Remove resources from your project"));
             result = KMessageBox::warningYesNoCancelList(
                     nullptr,
-                    i18n("Shared resources has been removed from the shared resources file."
-                         "\nSelect how they shall be treated in this project."),
+                    xi18nc("@info", "Shared resources have been removed from the shared resources file."
+                         "<nl/>Select how they shall be treated in this project."),
                     removed,
                     xi18nc("@title:window", "Shared resources"),
-                    KStandardGuiItem::remove(),
-                    KGuiItem(i18n("Convert")),
-                    KGuiItem(i18n("Keep"))
+                    removeItem,
+                    KGuiItem(i18n("Convert"), QLatin1String(), i18nc("@info:tooltip", "Convert shared resources to local")),
+                    KGuiItem(i18n("Keep"), QLatin1String(), i18nc("@info:tooltip", "Keep as shared resources"))
                     );
+            QApplication::restoreOverrideCursor();
         }
         switch (result) {
         case KMessageBox::Yes: // Remove
@@ -1487,14 +1494,14 @@ bool MainDocument::mergeResources(Project &project)
                 m_project->removeResourceId(oldid);
                 r->setId(newid);
                 m_project->insertResourceId(r->id(), r);
+                const auto resources = m_project->resourceList();
                 // update required resources
-                for (auto res : m_project->resourceList()) {
-                    auto required = res->requiredIds();
-                    if (required.contains(oldid)) {
-                        required.removeAll(oldid);
-                        required.append(newid);
-                        res->setRequiredIds(required);
-                    }
+                for (auto res : resources) {
+                    res->refreshRequiredIds();
+                }
+                // update teams
+                for (auto res : resources) {
+                    res->refreshTeamMemberIds();
                 }
             }
             for (ResourceGroup *g : qAsConst(removedGroups)) {
