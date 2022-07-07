@@ -128,8 +128,29 @@ QVariant ResourceModel::type(const Resource *res, int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
-        case Qt::ToolTipRole:
             return res->typeToString(true);
+        case Qt::ToolTipRole: {
+            if (res->type() == Resource::Type_Team) {
+                QStringList resourceNames;
+                const auto team = res->teamMembers();
+                for (const auto r : team) {
+                    resourceNames << r->name();
+                }
+                if (resourceNames.isEmpty()) {
+                    return i18nc("@info:tooltip", "Team: No team members");
+                }
+                return i18nc("@info:tooltip", "Team: %1", resourceNames.join(QStringLiteral(", ")));
+            }
+            const auto required = res->requiredResources();
+            if (!required.isEmpty()) {
+                QStringList resourceNames;
+                for (const auto r : required) {
+                    resourceNames << r->name();
+                }
+                return i18nc("@info:tooltip", "Required: %1", resourceNames.join(QStringLiteral(", ")));
+            }
+            return res->typeToString(true);
+        }
         case Qt::EditRole:
             return res->typeToString(false);
         case Role::EnumList:
