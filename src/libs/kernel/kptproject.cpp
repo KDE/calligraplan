@@ -2148,7 +2148,7 @@ void Project::takeResourceGroup(ResourceGroup *group)
     Q_EMIT projectChanged();
 }
 
-QList<ResourceGroup*> &Project::resourceGroups()
+const QList<ResourceGroup*> &Project::resourceGroups() const
 {
     return m_resourceGroups;
 }
