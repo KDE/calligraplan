@@ -7,6 +7,7 @@
   <name>Plan Portfolio</name>
   <name xml:lang="ca">Plan Portfolio</name>
   <name xml:lang="ca-valencia">Plan Portfolio</name>
+  <name xml:lang="cs">Naplánovat portfolio</name>
   <name xml:lang="de">Plan Portfolio</name>
   <name xml:lang="es">Plan Portafolio</name>
   <name xml:lang="fr">Plan Portfolio</name>
@@ -22,6 +23,7 @@
   <summary>Project Portfolio Management</summary>
   <summary xml:lang="ca">Gestió de carteres de projectes</summary>
   <summary xml:lang="ca-valencia">Gestió de carteres de projectes</summary>
+  <summary xml:lang="cs">Správa projektů portfolia</summary>
   <summary xml:lang="de">Projektportfolioverwaltung</summary>
   <summary xml:lang="es">Gestión de portafolios de proyectos</summary>
   <summary xml:lang="fr">Gestionnaire d'un porte-feuille de projets</summary>
