@@ -1448,6 +1448,10 @@ bool Resource::isShared() const
 void Resource::setShared(bool on)
 {
     m_shared = on;
+    Q_EMIT dataChanged(this);
+    if (m_project) {
+        Q_EMIT m_project->resourceChanged(this);
+    }
 }
 
 QDebug operator<<(QDebug dbg, const KPlato::Resource::WorkInfoCache &c)
