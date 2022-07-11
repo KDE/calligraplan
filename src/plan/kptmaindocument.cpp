@@ -29,6 +29,7 @@
 #include "KPlatoXmlLoader.h"
 #include "XmlSaveContext.h"
 #include "kptpackage.h"
+#include "SharedResourcesDialog.h"
 #include "kptdebug.h"
 
 #include <KoStore.h>
@@ -955,10 +956,7 @@ bool MainDocument::completeLoading(KoStore *store)
         c->setTimeZone(QTimeZone::systemTimeZone());
     }
     if (m_project->useSharedResources() && !m_project->sharedResourcesFile().isEmpty() && !m_skipSharedProjects) {
-        QUrl url = QUrl::fromLocalFile(m_project->sharedResourcesFile());
-        if (url.isValid()) {
-            insertResourcesFile(url);
-        }
+        QTimer::singleShot(0, this, &MainDocument::slotInsertResourceFile);
     }
     if (store == nullptr) {
         // can happen if loading a template
@@ -1125,6 +1123,16 @@ void MainDocument::insertFileCancelled(const QString &error)
 void MainDocument::setSkipSharedResourcesAndProjects(bool skip)
 {
     m_skipSharedProjects = skip;
+}
+
+void MainDocument::slotInsertResourceFile()
+{
+    if (m_project->useSharedResources() && !m_project->sharedResourcesFile().isEmpty() && !m_skipSharedProjects) {
+        QUrl url = QUrl::fromLocalFile(m_project->sharedResourcesFile());
+        if (url.isValid()) {
+            insertResourcesFile(url);
+        }
+    }
 }
 
 void MainDocument::insertResourcesFile(const QUrl &url_)
@@ -1440,87 +1448,27 @@ bool MainDocument::mergeResources(Project &project)
     for (Calendar *c : qAsConst(removedCalendars)) {
         removed << i18n("Calendar: %1", c->name());
     }
+    MacroCommand *cmd = new MacroCommand(kundo2_i18n("Update Shared Resources"));
     if (!removed.isEmpty()) {
-        KMessageBox::ButtonCode result = KMessageBox::Yes;
+        //KMessageBox::ButtonCode result = KMessageBox::Yes;
         if (property(NOUI).toBool()) {
-            result = property(DEFAULTSHAREDRESOURCESRESULT).isValid()
-                     ? (KMessageBox::ButtonCode)property(DEFAULTSHAREDRESOURCESRESULT).toInt()
-                     : KMessageBox::Cancel /*keep*/;
+            int action = property(SHAREDRESOURCESACTION).isValid() ? property(SHAREDRESOURCESACTION).toInt() : SHAREDRESOURCESKEEP;
+            SharedResourcesDialog dlg(removedGroups, removedResources, removedCalendars);
+            dlg.setDefaultAction(action);
+            auto c = dlg.buildCommand();
+            if (c) {
+                cmd->addCommand(c);
+            }
         } else {
             QApplication::setOverrideCursor(Qt::ArrowCursor);
-            KGuiItem removeItem = KStandardGuiItem::remove();
-            removeItem.setToolTip(i18nc("@info:tooltip", "Remove resources from your project"));
-            result = KMessageBox::warningYesNoCancelList(
-                    nullptr,
-                    xi18nc("@info", "Shared resources have been removed from the shared resources file."
-                         "<nl/>Select how they shall be treated in this project."),
-                    removed,
-                    xi18nc("@title:window", "Shared resources"),
-                    removeItem,
-                    KGuiItem(i18n("Convert"), QLatin1String(), i18nc("@info:tooltip", "Convert shared resources to local")),
-                    KGuiItem(i18n("Keep"), QLatin1String(), i18nc("@info:tooltip", "Keep as shared resources"))
-                    );
+            SharedResourcesDialog dlg(removedGroups, removedResources, removedCalendars);
+            dlg.setWindowTitle(i18nc("@title:window", "Shared Resources"));
+            dlg.exec();
             QApplication::restoreOverrideCursor();
-        }
-        switch (result) {
-        case KMessageBox::Yes: // Remove
-            for (Resource *r : qAsConst(removedResources)) {
-                RemoveResourceCmd cmd(r);
-                cmd.redo();
+            auto c = dlg.buildCommand();
+            if (c) {
+                cmd->addCommand(c);
             }
-            for (ResourceGroup *g : qAsConst(removedGroups)) {
-                if (g->resources().isEmpty()) {
-                    RemoveResourceGroupCmd cmd(m_project, g);
-                    cmd.redo();
-                } else {
-                    // we may have put local resource(s) in this group
-                    // so we need to keep it
-                    g->setShared(false);
-                    m_project->removeResourceGroupId(g->id());
-                    g->setId(m_project->uniqueResourceGroupId());
-                    m_project->insertResourceGroupId(g->id(), g);
-                }
-            }
-            for (Calendar *c : qAsConst(removedCalendars)) {
-                CalendarRemoveCmd cmd(m_project, c);
-                cmd.redo();
-            }
-            break;
-        case KMessageBox::No: // Convert
-            for (Resource *r : qAsConst(removedResources)) {
-                r->setShared(false);
-                auto oldid = r->id();
-                auto newid = m_project->uniqueResourceId();
-                m_project->removeResourceId(oldid);
-                r->setId(newid);
-                m_project->insertResourceId(r->id(), r);
-                const auto resources = m_project->resourceList();
-                // update required resources
-                for (auto res : resources) {
-                    res->refreshRequiredIds();
-                }
-                // update teams
-                for (auto res : resources) {
-                    res->refreshTeamMemberIds();
-                }
-            }
-            for (ResourceGroup *g : qAsConst(removedGroups)) {
-                g->setShared(false);
-                m_project->removeResourceGroupId(g->id());
-                g->setId(m_project->uniqueResourceGroupId());
-                m_project->insertResourceGroupId(g->id(), g);
-            }
-            for (Calendar *c : qAsConst(removedCalendars)) {
-                c->setShared(false);
-                m_project->removeCalendarId(c->id());
-                c->setId(m_project->uniqueCalendarId());
-                m_project->insertCalendarId(c->id(), c);
-            }
-            break;
-        case KMessageBox::Cancel: // Keep
-            break;
-        default:
-            break;
         }
     }
     // update values of already existing objects
@@ -1605,48 +1553,40 @@ bool MainDocument::mergeResources(Project &project)
             debugPlanShared<<"Updated calendar:"<<calendar<<calendar->id();
         }
     }
-    debugPlanShared<<"Remove:"<<'\n'<<"calendars:"<<removecalendars<<'\n'<<"resources:"<<removeresources<<'\n'<<"groups:"<<removegroups;
+    debugPlanShared<<"Remove from shared resources:"<<'\n'<<"calendars:"<<removecalendars<<'\n'<<"resources:"<<removeresources<<'\n'<<"groups:"<<removegroups;
     while (!removecalendars.isEmpty()) {
         for (int i = 0; i < removecalendars.count(); ++i) {
             Calendar *c = removecalendars.at(i);
             if (c->childCount() == 0) {
                 removecalendars.removeAt(i);
-                debugPlanShared<<"Delete calendar:"<<c<<c->id();
+                debugPlanShared<<"Delete calendar:"<<c->project()<<c<<c->id();
                 CalendarRemoveCmd cmd(&project, c);
                 cmd.execute();
             }
         }
     }
     for (Resource *r : qAsConst(removeresources)) {
-        debugPlanShared<<"Delete resource:"<<r<<r->id();
+        debugPlanShared<<"Delete resource:"<<r->project()<<r<<r->id();
         RemoveResourceCmd cmd(r);
         cmd.execute();
     }
     for (ResourceGroup *g : qAsConst(removegroups)) {
-        debugPlanShared<<"Delete group:"<<g<<g->id();
+        debugPlanShared<<"Delete group:"<<g->project()<<g<<g->id();
         RemoveResourceGroupCmd cmd(&project, g);
         cmd.execute();
     }
-    // update resources
-//     const QList<Resource*> sharedResources = project.resourceList();
-//     for (const Resource *r : sharedResources) {
-//         Resource *existingResource = m_project->findResource(r->id());
-//         if (!existingResource) {
-//             continue;
-//         }
-//         if (r->calendar()) {
-//             Calendar *existingCalendar = m_project->findCalendar(r->calendar()->id());
-//             if (existingCalendar && existingResource->calendar() != existingCalendar) {
-//                 existingResource->setCalendar(existingCalendar);
-//             }
-//         } else if (existingResource->calendar()) {
-//             existingResource->setCalendar(nullptr);
-//         }
-//     }
     debugPlanShared<<"insert new objects:\n"<<"Groups:"<<project.resourceGroups()<<"\nResources:"<<project.resourceList()<<"\nCalendars:"<<project.calendars();
     Q_ASSERT(project.childNodeIterator().isEmpty());
-    InsertProjectCmd cmd(project, m_project, nullptr);
-    cmd.execute();
+    auto icmd = new InsertProjectCmd(project, m_project, nullptr);
+    if (icmd->isEmpty()) {
+        delete icmd;
+    } else {
+        cmd->addCommand(icmd);
+    }
+    if (!cmd->isEmpty()) {
+        debugPlanShared<<"Update:"<<cmd->text();
+        addCommand(cmd);
+    }
     return true;
 }
 

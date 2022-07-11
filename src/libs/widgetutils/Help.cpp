@@ -150,6 +150,7 @@ bool KPlato::Help::invokeContext(QUrl url)
     } else {
         helpUrl.setScheme(QStringLiteral("help"));
         helpUrl.setPath(QStringLiteral("%1/%2.html").arg(doc(url.scheme())).arg(url.path()));
+        helpUrl.setFragment(url.fragment());
     }
     debugPlanHelp<<"open:"<<helpUrl;
     QDesktopServices::openUrl(helpUrl);

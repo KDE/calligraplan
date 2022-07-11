@@ -45,6 +45,7 @@ set(calligraplanprivate_LIB_SRCS
     kptinsertfiledlg.cpp
 
     KPlatoXmlLoader.cpp
+    SharedResourcesDialog.cpp
 )
 
 ki18n_wrap_ui(calligraplanprivate_LIB_SRCS
@@ -61,6 +62,7 @@ ki18n_wrap_ui(calligraplanprivate_LIB_SRCS
     config/ConfigProjectTemplatesPanel.ui
 
     kptinsertfilepanel.ui
+    SharedResourcesDialog.ui
 )
 
 kconfig_add_kcfg_files(calligraplansettings_SRCS calligraplansettings.kcfgc)

@@ -405,7 +405,7 @@ void SharedResources::testRemoveResource()
     QCOMPARE(sharedProject->resourceCount(), 5);
 
     doc->setProperty(NOUI, true);
-    doc->setProperty(DEFAULTSHAREDRESOURCESRESULT, SHAREDRESOURCEREMOVE);
+    doc->setProperty(SHAREDRESOURCESACTION, SHAREDRESOURCESREMOVE);
     auto project = doc->project();
     doc->mergeResources(*sharedProject);
 
@@ -454,7 +454,7 @@ void SharedResources::testConvertResource()
     QCOMPARE(sharedProject->resourceCount(), 5);
 
     doc->setProperty(NOUI, true);
-    doc->setProperty(DEFAULTSHAREDRESOURCESRESULT, SHAREDRESOURCECONVERT);
+    doc->setProperty(SHAREDRESOURCESACTION, SHAREDRESOURCESCONVERT);
     auto project = doc->project();
     doc->mergeResources(*sharedProject);
 

@@ -215,6 +215,8 @@ protected Q_SLOTS:
 
     void insertFileCompleted();
     void insertFileCancelled(const QString&);
+
+    void slotInsertResourceFile(); // used to trigger from comleteLoading()
     void insertResourcesFileCompleted();
     void insertResourcesFileCancelled(const QString&);
 
