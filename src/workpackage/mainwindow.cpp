@@ -32,7 +32,6 @@
 #include <kmessagebox.h>
 #include <kactioncollection.h>
 
-#include <ktoolinvocation.h>
 #include <KIO/StatJob>
 #include <kxmlguiwindow.h>
 
