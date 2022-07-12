@@ -50,7 +50,7 @@
            <string extracomment="@info:tooltip">Mark all selected items to be converted to local resources</string>
           </property>
           <property name="text">
-           <string extracomment="@action:button">Marh as: Convert</string>
+           <string extracomment="@action:button">Mark as: Convert</string>
           </property>
          </widget>
         </item>
