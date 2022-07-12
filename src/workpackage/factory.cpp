@@ -13,7 +13,7 @@
 #include <KoResourcePaths.h>
 #include <KoComponentData.h>
 
-#include <kiconloader.h>
+#include <KIconLoader>
 
 
 namespace KPlatoWork

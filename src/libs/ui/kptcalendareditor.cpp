@@ -35,7 +35,7 @@
 #include <QMenu>
 
 #include <KLocalizedString>
-#include <kactioncollection.h>
+#include <KActionCollection>
 
 #include <KoDocument.h>
 

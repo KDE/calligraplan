@@ -29,11 +29,11 @@
 #include <KoDocument.h>
 
 #include <KLocalizedString>
-#include <kmessagebox.h>
-#include <kactioncollection.h>
+#include <KMessageBox>
+#include <KActionCollection>
 
 #include <KIO/StatJob>
-#include <kxmlguiwindow.h>
+#include <KXmlGuiWindow>
 
 #include <KoDocumentInfo.h>
 #include <KoView.h>

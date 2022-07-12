@@ -34,7 +34,7 @@
 #include <QMenu>
 
 #include <KLocalizedString>
-#include <kactioncollection.h>
+#include <KActionCollection>
 #include <KCheckableProxyModel>
 
 using namespace KPlato;

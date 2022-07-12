@@ -20,8 +20,8 @@
 #include <QVBoxLayout>
 
 #include <KLocalizedString>
-#include <kurlrequesterdialog.h>
-#include <kmessagebox.h>
+#include <KUrlRequesterDialog>
+#include <KMessageBox>
 #include <KRun>
 
 using namespace KPlato;

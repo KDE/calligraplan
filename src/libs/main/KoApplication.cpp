@@ -31,14 +31,14 @@
 #include <KoResourcePaths.h>
 #include <KoComponentData.h>
 
-#include <klocalizedstring.h>
-#include <kdesktopfile.h>
-#include <kmessagebox.h>
-#include <kiconloader.h>
+#include <KLocalizedString>
+#include <KDesktopFile>
+#include <KMessageBox>
+#include <KIconLoader>
 #include <MainDebug.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <krecentdirs.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KRecentDirs>
 #include <KAboutData>
 #include <KSharedConfig>
 #include <KDBusService>

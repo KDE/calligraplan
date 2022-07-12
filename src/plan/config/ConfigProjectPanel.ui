@@ -147,7 +147,7 @@
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <header>KLineEdit</header>
    <container>1</container>
   </customwidget>
   <customwidget>
@@ -163,7 +163,7 @@
   <customwidget>
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>
-   <header>ktextedit.h</header>
+   <header>KTextEdit</header>
   </customwidget>
   <customwidget>
    <class>KToolBar</class>

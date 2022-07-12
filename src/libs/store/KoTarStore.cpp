@@ -13,7 +13,7 @@
 
 #include <QByteArray>
 
-#include <ktar.h>
+#include <KTar>
 #include <StoreDebug.h>
 #include <QUrl>
 

@@ -34,15 +34,15 @@
 #include <QAction>
 
 #include <KLocalizedString>
-#include <ktoolbar.h>
+#include <KToolBar>
 
-#include <kxmlguifactory.h>
+#include <KXMLGUIFactory>
 #include <KEMailClientLauncherJob>
 #include <KDialogJobUiDelegate>
-#include <kactioncollection.h>
+#include <KActionCollection>
 #include <QTemporaryFile>
 
-#include <kmessagebox.h>
+#include <KMessageBox>
 
 #include <KoIcon.h>
 

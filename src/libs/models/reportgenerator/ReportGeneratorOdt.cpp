@@ -33,7 +33,7 @@
 #include <QMimeDatabase>
 #include <QModelIndex>
 #include <QByteArray>
-#include <qdom.h>
+#include <QDomDocument>
 #include <QStandardItemModel>
 #include <QSortFilterProxyModel>
 #include <QVariantList>

@@ -16,8 +16,8 @@
 #include <QHeaderView>
 #include <QMenu>
 
-#include <kmessagebox.h>
-#include <kcombobox.h>
+#include <KMessageBox>
+#include <KComboBox>
 
 #include <KoIcon.h>
 #include "KoDocument.h"

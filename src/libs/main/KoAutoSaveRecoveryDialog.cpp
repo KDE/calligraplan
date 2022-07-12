@@ -9,8 +9,8 @@
 
 #include <KoStore.h>
 
-#include <kwidgetitemdelegate.h>
-#include <klocalizedstring.h>
+#include <KWidgetItemDelegate>
+#include <KLocalizedString>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>

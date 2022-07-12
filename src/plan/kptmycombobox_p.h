@@ -9,7 +9,7 @@
 
 #include "plan_export.h"
 
-#include <kcombobox.h>
+#include <KComboBox>
 
 namespace KPlato
 {

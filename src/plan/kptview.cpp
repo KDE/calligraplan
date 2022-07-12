@@ -10,7 +10,7 @@
 // clazy:excludeall=qstring-arg
 #include "kptview.h"
 
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <KRecentFilesAction>
 
 #include "KoDocumentInfo.h"
@@ -37,12 +37,12 @@
 #include <QFileDialog>
 #include <QStatusBar>
 
-#include <kactioncollection.h>
-#include <kactionmenu.h>
-#include <kstandardaction.h>
-#include <ktoolbar.h>
-#include <kxmlguifactory.h>
-#include <ktoggleaction.h>
+#include <KActionCollection>
+#include <KActionMenu>
+#include <KStandardAction>
+#include <KToolBar>
+#include <KXMLGUIFactory>
+#include <KToggleAction>
 
 #include <KEMailClientLauncherJob>
 #include <KDialogJobUiDelegate>

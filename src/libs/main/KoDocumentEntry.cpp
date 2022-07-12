@@ -15,8 +15,8 @@
 
 #include <KoPluginLoader.h>
 
-#include <kservicetype.h>
-#include <kpluginfactory.h>
+#include <KServiceType>
+#include <KPluginFactory>
 
 #include <QCoreApplication>
 

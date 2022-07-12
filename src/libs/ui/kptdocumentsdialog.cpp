@@ -12,7 +12,7 @@
 #include "kptcommand.h"
 
 #include <KLocalizedString>
-#include <kactioncollection.h>
+#include <KActionCollection>
 
 using namespace KPlato;
 

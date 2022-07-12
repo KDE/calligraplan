@@ -10,7 +10,7 @@
 
 #include "komain_export.h"
 
-#include <kxmlguiwindow.h>
+#include <KXmlGuiWindow>
 //#include <KoCanvasObserverBase.h>
 //#include <KoCanvasSupervisor.h>
 

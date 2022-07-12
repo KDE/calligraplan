@@ -13,7 +13,7 @@
 
 #include <QListWidgetItem>
 
-#include <kpagedialog.h>
+#include <KPageDialog>
 
 class KoPageLayoutWidget;
 

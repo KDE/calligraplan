@@ -31,13 +31,13 @@
 
 #include <KoIcon.h>
 
-#include <kactioncollection.h>
-#include <klocalizedstring.h>
+#include <KActionCollection>
+#include <KLocalizedString>
 #include <MainDebug.h>
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <KoNetAccess.h>
-#include <kselectaction.h>
-#include <kconfiggroup.h>
+#include <KSelectAction>
+#include <KConfigGroup>
 #include <KSharedConfig>
 
 #include <QStatusBar>

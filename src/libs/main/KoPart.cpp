@@ -23,10 +23,10 @@
 #include <KoResourcePaths.h>
 
 #include <MainDebug.h>
-#include <kxmlguifactory.h>
-#include <kdesktopfile.h>
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KXMLGUIFactory>
+#include <KDesktopFile>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 #include <QFileInfo>
 #include <QGraphicsScene>

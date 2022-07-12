@@ -36,8 +36,8 @@
 #include <KoXmlWriter.h>
 #include <KoOdfWriteStore.h>
 
-#include <kcombobox.h>
-#include <klineedit.h>
+#include <KComboBox>
+#include <KLineEdit>
 
 
 using namespace KPlato;

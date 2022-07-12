@@ -23,14 +23,14 @@
 #include <QDebug>
 #include <QPushButton>
 
-#include <kconfig.h>
-#include <klocalizedstring.h>
+#include <KConfig>
+#include <KLocalizedString>
 
-#include <kseparator.h>
-#include <kstandardguiitem.h>
-#include <khelpclient.h>
-#include <kurllabel.h>
-#include <kwindowconfig.h>
+#include <KSeparator>
+#include <KStandardGuiItem>
+#include <KHelpClient>
+#include <KUrlLabel>
+#include <KWindowConfig>
 
 void KoDialogPrivate::setupLayout()
 {

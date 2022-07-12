@@ -14,7 +14,7 @@
 #include <KoDockRegistry.h>
 #include <KoComponentData.h>
 
-#include <kiconloader.h>
+#include <KIconLoader>
 
 #include <QTimer>
 

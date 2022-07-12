@@ -10,7 +10,7 @@
 #include "calligraplansettings.h"
 
 
-#include <kactioncollection.h>
+#include <KActionCollection>
 
 #ifdef HAVE_KHOLIDAYS
 #include <KHolidays/HolidayRegion>

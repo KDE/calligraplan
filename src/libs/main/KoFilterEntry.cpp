@@ -14,7 +14,7 @@ SPDX-License-Identifier: LGPL-2.0-or-later
 #include <MainDebug.h>
 #include <KoPluginLoader.h>
 
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 #include <QFile>
 
 #include <limits.h> // UINT_MAX

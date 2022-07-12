@@ -9,7 +9,7 @@
 #ifndef KEDITTOOLBARP_H
 #define KEDITTOOLBARP_H
 
-#include "kxmlguiclient.h"
+#include "KXMLGUIClient"
 #include <QDialog>
 #include <QListWidget>
 

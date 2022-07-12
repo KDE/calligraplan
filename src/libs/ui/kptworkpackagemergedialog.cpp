@@ -14,8 +14,8 @@
 #include "kptcommand.h"
 #include "kptduration.h"
 
-#include <kmessagebox.h>
-#include <kextendableitemdelegate.h>
+#include <KMessageBox>
+#include <KExtendableItemDelegate>
 #include <KIO/CopyJob>
 
 #include <QSortFilterProxyModel>

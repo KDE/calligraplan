@@ -13,7 +13,7 @@
 
 #include <KoXmlReaderForward.h>
 
-#include <qdom.h>
+#include <QDomDocument>
 #include <QSortFilterProxyModel>
 
 class QIODevice;

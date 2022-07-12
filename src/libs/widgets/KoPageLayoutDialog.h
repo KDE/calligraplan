@@ -12,7 +12,7 @@
 //#include <KoText.h>
 #include <KoUnit.h>
 
-#include <kpagedialog.h>
+#include <KPageDialog>
 
 struct KoPageLayout;
 

@@ -45,14 +45,14 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <kparts/partmanager.h>
-#include <kopenwithdialog.h>
-#include <kmimetypetrader.h>
-//#include <kserviceoffer.h>
+#include <KParts/PartManager>
+#include <KOpenWithDialog>
+#include <KMimeTypeTrader>
+//#include <KServiceOffer>
 #include <KIO/DesktopExecParser>
-#include <krun.h>
-#include <kprocess.h>
-#include <kactioncollection.h>
+#include <KRun>
+#include <KProcess>
+#include <KActionCollection>
 #include <KApplicationTrader>
 
 #include "debugarea.h"

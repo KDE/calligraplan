@@ -17,12 +17,12 @@
 #include <KoStoreDevice.h>
 #include <KoXmlWriter.h>
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <OdfDebug.h>
-#include <klocalizedstring.h>
-#include <kuser.h>
-#include <kemailsettings.h>
+#include <KLocalizedString>
+#include <KUser>
+#include <KEMailSettings>
 
 
 KoDocumentInfo::KoDocumentInfo(QObject *parent) : QObject(parent)

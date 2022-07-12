@@ -23,7 +23,7 @@
 #include <QGraphicsTextItem>
 #include <QTimer>
 
-#include <kpagedialog.h>
+#include <KPageDialog>
 
 class KoPageLayoutWidget;
 

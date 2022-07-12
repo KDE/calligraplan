@@ -23,8 +23,8 @@
 #include <QComboBox>
 #include <QStandardPaths>
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <KSharedConfig>
 
 namespace KPlato {

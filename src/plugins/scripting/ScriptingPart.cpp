@@ -27,7 +27,7 @@
 
 #include <QStandardPaths>
 // KF5
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 // kross
 #include <kross/core/manager.h>
 #include <kross/core/interpreter.h>

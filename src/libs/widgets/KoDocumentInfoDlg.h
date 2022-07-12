@@ -8,7 +8,7 @@
 #ifndef __koDocumentInfoDlg_h__
 #define __koDocumentInfoDlg_h__
 
-#include <kpagedialog.h>
+#include <KPageDialog>
 
 class KoDocumentInfo;
 class KPageWidgetItem;

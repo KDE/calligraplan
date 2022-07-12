@@ -10,7 +10,7 @@
 #include "mainwindow.h"
 #include "aboutdata.h"
 
-#include <kiconloader.h>
+#include <KIconLoader>
 #include <KLocalizedString>
 #include <KAboutData>
 #include <KStartupInfo>

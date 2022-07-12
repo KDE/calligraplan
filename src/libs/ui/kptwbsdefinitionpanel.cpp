@@ -11,7 +11,7 @@
 #include "kptproject.h"
 #include "kptdebug.h"
 
-#include <kcombobox.h>
+#include <KComboBox>
 
 #include <QComboBox>
 #include <QTableWidget>

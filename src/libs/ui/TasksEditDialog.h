@@ -9,7 +9,7 @@
 
 #include "planui_export.h"
 
-#include <kpagedialog.h>
+#include <KPageDialog>
 
 
 namespace KPlato

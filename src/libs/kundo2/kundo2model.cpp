@@ -45,7 +45,7 @@
 ****************************************************************************/
 // clazy:excludeall=qstring-arg
 #include "kundo2model.h"
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 KUndo2Model::KUndo2Model(QObject *parent)
     : QAbstractItemModel(parent)
 {

@@ -12,7 +12,7 @@
 #include <kptviewbase.h>
 #include "kptaccountsmodel.h"
 
-#include <kpagedialog.h>
+#include <KPageDialog>
 
 class KoPageLayoutWidget;
 class KoDocument;

@@ -16,7 +16,7 @@
 
 #include <KLocalizedString>
 
-#include <kmessagebox.h>
+#include <KMessageBox>
 
 
 extern int kplatoXmlDebugArea();

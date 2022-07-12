@@ -191,7 +191,7 @@ This is not limited to persons available in a resource group but can be anyone. 
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <header>KLineEdit</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -46,8 +46,8 @@
 #include <QMutableMapIterator>
 #include <QTemporaryFile>
 
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <KIO/CopyJob>
 #include <KDirWatch>
 

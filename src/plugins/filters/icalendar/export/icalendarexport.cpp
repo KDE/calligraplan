@@ -31,7 +31,7 @@
 #include <QFile>
 #include <QTextEdit>
 
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 
 #include <KoFilterChain.h>
 #include <KoFilterManager.h>

@@ -38,8 +38,8 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <kactioncollection.h>
-#include <ktoggleaction.h>
+#include <KActionCollection>
+#include <KToggleAction>
 
 
 namespace KPlato

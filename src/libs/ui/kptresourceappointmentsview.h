@@ -12,7 +12,7 @@
 #include "kptviewbase.h"
 #include "kptresourceappointmentsmodel.h"
 
-#include <kpagedialog.h>
+#include <KPageDialog>
 
 #include <QDomDocument>
 

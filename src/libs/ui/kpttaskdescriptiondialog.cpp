@@ -12,8 +12,8 @@
 #include "RichTextWidget.h"
 
 #include <KLocalizedString>
-#include <ktextedit.h>
-#include <kactioncollection.h>
+#include <KTextEdit>
+#include <KActionCollection>
 
 namespace KPlato
 {

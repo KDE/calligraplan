@@ -50,10 +50,10 @@
 #include <QClipboard>
 #include <QDir>
 
-#include <kactionmenu.h>
+#include <KActionMenu>
 #include <KLocalizedString>
-#include <ktoggleaction.h>
-#include <kactioncollection.h>
+#include <KToggleAction>
+#include <KActionCollection>
 #include <KMessageBox>
 
 namespace KPlato

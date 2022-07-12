@@ -10,7 +10,7 @@
 
 #include "planwork_export.h"
 
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 
 class KAboutData;
 class KoComponentData;

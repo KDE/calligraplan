@@ -10,7 +10,7 @@
 #include "calligraplansettings.h"
 
 
-#include <kactioncollection.h>
+#include <KActionCollection>
 
 #include <QFileDialog>
 

@@ -13,7 +13,7 @@
 
 #include <QTransform>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <OdfDebug.h>
 #include <QtGlobal>
 

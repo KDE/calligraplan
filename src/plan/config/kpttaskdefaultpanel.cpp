@@ -19,8 +19,8 @@
 
 #include <QDateTime>
 
-#include <kactioncollection.h>
-#include <ktextedit.h>
+#include <KActionCollection>
+#include <KTextEdit>
 
 namespace KPlato
 {

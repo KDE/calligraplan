@@ -19,16 +19,16 @@
 #include <QtCore/QMetaClassInfo>
 #include <QtCore/QTextStream>
 #include <QtCore/QDataStream>
-#include <qtemporaryfile.h>
+#include <QTemporaryFile>
 
-#include <klocalizedstring.h>
-#include <kjobwidgets.h>
+#include <KLocalizedString>
+#include <KJobWidgets>
 
-#include "kio/job.h"
-#include "kio/mkdirjob.h"
-#include "kio/copyjob.h"
-#include "kio/deletejob.h"
-#include "kio/scheduler.h"
+#include "KIO/Job"
+#include <KIO/MkdirJob>
+#include <KIO/CopyJob>
+#include <KIO/DeleteJob>
+#include <KIO/Scheduler>
 
 namespace KIO
 {

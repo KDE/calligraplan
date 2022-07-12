@@ -45,8 +45,8 @@
 #include <QMenu>
 
 #include <KLocalizedString>
-#include <kactionmenu.h>
-#include <kactioncollection.h>
+#include <KActionMenu>
+#include <KActionCollection>
 
 
 #define ConnectCursor Qt::DragLinkCursor

@@ -39,7 +39,7 @@ class KPluginFactory;
  * Example cpp file;
  * @code
  * #include "MyPlugin.h"
- * #include <kpluginfactory.h>
+ * #include <KPluginFactory>
  * 
  * K_PLUGIN_FACTORY_WITH_JSON(MyPluginFactory, "myplugin.json", registerPlugin<MyPlugin>();)
  * 

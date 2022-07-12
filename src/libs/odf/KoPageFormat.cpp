@@ -10,7 +10,7 @@
 // clazy:excludeall=qstring-arg
 #include "KoPageFormat.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <OdfDebug.h>
 
 // paper formats (mm)

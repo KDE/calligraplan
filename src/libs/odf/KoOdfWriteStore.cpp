@@ -12,7 +12,7 @@
 
 #include <QTemporaryFile>
 #include <OdfDebug.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <KoStore.h>
 #include <KoStoreDevice.h>

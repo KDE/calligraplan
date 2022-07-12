@@ -12,10 +12,10 @@
 #include "kdatepicker.h"
 #include "kptdebug.h"
 
-#include <kconfig.h>
+#include <KConfig>
 #include <knotification.h>
-#include <kstandardshortcut.h>
-#include <kactioncollection.h>
+#include <KStandardShortcut>
+#include <KActionCollection>
 
 #include <QLocale>
 #include <QFontDatabase>

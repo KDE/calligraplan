@@ -65,7 +65,7 @@
 #include <QFont>
 #include <QFontMetricsF>
 
-#include <ktoggleaction.h>
+#include <KToggleAction>
 #include <KActionCollection>
 
 #include <KGanttGlobal>

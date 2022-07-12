@@ -12,7 +12,7 @@
 #include <QBuffer>
 #include <QByteArray>
 
-#include <kzip.h>
+#include <KZip>
 #include <StoreDebug.h>
 
 #include <QUrl>

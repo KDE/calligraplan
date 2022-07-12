@@ -22,11 +22,11 @@
 //#include <KoDocumentRdfBase.h>
 #include <KoIcon.h>
 
-#include <klocalizedstring.h>
-#include <kiconloader.h>
+#include <KLocalizedString>
+#include <KIconLoader>
 
-#include <kmessagebox.h>
-#include <kmainwindow.h>
+#include <KMessageBox>
+#include <KMainWindow>
 #include <KoDialog.h>
 
 #include <QUrl>

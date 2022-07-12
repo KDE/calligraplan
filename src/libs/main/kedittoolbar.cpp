@@ -34,9 +34,9 @@
 #include <KMessageBox>
 #include <KSeparator>
 
-#include "kactioncollection.h"
-#include "ktoolbar.h"
-#include "kxmlguifactory.h"
+#include "KActionCollection"
+#include "KToolBar"
+#include "KXMLGUIFactory"
 
 #include "ktoolbarhelper_p.h"
 

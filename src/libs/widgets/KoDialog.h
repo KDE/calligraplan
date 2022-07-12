@@ -16,8 +16,8 @@ class QMenu;
 class KoDialogPrivate;
 
 #include <kowidgets_export.h>
-#include <kconfiggroup.h>
-#include <kguiitem.h>
+#include <KConfigGroup>
+#include <KGuiItem>
 
 #include <QDialog>
 

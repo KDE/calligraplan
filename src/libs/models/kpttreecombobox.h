@@ -9,7 +9,7 @@
 
 #include "planmodels_export.h"
 
-#include <kcombobox.h>
+#include <KComboBox>
 
 #include <QAbstractItemView>
 

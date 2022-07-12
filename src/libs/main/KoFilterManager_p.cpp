@@ -15,8 +15,8 @@ SPDX-License-Identifier: LGPL-2.0-or-later
 #include <QListWidgetItem>
 #include <QMimeDatabase>
 
-#include <klocalizedstring.h>
-#include <ksqueezedtextlabel.h>
+#include <KLocalizedString>
+#include <KSqueezedTextLabel>
 
 KoFilterChooser::KoFilterChooser(QWidget *parent, const QStringList &mimeTypes, const QString &/*nativeFormat*/, const QUrl &url)
         : KoDialog(parent),

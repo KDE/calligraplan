@@ -55,13 +55,13 @@
 #include "KoIcon.h"
 #include <KoXmlReader.h>
 
-#include <kactionmenu.h>
-#include <kactioncollection.h>
-#include <kstandardaction.h>
-#include <kstandardguiitem.h>
-#include <kguiitem.h>
-#include <kmessagebox.h>
-#include <ktoolbar.h>
+#include <KActionMenu>
+#include <KActionCollection>
+#include <KStandardAction>
+#include <KStandardGuiItem>
+#include <KGuiItem>
+#include <KMessageBox>
+#include <KToolBar>
 
 #include <QCloseEvent>
 #include <QPainter>
@@ -80,7 +80,7 @@
 #include <QActionGroup>
 #include <QStackedWidget>
 #include <QAction>
-#include <qpushbutton.h>
+#include <QPushButton>
 #include <QMimeDatabase>
 #include <QFileDialog>
 

@@ -12,7 +12,7 @@
 
 #include "KoView.h"
 
-#include <kactioncollection.h>
+#include <KActionCollection>
 #include <QAction>
 #include <QList>
 

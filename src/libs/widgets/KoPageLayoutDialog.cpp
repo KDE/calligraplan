@@ -10,7 +10,7 @@
 #include "KoPageLayoutWidget.h"
 #include "KoPagePreviewWidget.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <WidgetsDebug.h>
 
 #include <QCheckBox>

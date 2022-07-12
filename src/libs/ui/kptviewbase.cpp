@@ -11,10 +11,10 @@
 #include "kptdebug.h"
 #include "config.h"
 
-#include <kmessagebox.h>
-#include <kactioncollection.h>
-#include <kactionmenu.h>
-#include <kzip.h>
+#include <KMessageBox>
+#include <KActionCollection>
+#include <KActionMenu>
+#include <KZip>
 #include <KStandardAction>
 #include <KXMLGUIFactory>
 
