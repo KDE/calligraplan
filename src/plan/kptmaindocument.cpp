@@ -1462,7 +1462,8 @@ bool MainDocument::mergeResources(Project &project)
         } else {
             QApplication::setOverrideCursor(Qt::ArrowCursor);
             SharedResourcesDialog dlg(removedGroups, removedResources, removedCalendars);
-            dlg.setWindowTitle(i18nc("@title:window", "Shared Resources"));
+            //dlg.setWindowTitle(i18nc("@title:window", "Shared Resources"));
+            dlg.setWindowTitle(i18nc("@title:window", "Project: %1", m_project->name()));
             dlg.exec();
             QApplication::restoreOverrideCursor();
             auto c = dlg.buildCommand();
