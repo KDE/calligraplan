@@ -38,7 +38,7 @@
 
 #include <KComboBox>
 #include <KLineEdit>
-
+#include <KLocalizedString>
 
 using namespace KPlato;
 
@@ -250,7 +250,7 @@ void ProgressBarDelegate::initStyleOptionProgressBar(QStyleOptionProgressBar *op
     int max = index.data(Role::Maximum).toInt();
     option->maximum = max > option->minimum ? max : option->minimum + 100;
     option->progress = index.data().toInt();
-    option->text = QString::number((option->progress * 100) / (option->maximum - option->minimum)) + QLatin1Char('%');
+    option->text = i18nc("task progress", "%1%", (option->progress * 100) / (option->maximum - option->minimum));
     option->textAlignment = Qt::AlignCenter;
     option->textVisible = true;
     option->state.setFlag(QStyle::State_Horizontal);
