@@ -253,6 +253,7 @@ void ProgressBarDelegate::initStyleOptionProgressBar(QStyleOptionProgressBar *op
     option->text = QString::number((option->progress * 100) / (option->maximum - option->minimum)) + QLatin1Char('%');
     option->textAlignment = Qt::AlignCenter;
     option->textVisible = true;
+    option->state.setFlag(QStyle::State_Horizontal);
 }
 
 QWidget *ProgressBarDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &, const QModelIndex &) const
