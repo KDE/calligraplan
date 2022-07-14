@@ -52,7 +52,6 @@ KoMainWindow *Part::createMainWindow()
 
     auto help = KPlato::Help::instance();
     help->setDocs(docs);
-    help->setOnline(true);
     help->initiate();
     qApp->installEventFilter(help);
 
