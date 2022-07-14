@@ -259,6 +259,8 @@ void ProgressBarDelegate::initStyleOptionProgressBar(QStyleOptionProgressBar *op
 QWidget *ProgressBarDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &, const QModelIndex &) const
 {
     Slider *slider = new Slider(parent);
+    slider->setAutoFillBackground(true);
+    slider->setBackgroundRole(QPalette::Highlight);
     slider->setRange(0, 100);
     slider->setOrientation(Qt::Horizontal);
     //debugPlan<<slider->minimumSizeHint()<<slider->minimumSize();
