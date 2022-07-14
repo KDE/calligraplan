@@ -4809,13 +4809,31 @@ QVariant MilestoneItemModel::data(const QModelIndex &index, int role) const
     return result;
 }
 
-bool MilestoneItemModel::setData(const QModelIndex &index, const QVariant &/*value*/, int role)
+bool MilestoneItemModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if ((flags(index) &Qt::ItemIsEditable) == 0 || role != Qt::EditRole) {
         return false;
     }
-//     Node *n = node(index);
     switch (index.column()) {
+        case NodeModel::NodeCompleted: {
+            auto n = node(index);
+            if (n->type() == Node::Type_Milestone) {
+                Completion &c = static_cast<Task*>(n)->completion();
+                if (value.toInt() > 0) {
+                    QDateTime dt = QDateTime::currentDateTime();
+                    QDate date = dt.date();
+                    MacroCommand *m = new MacroCommand(kundo2_i18n("Set finished"));
+                    m->addCommand(new ModifyCompletionStartTimeCmd(c, dt));
+                    m->addCommand(new ModifyCompletionStartedCmd(c, true));
+                    m->addCommand(new ModifyCompletionFinishTimeCmd(c, dt));
+                    m->addCommand(new ModifyCompletionFinishedCmd(c, true));
+                    m->addCommand(new ModifyCompletionPercentFinishedCmd(c, date, 100));
+                    Q_EMIT executeCommand(m); // also adds a new entry if necessary
+                    return true;
+                }
+            }
+            return false;
+        }
         default:
             qWarning("data: invalid display value column %d", index.column());
             return false;

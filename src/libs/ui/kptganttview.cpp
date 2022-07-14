@@ -385,6 +385,8 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
 
     connect(m_gantt->selectionModel(), &QItemSelectionModel::selectionChanged, this, &GanttView::slotSelectionChanged);
 
+    connect(m_gantt->model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
+
     updateActionsEnabled(false);
 
     setWhatsThis(
@@ -1226,6 +1228,9 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     connect(m_gantt->treeView(), &GanttTreeView::doubleClicked, this, &MilestoneGanttView::itemDoubleClicked);
 
     connect(m_gantt->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MilestoneGanttView::slotSelectionChanged);
+
+    connect(m_gantt->model(), &ItemModelBase::executeCommand, doc, &KoDocument::addCommand);
+
     updateActionsEnabled(false);
 }
 
