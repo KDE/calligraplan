@@ -1332,7 +1332,16 @@ QVariant NodeModel::completed(const Node *node, int role) const
         case Qt::EditRole:
             return t->completion().percentFinished();
         case Qt::ToolTipRole:
-            return xi18nc("@info:tooltip", "Task is %1% completed", t->completion().percentFinished());
+            if (t->type() == Node::Type_Task) {
+                if (t->completion().isFinished()) {
+                    return xi18nc("@info:tooltip", "Task finished at %1", QLocale().system().toString(t->completion().finishTime()));
+                }
+                return xi18nc("@info:tooltip", "Task is %1% completed", t->completion().percentFinished());
+            }
+            if (t->type() == Node::Type_Milestone && t->completion().isFinished()) {
+                return xi18nc("@info:tooltip", "Milestone finished at %1", QLocale().system().toString(t->completion().finishTime()));
+            }
+            break;
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
