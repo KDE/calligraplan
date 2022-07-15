@@ -108,6 +108,7 @@ MacroCommand *TaskProgressPanel::buildCommand()
 
 MacroCommand *TaskProgressPanel::buildCommand(const Project &project, Completion &org, Completion &curr)
 {
+
     MacroCommand *cmd = nullptr;
     KUndo2MagicString c = kundo2_i18n("Modify task completion");
     
@@ -276,6 +277,7 @@ void TaskProgressPanelImpl::slotStartedChanged(bool state) {
 
 void TaskProgressPanelImpl::setFinished() {
     const QDateTime dt = finishTime->dateTime();
+    m_completion.setFinishTime(dt);
     m_completion.setPercentFinished(dt.date(), 100);
     m_completion.setRemainingEffort(dt.date(), Duration::zeroDuration);
     entryTable->setCompletion(&m_completion); // for refresh
