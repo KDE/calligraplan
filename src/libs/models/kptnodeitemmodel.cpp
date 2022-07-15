@@ -2643,7 +2643,7 @@ QVariant NodeModel::headerData(int section, int role)
             case NodeStatus:
                 return (int)(Qt::AlignLeft|Qt::AlignVCenter);
             case NodeCompleted:
-                return (int)(Qt::AlignCenter); // special, presented as a bar
+                return (int)(Qt::AlignLeft|Qt::AlignVCenter); // special, presented as a bar
             case NodePlannedEffort:
             case NodeActualEffort:
             case NodeRemainingEffort:
