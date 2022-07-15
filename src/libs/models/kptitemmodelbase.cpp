@@ -10,6 +10,7 @@
 #include "kptproject.h"
 #include "kptschedule.h"
 #include "kptdurationspinbox.h"
+#include "kptnodeitemmodel.h"
 #include "kptdebug.h"
 
 #include <QApplication>
@@ -189,58 +190,40 @@ ProgressBarDelegate::~ProgressBarDelegate()
 void ProgressBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
  const QModelIndex &index) const
 {
-    QStyle *style;
+    auto style = option.widget ? option.widget->style() : QApplication::style();
 
-    QStyleOptionViewItem opt = option;
-    initStyleOption(&opt, index);
+    // draw background
+    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &option, painter);
 
-    style = opt.widget ? opt.widget->style() : QApplication::style();
-    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
-
-    if (!(opt.state & QStyle::State_Editing)) {
-        bool ok = false;
-        (void) index.data().toInt(&ok);
-        if (ok) {
+    // only draw progress bar if a valid int is returned
+    bool ok;
+    index.data().toInt(&ok);
+    if (ok) {
+        const auto idx = index.siblingAtColumn(NodeModel::NodeStatus);
+        int state = idx.data(Qt::EditRole).toInt();
+        if (state & Node::State_NotReadyToStart || state & Node::State_NotScheduled) {
+            QStyleOptionViewItem opt = option;
+            initStyleOption(&opt, index);
+            opt.text = idx.data().toString();
+            style->drawControl(QStyle::CE_ItemViewItem, &opt, painter, opt.widget);
+        } else {
             QStyleOptionProgressBar pbOption;
             pbOption.QStyleOption::operator=(option);
             initStyleOptionProgressBar(&pbOption, index);
-
             style->drawControl(QStyle::CE_ProgressBar, &pbOption, painter);
-            // Draw focus, copied from qt
-            if (opt.state & QStyle::State_HasFocus) {
-                painter->save();
-                QStyleOptionFocusRect o;
-                o.QStyleOption::operator=(opt);
-                o.rect = style->subElementRect(QStyle::SE_ItemViewItemFocusRect, &opt, opt.widget);
-                o.state |= QStyle::State_KeyboardFocusChange;
-                o.state |= QStyle::State_Item;
-                QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled)
-                                ? QPalette::Normal : QPalette::Disabled;
-                o.backgroundColor = opt.palette.color(cg, (opt.state & QStyle::State_Selected)
-                                                ? QPalette::Highlight : QPalette::Window);
-                style->drawPrimitive(QStyle::PE_FrameFocusRect, &o, painter, opt.widget);
-                //debugPlan<<"Focus"<<o.rect<<opt.rect<<pbOption.rect;
-                painter->restore();
-            }
-        } else {
-            EnumDelegate del;
-            del.paint(painter, option, index);
         }
     }
 }
 
 QSize ProgressBarDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QStyleOptionViewItem opt = option;
-    //  initStyleOption(&opt, index);
-
-    QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
+    QStyle *style = option.widget ? option.widget->style() : QApplication::style();
 
     QStyleOptionProgressBar pbOption;
     pbOption.QStyleOption::operator=(option);
     initStyleOptionProgressBar(&pbOption, index);
 
-    return style->sizeFromContents(QStyle::CT_ProgressBar, &pbOption, QSize(), opt.widget);
+    return style->sizeFromContents(QStyle::CT_ProgressBar, &pbOption, QSize(), option.widget);
 }
 
 void ProgressBarDelegate::initStyleOptionProgressBar(QStyleOptionProgressBar *option, const QModelIndex &index) const
@@ -251,7 +234,7 @@ void ProgressBarDelegate::initStyleOptionProgressBar(QStyleOptionProgressBar *op
     option->maximum = max > option->minimum ? max : option->minimum + 100;
     option->progress = index.data().toInt();
     option->text = i18nc("task progress", "%1%", (option->progress * 100) / (option->maximum - option->minimum));
-    option->textAlignment = Qt::AlignCenter;
+    option->textAlignment = Qt::AlignCenter; // TODO find out why this does not work
     option->textVisible = true;
     option->state.setFlag(QStyle::State_Horizontal);
 }
