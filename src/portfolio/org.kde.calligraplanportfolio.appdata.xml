@@ -9,6 +9,7 @@
   <name xml:lang="ca-valencia">Plan Portfolio</name>
   <name xml:lang="cs">Naplánovat portfolio</name>
   <name xml:lang="de">Plan Portfolio</name>
+  <name xml:lang="en-GB">Plan Portfolio</name>
   <name xml:lang="es">Plan Portafolio</name>
   <name xml:lang="fr">Plan Portfolio</name>
   <name xml:lang="it">Plan Portfolio</name>
@@ -25,6 +26,7 @@
   <summary xml:lang="ca-valencia">Gestió de carteres de projectes</summary>
   <summary xml:lang="cs">Správa projektů portfolia</summary>
   <summary xml:lang="de">Projektportfolioverwaltung</summary>
+  <summary xml:lang="en-GB">Project Portfolio Management</summary>
   <summary xml:lang="es">Gestión de portafolios de proyectos</summary>
   <summary xml:lang="fr">Gestionnaire d'un porte-feuille de projets</summary>
   <summary xml:lang="it">Gestione del portafoglio dei progetti</summary>
@@ -42,6 +44,7 @@
     </p>
     <p xml:lang="ca">El Plan Portfolio és una aplicació de gestió d'una cartera de projectes. Està pensada per a gestionar una col·lecció de projectes.</p>
     <p xml:lang="ca-valencia">Plan Portfolio és una aplicació de gestió d'una cartera de projectes. Està pensada per a gestionar una col·lecció de projectes.</p>
+    <p xml:lang="en-GB">Plan Portfolio is a project portfolio management application. It is intended for managing a collection of projects.</p>
     <p xml:lang="es">Plan Portfolio es una aplicación de gestión de portafolios de proyecto. Está pensada para la gestión de una colección de proyectos.</p>
     <p xml:lang="fr">Plan Portfolio est une application de gestion d'un portefeuille de projets. Il est destiné à la gestion d'une collection de projets.</p>
     <p xml:lang="it">Plan Portfolio è un'applicazione di gestione del portafoglio di progetti. È destinato alla gestione di una raccolta di progetti.</p>
