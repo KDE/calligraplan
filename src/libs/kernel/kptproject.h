@@ -69,11 +69,12 @@ public:
     explicit Project(Node *parent = nullptr);
     explicit Project(ConfigBase &config, Node *parent = nullptr);
     explicit Project(ConfigBase &config, bool useDefaultValues, Node *parent = nullptr);
+
     ~Project() override;
 
     /// Reference this project.
     void ref() { ++m_refCount; }
-    /// De-reference this project. Deletes project of ref count <= 0
+    /// De-reference this project. Deletes project if ref count <= 0
     void deref();
 
     /// Returns the node type. Can be Type_Project or Type_Subproject.
