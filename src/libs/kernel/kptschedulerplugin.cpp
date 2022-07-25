@@ -262,6 +262,7 @@ SchedulerThread::SchedulerThread(ulong granularity, QObject *parent)
     , m_mainproject(nullptr)
     , m_mainmanager(nullptr)
     , m_granularity(granularity)
+    , m_project(nullptr)
     , m_manager(nullptr)
     , m_stopScheduling(false)
     , m_haltScheduling(false)
@@ -272,7 +273,9 @@ SchedulerThread::SchedulerThread(ulong granularity, QObject *parent)
 SchedulerThread::~SchedulerThread()
 {
     //debugPlan<<QThread::currentThreadId();
-    delete m_project;
+    if (m_project) {
+        m_project->deref();
+    }
     m_project = nullptr;
     wait();
 }
