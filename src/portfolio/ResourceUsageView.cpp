@@ -79,7 +79,7 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
     ui.chart->setDataModel(&m_resourceUsageModel);
 
     //ui.chart->chart()->coordinatePlane()->setRubberBandZoomingEnabled(true);
-    connect(ui.chart->chart(), &KChart::Chart::finishedDrawing, this, &ResourceUsageView::slotDrawingFinished);
+    connect(ui.chart->chart(), &KChart::Chart::finishedDrawing, this, &ResourceUsageView::slotRestoreOverrideCursor);
 
     connect(ui.resourceView->selectionModel(), &QItemSelectionModel::currentChanged, this, &ResourceUsageView::slotCurrentIndexChanged);
 
@@ -87,7 +87,7 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
     slotUpdateNumDays();
 
     // turn off waitcursor
-    QTimer::singleShot(0, this, &ResourceUsageView::slotDrawingFinished);
+    QTimer::singleShot(0, this, &ResourceUsageView::slotRestoreOverrideCursor);
 
     setWhatsThis(xi18nc("@info:whatsthis",
         "<title>Resource Usage</title>"
@@ -100,6 +100,7 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
 
 ResourceUsageView::~ResourceUsageView()
 {
+    slotRestoreOverrideCursor();
 }
 
 void ResourceUsageView::setupGui()
@@ -161,8 +162,7 @@ KoPrintJob *ResourceUsageView::createPrintJob()
 void ResourceUsageView::slotCurrentIndexChanged(const QModelIndex &current, const QModelIndex &previous)
 {
     Q_UNUSED(previous);
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    ++m_restoreOverrideCursor;
+    setOverrideCursor();
     m_resourceUsageModel.setCurrentResource(current.data(RESOURCEID_ROLE).toString());
 }
 
@@ -188,8 +188,7 @@ void ResourceUsageView::slotUpdateNumDays()
 
 void ResourceUsageView::slotNumDaysChanged(int value)
 {
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    ++m_restoreOverrideCursor;
+    setOverrideCursor();
     ui.chart->setNumRows(value);
     updateMarker();
 }
@@ -205,11 +204,21 @@ void ResourceUsageView::updateMarker()
     ui.chart->chart()->update();
 }
 
-void ResourceUsageView::slotDrawingFinished()
+void ResourceUsageView::setOverrideCursor()
 {
-    while (m_restoreOverrideCursor > 0) {
+    if (!m_overrideCursorSet && ui.resourceView->currentIndex().isValid()) {
+        QApplication::setOverrideCursor(Qt::WaitCursor);
+        m_overrideCursorSet = true;
+        qInfo()<<Q_FUNC_INFO<<"setOverrideCursor"<<m_overrideCursorSet;
+    }
+}
+
+void ResourceUsageView::slotRestoreOverrideCursor()
+{
+    if (m_overrideCursorSet) {
         QApplication::restoreOverrideCursor();
-        --m_restoreOverrideCursor;
+        m_overrideCursorSet = false;
+        qInfo()<<Q_FUNC_INFO<<"restoreOverrideCursor"<<m_overrideCursorSet;
     }
 }
 

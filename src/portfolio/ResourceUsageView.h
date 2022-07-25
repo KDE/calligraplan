@@ -70,8 +70,10 @@ protected:
 
 private:
     void setupGui();
+    void setOverrideCursor();
+
 private Q_SLOTS:
-    void slotDrawingFinished();
+    void slotRestoreOverrideCursor();
 
 private:
     bool m_readWrite;
@@ -79,7 +81,7 @@ private:
     ResourceUsageModel m_resourceUsageModel;
     QSpinBox *m_numDays;
     LineDiagram *m_available;
-    unsigned int m_restoreOverrideCursor = 0;
+    bool m_overrideCursorSet = false;
 };
 
 #endif
