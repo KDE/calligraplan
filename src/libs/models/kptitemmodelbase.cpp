@@ -195,10 +195,10 @@ void ProgressBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // draw background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &option, painter);
 
-    // only draw progress bar if a valid int is returned
     bool ok;
     index.data().toInt(&ok);
     if (ok) {
+        // only draw progress bar if a valid int is returned and
         const auto idx = index.siblingAtColumn(NodeModel::NodeStatus);
         int state = idx.data(Qt::EditRole).toInt();
         if (state & Node::State_NotReadyToStart || state & Node::State_NotScheduled) {
@@ -212,6 +212,12 @@ void ProgressBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             initStyleOptionProgressBar(&pbOption, index);
             style->drawControl(QStyle::CE_ProgressBar, &pbOption, painter);
         }
+    } else {
+        // draw the returned text (if any)
+        QStyleOptionViewItem opt = option;
+        initStyleOption(&opt, index);
+        opt.text = index.data().toString();
+        style->drawControl(QStyle::CE_ItemViewItem, &opt, painter, opt.widget);
     }
 }
 
