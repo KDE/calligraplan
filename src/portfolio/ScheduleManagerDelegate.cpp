@@ -37,6 +37,7 @@ QWidget *ScheduleManagerDelegate::createEditor(QWidget *parent, const QStyleOpti
 {
     Q_UNUSED(option)
     Q_UNUSED(index)
+
     TreeComboBox *editor = new TreeComboBox(parent);
     editor->installEventFilter(const_cast<ScheduleManagerDelegate*>(this));
     auto m = new ScheduleManagerSFModel(editor);
@@ -49,6 +50,7 @@ void ScheduleManagerDelegate::setEditorData(QWidget *editor, const QModelIndex &
 {
     TreeComboBox *box = static_cast<TreeComboBox*>(editor);
     box->setSelectionMode(QAbstractItemView::SingleSelection);
+    box->view()->setRootIsDecorated(true);
 
     auto pm = static_cast<ScheduleManagerSFModel*>(box->model());
     auto sim = static_cast<ScheduleItemModel*>(pm->sourceModel());
@@ -56,9 +58,7 @@ void ScheduleManagerDelegate::setEditorData(QWidget *editor, const QModelIndex &
     auto project = index.data(PROJECT_ROLE).value<KPlato::Project*>();
     sim->setProject(project);
 
-    QItemSelectionModel *sm = box->view()->selectionModel();
-    sm->clearSelection();
-    box->setCurrentIndexes(sm->selectedRows());
+    box->setCurrentIndexes(QModelIndexList()<<index);
     box->view()->expandAll();
 }
 
