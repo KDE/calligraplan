@@ -22,6 +22,7 @@ class KoPrintJob;
 class QTreeView;
 class QMenu;
 class QItemSelection;
+class QProgressDialog;
 
 namespace KPlato {
     class ScheduleManager;
@@ -39,6 +40,9 @@ public:
     KoPrintJob *createPrintJob() override;
 
     QString schedulerKey() const;
+
+Q_SIGNALS:
+    void projectCalculated(KPlato::Project *project, KPlato::ScheduleManager *sm);
 
 protected Q_SLOTS:
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
@@ -59,6 +63,10 @@ protected Q_SLOTS:
     void slotContextMenuRequested(const QPoint &pos);
     void slotDescription();
 
+    void calculateFromChanged();
+
+    void portfolioChanged();
+
 protected:
     void updateReadWrite(bool readwrite) override;
     void setupGui();
@@ -75,6 +83,7 @@ private:
     QTreeView *m_logView;
     SchedulingLogModel m_logModel;
     KPlato::SchedulingContext m_schedulingContext;
+    QProgressDialog *m_progress;
 };
 
 #endif

@@ -39,6 +39,7 @@
 #include <QAction>
 #include <QMenu>
 #include <QComboBox>
+#include <QProgressDialog>
 
 SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent)
@@ -67,6 +68,7 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     model->setPortfolio(qobject_cast<MainDocument*>(doc));
     ui.schedulingView->setModel(model);
     model->setDelegates(ui.schedulingView);
+    model->setCalculateFrom(ui.calculationDateTime->dateTime());
 
     // move some column after our extracolumns
     ui.schedulingView->header()->moveSection(1, model->columnCount()-1); // target start
@@ -93,11 +95,14 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     updateActionsEnabled();
 
     updateSchedulingProperties();
+    ui.todayRB->setChecked(true);
+    slotTodayToggled(true);
+    QTimer::singleShot(0, this, &SchedulingView::calculateFromChanged); // update model
 
-    connect(model, &QAbstractItemModel::dataChanged, this, &SchedulingView::updateActionsEnabled);
-    connect(model, &QAbstractItemModel::rowsInserted, this, &SchedulingView::updateSchedulingProperties);
+    //connect(model, &QAbstractItemModel::dataChanged, this, &SchedulingView::updateActionsEnabled);
+    //connect(model, &QAbstractItemModel::rowsInserted, this, &SchedulingView::updateSchedulingProperties);
     connect(model, &QAbstractItemModel::rowsRemoved, this, &SchedulingView::updateSchedulingProperties);
-    connect(model, &QAbstractItemModel::modelReset, this, &SchedulingView::updateSchedulingProperties);
+    //connect(model, &QAbstractItemModel::modelReset, this, &SchedulingView::updateSchedulingProperties);
     connect(ui.schedulersCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSchedulersComboChanged(int)));
     connect(ui.granularities, SIGNAL(currentIndexChanged(int)), this, SLOT(slotGranularitiesChanged(int)));
     connect(ui.sequential, &QRadioButton::toggled, this, &SchedulingView::slotSequentialChanged);
@@ -105,6 +110,10 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(ui.tomorrowRB, &QRadioButton::toggled, this, &SchedulingView::slotTomorrowToggled);
     connect(ui.timeRB, &QRadioButton::toggled, this, &SchedulingView::slotTimeToggled);
     connect(ui.calculate, &QPushButton::clicked, this, &SchedulingView::calculate);
+    connect(ui.calculationDateTime, &QDateTimeEdit::dateTimeChanged, this, &SchedulingView::calculateFromChanged);
+
+    connect(static_cast<MainDocument*>(doc), &MainDocument::documentInserted, this, &SchedulingView::portfolioChanged);
+    connect(static_cast<MainDocument*>(doc), &MainDocument::documentRemoved, this, &SchedulingView::portfolioChanged);
 
     setWhatsThis(xi18nc("@info:whatsthis",
         "<title>Scheduling</title>"
@@ -123,6 +132,11 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
 
 SchedulingView::~SchedulingView()
 {
+}
+
+void SchedulingView::portfolioChanged()
+{
+    ui.schedulingProperties->setDisabled(static_cast<MainDocument*>(koDocument())->documents().isEmpty());
 }
 
 void SchedulingView::updateLogFilter()
@@ -154,8 +168,6 @@ void SchedulingView::updateSchedulingProperties()
         ui.schedulersCombo->addItem(it.value()->name(), it.key());
     }
     slotSchedulersComboChanged(ui.schedulersCombo->currentIndex());
-    ui.todayRB->setChecked(true);
-    slotTodayToggled(true);
 }
 
 void SchedulingView::slotSchedulersComboChanged(int idx)
@@ -167,10 +179,11 @@ void SchedulingView::slotSchedulersComboChanged(int idx)
     if (scheduler) {
         const auto lst = scheduler->granularities();
         for (auto v : lst) {
-            ui.granularities->addItem(QStringLiteral("%1 min").arg(v/(60*1000)), (qint64)v);
+            ui.granularities->addItem(i18ncp("@label:listbox range: 0-60", "%1 minute", "%1 minutes", v/(60*1000)));
         }
         ui.granularities->setCurrentIndex(scheduler->granularityIndex());
         ui.sequential->setChecked(!scheduler->scheduleInParallel());
+        ui.sequential->setEnabled(true);
         ui.parallel->setChecked(scheduler->scheduleInParallel());
         ui.parallel->setEnabled(scheduler->capabilities() & KPlato::SchedulerPlugin::ScheduleInParallel);
         ui.schedulersCombo->setWhatsThis(scheduler->comment());
@@ -306,7 +319,7 @@ void SchedulingView::selectionChanged(const QItemSelection &selected, const QIte
     if (doc) {
         project = doc->project();
     }
-    if (m_schedulingContext.projects.key(doc, -1) == -1) {
+    if (m_schedulingContext.project || m_schedulingContext.projects.key(doc, -1) == -1) {
         m_logModel.setLog(m_schedulingContext.log);
     } else if (project) {
         KPlato::ScheduleManager *sm = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
@@ -329,6 +342,12 @@ KPlato::ScheduleManager* SchedulingView::scheduleManager(const KoDocument *doc) 
 QString SchedulingView::schedulerKey() const
 {
     return ui.schedulersCombo->currentData().toString();
+}
+
+void SchedulingView::calculateFromChanged()
+{
+    auto model = static_cast<SchedulingModel*>(ui.schedulingView->model());
+    model->setCalculateFrom(ui.calculationDateTime->dateTime());
 }
 
 QDateTime SchedulingView::calculationTime() const
@@ -371,10 +390,15 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
         warnPortfolio<<Q_FUNC_INFO<<"Nothing to shcedule";
         return;
     }
+    QApplication::setOverrideCursor(Qt::WaitCursor); // FIXME: workaround because progress dialog shown late, why?
     // Populate scheduling context
-    m_schedulingContext.project = new KPlato::Project();
+    m_schedulingContext.scheduler = scheduler;
+    m_schedulingContext.project = new KPlato::Project(); // FIXME: Set target start/end properly
     m_schedulingContext.project->setName(QStringLiteral("Project Collection"));
     m_schedulingContext.calculateFrom = calculationTime();
+    m_schedulingContext.log.clear();
+    m_logModel.setLog(m_schedulingContext.log);
+
     for (KoDocument *doc : qAsConst(docs)) {
         int prio = doc->property(SCHEDULINGPRIORITY).isValid() ? doc->property(SCHEDULINGPRIORITY).toInt() : -1;
         if (doc->property(SCHEDULINGCONTROL).toString() == QStringLiteral("Schedule")) {
@@ -383,11 +407,29 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
             m_schedulingContext.addResourceBookings(doc);
         }
     }
-    QApplication::setOverrideCursor(Qt::WaitCursor);
+    m_progress = new QProgressDialog(this);
+    m_progress->setLabelText(i18n("Scheduling projects"));
+    m_progress->setWindowModality(Qt::WindowModal);
+    m_progress->setMinimumDuration(0);
+    connect(scheduler, &KPlato::SchedulerPlugin::progressChanged, this, [this](int value, KPlato::ScheduleManager*) {
+        if (QApplication::overrideCursor()) {
+            QApplication::restoreOverrideCursor();
+        }
+        if (!m_progress->wasCanceled()) {
+            m_progress->setValue(value);
+        }
+    });
+    connect(m_progress, &QProgressDialog::canceled, this, [this]() {
+        m_schedulingContext.scheduler->cancelScheduling(m_schedulingContext);
+    });
     scheduler->schedule(m_schedulingContext);
     m_logModel.setLog(m_schedulingContext.log);
     for (QMap<int, KoDocument*>::const_iterator it = m_schedulingContext.projects.constBegin(); it != m_schedulingContext.projects.constEnd(); ++it) {
         portfolio->emitDocumentChanged(it.value());
+        Q_EMIT projectCalculated(it.value()->project(), it.value()->project()->findScheduleManagerByName(it.value()->property(SCHEDULEMANAGERNAME).toString()));
     }
-    QApplication::restoreOverrideCursor();
+    m_progress->deleteLater();
+    if (QApplication::overrideCursor()) {
+        QApplication::restoreOverrideCursor();
+    }
 }
