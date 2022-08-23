@@ -61,6 +61,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     item = m_views->addPage(sv, i18n("Scheduling"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("view-time-schedule-calculus"));
+    connect(sv, &SchedulingView::projectCalculated, this, &View::projectCalculated);
 
     item = m_views->addPage(new SummaryView(part, doc, m_views), i18n("Summary"));
     item->setHeaderVisible(false);
@@ -189,7 +190,7 @@ KPageWidgetItem *View::openDocument(KoDocument *doc)
         v->setProject(project);
         v->setScheduleManager(doc->project()->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString()));
         connect(doc, &KoDocument::scheduleManagerChanged, v, &KPlato::GanttView::setScheduleManager);
-
+        connect(this, &View::projectCalculated, v, &KPlato::GanttView::slotProjectCalculated);
     }
     return item;
 }

@@ -19,6 +19,11 @@ class KPageWidgetItem;
 
 class QMenu;
 
+namespace KPlato {
+class Project;
+class ScheduleManager;
+}
+
 class PLANPORTFOLIO_EXPORT View : public KoView
 {
     Q_OBJECT
@@ -40,6 +45,9 @@ public:
 
 public Q_SLOTS:
     void slotOpenDocument(KoDocument *doc);
+
+Q_SIGNALS:
+    void projectCalculated(KPlato::Project *project, KPlato::ScheduleManager *sm);
 
 protected:
     void setupActions();
