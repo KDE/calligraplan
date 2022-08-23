@@ -17,6 +17,7 @@ using namespace KPlato;
 ScrollableChart::ScrollableChart(QWidget *parent)
     : QWidget(parent)
     , m_scrollBarPolicy(Qt::ScrollBarAsNeeded)
+    , m_diagramFlavor(0)
 {
     ui.setupUi(this);
 
