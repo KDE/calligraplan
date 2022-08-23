@@ -680,6 +680,15 @@ void GanttView::setProject(Project *project)
     }
 }
 
+void GanttView::slotProjectCalculated(Project *project, ScheduleManager *sm)
+{
+    if (project == this->project() && sm == scheduleManager()) {
+        // refresh view
+        setScheduleManager(nullptr);
+        setScheduleManager(sm);
+    }
+}
+
 void GanttView::setScheduleManager(ScheduleManager *sm)
 {
     if (!sm && scheduleManager()) {

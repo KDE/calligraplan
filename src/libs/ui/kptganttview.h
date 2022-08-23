@@ -148,6 +148,8 @@ public Q_SLOTS:
 
     void slotEditCopy() override;
 
+    void slotProjectCalculated(Project *prjoect, ScheduleManager *sm);
+
 protected Q_SLOTS:
     void slotContextMenuRequested(const QModelIndex&, const QPoint &pos);
     void slotGanttHeaderContextMenuRequested(const QPoint &pt);
