@@ -165,6 +165,8 @@ QStringList Schedule::state() const
         lst << SchedulingState::effortNotMet();
     if (schedulingError)
         lst << SchedulingState::schedulingError();
+    if (schedulingCanceled)
+        lst << SchedulingState::schedulingCanceled();
     if (lst.isEmpty())
         lst << SchedulingState::scheduled();
     return lst;
@@ -1555,7 +1557,6 @@ void MainSchedule::addLog(const KPlato::Schedule::Log &log)
 #endif
     const int phaseToSet = (log.phase == -1 && ! m_log.isEmpty()) ? m_log.last().phase : -1;
     m_log.append(log);
-
     if (phaseToSet != -1) {
         m_log.last().phase = phaseToSet;
     }

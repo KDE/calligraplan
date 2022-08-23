@@ -216,6 +216,7 @@ public:
     void setConstraintError(bool on) { constraintError = on; }
     void setNotScheduled(bool on) { notScheduled = on; }
     void setSchedulingError(bool on) { schedulingError = on; }
+    void setSchedulingCanceled(bool on) { schedulingCanceled = on; }
 
     void setPositiveFloat(KPlato::Duration f) { positiveFloat = f; }
     void setNegativeFloat(KPlato::Duration f) { negativeFloat = f; }
@@ -334,6 +335,8 @@ protected:
     bool effortNotMet;
     /// Set if some other scheduling error occurs
     bool schedulingError;
+    /// Set if scheduling was canceled
+    bool schedulingCanceled;
 
     DateTime workStartTime;
     DateTime workEndTime;
