@@ -27,9 +27,12 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex &idx) const override;
     bool setExtraColumnData(const QModelIndex &parent, int row, int extraColumn, const QVariant &value, int role = Qt::EditRole) override;
+    QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
 
     void setDelegates(QAbstractItemView *view);
     MainDocument *portfolio() const;
+
+    void setCalculateFrom(const QDateTime &dt);
 
 public Q_SLOTS:
     void setPortfolio(MainDocument *portfolio);
@@ -47,6 +50,7 @@ private:
     ProjectsFilterModel *m_baseModel;
     QStringList m_controlKeys;
     QStringList m_controlDisplay;
+    QDateTime m_calculateFrom;
 };
 
 #endif

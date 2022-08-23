@@ -12,6 +12,8 @@
 #include <kptnode.h>
 #include <ScheduleManagerDelegate.h>
 
+#include <KoIcon.h>
+
 #include <QAbstractItemView>
 #include <QDebug>
 
@@ -59,6 +61,33 @@ Qt::ItemFlags SchedulingModel::flags(const QModelIndex &idx) const
         default: break;
     }
     return f;
+}
+
+QVariant SchedulingModel::data(const QModelIndex &idx, int role) const
+{
+    if (m_calculateFrom.isValid() && idx.column() == 2 /*KPlato::NodeModel::NodeConstraintEnd*/) {
+        auto doc = portfolio()->documents().at(idx.row());
+        if (doc->property(SCHEDULINGCONTROL).toString() == m_controlKeys.at(0)) {
+             switch (role ) {
+                 case Qt::ForegroundRole: {
+                    auto targetEnd = KExtraColumnsProxyModel::data(idx, Qt::EditRole).toDateTime();
+                    if (m_calculateFrom > targetEnd) {
+                        return QBrush(Qt::red);
+                    }
+                    break;
+                 }
+                 case Qt::ToolTipRole: {
+                     auto targetEnd = KExtraColumnsProxyModel::data(idx, Qt::EditRole).toDateTime();
+                     if (m_calculateFrom > targetEnd) {
+                         return i18nc("@into:tooltip", "Scheduling not possible. Project target end time must be later than calculation time");
+                     }
+                     break;
+                 }
+                 default: break;
+             }
+        }
+    }
+    return KExtraColumnsProxyModel::data(idx, role);
 }
 
 QString SchedulingModel::displayString(const QString &key) const
@@ -114,11 +143,9 @@ QVariant SchedulingModel::extraColumnData(const QModelIndex &parent, int row, in
 {
     Q_UNUSED(parent)
     KoDocument *doc = portfolio()->documents().at(row);
+    Q_ASSERT(doc);
     if (!doc) {
         return QVariant();
-    }
-    if (role >= Qt::UserRole) {
-        return index(row, 0, parent).data(role);
     }
     switch (extraColumn) {
         case 0: { // Status
@@ -126,8 +153,13 @@ QVariant SchedulingModel::extraColumnData(const QModelIndex &parent, int row, in
                 case Qt::DisplayRole: {
                     auto *project = doc->project();
                     KPlato::ScheduleManager *sm = doc->project()->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
-                    if (sm && (sm->calculationResult() & KPlato::ScheduleManager::CalculationError)) {
-                        return i18n("Error");
+                    if (sm) {
+                        if (sm->calculationResult() & KPlato::ScheduleManager::CalculationError) {
+                            return i18n("Error");
+                        }
+                        if (sm->calculationResult() & KPlato::ScheduleManager::CalculationCanceled) {
+                            return KPlato::SchedulingState::schedulingCanceled();
+                        }
                     }
                     auto st = project->status(sm);
                     if (st & KPlato::Node::State_Scheduling) {
@@ -153,15 +185,31 @@ QVariant SchedulingModel::extraColumnData(const QModelIndex &parent, int row, in
                 case Qt::DisplayRole: {
                     return displayString(doc->property(SCHEDULINGCONTROL).toString());
                 }
+                case Qt::DecorationRole: {
+                    if (doc->property(SCHEDULINGCONTROL).toString() == m_controlKeys.at(0) && m_calculateFrom.isValid()) {
+                        auto idx = index(row, 2);
+                        auto targetEnd = idx.data(Qt::EditRole).toDateTime();
+                        if (m_calculateFrom > targetEnd) {
+                            return koIcon("dialog-cancel");
+                        }
+                    }
+                    break;
+                }
                 case KPlato::Role::EnumList: {
                     return m_controlDisplay;
                 }
+                case Qt::EditRole:
                 case KPlato::Role::EnumListValue: {
                     return m_controlKeys.indexOf(doc->property(SCHEDULINGCONTROL).toString());
                 }
                 case Qt::ToolTipRole: {
                     QString value = doc->property(SCHEDULINGCONTROL).toString();
                     if (value == QStringLiteral("Schedule")) {
+                        auto idx = index(row, 2);
+                        auto targetEnd = idx.data(Qt::EditRole).toDateTime();
+                        if (m_calculateFrom > targetEnd) {
+                            return i18nc("@info:tooltip", "Scheduling not possible. Project target end time must be later than calculation time");
+                        }
                         return xi18nc("@info:tooltip", "Schedule this project");
                     }
                     if (value == QStringLiteral("Include")) {
@@ -173,8 +221,10 @@ QVariant SchedulingModel::extraColumnData(const QModelIndex &parent, int row, in
                     if (value.isEmpty()) {
                         return xi18nc("@info:tooltip", "Exclude this project");
                     }
+                    break;
                 }
-                default:break;
+                default:
+                    break;
             }
             break;
         }
@@ -216,4 +266,14 @@ void SchedulingModel::setPortfolio(MainDocument *portfolio)
 {
     m_baseModel->setPortfolio(portfolio);
     Q_EMIT portfolioChanged();
+}
+
+void SchedulingModel::setCalculateFrom(const QDateTime &dt)
+{
+    m_calculateFrom = dt;
+    if (rowCount()) {
+        const auto idx1 = index(0, 0);
+        const auto idx2 = index(rowCount()-1, columnCount()-1);
+        Q_EMIT dataChanged(idx1, idx2);
+    }
 }
