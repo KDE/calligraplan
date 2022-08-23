@@ -75,6 +75,8 @@ Q_SIGNALS:
 public Q_SLOTS:
     void slotMessage(int type, const QString &msg, TJ::CoreAttributes *object);
 
+    void cancelScheduling(SchedulingContext &context) override;
+
 protected:
     void run() override;
 
@@ -127,7 +129,7 @@ private:
     DateTime m_recalculateFrom;
     bool m_usePert;
     bool m_backward;
-    TJ::Project *m_tjProject;
+    QPointer<TJ::Project> m_tjProject;
 //     Task *m_backwardTask;
 
     QMap<TJ::Task*, Node*> m_taskmap;

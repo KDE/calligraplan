@@ -1057,6 +1057,10 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
 
     m_project = context.project;
     m_tjProject = new TJ::Project();
+    connect(m_tjProject, &TJ::Project::updateProgressBar, this, [this](int value, int) {
+        Q_EMIT progressChanged(value);
+    });
+
     m_tjProject->setPriority(0);
     m_tjProject->setScheduleGranularity(m_granularity / 1000);
     m_tjProject->getScenario(0)->setMinSlackRate(0.0); // Do not calculate critical path
@@ -1080,13 +1084,18 @@ void PlanTJScheduler::schedule(SchedulingContext &context)
     } else {
         calculateSequential(context);
     }
-    logInfo(m_project, nullptr, i18n("Scheduling finished at %1, elapsed time: %2 seconds", QDateTime::currentDateTime().toString(Qt::ISODate), (double)timer.elapsed()/1000));
-    context.log = takeLog();
-    m_project = nullptr; // or else it is deleted
-    QMultiMap<int, KoDocument*>::const_iterator it = context.projects.constBegin();
-    for (; it != context.projects.constEnd(); ++it) {
-        it.value()->setModified(true);
+    if (context.cancelScheduling) {
+        KPlato::Schedule::Log log(m_project, KPlato::Schedule::Log::Type_Warning, i18n("Scheduling canceled"));
+        context.log << log;
+    } else {
+        logInfo(m_project, nullptr, i18n("Scheduling finished at %1, elapsed time: %2 seconds", QDateTime::currentDateTime().toString(Qt::ISODate), (double)timer.elapsed()/1000));
+        context.log = takeLog();
+        QMultiMap<int, KoDocument*>::const_iterator it = context.projects.constBegin();
+        for (; it != context.projects.constEnd(); ++it) {
+            it.value()->setModified(true);
+        }
     }
+    m_project = nullptr; // or else it is deleted
 }
 
 void PlanTJScheduler::calculateParallel(KPlato::SchedulingContext &context)
@@ -1112,7 +1121,7 @@ void PlanTJScheduler::calculateParallel(KPlato::SchedulingContext &context)
     if (!check()) {
         logError(m_project, nullptr, i18n("Project check failed"));
     } else {
-        if (solve()) {
+        if (solve() && !context.cancelScheduling) {
             populateProjects(context);
             const auto &docs = context.projects.values();
             for (auto *doc : docs) {
@@ -1123,7 +1132,7 @@ void PlanTJScheduler::calculateParallel(KPlato::SchedulingContext &context)
                     logError(p, nullptr, i18n("Scheduling failed"));
                 }
             }
-        } else {
+        } else if (!context.cancelScheduling) {
             logError(m_project, nullptr, i18n("Project scheduling failed"));
         }
     }
@@ -1133,6 +1142,9 @@ void PlanTJScheduler::calculateSequential(KPlato::SchedulingContext &context)
 {
     QMapIterator<int, KoDocument*> it(context.projects);
     for (it.toBack(); it.hasPrevious();) {
+        if (context.cancelScheduling) {
+            break;
+        }
         it.previous();
         auto project = it.value()->project();
         logInfo(project, nullptr, QString("Inserting project")); // TODO i18n
@@ -1155,13 +1167,17 @@ void PlanTJScheduler::calculateSequential(KPlato::SchedulingContext &context)
             logError(project, nullptr, i18n("Project check failed"));
         } else {
             if (solve()) {
-                populateProjects(context);
-                context.resourceBookings << it.value();
+                if (context.cancelScheduling) {
+                    logWarning(context.project, nullptr, i18n("Scheduling canceled"));
+                } else {
+                    populateProjects(context);
+                    context.resourceBookings << it.value();
+                }
             } else {
                 logError(project, nullptr, i18n("Project scheduling failed"));
             }
         }
-        if (it.hasPrevious()) {
+        if (!context.cancelScheduling && it.hasPrevious()) {
             delete m_tjProject;
             m_taskmap.clear();
             m_resourcemap.clear();
@@ -1170,6 +1186,9 @@ void PlanTJScheduler::calculateSequential(KPlato::SchedulingContext &context)
 
             //m_granularity = std::max(context.granularity, 5*60*1000 /*5 minutes*/);
             m_tjProject = new TJ::Project();
+            connect(m_tjProject, &TJ::Project::updateProgressBar, this, [this](int value, int) {
+                Q_EMIT progressChanged(value);
+            });
             m_tjProject->setPriority(0);
             m_tjProject->setScheduleGranularity(m_granularity / 1000);
             m_tjProject->getScenario(0)->setMinSlackRate(0.0); // Do not calculate critical path
@@ -1191,13 +1210,18 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
     QHash<TJ::Resource*, KPlato::Appointment> apps;
     for (const auto doc : qAsConst(context.resourceBookings)) {
         const auto project = doc->project();
+        const auto manager = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
+        long sid = ANYSCHEDULED;
+        if (manager) {
+            sid = manager->scheduleId();
+        }
         const auto resourceList = project->resourceList();
         for (Resource *r : resourceList) {
             TJ::Resource *tjResource = m_resourcemap.key(m_resourceIds.value(r->id()));
             if (!tjResource) {
                 continue;
             }
-            apps[tjResource] += r->appointmentIntervals();
+            apps[tjResource] += r->appointmentIntervals(sid);
         }
     }
     // TODO: Handle load < 100%
@@ -1224,7 +1248,6 @@ void PlanTJScheduler::insertProject(KoDocument *doc, int priority, KPlato::Sched
     auto sm = getScheduleManager(project);
     Q_ASSERT(sm);
     doc->setProperty(SCHEDULEMANAGERNAME, sm->name());
-
     if (m_recalculate) {
         sm->setRecalculate(true);
         sm->setRecalculateFrom(context.calculateFrom);
@@ -1306,6 +1329,15 @@ void PlanTJScheduler::addTasks(const KPlato::Node *parent, TJ::Task *tjParent, i
             default:
                 break;
         }
+    }
+}
+
+void PlanTJScheduler::cancelScheduling(SchedulingContext &context)
+{
+    Q_UNUSED(context);
+    context.cancelScheduling = true;
+    if (m_tjProject) {
+        m_tjProject->cancelScheduling();
     }
 }
 

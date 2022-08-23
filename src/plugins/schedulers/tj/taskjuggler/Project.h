@@ -790,6 +790,8 @@ public:
 //     bool generateReports() const;
 
 //     bool generateXMLReport() const;
+    /// Call this to abort the scheduling.
+    void cancelScheduling();
 
 Q_SIGNALS:
     void updateProgressInfo(const QString& i);
@@ -943,6 +945,8 @@ private:
 
     // This flag is raised to abort the scheduling.
     bool breakFlag;
+    // This flag is raised to abort the scheduling.
+    bool cancelSchedulingFlag;
 } ;
 
 } // namespace TJ

@@ -153,8 +153,11 @@ void PlanTJPlugin::slotFinished(SchedulerThread *j)
 void PlanTJPlugin::schedule(SchedulingContext &context)
 {
     PlanTJScheduler *job = new PlanTJScheduler(currentGranularity());
+    m_jobs << job;
+    connect(job, &PlanTJScheduler::progressChanged, this, &PlanTJPlugin::progressChanged);
     context.scheduleInParallel = scheduleInParallel();
     job->schedule(context);
+    m_jobs.clear();
     delete job;
 }
 

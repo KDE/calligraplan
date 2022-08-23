@@ -95,7 +95,8 @@ Project::Project() :
 //     reports(),
 //     interactiveReports(),
     sourceFiles(),
-    breakFlag(false)
+    breakFlag(false),
+    cancelSchedulingFlag(false)
 {
     //qDebug()<<"Project:"<<this;
     /* Pick some reasonable initial number since we don't know the
@@ -792,6 +793,12 @@ Project::prepareScenario(int sc)
 }
 
 void
+Project::cancelScheduling()
+{
+    cancelSchedulingFlag = true;
+}
+
+void
 Project::finishScenario(int sc)
 {
     for (CoreAttributes *r : qAsConst(resourceList)) {
@@ -996,6 +1003,9 @@ Project::schedule(int sc)
          * will be scheduled during this run for all subsequent tasks as well.
          */
         for (CoreAttributes *t : qAsConst(workItems)) {
+            if (cancelSchedulingFlag) {
+                break;
+            }
 //            TJMH.debugMessage(QString("'%1' schedule for slot: %2, (%3 -%4)").arg(static_cast<Task*>(t)->getName()).arg(time2ISO(slot)).arg(time2ISO(start)).arg(time2ISO(end)));
 
             if (slot == 0)
@@ -1085,8 +1095,15 @@ Project::schedule(int sc)
         if (updateList) {
             workItems = temp;
         }
-    } while (!done && !breakFlag);
+    } while (!done && !breakFlag && !cancelSchedulingFlag);
 
+    if (cancelSchedulingFlag)
+    {
+        setProgressInfo("");
+        setProgressBar(100, 0);
+        TJMH.infoMessage(xi18nc("@info/plain", "Scheduling aborted on user request"));
+        return false;
+    }
     if (breakFlag)
     {
         setProgressInfo("");
