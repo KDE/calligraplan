@@ -6,11 +6,14 @@
 
 // clazy:excludeall=qstring-arg
 #include "kptbuiltinschedulerplugin.h"
+#include "kptmaindocument.h"
+#include "kptpart.h"
 
 #include "kptproject.h"
 #include "kptschedule.h"
 #include "kptxmlloaderobject.h"
 #include <SchedulingContext.h>
+#include <kptcommand.h>
 
 #include <KoDocument.h>
 
@@ -112,8 +115,11 @@ void BuiltinSchedulerPlugin::slotFinished(SchedulerThread *job)
 void BuiltinSchedulerPlugin::schedule(SchedulingContext &context)
 {
     KPlatoScheduler *job = new KPlatoScheduler();
+    m_jobs << job;
     context.scheduleInParallel = scheduleInParallel();
+    connect(job, &KPlato::KPlatoScheduler::progressChanged, this, &KPlato::SchedulerPlugin::progressChanged);
     job->schedule(context);
+    m_jobs.clear();
     delete job;
 }
 
@@ -140,6 +146,17 @@ void KPlatoScheduler::stopScheduling()
     m_stopScheduling = true;
     if (m_project) {
         m_project->stopcalculation = true;
+    }
+}
+
+void KPlatoScheduler::cancelScheduling(SchedulingContext &context)
+{
+    context.cancelScheduling = true;
+    for (const auto doc : qAsConst(context.calculatedDocuments)) {
+        doc->project()->stopcalculation = true;
+        if (doc->project()->currentScheduleManager()) {
+            doc->project()->currentScheduleManager()->setCalculationResult(KPlato::ScheduleManager::CalculationCanceled);
+        }
     }
 }
 
@@ -185,6 +202,26 @@ void KPlatoScheduler::run()
     }
 }
 
+void KPlatoScheduler::slotProgress(int value)
+{
+    Q_UNUSED(value)
+    ++m_progress;
+    Q_EMIT progressChanged(m_progress * 100 / m_maxprogress);
+}
+
+KoDocument *KPlatoScheduler::copyDocument(KoDocument *doc)
+{
+    auto part = new Part(nullptr);
+    auto copy = new MainDocument(part);
+    auto domDoc = doc->saveXML();
+    auto xml = KoXmlDocument();
+    xml.setContent(domDoc.toString());
+    copy->loadXML(xml, nullptr);
+    copy->setProperty(SCHEDULEMANAGERNAME, doc->property(SCHEDULEMANAGERNAME));
+    copy->project()->setProperty(SCHEDULEMANAGERNAME, copy->property(SCHEDULEMANAGERNAME));
+    return copy;
+}
+
 void KPlatoScheduler::schedule(SchedulingContext &context)
 {
     if (context.projects.isEmpty()) {
@@ -192,6 +229,21 @@ void KPlatoScheduler::schedule(SchedulingContext &context)
         logError(context.project, nullptr, QStringLiteral("No projects to schedule"));
         return;
     }
+    QHash<KoDocument*, KoDocument*> projectMap;
+    QMapIterator<int, KoDocument*> it(context.projects);
+    for (it.toBack(); it.hasPrevious();) {
+        context.calculatedDocuments << copyDocument(it.previous().value());
+        projectMap.insert(context.calculatedDocuments.last(), it.value());
+    }
+
+    int taskCount = 0;
+    for (const auto doc : qAsConst(context.calculatedDocuments)) {
+        auto p = doc->project();
+        connect(p, &KPlato::Project::sigProgress, this, &KPlato::KPlatoScheduler::slotProgress);
+        taskCount += p->leafNodes().count();
+    }
+    setMaxProgress(taskCount * 3);
+
     QElapsedTimer timer;
     timer.start();
 
@@ -201,18 +253,30 @@ void KPlatoScheduler::schedule(SchedulingContext &context)
     }
 
     auto includes = context.resourceBookings;
-    QMapIterator<int, KoDocument*> it(context.projects);
-    for (it.toBack(); it.hasPrevious();) {
-        it.previous();
-        calculateProject(context, it.value(), includes);
-        includes << it.value();
+    for (auto doc : qAsConst(context.calculatedDocuments)) {
+        calculateProject(context, doc, includes);
+        if (!context.cancelScheduling) {
+            includes << doc;
+        }
     }
-    logInfo(context.project, nullptr, i18n("Scheduling finished at %1, elapsed time: %2 seconds", QDateTime::currentDateTime().toString(Qt::ISODate), (double)timer.elapsed()/1000));
+    if (context.cancelScheduling) {
+        takeLog();
+        logWarning(context.project, nullptr, i18n("Scheduling canceled"));
+    } else {
+        for (auto doc : qAsConst(context.calculatedDocuments)) {
+            mergeProject(doc->project(), projectMap.value(doc)->project());
+            projectMap.value(doc)->setProperty(SCHEDULEMANAGERNAME, doc->property(SCHEDULEMANAGERNAME));
+        }
+        logInfo(context.project, nullptr, i18n("Scheduling finished at %1, elapsed time: %2 seconds", QDateTime::currentDateTime().toString(Qt::ISODate), (double)timer.elapsed()/1000));
+    }
     context.log = takeLog();
 }
 
 void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *doc, QList<const KoDocument*> includes)
 {
+    if (context.cancelScheduling) {
+        return;
+    }
     for (auto d : includes) {
         KPlato::Project *project = d->project();
         project->setProperty(SCHEDULEMANAGERNAME, d->property(SCHEDULEMANAGERNAME));
@@ -222,6 +286,7 @@ void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *d
     KPlato::Project *project = doc->project();
     KPlato::ScheduleManager *sm = getScheduleManager(project);
     Q_ASSERT(sm);
+    project->setCurrentScheduleManager(sm);
     doc->setProperty(SCHEDULEMANAGERNAME, sm->name());
     connect(sm, &KPlato::ScheduleManager::sigLogAdded, this, &KPlatoScheduler::slotAddLog);
     KPlato::DateTime oldstart = project->constraintStartTime();
@@ -230,12 +295,64 @@ void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *d
         start = oldstart;
     }
     sm->setRecalculateFrom(start);
-
     project->calculate(*sm);
     project->setConstraintStartTime(oldstart);
     disconnect(sm, &KPlato::ScheduleManager::sigLogAdded, this, &KPlatoScheduler::slotAddLog);
     project->currentSchedule()->clearLogs();
     doc->setModified(true);
+}
+
+/*static*/
+void KPlatoScheduler::mergeProject(Project *calculatedProject, Project *originalProject)
+{
+    Q_ASSERT(originalProject);
+    Q_ASSERT(calculatedProject->name() == originalProject->name());
+
+    auto calculatedManager = calculatedProject->currentScheduleManager();
+    auto newManager = originalProject->findScheduleManagerByName(calculatedManager->name());
+    if (newManager) {
+        // re-calculating existing schedule, need to remove old schedule first
+        auto sid = newManager->scheduleId();
+        const auto tasks = originalProject->allNodes();
+        for (auto t : tasks) {
+            if (t->type() == KPlato::Node::Type_Project) {
+                continue;
+            }
+            auto s = t->findSchedule(sid);
+            if (s) {
+                t->takeSchedule(s);
+                delete s;
+            }
+        }
+        const auto resources = originalProject->resourceList();
+        for (auto r : resources) {
+            auto s = r->findSchedule(sid);
+            if (s) {
+                r->takeSchedule(s);
+                delete s;
+            }
+        }
+    } else {
+        // updateProject() needs manager and main schedule to exist
+        newManager = new ScheduleManager(*originalProject);
+        newManager->setName(calculatedManager->name());
+        auto parentManager = calculatedManager->parentManager();
+        if (parentManager) {
+            parentManager = originalProject->findScheduleManagerByName(parentManager->name());
+        }
+        originalProject->addScheduleManager(newManager, parentManager);
+        auto sch = new MainSchedule(originalProject, calculatedManager->name(), calculatedManager->expected()->type(), calculatedManager->expected()->id());
+        originalProject->addSchedule(sch);
+        newManager->setExpected(sch);
+    }
+    updateProject(calculatedProject, calculatedManager, originalProject, newManager);
+    const auto sid = calculatedManager->scheduleId();
+    const auto tasks = calculatedProject->allTasks();
+    for (auto t : tasks) {
+        if (t->state(sid) & Node::State_Error) {
+            newManager->setCalculationResult(KPlato::ScheduleManager::CalculationError);
+        }
+    }
 }
 
 } //namespace KPlato

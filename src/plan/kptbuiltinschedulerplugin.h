@@ -38,8 +38,6 @@ public:
 Q_SIGNALS:
     void sigCalculationStarted(KPlato::Project*, KPlato::ScheduleManager*);
     void sigCalculationFinished(KPlato::Project*, KPlato::ScheduleManager*);
-    void maxProgress(int, KPlato::ScheduleManager*);
-    void sigProgress(int, KPlato::ScheduleManager*);
 
 protected Q_SLOTS:
     void slotStarted(KPlato::SchedulerThread *job);
@@ -58,16 +56,27 @@ public:
 
     void schedule(SchedulingContext &context) override;
 
+    static void mergeProject(Project *calculatedProject, Project *originalProject);
+
 public Q_SLOTS:
     /// Stop scheduling.
     void stopScheduling() override;
     /// Halt scheduling
     void haltScheduling() override { m_haltScheduling = true; stopScheduling(); }
 
+    void cancelScheduling(SchedulingContext &context) override;
+
 protected:
     void run() override;
     void calculateProject(SchedulingContext &context, KoDocument *project, QList<const KoDocument*> includes);
 
+    KoDocument *copyDocument(KoDocument *doc);
+
+protected Q_SLOTS:
+    void slotProgress(int value);
+
+private:
+    int m_progress = 0;
 };
 
 } //namespace KPlato
