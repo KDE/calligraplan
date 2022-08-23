@@ -133,6 +133,8 @@ public:
 
 //    QList<KoCanvasObserverBase*> canvasObservers() const;
 
+    void setBlockClose(bool value);
+
 Q_SIGNALS:
     /**
      * This signal is emitted if the document has been saved successfully.

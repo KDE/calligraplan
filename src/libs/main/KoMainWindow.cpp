@@ -117,6 +117,7 @@ public:
         readOnly = false;
         dockWidgetMenu = nullptr;
         deferredClosingEvent = nullptr;
+        blockClose = false;
 #ifdef HAVE_KACTIVITIES
         activityResource = nullptr;
 #endif
@@ -220,6 +221,7 @@ public:
     QByteArray m_dockerStateBeforeHiding;
 
     QCloseEvent *deferredClosingEvent;
+    bool blockClose;
 
 #ifdef HAVE_KACTIVITIES
     KActivities::ResourceInstance *activityResource;
@@ -1148,7 +1150,7 @@ void KoMainWindow::closeEvent(QCloseEvent *e)
 {
     // If we are in the process of opening a new document, rootDocument() may not have been set yet,
     // so we must prevent closing to avoid crash.
-    if(d->openingDocument || (rootDocument() && rootDocument()->isLoading())) {
+    if(d->blockClose || d->openingDocument || (rootDocument() && rootDocument()->isLoading())) {
         e->setAccepted(false);
         return;
     }
@@ -2164,4 +2166,9 @@ void KoMainWindow::showDockerTitleBars(bool show)
 void KoMainWindow::slotConfigure()
 {
     Q_EMIT configure(this);
+}
+
+void KoMainWindow::setBlockClose(bool value)
+{
+    d->blockClose = value;
 }
