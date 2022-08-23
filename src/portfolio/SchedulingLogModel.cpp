@@ -76,6 +76,7 @@ void SchedulingLogModel::addLogEntry(const KPlato::Schedule::Log &log)
     lst.append(new QStandardItem(QStringLiteral("??")));
     QStandardItem *item = new QStandardItem(KPlato::MainSchedule::logSeverity(log.severity));
     item->setData(log.severity, SeverityRole);
+    item->setEditable(false);
     lst.append(item);
     lst.append(new QStandardItem(log.message));
     for (QStandardItem *itm : qAsConst(lst)) {
