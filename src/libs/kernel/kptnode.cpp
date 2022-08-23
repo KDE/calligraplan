@@ -894,7 +894,6 @@ void Node::initiateCalculation(MainSchedule &sch) {
     m_earlyStart = DateTime();
     m_earlyFinish = DateTime();
     m_lateFinish = DateTime();
-    qInfo()<<Q_FUNC_INFO<<this<<sch.manager()->schedulerPluginId()<<sch.manager()->schedulerPluginNames();
     QListIterator<Node*> it = m_nodes;
     while (it.hasNext()) {
         it.next()->initiateCalculation(sch);

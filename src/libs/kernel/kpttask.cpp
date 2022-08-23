@@ -208,8 +208,8 @@ void Task::createAndMergeAppointmentsFromCompletion()
         auto resource = it.key();
         auto appointment = it.value();
         auto resourceSchedule = resource->findSchedule(currentSchedule()->id());
-        Q_ASSERT(resourceSchedule);
         if (!resourceSchedule) {
+            warnPlan<<"No resourceSchedule, creating";
             resourceSchedule = resource->createSchedule(currentSchedule()->name(), currentSchedule()->type(), currentSchedule()->id());
             resource->addSchedule(resourceSchedule);
         }
@@ -1239,7 +1239,7 @@ DateTime Task::calculateForward(int use)
 
 DateTime Task::calculateEarlyFinish(int use) {
     //debugPlan<<m_name;
-    if (m_currentSchedule == nullptr) {
+    if (m_currentSchedule == nullptr || static_cast<Project*>(projectNode())->stopcalculation) {
         return DateTime();
     }
     Schedule *cs = m_currentSchedule;
@@ -1482,6 +1482,9 @@ DateTime Task::calculateSuccessors(const QList<Relation*> &list_, int use) {
 
 DateTime Task::calculateBackward(int use) {
     //debugPlan<<m_name;
+    if (static_cast<Project*>(projectNode())->stopcalculation) {
+        return DateTime();
+    }
     if (m_calculateBackwardRun) {
         return m_currentSchedule->lateStart;
     }
@@ -1727,6 +1730,9 @@ DateTime Task::schedulePredeccessors(const QList<Relation*> &list_, int use) {
 }
 
 DateTime Task::scheduleForward(const DateTime &earliest, int use) {
+    if (static_cast<Project*>(projectNode())->stopcalculation) {
+        return DateTime();
+    }
     if (m_scheduleForwardRun) {
         return m_currentSchedule->endTime;
     }
@@ -2125,7 +2131,11 @@ DateTime Task::scheduleSuccessors(const QList<Relation*> &list_, int use) {
    return time;
 }
 
-DateTime Task::scheduleBackward(const DateTime &latest, int use) {
+DateTime Task::scheduleBackward(const DateTime &latest, int use)
+{
+    if (static_cast<Project*>(projectNode())->stopcalculation) {
+        return DateTime();
+    }
     if (m_scheduleBackwardRun) {
         return m_currentSchedule->startTime;
     }
@@ -2153,8 +2163,12 @@ DateTime Task::scheduleBackward(const DateTime &latest, int use) {
     return scheduleFromEndTime(use);
 }
 
-DateTime Task::scheduleFromEndTime(int use) {
+DateTime Task::scheduleFromEndTime(int use)
+{
     //debugPlan<<m_name;
+    if (static_cast<Project*>(projectNode())->stopcalculation) {
+        return DateTime();
+    }
     if (m_currentSchedule == nullptr) {
         return DateTime();
     }
@@ -2464,9 +2478,14 @@ DateTime Task::scheduleFromEndTime(int use) {
     return cs->startTime;
 }
 
-void Task::adjustSummarytask() {
-    if (m_currentSchedule == nullptr)
+void Task::adjustSummarytask()
+{
+    if (static_cast<Project*>(projectNode())->stopcalculation) {
         return;
+    }
+    if (m_currentSchedule == nullptr) {
+        return;
+    }
     if (type() == Type_Summarytask) {
         DateTime start = m_currentSchedule->lateFinish;
         DateTime end = m_currentSchedule->earlyStart;
@@ -2544,7 +2563,11 @@ Duration Task::length(const DateTime &time, KPlato::Duration duration, bool back
     return length(time, duration, m_currentSchedule, backward);
 }
 
-Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule *sch, bool backward) {
+Duration Task::length(const DateTime &time, KPlato::Duration duration, Schedule *sch, bool backward)
+{
+    if (static_cast<Project*>(projectNode())->stopcalculation) {
+        return Duration::zeroDuration;
+    }
     //debugPlan<<"--->"<<(backward?"(B)":"(F)")<<m_name<<""<<time.toString()<<": duration:"<<duration.toString(Duration::Format_Day)<<" ("<<duration.milliseconds()<<")";
 
     Duration l;
@@ -2988,6 +3011,12 @@ uint Task::state(long id) const
     int st = Node::State_None;
     if (! isScheduled(id)) {
         st |= State_NotScheduled;
+    }
+    const auto sch = findSchedule(id);
+    if (sch) {
+        if (sch->resourceError) {
+            st |= State_Error;
+        }
     }
     if (completion().isFinished()) {
         st |= Node::State_Finished;

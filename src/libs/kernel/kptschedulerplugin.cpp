@@ -117,6 +117,13 @@ void SchedulerPlugin::haltCalculation(SchedulerThread *job)
     }
 }
 
+void SchedulerPlugin::cancelScheduling(SchedulingContext &context)
+{
+    for (SchedulerThread *j : qAsConst(m_jobs)) {
+       j->cancelScheduling(context);
+    }
+}
+
 QList<long unsigned int> SchedulerPlugin::granularities() const
 {
     return m_granularities;
@@ -375,6 +382,11 @@ void SchedulerThread::haltScheduling()
     m_haltScheduling = true;
 }
 
+void SchedulerThread::cancelScheduling(SchedulingContext &context)
+{
+    haltScheduling();
+}
+
 void SchedulerThread::logError(Node *n, Resource *r, const QString &msg, int phase)
 {
     Schedule::Log log;
@@ -452,6 +464,7 @@ void SchedulerThread::updateProject(const Project *tp, const ScheduleManager *tm
     Q_CHECK_PTR(tm);
     Q_CHECK_PTR(mp);
     Q_CHECK_PTR(sm);
+
     //debugPlan<<Q_FUNC_INFO<<tp<<tm<<tm->calculationResult()<<"->"<<mp<<sm;
     Q_ASSERT(tp != mp && tm != sm);
     long sid = tm->scheduleId();
@@ -497,9 +510,7 @@ void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
     doc.appendChild(e);
     s->saveXML(e);
 
-    Q_ASSERT(! mn->findSchedule(sid));
-    s = static_cast<NodeSchedule*>(mn->schedule(sid));
-    Q_ASSERT(s == nullptr);
+    Q_ASSERT(mn->findSchedule(sid) == nullptr);
     s = new NodeSchedule();
 
     KoXmlDocument xd;

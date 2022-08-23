@@ -14,6 +14,7 @@ SchedulingContext::SchedulingContext(QObject *parent)
     : QObject(parent)
     , project(nullptr)
     , scheduleInParallel(false)
+    , cancelScheduling(false)
 {
 }
 
@@ -30,6 +31,9 @@ void SchedulingContext::clear()
     delete project;
     project = nullptr;
     scheduleInParallel = false;
+    qDeleteAll(calculatedDocuments);
+    calculatedDocuments.clear();
+    cancelScheduling = false;
 }
 
 

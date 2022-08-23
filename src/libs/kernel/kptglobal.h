@@ -82,6 +82,7 @@ struct PLANKERNEL_EXPORT SchedulingState
     static QString constraintsNotMet(bool trans = true);
     static QString effortNotMet(bool trans = true);
     static QString schedulingError(bool trans = true);
+    static QString schedulingCanceled(bool trans = true);
 
 }; //namespace WhatsThis
 

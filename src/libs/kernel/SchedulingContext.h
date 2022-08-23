@@ -33,11 +33,15 @@ public:
     void addProject(KoDocument *project, int priority = -1);
     void addResourceBookings(const KoDocument *project);
 
+    SchedulerPlugin *scheduler;
     Project *project;
     QMultiMap<int, KoDocument*> projects;
     QList<const KoDocument*> resourceBookings;
     QDateTime calculateFrom;
     bool scheduleInParallel;
+    bool cancelScheduling;
+
+    QList<KoDocument*> calculatedDocuments;
 
     QVector<KPlato::Schedule::Log> log;
 };

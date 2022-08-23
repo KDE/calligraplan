@@ -71,7 +71,8 @@ public:
         State_NotScheduled      = 1 << 11,
         State_Late              = 1 << 12,
         State_Baselined         = 1 << 13,
-        State_Scheduling        = 1 << 14
+        State_Scheduling        = 1 << 14,
+        State_Error             = 1 << 15
     };
     Q_ENUM(State);
 
@@ -511,6 +512,7 @@ public:
     bool isScheduled(long id = CURRENTSCHEDULE) const;
     /// Return the list of schedules for this node
     QHash<long, Schedule*> &schedules() { return m_schedules; }
+    QHash<long, Schedule*> schedules() const { return m_schedules; }
     /// Find schedule matching name and type. Does not return deleted schedule.
     Schedule *findSchedule(const QString &name, const Schedule::Type type);
     /// Find schedule matching name. Does not return deleted schedule.

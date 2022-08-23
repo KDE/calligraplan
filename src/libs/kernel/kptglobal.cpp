@@ -32,6 +32,8 @@ namespace KPlato
         { return trans ? i18n("Effort not met") : QStringLiteral("Effort not met"); }
     QString SchedulingState::schedulingError(bool trans)
         { return trans ? i18n("Scheduling error") : QStringLiteral("Scheduling error"); }
+    QString SchedulingState::schedulingCanceled(bool trans)
+        { return trans ? i18nc("project scheduling canceled by user", "Canceled") : QStringLiteral("Canceled"); }
 
 //} namespace SchedulingState
 

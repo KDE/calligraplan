@@ -107,7 +107,15 @@ public:
     bool scheduleInParallel() const;
 
     /// Schedule all projects
+    /// Not threaded, used by portfolio
     virtual void schedule(SchedulingContext &context);
+
+public Q_SLOTS:
+    void cancelScheduling(SchedulingContext &context);
+
+Q_SIGNALS:
+    void maxProgress(int, KPlato::ScheduleManager*);
+    void progressChanged(int, KPlato::ScheduleManager*);
 
 protected Q_SLOTS:
     virtual void slotSyncData();
@@ -197,6 +205,7 @@ public:
     static void updateAppointments(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm, XMLLoaderObject &status);
 
     /// Schedule all projects
+    /// Not threaded, used by portfolio
     virtual void schedule(SchedulingContext &context);
 
 Q_SIGNALS:
@@ -216,12 +225,14 @@ public Q_SLOTS:
     /// Halt scheduling. Discard result.
     virtual void haltScheduling();
 
+    void setMaxProgress(int value);
+
+    virtual void cancelScheduling(SchedulingContext &context);
 
 protected Q_SLOTS:
     virtual void slotStarted();
     virtual void slotFinished();
 
-    void setMaxProgress(int);
     void setProgress(int);
 
     void slotAddLog(const KPlato::Schedule::Log &log);

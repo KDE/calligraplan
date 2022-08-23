@@ -294,6 +294,8 @@ public:
 
     /// Return a list of all tasks and milestones int the wbs order
     QList<Task*> allTasks(const Node *parent = nullptr) const;
+    /// Return a list of all leaf nodes
+    QList<Node*> leafNodes() const;
 
     using Node::findNode;
     /// Find the node with identity id
@@ -498,7 +500,7 @@ public:
     /// Emits signal maxProgress()
     void emitMaxProgress(int value);
 
-    bool stopcalculation;
+    bool stopcalculation = false;
 
     /// return a <id, name> map of all external projects
     QMap<QString, QString> externalProjects() const;
