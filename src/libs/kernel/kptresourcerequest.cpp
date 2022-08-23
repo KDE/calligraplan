@@ -1001,6 +1001,7 @@ Duration ResourceRequestCollection::duration(const QList<ResourceRequest*> &lst,
         match = accepted(_effort, e, ns);
     }
     if (!match && ns) {
+        ns->setResourceError(true);
         ns->logError(i18n("Could not match effort. Want: %1 got: %2 (%3)", _effort.toString(Duration::Format_Hour), e.toString(Duration::Format_Hour), e.milliseconds()));
         for (ResourceRequest *r : lst) {
             Resource *res = r->resource();
