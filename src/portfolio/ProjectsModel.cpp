@@ -6,6 +6,7 @@
 
 #include "ProjectsModel.h"
 #include <MainDocument.h>
+#include <PlanGroupDebug.h>
 
 #include <kptproject.h>
 
@@ -20,6 +21,16 @@ ProjectsFilterModel::ProjectsFilterModel(QObject *parent)
 
 ProjectsFilterModel::~ProjectsFilterModel()
 {
+}
+
+QModelIndex ProjectsFilterModel::parent(const QModelIndex &idx) const
+{
+    // FIXME: Sometimes row is not correct when deleting a row
+    if (idx.row() >= m_baseModel->rowCount()) {
+        errorPortfolio<<"Invalid row:"<<idx;
+        return QModelIndex();
+    }
+    return QSortFilterProxyModel::parent(idx);
 }
 
 void ProjectsFilterModel::setAcceptedRows(const QList<int> rows)
@@ -406,29 +417,6 @@ QModelIndex ProjectsModel::parent(const QModelIndex &index) const
     return QModelIndex();
 }
 
-bool ProjectsModel::removeRows(int row, int count, const QModelIndex &parent)
-{
-    if (parent.isValid()) {
-        return false;
-    }
-    QList<KoDocument*> docs;
-    for (int i = row; i < row + count; ++i) {
-        KoDocument *doc = documentFromRow(i);
-        if (doc) {
-            docs << doc;
-        }
-    }
-    if (docs.isEmpty()) {
-        return false;
-    }
-    beginResetModel();
-    for (KoDocument *doc : qAsConst(docs)) {
-        doc->setParent(nullptr);
-    }
-    endResetModel();
-    return true;
-}
-
 MainDocument *ProjectsModel::portfolio() const
 {
     return m_portfolio;
@@ -480,15 +468,12 @@ void ProjectsModel::documentInserted()
 // FIXME: beginRemoveRows/endRemoveRows crashes
 void ProjectsModel::documentAboutToBeRemoved(int row)
 {
-    //beginRemoveRows(QModelIndex(), row, row);
-    Q_UNUSED(row)
-    beginResetModel();
+    beginRemoveRows(QModelIndex(), row, row);
 }
 
 void ProjectsModel::documentRemoved()
 {
-    //endRemoveRows();
-    endResetModel();
+    endRemoveRows();
 }
 
 void ProjectsModel::documentChanged(KoDocument *doc, int row)

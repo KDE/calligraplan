@@ -7,6 +7,7 @@
 #include "PortfolioModel.h"
 #include "ProjectsModel.h"
 #include "MainDocument.h"
+#include "PlanGroupDebug.h"
 
 #include <kptproject.h>
 
@@ -33,6 +34,14 @@ PortfolioModel::~PortfolioModel()
 {
 }
 
+QModelIndex PortfolioModel::parent(const QModelIndex &child) const
+{
+    if (child.row() >= m_baseModel->rowCount()) {
+        warnPortfolio<<child<<"FIXME: Happends sometimes: invalid child index, find out why";
+        return QModelIndex();
+    }
+    return KExtraColumnsProxyModel::parent(child);
+}
 void PortfolioModel::setDelegates(QAbstractItemView *view)
 {
     view->setItemDelegateForColumn(1, new KPlato::EnumDelegate(view)); // Portfolio

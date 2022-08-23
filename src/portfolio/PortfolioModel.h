@@ -24,6 +24,7 @@ public:
     explicit PortfolioModel(QObject *parent = nullptr);
     ~PortfolioModel() override;
 
+    QModelIndex parent(const QModelIndex &child) const override;
     void setDelegates(QAbstractItemView *view);
 
     Qt::ItemFlags flags(const QModelIndex &idx) const override;

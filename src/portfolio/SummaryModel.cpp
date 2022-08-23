@@ -24,6 +24,8 @@ SummaryModel::SummaryModel(QObject *parent)
 
     m_baseModel = new SummaryFilterModel(this);
     setSourceModel(m_baseModel);
+    connect(m_baseModel, &SummaryFilterModel::rowsInserted, this, &SummaryModel::slotModelReset);
+    connect(m_baseModel, &SummaryFilterModel::rowsRemoved, this, &SummaryModel::slotModelReset);
     connect(m_baseModel, &SummaryFilterModel::modelReset, this, &SummaryModel::slotModelReset);
     connect(m_baseModel, &SummaryFilterModel::dataChanged, this, &SummaryModel::slotModelReset);
 }

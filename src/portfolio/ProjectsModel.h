@@ -42,6 +42,8 @@ public:
     MainDocument *portfolio() const;
     KoDocument *documentFromIndex(const QModelIndex &idx) const;
 
+    QModelIndex parent(const QModelIndex &idx) const override;
+
 public Q_SLOTS:
     void setPortfolio(MainDocument *portfolio);
 
@@ -80,8 +82,6 @@ public:
 
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
     QModelIndex parent(const QModelIndex &index) const override;
-
-    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
 
     MainDocument *portfolio() const;
 
