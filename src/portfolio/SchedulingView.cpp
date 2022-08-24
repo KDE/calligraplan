@@ -364,33 +364,21 @@ void SchedulingView::calculate()
         managerNames << doc->property(SCHEDULEMANAGERNAME);
     }}
     m_schedulingContext.clear();
+    m_logModel.setLog(m_schedulingContext.log);
     const auto key = schedulerKey();
-    auto scheduler = portfolio->schedulerPlugin(key);
-    if (scheduler) {
-        calculateSchedule(scheduler);
+    if (calculateSchedule(portfolio->schedulerPlugin(key))) {
         selectionChanged(QItemSelection(), QItemSelection());
-    } else {
-        warnPortfolio<<Q_FUNC_INFO<<"No scheduler plugin"<<key;
-    }
-    {const auto docs = portfolio->documents();
-    Q_ASSERT(managerNames.count() == docs.count());
-    for (int i = 1; i < docs.count(); ++i) {
-        if (docs.at(i)->property(SCHEDULEMANAGERNAME) != managerNames.value(i)) {
+        if (!m_schedulingContext.cancelScheduling && !m_schedulingContext.projects.isEmpty()) {
             portfolio->setModified(true);
-            break;
         }
-    }}
+    }
 }
 
-void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
+bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
 {
     auto portfolio = static_cast<MainDocument*>(koDocument());
     auto docs = portfolio->documents();
-    if (docs.isEmpty()) {
-        warnPortfolio<<Q_FUNC_INFO<<"Nothing to shcedule";
-        return;
-    }
-    QApplication::setOverrideCursor(Qt::WaitCursor); // FIXME: workaround because progress dialog shown late, why?
+
     // Populate scheduling context
     m_schedulingContext.scheduler = scheduler;
     m_schedulingContext.project = new KPlato::Project(); // FIXME: Set target start/end properly
@@ -398,6 +386,26 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     m_schedulingContext.calculateFrom = calculationTime();
     m_schedulingContext.log.clear();
     m_logModel.setLog(m_schedulingContext.log);
+    if (scheduler) {
+        warnPortfolio<<"No scheduler plugin"<<schedulerKey();
+        KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Error, i18n("Internal error. No scheduler plugin found."));
+        m_logModel.setLog(QVector<KPlato::Schedule::Log>() << log);
+        m_logView->resizeColumnToContents(0);
+        return false;
+    }
+    if (docs.isEmpty()) {
+        warnPortfolio<<"Nothing to schedule";
+        KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Warning, i18n("Nothing to shcedule"));
+        m_logModel.setLog(QVector<KPlato::Schedule::Log>() << log);
+        m_logView->resizeColumnToContents(0);
+        return false;
+    }
+    KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Info, i18n("Scheduling running..."));
+    m_logModel.setLog(QVector<KPlato::Schedule::Log>() << log);
+    m_logView->resizeColumnToContents(0);
+    QCoreApplication::processEvents();
+
+    QApplication::setOverrideCursor(Qt::WaitCursor); // FIXME: workaround because progress dialog shown late, why?
 
     for (KoDocument *doc : qAsConst(docs)) {
         int prio = doc->property(SCHEDULINGPRIORITY).isValid() ? doc->property(SCHEDULINGPRIORITY).toInt() : -1;
@@ -406,6 +414,15 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
         } else if (doc->property(SCHEDULINGCONTROL).toString() == QStringLiteral("Include")) {
             m_schedulingContext.addResourceBookings(doc);
         }
+    }
+    if (m_schedulingContext.projects.isEmpty()) {
+        warnPortfolio<<"Nothing to shcedule";
+        KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Warning, i18n("Nothing to shcedule"));
+        m_logModel.setLog(QVector<KPlato::Schedule::Log>() << log);
+        if (QApplication::overrideCursor()) {
+            QApplication::restoreOverrideCursor();
+        }
+        return false;
     }
     m_progress = new QProgressDialog(this);
     m_progress->setLabelText(i18n("Scheduling projects"));
@@ -424,6 +441,7 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     });
     scheduler->schedule(m_schedulingContext);
     m_logModel.setLog(m_schedulingContext.log);
+
     for (QMap<int, KoDocument*>::const_iterator it = m_schedulingContext.projects.constBegin(); it != m_schedulingContext.projects.constEnd(); ++it) {
         portfolio->emitDocumentChanged(it.value());
         Q_EMIT projectCalculated(it.value()->project(), it.value()->project()->findScheduleManagerByName(it.value()->property(SCHEDULEMANAGERNAME).toString()));
@@ -432,4 +450,5 @@ void SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     if (QApplication::overrideCursor()) {
         QApplication::restoreOverrideCursor();
     }
+    return true;
 }

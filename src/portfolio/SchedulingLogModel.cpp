@@ -48,7 +48,6 @@ SchedulingLogModel::SchedulingLogModel(QObject *parent)
 
 void SchedulingLogModel::setLog(const QVector<KPlato::Schedule::Log> &log)
 {
-    clear();
     // Note: Match enum ColumnNumbers
     static QStringList headers = {
         xi18nc("@title", "Name"),
@@ -56,10 +55,16 @@ void SchedulingLogModel::setLog(const QVector<KPlato::Schedule::Log> &log)
         xi18nc("@title", "Severity"),
         xi18nc("@title", "Message")
     };
-    setHorizontalHeaderLabels(headers);
+    if (columnCount() == 0) {
+        setHorizontalHeaderLabels(headers);
+    }
+    if (rowCount() > 0) {
+        removeRows(0, rowCount());
+    }
     for (const KPlato::Schedule::Log &l : log) {
         addLogEntry(l);
     }
+
 }
 
 void SchedulingLogModel::addLogEntry(const KPlato::Schedule::Log &log)

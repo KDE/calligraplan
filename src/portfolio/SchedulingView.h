@@ -75,7 +75,7 @@ protected:
     KPlato::ScheduleManager* scheduleManager(const KoDocument *doc) const;
 
     QDateTime calculationTime() const;
-    void calculateSchedule(KPlato::SchedulerPlugin *scheduler);
+    bool calculateSchedule(KPlato::SchedulerPlugin *scheduler);
 
 private:
     bool m_readWrite;
