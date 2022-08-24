@@ -28,7 +28,8 @@ private Q_SLOTS:
     void testSingleProject();
     void testSingleProjectWithBookings();
     void testMultiple();
-    void testMultipleWithBookings();
+    void testMultipleWithBookingsParalell();
+    void testMultipleWithBookingsSequential();
     void testRecalculate();
     void testRecalculateMultiple();
 

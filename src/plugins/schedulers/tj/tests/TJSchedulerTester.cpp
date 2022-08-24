@@ -80,7 +80,6 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
             context.project->setConstraintStartTime(std::min(project->constraintStartTime(), context.project->constraintStartTime()));
             context.project->setConstraintEndTime(std::max(project->constraintEndTime(), context.project->constraintEndTime()));
         }
-        context.scheduleInParallel = true;
     }
     for (const auto part : bookings) {
         auto doc = part->document();
@@ -88,6 +87,7 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
         auto sm = project->scheduleManagers().value(0);
         project->setCurrentScheduleManager(sm);
         project->setCurrentSchedule(sm->expected()->id());
+        doc->setProperty(SCHEDULEMANAGERNAME, sm->name());
         context.resourceBookings.append(doc);
     }
 }
@@ -142,6 +142,7 @@ void TJSchedulerTester::testSingleProject()
     QCOMPARE(projects.count(), projectFiles.count());
 
     SchedulingContext context;
+    context.scheduleInParallel = true;
     populateSchedulingContext(context, "Test Single Project", projects);
 
     m_scheduler->schedule(context);
@@ -166,6 +167,7 @@ void TJSchedulerTester::testSingleProjectWithBookings()
     QCOMPARE(bookings.count(), bookingFiles.count());
 
     SchedulingContext context;
+    context.scheduleInParallel = true;
     populateSchedulingContext(context, "Test Single Project With Bookings", projects, bookings);
     m_scheduler->schedule(context);
     // Booking 1: R1 booked 2021-04-08, 2021-04-09
@@ -174,6 +176,7 @@ void TJSchedulerTester::testSingleProjectWithBookings()
     for (auto &log : qAsConst(context.log)) {
         qInfo()<<log.formatMsg();
     }
+    Debug::print(project, "", true);
     QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 10));
     QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 11));
 
@@ -189,6 +192,7 @@ void TJSchedulerTester::testMultiple()
     QCOMPARE(projects.count(), 2);
 
     SchedulingContext context;
+    context.scheduleInParallel = true;
     populateSchedulingContext(context, "Test Multiple Project", projects);
     m_scheduler->schedule(context);
     // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
@@ -202,7 +206,7 @@ void TJSchedulerTester::testMultiple()
     deleteAll(projects);
 }
 
-void TJSchedulerTester::testMultipleWithBookings()
+void TJSchedulerTester::testMultipleWithBookingsParalell()
 {
     const auto projectFiles = QStringList() << "Test 1.plan" << "Test 2.plan";
     QString dir = QFINDTESTDATA("data/multi/schedule/");
@@ -215,6 +219,37 @@ void TJSchedulerTester::testMultipleWithBookings()
     QCOMPARE(bookings.count(), bookingFiles.count());
 
     SchedulingContext context;
+    context.scheduleInParallel = true;
+    populateSchedulingContext(context, "Test Multiple Project With Bookings", projects, bookings);
+    m_scheduler->schedule(context);
+    // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    // Booking 1: R1 booked 2021-04-08, 2021-04-09
+    // Booking 2: R1 booked 2021-04-12, 2021-04-13
+    auto project = projects.value(0)->document()->project();
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 10));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 11));
+    project = projects.value(1)->document()->project();
+    QCOMPARE(project->childNode(0)->startTime().date(), QDate(2021, 4, 14));
+    QCOMPARE(project->childNode(1)->startTime().date(), QDate(2021, 4, 15));
+
+    deleteAll(projects);
+    deleteAll(bookings);
+}
+
+void TJSchedulerTester::testMultipleWithBookingsSequential()
+{
+    const auto projectFiles = QStringList() << "Test 1.plan" << "Test 2.plan";
+    QString dir = QFINDTESTDATA("data/multi/schedule/");
+    QList<Part*> projects = loadDocuments(dir, projectFiles);
+    QCOMPARE(projects.count(), projectFiles.count());
+
+    const auto bookingFiles = QStringList() << "Booking 1.plan" << "Booking 2.plan";
+    dir = QFINDTESTDATA("data/multi/bookings/");
+    QList<Part*> bookings = loadDocuments(dir, bookingFiles);
+    QCOMPARE(bookings.count(), bookingFiles.count());
+
+    SchedulingContext context;
+    context.scheduleInParallel = false;
     populateSchedulingContext(context, "Test Multiple Project With Bookings", projects, bookings);
     m_scheduler->schedule(context);
     // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
@@ -239,6 +274,7 @@ void TJSchedulerTester::testRecalculate()
     QCOMPARE(projects.count(), 1);
 
     SchedulingContext context;
+    context.scheduleInParallel = true;
     populateSchedulingContext(context, "Test Recalculate Project", projects);
     QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
     context.calculateFrom = QDateTime(QDate(2021, 4, 26));
@@ -267,6 +303,7 @@ void TJSchedulerTester::testRecalculateMultiple()
     QCOMPARE(projects.count(), projectFiles.count());
 
     SchedulingContext context;
+    context.scheduleInParallel = true;
     populateSchedulingContext(context, "Test Recalculate Multiple Projects", projects);
     QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
 
@@ -308,8 +345,8 @@ void TJSchedulerTester::testRecalculateMultipleSeq()
     QCOMPARE(projects.count(), projectFiles.count());
 
     SchedulingContext context;
-    populateSchedulingContext(context, "Test Recalculate Multiple Projects", projects);
     context.scheduleInParallel = false;
+    populateSchedulingContext(context, "Test Recalculate Multiple Projects", projects);
     QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
 
     auto project = projects.value(0)->document()->project();

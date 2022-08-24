@@ -62,7 +62,7 @@ AppointmentInterval::AppointmentInterval(QDate date, const TimeInterval& timeInt
     setLoad(load);
 #ifndef NDEBUG
     if (s.isValid() && e.isValid()) {
-        debugPlan<<*this;
+//        debugPlan<<*this;
         Q_ASSERT(s.timeZone() == e.timeZone());
     }
 #endif
