@@ -99,8 +99,8 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     slotTodayToggled(true);
     QTimer::singleShot(0, this, &SchedulingView::calculateFromChanged); // update model
 
-    //connect(model, &QAbstractItemModel::dataChanged, this, &SchedulingView::updateActionsEnabled);
-    //connect(model, &QAbstractItemModel::rowsInserted, this, &SchedulingView::updateSchedulingProperties);
+    connect(model, &QAbstractItemModel::dataChanged, this, &SchedulingView::updateActionsEnabled);
+    connect(model, &QAbstractItemModel::rowsInserted, this, &SchedulingView::updateSchedulingProperties);
     connect(model, &QAbstractItemModel::rowsRemoved, this, &SchedulingView::updateSchedulingProperties);
     //connect(model, &QAbstractItemModel::modelReset, this, &SchedulingView::updateSchedulingProperties);
     connect(ui.schedulersCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSchedulersComboChanged(int)));
