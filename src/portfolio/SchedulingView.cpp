@@ -381,7 +381,7 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
 
     // Populate scheduling context
     m_schedulingContext.scheduler = scheduler;
-    m_schedulingContext.project = new KPlato::Project(); // FIXME: Set target start/end properly
+    m_schedulingContext.project = new KPlato::Project();
     m_schedulingContext.project->setName(QStringLiteral("Project Collection"));
     m_schedulingContext.calculateFrom = calculationTime();
     m_schedulingContext.log.clear();
@@ -424,6 +424,23 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
         }
         return false;
     }
+    KPlato::DateTime targetEnd;
+    QMultiMap<int, KoDocument*>::const_iterator it = m_schedulingContext.projects.constBegin();
+    for (; it != m_schedulingContext.projects.constEnd(); ++it) {
+        const auto p = it.value()->project();
+        const auto end = p->constraintEndTime();
+        if (end < m_schedulingContext.calculateFrom) {
+            KPlato::Schedule::Log log(p, KPlato::Schedule::Log::Type_Error, i18n("Scheduling not possible. Project target end time must be later than calculation time."));
+            m_logModel.setLog(QVector<KPlato::Schedule::Log>() << log);
+            if (QApplication::overrideCursor()) {
+                QApplication::restoreOverrideCursor();
+            }
+            return false;
+        }
+        targetEnd = std::max(targetEnd, end);
+    }
+    m_schedulingContext.project->setConstraintEndTime(targetEnd);
+
     m_progress = new QProgressDialog(this);
     m_progress->setLabelText(i18n("Scheduling projects"));
     m_progress->setWindowModality(Qt::WindowModal);

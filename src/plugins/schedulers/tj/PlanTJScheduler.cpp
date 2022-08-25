@@ -1048,7 +1048,7 @@ void PlanTJScheduler::addRequest(TJ::Task *job, Node *task_)
 void PlanTJScheduler::schedule(SchedulingContext &context)
 {
     if (context.projects.isEmpty()) {
-        warnPlan<<"WARN:"<<Q_FUNC_INFO<<"No projects";
+        warnPlan<<"No projects";
         logError(context.project, nullptr, "No projects to schedule");
         return;
     }
