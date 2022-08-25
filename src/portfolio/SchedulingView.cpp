@@ -386,7 +386,7 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     m_schedulingContext.calculateFrom = calculationTime();
     m_schedulingContext.log.clear();
     m_logModel.setLog(m_schedulingContext.log);
-    if (scheduler) {
+    if (!scheduler) {
         warnPortfolio<<"No scheduler plugin"<<schedulerKey();
         KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Error, i18n("Internal error. No scheduler plugin found."));
         m_logModel.setLog(QVector<KPlato::Schedule::Log>() << log);
