@@ -395,7 +395,7 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     }
     if (docs.isEmpty()) {
         warnPortfolio<<"Nothing to schedule";
-        KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Warning, i18n("Nothing to shcedule"));
+        KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Warning, i18n("Nothing to schedule"));
         m_logModel.setLog(QVector<KPlato::Schedule::Log>() << log);
         m_logView->resizeColumnToContents(0);
         return false;
@@ -416,8 +416,8 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
         }
     }
     if (m_schedulingContext.projects.isEmpty()) {
-        warnPortfolio<<"Nothing to shcedule";
-        KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Warning, i18n("Nothing to shcedule"));
+        warnPortfolio<<"Nothing to schedule";
+        KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Warning, i18n("Nothing to schedule"));
         m_logModel.setLog(QVector<KPlato::Schedule::Log>() << log);
         if (QApplication::overrideCursor()) {
             QApplication::restoreOverrideCursor();
