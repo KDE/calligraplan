@@ -469,3 +469,42 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     }
     return true;
 }
+
+void SchedulingView::saveSettings(QDomElement &settings) const
+{
+
+    settings.setAttribute(QStringLiteral("scheduler"), ui.schedulersCombo->currentIndex());
+
+    settings.setAttribute(QStringLiteral("calculation-method"), ui.parallel->isChecked() ? QStringLiteral("parallel") : QStringLiteral("sequensial"));
+    settings.setAttribute(QStringLiteral("granularity"), ui.granularities->currentIndex());
+    QString s;
+    if (ui.timeRB->isChecked()) {
+        s = QStringLiteral("time");
+        settings.setAttribute(QStringLiteral("calculate-from"), ui.calculationDateTime->dateTime().toString(Qt::ISODate));
+    } else if (ui.todayRB->isChecked()) {
+        s = QStringLiteral("today");
+    } else if (ui.tomorrowRB->isChecked()) {
+        s = QStringLiteral("tomorrow");
+    }
+    settings.setAttribute(QStringLiteral("time-option"), s);
+
+}
+
+void SchedulingView::loadSettings(KoXmlElement &settings)
+{
+    ui.schedulersCombo->setCurrentIndex(settings.attribute(QStringLiteral("scheduler")).toInt());
+    auto s = settings.attribute(QStringLiteral("calculation-method"));
+    if (s == QStringLiteral("parallel")) {
+        ui.parallel->setChecked(true);
+    }
+    ui.granularities->setCurrentIndex(settings.attribute(QStringLiteral("granularity")).toInt());
+    s = settings.attribute(QStringLiteral("time-option"));
+    if (s == QStringLiteral("time")) {
+        ui.timeRB->setChecked(true);
+        ui.calculationDateTime->setDateTime(QDateTime::fromString(settings.attribute(QStringLiteral("calculate-from")), Qt::ISODate));
+    } else if (s == QStringLiteral("today")) {
+        ui.todayRB->setChecked(true);
+    } else if (s == QStringLiteral("tomorrow")) {
+        ui.tomorrowRB->setChecked(true);
+    }
+}

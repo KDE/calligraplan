@@ -45,22 +45,23 @@ public:
 
 public Q_SLOTS:
     void slotOpenDocument(KoDocument *doc);
+    void saveSettings(QDomDocument &xml);
 
 Q_SIGNALS:
     void projectCalculated(KPlato::Project *project, KPlato::ScheduleManager *sm);
 
 protected:
     void setupActions();
-
-protected:
     void updateReadWrite(bool readwrite) override;
 
 private Q_SLOTS:
     void slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
+    void loadSettings();
 
 private:
     bool m_readWrite;
     KPageWidget *m_views;
+    QHash<QString, KPageWidgetItem*> m_pageItems;
     KPageWidgetItem *m_ganttSummary;
     QHash<QString, KPageWidgetItem*> m_ganttViews;
 };

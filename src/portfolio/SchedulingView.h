@@ -41,6 +41,9 @@ public:
 
     QString schedulerKey() const;
 
+    Q_INVOKABLE void saveSettings(QDomElement &settings) const;
+    Q_INVOKABLE void loadSettings(KoXmlElement &settings);
+
 Q_SIGNALS:
     void projectCalculated(KPlato::Project *project, KPlato::ScheduleManager *sm);
 

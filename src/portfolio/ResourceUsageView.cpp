@@ -28,6 +28,7 @@
 #include <QWidgetAction>
 #include <QSpinBox>
 #include <QTimer>
+#include <QDomElement>
 
 ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KoView(part, doc, parent)
@@ -209,7 +210,6 @@ void ResourceUsageView::setOverrideCursor()
     if (!m_overrideCursorSet && ui.resourceView->currentIndex().isValid()) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
         m_overrideCursorSet = true;
-        qInfo()<<Q_FUNC_INFO<<"setOverrideCursor"<<m_overrideCursorSet;
     }
 }
 
@@ -218,8 +218,33 @@ void ResourceUsageView::slotRestoreOverrideCursor()
     if (m_overrideCursorSet) {
         QApplication::restoreOverrideCursor();
         m_overrideCursorSet = false;
-        qInfo()<<Q_FUNC_INFO<<"restoreOverrideCursor"<<m_overrideCursorSet;
     }
+}
+
+void ResourceUsageView::saveSettings(QDomElement &settings) const
+{
+
+    settings.setAttribute(QStringLiteral("days"), m_numDays->value());
+    settings.setAttribute(QStringLiteral("maximum"), m_numDays->maximum());
+
+    auto a = static_cast<KSelectAction*>(actionCollection()->action(QStringLiteral("diagramtypes")));
+    settings.setAttribute(QStringLiteral("chart-type"), a->currentItem());
+
+    const auto id = ui.resourceView->currentIndex().data(RESOURCEID_ROLE).toString();
+    settings.setAttribute(QStringLiteral("current-resource"), id);
+}
+
+void ResourceUsageView::loadSettings(KoXmlElement &settings)
+{
+    m_numDays->setMaximum(settings.attribute(QStringLiteral("maximim")).toInt());
+    m_numDays->setValue(settings.attribute(QStringLiteral("days")).toInt());
+
+    auto a = static_cast<KSelectAction*>(actionCollection()->action(QStringLiteral("diagramtypes")));
+    a->setCurrentItem(settings.attribute(QStringLiteral("chart-type")).toInt());
+
+    const auto start = ui.resourceView->model()->index(0, 0);
+    const auto idx = ui.resourceView->model()->match(start, RESOURCEID_ROLE, settings.attribute(QStringLiteral("current-resource"))).value(0);
+    ui.resourceView->setCurrentIndex(idx);
 }
 
 //--------------------

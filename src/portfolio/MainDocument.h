@@ -15,6 +15,7 @@
 
 #include <MimeTypes.h>
 #include "KoDocument.h"
+#include <KoXmlReader.h>
 
 #include <QDomDocument>
 
@@ -104,6 +105,8 @@ public:
 
     bool isModified() const override;
 
+    const KoXmlDocument& xmlDocument() const;
+
     using KoDocument::setModified;
 public Q_SLOTS:
     void setModified(bool mod) override;
@@ -117,6 +120,7 @@ Q_SIGNALS:
     void documentAboutToBeRemoved(int row);
     void documentRemoved();
     void documentModified();
+    void saveSettings(QDomDocument &xml);
 
 protected Q_SLOTS:
     void slotProjectChanged();
@@ -133,6 +137,7 @@ protected:
 
 private:
     QList<KoDocument*> m_documents;
+    KoXmlDocument m_xmlDocument;
 };
 
 #endif

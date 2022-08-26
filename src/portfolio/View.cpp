@@ -16,6 +16,7 @@
 #include "MainDocument.h"
 #include "GanttView.h"
 #include "portfoliosettings.h"
+#include "PlanGroupDebug.h"
 
 #include <kptproject.h>
 #include <kptganttview.h>
@@ -56,16 +57,19 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     item = m_views->addPage(new PortfolioView(part, doc, m_views), i18n("Portfolio Content"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("settings-configure"));
+    m_pageItems.insert(QStringLiteral("PortfolioView"), item);
 
     SchedulingView *sv = new SchedulingView(part, doc, m_views);
     item = m_views->addPage(sv, i18n("Scheduling"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("view-time-schedule-calculus"));
+    m_pageItems.insert(QStringLiteral("SchedulingView"), item);
     connect(sv, &SchedulingView::projectCalculated, this, &View::projectCalculated);
 
     item = m_views->addPage(new SummaryView(part, doc, m_views), i18n("Summary"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("view-time-schedule"));
+    m_pageItems.insert(QStringLiteral("SummaryView"), item);
     if (!doc->isEmpty()) {
         m_views->setCurrentPage(item);
     }
@@ -73,22 +77,27 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     item = m_views->addPage(new ProgressView(part, doc, m_views), i18n("Progress"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("view-time-schedule"));
+    m_pageItems.insert(QStringLiteral("ProgressView"), item);
 
     item = m_views->addPage(new PerformanceView(part, doc, m_views), i18n("Performance"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("office-chart-bar"));
+    m_pageItems.insert(QStringLiteral("PerformanceView"), item);
 
     auto rv = new ResourceUsageView(part, doc, m_views);
     rv->setNumDays(7);
     item = m_views->addPage(rv, i18n("Resource Usage"));
     item->setHeaderVisible(false);
     item->setIcon(koIcon("system-users"));
+    m_pageItems.insert(QStringLiteral("ResourceUsageView"), item);
 
     auto gv = new GanttView(part, doc, m_views);
     m_ganttSummary = m_views->addPage(gv, i18n("Gantt Summary"));
     m_ganttSummary->setHeaderVisible(false);
     m_ganttSummary->setIcon(koIcon("calligraplan"));
+    m_pageItems.insert(QStringLiteral("GanttView"), m_ganttSummary);
     connect(gv, &GanttView::openKoDocument, this, &View::slotOpenDocument);
+
     // NOTE: Adding a new view to KPageWidget outside the c'tor gives problems with resize (shrinking),
     // so atm we create everything now.
     const auto docs = static_cast<MainDocument*>(doc)->documents();
@@ -96,10 +105,57 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
         openDocument(d);
     }
     connect(m_views, &KPageWidget::currentPageChanged, this, &View::slotCurrentPageChanged);
+
+    connect(static_cast<MainDocument*>(doc), &MainDocument::saveSettings, this, &View::saveSettings);
+    QTimer::singleShot(0, this, &View::loadSettings);
 }
 
 View::~View()
 {
+}
+
+void View::saveSettings(QDomDocument &xml)
+{
+    QDomElement portfolio = xml.documentElement();
+    QDomElement views = xml.createElement(QStringLiteral("views"));
+    portfolio.appendChild(views);
+
+    auto e = views.ownerDocument().createElement(QStringLiteral("current-view"));
+    e.setAttribute(QStringLiteral("view"), m_pageItems.key(m_views->currentPage()));
+    views.appendChild(e);
+
+    QHash<QString, KPageWidgetItem*>::const_iterator it = m_pageItems.constBegin();
+    for (; it != m_pageItems.constEnd(); ++it) {
+        auto pe = views.ownerDocument().createElement(it.key());
+        views.appendChild(pe);
+        QMetaObject::invokeMethod(it.value()->widget(), "saveSettings", Q_ARG(QDomElement&, pe));
+    }
+}
+
+void View::loadSettings()
+{
+    const auto doc = static_cast<MainDocument*>(koDocument());
+    KoXmlElement views = doc->xmlDocument().documentElement().namedItem("views").toElement();
+    if (views.isNull()) {
+        return;
+    }
+    KoXmlElement e;
+    forEachElement(e, views) {
+        if (e.tagName() == QStringLiteral("current-view")) {
+            auto page = m_pageItems.value(e.attribute(QStringLiteral("view")));
+            if (page) {
+                m_views->setCurrentPage(page);
+            }
+        } else {
+            auto page = m_pageItems.value(e.tagName());
+            if (page) {
+                QMetaObject::invokeMethod(page->widget(), "loadSettings", Q_ARG(KoXmlElement&, e));
+            } else {
+                warnPortfolio<<"Unknown page:"<<e.tagName();
+            }
+        }
+    }
+    QApplication::restoreOverrideCursor(); // TODO: why needed?
 }
 
 void View::setupActions(void)

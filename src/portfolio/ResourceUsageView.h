@@ -13,6 +13,7 @@
 #include "ResourceUsageModel.h"
 
 #include <KoView.h>
+#include <KoXmlReaderForward.h>
 
 #include <QSpinBox>
 
@@ -54,6 +55,9 @@ public:
     KoPrintJob *createPrintJob() override;
 
     void guiActivateEvent(bool activated) override;
+
+    Q_INVOKABLE void saveSettings(QDomElement &settings) const;
+    Q_INVOKABLE void loadSettings(KoXmlElement &settings);
 
 public Q_SLOTS:
     void setNumDays(int days);

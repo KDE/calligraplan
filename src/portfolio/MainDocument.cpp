@@ -17,7 +17,6 @@
 #include <kptschedule.h>
 
 #include <KoStore.h>
-#include <KoXmlReader.h>
 #include <KoStoreDevice.h>
 #include <KoOdfReadStore.h>
 #include <KoUpdater.h>
@@ -62,6 +61,11 @@ void MainDocument::setReadWrite(bool rw)
     KoDocument::setReadWrite(rw);
 }
 
+const KoXmlDocument& MainDocument::xmlDocument() const
+{
+    return m_xmlDocument;
+}
+
 bool MainDocument::loadOdf(KoOdfReadStore &odfStore)
 {
     //warnPlan<< "OpenDocument not supported, let's try native xml format";
@@ -70,6 +74,7 @@ bool MainDocument::loadOdf(KoOdfReadStore &odfStore)
 
 bool MainDocument::loadXML(const KoXmlDocument &document, KoStore*)
 {
+    m_xmlDocument = document;
     QPointer<KoUpdater> updater;
     if (progressUpdater()) {
         updater = progressUpdater()->startSubtask(1, QStringLiteral("Plan::Portfolio::loadXML"));
@@ -240,6 +245,7 @@ QDomDocument MainDocument::saveXML()
         p.setAttribute(QStringLiteral("name"), doc->projectName());
         projects.appendChild(p);
     }
+    Q_EMIT saveSettings(document);
     return document;
 }
 
