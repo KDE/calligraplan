@@ -31,6 +31,7 @@
   <name xml:lang="sk">Plan</name>
   <name xml:lang="sl">Plan</name>
   <name xml:lang="sv">Plan</name>
+  <name xml:lang="tr">Plan</name>
   <name xml:lang="uk">Plan</name>
   <name xml:lang="x-test">xxPlanxx</name>
   <name xml:lang="zh-CN">Plan</name>
@@ -60,6 +61,7 @@
   <summary xml:lang="sk">Správa projektov</summary>
   <summary xml:lang="sl">Upravljanje projektov</summary>
   <summary xml:lang="sv">Projekthantering</summary>
+  <summary xml:lang="tr">Proje Yönetimi</summary>
   <summary xml:lang="uk">Керування проєктами</summary>
   <summary xml:lang="x-test">xxProject Managementxx</summary>
   <summary xml:lang="zh-CN">项目管理程序</summary>
@@ -91,6 +93,7 @@
     <p xml:lang="sk">Plan je aplikácia na správu projektov. Je určená na správu stredne veľkých projektov s viacerými zdrojmi.</p>
     <p xml:lang="sl">Plan je aplikacija za upravljanje projektov. Namenjen je upravljanju srednje velikih projektov z več viri.</p>
     <p xml:lang="sv">Plan är ett projekthanteringsprogram. Det är avsett för att hantera måttligt stora projekt med flera resurser.</p>
+    <p xml:lang="tr">Plan, bir proje yönetimi uygulamasıdır. Orta büyüklükte veya daha büyük projeleri yönetmek üzere tasarlanmıştır.</p>
     <p xml:lang="uk">Plan — програма для керування проєктами. Її призначено для керування помірно великими проєктами з декількома ресурсами або виконавцями.</p>
     <p xml:lang="x-test">xxPlan is a project management application. It is intended for managing moderately large projects with multiple resources.xx</p>
     <p xml:lang="zh-CN">Plan 是一款项目管理程序。它适用于管理具有多种资源的中大型项目。</p>
@@ -120,6 +123,7 @@
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
+    <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">程序功能：</p>
@@ -149,6 +153,7 @@
       <li xml:lang="sk">Mnoho pohľadov: Ganttove grafy, pohľad zdrojov, pohľad účtov</li>
       <li xml:lang="sl">Več pogledov: Gantogrami, pogledi virov, pogled računov</li>
       <li xml:lang="sv">Flera vyer: Gant-diagram, resursvy, kontovy</li>
+      <li xml:lang="tr">Birden çok görünüm: Gantt Çizelgeleri, Özkaynak Görünümü, Hesaplar Görünümü</li>
       <li xml:lang="uk">Декілька режимів перегляду: діаграми Ґанта, перегляд виконавців, перегляд рахунків.</li>
       <li xml:lang="x-test">xxMultiple views: Gant Charts, Resource View, Accounts Viewxx</li>
       <li xml:lang="zh-CN">多种视图模式：甘特图、资源视图、账目视图</li>
@@ -176,6 +181,7 @@
       <li xml:lang="sk">Používa štandardné štruktúry: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)</li>
       <li xml:lang="sl">Uporablja standardne strukture: razčlenitev dela (WBS), razčlenitev virov (RBS), razčlenitev stroškov (CBS)</li>
       <li xml:lang="sv">Använder standardstrukturer: Arbetsfördelningsstruktur (WBS), resursfördelningsstruktur (RBS), kostnadsfördelningsstruktur (CBS)</li>
+      <li xml:lang="tr">Standart yapıları kullanır: İş kırım yapısı (WBS), Özkaynak kırım yapısı (RBS), Maliyet kırım yapısı (CBS)</li>
       <li xml:lang="uk">Використання стандартних структур: структури рознарядки робіт (СРР або WBS), структури розподілу вартості (СРВ або CBS) та структури розподілу ресурсів (СРР або RBS).</li>
       <li xml:lang="x-test">xxUses standard structures: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)xx</li>
       <li xml:lang="zh-CN">使用标准结构：工作细分结构 (WBS)、资源细分结构 (RBS)、成本细分结构 (CBS)</li>
@@ -205,6 +211,7 @@
       <li xml:lang="sk">Nastaviteľná úroveň detailu Ganttovho grafu</li>
       <li xml:lang="sl">Nastavljiva raven podrobnosti na Gantogramih</li>
       <li xml:lang="sv">Anpassningsbar detaljnivå för Gantt-diagram</li>
+      <li xml:lang="tr">Gantt Çizelgesi'nde yapılandırılabilir ayrıntı düzeyleri</li>
       <li xml:lang="uk">Налаштовуваний рівень деталізації у діаграмах Ґанта.</li>
       <li xml:lang="x-test">xxConfigurable level of detail on Gantt Chartxx</li>
       <li xml:lang="zh-CN">甘特图可配置详情级别</li>
@@ -233,6 +240,7 @@
       <li xml:lang="sk">Podporuje sumárne úlohy, úlohy a míľniky</li>
       <li xml:lang="sl">Podpora zaključnim nalogam, nalogam in mejnikom</li>
       <li xml:lang="sv">Stöder sammanfattningsaktiviteter, aktiviteter och milstenar</li>
+      <li xml:lang="tr">Özet görevleri, görevler ve dönüm noktalarını destekler</li>
       <li xml:lang="uk">Підтримка підсумкових завдань, завдань та етапів.</li>
       <li xml:lang="x-test">xxSupports Summarytasks, Tasks, and milestonesxx</li>
       <li xml:lang="zh-CN">支持汇总型任务、任务和里程碑</li>
@@ -262,6 +270,7 @@
       <li xml:lang="sk">Nastaviteľné plánovacie obmedzenia</li>
       <li xml:lang="sl">Nastavljive omejitve razporejanja</li>
       <li xml:lang="sv">Anpassningsbara tidplanebegränsning</li>
+      <li xml:lang="tr">Yapılandırılabilir Zamanlama Kısıtlamaları</li>
       <li xml:lang="uk">Налаштовувані обмеження щодо планування.</li>
       <li xml:lang="x-test">xxConfigurable Scheduling Constraintsxx</li>
       <li xml:lang="zh-CN">可配置的调度约束条件</li>
