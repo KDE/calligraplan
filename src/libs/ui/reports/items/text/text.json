@@ -28,6 +28,7 @@
                 "Name[sk]": "Tím Calligra",
                 "Name[sl]": "Ekipa Calligra",
                 "Name[sv]": "Calligra-gruppen",
+                "Name[tr]": "Calligra Takımı",
                 "Name[uk]": "Команда розробників Calligra",
                 "Name[x-test]": "xxCalligra Teamxx",
                 "Name[zh_CN]": "Calligra 团队"
@@ -59,6 +60,7 @@
         "Description[sk]": "Prvok textu pre Reports",
         "Description[sl]": "Element besedila za Reports",
         "Description[sv]": "Textelement för rapporter",
+        "Description[tr]": "Raporlar için metin ögesi",
         "Description[uk]": "Елемент тексту для звітів",
         "Description[x-test]": "xxText element for Reportsxx",
         "Description[zh_CN]": "Reports 的文本元素",
@@ -90,6 +92,7 @@
         "Name[sk]": "Text",
         "Name[sl]": "Besedilo",
         "Name[sv]": "Text",
+        "Name[tr]": "Metin",
         "Name[uk]": "Текст",
         "Name[x-test]": "xxTextxx",
         "Name[zh_CN]": "文本",
