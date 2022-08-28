@@ -104,10 +104,9 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     for (auto d : docs) {
         openDocument(d);
     }
-    connect(m_views, &KPageWidget::currentPageChanged, this, &View::slotCurrentPageChanged);
-
+    loadSettings();
     connect(static_cast<MainDocument*>(doc), &MainDocument::saveSettings, this, &View::saveSettings);
-    QTimer::singleShot(0, this, &View::loadSettings);
+    connect(m_views, &KPageWidget::currentPageChanged, this, &View::slotCurrentPageChanged);
 }
 
 View::~View()
@@ -139,14 +138,22 @@ void View::loadSettings()
     if (views.isNull()) {
         return;
     }
-    KoXmlElement e;
-    forEachElement(e, views) {
-        if (e.tagName() == QStringLiteral("current-view")) {
-            auto page = m_pageItems.value(e.attribute(QStringLiteral("view")));
-            if (page) {
-                m_views->setCurrentPage(page);
+    KoXmlElement e = views.namedItem(QStringLiteral("current-view")).toElement();
+    auto page = m_pageItems.value(e.attribute(QStringLiteral("view")));
+    if (page) {
+        m_views->setCurrentPage(page);
+    }
+    QTimer::singleShot(0, this, [this]() {
+        const auto doc = static_cast<MainDocument*>(koDocument());
+        KoXmlElement views = doc->xmlDocument().documentElement().namedItem("views").toElement();
+        if (views.isNull()) {
+            return;
+        }
+        KoXmlElement e;
+        forEachElement(e, views) {
+            if (e.tagName() == QStringLiteral("current-view")) {
+                continue;
             }
-        } else {
             auto page = m_pageItems.value(e.tagName());
             if (page) {
                 QMetaObject::invokeMethod(page->widget(), "loadSettings", Q_ARG(KoXmlElement&, e));
@@ -154,8 +161,8 @@ void View::loadSettings()
                 warnPortfolio<<"Unknown page:"<<e.tagName();
             }
         }
-    }
-    QApplication::restoreOverrideCursor(); // TODO: why needed?
+        QApplication::restoreOverrideCursor(); // TODO: why needed?
+    });
 }
 
 void View::setupActions(void)
