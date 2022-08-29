@@ -12,7 +12,9 @@
 #include <kptnodechartmodel.h>
 #include <KGanttProxyModel>
 #include <KGanttTreeViewRowController>
+#include <kptnode.h>
 
+#include <kptganttview.h>
 #include <GanttViewBase.h>
 #include <BasicGanttViewSettingsDialog.h>
 

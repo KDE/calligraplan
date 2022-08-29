@@ -120,14 +120,29 @@ void View::saveSettings(QDomDocument &xml)
     portfolio.appendChild(views);
 
     auto e = views.ownerDocument().createElement(QStringLiteral("current-view"));
-    e.setAttribute(QStringLiteral("view"), m_pageItems.key(m_views->currentPage()));
+    auto page = m_pageItems.key(m_views->currentPage());
+    if (page.isEmpty()) {
+        page = m_ganttViews.key(m_views->currentPage());
+    }
+    e.setAttribute(QStringLiteral("view"), page);
     views.appendChild(e);
 
-    QHash<QString, KPageWidgetItem*>::const_iterator it = m_pageItems.constBegin();
+    {QHash<QString, KPageWidgetItem*>::const_iterator it = m_pageItems.constBegin();
     for (; it != m_pageItems.constEnd(); ++it) {
         auto pe = views.ownerDocument().createElement(it.key());
         views.appendChild(pe);
         QMetaObject::invokeMethod(it.value()->widget(), "saveSettings", Q_ARG(QDomElement&, pe));
+    }}
+    if (!m_ganttViews.isEmpty()) {
+        auto ganttviews = views.ownerDocument().createElement(QStringLiteral("ganttviews"));
+        views.appendChild(ganttviews);
+        {QHash<QString, KPageWidgetItem*>::const_iterator it = m_ganttViews.constBegin();
+        for (; it != m_ganttViews.constEnd(); ++it) {
+            auto ge = ganttviews.ownerDocument().createElement(QStringLiteral("ganttview"));
+            ganttviews.appendChild(ge);
+            ge.setAttribute(QStringLiteral("id"), it.key());
+            static_cast<KPlato::GanttView*>(it.value()->widget())->saveContext(ge);
+        }}
     }
 }
 
@@ -140,6 +155,9 @@ void View::loadSettings()
     }
     KoXmlElement e = views.namedItem(QStringLiteral("current-view")).toElement();
     auto page = m_pageItems.value(e.attribute(QStringLiteral("view")));
+    if (!page) {
+        page = m_ganttViews.value(e.attribute(QStringLiteral("view")));
+    }
     if (page) {
         m_views->setCurrentPage(page);
     }
@@ -152,6 +170,17 @@ void View::loadSettings()
         KoXmlElement e;
         forEachElement(e, views) {
             if (e.tagName() == QStringLiteral("current-view")) {
+                continue;
+            } else if (e.tagName() == QStringLiteral("ganttviews")) {
+                KoXmlElement ge;
+                forEachElement(ge, e) {
+                    if (ge.tagName() == QStringLiteral("ganttview")) {
+                        KPageWidgetItem *page = m_ganttViews.value(ge.attribute(QStringLiteral("id")));
+                        if (page) {
+                            static_cast<KPlato::GanttView*>(page->widget())->loadContext(ge);
+                        }
+                    }
+                }
                 continue;
             }
             auto page = m_pageItems.value(e.tagName());
