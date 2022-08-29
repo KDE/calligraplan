@@ -34,6 +34,9 @@ public:
 
     KoPrintJob* createPrintJob() override;
 
+    Q_INVOKABLE void saveSettings(QDomElement &settings) const;
+    Q_INVOKABLE void loadSettings(KoXmlElement &settings);
+
 public Q_SLOTS:
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 

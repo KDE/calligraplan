@@ -120,3 +120,21 @@ void ProgressView::selectionChanged(const QItemSelection &selected, const QItemS
     }
 }
 
+void ProgressView::saveSettings(QDomElement &settings) const
+{
+    settings.setAttribute(QStringLiteral("current-row"), m_view->currentIndex().row());
+    auto e = settings.ownerDocument().createElement(QStringLiteral("details-view"));
+    settings.appendChild(e);
+    m_detailsView->saveContext(e);
+}
+
+void ProgressView::loadSettings(KoXmlElement &settings)
+{
+    const auto idx = m_view->model()->index(settings.attribute(QStringLiteral("current-row")).toInt(), 0);
+    if (idx.isValid()) {
+        m_view->setCurrentIndex(idx);
+    } else if (m_view->model()->rowCount()) {
+        m_view->setCurrentIndex(m_view->model()->index(0, 0));
+    }
+    m_detailsView->loadContext(settings.namedItem(QStringLiteral("details-view")).toElement());
+}
