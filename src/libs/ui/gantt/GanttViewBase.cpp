@@ -124,6 +124,8 @@ void GanttChartDisplayOptionsPanel::slotOk()
     opt.setFlag(DateTimeTimeLine::Background, ui_timeLineBackground->isChecked());
     opt.setFlag(DateTimeTimeLine::UseCustomPen, ui_timeLineUseCustom->isChecked());
     timeline->setOptions(opt);
+
+    m_gantt->setShowRowSeparators(ui_showRowSeparators->checkState() == Qt::Checked);
 }
 
 void GanttChartDisplayOptionsPanel::setValues(const GanttItemDelegate &del)
@@ -152,6 +154,8 @@ void GanttChartDisplayOptionsPanel::setValues(const GanttItemDelegate &del)
     ui_timeLineBackground->setChecked(opt & DateTimeTimeLine::Background);
     ui_timeLineForeground->setChecked(opt & DateTimeTimeLine::Foreground);
     ui_timeLineUseCustom->setChecked(opt & DateTimeTimeLine::UseCustomPen);
+
+    ui_showRowSeparators->setChecked(m_gantt->showRowSeparators());
 }
 
 void GanttChartDisplayOptionsPanel::setDefault()
