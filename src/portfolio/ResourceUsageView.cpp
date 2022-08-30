@@ -38,11 +38,6 @@ ResourceUsageView::ResourceUsageView(KoPart *part, KoDocument *doc, QWidget *par
     //debugPlan;
     ui.setupUi(this);
 
-    if (doc && doc->isReadWrite()) {
-        setXMLFile(QStringLiteral("Portfolio_ResourceUsageViewUi.rc"));
-    } else {
-        setXMLFile(QStringLiteral("Portfolio_ResourceUsageViewUi_readonly.rc"));
-    }
     setupGui();
 
     auto resourceModel = new ResourceModel(this);
@@ -106,6 +101,8 @@ ResourceUsageView::~ResourceUsageView()
 
 void ResourceUsageView::setupGui()
 {
+    setXMLFile(QStringLiteral("Portfolio_ResourceUsageViewUi.rc"));
+
     auto s = new KSelectAction(koIcon("office-chart-bar-stacked"), i18n("Diagram Types"), this);
     actionCollection()->addAction(QStringLiteral("diagramtypes"), s);
     connect(s, &KSelectAction::indexTriggered, ui.chart, &KPlato::ScrollableChart::setDiagramFlavor);
