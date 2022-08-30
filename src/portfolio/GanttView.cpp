@@ -151,3 +151,13 @@ KoPrintJob *GanttView::createPrintJob()
 {
     return new KPlato::GanttPrintingDialog(this, m_view);
 }
+
+void GanttView::saveSettings(QDomElement &settings) const
+{
+    Q_UNUSED(settings)
+}
+
+void GanttView::loadSettings(KoXmlElement &settings)
+{
+    Q_UNUSED(settings)
+}

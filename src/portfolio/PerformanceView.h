@@ -15,6 +15,7 @@
 
 class KoDocument;
 class KoPrintJob;
+class KoXmlElement;
 
 class QMenu;
 class QItemSelection;
@@ -40,6 +41,9 @@ public:
     QMenu *popupMenu(const QString& name);
 
     KoPrintJob *createPrintJob() override;
+
+    Q_INVOKABLE void saveSettings(QDomElement &settings) const;
+    Q_INVOKABLE void loadSettings(KoXmlElement &settings);
 
 public Q_SLOTS:
     void currentChanged(const QModelIndex &current);

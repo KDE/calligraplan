@@ -151,7 +151,7 @@ void SummaryView::updateReadWrite(bool readwrite)
     m_readWrite = readwrite;
 }
 
-QMenu * SummaryView::popupMenu(const QString& name)
+QMenu *SummaryView::popupMenu(const QString& name)
 {
     Q_UNUSED(name)
     return nullptr;
@@ -160,4 +160,14 @@ QMenu * SummaryView::popupMenu(const QString& name)
 KoPrintJob *SummaryView::createPrintJob()
 {
     return new KPlato::PrintingDialog(this);
+}
+
+void SummaryView::saveSettings(QDomElement &settings) const
+{
+    Q_UNUSED(settings)
+}
+
+void SummaryView::loadSettings(KoXmlElement &settings)
+{
+    Q_UNUSED(settings)
 }

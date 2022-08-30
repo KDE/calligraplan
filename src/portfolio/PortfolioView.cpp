@@ -363,3 +363,13 @@ void PortfolioView::slotRecentFileActivated(const QModelIndex &idx)
         }
     }
 }
+
+void PortfolioView::saveSettings(QDomElement &settings) const
+{
+    Q_UNUSED(settings)
+}
+
+void PortfolioView::loadSettings(KoXmlElement &settings)
+{
+    Q_UNUSED(settings)
+}

@@ -15,6 +15,8 @@
 class RecentFilesModel;
 class KoDocument;
 class KoPrintJob;
+class KoXmlElement;
+
 class QItemSelection;
 
 namespace KIO {
@@ -36,6 +38,9 @@ public:
     void loadProject(const QUrl &url);
 
     bool hasWriteAccess(KIO::UDSEntry &entry) const;
+
+    Q_INVOKABLE void saveSettings(QDomElement &settings) const;
+    Q_INVOKABLE void loadSettings(KoXmlElement &settings);
 
 Q_SIGNALS:
     void openUrl(const QUrl &url);

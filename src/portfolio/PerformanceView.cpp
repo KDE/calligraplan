@@ -229,3 +229,35 @@ void PerformanceView::updateCharts(KPlato::Project *project, KPlato::ScheduleMan
     ui.effortACWP->setText(text);
 
 }
+
+void PerformanceView::saveSettings(QDomElement &settings) const
+{
+    settings.setAttribute(QStringLiteral("current-row"), ui.treeView->currentIndex().row());
+    qreal w = 0.0;
+    qreal w0 = ui.splitter_2->sizes().value(0);
+    if (w0 > 0.) {
+        w = w0 + ui.splitter_2->sizes().value(1) / w0;
+    }
+    const auto treesize = w / (ui.splitter_2->size().rwidth() - ui.splitter_2->handleWidth());
+    settings.setAttribute(QStringLiteral("tree-size"), treesize);
+
+    w = 0.0;
+    w0 = ui.splitter->sizes().value(0);
+    if (w0 > 0.) {
+        w = w0 + ui.splitter->sizes().value(1) / w0;
+    }
+    const auto chartsize = w / (ui.splitter->size().rwidth() - ui.splitter->handleWidth());
+    settings.setAttribute(QStringLiteral("chart-size"), chartsize);
+}
+
+void PerformanceView::loadSettings(KoXmlElement &settings)
+{
+    const auto idx = ui.treeView->model()->index(settings.attribute(QStringLiteral("current-row")).toInt(), 0);
+    ui.treeView->setCurrentIndex(idx);
+    const auto treesize = ui.splitter_2->size().rwidth();
+    int w = treesize * settings.attribute(QStringLiteral("tree-size"), QStringLiteral("0.2")).toDouble();
+    ui.splitter_2->setSizes(QList<int>() << w << treesize - w);
+    const auto chartsize = ui.splitter->size().rwidth();
+    w = chartsize * settings.attribute(QStringLiteral("chart-size"), QStringLiteral("0.5")).toDouble();
+    ui.splitter->setSizes(QList<int>() << w << chartsize - w);
+}

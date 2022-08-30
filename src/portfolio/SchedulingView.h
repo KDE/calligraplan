@@ -19,6 +19,8 @@
 
 class KoDocument;
 class KoPrintJob;
+class KoXmlElement;
+
 class QTreeView;
 class QMenu;
 class QItemSelection;
