@@ -46,11 +46,6 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     , m_readWrite(false)
 {
     //debugPlan;
-    if (doc && doc->isReadWrite()) {
-        setXMLFile(QStringLiteral("Portfolio_SchedulingViewUi.rc"));
-    } else {
-        setXMLFile(QStringLiteral("Portfolio_SchedulingViewUi_readonly.rc"));
-    }
     setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -234,6 +229,8 @@ void SchedulingView::slotTimeToggled(bool state)
 
 void SchedulingView::setupGui()
 {
+    setXMLFile(QStringLiteral("Portfolio_SchedulingViewUi.rc"));
+
     auto a  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
     actionCollection()->addAction(QStringLiteral("project_description"), a);
     connect(a, &QAction::triggered, this, &SchedulingView::slotDescription);

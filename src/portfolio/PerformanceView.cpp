@@ -34,11 +34,8 @@ PerformanceView::PerformanceView(KoPart *part, KoDocument *doc, QWidget *parent)
     , m_readWrite(false)
 {
     //debugPlan;
-    if (doc && doc->isReadWrite()) {
-        setXMLFile(QStringLiteral("Portfolio_PerformanceViewUi.rc"));
-    } else {
-        setXMLFile(QStringLiteral("Portfolio_PerformanceViewUi_readonly.rc"));
-    }
+    setXMLFile(QStringLiteral("Portfolio_PerformanceViewUi.rc"));
+
     ui.setupUi(this);
 
     ProjectsFilterModel *model = new ProjectsFilterModel(ui.treeView);

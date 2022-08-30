@@ -51,7 +51,7 @@ Q_SIGNALS:
     void projectCalculated(KPlato::Project *project, KPlato::ScheduleManager *sm);
 
 protected:
-    void setupActions();
+    void setupGui();
     void updateReadWrite(bool readwrite) override;
 
 private Q_SLOTS:

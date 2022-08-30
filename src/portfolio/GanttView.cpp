@@ -43,11 +43,6 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
     , m_readWrite(false)
 {
     //debugPlan;
-    if (doc && doc->isReadWrite()) {
-        setXMLFile(QStringLiteral("Portfolio_GanttViewUi.rc"));
-    } else {
-        setXMLFile(QStringLiteral("Portfolio_GanttViewUi_readonly.rc"));
-    }
     setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -98,6 +93,8 @@ GanttView::~GanttView()
 
 void GanttView::setupGui()
 {
+    setXMLFile(QStringLiteral("Portfolio_GanttViewUi.rc"));
+
     auto a = new QAction(koIcon("view-time-schedule-calculus"), i18n("Open Project"), this);
     actionCollection()->addAction(QStringLiteral("gantt_open_project"), a);
     connect(a, &QAction::triggered, this, &GanttView::openProject, Qt::QueuedConnection);

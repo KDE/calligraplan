@@ -45,7 +45,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     //debugPlanGroup;
     setComponentName(PortfolioFactory::global().componentName(), PortfolioFactory::global().componentDisplayName());
 
-    setupActions();
+    setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
@@ -194,13 +194,9 @@ void View::loadSettings()
     });
 }
 
-void View::setupActions(void)
+void View::setupGui(void)
 {
-    if (koDocument()->isReadWrite()) {
-        setXMLFile(QStringLiteral("Portfolio_ViewUi.rc"), true);
-    } else {
-        setXMLFile(QStringLiteral("Portfolio_ViewUi_readonly.rc"));
-    }
+    setXMLFile(QStringLiteral("Portfolio_ViewUi.rc"), true);
 }
 
 void View::guiActivateEvent(bool activate)

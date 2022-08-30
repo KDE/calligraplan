@@ -39,12 +39,8 @@ SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
     , m_readWrite(false)
 {
     //debugPlan;
-    if (doc && doc->isReadWrite()) {
-        setXMLFile(QStringLiteral("Portfolio_SummaryViewUi.rc"));
-    } else {
-        setXMLFile(QStringLiteral("Portfolio_SummaryViewUi_readonly.rc"));
-    }
     setupGui();
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
     m_view = new QTreeView(this);
@@ -94,6 +90,8 @@ SummaryView::~SummaryView()
 
 void SummaryView::setupGui()
 {
+    setXMLFile(QStringLiteral("Portfolio_SummaryViewUi.rc"));
+
     auto a  = new QAction(koIcon("document-edit"), i18n("Description..."), this);
     actionCollection()->addAction(QStringLiteral("project_description"), a);
     connect(a, &QAction::triggered, this, &SummaryView::slotDescription);

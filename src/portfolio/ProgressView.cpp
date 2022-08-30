@@ -28,9 +28,8 @@ ProgressView::ProgressView(KoPart *part, KoDocument *doc, QWidget *parent)
     , m_readWrite(false)
 {
     //debugPlan;
-    if (doc && doc->isReadWrite()) {
-        setXMLFile(QStringLiteral("Portfolio_ProgressViewUi.rc"));
-    }
+    setXMLFile(QStringLiteral("Portfolio_ProgressViewUi.rc"));
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
     QSplitter *sp = new QSplitter(this);

@@ -95,11 +95,8 @@ PortfolioView::PortfolioView(KoPart *part, KoDocument *doc, QWidget *parent)
     , m_readWrite(false)
 {
     //debugPlan;
-    if (doc && doc->isReadWrite()) {
-        setXMLFile(QStringLiteral("Portfolio_PortfolioViewUi.rc"));
-    } else {
-        setXMLFile(QStringLiteral("Portfolio_PortfolioViewUi_readonly.rc"));
-    }
+    setXMLFile(QStringLiteral("Portfolio_PortfolioViewUi.rc"));
+
     setupGui();
 
     auto portfolio = qobject_cast<MainDocument*>(doc);
