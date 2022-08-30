@@ -107,10 +107,23 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     loadSettings();
     connect(static_cast<MainDocument*>(doc), &MainDocument::saveSettings, this, &View::saveSettings);
     connect(m_views, &KPageWidget::currentPageChanged, this, &View::slotCurrentPageChanged);
+    connect(mainWindow(), &KoMainWindow::restoringDone, this, &View::slotUpdateActions);
 }
 
 View::~View()
 {
+}
+
+void View::slotUpdateActions()
+{
+    const auto mw = mainWindow();
+    const auto c = mw->actionCollection();
+    const bool disable = static_cast<MainDocument*>(koDocument())->documents().isEmpty();
+    c->action(QStringLiteral("file_save"))->setEnabled(!disable);
+    c->action(QStringLiteral("file_save_as"))->setEnabled(!disable);
+    c->action(QStringLiteral("file_send_file"))->setEnabled(!disable);
+    c->action(QStringLiteral("file_close"))->setEnabled(!disable);
+    c->action(QStringLiteral("file_documentinfo"))->setEnabled(!disable);
 }
 
 void View::saveSettings(QDomDocument &xml)

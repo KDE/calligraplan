@@ -57,6 +57,7 @@ protected:
 private Q_SLOTS:
     void slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
     void loadSettings();
+    void slotUpdateActions();
 
 private:
     bool m_readWrite;
