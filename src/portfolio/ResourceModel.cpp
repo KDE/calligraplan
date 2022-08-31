@@ -96,7 +96,6 @@ void ResourceModel::setPortfolio(MainDocument *portfolio)
 
 void ResourceModel::reset()
 {
-    qInfo()<<Q_FUNC_INFO;
     beginResetModel();
     updateData();
     endResetModel();
