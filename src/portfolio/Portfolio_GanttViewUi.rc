@@ -13,7 +13,22 @@
     </MenuBar>
     <ToolBar name="ganttsummaryviewToolBar"  fullWidth="false"><text>Tools</text>
     </ToolBar>
-    <Menu name="gantt_context_menu">
+    <Menu name="gantt_project_context_menu">
         <Action name="gantt_open_project"/>
+        <Separator/>
+        <Action name="print"/>
+        <Action name="print_preview"/>
+        <Action name="print_pdf"/>
+        <Action name="print_options"/>
+        <Separator/>
+        <Action name="configure_view"/>
+    </Menu>
+    <Menu name="gantt_context_menu"><text>&amp;View</text>
+        <Action name="print"/>
+        <Action name="print_preview"/>
+        <Action name="print_pdf"/>
+        <Action name="print_options"/>
+        <Separator/>
+        <Action name="configure_view"/>
     </Menu>
 </gui>

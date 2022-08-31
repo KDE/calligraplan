@@ -45,6 +45,7 @@ protected:
 
 protected Q_SLOTS:
     void openProject();
+    void slotHeaderCustomContextMenuRequested(const QPoint &pos);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotOptions() override;
 

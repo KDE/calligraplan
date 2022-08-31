@@ -71,8 +71,10 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
     m_view->setModel(m);
 
     tv->header()->hideSection(1 /*Type*/);
+    tv->header()->setContextMenuPolicy(Qt::CustomContextMenu);
     tv->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    connect(tv->header(), &QHeaderView::customContextMenuRequested, this, &GanttView::slotHeaderCustomContextMenuRequested);
     connect(tv, &QTreeView::customContextMenuRequested, this, &GanttView::slotCustomContextMenuRequested);
 
     setWhatsThis(xi18nc("@info:whatsthis",
@@ -122,13 +124,24 @@ QMenu *GanttView::popupMenu(const QString& name)
     return nullptr;
 }
 
+void GanttView::slotHeaderCustomContextMenuRequested(const QPoint &pos)
+{
+    auto menu = qobject_cast<QMenu*>(factory()->container(QStringLiteral("gantt_context_menu"), this));
+    if (menu && !menu->isEmpty()) {
+        menu->exec(m_view->leftView()->viewport()->mapToGlobal(pos));
+    }
+}
+
 void GanttView::slotCustomContextMenuRequested(const QPoint &pos)
 {
+    QString name;
     const auto idx = m_view->leftView()->indexAt(pos);
-    if (!idx.isValid()) {
-        return;
+    if (idx.isValid()) {
+        name = QStringLiteral("gantt_project_context_menu");
+    } else {
+        name = QStringLiteral("gantt_context_menu");
     }
-    auto menu = qobject_cast<QMenu*>(factory()->container(QStringLiteral("gantt_context_menu"), this));
+    auto menu = qobject_cast<QMenu*>(factory()->container(name, this));
     if (menu && !menu->isEmpty()) {
         menu->exec(m_view->leftView()->viewport()->mapToGlobal(pos));
     }
