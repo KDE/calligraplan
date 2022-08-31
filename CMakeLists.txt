@@ -245,7 +245,7 @@ endif()
 ############################
 ###########################
 
-set(REQUIRED_KDIAGRAM_VERSION 2.7)
+set(REQUIRED_KDIAGRAM_VERSION 2.8)
 
 ##
 ## Test for KGantt
