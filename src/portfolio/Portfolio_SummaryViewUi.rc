@@ -7,15 +7,24 @@
             <Action name="print_preview"/>
             <Action name="print_pdf"/>
             <Action name="print_options"/>
-            <Separator/>
-            <Action name="configure_view"/>
         </Menu>
     </MenuBar>
 
 <!--    <ToolBar name="viewToolBar"  fullWidth="false"><text>Tools</text>
     </ToolBar>-->
 
-    <Menu name="summaryview_popup">
+    <Menu name="summaryview_project_popup">
         <Action name="project_description"/>
+        <Separator/>
+        <Action name="print"/>
+        <Action name="print_preview"/>
+        <Action name="print_pdf"/>
+        <Action name="print_options"/>
+    </Menu>
+    <Menu name="summaryview_popup">
+        <Action name="print"/>
+        <Action name="print_preview"/>
+        <Action name="print_pdf"/>
+        <Action name="print_options"/>
     </Menu>
 </gui>

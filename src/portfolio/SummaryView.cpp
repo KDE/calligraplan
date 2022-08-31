@@ -24,29 +24,36 @@
 #include <KoIcon.h>
 #include <KoFileDialog.h>
 #include <kundo2command.h>
+#include <KoPageLayoutDialog.h>
 
 #include <KRecentFilesAction>
 #include <KActionCollection>
 #include <KXMLGUIFactory>
 
-#include <QTreeView>
 #include <QVBoxLayout>
 #include <QHeaderView>
 #include <QMenu>
+
 
 SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
     : KPlato::ViewBase(part, doc, parent)
     , m_readWrite(false)
 {
     //debugPlan;
+    // Disable, not used
+    m_printingOptions.headerOptions.group = false;
+    m_printingOptions.footerOptions.group = false;
+
     setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
-    m_view = new QTreeView(this);
+    m_view = new KPlato::TreeViewBase(this);
     m_view->setRootIsDecorated(false);
     layout->addWidget(m_view);
     m_view->setContextMenuPolicy(Qt::CustomContextMenu);
+    m_view->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(m_view->header(), &QHeaderView::customContextMenuRequested, this, &SummaryView::slotHeaderContextMenuRequested);
     connect(m_view, &QTreeView::customContextMenuRequested, this, &SummaryView::slotContextMenuRequested);
     connect(m_view, &QTreeView::doubleClicked, this, &SummaryView::itemDoubleClicked);
 
@@ -96,7 +103,7 @@ void SummaryView::setupGui()
     actionCollection()->addAction(QStringLiteral("project_description"), a);
     connect(a, &QAction::triggered, this, &SummaryView::slotDescription);
 
-    createOptionActions(ViewBase::OptionAll);
+    createOptionActions(KPlato::ViewBase::OptionPrint | KPlato::ViewBase::OptionPrintPreview | KPlato::ViewBase::OptionPrintPdf | KPlato::ViewBase::OptionPrintConfig);
 }
 
 void SummaryView::itemDoubleClicked(const QPersistentModelIndex &idx)
@@ -107,6 +114,23 @@ void SummaryView::itemDoubleClicked(const QPersistentModelIndex &idx)
     }
 }
 
+void SummaryView::slotHeaderContextMenuRequested(const QPoint &pos)
+{
+    debugPortfolio<<"Context menu"<<pos;
+    if (!factory()) {
+        debugPortfolio<<"No factory";
+        return;
+    }
+    QString name;
+    name = QStringLiteral("summaryview_popup");
+    auto menu = static_cast<QMenu*>(factory()->container(name, this));
+    if (menu->isEmpty()) {
+        debugPortfolio<<"Menu is empty";
+        return;
+    }
+    menu->exec(m_view->viewport()->mapToGlobal(pos));
+}
+
 void SummaryView::slotContextMenuRequested(const QPoint &pos)
 {
     debugPortfolio<<"Context menu"<<pos;
@@ -114,11 +138,13 @@ void SummaryView::slotContextMenuRequested(const QPoint &pos)
         debugPortfolio<<"No factory";
         return;
     }
-    if (!m_view->indexAt(pos).isValid()) {
-        debugPortfolio<<"Nothing selected";
-        return;
+    QString name;
+    if (m_view->indexAt(pos).isValid()) {
+        name = QStringLiteral("summaryview_project_popup");
+    } else {
+        name = QStringLiteral("summaryview_popup");
     }
-    auto menu = static_cast<QMenu*>(factory()->container(QStringLiteral("summaryview_popup"), this));
+    auto menu = static_cast<QMenu*>(factory()->container(name, this));
     if (menu->isEmpty()) {
         debugPortfolio<<"Menu is empty";
         return;
@@ -144,6 +170,14 @@ void SummaryView::slotDescription()
     }
 }
 
+void SummaryView::slotOptions()
+{
+    KoPageLayoutDialog dlg(this, pageLayout());
+    if (dlg.exec() == QDialog::Accepted) {
+        setPageLayout(dlg.pageLayout());
+    }
+}
+
 void SummaryView::updateReadWrite(bool readwrite)
 {
     m_readWrite = readwrite;
@@ -157,15 +191,16 @@ QMenu *SummaryView::popupMenu(const QString& name)
 
 KoPrintJob *SummaryView::createPrintJob()
 {
-    return new KPlato::PrintingDialog(this);
+    // TODO create some page header/footer
+    return m_view->createPrintJob(this);
 }
 
 void SummaryView::saveSettings(QDomElement &settings) const
 {
-    Q_UNUSED(settings)
+    saveContext(settings);
 }
 
 void SummaryView::loadSettings(KoXmlElement &settings)
 {
-    Q_UNUSED(settings)
+    loadContext(settings);
 }

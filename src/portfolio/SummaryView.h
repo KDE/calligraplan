@@ -15,8 +15,11 @@ class KoDocument;
 class KoPrintJob;
 class KoXmlElement;
 
-class QTreeView;
 class QMenu;
+
+namespace KPlato {
+class TreeViewBase;
+}
 
 class PLANPORTFOLIO_EXPORT SummaryView : public KPlato::ViewBase
 {
@@ -41,12 +44,14 @@ private:
 
 private Q_SLOTS:
     void itemDoubleClicked(const QPersistentModelIndex &idx);
+    void slotHeaderContextMenuRequested(const QPoint &pos) override;
     void slotContextMenuRequested(const QPoint &pos);
     void slotDescription();
+    void slotOptions() override;
 
 private:
     bool m_readWrite;
-    QTreeView *m_view;
+    KPlato::TreeViewBase *m_view;
 };
 
 #endif
