@@ -13,9 +13,6 @@ In no particular order or priority:
 * Improving printing of gantt chart:
 	Proper task list
 	Selected tasks
-	Limited by dates
-
-* Adding printing to performance charts (and to the rest of the missing views)
 
 * Improving reports, it's very rudimentary
 	Maybe drag-n-drop into Words?
@@ -30,15 +27,10 @@ In no particular order or priority:
 
 * Add a 'calendar' view for the resources (ala korganizer) to show appointments
 
-* Add possibility to automatically schedule after changes to the project.
-
 * Add filter / sort to (some) views
 
 * Improve gantt chart
-	Time now
-	Context menu on tasks in chart
 	When selected in list, show selection in chart and vs (?)
-	Remove the position difference of items in list and chart
 	Position correctly on start/end datetime (small offset now)
 
 * Add time period config to cost breakdown view
