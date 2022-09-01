@@ -3822,6 +3822,8 @@ Qt::DropActions NodeItemModel::supportedDropActions() const
 QStringList NodeItemModel::mimeTypes() const
 {
     return ItemModelBase::mimeTypes()
+            << QStringLiteral("text/html")
+            << QStringLiteral("text/plain")
             << QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal")
             << QStringLiteral("application/x-vnd.kde.plan.resourceitemmodel.internal")
             << QStringLiteral("application/x-vnd.kde.plan.project")

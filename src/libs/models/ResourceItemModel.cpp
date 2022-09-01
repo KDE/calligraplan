@@ -844,7 +844,9 @@ QStringList ResourceItemModel::mimeTypes() const
             <<QStringLiteral("text/directory")
             <<QStringLiteral("text/uri-list")
 #endif
-            <<QStringLiteral("application/x-vnd.kde.plan.resourceitemmodel.internal");
+           <<QStringLiteral("text/html")
+           <<QStringLiteral("text/plain")
+           <<QStringLiteral("application/x-vnd.kde.plan.resourceitemmodel.internal");
 }
 
 void ResourceItemModel::slotDataArrived(KIO::Job *job, const QByteArray &data)

@@ -639,7 +639,9 @@ Qt::DropActions TaskStatusItemModel::supportedDropActions() const
 
 QStringList TaskStatusItemModel::mimeTypes() const
 {
-    return ItemModelBase::mimeTypes();
+    return QStringList()
+            << QStringLiteral("text/html")
+            << QStringLiteral("text/plain");
 }
 
 QMimeData *TaskStatusItemModel::mimeData(const QModelIndexList & indexes) const

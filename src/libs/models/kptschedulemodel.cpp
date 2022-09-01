@@ -1065,7 +1065,9 @@ QMimeData * ScheduleItemModel::mimeData(const QModelIndexList &) const
 
 QStringList ScheduleItemModel::mimeTypes () const
 {
-    return QStringList();
+    return QStringList()
+            << QStringLiteral("text/html")
+            << QStringLiteral("text/plain");
 }
 
 ScheduleManager *ScheduleItemModel::manager(const QModelIndex &index) const

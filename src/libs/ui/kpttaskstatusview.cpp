@@ -63,8 +63,8 @@ TaskStatusTreeView::TaskStatusTreeView(QWidget *parent)
     TaskStatusItemModel *m = new TaskStatusItemModel(this);
     setModel(m);
 
-    setSelectionMode(QAbstractItemView::SingleSelection);
-    setSelectionBehavior(QAbstractItemView::SelectItems);
+    setSelectionMode(QAbstractItemView::ExtendedSelection);
+    setSelectionBehavior(QAbstractItemView::SelectRows);
     setStretchLastSection(false);
     createItemDelegates(m);
 
