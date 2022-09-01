@@ -106,6 +106,7 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     connect(ui.timeRB, &QRadioButton::toggled, this, &SchedulingView::slotTimeToggled);
     connect(ui.calculate, &QPushButton::clicked, this, &SchedulingView::calculate);
     connect(ui.calculationDateTime, &QDateTimeEdit::dateTimeChanged, this, &SchedulingView::calculateFromChanged);
+    connect(ui.timeRB, &QRadioButton::toggled, ui.calculationDateTime, &QDateTimeEdit::setEnabled);
 
     connect(static_cast<MainDocument*>(doc), &MainDocument::documentInserted, this, &SchedulingView::portfolioChanged);
     connect(static_cast<MainDocument*>(doc), &MainDocument::documentRemoved, this, &SchedulingView::portfolioChanged);
@@ -295,15 +296,20 @@ KoPrintJob *SchedulingView::createPrintJob()
 
 void SchedulingView::updateActionsEnabled()
 {
-    ui.calculate->setEnabled(false);
     const auto portfolio = static_cast<MainDocument*>(koDocument());
     const auto docs = portfolio->documents();
+    const auto calculateFrom = ui.calculationDateTime->dateTime();
+    bool enable = false;
     for (auto doc : docs) {
         if (doc->property(SCHEDULINGCONTROL).toString() == QStringLiteral("Schedule")) {
-            ui.calculate->setEnabled(true);
-            break;
+            if (calculateFrom > doc->project()->constraintEndTime()) {
+                ui.calculate->setEnabled(false);
+                return;
+            }
+            enable = true;
         }
     }
+    ui.calculate->setEnabled(enable);
 }
 
 void SchedulingView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
@@ -345,6 +351,7 @@ void SchedulingView::calculateFromChanged()
 {
     auto model = static_cast<SchedulingModel*>(ui.schedulingView->model());
     model->setCalculateFrom(ui.calculationDateTime->dateTime());
+    updateActionsEnabled();
 }
 
 QDateTime SchedulingView::calculationTime() const
@@ -504,4 +511,5 @@ void SchedulingView::loadSettings(KoXmlElement &settings)
     } else if (s == QStringLiteral("tomorrow")) {
         ui.tomorrowRB->setChecked(true);
     }
+    ui.calculationDateTime->setEnabled(ui.timeRB->isChecked());
 }
