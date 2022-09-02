@@ -221,6 +221,11 @@ TaskStatusView::TaskStatusView(KoPart *part, KoDocument *doc, QWidget *parent)
 
 }
 
+void TaskStatusView::slotEditCopy()
+{
+    m_view->editCopy();
+}
+
 void TaskStatusView::itemDoubleClicked(const QPersistentModelIndex &idx)
 {
     if (idx.column() == NodeModel::NodeDescription) {

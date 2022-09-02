@@ -115,6 +115,8 @@ public Q_SLOTS:
 
     void slotRefreshView() override;
 
+    void slotEditCopy() override;
+
 protected Q_SLOTS:
     void slotOptions() override;
     void itemDoubleClicked(const QPersistentModelIndex &idx);
