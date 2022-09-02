@@ -706,37 +706,55 @@ int numRows(const QModelIndexList &indexes)
 
 void ItemModelBase::writeText(QMimeData *m, const QModelIndexList &indexes) const
 {
-    if (!mimeTypes().contains(QStringLiteral("text/html")) && !mimeTypes().contains(QStringLiteral("text/plain"))) {
+    if (indexes.isEmpty()) {
         return;
     }
     int cols = numColumns(indexes);
     int rows = numRows(indexes);
-    QTextDocument doc;
-    QTextCursor cursor(&doc);
-    cursor.insertTable(rows+1, cols);
-    QTextTableFormat tableFormat;
-    QVector<QTextLength> v;
-    for (int i = 0; i < cols; ++i) {
-        QTextLength l(QTextLength::PercentageLength, 100 / cols);
-        v << l;
-    }
-    tableFormat.setColumnWidthConstraints(v);
-    cursor.currentTable()->setFormat(tableFormat);
-    // headers
-    for (int i = 0; i < cols; ++i) {
-        cursor.insertText(headerData(indexes.at(i).column(), Qt::Horizontal).toString());
-        cursor.movePosition(QTextCursor::NextCell);
-    }
-    // data
-    for (int i = 0; i < indexes.count(); ++i) {
-        cursor.insertText(indexes.at(i).data().toString());
-        cursor.movePosition(QTextCursor::NextCell);
-    }
     if (mimeTypes().contains(QStringLiteral("text/html"))) {
+        QTextDocument doc;
+        QTextCursor cursor(&doc);
+        cursor.insertTable(rows+1, cols);
+        QTextTableFormat tableFormat;
+        QVector<QTextLength> v;
+        for (int i = 0; i < cols; ++i) {
+            QTextLength l(QTextLength::PercentageLength, 100 / cols);
+            v << l;
+        }
+        tableFormat.setColumnWidthConstraints(v);
+        cursor.currentTable()->setFormat(tableFormat);
+        // headers
+        for (int i = 0; i < cols; ++i) {
+            cursor.insertText(headerData(indexes.at(i).column(), Qt::Horizontal).toString());
+            cursor.movePosition(QTextCursor::NextCell);
+        }
+        // data
+        for (int i = 0; i < indexes.count(); ++i) {
+            cursor.insertText(indexes.at(i).data().toString());
+            cursor.movePosition(QTextCursor::NextCell);
+        }
         m->setData(QStringLiteral("text/html"), doc.toHtml("utf-8").toUtf8());
     }
     if (mimeTypes().contains(QStringLiteral("text/plain"))) {
-        m->setData(QStringLiteral("text/plain"), doc.toPlainText().toUtf8());
+        QVector<QStringList> text(rows+1);
+        // headers
+        for (int c = 0; c < cols; ++c) {
+            text[0] << headerData(indexes.at(c).column(), Qt::Horizontal).toString();
+        }
+        // data
+        for (int i = 0; i < rows; ++i) {
+            for (int c = 0; c < cols; ++c) {
+                text[i+1] << indexes.at(i*cols+c).data().toString();
+            }
+        }
+        if (mimeTypes().contains(QStringLiteral("text/plain"))) {
+            QString s;
+            for (const auto &t : qAsConst(text)) {
+                s += t.join(QLatin1Char('\t'));
+                s += QLatin1Char('\n');
+            }
+            m->setData(QStringLiteral("text/plain"), s.toUtf8());
+        }
     }
 }
 
