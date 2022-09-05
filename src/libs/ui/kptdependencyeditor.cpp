@@ -649,7 +649,7 @@ DependencyNodeItem::DependencyNodeItem(Node *node, DependencyNodeItem *parent)
     setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsFocusable);
 
     // do not attach this item to the scene as it gives continuous paint events when a node item is selected
-    m_symbol = new DependencyNodeSymbolItem();
+    m_symbol = new DependencyNodeSymbolItem(this);
     m_symbol->setZValue(zValue() + 10.0);
     setSymbol();
 
@@ -664,6 +664,11 @@ DependencyNodeItem::~DependencyNodeItem()
     //qDeleteAll(m_children);
 
     delete m_symbol;
+}
+
+bool DependencyNodeItem::isSummaryTask() const
+{
+    return !m_children.isEmpty();
 }
 
 void DependencyNodeItem::setText()
@@ -706,12 +711,22 @@ void DependencyNodeItem::setParentItem(DependencyNodeItem *parent)
     }
 }
 
-void DependencyNodeItem::setExpanded(bool mode)
+void DependencyNodeItem::setChildrenVisible(bool visible)
 {
     for (DependencyNodeItem *ch : qAsConst(m_children)) {
-        itemScene()->setItemVisible(ch, mode);
-        ch->setExpanded(mode);
+        itemScene()->setItemVisible(ch, visible);
     }
+}
+
+bool DependencyNodeItem::isExpanded() const
+{
+    return m_expanded;
+}
+
+void DependencyNodeItem::setExpanded(bool mode)
+{
+    m_expanded = mode;
+    setChildrenVisible(mode);
 }
 
 void DependencyNodeItem::setItemVisible(bool show)
@@ -1013,18 +1028,30 @@ void DependencyNodeSymbolItem::setSymbol(int type, const QRectF &rect)
     setPath(p);
 }
 
-void DependencyNodeSymbolItem::paint(Project *p, QPainter *painter, const QStyleOptionGraphicsItem *option)
+void DependencyNodeSymbolItem::paint(Project *project, QPainter *painter, const QStyleOptionGraphicsItem *option)
 {
-    if (p) {
+    painter->setPen(Qt::NoPen);
+    painter->translate(option->exposedRect.x() + 2.0, option->exposedRect.y() + 2.0);
+    auto p = path();
+    if (project) {
         switch (m_nodetype) {
-            case Node::Type_Summarytask:
-                painter->setBrush(p->config().summaryTaskDefaultColor());
+            case Node::Type_Summarytask: {
+                if (!m_parent->isExpanded()) {
+                    p.clear();
+                    auto rect = this->boundingRect();
+                    p.moveTo(rect.topLeft());
+                    p.lineTo(rect.bottomLeft());
+                    p.lineTo(rect.right(), rect.top() + rect.height() / 2.0);
+                    p.closeSubpath();
+                }
+                painter->setBrush(project->config().summaryTaskDefaultColor());
                 break;
+            }
             case Node::Type_Task:
-                painter->setBrush(p->config().taskNormalColor());
+                painter->setBrush(project->config().taskNormalColor());
                 break;
             case Node::Type_Milestone:
-                painter->setBrush(p->config().milestoneNormalColor());
+                painter->setBrush(project->config().milestoneNormalColor());
                 break;
             default:
                 painter->setBrush(m_delegate.defaultBrush(m_itemtype));
@@ -1033,9 +1060,7 @@ void DependencyNodeSymbolItem::paint(Project *p, QPainter *painter, const QStyle
     } else {
         painter->setBrush(m_delegate.defaultBrush(m_itemtype));
     }
-    painter->setPen(Qt::NoPen);
-    painter->translate(option->exposedRect.x() + 2.0, option->exposedRect.y() + 2.0);
-    painter->drawPath(path());
+    painter->drawPath(p);
 
 }
 
@@ -1539,6 +1564,28 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
             }
             return;
         }
+        case Qt::Key_Plus:
+            if (fitem->type() == DependencyNodeItem::Type) {
+                auto item = static_cast<DependencyNodeItem*>(fitem);
+                if (item->isSummaryTask()) {
+                    if (!item->isExpanded()) {
+                        item->setExpanded(true);
+                        item->update();
+                    }
+                }
+            }
+            break;
+        case Qt::Key_Minus:
+            if (fitem->type() == DependencyNodeItem::Type) {
+                auto item = static_cast<DependencyNodeItem*>(fitem);
+                if (item->isSummaryTask()) {
+                    if (item->isExpanded()) {
+                        item->setExpanded(false);
+                        item->update();
+                    }
+                }
+            }
+            break;
         default:
             QGraphicsScene::keyPressEvent(keyEvent);
     }
@@ -1600,6 +1647,17 @@ void DependencyScene::clearConnection()
 void DependencyScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     //debugPlanDepEditor;
+    auto taskItem = qgraphicsitem_cast<DependencyNodeItem*>(itemAt(mouseEvent->scenePos(), QTransform()));
+    if (taskItem && taskItem->isSummaryTask()) {
+        taskItem->setExpanded(!taskItem->isExpanded());
+        if (taskItem->hasFocus()) {
+            taskItem->update();
+        } else {
+            taskItem->setFocus();
+        }
+        mouseEvent->accept();
+        return;
+    }
     QGraphicsScene::mousePressEvent(mouseEvent);
     if (! mouseEvent->isAccepted()) {
         clearConnection();

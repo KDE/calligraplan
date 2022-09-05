@@ -189,6 +189,7 @@ public:
     DependencyLinkItem *takeChildRelation(DependencyLinkItem *r);
     QList<DependencyLinkItem*> childRelations() const { return m_childrelations; }
 
+    bool isExpanded() const;
     void setExpanded(bool mode);
     void setItemVisible(bool show);
 
@@ -208,6 +209,9 @@ public:
 
     qreal treeIndicatorX() const;
     void setTreeIndicator(bool on);
+
+    bool isSummaryTask() const;
+    void setChildrenVisible(bool visible);
 
 protected:
     void moveToY(qreal y);
@@ -234,7 +238,7 @@ private:
     QList<DependencyLinkItem*> m_childrelations;
 
     bool m_editable;
-
+    bool m_expanded = true;
     QGraphicsPathItem *m_treeIndicator;
 };
 
@@ -243,8 +247,9 @@ class PLANUI_EXPORT DependencyNodeSymbolItem : public QGraphicsPathItem
 {
 public:
     explicit DependencyNodeSymbolItem(DependencyNodeItem *parent = nullptr)
-        : QGraphicsPathItem(parent),
-        m_editable(false)
+        : QGraphicsPathItem()
+        , m_parent(parent)
+        , m_editable(false)
     {}
     enum  { Type = QGraphicsItem::UserType + 3 };
     int type() const override { return Type; }
@@ -255,9 +260,10 @@ public:
 
     using QGraphicsPathItem::paint;
     /// Special paint method as the default cannot be used
-    void paint(Project *p, QPainter *painter, const QStyleOptionGraphicsItem *option);
+    void paint(Project *project, QPainter *painter, const QStyleOptionGraphicsItem *option);
 
 private:
+    DependencyNodeItem *m_parent;
     GanttItemDelegate m_delegate;
     bool m_editable;
     int m_nodetype;
