@@ -2332,9 +2332,9 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
                 QAction *action = menu.exec(pos);
                 if (action && actions.contains(action)) {
                     editRelation(items[ actions.indexOf(action) ]->relation);
-                    return;
                 }
             }
+            return;
         }
     }
     //debugPlanDepEditor<<name;
