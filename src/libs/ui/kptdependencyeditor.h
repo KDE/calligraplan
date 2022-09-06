@@ -387,6 +387,7 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     void update();
+    void slotExpand();
 
 protected:
     void drawBackground (QPainter * painter, const QRectF & rect) override;
@@ -406,6 +407,7 @@ private:
     DependencyCreatorItem *m_connectionitem;
 
     QList<DependencyConnectorItem*> m_clickedItems;
+    QTimer m_delayExpand;
 };
 
 

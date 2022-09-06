@@ -1076,6 +1076,9 @@ DependencyScene::DependencyScene(QWidget *parent)
     //debugPlanDepEditor;
     m_connectionitem->hide();
     connect(qApp, &QApplication::paletteChanged, this, &DependencyScene::update);
+
+    m_delayExpand.setInterval(300);
+    connect(&m_delayExpand, &QTimer::timeout, this, &DependencyScene::slotExpand);
 }
 
 DependencyScene::~DependencyScene()
@@ -1644,17 +1647,27 @@ void DependencyScene::clearConnection()
     m_clickedItems.clear();
 }
 
+void DependencyScene::slotExpand()
+{
+    m_delayExpand.stop();
+    auto item = qgraphicsitem_cast<DependencyNodeItem*>(focusItem());
+    if (item && item->isSummaryTask()) {
+        item->setExpanded(!item->isExpanded());
+        if (item->hasFocus()) {
+            item->update();
+        } else {
+            item->setFocus();
+        }
+    }
+}
+
 void DependencyScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     //debugPlanDepEditor;
-    auto taskItem = qgraphicsitem_cast<DependencyNodeItem*>(itemAt(mouseEvent->scenePos(), QTransform()));
-    if (taskItem && taskItem->isSummaryTask()) {
-        taskItem->setExpanded(!taskItem->isExpanded());
-        if (taskItem->hasFocus()) {
-            taskItem->update();
-        } else {
-            taskItem->setFocus();
-        }
+    auto item = qgraphicsitem_cast<DependencyNodeItem*>(itemAt(mouseEvent->scenePos(), QTransform()));
+    if (item && item->isSummaryTask()) {
+        item->setFocus(Qt::MouseFocusReason);
+        m_delayExpand.start();
         mouseEvent->accept();
         return;
     }
@@ -1667,7 +1680,7 @@ void DependencyScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 void DependencyScene::mouseDoubleClickEvent (QGraphicsSceneMouseEvent *event)
 {
     //debugPlanDepEditor<<event->pos()<<event->scenePos()<<event->screenPos();
-    QGraphicsScene::mouseDoubleClickEvent(event);
+    m_delayExpand.stop();
     Q_EMIT itemDoubleClicked(itemAt(event->scenePos(), QTransform()));
 }
 
