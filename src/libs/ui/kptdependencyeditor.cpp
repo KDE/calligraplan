@@ -2161,13 +2161,6 @@ void DependencyEditor::slotItemDoubleClicked(QGraphicsItem *item)
         }
         return;
     }
-    if (item && item->type() == DependencyNodeSymbolItem::Type) {
-        auto a = actionCollection()->action(QStringLiteral("node_properties"));
-        if (a) {
-            a->trigger();
-        }
-        return;
-    }
 }
 
 void DependencyEditor::slotCreateRelation(DependencyConnectorItem *pred, DependencyConnectorItem *succ)
