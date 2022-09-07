@@ -2101,6 +2101,7 @@ void DependencyeditorConfigDialog::slotOk()
 DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent),
     m_currentnode(nullptr),
+    m_currentrelation(nullptr),
     m_manager(nullptr)
 {
     setXMLFile(QStringLiteral("DependencyEditorUi.rc"));
@@ -2146,8 +2147,10 @@ void DependencyEditor::slotItemDoubleClicked(QGraphicsItem *item)
     if (item && item->type() == DependencyLinkItem::Type) {
         auto a = actionCollection()->action(QStringLiteral("edit_dependency"));
         if (a) {
+            m_currentrelation = static_cast<DependencyLinkItem*>(item)->relation;
             a->trigger();
         }
+        m_currentrelation = nullptr;
         return;
     }
     if (item && item->type() == DependencyNodeItem::Type) {
