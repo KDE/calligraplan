@@ -2155,6 +2155,7 @@ void DependencyEditor::slotItemDoubleClicked(QGraphicsItem *item)
     }
     if (item && item->type() == DependencyNodeItem::Type) {
         auto a = actionCollection()->action(QStringLiteral("node_properties"));
+        m_currentnode = static_cast<DependencyNodeItem*>(item)->node();
         if (a) {
             a->trigger();
         }
