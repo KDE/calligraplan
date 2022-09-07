@@ -2326,6 +2326,7 @@ void DependencyEditor::slotContextMenuRequested(QGraphicsItem *item, const QPoin
                 actions << menu.addAction(koIcon("document-properties"), i->succItem->text());
             }
             if (! actions.isEmpty()) {
+                menu.setActiveAction(actions.first());
                 QAction *action = menu.exec(pos);
                 if (action && actions.contains(action)) {
                     editRelation(items[ actions.indexOf(action) ]->relation);
