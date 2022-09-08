@@ -675,8 +675,8 @@ void Completion::saveXML(QDomElement &element)  const
 {
     QDomElement el = element.ownerDocument().createElement(QStringLiteral("progress"));
     element.appendChild(el);
-    el.setAttribute(QStringLiteral("started"), QString::number(m_started));
-    el.setAttribute(QStringLiteral("finished"), QString::number(m_finished));
+    el.setAttribute(QStringLiteral("started"), QString::number((int)m_started));
+    el.setAttribute(QStringLiteral("finished"), QString::number((int)m_finished));
     el.setAttribute(QStringLiteral("startTime"), m_startTime.toString(Qt::ISODate));
     el.setAttribute(QStringLiteral("finishTime"), m_finishTime.toString(Qt::ISODate));
     el.setAttribute(QStringLiteral("entrymode"), entryModeToString());

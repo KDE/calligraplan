@@ -182,10 +182,10 @@ void WorkPackageSettings::saveXML(QDomElement &element) const
 {
     QDomElement el = element.ownerDocument().createElement(QStringLiteral("settings"));
     element.appendChild(el);
-    el.setAttribute(QStringLiteral("used-effort"), QString::number(usedEffort));
-    el.setAttribute(QStringLiteral("progress"), QString::number(progress));
-    el.setAttribute(QStringLiteral("documents"), QString::number(documents));
-    el.setAttribute(QStringLiteral("remaining-effort"), QString::number(remainingEffort));
+    el.setAttribute(QStringLiteral("used-effort"), QString::number((int)usedEffort));
+    el.setAttribute(QStringLiteral("progress"), QString::number((int)progress));
+    el.setAttribute(QStringLiteral("documents"), QString::number((int)documents));
+    el.setAttribute(QStringLiteral("remaining-effort"), QString::number((int)remainingEffort));
 }
 
 bool WorkPackageSettings::loadXML(const KoXmlElement &element)
