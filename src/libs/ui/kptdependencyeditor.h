@@ -146,6 +146,15 @@ public:
 };
 
 //-----------------------
+class DependencyExpandItem : public QGraphicsPathItem
+{
+public:
+    explicit DependencyExpandItem(bool expand, QGraphicsItem *parent = nullptr);
+    bool isExpanded() const;
+private:
+    bool m_expanded;
+};
+
 class PLANUI_EXPORT DependencyNodeItem : public QGraphicsRectItem
 {
 public:
@@ -217,7 +226,8 @@ protected:
     void moveToY(qreal y);
     void moveToX(qreal x);
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
     void paintTreeIndicator(bool on);
 
 private:
@@ -238,7 +248,9 @@ private:
     QList<DependencyLinkItem*> m_childrelations;
 
     bool m_editable;
-    bool m_expanded = true;
+    DependencyExpandItem *m_currentExpandItem = nullptr;
+    DependencyExpandItem *m_expandItem;
+    DependencyExpandItem *m_collapseItem;
     QGraphicsPathItem *m_treeIndicator;
 };
 
@@ -387,7 +399,6 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     void update();
-    void slotExpand();
 
 protected:
     void drawBackground (QPainter * painter, const QRectF & rect) override;
@@ -407,7 +418,6 @@ private:
     DependencyCreatorItem *m_connectionitem;
 
     QList<DependencyConnectorItem*> m_clickedItems;
-    QTimer m_delayExpand;
 };
 
 

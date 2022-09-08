@@ -628,11 +628,40 @@ QList<DependencyLinkItem*> DependencyConnectorItem::successorItems() const
 }
 
 //--------------------
+DependencyExpandItem::DependencyExpandItem(bool expanded, QGraphicsItem *parent)
+    : QGraphicsPathItem(parent)
+    , m_expanded(expanded)
+{
+    setPen(QPen(Qt::darkGray));
+    setBrush(Qt::darkGray);
+    QPainterPath p;
+    if (expanded) {
+        p.moveTo(0.0, 0.0);
+        p.lineTo(14.0, 0.0);
+        p.lineTo(7.0, 7.0);
+        p.closeSubpath();
+    } else {
+        p.moveTo(4.0, -4.0);
+        p.lineTo(4.0, 8.0);
+        p.lineTo(12.0, 2.0);
+        p.closeSubpath();
+    }
+    setPath(p);
+}
+
+bool DependencyExpandItem::isExpanded() const
+{
+    return m_expanded;
+}
+
 DependencyNodeItem::DependencyNodeItem(Node *node, DependencyNodeItem *parent)
     : QGraphicsRectItem(parent),
     m_node(node),
     m_parent(nullptr),
-    m_editable(false)
+    m_editable(false),
+    m_currentExpandItem(nullptr),
+    m_expandItem(nullptr),
+    m_collapseItem(nullptr)
 {
     setAcceptHoverEvents(true);
     setZValue(400.0);
@@ -655,6 +684,15 @@ DependencyNodeItem::DependencyNodeItem(Node *node, DependencyNodeItem *parent)
 
     m_treeIndicator = new QGraphicsPathItem(this);
     m_treeIndicator->setPen(QPen(Qt::gray));
+
+    if (node->numChildren()) {
+        m_expandItem = new DependencyExpandItem(true, this);
+        m_expandItem->setZValue(zValue() + 20.);
+        m_collapseItem = new DependencyExpandItem(false, this);
+        m_collapseItem->setZValue(zValue() + 20.);
+        m_collapseItem->hide();
+        m_currentExpandItem = m_expandItem;
+    }
 }
 
 DependencyNodeItem::~DependencyNodeItem()
@@ -720,13 +758,18 @@ void DependencyNodeItem::setChildrenVisible(bool visible)
 
 bool DependencyNodeItem::isExpanded() const
 {
-    return m_expanded;
+    return m_currentExpandItem ? m_currentExpandItem->isExpanded() : false;
 }
 
 void DependencyNodeItem::setExpanded(bool mode)
 {
-    m_expanded = mode;
-    setChildrenVisible(mode);
+    if (m_currentExpandItem) {
+        m_currentExpandItem->setVisible(false);
+        m_currentExpandItem = mode ? m_expandItem : m_collapseItem;
+        m_currentExpandItem->setVisible(true);
+        setChildrenVisible(mode);
+        update();
+    }
 }
 
 void DependencyNodeItem::setItemVisible(bool show)
@@ -762,6 +805,17 @@ void DependencyNodeItem::setRectangle(const QRectF &rect)
     m_text->setPos(m_finish->rect().right() + 2.0, itemScene()->gridY(row()));
 
     m_symbol->setPos(rect.topLeft() + QPointF(connection, 0) + QPointF(2.0, 2.0));
+
+    if (m_expandItem) {
+        const auto x = treeIndicatorX() + m_treeIndicator->pen().widthF() * 0.5;
+        const auto r = m_expandItem->boundingRect();
+        m_expandItem->setPos(x - r.width() * 0.5, rect.bottom() - r.height());
+    }
+    if (m_collapseItem) {
+        const auto x = treeIndicatorX() + m_treeIndicator->pen().widthF() * 0.5;
+        const auto r = m_expandItem->boundingRect();
+        m_collapseItem->setPos(x - r.width() * 0.5, rect.bottom() - r.height());
+    }
 }
 
 void DependencyNodeItem::moveToY(qreal y)
@@ -863,16 +917,39 @@ DependencyLinkItem *DependencyNodeItem::takeChildRelation(DependencyLinkItem *r)
 
 void DependencyNodeItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    debugPlanDepEditor;
     QGraphicsItem::GraphicsItemFlags f = flags();
     if (itemScene()->connectionMode()) {
         itemScene()->clearConnection();
         setFlags(f & ~QGraphicsItem::ItemIsSelectable);
+    } else {
+        if (event->button() == Qt::LeftButton && m_currentExpandItem) {
+            auto r = m_currentExpandItem->boundingRect();
+            r.moveTo(m_currentExpandItem->pos());
+            if (r.contains(event->pos())) {
+                setExpanded(!isExpanded());
+                event->accept();
+                return;
+            }
+        }
     }
     QGraphicsRectItem::mousePressEvent(event);
     if (f != flags()) {
         setFlags(f);
     }
+}
+
+void DependencyNodeItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton && m_currentExpandItem) {
+        auto r = m_currentExpandItem->boundingRect();
+        r.moveTo(m_currentExpandItem->pos());
+        if (r.contains(event->pos())) {
+            debugPlanDepEditor<<m_currentExpandItem->pos()<<m_currentExpandItem->boundingRect();
+            event->accept();
+            return;
+        }
+    }
+    QGraphicsRectItem::mouseReleaseEvent(event);
 }
 
 void DependencyNodeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *)
@@ -937,7 +1014,8 @@ QList<DependencyLinkItem*> DependencyNodeItem::successorItems(ConnectorType ctyp
 
 qreal DependencyNodeItem::treeIndicatorX() const
 {
-    return rect().x() + 18.0;
+    const auto r = rect();
+    return r.x() + (r.width() * 0.65);
 }
 
 void DependencyNodeItem::setTreeIndicator(bool on)
@@ -1036,14 +1114,6 @@ void DependencyNodeSymbolItem::paint(Project *project, QPainter *painter, const 
     if (project) {
         switch (m_nodetype) {
             case Node::Type_Summarytask: {
-                if (!m_parent->isExpanded()) {
-                    p.clear();
-                    auto rect = this->boundingRect();
-                    p.moveTo(rect.topLeft());
-                    p.lineTo(rect.bottomLeft());
-                    p.lineTo(rect.right(), rect.top() + rect.height() / 2.0);
-                    p.closeSubpath();
-                }
                 painter->setBrush(project->config().summaryTaskDefaultColor());
                 break;
             }
@@ -1076,9 +1146,6 @@ DependencyScene::DependencyScene(QWidget *parent)
     //debugPlanDepEditor;
     m_connectionitem->hide();
     connect(qApp, &QApplication::paletteChanged, this, &DependencyScene::update);
-
-    m_delayExpand.setInterval(300);
-    connect(&m_delayExpand, &QTimer::timeout, this, &DependencyScene::slotExpand);
 }
 
 DependencyScene::~DependencyScene()
@@ -1573,7 +1640,6 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
                 if (item->isSummaryTask()) {
                     if (!item->isExpanded()) {
                         item->setExpanded(true);
-                        item->update();
                     }
                 }
             }
@@ -1584,7 +1650,6 @@ void DependencyScene::keyPressEvent(QKeyEvent *keyEvent)
                 if (item->isSummaryTask()) {
                     if (item->isExpanded()) {
                         item->setExpanded(false);
-                        item->update();
                     }
                 }
             }
@@ -1647,30 +1712,9 @@ void DependencyScene::clearConnection()
     m_clickedItems.clear();
 }
 
-void DependencyScene::slotExpand()
-{
-    m_delayExpand.stop();
-    auto item = qgraphicsitem_cast<DependencyNodeItem*>(focusItem());
-    if (item && item->isSummaryTask()) {
-        item->setExpanded(!item->isExpanded());
-        if (item->hasFocus()) {
-            item->update();
-        } else {
-            item->setFocus();
-        }
-    }
-}
-
 void DependencyScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     //debugPlanDepEditor;
-    auto item = qgraphicsitem_cast<DependencyNodeItem*>(itemAt(mouseEvent->scenePos(), QTransform()));
-    if (item && item->isSummaryTask()) {
-        item->setFocus(Qt::MouseFocusReason);
-        m_delayExpand.start();
-        mouseEvent->accept();
-        return;
-    }
     QGraphicsScene::mousePressEvent(mouseEvent);
     if (! mouseEvent->isAccepted()) {
         clearConnection();
@@ -1680,7 +1724,6 @@ void DependencyScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 void DependencyScene::mouseDoubleClickEvent (QGraphicsSceneMouseEvent *event)
 {
     //debugPlanDepEditor<<event->pos()<<event->scenePos()<<event->screenPos();
-    m_delayExpand.stop();
     Q_EMIT itemDoubleClicked(itemAt(event->scenePos(), QTransform()));
 }
 
