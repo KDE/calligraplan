@@ -156,6 +156,15 @@ void Completion::addEntry(QDate date, Entry *entry)
      changed(Node::CompletionEntryProperty);
 }
 
+Completion::Entry *Completion::takeEntry(QDate date)
+{
+    auto e = m_entries.take(date);
+    if (e) {
+        changed();
+    }
+    return e;
+}
+
 QDate Completion::entryDate() const
 {
     return m_entries.isEmpty() ? QDate() : m_entries.lastKey();
@@ -381,6 +390,15 @@ void Completion::addUsedEffort(const Resource *resource, Completion::UsedEffort 
         m_usedEffort.insert(resource, v);
     }
     changed(Node::CompletionUsedEffortProperty);
+}
+
+Completion::UsedEffort *Completion::takeUsedEffort(const Resource *r)
+{
+    auto e = m_usedEffort.take(const_cast<Resource*>(r));
+    if (e) {
+        changed();
+    }
+    return e;
 }
 
 void Completion::setActualEffort(Resource *resource, const QDate &date, const Completion::UsedEffort::ActualEffort &value)

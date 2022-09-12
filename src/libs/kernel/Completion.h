@@ -169,7 +169,7 @@ public:
     
     const EntryList &entries() const { return m_entries; }
     void addEntry(QDate date, Entry *entry);
-    Entry *takeEntry(QDate date) { return m_entries.take(date); changed(); }
+    Entry *takeEntry(QDate date);
     Entry *entry(QDate date) const { return m_entries[ date ]; }
     
     /// Returns the date of the latest entry
@@ -212,7 +212,7 @@ public:
     virtual EffortCostMap actualEffortCost(long id, EffortCostCalculationType type = ECCT_All) const;
 
     void addUsedEffort(const Resource *resource, UsedEffort *value = nullptr);
-    UsedEffort *takeUsedEffort(const Resource *r) { return m_usedEffort.take(const_cast<Resource*>(r) ); changed(); }
+    UsedEffort *takeUsedEffort(const Resource *r);
     UsedEffort *usedEffort(const Resource *r) const { return m_usedEffort.value(const_cast<Resource*>(r) ); }
     const ResourceUsedEffortMap &usedEffortMap() const { return m_usedEffort; }
 
