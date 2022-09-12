@@ -146,13 +146,17 @@ public:
 };
 
 //-----------------------
-class DependencyExpandItem : public QGraphicsPathItem
+class DependencyExpandItem : public QGraphicsRectItem
 {
 public:
-    explicit DependencyExpandItem(bool expand, QGraphicsItem *parent = nullptr);
+    explicit DependencyExpandItem(QGraphicsItem *parent = nullptr);
     bool isExpanded() const;
-private:
-    bool m_expanded;
+
+    bool expanded;
+
+protected:
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
 };
 
 class PLANUI_EXPORT DependencyNodeItem : public QGraphicsRectItem
@@ -167,7 +171,7 @@ public:
     DependencyNodeItem *parentItem() const { return m_parent; }
     void setParentItem(DependencyNodeItem *parent);
 
-    void addChild(DependencyNodeItem *ch) { m_children.append(ch); }
+    void addChild(DependencyNodeItem *ch);
     DependencyNodeItem *takeChild(DependencyNodeItem *ch);
     QList<DependencyNodeItem*> children() const { return m_children; }
 
@@ -249,9 +253,7 @@ private:
     QList<DependencyLinkItem*> m_childrelations;
 
     bool m_editable;
-    DependencyExpandItem *m_currentExpandItem = nullptr;
-    DependencyExpandItem *m_expandItem;
-    DependencyExpandItem *m_collapseItem;
+    DependencyExpandItem *m_expandItem = nullptr;
     QGraphicsPathItem *m_treeIndicator;
 };
 
