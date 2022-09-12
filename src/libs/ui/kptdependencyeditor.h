@@ -198,6 +198,7 @@ public:
     DependencyLinkItem *takeChildRelation(DependencyLinkItem *r);
     QList<DependencyLinkItem*> childRelations() const { return m_childrelations; }
 
+    void updateExpandItem();
     bool isExpanded() const;
     void setExpanded(bool mode);
     void setItemVisible(bool show);
@@ -259,7 +260,7 @@ class PLANUI_EXPORT DependencyNodeSymbolItem : public QGraphicsPathItem
 {
 public:
     explicit DependencyNodeSymbolItem(DependencyNodeItem *parent = nullptr)
-        : QGraphicsPathItem()
+        : QGraphicsPathItem(parent)
         , m_parent(parent)
         , m_editable(false)
     {}
@@ -390,6 +391,8 @@ public:
 
     void setReadWrite(bool on);
 
+    void itemToBeRemoved(DependencyNodeItem *item, DependencyNodeItem *parentItem = nullptr);
+
 Q_SIGNALS:
     void connectorClicked(KPlato::DependencyConnectorItem *item);
     void connectItems(KPlato::DependencyConnectorItem *pred, KPlato::DependencyConnectorItem *succ);
@@ -427,6 +430,7 @@ class PLANUI_EXPORT DependencyView : public QGraphicsView
     Q_OBJECT
 public:
     explicit DependencyView(QWidget *parent);
+    ~DependencyView();
 
     void setProject(Project *project);
     Project *project() const { return m_project; }
@@ -447,6 +451,7 @@ public:
 
 Q_SIGNALS:
     void selectionChanged(const QList<QGraphicsItem*>&);
+    void focusItemChanged(QGraphicsItem *item);
     void makeConnection(KPlato::DependencyConnectorItem *pred, KPlato::DependencyConnectorItem *succ);
     void contextMenuRequested(QGraphicsItem*, const QPoint&);
 
@@ -541,6 +546,7 @@ private Q_SLOTS:
     void slotItemDoubleClicked(QGraphicsItem *item);
     void slotCurrentChanged(const QModelIndex&, const QModelIndex&);
     void slotSelectionChanged(const QList<QGraphicsItem*> &lst);
+    void slotFocusItemChanged(QGraphicsItem *item);
     void slotContextMenuRequested(QGraphicsItem *item, const QPoint& pos);
 
     void slotEnableActions();

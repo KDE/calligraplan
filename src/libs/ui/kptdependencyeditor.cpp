@@ -697,11 +697,16 @@ DependencyNodeItem::DependencyNodeItem(Node *node, DependencyNodeItem *parent)
 
 DependencyNodeItem::~DependencyNodeItem()
 {
+    auto children = m_children;
+    qDeleteAll(children);
+    m_children.clear();
+
     qDeleteAll(m_childrelations);
     qDeleteAll(m_parentrelations);
-    //qDeleteAll(m_children);
-
-    delete m_symbol;
+    if (itemScene()) {
+        itemScene()->itemToBeRemoved(this, m_parent);
+    }
+    setParentItem(nullptr);
 }
 
 bool DependencyNodeItem::isSummaryTask() const
@@ -756,6 +761,18 @@ void DependencyNodeItem::setChildrenVisible(bool visible)
     }
 }
 
+void DependencyNodeItem::updateExpandItem()
+{
+    if (m_node->numChildren() == 0) {
+        if (m_currentExpandItem) {
+            m_currentExpandItem->setVisible(false);
+            m_currentExpandItem = nullptr;
+        }
+    } else {
+        m_currentExpandItem = m_expandItem;
+    }
+}
+
 bool DependencyNodeItem::isExpanded() const
 {
     return m_currentExpandItem ? m_currentExpandItem->isExpanded() : false;
@@ -782,6 +799,7 @@ void DependencyNodeItem::setItemVisible(bool show)
     for (DependencyLinkItem *i : qAsConst(m_childrelations)) {
         i->setItemVisible(show);
     }
+    m_treeIndicator->setVisible(show);
 }
 
 DependencyNodeItem *DependencyNodeItem::takeChild(DependencyNodeItem *ch)
@@ -1055,7 +1073,7 @@ void DependencyNodeItem::paintTreeIndicator(bool on)
             }
         }
     }
-    if (! m_children.isEmpty()) {
+    if (m_node->numChildren()) {
         qreal x = treeIndicatorX();
         qreal y = rect().bottom();
         p.moveTo(x, y);
@@ -1372,6 +1390,9 @@ DependencyNodeItem *DependencyScene::itemBefore(DependencyNodeItem *parent, Node
 DependencyNodeItem *DependencyScene::createItem(Node *node)
 {
     DependencyNodeItem *parent = findItem(node->parentNode());
+    if (parent && !parent->isExpanded()) {
+        parent->setExpanded(true);
+    }
     DependencyNodeItem *after = itemBefore(parent, node);
     int i = m_allItems.count()-1;
     if (after) {
@@ -1474,6 +1495,26 @@ DependencyNodeItem *DependencyScene::findItem(const Node *node) const
         }
     }
     return nullptr;
+}
+
+void DependencyScene::itemToBeRemoved(DependencyNodeItem *item, DependencyNodeItem *parentItem)
+{
+    if (item) {
+        m_allItems.removeAll(item);
+        m_hiddenItems.remove(m_hiddenItems.key(item));
+        m_visibleItems.remove(m_visibleItems.key(item));
+        for (DependencyNodeItem *i : qAsConst(m_visibleItems)) {
+            if (i->row() > item->row()) {
+                i->setRow(i->row() - 1);
+            } else if (i->row() == item->row() - 1) {
+                i->setRow(i->row());
+            }
+        }
+        if (parentItem) {
+            parentItem->updateExpandItem();
+        }
+    }
+    removeItem(item);
 }
 
 void DependencyScene::createLinks()
@@ -1794,6 +1835,11 @@ DependencyView::DependencyView(QWidget *parent)
     connect(&m_autoScrollTimer, &QTimer::timeout, this, &DependencyView::slotAutoScroll);
 }
 
+DependencyView::~DependencyView()
+{
+    disconnect(this, nullptr, nullptr, nullptr);
+}
+
 void DependencyView::slotContextMenuRequested(QGraphicsItem *item, const QPoint &pos)
 {
     QPoint position = pos;
@@ -1842,6 +1888,7 @@ void DependencyView::slotFocusItemChanged(QGraphicsItem *item)
     if (item) {
         ensureVisible(item, 10, 10);
     }
+    Q_EMIT focusItemChanged(item);
 }
 
 void DependencyView::setItemScene(DependencyScene *scene)
@@ -1975,7 +2022,7 @@ void DependencyView::slotNodeRemoved(Node *node)
     DependencyNodeItem *item = findItem(node);
     if (item) {
         //debugPlanDepEditor<<node->name();
-        itemScene()->setItemVisible(item, false);
+        delete item;
     } else debugPlanDepEditor<<"Node does not exist!";
     slotWbsCodeChanged();
 }
@@ -2158,6 +2205,7 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
 
     connect(m_view, &DependencyView::makeConnection, this, &DependencyEditor::slotCreateRelation);
     connect(m_view, &DependencyView::selectionChanged, this, &DependencyEditor::slotSelectionChanged);
+    connect(m_view, &DependencyView::focusItemChanged, this, &DependencyEditor::slotFocusItemChanged);
     connect(m_view->itemScene(), &DependencyScene::itemDoubleClicked, this, &DependencyEditor::slotItemDoubleClicked);
     connect(m_view, &DependencyView::contextMenuRequested, this, &DependencyEditor::slotContextMenuRequested);
 
@@ -2265,6 +2313,15 @@ void DependencyEditor::slotCurrentChanged(const QModelIndex &, const QModelIndex
 void DependencyEditor::slotSelectionChanged(const QList<QGraphicsItem*>&)
 {
     //debugPlanDepEditor<<lst.count();
+}
+
+void DependencyEditor::slotFocusItemChanged(QGraphicsItem *item)
+{
+    m_currentnode = nullptr;
+    auto itm = qgraphicsitem_cast<DependencyNodeItem*>(item);
+    if (itm) {
+        m_currentnode = itm->node();
+    }
     slotEnableActions();
 }
 
@@ -2409,9 +2466,8 @@ void DependencyEditor::updateActionsEnabled(bool on)
         actionLinkTask->setEnabled(false);
         return;
     }
-    int selCount = selectedNodeCount();
-
-    if (selCount == 0) {
+    if (!m_currentnode) {
+        // alow adding to project
         menuAddTask->setEnabled(true);
         actionAddTask->setEnabled(true);
         actionAddMilestone->setEnabled(true);
@@ -2422,53 +2478,51 @@ void DependencyEditor::updateActionsEnabled(bool on)
         actionLinkTask->setEnabled(false);
         return;
     }
-    Node *n = selectedNode();
-    if (n && n->type() != Node::Type_Task && n->type() != Node::Type_Milestone && n->type() != Node::Type_Summarytask) {
-        n = nullptr;
+    const auto nodes = selectedNodes();
+    if (nodes.count() > 1) {
+        bool baselined = false;
+        Project *p = m_view->project();
+        if (p && p->isBaselined()) {
+            for (const auto n : nodes) {
+                if (n->isBaselined()) {
+                    baselined = true;
+                    break;
+                }
+            }
+        }
+        // only allow delete selected if not baselined
+        menuAddTask->setEnabled(false);
+        actionAddTask->setEnabled(false);
+        actionAddMilestone->setEnabled(false);
+        menuAddSubTask->setEnabled(false);
+        actionAddSubtask->setEnabled(false);
+        actionAddSubMilestone->setEnabled(false);
+        actionDeleteTask->setEnabled(!baselined);
+        actionLinkTask->setEnabled(false);
+        return;
     }
-    if (selCount == 1 && n == nullptr) {
-        // only project selected
-        menuAddTask->setEnabled(true);
-        actionAddTask->setEnabled(true);
-        actionAddMilestone->setEnabled(true);
-        menuAddSubTask->setEnabled(true);
-        actionAddSubtask->setEnabled(true);
-        actionAddSubMilestone->setEnabled(true);
+    const Node *n = m_currentnode;
+    if (n->type() != Node::Type_Task && n->type() != Node::Type_Milestone && n->type() != Node::Type_Summarytask) {
+        // should not happen, disable everything
+        menuAddTask->setEnabled(false);
+        actionAddTask->setEnabled(false);
+        actionAddMilestone->setEnabled(false);
+        menuAddSubTask->setEnabled(false);
+        actionAddSubtask->setEnabled(false);
+        actionAddSubMilestone->setEnabled(false);
         actionDeleteTask->setEnabled(false);
         actionLinkTask->setEnabled(false);
         return;
     }
-    bool baselined = false;
-    Project *p = m_view->project();
-    if (p && p->isBaselined()) {
-        const QList<Node*> nodes = selectedNodes();
-        for (Node *n : nodes) {
-            if (n->isBaselined()) {
-                baselined = true;
-                break;
-            }
-        }
-    }
-    if (selCount == 1) {
-        menuAddTask->setEnabled(true);
-        actionAddTask->setEnabled(true);
-        actionAddMilestone->setEnabled(true);
-        menuAddSubTask->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
-        actionAddSubtask->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
-        actionAddSubMilestone->setEnabled(! baselined || n->type() == Node::Type_Summarytask);
-        actionDeleteTask->setEnabled(! baselined);
-        actionLinkTask->setEnabled(! baselined);
-        return;
-    }
-    // selCount > 1
-    menuAddTask->setEnabled(false);
-    actionAddTask->setEnabled(false);
-    actionAddMilestone->setEnabled(false);
-    menuAddSubTask->setEnabled(false);
-    actionAddSubtask->setEnabled(false);
-    actionAddSubMilestone->setEnabled(false);
-    actionDeleteTask->setEnabled(false);
-    actionLinkTask->setEnabled(false);
+    const bool baselined = n->isBaselined();
+    menuAddTask->setEnabled(true);
+    actionAddTask->setEnabled(true);
+    actionAddMilestone->setEnabled(true);
+    menuAddSubTask->setEnabled(!baselined);
+    actionAddSubtask->setEnabled(!baselined);
+    actionAddSubMilestone->setEnabled(!baselined);
+    actionDeleteTask->setEnabled(!baselined);
+    actionLinkTask->setEnabled(true);
 }
 
 void DependencyEditor::setupGui()
