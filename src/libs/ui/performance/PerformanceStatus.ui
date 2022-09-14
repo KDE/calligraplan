@@ -44,6 +44,9 @@
       <number>0</number>
      </property>
      <widget class="QWidget" name="page_7">
+      <property name="contextMenuPolicy">
+       <enum>Qt::NoContextMenu</enum>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <property name="leftMargin">
         <number>0</number>
@@ -84,6 +87,9 @@
        </item>
        <item>
         <widget class="QFrame" name="ui_chartframe">
+         <property name="contextMenuPolicy">
+          <enum>Qt::PreventContextMenu</enum>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -112,7 +118,7 @@
              </size>
             </property>
             <property name="contextMenuPolicy">
-             <enum>Qt::CustomContextMenu</enum>
+             <enum>Qt::DefaultContextMenu</enum>
             </property>
            </widget>
           </item>
