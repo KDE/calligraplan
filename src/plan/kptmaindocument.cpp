@@ -1185,7 +1185,7 @@ void MainDocument::insertResourcesFileCancelled(const QString &error)
     debugPlanShared<<sender()<<"error="<<error;
     if (!error.isEmpty() && !property(NOUI).toBool()) {
         auto msg = xi18nc("@info", "Failed to load shared resources into project %1:<nl/>%2", projectName(), error);
-        KMessageBox::sorry(nullptr, msg);
+        KMessageBox::error(nullptr, msg);
     }
     MainDocument *doc = qobject_cast<MainDocument*>(sender());
     if (doc) {

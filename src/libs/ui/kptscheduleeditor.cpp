@@ -442,7 +442,7 @@ void ScheduleEditor::slotBaselineSchedule()
         return;
     }
     if (!sm->isBaselined() && project()->isBaselined()) {
-        KMessageBox::sorry(this, i18n("Cannot baseline. The project is already baselined."));
+        KMessageBox::error(this, i18n("Cannot baseline. The project is already baselined."));
         return;
     }
     MacroCommand *cmd = nullptr;

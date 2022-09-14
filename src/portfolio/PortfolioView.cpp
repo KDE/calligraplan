@@ -252,12 +252,12 @@ void PortfolioView::loadProject(const QUrl &url)
     Q_ASSERT(portfolio);
     KoPart *part = KoApplication::koApplication()->getPartFromUrl(url);
     if (!part) {
-        KMessageBox::sorry(this, xi18nc("@info", "Failed to load the project. Not a valid Plan file:<nl/>%1", url.toDisplayString()),
+        KMessageBox::error(this, xi18nc("@info", "Failed to load the project. Not a valid Plan file:<nl/>%1", url.toDisplayString()),
                            i18nc("@title:window", "Could not add project"));
         return;
     }
     if (qobject_cast<Part*>(part)) {
-        KMessageBox::sorry(this, xi18nc("@info", "Failed to open the project. This seems to be a portfolio file:<nl/>%1", url.toDisplayString()),
+        KMessageBox::error(this, xi18nc("@info", "Failed to open the project. This seems to be a portfolio file:<nl/>%1", url.toDisplayString()),
                            i18nc("@title:window", "Could not add project"));
         delete part;
         return;
@@ -316,11 +316,11 @@ void PortfolioView::slotLoadCompleted()
         doc->setProperty(SCHEDULINGPRIORITY, 0);
     }
     if (!doc->project()) {
-        KMessageBox::sorry(this, xi18nc("@info", "Failed to load the project. Not a valid Plan file:<nl/>%1", doc->url().toDisplayString()),
+        KMessageBox::error(this, xi18nc("@info", "Failed to load the project. Not a valid Plan file:<nl/>%1", doc->url().toDisplayString()),
                            i18nc("@title:window", "Could not add project"));
         doc->deleteLater();
     } else if (!portfolio->addDocument(doc)) {
-        KMessageBox::sorry(this, xi18nc("@info", "The project already exists, the project will not be added.<nl/>Project: %1<nl/> Document: %2", doc->project()->name(), doc->url().toDisplayString()),
+        KMessageBox::error(this, xi18nc("@info", "The project already exists, the project will not be added.<nl/>Project: %1<nl/> Document: %2", doc->project()->name(), doc->url().toDisplayString()),
                            i18nc("@title:window", "Could not add project"));
         doc->deleteLater();
     } else {

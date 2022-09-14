@@ -666,7 +666,7 @@ void ViewBase::slotUpdateReadWrite(bool rw)
 
 KoPrintJob *ViewBase::createPrintJob()
 {
-    KMessageBox::sorry(this, i18n("This view does not support printing."));
+    KMessageBox::error(this, i18n("This view does not support printing."));
 
     return nullptr;
 }

@@ -113,7 +113,7 @@ void DocumentsPanel::slotAddUrl()
     if (dlg->exec() == QDialog::Accepted && dlg) {
         if (m_docs.findDocument(dlg->selectedUrl())) {
             warnPlan<<"Document (url) already exists: "<<dlg->selectedUrl();
-            KMessageBox::sorry(this, xi18nc("@info", "Document is already attached:<nl/><filename>%1</filename>", dlg->selectedUrl().toDisplayString()), xi18nc("@title:window", "Cannot Attach Document"));
+            KMessageBox::error(this, xi18nc("@info", "Document is already attached:<nl/><filename>%1</filename>", dlg->selectedUrl().toDisplayString()), xi18nc("@title:window", "Cannot Attach Document"));
         } else {
             Document *doc = new Document(dlg->selectedUrl());
             //DocumentAddCmd *cmd = new DocumentAddCmd(m_docs, doc, kundo2_i18n("Add document"));
@@ -139,7 +139,7 @@ void DocumentsPanel::slotChangeUrl()
         if (doc->url() != dlg->selectedUrl()) {
             if (m_docs.findDocument(dlg->selectedUrl())) {
                 warnPlan<<"Document url already exists";
-                KMessageBox::sorry(this, i18n("Document url already exists: %1", dlg->selectedUrl().toDisplayString()), i18n("Cannot Modify Url"));
+                KMessageBox::error(this, i18n("Document url already exists: %1", dlg->selectedUrl().toDisplayString()), i18n("Cannot Modify Url"));
             } else {
                 debugPlan<<"Modify url: "<<doc->url()<<" : "<<dlg->selectedUrl();
                 doc->setUrl(dlg->selectedUrl());

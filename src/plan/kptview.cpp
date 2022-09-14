@@ -1931,7 +1931,7 @@ void View::slotOpenReportFileFinished(int result)
     }
     QFile file(fn);
     if (! file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        KMessageBox::sorry(this, xi18nc("@info", "Cannot open file:<br/><filename>%1</filename>", fn));
+        KMessageBox::error(this, xi18nc("@info", "Cannot open file:<br/><filename>%1</filename>", fn));
         return;
     }
     QDomDocument doc;
@@ -2186,7 +2186,7 @@ void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource
     }
     QList<QUrl> attachURLs = getPart()->publishWorkpackages(nodes, resource, activeScheduleId());
     if (!getPart()->errorMessage().isEmpty()) {
-         KMessageBox::sorry(nullptr, getPart()->errorMessage());
+         KMessageBox::error(nullptr, getPart()->errorMessage());
          return;
     }
     if (mailTo) {
