@@ -75,6 +75,7 @@
 #include <QMimeDatabase>
 #include <QStatusBar>
 #include <QMenuBar>
+#include <QDesktopServices>
 
 #include "MainDebug.h"
 
@@ -1443,6 +1444,8 @@ void KoMainWindow::slotFilePrint()
 
 void KoMainWindow::slotFilePrintPreview()
 {
+#if 0
+    // QPrintPreviewDialog quickly uses gigabytes of memory when printing even moderately large gantt chart
     if (!rootView())
         return;
     KoPrintJob *printJob = rootView()->createPrintJob();
@@ -1462,6 +1465,9 @@ void KoMainWindow::slotFilePrintPreview()
     preview->exec();
     delete preview;
     d->printPreviewJob = nullptr;
+#else
+    printPreviewToPdf();
+#endif
 }
 
 void KoMainWindow::slotPrintPreviewPaintRequest(QPrinter *printer)
@@ -1470,6 +1476,75 @@ void KoMainWindow::slotPrintPreviewPaintRequest(QPrinter *printer)
     pl.updatePageLayout(printer);
     rootView()->setPageLayout(pl);
     d->printPreviewJob->startPrinting();
+}
+
+KoPrintJob* KoMainWindow::printPreviewToPdf()
+{
+    if (!rootView()) {
+        return nullptr;
+    }
+    KoDocument* pDoc = rootDocument();
+    if (!pDoc) {
+        return nullptr;
+    }
+    KoPrintJob *printJob = rootView()->createPdfPrintJob();
+    if (printJob == nullptr) {
+        return nullptr;
+    }
+    KoPageLayout pageLayout;
+    pageLayout = rootView()->pageLayout();
+
+    QTemporaryDir dir;
+    dir.setAutoRemove(false);
+    QString pdfFileName;
+
+    if (pdfFileName.isEmpty()) {
+        /** if document has a file name, take file name and replace extension with .pdf */
+        if (pDoc && pDoc->url().isValid()) {
+            auto startUrl = pDoc->url();
+            QString fileName = startUrl.fileName();
+            pdfFileName = fileName.replace(QRegExp(QStringLiteral("\\.\\w{2,5}$"), Qt::CaseInsensitive), QStringLiteral(".pdf"));
+        }
+    }
+    pdfFileName = QStringLiteral("%1/%2").arg(dir.path()).arg(pdfFileName);
+
+    if (isHidden()) {
+        printJob->setProperty("noprogressdialog", true);
+    }
+
+    d->applyDefaultSettings(printJob->printer());
+    printJob->printer().setOutputFileName(pdfFileName);
+    printJob->printer().setColorMode(QPrinter::Color);
+
+    if (pageLayout.format == KoPageFormat::CustomSize) {
+        printJob->printer().setPageSize(QPageSize(QSizeF(pageLayout.width, pageLayout.height), QPageSize::Millimeter));
+    } else {
+        printJob->printer().setPageSize(KoPageFormat::qPageSize(pageLayout.format));
+    }
+
+    switch (pageLayout.orientation) {
+    case KoPageFormat::Portrait: printJob->printer().setPageOrientation(QPageLayout::Portrait); break;
+    case KoPageFormat::Landscape: printJob->printer().setPageOrientation(QPageLayout::Landscape); break;
+    }
+
+    printJob->printer().setPageMargins(pageLayout.pageMargins(), QPageLayout::Millimeter);
+
+    //before printing check if the printer can handle printing
+    if (!printJob->canPrint()) {
+        KMessageBox::error(this, i18n("Cannot preview the document"));
+        return printJob;
+    }
+    printJob->setProperty("blocking", true);
+    printJob->startPrinting(KoPrintJob::DeleteWhenDone);
+    QUrl url(pdfFileName);
+    url.setScheme(QStringLiteral("file"));
+    if (!QDesktopServices::openUrl(url)) {
+        KMessageBox::error(this, i18n("Cannot open pdf viewer"));
+    }
+
+    rootView()->setPageLayout(pageLayout);
+
+    return printJob;
 }
 
 KoPrintJob* KoMainWindow::exportToPdf()

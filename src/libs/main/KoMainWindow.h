@@ -216,6 +216,7 @@ public Q_SLOTS:
      */
     void slotFilePrint();
     void slotFilePrintPreview();
+    KoPrintJob* printPreviewToPdf();
 
     KoPrintJob* exportToPdf(const QString &pdfFileName);
     KoPrintJob* exportToPdf();
