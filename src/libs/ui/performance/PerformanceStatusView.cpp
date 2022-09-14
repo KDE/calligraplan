@@ -208,7 +208,13 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
 
     connect(m_view->chartView(), &QWidget::customContextMenuRequested, this, &PerformanceStatusView::slotChartContextMenuRequested);
 
-    connect(m_view->treeView(), SIGNAL(contextMenuRequested(QModelIndex,QPoint,QModelIndexList)), SLOT(slotContextMenuRequested(QModelIndex,QPoint)));
+    connect(m_view->treeView(), &TreeViewBase::contextMenuRequested, this, [this](const QModelIndex &idx, const QPoint pos, const QModelIndexList&) {
+        slotContextMenuRequested(idx, pos);
+    });
+
+    connect(m_view->treeView()->header(), &QHeaderView::customContextMenuRequested, this, [this](const QPoint &pos) {
+        slotChartContextMenuRequested(mapToGlobal(pos));
+    });
 
     setWhatsThis(
               xi18nc("@info:whatsthis", 

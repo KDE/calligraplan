@@ -21,6 +21,9 @@ public:
 
     QSize sizeHint() const override;
     QSize minimumSizeHint() const override;
+
+Q_SIGNALS:
+    void contextMenuRequested(const QPoint &pos);
 };
 
 } // namespace KPlato

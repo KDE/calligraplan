@@ -18,12 +18,19 @@ using namespace KPlato;
 PerformanceTableView::PerformanceTableView(QWidget *parent)
     : QTableView(parent)
 {
+    connect(this, &QTableView::customContextMenuRequested, this, [this](const QPoint &pos) {
+        Q_EMIT contextMenuRequested(viewport()->mapToParent(pos));
+     });
     horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     horizontalHeader()->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(horizontalHeader(), &QHeaderView::customContextMenuRequested, this, &PerformanceTableView::customContextMenuRequested);
+    connect(horizontalHeader(), &QHeaderView::customContextMenuRequested, this, [this](const QPoint &pos) {
+        Q_EMIT contextMenuRequested(horizontalHeader()->mapToParent(pos));
+     });
     verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
     verticalHeader()->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(verticalHeader(), &QHeaderView::customContextMenuRequested, this, &PerformanceTableView::customContextMenuRequested);
+    connect(verticalHeader(), &QHeaderView::customContextMenuRequested, this, [this](const QPoint &pos) {
+        Q_EMIT contextMenuRequested(verticalHeader()->mapToParent(pos));
+     });
 }
 
 QSize PerformanceTableView::sizeHint() const

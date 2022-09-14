@@ -128,12 +128,15 @@ PerformanceStatusBase::PerformanceStatusBase(QWidget *parent)
     connect(&m_chartmodel, &QAbstractItemModel::modelReset, this, &PerformanceStatusBase::slotUpdate);
     connect(ui_chart, &KPlato::Chart::customContextMenuRequested, this, &PerformanceStatusBase::customContextMenuRequested);
     ui_performancetable->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(ui_performancetable, &PerformanceTableView::customContextMenuRequested, this, &PerformanceStatusBase::slotContextMenuRequested);
+    connect(ui_performancetable, &PerformanceTableView::contextMenuRequested, this, &PerformanceStatusBase::slotContextMenuRequested);
+    connect(ui_stack, &QStackedWidget::customContextMenuRequested, this, [this](const QPoint &pos){
+        Q_EMIT customContextMenuRequested(ui_stack->mapToGlobal(pos));
+    });
 }
 
 void PerformanceStatusBase::slotContextMenuRequested(const QPoint &pos)
 {
-    Q_EMIT customContextMenuRequested(mapToGlobal(pos));
+    Q_EMIT customContextMenuRequested(ui_performancetable->mapToGlobal(pos));
 }
 
 void PerformanceStatusBase::editCopy()
