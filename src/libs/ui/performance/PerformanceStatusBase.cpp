@@ -59,9 +59,9 @@ QList<QWidget*> PerformanceStatusPrintingDialog::createOptionWidgets() const
 
 void PerformanceStatusPrintingDialog::printPage(int page, QPainter &painter)
 {
-    //debugPlan<<page<<printer().pageRect()<<printer().paperRect()<<printer().margins()<<printer().fullPage();
+    //debugPlan<<page<<printer().pageLayout().paintrectpixels(resolution)<<printer().paperRect()<<printer().margins()<<printer().fullPage();
     painter.save();
-    QRect rect = printer().pageRect();
+    QRect rect = printer().pageLayout().paintRectPixels(printer().resolution());
     rect.moveTo(0, 0); // the printer already has margins set
     QRect header = headerRect();
     QRect footer = footerRect();

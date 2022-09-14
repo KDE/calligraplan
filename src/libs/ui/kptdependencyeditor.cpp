@@ -126,7 +126,7 @@ void DependecyViewPrintingDialog::printPage(int page, QPainter &painter)
 
     QRect hRect = headerRect();
     QRect fRect = footerRect();
-    QRect pageRect = printer().pageRect();
+    QRect pageRect = printer().pageLayout().paintRectPixels(printer().resolution());
     pageRect.moveTo(0, 0);
     debugPlanDepEditor<<pageRect<<hRect<<fRect;
 
