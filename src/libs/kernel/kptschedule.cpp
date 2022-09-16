@@ -71,7 +71,14 @@ Schedule::Schedule()
         m_parent(nullptr),
         m_obstate(OBS_Parent),
         m_calculationMode(Schedule::Scheduling),
-        notScheduled(true)
+        resourceError(false),
+        resourceOverbooked(false),
+        resourceNotAvailable(false),
+        constraintError(false),
+        notScheduled(true),
+        effortNotMet(false),
+        schedulingError(false),
+        schedulingCanceled(false)
 {
     initiateCalculation();
 }
@@ -83,7 +90,14 @@ Schedule::Schedule(Schedule *parent)
         m_parent(parent),
         m_obstate(OBS_Parent),
         m_calculationMode(Schedule::Scheduling),
-        notScheduled(true)
+        resourceError(false),
+        resourceOverbooked(false),
+        resourceNotAvailable(false),
+        constraintError(false),
+        notScheduled(true),
+        effortNotMet(false),
+        schedulingError(false),
+        schedulingCanceled(false)
 {
 
     if (parent) {
@@ -103,7 +117,14 @@ Schedule::Schedule(const QString& name, Type type, long id)
         m_parent(nullptr),
         m_obstate(OBS_Parent),
         m_calculationMode(Schedule::Scheduling),
-        notScheduled(true)
+        resourceError(false),
+        resourceOverbooked(false),
+        resourceNotAvailable(false),
+        constraintError(false),
+        notScheduled(true),
+        effortNotMet(false),
+        schedulingError(false),
+        schedulingCanceled(false)
 {
     //debugPlan<<"("<<this<<") Name: '"<<name<<"' Type="<<type<<" id="<<id;
     initiateCalculation();
