@@ -156,6 +156,12 @@ public:
      */
     Task *createTask(const Task &def);
 
+    /**
+     * Allocate resources marked 'default' (if any)
+     * @param task
+     */
+    void allocateDefaultResources(Task *task) const;
+
     /// @return true if any of the tasks has been started
     bool isStarted() const;
 

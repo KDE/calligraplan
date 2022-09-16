@@ -2554,6 +2554,15 @@ Task *Project::createTask(const Task &def)
     return node;
 }
 
+void Project::allocateDefaultResources(Task *task) const
+{
+    for (const auto r : qAsConst(m_resources)) {
+        if (r->autoAllocate()) {
+            task->requests().addResourceRequest(new ResourceRequest(r, 100));
+        }
+    }
+}
+
 Node *Project::findNode(const QString &id) const
 {
     if (m_parent == nullptr) {

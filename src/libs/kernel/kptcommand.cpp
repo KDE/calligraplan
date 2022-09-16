@@ -622,6 +622,10 @@ TaskAddCmd::TaskAddCmd(Project *project, Node *node, Node *after, const KUndo2Ma
     node->setLateFinish(node->endTime());
     node->setWorkStartTime(node->startTime());
     node->setWorkEndTime(node->endTime());
+
+    if (node->type() == Node::Type_Task) {
+        project->allocateDefaultResources(static_cast<Task*>(node));
+    }
 }
 TaskAddCmd::~TaskAddCmd()
 {
@@ -679,6 +683,9 @@ SubtaskAddCmd::SubtaskAddCmd(Project *project, Node *node, Node *parent, const K
     if (parent->shutdownAccount()) {
         if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
         m_cmd->addCommand(new NodeModifyShutdownAccountCmd(*parent, parent->shutdownAccount(), nullptr));
+    }
+    if (node->type() == Node::Type_Task) {
+        project->allocateDefaultResources(static_cast<Task*>(node));
     }
 }
 SubtaskAddCmd::~SubtaskAddCmd()
