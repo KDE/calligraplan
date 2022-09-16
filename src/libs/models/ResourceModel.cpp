@@ -75,14 +75,14 @@ QVariant ResourceModel::name(const Resource *res, int role) const
         case Qt::DisplayRole:
         case Qt::EditRole:
             return res->name();
-        case Qt::ToolTipRole:
-            if (res->isShared()) {
-                return xi18nc("@info:tooltip", "%1 is a <emphasis>Shared</emphasis> resource and can thus be shared with other projects", res->name());
-            }
-            if (res->autoAllocate()) {
-                return xi18nc("@info:tooltip", "%1:<nl/>This resource will be automatically allocated to new tasks", res->name());
-            }
-            return res->name();
+        case Qt::ToolTipRole: {
+            return xi18nc("@info:tooltip", "%1:<nl/>Type: %2<nl/>Allocation: %3<nl/>Origin: %4",
+                          res->name(),
+                          res->typeToString(true),
+                          res->autoAllocate() ? i18n("On task creation") : i18n("Manual"),
+                          res->isShared() ? i18n("Shared") : i18n("Local")
+                          );
+        }
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();
