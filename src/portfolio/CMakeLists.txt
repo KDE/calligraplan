@@ -87,7 +87,7 @@ if(WIN32)
     set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_SRCS.rc")
 endif()
 
-kf5_add_kdeinit_executable( calligraplanportfolio ${calligraplanportfolio_SRCS})
+add_executable( calligraplanportfolio ${calligraplanportfolio_SRCS})
 
 if (APPLE)
    set_target_properties(calligraplanportfolio PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.template)
@@ -97,11 +97,8 @@ if (APPLE)
    install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_SRCS.icns DESTINATION ${KDE_INSTALL_BUNDLEDIR}/calligraplanportfolio.app/Contents/Resources)
 endif ()
 
-target_link_libraries(kdeinit_calligraplanportfolio calligraplanportfolioprivate)
+target_link_libraries(calligraplanportfolio calligraplanportfolioprivate)
 
-install(TARGETS kdeinit_calligraplanportfolio  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-target_link_libraries(calligraplanportfolio kdeinit_calligraplanportfolio)
 install(TARGETS calligraplanportfolio  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### Files ###############

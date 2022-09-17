@@ -127,7 +127,6 @@ include(MacroOptionalFindPackage)
 
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
     COMPONENTS
-        Init
         Archive
 #             Codecs
 #             Completion

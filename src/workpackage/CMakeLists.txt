@@ -65,7 +65,7 @@ if(WIN32)
     set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/calligraplanwork_SRCS.rc")
 endif()
 
-kf5_add_kdeinit_executable(calligraplanwork ${calligraplanwork_SRCS})
+add_executable(calligraplanwork ${calligraplanwork_SRCS})
 
 if (APPLE)
    set_target_properties(calligraplanwork PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.template)
@@ -76,7 +76,7 @@ if (APPLE)
 endif ()
 
 target_link_libraries(
-    kdeinit_calligraplanwork
+    calligraplanwork
 
     calligraplanworkprivate
 
@@ -85,10 +85,6 @@ target_link_libraries(
     KF5::WindowSystem
     KF5::DBusAddons
 )
-
-install(TARGETS kdeinit_calligraplanwork  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-target_link_libraries( calligraplanwork kdeinit_calligraplanwork )
 
 install(TARGETS calligraplanwork  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

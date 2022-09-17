@@ -112,7 +112,7 @@ if(WIN32)
     set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/calligraplan_SRCS.rc")
 endif()
 
-kf5_add_kdeinit_executable( calligraplan ${calligraplan_SRCS})
+add_executable( calligraplan ${calligraplan_SRCS})
 
 if (APPLE)
    set_target_properties(calligraplan PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.template)
@@ -122,11 +122,8 @@ if (APPLE)
    install( FILES ${CMAKE_CURRENT_BINARY_DIR}/calligraplan_SRCS.icns DESTINATION ${KDE_INSTALL_BUNDLEDIR}/calligraplan.app/Contents/Resources)
 endif ()
 
-target_link_libraries(kdeinit_calligraplan calligraplanmain calligraplanprivate)
+target_link_libraries(calligraplan calligraplanmain calligraplanprivate)
 
-install(TARGETS kdeinit_calligraplan  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-target_link_libraries(calligraplan kdeinit_calligraplan calligraplanmain)
 install(TARGETS calligraplan  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############

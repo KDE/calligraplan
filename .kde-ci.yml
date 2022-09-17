@@ -13,7 +13,6 @@ Dependencies:
     'frameworks/kguiaddons': '@latest'
     'frameworks/ki18n': '@latest'
     'frameworks/kiconthemes': '@latest'
-    'frameworks/kinit': '@latest'
     'frameworks/kitemviews': '@latest'
     'frameworks/kitemmodels': '@latest'
     'frameworks/kjobwidgets': '@latest'
