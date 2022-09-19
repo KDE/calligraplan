@@ -169,20 +169,10 @@ GanttViewSettingsDialog::GanttViewSettingsDialog(GanttViewBase *gantt, GanttItem
     : ItemViewSettupDialog(view, gantt->treeView(), true, view),
     m_gantt(gantt)
 {
+    setFaceType(KPageDialog::Auto);
     GanttChartDisplayOptionsPanel *panel = new GanttChartDisplayOptionsPanel(gantt, delegate);
     /*KPageWidgetItem *page = */insertWidget(1, panel, i18n("Chart"), i18n("Gantt Chart Settings"));
-    QTabWidget *tab = new QTabWidget();
-    QWidget *w = ViewBase::createPageLayoutWidget(view);
-    tab->addTab(w, w->windowTitle());
-    m_pagelayout = w->findChild<KoPageLayoutWidget*>();
-    Q_ASSERT(m_pagelayout);
-
-    m_printingoptions = new GanttPrintingOptionsWidget(gantt, this);
-    tab->addTab(m_printingoptions, m_printingoptions->windowTitle());
-    KPageWidgetItem *page = insertWidget(2, tab, i18n("Printing"), i18n("Printing Options"));
-    if (selectPrint) {
-        setCurrentPage(page);
-    }
+    addPrintingOptions(selectPrint);
     connect(this, SIGNAL(accepted()), this, SLOT(slotOk()));
     connect(this, &QDialog::accepted, panel, &GanttChartDisplayOptionsPanel::slotOk);
     connect(button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, panel, &GanttChartDisplayOptionsPanel::setDefault);

@@ -1050,18 +1050,8 @@ MilestoneGanttViewSettingsDialog::MilestoneGanttViewSettingsDialog(GanttViewBase
     : ItemViewSettupDialog(view, gantt->treeView(), true, view),
     m_gantt(gantt)
 {
-    QTabWidget *tab = new QTabWidget();
-    QWidget *w = ViewBase::createPageLayoutWidget(view);
-    tab->addTab(w, w->windowTitle());
-    m_pagelayout = w->findChild<KoPageLayoutWidget*>();
-    Q_ASSERT(m_pagelayout);
-
-    m_printingoptions = new GanttPrintingOptionsWidget(gantt, this);
-    tab->addTab(m_printingoptions, m_printingoptions->windowTitle());
-    KPageWidgetItem *page = insertWidget(-1, tab, i18n("Printing"), i18n("Printing Options"));
-    if (selectPrint) {
-        setCurrentPage(page);
-    }
+    setFaceType(KPageDialog::Auto);
+    addPrintingOptions(selectPrint);
     connect(this, SIGNAL(accepted()), this, SLOT(slotOk()));
 }
 
@@ -1509,6 +1499,7 @@ void MilestoneGanttView::slotContextMenuRequested(const QModelIndex &idx, const 
 void MilestoneGanttView::slotOptions()
 {
     debugPlan;
+    qInfo()<<Q_FUNC_INFO<<sender();
     MilestoneGanttViewSettingsDialog *dlg =  new MilestoneGanttViewSettingsDialog(m_gantt, this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
@@ -1774,17 +1765,8 @@ ResourceAppointmentsGanttViewSettingsDialog::ResourceAppointmentsGanttViewSettin
     : ItemViewSettupDialog(view, gantt->treeView(), true, view)
     , m_gantt(gantt)
 {
-    QTabWidget *tab = new QTabWidget();
-    QWidget *w = ViewBase::createPageLayoutWidget(view);
-    tab->addTab(w, w->windowTitle());
-    m_pagelayout = w->findChild<KoPageLayoutWidget*>();
-    Q_ASSERT(m_pagelayout);
-    m_printingoptions = new GanttPrintingOptionsWidget(gantt, this);
-    tab->addTab(m_printingoptions, m_printingoptions->windowTitle());
-    KPageWidgetItem *page = insertWidget(-1, tab, i18n("Printing"), i18n("Printing Options"));
-    if (selectPrint) {
-        setCurrentPage(page);
-    }
+    setFaceType(KPageDialog::Auto);
+    addPrintingOptions(selectPrint);
     connect(this, SIGNAL(accepted()), this, SLOT(slotOk()));
 }
 
@@ -2127,6 +2109,7 @@ void ResourceAppointmentsGanttView::slotContextMenuRequested(const QModelIndex &
 void ResourceAppointmentsGanttView::slotOptions()
 {
     debugPlan;
+    qInfo()<<Q_FUNC_INFO<<sender();
     ItemViewSettupDialog *dlg = new ResourceAppointmentsGanttViewSettingsDialog(m_gantt, this, sender()->objectName() == QStringLiteral("print_options"));
     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
     dlg->open();
