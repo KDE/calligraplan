@@ -146,7 +146,15 @@ void DependecyViewPrintingDialog::printPage(int page, QPainter &painter)
     }
     painter.translate(0, hRect.height() + gap);
 
-    QRect r(0, 0, pageRect.width(), pageHeight);
+    QRectF r(0, 0, pageRect.width(), pageHeight);
+    const auto sr = m_depview->itemScene()->sceneRect();
+    // do not scale if scene fits inside the page
+    if (sr.width() < r.width()) {
+        r.setWidth(sr.width());
+    }
+    if (sr.height() < r.height()) {
+        r.setHeight(sr.height());
+    }
     m_depview->itemScene()->render(&painter, r);
 
     painter.restore();
