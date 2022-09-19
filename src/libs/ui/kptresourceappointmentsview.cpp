@@ -44,6 +44,35 @@
 namespace KPlato
 {
 
+ResourceAppointmentsConfigDialog::ResourceAppointmentsConfigDialog(ViewBase *view, ResourceAppointmentsTreeView *treeview, QWidget *p, bool selectPrint)
+    : KPageDialog(p)
+    , m_view(view)
+    , m_treeview(treeview)
+{
+    setWindowTitle(i18n("Settings"));
+    setFaceType(KPageDialog::Plain); // only one page, KPageDialog will use margins
+
+    QTabWidget *tab = new QTabWidget();
+
+    QWidget *w = ViewBase::createPageLayoutWidget(view);
+    tab->addTab(w, w->windowTitle());
+    m_pagelayout = w->findChild<KoPageLayoutWidget*>();
+    Q_ASSERT(m_pagelayout);
+
+    m_headerfooter = ViewBase::createHeaderFooterWidget(view);
+    m_headerfooter->setOptions(view->printingOptions());
+    tab->addTab(m_headerfooter, m_headerfooter->windowTitle());
+
+    KPageWidgetItem *page = addPage(tab, i18n("Printing"));
+    page->setHeader(i18n("Printing Options"));
+    if (selectPrint) {
+        setCurrentPage(page);
+    }
+    connect(this, &QDialog::accepted, this, [this]() {
+        m_view->setPageLayout(m_pagelayout->pageLayout());
+        m_view->setPrintingOptions(m_headerfooter->options());
+    });
+}
 
 ResourceAppointmentsTreeView::ResourceAppointmentsTreeView(QWidget *parent)
     : DoubleTreeViewBase(true, parent)
@@ -298,7 +327,9 @@ void ResourceAppointmentsView::setupGui()
 
 void ResourceAppointmentsView::slotOptions()
 {
-    debugPlan;
+    auto dlg = new ResourceAppointmentsConfigDialog(this, m_view, this);
+    connect(dlg, &ResourceAppointmentsConfigDialog::finished, this, &ResourceAppointmentsView::slotOptionsFinished);
+    dlg->open();
 }
 
 

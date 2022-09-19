@@ -30,6 +30,20 @@ class Resource;
 class ResourceGroup;
 class ScheduleManager;
 class ResourceAppointmentsItemModel;
+class ResourceAppointmentsTreeView;
+
+class ResourceAppointmentsConfigDialog : public KPageDialog
+{
+public:
+    ResourceAppointmentsConfigDialog(ViewBase *view, ResourceAppointmentsTreeView *treeview, QWidget *p, bool selectPrint = false);
+
+private:
+    ViewBase *m_view;
+    ResourceAppointmentsTreeView *m_treeview;
+    KoPageLayoutWidget *m_pagelayout;
+    PrintingHeaderFooter *m_headerfooter;
+
+};
 
 class PLANUI_EXPORT ResourceAppointmentsTreeView : public DoubleTreeViewBase
 {
