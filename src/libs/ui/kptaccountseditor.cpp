@@ -31,13 +31,13 @@
 namespace KPlato
 {
 
-
 AccountseditorConfigDialog::AccountseditorConfigDialog(ViewBase *view, AccountTreeView *treeview, QWidget *p, bool selectPrint)
     : KPageDialog(p),
     m_view(view),
     m_treeview(treeview)
 {
     setWindowTitle(i18n("Settings"));
+    setFaceType(KPageDialog::Plain); // only one page, KPageDialog will use margins
 
     QTabWidget *tab = new QTabWidget();
 
@@ -148,7 +148,8 @@ AccountsEditor::AccountsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
+
     m_view = new AccountTreeView(this);
     connect(this, &ViewBase::expandAll, m_view, &TreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_view, &TreeViewBase::slotCollapse);

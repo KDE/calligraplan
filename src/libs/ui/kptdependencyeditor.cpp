@@ -2161,6 +2161,7 @@ DependencyeditorConfigDialog::DependencyeditorConfigDialog(ViewBase *view, QWidg
     m_view(view)
 {
     setWindowTitle(i18n("Settings"));
+    setFaceType(KPageDialog::Plain); // only one page, KPageDialog will use margins
 
     QTabWidget *tab = new QTabWidget();
 

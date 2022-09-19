@@ -127,6 +127,7 @@ ItemViewSettupDialog::ItemViewSettupDialog(ViewBase *view, TreeViewBase *treevie
     m_headerfooter(nullptr)
 {
     setWindowTitle(i18n("View Settings"));
+    setFaceType(KPageDialog::Plain); // only one page, KPageDialog will use margins
     setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::RestoreDefaults);
     button(QDialogButtonBox::Ok)->setDefault(true);
 
