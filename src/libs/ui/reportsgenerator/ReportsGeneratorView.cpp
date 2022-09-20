@@ -35,8 +35,15 @@
 #include <QUrl>
 #include <QMap>
 
-namespace KPlato
+
+const QLoggingCategory &PLANREPORT_LOG()
 {
+    static const QLoggingCategory category("calligra.plan.report");
+    return category;
+}
+#define debugPlanReport qCDebug(PLANREPORT_LOG)<<Q_FUNC_INFO
+
+using namespace KPlato;
 
 #define FULLPATHROLE Qt::UserRole + 123
 
@@ -67,7 +74,7 @@ QWidget *TemplateFileDelegate::createEditor(QWidget *parent, const QStyleOptionV
 void TemplateFileDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
     QComboBox *cb = qobject_cast<QComboBox*>(editor);
-    debugPlan<<cb;
+    debugPlanReport<<cb;
     if (!cb) {
         return;
     }
@@ -80,11 +87,11 @@ void TemplateFileDelegate::setEditorData(QWidget *editor, const QModelIndex &ind
 void TemplateFileDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
     QComboBox *cb = qobject_cast<QComboBox*>(editor);
-    debugPlan<<cb;
+    debugPlanReport<<cb;
     if (cb) {
         QString cfile = index.data().toString();
         QString nfile = cb->currentText();
-        debugPlan<<"template file:"<<nfile<<files;
+        debugPlanReport<<"template file:"<<nfile<<files;
         if (cfile != nfile) {
             model->setData(index, nfile);
             if (files.contains(nfile)) {
@@ -93,7 +100,7 @@ void TemplateFileDelegate::setModelData(QWidget *editor, QAbstractItemModel *mod
             model->setData(index, nfile, FULLPATHROLE);
             model->setData(index, nfile, Qt::ToolTipRole);
         }
-    } else debugPlan<<"  No combo box editor!!";
+    } else debugPlanReport<<"  No combo box editor!!";
 }
 
 class FileItemDelegate : public QStyledItemDelegate
@@ -195,6 +202,11 @@ QStringList ReportsGeneratorView::addTags()
 
 }
 
+#define COLUMN_NAME 0
+#define COLUMN_TEMPLATE 1
+#define COLUMN_ADD 2
+#define COLUMN_FILE 3
+
 ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidget *parent)
     : ViewBase(part, doc, parent)
 {
@@ -205,11 +217,22 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     l->setMargin(0);
     m_view = new QTreeView(this);
     QStandardItemModel *m = new QStandardItemModel(m_view);
-    m->setHorizontalHeaderLabels(QStringList() << i18n("Name") << i18n("Report Template") << i18n("Report File") << i18n("Add"));
-    m->setHeaderData(0, Qt::Horizontal, xi18nc("@info:tooltip", "Report name"), Qt::ToolTipRole);
-    m->setHeaderData(1, Qt::Horizontal, xi18nc("@info:tooltip", "Report template file name"), Qt::ToolTipRole);
-    m->setHeaderData(2, Qt::Horizontal, xi18nc("@info:tooltip", "Name of the generated report file"), Qt::ToolTipRole);
-    m->setHeaderData(3, Qt::Horizontal, xi18nc("@info:tooltip", "Information added to filename"), Qt::ToolTipRole);
+    static const QMap<int, QString> headers = {
+        { COLUMN_NAME, i18nc("@title:column", "Name") },
+        { COLUMN_TEMPLATE, i18nc("@title:column", "Report Template") },
+        { COLUMN_ADD, i18nc("@title:column", "Add") },
+        { COLUMN_FILE, i18nc("@title:column", "Report File") }
+    };
+    m->setHorizontalHeaderLabels(headers.values());
+    m->setHeaderData(COLUMN_NAME, Qt::Horizontal, xi18nc("@info:tooltip", "Report name"), Qt::ToolTipRole);
+    m->setHeaderData(COLUMN_TEMPLATE, Qt::Horizontal, xi18nc("@info:tooltip", "Report template file name"), Qt::ToolTipRole);
+    m->setHeaderData(COLUMN_ADD, Qt::Horizontal, xi18nc("@info:tooltip", "Information added to filename"), Qt::ToolTipRole);
+    m->setHeaderData(COLUMN_FILE, Qt::Horizontal, xi18nc("@info:tooltip", "Name of the generated report file"), Qt::ToolTipRole);
+    connect(m, &QStandardItemModel::dataChanged, this, [this](const QModelIndex&, const QModelIndex&) {
+        slotEnableActions();
+        Q_EMIT optionsModified(); // FIXME need undo/redo
+    });
+
     m_view->setModel(m);
     m_view->setContextMenuPolicy(Qt::CustomContextMenu);
     m_view->setRootIsDecorated(false);
@@ -220,25 +243,23 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
 
     TemplateFileDelegate *del = new TemplateFileDelegate(m_view);
     QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("reports"), QStandardPaths::LocateDirectory);
-    debugPlan<<"standardpath:"<<path;
+    debugPlanReport<<"standardpath:"<<path;
     if (!path.isEmpty()) {
         QDir dir(path);
-        debugPlan<<dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
         const QStringList entries = dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
+        debugPlanReport<<entries;
         for(const QString &file : entries) {
             QUrl url;
             url.setUrl(path + QLatin1Char('/') + file);
-            debugPlan<<"templates:"<<url<<path<<file;
+            debugPlanReport<<"templates:"<<url<<path<<file;
             del->files.insert(url.fileName(), url);
         }
     }
-    m_view->setItemDelegateForColumn(1, del);
+    m_view->setItemDelegateForColumn(COLUMN_TEMPLATE, del);
 
-    m_view->setItemDelegateForColumn(2, new FileItemDelegate(m_view));
+    m_view->setItemDelegateForColumn(COLUMN_FILE, new FileItemDelegate(m_view));
 
-    m_view->setItemDelegateForColumn(3, new FileNameExtensionDelegate(m_view));
-    m_view->header()->setSectionResizeMode(3, QHeaderView::Fixed);
-    m_view->header()->resizeSection(3, 12);
+    m_view->setItemDelegateForColumn(COLUMN_ADD, new FileNameExtensionDelegate(m_view));
 
     connect(m_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ReportsGeneratorView::slotSelectionChanged);
     setupGui();
@@ -273,7 +294,7 @@ void ReportsGeneratorView::updateReadWrite(bool rw)
 
 void ReportsGeneratorView::setGuiActive(bool activate)
 {
-    debugPlan<<activate;
+    debugPlanReport<<activate;
     updateActionsEnabled(true);
     ViewBase::setGuiActive(activate);
 }
@@ -300,8 +321,13 @@ int ReportsGeneratorView::selectedRowCount() const
 
 void ReportsGeneratorView::slotContextMenuRequested(const QPoint& pos)
 {
-    debugPlan;
-    openPopupMenu(QStringLiteral("reportsgeneratorview_popup"), pos);
+    const auto idx = m_view->currentIndex();
+    if (idx.column() == COLUMN_FILE) {
+        const auto fname = idx.data().toString();
+        if (!fname.isEmpty()) {
+            openPopupMenu(QStringLiteral("generatereports_popup"), m_view->viewport()->mapToGlobal(pos));
+        }
+    }
 }
 
 void ReportsGeneratorView::slotEnableActions()
@@ -312,8 +338,19 @@ void ReportsGeneratorView::slotEnableActions()
 void ReportsGeneratorView::updateActionsEnabled(bool on)
 {
     actionAddReport->setEnabled(on);
-    actionRemoveReport->setEnabled(on && selectedRowCount() > 0);
-    actionGenerateReport->setEnabled(on && selectedRowCount() > 0);
+    const auto lst = selectedRows();
+    bool enable = on && lst.count() > 0;
+    actionRemoveReport->setEnabled(enable);
+    if (enable) {
+        for (const auto idx : lst) {
+            enable &= !idx.siblingAtColumn(COLUMN_TEMPLATE).data().toString().isEmpty();
+            enable &= !idx.siblingAtColumn(COLUMN_FILE).data().toString().isEmpty();
+            if (!enable) {
+                break;
+            }
+        }
+    }
+    actionGenerateReport->setEnabled(enable);
 }
 
 void ReportsGeneratorView::setupGui()
@@ -335,13 +372,27 @@ void ReportsGeneratorView::setupGui()
     coll->setDefaultShortcut(actionGenerateReport, Qt::CTRL + Qt::Key_G);
     connect(actionGenerateReport, &QAction::triggered, this, &ReportsGeneratorView::slotGenerateReport);
 
+    auto a = new QAction(koIcon("document-open"), i18n("Open..."), this);
+    coll->addAction(QStringLiteral("open_report"), a);
+    connect(a, &QAction::triggered, this, [this]() {
+        const auto idx = m_view->currentIndex();
+        if (idx.column() == COLUMN_FILE) {
+            const auto fname = idx.data().toString();
+            if (!fname.isEmpty()) {
+                auto job = new KIO::OpenUrlJob(QUrl(fname), QStringLiteral("application/vnd.oasis.opendocument.text"));
+                job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
+                job->start();
+            }
+        }
+    });
+
 //     createOptionAction();
 }
 
 
 void ReportsGeneratorView::slotOptions()
 {
-    debugPlan;
+    debugPlanReport;
 //     SplitItemViewSettupDialog *dlg = new SplitItemViewSettupDialog(this, m_view, this);
 //     dlg->addPrintingOptions();
 //     connect(dlg, SIGNAL(finished(int)), SLOT(slotOptionsFinished(int)));
@@ -352,13 +403,13 @@ void ReportsGeneratorView::slotOptions()
 
 void ReportsGeneratorView::slotAddReport()
 {
-    debugPlan;
+    debugPlanReport;
     QAbstractItemModel *m = m_view->model();
     int row = m->rowCount();
     m->insertRow(row);
-    QModelIndex idx = m->index(row, 0);
+    QModelIndex idx = m->index(row, COLUMN_NAME);
     m->setData(idx, i18n("New report"));
-    QModelIndex add = m->index(row, 3);
+    QModelIndex add = m->index(row, COLUMN_ADD);
     m->setData(add, ReportsGeneratorView::addOptions().at(0));
     m->setData(add, ReportsGeneratorView::addTags().at(0), Qt::UserRole);
 
@@ -369,7 +420,7 @@ void ReportsGeneratorView::slotAddReport()
 
 void ReportsGeneratorView::slotRemoveReport()
 {
-    debugPlan<<selectedRows();
+    debugPlanReport<<selectedRows();
     QAbstractItemModel *m = m_view->model();
     QModelIndexList lst = selectedRows();
     if (lst.isEmpty()) {
@@ -390,13 +441,13 @@ void ReportsGeneratorView::slotRemoveReport()
 
 void ReportsGeneratorView::slotGenerateReport()
 {
-    debugPlan;
+    debugPlanReport;
     QAbstractItemModel *model = m_view->model();
     const QModelIndexList indexes = selectedRows();
     for (const QModelIndex &idx : indexes) {
-        QString name = model->index(idx.row(), 0).data().toString();
-        QString tmp = model->index(idx.row(), 1).data(FULLPATHROLE).toString();
-        QString file = QUrl::fromUserInput(model->index(idx.row(), 2).data().toString()).toLocalFile(); // get rid of possible scheme
+        QString name = model->index(idx.row(), COLUMN_NAME).data().toString();
+        QString tmp = model->index(idx.row(), COLUMN_TEMPLATE).data(FULLPATHROLE).toString();
+        QString file = QUrl::fromUserInput(model->index(idx.row(), COLUMN_FILE).data().toString()).toLocalFile(); // get rid of possible scheme
         if (tmp.isEmpty()) {
             QMessageBox::information(this, xi18nc("@title:window", "Generate Report"),
                                      xi18n("Failed to generate %1."
@@ -404,13 +455,13 @@ void ReportsGeneratorView::slotGenerateReport()
             continue;
         }
         if (file.isEmpty()) {
-            debugPlan<<"No files for report:"<<name<<tmp<<file;
+            debugPlanReport<<"No files for report:"<<name<<tmp<<file;
             QMessageBox::information(this, xi18nc("@title:window", "Generate Report"),
                                      xi18n("Failed to generate %1."
                                           "<nl/>Report file name is empty.", name));
             continue;
         }
-        QString addition = model->index(idx.row(), 3).data(Qt::UserRole).toString();
+        QString addition = model->index(idx.row(), COLUMN_ADD).data(Qt::UserRole).toString();
         if (addition == QStringLiteral("Date")) {
             int dotpos = file.lastIndexOf(QLatin1Char('.'));
             QString date = QDate::currentDate().toString();
@@ -447,7 +498,7 @@ bool ReportsGeneratorView::generateReport(const QString &templateFile, const QSt
     rg.setProject(project());
     rg.setScheduleManager(scheduleManager());
     if (!rg.open()) {
-        debugPlan<<"Failed to open report generator";
+        debugPlanReport<<"Failed to open report generator";
         QMessageBox::warning(this, i18n("Failed to open report generator"), rg.lastError());
         return false;
     }
@@ -456,15 +507,19 @@ bool ReportsGeneratorView::generateReport(const QString &templateFile, const QSt
         return false;
     }
     if (QMessageBox::question(this, xi18nc("@title:window", "Report Generation"), xi18nc("@info", "Report file generated:<nl/><filename>%1</filename>", file), QMessageBox::Open|QMessageBox::Close, QMessageBox::Close) == QMessageBox::Open) {
-        auto job = new KIO::OpenUrlJob(QUrl(file), QStringLiteral("application/vnd.oasis.opendocument.text"));
+        QUrl url(file);
+        url.setScheme(QStringLiteral("file"));
+        debugPlanReport<<"open:"<<url;
+        auto job = new KIO::OpenUrlJob(url, QStringLiteral("application/vnd.oasis.opendocument.text"));
         job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
+        job->start();
     }
     return true;
 }
 
 bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
 {
-    debugPlan;
+    debugPlanReport;
     m_view->header()->setStretchLastSection((bool)(context.attribute(QStringLiteral("stretch-last-column"), QString::number(1)).toInt()));
     KoXmlElement e = context.namedItem("sections").toElement();
     if (!e.isNull()) {
@@ -481,7 +536,7 @@ bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
     }
     KoXmlElement parent = context.namedItem("data").toElement();
     if (!parent.isNull()) {
-        debugPlan<<"Load data";
+        debugPlanReport<<"Load data";
         int row = 0;
         QAbstractItemModel *model = m_view->model();
         forEachElement(e, parent) {
@@ -493,15 +548,15 @@ bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
             QString tmp = e.attribute("template");
             QString file = e.attribute("file");
             QString add = e.attribute("add");
-            QModelIndex idx = model->index(row, 0);
+            QModelIndex idx = model->index(row, COLUMN_NAME);
             model->setData(idx, name);
-            idx = model->index(row, 1);
+            idx = model->index(row, COLUMN_TEMPLATE);
             model->setData(idx, tmp, FULLPATHROLE);
             model->setData(idx, tmp, Qt::ToolTipRole);
             model->setData(idx, QUrl(tmp).fileName());
-            idx = model->index(row, 2);
+            idx = model->index(row, COLUMN_FILE);
             model->setData(idx, file);
-            idx = model->index(row, 3);
+            idx = model->index(row, COLUMN_ADD);
             model->setData(idx, add, Qt::UserRole);
             model->setData(idx, ReportsGeneratorView::addOptions().value(ReportsGeneratorView::addTags().indexOf(add)));
             ++row;
@@ -517,7 +572,7 @@ bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
 
 void ReportsGeneratorView::saveContext(QDomElement &context) const
 {
-    debugPlan;
+    debugPlanReport;
     context.setAttribute(QStringLiteral("stretch-last-column"), QString::number(m_view->header()->stretchLastSection()));
     QDomElement e = context.ownerDocument().createElement(QStringLiteral("sections"));
     context.appendChild(e);
@@ -531,17 +586,14 @@ void ReportsGeneratorView::saveContext(QDomElement &context) const
     for (int row = 0; row < model->rowCount(); ++row) {
         e = data.ownerDocument().createElement(QStringLiteral("row"));
         data.appendChild(e);
-        QModelIndex idx = model->index(row, 0);
+        QModelIndex idx = model->index(row, COLUMN_NAME);
         e.setAttribute(QStringLiteral("name"), idx.data().toString());
-        idx = model->index(row, 1);
+        idx = model->index(row, COLUMN_TEMPLATE);
         e.setAttribute(QStringLiteral("template"), idx.data(FULLPATHROLE).toString());
-        idx = model->index(row, 2);
+        idx = model->index(row, COLUMN_FILE);
         e.setAttribute(QStringLiteral("file"), idx.data().toString());
-        idx = model->index(row, 3);
+        idx = model->index(row, COLUMN_ADD);
         e.setAttribute(QStringLiteral("add"), idx.data(Qt::UserRole).toString());
     }
     ViewBase::saveContext(context);
 }
-
-
-} // namespace KPlato

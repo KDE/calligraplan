@@ -19,6 +19,7 @@ class KActionMenu;
 class QWidget;
 class QTreeView;
 
+
 namespace KPlato
 {
 

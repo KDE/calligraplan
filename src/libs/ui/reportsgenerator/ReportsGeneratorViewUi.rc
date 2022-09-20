@@ -26,4 +26,7 @@
         <Action name="remove_report"/>
         <Action name="generate_report"/>
     </ToolBar>
+    <Menu name="generatereports_popup">
+        <Action name="open_report"/>
+    </Menu>
 </gui>
