@@ -27,6 +27,7 @@ set(calligraplanprivate_LIB_SRCS
     config/kptcolorsconfigpanel.cpp
     config/ConfigTaskModulesPanel.cpp
     config/ConfigProjectTemplatesPanel.cpp
+    config/ConfigReportTemplatesPanel.cpp
     config/ConfigDialog.cpp
 
     kptcontext.cpp
@@ -60,6 +61,7 @@ ki18n_wrap_ui(calligraplanprivate_LIB_SRCS
     config/kptcolorsconfigpanel.ui
     config/ConfigTaskModulesPanel.ui
     config/ConfigProjectTemplatesPanel.ui
+    config/ConfigReportTemplatesPanel.ui
 
     kptinsertfilepanel.ui
     SharedResourcesDialog.ui

@@ -13,6 +13,8 @@
 #include <KoIcon.h>
 #include <KoXmlReader.h>
 #include <KoDocument.h>
+#include <KoPart.h>
+#include <KoComponentData.h>
 
 #include <KActionCollection>
 #include <KUrlRequester>
@@ -20,6 +22,7 @@
 #include <KIO/OpenUrlJob>
 #include <KIO/JobUiDelegate>
 #include <KMessageBox>
+#include <KConfigGroup>
 
 #include <QAction>
 #include <QHeaderView>
@@ -50,17 +53,20 @@ using namespace KPlato;
 class TemplateFileDelegate : public QStyledItemDelegate
 {
 public:
-    TemplateFileDelegate(QObject *parent);
+    TemplateFileDelegate(KoPart *part, QObject *parent);
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     void setEditorData(QWidget *editor, const QModelIndex &index) const override;
     void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    QMap<QString, QUrl> files;
+private:
+    KoPart *m_part;
+    mutable QMap<QString, QUrl> m_files;
 };
 
-TemplateFileDelegate::TemplateFileDelegate(QObject *parent)
+TemplateFileDelegate::TemplateFileDelegate(KoPart *part, QObject *parent)
     : QStyledItemDelegate(parent)
+    , m_part(part)
 {
 }
 
@@ -73,13 +79,38 @@ QWidget *TemplateFileDelegate::createEditor(QWidget *parent, const QStyleOptionV
 
 void TemplateFileDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
+    m_files.clear();
     QComboBox *cb = qobject_cast<QComboBox*>(editor);
     debugPlanReport<<cb;
     if (!cb) {
         return;
     }
+    QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("reports"), QStandardPaths::LocateDirectory);
+    debugPlanReport<<"standardpath:"<<path;
+    if (!path.isEmpty()) {
+        QDir dir(path);
+        const auto entries = dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
+        for(auto &file : entries) {
+            QUrl url;
+            url.setUrl(path + QLatin1Char('/') + file);
+            m_files.insert(url.fileName(), url);
+        }
+    }
+    KConfigGroup cfgGrp(m_part->componentData().config(), "Report Templates");
+    if (cfgGrp.exists()) {
+        const auto templates = cfgGrp.readEntry(QStringLiteral("ReportTemplatePaths")).split(QLatin1Char(','));
+        for (auto &path : templates) {
+            QDir dir(path);
+            const auto entries = dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
+            for(auto &file : entries) {
+                QUrl url;
+                url.setUrl(path + QLatin1Char('/') + file);
+                m_files.insert(url.fileName(), url);
+            }
+        }
+    }
     cb->setEditable(true);
-    cb->addItems(files.keys());
+    cb->addItems(m_files.keys());
     QString file = index.data().toString();
     cb->setCurrentText(file);
 }
@@ -91,11 +122,11 @@ void TemplateFileDelegate::setModelData(QWidget *editor, QAbstractItemModel *mod
     if (cb) {
         QString cfile = index.data().toString();
         QString nfile = cb->currentText();
-        debugPlanReport<<"template file:"<<nfile<<files;
+        debugPlanReport<<"template file:"<<nfile<<m_files;
         if (cfile != nfile) {
             model->setData(index, nfile);
-            if (files.contains(nfile)) {
-                nfile = files[nfile].url();
+            if (m_files.contains(nfile)) {
+                nfile = m_files[nfile].url();
             }
             model->setData(index, nfile, FULLPATHROLE);
             model->setData(index, nfile, Qt::ToolTipRole);
@@ -241,20 +272,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     connect(m_view, &QWidget::customContextMenuRequested, this, &ReportsGeneratorView::slotContextMenuRequested);
     l->addWidget(m_view);
 
-    TemplateFileDelegate *del = new TemplateFileDelegate(m_view);
-    QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("reports"), QStandardPaths::LocateDirectory);
-    debugPlanReport<<"standardpath:"<<path;
-    if (!path.isEmpty()) {
-        QDir dir(path);
-        const QStringList entries = dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
-        debugPlanReport<<entries;
-        for(const QString &file : entries) {
-            QUrl url;
-            url.setUrl(path + QLatin1Char('/') + file);
-            debugPlanReport<<"templates:"<<url<<path<<file;
-            del->files.insert(url.fileName(), url);
-        }
-    }
+    TemplateFileDelegate *del = new TemplateFileDelegate(part, m_view);
     m_view->setItemDelegateForColumn(COLUMN_TEMPLATE, del);
 
     m_view->setItemDelegateForColumn(COLUMN_FILE, new FileItemDelegate(m_view));
@@ -452,6 +470,12 @@ void ReportsGeneratorView::slotGenerateReport()
             QMessageBox::information(this, xi18nc("@title:window", "Generate Report"),
                                      xi18n("Failed to generate %1."
                                           "<nl/>Template file name is empty.", name));
+            continue;
+        }
+        if (!QFile::exists(tmp)) {
+            QMessageBox::information(this, xi18nc("@title:window", "Generate Report"),
+                                     xi18n("Failed to generate %1."
+                                          "<nl/>Template file does not exist:<nl/>%2", name, tmp));
             continue;
         }
         if (file.isEmpty()) {

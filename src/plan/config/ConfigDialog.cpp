@@ -14,6 +14,7 @@
 #include "kptcolorsconfigpanel.h"
 #include "ConfigTaskModulesPanel.h"
 #include "ConfigProjectTemplatesPanel.h"
+#include "ConfigReportTemplatesPanel.h"
 
 #include <calligraplansettings.h>
 #include <KoIcon.h>
@@ -48,6 +49,12 @@ ConfigDialog::ConfigDialog(Part *part, const QString& name, KConfigSkeleton *con
     connect(p, &ConfigProjectTemplatesPanel::settingsChanged, this, &ConfigDialog::updateButtons);
     connect(this, &ConfigDialog::updateWidgetsSettings, p, &ConfigProjectTemplatesPanel::updateSettings);
     connect(this, &ConfigDialog::updateWidgetsData, p, &ConfigProjectTemplatesPanel::updateWidgets);
+
+    ConfigReportTemplatesPanel *r = new ConfigReportTemplatesPanel();
+    m_pages << addPage(r, i18n("Report Templates"), koIconName("calligraplan"));
+    connect(r, &ConfigReportTemplatesPanel::settingsChanged, this, &ConfigDialog::updateButtons);
+    connect(this, &ConfigDialog::updateWidgetsSettings, r, &ConfigReportTemplatesPanel::updateSettings);
+    connect(this, &ConfigDialog::updateWidgetsData, r, &ConfigReportTemplatesPanel::updateWidgets);
 
     auto docPage = new KoConfigDocumentPage(part);
     m_pages << addPage(docPage, i18nc("@title:tab Document settings page", "Document"));

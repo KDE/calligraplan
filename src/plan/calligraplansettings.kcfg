@@ -376,6 +376,12 @@
       </entry>
   </group>
 
+  <group name="Report Templates">
+      <entry name="ReportTemplatePaths" type="StringList">
+          <label>List of paths to report templates</label>
+      </entry>
+  </group>
+
   <group name="Project Templates">
       <entry name="ProjectTemplatePaths" type="StringList">
           <label>List of paths to project templates</label>
