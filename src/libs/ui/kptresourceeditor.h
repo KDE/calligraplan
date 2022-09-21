@@ -88,7 +88,7 @@ protected:
     void createDockers();
 
 private Q_SLOTS:
-    void slotHeaderContextMenuRequested(const QPoint& pos);
+    void slotHeaderContextMenuRequested(const QPoint& pos) override;
     void slotContextMenuRequested(const QModelIndex &index, const QPoint& pos);
     void slotSplitView();
     
