@@ -52,7 +52,8 @@
         <Menu name="tools"><text>&amp;Tools</text>
             <Action name="load_shared_resources"/>
             <Action name="insert_file"/>
-            <Action name="reportdesigner_open_file"/>
+            <Action name="create_report_template"/>
+            <!--<Action name="reportdesigner_open_file"/>-->
         </Menu>
         <Menu name="settings"><text>&amp;Settings</text>
             <Action name="view_toggledockertitlebars" group="settings_top"/>

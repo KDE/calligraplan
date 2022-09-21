@@ -210,6 +210,8 @@ protected Q_SLOTS:
     void saveTaskModule(const QUrl &url, KPlato::Project *project);
     void removeTaskModule(const QUrl &url);
 
+    void slotCreateReportTemplate();
+
 protected:
     void guiActivateEvent(bool activated) override;
     void updateReadWrite(bool readwrite) override;
@@ -308,6 +310,7 @@ private:
     QAction *actionInsertFile;
     QAction *actionCurrencyConfig;
     QAction *actionOpenReportFile;
+    QAction *actionCreateReportTemplate;
 
     // ------ Settings
     QAction *actionConfigure;

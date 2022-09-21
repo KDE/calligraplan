@@ -9,6 +9,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "kptview.h"
+#include "ui_CreateReportTemplateDialog.h"
 
 #include <KMessageBox>
 #include <KRecentFilesAction>
@@ -46,6 +47,8 @@
 
 #include <KEMailClientLauncherJob>
 #include <KDialogJobUiDelegate>
+#include <KIO/OpenUrlJob>
+#include <KIO/JobUiDelegate>
 
 #include <KoPart.h>
 #include <KoComponentData.h>
@@ -234,6 +237,10 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     actionCollection()->addAction(QStringLiteral("reportdesigner_open_file"), actionOpenReportFile);
     connect(actionOpenReportFile, QAction::triggered, this, &View::slotOpenReportFile);
 #endif
+
+    actionCreateReportTemplate = new QAction(koIcon("document-edit"), i18n("Create Report Template..."), this);
+    actionCollection()->addAction(QStringLiteral("create_report_template"), actionCreateReportTemplate);
+    connect(actionCreateReportTemplate, &QAction::triggered, this, &View::slotCreateReportTemplate);
     // Settings
 
     // ------ Popup
@@ -1411,12 +1418,85 @@ void View::slotInsertFileFinished(int result)
     dlg->deleteLater();
 }
 
-void KPlato::View::slotUpdateSharedResources()
+void View::slotUpdateSharedResources()
 {
     auto doc = getPart();
     auto project = doc->project();
     if (project->useSharedResources() && !project->sharedResourcesFile().isEmpty()) {
         doc->insertResourcesFile(QUrl::fromUserInput(project->sharedResourcesFile()));
+    }
+}
+
+void View::slotCreateReportTemplate()
+{
+    class CreateReportTemplateDialog : public QDialog
+    {
+        ::Ui::CreateReportTemplateDialog ui;
+        QMap<QString, QUrl> files;
+    public:
+        CreateReportTemplateDialog(KoPart *part, QWidget *parent = nullptr)
+        : QDialog(parent)
+        {
+            ui.setupUi(this);
+            QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("reports"), QStandardPaths::LocateDirectory);
+            if (!path.isEmpty()) {
+                QDir dir(path);
+                const auto entries = dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
+                for(auto &file : entries) {
+                    QUrl url = QUrl::fromLocalFile((path + QLatin1Char('/') + file));
+                    files.insert(url.fileName(), url);
+                }
+            }
+            KConfigGroup cfgGrp(part->componentData().config(), "Report Templates");
+            if (cfgGrp.exists()) {
+                const auto templates = cfgGrp.readEntry(QStringLiteral("ReportTemplatePaths")).split(QLatin1Char(','));
+                for (auto &path : templates) {
+                    QDir dir(path);
+                    const auto entries = dir.entryList(QDir::Files|QDir::QDir::NoDotAndDotDot);
+                    for(auto &file : entries) {
+                        QUrl url = QUrl::fromLocalFile(path + QLatin1Char('/') + file);
+                        files.insert(url.fileName(), url);
+                    }
+                }
+            }
+            ui.templates->insertItems(0, files.keys());
+            ui.templates->setCurrentIndex(0);
+            ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+            connect(ui.fileName, &KUrlRequester::textChanged, this, [this](const QString &text) {
+                ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!text.isEmpty());
+            });
+        }
+        QUrl url() const {
+            const auto tmp = files.value(ui.templates->currentText());
+            const auto url = ui.fileName->url();
+            if (url.isEmpty()) {
+                return url;
+            }
+            if (tmp == url) {
+                return url;
+            }
+            if (QFile::exists(url.toLocalFile())) {
+                if (KMessageBox::warningYesNo(nullptr, i18n("The file '%1' already exists, do you want to overwrite it?", url.fileName()), i18nc("@window:title","Report Template"), KGuiItem(i18n("Overwrite"))) == KMessageBox::No) {
+                    return QUrl();
+                }
+            }
+            if (!tmp.isEmpty()) {
+                QFile::remove(url.toLocalFile());
+                QFile file(tmp.toLocalFile());
+                file.copy(url.toLocalFile());
+                Q_ASSERT(QFile::exists(url.toLocalFile()));
+            }
+            return url;
+        }
+    };
+    CreateReportTemplateDialog dlg(getKoPart());
+    if (dlg.exec() == QDialog::Accepted) {
+        QUrl url = dlg.url();
+        if (!url.isEmpty()) {
+            auto job = new KIO::OpenUrlJob(url);
+            job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
+            job->start();
+        }
     }
 }
 

@@ -65,6 +65,7 @@ ki18n_wrap_ui(calligraplanprivate_LIB_SRCS
 
     kptinsertfilepanel.ui
     SharedResourcesDialog.ui
+    CreateReportTemplateDialog.ui
 )
 
 kconfig_add_kcfg_files(calligraplansettings_SRCS calligraplansettings.kcfgc)
