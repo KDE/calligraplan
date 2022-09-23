@@ -13,6 +13,7 @@
   <name xml:lang="es">Plan Portafolio</name>
   <name xml:lang="fr">Plan Portfolio</name>
   <name xml:lang="it">Plan Portfolio</name>
+  <name xml:lang="ka">პორტფოლიოს დაგეგმვა</name>
   <name xml:lang="nl">Plan Portfolio</name>
   <name xml:lang="pl">Plan Portfolio</name>
   <name xml:lang="pt">Plan Portfolio</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="es">Gestión de portafolios de proyectos</summary>
   <summary xml:lang="fr">Gestionnaire d'un porte-feuille de projets</summary>
   <summary xml:lang="it">Gestione del portafoglio dei progetti</summary>
+  <summary xml:lang="ka">პროექტის პორტფოლიოს გეგმა</summary>
   <summary xml:lang="nl">Beheer van portfolio met projecten</summary>
   <summary xml:lang="pl">Zarządzanie Portfolio Projektu</summary>
   <summary xml:lang="pt">Gestão de Portfólios de Projectos</summary>
