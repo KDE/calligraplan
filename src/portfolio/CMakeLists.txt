@@ -125,3 +125,5 @@ endif ()
 
 install( PROGRAMS  org.kde.calligraplanportfolio.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.calligraplanportfolio.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+
+add_subdirectory(icons)
