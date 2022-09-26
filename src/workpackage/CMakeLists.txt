@@ -3,7 +3,7 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"calligraplanwork\")
 
 add_subdirectory( templates )
-add_subdirectory( pics )
+add_subdirectory(icons)
 #add_subdirectory( toolbar )
 #add_subdirectory( tests )
 
@@ -59,7 +59,7 @@ install(FILES calligraplanworksettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 set(calligraplanwork_SRCS main.cpp commandlineparser.cpp)
 
-file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-calligraplanwork.png")
+file(GLOB ICONS_SRCS "icons/*-apps-calligraplanwork.*")
 ecm_add_app_icon(calligraplanwork_SRCS ICONS ${ICONS_SRCS})
 if(WIN32)
     set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/calligraplanwork_SRCS.rc")

@@ -1,5 +1,6 @@
 
 add_subdirectory( templates )
+add_subdirectory(icons)
 
 if(BUILD_TESTING)
     add_subdirectory( tests )
@@ -109,7 +110,7 @@ install(TARGETS calligraplanpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligrapl
 
 set(calligraplan_SRCS main.cpp )
 
-file(GLOB ICONS_SRCS "${PLAN_SOURCE_DIR}/pics/*-apps-calligraplan.png")
+file(GLOB ICONS_SRCS "icons/*-apps-calligraplan.*")
 ecm_add_app_icon(calligraplan_SRCS ICONS ${ICONS_SRCS})
 if(WIN32)
     set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/calligraplan_SRCS.rc")

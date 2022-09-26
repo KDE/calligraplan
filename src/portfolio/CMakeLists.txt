@@ -79,9 +79,9 @@ install(TARGETS calligraplanportfoliopart DESTINATION ${KDE_INSTALL_PLUGINDIR}/c
 
 ########### Executable ###############
 
-set(calligraplanportfolio_SRCS main.cpp )
+set(calligraplanportfolio_SRCS main.cpp)
 
-file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/src/pics/*-apps-calligraplan.png") # TODO icon for portfolio
+file(GLOB ICONS_SRCS "icons/*-apps-calligraplanportfolio.*") # TODO proper icon for portfolio
 ecm_add_app_icon(calligraplanportfolio_SRCS ICONS ${ICONS_SRCS})
 if(WIN32)
     set(_resourcefile "${CMAKE_CURRENT_BINARY_DIR}/calligraplanportfolio_SRCS.rc")

@@ -98,7 +98,6 @@ configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
 #add_subdirectory(interfaces)
 add_subdirectory(servicetypes)
 
-add_subdirectory( pics )
 add_subdirectory( toolbar )
 add_subdirectory( plugins )
 
